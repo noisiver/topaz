@@ -14,5 +14,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.PALISADE, 7, 0, 60)
+    player:addStatusEffect(tpz.effect.PALISADE, 7, 0, 20)
 end

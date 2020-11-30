@@ -73,7 +73,7 @@ INSERT INTO `abilities` VALUES (47,'holy_circle',7,5,1,600,74,0,0,29,2000,0,6,20
 INSERT INTO `abilities` VALUES (48,'sentinel',7,30,1,300,75,0,0,11,2000,0,6,20.0,0,1,900,772,0,NULL);
 INSERT INTO `abilities` VALUES (49,'souleater',8,30,1,360,85,0,0,20,2000,0,6,20.0,0,1,1300,832,0,NULL);
 INSERT INTO `abilities` VALUES (50,'arcane_circle',8,5,1,600,86,0,0,30,2000,0,6,20.0,1,1,20,834,0,NULL);
-INSERT INTO `abilities` VALUES (51,'last_resort',8,15,1,300,87,0,0,12,2000,0,6,20.0,0,1,1300,836,0,NULL);
+INSERT INTO `abilities` VALUES (51,'last_resort',8,15,1,180,87,0,0,12,2000,0,6,20.0,0,1,1300,836,0,NULL);
 INSERT INTO `abilities` VALUES (52,'charm',9,1,4,15,97,0,0,13,2000,0,6,18.0,0,320,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (53,'gauge',9,10,4,30,98,0,0,14,2000,0,6,23.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (54,'tame',9,30,4,600,99,0,0,15,2000,0,6,18.0,0,0,0,904,0,NULL);
@@ -268,8 +268,8 @@ INSERT INTO `abilities` VALUES (244,'enlightenment',20,75,1,300,235,0,0,214,2000
 INSERT INTO `abilities` VALUES (245,'afflatus_solace',3,40,1,60,29,0,0,216,2000,0,6,20.0,0,1,80,0,4,'WOTG');
 INSERT INTO `abilities` VALUES (246,'afflatus_misery',3,40,1,60,30,0,0,217,2000,0,6,20.0,0,1,80,0,4,'WOTG');
 INSERT INTO `abilities` VALUES (247,'composure',5,50,1,300,50,0,0,215,2000,0,6,20.0,0,1,80,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (248,'yonin',13,40,1,180,146,0,0,218,2000,0,6,20.0,0,1,600,0,4,'WOTG');
-INSERT INTO `abilities` VALUES (249,'innin',13,15,1,180,147,0,0,219,2000,0,6,20.0,0,1,60,0,4,'WOTG');
+INSERT INTO `abilities` VALUES (248,'yonin',13,40,1,60,146,0,0,218,2000,0,6,20.0,0,1,600,0,4,'WOTG');
+INSERT INTO `abilities` VALUES (249,'innin',13,15,1,60,147,0,0,219,2000,0,6,20.0,0,1,60,0,4,'WOTG');
 -- INSERT INTO `abilities` VALUES (250,'avatars_favor',15,55,4,30,176,100,0,94,2000,0,6,10.0,1,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (251,'ready',9,25,1,0,255,0,0,83,2000,0,6,18.0,0,0,0,902,64,NULL);
 -- INSERT INTO `abilities` VALUES (252,'restraint',1,77,1,600,9,100,0,220,2000,0,6,20.0,0,450,900,0,0,NULL);
@@ -297,7 +297,8 @@ INSERT INTO `abilities` VALUES (274,'saboteur',5,83,1,300,36,0,0,258,2000,0,6,20
 INSERT INTO `abilities` VALUES (275,'spontaneity',5,95,3,600,37,0,0,259,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (276,'conspirator',6,87,1,300,40,0,0,237,2000,0,6,14.0,1,1,80,0,4,'ABYSSEA');
 INSERT INTO `abilities` VALUES (277,'sepulcher',7,87,4,300,41,100,0,253,2000,0,6,12.0,0,1,80,0,0,NULL); -- needs animation
-INSERT INTO `abilities` VALUES (278,'palisade',7,95,1,300,42,100,0,253,2000,0,6,20.0,0,900,1800,0,0,NULL);
+INSERT INTO `abilities` VALUES (278,'palisade',7,40,1,300,42,100,0,253,2000,0,6,20.0,0,900,1800,0,0,NULL);
+INSERT INTO `abilities` VALUES (278,'palisade',1,60,1,300,42,100,0,253,2000,0,6,20.0,0,900,1800,0,0,NULL);
 INSERT INTO `abilities` VALUES (279,'arcane_crest',8,87,4,300,43,100,0,250,2000,0,6,20.0,0,1,80,0,0,NULL); -- needs animation
 INSERT INTO `abilities` VALUES (280,'scarlet_delirium',8,95,1,90,44,100,0,250,2000,0,6,20.0,0,1,80,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (281,'spur',9,83,1,180,45,100,0,255,2000,0,6,20.0,0,0,0,0,0,NULL);
@@ -308,7 +309,7 @@ INSERT INTO `abilities` VALUES (285,'bounty_shot',11,87,4,60,51,100,0,261,2000,0
 INSERT INTO `abilities` VALUES (286,'decoy_shot',11,95,4,300,52,100,0,261,2000,0,6,20.0,0,0,0,0,0,NULL); -- needs animation
 INSERT INTO `abilities` VALUES (287,'hamanoha',12,87,4,300,53,100,0,249,2000,0,6,12.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (288,'hagakure',12,95,1,180,54,0,0,249,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
-INSERT INTO `abilities` VALUES (291,'issekigan',13,95,1,300,57,0,0,246,2000,0,6,20.0,0,1,0,0,0,'ABYSSEA');
+INSERT INTO `abilities` VALUES (291,'issekigan',13,65,1,300,57,0,0,246,2000,0,6,20.0,0,1,0,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (292,'dragon_breaker',14,87,4,300,58,320,0,236,2000,0,6,8.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (293,'soul_jump',14,85,4,120,167,100,0,209,2000,0,6,7.0,0,1,0,1220,0,NULL); -- check animation
 -- INSERT INTO `abilities` VALUES (295,'steady_wing',14,95,1,300,70,100,0,262,2000,0,6,0.0,0,0,0,0,0,NULL);
