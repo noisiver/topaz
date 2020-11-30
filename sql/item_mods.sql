@@ -7803,11 +7803,14 @@ INSERT INTO `item_mods` VALUES (12287,1,19);
 INSERT INTO `item_mods` VALUES (12287,5,10);
 INSERT INTO `item_mods` VALUES (12287,13,2);
 INSERT INTO `item_mods` VALUES (12287,27,-1);
-INSERT INTO `item_mods` VALUES (12289,1,1);  -- luan shield
-INSERT INTO `item_mods` VALUES (12289,108,3); -- 3 evasion
-INSERT INTO `item_mods` VALUES (12290,1,2);
-INSERT INTO `item_mods` VALUES (12291,1,3);
-INSERT INTO `item_mods` VALUES (12292,1,4);
+INSERT INTO `item_mods` VALUES (12289,1,1);		-- luan shield
+INSERT INTO `item_mods` VALUES (12289,108,3);	-- +3 evasion
+INSERT INTO `item_mods` VALUES (12290,1,2);		-- maple shield
+INSERT INTO `item_mods` VALUES (12290,108,6);	-- +6 evasion
+INSERT INTO `item_mods` VALUES (12291,1,3);		--elm shield
+INSERT INTO `item_mods` VALUES (12291,108,9);	--+9 Evasion
+INSERT INTO `item_mods` VALUES (12292,1,4);		-- mahogany shield
+INSERT INTO `item_mods` VALUES (12292,108,12);	-- 12 evasion
 INSERT INTO `item_mods` VALUES (12293,1,6);
 INSERT INTO `item_mods` VALUES (12294,1,8);
 INSERT INTO `item_mods` VALUES (12295,1,9);
@@ -7854,10 +7857,11 @@ INSERT INTO `item_mods` VALUES (12312,13,1);
 INSERT INTO `item_mods` VALUES (12313,1,14);
 INSERT INTO `item_mods` VALUES (12313,8,1);
 INSERT INTO `item_mods` VALUES (12313,13,2);
-INSERT INTO `item_mods` VALUES (12316,1,3);
+INSERT INTO `item_mods` VALUES (12316,1,3); -- fish scale shield
 INSERT INTO `item_mods` VALUES (12316,54,2);
 INSERT INTO `item_mods` VALUES (12316,55,2);
 INSERT INTO `item_mods` VALUES (12316,58,-4);
+INSERT INTO `item_mods` VALUES (12316,108,9); -- +9 evasion
 INSERT INTO `item_mods` VALUES (12317,1,12);      -- Flame Shield: DEF 12
 INSERT INTO `item_mods` VALUES (12317,54,20);     -- Fire resistance +20
 INSERT INTO `item_mods` VALUES (12317,499,1);     -- Blaze spikes
@@ -7904,9 +7908,10 @@ INSERT INTO `item_mods` VALUES (12340,1,1);
 INSERT INTO `item_mods` VALUES (12340,10,1);
 INSERT INTO `item_mods` VALUES (12340,11,1);
 INSERT INTO `item_mods` VALUES (12340,59,1);
-INSERT INTO `item_mods` VALUES (12341,1,3);
+INSERT INTO `item_mods` VALUES (12341,1,3);		--tropical shield
 INSERT INTO `item_mods` VALUES (12341,56,3);
 INSERT INTO `item_mods` VALUES (12341,57,3);
+INSERT INTO `item_mods` VALUES (12341,108,10);	--10 evasion
 INSERT INTO `item_mods` VALUES (12342,1,4);
 INSERT INTO `item_mods` VALUES (12342,23,5);
 INSERT INTO `item_mods` VALUES (12343,54,3);
