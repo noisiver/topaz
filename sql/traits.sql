@@ -570,9 +570,9 @@ INSERT INTO `traits` VALUES (107,'fencer',10,95,2,903,300,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (107,'fencer',10,95,2,904,5,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (108,'conserve tp',11,80,1,944,15,'ABYSSEA',0); -- Conserve TP I, RNG80, 15%
 INSERT INTO `traits` VALUES (108,'conserve tp',11,91,2,944,18,'ABYSSEA',0); -- Conserve TP II, RNG91, 18%
-INSERT INTO `traits` VALUES (108,'conserve tp',14,45,1,944,15,'ABYSSEA',0); -- Conserve TP I, DRG45, 15%
-INSERT INTO `traits` VALUES (108,'conserve tp',14,58,2,944,18,'ABYSSEA',0); -- Conserve TP II, DRG58, 18%
-INSERT INTO `traits` VALUES (108,'conserve tp',14,71,3,944,21,'ABYSSEA',0); -- Conserve TP III, DRG71, 21%
+INSERT INTO `traits` VALUES (108,'conserve tp',14,80,1,944,15,'ABYSSEA',0); -- Conserve TP I, DRG45, 15%
+INSERT INTO `traits` VALUES (108,'conserve tp',14,80,2,944,18,'ABYSSEA',0); -- Conserve TP II, DRG58, 18%
+INSERT INTO `traits` VALUES (108,'conserve tp',14,80,3,944,21,'ABYSSEA',0); -- Conserve TP III, DRG71, 21%
 INSERT INTO `traits` VALUES (108,'conserve tp',14,84,4,944,24,'ABYSSEA',0); -- Conserve TP IV, DRG84, 24%
 INSERT INTO `traits` VALUES (108,'conserve tp',14,97,5,944,26,'ABYSSEA',0); -- Conserve TP V, DRG97, 26%
 INSERT INTO `traits` VALUES (108,'conserve tp',19,77,1,944,15,'ABYSSEA',0); -- Conserve TP I, DNC77, 15%
