@@ -7803,8 +7803,8 @@ INSERT INTO `item_mods` VALUES (12287,1,19);
 INSERT INTO `item_mods` VALUES (12287,5,10);
 INSERT INTO `item_mods` VALUES (12287,13,2);
 INSERT INTO `item_mods` VALUES (12287,27,-1);
-INSERT INTO `item_mods` VALUES (12289,1,1);
-INSERT INTO `item_mods` VALUES (12289,108,3);
+INSERT INTO `item_mods` VALUES (12289,1,1);  -- luan shield
+INSERT INTO `item_mods` VALUES (12289,108,3); -- 3 evasion
 INSERT INTO `item_mods` VALUES (12290,1,2);
 INSERT INTO `item_mods` VALUES (12291,1,3);
 INSERT INTO `item_mods` VALUES (12292,1,4);
