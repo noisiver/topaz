@@ -605,13 +605,13 @@ INSERT INTO `traits` VALUES (111,'divine benison',3,60,2,910,20,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (111,'divine benison',3,70,3,910,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (111,'divine benison',3,80,4,910,40,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (111,'divine benison',3,90,5,910,50,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (112,'elemental celerity',4,50,1,901,10,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (112,'elemental celerity',4,60,2,901,15,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (112,'elemental celerity',4,70,3,901,20,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (112,'elemental celerity',4,80,1,901,10,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (112,'elemental celerity',4,80,2,901,15,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (112,'elemental celerity',4,80,3,901,20,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (112,'elemental celerity',4,80,4,901,25,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (112,'elemental celerity',4,90,5,901,30,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (112,'elemental celerity',21,55,1,901,10,'SOA',0);
-INSERT INTO `traits` VALUES (112,'elemental celerity',21,75,2,901,15,'SOA',0); -- level needs to be verified
+INSERT INTO `traits` VALUES (112,'elemental celerity',21,80,1,901,10,'SOA',0);
+INSERT INTO `traits` VALUES (112,'elemental celerity',21,80,2,901,15,'SOA',0); -- level needs to be verified
 INSERT INTO `traits` VALUES (112,'elemental celerity',21,95,3,901,20,'SOA',0); -- level needs to be verified (there's possibly a 4th tier)
 INSERT INTO `traits` VALUES (113,'dead aim',11,50,1,964,10,'SOA',0);
 INSERT INTO `traits` VALUES (113,'dead aim',11,60,2,964,20,'SOA',0);
