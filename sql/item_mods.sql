@@ -20358,7 +20358,11 @@ INSERT INTO `item_mods` VALUES (16894,10,3);
 INSERT INTO `item_mods` VALUES (16899,25,3);
 INSERT INTO `item_mods` VALUES (16904,165,3);
 INSERT INTO `item_mods` VALUES (16905,431,1);
-INSERT INTO `item_mods` VALUES (16906,431,1);
+INSERT INTO `item_mods` VALUES (16906,431,1);		 -- Mokuto
+INSERT INTO `item_mods` VALUES (16906,950,4);        -- Element: Wind
+INSERT INTO `item_mods` VALUES (16906,951,6);        -- chance on hit: silence
+INSERT INTO `item_mods` VALUES (16906,501,15);        -- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16906,953,25);        -- duration: 25 seconds
 INSERT INTO `item_mods` VALUES (16907,431,1);
 INSERT INTO `item_mods` VALUES (16908,431,1);
 INSERT INTO `item_mods` VALUES (16910,431,1);

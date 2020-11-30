@@ -1,9 +1,9 @@
 -----------------------------------
 -- Ability: Dodge
--- Enhances user's evasion.
+-- Enhances user's evasion.(+50)
 -- Obtained: Monk Level 15
--- Recast Time: 5:00
--- Duration: 2:00
+-- Recast Time: 2:00
+-- Duration: 0:20
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
