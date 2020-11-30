@@ -7821,7 +7821,9 @@ INSERT INTO `item_mods` VALUES (12296,68,10);
 INSERT INTO `item_mods` VALUES (12296,161,-10);
 INSERT INTO `item_mods` VALUES (12298,1,2);
 INSERT INTO `item_mods` VALUES (12298,55,4);
-INSERT INTO `item_mods` VALUES (12299,1,3);
+INSERT INTO `item_mods` VALUES (12299,1,3);		-- Aspis
+INSERT INTO `item_mods` VALUES (12299,161,1);	-- 1% PDT
+INSERT INTO `item_mods` VALUES (12299,1,3);	
 INSERT INTO `item_mods` VALUES (12300,1,7);
 INSERT INTO `item_mods` VALUES (12301,1,10);
 INSERT INTO `item_mods` VALUES (12302,1,14);
@@ -8270,7 +8272,8 @@ INSERT INTO `item_mods` VALUES (12453,163,-1);
 INSERT INTO `item_mods` VALUES (12454,1,7);
 INSERT INTO `item_mods` VALUES (12455,1,9);
 INSERT INTO `item_mods` VALUES (12456,1,4);
-INSERT INTO `item_mods` VALUES (12457,1,7);
+INSERT INTO `item_mods` VALUES (12457,1,7);		-- Cotton Hachimaki
+INSERT INTO `item_mods` VALUES (12457,9,1);       -- DEX +1
 INSERT INTO `item_mods` VALUES (12458,1,10);
 INSERT INTO `item_mods` VALUES (12458,57,1);
 INSERT INTO `item_mods` VALUES (12458,58,1);
@@ -8609,7 +8612,9 @@ INSERT INTO `item_mods` VALUES (12581,163,-3);
 INSERT INTO `item_mods` VALUES (12582,1,14);
 INSERT INTO `item_mods` VALUES (12583,1,17);
 INSERT INTO `item_mods` VALUES (12584,1,8);
-INSERT INTO `item_mods` VALUES (12585,1,14);
+INSERT INTO `item_mods` VALUES (12585,1,14);		-- Cotton Dogi
+INSERT INTO `item_mods` VALUES (12585,9,1);       -- DEX +1
+INSERT INTO `item_mods` VALUES (12585,11,1);	--  Agility +1
 INSERT INTO `item_mods` VALUES (12586,1,20);
 INSERT INTO `item_mods` VALUES (12586,57,1);
 INSERT INTO `item_mods` VALUES (12586,58,1);
@@ -8945,7 +8950,8 @@ INSERT INTO `item_mods` VALUES (12709,163,-1);
 INSERT INTO `item_mods` VALUES (12710,1,4);
 INSERT INTO `item_mods` VALUES (12711,1,6);
 INSERT INTO `item_mods` VALUES (12712,1,2);
-INSERT INTO `item_mods` VALUES (12713,1,5);
+INSERT INTO `item_mods` VALUES (12713,1,5);		-- Cotton Tekko
+INSERT INTO `item_mods` VALUES (12713,25,2);     -- Accuracy +2
 INSERT INTO `item_mods` VALUES (12714,1,7);
 INSERT INTO `item_mods` VALUES (12714,57,1);
 INSERT INTO `item_mods` VALUES (12714,58,1);
@@ -9228,7 +9234,8 @@ INSERT INTO `item_mods` VALUES (12839,60,2);
 INSERT INTO `item_mods` VALUES (12839,61,2);
 INSERT INTO `item_mods` VALUES (12839,161,-2);
 INSERT INTO `item_mods` VALUES (12840,1,5);
-INSERT INTO `item_mods` VALUES (12841,1,10);
+INSERT INTO `item_mods` VALUES (12841,1,10);		-- Cotton Sitabaki
+INSERT INTO `item_mods` VALUES (12841,23,2);	-- +1 Attk	
 INSERT INTO `item_mods` VALUES (12842,1,14);
 INSERT INTO `item_mods` VALUES (12842,57,1);
 INSERT INTO `item_mods` VALUES (12842,58,1);
@@ -9520,7 +9527,8 @@ INSERT INTO `item_mods` VALUES (12965,163,-1);
 INSERT INTO `item_mods` VALUES (12966,1,4);
 INSERT INTO `item_mods` VALUES (12967,1,5);
 INSERT INTO `item_mods` VALUES (12968,1,2);
-INSERT INTO `item_mods` VALUES (12969,1,4);
+INSERT INTO `item_mods` VALUES (12969,1,4);		-- Cotton Kyahan
+INSERT INTO `item_mods` VALUES (12969,23,2);      -- Attack +2
 INSERT INTO `item_mods` VALUES (12970,1,6);
 INSERT INTO `item_mods` VALUES (12970,57,1);
 INSERT INTO `item_mods` VALUES (12970,58,1);
@@ -20004,8 +20012,18 @@ INSERT INTO `item_mods` VALUES (16452,10,2);
 INSERT INTO `item_mods` VALUES (16452,13,2);
 INSERT INTO `item_mods` VALUES (16453,5,20);
 INSERT INTO `item_mods` VALUES (16453,12,2);
-INSERT INTO `item_mods` VALUES (16454,431,1);
-INSERT INTO `item_mods` VALUES (16458,431,1);
+INSERT INTO `item_mods` VALUES (16454,431,1);		-- Blind Dagger
+INSERT INTO `item_mods` VALUES (16454,950,8);		-- Element: Dark
+INSERT INTO `item_mods` VALUES (16454,951,5);		-- chance on hit: Blind
+INSERT INTO `item_mods` VALUES (16454,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16454,952,10);		-- 10 Acc
+INSERT INTO `item_mods` VALUES (16454,953,60);		-- duration: 60 seconds
+INSERT INTO `item_mods` VALUES (16458,431,1);		--Poison Baselard
+INSERT INTO `item_mods` VALUES (16458,950,3);		-- Element: Water
+INSERT INTO `item_mods` VALUES (16458,951,3);		-- chance on hit: Poison
+INSERT INTO `item_mods` VALUES (16458,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16458,952,10);		-- 10/tick
+INSERT INTO `item_mods` VALUES (16458,953,60);		-- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (16459,431,1);
 INSERT INTO `item_mods` VALUES (16461,5,10);
 INSERT INTO `item_mods` VALUES (16461,9,2);
@@ -20015,9 +20033,24 @@ INSERT INTO `item_mods` VALUES (16470,2,10);
 INSERT INTO `item_mods` VALUES (16470,9,2);
 INSERT INTO `item_mods` VALUES (16470,10,2);
 INSERT INTO `item_mods` VALUES (16470,59,8);
-INSERT INTO `item_mods` VALUES (16471,431,1);
-INSERT INTO `item_mods` VALUES (16472,431,1);
-INSERT INTO `item_mods` VALUES (16478,431,1);
+INSERT INTO `item_mods` VALUES (16471,431,1);		-- blind knife
+INSERT INTO `item_mods` VALUES (16471,950,8);		-- Element: Dark
+INSERT INTO `item_mods` VALUES (16471,951,5);		-- chance on hit: Blind
+INSERT INTO `item_mods` VALUES (16471,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16471,952,10);		-- 10 Acc
+INSERT INTO `item_mods` VALUES (16471,953,60);		-- duration: 60 seconds
+INSERT INTO `item_mods` VALUES (16472,431,1);		-- poison knife
+INSERT INTO `item_mods` VALUES (16472,950,3);		-- Element: Water
+INSERT INTO `item_mods` VALUES (16472,951,3);		-- chance on hit: Poison
+INSERT INTO `item_mods` VALUES (16472,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16472,952,10);		-- 10/tick
+INSERT INTO `item_mods` VALUES (16472,953,60);		-- duration: 60 seconds
+INSERT INTO `item_mods` VALUES (16478,431,1);		-- poison kukri
+INSERT INTO `item_mods` VALUES (16478,950,3);		-- Element: Water
+INSERT INTO `item_mods` VALUES (16478,951,3);		-- chance on hit: Poison
+INSERT INTO `item_mods` VALUES (16478,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16478,952,10);		-- 10/tick
+INSERT INTO `item_mods` VALUES (16478,953,60);		-- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (16479,431,1);
 INSERT INTO `item_mods` VALUES (16480,303,1);
 INSERT INTO `item_mods` VALUES (16481,2,26);
@@ -20042,7 +20075,12 @@ INSERT INTO `item_mods` VALUES (16495,950,4);		-- Element: Wind
 INSERT INTO `item_mods` VALUES (16495,951,6);		-- chance on hit: silence
 INSERT INTO `item_mods` VALUES (16495,501,15);		-- proc chance: 15%
 INSERT INTO `item_mods` VALUES (16495,953,25);		-- duration: 25 seconds
-INSERT INTO `item_mods` VALUES (16496,431,1);
+INSERT INTO `item_mods` VALUES (16496,431,1);		-- poison dagger
+INSERT INTO `item_mods` VALUES (16496,950,3);		-- Element: Water
+INSERT INTO `item_mods` VALUES (16496,951,3);		-- chance on hit: Poison
+INSERT INTO `item_mods` VALUES (16496,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16496,952,10);		-- 10/tick
+INSERT INTO `item_mods` VALUES (16496,953,60);		-- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (16497,431,1);
 INSERT INTO `item_mods` VALUES (16498,8,5);
 INSERT INTO `item_mods` VALUES (16498,24,12);
@@ -20051,7 +20089,12 @@ INSERT INTO `item_mods` VALUES (16500,8,10);     -- aluh_jambiya STR+10
 INSERT INTO `item_mods` VALUES (16500,10,-10);   -- VIT-10
 INSERT INTO `item_mods` VALUES (16500,23,15);    -- Attack+15
 INSERT INTO `item_mods` VALUES (16500,421,3);    -- Crit Hit Damage+3%
-INSERT INTO `item_mods` VALUES (16501,431,1);
+INSERT INTO `item_mods` VALUES (16501,431,1);		-- Acid Knife
+INSERT INTO `item_mods` VALUES (16501,950,4);        -- Element: Wind
+INSERT INTO `item_mods` VALUES (16501,951,149);        -- chance on hit: Weakens Defense
+INSERT INTO `item_mods` VALUES (16501,501,15);        -- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16501,952,10);        -- -10% defense
+INSERT INTO `item_mods` VALUES (16501,953,60);        -- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (16504,250,2);
 INSERT INTO `item_mods` VALUES (16504,431,1);
 INSERT INTO `item_mods` VALUES (16508,431,1);
@@ -20357,14 +20400,29 @@ INSERT INTO `item_mods` VALUES (16894,9,3);
 INSERT INTO `item_mods` VALUES (16894,10,3);
 INSERT INTO `item_mods` VALUES (16899,25,3);
 INSERT INTO `item_mods` VALUES (16904,165,3);
-INSERT INTO `item_mods` VALUES (16905,431,1);
+INSERT INTO `item_mods` VALUES (16905,431,1);		-- Bokuto
+INSERT INTO `item_mods` VALUES (16905,950,5);		-- Element: Ice
+INSERT INTO `item_mods` VALUES (16905,951,4);		-- chance on hit: Paralyze
+INSERT INTO `item_mods` VALUES (16905,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16905,952,10);		-- 10 Power
+INSERT INTO `item_mods` VALUES (16905,953,60);		-- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (16906,431,1);		 -- Mokuto
 INSERT INTO `item_mods` VALUES (16906,950,4);        -- Element: Wind
 INSERT INTO `item_mods` VALUES (16906,951,6);        -- chance on hit: silence
 INSERT INTO `item_mods` VALUES (16906,501,15);        -- proc chance: 15%
 INSERT INTO `item_mods` VALUES (16906,953,25);        -- duration: 25 seconds
-INSERT INTO `item_mods` VALUES (16907,431,1);
-INSERT INTO `item_mods` VALUES (16908,431,1);
+INSERT INTO `item_mods` VALUES (16907,431,1);		-- Busuto
+INSERT INTO `item_mods` VALUES (16907,950,3);		-- Element: Water
+INSERT INTO `item_mods` VALUES (16907,951,3);		-- chance on hit: Poison
+INSERT INTO `item_mods` VALUES (16907,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16907,952,10);		-- 10/tick
+INSERT INTO `item_mods` VALUES (16907,953,60);		-- duration: 60 seconds
+INSERT INTO `item_mods` VALUES (16908,431,1);		-- Yoto
+INSERT INTO `item_mods` VALUES (16908,950,4);        -- Element: Wind
+INSERT INTO `item_mods` VALUES (16908,951,149);        -- chance on hit: Weakens Defense
+INSERT INTO `item_mods` VALUES (16908,501,15);        -- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16908,952,10);        -- -10% defense
+INSERT INTO `item_mods` VALUES (16908,953,60);        -- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (16910,431,1);
 INSERT INTO `item_mods` VALUES (16911,25,-1);
 INSERT INTO `item_mods` VALUES (16913,9,3);
@@ -21254,7 +21312,12 @@ INSERT INTO `item_mods` VALUES (17597,346,1);
 INSERT INTO `item_mods` VALUES (17598,5,30);
 INSERT INTO `item_mods` VALUES (17598,117,5);
 INSERT INTO `item_mods` VALUES (17598,346,3);
-INSERT INTO `item_mods` VALUES (17605,431,1);
+INSERT INTO `item_mods` VALUES (17605,431,1);		-- Acid Dagger
+INSERT INTO `item_mods` VALUES (17605,950,4);        -- Element: Wind
+INSERT INTO `item_mods` VALUES (17605,951,149);        -- chance on hit: Weakens Defense
+INSERT INTO `item_mods` VALUES (17605,501,15);        -- proc chance: 15%
+INSERT INTO `item_mods` VALUES (17605,952,10);        -- -10% defense
+INSERT INTO `item_mods` VALUES (17605,953,60);        -- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (17606,431,1);
 INSERT INTO `item_mods` VALUES (17607,431,1);
 INSERT INTO `item_mods` VALUES (17608,431,1);
