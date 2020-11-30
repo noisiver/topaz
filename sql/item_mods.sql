@@ -20037,7 +20037,11 @@ INSERT INTO `item_mods` VALUES (16489,431,1);
 INSERT INTO `item_mods` VALUES (16490,431,1);
 INSERT INTO `item_mods` VALUES (16493,431,1);
 INSERT INTO `item_mods` VALUES (16494,431,1);
-INSERT INTO `item_mods` VALUES (16495,431,1);
+INSERT INTO `item_mods` VALUES (16495,431,1);		-- silence dagger: Status effect proc
+INSERT INTO `item_mods` VALUES (16495,950,4);		-- Element: Wind
+INSERT INTO `item_mods` VALUES (16495,951,6);		-- chance on hit: silence
+INSERT INTO `item_mods` VALUES (16495,501,15);		-- proc chance: 15%
+INSERT INTO `item_mods` VALUES (16495,953,25);		-- duration: 25 seconds
 INSERT INTO `item_mods` VALUES (16496,431,1);
 INSERT INTO `item_mods` VALUES (16497,431,1);
 INSERT INTO `item_mods` VALUES (16498,8,5);
