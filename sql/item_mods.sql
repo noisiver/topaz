@@ -8298,7 +8298,8 @@ INSERT INTO `item_mods` VALUES (12470,8,1);
 INSERT INTO `item_mods` VALUES (12470,9,1);
 INSERT INTO `item_mods` VALUES (12471,1,6);
 INSERT INTO `item_mods` VALUES (12472,1,1);
-INSERT INTO `item_mods` VALUES (12473,1,5);
+INSERT INTO `item_mods` VALUES (12473,1,5);		-- Poet's Circlet
+INSERT INTO `item_mods` VALUES (12473,115,1);	-- Elemental magic skill +1
 INSERT INTO `item_mods` VALUES (12474,1,9);
 INSERT INTO `item_mods` VALUES (12475,1,12);
 INSERT INTO `item_mods` VALUES (12476,1,17);
@@ -8636,7 +8637,8 @@ INSERT INTO `item_mods` VALUES (12598,9,1);
 INSERT INTO `item_mods` VALUES (12598,11,1);
 INSERT INTO `item_mods` VALUES (12599,1,9);
 INSERT INTO `item_mods` VALUES (12600,1,3);
-INSERT INTO `item_mods` VALUES (12601,1,10);
+INSERT INTO `item_mods` VALUES (12601,1,10);		-- Linen Robe
+INSERT INTO `item_mods` VALUES (12601,30,1);		-- 1 Macc
 INSERT INTO `item_mods` VALUES (12602,1,18);
 INSERT INTO `item_mods` VALUES (12603,1,24);
 INSERT INTO `item_mods` VALUES (12604,1,33);
@@ -8969,7 +8971,8 @@ INSERT INTO `item_mods` VALUES (12727,1,10);
 INSERT INTO `item_mods` VALUES (12727,10,1);
 INSERT INTO `item_mods` VALUES (12727,12,1);
 INSERT INTO `item_mods` VALUES (12728,1,1);
-INSERT INTO `item_mods` VALUES (12729,1,3);
+INSERT INTO `item_mods` VALUES (12729,1,3);		-- Linen Cuffs
+INSERT INTO `item_mods` VALUES (12729,296,1);	-- Conserve MP +1
 INSERT INTO `item_mods` VALUES (12730,1,6);
 INSERT INTO `item_mods` VALUES (12731,1,8);
 INSERT INTO `item_mods` VALUES (12732,1,11);
@@ -9254,7 +9257,8 @@ INSERT INTO `item_mods` VALUES (12854,68,2);
 INSERT INTO `item_mods` VALUES (12855,1,11);
 INSERT INTO `item_mods` VALUES (12855,68,1);
 INSERT INTO `item_mods` VALUES (12856,1,2);
-INSERT INTO `item_mods` VALUES (12857,1,7);
+INSERT INTO `item_mods` VALUES (12857,1,7);		-- Linen slops
+INSERT INTO `item_mods` VALUES (12857,5,5);		-- +5 MP
 INSERT INTO `item_mods` VALUES (12858,1,13);
 INSERT INTO `item_mods` VALUES (12859,1,17);
 INSERT INTO `item_mods` VALUES (12860,1,23);
@@ -9540,7 +9544,8 @@ INSERT INTO `item_mods` VALUES (12982,1,5);
 INSERT INTO `item_mods` VALUES (12982,11,1);
 INSERT INTO `item_mods` VALUES (12983,1,2);
 INSERT INTO `item_mods` VALUES (12984,1,1);
-INSERT INTO `item_mods` VALUES (12985,1,3);
+INSERT INTO `item_mods` VALUES (12985,1,3);			-- Holly Clogs
+INSERT INTO `item_mods` VALUES (12985,114,1);		-- +1 Enfeebling Magic Skill
 INSERT INTO `item_mods` VALUES (12986,1,5);
 INSERT INTO `item_mods` VALUES (12987,1,7);
 INSERT INTO `item_mods` VALUES (12988,1,9);
