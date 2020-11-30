@@ -436,7 +436,7 @@ INSERT INTO `traits` VALUES (67,'subtle blow',19,25,1,289,5,'WOTG',0);
 INSERT INTO `traits` VALUES (67,'subtle blow',19,45,2,289,10,'WOTG',0);
 INSERT INTO `traits` VALUES (67,'subtle blow',19,65,3,289,15,'WOTG',0);
 INSERT INTO `traits` VALUES (67,'subtle blow',19,86,4,289,20,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (68,'assassin',6,60,1,0,0,'COP',0);
+INSERT INTO `traits` VALUES (68,'assassin',6,30,1,0,0,'COP',0);
 INSERT INTO `traits` VALUES (69,'divine veil',3,50,1,0,0,'COP',0);
 INSERT INTO `traits` VALUES (70,'zanshin',12,20,1,306,15,'COP',0);
 INSERT INTO `traits` VALUES (70,'zanshin',12,35,2,306,25,'COP',0);
