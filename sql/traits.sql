@@ -114,7 +114,7 @@ INSERT INTO `traits` VALUES (3,'attack bonus',14,10,1,24,10,NULL,0);
 INSERT INTO `traits` VALUES (3,'attack bonus',14,91,2,23,22,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (3,'attack bonus',14,91,2,24,22,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (4,'defense bonus',1,10,1,1,10,NULL,0);
-INSERT INTO `traits` VALUES (4,'defense bonus',1,30,2,1,22,'ROV',0);
+INSERT INTO `traits` VALUES (4,'defense bonus',1,40,2,1,22,'ROV',0);
 INSERT INTO `traits` VALUES (4,'defense bonus',1,60,3,1,35,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (4,'defense bonus',7,10,1,1,10,NULL,0);
 INSERT INTO `traits` VALUES (4,'defense bonus',7,30,2,1,22,NULL,0);
