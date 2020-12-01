@@ -14,7 +14,9 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLEEP_I
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 120))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, duration))
+       local duration = calculateDuration(60, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+
 
     return typeEffect
 end
