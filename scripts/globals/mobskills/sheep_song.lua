@@ -25,6 +25,7 @@
 -- 15' AoE sleep
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
+require("scripts/globals/magic")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 ---------------------------------------------
@@ -38,7 +39,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLEEP_I
     local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     local params = {}
-    params.diff = nil
+    params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
