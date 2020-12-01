@@ -13,12 +13,12 @@ end
 
 function onSpellCast(caster, target, spell)
     -- Pull base stats.
-    local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.MND) -- blind uses caster INT vs target MND
+    local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT) -- No, it uses int vs targets INT
 
     -- Base power
     -- Min cap: 5 at -80 dINT
     -- Max cap: 50 at 120 dINT
-    local basePotency = utils.clamp(math.floor(dINT * 9 / 40 + 23), 5, 50)
+    local basePotency = utils.clamp(math.floor(dINT * 9 / 40 + 23), 5, 30)  -- changed max cap to -30 which is 75 era acurate
     local potency = calculatePotency(basePotency, spell:getSkillType(), caster, target)
 
     -- Duration, including resistance.  Unconfirmed.
@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.BLINDNESS
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.5 then --Do it!
+    if resist >= 0.25 then  -- There are no quarter or less hits, if target resists more than .25 spell is resisted completely
         if target:addStatusEffect(params.effect, potency, 0 , duration * resist) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else

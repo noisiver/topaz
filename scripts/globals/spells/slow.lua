@@ -17,7 +17,7 @@ function onSpellCast(caster, target, spell)
     --Power
     -- Lowest ~7.3%
     -- Highest ~29.2%
-    local power = utils.clamp(math.floor(dMND * 73 / 5) + 1825, 730, 2920)
+    local power = utils.clamp(math.floor(dMND * 75 / 5) + 1825, 730, 2920)    --- its supposed to be mnd vs targets mnd copy blind formula but put mnd
     power = calculatePotency(power, spell:getSkillType(), caster, target)
 
     --Duration
@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.SLOW
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.5 then --Do it!
+    if resist >= 0.25 then -- no resists below 1/4th
         if target:addStatusEffect(params.effect, power, 0, duration * resist, 0, 1) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
