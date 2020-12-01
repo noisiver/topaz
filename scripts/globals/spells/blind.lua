@@ -31,13 +31,13 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.BLINDNESS
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.25 then  -- There are no quarter or less hits, if target resists more than .25 spell is resisted completely
-        if target:addStatusEffect(params.effect, potency, 0 , duration * resist) then
+    if resist >= 0.5 then -- effect taken
+        if target:addStatusEffect(params.effect, power, 3, duration * resist) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
-    else
+    else -- resist entirely.
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
