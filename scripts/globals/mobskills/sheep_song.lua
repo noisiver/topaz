@@ -30,7 +30,7 @@ function onMobWeaponSkillt(target, mob, skill)
     local params = {}
     params.diff = dINT
     params.attribute = tpz.mod.INT
-    params.skillType = tpz.skill.BLUE_MAGIC
+    params.skillType = tpz.skill.ENFEEBLING_MAGIC
     params.bonus = 0
     params.effect = typeEffect
     local resist = applyResistanceEffect(mob, target, skill, params)
