@@ -25,6 +25,7 @@
 -- 15' AoE sleep
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
+require("scripts/globals/magic")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 ---------------------------------------------
