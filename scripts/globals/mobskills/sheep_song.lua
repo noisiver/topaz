@@ -35,16 +35,18 @@ end
 
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.SLEEP_I
     local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
+
+    local duration = calculateDuration(60, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+
     local params = {}
-    params.diff = nil
+    params.diff = dINT
     params.attribute = tpz.mod.INT
-    params.skillType = tpz.skill.BLUE_MAGIC
+    params.skillType = tpz.skill.ENFEEBLING_MAGIC
     params.bonus = 0
     params.effect = typeEffect
-    local resist = applyResistanceEffect(caster, target, spell, params)
-    local duration = 60 * resist
+    local resist = applyResistanceEffect(caster, target, spell, params)   
+    
 
     if (resist > 0.5) then -- Do it!
         if (target:addStatusEffect(typeEffect, 1, 0, duration)) then   --experimental
@@ -54,7 +56,7 @@ function onMobWeaponSkill(target, mob, skill)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    endx
 
     return typeEffect
 end
