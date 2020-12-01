@@ -7687,6 +7687,9 @@ INSERT INTO `item_mods` VALUES (12261,1,20);
 INSERT INTO `item_mods` VALUES (12261,2,6);
 INSERT INTO `item_mods` VALUES (12261,23,2);
 INSERT INTO `item_mods` VALUES (12261,25,2);
+INSERT INTO `item_mods` VALUES (16552,9,2);		-- Scimitar +2 Dex
+INSERT INTO `item_mods` VALUES (16552,25,2);     -- Accuracy +2
+INSERT INTO `item_mods` VALUES (16552,9,2);	
 INSERT INTO `item_mods` VALUES (12262,1,20);
 INSERT INTO `item_mods` VALUES (12262,2,6);
 INSERT INTO `item_mods` VALUES (12262,23,2);
@@ -20399,6 +20402,7 @@ INSERT INTO `item_mods` VALUES (16894,2,11);
 INSERT INTO `item_mods` VALUES (16894,9,3);
 INSERT INTO `item_mods` VALUES (16894,10,3);
 INSERT INTO `item_mods` VALUES (16899,25,3);
+INSERT INTO `item_mods` VALUES (16643,8,2);		-- Battle Axe +2 STR
 INSERT INTO `item_mods` VALUES (16904,165,3);
 INSERT INTO `item_mods` VALUES (16905,431,1);		-- Bokuto
 INSERT INTO `item_mods` VALUES (16905,950,5);		-- Element: Ice
