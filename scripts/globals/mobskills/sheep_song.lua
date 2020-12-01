@@ -33,7 +33,7 @@ function onMobWeaponSkillt(target, mob, skill)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = typeEffect
-    local resist = applyResistanceEffect(caster, target, spell, params)
+    local resist = applyResistanceEffect(mob, target, skill, params)
     local duration = 60 * resist
 
     if (resist > 0.5) then -- Do it!
