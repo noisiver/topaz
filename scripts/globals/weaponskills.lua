@@ -744,17 +744,17 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
     -- max
 
     if cratio < 0.5 then
-        pdifmax = cratio + 0.5
-    elseif cratio < 0.7 then
+        pdifmax = cratio *  0.4 + 1.2  -- changed to * 0.4 + 1.2
+    elseif cratio <= 0.5 then
         pdifmax = 1
-    elseif cratio < 1.2 then
-        pdifmax = cratio + 0.3
-    elseif cratio < 1.5 then
-        pdifmax = cratio * 0.25 + cratio
-    elseif cratio < 2.625 then
-        pdifmax = cratio + 0.375
+    --elseif cratio < 1.2 then
+     --   pdifmax = cratio + 0.3
+    --elseif cratio < 1.5 then
+      --  pdifmax = cratio * 0.25 + cratio
+    --elseif cratio < 2.625 then
+       -- pdifmax = cratio + 0.375
     else
-        pdifmax = 3
+        pdifmax = 2  -- changed to 2.0
     end
     -- min
 
@@ -776,22 +776,22 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
 
     local pdifcrit = {}
     cratio = cratio + 1
-    cratio = utils.clamp(cratio, 0, 3)
+    cratio = utils.clamp(cratio, 0, 2)  -- changed from 3 to 2
 
     -- printf("ratio: %f min: %f max %f\n", cratio, pdifmin, pdifmax)
 
     if cratio < 0.5 then
-        pdifmax = cratio + 0.5
-    elseif cratio < 0.7 then
+        pdifmax = cratio *  0.4 + 1.2  -- changed to * 0.4 + 1.2
+    elseif cratio <= 0.5 then
         pdifmax = 1
-    elseif (cratio < 1.2) then
-        pdifmax = cratio + 0.3
-    elseif cratio < 1.5 then
-        pdifmax = cratio * 0.25 + cratio
-    elseif cratio < 2.625 then
-        pdifmax = cratio + 0.375
+    --elseif cratio < 1.2 then
+     --   pdifmax = cratio + 0.3
+    --elseif cratio < 1.5 then
+      --  pdifmax = cratio * 0.25 + cratio
+    --elseif cratio < 2.625 then
+       -- pdifmax = cratio + 0.375
     else
-        pdifmax = 3
+        pdifmax = 2  -- changed to 2.0
     end
     -- min
 
