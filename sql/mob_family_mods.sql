@@ -173,6 +173,39 @@ INSERT INTO `mob_family_mods` VALUES (223,240,100,0);
 INSERT INTO `mob_family_mods` VALUES (227,240,100,0);
 INSERT INTO `mob_family_mods` VALUES (358,240,50,0);
 INSERT INTO `mob_family_mods` VALUES (359,240,100,0);
+INSERT INTO `mob_family_mods` VALUES (227,243,75,0);	-- skeleton	blind resist
+INSERT INTO `mob_family_mods` VALUES (142,243,75,0);	-- hound blind resist
+INSERT INTO `mob_family_mods` VALUES (143,243,75,0);	-- hound blind resist
+INSERT INTO `mob_family_mods` VALUES (121,243,75,0);	-- ghost blind resist
+INSERT INTO `mob_family_mods` VALUES (46,243,75,0);		-- bat blind resist
+INSERT INTO `mob_family_mods` VALUES (47,243,75,0);		-- bat blind resist
+
+-- Attack bonus
+INSERT INTO `mob_family_mods` VALUES (208,62,10,0);		-- Ram +10% Attack
+INSERT INTO `mob_family_mods` VALUES (242,62,10,0);		-- Tiger +10% Attack
+INSERT INTO `mob_family_mods` VALUES (136,62,10,0);		-- Goobbue +10% Attack
+INSERT INTO `mob_family_mods` VALUES (217,62,20,0);		-- Scorpion +20% Attack
+INSERT INTO `mob_family_mods` VALUES (179,62,10,0);		-- Manticore +10% Attack
+
+-- Flat Attack Penalty
+INSERT INTO `mob_family_mods` VALUES (213,23,20,0);		-- Sahagin -20 Attack
+
+-- Defense Bonus
+
+
+-- Tauri
+INSERT INTO `mob_family_mods` VALUES (240,63,-20,0);	-- Tauri -20% Defense penalty
+INSERT INTO `mob_family_mods` VALUES (240,68,10,0);		-- Tauri -10 Evasion penalty
+
+
+--Buffalo
+INSERT INTO `mob_family_mods` VALUES (57,62,10,0);		-- +10% Attack
+INSERT INTO `mob_family_mods` VALUES (57,63,20,0);		-- +20% Defense
+
+--Bugard
+INSERT INTO `mob_family_mods` VALUES (58,62,10,0);		-- +10% Attack
+INSERT INTO `mob_family_mods` VALUES (58,63,20,0);		-- +20% Defense
+-- Continue at bugards
 
 -- Immunities
 INSERT INTO `mob_family_mods` VALUES (92,23,2047,1);
