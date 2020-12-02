@@ -8377,9 +8377,10 @@ INSERT INTO `item_mods` VALUES (12503,1,9);
 INSERT INTO `item_mods` VALUES (12503,68,5);
 INSERT INTO `item_mods` VALUES (12504,1,10);
 INSERT INTO `item_mods` VALUES (12504,68,7);
-INSERT INTO `item_mods` VALUES (12505,2,-1);
+INSERT INTO `item_mods` VALUES (12505,2,-1);	-- Bone Hairpin
 INSERT INTO `item_mods` VALUES (12505,5,3);
 INSERT INTO `item_mods` VALUES (12505,61,2);
+INSERT INTO `item_mods` VALUES (12505,33,1);	-- Healing magic Skill +1
 INSERT INTO `item_mods` VALUES (12506,2,-3);
 INSERT INTO `item_mods` VALUES (12506,5,9);
 INSERT INTO `item_mods` VALUES (12506,59,6);
@@ -10313,9 +10314,10 @@ INSERT INTO `item_mods` VALUES (13311,60,10);
 INSERT INTO `item_mods` VALUES (13312,23,5);
 INSERT INTO `item_mods` VALUES (13312,68,-5);
 INSERT INTO `item_mods` VALUES (13312,163,-1);
-INSERT INTO `item_mods` VALUES (13313,54,2);
+INSERT INTO `item_mods` VALUES (13313,54,2);	-- Shell Earring
 INSERT INTO `item_mods` VALUES (13313,58,-2);
 INSERT INTO `item_mods` VALUES (13313,59,2);
+INSERT INTO `item_mods` VALUES (13313,1,2);		-- +2 Defense
 INSERT INTO `item_mods` VALUES (13314,54,3);
 INSERT INTO `item_mods` VALUES (13314,58,-2);
 INSERT INTO `item_mods` VALUES (13314,59,3);
@@ -10536,8 +10538,9 @@ INSERT INTO `item_mods` VALUES (13434,68,6);
 INSERT INTO `item_mods` VALUES (13440,13,1);
 INSERT INTO `item_mods` VALUES (13441,25,-2);
 INSERT INTO `item_mods` VALUES (13441,26,2);
-INSERT INTO `item_mods` VALUES (13442,54,2);
+INSERT INTO `item_mods` VALUES (13442,54,2);	-- Shell Ring
 INSERT INTO `item_mods` VALUES (13442,59,2);
+INSERT INTO `item_mods` VALUES (13442,33,1);	-- +1 Healing Magic Skill
 INSERT INTO `item_mods` VALUES (13443,14,1);
 INSERT INTO `item_mods` VALUES (13443,60,3);
 INSERT INTO `item_mods` VALUES (13444,8,1);
