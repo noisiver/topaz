@@ -397,7 +397,7 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
     local bonusfTP, bonusacc = handleWSGorgetBelt(attacker)
     bonusacc = bonusacc + attacker:getMod(tpz.mod.WSACC)
 
-    local fint = utils.clamp(8 + (attacker:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)), -32, 32)
+    local fint = 5 --utils.clamp(8 + (attacker:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)), -32, 32) -- commented out and made fint always 5
     local dmg = 0
 
     -- Magic-based WSes never miss, so we don't need to worry about calculating a miss, only if a shadow absorbed it.
