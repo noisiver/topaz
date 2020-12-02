@@ -14,5 +14,5 @@ end
 
 function onUseAbility(player, target, ability)
     local power = 50 + player:getMod(tpz.mod.DODGE_EFFECT)
-    player:addStatusEffect(tpz.effect.DODGE, power, 0, 50)
+    player:addStatusEffect(tpz.effect.DODGE, power, 0, 20)
 end

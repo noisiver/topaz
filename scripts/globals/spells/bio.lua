@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
     -- Calculate raw damage
     local dmg = calculateMagicDamage(caster, target, spell, params)
     -- Softcaps at 15, should always do at least 1
-    dmg = utils.clamp(dmg, 1, 15)
+    dmg = utils.clamp(dmg, 1, 15)  -- changed from 1 and 15
     -- Get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
     -- Get the resisted damage
@@ -51,9 +51,9 @@ function onSpellCast(caster, target, spell)
     -- Calculate DoT effect
     -- http://wiki.ffo.jp/html/1954.html
     local dotdmg = 0
-    if     skillLvl > 80 then dotdmg = 3
-    elseif skillLvl > 40 then dotdmg = 2
-    else                      dotdmg = 1
+    if     skillLvl > 80 then dotdmg = 3    -- changed from 3
+    elseif skillLvl > 40 then dotdmg = 2    -- changed from 2
+    else                      dotdmg = 1    -- changed from 1
     end
 
     -- Do it!
