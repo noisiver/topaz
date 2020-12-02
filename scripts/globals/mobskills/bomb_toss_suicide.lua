@@ -18,7 +18,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local dmgmod = 1
-    local BOMB_TOSS_HPP = skill:getMobHPP() / 200
+    local BOMB_TOSS_HPP = skill:getMobHPP() / 150   -- changed from 100
 
     local job = mob:getMainJob()
     local power = math.random(12, 18)
