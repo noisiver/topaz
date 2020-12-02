@@ -208,7 +208,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     calcParams.hitsLanded = 0 -- Reset counter to start tracking additional hits (from WS or Multi-Attacks)
 
     -- Calculate additional hits if a multiHit WS (or we're supposed to get a DA/TA/QA proc from main hit)
-    dmg = mainBase * ftp
+    dmg = mainBase + 1.0            -- changed additional hits to +1.0 ftp
     local hitsDone = 1
     local numHits = getMultiAttacks(attacker, target, wsParams.numHits)
     while (hitsDone < numHits) do -- numHits is hits in the base WS _and_ DA/TA/QA procs during those hits
