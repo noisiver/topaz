@@ -8270,7 +8270,8 @@ INSERT INTO `item_mods` VALUES (12453,4,15);
 INSERT INTO `item_mods` VALUES (12453,9,1);
 INSERT INTO `item_mods` VALUES (12453,14,2);
 INSERT INTO `item_mods` VALUES (12453,163,-1);
-INSERT INTO `item_mods` VALUES (12454,1,7);
+INSERT INTO `item_mods` VALUES (12454,1,7);		-- Bone Mask
+INSERT INTO `item_mods` VALUES (12454,2,25);	-- +25 HP
 INSERT INTO `item_mods` VALUES (12455,1,9);
 INSERT INTO `item_mods` VALUES (12456,1,4);
 INSERT INTO `item_mods` VALUES (12457,1,7);		-- Cotton Hachimaki
@@ -8610,12 +8611,13 @@ INSERT INTO `item_mods` VALUES (12581,4,15);
 INSERT INTO `item_mods` VALUES (12581,10,2);
 INSERT INTO `item_mods` VALUES (12581,11,1);
 INSERT INTO `item_mods` VALUES (12581,163,-3);
-INSERT INTO `item_mods` VALUES (12582,1,14);
+INSERT INTO `item_mods` VALUES (12582,1,14);	-- Bone Harness
+INSERT INTO `item_mods` VALUES (12582,110,5);	-- +5 Parrying Skill
 INSERT INTO `item_mods` VALUES (12583,1,17);
 INSERT INTO `item_mods` VALUES (12584,1,8);
 INSERT INTO `item_mods` VALUES (12585,1,14);		-- Cotton Dogi
-INSERT INTO `item_mods` VALUES (12585,9,1);       -- DEX +1
-INSERT INTO `item_mods` VALUES (12585,11,1);	--  Agility +1
+INSERT INTO `item_mods` VALUES (12585,9,1);         -- DEX +1
+INSERT INTO `item_mods` VALUES (12585,11,1);		--  Agility +1
 INSERT INTO `item_mods` VALUES (12586,1,20);
 INSERT INTO `item_mods` VALUES (12586,57,1);
 INSERT INTO `item_mods` VALUES (12586,58,1);
@@ -8948,11 +8950,12 @@ INSERT INTO `item_mods` VALUES (12709,4,15);
 INSERT INTO `item_mods` VALUES (12709,8,1);
 INSERT INTO `item_mods` VALUES (12709,9,2);
 INSERT INTO `item_mods` VALUES (12709,163,-1);
-INSERT INTO `item_mods` VALUES (12710,1,4);
+INSERT INTO `item_mods` VALUES (12710,1,4);		-- Bone Mittens
+INSERT INTO `item_mods` VALUES (12710,109,3);	-- Shield Skill +3
 INSERT INTO `item_mods` VALUES (12711,1,6);
 INSERT INTO `item_mods` VALUES (12712,1,2);
 INSERT INTO `item_mods` VALUES (12713,1,5);		-- Cotton Tekko
-INSERT INTO `item_mods` VALUES (12713,25,2);     -- Accuracy +2
+INSERT INTO `item_mods` VALUES (12713,25,2);    -- Accuracy +2
 INSERT INTO `item_mods` VALUES (12714,1,7);
 INSERT INTO `item_mods` VALUES (12714,57,1);
 INSERT INTO `item_mods` VALUES (12714,58,1);
@@ -9221,7 +9224,8 @@ INSERT INTO `item_mods` VALUES (12831,58,15);
 INSERT INTO `item_mods` VALUES (12831,68,2);
 INSERT INTO `item_mods` VALUES (12832,1,3);
 INSERT INTO `item_mods` VALUES (12833,1,7);
-INSERT INTO `item_mods` VALUES (12834,1,9);
+INSERT INTO `item_mods` VALUES (12834,1,9);		-- Bone Subligar
+INSERT INTO `item_mods` VALUES (12834,11,1);	-- +1 Agi
 INSERT INTO `item_mods` VALUES (12835,1,12);
 INSERT INTO `item_mods` VALUES (12836,1,17);
 INSERT INTO `item_mods` VALUES (12837,1,22);
@@ -9236,7 +9240,7 @@ INSERT INTO `item_mods` VALUES (12839,61,2);
 INSERT INTO `item_mods` VALUES (12839,161,-2);
 INSERT INTO `item_mods` VALUES (12840,1,5);
 INSERT INTO `item_mods` VALUES (12841,1,10);		-- Cotton Sitabaki
-INSERT INTO `item_mods` VALUES (12841,23,2);	-- +1 Attk	
+INSERT INTO `item_mods` VALUES (12841,23,2);		-- +1 Attk	
 INSERT INTO `item_mods` VALUES (12842,1,14);
 INSERT INTO `item_mods` VALUES (12842,57,1);
 INSERT INTO `item_mods` VALUES (12842,58,1);
@@ -9525,11 +9529,12 @@ INSERT INTO `item_mods` VALUES (12965,4,15);
 INSERT INTO `item_mods` VALUES (12965,8,2);
 INSERT INTO `item_mods` VALUES (12965,10,1);
 INSERT INTO `item_mods` VALUES (12965,163,-1);
-INSERT INTO `item_mods` VALUES (12966,1,4);
+INSERT INTO `item_mods` VALUES (12966,1,4);		-- Bone Leggings
+INSERT INTO `item_mods` VALUES (12966,10,1);	-- +1 VIT
 INSERT INTO `item_mods` VALUES (12967,1,5);
 INSERT INTO `item_mods` VALUES (12968,1,2);
 INSERT INTO `item_mods` VALUES (12969,1,4);		-- Cotton Kyahan
-INSERT INTO `item_mods` VALUES (12969,23,2);      -- Attack +2
+INSERT INTO `item_mods` VALUES (12969,23,2);    -- Attack +2
 INSERT INTO `item_mods` VALUES (12970,1,6);
 INSERT INTO `item_mods` VALUES (12970,57,1);
 INSERT INTO `item_mods` VALUES (12970,58,1);
