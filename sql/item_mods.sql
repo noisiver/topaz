@@ -7806,13 +7806,13 @@ INSERT INTO `item_mods` VALUES (12287,5,10);
 INSERT INTO `item_mods` VALUES (12287,13,2);
 INSERT INTO `item_mods` VALUES (12287,27,-1);
 INSERT INTO `item_mods` VALUES (12289,1,1);		-- luan shield
-INSERT INTO `item_mods` VALUES (12289,108,3);	-- +3 evasion
+INSERT INTO `item_mods` VALUES (12289,68,3);	-- +3 evasion
 INSERT INTO `item_mods` VALUES (12290,1,2);		-- maple shield
-INSERT INTO `item_mods` VALUES (12290,108,6);	-- +6 evasion
+INSERT INTO `item_mods` VALUES (12290,68,6);	-- +6 evasion
 INSERT INTO `item_mods` VALUES (12291,1,3);		--elm shield
-INSERT INTO `item_mods` VALUES (12291,108,9);	--+9 Evasion
+INSERT INTO `item_mods` VALUES (12291,68,9);	--+9 Evasion
 INSERT INTO `item_mods` VALUES (12292,1,4);		-- mahogany shield
-INSERT INTO `item_mods` VALUES (12292,108,12);	-- 12 evasion
+INSERT INTO `item_mods` VALUES (12292,68,12);	-- 12 evasion
 INSERT INTO `item_mods` VALUES (12293,1,6);
 INSERT INTO `item_mods` VALUES (12294,1,8);
 INSERT INTO `item_mods` VALUES (12295,1,9);
@@ -7864,7 +7864,7 @@ INSERT INTO `item_mods` VALUES (12316,1,3); -- fish scale shield
 INSERT INTO `item_mods` VALUES (12316,54,2);
 INSERT INTO `item_mods` VALUES (12316,55,2);
 INSERT INTO `item_mods` VALUES (12316,58,-4);
-INSERT INTO `item_mods` VALUES (12316,108,9); -- +9 evasion
+INSERT INTO `item_mods` VALUES (12316,68,9); -- +9 evasion
 INSERT INTO `item_mods` VALUES (12317,1,12);      -- Flame Shield: DEF 12
 INSERT INTO `item_mods` VALUES (12317,54,20);     -- Fire resistance +20
 INSERT INTO `item_mods` VALUES (12317,499,1);     -- Blaze spikes
@@ -7914,7 +7914,7 @@ INSERT INTO `item_mods` VALUES (12340,59,1);
 INSERT INTO `item_mods` VALUES (12341,1,3);		--tropical shield
 INSERT INTO `item_mods` VALUES (12341,56,3);
 INSERT INTO `item_mods` VALUES (12341,57,3);
-INSERT INTO `item_mods` VALUES (12341,108,10);	--10 evasion
+INSERT INTO `item_mods` VALUES (12341,68,10);	--+ 10 evasion
 INSERT INTO `item_mods` VALUES (12342,1,4);
 INSERT INTO `item_mods` VALUES (12342,23,5);
 INSERT INTO `item_mods` VALUES (12343,54,3);
@@ -8272,10 +8272,12 @@ INSERT INTO `item_mods` VALUES (12453,14,2);
 INSERT INTO `item_mods` VALUES (12453,163,-1);
 INSERT INTO `item_mods` VALUES (12454,1,7);		-- Bone Mask
 INSERT INTO `item_mods` VALUES (12454,2,25);	-- +25 HP
+INSERT INTO `item_mods` VALUES (12454,5,-25);	-- -25 MP
 INSERT INTO `item_mods` VALUES (12455,1,9);
 INSERT INTO `item_mods` VALUES (12456,1,4);
 INSERT INTO `item_mods` VALUES (12457,1,7);		-- Cotton Hachimaki
-INSERT INTO `item_mods` VALUES (12457,9,1);       -- DEX +1
+INSERT INTO `item_mods` VALUES (12457,10,1);      -- +1 VIT
+INSERT INTO `item_mods` VALUES (12457,23,-2);     -- -2 ATTK
 INSERT INTO `item_mods` VALUES (12458,1,10);
 INSERT INTO `item_mods` VALUES (12458,57,1);
 INSERT INTO `item_mods` VALUES (12458,58,1);
@@ -8288,6 +8290,7 @@ INSERT INTO `item_mods` VALUES (12462,1,14);
 INSERT INTO `item_mods` VALUES (12463,1,3);
 INSERT INTO `item_mods` VALUES (12464,1,5);		-- Headgear
 INSERT INTO `item_mods` VALUES (12464,23,1);	-- +1 Attk	
+INSERT INTO `item_mods` VALUES (12464,10,-1);	-- -1 VIT	
 INSERT INTO `item_mods` VALUES (12465,1,9);
 INSERT INTO `item_mods` VALUES (12466,1,12);
 INSERT INTO `item_mods` VALUES (12467,1,16);
@@ -8306,6 +8309,7 @@ INSERT INTO `item_mods` VALUES (12471,1,6);
 INSERT INTO `item_mods` VALUES (12472,1,1);
 INSERT INTO `item_mods` VALUES (12473,1,5);		-- Poet's Circlet
 INSERT INTO `item_mods` VALUES (12473,115,1);	-- Elemental magic skill +1
+INSERT INTO `item_mods` VALUES (12473,10,-1);	-- -1 VIT
 INSERT INTO `item_mods` VALUES (12474,1,9);
 INSERT INTO `item_mods` VALUES (12475,1,12);
 INSERT INTO `item_mods` VALUES (12476,1,17);
@@ -8380,7 +8384,7 @@ INSERT INTO `item_mods` VALUES (12504,68,7);
 INSERT INTO `item_mods` VALUES (12505,2,-1);	-- Bone Hairpin
 INSERT INTO `item_mods` VALUES (12505,5,3);
 INSERT INTO `item_mods` VALUES (12505,61,2);
-INSERT INTO `item_mods` VALUES (12505,33,1);	-- Healing magic Skill +1
+INSERT INTO `item_mods` VALUES (12505,112,1);	-- Healing magic Skill +1
 INSERT INTO `item_mods` VALUES (12506,2,-3);
 INSERT INTO `item_mods` VALUES (12506,5,9);
 INSERT INTO `item_mods` VALUES (12506,59,6);
@@ -8614,11 +8618,13 @@ INSERT INTO `item_mods` VALUES (12581,11,1);
 INSERT INTO `item_mods` VALUES (12581,163,-3);
 INSERT INTO `item_mods` VALUES (12582,1,14);	-- Bone Harness
 INSERT INTO `item_mods` VALUES (12582,110,5);	-- +5 Parrying Skill
+INSERT INTO `item_mods` VALUES (12582,68,-5);	-- -5 Evasion
 INSERT INTO `item_mods` VALUES (12583,1,17);
 INSERT INTO `item_mods` VALUES (12584,1,8);
 INSERT INTO `item_mods` VALUES (12585,1,14);		-- Cotton Dogi
 INSERT INTO `item_mods` VALUES (12585,9,1);         -- DEX +1
 INSERT INTO `item_mods` VALUES (12585,11,1);		--  Agility +1
+INSERT INTO `item_mods` VALUES (12585,10,-2);		--  -2 VIT
 INSERT INTO `item_mods` VALUES (12586,1,20);
 INSERT INTO `item_mods` VALUES (12586,57,1);
 INSERT INTO `item_mods` VALUES (12586,58,1);
@@ -8632,6 +8638,7 @@ INSERT INTO `item_mods` VALUES (12590,8,1);
 INSERT INTO `item_mods` VALUES (12591,1,11);
 INSERT INTO `item_mods` VALUES (12592,1,10);	-- Doublet
 INSERT INTO `item_mods` VALUES (12592,112,3);	-- +3 Healing Magic Skill
+INSERT INTO `item_mods` VALUES (12592,11,-1);	-- -1 AGI
 INSERT INTO `item_mods` VALUES (12593,1,17);
 INSERT INTO `item_mods` VALUES (12594,1,23);
 INSERT INTO `item_mods` VALUES (12595,1,31);
@@ -8650,6 +8657,7 @@ INSERT INTO `item_mods` VALUES (12599,1,9);
 INSERT INTO `item_mods` VALUES (12600,1,3);
 INSERT INTO `item_mods` VALUES (12601,1,10);		-- Linen Robe
 INSERT INTO `item_mods` VALUES (12601,30,1);		-- 1 Macc
+INSERT INTO `item_mods` VALUES (12601,2,-10);		-- -10 HP
 INSERT INTO `item_mods` VALUES (12602,1,18);
 INSERT INTO `item_mods` VALUES (12603,1,24);
 INSERT INTO `item_mods` VALUES (12604,1,33);
@@ -8953,10 +8961,12 @@ INSERT INTO `item_mods` VALUES (12709,9,2);
 INSERT INTO `item_mods` VALUES (12709,163,-1);
 INSERT INTO `item_mods` VALUES (12710,1,4);		-- Bone Mittens
 INSERT INTO `item_mods` VALUES (12710,109,3);	-- Shield Skill +3
+INSERT INTO `item_mods` VALUES (12710,68,-3);	-- Evasion -3
 INSERT INTO `item_mods` VALUES (12711,1,6);
 INSERT INTO `item_mods` VALUES (12712,1,2);
 INSERT INTO `item_mods` VALUES (12713,1,5);		-- Cotton Tekko
 INSERT INTO `item_mods` VALUES (12713,25,2);    -- Accuracy +2
+INSERT INTO `item_mods` VALUES (12713,10,-1);    -- VIT -1
 INSERT INTO `item_mods` VALUES (12714,1,7);
 INSERT INTO `item_mods` VALUES (12714,57,1);
 INSERT INTO `item_mods` VALUES (12714,58,1);
@@ -8969,6 +8979,7 @@ INSERT INTO `item_mods` VALUES (12718,1,9);
 INSERT INTO `item_mods` VALUES (12719,1,5);
 INSERT INTO `item_mods` VALUES (12720,1,3);		-- Gloves
 INSERT INTO `item_mods` VALUES (12720,30,1);	-- +1 Magic Acc	
+INSERT INTO `item_mods` VALUES (12720,25,-1);	-- -1 Acc	
 INSERT INTO `item_mods` VALUES (12721,1,6);
 INSERT INTO `item_mods` VALUES (12722,1,8);
 INSERT INTO `item_mods` VALUES (12723,1,10);
@@ -8987,6 +8998,7 @@ INSERT INTO `item_mods` VALUES (12727,12,1);
 INSERT INTO `item_mods` VALUES (12728,1,1);
 INSERT INTO `item_mods` VALUES (12729,1,3);		-- Linen Cuffs
 INSERT INTO `item_mods` VALUES (12729,296,1);	-- Conserve MP +1
+INSERT INTO `item_mods` VALUES (12729,13,-1);	-- -1 MND
 INSERT INTO `item_mods` VALUES (12730,1,6);
 INSERT INTO `item_mods` VALUES (12731,1,8);
 INSERT INTO `item_mods` VALUES (12732,1,11);
@@ -9183,7 +9195,7 @@ INSERT INTO `item_mods` VALUES (12814,23,3);
 INSERT INTO `item_mods` VALUES (12815,1,22);
 INSERT INTO `item_mods` VALUES (12815,9,1);
 INSERT INTO `item_mods` VALUES (12815,11,1);
-INSERT INTO `item_mods` VALUES (12816,1,7);
+INSERT INTO `item_mods` VALUES (12816,1,7);		-- scale cuisses
 INSERT INTO `item_mods` VALUES (12817,1,15);
 INSERT INTO `item_mods` VALUES (12818,1,42);
 INSERT INTO `item_mods` VALUES (12818,9,15);
@@ -9227,6 +9239,7 @@ INSERT INTO `item_mods` VALUES (12832,1,3);
 INSERT INTO `item_mods` VALUES (12833,1,7);
 INSERT INTO `item_mods` VALUES (12834,1,9);		-- Bone Subligar
 INSERT INTO `item_mods` VALUES (12834,11,1);	-- +1 Agi
+INSERT INTO `item_mods` VALUES (12834,68,-4);	-- -4 Evasion
 INSERT INTO `item_mods` VALUES (12835,1,12);
 INSERT INTO `item_mods` VALUES (12836,1,17);
 INSERT INTO `item_mods` VALUES (12837,1,22);
@@ -9241,7 +9254,8 @@ INSERT INTO `item_mods` VALUES (12839,61,2);
 INSERT INTO `item_mods` VALUES (12839,161,-2);
 INSERT INTO `item_mods` VALUES (12840,1,5);
 INSERT INTO `item_mods` VALUES (12841,1,10);		-- Cotton Sitabaki
-INSERT INTO `item_mods` VALUES (12841,23,2);		-- +1 Attk	
+INSERT INTO `item_mods` VALUES (12841,68,5);		-- +5 Evasion	
+INSERT INTO `item_mods` VALUES (12841,2,-20);		-- -HP -20
 INSERT INTO `item_mods` VALUES (12842,1,14);
 INSERT INTO `item_mods` VALUES (12842,57,1);
 INSERT INTO `item_mods` VALUES (12842,58,1);
@@ -9258,6 +9272,7 @@ INSERT INTO `item_mods` VALUES (12847,27,2);      -- Enmity +2
 INSERT INTO `item_mods` VALUES (12847,168,2);     -- Spell interruption rate down 2%
 INSERT INTO `item_mods` VALUES (12848,1,7);		-- Brais
 INSERT INTO `item_mods` VALUES (12848,23,1);	-- +1 Attk	
+INSERT INTO `item_mods` VALUES (12848,68,-2);	-- -2 Evasion
 INSERT INTO `item_mods` VALUES (12849,1,12);
 INSERT INTO `item_mods` VALUES (12850,1,17);
 INSERT INTO `item_mods` VALUES (12851,1,22);
@@ -9276,6 +9291,7 @@ INSERT INTO `item_mods` VALUES (12855,68,1);
 INSERT INTO `item_mods` VALUES (12856,1,2);
 INSERT INTO `item_mods` VALUES (12857,1,7);		-- Linen slops
 INSERT INTO `item_mods` VALUES (12857,5,5);		-- +5 MP
+INSERT INTO `item_mods` VALUES (12857,2,-5);	-- -5 HP
 INSERT INTO `item_mods` VALUES (12858,1,13);
 INSERT INTO `item_mods` VALUES (12859,1,17);
 INSERT INTO `item_mods` VALUES (12860,1,23);
@@ -9467,7 +9483,7 @@ INSERT INTO `item_mods` VALUES (12942,1,11);
 INSERT INTO `item_mods` VALUES (12942,11,2);
 INSERT INTO `item_mods` VALUES (12943,1,7);
 INSERT INTO `item_mods` VALUES (12943,11,1);
-INSERT INTO `item_mods` VALUES (12944,1,3);
+INSERT INTO `item_mods` VALUES (12944,1,3);			-- scale greaves
 INSERT INTO `item_mods` VALUES (12945,1,6);
 INSERT INTO `item_mods` VALUES (12946,1,30);      -- Suzaku's Sune-Ate: DEF 30
 INSERT INTO `item_mods` VALUES (12946,13,15);     -- MND +15
@@ -9532,10 +9548,12 @@ INSERT INTO `item_mods` VALUES (12965,10,1);
 INSERT INTO `item_mods` VALUES (12965,163,-1);
 INSERT INTO `item_mods` VALUES (12966,1,4);		-- Bone Leggings
 INSERT INTO `item_mods` VALUES (12966,10,1);	-- +1 VIT
+INSERT INTO `item_mods` VALUES (12966,68,-2);	-- -2 Evasion
 INSERT INTO `item_mods` VALUES (12967,1,5);
 INSERT INTO `item_mods` VALUES (12968,1,2);
 INSERT INTO `item_mods` VALUES (12969,1,4);		-- Cotton Kyahan
 INSERT INTO `item_mods` VALUES (12969,23,2);    -- Attack +2
+INSERT INTO `item_mods` VALUES (12969,10,-1);    -- -1 VIT
 INSERT INTO `item_mods` VALUES (12970,1,6);
 INSERT INTO `item_mods` VALUES (12970,57,1);
 INSERT INTO `item_mods` VALUES (12970,58,1);
@@ -9549,7 +9567,8 @@ INSERT INTO `item_mods` VALUES (12974,1,9);
 INSERT INTO `item_mods` VALUES (12975,1,4);
 INSERT INTO `item_mods` VALUES (12975,57,6);
 INSERT INTO `item_mods` VALUES (12976,1,3);		-- Gaiters
-INSERT INTO `item_mods` VALUES (12976,5,5);		-- +5 MP	
+INSERT INTO `item_mods` VALUES (12976,5,5);		-- +5 MP
+INSERT INTO `item_mods` VALUES (12976,2,-5);	-- -5 HP
 INSERT INTO `item_mods` VALUES (12977,1,5);
 INSERT INTO `item_mods` VALUES (12978,1,7);
 INSERT INTO `item_mods` VALUES (12979,1,9);
@@ -9566,6 +9585,7 @@ INSERT INTO `item_mods` VALUES (12983,1,2);
 INSERT INTO `item_mods` VALUES (12984,1,1);
 INSERT INTO `item_mods` VALUES (12985,1,3);			-- Holly Clogs
 INSERT INTO `item_mods` VALUES (12985,114,1);		-- +1 Enfeebling Magic Skill
+INSERT INTO `item_mods` VALUES (12985,13,-1);		-- -1 MND
 INSERT INTO `item_mods` VALUES (12986,1,5);
 INSERT INTO `item_mods` VALUES (12987,1,7);
 INSERT INTO `item_mods` VALUES (12988,1,9);
@@ -10318,6 +10338,7 @@ INSERT INTO `item_mods` VALUES (13313,54,2);	-- Shell Earring
 INSERT INTO `item_mods` VALUES (13313,58,-2);
 INSERT INTO `item_mods` VALUES (13313,59,2);
 INSERT INTO `item_mods` VALUES (13313,1,2);		-- +2 Defense
+INSERT INTO `item_mods` VALUES (13313,68,-3);	-- -3 Evasion
 INSERT INTO `item_mods` VALUES (13314,54,3);
 INSERT INTO `item_mods` VALUES (13314,58,-2);
 INSERT INTO `item_mods` VALUES (13314,59,3);
@@ -10540,7 +10561,8 @@ INSERT INTO `item_mods` VALUES (13441,25,-2);
 INSERT INTO `item_mods` VALUES (13441,26,2);
 INSERT INTO `item_mods` VALUES (13442,54,2);	-- Shell Ring
 INSERT INTO `item_mods` VALUES (13442,59,2);
-INSERT INTO `item_mods` VALUES (13442,33,1);	-- +1 Healing Magic Skill
+INSERT INTO `item_mods` VALUES (13442,112,1);	-- +1 Healing Magic Skill
+INSERT INTO `item_mods` VALUES (13442,2,-3);	-- -3 HP
 INSERT INTO `item_mods` VALUES (13443,14,1);
 INSERT INTO `item_mods` VALUES (13443,60,3);
 INSERT INTO `item_mods` VALUES (13444,8,1);
