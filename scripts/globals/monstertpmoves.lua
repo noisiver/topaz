@@ -136,7 +136,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     elseif ((1.5 < ratio) and (ratio <= 2.625)) then
         maxRatio = ratio + 0.375
     elseif ((2.625 < ratio) and (ratio <= 3.25)) then
-        maxRatio = 3
+        maxRatio = 4        -- monsters cap at 4.0 https://www.bluegartr.com/threads/114636-Monster-Avatar-Pet-damage
     else
         maxRatio = ratio
     end
@@ -171,10 +171,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local chance = math.random()
 
     -- first hit has a higher chance to land
-    local firstHitChance = hitrate * 1.5
+    local firstHitChance = hitrate +50 -- changed from * 1.5 to +50 meaning 50% hit rate aka +100 acc
 
     if (tpeffect==TP_RANGED) then
-        firstHitChance = hitrate * 1.2
+        firstHitChance = hitrate +50    -- changed from * 1.5 to +50 meaning 50% hit rate aka +100 acc
     end
 
     firstHitChance = utils.clamp(firstHitChance, 35, 95)

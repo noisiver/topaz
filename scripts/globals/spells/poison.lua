@@ -14,7 +14,7 @@ function onSpellCast(caster, target, spell)
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
     local skill = caster:getSkillLevel(tpz.skill.ENFEEBLING_MAGIC)
-    local power = math.max(skill / 25, 1)
+    local power = math.max(skill / 12, 1)
     if skill > 400 then
         power = math.min((skill - 225) / 5, 55) -- Cap is 55 hp/tick
     end
