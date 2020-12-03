@@ -596,7 +596,7 @@ uint16 CBattleEntity::ATT()
     }
     else if (weapon && weapon->isHandToHand())
     {
-        ATT += (STR() * 5) / 8;
+        ATT += (STR() * 5) / 8;     
     }
     else
     {
@@ -650,7 +650,7 @@ uint16 CBattleEntity::RACC(uint8 skill, uint16 bonusSkill)
     uint16 acc = skill_level;
     if (skill_level > 200)
     {
-        acc = (uint16)(200 + (skill_level - 200) * 0.9);
+        acc = (uint16)(200 + (skill_level - 200) * 0.9);      
     }
     acc += getMod(Mod::RACC);
     acc += battleutils::GetRangedAccuracyBonuses(this);

@@ -195,7 +195,7 @@ bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_SEE);
         return false;
     }
-    if (distance(m_PEntity->loc.p, PTarget->loc.p) > 25)
+    if (distance(m_PEntity->loc.p, PTarget->loc.p) > 40) // changed from 25. Determines max range mob can run before interrupting ranged attack once it begins
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY);
         return false;
