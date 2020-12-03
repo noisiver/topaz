@@ -113,7 +113,7 @@ INSERT INTO `abilities` VALUES (87,'dismiss',14,1,1,300,161,0,0,94,2000,0,6,20.0
 INSERT INTO `abilities` VALUES (88,'assault',15,1,4,5,170,0,0,94,2000,0,6,20.0,0,0,0,0,256,NULL);
 INSERT INTO `abilities` VALUES (89,'retreat',15,1,1,5,171,0,0,94,2000,0,6,20.0,0,-10,0,0,256,NULL);
 INSERT INTO `abilities` VALUES (90,'release',15,1,1,5,172,0,0,94,2000,0,6,20.0,0,-10,0,0,256,NULL);
-INSERT INTO `abilities` VALUES (91,'blood_pact_rage',15,1,1,60,173,0,0,0,2000,0,6,20.0,0,1,300,0,256,NULL);
+INSERT INTO `abilities` VALUES (91,'blood_pact_rage',15,1,1,30,173,0,0,0,2000,0,6,20.0,0,1,300,0,256,NULL);
 INSERT INTO `abilities` VALUES (92,'rampart',7,62,1,300,77,0,0,91,2000,0,6,20.0,1,320,320,776,0,NULL);
 INSERT INTO `abilities` VALUES (93,'azure_lore',16,0,1,3600,0,0,0,142,2000,0,6,20.0,0,1,300,0,0,'TOAU');
 INSERT INTO `abilities` VALUES (94,'chain_affinity',16,40,1,120,181,0,0,140,2000,0,6,20.0,0,1,300,1344,0,'TOAU');
@@ -193,7 +193,7 @@ INSERT INTO `abilities` VALUES (168,'blade_bash',12,75,4,180,137,110,0,202,2000,
 INSERT INTO `abilities` VALUES (169,'deep_breathing',14,75,1,300,164,0,0,153,2000,0,6,20.0,0,0,0,2880,1,'TOAU');
 INSERT INTO `abilities` VALUES (170,'angon',14,75,4,180,165,127,0,245,2000,0,3,20.0,0,1,600,2882,1,'TOAU');
 INSERT INTO `abilities` VALUES (171,'sange',13,75,1,300,145,0,0,200,2000,0,6,20.0,0,1,0,2816,1,'TOAU');
-INSERT INTO `abilities` VALUES (172,'blood_pact_ward',15,1,1,60,174,0,0,0,2000,0,6,20.0,0,1,300,0,256,NULL); -- new windower states 969
+INSERT INTO `abilities` VALUES (172,'blood_pact_ward',15,1,1,30,174,0,0,0,2000,0,6,20.0,0,1,300,0,256,NULL); -- new windower states 969
 INSERT INTO `abilities` VALUES (173,'hasso',12,25,1,60,138,0,0,163,2000,0,6,20.0,0,1,300,0,0,'TOAU');
 INSERT INTO `abilities` VALUES (174,'seigan',12,35,1,60,139,0,0,164,2000,0,6,20.0,0,1,300,0,0,'TOAU');
 INSERT INTO `abilities` VALUES (175,'convergence',16,75,1,600,183,0,0,165,2000,0,6,20.0,0,1,300,3008,1,'TOAU');
