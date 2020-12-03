@@ -800,7 +800,7 @@ function addBonuses(caster, spell, target, dmg, params)
     dmg = math.floor(dmg * burst)
     local mabbonus = 0
     local spellId = spell:getID()
-    local maccbonus = 2.0       -- tried to add macc bonus
+    local maccbonus = 200       -- tried to add macc bonus
 
     if (spellId >= 245 and spellId <= 248) then -- Drain/Aspir (II)
         mabbonus = 1 + caster:getMod(tpz.mod.ENH_DRAIN_ASPIR)/100
