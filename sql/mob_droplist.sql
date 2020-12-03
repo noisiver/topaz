@@ -4887,18 +4887,18 @@ INSERT INTO `mob_droplist` VALUES (957,0,0,1000,4400,100);
 INSERT INTO `mob_droplist` VALUES (957,0,0,1000,4400,100);
 INSERT INTO `mob_droplist` VALUES (958,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (958,0,0,1000,880,210);
-INSERT INTO `mob_droplist` VALUES (959,0,0,1000,538,60);
+INSERT INTO `mob_droplist` VALUES (959,0,0,1000,538,100);	-- magicked  skull
 INSERT INTO `mob_droplist` VALUES (959,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (959,0,0,1000,880,20);
-INSERT INTO `mob_droplist` VALUES (960,0,0,1000,538,60);
+INSERT INTO `mob_droplist` VALUES (960,0,0,1000,538,100);	-- magicked skull
 INSERT INTO `mob_droplist` VALUES (960,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (960,0,0,1000,880,210);
-INSERT INTO `mob_droplist` VALUES (961,0,0,1000,538,60);
+INSERT INTO `mob_droplist` VALUES (961,0,0,1000,538,100);	-- magicked skull
 INSERT INTO `mob_droplist` VALUES (961,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (961,0,0,1000,880,70);
 INSERT INTO `mob_droplist` VALUES (961,0,0,1000,4824,70);
-INSERT INTO `mob_droplist` VALUES (962,0,0,1000,538,50);
-INSERT INTO `mob_droplist` VALUES (962,0,0,1000,538,60);
+INSERT INTO `mob_droplist` VALUES (962,0,0,1000,538,100);	-- magicked skull
+INSERT INTO `mob_droplist` VALUES (962,0,0,1000,538,100);	-- magicked skull
 INSERT INTO `mob_droplist` VALUES (962,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (962,0,0,1000,880,280);
 INSERT INTO `mob_droplist` VALUES (962,0,0,1000,2776,40);
@@ -15799,7 +15799,7 @@ INSERT INTO `mob_droplist` VALUES (2935,0,0,1000,853,55);
 INSERT INTO `mob_droplist` VALUES (2936,0,0,1000,19123,200);
 INSERT INTO `mob_droplist` VALUES (2937,0,0,1000,2853,26);
 INSERT INTO `mob_droplist` VALUES (2938,0,0,1000,2842,222);
-INSERT INTO `mob_droplist` VALUES (2939,0,0,1000,16296,271);		--Armiger's Lace 27.1% drop chance https://ffxiclopedia.fandom.com/wiki/Tococo
+INSERT INTO `mob_droplist` VALUES (2939,0,0,1000,16296,271);		--Armiger's Lace 27.1% drop chance 
 INSERT INTO `mob_droplist` VALUES (2940,0,0,1000,15052,257);
 INSERT INTO `mob_droplist` VALUES (2941,0,0,1000,19043,269);
 INSERT INTO `mob_droplist` VALUES (2942,0,0,1000,2832,218);
