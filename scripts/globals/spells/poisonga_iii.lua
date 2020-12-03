@@ -19,7 +19,7 @@ function onSpellCast(caster, target, spell)
     local mINT = target:getStat(tpz.mod.INT)
 
     local dINT = (pINT - mINT)
-    local power = caster:getSkillLevel(tpz.skill.ENFEEBLING_MAGIC) / 10 + 1
+    local power = caster:getSkillLevel(tpz.skill.ENFEEBLING_MAGIC) / 7 + 1     -- changed from /10 to /7
     if power > 25 then
         power = 25
     end
