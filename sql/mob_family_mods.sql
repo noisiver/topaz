@@ -108,8 +108,8 @@ INSERT INTO `mob_family_mods` VALUES (234,37,1,1);
 INSERT INTO `mob_family_mods` VALUES (72,29,10,0);
 INSERT INTO `mob_family_mods` VALUES (72,68,20,0);
 INSERT INTO `mob_family_mods` VALUES (139,68,10,0);
-INSERT INTO `mob_family_mods` VALUES (176,68,10,0);
-INSERT INTO `mob_family_mods` VALUES (285,68,10,0);
+INSERT INTO `mob_family_mods` VALUES (176,68,10,0);		-- Mamool ja +10 evasion
+INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Mamool ja +10 evasion
 INSERT INTO `mob_family_mods` VALUES (57,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (72,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (140,3,50,1);
@@ -677,8 +677,6 @@ INSERT INTO `mob_family_mods` VALUES (24,3,50,1);
 -- Family defense multiplier
 INSERT INTO `mob_family_mods` VALUES (26,63,20,0);
 INSERT INTO `mob_family_mods` VALUES (357,63,20,0);
-INSERT INTO `mob_family_mods` VALUES (58,63,20,0);
-INSERT INTO `mob_family_mods` VALUES (57,63,20,0);
 INSERT INTO `mob_family_mods` VALUES (208,63,20,0);
 INSERT INTO `mob_family_mods` VALUES (2,63,20,0);
 INSERT INTO `mob_family_mods` VALUES (180,63,20,0);
