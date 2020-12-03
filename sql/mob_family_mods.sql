@@ -191,11 +191,19 @@ INSERT INTO `mob_family_mods` VALUES (179,62,10,0);		-- Manticore +10% Attack
 INSERT INTO `mob_family_mods` VALUES (213,23,20,0);		-- Sahagin -20 Attack
 
 -- Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (122,63,100,0);	-- Ghrah +100% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (123,63,100,0);	-- Ghrah +100% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (124,63,100,0);	-- Ghrah +100% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (272,63,20,0);		-- Zdei +20% Defense Bonus
+-- continue at zdei
+
+-- Evasion Bonus
+INSERT INTO `mob_family_mods` VALUES (196,68,10,0);	-- Poroggo +10% Evasion Racial
 
 
 -- Tauri
 INSERT INTO `mob_family_mods` VALUES (240,63,-20,0);	-- Tauri -20% Defense penalty
-INSERT INTO `mob_family_mods` VALUES (240,68,10,0);		-- Tauri -10 Evasion penalty
+INSERT INTO `mob_family_mods` VALUES (240,68,-10,0);	-- Tauri -10 Evasion penalty
 
 
 --Buffalo
@@ -205,7 +213,10 @@ INSERT INTO `mob_family_mods` VALUES (57,63,20,0);		-- +20% Defense
 --Bugard
 INSERT INTO `mob_family_mods` VALUES (58,62,10,0);		-- +10% Attack
 INSERT INTO `mob_family_mods` VALUES (58,63,20,0);		-- +20% Defense
--- Continue at bugards
+
+-- Mamool Ja
+INSERT INTO `mob_family_mods` VALUES (176,68,10,0);		-- +10 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (177,68,10,0);		-- +10 Evasion Racial
 
 -- Immunities
 INSERT INTO `mob_family_mods` VALUES (92,23,2047,1);
@@ -677,7 +688,7 @@ INSERT INTO `mob_family_mods` VALUES (180,63,20,0);
 INSERT INTO `mob_family_mods` VALUES (245,63,20,0);
 INSERT INTO `mob_family_mods` VALUES (59,63,20,0);
 
--- Sahagins have 50% dmg reduction to water
+-- Sahagins have 50% dmg reduction to water	
 INSERT INTO `mob_family_mods` VALUES (213,20,128,0);
 
 -- Never standback
