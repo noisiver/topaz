@@ -214,9 +214,6 @@ INSERT INTO `mob_family_mods` VALUES (57,63,20,0);		-- +20% Defense
 INSERT INTO `mob_family_mods` VALUES (58,62,10,0);		-- +10% Attack
 INSERT INTO `mob_family_mods` VALUES (58,63,20,0);		-- +20% Defense
 
--- Mamool Ja
-INSERT INTO `mob_family_mods` VALUES (176,68,10,0);		-- +10 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- +10 Evasion Racial
 
 -- Immunities
 INSERT INTO `mob_family_mods` VALUES (92,23,2047,1);
