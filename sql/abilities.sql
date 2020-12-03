@@ -38,21 +38,21 @@ CREATE TABLE `abilities` (
 --
 -- ORDER BY:  `abilityId`
 
-INSERT INTO `abilities` VALUES (16,'mighty_strikes',1,0,1,3600,0,0,0,33,2000,0,6,20.0,0,1,300,0,0,NULL);
-INSERT INTO `abilities` VALUES (17,'hundred_fists',2,0,1,3600,0,0,0,34,2000,0,6,20.0,0,1,300,0,0,NULL);
-INSERT INTO `abilities` VALUES (18,'benediction',3,0,1,3600,0,102,0,35,2000,0,6,20.0,1,0,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (19,'manafont',4,0,1,3600,0,0,0,36,2000,0,6,20.0,0,1,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (20,'chainspell',5,0,1,3600,0,0,0,37,2000,0,6,20.0,0,1,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (21,'perfect_dodge',6,0,1,3600,0,0,0,38,2000,0,6,20.0,0,1,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (22,'invincible',7,0,1,3600,0,0,0,18,2000,0,6,20.0,0,1,7200,0,0,NULL);
-INSERT INTO `abilities` VALUES (23,'blood_weapon',8,0,1,3600,0,0,0,19,2000,0,6,20.0,0,1,80,0,0,NULL);
-INSERT INTO `abilities` VALUES (24,'familiar',9,0,1,3600,0,0,0,39,2000,0,6,20.0,0,0,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (25,'soul_voice',10,0,1,3600,0,0,0,40,2000,0,6,20.0,0,1,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (26,'eagle_eye_shot',11,0,4,3600,0,110,0,186,2000,0,3,20.0,0,0,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (27,'meikyo_shisui',12,0,1,3600,0,0,0,96,2000,0,6,20.0,0,1,300,0,0,NULL);
-INSERT INTO `abilities` VALUES (28,'mijin_gakure',13,0,4,3600,0,110,0,93,2000,0,6,20.0,0,0,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (29,'spirit_surge',14,0,1,3600,0,0,0,97,2000,0,6,20.0,0,0,0,0,0,'COP');
-INSERT INTO `abilities` VALUES (30,'astral_flow',15,0,1,3600,0,0,0,95,2000,0,6,20.0,0,0,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (16,'mighty_strikes',1,0,1,7200,0,0,0,33,2000,0,6,20.0,0,1,300,0,0,NULL);
+INSERT INTO `abilities` VALUES (17,'hundred_fists',2,0,1,7200,0,0,0,34,2000,0,6,20.0,0,1,300,0,0,NULL);
+INSERT INTO `abilities` VALUES (18,'benediction',3,0,1,7200,0,102,0,35,2000,0,6,20.0,1,0,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (19,'manafont',4,0,1,7200,0,0,0,36,2000,0,6,20.0,0,1,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (20,'chainspell',5,0,1,7200,0,0,0,37,2000,0,6,20.0,0,1,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (21,'perfect_dodge',6,0,1,7200,0,0,0,38,2000,0,6,20.0,0,1,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (22,'invincible',7,0,1,7200,0,0,0,18,2000,0,6,20.0,0,1,7200,0,0,NULL);
+INSERT INTO `abilities` VALUES (23,'blood_weapon',8,0,1,7200,0,0,0,19,2000,0,6,20.0,0,1,80,0,0,NULL);
+INSERT INTO `abilities` VALUES (24,'familiar',9,0,1,7200,0,0,0,39,2000,0,6,20.0,0,0,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (25,'soul_voice',10,0,1,7200,0,0,0,40,2000,0,6,20.0,0,1,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (26,'eagle_eye_shot',11,0,4,7200,0,110,0,186,2000,0,3,20.0,0,0,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (27,'meikyo_shisui',12,0,1,7200,0,0,0,96,2000,0,6,20.0,0,1,300,0,0,NULL);
+INSERT INTO `abilities` VALUES (28,'mijin_gakure',13,0,4,7200,0,110,0,93,2000,0,6,20.0,0,0,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (29,'spirit_surge',14,0,1,7200,0,0,0,97,2000,0,6,20.0,0,0,0,0,0,'COP');
+INSERT INTO `abilities` VALUES (30,'astral_flow',15,0,1,7200,0,0,0,95,2000,0,6,20.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (31,'berserk',1,15,1,120,1,115,0,0,2000,0,6,20.0,0,1,80,384,0,NULL);
 INSERT INTO `abilities` VALUES (32,'warcry',1,35,1,300,2,0,0,28,2000,0,6,20.0,1,1,300,388,0,NULL);
 INSERT INTO `abilities` VALUES (33,'defender',1,25,1,120,3,117,0,1,2000,0,6,20.0,0,1,80,386,0,NULL); -- 2m cd
@@ -96,8 +96,8 @@ INSERT INTO `abilities` VALUES (70,'heel',9,10,1,5,101,0,0,83,2000,0,6,18.0,0,1,
 INSERT INTO `abilities` VALUES (71,'leave',9,35,1,10,101,0,0,83,2000,0,6,18.0,0,1,300,0,192,NULL);
 INSERT INTO `abilities` VALUES (72,'sic',9,25,1,120,102,0,0,83,2000,0,6,18.0,0,0,0,902,128,NULL);
 INSERT INTO `abilities` VALUES (73,'stay',9,15,1,5,101,0,0,83,2000,0,6,18.0,0,1,300,0,192,NULL);
-INSERT INTO `abilities` VALUES (74,'divine_seal',3,15,1,600,26,0,0,81,2000,0,6,20.0,0,0,80,512,0,NULL);
-INSERT INTO `abilities` VALUES (75,'elemental_seal',4,15,1,600,38,0,0,80,2000,0,6,20.0,0,0,80,576,0,NULL);
+INSERT INTO `abilities` VALUES (74,'divine_seal',3,15,1,300,26,0,0,81,2000,0,6,20.0,0,0,80,512,0,NULL);
+INSERT INTO `abilities` VALUES (75,'elemental_seal',4,15,1,300,38,0,0,80,2000,0,6,20.0,0,0,80,576,0,NULL);
 INSERT INTO `abilities` VALUES (76,'trick_attack',6,30,1,60,66,0,0,82,2000,0,6,20.0,0,1,0,710,0,NULL);
 INSERT INTO `abilities` VALUES (77,'weapon_bash',8,20,4,180,88,110,0,201,2000,0,3,4.4,0,1,900,0,0,NULL);
 INSERT INTO `abilities` VALUES (78,'reward',9,12,257,90,103,102,0,84,2000,0,6,18.0,0,0,0,898,0,NULL);
