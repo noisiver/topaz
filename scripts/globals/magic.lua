@@ -513,7 +513,7 @@ function getSpellBonusAcc(caster, target, spell, params)
 
     --add acc for skillchains
     if (skillchainTier > 0) then
-        magicAccBonus = magicAccBonus + 25
+        magicAccBonus = magicAccBonus + 200 -- added macc to magic burst?
     end
 
     --Add acc for klimaform
@@ -960,22 +960,22 @@ end
 function getElementalDebuffDOT(INT)
     local DOT = 0
     if (INT<= 39) then
-        DOT = 1
+        DOT = 10 -- buffed from 1
     elseif (INT <= 69) then
-        DOT = 2
+        DOT = 20 -- buffed from 2
     elseif (INT <= 99) then
-        DOT = 3
+        DOT = 40 -- buffed from 3
     elseif (INT <= 149) then
-        DOT = 4
+        DOT = 60 -- buffed from 4
     else
-        DOT = 5
+        DOT = 80 -- buffed from 5
     end
     return DOT
 end
 
 function getElementalDebuffStatDownFromDOT(dot)
     local stat_down = 0
-    stat_down = (dot-1)*2 +5
+    stat_down = (dot-10)*1 +5   -- changed from (dot-1)*2
     return stat_down
 end
 
