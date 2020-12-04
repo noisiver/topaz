@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 0.5    -- changed from 1
+    local dmgmod = 0.7    -- changed from 1
     local BOMB_TOSS_HPP = skill:getMobHPP() / 100   
 
     local job = mob:getMainJob()
