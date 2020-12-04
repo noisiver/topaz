@@ -14,9 +14,11 @@ end
 
 function onSpellCast(caster, target, spell)
     local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    local MND = caster:getStat(tpz.mod.MND) -- added
 
     -- Calculate potency.
-    local potency = utils.clamp(math.floor(dMND / 4) + 15, 5, 25)
+    --local potency = utils.clamp(math.floor(dMND / 4) + 15, 5, 25)
+    local potency = utils.clamp(math.floor(2*(MND+dMND) / .10, 5, 25)
     potency = calculatePotency(potency, spell:getSkillType(), caster, target)
 
     -- Calculate duration.
@@ -31,7 +33,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.PARALYSIS
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.5 then -- effect taken
+    if resist >= 0.25 then -- effect taken  changed from 0.5
         if target:addStatusEffect(params.effect, power, 3, duration * resist) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
