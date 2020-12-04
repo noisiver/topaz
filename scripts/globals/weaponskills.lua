@@ -167,7 +167,12 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     -- Calculate the damage from the first hit
     local dmg = mainBase * ftp
+    
+    local currentHitRate = calcParams.hitRate
+    calcParams.hitRate = getHitRate(attacker, target, false, calcParams.bonusAcc + 100)
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
+    calcParams.hitRate = currentHitRate
+
     finaldmg = finaldmg + hitdmg
 
     -- Have to calculate added bonus for SA/TA here since it is done outside of the fTP multiplier
