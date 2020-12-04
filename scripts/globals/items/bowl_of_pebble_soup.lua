@@ -3,6 +3,7 @@
 -- Item: Bowl of Pebble Soup
 -- Food Effect: 3 Hr, All Races
 -----------------------------------------
+-- HP +20
 -- HP Recovered while healing 2
 -----------------------------------------
 require("scripts/globals/status")
@@ -22,9 +23,13 @@ function onItemUse(target)
 end
 
 function onEffectGain(target, effect)
+    target:addMod(tpz.mod.FOOD_HPP, 25)
+    target:addMod(tpz.mod.FOOD_HP_CAP, 20)
     target:addMod(tpz.mod.HPHEAL, 2)
 end
 
 function onEffectLose(target, effect)
+    target:delMod(tpz.mod.FOOD_HPP, 25)
+    target:delMod(tpz.mod.FOOD_HP_CAP, 20)
     target:delMod(tpz.mod.HPHEAL, 2)
 end

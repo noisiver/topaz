@@ -7,6 +7,7 @@
 -- Intelligence 4
 -- Charisma -1
 -- MP Recovered While Healing 1
+-- Macc +21%(Cap: 24)
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -29,6 +30,8 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.INT, 4)
     target:addMod(tpz.mod.CHR, -1)
     target:addMod(tpz.mod.MPHEAL, 1)
+    target:addMod(tpz.mod.FOOD_MACCP, 21)
+    target:addMod(tpz.mod.FOOD_MACC_CAP, 24)
 end
 
 function onEffectLose(target, effect)
@@ -36,4 +39,6 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.INT, 4)
     target:delMod(tpz.mod.CHR, -1)
     target:delMod(tpz.mod.MPHEAL, 1)
+    target:delMod(tpz.mod.FOOD_MACCP, 21)
+    target:delMod(tpz.mod.FOOD_MACC_CAP, 24)
 end

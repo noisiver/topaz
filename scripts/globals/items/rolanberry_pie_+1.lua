@@ -5,7 +5,9 @@
 -----------------------------------------
 -- Magic 60
 -- Intelligence 3
--- MP Regen While Healing 1
+-- MAB +12
+-- Enmity -6
+-- MP Recovered while healing +6
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -26,11 +28,15 @@ end
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.MP, 60)
     target:addMod(tpz.mod.INT, 3)
-    target:addMod(tpz.mod.MPHEAL, 1)
+    target:addMod(tpz.mod.MATT, 12)
+    target:addMod(tpz.mod.ENMITY, -6)
+    target:addMod(tpz.mod.MPHEAL, 6)
 end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.MP, 60)
     target:delMod(tpz.mod.INT, 3)
-    target:delMod(tpz.mod.MPHEAL, 1)
+    target:delMod(tpz.mod.MATT, 12)
+    target:delMod(tpz.mod.ENMITY, -6)
+    target:delMod(tpz.mod.MPHEAL, 6)
 end

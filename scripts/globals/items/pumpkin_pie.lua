@@ -7,6 +7,7 @@
 -- Agility -1
 -- Intelligence 3
 -- Charisma -2
+-- Macc +21%(Cap: 20)
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -29,6 +30,9 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.AGI, -1)
     target:addMod(tpz.mod.INT, 3)
     target:addMod(tpz.mod.CHR, -2)
+        target:addMod(tpz.mod.FOOD_MACCP, 21)
+    target:addMod(tpz.mod.FOOD_MACC_CAP, 10)
+
 end
 
 function onEffectLose(target, effect)
