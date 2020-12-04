@@ -129,7 +129,7 @@ bool isRightRecipe(CCharEntity* PChar)
                 #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
                 ShowDebug(CL_CYAN"Current skill = %u, Recipe skill = %u\n" CL_RESET, currentSkill, skillValue*10);
                 #endif
-                if (currentSkill < (skillValue*10 - 150)) // Check player skill against recipe level. Range must be 14 or less.
+                if (currentSkill < (skillValue*10 - 110)) // Check player skill against recipe level. Range must be 14 or less. Changed from 150 to 110
                 {
                     PChar->pushPacket(new CSynthMessagePacket(PChar, SYNTH_NOSKILL));
                     #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
