@@ -704,13 +704,6 @@ local overseerInvNation =
         [32773] = {rank =  1, cp =  1000, lvl = 10, item = 13003},                -- legionnaires_leggings
         [32774] = {rank =  1, cp =  1000, lvl = 10, item = 17128, place = 2},     -- legionnaires_staff
         [32775] = {rank =  1, cp =  1000, lvl = 10, item = 16780, place = 1},     -- legionnaires_scythe
-        [32768] = {rank =  1, cp =  1000, lvl = 10, item = 17167},                -- royal_archers_longbow      ADDED SANDY
-        [32769] = {rank =  1, cp =  1000, lvl = 10, item = 16544},                -- royal_archers_sword
-        [32770] = {rank =  1, cp =  1000, lvl = 10, item = 12510},                -- royal_footmans_bandana
-        [32771] = {rank =  1, cp =  1000, lvl = 10, item = 12753},                -- royal_footmans_gloves
-        [32772] = {rank =  1, cp =  1000, lvl = 10, item = 13004},                -- royal_footmans_boots
-        [32773] = {rank =  1, cp =  1000, lvl = 10, item = 16691, place = 2},     -- royal_archers_cesti
-        [32774] = {rank =  1, cp =  1000, lvl = 10, item = 13718, place = 1},     -- royal_footmans_tunic
         [32784] = {rank =  2, cp =  2000, lvl = 18, item = 17048},                -- decurions_hammer
         [32785] = {rank =  2, cp =  2000, lvl = 10, item = 12629},                -- legionnaires_harness
         [32786] = {rank =  2, cp =  2000, lvl = 20, item = 12881},                -- legionnaires_subligar
@@ -757,116 +750,6 @@ local overseerInvNation =
         [32912] = {rank = 10, cp = 56000, lvl =  1, item = 14429, place = 1},     -- republic_aketon
         [32932] = {           cp =  5000, lvl =  1, item = 17584},                -- republic_signet_staff
         [32940] = {rank = 10, cp = 10000, lvl =  1, item =  6378},                -- decorative_chair_set
-
-        [32784] = {rank =  2, cp =  2000, lvl = 18, item = 16852},                -- royal_spearmans_spear SANDY
-        [32785] = {rank =  2, cp =  2000, lvl = 10, item = 12630},                -- royal_footmans_vest
-        [32786] = {rank =  2, cp =  2000, lvl = 20, item = 12882},                -- royal_footmans_trousers
-        [32787] = {rank =  2, cp =  2000, lvl = 20, item = 17367, place = 2},     -- royal_spearmans_horn
-        [32788] = {rank =  2, cp =  2000, lvl = 20, item = 13045, place = 1},     -- royal_footmans_clogs
-        [32800] = {rank =  3, cp =  4000, lvl = 30, item = 16844},                -- royal_squires_halberd
-        [32801] = {rank =  3, cp =  4000, lvl = 30, item = 13104},                -- royal_squires_collar
-        [32802] = {rank =  3, cp =  4000, lvl = 30, item = 12431},                -- royal_squires_helm
-        [32803] = {rank =  3, cp =  4000, lvl = 30, item = 12687},                -- royal_squires_mufflers
-        [32804] = {rank =  3, cp =  4000, lvl = 30, item = 12943},                -- royal_squires_sollerets
-        [32805] = {rank =  3, cp =  4000, lvl = 30, item = 16744, place = 2},     -- royal_squires_dagger
-        [32806] = {rank =  3, cp =  4000, lvl = 30, item = 17150, place = 1},     -- royal_squires_mace
-        [32807] = {rank =  3, cp =  4000, lvl =  1, item = 13495, place = 1},     -- san_dorian_ring
-        [32816] = {rank =  4, cp =  8000, lvl = 40, item = 16601},                -- royal_swordsmans_blade
-        [32817] = {rank =  4, cp =  8000, lvl = 40, item = 12559},                -- royal_squires_chainmail
-        [32818] = {rank =  4, cp =  8000, lvl = 40, item = 12815},                -- royal_squires_breeches
-        [32819] = {rank =  4, cp =  8000, lvl = 40, item = 13719, place = 2},     -- royal_squires_robe
-        [32820] = {rank =  4, cp =  8000, lvl = 40, item = 12336, place = 1},     -- royal_squires_shield
-        [32832] = {rank =  5, cp = 16000, lvl = 50, item = 16851},                -- royal_knight_army_lance
-        [32833] = {rank =  5, cp = 16000, lvl = 50, item = 16571},                -- temple_knight_army_sword
-        [32834] = {rank =  5, cp = 16000, lvl = 50, item = 12312},                -- royal_knight_army_shield
-        [32835] = {rank =  5, cp = 16000, lvl = 50, item = 12313},                -- temple_knight_army_shield
-        [32836] = {rank =  5, cp = 16000, lvl = 50, item = 13107},                -- royal_knight_army_collar
-        [32837] = {rank =  5, cp = 16000, lvl = 50, item = 13105},                -- temple_knight_army_collar
-        [32838] = {rank =  5, cp = 16000, lvl = 50, item = 12686},                -- royal_knights_mufflers
-        [32839] = {rank =  5, cp = 16000, lvl = 50, item = 12942},                -- royal_knights_sollerets
-        [32840] = {rank =  5, cp = 16000, lvl = 50, item = 13220, place = 2},     -- royal_knights_belt
-        [32841] = {rank =  5, cp = 16000, lvl = 50, item = 13720, place = 1},     -- royal_knights_cloak
-        [32848] = {rank =  6, cp = 24000, lvl = 55, item = 13580},                -- royal_army_mantle
-        [32849] = {rank =  6, cp = 24000, lvl = 55, item = 13106},                -- royal_guards_collar
-        [32850] = {rank =  6, cp = 24000, lvl = 55, item = 12430},                -- royal_knights_bascinet
-        [32851] = {rank =  6, cp = 24000, lvl = 55, item = 13722},                -- royal_knights_aketon
-        [32852] = {rank =  6, cp = 24000, lvl = 55, item = 12558, place = 1},     -- royal_knights_chainmail
-        [32853] = {rank =  6, cp = 24000, lvl = 55, item = 12814, place = 1},     -- royal_knights_breeches
-        [32854] = {rank =  6, cp = 24000, lvl = 55, item = 12321, place = 2},     -- royal_guards_shield
-        [32855] = {rank =  6, cp = 24000, lvl = 55, item = 17067, place = 1},     -- royal_guards_rod
-        [32856] = {rank =  6, cp = 24000, lvl = 55, item = 16599, place = 1},     -- royal_guards_sword
-        [32857] = {rank =  6, cp = 24000, lvl = 55, item = 16805, place = 1},     -- royal_guards_fleuret
-        [32864] = {rank =  7, cp = 32000, lvl = 60, item = 18738},                -- temple_knights_arrow
-        [32865] = {rank =  7, cp = 32000, lvl = 60, item = 16886, place = 2},     -- grand_knights_lance
-        [32866] = {rank =  7, cp = 32000, lvl = 60, item = 13557, place = 1},     -- grand_knights_ring
-        [32880] = {rank =  8, cp = 40000, lvl = 65, item = 14013},                -- grand_temple_knights_gauntlets
-        [32881] = {rank =  8, cp = 40000, lvl = 65, item = 14014, place = 2},     -- grand_temple_knights_bangles
-        [32882] = {rank =  8, cp = 40000, lvl = 65, item = 13140, place = 1},     -- grand_temple_knights_collar
-        [32896] = {rank =  9, cp = 48000, lvl = 71, item = 16953},                -- reserve_captains_greatsword
-        [32897] = {rank =  9, cp = 48000, lvl = 71, item = 17934},                -- reserve_captains_pick
-        [32898] = {rank =  9, cp = 48000, lvl = 71, item = 17458, place = 2},     -- reserve_captains_mace
-        [32899] = {rank =  9, cp = 48000, lvl = 71, item = 16893, place = 1},     -- reserve_captains_lance
-        [32912] = {rank = 10, cp = 56000, lvl =  1, item = 14428, place = 1},     -- kingdom_aketon
-        [32932] = {           cp =  5000, lvl =  1, item = 17583},                -- kingdom_signet_staff
-        [32940] = {rank = 10, cp = 10000, lvl =  1, item =  6377},                -- imperial_chair_set
-        [32768] = {rank =  1, cp =  1000, lvl = 10, item = 17159},                -- freeswords_bow   ADDED WINDURST
-        [32769] = {rank =  1, cp =  1000, lvl = 10, item = 17028},                -- freeswords_club
-        [32770] = {rank =  1, cp =  1000, lvl = 10, item = 16442},                -- freeswords_baghnakhs
-        [32771] = {rank =  1, cp =  1000, lvl = 10, item = 12915, place = 2},     -- freeswords_slops
-        [32772] = {rank =  1, cp =  1000, lvl = 10, item = 17130, place = 1},     -- freeswords_staff
-        [32784] = {rank =  2, cp =  2000, lvl = 18, item = 17103},                -- mercenarys_pole
-        [32785] = {rank =  2, cp =  2000, lvl = 20, item = 12484},                -- mercenarys_hachimaki
-        [32786] = {rank =  2, cp =  2000, lvl = 20, item = 12653},                -- mercenarys_gi
-        [32787] = {rank =  2, cp =  2000, lvl = 20, item = 12719},                -- mercenarys_tekko
-        [32788] = {rank =  2, cp =  2000, lvl = 20, item = 12855},                -- mercenarys_sitabaki
-        [32789] = {rank =  2, cp =  2000, lvl = 20, item = 12975},                -- mercenarys_kyahan
-        [32790] = {rank =  2, cp =  2000, lvl = 20, item = 16746, place = 2},     -- mercenarys_knife
-        [32791] = {rank =  2, cp =  2000, lvl = 20, item = 16930, place = 1},     -- mercenarys_greatsword
-        [32800] = {rank =  3, cp =  4000, lvl = 30, item = 16776},                -- mercenary_captains_scythe
-        [32801] = {rank =  3, cp =  4000, lvl = 30, item = 12470},                -- mercenary_captains_headgear
-        [32802] = {rank =  3, cp =  4000, lvl = 30, item = 12598},                -- mercenary_captains_doublet
-        [32803] = {rank =  3, cp =  4000, lvl = 30, item = 12726},                -- mercenary_captains_gloves
-        [32804] = {rank =  3, cp =  4000, lvl = 30, item = 12854},                -- mercenary_captains_hose
-        [32805] = {rank =  3, cp =  4000, lvl = 30, item = 12982},                -- mercenary_captains_gaiters
-        [32806] = {rank =  3, cp =  4000, lvl = 30, item = 16747, place = 2},     -- mercenary_captains_kukri
-        [32807] = {rank =  3, cp =  4000, lvl = 30, item = 13221, place = 1},     -- mercenary_captains_belt
-        [32808] = {rank =  3, cp =  4000, lvl =  1, item = 13496, place = 1},     -- windurstian_ring
-        [32816] = {rank =  4, cp =  8000, lvl = 40, item = 16463},                -- combat_casters_dagger
-        [32817] = {rank =  4, cp =  8000, lvl = 40, item = 17282},                -- combat_casters_boomerang
-        [32818] = {rank =  4, cp =  8000, lvl = 10, item = 13101},                -- green_scarf
-        [32819] = {rank =  4, cp =  8000, lvl = 40, item = 12614},                -- combat_casters_cloak
-        [32820] = {rank =  4, cp =  8000, lvl = 40, item = 12743},                -- combat_casters_mitts
-        [32821] = {rank =  4, cp =  8000, lvl = 40, item = 12870},                -- combat_casters_slacks
-        [32822] = {rank =  4, cp =  8000, lvl = 40, item = 12998},                -- combat_casters_shoes
-        [32823] = {rank =  4, cp =  8000, lvl = 40, item = 16807, place = 2},     -- combat_casters_scimitar
-        [32824] = {rank =  4, cp =  8000, lvl = 40, item = 16669, place = 1},     -- combat_casters_axe
-        [32832] = {rank =  5, cp = 16000, lvl = 50, item = 17082, place = 2},     -- tactician_magicians_wand
-        [32833] = {rank =  5, cp = 16000, lvl = 30, item = 13102},                -- paisley_scarf
-        [32834] = {rank =  5, cp = 16000, lvl = 50, item = 12478, place = 2},     -- tactician_magicians_hat
-        [32835] = {rank =  5, cp = 16000, lvl = 50, item = 12606},                -- tactician_magicians_coat
-        [32836] = {rank =  5, cp = 16000, lvl = 50, item = 12734},                -- tactician_magicians_cuffs
-        [32837] = {rank =  5, cp = 16000, lvl = 50, item = 12862},                -- tactician_magicians_slops
-        [32838] = {rank =  5, cp = 16000, lvl = 50, item = 12990},                -- tactician_magicians_pigaches
-        [32839] = {rank =  5, cp = 16000, lvl = 50, item = 16810},                -- tactician_magicians_espadon
-        [32840] = {rank =  5, cp = 16000, lvl = 50, item = 16694, place = 1},     -- tactician_magicians_hooks
-        [32848] = {rank =  6, cp = 24000, lvl = 55, item = 13103},                -- checkered_scarf
-        [32849] = {rank =  6, cp = 24000, lvl = 55, item = 13581},                -- federal_army_mantle
-        [32850] = {rank =  6, cp = 24000, lvl = 55, item = 17094, place = 2},     -- wise_wizards_staff
-        [32851] = {rank =  6, cp = 24000, lvl = 55, item = 16808, place = 2},     -- wise_wizards_bilbo
-        [32852] = {rank =  6, cp = 24000, lvl = 55, item = 16809, place = 1},     -- wise_wizards_anelace
-        [32864] = {rank =  7, cp = 32000, lvl = 60, item = 15958, place = 3},     -- combat_casters_quiver
-        [32865] = {rank =  7, cp = 32000, lvl = 60, item = 12363, place = 2},     -- patriarch_protectors_shield
-        [32866] = {rank =  7, cp = 32000, lvl = 60, item = 13559, place = 1},     -- patriarch_protectors_ring
-        [32880] = {rank =  8, cp = 40000, lvl = 65, item = 14016},                -- master_casters_mitts
-        [32881] = {rank =  8, cp = 40000, lvl = 65, item = 14017, place = 2},     -- master_casters_bracelets
-        [32882] = {rank =  8, cp = 40000, lvl = 65, item = 13142, place = 1},     -- windurstian_scarf
-        [32896] = {rank =  9, cp = 48000, lvl = 71, item = 18145},                -- master_casters_bow
-        [32897] = {rank =  9, cp = 48000, lvl = 71, item = 17530},                -- master_casters_pole
-        [32898] = {rank =  9, cp = 48000, lvl = 71, item = 17508, place = 2},     -- master_casters_baghnakhs
-        [32899] = {rank =  9, cp = 48000, lvl = 71, item = 17617, place = 1},     -- master_casters_knife
-        [32912] = {rank = 10, cp = 56000, lvl =  1, item = 14430, place = 1},     -- federation_aketon
-        [32932] = {           cp =  5000, lvl =  1, item = 17585},                -- federation_signet_staff
-        [32940] = {rank = 10, cp = 10000, lvl =  1, item =  6379},                -- ornate_stool_set
     },
     [2] = -- Windurst
     {
