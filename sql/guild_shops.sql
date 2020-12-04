@@ -179,7 +179,7 @@ INSERT INTO `guild_shops` VALUES (514,13711,29925,146832,20,1,5);    -- carapace
 INSERT INTO `guild_shops` VALUES (514,13712,43312,96442,20,1,5);     -- carapace_harness
 INSERT INTO `guild_shops` VALUES (514,13713,23625,57960,20,1,5);     -- carapace_mittens
 INSERT INTO `guild_shops` VALUES (514,13715,37338,131712,20,1,5);    -- cpc._leggings
-INSERT INTO `guild_shops` VALUES (514,13744,208550,208550,20,013);   -- justaucorps
+INSERT INTO `guild_shops` VALUES (514,13744,208550,208550,20,1,3);   -- justaucorps
 INSERT INTO `guild_shops` VALUES (514,13981,67439,72204,20,1,5);     -- turtle_bangles
 INSERT INTO `guild_shops` VALUES (514,16405,213,519,20,1,20);        -- cat_baghnakhs
 INSERT INTO `guild_shops` VALUES (514,16406,14428,35251,20,1,10);    -- baghnakhs
