@@ -2274,7 +2274,7 @@ namespace battleutils
 
             if (isOffhand || isTwoHanded)
             {
-                maxHitRate = 95;
+                maxHitRate = 99;    // changed to 99%
             }
 
             hitrate = std::clamp(hitrate, 20, maxHitRate);
