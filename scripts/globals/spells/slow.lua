@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.SLOW
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.5 then -- effect taken
+    if resist >= 0.25 then -- effect taken
         if target:addStatusEffect(params.effect, power, 3, duration * resist) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
