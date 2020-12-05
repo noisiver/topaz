@@ -86,15 +86,15 @@ USE_ADOULIN_WEAPON_SKILL_CHANGES = false -- true/false. Change to toggle new Ado
 ENABLE_TRUST_CASTING = 0
 ENABLE_TRUST_QUESTS  = 0
 
-HARVESTING_BREAK_CHANCE = 33 -- % chance for the sickle to break during harvesting.  Set between 0 and 100.
-EXCAVATION_BREAK_CHANCE = 33 -- % chance for the pickaxe to break during excavation.  Set between 0 and 100.
-LOGGING_BREAK_CHANCE    = 33 -- % chance for the hatchet to break during logging.  Set between 0 and 100.
+HARVESTING_BREAK_CHANCE = 20 -- % chance for the sickle to break during harvesting.  Set between 0 and 100.
+EXCAVATION_BREAK_CHANCE = 20 -- % chance for the pickaxe to break during excavation.  Set between 0 and 100.
+LOGGING_BREAK_CHANCE    = 25 -- % chance for the hatchet to break during logging.  Set between 0 and 100.
 MINING_BREAK_CHANCE     = 33 -- % chance for the pickaxe to break during mining.  Set between 0 and 100.
-HARVESTING_RATE         = 50 -- % chance to recieve an item from haresting.  Set between 0 and 100.
-EXCAVATION_RATE         = 50 -- % chance to recieve an item from excavation.  Set between 0 and 100.
-LOGGING_RATE            = 50 -- % chance to recieve an item from logging.  Set between 0 and 100.
-MINING_RATE             = 50 -- % chance to recieve an item from mining.  Set between 0 and 100.
-DIGGING_RATE            = 85 -- % chance to receive an item from chocbo digging during favorable weather.  Set between 0 and 100.
+HARVESTING_RATE         = 65 -- % chance to recieve an item from haresting.  Set between 0 and 100.
+EXCAVATION_RATE         = 65 -- % chance to recieve an item from excavation.  Set between 0 and 100.
+LOGGING_RATE            = 65 -- % chance to recieve an item from logging.  Set between 0 and 100.
+MINING_RATE             = 65 -- % chance to recieve an item from mining.  Set between 0 and 100.
+DIGGING_RATE            = 50 -- % chance to receive an item from chocbo digging during favorable weather.  Set between 0 and 100.
 
 HEALING_TP_CHANGE       = -100 -- Change in TP for each healing tick. Default is -100
 
