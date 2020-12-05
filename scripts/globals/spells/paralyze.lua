@@ -17,8 +17,8 @@ function onSpellCast(caster, target, spell)
     --local MND = caster:getStat(tpz.mod.MND) -- added
 
     -- Calculate potency.
-    --local potency = utils.clamp(math.floor(dMND / 4) + 15, 5, 25)
-    local potency = utils.clamp(math.floor(2 * (MND+dMND)) / 10, 5, 25)
+    local potency = utils.clamp(math.floor(dMND / 4) + 15, 5, 25)
+    --local potency = utils.clamp(math.floor(2 * (MND+dMND)) / 10, 5, 25)
     potency = calculatePotency(potency, spell:getSkillType(), caster, target)
 
     -- Calculate duration.
