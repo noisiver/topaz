@@ -13,7 +13,7 @@ end
 
 function onSpellCast(caster, target, spell)
     -- Pull base stats.
-    local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT) -- No, it uses int vs targets INT
+    local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.MND) -- INT vs targets MND
 
     -- Base power
     -- Min cap: 5 at -80 dINT

@@ -25,7 +25,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.ELEGY
     resm = applyResistanceEffect(caster, target, spell, params)
 
-    if resm < 0.5 then
+    if resm < 0.25 then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
     else
         local iBoost = caster:getMod(tpz.mod.ELEGY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
