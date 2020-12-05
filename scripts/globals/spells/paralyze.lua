@@ -14,7 +14,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
-    local MND = caster:getStat(tpz.mod.MND) -- added
+    
 
     -- Calculate potency.
     ---local potency = utils.clamp(math.floor(dMND / 4) + 15, 5, 25)
