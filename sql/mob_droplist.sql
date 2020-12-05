@@ -10797,7 +10797,7 @@ INSERT INTO `mob_droplist` VALUES (2046,0,0,1000,834,117); -- Ball of Saruta cot
 INSERT INTO `mob_droplist` VALUES (2046,0,0,1000,934,50); -- Pinch of Yuhtunga sulfur (RARE)
 INSERT INTO `mob_droplist` VALUES (2046,0,0,1000,4368,100); -- Two-leaf mandragora bud (UNCOMMON)
 INSERT INTO `mob_droplist` VALUES (2046,0,0,1000,4369,5); -- Four-leaf mandragora bud (SUPER RARE)
-INSERT INTO `mob_droplist` VALUES (2046,0,0,1000,9083,100); -- Mandragora Dewdrop (Uncommon)
+INSERT INTO `mob_droplist` VALUES (2046,0,0,1000,9083,0); -- Mandragora Dewdrop (Uncommon)
 INSERT INTO `mob_droplist` VALUES (2047,0,0,1000,13179,100);
 INSERT INTO `mob_droplist` VALUES (2047,0,0,1000,13180,100);
 INSERT INTO `mob_droplist` VALUES (2047,0,0,1000,13181,100);
@@ -14263,13 +14263,13 @@ INSERT INTO `mob_droplist` VALUES (2654,0,0,1000,4872,30);
 INSERT INTO `mob_droplist` VALUES (2654,0,0,1000,4876,10);
 INSERT INTO `mob_droplist` VALUES (2654,0,0,1000,4877,10);
 INSERT INTO `mob_droplist` VALUES (2654,0,0,1000,4878,30);
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,180);
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,180);
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,180);
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,893,140);
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,938,70);
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,4359,520);
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,4359,370);
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,180);	-- wild dhalmel dhalmel hide
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,110);	-- wild dhalmel dhalmel hide
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,70);	-- wild dhalmel dhalmel hide
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,893,140);	-- wild dhalmel giant femur
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,938,70);	-- wild dhalmel Sprig of papaka grass
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,4359,520);	-- wild dhalmel dhalmel meat
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,4359,370);	-- wild dhalmel dhalmel meat
 INSERT INTO `mob_droplist` VALUES (2656,0,0,1000,878,250);
 INSERT INTO `mob_droplist` VALUES (2656,0,0,1000,5571,80);
 INSERT INTO `mob_droplist` VALUES (2657,0,0,1000,878,310);
@@ -14772,7 +14772,7 @@ INSERT INTO `mob_droplist` VALUES (2742,0,0,1000,2525,20);
 INSERT INTO `mob_droplist` VALUES (2742,0,0,1000,2558,130);
 INSERT INTO `mob_droplist` VALUES (2742,0,0,1000,5008,60);
 INSERT INTO `mob_droplist` VALUES (2742,0,0,1000,5012,30);
-INSERT INTO `mob_droplist` VALUES (2743,2,0,1000,656,0);
+INSERT INTO `mob_droplist` VALUES (2743,2,0,1000,656,0);	-- yagudo pipper tahrongi
 INSERT INTO `mob_droplist` VALUES (2743,0,0,1000,750,100);
 INSERT INTO `mob_droplist` VALUES (2743,0,0,1000,841,520);
 INSERT INTO `mob_droplist` VALUES (2743,0,0,1000,841,260);
