@@ -747,7 +747,7 @@ INSERT INTO `item_basic` VALUES (835,0,'flax_flower','flax_flower',12,4,40,0,50)
 INSERT INTO `item_basic` VALUES (836,0,'square_of_damascene_cloth','damascene_cloth',12,4,40,0,5000);
 INSERT INTO `item_basic` VALUES (837,0,'spool_of_malboro_fiber','malboro_fiber',12,4,40,0,5000);
 INSERT INTO `item_basic` VALUES (838,0,'spider_web','spider_web',1,4,40,0,660);
-INSERT INTO `item_basic` VALUES (839,0,'piece_of_crawler_cocoon','crawler_cocoon',12,4,40,0,31);
+INSERT INTO `item_basic` VALUES (839,0,'piece_of_crawler_cocoon','crawler_cocoon',1,4,40,0,31);
 INSERT INTO `item_basic` VALUES (840,0,'chocobo_feather','chocobo_fthr.',12,4,40,0,2);
 INSERT INTO `item_basic` VALUES (841,0,'yagudo_feather','yagudo_feather',12,4,40,0,10);
 INSERT INTO `item_basic` VALUES (842,0,'giant_bird_feather','giant_bird_fthr.',12,4,40,0,153);
