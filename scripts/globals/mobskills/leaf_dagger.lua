@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded)
 
     local typeEffect = tpz.effect.POISON
-    local power = (mob:getMainLvl()/10)
+    local power = (mob:getMainLvl()/5)  -- buffed from 10
     if (power < 1 ) then
         power = 1
     end
