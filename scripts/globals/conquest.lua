@@ -820,7 +820,8 @@ local function getStock(player, guardNation, option)
         if guardNation == tpz.nation.OTHER then
             r = overseerInvNation[player:getNation()][option]
         else
-            r = overseerInvNation[guardNation][option]
+           -- r = overseerInvNation[guardNation][option]
+            r = overseerInvNation[player:getNation()][option]
         end
     end
     return r
