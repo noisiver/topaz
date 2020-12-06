@@ -353,7 +353,7 @@ local helmInfo =
                 drops =
                 {
                     {1890,   880}, -- Bone Chip
-                    {1102,  894}   -- Beetle Jaw
+                    {1102,  894},   -- Beetle Jaw
                     {1130,   889}, -- Beetle Shell
                     {1300,   891}, -- Bat Fang
                     {1440,   893}, -- Giant Femur
