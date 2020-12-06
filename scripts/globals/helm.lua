@@ -331,7 +331,7 @@ local helmInfo =
                     {2220,   880}, -- Bone Chip
                     {2220,   898}, -- Chicken Bone
                     {1220,   891}, -- Bat Fang
-                    {1102,  894}   -- Beetle Jaw
+                    {1102,  894},   -- Beetle Jaw
                     {720,   902}, -- Demon Horn
                     {1250, 17396}, -- Little Worm
                     { 420,  2503}, -- Antlion Jaw
