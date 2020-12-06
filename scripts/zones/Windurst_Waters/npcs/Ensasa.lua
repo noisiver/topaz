@@ -17,11 +17,11 @@ function onTrigger(player, npc)
     player:showText(npc, ID.text.ENSASA_SHOP_DIALOG)
 
     stock = {
-        104,  3881, 1,     --Tarutaru Folding Screen
+        104,  3881, 3,     --Tarutaru Folding Screen
 
-        17336,     5, 2,     --Crossbow Bolt
-        17318,     3, 2,     --Wooden Arrow
-        112,   456, 2,     --Yellow Jar
+        17336,     5, 3,     --Crossbow Bolt
+        17318,     3, 3,     --Wooden Arrow
+        112,   456, 3,     --Yellow Jar
 
         17319,     4, 3,     --Bone Arrow
         218,   920, 3,     --Earthen Flowerpot
