@@ -1866,7 +1866,7 @@ INSERT INTO `item_basic` VALUES (1977,0,'square_of_vivio_sheep_leather','vi._sh.
 INSERT INTO `item_basic` VALUES (1978,0,'square_of_bloody_ram_leather','bld._ram_lthr.',12,4,41,0,592);
 INSERT INTO `item_basic` VALUES (1979,0,'cup_of_leech_saliva','leech_saliva',12,4,44,0,170);
 INSERT INTO `item_basic` VALUES (1980,0,'jar_of_antican_acid','antican_acid',12,4,50,0,700);
-INSERT INTO `item_basic` VALUES (1981,0,'skull_locust','skull_locust',12,4,59,0,97);
+INSERT INTO `item_basic` VALUES (1981,0,'skull_locust','skull_locust',12,4,59,0,10);
 INSERT INTO `item_basic` VALUES (1982,0,'king_locust','king_locust',12,4,59,0,205);
 INSERT INTO `item_basic` VALUES (1983,0,'mushroom_locust','mushrm._locust',12,4,59,0,307);
 INSERT INTO `item_basic` VALUES (1984,0,'snapping_mole','snapping_mole',12,4,59,0,41);
