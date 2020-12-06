@@ -22,14 +22,14 @@ function onUseAbility(player, target, ability)
         local enmityList = mob:getEnmityList()
         if enmityList and #enmityList > 0 then
             if #enmityList < 6 then
-                subtleBlow = 20
-                accuracy = 15
+                subtleBlow = 30 -- changed from 20
+                accuracy = 10   -- changed from 15
             elseif #enmityList < 18 then
-                subtleBlow = 50
-                accuracy = 25
+                subtleBlow = 30 -- changed from 50
+                accuracy = 10   -- changed from 25
             else
-                subtleBlow = 50
-                accuracy = 49
+                subtleBlow = 30 -- changed from 50
+                accuracy = 10   -- changed from 49
             end
         end
 

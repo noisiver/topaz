@@ -8384,7 +8384,6 @@ INSERT INTO `item_mods` VALUES (12504,68,7);
 INSERT INTO `item_mods` VALUES (12505,2,-1);	-- Bone Hairpin
 INSERT INTO `item_mods` VALUES (12505,5,3);
 INSERT INTO `item_mods` VALUES (12505,61,2);
-INSERT INTO `item_mods` VALUES (12505,112,1);	-- Healing magic Skill +1
 INSERT INTO `item_mods` VALUES (12506,2,-3);
 INSERT INTO `item_mods` VALUES (12506,5,9);
 INSERT INTO `item_mods` VALUES (12506,59,6);
@@ -10337,13 +10336,10 @@ INSERT INTO `item_mods` VALUES (13312,163,-1);
 INSERT INTO `item_mods` VALUES (13313,54,2);	-- Shell Earring
 INSERT INTO `item_mods` VALUES (13313,58,-2);
 INSERT INTO `item_mods` VALUES (13313,59,2);
-INSERT INTO `item_mods` VALUES (13313,1,2);		-- +2 Defense
-INSERT INTO `item_mods` VALUES (13313,68,-3);	-- -3 Evasion
 INSERT INTO `item_mods` VALUES (13314,54,3);	-- shell earring +1
 INSERT INTO `item_mods` VALUES (13314,58,-2);
 INSERT INTO `item_mods` VALUES (13314,59,3);
 INSERT INTO `item_mods` VALUES (13314,1,2);		-- +3 Defense
-INSERT INTO `item_mods` VALUES (13314,68,-3);	-- -2 Evasion
 INSERT INTO `item_mods` VALUES (13315,23,-3);
 INSERT INTO `item_mods` VALUES (13315,68,3);
 INSERT INTO `item_mods` VALUES (13316,23,-4);
@@ -10563,8 +10559,6 @@ INSERT INTO `item_mods` VALUES (13441,25,-2);
 INSERT INTO `item_mods` VALUES (13441,26,2);
 INSERT INTO `item_mods` VALUES (13442,54,2);	-- Shell Ring
 INSERT INTO `item_mods` VALUES (13442,59,2);
-INSERT INTO `item_mods` VALUES (13442,112,1);	-- +1 Healing Magic Skill
-INSERT INTO `item_mods` VALUES (13442,2,-3);	-- -3 HP
 INSERT INTO `item_mods` VALUES (13443,14,1);
 INSERT INTO `item_mods` VALUES (13443,60,3);
 INSERT INTO `item_mods` VALUES (13444,8,1);
@@ -10676,7 +10670,6 @@ INSERT INTO `item_mods` VALUES (13493,5,-2);
 INSERT INTO `item_mods` VALUES (13494,54,3);	-- shell ring +1
 INSERT INTO `item_mods` VALUES (13494,59,3);
 INSERT INTO `item_mods` VALUES (13494,112,3);	-- +3 Healing Magic Skill
-INSERT INTO `item_mods` VALUES (13494,2,-5);	-- -3 HP
 INSERT INTO `item_mods` VALUES (13495,1,2);
 INSERT INTO `item_mods` VALUES (13495,8,1);
 INSERT INTO `item_mods` VALUES (13495,13,1);

@@ -63,11 +63,11 @@ INSERT INTO `abilities` VALUES (37,'dodge',2,15,1,60,14,121,0,5,2000,0,6,20.0,0,
 INSERT INTO `abilities` VALUES (38,'chakra',2,20,1,30,15,102,0,6,2000,0,6,20.0,0,1,300,452,0,NULL);
 INSERT INTO `abilities` VALUES (39,'boost',2,5,1,15,16,116,0,7,2000,0,6,20.0,0,1,300,0,0,NULL);
 INSERT INTO `abilities` VALUES (40,'counterstance',2,45,1,300,17,0,0,8,2000,0,6,20.0,0,1,900,0,0,NULL);
-INSERT INTO `abilities` VALUES (41,'steal',6,5,4,300,60,125,0,181,2000,0,3,4.4,0,1,300,0,0,NULL);
-INSERT INTO `abilities` VALUES (42,'flee',6,25,1,300,62,126,0,9,2000,0,6,20.0,0,1,80,704,0,NULL);
-INSERT INTO `abilities` VALUES (43,'hide',6,45,1,300,63,0,0,10,2000,0,6,20.0,0,0,0,706,0,NULL);
+INSERT INTO `abilities` VALUES (41,'steal',6,5,4,60,60,125,0,181,2000,0,3,4.4,0,1,300,0,0,NULL);		-- made 60s
+INSERT INTO `abilities` VALUES (42,'flee',6,25,1,120,62,126,0,9,2000,0,6,20.0,0,1,80,704,0,NULL);	-- made 120s
+INSERT INTO `abilities` VALUES (43,'hide',6,45,1,60,63,0,0,10,2000,0,6,20.0,0,0,0,706,0,NULL);		-- made 60s
 INSERT INTO `abilities` VALUES (44,'sneak_attack',6,15,1,60,64,0,0,17,2000,0,6,20.0,0,1,0,708,0,NULL);
-INSERT INTO `abilities` VALUES (45,'mug',6,35,4,300,65,129,0,183,2000,0,3,4.4,0,1,300,0,0,NULL);
+INSERT INTO `abilities` VALUES (45,'mug',6,35,4,60,65,129,0,183,2000,0,3,4.4,0,1,300,0,0,NULL);		-- made 60s
 INSERT INTO `abilities` VALUES (46,'shield_bash',7,15,4,60,73,0,0,185,2000,0,3,4.4,0,450,900,768,0,NULL);
 INSERT INTO `abilities` VALUES (47,'holy_circle',7,5,1,600,74,0,0,29,2000,0,6,20.0,1,1,20,770,0,NULL);
 INSERT INTO `abilities` VALUES (48,'sentinel',7,30,1,300,75,0,0,11,2000,0,6,20.0,0,1,900,772,0,NULL);
@@ -295,7 +295,7 @@ INSERT INTO `abilities` VALUES (272,'enmity_douse',4,87,4,600,34,100,0,257,2000,
 INSERT INTO `abilities` VALUES (273,'manawell',4,95,1,600,35,100,0,252,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (274,'saboteur',5,83,1,300,36,0,0,258,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (275,'spontaneity',5,95,3,600,37,0,0,259,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
-INSERT INTO `abilities` VALUES (276,'conspirator',6,87,1,300,40,0,0,237,2000,0,6,14.0,1,1,80,0,4,'ABYSSEA');
+INSERT INTO `abilities` VALUES (276,'conspirator',6,55,1,60,40,0,0,237,2000,0,6,14.0,1,1,80,0,4,'ABYSSEA');		-- changed to level 55 1m cd
 INSERT INTO `abilities` VALUES (277,'sepulcher',7,87,4,300,41,100,0,253,2000,0,6,12.0,0,1,80,0,0,NULL); -- needs animation
 INSERT INTO `abilities` VALUES (278,'palisade',7,40,1,120,42,100,0,253,2000,0,6,20.0,0,900,1800,0,0,NULL);
 INSERT INTO `abilities` VALUES (279,'arcane_crest',8,87,4,300,43,100,0,250,2000,0,6,20.0,0,1,80,0,0,NULL); -- needs animation
@@ -331,7 +331,7 @@ INSERT INTO `abilities` VALUES (314,'ternary_flourish',19,93,1,30,226,0,0,222,20
 -- INSERT INTO `abilities` VALUES (318,'smiting_breath',14,90,4,60,238,100,0,135,2000,0,6,8.0,0,1,80,0,0,NULL); -- check animation
 -- INSERT INTO `abilities` VALUES (319,'restoring_breath',14,90,1,60,239,100,0,130,2000,0,6,0.0,0,1,80,0,0,NULL); -- check animation
 INSERT INTO `abilities` VALUES (320,'konzen-ittai',12,76,4,180,132,529,0,39,2000,0,14,4.0,0,1,300,0,0,'ABYSSEA');	-- changed from level 65
-INSERT INTO `abilities` VALUES (321,'bully',6,93,4,180,240,127,0,248,2000,0,6,8.0,0,1,300,0,4,'ABYSSEA');
+INSERT INTO `abilities` VALUES (321,'bully',6,20,4,60,240,127,0,248,2000,0,6,8.0,0,1,300,0,4,'ABYSSEA');	-- changed to level 15, 60s cd
 INSERT INTO `abilities` VALUES (322,'maintenance',18,30,1,90,214,0,0,83,2000,0,6,12.0,0,0,0,1474,0,'ABYSSEA'); -- ta257
 INSERT INTO `abilities` VALUES (323,'brazen_rush',1,96,1,3600,254,100,0,271,2000,0,6,0.0,0,1,300,0,0,NULL);
 INSERT INTO `abilities` VALUES (324,'inner_strength',2,96,1,3600,254,100,0,272,2000,0,6,0.0,0,0,0,0,0,NULL); -- check animation
