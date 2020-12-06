@@ -54,7 +54,7 @@ function onUseAbility(player, target, ability, action)
             debuff = despoilDebuffs[math.random(#despoilDebuffs)]
         end
         local power = processDebuff(player, target, ability, debuff) -- Also sets ability message
-        target:addStatusEffect(debuff, power, 0, 90)
+        target:addStatusEffect(debuff, power, 0, 30)        -- from 90(duration?)
     else
         action:animation(target:getID(), 182)
         ability:setMsg(tpz.msg.basic.STEAL_FAIL) -- Failed
@@ -67,28 +67,28 @@ function processDebuff(player, target, ability, debuff)
     local power = 10
     if debuff == tpz.effect.ATTACK_DOWN then
         ability:setMsg(tpz.msg.basic.DESPOIL_ATT_DOWN)
-        power = 20
+        power = 10      -- changed from 20
     elseif debuff == tpz.effect.DEFENSE_DOWN then
         ability:setMsg(tpz.msg.basic.DESPOIL_DEF_DOWN)
-        power = 30
+        power = 10  -- changed from 30
     elseif debuff == tpz.effect.MAGIC_ATK_DOWN then
         ability:setMsg(tpz.msg.basic.DESPOIL_MATT_DOWN)
     elseif debuff == tpz.effect.MAGIC_DEF_DOWN then
         ability:setMsg(tpz.msg.basic.DESPOIL_MDEF_DOWN)
-        power = 20
+        power = 10  -- changed from 20
     elseif debuff == tpz.effect.EVASION_DOWN then
         ability:setMsg(tpz.msg.basic.DESPOIL_EVA_DOWN)
-        power = 30
+        power = 10  -- changed from 30
     elseif debuff == tpz.effect.ACCURACY_DOWN then
         ability:setMsg(tpz.msg.basic.DESPOIL_ACC_DOWN)
-        power = 20
+        power = 10  -- changed from 20
     elseif debuff == tpz.effect.SLOW then
         ability:setMsg(tpz.msg.basic.DESPOIL_SLOW)
         local dMND = player:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
         if dMND >= 0 then
-            power = 2 * dMND + 1500
+            power = 2 * dMND + 730 -- changed from 1500
         else
-            power = dMND + 1500
+            power = dMND + 730     -- changed from 1500
         end
         power = utils.clamp(power, 750, 3000)
     end

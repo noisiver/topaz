@@ -31,7 +31,7 @@ CREATE TABLE `despoil_effects` (
 
 --
 -- Dumping data for table `despoil_effects`
---
+-- https://ffxiclopedia.fandom.com/wiki/Despoil despoil list
 
 LOCK TABLES `despoil_effects` WRITE;
 /*!40000 ALTER TABLE `despoil_effects` DISABLE KEYS */;
