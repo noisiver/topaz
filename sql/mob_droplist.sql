@@ -6182,8 +6182,8 @@ INSERT INTO `mob_droplist` VALUES (1186,0,0,1000,818,10);
 INSERT INTO `mob_droplist` VALUES (1186,0,0,1000,824,50);
 INSERT INTO `mob_droplist` VALUES (1186,0,0,1000,825,10);
 INSERT INTO `mob_droplist` VALUES (1186,0,0,1000,827,50);
-INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,510,14);		-- goblin weaver inner horutoto
-INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,511,28);
+INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,510,00);		-- goblin weaver inner horutoto
+INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,511,00);
 INSERT INTO `mob_droplist` VALUES (1187,2,0,1000,817,35);
 INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,817,0);
 INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,818,19);
