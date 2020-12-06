@@ -125,8 +125,8 @@ INSERT INTO `mob_droplist` VALUES (17,0,0,1000,930,100);
 INSERT INTO `mob_droplist` VALUES (17,0,0,1000,1125,20);
 INSERT INTO `mob_droplist` VALUES (18,0,0,1000,924,170);
 INSERT INTO `mob_droplist` VALUES (18,0,0,1000,1125,20);
-INSERT INTO `mob_droplist` VALUES (19,0,0,1000,922,160);
-INSERT INTO `mob_droplist` VALUES (19,0,0,1000,924,100);
+INSERT INTO `mob_droplist` VALUES (19,0,0,1000,922,160);		-- blade bat
+INSERT INTO `mob_droplist` VALUES (19,0,0,1000,924,005);
 INSERT INTO `mob_droplist` VALUES (20,0,0,1000,748,20);   -- (Adamantking_Effigy, bastok) gold_beastcoin
 INSERT INTO `mob_droplist` VALUES (20,0,0,1000,749,50);   -- mythril_beastcoin
 INSERT INTO `mob_droplist` VALUES (20,0,0,1000,1455,20);  -- one_byne_bill
@@ -1350,9 +1350,9 @@ INSERT INTO `mob_droplist` VALUES (216,2,0,1000,928,0);
 INSERT INTO `mob_droplist` VALUES (216,0,0,1000,928,270);
 INSERT INTO `mob_droplist` VALUES (216,2,0,1000,17316,0);
 INSERT INTO `mob_droplist` VALUES (216,0,0,1000,17316,80);
-INSERT INTO `mob_droplist` VALUES (217,2,0,1000,928,0);
-INSERT INTO `mob_droplist` VALUES (217,0,0,1000,12796,110);
-INSERT INTO `mob_droplist` VALUES (217,2,0,1000,17316,0);
+INSERT INTO `mob_droplist` VALUES (217,2,0,1000,928,320);		--balloon
+INSERT INTO `mob_droplist` VALUES (217,0,0,1000,12796,0);
+INSERT INTO `mob_droplist` VALUES (217,2,0,1000,17316,04);
 INSERT INTO `mob_droplist` VALUES (217,0,0,1000,17316,330);
 INSERT INTO `mob_droplist` VALUES (218,0,0,1000,15457,250);
 INSERT INTO `mob_droplist` VALUES (219,4,0,1000,858,0);
@@ -1541,7 +1541,7 @@ INSERT INTO `mob_droplist` VALUES (241,0,0,1000,922,160);
 INSERT INTO `mob_droplist` VALUES (241,0,0,1000,1029,60);
 INSERT INTO `mob_droplist` VALUES (242,0,0,1000,1640,80);
 INSERT INTO `mob_droplist` VALUES (243,0,0,1000,1617,90);
-INSERT INTO `mob_droplist` VALUES (244,0,0,1000,922,320);
+INSERT INTO `mob_droplist` VALUES (244,0,0,1000,922,210);	-- battue bats inner horutoto ruins bat wing
 INSERT INTO `mob_droplist` VALUES (245,0,0,1000,557,30);
 INSERT INTO `mob_droplist` VALUES (245,2,0,1000,921,0);
 INSERT INTO `mob_droplist` VALUES (245,0,0,1000,921,160);
@@ -2951,7 +2951,7 @@ INSERT INTO `mob_droplist` VALUES (529,0,0,1000,816,111);
 INSERT INTO `mob_droplist` VALUES (529,0,0,1000,1156,140);
 INSERT INTO `mob_droplist` VALUES (529,4,0,1000,4357,0);
 INSERT INTO `mob_droplist` VALUES (530,0,0,1000,583,110);
-INSERT INTO `mob_droplist` VALUES (530,0,0,1000,816,111);
+INSERT INTO `mob_droplist` VALUES (530,0,0,1000,816,123);
 INSERT INTO `mob_droplist` VALUES (530,0,0,1000,1156,140);
 INSERT INTO `mob_droplist` VALUES (531,0,0,1000,896,1000);
 INSERT INTO `mob_droplist` VALUES (531,4,0,1000,897,0);
@@ -6088,10 +6088,10 @@ INSERT INTO `mob_droplist` VALUES (1173,0,0,1000,12704,10);
 INSERT INTO `mob_droplist` VALUES (1173,0,0,1000,12832,20);
 INSERT INTO `mob_droplist` VALUES (1173,0,0,1000,12960,20);
 INSERT INTO `mob_droplist` VALUES (1174,2,0,1000,656,0);
-INSERT INTO `mob_droplist` VALUES (1174,0,0,1000,4387,226);		-- goblion thug wild onion
-INSERT INTO `mob_droplist` VALUES (1174,0,0,1000,12448,30);
+INSERT INTO `mob_droplist` VALUES (1174,0,0,1000,4387,226);		-- goblin thug wild onion
+INSERT INTO `mob_droplist` VALUES (1174,0,0,1000,12448,10);
 INSERT INTO `mob_droplist` VALUES (1174,0,0,1000,12704,10);
-INSERT INTO `mob_droplist` VALUES (1174,0,0,1000,12832,20);
+INSERT INTO `mob_droplist` VALUES (1174,0,0,1000,12832,10);
 INSERT INTO `mob_droplist` VALUES (1174,0,0,1000,12960,10);
 INSERT INTO `mob_droplist` VALUES (1175,0,0,1000,507,20);
 INSERT INTO `mob_droplist` VALUES (1175,0,0,1000,508,20);
