@@ -331,13 +331,13 @@ local helmInfo =
                     {2220,   880}, -- Bone Chip
                     {2220,   898}, -- Chicken Bone
                     {1220,   891}, -- Bat Fang
-                    {1220, 17396}, -- Little Worm
-                    { 720,   897}, -- Scorpion Claw
-                    { 720,   896}, -- Scorpion Shell
+                    {1102,  894}   -- Beetle Jaw
+                    {720,   902}, -- Demon Horn
+                    {1250, 17396}, -- Little Worm
                     { 420,  2503}, -- Antlion Jaw
                     { 420,  1236}, -- Cactus Stems
                     { 420,  1473}, -- High Quality Scorpion Shell
-                    { 420,   769}, -- Colored Rock
+                    { 420,   1193}, -- High Quality Crab Shell
                 },
                 points =
                 {
@@ -352,15 +352,17 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2690,   880}, -- Bone Chip
-                    {1830,   898}, -- Chicken Bone
+                    {1890,   880}, -- Bone Chip
+                    {1102,  894}   -- Beetle Jaw
+                    {1130,   889}, -- Beetle Shell
                     {1300,   891}, -- Bat Fang
                     {1440,   893}, -- Giant Femur
                     {1250, 17396}, -- Little Worm
-                    {  50,   897}, -- Scorpion Claw
-                    { 290,   896}, -- Scorpion Shell
+                    {1050,   897}, -- Scorpion Claw
+                    {1025,   896}, -- Scorpion Shell
                     { 240,   885}, -- Turtle Shell
                     { 190,  1888}, -- Silica
+                    { 100,  887},  -- Coral Fragment
                 },
                 points =
                 {
@@ -388,12 +390,12 @@ local helmInfo =
                 {
                     {2130,   936}, -- Rock Salt
                     {1700,   888}, -- Seashell
-                    { 430,   881}, -- Crab Shell
-                    {1490,   864}, -- Fish Scales
+                    {1520,   881}, -- Crab Shell
+                    {500,   1123}, -- Manticore Fang
                     {2130, 17395}, -- Lugworm
-                    {1060, 17397}, -- Shell Bug
+                    {1060, 884},   -- Black Tiger Fang
                     { 100,   887}, -- Coral Fragment
-                    { 100,   573}, -- Vegetable Seeds
+                    {1050,   897}, -- Scorpion Claw
                     { 430,   885}, -- Turtle Shell
                     { 100,   575}, -- Grain Seeds
                     { 640,  1985}, -- Helmet Mole
@@ -418,10 +420,11 @@ local helmInfo =
                     {2560,   880}, -- Bone Chip
                     {2560,   891}, -- Bat Fang
                     {2330, 17396}, -- Little Worm
+                    {1060, 884},   -- Black Tiger Fang
                     { 930,   893}, -- Giant Femur
                     { 700,   897}, -- Scorpion Claw
-                    { 230,   896}, -- Scorpion Shell
-                    { 230,   703}, -- Petrified Log
+                    { 530,   896}, -- Scorpion Shell
+                    { 730,   703}, -- Petrified Log
                     { 100,   769}, -- Colored Rock
                     { 470,  1888}, -- Silica
                 },
