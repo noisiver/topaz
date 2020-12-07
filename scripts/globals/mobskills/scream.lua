@@ -13,7 +13,8 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.MND_DOWN
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10, 3, 120))
+    local power = math.random(1, 10)  
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 3, 120))
 
     return typeEffect
 end
