@@ -33,7 +33,7 @@ function onMobWeaponSkill(target, mob, skill)
     dmgmod = dmgmod + hpMod * 1 + math.random(2, 6)
 
     if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
-        dmgmod = dmgmod * 5
+        dmgmod = dmgmod * .5
     end
 
     mob:setHP(0)
