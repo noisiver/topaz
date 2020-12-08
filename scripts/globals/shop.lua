@@ -60,7 +60,7 @@ tpz.shop =
     generalGuild = function(player, stock, guildSkillId)
         local log = 1.5      -- changed from -1
 
-        player:createShop(#stock / 3, log)
+        player:createShop(#stock / 1, log)      -- changed from / 1
 
         for i = 1, #stock, 3 do
             player:addShopItem(stock[i], stock[i+1], guildSkillId, stock[i+2])
