@@ -12050,7 +12050,7 @@ INSERT INTO `mob_groups` VALUES (20,3903,194,'Three_of_Batons',600,0,2406,0,0,5,
 INSERT INTO `mob_groups` VALUES (21,3906,194,'Three_of_Swords',600,0,2409,0,0,5,9,0);
 INSERT INTO `mob_groups` VALUES (22,3904,194,'Three_of_Coins',600,0,2407,0,0,5,9,0);
 INSERT INTO `mob_groups` VALUES (23,1417,194,'Four_of_Cups',600,0,902,0,0,10,14,0);
-INSERT INTO `mob_groups` VALUES (24,1415,194,'Four_of_Batons',600,0,600,0,0,10,14,0);
+INSERT INTO `mob_groups` VALUES (24,1415,194,'Four_of_Batons',600,0,900,0,0,10,14,0);
 INSERT INTO `mob_groups` VALUES (25,1418,194,'Four_of_Swords',600,0,903,0,0,10,14,0);
 INSERT INTO `mob_groups` VALUES (26,1416,194,'Four_of_Coins',600,0,901,0,0,10,14,0);
 INSERT INTO `mob_groups` VALUES (27,1352,194,'Five_of_Cups',600,0,838,0,0,15,19,0);
@@ -12065,7 +12065,7 @@ INSERT INTO `mob_groups` VALUES (35,1185,194,'Eight_of_Cups',960,0,749,0,0,30,34
 INSERT INTO `mob_groups` VALUES (36,1183,194,'Eight_of_Batons',960,0,747,0,0,30,34,0);
 INSERT INTO `mob_groups` VALUES (37,1186,194,'Eight_of_Swords',960,0,750,0,0,30,34,0);
 INSERT INTO `mob_groups` VALUES (38,1184,194,'Eight_of_Coins',960,0,748,0,0,30,34,0);
-INSERT INTO `mob_groups` VALUES (39,600,194,'Dancing_Weapon',600,0,0,0,0,28,30,0);
+INSERT INTO `mob_groups` VALUES (39,900,194,'Dancing_Weapon',600,0,0,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (40,3555,194,'Seven_of_Cups',600,0,2207,0,0,25,29,0);
 INSERT INTO `mob_groups` VALUES (41,3553,194,'Seven_of_Batons',600,0,2205,0,0,25,29,0);
 INSERT INTO `mob_groups` VALUES (42,3556,194,'Seven_of_Swords',600,0,2208,0,0,25,29,0);
