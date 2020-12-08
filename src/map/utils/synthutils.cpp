@@ -462,9 +462,9 @@ int32 doSynthSkillUp(CCharEntity* PChar)
                     else if((baseDiff >= 3) && (baseDiff < 5))
                         satier = 1; // changed from 2
                     else if((baseDiff >= 5) && (baseDiff < 8))
-                        satier = 1; // changed from 3
+                        satier = 2; // changed from 3
                     else if((baseDiff >= 8) && (baseDiff < 10))
-                        satier = 2; //changed from 4
+                        satier = 3; //changed from 4
                     else if (baseDiff >= 10)
                         satier = 2; // changed from 5
 
