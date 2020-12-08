@@ -766,7 +766,7 @@ INSERT INTO `item_basic` VALUES (854,0,'cockatrice_skin','cockatrice_skin',12,4,
 INSERT INTO `item_basic` VALUES (855,0,'square_of_black_tiger_leather','tiger_leather',12,4,41,0,768);
 INSERT INTO `item_basic` VALUES (856,0,'rabbit_hide','rabbit_hide',12,4,41,0,15);
 INSERT INTO `item_basic` VALUES (857,0,'dhalmel_hide','dhalmel_hide',1,4,41,0,200);		-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (858,0,'wolf_hide','wolf_hide',12,4,41,0,129);
+INSERT INTO `item_basic` VALUES (858,0,'wolf_hide','wolf_hide',1,4,41,0,129);
 INSERT INTO `item_basic` VALUES (859,0,'ram_skin','ram_skin',1,4,41,0,250);
 INSERT INTO `item_basic` VALUES (860,0,'behemoth_hide','behemoth_hide',1,4,41,0,750);		-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (861,0,'black_tiger_hide','tiger_hide',1,4,41,0,350);		-- stack changed from 12 to 1
@@ -834,7 +834,7 @@ INSERT INTO `item_basic` VALUES (922,0,'bat_wing','bat_wing',12,4,44,0,15);
 INSERT INTO `item_basic` VALUES (923,0,'dryad_root','dryad_root',12,4,44,0,241);
 INSERT INTO `item_basic` VALUES (924,0,'vial_of_fiend_blood','fiend_blood',12,4,44,0,121);
 INSERT INTO `item_basic` VALUES (925,0,'giant_stinger','giant_stinger',12,4,44,0,162);
-INSERT INTO `item_basic` VALUES (926,0,'lizard_tail','lizard_tail',1,4,44,0,28);
+INSERT INTO `item_basic` VALUES (926,0,'lizard_tail','lizard_tail',12,4,44,0,28);
 INSERT INTO `item_basic` VALUES (927,0,'coeurl_whisker','coeurl_whisker',12,4,44,0,210);
 INSERT INTO `item_basic` VALUES (928,0,'pinch_of_bomb_ash','bomb_ash',12,4,44,0,103);
 INSERT INTO `item_basic` VALUES (929,0,'jar_of_black_ink','black_ink',12,4,44,0,40);

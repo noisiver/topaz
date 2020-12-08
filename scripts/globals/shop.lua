@@ -38,7 +38,7 @@ tpz.shop =
         local priceMultiplier = 1
 
         if log then
-            priceMultiplier = (1 + (0.125 * (9 - player:getFameLevel(log)) / 8)) * SHOP_PRICE   -- changed from 0.2
+            priceMultiplier = (1 + (0.120 * (9 - player:getFameLevel(log)) / 8)) * SHOP_PRICE   -- changed from 0.2
         else
             log = -1
         end
@@ -58,7 +58,7 @@ tpz.shop =
         log is default set to -1 as it's needed as part of createShop()
     ******************************************************************************* --]]
     generalGuild = function(player, stock, guildSkillId)
-        local log = 1.5      -- changed from 1
+        local log = 1.5      -- changed from -1
 
         player:createShop(#stock / 3, log)
 
