@@ -38,7 +38,7 @@ tpz.shop =
         local priceMultiplier = 1
 
         if log then
-            priceMultiplier = (1 + (0.122 * (9 - player:getFameLevel(log)) / 8)) * SHOP_PRICE   -- changed from 0.2
+            priceMultiplier = (1 + (0.120 * (9 - player:getFameLevel(log)) / 8)) * SHOP_PRICE   -- changed from 0.2
         else
             log = -1
         end
