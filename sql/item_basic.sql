@@ -10491,7 +10491,7 @@ INSERT INTO `item_basic` VALUES (13200,0,'waistbelt','waistbelt',1,2084,23,0,171
 INSERT INTO `item_basic` VALUES (13201,0,'purple_belt','purple_belt',1,2052,23,0,506);
 INSERT INTO `item_basic` VALUES (13202,0,'brown_belt','brown_belt',1,2052,23,0,1980);
 INSERT INTO `item_basic` VALUES (13203,0,'barbarians_belt','barbarians_belt',1,2084,23,0,506);
-INSERT INTO `item_basic` VALUES (13204,0,'heko_obi','heko_obi',1,2084,23,0,99);
+INSERT INTO `item_basic` VALUES (13204,0,'heko_obi','heko_obi',1,2084,23,0,130);
 INSERT INTO `item_basic` VALUES (13205,0,'silver_obi','silver_obi',1,2084,23,0,613);
 INSERT INTO `item_basic` VALUES (13206,0,'gold_obi','gold_obi',1,2084,23,0,2204);
 INSERT INTO `item_basic` VALUES (13207,0,'brocade_obi','brocade_obi',1,2084,23,0,2982);
