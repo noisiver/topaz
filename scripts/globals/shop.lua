@@ -58,7 +58,7 @@ tpz.shop =
         log is default set to -1 as it's needed as part of createShop()
     ******************************************************************************* --]]
     generalGuild = function(player, stock, guildSkillId)
-        local log = 1.5      -- changed from -1
+        local log = -1     -- changed from -1
 
         player:createShop(#stock / 3, log)      -- changed from / 3
 
