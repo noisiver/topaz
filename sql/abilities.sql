@@ -45,7 +45,7 @@ INSERT INTO `abilities` VALUES (19,'manafont',4,0,1,7200,0,0,0,36,2000,0,6,20.0,
 INSERT INTO `abilities` VALUES (20,'chainspell',5,0,1,7200,0,0,0,37,2000,0,6,20.0,0,1,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (21,'perfect_dodge',6,0,1,7200,0,0,0,38,2000,0,6,20.0,0,1,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (22,'invincible',7,0,1,7200,0,0,0,18,2000,0,6,20.0,0,1,7200,0,0,NULL);
-INSERT INTO `abilities` VALUES (23,'blood_weapon',8,0,1,7200,0,0,0,19,2000,0,6,20.0,0,1,80,0,0,NULL);
+INSERT INTO `abilities` VALUES (23,'blood_weapon',8,0,1,7200,0,0,0,19,2000,0,6,20.0,0,1,300,0,0,NULL);
 INSERT INTO `abilities` VALUES (24,'familiar',9,0,1,7200,0,0,0,39,2000,0,6,20.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (25,'soul_voice',10,0,1,7200,0,0,0,40,2000,0,6,20.0,0,1,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (26,'eagle_eye_shot',11,0,4,7200,0,110,0,186,2000,0,3,20.0,0,0,0,0,0,NULL);
@@ -85,7 +85,7 @@ INSERT INTO `abilities` VALUES (59,'sharpshot',11,1,1,300,124,0,0,22,2000,0,6,20
 INSERT INTO `abilities` VALUES (60,'barrage',11,30,1,300,125,0,0,23,2000,0,6,20.0,0,1,600,0,0,NULL);
 INSERT INTO `abilities` VALUES (61,'call_wyvern',14,1,1,1200,163,0,0,94,2000,0,6,20.0,0,1,300,0,4,NULL);
 INSERT INTO `abilities` VALUES (62,'third_eye',12,15,1,60,133,0,0,24,2000,0,6,20.0,0,1,0,1088,0,NULL);
-INSERT INTO `abilities` VALUES (63,'meditate',12,30,1,180,134,0,0,25,2000,0,6,20.0,0,320,0,1094,0,NULL);
+INSERT INTO `abilities` VALUES (63,'meditate',12,30,1,180,134,0,0,25,2000,0,6,20.0,0,300,0,1094,0,NULL);
 INSERT INTO `abilities` VALUES (64,'warding_circle',12,5,1,300,135,0,0,31,2000,0,6,20.0,1,1,20,1090,0,NULL);
 INSERT INTO `abilities` VALUES (65,'ancient_circle',14,5,1,300,157,0,0,32,2000,0,6,20.0,1,1,20,1216,0,NULL);
 INSERT INTO `abilities` VALUES (66,'jump',14,10,4,60,158,110,0,204,2000,0,3,9.5,0,0,0,1218,0,NULL);
