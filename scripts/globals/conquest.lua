@@ -620,14 +620,14 @@ end
 
 local overseerInvCommon =
 {
-    [32928] = {cp =     7, lvl =  1, item =  4182},             -- scroll_of_instant_reraise
-    [32929] = {cp =    10, lvl =  1, item =  4181},             -- scroll_of_instant_warp
+    [32928] = {cp =     500, lvl =  1, item =  4182},             -- scroll_of_instant_reraise
+    [32929] = {cp =    750, lvl =  1, item =  4181},             -- scroll_of_instant_warp
     [32930] = {cp =  2500, lvl =  1, item = 15542},             -- return_ring
     [32931] = {cp =  9000, lvl =  1, item = 15541},             -- homing_ring
-    [32933] = {cp =   500, lvl =  1, item = 15761},             -- chariot_band
-    [32934] = {cp =  1000, lvl =  1, item = 15762},             -- empress_band
-    [32935] = {cp =  2000, lvl =  1, item = 15763},             -- emperor_band
-    [32936] = {cp =  5000, lvl =  1, item = 28540},             -- warp_ring
+    --[32933] = {cp =   500, lvl =  1, item = 15761},             -- chariot_band
+    --[32934] = {cp =  1000, lvl =  1, item = 15762},             -- empress_band
+    --[32935] = {cp =  2000, lvl =  1, item = 15763},             -- emperor_band
+    --[32936] = {cp =  5000, lvl =  1, item = 28540},             -- warp_ring
     [32941] = {cp = 20000, lvl =  1, item =  6380, rank = 10},  -- refined_chair_set
 }
 
