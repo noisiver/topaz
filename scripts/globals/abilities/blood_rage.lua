@@ -14,5 +14,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.BLOOD_RAGE, 1, 0, 30)
+    player:addStatusEffect(tpz.effect.CURE_POTENCY_RCVD, 1, 10, 60) -- 10% 60s duration
 end
