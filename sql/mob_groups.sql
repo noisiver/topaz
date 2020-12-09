@@ -10788,7 +10788,7 @@ INSERT INTO `mob_groups` VALUES (6,5130,169,'Hell_Bat',600,0,234,0,0,47,49,0);
 INSERT INTO `mob_groups` VALUES (7,1287,169,'Fallen_Knight',600,0,810,0,0,52,55,0);
 INSERT INTO `mob_groups` VALUES (8,2407,169,'Lich',600,0,958,0,0,54,57,0);
 INSERT INTO `mob_groups` VALUES (9,908,169,'Dark_Aspic',600,0,567,0,0,53,55,0);
-INSERT INTO `mob_groups` VALUES (10,1606,169,'Girtab',600,0,1001,0,0,58,60,0);
+INSERT INTO `mob_groups` VALUES (10,1606,169,'Girtab',960,0,1001,0,0,58,60,0);
 INSERT INTO `mob_groups` VALUES (11,2482,169,'Magic_Sludge',0,128,0,0,0,64,64,0);
 INSERT INTO `mob_groups` VALUES (12,3496,169,'Scavenger_Crab',600,0,2177,0,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (13,1366,169,'Fleshcraver',600,0,845,0,0,60,62,0);
