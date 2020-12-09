@@ -3,8 +3,8 @@
 -- Item: Bowl of Pebble Soup
 -- Food Effect: 3 Hr, All Races
 -----------------------------------------
--- HP +20
--- HP Recovered while healing 2
+-- HP +25%(Cap: 20)
+-- HP Recovered while healing +2
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
