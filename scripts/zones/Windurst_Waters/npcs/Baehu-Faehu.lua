@@ -14,7 +14,7 @@ end
 
 function onTrigger(player, npc)
     local RegionOwner = GetRegionOwner(tpz.region.SARUTABARUTA)
-    if (RegionOwner ~= tpz.nation.WINDURST) then
+    if (RegionOwner ~= tpz.nation.BASTOK) then
         player:showText(npc, ID.text.BAEHUFAEHU_CLOSED_DIALOG)
     else
         player:showText(npc, ID.text.BAEHUFAEHU_OPEN_DIALOG)
