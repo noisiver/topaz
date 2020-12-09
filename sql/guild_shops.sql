@@ -798,7 +798,7 @@ INSERT INTO `guild_shops` VALUES (530,4362,117,120,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,4363,33,33,255,48,100);		-- faerie apple
 INSERT INTO `guild_shops` VALUES (530,4364,102,427,255,48,100);       -- black_bread
 INSERT INTO `guild_shops` VALUES (530,4365,192,600,255,48,100);       -- rolanberry
-INSERT INTO `guild_shops` VALUES (530,4366,18,100,255,48,100);       -- la_theine_cbg.
+INSERT INTO `guild_shops` VALUES (530,4366,18,18,255,48,100);       -- la_theine_cbg.
 INSERT INTO `guild_shops` VALUES (530,4367,36,36,255,48,100);       -- batagreens
 INSERT INTO `guild_shops` VALUES (530,4370,163,590,255,48,100);       -- honey
 INSERT INTO `guild_shops` VALUES (530,4371,252,743,55,11,22);        -- grilled_hare
@@ -810,9 +810,9 @@ INSERT INTO `guild_shops` VALUES (530,4381,1382,3600,165,33,65);     -- meat_mit
 INSERT INTO `guild_shops` VALUES (530,4382,58,64,165,24,65);          -- frost_turnip
 INSERT INTO `guild_shops` VALUES (530,4383,3906,5760,165,24,65);      -- gold_lobster
 INSERT INTO `guild_shops` VALUES (530,4387,709,1934,255,48,100);      -- wild_onion
-INSERT INTO `guild_shops` VALUES (530,4389,43,153,255,48,100);        -- san_dor._carrot
+INSERT INTO `guild_shops` VALUES (530,4389,23,23,255,48,100);        -- san_dor._carrot
 INSERT INTO `guild_shops` VALUES (530,4390,51,198,255,48,100);       -- mithran_tomato
-INSERT INTO `guild_shops` VALUES (530,4392,45,149,255,48,100);       -- saruta_orange
+INSERT INTO `guild_shops` VALUES (530,4392,45,45,255,48,100);       -- saruta_orange
 INSERT INTO `guild_shops` VALUES (530,4394,9,55,255,48,100);          -- ginger_cookie
 INSERT INTO `guild_shops` VALUES (530,4398,2149,3256,165,33,65);     -- fish_mithkabob
 INSERT INTO `guild_shops` VALUES (530,4399,2592,2700,165,33,65);     -- bluetail
@@ -832,7 +832,7 @@ INSERT INTO `guild_shops` VALUES (530,4423,225,720,55,11,22);        -- apple_ju
 INSERT INTO `guild_shops` VALUES (530,4424,825,4488,55,11,22);       -- melon_juice
 INSERT INTO `guild_shops` VALUES (530,4425,240,1113,55,11,22);       -- tomato_juice
 INSERT INTO `guild_shops` VALUES (530,4431,72,376,255,48,100);       -- san_dor._grape
-INSERT INTO `guild_shops` VALUES (530,4432,87,192,255,48,100);        -- kazham_pineapl.
+INSERT INTO `guild_shops` VALUES (530,4432,50,261,255,48,100);        -- kazham_pineapl.
 INSERT INTO `guild_shops` VALUES (530,4435,3520,3968,165,48,65);      -- cockatrice_meat
 INSERT INTO `guild_shops` VALUES (530,4436,240,1113,165,24,65);       -- baked_popoto
 INSERT INTO `guild_shops` VALUES (530,4437,240,1113,55,11,22);       -- roast_mutton
@@ -856,7 +856,7 @@ INSERT INTO `guild_shops` VALUES (530,4556,10644,10644,55,11,22);    -- icecap_r
 INSERT INTO `guild_shops` VALUES (530,4560,2861,2861,55,11,22);      -- vegetable_soup
 INSERT INTO `guild_shops` VALUES (530,4563,6113,15360,15,1,6);       -- pamama_tart
 INSERT INTO `guild_shops` VALUES (530,4570,42,42,255,48,100);       -- bird_egg
-INSERT INTO `guild_shops` VALUES (530,4571,75,460,255,48,100);       -- beaugreens
+INSERT INTO `guild_shops` VALUES (530,4571,36,238,255,48,100);       -- beaugreens
 INSERT INTO `guild_shops` VALUES (530,4572,1360,7260,55,11,22);      -- beaugr._saute
 
 -- Doggomehr (Northern San d'Oria) Smithing Guild (S)
