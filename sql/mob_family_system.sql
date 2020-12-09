@@ -251,7 +251,7 @@ INSERT INTO `mob_family_system` VALUES (186,'Morbol',17,'Plantoid',1,40,140,100,
 INSERT INTO `mob_family_system` VALUES (187,'Murex',21,'Voragean',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,160,0);
 INSERT INTO `mob_family_system` VALUES (188,'Opo-opo',6,'Beast',0,40,110,90,1,3,4,3,6,6,1,1,3,1,3,1,1,1,1,1,1.25,1,1,1,1,1,1,5,257,1);
 INSERT INTO `mob_family_system` VALUES (189,'Orc',7,'Beastmen',1,40,108,100,3,3,4,4,7,4,3,1,3,1,3,1,1,1,1,1,1,1,1,1,1.25,1,1,1,257,0);
-INSERT INTO `mob_family_system` VALUES (190,'OrcishWarmachine',7,'Beastmen',1,40,123,100,4,4,4,3,4,7,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1.25,1,1,1,257,0);
+INSERT INTO `mob_family_system` VALUES (190,'OrcishWarmachine',7,'Beastmen',1,40,123,100,4,4,4,3,7,4,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1.25,1,1,1,257,0);
 INSERT INTO `mob_family_system` VALUES (191,'Orobon',2,'Aquan',1,40,90,90,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1,1,1,1.125,0.875,1,1,6,2,0);
 INSERT INTO `mob_family_system` VALUES (192,'Peiste',14,'Lizard',1,40,90,90,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1.125,1,1,1,1,1,1,6,1,0);
 INSERT INTO `mob_family_system` VALUES (193,'PetWyvern',10,'Dragon',0,40,70,90,1,2,1,3,6,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,0.875,1.125,0,1,0);
