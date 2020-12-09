@@ -765,11 +765,11 @@ INSERT INTO `guild_shops` VALUES (529,16388,11970,27700,20,0,5);     -- himantes
 
 -- Kopopo (Windurst Waters) Cooking Guild (S)
 INSERT INTO `guild_shops` VALUES (530,4509,12,12,255,48,100);	-- distilled water
-INSERT INTO `guild_shops` VALUES (530,610,45,45,255,48,100);
+INSERT INTO `guild_shops` VALUES (530,610,45,252,255,48,100);	-- sandy flour
 INSERT INTO `guild_shops` VALUES (530,936,16,16,255,48,100);		-- rock salt
 INSERT INTO `guild_shops` VALUES (530,611,30,60,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,612,45,45,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,614,60,60,255,48,100);
+INSERT INTO `guild_shops` VALUES (530,612,45,194,255,48,100);	-- kazham peppers
+INSERT INTO `guild_shops` VALUES (530,614,60,361,255,48,100);	-- mhaura garlic
 INSERT INTO `guild_shops` VALUES (530,615,45,45,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,616,60,60,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,618,21,42,255,48,100);
@@ -779,7 +779,7 @@ INSERT INTO `guild_shops` VALUES (530,622,36,36,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,625,66,66,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,627,40,40,255,5,100);
 INSERT INTO `guild_shops` VALUES (530,628,195,206,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,629,36,36,255,48,100);
+INSERT INTO `guild_shops` VALUES (530,629,36,220,255,48,100);	-- millioncorn
 INSERT INTO `guild_shops` VALUES (530,636,30,57,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,1111,450,450,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,1554,431,754,255,48,100);
@@ -797,9 +797,9 @@ INSERT INTO `guild_shops` VALUES (530,4360,114,160,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,4362,117,120,255,48,100);
 INSERT INTO `guild_shops` VALUES (530,4363,33,33,255,48,100);		-- faerie apple
 INSERT INTO `guild_shops` VALUES (530,4364,102,427,255,48,100);       -- black_bread
-INSERT INTO `guild_shops` VALUES (530,4365,192,600,255,48,100);       -- rolanberry
+INSERT INTO `guild_shops` VALUES (530,4365,192,504,590,0,100);       -- rolanberry
 INSERT INTO `guild_shops` VALUES (530,4366,18,18,255,48,100);       -- la_theine_cbg.
-INSERT INTO `guild_shops` VALUES (530,4367,36,36,255,48,100);       -- batagreens
+INSERT INTO `guild_shops` VALUES (530,4367,36,238,255,48,100);       -- batagreens
 INSERT INTO `guild_shops` VALUES (530,4370,163,590,255,48,100);       -- honey
 INSERT INTO `guild_shops` VALUES (530,4371,252,743,55,11,22);        -- grilled_hare
 INSERT INTO `guild_shops` VALUES (530,4372,83,230,255,48,100);       -- g._sheep_meat
