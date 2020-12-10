@@ -8289,8 +8289,6 @@ INSERT INTO `item_mods` VALUES (12461,242,3);
 INSERT INTO `item_mods` VALUES (12462,1,14);
 INSERT INTO `item_mods` VALUES (12463,1,3);
 INSERT INTO `item_mods` VALUES (12464,1,5);		-- Headgear
-INSERT INTO `item_mods` VALUES (12464,23,1);	-- +1 Attk	
-INSERT INTO `item_mods` VALUES (12464,10,-1);	-- -1 VIT	
 INSERT INTO `item_mods` VALUES (12465,1,9);
 INSERT INTO `item_mods` VALUES (12466,1,12);
 INSERT INTO `item_mods` VALUES (12467,1,16);
@@ -8636,8 +8634,6 @@ INSERT INTO `item_mods` VALUES (12590,1,12);
 INSERT INTO `item_mods` VALUES (12590,8,1);
 INSERT INTO `item_mods` VALUES (12591,1,11);
 INSERT INTO `item_mods` VALUES (12592,1,10);	-- Doublet
-INSERT INTO `item_mods` VALUES (12592,112,3);	-- +3 Healing Magic Skill
-INSERT INTO `item_mods` VALUES (12592,11,-1);	-- -1 AGI
 INSERT INTO `item_mods` VALUES (12593,1,17);
 INSERT INTO `item_mods` VALUES (12594,1,23);
 INSERT INTO `item_mods` VALUES (12595,1,31);
@@ -8977,8 +8973,6 @@ INSERT INTO `item_mods` VALUES (12717,244,3);
 INSERT INTO `item_mods` VALUES (12718,1,9);
 INSERT INTO `item_mods` VALUES (12719,1,5);
 INSERT INTO `item_mods` VALUES (12720,1,3);		-- Gloves
-INSERT INTO `item_mods` VALUES (12720,30,1);	-- +1 Magic Acc	
-INSERT INTO `item_mods` VALUES (12720,25,-1);	-- -1 Acc	
 INSERT INTO `item_mods` VALUES (12721,1,6);
 INSERT INTO `item_mods` VALUES (12722,1,8);
 INSERT INTO `item_mods` VALUES (12723,1,10);
@@ -9270,8 +9264,6 @@ INSERT INTO `item_mods` VALUES (12847,12,2);      -- INT +2
 INSERT INTO `item_mods` VALUES (12847,27,2);      -- Enmity +2
 INSERT INTO `item_mods` VALUES (12847,168,2);     -- Spell interruption rate down 2%
 INSERT INTO `item_mods` VALUES (12848,1,7);		-- Brais
-INSERT INTO `item_mods` VALUES (12848,23,1);	-- +1 Attk	
-INSERT INTO `item_mods` VALUES (12848,68,-2);	-- -2 Evasion
 INSERT INTO `item_mods` VALUES (12849,1,12);
 INSERT INTO `item_mods` VALUES (12850,1,17);
 INSERT INTO `item_mods` VALUES (12851,1,22);
@@ -9566,8 +9558,6 @@ INSERT INTO `item_mods` VALUES (12974,1,9);
 INSERT INTO `item_mods` VALUES (12975,1,4);
 INSERT INTO `item_mods` VALUES (12975,57,6);
 INSERT INTO `item_mods` VALUES (12976,1,3);		-- Gaiters
-INSERT INTO `item_mods` VALUES (12976,5,5);		-- +5 MP
-INSERT INTO `item_mods` VALUES (12976,2,-5);	-- -5 HP
 INSERT INTO `item_mods` VALUES (12977,1,5);
 INSERT INTO `item_mods` VALUES (12978,1,7);
 INSERT INTO `item_mods` VALUES (12979,1,9);
