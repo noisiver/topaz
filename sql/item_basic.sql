@@ -519,7 +519,7 @@ INSERT INTO `item_basic` VALUES (607,0,'quadav_fetich_torso','fetich_torso',1,32
 INSERT INTO `item_basic` VALUES (608,0,'quadav_fetich_arms','fetich_arms',1,32772,50,0,200);
 INSERT INTO `item_basic` VALUES (609,0,'quadav_fetich_legs','fetich_legs',1,32772,50,0,200);
 INSERT INTO `item_basic` VALUES (610,0,'bag_of_san_dorian_flour','san_dor._flour',1,4,59,0,15);
-INSERT INTO `item_basic` VALUES (611,0,'bag_of_rye_flour','rye_flour',1,4,59,0,1);
+INSERT INTO `item_basic` VALUES (611,0,'bag_of_rye_flour','rye_flour',1,4,59,0,10);
 INSERT INTO `item_basic` VALUES (612,0,'bunch_of_kazham_peppers','kazham_peppers',12,4,59,0,15);
 INSERT INTO `item_basic` VALUES (613,0,'faded_crystal','faded_crystal',12,4,0,0,26);
 INSERT INTO `item_basic` VALUES (614,0,'bulb_of_mhaura_garlic','mhaura_garlic',12,4,59,0,20);
