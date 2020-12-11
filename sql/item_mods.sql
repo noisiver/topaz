@@ -9131,8 +9131,9 @@ INSERT INTO `item_mods` VALUES (12795,59,-1);
 INSERT INTO `item_mods` VALUES (12796,1,2);
 INSERT INTO `item_mods` VALUES (12796,54,1);
 INSERT INTO `item_mods` VALUES (12796,55,1);
-INSERT INTO `item_mods` VALUES (12797,1,5);
+INSERT INTO `item_mods` VALUES (12797,1,5);	-- coarse gauntlets
 INSERT INTO `item_mods` VALUES (12797,68,-3);
+INSERT INTO `item_mods` VALUES (12797,10,1); -- +1 vit
 INSERT INTO `item_mods` VALUES (12798,1,3);
 INSERT INTO `item_mods` VALUES (12798,5,5);
 INSERT INTO `item_mods` VALUES (12798,12,-2);
@@ -9716,8 +9717,9 @@ INSERT INTO `item_mods` VALUES (13049,1,11);
 INSERT INTO `item_mods` VALUES (13049,54,3);
 INSERT INTO `item_mods` VALUES (13049,59,-1);
 INSERT INTO `item_mods` VALUES (13050,1,9);
-INSERT INTO `item_mods` VALUES (13051,1,5);
+INSERT INTO `item_mods` VALUES (13051,1,5);	-- corase leggings
 INSERT INTO `item_mods` VALUES (13051,68,-3);
+INSERT INTO `item_mods` VALUES (13051,10,1); --+1 Vit
 INSERT INTO `item_mods` VALUES (13052,1,4);
 INSERT INTO `item_mods` VALUES (13052,68,3);
 INSERT INTO `item_mods` VALUES (13053,1,22);      -- calm_pigaches DEF:+22
@@ -10091,6 +10093,7 @@ INSERT INTO `item_mods` VALUES (13225,9,-1);
 INSERT INTO `item_mods` VALUES (13225,10,2);
 INSERT INTO `item_mods` VALUES (13225,11,-1);
 INSERT INTO `item_mods` VALUES (13226,2,7);
+INSERT INTO `item_mods` VALUES (13227,1,2);	-- Plate belt
 INSERT INTO `item_mods` VALUES (13227,1,2);
 INSERT INTO `item_mods` VALUES (13228,1,2);
 INSERT INTO `item_mods` VALUES (13228,5,5);
@@ -10426,7 +10429,7 @@ INSERT INTO `item_mods` VALUES (13362,23,2);
 INSERT INTO `item_mods` VALUES (13362,68,-1);
 INSERT INTO `item_mods` VALUES (13363,23,4);
 INSERT INTO `item_mods` VALUES (13363,68,-2);
-INSERT INTO `item_mods` VALUES (13364,2,3);
+INSERT INTO `item_mods` VALUES (13364,2,3);	-- valor earring
 INSERT INTO `item_mods` VALUES (13364,5,3);
 INSERT INTO `item_mods` VALUES (13365,2,10);
 INSERT INTO `item_mods` VALUES (13365,5,-10);
@@ -10934,7 +10937,6 @@ INSERT INTO `item_mods` VALUES (13606,14,9999);
 INSERT INTO `item_mods` VALUES (13607,1,3);		-- mist silk cape
 INSERT INTO `item_mods` VALUES (13607,13,1);
 INSERT INTO `item_mods` VALUES (13607,60,3);
-INSERT INTO `item_mods` VALUES (13607,370,1);	-- +1 Regen
 INSERT INTO `item_mods` VALUES (13608,1,3);
 INSERT INTO `item_mods` VALUES (13609,1,5);
 INSERT INTO `item_mods` VALUES (13609,54,3);

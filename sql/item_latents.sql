@@ -3450,3 +3450,13 @@ INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 7);   -- Pedagogy Loafers+
 INSERT INTO `item_latents` VALUES(27367, 399, 16, 52, 8);   -- Pedagogy Loafers+1: Weather: Enhances Celerity and Alacrity Effect +16% (DARK)
 INSERT INTO `item_latents` VALUES(28235, 169, 25, 26, 2);   -- Hachiya Kyahan: Dusk to dawn: Movement speed +25%
 INSERT INTO `item_latents` VALUES(28256, 169, 25, 26, 2);   -- Hachiya Kyahan +1: Dusk to dawn: Movement speed +25%
+-- -------------------------------------------------------
+-- Mist Silk Cape
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(13607, 370, 1, 2, 50);    -- Regen+1  while HP <=50% and TP <=100%
+-- -------------------------------------------------------
+-- Plate Belt
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(13227, 1, 10, 0, 50);    -- Defense +10  while HP <=50% 
+INSERT INTO `item_latents` VALUES(13227, 23, 5, 1, 51);    -- Attack +5 while HP 51%=> 
+
