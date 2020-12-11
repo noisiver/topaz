@@ -640,26 +640,26 @@ local overseerInvNation =
         [32770] = {rank =  1, cp =  1000, lvl = 10, item = 12510},                -- royal_footmans_bandana
         [32771] = {rank =  1, cp =  1000, lvl = 10, item = 12753},                -- royal_footmans_gloves
         [32772] = {rank =  1, cp =  1000, lvl = 10, item = 13004},                -- royal_footmans_boots
-        [32773] = {rank =  1, cp =  1000, lvl = 10, item = 16691, place = 2},     -- royal_archers_cesti
-        [32774] = {rank =  1, cp =  1000, lvl = 10, item = 13718, place = 1},     -- royal_footmans_tunic
+        [32773] = {rank =  1, cp =  1000, lvl = 10, item = 16691,      -- royal_archers_cesti
+        [32774] = {rank =  1, cp =  1000, lvl = 10, item = 13718,     -- royal_footmans_tunic
         [32784] = {rank =  2, cp =  2000, lvl = 18, item = 16852},                -- royal_spearmans_spear
         [32785] = {rank =  2, cp =  2000, lvl = 10, item = 12630},                -- royal_footmans_vest
         [32786] = {rank =  2, cp =  2000, lvl = 20, item = 12882},                -- royal_footmans_trousers
-        [32787] = {rank =  2, cp =  2000, lvl = 20, item = 17367, place = 2},     -- royal_spearmans_horn
-        [32788] = {rank =  2, cp =  2000, lvl = 20, item = 13045, place = 1},     -- royal_footmans_clogs
+        [32787] = {rank =  2, cp =  2000, lvl = 20, item = 17367,      -- royal_spearmans_horn
+        [32788] = {rank =  2, cp =  2000, lvl = 20, item = 13045,      -- royal_footmans_clogs
         [32800] = {rank =  3, cp =  4000, lvl = 30, item = 16844},                -- royal_squires_halberd
         [32801] = {rank =  3, cp =  4000, lvl = 30, item = 13104},                -- royal_squires_collar
         [32802] = {rank =  3, cp =  4000, lvl = 30, item = 12431},                -- royal_squires_helm
         [32803] = {rank =  3, cp =  4000, lvl = 30, item = 12687},                -- royal_squires_mufflers
         [32804] = {rank =  3, cp =  4000, lvl = 30, item = 12943},                -- royal_squires_sollerets
-        [32805] = {rank =  3, cp =  4000, lvl = 30, item = 16744, place = 2},     -- royal_squires_dagger
-        [32806] = {rank =  3, cp =  4000, lvl = 30, item = 17150, place = 1},     -- royal_squires_mace
-        [32807] = {rank =  3, cp =  4000, lvl =  1, item = 13495, place = 1},     -- san_dorian_ring
+        [32805] = {rank =  3, cp =  4000, lvl = 30, item = 16744,      -- royal_squires_dagger
+        [32806] = {rank =  3, cp =  4000, lvl = 30, item = 17150,      -- royal_squires_mace
+        [32807] = {rank =  3, cp =  4000, lvl =  1, item = 13495,      -- san_dorian_ring
         [32816] = {rank =  4, cp =  8000, lvl = 40, item = 16601},                -- royal_swordsmans_blade
         [32817] = {rank =  4, cp =  8000, lvl = 40, item = 12559},                -- royal_squires_chainmail
         [32818] = {rank =  4, cp =  8000, lvl = 40, item = 12815},                -- royal_squires_breeches
-        [32819] = {rank =  4, cp =  8000, lvl = 40, item = 13719, place = 2},     -- royal_squires_robe
-        [32820] = {rank =  4, cp =  8000, lvl = 40, item = 12336, place = 1},     -- royal_squires_shield
+        [32819] = {rank =  4, cp =  8000, lvl = 40, item = 13719,      -- royal_squires_robe
+        [32820] = {rank =  4, cp =  8000, lvl = 40, item = 12336,      -- royal_squires_shield
         [32832] = {rank =  5, cp = 16000, lvl = 50, item = 16851},                -- royal_knight_army_lance
         [32833] = {rank =  5, cp = 16000, lvl = 50, item = 16571},                -- temple_knight_army_sword
         [32834] = {rank =  5, cp = 16000, lvl = 50, item = 12312},                -- royal_knight_army_shield
@@ -668,29 +668,28 @@ local overseerInvNation =
         [32837] = {rank =  5, cp = 16000, lvl = 50, item = 13105},                -- temple_knight_army_collar
         [32838] = {rank =  5, cp = 16000, lvl = 50, item = 12686},                -- royal_knights_mufflers
         [32839] = {rank =  5, cp = 16000, lvl = 50, item = 12942},                -- royal_knights_sollerets
-        [32840] = {rank =  5, cp = 16000, lvl = 50, item = 13220, place = 2},     -- royal_knights_belt
-        [32841] = {rank =  5, cp = 16000, lvl = 50, item = 13720, place = 1},     -- royal_knights_cloak
+        [32840] = {rank =  5, cp = 16000, lvl = 50, item = 13220,      -- royal_knights_belt
+        [32841] = {rank =  5, cp = 16000, lvl = 50, item = 13720,     -- royal_knights_cloak
         [32848] = {rank =  6, cp = 24000, lvl = 55, item = 13580},                -- royal_army_mantle
         [32849] = {rank =  6, cp = 24000, lvl = 55, item = 13106},                -- royal_guards_collar
         [32850] = {rank =  6, cp = 24000, lvl = 55, item = 12430},                -- royal_knights_bascinet
         [32851] = {rank =  6, cp = 24000, lvl = 55, item = 13722},                -- royal_knights_aketon
-        [32852] = {rank =  6, cp = 24000, lvl = 55, item = 12558, place = 1},     -- royal_knights_chainmail
-        [32853] = {rank =  6, cp = 24000, lvl = 55, item = 12814, place = 1},     -- royal_knights_breeches
-        [32854] = {rank =  6, cp = 24000, lvl = 55, item = 12321, place = 2},     -- royal_guards_shield
-        [32855] = {rank =  6, cp = 24000, lvl = 55, item = 17067, place = 1},     -- royal_guards_rod
-        [32856] = {rank =  6, cp = 24000, lvl = 55, item = 16599, place = 1},     -- royal_guards_sword
-        [32857] = {rank =  6, cp = 24000, lvl = 55, item = 16805, place = 1},     -- royal_guards_fleuret
+        [32852] = {rank =  6, cp = 24000, lvl = 55, item = 12558,      -- royal_knights_chainmail
+        [32853] = {rank =  6, cp = 24000, lvl = 55, item = 12814,      -- royal_knights_breeches
+        [32854] = {rank =  6, cp = 24000, lvl = 55, item = 12321,      -- royal_guards_rod
+        [32856] = {rank =  6, cp = 24000, lvl = 55, item = 16599,     -- royal_guards_sword
+        [32857] = {rank =  6, cp = 24000, lvl = 55, item = 16805,      -- royal_guards_fleuret
         [32864] = {rank =  7, cp = 32000, lvl = 60, item = 18738},                -- temple_knights_arrow
-        [32865] = {rank =  7, cp = 32000, lvl = 60, item = 16886, place = 2},     -- grand_knights_lance
-        [32866] = {rank =  7, cp = 32000, lvl = 60, item = 13557, place = 1},     -- grand_knights_ring
+        [32865] = {rank =  7, cp = 32000, lvl = 60, item = 16886,      -- grand_knights_lance
+        [32866] = {rank =  7, cp = 32000, lvl = 60, item = 13557,     -- grand_knights_ring
         [32880] = {rank =  8, cp = 40000, lvl = 65, item = 14013},                -- grand_temple_knights_gauntlets
-        [32881] = {rank =  8, cp = 40000, lvl = 65, item = 14014, place = 2},     -- grand_temple_knights_bangles
-        [32882] = {rank =  8, cp = 40000, lvl = 65, item = 13140, place = 1},     -- grand_temple_knights_collar
+        [32881] = {rank =  8, cp = 40000, lvl = 65, item = 14014,     -- grand_temple_knights_bangles
+        [32882] = {rank =  8, cp = 40000, lvl = 65, item = 13140,      -- grand_temple_knights_collar
         [32896] = {rank =  9, cp = 48000, lvl = 71, item = 16953},                -- reserve_captains_greatsword
         [32897] = {rank =  9, cp = 48000, lvl = 71, item = 17934},                -- reserve_captains_pick
-        [32898] = {rank =  9, cp = 48000, lvl = 71, item = 17458, place = 2},     -- reserve_captains_mace
-        [32899] = {rank =  9, cp = 48000, lvl = 71, item = 16893, place = 1},     -- reserve_captains_lance
-        [32912] = {rank = 10, cp = 56000, lvl =  1, item = 14428, place = 1},     -- kingdom_aketon
+        [32898] = {rank =  9, cp = 48000, lvl = 71, item = 17458,     -- reserve_captains_mace
+        [32899] = {rank =  9, cp = 48000, lvl = 71, item = 16893,     -- reserve_captains_lance
+        [32912] = {rank = 10, cp = 56000, lvl =  1, item = 14428,     -- kingdom_aketon
         [32932] = {           cp =  5000, lvl =  1, item = 17583},                -- kingdom_signet_staff
         [32940] = {rank = 10, cp = 10000, lvl =  1, item =  6377},                -- imperial_chair_set
     },
