@@ -57,10 +57,10 @@ INSERT INTO `guild_shops` VALUES (5132,97,5508,13512,20,2,12);
 INSERT INTO `guild_shops` VALUES (5132,102,291,713,25,5,25);
 INSERT INTO `guild_shops` VALUES (5132,688,15,150,255,48,100);            -- arrowwood_log
 INSERT INTO `guild_shops` VALUES (5132,689,27,27,255,48,100);            -- lauan_log
-INSERT INTO `guild_shops` VALUES (5132,690,1378,10938,255,100,100);      -- elm_log
+INSERT INTO `guild_shops` VALUES (5132,690,1378,10938,255,255,255);      -- elm_log
 INSERT INTO `guild_shops` VALUES (5132,691,45,45,255,50,100);           -- maple_log
 INSERT INTO `guild_shops` VALUES (5132,693,640,3586,255,48,100);        -- walnut_log
-INSERT INTO `guild_shops` VALUES (5132,694,2119,2811,165,33,65);        -- chestnut_log
+INSERT INTO `guild_shops` VALUES (5132,694,2119,2811,165,10,65);        -- chestnut_log
 INSERT INTO `guild_shops` VALUES (5132,695,120,132,255,48,100);         -- willow_log
 INSERT INTO `guild_shops` VALUES (5132,696,330,330,255,48,100);         -- yew_log
 INSERT INTO `guild_shops` VALUES (5132,697,528,930,255,48,100);         -- holly_log
@@ -72,7 +72,7 @@ INSERT INTO `guild_shops` VALUES (5132,702,9600,23040,165,33,65);       -- ebony
 INSERT INTO `guild_shops` VALUES (5132,704,96,230,375,100,150);         -- bamboo_stick
 INSERT INTO `guild_shops` VALUES (5132,705,3,18,255,48,100);            -- arrowwood_lbr.
 INSERT INTO `guild_shops` VALUES (5132,706,27,151,255,48,100);          -- lauan_lumber
-INSERT INTO `guild_shops` VALUES (5132,707,1723,4136,255,48,100);       -- elm_lumber
+INSERT INTO `guild_shops` VALUES (5132,707,1723,9651,255,5,100);       -- elm_lumber
 INSERT INTO `guild_shops` VALUES (5132,708,45,276,255,48,100);          -- maple_lumber
 INSERT INTO `guild_shops` VALUES (5132,710,2119,6104,165,33,65);        -- chestnut_lumber
 INSERT INTO `guild_shops` VALUES (5132,711,1015,3982,100,55,100);        -- walnut_lumber
