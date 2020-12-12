@@ -11,5 +11,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.TRICKSTER_KINETIX_PH, 5, 3600) -- 1 hour
+    tpz.mob.phOnDespawn(mob, ID.mob.TRICKSTER_KINETIX_PH, 20, 3600) -- 1 hour
 end

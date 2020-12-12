@@ -13,5 +13,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.JOLLY_GREEN_PH, 5, 1) -- 1 second / no cooldown
+    tpz.mob.phOnDespawn(mob, ID.mob.JOLLY_GREEN_PH, 20, 1) -- 1 second / no cooldown
 end

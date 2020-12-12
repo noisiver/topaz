@@ -14,5 +14,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.SLIPPERY_SUCKER_PH, 10, 600) -- 10 minutes
+    tpz.mob.phOnDespawn(mob, ID.mob.SLIPPERY_SUCKER_PH, 20, 600) -- 10 minutes
 end

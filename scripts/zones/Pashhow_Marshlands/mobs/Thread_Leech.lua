@@ -14,5 +14,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.BLOODPOOL_VORAX_PH, 5, 600) -- 10 minutes
+    tpz.mob.phOnDespawn(mob, ID.mob.BLOODPOOL_VORAX_PH, 20, 600) -- 10 minutes
 end
