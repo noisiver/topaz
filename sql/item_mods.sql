@@ -10094,7 +10094,6 @@ INSERT INTO `item_mods` VALUES (13225,10,2);
 INSERT INTO `item_mods` VALUES (13225,11,-1);
 INSERT INTO `item_mods` VALUES (13226,2,7);
 INSERT INTO `item_mods` VALUES (13227,1,2);	-- Plate belt
-INSERT INTO `item_mods` VALUES (13227,1,2);
 INSERT INTO `item_mods` VALUES (13228,1,2);
 INSERT INTO `item_mods` VALUES (13228,5,5);
 INSERT INTO `item_mods` VALUES (13228,12,1);
