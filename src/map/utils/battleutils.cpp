@@ -1737,7 +1737,7 @@ namespace battleutils
             float dex = PAttacker->DEX();
             float agi = PDefender->AGI();
 
-            return std::clamp<uint8>((uint8)((skill * 0.1f + (agi - dex) * 0.125f + 10.0f) * diff), 5, 25);
+            return std::clamp<uint8>((uint8)((skill * 0.1f + (agi - dex) * 0.125f + 10.0f) * diff), 5, 65);
         }
 
         return 0;
@@ -2530,7 +2530,7 @@ namespace battleutils
                 if (targ_weapon->isHandToHand() || targ_weapon->getSkillType() == SKILL_GREAT_KATANA)
                 {
                     //maxRatio = 3.5f;
-                    maxRatio = 2.2f;
+                    maxRatio = 2.1f;
                 }
                 else if (targ_weapon->getSkillType() == SKILL_SCYTHE)
                 {
