@@ -2514,7 +2514,8 @@ namespace battleutils
         auto targ_weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
 
         // Default for 1H is 3.25
-        float maxRatio = 3.25f;
+        //float maxRatio = 3.25f;
+        float maxRatio = 2.00f;
 
         if (attackerType == TYPE_MOB || attackerType == TYPE_PET)
         {
@@ -2528,15 +2529,18 @@ namespace battleutils
             {
                 if (targ_weapon->isHandToHand() || targ_weapon->getSkillType() == SKILL_GREAT_KATANA)
                 {
-                    maxRatio = 3.5f;
+                    //maxRatio = 3.5f;
+                    maxRatio = 2.2f;
                 }
                 else if (targ_weapon->getSkillType() == SKILL_SCYTHE)
                 {
-                    maxRatio = 4.0f;
+                    //maxRatio = 4.0f;
+                    maxRatio = 2.2f;
                 }
                 else if (targ_weapon->isTwoHanded())
                 {
-                    maxRatio = 3.75f;
+                    //maxRatio = 3.75f;
+                    maxRatio = 2.2f;
                 }
             }
             // Skipping Ranged since that is handled in a separate function
