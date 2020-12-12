@@ -57,7 +57,7 @@ INSERT INTO `guild_shops` VALUES (5132,97,5508,13512,20,2,12);
 INSERT INTO `guild_shops` VALUES (5132,102,291,713,25,5,25);
 INSERT INTO `guild_shops` VALUES (5132,688,15,150,255,48,100);            -- arrowwood_log
 INSERT INTO `guild_shops` VALUES (5132,689,27,27,255,48,100);            -- lauan_log
-INSERT INTO `guild_shops` VALUES (5132,690,690,1200,255,48,100);      -- elm_log
+INSERT INTO `guild_shops` VALUES (5132,690,1378,10938,255,100,100);      -- elm_log
 INSERT INTO `guild_shops` VALUES (5132,691,45,45,255,50,100);           -- maple_log
 INSERT INTO `guild_shops` VALUES (5132,693,640,3586,255,48,100);        -- walnut_log
 INSERT INTO `guild_shops` VALUES (5132,694,2119,2811,165,33,65);        -- chestnut_log
