@@ -13,5 +13,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.STINGING_SOPHIE_PH, 5, math.random(1200, 3600)) -- 20 to 60 minutes
+    tpz.mob.phOnDespawn(mob, ID.mob.STINGING_SOPHIE_PH, 10, math.random(1200, 3600)) -- 20 to 60 minutes
 end
