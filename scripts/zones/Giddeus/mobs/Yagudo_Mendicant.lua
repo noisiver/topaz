@@ -9,5 +9,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.HOO_MJUU_THE_TORRENT_PH, 50, 3600) -- 1 hour, 50% chance
+    tpz.mob.phOnDespawn(mob, ID.mob.HOO_MJUU_THE_TORRENT_PH, 30, 3600) -- 1 hour, 50% chance
 end

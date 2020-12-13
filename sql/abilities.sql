@@ -221,15 +221,15 @@ INSERT INTO `abilities` VALUES (196,'spectral_jig',19,25,1,30,218,532,0,12,2000,
 INSERT INTO `abilities` VALUES (197,'chocobo_jig',19,55,1,60,218,126,0,13,2000,0,14,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (198,'jigs',19,25,1,0,218,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (199,'steps',19,20,1,0,220,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (200,'flourishes_i',1,80,1,0,0,221,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');		 -- added to war at level 80
+INSERT INTO `abilities` VALUES (200,'flourishes_i',19,20,1,0,0,221,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');		 
 INSERT INTO `abilities` VALUES (201,'quickstep',19,20,4,5,220,519,0,17,2000,0,14,4.5,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (202,'box_step',19,30,4,5,220,520,0,16,2000,0,14,4.5,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (203,'stutter_step',19,40,4,5,220,521,0,16,2000,0,14,4.5,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (204,'animated_flourish',1,60,4,30,221,119,0,181,2000,0,14,17.6,0,180,1280,0,0,'WOTG');		-- added to war at level 80
+INSERT INTO `abilities` VALUES (204,'animated_flourish',19,20,4,30,221,119,0,181,2000,0,14,17.6,0,180,1280,0,0,'WOTG');		
 INSERT INTO `abilities` VALUES (205,'desperate_flourish',19,30,4,20,221,127,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (206,'reverse_flourish',19,40,1,30,222,452,0,182,2000,0,14,20.0,0,1,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (206,'reverse_flourish',19,40,1,30,222,452,0,182,2000,0,14,20.0,0,1,0,0,0,'WOTG');	-- fix animation
 INSERT INTO `abilities` VALUES (207,'violent_flourish',19,45,4,20,221,522,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (208,'building_flourish',19,50,1,10,222,0,0,220,2000,0,14,20.0,0,1,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (208,'building_flourish',19,50,1,10,222,0,0,220,2000,0,14,20.0,0,1,0,0,0,'WOTG'); -- fix animation
 INSERT INTO `abilities` VALUES (209,'wild_flourish',19,60,4,20,222,529,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (210,'tabula_rasa',20,0,1,3600,0,0,0,190,2000,0,6,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (211,'light_arts',20,10,1,60,228,0,0,171,2000,0,6,20.0,0,1,80,1600,0,'WOTG');
@@ -247,7 +247,7 @@ INSERT INTO `abilities` VALUES (222,'manifestation',20,40,1,1,231,0,0,180,2000,0
 INSERT INTO `abilities` VALUES (223,'stratagems',20,10,1,0,233,0,0,0,2000,0,6,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (224,'velocity_shot',11,45,1,60,129,0,0,186,2000,0,6,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (225,'snarl',9,45,257,30,107,0,0,87,2000,0,6,20.0,0,0,0,0,192,'WOTG');
-INSERT INTO `abilities` VALUES (226,'retaliation',1,60,1,180,8,0,0,185,2000,0,6,20.0,0,1,80,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (226,'retaliation',1,60,1,300,8,0,0,185,2000,0,6,20.0,0,1,80,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (227,'footwork',2,65,1,300,21,0,0,197,2000,0,6,20.0,0,1,80,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (228,'despoil',6,60,4,60,61,125,0,181,2000,0,3,4.4,0,1,300,0,0,'ABYSSEA');		-- changed from  300s cd level 77
 INSERT INTO `abilities` VALUES (229,'pianissimo',10,20,1,15,112,0,0,194,2000,0,6,20.0,0,1,60,0,0,'WOTG');

@@ -5696,7 +5696,7 @@ namespace battleutils
         // Players onry
         if (PEntity->objtype == TYPE_PC)
         {
-            if (PSpell->getSkillType() == SKILLTYPE::SKILL_ELEMENTAL_MAGIC || PSpell->getSkillType() == SKILLTYPE::SKILL_DARK_MAGIC)
+            if (PSpell->getSkillType() == SKILLTYPE::SKILL_ELEMENTAL_MAGIC || PSpell->getSkillType() == SKILLTYPE::SKILL_DARK_MAGIC || PSpell->getSkillType() == SKILLTYPE::SKILL_ENFEEBLING_MAGIC || PSpell->getSkillType() == SKILLTYPE::SKILL_ENHANCING_MAGIC) 
             {
                 CCharEntity* PChar = static_cast<CCharEntity*>(PEntity);
                 if (charutils::hasTrait(PChar, TRAIT_OCCULT_ACUMEN))

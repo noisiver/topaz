@@ -15,6 +15,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.WORR_THE_CLAWFISTED_PH, 10, 7200) -- 2 hours
-    tpz.mob.phOnDespawn(mob, ID.mob.VOLL_THE_SHARKFINNED_PH, 10, 7200) -- 2 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.WORR_THE_CLAWFISTED_PH, 30, 7200) -- 2 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.VOLL_THE_SHARKFINNED_PH, 30, 7200) -- 2 hours
 end
