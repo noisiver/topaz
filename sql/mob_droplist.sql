@@ -15719,7 +15719,7 @@ INSERT INTO `mob_droplist` VALUES (2935,0,0,1000,853,55);
 INSERT INTO `mob_droplist` VALUES (2936,0,0,1000,19123,200);
 INSERT INTO `mob_droplist` VALUES (2937,0,0,1000,2853,26);
 INSERT INTO `mob_droplist` VALUES (2938,0,0,1000,2842,197);
-INSERT INTO `mob_droplist` VALUES (2939,0,0,1000,16296,271);		--Armiger's Lace 27.1% drop chance 
+INSERT INTO `mob_droplist` VALUES (2939,0,0,1000,16296,214);		--Armiger's Lace 27.1% drop chance 
 INSERT INTO `mob_droplist` VALUES (2940,0,0,1000,15052,257);
 INSERT INTO `mob_droplist` VALUES (2941,0,0,1000,19043,287);	--tenax strap
 INSERT INTO `mob_droplist` VALUES (2942,0,0,1000,2832,218);
