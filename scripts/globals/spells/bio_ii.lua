@@ -51,8 +51,9 @@ function onSpellCast(caster, target, spell)
     -- Calculate DoT effect
     -- http://wiki.ffo.jp/html/1954.html
     -- This formula gives correct values for every breakpoint listed on that site
-    local dotdmg = math.floor((skillLvl + 29) / 40)
-    dotdmg = utils.clamp(dotdmg, 3, 8)
+    --local dotdmg = math.floor((skillLvl + 29) / 40)
+     local dotdmg = math.floor((skillLvl + 29) / 10)
+    dotdmg = utils.clamp(dotdmg, 3, 100)
 
     -- Do it!
     target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 15, 2)

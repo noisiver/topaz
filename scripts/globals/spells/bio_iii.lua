@@ -59,13 +59,13 @@ function onSpellCast(caster, target, spell)
     elseif skillLvl > 319 then dotdmg = 14
     elseif skillLvl > 291 then dotdmg = 13
     elseif skillLvl > 280 then dotdmg = 12
-    elseif skillLvl > 269 then dotdmg = 11
-    elseif skillLvl > 258 then dotdmg = 10
-    elseif skillLvl > 246 then dotdmg =  9
-    elseif skillLvl > 211 then dotdmg =  8
-    elseif skillLvl > 171 then dotdmg =  7
-    elseif skillLvl > 131 then dotdmg =  6
-    else                       dotdmg =  5
+    elseif skillLvl > 269 then dotdmg = 50
+    elseif skillLvl > 258 then dotdmg = 45
+    elseif skillLvl > 246 then dotdmg =  40
+    elseif skillLvl > 211 then dotdmg =  35
+    elseif skillLvl > 171 then dotdmg =  30
+    elseif skillLvl > 131 then dotdmg =  25
+    else                       dotdmg =  20
     end
 
     -- Do it!
