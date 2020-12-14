@@ -7914,7 +7914,7 @@ INSERT INTO `item_mods` VALUES (12340,59,1);
 INSERT INTO `item_mods` VALUES (12341,1,3);		--tropical shield
 INSERT INTO `item_mods` VALUES (12341,56,3);
 INSERT INTO `item_mods` VALUES (12341,57,3);
-INSERT INTO `item_mods` VALUES (12341,68,10);	--+ 10 evasion
+INSERT INTO `item_mods` VALUES (12341,374,1);	-- +1% Cure Potency
 INSERT INTO `item_mods` VALUES (12342,1,4);
 INSERT INTO `item_mods` VALUES (12342,23,5);
 INSERT INTO `item_mods` VALUES (12343,54,3);

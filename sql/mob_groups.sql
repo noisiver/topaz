@@ -7469,7 +7469,7 @@ INSERT INTO `mob_groups` VALUES (58,753,109,'Cobalt_Quadav',0,128,0,0,0,35,35,0)
 INSERT INTO `mob_groups` VALUES (59,3745,109,'Sprite',0,128,0,0,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (60,331,109,'Ballistosporer',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (61,5312,109,'Murk-veined_Baneberry',0,128,0,0,99999,92,94,0);
-INSERT INTO `mob_groups` VALUES (62,0,109,'Toxic_Tamlyn',0,128,0,0,0,44,44,0);
+INSERT INTO `mob_groups` VALUES (62,0,109,'Toxic_Tamlyn',0,128,3150,0,0,44,44,0);
 
 INSERT INTO `mob_groups` VALUES (6001,305,109,'Ayame',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6013,896,109,'Dalzakk',0,0,0,0,0,0,0,0);
@@ -11538,11 +11538,11 @@ INSERT INTO `mob_groups` VALUES (11,1683,184,'Goblin_Leecher',300,0,1198,0,0,27,
 INSERT INTO `mob_groups` VALUES (12,1666,184,'Goblin_Gambler',300,0,0,1074,0,27,30,0);
 INSERT INTO `mob_groups` VALUES (13,694,184,'Chaos_Idol',300,0,453,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (14,5427,184,'Tyrant',5400,0,2948,0,0,40,42,0);
-INSERT INTO `mob_groups` VALUES (15,1564,184,'Gigas_Hallwatcher',300,0,0,0,0,34,35,0);
-INSERT INTO `mob_groups` VALUES (16,1579,184,'Gigas_Punisher',300,0,0,0,0,34,35,0);
-INSERT INTO `mob_groups` VALUES (17,1554,184,'Gigas_Butcher',300,0,0,0,0,34,35,0);
-INSERT INTO `mob_groups` VALUES (18,1590,184,'Gigass_Bats',0,128,0,0,0,27,29,0);
-INSERT INTO `mob_groups` VALUES (19,1582,184,'Gigas_Sculptor',300,0,0,0,0,34,35,0);
+INSERT INTO `mob_groups` VALUES (15,1564,184,'Gigas_Hallwatcher',300,0,964,0,0,34,35,0);
+INSERT INTO `mob_groups` VALUES (16,1579,184,'Gigas_Punisher',300,0,964,0,0,34,35,0);
+INSERT INTO `mob_groups` VALUES (17,1554,184,'Gigas_Butcher',300,0,964,0,0,34,35,0);
+INSERT INTO `mob_groups` VALUES (18,1590,184,'Gigass_Bats',0,128,0,964,0,27,29,0);
+INSERT INTO `mob_groups` VALUES (19,1582,184,'Gigas_Sculptor',300,0,964,0,0,34,35,0);
 INSERT INTO `mob_groups` VALUES (20,3912,184,'Thunder_Elemental',300,4,2410,0,0,35,36,0);
 INSERT INTO `mob_groups` VALUES (21,2413,184,'Light_Elemental',300,4,1521,0,0,35,36,0);
 INSERT INTO `mob_groups` VALUES (22,2483,184,'Magic_Urn',300,0,1571,0,0,34,35,0);
