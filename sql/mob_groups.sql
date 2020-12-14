@@ -7264,7 +7264,7 @@ INSERT INTO `mob_groups` VALUES (15,1744,106,'Goblin_Weaver',330,0,1183,0,0,4,8,
 INSERT INTO `mob_groups` VALUES (16,3774,106,'Stinging_Sophie',0,32,2336,0,0,9,10,0);
 INSERT INTO `mob_groups` VALUES (17,1214,106,'Enchanted_Bones',330,1,769,0,0,5,8,0);
 INSERT INTO `mob_groups` VALUES (18,3371,106,'River_Crab',330,0,481,0,0,1,5,0);
-INSERT INTO `mob_groups` VALUES (19,3381,106,'Rock_Lizard',330,0,2120,0,0,3,8,0);
+INSERT INTO `mob_groups` VALUES (19,3381,106,'Rock_Lizard',330,0,2120,0,0,4,8,0);
 INSERT INTO `mob_groups` VALUES (20,4277,106,'Walking_Sapling',330,0,2604,0,0,3,6,0); -- added loot table
 INSERT INTO `mob_groups` VALUES (21,4266,106,'Vulture',330,0,2595,0,0,3,6,0);	-- added loot table
 INSERT INTO `mob_groups` VALUES (22,4477,106,'Young_Quadav',330,0,2787,0,0,3,8,0);
@@ -7282,7 +7282,7 @@ INSERT INTO `mob_groups` VALUES (33,1648,106,'Goblin_Digger',330,0,1039,0,0,5,8,
 INSERT INTO `mob_groups` VALUES (34,1456,106,'Gambilox_Wanderling',0,128,0,0,0,53,53,0);
 INSERT INTO `mob_groups` VALUES (35,2965,106,'Old_Quadav',0,128,1847,0,0,20,25,0);
 INSERT INTO `mob_groups` VALUES (36,1917,106,'Heliodor_Quadav',0,128,0,0,0,25,25,0);
-INSERT INTO `mob_groups` VALUES (37,525,106,'Brass_Quadav',0,128,1847,0,0,20,25,0); -- added loot table(not accurate)
+INSERT INTO `mob_groups` VALUES (37,525,106,'Brass_Quadav',0,128,1847,0,0,21,25,0); -- added loot table(not accurate)
 INSERT INTO `mob_groups` VALUES (38,3464,106,'Sapphirine_Quadav',0,128,0,0,0,20,25,0);
 INSERT INTO `mob_groups` VALUES (39,2383,106,'Lead_Quadav',0,128,0,0,0,25,25,0);
 INSERT INTO `mob_groups` VALUES (40,3148,106,'Pixie',0,128,2001,0,0,51,54,0);
