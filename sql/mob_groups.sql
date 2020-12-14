@@ -10819,6 +10819,7 @@ INSERT INTO `mob_groups` VALUES (36,6540,169,'Doom_Soldier',600,0,685,0,0,65,67,
 INSERT INTO `mob_groups` VALUES (37,5757,169,'Brazen_Bones',0,128,2868,0,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (38,3755,169,'Starmite',600,0,2325,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (39,2664,169,'Mimic',0,128,1684,0,0,65,67,0);
+INSERT INTO `mob_groups` VALUES (40,6333,190,'Cutlass_Scorpion',330,0,549,0,0,64,66,0); -- might error delete if so
 
 -- ------------------------------------------------------------
 -- Full_Moon_Fountain (Zone 170)
