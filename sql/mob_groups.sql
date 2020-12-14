@@ -7255,8 +7255,8 @@ INSERT INTO `mob_groups` VALUES (6,2000,106,'Huge_Hornet',330,0,1334,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (7,4053,106,'Tunnel_Worm',330,0,2499,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (8,1038,106,'Ding_Bats',330,2,82,0,0,1,4,0);
 INSERT INTO `mob_groups` VALUES (9,2547,106,'Maneating_Hornet',330,0,1609,0,0,2,5,0);
-INSERT INTO `mob_groups` VALUES (10,3780,106,'Stone_Eater',330,0,2339,0,0,2,5,0); -- added loot table
-INSERT INTO `mob_groups` VALUES (11,3058,106,'Ornery_Sheep',330,0,1958,0,0,5,8,0);	-- added loot table
+INSERT INTO `mob_groups` VALUES (10,3780,106,'Stone_Eater',330,0,2339,0,0,3,5,0); -- added loot table
+INSERT INTO `mob_groups` VALUES (11,3058,106,'Ornery_Sheep',330,0,1958,0,0,6,8,0);	-- added loot table
 INSERT INTO `mob_groups` VALUES (12,1737,106,'Goblin_Thug',330,0,1170,0,0,4,8,0);
 INSERT INTO `mob_groups` VALUES (13,1364,106,'Fledermaus',330,2,19,0,0,3,5,0);
 INSERT INTO `mob_groups` VALUES (14,441,106,'Black_Wolf',330,1,288,0,0,5,8,0);
@@ -7265,8 +7265,8 @@ INSERT INTO `mob_groups` VALUES (16,3774,106,'Stinging_Sophie',0,32,2336,0,0,9,1
 INSERT INTO `mob_groups` VALUES (17,1214,106,'Enchanted_Bones',330,1,769,0,0,5,8,0);
 INSERT INTO `mob_groups` VALUES (18,3371,106,'River_Crab',330,0,481,0,0,1,5,0);
 INSERT INTO `mob_groups` VALUES (19,3381,106,'Rock_Lizard',330,0,2120,0,0,3,8,0);
-INSERT INTO `mob_groups` VALUES (20,4277,106,'Walking_Sapling',330,0,2604,0,0,2,6,0); -- added loot table
-INSERT INTO `mob_groups` VALUES (21,4266,106,'Vulture',330,0,2595,0,0,2,6,0);	-- added loot table
+INSERT INTO `mob_groups` VALUES (20,4277,106,'Walking_Sapling',330,0,2604,0,0,3,6,0); -- added loot table
+INSERT INTO `mob_groups` VALUES (21,4266,106,'Vulture',330,0,2595,0,0,3,6,0);	-- added loot table
 INSERT INTO `mob_groups` VALUES (22,4477,106,'Young_Quadav',330,0,2787,0,0,3,8,0);
 INSERT INTO `mob_groups` VALUES (23,103,106,'Amber_Quadav',330,0,58,0,0,3,8,0);
 INSERT INTO `mob_groups` VALUES (24,107,106,'Amethyst_Quadav',330,0,67,0,0,3,8,0);
