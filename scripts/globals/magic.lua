@@ -960,15 +960,15 @@ end
 function getElementalDebuffDOT(INT)
     local DOT = 0
     if (INT<= 39) then
-        DOT = 10 -- buffed from 1
+        DOT = 5 -- buffed from 1
     elseif (INT <= 69) then
         DOT = 20 -- buffed from 2
     elseif (INT <= 99) then
         DOT = 40 -- buffed from 3
     elseif (INT <= 149) then
-        DOT = 60 -- buffed from 4
+        DOT = 45 -- buffed from 4
     else
-        DOT = 80 -- buffed from 5
+        DOT = 50 -- buffed from 5
     end
     return DOT
 end
