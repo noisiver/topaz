@@ -112,7 +112,7 @@ function BluePhysicalSpell(caster, target, spell, params)
         params.offcratiomod = caster:getStat(tpz.mod.ATT)
     end
     -- print(params.offcratiomod)
-    local cratio = BluecRatio(caster:getstat(tpz.skill.BLUE_MAGIC) - target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
+    local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local hitrate = BlueGetHitRate(caster, target, true)
 
     -- print("Hit rate "..hitrate)
