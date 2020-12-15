@@ -217,12 +217,13 @@ INSERT INTO `mob_family_mods` VALUES (188,68,25,0);		-- Opo-opo +25 Evasion Raci
 
 
 -- Evasion Penalty
-INSERT INTO `mob_family_mods` VALUES (271,68,-10,0);	-- Marid -10 Evasion
-INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	-- Bugbear -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (180,68,-10,0);	-- Marid -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (371,68,-10,0);	-- Marid -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);		-- Bugbear -10 Evasion
 
 -- Yovra
-INSERT INTO `mob_family_mods` VALUES (188,68,50,0);		-- +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (275,63,50,0);		-- +50% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (271,68,50,0);		-- +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (271,63,50,0);		-- +50% Defense Bonus
 
 -- Antlion
 INSERT INTO `mob_family_mods` VALUES (26,62,10,0);		-- Antlion +10% Attack
