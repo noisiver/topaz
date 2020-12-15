@@ -186,33 +186,82 @@ INSERT INTO `mob_family_mods` VALUES (242,62,10,0);		-- Tiger +10% Attack
 INSERT INTO `mob_family_mods` VALUES (136,62,10,0);		-- Goobbue +10% Attack
 INSERT INTO `mob_family_mods` VALUES (217,62,20,0);		-- Scorpion +20% Attack
 INSERT INTO `mob_family_mods` VALUES (179,62,10,0);		-- Manticore +10% Attack
+INSERT INTO `mob_family_mods` VALUES (62,62,20,0);		-- Cerberus +20% Attack
 
 -- Flat Attack Penalty
-INSERT INTO `mob_family_mods` VALUES (213,23,20,0);		-- Sahagin -20 Attack
+INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
 
 -- Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (122,63,100,0);	-- Ghrah +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (123,63,100,0);	-- Ghrah +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (124,63,100,0);	-- Ghrah +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (272,63,20,0);		-- Zdei +20% Defense Bonus
--- continue at zdei
+INSERT INTO `mob_family_mods` VALUES (233,63,20,0);		-- Soulflayer +20% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (74,63,20,0);		-- Corse +20% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (2,63,20,0);		-- Adamantoise +20% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (275,63,20,0);		-- Mini-Adamantoise +20% Defense Bonus
+
+-- Flat Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (171,1,25,0);		-- Lamiae +25 Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (182,1,25,0);		-- Merrow +25 Defense Bonus
+
+-- Defense Penalty
+INSERT INTO `mob_family_mods` VALUES (1,63,-25,0);		-- Acrolith -25% Defense Penalty
 
 -- Evasion Bonus
-INSERT INTO `mob_family_mods` VALUES (196,68,10,0);	-- Poroggo +10% Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (196,68,10,0);		-- Poroggo +10 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (203,68,12,0);		-- Qutrub +12 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (204,68,12,0);		-- Qutrub +12 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (205,68,12,0);		-- Qutrub +12 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (188,68,25,0);		-- Opo-opo +25 Evasion Racial
 
+
+-- Evasion Penalty
+INSERT INTO `mob_family_mods` VALUES (271,68,-10,0);	-- Marid -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (271,68,-10,0);	-- Bugbear -10 Evasion
+
+-- Yovra
+INSERT INTO `mob_family_mods` VALUES (188,68,50,0);		-- +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (275,63,50,0);		-- +50% Defense Bonus
+
+-- Antlion
+INSERT INTO `mob_family_mods` VALUES (26,62,10,0);		-- Antlion +10% Attack
+INSERT INTO `mob_family_mods` VALUES (26,63,20,0);		-- Antlion +20% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (357,62,10,0);		-- Antlion +10% Attack
+INSERT INTO `mob_family_mods` VALUES (357,63,20,0);		-- Antlion +20% Defense Bonus
+
+
+-- Chigoe
+INSERT INTO `mob_family_mods` VALUES (64,63,-20,0);		---20% Defense Penalty
+INSERT INTO `mob_family_mods` VALUES (64,68,10,0);		-- +10 Evasion Bonus
+INSERT INTO `mob_family_mods` VALUES (64,62,-50,0);		---50% Attack Penalty
 
 -- Tauri
-INSERT INTO `mob_family_mods` VALUES (240,63,-20,0);	-- Tauri -20% Defense penalty
-INSERT INTO `mob_family_mods` VALUES (240,68,-10,0);	-- Tauri -10 Evasion penalty
+INSERT INTO `mob_family_mods` VALUES (240,63,-20,0);	-- -20% Defense penalty
+INSERT INTO `mob_family_mods` VALUES (240,68,-10,0);	-- -10 Evasion penalty
 
-
---Buffalo
+-- Buffalo
 INSERT INTO `mob_family_mods` VALUES (57,62,10,0);		-- +10% Attack
 INSERT INTO `mob_family_mods` VALUES (57,63,20,0);		-- +20% Defense
 
---Bugard
+-- Bugard
 INSERT INTO `mob_family_mods` VALUES (58,62,10,0);		-- +10% Attack
 INSERT INTO `mob_family_mods` VALUES (58,63,20,0);		-- +20% Defense
+
+-- Behemoth
+INSERT INTO `mob_family_mods` VALUES (479,62,35,0);		-- +35% Bonus Attack
+INSERT INTO `mob_family_mods` VALUES (479,63,20,0);		-- +20% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (51,62,35,0);		-- +35% Bonus Attack
+INSERT INTO `mob_family_mods` VALUES (51,63,20,0);		-- +20% Defense Bonus
+-- Promy Mobs
+INSERT INTO `mob_family_mods` VALUES (255,63,-10,0);	-- Wanderer -10 Defense Penalty
+INSERT INTO `mob_family_mods` VALUES (255,68,40,0);		-- Wanderer +40 Evasion Bonus
+INSERT INTO `mob_family_mods` VALUES (78,63,10,0);		-- Craver +10% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (256,63,-10,0);	-- Weeper -10% Defense Penalty
+INSERT INTO `mob_family_mods` VALUES (137,63,10,0);		-- Gorger +10% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (138,63,10,0);		-- Gorger +10% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (220,63,10,0);		-- Seether +10% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (241,63,10,0);		-- Thinker +10% Defense Bonus
 
 
 -- Immunities
@@ -674,14 +723,6 @@ INSERT INTO `mob_family_mods` VALUES (21,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (23,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (24,3,50,1);
 
--- Family defense multiplier
-INSERT INTO `mob_family_mods` VALUES (26,63,20,0);
-INSERT INTO `mob_family_mods` VALUES (357,63,20,0);
-INSERT INTO `mob_family_mods` VALUES (208,63,20,0);
-INSERT INTO `mob_family_mods` VALUES (2,63,20,0);
-INSERT INTO `mob_family_mods` VALUES (180,63,20,0);
-INSERT INTO `mob_family_mods` VALUES (245,63,20,0);
-INSERT INTO `mob_family_mods` VALUES (59,63,20,0);
 
 -- Sahagins have 50% dmg reduction to water	
 INSERT INTO `mob_family_mods` VALUES (213,20,128,0);
