@@ -53,19 +53,19 @@ function onSpellCast(caster, target, spell)
     -- this is a tiered calculation that has at least three tiers,
     -- so I'll use breakpoints for human readability
     local dotdmg = 0
-    if     skillLvl > 400 then dotdmg = 17
-    elseif skillLvl > 373 then dotdmg = 16
-    elseif skillLvl > 346 then dotdmg = 15
-    elseif skillLvl > 319 then dotdmg = 14
-    elseif skillLvl > 291 then dotdmg = 13
-    elseif skillLvl > 280 then dotdmg = 12
-    elseif skillLvl > 269 then dotdmg = 50
-    elseif skillLvl > 258 then dotdmg = 45
-    elseif skillLvl > 246 then dotdmg =  40
-    elseif skillLvl > 211 then dotdmg =  35
-    elseif skillLvl > 171 then dotdmg =  30
-    elseif skillLvl > 131 then dotdmg =  25
-    else                       dotdmg =  20
+    if     skillLvl > 400 then dotdmg = 105
+    elseif skillLvl > 373 then dotdmg = 100
+    elseif skillLvl > 346 then dotdmg = 95
+    elseif skillLvl > 319 then dotdmg = 90
+    elseif skillLvl > 291 then dotdmg = 85
+    elseif skillLvl > 280 then dotdmg = 80
+    elseif skillLvl > 269 then dotdmg = 75
+    elseif skillLvl > 258 then dotdmg = 70
+    elseif skillLvl > 246 then dotdmg =  65
+    elseif skillLvl > 211 then dotdmg =  55
+    elseif skillLvl > 171 then dotdmg =  50
+    elseif skillLvl > 131 then dotdmg =  45
+    else                       dotdmg =  40
     end
 
     -- Do it!

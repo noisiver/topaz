@@ -52,7 +52,7 @@ function onSpellCast(caster, target, spell)
     -- http://wiki.ffo.jp/html/1954.html
     -- This formula gives correct values for every breakpoint listed on that site
     --local dotdmg = math.floor((skillLvl + 29) / 40)
-     local dotdmg = math.floor((skillLvl + 29) / 10)
+     local dotdmg = math.floor((skillLvl + 29) / 5)
     dotdmg = utils.clamp(dotdmg, 3, 100)
 
     -- Do it!

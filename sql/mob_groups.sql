@@ -7999,7 +7999,7 @@ INSERT INTO `mob_groups` VALUES (15,1666,119,'Goblin_Gambler',330,0,1077,0,0,21,
 INSERT INTO `mob_groups` VALUES (16,1643,119,'Goblin_Butcher',330,0,1032,0,0,16,20,0);
 INSERT INTO `mob_groups` VALUES (17,4516,119,'Zombie',330,1,2809,0,0,16,26,0);
 INSERT INTO `mob_groups` VALUES (18,5727,119,'Chonchon',3600,0,2992,3154,0,42,42,0);
-INSERT INTO `mob_groups` VALUES (19,3324,119,'Raptor',330,0,0,0,0,21,25,0);
+INSERT INTO `mob_groups` VALUES (19,3324,119,'Raptor',330,0,3151,0,0,21,25,0);
 INSERT INTO `mob_groups` VALUES (20,4459,119,'Yagudo_Votary',330,0,2774,0,0,21,25,0);
 INSERT INTO `mob_groups` VALUES (21,4432,119,'Yagudo_Mendicant',330,0,2732,0,0,16,20,0);
 INSERT INTO `mob_groups` VALUES (22,4454,119,'Yagudos_Elemental',0,128,0,0,0,9,13,0);
@@ -8075,7 +8075,7 @@ INSERT INTO `mob_groups` VALUES (26,1666,120,'Goblin_Gambler',330,0,1077,0,0,26,
 INSERT INTO `mob_groups` VALUES (27,1715,120,'Goblin_Smithy',330,0,1161,0,0,30,36,0);
 INSERT INTO `mob_groups` VALUES (28,1710,120,'Goblin_Shaman',330,0,1150,0,0,30,36,0);
 INSERT INTO `mob_groups` VALUES (29,1160,120,'Earth_Elemental',330,4,733,0,0,38,40,0);
-INSERT INTO `mob_groups` VALUES (30,3424,120,'Sabertooth_Tiger',330,0,2138,0,0,28,32,0);
+INSERT INTO `mob_groups` VALUES (30,3424,120,'Sabertooth_Tiger',330,0,2137,0,0,28,32,0);
 INSERT INTO `mob_groups` VALUES (31,2966,120,'Old_Sabertooth',0,128,0,0,0,20,20,0);
 INSERT INTO `mob_groups` VALUES (32,3485,120,'Sauromugue_Skink',330,0,2935,0,0,28,32,0);
 INSERT INTO `mob_groups` VALUES (33,5873,120,'Thunderclaw_Thuban',5400,0,3079,4000,0,47,48,0);

@@ -2535,7 +2535,7 @@ namespace battleutils
                 else if (targ_weapon->getSkillType() == SKILL_SCYTHE)
                 {
                     //maxRatio = 4.0f;
-                    maxRatio = 2.2f;
+                    maxRatio = 2.3f;
                 }
                 else if (targ_weapon->isTwoHanded())
                 {

@@ -964,18 +964,18 @@ function getElementalDebuffDOT(INT)
     elseif (INT <= 69) then
         DOT = 20 -- buffed from 2
     elseif (INT <= 99) then
-        DOT = 40 -- buffed from 3
+        DOT = 25 -- buffed from 3
     elseif (INT <= 149) then
-        DOT = 45 -- buffed from 4
+        DOT = 30 -- buffed from 4
     else
-        DOT = 50 -- buffed from 5
+        DOT = 35 -- buffed from 5
     end
     return DOT
 end
 
 function getElementalDebuffStatDownFromDOT(dot)
     local stat_down = 0
-    stat_down = (dot-10)*1 +5   -- changed from (dot-1)*2
+    stat_down = (dot-4)* 0.5 +5   -- changed from (dot-1)*2
     return stat_down
 end
 
