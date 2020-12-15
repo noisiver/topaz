@@ -109,10 +109,10 @@ function BluePhysicalSpell(caster, target, spell, params)
     -- Get the possible pDIF range and hit rate --
     ----------------------------------------------
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
-        params.offcratiomod = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
+        params.offcratiomod = caster:getStat(tpz.mod.ATT)
     end
     -- print(params.offcratiomod)
-    local cratio = BluecRatio(caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -  target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
+    local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local hitrate = BlueGetHitRate(caster, target, true)
 
     -- print("Hit rate "..hitrate)
@@ -131,7 +131,7 @@ function BluePhysicalSpell(caster, target, spell, params)
             -- TODO: Check for shadow absorbs.
 
             -- Generate a random pDIF between min and max
-            local pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
+            local pdif = (caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -  target:getStat(tpz.mod.DEF)
             pdif = pdif/1000
 
             -- Apply it to our final D
