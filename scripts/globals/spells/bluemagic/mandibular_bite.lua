@@ -29,10 +29,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.SLASHING
     params.scattr = SC_INDURATION
     params.numhits = 1
-    params.multiplier = 2.0
-    params.tp150 = 1.2
-    params.tp300 = 1.4
-    params.azuretp = 1.5
+    params.multiplier = 3.1
+    params.tp150 = 3.1
+    params.tp300 = 3.1
+    params.azuretp = 3.1
     params.duppercap = 45 --guesstimated attack % bonuses
     params.str_wsc = 0.2
     params.dex_wsc = 0.0

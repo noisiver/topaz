@@ -29,10 +29,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.BLUNT
     params.scattr = SC_IMPACTION
     params.numhits = 3
-    params.multiplier = 1.125
-    params.tp150 = 1.2
-    params.tp300 = 1.4
-    params.azuretp = 1.5
+    params.multiplier = 1.2
+    params.tp150 = 1.3
+    params.tp300 = 1.5
+    params.azuretp = 1.6
     params.duppercap = 39 --guesstimated acc % bonuses
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
