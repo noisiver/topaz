@@ -29,10 +29,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.PIERCING
     params.scattr = SC_DARK
     params.numhits = 1
-    params.multiplier = 1.25
-    params.tp150 = 1.25
-    params.tp300 = 1.25
-    params.azuretp = 1.25
+    params.multiplier = 1.75
+    params.tp150 = 1.75
+    params.tp300 = 1.75
+    params.azuretp = 1.75
     params.duppercap = 15
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
