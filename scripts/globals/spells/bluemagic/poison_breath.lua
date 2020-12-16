@@ -57,7 +57,7 @@ function onSpellCast(caster, target, spell)
     if (damage > 0 and resist > 0.3) then
         local typeEffect = tpz.effect.POISON
         target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, 4, 0, getBlueEffectDuration(caster, resist, typeEffect))
+        target:addStatusEffect(typeEffect, 16, 0, getBlueEffectDuration(caster, resist, typeEffect)) -- Buffed to 16
     end
 
     return damage

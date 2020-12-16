@@ -38,9 +38,9 @@ function onSpellCast(caster, target, spell)
     params.dex_wsc = 0.0
     params.vit_wsc = 0.3
     params.agi_wsc = 0.0
-    params.int_wsc = 0.1
-    params.mnd_wsc = 0.1
-    params.chr_wsc = 0.1
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 

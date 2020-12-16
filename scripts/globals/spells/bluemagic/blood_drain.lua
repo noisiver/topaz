@@ -24,10 +24,10 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local dmg = 1 + (0.705 * caster:getSkillLevel(tpz.skill.BLUE_MAGIC))
+    local dmg = 0 + (0.33 * caster:getSkillLevel(tpz.skill.BLUE_MAGIC))
     local params = {}
-    params.diff = caster:getStat(tpz.mod.MND)-target:getStat(tpz.mod.MND)
-    params.attribute = tpz.mod.MND
+    params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 1.0
     local resist = applyResistance(caster, target, spell, params)

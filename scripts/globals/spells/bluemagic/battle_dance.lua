@@ -45,10 +45,13 @@ function onSpellCast(caster, target, spell)
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
+    local resist = applyResistanceEffect(caster, target, spell, params)
+    local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+
     if (target:hasStatusEffect(tpz.effect.DEX_DOWN)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     else
-        target:addStatusEffect(tpz.effect.DEX_DOWN, 15, 0, 20)
+        target:addStatusEffect(tpz.effect.DEX_DOWN, 10, 0,  duration * resist)
     end
 
     return damage

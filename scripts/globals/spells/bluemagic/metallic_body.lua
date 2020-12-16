@@ -26,11 +26,11 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.STONESKIN
     local blueskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    local power = (blueskill/3) + (caster:getMainLvl()/3) + 10
+    local power = (blueskill * 0.375) + 12.5
     local duration = 300
 
-    if (power > 150) then
-        power = 150
+    if (power > 200) then
+        power = 200
     end
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
