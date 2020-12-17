@@ -538,7 +538,7 @@ INSERT INTO `guild_shops` VALUES (525,17407,270,270,20,6,12);
 
 -- Maymunah (Bastok Mines) Alchemist Guild (S)
 INSERT INTO `guild_shops` VALUES (5262,621,21,21,255,0,100);         -- crying_mustard
-INSERT INTO `guild_shops` VALUES (5262,622,36,30,255,48,100);       -- dried_marjoram
+INSERT INTO `guild_shops` VALUES (5262,622,36,60,255,48,100);       -- dried_marjoram
 INSERT INTO `guild_shops` VALUES (5262,636,97,97,255,48,100);       -- chamomile
 INSERT INTO `guild_shops` VALUES (5262,637,1640,4880,165,0,65);      -- slime_oil
 INSERT INTO `guild_shops` VALUES (5262,638,138,138,255,48,100);      -- sage
