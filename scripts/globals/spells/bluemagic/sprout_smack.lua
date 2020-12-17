@@ -51,7 +51,7 @@ function onSpellCast(caster, target, spell)
     if target:hasStatusEffect(tpz.effect.SLOW) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     else
-         target:addStatusEffect(tpz.effect.SLOW, 1500, 0, math.random(5, 90))
+         target:addStatusEffect(tpz.effect.SLOW, 1500, 0, math.random(5, 20))
     end
 
     return damage
