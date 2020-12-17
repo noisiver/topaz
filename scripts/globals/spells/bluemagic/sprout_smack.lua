@@ -24,14 +24,15 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     local params = {}
-    local dINT = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
-     params.diff = nil
-    params.attribute = tpz.mod.MND
+    params.diff = nil
+    params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.effect = tpz.effect.SLOW
+    params.effect = tpz.effect.STUN
     local resist = applyResistanceEffect(caster, target, spell, params)
+    local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DURATION
     params.attackType = tpz.attackType.PHYSICAL
