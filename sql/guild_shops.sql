@@ -692,7 +692,7 @@ INSERT INTO `guild_shops` VALUES (528,2143,320,320,255,48,100);
 INSERT INTO `guild_shops` VALUES (528,2144,75,75,255,48,100);
 
 -- Kueh Igunahmori (Leathercraft Guild) Southern San d'Oria (S)
-INSERT INTO `guild_shops` VALUES (529,505,62,349,255,48,100);
+INSERT INTO `guild_shops` VALUES (529,505,62,349,255,48,100);	-- Sheepskin
 INSERT INTO `guild_shops` VALUES (529,506,9600,11333,165,1,65);
 INSERT INTO `guild_shops` VALUES (529,695,120,184,255,48,100);
 INSERT INTO `guild_shops` VALUES (529,832,1000,2800,80,20,40);
