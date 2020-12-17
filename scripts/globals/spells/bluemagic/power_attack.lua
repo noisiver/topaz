@@ -29,10 +29,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.BLUNT
     params.scattr = SC_REVERBERATION
     params.numhits = 1
-    params.multiplier = 1.5
-    params.tp150 = 1.55
-    params.tp300 = 1.57
-    params.azuretp = 1.6
+    params.multiplier = 1.3
+    params.tp150 = 1.35
+    params.tp300 = 1.37
+    params.azuretp = 1.4
     params.duppercap = 11 -- guesstimated crit %s for TP
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
