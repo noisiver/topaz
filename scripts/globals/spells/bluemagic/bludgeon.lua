@@ -29,18 +29,18 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.BLUNT
     params.scattr = SC_LIQUEFACTION
     params.numhits = 3
-    params.multiplier = 0.7
-    params.tp150 = 0.7
-    params.tp300 = 0.7
-    params.azuretp = 0.7
-    params.duppercap = 15
+    params.multiplier = 0.1
+    params.tp150 = 0.1
+    params.tp300 = 0.1
+    params.azuretp = 0.1
+    params.duppercap = 1
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
-    params.chr_wsc = 0.3
+    params.chr_wsc = 0.1
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
