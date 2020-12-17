@@ -5,7 +5,7 @@
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
-local attk = player:getMainLvl() * 0.5 +3
+local attk = player:getMainLvl() * 0.5 + 3
 local evasion = player:getSkillLevel(tpz.skill.EVASION) * 0.5
 function onEffectGain(target, effect) --power=30 initially, subpower=20 for enmity
     target:addMod(tpz.mod.EVA, evasion)
