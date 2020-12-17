@@ -24,7 +24,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local dINT = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    local MND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
     local params = {}
    params.diff = nil
     params.attribute = tpz.mod.MND
