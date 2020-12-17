@@ -30,10 +30,10 @@ function onSpellCast(caster, target, spell)
     params.scattr = SC_LIQUEFACTION
     params.scattr2 = SC_IMPACTION
     params.numhits = 1
-    params.multiplier = 2.9
-    params.tp150 = 2.9
-    params.tp300 = 2.9
-    params.azuretp = 2.9
+    params.multiplier = 2.0
+    params.tp150 = 2.0
+    params.tp300 = 2.0
+    params.azuretp = 2.0
     params.duppercap = 39
     params.str_wsc = 0.35
     params.dex_wsc = 0.0
