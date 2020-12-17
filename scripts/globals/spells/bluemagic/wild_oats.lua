@@ -45,13 +45,12 @@ function onSpellCast(caster, target, spell)
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    local resist = applyResistanceEffect(caster, target, spell, params)
-    local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+ 
 
     if (target:hasStatusEffect(tpz.effect.VIT_DOWN)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     else
-        target:addStatusEffect(tpz.effect.VIT_DOWN, 10, 0, duration * resist) -- changed from 15 https://ffxiclopedia.fandom.com/wiki/Wild_Oats?oldid=837833
+          target:addStatusEffect(tpz.effect.VIT_DOWN, 10, 0, 20)
     end
 
     return damage

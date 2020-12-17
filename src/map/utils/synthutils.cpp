@@ -247,7 +247,7 @@ uint8 calcSynthResult(CCharEntity* PChar)
             if(synthDiff <= 0)
             {
                 if (PChar->CraftContainer->getCraftType() ==  1) //if it's a desynth lower success rate
-                    success = 0.75; // changed from 0.45
+                    success = 0.60; // changed from 0.45
                 else
                     success = 0.95;
 
@@ -266,7 +266,7 @@ uint8 calcSynthResult(CCharEntity* PChar)
             else
             {
                 if (PChar->CraftContainer->getCraftType() ==  1) //if it's a desynth lower success rate
-                    success = 0.75 - (synthDiff / 10);  // changed from 0.45
+                    success = 0.60 - (synthDiff / 10);  // changed from 0.45
                 else
                     success = 0.95 - (synthDiff / 10);
 
