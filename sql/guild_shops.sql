@@ -589,7 +589,7 @@ INSERT INTO `guild_shops` VALUES (5262,18236,21,21,2970,594,1188);
 -- Visala (Goldsmith Guild) Bastok Markets (S)
 INSERT INTO `guild_shops` VALUES (5272,640,9,9,255,48,100);         -- copper_ore
 INSERT INTO `guild_shops` VALUES (5272,642,595,1600,165,33,65);       -- zinc_ore
-INSERT INTO `guild_shops` VALUES (5272,644,1500,5000,165,33,65);     -- mythril_ore
+INSERT INTO `guild_shops` VALUES (5272,644,1500,9200,165,33,65);     -- mythril_ore
 INSERT INTO `guild_shops` VALUES (5272,653,19900,36400,55,0,22);     -- mythril_ingot
 INSERT INTO `guild_shops` VALUES (5272,661,1171,1171,255,0,100);     -- brass_sheet
 INSERT INTO `guild_shops` VALUES (5272,663,20240,45600,80,16,32);    -- mythril_sheet

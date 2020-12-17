@@ -49,7 +49,7 @@ function onSpellCast(caster, target, spell)
     if (target:hasStatusEffect(tpz.effect.DEX_DOWN)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     else
-       target:addStatusEffect(tpz.effect.DEX_DOWN, 10, 0, math.random(30,60))
+       target:addStatusEffect(tpz.effect.DEX_DOWN, 10, 0, math.random(15,60))
     end
 
     return damage
