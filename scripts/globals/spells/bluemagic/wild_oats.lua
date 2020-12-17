@@ -45,7 +45,7 @@ function onSpellCast(caster, target, spell)
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    local resist = applyResistanceEffect(caster, target, spell, params)
+    
  
 
     if (target:hasStatusEffect(tpz.effect.VIT_DOWN)) then
