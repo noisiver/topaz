@@ -23,9 +23,7 @@ function onSpellCast(caster, target, spell)
     duration = duration * applyResistance(caster, target, spell, params)
     --local power = 3
     --local power = (player:getmainlevel() * 0.5) + (caster:getStat(tpz.mod.INT) * 0.3) + 10
-    local level = player:getMainLvl()
-    local int = caster:getStat(tpz.mod.INT)
-    local power = 50
+     local power = 50
 
     --Calculates resist chanve from Reist Blind
     if (target:hasStatusEffect(effect)) then
