@@ -9084,7 +9084,8 @@ INSERT INTO `item_mods` VALUES (12767,1,6);
 INSERT INTO `item_mods` VALUES (12767,5,32);
 INSERT INTO `item_mods` VALUES (12767,12,2);
 INSERT INTO `item_mods` VALUES (12768,1,4);
-INSERT INTO `item_mods` VALUES (12769,1,8);
+INSERT INTO `item_mods` VALUES (12769,1,8);	-- Chain Mittens +1
+INSERT INTO `item_mods` VALUES (12769,23,3);	-- +3 Attack
 INSERT INTO `item_mods` VALUES (12770,1,4);
 INSERT INTO `item_mods` VALUES (12771,1,8);
 INSERT INTO `item_mods` VALUES (12772,1,10);
@@ -20120,9 +20121,11 @@ INSERT INTO `item_mods` VALUES (16504,250,2);
 INSERT INTO `item_mods` VALUES (16504,431,1);
 INSERT INTO `item_mods` VALUES (16508,431,1);
 INSERT INTO `item_mods` VALUES (16509,431,1);
+INSERT INTO `item_mods` VALUES (16517,432,1);	-- Degen +1 Enspell dmg
 INSERT INTO `item_mods` VALUES (16520,5,18);
 INSERT INTO `item_mods` VALUES (16520,110,7);
 INSERT INTO `item_mods` VALUES (16521,110,5);
+INSERT INTO `item_mods` VALUES (16524,432,2);	-- Fleuret +2 Enspell dmg
 INSERT INTO `item_mods` VALUES (16527,25,2);
 INSERT INTO `item_mods` VALUES (16540,5,25);     -- tyrfing MP+25
 INSERT INTO `item_mods` VALUES (16541,8,2);
@@ -20181,6 +20184,7 @@ INSERT INTO `item_mods` VALUES (16620,59,9);
 INSERT INTO `item_mods` VALUES (16621,431,1);
 INSERT INTO `item_mods` VALUES (16629,9,2);
 INSERT INTO `item_mods` VALUES (16630,11,7);
+INSERT INTO `item_mods` VALUES (16633,432,2);	-- Degen +1 +2 Enspell dmg
 INSERT INTO `item_mods` VALUES (16637,1,-6);
 INSERT INTO `item_mods` VALUES (16637,23,8);
 INSERT INTO `item_mods` VALUES (16653,2,10);
@@ -20320,6 +20324,7 @@ INSERT INTO `item_mods` VALUES (16793,60,10);
 INSERT INTO `item_mods` VALUES (16798,8,2);
 INSERT INTO `item_mods` VALUES (16798,12,2);
 INSERT INTO `item_mods` VALUES (16799,242,2);
+INSERT INTO `item_mods` VALUES (16803,432,3);	-- Fleuret +1 +3 Enspell dmg
 INSERT INTO `item_mods` VALUES (16805,25,6);
 INSERT INTO `item_mods` VALUES (16805,110,5);
 INSERT INTO `item_mods` VALUES (16806,23,4);

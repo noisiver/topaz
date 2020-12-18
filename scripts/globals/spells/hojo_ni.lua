@@ -17,7 +17,7 @@ function onSpellCast(caster, target, spell)
     --Power for Hojo is a flat 19.5% reduction
     local power = 2000
     --Duration and Resistance calculation
-    local duration = 300
+    local duration = 180
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU

@@ -15,7 +15,7 @@ function onSpellCast(caster, target, spell)
     -- Base Stats
     local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     --Duration Calculation
-    local duration = 300
+    local duration = 180
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
