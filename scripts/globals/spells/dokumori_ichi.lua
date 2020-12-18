@@ -22,7 +22,7 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     duration = duration * applyResistance(caster, target, spell, params)
     --local power = 3
-    local dmg = (player:getmainlevel() * 0.5) + (caster:getStat(tpz.mod.INT) * 0.3) + 10
+    local power = (player:getmainlevel() * 0.5) + (caster:getStat(tpz.mod.INT) * 0.3) + 10
 
     --Calculates resist chanve from Reist Blind
     if (target:hasStatusEffect(effect)) then
@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
 
     if (math.random(0, 100) >= target:getMod(tpz.mod.POISONRES)) then
         if (duration >= 30) then
-            if (target:addStatusEffect(effect, dmg, 3, duration)) then
+            if (target:addStatusEffect(effect, dmg, power, duration)) then
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
             else
                 spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
