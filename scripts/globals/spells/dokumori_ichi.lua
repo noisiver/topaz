@@ -19,7 +19,6 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
-    params.effect = tpz.effect.POISON
     params.bonus = 0
     duration = duration * applyResistance(caster, target, spell, params)
     --local power = 3
