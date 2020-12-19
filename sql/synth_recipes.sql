@@ -3173,7 +3173,7 @@ INSERT INTO `synth_recipes` VALUES (49923,1,0,0,0,0,0,30,0,0,0,4100,4242,12826,0
 -- INSERT INTO `synth_recipes` VALUES (49925,1,0,0,0,0,0,255,0,0,0,4100,4242,13570,0,0,0,0,0,0,0,820,859,859,859,1,1,1,1,'Ram Mantle (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (49926,1,0,0,0,0,0,255,0,0,0,4100,4242,12699,0,0,0,0,0,0,0,850,850,850,850,2,2,2,2,'Cuir Gloves (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (49927,1,0,0,0,0,0,255,0,0,0,4100,4242,13942,0,0,0,0,0,0,0,820,851,1591,1122,1,1,1,1,'Panther Mask (desynth)');
--- INSERT INTO `synth_recipes` VALUES (49928,1,0,0,0,0,0,255,0,0,0,4100,4242,12992,0,0,0,0,0,0,0,850,850,850,850,2,2,2,2,'Solea (desynth)');
+INSERT INTO `synth_recipes` VALUES (49928,1,0,0,0,0,0,11,0,0,0,4100,4242,12992,0,0,0,0,0,0,0,850,850,850,850,1,1,2,2,'Solea (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (49929,1,0,0,0,0,0,255,0,0,0,4100,4242,12568,0,0,0,0,0,0,0,850,852,852,852,3,1,1,1,'Leather Vest (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (49930,1,0,0,0,0,0,255,0,0,0,4100,4242,14846,0,0,0,0,0,0,0,816,855,1680,1680,1,1,1,1,'Sha\'ir Gages (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (49931,1,0,0,0,0,0,255,0,0,0,4100,4242,14323,0,0,0,0,0,0,0,850,819,819,819,1,5,5,5,'Noct Brais (desynth)');
