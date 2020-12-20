@@ -26,9 +26,9 @@ function applyBarstatus(effectType, caster, target, spell)
     local mdefBonus = caster:getMerit(tpz.merit.BAR_SPELL_EFFECT) + caster:getMod(tpz.mod.BARSPELL_MDEF_BONUS)
 
     local power = calculateBarstatusPower(caster, enhanceSkill)
-    local duration = calculateBarstatusDuration(caster, enhanceSkill)
-    duration = calculateDuration(duration, tpz.skill.ENHANCING_MAGIC, tpz.magic.spellGroup.WHITE, caster, target)
+    --local duration = calculateBarstatusDuration(caster, enhanceSkill)
+    --duration = calculateDuration(duration, tpz.skill.ENHANCING_MAGIC, tpz.magic.spellGroup.WHITE, caster, target)
 
-    target:addStatusEffect(effectType, power, 0, duration)
+    target:addStatusEffect(effectType, power, 0, 150)   -- changed to 2.5m
     return effectType
 end
