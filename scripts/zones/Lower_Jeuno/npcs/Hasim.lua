@@ -52,34 +52,34 @@ function onTrigger(player, npc)
         4686,   9600,    -- Scroll of Barvirus
         4699,  15120,    -- Scroll of Barpetra
         4700,   9600,    -- Scroll of Barvira
-        5089,  73740,    -- Scroll of Gain-VIT
-        5092,  77500,    -- Scroll of Gain-MND
-        5090,  85680,    -- Scroll of Gain-AGI
-        5093,  81900,    -- Scroll of Gain-CHR
-        5087,  89804,    -- Scroll of Gain-STR
-        5091,  94461,    -- Scroll of Gain-INT
-        5088,  99613,    -- Scroll of Gain-DEX
-        5096,  73740,    -- Scroll of Boost-VIT
-        5099,  77500,    -- Scroll of Boost-MND
-        5097,  85680,    -- Scroll of Boost-AGI
-        5100,  81900,    -- Scroll of Boost-CHR
-        5094,  89804,    -- Scroll of Boost-STR
-        5098,  94461,    -- Scroll of Boost-INT
-        5095,  99613,    -- Scroll of Boost-DEX
-        5106,  73500,    -- Scroll of Inundation
-        4849, 130378,    -- Scroll of Addle
+        --5089,  73740,    -- Scroll of Gain-VIT
+        --5092,  77500,    -- Scroll of Gain-MND
+        --5090,  85680,    -- Scroll of Gain-AGI
+        --5093,  81900,    -- Scroll of Gain-CHR
+        --5087,  89804,    -- Scroll of Gain-STR
+        --5091,  94461,    -- Scroll of Gain-INT
+        --5088,  99613,    -- Scroll of Gain-DEX
+        --5096,  73740,    -- Scroll of Boost-VIT
+        --5099,  77500,    -- Scroll of Boost-MND
+        --5097,  85680,    -- Scroll of Boost-AGI
+        --5100,  81900,    -- Scroll of Boost-CHR
+        --5094,  89804,    -- Scroll of Boost-STR
+        --5098,  94461,    -- Scroll of Boost-INT
+        --5095,  99613,    -- Scroll of Boost-DEX
+        --5106,  73500,    -- Scroll of Inundation
+        --4849, 130378,    -- Scroll of Addle
         4629,  35000,    -- Scroll of Holy
         4647,  20000,    -- Scroll of Banishga II
-        4737, 119240,    -- Scroll of Protecra V
-        4742, 124540,    -- Scroll of Shellra V
-        4633, 139135,    -- Scroll of Dia III
-        6569, 139135,    -- Scroll of Slow II
-        6570, 139135,    -- Scroll of Paralyze II
-        6571, 139135,    -- Scroll of Phalanx II
+        --4737, 119240,    -- Scroll of Protecra V
+        --4742, 124540,    -- Scroll of Shellra V
+        --4633, 139135,    -- Scroll of Dia III
+        --6569, 139135,    -- Scroll of Slow II
+        --6570, 139135,    -- Scroll of Paralyze II
+        -- 6571, 139135,    -- Scroll of Phalanx II
     }
 
     player:showText(npc, ID.text.HASIM_SHOP_DIALOG)
-    tpz.shop.general(player, stock)
+    tpz.shop.general(player, stock, JEUNO)
 end
 
 function onEventUpdate(player, csid, option)
