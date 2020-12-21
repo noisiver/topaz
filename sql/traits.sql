@@ -220,12 +220,14 @@ INSERT INTO `traits` VALUES (15,'double attack',1,80,2,288,12,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,81,3,288,14,'ABYSSEA',0); -- level 76 prior to ROV update (05/14/2015), set Abby tag so it's removed from 75-cap servers
 INSERT INTO `traits` VALUES (15,'double attack',1,85,4,288,16,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,99,5,288,18,'ROV',0);
-INSERT INTO `traits` VALUES (16,'triple attack',6,55,1,302,5,NULL,0);
-INSERT INTO `traits` VALUES (16,'triple attack',6,95,2,302,6,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (16,'triple attack',6,40,1,302,10,NULL,0);
+INSERT INTO `traits` VALUES (16,'triple attack',6,60,2,302,15,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (17,'counter',2,10,1,291,10,NULL,0);		-- changed from 8%
 INSERT INTO `traits` VALUES (17,'counter',2,81,2,291,12,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (18,'dual wield',6,83,1,259,10,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (18,'dual wield',6,90,2,259,15,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (18,'dual wield',6,10,1,259,10,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (18,'dual wield',6,10,1,25,10,NULL,0);
+INSERT INTO `traits` VALUES (18,'dual wield',6,45,2,259,15,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (18,'dual wield',6,45,2,25,15,NULL,0);
 INSERT INTO `traits` VALUES (18,'dual wield',6,98,3,259,25,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (18,'dual wield',13,10,1,259,10,NULL,0);
 INSERT INTO `traits` VALUES (18,'dual wield',13,10,1,25,10,NULL,0);
