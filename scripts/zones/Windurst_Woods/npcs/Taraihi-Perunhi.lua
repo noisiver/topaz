@@ -16,7 +16,7 @@ end
 
 function onTrigger(player, npc)
     local RegionOwner = GetRegionOwner(tpz.region.DERFLAND)
-    if RegionOwner ~= tpz.nation.BASTOK) then
+    if RegionOwner ~= tpz.nation.BASTOK then
         player:showText(npc, ID.text.TARAIHIPERUNHI_CLOSED_DIALOG)
     else
         player:showText(npc, ID.text.TARAIHIPERUNHI_OPEN_DIALOG)
@@ -29,7 +29,6 @@ function onTrigger(player, npc)
             1412, 1656, -- Olive Flower
             633,    14, -- Olive Oil
             951,   110  -- Wijnruit
-           626,    234,  -- Black Pepper
         }
         tpz.shop.general(player, stock, WINDURST)
     end
