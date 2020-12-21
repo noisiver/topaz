@@ -28,6 +28,7 @@ function onTrigger(player, npc)
             4545,   62, -- Gysahl Greens
             1412, 1656, -- Olive Flower
             633,    14, -- Olive Oil
+            626,    234,  -- Black Pepper
             951,   110  -- Wijnruit
         }
         tpz.shop.general(player, stock, WINDURST)
