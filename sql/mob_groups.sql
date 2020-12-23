@@ -10712,11 +10712,11 @@ INSERT INTO `mob_groups` VALUES (24,6655,166,'Goblin_Tanner',600,0,0,0,0,32,34,0
 INSERT INTO `mob_groups` VALUES (25,6668,166,'Goblin_Chaser',600,0,0,0,0,32,34,0);
 INSERT INTO `mob_groups` VALUES (26,1721,166,'Goblins_Bats',0,128,0,0,0,25,27,0);
 INSERT INTO `mob_groups` VALUES (27,1267,166,'Evil_Weapon',660,0,799,0,0,35,37,0);
-INSERT INTO `mob_groups` VALUES (28,4041,166,'Tros',0,128,0,0,0,44,44,0);
+INSERT INTO `mob_groups` VALUES (28,4041,166,'Tros',0,128,0,3000,0,44,44,0);
 INSERT INTO `mob_groups` VALUES (29,1912,166,'Hyakume',3600,0,3156,3000,0,45,48,0);
 
 INSERT INTO `mob_groups` VALUES (8748,1370,166,'Floating_Eye',600,0,850,0,0,34,36,0);
-INSERT INTO `mob_groups` VALUES (8761,2633,166,'Metallic_Slime',0,128,1664,0,0,29,33,0);
+INSERT INTO `mob_groups` VALUES (8761,2633,166,'Metallic_Slime',0,128,1664,900,0,29,33,0);
 
 -- ------------------------------------------------------------
 -- Bostaunieux_Oubliette (Zone 167)

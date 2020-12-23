@@ -1185,8 +1185,8 @@ INSERT INTO `mob_droplist` VALUES (196,0,0,1000,5851,100);
 INSERT INTO `mob_droplist` VALUES (196,0,0,1000,11717,100);
 INSERT INTO `mob_droplist` VALUES (196,0,0,1000,19137,100);
 INSERT INTO `mob_droplist` VALUES (197,2,0,1000,816,0);
-INSERT INTO `mob_droplist` VALUES (197,0,0,1000,816,111);
-INSERT INTO `mob_droplist` VALUES (197,0,0,1000,4357,120);
+INSERT INTO `mob_droplist` VALUES (197,0,0,1000,816,400);
+INSERT INTO `mob_droplist` VALUES (197,0,0,1000,4357,100);
 INSERT INTO `mob_droplist` VALUES (197,0,0,1000,4508,1000);
 INSERT INTO `mob_droplist` VALUES (198,4,0,1000,1783,0);
 INSERT INTO `mob_droplist` VALUES (198,0,0,1000,1783,50);
@@ -3308,10 +3308,10 @@ INSERT INTO `mob_droplist` VALUES (608,0,0,1000,5369,100);
 INSERT INTO `mob_droplist` VALUES (609,2,0,1000,920,0);
 INSERT INTO `mob_droplist` VALUES (609,0,0,1000,920,730);
 INSERT INTO `mob_droplist` VALUES (609,0,0,1000,1446,60);
-INSERT INTO `mob_droplist` VALUES (610,0,0,1000,4508,910);
+INSERT INTO `mob_droplist` VALUES (610,0,0,1000,4508,1000);
 INSERT INTO `mob_droplist` VALUES (610,0,0,1000,4508,450);
 INSERT INTO `mob_droplist` VALUES (610,0,0,1000,4508,300);
-INSERT INTO `mob_droplist` VALUES (610,0,0,1000,18254,550);
+INSERT INTO `mob_droplist` VALUES (610,0,0,1000,18254,200);	-- (Demonic Tiphia) Tiphia Sting
 INSERT INTO `mob_droplist` VALUES (611,0,0,1000,902,110);
 INSERT INTO `mob_droplist` VALUES (611,0,0,1000,2825,40);
 INSERT INTO `mob_droplist` VALUES (612,0,0,1000,1106,50);
@@ -15579,7 +15579,7 @@ INSERT INTO `mob_droplist` VALUES (3062,0,0,1000,19238,154); -- (Timeworn Warrio
 INSERT INTO `mob_droplist` VALUES (3063,0,0,1000,16021,250); -- (Eyegouger) Brawn Earring
 INSERT INTO `mob_droplist` VALUES (3063,2,0,1000,847,0); -- (Eyegouger) Bird Feather (steal)
 INSERT INTO `mob_droplist` VALUES (3064,0,0,1000,2829,150); -- (Humbaba) Radiant Velvet
-INSERT INTO `mob_droplist` VALUES (3065,0,0,1000,15853,205); -- (Dynast Beetle) Dasra's Ring
+INSERT INTO `mob_droplist` VALUES (3065,0,0,1000,15853,200); -- (Dynast Beetle) Dasra's Ring
 INSERT INTO `mob_droplist` VALUES (3066,0,0,1000,11342,156); -- (Myradrosh) Restorer Cloak
 INSERT INTO `mob_droplist` VALUES (3067,0,0,1000,16025,250); -- (Nandi) Rathe Earring
 INSERT INTO `mob_droplist` VALUES (3068,0,0,1000,16016,200); -- (Powderer Penny) Chary Earring
