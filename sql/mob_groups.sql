@@ -9682,8 +9682,8 @@ INSERT INTO `mob_groups` VALUES (19,1535,145,'Giant_Pugil',600,0,463,0,0,9,11,0)
 INSERT INTO `mob_groups` VALUES (20,5850,145,'Quu_Xijo_the_Illusory',3600,0,3061,900,0,24,25,0);
 INSERT INTO `mob_groups` VALUES (21,4459,145,'Yagudo_Votary',792,0,2776,0,0,21,23,0);
 INSERT INTO `mob_groups` VALUES (22,1159,145,'Earth_Eater',600,0,732,0,0,10,12,0);
-INSERT INTO `mob_groups` VALUES (23,1988,145,'Hoo_Mjuu_the_Torrent',0,32,1329,0,0,16,17,0);
-INSERT INTO `mob_groups` VALUES (24,4456,145,'Yagudo_Theologist',660,0,2772,2000,0,21,23,0);
+INSERT INTO `mob_groups` VALUES (23,1988,145,'Hoo_Mjuu_the_Torrent',0,32,1329,2000,0,16,17,0);
+INSERT INTO `mob_groups` VALUES (24,4456,145,'Yagudo_Theologist',660,0,2772,0,0,21,23,0);
 INSERT INTO `mob_groups` VALUES (25,4444,145,'Yagudo_Priest',660,0,2751,0,0,21,23,0);
 INSERT INTO `mob_groups` VALUES (26,4267,145,'Vuu_Puqu_the_Beguiler',0,32,2596,2000,0,21,22,0);
 INSERT INTO `mob_groups` VALUES (27,4113,145,'Vaa_Huja_the_Erudite',0,128,0,0,0,45,45,0);
