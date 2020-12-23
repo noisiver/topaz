@@ -12020,10 +12020,10 @@ INSERT INTO `mob_droplist` VALUES (2372,0,0,1000,849,290);
 INSERT INTO `mob_droplist` VALUES (2372,0,0,1000,1047,70);
 INSERT INTO `mob_droplist` VALUES (2373,0,0,1000,849,290);
 INSERT INTO `mob_droplist` VALUES (2374,0,0,1000,939,170);
-INSERT INTO `mob_droplist` VALUES (2375,0,0,1000,914,480);
-INSERT INTO `mob_droplist` VALUES (2375,0,0,1000,939,250);
-INSERT INTO `mob_droplist` VALUES (2375,0,1,1000,4717,0);     -- Taisaijin; Refresh
-INSERT INTO `mob_droplist` VALUES (2375,0,0,1000,15222,0);     -- Taisaijin; Spelunkers Hat
+INSERT INTO `mob_droplist` VALUES (2375,0,0,1000,914,200);
+INSERT INTO `mob_droplist` VALUES (2375,0,0,1000,939,200);
+INSERT INTO `mob_droplist` VALUES (2375,0,1,1000,4717,1000);     -- Taisaijin; Refresh
+INSERT INTO `mob_droplist` VALUES (2375,0,0,1000,15222,50);     -- Taisaijin; Spelunkers Hat
 INSERT INTO `mob_droplist` VALUES (2375,0,1,1000,4850,0);      -- Taisaijin; Refresh II
 INSERT INTO `mob_droplist` VALUES (2376,0,0,1000,914,110);
 INSERT INTO `mob_droplist` VALUES (2376,0,0,1000,1165,40);
@@ -15515,7 +15515,7 @@ INSERT INTO `mob_droplist` VALUES (3013,0,0,1000,3096,142); -- (Boartrap) Spotte
 INSERT INTO `mob_droplist` VALUES (3013,0,0,1000,1617,85); -- (Boartrap) Flytrap Leaf
 INSERT INTO `mob_droplist` VALUES (3014,0,0,1000,2840,187);	-- (Huwasi) Imperial Topaz
 INSERT INTO `mob_droplist` VALUES (3015,0,0,1000,18607,337);	-- (Lii Jixa The Somnolist) Ceres' Spica 
-INSERT INTO `mob_droplist` VALUES (3016,0,0,1000,16186,270);
+INSERT INTO `mob_droplist` VALUES (3016,0,0,1000,16186,200);	-- (Mucoid Mass) Spellcaster's Ecu
 INSERT INTO `mob_droplist` VALUES (3017,0,0,1000,19230,235);	-- (Patripatan) Nous Arbalest
 INSERT INTO `mob_droplist` VALUES (3018,0,0,1000,2857,299);		-- (Saa Doyi The Fervid) Lump Of Tokkyu Tama-Hagane 
 INSERT INTO `mob_droplist` VALUES (3019,0,0,1000,19045,400);
@@ -15573,7 +15573,7 @@ INSERT INTO `mob_droplist` VALUES (3056,0,0,1000,17970,100); -- (Centipedal Cent
 INSERT INTO `mob_droplist` VALUES (3057,0,0,1000,16297,62); -- (Okyupete) Shepherd's Chain
 INSERT INTO `mob_droplist` VALUES (3058,0,0,1000,2841,444); -- (Be'Hya Hundredwall) Quadav Silver Ingot
 INSERT INTO `mob_droplist` VALUES (3059,0,0,1000,16023,185); -- (Slippery Sucker) Mystique Earring
-INSERT INTO `mob_droplist` VALUES (3060,0,0,1000,16300,333); -- (Gloom Eye) Wit Pendant
+INSERT INTO `mob_droplist` VALUES (3060,0,0,1000,16300,200); -- (Gloom Eye) Wit Pendant
 INSERT INTO `mob_droplist` VALUES (3061,0,0,1000,2838,321); -- (Quu Xijo the Illusory) Ephemeral Cloth
 INSERT INTO `mob_droplist` VALUES (3062,0,0,1000,19238,154); -- (Timeworn Warrior) Jasper Tathlum
 INSERT INTO `mob_droplist` VALUES (3063,0,0,1000,16021,250); -- (Eyegouger) Brawn Earring
@@ -16251,6 +16251,7 @@ INSERT INTO `mob_droplist` VALUES (3154,0,0,1000,2830,200);	-- (Bastet) Bastet F
 INSERT INTO `mob_droplist` VALUES (3155,0,0,1000,922,200);	-- (Ancient Bat - Zitah)
 INSERT INTO `mob_droplist` VALUES (3155,0,0,1000,891,150);	-- Bat Fang
 INSERT INTO `mob_droplist` VALUES (3155,0,0,1000,924,50);	-- Fiend Blood
+INSERT INTO `mob_droplist` VALUES (3156,0,0,1000,924,200);	-- (Hyakume) Booster Earring
 
 
 /*!40000 ALTER TABLE `mob_droplist` ENABLE KEYS */;
