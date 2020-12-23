@@ -139,8 +139,9 @@ INSERT INTO `mob_family_mods` VALUES (110,389,-13,0);
 INSERT INTO `mob_family_mods` VALUES (122,389,-13,0);
 INSERT INTO `mob_family_mods` VALUES (123,389,-13,0);
 INSERT INTO `mob_family_mods` VALUES (124,389,-13,0);
-INSERT INTO `mob_family_mods` VALUES (175,389,-50,0);
+INSERT INTO `mob_family_mods` VALUES (175,389,-50,0);	-- Magic Pot
 INSERT INTO `mob_family_mods` VALUES (171,389,-13,0);
+INSERT INTO `mob_family_mods` VALUES (4,389,-25,0);		-- Ahriman
 
 -- Demons and fomors are somewhat resistant to lullaby
 INSERT INTO `mob_family_mods` VALUES (358,254,25,0);
