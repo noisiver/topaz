@@ -247,13 +247,13 @@ void CEnmityContainer::UpdateEnmityFromCure(CBattleEntity* PEntity, uint8 level,
 
     if (enmity_obj != m_EnmityList.end())
     {
-        enmity_obj->second.CE = std::clamp(enmity_obj->second.CE + CE, 0, EnmityCap);
+        enmity_obj->second.CE = std::clamp(enmity_obj->second.CE + CE, 0, EnmityCap); 
         enmity_obj->second.VE = std::clamp(enmity_obj->second.VE + VE, 0, EnmityCap);
         enmity_obj->second.active = true;
     }
     else
     {
-        m_EnmityList.emplace(PEntity->id, EnmityObject_t {PEntity, std::clamp(CE, 0, EnmityCap), std::clamp(VE, 0, EnmityCap), true, 0});
+        m_EnmityList.emplace(PEntity->id, EnmityObject_t {PEntity, std::clamp(CE, 1, EnmityCap), std::clamp(VE, 0, EnmityCap), true, 0}); // changed from 0
         PEntity->PNotorietyContainer->add(m_EnmityHolder);
     }
 }
