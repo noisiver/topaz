@@ -14,6 +14,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.RHOITOS_PH, 5, math.random(7200, 14400)) -- 2 to 4 hours (could not find info, so using Ogygos' cooldown)
-    tpz.mob.phOnDespawn(mob, ID.mob.POLYBOTES_PH, 5, math.random(7200, 14400)) -- 2 to 4 hours (could not find info, so using Ogygos' cooldown)
+    tpz.mob.phOnDespawn(mob, ID.mob.RHOITOS_PH, 30, math.random(7200, 14400)) -- 2 to 4 hours (could not find info, so using Ogygos' cooldown)
+    tpz.mob.phOnDespawn(mob, ID.mob.POLYBOTES_PH, 30, math.random(7200, 14400)) -- 2 to 4 hours (could not find info, so using Ogygos' cooldown)
 end

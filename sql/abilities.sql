@@ -276,7 +276,7 @@ INSERT INTO `abilities` VALUES (251,'ready',9,25,1,0,255,0,0,83,2000,0,6,18.0,0,
 INSERT INTO `abilities` VALUES (253,'perfect_counter',2,79,1,60,22,100,0,221,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (254,'mana_wall',4,76,1,600,39,0,0,222,2000,0,6,20.0,0,1,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (255,'divine_emblem',7,78,1,180,80,100,0,222,2000,0,6,20.0,0,1,3600,0,0,NULL);
-INSERT INTO `abilities` VALUES (256,'nether_void',8,78,1,300,91,100,0,224,2000,0,6,20.0,0,1,80,0,0,NULL);
+INSERT INTO `abilities` VALUES (256,'nether_void',8,60,1,180,91,100,0,224,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (257,'double_shot',11,79,1,180,126,0,0,225,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (258,'sengikori',12,77,1,180,141,100,0,226,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (259,'futae',13,50,1,60,148,0,0,227,2000,0,6,20.0,0,1,0,0,0,'ABYSSEA');		-- level 50, 60 second cooldown
@@ -298,8 +298,8 @@ INSERT INTO `abilities` VALUES (275,'spontaneity',5,95,3,600,37,0,0,259,2000,0,6
 INSERT INTO `abilities` VALUES (276,'conspirator',6,55,1,60,40,0,0,237,2000,0,6,14.0,1,1,80,0,4,'ABYSSEA');		-- changed to level 55 1m cd
 INSERT INTO `abilities` VALUES (277,'sepulcher',7,87,4,300,41,100,0,253,2000,0,6,12.0,0,1,80,0,0,NULL); -- needs animation
 INSERT INTO `abilities` VALUES (278,'palisade',7,76,1,120,42,100,0,253,2000,0,6,20.0,0,900,1800,0,0,NULL);
-INSERT INTO `abilities` VALUES (279,'arcane_crest',8,87,4,300,43,100,0,250,2000,0,6,20.0,0,1,80,0,0,NULL); -- needs animation
-INSERT INTO `abilities` VALUES (280,'scarlet_delirium',8,95,1,90,44,100,0,250,2000,0,6,20.0,0,1,80,0,0,NULL);
+INSERT INTO `abilities` VALUES (279,'arcane_crest',8,50,4,180,43,100,0,250,2000,0,6,20.0,0,1,80,0,0,NULL); -- needs animation
+INSERT INTO `abilities` VALUES (280,'scarlet_delirium',8,70,1,90,44,100,0,250,2000,0,6,20.0,0,1,80,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (281,'spur',9,83,1,180,45,100,0,255,2000,0,6,20.0,0,0,0,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (282,'run_wild',9,93,1,900,46,100,0,255,2000,0,6,20.0,0,0,0,0,0,NULL); -- needs animation
 INSERT INTO `abilities` VALUES (283,'tenuto',10,83,1,5,47,0,0,257,2000,0,6,20.0,0,0,0,0,0,'ABYSSEA');
