@@ -9475,7 +9475,7 @@ INSERT INTO `item_equipment` VALUES (19779,'potestas_bomblet',96,0,2500642,0,0,0
 INSERT INTO `item_equipment` VALUES (19780,'mana_ampulla',97,0,1589788,0,0,0,8,0);
 INSERT INTO `item_equipment` VALUES (19781,'eluders_sachet',96,0,4194303,0,0,0,8,0);
 INSERT INTO `item_equipment` VALUES (19782,'iron_gobbet',99,0,4194303,0,0,0,8,0);
-INSERT INTO `item_equipment` VALUES (19783,'iga_shuriken',80,0,4096,89,0,0,8,0);
+INSERT INTO `item_equipment` VALUES (19783,'iga_shuriken',75,0,4096,89,0,0,8,0);
 INSERT INTO `item_equipment` VALUES (19784,'lanner_bow',97,0,7665,46,0,0,4,0);
 INSERT INTO `item_equipment` VALUES (19785,'lanner_bow_+1',97,0,7665,46,0,0,4,0);
 INSERT INTO `item_equipment` VALUES (19786,'nurigomeyumi',97,0,3072,82,0,0,4,0);
