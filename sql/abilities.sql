@@ -202,6 +202,35 @@ INSERT INTO `abilities` VALUES (177,'snake_eye',17,75,1,300,197,0,0,167,2000,0,6
 INSERT INTO `abilities` VALUES (178,'fold',17,75,1,300,198,0,0,220,2000,0,6,20.0,0,1,300,3074,1,'TOAU');
 INSERT INTO `abilities` VALUES (179,'role_reversal',18,75,1,120,211,0,0,169,2000,0,6,20.0,0,0,0,3136,1,'TOAU');
 INSERT INTO `abilities` VALUES (180,'ventriloquy',18,75,4,60,212,0,0,170,2000,0,6,20.0,0,0,0,3138,1,'TOAU');
+--INSERT INTO `abilities` VALUES (181,'trance',19,0,1,3600,0,0,0,184,2000,0,6,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (182,'sambas',19,5,1,0,216,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (183,'waltzes',19,15,1,0,217,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (184,'drain_samba',19,5,1,60,216,100,0,0,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (185,'drain_samba_ii',19,35,1,60,216,100,0,1,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (186,'drain_samba_iii',19,65,1,60,216,100,0,2,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (187,'aspir_samba',19,25,1,60,216,100,0,3,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (188,'aspir_samba_ii',19,60,1,60,216,100,0,4,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (189,'haste_samba',19,45,1,60,216,100,0,5,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (190,'curing_waltz',19,15,27,6,217,102,0,6,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (191,'curing_waltz_ii',19,30,27,8,186,102,0,7,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (192,'curing_waltz_iii',19,45,27,10,187,102,0,8,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (193,'curing_waltz_iv',19,70,27,12,188,102,0,9,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (194,'healing_waltz',19,35,27,8,215,123,0,10,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (195,'divine_waltz',19,25,27,13,225,102,0,11,2000,0,14,20.0,1,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (196,'spectral_jig',19,25,1,30,218,532,0,12,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (197,'chocobo_jig',19,55,1,60,218,126,0,13,2000,0,14,20.0,0,1,300,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (198,'jigs',19,25,1,0,218,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (199,'steps',19,20,1,0,220,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (200,'flourishes_i',19,20,1,0,0,221,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');		 
+--INSERT INTO `abilities` VALUES (201,'quickstep',19,20,4,5,220,519,0,17,2000,0,14,4.5,0,1,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (202,'box_step',19,30,4,5,220,520,0,16,2000,0,14,4.5,0,1,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (203,'stutter_step',19,40,4,5,220,521,0,16,2000,0,14,4.5,0,1,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (204,'animated_flourish',19,20,4,30,221,119,0,181,2000,0,14,17.6,0,180,1280,0,0,'WOTG');		
+--INSERT INTO `abilities` VALUES (205,'desperate_flourish',19,30,4,20,221,127,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (206,'reverse_flourish',19,40,1,30,222,452,0,182,2000,0,6,20.0,0,1,0,0,0,'WOTG');	-- fix animation (changed action type from 14 to 6)
+--INSERT INTO `abilities` VALUES (207,'violent_flourish',19,45,4,20,221,522,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (208,'building_flourish',19,50,1,10,222,0,0,220,2000,0,6,20.0,0,1,0,0,0,'WOTG'); -- fix animation (changed action type from 14 to 6)
+--INSERT INTO `abilities` VALUES (209,'wild_flourish',19,60,4,20,222,529,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (181,'trance',19,0,1,3600,0,0,0,184,2000,0,6,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (182,'sambas',19,5,1,0,216,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (183,'waltzes',19,15,1,0,217,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
@@ -221,15 +250,15 @@ INSERT INTO `abilities` VALUES (196,'spectral_jig',19,25,1,30,218,532,0,12,2000,
 INSERT INTO `abilities` VALUES (197,'chocobo_jig',19,55,1,60,218,126,0,13,2000,0,14,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (198,'jigs',19,25,1,0,218,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (199,'steps',19,20,1,0,220,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (200,'flourishes_i',19,20,1,0,0,221,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');		 
+INSERT INTO `abilities` VALUES (200,'flourishes_i',19,20,1,0,0,221,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (201,'quickstep',19,20,4,5,220,519,0,17,2000,0,14,4.5,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (202,'box_step',19,30,4,5,220,520,0,16,2000,0,14,4.5,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (203,'stutter_step',19,40,4,5,220,521,0,16,2000,0,14,4.5,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (204,'animated_flourish',19,20,4,30,221,119,0,181,2000,0,14,17.6,0,180,1280,0,0,'WOTG');		
+INSERT INTO `abilities` VALUES (204,'animated_flourish',19,20,4,30,221,119,0,181,2000,0,6,17.6,0,1,1000,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (205,'desperate_flourish',19,30,4,20,221,127,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (206,'reverse_flourish',19,40,1,30,222,452,0,182,2000,0,14,20.0,0,1,0,0,0,'WOTG');	-- fix animation
+INSERT INTO `abilities` VALUES (206,'reverse_flourish',19,40,1,30,222,452,0,182,2000,0,6,20.0,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (207,'violent_flourish',19,45,4,20,221,522,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (208,'building_flourish',19,50,1,10,222,0,0,220,2000,0,14,20.0,0,1,0,0,0,'WOTG'); -- fix animation
+INSERT INTO `abilities` VALUES (208,'building_flourish',19,50,1,10,222,0,0,183,2000,0,6,20.0,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (209,'wild_flourish',19,60,4,20,222,529,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (210,'tabula_rasa',20,0,1,3600,0,0,0,190,2000,0,6,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (211,'light_arts',20,10,1,60,228,0,0,171,2000,0,6,20.0,0,1,80,1600,0,'WOTG');
@@ -257,6 +286,9 @@ INSERT INTO `abilities` VALUES (233,'sublimation',20,35,1,30,234,0,0,189,2000,0,
 INSERT INTO `abilities` VALUES (234,'addendum_white',20,10,1,1,231,0,0,191,2000,0,6,20.0,0,1,80,0,16,'WOTG');
 INSERT INTO `abilities` VALUES (235,'addendum_black',20,30,1,1,231,0,0,192,2000,0,6,20.0,0,1,80,0,32,'WOTG');
 INSERT INTO `abilities` VALUES (236,'collaborator',6,65,2,60,69,526,0,185,2000,0,6,12.6,0,0,0,0,0,'WOTG');
+--INSERT INTO `abilities` VALUES (237,'saber_dance',19,75,1,180,219,0,0,207,2000,0,6,20.0,0,1,80,3200,1,'WOTG');
+--INSERT INTO `abilities` VALUES (238,'fan_dance',19,75,1,180,224,0,0,208,2000,0,6,20.0,0,1,80,3202,1,'WOTG');
+--INSERT INTO `abilities` VALUES (239,'no_foot_rise',19,75,1,180,223,560,560,209,2000,0,6,20.0,0,1,80,3204,1,'WOTG');
 INSERT INTO `abilities` VALUES (237,'saber_dance',19,75,1,180,219,0,0,207,2000,0,6,20.0,0,1,80,3200,1,'WOTG');
 INSERT INTO `abilities` VALUES (238,'fan_dance',19,75,1,180,224,0,0,208,2000,0,6,20.0,0,1,80,3202,1,'WOTG');
 INSERT INTO `abilities` VALUES (239,'no_foot_rise',19,75,1,180,223,560,560,209,2000,0,6,20.0,0,1,80,3204,1,'WOTG');
