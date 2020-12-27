@@ -115,7 +115,7 @@ uint16 CItemShop::getSellPrice()
     {
         temp_price = max_sale_price;
     }
-    if (temp_price < 1)
+    if (temp_price < 10000)
     {
         temp_price = 1;
     }

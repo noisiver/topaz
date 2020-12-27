@@ -133,7 +133,7 @@ INSERT INTO `traits` VALUES (5,'magic atk. bonus',4,91,6,28,40,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',5,20,1,28,20,NULL,0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',5,40,2,28,24,NULL,0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',5,86,3,28,28,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (5,'magic atk. bonus',8,10,1,28,40,NULL,0);
+INSERT INTO `traits` VALUES (5,'magic atk. bonus',8,10,1,28,20,NULL,0);
 INSERT INTO `traits` VALUES (6,'magic def. bonus',3,10,1,29,10,NULL,0);
 INSERT INTO `traits` VALUES (6,'magic def. bonus',3,30,2,29,12,NULL,0);
 INSERT INTO `traits` VALUES (6,'magic def. bonus',3,50,3,29,14,NULL,0);
@@ -712,7 +712,7 @@ INSERT INTO `traits` VALUES (118,'inquartata',22,90,4,963,11,'SOA',0);
 INSERT INTO `traits` VALUES (119,'curative recantation',21,75,1,970,0,'SOA',3396);
 INSERT INTO `traits` VALUES (120,'primeval zeal',21,75,1,971,0,'SOA',3398);
 
-INSERT INTO `traits` VALUES (123,'daken',13,25,1,911,20,'SOA',0);
+INSERT INTO `traits` VALUES (123,'daken',13,30,1,911,20,'SOA',0);
 INSERT INTO `traits` VALUES (123,'daken',13,70,2,911,25,'SOA',0);
 INSERT INTO `traits` VALUES (123,'daken',13,80,3,911,30,'SOA',0);
 INSERT INTO `traits` VALUES (123,'daken',13,85,4,911,35,'SOA',0);

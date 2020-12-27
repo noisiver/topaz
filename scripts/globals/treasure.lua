@@ -282,7 +282,7 @@ local treasureInfo =
                 },
                 gil = {0.355, 2450, 7000},
                 gem = {0.161, 814, 800, 809, 795, 796, 799, 806},
-                item = {0.484, 16674},
+                item = {0.484, 18090},
             },
             [tpz.zone.UPPER_DELKFUTTS_TOWER] = -- 158
             {
@@ -304,7 +304,7 @@ local treasureInfo =
                 },
                 gil = {0.355, 2450, 7000},
                 gem = {0.161, 814, 800, 809, 795, 796, 799, 806},
-                item = {0.484, 16674},
+                item = {0.484, 18090},
             },
             [tpz.zone.CASTLE_ZVAHL_BAILEYS] = -- 161
             {
