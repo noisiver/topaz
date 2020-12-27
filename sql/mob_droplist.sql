@@ -343,10 +343,10 @@ INSERT INTO `mob_droplist` VALUES (49,0,0,1000,1997,100);
 INSERT INTO `mob_droplist` VALUES (49,0,0,1000,4377,390);
 INSERT INTO `mob_droplist` VALUES (49,0,0,1000,5152,230);
 INSERT INTO `mob_droplist` VALUES (49,0,0,1000,11563,100);
-INSERT INTO `mob_droplist` VALUES (50,0,0,1000,497,510);
-INSERT INTO `mob_droplist` VALUES (50,0,0,1000,499,300);
+INSERT INTO `mob_droplist` VALUES (50,0,0,1000,497,1000);
+INSERT INTO `mob_droplist` VALUES (50,0,0,1000,499,100);
 INSERT INTO `mob_droplist` VALUES (50,0,0,1000,12292,240);
-INSERT INTO `mob_droplist` VALUES (50,0,0,1000,14022,60);
+INSERT INTO `mob_droplist` VALUES (50,0,0,1000,14022,50); --(Alkyoneus) Alkyoneus's bracelets
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,2681,1000);
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,11473,120);
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,18449,150);
@@ -1906,7 +1906,7 @@ INSERT INTO `mob_droplist` VALUES (318,0,0,1000,3258,230);
 INSERT INTO `mob_droplist` VALUES (318,0,0,1000,5152,180);
 INSERT INTO `mob_droplist` VALUES (318,4,0,1000,5152,0);
 INSERT INTO `mob_droplist` VALUES (319,2,0,1000,656,0);
-INSERT INTO `mob_droplist` VALUES (319,0,0,1000,4716,60);	-- (Boggart  - Jugner) Regen
+INSERT INTO `mob_droplist` VALUES (319,0,0,1000,4716,50);	-- (Boggart  - Jugner) Regen
 INSERT INTO `mob_droplist` VALUES (320,0,0,1000,529,100);
 INSERT INTO `mob_droplist` VALUES (320,2,0,1000,825,0);
 INSERT INTO `mob_droplist` VALUES (320,0,0,1000,825,300);
