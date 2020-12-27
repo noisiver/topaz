@@ -269,7 +269,7 @@ INSERT INTO `mob_family_system` VALUES (204,'Qutrub',19,'Undead',0,40,100,140,1,
 INSERT INTO `mob_family_system` VALUES (205,'Qutrub',19,'Undead',0,40,100,140,1,3,3,3,1,5,4,3,3,3,3,1.875,1.875,1.875,1.875,2.109,1.64,1.875,1.875,1.875,1.875,2.109,0.937,8,6,0);
 INSERT INTO `mob_family_system` VALUES (206,'Rabbit',6,'Beast',0,40,96,120,4,3,4,4,4,4,4,1,3,1,3,1,1,1,1,1.3,1.15,1.3,1.15,1.5,1.5,1.15,1.5,4,257,1);
 INSERT INTO `mob_family_system` VALUES (207,'Rafflesia',17,'Plantoid',0,40,90,90,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1.125,1,1,1,1,1,1,1,4,2,0);
-INSERT INTO `mob_family_system` VALUES (208,'Ram',6,'Beast',3,40,120,100,3,4,3,4,4,4,4,1,3,1,3,1,1,1,1,1,0.875,1,1,1,1,1,1,4,257,0); -- missing attk and acc
+INSERT INTO `mob_family_system` VALUES (208,'Ram',6,'Beast',3,40,120,100,3,4,3,4,4,4,4,1,3,1,3,1,1,1,1,1,0.7,1,0.7,1.15,1.15,1,1,4,257,0); -- missing attk and acc
 INSERT INTO `mob_family_system` VALUES (209,'Rampart',4,'ArchaicMachine',2,40,90,90,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1.125,1,1,0.875,1,1,1,5,2,0);
 INSERT INTO `mob_family_system` VALUES (210,'Raptor',14,'Lizard',1,50,95,120,4,4,5,3,4,4,4,1,3,1,3,1,1,1,1,1,1,1.3,1.3,1.3,1.5,1.3,1.3,1,258,1);
 INSERT INTO `mob_family_system` VALUES (211,'Ruszor',2,'Aquan',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,0.5,0.5,0.875,1,1,1,1,2,1,0);
@@ -278,7 +278,7 @@ INSERT INTO `mob_family_system` VALUES (213,'Sahagin',7,'Beastmen',0,40,107,110,
 INSERT INTO `mob_family_system` VALUES (214,'Sandworm',1,'Amorph',0,40,130,180,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1,1.25,0.875,1,1,1.25,0.875,4,2,0);
 INSERT INTO `mob_family_system` VALUES (215,'Sandworm',1,'Amorph',5,40,130,180,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,0.5,0.5,1.125,0.25,0.25,0.5,1,0.5,4,2,0);
 INSERT INTO `mob_family_system` VALUES (216,'Sapling',17,'Plantoid',0,40,85,120,4,4,3,4,4,4,5,1,3,1,3,1,1,1,1,1.5,1.3,1.3,1,1.3,1,1,1.5,4,2,1);
-INSERT INTO `mob_family_system` VALUES (217,'Scorpion',20,'Vermin',1,40,105,120,3,5,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1.25,1,1,1,0.875,1.25,0.875,4,258,1);
+INSERT INTO `mob_family_system` VALUES (217,'Scorpion',20,'Vermin',1,40,105,120,3,5,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1.5,1,1,1.3,1.3,1.5,1,4,258,1);
 INSERT INTO `mob_family_system` VALUES (218,'SeaMonk',2,'Aquan',1,40,110,140,3,5,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1.25,1,1,1.25,0.5,1,1,6,2,1);
 INSERT INTO `mob_family_system` VALUES (219,'SeaMonk',2,'Aquan',1,40,110,140,3,5,4,4,4,4,4,1,3,1,3,0,1,1,1,1,1.25,1,1,1.25,0.5,1,1,6,2,1);
 INSERT INTO `mob_family_system` VALUES (220,'Seether',12,'Empty',1,50,117,90,1,3,2,3,6,6,5,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,272,0);

@@ -100,7 +100,7 @@ uint16 CItemShop::getInitialQuantity()
 
 uint16 CItemShop::getSellPrice()
 {
-    int32 temp_price = 0;
+    int32 temp_price = (int32)getBasePrice() / 3;
     int32 max_sale_price = (int32)getMinPrice() / 2;
 
     if (getID() >= 0x2800 && getID() <= 0x6FFF)
