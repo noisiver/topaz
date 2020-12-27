@@ -431,7 +431,7 @@ INSERT INTO `mob_family_system` VALUES (369,'Leech',1,'Amorph',1,40,90,90,4,4,5,
 INSERT INTO `mob_family_system` VALUES (371,'Marid',6,'Beast',2,40,150,90,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1.125,1,1,1,1,1,1,4,257,0);
 INSERT INTO `mob_family_system` VALUES (372,'Crab',2,'Aquan',0,40,108,120,4,4,3,5,4,4,4,1,3,1,3,0.5,0.5,0.5,0.5,1,1.25,1,1,1.25,0.875,1,1,6,2,1);
 INSERT INTO `mob_family_system` VALUES (373,'Goblin_Armored',7,'Beastmen',0,40,91,120,3,3,5,3,4,4,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1.25,1,5,1,0);
-INSERT INTO `mob_family_system` VALUES (374,'Fly',20,'Vermin',0,40,92,90,5,4,4,3,4,4,4,1,3,1,3,1,1.25,1,1,1,1.25,0.875,1,1,1,1,1,3,2,1); -- missing acc/attk
+INSERT INTO `mob_family_system` VALUES (374,'Fly',20,'Vermin',0,40,92,90,5,4,4,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.5,1,1,1.3,1.3,1.3,1.3,3,2,1); -- missing acc/attk
 INSERT INTO `mob_family_system` VALUES (375,'FlyDark',20,'Vermin',0,40,92,90,5,4,4,3,4,4,4,1,3,1,3,1,1.25,1,1,1,1.25,0.875,1,1,1,1,1,3,2,0); -- missing acc/attk
 INSERT INTO `mob_family_system` VALUES (376,'Raptor',14,'Lizard',1,50,95,120,4,4,5,3,4,4,4,1,3,1,3,1,1,1,1,0.875,1,1,1,1,1.25,1,1,1,258,1);
 INSERT INTO `mob_family_system` VALUES (377,'Raptor',14,'Lizard',1,50,95,120,4,4,5,3,4,4,4,1,3,1,3,1,1,1,1,0.875,1,1,1,1,1.25,1,1,1,258,1);
