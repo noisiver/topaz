@@ -17,15 +17,18 @@ function onSpellCast(caster, target, spell)
     local power = 35
 
     if (sLvl+iLvl > 200) then
-        power = power + math.floor((sLvl+iLvl-200) / 7)
+        power = power + math.floor((sLvl+iLvl-200) / 7) -- cap is 450 skill
     end
 
-    if (power >= 108) then
-        power = 108
+   -- if (power >= 108) then
+     --   power = 108
+         if (power >= 64) then
+        power = 64
     end
 
     local iBoost = caster:getMod(tpz.mod.MARCH_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
-    power = power + iBoost*11
+    --power = power + iBoost*11
+    power = power + iBoost*1.1
 
     if (caster:hasStatusEffect(tpz.effect.SOUL_VOICE)) then
         power = power * 2

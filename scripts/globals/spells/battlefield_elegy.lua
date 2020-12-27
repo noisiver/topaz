@@ -29,7 +29,8 @@ function onSpellCast(caster, target, spell)
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
     else
         local iBoost = caster:getMod(tpz.mod.ELEGY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
-        power = power + iBoost * 100
+        --power = power + iBoost * 100
+        power = power + iBoost * 1.1
 
         if caster:hasStatusEffect(tpz.effect.SOUL_VOICE) then
             power = power * 2

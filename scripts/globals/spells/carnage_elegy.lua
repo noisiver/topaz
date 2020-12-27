@@ -28,14 +28,14 @@ function onSpellCast(caster, target, spell)
     if resm < 0.25 then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
     else
-        local iBoost = caster:getMod(tpz.mod.ELEGY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
-        power = power + iBoost * 100
+       -- local iBoost = caster:getMod(tpz.mod.ELEGY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
+       -- power = power + iBoost * 100
 
-        if caster:hasStatusEffect(tpz.effect.SOUL_VOICE) then
-            power = power * 2
-        elseif caster:hasStatusEffect(tpz.effect.MARCATO) then
-            power = power * 1.5
-        end
+        --if caster:hasStatusEffect(tpz.effect.SOUL_VOICE) then
+          --  power = power * 2
+        --elseif caster:hasStatusEffect(tpz.effect.MARCATO) then
+          --  power = power * 1.5
+        --end
         caster:delStatusEffect(tpz.effect.MARCATO)
 
         duration = duration * (iBoost * 0.1 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1)

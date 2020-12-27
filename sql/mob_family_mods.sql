@@ -265,6 +265,9 @@ INSERT INTO `mob_family_mods` VALUES (138,63,10,0);		-- Gorger +10% Defense Bonu
 INSERT INTO `mob_family_mods` VALUES (220,63,10,0);		-- Seether +10% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (241,63,10,0);		-- Thinker +10% Defense Bonus
 
+--MDB
+INSERT INTO `mob_family_mods` VALUES (175,29,12,0); -- Magic pot +12 MDB
+
 
 -- Immunities
 INSERT INTO `mob_family_mods` VALUES (92,23,2047,1);
