@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     local iBoost = caster:getMod(tpz.mod.MAMBO_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     if (iBoost > 0) then
         --power = power + iBoost*5
-        power = power + iBoost*1.1
+         power = power + iBoost*0.1
     end
 
     if (caster:hasStatusEffect(tpz.effect.SOUL_VOICE)) then

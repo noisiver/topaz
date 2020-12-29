@@ -16,9 +16,11 @@ function calculateBarspellPower(caster, enhanceSkill)
     if (enhanceSkill > 500) then
         power = 150
     elseif (enhanceSkill > 300) then
-        power = 25 + math.floor(enhanceSkill * 0.25)
+        --power = 25 + math.floor(enhanceSkill * 0.25)
+         power = 40 + math.floor(enhanceSkill / 5)
     else
-        power = 40 + math.floor(enhanceSkill * 0.2)
+        --power = 40 + math.floor(enhanceSkill * 0.2)
+        power = 40 + math.floor(enhanceSkill / 5)
     end
     return power + meritBonus + equipBonus
 end

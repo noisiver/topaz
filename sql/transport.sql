@@ -49,16 +49,16 @@ CREATE TABLE IF NOT EXISTS `transport` (
 
 --
 -- Contenu de la table `transport`
---
+---- made all airships 10m, they were 5m(360)
 
-INSERT INTO `transport` VALUES(1, 'Kazham-Jeuno_Airship', 17801320, 17801319, -4.000, -3.497, 32.125, 128, 512, 18, 19, 90, 360, 20, 50, 20, 226);
-INSERT INTO `transport` VALUES(2, 'Jeuno-Kazham_Airship', 17784936, 17784935, -4.000, 10.450, 117.000, 64, 477, 24, 25, 270, 360, 20, 50, 20, 226);
-INSERT INTO `transport` VALUES(3, 'Jeuno-Sandoria_Airship', 17784936, 17784932, -68.000, 10.450, 117.000, 64, 474, 18, 19, 0, 360, 12, 60, 12, 223);
-INSERT INTO `transport` VALUES(4, 'Jeuno-Windurst_Airship', 17784936, 17784934, -6.000, 10.450, -117.000, 192, 476, 22, 23, 90, 360, 12, 60, 12, 225);
-INSERT INTO `transport` VALUES(5, 'Jeuno-Bastok_Airship', 17784936, 17784933, -70.000, 10.450, -117.000, 192, 475, 20, 21, 180, 360, 12, 60, 16, 224);
-INSERT INTO `transport` VALUES(6, 'Sandoria-Jeuno_Airship', 17727598, 17727595, 20.000, -2.000, 44.000, 64, 369, 18, 19, 180, 360, 12, 60, 16, 223);
-INSERT INTO `transport` VALUES(7, 'Windurst-Jeuno_Airship', 17760420, 17760419, 242.281, -3.522, 61.994, 96, 416, 18, 19, 270, 360, 18, 60, 14, 225);
-INSERT INTO `transport` VALUES(8, 'Bastok-Jeuno_Airship', 17743971, 17743965, -36.458, 6.365, -77.322, 128, 315, 18, 19, 0, 360, 14, 60, 16, 224);
+INSERT INTO `transport` VALUES(1, 'Kazham-Jeuno_Airship', 17801320, 17801319, -4.000, -3.497, 32.125, 128, 512, 18, 19, 90, 600, 20, 50, 20, 226); -
+INSERT INTO `transport` VALUES(2, 'Jeuno-Kazham_Airship', 17784936, 17784935, -4.000, 10.450, 117.000, 64, 477, 24, 25, 270, 600, 20, 50, 20, 226);
+INSERT INTO `transport` VALUES(3, 'Jeuno-Sandoria_Airship', 17784936, 17784932, -68.000, 10.450, 117.000, 64, 474, 18, 19, 0, 600, 12, 60, 12, 223);
+INSERT INTO `transport` VALUES(4, 'Jeuno-Windurst_Airship', 17784936, 17784934, -6.000, 10.450, -117.000, 192, 476, 22, 23, 90, 600, 12, 60, 12, 225);
+INSERT INTO `transport` VALUES(5, 'Jeuno-Bastok_Airship', 17784936, 17784933, -70.000, 10.450, -117.000, 192, 475, 20, 21, 180, 600, 12, 60, 16, 224);
+INSERT INTO `transport` VALUES(6, 'Sandoria-Jeuno_Airship', 17727598, 17727595, 20.000, -2.000, 44.000, 64, 369, 18, 19, 180, 600, 12, 60, 16, 223);
+INSERT INTO `transport` VALUES(7, 'Windurst-Jeuno_Airship', 17760420, 17760419, 242.281, -3.522, 61.994, 96, 416, 18, 19, 270, 600, 18, 60, 14, 225);
+INSERT INTO `transport` VALUES(8, 'Bastok-Jeuno_Airship', 17743971, 17743965, -36.458, 6.365, -77.322, 128, 315, 18, 19, 0, 600, 14, 60, 16, 224);
 INSERT INTO `transport` VALUES(9, 'Selbina-Mhaura_Boat', 17793088, 17793087, 9.294, 0.000, -69.775, 0, 485, 18, 19, 382, 480, 18, 80, 17, 220);
 INSERT INTO `transport` VALUES(10, 'Mhaura-Selbina_Boat', 17797182, 17797181, -0.516, 0.026, -8.409, 0, 493, 18, 19, 382, 480, 18, 80, 17, 221);
 INSERT INTO `transport` VALUES(11, 'Mhaura-Whitegate_Boat', 17797182, 17797181, -0.516, 0.026, -8.409, 0, 493, 18, 19, 142, 480, 18, 80, 17, 46);

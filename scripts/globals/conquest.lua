@@ -703,18 +703,18 @@ local overseerInvNation =
         [32773] = {rank =  1, cp =  1000, lvl = 10, item = 13003},                -- legionnaires_leggings
         [32774] = {rank =  1, cp =  1000, lvl = 10, item = 17128, place = 2},     -- legionnaires_staff
         [32775] = {rank =  1, cp =  1000, lvl = 10, item = 16780, place = 1},     -- legionnaires_scythe
-        [32768] = {rank =  1, cp =  1000, lvl = 10, item = 17167},                -- royal_archers_longbow
-        [32769] = {rank =  1, cp =  1000, lvl = 10, item = 16544},                -- royal_archers_sword
-        [32770] = {rank =  1, cp =  1000, lvl = 10, item = 12510},                -- royal_footmans_bandana
-        [32771] = {rank =  1, cp =  1000, lvl = 10, item = 12753},                -- royal_footmans_gloves
-        [32772] = {rank =  1, cp =  1000, lvl = 10, item = 13004},                -- royal_footmans_boots
-        [32773] = {rank =  1, cp =  1000, lvl = 10, item = 16691},                 -- royal_archers_cesti
-        [32774] = {rank =  1, cp =  1000, lvl = 10, item = 13718},                 -- royal_footmans_tunic
-        [32768] = {rank =  1, cp =  1000, lvl = 10, item = 17159},                -- freeswords_bow
-        [32769] = {rank =  1, cp =  1000, lvl = 10, item = 17028},                -- freeswords_club
-        [32770] = {rank =  1, cp =  1000, lvl = 10, item = 16442},                -- freeswords_baghnakhs
-        [32771] = {rank =  1, cp =  1000, lvl = 10, item = 12915},                 -- freeswords_slops
-        [32772] = {rank =  1, cp =  1000, lvl = 10, item = 17130},                 -- freeswords_staff
+       -- [32768] = {rank =  1, cp =  1000, lvl = 10, item = 17167},                -- royal_archers_longbow
+       -- [32769] = {rank =  1, cp =  1000, lvl = 10, item = 16544},                -- royal_archers_sword
+       -- [32770] = {rank =  1, cp =  1000, lvl = 10, item = 12510},                -- royal_footmans_bandana
+       -- [32771] = {rank =  1, cp =  1000, lvl = 10, item = 12753},                -- royal_footmans_gloves
+       -- [32772] = {rank =  1, cp =  1000, lvl = 10, item = 13004},                -- royal_footmans_boots
+       -- [32773] = {rank =  1, cp =  1000, lvl = 10, item = 16691},                 -- royal_archers_cesti
+       -- [32774] = {rank =  1, cp =  1000, lvl = 10, item = 13718},                 -- royal_footmans_tunic
+       -- [32768] = {rank =  1, cp =  1000, lvl = 10, item = 17159},                -- freeswords_bow
+       -- [32769] = {rank =  1, cp =  1000, lvl = 10, item = 17028},                -- freeswords_club
+       -- [32770] = {rank =  1, cp =  1000, lvl = 10, item = 16442},                -- freeswords_baghnakhs
+       -- [32771] = {rank =  1, cp =  1000, lvl = 10, item = 12915},                 -- freeswords_slops
+       -- [32772] = {rank =  1, cp =  1000, lvl = 10, item = 17130},                 -- freeswords_staff
         [32784] = {rank =  2, cp =  2000, lvl = 18, item = 17048},                -- decurions_hammer
         [32785] = {rank =  2, cp =  2000, lvl = 10, item = 12629},                -- legionnaires_harness
         [32786] = {rank =  2, cp =  2000, lvl = 20, item = 12881},                -- legionnaires_subligar

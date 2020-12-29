@@ -14,11 +14,11 @@ function onSpellCast(caster, target, spell)
     local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
     local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
 
-    local power = 35
-
-    if (sLvl+iLvl > 200) then
-        power = power + math.floor((sLvl+iLvl-200) / 7) -- cap is 450 skill
-    end
+    --local power = 35
+     local power = 1 + math.floor((sLvl+iLvl) / 7)
+--    if (sLvl+iLvl > 200) then
+  --      power = power + math.floor((sLvl+iLvl-200) / 7) -- cap is 450 skill
+    --end
 
    -- if (power >= 108) then
      --   power = 108
@@ -28,7 +28,7 @@ function onSpellCast(caster, target, spell)
 
     local iBoost = caster:getMod(tpz.mod.MARCH_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     --power = power + iBoost*11
-    power = power + iBoost*1.1
+     power = power * iBoost*8
 
     if (caster:hasStatusEffect(tpz.effect.SOUL_VOICE)) then
         power = power * 2

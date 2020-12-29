@@ -106,11 +106,11 @@ local p6 = { --Maps that are price at 600 gil
     Uoption[11],    --Beadeaux
     Uoption[12],    --Giddeus
     Uoption[14],    --Maze of Shakhrami
-    Uoption[22],    --King Ranperres Tomb
-    Uoption[23],    --Dangruf Wadi
-    Uoption[24],    --Horutoto Ruins
-    Uoption[27],    --Gusgen Mines
-    Uoption[59]        --Al Zahbi
+    --Uoption[22],    --King Ranperres Tomb
+    --Uoption[23],    --Dangruf Wadi
+    --Uoption[24],    --Horutoto Ruins
+    --Uoption[27],    --Gusgen Mines
+    --Uoption[59]        --Al Zahbi
     }
 local p3 = {    --Maps that are price at 3000 gil
     Uoption[7],        --Davoi
@@ -122,55 +122,55 @@ local p3 = {    --Maps that are price at 3000 gil
     Uoption[18],    --Eldieme Necropolis
     Uoption[19],    --Garlaige Citadel
     Uoption[20],    --Elshimo Regions
-    Uoption[21],    --Northlands Area
-    Uoption[25],    --Bostaunieux Oubliette
-    Uoption[26],    --Toraimarai Canal
-    Uoption[28],    --Crawlers Nest
-    Uoption[29],    --Ranguemont Pass
-    Uoption[30],    --Delkfutts Tower
-    Uoption[31],    --Feiyin
-    Uoption[32],    --Castle Zvahl
+    --Uoption[21],    --Northlands Area
+    --Uoption[25],    --Bostaunieux Oubliette
+    --Uoption[26],    --Toraimarai Canal
+    --Uoption[28],    --Crawlers Nest
+    --Uoption[29],    --Ranguemont Pass
+    --Uoption[30],    --Delkfutts Tower
+    --Uoption[31],    --Feiyin
+    --Uoption[32],    --Castle Zvahl
     Uoption[33],    --Kuzotz region
-    Uoption[34],    --Ru'Aun Gardens
-    Uoption[35],    --Norg
-    Uoption[36],    --Temple of Uggalepih
-    Uoption[37],    --Den of Rancor
+    --Uoption[34],    --Ru'Aun Gardens
+    --Uoption[35],    --Norg
+    --Uoption[36],    --Temple of Uggalepih
+    --Uoption[37],    --Den of Rancor
     Uoption[38],    --Korroloka Tunnel
-    Uoption[39],    --Kuftal Tunnel
-    Uoption[40],    --Boyahda Tree
-    Uoption[41],    --Ve'Lugannon Palace
-    Uoption[42],    --Ifrit's Cauldron
-    Uoption[43],    --Quicksand Caves
-    Uoption[44],    --Sea Serpent Grotto
+    --Uoption[39],    --Kuftal Tunnel
+    --Uoption[40],    --Boyahda Tree
+    --Uoption[41],    --Ve'Lugannon Palace
+    --Uoption[42],    --Ifrit's Cauldron
+    --Uoption[43],    --Quicksand Caves
+    --Uoption[44],    --Sea Serpent Grotto
     Uoption[45],    --Vollbow region
-    Uoption[46],    --Labyrinth of Onzozo
-    Uoption[47],    --Uleguerand Range
-    Uoption[48],    --Attohwa Chasm
-    Uoption[49],    --Pso'Xja
-    Uoption[50],    --Oldton Movalpolos
-    Uoption[51],    --Newton Movalpolos
-    Uoption[52],    --Tavnazia
-    Uoption[53],    --Aqueducts
-    Uoption[54],    --Sacrarium
-    Uoption[55],    --Cape Riverne
-    Uoption[56],    --Al'Taieu
-    Uoption[57],    --Hu'Xzoi
-    Uoption[58],    --Ru'Hmet
-    Uoption[60],    --Nashmau
-    Uoption[61],    --Wajaom Woodlands
-    Uoption[62],    --Caedarva Mire
-    Uoption[63],    --Mount Zhayolm
-    Uoption[64],    --Aydeewa Subterrane
-    Uoption[65],    --Mamook
-    Uoption[66],    --Halvung
-    Uoption[67],    --Arrapago Reef
-    Uoption[68],    --Alzadall Ruins
-    Uoption[69]        --Bhaflau Thickets
+    --Uoption[46],    --Labyrinth of Onzozo
+    --Uoption[47],    --Uleguerand Range
+    --Uoption[48],    --Attohwa Chasm
+    --Uoption[49],    --Pso'Xja
+    --Uoption[50],    --Oldton Movalpolos
+    --Uoption[51],    --Newton Movalpolos
+    --Uoption[52],    --Tavnazia
+    --Uoption[53],    --Aqueducts
+    --Uoption[54],    --Sacrarium
+    --Uoption[55],    --Cape Riverne
+    --Uoption[56],    --Al'Taieu
+    --Uoption[57],    --Hu'Xzoi
+    --Uoption[58],    --Ru'Hmet
+    --Uoption[60],    --Nashmau
+    --Uoption[61],    --Wajaom Woodlands
+    --Uoption[62],    --Caedarva Mire
+    --Uoption[63],    --Mount Zhayolm
+    --Uoption[64],    --Aydeewa Subterrane
+    --Uoption[65],    --Mamook
+    --Uoption[66],    --Halvung
+    --Uoption[67],    --Arrapago Reef
+    --Uoption[68],    --Alzadall Ruins
+    --Uoption[69]        --Bhaflau Thickets
     }
 local p30 = { --Maps that are price at 30, 000 gil
-    Uoption[70],    --Vunkerl Inlet
-    Uoption[71],    --Grauberg
-    Uoption[72]        --Fort Karugo-Narugo
+   -- Uoption[70],    --Vunkerl Inlet
+   -- Uoption[71],    --Grauberg
+   -- Uoption[72]        --Fort Karugo-Narugo
     }
 
 function CheckMaps(player, npc, csid)
