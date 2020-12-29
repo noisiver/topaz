@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `transport` (
 -- Contenu de la table `transport`
 ---- made all airships 10m, they were 5m(360)
 
-INSERT INTO `transport` VALUES(1, 'Kazham-Jeuno_Airship', 17801320, 17801319, -4.000, -3.497, 32.125, 128, 512, 18, 19, 90, 600, 20, 50, 20, 226); -
+INSERT INTO `transport` VALUES(1, 'Kazham-Jeuno_Airship', 17801320, 17801319, -4.000, -3.497, 32.125, 128, 512, 18, 19, 90, 600, 20, 50, 20, 226); 
 INSERT INTO `transport` VALUES(2, 'Jeuno-Kazham_Airship', 17784936, 17784935, -4.000, 10.450, 117.000, 64, 477, 24, 25, 270, 600, 20, 50, 20, 226);
 INSERT INTO `transport` VALUES(3, 'Jeuno-Sandoria_Airship', 17784936, 17784932, -68.000, 10.450, 117.000, 64, 474, 18, 19, 0, 600, 12, 60, 12, 223);
 INSERT INTO `transport` VALUES(4, 'Jeuno-Windurst_Airship', 17784936, 17784934, -6.000, 10.450, -117.000, 192, 476, 22, 23, 90, 600, 12, 60, 12, 225);

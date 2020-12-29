@@ -37,7 +37,7 @@ CREATE TABLE `mob_family_mods` (
 
 LOCK TABLES `mob_family_mods` WRITE;
 /*!40000 ALTER TABLE `mob_family_mods` DISABLE KEYS */;
-INSERT INTO `mob_family_mods` VALUES (175,29,50,0);
+--INSERT INTO `mob_family_mods` VALUES (175,29,50,0);
 INSERT INTO `mob_family_mods` VALUES (4,29,20,0);
 INSERT INTO `mob_family_mods` VALUES (4,7,60,1);
 INSERT INTO `mob_family_mods` VALUES (74,29,25,0);
