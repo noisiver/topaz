@@ -75,7 +75,7 @@ function onTrigger(player, npc)
         }
 
         player:showText(npc, ID.text.AMALASANDA_SHOP_DIALOG)
-        tpz.shop.general(player, stock)
+        tpz.shop.general(player, stock, NORG)
     end
 end
 
