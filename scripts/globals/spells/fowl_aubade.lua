@@ -1,6 +1,5 @@
 -----------------------------------------
--- Spell: Sword Madrigal
--- Gives party members accuracy
+-- Spell: Fowl Aubade
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -14,24 +13,20 @@ function onSpellCast(caster, target, spell)
     local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
     local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
 
-    local power = 5
+   
+   local power = 5 + math.floor((sLvl + iLvl)/25)
 
-    if (sLvl+iLvl > 85) then
-       -- power = power + math.floor((sLvl+iLvl-85) / 18)
-       math.floor((sLvl+iLvl) / 15)
-    end
+  
+   if (power >= 25) then
+        power = 25
+   end
 
-    if (power >= 15) then
-        power = 15
-    end
+   local iBoost = caster:getMod(tpz.mod.AUBADE_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
+   if (iBoost > 0) then
+        power = power * iBoost*1.1
+   end
 
-    local iBoost = caster:getMod(tpz.mod.MADRIGAL_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
-    if (iBoost > 0) then
-        --power = power + iBoost*4.5
-    power = power * iBoost*1.1
-    end
-
-    power =  power + caster:getMerit(tpz.merit.MADRIGAL_EFFECT)
+    power =  power + caster:getMerit(tpz.merit.AUBADE_EFFECT)
 
     if (caster:hasStatusEffect(tpz.effect.SOUL_VOICE)) then
         power = power * 2
@@ -47,9 +42,9 @@ function onSpellCast(caster, target, spell)
         duration = duration * 2
     end
 
-    if not (target:addBardSong(caster, tpz.effect.MADRIGAL, power, 0, duration, caster:getID(), 0, 1)) then
+    if not (target:addBardSong(caster, tpz.effect.AUBADE, power, 0, duration, caster:getID(), 0, 1)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end
 
-    return tpz.effect.MADRIGAL
+    return tpz.effect.AUBADE
 end

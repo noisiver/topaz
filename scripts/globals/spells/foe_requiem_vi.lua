@@ -13,7 +13,21 @@ end
 function onSpellCast(caster, target, spell)
     local effect = tpz.effect.REQUIEM
     local duration = 143
-    local power = 6
+    local power = 55
+
+    if (sLvl+iLvl > 204) then
+        power = power + 10
+    elseif (sLvl+iLvl > 211) then
+        power = power + 15
+    elseif (sLvl+iLvl > 218) then
+        power = power + 20
+    elseif (sLvl+iLvl > 229) then
+        power = power + 25
+    elseif (sLvl+iLvl > 239) then
+        power = power + 30
+    elseif (sLvl+iLvl > 249) then
+        power = power + 35
+    end
 
     local pCHR = caster:getStat(tpz.mod.CHR)
     local mCHR = target:getStat(tpz.mod.CHR)

@@ -17,8 +17,14 @@ function onSpellCast(caster, target, spell)
     local power = 8
 
     --if (sLvl+iLvl > 250) then
-     if (sLvl+iLvl > 283) then
+    if (sLvl+iLvl > 141) then
+        power = power + 1
+    elseif (sLvl+iLvl > 165) then
+        power = power + 2
+    elseif (sLvl+iLvl > 189) then
         power = power + 3
+    elseif (sLvl+iLvl > 249) then
+        power = power + 4
     end
 
     local iBoost = caster:getMod(tpz.mod.PAEON_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
