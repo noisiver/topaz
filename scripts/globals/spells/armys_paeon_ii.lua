@@ -14,10 +14,10 @@ function onSpellCast(caster, target, spell)
     local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
     local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
 
-    local power = 2
+    local power = 3
 
    -- if (sLvl+iLvl > 150) then
-    if (sLvl+iLvl > 200) then
+    if (sLvl+iLvl > 115) then
         power = power + 1
     end
 
