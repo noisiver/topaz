@@ -16,9 +16,9 @@ function onSpellCast(caster, target, spell)
 
     local power = 5
 
-    if (sLvl+iLvl > 85) then
+    if (sLvl+iLvl > 10) then
        -- power = power + math.floor((sLvl+iLvl-85) / 18)
-       math.floor((sLvl+iLvl) / 15)
+    power = 5 + math.floor((sLvl+iLvl) / 15)
     end
 
     if (power >= 15) then
