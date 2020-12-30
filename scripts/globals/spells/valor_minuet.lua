@@ -15,12 +15,7 @@ function onSpellCast(caster, target, spell)
     local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
 
     --local power = 5 + math.floor((sLvl+iLvl) / 8)
-     local power = 8
-
-     if (sLvl+iLvl > 10) then
-       -- power = power + math.floor((sLvl+iLvl-85) / 18)
-    power = 8 + math.floor((sLvl+iLvl) / 15)
-    end
+     local power = 8 + math.floor((sLvl+iLvl) / 15)
 
     --if (power >= 32) then
       --  power = 32
