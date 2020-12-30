@@ -4685,7 +4685,7 @@ INSERT INTO `item_basic` VALUES (4988,380,'scroll_of_armys_paeon_iii','armys_pae
 INSERT INTO `item_basic` VALUES (4989,381,'scroll_of_armys_paeon_iv','armys_paeon_iv',1,1676,32,0,1945);
 INSERT INTO `item_basic` VALUES (4990,382,'scroll_of_armys_paeon_v','armys_paeon_v',1,1676,32,0,2809);
 INSERT INTO `item_basic` VALUES (4991,383,'scroll_of_armys_paeon_vi','armys_paeon_vi',1,34444,32,0,2870);
-INSERT INTO `item_basic` VALUES (4994,386,'scroll_of_mages_ballad','mages_ballad',1,1676,32,0,1080);
+INSERT INTO `item_basic` VALUES (4994,386,'scroll_of_mages_ballad','mages_ballad',1,1676,32,0,500);
 INSERT INTO `item_basic` VALUES (4995,387,'scroll_of_mages_ballad_ii','mages_ballad_ii',1,34444,32,0,2377);
 INSERT INTO `item_basic` VALUES (4996,388,'scroll_of_mages_ballad_iii','mages_ballad_iii',1,34444,32,0,7228);
 INSERT INTO `item_basic` VALUES (4997,389,'scroll_of_knights_minne','knights_minne',1,1676,32,0,12);
@@ -10012,7 +10012,7 @@ INSERT INTO `item_basic` VALUES (12718,0,'iron_mittens_+1','iron_mittens_+1',1,2
 INSERT INTO `item_basic` VALUES (12719,0,'mercenarys_tekko','mrc._tekko',1,2052,19,0,1368);
 INSERT INTO `item_basic` VALUES (12720,0,'gloves','gloves',1,2084,19,0,310);
 INSERT INTO `item_basic` VALUES (12721,0,'cotton_gloves','cotton_gloves',1,2084,19,0,372);
-INSERT INTO `item_basic` VALUES (12722,0,'bracers','bracers',1,2084,19,0,2464);
+INSERT INTO `item_basic` VALUES (12722,0,'bracers','bracers',1,2084,19,0,318);
 INSERT INTO `item_basic` VALUES (12723,0,'wool_bracers','wool_bracers',1,2084,19,0,3440);
 INSERT INTO `item_basic` VALUES (12724,0,'battle_bracers','battle_bracers',1,2084,19,0,4207);
 INSERT INTO `item_basic` VALUES (12725,0,'war_gloves','war_gloves',1,2084,19,0,6140);
