@@ -90,7 +90,7 @@ uint16 CItemShop::getSellPrice()
 {
 	if (getID() >= 0x2800 && getID() <= 0x6FFF)
 	{
-		return (uint16)((getMinPrice() + (getQuantity() / getStackSize()) * (getMinPrice() * 0.10f)) / 3);
+		return (uint16)((getMinPrice() + (getQuantity() / getStackSize()) * (getMinPrice() * 0.10f)) / 9);
 	}
 	else
 	{
