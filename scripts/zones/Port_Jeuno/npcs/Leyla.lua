@@ -16,13 +16,13 @@ function onTrigger(player, npc)
         17320,   10,    -- Iron Arrow
         17336,   6,    -- Crossbow Bolt
         4509,   12,    -- Distilled Water
-        5038, 1131,    -- Enchanting Etude
-        5037, 1431,    -- Spirited Etude
-        5036, 1772,    -- Learned Etude
-        5035, 2163,    -- Quick Etude
-        5034, 2496,    -- Vivacious Etude
-        5033, 3182,    -- Dextrous Etude
-        5032, 3556,    -- Sinewy Etude
+        5038, 1000,    -- Enchanting Etude
+        5037, 1265,    -- Spirited Etude
+        5036, 1567,    -- Learned Etude
+        5035, 1913,    -- Quick Etude
+        5034, 2208,    -- Vivacious Etude
+        5033, 2815,    -- Dextrous Etude
+        5032, 3146,    -- Sinewy Etude
     }
 
     player:showText(npc, ID.text.LEYLA_SHOP_DIALOG)
