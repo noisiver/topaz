@@ -24,7 +24,7 @@ function onUseAbility(player, target, ability)
     dmg = utils.stoneskin(target, dmg)
     target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL)
     
-    player:addStatusEffect(tpz.effect.ARISE, 0, 0, 3600) 
+    player:addStatusEffect(tpz.effect.RERAISE, 3, 0, 3600) 
     player:setLocalVar("MijinGakure", 1)
     player:setHP(0)
   return dmg
