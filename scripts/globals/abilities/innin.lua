@@ -16,5 +16,6 @@ end
 function onUseAbility(player, target, ability)
     target:delStatusEffect(tpz.effect.INNIN)
     target:delStatusEffect(tpz.effect.YONIN)
-    target:addStatusEffect(tpz.effect.INNIN, 30, 15, 300, 0, 20)
+   -- target:addStatusEffect(tpz.effect.INNIN, 30, 15, 300, 0, 20)
+    target:addStatusEffect(tpz.effect.INNIN, 10, 15, 300, 0, 20) -- 30(get power), 15(MAB), 300(duration), 0, 20(get sub power)
 end
