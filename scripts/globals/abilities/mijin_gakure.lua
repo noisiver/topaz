@@ -26,5 +26,6 @@ function onUseAbility(player, target, ability)
 
     player:setLocalVar("MijinGakure", 1)
     player:setHP(0)
+    player:sendReraise(effect:getPower())
     return dmg
 end
