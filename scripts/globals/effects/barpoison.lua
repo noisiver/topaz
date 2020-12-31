@@ -2,6 +2,7 @@
 --
 -- tpz.effect.BARPOISON
 --
+require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
