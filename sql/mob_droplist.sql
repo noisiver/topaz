@@ -3465,8 +3465,8 @@ INSERT INTO `mob_droplist` VALUES (653,4,0,1000,912,0);
 INSERT INTO `mob_droplist` VALUES (653,0,0,1000,925,10);
 INSERT INTO `mob_droplist` VALUES (653,2,0,1000,4370,0);
 INSERT INTO `mob_droplist` VALUES (653,0,0,1000,4370,150);
-INSERT INTO `mob_droplist` VALUES (654,0,0,1000,560,130);
-INSERT INTO `mob_droplist` VALUES (654,0,0,1000,922,210);
+INSERT INTO `mob_droplist` VALUES (654,0,0,1000,560,150);
+INSERT INTO `mob_droplist` VALUES (654,0,0,1000,922,240);
 INSERT INTO `mob_droplist` VALUES (655,0,0,1000,922,217);
 INSERT INTO `mob_droplist` VALUES (655,0,0,1000,1112,108);
 INSERT INTO `mob_droplist` VALUES (656,0,0,1000,896,180);
@@ -16269,6 +16269,14 @@ INSERT INTO `mob_droplist` VALUES (3159,0,0,1000,1473,50);
 INSERT INTO `mob_droplist` VALUES (3159,0,0,1000,896,150);	
 INSERT INTO `mob_droplist` VALUES (3159,0,0,1000,897,240);
 INSERT INTO `mob_droplist` VALUES (3160,0,0,1000,922,240);	-- (Ancient Bat / Dark Bats - Qufim)
+INSERT INTO `mob_droplist` VALUES (3161,0,0,1000,560,150);	-- (Mouse Bat - Zeruhn Mines) Zeruhn Soot
+INSERT INTO `mob_droplist` VALUES (3161,0,0,1000,922,240);
+INSERT INTO `mob_droplist` VALUES (3162,0,0,1000,560,150);	-- (Zeruhn Mines) Zeruhn Soot
+INSERT INTO `mob_droplist` VALUES (3163,0,0,1000,560,150);	-- (Tunnel WormZ eruhn Mines) Zeruhn Soot
+INSERT INTO `mob_droplist` VALUES (3163,0,0,1000,768,240);
+INSERT INTO `mob_droplist` VALUES (3163,0,0,1000,642,50);
+INSERT INTO `mob_droplist` VALUES (3163,0,0,1000,736,10);
+
 
 
 

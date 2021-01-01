@@ -1499,18 +1499,18 @@ INSERT INTO `item_basic` VALUES (1610,0,'remnant_of_a_startling_memory','strtlng
 INSERT INTO `item_basic` VALUES (1611,0,'remnant_of_a_somber_memory','somber_memory',12,4100,44,1,0);
 INSERT INTO `item_basic` VALUES (1612,0,'remnant_of_a_radiant_memory','radiant_memory',12,4100,44,1,0);
 INSERT INTO `item_basic` VALUES (1613,0,'remnant_of_a_malevolent_memory','malevolent_mem.',12,4100,44,1,0);
-INSERT INTO `item_basic` VALUES (1614,0,'corse_bracelet','corse_bracelet',12,4,50,0,3213);
-INSERT INTO `item_basic` VALUES (1615,0,'buffalo_horn','buffalo_horn',12,4,42,0,2687);
-INSERT INTO `item_basic` VALUES (1616,0,'antlion_jaw','antlion_jaw',12,4,42,0,2740);
-INSERT INTO `item_basic` VALUES (1617,0,'flytrap_leaf','flytrap_leaf',12,4,44,0,1350);
+INSERT INTO `item_basic` VALUES (1614,0,'corse_bracelet','corse_bracelet',1,4,50,0,3213);
+INSERT INTO `item_basic` VALUES (1615,0,'buffalo_horn','buffalo_horn',1,4,42,0,2687);
+INSERT INTO `item_basic` VALUES (1616,0,'antlion_jaw','antlion_jaw',1,4,42,0,2740);
+INSERT INTO `item_basic` VALUES (1617,0,'flytrap_leaf','flytrap_leaf',1,4,44,0,1350);
 INSERT INTO `item_basic` VALUES (1618,0,'uragnite_shell','uragnite_shell',12,4,42,0,1500);
 INSERT INTO `item_basic` VALUES (1619,0,'hippogryph_feather','hippogryph_fthr.',12,4,40,0,1428);
-INSERT INTO `item_basic` VALUES (1620,0,'taurus_horn','taurus_horn',12,4,42,0,577);
-INSERT INTO `item_basic` VALUES (1621,0,'taurus_wing','taurus_wing',12,4,44,0,1237);
-INSERT INTO `item_basic` VALUES (1622,0,'bugard_tusk','bugard_tusk',12,4,42,0,719);
+INSERT INTO `item_basic` VALUES (1620,0,'taurus_horn','taurus_horn',1,4,42,0,577);
+INSERT INTO `item_basic` VALUES (1621,0,'taurus_wing','taurus_wing',1,4,44,0,1237);
+INSERT INTO `item_basic` VALUES (1622,0,'bugard_tusk','bugard_tusk',1,4,42,0,719);
 INSERT INTO `item_basic` VALUES (1623,0,'eft_skin','eft_skin',12,4,41,0,250);
-INSERT INTO `item_basic` VALUES (1624,0,'bugbear_mask','bugbear_mask',12,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (1625,0,'moblin_helm','moblin_helm',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (1624,0,'bugbear_mask','bugbear_mask',1,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (1625,0,'moblin_helm','moblin_helm',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (1626,0,'bottle_of_avatar_blood','avatar_blood',12,4,44,0,3600);
 INSERT INTO `item_basic` VALUES (1627,0,'handful_of_armored_arrowheads','arm._arrowhd.',99,4,43,0,953);
 INSERT INTO `item_basic` VALUES (1628,0,'buffalo_hide','buffalo_hide',1,4,41,0,1900);		-- stack changed from 12 to 1
