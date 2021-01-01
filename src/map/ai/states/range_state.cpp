@@ -45,7 +45,7 @@ CRangeState::CRangeState(CBattleEntity* PEntity, uint16 targid) :
         throw CStateInitException(std::move(m_errorMsg));
     }
 
-    auto delay = m_PEntity->GetRangedWeaponDelay(false);
+    auto delay = m_PEntity->GetRangedWeaponDelay(true); // changed to true
     delay = battleutils::GetSnapshotReduction(m_PEntity, delay);
 
     // TODO: Allow trusts to use this
