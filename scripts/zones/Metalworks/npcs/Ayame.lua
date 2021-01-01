@@ -109,7 +109,7 @@ function onEventFinish(player, csid, option)
         end
     elseif (csid == 935) then
         player:setCharVar("WildcatBastok", utils.mask.setBit(player:getCharVar("WildcatBastok"), 9, true))
-    elseif (csid == 803 and option == 1) then
+    elseif (csid == 803)  then
         player:setCharVar("FadedPromises", 2)
     elseif (csid == 804) then
         player:setCharVar("FadedPromises", 4)
