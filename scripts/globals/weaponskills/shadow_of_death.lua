@@ -19,7 +19,7 @@ require("scripts/globals/weaponskills")
 function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
-    params.ftp100 = 1.0 params.ftp200 = 1.0 params.ftp300 = 1.0
+    params.ftp100 = 1.0 params.ftp200 = 1.0 params.ftp300 = 1
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 1.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.ele = tpz.magic.ele.DARK
     params.skill = tpz.skill.SCYTHE
@@ -28,6 +28,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.str_wsc = 0.4 params.int_wsc = 0.4
     end
+
+    local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 
     if (damage > 0) then
         local chance = (tp-1000) * applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0) > math.random() * 150
@@ -44,8 +46,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         end
     end
 
-    end
+  
     return tpHits, extraHits, criticalHit, damage
 
 end
-
