@@ -32,12 +32,28 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+    local dia = target:getStatusEffect(tpz.effect.DIA)
+
+    --if (damage > 0) then
+      --  local chance = (tp-1000) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0) > math.random() * 150
+        --if (target:hasStatusEffect(tpz.effect.BIND) == false and chance) then
+          --  local duration = (30 + (tp/1000 * 5)) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
+            --target:addStatusEffect(tpz.effect.BIND, 1, 0, duration)
+        --end
+    --end
 
     if (damage > 0) then
-        local chance = (tp-1000) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0) > math.random() * 150
-        if (target:hasStatusEffect(tpz.effect.BIND) == false and chance) then
-            local duration = (30 + (tp/1000 * 5)) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
-            target:addStatusEffect(tpz.effect.BIND, 1, 0, duration)
+        local chance = (tp-1000) * applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0) > math.random() * 150
+        if (target:hasStatusEffect(tpz.effect.BIO) == false and chance) then
+            local duration = (30 + (tp/1000 * 5)) * applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0)
+            local power = math.floor(player:getMainLvl() * (tp / 2000) + 1)
+            target:addStatusEffect(tpz.effect.BIO, power, 0, duration)
+        end
+    end
+
+    if DIA_OVERWRITE == 1 and dia ~= nil then
+        if dia:getPower() == 1 then
+            target:delStatusEffect(tpz.effect.DIA)
         end
     end
     return tpHits, extraHits, criticalHit, damage

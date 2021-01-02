@@ -5872,12 +5872,18 @@ namespace battleutils
     {
         switch (enspellType)
         {
-            case ENSPELL_I_FIRE:
-            case ENSPELL_II_FIRE:
-                return DAMAGE_FIRE;
+           // case ENSPELL_I_FIRE:
+            //case ENSPELL_II_FIRE:
+              //  return DAMAGE_FIRE;
+            //case ENSPELL_I_ICE:
+            //case ENSPELL_II_ICE:
+              //  return DAMAGE_ICE;
             case ENSPELL_I_ICE:
-            case ENSPELL_II_ICE:
-                return DAMAGE_ICE;
+             case ENSPELL_II_ICE:
+              return DAMAGE_ICE;
+            case ENSPELL_I_FIRE:
+             case ENSPELL_II_FIRE:
+              return DAMAGE_FIRE;
             case ENSPELL_I_WIND:
             case ENSPELL_II_WIND:
                 return DAMAGE_WIND;
