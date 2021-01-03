@@ -280,6 +280,10 @@ INSERT INTO `mob_family_mods` VALUES (93,73,100,0);
 INSERT INTO `mob_family_mods` VALUES (94,73,100,0);
 INSERT INTO `mob_family_mods` VALUES (95,73,100,0);
 
+-- NMs
+INSERT INTO `mob_family_mods` VALUES (506,244,75,0);	 -- Purpleflash Brukdok Silence Resist
+INSERT INTO `mob_family_mods` VALUES (506,240,75,0);	 -- Purpleflash Brukdok Sleep Resist
+
 -- Roaming mods
 SET @roam_distance = 31, @roam_cool = 36, @roam_turns = 51, @roam_rate = 52;
 

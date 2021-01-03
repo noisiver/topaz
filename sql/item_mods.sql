@@ -20344,9 +20344,10 @@ INSERT INTO `item_mods` VALUES (16821,110,10);
 INSERT INTO `item_mods` VALUES (16822,5,10);
 INSERT INTO `item_mods` VALUES (16822,12,5);
 INSERT INTO `item_mods` VALUES (16826,431,1);
-INSERT INTO `item_mods` VALUES (16829,5,10);
-INSERT INTO `item_mods` VALUES (16829,12,1);
-INSERT INTO `item_mods` VALUES (16829,13,1);
+INSERT INTO `item_mods` VALUES (16829,5,10);	-- Fencing Degen (RDM AF1)
+INSERT INTO `item_mods` VALUES (16829,12,3);
+INSERT INTO `item_mods` VALUES (16829,13,3);
+INSERT INTO `item_mods` VALUES (16829,432,3);	-- +3 Enspell damage
 INSERT INTO `item_mods` VALUES (16830,8,-1);
 INSERT INTO `item_mods` VALUES (16830,9,-1);
 INSERT INTO `item_mods` VALUES (16830,10,7);
@@ -21464,7 +21465,7 @@ INSERT INTO `item_mods` VALUES (17695,8,3);
 INSERT INTO `item_mods` VALUES (17695,13,3);
 INSERT INTO `item_mods` VALUES (17695,431,1);
 INSERT INTO `item_mods` VALUES (17696,9,1);
-INSERT INTO `item_mods` VALUES (17696,432,2);    -- Sword enhancement spell damage +2
+INSERT INTO `item_mods` VALUES (17696,432,3);    -- Sword enhancement spell damage +3
 INSERT INTO `item_mods` VALUES (17697,9,2);
 INSERT INTO `item_mods` VALUES (17698,8,4);
 INSERT INTO `item_mods` VALUES (17698,10,-6);

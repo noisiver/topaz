@@ -177,7 +177,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         firstHitChance = hitrate +50    -- changed from * 1.5 to +50 meaning 50% hit rate aka +100 acc
     end
 
-    firstHitChance = utils.clamp(firstHitChance, 35, 95)
+    --firstHitChance = utils.clamp(firstHitChance, 35, 95)
+    firstHitChance = utils.clamp(firstHitChance, 20, 95)
 
     if ((chance*100) <= firstHitChance) then
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
