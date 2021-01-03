@@ -17,7 +17,7 @@ function onTrigger(player, npc)
         local stock =
         {
             640,    11,    -- Copper Ore
-            4450,  694,    -- Coral Fungus
+            4450, 3500,    -- Coral Fungus
             4375, 4032,    -- Danceshroom
             1650, 6500,    -- Kopparnickel Ore
             5165,  736,    -- Movalpolos Water

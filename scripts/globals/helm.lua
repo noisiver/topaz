@@ -200,7 +200,7 @@ local helmInfo =
                     {2000, 4374}, -- Sleepshroom
                     { 700, 4447}, -- Scream Fungus
                     { 700, 4448}, -- Puffball
-                    { 300, 4386}, -- King Truffle
+                    { 600, 4386}, -- King Truffle   -- changed from 300
                     { 300, 1983}, -- Mushroom Locust
                 },
                 points =
@@ -219,7 +219,7 @@ local helmInfo =
                     {2000, 4374}, -- Sleepshroom
                     { 700, 4447}, -- Scream Fungus
                     { 700, 4450}, -- Coral Fungus
-                    { 300, 4449}, -- Reishi Mushroom
+                    { 600, 4449}, -- Reishi Mushroom    -- changed from 300
                     { 300, 1983}, -- Mushroom Locust
                 },
                 points =
