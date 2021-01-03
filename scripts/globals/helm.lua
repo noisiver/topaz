@@ -789,10 +789,11 @@ local helmInfo =
                     { 950,  731}, -- Aquilaria Log
                     { 480,  912}, -- Beehive Chip
                     { 480, 1237}, -- Tree Cuttings
-                    { 100, 5662}, -- Dragon Fruit
+                    { 480, 5662}, -- Dragon Fruit   - buffed from 100
                     { 240,  702}, -- Ebony Log
                     { 100,  697}, -- Holly Log
                     { 100,  701}, -- Rosewood Log
+                    {100 , 4273}, -- Kitron
                 },
                 points =
                 {
@@ -818,6 +819,7 @@ local helmInfo =
                     { 570,  732}, -- Kapor Log
                     { 350,  700}, -- Mahogany Log
                     { 170,  702}, -- Ebony Log
+                    { 100, 4274}, --Persikos
                     {  90, 1237}, -- Tree Cuttings
                 },
                 points =
