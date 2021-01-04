@@ -1772,7 +1772,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             //zanshin may only proc on a missed/guarded/countered swing or as SAM main with hasso up (at 25% of the base zanshin rate)
             if (((actionTarget.reaction == REACTION_EVADE || actionTarget.reaction == REACTION_GUARD ||
                   actionTarget.spikesEffect == SUBEFFECT_COUNTER) && tpzrand::GetRandomNumber(100) < zanshinChance) ||
-                (GetMJob() == JOB_SAM && this->StatusEffectContainer->HasStatusEffect(EFFECT_HASSO) && tpzrand::GetRandomNumber(100) < (zanshinChance / 4)))
+            //    (GetMJob() == JOB_SAM && this->StatusEffectContainer->HasStatusEffect(EFFECT_HASSO) && tpzrand::GetRandomNumber(100) < (zanshinChance / 4)))
             {
                 attack.SetAttackType(PHYSICAL_ATTACK_TYPE::ZANSHIN);
                 attack.SetAsFirstSwing(false);
