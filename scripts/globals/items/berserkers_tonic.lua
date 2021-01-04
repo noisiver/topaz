@@ -12,6 +12,9 @@ require("scripts/globals/msg")
     --end
   --  return 0
 --end
+function onItemCheck(target)
+    return 0
+end
 
 function onItemUse(target)
     target:addStatusEffect(tpz.effect.DOUBLE_ATTACK, 25, 0, 1800)
