@@ -15,6 +15,6 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addMP(45*ITEM_POWER)
-    target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 300)
+    target:addMP(100*ITEM_POWER)
+--    target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 300)
 end
