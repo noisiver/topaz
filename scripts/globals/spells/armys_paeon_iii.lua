@@ -17,9 +17,9 @@ function onSpellCast(caster, target, spell)
     local power = 5
 
     --if (sLvl+iLvl > 200) then
-    if (sLvl+iLvl > 113) then
+    if (sLvl+iLvl > 227) then
         power = power + 2
-    elseif (sLvl+iLvl > 127) then
+    elseif (sLvl+iLvl > 255) then
         power = power + 3
     end
 
