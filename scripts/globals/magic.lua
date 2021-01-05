@@ -401,52 +401,68 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
 end
 
 function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targetLvl)
-    local p = 0
-    --add a scaling bonus or penalty based on difference of targets level from caster
-    local levelDiff = utils.clamp(casterLvl - targetLvl, -5, 5)
+    local p = 0;
+    ----add a scaling bonus or penalty based on difference of targets level from caster
+    local levelDiff = 0
+    local evaMod = 0
 
-    p = 70 - 0.5 * (magiceva - magicacc) + levelDiff * 3 + percentBonus
+    if targetLvl > casterLvl and targetLvl > 50 then
+        local diffMultiplier = 4
 
-    return utils.clamp(p, 5, 95)
+        local casterLevelCorrection = math.max(casterLvl-50, 0)
+        local targetLevelCorrection = math.max(targetLvl-50, 0)
+        levelDiff = utils.clamp(targetLevelCorrection - casterLevelCorrection,0,5)
+        evaMod = levelDiff * diffMultiplier
+        --printf("levelDiff: %i, evaMod: %i", levelDiff, evaMod)
+    end
+
+    magiceva = magiceva + evaMod
+
+    --printf("true magicacc: %f, evamod: %f", magicacc, magiceva)
+
+    if (magicacc <= magiceva-90) then
+        p = 5
+    elseif (magiceva - 90 <= magicacc and magicacc <= magiceva) then
+        p = 50 - (0.5*(magiceva - magicacc))
+    elseif (magiceva <= magicacc and magicacc <= magiceva + 45) then
+        p = 50 + (magicacc - magiceva)
+    else
+        p = 95
+    end
+
+    local percentMod = (percentBonus / 100)
+    p = p + (p * percentMod)
+    --printf("cmhr magiceva : %f, magicacc : %f, pctbonus: %f", magiceva, magicacc, percentBonus )
+    --printf("P: %f", p)
+    return utils.clamp(p, 5, 95);
 end
 
 -- Returns resistance value from given magic hit rate (p)
-function getMagicResist(magicHitRate)
+function getMagicResist(magicHitRate, isEnfeeble)
 
-    local p = magicHitRate / 100
-    local resist = 1
+    local p = magicHitRate / 100;
+    local resist = 1;
 
-    -- Resistance thresholds based on p.  A higher p leads to lower resist rates, and a lower p leads to higher resist rates.
-    local half = (1 - p)
-    local quart = ((1 - p)^2)
-    local eighth = ((1 - p)^3)
-    local sixteenth = ((1 - p)^4)
-    -- print("HALF: "..half)
-    -- print("QUART: "..quart)
-    -- print("EIGHTH: "..eighth)
-    -- print("SIXTEENTH: "..sixteenth)
+    local rollCount = 3
 
-    local resvar = math.random()
-
-    -- Determine final resist based on which thresholds have been crossed.
-    if (resvar <= sixteenth) then
-        resist = 0.0625
-        --printf("Spell resisted to 1/16!!!  Threshold = %u", sixteenth)
-    elseif (resvar <= eighth) then
-        resist = 0.125
-        --printf("Spell resisted to 1/8!  Threshold = %u", eighth)
-    elseif (resvar <= quart) then
-        resist = 0.25
-        --printf("Spell resisted to 1/4.  Threshold = %u", quart)
-    elseif (resvar <= half) then
-        resist = 0.5
-        --printf("Spell resisted to 1/2.  Threshold = %u", half)
-    else
-        resist = 1.0
-        --printf("1.0")
+    if isEnfeeble == true then
+        rollCount = 2
     end
 
-    return resist
+    --@todo add mob's racial elemental resist checks (0.5 and under is automatic half resist, 0.05 is automatic 1/16th)
+    --printf("starting rolls with resist: %f, p: %f", resist, p)
+    for i = 1, rollCount do
+        if (math.random() > p) then
+            resist = resist / 2
+            --printf("rollcount: %u, resist: %f", i, resist)
+            if (isEnfeeble and resist < 0.5) or (resist <= 0.125/2) then
+                return resist
+            end
+        else
+            break;
+        end
+    end
+    return resist;
 end
 
 -- Returns the amount of resistance the

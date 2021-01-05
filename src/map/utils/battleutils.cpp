@@ -3685,22 +3685,73 @@ namespace battleutils
     *                                                                       *
     ************************************************************************/
 
-    void GenerateCureEnmity(CBattleEntity* PSource, CBattleEntity* PTarget, int32 amount)
+   // void GenerateCureEnmity(CBattleEntity* PSource, CBattleEntity* PTarget, int32 amount)
+  //  {
+  //      TPZ_DEBUG_BREAK_IF(PSource == nullptr);
+    //    TPZ_DEBUG_BREAK_IF(PTarget == nullptr);
+    //
+      //  auto PMasterSource = PSource->PMaster ? PSource->PMaster : PSource;
+        //for (auto* entity : *PMasterSource->PNotorietyContainer)
+       // {
+         //   if (CMobEntity* PCurrentMob = dynamic_cast<CMobEntity*>(entity))
+           // {
+              //  PCurrentMob->PEnmityContainer->UpdateEnmityFromCure(PSource, PTarget->GetMLevel(), amount, (amount == 65535)); // true for "cure v"
+            //}
+       // }
+   // }
+
+    // Generate enmity for all targets in range
+   // void GenerateInRangeEnmity(CBattleEntity* PSource, int16 CE, int16 VE)
+    //{
+      //  TPZ_DEBUG_BREAK_IF(PSource == nullptr);
+
+        //CCharEntity* PIterSource = nullptr;
+
+       // if (PSource->objtype != TYPE_PC)
+        //{
+          //  if (PSource->PMaster && PSource->PMaster->objtype == TYPE_PC)
+            //{
+              //  PIterSource = static_cast<CCharEntity*>(PSource->PMaster);
+            //}
+       // }
+       // else
+        //{
+          //  PIterSource = static_cast<CCharEntity*>(PSource);
+        //}
+
+//        if (PIterSource)
+  //      {
+    //        for (SpawnIDList_t::const_iterator it = PIterSource->SpawnMOBList.begin(); it != PIterSource->SpawnMOBList.end(); ++it)
+      //      {
+        //        CMobEntity* PCurrentMob = (CMobEntity*)it->second;
+
+          //      if (PCurrentMob->m_HiPCLvl > 0 && PCurrentMob->PEnmityContainer->HasID(PSource->id))
+            //    {
+              //      PCurrentMob->PEnmityContainer->UpdateEnmity(PSource, CE, VE);
+                //}
+           // }
+       // }
+   // }
+
+    
+    void GenerateCureEnmity(CCharEntity* PSource, CBattleEntity* PTarget, uint16 amount)
     {
         TPZ_DEBUG_BREAK_IF(PSource == nullptr);
         TPZ_DEBUG_BREAK_IF(PTarget == nullptr);
 
-        auto PMasterSource = PSource->PMaster ? PSource->PMaster : PSource;
-        for (auto* entity : *PMasterSource->PNotorietyContainer)
+        for (SpawnIDList_t::const_iterator it = PSource->SpawnMOBList.begin(); it != PSource->SpawnMOBList.end(); ++it)
         {
-            if (CMobEntity* PCurrentMob = dynamic_cast<CMobEntity*>(entity))
+            CMobEntity* PCurrentMob = (CMobEntity*)it->second;
+
+            if (PCurrentMob->m_HiPCLvl > 0 && PCurrentMob->PEnmityContainer->HasID(PTarget->id))
             {
-                PCurrentMob->PEnmityContainer->UpdateEnmityFromCure(PSource, PTarget->GetMLevel(), amount, (amount == 65535)); // true for "cure v"
+                PCurrentMob->PEnmityContainer->UpdateEnmityFromCure(PSource, PTarget->GetMLevel(), amount);
             }
         }
     }
 
     // Generate enmity for all targets in range
+
     void GenerateInRangeEnmity(CBattleEntity* PSource, int16 CE, int16 VE)
     {
         TPZ_DEBUG_BREAK_IF(PSource == nullptr);

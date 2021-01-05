@@ -821,7 +821,7 @@ INSERT INTO `guild_shops` VALUES (530,4408,105,250,165,33,65);       -- tortilla
 INSERT INTO `guild_shops` VALUES (530,4409,132,211,165,33,65);       -- hard-boiled_egg
 INSERT INTO `guild_shops` VALUES (530,4410,626,1962,165,33,65);      -- roast_mushroom
 INSERT INTO `guild_shops` VALUES (530,4412,240,1261,165,33,65);      -- thundermelon
-INSERT INTO `guild_shops` VALUES (530,4413,240,1420,165,33,65);      -- apple_pie
+INSERT INTO `guild_shops` VALUES (530,4413,240,1420,165,0,0);      -- apple_pie
 INSERT INTO `guild_shops` VALUES (530,4415,93,565,165,24,65);         -- roasted_corn
 INSERT INTO `guild_shops` VALUES (530,4416,2716,6944,165,24,65);      -- pea_soup
 INSERT INTO `guild_shops` VALUES (530,4417,2475,15972,165,24,65);     -- egg_soup

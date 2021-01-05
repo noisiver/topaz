@@ -13,6 +13,9 @@ require("scripts/globals/msg")
   --  return 0
 --end
 function onItemCheck(target)
+    if (target:hasStatusEffect(tpz.effect.MEDICINE)) then
+        return tpz.msg.basic.ITEM_NO_USE_MEDICATED
+    end
     return 0
 end
 

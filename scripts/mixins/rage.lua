@@ -13,6 +13,16 @@ require("scripts/globals/status")
 
 g_mixins = g_mixins or {}
 
+local rageStats = {
+    "STR","DEX","VIT","AGI","INT","MND","CHR",
+    "ATT","DEF","EVA","MACC","MATT","MEVA","MDEF",
+}
+
+local baseIncrease = 30
+local statIncrease = 100
+local hasteIncrease = 200
+local dmgIncrease = 15
+
 g_mixins.rage = function(mob)
 
     mob:addListener("SPAWN", "RAGE_SPAWN", function(mob)
@@ -24,17 +34,31 @@ g_mixins.rage = function(mob)
     end)
 
     mob:addListener("COMBAT_TICK", "RAGE_CTICK", function(mob)
-        if mob:getLocalVar("[rage]started") == 0 and os.time() > mob:getLocalVar("[rage]at") then
-            mob:setLocalVar("[rage]started", 1)
+        if os.time() > mob:getLocalVar("[rage]at") then
+            -- Save default values
+            if mob:getLocalVar("[rage]started") == 0 then
+                mob:setLocalVar("[rage]started", 1)
 
-            -- boost stats
-            for i = tpz.mod.STR, tpz.mod.CHR do
-                local amt = math.ceil(mob:getStat(i) * 9)
-                mob:setLocalVar("[rage]mod_" .. i, amt)
-                mob:addMod(i, amt)
+                for i = 1,#rageStats do
+                    mob:setLocalVar("[rage]mod_" .. rageStats[i], mob:getMod(tpz.mod[rageStats[i]]))
+                end
+
+                mob:setLocalVar("[rage]mod_haste", mob:getMod(tpz.mod.HASTE_MAGIC))
+                mob:setLocalVar("[rage]mod_dmg", mob:getMod(tpz.mod.MAIN_DMG_RATING))
+
+            -- Apply rage and increase every 30 seconds (Up to 30 times)
+            elseif os.time() > mob:getLocalVar("[rage]tick") and mob:getLocalVar("[rage]counter") < 30 then
+                mob:setLocalVar("[rage]tick", os.time() + 30)
+                mob:setLocalVar("[rage]counter", mob:getLocalVar("[rage]counter") + 1)
+
+                for i = 1,#rageStats do
+                    if i < 8 then mob:setMod(tpz.mod[rageStats[i]], mob:getMod(tpz.mod[rageStats[i]]) + baseIncrease)
+                    else mob:setMod(tpz.mod[rageStats[i]], mob:getMod(tpz.mod[rageStats[i]]) + statIncrease) end
+                end
+
+                mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + hasteIncrease)
+                mob:setMod(tpz.mod.MAIN_DMG_RATING, mob:getMod(tpz.mod.MAIN_DMG_RATING) + dmgIncrease)
             end
-
-            -- TODO: ATT, DEF, MACC, MATT, EVA, attack speed all increase
         end
     end)
 
@@ -42,14 +66,20 @@ g_mixins.rage = function(mob)
     mob:addListener("DISENGAGE", "RAGE_DISENGAGE", function(mob)
         if mob:getLocalVar("[rage]started") == 1 then
             mob:setLocalVar("[rage]started", 0)
+            mob:setLocalVar("[rage]tick", 0)
+            mob:setLocalVar("[rage]counter", 0)
 
-            -- unboost stats
-            for i = tpz.mod.STR, tpz.mod.CHR do
-                local amt = mob:getLocalVar("[rage]mod_" .. i)
-                mob:delMod(i, amt)
+            -- Debug only
+            local mobName = mob:getName()
+
+            -- Revert mods to default values
+            for i = 1,#rageStats do
+                local var = "[rage]mod_" .. rageStats[i]
+                mob:setMod(tpz.mod[rageStats[i]], mob:getLocalVar(var))
             end
 
-            -- TODO: ATT, DEF, MACC, MATT, EVA, attack speed all decrease
+            mob:setMod(tpz.mod.HASTE_MAGIC, mob:getLocalVar("[rage]mod_haste"))
+            mob:setMod(tpz.mod.MAIN_DMG_RATING, mob:getLocalVar("[rage]mod_dmg"))
         end
     end)
 
