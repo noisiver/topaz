@@ -3734,7 +3734,9 @@ namespace battleutils
    // }
 
     
-    void GenerateCureEnmity(CCharEntity* PSource, CBattleEntity* PTarget, uint16 amount)
+    //void GenerateCureEnmity(CCharEntity* PSource, CBattleEntity* PTarget, uint16 amount)
+    void GenerateCureEnmity(CBattleEntity* PSource, CBattleEntity* PTarget, int32 amount)
+
     {
         TPZ_DEBUG_BREAK_IF(PSource == nullptr);
         TPZ_DEBUG_BREAK_IF(PTarget == nullptr);
