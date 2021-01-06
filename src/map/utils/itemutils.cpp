@@ -242,23 +242,7 @@ namespace itemutils
         return nullptr;
     }
 
-    /************************************************************************
-    *                                                                       *
-    *  True if pointer points to a read-only g_pItemList array item         *
-    *                                                                       *
-    ************************************************************************/
-
-    bool IsItemPointer(CItem* item)
-    {
-        return g_pItemList[item->getID()] == item;
-    }
-
-    /************************************************************************
-    *                                                                       *
-    *                                                                       *
-    *                                                                       *
-    ************************************************************************/
-
+    
     CItemWeapon* GetUnarmedItem()
     {
         return PUnarmedItem;
@@ -270,36 +254,93 @@ namespace itemutils
     }
 
     /************************************************************************
-    *                                                                       *
-    *  Get the monsters item drop list                                      *
-    *                                                                       *
-    ************************************************************************/
+     *                                                                       *
+     *  Get the monsters item drop list                                      *
+     *                                                                       *
+     ************************************************************************/
 
     DropList_t* GetDropList(uint16 DropID)
     {
         if (DropID < MAX_DROPID)
         {
-             return g_pDropList[DropID];
+            return g_pDropList[DropID];
         }
-        ShowWarning(CL_CYAN"DropID %u too big\n" CL_RESET, DropID);
+        ShowWarning(CL_CYAN "DropID %u too big\n" CL_RESET, DropID);
         return nullptr;
     }
 
     /************************************************************************
+     *                                                                       *
+     *                                                                       *
+     *                                                                       *
+     ************************************************************************/
+
+    uint16 GetRateFromRarity(uint8 rarity, uint8 th)
+    {
+        if (rarity < 0 || th < 0 || rarity > RARITY_GROUP_MAX || th > TH_GROUP_MAX)
+            return 0;
+
+        return Rarity[rarity][th];
+    }
+
+    /************************************************************************
     *                                                                       *
-    *                                                                       *
+    *  True if pointer points to a read-only g_pItemList array item         *
     *                                                                       *
     ************************************************************************/
 
-    LootList_t* GetLootList(uint16 LootID)
-    {
-        if (LootID < MAX_LOOTID)
-        {
-             return g_pLootList[LootID];
-        }
-        ShowWarning(CL_CYAN"LootID %u too big\n" CL_RESET, LootID);
-        return nullptr;
-    }
+    //bool IsItemPointer(CItem* item)
+    //{
+    //    return g_pItemList[item->getID()] == item;
+    //}
+
+    ///************************************************************************
+    //*                                                                       *
+    //*                                                                       *
+    //*                                                                       *
+    //************************************************************************/
+
+    //CItemWeapon* GetUnarmedItem()
+    //{
+    //    return PUnarmedItem;
+    //}
+
+    //CItemWeapon* GetUnarmedH2HItem()
+    //{
+    //    return PUnarmedH2HItem;
+    //}
+
+    ///************************************************************************
+    //*                                                                       *
+    //*  Get the monsters item drop list                                      *
+    //*                                                                       *
+    //************************************************************************/
+
+    //DropList_t* GetDropList(uint16 DropID)
+    //{
+    //    if (DropID < MAX_DROPID)
+    //    {
+    //         return g_pDropList[DropID];
+    //    }
+    //    ShowWarning(CL_CYAN"DropID %u too big\n" CL_RESET, DropID);
+    //    return nullptr;
+    //}
+
+    ///************************************************************************
+    //*                                                                       *
+    //*                                                                       *
+    //*                                                                       *
+    //************************************************************************/
+
+    //LootList_t* GetLootList(uint16 LootID)
+    //{
+    //    if (LootID < MAX_LOOTID)
+    //    {
+    //         return g_pLootList[LootID];
+    //    }
+    //    ShowWarning(CL_CYAN"LootID %u too big\n" CL_RESET, LootID);
+    //    return nullptr;
+    //}
 
     /************************************************************************
     *                                                                       *
