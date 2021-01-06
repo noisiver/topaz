@@ -809,7 +809,7 @@ INSERT INTO `guild_shops` VALUES (530,4380,437,1091,165,0,0);      -- smoked_sal
 INSERT INTO `guild_shops` VALUES (530,4381,1382,3600,165,0,0);     -- meat_mithkabob
 INSERT INTO `guild_shops` VALUES (530,4382,58,64,165,24,65);          -- frost_turnip
 INSERT INTO `guild_shops` VALUES (530,4383,3906,5760,165,24,65);      -- gold_lobster
-INSERT INTO `guild_shops` VALUES (530,4387,709,1934,255,48,100);      -- wild_onion
+INSERT INTO `guild_shops` VALUES (530,4387,709,1934,255,0,0);      -- wild_onion
 INSERT INTO `guild_shops` VALUES (530,4389,23,23,255,48,100);        -- san_dor._carrot
 INSERT INTO `guild_shops` VALUES (530,4390,51,198,255,48,100);       -- mithran_tomato
 INSERT INTO `guild_shops` VALUES (530,4392,25,25,255,48,100);       -- saruta_orange
