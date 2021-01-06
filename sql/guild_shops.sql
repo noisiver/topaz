@@ -843,7 +843,7 @@ INSERT INTO `guild_shops` VALUES (530,4444,18,45,165,33,65);         -- rarab_ta
 INSERT INTO `guild_shops` VALUES (530,4445,41,88,165,33,65);         -- yagudo_cherry
 INSERT INTO `guild_shops` VALUES (530,4455,968,984,165,33,65);       -- pebble_soup
 INSERT INTO `guild_shops` VALUES (530,4456,2452,10620,165,0,0);    -- boiled_crab
-INSERT INTO `guild_shops` VALUES (530,4457,4800,13920,165,0,650     -- eel_kabob
+INSERT INTO `guild_shops` VALUES (530,4457,4800,13920,165,0,650;     -- eel_kabob
 INSERT INTO `guild_shops` VALUES (530,4468,60,208,165,33,65);        -- pamamas
 INSERT INTO `guild_shops` VALUES (530,4482,1408,1984,255,0,0);     -- nosteau_herring
 INSERT INTO `guild_shops` VALUES (530,4490,955,2284,165,0,0);       -- pickled_herring
