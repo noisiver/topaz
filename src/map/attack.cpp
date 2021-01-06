@@ -446,26 +446,26 @@ int32 CAttack::GetDamage()
 //    return m_isCountered;
 //}
 //
-//bool CAttack::IsCovered()
-//{
-//    return m_isCovered;
-//}
-//
-//bool CAttack::CheckCover()
-//{
-//    CBattleEntity* PCoverAbilityUser = m_attackRound->GetCoverAbilityUserEntity();
-//    if (PCoverAbilityUser != nullptr && PCoverAbilityUser->isAlive())
-//    {
-//        m_isCovered = true;
-//        m_victim = PCoverAbilityUser;
-//    }
-//    else
-//    {
-//        m_isCovered = false;
-//    }
-//
-//    return m_isCovered;
-//}
+bool CAttack::IsCovered()
+{
+    return m_isCovered;
+}
+
+bool CAttack::CheckCover()
+{
+    CBattleEntity* PCoverAbilityUser = m_attackRound->GetCoverAbilityUserEntity();
+    if (PCoverAbilityUser != nullptr && PCoverAbilityUser->isAlive())
+    {
+        m_isCovered = true;
+        m_victim = PCoverAbilityUser;
+    }
+    else
+    {
+        m_isCovered = false;
+    }
+
+    return m_isCovered;
+}
 
 void CAttack::SetDamage(int32 value)
 {
