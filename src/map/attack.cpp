@@ -524,7 +524,8 @@ bool CAttack::CheckAnticipated()
                 if (m_victim->PAI->IsEngaged())
                 {
                     m_isCountered = true;
-                    m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
+                   // m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
+                    m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false));
                 }
             }
             m_anticipated = true;
@@ -579,7 +580,8 @@ bool CAttack::CheckCounter()
         facing(m_victim->loc.p, m_attacker->loc.p, 40) && tpzrand::GetRandomNumber(100) < battleutils::GetHitRate(m_victim, m_attacker))
     {
         m_isCountered = true;
-        m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
+        //m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false));
+        m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false));
     }
     else if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_COUNTER))
     { // Perfect Counter only counters hits that normal counter misses, always critical, can counter 1-3 times before wearing
