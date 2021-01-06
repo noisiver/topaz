@@ -576,7 +576,7 @@ bool CAttack::CheckCounter()
     }
     if (!m_victim->StatusEffectContainer->HasPreventActionEffect() &&
         (tpzrand::GetRandomNumber(100) < (m_victim->getMod(Mod::COUNTER) + meritCounter) || tpzrand::GetRandomNumber(100) < seiganChance) &&
-        isFaceing(m_victim->loc.p, m_attacker->loc.p, 40) && tpzrand::GetRandomNumber(100) < battleutils::GetHitRate(m_victim, m_attacker))
+        facing(m_victim->loc.p, m_attacker->loc.p, 40) && tpzrand::GetRandomNumber(100) < battleutils::GetHitRate(m_victim, m_attacker))
     {
         m_isCountered = true;
         m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
