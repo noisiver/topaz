@@ -534,7 +534,8 @@ namespace battleutils
 
         damage = (int32)(damage * resist);
         damage = (int32)(damage * dBonus);
-        damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
+        //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
+        damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element));
 
         if (damage > 0)
         {
@@ -893,10 +894,11 @@ namespace battleutils
         {
             static SUBEFFECT enspell_subeffects[8] =
             {
-               // SUBEFFECT_FIRE_DAMAGE, SUBEFFECT_ICE_DAMAGE, SUBEFFECT_WIND_DAMAGE, SUBEFFECT_EARTH_DAMAGE,
-                //SUBEFFECT_LIGHTNING_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE,
-                SUBEFFECT_ICE_DAMAGE,SUBEFFECT_WIND_DAMAGE,SUBEFFECT_EARTH_DAMAGE,SUBEFFECT_LIGHTNING_DAMAGE,
-                SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE,
+                SUBEFFECT_FIRE_DAMAGE, SUBEFFECT_ICE_DAMAGE, SUBEFFECT_WIND_DAMAGE, SUBEFFECT_EARTH_DAMAGE,
+                SUBEFFECT_LIGHTNING_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE,
+
+                //SUBEFFECT_ICE_DAMAGE,SUBEFFECT_WIND_DAMAGE,SUBEFFECT_EARTH_DAMAGE,SUBEFFECT_LIGHTNING_DAMAGE, my changes
+               // SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE,
             };
             uint8 enspell = (uint8) PAttacker->getMod(Mod::ENSPELL);
             if (enspell == ENSPELL_BLOOD_WEAPON)
@@ -1689,7 +1691,7 @@ namespace battleutils
                 float dex = PAttacker->DEX();
                 float agi = PDefender->AGI();
 
-                auto parryRate = std::clamp<uint8>((uint8)((skill * 0.1f + (agi - dex) * 0.125f + 10.0f) * diff), 5, 25);
+                auto parryRate = std::clamp<uint8>((uint8)((skill * 0.1f + (agi - dex) * 0.125f + 5.0f) * diff), 5, 20); // changed from 25 max, and from +10.0f
 
                 // Issekigan grants parry rate bonus. From best available data, if you already capped out at 25% parry it grants another 25% bonus for ~50% parry rate
                 if (PDefender->objtype == TYPE_PC && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ISSEKIGAN)) {
