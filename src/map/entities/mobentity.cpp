@@ -803,371 +803,127 @@ void CMobEntity::DistributeRewards()
     }
 }
 
-//void CMobEntity::DropItems(CCharEntity* PChar)
-//{
-//    //Adds an item to the treasure pool and returns true if the pool has been filled
-//    auto AddItemToPool = [this, PChar](uint16 ItemID, uint8 dropCount)
-//    {
-//        PChar->PTreasurePool->AddItem(ItemID, this);
-//        return dropCount >= TREASUREPOOL_SIZE;
-//    };
-//
-//    //Limit number of items that can drop to the treasure pool size
-//    uint8 dropCount = 0;
-//
-//    DropList_t* DropList = itemutils::GetDropList(m_DropID);
-//    //ShowDebug(CL_CYAN"DropID: %u dropping with TH Level: %u\n" CL_RESET, PMob->m_DropID, PMob->m_THLvl);
-//
-//    if (DropList != nullptr && !getMobMod(MOBMOD_NO_DROPS) && (DropList->Items.size() || DropList->Groups.size()))
-//    {
-//        //THLvl is the number of 'extra chances' at an item. If the item is obtained, then break out.
-//        int16 maxRolls = 1 + (m_THLvl > 2 ? 2 : m_THLvl);
-//        int16 bonus = (m_THLvl > 2 ? (m_THLvl - 2) * 10 : 0);
-//
-//        for (const DropGroup_t& group : DropList->Groups)
-//        {
-//            for (int16 roll = 0; roll < maxRolls; ++roll)
-//            {
-//                //Determine if this group should drop an item
-//                if (group.GroupRate > 0 && tpzrand::GetRandomNumber(1000) < group.GroupRate * map_config.drop_rate_multiplier + bonus)
-//                {
-//                    //Each item in the group is given its own weight range which is the previous value to the previous value + item.DropRate
-//                    //Such as 2 items with drop rates of 200 and 800 would be 0-199 and 200-999 respectively
-//                    uint16 previousRateValue = 0;
-//                    uint16 itemRoll = tpzrand::GetRandomNumber(1000);
-//                    for (const DropItem_t& item : group.Items)
-//                    {
-//                        if (previousRateValue + item.DropRate > itemRoll)
-//                        {
-//                            if (AddItemToPool(item.ItemID, ++dropCount))
-//                                return;
-//                            break;
-//                        }
-//                        previousRateValue += item.DropRate;
-//                    }
-//                    break;
-//                }
-//            }
-//        }
-//
-//        for (const DropItem_t& item : DropList->Items)
-//        {
-//            for (int16 roll = 0; roll < maxRolls; ++roll)
-//            {
-//                if (item.DropRate > 0 && tpzrand::GetRandomNumber(1000) < item.DropRate * map_config.drop_rate_multiplier + bonus)
-//                {
-//                    if (AddItemToPool(item.ItemID, ++dropCount))
-//                        return;
-//                    break;
-//                }
-//            }
-//        }
-//    }
-//
-//
-//
-//    uint16 Pzone = PChar->getZone();
-//
-//    bool validZone = ((Pzone > 0 && Pzone < 39) || (Pzone > 42 && Pzone < 134) || (Pzone > 135 && Pzone < 185) || (Pzone > 188 && Pzone < 255));
-//
-//    if (validZone && charutils::CheckMob(m_HiPCLvl, GetMLevel()) > EMobDifficulty::TooWeak)
-//    {
-//
-//        //check for seal drops
-//        /* MobLvl >= 1 = Beastmen Seals ID=1126
-//        >= 50 = Kindred Seals ID=1127
-//        >= 75 = Kindred Crests ID=2955
-//        >= 90 = High Kindred Crests ID=2956
-//        */
-//        if (tpzrand::GetRandomNumber(100) < 20 && PChar->PTreasurePool->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS))
-//        {
-//            //RULES: Only 1 kind may drop per mob
-//            if (GetMLevel() >= 75 && luautils::IsContentEnabled("ABYSSEA")) //all 4 types
-//            {
-//                switch (tpzrand::GetRandomNumber(4))
-//                {
-//                case 0:
-//
-//                    if (AddItemToPool(1126, ++dropCount))
-//                        return;
-//                    break;
-//                case 1:
-//                    if (AddItemToPool(1127, ++dropCount))
-//                        return;
-//                    break;
-//                case 2:
-//                    if (AddItemToPool(2955, ++dropCount))
-//                        return;
-//                    break;
-//                case 3:
-//                    if (AddItemToPool(2956, ++dropCount))
-//                        return;
-//                    break;
-//                }
-//            }
-//            else if (GetMLevel() >= 70 && luautils::IsContentEnabled("ABYSSEA")) //b.seal & k.seal & k.crest
-//            {
-//                switch (tpzrand::GetRandomNumber(3))
-//                {
-//                case 0:
-//                    if (AddItemToPool(1126, ++dropCount))
-//                        return;
-//                    break;
-//                case 1:
-//                    if (AddItemToPool(1127, ++dropCount))
-//                        return;
-//                    break;
-//                case 2:
-//                    if (AddItemToPool(2955, ++dropCount))
-//                        return;
-//                    break;
-//                }
-//            }
-//            else if (GetMLevel() >= 50) //b.seal & k.seal only
-//            {
-//                if (tpzrand::GetRandomNumber(2) == 0)
-//                {
-//                    if (AddItemToPool(1126, ++dropCount))
-//                        return;
-//                }
-//                else
-//                {
-//                    if (AddItemToPool(1127, ++dropCount))
-//                        return;
-//                }
-//            }
-//            else
-//            {
-//                //b.seal only
-//                if (AddItemToPool(1126, ++dropCount))
-//                    return;
-//            }
-//        }
-//        // Todo: Avatarite and Geode drops during day/weather. Much higher chance during weather than day.
-//        // Item element matches day/weather element, not mob crystal. Lv80+ xp mobs can drop Avatarite.
-//        // Wiki's have conflicting info on mob lv required for Geodes. One says 50 the other 75. I think 50 is correct.
-//
-//        uint8 effect = 0; // Begin Adding Crystals
-//
-//        if (m_Element > 0)
-//        {
-//            uint8 regionID = PChar->loc.zone->GetRegionID();
-//            switch (regionID)
-//            {
-//                // Sanction Regions
-//                case REGION_WEST_AHT_URHGAN:
-//                case REGION_MAMOOL_JA_SAVAGE:
-//                case REGION_HALVUNG:
-//                case REGION_ARRAPAGO:
-//                    effect = 2;
-//                    break;
-//                // Sigil Regions
-//                case REGION_RONFAURE_FRONT:
-//                case REGION_NORVALLEN_FRONT:
-//                case REGION_GUSTABERG_FRONT:
-//                case REGION_DERFLAND_FRONT:
-//                case REGION_SARUTA_FRONT:
-//                case REGION_ARAGONEAU_FRONT:
-//                case REGION_FAUREGANDI_FRONT:
-//                case REGION_VALDEAUNIA_FRONT:
-//                    effect = 3;
-//                    break;
-//                // Signet Regions
-//                default:
-//                    effect = (conquest::GetRegionOwner(PChar->loc.zone->GetRegionID()) <= 2) ? 1 : 0;
-//                    break;
-//            }
-//        }
-//        uint8 crystalRolls = 0;
-//        PChar->ForParty([this, &crystalRolls, &effect](CBattleEntity* PMember)
-//        {
-//            switch(effect)
-//            {
-//                case 1:
-//                    if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SIGNET) && PMember->getZone() == getZone() && distance(PMember->loc.p, loc.p) < 100)
-//                    {
-//                        crystalRolls++;
-//                    }
-//                    break;
-//                case 2:
-//                    if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SANCTION) && PMember->getZone() == getZone() && distance(PMember->loc.p, loc.p) < 100)
-//                    {
-//                        crystalRolls++;
-//                    }
-//                    break;
-//                case 3:
-//                    if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SIGIL) && PMember->getZone() == getZone() && distance(PMember->loc.p, loc.p) < 100)
-//                    {
-//                        crystalRolls++;
-//                    }
-//                    break;
-//                default:
-//                    break;
-//            }
-//        });
-//        for (uint8 i = 0; i < crystalRolls; i++)
-//        {
-//            if (tpzrand::GetRandomNumber(100) < 20 && AddItemToPool(4095 + m_Element, ++dropCount))
-//            {
-//                return;
-//            }
-//        }
-//    }
-//}
-
-
 void CMobEntity::DropItems(CCharEntity* PChar)
 {
-    // Adds an item to the treasure pool and returns true if the pool has been filled
-    auto AddItemToPool = [this, PChar](uint16 ItemID, uint8 dropCount) {
+    //Adds an item to the treasure pool and returns true if the pool has been filled
+    auto AddItemToPool = [this, PChar](uint16 ItemID, uint8 dropCount)
+    {
         PChar->PTreasurePool->AddItem(ItemID, this);
         return dropCount >= TREASUREPOOL_SIZE;
     };
 
-    // Limit number of items that can drop to the treasure pool size
+    //Limit number of items that can drop to the treasure pool size
     uint8 dropCount = 0;
 
     DropList_t* DropList = itemutils::GetDropList(m_DropID);
-    // ShowDebug(CL_CYAN"DropID: %u dropping with TH Level: %u\n" CL_RESET, this->m_DropID, this->m_THLvl);
-    // battleutils::Print(PChar, "print-th", "TH Level: %u", this->m_THLvl);
+    //ShowDebug(CL_CYAN"DropID: %u dropping with TH Level: %u\n" CL_RESET, PMob->m_DropID, PMob->m_THLvl);
+
     if (DropList != nullptr && !getMobMod(MOBMOD_NO_DROPS) && (DropList->Items.size() || DropList->Groups.size()))
     {
-        uint8 bonus = m_THLvl;
-        if (m_THLvl > MAX_TREASURE_HUNTER)
-        {
-            bonus = 0;
-
-            const char* fmtQuery = "INSERT INTO audit_custom (charid, type, note) VALUES (%u, '%s', '%s');";
-            std::string note("Attempting to use m_THLvl ");
-            note.append(std::to_string(m_THLvl));
-            note.append(" on mobId ");
-            note.append(std::to_string(this->id));
-            if (Sql_Query(SqlHandle, fmtQuery, PChar->id, "m_THLvl", note.c_str()) != SQL_SUCCESS)
-            {
-                ShowError(CL_RED "CMobEntity::DropItems: SEVERE WARNING for %s. %s\n" CL_RESET, PChar->GetName(), note.c_str());
-            }
-        }
+        //THLvl is the number of 'extra chances' at an item. If the item is obtained, then break out.
+        int16 maxRolls = 1 + (m_THLvl > 2 ? 2 : m_THLvl);
+        int16 bonus = (m_THLvl > 2 ? (m_THLvl - 2) * 10 : 0);
 
         for (const DropGroup_t& group : DropList->Groups)
         {
-            // Determine if this group should drop an item
-            uint16 groupRate = itemutils::GetRateFromRarity((uint8)group.GroupRate, bonus);
-            if (groupRate > 0 && tpzrand::GetRandomNumber(10000) < groupRate * map_config.drop_rate_multiplier)
+            for (int16 roll = 0; roll < maxRolls; ++roll)
             {
-                // Each item in the group is given its own weight range which is the previous value to the previous value + item.DropRate
-                // Such as 2 items with drop rates of 200 and 800 would be 0-199 and 200-999 respectively
-                uint16 previousRateValue = 0;
-                uint16 itemRoll = tpzrand::GetRandomNumber(1000);
-                for (const DropItem_t& item : group.Items)
+                //Determine if this group should drop an item
+                if (group.GroupRate > 0 && tpzrand::GetRandomNumber(1000) < group.GroupRate * map_config.drop_rate_multiplier + bonus)
                 {
-                    if (previousRateValue + item.DropRate > itemRoll)
+                    //Each item in the group is given its own weight range which is the previous value to the previous value + item.DropRate
+                    //Such as 2 items with drop rates of 200 and 800 would be 0-199 and 200-999 respectively
+                    uint16 previousRateValue = 0;
+                    uint16 itemRoll = tpzrand::GetRandomNumber(1000);
+                    for (const DropItem_t& item : group.Items)
                     {
-                        if (AddItemToPool(item.ItemID, ++dropCount))
-                            return;
-                        break;
+                        if (previousRateValue + item.DropRate > itemRoll)
+                        {
+                            if (AddItemToPool(item.ItemID, ++dropCount))
+                                return;
+                            break;
+                        }
+                        previousRateValue += item.DropRate;
                     }
-                    previousRateValue += item.DropRate;
+                    break;
                 }
             }
         }
 
-        m_itemDrops.clear();
-        m_itemDrops.insert(m_itemDrops.end(), DropList->Items.begin(), DropList->Items.end());
-        PAI->EventHandler.triggerListener("ITEM_DROPS", this);
-        for (const DropItem_t& item : m_itemDrops)
+        for (const DropItem_t& item : DropList->Items)
         {
-            if (item.UseRate)
+            for (int16 roll = 0; roll < maxRolls; ++roll)
             {
-                if (tpzrand::GetRandomNumber(1000) < item.DropRate * map_config.drop_rate_multiplier)
+                if (item.DropRate > 0 && tpzrand::GetRandomNumber(1000) < item.DropRate * map_config.drop_rate_multiplier + bonus)
                 {
                     if (AddItemToPool(item.ItemID, ++dropCount))
                         return;
-                }
-            }
-            else if (item.DropRate != 255)
-            {
-                uint16 dropRate = itemutils::GetRateFromRarity((uint8)item.DropRate, bonus);
-                if (tpzrand::GetRandomNumber(10000) < dropRate * map_config.drop_rate_multiplier)
-                {
-                    if (AddItemToPool(item.ItemID, ++dropCount))
-                        return;
+                    break;
                 }
             }
         }
     }
 
-    // check for seal drops
-    /* MobLvl >= 1 = Beastmen Seals ID=1126
-    >= 50 = Kindred Seals ID=1127
-    >= 75 = Kindred Crests ID=2955
-    >= 90 = High Kindred Crests ID=2956
-    */
+
 
     uint16 Pzone = PChar->getZone();
 
-    // Crystals and beastmen/kindred seals don't drop in sea.
-    bool validZone = ((Pzone > 0 && Pzone < 33) || (Pzone > 42 && Pzone < 134) || (Pzone > 135 && Pzone < 185) || (Pzone > 188 && Pzone < 255));
+    bool validZone = ((Pzone > 0 && Pzone < 39) || (Pzone > 42 && Pzone < 134) || (Pzone > 135 && Pzone < 185) || (Pzone > 188 && Pzone < 255));
 
-    if (validZone && PChar->GetTreasurePool()->CanReceiveEXP(this))
+    if (validZone && charutils::CheckMob(m_HiPCLvl, GetMLevel()) > EMobDifficulty::TooWeak)
     {
-        if (((PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SIGNET) && conquest::GetInfluenceGraphics(PChar->loc.zone->GetRegionID()) < 64) ||
-             (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SANCTION) && PChar->loc.zone->GetRegionID() >= 28 && PChar->loc.zone->GetRegionID() <= 32) ||
-             (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SIGIL) && PChar->loc.zone->GetRegionID() >= 33 && PChar->loc.zone->GetRegionID() <= 40)) &&
-            m_Element > 0 && tpzrand::GetRandomNumber(100) < 20) // Need to move to CRYSTAL_CHANCE constant
-        {
-            if (AddItemToPool(4095 + m_Element, ++dropCount))
-                return;
-        }
 
-        // Todo: Avatarite and Geode drops during day/weather. Much higher chance during weather than day.
-        // Item element matches day/weather element, not mob crystal. Lv80+ xp mobs can drop Avatarite.
-        // Wiki's have conflicting info on mob lv required for Geodes. One says 50 the other 75. I think 50 is correct.
-
-        if (m_giveExp && PChar->GetTreasurePool()->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS) && tpzrand::GetRandomNumber(100) < 20)
+        //check for seal drops
+        /* MobLvl >= 1 = Beastmen Seals ID=1126
+        >= 50 = Kindred Seals ID=1127
+        >= 75 = Kindred Crests ID=2955
+        >= 90 = High Kindred Crests ID=2956
+        */
+        if (tpzrand::GetRandomNumber(100) < 20 && PChar->PTreasurePool->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS))
         {
-            // RULES: Only 1 kind may drop per mob
-            // if (GetMLevel() >= 75 && luautils::IsContentEnabled("ABYSSEA")) //all 4 types
-            //{
-            //    switch (tpzrand::GetRandomNumber(4))
-            //    {
-            //    case 0:
-            //        if (AddItemToPool(1126, ++dropCount))
-            //            return;
-            //        break;
-            //    case 1:
-            //        if (AddItemToPool(1127, ++dropCount))
-            //            return;
-            //        break;
-            //    case 2:
-            //        if (AddItemToPool(2955, ++dropCount))
-            //            return;
-            //        break;
-            //    case 3:
-            //        if (AddItemToPool(2956, ++dropCount))
-            //            return;
-            //        break;
-            //    }
-            //}
-            // else if (GetMLevel() >= 70 && luautils::IsContentEnabled("ABYSSEA")) //b.seal & k.seal & k.crest
-            //{
-            //    switch (tpzrand::GetRandomNumber(3))
-            //    {
-            //    case 0:
-            //        if (AddItemToPool(1126, ++dropCount))
-            //            return;
-            //        break;
-            //    case 1:
-            //        if (AddItemToPool(1127, ++dropCount))
-            //            return;
-            //        break;
-            //    case 2:
-            //        if (AddItemToPool(2955, ++dropCount))
-            //            return;
-            //        break;
-            //    }
-            //}
-            // else
-            if (GetMLevel() >= 50) // b.seal & k.seal only
+            //RULES: Only 1 kind may drop per mob
+            if (GetMLevel() >= 75 && luautils::IsContentEnabled("ABYSSEA")) //all 4 types
+            {
+                switch (tpzrand::GetRandomNumber(4))
+                {
+                case 0:
+
+                    if (AddItemToPool(1126, ++dropCount))
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount))
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount))
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(2956, ++dropCount))
+                        return;
+                    break;
+                }
+            }
+            else if (GetMLevel() >= 70 && luautils::IsContentEnabled("ABYSSEA")) //b.seal & k.seal & k.crest
+            {
+                switch (tpzrand::GetRandomNumber(3))
+                {
+                case 0:
+                    if (AddItemToPool(1126, ++dropCount))
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount))
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount))
+                        return;
+                    break;
+                }
+            }
+            else if (GetMLevel() >= 50) //b.seal & k.seal only
             {
                 if (tpzrand::GetRandomNumber(2) == 0)
                 {
@@ -1182,13 +938,85 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             }
             else
             {
-                // b.seal only
+                //b.seal only
                 if (AddItemToPool(1126, ++dropCount))
                     return;
             }
         }
+        // Todo: Avatarite and Geode drops during day/weather. Much higher chance during weather than day.
+        // Item element matches day/weather element, not mob crystal. Lv80+ xp mobs can drop Avatarite.
+        // Wiki's have conflicting info on mob lv required for Geodes. One says 50 the other 75. I think 50 is correct.
+
+        uint8 effect = 0; // Begin Adding Crystals
+
+        if (m_Element > 0)
+        {
+            uint8 regionID = PChar->loc.zone->GetRegionID();
+            switch (regionID)
+            {
+                // Sanction Regions
+                case REGION_WEST_AHT_URHGAN:
+                case REGION_MAMOOL_JA_SAVAGE:
+                case REGION_HALVUNG:
+                case REGION_ARRAPAGO:
+                    effect = 2;
+                    break;
+                // Sigil Regions
+                case REGION_RONFAURE_FRONT:
+                case REGION_NORVALLEN_FRONT:
+                case REGION_GUSTABERG_FRONT:
+                case REGION_DERFLAND_FRONT:
+                case REGION_SARUTA_FRONT:
+                case REGION_ARAGONEAU_FRONT:
+                case REGION_FAUREGANDI_FRONT:
+                case REGION_VALDEAUNIA_FRONT:
+                    effect = 3;
+                    break;
+                // Signet Regions
+                default:
+                    effect = (conquest::GetRegionOwner(PChar->loc.zone->GetRegionID()) <= 2) ? 1 : 0;
+                    break;
+            }
+        }
+        uint8 crystalRolls = 0;
+        PChar->ForParty([this, &crystalRolls, &effect](CBattleEntity* PMember)
+        {
+            switch(effect)
+            {
+                case 1:
+                    if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SIGNET) && PMember->getZone() == getZone() && distance(PMember->loc.p, loc.p) < 100)
+                    {
+                        crystalRolls++;
+                    }
+                    break;
+                case 2:
+                    if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SANCTION) && PMember->getZone() == getZone() && distance(PMember->loc.p, loc.p) < 100)
+                    {
+                        crystalRolls++;
+                    }
+                    break;
+                case 3:
+                    if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SIGIL) && PMember->getZone() == getZone() && distance(PMember->loc.p, loc.p) < 100)
+                    {
+                        crystalRolls++;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        });
+        for (uint8 i = 0; i < crystalRolls; i++)
+        {
+            if (tpzrand::GetRandomNumber(100) < 20 && AddItemToPool(4095 + m_Element, ++dropCount))
+            {
+                return;
+            }
+        }
     }
 }
+
+
+
 
 
 
