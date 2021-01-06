@@ -29,217 +29,40 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../../status_effect_container.h"
 #include "../../utils/charutils.h"
 
-//CRangeState::CRangeState(CBattleEntity* PEntity, uint16 targid) :
-//    CState(PEntity, targid),
-//    m_PEntity(PEntity)
-//{
-//    auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, m_errorMsg);
-//
-//    if (!PTarget || m_errorMsg)
-//    {
-//        throw CStateInitException(std::move(m_errorMsg));
-//    }
-//
-//    if (!CanUseRangedAttack(PTarget))
-//    {
-//        throw CStateInitException(std::move(m_errorMsg));
-//    }
-//
-//    auto delay = m_PEntity->GetRangedWeaponDelay(true); // changed to true
-//    delay = battleutils::GetSnapshotReduction(m_PEntity, delay);
-//
-//    // TODO: Allow trusts to use this
-//    if (auto PChar = dynamic_cast<CCharEntity*>(m_PEntity))
-//    {
-//        if (charutils::hasTrait(PChar, TRAIT_RAPID_SHOT))
-//        {
-//            auto chance {PChar->getMod(Mod::RAPID_SHOT) + PChar->PMeritPoints->GetMeritValue(MERIT_RAPID_SHOT_RATE, PChar)};
-//            if (tpzrand::GetRandomNumber(100) < chance)
-//            {
-//                // reduce delay by 10%-50%
-//                delay = (int16)(delay * (10 - tpzrand::GetRandomNumber(1, 6)) / 10.f);
-//                m_rapidShot = true;
-//            }
-//        }
-//    }
-//
-//    m_aimTime = std::chrono::milliseconds(delay);
-//    m_startPos = m_PEntity->loc.p;
-//
-//    action_t action;
-//    action.id = m_PEntity->id;
-//    action.actiontype = ACTION_RANGED_START;
-//
-//    actionList_t& actionList = action.getNewActionList();
-//    actionList.ActionTargetID = PTarget->id;
-//
-//    actionTarget_t& actionTarget = actionList.getNewActionTarget();
-//    actionTarget.animation = ANIMATION_RANGED;
-//
-//    m_PEntity->PAI->EventHandler.triggerListener("RANGE_START", m_PEntity, &action);
-//
-//    m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
-//}
-//
-//void CRangeState::SpendCost()
-//{
-//}
-//
-//bool CRangeState::CanChangeState()
-//{
-//    return false;
-//}
-//
-//bool CRangeState::Update(time_point tick)
-//{
-//    if (tick > GetEntryTime() + m_aimTime && !IsCompleted())
-//    {
-//        auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, m_errorMsg);
-//
-//        CanUseRangedAttack(PTarget);
-//        if (m_startPos.x != m_PEntity->loc.p.x || m_startPos.y != m_PEntity->loc.p.y)
-//        {
-//            m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_MOVE_AND_INTERRUPT);
-//        }
-//
-//        action_t action;
-//        auto cast_errorMsg = dynamic_cast<CMessageBasicPacket*>(m_errorMsg.get());
-//        if (m_errorMsg && (!cast_errorMsg || cast_errorMsg->getMessageID() != MSGBASIC_CANNOT_SEE))
-//        {
-//            action.id = m_PEntity->id;
-//            action.actiontype = ACTION_RANGED_INTERRUPT;
-//
-//            actionList_t& actionList = action.getNewActionList();
-//            actionList.ActionTargetID = PTarget ? PTarget->id : m_PEntity->id;
-//
-//            actionTarget_t& actionTarget = actionList.getNewActionTarget();
-//            actionTarget.animation = ANIMATION_RANGED;
-//
-//            if (auto PChar = dynamic_cast<CCharEntity*>(m_PEntity))
-//            {
-//                PChar->pushPacket(m_errorMsg.release());
-//            }
-//            m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
-//        }
-//        else
-//        {
-//            m_errorMsg.reset();
-//
-//            m_PEntity->OnRangedAttack(*this, action);
-//            m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
-//        }
-//        Complete();
-//    }
-//
-//    if (IsCompleted() && tick > GetEntryTime() + m_aimTime + 1.5s)
-//    {
-//        return true;
-//    }
-//    return false;
-//}
-//
-//void CRangeState::Cleanup(time_point tick)
-//{
-//
-//}
-//
-//bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
-//{
-//    if (!PTarget)
-//    {
-//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_CANNOT_ATTACK_TARGET);
-//        return false;
-//    }
-//
-//    if (auto PChar = dynamic_cast<CCharEntity*>(m_PEntity))
-//    {
-//        CItemWeapon* PRanged = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_RANGED));
-//        CItemWeapon* PAmmo = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_AMMO));
-//
-//        if (!((PRanged && PRanged->isType(ITEM_WEAPON)) ||
-//              (PAmmo && PAmmo->isThrowing())))
-//        {
-//            m_errorMsg = std::make_unique<CMessageBasicPacket>(PChar, PChar, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
-//            return false;
-//        }
-//
-//        auto SkillType = PRanged ? PRanged->getSkillType() : PAmmo->getSkillType();
-//
-//        switch (SkillType)
-//        {
-//            case SKILL_THROWING:
-//            {
-//                // remove barrage, doesn't work here
-//                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_BARRAGE);
-//                break;
-//            }
-//            case SKILL_ARCHERY:
-//            case SKILL_MARKSMANSHIP:
-//            {
-//                PRanged = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_AMMO));
-//                if (PRanged != nullptr && PRanged->isType(ITEM_WEAPON))
-//                {
-//                    break;
-//                }
-//            }
-//            default:
-//            {
-//                m_errorMsg = std::make_unique<CMessageBasicPacket>(PChar, PChar, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
-//                return false;
-//            }
-//        }
-//    }
-//
-//    if (!facing(m_PEntity->loc.p, PTarget->loc.p, 64))
-//    {
-//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_SEE);
-//        return false;
-//    }
-//    if (distance(m_PEntity->loc.p, PTarget->loc.p) > 40) // changed from 25. Determines max range mob can run before interrupting ranged attack once it begins
-//    {
-//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY);
-//        return false;
-//    }
-//    if (!m_PEntity->PAI->TargetFind->canSee(&PTarget->loc.p))
-//    {
-//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_PERFORM_ACTION);
-//        return false;
-//    }
-//
-//    return true;
-//}
-
-CRangeState::CRangeState(CCharEntity* PEntity, uint16 targid)
-: CState(PEntity, targid)
-, m_PEntity(PEntity)
+CRangeState::CRangeState(CBattleEntity* PEntity, uint16 targid) :
+    CState(PEntity, targid),
+    m_PEntity(PEntity)
 {
-    auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, false, m_errorMsg);
+    auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, m_errorMsg);
 
     if (!PTarget || m_errorMsg)
     {
-        PEntity->m_LastRangedAttackTime = server_clock::now() - 10s;
         throw CStateInitException(std::move(m_errorMsg));
     }
 
-    if (!CanUseRangedAttack(PTarget, false))
+    if (!CanUseRangedAttack(PTarget))
     {
-        PEntity->m_LastRangedAttackTime = server_clock::now() - 10s;
         throw CStateInitException(std::move(m_errorMsg));
     }
 
-    auto delay = m_PEntity->GetRangedWeaponDelay(false);
+    auto delay = m_PEntity->GetRangedWeaponDelay(true); // changed to true
     delay = battleutils::GetSnapshotReduction(m_PEntity, delay);
 
-    if (charutils::hasTrait(m_PEntity, TRAIT_RAPID_SHOT))
+    // TODO: Allow trusts to use this
+    if (auto PChar = dynamic_cast<CCharEntity*>(m_PEntity))
     {
-        auto chance{ m_PEntity->getMod(Mod::RAPID_SHOT) + m_PEntity->PMeritPoints->GetMeritValue(MERIT_RAPID_SHOT_RATE, m_PEntity) };
-        if (tpzrand::GetRandomNumber(100) < chance)
+        if (charutils::hasTrait(PChar, TRAIT_RAPID_SHOT))
         {
-            // reduce delay by 10%-50%
-            delay = (int16)(delay * tpzrand::GetRandomNumber(0.5f, 0.9f));
-            m_rapidShot = true;
+            auto chance {PChar->getMod(Mod::RAPID_SHOT) + PChar->PMeritPoints->GetMeritValue(MERIT_RAPID_SHOT_RATE, PChar)};
+            if (tpzrand::GetRandomNumber(100) < chance)
+            {
+                // reduce delay by 10%-50%
+                delay = (int16)(delay * (10 - tpzrand::GetRandomNumber(1, 6)) / 10.f);
+                m_rapidShot = true;
+            }
         }
     }
+
     m_aimTime = std::chrono::milliseconds(delay);
     m_startPos = m_PEntity->loc.p;
 
@@ -271,20 +94,14 @@ bool CRangeState::Update(time_point tick)
 {
     if (tick > GetEntryTime() + m_aimTime && !IsCompleted())
     {
-        auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, true, m_errorMsg);
+        auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, m_errorMsg);
 
-        CanUseRangedAttack(PTarget, true);
+        CanUseRangedAttack(PTarget);
         if (m_startPos.x != m_PEntity->loc.p.x || m_startPos.y != m_PEntity->loc.p.y)
         {
-            const float movementTolerance = 0.04f;
-            float diffX = m_startPos.x > m_PEntity->loc.p.x ? m_startPos.x - m_PEntity->loc.p.x : m_PEntity->loc.p.x - m_startPos.x;
-            float diffY = m_startPos.y > m_PEntity->loc.p.y ? m_startPos.y - m_PEntity->loc.p.y : m_PEntity->loc.p.y - m_startPos.y;
-
-            if (diffX > movementTolerance || diffY > movementTolerance)
-            {
-                m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_MOVE_AND_INTERRUPT);
-            }
+            m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_MOVE_AND_INTERRUPT);
         }
+
         action_t action;
         auto cast_errorMsg = dynamic_cast<CMessageBasicPacket*>(m_errorMsg.get());
         if (m_errorMsg && (!cast_errorMsg || cast_errorMsg->getMessageID() != MSGBASIC_CANNOT_SEE))
@@ -297,12 +114,17 @@ bool CRangeState::Update(time_point tick)
 
             actionTarget_t& actionTarget = actionList.getNewActionTarget();
             actionTarget.animation = ANIMATION_RANGED;
-            m_PEntity->pushPacket(m_errorMsg.release());
+
+            if (auto PChar = dynamic_cast<CCharEntity*>(m_PEntity))
+            {
+                PChar->pushPacket(m_errorMsg.release());
+            }
             m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
         }
         else
         {
             m_errorMsg.reset();
+
             m_PEntity->OnRangedAttack(*this, action);
             m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
         }
@@ -318,65 +140,243 @@ bool CRangeState::Update(time_point tick)
 
 void CRangeState::Cleanup(time_point tick)
 {
+
 }
 
-bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget, bool ignoreRange)
+bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
 {
     if (!PTarget)
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_CANNOT_ATTACK_TARGET);
         return false;
     }
-    CItemWeapon* PRanged = (CItemWeapon*)m_PEntity->getEquip(SLOT_RANGED);
-    CItemWeapon* PAmmo = (CItemWeapon*)m_PEntity->getEquip(SLOT_AMMO);
 
-    if (!((PRanged && PRanged->isType(ITEM_WEAPON)) || (PAmmo && PAmmo->isThrowing())))
+    if (auto PChar = dynamic_cast<CCharEntity*>(m_PEntity))
     {
-        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
-        return false;
-    }
+        CItemWeapon* PRanged = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_RANGED));
+        CItemWeapon* PAmmo = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_AMMO));
 
-    auto SkillType = PRanged ? PRanged->getSkillType() : PAmmo->getSkillType();
-
-    switch (SkillType)
-    {
-        case SKILL_THROWING:
+        if (!((PRanged && PRanged->isType(ITEM_WEAPON)) ||
+              (PAmmo && PAmmo->isThrowing())))
         {
-            // remove barrage, doesn't work here
-            m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_BARRAGE);
-            break;
-        }
-        case SKILL_ARCHERY:
-        case SKILL_MARKSMANSHIP:
-        {
-            PRanged = (CItemWeapon*)m_PEntity->getEquip(SLOT_AMMO);
-            if (PRanged != nullptr && PRanged->isType(ITEM_WEAPON))
-            {
-                break;
-            }
-        }
-        default:
-        {
-            m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
+            m_errorMsg = std::make_unique<CMessageBasicPacket>(PChar, PChar, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
             return false;
         }
+
+        auto SkillType = PRanged ? PRanged->getSkillType() : PAmmo->getSkillType();
+
+        switch (SkillType)
+        {
+            case SKILL_THROWING:
+            {
+                // remove barrage, doesn't work here
+                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_BARRAGE);
+                break;
+            }
+            case SKILL_ARCHERY:
+            case SKILL_MARKSMANSHIP:
+            {
+                PRanged = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_AMMO));
+                if (PRanged != nullptr && PRanged->isType(ITEM_WEAPON))
+                {
+                    break;
+                }
+            }
+            default:
+            {
+                m_errorMsg = std::make_unique<CMessageBasicPacket>(PChar, PChar, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
+                return false;
+            }
+        }
     }
 
-    if (!facing(m_PEntity->loc.p, PTarget->loc.p, 40))
+    if (!facing(m_PEntity->loc.p, PTarget->loc.p, 64))
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_SEE);
         return false;
     }
-    if (!ignoreRange && distance(m_PEntity->loc.p, PTarget->loc.p) > 25)
+    if (distance(m_PEntity->loc.p, PTarget->loc.p) > 40) // changed from 25. Determines max range mob can run before interrupting ranged attack once it begins
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY);
         return false;
     }
     if (!m_PEntity->PAI->TargetFind->canSee(&PTarget->loc.p))
     {
-        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_UNABLE_TO_SEE_TARG);
+        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_PERFORM_ACTION);
         return false;
     }
 
     return true;
 }
+
+//CRangeState::CRangeState(CCharEntity* PEntity, uint16 targid)
+//: CState(PEntity, targid)
+//, m_PEntity(PEntity)
+//{
+//    auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, false, m_errorMsg);
+//
+//    if (!PTarget || m_errorMsg)
+//    {
+//        PEntity->m_LastRangedAttackTime = server_clock::now() - 10s;
+//        throw CStateInitException(std::move(m_errorMsg));
+//    }
+//
+//    if (!CanUseRangedAttack(PTarget, false))
+//    {
+//        PEntity->m_LastRangedAttackTime = server_clock::now() - 10s;
+//        throw CStateInitException(std::move(m_errorMsg));
+//    }
+//
+//    auto delay = m_PEntity->GetRangedWeaponDelay(false);
+//    delay = battleutils::GetSnapshotReduction(m_PEntity, delay);
+//
+//    if (charutils::hasTrait(m_PEntity, TRAIT_RAPID_SHOT))
+//    {
+//        auto chance{ m_PEntity->getMod(Mod::RAPID_SHOT) + m_PEntity->PMeritPoints->GetMeritValue(MERIT_RAPID_SHOT_RATE, m_PEntity) };
+//        if (tpzrand::GetRandomNumber(100) < chance)
+//        {
+//            // reduce delay by 10%-50%
+//            delay = (int16)(delay * tpzrand::GetRandomNumber(0.5f, 0.9f));
+//            m_rapidShot = true;
+//        }
+//    }
+//    m_aimTime = std::chrono::milliseconds(delay);
+//    m_startPos = m_PEntity->loc.p;
+//
+//    action_t action;
+//    action.id = m_PEntity->id;
+//    action.actiontype = ACTION_RANGED_START;
+//
+//    actionList_t& actionList = action.getNewActionList();
+//    actionList.ActionTargetID = PTarget->id;
+//
+//    actionTarget_t& actionTarget = actionList.getNewActionTarget();
+//    actionTarget.animation = ANIMATION_RANGED;
+//
+//    m_PEntity->PAI->EventHandler.triggerListener("RANGE_START", m_PEntity, &action);
+//
+//    m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
+//}
+//
+//void CRangeState::SpendCost()
+//{
+//}
+//
+//bool CRangeState::CanChangeState()
+//{
+//    return false;
+//}
+//
+//bool CRangeState::Update(time_point tick)
+//{
+//    if (tick > GetEntryTime() + m_aimTime && !IsCompleted())
+//    {
+//        auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, true, m_errorMsg);
+//
+//        CanUseRangedAttack(PTarget, true);
+//        if (m_startPos.x != m_PEntity->loc.p.x || m_startPos.y != m_PEntity->loc.p.y)
+//        {
+//            const float movementTolerance = 0.04f;
+//            float diffX = m_startPos.x > m_PEntity->loc.p.x ? m_startPos.x - m_PEntity->loc.p.x : m_PEntity->loc.p.x - m_startPos.x;
+//            float diffY = m_startPos.y > m_PEntity->loc.p.y ? m_startPos.y - m_PEntity->loc.p.y : m_PEntity->loc.p.y - m_startPos.y;
+//
+//            if (diffX > movementTolerance || diffY > movementTolerance)
+//            {
+//                m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_MOVE_AND_INTERRUPT);
+//            }
+//        }
+//        action_t action;
+//        auto cast_errorMsg = dynamic_cast<CMessageBasicPacket*>(m_errorMsg.get());
+//        if (m_errorMsg && (!cast_errorMsg || cast_errorMsg->getMessageID() != MSGBASIC_CANNOT_SEE))
+//        {
+//            action.id = m_PEntity->id;
+//            action.actiontype = ACTION_RANGED_INTERRUPT;
+//
+//            actionList_t& actionList = action.getNewActionList();
+//            actionList.ActionTargetID = PTarget ? PTarget->id : m_PEntity->id;
+//
+//            actionTarget_t& actionTarget = actionList.getNewActionTarget();
+//            actionTarget.animation = ANIMATION_RANGED;
+//            m_PEntity->pushPacket(m_errorMsg.release());
+//            m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
+//        }
+//        else
+//        {
+//            m_errorMsg.reset();
+//            m_PEntity->OnRangedAttack(*this, action);
+//            m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
+//        }
+//        Complete();
+//    }
+//
+//    if (IsCompleted() && tick > GetEntryTime() + m_aimTime + 1.5s)
+//    {
+//        return true;
+//    }
+//    return false;
+//}
+//
+//void CRangeState::Cleanup(time_point tick)
+//{
+//}
+//
+//bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget, bool ignoreRange)
+//{
+//    if (!PTarget)
+//    {
+//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_CANNOT_ATTACK_TARGET);
+//        return false;
+//    }
+//    CItemWeapon* PRanged = (CItemWeapon*)m_PEntity->getEquip(SLOT_RANGED);
+//    CItemWeapon* PAmmo = (CItemWeapon*)m_PEntity->getEquip(SLOT_AMMO);
+//
+//    if (!((PRanged && PRanged->isType(ITEM_WEAPON)) || (PAmmo && PAmmo->isThrowing())))
+//    {
+//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
+//        return false;
+//    }
+//
+//    auto SkillType = PRanged ? PRanged->getSkillType() : PAmmo->getSkillType();
+//
+//    switch (SkillType)
+//    {
+//        case SKILL_THROWING:
+//        {
+//            // remove barrage, doesn't work here
+//            m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_BARRAGE);
+//            break;
+//        }
+//        case SKILL_ARCHERY:
+//        case SKILL_MARKSMANSHIP:
+//        {
+//            PRanged = (CItemWeapon*)m_PEntity->getEquip(SLOT_AMMO);
+//            if (PRanged != nullptr && PRanged->isType(ITEM_WEAPON))
+//            {
+//                break;
+//            }
+//        }
+//        default:
+//        {
+//            m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
+//            return false;
+//        }
+//    }
+//
+//    if (!facing(m_PEntity->loc.p, PTarget->loc.p, 40))
+//    {
+//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_SEE);
+//        return false;
+//    }
+//    if (!ignoreRange && distance(m_PEntity->loc.p, PTarget->loc.p) > 25)
+//    {
+//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY);
+//        return false;
+//    }
+//    if (!m_PEntity->PAI->TargetFind->canSee(&PTarget->loc.p))
+//    {
+//        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_UNABLE_TO_SEE_TARG);
+//        return false;
+//    }
+//
+//    return true;
+//}
