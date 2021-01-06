@@ -1052,12 +1052,12 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         {
             // Determine if this group should drop an item
             uint16 groupRate = itemutils::GetRateFromRarity((uint8)group.GroupRate, bonus);
-            if (groupRate > 0 && dsprand::GetRandomNumber(10000) < groupRate * map_config.drop_rate_multiplier)
+            if (groupRate > 0 && tpzrand::GetRandomNumber(10000) < groupRate * map_config.drop_rate_multiplier)
             {
                 // Each item in the group is given its own weight range which is the previous value to the previous value + item.DropRate
                 // Such as 2 items with drop rates of 200 and 800 would be 0-199 and 200-999 respectively
                 uint16 previousRateValue = 0;
-                uint16 itemRoll = dsprand::GetRandomNumber(1000);
+                uint16 itemRoll = tpzrand::GetRandomNumber(1000);
                 for (const DropItem_t& item : group.Items)
                 {
                     if (previousRateValue + item.DropRate > itemRoll)
@@ -1078,7 +1078,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         {
             if (item.UseRate)
             {
-                if (dsprand::GetRandomNumber(1000) < item.DropRate * map_config.drop_rate_multiplier)
+                if (tpzrand::GetRandomNumber(1000) < item.DropRate * map_config.drop_rate_multiplier)
                 {
                     if (AddItemToPool(item.ItemID, ++dropCount))
                         return;
@@ -1087,7 +1087,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             else if (item.DropRate != 255)
             {
                 uint16 dropRate = itemutils::GetRateFromRarity((uint8)item.DropRate, bonus);
-                if (dsprand::GetRandomNumber(10000) < dropRate * map_config.drop_rate_multiplier)
+                if (tpzrand::GetRandomNumber(10000) < dropRate * map_config.drop_rate_multiplier)
                 {
                     if (AddItemToPool(item.ItemID, ++dropCount))
                         return;
@@ -1113,7 +1113,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         if (((PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SIGNET) && conquest::GetInfluenceGraphics(PChar->loc.zone->GetRegionID()) < 64) ||
              (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SANCTION) && PChar->loc.zone->GetRegionID() >= 28 && PChar->loc.zone->GetRegionID() <= 32) ||
              (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SIGIL) && PChar->loc.zone->GetRegionID() >= 33 && PChar->loc.zone->GetRegionID() <= 40)) &&
-            m_Element > 0 && dsprand::GetRandomNumber(100) < 20) // Need to move to CRYSTAL_CHANCE constant
+            m_Element > 0 && tpzrand::GetRandomNumber(100) < 20) // Need to move to CRYSTAL_CHANCE constant
         {
             if (AddItemToPool(4095 + m_Element, ++dropCount))
                 return;
@@ -1123,12 +1123,12 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         // Item element matches day/weather element, not mob crystal. Lv80+ xp mobs can drop Avatarite.
         // Wiki's have conflicting info on mob lv required for Geodes. One says 50 the other 75. I think 50 is correct.
 
-        if (m_giveExp && PChar->GetTreasurePool()->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS) && dsprand::GetRandomNumber(100) < 20)
+        if (m_giveExp && PChar->GetTreasurePool()->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS) && tpzrand::GetRandomNumber(100) < 20)
         {
             // RULES: Only 1 kind may drop per mob
             // if (GetMLevel() >= 75 && luautils::IsContentEnabled("ABYSSEA")) //all 4 types
             //{
-            //    switch (dsprand::GetRandomNumber(4))
+            //    switch (tpzrand::GetRandomNumber(4))
             //    {
             //    case 0:
             //        if (AddItemToPool(1126, ++dropCount))
@@ -1150,7 +1150,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             //}
             // else if (GetMLevel() >= 70 && luautils::IsContentEnabled("ABYSSEA")) //b.seal & k.seal & k.crest
             //{
-            //    switch (dsprand::GetRandomNumber(3))
+            //    switch (tpzrand::GetRandomNumber(3))
             //    {
             //    case 0:
             //        if (AddItemToPool(1126, ++dropCount))
@@ -1169,7 +1169,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             // else
             if (GetMLevel() >= 50) // b.seal & k.seal only
             {
-                if (dsprand::GetRandomNumber(2) == 0)
+                if (tpzrand::GetRandomNumber(2) == 0)
                 {
                     if (AddItemToPool(1126, ++dropCount))
                         return;
