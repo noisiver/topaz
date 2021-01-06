@@ -26,22 +26,49 @@
 #include "../map.h"
 #include "itemutils.h"
 
+//std::array<CItem*, MAX_ITEMID> g_pItemList;      // global array of pointers to game items
+//std::array<DropList_t*, MAX_DROPID> g_pDropList; // global array of monster droplist items
+//std::array<LootList_t*, MAX_LOOTID> g_pLootList; // global array of BCNM lootlist items
+//
+//CItemWeapon* PUnarmedItem;
+//CItemWeapon* PUnarmedH2HItem;
+//
+//DropItem_t::DropItem_t(uint8 DropType, uint16 ItemID, uint16 DropRate)
+//    : DropType(DropType)
+//    , ItemID(ItemID)
+//    , DropRate(DropRate)
+//{ }
+//
+//DropGroup_t::DropGroup_t(uint16 GroupRate)
+//    : GroupRate(GroupRate)
+//{ }
 std::array<CItem*, MAX_ITEMID> g_pItemList;      // global array of pointers to game items
 std::array<DropList_t*, MAX_DROPID> g_pDropList; // global array of monster droplist items
-std::array<LootList_t*, MAX_LOOTID> g_pLootList; // global array of BCNM lootlist items
 
 CItemWeapon* PUnarmedItem;
 CItemWeapon* PUnarmedH2HItem;
 
 DropItem_t::DropItem_t(uint8 DropType, uint16 ItemID, uint16 DropRate)
-    : DropType(DropType)
-    , ItemID(ItemID)
-    , DropRate(DropRate)
-{ }
+: DropType(DropType)
+, ItemID(ItemID)
+, DropRate(DropRate)
+{
+}
 
-DropGroup_t::DropGroup_t(uint16 GroupRate)
-    : GroupRate(GroupRate)
-{ }
+constexpr uint8 RARITY_GROUP_MAX = 10;
+constexpr uint8 TH_GROUP_MAX = 5; // max TH + 1
+std::array<std::array<uint16, TH_GROUP_MAX>, RARITY_GROUP_MAX> Rarity = { {
+    { 10, 20, 30, 35, 40 },                // 0 ultra rare
+    { 50, 75, 100, 120, 140 },             // 1 super rare
+    { 100, 150, 200, 225, 250 },           // 2 very rare
+    { 500, 600, 700, 750, 800 },           // 3 rare
+    { 1000, 1200, 1500, 1650, 1800 },      // 4 uncommon
+    { 1500, 3000, 4000, 4250, 4500 },      // 5 common
+    { 2400, 4800, 5600, 6000, 6400 },      // 6 very common
+    { 5000, 6000, 7000, 7500, 8000 },      // 7 super common (unconfirmed)
+    { 7500, 8000, 8500, 8750, 9000 },      // 8 ultra common (unconfirmed)
+    { 10000, 10000, 10000, 10000, 10000 }, // 9 guaranteed
+} };                                       // Rarity[rarity][th_level]
 
 /************************************************************************
 *                                                                       *
