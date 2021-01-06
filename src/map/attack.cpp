@@ -513,18 +513,18 @@ bool CAttack::CheckAnticipated()
     else
     { // do have seigan, decay anticipations correctly (guesstimated)
         // 5-6 anticipates is a 'lucky' streak, going to assume 15% decay per proc, with a 100% base w/ Seigan
-        if (dsprand::GetRandomNumber(100) < (100 - (pastAnticipations * 15) + m_victim->getMod(Mod::THIRD_EYE_ANTICIPATE_RATE)))
+        if (tpzrand::GetRandomNumber(100) < (100 - (pastAnticipations * 15) + m_victim->getMod(Mod::THIRD_EYE_ANTICIPATE_RATE)))
         {
             // increment power and don't remove
             effect->SetPower(effect->GetPower() + 1);
             // chance to counter - 25% base
             if (!m_victim->StatusEffectContainer->HasPreventActionEffect() &&
-                dsprand::GetRandomNumber(100) < 25 + m_victim->getMod(Mod::THIRD_EYE_COUNTER_RATE))
+                tpzrand::GetRandomNumber(100) < 25 + m_victim->getMod(Mod::THIRD_EYE_COUNTER_RATE))
             {
                 if (m_victim->PAI->IsEngaged())
                 {
                     m_isCountered = true;
-                    m_isCritical = (dsprand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
+                    m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
                 }
             }
             m_anticipated = true;
@@ -575,11 +575,11 @@ bool CAttack::CheckCounter()
         seiganChance /= 4;
     }
     if (!m_victim->StatusEffectContainer->HasPreventActionEffect() &&
-        (dsprand::GetRandomNumber(100) < (m_victim->getMod(Mod::COUNTER) + meritCounter) || dsprand::GetRandomNumber(100) < seiganChance) &&
-        isFaceing(m_victim->loc.p, m_attacker->loc.p, 40) && dsprand::GetRandomNumber(100) < battleutils::GetHitRate(m_victim, m_attacker))
+        (tpzrand::GetRandomNumber(100) < (m_victim->getMod(Mod::COUNTER) + meritCounter) || tpzrand::GetRandomNumber(100) < seiganChance) &&
+        isFaceing(m_victim->loc.p, m_attacker->loc.p, 40) && tpzrand::GetRandomNumber(100) < battleutils::GetHitRate(m_victim, m_attacker))
     {
         m_isCountered = true;
-        m_isCritical = (dsprand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
+        m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false, false));
     }
     else if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_COUNTER))
     { // Perfect Counter only counters hits that normal counter misses, always critical, can counter 1-3 times before wearing

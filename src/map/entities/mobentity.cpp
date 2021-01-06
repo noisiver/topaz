@@ -1020,7 +1020,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
 {
     // Adds an item to the treasure pool and returns true if the pool has been filled
     auto AddItemToPool = [this, PChar](uint16 ItemID, uint8 dropCount) {
-        PChar->GetTreasurePool()->AddItem(ItemID, this, false, false);
+        PChar->PTreasurePool->AddItem(ItemID, this);
         return dropCount >= TREASUREPOOL_SIZE;
     };
 
