@@ -8454,8 +8454,8 @@ INSERT INTO `mob_groups` VALUES (18,6558,127,'Lost_Soul',330,1,1541,0,0,45,47,0)
 
 INSERT INTO `mob_groups` VALUES (1,4218,128,'Velociraptor',330,0,2573,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (2,3120,128,'Peryton',330,0,1991,0,0,69,72,0);
-INSERT INTO `mob_groups` VALUES (3,1341,128,'Fire_Elemental',330,4,6860,0,0,66,68,0);
-INSERT INTO `mob_groups` VALUES (4,71,128,'Air_Elemental',330,4,0,0,0,66,68,0);
+INSERT INTO `mob_groups` VALUES (3,1341,128,'Fire_Elemental',330,4,831,0,0,66,68,0);
+INSERT INTO `mob_groups` VALUES (4,71,128,'Air_Elemental',330,4,38,0,0,66,68,0);
 INSERT INTO `mob_groups` VALUES (5,4125,128,'Valley_Manticore',330,0,2537,0,0,71,74,0);
 INSERT INTO `mob_groups` VALUES (6,44,128,'Adamantoise',0,128,21,7000,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (7,268,128,'Aspidochelone',0,128,183,15000,0,85,85,0);
@@ -11042,9 +11042,9 @@ INSERT INTO `mob_groups` VALUES (9010,3500,173,'Scimitar_Scorpion',792,0,113,0,0
 INSERT INTO `mob_groups` VALUES (1,3496,174,'Scavenger_Crab',0,128,2178,0,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (2,3803,174,'Stygian_Pugil',0,128,2356,0,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (3,1018,174,'Devil_Manta',0,128,644,0,0,66,68,0);
-INSERT INTO `mob_groups` VALUES (4,1763,174,'Gordovs_Ghost',0,128,0,0,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (5,1003,174,'Dervos_Ghost',0,128,0,0,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (6,1609,174,'Gizerls_Ghost',0,128,0,0,0,68,68,0);
+INSERT INTO `mob_groups` VALUES (4,1763,174,'Gordovs_Ghost',0,128,0,8500,0,68,68,0);
+INSERT INTO `mob_groups` VALUES (5,1003,174,'Dervos_Ghost',0,128,0,8500,0,68,68,0);
+INSERT INTO `mob_groups` VALUES (6,1609,174,'Gizerls_Ghost',0,128,0,8500,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (7,3456,174,'Sand_Lizard',300,0,2153,0,0,61,64,0);
 INSERT INTO `mob_groups` VALUES (8,3375,174,'Robber_Crab',300,0,2110,0,0,60,63,0);
 INSERT INTO `mob_groups` VALUES (9,1900,174,'Haunt',1200,0,1282,0,0,63,66,0);
@@ -11057,7 +11057,7 @@ INSERT INTO `mob_groups` VALUES (15,3342,174,'Recluse_Spider',300,0,2084,0,0,63,
 INSERT INTO `mob_groups` VALUES (16,105,174,'Amemet',0,32,62,18000,0,66,66,0);
 INSERT INTO `mob_groups` VALUES (17,1039,174,'Diplopod',960,0,656,0,0,68,71,0);
 INSERT INTO `mob_groups` VALUES (18,3079,174,'Ovinnik',300,0,1969,0,0,77,79,0);
-INSERT INTO `mob_groups` VALUES (19,1801,174,'Greater_Cockatrice',300,0,201,0,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (19,1801,174,'Greater_Cockatrice',300,0,3164,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (20,2314,174,'Ladon',300,0,1477,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (21,3115,174,'Pelican',0,32,1988,22000,0,80,81,0);
 INSERT INTO `mob_groups` VALUES (22,6417,174,'Kuftal_Delver',300,0,1467,0,0,77,79,0);

@@ -15,7 +15,9 @@ function onSpellCast(caster, target, spell)
     local curse2 = target:getStatusEffect(tpz.effect.CURSE_II)
     local bane = target:getStatusEffect(tpz.effect.BANE)
     local bonus = caster:getMod(tpz.mod.ENHANCES_CURSNA) + target:getMod(tpz.mod.ENHANCES_CURSNA_RCVD)
-    local power = 25*((100+bonus)/100) -- This 25 is temp until the skill calculation is in.
+    --local power = 25*((100+bonus)/100) -- This 25 is temp until the skill calculation is in.
+    local skill = caster:getSkillLevel(tpz.skill.HEALING_MAGIC)
+    local power = (10 + math.floor(skill / 30)) + bonus 
 
     spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     if (target:hasStatusEffect(tpz.effect.DOOM) and power > math.random(1, 100)) then
