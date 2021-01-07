@@ -487,6 +487,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,185,48,66);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,186,67,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,216,21,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,237,20,50);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,208,56,255); -- Tornado
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,54,28,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,56,13,74);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,79,75,255);
@@ -500,6 +501,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,189,15,39);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,190,40,62);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,191,63,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,238,18,50);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,210,56,255); -- Quake
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,58,4,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,101,22,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,149,17,41);
@@ -513,6 +515,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,181,71,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,236,22,50);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,250,20,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,258,7,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,206,56,255); -- Freeze
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,55,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,105,27,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,169,5,29);
@@ -527,6 +530,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,220,3,42);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,221,43,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,225,24,59);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,240,27,50);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,214,56,255); -- Flood
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,104,16,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,164,21,45);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,165,46,65);
@@ -539,6 +543,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,196,73,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,239,16,50);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,251,30,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,252,37,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,212,56,255); -- Burst 
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,100,24,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,144,13,37);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,145,38,61);
@@ -550,6 +555,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,175,53,68);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,176,69,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,235,24,50);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,249,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,204,56,255); -- Flare 
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,230,10,35);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,231,36,59);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,232,60,255);

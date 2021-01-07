@@ -17,5 +17,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.MIND_HOARDER_PH, 10, math.random(5400, 32400)) -- 1.5 to 9 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.MIND_HOARDER_PH, 30, math.random(5400, 7200)) --changed from  1.5 to 9 hours
 end

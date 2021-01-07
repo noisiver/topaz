@@ -3690,4 +3690,5 @@ INSERT INTO `mob_skill_lists` VALUES ('Atori-Tutori_qm',1145,14); -- Victory Smi
 INSERT INTO `mob_skill_lists` VALUES ('KS99_Wyrm-Flying-Attack',1146,950);
 INSERT INTO `mob_skill_lists` VALUES ('KS99_Wyrm-Flying',1147,955);
 INSERT INTO `mob_skill_lists` VALUES ('KS99_Wyrm-Flying',1147,956);
+INSERT INTO `mob_skill_lists` VALUES ('Mind_Hoarder',1148,524);
 -- Next available ID: 1148
