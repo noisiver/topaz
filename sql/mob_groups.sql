@@ -7939,7 +7939,7 @@ INSERT INTO `mob_groups` VALUES (18,1683,118,'Goblin_Leecher',330,0,1103,0,0,22,
 INSERT INTO `mob_groups` VALUES (19,1666,118,'Goblin_Gambler',330,0,1078,0,0,22,25,0);
 INSERT INTO `mob_groups` VALUES (20,71,118,'Air_Elemental',330,4,38,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (21,3165,118,'Poison_Leech',330,0,2011,0,0,21,25,0);
-INSERT INTO `mob_groups` VALUES (22,5741,118,'Wake_Warder_Wanda',3600,0,3004,750,0,22,23,0);
+INSERT INTO `mob_groups` VALUES (22,5741,118,'Wake_Warder_Wanda',3600,0,3004,1500,0,22,23,0);
 INSERT INTO `mob_groups` VALUES (23,4309,118,'Water_Elemental',960,4,2629,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (24,646,118,'Carnivorous_Crawler',330,0,422,0,0,20,23,0);
 INSERT INTO `mob_groups` VALUES (25,1919,118,'Helldiver',0,32,1292,900,0,29,30,0);
