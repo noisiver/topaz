@@ -2200,7 +2200,7 @@
 [16] =
 {
     {
-        {itemid = 13056, droprate = 0}, -- Peacock Charm
+        {itemid = 13056, droprate = 90}, -- Peacock Charm
     },
     {
         {itemid = 18086, droprate = 48}, -- Behourd Lance
@@ -2262,7 +2262,6 @@
     {
         {itemid = 939, droprate = 1000}, -- Hecteyes Eye
         {itemid = 914, droprate = 1000}, -- Vial Of Mercury
-         gil = {0.762, 5200, 12500},
     },
 }
 -- 17
