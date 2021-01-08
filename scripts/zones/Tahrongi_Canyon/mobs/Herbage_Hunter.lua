@@ -10,5 +10,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 35)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
  end

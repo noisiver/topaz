@@ -7,6 +7,10 @@ require("scripts/globals/titles")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.TRPLE_ATTACK, 10)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.SLEEPRES, 100)
+    mob:setMod(tpz.mod.LULLABYRES, 100)
+     mob:setMod(tpz.mod.DELAY, -30)
    end
 
   function onMobInitialize(mob)
@@ -15,7 +19,7 @@ end
 
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENDRAIN)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 100, power = math.random(50, 70)})
 end
 
 function onMobDeath(mob, player, isKiller)
