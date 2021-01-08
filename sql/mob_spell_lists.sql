@@ -3925,6 +3925,30 @@ INSERT INTO `mob_spell_lists` VALUES ('Nepionic_Bladmall',434,51,68,255); -- She
 INSERT INTO `mob_spell_lists` VALUES ('Nepionic_Bladmall',434,46,63,255); -- Protect IV
 INSERT INTO `mob_spell_lists` VALUES ('Nepionic_Bladmall',434,4,41,255);  -- Cure IV
 
+INSERT INTO `mob_spell_lists` VALUES ('Jenglot',435,21,55,255);     -- Holy 
+INSERT INTO `mob_spell_lists` VALUES ('Jenglot',435,34,55,255);		--Diaga II 
+
+INSERT INTO `mob_spell_lists` VALUES ('Ubume',436,376,55,255);	-- Horde Lullaby
+
+
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,147,24,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,152,24,255); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,157,24,255); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,162,24,255); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,167,24,255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,172,24,255); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,146,24,255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,151,24,255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,156,24,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,161,24,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,166,24,255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,171,24,255); -- Water III
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,201,65,255); -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,191,75,255);-- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,260,32,255); -- Dispel
+
+
+
 
 /*!40000 ALTER TABLE `mob_spell_lists` ENABLE KEYS */;
 UNLOCK TABLES;

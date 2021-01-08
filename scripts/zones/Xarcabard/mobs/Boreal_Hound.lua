@@ -15,6 +15,15 @@ function onMobSpawn(mob)
     if OLDSCHOOL_G2 then
         GetNPCByID(ID.npc.BOREAL_HOUND_QM):showNPC(0)
     end
+     mob:setMod(tpz.mod.DMGPHYS, -50)
+     mob:setMod(tpz.mod.SLEEPRES, 100)
+     mob:setMod(tpz.mod.LULLABYRES, 100)
+     tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {id = tpz.jsa.BLOOD_WEAPON, hpp = math.random(50, 50)},
+        },
+    })
 end
 
 function onMobDeath(mob, player, isKiller)

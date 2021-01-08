@@ -599,9 +599,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,748);
 INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,750);
 INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,753);
 INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,755);
-INSERT INTO `mob_skill_lists` VALUES ('Hecteyes',139,437);
-INSERT INTO `mob_skill_lists` VALUES ('Hecteyes',139,438);
-INSERT INTO `mob_skill_lists` VALUES ('Hecteyes',139,440);
+INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-COP',139,437);	-- COP
+INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-COP',139,438);
+INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-COP',139,439);
+INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-COP',139,440);
 INSERT INTO `mob_skill_lists` VALUES ('Hippogryph',140,576);
 INSERT INTO `mob_skill_lists` VALUES ('Hippogryph',140,578);
 -- INSERT INTO `mob_skill_lists` VALUES ('Hippogryph',140,579);
@@ -3691,4 +3692,9 @@ INSERT INTO `mob_skill_lists` VALUES ('KS99_Wyrm-Flying-Attack',1146,950);
 INSERT INTO `mob_skill_lists` VALUES ('KS99_Wyrm-Flying',1147,955);
 INSERT INTO `mob_skill_lists` VALUES ('KS99_Wyrm-Flying',1147,956);
 INSERT INTO `mob_skill_lists` VALUES ('Mind_Hoarder',1148,524);
+INSERT INTO `mob_skill_lists` VALUES ('Sluagh',1149,472);
+INSERT INTO `mob_skill_lists` VALUES ('Altedour_I_Tavnazia',1150,255); -- dimensional_death
+INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-Zilart',1151,437);	-- Zilart
+INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-Zilart',1151,438);
+INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-Zilart',1151,439);
 -- Next available ID: 1148
