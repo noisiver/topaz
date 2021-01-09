@@ -10,6 +10,65 @@ tpz = tpz or {}
 tpz.magic = tpz.magic or {}
 
 ------------------------------------
+-- Elements
+------------------------------------
+
+tpz.magic.ele =
+{
+    NONE      = 0,
+    FIRE      = 1,
+    EARTH     = 2,
+    WATER     = 3,
+    WIND      = 4,
+    ICE       = 5,
+    LIGHTNING = 6,
+    THUNDER   = 6,
+    LIGHT     = 7,
+    DARK      = 8,
+    DARKNESS  = 8,
+};
+
+------------------------------------
+-- Spell Groups
+------------------------------------
+
+tpz.magic.spellGroup =
+{
+    NONE      = 0,
+    SONG      = 1,
+    BLACK     = 2,
+    BLUE      = 3,
+    NINJUTSU  = 4,
+    SUMMONING = 5,
+    WHITE     = 6,
+};
+
+------------------------------------
+-- Spell AOE IDs
+------------------------------------
+
+tpz.magic.aoe =
+{
+    NONE        = 0,
+    RADIAL      = 1,
+    CONAL       = 2,
+    RADIAL_MANI = 3, -- AOE when under SCH stratagem Manifestation
+    RADIAL_ACCE = 4, -- AOE when under SCH stratagem Accession
+    PIANISSIMO  = 5, -- Single target when under BRD JA Pianissimo
+    DIFFUSION   = 6, -- AOE when under Diffusion
+}
+
+------------------------------------
+-- Spell flag bits
+------------------------------------
+
+tpz.magic.spellFlag =
+{
+    NONE          = 0x00,
+    HIT_ALL       = 0x01, -- Hit all targets in range regardless of party
+    WIPE_SHADOWS  = 0x02, -- Wipe shadows even if single target and miss/resist (example: Maiden's Virelai)
+
+------------------------------------
 -- Tables by element
 ------------------------------------
 
