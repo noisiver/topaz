@@ -195,11 +195,12 @@ local helmInfo =
             {
                 drops =
                 {
-                    {4000, 4373}, -- Woozyshroom
+                    {4000, 4373}, -- Woozyshroom 
                     {2000, 4375}, -- Danceshroom
                     {2000, 4374}, -- Sleepshroom
                     { 700, 4447}, -- Scream Fungus
                     { 700, 4448}, -- Puffball
+                    { 700, 4565}, -- Sobbing Fungus
                     { 600, 4386}, -- King Truffle   -- changed from 300
                     { 300, 1983}, -- Mushroom Locust
                 },
@@ -214,10 +215,11 @@ local helmInfo =
             {
                 drops =
                 {
-                    {4000, 4373}, -- Woozyshroom
-                    {2000, 4375}, -- Danceshroom
+                    {4000, 4375}, -- Danceshroom
+                    {2000, 4373}, -- Woozyshroom 
                     {2000, 4374}, -- Sleepshroom
                     { 700, 4447}, -- Scream Fungus
+                    { 700, 4566}, -- Deathball
                     { 700, 4450}, -- Coral Fungus
                     { 600, 4449}, -- Reishi Mushroom    -- changed from 300
                     { 300, 1983}, -- Mushroom Locust
@@ -329,11 +331,12 @@ local helmInfo =
                 drops =
                 {
                     {2220,   880}, -- Bone Chip
-                    {2220,   898}, -- Chicken Bone
+                    {2220,   898}, -- Chicken Bone 
                     {1220,   891}, -- Bat Fang
                     {1102,  894},   -- Beetle Jaw
-                    {720,   902}, -- Demon Horn
                     {1250, 17396}, -- Little Worm
+                    {720,   902}, -- Demon Horn
+                    { 700,  942}, -- Philosopher's Stone 
                     { 420,  2503}, -- Antlion Jaw
                     { 420,  1236}, -- Cactus Stems
                     { 420,  1473}, -- High Quality Scorpion Shell
@@ -360,9 +363,9 @@ local helmInfo =
                     {1250, 17396}, -- Little Worm
                     {1050,   897}, -- Scorpion Claw
                     {1025,   896}, -- Scorpion Shell
-                    { 240,   885}, -- Turtle Shell
-                    { 190,  1888}, -- Silica
-                    { 100,  887},  -- Coral Fragment
+                    {600,   885}, -- Turtle Shell buffed from 240
+                    {500,   1123}, -- Manticore Fang
+                    {190,  1888}, -- Silica
                 },
                 points =
                 {
@@ -391,14 +394,14 @@ local helmInfo =
                     {2130,   936}, -- Rock Salt
                     {1700,   888}, -- Seashell
                     {1520,   881}, -- Crab Shell
-                    {500,   1123}, -- Manticore Fang
+                  
                     {2130, 17395}, -- Lugworm
                     {1060, 884},   -- Black Tiger Fang
-                    { 100,   887}, -- Coral Fragment
                     {1050,   897}, -- Scorpion Claw
+                    { 640,  1985}, -- Helmet Mole
+                    { 500,   887}, -- Coral Fragment    -- buffed from 100
                     { 430,   885}, -- Turtle Shell
                     { 100,   575}, -- Grain Seeds
-                    { 640,  1985}, -- Helmet Mole
                 },
                 points =
                 {

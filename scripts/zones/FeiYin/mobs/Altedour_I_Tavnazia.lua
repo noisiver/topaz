@@ -36,7 +36,7 @@ end
 
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENASPIR)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.MP_DRAIN, {chance = 100, power = math.random(50, 70)})
 end
 
 

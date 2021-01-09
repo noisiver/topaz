@@ -21,12 +21,6 @@ function onMobSpawn(mob)
      mob:setMod(tpz.mod.UDMGPHYS, 50)
      mob:setMod(tpz.mod.SLEEPRES, 100)
      mob:setMod(tpz.mod.LULLABYRES, 100)
-     tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.BLOOD_WEAPON, hpp = math.random(50, 50)},
-        },
-    })
 end
 
 function onMobDeath(mob, player, isKiller)

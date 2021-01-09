@@ -10,65 +10,6 @@ tpz = tpz or {}
 tpz.magic = tpz.magic or {}
 
 ------------------------------------
--- Elements
-------------------------------------
-
-tpz.magic.ele =
-{
-    NONE      = 0,
-    FIRE      = 1,
-    EARTH     = 2,
-    WATER     = 3,
-    WIND      = 4,
-    ICE       = 5,
-    LIGHTNING = 6,
-    THUNDER   = 6,
-    LIGHT     = 7,
-    DARK      = 8,
-    DARKNESS  = 8,
-};
-
-------------------------------------
--- Spell Groups
-------------------------------------
-
-tpz.magic.spellGroup =
-{
-    NONE      = 0,
-    SONG      = 1,
-    BLACK     = 2,
-    BLUE      = 3,
-    NINJUTSU  = 4,
-    SUMMONING = 5,
-    WHITE     = 6,
-};
-
-------------------------------------
--- Spell AOE IDs
-------------------------------------
-
-tpz.magic.aoe =
-{
-    NONE        = 0,
-    RADIAL      = 1,
-    CONAL       = 2,
-    RADIAL_MANI = 3, -- AOE when under SCH stratagem Manifestation
-    RADIAL_ACCE = 4, -- AOE when under SCH stratagem Accession
-    PIANISSIMO  = 5, -- Single target when under BRD JA Pianissimo
-    DIFFUSION   = 6, -- AOE when under Diffusion
-}
-
-------------------------------------
--- Spell flag bits
-------------------------------------
-
-tpz.magic.spellFlag =
-{
-    NONE          = 0x00,
-    HIT_ALL       = 0x01, -- Hit all targets in range regardless of party
-    WIPE_SHADOWS  = 0x02, -- Wipe shadows even if single target and miss/resist (example: Maiden's Virelai)
-
-------------------------------------
 -- Tables by element
 ------------------------------------
 
@@ -357,8 +298,6 @@ function applyResistanceEffect(caster, target, spell, params)
     local skill = params.skillType
     local bonus = params.bonus
     local effect = params.effect
-    local enfeeble = false
-    local addedskill = 0
 
     -- If Stymie is active, as long as the mob is not immune then the effect is not resisted
     if (effect ~= nil) then -- Dispel's script doesn't have an "effect" to send here, nor should it.
@@ -368,13 +307,9 @@ function applyResistanceEffect(caster, target, spell, params)
         end
     end
 
-
-    if (skill == tpz.skill.SINGING) then
-        if caster:getWeaponSkillType(tpz.slot.RANGED) == tpz.skill.WIND_INSTRUMENT then
-            addedskill = math.floor(caster:getSkillLevel(tpz.skill.WIND_INSTRUMENT) / 3)
-        end
-        if caster:getWeaponSkillType(tpz.slot.RANGED) == tpz.skill.STRING_INSTRUMENT then
-            addedskill = math.floor(caster:getSkillLevel(tpz.skill.STRING_INSTRUMENT) / 3)
+    if (skill == tpz.skill.SINGING and caster:hasStatusEffect(tpz.effect.TROUBADOUR)) then
+        if (math.random(0, 99) < caster:getMerit(tpz.merit.TROUBADOUR)-25) then
+            return 1.0
         end
     end
 
@@ -392,21 +327,14 @@ function applyResistanceEffect(caster, target, spell, params)
         magicaccbonus = magicaccbonus + bonus
     end
 
-    -- Add decayable resistance
-    local resist = spell:getDecay()
-    if resist ~= 0 and target:getObjType() == tpz.objType.MOB then
-        resist = target:getResist(resist)
-    end
-
     if (effect ~= nil) then
-        resist = resist + getEffectResistance(target, effect, element);
+        percentBonus = percentBonus - getEffectResistance(target, effect)
     end
-        --printf("magicaccbonus : %u, resist : %u, pctbonus : %u", magicaccbonus + addedskill, resist, percentBonus)
 
-    local p = getMagicHitRate(caster, target, skill, element, percentBonus, magicaccbonus + addedskill, resist);
+    local p = getMagicHitRate(caster, target, skill, element, percentBonus, magicaccbonus)
 
-    return getMagicResist(p, enfeeble);
-end;
+    return getMagicResist(p)
+end
 
 -- Applies resistance for things that may not be spells - ie. Quick Draw
 function applyResistanceAbility(player, target, element, skill, bonus)
@@ -416,130 +344,109 @@ function applyResistanceAbility(player, target, element, skill, bonus)
 end
 
 -- Applies resistance for additional effects
-function applyResistanceAddEffect(player,target,element,effect)
-    local resist = 0
-    if effect > 0 then
-        resist = getEffectResistance(target, effect, element);
-    end
-    local p = getMagicHitRate(player, target, 0, element, 0, 0, resist);
+function applyResistanceAddEffect(player, target, element, bonus)
 
-    return getMagicResist(p, true);
-end;
+    local p = getMagicHitRate(player, target, 0, element, 0, bonus)
 
-function getMagicHitRate(caster, target, skillType, element, percentBonus, bonusAcc, resist)
+    return getMagicResist(p)
+end
+
+function getMagicHitRate(caster, target, skillType, element, percentBonus, bonusAcc)
     -- resist everything if magic shield is active
-    if (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0) and target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() ~= 1) then
-        return 0;
+    if (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
+        return 0
     end
 
-    local magiceva = 0;
+    local magiceva = 0
 
     if (bonusAcc == nil) then
-        bonusAcc = 0;
+        bonusAcc = 0
     end
 
-    if resist == nil then
-        resist = 0
-    end
+    local magicacc = caster:getMod(tpz.mod.MACC) + caster:getILvlMacc()
 
-    local magicacc = caster:getMod(tpz.mod.MACC) + caster:getILvlMacc();
-    -- printf("base magicacc %f",magicacc)
     -- Get the base acc (just skill + skill mod (79 + skillID = ModID) + magic acc mod)
-    if skillType ~= 0 and not caster:isPet() then
+    if (skillType ~= 0) then
         magicacc = magicacc + caster:getSkillLevel(skillType)
     else
         -- for mob skills / additional effects which don't have a skill
-        magicacc = magicacc + utils.getSkillLvl(1, caster:getMainLvl());
+        magicacc = magicacc + utils.getSkillLvl(1, caster:getMainLvl())
     end
 
-    local resMod = 0; -- Some spells may possibly be non elemental, but have status effects.
+    local resMod = 0 -- Some spells may possibly be non elemental, but have status effects.
     if (element ~= tpz.magic.ele.NONE) then
-        resMod = target:getMod(tpz.magic.resistMod[element]) + resist
-        --printf("RESMOD: %f", resMod)
+        resMod = target:getMod(tpz.magic.resistMod[element])
+
         -- Add acc for elemental affinity accuracy and element specific accuracy
-        local affinityBonus = AffinityBonusAcc(caster, element);
-        local elementBonus = caster:getMod(spellAcc[element]);
-       -- printf("element bonus: %f, affinity bonus %f", elementBonus,affinityBonus);
-        bonusAcc = bonusAcc + affinityBonus + elementBonus;
+        local affinityBonus = AffinityBonusAcc(caster, element)
+        local elementBonus = caster:getMod(spellAcc[element])
+        -- print(elementBonus)
+        bonusAcc = bonusAcc + affinityBonus + elementBonus
     end
+
+    magicacc = magicacc + caster:getMerit(tpz.merit.MAGIC_ACCURACY)
+
+    magicacc = magicacc + caster:getMerit(tpz.merit.NIN_MAGIC_ACCURACY)
 
     -- Base magic evasion (base magic evasion plus resistances(players), plus elemental defense(mobs)
-    magiceva = target:getMod(tpz.mod.MEVA) + resMod;
+    local magiceva = target:getMod(tpz.mod.MEVA) + resMod
 
-    magicacc = magicacc + bonusAcc;
-
-    --printf("resMod: %f, magiceva: %f, bonusAcc: %f, magicacc: %f", resMod, magiceva, bonusAcc, magicacc)
+    magicacc = magicacc + bonusAcc
 
     -- Add macc% from food
-    local maccFood = magicacc * (caster:getMod(tpz.mod.FOOD_MACCP)/100);
-    magicacc = magicacc + utils.clamp(maccFood, 0, caster:getMod(tpz.mod.FOOD_MACC_CAP));
+    local maccFood = magicacc * (caster:getMod(tpz.mod.FOOD_MACCP)/100)
+    magicacc = magicacc + utils.clamp(maccFood, 0, caster:getMod(tpz.mod.FOOD_MACC_CAP))
 
-    return calculateMagicHitRate(magicacc, magiceva, percentBonus, caster:getMainLvl(), target:getMainLvl());
+    return calculateMagicHitRate(magicacc, magiceva, percentBonus, caster:getMainLvl(), target:getMainLvl())
 end
 
 function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targetLvl)
-    local p = 0;
-    ----add a scaling bonus or penalty based on difference of targets level from caster
-    local levelDiff = 0
-    local evaMod = 0
+    local p = 0
+    --add a scaling bonus or penalty based on difference of targets level from caster
+    local levelDiff = utils.clamp(casterLvl - targetLvl, -5, 5)
 
-    if targetLvl > casterLvl and targetLvl > 50 then
-        local diffMultiplier = 4
+    p = 70 - 0.5 * (magiceva - magicacc) + levelDiff * 3 + percentBonus
 
-        local casterLevelCorrection = math.max(casterLvl-50, 0)
-        local targetLevelCorrection = math.max(targetLvl-50, 0)
-        levelDiff = utils.clamp(targetLevelCorrection - casterLevelCorrection,0,5)
-        evaMod = levelDiff * diffMultiplier
-        --printf("levelDiff: %i, evaMod: %i", levelDiff, evaMod)
-    end
-
-    magiceva = magiceva + evaMod
-
-    --printf("true magicacc: %f, evamod: %f", magicacc, magiceva)
-
-    if (magicacc <= magiceva-90) then
-        p = 5
-    elseif (magiceva - 90 <= magicacc and magicacc <= magiceva) then
-        p = 50 - (0.5*(magiceva - magicacc))
-    elseif (magiceva <= magicacc and magicacc <= magiceva + 45) then
-        p = 50 + (magicacc - magiceva)
-    else
-        p = 95
-    end
-
-    local percentMod = (percentBonus / 100)
-    p = p + (p * percentMod)
-    --printf("cmhr magiceva : %f, magicacc : %f, pctbonus: %f", magiceva, magicacc, percentBonus )
-    --printf("P: %f", p)
-    return utils.clamp(p, 5, 95);
+    return utils.clamp(p, 5, 95)
 end
 
 -- Returns resistance value from given magic hit rate (p)
-function getMagicResist(magicHitRate, isEnfeeble)
+function getMagicResist(magicHitRate)
 
-    local p = magicHitRate / 100;
-    local resist = 1;
+    local p = magicHitRate / 100
+    local resist = 1
 
-    local rollCount = 3
+    -- Resistance thresholds based on p.  A higher p leads to lower resist rates, and a lower p leads to higher resist rates.
+    local half = (1 - p)
+    local quart = ((1 - p)^2)
+    local eighth = ((1 - p)^3)
+    local sixteenth = ((1 - p)^4)
+    -- print("HALF: "..half)
+    -- print("QUART: "..quart)
+    -- print("EIGHTH: "..eighth)
+    -- print("SIXTEENTH: "..sixteenth)
 
-    if isEnfeeble == true then
-        rollCount = 2
+    local resvar = math.random()
+
+    -- Determine final resist based on which thresholds have been crossed.
+    if (resvar <= sixteenth) then
+        resist = 0.0625
+        --printf("Spell resisted to 1/16!!!  Threshold = %u", sixteenth)
+    elseif (resvar <= eighth) then
+        resist = 0.125
+        --printf("Spell resisted to 1/8!  Threshold = %u", eighth)
+    elseif (resvar <= quart) then
+        resist = 0.25
+        --printf("Spell resisted to 1/4.  Threshold = %u", quart)
+    elseif (resvar <= half) then
+        resist = 0.5
+        --printf("Spell resisted to 1/2.  Threshold = %u", half)
+    else
+        resist = 1.0
+        --printf("1.0")
     end
 
-    --@todo add mob's racial elemental resist checks (0.5 and under is automatic half resist, 0.05 is automatic 1/16th)
-    --printf("starting rolls with resist: %f, p: %f", resist, p)
-    for i = 1, rollCount do
-        if (math.random() > p) then
-            resist = resist / 2
-            --printf("rollcount: %u, resist: %f", i, resist)
-            if (isEnfeeble and resist < 0.5) or (resist <= 0.125/2) then
-                return resist
-            end
-        else
-            break;
-        end
-    end
-    return resist;
+    return resist
 end
 
 -- Returns the amount of resistance the
@@ -605,17 +512,8 @@ function getSpellBonusAcc(caster, target, spell, params)
     local skillchainTier, skillchainCount = FormMagicBurst(element, target)
 
     --add acc for skillchains
-    local skillchainTier, skillchainCount = FormMagicBurst(element, target)
-    if skillchainTier > 0 and (spell:getSpellGroup() ~= 3 or caster:hasStatusEffect(tpz.effect.BURST_AFFINITY) or caster:getStatusEffect(tpz.effect.AZURE_LORE)) then
-        magicAccBonus = magicAccBonus + 200; -- added +200 macc to skillchains
-    end
-
-        -- add acc for certain spells (dispel/finale)
-    if spell:getID() == 252 or spell:getID() == 112 or spell:getID() == 260 or spell:getID() == 462 then
-        magicAccBonus = magicAccBonus + math.min(caster:getSkillLevel(skill), 200)
-    else
-        --add acc for BLM AMII spells
-        magicAccBonus = magicAccBonus + params.AMIIaccBonus
+    if (skillchainTier > 0) then
+        magicAccBonus = magicAccBonus + 200 -- added macc to magic burst?
     end
 
     --Add acc for klimaform
@@ -840,7 +738,6 @@ function addBonuses(caster, spell, target, dmg, params)
 
     params.bonusmab = params.bonusmab or 0
     params.AMIIburstBonus = params.AMIIburstBonus or 0
-    params.AMIIburstBonus = params.AMIIburstBonus or 0
 
     local magicDefense = getElementalDamageReduction(target, ele)
     dmg = math.floor(dmg * magicDefense)
@@ -902,6 +799,7 @@ function addBonuses(caster, spell, target, dmg, params)
 
     dmg = math.floor(dmg * burst)
     local mabbonus = 0
+    local spellId = spell:getID()
     --local maccbonus = 200       -- tried to add macc bonus
 
     if (spellId >= 245 and spellId <= 248) then -- Drain/Aspir (II)
@@ -1108,47 +1006,47 @@ end
 
 function handleThrenody(caster, target, spell, basePower, baseDuration, modifier)
     -- Process resitances
-    local staff = AffinityBonusAcc(caster, spell:getElement());
-    -- print("staff=" .. staff);
-    local dCHR = (caster:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR));
-    -- print("dCHR=" .. dCHR);
-    local params = {};
-    params.attribute = tpz.mod.CHR;
-    params.skillType = tpz.skill.SINGING;
-    params.bonus = staff;
-    params.effect = tpz.effect.THRENODY
+    local staff = AffinityBonusAcc(caster, spell:getElement())
+    -- print("staff=" .. staff)
+    local dCHR = (caster:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR))
+    -- print("dCHR=" .. dCHR)
+    local params = {}
+    params.attribute = tpz.mod.CHR
+    params.skillType = tpz.skill.SINGING
+    params.bonus = staff
 
-    local resm = applyResistance(caster, target, spell, params);
-    -- print("rsem=" .. resm);
+    local resm = applyResistance(caster, target, spell, params)
+    -- print("rsem=" .. resm)
 
     if (resm < 0.5) then
-        -- print("resm resist");
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST);
-        return tpz.effect.THRENODY;
+        -- print("resm resist")
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+        return tpz.effect.THRENODY
     end
 
     -- Remove previous Threnody
-    target:delStatusEffect(tpz.effect.THRENODY);
+    target:delStatusEffect(tpz.effect.THRENODY)
 
-    local iBoost = caster:getMod(tpz.mod.THRENODY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT);
-    local power = basePower + iBoost*5;
-    local duration = baseDuration * ((iBoost * 0.1) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1);
+    local iBoost = caster:getMod(tpz.mod.THRENODY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
+    --local power = basePower + iBoost*5
+    local power = basePower * iBoost*1.1
+    local duration = baseDuration * ((iBoost * 0.1) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
 
     if (caster:hasStatusEffect(tpz.effect.SOUL_VOICE)) then
-        power = power * 2;
+        power = power * 2
     elseif (caster:hasStatusEffect(tpz.effect.MARCATO)) then
-        power = power * 1.5;
+        power = power * 1.5
     end
 
     if (caster:hasStatusEffect(tpz.effect.TROUBADOUR)) then
-        duration = duration * 2;
+        duration = duration * 2
     end
 
     -- Set spell message and apply status effect
-    target:addStatusEffect(tpz.effect.THRENODY, -power, 0, duration, 0, modifier, 0);
+    target:addStatusEffect(tpz.effect.THRENODY, -power, 0, duration, 0, modifier, 0)
 
-    return tpz.effect.THRENODY;
-end;
+    return tpz.effect.THRENODY
+end
 
 function handleNinjutsuDebuff(caster, target, spell, basePower, baseDuration, modifier)
     -- Add new
@@ -1254,7 +1152,6 @@ function doElementalNuke(caster, spell, target, spellParams)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.ELEMENTAL_MAGIC
     params.resistBonus = resistBonus
-    params.AMIIaccBonus = AMIIaccBonus;
 
     local resist = applyResistance(caster, target, spell, params)
 
@@ -1452,4 +1349,4 @@ function outputMagicHitRateInfo()
     end
 end
 
-tpz.mag = tpz.magic
+tpz.ma = tpz.magic

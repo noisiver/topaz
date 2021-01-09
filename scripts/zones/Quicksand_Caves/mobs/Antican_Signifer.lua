@@ -20,6 +20,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.CENTURIO_X_I_PH, 10, 9000) -- 2.5 hours
-    tpz.mob.phOnDespawn(mob, ID.mob.ANTICAN_PROCONSUL_PH, 10, 3600) -- 1 hour
+    tpz.mob.phOnDespawn(mob, ID.mob.CENTURIO_X_I_PH, 20, 300) -- changed from 2.5 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.ANTICAN_PROCONSUL_PH, 30, 3600) -- 1 hour
 end

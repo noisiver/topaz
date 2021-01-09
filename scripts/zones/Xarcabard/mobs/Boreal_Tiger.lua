@@ -21,13 +21,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SILENCERES, 100)
     mob:setMod(tpz.mod.SLEEPRES, 100)
     mob:setMod(tpz.mod.LULLABYRES, 100)
-       mob:setMod(tpz.mod.COUNTER, 10)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.MIGHTY_STRIKES, hpp = math.random(50, 50)},
-        },
-    })
+    mob:setMod(tpz.mod.COUNTER, 10)
 end
 
 function onMobDeath(mob, player, isKiller)

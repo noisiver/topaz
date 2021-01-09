@@ -12,7 +12,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:setMod(tpz.mod.SLEEPRES, 100) 
+    mob:setMod(tpz.mod.SLEEPRES, 100) 
     mob:setMod(tpz.mod.LULLABYRES, 100)
 end
 
@@ -22,7 +22,7 @@ end
 
 
 function onAdditionalEffect(mob, target, damage)
-return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE, {chance = 20, power = math.random(30, 50)})
+return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE, {chance = 100, power = math.random(30, 50)})
 end
 
 function onMobDeath(mob, player, isKiller)
