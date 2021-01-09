@@ -16,12 +16,6 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SLEEPRES, 100)
     mob:setMod(tpz.mod.UDMGMAGIC, -70)
     mob:setMod(tpz.mod.ACC, 100)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.MANAFONT, hpp = math.random(20, 50)},
-        },
-    })
 end
 
  function onMobInitialize(mob)
