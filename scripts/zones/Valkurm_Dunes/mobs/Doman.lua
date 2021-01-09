@@ -4,6 +4,10 @@
 -- Involved in Quest: Yomi Okuri
 -----------------------------------
 require("scripts/globals/keyitems")
+require("scripts/globals/hunts")
+require("scripts/globals/titles")
+require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)

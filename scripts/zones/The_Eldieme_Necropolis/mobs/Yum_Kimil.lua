@@ -5,6 +5,10 @@
 -- !pos -414 8 499 195
 -----------------------------------
 require("scripts/globals/settings")
+require("scripts/globals/hunts")
+require("scripts/globals/titles")
+require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
