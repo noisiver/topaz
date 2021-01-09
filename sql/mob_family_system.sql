@@ -113,7 +113,7 @@ INSERT INTO `mob_family_system` VALUES (45,'Avatar-Titan',5,'Avatar',1,40,100,12
 INSERT INTO `mob_family_system` VALUES (46,'Bat',8,'Bird',0,40,95,120,4,4,5,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.15,1.5,1.3,1.3,1.3,1.5,0.3,3,2,1);
 INSERT INTO `mob_family_system` VALUES (47,'Bats',8,'Bird',0,40,87,120,4,4,5,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.15,1.5,1.3,1.3,1.3,1.5,0.3,3,2,1);
 INSERT INTO `mob_family_system` VALUES (48,'Bee',20,'Vermin',0,40,87,120,5,4,4,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.5,0.7,1.3,1.3,1.3,1.3,1.3,3,257,1);
-INSERT INTO `mob_family_system` VALUES (49,'Beetle',20,'Vermin',1,40,117,110,3,3,2,5,5,5,5,1,3,1,3,1,1,1,1,1,1.5,1,1,1,1,1,1,4,257,1);
+INSERT INTO `mob_family_system` VALUES (49,'Beetle',20,'Vermin',1,40,108,110,3,3,2,5,5,5,5,1,3,1,3,1,1,1,1,1,1.5,1,1,1,1,1,1,4,257,1);	-- changed hp from 117
 INSERT INTO `mob_family_system` VALUES (51,'Behemoth',6,'Beast',4,40,110,90,1,3,4,3,6,6,5,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,6,1,0);
 INSERT INTO `mob_family_system` VALUES (52,'Bhoot',19,'Undead',1,40,70,140,6,3,6,3,1,5,4,1,3,1,3,0.75,0.75,0.5,0.5,1.25,0.5,1,1,1,1,1.25,0.5,2,6,0);
 INSERT INTO `mob_family_system` VALUES (53,'Grimoire',3,'Arcana',1,40,90,90,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
