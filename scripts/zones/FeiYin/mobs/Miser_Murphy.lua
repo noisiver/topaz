@@ -18,7 +18,7 @@ end
 
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENDRAIN, {chance = 100, power = math.random(300, 550)})
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 100, power = math.random(300, 550)})
 end
 
 

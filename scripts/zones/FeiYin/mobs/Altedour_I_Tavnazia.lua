@@ -16,7 +16,7 @@ function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
-            {id = tpz.jsa.MANAFONT, hpp <= 50},
+            {id = tpz.jsa.MANAFONT, hpp = math.random(20, 50)},
         },
     })
 end
