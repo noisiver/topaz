@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
+require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.TRPLE_ATTACK, 10)
