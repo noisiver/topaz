@@ -4,6 +4,9 @@
 -- BCNM: Under Observation
 -----------------------------------
 require("scripts/globals/status")
+require("scripts/globals/hunts")
+require("scripts/globals/titles")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobInitialize(mob)
