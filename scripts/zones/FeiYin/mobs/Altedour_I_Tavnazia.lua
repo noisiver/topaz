@@ -27,9 +27,10 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 49 and hitTrigger == 0 then
         mob:setMod(tpz.mod.STORETP, 25)
         mob:setLocalVar("TriggerHit", 1)
-    else if mob:getHPP() <= 24 and hitTrigger == 1 then
+       else if mob:getHPP() <= 24 and hitTrigger == 1 then
         mob:setMod(tpz.mod.STORETP, 50)
         mob:setLocalVar("TriggerHit", 2)
+        end
     end
 
 

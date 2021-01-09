@@ -535,6 +535,7 @@ INSERT INTO `mob_family_system` VALUES (505,'Fungi',18,'Unclassified',0,0,130,18
 INSERT INTO `mob_family_system` VALUES (506,'Purpleflash_Brukdok',7,'Beastmen',1,40,108,100,3,3,4,4,7,4,3,1,3,1,3,1,1,1,1,1,1,1.3,1.3,1.3,1.5,1.3,1.3,1,257,0);
 
 
+
 -- 10,22,50,96,111,317-318,405,411-434,439-443 available for use
 
 /*!40000 ALTER TABLE `mob_family_system` ENABLE KEYS */;
