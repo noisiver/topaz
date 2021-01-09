@@ -8,6 +8,9 @@ local ID = require("scripts/zones/Xarcabard/IDs")
 require("scripts/globals/keyitems")
 require("scripts/globals/settings")
 require("scripts/globals/quests")
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)

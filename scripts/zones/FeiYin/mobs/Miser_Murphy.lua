@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
+require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
 
