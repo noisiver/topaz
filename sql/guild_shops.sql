@@ -221,7 +221,7 @@ INSERT INTO `guild_shops` VALUES (5152,12464,2710,7898,20,0,20);     -- headgear
 INSERT INTO `guild_shops` VALUES (5152,12465,35315,38882,20,0,1);   -- cotton_headgear
 INSERT INTO `guild_shops` VALUES (5152,12466,23200,39400,20,0,1);   -- red_cap
 INSERT INTO `guild_shops` VALUES (5152,12499,14160,78080,20,0,1);    -- flax_headband
-INSERT INTO `guild_shops` VALUES (5152,12593,66992,66992,20,0,100   -- cotton_doublet
+INSERT INTO `guild_shops` VALUES (5152,12593,66992,66992,20,0,100);   -- cotton_doublet
 INSERT INTO `guild_shops` VALUES (5152,12600,424,1171,20,0,20);      -- robe
 INSERT INTO `guild_shops` VALUES (5152,12601,14684,14684,20,0,15);   -- linen_robe
 INSERT INTO `guild_shops` VALUES (5152,12720,2787,7393,20,0,15);     -- gloves
