@@ -448,43 +448,71 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
 end
 
 -- Returns resistance value from given magic hit rate (p)
-function getMagicResist(magicHitRate)
+--function getMagicResist(magicHitRate)
 
-    local p = magicHitRate / 100
-    local resist = 1
+    --local p = magicHitRate / 100
+    --local resist = 1
 
     -- Resistance thresholds based on p.  A higher p leads to lower resist rates, and a lower p leads to higher resist rates.
-    local half = (1 - p)
-    local quart = ((1 - p)^2)
-    local eighth = ((1 - p)^3)
-    local sixteenth = ((1 - p)^4)
+    --local half = (1 - p)
+    --local quart = ((1 - p)^2)
+    --local eighth = ((1 - p)^3)
+    --local sixteenth = ((1 - p)^4)
     -- print("HALF: "..half)
     -- print("QUART: "..quart)
     -- print("EIGHTH: "..eighth)
     -- print("SIXTEENTH: "..sixteenth)
 
-    local resvar = math.random()
+    --local resvar = math.random()
 
     -- Determine final resist based on which thresholds have been crossed.
-    if (resvar <= sixteenth) then
-        resist = 0.0625
+    --if (resvar <= sixteenth) then
+      --  resist = 0.0625
         --printf("Spell resisted to 1/16!!!  Threshold = %u", sixteenth)
-    elseif (resvar <= eighth) then
-        resist = 0.125
+    --elseif (resvar <= eighth) then
+      --  resist = 0.125
         --printf("Spell resisted to 1/8!  Threshold = %u", eighth)
-    elseif (resvar <= quart) then
-        resist = 0.25
+    --elseif (resvar <= quart) then
+      --  resist = 0.25
         --printf("Spell resisted to 1/4.  Threshold = %u", quart)
-    elseif (resvar <= half) then
-        resist = 0.5
+    --elseif (resvar <= half) then
+     --   resist = 0.5
         --printf("Spell resisted to 1/2.  Threshold = %u", half)
-    else
-        resist = 1.0
+    --else
+      --  resist = 1.0
         --printf("1.0")
+    --end
+
+  --  return resist
+--end
+
+function getMagicResist(magicHitRate, isEnfeeble)
+
+    local p = magicHitRate / 100;
+    local resist = 1;
+
+    local rollCount = 3
+
+    if isEnfeeble == true then
+        rollCount = 2
     end
 
-    return resist
+    --@todo add mob's racial elemental resist checks (0.5 and under is automatic half resist, 0.05 is automatic 1/16th)
+    --printf("starting rolls with resist: %f, p: %f", resist, p)
+    for i = 1, rollCount do
+        if (math.random() > p) then
+            resist = resist / 2
+            --printf("rollcount: %u, resist: %f", i, resist)
+            if (isEnfeeble and resist < 0.5) or (resist <= 0.125/2) then
+                return resist
+            end
+        else
+            break;
+        end
+    end
+    return resist;
 end
+
 
 -- Returns the amount of resistance the
 -- target has to the given effect (stun, sleep, etc..)
