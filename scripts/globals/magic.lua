@@ -400,14 +400,51 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
     return calculateMagicHitRate(magicacc, magiceva, percentBonus, caster:getMainLvl(), target:getMainLvl())
 end
 
-function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targetLvl)
-    local p = 0
+--function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targetLvl)
+    --local p = 0
     --add a scaling bonus or penalty based on difference of targets level from caster
-    local levelDiff = utils.clamp(casterLvl - targetLvl, -5, 5)
+    --local levelDiff = utils.clamp(casterLvl - targetLvl, -5, 5)
 
-    p = 70 - 0.5 * (magiceva - magicacc) + levelDiff * 3 + percentBonus
+    --p = 70 - 0.5 * (magiceva - magicacc) + levelDiff * 3 + percentBonus
 
-    return utils.clamp(p, 5, 95)
+  --  return utils.clamp(p, 5, 95)
+--end
+
+function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targetLvl)
+    local p = 0;
+    ----add a scaling bonus or penalty based on difference of targets level from caster
+    local levelDiff = 0
+    local evaMod = 0
+
+    if targetLvl > casterLvl and targetLvl > 50 then
+        local diffMultiplier = 4
+
+        local casterLevelCorrection = math.max(casterLvl-50, 0)
+        local targetLevelCorrection = math.max(targetLvl-50, 0)
+        levelDiff = utils.clamp(targetLevelCorrection - casterLevelCorrection,0,5)
+        evaMod = levelDiff * diffMultiplier
+        --printf("levelDiff: %i, evaMod: %i", levelDiff, evaMod)
+    end
+
+    magiceva = magiceva + evaMod
+
+    --printf("true magicacc: %f, evamod: %f", magicacc, magiceva)
+
+    if (magicacc <= magiceva-90) then
+        p = 5
+    elseif (magiceva - 90 <= magicacc and magicacc <= magiceva) then
+        p = 50 - (0.5*(magiceva - magicacc))
+    elseif (magiceva <= magicacc and magicacc <= magiceva + 45) then
+        p = 50 + (magicacc - magiceva)
+    else
+        p = 95
+    end
+
+    local percentMod = (percentBonus / 100)
+    p = p + (p * percentMod)
+    --printf("cmhr magiceva : %f, magicacc : %f, pctbonus: %f", magiceva, magicacc, percentBonus )
+    --printf("P: %f", p)
+    return utils.clamp(p, 5, 95);
 end
 
 -- Returns resistance value from given magic hit rate (p)
