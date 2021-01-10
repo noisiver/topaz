@@ -11,14 +11,15 @@ mixins = {require("scripts/mixins/job_special")}
 
 
 function onMobSpawn(mob)
+
+end
+
+ function onMobInitialize(mob)
     mob:setMod(tpz.mod.STUNRES, 100)
     mob:setMod(tpz.mod.SILENCERES, 100)
     mob:setMod(tpz.mod.SLEEPRES, 100)
     mob:setMod(tpz.mod.UDMGMAGIC, -70)
     mob:setMod(tpz.mod.ACC, 100)
-end
-
- function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
