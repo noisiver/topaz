@@ -548,12 +548,12 @@ INSERT INTO `item_basic` VALUES (636,0,'sprig_of_chamomile','chamomile',12,4,59,
 INSERT INTO `item_basic` VALUES (637,0,'vial_of_slime_oil','slime_oil',12,4,44,0,250);
 INSERT INTO `item_basic` VALUES (638,0,'sprig_of_sage','sage',12,4,59,0,37);
 INSERT INTO `item_basic` VALUES (639,0,'ronfaure_chestnut','chestnut',12,4,59,0,30);
-INSERT INTO `item_basic` VALUES (640,0,'chunk_of_copper_ore','copper_ore',1,4,38,0,3);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (640,0,'chunk_of_copper_ore','copper_ore',12,4,38,0,3);	
 INSERT INTO `item_basic` VALUES (641,0,'chunk_of_tin_ore','tin_ore',1,4,38,0,10);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (642,0,'chunk_of_zinc_ore','zinc_ore',1,4,39,0,25);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (643,0,'chunk_of_iron_ore','iron_ore',1,4,38,0,150);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (644,0,'chunk_of_mythril_ore','mythril_ore',1,4,39,0,250);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (645,0,'chunk_of_darksteel_ore','darksteel_ore',1,4,38,0,475);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (643,0,'chunk_of_iron_ore','iron_ore',12,4,38,0,150);	
+INSERT INTO `item_basic` VALUES (644,0,'chunk_of_mythril_ore','mythril_ore',12,4,39,0,250);	
+INSERT INTO `item_basic` VALUES (645,0,'chunk_of_darksteel_ore','darksteel_ore',12,4,38,0,475);	
 INSERT INTO `item_basic` VALUES (646,0,'chunk_of_adaman_ore','adaman_ore',1,4,38,0,725);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (647,0,'chunk_of_molybdenum_ore','molybdenum_ore',1,4,38,0,5000);
 INSERT INTO `item_basic` VALUES (648,0,'copper_ingot','copper_ingot',12,4,38,0,30);

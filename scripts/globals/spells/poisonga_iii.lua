@@ -37,7 +37,7 @@ function onSpellCast(caster, target, spell)
     params.effect = effect
 
     local resist = applyResistanceEffect(caster, target, spell, params)
-    if (resist == 1 or resist == 0.25) then -- effect taken
+    if (resist == 1 or resist == 0.5) then -- effect taken
         duration = duration * resist
 
         if (target:addStatusEffect(effect, power, 3, duration)) then

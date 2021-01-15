@@ -200,3 +200,10 @@ cmake_install.cmake
 
 # Tracy download
 tracy/
+sql/mob_droplistbackup.sql
+scripts/mixins/ragebackup.lua
+scripts/globals/transportbackup.lua
+scripts/globals/magicbackup.lua
+sql/mob_droplistthchange.sql
+scripts/globals/magicbackup - Copy.lua
+scripts/globals/magicdoesntwork.lua

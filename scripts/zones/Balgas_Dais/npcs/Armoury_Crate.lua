@@ -13,6 +13,7 @@ local loot =
     [97] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 6000},  -- gil
             {itemid =   748, droprate =  500}, -- gold_beastcoin
             {itemid =   749, droprate =  500}, -- mythril_beastcoin
         },
