@@ -644,9 +644,9 @@ INSERT INTO `item_basic` VALUES (732,0,'kapor_log','kapor_log',1,4,43,0,0);	-- s
 INSERT INTO `item_basic` VALUES (733,0,'piece_of_kapor_lumber','kapor_lumber',12,4,43,1,0);
 INSERT INTO `item_basic` VALUES (734,0,'chunk_of_thokcha_ore','thokcha_ore',1,4,38,1,0);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (735,0,'thokcha_ingot','thokcha_ingot',12,4,38,1,2040);
-INSERT INTO `item_basic` VALUES (736,0,'chunk_of_silver_ore','silver_ore',1,4,39,0,70);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (737,0,'chunk_of_gold_ore','gold_ore',1,4,39,0,420);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (738,0,'chunk_of_platinum_ore','platinum_ore',1,4,39,0,780);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (736,0,'chunk_of_silver_ore','silver_ore',12,4,39,0,70);	
+INSERT INTO `item_basic` VALUES (737,0,'chunk_of_gold_ore','gold_ore',12,4,39,0,420);	
+INSERT INTO `item_basic` VALUES (738,0,'chunk_of_platinum_ore','platinum_ore',12,4,39,0,780);	
 INSERT INTO `item_basic` VALUES (739,0,'chunk_of_orichalcum_ore','orichalcum_ore',1,4,39,0,850);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (740,0,'chunk_of_phrygian_ore','phrygian_ore',1,4,39,0,1080);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (741,0,'chunk_of_palladian_brass_ore','p._brass_ore',1,4,39,1,0);	-- stack changed from 12 to 1
