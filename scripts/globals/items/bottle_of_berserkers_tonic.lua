@@ -20,5 +20,5 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-   target:addStatusEffectEx(tpz.effect.DOUBLE_ATTACK, tpz.effect.ATTACK_BOOST, 25, 0, 1800)
+   target:addStatusEffectEx(tpz.effect.DOUBLE_ATTACK, tpz.effect.ATTACK_BOOST, 100, 0, 1800)
 end
