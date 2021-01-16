@@ -12,8 +12,6 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.LULLABYRES, 100)
-    mob:setMod(tpz.mod.REPOSERES, 100)
 end
 
 function onMobDeath(mob, player, isKiller)

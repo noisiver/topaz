@@ -9614,10 +9614,10 @@ INSERT INTO `mob_groups` VALUES (3,2304,144,'KuJhu_Graniteskin',0,128,0,0,0,68,6
 INSERT INTO `mob_groups` VALUES (4,3491,144,'SaNha_Soulsaver',0,128,0,0,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (5,929,144,'DaShu_Knightslayer',0,128,0,0,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (6,1777,144,'GoBha_Slaughterer',0,128,0,0,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (7,1447,144,'Gaki',0,128,0,0,0,66,67,0);
-INSERT INTO `mob_groups` VALUES (8,3325,144,'Rasetsu',0,128,0,0,0,66,67,0);
-INSERT INTO `mob_groups` VALUES (9,2983,144,'Onki',0,128,0,0,0,66,67,0);
-INSERT INTO `mob_groups` VALUES (10,2981,144,'Onibi',0,128,0,0,0,66,67,0);
+INSERT INTO `mob_groups` VALUES (7,1447,144,'Gaki',0,128,0,6000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (8,3325,144,'Rasetsu',0,128,0,10000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (9,2983,144,'Onki',0,128,0,5000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (10,2981,144,'Onibi',0,128,0,4000,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (11,304,144,'Ayakashi',0,128,0,0,0,66,67,0);
 INSERT INTO `mob_groups` VALUES (12,4838,144,'Maat',0,128,0,2300,1000,70,70,0);
 INSERT INTO `mob_groups` VALUES (13,4839,144,'Maat',0,128,2917,2300,0,70,70,0);
@@ -12371,7 +12371,7 @@ INSERT INTO `mob_groups` VALUES (33,1288,200,'Fallen_Mage',600,0,812,0,0,59,62,0
 INSERT INTO `mob_groups` VALUES (34,5841,200,'Hovering_Hotpot',0,32,3010,9000,9999,58,60,0);
 INSERT INTO `mob_groups` VALUES (35,6072,200,'Warden_Beetle',600,0,169,0,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (36,6424,200,'Funnel_Bats',600,0,919,0,0,51,55,0);
-INSERT INTO `mob_groups` VALUES (37,1831,200,'Guardian_Statue',0,128,1245,0,0,61,61,0);
+INSERT INTO `mob_groups` VALUES (37,1831,200,'Guardian_Statue',0,128,1245,18000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (38,2478,200,'Magic_Jug',600,0,1566,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (39,5888,200,'Frogamander',7200,0,3087,15000,0,71,73,0);
 INSERT INTO `mob_groups` VALUES (40,6463,200,'Donjon_Bat',600,0,0,0,0,51,55,0);

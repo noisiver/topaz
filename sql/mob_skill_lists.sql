@@ -3697,4 +3697,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Altedour_I_Tavnazia',1150,255); -- dimens
 INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-Zilart',1151,437);	-- Zilart
 INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-Zilart',1151,438);
 INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-Zilart',1151,439);
+INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,534); -- No Meltdown
+INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,535);
+INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,536);
+INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,537);
+INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,538);
+INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,539);
+INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,541);
+INSERT INTO `mob_skill_lists` VALUES ('DarkSpark',1153,4262);
 -- Next available ID: 1148
+

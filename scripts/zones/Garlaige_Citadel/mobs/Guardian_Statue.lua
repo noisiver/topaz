@@ -1,22 +1,20 @@
 -----------------------------------
--- Area: Fei'Yin
---  NM: Altedour I Tavnazia
+-- Area: Garlaige Citadel
+--  NM: Guardian Statue
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
-mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
-
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.ACC, 100)
+    mob:setMod(tpz.mod.UDMGPHYS, -50)
+    mob:setMod(tpz.mod.UDMGMAGIC, -50)
 end
 
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
 function onMobFight(mob, target)
@@ -29,11 +27,6 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.STORETP, 50)
         mob:setLocalVar("TriggerHit", 2)
     end
-end
-
-
-function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.MP_DRAIN, {chance = 100, power = math.random(50, 70)})
 end
 
 

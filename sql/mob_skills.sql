@@ -3925,3 +3925,4 @@ INSERT INTO `mob_skills` VALUES (4258,562,'mix_elemental_power',0,7.0,2000,1500,
 INSERT INTO `mob_skills` VALUES (4259,562,'mix_dragon_shield',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4260,563,'mix_dark_potion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4261,564,'mix_samsons_strength',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (4262,254,'berserk_darkspark',0,7.0,2000,1500,1,0,0,0,0,0,0);
