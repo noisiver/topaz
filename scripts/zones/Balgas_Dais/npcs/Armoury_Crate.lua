@@ -12,18 +12,21 @@ local loot =
     -- BCNM Steamed Sprouts
     [97] =
     {
+
         {
             {itemid = 65535, droprate = 1000, amount = 6000},  -- gil
-            {itemid =   748, droprate =  500}, -- gold_beastcoin
-            {itemid =   749, droprate =  500}, -- mythril_beastcoin
+        },
+        {
+            {itemid =   748, droprate =  1000}, -- gold_beastcoin
+            {itemid =   749, droprate =  1000}, -- mythril_beastcoin
         },
         {
             {itemid =     0, droprate =  750}, -- nothing
             {itemid =  4174, droprate =  250}, -- vile_elixir
         },
         {
-            {itemid =     0, droprate =  600}, -- nothing
-            {itemid =  4858, droprate =  10}, -- scroll_of_ice_spikes
+            {itemid =     0, droprate =  400}, -- nothing
+            {itemid =  4858, droprate =  100}, -- scroll_of_ice_spikes
             {itemid =  4874, droprate =  150}, -- scroll_of_absorb-str
             {itemid = 13237, droprate =  240}, -- survival_belt
             {itemid = 13127, droprate =  100}, -- guarding_gorget
@@ -31,40 +34,40 @@ local loot =
             {itemid = 12349, droprate =  240}, -- balance_buckler
         },
         {
-            {itemid =  4751, droprate =  100}, -- scroll_of_erase
+            {itemid =  4751, droprate =  240}, -- scroll_of_erase
             {itemid =  4717, droprate =  240}, -- scroll_of_refresh
-            {itemid =  4714, droprate =  150}, -- scroll_of_phalanx
-            {itemid =   776, droprate =  125}, -- white_rock
-            {itemid =   773, droprate =  125}, -- translucent_rock
-            {itemid =   774, droprate =  125}, -- purple_rock
-            {itemid =   769, droprate =  125}, -- red_rock
-            {itemid =   770, droprate =  125}, -- blue_rock
-            {itemid =   771, droprate =  125}, -- yellow_rock
-            {itemid =   772, droprate =  125}, -- green_rock
-            {itemid =   775, droprate =  125}, -- black_rock
-            {itemid =   808, droprate =  100}, -- goshenite
-            {itemid =   815, droprate =  100}, -- sphene
-            {itemid =   701, droprate =  100}, -- rosewood_log
+            {itemid =  4714, droprate =  240}, -- scroll_of_phalanx
+            {itemid =   776, droprate =  15}, -- white_rock
+            {itemid =   773, droprate =  15}, -- translucent_rock
+            {itemid =   774, droprate =  15}, -- purple_rock
+            {itemid =   769, droprate =  15}, -- red_rock
+            {itemid =   770, droprate =  15}, -- blue_rock
+            {itemid =   771, droprate =  15}, -- yellow_rock
+            {itemid =   772, droprate =  15}, -- green_rock
+            {itemid =   775, droprate =  15}, -- black_rock
+            {itemid =   808, droprate =  15}, -- goshenite
+            {itemid =   815, droprate =  15}, -- sphene
+            {itemid =   701, droprate =  15}, -- rosewood_log
         },
         {
-            {itemid =  4714, droprate =  150}, -- scroll_of_phalanx
-            {itemid =  4751, droprate =  100}, -- scroll_of_erase
+            {itemid =  4714, droprate =  240}, -- scroll_of_phalanx
+            {itemid =  4751, droprate =  240}, -- scroll_of_erase
             {itemid =  4717, droprate =  240}, -- scroll_of_refresh
-            {itemid =  4947, droprate =  150}, -- scroll_of_utsusemi_ni
-            {itemid =   790, droprate =   50}, -- garnet
-            {itemid =   793, droprate =   50}, -- black_pearl
-            {itemid =   811, droprate =   50}, -- ametrine
-            {itemid =   797, droprate =   50}, -- painite
-            {itemid =   792, droprate =   50}, -- pearl
-            {itemid =   699, droprate =  100}, -- oak_log
-            {itemid =   808, droprate =  100}, -- goshenite
-            {itemid =   815, droprate =  100}, -- sphene
-            {itemid =   701, droprate =  100}, -- rosewood_log
+            {itemid =  4947, droprate =  240}, -- scroll_of_utsusemi_ni
+            {itemid =   790, droprate =   15}, -- garnet
+            {itemid =   793, droprate =   15}, -- black_pearl
+            {itemid =   811, droprate =   15}, -- ametrine
+            {itemid =   797, droprate =   15}, -- painite
+            {itemid =   792, droprate =   15}, -- pearl
+            {itemid =   699, droprate =  15}, -- oak_log
+            {itemid =   808, droprate =  15}, -- goshenite
+            {itemid =   815, droprate =  15}, -- sphene
+            {itemid =   701, droprate =  15}, -- rosewood_log
         },
         {
-            {itemid =     0, droprate =  125}, -- nothing
+            {itemid =     0, droprate =  100}, -- nothing
             {itemid =  4896, droprate =  125}, -- fire_spirit_pact
-            {itemid =  4858, droprate =  50}, -- scroll_of_ice_spikes
+            {itemid =  4858, droprate =  150}, -- scroll_of_ice_spikes
             {itemid =  4874, droprate =  125}, -- scroll_of_absorb-str
             {itemid =   793, droprate =   50}, -- black_pearl
             {itemid =   811, droprate =   50}, -- ametrine

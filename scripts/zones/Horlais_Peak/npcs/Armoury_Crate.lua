@@ -481,6 +481,9 @@ local loot =
     [12] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 6000},  -- gil
+        },
+        {
             {itemid = 0, droprate = 910},    -- Nothing
             {itemid = 13056, droprate = 90}, -- Peacock Charm
         },
@@ -545,7 +548,6 @@ local loot =
         },
         {
             {itemid = 939, droprate = 1000}, -- Hecteyes Eye
-            {itemid = 65535, droprate = 1000, amount = 6000},  -- gil
         },
         {
             {itemid = 914, droprate = 1000}, -- Vial Of Mercury
