@@ -22,4 +22,5 @@ function onUseAbility(player, target, ability)
         if player:getMainJob() ~= tpz.job.THF then
             enmityShed = 1000
         end
+    end
 end
