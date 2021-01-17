@@ -781,7 +781,7 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
 
     local pdifcrit = {}
     cratio = cratio + 1
-    cratio = utils.clamp(cratio, 0, 3)  -- changed from 3 to 2
+    cratio = utils.clamp(cratio, 0, 2)  -- changed from 3 to 2
 
     -- printf("ratio: %f min: %f max %f\n", cratio, pdifmin, pdifmax)
 

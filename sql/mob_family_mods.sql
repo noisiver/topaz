@@ -184,6 +184,10 @@ INSERT INTO `mob_family_mods` VALUES (125,254,100,0);
 --INSERT INTO `mob_family_mods` VALUES (46,243,75,0);		-- bat blind resist
 --INSERT INTO `mob_family_mods` VALUES (47,243,75,0);		-- bat blind resist
 
+-- Experience bonus
+INSERT INTO `mob_family_mods` VALUES (208,382,23,0);		-- Ram +23% EXP
+INSERT INTO `mob_family_mods` VALUES (266,382,23,0);		-- Wyvern +23% EXP
+
 -- Attack bonus
 INSERT INTO `mob_family_mods` VALUES (208,62,10,0);		-- Ram +10% Attack
 INSERT INTO `mob_family_mods` VALUES (242,62,10,0);		-- Tiger +10% Attack
