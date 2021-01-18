@@ -105,8 +105,8 @@ INSERT INTO `mob_family_mods` VALUES (217,23,256,1);
 INSERT INTO `mob_family_mods` VALUES (274,23,256,1);
 INSERT INTO `mob_family_mods` VALUES (273,23,256,1);
 INSERT INTO `mob_family_mods` VALUES (234,37,1,1);
-INSERT INTO `mob_family_mods` VALUES (72,29,10,0);
-INSERT INTO `mob_family_mods` VALUES (72,68,20,0);
+INSERT INTO `mob_family_mods` VALUES (72,29,10,0);		-- colibri
+INSERT INTO `mob_family_mods` VALUES (72,68,20,0);		-- colibri +20 evasion
 INSERT INTO `mob_family_mods` VALUES (139,68,10,0);
 INSERT INTO `mob_family_mods` VALUES (176,68,10,0);		-- Mamool ja +10 evasion
 INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Mamool ja +10 evasion
