@@ -20121,11 +20121,9 @@ INSERT INTO `item_mods` VALUES (16504,250,2);
 INSERT INTO `item_mods` VALUES (16504,431,1);
 INSERT INTO `item_mods` VALUES (16508,431,1);
 INSERT INTO `item_mods` VALUES (16509,431,1);
-INSERT INTO `item_mods` VALUES (16517,432,1);	-- Degen +1 Enspell dmg
 INSERT INTO `item_mods` VALUES (16520,5,18);
 INSERT INTO `item_mods` VALUES (16520,110,7);
 INSERT INTO `item_mods` VALUES (16521,110,5);
-INSERT INTO `item_mods` VALUES (16524,432,2);	-- Fleuret +2 Enspell dmg
 INSERT INTO `item_mods` VALUES (16527,25,2);
 INSERT INTO `item_mods` VALUES (16540,5,25);     -- tyrfing MP+25
 INSERT INTO `item_mods` VALUES (16541,8,2);

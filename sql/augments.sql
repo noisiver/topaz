@@ -1097,7 +1097,7 @@ INSERT INTO `augments` VALUES (892, 0, 0, 0, 0, 0);
 INSERT INTO `augments` VALUES (893, 0, 0, 0, 0, 0);
 INSERT INTO `augments` VALUES (894, 0, 0, 0, 0, 0);
 INSERT INTO `augments` VALUES (895, 0, 0, 0, 0, 0);
-INSERT INTO `augments` VALUES (896, 0, 432, 1, 0, 0); -- Sword Enhancement Spell Damage +1
+INSERT INTO `augments` VALUES (896, 0, 432, 1, 0, 0); -- Sword Enhancement Spell Damage +1 Enspell
 INSERT INTO `augments` VALUES (897, 0, 96, 1, 0, 0); -- Enhances Souleater Effect +1%
 INSERT INTO `augments` VALUES (898, 0, 0, 0, 0, 0);
 INSERT INTO `augments` VALUES (899, 0, 0, 0, 0, 0);

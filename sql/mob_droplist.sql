@@ -950,7 +950,7 @@ INSERT INTO `mob_droplist` VALUES (166,0,0,1000,11743,100);
 INSERT INTO `mob_droplist` VALUES (167,0,0,1000,846,80);
 INSERT INTO `mob_droplist` VALUES (167,0,0,1000,912,204);
 INSERT INTO `mob_droplist` VALUES (167,0,0,1000,925,30);
-INSERT INTO `mob_droplist` VALUES (167,0,0,1000,1049,80);
+INSERT INTO `mob_droplist` VALUES (167,0,0,1000,1049,50);
 INSERT INTO `mob_droplist` VALUES (167,2,0,1000,4370,0);
 INSERT INTO `mob_droplist` VALUES (167,0,0,1000,4370,116);
 INSERT INTO `mob_droplist` VALUES (168,0,0,1000,2610,1000);
@@ -6677,7 +6677,7 @@ INSERT INTO `mob_droplist` VALUES (1330,0,0,1000,1040,50);
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,914,130);
 INSERT INTO `mob_droplist` VALUES (1331,4,0,1000,954,0);
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,954,290);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1049,80);
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1049,50);
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1430,120);
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4659,30);
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4726,160);
@@ -12309,7 +12309,7 @@ INSERT INTO `mob_droplist` VALUES (2433,0,0,1000,4962,100);
 INSERT INTO `mob_droplist` VALUES (2433,0,0,1000,16904,100);
 INSERT INTO `mob_droplist` VALUES (2433,0,0,1000,17303,240);
 INSERT INTO `mob_droplist` VALUES (2434,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (2434,0,0,1000,1049,80);
+INSERT INTO `mob_droplist` VALUES (2434,0,0,1000,1049,50);
 INSERT INTO `mob_droplist` VALUES (2434,0,0,1000,1119,260);
 INSERT INTO `mob_droplist` VALUES (2434,0,0,1000,1440,210);
 INSERT INTO `mob_droplist` VALUES (2434,0,0,1000,4158,130);
@@ -12348,11 +12348,16 @@ INSERT INTO `mob_droplist` VALUES (2439,0,0,1000,4158,80);
 
 -- [Tonberry Kinq]
 -- Values taken from ffxidb on 04/23/2018 (http://www.ffxidb.com/zones/159/tonberry-kinq)
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1119,400); -- Tonberry Coat (40%)
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1162,160); -- Tonberry Lantern (16%)
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,4901,60); -- Water Spirit (6%)
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1443,40); -- Dried Mugwort (4%)
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,4902,40); -- Light Spirit (4%)
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1119,1000); -- Tonberry Coat 
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1162,1000); -- Tonberry Lantern 
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,4901,1000); -- Water Spirit 
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,837,50); --  Spool of malboro fiber 
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,4902,1000); -- Light Spirit 
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,836,50); -- damascene_cloth
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,658,50); -- damascus_ingot
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1110,50); -- black beetle blood  
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,942,100); -- Philosopher stone 
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,18632,100); -- Iridal Staff
 
 INSERT INTO `mob_droplist` VALUES (2441,0,0,1000,1311,30);
 INSERT INTO `mob_droplist` VALUES (2441,0,0,1000,1633,10);
@@ -12363,7 +12368,7 @@ INSERT INTO `mob_droplist` VALUES (2441,0,0,1000,2944,500);
 INSERT INTO `mob_droplist` VALUES (2441,0,0,1000,11550,330);
 INSERT INTO `mob_droplist` VALUES (2441,0,0,1000,11739,80);
 INSERT INTO `mob_droplist` VALUES (2442,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (2442,0,0,1000,1049,90);
+INSERT INTO `mob_droplist` VALUES (2442,0,0,1000,1049,50);
 INSERT INTO `mob_droplist` VALUES (2442,0,0,1000,1119,270);
 INSERT INTO `mob_droplist` VALUES (2442,0,0,1000,1138,100);
 INSERT INTO `mob_droplist` VALUES (2442,0,0,1000,1429,90);
@@ -12377,7 +12382,7 @@ INSERT INTO `mob_droplist` VALUES (2443,0,0,1000,4808,40);
 INSERT INTO `mob_droplist` VALUES (2443,0,0,1000,4809,60);
 INSERT INTO `mob_droplist` VALUES (2443,0,0,1000,4822,30);
 INSERT INTO `mob_droplist` VALUES (2444,0,0,1000,748,100);
-INSERT INTO `mob_droplist` VALUES (2444,0,0,1000,1049,80);
+INSERT INTO `mob_droplist` VALUES (2444,0,0,1000,1049,50);
 INSERT INTO `mob_droplist` VALUES (2444,0,0,1000,1119,340);
 INSERT INTO `mob_droplist` VALUES (2444,0,0,1000,1138,70);
 INSERT INTO `mob_droplist` VALUES (2444,0,0,1000,1145,40);
@@ -12402,7 +12407,7 @@ INSERT INTO `mob_droplist` VALUES (2446,0,0,1000,17303,240);
 INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,677,40);
 INSERT INTO `mob_droplist` VALUES (2447,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2447,4,0,1000,952,0);
-INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,1049,60);
+INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,1049,50);
 INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,1119,190);
 INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,1137,70);
 INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,1438,70);
