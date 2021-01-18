@@ -9085,7 +9085,6 @@ INSERT INTO `item_mods` VALUES (12767,5,32);
 INSERT INTO `item_mods` VALUES (12767,12,2);
 INSERT INTO `item_mods` VALUES (12768,1,4);
 INSERT INTO `item_mods` VALUES (12769,1,8);	-- Chain Mittens +1
-INSERT INTO `item_mods` VALUES (12769,23,3);	-- +3 Attack
 INSERT INTO `item_mods` VALUES (12770,1,4);
 INSERT INTO `item_mods` VALUES (12771,1,8);
 INSERT INTO `item_mods` VALUES (12772,1,10);
@@ -9680,7 +9679,6 @@ INSERT INTO `item_mods` VALUES (13022,1,6);
 INSERT INTO `item_mods` VALUES (13023,1,8);
 INSERT INTO `item_mods` VALUES (13024,1,4);
 INSERT INTO `item_mods` VALUES (13025,1,7);		-- Greaves +1
-INSERT INTO `item_mods` VALUES (13025,10,1); -- +1 VIT
 INSERT INTO `item_mods` VALUES (13026,1,8);
 INSERT INTO `item_mods` VALUES (13027,1,4);
 INSERT INTO `item_mods` VALUES (13028,1,7);
