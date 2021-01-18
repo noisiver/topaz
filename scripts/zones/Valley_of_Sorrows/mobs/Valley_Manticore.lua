@@ -27,7 +27,7 @@ function onMobDeath(mob, player, isKiller)
     tpz.regime.checkRegime(player, mob, 140, 2, tpz.regime.type.FIELDS)
     tpz.regime.checkRegime(player, mob, 141, 2, tpz.regime.type.FIELDS)
     if isKiller then
-        if math.random(1,100) <= 24-- 24% chance
+        if math.random(1,100) <= 99-- 24% chance
             local party = player:getParty()
             local partySize = #party -- Not sure if this is right
             local randomIndex = math.random(1, partySize)
