@@ -6,14 +6,11 @@
 local ID = require("scripts/zones/Lower_Jeuno/IDs")
 
 function onTrade(player, npc, trade)
-end
 
-function onTrigger(player, npc)
-    player:showText(npc, ID.text.TAZA_SHOP_DIALOG)
-end
-
-function onEventUpdate(player, csid, option)
-end
-
-function onEventFinish(player, csid, option)
+   
+    if (trade:hasItemQty(13120, 1) and trade:getItemCount() == 1) then
+            player:tradeComplete()
+            player:addItem(13120,1,514,4)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 13120)
+     end
 end

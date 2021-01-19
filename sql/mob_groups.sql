@@ -9714,7 +9714,7 @@ INSERT INTO `mob_groups` VALUES (16,425,146,'Bitoso',0,128,0,3600,1200,31,33,0);
 INSERT INTO `mob_groups` VALUES (17,2822,146,'Nenaunir',0,128,0,0,0,30,30,0);
 INSERT INTO `mob_groups` VALUES (18,2823,146,'Nenaunirs_Wife',0,128,0,0,0,30,30,0);
 INSERT INTO `mob_groups` VALUES (19,1149,146,'Dvorovoi',0,128,0,2000,0,45,45,0);
-INSERT INTO `mob_groups` VALUES (20,1078,146,'Domovoi',0,128,0,250,0,40,42,0);
+INSERT INTO `mob_groups` VALUES (20,1078,146,'Domovoi',0,128,0,150,0,40,42,0);
 INSERT INTO `mob_groups` VALUES (21,2990,146,'Opo-opo_Monarch',0,128,0,2300,0,40,40,0);
 INSERT INTO `mob_groups` VALUES (22,2989,146,'Opo-opo_Heir',0,128,0,2300,0,40,40,0);
 INSERT INTO `mob_groups` VALUES (23,2789,146,'Myrmidon_Spo-spo',0,128,0,1200,0,40,40,0);
