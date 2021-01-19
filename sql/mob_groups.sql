@@ -10305,7 +10305,7 @@ INSERT INTO `mob_groups` VALUES (2,461,159,'Bloodsucker',0,128,174,0,0,55,62,0);
 INSERT INTO `mob_groups` VALUES (3,514,159,'Bouncing_Ball',0,128,343,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (4,501,159,'Bonze_Marberry',900,0,338,8200,0,66,66,0);
 INSERT INTO `mob_groups` VALUES (5,4039,159,'Trompe_L_Oeil',0,128,0,0,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (6,787,159,'Cook_Solberry',0,128,0,0,0,75,75,0)f;
+INSERT INTO `mob_groups` VALUES (6,787,159,'Cook_Solberry',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (7,786,159,'Cook_Nalberry',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (8,785,159,'Cook_Minberry',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (9,784,159,'Cook_Fulberry',0,128,0,0,0,75,75,0);
