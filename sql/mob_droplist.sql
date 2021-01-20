@@ -16288,6 +16288,10 @@ INSERT INTO `mob_droplist` VALUES (3168,0,0,1000,4108,150);
 INSERT INTO `mob_droplist` VALUES (3168,0,0,1000,1059,50);
 INSERT INTO `mob_droplist` VALUES (3169,0,0,1000,1049,50); -- (Temple Guardian) Coffer Key
 
+-- Avatars
+INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,8919,1000); -- (ifrit Prime) Ifritear 15%
+INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,17192,1000); -- Ifrit's Bow 5%
+
 
 
 

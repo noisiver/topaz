@@ -12583,7 +12583,7 @@ INSERT INTO `mob_groups` VALUES (14183,4006,206,'Trion',0,128,0,0,0,75,75,1);
 -- Cloister_of_Flames (Zone 207)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,4645,207,'Ifrit_Prime',0,128,0,7650,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (1,4645,207,'Ifrit_Prime',0,128,3170,17000,0,83,83,0); -- made Lv. 83
 INSERT INTO `mob_groups` VALUES (2,2050,207,'Ifrit_Prime',0,128,0,700,0,20,20,0);
 INSERT INTO `mob_groups` VALUES (3,1341,207,'Fire_Elemental',0,128,0,0,0,75,75,0);
 

@@ -207,3 +207,4 @@ scripts/globals/magicbackup.lua
 sql/mob_droplistthchange.sql
 scripts/globals/magicbackup - Copy.lua
 scripts/globals/magicdoesntwork.lua
+scripts/globals/magicbackup1-20-21.lua

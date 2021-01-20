@@ -380,7 +380,7 @@ INSERT INTO `mob_family_system` VALUES (316,'Pandemonium',9,'Demon',3,40,100,140
 INSERT INTO `mob_family_system` VALUES (319,'Avatar-Shiva',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,0.875,0.875,0.875,0.875,0.875,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (320,'Avatar-Ramuh',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,1,0.875,0.875,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (321,'Avatar-Titan',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,1,0.875,0.875,0.875,0.875,0.875,0,41,0);
-INSERT INTO `mob_family_system` VALUES (322,'Avatar-Ifrit',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,1,0.875,0.875,0,41,0);
+INSERT INTO `mob_family_system` VALUES (322,'Avatar-Ifrit',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,0.875,0.875,0.875,0.875,0.875,1,0.875,0.875,0,41,0); -- Level70 trial by fire
 INSERT INTO `mob_family_system` VALUES (323,'Avatar-Leviathan',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,1,0.875,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (324,'Avatar-Garuda',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,1,0.875,0.875,0.875,0.875,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (325,'Avatar-Fenrir',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,0.875,1,0.875,0,41,0);
