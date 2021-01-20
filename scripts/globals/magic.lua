@@ -875,7 +875,7 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     
     magicacc = magicacc + (casterLvl - targetLvl)*4
     local dMAcc = magicacc - magiceva
-    --print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
+    print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
     if dMAcc < 0 then -- when penalty, half effective
         p = 55 + math.floor(dMAcc/2)
     else
@@ -885,11 +885,11 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     
     p = p + percentBonus
     p = utils.clamp(p, 5, 95)
-    --print(string.format("step1: %u",p))
-	--GetPlayerByID(6):PrintToPlayer(string.format("pre SDT: %u",p))
+    print(string.format("step1: %u",p))
+	GetPlayerByID(6):PrintToPlayer(string.format("pre SDT: %u",p))
     p = p * SDT/100
-	--print(string.format("step2: %u",p))
-	--GetPlayerByID(6):PrintToPlayer(string.format("post SDT: %u",p))
+	print(string.format("step2: %u",p))
+	GetPlayerByID(6):PrintToPlayer(string.format("post SDT: %u",p))
     return utils.clamp(p, 5, 95)
 end
 
