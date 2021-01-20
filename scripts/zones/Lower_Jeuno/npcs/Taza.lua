@@ -19,6 +19,7 @@ function onTrade(player, npc, trade)
     if (trade:hasItemQty(13781, 1) and trade:hasItemQty(12587, 1) and tradeCount == 2) then
             player:tradeComplete()
             player:addItem(13781,1,23,9)
+            player:PrintToPlayer("I have successfully augmented your item and the the magical properties have been revealed!",0,"Taza")
             player:messageSpecial(ID.text.ITEM_OBTAINED, 13781)
     end
 end
