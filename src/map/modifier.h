@@ -818,7 +818,56 @@ enum class Mod
 
     SUBTLE_BLOW_II            = 973, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
     GARDENING_WILT_BONUS      = 975, // Increases the number of Vanadays a plant can survive before it wilts
+    TP_BOOST_WHEN_DMGD        = 986,    // Bonus TP gained when taking damage
 
+
+    SPDEF_DOWN = 958,
+    RESBUILD_SLEEP = 959,
+    RESBUILD_GRAVITY = 960,
+    RESBUILD_BIND = 961,
+    RESBUILD_SLOW = 962,
+    RESBUILD_PARALYZE = 963,
+    RESBUILD_BLIND = 964,
+    RESBUILD_SILENCE = 965,
+    RESBUILD_STUN = 966,
+    RESBUILD_POISON = 967,
+
+    SDT_FIRE = 968,
+    SDT_EARTH = 969,
+    SDT_WATER = 970,
+    SDT_WIND = 971,
+    SDT_ICE = 972,
+    SDT_THUNDER = 973,
+    SDT_LIGHT = 974,
+    SDT_DARK = 975,
+
+    SUSC_TO_WS_STUN = 1176,
+    ENHANCES_COVER = 1178,
+    AUGMENTS_COVER = 1179,
+    COVERED_MP_FLAG = 1180,
+    RAMPART_STONESKIN = 1181,
+    TAME_SUCCESS_RATE = 1182,
+    MAGIC_STACKING_MDT = 1183,
+    FIRE_BURDEN_DECAY = 1184,
+    BURDEN_DECAY_IGNORE_CHANCE = 1185,
+    FIRE_BURDEN_PERC_EXTRA = 1186,
+    SUPER_INTIMIDATION = 1187,
+
+     VERMIN_CIRCLE = 1224,
+    BIRD_CIRCLE = 1225,
+    AMORPH_CIRCLE = 1226,
+    LIZARD_CIRCLE = 1227,
+    AQUAN_CIRCLE = 1228,
+    PLANTOID_CIRCLE = 1229,
+    BEAST_CIRCLE = 1230,
+    UNDEAD_CIRCLE = 1231,
+    ARCANA_CIRCLE = 1232,
+    DRAGON_CIRCLE = 1233,
+    DEMON_CIRCLE = 1234,
+    EMPTY_CIRCLE = 1235,
+    HUMANOID_CIRCLE = 1236,
+    LUMORIAN_CIRCLE = 1237,
+    LUMINION_CIRCLE = 1238
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 986, // stuff

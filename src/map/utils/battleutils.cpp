@@ -324,6 +324,21 @@ namespace battleutils
         return false;
     }
 
+    uint8 getElementalSDTDivisor(CBattleEntity* PTarget, uint8 element)
+    {
+        if (!element)
+            return 1;
+
+        float res = (float)(PTarget->getMod((Mod)(53 + element))) * (1.0f - (((float)PTarget->getMod(Mod::SPDEF_DOWN)) / 100.0f));
+
+        // todo -- magic burst
+
+        if (res >= 50.0f)
+            return 2;
+
+        return 1;
+    }
+
     bool CanUseWeaponskill(CCharEntity* PChar, CWeaponSkill* PSkill)
     {
         if ((((PSkill->getSkillLevel() > 0 && PChar->GetSkill(PSkill->getType()) >= PSkill->getSkillLevel() &&
@@ -2106,6 +2121,13 @@ namespace battleutils
             float sBlow1 = std::clamp((float)PAttacker->getMod(Mod::SUBTLE_BLOW), -50.0f, 50.0f);
             float sBlow2 = std::clamp((float)PAttacker->getMod(Mod::SUBTLE_BLOW_II), -50.0f, 50.0f);
             float sBlowMult = ((100.0f - std::clamp((float)(sBlow1 + sBlow2), -75.0f, 75.0f)) / 100.0f);
+
+            int16 bonusTP = 0;
+            if (tpzrand::GetRandomNumber(100) < PAttacker->getMod(Mod::TP_BOOST_WHEN_DMGD))
+            {
+                // Occasionally boosts TP 1-3 points when damaged.
+                bonusTP = tpzrand::GetRandomNumber(10, 30);
+            } 
 
             //mobs hit get basetp+30 whereas pcs hit get basetp/3
             if (PDefender->objtype == TYPE_PC)
