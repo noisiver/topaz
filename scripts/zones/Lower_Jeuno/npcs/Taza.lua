@@ -15,6 +15,7 @@ local ID = require("scripts/zones/Lower_Jeuno/IDs")
 --end
 
 function onTrade(player, npc, trade)
+    local tradeCount = trade:getItemCount()
     if (trade:hasItemQty(13781, 1) and trade:hasItemQty(12587, 1) and tradeCount == 2) then
             player:tradeComplete()
             player:addItem(13781,1,23,9)
