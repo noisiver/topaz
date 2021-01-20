@@ -27,6 +27,10 @@ zones[tpz.zone.RIVERNE_SITE_A01] =
     },
     mob =
     {
+    Aiatar_PH =
+        {
+            [16900229] = 16900306, -- -172.414,47.650,-870.828,12
+        },
         HELIODROMOS_PH_OFFSET    = 16900107,
         HELIODROMOS_OFFSET       = 16900110,
         CARMINE_DOBSONFLY_OFFSET = 16900230,
