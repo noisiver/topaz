@@ -21,7 +21,7 @@ function onSpellCast(caster, target, spell)
     power = calculatePotency(power, spell:getSkillType(), caster, target)
 
     printf("Duration : %u", duration)
-    printf("Potency : %u", power)
+    printf("Potency : %u", potency)
     --Duration
     local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
 
@@ -35,7 +35,7 @@ function onSpellCast(caster, target, spell)
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.SLOW, target))
 
     if resist >= 0.5 then -- effect taken
-        if target:addStatusEffect(params.effect, power, 0, duration) then
+        if target:addStatusEffect(params.effect, power, 0, duration, 0, 1) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
