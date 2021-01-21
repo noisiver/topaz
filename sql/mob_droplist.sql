@@ -3475,7 +3475,7 @@ INSERT INTO `mob_droplist` VALUES (655,0,0,1000,922,217);
 INSERT INTO `mob_droplist` VALUES (655,0,0,1000,1112,108);
 INSERT INTO `mob_droplist` VALUES (656,0,0,1000,896,180);
 INSERT INTO `mob_droplist` VALUES (656,0,0,1000,897,560);
-INSERT INTO `mob_droplist` VALUES (656,0,0,1000,1017,150);
+INSERT INTO `mob_droplist` VALUES (656,0,0,1000,1017,240);
 INSERT INTO `mob_droplist` VALUES (656,0,0,1000,1473,80);
 INSERT INTO `mob_droplist` VALUES (657,2,0,1000,924,0);
 INSERT INTO `mob_droplist` VALUES (657,0,0,1000,1626,90);
@@ -7616,7 +7616,7 @@ INSERT INTO `mob_droplist` VALUES (1475,0,0,1000,1163,290);
 INSERT INTO `mob_droplist` VALUES (1476,0,0,1000,896,150);
 INSERT INTO `mob_droplist` VALUES (1476,4,0,1000,897,0);
 INSERT INTO `mob_droplist` VALUES (1476,0,0,1000,897,240);
-INSERT INTO `mob_droplist` VALUES (1476,0,0,1000,1017,150);
+INSERT INTO `mob_droplist` VALUES (1476,0,0,1000,1017,240);
 INSERT INTO `mob_droplist` VALUES (1476,0,0,1000,1032,50);
 INSERT INTO `mob_droplist` VALUES (1477,0,0,1000,866,70);
 INSERT INTO `mob_droplist` VALUES (1477,0,0,1000,1122,270);
@@ -16289,8 +16289,8 @@ INSERT INTO `mob_droplist` VALUES (3168,0,0,1000,1059,50);
 INSERT INTO `mob_droplist` VALUES (3169,0,0,1000,1049,50); -- (Temple Guardian) Coffer Key
 
 -- Avatars
-INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,8919,1000); -- (ifrit Prime) Ifritear 15%
-INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,17192,1000); -- Ifrit's Bow 5%
+INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,8919,150); -- (ifrit Prime) Ifritear 15%
+INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,17192,50); -- Ifrit's Bow 5%
 
 
 
