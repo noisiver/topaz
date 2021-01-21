@@ -1527,22 +1527,22 @@ end
 function getElementalDebuffDOT(INT)
     local DOT = 0
     if (INT<= 39) then
-        DOT = 1
-    elseif (INT <= 69) then
-        DOT = 2
-    elseif (INT <= 99) then
-        DOT = 3
-    elseif (INT <= 149) then
-        DOT = 4
-    else
         DOT = 5
+    elseif (INT <= 69) then
+        DOT = 20
+    elseif (INT <= 99) then
+        DOT = 25
+    elseif (INT <= 149) then
+        DOT = 30
+    else
+        DOT = 35
     end
     return DOT
 end
 
 function getElementalDebuffStatDownFromDOT(dot)
     local stat_down = 0
-    stat_down = (dot-1)*2 +5
+    stat_down = (dot-4)* 0.5 +5 
     return stat_down
 end
 
