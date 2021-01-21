@@ -22,8 +22,8 @@ function onSpellCast(caster, target, spell)
 
     potency = calculatePotency(potency, spell:getSkillType(), caster, target)
 
-    printf("Duration : %u", duration)
-    printf("Potency : %u", potency)
+    --printf("Duration : %u", duration)
+    --printf("Potency : %u", potency)
     local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
     local params = {}
     params.diff = dMND
