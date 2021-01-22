@@ -13,7 +13,10 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-
+    if getElementalSDT(8,target) == 5 or target:isUndead() then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return 0
+    end
     --calculate raw damage (unknown function  -> only dark skill though) - using http://www.bluegartr.com/threads/44518-Drain-Calculations
     -- also have small constant to account for 0 dark skill
     local dmg = 10 + (0.60 * caster:getSkillLevel(tpz.skill.DARK_MAGIC)) -- changed from 1.035 to 0.60
