@@ -11029,7 +11029,7 @@ INSERT INTO `mob_groups` VALUES (25,1563,173,'Gigas_Foreman',600,0,988,0,0,35,37
 INSERT INTO `mob_groups` VALUES (26,1593,173,'Gigass_Spider',0,128,0,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (27,4831,173,'Thoon',3600,0,3020,3000,0,43,45,0);
 INSERT INTO `mob_groups` VALUES (28,2283,173,'Korroloka_Leech',0,128,343,1000,0,32,32,0);
-INSERT INTO `mob_groups` VALUES (29,2748,173,'Morion_Worm',0,128,1739,2000,2000,30,30,0);
+INSERT INTO `mob_groups` VALUES (29,2748,173,'Morion_Worm',0,128,1739,3000,2000,30,30,0);
 INSERT INTO `mob_groups` VALUES (30,2633,173,'Metallic_Slime',0,128,1664,0,0,24,30,0);
 INSERT INTO `mob_groups` VALUES (31,1642,173,'Goblin_Bounty_Hunter',0,0,1031,0,0,10,10,0);
 
