@@ -11590,7 +11590,7 @@ INSERT INTO `item_mods` VALUES (13781,1,41);	-- Myochin Domaru
 INSERT INTO `item_mods` VALUES (13781,2,10);
 INSERT INTO `item_mods` VALUES (13781,10,3);
 INSERT INTO `item_mods` VALUES (13781,61,15);
-INSERT INTO `item_mods` VALUES (13781,986,100);	-- +33% Chance of 10-30 TP Gained When Hit
+INSERT INTO `item_mods` VALUES (13781,1239,100);	-- +33% Chance of 10-30 TP Gained When Hit
 INSERT INTO `item_mods` VALUES (13782,1,41);      -- Ninja Chainmail: DEF 41
 INSERT INTO `item_mods` VALUES (13782,2,15);      -- HP +15
 INSERT INTO `item_mods` VALUES (13782,10,3);      -- VIT +3
