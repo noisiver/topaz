@@ -211,52 +211,32 @@ function utils.getSkillLvl(rank, level)
             skill = (((level-50)*4.3)+116)
         end
     elseif (level > 60 and level <= 70) then --Levels 61-70
-        if (rank == 1) then --A+ Rated Skill
-            skill = (((level-60)*4.85)+203)
-        elseif (rank == 2) then --A- Rated Skill
-            skill = (((level-60)*4.10)+203)
-        elseif (rank == 3) then --B+ Rated Skill
-            skill = (((level-60)*3.70)+196)
-        elseif (rank == 4) then --B Rated Skill
-            skill = (((level-60)*3.23)+196)
-        elseif (rank == 5) then --B- Rated Skill
-            skill = (((level-60)*2.70)+196)
-        elseif (rank == 6) then --C+ Rated Skill
-            skill = (((level-60)*2.50)+190)
-        elseif (rank == 7) then --C Rated Skill
-            skill = (((level-60)*2.25)+190)
-        elseif (rank == 8) then --C- Rated Skill
-            skill = (((level-60)*2.00)+190)
-        elseif (rank == 9) then --D Rated Skill
-            skill = (((level-60)*1.85)+183)
-        elseif (rank == 10) then --E Rated Skill
-            skill = (((level-60)*1.95)+171)
-        elseif (rank == 11) then --F Rated Skill
-            skill = (((level-60)*2.05)+159)
+        if (rank == 1 or rank == 2) then --A-Rated Skill
+            skill = (((level-50)*5)+153)
+        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
+            skill = (((level-50)*4.9)+147)
+        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
+            skill = (((level-50)*4.8)+142)
+        elseif (rank == 9) then --D-Rated Skill
+            skill = (((level-50)*4.7)+136)
+        elseif (rank == 10) then --E-Rated Skill
+            skill = (((level-50)*4.5)+126)
+        elseif (rank == 11) then --F-Rated Skill
+            skill = (((level-50)*4.3)+116)
         end
     else --Level 71 and above
-        if (rank == 1) then --A+ Rated Skill
-            skill = (((level-70)*5)+251)
-        elseif (rank == 2) then --A- Rated Skill
-            skill = (((level-70)*5)+244)
-        elseif (rank == 3) then --B+ Rated Skill
-            skill = (((level-70)*3.70)+233)
-        elseif (rank == 4) then --B Rated Skill
-            skill = (((level-70)*3.23)+228)
-        elseif (rank == 5) then --B- Rated Skill
-            skill = (((level-70)*2.70)+223)
-        elseif (rank == 6) then --C+ Rated Skill
-            skill = (((level-70)*3)+215)
-        elseif (rank == 7) then --C Rated Skill
-            skill = (((level-70)*2.6)+212)
-        elseif (rank == 8) then --C- Rated Skill
-            skill = (((level-70)*2.00)+210)
-        elseif (rank == 9) then --D Rated Skill
-            skill = (((level-70)*1.85)+201)
-        elseif (rank == 10) then --E Rated Skill
-            skill = (((level-70)*1.95)+190)
-        elseif (rank == 11) then --F Rated Skill
-            skill = (((level-70)*2)+179)
+        if (rank == 1 or rank == 2) then --A-Rated Skill
+            skill = (((level-50)*5)+153)
+        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
+            skill = (((level-50)*4.9)+147)
+        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
+            skill = (((level-50)*4.8)+142)
+        elseif (rank == 9) then --D-Rated Skill
+            skill = (((level-50)*4.7)+136)
+        elseif (rank == 10) then --E-Rated Skill
+            skill = (((level-50)*4.5)+126)
+        elseif (rank == 11) then --F-Rated Skill
+            skill = (((level-50)*4.3)+116)
         end
     end
 
