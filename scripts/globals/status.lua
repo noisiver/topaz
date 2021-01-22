@@ -1580,10 +1580,74 @@ tpz.mod =
     COVER_DURATION                  = 967, -- Increases Cover Duration
     WYVERN_SUBJOB_TRAITS            = 974, -- Adds subjob traits to wyvern
     GARDENING_WILT_BONUS            = 975, -- Increases the number of Vanadays a plant can survive before it wilts
+    SUPER_JUMP                      = 988,
+    
+    SPDEF_DOWN                      = 958, -- Specific Damage Taken (or Special Damage Taken) reduction as a percent
+    
+    RESBUILD_SLEEP      = 959,
+    RESBUILD_GRAVITY    = 960,
+    RESBUILD_BIND       = 961,
+    RESBUILD_SLOW       = 962,
+    RESBUILD_PARALYZE   = 963,
+    RESBUILD_BLIND      = 964,
+    RESBUILD_SILENCE    = 965,
+    RESBUILD_STUN       = 966,
+    RESBUILD_LULLABY    = 967, -- any light based sleep
+    
+    SDT_FIRE = 968,
+    SDT_EARTH = 969,
+    SDT_WATER = 970,
+    SDT_WIND = 971,
+    SDT_ICE = 972,
+    SDT_THUNDER = 973,
+    SDT_LIGHT = 974,
+    SDT_DARK = 975,
+    
+    SUSC_TO_WS_STUN = 976,
+    COVER_DURATION = 977,
+    ENHANCES_COVER = 978,
+    AUGMENTS_COVER = 979,
+    COVERED_MP_FLAG = 980,
+    RAMPART_STONESKIN = 981,
+    TAME_SUCCESS_RATE = 982,
+    MAGIC_STACKING_MDT = 983,
+    FIRE_BURDEN_DECAY = 984,
+    BURDEN_DECAY_IGNORE_CHANCE = 985,
+    FIRE_BURDEN_PERC_EXTRA = 986,
+	SUPER_INTIMIDATION = 987,
+	
+	WYVERN_SUBJOB_TRAITS = 990,
+    
+    PENGUIN_RING_EFFECT = 1000,   
+    ALBATROSS_RING_EFFECT = 1001,   
+    PELICAN_RING_EFFECT = 1002,
+    
+    VERMIN_CIRCLE           = 1224,
+    BIRD_CIRCLE             = 1225,
+    AMORPH_CIRCLE           = 1226,
+    LIZARD_CIRCLE           = 1227,
+    AQUAN_CIRCLE            = 1228,
+    PLANTOID_CIRCLE         = 1229,
+    BEAST_CIRCLE            = 1230,
+    UNDEAD_CIRCLE           = 1231,
+    ARCANA_CIRCLE           = 1232,
+    DRAGON_CIRCLE           = 1233,
+    DEMON_CIRCLE            = 1234,
+    EMPTY_CIRCLE            = 1235,
+    HUMANOID_CIRCLE         = 1236,
+    LUMORIAN_CIRCLE         = 1237,
+    LUMINION_CIRCLE         = 1238,
+    
+    -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
+    -- 570 - 825 used by WS DMG mods these are not spares.
+    -- SPARE = 986, -- stuff
+    -- SPARE = 987, -- stuff
+    -- super jump taking up 988
+
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
-   TP_BOOST_WHEN_DMGD               = 986,    -- Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
+   TP_BOOST_WHEN_DMGD               = 986    -- Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- SPARE = 988, -- stuff
