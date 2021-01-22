@@ -688,7 +688,7 @@ void CAttack::ProcessDamage()
         switch (m_victim->m_EcoSystem)
         {
             case SYSTEM_AMORPH:
-                circlemult += m_attacker->getMod(Mod::AMORPH_CIRCLE);
+              circlemult += m_attacker->getMod(Mod::AMORPH_CIRCLE);
                 break;
             case SYSTEM_AQUAN:
                 circlemult += m_attacker->getMod(Mod::AQUAN_CIRCLE);

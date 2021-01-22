@@ -2184,20 +2184,57 @@ namespace battleutils
             if (damage < 0 && isCounter)
                 damage = -damage;
 
-            if (!isCounter || giveTPtoAttacker) // counters are always considered blunt (assuming h2h) damage, except retaliation (which is the only counter that gives TP to the attacker)
+            //if (!isCounter || giveTPtoAttacker) // counters are always considered blunt (assuming h2h) damage, except retaliation (which is the only counter that gives TP to the attacker)
+            //{
+            //    switch (damageType)
+            //    {
+            //        case DAMAGE_PIERCING: damage = (damage * (PDefender->getMod(Mod::PIERCERES))) / 1000; break;
+            //        case DAMAGE_SLASHING: damage = (damage * (PDefender->getMod(Mod::SLASHRES))) / 1000; break;
+            //        case DAMAGE_IMPACT:   damage = (damage * (PDefender->getMod(Mod::IMPACTRES))) / 1000; break;
+            //        case DAMAGE_HTH:      damage = (damage * (PDefender->getMod(Mod::HTHRES))) / 1000; break;
+            //        default:
+            //            break;
+            //    }
+            //}
+            //else
+            //    damage = (damage * (PDefender->getMod(Mod::HTHRES))) / 1000;
+
+                        if (!isCounter || giveTPtoAttacker) // counters are always considered blunt (assuming h2h) damage, except retaliation (which is the only counter
+                                                // that gives TP to the attacker)
             {
+                float resmult = 1.0f;
                 switch (damageType)
                 {
-                    case DAMAGE_PIERCING: damage = (damage * (PDefender->getMod(Mod::PIERCERES))) / 1000; break;
-                    case DAMAGE_SLASHING: damage = (damage * (PDefender->getMod(Mod::SLASHRES))) / 1000; break;
-                    case DAMAGE_IMPACT:   damage = (damage * (PDefender->getMod(Mod::IMPACTRES))) / 1000; break;
-                    case DAMAGE_HTH:      damage = (damage * (PDefender->getMod(Mod::HTHRES))) / 1000; break;
+                    case DAMAGE_PIERCING:
+                        resmult = (float)(PDefender->getMod(Mod::PIERCERES)) / 1000.0f;
+                        break;
+                    case DAMAGE_SLASHING:
+                        resmult = (float)(PDefender->getMod(Mod::SLASHRES)) / 1000.0f;
+                        break;
+                    case DAMAGE_IMPACT:
+                        resmult = (float)(PDefender->getMod(Mod::IMPACTRES)) / 1000.0f;
+                        break;
+                    case DAMAGE_HTH:
+                        resmult = (float)(PDefender->getMod(Mod::HTHRES)) / 1000.0f;
+                        break;
                     default:
                         break;
                 }
+                if (resmult < 1.0f)
+                {
+                    resmult = 1.0f - ((1.0f - resmult) * (1.0f - (((float)(PDefender->getMod(Mod::SPDEF_DOWN))) / 100.0f)));
+                }
+                damage = (int32)((float)damage * resmult);
             }
             else
-                damage = (damage * (PDefender->getMod(Mod::HTHRES))) / 1000;
+            {
+                float resmult = (float)(PDefender->getMod(Mod::HTHRES)) / 1000.0f;
+                if (resmult < 1.0f)
+                {
+                    resmult = 1.0f - ((1.0f - resmult) * (1.0f - (((float)(PDefender->getMod(Mod::SPDEF_DOWN))) / 100.0f)));
+                }
+                damage = (int32)((float)damage * resmult);
+            }
 
             if (isBlocked)
             {

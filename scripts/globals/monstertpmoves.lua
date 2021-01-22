@@ -519,9 +519,42 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         target:setLocalVar("analyzer_hits", analyzerHits)
     end
 
-    if (attackType == tpz.attackType.PHYSICAL) then
+    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
 
         dmg = target:physicalDmgTaken(dmg, damageType)
+        if not target:isPC() then
+                local hthres = target:getMod(tpz.mod.HTHRES)
+                local pierceres = target:getMod(tpz.mod.PIERCERES)
+                local impactres = target:getMod(tpz.mod.IMPACTRES)
+                local slashres = target:getMod(tpz.mod.SLASHRES)
+                local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
+                
+                if damageType == tpz.damageType.HTH then
+                    if hthres < 1000 then
+                        dmg = dmg * (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
+                    else
+                        dmg = dmg * hthres / 1000
+                    end
+                elseif damageType == tpz.damageType.PIERCING then
+                    if pierceres < 1000 then
+                        dmg = dmg * (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
+                    else
+                        dmg = dmg * pierceres / 1000
+                    end
+                elseif damageType == tpz.damageType.BLUNT then
+                    if impactres < 1000 then
+                        dmg = dmg * (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
+                    else
+                        dmg = dmg * impactres / 1000
+                    end
+                else
+                    if slashres < 1000 then
+                        dmg = dmg * (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
+                    else
+                        dmg = dmg * slashres / 1000
+                    end
+                end
+        end
 
     elseif (attackType == tpz.attackType.MAGICAL) then
 
