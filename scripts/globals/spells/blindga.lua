@@ -22,8 +22,8 @@ function onSpellCast(caster, target, spell)
         power = 5
     end
 
-    if (power > 50) then
-        power = 50
+    if (power > 30) then
+        power = 30
     end
 
 
