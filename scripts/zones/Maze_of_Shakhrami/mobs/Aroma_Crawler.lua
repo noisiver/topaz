@@ -13,6 +13,6 @@ function onMobInitialize(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.SLOW)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.SLOW, {power = 20})
 end
 
