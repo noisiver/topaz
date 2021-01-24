@@ -11955,12 +11955,14 @@ INSERT INTO `item_mods` VALUES (13897,1,13);
 INSERT INTO `item_mods` VALUES (13897,9,1);
 INSERT INTO `item_mods` VALUES (13898,1,14);
 INSERT INTO `item_mods` VALUES (13898,9,1);
-INSERT INTO `item_mods` VALUES (13899,1,11);
+INSERT INTO `item_mods` VALUES (13899,1,11); -- Bastokan Circlet
 INSERT INTO `item_mods` VALUES (13899,56,4);
 INSERT INTO `item_mods` VALUES (13899,57,4);
-INSERT INTO `item_mods` VALUES (13900,1,12);
+INSERT INTO `item_mods` VALUES (13899,28,3);
+INSERT INTO `item_mods` VALUES (13900,1,12); -- Republic Circlet
 INSERT INTO `item_mods` VALUES (13900,56,4);
 INSERT INTO `item_mods` VALUES (13900,57,4);
+INSERT INTO `item_mods` VALUES (13900,28,5);
 INSERT INTO `item_mods` VALUES (13901,1,9);
 INSERT INTO `item_mods` VALUES (13901,2,3);
 INSERT INTO `item_mods` VALUES (13901,5,3);
@@ -13616,10 +13618,12 @@ INSERT INTO `item_mods` VALUES (14356,26,3);
 INSERT INTO `item_mods` VALUES (14357,1,29);
 INSERT INTO `item_mods` VALUES (14357,24,3);
 INSERT INTO `item_mods` VALUES (14357,26,3);
-INSERT INTO `item_mods` VALUES (14358,1,27);
+INSERT INTO `item_mods` VALUES (14358,1,27);	-- Royal Squire's Robe +1
 INSERT INTO `item_mods` VALUES (14358,5,10);
-INSERT INTO `item_mods` VALUES (14359,1,28);
+INSERT INTO `item_mods` VALUES (14358,12,2);
+INSERT INTO `item_mods` VALUES (14359,1,28);	-- Royal Squire's robe +2
 INSERT INTO `item_mods` VALUES (14359,5,10);
+INSERT INTO `item_mods` VALUES (14359,12,3);
 INSERT INTO `item_mods` VALUES (14360,1,41);
 INSERT INTO `item_mods` VALUES (14360,60,13);
 INSERT INTO `item_mods` VALUES (14360,61,13);

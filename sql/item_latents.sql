@@ -792,8 +792,8 @@ INSERT INTO `item_latents` VALUES(13898, 5, 6, 53, 0);      -- MP +6 in areas in
 -- -------------------------------------------------------
 -- Bastokan Circlet/Republic Circlet
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13899, 28, 3, 53, 0);     -- MATT +3 in areas inside own nation's control
-INSERT INTO `item_latents` VALUES(13900, 28, 5, 53, 0);     -- MATT +5 in areas inside own nation's control
+--INSERT INTO `item_latents` VALUES(13899, 28, 3, 53, 0);     -- MATT +3 in areas inside own nation's control
+--INSERT INTO `item_latents` VALUES(13900, 28, 5, 53, 0);     -- MATT +5 in areas inside own nation's control
 
 -- -------------------------------------------------------
 -- Windurstian Headgear/Federation Headgear
