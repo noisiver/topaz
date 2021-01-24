@@ -3947,6 +3947,10 @@ INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,201,65,255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,191,75,255);-- stonega_iii
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,260,32,255); -- Dispel
 
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 438, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',438,147,24,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',438, 205, 1, 255); -- Flare II
+
 
 
 
