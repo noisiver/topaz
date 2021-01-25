@@ -66,7 +66,7 @@ INSERT INTO `guild_shops` VALUES (5132,696,330,330,255,48,100);         -- yew_l
 INSERT INTO `guild_shops` VALUES (5132,697,528,930,255,48,100);         -- holly_log
 INSERT INTO `guild_shops` VALUES (5132,698,72,72,255,48,100);          -- ash_log
 INSERT INTO `guild_shops` VALUES (5132,699,4740,24016,165,33,65);       -- oak_log
-INSERT INTO `guild_shops` VALUES (5132,700,9075,19844,165,33,65);       -- mahogany_log
+INSERT INTO `guild_shops` VALUES (5132,700,4500,9075,100,3,50);       -- mahogany_log
 INSERT INTO `guild_shops` VALUES (5132,701,6615,37044,165,33,65);       -- rosewood_log
 INSERT INTO `guild_shops` VALUES (5132,702,9600,23040,165,33,65);       -- ebony_log
 INSERT INTO `guild_shops` VALUES (5132,704,96,230,375,100,150);         -- bamboo_stick

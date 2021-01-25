@@ -288,6 +288,17 @@ INSERT INTO `mob_family_mods` VALUES (93,73,100,0);
 INSERT INTO `mob_family_mods` VALUES (94,73,100,0);
 INSERT INTO `mob_family_mods` VALUES (95,73,100,0);
 
+-- Absorb
+INSERT INTO `mob_family_mods` VALUES (319,460,100,0);	-- Shiva
+INSERT INTO `mob_family_mods` VALUES (320,463,100,0);	-- Ramuh
+INSERT INTO `mob_family_mods` VALUES (321,462,100,0);	-- Titan
+INSERT INTO `mob_family_mods` VALUES (322,459,100,0);	-- Ifrit
+INSERT INTO `mob_family_mods` VALUES (323,464,100,0);	-- Leviathan	
+INSERT INTO `mob_family_mods` VALUES (324,461,100,0);	-- Garuda
+--INSERT INTO `mob_family_mods` VALUES (325,466,100,0);	-- Fenrir
+--INSERT INTO `mob_family_mods` VALUES (58,466,100,0);	-- Diabolos
+--INSERT INTO `mob_family_mods` VALUES (58,465,100,0);	-- Carbuncle
+
 -- NMs
 INSERT INTO `mob_family_mods` VALUES (506,244,75,0);	 -- Purpleflash Brukdok Silence Resist
 INSERT INTO `mob_family_mods` VALUES (506,240,75,0);	 -- Purpleflash Brukdok Sleep Resist

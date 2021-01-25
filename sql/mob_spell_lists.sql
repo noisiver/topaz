@@ -3947,9 +3947,43 @@ INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,201,65,255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,191,75,255);-- stonega_iii
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,260,32,255); -- Dispel
 
-INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 438, 176, 1, 255); -- Firaga III
-INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',438,147,24,255); -- Fire IV
-INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',438, 205, 1, 255); -- Flare II
+-- Avatar Fights
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime', 438, 181, 1, 255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438,152,24,255); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 207, 1, 255); -- Freeze II
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 356, 1, 255); -- Paralyaga
+
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime', 439, 196, 1, 255); -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439,167,24,255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 213, 1, 255); -- Burst II
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 252, 1, 255); -- Stun
+
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime', 440, 191, 1, 255); -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440,162,24,255); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 211, 1, 255); -- Quake II
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 357, 1, 255); -- Slowga
+
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 441, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441,147,24,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441, 205, 1, 255); -- Flare II
+
+
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan Prime', 442, 201, 1, 255); -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442,172,24,255); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 215, 1, 255); -- Flood II
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 227, 1, 255); -- Poisonga III
+
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime', 443, 186, 1, 255); -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443,157,24,255); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 209, 1, 255); -- Tornado II
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 359, 1, 255); -- Silencega
+
+INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime', 444, 361, 1, 255); -- Blindga
+INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
+
+
 
 
 

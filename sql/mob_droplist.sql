@@ -16287,8 +16287,31 @@ INSERT INTO `mob_droplist` VALUES (3168,0,0,1000,1059,50);
 INSERT INTO `mob_droplist` VALUES (3169,0,0,1000,1049,50); -- (Temple Guardian) Coffer Key
 
 -- Avatars
-INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,8919,150); -- (ifrit Prime) Ifritear 15%
-INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,17192,50); -- Ifrit's Bow 5%
+INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,8924,150); -- (Shiva Prime) Shivatear 15%
+INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,17711,50); -- Shiva's Shotel 5%
+
+INSERT INTO `mob_droplist` VALUES (3171,0,0,1000,8921,150); -- (Ramuh Prime) Ramutear 15%
+INSERT INTO `mob_droplist` VALUES (3171,0,0,1000,18404,50); -- Ramuh's Mace 5%
+
+INSERT INTO `mob_droplist` VALUES (3172,0,0,1000,8923,150); -- (Titan Prime) Titatear 15%
+INSERT INTO `mob_droplist` VALUES (3172,0,0,1000,18021,50); -- Titan's Baselard 5%
+
+INSERT INTO `mob_droplist` VALUES (3173,0,0,1000,8919,150); -- (ifrit Prime) Ifritear 15%
+INSERT INTO `mob_droplist` VALUES (3173,0,0,1000,17192,50); -- Ifrit's Bow 5%
+
+INSERT INTO `mob_droplist` VALUES (3174,0,0,1000,8920,150); -- (Leviathan Prime) Leviatear 15%
+INSERT INTO `mob_droplist` VALUES (3174,0,0,1000,18109,50); -- Leviathan's Couse 5%
+
+INSERT INTO `mob_droplist` VALUES (3175,0,0,1000,8922,150); -- (Garuda Prime) Garutear 15%
+INSERT INTO `mob_droplist` VALUES (3175,0,0,1000,18063,50); -- Garuda's Sickle 5%
+
+INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,8926,150); -- (Fenrir Prime) Fenritear 15%
+INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,17711,50); -- Shiva's Shotel 5%
+INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18404,50); -- Ramuh's Mace 5%
+INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18021,50); -- Titan's Baselard 5%
+INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,17192,50); -- Ifrit's Bow 5%
+INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18109,50); -- Leviathan's Couse 5%
+INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18063,50); -- Garuda's Sickle 5%
 
 
 

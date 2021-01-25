@@ -28,18 +28,18 @@ end
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.MP, 40)
     target:addMod(tpz.mod.AGI, -1)
-    target:addMod(tpz.mod.INT, 3)
+    target:addMod(tpz.mod.MND, 2)
     target:addMod(tpz.mod.CHR, -2)
     target:addMod(tpz.mod.FOOD_MACCP, 21)
-    target:addMod(tpz.mod.FOOD_MACC_CAP, 20)
+    target:addMod(tpz.mod.FOOD_MACC_CAP, 10)
 
 end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.MP, 40)
     target:delMod(tpz.mod.AGI, -1)
-    target:delMod(tpz.mod.INT, 3)
+    target:delMod(tpz.mod.MND, 2)
     target:delMod(tpz.mod.CHR, -2)
     target:delMod(tpz.mod.FOOD_MACCP, 21)
-    target:delMod(tpz.mod.FOOD_MACC_CAP, 20)
+    target:delMod(tpz.mod.FOOD_MACC_CAP, 10)
 end
