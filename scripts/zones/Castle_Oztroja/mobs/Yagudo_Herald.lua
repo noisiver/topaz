@@ -11,5 +11,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.QUU_DOMI_THE_GALLANT_PH, 20, 3600) -- 1 hour
+    tpz.mob.phOnDespawn(mob, ID.mob.QUU_DOMI_THE_GALLANT_PH, 30, 3600) -- 1 hour
 end

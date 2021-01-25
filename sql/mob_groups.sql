@@ -9918,9 +9918,9 @@ INSERT INTO `mob_groups` VALUES (11,1341,151,'Fire_Elemental',600,4,831,0,0,47,4
 INSERT INTO `mob_groups` VALUES (12,1160,151,'Earth_Elemental',600,4,734,0,0,47,49,0);
 INSERT INTO `mob_groups` VALUES (13,4416,151,'Yagudo_Drummer',600,0,2706,0,0,33,37,0);
 INSERT INTO `mob_groups` VALUES (14,872,151,'Cutter',600,0,552,0,0,29,32,0);
-INSERT INTO `mob_groups` VALUES (15,2607,151,'Mee_Deggi_the_Punisher',0,32,1652,2700,0,35,36,0);
-INSERT INTO `mob_groups` VALUES (16,2737,151,'Moo_Ouzi_the_Swiftblade',0,32,1730,2500,0,30,30,0);
-INSERT INTO `mob_groups` VALUES (17,3298,151,'Quu_Domi_the_Gallant',0,32,2069,2500,0,35,36,0);
+INSERT INTO `mob_groups` VALUES (15,2607,151,'Mee_Deggi_the_Punisher',0,32,1652,3500,0,35,36,0);
+INSERT INTO `mob_groups` VALUES (16,2737,151,'Moo_Ouzi_the_Swiftblade',0,32,1730,3000,0,30,30,0);
+INSERT INTO `mob_groups` VALUES (17,3298,151,'Quu_Domi_the_Gallant',0,32,2069,3200,0,35,36,0);
 INSERT INTO `mob_groups` VALUES (18,582,151,'Bulwark_Bat',600,0,386,0,0,29,31,0);
 INSERT INTO `mob_groups` VALUES (19,4461,151,'Yagudo_Zealot',600,0,2778,0,0,42,46,0);
 INSERT INTO `mob_groups` VALUES (20,4445,151,'Yagudo_Prior',600,0,2754,0,0,45,49,0);

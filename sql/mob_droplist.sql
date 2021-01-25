@@ -6674,9 +6674,9 @@ INSERT INTO `mob_droplist` VALUES (1327,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1328,0,0,1000,922,230);
 INSERT INTO `mob_droplist` VALUES (1328,0,0,1000,924,50);
 INSERT INTO `mob_droplist` VALUES (1328,0,0,1000,2777,100);
-INSERT INTO `mob_droplist` VALUES (1329,0,0,1000,4746,190);
-INSERT INTO `mob_droplist` VALUES (1329,0,0,1000,12798,240); -- Zealot's mitts
-INSERT INTO `mob_droplist` VALUES (1329,0,0,1000,17132,50);	-- Monster sigma
+INSERT INTO `mob_droplist` VALUES (1329,0,0,1000,4746,240);
+INSERT INTO `mob_droplist` VALUES (1329,0,0,1000,12798,240);	 -- Zealot's mitts
+INSERT INTO `mob_droplist` VALUES (1329,0,0,1000,17132,100);	 -- Monster sigma
 INSERT INTO `mob_droplist` VALUES (1330,0,0,1000,846,180);
 INSERT INTO `mob_droplist` VALUES (1330,0,0,1000,1040,50);
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,914,100);
@@ -6701,16 +6701,16 @@ INSERT INTO `mob_droplist` VALUES (1334,0,0,1000,846,120);
 INSERT INTO `mob_droplist` VALUES (1334,0,0,1000,4370,116);
 INSERT INTO `mob_droplist` VALUES (1335,2,0,1000,838,0);
 INSERT INTO `mob_droplist` VALUES (1335,0,0,1000,838,60);
-INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,846,56); -- Insect wing  (RARE)
+INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,846,50); -- Insect wing  (RARE)
 INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,912,240); -- Beehive chip (VERY COMMON)
-INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,925,13); -- Giant stinger (VERY RARE)
+INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,925,10); -- Giant stinger (VERY RARE)
 INSERT INTO `mob_droplist` VALUES (1336,2,0,1000,4370,0); -- Pot of Honey (STEAL)
-INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,4370,107); -- Pot of Honey (Common)
+INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,4370,100); -- Pot of Honey (Common)
 ---INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,9082,100); -- Bee Pollen (Uncommon)
 INSERT INTO `mob_droplist` VALUES (1337,0,0,1000,18422,100);
 INSERT INTO `mob_droplist` VALUES (1338,2,0,1000,656,0); -- (Hundredscar Hajwaj) Beastcoin - steal
 INSERT INTO `mob_droplist` VALUES (1338,0,0,1000,13051,1000); -- (Hundredscar Hajwaj) Coarse Leggings
-INSERT INTO `mob_droplist` VALUES (1338,0,0,1000,17412,49); -- (Hundredscar Hajwaj) Wild Cudgel
+INSERT INTO `mob_droplist` VALUES (1338,0,0,1000,17412,100); -- (Hundredscar Hajwaj) Wild Cudgel
 INSERT INTO `mob_droplist` VALUES (1339,2,0,1000,846,0);
 INSERT INTO `mob_droplist` VALUES (1339,0,0,1000,1616,300);
 INSERT INTO `mob_droplist` VALUES (1339,0,0,1000,1649,10);
@@ -8327,7 +8327,7 @@ INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,2357,80);
 INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,14959,100);
 INSERT INTO `mob_droplist` VALUES (1652,2,0,1000,656,0);
 INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,13952,100);		-- (Mee Deggi The Punisher) Ochiudo's Kote
-INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,16703,900);	-- Mee Deggi The Punisher
+INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,16703,900);		
 INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,1640,70);
 INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,1680,10);
 INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,1718,70);
