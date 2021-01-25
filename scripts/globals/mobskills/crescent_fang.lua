@@ -13,8 +13,8 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
-    local accmod = 2
-    local dmgmod = 5
+    local accmod = 1
+    local dmgmod = 1.5
 
     local totaldamage = 0
     local damage = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, 0, TP_NO_EFFECT, 1, 2, 3)

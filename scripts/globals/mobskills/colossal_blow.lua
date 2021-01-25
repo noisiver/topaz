@@ -25,12 +25,16 @@ function onMobWeaponSkill(target, mob, skill)
     -- remove all by 5%
     local damage = 0
 
-    -- if have more hp then 30%, then reduce to 5%
+    --[[-- if have more hp then 30%, then reduce to 5%
     if (target:getHPP() > 30) then
         damage = currentHP * .95
     else
         -- else you die
         damage = currentHP
+    end --]]
+        [-- if have more hp then 30%, then reduce to 5%
+    if (target:getHPP() > 05) then
+        damage = currentHP * .95
     end
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, MOBPARAM_IGNORE_SHADOWS)
 
