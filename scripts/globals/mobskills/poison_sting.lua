@@ -16,12 +16,12 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 2.5
+    local dmgmod = 1.5
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
     local typeEffect = tpz.effect.POISON
-    local power = mob:getMainLvl()/10 + 3
+    local power = mob:getMainLvl()/5 + 3
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 3, 60)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)

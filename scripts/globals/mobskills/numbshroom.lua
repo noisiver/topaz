@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
     mob:setMobMod(tpz.mobMod.VAR, 2)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 2
+    local dmgmod = 1.5
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded)
 
