@@ -9989,7 +9989,6 @@ INSERT INTO `item_mods` VALUES (13172,71,1);
 INSERT INTO `item_mods` VALUES (13172,72,1);
 INSERT INTO `item_mods` VALUES (13173,1,4);
 INSERT INTO `item_mods` VALUES (13174,168,5);     -- Willpower Torque: Spell interruption rate down 5%
-INSERT INTO `item_mods` VALUES (13174,12,2);	  -- +2 INT
 INSERT INTO `item_mods` VALUES (13175,11,2);
 INSERT INTO `item_mods` VALUES (13175,13,6);
 INSERT INTO `item_mods` VALUES (13176,12,3);
