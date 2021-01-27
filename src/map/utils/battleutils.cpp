@@ -1233,24 +1233,24 @@ namespace battleutils
                 case ENSPELL_II_FIRE:
                     element = 1;
                     break;
-                case ENSPELL_I_EARTH:
-                case ENSPELL_II_EARTH:
+                case ENSPELL_I_ICE:
+                case ENSPELL_II_ICE:
                     element = 2;
-                    break;
-                case ENSPELL_I_WATER:
-                case ENSPELL_II_WATER:
-                    element = 3;
                     break;
                 case ENSPELL_I_WIND:
                 case ENSPELL_II_WIND:
-                    element = 4;
+                    element = 3;
                     break;
-                case ENSPELL_I_ICE:
-                case ENSPELL_II_ICE:
-                    element = 5;
+                case ENSPELL_I_EARTH:
+                case ENSPELL_II_EARTH:
+                    element = 4;
                     break;
                 case ENSPELL_I_THUNDER:
                 case ENSPELL_II_THUNDER:
+                    element = 5;
+                    break;
+                case ENSPELL_I_WATER:
+                case ENSPELL_II_WATER:
                 case ENSPELL_ROLLING_THUNDER:
                     element = 6;
                     break;
