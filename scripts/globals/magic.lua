@@ -1818,14 +1818,14 @@ function doElementalNuke(caster, spell, target, spellParams)
         --print(string.format("MTDR was %.2f for numtargets %u",MTDR,spell:getTotalTargets()))
     end
     
-    if target:getMod(tpz.mod.MAGIC_STACKING_MDT) == 0 then
-        target:setMod(tpz.mod.MAGIC_STACKING_MDT,40)
-        target:queue(1100, function(target)
-            target:setMod(tpz.mod.MAGIC_STACKING_MDT,0)
-        end) 
-    else
-        DMG = DMG * target:getMod(tpz.mod.MAGIC_STACKING_MDT) / 100
-    end
+   -- if target:getMod(tpz.mod.MAGIC_STACKING_MDT) == 0 then
+   --     target:setMod(tpz.mod.MAGIC_STACKING_MDT,40)
+   --     target:queue(1100, function(target)
+   --         target:setMod(tpz.mod.MAGIC_STACKING_MDT,0)
+   --     end) 
+   -- else
+   --     DMG = DMG * target:getMod(tpz.mod.MAGIC_STACKING_MDT) / 100
+   -- end
     
     --get the resisted damage
     DMG = DMG * resist * MTDR
