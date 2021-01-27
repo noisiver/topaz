@@ -15603,7 +15603,7 @@ INSERT INTO `mob_droplist` VALUES (3014,0,0,1000,2840,187);	-- (Huwasi) Imperial
 INSERT INTO `mob_droplist` VALUES (3015,0,0,1000,18607,337);	-- (Lii Jixa The Somnolist) Ceres' Spica 
 INSERT INTO `mob_droplist` VALUES (3016,0,0,1000,16186,240);	-- (Mucoid Mass) Spellcaster's Ecu
 INSERT INTO `mob_droplist` VALUES (3017,0,0,1000,19230,235);	-- (Patripatan) Nous Arbalest
-INSERT INTO `mob_droplist` VALUES (3018,0,0,1000,2857,299);		-- (Saa Doyi The Fervid) Lump Of Tokkyu Tama-Hagane 
+INSERT INTO `mob_droplist` VALUES (3018,0,0,1000,2857,240);		-- (Saa Doyi The Fervid) Lump Of Tokkyu Tama-Hagane 
 INSERT INTO `mob_droplist` VALUES (3019,0,0,1000,19045,400);
 INSERT INTO `mob_droplist` VALUES (3020,0,0,1000,16024,220);
 INSERT INTO `mob_droplist` VALUES (3021,0,0,1000,16036,49); -- (Goblintrap) Wilhelm's Earring
