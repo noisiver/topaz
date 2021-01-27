@@ -18,7 +18,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
-    local power = 25
+    local power = 50 -- changed from 25
     local duration = 90
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, duration))

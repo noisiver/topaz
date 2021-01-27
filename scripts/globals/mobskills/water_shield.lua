@@ -18,6 +18,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.EVASION_BOOST
-    skill:setMsg(MobBuffMove(mob, typeEffect, 20, 0, 30))
+    skill:setMsg(MobBuffMove(mob, typeEffect, 30, 0, 30)) -- changed from 20
     return typeEffect
 end

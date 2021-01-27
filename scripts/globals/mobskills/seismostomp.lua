@@ -17,14 +17,14 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 2.3
+    local dmgmod = 1
 
     if mob:isMobType(MOBTYPE_NOTORIOUS) then
-        dmgmod = dmgmod + math.random()
+        dmgmod = 1
     end
 
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local shadows_removed = math.random(2)
+    local shadows_removed = 2
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows_removed)
     local typeEffect = tpz.effect.STUN
 

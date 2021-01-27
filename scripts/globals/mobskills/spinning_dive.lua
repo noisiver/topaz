@@ -16,8 +16,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
 
     numhits = 1
-    accmod = 2
-    dmgmod = 2
+    accmod = 1
+    dmgmod = 1.5
     info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, 1, 2, 3)
     dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)

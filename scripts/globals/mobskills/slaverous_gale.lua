@@ -18,8 +18,8 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectTwo = tpz.effect.SLOW
     MobStatusEffectMove(mob, target, typeEffectOne, 1, 3, 60)
     MobStatusEffectMove(mob, target, typeEffectTwo, 1250, 0, 60)
-    local dmgmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * math.random(4, 6), tpz.magic.ele.EARTH, dmgmod, TP_NO_EFFECT)
+    local dmgmod = 1.5
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, tpz.magic.ele.EARTH, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, MOBPARAM_WIPE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)

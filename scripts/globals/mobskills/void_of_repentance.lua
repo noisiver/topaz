@@ -21,7 +21,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.TERROR, 1, 0, 30))
+    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.TERROR, 1, 0, 60))
 
     return tpz.effect.TERROR
 end

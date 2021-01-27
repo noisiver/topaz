@@ -19,7 +19,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, math.random(12, 20)))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30))
+    --skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, math.random(12, 20)))
 
     -- reset everyones enmity
     mob:resetEnmity(target)

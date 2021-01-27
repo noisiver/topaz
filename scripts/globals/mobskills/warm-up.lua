@@ -21,7 +21,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     -- This is nonsensically overpowering: mob:getMainLvl() + 0.05*mob:getMaxHP()*(skill:getTP()/1000)
-    local power = 10 -- Power needs redone with retail MOB VERSION formula not players blue magic
+    local power = 50 -- Power needs redone with retail MOB VERSION formula not players blue magic changed from 10
     local EFFECT
     local rand = math.random() -- 0 to 1..
     --[[

@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local power = 10
+    local power = 33
     local duration = 60
     local typeEffect = tpz.effect.COUNTERSTANCE
 
@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
         -- power = 50? He's not implemented yet anyway :P
     -- end
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, 10, 0, 60))
+    skill:setMsg(MobBuffMove(mob, typeEffect, 33, 0, 60))
 
     return typeEffect
 end

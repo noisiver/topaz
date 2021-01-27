@@ -17,7 +17,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = mob:getMainLvl()/10 * 4 + 5
-    local duration = 60
+    local duration = 90 -- buffed from 60
 
     local typeEffect = tpz.effect.REGEN
 
