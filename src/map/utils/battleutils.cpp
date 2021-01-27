@@ -557,8 +557,8 @@ namespace battleutils
 
         damage = (int32)(damage * resist);
         damage = (int32)(damage * dBonus);
-        damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
-        //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element));
+        //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
+        damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element));
 
         if (damage > 0)
         {
