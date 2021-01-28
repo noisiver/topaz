@@ -15066,12 +15066,12 @@ INSERT INTO `mob_droplist` VALUES (2840,0,0,1000,529,50);
 INSERT INTO `mob_droplist` VALUES (2840,0,0,1000,940,333);
 INSERT INTO `mob_droplist` VALUES (2840,0,0,1000,13613,124);	-- spook travelers mantle
 INSERT INTO `mob_droplist` VALUES (2840,2,0,1000,825,0);
-INSERT INTO `mob_droplist` VALUES (2841,0,0,1000,16754,800);	-- (Da'dha Hundredmask) Parrying knife
-INSERT INTO `mob_droplist` VALUES (2841,0,0,1000,16819,240);	-- Mithran scimitar
+INSERT INTO `mob_droplist` VALUES (2841,0,0,1000,16754,1000);	-- (Da'dha Hundredmask) Parrying knife
+INSERT INTO `mob_droplist` VALUES (2841,0,0,1000,16819,100);	-- Mithran scimitar
 INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,4744,50);
 INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,4745,50);
-INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,13073,504);	-- (Ge'dha Evileye) Holy Phial
-INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,13731,111);	-- Faerie Tunic
+INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,13073,240);	-- (Ge'dha Evileye) Holy Phial
+INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,13731,100);	-- Faerie Tunic
 INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1870,780);
 INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1903,220);
 INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1854,810);
@@ -15095,8 +15095,8 @@ INSERT INTO `mob_droplist` VALUES (2850,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (2850,0,0,1000,13839,926);	-- (Zo'khu Blackcloud) Marine Hat
 INSERT INTO `mob_droplist` VALUES (2850,0,0,1000,12343,81);		-- Faerie Shield
 INSERT INTO `mob_droplist` VALUES (2851,2,0,1000,750,0);
-INSERT INTO `mob_droplist` VALUES (2851,1,1,1000,16720,240);	-- (Bi'gho Headtaker) Plantbane
-INSERT INTO `mob_droplist` VALUES (2851,1,1,1000,17230,800);	-- Power Crossbow
+INSERT INTO `mob_droplist` VALUES (2851,1,1,1000,16720,100);	-- (Bi'gho Headtaker) Plantbane
+INSERT INTO `mob_droplist` VALUES (2851,1,1,1000,17230,1000);	-- Power Crossbow
 INSERT INTO `mob_droplist` VALUES (2851,0,0,1000,501,240);
 INSERT INTO `mob_droplist` VALUES (2852,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (2852,0,0,1000,12374,240);	--(Bo'who Warmonger)Tortoise shield
