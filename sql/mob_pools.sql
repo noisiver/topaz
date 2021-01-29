@@ -6764,6 +6764,10 @@ INSERT INTO `mob_pools` VALUES (6718,'Sword_Sorcerer_Solisoq','Sword_Sorcerer_So
 INSERT INTO `mob_pools` VALUES (6719,'Greater_Pugil','Greater_Pugil',197,0x00005C0100000000000000000000000000000000,1,1,7,240,100,0,1,0,0,0,0,0,0,131,0,0,0,1,0,197);-- Korrolokka
 INSERT INTO `mob_pools` VALUES (6720,'Labyrinth_Lizard_CN','Labyrinth_Lizard',174,0x0000480100000000000000000000000000000000,1,1,7,240,100,0,1,0,1,0,0,0,239,133,0,0,0,1,0,97);
 INSERT INTO `mob_pools` VALUES (6721,'Cutlass_Scorpion_TC','Cutlass_Scorpion_TC',217,0x00001C0100000000000000000000000000000000,1,1,7,280,100,0,1,0,0,0,0,0,191,131,0,0,0,1,0,217);
+
+--Custom Content
+INSERT INTO `mob_pools` VALUES (9000,'Animated_Longsword-RDM','Animated_Longsword-RDM',915,0x00001C0100000000000000000000000000000000,5,1,7,280,100,0,1,0,0,0,0,0,191,131,0,0,0,1,0,217);
+
 /*
   `poolid` int(10) unsigned NOT NULL,
   `name` varchar(24) DEFAULT NULL,
