@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Jugner Forest
 --   NM: Meteormauler Zhagtegg
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

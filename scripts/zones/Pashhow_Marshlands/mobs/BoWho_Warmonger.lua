@@ -3,6 +3,7 @@
 --   NM: Bo'Who Warmonger
 -----------------------------------
 require("scripts/globals/regimes")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

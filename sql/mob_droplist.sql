@@ -16397,6 +16397,11 @@ INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,17192,50); -- Ifrit's Bow 5%
 INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18109,50); -- Leviathan's Couse 5%
 INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18063,50); -- Garuda's Sickle 5%
 
+-- Animated Weapons(Mythic)
+INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,16563,240); -- Rune Blade 24% 
+
+
 
 
 
