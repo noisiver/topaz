@@ -65,6 +65,7 @@ zones[tpz.zone.THE_ELDIEME_NECROPOLIS] =
         MIMIC               = 17576270,
         APPARATUS_ELEMENTAL = 17576271,
         NAMORODO            = 17576272,
+        ANIMATED_LONGSWORD  = 17330356, 
     },
     npc =
     {

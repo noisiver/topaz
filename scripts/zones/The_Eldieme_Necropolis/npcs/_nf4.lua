@@ -37,14 +37,14 @@ require("scripts/globals/npc_util")
 
 
 function onTrade(player, npc, trade)
-    if npcUtil.tradeHas(trade, {16547, 1425}) and npcUtil.popFromQM(player, npc, ID.mob.GENBU) then -- items and mob id here under mob = in IDs.lua
-        player:showText(npc, ID.text.SKY_GOD_OFFSET + 5)
+    if npcUtil.tradeHas(trade, {16547}) and npcUtil.popFromQM(player, npc, ID.mob.GENBU) then -- items and mob id here under mob = in IDs.lua
+        player:showText(npc, ID.text.SENSE_OF_FOREBODING + 5)
         player:confirmTrade()
     end
 end
 
 function onTrigger(player, npc)
-    player:messageSpecial(ID.text.SKY_GOD_OFFSET) -- put special message when clicking ??? here from IDs.lua of the zone
+    player:messageSpecial(ID.text.DEVICE_NOT_WORKING) -- put special message when clicking ??? here from IDs.lua of the zone
 end
 
 
@@ -53,4 +53,3 @@ end
 
 function onEventFinish(player, csid, option)
 end
-

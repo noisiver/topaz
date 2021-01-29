@@ -3947,6 +3947,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,201,65,255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,191,75,255);-- stonega_iii
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,260,32,255); -- Dispel
 
+--Custom Content
+
 -- Avatar Fights
 INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime', 438, 181, 1, 255); -- Blizzaga III
 INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438,152,24,255); -- Blizzard IV
@@ -3982,6 +3984,16 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime', 444, 361, 1, 255); -- Blin
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelga
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
+
+-- Mythic Weapons V1
+INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM',445,493,95,255);     -- Temper
+INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM',445,511,96,255);       -- Haste II
+INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM',445,35,1,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM', 445, 227, 1, 255); -- Poisonga III
+INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM',445,4,41,60); -- Cure IV
+INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM', 445, 106, 1, 255); -- Phalanx
+INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM', 445, 47, 1, 255);  -- Protect V
+INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM', 445, 52, 1, 255);  -- Shell V
 
 
 

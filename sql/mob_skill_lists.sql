@@ -3705,5 +3705,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,538);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,539);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,541);
 INSERT INTO `mob_skill_lists` VALUES ('DarkSpark',1153,4262);
+
+
+-- Custom Content
+INSERT INTO `mob_skill_lists` VALUES ('Animated_LongswordRDM',2000,44); -- Death Blossom
+INSERT INTO `mob_skill_lists` VALUES ('Animated_LongswordRDM',2000,405); -- Dire Whorl
+INSERT INTO `mob_skill_lists` VALUES ('Animated_LongswordRDM',2000,1252); -- Shadow Spread
+INSERT INTO `mob_skill_lists` VALUES ('Animated_LongswordRDM',2000,522); -- Spectral Barrier
 -- Next available ID: 1148
 
