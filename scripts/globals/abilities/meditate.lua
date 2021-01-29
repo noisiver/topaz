@@ -17,6 +17,6 @@ function onUseAbility(player, target, ability)
     if (player:getMainJob() == tpz.job.SAM) then
         amount = 20
     end
-    local duration = 15 + player:getMod(tpz.mod.MEDITATE_DURATION)
+    local duration = 16 + player:getMod(tpz.mod.MEDITATE_DURATION)
     player:addStatusEffectEx(tpz.effect.MEDITATE, 0, amount, 3, duration)
 end
