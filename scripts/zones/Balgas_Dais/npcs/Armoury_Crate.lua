@@ -25,11 +25,11 @@ local loot =
             {itemid =  4174, droprate =  250}, -- vile_elixir
         },
         {
-            {itemid =     0, droprate =  400}, -- nothing
-            {itemid =  4858, droprate =  100}, -- scroll_of_ice_spikes
-            {itemid =  4874, droprate =  150}, -- scroll_of_absorb-str
+            {itemid =     0, droprate =  200}, -- nothing
+            {itemid =  4858, droprate =  50}, -- scroll_of_ice_spikes
+            {itemid =  4874, droprate =  50}, -- scroll_of_absorb-str
             {itemid = 13237, droprate =  240}, -- survival_belt
-            {itemid = 13127, droprate =  100}, -- guarding_gorget
+            {itemid = 13127, droprate =  150}, -- guarding_gorget
             {itemid = 13405, droprate =  100}, -- enhancing_earring
             {itemid = 12349, droprate =  240}, -- balance_buckler
         },

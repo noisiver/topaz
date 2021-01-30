@@ -41,7 +41,7 @@ local DARK_CLUSTER      = 4111
 --     drop    = {itemid, cumulative drop rate, drop quantity, itemid, cumulative drop rate, drop quantity, ...} in ascending order by drop rate
 -- }
 ------------------------------------
-
+--[[
 local strAppData =
 {
     [tpz.zone.DANGRUF_WADI] =
@@ -393,3 +393,4 @@ tpz.strangeApparatus =
         end
     end,
 }
+--]]
