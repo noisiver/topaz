@@ -9,12 +9,12 @@ require("scripts/globals/status")
 function onMagicCastingCheck(caster, target, spell)
     return 0
 end
---[[
+
 function onSpellCast(caster, target, spell)
     -- Pull base stats.
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
-    local power = calculatePotency(26, spell:getSkillType(), caster, target)
+    local power = calculatePotency(50, spell:getSkillType(), caster, target)
 
     -- Duration, including resistance.  Unconfirmed.
     local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
@@ -38,8 +38,8 @@ function onSpellCast(caster, target, spell)
 
     return params.effect
 end
---]]
-function onSpellCast(caster, target, spell)
+
+--[[function onSpellCast(caster, target, spell)
     -- Pull base stats.
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
@@ -70,3 +70,4 @@ function onSpellCast(caster, target, spell)
 
     return params.effect
 end
+--]]
