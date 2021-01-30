@@ -43,7 +43,7 @@ function onSpellCast(caster, target, spell)
     -- Pull base stats.
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
-    --local power = 26
+    local power = 50
 
     -- Duration, including resistance.  Unconfirmed.
     local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
@@ -58,7 +58,7 @@ function onSpellCast(caster, target, spell)
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.GRAVITY, target))
 
     if resist >= 0.5 then --Do it!
-        if target:addStatusEffect(params.effect, 50, 0, duration) then
+        if target:addStatusEffect(params.effect, power, 0, duration) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
