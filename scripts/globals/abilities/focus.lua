@@ -14,5 +14,5 @@ end
 
 function onUseAbility(player, target, ability)
     local power = 20 + player:getMod(tpz.mod.FOCUS_EFFECT)
-    player:addStatusEffect(tpz.effect.FOCUS, power, 0, 120)
+    player:addStatusEffect(tpz.effect.FOCUS, power, 0, 300)
 end
