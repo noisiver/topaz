@@ -38,7 +38,7 @@ require("scripts/globals/npc_util")
 
 function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, {16547}) and npcUtil.popFromQM(player, npc, ID.mob.ANIMATED_LONGSWORD) then -- items and mob id here under mob = in IDs.lua
-        player:showText(npc, ID.text.SENSE_OF_FOREBODING + 5)
+        player:showText(npc, ID.text.SYS_OVERLOAD)
         player:confirmTrade()
     end
 end
