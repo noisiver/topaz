@@ -10,11 +10,11 @@ mixins = {require("scripts/mixins/job_special")}
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:addStatusEffect(protect_V, 1, 0, 3600)
-    mob:addStatusEffect(shell_V, 1, 0, 3600)
-    mob:addStatusEffect(phalanx, 1, 0, 180)
-    mob:addStatusEffect(temper, 1, 0, 180)
-    mob:addStatusEffect(haste_II, 1, 0, 180)
+    mob:addStatusEffect(tpz.effect.PROTECT, 175, 0, 3600)
+    mob:addStatusEffect(tpz.effect.SHELL, 24, 0, 3600)
+    mob:addStatusEffect(tpz.effect.PHALANX, 30, 0, 180)
+    mob:addStatusEffect(tpz.effect.TEMPER, 50, 0, 180)
+    mob:addStatusEffect(tpz.effect.HASTE, 30, 0, 180)
 end
 
 function onMobDeath(mob, player, isKiller)
