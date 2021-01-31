@@ -12204,7 +12204,7 @@ INSERT INTO `mob_groups` VALUES (55,5535,195,'Ice_Elemental',0,128,0,0,0,75,75,0
 INSERT INTO `mob_groups` VALUES (56,2802,195,'Namorodo',0,128,0,2000,0,35,35,0);
 INSERT INTO `mob_groups` VALUES (57,5179,195,'Gasha-1stform',0,128,0,0,0,94,95,0);
 INSERT INTO `mob_groups` VALUES (58,6561,195,'Lost_Soul',600,0,1542,0,0,42,46,0); 
-INSERT INTO `mob_groups` VALUES (59,152,195,'Animated_Longsword',0,128,3177,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (59,9000,195,'Animated_Longsword',0,128,3177,35000,0,85,87,0);
 
 INSERT INTO `mob_groups` VALUES (9757,3858,195,'Tebhi',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9761,3992,195,'Treasure_Chest',0,0,0,0,0,0,0,0);
