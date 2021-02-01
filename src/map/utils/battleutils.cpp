@@ -4143,7 +4143,21 @@ namespace battleutils
     //    }
     //}
 
-        void GenerateCureEnmity(CBattleEntity* PSource, CBattleEntity* PTarget, int32 amount)
+    //    void GenerateCureEnmity(CBattleEntity* PSource, CBattleEntity* PTarget, int32 amount)
+    //{
+    //    TPZ_DEBUG_BREAK_IF(PSource == nullptr);
+    //    TPZ_DEBUG_BREAK_IF(PTarget == nullptr);
+
+    //    for (auto* entity : *PTarget->PNotorietyContainer)
+    //    {
+    //        if (CMobEntity* PCurrentMob = dynamic_cast<CMobEntity*>(entity))
+    //        {
+    //            PCurrentMob->PEnmityContainer->UpdateEnmityFromCure(PSource, PTarget->GetMLevel(), amount, (amount == 65535)); // true for "cure v"
+    //        }
+    //    }
+    //}
+
+    void GenerateCureEnmity(CBattleEntity* PSource, CBattleEntity* PTarget, int32 amount)
     {
         TPZ_DEBUG_BREAK_IF(PSource == nullptr);
         TPZ_DEBUG_BREAK_IF(PTarget == nullptr);
@@ -4152,7 +4166,10 @@ namespace battleutils
         {
             if (CMobEntity* PCurrentMob = dynamic_cast<CMobEntity*>(entity))
             {
-                PCurrentMob->PEnmityContainer->UpdateEnmityFromCure(PSource, PTarget->GetMLevel(), amount, (amount == 65535)); // true for "cure v"
+                if (PCurrentMob->m_HiPCLvl > 0 && PCurrentMob->PEnmityContainer->HasID(PTarget->id))
+                {
+                    PCurrentMob->PEnmityContainer->UpdateEnmityFromCure(PSource, PTarget->GetMLevel(), amount, (amount == 65535)); // true for "cure v"
+                }
             }
         }
     }
