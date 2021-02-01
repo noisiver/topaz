@@ -14,7 +14,7 @@ end
 function onSpellCast(caster, target, spell)
    -- local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
    local duration = 180
-    duration = calculateDurationForLvl(duration, 48, target:getMainLvl())
+   -- duration = calculateDurationForLvl(duration, 48, target:getMainLvl())
 
     local power = 1465 -- 150/1024 ~14.65%
 
