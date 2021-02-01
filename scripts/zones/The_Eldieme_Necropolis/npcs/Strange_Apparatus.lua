@@ -1,4 +1,4 @@
------------------------------------
+--[[-----------------------------------
 -- Area: The Eldieme Necropolis
 --  NPC: Strange Apparatus
 -- !pos 104 0 -179 195
@@ -25,3 +25,4 @@ end
 
 function onEventFinish(player, csid, option)
 end
+--]]

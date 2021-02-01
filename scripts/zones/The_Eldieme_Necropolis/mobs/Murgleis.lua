@@ -18,6 +18,7 @@ function onMobSpawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
+player:PrintToPlayer("Maybe...you...are...worthy...of...my...power...",0,"Murgleis")
 end
 
 

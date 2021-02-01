@@ -146,7 +146,7 @@ function utils.conalDamageAdjustment(attacker, target, skill, max_damage, minimu
 
     return final_damage
 end
-
+--[[
 -- returns true if taken by third eye
 function utils.thirdeye(target)
     --third eye doesnt care how many shadows, so attempt to anticipate, but reduce
@@ -167,7 +167,33 @@ function utils.thirdeye(target)
 
     return false
 end
+--]]
+function utils.thirdeye(target)
+    --third eye doesnt care how many shadows, so attempt to anticipate, but reduce
+    --chance of anticipate based on previous successful anticipates.
+    local teye = target:getStatusEffect(tpz.effect.THIRD_EYE)
+	local seigan = target:getStatusEffect(tpz.effect.SEIGAN)
 
+    if teye == nil then
+        return false
+    end
+
+    local prevAnt = teye:getPower()
+
+    if prevAnt < 7 then
+        --anticipated!
+        if seigan == nil or prevAnt == 6 or math.random()*100 > 100-prevAnt*15 then
+			target:delStatusEffect(tpz.effect.THIRD_EYE)
+		else
+			teye:setPower(prevAnt + 1)
+		end
+        return true
+    else
+		target:delStatusEffect(tpz.effect.THIRD_EYE)
+	end
+
+    return false
+end
 -----------------------------------
 --     SKILL LEVEL CALCULATOR
 --     Returns a skill level based on level and rating.

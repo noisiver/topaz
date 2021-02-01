@@ -16398,11 +16398,11 @@ INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18109,50); -- Leviathan's Couse
 INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18063,50); -- Garuda's Sickle 5%
 
 -- Animated Weapons(Mythic)
-INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,17742,1000); -- Vorpal Sword(RDM Sword) 100%
 INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,16563,240); -- Rune Blade 24% 
 
-INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,17742,1000); -- Vorpal Sword 100%
-INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,16563,240); -- Rune Blade 24% 
+INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,18443,1000); -- Windslicer(GKT) 100%
+INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,19376,240); -- Efunotachi  24% 
 
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,16563,240); -- Rune Blade 24% 
