@@ -95,11 +95,11 @@ INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5044,90);
 INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5045,60);
 INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5072,50);
 INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5073,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5074,110);
-INSERT INTO `mob_droplist` VALUES (8,0,0,1000,640,113);
-INSERT INTO `mob_droplist` VALUES (8,0,0,1000,642,57);
-INSERT INTO `mob_droplist` VALUES (8,0,0,1000,736,14);
-INSERT INTO `mob_droplist` VALUES (8,0,0,1000,768,290);
+INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5074,100);
+INSERT INTO `mob_droplist` VALUES (8,0,0,1000,640,100);
+INSERT INTO `mob_droplist` VALUES (8,0,0,1000,642,50);
+INSERT INTO `mob_droplist` VALUES (8,0,0,1000,736,10);
+INSERT INTO `mob_droplist` VALUES (8,0,0,1000,768,240);
 INSERT INTO `mob_droplist` VALUES (8,0,0,1000,1032,50);
 INSERT INTO `mob_droplist` VALUES (8,2,0,1000,17296,0);
 INSERT INTO `mob_droplist` VALUES (9,0,0,1000,2490,100);
@@ -977,7 +977,7 @@ INSERT INTO `mob_droplist` VALUES (168,0,0,1000,19035,220);
 INSERT INTO `mob_droplist` VALUES (168,0,0,1000,19036,550);
 INSERT INTO `mob_droplist` VALUES (169,0,0,1000,846,240);
 INSERT INTO `mob_droplist` VALUES (169,0,0,1000,894,150);
-INSERT INTO `mob_droplist` VALUES (169,0,0,1000,889,100);
+INSERT INTO `mob_droplist` VALUES (169,0,0,1000,889,240);
 INSERT INTO `mob_droplist` VALUES (169,2,0,1000,894,0);
 INSERT INTO `mob_droplist` VALUES (170,0,0,1000,3190,480);
 INSERT INTO `mob_droplist` VALUES (170,0,0,1000,3190,240);
@@ -2618,7 +2618,7 @@ INSERT INTO `mob_droplist` VALUES (460,0,0,1000,17755,320);
 INSERT INTO `mob_droplist` VALUES (461,0,0,1000,922,220);
 INSERT INTO `mob_droplist` VALUES (461,0,0,1000,924,06);
 INSERT INTO `mob_droplist` VALUES (462,0,0,1000,574,50);
-INSERT INTO `mob_droplist` VALUES (462,0,0,1000,953,90);
+INSERT INTO `mob_droplist` VALUES (462,0,0,1000,953,240);
 INSERT INTO `mob_droplist` VALUES (463,2,0,1000,864,0);
 INSERT INTO `mob_droplist` VALUES (463,0,0,1000,868,120);
 INSERT INTO `mob_droplist` VALUES (464,0,0,1000,3192,470);
@@ -2806,8 +2806,8 @@ INSERT INTO `mob_droplist` VALUES (493,0,0,1000,16360,10);
 INSERT INTO `mob_droplist` VALUES (494,0,0,1000,2506,470);
 INSERT INTO `mob_droplist` VALUES (494,0,0,1000,3105,100);
 INSERT INTO `mob_droplist` VALUES (495,4,0,1000,842,0);
-INSERT INTO `mob_droplist` VALUES (495,0,0,1000,854,180);
-INSERT INTO `mob_droplist` VALUES (495,0,0,1000,1056,80);
+INSERT INTO `mob_droplist` VALUES (495,0,0,1000,854,150);
+INSERT INTO `mob_droplist` VALUES (495,0,0,1000,1056,50);
 INSERT INTO `mob_droplist` VALUES (495,0,0,1000,4435,240);
 INSERT INTO `mob_droplist` VALUES (496,0,0,1000,863,150);	-- (Coeurl) Coeurl Hide
 INSERT INTO `mob_droplist` VALUES (496,2,0,1000,927,0);
@@ -4641,8 +4641,8 @@ INSERT INTO `mob_droplist` VALUES (918,0,0,1000,891,270);
 INSERT INTO `mob_droplist` VALUES (918,0,0,1000,922,360);
 INSERT INTO `mob_droplist` VALUES (918,0,0,1000,924,50);
 INSERT INTO `mob_droplist` VALUES (918,0,0,1000,930,30);
-INSERT INTO `mob_droplist` VALUES (919,0,0,1000,891,920);
-INSERT INTO `mob_droplist` VALUES (919,0,0,1000,922,500);
+INSERT INTO `mob_droplist` VALUES (919,0,0,1000,891,1000);
+INSERT INTO `mob_droplist` VALUES (919,0,0,1000,922,240);
 INSERT INTO `mob_droplist` VALUES (919,0,0,1000,1041,50);
 INSERT INTO `mob_droplist` VALUES (920,0,0,1000,2521,40);
 INSERT INTO `mob_droplist` VALUES (921,0,0,1000,624,330);
@@ -16400,6 +16400,69 @@ INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18063,50); -- Garuda's Sickle 5
 -- Animated Weapons(Mythic)
 INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3186,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3186,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3187,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3187,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3188,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3188,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3189,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3189,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3190,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3190,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3191,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3191,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3192,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3192,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3193,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3194,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3195,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3195,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3196,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3196,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3197,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3197,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (6000,0,0,1000,924,10); -- (Ogre Bat - KRT)
+INSERT INTO `mob_droplist` VALUES (6000,0,0,1000,922,240);
+INSERT INTO `mob_droplist` VALUES (6001,0,0,1000,768,240);	-- (Tomb Worm - KRT)
+INSERT INTO `mob_droplist` VALUES (6001,0,0,1000,640,240);
+INSERT INTO `mob_droplist` VALUES (6001,0,0,1000,642,100);
 
 
 

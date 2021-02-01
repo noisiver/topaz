@@ -11890,8 +11890,8 @@ INSERT INTO `mob_groups` VALUES (22,4569,190,'Barbastelle',0,128,2971,0,0,16,19,
 INSERT INTO `mob_groups` VALUES (23,1690,190,'Goblin_Mugger',600,0,1118,0,0,21,23,0);
 INSERT INTO `mob_groups` VALUES (24,1683,190,'Goblin_Leecher',600,0,1106,0,0,21,23,0);
 INSERT INTO `mob_groups` VALUES (25,1666,190,'Goblin_Gambler',600,0,1080,0,0,21,23,0);
-INSERT INTO `mob_groups` VALUES (26,3946,190,'Tomb_Worm',330,0,0,0,0,58,60,0);
-INSERT INTO `mob_groups` VALUES (27,6460,190,'Ogre_Bat',330,0,0,0,0,62,64,0);
+INSERT INTO `mob_groups` VALUES (26,3946,190,'Tomb_Worm',330,0,6001,0,0,58,60,0);
+INSERT INTO `mob_groups` VALUES (27,6460,190,'Ogre_Bat',330,0,6000,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (28,6333,190,'Cutlass_Scorpion',330,0,549,0,0,63,65,0);
 INSERT INTO `mob_groups` VALUES (29,6391,190,'Thousand_Eyes',300,0,2402,0,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (30,1898,190,'Hati',600,0,1278,0,0,77,79,0);
