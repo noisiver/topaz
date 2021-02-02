@@ -11953,7 +11953,7 @@ INSERT INTO `mob_groups` VALUES (29,6660,191,'Goblin_Bladesmith',600,0,0,0,0,14,
 INSERT INTO `mob_groups` VALUES (30,6665,191,'Goblin_Bushwhacker',600,0,0,0,0,14,16,0);
 INSERT INTO `mob_groups` VALUES (31,724,191,'Chocoboleech',0,128,470,1200,0,24,25,0);
 INSERT INTO `mob_groups` VALUES (32,5528,191,'Fire_Elemental',0,128,0,0,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (32,9001,191,'Kogarasumaru',0,128,3178,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (33,9001,191,'Kogarasumaru',0,128,3178,35000,0,85,87,0);
 
 INSERT INTO `mob_groups` VALUES (9557,1527,191,'Giant_Grub',330,0,967,0,0,9,12,0);
 INSERT INTO `mob_groups` VALUES (9570,5733,191,'Snipper',330,0,2283,0,0,16,20,0);
