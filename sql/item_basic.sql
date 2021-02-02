@@ -762,7 +762,7 @@ INSERT INTO `item_basic` VALUES (850,0,'square_of_sheep_leather','sheep_leather'
 INSERT INTO `item_basic` VALUES (851,0,'square_of_ram_leather','ram_leather',12,4,41,0,604);
 INSERT INTO `item_basic` VALUES (852,0,'lizard_skin','lizard_skin',12,4,41,0,65);
 INSERT INTO `item_basic` VALUES (853,0,'raptor_skin','raptor_skin',12,4,41,0,479);
-INSERT INTO `item_basic` VALUES (854,0,'cockatrice_skin','cockatrice_skin',12,4,41,0,589);
+INSERT INTO `item_basic` VALUES (854,0,'cockatrice_skin','cockatrice_skin',1,4,41,0,589);
 INSERT INTO `item_basic` VALUES (855,0,'square_of_black_tiger_leather','tiger_leather',12,4,41,0,768);
 INSERT INTO `item_basic` VALUES (856,0,'rabbit_hide','rabbit_hide',12,4,41,0,15);
 INSERT INTO `item_basic` VALUES (857,0,'dhalmel_hide','dhalmel_hide',1,4,41,0,200);		-- stack changed from 12 to 1
