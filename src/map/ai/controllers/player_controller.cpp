@@ -23,6 +23,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
 #include "../ai_container.h"
 #include "../states/death_state.h"
+#include "../../ability.h"
 #include "../../entities/charentity.h"
 #include "../../items/item_weapon.h"
 #include "../../packets/char_update.h"
@@ -109,6 +110,17 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
     auto PChar = static_cast<CCharEntity*>(POwner);
     if (PChar->PAI->CanChangeState())
     {
+        CAbility* PAbility = ability::GetAbility(abilityid);
+        if (!PAbility)
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA));
+            return false;
+        }
+        if (PChar->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_WAIT_LONGER));
+            return false;
+        }
         return PChar->PAI->Internal_Ability(targid, abilityid);
     }
     else
