@@ -1034,7 +1034,8 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         if (tpzrand::GetRandomNumber(100) < 20 && PChar->PTreasurePool->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS))
         {
             //RULES: Only 1 kind may drop per mob
-            if (GetMLevel() >= 75 && luautils::IsContentEnabled("ABYSSEA")) //all 4 types
+           // if (GetMLevel() >= 75 && luautils::IsContentEnabled("ABYSSEA")) //all 4 types
+            if (GetMLevel() >= 190 && luautils::IsContentEnabled("ABYSSEA")) // all 4 types
             {
                 switch (tpzrand::GetRandomNumber(4))
                 {
@@ -1057,7 +1058,8 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
                 }
             }
-            else if (GetMLevel() >= 70 && luautils::IsContentEnabled("ABYSSEA")) //b.seal & k.seal & k.crest
+           // else if (GetMLevel() >= 70 && luautils::IsContentEnabled("ABYSSEA")) //b.seal & k.seal & k.crest
+            else if (GetMLevel() >= 200 && luautils::IsContentEnabled("ABYSSEA")) // b.seal & k.seal & k.crest
             {
                 switch (tpzrand::GetRandomNumber(3))
                 {
