@@ -15,16 +15,16 @@ tpz.magic = tpz.magic or {}
 
 tpz.magic.element =
 {
-   -- NONE      = 0,
-   -- FIRE      = 1,
-   -- EARTH     = 2,
-   -- WATER     = 3,
-   -- WIND      = 4,
-   -- ICE       = 5,
-   -- LIGHTNING = 6,
-   -- THUNDER   = 6,
-   -- LIGHT     = 7,
-  --  DARK      = 8,
+    NONE      = 0,
+    FIRE      = 1,
+    EARTH     = 2,
+    WATER     = 3,
+    WIND      = 4,
+    ICE       = 5,
+    LIGHTNING = 6,
+    THUNDER   = 6,
+    LIGHT     = 7,
+    DARK      = 8,
 }
 tpz.magic.ele = tpz.magic.element
 
