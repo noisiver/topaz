@@ -9,7 +9,7 @@ require("scripts/globals/status")
 function onMagicCastingCheck(caster, target, spell)
     return 0
 end
-
+--[[
 function onSpellCast(caster, target, spell)
     -- Pull base stats.
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
@@ -38,8 +38,8 @@ function onSpellCast(caster, target, spell)
 
     return params.effect
 end
-
---[[function onSpellCast(caster, target, spell)
+]]--
+function onSpellCast(caster, target, spell)
     -- Pull base stats.
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
@@ -69,4 +69,3 @@ end
 
     return params.effect
 end
---]]
