@@ -3704,13 +3704,23 @@ INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,537);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,538);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,539);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,541);
-INSERT INTO `mob_skill_lists` VALUES ('DarkSpark',1153,4262);
+INSERT INTO `mob_skill_lists` VALUES ('DarkSpark',1153,4262); -- 50% Berserk
 
 
 -- Custom Content
-INSERT INTO `mob_skill_lists` VALUES ('	Murgleis',2000,44); -- Death Blossom
-INSERT INTO `mob_skill_lists` VALUES ('	Murgleis',2000,405); -- Dire Whorl
-INSERT INTO `mob_skill_lists` VALUES ('	Murgleis',2000,1252); -- Shadow Spread
-INSERT INTO `mob_skill_lists` VALUES ('	Murgleis',2000,522); -- Spectral Barrier
+
+-- Murgleis
+INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,44); -- Death Blossom
+INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,405); -- Dire Whorl
+INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,1252); -- Shadow Spread
+INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,522); -- Spectral Barrier
+
+-- Amano
+INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,154); -- Tachi: Rana 
+INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,405); -- Dire Whorl
+INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,1220); -- Auroral Drape
+INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,4262); -- Berserk(50%)
+-- Amano Meikyo
+INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru-Meikyo',2002,154); -- Tachi: Rana 
 -- Next available ID: 1148
 

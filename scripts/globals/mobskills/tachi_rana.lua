@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Death Blossom
+-- Tachi Rana
 -- Description: Damage varies with TP.
 -- Type: Physical
 ---------------------------------------------

@@ -3929,3 +3929,4 @@ INSERT INTO `mob_skills` VALUES (4262,254,'berserk_darkspark',0,7.0,2000,1500,1,
 
 -- Custom content
 INSERT INTO `mob_skills` VALUES (44,13,'death_blossom',0,5.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (154,176,'tachi_rana',0,5.0,2000,0,4,0,0,0,1,8,0);

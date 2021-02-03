@@ -3985,15 +3985,19 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelg
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
 
--- Mythic Weapons V1
-INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM',445,493,95,255);     -- Temper
-INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM',445,511,96,255);       -- Haste II
-INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM',445,35,1,255); -- Diaga III
-INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM', 445, 227, 1, 255); -- Poisonga III
-INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM',445,4,41,60); -- Cure IV
-INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM', 445, 106, 1, 255); -- Phalanx
-INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM', 445, 47, 1, 255);  -- Protect V
-INSERT INTO `mob_spell_lists` VALUES ('Animated_LongswordRDM', 445, 52, 1, 255);  -- Shell V
+-- Mythic Weapon Battles
+
+-- Murgelis V1
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,493,1,255);     -- Temper
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,511,1,255);       -- Haste II
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,35,1,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 227, 1, 255); -- Poisonga III
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,4,41,255); -- Cure IV
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 106, 1, 255); -- Phalanx
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 47, 1, 255);  -- Protect V
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 52, 1, 255);  -- Shell V
+--Murgelis CS
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis-CS',446,4,41,255); -- Cure IV
 
 
 
