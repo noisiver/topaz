@@ -39,11 +39,24 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = nil
     resm = applyResistance(caster, target, spell, params)
-    if (resm < 0.25) then
+   --[[ if (resm < 0.25) then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
         return 1
     end
-
+    --]]
+        if caster:isPC() then
+        local instrument = caster:getSkillLevel(caster:getWeaponSkillType(tpz.slot.RANGED))
+        local skillcap = caster:getMaxSkillLevel(caster:getMainLvl(), tpz.job.BRD, tpz.skill.STRING_INSTRUMENT) -- will return the same whether string or wind, both are C for bard
+    
+        if instrument > skillcap then
+            params.skillBonus = instrument - skillcap -- every point over the skillcap (only attainable from gear/merits) is an extra +1 magic accuracy
+        end
+    end
+    resm = applyResistance(caster, target, spell, params)
+    if (resm < 0.5) then
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
+        return 1
+    end
     -- level 75 gets a bonus
     if (caster:getMainLvl() >= 75) then
         power = power + 1
