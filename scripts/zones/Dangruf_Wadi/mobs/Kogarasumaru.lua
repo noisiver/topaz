@@ -10,7 +10,7 @@ mixins = {require("scripts/mixins/job_special")}
 ------------------------------
 
 function onMobSpawn(mob)
-     specials =
+    --[[ specials =
     {
         {
             id = tpz.jsa.MEIKYO_SHISUI,
@@ -25,7 +25,7 @@ function onMobSpawn(mob)
         },
     },
 end
-
+--]]
 function onMobDeath(mob, player, isKiller)
 player:PrintToPlayer("Maybe...you...are...worthy...of...my...power...",0,"Kogarasumaru")
 end

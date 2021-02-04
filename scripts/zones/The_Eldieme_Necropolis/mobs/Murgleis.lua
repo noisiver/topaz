@@ -15,7 +15,7 @@ function onMobSpawn(mob)
     mob:addStatusEffect(tpz.effect.PHALANX, 30, 0, 180)
     mob:addStatusEffect(tpz.effect.TEMPER, 15, 0, 180)
     mob:addStatusEffect(tpz.effect.HASTE, 30, 0, 180)
-    specials =
+  --[[  specials =
     {
         {
             id = tpz.jsa.CHAINSPELL,
@@ -30,7 +30,7 @@ function onMobSpawn(mob)
         },
     },
 end
-
+--]]
 function onMobDeath(mob, player, isKiller)
 player:PrintToPlayer("Maybe...you...are...worthy...of...my...power...",0,"Murgleis")
 end
