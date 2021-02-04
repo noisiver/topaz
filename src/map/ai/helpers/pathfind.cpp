@@ -419,24 +419,30 @@ bool CPathFind::OnPoint()
 
 float CPathFind::GetRealSpeed()
 {
-    uint8 realSpeed = m_PTarget->speed;
+    uint8 baseSpeed = m_PTarget->speed;
 
-    // 'GetSpeed()' factors in movement bonuses such as map confs and modifiers.
-    if (m_PTarget->objtype != TYPE_NPC)
+    // Lets not factor in player map conf or mod's to non players. 
+    // (Mobs should just have speed set directly instead, and NPC's don't have mods)
+    if (m_PTarget->objtype == TYPE_PC)
     {
-        realSpeed = ((CBattleEntity*)m_PTarget)->GetSpeed();
+        baseSpeed = ((CBattleEntity*)m_PTarget)->GetSpeed();
     }
 
     // Lets not check mob things on non mobs
     if (m_PTarget->objtype == TYPE_MOB)
     {
-        if (realSpeed == 0 && (m_roamFlags & ROAMFLAG_WORM))
+        if (baseSpeed == 0 && (m_roamFlags & ROAMFLAG_WORM))
         {
-            realSpeed = 20;
+            baseSpeed = 20;
+        }
+        // using 'else if' so we don't mess with worm speed.
+        else if (m_PTarget->animation == ANIMATION_ATTACK)
+        {
+            baseSpeed = baseSpeed + map_config.mob_speed_mod;
         }
     }
 
-    return realSpeed;
+    return baseSpeed;
 }
 
 bool CPathFind::IsFollowingPath()
