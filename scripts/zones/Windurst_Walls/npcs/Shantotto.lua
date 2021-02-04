@@ -129,9 +129,11 @@ function onTrigger(player, npc)
 
         if (cDay == dFinished and cYear == yFinished) then
             player:startEvent(174)
-        elseif (cDay == dFinished + 1 and cYear == yFinished) then
-            player:startEvent(178)
-        elseif ((cDay >= dFinished + 2 and cYear == yFinished) or (cYear > yFinished)) then
+       -- elseif (cDay == dFinished + 1 and cYear == yFinished) then
+         --   player:startEvent(178)
+        --elseif ((cDay >= dFinished + 2 and cYear == yFinished) or (cYear > yFinished)) then
+          --  player:startEvent(179)
+         elseif (cDay == dFinished + 1 and cYear == yFinished) then
             player:startEvent(179)
         end
 
