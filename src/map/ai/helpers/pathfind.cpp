@@ -423,7 +423,10 @@ float CPathFind::GetRealSpeed()
 
     // Lets not factor in player map conf or mod's to non players. 
     // (Mobs should just have speed set directly instead, and NPC's don't have mods)
-    if (m_PTarget->objtype == TYPE_PC)
+   // if (m_PTarget->objtype == TYPE_PC)
+    // Twilight: Let's revert that so we don't break the gravity spell when cast on mobs
+    if (m_PTarget->objtype != TYPE_NPC)
+
     {
         baseSpeed = ((CBattleEntity*)m_PTarget)->GetSpeed();
     }
