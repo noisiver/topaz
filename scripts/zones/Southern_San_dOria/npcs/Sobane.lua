@@ -79,6 +79,7 @@ function onEventFinish(player, csid, option)
     elseif csid == 738 then
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.TEA_WITH_A_TONBERRY)
     elseif csid == 740 and npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.TEA_WITH_A_TONBERRY, {item = 13174}) then
+        player:addFame(SANDORIA, 450)
         player:setCharVar("TEA_WITH_A_TONBERRY_PROG", 0)
     end
 end
