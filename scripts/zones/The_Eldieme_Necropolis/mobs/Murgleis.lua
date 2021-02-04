@@ -28,9 +28,8 @@ function onMobSpawn(mob)
              mob:messageText(mob, ID.text.WHEN_YOU_CANT_EVEN_HIT_ME)
             end,
         },
-    },
+    },--]]
 end
---]]
 function onMobDeath(mob, player, isKiller)
 player:PrintToPlayer("Maybe...you...are...worthy...of...my...power...",0,"Murgleis")
 end
