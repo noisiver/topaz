@@ -160,14 +160,14 @@ function onEventFinish(player, csid, option)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.RHINOSTERY_CERTIFICATE)
         player:addKeyItem(tpz.ki.RHINOSTERY_CERTIFICATE) -- Rhinostery Certificate
     elseif (csid == 791 and turmoil == QUEST_ACCEPTED) then -- Completes Toraimarai turmoil - first time
-        player:addGil(GIL_RATE*4500)
+        player:addGil(GIL_RATE*20000)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*4500)
         player:completeQuest(WINDURST, tpz.quest.id.windurst.TORAIMARAI_TURMOIL)
         player:addFame(WINDURST, 100)
         player:addTitle(tpz.title.CERTIFIED_RHINOSTERY_VENTURER)
         player:tradeComplete()
     elseif (csid == 791 and turmoil == 2) then -- Completes Toraimarai turmoil - repeats
-        player:addGil(GIL_RATE*4500)
+        player:addGil(GIL_RATE*20000)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*4500)
         player:addFame(WINDURST, 50)
         player:tradeComplete()
