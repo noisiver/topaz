@@ -168,7 +168,7 @@ function onEventFinish(player, csid, option)
         player:tradeComplete()
     elseif (csid == 791 and turmoil == 2) then -- Completes Toraimarai turmoil - repeats
         player:addGil(GIL_RATE*20000)
-        player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*4500)
+        player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*20000)
         player:addFame(WINDURST, 50)
         player:tradeComplete()
     elseif (csid == 352 and option == 0 or csid == 354) then
