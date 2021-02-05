@@ -14,7 +14,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    realday = tonumber(os.date("%m")) -- %M for next minute, %j for next day
+    realday = tonumber(os.date("%M")) -- %M for next minute, %j for next day
     starttime = player:getCharVar("MissionaryMan_date")
     MissionaryManVar = player:getCharVar("MissionaryManVar")
 
@@ -37,7 +37,7 @@ end
 function onEventFinish(player, csid, option)
     if (csid == 698) then
         player:setCharVar("MissionaryManVar", 3)
-        player:setCharVar("MissionaryMan_date", os.date("%m")) -- %M for next minute, %j for next day
+        player:setCharVar("MissionaryMan_date", os.date("%M")) -- %M for next minute, %j for next day
         player:delKeyItem(tpz.ki.RAUTEINOTS_PARCEL)
         player:needToZone(true)
 
