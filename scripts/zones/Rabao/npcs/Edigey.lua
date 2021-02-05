@@ -49,7 +49,7 @@ function onEventFinish(player, csid, option)
     elseif (csid == 4) then --Subsequent completions
         player:tradeComplete()
         player:addGil(GIL_RATE*10000) -- was 1800
-        player:messageSpecial(ID.text.GIL_OBTAINED, 1800)
+        player:messageSpecial(ID.text.GIL_OBTAINED, 10000)
         player:addFame(RABAO, 30)
     end
 
