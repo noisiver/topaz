@@ -14,7 +14,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    realday = tonumber(os.date("%j")) -- %M for next minute, %j for next day
+    realday = tonumber(os.date("%m")) -- %M for next minute, %j for next day
     starttime = player:getCharVar("MissionaryMan_date")
     MissionaryManVar = player:getCharVar("MissionaryManVar")
 
