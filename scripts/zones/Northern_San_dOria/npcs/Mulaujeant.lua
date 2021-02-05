@@ -37,7 +37,7 @@ end
 function onEventFinish(player, csid, option)
     if (csid == 698) then
         player:setCharVar("MissionaryManVar", 3)
-        player:setCharVar("MissionaryMan_date", os.date("%j")) -- %M for next minute, %j for next day
+        player:setCharVar("MissionaryMan_date", os.date("%m")) -- %M for next minute, %j for next day
         player:delKeyItem(tpz.ki.RAUTEINOTS_PARCEL)
         player:needToZone(true)
 
