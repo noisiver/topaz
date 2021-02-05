@@ -964,36 +964,9 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             }
         }
 
-        //if (battleutils::IsParalyzed(this)) {
-        //    // display paralyzed
-        //    PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
-        //    loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_IS_PARALYZED));
-        //    return;
-        //}
-        if (battleutils::IsParalyzed(this))
-        {
-            if (!(PAbility->getRecastId())) // is two-hour
-            {
-                PRecastContainer->Add(RECAST_ABILITY, 0, 4);
-            }
-            else
-            {
-                PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), action.recast);
-
-                // innin and yonin share recasts
-                if (PAbility->getRecastId() == 146)
-                    PRecastContainer->Add(RECAST_ABILITY, 147, action.recast);
-                else if (PAbility->getRecastId() == 147)
-                    PRecastContainer->Add(RECAST_ABILITY, 146, action.recast);
-
-                uint16 recastID = PAbility->getRecastId();
-                if (map_config.blood_pact_shared_timer && (recastID == 173 || recastID == 174))
-                {
-                    PRecastContainer->Add(RECAST_ABILITY, (recastID == 173 ? 174 : 173), action.recast);
-                }
-            }
-
+        if (battleutils::IsParalyzed(this)) {
             // display paralyzed
+            PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
             loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_IS_PARALYZED));
             return;
         }
