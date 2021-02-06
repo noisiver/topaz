@@ -21,7 +21,7 @@ function onUseAbility(player, target, ability)
         -- Returns "no effect" message when Copy Image is active when Third Eye is used.
         ability:setMsg(tpz.msg.basic.JA_NO_EFFECT)
     else
-        if effect == nil or effect:getPower() <= 1 then
+        player:delStatusEffect(tpz.effect.THIRD_EYE, 0, 0, 30)
         player:addStatusEffect(tpz.effect.THIRD_EYE, 0, 0, 30) -- Power keeps track of procs
     end
 end
