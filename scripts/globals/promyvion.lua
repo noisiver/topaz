@@ -48,30 +48,6 @@ local function findMother(mob)
     return mother
 end
 
-local function selectRandomModel(models, mob)
-    local model = math.random(1,4)
-    local sub = math.random(1,2)
-
-    -- set elemental type
-    local element = 0
-    if sub == 1 then
-        if model == 1 then element = 1 -- dark
-        elseif model == 2 then element = 3 -- thunder
-        elseif model == 3 then element = 5 -- light
-        elseif model == 4 then element = 7 -- ice
-        end
-    else
-        if model == 1 then element = 2 -- water
-        elseif model == 2 then element = 4 -- earth
-        elseif model == 3 then element = 6 -- fire
-        elseif model == 4 then element = 8 -- wind
-        end
-    end
-
-    mob:setModelId(models[model])
-    mob:AnimationSub(sub)
-    mob:setLocalVar("element", element)
-
 ------------------------------------
 -- PUBLIC FUNCTIONS
 ------------------------------------
@@ -88,71 +64,6 @@ tpz.promyvion.initZone = function(zone)
     for i = 1, maxFloor(ID) do
         randomizeFloorExit(ID, i)
     end
-end
-
-tpz.promyvion.setEmptyModel = function (mob)
-    switch (mob:getFamily()) : caseof {
-        [78] = function()
-            selectRandomModel({
-                [1] = 1134,
-                [2] = 1135,
-                [3] = 1137,
-                [4] = 1138
-            }, mob) -- Craver
-        end,
-        [137] = function()
-            selectRandomModel({
-                [1] = 1129,
-                [2] = 1130,
-                [3] = 1131,
-                [4] = 1132
-            }, mob) -- Gorger
-        end,
-        [220] = function()
-            selectRandomModel({
-                [1] = 1117,
-                [2] = 1119,
-                [3] = 1120,
-                [4] = 1121
-            }, mob) -- Seether
-        end,
-        [241] = function()
-            selectRandomModel({
-                [1] = 1117,
-                [2] = 1119,
-                [3] = 1120,
-                [4] = 1121
-            }, mob) -- Thinker
-        end,
-        [255] = function()
-            selectRandomModel({
-                [1] = 1106,
-                [2] = 1107,
-                [3] = 1108,
-                [4] = 1110
-            }, mob) -- Wanderer
-        end,
-        [256] = function()
-            selectRandomModel({
-                [1] = 1112,
-                [2] = 1113,
-                [3] = 1114,
-                [4] = 1115
-            }, mob) -- Weeper
-        end,
-        [499] = function()
-            selectRandomModel({
-                [1] = 1106,
-                [2] = 1107,
-                [3] = 1108,
-                [4] = 1110
-            }, mob) -- Wanderer
-        end,
-    }
-end
-
-tpz.promyvion.onEmptyDeath = function(mob)
-    mob:AnimationSub(0)
 end
 
 tpz.promyvion.strayOnSpawn = function(mob)
