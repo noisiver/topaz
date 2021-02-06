@@ -2541,12 +2541,12 @@ namespace battleutils
             float sBlow2 = std::clamp((float)PAttacker->getMod(Mod::SUBTLE_BLOW_II), -50.0f, 50.0f);
             float sBlowMult = ((100.0f - std::clamp((float)(sBlow1 + sBlow2), -75.0f, 75.0f)) / 100.0f);
 
-            int16 bonusTP = 0;
-            if (tpzrand::GetRandomNumber(100) < PAttacker->getMod(Mod::TP_BOOST_WHEN_DMGD))
-            {
-                // Occasionally boosts TP 1-3 points when damaged.
-                bonusTP = tpzrand::GetRandomNumber(10, 30);
-            } 
+            //int16 bonusTP = 0;
+            //if (tpzrand::GetRandomNumber(100) < PAttacker->getMod(Mod::TP_BOOST_WHEN_DMGD))
+            //{
+            //    // Occasionally boosts TP 1-3 points when damaged.
+            //    bonusTP = tpzrand::GetRandomNumber(10, 30);
+            //} 
 
             //mobs hit get basetp+30 whereas pcs hit get basetp/3
             if (PDefender->objtype == TYPE_PC)
