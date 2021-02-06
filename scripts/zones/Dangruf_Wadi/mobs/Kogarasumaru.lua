@@ -10,7 +10,6 @@ mixins = {require("scripts/mixins/job_special")}
 ------------------------------
 
 function onMobSpawn(mob)
-function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
