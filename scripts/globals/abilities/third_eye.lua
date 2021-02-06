@@ -17,11 +17,9 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    if player:hasStatusEffect(tpz.effect.COPY_IMAGE)
-        -- Returns "no effect" message when Copy Image is active when Third Eye is used.
-        effect:setMsg(tpz.msg.basic.JA_NO_EFFECT)
-    else
-        player:addStatusEffect(tpz.effect.THIRD_EYE, 0, 0, 30) -- Power keeps track of procs
+    player:addStatusEffect(tpz.effect.THIRD_EYE, 0, 0, 30) --power keeps track of procs
+    	if (player:hasStatusEffect(tpz.effect.COPY_IMAGE)) then
+    effect:setMsg(tpz.msg.basic.JA_NO_EFFECT) else --Returns "no effect" message when Copy Image is active when Third Eye is used.
     end
 end
 
