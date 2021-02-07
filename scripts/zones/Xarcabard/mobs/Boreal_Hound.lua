@@ -19,7 +19,7 @@ function onMobSpawn(mob)
         GetNPCByID(ID.npc.BOREAL_HOUND_QM):showNPC(0)
     end
      mob:setMod(tpz.mod.UDMGPHYS, 50)
-     mob:setMod(tpz.mod.DEF, -198)
+     mob:setMod(tpz.mod.DEF, -190)
      mob:setMod(tpz.mod.VIT, -32)
 end
 
