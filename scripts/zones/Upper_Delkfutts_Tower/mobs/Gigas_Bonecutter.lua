@@ -13,5 +13,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.ENKELADOS_PH, 5, 1) -- no cooldown
+    tpz.mob.phOnDespawn(mob, ID.mob.ENKELADOS_PH, 10, 1) -- no cooldown
 end
