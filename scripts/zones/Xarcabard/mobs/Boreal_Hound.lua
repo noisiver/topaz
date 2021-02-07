@@ -20,7 +20,7 @@ function onMobSpawn(mob)
     end
      mob:setMod(tpz.mod.UDMGPHYS, 50)
      mob:setMod(tpz.mod.DEF, 0)
-     mob:setMod(tpz.mod.VIT, 0)
+     mob:setMod(tpz.mod.VIT, -32)
 end
 
 function onMobDeath(mob, player, isKiller)
