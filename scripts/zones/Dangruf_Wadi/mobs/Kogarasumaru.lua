@@ -13,6 +13,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.STORETP, 50)
     mob:setMod(tpz.mod.DEFP, 10) 
     mob:setMod(tpz.mod.ATTP, 5)
+    mob:setMod(tpz.mod.COUNTER, 10)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {

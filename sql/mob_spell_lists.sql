@@ -3987,24 +3987,21 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impac
 
 -- Mythic Weapon Battles
 
--- Murgelis V1
+-- Murgelis V1 100%
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,493,1,255);   -- Temper
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,511,1,255);   -- Haste II
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,35,1,255); -- Diaga III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 227, 1, 255); -- Poisonga III
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,4,41,255); -- Cure IV
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 106, 1, 255); -- Phalanx
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 47, 1, 255);  -- Protect V
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 52, 1, 255);  -- Shell V
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,249,1,255); -- Blaze spikes
---Murgelis CS
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis-CS',446,4,41,255); -- Cure IV
+
+--Murgelis V1 50%
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,146,24,255); -- Fire III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,151,24,255); -- Blizzard III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,156,24,255); -- Aero III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,161,24,255); -- Stone III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,166,24,255); -- Thunder III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,171,24,255); -- Water III
+
+
 
 
 
