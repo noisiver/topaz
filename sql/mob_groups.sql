@@ -10301,14 +10301,14 @@ INSERT INTO `mob_groups` VALUES (12,974,158,'Demonic_Doll',600,0,192,0,0,81,83,0
 INSERT INTO `mob_groups` VALUES (13,3085,158,'Pallas',0,128,1975,10000,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (14,1589,158,'Gigass_Bat',0,128,0,0,0,53,55,0);
 INSERT INTO `mob_groups` VALUES (15,6600,158,'Magic_Pot',600,0,1569,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (16,6456,158,'Dire_Bat',600,0,0,0,0,74,76,0);
+INSERT INTO `mob_groups` VALUES (16,6456,158,'Dire_Bat',600,0,6000,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (17,2161,158,'Jotunn_Wallkeeper',600,0,1413,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (18,2158,158,'Jotunn_Gatekeeper',600,0,1411,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (19,2159,158,'Jotunn_Hallkeeper',600,0,1412,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,2162,158,'Jotunn_Wildkeeper',600,0,1414,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,6510,158,'Phasma',600,0,1997,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (22,2111,158,'Ixtab',0,32,1383,15000,0,83,85,0);
-INSERT INTO `mob_groups` VALUES (23,6427,158,'Incubus_Bats',600,0,0,0,0,74,76,0);
+INSERT INTO `mob_groups` VALUES (23,6427,158,'Incubus_Bats',600,0,6000,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (24,87,158,'Alkyoneus',0,128,50,12000,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (25,5428,158,'Autarch',1800,0,2949,20000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (26,1589,158,'Gigass_Bat',0,128,0,0,0,71,73,0);
