@@ -3722,5 +3722,28 @@ INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,1220); -- Auroral Drap
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,4262); -- Berserk(50%)
 -- Amano Meikyo
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru-Meikyo',2002,154); -- Tachi: Rana 
+
+--Boyahda Merit Mobs
+-- Snaggletooth_Peapuk
+INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,1724); -- White Wind
+INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,1155); -- Subsonics
+INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,816); -- Fang Rush
+INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,1158); -- Turbulence
+INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,406); -- Hammer Beak
+INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,724); -- Evasion
+-- Viseclaw 
+INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,2512); -- Venom Shower
+INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,443);	-- Bubble Curtain
+INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,445);	-- Scissor Guard
+INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,353);	-- Death Scissors
+INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,462);	-- Maelstrom
+-- Mourning_Crawler
+INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,356); -- Sharp Strike
+INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,1817);-- Thermal Pulse
+INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,279);	-- Mandibular Bite
+INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,331);	-- Leafstorm
+INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,214);	-- Methane Breath
+
+
 -- Next available ID: 1148
 
