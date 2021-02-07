@@ -10,11 +10,14 @@ mixins = {require("scripts/mixins/job_special")}
 ------------------------------
 
 function onMobSpawn(mob)
+    mob:setMod(tpz.mod.DEFP, 10)
+    mob:setMod(tpz.mod.ATTP, 5)
     mob:addStatusEffect(tpz.effect.PROTECT, 175, 0, 3600)
     mob:addStatusEffect(tpz.effect.SHELL, 25, 0, 3600)
     mob:addStatusEffect(tpz.effect.PHALANX, 30, 0, 180)
     mob:addStatusEffect(tpz.effect.TEMPER, 15, 0, 180)
     mob:addStatusEffect(tpz.effect.HASTE, 30, 0, 180)
+    mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 1, 0, 180)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
@@ -25,14 +28,26 @@ function onMobSpawn(mob)
                   mob:setMobMod(tpz.mobMod.SPELL_LIST, 446)
                   mob:messageText(mob, ID.text.HOW_CAN_YOU_EXPECT_TO_KILL_ME)
                -- mob:PrintToArea("My power is too great for you!",0,"Murgleis")
-                end,
-                endCode = function(mob)
-                  mob:setMobMod(tpz.mobMod.SPELL_LIST, 445)
+               end,
+               endCode = function(mob)
+                  mob:setMobMod(tpz.mobMod.SPELL_LIST, 446)
                   mob:messageText(mob, ID.text.WHEN_YOU_CANT_EVEN_HIT_ME)
                 end,
             },
         },
     })
+end
+
+function onMobFight(mob, target)
+    local hitTrigger = mob:getLocalVar("TriggerHit")
+    if mob:getHPP() <= 50 and hitTrigger == 0 then
+        mob:setMod(tpz.mod.UFASTCAST, 50)
+        mob:setLocalVar("TriggerHit", 1)
+    end
+    if mob:getHPP() <= 25 and hitTrigger == 1 then
+        mob:setMod(tpz.mod.UFASTCAST, 75)
+        mob:setLocalVar("TriggerHit", 2)
+    end
 end
 
 function onMobDeath(mob, player, isKiller)
