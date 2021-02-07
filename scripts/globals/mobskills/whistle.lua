@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local power = target:getMainLvl()/10 * 3.75 + 5
+    local power = target:getMainLvl()/5 * 3.75 + 5
     local duration = 60
 
     local typeEffect = tpz.effect.AGI_BOOST
