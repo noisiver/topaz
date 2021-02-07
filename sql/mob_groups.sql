@@ -10286,7 +10286,7 @@ INSERT INTO `mob_groups` VALUES (8378,4498,157,'Zeid',0,0,0,0,0,0,0,0);
 -- Upper_Delkfutts_Tower (Zone 158)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1233,158,'Enkelados',0,32,772,4000,0,50,50,0);
+INSERT INTO `mob_groups` VALUES (1,1233,158,'Enkelados',0,32,772,4000,0,50,52,0);
 INSERT INTO `mob_groups` VALUES (2,1590,158,'Gigass_Bats',0,128,0,0,0,27,29,0);
 INSERT INTO `mob_groups` VALUES (3,1595,158,'Gigas_Torturer',600,0,998,0,0,34,35,0);
 INSERT INTO `mob_groups` VALUES (4,1552,158,'Gigas_Bonecutter',600,0,980,0,0,34,35,0);
@@ -10294,24 +10294,24 @@ INSERT INTO `mob_groups` VALUES (5,1588,158,'Gigas_Stonemason',600,0,996,0,0,34,
 INSERT INTO `mob_groups` VALUES (6,1585,158,'Gigas_Spirekeeper',600,0,993,0,0,34,35,0);
 INSERT INTO `mob_groups` VALUES (7,3912,158,'Thunder_Elemental',600,4,2410,0,0,35,36,0);
 INSERT INTO `mob_groups` VALUES (8,2413,158,'Light_Elemental',600,4,1521,0,0,35,36,0);
-INSERT INTO `mob_groups` VALUES (9,2663,158,'Mimas',900,0,1674,3000,0,36,36,0);
+INSERT INTO `mob_groups` VALUES (9,2663,158,'Mimas',900,0,1674,3000,0,36,38,0);
 INSERT INTO `mob_groups` VALUES (10,2483,158,'Magic_Urn',600,0,1570,0,0,34,35,0);
 INSERT INTO `mob_groups` VALUES (11,3188,158,'Porphyrion',600,0,2018,3000,0,36,36,0);
-INSERT INTO `mob_groups` VALUES (12,974,158,'Demonic_Doll',600,0,192,0,0,68,70,0);
-INSERT INTO `mob_groups` VALUES (13,3085,158,'Pallas',0,128,1975,10000,0,72,72,0);
+INSERT INTO `mob_groups` VALUES (12,974,158,'Demonic_Doll',600,0,192,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (13,3085,158,'Pallas',0,128,1975,10000,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (14,1589,158,'Gigass_Bat',0,128,0,0,0,53,55,0);
-INSERT INTO `mob_groups` VALUES (15,6600,158,'Magic_Pot',600,0,1569,0,0,68,70,0);
-INSERT INTO `mob_groups` VALUES (16,6456,158,'Dire_Bat',600,0,0,0,0,64,66,0);
-INSERT INTO `mob_groups` VALUES (17,2161,158,'Jotunn_Wallkeeper',600,0,1413,0,0,65,69,0);
-INSERT INTO `mob_groups` VALUES (18,2158,158,'Jotunn_Gatekeeper',600,0,1411,0,0,65,69,0);
-INSERT INTO `mob_groups` VALUES (19,2159,158,'Jotunn_Hallkeeper',600,0,1412,0,0,65,69,0);
-INSERT INTO `mob_groups` VALUES (20,2162,158,'Jotunn_Wildkeeper',600,0,1414,0,0,65,69,0);
-INSERT INTO `mob_groups` VALUES (21,6510,158,'Phasma',600,0,1997,0,0,67,69,0);
-INSERT INTO `mob_groups` VALUES (22,2111,158,'Ixtab',0,32,1383,6000,0,71,71,0);
-INSERT INTO `mob_groups` VALUES (23,6427,158,'Incubus_Bats',600,0,0,0,0,62,64,0);
-INSERT INTO `mob_groups` VALUES (24,87,158,'Alkyoneus',0,128,50,12000,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (15,6600,158,'Magic_Pot',600,0,1569,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (16,6456,158,'Dire_Bat',600,0,0,0,0,74,76,0);
+INSERT INTO `mob_groups` VALUES (17,2161,158,'Jotunn_Wallkeeper',600,0,1413,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (18,2158,158,'Jotunn_Gatekeeper',600,0,1411,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (19,2159,158,'Jotunn_Hallkeeper',600,0,1412,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (20,2162,158,'Jotunn_Wildkeeper',600,0,1414,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (21,6510,158,'Phasma',600,0,1997,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (22,2111,158,'Ixtab',0,32,1383,15000,0,83,85,0);
+INSERT INTO `mob_groups` VALUES (23,6427,158,'Incubus_Bats',600,0,0,0,0,74,76,0);
+INSERT INTO `mob_groups` VALUES (24,87,158,'Alkyoneus',0,128,50,12000,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (25,5428,158,'Autarch',1800,0,2949,20000,0,83,85,0);
-INSERT INTO `mob_groups` VALUES (26,1589,158,'Gigass_Bat',0,128,0,0,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (26,1589,158,'Gigass_Bat',0,128,0,0,0,71,73,0);
 
 INSERT INTO `mob_groups` VALUES (8403,3992,158,'Treasure_Chest',0,0,0,0,0,0,0,0);
 
