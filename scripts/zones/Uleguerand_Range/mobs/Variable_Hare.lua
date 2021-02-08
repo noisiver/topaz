@@ -9,5 +9,5 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.EXP_BONUS, 10)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, 1000)
 end
