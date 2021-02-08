@@ -387,7 +387,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLU',8,606,46,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLU',8,610,65,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLU',8,621,66,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLU',8,631,63,255);
-INSERT INTO `mob_spell_lists` VALUES ('Worm',9,54,28,255);
+--INSERT INTO `mob_spell_lists` VALUES ('Worm',9,54,28,255); -- stoneskin
 INSERT INTO `mob_spell_lists` VALUES ('Worm',9,159,1,25);
 INSERT INTO `mob_spell_lists` VALUES ('Worm',9,160,26,50);
 INSERT INTO `mob_spell_lists` VALUES ('Worm',9,161,51,67);
@@ -396,7 +396,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Worm',9,163,77,255);
 INSERT INTO `mob_spell_lists` VALUES ('Worm',9,189,15,39);
 INSERT INTO `mob_spell_lists` VALUES ('Worm',9,190,40,63);
 INSERT INTO `mob_spell_lists` VALUES ('Worm',9,191,63,255);
---INSERT INTO `mob_spell_lists` VALUES ('Worm',9,210,54,255); stoneskin
+INSERT INTO `mob_spell_lists` VALUES ('Worm',9,210,54,255); -- quake
 INSERT INTO `mob_spell_lists` VALUES ('Worm',9,238,18,50);
 INSERT INTO `mob_spell_lists` VALUES ('Worm',9,258,7,255);
 INSERT INTO `mob_spell_lists` VALUES ('Hecteyes',10,144,13,25);
