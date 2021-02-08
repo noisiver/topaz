@@ -187,6 +187,7 @@ INSERT INTO `mob_family_mods` VALUES (125,254,100,0);
 -- Experience bonus
 INSERT INTO `mob_family_mods` VALUES (208,382,23,0);		-- Ram +23% EXP
 INSERT INTO `mob_family_mods` VALUES (266,382,23,0);		-- Wyvern +23% EXP 
+INSERT INTO `mob_family_mods` VALUES (507,382,10,0);		-- Variable Hare +10% EXP
 
 
 -- Attack bonus
