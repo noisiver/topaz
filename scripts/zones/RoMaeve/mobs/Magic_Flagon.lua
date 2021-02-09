@@ -13,6 +13,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.NIGHTMARE_VASE_PH, 10, 3600) -- 1 hour
-    tpz.mob.phOnDespawn(mob, ID.mob.ROGUE_RECEPTACLE_PH, 10, 7200) -- 2 hour
+    tpz.mob.phOnDespawn(mob, ID.mob.NIGHTMARE_VASE_PH, 20, 3600) -- 1 hour
+    tpz.mob.phOnDespawn(mob, ID.mob.ROGUE_RECEPTACLE_PH, 20, 7200) -- 2 hour
 end
