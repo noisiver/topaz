@@ -54,5 +54,4 @@ function onEventFinish(player, csid, option)
     elseif (csid == 322) then
         player:setCharVar("ChasingDreams", 11)
     end
-
 end
