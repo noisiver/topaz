@@ -27,18 +27,20 @@ end
 function onEventUpdate(player, csid, option)
 end
 
-function onEventFinish(player, csid, option)
-   if (csid == 119) then
-       player:addQuest(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
-       player:setCharVar("ChasingDreams", 2)
-   elseif (csid == 121) then
-       player:setCharVar("ChasingDreams", 0)
-       player:addGil(GIL_RATE*4000) 
-       player:messageSpecial(ID.text.GIL_OBTAINED, 4000)
+unction onEventFinish(player, csid, option)
+    if csid == 119 then
+        player:addQuest(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
+        player:setCharVar("ChasingDreams", 2)
+    elseif
+        csid == 121 and
+        npcUtil.completeQuest(player, OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS, {
+            item = 14655, -- Venerer Ring
+            gil = 4000,
+            var = "ChasingDreams",
+        })
+    then
        player:addFame(RABAO, 300)
        player:addFame(NORG, 300)
-       player:addItem(14655) -- Venerer Ring
-       player:messageSpecial(ID.text.ITEM_OBTAINED, 14655)
-       player:completeQuest(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
-   end
+    end
 end
+
