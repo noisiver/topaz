@@ -10,12 +10,22 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    player:startEvent(69)
-    player:setCharVar("SahaginKeyProgress", 1)
+    local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
+
+
+    if (player:getCharVar("ChasingDreams") == 9) then
+         player:startEvent(211)
+    else
+        player:startEvent(69)
+        player:setCharVar("SahaginKeyProgress", 1)
+    end
 end
 
 function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
+     if (csid == 211) then
+        player:setCharVar("ChasingDreams", 10)
+     end
 end

@@ -11,11 +11,26 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    player:startEvent(212)
+   local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
+
+
+   if (player:getCharVar("ChasingDreams") == 2) then
+       player:startEvent(209)
+       elseif (player:getCharVar("ChasingDreams") == 8) then
+       player:startEvent(210)
+       else
+       player:startEvent(212)
+   end
 end
 
 function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
+     if (csid == 209) then
+        player:setCharVar("ChasingDreams", 3)
+     elseif (csid == 210) then
+        player:setCharVar("ChasingDreams", 9)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, STOREROOM_KEY) -- maybe wrong
+     end
 end

@@ -72,9 +72,10 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    local anExplorersFootsteps = player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.AN_EXPLORER_S_FOOTSTEPS)
+   -- local anExplorersFootsteps = player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.AN_EXPLORER_S_FOOTSTEPS)
     local signedInBlood = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.SIGNED_IN_BLOOD)
     local signedInBloodStat = player:getCharVar("SIGNED_IN_BLOOD_Prog")
+    local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
 
     -- SIGNED IN BLOOD (will only activate if An Explorer's Footsteps is not active, or if it is completed)
     if signedInBlood == QUEST_ACCEPTED and player:hasKeyItem(tpz.ki.TORN_OUT_PAGES) and anExplorersFootsteps ~= QUEST_ACCEPTED and signedInBloodStat == 2 then
@@ -85,6 +86,9 @@ function onTrigger(player, npc)
         player:startEvent(1105)
     elseif signedInBlood == QUEST_ACCEPTED and signedInBloodStat == 3 then
         player:startEvent(48)
+        -- CHASING DREAMS
+    elseif (player:getCharVar("ChasingDreams") == 12) then
+         player:startEvent(1108)
 
     -- AN EXPLORER'S FOOTSTEPS
     elseif anExplorersFootsteps == QUEST_AVAILABLE and math.floor((player:getFameLevel(SANDORIA) + player:getFameLevel(BASTOK)) / 2) >= 1 then
@@ -124,6 +128,9 @@ function onEventFinish(player, csid, option)
         player:setCharVar("SIGNED_IN_BLOOD_Prog", 2)
     elseif csid == 1106 then
         player:setCharVar("SIGNED_IN_BLOOD_Prog", 3)
+    -- ChASING DREAMS
+    elseif (csid == 1108) then
+         player:setCharVar("ChasingDreams", 13)
 
     -- AN EXPLORER'S FOOTSTEPS
     elseif csid == 40 and option ~= 0 and npcUtil.giveItem(player, 571) then

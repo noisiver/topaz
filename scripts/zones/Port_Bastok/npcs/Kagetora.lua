@@ -12,6 +12,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
+    local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
 
     if (player:getQuestStatus(BASTOK, tpz.quest.id.bastok.AYAME_AND_KAEDE) == QUEST_ACCEPTED) then
 
@@ -28,6 +29,8 @@ function onTrigger(player, npc)
         player:startEvent(261)
     elseif (player:getCharVar("FadedPromises") == 2 and player:hasKeyItem(tpz.ki.DIARY_OF_MUKUNDA)) then
         player:startEvent(296)
+    elseif (player:getCharVar("ChasingDreams") == 10) then
+         player:startEvent(322)
     else
         player:startEvent(23)
     end
@@ -45,6 +48,11 @@ function onEventFinish(player, csid, option)
         player:setCharVar("twentyInPirateYearsCS", 2)
     elseif (csid == 296) then
         player:setCharVar("FadedPromises", 3)
+    -- ChASING DREAMS
+    elseif (csid == 322) then
+         npcUtil.giveKeyItem(player, tpz.ki.WASHUS_FLASK)
+         player:messageSpecial(ID.text.KEYITEM_OBTAINED, WASHUS_FLASK) -- maybe wrong
+         player:setCharVar("ChasingDreams", 11)
     end
 
 end

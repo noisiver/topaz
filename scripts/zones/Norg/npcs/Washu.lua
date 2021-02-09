@@ -26,6 +26,7 @@ end
 
 function onTrigger(player, npc)
     local stopYourWhining = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.STOP_YOUR_WHINING)
+    local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
 
     -- YOMI OKURI (SAM AF2)
     if (player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.YOMI_OKURI) == QUEST_ACCEPTED) then
@@ -46,6 +47,12 @@ function onTrigger(player, npc)
         player:startEvent(23) -- finish quest
     elseif (stopYourWhining == QUEST_COMPLETED) then
         player:startEvent(24) -- final dialog
+
+    -- CHASING DREAMS
+    elseif (player:getCharVar("ChasingDreams") == 3) then
+         player:startEvent(221)
+    elseif (player:getCharVar("ChasingDreams") == 8) then -- might not work
+          player:startEvent(223)
 
     -- DEFAULT DIALOG
     else
@@ -71,5 +78,11 @@ function onEventFinish(player, csid, option)
         npcUtil.giveKeyItem(player, tpz.ki.EMPTY_BARREL)
     elseif (csid == 23 and npcUtil.completeQuest(player, OUTLANDS, tpz.quest.id.outlands.STOP_YOUR_WHINING, {item=4952, fame=75, fameArea=NORG, title=tpz.title.APPRENTICE_SOMMELIER})) then -- Scroll of Hojo: Ichi
         player:delKeyItem(tpz.ki.BARREL_OF_OPOOPO_BREW)
+
+    -- ChASING DREAMS
+    elseif (csid == 221) then
+         npcUtil.giveKeyItem(player, tpz.ki.WASHUS_FLASK)
+         player:messageSpecial(ID.text.KEYITEM_OBTAINED, WASHUS_FLASK) -- maybe wrong
+         player:setCharVar("ChasingDreams", 4)
     end
 end

@@ -47,8 +47,12 @@ end
 
 function onRegionEnter(player, region)
     local regionID = region:GetRegionID()
+    local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
+
     if (regionID == 1 and player:getCurrentMission(COP) == tpz.mission.id.cop.DAWN and player:getCharVar("PromathiaStatus") == 6) then
         player:startEvent(116)
+    elseif (player:getCharVar("ChasingDreams") == 13) then
+         player:startEvent(4)
     end
 end
 
@@ -68,5 +72,7 @@ function onEventFinish(player, csid, option)
     elseif (csid == 116) then
         player:setCharVar("PromathiaStatus", 7)
         player:addTitle(tpz.title.BANISHER_OF_EMPTINESS)
+    elseif (csid == 4) then
+         player:setCharVar("ChasingDreams", 14)
     end
 end
