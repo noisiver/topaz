@@ -3990,7 +3990,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impac
 -- Murgelis V1 100%
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,493,1,255);   -- Temper
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,511,1,255);   -- Haste II
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,35,1,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,360,1,255); -- Dispelga
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 227, 1, 255); -- Poisonga III
 
 --Murgelis V1 50%
