@@ -13416,29 +13416,29 @@ INSERT INTO `mob_droplist` VALUES (2557,0,0,1000,15123,10);
 INSERT INTO `mob_droplist` VALUES (2557,0,0,1000,15140,10);
 INSERT INTO `mob_droplist` VALUES (2557,0,0,1000,15142,10);
 INSERT INTO `mob_droplist` VALUES (2557,0,0,1000,16360,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,18314,50);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,18284,50);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,18278,50);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,18302,50);
-INSERT INTO `mob_droplist` VALUES (2558,2,0,1000,1455,0);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,1469,80);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,1470,80);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,1521,80);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,11385,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,11478,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15078,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15092,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15095,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15106,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15111,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15113,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15116,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15120,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15130,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15133,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15139,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,16346,10);
-INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,16362,10);
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,18314,10); -- (Dynamis Bastok Low Level Normal Enemies) Ito GKT
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,18284,10); -- Relic Axe
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,18278,10); -- Relic Blade
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,18302,10); -- Relic Scythe
+INSERT INTO `mob_droplist` VALUES (2558,2,0,1000,1455,0); -- (Steal) One Byne Bill
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,1469,10); -- Chunk Of Wootz Ore
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,1470,10); -- Sparkling Stone
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,1521,10); -- Vial Of Slime Juice
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,11385,10); -- Commodore Bottes
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,11478,10); -- Etoile Tiara
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15078,10); -- Valor Coronet
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15092,10); -- Assassin's Vest
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15095,10); -- Monster Jackcoat
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15106,10); -- Duelist's Gloves
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15111,10); -- Bard's Cuffs
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15113,10); -- Saotome Kote
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15116,10); -- Summoner's Bracers
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15120,10); -- Sorcerer's Tonban
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15130,10); -- Wyrm Brais
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15133,10); -- Melee Gaiters
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,15139,10); -- Abyss Sollerets
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,16346,10); -- Mirage Shalwar
+INSERT INTO `mob_droplist` VALUES (2558,0,0,1000,16362,10); -- Argute Pants
 INSERT INTO `mob_droplist` VALUES (2559,0,0,1000,1449,150);
 INSERT INTO `mob_droplist` VALUES (2559,0,0,1000,1450,10);
 INSERT INTO `mob_droplist` VALUES (2559,0,0,1000,1452,150);
@@ -16438,6 +16438,34 @@ INSERT INTO `mob_droplist` VALUES (6006,0,0,1000,4509,150); -- Distilled Water
 INSERT INTO `mob_droplist` VALUES (6006,0,0,1000,1054,50); -- Quicksand Coffer Key
 INSERT INTO `mob_droplist` VALUES (6007,0,0,1000,2835,150); -- (Dahu) Dahu Hair
 INSERT INTO `mob_droplist` VALUES (6008,0,0,1000,11343,150); -- (Picolaton) Thrakon breastplate
+
+---------------------Dynamis---------------------
+
+-- Bastok
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,18314,50); -- (Dynamis Bastok High Level Normal Enemies) Ito Relic GKT
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,18284,50); -- Relic Axe
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,18278,50); -- Relic Blade
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,18302,50); -- Relic Scythe
+INSERT INTO `mob_droplist` VALUES (9000,2,0,1000,1455,0); -- (Steal) One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,1469,50); -- Chunk Of Wootz Ore
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,1470,50); -- Sparkling Stone
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,1521,50); -- Vial Of Slime Juice
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,11385,10); -- Commodore Bottes
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,11478,10); -- Etoile Tiara
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15078,10); -- Valor Coronet
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15092,10); -- Assassin's Vest
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15095,10); -- Monster Jackcoat
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15106,10); -- Duelist's Gloves
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15111,10); -- Bard's Cuffs
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15113,10); -- Saotome Kote
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15116,10); -- Summoner's Bracers
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15120,10); -- Sorcerer's Tonban
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15130,10); -- Wyrm Brais
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15133,10); -- Melee Gaiters
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,15139,10); -- Abyss Sollerets
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,16346,10); -- Mirage Shalwar
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,16362,10); -- Argute Pants
+INSERT INTO `mob_droplist` VALUES (9000,0,0,1000,1456,10); -- One Hundred Byne Bill
 
 
 

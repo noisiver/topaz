@@ -73,7 +73,7 @@ g_mixins.dynamis_beastmen = function(mob)
 
             local singleChance = th.single
             local hundoChance = th.hundo
-            if mob:getMainLvl() > 90 then
+            if mob:getMainLvl() > 77 then -- was 90
                 singleChance = math.floor(singleChance * 1.5)
             end
 
