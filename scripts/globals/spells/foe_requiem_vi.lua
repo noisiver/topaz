@@ -13,21 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     local effect = tpz.effect.REQUIEM
     local duration = 143
-    local power = 55
-
-    if (sLvl+iLvl > 204) then
-        power = power + 10
-    elseif (sLvl+iLvl > 211) then
-        power = power + 15
-    elseif (sLvl+iLvl > 218) then
-        power = power + 20
-    elseif (sLvl+iLvl > 229) then
-        power = power + 25
-    elseif (sLvl+iLvl > 239) then
-        power = power + 30
-    elseif (sLvl+iLvl > 249) then
-        power = power + 35
-    end
+    local power = 70
 
     local pCHR = caster:getStat(tpz.mod.CHR)
     local mCHR = target:getStat(tpz.mod.CHR)
@@ -38,13 +24,8 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.SINGING
     params.bonus = 0
     params.effect = nil
-    resm = applyResistance(caster, target, spell, params)
-   --[[ if (resm < 0.25) then
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
-        return 1
-    end
-    --]]
-        if caster:isPC() then
+    params.skillBonus = 0
+    if caster:isPC() then
         local instrument = caster:getSkillLevel(caster:getWeaponSkillType(tpz.slot.RANGED))
         local skillcap = caster:getMaxSkillLevel(caster:getMainLvl(), tpz.job.BRD, tpz.skill.STRING_INSTRUMENT) -- will return the same whether string or wind, both are C for bard
     
@@ -57,6 +38,7 @@ function onSpellCast(caster, target, spell)
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
         return 1
     end
+
     -- level 75 gets a bonus
     if (caster:getMainLvl() >= 75) then
         power = power + 1
