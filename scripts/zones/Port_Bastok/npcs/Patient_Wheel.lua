@@ -11,10 +11,8 @@ require("scripts/globals/settings")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    if (player:getCharVar("ChasingDreams") == 11) then
-        if (trade:hasItemQty(1664, 5) and trade:getItemCount() == 5) then
-             player:startEvent(323)
-        end
+    if player:getCharVar("ChasingDreams") == 11 and npcUtil.tradeHas(trade, {{1664, 5}}) then
+        player:startEvent(323)
     end
 end
 
@@ -40,6 +38,8 @@ function onEventFinish(player, csid, option)
     if (csid == 354) then
         player:setCharVar("WildcatBastok", utils.mask.setBit(player:getCharVar("WildcatBastok"), 1, true))
     elseif (csid == 323) then
+        player:confirmTrade()
         player:setCharVar("ChasingDreams", 12)
     end
 end
+
