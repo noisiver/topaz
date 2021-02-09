@@ -28,7 +28,7 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-   if (csid == 127) then
+   if (csid == 119) then
        player:addQuest(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
        player:setCharVar("ChasingDreams", 2)
    elseif (csid == 121) then
