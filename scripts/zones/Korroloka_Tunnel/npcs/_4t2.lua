@@ -14,7 +14,7 @@ function onTrigger(player, npc)
 
      if (player:getCharVar("ChasingDreams") == 6) then
          player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER) -- maybe wrong
-         player:PrintToPlayer("The flask still feels light...",0,"")
+         player:messageSpecial(ID.text.FLASK_FEELS_LIGHT) 
          player:setCharVar("ChasingDreams", 7)
      else
         player:messageSpecial(ID.text.CLAM_EMPTY) -- maybe wrong

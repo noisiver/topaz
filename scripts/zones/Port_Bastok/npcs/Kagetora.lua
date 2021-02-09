@@ -6,6 +6,8 @@
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/quests")
+require("scripts/globals/utils")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -48,11 +50,9 @@ function onEventFinish(player, csid, option)
         player:setCharVar("twentyInPirateYearsCS", 2)
     elseif (csid == 296) then
         player:setCharVar("FadedPromises", 3)
-    -- ChASING DREAMS
+    -- CHASSING DREAMS
     elseif (csid == 322) then
-         npcUtil.giveKeyItem(player, tpz.ki.WASHUS_FLASK)
-         player:messageSpecial(ID.text.KEYITEM_OBTAINED, WASHUS_FLASK) -- maybe wrong
-         player:setCharVar("ChasingDreams", 11)
+        player:setCharVar("ChasingDreams", 11)
     end
 
 end

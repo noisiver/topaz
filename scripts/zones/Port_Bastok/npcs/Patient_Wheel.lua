@@ -16,7 +16,6 @@ function onTrade(player, npc, trade)
              player:startEvent(323)
         end
     end
-
 end
 
 function onTrigger(player, npc)
@@ -43,5 +42,4 @@ function onEventFinish(player, csid, option)
     elseif (csid == 323) then
         player:setCharVar("ChasingDreams", 12)
     end
-
 end

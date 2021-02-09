@@ -15,6 +15,7 @@ function onTrigger(player, npc)
      if (player:getCharVar("ChasingDreams") == 7) then
          player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER) -- maybe wrong
          player:PrintToPlayer("Washu's Flask is now full!",0,"")
+         npcUtil.giveKeyItem(player, tpz.ki.FLASK_OF_CLAM_WATER)
          player:messageSpecial(ID.text.KEYITEM_OBTAINED, FLASK_OF_CLAM_WATER) -- maybe wrong
          player:setCharVar("ChasingDreams", 8)
      else
