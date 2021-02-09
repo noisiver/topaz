@@ -15,6 +15,16 @@ function onSpellCast(caster, target, spell)
     local duration = 143
     local power = 30
 
+     if (sLvl+iLvl > 132) then
+        power = power + 2
+    elseif (sLvl+iLvl > 141) then
+        power = power + 3
+    elseif (sLvl+iLvl > 155) then
+        power = power + 4
+    elseif (sLvl+iLvl > 169) then
+        power = power + 5
+    end
+
     local pCHR = caster:getStat(tpz.mod.CHR)
     local mCHR = target:getStat(tpz.mod.CHR)
     local dCHR = (pCHR - mCHR)
