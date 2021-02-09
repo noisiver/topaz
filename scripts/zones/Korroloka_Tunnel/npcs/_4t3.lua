@@ -6,6 +6,7 @@
 local ID = require("scripts/zones/Korroloka_Tunnel/IDs")
 require("scripts/zones/Korroloka_Tunnel/globals")
 require("scripts/globals/npc_util")
+require("scripts/globals/quests")
 -----------------------------------
 function onTrade(player, npc, trade)
 end
