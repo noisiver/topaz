@@ -4,10 +4,7 @@
 -- !pos 104.6370 -4.8000 15.4051 173
 -----------------------------------
 local ID = require("scripts/zones/Korroloka_Tunnel/IDs")
-require("scripts/zones/Korroloka_Tunnel/globals")
-require("scripts/globals/npc_util")
 require("scripts/globals/quests")
-require("scripts/globals/settings")
 -----------------------------------
 function onTrade(player, npc, trade)
 end
