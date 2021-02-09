@@ -7,12 +7,14 @@ local ID = require("scripts/zones/Korroloka_Tunnel/IDs")
 require("scripts/zones/Korroloka_Tunnel/globals")
 require("scripts/globals/npc_util")
 require("scripts/globals/quests")
+require("scripts/globals/settings")
 -----------------------------------
 function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
      local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
+
      if (player:getCharVar("ChasingDreams") == 6) then
          player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER) -- maybe wrong
          player:PrintToPlayer("The flask still feels light...",0,"")
