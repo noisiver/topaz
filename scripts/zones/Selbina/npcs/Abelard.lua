@@ -128,7 +128,8 @@ function onEventFinish(player, csid, option)
         player:setCharVar("SIGNED_IN_BLOOD_Prog", 2)
     elseif csid == 1106 then
         player:setCharVar("SIGNED_IN_BLOOD_Prog", 3)
-    -- ChASING DREAMS
+
+    -- CHASING DREAMS
     elseif (csid == 1108) then
          player:setCharVar("ChasingDreams", 13)
 

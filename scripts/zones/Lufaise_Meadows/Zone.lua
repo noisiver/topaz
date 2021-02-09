@@ -40,8 +40,8 @@ function onZoneIn(player, prevZone)
         cs = 110
     elseif (player:getCurrentMission(COP) == tpz.mission.id.cop.CHAINS_AND_BONDS and player:getCharVar("PromathiaStatus") == 0) then
         cs = 111
-    elseif player:getPreviousZone() == tpz.zone.VALKURM_DUNES and player:getCharVar("ChasingDreams") == 13) then
-         player:startEvent(4)
+   elseif player:getPreviousZone() == tpz.zone.VALKURM_DUNES and player:getCharVar("ChasingDreams") == 13) then
+         cs = 4
     end
     return cs
 end
