@@ -2320,7 +2320,7 @@ INSERT INTO `item_mods` VALUES (10773,5,50); -- FORTIFIED RING, MP+50 Accuracy+5
 INSERT INTO `item_mods` VALUES (10773,25,5); -- ACC
 INSERT INTO `item_mods` VALUES (10773,166,-7); -- ENEMY CRITH
 INSERT INTO `item_mods` VALUES (10773,163,-5); -- MDT
-INSERT INTO `item_mods` VALUES (10774,12,5); -- VERTIGO RING,INT+5 MND+5 Magic Accuracy+5 Physical damage taken -2%
+INSERT INTO `item_mods` VALUES (10774,12,5); -- VERTIGO RING,INT+511339 MND+5 Magic Accuracy+5 Physical damage taken -2%
 INSERT INTO `item_mods` VALUES (10774,13,5); -- MND
 INSERT INTO `item_mods` VALUES (10774,30,5); -- MACC
 INSERT INTO `item_mods` VALUES (10774,161,-2); -- PDT
@@ -4393,8 +4393,9 @@ INSERT INTO `item_mods` VALUES (11337,59,2);
 INSERT INTO `item_mods` VALUES (11337,127,1);
 INSERT INTO `item_mods` VALUES (11338,1,21);
 INSERT INTO `item_mods` VALUES (11338,289,3);
-INSERT INTO `item_mods` VALUES (11339,1,21);
+INSERT INTO `item_mods` VALUES (11339,1,21); -- Channeling Robe
 INSERT INTO `item_mods` VALUES (11339,5,3);
+INSERT INTO `item_mods` VALUES (11339,487,2); -- Magic burst bonus +2%
 INSERT INTO `item_mods` VALUES (11340,1,21);
 INSERT INTO `item_mods` VALUES (11340,2,4);
 INSERT INTO `item_mods` VALUES (11340,5,4);
