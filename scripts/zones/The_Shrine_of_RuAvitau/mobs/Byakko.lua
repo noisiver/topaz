@@ -1,12 +1,11 @@
 -----------------------------------
 -- Area: The Shrine of Ru'Avitau
---  Mob: Suzaku (Pet version)
+--  Mob: Byakko (Pet version)
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/job_special")}
---------------------------------------------------
-
+-----------------------------------
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
@@ -16,28 +15,27 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REGAIN, 150)
 end
 
+function onMobSpawn(mob)
+	mob:setMod(tpz.mod.TRIPLE_ATTACK, 40)
+end
+
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENLIGHT)
 end
 
--- Return the selected spell ID.
 function onMonsterMagicPrepare(mob, target)
-    -- Suzaku uses     Burn, Fire IV, Firaga III, Flare
-    -- Let's give -ga3 a higher distribution than the others.
-    rnd = math.random()
-
+    local rnd = math.random()
     if (rnd < 0.5) then
-        return 176 -- firaga 3
+        return 40 -- Banishga 3
     elseif (rnd < 0.7) then
-        return 147 -- fire 4
+        return 31 -- Banish 4
     elseif (rnd < 0.9) then
-        return 204 -- flare
+        return 35 -- Diaga III
     else
-        return 235 -- burn
+        return 21 -- Holy
     end
-
+    return 0 -- Still need a return, so use 0 when not casting
 end
-
 
 function onMobDeath(mob, player, isKiller)
 end

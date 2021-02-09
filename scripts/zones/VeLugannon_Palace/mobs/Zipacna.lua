@@ -2,6 +2,7 @@
 -- Area: VeLugannon Palace
 --  Mob: Zipacna
 -----------------------------------
+local ID = require("scripts/zones/VeLugannon_Palace/IDs")
 require("scripts/globals/pathfind")
 
 local path =
