@@ -7,6 +7,7 @@ require("scripts/globals/titles")
 require("scripts/globals/settings")
 require("scripts/globals/quests")
 local ID = require("scripts/zones/Rabao/IDs")
+require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
