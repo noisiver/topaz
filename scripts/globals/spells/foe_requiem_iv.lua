@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Foe Requiem IV
+-- Spell: Foe Requiem VI
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -12,10 +12,8 @@ end
 
 function onSpellCast(caster, target, spell)
     local effect = tpz.effect.REQUIEM
-    local duration = 111
-    local power = 30
-
-
+    local duration = 143
+    local power = 6
 
     local pCHR = caster:getStat(tpz.mod.CHR)
     local mCHR = target:getStat(tpz.mod.CHR)
@@ -26,13 +24,8 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.SINGING
     params.bonus = 0
     params.effect = nil
-    --[[resm = applyResistance(caster, target, spell, params)
-    if (resm < 0.25) then
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
-        return 1
-    end
-    --]]
-        if caster:isPC() then
+    params.skillBonus = 0
+    if caster:isPC() then
         local instrument = caster:getSkillLevel(caster:getWeaponSkillType(tpz.slot.RANGED))
         local skillcap = caster:getMaxSkillLevel(caster:getMainLvl(), tpz.job.BRD, tpz.skill.STRING_INSTRUMENT) -- will return the same whether string or wind, both are C for bard
     
@@ -45,6 +38,12 @@ function onSpellCast(caster, target, spell)
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
         return 1
     end
+
+    -- level 75 gets a bonus
+    if (caster:getMainLvl() >= 75) then
+        power = power + 1
+    end
+
     local iBoost = caster:getMod(tpz.mod.REQUIEM_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     power = power + iBoost
 
