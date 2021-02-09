@@ -58,8 +58,11 @@ function onZoneIn(player, prevZone)
         cs = 1
     elseif currentMission == tpz.mission.id.sandoria.THE_HEIR_TO_THE_LIGHT and MissionStatus == 4 then
         cs = 0
-    elseif player:hasCompletedMission(SANDORIA, tpz.mission.id.sandoria.COMING_OF_AGE) and tonumber(os.date("%j")) == player:getCharVar("Wait1DayM8-1_date") then
-        cs = 16
+    elseif player:hasCompletedMission(tpz.mission.log_id.SANDORIA, tpz.mission.id.sandoria.COMING_OF_AGE) then
+        cs = 16	        local waitDate = player:getCharVar("Wait1DayM8-1_date")
+        if waitDate ~= 0 and os.time() > waitDate then
+            cs = 16
+        end
     end
 
     -- MOG HOUSE EXIT
