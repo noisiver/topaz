@@ -22,8 +22,8 @@ function onSpellCast(caster, target, spell)
 
     --printf("Duration : %u", duration)
     --printf("Potency : %u", potency)
-    printf("Duration : " .. duration)
-    printf("Potency : " .. potency)
+    print("Duration : " .. duration)
+    print("Potency : " .. potency)
     --Duration
     local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
 
