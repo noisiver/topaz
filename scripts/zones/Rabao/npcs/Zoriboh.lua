@@ -14,7 +14,6 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
     if (player:getCharVar("ChasingDreams") == 1) then
         player:startEvent(119) 
     elseif (player:getCharVar("ChasingDreams") == 14) then
@@ -27,7 +26,7 @@ end
 function onEventUpdate(player, csid, option)
 end
 
-unction onEventFinish(player, csid, option)
+function onEventFinish(player, csid, option)
     if csid == 119 then
         player:addQuest(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
         player:setCharVar("ChasingDreams", 2)
