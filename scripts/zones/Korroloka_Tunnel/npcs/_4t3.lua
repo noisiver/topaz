@@ -10,16 +10,17 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-     local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
+
 
      if (player:getCharVar("ChasingDreams") == 7) then
-         player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER) -- maybe wrong
-        npcUtil.deleteKeyItem(player, tpz.ki.WASHUS_FLASK)
+         player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER)
+         player:messageSpecial(ID.text.FLASK_FULL) 
+         player:delKeyItem(tpz.ki.WASHUS_FLASK)
          npcUtil.giveKeyItem(player, tpz.ki.FLASK_OF_CLAM_WATER)
-         player:messageSpecial(ID.text.KEYITEM_OBTAINED, FLASK_OF_CLAM_WATER) -- maybe wrong
+         player:messageSpecial(ID.text.KEYITEM_OBTAINED, FLASK_OF_CLAM_WATER) 
          player:setCharVar("ChasingDreams", 8)
      else
-        player:messageSpecial(ID.text.CLAM_EMPTY) -- maybe wrong
+        player:messageSpecial(ID.text.CLAM_EMPTY) 
      end
 end
 

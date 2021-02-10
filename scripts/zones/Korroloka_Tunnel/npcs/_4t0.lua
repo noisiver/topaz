@@ -13,11 +13,11 @@ function onTrigger(player, npc)
 
 
      if (player:getCharVar("ChasingDreams") == 4) then
-         player:messageSpecial(ID.text.DRAW_WATER_TEST) -- maybe wrong
+         player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER) 
          player:messageSpecial(ID.text.FLASK_FEELS_LIGHT) 
          player:setCharVar("ChasingDreams", 5)
      else
-        player:messageSpecial(ID.text.CLAM_EMPTY) -- maybe wrong
+        player:messageSpecial(ID.text.CLAM_EMPTY) 
      end
 end
 
