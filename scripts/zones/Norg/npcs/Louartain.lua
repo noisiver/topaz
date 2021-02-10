@@ -33,8 +33,12 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
+   if (player:getCharVar("ChasingDreams") == 4) then
+       player:startEvent(224)
+   else
     player:startEvent(84)
     npc:wait()
+   end
 end
 
 function onEventUpdate(player, csid, option)

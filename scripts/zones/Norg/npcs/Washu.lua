@@ -49,10 +49,12 @@ function onTrigger(player, npc)
         player:startEvent(24) -- final dialog
 
     -- CHASING DREAMS
+    elseif (player:getCharVar("ChasingDreams") == 4) then
+         player:startEvent(221)
     elseif (player:getCharVar("ChasingDreams") == 3) then
          player:startEvent(221)
     elseif (player:getCharVar("ChasingDreams") == 8) then -- might not work
-          player:startEvent(223)
+         player:startEvent(223)
 
     -- DEFAULT DIALOG
     else

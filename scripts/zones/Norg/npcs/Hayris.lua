@@ -11,7 +11,13 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    player:startEvent(215)
+   if (player:getCharVar("ChasingDreams") == 3) then
+       player:startEvent(216)
+   elseif (player:getCharVar("ChasingDreams") == 9) then
+       player:startEvent(217)
+   else    
+       player:startEvent(215)
+   end
 end
 
 function onEventUpdate(player, csid, option)

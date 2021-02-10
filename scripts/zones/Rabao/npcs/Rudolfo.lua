@@ -16,10 +16,10 @@ end
 function onTrigger(player, npc)
     local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
 
-    if (ChasingDreams == QUEST_AVAILABLE) then --and player:getFameLevel(RABAO) >= 4) 
-         player:startEvent(117)
-    elseif (player:getCharVar("ChasingDreams") == 1) then
+    if (player:getCharVar("ChasingDreams") == 1) then
         player:startEvent(118)
+    elseif (ChasingDreams == QUEST_AVAILABLE) then --and player:getFameLevel(RABAO) >= 4) 
+         player:startEvent(117)
     else
         player:startEvent(125)
     end
