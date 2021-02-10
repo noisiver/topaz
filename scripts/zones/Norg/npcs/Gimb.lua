@@ -27,5 +27,6 @@ end
 function onEventFinish(player, csid, option)
      if (csid == 211) then
         player:setCharVar("ChasingDreams", 10)
+        player:delKeyItem(tpz.ki.STOREROOM_KEY)
      end
 end

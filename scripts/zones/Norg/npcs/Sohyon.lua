@@ -34,6 +34,7 @@ function onEventFinish(player, csid, option)
         player:setCharVar("ChasingDreams", 3)
      elseif (csid == 210) then
         player:setCharVar("ChasingDreams", 9)
+        player:delKeyItem(tpz.ki.FLASK_OF_CLAM_WATER)
         npcUtil.giveKeyItem(player, tpz.ki.STOREROOM_KEY)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, STOREROOM_KEY) -- maybe wrong
      end
