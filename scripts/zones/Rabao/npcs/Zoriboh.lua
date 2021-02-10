@@ -16,7 +16,7 @@ end
 function onTrigger(player, npc)
     if (player:getCharVar("ChasingDreams") == 1) then
         player:startEvent(119)
-    elseif (player:getCharVar("ChasingDreams") == 14) then
+    elseif (player:getCharVar("ChasingDreams") == 2) then
         player:startEvent(120)
     elseif (player:getCharVar("ChasingDreams") == 14) then
         player:startEvent(121)
