@@ -26,7 +26,6 @@ end
 
 function onTrigger(player, npc)
     local stopYourWhining = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.STOP_YOUR_WHINING)
-    local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
 
     -- YOMI OKURI (SAM AF2)
     if (player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.YOMI_OKURI) == QUEST_ACCEPTED) then
@@ -53,7 +52,7 @@ function onTrigger(player, npc)
          player:startEvent(222)
     elseif (player:getCharVar("ChasingDreams") == 3) then
          player:startEvent(221)
-    elseif (player:getCharVar("ChasingDreams") == 8) then -- might not work
+    elseif (player:getCharVar("ChasingDreams") == 8) then 
          player:startEvent(223)
 
     -- DEFAULT DIALOG
@@ -83,8 +82,8 @@ function onEventFinish(player, csid, option)
 
     -- CHASING DREAMS
     elseif (csid == 221) then
+         player:setCharVar("ChasingDreams", 4)
          npcUtil.giveKeyItem(player, tpz.ki.WASHUS_FLASK)
          player:messageSpecial(ID.text.KEYITEM_OBTAINED, WASHUS_FLASK) -- maybe wrong
-         player:setCharVar("ChasingDreams", 4)
     end
 end
