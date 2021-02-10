@@ -50,7 +50,7 @@ function onTrigger(player, npc)
 
     -- CHASING DREAMS
     elseif (player:getCharVar("ChasingDreams") == 4) then
-         player:startEvent(221)
+         player:startEvent(222)
     elseif (player:getCharVar("ChasingDreams") == 3) then
          player:startEvent(221)
     elseif (player:getCharVar("ChasingDreams") == 8) then -- might not work
