@@ -20,8 +20,8 @@ function onSpellCast(caster, target, spell)
     local power = utils.clamp(math.floor(dMND * 75 / 5) + 1825, 730, 2920)    
     power = calculatePotency(power, spell:getSkillType(), caster, target)
 
-    printf("Duration : %u", duration)
-    printf("Potency : %u", potency)
+    --printf("Duration : %u", duration)
+    --printf("Potency : %u", potency)
     --Duration
     local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
 
