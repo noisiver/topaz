@@ -10,7 +10,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-     local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
+
 
      if (player:getCharVar("ChasingDreams") == 4) then
          player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER) -- maybe wrong
