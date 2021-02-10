@@ -13,7 +13,7 @@ end
 function onTrigger(player, npc)
    local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
 
-   if (player:getCharVar("ChasingDreams") == 3) then
+   if (player:getCharVar("ChasingDreams") == 3) or (player:getCharVar("ChasingDreams") == 4)  then
        player:startEvent(213)
    elseif (player:getCharVar("ChasingDreams") == 2) then
        player:startEvent(209)
