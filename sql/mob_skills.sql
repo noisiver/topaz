@@ -374,9 +374,9 @@ INSERT INTO `mob_skills` VALUES (543,287,'meltdown',1,15.0,2000,5000,4,0,0,0,0,0
 -- INSERT INTO `mob_skills` VALUES (545,289,'somnolence',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (546,290,'noctoshield',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (547,291,'ultimate_terror',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES(1905, 916, 'noctoshield', 1, 10.0, 644, 1800, 1, 0, 0, 0, 0, 0, 0);
-INSERT INTO `mob_skills` VALUES(1906, 917, 'ultimate_terror', 1, 10.0, 643, 3000, 4, 0, 0, 0, 0, 0, 0);
-INSERT INTO `mob_skills` VALUES(1908, 918, 'nightmare', 1, 10.0, 642, 3000, 4, 0, 0, 0, 0, 0, 0);
+--INSERT INTO `mob_skills` VALUES(1905, 916, 'noctoshield', 1, 10.0, 644, 1800, 1, 0, 0, 0, 0, 0, 0);
+--INSERT INTO `mob_skills` VALUES(1906, 917, 'ultimate_terror', 1, 10.0, 643, 3000, 4, 0, 0, 0, 0, 0, 0);
+--INSERT INTO `mob_skills` VALUES(1908, 918, 'nightmare', 1, 10.0, 642, 3000, 4, 0, 0, 0, 0, 0, 0);
 INSERT INTO `mob_skills` VALUES (548,292,'blindeye',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (549,293,'eyes_on_me',0,13.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (550,294,'hypnosis',4,10.0,2000,1500,4,0,0,0,0,0,0);
