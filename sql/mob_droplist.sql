@@ -3713,10 +3713,10 @@ INSERT INTO `mob_droplist` VALUES (708,0,0,1000,801,40);
 INSERT INTO `mob_droplist` VALUES (708,0,0,1000,914,180);
 INSERT INTO `mob_droplist` VALUES (708,0,0,1000,954,450);
 INSERT INTO `mob_droplist` VALUES (708,0,0,1000,1041,50);
-INSERT INTO `mob_droplist` VALUES (709,0,0,1000,797,10);
-INSERT INTO `mob_droplist` VALUES (709,0,0,1000,914,100);
-INSERT INTO `mob_droplist` VALUES (709,0,0,1000,954,240);
-INSERT INTO `mob_droplist` VALUES (709,0,0,1000,4722,50);
+INSERT INTO `mob_droplist` VALUES (709,0,0,1000,797,10); -- (Droma - Fei'yin) Painite
+INSERT INTO `mob_droplist` VALUES (709,0,0,1000,914,150); -- Mercury
+INSERT INTO `mob_droplist` VALUES (709,0,0,1000,954,240); -- Magic pot shard
+INSERT INTO `mob_droplist` VALUES (709,0,0,1000,4722,100); -- Scroll of Enfire II
 INSERT INTO `mob_droplist` VALUES (710,0,0,1000,914,100);
 INSERT INTO `mob_droplist` VALUES (710,0,0,1000,1165,50);
 INSERT INTO `mob_droplist` VALUES (711,2,0,1000,816,0);
@@ -3791,7 +3791,7 @@ INSERT INTO `mob_droplist` VALUES (723,2,0,1000,4362,0);
 INSERT INTO `mob_droplist` VALUES (724,0,0,1000,914,250);
 INSERT INTO `mob_droplist` VALUES (724,0,0,1000,954,240);
 INSERT INTO `mob_droplist` VALUES (724,0,0,1000,1060,50);
-INSERT INTO `mob_droplist` VALUES (724,0,0,1000,1430,10);
+INSERT INTO `mob_droplist` VALUES (724,0,0,1000,1430,150);
 INSERT INTO `mob_droplist` VALUES (724,0,0,1000,4659,10);
 INSERT INTO `mob_droplist` VALUES (724,0,0,1000,4774,430);
 INSERT INTO `mob_droplist` VALUES (724,0,0,1000,4775,150);
@@ -6705,7 +6705,7 @@ INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,914,150); -- (Hover Tank - Temp
 INSERT INTO `mob_droplist` VALUES (1331,4,0,1000,954,0);
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,954,240); -- Magic pot shard
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1049,50); -- Uggalepih coffer key
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1430,100); -- Red mage's testimony
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1430,150); -- Red mage's testimony
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4659,10); -- Scroll of Shell IV
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4726,100); -- Scroll of Enthunder II
 INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4774,50); -- Scroll of Thunder III
@@ -8014,22 +8014,20 @@ INSERT INTO `mob_droplist` VALUES (1564,0,0,1000,3294,50);
 INSERT INTO `mob_droplist` VALUES (1564,0,0,1000,11700,100);
 INSERT INTO `mob_droplist` VALUES (1564,0,0,1000,11762,100);
 INSERT INTO `mob_droplist` VALUES (1564,0,0,1000,19135,100);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,914,130);
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,914,150); -- (Magic Flagon - Ro'Maeve) Vial of mercury
 INSERT INTO `mob_droplist` VALUES (1565,4,0,1000,954,0);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,954,240);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,1408,270);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,1430,60);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4659,10);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4725,60);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4774,50);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4775,10);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4804,10);
-INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4820,10);
-INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,914,50);
-INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,954,60);
-INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,1047,50);
-INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,4659,90);
-INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,4724,130);
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,954,240); --Magic pot shard
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,1408,240); -- Bottle of illuminink
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,1430,150); -- Red mage's testimony
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4659,10); -- Scroll of Shell IV
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4725,100); -- Scroll of Enstone II
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4774,50); -- Scroll of Thunder III
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4775,10); -- Scroll of Thunder IV
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4804,10); -- Scroll of Thundaga III
+INSERT INTO `mob_droplist` VALUES (1565,0,0,1000,4820,10); -- Scroll of Burst
+INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,1047,50); -- (Magic Jug - Garlaige) Garlaige coffer key
+INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,4659,50); -- Scroll of Shell IV
+INSERT INTO `mob_droplist` VALUES (1566,0,0,1000,4724,100); -- Scroll of Enaero II
 INSERT INTO `mob_droplist` VALUES (1567,0,0,1000,914,210);
 INSERT INTO `mob_droplist` VALUES (1567,0,0,1000,954,380);
 INSERT INTO `mob_droplist` VALUES (1567,0,0,1000,1064,50);
@@ -8037,7 +8035,7 @@ INSERT INTO `mob_droplist` VALUES (1568,0,0,1000,914,150);
 INSERT INTO `mob_droplist` VALUES (1568,0,0,1000,954,150);
 INSERT INTO `mob_droplist` VALUES (1569,0,0,1000,914,150);
 INSERT INTO `mob_droplist` VALUES (1569,0,0,1000,954,320);
-INSERT INTO `mob_droplist` VALUES (1569,0,0,1000,1430,120);
+INSERT INTO `mob_droplist` VALUES (1569,0,0,1000,1430,150);
 INSERT INTO `mob_droplist` VALUES (1569,0,0,1000,4659,10);
 INSERT INTO `mob_droplist` VALUES (1569,0,0,1000,4774,50);
 INSERT INTO `mob_droplist` VALUES (1569,0,0,1000,4775,0);
@@ -8624,10 +8622,11 @@ INSERT INTO `mob_droplist` VALUES (1722,0,0,1000,1631,10);
 INSERT INTO `mob_droplist` VALUES (1722,0,0,1000,1638,190);
 INSERT INTO `mob_droplist` VALUES (1722,0,0,1000,1651,340);
 INSERT INTO `mob_droplist` VALUES (1722,0,0,1000,1861,80);
-INSERT INTO `mob_droplist` VALUES (1723,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1631,30);
-INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1638,120);
-INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1684,70);
+INSERT INTO `mob_droplist` VALUES (1723,2,0,1000,748,0); -- Moblin Workman
+INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1631,50); -- Moblin armor
+INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1638,150); -- Moblin mask
+INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,1684,50); -- Gold key
+INSERT INTO `mob_droplist` VALUES (1723,0,0,1000,4723,100); -- Scroll Of Enblizzard II
 INSERT INTO `mob_droplist` VALUES (1724,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1724,0,0,1000,1631,30);
 INSERT INTO `mob_droplist` VALUES (1724,0,0,1000,1638,120);
@@ -10952,9 +10951,9 @@ INSERT INTO `mob_droplist` VALUES (2128,0,0,1000,2525,160);
 INSERT INTO `mob_droplist` VALUES (2128,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (2128,0,0,1000,2531,60);
 INSERT INTO `mob_droplist` VALUES (2129,2,0,1000,656,0);	-- (Ruby Quadav)
-INSERT INTO `mob_droplist` VALUES (2129,0,0,1000,786,349);	-- Ruby
-INSERT INTO `mob_droplist` VALUES (2129,0,0,1000,1430,264);	-- Red mage's testimony
-INSERT INTO `mob_droplist` VALUES (2129,0,0,1000,4659,263);	-- Scroll of Shell IV
+INSERT INTO `mob_droplist` VALUES (2129,0,0,1000,786,240);	-- Ruby
+INSERT INTO `mob_droplist` VALUES (2129,0,0,1000,1430,240);	-- Red mage's testimony
+INSERT INTO `mob_droplist` VALUES (2129,0,0,1000,4659,240);	-- Scroll of Shell IV
 INSERT INTO `mob_droplist` VALUES (2130,0,0,1000,2685,1000);
 INSERT INTO `mob_droplist` VALUES (2130,0,0,1000,15033,100);
 INSERT INTO `mob_droplist` VALUES (2130,0,0,1000,18951,100);
@@ -11773,7 +11772,7 @@ INSERT INTO `mob_droplist` VALUES (2312,0,0,1000,4701,0); -- cura
 INSERT INTO `mob_droplist` VALUES (2313,0,0,1000,914,140);
 INSERT INTO `mob_droplist` VALUES (2313,0,0,1000,954,330);
 INSERT INTO `mob_droplist` VALUES (2313,0,0,1000,1058,50);
-INSERT INTO `mob_droplist` VALUES (2313,0,0,1000,1430,120);
+INSERT INTO `mob_droplist` VALUES (2313,0,0,1000,1430,150);
 INSERT INTO `mob_droplist` VALUES (2313,0,0,1000,4659,50);
 INSERT INTO `mob_droplist` VALUES (2313,0,0,1000,4774,50);
 INSERT INTO `mob_droplist` VALUES (2313,0,0,1000,4775,50);
@@ -12375,12 +12374,12 @@ INSERT INTO `mob_droplist` VALUES (2437,0,0,1000,1162,50);
 INSERT INTO `mob_droplist` VALUES (2437,0,0,1000,1486,15);
 INSERT INTO `mob_droplist` VALUES (2437,0,0,1000,4157,50);
 INSERT INTO `mob_droplist` VALUES (2438,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1119,150);
-INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1138,220);
-INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1162,50);
-INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1429,90);
-INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,4774,50);
-INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,4803,70);
+INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1119,240); -- Tonberry coat
+INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1138,150); -- Unlit lantern
+INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,1429,150); -- Black mage's testimony
+INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,4774,50); -- Scroll of Thunder III
+INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,4803,10); -- Scroll of Thundaga II
+INSERT INTO `mob_droplist` VALUES (2438,0,0,1000,4727,100); -- Scroll Of Enwater II
 INSERT INTO `mob_droplist` VALUES (2439,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2439,0,0,1000,1119,150);
 INSERT INTO `mob_droplist` VALUES (2439,0,0,1000,1138,110);
