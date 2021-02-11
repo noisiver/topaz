@@ -8,7 +8,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.ROAM_DISTANCE, 1)
+    mob:setMobMod(tpz.mobMod.ROAM_DISTANCE, 0)
 end
 
 function onMobDeath(mob, player, isKiller)
