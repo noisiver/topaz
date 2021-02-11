@@ -446,9 +446,9 @@ namespace battleutils
         {
             //Tier 2 enspells calculate the damage on each hit and increment the potency in Mod::ENSPELL_DMG per hit
             uint16 skill = PAttacker->GetSkill(SKILL_ENHANCING_MAGIC);
-            uint16 cap = 3 + ((6 * skill) / 100);
+            uint16 cap = 3 + ((12 * skill) / 100); //  uint16 cap = 3 + ((6 * skill) / 100);
             if (skill > 200) {
-                cap = 5 + ((5 * skill) / 100);
+                cap = 7 + ((10 * skill) / 100); // cap = 5 + ((5 * skill) / 100);
             }
             cap *= 2;
 
