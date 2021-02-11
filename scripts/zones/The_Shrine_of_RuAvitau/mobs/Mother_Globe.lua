@@ -39,18 +39,14 @@ end
 function onMobSpawn(mob)
     local now = os.time()
     mob:addStatusEffectEx(tpz.effect.SHOCK_SPIKES, 0, 60, 0, 0) -- ~60 damage
-    -- TODO: Effect can be stolen, giving a THF (Aura Steal) or BLU (Voracious Trunk) a 60 minute shock spikes effect (unknown potency).
-    -- If effect is stolen, he will recast it instantly.
     mob:setLocalVar("Initial_SlaveTimer", now)
     mob:setLocalVar("SlaveRecast", now)
     onMobRoam(mob)
 end
 
-
 function onPath(mob)
     tpz.path.patrol(mob, path)
 end
-
 
 function onMobRoam(mob)
     local now = os.time()
@@ -125,7 +121,6 @@ function onMobFight(mob, target)
 
     -- Summons a single orb every 30 seconds.  Needs to be last, so other code runs.
     -- TODO: Should have a SMN casting effect for ~3-5 seconds while calling.
-
     if mob:getLocalVar("SlavesSpawned") < 6 then
         if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
             mob:addStatusEffectEx(tpz.effect.SHOCK_SPIKES, 0, 60, 0, 0) -- ~60 damage
@@ -146,13 +141,13 @@ function onMobFight(mob, target)
 end
 
 function onAdditionalEffect(mob, target, damage)
- return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER)
 end
 
 function onMobDeath(mob, player, isKiller)
     mob:setRespawnTime(math.random(10800, 21600)) -- respawn 3-6 hrs
 
-   for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
+    for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
         local pet = GetMobByID(i)
         if pet:isSpawned() then
             DespawnMob(i)

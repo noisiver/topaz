@@ -34,7 +34,6 @@ zones[tpz.zone.VELUGANNON_PALACE] =
     {
         MIMIC            = 17502567,
         BRIGANDISH_BLADE = 17502568,
-        
         SC_DETECTORS     = 
         {
             DET1 = 17502535, -- Island Seiryu (1)

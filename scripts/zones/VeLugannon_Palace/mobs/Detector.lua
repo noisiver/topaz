@@ -7,7 +7,6 @@ require("scripts/globals/pathfind")
 require("scripts/globals/regimes")
 -----------------------------------
 
-
 SC_DETECTOR_PATHS = 
 {
     ISLAND1 =
@@ -134,7 +133,6 @@ function onMobSpawn(mob)
     mob:setLocalVar("petCount", 1)
 end
 
-
 function onPath(mob)
     local mobId = mob:getID()
     if mobId == ID.mob.SC_DETECTORS.DET1 then
@@ -180,12 +178,11 @@ end
 function onMobFight(mob, target)
     local caretaker = GetMobByID(mob:getID() + 1)
     local petCount = mob:getLocalVar("petCount")
-     local now = os.time()
+    local now = os.time()
 
     -- Summons a Caretaker every 15 seconds.
     -- TODO: Casting animation for before summons. When he spawns them isn't exactly retail accurate.
     --       Should be ~10s to start cast, and another ~5 to finish.
-
     if petCount <= 5 and mob:getBattleTime() % 15 < 3 and mob:getBattleTime() > 3 and not caretaker:isSpawned() then
         if now >= GetServerVariable("SteamCleaner_Respawn") and (math.random(100) < 10) then
             local sc = GetMobByID(ID.mob.STEAM_CLEANER)
@@ -214,7 +211,6 @@ function onMobDisengage(mob)
     local caretakerId = mob:getID() + 1
 
     mob:resetLocalVars()
-
     if GetMobByID(caretakerId):isSpawned() then
         DespawnMob(caretakerId)
     end
@@ -225,7 +221,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-
     local mobId = mob:getID()
     for i,v in pairs(ID.mob.SC_DETECTORS) do
         if mobId == v then
