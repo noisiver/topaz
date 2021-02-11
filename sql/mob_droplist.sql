@@ -6701,17 +6701,17 @@ INSERT INTO `mob_droplist` VALUES (1329,0,0,1000,12798,240);	 -- Zealot's mitts
 INSERT INTO `mob_droplist` VALUES (1329,0,0,1000,17132,100);	 -- Monster sigma
 INSERT INTO `mob_droplist` VALUES (1330,0,0,1000,846,180);
 INSERT INTO `mob_droplist` VALUES (1330,0,0,1000,1040,50);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,914,100);
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,914,150); -- (Hover Tank - Temple Of Uggalepih) Vial of mercury
 INSERT INTO `mob_droplist` VALUES (1331,4,0,1000,954,0);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,954,240);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1049,50);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1430,50);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4659,10);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4726,100);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4774,50);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4775,50);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4804,50);
-INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4820,10);
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,954,240); -- Magic pot shard
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1049,50); -- Uggalepih coffer key
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,1430,100); -- Red mage's testimony
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4659,10); -- Scroll of Shell IV
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4726,100); -- Scroll of Enthunder II
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4774,50); -- Scroll of Thunder III
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4775,10); -- Scroll of Thunder IV
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4804,10); -- Scroll of Thundaga III
+INSERT INTO `mob_droplist` VALUES (1331,0,0,1000,4820,10); -- Scroll of Burst
 INSERT INTO `mob_droplist` VALUES (1332,0,0,1000,3198,100);
 INSERT INTO `mob_droplist` VALUES (1332,0,0,1000,3200,100);
 INSERT INTO `mob_droplist` VALUES (1332,0,0,1000,3204,100);

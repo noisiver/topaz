@@ -370,7 +370,7 @@ INSERT INTO `mob_skills` VALUES (541,285,'gravity_field',2,10.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (542,899,'empty_seed',1,20.0,2000,2000,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (543,287,'meltdown',1,15.0,2000,5000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (544,288,'camisado',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES(1903, 915, 'camisado', 0, 10.0, 640, 3000, 4, 0, 0, 2, 0, 0, 0);
+--INSERT INTO `mob_skills` VALUES(1903, 915, 'camisado', 0, 10.0, 640, 3000, 4, 0, 0, 2, 0, 0, 0);
 -- INSERT INTO `mob_skills` VALUES (545,289,'somnolence',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (546,290,'noctoshield',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (547,291,'ultimate_terror',0,7.0,2000,1500,4,0,0,0,0,0,0);
