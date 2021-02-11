@@ -7581,7 +7581,7 @@ INSERT INTO `mob_groups` VALUES (27,1705,111,'Goblin_Reaper',330,0,1142,0,0,40,4
 INSERT INTO `mob_groups` VALUES (28,3781,111,'Stone_Golem',330,0,2342,0,0,40,42,0);
 INSERT INTO `mob_groups` VALUES (29,2264,111,'Kirata',0,32,1453,4500,0,41,41,0);
 INSERT INTO `mob_groups` VALUES (30,1461,111,'Gargantua',0,32,930,7500,0,47,48,0);
-INSERT INTO `mob_groups` VALUES (31,5853,111,'Humbaba',0,128,3064,7000,0,62,62,0);
+INSERT INTO `mob_groups` VALUES (31,5853,111,'Humbaba',0,128,3064,7000,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (32,5313,111,'Calcabrina',5400,0,2937,5000,0,52,55,0);
 INSERT INTO `mob_groups` VALUES (33,1983,111,'Hobgoblin_Warrior',0,128,0,0,0,40,45,0);
 INSERT INTO `mob_groups` VALUES (34,1984,111,'Hobgoblin_White_Mage',0,128,0,0,0,40,45,0);
@@ -7743,7 +7743,7 @@ INSERT INTO `mob_groups` VALUES (22,186,114,'Antican_Sagittarius',330,0,135,0,0,
 INSERT INTO `mob_groups` VALUES (23,189,114,'Antican_Speculator',330,0,138,0,0,44,49,0);
 INSERT INTO `mob_groups` VALUES (24,5891,114,'Sabotender_Corrido',7200,0,3090,9000,0,72,73,0);
 INSERT INTO `mob_groups` VALUES (25,1709,114,'Goblin_Robber',330,0,1145,0,0,45,49,0);
-INSERT INTO `mob_groups` VALUES (26,676,114,'Centurio_XII-I',0,128,444,0,0,56,56,0);
+INSERT INTO `mob_groups` VALUES (26,676,114,'Centurio_XII-I',0,128,444,8500,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (27,1701,114,'Goblin_Poacher',330,0,1140,0,0,45,49,0);
 INSERT INTO `mob_groups` VALUES (28,1138,114,'Dune_Widow',0,32,720,6500,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (29,1705,114,'Goblin_Reaper',330,0,1142,0,0,45,49,0);
