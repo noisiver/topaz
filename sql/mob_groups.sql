@@ -461,7 +461,7 @@ INSERT INTO `mob_groups` VALUES (27,2701,11,'Moblin_Repairman',600,0,1716,0,0,42
 INSERT INTO `mob_groups` VALUES (28,1650,11,'Goblin_Doorman',600,0,1043,0,0,42,44,0);
 INSERT INTO `mob_groups` VALUES (29,1691,11,'Goblin_Oilman',600,0,1121,0,0,42,44,0);
 INSERT INTO `mob_groups` VALUES (30,2699,11,'Moblin_Pikeman',600,0,1714,0,0,42,44,0);
-INSERT INTO `mob_groups` VALUES (31,566,11,'Bugbear_Strongman',0,32,378,4800,0,50,52,0);
+INSERT INTO `mob_groups` VALUES (31,566,11,'Bugbear_Strongman',0,32,378,5500,0,50,52,0);
 INSERT INTO `mob_groups` VALUES (32,1712,11,'Goblin_Shovelman',600,0,1157,0,0,42,44,0);
 INSERT INTO `mob_groups` VALUES (33,1663,11,'Goblin_Freelance',600,0,1061,0,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (34,2685,11,'Moblin_Ashman',600,0,3078,0,0,45,45,0);
@@ -9793,7 +9793,7 @@ INSERT INTO `mob_groups` VALUES (21,3731,147,'Spinel_Quadav',600,0,2306,0,0,44,4
 INSERT INTO `mob_groups` VALUES (22,1207,147,'Emerald_Quadav',600,0,762,0,0,45,49,0);
 INSERT INTO `mob_groups` VALUES (23,1023,147,'DeVyu_Headhunter',300,0,2818,2000,0,45,45,0);
 INSERT INTO `mob_groups` VALUES (24,539,147,'Broo',600,0,363,0,0,39,41,0);
-INSERT INTO `mob_groups` VALUES (25,1482,147,'GaBhu_Unvanquished',0,32,2849,5000,0,47,48,0);
+INSERT INTO `mob_groups` VALUES (25,1482,147,'GaBhu_Unvanquished',0,32,2849,5000,0,47,49,0);
 INSERT INTO `mob_groups` VALUES (26,1624,147,'Gloop',600,0,1007,0,0,38,40,0);
 INSERT INTO `mob_groups` VALUES (27,3769,147,'Steel_Quadav',600,0,3153,0,0,52,56,0);
 INSERT INTO `mob_groups` VALUES (28,2795,147,'Mythril_Quadav',600,0,1768,0,0,53,57,0);
@@ -12300,7 +12300,7 @@ INSERT INTO `mob_groups` VALUES (29,3707,197,'Soul_Stinger',600,0,2295,0,0,48,50
 INSERT INTO `mob_groups` VALUES (30,6332,197,'Mushussu',600,0,1756,0,0,53,55,0);
 INSERT INTO `mob_groups` VALUES (31,3415,197,'Rumble_Crawler',600,0,2132,0,0,53,55,0);
 INSERT INTO `mob_groups` VALUES (32,4322,197,'Wespe',600,0,2644,0,0,55,57,0);
-INSERT INTO `mob_groups` VALUES (33,979,197,'Demonic_Tiphia',0,32,610,11000,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (33,979,197,'Demonic_Tiphia',0,32,610,11000,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (34,1099,197,'Dragonfly',600,0,697,0,0,55,58,0);
 INSERT INTO `mob_groups` VALUES (35,832,197,'Crawler_Hunter',600,0,531,0,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (36,4705,197,'Aqrabuamelu',7200,0,2947,8500,0,72,75,0);
