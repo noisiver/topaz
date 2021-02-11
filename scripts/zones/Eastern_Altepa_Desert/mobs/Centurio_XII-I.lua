@@ -1,6 +1,8 @@
 -----------------------------------
 -- Area: Eastern Altepa Desert (114)
 --   NM: Centurio XII-I
+------------------------------------
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
