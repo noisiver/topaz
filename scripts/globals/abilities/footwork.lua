@@ -3,7 +3,7 @@
 -- Makes kicks your primary mode of attack.
 -- Obtained: Monk Level 65
 -- Recast Time: 5:00
--- Duration: 1:00
+-- Duration: 5:00
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
@@ -13,7 +13,6 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local kickDmg = 20 + player:getWeaponDmg()
-    local kickAttPercent = 25 + player:getMod(tpz.mod.FOOTWORK_ATT_BONUS)
-    player:addStatusEffect(tpz.effect.FOOTWORK, kickDmg, 0, 60, 0, kickAttPercent)
+   local kickDmg = 18 + player:getWeaponDmg()
+   player:addStatusEffect(tpz.effect.FOOTWORK, kickDmg, 0, 300, 0, 0)
 end
