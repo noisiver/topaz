@@ -40,11 +40,11 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local tpHits = 0
     -- Damage calculations based on https://www.bg-wiki.com/index.php?title=Spirits_Within&oldid=269806
     if (tp == 3000) then
-        WSC = math.floor(HP * 120/256)
+        WSC = HP
     elseif (tp >= 2000) then
-        WSC = math.floor(HP * (math.floor(0.072 * tp) - 96) / 256)
+        WSC = HP / 1.5
     elseif (tp >= 1000) then
-        WSC = math.floor(HP * (math.floor(0.016 * tp) + 16) / 256)
+        WSC = HP / 2
     end
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
