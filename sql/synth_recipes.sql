@@ -4188,7 +4188,7 @@ INSERT INTO `synth_recipes` VALUES (69910,1,0,0,0,0,0,0,0,31,0,4100,4242,17407,0
 -- INSERT INTO `synth_recipes` VALUES (69916,1,0,0,0,0,0,0,0,255,0,4100,4242,17384,0,0,0,0,0,0,0,933,932,932,932,1,4,4,4,'Carbon Fish. Rod (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (69917,1,0,0,0,0,0,0,0,255,0,4100,4242,16910,0,0,0,0,0,0,0,4159,707,1234,657,1,1,6,1,'Mamushito (desynth)');
 INSERT INTO `synth_recipes` VALUES (69918,1,0,0,0,0,0,0,0,51,0,4100,4242,16430,0,0,0,0,0,0,0,937,649,649,649,1,1,1,1,'Acid Claws (desynth)');
--- INSERT INTO `synth_recipes` VALUES (69919,1,0,0,0,0,0,0,0,255,0,4100,4242,1624,0,0,0,0,0,0,0,933,933,933,933,10,10,10,10,'Bugbear Mask (desynth)');
+INSERT INTO `synth_recipes` VALUES (69919,1,0,0,0,0,0,0,0,20,0,4100,4242,1624,0,0,0,0,0,0,0,933,933,933,933,4,6,8,10,'Bugbear Mask (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (69920,1,0,0,0,0,0,0,0,255,0,4100,4242,16858,0,0,0,0,0,0,0,5306,1226,1226,1226,1,10,10,10,'Sacred Lance (desynth)');
 INSERT INTO `synth_recipes` VALUES (69921,1,0,0,0,0,0,0,0,83,0,4100,4242,16860,0,0,0,0,0,0,0,4154,715,1226,1226,1,2,10,10,'Holy Lance (desynth)');
 INSERT INTO `synth_recipes` VALUES (69922,1,0,0,0,0,0,0,0,55,0,4100,4242,17041,0,0,0,0,0,0,0,4154,716,1226,653,1,1,10,2,'Holy Mace (desynth)');
