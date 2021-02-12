@@ -1516,15 +1516,15 @@ INSERT INTO `item_basic` VALUES (1627,0,'handful_of_armored_arrowheads','arm._ar
 INSERT INTO `item_basic` VALUES (1628,0,'buffalo_hide','buffalo_hide',1,4,41,0,1900);		-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (1629,0,'square_of_buffalo_leather','buffalo_leather',12,4,41,0,805);
 INSERT INTO `item_basic` VALUES (1630,0,'pinch_of_cluster_ash','cluster_ash',12,4,44,0,311);
-INSERT INTO `item_basic` VALUES (1631,0,'moblin_armor','moblin_armor',12,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (1632,0,'moblin_mail','moblin_mail',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (1631,0,'moblin_armor','moblin_armor',1,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (1632,0,'moblin_mail','moblin_mail',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (1633,0,'handful_of_clot_plasma','clot_plasma',12,4,59,0,300);
 INSERT INTO `item_basic` VALUES (1634,0,'rhodonite','rhodonite',12,4,39,0,600);
 INSERT INTO `item_basic` VALUES (1635,0,'paktong_ingot','paktong_ingot',12,4,38,0,600);
 INSERT INTO `item_basic` VALUES (1636,0,'square_of_moblinweave','moblinweave',12,4,40,0,600);
 INSERT INTO `item_basic` VALUES (1637,0,'square_of_bugard_leather','bugard_leather',12,4,41,0,450);
-INSERT INTO `item_basic` VALUES (1638,0,'moblin_mask','moblin_mask',12,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (1639,0,'corse_robe','corse_robe',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (1638,0,'moblin_mask','moblin_mask',1,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (1639,0,'corse_robe','corse_robe',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (1640,0,'bugard_skin','bugard_skin',12,4,41,0,450);	-- was 210
 INSERT INTO `item_basic` VALUES (1641,0,'bottle_of_fire_anima','fire_anima',99,4100,44,1,0);
 INSERT INTO `item_basic` VALUES (1642,0,'bottle_of_ice_anima','ice_anima',99,4100,44,1,0);
@@ -1539,7 +1539,7 @@ INSERT INTO `item_basic` VALUES (1650,0,'chunk_of_kopparnickel_ore','kopparnicke
 INSERT INTO `item_basic` VALUES (1651,0,'spool_of_moblin_thread','moblin_thread',12,4,40,0,204);
 INSERT INTO `item_basic` VALUES (1652,0,'bottle_of_rice_vinegar','rice_vinegar',12,4,59,0,175);
 INSERT INTO `item_basic` VALUES (1653,0,'demon_pen','demon_pen',1,57428,0,0,700);
-INSERT INTO `item_basic` VALUES (1654,0,'igneous_rock','igneous_rock',12,4,38,0,180);
+INSERT INTO `item_basic` VALUES (1654,0,'igneous_rock','igneous_rock',1,4,38,0,180);
 INSERT INTO `item_basic` VALUES (1655,0,'leather_pouch','leather_pouch',12,4,41,0,181);
 INSERT INTO `item_basic` VALUES (1656,0,'brass_tank','brass_tank',12,4,39,0,210);
 INSERT INTO `item_basic` VALUES (1657,0,'spool_of_bundling_twine','bundling_twine',99,4,43,0,25);
