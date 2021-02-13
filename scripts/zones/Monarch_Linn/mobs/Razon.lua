@@ -33,7 +33,7 @@ function onMobFight(mob, target)
     end
     if os.time() > mob:getLocalVar("selfDestruct2") and mob:getHPP() > 33  then
         mob:useMobAbility(4263) -- 500 damage
-    elseif os.time() > mob:getLocalVar("selfDestruct2") and mob:getHPP() >= 33  then
+    elseif os.time() > mob:getLocalVar("selfDestruct2") and mob:getHPP() <= 33  then
         mob:useMobAbility(4264) -- 0 damage
     end
     if os.time() > mob:getLocalVar("selfDestruct3") and mob:getHPP() >= 1  then
