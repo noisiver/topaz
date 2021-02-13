@@ -12,6 +12,12 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 10)
+     mob:addMod(tpz.mod.ACC, 30) 
+     mob:addMod(tpz.mod.EVA, 60)
+end
+
+function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
