@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")
+require("scripts/globals/magic")
 -----------------------------------
 
 function onMobSpawn(mob)
