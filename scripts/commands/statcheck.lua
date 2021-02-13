@@ -1,7 +1,7 @@
 function onTrigger(player)
     local targ = player:getCursorTarget();
     if (targ ~= nil) then
-         local str = targ:getStat(tpz.mod.STR)
+        local str = targ:getStat(tpz.mod.STR)
         local dex = targ:getStat(tpz.mod.DEX)
         local vit = targ:getStat(tpz.mod.VIT)
         local agi = targ:getStat(tpz.mod.AGI)
