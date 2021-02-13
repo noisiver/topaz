@@ -13,7 +13,9 @@ function onMobInitialize(mob)
 end
 
 function onMobFight( mob, target )
-    if mob:getHPP() >= 15 then
+    local HP = mob:getHPP()
+
+    if HP >= 15 then
          mob:setMod(tpz.mod.REGAIN, 3000)
          mob:setMobMod(tpz.mobMod.SKILL_LIST, 1154)
     end
