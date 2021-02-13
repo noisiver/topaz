@@ -1,6 +1,7 @@
 function onTrigger(player)
     local targ = player:getCursorTarget();
     if (targ ~= nil) then
+        local delay = targ:getstat(tpz.mod.DELAY)
         local str = targ:getStat(tpz.mod.STR)
         local dex = targ:getStat(tpz.mod.DEX)
         local vit = targ:getStat(tpz.mod.VIT)
@@ -23,6 +24,8 @@ function onTrigger(player)
         local earth = targ:getMod(tpz.mod.SDT_EARTH)
         local water = targ:getMod(tpz.mod.SDT_WATER)
         local thunder = targ:getMod(tpz.mod.SDT_THUNDER)
+        local thunder = targ:getMod(tpz.mod.DARK)
+        local thunder = targ:getMod(tpz.mod.LIGHT)
         
         local hthres = targ:getMod(tpz.mod.HTHRES)
         local pierceres = targ:getMod(tpz.mod.PIERCERES)
@@ -32,8 +35,8 @@ function onTrigger(player)
        
         player:PrintToPlayer(string.format("%s Stats 0: MJOB: %u, SJOB: %u, HP: %u, MP: %u", targ:getName(), targ:getMainJob(), targ:getSubJob(), targ:getMaxHP(), targ:getMaxMP()))
         player:PrintToPlayer(string.format("%s Stats 1: LVL: %u, SLVL: %u, ACC: %u, EVA: %u, ATT: %u, DEF: %u, MATT: %u, MACC: %u, MDEF: %u ", targ:getName(), targ:getMainLvl(), targ:getSubLvl(), acc,eva,att,def,matt,macc,mdef))
-        player:PrintToPlayer(string.format("%s Stats 2: STR: %u, DEX: %u, VIT: %u, AGI: %u, INT: %u, MND: %u, CHR: %u", targ:getName(), str,dex,vit,agi,int,mnd,chr))
-        player:PrintToPlayer(string.format("%s Stats 3: Fire: %f, Ice: %f, Wind: %f, Earth: %f, Water: %f, Thunder: %f", targ:getName(), fire, ice, wind, earth, water, thunder))
+        player:PrintToPlayer(string.format("%s Stats 2: Delay: %u, STR: %u, DEX: %u, VIT: %u, AGI: %u, INT: %u, MND: %u, CHR: %u", targ:getName(), delay, str,dex,vit,agi,int,mnd,chr))
+        player:PrintToPlayer(string.format("%s Stats 3: Fire: %f, Ice: %f, Wind: %f, Earth: %f, Water: %f, Thunder: %f, Dark: %f, Light: %f", targ:getName(), fire, ice, wind, earth, water, thunder, dark, light))
         player:PrintToPlayer(string.format("%s Stats 4: hthres: %f, pierceres: %f, impactres: %f, slashres: %f, spdefdown: %f", targ:getName(), hthres, pierceres, impactres, slashres, spdefdown))
     else
         player:PrintToPlayer("Must select a target using in game cursor first.");
