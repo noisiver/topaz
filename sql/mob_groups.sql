@@ -1107,7 +1107,7 @@ INSERT INTO `mob_groups` VALUES (20,3596,30,'Shieldtrap',0,128,2235,5500,0,46,48
 INSERT INTO `mob_groups` VALUES (1,2499,31,'Mammet-19_Epsilon',0,128,1585,4000,0,43,44,0);
 INSERT INTO `mob_groups` VALUES (2,3070,31,'Ouryu',0,128,0,6500,500,54,55,0);
 INSERT INTO `mob_groups` VALUES (3,1885,31,'Hamadryad',0,128,0,0,0,40,40,0);
-INSERT INTO `mob_groups` VALUES (4,3333,31,'Razon',0,128,0,0,0,40,40,0);
+INSERT INTO `mob_groups` VALUES (4,3333,31,'Razon',0,128,0,4000,0,40,42,0);
 INSERT INTO `mob_groups` VALUES (5,4304,31,'Watch_Hippogryph',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (6,1834,31,'Guard_Hippogryph',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (7,1992,31,'Hotupuku',0,128,0,0,0,50,50,0);
@@ -10466,7 +10466,7 @@ INSERT INTO `mob_groups` VALUES (44,2569,161,'Marquis_Amon',0,128,1623,11000,0,7
 INSERT INTO `mob_groups` VALUES (45,1134,161,'Duke_Haborym',0,128,716,13000,0,76,76,0);
 INSERT INTO `mob_groups` VALUES (46,1786,161,'Grand_Duke_Batym',0,128,1213,10000,0,76,76,0);
 INSERT INTO `mob_groups` VALUES (47,993,161,'Demons_Avatar',0,128,0,0,0,52,54,0);
-INSERT INTO `mob_groups` VALUES (48,917,161,'Dark_Spark',0,128,0,10000,0,55,55,0);
+INSERT INTO `mob_groups` VALUES (48,917,161,'Dark_Spark',0,128,0,10000,0,55,57,0);
 INSERT INTO `mob_groups` VALUES (49,2664,161,'Mimic',0,128,1683,30000,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (50,2571,161,'Marquis_Andrealphus',0,128,0,13000,0,76,76,0);
 INSERT INTO `mob_groups` VALUES (51,982,161,'Demon_Banneret',0,128,0,0,0,61,61,0);
