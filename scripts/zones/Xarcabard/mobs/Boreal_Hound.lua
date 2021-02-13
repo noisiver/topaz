@@ -18,9 +18,13 @@ function onMobSpawn(mob)
     if OLDSCHOOL_G2 then
         GetNPCByID(ID.npc.BOREAL_HOUND_QM):showNPC(0)
     end
-     mob:setMod(tpz.mod.UDMGPHYS, 50)
-     mob:setMod(tpz.mod.DEF, 0)
-     mob:setMod(tpz.mod.VIT, -32)
+
+    mob:setMod(tpz.mod.UDMGPHYS, 50)
+    mob:setMod(tpz.mod.DEF, 0)
+    mob:setMod(tpz.mod.VIT, -32)
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
 end
 
 function onMobDeath(mob, player, isKiller)

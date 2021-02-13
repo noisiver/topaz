@@ -5,6 +5,13 @@
 require("scripts/globals/mobs")
 -----------------------------------
 
+function onMobSpawn(mob)
+     mob:addMod(tpz.mod.DEFP, 20) 
+     mob:addMod(tpz.mod.ATTP, 10)
+     mob:addMod(tpz.mod.ACC, 30) 
+     mob:addMod(tpz.mod.EVA, 30)
+end
+
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1) -- "Has additional effect: Drain ..."
     mob:setMod(tpz.mod.UFASTCAST, 50) -- "His spells have very fast cast, my guess would be close to 50% less casting time."

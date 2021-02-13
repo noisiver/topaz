@@ -10,8 +10,10 @@ mixins = {require("scripts/mixins/job_special")}
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.DEFP, 10)
-    mob:setMod(tpz.mod.ATTP, 5)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:addStatusEffect(tpz.effect.PROTECT, 175, 0, 3600)
     mob:addStatusEffect(tpz.effect.SHELL, 25, 0, 3600)
