@@ -3709,6 +3709,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,538);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,539);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,541);
 INSERT INTO `mob_skill_lists` VALUES ('DarkSpark',1153,4262); -- 50% Berserk
+INSERT INTO `mob_skill_lists` VALUES ('BadBreath',1154,319); -- Bad Breath Only
 
 
 -- Custom Content
