@@ -5,6 +5,11 @@
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.MULTI_HIT, 3)
     mob:addMod(tpz.mod.REGAIN, 50)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.REFRESH, 40)
 end
 
 function onMobDeath(mob, player, isKiller)

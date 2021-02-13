@@ -29,12 +29,11 @@ end
 
 function onMobSpawn(mob)
     closeAllTiles(mob)
-    mob:addMod(tpz.mod.ACC, 10)
-    mob:addMod(tpz.mod.INT, -50)
-    mob:addMod(tpz.mod.MND, -50)
-    mob:addMod(tpz.mod.ATTP, -15)
-    mob:addMod(tpz.mod.DEFP, -15)
-    mob:addMod(tpz.mod.MDEF, -40)
+    mob:addMod(tpz.mod.DEFP, 30) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 
