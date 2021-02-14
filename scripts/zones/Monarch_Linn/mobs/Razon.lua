@@ -48,13 +48,12 @@ end
 function onMagicHit(caster, target, spell)
     local DAY = VanadielDayOfTheWeek()
     local ELEM = spell:getElement()
-    local tp = target:getTP() -- maybe skill: gettp()?
+    local TP = target:getTP() -- maybe skill: gettp()?
     if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
         target:useMobAbility(624) -- 2 hour "cloud" animation
-    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and  tp >= 1000 then
+    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and TP >= 1000 then
         target:useMobAbility(4263)  -- 500 damage
         mob:AnimationSub(1)
-    end
     end
     return 1
 end
