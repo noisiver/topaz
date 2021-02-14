@@ -15662,6 +15662,7 @@ INSERT INTO `mob_droplist` VALUES (3102,0,0,1000,511,28); -- (Goblin Jeweler) Go
 INSERT INTO `mob_droplist` VALUES (3102,0,0,1000,4518,30); -- (Goblin Jeweler) Strip of sheepjerky
 INSERT INTO `mob_droplist` VALUES (3102,0,0,1000,4509,30); -- (Goblin Jeweler) Flask of distilled water
 INSERT INTO `mob_droplist` VALUES (3102,0,0,1000,605,30); -- (Goblin Jeweler) Pickaxe
+INSERT INTO `mob_droplist` VALUES (3103,2,0,1000,842,0); -- (Tabar Beak - Steal) Slice of cockatrice meat
 INSERT INTO `mob_droplist` VALUES (3103,0,0,1000,4435,240); -- (Tabar Beak) Slice of cockatrice meat
 INSERT INTO `mob_droplist` VALUES (3103,0,0,1000,842,150); -- (Tabar Beak) Giant bird feather
 INSERT INTO `mob_droplist` VALUES (3103,0,0,1000,854,10); -- (Tabar Beak) Cockatrice skin
