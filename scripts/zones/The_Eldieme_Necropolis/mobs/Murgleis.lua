@@ -1,6 +1,7 @@
 ------------------------------
 -- Area: The Eldieme Necropolis
 --   Murgleis
+-- 16547 to spawn
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")

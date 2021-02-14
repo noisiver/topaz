@@ -55,6 +55,7 @@ zones[tpz.zone.DANGRUF_WADI] =
         GEYSER_LIZARD       = 17559558,
         CHOCOBOLEECH        = 17559869,
         APPARATUS_ELEMENTAL = 17559870,
+        KOGARASUMARU       = 17560575,
     },
     npc =
     {
