@@ -65,7 +65,7 @@ zones[tpz.zone.THE_ELDIEME_NECROPOLIS] =
         MIMIC               = 17576270,
         APPARATUS_ELEMENTAL = 17576271,
         NAMORODO            = 17576272,
-        MURGLEIS  =         = 17576959, 
+        MURGLEIS            = 17576959, 
     },
     npc =
     {
