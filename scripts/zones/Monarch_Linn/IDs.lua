@@ -22,7 +22,11 @@ zones[tpz.zone.MONARCH_LINN] =
     },
     mob =
     {
-    fireInTheSky = {
+    },
+    npc =
+    {
+    },
+        fireInTheSky = {
         [1] = {
             RAZON_ID        = 16904211,
         },
@@ -32,9 +36,6 @@ zones[tpz.zone.MONARCH_LINN] =
         [3] = {
             RAZON_ID        = 16904215,
         },
-    },
-    npc =
-    {
     },
 }
 
