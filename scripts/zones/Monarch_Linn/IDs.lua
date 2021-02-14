@@ -26,7 +26,7 @@ zones[tpz.zone.MONARCH_LINN] =
     npc =
     {
     },
-        fireInTheSky = {
+    fireInTheSky = {
         [1] = {
             RAZON_ID        = 16904211,
         },
