@@ -11899,7 +11899,7 @@ INSERT INTO `mob_groups` VALUES (30,1898,190,'Hati',600,0,1278,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (31,3720,190,'Spartoi_Warrior',600,0,2125,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (32,3719,190,'Spartoi_Sorcerer',600,0,2301,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (33,2388,190,'Lemures',600,0,1506,0,0,80,82,0);
-INSERT INTO `mob_groups` VALUES (34,709,190,'Cherry_Sapling',600,128,462,0,0,62,64,0);
+INSERT INTO `mob_groups` VALUES (34,709,190,'Cherry_Sapling',0,128,462,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (35,671,190,'Cemetery_Cherry',0,128,442,40000,0,72,73,0);
 INSERT INTO `mob_groups` VALUES (36,244,190,'Bonnet_Beetle',600,0,169,0,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (37,4261,190,'Vrtra',0,128,2592,100000,0,90,90,0);
