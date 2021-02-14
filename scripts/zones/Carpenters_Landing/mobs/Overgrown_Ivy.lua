@@ -3,7 +3,6 @@
 --  Mob: Overgrown Ivy
 -----------------------------------
 function onMobInitialize(mob)
-    mob:setMod(tpz.mod.HASTE_MAGIC, 9999)
     mob:setMod(tpz.mod.REGAIN, 50)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
