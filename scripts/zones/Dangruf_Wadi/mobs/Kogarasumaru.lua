@@ -1,7 +1,7 @@
 ------------------------------
 -- Area: The Eldieme Necropolis
 --   Kogarasumaru
--- 18431 to spawn
+--       18431 
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
