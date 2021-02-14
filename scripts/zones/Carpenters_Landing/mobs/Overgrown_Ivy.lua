@@ -3,7 +3,7 @@
 --  Mob: Overgrown Ivy
 -----------------------------------
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.DELAY, -1000)
+    mob:addMod(tpz.mod.DELAY, -4000)
     mob:setMod(tpz.mod.REGAIN, 50)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
