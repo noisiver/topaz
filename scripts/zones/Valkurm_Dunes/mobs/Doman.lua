@@ -1,4 +1,4 @@
------------------------------------
+ !-----------------------------------
 -- Area: Valkurm Dunes
 --  Mob: Doman
 -- Involved in Quest: Yomi Okuri
@@ -15,6 +15,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ATTP, 10)
      mob:addMod(tpz.mod.ACC, 30) 
      mob:addMod(tpz.mod.EVA, 30)
+	 mob:setMod(tpz.mod.UDMGMAGIC, -50)
 end
 
 
@@ -22,6 +23,7 @@ end
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
+
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 100, power = math.random(50, 60)})
 end
