@@ -37,19 +37,20 @@ local loot =
     [963] =
     {
         {
-            {itemid = 1769, droprate = 268},  -- Square of Galateia (26.8% Drop Rate)
-            {itemid = 1764, droprate = 266},  -- Kejusu Satin
-            {itemid = 1763, droprate = 342},  -- Viridian Urushi
+            {itemid =     0, droprate =  950}, -- nothing
+            {itemid =  1842, droprate =  050}, -- Cloud Evoker
         },
         {
-            {itemid = 1842, droprate = 56},   -- Cloud Evoker (5.6% Drop Rate)
+            {itemid =     0, droprate =  400}, -- nothing
+            {itemid = 15433, droprate =  240}, -- Reverend Sash 
+            {itemid = 15434, droprate =  240}, -- Vanguard Belt  
+            {itemid = 14675, droprate =  150}, -- Woodsman Ring 
         },
         {
-            {itemid = 17829, droprate = 82},  -- Hagun
-            {itemid = 17945, droprate = 92},  -- Martial Axe
-            {itemid = 17467, droprate = 63},  -- Martial Wand
-            {itemid = 13690, droprate = 105}, -- Forager's Mantle
-            {itemid = 13109, droprate = 121}, -- Harmonia's Torque
+            {itemid =     0, droprate =  400}, -- nothing
+            {itemid = 15433, droprate =  240}, -- Reverend Sash 
+            {itemid = 15434, droprate =  240}, -- Vanguard Belt  
+            {itemid = 14675, droprate =  150}, -- Woodsman Ring 
         },
     },
 
@@ -57,24 +58,24 @@ local loot =
     [964] =
     {
         {
-            {itemid = 1762, droprate = 375},  -- Cassia Lumber
-            {itemid = 1767, droprate = 328},  -- Eltoro Leather
-            {itemid = 1771, droprate = 263},  -- Dragon Bone
+            {itemid = 678, droprate = 1000},  -- Aluminum Ore 
         },
         {
-            {itemid = 1842, droprate = 188},  -- Cloud Evoker
+            {itemid =     0, droprate =  950}, -- nothing
+            {itemid =  1842, droprate =  050}, -- Cloud Evoker
         },
         {
-            {itemid = 18099, droprate = 150}, -- Stone-splitter
-            {itemid = 17365, droprate = 175}, -- Frenzy Fife
-            {itemid = 18015, droprate = 238}, -- Blau Dolch
-            {itemid = 4990, droprate = 238},  -- Scroll of Army's Paeon V
+            {itemid = 678, droprate = 400}, -- Aluminum Ore 
+            {itemid = 14682, droprate = 240}, -- Kshama Ring No. 2
+            {itemid = 14683, droprate = 240}, -- Kshama Ring No. 4
+            {itemid = 14685, droprate = 240},  -- Kshama Ring No. 5
+            {itemid = 14686, droprate = 240},  -- Kshama Ring No. 9
         },
         {
-            {itemid = 18099, droprate = 150}, -- Stone-splitter
-            {itemid = 17365, droprate = 175}, -- Frenzy Fife
-            {itemid = 18015, droprate = 238}, -- Blau Dolch
-            {itemid = 4990, droprate = 238},  -- Scroll of Army's Paeon V
+            {itemid =     0, droprate =  400}, -- nothing
+            {itemid = 17133, droprate = 150}, -- Chanter's Staff 
+            {itemid = 16965, droprate = 150}, -- Koryukagemitsu 
+            {itemid = 18411, droprate = 150}, -- Buboso 
         },
     },
 
@@ -82,20 +83,31 @@ local loot =
     [965] =
     {
         {
-            {itemid = 16976, droprate = 82},  -- Onimaru
-            {itemid = 18015, droprate = 238}, -- Blau Dolch
-            {itemid = 18099, droprate = 150}, -- Stone-splitter
-            {itemid = 17946, droprate = 92},  -- Maneater
-            {itemid = 18358, droprate = 63},  -- Wagh Baghnakhs
-            {itemid = 17469, droprate = 65},  -- Raise II Rod
-            {itemid = 17365, droprate = 175}, -- Frenzy Fife
-            {itemid = 15464, droprate = 83},  -- Corse Cape
-            {itemid = 1842, droprate = 188},  -- Cloud Evoker
-            {itemid = 1763, droprate = 342},  -- Viridian Urushi
-            {itemid = 1767, droprate = 328},  -- Eltoro Leather
-            {itemid = 1841, droprate = 238},  -- Unicorn Horn
-            {itemid = 1762, droprate = 375},  -- Cassia Lumber
-            {itemid = 1771, droprate = 263},  -- Dragon Bone
+            {itemid = 678, droprate = 1000},  -- Aluminum Ore
+        },
+        {
+            {itemid =     0, droprate =  950}, -- nothing
+            {itemid =  1842, droprate =  050}, -- Cloud Evoker
+        },
+        {
+            {itemid = 678, droprate = 400}, -- Aluminum Ore 
+            {itemid = 14682, droprate = 240}, -- Kshama Ring No. 2
+            {itemid = 14683, droprate = 240}, -- Kshama Ring No. 4
+            {itemid = 14685, droprate = 240},  -- Kshama Ring No. 5
+            {itemid = 14686, droprate = 240},  -- Kshama Ring No. 9
+        },
+        {
+            {itemid = 678, droprate = 400}, -- Aluminum Ore 
+            {itemid = 14684, droprate = 240}, -- Kshama Ring No. 3
+            {itemid = 14687, droprate = 240}, -- Kshama Ring No. 6
+            {itemid = 13551, droprate = 240},  -- Kshama Ring No. 8
+        },
+        {
+            {itemid = 678, droprate = 400}, -- Aluminum Ore 
+            {itemid = 17133, droprate = 150}, -- Chanter's Staff 
+            {itemid = 16965, droprate = 150}, -- Koryukagemitsu 
+            {itemid = 18411, droprate = 150}, -- Buboso
+            {itemid = 17468, droprate = 150}, -- Raise Rod  
         },
     }
 }
