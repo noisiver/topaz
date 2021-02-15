@@ -11883,7 +11883,7 @@ INSERT INTO `mob_groups` VALUES (14,3378,190,'Rock_Eater',600,0,2116,0,0,14,16,0
 INSERT INTO `mob_groups` VALUES (15,1670,190,'Goblin_Gruel',23400,0,1087,0,0,18,20,0);
 INSERT INTO `mob_groups` VALUES (16,2797,190,'Nachzehrer',600,0,1771,0,0,15,18,0);
 INSERT INTO `mob_groups` VALUES (17,5769,190,'Gwyllgi',0,32,3053,1500,0,31,34,0);
-INSERT INTO `mob_groups` VALUES (18,3942,190,'Tomb_Bat',600,0,2423,0,0,17,19,0);
+INSERT INTO `mob_groups` VALUES (18,3942,190,'Tomb_Bat',600,0,6000,0,0,17,19,0);
 INSERT INTO `mob_groups` VALUES (19,857,190,'Crypt_Ghost',0,128,544,0,0,20,21,0);
 INSERT INTO `mob_groups` VALUES (20,3152,190,'Plague_Bats',600,2,80,0,0,15,17,0);
 INSERT INTO `mob_groups` VALUES (21,5726,190,'Ankou',3600,0,2989,650,650,21,21,0);
@@ -11914,7 +11914,7 @@ INSERT INTO `mob_groups` VALUES (45,6543,190,'Enchanted_Bones',600,1,769,0,0,4,8
 INSERT INTO `mob_groups` VALUES (46,6563,190,'Nachzehrer',600,0,1771,0,0,15,18,0);
 
 INSERT INTO `mob_groups` VALUES (9519,862,190,'Curilla',0,0,0,0,0,0,0,0);
-INSERT INTO `mob_groups` VALUES (9548,3946,190,'Tomb_Worm',960,0,0,0,0,58,60,0);
+INSERT INTO `mob_groups` VALUES (9548,3946,190,'Tomb_Worm',960,0,6001,0,0,58,60,0);
 INSERT INTO `mob_groups` VALUES (9549,3992,190,'Treasure_Chest',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9550,4006,190,'Trion',0,0,0,0,0,0,0,0);
 
