@@ -68,7 +68,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("TriggerHit", 2)
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
-        mob:addMod(tpz.mod.ACC, 250)
+        mob:addMod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 600)
         mob:setLocalVar("TriggerHit", 3)
