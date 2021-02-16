@@ -43,7 +43,6 @@ function onMobFight(mob, target)
         mob:setLocalVar("Phalanx", mob:getBattleTime() + math.random(2, 3)*15)
         buff1:unsetFlag(tpz.effectFlag.DISPELABLE)
     end
-
     if spikesTime == 0 then
         mob:setLocalVar("Phalanx", math.random(2, 3)*30)
         return
