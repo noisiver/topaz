@@ -38,7 +38,7 @@ end
 function onMobFight(mob, target)
     local Immunity = mob:getLocalVar("Immunity")
     local hitTrigger = mob:getLocalVar("TriggerHit")
-    local roll = mob:getLocalVar("roll", 0)
+    local roll = mob:getLocalVar("roll",)
 
     if mob:getBattleTime() >= 10 and roll == 0  then
         mob:setLocalVar("Immunity", math.random(1 , 3))
@@ -91,7 +91,7 @@ function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 383 then
         local tusk = mob:getLocalVar("tusk")
 
-        tusk = tusk +1
+        tusk = tusk +1  
         mob:setLocalVar("tusk", tusk)
 
         if tusk > 2 then
