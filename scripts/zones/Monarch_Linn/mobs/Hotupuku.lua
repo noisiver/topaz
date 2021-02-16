@@ -41,7 +41,7 @@ function onMobFight(mob, target)
     local RDT = mob:setLocalVar("Immunity", 3)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
-    if mob:getBattleTime() >= 90 then
+    if mob:getBattleTime() >= 60 then
         mob:setLocalVar("Immunity", math.random(1 , 3))
     end
     if Immunity == 1 then
@@ -74,21 +74,76 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local counter = mob:getLocalVar("counter")
+    if skill:getID() == 382 then
+        local tailroll = mob:getLocalVar("tailroll")
 
-    if counter == 0 then
-       -- start
-    counter = 3
-    end
-    if counter > 0 then
-    -- if counter >= 0 ?
-        counter = counter + 1
-        mob:setLocalVar("counter", counter)
+        tailroll = tailroll +1
+        mob:setLocalVar("tailroll", tailroll)
 
-        if counter > 2 then
-            mob:setLocalVar("counter", 0)
+        if tailroll > 2 then
+            mob:setLocalVar("tailroll", 0)
         else
-            mob:useMobAbility(skill:getID())
+            mob:useMobAbility(382)
+        end
+    end
+    if skill:getID() == 383 then
+        local tusk = mob:getLocalVar("tusk")
+
+        tusk = tusk +1
+        mob:setLocalVar("tusk", tusk)
+
+        if tusk > 2 then
+            mob:setLocalVar("tusk", 0)
+        else
+            mob:useMobAbility(383)
+        end
+    end
+    if skill:getID() == 384 then
+        local scutum = mob:getLocalVar("scutum")
+
+        scutum = scutum +1
+        mob:setLocalVar("scutum", scutum)
+
+        if scutum > 2 then
+            mob:setLocalVar("scutum", 0)
+        else
+            mob:useMobAbility(384)
+        end
+    end
+    if skill:getID() == 385 then
+        local bonecrunch = mob:getLocalVar("bonecrunch")
+
+        bonecrunch = bonecrunch +1
+        mob:setLocalVar("bonecrunch", bonecrunch)
+
+        if bonecrunch > 2 then
+            mob:setLocalVar("bonecrunch", 0)
+        else
+            mob:useMobAbility(385)
+        end
+    end
+    if skill:getID() == 386 then
+        local awfuleye = mob:getLocalVar("awfuleye")
+
+        awfuleye = awfuleye +1
+        mob:setLocalVar("awfuleye", awfuleye)
+
+        if awfuleye > 2 then
+            mob:setLocalVar("awfuleye", 0)
+        else
+            mob:useMobAbility(386)
+        end
+    end
+    if skill:getID() == 387 then
+        local heavybellow = mob:getLocalVar("heavybellow")
+
+        heavybellow = heavybellow +1
+        mob:setLocalVar("heavybellow", heavybellow)
+
+        if heavybellow > 2 then
+            mob:setLocalVar("heavybellow", 0)
+        else
+            mob:useMobAbility(387)
         end
     end
 end
