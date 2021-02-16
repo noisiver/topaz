@@ -36,7 +36,7 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local Immunity = mob:getLocalVar("Immunity",)
+    local Immunity = mob:getLocalVar("Immunity")
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
 if mob:getBattleTime() >= 60 then
