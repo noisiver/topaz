@@ -5,6 +5,13 @@
 require("scripts/globals/status")
 -----------------------------------
 
+function onMobSpawn(mob)
+     mob:addMod(tpz.mod.DEFP, 25) 
+     mob:addMod(tpz.mod.ATTP, 25)
+     mob:addMod(tpz.mod.ACC, 30) 
+     mob:addMod(tpz.mod.EVA, 30)
+end
+
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)

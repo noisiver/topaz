@@ -6,6 +6,13 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/mobs")
 -----------------------------------
 
+function onMobSpawn(mob)
+     mob:addMod(tpz.mod.DEFP, 25) 
+     mob:addMod(tpz.mod.ATTP, 25)
+     mob:addMod(tpz.mod.ACC, 30) 
+     mob:addMod(tpz.mod.EVA, 30)
+end
+
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 600)

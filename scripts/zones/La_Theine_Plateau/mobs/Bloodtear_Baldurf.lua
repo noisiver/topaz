@@ -20,6 +20,10 @@ function onMobSpawn(mob)
             {id = tpz.jsa.MIGHTY_STRIKES, hpp = math.random(90, 95), cooldown = 120} -- "Special Attacks: ... Mighty Strikes (multiple times)"
         }
     })
+     mob:addMod(tpz.mod.DEFP, 25) 
+     mob:addMod(tpz.mod.ATTP, 25)
+     mob:addMod(tpz.mod.ACC, 30) 
+     mob:addMod(tpz.mod.EVA, 30)
 end
 
 function onMobDeath(mob, player, isKiller)

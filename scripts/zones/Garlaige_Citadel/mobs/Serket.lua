@@ -12,6 +12,10 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 20)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 50)
     mob:setLocalVar("[rage]timer", 1800) -- 30 minutes
 end
 
