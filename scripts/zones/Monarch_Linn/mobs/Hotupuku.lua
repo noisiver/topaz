@@ -43,16 +43,14 @@ function onMobFight(mob, target)
     if mob:getBattleTime() >= 10 and roll == 0  then
         mob:setLocalVar("Immunity", math.random(1 , 3))
         mob:setLocalVar("roll", 1)
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
      end
     if Immunity == 1 then
         mob:setMod(tpz.mod.UDMGPHYS, -100)
-        mob:useMobAbility(624) -- 2 hour "cloud" animation
     elseif Immunity == 2 then
         mob:setMod(tpz.mod.UDMGMAGIC, -100)
-        mob:useMobAbility(624) -- 2 hour "cloud" animation
     elseif Immunity == 3 then
         mob:setMod(tpz.mod.UDMGRANGE, -100)
-        mob:useMobAbility(624) -- 2 hour "cloud" animation
     end
 
     if mob:getHPP() <= 75 and hitTrigger == 0 then
