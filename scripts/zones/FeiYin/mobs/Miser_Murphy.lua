@@ -17,7 +17,7 @@ function onMobSpawn(mob)
 end
 
 
- function onMobInitialize(mob)
+function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
