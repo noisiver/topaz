@@ -16,9 +16,9 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    mob:setLocalVar("selfDestruct1", os.time() + 30)
-    mob:setLocalVar("selfDestruct2", os.time() + 60)
-    mob:setLocalVar("selfDestruct3", os.time() + 90)
+    mob:getLocalVar("selfDestruct1", os.time() + 30)
+    mob:getLocalVar("selfDestruct2", os.time() + 60)
+    mob:getLocalVar("selfDestruct3", os.time() + 90)
 end
 
 
@@ -42,6 +42,7 @@ function onMobFight(mob, target)
     end
     if os.time() == mob:getLocalVar("selfDestruct3") and mob:getHPP() >= 1  then
         mob:useMobAbility(256) -- instant KO + fail
+        mob: sethp(0)
     end
 end
 
