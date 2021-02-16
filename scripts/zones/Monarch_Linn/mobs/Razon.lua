@@ -19,7 +19,6 @@ function onMobEngaged(mob, target)
     mob:setLocalVar("selfDestruct1", os.time() + 30)
     mob:setLocalVar("selfDestruct2", os.time() + 60)
     mob:setLocalVar("selfDestruct3", os.time() + 90)
-    mob:SetMobAbilityEnabled(false)
 end
 
 
