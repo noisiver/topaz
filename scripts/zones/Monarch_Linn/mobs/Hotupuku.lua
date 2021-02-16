@@ -36,10 +36,23 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
---    local PDT = mob:setLocalVar("Immunity", 1)
---    local MDT = mob:setLocalVar("Immunity", 2)
---    local RDT = mob:setLocalVar("Immunity", 3)
+    local PDT = mob:setLocalVar("Immunity", 1)
+    local MDT = mob:setLocalVar("Immunity", 2)
+    local RDT = mob:setLocalVar("Immunity", 3)
+    local hitTrigger = mob:getLocalVar("TriggerHit")
 
+    if mob:getBattleTime() = 60 then
+        mob:setLocalVar("Immunity", math.random(1 , 3))
+    end
+    if Immunity == 1 then
+         mob:setMod(tpz.mod.UDMGPHYS, -100)
+    end
+    if Immunity == 2 then
+         mob:setMod(tpz.mod.UDMGMAGIC, -100)
+    end
+    if Immunity == 3 then
+         mob:setMod(tpz.mod.UDMGRANGE, -100)
+    end
     if mob:getHPP() <= 75 and hitTrigger == 0 then
         mob:admod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.ACC, DOUBLE_ATTACK, 20)
