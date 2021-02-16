@@ -36,9 +36,7 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local PDT = mob:setLocalVar("Immunity", 1)
-    local MDT = mob:setLocalVar("Immunity", 2)
-    local RDT = mob:setLocalVar("Immunity", 3)
+    local Immunity = mob:setLocalVar("Immunity",)
     local hitTrigger = mob:getLocalVar("TriggerHit")
     mob:setLocalVar("ImmunityTime", os.time() + 30)
 
