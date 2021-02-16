@@ -36,13 +36,14 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local PDT = mob:setLocalVar("Immunity", 1)
-    local MDT = mob:setLocalVar("Immunity", 2)
-    local RDT = mob:setLocalVar("Immunity", 3)
+   -- local PDT = mob:setLocalVar("Immunity", 1)
+   -- local MDT = mob:setLocalVar("Immunity", 2)
+   -- local RDT = mob:setLocalVar("Immunity", 3)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
-    if mob:getBattleTime() >= 60 then
+    if mob:getBattleTime() > 60 then
         mob:setLocalVar("Immunity", math.random(1 , 3))
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
     end
     if Immunity == 1 then
          mob:setMod(tpz.mod.UDMGPHYS, -100)
@@ -54,19 +55,19 @@ function onMobFight(mob, target)
          mob:setMod(tpz.mod.UDMGRANGE, -100)
     end
     if mob:getHPP() <= 75 and hitTrigger == 0 then
-        mob:setMod(tpz.mod.ACC, 25)
+        mob:addmod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.ACC, DOUBLE_ATTACK, 20)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 200)
         mob:setLocalVar("TriggerHit", 1)
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 then
-        mob:setMod(tpz.mod.ACC, 50)
+        mob:addmod(tpz.mod.ACC, 50)
         mob:setMod(tpz.mod.ACC, DOUBLE_ATTACK, 30)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 400)
         mob:setLocalVar("TriggerHit", 2)
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
-        mob:setMod(tpz.mod.ACC, 75)
+        mob:addmod(tpz.mod.ACC, 75)
         mob:setMod(tpz.mod.ACC, DOUBLE_ATTACK, 50)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 600)
         mob:setLocalVar("TriggerHit", 3)
