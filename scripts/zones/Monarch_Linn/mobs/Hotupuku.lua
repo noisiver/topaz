@@ -40,7 +40,7 @@ function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
     local roll = mob:getLocalVar("roll")
 
-    if mob:getBattleTime() >= 10 and roll == 0  then
+    if mob:getBattleTime() >= 60 and roll == 0  then
         mob:setLocalVar("Immunity", math.random(1 , 2))
         mob:setLocalVar("roll", 1)
         mob:useMobAbility(624) -- 2 hour "cloud" animation
