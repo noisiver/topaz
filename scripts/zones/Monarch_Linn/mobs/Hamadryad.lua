@@ -60,7 +60,8 @@ function onMagicHit(caster, target, spell)
     local DAY = VanadielDayOfTheWeek()
     local ELEM = spell:getElement()
     if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
-        target:delStatusEffect(106)  and target:delStatusEffect(249)  
+        target:delStatusEffect(106)
+        target:delStatusEffect(249)  
     end
     return 1
 end
