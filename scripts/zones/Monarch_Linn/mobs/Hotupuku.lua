@@ -43,6 +43,7 @@ function onMobFight(mob, target)
 
     if mob:getBattleTime() == 60 then
         mob:setLocalVar("Immunity", math.random(1 , 3))
+        mob:AnimationSub(1)
     end
     if Immunity == 1 then
          mob:setMod(tpz.mod.UDMGPHYS, -100)
