@@ -53,7 +53,7 @@ function onMagicHit(caster, target, spell)
     if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
         target:useMobAbility(624) -- 2 hour "cloud" animation
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and TP >= 1000 then
-        target:useMobAbility(511)  -- 500 damage
+        target:useMobAbility(4263)  -- 500 damage
         mob:AnimationSub(1)
     end
     return 1
