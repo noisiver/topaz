@@ -39,7 +39,7 @@ function onMobFight(mob, target)
     local Immunity = mob:getLocalVar("Immunity")
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
-if mob:getBattleTime() >= 60 then
+    if mob:getBattleTime() >= 10 then
     mob:setLocalVar("Immunity", math.random(1 , 3))
     if Immunity == 1 then
         mob:setMod(tpz.mod.UDMGPHYS, -100)
