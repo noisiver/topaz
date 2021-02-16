@@ -36,9 +36,25 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    if mob:getBattleTime() > 10 then
-        changeImmunity(mob)
+    local Immunity = mob:getLocalVar("Immunity")
+    local hitTrigger = mob:getLocalVar("TriggerHit")
+    local roll = mob:getLocalVar("roll", 0)
+
+    if mob:getBattleTime() >= 10 and roll == 0  then
+        mob:setLocalVar("Immunity", math.random(1 , 3))
+        mob:setLocalVar("roll", 1)
+     end
+    if Immunity == 1 then
+        mob:setMod(tpz.mod.UDMGPHYS, -100)
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
+    elseif Immunity == 2 then
+        mob:setMod(tpz.mod.UDMGMAGIC, -100)
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
+    elseif Immunity == 3 then
+        mob:setMod(tpz.mod.UDMGRANGE, -100)
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
     end
+
     if mob:getHPP() <= 75 and hitTrigger == 0 then
         mob:addMod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 20)
@@ -58,21 +74,6 @@ function onMobFight(mob, target)
         mob:setLocalVar("TriggerHit", 3)
     end
 end
-
-function changeImmunity(mob)
-    local Immunity = math.random(0, 2)
-    if Immunity == 0 then
-        mob:setMod(tpz.mod.UDMGPHYS, -100)
-        target:useMobAbility(624) -- 2 hour "cloud" animation
-    elseif Immunity == 1 then
-        mob:setMod(tpz.mod.UDMGMAGIC, -100)
-        target:useMobAbility(624) -- 2 hour "cloud" animation
-    elseif Immunity == 2 then
-        mob:setMod(tpz.mod.UDMGRANGE, -100)
-        target:useMobAbility(624) -- 2 hour "cloud" animation
-    end
-end
-
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 382 then
