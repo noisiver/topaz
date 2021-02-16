@@ -41,15 +41,13 @@ function onMobFight(mob, target)
     local roll = mob:getLocalVar("roll")
 
     if mob:getBattleTime() >= 10 and roll == 0  then
-        mob:setLocalVar("Immunity", math.random(1 , 3))
+        mob:setLocalVar("Immunity", math.random(1 , 2))
         mob:setLocalVar("roll", 1)
     end
     if Immunity == 1 then
         mob:setMod(tpz.mod.UDMGPHYS, -100)
     elseif Immunity == 2 then
         mob:setMod(tpz.mod.UDMGMAGIC, -100)
-    elseif Immunity == 3 then
-        mob:setMod(tpz.mod.UDMGRANGE, -100)
     end
 
     if mob:getHPP() <= 75 and hitTrigger == 0 then
