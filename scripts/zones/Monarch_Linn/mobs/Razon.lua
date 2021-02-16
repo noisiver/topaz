@@ -40,7 +40,7 @@ function onMobFight(mob, target)
         mob:useMobAbility(4264) -- 0 damage
         mob:AnimationSub(2)
     end
-    if os.time() === mob:getLocalVar("selfDestruct3") and mob:getHPP() >= 1  then
+    if os.time() == mob:getLocalVar("selfDestruct3") and mob:getHPP() >= 1  then
         mob:useMobAbility(256) -- instant KO + fail
     end
 end
