@@ -42,7 +42,7 @@ function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
     mob:setLocalVar("ImmunityTime", os.time() + 30)
 
-    if os.time() == mob:getLocalVar("ImmunityTime")
+    if os.time() == mob:getLocalVar("ImmunityTime") then
         mob:setLocalVar("Immunity", math.random(1 , 3))
     end
     if Immunity == 1 then
