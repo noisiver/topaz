@@ -12,7 +12,7 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
-        between = 90,
+        between = 60,
         chance = 100,
         specials =
         {
@@ -21,11 +21,10 @@ function onMobSpawn(mob)
             {id = tpz.jsa.MIGHTY_STRIKES, hpp = 25},
         },
     })
-
-     mob:addMod(tpz.mod.DEFP, 20) 
-     mob:addMod(tpz.mod.ATTP, 10)
-     mob:addMod(tpz.mod.ACC, 30) 
-     mob:addMod(tpz.mod.EVA, 30)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
 end
 
 function onMobEngaged(mob, target)
@@ -37,29 +36,60 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local phalanxTime = mob:getLocalVar("Phalanx")
-    local spikesTime = mob:getLocalVar("BlazeSpikes")
+    local PDT = mob:setLocalVar("Immunity", 1)
+    local MDT = mob:setLocalVar("Immunity", 2)
+    local RDT = mob:setLocalVar("Immunity", 3)
+    local hitTrigger = mob:getLocalVar("TriggerHit")
 
-    if phalanxTime == 0 then
-        mob:setLocalVar("Phalanx", math.random(2, 3)*15)
-        return
+    if mob:getBattleTime() >= 90 then
+        mob:setLocalVar("Immunity", math.random(1 , 3))
     end
-    if mob:getBattleTime() >= phalanxTime then
-        mob:addStatusEffect(tpz.effect.PHALANX, 50, 0, 0)
-        local buff1 = mob:getStatusEffect(buffone)
-        mob:setLocalVar("Phalanx", mob:getBattleTime() + math.random(2, 3)*15)
-        buff1:unsetFlag(tpz.effectFlag.DISPELABLE)
+    if Immunity == 1 then
+         mob:setMod(tpz.mod.UDMGPHYS, -100)
     end
+    if Immunity == 2 then
+         mob:setMod(tpz.mod.UDMGMAGIC, -100)
+    end
+    if Immunity == 3 then
+         mob:setMod(tpz.mod.UDMGRANGE, -100)
+    end
+    if mob:getHPP() <= 75 and hitTrigger == 0 then
+        mob:setMod(tpz.mod.ACC, 25)
+        mob:setMod(tpz.mod.ACC, DOUBLE_ATTACK, 20)
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 200)
+        mob:setLocalVar("TriggerHit", 1)
+    end
+    if mob:getHPP() <= 50 and hitTrigger == 1 then
+        mob:setMod(tpz.mod.ACC, 50)
+        mob:setMod(tpz.mod.ACC, DOUBLE_ATTACK, 30)
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 400)
+        mob:setLocalVar("TriggerHit", 2)
+    end
+    if mob:getHPP() <= 25 and hitTrigger == 2 then
+        mob:setMod(tpz.mod.ACC, 75)
+        mob:setMod(tpz.mod.ACC, DOUBLE_ATTACK, 50)
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 600)
+        mob:setLocalVar("TriggerHit", 3)
+    end
+end
 
-    if spikesTime == 0 then
-        mob:setLocalVar("Phalanx", math.random(2, 3)*30)
-        return
+function onMobWeaponSkill(target, mob, skill)
+    local counter = mob:getLocalVar("counter")
+
+    if counter == 0 then
+       -- start
+    counter = 3
     end
-    if mob:getBattleTime() >= spikesTime then
-        mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 25, 0, 0)
-        local buff2 = mob:getStatusEffect(bufftwo)
-        mob:setLocalVar("Blazespikes", mob:getBattleTime() + math.random(2, 3)*30)
-        buff2:unsetFlag(tpz.effectFlag.DISPELABLE)
+    if counter > 0 then
+    -- if counter >= 0 ?
+        counter = counter + 1
+        mob:setLocalVar("counter", counter)
+
+        if counter > 2 then
+            mob:setLocalVar("counter", 0)
+        else
+            mob:useMobAbility(skill:getID())
+        end
     end
 end
 
