@@ -59,7 +59,7 @@ function onMobFight(mob, target)
     end
 end
 
-local function changeImmunity(mob)
+function changeImmunity(mob)
     local Immunity = math.random(0, 2)
     if Immunity == 0 then
         mob:setMod(tpz.mod.UDMGPHYS, -100)
