@@ -77,17 +77,6 @@ function onTrigger(player, npc)
     then
         player:startEvent(562)
 
-    -- "The General's Secret"
-    -- [Blocks everything further down]
-    elseif theGeneralSecret == QUEST_ACCEPTED then
-        if player:hasKeyItem(tpz.ki.CURILLAS_BOTTLE_FULL) then
-            player:startEvent(54)
-        else
-            player:startEvent(53)
-        end
-    elseif theGeneralSecret == QUEST_AVAILABLE and player:getFameLevel(SANDORIA) > 1 then
-        player:startEvent(55) -- Start
-
     -- "Peace for the Spirit" (RDM AF Body)
     elseif peaceForTheSpirit == QUEST_ACCEPTED then
         local questStatus = player:getCharVar("peaceForTheSpiritCS")
@@ -176,6 +165,17 @@ function onTrigger(player, npc)
             currentMission ~= sandyMissions.THE_SHADOW_LORD
         then
             player:startEvent(545)
+
+    -- "The General's Secret"
+    -- [Blocks everything further down]
+    elseif theGeneralSecret == QUEST_ACCEPTED then
+        if player:hasKeyItem(tpz.ki.CURILLAS_BOTTLE_FULL) then
+            player:startEvent(54)
+        else
+            player:startEvent(53)
+        end
+    elseif theGeneralSecret == QUEST_AVAILABLE and player:getFameLevel(SANDORIA) > 1 then
+        player:startEvent(55) -- Start
 
         -- Default dialogue while doing missions
         else
