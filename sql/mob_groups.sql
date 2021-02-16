@@ -12461,7 +12461,7 @@ INSERT INTO `mob_groups` VALUES (3,1122,204,'Drone',600,0,710,0,0,41,43,0);
 INSERT INTO `mob_groups` VALUES (4,5132,204,'Vampire_Bat',600,0,234,0,0,40,42,0);
 INSERT INTO `mob_groups` VALUES (5,5323,204,'Sluagh',7200,0,3165,13500,0,77,80,0);
 INSERT INTO `mob_groups` VALUES (6,99,204,'Altedour_I_Tavnazia',0,128,54,20000,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (7,5324,204,'Jenglot',7200,0,0,18000,0,73,73,0);
+INSERT INTO `mob_groups` VALUES (7,5324,204,'Jenglot',7200,0,0,18000,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (8,744,204,'Clockwork_Pod',600,0,486,0,0,41,43,0);
 INSERT INTO `mob_groups` VALUES (9,2678,204,'Miser_Murphy',0,128,1701,18000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (10,3051,204,'Ore_Golem',600,0,1956,0,0,43,45,0);
