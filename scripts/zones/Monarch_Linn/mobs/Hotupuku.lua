@@ -36,41 +36,38 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local Immunity = mob:setLocalVar("Immunity")
+    local Immunity = mob:getLocalVar("Immunity", math.random(1, 3))
     local hitTrigger = mob:getLocalVar("TriggerHit")
-    mob:setLocalVar("ImmunityTime", os.time() + 30)
 
-    if mob:getBattleTime() >= 10 then
-        mob:setLocalVar("Immunity", math.random(1 , 3))
-    end
+ if mob:getBattleTime() >= 10 then
     if Immunity == 1 then
-         mob:setMod(tpz.mod.UDMGPHYS, -100)
+        mob:setMod(tpz.mod.UDMGPHYS, -100)
+        target:useMobAbility(624) -- 2 hour "cloud" animation
+    elseif Immunity == 2 then
+        mob:setMod(tpz.mod.UDMGMAGIC, -100)
+        target:useMobAbility(624) -- 2 hour "cloud" animation
+    else
+        mob:setMod(tpz.mod.UDMGRANGE, -100)
         target:useMobAbility(624) -- 2 hour "cloud" animation
     end
-    if Immunity == 2 then
-         mob:setMod(tpz.mod.UDMGMAGIC, -100)
-        target:useMobAbility(624) -- 2 hour "cloud" animation
-    end
-    if Immunity == 3 then
-         mob:setMod(tpz.mod.UDMGRANGE, -100)
-        target:useMobAbility(624) -- 2 hour "cloud" animation
-    end
+end
+
     if mob:getHPP() <= 75 and hitTrigger == 0 then
         mob:addMod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 20)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 200)
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 1500)
         mob:setLocalVar("TriggerHit", 1)
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 then
         mob:addMod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 400)
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 2500)
         mob:setLocalVar("TriggerHit", 2)
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
         mob:addMod(tpz.mod.ACC, 25)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 600)
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 4000)
         mob:setLocalVar("TriggerHit", 3)
     end
 end
