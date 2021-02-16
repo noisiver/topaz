@@ -36,10 +36,11 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local Immunity = mob:getLocalVar("Immunity", math.random(1, 3))
+    local Immunity = mob:getLocalVar("Immunity",)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
- if mob:getBattleTime() >= 10 then
+if mob:getBattleTime() >= 60 then
+    mob:setLocalVar("Immunity", math.random(1 , 3))
     if Immunity == 1 then
         mob:setMod(tpz.mod.UDMGPHYS, -100)
         target:useMobAbility(624) -- 2 hour "cloud" animation
