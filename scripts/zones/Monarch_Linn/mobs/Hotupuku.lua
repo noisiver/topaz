@@ -1,25 +1,31 @@
 -----------------------------------
 -- Area: Monarch Linn
---  Mob: Hamadryad
--- Bad Seed
+--  Mob: Hotupuku
+-- Bugard in the Clouds
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
-local buffone = tpz.effect.PHALANX
-local bufftwo = tpz.effect.BLAZE_SPIKES
 
 function onMobSpawn(mob)
+    tpz.mix.jobSpecial.config(mob, {
+        between = 90,
+        chance = 100,
+        specials =
+        {
+            {id = tpz.jsa.HUNDRED_FISTS, hpp = 75},
+            {id = tpz.jsa.INVINCIBLE, hpp = 50},
+            {id = tpz.jsa.MIGHTY_STRIKES, hpp = 25},
+        },
+    })
+
      mob:addMod(tpz.mod.DEFP, 20) 
      mob:addMod(tpz.mod.ATTP, 10)
      mob:addMod(tpz.mod.ACC, 30) 
-     mob:addMod(tpz.mod.EVA, 100)
-     mob:addStatusEffect(tpz.effect.REGEN, 25, 3, 0)
-     mob:addStatusEffect(tpz.effect.PHALANX, 50, 0, 0)
-     local startingbuff = mob:getStatusEffect(buffone)
-     startingbuff:unsetFlag(tpz.effectFlag.DISPELABLE)
+     mob:addMod(tpz.mod.EVA, 30)
 end
 
 function onMobEngaged(mob, target)
@@ -27,6 +33,7 @@ end
 
 
 function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
 function onMobFight(mob, target)
@@ -57,11 +64,10 @@ function onMobFight(mob, target)
 end
 
 function onMagicHit(caster, target, spell)
-    local DAY = VanadielDayOfTheWeek()
-    local ELEM = spell:getElement()
-    if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
-        target:delStatusEffect(106) or target:delStatusEffect(249)  
-    end
-    return 1
 end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENSTONE, {chance = 100, power = math.random(70, 90)})
+end
+
 
