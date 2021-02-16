@@ -41,7 +41,7 @@ function onMobFight(mob, target)
     local RDT = mob:setLocalVar("Immunity", 3)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
-    if mob:getBattleTime() = 60 then
+    if mob:getBattleTime() == 60 then
         mob:setLocalVar("Immunity", math.random(1 , 3))
     end
     if Immunity == 1 then
