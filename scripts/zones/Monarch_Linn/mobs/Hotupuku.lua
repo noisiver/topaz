@@ -38,7 +38,7 @@ end
 function onMobFight(mob, target)
     local Immunity = mob:getLocalVar("Immunity")
     local hitTrigger = mob:getLocalVar("TriggerHit")
-    local roll = mob:getLocalVar("roll",)
+    local roll = mob:getLocalVar("roll")
 
     if mob:getBattleTime() >= 10 and roll == 0  then
         mob:setLocalVar("Immunity", math.random(1 , 3))
