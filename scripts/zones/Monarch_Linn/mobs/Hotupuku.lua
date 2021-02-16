@@ -43,6 +43,7 @@ function onMobFight(mob, target)
     if mob:getBattleTime() >= 10 and roll == 0  then
         mob:setLocalVar("Immunity", math.random(1 , 2))
         mob:setLocalVar("roll", 1)
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
     end
     if Immunity == 1 then
         mob:setMod(tpz.mod.UDMGPHYS, -100)
