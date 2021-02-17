@@ -1892,7 +1892,7 @@ INSERT INTO `mob_droplist` VALUES (309,2,0,1000,4358,0);
 INSERT INTO `mob_droplist` VALUES (309,0,0,1000,4358,120);
 INSERT INTO `mob_droplist` VALUES (310,0,0,1000,902,100);
 INSERT INTO `mob_droplist` VALUES (310,0,0,1000,1048,50);
-INSERT INTO `mob_droplist` VALUES (310,0,0,1000,1437,100);
+INSERT INTO `mob_droplist` VALUES (310,0,0,1000,1437,100); -- Samurai's testimony
 INSERT INTO `mob_droplist` VALUES (310,0,0,1000,1653,100);
 INSERT INTO `mob_droplist` VALUES (310,0,0,1000,17293,100);
 INSERT INTO `mob_droplist` VALUES (311,2,0,1000,825,0);
@@ -11071,18 +11071,16 @@ INSERT INTO `mob_droplist` VALUES (2157,0,0,1000,3235,180);
 
 -- [Sapphire Quadav]
 -- Data taken from ffxidb on 4/24/2018 (http://www.ffxidb.com/zones/147/sapphire-quadav)
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,501,0); -- Quadav Helm (0%, was 3%) Suspected not to actually drop in retail
 INSERT INTO `mob_droplist` VALUES (2158,2,0,1000,748,0); -- Gold Beastcoin (0%) (steal)
 INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,1043,50); -- Beadeaux Coffer Key (1%)
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,1429,84); -- Black Mage's Testimony (8%)
+INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,1429,100); -- Black Mage's Testimony (8%)
 INSERT INTO `mob_droplist` VALUES (2158,4,0,1000,4552,0); -- Serving of Herb Crawler Eggs (0%) (despoil)
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4779,53); -- Water III (5%)
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4780,12); -- Water IV (1%)
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4808,30); -- Waterga II (3%)
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4809,21); -- Waterga III (2%)
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4822,12); -- Flood (1%)
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4862,0); -- Blind (0%, was 3%) Suspected not to actually drop in retail
-INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4866,0); -- Bind (0%, was 3%) Suspected not to actually drop in retail
+INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4779,50); -- Water III (5%)
+INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4780,50); -- Water IV (1%)
+INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4808,100); -- Waterga II (3%)
+INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4809,50); -- Waterga III (2%)
+INSERT INTO `mob_droplist` VALUES (2158,0,0,1000,4822,10); -- Flood (1%)
+
 
 
 
