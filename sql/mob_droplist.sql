@@ -4230,7 +4230,7 @@ INSERT INTO `mob_droplist` VALUES (811,0,0,1000,4876,50);
 INSERT INTO `mob_droplist` VALUES (811,0,0,1000,4877,50);
 INSERT INTO `mob_droplist` VALUES (811,0,0,1000,4878,50);
 INSERT INTO `mob_droplist` VALUES (812,2,0,1000,880,0);
-INSERT INTO `mob_droplist` VALUES (812,0,0,1000,880,330);
+INSERT INTO `mob_droplist` VALUES (812,0,0,1000,880,240);
 INSERT INTO `mob_droplist` VALUES (812,0,0,1000,1047,50);
 INSERT INTO `mob_droplist` VALUES (812,0,0,1000,4759,50);
 INSERT INTO `mob_droplist` VALUES (813,2,0,1000,880,0);
@@ -14499,7 +14499,7 @@ INSERT INTO `mob_droplist` VALUES (2748,4,0,1000,4537,0);
 INSERT INTO `mob_droplist` VALUES (2748,4,0,1000,4540,0);
 INSERT INTO `mob_droplist` VALUES (2748,0,0,1000,4764,50); -- Scroll of Aero III
 INSERT INTO `mob_droplist` VALUES (2748,0,0,1000,4765,50); -- Scroll of Aero IV
-INSERT INTO `mob_droplist` VALUES (2748,0,0,1000,4793,50); -- Scroll of Aeroga II
+INSERT INTO `mob_droplist` VALUES (2748,0,0,1000,4793,100); -- Scroll of Aeroga II
 INSERT INTO `mob_droplist` VALUES (2748,0,0,1000,4794,50); -- Scroll of Aeroga III
 INSERT INTO `mob_droplist` VALUES (2748,0,0,1000,4816,10); -- Scroll of Tornado
 INSERT INTO `mob_droplist` VALUES (2749,2,0,1000,750,0);
