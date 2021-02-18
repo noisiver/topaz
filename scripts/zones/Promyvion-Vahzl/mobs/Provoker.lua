@@ -6,6 +6,13 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 -----------------------------------
 
+function onMobSpawn(mob)
+     mob:addMod(tpz.mod.DEFP, 20) 
+     mob:addMod(tpz.mod.ATTP, 10)
+     mob:addMod(tpz.mod.ACC, 30) 
+     mob:addMod(tpz.mod.EVA, 30)
+end
+
 function onMobInitialize(mob)
    -- mob:addMod(tpz.mod.ACC, 50)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
