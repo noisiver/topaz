@@ -26,7 +26,7 @@ function onSpellCast(caster, target, spell)
     local iBoost = caster:getMod(tpz.mod.MINNE_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     if (iBoost > 0) then
         --power = power + iBoost*7
-    power = power * iBoost*1.1
+    power = power + iBoost*2.5 --32
     end
 
     power =  power + caster:getMerit(tpz.merit.MINNE_EFFECT)
