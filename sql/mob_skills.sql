@@ -229,7 +229,7 @@ INSERT INTO `mob_skills` VALUES (400,144,'triple_attack',0,7.0,2000,1500,4,0,0,0
 INSERT INTO `mob_skills` VALUES (401,145,'gliding_spike',0,7.0,2000,1500,4,0,0,1,0,0,0);
 INSERT INTO `mob_skills` VALUES (402,146,'feather_barrier',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (403,147,'stormwind',1,15.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (404,435,'smite_of_rage',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (404,435,'smite_of_rage-cloud',0,7.0,2000,1500,4,0,0,0,0,0,0); -- 2 hr cloud animation
 INSERT INTO `mob_skills` VALUES (405,791,'dire_whorl',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (406,150,'hammer_beak',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (407,151,'poison_pick',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -397,12 +397,12 @@ INSERT INTO `mob_skills` VALUES (563,307,'demonic_howl',1,10.0,2000,1500,4,0,0,0
 -- INSERT INTO `mob_skills` VALUES (565,309,'quadrastrike',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (566,310,'quadrastrike',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (567,866,'sling_bomb',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (568,867,'formation_attack',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (	,867,'formation_attack',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (569,868,'refueling',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (570,869,'circle_of_flames',1,10.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (571,870,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (572,871,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (573,317,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (571,870,'self-destruct_3',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Razon self destruct 3 clusters
+INSERT INTO `mob_skills` VALUES (572,871,'self-destruct_2',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Razon self destruct 1 clusters
+INSERT INTO `mob_skills` VALUES (573,872,'self-destruct_1',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Razon self destruct 1 clusters
 -- INSERT INTO `mob_skills` VALUES (574,318,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (575,319,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (576,910,'back_heel',0,7,2000,1500,4,0,0,2,0,0,0);
@@ -453,10 +453,10 @@ INSERT INTO `mob_skills` VALUES (620,364,'sweep',1,10.0,2000,1500,4,0,0,0,0,0,0)
 INSERT INTO `mob_skills` VALUES (621,969,'snowball',2,11.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (622,366,'helldive',0,9.0,2000,1500,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (623,367,'wing_cutter',4,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (624,434,'vulture_1',0,7.0,2000,0,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (624,434,'vulture_1',0,7.0,2000,0,1,0,0,0,0,0,0); -- 2 hr cloud
 -- INSERT INTO `mob_skills` VALUES (625,436,'vulture_2',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (626,437,'vulture_3',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (627,438,'vulture_4',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (627,438,'vulture_4',0,7.0,2000,1500,4,0,0,0,0,0,0); -- 2 hr cloud
 INSERT INTO `mob_skills` VALUES (628,372,'wild_horn',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (629,373,'thunderbolt',1,30.0,2000,1500,4,8,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (630,374,'kick_out',4,10.0,2000,1500,4,0,0,0,0,0,0);
@@ -3929,9 +3929,8 @@ INSERT INTO `mob_skills` VALUES (4258,562,'mix_elemental_power',0,7.0,2000,1500,
 INSERT INTO `mob_skills` VALUES (4259,562,'mix_dragon_shield',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4260,563,'mix_dark_potion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4261,564,'mix_samsons_strength',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (4262,254,'berserk_darkspark',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (4263,253,'self-destruct_razon',1,20.0,2000,3000,4,0,0,0,0,0,0); -- Self Destruct 500 damage(Fire in the sky)
-INSERT INTO `mob_skills` VALUES (4264,253,'self-destruct_razon2',1,20.0,2000,3000,4,0,0,0,0,0,0); -- Self Destruct 0 damage(Fire in the sky)
+
+
 
 -- Custom content
 INSERT INTO `mob_skills` VALUES (44,13,'death_blossom',0,5.0,2000,0,4,0,0,0,1,8,0);
