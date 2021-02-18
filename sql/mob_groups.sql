@@ -9635,8 +9635,8 @@ INSERT INTO `mob_groups` VALUES (4,3491,144,'SaNha_Soulsaver',0,128,0,0,0,68,68,
 INSERT INTO `mob_groups` VALUES (5,929,144,'DaShu_Knightslayer',0,128,0,0,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (6,1777,144,'GoBha_Slaughterer',0,128,0,0,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (7,1447,144,'Gaki',0,128,0,6000,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (8,3325,144,'Rasetsu',0,128,0,10000,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (9,2983,144,'Onki',0,128,0,5000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (8,3325,144,'Rasetsu',0,128,0,7500,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (9,2983,144,'Onki',0,128,0,3000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (10,2981,144,'Onibi',0,128,0,4000,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (11,304,144,'Ayakashi',0,128,0,0,0,66,67,0);
 INSERT INTO `mob_groups` VALUES (12,4838,144,'Maat',0,128,0,2300,1000,70,70,0);
