@@ -173,7 +173,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,3,26,48);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,4,48,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,23,1,30);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,24,31,59);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,25,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,25,85,255); -- Dia III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,33,15,54);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,34,55,70);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,35,71,255);
@@ -584,7 +584,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,21,50,94);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,22,95,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,23,1,30);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,24,31,59);
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,25,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,25,85,255); -- Dia III
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,28,5,29);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,29,30,64);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,30,65,89);
@@ -905,7 +905,7 @@ INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,3,26,48);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,4,48,255);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,23,1,30);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,24,31,59);
-INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,25,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,25,85,255); -- Dia III
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,33,15,54);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,34,55,70);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,35,71,255);
@@ -1085,10 +1085,10 @@ INSERT INTO `mob_spell_lists` VALUES ('Tartaruga_Gigante',77,357,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Tartaruga_Gigante',77,359,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Tiamat',78,176,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Tiamat',78,249,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('King_Arthro',79,105,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('King_Arthro',79,202,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('King_Arthro',79,226,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('King_Arthro',79,240,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('King_Arthro',79,105,1,255); -- enwater
+INSERT INTO `mob_spell_lists` VALUES ('King_Arthro',79,202,1,255); -- waterga_iv
+INSERT INTO `mob_spell_lists` VALUES ('King_Arthro',79,226,1,255); -- poisonga_ii
+INSERT INTO `mob_spell_lists` VALUES ('King_Arthro',79,240,1,255); -- drown
 INSERT INTO `mob_spell_lists` VALUES ('Citipati',80,166,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Citipati',80,172,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Citipati',80,180,1,255);
