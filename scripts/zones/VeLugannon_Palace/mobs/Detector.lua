@@ -184,7 +184,7 @@ function onMobFight(mob, target)
     -- TODO: Casting animation for before summons. When he spawns them isn't exactly retail accurate.
     --       Should be ~10s to start cast, and another ~5 to finish.
     if petCount <= 5 and mob:getBattleTime() % 15 < 3 and mob:getBattleTime() > 3 and not caretaker:isSpawned() then
-        if now >= GetServerVariable("SteamCleaner_Respawn") and (math.random(100) < 10) then
+        if now >= GetServerVariable("SteamCleaner_Respawn") and (math.random(100) < 30) then
             local sc = GetMobByID(ID.mob.STEAM_CLEANER)
             if not sc:isSpawned() then
                 sc:setSpawn(mob:getXPos() + 1, mob:getYPos(), mob:getZPos() + 1)
