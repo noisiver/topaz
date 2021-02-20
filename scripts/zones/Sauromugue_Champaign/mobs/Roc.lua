@@ -4,6 +4,7 @@
 -----------------------------------
 mixins = {require("scripts/mixins/rage")}
 require("scripts/globals/titles")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)

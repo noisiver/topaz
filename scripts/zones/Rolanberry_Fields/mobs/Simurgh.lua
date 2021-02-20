@@ -4,6 +4,7 @@
 -----------------------------------
 mixins = {require("scripts/mixins/rage")}
 require("scripts/globals/titles")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -24,7 +25,7 @@ tpz.mix.jobSpecial.config(mob, {
 })
      mob:addMod(tpz.mod.DEFP, 50) 
      mob:setMod(tpz.mod.ATT, 800)
-     mob:setMod(tpz.mod.ACC, 400) 
+     mob:setMod(tpz.mod.ACC, 430) 
      mob:addMod(tpz.mod.EVA, 50)
      mob:setMod(tpz.mod.MACC, 1000) 
      mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)

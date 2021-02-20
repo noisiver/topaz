@@ -9,7 +9,7 @@ require("scripts/globals/mobs")
 function onMobSpawn(mob)
      mob:addMod(tpz.mod.DEFP, 25) 
      mob:setMod(tpz.mod.ATT, 800)
-     mob:setMod(tpz.mod.ACC, 400) 
+     mob:setMod(tpz.mod.ACC, 300) 
      mob:addMod(tpz.mod.EVA, 30)
 end
 
