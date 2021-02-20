@@ -8,8 +8,8 @@ require("scripts/globals/mobs")
 
 function onMobSpawn(mob)
      mob:addMod(tpz.mod.DEFP, 25) 
-     mob:addMod(tpz.mod.ATTP, 25)
-     mob:addMod(tpz.mod.ACC, 30) 
+     mob:setMod(tpz.mod.ATT, 800)
+     mob:setMod(tpz.mod.ACC, 400) 
      mob:addMod(tpz.mod.EVA, 30)
 end
 

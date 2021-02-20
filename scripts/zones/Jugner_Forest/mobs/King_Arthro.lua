@@ -17,9 +17,10 @@ end
 function onMobSpawn(mob)
     local KingArthroID = mob:getID()
      mob:addMod(tpz.mod.DEFP, 50) 
-     mob:addMod(tpz.mod.ATTP, 50)
-     mob:addMod(tpz.mod.ACC, 100) 
+     mob:setMod(tpz.mod.ATT, 800)
+     mob:setMod(tpz.mod.ACC, 400) 
      mob:addMod(tpz.mod.EVA, 50)
+     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 
     -- Use King Arthro ID to determine Knight Crab Id's, then set their respawn to 0 so they don't spawn while KA is up
     for offset = 1, 10 do
