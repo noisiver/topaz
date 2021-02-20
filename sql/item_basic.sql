@@ -757,7 +757,7 @@ INSERT INTO `item_basic` VALUES (845,0,'black_chocobo_feather','black_c._feather
 INSERT INTO `item_basic` VALUES (846,0,'insect_wing','insect_wing',12,4,40,0,20);
 INSERT INTO `item_basic` VALUES (847,0,'bird_feather','bird_feather',12,4,40,0,1);
 INSERT INTO `item_basic` VALUES (848,0,'square_of_dhalmel_leather','dhalmel_leather',12,4,41,0,466);
-INSERT INTO `item_basic` VALUES (849,0,'undead_skin','undead_skin',12,4,41,0,800);
+INSERT INTO `item_basic` VALUES (849,0,'undead_skin','undead_skin',1,4,41,0,800);
 INSERT INTO `item_basic` VALUES (850,0,'square_of_sheep_leather','sheep_leather',12,4,41,0,50);
 INSERT INTO `item_basic` VALUES (851,0,'square_of_ram_leather','ram_leather',12,4,41,0,604);
 INSERT INTO `item_basic` VALUES (852,0,'lizard_skin','lizard_skin',12,4,41,0,65);
@@ -1610,7 +1610,7 @@ INSERT INTO `item_basic` VALUES (1721,0,'beryl_memosphere','beryl_memosphere',1,
 INSERT INTO `item_basic` VALUES (1722,0,'indigo_memosphere','indigo_memosphere',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (1723,0,'white_memosphere','white_memosphere',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (1724,0,'soulflayer_robe','soulflayer_robe',12,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (1725,0,'snow_lily','snow_lily',12,4,44,0,30);
+INSERT INTO `item_basic` VALUES (1725,0,'snow_lily','snow_lily',1,4,44,0,30);
 INSERT INTO `item_basic` VALUES (1726,0,'egret_fishing_rod','egret_fishing_rod',1,57424,0,0,80);
 INSERT INTO `item_basic` VALUES (1727,0,'piece_of_garhada_teak_lumber','gar._teak_lumber',1,57428,0,0,80);
 INSERT INTO `item_basic` VALUES (1728,0,'chunk_of_ordrynite','ordrynite',1,61524,0,1,0);
