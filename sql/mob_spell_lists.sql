@@ -963,9 +963,9 @@ INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,259,46,255);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,260,32,255);
 INSERT INTO `mob_spell_lists` VALUES ('WesternSphinx',43,357,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('EasternSphinx',44,360,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,376,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,423,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,462,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,376,1,255); -- Horde Lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,423,1,255); -- massacre elegy
+INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,462,1,255); -- magic finale
 INSERT INTO `mob_spell_lists` VALUES ('Serket',46,362,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,14,6,255);
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,15,9,255);

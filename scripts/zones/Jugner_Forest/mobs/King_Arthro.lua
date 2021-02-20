@@ -16,11 +16,28 @@ end
 
 function onMobSpawn(mob)
     local KingArthroID = mob:getID()
-     mob:addMod(tpz.mod.DEFP, 50) 
-     mob:setMod(tpz.mod.ATT, 800)
-     mob:setMod(tpz.mod.ACC, 430) 
-     mob:addMod(tpz.mod.EVA, 50)
-     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:setMod(tpz.mod.ATT, 800)
+    mob:setMod(tpz.mod.ACC, 430) 
+    mob:addMod(tpz.mod.EVA, 50)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {
+                id = tpz.jsa.HUNDRED_FISTS,
+                hpp = math.random(25, 50),
+                begCode = function(mob)
+                  
+                 -- mob:messageText(mob, ID.text.HOW_CAN_YOU_EXPECT_TO_KILL_ME)
+                 -- mob:PrintToArea("My power is too great for you!",0,"Murgleis")
+                end,
+                endCode = function(mob)
+               --mob:messageText(mob, ID.text.WHEN_YOU_CANT_EVEN_HIT_ME)
+                end,
+            },
+        },
+    })
 
     -- Use King Arthro ID to determine Knight Crab Id's, then set their respawn to 0 so they don't spawn while KA is up
     for offset = 1, 10 do

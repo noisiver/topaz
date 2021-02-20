@@ -7429,13 +7429,13 @@ INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,11286,100);
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,12924,1000);
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,15899,50);
 INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,16178,100);
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,776);	-- (King Arthro Jugner)
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,350);
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,230);
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4172,898);
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4174,755);
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,12924,1000);
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,13189,61);	-- Speed Belt
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,1000);	-- (King Arthro Jugner) Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,240); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,100); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4172,1000); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4174,1000); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,12924,1000); -- Magic cuisses
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,13189,50);	-- Speed Belt
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,831,530);
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13415,950);
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13566,50);
@@ -10877,11 +10877,11 @@ INSERT INTO `mob_droplist` VALUES (2110,0,0,1000,4400,240);
 INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,881,310);
 INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,1193,50);
 INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,4400,370);
-INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,658,68);	-- (Roc) Damascus Ingot
-INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4172,755);	  
-INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4174,66);
+INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,658,100);	-- (Roc) Damascus Ingot
+INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4172,240);	  -- Reraiser 
+INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4174,240); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,16822,1000);	-- Crimson Blade
-INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,17108,351);	-- Healing Staff
+INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,17108,240);	-- Healing Staff
 INSERT INTO `mob_droplist` VALUES (2113,0,0,1000,881,130);
 INSERT INTO `mob_droplist` VALUES (2113,0,0,1000,881,10);
 INSERT INTO `mob_droplist` VALUES (2113,0,0,1000,936,110);
@@ -11509,11 +11509,11 @@ INSERT INTO `mob_droplist` VALUES (2253,0,0,1000,12833,50);
 INSERT INTO `mob_droplist` VALUES (2253,0,0,1000,12961,30);
 INSERT INTO `mob_droplist` VALUES (2254,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2254,0,0,1000,1533,70);
-INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,658,57);
-INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,4172,724);
-INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,4174,629);
-INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,15736,224);	-- Smiurgh (Trotter Boots)
-INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,17416,1000);
+INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,658,100); -- (Simurgh) Damascus ingot
+INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,4172,240); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,4174,240); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,14080,50);	-- Strider Boots
+INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,17416,1000); -- Arcana breaker
 INSERT INTO `mob_droplist` VALUES (2256,0,0,1000,914,60);
 INSERT INTO `mob_droplist` VALUES (2256,0,0,1000,954,80);
 INSERT INTO `mob_droplist` VALUES (2256,0,0,1000,3265,90);
@@ -12385,11 +12385,11 @@ INSERT INTO `mob_droplist` VALUES (2439,0,0,1000,4158,80);
 INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1119,1000); -- Tonberry Coat 
 INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1162,1000); -- Tonberry Lantern 
 INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,4901,1000); -- Water Spirit 
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,837,50); --  Spool of malboro fiber 
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,837,100); --  Spool of malboro fiber 
 INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,4902,1000); -- Light Spirit 
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,836,50); -- damascene_cloth
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,658,50); -- damascus_ingot
-INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1110,50); -- black beetle blood  
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,836,100); -- damascene_cloth
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,658,100); -- damascus_ingot
+INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,1110,100); -- black beetle blood  
 INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,942,100); -- Philosopher stone 
 INSERT INTO `mob_droplist` VALUES (2440,0,0,1000,18632,100); -- Iridal Staff
 
@@ -14951,7 +14951,7 @@ INSERT INTO `mob_droplist` VALUES (2829,0,0,1000,13301,50); -- Vivian ring
 INSERT INTO `mob_droplist` VALUES (2829,0,0,1000,13574,100); -- Black Ribbon
 INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,1428,1000);	-- (Za'dha Adamantking) WHM testimony
 INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,17073,50);	-- Mistilteinn
-INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,658,50);	-- Damascus ingot
+INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,658,100);	-- Damascus ingot
 INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,700,240);
 INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,702,50);
 INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,703,150);

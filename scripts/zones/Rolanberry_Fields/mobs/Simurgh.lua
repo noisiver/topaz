@@ -2,24 +2,28 @@
 -- Area: Rolanberry Fields (110)
 --  HNM: Simurgh
 -----------------------------------
-mixins = {require("scripts/mixins/rage")}
+mixins =
+{
+    require("scripts/mixins/job_special"),
+    require("scripts/mixins/rage")
+}
 require("scripts/globals/titles")
-mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 50) 
-     mob:setMod(tpz.mod.ATT, 800)
-     mob:setMod(tpz.mod.ACC, 430) 
-     mob:addMod(tpz.mod.EVA, 50)
-     mob:setMod(tpz.mod.MACC, 1000) 
-     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:setMod(tpz.mod.ATT, 800)
+    mob:setMod(tpz.mod.ACC, 430) 
+    mob:addMod(tpz.mod.EVA, 50)
+    mob:setMod(tpz.mod.MACC, 1000) 
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setLocalVar("[rage]timer", 1200) -- 20 minutes
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
             {
                 id = tpz.jsa.MIGHTY_STRIKES,
-                hpp = 25,
+                hpp = math.random(25, 50),
                 begCode = function(mob)
                   
                  -- mob:messageText(mob, ID.text.HOW_CAN_YOU_EXPECT_TO_KILL_ME)
