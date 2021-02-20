@@ -17,7 +17,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.FROST
 
-    local power = (mob:getMainLvl()/5 *.6 + 6)
+    local power = (mob:getMainLvl()/5 *.6 + 25)
 
     MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
 
