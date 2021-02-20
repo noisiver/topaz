@@ -13,7 +13,8 @@ require("scripts/globals/status")
 local ID = require("scripts/zones/Temenos/IDs")
 
 ---------------------------------------------
-
+-- https://www.bluegartr.com/threads/56406-Citadel-Buster?p=1965356&viewfull=1#post1965356
+-- 6x multiplier?
 function onMobSkillCheck(target,mob,skill)
     local phase = mob:getLocalVar("battlePhase")
     if (phase == 4) then
