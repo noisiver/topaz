@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
     MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 30, 0, 60)
     MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 50, 0, 60)
 
-    local dmgmod = MobBreathMove(mob, target, 0.15, 3, tpz.magic.ele.EARTH, 500)
+    local dmgmod = MobBreathMove(mob, target, 0.15, 1, tpz.magic.ele.EARTH, 500)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.EARTH, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.EARTH)
 
