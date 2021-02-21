@@ -5068,7 +5068,7 @@ INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,4613,100); -- Scroll of Cure V
 INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,4618,50); -- Scroll of Curaga IV
 INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,4719,100); -- Scroll of Regen III
 INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,4741,100); -- Scroll of Shellra IV
-INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,4750,100); -- Scroll of Reraise III
+INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,4750,50); -- Scroll of Reraise III
 INSERT INTO `mob_droplist` VALUES (1015,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (1015,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (1015,2,0,1000,656,0);
