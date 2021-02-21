@@ -4,6 +4,7 @@
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -11,6 +12,7 @@ function onMobSpawn(mob)
      mob:setMod(tpz.mod.ATT, 800)
      mob:setMod(tpz.mod.ACC, 300) 
      mob:addMod(tpz.mod.EVA, 30)
+     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
 function onMobInitialize(mob)
