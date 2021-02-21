@@ -57,7 +57,7 @@ function onSpellCast(caster, target, spell)
     end
     caster:delStatusEffect(tpz.effect.MARCATO)
 
-    duration = duration * ((iBoost * 0.1) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
+    duration = duration + ((iBoost * 7) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
 
     if (caster:hasStatusEffect(tpz.effect.TROUBADOUR)) then
         duration = duration * 2

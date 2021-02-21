@@ -71,7 +71,7 @@ function onSpellCast(caster, target, spell)
     else
         local iBoost = caster:getMod(tpz.mod.LULLABY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
 
-        duration = duration * (iBoost * 0.1 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1)
+        duration = duration + (iBoost * 6 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1)
 
         if caster:hasStatusEffect(tpz.effect.TROUBADOUR) then
             duration = duration * 2
