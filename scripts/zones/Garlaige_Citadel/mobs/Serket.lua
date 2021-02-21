@@ -13,7 +13,7 @@ end
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.ATTP, 100)
     mob:setMod(tpz.mod.ACC, 400) 
     mob:addMod(tpz.mod.EVA, 100)
     mob:setMod(tpz.mod.MACC, 1000) 
