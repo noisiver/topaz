@@ -17,6 +17,10 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 44) 
+    mob:addMod(tpz.mod.ATTP, 39)
+    mob:addMod(tpz.mod.EVA, 40)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.BEHEMOTH_QM):setStatus(tpz.status.DISAPPEAR)
     end

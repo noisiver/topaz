@@ -10,6 +10,10 @@ require("scripts/globals/titles")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 15)
+    mob:addMod(tpz.mod.EVA, 20)
+    mob:addMod(tpz.mod.ACC, 25)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.FAFNIR_QM):setStatus(tpz.status.DISAPPEAR)
     end
