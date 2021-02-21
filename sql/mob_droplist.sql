@@ -12490,16 +12490,16 @@ INSERT INTO `mob_droplist` VALUES (2454,2,0,1000,927,0);
 INSERT INTO `mob_droplist` VALUES (2454,0,0,1000,927,100);
 INSERT INTO `mob_droplist` VALUES (2454,0,0,1000,1591,50);
 INSERT INTO `mob_droplist` VALUES (2454,0,0,1000,4377,240);
-INSERT INTO `mob_droplist` VALUES (2455,4,0,1000,863,0);
+INSERT INTO `mob_droplist` VALUES (2455,4,0,1000,863,0); -- (Torama - Onzozo)
 INSERT INTO `mob_droplist` VALUES (2455,2,0,1000,927,0);
-INSERT INTO `mob_droplist` VALUES (2455,0,0,1000,927,60);
-INSERT INTO `mob_droplist` VALUES (2455,0,0,1000,1591,160);
+INSERT INTO `mob_droplist` VALUES (2455,0,0,1000,927,50);
+INSERT INTO `mob_droplist` VALUES (2455,0,0,1000,1591,150);
 INSERT INTO `mob_droplist` VALUES (2455,0,0,1000,4377,240);
 INSERT INTO `mob_droplist` VALUES (2455,4,0,1000,4377,0);
 INSERT INTO `mob_droplist` VALUES (2456,2,0,1000,574,0);
-INSERT INTO `mob_droplist` VALUES (2456,0,0,1000,574,140);
-INSERT INTO `mob_droplist` VALUES (2456,0,0,1000,953,670);
-INSERT INTO `mob_droplist` VALUES (2456,0,0,1000,13013,208);	--tottering toby stumbling sandals
+INSERT INTO `mob_droplist` VALUES (2456,0,0,1000,574,150);
+INSERT INTO `mob_droplist` VALUES (2456,0,0,1000,953,240);
+INSERT INTO `mob_droplist` VALUES (2456,0,0,1000,13013,240);	--tottering toby stumbling sandals
 INSERT INTO `mob_droplist` VALUES (2457,2,0,1000,846,0);
 INSERT INTO `mob_droplist` VALUES (2457,0,0,1000,846,50);
 INSERT INTO `mob_droplist` VALUES (2457,0,0,1000,1616,50);
