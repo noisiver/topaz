@@ -4,7 +4,17 @@
 -----------------------------------
 mixins = {require("scripts/mixins/rage")}
 require("scripts/globals/regimes")
+require("scripts/globals/status")
 -----------------------------------
+
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 50)
+    mob:setMod(tpz.mod.ACC, 100) 
+    mob:addMod(tpz.mod.EVA, 50)
+    mob:setMod(tpz.mod.MACC, 100) 
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)

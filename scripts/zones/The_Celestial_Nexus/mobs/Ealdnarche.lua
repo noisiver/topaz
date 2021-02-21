@@ -15,6 +15,10 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
     mob:SetAutoAttackEnabled(false)
     mob:setMobMod(tpz.mobMod.GA_CHANCE, 25)
     mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
