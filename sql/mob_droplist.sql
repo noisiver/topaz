@@ -14986,14 +14986,14 @@ INSERT INTO `mob_droplist` VALUES (2833,0,0,1000,1142,100);
 INSERT INTO `mob_droplist` VALUES (2833,0,0,1000,1427,110);
 INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,1044,50); -- (Yagudo Conductor) Oztroja coffer key
 INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,1435,150); -- Bard's testimony
-INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,4981,50);
-INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5000,50);
-INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5005,50);
-INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5016,150);
-INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5022,100);
-INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5028,50);
-INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5072,150);
-INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5073,10);
+INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,4981,50); -- Scroll of Foe Requiem VI
+INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5000,50); -- Scroll of Knight's Minne IV
+INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5005,50); -- Valor Minuet IV
+INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5016,150); -- Scroll of Shining Fantasia
+INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5022,100); -- Scroll of Warding Round
+INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5028,50); -- Scroll of Victory March
+INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5072,150); -- Scroll of Goddess's Hymnus
+INSERT INTO `mob_droplist` VALUES (2834,0,0,1000,5073,10); -- Scroll of Chocobo Mazurka
 INSERT INTO `mob_droplist` VALUES (2834,2,0,1000,748,0); 
 INSERT INTO `mob_droplist` VALUES (2835,0,0,1000,14469,1000);
 INSERT INTO `mob_droplist` VALUES (2836,0,0,1000,18610,250);
