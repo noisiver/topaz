@@ -1031,7 +1031,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         >= 75 = Kindred Crests ID=2955
         >= 90 = High Kindred Crests ID=2956
         */
-        if (tpzrand::GetRandomNumber(100) < 20 && PChar->PTreasurePool->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS))
+        if (tpzrand::GetRandomNumber(100) < 90 && PChar->PTreasurePool->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS))
         {
             //RULES: Only 1 kind may drop per mob
            // if (GetMLevel() >= 75 && luautils::IsContentEnabled("ABYSSEA")) //all 4 types
@@ -1059,12 +1059,12 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                 }
             }
            // else if (GetMLevel() >= 70 && luautils::IsContentEnabled("ABYSSEA")) //b.seal & k.seal & k.crest
-            else if (GetMLevel() >= 200 && luautils::IsContentEnabled("ABYSSEA")) // b.seal & k.seal & k.crest
+            else if (GetMLevel() >= 80 && luautils::IsContentEnabled("ABYSSEA")) // b.seal & k.seal & k.crest
             {
                 switch (tpzrand::GetRandomNumber(3))
                 {
                 case 0:
-                    if (AddItemToPool(1126, ++dropCount))
+                    if (AddItemToPool(1127, ++dropCount))
                         return;
                     break;
                 case 1:
@@ -1072,7 +1072,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(2955, ++dropCount))
+                    if (AddItemToPool(1127, ++dropCount))
                         return;
                     break;
                 }
