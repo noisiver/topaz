@@ -8796,13 +8796,13 @@ INSERT INTO `mob_droplist` VALUES (1760,0,0,1000,4374,240);
 INSERT INTO `mob_droplist` VALUES (1761,2,0,1000,4374,0);
 INSERT INTO `mob_droplist` VALUES (1761,0,0,1000,14884,360);
 INSERT INTO `mob_droplist` VALUES (1762,0,0,1000,914,50);
-INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,510,50);
-INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,511,50);
-INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,4774,340);
-INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,4775,110);
-INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,4804,190);
-INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,4820,80);
-INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,14724,250);
+INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,510,1000); -- (Mysticmaker Profblix)
+INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,511,1000);
+INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,4774,240); -- Scroll of Thunder III
+INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,4775,150); -- Scroll of Thunder IV
+INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,4804,240); -- Scroll of Thundaga III
+INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,4820,100); -- Scroll of Burst
+INSERT INTO `mob_droplist` VALUES (1763,0,0,1000,14724,240); -- Moldavite earring
 INSERT INTO `mob_droplist` VALUES (1764,0,0,1000,1060,50);
 INSERT INTO `mob_droplist` VALUES (1765,0,0,1000,644,10);
 INSERT INTO `mob_droplist` VALUES (1765,0,0,1000,955,50);
