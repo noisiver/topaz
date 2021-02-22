@@ -28,7 +28,8 @@ end
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.MP, 10)
     target:addMod(tpz.mod.STR, -1)
-    target:addMod(tpz.mod.MND, 3)
+    target:addMod(tpz.mod.MND, 1)
+    target:addMod(tpz.mod.CURE_POTENCY, 6)
     target:addMod(tpz.mod.ENMITY, -1)
     target:addMod(tpz.mod.MPHEAL, 2)
 end
@@ -36,7 +37,8 @@ end
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.MP, 10)
     target:delMod(tpz.mod.STR, -1)
-    target:delMod(tpz.mod.MND, 3)
+    target:delMod(tpz.mod.CURE_POTENCY, 6)
+    target:delMod(tpz.mod.MND, 1)
     target:delMod(tpz.mod.ENMITY, -1)
     target:delMod(tpz.mod.MPHEAL, 2)
 end
