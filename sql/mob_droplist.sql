@@ -115,7 +115,7 @@ INSERT INTO `mob_droplist` VALUES (14,0,0,1000,17753,310);
 INSERT INTO `mob_droplist` VALUES (14,0,0,1000,17753,150);
 INSERT INTO `mob_droplist` VALUES (14,0,0,1000,19034,580);
 INSERT INTO `mob_droplist` VALUES (14,0,0,1000,19035,570);
-INSERT INTO `mob_droplist` VALUES (15,0,0,1000,637,150);
+INSERT INTO `mob_droplist` VALUES (15,0,0,1000,637,240);
 INSERT INTO `mob_droplist` VALUES (16,0,0,1000,637,1050);
 INSERT INTO `mob_droplist` VALUES (16,0,0,1000,637,530);
 INSERT INTO `mob_droplist` VALUES (16,0,0,1000,1041,50);
@@ -4733,7 +4733,7 @@ INSERT INTO `mob_droplist` VALUES (931,0,0,1000,2823,80);
 INSERT INTO `mob_droplist` VALUES (932,0,0,1000,914,50);
 INSERT INTO `mob_droplist` VALUES (932,0,0,1000,1064,50);
 INSERT INTO `mob_droplist` VALUES (932,0,0,1000,1165,40);
-INSERT INTO `mob_droplist` VALUES (933,0,0,1000,858,240);
+INSERT INTO `mob_droplist` VALUES (933,0,0,1000,858,240); -- Wolf Hide
 INSERT INTO `mob_droplist` VALUES (933,0,0,1000,940,150);
 INSERT INTO `mob_droplist` VALUES (934,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (934,0,0,1000,2525,50);
@@ -16421,6 +16421,9 @@ INSERT INTO `mob_droplist` VALUES (6006,0,0,1000,4509,150); -- Distilled Water
 INSERT INTO `mob_droplist` VALUES (6006,0,0,1000,1054,50); -- Quicksand Coffer Key
 INSERT INTO `mob_droplist` VALUES (6007,0,0,1000,2835,150); -- (Dahu) Dahu Hair
 INSERT INTO `mob_droplist` VALUES (6008,0,0,1000,11343,150); -- (Picolaton) Thrakon breastplate
+INSERT INTO `mob_droplist` VALUES (6009,0,0,1000,637,240); -- (Mouse - Bostaunieux Oubliette) Slime Oil
+INSERT INTO `mob_droplist` VALUES (6009,0,0,1000,637,150); -- Slime Oil
+INSERT INTO `mob_droplist` VALUES (6009,0,0,1000,637,100); -- Slime Oil
 
 ---------------------Dynamis---------------------
 

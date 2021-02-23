@@ -10748,7 +10748,7 @@ INSERT INTO `mob_groups` VALUES (8761,2633,166,'Metallic_Slime',0,128,1664,900,0
 
 INSERT INTO `mob_groups` VALUES (1,6393,167,'Bloodsucker',600,0,302,0,0,65,68,0);
 INSERT INTO `mob_groups` VALUES (2,38,167,'Acid_Grease',0,128,15,0,0,52,54,0);
-INSERT INTO `mob_groups` VALUES (3,2764,167,'Mousse',0,128,15,0,0,60,68,0);
+INSERT INTO `mob_groups` VALUES (3,2764,167,'Mousse',0,128,6009,0,0,60,68,0);
 INSERT INTO `mob_groups` VALUES (4,1440,167,'Funnel_Bats',600,0,918,0,0,52,55,0);
 INSERT INTO `mob_groups` VALUES (5,1911,167,'Hecatomb_Hound',600,0,1287,0,0,56,59,0);
 INSERT INTO `mob_groups` VALUES (6,4321,167,'Werebat',600,0,2641,0,0,55,59,0);
