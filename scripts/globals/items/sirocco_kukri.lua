@@ -9,7 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local dmg = math.random(3, 10)
+    local dmg = 10
     local params = {}
     params.bonusmab = 0
     params.includemab = false
