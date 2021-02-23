@@ -3436,7 +3436,7 @@ namespace charutils
                                 case 3: exp *= 1.3f; break;
                                 case 4: exp *= 1.4f; break;
                                 case 5: exp *= 1.5f; break;
-                                default: exp *= 1.55f; break;
+                                default: exp *= 1.5f; break;
                             }
                         }
                         else
