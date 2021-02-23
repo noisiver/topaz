@@ -11,7 +11,8 @@ require("scripts/globals/titles")
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 80)
-    mob:setMod(tpz.mod.DEF, 5000)
+    mob:setMod(tpz.mod.DEF, 4000)
+    mob:addMod(tpz.mod.ACC, 50) 
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.ADAMANTOISE_QM):setStatus(tpz.status.DISAPPEAR)
