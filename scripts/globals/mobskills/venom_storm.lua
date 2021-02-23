@@ -15,6 +15,6 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.POISON
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, math.random(20, 30), 3, 60))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 30, 3, 60))
     return typeEffect
 end
