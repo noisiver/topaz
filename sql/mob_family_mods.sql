@@ -263,6 +263,7 @@ INSERT INTO `mob_family_mods` VALUES (479,62,35,0);		-- +35% Bonus Attack
 INSERT INTO `mob_family_mods` VALUES (479,63,20,0);		-- +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (51,62,35,0);		-- +35% Bonus Attack
 INSERT INTO `mob_family_mods` VALUES (51,63,20,0);		-- +20% Defense Bonus
+
 -- Promy Mobs
 INSERT INTO `mob_family_mods` VALUES (255,63,-10,0);	-- Wanderer -10 Defense Penalty
 INSERT INTO `mob_family_mods` VALUES (255,68,40,0);		-- Wanderer +40 Evasion Bonus
@@ -272,6 +273,14 @@ INSERT INTO `mob_family_mods` VALUES (137,63,10,0);		-- Gorger +10% Defense Bonu
 INSERT INTO `mob_family_mods` VALUES (138,63,10,0);		-- Gorger +10% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (220,63,10,0);		-- Seether +10% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (241,63,10,0);		-- Thinker +10% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (241,29,12,0); -- Thinker +12 MDB
+INSERT INTO `mob_family_mods` VALUES (78,29,12,0); --  Craver +12 MDB
+INSERT INTO `mob_family_mods` VALUES (137,29,12,0); -- Gorger +12 MDB
+INSERT INTO `mob_family_mods` VALUES (138,29,12,0); -- Gorger +12 MDB
+INSERT INTO `mob_family_mods` VALUES (255,29,12,0); -- Wanderer +12 MDB
+INSERT INTO `mob_family_mods` VALUES (256,29,12,0); -- Weeper +12 MDB
+INSERT INTO `mob_family_mods` VALUES (220,29,12,0); -- Seether +12 MDB
+INSERT INTO `mob_family_mods` VALUES (503,29,12,0); -- Mammet +12 MDB
 
 --MDB
 INSERT INTO `mob_family_mods` VALUES (175,29,12,0); -- Magic pot +12 MDB
