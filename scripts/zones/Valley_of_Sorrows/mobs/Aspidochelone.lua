@@ -25,7 +25,7 @@ function onMobFight(mob, target)
     local Shell = mob:getLocalVar("Shell")
 
     mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
-        if Shell == 1 and amount > 5000  then
+        if Shell == 1 and amount > 1500  then
         mob:setLocalVar("Dmg", 1)
         end
     end)
