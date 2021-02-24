@@ -39,6 +39,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.UDMGMAGIC, -5)
         mob:SetMobAbilityEnabled(false)
         mob:useMobAbility(1053) -- Legitimately captured super_buff ID
+        mob:setLocalVar("twohourTime", battletime + math.random(60, 120))
         mob:setLocalVar("wingsTime", battletime + math.random(30, 60))
         mob:setLocalVar("wingsDown", 1)
     end
