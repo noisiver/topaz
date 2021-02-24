@@ -303,10 +303,6 @@ function onMobSpawn(mob)
     onPath(mob)
 end
 
-function onMobInitialize(mob, target)
-    mob:speed(100)
-end
-
 function onMobRoam(mob)
     -- move to start position if not moving
     if not mob:isFollowingPath() then
