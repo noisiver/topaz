@@ -8,6 +8,8 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
+    local Dmg = mob:getLocalVar("Dmg")
+    local Shell = mob:getLocalVar("Shell")
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 33)
@@ -20,15 +22,13 @@ function onMobSpawn(mob)
 
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
-        local Dmg = mob:getLocalVar("Dmg")
-        if Shell == 1 and amount > 2000  then
+        if Shell == 1 and amount > 5000  then
         mob:setLocalVar("Dmg", 1)
         end
     end)
 end
 
 function onMobFight(mob, target)
-    local Shell = mob:getLocalVar("Shell")
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
     if mob:getHPP() <= 75 and hitTrigger == 0 and Shell == 0 then
