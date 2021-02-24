@@ -7,6 +7,7 @@ require("scripts/globals/regimes")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setMod(tpz.mod.SILENCERES, 95)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 30) 
