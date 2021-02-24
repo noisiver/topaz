@@ -297,6 +297,10 @@ end
 
 function onMobSpawn(mob)
     onPath(mob)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 5)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
 end
 
 function onMobRoam(mob)
