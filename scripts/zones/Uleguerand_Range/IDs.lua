@@ -50,6 +50,7 @@ zones[tpz.zone.ULEGUERAND_RANGE] =
         GEUSH_URVAN = 16798078,
         WHITE_CONEY = 16798079,
         BLACK_CONEY = 16798080,
+        MOUNTAIN_WORM_NM = 16798031,
     },
     npc =
     {
