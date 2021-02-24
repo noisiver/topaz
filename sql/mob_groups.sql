@@ -8478,7 +8478,7 @@ INSERT INTO `mob_groups` VALUES (3,1341,128,'Fire_Elemental',330,4,831,0,0,66,68
 INSERT INTO `mob_groups` VALUES (4,71,128,'Air_Elemental',330,4,38,0,0,66,68,0);
 INSERT INTO `mob_groups` VALUES (5,4125,128,'Valley_Manticore',330,0,2537,0,0,71,74,0);
 INSERT INTO `mob_groups` VALUES (6,44,128,'Adamantoise',0,128,21,7000,0,72,74,0);
-INSERT INTO `mob_groups` VALUES (7,268,128,'Aspidochelone',0,128,183,15000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (7,268,128,'Aspidochelone',0,128,183,15000,0,85,88,0);
 INSERT INTO `mob_groups` VALUES (8,3643,128,'Skahnowa',1,0,0,0,0,1,1,0);
 
 INSERT INTO `mob_groups` VALUES (6861,2226,128,'Kilhwch',0,0,0,0,0,0,0,0);
@@ -10045,7 +10045,7 @@ INSERT INTO `mob_groups` VALUES (1,976,154,'Demonic_Pugil',0,128,147,0,0,70,78,0
 INSERT INTO `mob_groups` VALUES (2,344,154,'Bark_Tarantula',600,0,228,0,0,77,80,0);
 INSERT INTO `mob_groups` VALUES (3,920,154,'Darter',600,0,571,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (4,978,154,'Demonic_Rose',600,0,2925,0,0,75,78,0);
-INSERT INTO `mob_groups` VALUES (5,1280,154,'Fafnir',0,128,805,70000,0,90,90,0);
+INSERT INTO `mob_groups` VALUES (5,1280,154,'Fafnir',0,128,805,70000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (6,2840,154,'Nidhogg',0,128,1781,70000,0,90,90,0);
 
 INSERT INTO `mob_groups` VALUES (8176,2226,154,'Kilhwch',0,0,0,0,0,0,0,0);
