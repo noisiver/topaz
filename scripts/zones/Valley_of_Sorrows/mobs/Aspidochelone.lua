@@ -19,6 +19,10 @@ function onMobSpawn(mob)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
 
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 1) -- Says only add as spawn mod?
+end
+
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
     local Dmg = mob:getLocalVar("Dmg")
