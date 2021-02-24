@@ -304,7 +304,7 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
-    mob:speed(250)
+    mob:speed(150)
 end
 
 function onMobRoam(mob)
