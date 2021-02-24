@@ -24,14 +24,32 @@ end
 function onMobFight(mob, target)
     local battletime = mob:getBattleTime()
     local twohourTime = mob:getLocalVar("twohourTime")
+    local wingsTime = mob:getLocalVar("wingsTime")
 
     if twohourTime == 0 then
         mob:setLocalVar("twohourTime", math.random(30, 90))
     end
 
-    if battletime >= twohourTime then
+    if battletime >= twohourTime and wingsTime == 0 then
+        mob:addMod(tpz.mod.ATT, 400)
+        mob:addMod(tpz.mod.EVA, 370)
+        mob:setMod(tpz.mod.UDMGPHYS, -50)
+        mob:setMod(tpz.mod.UDMGMAGIC, -5)
+        mob:SetMobAbilityEnabled(false)
+        mob:AnimationSub(1)
         mob:useMobAbility(1053) -- Legitimately captured super_buff ID
+        mob:setLocalVar("wingsTime", battletime + math.random(30, 60))
+    end
+
+    if battletime >= wingsTime then
+        mob:addMod(tpz.mod.ATT, -400)
+        mob:addMod(tpz.mod.EVA, -370)
+        mob:setMod(tpz.mod.UDMGPHYS, 0)
+        mob:setMod(tpz.mod.UDMGMAGIC, 0)
+        mob:SetMobAbilityEnabled(true)
+        mob:AnimationSub(0)
         mob:setLocalVar("twohourTime", battletime + math.random(60, 120))
+        mob:setLocalVar("wingsTime", 0)
     end
 end
 
