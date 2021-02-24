@@ -8,9 +8,6 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
-    local Dmg = mob:getLocalVar("Dmg")
-    local Shell = mob:getLocalVar("Shell")
-
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 33)
     mob:addMod(tpz.mod.DEFP, 100)
@@ -19,7 +16,6 @@ function onMobSpawn(mob)
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.ADAMANTOISE_QM):setStatus(tpz.status.DISAPPEAR)
     end
-
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
 
