@@ -303,7 +303,7 @@ function onMobSpawn(mob)
     onPath(mob)
 end
 
-function onMobFight(mob, target)
+function onMobInitialize(mob, target)
     mob:speed(150)
 end
 
