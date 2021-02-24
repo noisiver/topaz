@@ -31,6 +31,7 @@ function onMobFight(mob, target)
     end
 
     if battletime >= twohourTime then
+        printf("Wings Down");
         mob:addMod(tpz.mod.ATT, 400)
         mob:addMod(tpz.mod.EVA, 370)
         mob:setMod(tpz.mod.UDMGPHYS, -50)
@@ -41,6 +42,7 @@ function onMobFight(mob, target)
     end
 
     if battletime >= wingsTime then
+        printf("Wings Up");
         mob:addMod(tpz.mod.ATT, -400)
         mob:addMod(tpz.mod.EVA, -370)
         mob:setMod(tpz.mod.UDMGPHYS, 0)
