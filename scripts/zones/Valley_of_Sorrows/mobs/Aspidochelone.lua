@@ -21,7 +21,7 @@ function onMobSpawn(mob)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
         local Dmg = mob:getLocalVar("Dmg")
-        if Shell == 1 and amount > 5000  then
+        if Shell == 1 and amount > 2000  then
         mob:setLocalVar("Dmg", 1)
         end
     end)
