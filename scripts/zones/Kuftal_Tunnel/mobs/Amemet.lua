@@ -14,7 +14,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
-    mob:setMod(tpz.mod.REGAIN, 250)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
 end
 
@@ -24,6 +23,8 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
+    mob:setMod(tpz.mod.REGAIN, 250)
+
     local hitTrigger = mob:getLocalVar("TriggerHit")
     if mob:getHPP() <= 50 and hitTrigger == 0 then
         mob:setMod(tpz.mod.REGAIN, 500)
