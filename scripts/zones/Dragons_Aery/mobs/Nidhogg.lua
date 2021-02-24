@@ -52,6 +52,7 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(true)
         mob:setLocalVar("twohourTime", battletime + math.random(60, 120))
         mob:setLocalVar("wingsTime", 0)
+        mob:setLocalVar("wingsDown", 0)
     end
 end
 
