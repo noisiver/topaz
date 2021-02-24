@@ -25,7 +25,7 @@ function onMobFight(mob, target)
     local Shell = mob:getLocalVar("Shell")
 
     mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
-        if Shell == 1 and amount > 1500  then
+        if Shell == 1 and amount > 100  then
         mob:setLocalVar("Dmg", 1)
         end
     end)
@@ -42,9 +42,17 @@ function onMobFight(mob, target)
         mob:setLocalVar("TriggerHit", 3)
         mob:setLocalVar("Shell", 1)
     end
+    if mob:getHPP() <= 10 and hitTrigger == 3 and Shell == 0  then
+        mob:setLocalVar("TriggerHit", 4)
+        mob:setLocalVar("Shell", 1)
+    end
+    if mob:getHPP() <= 5 and hitTrigger == 4 and Shell == 0  then
+        mob:setLocalVar("TriggerHit", 5)
+        mob:setLocalVar("Shell", 1)
+    end
 
     if Shell == 1  then
-        mob:setMod(tpz.mod.REGEN, 300)
+        mob:setMod(tpz.mod.REGEN, 100)
         mob:setMod(tpz.mod.UDMGPHYS, -95)
         mob:setMod(tpz.mod.UDMGRANGE, -95)
         mob:AnimationSub(1)
