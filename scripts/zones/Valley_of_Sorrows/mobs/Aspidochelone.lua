@@ -21,15 +21,18 @@ function onMobSpawn(mob)
     end
 
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
+end
+
+function onMobFight(mob, target)
+    local hitTrigger = mob:getLocalVar("TriggerHit")
+    local Dmg = mob:getLocalVar("Dmg")
+    local Shell = mob:getLocalVar("Shell")
+
     mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
         if Shell == 1 and amount > 5000  then
         mob:setLocalVar("Dmg", 1)
         end
     end)
-end
-
-function onMobFight(mob, target)
-    local hitTrigger = mob:getLocalVar("TriggerHit")
 
     if mob:getHPP() <= 75 and hitTrigger == 0 and Shell == 0 then
         mob:setLocalVar("TriggerHit", 1)
