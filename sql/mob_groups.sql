@@ -11077,7 +11077,7 @@ INSERT INTO `mob_groups` VALUES (12,71,174,'Air_Elemental',600,4,38,0,0,68,70,0)
 INSERT INTO `mob_groups` VALUES (13,3433,174,'Sabotender_Sediendo',600,0,2141,0,0,64,67,0);
 INSERT INTO `mob_groups` VALUES (14,3432,174,'Sabotender_Mariachi',0,32,2140,18000,0,68,70,0);
 INSERT INTO `mob_groups` VALUES (15,3342,174,'Recluse_Spider',600,0,2084,0,0,63,66,0);
-INSERT INTO `mob_groups` VALUES (16,105,174,'Amemet',0,32,62,18000,0,66,66,0);
+INSERT INTO `mob_groups` VALUES (16,105,174,'Amemet',0,32,62,18000,0,66,68,0);
 INSERT INTO `mob_groups` VALUES (17,1039,174,'Diplopod',960,0,656,0,0,68,71,0);
 INSERT INTO `mob_groups` VALUES (18,3079,174,'Ovinnik',600,0,1969,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (19,1801,174,'Greater_Cockatrice',600,0,3164,0,0,78,80,0);
