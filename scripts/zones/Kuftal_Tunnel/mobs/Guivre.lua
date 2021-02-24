@@ -304,7 +304,7 @@ function onMobSpawn(mob)
 end
 
 function onMobInitialize(mob, target)
-    mob:speed(150)
+    mob:speed(100)
 end
 
 function onMobRoam(mob)
