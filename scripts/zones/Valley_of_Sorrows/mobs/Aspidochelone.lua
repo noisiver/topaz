@@ -35,11 +35,11 @@ function onMobFight(mob, target)
         mob:setLocalVar("TriggerHit", 1)
         mob:setLocalVar("Shell", 1)
     end
-    if mob:getHPP() <= 50 and hitTrigger == 1 Shell == 0  then
+    if mob:getHPP() <= 50 and hitTrigger == 1 and Shell == 0  then
         mob:setLocalVar("TriggerHit", 2)
         mob:setLocalVar("Shell", 1)
     end
-    if mob:getHPP() <= 25 and hitTrigger == 2 Shell == 0  then
+    if mob:getHPP() <= 25 and hitTrigger == 2 and Shell == 0  then
         mob:setLocalVar("TriggerHit", 3)
         mob:setLocalVar("Shell", 1)
     end
