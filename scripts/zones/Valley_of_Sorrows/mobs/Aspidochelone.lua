@@ -19,6 +19,52 @@ function onMobSpawn(mob)
     end
 
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
+    mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
+        local Dmg = mob:getLocalVar("Dmg")
+        if Shell == 1 and amount > 5000  then
+        mob:setLocalVar("Dmg", 1)
+        end
+    end)
+end
+
+function onMobFight(mob, target)
+    local Shell = mob:getLocalVar("Shell")
+    local hitTrigger = mob:getLocalVar("TriggerHit")
+
+    if mob:getHPP() <= 75 and hitTrigger == 0 and Shell == 0 then
+        mob:setLocalVar("TriggerHit", 1)
+        mob:setLocalVar("Shell", 1)
+    end
+    if mob:getHPP() <= 50 and hitTrigger == 1 Shell == 0  then
+        mob:setLocalVar("TriggerHit", 2)
+        mob:setLocalVar("Shell", 1)
+    end
+    if mob:getHPP() <= 25 and hitTrigger == 2 Shell == 0  then
+        mob:setLocalVar("TriggerHit", 3)
+        mob:setLocalVar("Shell", 1)
+    end
+
+    if Shell == 1  then
+        mob:setMod(tpz.mod.REGEN, 300)
+        mob:setMod(tpz.mod.UDMGPHYS, -95)
+        mob:setMod(tpz.mod.UDMGRANGE, -95)
+        mob:AnimationSub(1)
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+        mob:SetAutoAttackEnabled(false)
+        mob:SetMobAbilityEnabled(false)
+        mob:setLocalVar("Shell", 2)
+    end
+    if Shell == 2 and Dmg == 1  then
+        mob:setMod(tpz.mod.REGEN, 0)
+        mob:setMod(tpz.mod.UDMGPHYS, 0)
+        mob:setMod(tpz.mod.UDMGRANGE, 0)
+        mob:AnimationSub(0)
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+        mob:SetAutoAttackEnabled(true)
+        mob:SetMobAbilityEnabled(true)
+        mob:setLocalVar("Shell", 0)
+        mob:setLocalVar("Dmg", 0)
+    end
 end
 
 function onMobDeath(mob, player, isKiller)
