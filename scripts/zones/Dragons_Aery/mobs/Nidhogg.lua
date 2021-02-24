@@ -25,7 +25,6 @@ function onMobFight(mob, target)
     local battletime = mob:getBattleTime()
     local twohourTime = mob:getLocalVar("twohourTime")
     local wingsTime = mob:getLocalVar("wingsTime")
-    local wingsDown = mob:getLocalVar("wingsDown")
 
     if twohourTime == 0 then
         mob:setLocalVar("twohourTime", math.random(30, 90))
