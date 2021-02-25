@@ -10020,9 +10020,9 @@ INSERT INTO `mob_groups` VALUES (21,3768,153,'Steelshell',960,0,2330,0,0,73,76,0
 INSERT INTO `mob_groups` VALUES (22,3200,153,'Processionaire',600,0,2022,0,0,72,75,0);
 INSERT INTO `mob_groups` VALUES (23,920,153,'Darter',600,0,571,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (24,469,153,'Blood_Ball',600,0,308,0,0,75,78,0);
-INSERT INTO `mob_groups` VALUES (25,4578,153,'Mourning_Crawler',600,0,3007,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (26,4577,153,'Snaggletooth_Peapuk',600,0,2814,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (27,6369,153,'Viseclaw',600,0,2330,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (25,4578,153,'Mourning_Crawler',300,0,3007,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (26,4577,153,'Snaggletooth_Peapuk',300,0,2814,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (27,6369,153,'Viseclaw',300,0,2330,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (28,123,153,'Ancient_Goobbue',86400,0,3141,22000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (29,515,153,'Boyahda_Sapling',600,0,345,0,0,74,77,0);
 INSERT INTO `mob_groups` VALUES (30,344,153,'Bark_Tarantula',600,0,228,0,0,75,79,0);
