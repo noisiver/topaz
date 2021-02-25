@@ -19,5 +19,9 @@ function onMobSpawn(mob)
     mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 15, 0, 300)
 end
 
+function onMobFight(mob, target)
+    mob:setMod(tpz.mod.REGAIN, 100)
+end
+
 function onMobDeath(mob, player, isKiller)
 end

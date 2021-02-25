@@ -5,6 +5,9 @@
 -----------------------------------
 mixins = {require("scripts/mixins/families/maat")}
 -----------------------------------
+function onMobFight(mob, target)
+    mob:setMod(tpz.mod.REGAIN, 100)
+end
 
 function onMobDeath(mob, player, isKiller)
 end
