@@ -14,6 +14,8 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
+    local hitTrigger = mob:getLocalVar("TriggerHit")
+
     mob:setMod(tpz.mod.REGAIN, 100)
 
     local hitTrigger = mob:getLocalVar("TriggerHit")
@@ -25,6 +27,9 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.REGAIN, 1000)
         mob:setLocalVar("TriggerHit", 2)
     end
+end
+
+function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDeath(mob, player, isKiller)

@@ -17,9 +17,12 @@ function onMobSpawn(mob)
     mob:addStatusEffect(tpz.effect.AQUAVEIL, 1, 0, 300)
     mob:addStatusEffect(tpz.effect.HASTE, 15, 0, 180)
     mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 15, 0, 300)
+    mob:addStatusEffect(tpz.effect.BLINK, 3, 0, 300)
 end
 
 function onMobFight(mob, target)
+    local hitTrigger = mob:getLocalVar("TriggerHit")
+
     mob:setMod(tpz.mod.REGAIN, 100)
 
     local hitTrigger = mob:getLocalVar("TriggerHit")
