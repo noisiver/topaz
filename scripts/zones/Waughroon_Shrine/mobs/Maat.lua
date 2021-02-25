@@ -21,6 +21,16 @@ end
 
 function onMobFight(mob, target)
     mob:setMod(tpz.mod.REGAIN, 100)
+
+    local hitTrigger = mob:getLocalVar("TriggerHit")
+    if mob:getHPP() <= 50 and hitTrigger == 0 then
+        mob:setMod(tpz.mod.REGAIN, 200)
+        mob:setLocalVar("TriggerHit", 1)
+    end
+    if mob:getHPP() <= 10 and hitTrigger == 1 then
+        mob:setMod(tpz.mod.REGAIN, 1000)
+        mob:setLocalVar("TriggerHit", 2)
+    end
 end
 
 function onMobDeath(mob, player, isKiller)
