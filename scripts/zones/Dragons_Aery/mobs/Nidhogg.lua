@@ -28,6 +28,7 @@ function onMobFight(mob, target)
     local wingsDown = mob:getLocalVar("wingsDown")
 
     if twohourTime == 0 then
+        printf("Setting two hour time");
         mob:setLocalVar("twohourTime", math.random(30, 90))
     end
 
