@@ -3947,6 +3947,20 @@ INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,201,65,255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,191,75,255);-- stonega_iii
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,260,32,255); -- Dispel
 
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,58,4,255); -- Paralyze
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,105,1,255); -- enwater
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,151,24,255); -- Blizzard II
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,156,24,255); -- Aero II
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,161,24,255); -- Stone II
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,166,24,255); -- Thunder II
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,171,24,255); -- Water II
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,24,31,255); -- Dia II
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,51,68,75); -- Shell IV
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,53,1,255); -- blink
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,54,1,255); -- stoneskin
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,57,1,255); -- haste
+
+
 --Custom Content
 
 -- Avatar Fights
