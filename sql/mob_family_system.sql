@@ -328,7 +328,7 @@ INSERT INTO `mob_family_system` VALUES (263,'NidhoggWyrm',10,'Dragon',4,40,120,9
 INSERT INTO `mob_family_system` VALUES (264,'Wyrm',10,'Dragon',4,40,120,90,4,1,3,2,3,3,1,1,3,1,3,1,1,1,1,0.05,0.05,1,1,1,1.3,1,1,1,0,0);
 INSERT INTO `mob_family_system` VALUES (265,'SimorgWyvern',10,'Dragon',1,50,115,90,1,2,1,3,6,3,3,1,3,1,3,1,1,1,1,0.5,1.125,0.875,1,1,1,0.375,1.25,2,1,0);
 INSERT INTO `mob_family_system` VALUES (266,'Wyvern',10,'Dragon',1,75,100,90,4,4,3,4,4,4,4,1,3,1,3,1,1,1,1,0.5,0.9,1,1,1.3,1.3,1.3,1.5,3,1,0);
-INSERT INTO `mob_family_system` VALUES (267,'GuivreWyvern',10,'Dragon',1,50,115,90,1,2,1,3,6,3,3,1,3,1,3,1,1,1,1,0.5,1,0.875,1,1,1,1.25,0.375,7,3,0);
+INSERT INTO `mob_family_system` VALUES (267,'GuivreWyvern',10,'Dragon',1,90,115,90,1,2,1,3,6,3,3,1,3,1,3,1,1,1,1,0.5,1,0.875,1,1,1,1.25,0.375,7,3,0);
 INSERT INTO `mob_family_system` VALUES (268,'Wyvern/Undead',10,'Dragon',1,40,109,90,1,2,1,3,6,3,3,1,3,1,3,1,1,1,1,0.5,1,0.875,1,1,1,0.375,1.25,8,1,0);
 INSERT INTO `mob_family_system` VALUES (269,'Xzomit',15,'Luminian',0,50,100,110,3,2,3,2,4,5,1,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (270,'Yagudo',7,'Beastmen',0,40,100,120,3,3,3,3,4,5,3,1,3,1,3,1,1,1,1,1.3,1.5,1,1,1.3,1.3,1.3,1.3,3,1,0);

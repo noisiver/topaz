@@ -64,8 +64,8 @@ function onMagicHit(caster, target, spell)
         target:delStatusEffect(116) -- Phalanx
         target:delStatusEffect(34) -- Blaze spikes
         printf("Delete Buffs");
-    --eald_narche:delStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
     end
     return 1
 end
 
+    --eald_narche:delStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
