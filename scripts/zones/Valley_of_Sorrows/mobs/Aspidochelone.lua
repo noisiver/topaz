@@ -28,12 +28,6 @@ function onMobFight(mob, target)
     local Dmg = mob:getLocalVar("Dmg")
     local Shell = mob:getLocalVar("Shell")
 
-    mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
-        if Shell == 1 and amount > 3000  then
-        mob:setLocalVar("Dmg", 1)
-        end
-    end)
-
     if mob:getHPP() <= 75 and hitTrigger == 0 and Shell == 0 then
         mob:setLocalVar("TriggerHit", 1)
         mob:setLocalVar("Shell", 1)
@@ -49,6 +43,11 @@ function onMobFight(mob, target)
 
     if Shell == 1  then
         printf("Inside Shell");
+    mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
+        if amount > 300  then
+        mob:setLocalVar("Dmg", 1)
+        end
+    end)
         mob:setMod(tpz.mod.REGEN, 300)
         mob:setMod(tpz.mod.UDMGPHYS, -95)
         mob:setMod(tpz.mod.UDMGRANGE, -95)
