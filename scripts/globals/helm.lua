@@ -1243,7 +1243,7 @@ local helmInfo =
                     { 810,   736}, -- Silver Ore
                     { 590,   645}, -- Darksteel Ore
                     { 400,   769}, -- Colored Rock
-                    {  80,   737}, -- Gold Ore
+                    {  100,   737}, -- Gold Ore
                 },
                 points =
                 {
