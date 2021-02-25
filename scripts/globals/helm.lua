@@ -1368,7 +1368,7 @@ function pickItem(player, info)
 
     -- if we picked a colored rock, change it to the day's element
     if item == 769 then
-        item = rocks[VanadielDayElement() + 1]
+        item = rocks[VanadielDayElement()]
     end
 
     return item
