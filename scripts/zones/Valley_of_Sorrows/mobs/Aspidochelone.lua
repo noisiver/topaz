@@ -46,14 +46,6 @@ function onMobFight(mob, target)
         mob:setLocalVar("TriggerHit", 3)
         mob:setLocalVar("Shell", 1)
     end
-    if mob:getHPP() <= 10 and hitTrigger == 3 and Shell == 0  then
-        mob:setLocalVar("TriggerHit", 4)
-        mob:setLocalVar("Shell", 1)
-    end
-    if mob:getHPP() <= 5 and hitTrigger == 4 and Shell == 0  then
-        mob:setLocalVar("TriggerHit", 5)
-        mob:setLocalVar("Shell", 1)
-    end
 
     if Shell == 1  then
         mob:setMod(tpz.mod.REGEN, 300)
