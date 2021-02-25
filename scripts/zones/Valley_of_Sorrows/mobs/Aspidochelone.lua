@@ -43,11 +43,6 @@ function onMobFight(mob, target)
 
     if Shell == 1  then
         printf("Inside Shell");
-    mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
-        if amount > 300  then
-        mob:setLocalVar("Dmg", 1)
-        end
-    end)
         mob:setMod(tpz.mod.REGEN, 300)
         mob:setMod(tpz.mod.UDMGPHYS, -95)
         mob:setMod(tpz.mod.UDMGRANGE, -95)
@@ -56,8 +51,9 @@ function onMobFight(mob, target)
         mob:SetAutoAttackEnabled(false)
         mob:SetMobAbilityEnabled(false)
         mob:setLocalVar("Shell", 2)
-    end
-    if Shell == 2 and Dmg == 1  then
+        mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
+        if amount > 300  then
+            mob:removeListener("URAGNITE_TAKE_DAMAGE")
         printf("Outside Shell");
         mob:setMod(tpz.mod.REGEN, 0)
         mob:setMod(tpz.mod.UDMGPHYS, 0)
@@ -67,7 +63,8 @@ function onMobFight(mob, target)
         mob:SetAutoAttackEnabled(true)
         mob:SetMobAbilityEnabled(true)
         mob:setLocalVar("Shell", 0)
-        mob:setLocalVar("Dmg", 0)
+        end
+    end)
     end
 end
 
