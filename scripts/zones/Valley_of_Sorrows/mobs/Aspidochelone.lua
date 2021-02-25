@@ -48,6 +48,7 @@ function onMobFight(mob, target)
     end
 
     if Shell == 1  then
+        printf("Inside Shell");
         mob:setMod(tpz.mod.REGEN, 300)
         mob:setMod(tpz.mod.UDMGPHYS, -95)
         mob:setMod(tpz.mod.UDMGRANGE, -95)
@@ -58,6 +59,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("Shell", 2)
     end
     if Shell == 2 and Dmg == 1  then
+        printf("Outside Shell");
         mob:setMod(tpz.mod.REGEN, 0)
         mob:setMod(tpz.mod.UDMGPHYS, 0)
         mob:setMod(tpz.mod.UDMGRANGE, 0)
