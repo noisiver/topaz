@@ -48,7 +48,6 @@ function onMobFight(mob, target)
         mob:setLocalVar("Blazespikes", math.random(2, 3)*30)
         printf("Set Spikes Time");
         return
-    end
     elseif mob:getBattleTime() >= spikesTime then
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 25, 0, 3600)
         local buff2 = mob:getStatusEffect(bufftwo)
