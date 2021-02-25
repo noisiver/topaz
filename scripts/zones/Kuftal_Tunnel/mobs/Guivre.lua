@@ -300,7 +300,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 5)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
-    mob:speed(70)
+    mob:speed(90)
     onPath(mob)
 end
 
