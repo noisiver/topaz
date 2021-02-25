@@ -860,9 +860,9 @@ INSERT INTO `mob_droplist` VALUES (149,0,0,1000,881,1000);
 INSERT INTO `mob_droplist` VALUES (149,0,0,1000,4400,1000);
 INSERT INTO `mob_droplist` VALUES (149,0,0,1000,17925,1000); -- Fransisca
 INSERT INTO `mob_droplist` VALUES (150,0,0,1000,1270,1000);	-- (Arachne) Arachne Web
-INSERT INTO `mob_droplist` VALUES (150,0,0,1000,1270,240);
-INSERT INTO `mob_droplist` VALUES (150,0,0,1000,1270,150);
-INSERT INTO `mob_droplist` VALUES (150,0,0,1000,1270,100);
+INSERT INTO `mob_droplist` VALUES (150,0,0,1000,1270,240); -- Arachne Web
+INSERT INTO `mob_droplist` VALUES (150,0,0,1000,1270,150); -- Arachne Web
+INSERT INTO `mob_droplist` VALUES (150,0,0,1000,1270,100); -- Arachne Web
 INSERT INTO `mob_droplist` VALUES (151,0,0,1000,5367,1000);
 INSERT INTO `mob_droplist` VALUES (151,0,0,1000,5367,500);
 INSERT INTO `mob_droplist` VALUES (151,0,0,1000,5369,1000);
