@@ -534,6 +534,7 @@ INSERT INTO `mob_family_system` VALUES (504,'Luopan',18,'Unclassified',3,40,150,
 INSERT INTO `mob_family_system` VALUES (505,'Fungi',18,'Unclassified',0,0,130,180,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1,1.25,0.875,1,1,1.25,0.875,4,2,0);
 INSERT INTO `mob_family_system` VALUES (506,'Purpleflash_Brukdok',7,'Beastmen',1,40,108,100,3,3,4,4,7,4,3,1,3,1,3,1,1,1,1,1,1,1.3,1.3,1.3,1.5,1.3,1.3,1,257,0);
 INSERT INTO `mob_family_system` VALUES (507,'VariableHare',6,'Beast',0,40,96,120,4,3,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1,1.15,1.3,1.15,1.5,1.15,1.5,4,257,1);
+INSERT INTO `mob_family_system` VALUES (508,'Sabotender-Cactrot',17,'Plantoid',0,80,100,90,3,5,5,3,5,5,3,1,3,1,3,1,1,1,1,1.3,1.5,1,1,1.3,0.5,0.5,1.5,6,2,1);
 
 
 -- Custom Content
