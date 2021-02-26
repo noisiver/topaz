@@ -79,3 +79,23 @@ function onMagicHit(caster, target, spell)
     end
     return 1
 end
+
+function onMobWeaponSkill(target, mob, skill)
+    local HP = getHPP()
+
+    if skill:getID() == 571 and HP > 66 then
+         dmg = 600
+    else
+        dmg = 0
+    end
+    if skill:getID() == 572 and HP > 33 then
+         dmg = 700
+    else
+        dmg = 0
+    end
+    if skill:getID() == 573 and HP > 1 then
+         dmg = 1500
+    else
+        dmg = 0
+    end
+end
