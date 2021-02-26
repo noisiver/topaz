@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
 
     return dmg
 end
