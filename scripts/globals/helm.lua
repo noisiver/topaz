@@ -908,10 +908,10 @@ local helmInfo =
                     { 600, 1638}, -- Moblin Mask
                     { 570,  568}, -- Goblin Die
                     { 570, 1631}, -- Moblin Armor
-                    {  80,  645}, -- Darksteel Ore
-                    {  80,  644}, -- Mythril Ore
-                    {  70,  737}, -- Gold Ore
-                    {  70,  738}, -- Platium Ore
+                    {  100,  645}, -- Darksteel Ore
+                    {  81000,  644}, -- Mythril Ore
+                    {  100,  737}, -- Gold Ore
+                    {  100,  738}, -- Platium Ore
                 },
                 points =
                 {
@@ -941,11 +941,11 @@ local helmInfo =
                     {1450,  736}, -- Silver Ore
                     { 140,  678}, -- Aluminum Ore
                     {1720,  643}, -- Iron Ore
-                    {  70,  645}, -- Darksteel Ore
+                    {  100,  645}, -- Darksteel Ore
                     { 210,  644}, -- Mythril Ore
                     { 140,  737}, -- Gold Ore
                     { 340,  738}, -- Platium Ore
-                    {  70,  769}, -- Colored Rock
+                    {  100,  769}, -- Colored Rock
                 },
                 points =
                 {
