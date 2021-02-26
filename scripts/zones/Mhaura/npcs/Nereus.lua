@@ -24,7 +24,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    if player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.A_POTTER_S_PREFERENCE) == QUEST_AVAILABLE and player:getFameLevel(WINDURST) > 5 then
+    if player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.A_POTTER_S_PREFERENCE) == QUEST_AVAILABLE and player:getFameLevel(MHAURA) > 3 then
         player:startEvent(111, 569) -- start quest A Potter's Preference
     elseif player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.A_POTTER_S_PREFERENCE) == QUEST_ACCEPTED then
         player:startEvent(114, 569) -- get me dish_of_gusgen_clay  as soon as you can
