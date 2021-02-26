@@ -24,8 +24,9 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.SLEEP_I
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 30)
-
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
+
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
+
     return dmg
 end
