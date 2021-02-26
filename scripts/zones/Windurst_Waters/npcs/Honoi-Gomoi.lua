@@ -50,7 +50,7 @@ function onTrigger(player, npc)
             player:startEvent(781)
         end
     elseif cryingOverOnions == QUEST_COMPLETED then
-        if not player:needToZone() and player:getFameLevel(WINDURST) >= 6 then
+        if not player:needToZone() and player:getFameLevel(WINDURST) >= 5 then
             player:startEvent(780)
         else
             player:startEvent(779)
