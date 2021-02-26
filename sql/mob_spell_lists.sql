@@ -3956,9 +3956,10 @@ INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,166,24,255); -- Thunder II
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,171,24,255); -- Water II
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,24,31,255); -- Dia II
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,51,68,75); -- Shell IV
-INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,53,1,255); -- blink
-INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,54,1,255); -- stoneskin
-INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,57,1,255); -- haste
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,53,1,255); -- Blink
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,54,1,255); -- Stoneskin
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,57,1,255); -- Haste
+INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',6000,216,21,255); -- Gravity
 
 
 --Custom Content
