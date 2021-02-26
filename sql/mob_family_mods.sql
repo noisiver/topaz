@@ -129,7 +129,7 @@ INSERT INTO `mob_family_mods` VALUES (236,4,30,1);
 INSERT INTO `mob_family_mods` VALUES (481,41,988,1);
 INSERT INTO `mob_family_mods` VALUES (481,42,989,1);
 
--- Adjust magic damage taken
+-- Adjust magic damage taken (MDT)
 INSERT INTO `mob_family_mods` VALUES (112,389,25,0);
 INSERT INTO `mob_family_mods` VALUES (61,389,-25,0);
 INSERT INTO `mob_family_mods` VALUES (74,389,-25,0);
@@ -142,6 +142,9 @@ INSERT INTO `mob_family_mods` VALUES (124,389,-13,0);
 INSERT INTO `mob_family_mods` VALUES (175,389,-50,0);	-- Magic Pot
 INSERT INTO `mob_family_mods` VALUES (171,389,-13,0);
 INSERT INTO `mob_family_mods` VALUES (4,389,-25,0);		-- Ahriman
+INSERT INTO `mob_family_mods` VALUES (169,389,-25,0);	-- Kindred 
+
+
 
 -- Demons and fomors are somewhat resistant to lullaby
 INSERT INTO `mob_family_mods` VALUES (358,254,25,0);
@@ -230,6 +233,31 @@ INSERT INTO `mob_family_mods` VALUES (180,68,-10,0);	-- Marid -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (371,68,-10,0);	-- Marid -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);		-- Bugbear -10 Evasion
 
+--MDB
+INSERT INTO `mob_family_mods` VALUES (175,29,12,0); -- Magic pot +12 MDB
+
+-- Immunities
+INSERT INTO `mob_family_mods` VALUES (92,23,2047,1);
+INSERT INTO `mob_family_mods` VALUES (93,23,2047,1);
+INSERT INTO `mob_family_mods` VALUES (94,23,2047,1);
+INSERT INTO `mob_family_mods` VALUES (95,23,2047,1);
+
+INSERT INTO `mob_family_mods` VALUES (92,73,100,0);
+INSERT INTO `mob_family_mods` VALUES (93,73,100,0);
+INSERT INTO `mob_family_mods` VALUES (94,73,100,0);
+INSERT INTO `mob_family_mods` VALUES (95,73,100,0);
+
+-- Absorb
+INSERT INTO `mob_family_mods` VALUES (319,460,100,0);	-- Shiva
+INSERT INTO `mob_family_mods` VALUES (320,463,100,0);	-- Ramuh
+INSERT INTO `mob_family_mods` VALUES (321,462,100,0);	-- Titan
+INSERT INTO `mob_family_mods` VALUES (322,459,100,0);	-- Ifrit
+INSERT INTO `mob_family_mods` VALUES (323,464,100,0);	-- Leviathan	
+INSERT INTO `mob_family_mods` VALUES (324,461,100,0);	-- Garuda
+--INSERT INTO `mob_family_mods` VALUES (325,466,100,0);	-- Fenrir
+--INSERT INTO `mob_family_mods` VALUES (58,466,100,0);	-- Diabolos
+--INSERT INTO `mob_family_mods` VALUES (58,465,100,0);	-- Carbuncle
+
 -- Yovra
 INSERT INTO `mob_family_mods` VALUES (271,68,50,0);		-- +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (271,63,50,0);		-- +50% Defense Bonus
@@ -282,31 +310,10 @@ INSERT INTO `mob_family_mods` VALUES (256,29,12,0); -- Weeper +12 MDB
 INSERT INTO `mob_family_mods` VALUES (220,29,12,0); -- Seether +12 MDB
 INSERT INTO `mob_family_mods` VALUES (503,29,12,0); -- Mammet +12 MDB
 
---MDB
-INSERT INTO `mob_family_mods` VALUES (175,29,12,0); -- Magic pot +12 MDB
-
-
--- Immunities
-INSERT INTO `mob_family_mods` VALUES (92,23,2047,1);
-INSERT INTO `mob_family_mods` VALUES (93,23,2047,1);
-INSERT INTO `mob_family_mods` VALUES (94,23,2047,1);
-INSERT INTO `mob_family_mods` VALUES (95,23,2047,1);
-
-INSERT INTO `mob_family_mods` VALUES (92,73,100,0);
-INSERT INTO `mob_family_mods` VALUES (93,73,100,0);
-INSERT INTO `mob_family_mods` VALUES (94,73,100,0);
-INSERT INTO `mob_family_mods` VALUES (95,73,100,0);
-
--- Absorb
-INSERT INTO `mob_family_mods` VALUES (319,460,100,0);	-- Shiva
-INSERT INTO `mob_family_mods` VALUES (320,463,100,0);	-- Ramuh
-INSERT INTO `mob_family_mods` VALUES (321,462,100,0);	-- Titan
-INSERT INTO `mob_family_mods` VALUES (322,459,100,0);	-- Ifrit
-INSERT INTO `mob_family_mods` VALUES (323,464,100,0);	-- Leviathan	
-INSERT INTO `mob_family_mods` VALUES (324,461,100,0);	-- Garuda
---INSERT INTO `mob_family_mods` VALUES (325,466,100,0);	-- Fenrir
---INSERT INTO `mob_family_mods` VALUES (58,466,100,0);	-- Diabolos
---INSERT INTO `mob_family_mods` VALUES (58,465,100,0);	-- Carbuncle
+-- Dynamis Mobs
+INSERT INTO `mob_family_mods` VALUES (358,389,-25,0);	-- Kindred - -25% MDT
+INSERT INTO `mob_family_mods` VALUES (358,29,70,0);		-- Kindred - +70 MDB
+INSERT INTO `mob_family_mods` VALUES (509,29,50,0);		-- Hydra - Fomor +50 MDB
 
 -- NMs
 INSERT INTO `mob_family_mods` VALUES (506,244,75,0);	 -- Purpleflash Brukdok Silence Resist
