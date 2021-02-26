@@ -17,11 +17,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
 end
 
-
-function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
-end
-
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
