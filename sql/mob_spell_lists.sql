@@ -3961,6 +3961,27 @@ INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,54,1,255); -- Stoneskin
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,57,1,255); -- Haste
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,216,21,255); -- Gravity
 
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 204, 1, 255); -- Flare
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 206, 1, 255); -- Freeze
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 208, 1, 255); -- Tornado
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 210, 1, 255); -- Quake
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 212, 1, 255); -- Burst
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 214, 1, 255); -- Flood
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,175,61,255);   -- Firaga II
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,180,61,255);   -- Blizaga II
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,185,61,255);   -- Aeroga II
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,190,61,255);   -- Stonega II
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,195,61,255);   -- Thundaga II
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,200,61,255);   -- Waterga II
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,146,24,255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,151,24,255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,156,24,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,161,24,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,166,24,255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,171,24,255); -- Water III
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 249, 1, 255); -- blaze_spikes
+INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,231,35,255);   -- Bio II
+
 
 --Custom Content
 
