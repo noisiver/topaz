@@ -85,7 +85,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     if skill:getID() == 571 and HP > 66 then
          dmg = 600
-    elseif skill:getID() == 571 and HP < 66
+    elseif skill:getID() == 571 and HP < 66 then
         dmg = 0
     end
     if skill:getID() == 572 and HP > 33 then
