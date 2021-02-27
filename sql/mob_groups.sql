@@ -10823,7 +10823,7 @@ INSERT INTO `mob_groups` VALUES (15,3396,169,'Rotten_Sod',600,0,2124,0,0,58,60,0
 INSERT INTO `mob_groups` VALUES (16,2491,169,'Makara',600,0,279,0,0,49,52,0);
 INSERT INTO `mob_groups` VALUES (17,514,169,'Bouncing_Ball',600,0,344,0,0,64,67,0);
 INSERT INTO `mob_groups` VALUES (18,5859,169,'Canal_Moocher',0,32,3071,10000,0,64,67,0);
-INSERT INTO `mob_groups` VALUES (19,3803,169,'Stygian_Pugil',600,0,0,0,0,63,65,0);
+INSERT INTO `mob_groups` VALUES (19,3803,169,'Stygian_Pugil',600,0,6010,0,0,63,65,0);
 INSERT INTO `mob_groups` VALUES (20,2982,169,'Oni_Carcass',86400,0,1860,30000,0,68,70,0);
 INSERT INTO `mob_groups` VALUES (21,619,169,'Blackwater_Pugil',600,0,289,0,0,63,65,0);
 INSERT INTO `mob_groups` VALUES (22,6366,169,'Plunderer_Crab',600,0,0,0,0,60,62,0);
