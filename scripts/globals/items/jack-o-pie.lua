@@ -4,11 +4,11 @@
 -- Food Effect: 1hour, All Races
 -----------------------------------------
 -- MP 45
--- CHR -1
--- Intelligence 4
--- +21% Macc(cap: 10)
--- -5 ENMITY
--- +5 MP recovered while healing
+--+20 MP
+--+2 CHR
+---1 AGI
+---2 int
+--+21% Macc(Cap: 12)
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
