@@ -3,8 +3,8 @@
 -- Item: piece_of_witch_nougat
 -- Food Effect: 1hour, All Races
 -----------------------------------------
--- HP 50
--- Intelligence 3
+-- MP 50
+-- Mind 7
 -- Agility -3
 -----------------------------------------
 require("scripts/globals/status")
@@ -24,13 +24,13 @@ function onItemUse(target)
 end
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.HP, 50)
-    target:addMod(tpz.mod.INT, 3)
+    target:addMod(tpz.mod.MP, 50)
+    target:addMod(tpz.mod.MND, 7)
     target:addMod(tpz.mod.AGI, -3)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.HP, 50)
-    target:delMod(tpz.mod.INT, 3)
+    target:delMod(tpz.mod.MP, 50)
+    target:delMod(tpz.mod.MND, 7)
     target:delMod(tpz.mod.AGI, -3)
 end
