@@ -55,7 +55,7 @@ function onMagicHit(caster, target, spell)
     local elementboom = target:getLocalVar("elementboom")
 
     if DAY == 0 then
-         target:setLocalVar("RNGelement", math.random(0,7))
+         target:setLocalVar("RNGelement", math.random(1,8))
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 0 then
         printf("2 Hour Cloud");
         target:useMobAbility(624) -- 2 hour "cloud" animation
