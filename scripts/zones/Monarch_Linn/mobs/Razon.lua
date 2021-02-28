@@ -13,6 +13,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ATTP, 10)
      mob:addMod(tpz.mod.ACC, 30) 
      mob:addMod(tpz.mod.EVA, 30)
+     mob:AnimationSub(0)
 end
 
 function onMobEngaged(mob, target)
@@ -56,7 +57,7 @@ function onMagicHit(caster, target, spell)
     local DAY = VanadielDayOfTheWeek()
     local ELEM = spell:getElement()
     local TP = target:getTP() -- maybe skill: gettp()?
-    --local elementboom = mob:getLocalVar("elementboom")
+    local elementboom = target:getLocalVar("elementboom")
 
     if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 0 then
         printf("2 Hour Cloud");
@@ -81,7 +82,7 @@ function onMagicHit(caster, target, spell)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local HP = mob:getHP()
+    local HP = mob:getHPP()
 
     if skill:getID() == 571 and HP > 66 then
          dmg = 600
