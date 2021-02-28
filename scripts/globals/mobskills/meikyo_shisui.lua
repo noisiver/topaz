@@ -16,7 +16,6 @@ function onMobWeaponSkill(target, mob, skill)
     skill:setMsg(tpz.msg.basic.USES)
 
     mob:addTP(3000)
-    mob:addStatusEffect(tpz.effect.REGAIN, 3000, 0, 9)
 
     return tpz.effect.MEIKYO_SHISUI
 end
