@@ -62,21 +62,21 @@ function onMagicHit(caster, target, spell)
     if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 0 then
         printf("2 Hour Cloud");
         target:useMobAbility(624) -- 2 hour "cloud" animation
-        mob:setLocalVar("elementboom", 1)
+        target:setLocalVar("elementboom", 1)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 1 then
         printf("Cast Boom 1");
         target:useMobAbility(571)  -- 650 damage
-        mob:AnimationSub(1)
-        mob:setLocalVar("elementboom", 2)
+        target:AnimationSub(1)
+        target:setLocalVar("elementboom", 2)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 2 then
         printf("Cast Boom 2");
         target:useMobAbility(572)  -- 650 damage
-        mob:AnimationSub(1)
-        mob:setLocalVar("elementboom", 3)
+        target:AnimationSub(1)
+        target:setLocalVar("elementboom", 3)
         printf("Cast Boom 3");
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 3 then
         target:useMobAbility(573)  -- 900 damage
-        mob:AnimationSub(1)
+        target:AnimationSub(1)
     end
     return 1
 end
