@@ -13,7 +13,6 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ATTP, 10)
      mob:addMod(tpz.mod.ACC, 30) 
      mob:addMod(tpz.mod.EVA, 30)
-     mob:AnimationSub(0)
 end
 
 function onMobEngaged(mob, target)
@@ -29,22 +28,18 @@ function onMobFight(mob, target)
     if mob:getBattleTime() >= 30 and boom == 0  then
         printf("Boom 1");
         mob:useMobAbility(571) -- 650 damage
-        mob:AnimationSub(1)
         mob:setLocalVar("boom", 1)
     elseif mob:getBattleTime() >= 30 and boom == 0  then
         printf("Boom 1 - 0 Dmg");
         mob:useMobAbility(574) -- 0 damage
-        mob:AnimationSub(1)
         mob:setLocalVar("boom", 1)
     elseif mob:getBattleTime() >= 60 and boom == 1  then
         printf("Boom 2");
         mob:useMobAbility(572) -- 750 damage
-        mob:AnimationSub(1)
         mob:setLocalVar("boom", 2)
     elseif mob:getBattleTime() >= 60 and boom == 1  then
         printf("Boom 2 - 0 DMG");
         mob:useMobAbility(574) -- 0 damage
-        mob:AnimationSub(1)
         mob:setLocalVar("boom", 2)
     elseif mob:getBattleTime() >= 90 and boom == 2  then
         printf("Boom 3 - Fail");
@@ -68,12 +63,10 @@ function onMagicHit(caster, target, spell)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 1 then
         printf("Cast Boom 1");
         target:useMobAbility(571)  -- 650 damage
-        target:AnimationSub(1)
         target:setLocalVar("elementboom", 2)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 2 then
         printf("Cast Boom 2");
         target:useMobAbility(572)  -- 650 damage
-        target:AnimationSub(1)
         target:setLocalVar("elementboom", 3)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 3 then
         printf("Cast Boom 3");
