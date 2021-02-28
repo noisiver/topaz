@@ -22,6 +22,8 @@ function onMobWeaponSkill(target, mob, skill)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.TERROR, 1, 0, 9)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BIND, 1, 0, 30)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-    mob:resetEnmity(target)
+    if dmg > 0 then
+        mob:resetEnmity(target)
+    end
     return dmg
 end

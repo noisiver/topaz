@@ -25,7 +25,9 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.ENMITY_DOWN
 
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 10, 3, 120)
-    mob:resetEnmity(target)
+    if dmg > 0 then
+        mob:resetEnmity(target)
+    end
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.H2H)
     return dmg

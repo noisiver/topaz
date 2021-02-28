@@ -30,7 +30,9 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
-    mob:resetEnmity(target)
+    if dmg > 0 then
+        mob:resetEnmity(target)
+    end
 
     return dmg
 

@@ -28,6 +28,8 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
 
-    mob:resetEnmity(target)
+    if dmg > 0 then
+        mob:resetEnmity(target)
+    end
     return dmg
 end
