@@ -71,12 +71,11 @@ function onMagicHit(caster, target, spell)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 2 then
         printf("Cast Boom 2");
         target:useMobAbility(572)  -- 650 damage
-        target:AnimationSub(1)
+        target:AnimationSub(2)
         target:setLocalVar("elementboom", 3)
-        printf("Cast Boom 3");
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 3 then
+        printf("Cast Boom 3");
         target:useMobAbility(573)  -- 900 damage
-        target:AnimationSub(1)
     end
     return 1
 end
