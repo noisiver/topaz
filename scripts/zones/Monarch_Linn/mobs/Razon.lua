@@ -25,25 +25,25 @@ end
 function onMobFight(mob, target)
     local boom = mob:getLocalVar("boom")
 
-    if mob:getBattleTime() >= 30 and boom == 0  then
+    if mob:getBattleTime() >= 10 and boom == 0  then
         printf("Boom 1");
         mob:useMobAbility(571) -- 650 damage
         mob:setLocalVar("boom", 1)
-    elseif mob:getBattleTime() >= 30 and boom == 0  then
+    elseif mob:getBattleTime() >= 10 and boom == 0  then
         printf("Boom 1 - 0 Dmg");
         mob:useMobAbility(574) -- 0 damage
         mob:setLocalVar("boom", 1)
-    elseif mob:getBattleTime() >= 60 and boom == 1  then
+    elseif mob:getBattleTime() >= 15 and boom == 1  then
         printf("Boom 2");
         mob:useMobAbility(572) -- 750 damage
         mob:setLocalVar("boom", 2)
-    elseif mob:getBattleTime() >= 60 and boom == 1  then
+    elseif mob:getBattleTime() >= 15 and boom == 1  then
         printf("Boom 2 - 0 DMG");
         mob:useMobAbility(574) -- 0 damage
         mob:setLocalVar("boom", 2)
-    elseif mob:getBattleTime() >= 90 and boom == 2  then
+    elseif mob:getBattleTime() >= 20 and boom == 2  then
         printf("Boom 3 - Fail");
-        mob:useMobAbility(573) -- 900 damage
+        mob:useMobAbility(573) -- 1500 damage
         mob:setLocalVar("boom", 3)
     end
 end
@@ -66,26 +66,26 @@ function onMagicHit(caster, target, spell)
         target:setLocalVar("elementboom", 2)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 2 then
         printf("Cast Boom 2");
-        target:useMobAbility(572)  -- 650 damage
+        target:useMobAbility(572)  -- 750 damage
         target:setLocalVar("elementboom", 3)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 3 then
         printf("Cast Boom 3");
-        target:useMobAbility(573)  -- 900 damage
+        target:useMobAbility(573)  -- 1500 damage
     end
     return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local HP = mob:getHPP()
+    local HP = mob:getHP()
 
-    if skill:getID() == 571 and HP > 66 then
+    if skill:getID() == 571 and HP > 2625 then
          dmg = 600
-    elseif skill:getID() == 571 and HP < 66 then
+    elseif skill:getID() == 571 and HP < 2625 then
         dmg = 0
     end
-    if skill:getID() == 572 and HP > 33 then
+    if skill:getID() == 572 and HP > 1300 then
          dmg = 700
-    elseif skill:getID() == 572 and HP < 33 then
+    elseif skill:getID() == 572 and HP < 1300 then
         dmg = 0
     end
     if skill:getID() == 573 and HP > 1 then
