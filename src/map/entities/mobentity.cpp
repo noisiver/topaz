@@ -341,15 +341,21 @@ bool CMobEntity::CanBeNeutral()
 uint16 CMobEntity::TPUseChance()
 {
     auto& MobSkillList = battleutils::GetMobSkillList(getMobMod(MOBMOD_SKILL_LIST));
-
-    if (health.tp < 1000 || MobSkillList.empty() == true || !static_cast<CMobController*>(PAI->GetController())->IsWeaponSkillEnabled())
+    if (StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI) && health.tp >= 1000)
+        {
+            return 10000;
+        }
+    else
     {
-        return 0;
-    }
+        if (health.tp < 1000 || MobSkillList.empty() || !static_cast<CMobController*>(PAI->GetController())->IsWeaponSkillEnabled())
+        {
+            return 0;
+        }
 
-    if (health.tp == 3000 || (GetHPP() <= 25 && health.tp >= 1000))
-    {
-        return 10000;
+        if ((GetHPP() / 100.0f) * 3000 < health.tp && health.tp >= 1000)
+        {
+            return 10000;
+        }
     }
 
     return (uint16)getMobMod(MOBMOD_TP_USE_CHANCE);
