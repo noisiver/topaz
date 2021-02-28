@@ -27,7 +27,7 @@ function onMobFight(mob, target)
     local boom = mob:getLocalVar("boom")
 
     if mob:getBattleTime() >= 30 and boom == 0  then
-        printf("Boom 2");
+        printf("Boom 1");
         mob:useMobAbility(571) -- 650 damage
         mob:AnimationSub(1)
         mob:setLocalVar("boom", 1)
