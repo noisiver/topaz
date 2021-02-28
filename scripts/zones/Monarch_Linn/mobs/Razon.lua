@@ -39,12 +39,12 @@ function onMobFight(mob, target)
     elseif mob:getBattleTime() >= 60 and boom == 1  then
         printf("Boom 2");
         mob:useMobAbility(572) -- 750 damage
-        mob:AnimationSub(2)
+        mob:AnimationSub(1)
         mob:setLocalVar("boom", 2)
     elseif mob:getBattleTime() >= 60 and boom == 1  then
         printf("Boom 2 - 0 DMG");
         mob:useMobAbility(574) -- 0 damage
-        mob:AnimationSub(2)
+        mob:AnimationSub(1)
         mob:setLocalVar("boom", 2)
     elseif mob:getBattleTime() >= 90 and boom == 2  then
         printf("Boom 3 - Fail");
@@ -54,12 +54,14 @@ function onMobFight(mob, target)
 end
 
 function onMagicHit(caster, target, spell)
-    local DAY = VanadielDayOfTheWeek()
+    local DAY = target:getLocalVar("RNGelement")
     local ELEM = spell:getElement()
     local TP = target:getTP() -- maybe skill: gettp()?
     local elementboom = target:getLocalVar("elementboom")
 
-    if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 0 then
+    if DAY == 0 then
+         target:setLocalVar("RNGelement", math.random(0,7))
+    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 0 then
         printf("2 Hour Cloud");
         target:useMobAbility(624) -- 2 hour "cloud" animation
         target:setLocalVar("elementboom", 1)
@@ -71,7 +73,7 @@ function onMagicHit(caster, target, spell)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 2 then
         printf("Cast Boom 2");
         target:useMobAbility(572)  -- 650 damage
-        target:AnimationSub(2)
+        target:AnimationSub(1)
         target:setLocalVar("elementboom", 3)
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 3 then
         printf("Cast Boom 3");
