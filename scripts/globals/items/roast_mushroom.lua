@@ -3,9 +3,10 @@
 -- Item: roast_mushroom
 -- Food Effect: 30minutes, All Races
 -----------------------------------------
--- Magic Points 10
+-- MP 10
 -- Strength -1
--- Mind 3
+-- Mind 2
+-- Cure Potency +5%
 -- Enmity -1
 -- MP Recovered While Healing 2
 -----------------------------------------

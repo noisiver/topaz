@@ -4,11 +4,11 @@
 -- Food Effect: 1hour, All Races
 -----------------------------------------
 -- MP 45
---+20 MP
---+2 CHR
----1 AGI
----2 int
---+21% Macc(Cap: 12)
+-- +20 MP
+-- +2 CHR
+-- 1 AGI
+-- 2 int
+-- +21% Macc(Cap: 12)
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
