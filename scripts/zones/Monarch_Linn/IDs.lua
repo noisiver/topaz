@@ -37,6 +37,45 @@ zones[tpz.zone.MONARCH_LINN] =
             RAZON_ID        = 16904215,
         },
     },
+        badSeed = {
+        [1] = {
+            HAMADRYAD_ID        = 16904205,
+        },
+        [2] = {
+            HAMADRYAD_ID        = 16904207,
+        },
+        [3] = {
+            HAMADRYAD_ID        = 16904209,
+        },
+    },
+        bugardInTheClouds = {
+        [1] = {
+            HOTUPUKU_ID        = 16904226,
+        },
+        [2] = {
+            HOTUPUKU_ID        = 16904228,
+        },
+        [3] = {
+            HOTUPUKU_ID        = 16904230,
+        },
+    },
+        belovedOfTheAtlante = {
+        [1] = {
+            WATCH_HIPPOGRYPH_ID        = 16904217,
+            GUARD_HIPPOGRYPH_ID        = 16904218,
+            GUARD_HIPPOGRYPH_ID        = 16904219,
+        },
+        [2] = {
+            WATCH_HIPPOGRYPH_ID        = 16904220,
+            GUARD_HIPPOGRYPH_ID        = 16904221,
+            GUARD_HIPPOGRYPH_ID        = 16904222,
+        },
+        [3] = {
+            WATCH_HIPPOGRYPH_ID        = 16904223,
+            GUARD_HIPPOGRYPH_ID        = 16904224,
+            GUARD_HIPPOGRYPH_ID        = 16904225,
+        },
+    },
 }
 
 return zones[tpz.zone.MONARCH_LINN]

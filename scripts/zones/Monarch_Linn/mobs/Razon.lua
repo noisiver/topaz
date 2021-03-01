@@ -2,6 +2,7 @@
 -- Area: Monarch Linn
 --  Mob: Razon
 -- Fire in the Sky
+-- Key item ID: 674
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")

@@ -2,6 +2,7 @@
 -- Area: Monarch Linn
 --  Mob: Watch Hippogryph
 -- Beloved of the Atlantes
+-- Key item ID: 674
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")
