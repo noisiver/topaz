@@ -49,7 +49,7 @@ function onMobFight(mob, target)
         mob:SetAutoAttackEnabled(true)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:addMod(tpz.mod.ATT, 300)
-        mob:setLocalVar("STANCEdps", battletime + math.random(15, 16))
+        mob:setLocalVar("STANCEdps", battletime + math.random(60, 90))
         mob:setLocalVar("STANCEtank", 1)
     end
 
@@ -59,7 +59,7 @@ function onMobFight(mob, target)
         mob:addMod(tpz.mod.ATT, -300)
         mob:setMod(tpz.mod.COUNTER, 75)
         mob:SetAutoAttackEnabled(false)
-        mob:setLocalVar("twohourTime", battletime + math.random(15, 16))
+        mob:setLocalVar("twohourTime", battletime + math.random(60, 90))
         mob:setLocalVar("STANCEdps", 0)
         mob:setLocalVar("STANCEtank", 0)
     end
