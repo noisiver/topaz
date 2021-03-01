@@ -19,8 +19,7 @@ end
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
     local Guard = GetMobByID(mob:getID()+1)
-    local Guardtwo = GetMobByID(mob:getID()+4)
-    local Guardthree = GetMobByID(mob:getID()+7)
+    local Guardtwo = GetMobByID(mob:getID()+2)
 
     if mob:getHPP() <= 75 and hitTrigger == 0 then
         Guard:spawn()
@@ -30,12 +29,12 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 then
         Guardtwo:spawn()
-        Guard:updateEnmity(target)
+        Guardtwo:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 2)
         printf("Spawning Guard Hippo #2");
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
-        Guardthree:spawn()
+        Guard:spawn()
         Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 3)
         printf("Spawning Guard Hippo #3");
