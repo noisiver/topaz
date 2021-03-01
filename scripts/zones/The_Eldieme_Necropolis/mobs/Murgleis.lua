@@ -112,6 +112,7 @@ function onMagicHit(caster, target, spell)
     if DAY == 0 then
          target:setLocalVar("RNGelement", math.random(1,8))
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and hitTrigger == 3 or hitTrigger == 5 or hitTrigger == 8  then
+        target:useMobAbility(624) -- 2 hour "cloud" animation
         target:delStatusEffect(34) -- Blaze spikes
         target:setMod(tpz.mod.REGEN, 0)
         target:setMobMod(tpz.mobMod.NO_MOVE, 0)
