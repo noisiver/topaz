@@ -19,7 +19,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 100)
     mob:addStatusEffect(tpz.effect.REGEN, 25, 3, 0)
     mob:addStatusEffect(tpz.effect.PHALANX, 50, 0, 0)
-    startingbuff:unsetFlag(tpz.effectFlag.DISPELABLE)
+    buffone:unsetFlag(tpz.effectFlag.DISPELABLE)
 end
 
 function onMobEngaged(mob, target)
@@ -45,7 +45,7 @@ function onMobFight(mob, target)
         printf("Add Phalanx Buff");
     end
     if spikesTime == 0 then
-        mob:setLocalVar("BlazeSpikes", math.random(2, 3)*1)
+        mob:setLocalVar("BlazeSpikes", math.random(2, 3)*30)
         printf("Set Spikes Time");
         return
     elseif mob:getBattleTime() >= spikesTime then
