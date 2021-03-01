@@ -3718,13 +3718,13 @@ INSERT INTO `mob_skill_lists` VALUES ('BadBreath',1154,319); -- Bad Breath Only
 INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,44); -- Death Blossom
 INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,405); -- Dire Whorl
 INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,1252); -- Shadow Spread
-INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,522); -- Spectral Barrier
+INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,530); -- Momento Mori
 
 -- Amano
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,154); -- Tachi: Rana 
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,405); -- Dire Whorl
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,1220); -- Auroral Drape
-INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,4262); -- Berserk(50%)
+INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,286); -- Berserk(50%)
 -- Amano Meikyo
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru-Meikyo',2002,154); -- Tachi: Rana 
 
