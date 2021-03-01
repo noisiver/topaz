@@ -12,10 +12,9 @@ require("scripts/globals/zone")
 
 function onTrade(player, npc, trade)
 
-    if TradeBCNM(player, npc, trade) then
+    if (TradeBCNM(player, npc, trade)) then
         return
     end
-
 end
 
 function onTrigger(player, npc)
