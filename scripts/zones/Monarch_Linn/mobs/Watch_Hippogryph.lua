@@ -16,6 +16,7 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
+    local hitTrigger = mob:getLocalVar("TriggerHit")
     local Guard = GetMobByID(mob:getID()+1)
 
     if mob:getHPP() <= 75 and hitTrigger == 0 then
