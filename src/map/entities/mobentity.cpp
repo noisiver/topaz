@@ -352,7 +352,7 @@ uint16 CMobEntity::TPUseChance()
             return 0;
         }
 
-        if ((GetHPP() / 100.0f) * 3000 < health.tp && health.tp >= 1000)
+        if ((GetHPP() / 100.0f) * 3000 <= health.tp && health.tp >= 1000)
         {
             return 10000;
         }
