@@ -37,7 +37,7 @@ zones[tpz.zone.MONARCH_LINN] =
             RAZON_ID        = 16904215,
         },
     },
-        badSeed = {
+    badSeed = {
         [1] = {
             HAMADRYAD_ID        = 16904205,
         },
@@ -48,7 +48,7 @@ zones[tpz.zone.MONARCH_LINN] =
             HAMADRYAD_ID        = 16904209,
         },
     },
-        bugardInTheClouds = {
+    bugardInTheClouds = {
         [1] = {
             HOTUPUKU_ID        = 16904226,
         },
@@ -59,7 +59,7 @@ zones[tpz.zone.MONARCH_LINN] =
             HOTUPUKU_ID        = 16904230,
         },
     },
-        belovedOfTheAtlante = {
+    belovedOfTheAtlante = {
         [1] = {
             WATCH_HIPPOGRYPH_ID        = 16904217,
             GUARD_HIPPOGRYPH_ID        = 16904218,
