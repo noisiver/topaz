@@ -22,6 +22,7 @@ function onMobSpawn(mob)
     mob:addStatusEffect(tpz.effect.TEMPER, 15, 0, 180)
     mob:addStatusEffect(tpz.effect.HASTE, 30, 0, 180)
     mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 30, 0, 180)
+    mob:AnimationSub(3)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
