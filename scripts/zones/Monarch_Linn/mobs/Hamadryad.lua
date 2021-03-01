@@ -58,9 +58,11 @@ function onMobFight(mob, target)
 end
 
 function onMagicHit(caster, target, spell)
-    local DAY = VanadielDayOfTheWeek()
+    local DAY = target:getLocalVar("RNGelement")
     local ELEM = spell:getElement()
-    if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
+    if DAY == 0 then
+         target:setLocalVar("RNGelement", math.random(1,8))
+    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
         target:delStatusEffect(116) -- Phalanx
         target:delStatusEffect(34) -- Blaze spikes
         printf("Delete Buffs");
