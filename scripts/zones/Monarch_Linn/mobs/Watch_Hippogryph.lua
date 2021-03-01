@@ -19,8 +19,8 @@ end
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
     local Guard = GetMobByID(mob:getID()+1)
-    local Guardtwo = GetMobByID(mob:getID()+3)
-    local Guardthree = GetMobByID(mob:getID()+5)
+    local Guardtwo = GetMobByID(mob:getID()+4)
+    local Guardthree = GetMobByID(mob:getID()+7)
 
     if mob:getHPP() <= 75 and hitTrigger == 0 then
         Guard:spawn()
