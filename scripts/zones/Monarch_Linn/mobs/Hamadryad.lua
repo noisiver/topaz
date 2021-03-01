@@ -61,12 +61,12 @@ function onMagicHit(caster, target, spell)
     local DAY = target:getLocalVar("RNGelement")
     local ELEM = spell:getElement()
     if DAY == 0 then
-         target:setLocalVar("RNGelement", math.random(1,7))
+         target:setLocalVar("RNGelement", math.random(1,8))
     elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
         target:delStatusEffect(116) -- Phalanx
         target:delStatusEffect(34) -- Blaze spikes
         printf("Delete Buffs, Reset Element");
-        target:setLocalVar("RNGelement", 0)
+        target:setLocalVar("RNGelement", math.random(1,8))
     end
     return 1
 end
