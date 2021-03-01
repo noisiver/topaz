@@ -101,30 +101,17 @@ function onMobFight(mob, target)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
-        mob:setLocalVar("TriggerHit", 0)
+        mob:setLocalVar("TriggerHit", 9)
     end
 end
 
-function onMonsterMagicPrepare(mob, target)
-    local rnd = math.random()
-
-    if rnd < 0.5 then
-        return 227 -- Poisonga III
-    elseif rnd < 0.7 then
-        return 360 -- Dispelga
-    elseif rnd < 0.9 then
-        return 511 -- Haste II
-    else
-        return 493 -- Temper
-    end
-end
 
 function onMagicHit(caster, target, spell)
     local DAY = target:getLocalVar("RNGelement")
     local ELEM = spell:getElement()
     if DAY == 0 then
          target:setLocalVar("RNGelement", math.random(1,8))
-    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
+    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and hitTrigger == 3 or hitTrigger == 5 or hitTrigger == 8  then
         target:delStatusEffect(34) -- Blaze spikes
         target:setMod(tpz.mod.REGEN, 0)
         target:setMobMod(tpz.mobMod.NO_MOVE, 0)
