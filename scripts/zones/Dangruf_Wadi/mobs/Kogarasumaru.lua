@@ -16,22 +16,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:AnimationSub(3)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {
-                id = tpz.jsa.MEIKYO_SHISUI,
-                hpp = 25,
-                begCode = function(mob)
-                mob:messageText(mob, ID.text.HOW_CAN_YOU_EXPECT_TO_KILL_ME)
-               -- mob:PrintToArea("My power is too great for you!",0,"Murgleis")
-               end,
-               endCode = function(mob)
-               mob:messageText(mob, ID.text.WHEN_YOU_CANT_EVEN_HIT_ME)
-               end,
-            },
-        },
-    })
 end
 
 function onMobFight(mob, target)
