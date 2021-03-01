@@ -45,7 +45,7 @@ function onMobFight(mob, target)
         printf("Add Phalanx Buff");
     end
     if spikesTime == 0 then
-        mob:setLocalVar("Blazespikes", math.random(2, 3)*30)
+        mob:setLocalVar("BlazeSpikes", math.random(2, 3)*30)
         printf("Set Spikes Time");
         return
     elseif mob:getBattleTime() >= spikesTime then
