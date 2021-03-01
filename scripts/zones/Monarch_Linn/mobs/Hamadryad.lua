@@ -16,9 +16,9 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 100)
+    mob:addMod(tpz.mod.EVA, 75)
     mob:addStatusEffect(tpz.effect.REGEN, 25, 3, 0)
-    mob:addStatusEffect(tpz.effect.PHALANX, 50, 0, 0)
+    mob:addStatusEffect(tpz.effect.PHALANX, 1, 0, 0)
     mob:getStatusEffect(buffone):unsetFlag(tpz.effectFlag.DISPELABLE)
 end
 
@@ -38,7 +38,7 @@ function onMobFight(mob, target)
         printf("Set Phalanx Time");
         return
     elseif mob:getBattleTime() >= phalanxTime then
-        mob:addStatusEffect(tpz.effect.PHALANX, 50, 0, 3600)
+        mob:addStatusEffect(tpz.effect.PHALANX, 1, 0, 3600)
         local buff1 = mob:getStatusEffect(buffone)
         mob:setLocalVar("Phalanx", mob:getBattleTime() + math.random(2, 3)*15)
         buff1:unsetFlag(tpz.effectFlag.DISPELABLE)
