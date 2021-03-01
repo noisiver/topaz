@@ -17,6 +17,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:AnimationSub(3)
+    mob:SetMagicCastingEnabled(false)
 end
 
 function onMobFight(mob, target)
@@ -24,6 +25,7 @@ function onMobFight(mob, target)
 
     if mob:getHPP() <= 90 and hitTrigger == 0 then
         printf("Magic");
+        mob:SetMagicCastingEnabled(true)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addMod(tpz.mod.ATT, -400)
         mob:setMobMod(tpz.mobMod.MAGIC_COOL, 0)
@@ -33,8 +35,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 80 and hitTrigger == 1 then
         printf("Phys");
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 13)
-        mob:setMobMod(tpz.mobMod.SPELL_LIST, 445)
+        mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
@@ -50,6 +51,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("TriggerHit", 3)
     end
     if mob:getHPP() <= 60 and hitTrigger == 3 then
+        mob:SetMagicCastingEnabled(true)
         printf("Magic");
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addMod(tpz.mod.ATT, -400)
@@ -65,12 +67,12 @@ function onMobFight(mob, target)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
         mob:SetAutoAttackEnabled(false)
         mob:SetMobAbilityEnabled(false)
+        mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 5)
     end
     if mob:getHPP() <= 40 and hitTrigger == 5 then
         printf("Phys");
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 13)
-        mob:setMobMod(tpz.mobMod.SPELL_LIST, 445)
+        mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
@@ -78,6 +80,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 30 and hitTrigger == 6 then
         printf("Magic");
+        mob:SetMagicCastingEnabled(true)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addMod(tpz.mod.ATT, -400)
         mob:setMobMod(tpz.mobMod.MAGIC_COOL, 0)
@@ -92,12 +95,12 @@ function onMobFight(mob, target)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
         mob:SetAutoAttackEnabled(false)
         mob:SetMobAbilityEnabled(false)
+        mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 8)
     end
     if mob:getHPP() <= 10 and hitTrigger == 8 then
         printf("Phys");
-        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 13)
-        mob:setMobMod(tpz.mobMod.SPELL_LIST, 445)
+        mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
@@ -111,7 +114,7 @@ function onMagicHit(caster, target, spell)
     local ELEM = spell:getElement()
     if DAY == 0 then
          target:setLocalVar("RNGelement", math.random(1,8))
-    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and hitTrigger == 3 or hitTrigger == 5 or hitTrigger == 8  then
+    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
         target:useMobAbility(624) -- 2 hour "cloud" animation
         target:delStatusEffect(34) -- Blaze spikes
         target:setMod(tpz.mod.REGEN, 0)
