@@ -45,7 +45,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("twohourTime", math.random(10, 15))
     elseif battletime >= twohourTime and STANCEtank == 0 then
         printf("DPS Stance");
-        mob:setMod(tpz.mod.COUNTER, 0)
+        mob:delMod(tpz.mod.COUNTER, 75)
         mob:SetAutoAttackEnabled(true)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:addMod(tpz.mod.ATT, 300)
@@ -55,9 +55,8 @@ function onMobFight(mob, target)
 
     if battletime >= STANCEdps and STANCEtank == 1 then
         printf("Tank Stance");
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addMod(tpz.mod.ATT, -300)
-        mob:setMod(tpz.mod.COUNTER, 75)
+        mob:addMod(tpz.mod.COUNTER, 75)
         mob:SetAutoAttackEnabled(false)
         mob:setLocalVar("twohourTime", battletime + math.random(60, 90))
         mob:setLocalVar("STANCEdps", 0)
