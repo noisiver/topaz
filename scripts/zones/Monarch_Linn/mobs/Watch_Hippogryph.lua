@@ -21,16 +21,19 @@ function onMobFight(mob, target)
 
     if mob:getHPP() <= 75 and hitTrigger == 0 then
         Guard:spawn()
+        Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 1)
         printf("Spawning Guard Hippo #1");
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 then
         Guard:spawn()
+        Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 2)
         printf("Spawning Guard Hippo #1");
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
         Guard:spawn()
+        Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 3)
         printf("Spawning Guard Hippo #1");
     end
@@ -43,4 +46,8 @@ end
 
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN, {chance = 20, duration = 5})
+end
+
+function onMobDeath(mob, player, isKiller)
+    DespawnMob(mob:getID()+1)
 end
