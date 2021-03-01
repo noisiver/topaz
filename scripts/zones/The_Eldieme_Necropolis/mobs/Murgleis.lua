@@ -10,7 +10,7 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 30) 
@@ -42,15 +42,14 @@ function onMobFight(mob, target)
         mob:SetAutoAttackEnabled(false)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
-        mob:setLocalVar("TriggerHit", 3)
+        mob:setLocalVar("TriggerHit", 2)
     end
     if mob:getHPP() <= 70 and hitTrigger == 2 then
         printf("Phys");
         mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
-        mob:setLocalVar("TriggerHit", 2)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:setLocalVar("TriggerHit", 3)
     end
     if mob:getHPP() <= 60 and hitTrigger == 3 then
@@ -79,7 +78,7 @@ function onMobFight(mob, target)
         mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:setLocalVar("TriggerHit", 6)
     end
     if mob:getHPP() <= 30 and hitTrigger == 6 then
@@ -108,7 +107,7 @@ function onMobFight(mob, target)
         mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:setLocalVar("TriggerHit", 9)
     end
 end
