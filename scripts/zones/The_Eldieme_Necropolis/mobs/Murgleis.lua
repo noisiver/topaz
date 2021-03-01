@@ -35,11 +35,13 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 80 and hitTrigger == 1 then
         printf("Regenning");
+        target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
         mob:SetAutoAttackEnabled(false)
         mob:SetMobAbilityEnabled(false)
+        mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 3)
     end
     if mob:getHPP() <= 70 and hitTrigger == 2 then
@@ -63,6 +65,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 50 and hitTrigger == 4 then
         printf("Regenning");
+        target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
@@ -91,6 +94,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 20 and hitTrigger == 7 then
         printf("Regenning");
+        target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
