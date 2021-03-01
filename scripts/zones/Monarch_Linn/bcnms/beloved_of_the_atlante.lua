@@ -1,10 +1,11 @@
 -----------------------------------
 -- Beloved of the Atlante
 -- Monarch Linn
--- !additem 1177
+-- !addkeyitem 674
 -- BCNM ID 965
 -----------------------------------
 require("scripts/globals/battlefield")
+require("scripts/globals/keyitems")
 -----------------------------------
 
 function onBattlefieldInitialise(battlefield)

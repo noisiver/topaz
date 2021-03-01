@@ -1,10 +1,11 @@
 -----------------------------------
 -- Fire in the Sky
 -- Monarch Linn
--- !additem 1177
+-- !addkeyitem 674
 -- BCNM ID 962
 -----------------------------------
 require("scripts/globals/battlefield")
+require("scripts/globals/keyitems")
 -----------------------------------
 
 function onBattlefieldInitialise(battlefield)
@@ -38,3 +39,5 @@ function onEventFinish(player, csid, option)
         player:addExp(2500)
     end
 end
+
+

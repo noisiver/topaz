@@ -1,10 +1,11 @@
 -----------------------------------
 -- Bad Seed
 -- Monarch Linn
--- !additem 1177
+-- !addkeyitem 674
 -- BCNM ID 963
 -----------------------------------
 require("scripts/globals/battlefield")
+require("scripts/globals/keyitems")
 -----------------------------------
 
 function onBattlefieldInitialise(battlefield)
