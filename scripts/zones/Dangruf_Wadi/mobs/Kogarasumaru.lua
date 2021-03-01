@@ -45,19 +45,24 @@ function onMobFight(mob, target)
         mob:setLocalVar("twohourTime", math.random(10, 15))
     elseif battletime >= twohourTime and STANCEtank == 0 then
         printf("DPS Stance");
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 2500)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
-        mob:setMod(tpz.mod.ATT, 650)
+        mob:setMod(tpz.mod.ATT, 550)
+        mob:setMod(tpz.mod.UDMGPHYS, 75)
+        mob:setMod(tpz.mod.UDMGMAGIC, 75)
         mob:setLocalVar("STANCEdps", battletime + math.random(60, 90))
         mob:setLocalVar("STANCEtank", 1)
     end
 
     if battletime >= STANCEdps and STANCEtank == 1 then
         printf("Tank Stance");
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:setMod(tpz.mod.ATT, 200)
-        mob:useMobAbility(2201) -- 0 damage
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) - 2500)
+        mob:setMod(tpz.mod.UDMGPHYS, -75)
+        mob:setMod(tpz.mod.UDMGMAGIC, -75)
         mob:setLocalVar("twohourTime", battletime + math.random(60, 90))
         mob:setLocalVar("STANCEdps", 0)
         mob:setLocalVar("STANCEtank", 0)
