@@ -1,7 +1,7 @@
 ------------------------------
 -- Area: The Eldieme Necropolis
 --   Murgleis
---    16547 
+--  !additem 16547 
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
