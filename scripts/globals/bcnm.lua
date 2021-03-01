@@ -101,10 +101,10 @@ local battlefields = {
     {
         { 0,  960,    0},   -- Ancient Vows (PM2-5)
         { 1,  961,    0},   -- The Savage (PM4-2)
-        { 2,  962,    0},   -- Fire in the Sky (ENM)
-        { 3,  963,    0},   -- Bad Seed (ENM)
-        { 4,  964,    0},   -- Bugard in the Clouds (ENM)
-        { 5,  965,    0},   -- Beloved of the Atlantes (ENM)
+        { 2,  962,    1550},   -- Fire in the Sky (ENM)
+        { 3,  963,    1550},   -- Bad Seed (ENM)
+        { 4,  964,    1550},   -- Bugard in the Clouds (ENM)
+        { 5,  965,    1550},   -- Beloved of the Atlantes (ENM)
      -- { 6,  966,    0},   -- Uninvited Guests (Quest)
      -- { 7,  967, 3455},   -- Nest of Nightmares (HKC50)
      -- { 8,    ?,    0},   -- *The Savage (HTMBF)
@@ -657,10 +657,6 @@ function checkReqs(player, npc, bfid, registrant)
         [ 896] = function() return ( player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.STORMS_OF_FATE) == QUEST_ACCEPTED and player:getCharVar('StormsOfFate') == 2           ) end, -- Quest: Storms of Fate
         [ 960] = function() return ( cop == mi.cop.ANCIENT_VOWS and copStat == 2                                                                                            ) end, -- PM2-5: Ancient Vows
         [ 961] = function() return ( cop == mi.cop.THE_SAVAGE and copStat == 1                                                                                              ) end, -- PM4-2: The Savage
-        [ 962] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                                ) end, -- ENM: Fire in the Sky
-        [ 963] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                                ) end, -- ENM: Bad Seed
-        [ 964] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                                ) end, -- ENM: Bugard in the Clouds
-        [ 965] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                                ) end, -- ENM: Beloved of Atlantes
         [ 992] = function() return ( cop == mi.cop.ONE_TO_BE_FEARED and copStat == 2                                                                                        ) end, -- PM6-4: One to be Feared
         [ 993] = function() return ( cop == mi.cop.THE_WARRIOR_S_PATH                                                                                                       ) end, -- PM7-5: The Warrior's Path
         [1024] = function() return ( cop == mi.cop.WHEN_ANGELS_FALL and copStat == 4                                                                                        ) end, -- PM8-3: When Angels Fall
@@ -712,10 +708,6 @@ function checkReqs(player, npc, bfid, registrant)
         [ 833] = function() return ( player:hasKeyItem(tpz.ki.CENSER_OF_ANIMUS)                                                                             ) end, -- ENM: Playing Host
         [ 865] = function() return ( player:hasKeyItem(tpz.ki.CENSER_OF_ACRIMONY)                                                                           ) end, -- ENM: Pulling the Plug
         [ 897] = function() return ( player:hasKeyItem(tpz.ki.WHISPER_OF_THE_WYRMKING)                                                                      ) end, -- Quest: The Wyrmking Descends
-        [ 962] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                ) end, -- ENM: Fire in the Sky
-        [ 963] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                ) end, -- ENM: Bad Seed
-        [ 964] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                ) end, -- ENM: Bugard in the Clouds
-        [ 965] = function() return ( player:hasKeyItem(tpz.ki.MONARCH_BEARD)                                                                                ) end, -- ENM: Beloved of Atlantes
         [ 928] = function() return ( player:hasCompletedMission(COP, mi.cop.ANCIENT_VOWS) or (cop == mi.cop.ANCIENT_VOWS and copStat >= 2)                  ) end, -- Quest: Ouryu Cometh
         [1057] = function() return ( player:hasCompletedQuest(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) or
                                    ( player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and
