@@ -57,7 +57,7 @@ function onMobFight(mob, target)
         printf("Tank Stance");
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addMod(tpz.mod.ATT, -300)
-        mob:addMod(tpz.mod.COUNTER, 75)
+        mob:setMod(tpz.mod.COUNTER, 75)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) - 5000)
         mob:setLocalVar("twohourTime", battletime + math.random(60, 90))
         mob:setLocalVar("STANCEdps", 0)
