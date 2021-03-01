@@ -47,6 +47,7 @@ function onMobFight(mob, target)
         printf("DPS Stance");
         mob:setMod(tpz.mod.COUNTER, 0)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 5000)
+        mob:SetAutoAttackEnabled(true)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:addMod(tpz.mod.ATT, 300)
         mob:setLocalVar("STANCEdps", battletime + math.random(60, 90))
