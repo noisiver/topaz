@@ -2,6 +2,7 @@
 -- Area: Monarch Linn
 --  Mob: Hamadryad
 -- Bad Seed
+-- Key item ID: 674
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")
@@ -20,6 +21,7 @@ function onMobSpawn(mob)
     mob:addStatusEffect(tpz.effect.REGEN, 25, 3, 0)
     mob:addStatusEffect(tpz.effect.PHALANX, 50, 0, 0)
     mob:getStatusEffect(buffone):unsetFlag(tpz.effectFlag.DISPELABLE)
+    mob:setMobMod(tpz.mobMod.NO_DROPS)
 end
 
 function onMobEngaged(mob, target)
