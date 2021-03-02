@@ -27,13 +27,13 @@ function onMobFight(mob, target)
         mob:setLocalVar("TriggerHit", 1)
         printf("Spawning Guard Hippo #1");
     end
-    if mob:getHPP() <= 50 and hitTrigger == 1 then
+    if mob:getHPP() <= 50 and hitTrigger == 1 then -- and not Guard:isSpawned() then
         Guard:spawn()
         Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 2)
         printf("Spawning Guard Hippo #2");
     end
-    if mob:getHPP() <= 25 and hitTrigger == 2 then
+    if mob:getHPP() <= 25 and hitTrigger == 2 then -- and not Guard:isSpawned() then
         Guard:spawn()
         Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 3)
