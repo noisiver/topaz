@@ -33,6 +33,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                           calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
             if criticalHit then
                 calcParams.criticalHit = true
+                pdif = 1
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true)
             else
                 calcParams.pdif = generatePdif (calcParams.cratio[1], calcParams.cratio[2], true)
