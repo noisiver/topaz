@@ -29,9 +29,12 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     and not calcParams.mustMiss then
         if not shadowAbsorb(target) then
             critChance = math.random() -- See if we land a critical hit
-            criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate) or
-                          calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
+            criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
+            forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
             if criticalHit then
+                calcParams.criticalHit = true
+                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true)
+            elseif forcedCrit then
                 calcParams.criticalHit = true
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1
             else
