@@ -16,6 +16,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMod(tpz.mod.UDMGRANGE, -100)
     mob:SetMagicCastingEnabled(false)
 end
 
