@@ -22,8 +22,8 @@ function onMobFight(mob, target)
     local seetherTimeTwo = mob:getLocalVar("SeetherTwo")
     local seetherTimeThree = mob:getLocalVar("SeetherThree")
     local Seether = GetMobByID(mob:getID()+1)
-    local Seethertwo = GetMobByID(mob:getID()+1)
-    local Seetherthree = GetMobByID(mob:getID()+1)
+    local Seethertwo = GetMobByID(mob:getID()+2)
+    local Seetherthree = GetMobByID(mob:getID()+3)
 
     if seetherTime == 0 then
         mob:setLocalVar("Seether", 120)
