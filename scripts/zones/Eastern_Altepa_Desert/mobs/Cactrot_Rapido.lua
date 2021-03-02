@@ -121,7 +121,6 @@ function onPath(mob)
 end
 
 function onMobSpawn(mob)
-    mob:speed(70)
     onPath(mob)
 end
 
