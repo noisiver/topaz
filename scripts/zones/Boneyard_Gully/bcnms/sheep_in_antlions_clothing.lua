@@ -39,6 +39,7 @@ end
 function onBattlefieldEnter(player, battlefield)
     if player:hasKeyItem(tpz.ki.MIASMA_FILTER) then
         player:delKeyItem(tpz.ki.MIASMA_FILTER)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.MIASMA_FILTER)
     end
 end
 
