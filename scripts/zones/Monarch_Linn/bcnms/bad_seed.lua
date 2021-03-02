@@ -20,6 +20,7 @@ function onBattlefieldRegister(player, battlefield)
 end
 
 function onBattlefieldEnter(player, battlefield)
+    local ID = zones[player:getZoneID()]
     if player:hasKeyItem(tpz.ki.MONARCH_BEARD) then
         player:delKeyItem(tpz.ki.MONARCH_BEARD)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, MONARCH_BEARD)
