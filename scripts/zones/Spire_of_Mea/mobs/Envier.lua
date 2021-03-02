@@ -47,7 +47,7 @@ function onMobFight(mob, target)
     end
     if seetherTimeThree == 0 then
         mob:setLocalVar("SeetherThree", 360)
-        printf("Set Seether Time");
+        printf("Set Seether Time Three");
         return
     elseif mob:getBattleTime() >= seetherTimeThree then
         Seetherthree:spawn()
