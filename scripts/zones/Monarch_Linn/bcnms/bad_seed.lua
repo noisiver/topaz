@@ -18,6 +18,7 @@ end
 
 function onBattlefieldRegister(player, battlefield)
 end
+
 function onBattlefieldEnter(player, battlefield)
     if player:hasKeyItem(tpz.ki.MONARCH_BEARD) then
         player:delKeyItem(tpz.ki.MONARCH_BEARD)
