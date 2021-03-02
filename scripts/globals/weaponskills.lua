@@ -35,7 +35,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 calcParams.criticalHit = true
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1
             else
-                calcParams.pdif = generatePdif (calcParams.cratio[1], calcParams.cratio[2], true) +1
+                calcParams.pdif = generatePdif (calcParams.cratio[1], calcParams.cratio[2], true)
             end
             finaldmg = dmg * calcParams.pdif
 
