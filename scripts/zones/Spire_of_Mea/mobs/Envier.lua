@@ -32,7 +32,7 @@ function onMobFight(mob, target)
     elseif mob:getBattleTime() >= seetherTime then
         Seether:spawn()
         Seether:updateEnmity(target)
-        mob:setLocalVar("Seether", mob:getBattleTime() + 480)
+        mob:setLocalVar("Seether", mob:getBattleTime() + 360)
         printf("Spawn Seether, Set time to spawn again in 6m");
     end
     if seetherTimeTwo == 0 then
@@ -42,7 +42,7 @@ function onMobFight(mob, target)
     elseif mob:getBattleTime() >= seetherTimeTwo then
         Seethertwo:spawn()
         Seethertwo:updateEnmity(target)
-        mob:setLocalVar("SeetherTwo", mob:getBattleTime() + 480)
+        mob:setLocalVar("SeetherTwo", mob:getBattleTime() + 360)
         printf("Spawn Seether Two, Set time to spawn again in 6m");
     end
     if seetherTimeThree == 0 then
@@ -52,7 +52,7 @@ function onMobFight(mob, target)
     elseif mob:getBattleTime() >= seetherTimeThree then
         Seetherthree:spawn()
         Seetherthree:updateEnmity(target)
-        mob:setLocalVar("SeetherThree", mob:getBattleTime() + 480)
+        mob:setLocalVar("SeetherThree", mob:getBattleTime() + 360)
         printf("Spawn Seether Three, Set time to spawn again in 6m");
     end
 end
