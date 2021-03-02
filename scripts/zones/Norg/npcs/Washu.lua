@@ -79,6 +79,7 @@ function onEventFinish(player, csid, option)
         npcUtil.giveKeyItem(player, tpz.ki.EMPTY_BARREL)
     elseif (csid == 23 and npcUtil.completeQuest(player, OUTLANDS, tpz.quest.id.outlands.STOP_YOUR_WHINING, {item=4952, fame=75, fameArea=NORG, title=tpz.title.APPRENTICE_SOMMELIER})) then -- Scroll of Hojo: Ichi
         player:delKeyItem(tpz.ki.BARREL_OF_OPOOPO_BREW)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.BARREL_OF_OPOOPO_BREW)
 
     -- CHASING DREAMS
     elseif (csid == 221) then
