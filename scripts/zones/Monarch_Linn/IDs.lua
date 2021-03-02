@@ -59,21 +59,18 @@ zones[tpz.zone.MONARCH_LINN] =
             HOTUPUKU_ID        = 16904230,
         },
     },
-    belovedOfTheAtlante = {
+    belovedOfTheAtlantes = {
         [1] = {
             WATCH_HIPPOGRYPH_ID        = 16904217,
             GUARD_HIPPOGRYPH_ID        = 16904218,
-            GUARD_HIPPOGRYPH_ID        = 16904219,
         },
         [2] = {
             WATCH_HIPPOGRYPH_ID        = 16904220,
             GUARD_HIPPOGRYPH_ID        = 16904221,
-            GUARD_HIPPOGRYPH_ID        = 16904222,
         },
         [3] = {
             WATCH_HIPPOGRYPH_ID        = 16904223,
             GUARD_HIPPOGRYPH_ID        = 16904224,
-            GUARD_HIPPOGRYPH_ID        = 16904225,
         },
     },
 }

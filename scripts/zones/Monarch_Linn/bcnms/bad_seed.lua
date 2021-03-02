@@ -21,6 +21,7 @@ end
 function onBattlefieldEnter(player, battlefield)
     if player:hasKeyItem(tpz.ki.MONARCH_BEARD) then
         player:delKeyItem(tpz.ki.MONARCH_BEARD)
+        player:messageSpecial(ID.text.KEYITEM_LOST, MONARCH_BEARD)
     end
 end
 
