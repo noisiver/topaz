@@ -5046,13 +5046,13 @@ namespace battleutils
 
     int32 RangedDmgTaken(CBattleEntity* PDefender, int32 damage, int16 damageType, bool IsCovered)
     {
-        //float resist = 1.0f + PDefender->getMod(Mod::UDMGRANGE) / 100.f;
-        float resist = 1.0f + PDefender->getMod(Mod::UDMGPHYS) / 100.f;
+        float resist = 1.0f + PDefender->getMod(Mod::UDMGRANGE) / 100.f;
+        //float resist = 1.0f + PDefender->getMod(Mod::UDMGPHYS) / 100.f;
         resist = std::max(resist, 0.f);
         damage = (int32)(damage * resist);
 
-        //resist = 1.0f + PDefender->getMod(Mod::DMGRANGE) / 100.f + PDefender->getMod(Mod::DMG) / 100.f;
-        resist = 1.0f + PDefender->getMod(Mod::DMGPHYS) / 100.f + PDefender->getMod(Mod::DMG) / 100.f;
+        resist = 1.0f + PDefender->getMod(Mod::DMGRANGE) / 100.f + PDefender->getMod(Mod::DMG) / 100.f + PDefender->getMod(Mod::DMGPHYS) / 100.f;
+        //resist = 1.0f + PDefender->getMod(Mod::DMGPHYS) / 100.f + PDefender->getMod(Mod::DMG) / 100.f;
         resist = std::max(resist, 0.5f);
         damage = (int32)(damage * resist);
 
