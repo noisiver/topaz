@@ -8,6 +8,7 @@ require("scripts/globals/status")
 
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.UDMGPHYS, -effect:getPower())
+    target:addMod(tpz.mod.UDMGRANGE, -effect:getPower())
     target:addMod(tpz.mod.ENMITY, 100)
     target:addMod(tpz.mod.ENMITY_LOSS_REDUCTION, effect:getSubPower())
 end
@@ -26,11 +27,13 @@ function onEffectTick(target, effect)
       end
       effect:setPower(power-decayby)
       target:delMod(tpz.mod.UDMGPHYS, -decayby)
+      target:delMod(tpz.mod.UDMGRANGE, -decayby)
    end
 end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.UDMGPHYS, -effect:getPower())
+    target:delMod(tpz.mod.UDMGRANGE, -effect:getPower())
     target:delMod(tpz.mod.ENMITY, 100)
     target:delMod(tpz.mod.ENMITY_LOSS_REDUCTION, effect:getSubPower())
 end
