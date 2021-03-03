@@ -8,28 +8,28 @@ g_mixins.families.empty = function(mob)
 
     mob:addListener("ITEM_DROPS", "EMPTY_ITEM_DROPS", function(mob)
         local element = mob:getLocalVar("element")
-        if element == 1 then
-            mob:addDrop(1613, tpz.drops.COMMON) -- Malevolent Memory (darkness skillchain)
-        elseif element == 2 then
-            mob:addDrop(1611, tpz.drops.COMMON) -- Somber Memory (water)
-            mob:addDrop(1613, tpz.drops.UNCOMMON) -- Malevolent Memory (darkness skillchain)
-        elseif element == 3 then
-            mob:addDrop(1610, tpz.drops.COMMON) -- Startling Memory (lightning)
-            mob:addDrop(1612, tpz.drops.UNCOMMON) -- Radiant Memory (light skillchain)
-        elseif element == 4 then
-            mob:addDrop(1609, tpz.drops.COMMON) -- Profane Memory (earth)
-            mob:addDrop(1613, tpz.drops.UNCOMMON) -- Malevolent Memory (darkness skillchain)
-        elseif element == 5 then
-            mob:addDrop(1612, tpz.drops.COMMON) -- Radiant Memory (light skillchain)
-        elseif element == 6 then
-            mob:addDrop(1606, tpz.drops.COMMON) -- Burning Memory (fire)
-            mob:addDrop(1612, tpz.drops.UNCOMMON) -- Radiant Memory (light skillchain)
-        elseif element == 7 then
-            mob:addDrop(1607, tpz.drops.COMMON) -- Bitter Memory (ice)
-            mob:addDrop(1613, tpz.drops.UNCOMMON) -- Malevolent Memory (darkness skillchain)
-        elseif element == 8 then
-            mob:addDrop(1608, tpz.drops.COMMON) -- Fleeting Memory (wind)
-            mob:addDrop(1612, tpz.drops.UNCOMMON) -- Radiant Memory (light skillchain)
+        if element == 1 and math.random(1,100) <= 24 then
+            mob:addTreasure(1613) -- Malevolent Memory (darkness skillchain)
+        elseif element == 2 and math.random(1,100) <= 24 then
+            mob:addTreasure(1611) -- Somber Memory (water)
+            mob:addTreasure(1613) -- Malevolent Memory (darkness skillchain)
+        elseif element == 3 and math.random(1,100) <= 24 then
+            mob:addTreasure(1610) -- Startling Memory (lightning)
+            mob:addTreasure(1612) -- Radiant Memory (light skillchain)
+        elseif element == 4 and math.random(1,100) <= 24 then
+            mob:addTreasure(1609) -- Profane Memory (earth)
+            mob:addTreasure(1613) -- Malevolent Memory (darkness skillchain)
+        elseif element == 5 and math.random(1,100) <= 24 then
+            mob:addTreasure(1612) -- Radiant Memory (light skillchain)
+        elseif element == 6 and math.random(1,100) <= 24 then
+            mob:addTreasure(1606) -- Burning Memory (fire)
+            mob:addTreasure(1612) -- Radiant Memory (light skillchain)
+        elseif element == 7 and math.random(1,100) <= 24 then
+            mob:addTreasure(1607) -- Bitter Memory (ice)
+            mob:addTreasure(1613) -- Malevolent Memory (darkness skillchain)
+        elseif element == 8 and math.random(1,100) <= 24 then
+            mob:addTreasure(1608) -- Fleeting Memory (wind)
+            mob:addTreasure(1612) -- Radiant Memory (light skillchain)
         end
 
     end)
