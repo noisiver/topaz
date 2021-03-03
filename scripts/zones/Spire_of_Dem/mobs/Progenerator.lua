@@ -1,6 +1,8 @@
 -----------------------------------
 -- Area: Spire of Dem
 --  Mob: Progenerator
+require("scripts/globals/promyvion")
+mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
 require("scripts/globals/pathfind")
@@ -9,6 +11,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    tpz.promyvion.setEmptyModel(mob)
     mob:setLocalVar("maxBabies", 4)
 	local id = mob:getID()
 	DespawnMob(id+1)
@@ -80,6 +83,7 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    tpz.promyvion.onEmptyDeath(mob)
     local momma = mob:getID()
     for i = momma + 1, momma + mob:getLocalVar("maxBabies") do
         local baby = GetMobByID(i)

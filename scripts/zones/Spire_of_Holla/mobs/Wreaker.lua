@@ -4,11 +4,14 @@
 -----------------------------------
 
 require("scripts/globals/pathfind")
+require("scripts/globals/promyvion")
+mixins = {require("scripts/mixins/families/empty")}
 
 function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    tpz.promyvion.setEmptyModel(mob)
 	mob:delRoamFlag(512)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
@@ -77,4 +80,5 @@ function onMobFight(mob,target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    tpz.promyvion.onEmptyDeath(mob)
 end

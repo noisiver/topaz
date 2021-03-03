@@ -1,12 +1,15 @@
 -----------------------------------
 -- Area: Spire of Dem
 --  Mob: Progenerator
+require("scripts/globals/promyvion")
+mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
 function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    tpz.promyvion.setEmptyModel(mob)
     local id = mob:getID()
 	local mommy = nil
 	local battlefield = nil
@@ -29,4 +32,5 @@ function onMobFight(mob,target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    tpz.promyvion.onEmptyDeath(mob)
 end

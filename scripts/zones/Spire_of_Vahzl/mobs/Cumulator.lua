@@ -1,6 +1,8 @@
 -----------------------------------
 -- Area: Spire of Vahzl
 --  Mob: Cumulator
+require("scripts/globals/promyvion")
+mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -8,6 +10,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    tpz.promyvion.setEmptyModel(mob)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 30) 
@@ -68,4 +71,5 @@ function onMobRoam(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
+    tpz.promyvion.onEmptyDeath(mob)
 end

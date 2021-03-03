@@ -7,9 +7,12 @@
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/magic")
+require("scripts/globals/promyvion")
+mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
 function onMobSpawn(mob)
+     tpz.promyvion.setEmptyModel(mob)
      mob:addTP(3000)
      mob:addMod(tpz.mod.DEFP, 20) 
      mob:addMod(tpz.mod.ATTP, 10)
@@ -19,4 +22,5 @@ function onMobSpawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
+    tpz.promyvion.onEmptyDeath(mob)
 end
