@@ -537,7 +537,7 @@ INSERT INTO `mob_family_system` VALUES (507,'VariableHare',6,'Beast',0,40,96,120
 INSERT INTO `mob_family_system` VALUES (508,'Sabotender-Cactrot',17,'Plantoid',0,60,100,90,3,5,5,3,5,5,3,1,3,1,3,1,1,1,1,1.3,1.5,1,1,1.3,0.5,0.5,1.5,6,2,1);
 INSERT INTO `mob_family_system` VALUES (509,'Fomor-Hydra',19,'Undead',0,40,100,90,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,1.3,0.5,1,1,1,1,1.3,0.5,8,6,0);
 INSERT INTO `mob_family_system` VALUES (510,'Kindreds-Wyvern',10,'Dragon',0,40,100,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,8,6,0);
-INSERT INTO `mob_family_system` VALUES (510,'Vanguard-Eye',9,'Demon',0,40,100,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,1.15,0.25,8,6,0);
+INSERT INTO `mob_family_system` VALUES (511,'Vanguard-Eye',9,'Demon',0,40,100,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,1.15,0.25,8,6,0);
 
 
 -- Custom Content
