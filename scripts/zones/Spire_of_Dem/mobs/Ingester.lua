@@ -11,9 +11,6 @@ require("scripts/globals/promyvion")
 mixins = {require("scripts/mixins/families/empty")}
 ---------------------------------------
 
-function onMobInitialize(mob)
-end
-
 function onMobSpawn(mob)
     tpz.promyvion.setEmptyModel(mob)
     mob:setLocalVar("maxBabies", 4)
@@ -28,6 +25,10 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
 function onMobEngaged(mob, target)
@@ -84,6 +85,10 @@ function onMobFight(mob, target)
 		mob:pathThrough(point, tpz.path.flag.RUN)
 	end
 	
+end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.MP_DRAIN, {chance = 50, power = math.random(20, 40)})
 end
 
 function onMobDeath(mob, player, isKiller)

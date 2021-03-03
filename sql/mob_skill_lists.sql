@@ -597,12 +597,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Gorger',137,744);
 INSERT INTO `mob_skill_lists` VALUES ('Gorger',137,747);
 INSERT INTO `mob_skill_lists` VALUES ('Gorger',137,750);
 INSERT INTO `mob_skill_lists` VALUES ('Gorger',137,752);
-INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,742);
-INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,745);
-INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,748);
-INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,750);
-INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,753);
-INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,755);
+INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,742); -- quadratic_continuum
+INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,745); -- spirit_absorption
+INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,748); -- vanity_drive
+INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,750); -- stygian_flatus
+INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,753); -- promyvion_barrier
+INSERT INTO `mob_skill_lists` VALUES ('Gorger_NM',138,755); -- fission
 INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-COP',139,437);	-- COP
 INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-COP',139,438);
 INSERT INTO `mob_skill_lists` VALUES ('Hecteyes-COP',139,439);
@@ -2336,20 +2336,17 @@ INSERT INTO `mob_skill_lists` VALUES ('Effigy_Shield',705,1077);
 INSERT INTO `mob_skill_lists` VALUES ('Effigy_Shield',705,1078);
 INSERT INTO `mob_skill_lists` VALUES ('Effigy_Shield',705,762);
 INSERT INTO `mob_skill_lists` VALUES ('Effigy_Shield',705,1080);
-INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1243);
-INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1244);
-INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1245);
-INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1248);
-INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1251);
-INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1252);
-INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1271);
-INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1229);
-INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1232);
-INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1233);
-INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1234);
-INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1274);
-INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1275);
-INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1276);
+INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1243); -- negative_whirl
+INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1244); -- stygian_vapor
+INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1245); -- winds_of_promyvion
+INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1248); -- trinary_absorption
+INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1251); -- trinary_tap
+INSERT INTO `mob_skill_lists` VALUES ('Thinker_NM',706,1252); -- shadow_spread
+INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1232); -- Murk
+INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1233); -- material_fend
+INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1234); -- carousel
+INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1274); -- impalement
+INSERT INTO `mob_skill_lists` VALUES ('Craver_NM',707,1276); -- promyvion_brume
 -- INSERT INTO `mob_skill_lists` VALUES ('Propagator',708,741); -- Replaced with list 138
 -- INSERT INTO `mob_skill_lists` VALUES ('Propagator',708,744);
 -- INSERT INTO `mob_skill_lists` VALUES ('Propagator',708,747);
@@ -3710,6 +3707,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,539);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,541);
 INSERT INTO `mob_skill_lists` VALUES ('DarkSpark',1153,510); -- 50% Berserk
 INSERT INTO `mob_skill_lists` VALUES ('BadBreath',1154,319); -- Bad Breath Only
+INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1232); -- Murk
+INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1233); -- material_fend
+INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1234); -- carousel
+INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1274); -- impalement
+INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1275); -- empty_thrash
+INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1276); -- promyvion_brume
 
 
 -- Custom Content
