@@ -306,12 +306,98 @@ INSERT INTO `mob_family_mods` VALUES (138,29,12,0); -- Gorger +12 MDB
 INSERT INTO `mob_family_mods` VALUES (255,29,12,0); -- Wanderer +12 MDB
 INSERT INTO `mob_family_mods` VALUES (256,29,12,0); -- Weeper +12 MDB
 INSERT INTO `mob_family_mods` VALUES (220,29,12,0); -- Seether +12 MDB
+INSERT INTO `mob_family_mods` VALUES (181,389,-50,0); -- Memory Receptacle -50% MDT
 INSERT INTO `mob_family_mods` VALUES (503,29,12,0); -- Mammet +12 MDB
 
 -- Dynamis Mobs
-INSERT INTO `mob_family_mods` VALUES (358,389,-25,0);	-- Kindred - -25% MDT
-INSERT INTO `mob_family_mods` VALUES (358,29,70,0);		-- Kindred - +70 MDB
-INSERT INTO `mob_family_mods` VALUES (509,29,50,0);		-- Hydra - Fomor +50 MDB
+INSERT INTO `mob_family_mods` VALUES (337,62,50,0);	-- Quadav +50% Attk
+INSERT INTO `mob_family_mods` VALUES (337,63,50,0);	-- Quadav +50% DEF
+INSERT INTO `mob_family_mods` VALUES (337,25,50,0);	-- Quadav +50 ACC
+INSERT INTO `mob_family_mods` VALUES (337,68,50,0);	-- Quadav +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (337,29,10,0);	-- Quadav +10 MDB
+INSERT INTO `mob_family_mods` VALUES (337,382,-100,0); -- Quadav -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (334,62,50,0);	-- Orc +50% Attk
+INSERT INTO `mob_family_mods` VALUES (334,63,50,0);	-- Orc +50% DEF
+INSERT INTO `mob_family_mods` VALUES (334,25,50,0);	-- Orc +50 ACC
+INSERT INTO `mob_family_mods` VALUES (334,68,50,0);	-- Orc +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (334,382,-100,0); -- Orc -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (360,62,50,0);	-- Yagudo +50% Attk
+INSERT INTO `mob_family_mods` VALUES (360,63,50,0);	-- Yagudo +50% DEF
+INSERT INTO `mob_family_mods` VALUES (360,25,50,0);	-- Yagudo +50 ACC
+INSERT INTO `mob_family_mods` VALUES (360,68,50,0);	-- Yagudo +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (360,29,30,0);	-- Yagudo +30 MDB
+INSERT INTO `mob_family_mods` VALUES (360,382,-100,0); -- Yagudo -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (327,62,50,0);	-- Goblin +50% Attk
+INSERT INTO `mob_family_mods` VALUES (327,63,50,0);	-- Goblin +50% DEF
+INSERT INTO `mob_family_mods` VALUES (327,25,50,0);	-- Goblin +50 ACC
+INSERT INTO `mob_family_mods` VALUES (327,68,50,0);	-- Goblin +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (327,29,20,0);	-- Goblin +20 MDB
+INSERT INTO `mob_family_mods` VALUES (327,382,-100,0); -- Goblin -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (509,62,75,0);	-- Hydra +75% Attk
+INSERT INTO `mob_family_mods` VALUES (509,63,75,0);	-- Hydra +75% DEF
+INSERT INTO `mob_family_mods` VALUES (509,25,75,0);	-- Hydra +75 ACC
+INSERT INTO `mob_family_mods` VALUES (509,68,75,0);	-- Hydra +75 EVAS
+INSERT INTO `mob_family_mods` VALUES (509,29,50,0);	-- Hydra  +50 MDB
+INSERT INTO `mob_family_mods` VALUES (509,382,-100,0); -- Hydra -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (358,62,50,0);	-- Kindred +50% Attk
+INSERT INTO `mob_family_mods` VALUES (358,63,50,0);	-- Kindred +50% DEF
+INSERT INTO `mob_family_mods` VALUES (358,25,50,0);	-- Kindred +50 ACC
+INSERT INTO `mob_family_mods` VALUES (358,68,50,0);	-- Kindred +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (358,389,-25,0); -- Kindred -25% MDT
+INSERT INTO `mob_family_mods` VALUES (358,29,70,0);	 -- Kindred +70 MDB 
+INSERT INTO `mob_family_mods` VALUES (358,382,-100,0); -- Kindred -100% exp
+
+
+INSERT INTO `mob_family_mods` VALUES (511,62,50,0);	-- Ahriman +50% Attk
+INSERT INTO `mob_family_mods` VALUES (511,63,50,0);	-- Ahriman +50% DEF
+INSERT INTO `mob_family_mods` VALUES (511,25,50,0);	-- Ahriman +50 ACC
+INSERT INTO `mob_family_mods` VALUES (511,68,50,0);	-- Ahriman +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (511,389,-25,0); -- Ahriman -25% MDT
+INSERT INTO `mob_family_mods` VALUES (511,29,70,0);	 -- Ahriman +50 MDB
+INSERT INTO `mob_family_mods` VALUES (511,382,-100,0); -- Ahriman -100% exp
+
+
+INSERT INTO `mob_family_mods` VALUES (92,62,50,0);	-- Statue-Goblin +50% Attk
+INSERT INTO `mob_family_mods` VALUES (92,63,50,0);	-- Statue-Goblin +50% DEF
+INSERT INTO `mob_family_mods` VALUES (92,25,50,0);	-- Statue-Goblin +50 ACC
+INSERT INTO `mob_family_mods` VALUES (92,68,50,0);	-- Statue-Goblin +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (92,29,112,0);	-- Statue-Goblin +112 MDB
+INSERT INTO `mob_family_mods` VALUES (92,382,-100,0); -- Statue-Goblin -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (93,62,50,0);	-- Statue-Orc +50% Attk
+INSERT INTO `mob_family_mods` VALUES (93,63,50,0);	-- Statue-Orc +50% DEF
+INSERT INTO `mob_family_mods` VALUES (93,25,50,0);	-- Statue-Orc +50 ACC
+INSERT INTO `mob_family_mods` VALUES (93,68,50,0);	-- Statue-Orc +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (93,29,62,0);	-- Statue-Orc +62 MDB
+INSERT INTO `mob_family_mods` VALUES (93,382,-100,0); -- Statue-Orc -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (94,62,50,0);	-- Statue-Quadav +50% Attk
+INSERT INTO `mob_family_mods` VALUES (94,63,50,0);	-- Statue-Quadav +50% DEF
+INSERT INTO `mob_family_mods` VALUES (94,25,50,0);	-- Statue-Quadav +50 ACC
+INSERT INTO `mob_family_mods` VALUES (94,68,50,0);	-- Statue-Quadav +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (94,29,112,0);	-- Statue-Quadav +112 MDB
+INSERT INTO `mob_family_mods` VALUES (94,382,-100,0); -- Statue-Quadav -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (95,62,50,0);	-- Statue-Yagud +50% Attk
+INSERT INTO `mob_family_mods` VALUES (95,63,50,0);	-- Statue-Yagud +50% DEF
+INSERT INTO `mob_family_mods` VALUES (95,25,50,0);	-- Statue-Yagud +50 ACC
+INSERT INTO `mob_family_mods` VALUES (95,68,50,0);	-- Statue-Yagud +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (95,29,162,0);	-- Statue-Yagudo +162 MDB
+INSERT INTO `mob_family_mods` VALUES (95,382,-100,0); -- Statue-Yagudo -100% exp
+
+INSERT INTO `mob_family_mods` VALUES (510,62,50,0);	-- Kindreds Wyvern +50% Attk
+INSERT INTO `mob_family_mods` VALUES (510,63,50,0);	-- Kindreds Wyvern +50% DEF
+INSERT INTO `mob_family_mods` VALUES (510,25,50,0);	-- Kindreds Wyvern +50 ACC
+INSERT INTO `mob_family_mods` VALUES (510,68,50,0);	-- Kindreds Wyvern +50 EVAS
+INSERT INTO `mob_family_mods` VALUES (510,29,20,0);	-- Kindreds Wyvern +20 MDB 
+INSERT INTO `mob_family_mods` VALUES (510,382,-100,0); -- Kindreds Wyvern -100% exp
+
+
 
 -- NMs
 INSERT INTO `mob_family_mods` VALUES (506,244,75,0);	 -- Purpleflash Brukdok Silence Resist
