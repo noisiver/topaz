@@ -58,43 +58,43 @@ local function selectRandomModel(models, mob)
         if model == 1 then
         element = 1 -- dark
         mob:setMod(tpz.mod.SDT_DARK, 5)
-        mob:setMod(tpz.mod.SDT_LIGHT, 1500)
+        mob:setMod(tpz.mod.SDT_LIGHT, 0150)
         elseif model == 2 then
         element = 3 -- thunder
         mob:setMod(tpz.mod.SDT_THUNDER, 5)
         mob:setMod(tpz.mod.SDT_WATER, 5)
-        mob:setMod(tpz.mod.SDT_WATER, 1500)
+        mob:setMod(tpz.mod.SDT_EARTH, 0150)
         elseif model == 3 then
         element = 5 -- light
         mob:setMod(tpz.mod.SDT_LIGHT, 5)
-        mob:setMod(tpz.mod.SDT_DARK, 1500)
+        mob:setMod(tpz.mod.SDT_DARK, 0150)
         elseif model == 4 then
         element = 7 -- ice
         mob:setMod(tpz.mod.SDT_ICE, 5)
         mob:setMod(tpz.mod.SDT_WIND, 5)
-        mob:setMod(tpz.mod.SDT_FIRE, 1500)
+        mob:setMod(tpz.mod.SDT_FIRE, 0150)
         end
     else
         if model == 1 then
         element = 2 -- water
         mob:setMod(tpz.mod.SDT_WATER, 5)
         mob:setMod(tpz.mod.SDT_FIRE, 5)
-        mob:setMod(tpz.mod.SDT_THUNDER, 1500)
+        mob:setMod(tpz.mod.SDT_THUNDER, 0150)
         elseif model == 2 then
         element = 4 -- earth
         mob:setMod(tpz.mod.SDT_EARTH, 5)
         mob:setMod(tpz.mod.SDT_THUNDER, 5)
-        mob:setMod(tpz.mod.SDT_WIND, 1500)
+        mob:setMod(tpz.mod.SDT_WIND, 0150)
         elseif model == 3 then
         element = 6 -- fire
         mob:setMod(tpz.mod.SDT_FIRE, 5)
         mob:setMod(tpz.mod.SDT_ICE, 5)
-        mob:setMod(tpz.mod.SDT_WATER, 1500)
+        mob:setMod(tpz.mod.SDT_WATER, 0150)
         elseif model == 4 then
         element = 8 -- wind
         mob:setMod(tpz.mod.SDT_WIND, 5)
         mob:setMod(tpz.mod.SDT_EARTH, 5)
-        mob:setMod(tpz.mod.SDT_ICE, 1500)
+        mob:setMod(tpz.mod.SDT_ICE, 0150)
         end
     end
 
