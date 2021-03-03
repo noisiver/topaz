@@ -21,7 +21,7 @@ function onMobSpawn(mob)
     mob:addStatusEffect(tpz.effect.REGEN, 25, 3, 0)
     mob:addStatusEffect(tpz.effect.PHALANX, 50, 0, 0)
     mob:getStatusEffect(buffone):unsetFlag(tpz.effectFlag.DISPELABLE)
-    mob:setMobMod(tpz.mobMod.NO_DROPS)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
 function onMobEngaged(mob, target)
