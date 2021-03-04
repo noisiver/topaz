@@ -46,7 +46,7 @@ function onMobFight(mob, target)
         return
     elseif mob:getBattleTime() >= drawinTime then
         mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
-        mob:setLocalVar("Seether", mob:getBattleTime() + 20)
+        mob:setLocalVar("Drawin", mob:getBattleTime() + 20)
         printf("Drawing in");
     else
         mob:setMobMod(tpz.mobMod.DRAW_IN, 0)
