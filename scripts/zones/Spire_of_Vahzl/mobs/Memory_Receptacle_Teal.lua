@@ -24,6 +24,7 @@ function onMobDeath(mob, player, isKiller)
     Add:spawn()
     Add:updateEnmity(player)
     Red:delStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
+    printf("Delete status = Physical Shield");
 end
 
 
