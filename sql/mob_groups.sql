@@ -8733,9 +8733,9 @@ INSERT INTO `mob_groups` VALUES (71,1453,134,'Galkarider_Retzpratz',0,32,493,800
 INSERT INTO `mob_groups` VALUES (72,4144,134,'Vanguard_Dollmaster',1800,0,2557,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (73,934,134,'Deathcaller_Bidfbid',0,32,493,8000,0,80,81,0); -- PH
 INSERT INTO `mob_groups` VALUES (74,3729,134,'Spinalsucker_Galflmall',0,32,493,8000,0,80,81,0); -- PH
-INSERT INTO `mob_groups` VALUES (72,4162,134,'Vanguard_Mesmerizer',1800,0,2557,0,0,72,74,0);
+INSERT INTO `mob_groups` VALUES (75,4162,134,'Vanguard_Mesmerizer',1800,0,2557,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (76,4154,134,'Vanguard_Hawker',1800,0,2557,0,0,72,74,0);
-INSERT INTO `mob_groups` VALUES (74,4187,134,'Vanguards_Hecteyes',0,128,0,0,0,62,64,0);
+INSERT INTO `mob_groups` VALUES (77,4187,134,'Vanguards_Hecteyes',0,128,0,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (78,4172,134,'Vanguard_Pillager',1800,0,2557,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (79,2429,134,'Lockbuster_Zapdjipp',0,32,493,8000,0,80,81,0); -- PH
 INSERT INTO `mob_groups` VALUES (80,1909,134,'Heavymail_Djidzbad',0,32,493,8000,0,80,81,0); -- PH
@@ -8935,9 +8935,9 @@ INSERT INTO `mob_groups` VALUES (71,3470,135,'Satellite_Guns',1800,0,0,0,0,82,84
 INSERT INTO `mob_groups` VALUES (72,3941,135,'Tombstone_Prototype',0,128,0,1000,1000,82,84,0);
 INSERT INTO `mob_groups` VALUES (73,1178,135,'Effigy_Prototype',0,128,0,1000,1000,82,84,0);
 INSERT INTO `mob_groups` VALUES (74,2047,135,'Icon_Prototype',0,128,0,1000,1000,82,84,0);
-INSERT INTO `mob_groups` VALUES (82,3759,135,'Statue_Prototype',0,128,0,1000,1000,82,84,0);
+INSERT INTO `mob_groups` VALUES (75,3759,135,'Statue_Prototype',0,128,0,1000,1000,82,84,0);
 INSERT INTO `mob_groups` VALUES (76,5121,135,'Prototype_Eye',0,128,0,2000,2000,82,84,0);
-INSERT INTO `mob_groups` VALUES (82,3475,135,'Satellite_Longbows',1800,0,0,0,0,82,84,0); -- End of satellite wes
+INSERT INTO `mob_groups` VALUES (77,3475,135,'Satellite_Longbows',1800,0,0,0,0,82,84,0); -- End of satellite wes
 INSERT INTO `mob_groups` VALUES (78,143,135,'Animated_Claymore',0,128,95,20500,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (79,144,135,'Animated_Dagger',0,128,96,20500,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (80,145,135,'Animated_Great_Axe',0,128,97,20500,0,82,82,0);
@@ -8953,9 +8953,9 @@ INSERT INTO `mob_groups` VALUES (89,158,135,'Animated_Tachi',0,128,110,20500,0,8
 INSERT INTO `mob_groups` VALUES (90,6632,135,'Kindred_Warrior',1800,0,9005,0,0,81,83,0); -- High Level Demons Start
 INSERT INTO `mob_groups` VALUES (91,6633,135,'Kindred_White_Mage',1800,0,9005,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (92,6626,135,'Kindred_Red_Mage',1800,0,9005,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (81,4149,135,'Vanguard_Eye',0,128,2561,1500,1500,82,84,0);
+INSERT INTO `mob_groups` VALUES (93,4149,135,'Vanguard_Eye',0,128,2561,1500,1500,82,84,0);
 INSERT INTO `mob_groups` VALUES (94,6622,135,'Kindred_Monk',1800,0,9005,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (83,6618,135,'Kindred_Black_Mage',1800,0,9005,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (95,6618,135,'Kindred_Black_Mage',1800,0,9005,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (96,6630,135,'Kindred_Thief',1800,0,9005,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (97,6624,135,'Kindred_Paladin',1800,0,9005,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (98,6620,135,'Kindred_Dark_Knight',1800,0,9005,0,0,81,83,0);
@@ -11641,7 +11641,7 @@ INSERT INTO `mob_groups` VALUES (32,6086,185,'Djokvukks_Wyvern',0,128,0,0,0,80,8
 INSERT INTO `mob_groups` VALUES (33,6087,185,'Arch_Overlord_Tombstone',0,128,9024,0,0,86,87,0); -- Uber Boss
 INSERT INTO `mob_groups` VALUES (34,4150,185,'Vanguard_Footsoldier',1800,0,9001,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (35,4151,185,'Vanguard_Grappler',1800,0,9001,0,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (36,4135,185,'Vanguard_Amputator',1800,0,2548,9001,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (36,4135,185,'Vanguard_Amputator',1800,0,9001,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (37,4162,185,'Vanguard_Mesmerizer',1800,0,9001,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (38,4195,185,'Vanguard_Vexer',1800,0,9001,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (39,4172,185,'Vanguard_Pillager',1800,0,9001,0,0,78,80,0);

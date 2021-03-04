@@ -3991,7 +3991,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002, 260, 1, 255); -- Dispel
 INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002,231,35,255);   -- Bio II
 
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,273,1,255); -- Sleepga
-INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,362,1,255); -- bindga
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,365,1,255); -- breakga
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,366,1,255); -- graviga
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,274,1,255); -- Sleepga II

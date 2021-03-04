@@ -240,10 +240,6 @@ INSERT INTO `mob_family_mods` VALUES (93,23,2047,1);
 INSERT INTO `mob_family_mods` VALUES (94,23,2047,1);
 INSERT INTO `mob_family_mods` VALUES (95,23,2047,1);
 
-INSERT INTO `mob_family_mods` VALUES (92,73,100,0);
-INSERT INTO `mob_family_mods` VALUES (93,73,100,0);
-INSERT INTO `mob_family_mods` VALUES (94,73,100,0);
-INSERT INTO `mob_family_mods` VALUES (95,73,100,0);
 
 -- Absorb
 INSERT INTO `mob_family_mods` VALUES (319,460,100,0);	-- Shiva
