@@ -22,7 +22,7 @@ function onMobDeath(mob, player, isKiller)
     local Red = GetMobByID(mob:getID() - 3)
     local Add = GetMobByID(mob:getID()+1)
     Add:spawn()
-    Add:updateEnmity(target)
+    Add:updateEnmity(isKiller)
     Red:setMod(tpz.mod.UDMGPHYS, 0)
 end
 

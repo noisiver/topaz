@@ -15,10 +15,9 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ACC, 30) 
      mob:addMod(tpz.mod.EVA, 30)
      mob:setMod(tpz.mod.REGAIN, 250)
-     mob:setMod(tpz.mod.UDMGPHYS, -100)
-     mob:setMod(tpz.mod.UDMGMAGIC, -100)
-     mob:setMod(tpz.mod.UDMGRANGE, -100)
-     mob:setMod(tpz.mod.UDMGBREATH, -100)
+     mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
+     mob:addStatusEffectEx(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
+     mob:addStatusEffectEx(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
      mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 

@@ -25,6 +25,6 @@ function onMobDeath(mob, player, isKiller)
     local Red = GetMobByID(mob:getID() - 2)
     local Add = GetMobByID(mob:getID()+3)
     Add:spawn()
-    Add:updateEnmity(target)
+    Add:updateEnmity(isKiller)
     Red:delStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
 end
