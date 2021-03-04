@@ -16686,15 +16686,93 @@ INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3393,150); -- Odious Die
 INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3394,150); -- Odious Mask
 INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3395,150); -- Odious Grenade
 -- Timed NMs
-INSERT INTO `mob_droplist` VALUES (9032,0,0,1000,1456,50);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9032,1,1,1000,1456,50);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9032,1,1,1000,1453,50);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9032,1,1,1000,1450,50);  -- Lungo-Nango Jadeshell
 INSERT INTO `mob_droplist` VALUES (9032,0,0,1000,3356,240); -- Roving Bijou 
 -- Force Pop NMs
-INSERT INTO `mob_droplist` VALUES (9033,0,0,1000,3354,240); -- Steelwall Bijou
-INSERT INTO `mob_droplist` VALUES (9034,0,0,1000,3354,240); -- Steelwall Bijou
-INSERT INTO `mob_droplist` VALUES (9035,0,0,1000,3354,240); -- Steelwall Bijou
-INSERT INTO `mob_droplist` VALUES (9036,0,0,1000,3354,240); -- Steelwall Bijou
-INSERT INTO `mob_droplist` VALUES (9037,0,0,1000,3354,240); -- Steelwall Bijou
-INSERT INTO `mob_droplist` VALUES (9038,0,0,1000,3354,240); -- Steelwall Bijou
+INSERT INTO `mob_droplist` VALUES (9033,0,0,1000,3419,1000); -- (Goblin Golem) Fiendish Tome: Chapter 16
+INSERT INTO `mob_droplist` VALUES (9033,0,0,1000,1474,150); -- Infinity Core
+INSERT INTO `mob_droplist` VALUES (9033,0,0,1000,748,50); -- Gold beastcoin
+INSERT INTO `mob_droplist` VALUES (9033,0,0,1000,1470,50); -- Sparkling stone
+INSERT INTO `mob_droplist` VALUES (9033,0,0,1000,749,50); -- Mythril beastcoin
+INSERT INTO `mob_droplist` VALUES (9033,1,1,900,1456,300);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9033,1,1,900,1453,300);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9033,1,1,900,1450,300);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9033,1,2,900,1449,300); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9033,1,2,900,1452,300); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9033,1,2,900,1455,300); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9033,1,3,1000,1449,240); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9033,1,3,1000,1452,240); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9033,1,3,1000,1455,240); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9033,1,4,1000,1449,150); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9033,1,4,1000,1452,150); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9033,1,4,1000,1455,150); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9033,1,5,1000,1449,100); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9033,1,5,1000,1452,100); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9033,1,5,1000,1455,100); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9034,0,0,1000,3420,1000); -- (Quicktrix Hexhands - Odious Cup) Fiendish Tome: Chapter 17
+INSERT INTO `mob_droplist` VALUES (9034,1,1,1000,1456,100);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9034,1,1,1000,1453,100);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9034,1,1,1000,1450,100);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9034,1,2,900,1449,300); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9034,1,2,900,1452,300); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9034,1,2,900,1455,300); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9034,1,3,1000,1449,240); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9034,1,3,1000,1452,240); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9034,1,3,1000,1455,240); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9034,0,0,1000,10974,240); -- Mujin Mantle
+INSERT INTO `mob_droplist` VALUES (9035,0,0,1000,3421,1000); -- (Feralox Honeylips - Odious Die) Fiendish Tome: Chapter 18
+INSERT INTO `mob_droplist` VALUES (9035,1,1,1000,1456,100);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9035,1,1,1000,1453,100);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9035,1,1,1000,1450,100);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9035,1,2,900,1449,300); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9035,1,2,900,1452,300); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9035,1,2,900,1455,300); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9035,1,3,1000,1449,240); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9035,1,3,1000,1452,240); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9035,1,3,1000,1455,240); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9035,0,0,1000,19762,240); -- Oneiros Tathlum
+INSERT INTO `mob_droplist` VALUES (9036,0,0,1000,3422,1000); -- (Scourquix Scaleskin - Odious Mask) Fiendish Tome: Chapter 19
+INSERT INTO `mob_droplist` VALUES (9036,1,1,1000,1456,100);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9036,1,1,1000,1453,100);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9036,1,1,1000,1450,100);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9036,1,2,900,1449,300); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9036,1,2,900,1452,300); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9036,1,2,900,1455,300); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9036,1,3,1000,1449,240); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9036,1,3,1000,1452,240); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9036,1,3,1000,1455,240); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9036,0,0,1000,11031,240); -- Oneiros Pearl
+INSERT INTO `mob_droplist` VALUES (9037,0,0,1000,3423,1000); -- (Wilywox Tenderpalm - Odious Grenade) Fiendish Tome: Chapter 20
+INSERT INTO `mob_droplist` VALUES (9037,1,1,1000,1456,100);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9037,1,1,1000,1453,100);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9037,1,1,1000,1450,100);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9037,1,2,900,1449,300); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9037,1,2,900,1452,300); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9037,1,2,900,1455,300); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9037,1,3,1000,1449,240); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9037,1,3,1000,1452,240); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9037,1,3,1000,1455,240); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9037,0,0,1000,11032,240); -- Mujin Stud
+INSERT INTO `mob_droplist` VALUES (9038,0,0,1000,1474,1000); -- (Arch Goblin Golem) Infinity Core
+INSERT INTO `mob_droplist` VALUES (9038,1,1,900,1456,300);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9038,1,1,900,1453,300);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9038,1,1,900,1450,300);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9038,1,2,1000,1456,240);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9038,1,2,1000,1453,240);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9038,1,2,1000,1450,240);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9038,1,3,1000,1456,150);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9038,1,3,1000,1453,150);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9038,1,3,1000,1450,150);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9038,1,4,1000,1456,100);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9038,1,4,1000,1453,100);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9038,1,4,1000,1450,100);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9038,0,0,1000,1449,1000); -- Tukuku Whiteshell
+INSERT INTO `mob_droplist` VALUES (9038,0,0,1000,1452,1000); -- Ordelle Bronzepiece
+INSERT INTO `mob_droplist` VALUES (9038,0,0,1000,1455,1000); -- One Byne Bill
+INSERT INTO `mob_droplist` VALUES (9038,1,5,1000,18811,240); -- Oneiros Grip
+INSERT INTO `mob_droplist` VALUES (9038,1,5,1000,11819,240); -- Oneiros coif
 
 -- Beaucedine
 INSERT INTO `mob_droplist` VALUES (9004,1,2,1000,15088,50); -- (Dynamis Beaucedine High Level Hydra Enemies) Melee Cyclas
