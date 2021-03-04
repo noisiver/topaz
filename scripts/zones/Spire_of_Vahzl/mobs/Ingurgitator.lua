@@ -1,4 +1,4 @@
------------------------------------
+ -----------------------------------
 -- Area: Spire of Vahzl
 --  Mob: Ingurgitator
 -- Pulling the Plug
@@ -17,7 +17,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ATTP, 10)
      mob:addMod(tpz.mod.ACC, 30) 
      mob:addMod(tpz.mod.EVA, 30)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)
@@ -42,8 +42,8 @@ function onMobFight(mob, target)
         printf("Set Seether Time Two");
         return
     elseif mob:getBattleTime() >= seetherTimeTwo then
-        Seethertwo:spawn()
-        Seethertwo:updateEnmity(target)
+        SeetherTwo:spawn()
+        SeetherTwo:updateEnmity(target)
         mob:setLocalVar("SeetherTwo", mob:getBattleTime() + 180)
         printf("Spawn Neoingurgitato #2");
     end

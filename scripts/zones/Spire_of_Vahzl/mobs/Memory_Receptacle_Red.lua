@@ -18,7 +18,7 @@ function onMobSpawn(mob)
      mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
      mob:addStatusEffect(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
      mob:addStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
      printf("Add Status");
 end
 
