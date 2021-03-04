@@ -15,7 +15,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ACC, 30) 
      mob:addMod(tpz.mod.EVA, 30)
      mob:setMod(tpz.mod.REGAIN, 250)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)
@@ -25,6 +25,6 @@ function onMobDeath(mob, player, isKiller)
     local Red = GetMobByID(mob:getID() - 2)
     local Add = GetMobByID(mob:getID()+3)
     Add:spawn()
-    Add:updateEnmity(isKiller)
+    Add:updateEnmity(player)
     Red:delStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
 end
