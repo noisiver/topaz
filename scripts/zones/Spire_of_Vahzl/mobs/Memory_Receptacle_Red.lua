@@ -29,7 +29,7 @@ function onMobFight(mob, target)
     local Receptacle = GetMobByID(mob:getID()+1)
     local ReceptacleTwo = GetMobByID(mob:getID()+2)
     local ReceptacleThree = GetMobByID(mob:getID()+3)
-    local Spawn = mob:getLocalVar("Drawin")
+    local Spawn = mob:getLocalVar("Spawn")
     if Spawn == 0 then
         Receptacle:spawn()
         Receptacle:updateEnmity(target)
