@@ -21,7 +21,7 @@ function onMobSpawn(mob)
      mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
-function onMobInitialize(mob)
+function onMobInitialize(mob, target)
     local Receptacle = GetMobByID(mob:getID()+1)
     local ReceptacleTwo = GetMobByID(mob:getID()+2)
     local ReceptacleThree = GetMobByID(mob:getID()+3)
