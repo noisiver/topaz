@@ -22,17 +22,23 @@ function onMobSpawn(mob)
 end
 
 function onMobInitialize(mob)
-    local Receptacle = GetMobByID(mob:getID()+1)
-    local ReceptacleTwo = GetMobByID(mob:getID()+2)
-    local ReceptacleThree = GetMobByID(mob:getID()+3)
-
-    Receptacle:spawn()
-    ReceptacleTwo:spawn()
-    ReceptacleThree:spawn()
 end
 
 function onMobFight(mob, target)
     local drawinTime = mob:getLocalVar("Drawin")
+    local Receptacle = GetMobByID(mob:getID()+1)
+    local ReceptacleTwo = GetMobByID(mob:getID()+2)
+    local ReceptacleThree = GetMobByID(mob:getID()+3)
+    local Spawn = mob:getLocalVar("Drawin")
+    if spawn == 0 then
+        Receptacle:spawn()
+        Receptacle:updateEnmity(mob)
+        ReceptacleTwo:spawn()
+        ReceptacleTwo:updateEnmity(mob)
+        ReceptacleThree:spawn()
+        ReceptacleThree:updateEnmity(mob)
+        mob:setLocalVar("Spawn", 1)
+    end
 
     if drawinTime == 0 then
         mob:setLocalVar("Drawin", 20)
