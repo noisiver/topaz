@@ -21,17 +21,14 @@ function onMobSpawn(mob)
      mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
-function onMobInitialize(mob, target)
+function onMobInitialize(mob)
     local Receptacle = GetMobByID(mob:getID()+1)
     local ReceptacleTwo = GetMobByID(mob:getID()+2)
     local ReceptacleThree = GetMobByID(mob:getID()+3)
 
     Receptacle:spawn()
-    Receptacle:updateEnmity(target)
     ReceptacleTwo:spawn()
-    ReceptacleTwo:updateEnmity(target)
     ReceptacleThree:spawn()
-    ReceptacleThree:updateEnmity(target)
 end
 
 function onMobFight(mob, target)
