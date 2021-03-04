@@ -32,11 +32,11 @@ function onMobFight(mob, target)
     local Spawn = mob:getLocalVar("Drawin")
     if spawn == 0 then
         Receptacle:spawn()
-        Receptacle:updateEnmity(mob)
+        Receptacle:updateEnmity(target)
         ReceptacleTwo:spawn()
-        ReceptacleTwo:updateEnmity(mob)
+        ReceptacleTwo:updateEnmity(target)
         ReceptacleThree:spawn()
-        ReceptacleThree:updateEnmity(mob)
+        ReceptacleThree:updateEnmity(target)
         mob:setLocalVar("Spawn", 1)
     end
 
