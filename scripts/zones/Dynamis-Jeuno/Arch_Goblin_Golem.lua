@@ -9,6 +9,12 @@ mixins =
 }
 -----------------------------------
 function onMobSpawn(mob)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 60, hpp = 90},
+        },
+    })
      mob:addMod(tpz.mod.DEFP, 30) 
      mob:addMod(tpz.mod.ATTP, 20)
      mob:addMod(tpz.mod.ACC, 50) 
@@ -16,12 +22,6 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 60, hpp = 90},
-        },
-    })
     if (mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) == true) then
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 30)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 1156)
