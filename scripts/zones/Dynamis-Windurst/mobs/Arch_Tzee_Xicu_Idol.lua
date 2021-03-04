@@ -18,11 +18,9 @@ end
 
 function onMobFight(mob, target)
     tpz.mix.jobSpecial.config(mob, {
-        between = 300,
         specials =
         {
-            {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 0, hpp = 90},
-            {id = tpz.jsa.BENEDICTION, cooldown = 0, hpp = 25},
+            {id = tpz.jsa.MANA_FONT, cooldown = 60, hpp = 90},
         },
     })
 end

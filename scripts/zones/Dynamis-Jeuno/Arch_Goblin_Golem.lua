@@ -1,10 +1,10 @@
 -----------------------------------
--- Area: Dynamis - San d'Oria
---  Mob: Bloodfist Voshgrosh
+-- Area: Dynamis - Jeuno
+--  Mob: Arch GObin Golem
 -----------------------------------
+require("scripts/globals/status")
 mixins =
 {
-    require("scripts/mixins/dynamis_beastmen"),
     require("scripts/mixins/job_special")
 }
 -----------------------------------
@@ -17,13 +17,18 @@ end
 
 function onMobFight(mob, target)
     tpz.mix.jobSpecial.config(mob, {
-        between = 60,
         specials =
         {
-            {id = tpz.jsa.HUNDRED_FISTS, cooldown = 0, hpp = 90},
-            {id = tpz.jsa.BLOOD_WEAPON, cooldown = 0, hpp = 90},
+            {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 60, hpp = 90},
         },
     })
+    if (mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) == true) then
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 30)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 1156)
+    else
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 92)
+    end
 end
 
 function onMobDeath(mob, player, isKiller)

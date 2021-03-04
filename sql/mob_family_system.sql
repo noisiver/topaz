@@ -155,10 +155,10 @@ INSERT INTO `mob_family_system` VALUES (88,'Draugar',19,'Undead',0,40,100,140,1,
 INSERT INTO `mob_family_system` VALUES (89,'Draugar',19,'Undead',0,40,100,140,1,3,4,3,1,5,4,3,3,3,3,0.875,0.5,1.125,1.25,1.125,0.875,1,1,1,1,1.125,0.5,8,6,0);
 INSERT INTO `mob_family_system` VALUES (90,'Dvergr',9,'Demon',1,40,90,95,6,3,3,3,1,5,4,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,0.875,0,1,0);
 INSERT INTO `mob_family_system` VALUES (91,'DvergrSkull',9,'Demon',0,40,92,140,6,3,3,3,1,5,4,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,7,0);
-INSERT INTO `mob_family_system` VALUES (92,'DynamisStatue-Goblin',18,'Unclassified',3,20,30,120,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,1.15,1.15,1.15,1.15,1.15,1.15,1.3,0.85,0,1,0);
-INSERT INTO `mob_family_system` VALUES (93,'DynamisStatue-Orc',18,'Unclassified',3,20,30,100,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,0.85,0.85,1.15,1.15,1.15,1.3,1.15,1.15,0,1,0);
-INSERT INTO `mob_family_system` VALUES (94,'DynamisStatue-Quadav',18,'Unclassified',3,20,30,110,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,0.85,1.15,1.15,1.15,1.3,0.85,1.15,1.15,0,1,0);
-INSERT INTO `mob_family_system` VALUES (95,'DynamisStatue-Yagudo',18,'Unclassified',3,20,30,120,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,1.15,1.3,0.85,0.85,1.15,1.15,1.15,1.15,0,1,0);
+INSERT INTO `mob_family_system` VALUES (92,'DynamisStatue-Goblin',18,'Unclassified',3,20,30,120,3,3,3,3,3,3,3,1,3,1,3,1,0.75,0.8125,0.865,1.15,1.15,1.15,1.15,1.15,1.15,1.3,0.85,0,1,0);
+INSERT INTO `mob_family_system` VALUES (93,'DynamisStatue-Orc',18,'Unclassified',3,20,30,100,3,3,3,3,3,3,3,1,3,1,3,1,0.75,0.8125,0.865,0.85,0.85,1.15,1.15,1.15,1.3,1.15,1.15,0,1,0);
+INSERT INTO `mob_family_system` VALUES (94,'DynamisStatue-Quadav',18,'Unclassified',3,20,30,110,3,3,3,3,3,3,3,1,3,1,3,1,0.75,0.8125,0.865,0.85,1.15,1.15,1.15,1.3,0.85,1.15,1.15,0,1,0);
+INSERT INTO `mob_family_system` VALUES (95,'DynamisStatue-Yagudo',18,'Unclassified',3,20,30,120,3,3,3,3,3,3,3,1,3,1,3,1,0.75,0.8125,0.865,1.15,1.3,0.85,0.85,1.15,1.15,1.15,1.15,0,1,0);
 INSERT INTO `mob_family_system` VALUES (97,'IceLizard',14,'Lizard',1,40,100,120,4,3,5,4,4,4,4,1,3,1,3,1,1,1,1,1.25,1,1,1,1,1,1,1,5,2,0);
 INSERT INTO `mob_family_system` VALUES (98,'Eft',14,'Lizard',0,40,95,90,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1.25,1,1,1,1,1,1,1,2,1);
 INSERT INTO `mob_family_system` VALUES (99,'Elemental-Air',11,'Elemental',0,40,100,120,3,3,4,4,3,3,3,1,3,1,3,0.25,0.25,0.25,0.25,1,1.5,0.05,0.05,1,1,1,1,3,32,0); -- vit/agi/evas/def only

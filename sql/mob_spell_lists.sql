@@ -966,48 +966,40 @@ INSERT INTO `mob_spell_lists` VALUES ('EasternSphinx',44,360,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,376,1,255); -- Horde Lullaby
 INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,423,1,255); -- massacre elegy
 INSERT INTO `mob_spell_lists` VALUES ('Roc_BRD',45,462,1,255); -- magic finale
-INSERT INTO `mob_spell_lists` VALUES ('Serket',46,362,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,14,6,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,15,9,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,16,14,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,17,19,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,18,39,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,19,34,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,20,29,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,57,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,128,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,133,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,367,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,367,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,273,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,362,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,365,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,366,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,273,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,356,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,362,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,366,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,367,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,147,73,85);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,152,74,88);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,157,72,82);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,163,77,255);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,167,75,92);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,172,70,78);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,181,71,255);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,186,67,71);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,189,15,22);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,190,40,47);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,191,63,67);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,194,36,43);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,195,61,65);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,196,73,255);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,201,65,255);
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,367,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Hecteyes',51,360,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Crow',52,359,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Scorpion',53,365,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Slime',54,356,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Serket',46,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,57,1,255); -- Haste
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,128,1,255); -- Protectra IV
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,133,1,255); -- Shellra IV
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Golem',47,367,1,255); -- Death
+INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,367,1,255); -- Death
+INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,274,1,255); -- Sleepga_II
+INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,365,1,255); -- breakga
+INSERT INTO `mob_spell_lists` VALUES ('Gu_Dha_Effigy',48,366,1,255); -- graviga
+INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,273,1,255); -- Sleepga
+INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,356,1,255); -- paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,366,1,255); -- graviga
+INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,367,1,255); -- Death
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,147,73,85); -- fire_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,152,74,88); -- blizzard_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,157,72,82); -- aero_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,163,77,255); -- stone_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,167,75,92); -- thunder_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,172,70,78); -- water_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,181,71,255); -- blizzaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,186,67,71); -- aeroga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,191,63,67); -- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,196,73,255); -- thundaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,201,65,255); -- waterga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,227,65,255); -- poisonga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,232,65,255); -- bio_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,249,65,255); -- blaze_spikes
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,367,1,255); -- Death
+INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Hecteyes',51,360,1,255); -- dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Crow',52,359,1,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Scorpion',53,365,1,255); -- breakga
+INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Slime',54,356,1,255); -- paralyga
 INSERT INTO `mob_spell_lists` VALUES ('Waraxe_Beak',55,161,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Waraxe_Beak',55,162,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Waraxe_Beak',55,191,1,255);
@@ -3981,6 +3973,33 @@ INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,166,24,255); -- Thunder III
 INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,171,24,255); -- Water III
 INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 249, 1, 255); -- blaze_spikes
 INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,231,35,255);   -- Bio II
+
+-- Dynamis
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,57,1,255); -- Haste
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,128,1,255); -- Protectra IV
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,133,1,255); -- Shellra IV
+
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002,146,24,255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002,151,24,255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002,156,24,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002,161,24,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002,166,24,255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002,171,24,255); -- Water III
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002, 108, 1, 255); -- Regen
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002, 216, 1, 255); -- Gravity
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002, 260, 1, 255); -- Dispel
+INSERT INTO `mob_spell_lists` VALUES ('Orc_Statue',1002,231,35,255);   -- Bio II
+
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,273,1,255); -- Sleepga
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,365,1,255); -- breakga
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,366,1,255); -- graviga
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,274,1,255); -- Sleepga II
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,356,1,255); -- paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,366,1,255); -- graviga
+INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,360,24,255); -- Dispelga
+
 
 
 --Custom Content

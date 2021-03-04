@@ -17,10 +17,10 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1
+    local dmgmod = 2
 
     if mob:isMobType(MOBTYPE_NOTORIOUS) then
-        dmgmod = 1
+        dmgmod = 3
     end
 
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)

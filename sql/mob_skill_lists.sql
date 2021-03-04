@@ -426,14 +426,14 @@ INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,2114);
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,2116);
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,2117);
 INSERT INTO `mob_skill_lists` VALUES ('PandemoniumLamp',91,2119);
-INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Goblin',92,1114);
-INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Goblin',92,1115);
-INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Orc',93,1110);
-INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Orc',93,1111);
-INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Quadav',94,1112);
-INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Quadav',94,1113);
-INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Yagudo',95,1116);
-INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Yagudo',95,1117);
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Goblin',92,1114); -- seismostomp
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Goblin',92,1115); -- torpid_glare
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Orc',93,1110); -- seismostomp
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Orc',93,1111); -- numbing_glare
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Quadav',94,1112); -- seismostomp
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Quadav',94,1117); -- lead_breath
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Yagudo',95,1116); -- seismostomp
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-Yagudo',95,1113); -- tormentful_glare
 INSERT INTO `mob_skill_lists` VALUES ('Nandi',96,287);
 INSERT INTO `mob_skill_lists` VALUES ('IceLizard',97,366);
 INSERT INTO `mob_skill_lists` VALUES ('IceLizard',97,368);
@@ -3713,6 +3713,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1234); -- carousel
 INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1274); -- impalement
 INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1275); -- empty_thrash
 INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1276); -- promyvion_brume
+INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-GoblinStompOnly',1156,1114); -- seismostomp
 
 
 -- Custom Content

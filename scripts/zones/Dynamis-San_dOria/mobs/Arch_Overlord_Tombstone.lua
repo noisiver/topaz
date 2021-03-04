@@ -1,12 +1,10 @@
 -----------------------------------
--- Area: Dynamis - Windurst
---  Mob: Fuu Tzapo the Blessed
+-- Area: Dynamis - San d'Oria
+--  Mob: Arch Overlord Tombstone
 -----------------------------------
 mixins =
 {
-    require("scripts/mixins/dynamis_beastmen"),
-    require("scripts/mixins/job_special"),
-    require("scripts/mixins/remove_doom")
+    require("scripts/mixins/job_special")
 }
 -----------------------------------
 function onMobSpawn(mob)
@@ -18,13 +16,17 @@ end
 
 function onMobFight(mob, target)
     tpz.mix.jobSpecial.config(mob, {
-        between = 300,
         specials =
         {
-            {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 0, hpp = 90},
-            {id = tpz.jsa.BENEDICTION, cooldown = 0, hpp = 25},
+            {id = tpz.jsa.HUNDRED_FISTS, cooldown = 60, hpp = 90},
         },
     })
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 1110 then
+        mob:resetEnmity(target)        
+    end
 end
 
 function onMobDeath(mob, player, isKiller)

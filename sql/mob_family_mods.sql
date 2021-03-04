@@ -367,6 +367,7 @@ INSERT INTO `mob_family_mods` VALUES (92,63,50,0);	-- Statue-Goblin +50% DEF
 INSERT INTO `mob_family_mods` VALUES (92,25,50,0);	-- Statue-Goblin +50 ACC
 INSERT INTO `mob_family_mods` VALUES (92,68,50,0);	-- Statue-Goblin +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (92,29,112,0);	-- Statue-Goblin +112 MDB
+INSERT INTO `mob_family_mods` VALUES (92,73,100,0);	-- Statue-Goblin +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (92,382,-100,0); -- Statue-Goblin -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (93,62,50,0);	-- Statue-Orc +50% Attk
@@ -374,6 +375,7 @@ INSERT INTO `mob_family_mods` VALUES (93,63,50,0);	-- Statue-Orc +50% DEF
 INSERT INTO `mob_family_mods` VALUES (93,25,50,0);	-- Statue-Orc +50 ACC
 INSERT INTO `mob_family_mods` VALUES (93,68,50,0);	-- Statue-Orc +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (93,29,62,0);	-- Statue-Orc +62 MDB
+INSERT INTO `mob_family_mods` VALUES (93,73,100,0);	-- Statue-Orc +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (93,382,-100,0); -- Statue-Orc -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (94,62,50,0);	-- Statue-Quadav +50% Attk
@@ -381,6 +383,7 @@ INSERT INTO `mob_family_mods` VALUES (94,63,50,0);	-- Statue-Quadav +50% DEF
 INSERT INTO `mob_family_mods` VALUES (94,25,50,0);	-- Statue-Quadav +50 ACC
 INSERT INTO `mob_family_mods` VALUES (94,68,50,0);	-- Statue-Quadav +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (94,29,112,0);	-- Statue-Quadav +112 MDB
+INSERT INTO `mob_family_mods` VALUES (94,73,100,0);	-- Statue-Quadav +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (94,382,-100,0); -- Statue-Quadav -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (95,62,50,0);	-- Statue-Yagud +50% Attk
@@ -388,6 +391,7 @@ INSERT INTO `mob_family_mods` VALUES (95,63,50,0);	-- Statue-Yagud +50% DEF
 INSERT INTO `mob_family_mods` VALUES (95,25,50,0);	-- Statue-Yagud +50 ACC
 INSERT INTO `mob_family_mods` VALUES (95,68,50,0);	-- Statue-Yagud +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (95,29,162,0);	-- Statue-Yagudo +162 MDB
+INSERT INTO `mob_family_mods` VALUES (95,73,100,0);	-- Statue-Yagudo +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (95,382,-100,0); -- Statue-Yagudo -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (510,62,50,0);	-- Kindreds Wyvern +50% Attk

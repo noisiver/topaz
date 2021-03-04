@@ -1349,13 +1349,13 @@ INSERT INTO `item_basic` VALUES (1460,0,'koh-i-noor','koh-i-noor',12,4,39,0,9937
 INSERT INTO `item_basic` VALUES (1461,0,'wootz_ingot','wootz_ingot',12,4,38,0,3975);
 INSERT INTO `item_basic` VALUES (1462,0,'piece_of_lancewood_lumber','lancewood_lbr.',12,4,43,0,1987);
 INSERT INTO `item_basic` VALUES (1463,0,'chronos_tooth','chronos_tooth',1,4,42,0,2703);
-INSERT INTO `item_basic` VALUES (1464,0,'lancewood_log','lancewood_log',1,4,43,0,265);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (1464,0,'lancewood_log','lancewood_log',1,4,43,0,2650);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (1465,0,'slab_of_granite','granite',1,4,39,0,2650);
-INSERT INTO `item_basic` VALUES (1466,0,'pile_of_relic_iron','relic_iron',1,4,38,0,265);
+INSERT INTO `item_basic` VALUES (1466,0,'pile_of_relic_iron','relic_iron',1,4,38,0,2650);
 INSERT INTO `item_basic` VALUES (1467,0,'chunk_of_relic_steel','relic_steel',1,4,38,0,5300);
 INSERT INTO `item_basic` VALUES (1468,0,'flask_of_marksmans_oil','marksmans_oil',1,4,44,0,3300);
-INSERT INTO `item_basic` VALUES (1469,0,'chunk_of_wootz_ore','wootz_ore',1,4,38,0,265);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (1470,0,'sparkling_stone','sparkling_stone',1,4,39,0,265);
+INSERT INTO `item_basic` VALUES (1469,0,'chunk_of_wootz_ore','wootz_ore',1,4,38,0,2650);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (1470,0,'sparkling_stone','sparkling_stone',1,4,39,0,2650);
 INSERT INTO `item_basic` VALUES (1471,0,'box_of_sticky_rice','sticky_rice',12,4,59,0,190);
 INSERT INTO `item_basic` VALUES (1472,0,'gardenia_seed','gardenia_seed',12,4,59,0,123);
 INSERT INTO `item_basic` VALUES (1473,0,'high-quality_scorpion_shell','h.q._scp._shell',1,4,42,0,3420);
@@ -1401,12 +1401,12 @@ INSERT INTO `item_basic` VALUES (1512,0,'y_egg','y_egg',12,12352,0,1,0);
 INSERT INTO `item_basic` VALUES (1513,0,'z_egg','z_egg',12,12352,0,1,0);
 INSERT INTO `item_basic` VALUES (1514,0,'chocobo_ticket','chocobo_ticket',12,4100,46,1,0);
 INSERT INTO `item_basic` VALUES (1515,0,'handful_of_fang_arrowheads','fang_arrowhd.',99,4,43,0,16);
-INSERT INTO `item_basic` VALUES (1516,0,'griffon_hide','griffon_hide',1,4,41,0,265);		-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (1517,0,'giant_frozen_head','giant_frozen_head',1,4,42,0,265);
-INSERT INTO `item_basic` VALUES (1518,0,'colossal_skull','colossal_skull',1,4,42,0,265);
-INSERT INTO `item_basic` VALUES (1519,0,'fresh_orc_liver','fresh_orc_liver',1,4,44,0,265);
-INSERT INTO `item_basic` VALUES (1520,0,'jar_of_goblin_grease','goblin_grease',1,4,50,0,265);
-INSERT INTO `item_basic` VALUES (1521,0,'vial_of_slime_juice','slime_juice',1,4,44,0,265);
+INSERT INTO `item_basic` VALUES (1516,0,'griffon_hide','griffon_hide',1,4,41,0,2650);		-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (1517,0,'giant_frozen_head','giant_frozen_head',1,4,42,0,2650);
+INSERT INTO `item_basic` VALUES (1518,0,'colossal_skull','colossal_skull',1,4,42,0,2650);
+INSERT INTO `item_basic` VALUES (1519,0,'fresh_orc_liver','fresh_orc_liver',1,4,44,0,2650);
+INSERT INTO `item_basic` VALUES (1520,0,'jar_of_goblin_grease','goblin_grease',1,4,50,0,2650);
+INSERT INTO `item_basic` VALUES (1521,0,'vial_of_slime_juice','slime_juice',1,4,44,0,2650);
 INSERT INTO `item_basic` VALUES (1522,0,'sprig_of_fresh_marjoram','fresh_marjoram',12,4,59,0,1);
 INSERT INTO `item_basic` VALUES (1523,0,'sprig_of_apple_mint','apple_mint',12,4,59,0,79);
 INSERT INTO `item_basic` VALUES (1524,0,'sprig_of_fresh_mugwort','fresh_mugwort',12,4,44,0,80);

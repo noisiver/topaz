@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: Dynamis - San d'Oria
---  Mob: Bloodfist Voshgrosh
+-- Area: Dynamis - Bastok
+--  Mob: ARch Gu'dha Effigy
 -----------------------------------
 mixins =
 {
@@ -17,13 +17,26 @@ end
 
 function onMobFight(mob, target)
     tpz.mix.jobSpecial.config(mob, {
-        between = 60,
         specials =
         {
-            {id = tpz.jsa.HUNDRED_FISTS, cooldown = 0, hpp = 90},
-            {id = tpz.jsa.BLOOD_WEAPON, cooldown = 0, hpp = 90},
+            {id = tpz.jsa.BLOOD_WEAPON, cooldown = 60, hpp = 90},
         },
     })
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 1112 then
+        local tailroll = mob:getLocalVar("tailroll")
+
+        tailroll = tailroll +1
+        mob:setLocalVar("tailroll", tailroll)
+
+        if tailroll > 1 then
+            mob:setLocalVar("tailroll", 0)
+        else
+            mob:useMobAbility(1112)
+        end
+    end
 end
 
 function onMobDeath(mob, player, isKiller)
