@@ -23,7 +23,7 @@ function onMobDeath(mob, player, isKiller)
     local Add = GetMobByID(mob:getID()+1)
     Add:spawn()
     Add:updateEnmity(target)
-    Red:delStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
+    Red:setMod(tpz.mod.UDMGPHYS, 0)
 end
 
 
