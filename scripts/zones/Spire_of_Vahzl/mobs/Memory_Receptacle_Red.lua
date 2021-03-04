@@ -50,7 +50,6 @@ function onMobFight(mob, target)
         printf("Drawing in");
     else
         mob:setMobMod(tpz.mobMod.DRAW_IN, 0)
-        printf("Draw in off");
     end
 end
 
