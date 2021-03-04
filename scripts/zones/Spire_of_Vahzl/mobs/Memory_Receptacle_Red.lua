@@ -10,10 +10,16 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
-     mob:addStatusEffectEx(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
-     mob:addStatusEffectEx(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
-     printf("Add status");
+     mob:addMod(tpz.mod.DEFP, 20) 
+     mob:addMod(tpz.mod.ATTP, 10)
+     mob:addMod(tpz.mod.ACC, 30) 
+     mob:addMod(tpz.mod.EVA, 30)
+     mob:setMod(tpz.mod.REGAIN, 250)
+     mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
+     mob:addStatusEffect(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
+     mob:addStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     printf("Add Status");
 end
 
 function onMobInitialize(mob)
