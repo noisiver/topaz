@@ -17,7 +17,7 @@ end
 
 function onMobFight(mob, target)
     tpz.mix.jobSpecial.config(mob, {
-        between = 120,
+        between = 180,
         specials =
         {
             {id = tpz.jsa.CHAINSPELL, cooldown = 0, hpp = 90},
