@@ -10,10 +10,13 @@ mixins =
 }
 -----------------------------------
 function onMobSpawn(mob)
+     local Pet = GetMobByID(mob:getID()+1)
      mob:addMod(tpz.mod.DEFP, 30) 
      mob:addMod(tpz.mod.ATTP, 20)
      mob:addMod(tpz.mod.ACC, 50) 
      mob:addMod(tpz.mod.EVA, 30)
+     Pet:spawn()
+     Pet:updateEnmity(target)
 end
 
 function onMobFight(mob, target)
@@ -21,7 +24,7 @@ function onMobFight(mob, target)
         between = 60,
         specials =
         {
-            {id = tpz.jsa.ASTRAL_FLOW, cooldown = 0, hpp = 90},
+            {id = tpz.jsa.ASTRAL_FLOW_MAAT, cooldown = 0, hpp = 90},
             {id = tpz.jsa.PERFECT_DODGE, cooldown = 0, hpp = 90},
         },
     })

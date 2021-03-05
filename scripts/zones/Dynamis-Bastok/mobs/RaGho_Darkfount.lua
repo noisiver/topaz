@@ -24,7 +24,7 @@ function onMobFight(mob, target)
         specials =
         {
             {id = tpz.jsa.BLOOD_WEAPON, cooldown = 0, hpp = 90},
-            {id = tpz.jsa.ASTRAL_FLOW, cooldown = 0, hpp = 90},
+            {id = tpz.jsa.ASTRAL_FLOW_MAAT, cooldown = 0, hpp = 90},
         },
     })
 end
