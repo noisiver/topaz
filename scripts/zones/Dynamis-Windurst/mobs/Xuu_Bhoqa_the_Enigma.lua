@@ -10,11 +10,13 @@ mixins =
 }
 -----------------------------------
 function onMobSpawn(mob)
+     local Pet = GetMobByID(mob:getID()+1)
      mob:addMod(tpz.mod.DEFP, 30) 
      mob:addMod(tpz.mod.ATTP, 20)
      mob:addMod(tpz.mod.ACC, 50) 
      mob:addMod(tpz.mod.EVA, 30)
-    mob:spawnPet()
+     Pet:spawn()
+     Pet:updateEnmity(target)
 end
 
 function onMobFight(mob, target)
@@ -29,4 +31,5 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    DespawnMob(mob:getID()+1)
 end

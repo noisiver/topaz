@@ -1150,6 +1150,10 @@ INSERT INTO `mob_pets` VALUES (16929098, 1, 14); -- Temenos Aern DRG
 INSERT INTO `mob_pets` VALUES (16929101, 1, 14); -- Temenos Aern DRG
 INSERT INTO `mob_pets` VALUES (16929113, 1, 15); -- Temenos Aern SMN
 
+-- ------------------------------------------------------------
+-- Dynamis (Zone 289)
+-- ------------------------------------------------------------
+
 INSERT INTO `mob_pets` VALUES (17539308, 1, 15); -- Ra_Gho_s_Avatar
 INSERT INTO `mob_pets` VALUES (17326103, 1, 9); -- Vanguard_s_Scorpion
 INSERT INTO `mob_pets` VALUES (17326143, 1, 9); -- Vanguard_s_Scorpion
@@ -1170,6 +1174,7 @@ INSERT INTO `mob_pets` VALUES (17326439, 1, 9); -- Vanguard_s_Slime
 -- INSERT INTO `mob_pets` VALUES (17326455, 1, 9); -- Vanguard_s_Wyvern
 -- INSERT INTO `mob_pets` VALUES (16941081, 1, 9); -- Vanguard_s_Wyvern
 -- INSERT INTO `mob_pets` VALUES (16941394, 1, 9); -- Vanguard_s_Wyvern
+INSERT INTO `mob_pets` VALUES (17543464, 1, 15); -- Xuu_Bhoqas_Avatar
 -- INSERT INTO `mob_pets` VALUES (17232056, 1, 9); -- Gigas_s_Tiger
 -- INSERT INTO `mob_pets` VALUES (17232061, 1, 9); -- Gigas_s_Tiger
 -- INSERT INTO `mob_pets` VALUES (17268790, 1, 9); -- Goblin_s_Beetle
