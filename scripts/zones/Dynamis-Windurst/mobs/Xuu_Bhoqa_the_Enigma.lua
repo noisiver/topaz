@@ -31,4 +31,5 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    DespawnMob(mob:getID()+1)
 end
