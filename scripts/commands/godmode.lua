@@ -29,7 +29,7 @@ function onTrigger(player)
         player:addStatusEffect(tpz.effect.REGEN, 99, 0, 0)
         player:addStatusEffect(tpz.effect.FEALTY, 1, 0, 0)
         player:addStatusEffect(tpz.effect.POISON, 1, 1, 7200)
-        player:addStatusEffect(tpz.effect.CURSE, 1, 0, 7200)
+        player:addStatusEffect(tpz.effect.CURSE, 1, 1, 7200)
 
         -- Add bonus mods to the player..
         player:addMod(tpz.mod.RACC, 2500)
@@ -64,8 +64,8 @@ function onTrigger(player)
         player:delStatusEffect(tpz.effect.REFRESH)
         player:delStatusEffect(tpz.effect.REGEN)
         player:delStatusEffect(tpz.effect.FEALTY)
-        player:addStatusEffect(tpz.effect.POISON)
-        player:addStatusEffect(tpz.effect.CURSE)
+        player:delStatusEffect(tpz.effect.POISON)
+        player:delStatusEffect(tpz.effect.CURSE)
 
         -- Remove bonus mods..
         player:delMod(tpz.mod.RACC, 2500)
