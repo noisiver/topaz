@@ -16,6 +16,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.EVA, 30)
      Pet:spawn()
      Pet:updateEnmity(target)
+end
 
 function onMobFight(mob, target)
     tpz.mix.jobSpecial.config(mob, {
