@@ -16489,7 +16489,7 @@ INSERT INTO `mob_droplist` VALUES (9015,0,0,1000,1455,1000); -- One byne bill
 INSERT INTO `mob_droplist` VALUES (9015,0,0,1000,1455,240); -- One byne bill
 INSERT INTO `mob_droplist` VALUES (9015,0,0,1000,1456,100); -- One hundred byne bill
 INSERT INTO `mob_droplist` VALUES (9015,0,0,1000,19767,240); -- Oneiros pebble
-INSERT INTO `mob_droplist` VALUES (9016,0,0,1000,3354,1000); -- (Zo'Pha Forgesoul- Odious Charm) -- Fiendish Tome: Chapter 7
+INSERT INTO `mob_droplist` VALUES (9016,0,0,1000,3410,1000); -- (Zo'Pha Forgesoul- Odious Charm) -- Fiendish Tome: Chapter 7
 INSERT INTO `mob_droplist` VALUES (9016,0,0,1000,1455,1000); -- One byne bill
 INSERT INTO `mob_droplist` VALUES (9016,0,0,1000,1455,240); -- One byne bill
 INSERT INTO `mob_droplist` VALUES (9016,0,0,1000,1456,100); -- One hundred byne bill
@@ -16530,10 +16530,10 @@ INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15145,50); -- Wyrm Greaves
 INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15146,50); -- Summoner's Pigaches
 INSERT INTO `mob_droplist` VALUES (9001,1,4,1000,16349,50); -- Commodore Trews
 INSERT INTO `mob_droplist` VALUES (9001,0,0,1000,1453,10);  -- Montiont Silverpiece
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3380,150); -- Odious Scale
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3381,150); -- OOdious Leather
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3382,150); -- Odious Cryptex
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3383,150); -- Odious Strongbox 
+INSERT INTO `mob_droplist` VALUES (9001,1,5,1000,3380,150); -- Odious Scale
+INSERT INTO `mob_droplist` VALUES (9001,1,5,1000,3381,150); -- OOdious Leather
+INSERT INTO `mob_droplist` VALUES (9001,1,5,1000,3382,150); -- Odious Cryptex
+INSERT INTO `mob_droplist` VALUES (9001,1,5,1000,3383,150); -- Odious Strongbox 
 -- Timed NMs
 INSERT INTO `mob_droplist` VALUES (9018,0,0,1000,1456,50);  -- One Hundred Byne Bill
 INSERT INTO `mob_droplist` VALUES (9018,0,0,1000,3353,240); -- Barbaric Bijou 
@@ -16603,11 +16603,11 @@ INSERT INTO `mob_droplist` VALUES (9002,1,3,1000,15128,50); -- Saotome Haidate
 INSERT INTO `mob_droplist` VALUES (9002,1,3,1000,15131,50); -- Summoner's Spats
 INSERT INTO `mob_droplist` VALUES (9002,1,3,1000,15134,50); -- Cleric's Duckbills
 INSERT INTO `mob_droplist` VALUES (9002,1,3,1000,15138,50); -- Valor Leggings
-INSERT INTO `mob_droplist` VALUES (9001,0,0,1000,1450,10);  -- Lungo-Nango Jadeshell
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3388,150); -- Odious Necklace
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3389,150); -- Odious Feather
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3390,150); -- Odious Holy Water
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3391,150); -- Odious Quipu
+INSERT INTO `mob_droplist` VALUES (9002,0,0,1000,1450,10);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9002,1,5,1000,3388,150); -- Odious Necklace
+INSERT INTO `mob_droplist` VALUES (9002,1,5,1000,3389,150); -- Odious Feather
+INSERT INTO `mob_droplist` VALUES (9002,1,5,1000,3390,150); -- Odious Holy Water
+INSERT INTO `mob_droplist` VALUES (9002,1,5,1000,3391,150); -- Odious Quipu
 -- Timed NMs
 INSERT INTO `mob_droplist` VALUES (9025,0,0,1000,1456,50);  -- One Hundred Byne Bill
 INSERT INTO `mob_droplist` VALUES (9025,0,0,1000,3355,240); -- Divine Bijou 
@@ -16681,10 +16681,10 @@ INSERT INTO `mob_droplist` VALUES (9003,1,3,1000,15144,50); -- Koga Kyahan
 INSERT INTO `mob_droplist` VALUES (9003,1,5,1000,1456,10);  -- One Hundred Byne Bill
 INSERT INTO `mob_droplist` VALUES (9003,1,5,1000,1453,10);  -- Montiont Silverpiece
 INSERT INTO `mob_droplist` VALUES (9003,1,5,1000,1450,10);  -- Lungo-Nango Jadeshell
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3392,150); -- Odious Cup
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3393,150); -- Odious Die
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3394,150); -- Odious Mask
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3395,150); -- Odious Grenade
+INSERT INTO `mob_droplist` VALUES (9003,1,5,1000,3392,150); -- Odious Cup
+INSERT INTO `mob_droplist` VALUES (9003,1,5,1000,3393,150); -- Odious Die
+INSERT INTO `mob_droplist` VALUES (9003,1,5,1000,3394,150); -- Odious Mask
+INSERT INTO `mob_droplist` VALUES (9003,1,5,1000,3395,150); -- Odious Grenade
 -- Timed NMs
 INSERT INTO `mob_droplist` VALUES (9032,1,1,1000,1456,50);  -- One Hundred Byne Bill
 INSERT INTO `mob_droplist` VALUES (9032,1,1,1000,1453,50);  -- Montiont Silverpiece
@@ -16844,10 +16844,10 @@ INSERT INTO `mob_droplist` VALUES (9005,1,2,1000,11480,50); -- Argute Mortarboar
 INSERT INTO `mob_droplist` VALUES (9005,1,4,1000,1456,10);  -- One Hundred Byne Bill
 INSERT INTO `mob_droplist` VALUES (9005,1,4,1000,1453,10);  -- Montiont Silverpiece
 INSERT INTO `mob_droplist` VALUES (9005,1,4,1000,1450,10);  -- Lungo-Nango Jadeshell
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3400,150); -- Odious Skull
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3401,150); -- Odious Horn
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3402,150); -- Odious Blood
-INSERT INTO `mob_droplist` VALUES (9000,1,5,1000,3403,150); -- Odious Pen
+INSERT INTO `mob_droplist` VALUES (9005,1,5,1000,3400,150); -- Odious Skull
+INSERT INTO `mob_droplist` VALUES (9005,1,5,1000,3401,150); -- Odious Horn
+INSERT INTO `mob_droplist` VALUES (9005,1,5,1000,3402,150); -- Odious Blood
+INSERT INTO `mob_droplist` VALUES (9005,1,5,1000,3403,150); -- Odious Pen
 -- Timed NMs
 INSERT INTO `mob_droplist` VALUES (9046,0,0,1000,1456,50);  -- One Hundred Byne Bill
 INSERT INTO `mob_droplist` VALUES (9046,0,0,1000,3358,240); -- Shrouded Bijou
