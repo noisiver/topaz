@@ -1175,6 +1175,7 @@ INSERT INTO `mob_pets` VALUES (17326439, 1, 9); -- Vanguard_s_Slime
 -- INSERT INTO `mob_pets` VALUES (16941081, 1, 9); -- Vanguard_s_Wyvern
 -- INSERT INTO `mob_pets` VALUES (16941394, 1, 9); -- Vanguard_s_Wyvern
 INSERT INTO `mob_pets` VALUES (17543464, 1, 15); -- Xuu_Bhoqas_Avatar
+INSERT INTO `mob_pets` VALUES (17547494, 1, 15); -- Feraloxs Slime
 -- INSERT INTO `mob_pets` VALUES (17232056, 1, 9); -- Gigas_s_Tiger
 -- INSERT INTO `mob_pets` VALUES (17232061, 1, 9); -- Gigas_s_Tiger
 -- INSERT INTO `mob_pets` VALUES (17268790, 1, 9); -- Goblin_s_Beetle
