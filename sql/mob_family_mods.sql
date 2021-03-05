@@ -186,8 +186,8 @@ INSERT INTO `mob_family_mods` VALUES (125,254,100,0);
 --INSERT INTO `mob_family_mods` VALUES (47,243,75,0);		-- bat blind resist
 
 -- Experience bonus
-INSERT INTO `mob_family_mods` VALUES (208,382,23,0);		-- Ram +23% EXP
-INSERT INTO `mob_family_mods` VALUES (266,382,23,0);		-- Wyvern +23% EXP 
+INSERT INTO `mob_family_mods` VALUES (208,382,23,1);		-- Ram +23% EXP
+INSERT INTO `mob_family_mods` VALUES (266,382,23,1);		-- Wyvern +23% EXP 
 
 
 -- Attack bonus
@@ -311,34 +311,34 @@ INSERT INTO `mob_family_mods` VALUES (337,63,50,0);	-- Quadav +50% DEF
 INSERT INTO `mob_family_mods` VALUES (337,25,50,0);	-- Quadav +50 ACC
 INSERT INTO `mob_family_mods` VALUES (337,68,50,0);	-- Quadav +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (337,29,10,0);	-- Quadav +10 MDB
-INSERT INTO `mob_family_mods` VALUES (337,382,-100,0); -- Quadav -100% exp
+INSERT INTO `mob_family_mods` VALUES (337,28,-100,1); -- Quadav -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (334,62,50,0);	-- Orc +50% Attk
 INSERT INTO `mob_family_mods` VALUES (334,63,50,0);	-- Orc +50% DEF
 INSERT INTO `mob_family_mods` VALUES (334,25,50,0);	-- Orc +50 ACC
 INSERT INTO `mob_family_mods` VALUES (334,68,50,0);	-- Orc +50 EVAS
-INSERT INTO `mob_family_mods` VALUES (334,382,-100,0); -- Orc -100% exp
+INSERT INTO `mob_family_mods` VALUES (334,28,-100,1); -- Orc -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (360,62,50,0);	-- Yagudo +50% Attk
 INSERT INTO `mob_family_mods` VALUES (360,63,50,0);	-- Yagudo +50% DEF
 INSERT INTO `mob_family_mods` VALUES (360,25,50,0);	-- Yagudo +50 ACC
 INSERT INTO `mob_family_mods` VALUES (360,68,50,0);	-- Yagudo +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (360,29,30,0);	-- Yagudo +30 MDB
-INSERT INTO `mob_family_mods` VALUES (360,382,-100,0); -- Yagudo -100% exp
+INSERT INTO `mob_family_mods` VALUES (360,28,-100,1); -- Yagudo -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (327,62,50,0);	-- Goblin +50% Attk
 INSERT INTO `mob_family_mods` VALUES (327,63,50,0);	-- Goblin +50% DEF
 INSERT INTO `mob_family_mods` VALUES (327,25,50,0);	-- Goblin +50 ACC
 INSERT INTO `mob_family_mods` VALUES (327,68,50,0);	-- Goblin +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (327,29,20,0);	-- Goblin +20 MDB
-INSERT INTO `mob_family_mods` VALUES (327,382,-100,0); -- Goblin -100% exp
+INSERT INTO `mob_family_mods` VALUES (327,28,-100,1); -- Goblin -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (509,62,75,0);	-- Hydra +75% Attk
 INSERT INTO `mob_family_mods` VALUES (509,63,75,0);	-- Hydra +75% DEF
 INSERT INTO `mob_family_mods` VALUES (509,25,75,0);	-- Hydra +75 ACC
 INSERT INTO `mob_family_mods` VALUES (509,68,75,0);	-- Hydra +75 EVAS
 INSERT INTO `mob_family_mods` VALUES (509,29,50,0);	-- Hydra  +50 MDB
-INSERT INTO `mob_family_mods` VALUES (509,382,-100,0); -- Hydra -100% exp
+INSERT INTO `mob_family_mods` VALUES (509,28,-100,1); -- Hydra -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (358,62,50,0);	-- Kindred +50% Attk
 INSERT INTO `mob_family_mods` VALUES (358,63,50,0);	-- Kindred +50% DEF
@@ -346,7 +346,7 @@ INSERT INTO `mob_family_mods` VALUES (358,25,50,0);	-- Kindred +50 ACC
 INSERT INTO `mob_family_mods` VALUES (358,68,50,0);	-- Kindred +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (358,389,-25,0); -- Kindred -25% MDT
 INSERT INTO `mob_family_mods` VALUES (358,29,70,0);	 -- Kindred +70 MDB 
-INSERT INTO `mob_family_mods` VALUES (358,382,-100,0); -- Kindred -100% exp
+INSERT INTO `mob_family_mods` VALUES (358,28,-100,1); -- Kindred -100% exp
 
 
 INSERT INTO `mob_family_mods` VALUES (511,62,50,0);	-- Ahriman +50% Attk
@@ -355,7 +355,7 @@ INSERT INTO `mob_family_mods` VALUES (511,25,50,0);	-- Ahriman +50 ACC
 INSERT INTO `mob_family_mods` VALUES (511,68,50,0);	-- Ahriman +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (511,389,-25,0); -- Ahriman -25% MDT
 INSERT INTO `mob_family_mods` VALUES (511,29,70,0);	 -- Ahriman +50 MDB
-INSERT INTO `mob_family_mods` VALUES (511,382,-100,0); -- Ahriman -100% exp
+INSERT INTO `mob_family_mods` VALUES (511,28,-100,1); -- Ahriman -100% exp
 
 
 INSERT INTO `mob_family_mods` VALUES (92,62,50,0);	-- Statue-Goblin +50% Attk
@@ -364,7 +364,8 @@ INSERT INTO `mob_family_mods` VALUES (92,25,50,0);	-- Statue-Goblin +50 ACC
 INSERT INTO `mob_family_mods` VALUES (92,68,50,0);	-- Statue-Goblin +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (92,29,112,0);	-- Statue-Goblin +112 MDB
 INSERT INTO `mob_family_mods` VALUES (92,73,100,0);	-- Statue-Goblin +100 Store TP
-INSERT INTO `mob_family_mods` VALUES (92,382,-100,0); -- Statue-Goblin -100% exp
+INSERT INTO `mob_family_mods` VALUES (92,1,5000,0); -- Statue-Goblin +5000 Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (92,28,-100,1); -- Statue-Goblin -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (93,62,50,0);	-- Statue-Orc +50% Attk
 INSERT INTO `mob_family_mods` VALUES (93,63,50,0);	-- Statue-Orc +50% DEF
@@ -372,7 +373,8 @@ INSERT INTO `mob_family_mods` VALUES (93,25,50,0);	-- Statue-Orc +50 ACC
 INSERT INTO `mob_family_mods` VALUES (93,68,50,0);	-- Statue-Orc +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (93,29,62,0);	-- Statue-Orc +62 MDB
 INSERT INTO `mob_family_mods` VALUES (93,73,100,0);	-- Statue-Orc +100 Store TP
-INSERT INTO `mob_family_mods` VALUES (93,382,-100,0); -- Statue-Orc -100% exp
+INSERT INTO `mob_family_mods` VALUES (93,1,5000,0); -- Statue-Orc +5000 Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (93,28,-100,1); -- Statue-Orc -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (94,62,50,0);	-- Statue-Quadav +50% Attk
 INSERT INTO `mob_family_mods` VALUES (94,63,50,0);	-- Statue-Quadav +50% DEF
@@ -380,7 +382,8 @@ INSERT INTO `mob_family_mods` VALUES (94,25,50,0);	-- Statue-Quadav +50 ACC
 INSERT INTO `mob_family_mods` VALUES (94,68,50,0);	-- Statue-Quadav +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (94,29,112,0);	-- Statue-Quadav +112 MDB
 INSERT INTO `mob_family_mods` VALUES (94,73,100,0);	-- Statue-Quadav +100 Store TP
-INSERT INTO `mob_family_mods` VALUES (94,382,-100,0); -- Statue-Quadav -100% exp
+INSERT INTO `mob_family_mods` VALUES (94,1,5000,0); -- Statue-Quadav +5000 Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (94,28,-100,1); -- Statue-Quadav -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (95,62,50,0);	-- Statue-Yagud +50% Attk
 INSERT INTO `mob_family_mods` VALUES (95,63,50,0);	-- Statue-Yagud +50% DEF
@@ -388,14 +391,15 @@ INSERT INTO `mob_family_mods` VALUES (95,25,50,0);	-- Statue-Yagud +50 ACC
 INSERT INTO `mob_family_mods` VALUES (95,68,50,0);	-- Statue-Yagud +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (95,29,162,0);	-- Statue-Yagudo +162 MDB
 INSERT INTO `mob_family_mods` VALUES (95,73,100,0);	-- Statue-Yagudo +100 Store TP
-INSERT INTO `mob_family_mods` VALUES (95,382,-100,0); -- Statue-Yagudo -100% exp
+INSERT INTO `mob_family_mods` VALUES (95,1,5000,0); -- Statue-Yagudo +5000 Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (95,28,-100,1); -- Statue-Yagudo -100% exp
 
 INSERT INTO `mob_family_mods` VALUES (510,62,50,0);	-- Kindreds Wyvern +50% Attk
 INSERT INTO `mob_family_mods` VALUES (510,63,50,0);	-- Kindreds Wyvern +50% DEF
 INSERT INTO `mob_family_mods` VALUES (510,25,50,0);	-- Kindreds Wyvern +50 ACC
 INSERT INTO `mob_family_mods` VALUES (510,68,50,0);	-- Kindreds Wyvern +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (510,29,20,0);	-- Kindreds Wyvern +20 MDB 
-INSERT INTO `mob_family_mods` VALUES (510,382,-100,0); -- Kindreds Wyvern -100% exp
+INSERT INTO `mob_family_mods` VALUES (510,28,-100,1); -- Kindreds Wyvern -100% exp
 
 
 
