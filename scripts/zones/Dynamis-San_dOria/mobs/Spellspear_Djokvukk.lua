@@ -9,6 +9,7 @@ mixins =
 }
 -----------------------------------
 function onMobSpawn(mob)
+     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 30)
      mob:addMod(tpz.mod.DEFP, 30) 
      mob:addMod(tpz.mod.ATTP, 20)
      mob:addMod(tpz.mod.ACC, 50) 
@@ -17,11 +18,9 @@ end
 
 function onMobFight(mob, target)
     tpz.mix.jobSpecial.config(mob, {
-        between = 180,
         specials =
         {
-            {id = tpz.jsa.CHAINSPELL, cooldown = 0, hpp = 90},
-            {id = tpz.jsa.CALL_WYVERN, cooldown = 0, hpp = 90},
+            {id = tpz.jsa.CHAINSPELL, cooldown = 180, hpp = 90},
         },
     })
 end

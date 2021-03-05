@@ -3997,6 +3997,26 @@ INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,356,1,255); -- paraly
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,362,1,255); -- bindga
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_Statue',1003,360,24,255); -- Dispelga
 
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,147,24,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,152,24,255); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,157,24,255); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,162,24,255); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,167,24,255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,172,24,255); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,339,37,255);          -- Utsusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,340,12,255);		  -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,345,48,255);          -- Hojo: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,348,44,255);          -- Kurayami: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,342,1,255); -- jubaku_ni
+
+INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,147,24,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,152,24,255); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,157,24,255); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,162,24,255); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,167,24,255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,172,24,255); -- Water IV
+
+
 
 
 --Custom Content

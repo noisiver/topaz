@@ -9,6 +9,7 @@ mixins =
 }
 -----------------------------------
 function onMobSpawn(mob)
+     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 30)
      mob:addMod(tpz.mod.DEFP, 30) 
      mob:addMod(tpz.mod.ATTP, 20)
      mob:addMod(tpz.mod.ACC, 50) 

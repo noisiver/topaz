@@ -24,7 +24,7 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     duration = duration * applyResistance(caster, target, spell, params)
     --Paralyze base power is 19.5 and is not affected by resistaces.
-    local power = 30
+    local power = 50
 
     --Calculates resist chanve from Reist Blind
     if (math.random(0, 100) >= target:getMod(tpz.mod.PARALYZERES)) then
