@@ -28,6 +28,8 @@ function onTrigger(player)
         player:addStatusEffect(tpz.effect.REFRESH, 99, 0, 0)
         player:addStatusEffect(tpz.effect.REGEN, 99, 0, 0)
         player:addStatusEffect(tpz.effect.FEALTY, 1, 0, 0)
+        player:addStatusEffect(tpz.effect.POISON, 1, 0, 0)
+        player:addStatusEffect(tpz.effect.CURSE, 1, 0, 0)
 
         -- Add bonus mods to the player..
         player:addMod(tpz.mod.RACC, 2500)
