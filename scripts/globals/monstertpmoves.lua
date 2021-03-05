@@ -180,23 +180,24 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     --firstHitChance = utils.clamp(firstHitChance, 35, 95)
     firstHitChance = utils.clamp(firstHitChance, 20, 95)
 
-    if ((chance*100) <= firstHitChance) and mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+    local MS = mob:getLocalVar("MightyStrikes")
+    if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+       mob:setLocalVar("MightyStrikes", 1)
+    else
+       mob:setLocalVar("MightyStrikes", 0)
+    end
+
+    if ((chance*100) <= firstHitChance) then
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
-        pdif = pdif/1000 --multiplier set.
-    elseif ((chance*100) <= firstHitChance) then
-        pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
-        pdif = pdif/1000 --multiplier set.
+        pdif = pdif/1000 +MS --multiplier set.
         finaldmg = finaldmg + hitdamage * pdif
         hitslanded = hitslanded + 1
     end
     while (hitsdone < numberofhits) do
         chance = math.random()
-        if ((chance*100)<=hitrate) and mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+        if ((chance*100)<=hitrate) then --it hit
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
-            pdif = pdif/1000 +1 --multiplier set.
-        elseif ((chance*100)<=hitrate) then --it hit
-            pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
-            pdif = pdif/1000 --multiplier set.
+            pdif = pdif/1000 +MS --multiplier set.
             finaldmg = finaldmg + hitdamage * pdif
             hitslanded = hitslanded + 1
         end
