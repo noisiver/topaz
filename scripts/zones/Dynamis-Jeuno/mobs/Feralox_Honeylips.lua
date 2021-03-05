@@ -10,6 +10,7 @@ mixins =
 -----------------------------------
 function onMobSpawn(mob)
      local Pet = GetMobByID(mob:getID()+1)
+     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 30)
      mob:addMod(tpz.mod.DEFP, 30) 
      mob:addMod(tpz.mod.ATTP, 20)
      mob:addMod(tpz.mod.ACC, 50) 
