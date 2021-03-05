@@ -180,7 +180,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     --firstHitChance = utils.clamp(firstHitChance, 35, 95)
     firstHitChance = utils.clamp(firstHitChance, 20, 95)
 
-    if ((chance*100) <= firstHitChance) then
+    if ((chance*100) <= firstHitChance) and mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+        pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
+        pdif = pdif/1000 --multiplier set.
+    elseif ((chance*100) <= firstHitChance) then
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000 --multiplier set.
         finaldmg = finaldmg + hitdamage * pdif
