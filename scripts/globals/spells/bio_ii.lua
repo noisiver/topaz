@@ -56,15 +56,9 @@ function onSpellCast(caster, target, spell)
     dotdmg = utils.clamp(dotdmg, 3, 100)
 
     -- Do it!
+    target:delStatusEffect(tpz.effect.DIA)
     target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 15, 2)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
-
-    -- Try to kill same tier Dia (default behavior)
-    if DIA_OVERWRITE == 1 and dia ~= nil then
-        if dia:getPower() <= 2 then
-            target:delStatusEffect(tpz.effect.DIA)
-        end
-    end
 
     return final
 end
