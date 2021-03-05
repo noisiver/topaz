@@ -24,7 +24,7 @@ function onMobFight(mob, target)
         between = 60,
         specials =
         {
-            {id = tpz.jsa.ASTRAL_FLOW, cooldown = 0, hpp = 90},
+            {id = tpz.jsa.ASTRAL_FLOW_MAAT, cooldown = 0, hpp = 90},
             {id = tpz.jsa.PERFECT_DODGE, cooldown = 0, hpp = 90},
         },
     })
