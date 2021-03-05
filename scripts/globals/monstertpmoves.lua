@@ -191,6 +191,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         if ((chance*100)<=hitrate) then --it hit
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000 --multiplier set.
+        elseif mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+            pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
+            pdif = pdif/1000 + 1 --multiplier set.
             finaldmg = finaldmg + hitdamage * pdif
             hitslanded = hitslanded + 1
         end
