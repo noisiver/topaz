@@ -11722,7 +11722,7 @@ INSERT INTO `mob_groups` VALUES (53,5111,186,'Adamantking_Image',0,128,0,0,1000,
 -- Dynamis-Windurst (Zone 187)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,4070,187,'Tzee_Xicu_Idol',0,128,2510,30000,12500,82,83,0); -- Zone Boss
+INSERT INTO `mob_groups` VALUES (1,4070,187,'Tzee_Xicu_Idol',0,128,9026,30000,12500,82,83,0); -- Zone Boss
 INSERT INTO `mob_groups` VALUES (2,2464,187,'Maa_Febi_the_Steadfast',0,128,1560,0,0,72,73,0); -- Zone Boss Pet
 INSERT INTO `mob_groups` VALUES (3,2777,187,'Muu_Febi_the_Steadfast',0,128,1560,0,0,72,73,0); -- Zone Boss Pet
 INSERT INTO `mob_groups` VALUES (4,4183,187,'Vanguard_Skirmisher',1800,0,2553,0,0,72,74,0);
