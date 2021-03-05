@@ -45,7 +45,7 @@ g_mixins.dynamis_beastmen = function(mob)
     }
 
     mob:addListener("MAGIC_TAKE", "DYNAMIS_MAGIC_PROC_CHECK", function(target, caster, spell)
-        if procjobs[target:getMainJob()] == "ma" and math.random(0, 99) < 8 and target:getLocalVar("dynamis_proc") == 0 then
+        if procjobs[target:getMainJob()] == "ma" and math.random(0, 99) < 10 and target:getLocalVar("dynamis_proc") == 0 then
             dynamis.procMonster(target, caster)
         end
     end)
