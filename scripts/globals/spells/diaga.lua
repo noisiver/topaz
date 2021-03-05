@@ -49,15 +49,10 @@ function onSpellCast(caster, target, spell)
     local bio = target:getStatusEffect(tpz.effect.BIO)
 
     -- Do it!
+    target:delStatusEffect(tpz.effect.BIO)
     target:addStatusEffect(tpz.effect.DIA, 1 + dotBonus, 3, duration, 0, 10, 1)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 
-    -- Try to kill same tier Bio (non-default behavior)
-    if BIO_OVERWRITE == 1 and bio ~= nil then
-        if bio:getPower() == 1 then
-            target:delStatusEffect(tpz.effect.BIO)
-        end
-    end
 
     return final
 end
