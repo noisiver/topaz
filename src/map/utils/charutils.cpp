@@ -892,11 +892,11 @@ namespace charutils
             "slot,"           // 2
             "quantity,"       // 3
             "bazaar,"         // 4
-            "signature, "     // 5
+            "signature,"      // 5
             "extra "          // 6
             "FROM char_inventory "
             "WHERE charid = %u "
-            "ORDER BY location ASC";
+            "ORDER BY FIELD(location,0,1,9,2,3,4,5,6,7,8,10,11,12)";
 
         int32 ret = Sql_Query(SqlHandle, Query, PChar->id);
 
