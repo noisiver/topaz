@@ -1949,7 +1949,7 @@ INSERT INTO `mob_droplist` VALUES (325,0,0,1000,540,180);
 INSERT INTO `mob_droplist` VALUES (325,2,0,1000,825,0);
 INSERT INTO `mob_droplist` VALUES (325,0,0,1000,940,120);
 INSERT INTO `mob_droplist` VALUES (326,0,0,1000,856,150);
-INSERT INTO `mob_droplist` VALUES (326,0,0,1000,4358,120);
+INSERT INTO `mob_droplist` VALUES (326,0,0,1000,4358,240);
 INSERT INTO `mob_droplist` VALUES (327,0,0,1000,856,100);
 INSERT INTO `mob_droplist` VALUES (327,2,0,1000,4358,0);
 INSERT INTO `mob_droplist` VALUES (327,0,0,1000,4358,360);
@@ -5063,7 +5063,7 @@ INSERT INTO `mob_droplist` VALUES (1013,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (1013,0,0,1000,1631,50);
 INSERT INTO `mob_droplist` VALUES (1013,0,0,1000,1638,390);
 INSERT INTO `mob_droplist` VALUES (1013,0,0,1000,1861,100);
-INSERT INTO `mob_droplist` VALUES (1014,2,0,1000,748,0); -- Goblin Alchemist (Onzozo)
+INSERT INTO `mob_droplist` VALUES (1014,2,0,1000,748,0); -- Goblin Alchemist / Physician
 INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,1428,150); -- White mage's testimony
 INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,4613,100); -- Scroll of Cure V
 INSERT INTO `mob_droplist` VALUES (1014,0,0,1000,4618,50); -- Scroll of Curaga IV
@@ -6672,7 +6672,7 @@ INSERT INTO `mob_droplist` VALUES (1323,0,0,1000,4876,10);
 INSERT INTO `mob_droplist` VALUES (1323,0,0,1000,4877,10);
 INSERT INTO `mob_droplist` VALUES (1323,0,0,1000,4878,10);
 INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,507,50);
-INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,508,50);
+INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,508,100);
 INSERT INTO `mob_droplist` VALUES (1324,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,17384,50);
 INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,510,50);
