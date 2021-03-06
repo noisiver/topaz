@@ -26,6 +26,10 @@ function onMobWeaponSkill(target, mob, skill)
 
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, mob:getMainLvl()/4, 3, 120)
 
+    if mob:isInDynamis() then 
+        dmgmod = 3
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
     return dmg
 end

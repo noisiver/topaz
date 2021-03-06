@@ -23,6 +23,11 @@ function onMobWeaponSkill(target, mob, skill)
     local dmgmod = 1.5
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.BLUNT, MOBPARAM_1_SHADOW)
+
+    if mob:isInDynamis() then 
+        dmgmod = 3
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.BLUNT)
     return dmg
 end

@@ -23,6 +23,10 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.STUN
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 4)
 
+    if mob:isInDynamis() then 
+        dmgmod = 3
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
     return dmg
 end

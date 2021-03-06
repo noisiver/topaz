@@ -21,11 +21,17 @@ function onMobWeaponSkill(target, mob, skill)
     local dmgmod = 1.0
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
+
+    if mob:isInDynamis() then 
+        dmgmod = 3
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
 
     local typeEffect = tpz.effect.DEX_DOWN
 
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 10, 3, 120)
+
 
     return dmg
 end
