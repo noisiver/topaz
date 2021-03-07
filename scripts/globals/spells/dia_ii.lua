@@ -19,7 +19,7 @@ function onSpellCast(caster, target, spell)
     params.dmg = basedmg
     params.multiplier = 3
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
-    params.attribute = tpz.mod.INT
+    params.attribute = tpz.mod.MND
     params.hasMultipleTargetReduction = false
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
