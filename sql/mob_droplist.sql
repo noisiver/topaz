@@ -1071,19 +1071,19 @@ INSERT INTO `mob_droplist` VALUES (182,0,0,1000,13512,130);
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,13794,50); -- (Aspidochelone) Heavy cuirass
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,1525,240); -- Adamantoise egg
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,12361,240); -- Sipar
-INSERT INTO `mob_droplist` VALUES (183,1,1,1000,1318,240); -- Dryadic abjuration: feet
-INSERT INTO `mob_droplist` VALUES (183,1,2,1000,1318,150); -- Dryadic abjuration: feet
-INSERT INTO `mob_droplist` VALUES (183,1,1,1000,1325,240); -- Aquarian abjuration: body
-INSERT INTO `mob_droplist` VALUES (183,1,2,1000,1325,150); -- Aquarian abjuration: body
-INSERT INTO `mob_droplist` VALUES (183,1,1,1000,1333,240); -- Martial abjuration: feet
-INSERT INTO `mob_droplist` VALUES (183,1,2,1000,1333,150); -- Martial abjuration: feet
-INSERT INTO `mob_droplist` VALUES (183,1,1,1000,1335,240); -- Wyrmal abjuration: body
-INSERT INTO `mob_droplist` VALUES (183,1,2,1000,1335,150); -- Wyrmal abjuration: body
+INSERT INTO `mob_droplist` VALUES (183,1,1,1000,1318,60); -- Dryadic abjuration: feet
+INSERT INTO `mob_droplist` VALUES (183,1,2,1000,1318,38); -- Dryadic abjuration: feet
+INSERT INTO `mob_droplist` VALUES (183,1,1,1000,1325,60); -- Aquarian abjuration: body
+INSERT INTO `mob_droplist` VALUES (183,1,2,1000,1325,38); -- Aquarian abjuration: body
+INSERT INTO `mob_droplist` VALUES (183,1,1,1000,1333,60); -- Martial abjuration: feet
+INSERT INTO `mob_droplist` VALUES (183,1,2,1000,1333,38); -- Martial abjuration: feet
+INSERT INTO `mob_droplist` VALUES (183,1,1,1000,1335,60); -- Wyrmal abjuration: body
+INSERT INTO `mob_droplist` VALUES (183,1,2,1000,1335,38); -- Wyrmal abjuration: body
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,646,1000); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,646,240); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,646,150); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,646,100); -- Chunk of adaman ore
-INSERT INTO `mob_droplist` VALUES (183,0,0,1000,908,240); -- Item 908Adamantoise shell
+INSERT INTO `mob_droplist` VALUES (183,0,0,1000,908,240); -- Adamantoise shell
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,1335,130);
 INSERT INTO `mob_droplist` VALUES (184,0,0,1000,699,50);
 INSERT INTO `mob_droplist` VALUES (184,0,0,1000,727,100);
@@ -4146,14 +4146,14 @@ INSERT INTO `mob_droplist` VALUES (805,0,0,1000,14075,240); -- Andvaranauts
 INSERT INTO `mob_droplist` VALUES (805,1,3,1000,16555,10); -- Ridill
 INSERT INTO `mob_droplist` VALUES (805,1,3,1000,17653,100); -- Hrotti
 INSERT INTO `mob_droplist` VALUES (805,0,0,1000,16942,100); -- Balmung
-INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1321,240); -- Earthen abjuration: hands
-INSERT INTO `mob_droplist` VALUES (805,1,2,1000,1321,150); -- Earthen abjuration: hands
-INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1326,240); -- Aquarian abjuration: hands
-INSERT INTO `mob_droplist` VALUES (805,1,2,1000,1326,150); -- Aquarian abjuration: hands
-INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1328,240); -- Aquarian abjuration: feet
-INSERT INTO `mob_droplist` VALUES (805,1,2,1000,1328,150); -- Aquarian abjuration: feet
-INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1339,240); -- Neptunal abjuration: head
-INSERT INTO `mob_droplist` VALUES (805,1,2,1000,1339,150); -- Neptunal abjuration: head
+INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1321,60); -- Earthen abjuration: hands
+INSERT INTO `mob_droplist` VALUES (805,1,2,1000,1321,38); -- Earthen abjuration: hands
+INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1326,60); -- Aquarian abjuration: hands
+INSERT INTO `mob_droplist` VALUES (805,1,2,1000,1326,38); -- Aquarian abjuration: hands
+INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1328,60); -- Aquarian abjuration: feet
+INSERT INTO `mob_droplist` VALUES (805,1,2,1000,1328,38); -- Aquarian abjuration: feet
+INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1339,60); -- Neptunal abjuration: head
+INSERT INTO `mob_droplist` VALUES (805,1,2,1000,1339,38); -- Neptunal abjuration: head
 INSERT INTO `mob_droplist` VALUES (805,0,0,1000,903,1000); -- Dragon talon
 INSERT INTO `mob_droplist` VALUES (805,0,0,1000,4486,240); -- Dragon heart
 INSERT INTO `mob_droplist` VALUES (805,0,0,1000,3340,240); -- Cup of sweet tea
@@ -7440,14 +7440,14 @@ INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,831,240); -- (King Behemoth) Sq
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13415,950); -- Pixie earring
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13566,50); -- Defending ring
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,1527,240); -- Behemoth tongue
-INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1334,240); -- Wyrmal abjuration: head
-INSERT INTO `mob_droplist` VALUES (1450,1,3,1000,1334,150); -- Wyrmal abjuration: head
-INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1322,240); -- Earthen abjuration: legs
-INSERT INTO `mob_droplist` VALUES (1450,1,3,1000,1322,150); -- Earthen abjuration: legs
-INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1328,240); -- Aquarian abjuration: feet
-INSERT INTO `mob_droplist` VALUES (1450,1,3,1000,1328,150); -- Aquarian abjuration: feet
-INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1332,240); -- Martial abjuration: legs
-INSERT INTO `mob_droplist` VALUES (1450,1,3,1000,1332,150); -- Martial abjuration: legs
+INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1334,60); -- Wyrmal abjuration: head
+INSERT INTO `mob_droplist` VALUES (1450,1,3,1000,1334,38); -- Wyrmal abjuration: head
+INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1322,60); -- Earthen abjuration: legs
+INSERT INTO `mob_droplist` VALUES (1450,1,3,1000,1322,38); -- Earthen abjuration: legs
+INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1328,60); -- Aquarian abjuration: feet
+INSERT INTO `mob_droplist` VALUES (1450,1,3,1000,1328,38); -- Aquarian abjuration: feet
+INSERT INTO `mob_droplist` VALUES (1450,1,2,1000,1332,60); -- Martial abjuration: legs
+INSERT INTO `mob_droplist` VALUES (1450,1,3,1000,1332,38); -- Martial abjuration: legs
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,860,1000); -- Behemoth hide
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,860,240); -- Behemoth hide
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,883,1000); -- Behemoth horn
@@ -8883,14 +8883,14 @@ INSERT INTO `mob_droplist` VALUES (1781,0,0,1000,865,240); -- (Nidhogg) Handful 
 INSERT INTO `mob_droplist` VALUES (1781,0,0,1000,865,150); -- Handful of Nidhogg's scales
 INSERT INTO `mob_droplist` VALUES (1781,0,0,1000,865,100); -- Handful of Nidhogg's scales
 INSERT INTO `mob_droplist` VALUES (1781,0,0,1000,1526,240); -- Wyrm beard
-INSERT INTO `mob_droplist` VALUES (1781,1,1,1000,1320,240); -- Earthen abjuration: body
-INSERT INTO `mob_droplist` VALUES (1781,1,2,1000,1320,150); -- Earthen abjuration: body
-INSERT INTO `mob_droplist` VALUES (1781,1,1,1000,1325,240); -- Aquarian abjuration: body
-INSERT INTO `mob_droplist` VALUES (1781,1,2,1000,1325,150); -- Aquarian abjuration: body
-INSERT INTO `mob_droplist` VALUES (1781,1,1,1000,1330,240); -- Martial abjuration: body
-INSERT INTO `mob_droplist` VALUES (1781,1,2,1000,1330,150); -- Martial abjuration: body
-INSERT INTO `mob_droplist` VALUES (1781,1,1,1000,1342,240); -- Neptunal abjuration: legs
-INSERT INTO `mob_droplist` VALUES (1781,1,2,1000,1342,150); -- Neptunal abjuration: legs
+INSERT INTO `mob_droplist` VALUES (1781,1,1,1000,1320,60); -- Earthen abjuration: body
+INSERT INTO `mob_droplist` VALUES (1781,1,2,1000,1320,38); -- Earthen abjuration: body
+INSERT INTO `mob_droplist` VALUES (1781,1,1,1000,1325,60); -- Aquarian abjuration: body
+INSERT INTO `mob_droplist` VALUES (1781,1,2,1000,1325,38); -- Aquarian abjuration: body
+INSERT INTO `mob_droplist` VALUES (1781,1,1,1000,1330,60); -- Martial abjuration: body
+INSERT INTO `mob_droplist` VALUES (1781,1,2,1000,1330,38); -- Martial abjuration: body
+INSERT INTO `mob_droplist` VALUES (1781,1,1,1000,1342,60); -- Neptunal abjuration: legs
+INSERT INTO `mob_droplist` VALUES (1781,1,2,1000,1342,38); -- Neptunal abjuration: legs
 INSERT INTO `mob_droplist` VALUES (1781,0,0,1000,1133,1000); -- Vial of dragon blood
 INSERT INTO `mob_droplist` VALUES (1781,0,0,1000,1133,240); -- Vial of dragon blood
 INSERT INTO `mob_droplist` VALUES (1781,0,0,1000,4272,100); -- Slice of dragon meat
