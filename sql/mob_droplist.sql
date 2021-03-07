@@ -1891,7 +1891,7 @@ INSERT INTO `mob_droplist` VALUES (309,2,0,1000,4358,0);
 INSERT INTO `mob_droplist` VALUES (309,0,0,1000,4358,120);
 INSERT INTO `mob_droplist` VALUES (310,0,0,1000,902,100);
 INSERT INTO `mob_droplist` VALUES (310,0,0,1000,1048,50);
-INSERT INTO `mob_droplist` VALUES (310,0,0,1000,1437,100); -- Samurai's testimony
+INSERT INTO `mob_droplist` VALUES (310,0,0,1000,1437,150); -- Samurai's testimony
 INSERT INTO `mob_droplist` VALUES (310,0,0,1000,1653,100);
 INSERT INTO `mob_droplist` VALUES (310,0,0,1000,17293,100);
 INSERT INTO `mob_droplist` VALUES (311,2,0,1000,825,0);
