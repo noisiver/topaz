@@ -588,15 +588,15 @@ void SetupJob(CMobEntity* PMob)
         case JOB_BLM:
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 40);
-            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 15);
+            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
             PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 20);
             break;
         case JOB_PLD:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_DRK:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_WHM:
@@ -610,12 +610,12 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_BLU:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             break;
         case JOB_RDM:
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 15);
-            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 40);
+            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_SMN:
@@ -623,7 +623,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 100); // SMN only has "buffs"
             break;
         case JOB_NIN:
-            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 9);
+            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 18);
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 20);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
@@ -658,8 +658,8 @@ void SetupJob(CMobEntity* PMob)
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
             }
 
-            PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 6);
-            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 12);
+            PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 12);
+            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 24);
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
             break;
         case JOB_NIN:
@@ -667,12 +667,12 @@ void SetupJob(CMobEntity* PMob)
             {
                 // aern
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1388);
-	            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 12);
+	            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 24);
             }
             else if (PMob->m_Family != 335) // exclude NIN Maat
             {
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
-	            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 12);
+	            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 24);
             }
 
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
@@ -687,7 +687,7 @@ void SetupJob(CMobEntity* PMob)
             break;
         case JOB_BLM:
             // We don't want to do the mages stand-back part from subjob, so we have it here
-            PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 12);
+            PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
         default:
             break;
@@ -888,9 +888,9 @@ void GetAvailableSpells(CMobEntity* PMob) {
     // catch all non-defaulted spell chances
     PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
     PMob->defaultMobMod(MOBMOD_GA_CHANCE, 35);
-    PMob->defaultMobMod(MOBMOD_NA_CHANCE, 40);
+    PMob->defaultMobMod(MOBMOD_NA_CHANCE, 05);
     PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 20);
-    PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 35);
+    PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
     PMob->defaultMobMod(MOBMOD_HEAL_CHANCE, 40);
     PMob->defaultMobMod(MOBMOD_HP_HEAL_CHANCE, 40);
 
