@@ -52,13 +52,13 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,25,85,255); -- Dia III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,28,5,29);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,29,30,60);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,30,61,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,31,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,31,90,255); -- banish_iv
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,33,18,54);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,34,60,73);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,35,85,255); -- Diaga III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,38,15,39);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,39,40,68);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,40,69,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,40,90,255); -- banishga_iii
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,43,7,26);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,44,27,46);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,45,47,62);
