@@ -15,7 +15,7 @@ function onSpellCast(caster, target, spell)
 
         duration = duration * (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100)
 
-        target:addBardSong(caster, tpz.effect.HYMNUS, 1, 0, duration, caster:getID(), 0, 2)
+        target:addBardSong(caster, tpz.effect.HYMNUS, 1, 0, 120, caster:getID(), 0, 1)
 
     return tpz.effect.HYMNUS
 end
