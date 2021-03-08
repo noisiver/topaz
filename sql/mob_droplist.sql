@@ -7783,7 +7783,7 @@ INSERT INTO `mob_droplist` VALUES (1520,0,0,1000,5842,100);
 INSERT INTO `mob_droplist` VALUES (1521,0,0,1000,4110,1000);
 INSERT INTO `mob_droplist` VALUES (1521,0,0,1000,4110,240);
 INSERT INTO `mob_droplist` VALUES (1521,0,0,1000,4110,150);
-INSERT INTO `mob_droplist` VALUES (1522,0,0,1000,2849,378); -- (Likho) Likho Talon
+INSERT INTO `mob_droplist` VALUES (1522,0,0,1000,2849,240); -- (Likho) Likho Talon
 INSERT INTO `mob_droplist` VALUES (1523,0,0,1000,2637,1000);
 INSERT INTO `mob_droplist` VALUES (1523,0,0,1000,11368,410);
 INSERT INTO `mob_droplist` VALUES (1523,0,0,1000,11369,420);
@@ -8673,8 +8673,8 @@ INSERT INTO `mob_droplist` VALUES (1728,0,0,1000,2518,120);
 INSERT INTO `mob_droplist` VALUES (1728,0,0,1000,2521,40);
 INSERT INTO `mob_droplist` VALUES (1728,0,0,1000,4203,100);
 INSERT INTO `mob_droplist` VALUES (1729,0,0,1000,4277,100);
-INSERT INTO `mob_droplist` VALUES (1730,1,1,1000,16935,910);	-- (Moo Ouzi The Swiftblade) Barbarian's Sword
-INSERT INTO `mob_droplist` VALUES (1730,1,1,1000,16936,90);		-- Demonic sword
+INSERT INTO `mob_droplist` VALUES (1730,1,1,1000,16935,900);	-- (Moo Ouzi The Swiftblade) Barbarian's Sword
+INSERT INTO `mob_droplist` VALUES (1730,1,1,1000,16936,100);		-- Demonic sword
 INSERT INTO `mob_droplist` VALUES (1731,0,0,1000,557,150);
 INSERT INTO `mob_droplist` VALUES (1731,2,0,1000,921,0);
 INSERT INTO `mob_droplist` VALUES (1731,0,0,1000,921,240);
@@ -8839,16 +8839,15 @@ INSERT INTO `mob_droplist` VALUES (1775,0,0,1000,1030,50);	-- (Napalm - Ordelle'
 INSERT INTO `mob_droplist` VALUES (1775,0,0,1000,17316,134);
 INSERT INTO `mob_droplist` VALUES (1775,0,0,1000,928,195);
 INSERT INTO `mob_droplist` VALUES (1775,0,0,1000,16522,63);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1116,130);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1123,60);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,290);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,150);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,100);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,70);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,60);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,50);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1293,110);
-INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1293,60);
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1123,240); -- (Narasimha) Manticore fang
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,1000);  -- Lock of manticore hair
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,1000); -- Lock of manticore hair
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,240); -- Lock of manticore hair
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,150); -- Lock of manticore hair
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,100); -- Lock of manticore hair
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1163,50); -- Lock of manticore hair
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1293,1000); -- Narasimha Hide
+INSERT INTO `mob_droplist` VALUES (1776,0,0,1000,1293,240); -- Narasimha Hide
 INSERT INTO `mob_droplist` VALUES (1777,0,0,1000,3174,280);
 INSERT INTO `mob_droplist` VALUES (1777,0,0,1000,3174,140);
 INSERT INTO `mob_droplist` VALUES (1777,0,0,1000,3174,90);
@@ -9567,15 +9566,15 @@ INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,17960,310);
 INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,17960,150);
 INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,19033,550);
 INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,19036,570);
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,624,395); -- (Novv the Whitehearted) clump_of_pamtam_kelp
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4360,447); -- (Novv the Whitehearted) bastore_sardine
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4443,105); -- (Novv the Whitehearted) cobalt_jellyfish
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4514,53); -- (Novv the Whitehearted) quus
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4613,132); -- (Novv the Whitehearted) scroll_of_cure_v
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4618,26); -- (Novv the Whitehearted) scroll_of_curaga_iv
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4719,211); -- (Novv the Whitehearted) scroll_of_regen_iii
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4741,368); -- (Novv the Whitehearted) scroll_of_shellra_iv
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,13804,342); -- (Novv the Whitehearted) minstrels_coat
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,624,240); -- (Novv the Whitehearted) clump_of_pamtam_kelp
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4360,240); -- (Novv the Whitehearted) bastore_sardine
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4443,100); -- (Novv the Whitehearted) cobalt_jellyfish
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4514,50); -- (Novv the Whitehearted) quus
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4613,100); -- (Novv the Whitehearted) scroll_of_cure_v
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4618,50); -- (Novv the Whitehearted) scroll_of_curaga_iv
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4719,240); -- (Novv the Whitehearted) scroll_of_regen_iii
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4741,240); -- (Novv the Whitehearted) scroll_of_shellra_iv
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,13804,240); -- (Novv the Whitehearted) minstrels_coat
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,100);
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,50);
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,30);
@@ -10166,10 +10165,10 @@ INSERT INTO `mob_droplist` VALUES (1959,0,0,1000,5085,100);
 INSERT INTO `mob_droplist` VALUES (1959,0,0,1000,5090,100);
 INSERT INTO `mob_droplist` VALUES (1959,0,0,1000,16260,1000);
 INSERT INTO `mob_droplist` VALUES (1959,0,0,1000,17801,100);
-INSERT INTO `mob_droplist` VALUES (1960,0,0,1000,1283,1000);
-INSERT INTO `mob_droplist` VALUES (1960,0,0,1000,1591,440);
-INSERT INTO `mob_droplist` VALUES (1960,0,0,1000,4377,240);
-INSERT INTO `mob_droplist` VALUES (1960,0,0,1000,13805,220);
+INSERT INTO `mob_droplist` VALUES (1960,0,0,1000,1283,1000); -- (Ose) Ose whisker
+INSERT INTO `mob_droplist` VALUES (1960,0,0,1000,1591,240); -- High-quality coeurl hide
+INSERT INTO `mob_droplist` VALUES (1960,0,0,1000,4377,240); -- Slice of coeurl meat
+INSERT INTO `mob_droplist` VALUES (1960,0,0,1000,13805,240);
 INSERT INTO `mob_droplist` VALUES (1961,0,0,1000,646,980);
 INSERT INTO `mob_droplist` VALUES (1961,0,0,1000,739,100);
 INSERT INTO `mob_droplist` VALUES (1961,0,0,1000,739,50);
