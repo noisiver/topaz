@@ -6,10 +6,11 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 30) 
+    mob:addMod(tpz.mod.ATTP, 20)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 5000)
 end
 
 function onMobInitialize(mob)
@@ -17,7 +18,7 @@ function onMobInitialize(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {chance = 100, power = 50})
 end
 
 function onMobDeath(mob, player, isKiller)
