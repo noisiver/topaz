@@ -631,7 +631,7 @@ void CMobController::Move()
             }
             else if (CanMoveForward(currentDistance))
             {
-                if (!PMob->PAI->PathFind->IsFollowingPath() || distanceSquared(PMob->PAI->PathFind->GetDestination(), PTarget->loc.p) > 10)
+                if (!PMob->PAI->PathFind->IsFollowingPath() || distance(PMob->loc.p, PTarget->loc.p) > 3)
                 {
                     //path to the target if we don't have a path already
                     PMob->PAI->PathFind->PathInRange(PTarget->loc.p, attack_range - 0.2f, PATHFLAG_WALLHACK | PATHFLAG_RUN);
