@@ -1008,7 +1008,7 @@ INSERT INTO `item_basic` VALUES (1119,0,'tonberry_coat','tonberry_coat',1,4,50,0
 INSERT INTO `item_basic` VALUES (1120,0,'casablanca','casablanca',12,4,44,0,300);
 INSERT INTO `item_basic` VALUES (1121,0,'antican_robe','antican_robe',1,4,50,0,162);
 INSERT INTO `item_basic` VALUES (1122,0,'wyvern_skin','wyvern_skin',1,4,41,0,960);
-INSERT INTO `item_basic` VALUES (1123,0,'manticore_fang','manticore_fang',12,4,42,0,630);
+INSERT INTO `item_basic` VALUES (1123,0,'manticore_fang','manticore_fang',1,4,42,0,630);
 INSERT INTO `item_basic` VALUES (1124,0,'wyvern_wing','wyvern_wing',12,4,41,0,2026);
 INSERT INTO `item_basic` VALUES (1125,0,'carbuncles_ruby','carbuncles_ruby',1,61508,0,1,0);
 INSERT INTO `item_basic` VALUES (1126,0,'beastmens_seal','beastmens_seal',99,28740,0,1,0);
