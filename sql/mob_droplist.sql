@@ -2149,10 +2149,10 @@ INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1781,150);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,3494,240); -- Forgotten Hope
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,3494,150);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,3494,100);
-INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1624,30);
-INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1650,50);
-INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1781,170);
-INSERT INTO `mob_droplist` VALUES (375,0,0,1000,15349,420);
+INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1624,240); -- (Bugbear Matman) Bugbear mask
+INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1650,240); -- Chunk of kopparnickel ore
+INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1781,240); -- Sylvan stone
+INSERT INTO `mob_droplist` VALUES (375,0,0,1000,15349,240); -- Rutter sabatons
 INSERT INTO `mob_droplist` VALUES (376,0,0,1000,2827,150); -- (Bugbear Muscleman) Rugged Gold Thread
 INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1624,110);
 INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1650,330);
@@ -6435,7 +6435,7 @@ INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4754,240); -- Scroll of Fire II
 INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4755,100); -- Scroll of Fire IV
 INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4784,50); -- Scroll of Firaga III
 INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,4812,50); -- Scroll of Flare
-INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,13915,1000);
+INSERT INTO `mob_droplist` VALUES (1270,0,0,1000,13915,1000); -- Optical Hat
 INSERT INTO `mob_droplist` VALUES (1271,2,0,1000,1452,0); -- (Hamfist_Gukhbuk, Bu)
 INSERT INTO `mob_droplist` VALUES (1271,0,0,1000,1452,150);
 INSERT INTO `mob_droplist` VALUES (1271,0,0,1000,1452,150);
@@ -6668,10 +6668,10 @@ INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,507,50);
 INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,508,100);
 INSERT INTO `mob_droplist` VALUES (1324,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,17384,50);
-INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,510,50);
-INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,511,50);
+INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,510,50); -- (Hobgoblin BLagger)
+INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,511,100);
 INSERT INTO `mob_droplist` VALUES (1325,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,1878,70);
+INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,1878,100); -- (Air Tank)
 INSERT INTO `mob_droplist` VALUES (1326,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (1326,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (1326,2,0,1000,748,0);

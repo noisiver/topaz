@@ -247,11 +247,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,384);
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,385);
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,386);
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,387);
-INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,357);
-INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,358);
--- INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,359);
-INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,360);
-INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,361);
+INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,357); -- heavy_blow
+INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,358); -- heavy_whisk
+INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,359); -- bionic_boost
+INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,360); -- flying_hip_press
+INSERT INTO `mob_skill_lists` VALUES ('Bugbear',59,361); -- earth_shock
 INSERT INTO `mob_skill_lists` VALUES ('CaitSith',60,2448);
 INSERT INTO `mob_skill_lists` VALUES ('CaitSith',60,2449);
 INSERT INTO `mob_skill_lists` VALUES ('CaitSith',60,2450);

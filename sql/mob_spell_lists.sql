@@ -4008,6 +4008,14 @@ INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,162,24,255); --
 INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,167,24,255); -- Thunder IV
 INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,172,24,255); -- Water IV
 
+INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 100, 1, 255); -- Enfire 
+INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 235, 1, 255); -- Burn 
+INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 249, 1, 255); -- Blaze Spikes 
+INSERT INTO `mob_spell_lists` VALUES ('Hakutaku', 1006, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006,147,24,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Hakutaku', 1006, 148, 1, 255);  -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 204, 1, 255); -- Flare 
+
 
 
 

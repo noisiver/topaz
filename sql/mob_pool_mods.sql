@@ -218,6 +218,19 @@ INSERT INTO `mob_pool_mods` VALUES (5409,30,1036,1); -- Maat (DRK) SPECIAL_SKILL
 INSERT INTO `mob_pool_mods` VALUES (5409,33,50,1); -- Maat (DRK) SPECIAL_COOLDOWN: 50 sec
 INSERT INTO `mob_pool_mods` VALUES (5409,58,40,1); -- Maat (DRK) SPECIAL_DELAY: 40 sec
 
+INSERT INTO `mob_pool_mods` VALUES (2031,28,-100,1); -- Hydras_Avatar EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (2032,28,-100,1); -- Hydras_Hound EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (2033,28,-100,1); -- Hydras_Wyvern EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (2246,28,-100,1); -- Kindreds_Vouivre EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (4185,28,-100,1); -- Vanguards_Avatar EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (4186,28,-100,1); -- Vanguards_Crow EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (4187,28,-100,1); -- Vanguards_Hecteyes EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (4188,28,-100,1); -- Vanguards_Scorpion EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (4189,28,-100,1); -- Vanguards_Slime EXP_BONUS: don't give XP
+INSERT INTO `mob_pool_mods` VALUES (4190,28,-100,1); -- Vanguards_Wyvern EXP_BONUS: don't give XP
+
+
+
 /*!40000 ALTER TABLE `mob_pool_mods` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
