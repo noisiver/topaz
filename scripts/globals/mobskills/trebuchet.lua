@@ -1,6 +1,6 @@
 ---------------------------------------------------
--- Ranged Attack
--- Deals a ranged attack to a single target.
+-- Trebuchet
+-- AoE heavy ranged attack. Only used by certain Notorious Monsters.
 ---------------------------------------------------
 
 require("scripts/globals/settings")
@@ -10,22 +10,17 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    -- Ranged attack only used when target is out of range
-    if (mob:checkDistance(target) >= 10) then
-        return 0
-    else
-        return 1
-    end
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 0.5
+    local dmgmod = 3
 
     local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
 
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, info.hitslanded)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, MOBPARAM_1_SHADOW)
 
     if (dmg > 0) then
        target:addTP(32)

@@ -3733,6 +3733,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,286); -- Berserk(50%)
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru-Meikyo',2002,154); -- Tachi: Rana 
 
 --Boyahda Merit Mobs
+
 -- Snaggletooth_Peapuk
 INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,1724); -- White Wind
 INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,1155); -- Subsonics
@@ -3752,6 +3753,28 @@ INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,1817);-- Thermal P
 INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,279);	-- Mandibular Bite
 INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,331);	-- Leafstorm
 INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,214);	-- Methane Breath
+
+-- Alkyoneus
+
+-- Phase 1 WAR
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6003,662); -- lightning roar
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6003,665); -- grand slam
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6003,664); -- impact roar
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6003,2576); -- mercurial strike
+-- Phase 2 MNK
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6004,665); -- grand slam
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6004,664); -- impact roar
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6004,662); -- lightning roar
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6004,2578); -- colossal slam
+-- Phase 3 RNG
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6005,665); -- grand slam
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6005,664); -- impact roar
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6005,662); -- lightning roar
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6005,1636); -- trebuchet
+-- Phase 4 ALL
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,2578); -- colossal slam
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,1636); -- trebuchet
+INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,2576); -- mercurial strike
 
 
 -- Next available ID: 1148

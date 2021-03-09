@@ -346,7 +346,7 @@ INSERT INTO `mob_droplist` VALUES (49,0,0,1000,11563,100);
 INSERT INTO `mob_droplist` VALUES (50,0,0,1000,497,1000);
 INSERT INTO `mob_droplist` VALUES (50,0,0,1000,499,100);
 INSERT INTO `mob_droplist` VALUES (50,0,0,1000,12292,240);
-INSERT INTO `mob_droplist` VALUES (50,0,0,1000,14022,50); --(Alkyoneus) Alkyoneus's bracelets
+INSERT INTO `mob_droplist` VALUES (50,0,0,1000,14022,1000); --(Alkyoneus) Alkyoneus's bracelets
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,2681,1000);
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,11473,120);
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,18449,150);
@@ -7150,26 +7150,26 @@ INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,1311,50);
 INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,1313,670);
 INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,1816,80);
 INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,4272,30);
-INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,497,210);
-INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,499,30);
-INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,1426,90);
-INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,2385,50);
-INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,2386,80);
-INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,497,210);
-INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,499,50);
+INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,497,240);
+INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,499,50); -- Gigas necklace
+INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,1426,150);
+INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,2385,50); -- Moldy buckler
+INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,2386,100); -- Hoary battle horn
+INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,497,240);
+INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,499,50); -- Gigas necklace
 INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,1427,100);
-INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,2385,50);
-INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,2386,80);
-INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,497,450);
+INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,2385,50); -- Moldy buckler
+INSERT INTO `mob_droplist` VALUES (1412,0,0,1000,2386,100); -- Hoary battle horn
+INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,497,240);
 INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,1436,180);
-INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,2385,50);
-INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,2386,50);
-INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,5010,50);
-INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,497,520);
-INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,499,30);
+INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,2385,50); -- Moldy buckler
+INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,2386,100); -- Hoary battle horn
+INSERT INTO `mob_droplist` VALUES (1413,0,0,1000,5010,240);
+INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,497,240);
+INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,499,50); -- Gigas necklace
 INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,1434,190);
-INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,2385,50);
-INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,2386,70);
+INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,2385,10); -- Moldy buckler
+INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,2386,50); -- Hoary battle horn
 INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,886,50);   -- (Judicator_Demon) demon_skull
 INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,902,100);  -- demon_horn
 INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,4875,50);  -- scroll_of_absorb-dex
@@ -10245,12 +10245,12 @@ INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4360,80);
 INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4443,80);
 INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4514,80);
 INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,16882,240); -- (Pahh The Gullcaller) - Calamar
-INSERT INTO `mob_droplist` VALUES (1974,0,0,1000,14021,50);
+INSERT INTO `mob_droplist` VALUES (1974,0,0,1000,14021,50); -- (Pallas - VUnkerl) Pallas's bracelets
 INSERT INTO `mob_droplist` VALUES (1974,0,0,1000,16173,100);
 INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,497,1000);	-- (Pallas - Upper Delkfutts) Gigas Socks
-INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,499,100);
-INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,12292,240);
-INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,14021,50); -- Pallas's bracelets
+INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,499,100); -- Gigas necklace
+INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,12292,240); -- Gigas necklace
+INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,14021,240); -- Pallas's bracelets
 INSERT INTO `mob_droplist` VALUES (1976,0,0,1000,3114,370);
 INSERT INTO `mob_droplist` VALUES (1976,0,0,1000,3114,190);
 INSERT INTO `mob_droplist` VALUES (1976,0,0,1000,3114,120);
