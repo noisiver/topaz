@@ -12762,13 +12762,13 @@ INSERT INTO `mob_groups` VALUES (12,1677,213,'Goblin_Hunter',600,0,1095,0,0,51,5
 INSERT INTO `mob_groups` VALUES (13,2790,213,'Mysticmaker_Profblix',0,128,1763,4500,0,50,52,0);
 INSERT INTO `mob_groups` VALUES (14,1654,213,'Goblin_Enchanter',600,0,1049,0,0,51,58,0);
 INSERT INTO `mob_groups` VALUES (15,1373,213,'Flying_Manta',600,0,851,0,0,55,59,0);
-INSERT INTO `mob_groups` VALUES (16,2439,213,'Lord_of_Onzozo',0,32,1536,13000,0,74,77,0);
-INSERT INTO `mob_groups` VALUES (17,3113,213,'Peg_Powler',0,32,1985,10000,0,61,61,0);
+INSERT INTO `mob_groups` VALUES (16,2439,213,'Lord_of_Onzozo',0,32,1536,13000,0,75,77,0);
+INSERT INTO `mob_groups` VALUES (17,3113,213,'Peg_Powler',0,32,1985,10000,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (18,4309,213,'Water_Elemental',600,4,2629,0,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (19,3976,213,'Torama',600,0,2455,0,0,70,73,0);
 INSERT INTO `mob_groups` VALUES (20,2312,213,'Labyrinth_Manticore',600,0,1475,0,0,71,74,0);
 INSERT INTO `mob_groups` VALUES (21,2809,213,'Narasimha',0,32,1776,20000,0,75,77,0);
-INSERT INTO `mob_groups` VALUES (22,1920,213,'Hellion',0,32,1293,15000,0,66,66,0);
+INSERT INTO `mob_groups` VALUES (22,1920,213,'Hellion',0,32,1293,18000,0,66,68,0);
 INSERT INTO `mob_groups` VALUES (23,3835,213,'Tainted_Flesh',600,0,2373,0,0,60,63,0);
 INSERT INTO `mob_groups` VALUES (24,3706,213,'Soulstealer_Skullnix',0,32,2294,9000,0,69,71,0);
 INSERT INTO `mob_groups` VALUES (25,3063,213,'Ose',0,32,1960,10000,0,74,76,0);
