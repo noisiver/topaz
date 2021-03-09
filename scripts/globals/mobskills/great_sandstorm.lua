@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Great Sandstorm
 --
---  Description: Deals Earth damage to single target. Additional effect: Blind
+--  Description: Deals WIND damage to single target. Additional effect: Blind
 --  Type: Magical
 --  Utsusemi/Blink absorb: Ignores shadows
 --  Range: Single target
@@ -19,11 +19,11 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
 
-    MobStatusEffectMove(mob, target, typeEffect, 15, 0, 120)
+    MobStatusEffectMove(mob, target, typeEffect, 100, 0, 120)
 
-    local dmgmod = 1.5
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.EARTH, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, MOBPARAM_IGNORE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
+    local dmgmod = 2
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
     return dmg
 end
