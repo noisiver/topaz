@@ -25,8 +25,8 @@ function onMobSpawn(mob)
     })
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ATTP, 100)
-    mob:addMod(tpz.mod.ACC, 100) 
-    mob:addMod(tpz.mod.EVA, 100)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 50)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 15000)
 end
 
