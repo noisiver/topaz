@@ -97,10 +97,14 @@ function onSpellCast(caster, target, spell)
         if (final > diff) then
             final = diff
         end
-        target:addHP(final)
+        if target:hasStatusEffect(tpz.effect.CURSE_II) then
+                target:addHP(0)
+        else
+            target:addHP(final)
 
-        target:wakeUp()
-        caster:updateEnmityFromCure(target, 65535)
+            target:wakeUp()
+            caster:updateEnmityFromCure(target, 65535)
+        end
     else
         if (target:isUndead()) then -- e.g. PCs healing skeles for damage (?)
             spell:setMsg(tpz.msg.basic.MAGIC_DMG)

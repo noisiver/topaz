@@ -34,10 +34,14 @@ function onSpellCast(caster, target, spell)
     if (final > diff) then
         final = diff
     end
-    target:restoreHP(final)
-    target:wakeUp()
+    if target:hasStatusEffect(tpz.effect.CURSE_II) then
+         target:addHP(0)
+    else
+        target:addHP(final)
 
-    caster:updateEnmityFromCure(target, final)
+        target:wakeUp()
+        caster:updateEnmityFromCure(target, final)
+    end
 
     spell:setMsg(tpz.msg.basic.AOE_HP_RECOVERY)
 

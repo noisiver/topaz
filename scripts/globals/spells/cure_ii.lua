@@ -93,10 +93,14 @@ function onSpellCast(caster, target, spell)
         if (final > diff) then
             final = diff
         end
-        target:addHP(final)
+        if target:hasStatusEffect(tpz.effect.CURSE_II) then
+                target:addHP(0)
+        else
+            target:addHP(final)
 
-        target:wakeUp()
-        caster:updateEnmityFromCure(target, final)
+            target:wakeUp()
+            caster:updateEnmityFromCure(target, final)
+        end
     else
         if (target:isUndead()) then
             spell:setMsg(tpz.msg.basic.MAGIC_DMG)
