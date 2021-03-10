@@ -1057,10 +1057,10 @@ INSERT INTO `mob_droplist` VALUES (179,0,0,1000,903,1000);
 INSERT INTO `mob_droplist` VALUES (179,0,0,1000,1133,40);
 INSERT INTO `mob_droplist` VALUES (179,0,0,1000,4486,30);
 INSERT INTO `mob_droplist` VALUES (179,0,0,1000,16961,50);
-INSERT INTO `mob_droplist` VALUES (180,0,0,1000,852,240);
-INSERT INTO `mob_droplist` VALUES (180,0,0,1000,926,280);
-INSERT INTO `mob_droplist` VALUES (180,0,0,1000,1189,10);
-INSERT INTO `mob_droplist` VALUES (180,0,0,1000,4362,240);
+INSERT INTO `mob_droplist` VALUES (180,0,0,1000,852,100); -- (Ash Lizard) Lizard skin
+INSERT INTO `mob_droplist` VALUES (180,0,0,1000,926,240); -- Lizard tail
+INSERT INTO `mob_droplist` VALUES (180,0,0,1000,1189,10); -- Rattling egg
+INSERT INTO `mob_droplist` VALUES (180,0,0,1000,4362,150); -- Lizard egg
 INSERT INTO `mob_droplist` VALUES (181,0,0,1000,825,10);
 INSERT INTO `mob_droplist` VALUES (181,0,0,1000,2278,100);
 INSERT INTO `mob_droplist` VALUES (182,0,0,1000,529,50);
@@ -12042,10 +12042,10 @@ INSERT INTO `mob_droplist` VALUES (2375,0,0,1000,15222,50);     -- Taisaijin; Sp
 INSERT INTO `mob_droplist` VALUES (2375,0,1,1000,4850,0);      -- Taisaijin; Refresh II
 INSERT INTO `mob_droplist` VALUES (2376,0,0,1000,914,110);
 INSERT INTO `mob_droplist` VALUES (2376,0,0,1000,1165,40);
-INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,1000);
-INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,500);
-INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,330);
-INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,18042,100);
+INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,1000); -- (Tarasque) Tarasque Skin
+INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,240); -- Tarasque Skin
+INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,1276,150); -- Tarasque Skin
+INSERT INTO `mob_droplist` VALUES (2377,0,0,1000,18042,240); -- Ascention
 INSERT INTO `mob_droplist` VALUES (2378,0,0,1000,1620,50);
 INSERT INTO `mob_droplist` VALUES (2378,0,0,1000,1621,90);
 INSERT INTO `mob_droplist` VALUES (2379,0,0,1000,1623,90);
