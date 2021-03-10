@@ -11,21 +11,16 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 50)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 15000)
-tpz.mix.jobSpecial.config(mob, {
-    specials =
-    {
+    tpz.mix.jobSpecial.config(mob, {
+        between = 60,
+        chance = 100,
+        specials =
         {
-            id = tpz.jsa.INVINCIBLE,
-            hpp = 50,
-            begCode = function(mob)
-                --mob:messageText(mob, ID.text.HOW_CAN_YOU_EXPECT_TO_KILL_ME)
-            end,
-            endCode = function(mob)
-                --mob:messageText(mob, ID.text.WHEN_YOU_CANT_EVEN_HIT_ME)
-            end,
+            {id = tpz.jsa.HUNDRED_FISTS, hpp = 75},
+            {id = tpz.jsa.INVINCIBLE, hpp = 50},
+            {id = tpz.jsa.MIGHTY_STRIKES, hpp = 25},
         },
-    },
-})
+    })
 end
 
 function onMobDeath(mob, player, isKiller)
