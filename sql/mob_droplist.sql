@@ -1127,7 +1127,7 @@ INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1880,170);
 INSERT INTO `mob_droplist` VALUES (188,0,0,1000,17305,80);
 INSERT INTO `mob_droplist` VALUES (189,0,0,1000,853,100);
 INSERT INTO `mob_droplist` VALUES (189,0,0,1000,3091,100);
-INSERT INTO `mob_droplist` VALUES (190,0,0,1000,863,150);
+INSERT INTO `mob_droplist` VALUES (190,0,0,1000,863,100);
 INSERT INTO `mob_droplist` VALUES (190,2,0,1000,927,0);
 INSERT INTO `mob_droplist` VALUES (190,0,0,1000,927,340);
 INSERT INTO `mob_droplist` VALUES (190,0,0,1000,4377,240);
@@ -2561,7 +2561,7 @@ INSERT INTO `mob_droplist` VALUES (448,0,0,1000,889,1000);
 INSERT INTO `mob_droplist` VALUES (448,0,0,1000,889,240);
 INSERT INTO `mob_droplist` VALUES (448,0,0,1000,894,150);
 INSERT INTO `mob_droplist` VALUES (448,0,0,1000,1041,50);
-INSERT INTO `mob_droplist` VALUES (449,0,0,1000,863,150);	-- (Champaign Coeurl) Coeurl Hide
+INSERT INTO `mob_droplist` VALUES (449,0,0,1000,863,100);	-- (Champaign Coeurl) Coeurl Hide
 INSERT INTO `mob_droplist` VALUES (449,2,0,1000,927,0);
 INSERT INTO `mob_droplist` VALUES (449,0,0,1000,927,240);	-- Coeurl Whisker
 INSERT INTO `mob_droplist` VALUES (449,4,0,1000,4377,0);
@@ -2601,7 +2601,7 @@ INSERT INTO `mob_droplist` VALUES (457,0,0,1000,4508,50);
 INSERT INTO `mob_droplist` VALUES (457,0,0,1000,5152,50);
 INSERT INTO `mob_droplist` VALUES (457,0,0,1000,11549,320);
 INSERT INTO `mob_droplist` VALUES (457,0,0,1000,11599,80);
-INSERT INTO `mob_droplist` VALUES (458,0,0,1000,863,150);
+INSERT INTO `mob_droplist` VALUES (458,0,0,1000,863,100);
 INSERT INTO `mob_droplist` VALUES (458,0,0,1000,3081,240);
 INSERT INTO `mob_droplist` VALUES (458,0,0,1000,4377,240);
 INSERT INTO `mob_droplist` VALUES (458,0,0,1000,4377,150);
@@ -2804,9 +2804,9 @@ INSERT INTO `mob_droplist` VALUES (495,4,0,1000,842,0); --(Cockatrice - Layrinth
 INSERT INTO `mob_droplist` VALUES (495,0,0,1000,854,100); -- Cockatrice skin
 INSERT INTO `mob_droplist` VALUES (495,0,0,1000,1056,50); -- Onzozo chest key
 INSERT INTO `mob_droplist` VALUES (495,0,0,1000,4435,240); -- Slice of cockatrice meat
-INSERT INTO `mob_droplist` VALUES (496,0,0,1000,863,150);	-- (Coeurl) Coeurl Hide
+INSERT INTO `mob_droplist` VALUES (496,0,0,1000,863,100);	-- (Coeurl) Coeurl Hide
 INSERT INTO `mob_droplist` VALUES (496,2,0,1000,927,0);
-INSERT INTO `mob_droplist` VALUES (496,0,0,1000,927,289);
+INSERT INTO `mob_droplist` VALUES (496,0,0,1000,927,240);
 INSERT INTO `mob_droplist` VALUES (496,0,0,1000,4377,240);
 INSERT INTO `mob_droplist` VALUES (497,0,0,1000,2682,1000);
 INSERT INTO `mob_droplist` VALUES (497,0,0,1000,11390,100);
@@ -7094,7 +7094,7 @@ INSERT INTO `mob_droplist` VALUES (1392,0,0,1000,4228,100);
 INSERT INTO `mob_droplist` VALUES (1393,0,0,1000,5334,100);
 INSERT INTO `mob_droplist` VALUES (1394,0,0,1000,702,10);
 INSERT INTO `mob_droplist` VALUES (1395,4,0,1000,863,0);
-INSERT INTO `mob_droplist` VALUES (1395,0,0,1000,863,150);
+INSERT INTO `mob_droplist` VALUES (1395,0,0,1000,863,100);
 INSERT INTO `mob_droplist` VALUES (1395,4,0,1000,2924,0);
 INSERT INTO `mob_droplist` VALUES (1395,0,0,1000,2924,140);
 INSERT INTO `mob_droplist` VALUES (1395,4,0,1000,4377,0);
@@ -7180,7 +7180,7 @@ INSERT INTO `mob_droplist` VALUES (1418,0,0,1000,4374,240);
 INSERT INTO `mob_droplist` VALUES (1419,0,0,1000,4373,101);	-- (Jugner Funguar) Woozyshroom
 INSERT INTO `mob_droplist` VALUES (1419,2,0,1000,4374,0);
 INSERT INTO `mob_droplist` VALUES (1419,0,0,1000,4374,240);	-- Sleepshroom
-INSERT INTO `mob_droplist` VALUES (1420,0,0,1000,863,150);
+INSERT INTO `mob_droplist` VALUES (1420,0,0,1000,863,100);
 INSERT INTO `mob_droplist` VALUES (1420,2,0,1000,927,0);
 INSERT INTO `mob_droplist` VALUES (1420,0,0,1000,927,100);
 INSERT INTO `mob_droplist` VALUES (1420,0,0,1000,4377,240);
@@ -8293,15 +8293,15 @@ INSERT INTO `mob_droplist` VALUES (1637,0,0,1000,924,100);
 INSERT INTO `mob_droplist` VALUES (1637,0,0,1000,930,10);
 INSERT INTO `mob_droplist` VALUES (1637,0,0,1000,1125,10);
 INSERT INTO `mob_droplist` VALUES (1637,0,0,1000,1271,1000);
-INSERT INTO `mob_droplist` VALUES (1638,0,0,1000,863,150);
+INSERT INTO `mob_droplist` VALUES (1638,0,0,1000,863,100);
 INSERT INTO `mob_droplist` VALUES (1638,2,0,1000,927,0);
 INSERT INTO `mob_droplist` VALUES (1638,0,0,1000,927,70);
 INSERT INTO `mob_droplist` VALUES (1638,0,0,1000,4377,240);
-INSERT INTO `mob_droplist` VALUES (1639,0,0,1000,863,150);	-- (Master Coeurl - Zitah) Coeurl hide
+INSERT INTO `mob_droplist` VALUES (1639,0,0,1000,863,100);	-- (Master Coeurl - Zitah) Coeurl hide
 INSERT INTO `mob_droplist` VALUES (1639,2,0,1000,927,0);
 INSERT INTO `mob_droplist` VALUES (1639,0,0,1000,927,100);	-- Coeurl whisker
 INSERT INTO `mob_droplist` VALUES (1639,0,0,1000,4377,240); -- Slice of coeurl meat
-INSERT INTO `mob_droplist` VALUES (1640,0,0,1000,863,150);
+INSERT INTO `mob_droplist` VALUES (1640,0,0,1000,863,100);
 INSERT INTO `mob_droplist` VALUES (1640,2,0,1000,927,0);
 INSERT INTO `mob_droplist` VALUES (1640,0,0,1000,927,80);
 INSERT INTO `mob_droplist` VALUES (1640,0,0,1000,4377,240);
