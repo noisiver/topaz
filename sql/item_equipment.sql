@@ -2207,7 +2207,7 @@ INSERT INTO `item_equipment` VALUES (12443,'cuir_bandana',38,0,2473969,1,0,0,16,
 INSERT INTO `item_equipment` VALUES (12444,'raptor_helm',48,0,2473969,7,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (12445,'dusk_mask',72,0,2473969,109,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (12446,'tiger_helm',65,0,2473969,7,0,0,16,0);
-INSERT INTO `item_equipment` VALUES (12447,'coeurl_mask',69,0,2360608,54,0,0,16,0);
+INSERT INTO `item_equipment` VALUES (12447,'coeurl_mask',69,0,2473969,54,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (12448,'bronze_cap',1,0,2472947,15,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (12449,'brass_cap',11,0,2472947,15,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (12450,'padded_cap',35,0,2472947,14,0,0,16,0);
@@ -2335,7 +2335,7 @@ INSERT INTO `item_equipment` VALUES (12571,'cuir_bouilli',38,0,2473969,1,0,0,32,
 INSERT INTO `item_equipment` VALUES (12572,'raptor_jerkin',48,0,2473969,7,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (12573,'dusk_jerkin',72,0,2473969,109,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (12574,'tiger_jerkin',65,0,2473969,50,0,0,32,0);
-INSERT INTO `item_equipment` VALUES (12575,'coeurl_jerkin',70,0,2360608,54,0,0,32,0);
+INSERT INTO `item_equipment` VALUES (12575,'coeurl_jerkin',70,0,2473969,54,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (12576,'bronze_harness',1,0,2472947,15,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (12577,'brass_harness',11,0,2472947,15,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (12578,'padded_armor',35,0,2472947,14,0,0,32,0);
@@ -2463,7 +2463,7 @@ INSERT INTO `item_equipment` VALUES (12699,'cuir_gloves',38,0,2473969,1,0,0,64,0
 INSERT INTO `item_equipment` VALUES (12700,'raptor_gloves',48,0,2473969,7,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (12701,'dusk_gloves',72,0,2473969,109,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (12702,'tiger_gloves',65,0,2473969,50,0,0,64,0);
-INSERT INTO `item_equipment` VALUES (12703,'coeurl_gloves',69,0,2360608,54,0,0,64,0);
+INSERT INTO `item_equipment` VALUES (12703,'coeurl_gloves',69,0,2473969,54,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (12704,'bronze_mittens',1,0,2472947,15,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (12705,'brass_mittens',11,0,2472947,15,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (12706,'iron_mittens',35,0,2472947,14,0,0,64,0);
@@ -2590,7 +2590,7 @@ INSERT INTO `item_equipment` VALUES (12827,'cuir_trousers',38,0,2473969,1,0,0,12
 INSERT INTO `item_equipment` VALUES (12828,'raptor_trousers',48,0,2473969,7,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (12829,'beak_trousers',58,0,2473969,6,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (12830,'tiger_trousers',63,0,2473969,50,0,0,128,0);
-INSERT INTO `item_equipment` VALUES (12831,'coeurl_trousers',70,0,2360608,54,0,0,128,0);
+INSERT INTO `item_equipment` VALUES (12831,'coeurl_trousers',70,0,2473969,54,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (12832,'bronze_subligar',1,0,2472947,15,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (12833,'brass_subligar',11,0,2472947,15,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (12834,'bone_subligar',16,0,2472947,16,0,0,128,0);
@@ -2716,7 +2716,7 @@ INSERT INTO `item_equipment` VALUES (12955,'cuir_highboots',38,0,2473969,1,0,0,2
 INSERT INTO `item_equipment` VALUES (12956,'raptor_ledelsens',48,0,2473969,7,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (12957,'dusk_ledelsens',72,0,2473969,109,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (12958,'tiger_ledelsens',63,0,2473969,50,0,0,256,0);
-INSERT INTO `item_equipment` VALUES (12959,'coeurl_ledelsens',69,0,2360608,54,0,0,256,0);
+INSERT INTO `item_equipment` VALUES (12959,'coeurl_ledelsens',69,0,2473969,54,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (12960,'bronze_leggings',1,0,2472947,15,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (12961,'brass_leggings',11,0,2472947,15,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (12962,'leggings',35,0,2472947,14,0,0,256,0);
