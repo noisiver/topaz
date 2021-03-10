@@ -18,7 +18,7 @@ function onTrigger(player, npc)
         4860,  31850,    -- Stun
         4720,  31850,    -- Flash
        -- 4750, 546000,    -- Reraise III
-       -- 4638,  78260,    -- Banish III
+        4638,  78260,    -- Banish III
        -- 4701,  20092,    -- Cura
        -- 5082,  88389,    -- Cura II
        -- 4702,  62192,    -- Sacrifice
