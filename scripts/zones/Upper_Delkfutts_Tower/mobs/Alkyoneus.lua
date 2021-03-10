@@ -34,7 +34,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
         mob:useMobAbility(739) -- EES
-        mob:setModelId(Ranger) --  Ranger
+        mob:setModelId(703) --  Ranger
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6005)
         mob:setLocalVar("TriggerHit", 3)
     end
@@ -49,7 +49,7 @@ function onMobFight(mob, target)
         },
     })
         mob:useMobAbility(689) -- Benediction
-        mob:setModelId(643) -- Black
+        mob:setModelId(275) -- WOTG
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6006)
         mob:setLocalVar("TriggerHit", 4)
     end
