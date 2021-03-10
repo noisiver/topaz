@@ -32,7 +32,10 @@ function onMobWeaponSkill(target, mob, skill)
     end
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, MOBPARAM_IGNORE_SHADOWS)
 
+    if dmg > 0 then
+        mob:resetEnmity(target)
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
-    mob:resetEnmity(target)
     return dmg
 end
