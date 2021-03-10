@@ -11,24 +11,21 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 50)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 15000)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
+tpz.mix.jobSpecial.config(mob, {
+    specials =
+    {
         {
-            {
-                id = tpz.jsa.INVINCIBLE,
-                hpp = math.random(25, 50),
-                begCode = function(mob)
-                  
-                 -- mob:messageText(mob, ID.text.HOW_CAN_YOU_EXPECT_TO_KILL_ME)
-                 -- mob:PrintToArea("My power is too great for you!",0,"Murgleis")
-                end,
-                endCode = function(mob)
-               --mob:messageText(mob, ID.text.WHEN_YOU_CANT_EVEN_HIT_ME)
-                end,
-            },
+            id = tpz.jsa.INVINCIBLE,
+            hpp = 50,
+            begCode = function(mob)
+                --mob:messageText(mob, ID.text.HOW_CAN_YOU_EXPECT_TO_KILL_ME)
+            end,
+            endCode = function(mob)
+                --mob:messageText(mob, ID.text.WHEN_YOU_CANT_EVEN_HIT_ME)
+            end,
         },
-    })
-end
+    },
+})
 
 function onMobDeath(mob, player, isKiller)
 end
