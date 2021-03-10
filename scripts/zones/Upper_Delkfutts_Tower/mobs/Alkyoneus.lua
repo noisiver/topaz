@@ -7,6 +7,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setModelId(643) -- Black
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ATTP, 50)
     mob:addMod(tpz.mod.ACC, 50) 
