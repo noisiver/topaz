@@ -26,6 +26,7 @@ tpz.mix.jobSpecial.config(mob, {
         },
     },
 })
+end
 
 function onMobDeath(mob, player, isKiller)
 end
