@@ -22,29 +22,9 @@ function onUseAbility(player, target, ability)
     else
         power = math.floor((player:getSubLvl()/4)+4.75)/256
     end
+
     power = power * 100
     duration = duration + player:getMod(tpz.mod.WARCRY_DURATION)
-
-        local mob = player:getTarget()
-        local enmityList = mob:getEnmityList()
-        if enmityList and #enmityList > 0 then
-            if #enmityList = 2 then
-                target:addEnmity(mob, 1, 600)
-            elseif #enmityList = 3 then
-                target:addEnmity(mob, 1, 900)
-            elseif #enmityList = 4 then
-                target:addEnmity(mob, 1, 1200)
-            elseif #enmityList = 5 then
-                target:addEnmity(mob, 1, 1500)
-            elseif #enmityList = 6 then
-                target:addEnmity(mob, 1, 1800)
-            else
-                target:addEnmity(mob, 1, 300)
-            end
-        end
-    end
-
-
 
 
     target:addStatusEffect(tpz.effect.WARCRY, power, 0, duration, 0, merit)
