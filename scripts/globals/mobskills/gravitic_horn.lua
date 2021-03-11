@@ -37,8 +37,8 @@ function onMobWeaponSkill(target, mob, skill)
     damage = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_WIPE_SHADOWS)
 
     target:takeDamage(finalDamage, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
-    if dmg > 0 then
-        mob:resetEnmity(target)
-    end
+
+    mob:resetEnmity(target)
+
     return finalDamage
 end

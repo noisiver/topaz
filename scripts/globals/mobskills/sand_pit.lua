@@ -48,9 +48,7 @@ function onMobWeaponSkill(target, mob, skill)
         -- Tuchulcha (Sheep in Antlion's Clothing)
         -- Resets all enmity
         for _, enmAlly in pairs(mob:getBattlefield():getAllies()) do
-    if dmg > 0 then
-        mob:resetEnmity(target)
-    end
+             mob:resetEnmity(target)
         end
         -- Removes all enfeebling effects
         mob:delStatusEffectsByFlag(tpz.effectFlag.ERASABLE)
