@@ -47,17 +47,17 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,6,80,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,21,50,94);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,22,95,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,23,3,35);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,24,36,64);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,24,36,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,25,85,255); -- Dia III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,28,5,29);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,29,30,60);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,30,61,72);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,30,61,89);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,31,90,255); -- banish_iv
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,33,18,54);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,34,60,73);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,34,60,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,35,85,255); -- Diaga III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,38,15,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,39,40,68);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,39,40,89);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,40,90,255); -- banishga_iii
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,43,7,26);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,44,27,46);
@@ -140,7 +140,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,221,43,64);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,225,24,71);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,226,72,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,230,10,34);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,231,35,59);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,231,35,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,232,85,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,235,24,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,236,22,255);
@@ -164,10 +164,10 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,2,14,25);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,3,26,48);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,4,48,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,23,1,30);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,24,31,59);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,24,31,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,25,85,255); -- Dia III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,33,15,54);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,34,55,70);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,34,55,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,35,85,255); -- Diaga III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,43,7,26);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,44,27,46);
@@ -196,33 +196,33 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,108,21,75);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,110,80,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,144,19,49);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,145,50,70);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,146,71,85);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,146,71,99);
 --INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,147,86,255); fire_iv
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,149,24,54);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,150,55,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,151,73,88);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,151,73,99);
 --INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,152,89,255); --blizzard_iv
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,154,14,44);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,155,45,68);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,156,69,82);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,156,69,99);
 --INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,157,83,255); -- aero_iv
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,159,4,34);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,160,35,64);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,161,65,76);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,161,65,99);
 --INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,162,77,255); -- stone_iv
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,164,29,59);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,165,60,74);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,166,75,91);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,166,75,99);
 --INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,167,89,255); -- thunder_iv
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,169,9,39);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,170,40,66);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,171,67,88);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,171,67,99);
 --INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,172,80,255); -- water_iv
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,216,21,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,220,5,45);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,221,46,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,230,10,35);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,231,36,70);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,231,36,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,232,85,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,253,25,45);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_RDM',3,254,8,255);
@@ -270,7 +270,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,220,6,45);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,221,46,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,225,26,50);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,230,15,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,231,40,69);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,231,40,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,232,85,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,242,61,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_DRK',5,245,10,255);
@@ -459,7 +459,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,199,19,27);
 INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,200,44,53);
 INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,201,65,70);
 INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,230,10,34);
-INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,231,35,59);
+INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,231,35,84);
 INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,232,85,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,245,12,255);
 INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,249,10,255);
@@ -549,7 +549,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,235,24,50);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,249,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,204,56,255); -- Flare 
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,230,10,35);
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,231,36,59);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,231,36,84);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,232,85,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,242,61,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Dark',18,245,12,255);
@@ -575,7 +575,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,6,80,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,21,50,94);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,22,95,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,23,1,30);
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,24,31,59);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,24,31,84);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,25,85,255); -- Dia III
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,28,5,29);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Light',19,29,30,64);
@@ -704,7 +704,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Undead',28,221,43,64);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,225,24,69);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,226,70,255);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,230,10,34);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,231,35,59);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,231,35,84);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,232,85,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,236,22,50);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,245,12,255);
@@ -815,7 +815,7 @@ INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,221,43,64);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,225,24,71);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,226,72,255);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,230,10,34);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,231,35,64);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,231,35,84);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,232,85,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,247,25,82);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,248,83,255);
@@ -896,10 +896,10 @@ INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,2,14,25);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,3,26,48);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,4,48,255);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,23,1,30);
-INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,24,31,59);
+INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,24,31,84);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,25,85,255); -- Dia III
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,33,15,54);
-INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,34,55,70);
+INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,34,55,84);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,35,85,255); -- Diaga III
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,43,7,26);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,44,27,46);
@@ -948,7 +948,7 @@ INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,171,67,88);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,172,80,255);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,216,21,255);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,230,10,35);
-INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,231,36,74);
+INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,231,36,84);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,232,85,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,253,25,45);
 INSERT INTO `mob_spell_lists` VALUES ('EvilWeapon',42,259,46,255);
