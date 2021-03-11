@@ -8370,7 +8370,7 @@ INSERT INTO `mob_groups` VALUES (22,1287,125,'Fallen_Knight',330,1,810,0,0,50,54
 INSERT INTO `mob_groups` VALUES (23,5862,125,'Calchas',0,32,3074,18000,0,74,75,0);
 INSERT INTO `mob_groups` VALUES (24,597,125,'Cactuar_Cantautor',0,32,398,0,0,48,53,0);
 INSERT INTO `mob_groups` VALUES (25,2407,125,'Lich',330,1,1517,0,0,49,53,0);
-INSERT INTO `mob_groups` VALUES (26,2262,125,'King_Vinegarroon',75600,128,1451,35000,0,80,85,0);
+INSERT INTO `mob_groups` VALUES (26,2262,125,'King_Vinegarroon',75600,128,1451,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (27,1745,125,'Goblin_Welldigger',330,0,1188,0,0,51,55,0);
 INSERT INTO `mob_groups` VALUES (28,1641,125,'Goblin_Bouncer',330,0,0,0,0,51,55,0);
 INSERT INTO `mob_groups` VALUES (29,1654,125,'Goblin_Enchanter',330,0,1047,0,0,51,55,0);
