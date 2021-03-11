@@ -5,9 +5,9 @@
 -- Finishing Moves Used: 1-2
 -- Recast Time: 00:30
 -----------------------------------
---require("scripts/globals/settings")
---require("scripts/globals/status")
---require("scripts/globals/msg")
+require("scripts/globals/settings")
+require("scripts/globals/status")
+require("scripts/globals/msg")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
