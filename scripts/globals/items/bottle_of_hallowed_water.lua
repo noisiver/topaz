@@ -22,18 +22,14 @@ function onItemUse(target)
         target:messageBasic(tpz.msg.basic.NARROWLY_ESCAPE)
     elseif (curse ~= nil and curse2 ~= nil and bane ~= nil) then
         target:delStatusEffect(tpz.effect.CURSE_I)
-        target:delStatusEffect(tpz.effect.CURSE_II)
         target:delStatusEffect(tpz.effect.BANE)
     elseif (curse ~= nil and bane ~= nil) then
         target:delStatusEffect(tpz.effect.CURSE_I)
         target:delStatusEffect(tpz.effect.BANE)
     elseif (curse2 ~= nil and bane ~= nil) then
-        target:delStatusEffect(tpz.effect.CURSE_II)
         target:delStatusEffect(tpz.effect.BANE)
     elseif (curse ~= nil) then
         target:delStatusEffect(tpz.effect.CURSE_I)
-    elseif (curse2 ~= nil) then
-        target:delStatusEffect(tpz.effect.CURSE_II)
     elseif (bane ~= nil) then
         target:delStatusEffect(tpz.effect.BANE)
     else
