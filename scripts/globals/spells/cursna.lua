@@ -25,14 +25,29 @@ function onSpellCast(caster, target, spell)
         final = tpz.effect.DOOM
         target:delStatusEffect(tpz.effect.DOOM)
         spell:setMsg(tpz.msg.basic.NARROWLY_ESCAPE)
+    elseif (curse ~= nil and curse2 ~= nil and bane ~= nil) then
+        target:delStatusEffect(tpz.effect.CURSE_I)
+        target:delStatusEffect(tpz.effect.CURSE_II)
+        target:delStatusEffect(tpz.effect.BANE)
+        final = tpz.effect.CURSE_II
+        spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
     elseif (curse ~= nil and bane ~= nil) then
         target:delStatusEffect(tpz.effect.CURSE_I)
         target:delStatusEffect(tpz.effect.BANE)
         final = tpz.effect.CURSE_I
         spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
+    elseif (curse2 ~= nil and bane ~= nil) then
+        target:delStatusEffect(tpz.effect.CURSE_II)
+        target:delStatusEffect(tpz.effect.BANE)
+        final = tpz.effect.CURSE_II
+        spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
     elseif (curse ~= nil) then
         target:delStatusEffect(tpz.effect.CURSE_I)
         final = tpz.effect.CURSE_I
+        spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
+    elseif (curse2 ~= nil) then
+        target:delStatusEffect(tpz.effect.CURSE_II)
+        final = tpz.effect.CURSE_II
         spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
     elseif (bane ~= nil) then
         target:delStatusEffect(tpz.effect.BANE)
