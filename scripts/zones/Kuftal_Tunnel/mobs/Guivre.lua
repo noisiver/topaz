@@ -3,6 +3,7 @@
 --   NM: Guivre
 -----------------------------------
 require("scripts/globals/pathfind")
+require("scripts/globals/status")
 
 local pathNodes =
 {
@@ -296,8 +297,10 @@ function onPath(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ATTP, 100)
+    mob:addMod(tpz.mod.ACC, 50)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 10)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 5)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
     onPath(mob)

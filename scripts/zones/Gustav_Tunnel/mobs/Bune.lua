@@ -10,17 +10,8 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 100)
     mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 50)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 10)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 15000)
-    tpz.mix.jobSpecial.config(mob, {
-        between = 60,
-        chance = 100,
-        specials =
-        {
-            {id = tpz.jsa.HUNDRED_FISTS, hpp = 75},
-            {id = tpz.jsa.INVINCIBLE, hpp = 50},
-            {id = tpz.jsa.MIGHTY_STRIKES, hpp = 25},
-        },
-    })
 end
 
 function onMobDeath(mob, player, isKiller)
