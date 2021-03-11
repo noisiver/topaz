@@ -41,6 +41,7 @@ function onUseAbility(player, target, ability)
                 target:addEnmity(mob, 1, 300)
             end
         end
+    end
 
     power = power * 100
     duration = duration + player:getMod(tpz.mod.WARCRY_DURATION)
