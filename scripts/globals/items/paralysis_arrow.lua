@@ -14,7 +14,16 @@ function onAdditionalEffect(player, target, damage)
         chance = chance - 5 * (target:getMainLvl() - player:getMainLvl())
         chance = utils.clamp(chance, 5, 95)
     end
-    if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0) <= 0.5) then
+    if target:getStat(tpz.mod.SDT_ICE) <= 5 then
+        chance = 0
+    elseif target:getStat(tpz.mod.SDT_ICE) <= 50 then
+        chance = chance / 2
+    elseif target:getStat(tpz.mod.SDT_ICE) <= 75 then
+        chance = chance * 0.75
+    end
+    if (target:hasImmunity(32)) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+    elseif (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0) <= 0.5) then
         return 0, 0, 0
     else
         target:delStatusEffect(tpz.effect.PARALYSIS)
