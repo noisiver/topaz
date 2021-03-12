@@ -24,19 +24,21 @@ function onUseAbility(player, target, ability)
     end
 
     local PT = getPartySize()
+    local enmitylist = target:getEnmityList()
+    local mob = player:getTarget()
     
     if PT  == 2 then
-         target:addEnmity(player, 1, 600)
+         player:addEnmity(target, 1, 600)
     elseif PT  == 3 then
-         target:addEnmity(player, 1, 900)
+         player:addEnmity(target, 1, 900)
     elseif PT  == 4 then
-         target:addEnmity(player, 1, 1200)
+         player:addEnmity(target, 1, 1200)
     elseif PT  == 5 then
-         target:addEnmity(player, 1, 1500)
+         player:addEnmity(target, 1, 1500)
     elseif PT  == 6 then
-         target:addEnmity(player, 1, 1800)
+         player:addEnmity(target, 1, 1800)
     else
-         target:addEnmity(player, 1, 300)
+         player:addEnmity(target, 1, 300)
     end
 
 
