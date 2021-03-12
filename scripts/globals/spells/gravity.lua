@@ -65,7 +65,7 @@ function onSpellCast(caster, target, spell)
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST) --         spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2) Trait proc resist message
     end
 
     return params.effect
