@@ -22,25 +22,24 @@ function onUseAbility(player, target, ability)
     else
         power = math.floor((player:getSubLvl()/4)+4.75)/256
     end
-
+    player:updateEnmity(target, 7800, 7800)
     local PT = getPartySize()
-    local enmitylist = target:getEnmityList()
-    local mob = player:getTarget()
-    
-    if PT  == 2 then
-         player:addEnmity(target, 1, 600)
-    elseif PT  == 3 then
-         player:addEnmity(target, 1, 900)
-    elseif PT  == 4 then
-         player:addEnmity(target, 1, 1200)
-    elseif PT  == 5 then
-         player:addEnmity(target, 1, 1500)
-    elseif PT  == 6 then
-         player:addEnmity(target, 1, 1800)
-    else
-         player:addEnmity(target, 1, 300)
-    end
 
+   --[[[ 
+    if PT  == 2 then
+         player:updateEnmity(target, 1, 600)
+    elseif PT  == 3 then
+         player:updateEnmity(target, 1, 900)
+    elseif PT  == 4 then
+         player:updateEnmity(target, 1, 1200)
+    elseif PT  == 5 then
+         player:updateEnmity(target, 1, 1500)
+    elseif PT  == 6 then
+         player:updateEnmity(target, 1, 1800)
+    else
+         player:updateEnmity(target, 1, 300)
+    end
+    --]]
 
 
     power = power * 100
