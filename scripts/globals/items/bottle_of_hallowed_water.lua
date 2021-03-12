@@ -15,7 +15,7 @@ function onItemUse(target)
     local curse = target:getStatusEffect(tpz.effect.CURSE_I)
     local curse2 = target:getStatusEffect(tpz.effect.CURSE_II)
     local bane = target:getStatusEffect(tpz.effect.BANE)
-    local power = 33 + target:getMod(tpz.mod.ENHANCES_HOLYWATER)
+    local power = 50 + target:getMod(tpz.mod.ENHANCES_HOLYWATER)
 
     if (target:hasStatusEffect(tpz.effect.DOOM) and power > math.random(1, 100)) then
         target:delStatusEffect(tpz.effect.DOOM)
