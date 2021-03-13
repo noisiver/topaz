@@ -14,7 +14,7 @@ function onAdditionalEffect(player, target, damage)
         chance = chance - 5 * (target:getMainLvl() - player:getMainLvl())
         chance = utils.clamp(chance, 5, 95)
     end
-    local SDT = target:getStat(tpz.mod.SDT_WIND)
+    local SDT = target:getMod(tpz.mod.SDT_WIND)
     if SDT <= 5 then
         chance = 0
     else 
