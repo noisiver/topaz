@@ -14,12 +14,12 @@ function onAdditionalEffect(player, target, damage)
         chance = chance - 5 * (target:getMainLvl() - player:getMainLvl())
         chance = utils.clamp(chance, 5, 95)
     end
-    if target:getStat(tpz.mod.SDT_ICE) <= 5 then
+    local SDT = target:getStat(tpz.mod.SDT_ICE)
+    if SDT <= 5 then
         chance = 0
-    elseif target:getStat(tpz.mod.SDT_ICE) <= 50 then
-        chance = chance / 2
-    elseif target:getStat(tpz.mod.SDT_ICE) <= 75 then
-        chance = chance * 0.75
+    else 
+        chance = chance * (SDT / 100)
+        chance = utils.clamp(chance, 5, 95)
     end
     if (target:hasImmunity(32)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

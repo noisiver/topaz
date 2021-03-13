@@ -14,12 +14,12 @@ function onAdditionalEffect(player, target, damage)
         chance = chance - 5 * (target:getMainLvl() - player:getMainLvl())
         chance = utils.clamp(chance, 5, 95)
     end
-    if target:getStat(tpz.mod.SDT_WATER) <= 5 then
+    local SDT = target:getStat(tpz.mod.SDT_WATER)
+    if SDT <= 5 then
         chance = 0
-    elseif target:getStat(tpz.mod.SDT_WATER) <= 50 then
-        chance = chance / 2
-    elseif target:getStat(tpz.mod.SDT_WATER) <= 75 then
-        chance = chance * 0.75
+    else 
+        chance = chance * (SDT / 100)
+        chance = utils.clamp(chance, 5, 95)
     end
     if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0) <= 0.5) then
         return 0, 0, 0

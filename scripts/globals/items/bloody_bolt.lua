@@ -13,12 +13,12 @@ function onAdditionalEffect(player, target, damage)
         chance = chance - 5 * (target:getMainLvl() - player:getMainLvl())
         chance = utils.clamp(chance, 5, 95)
     end
-    if target:getStat(tpz.mod.SDT_DARK) <= 5 then
+    local SDT = target:getStat(tpz.mod.SDT_DARK)
+    if SDT <= 5 then
         chance = 0
-    elseif target:getStat(tpz.mod.SDT_DARK) <= 50 then
-        chance = chance / 2
-    elseif target:getStat(tpz.mod.SDT_DARK) <= 75 then
-        chance = chance * 0.75
+    else 
+        chance = chance * (SDT / 100)
+        chance = utils.clamp(chance, 5, 95)
     end
     if (math.random(0, 99) >= chance or target:isUndead()) then
         return 0, 0, 0
