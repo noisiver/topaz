@@ -15,5 +15,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.BHUU_WJATO_THE_FIREPOOL_PH, 10, 1200) -- 20 minutes
+    tpz.mob.phOnDespawn(mob, ID.mob.BHUU_WJATO_THE_FIREPOOL_PH, 50, 3600) -- 20 minutes
 end
