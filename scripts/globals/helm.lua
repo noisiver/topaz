@@ -944,7 +944,7 @@ local helmInfo =
                     {  100,  645}, -- Darksteel Ore
                     { 210,  644}, -- Mythril Ore
                     { 140,  737}, -- Gold Ore
-                    { 340,  738}, -- Platium Ore
+                    { 600,  738}, -- Platium Ore
                     {  100,  769}, -- Colored Rock
                 },
                 points =
