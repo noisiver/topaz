@@ -14,10 +14,11 @@ function onAdditionalEffect(player, target, damage)
         chance = chance - 5 * (target:getMainLvl() - player:getMainLvl())
         chance = utils.clamp(chance, 5, 95)
     end
-    if target:getStat(tpz.mod.SDT_WIND) <= 5 then
+    local SDT = target:getMod(tpz.mod.SDT_WIND)
+    if SDT <= 5 then
         chance = 0
     else 
-        chance = chance * (target:getStat(tpz.mod.SDT_WIND) / 100)
+        chance = chance * (SDT / 100)
         chance = utils.clamp(chance, 5, 95)
     end
     if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0) <= 0.5) then

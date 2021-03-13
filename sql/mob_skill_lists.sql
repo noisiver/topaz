@@ -3714,6 +3714,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1274); -- impalement
 INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1275); -- empty_thrash
 INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1276); -- promyvion_brume
 INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-GoblinStompOnly',1156,1114); -- seismostomp
+INSERT INTO `mob_skill_lists` VALUES ('DynamisKindredRA',1157,1152); -- Hecatomb Wave
 
 
 -- Custom Content
