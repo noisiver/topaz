@@ -32,8 +32,8 @@ function onUseAbility(player, target, ability)
         resist = resist * (SDT / 100)
         resist = utils.clamp(resist, 5, 95)
     end
-    print(string.format("step1: %u",resist))
-	GetPlayerByID(6):PrintToPlayer(string.format("Hit chance: %u",resist))
+    --print(string.format("step1: %u",resist))
+	--GetPlayerByID(6):PrintToPlayer(string.format("Hit chance: %u",resist))
     if (target:hasImmunity(1)) then
         spell:setMsg(tpz.msg.basic.JA_MISS_2)
     elseif resist < 0.5 then
