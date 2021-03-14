@@ -1622,7 +1622,7 @@ INSERT INTO `item_latents` VALUES(15407, 68, 4, 1, 75);     -- Evasion+4 when HP
 -- -------------------------------------------------------
 -- Resentment Cape
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15468, 163, -5, 53, 1);   -- magic damge taken -5% ( in areas outside own nation's control
+--INSERT INTO `item_latents` VALUES(15468, 163, -5, 53, 1);   -- magic damge taken -5% ( in areas outside own nation's control
 
 INSERT INTO `item_latents` VALUES(15483, 2, 75, 58, 0);     -- Storm Mantle hp +75
 INSERT INTO `item_latents` VALUES(15489, 71, 2, 58, 0);     -- Storm Cape hmp +2

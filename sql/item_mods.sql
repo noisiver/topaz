@@ -17420,8 +17420,9 @@ INSERT INTO `item_mods` VALUES (15467,1,5);
 INSERT INTO `item_mods` VALUES (15467,2,7);
 INSERT INTO `item_mods` VALUES (15467,5,7);
 INSERT INTO `item_mods` VALUES (15467,14,3);
-INSERT INTO `item_mods` VALUES (15468,1,8);
-INSERT INTO `item_mods` VALUES (15468,27,2);
+INSERT INTO `item_mods` VALUES (15468,1,8); -- Resentment Cape
+INSERT INTO `item_mods` VALUES (15468,27,2); -- +5 Enmity
+INSERT INTO `item_mods` VALUES (15468,163,5); ---5% MDT
 INSERT INTO `item_mods` VALUES (15469,1,3);
 INSERT INTO `item_mods` VALUES (15469,2,-10);
 INSERT INTO `item_mods` VALUES (15469,23,6);
