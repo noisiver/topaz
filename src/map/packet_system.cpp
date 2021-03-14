@@ -2442,7 +2442,6 @@ void SmallPacket0x04E(map_session_data_t* session, CCharEntity* PChar, CBasicPac
                 PChar->pushPacket(new CAuctionHousePacket(action, 197, 0, 0));
                 return;
             }
-            PItem->setCharPrice(price); // not sure setCharPrice is right
             PChar->pushPacket(new CAuctionHousePacket(action, PItem, quantity, price));
         }
     }
