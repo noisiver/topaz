@@ -28,7 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, info.hitslanded)
 
     if (dmg > 0) then
-       target:addTP(32)
+       target:addTP(13)
        mob:addTP(64)
     end
 

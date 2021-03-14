@@ -26,6 +26,11 @@ function onMobWeaponSkill(target, mob, skill)
         dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.WIND, 600)
     end
 
+    if (dmg > 0) then
+       target:addTP(13)
+       mob:addTP(64)
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WIND)
     return dmg
 end
