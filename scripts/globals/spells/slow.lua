@@ -19,8 +19,8 @@ function onSpellCast(caster, target, spell)
     -- Highest ~29.2%
     local power = utils.clamp(math.floor(dMND * 75 / 5) + 1825, 730, 2920)    
     power = calculatePotency(power, spell:getSkillType(), caster, target)
-    print(string.format("step1: %u",power))
-	GetPlayerByID(6):PrintToPlayer(string.format("pre SDT: %u",power))
+    --print(string.format("step1: %u",power))
+	--GetPlayerByID(6):PrintToPlayer(string.format("Slow amount: %u",power))
 
     --printf("Duration : %u", duration)
     --printf("Potency : %u", potency)

@@ -20,8 +20,8 @@ function onAdditionalEffect(player, target, damage)
     else 
         chance = chance * (SDT / 100)
         chance = utils.clamp(chance, 5, 95)
-   -- print(string.format("step1: %u",chance))
-	--GetPlayerByID(6):PrintToPlayer(string.format("pre SDT: %u",chance))
+    print(string.format("step1: %u",chance))
+	GetPlayerByID(6):PrintToPlayer(string.format("Proc chance: %u",chance))
     end
     if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0) <= 0.5) then
         return 0, 0, 0
