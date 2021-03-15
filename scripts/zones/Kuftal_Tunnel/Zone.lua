@@ -10,6 +10,9 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onInitialize(zone)
+    UpdateNMSpawnPoint(ID.mob.GUIVRE)
+    GetMobByID(ID.mob.GUIVRE):setRespawnTime(math.random(900, 10800))
+
     tpz.treasure.initZone(zone)
 end
 
