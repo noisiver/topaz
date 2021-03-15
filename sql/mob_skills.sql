@@ -1280,7 +1280,7 @@ INSERT INTO `mob_skills` VALUES (1447,1070,'vertical_cleave',0,7.0,2000,1000,4,0
 INSERT INTO `mob_skills` VALUES (1448,1071,'efflorescent_foetor',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1449,1072,'stupor_spores',1,15.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1450,1067,'viscid_nectar',4,10.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1451,1073,'morning_glory',1,15.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1451,1073,'morning_glory',1,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1452,1068,'axial_bloom',1,15.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1453,1069,'nutrient_aborption',0,7.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1454,1198,'palsy_pollen',0,7.0,2000,1500,4,0,0,0,0,0,0);

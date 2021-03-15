@@ -1,7 +1,7 @@
 ---------------------------------------------
----  Shadow Spread
+---  Efflorescent Foetor
 ---
----  Description: A dark shroud renders any nearby targets blinded, asleep, and cursed.
+---  Description: Sprays toxic pollen in a fan-shaped area of effect, inflicting Blind & Silence.
 ---
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -19,24 +19,17 @@ function onMobWeaponSkill(target, mob, skill)
     local currentMsg = tpz.msg.basic.NONE
     local msg = tpz.msg.basic.NONE
 
-    msg = MobStatusEffectMove(mob, target, tpz.effect.CURSE_I, 25, 0, 300)
+    msg = MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 60)
 
     if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
-        typeEffect = tpz.effect.CURSE_I
+        typeEffect = tpz.effect.SILENCE
         currentMsg = msg
     end
 
-    msg = MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 50, 0, 180)
+    msg = MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 100, 0, 180)
 
     if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
         typeEffect = tpz.effect.BLINDNESS
-        currentMsg = msg
-    end
-
-    msg = MobStatusEffectMove(mob, target, tpz.effect.SLEEP_I, 1, 0, 30)
-
-    if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
-        typeEffect = tpz.effect.SLEEP_I
         currentMsg = msg
     end
 

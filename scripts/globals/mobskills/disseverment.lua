@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local numhits = 5
     local accmod = 1
-    local dmgmod = 0.2
+    local dmgmod = 0.75
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_ACC_VARIES, 1, 2, 3)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
