@@ -42,8 +42,6 @@ function onInitialize(zone)
     zone:registerRegion(29, -238, 5, -118, 0, 0, 0)
     zone:registerRegion(30, -385.349, 5, -173.973, 0, 0, 0)
 
-    UpdateNMSpawnPoint(ID.mob.TIAMAT)
-    GetMobByID(ID.mob.TIAMAT):setRespawnTime(math.random(86400, 259200))
 
     tpz.helm.initZone(zone, tpz.helm.type.EXCAVATION)
 end

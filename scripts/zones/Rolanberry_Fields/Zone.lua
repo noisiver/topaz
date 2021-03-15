@@ -16,8 +16,6 @@ function onChocoboDig(player, precheck)
 end
 
 function onInitialize(zone)
-    UpdateNMSpawnPoint(ID.mob.SIMURGH)
-    GetMobByID(ID.mob.SIMURGH):setRespawnTime(math.random(900, 7200))
 end
 
 function onZoneIn(player, prevZone)

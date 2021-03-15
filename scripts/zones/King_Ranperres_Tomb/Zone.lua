@@ -12,12 +12,6 @@ require("scripts/globals/zone")
 function onInitialize(zone)
     zone:registerRegion(1, -84.302, 6.5, -120.997, -77, 7.5, -114) -- Used for stairs teleport -85.1, 7, -119.9
 
-    UpdateNMSpawnPoint(ID.mob.VRTRA)
-    GetMobByID(ID.mob.VRTRA):setRespawnTime(math.random(86400, 259200))
-
-    UpdateNMSpawnPoint(ID.mob.BARBASTELLE)
-    GetMobByID(ID.mob.BARBASTELLE):setRespawnTime(math.random(1800, 5400))
-
     tpz.treasure.initZone(zone)
 end
 

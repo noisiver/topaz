@@ -25,7 +25,7 @@ function onInitialize(zone)
 
     tpz.helm.initZone(zone, tpz.helm.type.LOGGING)
 
-    local respawnTime = 900 + math.random(0, 6) * 1800 -- 0:15 to 3:15 spawn timer in 30 minute intervals
+    local respawnTime = 1  -- 0:15 to 3:15 spawn timer in 30 minute intervals
     for offset = 1, 10 do
         GetMobByID(ID.mob.KING_ARTHRO - offset):setRespawnTime(respawnTime)
     end
