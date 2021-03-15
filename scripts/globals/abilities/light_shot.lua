@@ -24,13 +24,14 @@ function onUseAbility(player, target, ability)
     local duration = 60
     local bonusAcc = player:getStat(tpz.mod.AGI) / 2 + player:getMerit(tpz.merit.QUICK_DRAW_ACCURACY) + player:getMod(tpz.mod.QUICK_DRAW_MACC)
     local resist = applyResistanceAbility(player, target, tpz.magic.ele.LIGHT, tpz.skill.NONE, bonusAcc)
-    local SDT = target:getMod(tpz.mod.SDT_LIGHT)
+    local magicacc = player:getSkill(tpz.skill.MARKSMANSHIP)
+    local SDT = target:getMod(tpz.mod.SDT_DARK)
 
     if SDT <= 5 then
-        resist = 0
+        magicacc = 0
     else 
-        resist = resist * (SDT / 100)
-        resist = utils.clamp(resist, 5, 95)
+        magicacc = magicacc * (SDT / 100)
+        magicacc = utils.clamp(magicacc, 5, 95)
     end
     --print(string.format("step1: %u",resist))
 	--GetPlayerByID(6):PrintToPlayer(string.format("Hit chance: %u",resist))
