@@ -22,8 +22,8 @@ function onSpellCast(caster, target, spell)
 
     potency = calculatePotency(potency, spell:getSkillType(), caster, target)
 
-    --print(string.format("step1: %u",potency))
-	--GetPlayerByID(6):PrintToPlayer(string.format("Slow amount: %u",potency))
+    print(string.format("step1: %u",potency))
+	GetPlayerByID(6):PrintToPlayer(string.format("Slow amount: %u",potency))
     --printf("Duration : %u", duration)
     --printf("Potency : %u", potency)
     local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
