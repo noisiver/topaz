@@ -1048,15 +1048,14 @@ INSERT INTO `mob_droplist` VALUES (176,0,0,1000,15123,10);
 INSERT INTO `mob_droplist` VALUES (176,0,0,1000,15140,10);
 INSERT INTO `mob_droplist` VALUES (176,0,0,1000,15142,10);
 INSERT INTO `mob_droplist` VALUES (176,0,0,1000,16360,10);
-INSERT INTO `mob_droplist` VALUES (177,0,0,1000,15760,250); -- (Ashmaker Gotblut) Marabout Sandals
-INSERT INTO `mob_droplist` VALUES (178,2,0,1000,656,0);		-- ashmaker gotlut(yughott)
-INSERT INTO `mob_droplist` VALUES (178,0,0,1000,13729,174);	-- priest's robe
-INSERT INTO `mob_droplist` VALUES (178,0,0,1000,17413,870);	-- hermit's wand
-INSERT INTO `mob_droplist` VALUES (179,0,0,1000,867,150);
-INSERT INTO `mob_droplist` VALUES (179,0,0,1000,903,1000);
-INSERT INTO `mob_droplist` VALUES (179,0,0,1000,1133,40);
-INSERT INTO `mob_droplist` VALUES (179,0,0,1000,4486,30);
-INSERT INTO `mob_droplist` VALUES (179,0,0,1000,16961,50);
+INSERT INTO `mob_droplist` VALUES (177,0,0,1000,15760,240); -- (Ashmaker Gotblut - La Valve [s]) Marabout Sandals
+INSERT INTO `mob_droplist` VALUES (178,2,0,1000,656,0);		-- (Ashmaker Gotlut - yughott)
+INSERT INTO `mob_droplist` VALUES (178,1,1,1000,13729,100);	-- Priest's robe
+INSERT INTO `mob_droplist` VALUES (178,1,1,1000,17413,900);	-- Hermit's wand
+INSERT INTO `mob_droplist` VALUES (179,0,0,1000,867,240); -- (Ash Dragon) Handful of dragon scales
+INSERT INTO `mob_droplist` VALUES (179,0,0,1000,903,1000); -- Dragon talon
+INSERT INTO `mob_droplist` VALUES (179,0,0,1000,4486,50); -- Dragon heart
+INSERT INTO `mob_droplist` VALUES (179,0,0,1000,16961,50); -- Murasame
 INSERT INTO `mob_droplist` VALUES (180,0,0,1000,852,100); -- (Ash Lizard) Lizard skin
 INSERT INTO `mob_droplist` VALUES (180,0,0,1000,926,240); -- Lizard tail
 INSERT INTO `mob_droplist` VALUES (180,0,0,1000,1189,10); -- Rattling egg
