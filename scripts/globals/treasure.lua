@@ -1343,7 +1343,8 @@ tpz.treasure.onTrade = function(player, npc, trade, chestType)
     local illusionCooldown  = npc:getLocalVar("illusionCooldown")
 
     
-    -- Trading a casket should remove sneak
+    -- Trading a casket should remove sneak + invis
+    player:delStatusEffect(tpz.effect.INVISIBLE)
     player:delStatusEffect(tpz.effect.SNEAK)
 
 

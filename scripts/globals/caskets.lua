@@ -723,8 +723,9 @@ tpz.caskets.onTrade = function(player, npc, trade)
     local leaderId          = player:getLeaderID()
 
     
-    -- Trading a casket should remove sneak
+    -- Trading a casket should remove sneak + invis
     player:delStatusEffect(tpz.effect.SNEAK)
+    player:delStatusEffect(tpz.effect.INVISIBLE)
 
     if leaderId ~= chestOwner then
         return
