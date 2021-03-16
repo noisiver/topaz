@@ -12664,7 +12664,7 @@ INSERT INTO `mob_groups` VALUES (26,1606,208,'Girtab',600,0,629,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (27,3453,208,'Sand_Digger',600,0,2148,0,0,62,65,0);
 INSERT INTO `mob_groups` VALUES (28,4001,208,'Triarius_X-XV',0,32,2469,11500,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (29,3727,208,'Spelunking_Sabotender',600,0,2304,0,0,62,68,0);
-INSERT INTO `mob_groups` VALUES (30,3461,208,'Sand_Tarantula',600,0,228,0,0,65,69,0);
+INSERT INTO `mob_groups` VALUES (30,3461,208,'Sand_Tarantula',600,0,228,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (31,1894,208,'Hastatus_XI-XII',0,32,1277,7000,0,65,68,0);
 INSERT INTO `mob_groups` VALUES (32,181,208,'Antican_Praetor',1200,0,130,30000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (33,178,208,'Antican_Legatus',1200,0,127,30000,128,82,82,0);
