@@ -335,12 +335,11 @@ local helmInfo =
                     {1220,   891}, -- Bat Fang
                     {1102,  894},   -- Beetle Jaw
                     {1250, 17396}, -- Little Worm
-                    {720,   902}, -- Demon Horn
-                    { 700,  942}, -- Philosopher's Stone 
-                    { 420,  2503}, -- Antlion Jaw
-                    { 420,  1236}, -- Cactus Stems
-                    { 420,  1473}, -- High Quality Scorpion Shell
-                    { 420,   1193}, -- High Quality Crab Shell
+                    {1000,   902}, -- Demon Horn
+                    { 500,  942}, -- Philosopher's Stone 
+                    { 550,  2503}, -- Antlion Jaw
+                    { 100,  1236}, -- Cactus Stems
+                    { 590,  1473}, -- High Quality Scorpion Shell
                 },
                 points =
                 {
@@ -361,8 +360,6 @@ local helmInfo =
                     {1300,   891}, -- Bat Fang
                     {1440,   893}, -- Giant Femur
                     {1250, 17396}, -- Little Worm
-                    {1050,   897}, -- Scorpion Claw
-                    {1025,   896}, -- Scorpion Shell
                     {600,   885}, -- Turtle Shell buffed from 240
                     {500,   1123}, -- Manticore Fang
                     {190,  1888}, -- Silica
@@ -434,9 +431,9 @@ local helmInfo =
                     {2330, 17396}, -- Little Worm
                     {1060, 884},   -- Black Tiger Fang
                     { 930,   893}, -- Giant Femur
-                    { 700,   897}, -- Scorpion Claw
+                    { 500,   1193}, -- H.Q. crab shell
                     { 530,   896}, -- Scorpion Shell
-                    { 730,   703}, -- Petrified Log
+                    { 500,   703}, -- Petrified Log
                     { 100,   769}, -- Colored Rock
                     { 470,  1888}, -- Silica
                 },
