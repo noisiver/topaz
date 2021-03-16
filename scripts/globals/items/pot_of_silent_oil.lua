@@ -13,6 +13,9 @@ end
 function onItemUse(target)
     --local duration = math.random(60, 180)
     local duration = 300
+    if (target:hasStatusEffect(tpz.effect.INVISIBLE)) then
+        target:delStatusEffect(tpz.effect.INVISIBLE)
+    end
     if (not target:hasStatusEffect(tpz.effect.SNEAK)) then
         target:addStatusEffect(tpz.effect.SNEAK, 1, 10, math.floor(duration * SNEAK_INVIS_DURATION_MULTIPLIER))
     end
