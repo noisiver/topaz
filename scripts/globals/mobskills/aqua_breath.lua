@@ -18,7 +18,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    local dmgmod = MobBreathMove(mob, target, 0.25, 1, tpz.magic.ele.WATER, 700)
+    local dmgmod = MobBreathMove(mob, target, 0.05, 1, tpz.magic.ele.WATER, 500)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WATER)
     return dmg
