@@ -327,7 +327,7 @@ function calculateMagicDamage(caster, target, spell, params)
     if (dINT <= 0) then --if dINT penalises, it's always M=1
         dmg = dmg + dINT
         if (dmg <= 0) then --dINT penalty cannot result in negative damage (target absorption)
-            return 0
+             DMG = math.random(1, 10)
         end
     elseif (dINT > 0 and dINT <= SOFT_CAP) then --The standard calc, most spells hit this
         dmg = dmg + (dINT * params.multiplier)
@@ -1552,7 +1552,7 @@ function doElementalNuke(caster, spell, target, spellParams)
 
             -- Check/ set lower limit of 0 damage for negative dINT
             if DMG < 1 then
-                return 0
+                DMG = math.random(5, 20)
             end
 
         elseif dINT < I then
@@ -1586,7 +1586,7 @@ function doElementalNuke(caster, spell, target, spellParams)
             DMG = math.floor(DMG + mDMG + V + (dINT * M))
 
             if (DMG <= 0) then
-                return 0
+                DMG = math.random(5, 20)
             end
 
         elseif (dINT >= 50 and dINT <= 99) then
