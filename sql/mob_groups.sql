@@ -12513,7 +12513,7 @@ INSERT INTO `mob_groups` VALUES (1,3444,205,'Salamander',0,128,0,0,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (2,2484,205,'Magma',0,128,1572,0,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (3,4246,205,'Volcanic_Gas',600,0,2586,0,0,62,68,0);
 INSERT INTO `mob_groups` VALUES (4,2963,205,'Old_Opo-opo',600,0,1846,0,0,61,65,0);
-INSERT INTO `mob_groups` VALUES (5,1044,205,'Dire_Bat',600,2,80,0,0,60,64,0);
+INSERT INTO `mob_groups` VALUES (5,1044,205,'Dire_Bat',600,2,6011,0,0,60,64,0);
 INSERT INTO `mob_groups` VALUES (6,4248,205,'Volcano_Wasp',600,0,2587,0,0,61,64,0);
 INSERT INTO `mob_groups` VALUES (7,1637,205,'Goblin_Bandit',600,0,1022,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (8,1711,205,'Goblin_Shepherd',600,0,1156,0,0,66,69,0);

@@ -3557,11 +3557,10 @@ INSERT INTO `mob_droplist` VALUES (670,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (670,0,0,1000,894,150);
 INSERT INTO `mob_droplist` VALUES (671,0,0,1000,2549,260);
 INSERT INTO `mob_droplist` VALUES (671,0,0,1000,18729,140);
-INSERT INTO `mob_droplist` VALUES (672,0,0,1000,914,10);
-INSERT INTO `mob_droplist` VALUES (672,0,0,1000,939,300);
-INSERT INTO `mob_droplist` VALUES (672,0,0,1000,1053,50);
-INSERT INTO `mob_droplist` VALUES (672,0,0,1000,1292,70);
-INSERT INTO `mob_droplist` VALUES (672,0,0,1000,4754,50);
+INSERT INTO `mob_droplist` VALUES (672,0,0,1000,939,240); -- (Dodomeki - Hecteyes eye)
+INSERT INTO `mob_droplist` VALUES (672,0,0,1000,1053,50); -- Cauldron coffer key
+INSERT INTO `mob_droplist` VALUES (672,0,0,1000,1292,50); -- Damp Hakutaku eye
+INSERT INTO `mob_droplist` VALUES (672,0,0,1000,4754,100); -- Scroll of Fire III
 INSERT INTO `mob_droplist` VALUES (673,0,0,1000,14547,1000);
 INSERT INTO `mob_droplist` VALUES (673,0,0,1000,14563,1000);
 INSERT INTO `mob_droplist` VALUES (674,4,0,1000,902,0);
@@ -13618,18 +13617,19 @@ INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,928,490);
 INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,1186,50);
 INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,17316,270);
 INSERT INTO `mob_droplist` VALUES (2585,2,0,1000,17316,0);
-INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,928,590);
-INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,928,300);
+INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,928,1000);
+INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,928,240);
 INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,1053,50);
-INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,1187,110);
-INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,17316,290);
-INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,846,30);
+INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,1187,100);
+INSERT INTO `mob_droplist` VALUES (2586,0,0,1000,17316,240);
+INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,846,50);
 INSERT INTO `mob_droplist` VALUES (2587,4,0,1000,912,0);
 INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,912,240);
 INSERT INTO `mob_droplist` VALUES (2587,4,0,1000,925,0);
 INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,925,50);
 INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,1053,50);
-INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,4370,116);
+INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,4370,150);
+INSERT INTO `mob_droplist` VALUES (2587,2,0,1000,4370,0);
 INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,624,80);
 INSERT INTO `mob_droplist` VALUES (2588,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4360,80);
@@ -16418,7 +16418,11 @@ INSERT INTO `mob_droplist` VALUES (6009,0,0,1000,637,240); -- (Mouse - Bostaunie
 INSERT INTO `mob_droplist` VALUES (6009,0,0,1000,637,150); -- Slime Oil
 INSERT INTO `mob_droplist` VALUES (6009,0,0,1000,637,100); -- Slime Oil
 INSERT INTO `mob_droplist` VALUES (6010,0,0,1000,1057,50); -- (Stygian Pugil - Toraimarai Canal) Toraimarai Coffer Key
-
+INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,922,240); -- (Dire Bat - Ifrit's Cauldron) Bat Wing
+INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,891,150); -- Bat Fang
+INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,924,100); -- Fiend Blood
+INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,930,50); -- Vial of beastman blood
+INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,1053,50); -- Cauldron coffer key
 
 ---------------------Dynamis---------------------
 
