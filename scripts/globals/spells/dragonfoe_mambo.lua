@@ -16,11 +16,7 @@ function onSpellCast(caster, target, spell)
 
     -- Since nobody knows the evasion values for mambo, I'll just make it up! (aka - same as madrigal)
     --local power = 9
-    local power = 30
-
-    if (sLvl+iLvl > 130) then
-        power = power + math.floor((sLvl+iLvl-130) / 18)
-    end
+    local power = 30 + math.floor((sLvl+iLvl) / 15)
 
    -- if (power >= 48) then
      --   power = 48
