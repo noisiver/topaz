@@ -327,7 +327,7 @@ function calculateMagicDamage(caster, target, spell, params)
     if (dINT <= 0) then --if dINT penalises, it's always M=1
         dmg = dmg + dINT
         if (dmg <= 0) then --dINT penalty cannot result in negative damage (target absorption)
-             DMG = math.random(1, 10)
+             DMG = math.random(5, 20)
         end
     elseif (dINT > 0 and dINT <= SOFT_CAP) then --The standard calc, most spells hit this
         dmg = dmg + (dINT * params.multiplier)
