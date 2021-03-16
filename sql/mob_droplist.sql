@@ -131,11 +131,10 @@ INSERT INTO `mob_droplist` VALUES (20,0,0,1000,749,50);   -- mythril_beastcoin
 INSERT INTO `mob_droplist` VALUES (20,0,0,1000,1455,10);  -- one_byne_bill
 INSERT INTO `mob_droplist` VALUES (20,0,0,1000,1470,10);  -- sparkling_stone
 INSERT INTO `mob_droplist` VALUES (20,0,0,1000,1474,100); -- infinity_core
-INSERT INTO `mob_droplist` VALUES (21,0,0,1000,646,1060); -- (Adamantoise) Chunk of adaman ore
+INSERT INTO `mob_droplist` VALUES (21,0,0,1000,646,1000); -- (Adamantoise) Chunk of adaman ore
+INSERT INTO `mob_droplist` VALUES (21,0,0,1000,646,1000); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (21,0,0,1000,646,240); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (21,0,0,1000,646,150); -- Chunk of adaman ore
-INSERT INTO `mob_droplist` VALUES (21,0,0,1000,646,100); -- Chunk of adaman ore
-INSERT INTO `mob_droplist` VALUES (21,0,0,1000,908,240); -- Adamantoise shell
 INSERT INTO `mob_droplist` VALUES (21,0,0,1000,3344,240); -- Clump of red pondweed
 INSERT INTO `mob_droplist` VALUES (21,0,0,1000,12361,150); -- Sipar
 INSERT INTO `mob_droplist` VALUES (21,0,0,1000,13794,100); -- Heavy cuirass
