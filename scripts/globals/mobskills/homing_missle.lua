@@ -17,8 +17,6 @@ function onMobWeaponSkill(target, mob, skill)
     local hpset=targetmaxHP*0.20
     local typeEffect = tpz.effect.BIND
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
-
     if (targetcurrentHP > hpset) then
         dmg= targetcurrentHP - hpset
     else
@@ -26,5 +24,8 @@ function onMobWeaponSkill(target, mob, skill)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
+
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
+
     return dmg
 end

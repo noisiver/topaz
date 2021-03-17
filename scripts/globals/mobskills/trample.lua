@@ -19,7 +19,6 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BIND
     local duration = 30
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, duration)
 
     local numhits = 1
     local accmod = 1
@@ -27,5 +26,6 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, duration)
     return dmg
 end

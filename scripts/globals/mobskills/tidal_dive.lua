@@ -17,19 +17,19 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.BIND
-
     local numhits = 3
     local accmod = 1
     local dmgmod = 0.5
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.NONE, info.hitslanded)
 
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.NONE)
+
+        local typeEffect = tpz.effect.BIND
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 30)
 
     typeEffect = tpz.effect.WEIGHT
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 60)
 
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.NONE)
     return dmg
 end

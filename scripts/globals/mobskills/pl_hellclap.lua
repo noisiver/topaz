@@ -25,8 +25,8 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded*math.random(2, 3))
     local typeEffect = tpz.effect.BIND
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 4)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 30)
 
     return dmg
 end
