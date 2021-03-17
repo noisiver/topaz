@@ -39,7 +39,6 @@ LOCK TABLES `mob_pool_mods` WRITE;
 /*!40000 ALTER TABLE `mob_pool_mods` DISABLE KEYS */;
 
 INSERT INTO `mob_pool_mods` VALUES (21,29,100,0);
-INSERT INTO `mob_pool_mods` VALUES (44,368,150,0);
 INSERT INTO `mob_pool_mods` VALUES (60,370,20,0);
 INSERT INTO `mob_pool_mods` VALUES (70,48,434,1);
 INSERT INTO `mob_pool_mods` VALUES (154,163,-70,0);
