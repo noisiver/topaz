@@ -10346,9 +10346,9 @@ INSERT INTO `mob_droplist` VALUES (1989,0,0,1000,14553,190);
 INSERT INTO `mob_droplist` VALUES (1989,0,0,1000,15640,60);
 INSERT INTO `mob_droplist` VALUES (1990,0,0,1000,842,100);
 INSERT INTO `mob_droplist` VALUES (1990,0,0,1000,843,100);
-INSERT INTO `mob_droplist` VALUES (1991,4,0,1000,842,0);
-INSERT INTO `mob_droplist` VALUES (1991,0,0,1000,842,270);
-INSERT INTO `mob_droplist` VALUES (1991,0,0,1000,843,110);
+INSERT INTO `mob_droplist` VALUES (1991,4,0,1000,842,0); -- (Peryton) Valley of Sorrows
+INSERT INTO `mob_droplist` VALUES (1991,0,0,1000,842,240); -- Giant bird feather
+INSERT INTO `mob_droplist` VALUES (1991,0,0,1000,843,100); -- Giant bird plume
 INSERT INTO `mob_droplist` VALUES (1992,0,0,1000,13912,270);
 INSERT INTO `mob_droplist` VALUES (1992,0,0,1000,16943,160);
 INSERT INTO `mob_droplist` VALUES (1993,0,0,1000,529,50);
