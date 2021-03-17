@@ -13,7 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     local effect = tpz.effect.REQUIEM
     local duration = 63
-    local power = 5
+    local power = 2
 
     if (sLvl+iLvl > 29) then
         power = power + 2

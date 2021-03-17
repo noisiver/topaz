@@ -13,7 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     local effect = tpz.effect.REQUIEM
     local duration = 127
-    local power = 50
+    local power = 25
 
     local pCHR = caster:getStat(tpz.mod.CHR)
     local mCHR = target:getStat(tpz.mod.CHR)
