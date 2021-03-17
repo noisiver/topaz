@@ -19,7 +19,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 0.7
+    local dmgmod = 2
     local BOMB_TOSS_HPP = skill:getMobHPP() / 100
 
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*12*BOMB_TOSS_HPP, tpz.magic.ele.DARK, dmgmod, TP_MAB_BONUS, 1)
