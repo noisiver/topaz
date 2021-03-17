@@ -330,4 +330,19 @@ tpz.ws_unlock =
     MYRKR               = 46,
     JISHNUS_RADIANCE    = 47,
     WILDFIRE            = 48,
+	RESOLUTION          = 49,
+	LAST_STAND          = 50,
+	SHIJIN_SPIRAL       = 51,
+	UPHEAVAL            = 52,
+	BLADE_SHUN          = 53,
+    SHATTERSOUL         = 54,
+	APEX_ARROW          = 55,
+	REALMRAZER          = 56,
+	EXENTERATOR         = 57
+	TACHI_SHOHA         = 58,
+	ENTROPY             = 59,
+	STARDIVER           = 60,
+	REQUIESCAT          = 61,
+	RUINATOR            = 62,
+
 }
