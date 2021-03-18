@@ -20,6 +20,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     local criticalHit = false
     local pdif = 0
     local finaldmg = 0
+    --local meritBonus = caster:getMerit(tpz.merit.OVERWHELM)
 
     local missChance = math.random()
 
@@ -40,7 +41,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
             else
                 calcParams.pdif = generatePdif (calcParams.cratio[1], calcParams.cratio[2], true)
             end
-            finaldmg = dmg * calcParams.pdif
+            finaldmg = dmg * calcParams.pdif -- + meritBonus
 
             -- Duplicate the first hit with an added magical component for hybrid WSes
             if calcParams.hybridHit then
@@ -50,7 +51,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 magicdmg = target:magicDmgTaken(magicdmg)
                 magicdmg = adjustForTarget(target, magicdmg, wsParams.ele)
 
-                finaldmg = finaldmg + magicdmg
+                finaldmg = finaldmg + magicdmg -- + meritBonus
             end
 
             calcParams.hitsLanded = calcParams.hitsLanded + 1
@@ -241,7 +242,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     finaldmg = finaldmg + firstHitBonus -- Finally add in our "first hit" WS dmg bonus from before
 
     -- Return our raw damage to then be modified by enemy reductions based off of melee/ranged
-    calcParams.finalDmg = finaldmg
+    calcParams.finalDmg = finaldmg + -- + meritBonus
     return calcParams
 end
 
@@ -386,7 +387,7 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     end
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
-    calcParams.finalDmg = finaldmg
+    calcParams.finalDmg = finaldmg + -- + meritBonus
     finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
     return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
 end
