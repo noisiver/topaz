@@ -23,8 +23,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local day = math.random(0, 3)
     local damage_type = tpz.damageType.FIRE + tpz.magic.dayElement[day] - 1
-    local dmgmod = 1
-    local accmod = 3
+    local dmgmod = 2.5
+    local accmod = 1
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, accmod, dmgmod, TP_MAB_BONUS, 1)
     local dmg = MobFinalAdjustments(info.dmg, mob,skill, target,tpz.attackType.MAGICAL, damage_type, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, damage_type)

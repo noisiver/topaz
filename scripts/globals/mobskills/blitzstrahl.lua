@@ -17,11 +17,11 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.STUN
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 4)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 5)
 
-    local dmgmod = 1
+    local dmgmod = 2
     local accmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*1.5, tpz.magic.ele.THUNDER, dmgmod, TP_NO_EFFECT)
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.THUNDER, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
     return dmg
