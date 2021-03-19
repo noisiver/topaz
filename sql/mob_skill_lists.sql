@@ -3715,6 +3715,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1275); -- empty_thrash
 INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1276); -- promyvion_brume
 INSERT INTO `mob_skill_lists` VALUES ('DynamisStatue-GoblinStompOnly',1156,1114); -- seismostomp
 INSERT INTO `mob_skill_lists` VALUES ('DynamisKindredRA',1157,1152); -- Hecatomb Wave
+INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,797);
+INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,798);
+INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,799);
+INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,800);
+INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,802);
+INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,803);
 
 
 -- Custom Content

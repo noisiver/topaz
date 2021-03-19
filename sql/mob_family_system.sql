@@ -539,6 +539,7 @@ INSERT INTO `mob_family_system` VALUES (509,'Fomor-Hydra',19,'Undead',0,40,100,9
 INSERT INTO `mob_family_system` VALUES (510,'Kindreds-Wyvern',10,'Dragon',0,40,100,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3,8,6,0);
 INSERT INTO `mob_family_system` VALUES (511,'Vanguard-Eye',9,'Demon',0,40,100,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,1.15,0.25,8,6,0);
 INSERT INTO `mob_family_system` VALUES (512,'Morbol-NM',17,'Plantoid',1,40,140,100,4,2,4,4,4,5,4,1,3,1,3,1,1,1,1,1.3,1,1,1,1,0.5,1.3,0.5,4,2,0);
+INSERT INTO `mob_family_system` VALUES (513,'Salamander',14,'Lizard',5,30,120,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.05,0.05,1.3,1,1,1.3,1,1,4,2,0);
 
 
 -- Custom Content

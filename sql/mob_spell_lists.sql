@@ -339,19 +339,19 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,335,15,39);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,336,40,72);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,337,73,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,338,12,36);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,339,37,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,340,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,339,37,89); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,340,90,255); -- Utsusemi: San
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,341,30,64);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,342,65,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,342,65,255); -- jubaku_ni
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,344,23,47);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,345,48,75);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,346,76,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,345,48,89); -- hojo_ni
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,346,90,255); -- hojo_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,347,19,43);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,348,44,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,349,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,348,44,89); -- kurayami_ni
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,349,90,255); -- kurayami_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,350,27,55);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,351,56,74);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,352,76,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,351,56,89); -- dokumori_ni
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,352,90,255); -- dokumori_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLU',8,517,8,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLU',8,519,26,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLU',8,521,42,255);
@@ -3966,6 +3966,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,171,24,255); -- Water III
 INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000, 249, 1, 255); -- blaze_spikes
 INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,231,35,255);   -- Bio II
 
+
 -- Dynamis
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,57,1,255); -- Haste
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,128,1,255); -- Protectra IV
@@ -4041,7 +4042,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 441, 176, 1, 255); -- Firag
 INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441,147,24,255); -- Fire IV
 INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441, 205, 1, 255); -- Flare II
 
-
 INSERT INTO `mob_spell_lists` VALUES ('Leviathan Prime', 442, 201, 1, 255); -- Waterga III
 INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442,172,24,255); -- Water IV
 INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 215, 1, 255); -- Flood II
@@ -4056,6 +4056,15 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime', 444, 361, 1, 255); -- Blin
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelga
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
+
+-- Zilart Missions
+
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,157,24,255); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- tornado_ii
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,186,67,255); -- aeroga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,365,1,255); -- breakga
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,366,1,255); -- graviga
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 359, 1, 255); -- Silencega
 
 -- Mythic Weapon Battles
 

@@ -8377,8 +8377,8 @@ INSERT INTO `mob_groups` VALUES (29,1654,125,'Goblin_Enchanter',330,0,1047,0,0,5
 INSERT INTO `mob_groups` VALUES (30,1677,125,'Goblin_Hunter',330,0,0,0,0,51,55,0);
 INSERT INTO `mob_groups` VALUES (31,6658,125,'Goblin_Digger',330,0,1042,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (32,3430,125,'Sabotender_Enamorado',0,128,0,19000,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (33,1165,125,'Eastern_Sphinx',0,128,0,9500,0,62,62,0);
-INSERT INTO `mob_groups` VALUES (34,4324,125,'Western_Sphinx',0,128,0,9500,0,62,62,0);
+INSERT INTO `mob_groups` VALUES (33,1165,125,'Eastern_Sphinx',0,128,0,20000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (34,4324,125,'Western_Sphinx',0,128,0,20000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (35,2487,125,'Maharaja',0,128,0,18000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (36,2731,125,'Monarca_de_Altepa',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (37,1007,125,'Dahu',0,128,6007,9000,0,57,59,0);
