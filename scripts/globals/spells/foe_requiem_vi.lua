@@ -45,7 +45,7 @@ function onSpellCast(caster, target, spell)
     end
 
     local iBoost = caster:getMod(tpz.mod.REQUIEM_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
-    power = power + iBoost
+    power = power + iBoost*3
 
     if (caster:hasStatusEffect(tpz.effect.SOUL_VOICE)) then
         power = power * 2
