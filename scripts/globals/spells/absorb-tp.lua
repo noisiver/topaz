@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
     dmg = adjustForTarget(target, dmg, spell:getElement())
 
     --add in final adjustments
-    if resist >= 0.5 then
+    if resist => 0.5 then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
         dmg = 0
     else
