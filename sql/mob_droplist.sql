@@ -11821,11 +11821,11 @@ INSERT INTO `mob_droplist` VALUES (2329,0,0,1000,895,1000); -- Ram horn
 INSERT INTO `mob_droplist` VALUES (2329,0,0,1000,895,240); -- Ram Horn
 INSERT INTO `mob_droplist` VALUES (2329,0,0,1000,911,1000); -- Rampaging horn
 INSERT INTO `mob_droplist` VALUES (2329,0,0,1000,12356,240); -- Viking shield
-INSERT INTO `mob_droplist` VALUES (2330,4,0,1000,881,0);
-INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,881,140);
-INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,1193,10);
+INSERT INTO `mob_droplist` VALUES (2330,4,0,1000,881,0); -- (Steelshell - Boyahda Tree)
+INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,881,150); -- Crab shell
+INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,1193,10); -- High-quality crab shell
 INSERT INTO `mob_droplist` VALUES (2330,4,0,1000,4400,0);
-INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,4400,230);
+INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,4400,240); -- Slice of land crab meat
 INSERT INTO `mob_droplist` VALUES (2331,0,0,1000,2504,130);
 INSERT INTO `mob_droplist` VALUES (2331,0,0,1000,2505,60);
 INSERT INTO `mob_droplist` VALUES (2332,2,0,1000,886,0);
@@ -15518,10 +15518,10 @@ INSERT INTO `mob_droplist` VALUES (3008,4,0,1000,4357,0);
 INSERT INTO `mob_droplist` VALUES (3009,0,0,1000,11497,117);
 INSERT INTO `mob_droplist` VALUES (3010,0,0,1000,19121,150); -- (Hover Hotpot) Sleight kukri
 INSERT INTO `mob_droplist` VALUES (3011,0,0,1000,14960,0);
-INSERT INTO `mob_droplist` VALUES (3012,0,0,1000,919,250);
-INSERT INTO `mob_droplist` VALUES (3012,0,0,1000,1237,242);
-INSERT INTO `mob_droplist` VALUES (3012,0,0,1000,1414,129);
-INSERT INTO `mob_droplist` VALUES (3012,0,0,1000,1181,49);
+INSERT INTO `mob_droplist` VALUES (3012,0,0,1000,919,240); -- (Elder Goobbue) Clump of Boyahda moss
+INSERT INTO `mob_droplist` VALUES (3012,0,0,1000,1237,240); -- Bag of tree cuttings
+INSERT INTO `mob_droplist` VALUES (3012,0,0,1000,1414,150); -- Piece of wisteria lumber
+INSERT INTO `mob_droplist` VALUES (3012,0,0,1000,1181,50); -- Clump of goobbue humus
 INSERT INTO `mob_droplist` VALUES (3012,4,0,1000,919,0);
 INSERT INTO `mob_droplist` VALUES (3012,4,0,1000,1237,0);
 INSERT INTO `mob_droplist` VALUES (3013,0,0,1000,3096,150); -- (Boartrap) Spotted Flytrap
