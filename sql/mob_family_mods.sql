@@ -143,16 +143,6 @@ INSERT INTO `mob_family_mods` VALUES (4,389,-25,0);		-- Ahriman
 INSERT INTO `mob_family_mods` VALUES (169,389,-25,0);	-- Kindred 
 
 
-
--- Demons and fomors are somewhat resistant to lullaby
-INSERT INTO `mob_family_mods` VALUES (358,254,25,0);
-INSERT INTO `mob_family_mods` VALUES (169,254,25,0);
-INSERT INTO `mob_family_mods` VALUES (115,254,25,0);
-INSERT INTO `mob_family_mods` VALUES (359,254,25,0);
-
--- Giant Bird immune to lullaby/light sleep
-INSERT INTO `mob_family_mods` VALUES (125,254,100,0);
-
 -- Most undead, Rocs, and Hecteyes are highly resistant to sleep,
 -- Kindred and bat(s) are fairly resistant
 --INSERT INTO `mob_family_mods` VALUES (47,240,50,0);
@@ -235,10 +225,15 @@ INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);		-- Bugbear -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (175,29,12,0); -- Magic pot +12 MDB
 
 -- Immunities
-INSERT INTO `mob_family_mods` VALUES (92,23,2047,1);
-INSERT INTO `mob_family_mods` VALUES (93,23,2047,1);
-INSERT INTO `mob_family_mods` VALUES (94,23,2047,1);
-INSERT INTO `mob_family_mods` VALUES (95,23,2047,1);
+INSERT INTO `mob_family_mods` VALUES (92,23,2047,1); -- Dyna Statues immune all enfeebles
+INSERT INTO `mob_family_mods` VALUES (93,23,2047,1); -- Dyna Statues immune all enfeebles
+INSERT INTO `mob_family_mods` VALUES (94,23,2047,1); -- Dyna Statues immune all enfeebles
+INSERT INTO `mob_family_mods` VALUES (95,23,2047,1); -- Dyna Statues immune all enfeebles
+INSERT INTO `mob_family_mods` VALUES (217,23,256,1); -- Scorpion poison immunity
+INSERT INTO `mob_family_mods` VALUES (273,23,256,1); -- Serket poison immunity
+INSERT INTO `mob_family_mods` VALUES (274,23,256,1); -- King Vinegaroon poison immunity
+INSERT INTO `mob_family_mods` VALUES (125,23,2048,1); -- Giant Bird light sleep immunity immunity
+INSERT INTO `mob_family_mods` VALUES (125,254,100,0); -- Giant Bird resist lullaby effect?
 
 
 -- Absorb

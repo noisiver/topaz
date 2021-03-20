@@ -1907,9 +1907,9 @@ INSERT INTO `mob_droplist` VALUES (314,0,0,1000,939,360);
 INSERT INTO `mob_droplist` VALUES (314,0,0,1000,1064,50);
 INSERT INTO `mob_droplist` VALUES (315,0,0,1000,914,50);
 INSERT INTO `mob_droplist` VALUES (315,0,0,1000,939,360);
-INSERT INTO `mob_droplist` VALUES (316,0,0,1000,939,240);
-INSERT INTO `mob_droplist` VALUES (316,0,0,1000,1059,50);
-INSERT INTO `mob_droplist` VALUES (316,0,0,1000,1290,100);
+INSERT INTO `mob_droplist` VALUES (316,0,0,1000,939,240); -- (Blubber Eyes - Sea Serpent Grotto) Hecteyes eye
+INSERT INTO `mob_droplist` VALUES (316,0,0,1000,1059,50); -- Grotto coffer key
+INSERT INTO `mob_droplist` VALUES (316,0,0,1000,1290,100); -- Earthen Hakutaku eye
 INSERT INTO `mob_droplist` VALUES (317,2,0,1000,2153,0);
 INSERT INTO `mob_droplist` VALUES (317,0,0,1000,15531,100);
 INSERT INTO `mob_droplist` VALUES (317,0,0,1000,18706,100);
@@ -3557,9 +3557,9 @@ INSERT INTO `mob_droplist` VALUES (670,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (670,0,0,1000,894,150);
 INSERT INTO `mob_droplist` VALUES (671,0,0,1000,2549,260);
 INSERT INTO `mob_droplist` VALUES (671,0,0,1000,18729,140);
-INSERT INTO `mob_droplist` VALUES (672,0,0,1000,939,240); -- (Dodomeki - Hecteyes eye)
+INSERT INTO `mob_droplist` VALUES (672,0,0,1000,939,240); -- (Dodomeki - Ifrit's Cauldron) Hecteyes eye
 INSERT INTO `mob_droplist` VALUES (672,0,0,1000,1053,50); -- Cauldron coffer key
-INSERT INTO `mob_droplist` VALUES (672,0,0,1000,1292,50); -- Damp Hakutaku eye
+INSERT INTO `mob_droplist` VALUES (672,0,0,1000,1292,100); -- Damp Hakutaku eye
 INSERT INTO `mob_droplist` VALUES (672,0,0,1000,4754,100); -- Scroll of Fire III
 INSERT INTO `mob_droplist` VALUES (673,0,0,1000,14547,1000);
 INSERT INTO `mob_droplist` VALUES (673,0,0,1000,14563,1000);
@@ -8425,12 +8425,12 @@ INSERT INTO `mob_droplist` VALUES (1671,0,0,1000,5384,100);
 INSERT INTO `mob_droplist` VALUES (1672,1,1,900,1556,300); --(Mildaunegeux - Dynamis Beaucedine) Attestation of might
 INSERT INTO `mob_droplist` VALUES (1672,1,1,900,1564,300); -- Attestation of legerity
 INSERT INTO `mob_droplist` VALUES (1672,1,1,900,1570,300); -- Attestation of accuracy
-INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,939,390);
-INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,1288,70);
-INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,4754,50);
-INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,4755,50);
-INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,4784,50);
-INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,4812,10);
+INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,939,240); -- (Million Eyes - Den of Rancor) Hecteyes eye
+INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,1288,100); -- Wooden Hakutaku eye
+INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,4754,100); -- Scroll of Fire III
+INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,4755,50); -- Scroll of Fire IV
+INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,4784,50); -- Scroll of Firaga III
+INSERT INTO `mob_droplist` VALUES (1673,0,0,1000,4812,10); -- Scroll of Flare
 INSERT INTO `mob_droplist` VALUES (1674,0,0,1000,16721,50);	-- (Mimas) Huge Moth Axe
 INSERT INTO `mob_droplist` VALUES (1675,0,0,1000,1063,1000);
 INSERT INTO `mob_droplist` VALUES (1676,0,0,1000,1058,1000);
@@ -8479,9 +8479,9 @@ INSERT INTO `mob_droplist` VALUES (1695,0,0,1000,880,220);
 INSERT INTO `mob_droplist` VALUES (1695,0,0,1000,940,140);
 INSERT INTO `mob_droplist` VALUES (1695,0,0,1000,1057,50);
 INSERT INTO `mob_droplist` VALUES (1695,0,0,1000,4759,30);
-INSERT INTO `mob_droplist` VALUES (1696,0,0,1000,939,240);
-INSERT INTO `mob_droplist` VALUES (1696,0,0,1000,1291,100);
-INSERT INTO `mob_droplist` VALUES (1696,0,0,1000,4754,150);
+INSERT INTO `mob_droplist` VALUES (1696,0,0,1000,939,240); --(Midgazer - Sea Serpent Grotto) Hecteyes eye
+INSERT INTO `mob_droplist` VALUES (1696,0,0,1000,1291,100); -- Golden Hakutaku eye
+INSERT INTO `mob_droplist` VALUES (1696,0,0,1000,4754,100); -- Scroll of Fire III
 INSERT INTO `mob_droplist` VALUES (1697,0,0,1000,846,30);
 INSERT INTO `mob_droplist` VALUES (1697,0,0,1000,912,240);
 INSERT INTO `mob_droplist` VALUES (1697,0,0,1000,925,13);
@@ -12168,9 +12168,9 @@ INSERT INTO `mob_droplist` VALUES (2401,0,0,1000,914,510);
 INSERT INTO `mob_droplist` VALUES (2401,0,0,1000,914,260);
 INSERT INTO `mob_droplist` VALUES (2401,0,0,1000,939,80);
 INSERT INTO `mob_droplist` VALUES (2401,0,0,1000,4753,80);
-INSERT INTO `mob_droplist` VALUES (2402,0,0,1000,939,340);
-INSERT INTO `mob_droplist` VALUES (2402,0,0,1000,1289,70);
-INSERT INTO `mob_droplist` VALUES (2402,0,0,1000,4754,50);
+INSERT INTO `mob_droplist` VALUES (2402,0,0,1000,939,240); -- (Thousand Eyes - King Ranperre's Tomb) Hecteyes eye
+INSERT INTO `mob_droplist` VALUES (2402,0,0,1000,1289,100); -- Burning Hakutaku eye
+INSERT INTO `mob_droplist` VALUES (2402,0,0,1000,4754,50); -- Scroll of Fire III
 INSERT INTO `mob_droplist` VALUES (2403,0,0,1000,924,120);
 INSERT INTO `mob_droplist` VALUES (2403,0,0,1000,924,100);
 INSERT INTO `mob_droplist` VALUES (2403,0,0,1000,930,90);
