@@ -14,7 +14,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local level = player:getMainLvl()
-    local power = math.floor(3 + (level / 5))
+    local power = 18
 
     if (target:hasStatusEffect(tpz.effect.DEX_DOWN) or caster:hasStatusEffect(tpz.effect.DEX_BOOST)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
