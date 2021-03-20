@@ -13,8 +13,8 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local cap = 1200
-    local dmg = math.random(100, 1200)
+    local cap = target:getTP() * 0.4
+    local dmg = 1200
 
     --get resist multiplier (1x if no resist)
     local params = {}
@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
     dmg = adjustForTarget(target, dmg, spell:getElement())
 
     --add in final adjustments
-    if (resist <= 0.125) then
+    if resist >= 0.5 then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
         dmg = 0
     else
