@@ -896,27 +896,27 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         float mult = 0.00f;
         if (m_THLvl == 1)
         {
-            mult = 0.80f;
+            maxRolls = 2;
         }
         else if (m_THLvl == 2)
         {
-            mult = 0.41f;
+            mult = 0.20f;
             maxRolls = 2;
         }
         else if (m_THLvl == 3)
         {
-            mult = 0.03f;
-            maxRolls = 3;
+            mult = 0.30f;
+            maxRolls = 2;
         }
         else if (m_THLvl == 4)
         {
-            mult = 0.43f;
-            maxRolls = 3;
+            mult = 0.35f;
+            maxRolls = 2;
         }
         else if (m_THLvl >= 5)
         {
-            mult = 0.91f;
-            maxRolls = 3;
+            mult = 0.40f;
+            maxRolls = 2;
         }
 
         // ShowDebug("m_THLvl was %u, mult was %.2f, maxRolls was %u\n",m_THLvl,mult,maxRolls);
