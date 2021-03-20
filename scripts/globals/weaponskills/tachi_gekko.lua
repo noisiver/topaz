@@ -34,9 +34,10 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
     -- Silence duration changed from 60 to 45 as per bg-wiki: http://www.bg-wiki.com/bg/Tachi:_Gekko
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.SILENCE) == false) then
-        local duration = 60 * applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
+    if (damage > 0 and target:hasStatusEffect(tpz.effect.SILENCE) == false) and resist >= 0.5 then
+        local duration = 45 * resist
         target:addStatusEffect(tpz.effect.SILENCE, 1, 0, duration)
     end
     return tpHits, extraHits, criticalHit, damage
