@@ -37,7 +37,12 @@ function applyBarspell(effectType, caster, target, spell)
     local power = calculateBarspellPower(caster, enhanceSkill)
     --local duration = calculateBarspellDuration(caster, enhanceSkill)
     --duration = calculateDuration(duration, tpz.skill.ENHANCING_MAGIC, tpz.magic.spellGroup.WHITE, caster, target)
-
-    target:addStatusEffect(effectType, power, 0, 150, 0, mdefBonus) -- changed to 2.5m
+    if (canOverwrite(target, effectType, power)) then
+        target:delStatusEffect(effectType)
+        target:addStatusEffect(effectType, power, 0, 150, 0, mdefBonus) -- changed to 2.5m
+        spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
+    end
     return effectType
 end
