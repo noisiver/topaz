@@ -37,8 +37,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.PARALYSIS) == false) then
+    if (damage > 0 and target:hasStatusEffect(tpz.effect.PARALYSIS) == false) and resist >= 0.5 then
         local duration = 60 * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
         target:addStatusEffect(tpz.effect.PARALYSIS, 25, 0, duration)
     end
