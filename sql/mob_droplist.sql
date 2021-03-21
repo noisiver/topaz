@@ -16423,7 +16423,7 @@ INSERT INTO `mob_droplist` VALUES (6012,4,0,1000,4368,0);
 INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,1265,50); -- Four-leaf korrigan bud
 INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,4368,240); -- Two-leaf mandragora bud
 INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,17868,100); -- Jug of humus
-INSERT INTO `mob_droplist` VALUES (6013,0,0,1000,846,240); -- (Skimmer - Boyahda Tree)
+INSERT INTO `mob_droplist` VALUES (6013,0,0,1000,846,240); -- (Skimmer / Darter - Boyahda Tree / Dragon's Aery)
 
 ---------------------Dynamis---------------------
 
