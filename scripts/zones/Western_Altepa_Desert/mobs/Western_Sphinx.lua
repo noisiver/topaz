@@ -22,6 +22,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.UDMGPHYS, 50)
         mob:setMod(tpz.mod.REFRESH, 300)
         mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17289654)
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 5)
         mob:SetMagicCastingEnabled(true)
         mob:setLocalVar("Bro", 1)
     end
