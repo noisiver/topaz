@@ -11253,7 +11253,7 @@ INSERT INTO `mob_groups` VALUES (9180,4498,175,'Zeid',0,0,0,0,0,0,0,0);
 
 INSERT INTO `mob_groups` VALUES (1,417,176,'Big_Jaw_fished',0,128,147,0,0,35,37,0);
 INSERT INTO `mob_groups` VALUES (2,413,176,'Bigclaw',600,0,275,0,0,43,48,0);
-INSERT INTO `mob_groups` VALUES (3,3377,176,'Rock_Crab',600,0,2113,0,0,53,58,0);
+INSERT INTO `mob_groups` VALUES (3,3377,176,'Rock_Crab',600,0,2113,0,0,53,55,0);
 INSERT INTO `mob_groups` VALUES (4,3803,176,'Stygian_Pugil',0,128,147,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (5,3406,176,'Royal_Leech',600,0,2127,0,0,35,38,0);
 INSERT INTO `mob_groups` VALUES (6,4092,176,'Undead_Bats',600,0,2519,0,0,36,39,0);
@@ -11288,7 +11288,7 @@ INSERT INTO `mob_groups` VALUES (34,3336,176,'Razorjaw_Pugil',600,0,2080,0,0,57,
 INSERT INTO `mob_groups` VALUES (35,4377,176,'Worr_the_Clawfisted',0,32,2673,9500,0,60,61,0);
 INSERT INTO `mob_groups` VALUES (36,3521,176,'Sea_Hog',0,32,2185,8000,0,62,62,0);
 INSERT INTO `mob_groups` VALUES (37,4250,176,'Voll_the_Sharkfinned',0,32,2588,10000,0,64,66,0);
-INSERT INTO `mob_groups` VALUES (38,2764,176,'Mousse',600,0,15,0,0,62,65,0);
+INSERT INTO `mob_groups` VALUES (38,2764,176,'Mousse',600,0,15,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (39,4309,176,'Water_Elemental',600,4,2629,0,0,65,68,0);
 --INSERT INTO `mob_groups` VALUES (40,3609,176,'Shore_Sahagin',600,0,2241,0,0,62,72,0);
 --INSERT INTO `mob_groups` VALUES (41,752,176,'Coastal_Sahagin',600,0,492,0,0,62,72,0);
@@ -11298,12 +11298,12 @@ INSERT INTO `mob_groups` VALUES (40,3609,176,'Shore_Sahagin',600,0,2241,0,0,81,8
 INSERT INTO `mob_groups` VALUES (41,752,176,'Coastal_Sahagin',600,0,492,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (42,965,176,'Delta_Sahagin',600,0,603,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (43,2317,176,'Lagoon_Sahagin',600,0,1479,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (44,6368,176,'Robber_Crab',600,0,1223,0,0,62,67,0);
+INSERT INTO `mob_groups` VALUES (44,6368,176,'Robber_Crab',600,0,1223,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (45,4467,176,'Yarr_the_Pearleyed',0,32,2780,9000,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (46,2914,176,'Novv_the_Whitehearted',0,32,1825,9000,0,66,66,0);
-INSERT INTO `mob_groups` VALUES (47,6456,176,'Dire_Bat',600,0,234,0,0,63,66,0);
+INSERT INTO `mob_groups` VALUES (47,6456,176,'Dire_Bat',600,0,234,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (48,999,176,'Denn_the_Orcavoiced',0,32,628,9500,0,64,65,0);
-INSERT INTO `mob_groups` VALUES (49,1018,176,'Devil_Manta',300,0,645,0,0,66,69,0);
+INSERT INTO `mob_groups` VALUES (49,1018,176,'Devil_Manta',600,0,645,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (50,4525,176,'Zuug_the_Shoreleaper',0,32,2813,10000,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (51,698,176,'Charybdis',31680,128,456,40000,0,80,81,0);
 --INSERT INTO `mob_groups` VALUES (52,6390,176,'Mindgazer',600,0,1696,0,0,66,69,0);
