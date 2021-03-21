@@ -10019,7 +10019,7 @@ INSERT INTO `mob_groups` VALUES (17,2745,153,'Morbol_Menace',600,0,1738,0,0,67,7
 INSERT INTO `mob_groups` VALUES (18,1191,153,'Elder_Goobbue',600,0,3012,0,0,74,77,0);
 INSERT INTO `mob_groups` VALUES (19,2282,153,'Korrigan',600,0,343,0,0,72,75,0);
 INSERT INTO `mob_groups` VALUES (20,3649,153,'Skimmer',600,0,142,0,0,72,74,0);
-INSERT INTO `mob_groups` VALUES (21,3768,153,'Steelshell',960,0,2330,0,0,73,76,0);
+INSERT INTO `mob_groups` VALUES (21,3768,153,'Steelshell',600,0,2330,0,0,73,76,0);
 INSERT INTO `mob_groups` VALUES (22,3200,153,'Processionaire',600,0,2022,0,0,72,75,0);
 INSERT INTO `mob_groups` VALUES (23,920,153,'Darter',600,0,571,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (24,469,153,'Blood_Ball',600,0,308,0,0,75,78,0);
@@ -10796,7 +10796,7 @@ INSERT INTO `mob_groups` VALUES (15,3303,168,'Radiant_Wyvern',0,128,0,0,0,75,76,
 INSERT INTO `mob_groups` VALUES (16,454,168,'Blizzard_Wyvern',0,128,0,0,0,75,76,0);
 INSERT INTO `mob_groups` VALUES (17,2411,168,'Lightning_Wyvern',0,128,0,0,0,75,76,0);
 INSERT INTO `mob_groups` VALUES (18,695,168,'Chaos_Wyvern',0,128,0,0,0,75,76,0);
-INSERT INTO `mob_groups` VALUES (19,3234,168,'Purson',0,128,0,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (19,3234,168,'Purson',0,128,0,35000,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,2804,168,'Nanaa_Mihgo',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (21,704,168,'Cha_Lebagta',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (22,506,168,'Bopa_Greso',0,0,0,0,0,0,0,0);
