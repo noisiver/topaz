@@ -38,13 +38,13 @@ function onMobFight(mob, target)
         mob:setLocalVar("STANCEdps", battletime + math.random(60, 90))
         mob:setLocalVar("STANCEtank", 1)
         mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
-        if amount > 0  then
-        DMGtaken =  DMGtaken +1
+        if amount > 1500 and math.random(1,100) <= 20  then
+        DMGtaken = 1
         end
     end)
     end
 
-    if battletime >= STANCEdps and STANCEtank == 1 or DMGtaken > 5 then
+    if battletime >= STANCEdps and STANCEtank == 1 or DMGtaken == 1 then
         printf("Tank Stance");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.COUNTER, 100)
