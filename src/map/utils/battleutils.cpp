@@ -2445,9 +2445,13 @@ namespace battleutils
 
         if (damage > 0)
         {
-            damage = getOverWhelmDamageBonus(PAttacker, PDefender, damage);
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
             damage = HandleStoneskin(PDefender, damage);
+        }
+
+        if (!isRanged)
+        {
+            damage = getOverWhelmDamageBonus(PAttacker, PDefender, damage);
         }
 
         HandleAfflatusMiseryDamage(PDefender, damage);
