@@ -44,7 +44,7 @@ function onMobFight(mob, target)
     end)
     end
 
-    if battletime >= STANCEdps and STANCEtank == 1 or DMGtaken == 30 then
+    if battletime >= STANCEdps and STANCEtank == 1 or DMGtaken > 5 then
         printf("Tank Stance");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.COUNTER, 100)
