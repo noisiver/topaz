@@ -12,8 +12,9 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
+    local Bro = mob:getLocalVar("Bro")
     local BroDead = GetMobByID(ID.mob.WESTERN_SPHINX):isDead()
-    if BroDead then
+    if BroDead and Bro == 0 then
         mob:useMobAbility(689) -- Benediction
         mob:addMod(tpz.mod.DEFP, 50) 
         mob:addMod(tpz.mod.ATTP, 50)
@@ -21,7 +22,8 @@ function onMobFight(mob, target)
         mob:addMod(tpz.mod.EVA, 50)
         mob:setMod(tpz.mod.UDMGMAGIC, 50)
         mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17289655)
-        mob:SetMobAbilityEnabled(true) 
+        mob:SetMobAbilityEnabled(true)
+        mob:setLocalVar("Bro", 1)
     end
 end
 

@@ -13,8 +13,9 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
+    local Bro = mob:getLocalVar("Bro")
     local BroDead = GetMobByID(ID.mob.EASTERN_SPHINX):isDead()
-    if BroDead then
+    if BroDead and Bro == 0 then
         mob:useMobAbility(689) -- Benediction
         mob:setMod(tpz.mod.UFASTCAST, 50)
         mob:addMod(tpz.mod.MDEF, 100) 
@@ -22,6 +23,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.REFRESH, 300)
         mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17289654)
         mob:SetMagicCastingEnabled(true)
+        mob:setLocalVar("Bro", 1)
     end
 end
 
