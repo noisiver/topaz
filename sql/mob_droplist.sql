@@ -16418,6 +16418,12 @@ INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,891,150); -- Bat Fang
 INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,924,100); -- Fiend Blood
 INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,930,50); -- Vial of beastman blood
 INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,1053,50); -- Cauldron coffer key
+INSERT INTO `mob_droplist` VALUES (6012,4,0,1000,834,0); -- (Korrigan - Boyahda Tree)
+INSERT INTO `mob_droplist` VALUES (6012,4,0,1000,4368,0);
+INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,1265,50); -- Four-leaf korrigan bud
+INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,4368,240); -- Two-leaf mandragora bud
+INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,17868,100); -- Jug of humus
+INSERT INTO `mob_droplist` VALUES (6013,0,0,1000,846,240); -- (Skimmer - Boyahda Tree)
 
 ---------------------Dynamis---------------------
 

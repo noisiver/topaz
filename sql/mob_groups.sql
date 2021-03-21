@@ -10017,11 +10017,11 @@ INSERT INTO `mob_groups` VALUES (15,3912,153,'Thunder_Elemental',600,4,2410,0,0,
 INSERT INTO `mob_groups` VALUES (16,4103,153,'Unut',0,32,2524,13500,0,72,72,0);
 INSERT INTO `mob_groups` VALUES (17,2745,153,'Morbol_Menace',600,0,1738,0,0,67,70,0);
 INSERT INTO `mob_groups` VALUES (18,1191,153,'Elder_Goobbue',600,0,3012,0,0,74,77,0);
-INSERT INTO `mob_groups` VALUES (19,2282,153,'Korrigan',600,0,343,0,0,72,75,0);
-INSERT INTO `mob_groups` VALUES (20,3649,153,'Skimmer',600,0,142,0,0,72,74,0);
+INSERT INTO `mob_groups` VALUES (19,2282,153,'Korrigan',600,0,6012,0,0,72,75,0);
+INSERT INTO `mob_groups` VALUES (20,3649,153,'Skimmer',600,0,6013,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (21,3768,153,'Steelshell',600,0,2330,0,0,73,76,0);
 INSERT INTO `mob_groups` VALUES (22,3200,153,'Processionaire',600,0,2022,0,0,72,75,0);
-INSERT INTO `mob_groups` VALUES (23,920,153,'Darter',600,0,571,0,0,75,78,0);
+INSERT INTO `mob_groups` VALUES (23,920,153,'Darter',600,0,6013,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (24,469,153,'Blood_Ball',600,0,308,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (25,4578,153,'Mourning_Crawler',300,0,3007,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (26,4577,153,'Snaggletooth_Peapuk',300,0,2814,0,0,81,83,0);
@@ -10046,7 +10046,7 @@ INSERT INTO `mob_groups` VALUES (8170,4517,153,'Zonpa-Zippa',0,128,0,0,0,0,0,0);
 
 INSERT INTO `mob_groups` VALUES (1,976,154,'Demonic_Pugil',0,128,147,0,0,70,78,0);
 INSERT INTO `mob_groups` VALUES (2,344,154,'Bark_Tarantula',600,0,228,0,0,77,80,0);
-INSERT INTO `mob_groups` VALUES (3,920,154,'Darter',600,0,571,0,0,76,79,0);
+INSERT INTO `mob_groups` VALUES (3,920,154,'Darter',600,0,6013,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (4,978,154,'Demonic_Rose',600,0,2925,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (5,1280,154,'Fafnir',0,128,805,70000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (6,2840,154,'Nidhogg',0,128,1781,70000,0,90,90,0);
