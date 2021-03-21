@@ -38,8 +38,8 @@ function onMobFight(mob, target)
         mob:setLocalVar("STANCEdps", battletime + math.random(60, 90))
         mob:setLocalVar("STANCEtank", 1)
         mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
-        if amount >= 1  then
-        DMGtaken = DMGtaken +1
+        if amount > 0  then
+        DMGtaken =  amount
         end
     end)
     end
