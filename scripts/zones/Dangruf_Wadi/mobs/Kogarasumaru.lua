@@ -39,7 +39,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("STANCEtank", 1)
         mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
         if amount > 1500 and math.random(1,100) <= 20  then
-        DMGtaken = 1
+        mob:setLocalVar("DMGtaken", 1)
         end
     end)
     end
