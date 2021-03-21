@@ -426,6 +426,11 @@ INSERT INTO `traits` VALUES (63,'resist amnesia',18,81,2,253,15,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (63,'resist amnesia',18,82,3,253,20,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (63,'resist amnesia',18,83,4,253,25,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (63,'resist amnesia',18,95,5,253,30,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (63,'resist amnesia',19,40,1,253,20,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (63,'resist amnesia',19,50,2,253,24,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (63,'resist amnesia',19,60,3,253,26,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (63,'resist amnesia',19,70,4,253,28,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (63,'resist amnesia',19,75,5,253,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (64,'treasure hunter ii',6,45,2,303,1,NULL,0);
 INSERT INTO `traits` VALUES (65,'treasure hunter iii',6,90,3,303,1,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (66,'kick attacks',2,51,1,292,10,NULL,0);
@@ -595,8 +600,8 @@ INSERT INTO `traits` VALUES (108,'conserve tp',14,82,3,944,21,'ABYSSEA',0); -- C
 INSERT INTO `traits` VALUES (108,'conserve tp',14,84,4,944,24,'ABYSSEA',0); -- Conserve TP IV, DRG84, 24%
 INSERT INTO `traits` VALUES (108,'conserve tp',14,97,5,944,26,'ABYSSEA',0); -- Conserve TP V, DRG97, 26%
 INSERT INTO `traits` VALUES (108,'conserve tp',19,77,1,944,15,'ABYSSEA',0); -- Conserve TP I, DNC77, 15%
-INSERT INTO `traits` VALUES (108,'conserve tp',19,87,2,944,18,'ABYSSEA',0); -- Conserve TP II, DNC87, 18%
-INSERT INTO `traits` VALUES (108,'conserve tp',19,97,3,944,21,'ABYSSEA',0); -- Conserve TP III, DNC97, 21%
+INSERT INTO `traits` VALUES (108,'conserve tp',19,45,2,944,18,'ABYSSEA',0); -- Conserve TP II, DNC87, 18%
+INSERT INTO `traits` VALUES (108,'conserve tp',19,60,3,944,21,'ABYSSEA',0); -- Conserve TP III, DNC97, 21%
 INSERT INTO `traits` VALUES (109,'occult acumen',4,85,1,902,25,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (109,'occult acumen',4,95,2,902,50,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (109,'occult acumen',8,10,1,902,25,'ABYSSEA',0);
