@@ -13,7 +13,7 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local BroDead = GetMobByID(ID.mob.WESTERN_SPHINX):isDead()
+    local BroDead = GetMobByID(ID.mob.EASTERN_SPHINX):isDead()
     if BroDead then
         mob:useMobAbility(689) -- Benediction
         mob:setMod(tpz.mod.UFASTCAST, 50)
