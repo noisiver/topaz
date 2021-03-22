@@ -24,6 +24,7 @@ function onMobFight(mob, target)
         mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17289654)
         mob:setMobMod(tpz.mobMod.MAGIC_COOL, 5)
         mob:SetMagicCastingEnabled(true)
+        mob:SetAutoAttackEnabled(false)
         mob:setLocalVar("Bro", 1)
     end
 end
