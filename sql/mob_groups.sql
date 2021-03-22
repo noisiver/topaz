@@ -11303,7 +11303,7 @@ INSERT INTO `mob_groups` VALUES (45,4467,176,'Yarr_the_Pearleyed',0,32,2780,9000
 INSERT INTO `mob_groups` VALUES (46,2914,176,'Novv_the_Whitehearted',0,32,1825,9000,0,66,66,0);
 INSERT INTO `mob_groups` VALUES (47,6456,176,'Dire_Bat',600,0,234,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (48,999,176,'Denn_the_Orcavoiced',0,32,628,9500,0,64,65,0);
-INSERT INTO `mob_groups` VALUES (49,1018,176,'Devil_Manta',600,0,645,0,0,66,69,0);
+INSERT INTO `mob_groups` VALUES (49,1018,176,'Devil_Manta',600,0,645,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (50,4525,176,'Zuug_the_Shoreleaper',0,32,2813,10000,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (51,698,176,'Charybdis',31680,128,456,40000,0,80,81,0);
 --INSERT INTO `mob_groups` VALUES (52,6390,176,'Mindgazer',600,0,1696,0,0,66,69,0);
