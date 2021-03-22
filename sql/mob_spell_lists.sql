@@ -4042,7 +4042,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 441, 176, 1, 255); -- Firag
 INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441,147,24,255); -- Fire IV
 INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441, 205, 1, 255); -- Flare II
 
-INSERT INTO `mob_spell_lists` VALUES ('Leviathan Prime', 442, 201, 1, 255); -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime', 442, 201, 1, 255); -- Waterga III
 INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442,172,24,255); -- Water IV
 INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 215, 1, 255); -- Flood II
 INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 227, 1, 255); -- Poisonga III
@@ -4059,12 +4059,20 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impac
 
 -- Zilart Missions
 
-INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,157,24,255); -- Aero IV
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- tornado_ii
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,186,67,255); -- aeroga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,365,1,255); -- breakga
-INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,366,1,255); -- graviga
-INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 359, 1, 255); -- Silencega
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx', 2000, 201, 1, 255); -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 215, 1, 255); -- Flood II
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx', 2000, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 205, 1, 255); -- Flare II
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx', 2000, 191, 1, 255); -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 211, 1, 255); -- Quake II
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx', 2000, 181, 1, 255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 207, 1, 255); -- Freeze II
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx', 2000, 196, 1, 255); -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 213, 1, 255); -- Burst II
+-- add all element -ga3 and am2
+
 
 -- Mythic Weapon Battles
 
