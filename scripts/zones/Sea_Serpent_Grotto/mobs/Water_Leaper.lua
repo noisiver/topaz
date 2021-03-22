@@ -16,6 +16,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 50)
     mob:setMod(tpz.mod.REFRESH, 300)
+    mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
 end
 
 function onMobInitialize(mob)
