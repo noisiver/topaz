@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.MATT, 32)
     mob:addMod(tpz.mod.DEFP, 30)
     mob:addMod(tpz.mod.ATTP, 30)
     mob:addMod(tpz.mod.ACC, 30) 
