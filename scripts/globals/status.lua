@@ -1120,6 +1120,24 @@ tpz.mod =
     DEATHRES                        = 255,
     STATUSRES                       = 958, -- "Resistance to All Status Ailments"
     SPDEF_DOWN                      = 958, -- Specific Damage Taken (or Special Damage Taken) reduction as a percent
+
+    SLEEPRESTRAIT                   = 1240,
+    POISONRESTRAIT                  = 1241,
+    PARALYZERESTRAIT                = 1242,
+    BLINDRESTRAIT                   = 1243,
+    SILENCERESTRAIT                 = 1244,
+    VIRUSRESTRAIT                   = 1245,
+    PETRIFYRESTRAIT                 = 1246,
+    BINDRESTRAIT                    = 1247,
+    CURSERESTRAIT                   = 1248,
+    GRAVITYRESTRAIT                 = 1249,
+    SLOWRESTRAIT                    = 1250,
+    STUNRESTRAIT                    = 1251,
+    CHARMRESTRAIT                   = 1252,
+    AMNESIARESTRAIT                 = 1253,
+    LULLABYRESTRAIT                 = 1254,
+    DEATHRESTRAIT                   = 1255,
+
     AFTERMATH                       = 256,
     PARALYZE                        = 257,
     MIJIN_RERAISE                   = 258,

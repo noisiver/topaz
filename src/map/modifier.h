@@ -292,6 +292,24 @@ enum class Mod
     DEATHRES                  = 255, // Used by gear and ATMA that give resistance to instance KO
     STATUSRES                 = 958, // "Resistance to All Status Ailments"
 
+    SLEEPRESTRAIT = 1240,
+    POISONRESTRAIT = 1241,
+    PARALYZERESTRAIT = 1242,
+    BLINDRESTRAIT = 1243,
+    SILENCERESTRAIT = 1244,
+    VIRUSRESTRAIT = 1245,
+    PETRIFYRESTRAIT = 1246,
+    BINDRESTRAIT = 1247,
+    CURSERESTRAIT = 1248,
+    GRAVITYRESTRAIT = 1249,
+    SLOWRESTRAIT = 1250,
+    STUNRESTRAIT = 1251,
+    CHARMRESTRAIT = 1252,
+    AMNESIARESTRAIT = 1253,
+    LULLABYRESTRAIT = 1254,
+    DEATHRESTRAIT = 1255,
+
+
     PARALYZE                  = 257, // Paralyze -- percent chance to proc
     MIJIN_RERAISE             = 258, // Augments Mijin Gakure
     DUAL_WIELD                = 259, // Percent reduction in dual wield delay.
