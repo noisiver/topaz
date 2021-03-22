@@ -21,11 +21,11 @@ function onMobFight(mob, target)
         mob:setLocalVar("TriggerHit", 1)
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 then
-        mob:setMod(tpz.mod.REGAIN, 500)
+        mob:setMod(tpz.mod.REGAIN, 300)
         mob:setLocalVar("TriggerHit", 2)
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
-        mob:setMod(tpz.mod.REGAIN, 750)
+        mob:setMod(tpz.mod.REGAIN, 400)
         mob:setLocalVar("TriggerHit", 3)
     end
 end
