@@ -56,7 +56,7 @@ function onMobFight(mob, target)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ATTK_DOWN, {chance = 25, power = 25 duration = 60})
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ATTK_DOWN, {chance = 25, power = 25, duration = 60})
 end
 
 function onMobDeath(mob, player, isKiller)
