@@ -47,7 +47,7 @@ function onMobFight(mob, target)
         QueenTwo:updateEnmity(target)
         mob:setLocalVar("Spawn", 1)
     end
-    if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or(mob:hasStatusEffect(tpz.effect.BIND)) then
+    if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or mob:hasStatusEffect(tpz.effect.BIND)) then
         mob:setLocalVar("Rage", 1)
     end
     if Rage == 1 then

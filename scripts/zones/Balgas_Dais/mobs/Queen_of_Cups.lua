@@ -30,7 +30,7 @@ end
 
 function onMobFight(mob, target)
     local Rage = mob:getLocalVar("Rage")
-    if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or(mob:hasStatusEffect(tpz.effect.BIND)) then
+    if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or mob:hasStatusEffect(tpz.effect.BIND)) then
         mob:setLocalVar("Rage", 1)
     end
     if Rage == 1 then
