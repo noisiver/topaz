@@ -135,7 +135,7 @@ local loot =
             {itemid = 1132, droprate = 109}, -- Square Of Raxa
             {itemid = 0, droprate = 500}, -- Nothing
         }
-    }
+    },
     -- KSNM The Scarlet King
     [199] =
     {

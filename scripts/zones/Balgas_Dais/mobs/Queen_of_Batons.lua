@@ -20,6 +20,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ACC, 30) 
      mob:addMod(tpz.mod.EVA, 30)
      mob:setMod(tpz.mod.REGAIN, 250)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
 function onMobInitialize(mob)
@@ -29,7 +30,8 @@ end
 
 function onMobFight(mob, target)
     local Rage = mob:getLocalVar("Rage")
-    if (mob:hasStatusEffect(tpz.effect.WEIGHT) or (mob:hasStatusEffect(tpz.effect.CURSE) or (mob:hasStatusEffect(tpz.effect.BIND) then
+
+    if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or(mob:hasStatusEffect(tpz.effect.BIND)) then
         mob:setLocalVar("Rage", 1)
     end
     if Rage == 1 then
