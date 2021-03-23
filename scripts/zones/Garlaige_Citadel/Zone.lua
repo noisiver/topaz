@@ -57,7 +57,7 @@ function onRegionEnter(player, region)
         GetNPCByID(gateId + 4):getAnimation() == tpz.anim.OPEN_DOOR
     ) then
         player:messageSpecial(ID.text.BANISHING_GATES + leverSet)
-        GetNPCByID(gateId):openDoor(30)
+        GetNPCByID(gateId):openDoor(90)
     end
 
 end
