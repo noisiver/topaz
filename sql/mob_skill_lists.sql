@@ -3722,6 +3722,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,800);
 INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,802);
 INSERT INTO `mob_skill_lists` VALUES ('Eastern_Sphinx',1158,803);
 INSERT INTO `mob_skill_lists` VALUES ('Huwasi',1159,678); -- Crystal Rain
+INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,399); -- Scratch
+INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,400); -- Triple Attack
+INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,401); -- Gliding Spike
+INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,402); -- Feather barrier
+INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,403); -- Stormwind
 
 
 -- Custom Content
