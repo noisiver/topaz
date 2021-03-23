@@ -618,6 +618,49 @@ local loot =
             {itemid =  4175, droprate =   99}, -- vile_elixir_+1
         },
     },
+    -- KSNM Royale Ramble
+    [112] =
+    {
+        {
+            {itemid =  1591, droprate = 1000}, -- Orichalcum Ingot
+        },
+        {
+            {itemid = 15293, droprate =  365}, -- gleemans_belt
+            {itemid = 15292, droprate =  635}, -- penitents_rope
+        },
+        {
+            {itemid = 14663, droprate =  426}, -- teleport_ring_mea
+            {itemid = 14665, droprate =  574}, -- teleport_ring_yhoat
+        },
+        {
+            {itemid =     0, droprate =  848}, -- nothing
+            {itemid = 15185, droprate =   58}, -- walkure_mask
+            {itemid =  4173, droprate =   78}, -- hi-reraiser
+            {itemid =   702, droprate =   16}, -- ebony_log
+        },
+        {
+            {itemid =   771, droprate =    9}, -- yellow_rock
+            {itemid =   775, droprate =    9}, -- black_rock
+            {itemid =   791, droprate =   16}, -- aquamarine
+            {itemid =   769, droprate =   16}, -- red_rock
+            {itemid =   770, droprate =   16}, -- blue_rock
+            {itemid =   774, droprate =   16}, -- purple_rock
+            {itemid =   700, droprate =   33}, -- mahogany_log
+            {itemid =   801, droprate =   33}, -- chrysoberyl
+            {itemid =   805, droprate =   33}, -- zircon
+            {itemid =   652, droprate =   49}, -- steel_ingot
+            {itemid =   654, droprate =   49}, -- darksteel_ingot
+            {itemid =   773, droprate =   49}, -- translucent_rock
+            {itemid =   803, droprate =   49}, -- sunstone
+            {itemid =   802, droprate =   66}, -- moonstone
+            {itemid =   653, droprate =   82}, -- mythril_ingot
+            {itemid =   810, droprate =   82}, -- fluorite
+            {itemid =   745, droprate =   98}, -- gold_ingot
+            {itemid =   784, droprate =   98}, -- jadeite
+            {itemid =   797, droprate =   98}, -- painite
+            {itemid =  4175, droprate =   99}, -- vile_elixir_+1
+        },
+    },
 }
 function onTrade(player, npc, trade)
 end

@@ -132,6 +132,8 @@ tpz.mob.additionalEffect =
     STUN       = 19,
     TERROR     = 20,
     TP_DRAIN   = 21,
+    ATTK_DOWN  = 22,
+    DISPEL = 23,
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -376,6 +378,29 @@ local additionalEffects =
         mod = tpz.mod.INT,
         bonusAbilityParams = {bonusmab = 0, includemab = false},
         code = function(mob, target, power) local tp = math.min(power, target:getTP()) target:delTP(tp) mob:addTP(tp) end,
+    },
+    [tpz.mob.ae.ATTK_DOWN] =
+    {
+        chance = 25,
+        ele = tpz.magic.ele.WATER,
+        sub = tpz.subEffect.ATTACK_DOWN,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = tpz.effect.ATTACK_DOWN,
+        power = 20,
+        duration = 60,
+        minDuration = 1,
+        maxDuration = 60,
+    },
+    [tpz.mob.ae.DISPEL] =
+    {
+        chance = 33,
+        ele = tpz.magic.ele.DARK,
+        sub = tpz.subEffect.DISPEL,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        mod = tpz.mod.INT,
+        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        code = function(mob, target, power) target:dispelStatusEffect() end,
     },
 }
 

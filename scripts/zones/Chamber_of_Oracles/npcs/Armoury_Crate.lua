@@ -136,6 +136,104 @@ local loot =
             {itemid = 0, droprate = 500}, -- Nothing
         }
     }
+    -- KSNM The Scarlet King
+    [199] =
+    {
+        {
+            {itemid = 1124, droprate = 1000}, -- Manticore HIde
+        },
+        {
+            {itemid = 1122, droprate = 1000}, -- Manticore Hair
+        },
+
+        {
+            {itemid = 65535, droprate = 1000, amount = 24000},  -- gil
+
+        },
+        {
+            {itemid = 4748, droprate = 240}, -- Scroll of Raise III
+            {itemid = 4774, droprate = 50}, -- Scroll of Thunder III
+            {itemid = 4613, droprate = 50}, -- Scroll of Cure V
+            {itemid = 4659, droprate = 50}, -- Scroll of Shell IV
+            {itemid = 737, droprate = 10}, -- Chunk Of Gold Ore
+            {itemid = 703, droprate = 10}, -- Petrified Log
+            {itemid = 844, droprate = 10}, -- Phoenix Feather
+            {itemid = 0, droprate = 240} -- Nothing
+        },
+        {
+            {itemid = 19025, droprate = 240}, -- Pole Grip
+            {itemid = 19026, droprate = 240}, -- Spear Strap
+            {itemid = 4175, droprate = 10}, -- Vile Elixir +1
+            {itemid = 4174, droprate = 10}, -- Vile Elixir
+        },
+        {
+            {itemid = 17997, droprate = 240}, -- Argent Dagger
+            {itemid = 17825, droprate = 240}, -- Honebami 
+            {itemid = 17577, droprate = 240}, -- Capricorn Staff
+            {itemid = 18048, droprate = 240}, -- King Maker
+            {itemid = 18372, droprate = 240}, -- Balan's Sword
+            {itemid = 17938, droprate = 240}, -- Woodville's Axe
+            {itemid = 17998, droprate = 240}, -- Thanatos Baselard
+            {itemid = 17579, droprate = 240}, -- Wyvern Perch
+            {itemid = 18373, droprate = 240}, -- Balin's Sword
+            {itemid = 18211, droprate = 240}, -- Gawain's Axe
+            {itemid = 0, droprate = 240} -- Nothing
+        },
+        {
+            {itemid = 4748, droprate = 240}, -- Scroll of Raise III
+            {itemid = 4774, droprate = 50}, -- Scroll of Thunder III
+            {itemid = 4613, droprate = 50}, -- Scroll of Cure V
+            {itemid = 4659, droprate = 50}, -- Scroll of Shell IV
+            {itemid = 737, droprate = 10}, -- Chunk Of Gold Ore
+            {itemid = 703, droprate = 10}, -- Petrified Log
+            {itemid = 844, droprate = 10}, -- Phoenix Feather
+        },
+        {
+            {itemid = 19025, droprate = 240}, -- Pole Grip
+            {itemid = 19026, droprate = 240}, -- Spear Strap
+            {itemid = 644, droprate = 10}, -- Chunk Of Darksteel Ore
+            {itemid = 703, droprate = 10}, -- Petrified Log
+            {itemid = 844, droprate = 10}, -- Phoenix Feather
+            {itemid = 0, droprate = 240} -- Nothing
+        },
+        {
+            {itemid = 4175, droprate = 150}, -- Vile Elixir +1
+            {itemid = 4174, droprate = 240}, -- Vile Elixir
+            {itemid = 887, droprate = 50}, -- Coral Fragment
+            {itemid = 645, droprate = 50}, -- Chunk Of Darksteel Ore
+            {itemid = 902, droprate = 50}, -- Demon Horn
+            {itemid = 702, droprate = 50}, -- Ebony Log
+            {itemid = 737, droprate = 50}, -- Chunk Of Gold Ore
+            {itemid = 823, droprate = 10}, -- Gold Ingot
+            {itemid = 1465, droprate = 10}, -- Slab Of Granite
+            {itemid = 4173, droprate = 50}, -- Hi-reraiser
+            {itemid = 700, droprate = 50}, -- Mahogany Log
+            {itemid = 654, droprate = 10}, -- Darksteel Ingot
+            {itemid = 646, droprate = 50}, -- Chunk Of Adaman Ore
+            {itemid = 703, droprate = 50}, -- Petrified Log
+            {itemid = 844, droprate = 10}, -- Phoenix Feather
+            {itemid = 942, droprate = 50}, -- Philosophers Stone
+            {itemid = 738, droprate = 50}, -- Chunk Of Platinum Ore
+            {itemid = 830, droprate = 10}, -- Square Of Rainbow Cloth
+            {itemid = 739, droprate = 50}, -- Orichalcum Ore
+            {itemid = 4172, droprate = 50}, -- Reraiser
+            {itemid = 0, droprate = 240} -- Nothing
+        },
+        {
+            {itemid = 17997, droprate = 240}, -- Argent Dagger
+            {itemid = 17825, droprate = 240}, -- Honebami 
+            {itemid = 17577, droprate = 240}, -- Capricorn Staff
+            {itemid = 18048, droprate = 240}, -- King Maker
+            {itemid = 18372, droprate = 240}, -- Balan's Sword
+            {itemid = 17938, droprate = 240}, -- Woodville's Axe
+            {itemid = 17998, droprate = 240}, -- Thanatos Baselard
+            {itemid = 17579, droprate = 240}, -- Wyvern Perch
+            {itemid = 18373, droprate = 240}, -- Balin's Sword
+            {itemid = 18211, droprate = 240}, -- Gawain's Axe
+            {itemid = 942, droprate = 50}, -- Philosophers Stone
+            {itemid = 844, droprate = 50}, -- Phoenix Feather
+        }
+    }
 
 }
 
