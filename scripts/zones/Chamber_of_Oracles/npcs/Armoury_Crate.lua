@@ -140,10 +140,10 @@ local loot =
     [199] =
     {
         {
-            {itemid = 1124, droprate = 1000}, -- Manticore Hide
+            {itemid = 1116, droprate = 1000}, -- Manticore Hide
         },
         {
-            {itemid = 1122, droprate = 1000}, -- Manticore Hair
+            {itemid = 1163, droprate = 1000}, -- Manticore Hair
         },
 
         {
