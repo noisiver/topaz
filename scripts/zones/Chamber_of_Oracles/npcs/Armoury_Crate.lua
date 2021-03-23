@@ -136,7 +136,7 @@ local loot =
             {itemid = 0, droprate = 500}, -- Nothing
         },
     },
-    -- KSNM The Scarlet King
+    -- KSNM Scarlet King
     [199] =
     {
         {
