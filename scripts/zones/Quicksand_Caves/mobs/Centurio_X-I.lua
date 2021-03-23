@@ -12,9 +12,14 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.SILENCERES, 35)
-    mob:addMod(tpz.mod.SLEEPRES, 50)
-    mob:addMod(tpz.mod.LULLABYRES, 50)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ATTP, 30)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 50)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
+    mob:addMod(tpz.mod.SILENCERESTRAIT, 75)
+    mob:addMod(tpz.mod.SLEEPRESTRAIT, 50)
+    mob:addMod(tpz.mod.LULLABYRESTRAIT, 50)
     mob:addMod(tpz.mod.SPELLINTERRUPT, 25)
 end
 
