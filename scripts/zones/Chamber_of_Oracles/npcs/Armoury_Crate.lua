@@ -134,13 +134,13 @@ local loot =
             {itemid = 844, droprate = 176}, -- Phoenix Feather
             {itemid = 1132, droprate = 109}, -- Square Of Raxa
             {itemid = 0, droprate = 500}, -- Nothing
-        }
+        },
     },
     -- KSNM The Scarlet King
     [199] =
     {
         {
-            {itemid = 1124, droprate = 1000}, -- Manticore HIde
+            {itemid = 1124, droprate = 1000}, -- Manticore Hide
         },
         {
             {itemid = 1122, droprate = 1000}, -- Manticore Hair
