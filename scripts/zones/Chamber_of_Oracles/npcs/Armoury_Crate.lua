@@ -232,9 +232,8 @@ local loot =
             {itemid = 18211, droprate = 240}, -- Gawain's Axe
             {itemid = 942, droprate = 50}, -- Philosophers Stone
             {itemid = 844, droprate = 50}, -- Phoenix Feather
-        }
-    }
-
+        },
+    },
 }
 
 function onTrade(player, npc, trade)
