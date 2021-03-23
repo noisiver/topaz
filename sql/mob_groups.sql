@@ -12509,8 +12509,8 @@ INSERT INTO `mob_groups` VALUES (9961,4498,204,'Zeid',0,0,0,0,0,0,0,0);
 -- Ifrits_Cauldron (Zone 205)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,3444,205,'Salamander',0,128,0,0,0,64,66,0);
-INSERT INTO `mob_groups` VALUES (2,2484,205,'Magma',0,128,1572,0,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (1,3444,205,'Salamander',0,128,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (2,2484,205,'Magma',0,128,1572,10000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (3,4246,205,'Volcanic_Gas',600,0,2586,0,0,62,68,0);
 INSERT INTO `mob_groups` VALUES (4,2963,205,'Old_Opo-opo',600,0,1846,0,0,61,65,0);
 INSERT INTO `mob_groups` VALUES (5,1044,205,'Dire_Bat',600,2,6011,0,0,60,64,0);
