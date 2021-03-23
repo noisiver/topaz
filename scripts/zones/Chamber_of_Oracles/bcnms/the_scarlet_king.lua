@@ -1,6 +1,6 @@
 -----------------------------------
 -- The Scarlet King
--- Chamber of Oracles KSNM30, Lachesis Orb
+-- Chamber of Oracles KSNM30, Atropos Orb
 -- !additem 1178
 -----------------------------------
 require("scripts/globals/battlefield")
