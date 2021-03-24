@@ -45,10 +45,6 @@ function onMobSpawn(mob)
     end
 end
 
-function onMobFight(mob, target)
-    if (mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) == true) then
-end
-
 function onAdditionalEffect(mob, target, damage)
     if (mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) == true) then
         return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {chance = 100, power = 25, duration = 30})
