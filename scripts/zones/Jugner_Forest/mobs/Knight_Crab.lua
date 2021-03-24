@@ -23,7 +23,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    mob:setRespawnTime(math.random(300, 360)) -- 5-6m
     local KingArthro = GetMobByID(ID.mob.KING_ARTHRO)
 
     KingArthro:setLocalVar("[POP]King_Arthro", KingArthro:getLocalVar("[POP]King_Arthro") + 1)
