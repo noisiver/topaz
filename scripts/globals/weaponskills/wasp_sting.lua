@@ -43,5 +43,4 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         target:addStatusEffect(effect, power, 3, duration)
     end
     return tpHits, extraHits, criticalHit, damage
-
 end

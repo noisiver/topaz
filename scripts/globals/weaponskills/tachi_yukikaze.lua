@@ -35,11 +35,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+    local effect = tpz.effect.BLINDNESS
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0)
 
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.BLINDNESS) == false) and resist >= 0.5 then
+    if damage > 0 and (canOverwrite(target, effect, power)) and resist >= 0.5 then
         local duration = 60 * resist
-        target:addStatusEffect(tpz.effect.BLINDNESS, 25, 0, duration)
+        local power = 25
+        target:delStatusEffect(effect)
+        target:addStatusEffect(effect, power, 3, duration)
     end
     return tpHits, extraHits, criticalHit, damage
 

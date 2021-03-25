@@ -33,17 +33,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.PARALYSIS) == false) then
-        local duration = (tp/1000 * 30) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
-        -- paralyze proc based on lvl difference
-        local power = 30 + (player:getMainLvl() - target:getMainLvl())*3
-        if (power > 35) then
-            power = 35
-        elseif (power < 5) then
-            power = 5
-        end
-        target:addStatusEffect(tpz.effect.PARALYSIS, power, 0, duration)
+    local effect = tpz.effect.PARALYZE
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
+
+    if damage > 0 and (canOverwrite(target, effect, power)) and resist >= 0.5 then
+        local duration = 60 * resist
+        local power = 25
+        target:delStatusEffect(effect)
+        target:addStatusEffect(effect, power, 3, duration)
     end
     return tpHits, extraHits, criticalHit, damage
-
 end
