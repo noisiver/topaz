@@ -12736,7 +12736,7 @@ INSERT INTO `mob_groups` VALUES (29,339,212,'Baobhan_Sith',0,32,225,0,0,77,81,0)
 INSERT INTO `mob_groups` VALUES (30,6334,212,'Antares',600,0,113,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (31,3856,212,'Taxim',0,32,2385,0,0,78,79,0);
 INSERT INTO `mob_groups` VALUES (32,4100,212,'Ungur',0,32,2521,20000,0,80,82,0);
-INSERT INTO `mob_groups` VALUES (33,109,212,'Amikiri',0,32,72,25000,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (33,109,212,'Amikiri',0,32,72,25000,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (34,1550,212,'Gigaplasm',0,128,15,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (35,2469,212,'Macroplasm',0,128,15,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (36,2648,212,'Microplasm',0,128,15,0,0,70,70,0);

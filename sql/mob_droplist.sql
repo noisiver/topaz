@@ -494,8 +494,10 @@ INSERT INTO `mob_droplist` VALUES (71,0,0,1000,18754,50);
 INSERT INTO `mob_droplist` VALUES (71,0,0,1000,18851,50);
 INSERT INTO `mob_droplist` VALUES (71,0,0,1000,18944,50);
 INSERT INTO `mob_droplist` VALUES (71,0,0,1000,19102,50);
-INSERT INTO `mob_droplist` VALUES (72,0,0,1000,1473,80);
-INSERT INTO `mob_droplist` VALUES (72,0,0,1000,16968,900);
+INSERT INTO `mob_droplist` VALUES (72,0,0,1000,901,50); -- (Amikiri) Venomous claw
+INSERT INTO `mob_droplist` VALUES (72,0,0,1000,896,1000);  -- Scorpion shell
+INSERT INTO `mob_droplist` VALUES (72,0,0,1000,897,1000);  -- Scorpion claw
+INSERT INTO `mob_droplist` VALUES (72,0,0,1000,16968,1000); -- Kamewari
 INSERT INTO `mob_droplist` VALUES (73,0,0,1000,2750,100);
 INSERT INTO `mob_droplist` VALUES (73,0,0,1000,2752,100);
 INSERT INTO `mob_droplist` VALUES (73,0,0,1000,2753,100);
@@ -11609,7 +11611,7 @@ INSERT INTO `mob_droplist` VALUES (2280,2,0,1000,936,0);
 INSERT INTO `mob_droplist` VALUES (2280,0,0,1000,936,110);
 INSERT INTO `mob_droplist` VALUES (2280,0,0,1000,4400,190);
 INSERT INTO `mob_droplist` VALUES (2280,0,0,1000,4400,100);
-INSERT INTO `mob_droplist` VALUES (2281,0,0,1000,539,100);
+INSERT INTO `mob_droplist` VALUES (2281,0,0,1000,539,100); -- Crab Apron
 INSERT INTO `mob_droplist` VALUES (2281,0,0,1000,539,0);
 INSERT INTO `mob_droplist` VALUES (2281,0,0,1000,881,10);
 INSERT INTO `mob_droplist` VALUES (2281,0,0,1000,881,0);
@@ -12767,10 +12769,9 @@ INSERT INTO `mob_droplist` VALUES (2490,0,0,1000,15141,10);
 INSERT INTO `mob_droplist` VALUES (2490,0,0,1000,15143,10);
 INSERT INTO `mob_droplist` VALUES (2490,0,0,1000,15144,50);
 INSERT INTO `mob_droplist` VALUES (2490,0,0,1000,16352,10);
-INSERT INTO `mob_droplist` VALUES (2509,0,0,1000,896,150);
-INSERT INTO `mob_droplist` VALUES (2509,0,0,1000,897,240);
-INSERT INTO `mob_droplist` VALUES (2509,0,0,1000,901,10);
-INSERT INTO `mob_droplist` VALUES (2509,0,0,1000,17927,1000);
+INSERT INTO `mob_droplist` VALUES (2509,0,0,1000,896,1000); -- (Tyrannic Tunnok) Scorpion shell
+INSERT INTO `mob_droplist` VALUES (2509,0,0,1000,897,1000); -- Scorpion claw
+INSERT INTO `mob_droplist` VALUES (2509,0,0,1000,17927,1000); -- Lohar
 INSERT INTO `mob_droplist` VALUES (2510,0,0,1000,1450,60);
 INSERT INTO `mob_droplist` VALUES (2511,0,0,1000,1440,1000);		-- (Tzee Xicu The Manifest - Castle Oztroja)
 INSERT INTO `mob_droplist` VALUES (2511,0,0,1000,17528,50);		-- Astral Signa
