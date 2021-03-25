@@ -31,6 +31,12 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
-    return tpHits, extraHits, criticalHit, damage
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 0)
 
+    if (damage > 0 and target:hasStatusEffect(tpz.effect.INT_DOWN) == false) and resist >= 0.5 then
+    local duration = duration * resist
+    local power = math.floor((player:getMainLvl() / 4) * (tp / 2000) + 5)
+        target:addStatusEffect(tpz.effect.INT_DOWN, power, 0, duration)
+    end
+    return tpHits, extraHits, criticalHit, damage
 end
