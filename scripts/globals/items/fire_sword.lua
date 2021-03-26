@@ -10,6 +10,13 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     local chance = 5
+    local SDT = target:getMod(tpz.mod.FIRE)
+    if SDT <= 5 then
+        chance = 0
+    else 
+        chance = chance * (SDT / 100)
+        chance = utils.clamp(chance, 5, 95)
+    end
 
     if (math.random(0, 99) >= chance) then
         return 0, 0, 0
