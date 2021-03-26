@@ -35,7 +35,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     if (damage > 0 and target:hasStatusEffect(tpz.effect.INT_DOWN) == false) and resist >= 0.5 then
     local duration = duration * resist
-    local power = math.floor((player:getMainLvl() / 4) * (tp / 2000) + 5)
+    local power = math.floor((player:getMainLvl() / 10) * (tp / 2000) + 5)
         target:addStatusEffect(tpz.effect.INT_DOWN, power, 0, duration)
     end
     return tpHits, extraHits, criticalHit, damage
