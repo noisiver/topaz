@@ -14,5 +14,9 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.CURE_POTENCY_RCVD, 1, 10, 60) -- 10% 60s duration
+
+    local duration = 30
+    duration = duration + player:getMod(tpz.mod.WARCRY_DURATION)
+
+    target:addStatusEffect(tpz.effect.BLOOD_RAGE, 10, 0, duration, 0, 25)
 end

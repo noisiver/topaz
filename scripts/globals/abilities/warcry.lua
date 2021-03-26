@@ -14,16 +14,9 @@ end
 
 function onUseAbility(player, target, ability)
     local merit = player:getMerit(tpz.merit.SAVAGERY)
-    local power = 0
+    local power = 50
     local duration = 30
 
-    if player:getMainJob() == tpz.job.WAR then
-        power = math.floor((player:getMainLvl()/4)+4.75)/256
-    else
-        power = math.floor((player:getSubLvl()/4)+4.75)/256
-    end
-
-    power = power * 100
     duration = duration + player:getMod(tpz.mod.WARCRY_DURATION)
 
 

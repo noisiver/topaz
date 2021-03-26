@@ -54,7 +54,7 @@ INSERT INTO `abilities` VALUES (28,'mijin_gakure',13,0,4,7200,0,110,0,93,2000,0,
 INSERT INTO `abilities` VALUES (29,'spirit_surge',14,0,1,7200,0,0,0,97,2000,0,6,20.0,0,0,0,0,0,'COP');
 INSERT INTO `abilities` VALUES (30,'astral_flow',15,0,1,7200,0,0,0,95,2000,0,6,20.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (31,'berserk',1,15,1,300,1,115,0,0,2000,0,6,20.0,0,1,80,384,0,NULL);
-INSERT INTO `abilities` VALUES (32,'warcry',1,35,1,300,2,0,0,28,2000,0,6,20.0,1,1,1800,388,0,NULL);
+INSERT INTO `abilities` VALUES (32,'warcry',1,35,1,300,2,0,0,28,2000,0,6,20.0,0,1,1800,388,0,NULL);
 INSERT INTO `abilities` VALUES (33,'defender',1,25,1,120,3,117,0,1,2000,0,6,20.0,0,1,80,386,0,NULL); -- 2m cd
 INSERT INTO `abilities` VALUES (34,'aggressor',1,45,1,120,4,118,0,2,2000,0,6,20.0,0,1,80,390,0,NULL);
 INSERT INTO `abilities` VALUES (35,'provoke',1,5,4,30,5,0,0,3,2000,0,6,18.0,0,1,1800,0,0,NULL);
