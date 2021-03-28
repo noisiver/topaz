@@ -16,19 +16,17 @@ end
 function onMobWeaponSkill(target, mob, skill)
 
 
-    local numhits = 1
-    local accmod = 1
+
     local dmgmod = 1.5
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.H2H, info.hitslanded)
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 1.5, tpz.magic.ele.WATER, dmgmod, TP_MAB_BONUS, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
 
     local typeEffect = tpz.effect.ENMITY_DOWN
 
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 10, 3, 120)
-    if dmg > 0 then
-        mob:resetEnmity(target)
-    end
 
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.H2H)
+
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
+	mob:resetEnmity(target)
     return dmg
 end
