@@ -78,6 +78,7 @@ end
 function onMobSpawn(mob)
     local master = mob:getMaster()
     mob:addMod(tpz.mod.DMG, -40)
+    mob:addMod(tpz.mod.DEFP, 50)
     if master:getMod(tpz.mod.WYVERN_SUBJOB_TRAITS) > 0 then
         mob:addJobTraits(master:getSubJob(), master:getSubLvl())
     end
