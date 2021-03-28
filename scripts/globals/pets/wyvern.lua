@@ -80,6 +80,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DMG, -40)
     mob:addMod(tpz.mod.DEFP, 50)
     mob:addMod(tpz.mod.ATT, 10)
+    mob:addMod(tpz.mod.HPP, 10)
     if mob:getMainLvl() >= 70 then
 		    mob:addMod(tpz.mod.ACC, 40)
 	elseif mob:getMainLvl() >= 50 then
