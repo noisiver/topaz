@@ -1,3 +1,4 @@
+
 -----------------------------------------
 -- ID: 16927
 -- Item: Busuto
@@ -14,7 +15,7 @@ function onAdditionalEffect(player, target, damage)
     if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0) <= 0.5) then
         return 0, 0, 0
     else
-        target:addStatusEffect(tpz.effect.POISON, 22, 3, 60)       --changed to 11/tick 60s dura
+        target:addStatusEffect(tpz.effect.POISON, 12, 3, 60)       --changed to 11/tick 60s dura
         return tpz.subEffect.POISON, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.POISON
     end
 end
