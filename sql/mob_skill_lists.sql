@@ -794,6 +794,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,302);
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,304);
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,305);
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,306);
+INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,3844);
+INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,1585);
 INSERT INTO `mob_skill_lists` VALUES ('Manticore',179,797);
 INSERT INTO `mob_skill_lists` VALUES ('Manticore',179,798);
 INSERT INTO `mob_skill_lists` VALUES ('Manticore',179,799);
