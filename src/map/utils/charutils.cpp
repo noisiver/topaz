@@ -5167,6 +5167,70 @@ namespace charutils
         }
         return 0;
     }
+    bool AddCharVar(CCharEntity* PChar, const char* var, int32 increment)
+    {
+        uint16 id = PChar->id;
+
+        const char* fmtQuery = "SELECT value FROM char_vars WHERE charid = %u AND varname = '%s' LIMIT 1;";
+        int32 ret = Sql_Query(SqlHandle, fmtQuery, id, var);
+
+        if (ret != SQL_ERROR)
+        {
+            if (Sql_NumRows(SqlHandle) != 0)
+            {
+                const char* fmtQuery2 = "UPDATE char_vars SET value = value + %u WHERE varname = '%s' AND charid = %u LIMIT 1;";
+                ret = Sql_Query(SqlHandle, fmtQuery2, increment, var, id);
+                if (ret == SQL_SUCCESS && Sql_AffectedRows(SqlHandle) != 0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                const char* fmtQuery3 = "INSERT INTO char_vars VALUES (%u,'%s',%u);";
+                ret = Sql_Query(SqlHandle, fmtQuery3, id, var, increment);
+                if (ret == SQL_SUCCESS && Sql_AffectedRows(SqlHandle) != 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        return false;
+    }
+
+    bool SetCharVar(CCharEntity* PChar, const char* var, int32 value)
+    {
+        uint16 id = PChar->id;
+
+        const char* fmtQuery = "SELECT value FROM char_vars WHERE charid = %u AND varname = '%s' LIMIT 1;";
+        int32 ret = Sql_Query(SqlHandle, fmtQuery, id, var);
+
+        if (ret != SQL_ERROR)
+        {
+            if (Sql_NumRows(SqlHandle) != 0)
+            {
+                const char* fmtQuery2 = "UPDATE char_vars SET value = %u WHERE varname = '%s' AND charid = %u LIMIT 1;";
+                ret = Sql_Query(SqlHandle, fmtQuery2, value, var, id);
+                if (ret == SQL_SUCCESS && Sql_AffectedRows(SqlHandle) != 0)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                const char* fmtQuery3 = "INSERT INTO char_vars VALUES (%u,'%s',%u);";
+                ret = Sql_Query(SqlHandle, fmtQuery3, id, var, value);
+                if (ret == SQL_SUCCESS && Sql_AffectedRows(SqlHandle) != 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        return false;
+    }
+
 
     uint16 getWideScanRange(JOBTYPE job, uint8 level)
     {

@@ -811,6 +811,11 @@ enum class Mod
     SYNTH_FAIL_RATE_ALCHEMY   = 931, // Amount synthesis failure rate is reduced when doing alchemy
     SYNTH_FAIL_RATE_COOK      = 932, // Amount synthesis failure rate is reduced when doing cooking
 
+    //Fishing
+    PENGUIN_RING_EFFECT = 1000,   // +2 on fishing arrow delay / fish movement for mini - game
+    ALBATROSS_RING_EFFECT = 1001, // adds 30 seconds to mini - game time
+    PELICAN_RING_EFFECT = 1002,    // adds extra skillup roll for fishing
+
     // Weaponskill %damage modifiers
     // The following modifier should not ever be set, but %damage modifiers to weaponskills use the next 255 IDs (this modifier + the WSID)
     // For example, +10% damage to Chant du Cygne would be ID 570 + 225 (795)

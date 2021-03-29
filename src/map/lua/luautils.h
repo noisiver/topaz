@@ -41,6 +41,7 @@
 #include "lua_trade_container.h"
 #include "lua_zone.h"
 #include "lua_item.h"
+#include "../utils/fishingutils.h"
 
 /************************************************************************
 *                                                                       *
@@ -294,6 +295,19 @@ namespace luautils
     int32 SelectDailyItem(lua_State* L);
 
     void OnPlayerEmote(CCharEntity* PChar, Emote EmoteID);
-};
+
+    int32 OnFishingStart(CCharEntity* PChar, int32 RodID, int32 BaitID, int32 AreaID); // triggers when player starts fishing in a zone
+
+    fishresponse_t* OnFishingCheck(CCharEntity* PChar, fishingrod_t* Rod, std::vector<fish_t>* FishList, std::vector<fishmob_t>* MobList, uint8 AreaID,
+                                   string_t AreaName, fishinglure_t* Lure, uint8 Difficulty); // fishing process hook check
+
+    catchresponse_t* OnFishingReelIn(CCharEntity* PChar, fishresponse_t* response, fishingrod_t* rod); // triggers when player reels in the fish
+
+    int32 OnFishingAction(CCharEntity* PChar, int32 Action, int32 Stamina, int32 Special); // triggers when fishing action happens to player
+    int32 OnFishingCatch(CCharEntity* PChar, uint8 CatchType, int32 CatchID);              // triggers when player catches fish
+    int32 OnFishingEnd(CCharEntity* PChar);
+    // triggers when player stops fishing
+
+    };
 
 #endif //- _LUAUTILS_H -

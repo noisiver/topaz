@@ -231,7 +231,7 @@ set(SOURCES
     zone_visited.cpp
     zone_visited.h)
 
-add_library(packets STATIC ${SOURCES})
+add_library(packets STATIC ${SOURCES} "caught_fish.h" "caught_fish.cpp" "caught_monster.cpp" "caught_monster.h")
 
 target_link_libraries(packets
     PUBLIC
