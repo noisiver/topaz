@@ -210,7 +210,6 @@ function onMobSpawn(mob)
                 player:messageBasic(tpz.msg.basic.STATUS_INCREASED, 0, 0, pet)
                 master:addMod(tpz.mod.ATTP, 4 * diff)
                 master:addMod(tpz.mod.DEFP, 4 * diff)
-                master:addMod(tpz.mod.HASTE_ABILITY, 200 * diff)
             end
             pet:setLocalVar("wyvern_exp", prev_exp + exp)
             pet:setLocalVar("level_Ups", pet:getLocalVar("level_Ups") + diff)
