@@ -9967,7 +9967,7 @@ INSERT INTO `mob_groups` VALUES (37,4408,151,'Yagudo_Avatar',0,128,2696,0,0,75,7
 INSERT INTO `mob_groups` VALUES (38,4453,151,'Yagudos_Avatar',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (39,4072,151,'Tzee_Xicu_the_Manifest',0,128,2511,45000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (40,2016,151,'Huu_Xalmo_the_Savage',0,128,1341,30000,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (41,2944,151,'Odontotyrannus',0,128,1838,2800,0,52,52,0);
+INSERT INTO `mob_groups` VALUES (41,2944,151,'Odontotyrannus',0,128,1838,6000,0,52,52,0);
 INSERT INTO `mob_groups` VALUES (42,4434,151,'Yagudo_Muralist',0,128,2734,2500,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (43,2664,151,'Mimic',0,128,1679,0,0,65,69,0);
 INSERT INTO `mob_groups` VALUES (44,4418,151,'Yagudo_Flagellant',600,0,2833,0,0,70,72,0);
@@ -12210,7 +12210,7 @@ INSERT INTO `mob_groups` VALUES (56,2802,195,'Namorodo',0,128,0,2000,0,35,35,0);
 INSERT INTO `mob_groups` VALUES (57,5179,195,'Gasha-1stform',0,128,0,0,0,94,95,0);
 INSERT INTO `mob_groups` VALUES (58,6561,195,'Lost_Soul',600,0,1542,0,0,42,46,0); 
 INSERT INTO `mob_groups` VALUES (59,9000,195,'Murgleis',0,128,3177,35000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (60,9000,195,'Burtgang',0,128,3177,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (60,9002,195,'Burtgang',0,128,3177,35000,0,85,87,0);
 
 INSERT INTO `mob_groups` VALUES (9757,3858,195,'Tebhi',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9761,3992,195,'Treasure_Chest',0,0,0,0,0,0,0,0);
