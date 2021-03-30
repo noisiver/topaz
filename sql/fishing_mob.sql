@@ -50,11 +50,6 @@ CREATE TABLE `fishing_mob` (
 
 LOCK TABLES `fishing_mob` WRITE;
 /*!40000 ALTER TABLE `fishing_mob` DISABLE KEYS */;
-INSERT INTO `fishing_mob` VALUES (17252353,'Palm_Crab',116,10,16,14,15,255,255,0,0,0,0,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17252354,'Savanna_Crab',116,20,15,11,15,255,255,0,0,0,0,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17252355,'Mud_Pugil',116,30,16,10,15,255,255,0,0,0,0,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17252356,'Pug_Pugil',116,40,17,9,15,255,255,0,0,0,0,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17252357,'Fighting_Pugil',116,50,19,8,15,255,255,0,0,0,0,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (17396141,'Odontotyrannus',151,20,15,10,15,0,91,1,0,1,0,0,17001,0,0);
 INSERT INTO `fishing_mob` VALUES (17489921,'Scavenger Crab',174,20,15,11,15,255,255,0,0,0,0,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (17489922,'Scavenger Crab',174,20,15,11,15,255,255,0,0,0,0,0,0,0,0);
@@ -92,11 +87,11 @@ INSERT INTO `fishing_mob` VALUES (17248260,'Mugger_Crab',115,40,1,11,15,255,255,
 INSERT INTO `fishing_mob` VALUES (17248261,'Passage_Crab',115,20,1,11,15,255,255,0,0,0,0,0,0,0,0);
 
 -- East Sarutabaruta
-INSERT INTO `fishing_mob` VALUES (17252353,'Palm_Crab',116,10,1,11,15,255,255,0,0,0,0,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17252354,'Savanna_Crab',116,20,1,11,15,255,255,0,0,0,0,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17252355,'Mud_Pugil',116,30,1,9,15,255,255,0,0,0,0,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17252356,'Pug_Pugil',116,40,1,9,15,255,255,0,0,0,0,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17252357,'Fighting_Pugil',116,50,1,9,15,255,255,0,0,0,0,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17252353,'Palm_Crab',116,10,16,14,15,255,255,0,0,0,0,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17252354,'Savanna_Crab',116,20,15,11,15,255,255,0,0,0,0,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17252355,'Mud_Pugil',116,30,16,10,15,255,255,0,0,0,0,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17252356,'Pug_Pugil',116,40,17,9,15,255,255,0,0,0,0,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17252357,'Fighting_Pugil',116,50,19,8,15,255,255,0,0,0,0,0,0,0,0);
 
 /*!40000 ALTER TABLE `fishing_mob` ENABLE KEYS */;
 UNLOCK TABLES;
