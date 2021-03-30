@@ -837,7 +837,7 @@ INSERT INTO `item_basic` VALUES (925,0,'giant_stinger','giant_stinger',12,4,44,0
 INSERT INTO `item_basic` VALUES (926,0,'lizard_tail','lizard_tail',12,4,44,0,28);
 INSERT INTO `item_basic` VALUES (927,0,'coeurl_whisker','coeurl_whisker',12,4,44,0,210);
 INSERT INTO `item_basic` VALUES (928,0,'pinch_of_bomb_ash','bomb_ash',12,4,44,0,103);
-INSERT INTO `item_basic` VALUES (929,0,'jar_of_black_ink','black_ink',12,4,44,0,100);	-- was 40
+INSERT INTO `item_basic` VALUES (929,0,'jar_of_black_ink','black_ink',12,4,44,0,120);	-- was 40
 INSERT INTO `item_basic` VALUES (930,0,'vial_of_beastman_blood','beastman_blood',12,4,50,0,383);
 INSERT INTO `item_basic` VALUES (931,0,'cermet_chunk','cermet_chunk',12,4,44,0,500);
 INSERT INTO `item_basic` VALUES (932,0,'loop_of_carbon_fiber','carbon_fiber',12,4,44,0,194);
@@ -9740,7 +9740,7 @@ INSERT INTO `item_basic` VALUES (12446,0,'tiger_helm','tiger_helm',1,2084,17,0,3
 INSERT INTO `item_basic` VALUES (12447,0,'coeurl_mask','coeurl_mask',1,2084,17,0,3421);
 INSERT INTO `item_basic` VALUES (12448,0,'bronze_cap','bronze_cap',1,2084,17,0,42);
 INSERT INTO `item_basic` VALUES (12449,0,'brass_cap','brass_cap',1,2084,17,0,327);
-INSERT INTO `item_basic` VALUES (12450,0,'padded_cap','padded_cap',1,2084,17,0,867);
+INSERT INTO `item_basic` VALUES (12450,0,'padded_cap','padded_cap',1,2084,17,0,3300);
 INSERT INTO `item_basic` VALUES (12451,0,'scorpion_mask','scorpion_mask',1,2084,17,0,1076);
 INSERT INTO `item_basic` VALUES (12452,0,'darksteel_cap','darksteel_cap',1,2084,17,0,7177);
 INSERT INTO `item_basic` VALUES (12453,0,'coral_cap','coral_cap',1,2084,17,0,3852);
@@ -9815,7 +9815,7 @@ INSERT INTO `item_basic` VALUES (12521,0,'blue_ribbon','blue_ribbon',1,63568,0,1
 INSERT INTO `item_basic` VALUES (12522,0,'rusty_cap','rusty_cap',1,2052,17,0,97);
 INSERT INTO `item_basic` VALUES (12523,0,'judges_helm','judges_helm',1,2050,0,0,58);
 INSERT INTO `item_basic` VALUES (12524,0,'iron_mask_+1','iron_mask_+1',1,2080,17,0,2137);
-INSERT INTO `item_basic` VALUES (12525,0,'strong_cap','strong_cap',1,2080,17,0,2042);
+INSERT INTO `item_basic` VALUES (12525,0,'strong_cap','strong_cap',1,2080,17,0,3800);
 INSERT INTO `item_basic` VALUES (12526,0,'copper_hairpin_+1','copper_hairpin_+1',1,2080,17,0,79);
 INSERT INTO `item_basic` VALUES (12527,0,'circlet_+1','circlet_+1',1,2080,17,0,50);
 INSERT INTO `item_basic` VALUES (12528,0,'brass_cap_+1','brass_cap_+1',1,2080,17,0,388);
