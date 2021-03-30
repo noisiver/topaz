@@ -8,6 +8,13 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 200)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
+end
+
+function onMobSpawn(mob)
     GetMobByID(ID.mob.CHANDELIER):setRespawnTime(0)
 end
 

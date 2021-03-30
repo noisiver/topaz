@@ -7,7 +7,18 @@
 require("scripts/globals/status")
 -----------------------------------
 
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 100)
+    mob:addMod(tpz.mod.MDEF, 100) 
+    mob:addMod(tpz.mod.ATTP, 100)
+    mob:addMod(tpz.mod.ACC, 100) 
+    mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.MACC, 50) 
+    mob:setMod(tpz.mod.REFRESH, 400)
+end
+
 function onMobInitialize(mob)
+    mob:setMod(tpz.mod.UFASTCAST, 50) 
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
 end
 
