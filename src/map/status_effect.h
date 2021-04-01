@@ -545,7 +545,7 @@ enum EFFECT
     EFFECT_PALISADE                 = 478, // PLD 95
     EFFECT_SCARLET_DELIRIUM         = 479, // DRK 95
     EFFECT_SCARLET_DELIRIUM_1       = 480, // DRK 95
-    // EFFECT_NONE                      = 481, // NONE
+    EFFECT_CONTRADANCE              = 481, // WAS NONE
     EFFECT_DECOY_SHOT               = 482, // RNG 95
     EFFECT_HAGAKURE                 = 483, // SAM 95
     EFFECT_ISSEKIGAN                = 484, // NIN 95
