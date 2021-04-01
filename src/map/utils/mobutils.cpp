@@ -504,7 +504,10 @@ void CalculateStats(CMobEntity * PMob)
 
     // add traits for sub and main
     battleutils::AddTraits(PMob, traits::GetTraits(mJob), mLvl);
-    battleutils::AddTraits(PMob, traits::GetTraits(PMob->GetSJob()), PMob->GetSLevel());
+    if (mJob != sJob)
+    {
+        battleutils::AddTraits(PMob, traits::GetTraits(sJob), PMob->GetSLevel());
+    }
 
     SetupJob(PMob);
     SetupRoaming(PMob);
