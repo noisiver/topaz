@@ -14,7 +14,7 @@ function calculateBarstatusPower(caster, enhanceSkill)
     -- No known way to determine actual potency.
     --return 1 + 0.02 * enhanceSkill + meritBonus
     --return  40 + math.floor(enhanceSkill / 5) + meritBonus
-     return 5 + 0.05 * enhanceSkill + meritBonus
+     return 40 + math.floor(enhanceSkill / 5) + meritBonus
 end
 
 function calculateBarstatusDuration(caster, enhanceSkill)
