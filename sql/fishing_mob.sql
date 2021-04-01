@@ -66,18 +66,18 @@ INSERT INTO `fishing_mob` VALUES (17682435,'Ocean Pugil',221,30,1,10,15,255,255,
 INSERT INTO `fishing_mob` VALUES (17682436,'Pirate Pugil',221,40,1,9,15,255,255,0,0,0,0,0,0,0,0);
 
 -- West Ronfaure 
-INSERT INTO `fishing_mob` VALUES (17186817,'Tree_Crab',100,10,1,11,15,255,255,0,0,1,1,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17186818,'Limicoline_Crab',100,40,1,11,15,255,255,0,0,1,1,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17186819,'Land_Crab',100,30,1,9,15,255,255,0,0,1,1,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17186820,'Vermivorous_Crab',100,40,1,11,15,255,255,0,0,1,1,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17186821,'Passage_Crab',100,30,1,11,15,255,255,0,0,1,1,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186817,'Tree_Crab',100,10,1,11,15,255,255,0,0,1,700,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186818,'Limicoline_Crab',100,40,1,11,15,255,255,0,0,1,700,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186819,'Land_Crab',100,30,1,9,15,255,255,0,0,1,700,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186820,'Vermivorous_Crab',100,40,1,11,15,255,255,0,0,1,700,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186821,'Passage_Crab',100,30,1,11,15,255,255,0,0,1,700,0,0,0,0);
 
 -- East Ronfaure
-INSERT INTO `fishing_mob` VALUES (17190913,'Pugil',101,10,1,9,15,255,255,0,0,1,1,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17190914,'Cheval_Pugil',101,20,1,9,15,255,255,0,0,1,1,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17190915,'Mud_Pugil',101,30,1,9,15,255,255,0,0,1,1,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17190916,'Pug_Pugil',101,40,1,9,15,255,255,0,0,1,1,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17190917,'Fighting_Pugil',101,50,1,9,15,255,255,0,0,1,1,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17190913,'Pugil',101,10,1,9,15,255,255,0,0,1,700,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17190914,'Cheval_Pugil',101,20,1,9,15,255,255,0,0,1,700,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17190915,'Mud_Pugil',101,30,1,9,15,255,255,0,0,1,700,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17190916,'Pug_Pugil',101,40,1,9,15,255,255,0,0,1,700,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17190917,'Fighting_Pugil',101,50,1,9,15,255,255,0,0,1,700,0,0,0,0);
 
 -- West Sarutabaruta
 INSERT INTO `fishing_mob` VALUES (17248257,'Palm_Crab',115,10,1,9,15,255,255,0,0,0,0,0,0,0,0);
