@@ -79,7 +79,8 @@ function onMobSpawn(mob)
     local master = mob:getMaster()
     mob:addMod(tpz.mod.DMG, -40)
     mob:addMod(tpz.mod.DEFP, 50)
-    if mob:getMainLvl() >= 70 then
+    
+	if mob:getMainLvl() >= 70 then
 		    mob:addMod(tpz.mod.ACC, 48)
 	elseif mob:getMainLvl() >= 50 then
 	    mob:addMod(tpz.mod.ACC, 35)
@@ -88,12 +89,23 @@ function onMobSpawn(mob)
 	elseif mob:getMainLvl() >= 10 then
 	    mob:addMod(tpz.mod.ACC, 10)
 	end
-    if mob:getMainLvl() >= 70 then
-		    mob:addMod(tpz.mod.EVA, 48)
+	 
+	 if mob:getMainLvl() >= 70 then
+		    mob:addMod(tpz.mod.MACC, 48)
 	elseif mob:getMainLvl() >= 50 then
-	    mob:addMod(tpz.mod.EVA, 35)
+	    mob:addMod(tpz.mod.MACC, 35)
 	elseif mob:getMainLvl() >= 30 then
-	    mob:addMod(tpz.mod.EVA, 22)
+	    mob:addMod(tpz.mod.MACC, 22)
+	elseif mob:getMainLvl() >= 10 then
+	    mob:addMod(tpz.mod.MACC, 10)
+	end
+   
+   if mob:getMainLvl() >= 70 then
+		    mob:addMod(tpz.mod.EVA, 46)
+	elseif mob:getMainLvl() >= 50 then
+	    mob:addMod(tpz.mod.EVA, 34)
+	elseif mob:getMainLvl() >= 30 then
+	    mob:addMod(tpz.mod.EVA, 21)
 	elseif mob:getMainLvl() >= 10 then
 	    mob:addMod(tpz.mod.EVA, 10)
 	end
