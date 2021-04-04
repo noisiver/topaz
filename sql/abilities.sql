@@ -241,9 +241,9 @@ INSERT INTO `abilities` VALUES (187,'aspir_samba',19,25,1,60,216,100,0,3,2000,0,
 INSERT INTO `abilities` VALUES (188,'aspir_samba_ii',19,60,1,60,216,100,0,4,2000,0,14,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (189,'haste_samba',19,45,1,60,216,100,0,5,2000,0,14,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (190,'curing_waltz',19,15,27,6,217,102,0,6,2000,0,14,20.0,0,0,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (191,'curing_waltz_ii',19,30,27,8,186,102,0,7,2000,0,14,20.0,0,0,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (192,'curing_waltz_iii',19,45,27,10,187,102,0,8,2000,0,14,20.0,0,0,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (193,'curing_waltz_iv',19,70,27,12,188,102,0,9,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (191,'curing_waltz_ii',19,30,27,8,217,102,0,7,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (192,'curing_waltz_iii',19,45,27,10,217,102,0,8,2000,0,14,20.0,0,0,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (193,'curing_waltz_iv',19,70,27,12,217,102,0,9,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (194,'healing_waltz',19,35,27,8,215,123,0,10,2000,0,14,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (195,'divine_waltz',19,25,27,13,225,102,0,11,2000,0,14,20.0,1,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (196,'spectral_jig',19,25,1,30,218,532,0,12,2000,0,14,20.0,0,1,300,0,0,'WOTG');
@@ -314,7 +314,7 @@ INSERT INTO `abilities` VALUES (258,'sengikori',12,77,1,180,141,100,0,226,2000,0
 INSERT INTO `abilities` VALUES (259,'futae',13,50,1,60,148,0,0,227,2000,0,6,20.0,0,1,0,0,0,'ABYSSEA');		-- level 50, 60 second cooldown
 INSERT INTO `abilities` VALUES (260,'spirit_jump',14,77,4,60,166,100,0,228,2000,0,6,20.0,0,1,80,1218,0,NULL);
 INSERT INTO `abilities` VALUES (261,'presto',19,40,1,15,236,100,0,229,2000,0,6,20.0,0,1,80,0,0,NULL);
-INSERT INTO `abilities` VALUES (262,'divine_waltz_ii',19,55,27,20,190,102,0,34,2000,0,14,20.0,0,1,80,0,0,NULL);
+INSERT INTO `abilities` VALUES (262,'divine_waltz_ii',19,55,27,20,225,102,0,34,2000,0,14,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (263,'flourishes_iii',19,80,1,0,226,0,0,0,2000,0,14,20.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (264,'climactic_flourish',19,80,1,90,226,529,0,222,2000,0,14,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (265,'libra',20,76,4,60,237,100,0,231,2000,0,6,11.2,0,0,0,0,0,NULL);
@@ -354,7 +354,7 @@ INSERT INTO `abilities` VALUES (304,'companions_roll',17,95,1,60,193,420,0,265,2
 INSERT INTO `abilities` VALUES (305,'avengers_roll',17,97,1,60,193,420,0,266,2000,0,6,8.0,1,1,80,0,8,'ABYSSEA');
 INSERT INTO `abilities` VALUES (309,'cooldown',18,95,1,300,114,0,0,232,2000,0,6,11.2,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (310,'deus_ex_automata',18,5,1,60,115,0,0,83,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
-INSERT INTO `abilities` VALUES (311,'curing_waltz_v',19,87,27,14,189,102,0,35,2000,0,14,20.0,0,0,0,0,0,'ABYSSEA');
+INSERT INTO `abilities` VALUES (311,'curing_waltz_v',19,87,27,14,217,102,0,35,2000,0,14,20.0,0,0,0,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (312,'feather_step',19,83,4,5,220,591,0,17,2000,0,14,4.5,0,1,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (313,'striking_flourish',19,89,1,30,226,0,0,222,2000,0,14,20.0,0,1,80,0,0,NULL); -- check animation/message1
 INSERT INTO `abilities` VALUES (314,'ternary_flourish',19,93,1,30,226,0,0,222,2000,0,14,20.0,0,1,80,0,0,NULL); -- check animation/message1
