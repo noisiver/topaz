@@ -48,19 +48,3 @@ function onUseAbility(player, target, ability)
         target:addEnmity(player, 0, 500)
     end
 end
-
------------------------------------
---
---
---
------------------------------------
-
-function onEffectGain(target, effect)
-end
-
-function onEffectTick(target, effect)
-end
-
-function onEffectLose(target, effect)
-end
-
