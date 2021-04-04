@@ -69,7 +69,7 @@ function onUseAbility(player, target, ability)
     -- Contradance check
     if (player:hasStatusEffect(tpz.effect.DIVINE_SEAL) == true) then
         cure = cure * 2
-        player:delStatusEffect(tpz.effect.DIVINE_SEAL, 1, 0, 60)
+        player:delStatusEffect(tpz.effect.DIVINE_SEAL)
     end
     --Reducing TP.
 
