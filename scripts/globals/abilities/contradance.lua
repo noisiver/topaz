@@ -14,5 +14,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.CONTRADANCE, 19, 1, 60)
+    player:addStatusEffect(tpz.effect.DIVINE_SEAL, 1, 0, 60)
 end
