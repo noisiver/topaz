@@ -69,6 +69,7 @@ function onUseAbility(player, target, ability)
     -- Contradance check
     if (player:hasStatusEffect(tpz.effect.CONTRADANCE) == true) then
         cure = cure * 2
+        player:delStatusEffect(tpz.effect.CONTRADANCE, 19, 1, 60)
     end
     --Reducing TP.
 
