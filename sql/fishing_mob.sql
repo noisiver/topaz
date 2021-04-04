@@ -50,7 +50,7 @@ CREATE TABLE `fishing_mob` (
 
 LOCK TABLES `fishing_mob` WRITE;
 /*!40000 ALTER TABLE `fishing_mob` DISABLE KEYS */;
-INSERT INTO `fishing_mob` VALUES (17396141,'Odontotyrannus',151,20,15,10,2,0,91,1,0,1,0,0,17001,0,0);
+INSERT INTO `fishing_mob` VALUES (17396141,'Odontotyrannus',151,20,15,15,2,0,91,1,0,1,0,0,17001,0,0);
 INSERT INTO `fishing_mob` VALUES (17489921,'Scavenger Crab',174,20,1,11,15,255,255,0,0,0,0,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (17489922,'Scavenger Crab',174,20,1,11,15,255,255,0,0,0,0,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (17489923,'Stygian Pugil',174,30,1,10,15,255,255,0,0,0,0,0,0,0,0);
@@ -66,11 +66,11 @@ INSERT INTO `fishing_mob` VALUES (17682435,'Ocean Pugil',221,30,1,10,15,255,255,
 INSERT INTO `fishing_mob` VALUES (17682436,'Pirate Pugil',221,40,1,9,15,255,255,0,0,0,0,0,0,0,0);
 
 -- West Ronfaure 
-INSERT INTO `fishing_mob` VALUES (17186817,'Tree_Crab',100,10,1,11,2,255,255,0,0,1,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17186818,'Limicoline_Crab',100,40,1,11,2,255,255,0,0,1,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17186819,'Land_Crab',100,30,1,9,2,255,255,0,0,1,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17186820,'Vermivorous_Crab',100,40,1,11,2,255,255,0,0,1,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17186821,'Passage_Crab',100,30,1,11,2,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186817,'Tree_Crab',100,10,1,15,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186818,'Limicoline_Crab',100,40,1,15,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186819,'Land_Crab',100,30,1,15,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186820,'Vermivorous_Crab',100,40,1,15,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17186821,'Passage_Crab',100,30,1,15,15,255,255,0,0,1,1000,0,0,0,0);
 
 -- East Ronfaure
 INSERT INTO `fishing_mob` VALUES (17190913,'Pugil',101,10,1,9,15,255,255,0,0,1,1000,0,0,0,0);
