@@ -57,14 +57,17 @@ function onUseAbility(player, target, ability)
     if mjob == tpz.job.DNC then
         cure = (vit+chr)*0.75+270
     else
-        cure = (vit+chr)*0.375+270
+        cure = 0
     end
 
     -- apply waltz modifiers
     cure = math.floor(cure * (1.0 + (player:getMod(tpz.mod.WALTZ_POTENTCY)/100)))
 
-    --Reducing TP.
-
+    -- Contradance check
+    if (player:hasStatusEffect(tpz.effect.DIVINE_SEAL) == true) then
+        cure = cure * 2
+        player:delStatusEffect(tpz.effect.DIVINE_SEAL)
+    end
     --Applying server mods....
     cure = cure * CURE_POWER
 

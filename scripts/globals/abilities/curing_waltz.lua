@@ -60,7 +60,7 @@ function onUseAbility(player, target, ability)
     end
 
     if sjob == tpz.job.DNC then
-        cure = (vit+chr)*0.125+60
+        cure = 0
     end
 
     -- apply waltz modifiers
@@ -71,7 +71,6 @@ function onUseAbility(player, target, ability)
         cure = cure * 2
         player:delStatusEffect(tpz.effect.DIVINE_SEAL)
     end
-    --Reducing TP.
 
     --Applying server mods....
     cure = cure * CURE_POWER

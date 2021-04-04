@@ -58,7 +58,7 @@ function onUseAbility(player, target, ability)
     end
 
     if sjob == tpz.job.DNC then
-        cure = (vit+chr)*0.175+270
+        cure = 0
     end
 
     -- Apply waltz modifiers
@@ -67,6 +67,12 @@ function onUseAbility(player, target, ability)
     -- Cap the final amount to max HP.
     if ((target:getMaxHP() - target:getHP()) < cure) then
         cure = (target:getMaxHP() - target:getHP())
+    end
+
+    -- Contradance check
+    if (player:hasStatusEffect(tpz.effect.DIVINE_SEAL) == true) then
+        cure = cure * 2
+        player:delStatusEffect(tpz.effect.DIVINE_SEAL)
     end
 
     -- Applying server mods....
