@@ -34,11 +34,11 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
     local effect = tpz.effect.POISON
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
+    local power = math.floor(player:getMainLvl() * (tp / 2000) + 20)
 
     if damage > 0 and (canOverwrite(target, effect, power)) and resist >= 0.5 then
         --local duration = (0 + (tp/2000 * 30)) * applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
         local duration = 60 * resist
-        local power = math.floor(player:getMainLvl() * (tp / 2000) + 20)
         target:delStatusEffect(effect)
         target:addStatusEffect(effect, power, 3, duration)
     end
