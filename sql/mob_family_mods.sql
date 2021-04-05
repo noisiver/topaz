@@ -47,7 +47,8 @@ INSERT INTO `mob_family_mods` VALUES (110,29,13,0);
 INSERT INTO `mob_family_mods` VALUES (111,29,13,0);
 INSERT INTO `mob_family_mods` VALUES (171,29,13,0);
 INSERT INTO `mob_family_mods` VALUES (4,244,20,0);
-INSERT INTO `mob_family_mods` VALUES (193,3,40,1);
+INSERT INTO `mob_family_mods` VALUES (193,3,40,1); -- Pet Wyvern MP
+INSERT INTO `mob_family_mods` VALUES (193,63,50,0); -- Pet Wyvern % DEF Bonus
 INSERT INTO `mob_family_mods` VALUES (34,3,100,1);
 INSERT INTO `mob_family_mods` VALUES (267,4,20,1);
 INSERT INTO `mob_family_mods` VALUES (87,4,18,1);
