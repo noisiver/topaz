@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Leujaoam Sanctum (Leujaoam Cleansing)
 --  Mob: Leujaoam Worm
+mixins = {require("scripts/mixins/families/worm")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

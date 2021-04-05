@@ -3,6 +3,7 @@
 --  Mob: Land Worm
 -----------------------------------
 require("scripts/globals/regimes")
+mixins = {require("scripts/mixins/families/worm")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

@@ -3,6 +3,7 @@
 --  Mob: Morion Worm
 -----------------------------------
 require("scripts/globals/status")
+mixins = {require("scripts/mixins/families/worm")}
 -----------------------------------
 
 function onMobInitialize(mob)

@@ -6,6 +6,7 @@
 local ID = require("scripts/zones/East_Ronfaure/IDs")
 require("scripts/globals/regimes")
 require("scripts/globals/mobs")
+mixins = {require("scripts/mixins/families/worm")}
 
 function onMobDeath(mob, player, isKiller)
     tpz.regime.checkRegime(player, mob, 65, 1, tpz.regime.type.FIELDS)
