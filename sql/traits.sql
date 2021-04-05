@@ -518,10 +518,11 @@ INSERT INTO `traits` VALUES (100,'tactical parry',8,98,2,486,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',13,50,1,486,20,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',13,65,2,486,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',13,75,3,486,40,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (100,'tactical parry',19,77,1,486,20,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (100,'tactical parry',19,84,2,486,30,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (100,'tactical parry',19,91,3,486,40,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (100,'tactical parry',19,97,4,486,50,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (100,'tactical parry',19,30,1,486,20,'ABYSSEA',0); -- DNC
+INSERT INTO `traits` VALUES (100,'tactical parry',19,40,2,486,30,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (100,'tactical parry',19,50,3,486,40,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (100,'tactical parry',19,60,4,486,50,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (100,'tactical parry',19,70,5,486,60,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',22,40,1,486,20,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',22,60,2,486,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',22,97,3,486,40,'ABYSSEA',0);
