@@ -74,8 +74,8 @@ function onUseAbility(player, target, ability, action)
         action:speceffect(target:getID(), 2)
         return tpz.effect.WEIGHT
     else
+		player:delMod(tpz.mod.ACC, -40)
         ability:setMsg(tpz.msg.basic.JA_MISS)
         return 0
-    player:delMod(tpz.mod.ACC, -40)
     end
 end
