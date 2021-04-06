@@ -62,6 +62,8 @@ function onUseAbility(player, target, ability, action)
         params.skillType = player:getWeaponSkillType(tpz.slot.MAIN)
         params.bonus = 0 
         local resist = applyResistance(player, target, spell, params)
+		
+		player:delMod(tpz.mod.ACC, -40)
 
         if resist > 0.5 then
             target:delStatusEffectSilent(tpz.effect.WEIGHT)
@@ -74,7 +76,6 @@ function onUseAbility(player, target, ability, action)
         action:speceffect(target:getID(), 2)
         return tpz.effect.WEIGHT
     else
-		player:delMod(tpz.mod.ACC, -40)
         ability:setMsg(tpz.msg.basic.JA_MISS)
         return 0
     end
