@@ -48,6 +48,7 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_3, 1, 0, duration+30)
                     daze = 3
                     effect = 3
+					player:delStatusEffect(tpz.effect.PRESTO)
                 else
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_2, 1, 0, duration+30)
                     daze = 2
@@ -61,6 +62,7 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_4, 1, 0, duration+30)
                     daze = 3
                     effect = 4
+					player:delStatusEffect(tpz.effect.PRESTO)
                 else
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_3, 1, 0, duration+30)
                     daze = 2
@@ -74,6 +76,7 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_5, 1, 0, duration+30)
                     daze = 3
                     effect = 5
+					player:delStatusEffect(tpz.effect.PRESTO)
                 else
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_4, 1, 0, duration+30)
                     daze = 2
@@ -85,6 +88,7 @@ function onUseAbility(player, target, ability, action)
                 target:delStatusEffectSilent(tpz.effect.LETHARGIC_DAZE_4)
                 if (player:hasStatusEffect(tpz.effect.PRESTO)) then
                     daze = 3
+					player:delStatusEffect(tpz.effect.PRESTO)
                 else
                     daze = 2
                 end
@@ -108,7 +112,6 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_1, 1, 0, 60)
                     daze = 2
                     effect = 1
-					player:delStatusEffect(tpz.effect.PRESTO)
                 end
             end
         else
