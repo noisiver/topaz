@@ -50,7 +50,7 @@ function onUseAbility(player, target, ability, action)
     end
 
 
-	    if math.random() <= getHitRate(player, target, true, -40)  or isSneakValid) then
+	    if (math.random() <= getHitRate(player, target, true, -40)  or isSneakValid)) then
 
         local spell = getSpell(216)
         local params = {}
