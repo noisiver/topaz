@@ -103,10 +103,12 @@ function onUseAbility(player, target, ability, action)
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_2, 1, 0, 60)
                     daze = 3
                     effect = 2
+					player:delStatusEffect(tpz.effect.PRESTO)
                 else
                     target:addStatusEffect(tpz.effect.LETHARGIC_DAZE_1, 1, 0, 60)
                     daze = 2
                     effect = 1
+					player:delStatusEffect(tpz.effect.PRESTO)
                 end
             end
         else
