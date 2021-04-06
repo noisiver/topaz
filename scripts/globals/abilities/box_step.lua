@@ -101,6 +101,7 @@ function onUseAbility(player, target, ability, action)
                 target:addStatusEffect(tpz.effect.SLUGGISH_DAZE_5, 1, 0, duration+30)
                 daze = 1
                 effect = 5
+				player:delStatusEffect(tpz.effect.PRESTO)
 
             else
                 if (player:hasStatusEffect(tpz.effect.PRESTO)) then
