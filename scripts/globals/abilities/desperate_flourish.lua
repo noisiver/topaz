@@ -49,7 +49,9 @@ function onUseAbility(player, target, ability, action)
         isSneakValid = false
     end
 
-    local hitrate = getHitRate(player, target, true, -40)
+    player:addMod(tpz.mod.ACC, -40)
+	
+    local hitrate = getHitRate(player, target, true)
 	
 
     if (math.random() <= hitrate or isSneakValid) then
@@ -74,5 +76,6 @@ function onUseAbility(player, target, ability, action)
     else
         ability:setMsg(tpz.msg.basic.JA_MISS)
         return 0
+    player:delMod(tpz.mod.ACC, -40)
     end
 end
