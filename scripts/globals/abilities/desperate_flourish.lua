@@ -49,7 +49,9 @@ function onUseAbility(player, target, ability, action)
         isSneakValid = false
     end
 
-    local hitrate = getHitRate(player, target, true, -40)
+    local hitrate = getHitRate(player, target, true)
+	
+	hitrate = hitrate - 40
 
     if (math.random() <= hitrate or isSneakValid) then
 
@@ -57,10 +59,10 @@ function onUseAbility(player, target, ability, action)
         local params = {}
         params.diff = 0
         params.skillType = player:getWeaponSkillType(tpz.slot.MAIN)
-        params.bonus = 50 - target:getMod(tpz.mod.GRAVITYRES)
+        params.bonus = 0 
         local resist = applyResistance(player, target, spell, params)
 
-        if resist > 0.25 then
+        if resist > 0.5 then
             target:delStatusEffectSilent(tpz.effect.WEIGHT)
             target:addStatusEffect(tpz.effect.WEIGHT, 100, 0, 60 * resist)
         else
