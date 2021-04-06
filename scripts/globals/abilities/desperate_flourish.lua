@@ -50,6 +50,10 @@ function onUseAbility(player, target, ability, action)
     end
 
     local hitrate = getHitRate(player, target, true)  + (-40)
+    print(string.format("step1: %u",hitrate))
+	GetPlayerByID(6):PrintToPlayer(string.format("Paralyze chance: %u",hitrate))
+    --printf("Duration : %u", duration)
+    printf("hitrate : %u", hitrate)
 	
 
     if (math.random() <= hitrate or isSneakValid) then
