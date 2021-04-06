@@ -173,6 +173,7 @@ function onUseAbility(player, target, ability, action)
 
     else
         ability:setMsg(tpz.msg.basic.JA_MISS)
+	    player:delStatusEffect(tpz.effect.PRESTO)
     end
 
     action:animation(target:getID(), getStepAnimation(player:getWeaponSkillType(tpz.slot.MAIN)))
