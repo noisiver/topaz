@@ -3727,6 +3727,7 @@ INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,400); -- Triple Attack
 INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,401); -- Gliding Spike
 INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,402); -- Feather barrier
 INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,403); -- Stormwind
+INSERT INTO `mob_skill_lists` VALUES ('Dahu',1161,802); -- Great_Sandstorm
 
 
 -- Custom Content

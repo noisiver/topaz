@@ -65,6 +65,10 @@ zones[tpz.zone.WESTERN_ALTEPA_DESERT] =
             [17289545] = 17289547,
             [17289546] = 17289547,
         },
+        DAHU_PH =
+        {
+            [17289322] = 17289323,
+        },
         KING_VINEGARROON     = 17289575,
         SABOTENDER_ENAMORADO = 17289653,
         EASTERN_SPHINX       = 17289654,
