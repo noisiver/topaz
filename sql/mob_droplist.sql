@@ -1677,6 +1677,13 @@ INSERT INTO `mob_droplist` VALUES (265,0,0,1000,15140,10);
 INSERT INTO `mob_droplist` VALUES (265,0,0,1000,15142,10);
 INSERT INTO `mob_droplist` VALUES (265,0,0,1000,16360,10);
 INSERT INTO `mob_droplist` VALUES (266,0,0,1000,15221,240); -- (Biast) Patroclus's Helm
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,1133,1000); -- Dragon Blood
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,1133,240); -- Dragon Blood
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,1133,150); -- Dragon Blood
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4486,240); -- Dragon Heart
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4272,240); -- Slice of dragon meat
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4272,150); -- Slice of dragon meat
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4272,100); -- Slice of dragon meat
 INSERT INTO `mob_droplist` VALUES (267,4,0,1000,2506,0);
 INSERT INTO `mob_droplist` VALUES (267,0,0,1000,2506,320);
 INSERT INTO `mob_droplist` VALUES (268,0,0,1000,928,270);

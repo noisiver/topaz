@@ -7622,7 +7622,7 @@ INSERT INTO `mob_groups` VALUES (1,2442,112,'Lost_Soul',330,0,1539,0,0,42,45,0);
 INSERT INTO `mob_groups` VALUES (2,1260,112,'Etemmu',330,0,793,0,0,43,46,0);
 INSERT INTO `mob_groups` VALUES (3,1264,112,'Evil_Eye',330,0,794,0,0,45,48,0);
 INSERT INTO `mob_groups` VALUES (4,3575,112,'Shadow_Dragon',600,0,0,0,0,52,53,0);
-INSERT INTO `mob_groups` VALUES (5,410,112,'Biast',0,128,266,0,0,70,70,0);
+INSERT INTO `mob_groups` VALUES (5,410,112,'Biast',0,128,266,35000,0,85,86,0);
 INSERT INTO `mob_groups` VALUES (6,2043,112,'Ice_Elemental',330,4,1347,0,0,48,50,0);
 INSERT INTO `mob_groups` VALUES (7,868,112,'Cursed_Weapon',330,0,548,0,0,43,45,0);
 INSERT INTO `mob_groups` VALUES (8,913,112,'Dark_Elemental',330,4,568,0,0,48,50,0);
@@ -10458,7 +10458,7 @@ INSERT INTO `mob_groups` VALUES (33,1081,161,'Doom_Demon',600,0,674,0,0,64,66,0)
 INSERT INTO `mob_groups` VALUES (34,226,161,'Arch_Demon',600,0,163,0,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (35,22,161,'Abyssal_Demon',600,0,4,0,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (36,5890,161,'Marquis_Naberius',3600,0,3089,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (37,5763,161,'Marquis_Sabnock',0,32,3047,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (37,5763,161,'Marquis_Sabnock',0,32,3047,30000,0,85,86,0);
 INSERT INTO `mob_groups` VALUES (38,65,161,'Ahriman',600,0,32,0,0,63,65,0);
 INSERT INTO `mob_groups` VALUES (39,6612,161,'Dread_Demon',600,0,705,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (40,6614,161,'Judicator_Demon',600,0,1416,0,0,81,83,0);

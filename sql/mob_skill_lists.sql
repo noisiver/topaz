@@ -3802,6 +3802,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1149); 
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1857); -- Dark Sun
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1856); -- Dark Moon
 
+--Biast
+INSERT INTO `mob_skill_lists` VALUES ('Biast',927,6009); -- Aqua Blast
+INSERT INTO `mob_skill_lists` VALUES ('Biast',645,6009); -- Body Slam
+INSERT INTO `mob_skill_lists` VALUES ('Biast',647,6009); -- Chaos Blade
+INSERT INTO `mob_skill_lists` VALUES ('Biast',648,6009); -- Petro Eyes
+INSERT INTO `mob_skill_lists` VALUES ('Biast',649,6009); -- Void Song
+INSERT INTO `mob_skill_lists` VALUES ('Biast',650,6009); -- Thorn Song
+
 
 -- Next available ID: 1148
 
