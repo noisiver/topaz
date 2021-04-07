@@ -1981,11 +1981,12 @@ namespace battleutils
     http://www.ffxiah.com/forum/topic/21671/paladin-faq-info-and-trade-studies/34/#2581818
     https://docs.google.com/spreadsheet/ccc?key=0AkX3maplDraRdFdCZHI2OU93aVgtWlZhN3ozZEtnakE#gid=0
     http://www.ffxionline.com/forums/paladin/55139-shield-data-size-2-vs-size-3-a.html
+    https://www.bg-wiki.com/ffxi/Shield_block_rate
 
     Formula is:
-    ShieldBaseRate + (DefenderShieldSkill - AttackerCombatSkill) * SkillModifier
+    BlockRate = SizeBaseBlockRate + ((ShieldSkill - AttackerCombatSkill) × 0.2325)
 
-    Skill Modifier appears to be 0.215 based on the data available.
+    Skill Modifier appears to be 0.2325 based on the data available.
 
     Base block rates are (small to large shield type) 55% -> 50% -> 45% -> 30%
     Aegis is a special case, having the base block rate of a size 2 type.
