@@ -13,7 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     -- doDivineNuke(V, M, caster, spell, target, hasMultipleTargetReduction, resistBonus)
     local params = {}
-    params.dmg = 125
+    params.dmg = 1000
     params.multiplier = 1
     params.hasMultipleTargetReduction = false
     params.resistBonus = 0
