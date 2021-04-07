@@ -2034,7 +2034,7 @@ namespace battleutils
                 break;
             case 2: // round
             case 5: // aegis
-                base = 50;
+                base = 40;
                 break;
             case 3: // kite
                 base = 45;
@@ -2085,11 +2085,9 @@ namespace battleutils
                 if (diff < 0.4f) diff = 0.4f;
                 if (diff > 1.4f) diff = 1.4f;
 
-                float dex = PAttacker->DEX();
-                float agi = PDefender->AGI();
 
                 //auto parryRate = std::clamp<uint8>((uint8)((skill * 0.1f + (agi - dex) * 0.125f + 5.0f) * diff), 5, 20); // changed from 25 max, and from +10.0f
-                auto parryRate = std::clamp<uint8>((uint8)((skill * 0.15f + (agi - dex) * 0.15f + 5.0f) * diff), 5, 20);
+                auto parryRate = std::clamp<uint8>((uint8)((skill * 0.15f * 0.15f + 5.0f) * diff), 5, 20);
                 // Issekigan grants parry rate bonus. From best available data, if you already capped out at 25% parry it grants another 25% bonus for ~50% parry rate
                 if (PDefender->objtype == TYPE_PC && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ISSEKIGAN)) {
                     int16 issekiganBonus = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ISSEKIGAN)->GetPower();
