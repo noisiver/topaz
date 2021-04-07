@@ -17,17 +17,11 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local baseDuration = 180
-    local durationMultiplier = 1.0 + utils.clamp(player:getMod(tpz.mod.JIG_DURATION), 0, 50) / 100
-    local finalDuration = math.floor(baseDuration * durationMultiplier * SNEAK_INVIS_DURATION_MULTIPLIER)
-
-    if (player:hasStatusEffect(tpz.effect.SNEAK) == false) then
-        player:addStatusEffect(tpz.effect.SNEAK, 0, 10, finalDuration)
-        player:addStatusEffect(tpz.effect.INVISIBLE, 0, 10, finalDuration)
-        ability:setMsg(tpz.msg.basic.SPECTRAL_JIG) -- Gains the effect of sneak and invisible
-    else
-        ability:setMsg(tpz.msg.basic.NO_EFFECT) -- no effect on player.
+    local amount = 6
+    if (player:getMainJob() == tpz.job.DNC) then
+        amount = 12
     end
-
-    return 1
+    local duration = 15
+    local gear = player:getMod(tpz.mod.JIG_DURATION)
+    player:addStatusEffectEx(tpz.effect.MEDITATE, 0, amount, 3, duration * gear)
 end
