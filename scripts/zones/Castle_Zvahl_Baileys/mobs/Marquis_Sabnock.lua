@@ -13,6 +13,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.GRAVITYRESTRAIT, 100)
      mob:addMod(tpz.mod.BINDRESTRAIT, 100)
      mob:addMod(tpz.mod.SILENCERESTRAIT, 100)
+     mob:setMod(tpz.mod.REFRESH, 300)
      mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
