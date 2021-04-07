@@ -13889,13 +13889,13 @@ INSERT INTO `mob_droplist` VALUES (2637,0,0,1000,1687,90);
 INSERT INTO `mob_droplist` VALUES (2638,2,0,1000,880,0); -- (Wendigo, Inner Horutoto Ruins, WAR) bone_chip: steal
 INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,880,300); -- bone_chip
 INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,880,270); -- bone_chip
-INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,16447,160); -- rusty_dagger
+INSERT INTO `mob_droplist` VALUES (2638,0,0,1000,16447,100); -- rusty_dagger
 INSERT INTO `mob_droplist` VALUES (2639,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (2639,0,0,1000,880,309);
 INSERT INTO `mob_droplist` VALUES (2639,0,0,1000,1031,50);
 INSERT INTO `mob_droplist` VALUES (2639,0,0,1000,2776,0);	-- Pumice Stone
 INSERT INTO `mob_droplist` VALUES (2640,2,0,1000,880,0); -- (Wendigo, Inner Horutoto Ruins, BLM) bone_chip: steal
-INSERT INTO `mob_droplist` VALUES (2640,0,0,1000,544,90); -- test_answers
+INSERT INTO `mob_droplist` VALUES (2640,0,0,1000,544,50); -- test_answers
 INSERT INTO `mob_droplist` VALUES (2640,0,0,1000,880,240); -- bone_chip
 INSERT INTO `mob_droplist` VALUES (2640,0,0,1000,4824,100); -- scroll_of_gravity
 INSERT INTO `mob_droplist` VALUES (2641,0,0,1000,891,130);
