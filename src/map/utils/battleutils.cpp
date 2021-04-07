@@ -2017,7 +2017,7 @@ namespace battleutils
         }
         else if (PDefender->objtype == TYPE_PET && static_cast<CPetEntity*>(PDefender)->getPetType() == PETTYPE_AUTOMATON && PDefender->GetMJob() == JOB_PLD)
         {
-            float skillmodifier = (PDefender->GetSkill(SKILL_AUTOMATON_MELEE) - attackskill) * 0.215f;
+            float skillmodifier = (PDefender->GetSkill(SKILL_AUTOMATON_MELEE) - attackskill) * 0.2325f;
             base = PDefender->getMod(Mod::SHIELDBLOCKRATE);
             if (base <= 0)
                 return 0;
