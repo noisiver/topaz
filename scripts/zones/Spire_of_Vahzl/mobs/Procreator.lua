@@ -33,6 +33,10 @@ function onMobFight(mob, target)
             nextMob:updateEnmity(target)
         end
     end
+
+    if mob:getHPP() <= 25  then
+        mob:setMod(tpz.mod.REGAIN, 500)
+    end
 	
 	local terrorEndTime = mob:getLocalVar("EmptyTerror")
 	if terrorEndTime == 0 then

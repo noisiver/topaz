@@ -14,6 +14,12 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 40)
 end
 
+function onMobFight(mob, target)
+    if mob:getHPP() <= 25  then
+        mob:setMod(tpz.mod.REGAIN, 500)
+    end
+end
+
 
 function onMobDeath(mob, player, isKiller)
     local momma = mob:getID()

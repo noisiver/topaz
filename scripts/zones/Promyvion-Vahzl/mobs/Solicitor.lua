@@ -13,6 +13,12 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 40)
 end
 
+function onMobFight(mob, target)
+    if mob:getHPP() <= 25  then
+        mob:setMod(tpz.mod.REGAIN, 500)
+    end
+end
+
 function onMobDeath(mob, player, isKiller)
     if player:getCurrentMission(COP) == tpz.mission.id.cop.DESIRES_OF_EMPTINESS and player:getCharVar("PromathiaStatus") == 3 then
         player:setCharVar("PromathiaStatus", 4)

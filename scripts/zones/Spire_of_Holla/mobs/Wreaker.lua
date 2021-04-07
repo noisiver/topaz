@@ -21,6 +21,12 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
+function onMobFight(mob, target)
+    if mob:getHPP() <= 25  then
+        mob:setMod(tpz.mod.REGAIN, 500)
+    end
+end
+
 function onMobEngaged(mob,target)
 end
 
