@@ -10053,8 +10053,9 @@ INSERT INTO `mob_droplist` VALUES (1933,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (1934,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (1934,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (1934,0,0,1000,2565,80);
-INSERT INTO `mob_droplist` VALUES (1935,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (1935,0,0,1000,1432,112);
+INSERT INTO `mob_droplist` VALUES (1935,2,0,1000,748,0); -- Orcish Protector
+INSERT INTO `mob_droplist` VALUES (1935,0,0,1000,1432,150); -- Paladin's Testimony
+INSERT INTO `mob_droplist` VALUES (1935,0,0,1000,4715,50); -- Reprisal
 INSERT INTO `mob_droplist` VALUES (1936,0,0,1000,530,100);
 INSERT INTO `mob_droplist` VALUES (1936,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (1936,0,0,1000,1024,50);
@@ -15573,7 +15574,7 @@ INSERT INTO `mob_droplist` VALUES (3043,0,0,1000,15854,113); -- (Burlibix Brawnb
 INSERT INTO `mob_droplist` VALUES (3044,0,0,1000,11405,113); -- (Habergoass) Kyoshu Kyahan
 INSERT INTO `mob_droplist` VALUES (3045,0,0,1000,18453,100); -- (Grand'Goule) Unshomaru
 INSERT INTO `mob_droplist` VALUES (3046,0,0,1000,16298,100); -- (Splacknuck) Knack Pendant
-INSERT INTO `mob_droplist` VALUES (3047,0,0,1000,19239,105); -- (Marquis Sabnock) Astrolabe
+INSERT INTO `mob_droplist` VALUES (3047,0,0,1000,19239,240); -- (Marquis Sabnock) Astrolabe
 INSERT INTO `mob_droplist` VALUES (3048,0,0,1000,2833,240); -- (Donnergugi) Thunder Coral
 INSERT INTO `mob_droplist` VALUES (3049,0,0,1000,16299,240); -- (Mind Hoarder) Lleu's Charm
 INSERT INTO `mob_droplist` VALUES (3050,0,0,1000,2814,250); -- (Demoiselle Desolee) Aptant: Bellum

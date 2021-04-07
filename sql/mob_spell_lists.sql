@@ -4017,6 +4017,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006,147,24,255); -- Fire IV
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku', 1006, 148, 1, 255);  -- Fire V
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 204, 1, 255); -- Flare 
 
+INSERT INTO `mob_spell_lists` VALUES ('Marquis_Sabnock', 1007, 219, 1, 255); -- Comet 
+
 
 
 

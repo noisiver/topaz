@@ -2518,7 +2518,7 @@ INSERT INTO `mob_skills` VALUES (2686,1852,'dark_tornado',1,18.0,2000,1000,4,0,0
 INSERT INTO `mob_skills` VALUES (2687,1853,'dark_quake',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2688,1854,'dark_burst',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2689,1855,'dark_flood',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2690,1856,'dark_moon',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2690,1856,'dark_moon',1,18.0,2000,3500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2691,1857,'dark_sun',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2692,1812,'royal_decree',1,18.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2693,2437,'virulent_haze',0,7.0,2000,1500,4,0,0,0,0,0,0);

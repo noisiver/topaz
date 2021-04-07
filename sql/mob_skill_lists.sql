@@ -3790,6 +3790,18 @@ INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,2578); -- colossal slam
 INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,1636); -- trebuchet
 INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,2576); -- mercurial strike
 
+-- Marquis Sabnock
+
+--Phase 1
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1148); -- Condemnation 
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1149); -- Quadrastrike
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1857); -- Dark Sun
+-- Phase 2
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1148); -- Condemnation 
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1149); -- Quadrastrike
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1857); -- Dark Sun
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1856); -- Dark Moon
+
 
 -- Next available ID: 1148
 
