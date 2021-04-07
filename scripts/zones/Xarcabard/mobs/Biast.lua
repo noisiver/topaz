@@ -3,10 +3,14 @@
 --   NM: Biast
 -----------------------------------
 require("scripts/globals/mobs")
+require("scripts/globals/status")
+mixins =
+{
+    require("scripts/mixins/job_special")
+}
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.UFASTCAST, 50)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
@@ -27,6 +31,32 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_ICE, 85)
     mob:setMod(tpz.mod.REFRESH, 300)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+end
+
+function onMobFight(mob, target)
+    if (mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) == true) then
+        mob:setMod(tpz.mod.REGAIN, 500)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 6010)
+    elseif (mob:hasStatusEffect(tpz.effect.MANAFONT) == true) then
+        mob:setMod(tpz.mod.UFASTCAST, 50)
+    elseif (mob:hasStatusEffect(tpz.effect.INVINCIBLE) == true) then
+        mob:setMod(tpz.mod.REGEN, 300)
+    else
+        mob:setMod(tpz.mod.REGAIN, 0)
+        mob:setMod(tpz.mod.UFASTCAST, 0)
+        mob:setMod(tpz.mod.REGEN, 0)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 6009)
+    end
+
+    tpz.mix.jobSpecial.config(mob, {
+        between = 120,
+        specials =
+        {
+            {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 0, hpp = 75},
+            {id = tpz.jsa.INVINCIBLE, cooldown = 0, hpp = 75},
+            {id = tpz.jsa.MANAFONT, cooldown = 0, hpp = 75},
+        },
+    })
 end
 
 function onAdditionalEffect(mob, target, damage)
