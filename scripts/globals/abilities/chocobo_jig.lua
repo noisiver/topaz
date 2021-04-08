@@ -39,6 +39,6 @@ function onUseAbility(player, target, ability)
         end
     end
 
-    target:addStatusEffect(tpz.effect.MAGIC_DEF_BOOST, power, 0, duration + math.floor((180 * gear / 100))
+    target:addStatusEffect(tpz.effect.MAGIC_DEF_BOOST, power, 0, duration)
 end
 
