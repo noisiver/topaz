@@ -23,5 +23,5 @@ function onUseAbility(player, target, ability)
     end
     local duration = 15
     local gear = player:getMod(tpz.mod.JIG_DURATION)
-    player:addStatusEffectEx(tpz.effect.MEDITATE, 0, amount, 3, duration * gear)
+    player:addStatusEffectEx(tpz.effect.MEDITATE, 0, amount, 3, duration + math.floor((15 * gear / 100))
 end
