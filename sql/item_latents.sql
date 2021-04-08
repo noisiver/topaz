@@ -2488,8 +2488,8 @@ INSERT INTO `item_latents` VALUES(17973, 11, 2, 53, 1);     -- AGI +2 in areas o
 -- -------------------------------------------------------
 -- Windurstian Kukri / Federation Kukri
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(17978, 23, 5, 53, 1);     -- ATT +5 in areas outside own nation's control
-INSERT INTO `item_latents` VALUES(17979, 23, 7, 53, 1);     -- ATT +7 in areas outside own nation's control
+--INSERT INTO `item_latents` VALUES(17978, 23, 5, 53, 1);     -- ATT +5 in areas outside own nation's control
+--INSERT INTO `item_latents` VALUES(17979, 23, 7, 53, 1);     -- ATT +7 in areas outside own nation's control
 
 -- -------------------------------------------------------
 -- Valiant Knife
