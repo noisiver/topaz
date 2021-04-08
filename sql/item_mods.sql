@@ -21785,9 +21785,9 @@ INSERT INTO `item_mods` VALUES (17976,25,2);
 INSERT INTO `item_mods` VALUES (17977,23,5);
 INSERT INTO `item_mods` VALUES (17977,25,2);
 INSERT INTO `item_mods` VALUES (17978,25,3); -- Windurstian Kukri
-INSERT INTO `item_mods` VALUES (17978,23,5)
+INSERT INTO `item_mods` VALUES (17978,23,5);
 INSERT INTO `item_mods` VALUES (17979,25,3); -- Federation Kukri
-INSERT INTO `item_mods` VALUES (17979,23,7)
+INSERT INTO `item_mods` VALUES (17979,23,7);
 INSERT INTO `item_mods` VALUES (17980,9,1);
 INSERT INTO `item_mods` VALUES (17980,11,1);
 INSERT INTO `item_mods` VALUES (17981,61,10);
