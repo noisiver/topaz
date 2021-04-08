@@ -12,6 +12,11 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    if target:isUndead() then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return 0
+    end
+	
     local dmg = 10 + 0.575 * caster:getSkillLevel(tpz.skill.DARK_MAGIC)
     --get resist multiplier (1x if no resist)
     local params = {}
