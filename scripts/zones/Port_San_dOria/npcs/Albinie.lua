@@ -12,14 +12,14 @@ end
 function onTrigger(player, npc)
     local stock =
     {
-        699, 5688, 1,    -- Oak Log
-        644, 1800, 1,    -- Mythril Ore
-        835,  225, 1,    -- Flax Flower
-        694, 2543, 2,    -- Chestnut Log
-        640,   10, 2,    -- Copper Ore
-        643,  810, 2,    -- Iron Ore
-        833,   18, 2,    -- Moko Grass
-        4570,  50, 2,    -- Bird Egg
+        699, 5688, 3,    -- Oak Log
+        644, 1800, 3,    -- Mythril Ore
+        835,  225, 3,    -- Flax Flower
+        694, 2543, 3,    -- Chestnut Log
+        640,   10, 3,    -- Copper Ore
+        643,  810, 3,    -- Iron Ore
+        833,   18, 3,    -- Moko Grass
+        4570,  50, 3,    -- Bird Egg
         698,   86, 3,    -- Ash Log
         1,   1800, 3,    -- Chocobo Bedding
     }
