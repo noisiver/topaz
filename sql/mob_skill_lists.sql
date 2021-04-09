@@ -3809,7 +3809,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,647); -- Chaos Blade
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,648); -- Petro Eyes
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,649); -- Void Song
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,650); -- Thorn Song
--- MIghty Strikes
+-- Mighty Strikes
 INSERT INTO `mob_skill_lists` VALUES ('Biast_MS',6010,645); -- Body Slam
 
 
