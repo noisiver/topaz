@@ -4,10 +4,11 @@
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
+function onMobFight(mob, target)
+    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17629640)
+end
 
 function onMobDeath(mob, player, isKiller)
 end
 
-function onMobDespawn(mob)
-    mob:setRespawnTime(math.random(75600, 86400)) -- 21 to 24 hours
-end
+

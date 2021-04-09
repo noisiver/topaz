@@ -12668,7 +12668,7 @@ INSERT INTO `mob_groups` VALUES (29,3727,208,'Spelunking_Sabotender',600,0,2304,
 INSERT INTO `mob_groups` VALUES (30,3461,208,'Sand_Tarantula',600,0,228,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (31,1894,208,'Hastatus_XI-XII',0,32,1277,7000,0,65,68,0);
 INSERT INTO `mob_groups` VALUES (32,181,208,'Antican_Praetor',0,0,128,7000,0,82,83,0);
-INSERT INTO `mob_groups` VALUES (33,178,208,'Antican_Legatus',1200,0,127,30000,128,85,86,0);
+INSERT INTO `mob_groups` VALUES (33,178,208,'Antican_Legatus',1200,0,127,35000,128,85,86,0);
 INSERT INTO `mob_groups` VALUES (34,169,208,'Antican_Consul',0,0,128,7000,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (35,128,208,'Ancient_Vessel',0,128,0,8000,0,72,72,0);
 INSERT INTO `mob_groups` VALUES (36,4003,208,'Tribunus_VII-I',0,128,2470,10000,0,60,62,0);
