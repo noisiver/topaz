@@ -90,13 +90,13 @@ function onMobSpawn(mob)
 	end
 
 	if mob:getMainLvl() >= 70 then
-		mob:addMod(tpz.mod.DEF, 48)
+		mob:addMod(tpz.mod.DEF, 96)
 	elseif mob:getMainLvl() >= 50 then
-	    mob:addMod(tpz.mod.DEF, 35)
+	    mob:addMod(tpz.mod.DEF, 70)
 	elseif mob:getMainLvl() >= 30 then
-	    mob:addMod(tpz.mod.DEF, 22)
+	    mob:addMod(tpz.mod.DEF, 44)
 	elseif mob:getMainLvl() >= 10 then
-	    mob:addMod(tpz.mod.DEF, 10)
+	    mob:addMod(tpz.mod.DEF, 20)
 	end
 	
 	if mob:getMainLvl() >= 70 then
