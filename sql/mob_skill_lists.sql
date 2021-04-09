@@ -3795,22 +3795,22 @@ INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,2576); -- mercurial strik
 --Phase 1
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1148); -- Condemnation 
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1149); -- Quadrastrike
-INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1857); -- Dark Sun
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,2691); -- Dark Sun
 -- Phase 2
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1148); -- Condemnation 
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1149); -- Quadrastrike
-INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1857); -- Dark Sun
-INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1856); -- Dark Moon
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,2691); -- Dark Sun
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,2690); -- Dark Moon
 
 --Biast
-INSERT INTO `mob_skill_lists` VALUES ('Biast',927,6009); -- Aqua Blast
-INSERT INTO `mob_skill_lists` VALUES ('Biast',645,6009); -- Body Slam
-INSERT INTO `mob_skill_lists` VALUES ('Biast',647,6009); -- Chaos Blade
-INSERT INTO `mob_skill_lists` VALUES ('Biast',648,6009); -- Petro Eyes
-INSERT INTO `mob_skill_lists` VALUES ('Biast',649,6009); -- Void Song
-INSERT INTO `mob_skill_lists` VALUES ('Biast',650,6009); -- Thorn Song
+INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,2437); -- Aqua Blast
+INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,645); -- Body Slam
+INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,647); -- Chaos Blade
+INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,648); -- Petro Eyes
+INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,649); -- Void Song
+INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,650); -- Thorn Song
 -- MIghty Strikes
-INSERT INTO `mob_skill_lists` VALUES ('Biast_MS',645,6010); -- Body Slam
+INSERT INTO `mob_skill_lists` VALUES ('Biast_MS',6010,645); -- Body Slam
 
 
 -- Next available ID: 1148
