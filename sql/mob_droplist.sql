@@ -708,9 +708,16 @@ INSERT INTO `mob_droplist` VALUES (126,0,0,1000,1121,100);
 INSERT INTO `mob_droplist` VALUES (126,0,0,1000,1980,490);
 INSERT INTO `mob_droplist` VALUES (126,0,0,1000,16995,150);
 INSERT INTO `mob_droplist` VALUES (127,0,0,1000,645,1000); -- (Antican Legatus) Chunk of darksteel ore
+INSERT INTO `mob_droplist` VALUES (127,0,0,1000,645,240); -- Chunk of darksteel ore
+INSERT INTO `mob_droplist` VALUES (127,0,0,1000,1312,10); -- (Antican Legatus) angel_skin
+INSERT INTO `mob_droplist` VALUES (127,0,0,1000,1110,10); -- (Antican Legatus) beetle_blood
+INSERT INTO `mob_droplist` VALUES (127,0,0,1000,722,10); -- (Antican Legatus) divine_log
+INSERT INTO `mob_droplist` VALUES (127,0,0,1000,1311,10); -- (Antican Legatus) oxblood_blood
 INSERT INTO `mob_droplist` VALUES (127,0,0,1000,1118,1000); -- Antican pauldron
-INSERT INTO `mob_droplist` VALUES (127,0,0,1000,1432,1000); -- Paladin's testimony
-INSERT INTO `mob_droplist` VALUES (127,0,0,1000,17662,100); -- Company Sword
+INSERT INTO `mob_droplist` VALUES (127,1,1,1000,17662,50); -- Company Sword
+INSERT INTO `mob_droplist` VALUES (127,1,1,1000,16729,50); -- Berserker's Axe
+INSERT INTO `mob_droplist` VALUES (127,0,0,1000,4799,240); -- Stonega III
+INSERT INTO `mob_droplist` VALUES (127,0,0,1000,4770,240); -- Stone IV
 INSERT INTO `mob_droplist` VALUES (128,0,0,1000,644,1000); -- (Antican Magister) Chunk of darksteel ore
 INSERT INTO `mob_droplist` VALUES (128,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (128,0,0,1000,1118,1000); -- Antican pauldron
