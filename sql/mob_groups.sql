@@ -10407,7 +10407,7 @@ INSERT INTO `mob_groups` VALUES (24,3855,160,'Tawny-fingered_Mugberry',0,32,2384
 INSERT INTO `mob_groups` VALUES (25,424,160,'Bistre-hearted_Malberry',0,32,281,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (26,4309,160,'Water_Elemental',600,4,2629,0,0,68,73,0);
 INSERT INTO `mob_groups` VALUES (27,3803,160,'Stygian_Pugil',600,0,1581,0,0,73,76,0);
-INSERT INTO `mob_groups` VALUES (28,1086,160,'Doom_Toad',600,0,687,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (28,1086,160,'Doom_Toad',600,0,687,0,0,79,81,0);
 INSERT INTO `mob_groups` VALUES (29,3806,160,'Succubus_Bats',600,0,2358,0,0,65,69,0);
 INSERT INTO `mob_groups` VALUES (30,6333,160,'Cutlass_Scorpion',600,0,550,0,0,68,70,0);
 INSERT INTO `mob_groups` VALUES (31,2662,160,'Million_Eyes',600,0,1673,0,0,73,76,0);
