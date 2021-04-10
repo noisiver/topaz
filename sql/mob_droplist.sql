@@ -3463,9 +3463,9 @@ INSERT INTO `mob_droplist` VALUES (642,0,0,1000,1723,100);
 INSERT INTO `mob_droplist` VALUES (642,0,0,1000,1759,300);
 INSERT INTO `mob_droplist` VALUES (643,0,0,1000,5369,100);
 INSERT INTO `mob_droplist` VALUES (643,0,0,1000,5370,100);
-INSERT INTO `mob_droplist` VALUES (644,0,0,1000,876,470);
-INSERT INTO `mob_droplist` VALUES (644,0,0,1000,1312,80);
-INSERT INTO `mob_droplist` VALUES (644,0,0,1000,4484,180);
+INSERT INTO `mob_droplist` VALUES (644,0,0,1000,876,240); -- (Devil Manta - Fished up) Manta skin
+INSERT INTO `mob_droplist` VALUES (644,0,0,1000,1312,240); -- Piece of angel skin
+INSERT INTO `mob_droplist` VALUES (644,0,0,1000,4484,240); -- Shall Shell
 INSERT INTO `mob_droplist` VALUES (645,0,0,1000,876,150);
 INSERT INTO `mob_droplist` VALUES (645,0,0,1000,888,60);
 INSERT INTO `mob_droplist` VALUES (645,0,0,1000,4484,210);
