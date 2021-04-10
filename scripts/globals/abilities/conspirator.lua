@@ -39,5 +39,5 @@ function onUseAbility(player, target, ability)
         end
     end
 
-    target:addStatusEffect(tpz.effect.CONSPIRATOR, subtleBlow * scale, 0, 60, 0, accuracy * scale)
+    target:addStatusEffect(tpz.effect.CONSPIRATOR, subtleBlow * scale, 0, 300, 0, accuracy * scale)
 end

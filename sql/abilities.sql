@@ -64,8 +64,8 @@ INSERT INTO `abilities` VALUES (38,'chakra',2,20,1,30,15,102,0,6,2000,0,6,20.0,0
 INSERT INTO `abilities` VALUES (39,'boost',2,5,1,15,16,116,0,7,2000,0,6,20.0,0,1,300,0,0,NULL);
 INSERT INTO `abilities` VALUES (40,'counterstance',2,45,1,300,17,0,0,8,2000,0,6,20.0,0,1,900,0,0,NULL);
 INSERT INTO `abilities` VALUES (41,'steal',6,5,4,60,60,125,0,181,2000,0,3,5.4,0,1,300,0,0,NULL);		-- made 60s
-INSERT INTO `abilities` VALUES (42,'flee',6,25,1,120,62,126,0,9,2000,0,6,20.0,0,1,80,704,0,NULL);	-- made 120s
-INSERT INTO `abilities` VALUES (43,'hide',6,45,1,60,63,0,0,10,2000,0,6,20.0,0,0,0,706,0,NULL);		-- made 60s
+INSERT INTO `abilities` VALUES (42,'flee',6,25,1,300,62,126,0,9,2000,0,6,20.0,0,1,80,704,0,NULL);	
+INSERT INTO `abilities` VALUES (43,'hide',6,45,1,300,63,0,0,10,2000,0,6,20.0,0,0,0,706,0,NULL);		
 INSERT INTO `abilities` VALUES (44,'sneak_attack',6,15,1,60,64,0,0,17,2000,0,6,20.0,0,1,0,708,0,NULL);
 INSERT INTO `abilities` VALUES (45,'mug',6,35,4,60,65,129,0,183,2000,0,3,5.4,0,1,300,0,0,NULL);		-- made 60s
 INSERT INTO `abilities` VALUES (46,'shield_bash',7,15,4,60,73,0,0,185,2000,0,3,4.4,0,450,900,768,0,NULL);
@@ -80,7 +80,7 @@ INSERT INTO `abilities` VALUES (54,'tame',9,30,4,600,99,0,0,15,2000,0,6,18.0,0,0
 INSERT INTO `abilities` VALUES (55,'pet_commands',9,1,1,0,255,0,0,0,2000,0,6,18.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (56,'scavenge',11,10,1,180,121,0,0,21,2000,0,6,20.0,0,1,80,1024,0,NULL);
 INSERT INTO `abilities` VALUES (57,'shadowbind',11,40,4,300,122,0,0,188,2000,0,3,18.0,0,1,800,0,0,NULL);
-INSERT INTO `abilities` VALUES (58,'camouflage',11,20,1,300,123,0,0,10,2000,0,6,20.0,0,1,80,1026,0,NULL);
+INSERT INTO `abilities` VALUES (58,'camouflage',11,20,1,120,123,0,0,10,2000,0,6,20.0,0,1,80,1026,0,NULL); -- made 2m
 INSERT INTO `abilities` VALUES (59,'sharpshot',11,1,1,300,124,0,0,22,2000,0,6,20.0,0,1,600,1028,0,NULL);
 INSERT INTO `abilities` VALUES (60,'barrage',11,30,1,180,125,0,0,23,2000,0,6,20.0,0,1,600,0,0,NULL);	-- made 3m
 INSERT INTO `abilities` VALUES (61,'call_wyvern',14,1,1,1200,163,0,0,94,2000,0,6,20.0,0,1,300,0,4,NULL);
@@ -319,7 +319,7 @@ INSERT INTO `abilities` VALUES (263,'flourishes_iii',19,80,1,0,226,0,0,0,2000,0,
 INSERT INTO `abilities` VALUES (264,'climactic_flourish',19,80,1,90,226,529,0,222,2000,0,14,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (265,'libra',20,76,4,60,237,100,0,231,2000,0,6,11.2,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (266,'tactical_switch',18,79,1,180,213,100,0,232,2000,0,6,11.2,0,0,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (267,'blood_rage',1,60,1,30,11,100,0,239,2000,0,6,13.0,0,360,2560,0,0,NULL);  -- level 60, 360 CE 2560 VE 0 range not AOE
+INSERT INTO `abilities` VALUES (267,'blood_rage',1,60,1,180,11,100,0,239,2000,0,6,13.0,0,360,2560,0,0,NULL);  -- level 60, 360 CE 2560 VE 0 range not AOE
 INSERT INTO `abilities` VALUES (269,'impetus',2,88,1,360,31,100,0,240,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (270,'divine_caress',3,83,1,60,32,100,0,254,2000,0,6,20.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (271,'sacrosanctity',3,95,1,600,33,100,0,268,2000,0,6,13.9,1,0,0,0,0,NULL);
@@ -327,7 +327,7 @@ INSERT INTO `abilities` VALUES (272,'enmity_douse',4,87,4,600,34,100,0,257,2000,
 INSERT INTO `abilities` VALUES (273,'manawell',4,95,1,600,35,100,0,252,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (274,'saboteur',5,83,1,300,36,0,0,258,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (275,'spontaneity',5,95,3,600,37,0,0,259,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
-INSERT INTO `abilities` VALUES (276,'conspirator',6,55,1,60,40,0,0,237,2000,0,6,14.0,1,1,80,0,4,'ABYSSEA');		-- changed to level 55 1m cd
+INSERT INTO `abilities` VALUES (276,'conspirator',6,75,1,300,40,0,0,237,2000,0,6,14.0,1,1,80,0,4,'ABYSSEA');		-- changed to level 55 1m cd
 INSERT INTO `abilities` VALUES (277,'sepulcher',7,87,4,300,41,100,0,253,2000,0,6,12.0,0,1,80,0,0,NULL); -- needs animation
 INSERT INTO `abilities` VALUES (278,'palisade',7,76,1,120,42,100,0,253,2000,0,6,20.0,0,900,1800,0,0,NULL);
 INSERT INTO `abilities` VALUES (279,'arcane_crest',8,50,4,180,43,100,0,250,2000,0,6,20.0,0,1,80,0,0,NULL); -- needs animation
