@@ -121,7 +121,7 @@ bool CMobController::CheckDetection(CBattleEntity* PTarget)
         TapDeaggroTime();
     }
 
-    return PMob->CanDeaggro() && (m_Tick >= m_DeaggroTime + 25s);
+    return PMob->CanDeaggro() && (m_Tick >= m_DeaggroTime + 180s); // increased from 25s
 }
 
 void CMobController::TryLink()
@@ -409,6 +409,7 @@ bool CMobController::TryCastSpell()
             return true;
         }
     }
+    TapDeaggroTime();
     return false;
 }
 
@@ -423,6 +424,7 @@ bool CMobController::CanCastSpells()
     // check for spell blockers e.g. silence
     if (PMob->StatusEffectContainer->HasStatusEffect({EFFECT_SILENCE, EFFECT_MUTE}))
     {
+        TapDeaggroTime();
         return false;
     }
 
