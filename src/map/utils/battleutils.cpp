@@ -3631,24 +3631,24 @@ namespace battleutils
         static const Mod resistances[][4] =
         {
             {Mod::NONE,       Mod::NONE, Mod::NONE, Mod::NONE}, // SC_NONE
-            {Mod::SDT_LIGHT,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_TRANSFIXION
-            {Mod::SDT_DARK,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_COMPRESSION
-            {Mod::SDT_FIRE,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_LIQUEFACTION
-            {Mod::SDT_EARTH,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_SCISSION
-            {Mod::SDT_WATER,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_REVERBERATION
-            {Mod::SDT_WIND,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_DETONATION
-            {Mod::SDT_ICE,     Mod::NONE, Mod::NONE, Mod::NONE}, // SC_INDURATION
-            {Mod::SDT_THUNDER, Mod::NONE, Mod::NONE, Mod::NONE}, // SC_IMPACTION
+            {Mod::LIGHTDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_TRANSFIXION
+            {Mod::DARKDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_COMPRESSION
+            {Mod::FIREDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_LIQUEFACTION
+            {Mod::EARTHDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_SCISSION
+            {Mod::WATERDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_REVERBERATION
+            {Mod::WINDDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_DETONATION
+            {Mod::ICEDEF,     Mod::NONE, Mod::NONE, Mod::NONE}, // SC_INDURATION
+            {Mod::THUNDERDEF, Mod::NONE, Mod::NONE, Mod::NONE}, // SC_IMPACTION
 
-            { Mod::SDT_EARTH, Mod::SDT_DARK, Mod::NONE, Mod::NONE }, // SC_GRAVITATION
-            { Mod::SDT_ICE, Mod::SDT_WATER, Mod::NONE, Mod::NONE }, // SC_DISTORTION
-            {Mod::SDT_FIRE,  Mod::SDT_LIGHT,   Mod::NONE, Mod::NONE}, // SC_FUSION
-            {Mod::SDT_WIND,  Mod::SDT_THUNDER, Mod::NONE, Mod::NONE}, // SC_FRAGMENTATION
+            { Mod::EARTHDEF, Mod::DARKDEF, Mod::NONE, Mod::NONE }, // SC_GRAVITATION
+            { Mod::ICEDEF, Mod::WATERDEF, Mod::NONE, Mod::NONE }, // SC_DISTORTION
+            {Mod::FIREDEF,  Mod::LIGHTDEF,   Mod::NONE, Mod::NONE}, // SC_FUSION
+            {Mod::WINDDEF,  Mod::THUNDERDEF, Mod::NONE, Mod::NONE}, // SC_FRAGMENTATION
 
-            {Mod::SDT_FIRE, Mod::SDT_WIND,  Mod::SDT_THUNDER, Mod::SDT_LIGHT}, // SC_LIGHT
-            {Mod::SDT_ICE,  Mod::SDT_EARTH, Mod::SDT_WATER,   Mod::SDT_DARK},  // SC_DARKNESS
-            {Mod::SDT_FIRE, Mod::SDT_WIND,  Mod::SDT_THUNDER, Mod::SDT_LIGHT}, // SC_LIGHT
-            {Mod::SDT_ICE,  Mod::SDT_EARTH, Mod::SDT_WATER,   Mod::SDT_DARK},  // SC_DARKNESS_II
+            {Mod::FIREDEF, Mod::WINDDEF,  Mod::THUNDERDEF, Mod::LIGHTDEF}, // SC_LIGHT
+            {Mod::ICEDEF,  Mod::EARTHDEF, Mod::WATERDEF,   Mod::DARKDEF},  // SC_DARKNESS
+            {Mod::FIREDEF, Mod::WINDDEF,  Mod::THUNDERDEF, Mod::LIGHTDEF}, // SC_LIGHT
+            {Mod::ICEDEF,  Mod::EARTHDEF, Mod::WATERDEF,   Mod::DARKDEF},  // SC_DARKNESS_II
         };
 
         Mod defMod = Mod::NONE;
@@ -3701,28 +3701,28 @@ namespace battleutils
 
         switch (defMod)
         {
-            case Mod::SDT_FIRE:
+            case Mod::FIREDEF:
                 *appliedEle = ELEMENT_FIRE;
                 break;
-            case Mod::SDT_ICE:
+            case Mod::ICEDEF:
                 *appliedEle = ELEMENT_ICE;
                 break;
-            case Mod::SDT_WIND:
+            case Mod::WINDDEF:
                 *appliedEle = ELEMENT_WIND;
                 break;
-            case Mod::SDT_EARTH:
+            case Mod::EARTHDEF:
                 *appliedEle = ELEMENT_EARTH;
                 break;
-            case Mod::SDT_THUNDER:
+            case Mod::THUNDERDEF:
                 *appliedEle = ELEMENT_THUNDER;
                 break;
-            case Mod::SDT_WATER:
+            case Mod::WATERDEF:
                 *appliedEle = ELEMENT_WATER;
                 break;
-            case Mod::SDT_LIGHT:
+            case Mod::LIGHTDEF:
                 *appliedEle = ELEMENT_LIGHT;
                 break;
-            case Mod::SDT_DARK:
+            case Mod::DARKDEF:
                 *appliedEle = ELEMENT_DARK;
                 break;
             default:
