@@ -69,6 +69,10 @@ zones[tpz.zone.WESTERN_ALTEPA_DESERT] =
         {
             [17289322] = 17289323,
         },
+        PICOLATON_PH =
+        {
+            [17289619] = 17289638,
+        },
         KING_VINEGARROON     = 17289575,
         SABOTENDER_ENAMORADO = 17289653,
         EASTERN_SPHINX       = 17289654,

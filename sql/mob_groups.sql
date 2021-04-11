@@ -8382,7 +8382,7 @@ INSERT INTO `mob_groups` VALUES (34,4324,125,'Western_Sphinx',0,128,0,20000,0,85
 INSERT INTO `mob_groups` VALUES (35,2487,125,'Maharaja',0,128,0,18000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (36,2731,125,'Monarca_de_Altepa',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (37,6722,125,'Dahu',0,128,6007,9000,0,57,59,0);
-INSERT INTO `mob_groups` VALUES (38,3133,125,'Picolaton',0,128,6008,9500,0,60,62,0);
+INSERT INTO `mob_groups` VALUES (38,6723,125,'Picolaton',0,128,6008,9500,0,60,62,0);
 
 INSERT INTO `mob_groups` VALUES (6784,2226,125,'Kilhwch',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6786,2405,125,'Lhu_Mhakaracca',0,128,0,0,0,0,0,0);
