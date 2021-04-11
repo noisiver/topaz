@@ -53,7 +53,7 @@ function onSpellCast(caster, target, spell)
     local dotdmg = 0
     if     skillLvl > 80 then dotdmg = 15    -- changed from 3
     elseif skillLvl > 40 then dotdmg = 10    -- changed from 2
-    else                      dotdmg = 3    -- changed from 1
+    else                      dotdmg = 1    -- changed from 1
     end
 
     -- Do it!
