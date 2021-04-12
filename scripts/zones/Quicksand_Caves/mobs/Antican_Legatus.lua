@@ -2,6 +2,7 @@
 -- Area: Quicksand Caves
 --   NM: Antican Legatus
 -----------------------------------
+local ID = require("scripts/zones/Quicksand_Caves/IDs")
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
 -----------------------------------
