@@ -66,7 +66,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local buffone = tpz.effect.ICE_SPIKES
 
-    if skill:getID() == 927 then
+    if skill:getID() == 2437 then
         mob:addStatusEffect(tpz.effect.ICE_SPIKES, 20, 0, 30)
         mob:getStatusEffect(buffone):unsetFlag(tpz.effectFlag.DISPELABLE)
     end
@@ -76,7 +76,7 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    SetServerVariable("[POP]Biast", os.time() + 75600) -- 21 hour
+    SetServerVariable("[POP]Biast", os.time() + 900) -- 15m
     DisallowRespawn(mob:getID()-1, false)
     GetMobByID(mob:getID()-1):setRespawnTime(GetMobRespawnTime(mob:getID()-1))
 end
