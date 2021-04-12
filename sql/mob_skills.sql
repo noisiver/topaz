@@ -3932,6 +3932,7 @@ INSERT INTO `mob_skills` VALUES (4261,564,'mix_samsons_strength',0,7.0,2000,1500
 
 
 
--- Custom content
+-- Mythic WS
 INSERT INTO `mob_skills` VALUES (44,13,'death_blossom',0,5.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (45,14,'atonement',0,5.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (154,176,'tachi_rana',0,5.0,2000,0,4,0,0,0,1,8,0);

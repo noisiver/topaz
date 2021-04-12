@@ -4098,6 +4098,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,161,24,255); -- Stone III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,166,24,255); -- Thunder III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,171,24,255); -- Water III
 
+--Burtgang
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,4,41,60); -- Cure IV
+
 
 
 

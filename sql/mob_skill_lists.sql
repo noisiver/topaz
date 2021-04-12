@@ -3743,9 +3743,16 @@ INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,530); -- Momento Mori
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,154); -- Tachi: Rana 
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,405); -- Dire Whorl
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,1220); -- Auroral Drape
-INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,286); -- Berserk(50%)
+INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,286); -- Berserk
 -- Amano Meikyo
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru-Meikyo',2002,154); -- Tachi: Rana 
+
+--Burtgang
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,45); -- Atonement
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,405); -- Dire Whorl
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,1252); -- Shadow Spread
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,530); -- Momento Mori
+
 
 --Boyahda Merit Mobs
 

@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Death Blossom
+-- Atonement
 -- Description: Damage varies with TP.
 -- Type: Physical
 ---------------------------------------------
@@ -13,9 +13,6 @@ function onMobSkillCheck(target,mob,skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    MobStatusEffectMove(mob, target, tpz.effect.MAGIC_EVASION_DOWN, 50, 0, 60)
-
     local numhits = 3
     local accmod = 1
     local dmgmod = 1
