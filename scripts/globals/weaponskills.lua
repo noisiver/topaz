@@ -36,7 +36,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true)
             elseif forcedCrit then
                 calcParams.criticalHit = true
-                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + --(getMod(tpz.mod.CRIT_DMG_INCREASE) / 1000)
+                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 -- + (getMod(tpz.mod.CRIT_DMG_INCREASE) / 1000)
             else
                 calcParams.pdif = generatePdif (calcParams.cratio[1], calcParams.cratio[2], true)
             end
@@ -441,7 +441,7 @@ end
         bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
         bonusWSmods = wsParams.bonusWSmods or 0
     }
-    calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc + 100)
+    calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
 
     --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
