@@ -40,7 +40,7 @@ function onUseAbility(player, target, ability, action)
     params.atk100 = 1 params.atk200 = 1 params.atk300 = 1
 
     --apply WSC
-    local  weaponDamage = {player:getRangedDmg()},
+    local  weaponDamage = player:getRangedDmg()
 
     local base = weaponDamage + fstr
     local cratio, ccritratio = cRangedRatio(player, target, params, 0, 0)
