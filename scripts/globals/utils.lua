@@ -182,7 +182,7 @@ function utils.thirdeye(target)
 
     if prevAnt < 7 then
         --anticipated!
-        if seigan == nil or prevAnt == 6 or math.random()*100 > 100-prevAnt*15 then
+        if seigan == nil or prevAnt == 6 or math.random()*100 > 100-prevAnt*20 then
 			target:delStatusEffect(tpz.effect.THIRD_EYE)
 		else
 			teye:setPower(prevAnt + 1)
