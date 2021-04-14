@@ -8,7 +8,7 @@ require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
 function onAdditionalEffect(player, target, damage)
-    local chance = 33       -- changed % to 12
+    local chance = 22       -- changed % to 12
     local SDT = target:getMod(tpz.mod.SDT_ICE)
     if SDT <= 5 then
         chance = 0
