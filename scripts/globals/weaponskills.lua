@@ -422,7 +422,7 @@ end
         ['weaponType'] = attacker:getWeaponSkillType(tpz.slot.RANGED),
         ['damageType'] = attacker:getWeaponDamageType(tpz.slot.RANGED)
     }
-    local calcParams = {}    
+    local calcParams = {   
 
     calcParams.weaponDamage = { attacker:getRangedDmg() }
     calcParams.fSTR = getRangedfSTR(attacker:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT), attacker:getRangedDmgRank())
@@ -441,6 +441,7 @@ end
     calcParams.bonusfTP = gorgetBeltFTP or 0
     calcParams.bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC)
     calcParams.bonusWSmods = wsParams.bonusWSmods or 0
+	}
 
     calcParams.melee = false -- Peanut butter AND jelly!
     calcParams.rangedws = true -- wsID >= 192 and wsID <= 218
