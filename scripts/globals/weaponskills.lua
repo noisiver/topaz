@@ -422,6 +422,7 @@ end
     local calcParams =
     {
         weaponDamage = {attacker:getRangedDmg()},
+		skillType = attacker:getWeaponSkillType(tpz.slot.RANGED),
         fSTR = fSTR2(attacker:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT), attacker:getRangedDmgRank()),
         cratio = cratio,
         ccritratio = ccritratio,
