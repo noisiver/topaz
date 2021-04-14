@@ -401,51 +401,14 @@ end
 
 -- Sets up the necessary calcParams for a ranged WS before passing it to calculateRawWSDmg. When the raw
 -- damage is returned, handles reductions based on target resistances and passes off to takeWeaponskillDamage.
-function getRangedHitRate(attacker, target, capHitRate, bonus)
-    local acc = attacker:getRACC()
-    local eva = target:getEVA()
-
-    if (bonus == nil) then
-        bonus = 0
-    end
-
-    acc = acc + bonus
-
-    local firstacc = acc + 100
-    -- formula should be 75 + floor( (Accuracy - Evasion)/2 ) - 2*(dLVL)
-    local hitdiff = 0
-    local hitrate = 75
-    local firsthit = 0
-    
-    if attacker:getMainLvl() > target:getMainLvl() then
-        hitdiff = hitrate + math.floor((acc - eva) / 2) 
-        firsthit = hitrate + math.floor((firstacc - eva) / 2)
-    else 
-        hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
-        firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
-    end
-
-    hitrate = hitdiff / 100
-    firsthit = firsthit / 100
-    firsthit = utils.clamp(firsthit, 0.2, 0.95) 
-    hitrate = utils.clamp(hitrate, 0.2, 0.95)
-
-    return hitrate, firsthit
-end
-
--- Sets up the necessary calcParams for a ranged WS before passing it to calculateRawWSDmg. When the raw
--- damage is returned, handles reductions based on target resistances and passes off to takeWeaponskillDamage.
  function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, primaryMsg)
-    if attacker == nil or target == nil then
-        return 0,0,0,0,0
-    end
 
-    -- Determine cratio 
+    -- Determine cratio and ccritratio
     local ignoredDef = 0
-    if (wsParams.ignoresDef ~= nil and wsParams.ignoresDef == true) then
+    if (wsParams.ignoresDef == not nil and wsParams.ignoresDef == true) then
         ignoredDef = calculatedIgnoredDef(tp, target:getStat(tpz.mod.DEF), wsParams.ignored100, wsParams.ignored200, wsParams.ignored300)
     end
-    local pdifmin, pdifmax, cratio = cRangedRatio(attacker, target, wsParams, tp, ignoredDef) -- was missing tp parameter
+    local cratio, ccritratio = cRangedRatio(attacker, target, wsParams, ignoredDef, tp)
 
     -- Set up conditions and params used for calculating weaponskill damage
     local gorgetBeltFTP, gorgetBeltAcc = handleWSGorgetBelt(attacker)
@@ -456,52 +419,66 @@ end
         ['weaponType'] = attacker:getWeaponSkillType(tpz.slot.RANGED),
         ['damageType'] = attacker:getWeaponDamageType(tpz.slot.RANGED)
     }
-    local calcParams = {}    
+    local calcParams =
+    {
+        weaponDamage = {attacker:getRangedDmg()},
+        fSTR = fSTR2(attacker:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT), attacker:getRangedDmgRank()),
+        cratio = cratio,
+        ccritratio = ccritratio,
+        accStat = attacker:getRACC(),
+        melee = false,
+        mustMiss = false,
+        sneakApplicable = false,
+        trickApplicable = false,
+        assassinApplicable = false,
+        mightyStrikesApplicable = false,
+        forcedFirstCrit = false,
+        extraOffhandHit = false,
+        flourishEffect = false,
+        fencerBonus = fencerBonus(attacker),
+        bonusTP = wsParams.bonusTP or 0,
+        bonusfTP = gorgetBeltFTP or 0,
+        bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
+        bonusWSmods = wsParams.bonusWSmods or 0
+    }
+    calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc +100)
 
-    calcParams.weaponDamage = { attacker:getRangedDmg() }
-    calcParams.fSTR = getRangedfSTR(attacker:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT), attacker:getRangedDmgRank())
-    calcParams.cratio = cratio
-    calcParams.accStat = attacker:getRACC()
-    calcParams.mustMiss = false
-    calcParams.sneakApplicable = false
-    calcParams.trickApplicable = false
-    calcParams.assassinApplicable = false
-    calcParams.mightyStrikesApplicable = false
-    calcParams.forcedFirstCrit = false
-    calcParams.extraOffhandHit = false
-    calcParams.flourishEffect = false
-    calcParams.fencerBonus = fencerBonus(attacker)
-    calcParams.bonusTP = wsParams.bonusTP or 0
-    calcParams.bonusfTP = gorgetBeltFTP or 0
-    calcParams.bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC)
-    calcParams.bonusWSmods = wsParams.bonusWSmods or 0
-
-    calcParams.melee = false -- Peanut butter AND jelly!
-    calcParams.rangedws = true -- wsID >= 192 and wsID <= 218
-
-    local hitrate, firsthit = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
-    calcParams.multihitRate = hitrate
-    calcParams.firsthitRate = firsthit
-
-    if wsID == 200 or wsID == 216  then -- What are these?
-        calcParams.hitRate = calcParams.firsthitRate
-    else
-        calcParams.hitRate = calcParams.multihitRate
-    end
-
+    --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
-    calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, pdifmin, pdifmax)
+    calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams)
     local finaldmg = calcParams.finalDmg
 
     -- Calculate reductions
     finaldmg = target:rangedDmgTaken(finaldmg)
-    finaldmg = finaldmg * target:getMod(tpz.mod.PIERCERES) / 1000 
+    finaldmg = finaldmg * target:getMod(tpz.mod.PIERCERES) / 1000
+
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
-    
-    calcParams.finalDmg = finaldmg -- TODO check calcParams to takeWeaponskillDamage, might not need the whole thing?
-
+    calcParams.finalDmg = finaldmg
     finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
+    return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
+end
+--]]
 
+    -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
+    calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams)
+    local finaldmg = calcParams.finalDmg
+
+    -- Calculate reductions
+    finaldmg = target:rangedDmgTaken(finaldmg)
+    local pierceres = target:getMod(tpz.mod.PIERCERES)
+    local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
+    if pierceres < 1000 then
+        finaldmg = finaldmg * (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
+    else
+        finaldmg = finaldmg * pierceres / 1000
+    end
+	
+    finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.05 -- Add server bonus
+    calcParams.finalDmg = finaldmg
+    finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
+    attacker:delStatusEffect(tpz.effect.FLASHY_SHOT)
+    attacker:delStatusEffect(tpz.effect.STEALTH_SHOT)
+	
     return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
 end
 
@@ -780,6 +757,63 @@ function getHitRate(attacker, target, capHitRate, bonus)
     return hitrate
 end
 
+function getRangedHitRate(attacker, target, capHitRate, bonus)
+    local acc = attacker:getRACC()
+    local eva = target:getEVA()
+
+    if (bonus == nil) then
+        bonus = 0
+    end
+    if (target:hasStatusEffect(tpz.effect.YONIN) and target:isFacing(attacker, 23)) then -- Yonin evasion boost if defender is facing attacker
+        bonus = bonus - target:getStatusEffect(tpz.effect.YONIN):getPower()
+    end
+    if (attacker:hasTrait(76) and attacker:isBehind(target, 23)) then --TRAIT_AMBUSH
+        bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+    end
+
+    acc = acc + bonus
+
+    if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
+        acc = acc + ((attacker:getMainLvl()-target:getMainLvl())*4)
+    elseif (attacker:getMainLvl() < target:getMainLvl()) then -- acc penalty :(
+        acc = acc - ((target:getMainLvl()-attacker:getMainLvl())*4)
+    end
+
+    local hitdiff = 0
+    local hitrate = 75
+    if (acc>eva) then
+    hitdiff = (acc-eva)/2
+    end
+    if (eva>acc) then
+    hitdiff = ((-1)*(eva-acc))/2
+    end
+
+    hitrate = hitrate+hitdiff
+    hitrate = hitrate/100
+
+    -- Applying hitrate caps
+    if (capHitRate) then -- this isn't capped for when acc varies with tp, as more penalties are due
+        if (hitrate>0.99) then
+            hitrate = 0.99
+        end
+        if (hitrate<0.2) then
+            hitrate = 0.2
+        end
+    end
+    return hitrate
+end
+
+function fTP(tp, ftp1, ftp2, ftp3)
+    if (tp >= 1000 and tp < 2000) then
+        return ftp1 + ( ((ftp2-ftp1)/1000) * (tp-1000))
+    elseif (tp >= 2000 and tp <= 3000) then
+        -- generate a straight line between ftp2 and ftp3 and find point @ tp
+        return ftp2 + ( ((ftp3-ftp2)/1000) * (tp-2000))
+    else
+        print("fTP error: TP value is not between 1000-3000!")
+    end
+    return 1 -- no ftp mod
+end
 
 function calculatedIgnoredDef(tp, def, ignore1, ignore2, ignore3)
     if (tp>=1000 and tp <2000) then
