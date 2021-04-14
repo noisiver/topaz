@@ -441,7 +441,8 @@ end
         bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
         bonusWSmods = wsParams.bonusWSmods or 0
     }
-    calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc +100)
+    local hitrate, firsthit = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
+	    calcParams.firsthitRate = firsthit
 
     --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
@@ -786,8 +787,8 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
 
     hitrate = hitdiff / 100
     firsthit = firsthit / 100
-    firsthit = utils.clamp(firsthit, 0.2, 0.95) 
-    hitrate = utils.clamp(hitrate, 0.2, 0.95)
+    firsthit = utils.clamp(firsthit, 0.2, 0.99) 
+    hitrate = utils.clamp(hitrate, 0.2, 0.99)
 
     return hitrate, firsthit
 end
