@@ -764,43 +764,32 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     if (bonus == nil) then
         bonus = 0
     end
-    if (target:hasStatusEffect(tpz.effect.YONIN) and target:isFacing(attacker, 23)) then -- Yonin evasion boost if defender is facing attacker
-        bonus = bonus - target:getStatusEffect(tpz.effect.YONIN):getPower()
-    end
     if (attacker:hasTrait(76) and attacker:isBehind(target, 23)) then --TRAIT_AMBUSH
         bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
     end
 
     acc = acc + bonus
 
-    if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
-        acc = acc + ((attacker:getMainLvl()-target:getMainLvl())*4)
-    elseif (attacker:getMainLvl() < target:getMainLvl()) then -- acc penalty :(
-        acc = acc - ((target:getMainLvl()-attacker:getMainLvl())*4)
-    end
-
+    local firstacc = acc + 100
+    -- formula should be 75 + floor( (Accuracy - Evasion)/2 ) - 2*(dLVL)
     local hitdiff = 0
     local hitrate = 75
-    if (acc>eva) then
-    hitdiff = (acc-eva)/2
-    end
-    if (eva>acc) then
-    hitdiff = ((-1)*(eva-acc))/2
+    local firsthit = 0
+    
+    if attacker:getMainLvl() > target:getMainLvl() then
+        hitdiff = hitrate + math.floor((acc - eva) / 2) 
+        firsthit = hitrate + math.floor((firstacc - eva) / 2)
+    else 
+        hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
+        firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
     end
 
-    hitrate = hitrate+hitdiff
-    hitrate = hitrate/100
+    hitrate = hitdiff / 100
+    firsthit = firsthit / 100
+    firsthit = utils.clamp(firsthit, 0.2, 0.95) 
+    hitrate = utils.clamp(hitrate, 0.2, 0.95)
 
-    -- Applying hitrate caps
-    if (capHitRate) then -- this isn't capped for when acc varies with tp, as more penalties are due
-        if (hitrate>0.99) then
-            hitrate = 0.99
-        end
-        if (hitrate<0.2) then
-            hitrate = 0.2
-        end
-    end
-    return hitrate
+    return hitrate, firsthit
 end
 
 function fTP(tp, ftp1, ftp2, ftp3)
