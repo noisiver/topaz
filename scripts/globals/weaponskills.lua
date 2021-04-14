@@ -442,7 +442,7 @@ end
         bonusWSmods = wsParams.bonusWSmods or 0
     }
 
-    local hitrate, firsthit = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
+    local hitrate, firsthit = getRangedHitRate(attacker, target, false, calcParams.bonusAcc + 100)
     calcParams.firsthitRate = firsthit
     calcParams.multihitRate = hitrate
 
