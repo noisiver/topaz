@@ -20,7 +20,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.numHits = 1
-    params.ftp100 = 1.8 params.ftp200 = 1.8 params.ftp300 = 1.8
+    params.ftp100 = 1 params.ftp200 = 1 params.ftp300 = 1
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.35 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
@@ -36,7 +36,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local chance = (tp-1000) * applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 0) > math.random() * 150
     if (damage > 0 and chance) then
         if (target:hasStatusEffect(tpz.effect.STUN) == false) then
-            local duration = 4 * applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 0)
+            local duration = 10 * applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 0)
             target:addStatusEffect(tpz.effect.STUN, 1, 0, duration)
         end
     end
