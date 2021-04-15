@@ -16347,10 +16347,10 @@ INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,16563,240); -- Rune Blade 24%
 INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,18443,1000); -- Windslicer(GKT) 100%
 INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,19376,240); -- Efunotachi  24% 
 
-INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,17744,1000); -- Brave Blade(PLD Sword)
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,16563,240); -- Rune Blade 24% 
 
-INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,18003,1000); -- Swordbreaker(THF DAgger)
 INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,16563,240); -- Rune Blade 24% 
 
 INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,17742,1000); -- Vorpal Sword 100%
@@ -16440,6 +16440,11 @@ INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,1265,50); -- Four-leaf korrigan
 INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,4368,240); -- Two-leaf mandragora bud
 INSERT INTO `mob_droplist` VALUES (6012,0,0,1000,17868,100); -- Jug of humus
 INSERT INTO `mob_droplist` VALUES (6013,0,0,1000,846,240); -- (Skimmer / Darter - Boyahda Tree / Dragon's Aery)
+INSERT INTO `mob_droplist` VALUES (6014,2,0,1000,749,0); -- (Goblin Reaper - Gustav Tunnel)
+INSERT INTO `mob_droplist` VALUES (6014,0,0,1000,4876,50);
+INSERT INTO `mob_droplist` VALUES (6014,0,0,1000,4877,50);
+INSERT INTO `mob_droplist` VALUES (6014,0,0,1000,4878,50);
+INSERT INTO `mob_droplist` VALUES (6014,0,0,1000,4860,50);
 
 ---------------------Dynamis---------------------
 
