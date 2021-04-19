@@ -686,6 +686,8 @@ public:
     int32 addMobMod(lua_State*);
     int32 delMobMod(lua_State*);
 
+    int32 tryInterruptSpell(lua_State* L);
+
     int32 getBattleTime(lua_State*);          // Get the time in second of the battle
 
     int32 getBehaviour(lua_State* L);

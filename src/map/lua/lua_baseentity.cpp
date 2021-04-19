@@ -14425,6 +14425,35 @@ inline int32 CLuaBaseEntity::getBattleTime(lua_State *L)
 }
 
 /************************************************************************
+ *  Function:
+ *  Purpose :
+ *  Example : target:tryIntteruptSpell(attacker, 3)
+ *  Notes   : second argument is amount of hits landed
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::tryInterruptSpell(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    CBattleEntity* PCaster = (CBattleEntity*)m_PBaseEntity;
+    CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+    CBattleEntity* PAttacker = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
+
+    uint8 tries = 1;
+    if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
+        tries = (uint8)lua_tointeger(L, 2);
+
+    while (tries != 0 && PAttacker && PCaster)
+    {
+        PCaster->TryHitInterrupt(PAttacker);
+        tries--;
+    }
+
+    return 0;
+}
+
+
+/************************************************************************
 *  Function: getBehaviour()
 *  Purpose : Returns the current Mob behavior
 *  Example : mob:getBehaviour()
@@ -15691,6 +15720,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMobMod),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addMobMod),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,delMobMod),
+
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity, tryInterruptSpell),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getBattleTime),
 
