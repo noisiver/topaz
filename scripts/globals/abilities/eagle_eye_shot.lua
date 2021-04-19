@@ -33,7 +33,7 @@ function onUseAbility(player, target, ability, action)
     end
     local params = {}
     params.numHits = 1
-    local ftp = 1
+    local ftp = 10
     params.ftp100 = ftp params.ftp200 = ftp params.ftp300 = ftp
     params.str_wsc = 0.16 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.25 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
@@ -44,8 +44,6 @@ function onUseAbility(player, target, ability, action)
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, 0, params, 0, action, true)
 	
-	damage = damage * 5
-
     -- Set the message id ourselves
     if (tpHits + extraHits > 0) then
         action:messageID(target:getID(), tpz.msg.basic.JA_DAMAGE)
