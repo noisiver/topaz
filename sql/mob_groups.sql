@@ -11252,10 +11252,10 @@ INSERT INTO `mob_groups` VALUES (9180,4498,175,'Zeid',0,0,0,0,0,0,0,0);
 -- Sea_Serpent_Grotto (Zone 176)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,417,176,'Big_Jaw_fished',0,128,147,0,0,35,37,0);
+INSERT INTO `mob_groups` VALUES (1,417,176,'Big_Jaw_fished',0,128,0,0,0,35,37,0);
 INSERT INTO `mob_groups` VALUES (2,413,176,'Bigclaw',600,0,275,0,0,43,48,0);
 INSERT INTO `mob_groups` VALUES (3,3377,176,'Rock_Crab',600,0,2113,0,0,53,58,0);
-INSERT INTO `mob_groups` VALUES (4,3803,176,'Stygian_Pugil',0,128,147,0,0,65,67,0);
+INSERT INTO `mob_groups` VALUES (4,3803,176,'Stygian_Pugil',0,128,0,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (5,3406,176,'Royal_Leech',600,0,2127,0,0,35,38,0);
 INSERT INTO `mob_groups` VALUES (6,4092,176,'Undead_Bats',600,0,2519,0,0,36,39,0);
 INSERT INTO `mob_groups` VALUES (7,3743,176,'Spring_Sahagin',792,0,2312,0,0,36,39,0);
