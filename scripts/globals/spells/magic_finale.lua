@@ -23,7 +23,7 @@ function onSpellCast(caster, target, spell)
 
     params.skillType = tpz.skill.SINGING
 
-    params.bonus = caster:getMod(tpz.mod.FINALE_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
+    params.bonus = 50 + caster:getMod(tpz.mod.FINALE_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
 
     params.effect = nil
 
