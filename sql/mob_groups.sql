@@ -11323,6 +11323,8 @@ INSERT INTO `mob_groups` VALUES (58,2664,176,'Mimic',0,128,1686,0,0,57,60,0);
 INSERT INTO `mob_groups` VALUES (59,4311,176,'Water_Leaper',0,128,0,18000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (60,1626,176,'Glyryvilu',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (61,6549,176,'Ghast',600,0,954,0,0,38,41,0);
+INSERT INTO `mob_groups` VALUES (62,413,176,'Bigclaw',0,128,0,0,0,43,48,0);
+INSERT INTO `mob_groups` VALUES (63,3377,176,'Rock_Crab',0,128,0,0,0,53,58,0);
 
 INSERT INTO `mob_groups` VALUES (9199,1931,176,'Henchman_Moogle',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9201,2226,176,'Kilhwch',0,0,0,0,0,0,0,0);
