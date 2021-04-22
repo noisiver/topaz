@@ -613,9 +613,9 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         res = 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
         --print("restrait proc!")
         if spell ~= nil then
-            spell:setMsg(MAGIC_COMPLETELY_RESIST)
+			spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
             if spell:isAoe() == 1 then
-                spell:setMsg(MAGIC_COMPLETELY_RESIST_AOE)
+				spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
             end
         end
     end
