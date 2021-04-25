@@ -25,6 +25,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.ele = tpz.magic.ele.ICE
     params.skill = tpz.skill.GREAT_SWORD
     params.includemab = true
+	params.enmityMult = 0.5
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.vit_wsc = 0.8

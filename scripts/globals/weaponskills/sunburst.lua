@@ -25,6 +25,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.chr_wsc = 0.0
     params.skill = tpz.skill.STAFF
     params.includemab = true
+	params.enmityMult = 0.5
     -- 50/50 shot of being light or dark
     params.ele = tpz.magic.ele.LIGHT
     if math.random() < 0.5 then

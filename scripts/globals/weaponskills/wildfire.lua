@@ -29,6 +29,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.ele = tpz.magic.ele.FIRE
     params.skill = tpz.skill.MARKSMANSHIP
     params.includemab = true
+	params.enmityMult = 0.5
 
     -- TODO: needs to give enmity down at varying tp percent's that is treated separately than the gear cap of -50% enmity http://www.bg-wiki.com/bg/Wildfire
 

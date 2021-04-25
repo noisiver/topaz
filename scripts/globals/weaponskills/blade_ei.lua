@@ -24,6 +24,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.ele = tpz.magic.ele.DARK
     params.skill = tpz.skill.KATANA
     params.includemab = true
+	params.enmityMult = 0.5
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.str_wsc = 0.4 params.int_wsc = 0.4

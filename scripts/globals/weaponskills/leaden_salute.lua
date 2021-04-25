@@ -26,6 +26,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.ele = tpz.magic.ele.DARK
     params.skill = tpz.skill.MARKSMANSHIP
     params.includemab = true
+	params.enmityMult = 0.5
 
     if USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.ftp200 = 6.7 params.ftp300 = 10.0
