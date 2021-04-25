@@ -17,7 +17,7 @@ function onSpellCast(caster, target, spell)
         return 0
     end
 	
-    local dmg = 10 + 0.575 * caster:getSkillLevel(tpz.skill.DARK_MAGIC)
+    local dmg = 30 +  (caster:getSkillLevel(tpz.skill.DARK_MAGIC) / 2 )
     --get resist multiplier (1x if no resist)
     local params = {}
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)

@@ -19,7 +19,7 @@ function onSpellCast(caster, target, spell)
     end
     --calculate raw damage (unknown function  -> only dark skill though) - using http://www.bluegartr.com/threads/44518-Drain-Calculations
     -- also have small constant to account for 0 dark skill
-    local dmg = 20 + (1.236 * caster:getSkillLevel(tpz.skill.DARK_MAGIC))
+    local dmg = 165 + caster:getSkillLevel(tpz.skill.DARK_MAGIC)
 
     if (dmg > (caster:getSkillLevel(tpz.skill.DARK_MAGIC) + 85)) then
         dmg = (caster:getSkillLevel(tpz.skill.DARK_MAGIC) + 85)
