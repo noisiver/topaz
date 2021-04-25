@@ -1,5 +1,5 @@
 ---------------------------------------------------
--- Poison Sting
+-- Venom Sting
 -- Deals Water damage to targets in a fan-shaped area of effect. Additional effect: Poison
 ---------------------------------------------------
 
@@ -25,5 +25,6 @@ function onMobWeaponSkill(target, mob, skill)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 3, 60)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+	if dmg > 0 and skill:getMsg() ~= 31 then target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

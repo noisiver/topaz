@@ -25,6 +25,8 @@ function onMobWeaponSkill(target, mob, skill)
     if dmg > 0 then
         mob:resetEnmity(target)
     end
+	
+	if dmg > 0 and skill:getMsg() ~= 31 then target:tryInterruptSpell(mob, info.hitslanded) end
 
     if (MobPhysicalHit(skill)) then
         skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 66, 0, 60))
