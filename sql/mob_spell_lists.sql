@@ -4068,7 +4068,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impac
 -- Zilart Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- tornado_ii
-INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,186,67,255); -- aeroga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,186,1,255); -- aeroga_iii
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx', 2000, 201, 1, 255); -- Waterga III
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 215, 1, 255); -- Flood II
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx', 2000, 176, 1, 255); -- Firaga III
@@ -4099,7 +4099,10 @@ INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,166,24,255); -- Thunder III
 INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,171,24,255); -- Water III
 
 --Burtgang
-INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,4,41,60); -- Cure IV
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,4,1,255); -- Cure IV
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,22,1,255); -- Holy II
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,30,1,255);  -- Banish III
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,40,1,255); -- banishga_iii
 
 
 
