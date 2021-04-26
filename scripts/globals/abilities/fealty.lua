@@ -13,8 +13,7 @@ function onAbilityCheck(player, target, ability)
     return 0, 0
 end
 
-function onUseAbility(player, target, ability)
-    local power = player:getMerit(tpz.merit.FEALTY)
-
-    player:addStatusEffect(tpz.effect.FEALTY, power, 0, 60 + (power * 5))
+function onUseAbility(player, target, ability, action)
+    meritRecastReduction(player, tpz.merit.FEALTY, action)
+    player:addStatusEffect(tpz.effect.FEALTY, 1, 0, 60)
 end
