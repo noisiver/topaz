@@ -1,7 +1,7 @@
 -----------------------------------------
 --  ID: 4209
 --  Item: Mind Potion
---  Mind 7
+--  Mind 20
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -14,6 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addStatusEffect(tpz.effect.MND_BOOST, 7, 0, 3600)
+    target:addStatusEffect(tpz.effect.MND_BOOST, 20, 0, 30)
+    target:addStatusEffect(tpz.effect.INTENSION, 30, 0, 30)
     --target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
 end

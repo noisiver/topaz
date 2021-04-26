@@ -1,7 +1,7 @@
 -----------------------------------------
 --  ID: 4199
 --  Item: Strength Potion
---  Strength 7
+--  Strength 20
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -14,6 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addStatusEffect(tpz.effect.STR_BOOST, 7, 0, 3600)
+    target:addStatusEffect(tpz.effect.STR_BOOST, 20, 0, 30)
+    target:addStatusEffect(tpz.effect.ATTACK_BOOST, 100, 0, 30)
     --target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
 end

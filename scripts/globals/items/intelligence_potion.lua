@@ -1,7 +1,7 @@
 -----------------------------------------
---  ID: 4207
+--  ID: 42020
 --  Item: Intelligence Potion
---  Intelligence 7
+--  Intelligence 20
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -14,6 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addStatusEffect(tpz.effect.INT_BOOST, 7, 0, 3600)
+    target:addStatusEffect(tpz.effect.MAGIC_ATK_BOOST, 20, 0, 30)
+    target:addStatusEffect(tpz.effect.MAGIC_ATK_BOOST, 50, 0, 30)
     --target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
 end

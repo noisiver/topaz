@@ -1,7 +1,7 @@
 -----------------------------------------
 --  ID: 4201
 --  Item: Dexterity Potion
---  Dexterity 7
+--  Dexterity 20
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -14,6 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addStatusEffect(tpz.effect.DEX_BOOST, 7, 0, 3600)
+    target:addStatusEffect(tpz.effect.DEX_BOOST, 20, 0, 30)
+	target:addStatusEffect(tpz.effect.POTENCY, 100, 0, 30)
    -- target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
 end

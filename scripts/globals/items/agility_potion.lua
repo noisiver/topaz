@@ -14,6 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addStatusEffect(tpz.effect.AGI_BOOST, 7, 0, 3600)
+    target:addStatusEffect(tpz.effect.AGI_BOOST, 20, 0, 30)
+	target:addStatusEffect(tpz.effect.EVASION_BOOST, 1000, 0, 30)
     --target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
 end

@@ -14,6 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addStatusEffect(tpz.effect.VIT_BOOST, 7, 0, 3600)
+    target:addStatusEffect(tpz.effect.VIT_BOOST, 20, 0, 30)
+    target:addStatusEffect(tpz.effect.PHALANX, 100, 0, 30)
     --target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
 end

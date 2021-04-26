@@ -1,18 +1,21 @@
 -----------------------------------
 --
--- tpz.effect.REFRESH
+-- tpz.effect.MAGIC_ACC_BOOST
 --
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.REFRESH, effect:getPower())
+    if (effect:getPower()>100) then
+        effect:setPower(50)
+    end
+    target:addMod(tpz.mod.MACC, effect:getPower())
 end
 
 function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.REFRESH, effect:getPower())
+    target:delMod(tpz.mod.MACC, effect:getPower())
 end
