@@ -9,7 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = 95
+    local chance = 100
     local SDT = target:getMod(tpz.mod.SDT_WATER)
 
     if SDT <= 5 then
@@ -22,7 +22,7 @@ function onAdditionalEffect(player, target, damage)
         return 0, 0, 0
     else
         target:delStatusEffect(tpz.effect.ATTACK_BOOST)
-        target:addStatusEffect(tpz.effect.ATTACK_DOWN, 12, 0, 60)
+        target:addStatusEffect(tpz.effect.ATTACK_DOWN, 12.5, 0, 60)
         return tpz.subEffect.DEFENSE_DOWN, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.ATTACK_DOWN
     end
 end

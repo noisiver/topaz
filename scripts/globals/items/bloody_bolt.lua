@@ -8,7 +8,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = 95
+    local chance = 100
     local SDT = target:getMod(tpz.mod.SDT_DARK)
 
     if SDT <= 5 then
@@ -24,7 +24,7 @@ function onAdditionalEffect(player, target, damage)
         if (diff > 20) then
             diff = 20 + (diff - 20) / 2
         end
-        local drain = diff + (player:getMainLvl() - target:getMainLvl()) + damage/2
+        local drain = diff + 60
         local params = {}
         params.bonusmab = 0
         params.includemab = false
