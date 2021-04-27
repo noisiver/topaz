@@ -166,21 +166,19 @@ void CTargetFind::findWithinArea(CBattleEntity* PTarget, AOERADIUS radiusType, f
     }
 }
 
-
-void CTargetFind::findWithinCone(CBattleEntity* PTarget, float distance, float angle, uint8 flags, uint8 extraRotation)
+void CTargetFind::findWithinCone(CBattleEntity* PTarget, float distance, float angle, uint8 flags)
 {
     m_findFlags = flags;
     m_conal = true;
 
     m_APoint = &m_PBattleEntity->loc.p;
-    m_APoint->rotation += extraRotation; // typically used for "aoe behind me" instead of "aoe in front of me" (an addition of 128) example: Behe's Kick Out
 
     uint8 halfAngle = static_cast<uint8>((angle * (256.0f / 360.0f)) / 2.0f);
 
     // Confirmation on the center of cones is still needed for mob skills; player skills seem to be facing angle
     // uint8 angleToTarget = worldAngle(m_PBattleEntity->loc.p, PTarget->loc.p);
     uint8 angleToTarget = m_APoint->rotation;
-
+    
     // "Left" and "Right" are like the entity's face - "left" means "turning to the left" NOT "left when looking overhead"
     // Remember that rotation increases when turning to the right, and decreases when turning to the left
     float leftAngle = rotationToRadian(relativeAngle(angleToTarget, -halfAngle));
@@ -193,8 +191,8 @@ void CTargetFind::findWithinCone(CBattleEntity* PTarget, float distance, float a
     m_CPoint.x = cosf((2 * (float)M_PI) - leftAngle) * distance + m_APoint->x;
     m_CPoint.z = sinf((2 * (float)M_PI) - leftAngle) * distance + m_APoint->z;
 
-    // ShowDebug("angle %f, left %f, right %f, distance %f, A (%f, %f) B (%f, %f) C (%f, %f)\n", angle, leftAngle, rightAngle, distance, m_APoint->x,
-    // m_APoint->z, m_BPoint.x, m_BPoint.z, m_CPoint.x, m_CPoint.z); ShowDebug("Target: (%f, %f)\n", PTarget->loc.p.x, PTarget->loc.p.z);
+    // ShowDebug("angle %f, left %f, right %f, distance %f, A (%f, %f) B (%f, %f) C (%f, %f)\n", angle, leftAngle, rightAngle, distance, m_APoint->x, m_APoint->z, m_BPoint.x, m_BPoint.z, m_CPoint.x, m_CPoint.z);
+    // ShowDebug("Target: (%f, %f)\n", PTarget->loc.p.x, PTarget->loc.p.z);
 
     // precompute for next stage
     m_BPoint.x = m_BPoint.x - m_APoint->x;
@@ -208,7 +206,6 @@ void CTargetFind::findWithinCone(CBattleEntity* PTarget, float distance, float a
 
     findWithinArea(PTarget, AOERADIUS_ATTACKER, distance);
 }
-
 
 void CTargetFind::addAllInMobList(CBattleEntity* PTarget, bool withPet)
 {

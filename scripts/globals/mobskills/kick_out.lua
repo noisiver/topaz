@@ -22,16 +22,14 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 3
     local accmod = 1
-    local dmgmod = 1
-
+    local dmgmod = 0.5
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.H2H, MOBPARAM_3_SHADOW)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.H2H, info.hitslanded)
 
     local typeEffect = tpz.effect.BLINDNESS
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 100, 0, 120)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 20, 0, 120)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.H2H)
-	if dmg > 0 and skill:getMsg() ~= 31 then target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
