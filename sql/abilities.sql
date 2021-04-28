@@ -63,7 +63,7 @@ INSERT INTO `abilities` VALUES (37,'dodge',2,15,1,60,14,121,0,5,2000,0,6,20.0,0,
 INSERT INTO `abilities` VALUES (38,'chakra',2,20,1,30,15,102,0,6,2000,0,6,20.0,0,1,300,452,0,NULL);
 INSERT INTO `abilities` VALUES (39,'boost',2,5,1,15,16,116,0,7,2000,0,6,20.0,0,1,300,0,0,NULL);
 INSERT INTO `abilities` VALUES (40,'counterstance',2,45,1,300,17,0,0,8,2000,0,6,20.0,0,1,900,0,0,NULL);
-INSERT INTO `abilities` VALUES (41,'steal',6,5,4,60,60,125,0,181,2000,0,3,5.4,0,1,300,0,0,NULL);		-- made 60s
+INSERT INTO `abilities` VALUES (41,'steal',6,5,4,60,120,125,0,181,2000,0,3,5.4,0,1,300,0,0,NULL);		-- made 60s
 INSERT INTO `abilities` VALUES (42,'flee',6,25,1,300,62,126,0,9,2000,0,6,20.0,0,1,80,704,0,NULL);	
 INSERT INTO `abilities` VALUES (43,'hide',6,45,1,300,63,0,0,10,2000,0,6,20.0,0,0,0,706,0,NULL);		
 INSERT INTO `abilities` VALUES (44,'sneak_attack',6,15,1,60,64,0,0,17,2000,0,6,20.0,0,1,0,708,0,NULL);
@@ -278,7 +278,7 @@ INSERT INTO `abilities` VALUES (224,'velocity_shot',11,45,1,60,129,0,0,186,2000,
 INSERT INTO `abilities` VALUES (225,'snarl',9,45,257,30,107,0,0,87,2000,0,6,20.0,0,0,0,0,192,'WOTG');
 INSERT INTO `abilities` VALUES (226,'retaliation',1,60,1,300,8,0,0,185,2000,0,6,20.0,0,1,80,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (227,'footwork',2,65,1,300,21,0,0,197,2000,0,6,20.0,0,1,80,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (228,'despoil',6,60,4,60,61,125,0,181,2000,0,3,4.4,0,1,300,0,0,'ABYSSEA');		-- changed from  300s cd level 77
+INSERT INTO `abilities` VALUES (228,'despoil',6,60,4,300,61,125,0,181,2000,0,3,4.4,0,1,300,0,0,'ABYSSEA');		-- changed from  300s cd level 77
 INSERT INTO `abilities` VALUES (229,'pianissimo',10,20,1,15,112,0,0,194,2000,0,6,20.0,0,1,60,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (230,'sekkanoki',12,40,1,300,140,0,0,199,2000,0,6,20.0,0,1,80,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (232,'elemental_siphon',15,50,1,300,175,451,0,201,2000,0,6,20.0,0,1,0,0,0,'WOTG');

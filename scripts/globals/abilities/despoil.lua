@@ -84,13 +84,7 @@ function processDebuff(player, target, ability, debuff)
         power = 10  -- changed from 20
     elseif debuff == tpz.effect.SLOW then
         ability:setMsg(tpz.msg.basic.DESPOIL_SLOW)
-        local dMND = player:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
-        if dMND >= 0 then
-            power = 2 * dMND + 730 -- changed from 1500
-        else
-            power = dMND + 730     -- changed from 1500
-        end
-        power = utils.clamp(power, 750, 3000)
+        power = 1000 
     end
 
     return power
