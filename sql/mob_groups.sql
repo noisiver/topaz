@@ -11911,7 +11911,7 @@ INSERT INTO `mob_groups` VALUES (28,6333,190,'Cutlass_Scorpion',600,0,549,0,0,63
 INSERT INTO `mob_groups` VALUES (29,6391,190,'Thousand_Eyes',600,0,2402,0,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (30,1898,190,'Hati',600,0,1278,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (31,3720,190,'Spartoi_Warrior',600,0,2125,0,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (32,3719,190,'Spartoi_Sorcerer',600,0,2301,0,0,80,82,0);
+INSERT INTO `mob_groups` VALUES (32,3719,190,'Spartoi_Sorcerer',600,0,688,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (33,2388,190,'Lemures',600,0,1506,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (34,709,190,'Cherry_Sapling',0,128,462,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (35,671,190,'Cemetery_Cherry',0,128,442,40000,0,72,73,0);
