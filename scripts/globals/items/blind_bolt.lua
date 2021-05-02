@@ -25,7 +25,7 @@ function onAdditionalEffect(player, target, damage)
     else
         target:delStatusEffect(tpz.effect.BLINDNESS)
         if (not target:hasStatusEffect(tpz.effect.BLINDNESS)) then
-            target:addStatusEffect(tpz.effect.BLINDNESS, 10, 0, 30)
+            target:addStatusEffect(tpz.effect.BLINDNESS, 20, 0, 30)
         end
         return tpz.subEffect.BLIND, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.BLINDNESS
     end

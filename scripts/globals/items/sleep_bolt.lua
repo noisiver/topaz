@@ -1,5 +1,5 @@
 -----------------------------------------
--- ID: 18149
+-- ID: 18158
 -- Item: Sleep Bolt
 -- Additional Effect: Sleep
 -----------------------------------------
@@ -18,7 +18,9 @@ function onAdditionalEffect(player, target, damage)
         chance = chance * (SDT / 100)
         chance = utils.clamp(chance, 5, 95)
     end
-    if (math.random(0, 99) >= chance) then
+    if (target:hasImmunity(1)) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+    elseif (math.random(0, 99) >= chance) then
         return 0, 0, 0
     else
         local duration = 25
@@ -27,11 +29,6 @@ function onAdditionalEffect(player, target, damage)
         end
         duration = utils.clamp(duration, 1, 25)
         duration = duration * applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHT, 0)
-    if (target:hasImmunity(1)) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-    elseif (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHT, 0) <= 0.5) then
-        return 0, 0, 0
-    else
         if (not target:hasStatusEffect(tpz.effect.SLEEP_I)) then
             target:addStatusEffect(tpz.effect.SLEEP_I, 1, 0, duration)
         end

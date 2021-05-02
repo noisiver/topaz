@@ -11,7 +11,7 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     local chance = 105
-    local SDT = target:getMod(tpz.mod.SDT_LIGHTNING)
+    local SDT = target:getMod(tpz.mod.SDT_THUNDER)
 
     if SDT <= 5 then
         chance = 0
