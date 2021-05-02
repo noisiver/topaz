@@ -13,7 +13,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 120))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 120))
 
     return typeEffect
 end

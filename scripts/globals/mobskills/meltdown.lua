@@ -10,9 +10,6 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
-        return 1
-    end
     return 0
 end
 

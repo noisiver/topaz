@@ -18,15 +18,16 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 3
     local accmod = 1
-    local dmgmod = 0.33
+    local dmgmod = 1
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 1.5, 2)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BLINDNESS, 20, 0, 120)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BLINDNESS, 100, 0, 120)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SILENCE, 0, 0, 120)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BIND, 0, 0, 120)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.WEIGHT, 50, 0, 120)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+	if dmg > 0 then target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

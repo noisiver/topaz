@@ -20,9 +20,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.STR_DOWN
-    local power = 20
+    local power = 15
     local tick = 3
-    local duration = power * tick
+    local duration = 60
 
     MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 

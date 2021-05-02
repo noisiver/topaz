@@ -21,5 +21,6 @@ function onMobWeaponSkill(target, mob, skill)
         dmgmod = 1.15
     end
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+	if dmg > 0 then target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

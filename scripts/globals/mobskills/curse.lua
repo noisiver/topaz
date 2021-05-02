@@ -19,7 +19,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.CURSE_I
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 480))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 600))
 
     return typeEffect
 end

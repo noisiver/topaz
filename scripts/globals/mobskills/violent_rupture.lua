@@ -1,8 +1,8 @@
 ---------------------------------------------
---  Dynamic Implosion
+--  Violent Rupture
 --
---  Description: Deals Water damage to enemies in a fan-shaped area of effect. Additional effect: STR Down
---  Type: Breath
+--  Description: AOE damage with knockback and weight.
+--  Type: Physical
 --  Utsusemi/Blink absorb: Ignores shadows
 --  Range: Unknown cone
 --  Notes:
@@ -19,17 +19,15 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    local power = 50
-    local duration = 120
-
-    MobStatusEffectMove(mob, target, tpz.effect.STR_DOWN, power, 3, duration)
-
-    local dmgmod = MobBreathMove(mob, target, 0.1, 1, tpz.magic.ele.FIRE, 200)
-
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
-
-    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.FIRE)
+    -- Add knock back!
+    local numhits = 1
+    local accmod = 1
+    local dmgmod = 3
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_3_SHADOW)
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+	if dmg > 0 then target:tryInterruptSpell(mob, info.hitslanded) end
+    local typeEffect = tpz.effect.WEIGHT
+    MobStatusEffectMove(mob, target, typeEffect, 50, 0, 120)
     return dmg
-
 end

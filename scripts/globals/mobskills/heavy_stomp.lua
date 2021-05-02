@@ -25,8 +25,9 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.PARALYSIS
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 15, 0, 360)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 360)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+	if dmg > 0 then target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

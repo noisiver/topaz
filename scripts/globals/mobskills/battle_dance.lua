@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
 
     if mob:isInDynamis() then 
-        dmgmod = 3
+        dmgmod = 2.5
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
@@ -31,6 +31,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.DEX_DOWN
 
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 10, 3, 120)
+	if dmg > 0 then target:tryInterruptSpell(mob, info.hitslanded) end
 
 
     return dmg
