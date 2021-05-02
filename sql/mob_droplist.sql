@@ -2828,7 +2828,7 @@ INSERT INTO `mob_droplist` VALUES (493,0,0,1000,15142,10);
 INSERT INTO `mob_droplist` VALUES (493,0,0,1000,16360,10);
 INSERT INTO `mob_droplist` VALUES (494,0,0,1000,2506,470);
 INSERT INTO `mob_droplist` VALUES (494,0,0,1000,3105,100);
-INSERT INTO `mob_droplist` VALUES (495,4,0,1000,842,0); --(Cockatrice - Layrinth of onzozo)
+INSERT INTO `mob_droplist` VALUES (495,4,0,1000,842,0); --(Cockatrice - Layrinth of onzozo) Giant Bird Feather(Despoil)
 INSERT INTO `mob_droplist` VALUES (495,0,0,1000,854,100); -- Cockatrice skin
 INSERT INTO `mob_droplist` VALUES (495,0,0,1000,1056,50); -- Onzozo chest key
 INSERT INTO `mob_droplist` VALUES (495,0,0,1000,4435,240); -- Slice of cockatrice meat
@@ -4447,7 +4447,7 @@ INSERT INTO `mob_droplist` VALUES (850,0,0,1000,921,130);
 INSERT INTO `mob_droplist` VALUES (851,0,0,1000,876,240); -- (Flying Manta) Manta skin
 INSERT INTO `mob_droplist` VALUES (851,0,0,1000,888,150); -- Seashell
 INSERT INTO `mob_droplist` VALUES (851,0,0,1000,1056,50); -- Onzozo chest key
-INSERT INTO `mob_droplist` VALUES (851,0,0,1000,4484,50); -- Shall shell
+INSERT INTO `mob_droplist` VALUES (851,0,0,1000,4484,100); -- Shall shell
 INSERT INTO `mob_droplist` VALUES (852,0,0,1000,1617,50);
 INSERT INTO `mob_droplist` VALUES (853,2,0,1000,4374,0);
 INSERT INTO `mob_droplist` VALUES (853,0,0,1000,4374,240);
@@ -4807,19 +4807,15 @@ INSERT INTO `mob_droplist` VALUES (934,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (934,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (934,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (934,0,0,1000,2531,100);
-INSERT INTO `mob_droplist` VALUES (935,2,0,1000,750,0);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4667,22);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4681,30);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4682,10);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4683,30);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4744,50);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4745,50);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4746,30);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,12986,10);
-INSERT INTO `mob_droplist` VALUES (935,0,0,1000,17045,150);
-INSERT INTO `mob_droplist` VALUES (936,2,0,1000,4569,0);
-INSERT INTO `mob_droplist` VALUES (936,0,0,1000,4743,100);
-INSERT INTO `mob_droplist` VALUES (936,0,0,1000,17045,100);
+INSERT INTO `mob_droplist` VALUES (935,2,0,1000,750,0); -- (Garnet Quadav - Rolanberry)
+INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4667,150); -- Scroll of Silence
+INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4681,100); -- Scroll of Barpoison
+INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4744,100); -- Scroll of Invisible
+INSERT INTO `mob_droplist` VALUES (935,0,0,1000,4746,100); -- Scroll of Deodorize
+INSERT INTO `mob_droplist` VALUES (935,0,0,1000,17045,150); -- Maul
+INSERT INTO `mob_droplist` VALUES (936,2,0,1000,4569,0); -- (Garnet Quadav - Bead) Bowl Of Quadav Stew
+INSERT INTO `mob_droplist` VALUES (936,0,0,1000,4743,100); -- Reraise
+INSERT INTO `mob_droplist` VALUES (936,0,0,1000,17045,150); -- Maul
 --INSERT INTO `mob_droplist` VALUES (936,0,0,1000,4701,63); cura
 INSERT INTO `mob_droplist` VALUES (937,0,0,1000,881,80);
 INSERT INTO `mob_droplist` VALUES (937,0,0,1000,3093,94);
@@ -11123,8 +11119,7 @@ INSERT INTO `mob_droplist` VALUES (2145,0,0,1000,1015,130);
 INSERT INTO `mob_droplist` VALUES (2146,0,0,1000,846,197);
 INSERT INTO `mob_droplist` VALUES (2146,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (2146,0,0,1000,894,150);
-INSERT INTO `mob_droplist` VALUES (2147,2,0,1000,842,0);
-INSERT INTO `mob_droplist` VALUES (2147,0,0,1000,842,0);
+INSERT INTO `mob_droplist` VALUES (2147,4,0,1000,842,0); -- (Sand Cockatrice)
 INSERT INTO `mob_droplist` VALUES (2147,0,0,1000,854,150);
 INSERT INTO `mob_droplist` VALUES (2147,0,0,1000,4435,240);
 INSERT INTO `mob_droplist` VALUES (2148,0,0,1000,640,10);
