@@ -21,9 +21,6 @@ function onSpellCast(caster, target, spell)
     -- also have small constant to account for 0 dark skill
     local dmg = 165 + caster:getSkillLevel(tpz.skill.DARK_MAGIC)
 
-    if (dmg > (caster:getSkillLevel(tpz.skill.DARK_MAGIC) + 85)) then
-        dmg = (caster:getSkillLevel(tpz.skill.DARK_MAGIC) + 85)
-    end
 
     --get resist multiplier (1x if no resist)
     local params = {}
@@ -43,6 +40,8 @@ function onSpellCast(caster, target, spell)
     if (dmg < 0) then
         dmg = 0
     end
+	
+	dmg = dmg * DARK_POWER
 
     if (target:isUndead()) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- No effect
