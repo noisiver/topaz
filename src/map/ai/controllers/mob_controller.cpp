@@ -596,11 +596,11 @@ void CMobController::Move()
 
     if (PMob->getMobMod(MOBMOD_ATTACK_SKILL_LIST) > 0)
     {
-        auto skillList {battleutils::GetMobSkillList(PMob->getMobMod(MOBMOD_ATTACK_SKILL_LIST))};
+        auto skillList{ battleutils::GetMobSkillList(PMob->getMobMod(MOBMOD_ATTACK_SKILL_LIST)) };
 
         if (!skillList.empty())
         {
-            auto skill {battleutils::GetMobSkill(skillList.front())};
+            auto* skill{ battleutils::GetMobSkill(skillList.front()) };
             if (skill)
             {
                 attack_range = skill->getDistance();
@@ -620,7 +620,9 @@ void CMobController::Move()
         if (PMob->getMobMod(MOBMOD_DRAW_IN) > 0)
         {
             if (currentDistance >= PMob->GetMeleeRange() * 2 && battleutils::DrawIn(PTarget, PMob, PMob->GetMeleeRange() - 0.2f))
+            {
                 FaceTarget();
+            }
         }
         if (PMob->speed != 0 && PMob->getMobMod(MOBMOD_NO_MOVE) == 0 && m_Tick >= m_LastSpecialTime)
         {
@@ -640,27 +642,32 @@ void CMobController::Move()
             {
                 if (!PMob->PAI->PathFind->IsFollowingPath() || distanceSquared(PMob->PAI->PathFind->GetDestination(), PTarget->loc.p) > 10)
                 {
-                    //path to the target if we don't have a path already
+                    // path to the target if we don't have a path already
                     PMob->PAI->PathFind->PathInRange(PTarget->loc.p, attack_range - 0.2f, PATHFLAG_WALLHACK | PATHFLAG_RUN);
                 }
                 PMob->PAI->PathFind->FollowPath();
                 if (!PMob->PAI->PathFind->IsFollowingPath())
                 {
-                    //arrived at target - move if there is another mob under me
+                    // arrived at target - move if there is another mob under me
                     if (PTarget->objtype == TYPE_PC)
                     {
-                        for (auto PSpawnedMob : static_cast<CCharEntity*>(PTarget)->SpawnMOBList)
+                        auto spawnMOBList = static_cast<CCharEntity*>(PTarget)->SpawnMOBList;
+                        if (spawnMOBList.size() > 0)
                         {
-                            if (PSpawnedMob.second != PMob && !PSpawnedMob.second->PAI->PathFind->IsFollowingPath() && distance(PSpawnedMob.second->loc.p, PMob->loc.p) < 1.f)
+                            for (auto PSpawnedMob : spawnMOBList)
                             {
-                                auto angle = worldAngle(PMob->loc.p, PTarget->loc.p) + 64;
-                                position_t new_pos {PMob->loc.p.x - (cosf(rotationToRadian(angle)) * 1.5f),
-                                    PTarget->loc.p.y, PMob->loc.p.z + (sinf(rotationToRadian(angle)) * 1.5f), 0, 0};
-                                if (PMob->PAI->PathFind->ValidPosition(new_pos))
+                                if (PSpawnedMob.second != PMob && !PSpawnedMob.second->PAI->PathFind->IsFollowingPath() &&
+                                    distance(PSpawnedMob.second->loc.p, PMob->loc.p) < 1.f)
                                 {
-                                    PMob->PAI->PathFind->PathTo(new_pos, PATHFLAG_WALLHACK | PATHFLAG_RUN);
+                                    auto angle = worldAngle(PMob->loc.p, PTarget->loc.p) + 64;
+                                    position_t new_pos{ PMob->loc.p.x - (cosf(rotationToRadian(angle)) * 1.5f), PTarget->loc.p.y,
+                                                        PMob->loc.p.z + (sinf(rotationToRadian(angle)) * 1.5f), 0, 0 };
+                                    if (PMob->PAI->PathFind->ValidPosition(new_pos))
+                                    {
+                                        PMob->PAI->PathFind->PathTo(new_pos, PATHFLAG_WALLHACK | PATHFLAG_RUN);
+                                    }
+                                    break;
                                 }
-                                break;
                             }
                         }
                     }
@@ -668,6 +675,16 @@ void CMobController::Move()
             }
             else
             {
+                if (currentDistance - PMob->m_ModelSize >
+                    PTarget->GetMeleeRange()) // if mob can't move forward and is out of melee range, but is in melee range if you eliminate the Y axis
+                                              // differential, then force the mob to move
+                {
+                    position_t new_pos{ PMob->loc.p.x, PTarget->loc.p.y, PMob->loc.p.z, 0, 0 };
+                    if (distance(new_pos, PTarget->loc.p) - PMob->m_ModelSize <= PTarget->GetMeleeRange())
+                    {
+                        PMob->PAI->PathFind->StepTo(new_pos);
+                    }
+                }
                 FaceTarget();
             }
         }
