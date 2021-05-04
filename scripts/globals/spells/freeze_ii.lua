@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
     -- no point in making a separate function for this if the only thing they won't have in common is the name
     handleNinjutsuDebuff(caster, target, spell, 30, 60, tpz.mod.FIRERES)
 	
-	if (damage > 0) then
+
         local duration = 60
         local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
         if (target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5  then
@@ -42,7 +42,7 @@ function onSpellCast(caster, target, spell)
         if (target:hasStatusEffect(tpz.effect.EVASION_DOWN) == false) and resist >= 0.5  then
             target:addStatusEffect(tpz.effect.EVASION_DOWN, 20, 0, duration * resist)
         end
-    end
+
 
     return doElementalNuke(caster, spell, target, spellParams)
 end
