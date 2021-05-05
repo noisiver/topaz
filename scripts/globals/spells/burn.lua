@@ -25,7 +25,7 @@ function onSpellCast(caster, target, spell)
         params.bonus = 0
         params.effect = nil
         local resist = applyResistance(caster, target, spell, params)
-        if (resist <= 0.125) then
+        if (resist <= 0.5) then
             spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
         else
             if (target:getStatusEffect(tpz.effect.FROST) ~= nil) then
