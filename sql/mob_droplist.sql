@@ -4834,9 +4834,9 @@ INSERT INTO `mob_droplist` VALUES (941,0,0,1000,914,330);
 INSERT INTO `mob_droplist` VALUES (941,0,0,1000,939,40);
 INSERT INTO `mob_droplist` VALUES (941,0,0,1000,1061,50);
 INSERT INTO `mob_droplist` VALUES (942,0,0,1000,914,1000); -- ( Gazer - The Eldieme Necropolis) Vial of Mercury
-INSERT INTO `mob_droplist` VALUES (942,0,0,1000,914,240) -- Vial of Mercury
-INSERT INTO `mob_droplist` VALUES (942,0,0,1000,914,150) -- Vial of Mercury
-INSERT INTO `mob_droplist` VALUES (942,4,0,1000,914,0) -- Vial of Mercury(Despoil)
+INSERT INTO `mob_droplist` VALUES (942,0,0,1000,914,240); -- Vial of Mercury
+INSERT INTO `mob_droplist` VALUES (942,0,0,1000,914,150); -- Vial of Mercury
+INSERT INTO `mob_droplist` VALUES (942,4,0,1000,914,0); -- Vial of Mercury(Despoil)
 INSERT INTO `mob_droplist` VALUES (942,0,0,1000,939,1000); -- Hecteyes eye
 INSERT INTO `mob_droplist` VALUES (942,0,0,1000,939,240); -- Hecteyes eye
 INSERT INTO `mob_droplist` VALUES (942,0,0,1000,939,150); -- Hecteyes eye

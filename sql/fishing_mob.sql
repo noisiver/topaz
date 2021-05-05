@@ -257,7 +257,7 @@ INSERT INTO `fishing_mob` VALUES (17281025,'Ironshell',123,1,1,11,15,255,255,0,0
 INSERT INTO `fishing_mob` VALUES (17281026,'Ironshell',123,1,1,11,15,255,255,0,0,2,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (17281027,'Bigclaw',123,1,1,10,15,255,255,0,0,3,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (17281028,'Bigclaw',123,1,1,10,15,255,255,0,0,4,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (17281025,'Bloodsucker',123,1,1,10,15,255,255,0,0,5,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17281029,'Bloodsucker',123,1,1,10,15,255,255,0,0,5,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (17282047,'Bloodsucker',123,1,1,10,15,255,255,0,0,6,1000,0,0,0,0);
 
 -- Yhoator Jungle
