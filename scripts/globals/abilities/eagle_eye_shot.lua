@@ -38,11 +38,13 @@ function onUseAbility(player, target, ability, action)
     params.str_wsc = 0.16 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.25 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = true
-    params.acc100 = 5.0 params.acc200= 5.0 params.acc300= 5.0
-    params.atk100 = 1 params.atk200 = 1 params.atk300 = 1
+    params.acc100 = 2.0 params.acc200= 2.0 params.acc300= 2.0
+    params.atk100 = 5 params.atk200 = 5 params.atk300 = 5
     params.enmityMult = 0.5
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, 0, params, 0, action, true)
+	
+		damage = damage
 	
     -- Set the message id ourselves
     if (tpHits + extraHits > 0) then
