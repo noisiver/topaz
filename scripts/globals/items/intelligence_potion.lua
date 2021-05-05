@@ -14,7 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addStatusEffect(tpz.effect.MAGIC_ATK_BOOST, 20, 0, 30)
+    target:addStatusEffect(tpz.effect.INT_BOOST, 20, 0, 30)
     target:addStatusEffect(tpz.effect.MAGIC_ATK_BOOST, 50, 0, 30)
     --target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 900)
 end
