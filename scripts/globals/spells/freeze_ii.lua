@@ -34,11 +34,11 @@ function onSpellCast(caster, target, spell)
 	
 
         local duration = 60
-        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
+        local resist = applyResistanceEffect(player, target, tpz.magic.ele.WIND, 0)
         if (target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5  then
             target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 18.75, 0, duration * resist)
         end
-		local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
+		local resist = applyResistanceEffect(player, target, tpz.magic.ele.ICE, 0)
         if (target:hasStatusEffect(tpz.effect.EVASION_DOWN) == false) and resist >= 0.5  then
             target:addStatusEffect(tpz.effect.EVASION_DOWN, 20, 0, duration * resist)
         end
