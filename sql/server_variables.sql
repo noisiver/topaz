@@ -65,3 +65,6 @@ INSERT INTO `server_variables` VALUES ('[ZM4]Lightning_Headstone_Active', '0');
 INSERT INTO `server_variables` VALUES ('[ZM4]Light_Headstone_Active', '0');
 INSERT INTO `server_variables` VALUES ('[BF]Mission_5-1_Enter', '0');
 INSERT INTO `server_variables` VALUES ('[BF]Mission_5-1_QuBia_Arena_record', '15');
+INSERT INTO `server_variables` VALUES('Mhaura_Destination', 1);
+INSERT INTO `server_variables` VALUES('Selbina_Destination', 1);
+
