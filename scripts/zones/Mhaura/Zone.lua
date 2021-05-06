@@ -57,16 +57,7 @@ function onConquestUpdate(zone, updatetype)
 end
 
 function onTransportEvent(player, transport)
-    if transport == 47 or transport == 46 then
-        if not player:hasKeyItem(tpz.ki.BOARDING_PERMIT) or ENABLE_TOAU == 0 then
-            player:setPos(8.200, -1.363, 3.445, 192)
-            player:messageSpecial(ID.text.DO_NOT_POSSESS, tpz.ki.BOARDING_PERMIT)
-        else
-            player:startEvent(200)
-        end
-    else
-        player:startEvent(200)
-    end
+    player:startEvent(200)
 end
 
 function onEventUpdate(player, csid, option)
