@@ -542,7 +542,7 @@ INSERT INTO `guild_shops` VALUES (5262,622,36,60,255,48,100);       -- dried_mar
 INSERT INTO `guild_shops` VALUES (5262,636,97,97,255,48,100);       -- chamomile
 INSERT INTO `guild_shops` VALUES (5262,637,1640,4880,165,0,65);      -- slime_oil
 INSERT INTO `guild_shops` VALUES (5262,638,138,138,255,48,100);      -- sage
-INSERT INTO `guild_shops` VALUES (5262,912,192,360,255,1,100);       -- beehive_chip
+INSERT INTO `guild_shops` VALUES (5262,912,192,360,255,0,0);       -- beehive_chip
 INSERT INTO `guild_shops` VALUES (5262,914,1125,6300,165,33,65);     -- mercury
 INSERT INTO `guild_shops` VALUES (5262,920,1084,5899,165,1,65);      -- malboro_vine
 INSERT INTO `guild_shops` VALUES (5262,922,300,300,255,1,100);       -- bat_wing
