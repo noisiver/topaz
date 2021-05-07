@@ -14,6 +14,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addTP(1000)
+	local tp = (1000 * (100 + target:getMod(tpz.mod.STORETP))) / 100
+    target:addTP(tp)
     target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 7200)
 end
