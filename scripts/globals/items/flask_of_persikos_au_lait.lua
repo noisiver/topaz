@@ -11,9 +11,5 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    if (not target:hasStatusEffect(tpz.effect.REGEN)) then
-        target:addStatusEffect(tpz.effect.REGEN, 4, 3, 600)
-    else
-        target:messageBasic(tpz.msg.basic.NO_EFFECT)
-    end
+	target:addStatusEffect(tpz.effect.REGEN, 4, 3, 600)
 end
