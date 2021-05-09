@@ -3917,7 +3917,7 @@ INSERT INTO `item_basic` VALUES (4162,0,'flask_of_silencing_potion','silencing_p
 INSERT INTO `item_basic` VALUES (4163,0,'flask_of_blinding_potion','blinding_potion',12,1540,33,0,205);
 INSERT INTO `item_basic` VALUES (4164,0,'pinch_of_prism_powder','prism_powder',12,1540,33,0,350);
 INSERT INTO `item_basic` VALUES (4165,0,'pot_of_silent_oil','silent_oil',12,1540,33,0,300);
-INSERT INTO `item_basic` VALUES (4166,0,'flask_of_deodorizer','deodorizer',12,1540,33,0,80);
+INSERT INTO `item_basic` VALUES (4166,0,'flask_of_deodorizer','deodorizer',12,1540,33,0,256);
 INSERT INTO `item_basic` VALUES (4167,0,'cracker','cracker',99,1548,63,0,21);
 INSERT INTO `item_basic` VALUES (4168,0,'twinkle_shower','twinkle_shower',99,1548,63,0,25);
 INSERT INTO `item_basic` VALUES (4169,0,'little_comet','little_comet',99,1548,63,0,25);
