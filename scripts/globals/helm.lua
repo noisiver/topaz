@@ -195,14 +195,15 @@ local helmInfo =
             {
                 drops =
                 {
-                    {4000, 4373}, -- Woozyshroom 
-                    {2000, 4375}, -- Danceshroom
-                    {2000, 4374}, -- Sleepshroom
-                    { 700, 4447}, -- Scream Fungus
-                    { 700, 4448}, -- Puffball
-                    { 700, 4565}, -- Sobbing Fungus
-                    { 600, 4386}, -- King Truffle   -- changed from 300
-                    { 300, 1983}, -- Mushroom Locust
+                    { 2400, 4373}, -- Woozyshroom 
+                    { 2400, 4375}, -- Danceshroom
+                    { 2400, 4374}, -- Sleepshroom
+                    { 1000, 4447}, -- Scream Fungus
+                    { 1000, 4448}, -- Puffball
+                    { 1000, 4565}, -- Sobbing Fungus
+                    { 500, 4386}, -- King Truffle   -- changed from 300
+                    { 500, 3915}, -- Saffron Blossom  
+                    { 100, 1983}, -- Mushroom Locust
                 },
                 points =
                 {
@@ -215,14 +216,15 @@ local helmInfo =
             {
                 drops =
                 {
-                    {4000, 4375}, -- Danceshroom
-                    {2000, 4373}, -- Woozyshroom 
-                    {2000, 4374}, -- Sleepshroom
-                    { 700, 4447}, -- Scream Fungus
-                    { 700, 4566}, -- Deathball
-                    { 700, 4450}, -- Coral Fungus
-                    { 600, 4449}, -- Reishi Mushroom    -- changed from 300
-                    { 300, 1983}, -- Mushroom Locust
+                    { 2400, 4375}, -- Danceshroom
+                    { 2400, 4373}, -- Woozyshroom 
+                    { 2400, 4374}, -- Sleepshroom
+                    { 1000, 4447}, -- Scream Fungus
+                    { 1000, 4566}, -- Deathball
+                    { 1000, 4450}, -- Coral Fungus
+                    { 500, 4449}, -- Reishi Mushroom    -- changed from 300
+                    { 500, 3915}, -- Saffron  BLossom
+                    { 100, 1983}, -- Mushroom Locust
                 },
                 points =
                 {
@@ -236,20 +238,20 @@ local helmInfo =
                 drops =
                 {
                     {1500, 1845}, -- Red Moko Grass
-                    {1430, 2713}, -- Dyer's Woad
-                    {1430,  835}, -- Flax Flower
-                    {1400,  834}, -- Saruta Cotton
-                    {1210, 1522}, -- Fresh Marjoram
-                    {1030,  833}, -- Moko Grass
-                    { 570,  635}, -- Windurstian Tea Leaves
-                    { 520, 4545}, -- Gysahl Greens
-                    { 440, 1982}, -- King Locust
-                    { 370,  951}, -- Wijnruit
-                    { 230,  575}, -- Grain Seeds
-                    { 210,  572}, -- Herb Seeds
-                    { 200, 1524}, -- Fresh Mugwort
-                    { 190,  839}, -- Crawler Cocoon
-                    { 160,  573}, -- Vegetable Seeds
+                    {1500, 2713}, -- Dyer's Woad
+                    {1500,  835}, -- Flax Flower
+                    {1500,  834}, -- Saruta Cotton
+                    {1000, 1522}, -- Fresh Marjoram
+                    {1000,  833}, -- Moko Grass
+                    { 500,  635}, -- Windurstian Tea Leaves
+                    { 500, 4545}, -- Gysahl Greens
+                    { 500, 1982}, -- King Locust
+                    { 500,  951}, -- Wijnruit
+                    { 100,  575}, -- Grain Seeds
+                    { 100,  572}, -- Herb Seeds
+                    { 100, 1524}, -- Fresh Mugwort
+                    { 100,  839}, -- Crawler Cocoon
+                    { 100,  573}, -- Vegetable Seeds
                 },
                 points =
                 {
@@ -656,13 +658,13 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2610, 688}, -- Arrowwood Log
-                    {2030, 698}, -- Ash Log
-                    {2570, 691}, -- Maple Log
-                    { 540, 694}, -- Chestnut Log
-                    { 580, 574}, -- Fruit Seeds
-                    { 910, 696}, -- Yew Log
-                    { 410, 639}, -- Ronfaure Chestnut
+                    {2400, 688}, -- Arrowwood Log
+                    {2400, 698}, -- Ash Log
+                    {2400, 691}, -- Maple Log
+                    { 500, 694}, -- Chestnut Log
+                    { 500, 574}, -- Fruit Seeds
+                    { 1000, 696}, -- Yew Log
+                    { 2400, 639}, -- Ronfaure Chestnut
                 },
                 points =
                 {
@@ -817,19 +819,19 @@ local helmInfo =
             {
                 drops =
                 {
-                    {2220,  688}, -- Arrowwood Log
-                    {2220,  721}, -- Rattan Lumber
-                    {1130,  689}, -- Lauan Log
-                    { 780,  912}, -- Beehive Chip
-                    { 650,  923}, -- Dryad Root
-                    { 650, 5908}, -- Butterpear
-                    { 610,  940}, -- Revival Tree Root
-                    { 610,  731}, -- Aquilaria Log
-                    { 570,  732}, -- Kapor Log
-                    { 350,  700}, -- Mahogany Log
-                    { 170,  702}, -- Ebony Log
+                    {2400,  688}, -- Arrowwood Log
+                    {2400,  721}, -- Rattan Lumber
+                    {1000,  689}, -- Lauan Log
+                    { 1000,  912}, -- Beehive Chip
+                    { 500,  923}, -- Dryad Root
+                    { 500, 5908}, -- Butterpear
+                    { 500,  940}, -- Revival Tree Root
+                    { 500,  731}, -- Aquilaria Log
+                    { 500,  732}, -- Kapor Log
+                    { 500,  700}, -- Mahogany Log
+                    { 100,  702}, -- Ebony Log
                     { 100, 4274}, --Persikos
-                    {  90, 1237}, -- Tree Cuttings
+                    { 100, 1237}, -- Tree Cuttings
                 },
                 points =
                 {
