@@ -21,7 +21,7 @@ function onTrigger(player, npc)
         {
             4389,  29,    -- San d'Orian Carrot
             4431,  69,    -- San d'Orian Grape
-            639,  110,    -- Chestnut
+            --639,  110,    -- Chestnut
             610,   55,    -- San d'Orian Flour
         }
 
