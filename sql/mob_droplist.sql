@@ -2943,18 +2943,17 @@ INSERT INTO `mob_droplist` VALUES (524,0,0,1000,534,305);	-- (Crane Fly - Meriph
 INSERT INTO `mob_droplist` VALUES (524,0,0,1000,846,182);	-- Insect Wing
 INSERT INTO `mob_droplist` VALUES (525,4,0,1000,2334,0);
 INSERT INTO `mob_droplist` VALUES (525,0,0,1000,2490,100);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1606,50);
-INSERT INTO `mob_droplist` VALUES (526,4,0,1000,1607,0);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1607,10);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1608,10);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1609,10);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1610,100);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1611,10);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1612,50);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1613,60);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1687,130);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1689,130);
-INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1722,70);
+INSERT INTO `mob_droplist` VALUES (526,1,0,1000,1606,30); -- (Craver - Mea) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (526,1,0,1000,1607,30); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (526,1,0,1000,1608,30); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (526,1,0,1000,1609,30); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (526,1,0,1000,1610,30); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (526,1,0,1000,1611,30); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (526,1,0,1000,1612,30); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (526,1,0,1000,1613,30); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1687,150); -- Recollection of fear
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1689,150); -- Recollection of guilt
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1722,50); -- Indigo memosphere
 INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1606,100);
 INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1607,100);
 INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1608,100);
@@ -6173,18 +6172,17 @@ INSERT INTO `mob_droplist` VALUES (1206,4,0,1000,886,0); -- Demom Skull(Despoil)
 INSERT INTO `mob_droplist` VALUES (1206,4,0,1000,902,0); -- Demon Horn(Despoil)
 INSERT INTO `mob_droplist` VALUES (1206,0,0,1000,1437,150);
 INSERT INTO `mob_droplist` VALUES (1206,0,0,1000,17293,100);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1606,40);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1607,40);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1608,10);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1609,50);
-INSERT INTO `mob_droplist` VALUES (1207,4,0,1000,1610,0);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1610,10);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1611,10);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1612,10);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1613,50);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1688,120);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1689,130);
-INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1721,60);
+INSERT INTO `mob_droplist` VALUES (1207,1,0,1000,1606,30); -- (Gorger - Dem) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (1207,1,0,1000,1607,30); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (1207,1,0,1000,1608,30); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (1207,1,0,1000,1609,30); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (1207,1,0,1000,1610,30); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (1207,1,0,1000,1611,30); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (1207,1,0,1000,1612,30); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (1207,1,0,1000,1613,30); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1688,150); -- Recollection of pain
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1689,150); -- Recollection of guilt
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1721,50); -- Beryl memosphere
 INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1606,100);
 INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1607,100);
 INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1608,100);
@@ -10346,7 +10344,8 @@ INSERT INTO `mob_droplist` VALUES (1971,4,0,1000,4368,0);
 INSERT INTO `mob_droplist` VALUES (1971,0,0,1000,17868,260);
 INSERT INTO `mob_droplist` VALUES (1972,0,0,1000,505,1000); -- Sheepskin
 INSERT INTO `mob_droplist` VALUES (1972,0,0,1000,531,1000); -- Lanolin
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,624,80);
+INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,624,80); -- (Pahh the Gullcaller)
+INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,1313,50); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,888,340);
 INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4360,80);
 INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4443,80);
@@ -11325,33 +11324,34 @@ INSERT INTO `mob_droplist` VALUES (2190,0,0,1000,3228,100);
 INSERT INTO `mob_droplist` VALUES (2190,0,0,1000,11433,100);
 INSERT INTO `mob_droplist` VALUES (2190,0,0,1000,19288,100);
 INSERT INTO `mob_droplist` VALUES (2191,0,0,1000,3271,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1606,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1607,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1608,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1609,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1610,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1611,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1612,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1613,100);
-INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1689,80);
+INSERT INTO `mob_droplist` VALUES (2192,1,0,1000,1606,40); -- (Seether - Holla) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (2192,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2192,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2192,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2192,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2192,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2192,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2192,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2192,0,0,1000,1689,150); -- Recollection of guilt
 INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1606,40);
-INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1607,50);
-INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1608,60);
-INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1609,40);
-INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1610,60);
-INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1611,60);
-INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1612,60);
-INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1613,110);
-INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1687,170);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1606,100);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1607,100);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1608,100);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1609,100);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1610,100);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1611,100);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1612,100);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1613,100);
-INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1688,80);
+INSERT INTO `mob_droplist` VALUES (2193,1,0,1000,1607,40); -- (Seether - Dem) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (2193,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2193,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2193,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2193,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2193,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2193,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2193,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2193,0,0,1000,1687,150); -- Recollection Of Fear
+INSERT INTO `mob_droplist` VALUES (2194,1,0,1000,1606,40); -- (Seether - Mea) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (2194,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2194,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2194,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2194,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2194,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2194,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2194,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2194,0,0,1000,1688,150); -- Recollection Of Pain
 INSERT INTO `mob_droplist` VALUES (2195,0,0,1000,1606,100);
 INSERT INTO `mob_droplist` VALUES (2195,0,0,1000,1607,100);
 INSERT INTO `mob_droplist` VALUES (2195,0,0,1000,1608,100);
@@ -12261,17 +12261,17 @@ INSERT INTO `mob_droplist` VALUES (2397,0,0,1000,881,10);
 INSERT INTO `mob_droplist` VALUES (2397,2,0,1000,936,0);
 INSERT INTO `mob_droplist` VALUES (2397,0,0,1000,936,280);
 INSERT INTO `mob_droplist` VALUES (2397,0,0,1000,4400,70);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1606,50);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1607,50);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1608,10);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1609,10);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1610,10);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1611,50);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1612,10);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1613,50);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1687,90);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1688,150);
-INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1720,90);
+INSERT INTO `mob_droplist` VALUES (2398,1,0,1000,1606,30); -- (Thinker - Holla) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (2398,1,0,1000,1607,30); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2398,1,0,1000,1608,30); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2398,1,0,1000,1609,30); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2398,1,0,1000,1610,30); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2398,1,0,1000,1611,30); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2398,1,0,1000,1612,30); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2398,1,0,1000,1613,30); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1687,150); -- Recollection of fear
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1688,150); -- Recollection of pain
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1720,50); -- Teal memosphere
 INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1606,100);
 INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1607,100);
 INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1608,100);
@@ -13748,8 +13748,9 @@ INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,925,50);
 INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,1053,50);
 INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,4370,50);
 INSERT INTO `mob_droplist` VALUES (2587,2,0,1000,4370,0);
-INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,624,80);
+INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,624,80); -- (Voll The Sharkfinned)
 INSERT INTO `mob_droplist` VALUES (2588,2,0,1000,748,0);
+INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,1313,50); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4360,80);
 INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4443,80);
 INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4484,80);
@@ -13848,33 +13849,33 @@ INSERT INTO `mob_droplist` VALUES (2610,0,0,1000,15712,100);
 INSERT INTO `mob_droplist` VALUES (2610,0,0,1000,15728,100);
 INSERT INTO `mob_droplist` VALUES (2610,0,0,1000,16097,100);
 INSERT INTO `mob_droplist` VALUES (2611,0,0,1000,2173,100); -- Wamoura cocoon (UNCOMMON)
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1606,40); -- (Wanderer - Holla)
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1607,30);
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1608,50);
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1609,30);
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1610,50);
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1611,10);
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1612,120);
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1613,70);
-INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1687,120);
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1606,40); -- (Wanderer - Dem)
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1607,30);
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1608,50);
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1609,50);
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1610,30);
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1611,40);
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1612,90);
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1613,90);
-INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1688,100);
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1606,40); -- (Wanderer - Mea)
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1607,40);
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1608,30);
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1609,30);
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1610,30);
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1611,40);
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1612,100);
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1613,70);
-INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1689,120);
+INSERT INTO `mob_droplist` VALUES (2612,1,0,1000,1606,40); -- (Wanderer - Holla) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (2612,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2612,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2612,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2612,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2612,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2612,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2612,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2612,0,0,1000,1687,150); -- Recollection of fear
+INSERT INTO `mob_droplist` VALUES (2613,1,0,1000,1606,40); -- (Wanderer - Dem) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (2613,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2613,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2613,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2613,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2613,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2613,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2613,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2613,0,0,1000,1688,150); -- Recollection of pain
+INSERT INTO `mob_droplist` VALUES (2614,1,0,1000,1606,40); -- (Wanderer - Mea) Remnant of a burning memory
+INSERT INTO `mob_droplist` VALUES (2614,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2614,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2614,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2614,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2614,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2614,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2614,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2614,0,0,1000,1689,150); -- Recollection of guilt
 INSERT INTO `mob_droplist` VALUES (2615,0,0,1000,13122,1000);
 INSERT INTO `mob_droplist` VALUES (2616,0,0,1000,572,50);
 INSERT INTO `mob_droplist` VALUES (2616,0,0,1000,573,40);
@@ -13964,33 +13965,33 @@ INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,2148,380);
 INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,5667,60);
 INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,11574,100);
 INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,18898,100);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1606,60);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1607,10);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1608,60);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1609,50);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1610,30);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1611,30);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1612,120);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1613,100);
-INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1688,70);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1606,40);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1607,10);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1608,40);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1609,30);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1610,30);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1611,40);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1612,90);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1613,90);
-INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1689,140);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1606,10);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1607,30);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1608,10);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1609,50);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1610,50);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1611,50);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1612,100);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1613,110);
-INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1687,180);
+INSERT INTO `mob_droplist` VALUES (2634,1,0,1000,1606,40); -- (Weeper - Holla) Remnant Of A Burning Memory
+INSERT INTO `mob_droplist` VALUES (2634,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2634,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2634,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2634,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2634,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2634,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2634,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2634,0,0,1000,1688,150); -- Recollection of pain
+INSERT INTO `mob_droplist` VALUES (2635,1,0,1000,1606,40); -- (Weeper - Dem) Remnant Of A Burning Memory
+INSERT INTO `mob_droplist` VALUES (2635,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2635,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2635,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2635,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2635,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2635,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2635,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2635,0,0,1000,1689,150); -- Recollection Of Guilt
+INSERT INTO `mob_droplist` VALUES (2636,1,0,1000,1606,40); -- (Weeper - Mea) Remnant Of A Burning Memory
+INSERT INTO `mob_droplist` VALUES (2636,1,0,1000,1607,40); -- Remnant of a bitter memory
+INSERT INTO `mob_droplist` VALUES (2636,1,0,1000,1608,40); -- Remnant of a fleeting memory
+INSERT INTO `mob_droplist` VALUES (2636,1,0,1000,1609,40); -- Remnant of a profane memory
+INSERT INTO `mob_droplist` VALUES (2636,1,0,1000,1610,40); -- Remnant of a startling memory
+INSERT INTO `mob_droplist` VALUES (2636,1,0,1000,1611,40); -- Remnant of a somber memory
+INSERT INTO `mob_droplist` VALUES (2636,2,0,1000,1612,120); -- Remnant of a radiant memory (Light)
+INSERT INTO `mob_droplist` VALUES (2636,2,0,1000,1613,120); -- Remnant of a malevolent memory (Dark)
+INSERT INTO `mob_droplist` VALUES (2636,0,0,1000,1687,150); -- Recollection Of Fear
 INSERT INTO `mob_droplist` VALUES (2637,0,0,1000,1606,100);
 INSERT INTO `mob_droplist` VALUES (2637,0,0,1000,1607,100);
 INSERT INTO `mob_droplist` VALUES (2637,0,0,1000,1608,100);
@@ -14160,7 +14161,8 @@ INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,925,13);
 INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,2164,340);
 INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,4508,30);
 INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,5562,190);
-INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,624,80);
+INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,624,80); -- (Worr the Clawfisted)
+INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,1313,50); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,4360,80);
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,4443,80);
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,4484,80);
@@ -14966,8 +14968,9 @@ INSERT INTO `mob_droplist` VALUES (2811,0,0,1000,17450,100);
 INSERT INTO `mob_droplist` VALUES (2812,2,0,1000,847,0);
 INSERT INTO `mob_droplist` VALUES (2812,0,0,1000,847,310);
 INSERT INTO `mob_droplist` VALUES (2812,0,0,1000,4570,140);
-INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,624,80);
+INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,624,80); -- (Zuug the Shoreleaper)
 INSERT INTO `mob_droplist` VALUES (2813,2,0,1000,748,0);
+INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,1313,50); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,4360,80);
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,4443,80);
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,4514,80);
@@ -16433,13 +16436,6 @@ INSERT INTO `mob_droplist` VALUES (3168,0,0,1000,4108,240);
 INSERT INTO `mob_droplist` VALUES (3168,0,0,1000,4108,150);
 INSERT INTO `mob_droplist` VALUES (3168,0,0,1000,1059,50);
 INSERT INTO `mob_droplist` VALUES (3169,0,0,1000,1049,50); -- (Temple Guardian) Coffer Key
-INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,1620,50); -- (Tyrannotaur  / Brontotaur) Taurus horn
-INSERT INTO `mob_droplist` VALUES (3170,0,0,1000,1621,50); -- Taurus wing
-INSERT INTO `mob_droplist` VALUES (3171,0,0,1000,557,240); -- (Fachan) Ahriman lens
-INSERT INTO `mob_droplist` VALUES (3171,2,0,1000,921,0); -- Bottle of Ahriman tears (Steal)
-INSERT INTO `mob_droplist` VALUES (3171,0,0,1000,921,240); -- Bottle of Ahriman tears
-INSERT INTO `mob_droplist` VALUES (3171,0,0,1000,921,150); -- Bottle of Ahriman tears
-INSERT INTO `mob_droplist` VALUES (3171,0,0,1000,935,150); -- Ahriman wing
 
 
 -- Avatars
@@ -16530,6 +16526,11 @@ INSERT INTO `mob_droplist` VALUES (3196,0,0,1000,16563,240); -- Rune Blade 24%
 INSERT INTO `mob_droplist` VALUES (3197,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3197,0,0,1000,16563,240); -- Rune Blade 24% 
 
+
+
+
+---------------------Normal Mobs---------------------
+
 INSERT INTO `mob_droplist` VALUES (6000,0,0,1000,924,10); -- (Ogre Bat - KRT)
 INSERT INTO `mob_droplist` VALUES (6000,0,0,1000,922,240);
 INSERT INTO `mob_droplist` VALUES (6000,0,0,1000,891,1000);
@@ -16575,6 +16576,17 @@ INSERT INTO `mob_droplist` VALUES (6014,0,0,1000,4876,50);
 INSERT INTO `mob_droplist` VALUES (6014,0,0,1000,4877,50);
 INSERT INTO `mob_droplist` VALUES (6014,0,0,1000,4878,50);
 INSERT INTO `mob_droplist` VALUES (6014,0,0,1000,4860,50);
+INSERT INTO `mob_droplist` VALUES (6015,0,0,1000,1620,50); -- (Tyrannotaur  / Brontotaur) Taurus horn
+INSERT INTO `mob_droplist` VALUES (6015,0,0,1000,1621,50); -- Taurus wing
+INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,557,240); -- (Fachan) Ahriman lens
+INSERT INTO `mob_droplist` VALUES (6016,2,0,1000,921,0); -- Bottle of Ahriman tears (Steal)
+INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,921,240); -- Bottle of Ahriman tears
+INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,921,150); -- Bottle of Ahriman tears
+INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,935,150); -- Ahriman wing
+INSERT INTO `mob_droplist` VALUES (6017,0,0,1000,919,240); -- (Old Goobbue) Clump of Boyahda moss
+INSERT INTO `mob_droplist` VALUES (6017,0,0,1000,1237,150); -- Bag of tree cuttings
+INSERT INTO `mob_droplist` VALUES (6017,0,0,1000,1181,50); -- Clump of goobbue humus
+INSERT INTO `mob_droplist` VALUES (6017,0,0,1000,1181,50); -- Boyahda coffer key
 
 ---------------------Dynamis---------------------
 
