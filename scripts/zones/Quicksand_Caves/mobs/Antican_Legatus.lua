@@ -10,6 +10,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.EVA, 50)
     mob:setMod(tpz.mod.UFASTCAST, 50)
+    mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.SDT_WATER, 85)
     mob:setMod(tpz.mod.SDT_LIGHT, 85)
     mob:setMod(tpz.mod.SDT_EARTH, 50)
@@ -18,6 +19,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_DARK, 85)
     mob:setMod(tpz.mod.SDT_FIRE, 85)
     mob:setMod(tpz.mod.SDT_ICE, 85)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 16)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
@@ -29,7 +31,7 @@ function onMobFight(mob, target)
     local GuardsDead = GetMobByID(ID.mob.ANTICAN_CONSUL):isDead() and GetMobByID(ID.mob.ANTICAN_PRAETOR):isDead()
 
     if mob:getHPP() <= 75 and hitTrigger == 0 and Shell == 0   then
-        target:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
         Guard:spawn()
         Guard:updateEnmity(target)
         GuardTwo:spawn()
@@ -39,7 +41,7 @@ function onMobFight(mob, target)
         printf("Spawning Guards 75%");
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 and Shell == 0  then
-        target:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:addMod(tpz.mod.ATTP, 25)
         mob:addMod(tpz.mod.ACC, 50)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 20)
@@ -53,7 +55,7 @@ function onMobFight(mob, target)
         printf("Spawning Guards 50%");
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 and Shell == 0  then
-        target:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:addMod(tpz.mod.ATTP, 25)
         mob:addMod(tpz.mod.ACC, 50)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 20)

@@ -42,8 +42,6 @@ INSERT INTO `mob_pool_mods` VALUES (21,29,100,0);
 INSERT INTO `mob_pool_mods` VALUES (60,370,20,0);
 INSERT INTO `mob_pool_mods` VALUES (70,48,434,1);
 INSERT INTO `mob_pool_mods` VALUES (154,163,-70,0);
-INSERT INTO `mob_pool_mods` VALUES (181,1,6000,1); -- (Antican_Praetor) GIL_MIN
-INSERT INTO `mob_pool_mods` VALUES (181,2,9234,1); -- (Antican_Praetor) GIL_MAX
 INSERT INTO `mob_pool_mods` VALUES (236,30,732,1);
 INSERT INTO `mob_pool_mods` VALUES (236,33,60,1);
 INSERT INTO `mob_pool_mods` VALUES (237,44,1,1);

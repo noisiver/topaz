@@ -4020,7 +4020,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 204, 1, 255); -- Flare
 INSERT INTO `mob_spell_lists` VALUES ('Marquis_Sabnock', 1007, 219, 1, 255); -- Comet 
 
 INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus', 1008, 191, 1, 255); -- Stonega III
-INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus',1008,162,24,255); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus',1008,162,1,255); -- Stone IV
 INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus',1008, 211, 1, 255); -- Quake II
 INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus',1008, 357, 1, 255); -- Slowga
 INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus',1008,365,1,255); -- breakga
