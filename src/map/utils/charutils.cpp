@@ -3814,10 +3814,8 @@ namespace charutils
 
                 if (PChar->PParty != nullptr)
                 {
-                    if (PChar->PParty->GetSyncTarget() == PChar)
-                    {
-                        PChar->PParty->RefreshSync();
-                    }
+
+                    PChar->PParty->RefreshSync();
                     PChar->PParty->ReloadParty();
                 }
 
