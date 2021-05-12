@@ -601,11 +601,15 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     local p = getMagicHitRate(caster, target, skill, element, percentBonus, magicaccbonus)
     local res = getMagicResist(p)
     
-    if getElementalSDT(element, target) == 5 then -- jimmayus: SDT tier .05 makes you lose ALL coin flips
+	if getElementalSDT(element, target) == 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
+		res = 1/4
+    elseif getElementalSDT(element, target) == 5 then -- jimmayus: SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
     
-    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
+	if getElementalSDT(element, target) == 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
+		res = res
+    elseif getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
     
@@ -1402,6 +1406,9 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
 
     local resm = applyResistance(caster, target, spell, params)
     -- print("rsem=" .. resm)
+	 if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
+		resm = 1
+	end
 
     if (resm < 0.5) then
         -- print("resm resist")
@@ -1627,6 +1634,10 @@ function doElementalNuke(caster, spell, target, spellParams)
     local element = spell:getElement()
     
     local MTDR = 1.0
+	
+	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
+		resist = 1
+	end
     
     if hasMultipleTargetReduction == true then
         MTDR = 0.90 - spell:getTotalTargets() * 0.05
@@ -1693,6 +1704,10 @@ function doNuke(caster, target, spell, params)
     local dmg = calculateMagicDamage(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
+	
+	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
+		resist = 1
+	end
     --get the resisted damage
     dmg = dmg*resist
     if (skill == tpz.skill.NINJUTSU) then
@@ -1746,6 +1761,10 @@ function doDivineBanishNuke(caster, target, spell, params)
     local dmg = calculateMagicDamage(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
+	 
+	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
+		resist = 1
+	end
     --get the resisted damage
     dmg = dmg*resist
     
