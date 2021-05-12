@@ -723,11 +723,11 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     
     p = p + percentBonus
     p = utils.clamp(p, 5, 95)
-   -- print(string.format("step1: %u",p))
-	--GetPlayerByID(6):PrintToPlayer(string.format("pre SDT: %u",p))
+    print(string.format("step1: %u",p))
+	GetPlayerByID(6):PrintToPlayer(string.format("pre SDT: %u",p))
     p = p * SDT/100
-	--print(string.format("step2: %u",p))
-	--GetPlayerByID(6):PrintToPlayer(string.format("post SDT: %u",p))
+	print(string.format("step2: %u",p))
+	GetPlayerByID(6):PrintToPlayer(string.format("post SDT: %u",p))
     return utils.clamp(p, 5, 95)
 end
 
