@@ -27,6 +27,8 @@ function onSpellCast(caster, target, spell)
     spellParams.I = 626
 
     -- no point in making a separate function for this if the only thing they won't have in common is the name
+    target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 8.25, 0, 60)
+	target:addStatusEffect(tpz.effect.EVASION_DOWN, 10, 0, 60)
     handleNinjutsuDebuff(caster, target, spell, 30, 10, tpz.mod.THUNDERRES)
 
     return doElementalNuke(caster, spell, target, spellParams)
