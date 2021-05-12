@@ -10405,7 +10405,7 @@ INSERT INTO `mob_groups` VALUES (13,3967,160,'Tonberry_Slasher',600,0,2446,0,0,8
 INSERT INTO `mob_groups` VALUES (14,3949,160,'Tonberry_Beleaguerer',600,0,2429,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (15,3971,160,'Tonberrys_Elemental',0,128,0,0,0,71,73,0);
 INSERT INTO `mob_groups` VALUES (16,6585,160,'Bifrons',600,0,270,0,0,68,70,0);
-INSERT INTO `mob_groups` VALUES (17,1425,160,'Friar_Rush',0,32,907,0,0,70,70,0);
+INSERT INTO `mob_groups` VALUES (17,1425,160,'Friar_Rush',0,32,907,35000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (18,6414,160,'Cave_Worm',600,0,438,0,0,61,64,0);
 INSERT INTO `mob_groups` VALUES (19,640,160,'Carmine-tailed_Janberry',0,32,417,0,0,66,67,0);
 INSERT INTO `mob_groups` VALUES (20,3977,160,'Tormentor',600,0,424,0,0,75,79,0);
@@ -10420,7 +10420,7 @@ INSERT INTO `mob_groups` VALUES (28,1086,160,'Doom_Toad',600,0,687,0,0,79,81,0);
 INSERT INTO `mob_groups` VALUES (29,3806,160,'Succubus_Bats',600,0,2358,0,0,65,69,0);
 INSERT INTO `mob_groups` VALUES (30,6333,160,'Cutlass_Scorpion',600,0,550,0,0,68,70,0);
 INSERT INTO `mob_groups` VALUES (31,2662,160,'Million_Eyes',600,0,1673,0,0,73,76,0);
-INSERT INTO `mob_groups` VALUES (32,2948,160,'Ogama',0,32,1840,0,0,80,84,0);
+INSERT INTO `mob_groups` VALUES (32,2948,160,'Ogama',0,32,1840,35000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (33,3953,160,'Tonberry_Decapitator',1260,0,2433,30000,0,83,85,0); 
 INSERT INTO `mob_groups` VALUES (34,3972,160,'Tonberry_Tracker',1560,0,2449,29000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (35,3964,160,'Tonberry_Pontifex',86400,0,2443,28000,0,83,85,0);

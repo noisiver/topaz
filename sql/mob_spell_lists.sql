@@ -4068,6 +4068,11 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impac
 -- Novv the Whitehearted
 INSERT INTO `mob_spell_lists` VALUES ('Novv_the_Whitehearted',445, 417, 1, 255); -- Honor March
 
+-- Friar Rush
+INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush',446,147,1,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush', 446, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush',446, 205, 1, 255); -- Flare II
+
 -- Zilart Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- tornado_ii

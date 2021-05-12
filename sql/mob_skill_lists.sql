@@ -3705,7 +3705,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,537);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,538);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,539);
 INSERT INTO `mob_skill_lists` VALUES ('Doll-NM',1152,541);
-INSERT INTO `mob_skill_lists` VALUES ('DarkSpark',1153,510); -- 50% Berserk
+INSERT INTO `mob_skill_lists` VALUES ('DarkSpark',1153,510); -- Berserk
 INSERT INTO `mob_skill_lists` VALUES ('BadBreath',1154,319); -- Bad Breath Only
 INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1232); -- Murk
 INSERT INTO `mob_skill_lists` VALUES ('Delver',1155,1233); -- material_fend
@@ -3856,12 +3856,17 @@ INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,774); -- Bubble
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,777);  -- Hydro shot
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,780); -- Spinning Fin
 -- Wyvern Form
-INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,813); -- Dispelling_Wind
-INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,815); -- Wind_Wall
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,813); -- Dispelling Wind
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,815); -- Wind Wall
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,821); -- Radiant Breath
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,819); -- Blizzard breath -- chance of ice spikes effect
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,820); -- Thunder breath -- chance of shock spikes effect
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,822); -- Chaos breath -- chance of dread spikes effect
+
+-- Friar Rush
+INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,3061); -- Firefly Fandango
+INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,3061); -- Berserk
+
 
 
 
