@@ -72,28 +72,28 @@ INSERT INTO `mob_droplist` VALUES (6,2,0,1000,1640,0);
 INSERT INTO `mob_droplist` VALUES (6,0,0,1000,1640,290);
 INSERT INTO `mob_droplist` VALUES (6,2,0,1000,1680,0);
 INSERT INTO `mob_droplist` VALUES (6,0,0,1000,3085,60);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,624,50);
+INSERT INTO `mob_droplist` VALUES (7,0,0,1000,624,240); -- Abyss Sahagin
 INSERT INTO `mob_droplist` VALUES (7,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,888,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,1435,510);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,4360,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,4443,80);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,4484,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,4981,240);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5000,80);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5005,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5022,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5028,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5039,110);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5040,30);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5041,80);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5042,120);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5043,30);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5044,90);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5045,60);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5072,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5073,50);
-INSERT INTO `mob_droplist` VALUES (7,0,0,1000,5074,100);
+INSERT INTO `mob_droplist` VALUES (7,1,3,1000,888,50);
+INSERT INTO `mob_droplist` VALUES (7,0,0,1000,1435,240);
+INSERT INTO `mob_droplist` VALUES (7,1,4,1000,4360,240);
+INSERT INTO `mob_droplist` VALUES (7,1,4,1000,4443,240);
+INSERT INTO `mob_droplist` VALUES (7,1,4,1000,4484,240);
+INSERT INTO `mob_droplist` VALUES (7,1,4,1000,4981,240);
+INSERT INTO `mob_droplist` VALUES (7,1,3,1000,5000,240);
+INSERT INTO `mob_droplist` VALUES (7,1,3,1000,5005,240);
+INSERT INTO `mob_droplist` VALUES (7,1,3,1000,5022,240);
+INSERT INTO `mob_droplist` VALUES (7,1,3,1000,5028,240);
+INSERT INTO `mob_droplist` VALUES (7,1,2,1000,5039,240);
+INSERT INTO `mob_droplist` VALUES (7,1,2,1000,5040,240);
+INSERT INTO `mob_droplist` VALUES (7,1,2,1000,5041,240);
+INSERT INTO `mob_droplist` VALUES (7,1,2,1000,5042,240);
+INSERT INTO `mob_droplist` VALUES (7,1,1,1000,5043,240);
+INSERT INTO `mob_droplist` VALUES (7,1,1,1000,5044,240);
+INSERT INTO `mob_droplist` VALUES (7,1,1,1000,5045,240);
+INSERT INTO `mob_droplist` VALUES (7,1,1,1000,5072,240);
+INSERT INTO `mob_droplist` VALUES (7,1,5,1000,5073,240); --  Scroll of Mazurka
+INSERT INTO `mob_droplist` VALUES (7,1,5,1000,5074,240); -- Scroll of Maiden's Virelai
 INSERT INTO `mob_droplist` VALUES (8,0,0,1000,640,100);
 INSERT INTO `mob_droplist` VALUES (8,0,0,1000,642,50);
 INSERT INTO `mob_droplist` VALUES (8,0,0,1000,736,10);
@@ -2894,16 +2894,16 @@ INSERT INTO `mob_droplist` VALUES (514,0,0,1000,609,25);
 INSERT INTO `mob_droplist` VALUES (514,0,0,1000,1984,240);
 --INSERT INTO `mob_droplist` VALUES (514,0,0,1000,2758,30);	--backscale
 INSERT INTO `mob_droplist` VALUES (515,0,0,1000,2839,182); -- (Coquecigrue) Coquecigrue Skin
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,624,80);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,624,100); -- (Coral Sahagin)
 INSERT INTO `mob_droplist` VALUES (516,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,1428,500);
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4360,80);
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4613,80);
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4621,160);
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4638,80);
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4719,90);
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4741,80);
-INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4750,320);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,1428,240);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4360,100);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4613,100);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4621,150);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4638,100);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4719,100);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4741,100);
+INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4750,240);
 INSERT INTO `mob_droplist` VALUES (517,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (517,4,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (517,0,0,1000,880,220);
@@ -9657,14 +9657,18 @@ INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,17960,150);
 INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,19033,550);
 INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,19036,570);
 INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,624,240); -- (Novv the Whitehearted) clump_of_pamtam_kelp
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4360,240); -- (Novv the Whitehearted) bastore_sardine
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4443,100); -- (Novv the Whitehearted) cobalt_jellyfish
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4514,50); -- (Novv the Whitehearted) quus
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4613,100); -- (Novv the Whitehearted) scroll_of_cure_v
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4618,50); -- (Novv the Whitehearted) scroll_of_curaga_iv
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4719,240); -- (Novv the Whitehearted) scroll_of_regen_iii
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4741,240); -- (Novv the Whitehearted) scroll_of_shellra_iv
-INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,13804,240); -- (Novv the Whitehearted) minstrels_coat
+INSERT INTO `mob_droplist` VALUES (1825,2,0,1000,751,0); -- Platinum Beastcoin
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4360,240); --  bastore_sardine
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4443,100); --  cobalt_jellyfish
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4514,50); --  quus
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4613,100); --  scroll_of_cure_v
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4618,50); --  scroll_of_curaga_iv
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4719,240); -- scroll_of_regen_iii
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4741,240); -- scroll_of_shellra_iv
+INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,13804,240); --  Minstrel's Coat
+INSERT INTO `mob_droplist` VALUES (1825,1,1,1000,1311,33); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (1825,1,1,1000,1312,33); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (1825,1,1,1000,1313,33); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,100);
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,50);
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,30);
@@ -9746,9 +9750,9 @@ INSERT INTO `mob_droplist` VALUES (1835,2,0,1000,936,0);
 INSERT INTO `mob_droplist` VALUES (1835,0,0,1000,936,110);
 INSERT INTO `mob_droplist` VALUES (1835,0,0,1000,4400,100);
 INSERT INTO `mob_droplist` VALUES (1836,2,0,1000,751,0); -- (Ocean Sahagin) platinum_beastcoin: steal
-INSERT INTO `mob_droplist` VALUES (1836,0,0,1000,1439,722); -- (Ocean Sahagin) dragoons_testimony
-INSERT INTO `mob_droplist` VALUES (1836,0,0,1000,4484,278); -- (Ocean Sahagin) shall_shell
-INSERT INTO `mob_droplist` VALUES (1836,0,0,1000,16855,56); -- (Ocean Sahagin) colossal_lance
+INSERT INTO `mob_droplist` VALUES (1836,0,0,1000,1439,1000); -- (Ocean Sahagin) dragoons_testimony
+INSERT INTO `mob_droplist` VALUES (1836,0,0,1000,4484,240); -- (Ocean Sahagin) shall_shell
+INSERT INTO `mob_droplist` VALUES (1836,0,0,1000,16855,50); -- (Ocean Sahagin) colossal_lance
 INSERT INTO `mob_droplist` VALUES (1837,2,0,1000,920,0);
 INSERT INTO `mob_droplist` VALUES (1837,0,0,1000,920,461);	-- (Ochu - Rolanberry Fields) Malboro Vine
 INSERT INTO `mob_droplist` VALUES (1837,0,0,1000,920,260);
@@ -10337,20 +10341,23 @@ INSERT INTO `mob_droplist` VALUES (1970,0,0,1000,3229,450);
 INSERT INTO `mob_droplist` VALUES (1970,0,0,1000,4254,1000);
 INSERT INTO `mob_droplist` VALUES (1970,0,0,1000,11728,130);
 INSERT INTO `mob_droplist` VALUES (1970,0,0,1000,11734,1000);
-INSERT INTO `mob_droplist` VALUES (1970,0,0,1000,14365,480);
+INSERT INTO `mob_droplist` VALUES (1970,0,0,1000,14365,240);
 INSERT INTO `mob_droplist` VALUES (1971,4,0,1000,834,0);
 INSERT INTO `mob_droplist` VALUES (1971,0,0,1000,2920,120);
 INSERT INTO `mob_droplist` VALUES (1971,4,0,1000,4368,0);
-INSERT INTO `mob_droplist` VALUES (1971,0,0,1000,17868,260);
+INSERT INTO `mob_droplist` VALUES (1971,0,0,1000,17868,240);
 INSERT INTO `mob_droplist` VALUES (1972,0,0,1000,505,1000); -- Sheepskin
 INSERT INTO `mob_droplist` VALUES (1972,0,0,1000,531,1000); -- Lanolin
 INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,624,80); -- (Pahh the Gullcaller)
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,1313,50); -- Siren's Hair
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,888,340);
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4360,80);
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4443,80);
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4514,80);
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,16882,240); -- (Pahh The Gullcaller) - Calamar
+INSERT INTO `mob_droplist` VALUES (1973,2,0,1000,751,0); -- Platinum Beastcoin
+INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1311,33); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1312,33); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1313,33); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,888,240);
+INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4360,100);
+INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4443,100);
+INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,4514,100);
+INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,16882,240); -- Calamar
 INSERT INTO `mob_droplist` VALUES (1974,0,0,1000,14021,50); -- (Pallas - VUnkerl) Pallas's bracelets
 INSERT INTO `mob_droplist` VALUES (1974,0,0,1000,16173,100);
 INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,497,1000);	-- (Pallas - Upper Delkfutts) Gigas Socks
@@ -13748,13 +13755,15 @@ INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,925,50);
 INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,1053,50);
 INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,4370,50);
 INSERT INTO `mob_droplist` VALUES (2587,2,0,1000,4370,0);
-INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,624,80); -- (Voll The Sharkfinned)
-INSERT INTO `mob_droplist` VALUES (2588,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,1313,50); -- Siren's Hair
-INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4360,80);
-INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4443,80);
-INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4484,80);
-INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,13875,100);
+INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,624,100); -- (Voll The Sharkfinned)
+INSERT INTO `mob_droplist` VALUES (2588,2,0,1000,751,0); -- Platinum Beastcoin
+INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1311,33); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1312,33); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1313,33); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4360,100);
+INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4443,100);
+INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,4484,100);
+INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,13875,100); -- Monsoon Jinpachi
 INSERT INTO `mob_droplist` VALUES (2589,0,0,1000,920,240); -- (Voluptuous Vilma) Malboro Vine
 INSERT INTO `mob_droplist` VALUES (2589,0,0,1000,1446,50); -- Lacquer tree log
 INSERT INTO `mob_droplist` VALUES (2589,0,0,1000,4598,850); -- Wild pineapple
@@ -14162,12 +14171,15 @@ INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,2164,340);
 INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,4508,30);
 INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,5562,190);
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,624,80); -- (Worr the Clawfisted)
-INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,1313,50); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (2673,2,0,1000,751,0); -- Platinum Beastcoin
+INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1311,33); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1312,33); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1313,33); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,4360,80);
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,4443,80);
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,4484,80);
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,4514,80);
-INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,17504,100);
+INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,17504,240); -- Pagures
 INSERT INTO `mob_droplist` VALUES (2674,0,0,1000,529,50);
 INSERT INTO `mob_droplist` VALUES (2674,2,0,1000,825,0);
 INSERT INTO `mob_droplist` VALUES (2674,0,0,1000,825,1000);
@@ -14969,12 +14981,14 @@ INSERT INTO `mob_droplist` VALUES (2812,2,0,1000,847,0);
 INSERT INTO `mob_droplist` VALUES (2812,0,0,1000,847,310);
 INSERT INTO `mob_droplist` VALUES (2812,0,0,1000,4570,140);
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,624,80); -- (Zuug the Shoreleaper)
-INSERT INTO `mob_droplist` VALUES (2813,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,1313,50); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (2813,2,0,1000,751,0); -- Platinum Beastcoin
+INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1311,33); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1312,33); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1313,33); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,4360,80);
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,4443,80);
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,4514,80);
-INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,16884,100);
+INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,16884,240); -- Narval 
 INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,3504,100);
 INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,3541,100);

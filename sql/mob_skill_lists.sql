@@ -3800,7 +3800,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,2576); -- mercurial strik
 
 -- Marquis Sabnock
 
---Phase 1
+-- Phase 1
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1148); -- Condemnation 
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1149); -- Quadrastrike
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,2691); -- Dark Sun
@@ -3810,7 +3810,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,1149); 
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,2691); -- Dark Sun
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_25',6008,2690); -- Dark Moon
 
---Biast
+-- Biast
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,2437); -- Aqua Blast
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,645); -- Body Slam
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,647); -- Chaos Blade
@@ -3819,6 +3819,50 @@ INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,649); -- Void Song
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,650); -- Thorn Song
 -- Mighty Strikes
 INSERT INTO `mob_skill_lists` VALUES ('Biast_MS',6010,645); -- Body Slam
+
+-- Novv the Whitehearted
+INSERT INTO `mob_skill_lists` VALUES ('Novv_the_Whitehearted',6010,771); -- Hydro Ball
+INSERT INTO `mob_skill_lists` VALUES ('Novv_the_Whitehearted',6010,774); -- Bubble Armor
+INSERT INTO `mob_skill_lists` VALUES ('Novv_the_Whitehearted',6010,777);  -- Hydro shot
+INSERT INTO `mob_skill_lists` VALUES ('Novv_the_Whitehearted',6010,1957); -- Frog Song
+INSERT INTO `mob_skill_lists` VALUES ('Novv_the_Whitehearted',6010,1960); -- Frog Cheer
+
+-- Zuug the Shoreleaper
+INSERT INTO `mob_skill_lists` VALUES ('Zuug_the_Shoreleaper',6011,771); -- Hydro Ball
+INSERT INTO `mob_skill_lists` VALUES ('Zuug_the_Shoreleaper',6011,774); -- Bubble Armor
+INSERT INTO `mob_skill_lists` VALUES ('Zuug_the_Shoreleaper',6011,780); -- Spinning Fin
+INSERT INTO `mob_skill_lists` VALUES ('Zuug_the_Shoreleaper',6011,770); -- Jumping Thrust
+INSERT INTO `mob_skill_lists` VALUES ('Zuug_the_Shoreleaper',6011,2144); -- Divine Spear
+-- Spirit Surge
+INSERT INTO `mob_skill_lists` VALUES ('Zuug_the_Shoreleaper',6012,770); -- Jumping Thrust
+
+-- Voll the Sharkfinned
+INSERT INTO `mob_skill_lists` VALUES ('Voll_the_Sharkfinned',6013,771); -- Hydro Ball
+INSERT INTO `mob_skill_lists` VALUES ('Voll_the_Sharkfinned',6013,777); -- Hydro shot
+INSERT INTO `mob_skill_lists` VALUES ('Voll_the_Sharkfinned',6013,780); -- Spinning Fin
+INSERT INTO `mob_skill_lists` VALUES ('Voll_the_Sharkfinned',6013,3993); -- Sucker Punch
+INSERT INTO `mob_skill_lists` VALUES ('Voll_the_Sharkfinned',6013,3496); -- Hollow Smite
+
+-- Worr the Clawfisted
+INSERT INTO `mob_skill_lists` VALUES ('Worr_the_Clawfisted',6014,771); -- Hydro Ball
+INSERT INTO `mob_skill_lists` VALUES ('Worr_the_Clawfisted',6014,774); -- Bubble Armor
+INSERT INTO `mob_skill_lists` VALUES ('Worr_the_Clawfisted',6014,780); -- Spinning Fin
+INSERT INTO `mob_skill_lists` VALUES ('Worr_the_Clawfisted',6014,2623);  -- Ballistic Kick
+INSERT INTO `mob_skill_lists` VALUES ('Worr_the_Clawfisted',6014,1732);  -- Somersault Kick
+
+-- Pahh the Gullcaller
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,771); -- Hydro Ball
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,774); -- Bubble Armor
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,777);  -- Hydro shot
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,780); -- Spinning Fin
+-- Wyvern Form
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,813); -- Dispelling_Wind
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,815); -- Wind_Wall
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,821); -- Radiant Breath
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,819); -- Blizzard breath -- chance of ice spikes effect
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,820); -- Thunder breath -- chance of shock spikes effect
+INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,822); -- Chaos breath -- chance of dread spikes effect
+
 
 
 -- Next available ID: 1148

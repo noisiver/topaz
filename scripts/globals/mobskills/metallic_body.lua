@@ -15,11 +15,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 25 -- ffxiclopedia claims its always 25 on the crabs page. Tested on wootzshell in mt zhayolm..
-    --[[
+
     if (mob:isNM()) then
-        power = ???  Betting NMs aren't 25 but I don't have data..
+        power = 25 + (mob:getMainLvl() / 1)
     end
-    ]]
+
     skill:setMsg(MobBuffMove(mob, tpz.effect.STONESKIN, power, 0, 300))
     return tpz.effect.STONESKIN
 end

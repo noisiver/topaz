@@ -8,8 +8,8 @@ require("scripts/globals/status")
 
 function onMobSpawn(mob)
     mob:setModelId(643) -- Black
-    mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 50)
     mob:setMod(tpz.mod.UDMGPHYS, 100)
@@ -23,6 +23,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_DARK, 85)
     mob:setMod(tpz.mod.SDT_FIRE, 85)
     mob:setMod(tpz.mod.SDT_ICE, 85)
+    mob:setMobMod(tpz.mobMod.SKILL_LIST, 126)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 

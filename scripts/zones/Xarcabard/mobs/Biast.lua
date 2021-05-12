@@ -66,7 +66,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local buffone = tpz.effect.ICE_SPIKES
 
-    if skill:getID() == 2437 then
+    if skill:getID() == 2437 then -- Aqua Blast
         mob:addStatusEffect(tpz.effect.ICE_SPIKES, 20, 0, 30)
         mob:getStatusEffect(buffone):unsetFlag(tpz.effectFlag.DISPELABLE)
     end

@@ -8,7 +8,7 @@ require("scripts/globals/status")
 
 function onEffectGain(target, effect)
     if (effect:getPower()>100) then
-        effect:setPower(50)
+        effect:setPower(100)
     end
     target:addMod(tpz.mod.DEFP, -effect:getPower())
 end

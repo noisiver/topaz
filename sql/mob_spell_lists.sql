@@ -4065,6 +4065,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelg
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
 
+-- Novv the Whitehearted
+INSERT INTO `mob_spell_lists` VALUES ('Novv_the_Whitehearted',445, 417, 1, 255); -- Honor March
+
 -- Zilart Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- tornado_ii
