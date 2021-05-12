@@ -750,9 +750,7 @@ function getMagicResist(magicHitRate)
     local resvar = math.random()
 
     -- sixteenth section removed as it is not obtainable under normal circumstances... requires getting a 1/8th roll reduced by half via a 50% or lower SDT tier
-	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		 resist = 1.0
-    elseif (resvar <= eighth) then
+    if (resvar <= eighth) then
         resist = 0.125
         --printf("Spell resisted to 1/8!  Threshold = %u",eighth)
     elseif (resvar <= quart) then
