@@ -607,8 +607,8 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         res = 1/8
     end
     
-	if getElementalSDT(element, target) == 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		res = res
+	if getElementalSDT(element, target) <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
+		res = 1.0
     elseif getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
