@@ -6,17 +6,44 @@ require("scripts/globals/hunts")
 mixins =
 {
     require("scripts/mixins/families/tonberry"),
-    require("scripts/mixins/job_special")
 }
 -----------------------------------
-
 function onMobSpawn(mob)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.MANAFONT, hpp = math.random(40, 95)},
-        },
-    })
+    mob:addMod(tpz.mod.MATT, 20)
+    mob:addMod(tpz.mod.DEFP, 25)
+    mob:setMod(tpz.mod.UFASTCAST, 50)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+end
+
+function onMobFight(mob, target)
+    local battletime = mob:getBattleTime()
+    local twohourTime = mob:getLocalVar("twohourTime")
+    local wingsTime = mob:getLocalVar("wingsTime")
+    local wingsDown = mob:getLocalVar("wingsDown")
+
+    if twohourTime == 0 then
+        printf("Setting two hour time");
+        mob:setLocalVar("twohourTime", math.random(20, 30))
+    elseif battletime >= twohourTime and wingsDown == 0 then
+        printf("Wings Up");
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:useMobAbility(2525) -- Chilling Roar(10s AOE Terror)
+        mob:castSpell(218) -- Meteor
+        mob:setLocalVar("wingsTime", battletime + 10)
+        mob:setLocalVar("wingsDown", 1)
+    end
+
+    if battletime >= wingsTime and wingsDown == 1 then
+        printf("Wings Down");
+        mob:SetMagicCastingEnabled(false)
+        mob:setLocalVar("twohourTime", battletime + math.random(20, 30))
+        mob:setLocalVar("wingsTime", 0)
+        mob:setLocalVar("wingsDown", 0)
+    end
 end
 
 function onMobDeath(mob, player, isKiller)

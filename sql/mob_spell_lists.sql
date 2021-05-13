@@ -4014,8 +4014,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 235, 1, 255); -- Burn
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 249, 1, 255); -- Blaze Spikes 
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku', 1006, 176, 1, 255); -- Firaga III
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006,147,24,255); -- Fire IV
-INSERT INTO `mob_spell_lists` VALUES ('Hakutaku', 1006, 148, 1, 255);  -- Fire V
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 204, 1, 255); -- Flare 
+
+--Custom Content
 
 INSERT INTO `mob_spell_lists` VALUES ('Marquis_Sabnock', 1007, 219, 1, 255); -- Comet 
 
@@ -4025,10 +4026,25 @@ INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus',1008, 211, 1, 255); -- Q
 INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus',1008, 357, 1, 255); -- Slowga
 INSERT INTO `mob_spell_lists` VALUES ('Antican_Legatus',1008,365,1,255); -- breakga
 
+INSERT INTO `mob_spell_lists` VALUES ('Novv_the_Whitehearted',1009,376,1,255); -- Horde Lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Novv_the_Whitehearted',1009,423,1,255); -- massacre elegy
+INSERT INTO `mob_spell_lists` VALUES ('Novv_the_Whitehearted',1009,462,1,255); -- magic finale
 
+INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush',1010,147,1,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush', 1010, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush',1010, 205, 1, 255); -- Flare II
 
+INSERT INTO `mob_spell_lists` VALUES ('Celeste_eyed_Tozberry',1011,340,1,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('Celeste_eyed_Tozberry',1011,342,1,255); -- jubaku_ni
+INSERT INTO `mob_spell_lists` VALUES ('Celeste_eyed_Tozberry',1011,346,1,255); -- hojo_san
+INSERT INTO `mob_spell_lists` VALUES ('Celeste_eyed_Tozberry',1011,349,1,255); -- kurayami_san
+INSERT INTO `mob_spell_lists` VALUES ('Celeste_eyed_Tozberry',1011,352,1,255); -- dokumori_san
 
---Custom Content
+INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,356,76,255); -- paralyaga
+INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,357,75,255); -- slowga
+INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,359,75,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,360,75,255); -- dispelga
+
 
 -- Avatar Fights
 INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime', 438, 181, 1, 255); -- Blizzaga III
@@ -4064,14 +4080,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime', 444, 361, 1, 255); -- Blin
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelga
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
-
--- Novv the Whitehearted
-INSERT INTO `mob_spell_lists` VALUES ('Novv_the_Whitehearted',445, 417, 1, 255); -- Honor March
-
--- Friar Rush
-INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush',446,147,1,255); -- Fire IV
-INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush', 446, 176, 1, 255); -- Firaga III
-INSERT INTO `mob_spell_lists` VALUES ('Friar_Rush',446, 205, 1, 255); -- Flare II
 
 -- Zilart Missions
 

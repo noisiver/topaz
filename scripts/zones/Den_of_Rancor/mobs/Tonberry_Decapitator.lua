@@ -9,6 +9,19 @@ mixins =
 }
 require("scripts/globals/regimes")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 35)
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.SILENCERESTRAIT, 50)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 9000)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+end
+
 
 function onMobDeath(mob, player, isKiller)
     tpz.regime.checkRegime(player, mob, 798, 1, tpz.regime.type.GROUNDS)

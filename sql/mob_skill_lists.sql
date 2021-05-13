@@ -3777,7 +3777,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,331);	-- Leafstorm
 INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,214);	-- Methane Breath
 
 -- Alkyoneus
-
 -- Phase 1 WAR
 INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6003,662); -- lightning roar
 INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6003,665); -- grand slam
@@ -3799,7 +3798,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,1636); -- trebuchet
 INSERT INTO `mob_skill_lists` VALUES ('Alkyoneus',6006,2576); -- mercurial strike
 
 -- Marquis Sabnock
-
 -- Phase 1
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1148); -- Condemnation 
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Sabnock_hp_under_50',6007,1149); -- Quadrastrike
@@ -3866,7 +3864,48 @@ INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,822); --
 -- Friar Rush
 INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,3061); -- Firefly Fandango
 INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,3061); -- Berserk
+INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,1817);-- Thermal Pulse
 
+-- Carmine-Tailed Janberry
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50'6018,785); -- light_of_penance
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,921); -- everyones_rancor
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,788); -- throat_stab
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,861); -- spring_water
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,862); -- slowga
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,863); -- water_iv
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,864); -- spinning_dive
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,865); -- grand_fall
+-- Sub 25%
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_25',6019,785); -- light_of_penance
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_25',6019,921); -- everyones_rancor
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_25',6019,788); -- throat_stab
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_25',6019,863); -- water_iv
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_25',6019,864); -- spinning_dive
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_25',6019,865); -- grand_fall
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_25',6019,866); -- Tidal Wave
+
+-- Celeste-eyed Tozberry
+INSERT INTO `mob_skill_lists` VALUES ('Celeste_eyed_Tozberry',6020,785); -- light_of_penance
+INSERT INTO `mob_skill_lists` VALUES ('Celeste_eyed_Tozberry',6020,921); -- everyones_rancor
+INSERT INTO `mob_skill_lists` VALUES ('Celeste_eyed_Tozberry',6020,788); -- throat_stab
+INSERT INTO `mob_skill_lists` VALUES ('Celeste_eyed_Tozberry',6020,783); -- Words_of_Bane
+INSERT INTO `mob_skill_lists` VALUES ('Celeste_eyed_Tozberry',6020,784); -- Sigh
+INSERT INTO `mob_skill_lists` VALUES ('Celeste_eyed_Tozberry',6020,3164); -- 12_blades_of_remorse
+
+-- Bistre-hearted Malberry
+INSERT INTO `mob_skill_lists` VALUES ('Bistre_hearted_Malberry',6021,785); -- light_of_penance
+INSERT INTO `mob_skill_lists` VALUES ('Bistre_hearted_Malberry',6021,921); -- everyones_rancor
+INSERT INTO `mob_skill_lists` VALUES ('Bistre_hearted_Malberry',6021,2665); -- Cataclysmic Vortex
+INSERT INTO `mob_skill_lists` VALUES ('Bistre_hearted_Malberry',6021,2529); -- Dark Star
+INSERT INTO `mob_skill_lists` VALUES ('Bistre_hearted_Malberry',6021,784); -- Sigh
+
+-- Tawny-fingered Mugberry
+INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,921); -- everyones_rancor
+INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,784); -- Sigh
+INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,786); -- Lateral_Slash
+INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,787); -- Vertical_Slash
+INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,2351); -- Tear Grenade
+INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,1385); -- biotic_boomerang
 
 
 

@@ -1866,7 +1866,7 @@ INSERT INTO `mob_skills` VALUES (2031,433,'reactive_shield',0,7.0,2000,0,16,4,0,
 -- INSERT INTO `mob_skills` VALUES (2034,1778,'reinforcements',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2035,1779,'biomagnet',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2036,1780,'astral_gate',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2037,1781,'warp',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2037,1781,'warp',0,22.0,500,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2038,1387,'artificial_gravity',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2039,1388,'antigravity',1,15.0,2000,1500,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (2040,1373,'rail_cannon',4,20.0,2000,1500,4,0,0,0,0,0,0);
@@ -2180,7 +2180,7 @@ INSERT INTO `mob_skills` VALUES (2338,1641,'rampant_stance',1,15.0,2000,1000,4,0
 -- INSERT INTO `mob_skills` VALUES (2348,2092,'glacial_bellow',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2349,2093,'daunting_hurl',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2350,2094,'scatter_shell',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2351,2095,'tear_grenade',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2351,2095,'tear_grenade',1,7.0,2000,3500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2352,2096,'sticky_grenade',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2353,2097,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2354,2098,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2353,7 +2353,7 @@ INSERT INTO `mob_skills` VALUES (2521,1758,'chaos_blast',1,18.0,2000,1000,4,0,0,
 INSERT INTO `mob_skills` VALUES (2522,1759,'abyssic_buster',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2523,1760,'dancing_tail',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2524,1761,'dancing_tailv2',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2525,1762,'chilling_roar',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2525,1762,'chilling_roar',1,30.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2526,1763,'chilling_roarv2',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2527,1764,'soul_douse',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2528,1765,'soul_dousev2',1,18.0,2000,1000,4,0,0,0,0,0,0);
@@ -2563,7 +2563,7 @@ INSERT INTO `mob_skills` VALUES (2730,1917,'ravenous_wail',1,15.0,2000,1000,4,0,
 -- INSERT INTO `mob_skills` VALUES (2732,2476,'arm_cannon',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2733,2477,'ballistic_kick',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2734,2478,'cauterizing_field',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2735,2479,'searing_tempest',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2735,2479,'searing_tempest',1,30.0,2000,3500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2736,2480,'blinding_fulgor',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2737,1887,'spectral_floe',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2738,1888,'scouring_spate',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2992,7 +2992,7 @@ INSERT INTO `mob_skills` VALUES (3160,287,'vehement_resolution',1,18.0,2000,1000
 INSERT INTO `mob_skills` VALUES (3161,288,'camaraderie_of_the_crevasse',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3162,289,'into_the_light',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3163,290,'arduous_decision',1,18.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3164,291,'12_blades_of_remorse',1,18.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3164,291,'12_blades_of_remorse',1,18.0,2000,3500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3165,2320,'darrcuiln_charge',0,7.0,2000,0,4,16,0,0,0,0,0); -- darrcuiln melee special
 -- INSERT INTO `mob_skills` VALUES (3166,2321,'darrcuiln_claw',0,7.0,2000,0,4,16,0,0,0,0,0);   -- darrcuiln melee special
 -- INSERT INTO `mob_skills` VALUES (3167,2323,'darrcuiln_howl',0,7.0,2000,0,4,16,0,0,0,0,0);   -- darrcuiln melee special
@@ -3508,7 +3508,7 @@ INSERT INTO `mob_skills` VALUES (3676,287,'vehement_resolution',0,7.0,2000,1500,
 INSERT INTO `mob_skills` VALUES (3677,288,'camaraderie_of_the_crevasse',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3678,289,'into_the_light',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3679,290,'arduous_decision',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3680,291,'12_blades_of_remorse',0,7.0,2000,1500,4,0,0,0,0,0,0);
+--INSERT INTO `mob_skills` VALUES (3680,291,'12_blades_of_remorse',1,30.0,2000,3500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3681,272,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3682,273,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3683,274,'',0,7.0,2000,1500,4,0,0,0,0,0,0);

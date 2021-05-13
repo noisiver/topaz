@@ -1,6 +1,6 @@
 ---------------------------------------------
 --  Biotic Boomerang
---  Aern (BST & WAR)
+--  Aern (RNG, BST & WAR)
 --  Blinkable 2-3 hit, addtional effect plague on hit.
 ---------------------------------------------
 

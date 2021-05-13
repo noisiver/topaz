@@ -10,7 +10,6 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UFASTCAST, 50)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
-    mob:SetMagicCastingEnabled(false)
 end
 
 function onMobFight(mob, target)
@@ -24,9 +23,9 @@ function onMobFight(mob, target)
         mob:setLocalVar("twohourTime", math.random(30, 45))
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
-        mob:SetMagicCastingEnabled(true)
         mob:useMobAbility(696) -- Soul Voice
         mob:useMobAbility(780) -- Spinning Fin(10s Terror)
+        mob:castSpell(417) -- Honor March
         mob:setLocalVar("wingsTime", battletime + 10)
         mob:setLocalVar("wingsDown", 1)
     end

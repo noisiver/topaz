@@ -19,6 +19,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_DARK, 85)
     mob:setMod(tpz.mod.SDT_FIRE, 85)
     mob:setMod(tpz.mod.SDT_ICE, 85)
+    mob:setMod(tpz.mod.SILENCERESTRAIT, 90)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 16)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end

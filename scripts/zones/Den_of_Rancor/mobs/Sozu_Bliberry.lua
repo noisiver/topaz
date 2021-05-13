@@ -9,14 +9,17 @@ mixins =
     require("scripts/mixins/job_special")
 }
 -----------------------------------
-
 function onMobSpawn(mob)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.MANAFONT, hpp = math.random(40, 95)},
-        },
-    })
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 35)
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.SILENCERESTRAIT, 50)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 10000)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
 function onMobDeath(mob, player, isKiller)
