@@ -7,6 +7,36 @@ local ID = require("scripts/zones/Monastic_Cavern/IDs")
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/titles")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 20)
+    mob:setMod(tpz.mod.UDMGMAGIC, 50)
+    mob:setMod(tpz.mod.SDT_WATER, 150)
+    mob:setMod(tpz.mod.SDT_LIGHT, 115)
+    mob:setMod(tpz.mod.SDT_EARTH, 115)
+    mob:setMod(tpz.mod.SDT_WIND, 115)
+    mob:setMod(tpz.mod.SDT_THUNDER, 115)
+    mob:setMod(tpz.mod.SDT_DARK, 115)
+    mob:setMod(tpz.mod.SDT_FIRE, 85)
+    mob:setMod(tpz.mod.SDT_ICE, 85)
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+end
+
+function onMobFight(mob, target)
+    local hitTrigger = mob:getLocalVar("TriggerHit")
+
+    if mob:getHPP() <= 50 and hitTrigger == 0 then
+        mob:showText(mob, 'Its time to get serious!')
+        target:PrintToPlayer("It's time to get serious!",0,"Bakgodek")
+        mob:useMobAbility(2411) -- Phantasmal Dance
+        mob:setModelId(429) -- Orcish Warmachine (WOTG)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 6025)
+        mob:setLocalVar("TriggerHit", 1)
+    end
+end
 
 function onMobEngaged(mob, target)
     mob:showText(mob, ID.text.ORC_KING_ENGAGE)

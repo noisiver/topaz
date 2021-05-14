@@ -8,6 +8,72 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/titles")
 require("scripts/globals/mobs")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.MDEF, 250)
+    mob:setMod(tpz.mod.UDMGMAGIC, -25)
+    mob:setMod(tpz.mod.SDT_WATER, 50)
+    mob:setMod(tpz.mod.SDT_LIGHT, 50)
+    mob:setMod(tpz.mod.SDT_EARTH, 50)
+    mob:setMod(tpz.mod.SDT_WIND, 20)
+    mob:setMod(tpz.mod.SDT_THUNDER, 50)
+    mob:setMod(tpz.mod.SDT_DARK, 50)
+    mob:setMod(tpz.mod.SDT_FIRE, 50)
+    mob:setMod(tpz.mod.SDT_ICE, 115)
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+end
+
+function onMobFight(mob, target)
+    local battletime = mob:getBattleTime()
+    local twohourTime = mob:getLocalVar("twohourTime")
+    local wingsTime = mob:getLocalVar("wingsTime")
+    local wingsDown = mob:getLocalVar("wingsDown")
+    local Guard = GetMobByID(17396728)
+    local GuardTwo = GetMobByID(17396729)
+    local GuardThree = GetMobByID(17396730)
+    local GuardFour = GetMobByID(17396731)
+    local GuardFive = GetMobByID(17396732)
+    local GuardSix = GetMobByID(17396733)
+    local GuardSeven = GetMobByID(17396734)
+    local GuardEight = GetMobByID(17396735)
+
+    if twohourTime == 0 then
+        printf("Setting two hour time");
+        mob:setLocalVar("twohourTime", math.random(15, 30))
+    elseif battletime >= twohourTime and wingsDown == 0 then
+        printf("Wings Up");
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:showText(mob, 'Protect me!')
+        target:PrintToPlayer("Protect me!",0,"Tzee Xicu the Manifest")
+        Guard:spawn()
+        GuardTwo:spawn()
+        GuardThree:spawn()
+        GuardFour:spawn()
+        GuardFive:spawn()
+        GuardSix:spawn()
+        GuardSeven:spawn()
+        GuardEight:spawn()
+        Guard:updateEnmity(target)
+        GuardTwo:updateEnmity(target)
+        GuardThree:updateEnmity(target)
+        GuardFour:updateEnmity(target)
+        GuardFive:updateEnmity(target)
+        GuardSix:updateEnmity(target)
+        GuardSeven:updateEnmity(target)
+        GuardEight:updateEnmity(target)
+        mob:setLocalVar("wingsTime", battletime + 5)
+        mob:setLocalVar("wingsDown", 1)
+    end
+
+    if battletime >= wingsTime and wingsDown == 1 then
+        printf("Wings Down");
+        mob:setLocalVar("twohourTime", battletime + math.random(10, 25))
+        mob:setLocalVar("wingsTime", 0)
+        mob:setLocalVar("wingsDown", 0)
+    end
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)

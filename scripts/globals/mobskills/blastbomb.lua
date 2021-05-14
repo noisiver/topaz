@@ -17,8 +17,13 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BIND
 
     local dmgmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*1.5, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
+
+    if (mob:getPool() == 3075) then -- Overlord Bakgodek
+        dmgmod = 3
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
     MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
     return dmg

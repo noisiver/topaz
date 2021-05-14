@@ -9982,6 +9982,7 @@ INSERT INTO `mob_groups` VALUES (44,4418,151,'Yagudo_Flagellant',600,0,2833,0,0,
 INSERT INTO `mob_groups` VALUES (45,5494,151,'Yagudo_Prelate',600,0,2748,0,0,70,72,0);
 INSERT INTO `mob_groups` VALUES (46,4412,151,'Yagudo_Conductor',600,0,2834,0,0,70,72,0);
 INSERT INTO `mob_groups` VALUES (47,4407,151,'Yagudo_Assassin',600,0,2695,0,0,70,72,0);
+INSERT INTO `mob_groups` VALUES (48,4407,151,'Yagudo_Servant',0,128,0,1,0,70,72,0);
 
 INSERT INTO `mob_groups` VALUES (8077,75,151,'Ajido-Marujido',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (8084,2226,151,'Kilhwch',0,0,0,0,0,0,0,0);

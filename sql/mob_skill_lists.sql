@@ -3915,6 +3915,27 @@ INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,2412); -- thunder
 INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,1074); -- the_wrath_of_gudha (sub 50% hp)
 INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,2374); -- torment_of_gudha (sub 25% hp)
 
+-- Overlord Bakgodek
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek',6024,2263); -- Tornado Edge
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek',6024,2201); -- Orcish Counterstance
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek',6024,2202); -- Berserker Dance
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek',6024,2264); -- Shoulder Charge 
+-- Warmachine Form
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek_Warmachine',6025,638); -- Blastbomb 
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek_Warmachine',6025,637); -- Firebomb 
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek_Warmachine',6025,639); -- Fountain 
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek_Warmachine',6025,2350); -- Scatter Shell 
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek_Warmachine',6025,2411); -- Phantasmal Dance (sub 50% HP)
+INSERT INTO `mob_skill_lists` VALUES ('Overlord_Bakgodek_Warmachine',6025,2373); -- Veil of Chaos (sub 25% HP)
+
+-- Tzee Xicu the Manifest
+INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,619); -- Parry
+INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,2413); -- Feather Maelstrom
+INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,2270); -- Shirahadori 
+INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,3257); -- Shibaraku 
+INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,2206); -- Dark Invocation (sub 50% HP)
+INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,2375); -- Vorticose Sands (sub 25% HP)
+
 
 
 -- Next available ID: 1148

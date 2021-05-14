@@ -9,11 +9,7 @@ require("scripts/globals/zone")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:getContinentID() == tpz.continent.THE_SHADOWREIGN_ERA) then
-        return 0
-    else
-        return 1
-    end
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -21,9 +17,10 @@ function onMobWeaponSkill(target, mob, skill)
     local duration = 60
     local typeEffect = tpz.effect.COUNTERSTANCE
 
-    -- if ( Conquerer Bakgodek ) then
-        -- power = 50? He's not implemented yet anyway :P
-    -- end
+    if (mob:getPool() == 3075) then -- Overlord Bakgodek
+        power = 40
+        duration = 30
+    end
 
     skill:setMsg(MobBuffMove(mob, typeEffect, 75, 0, 60))
 
