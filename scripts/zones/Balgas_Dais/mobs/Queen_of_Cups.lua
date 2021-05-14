@@ -4,6 +4,7 @@
 -- Royale Ramble
 -- !addkeyitem 1178
 -----------------------------------
+local ID = require("scripts/zones/Balgias_Dias/IDs")
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/magic")
