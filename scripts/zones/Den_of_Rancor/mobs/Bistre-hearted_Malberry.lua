@@ -13,6 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25)
     mob:setMod(tpz.mod.UFASTCAST, 50)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMod(tpz.mod.REFRESH, 400)
 end
 
 function onMobInitialize(mob)

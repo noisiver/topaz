@@ -3907,6 +3907,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,787); -- Ve
 INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,2351); -- Tear Grenade
 INSERT INTO `mob_skill_lists` VALUES ('Tawny_fingered_Mugberry',6022,1385); -- biotic_boomerang
 
+-- Za'Dha Adamantking
+INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,2266); -- shell_charge
+INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,2267); -- skull_smash
+INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,2378); -- diamond_shell
+INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,2412); -- thunderous_yowl
+INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,1074); -- the_wrath_of_gudha (sub 50% hp)
+INSERT INTO `mob_skill_lists` VALUES ('ZaDha_Adamantking',6023,2374); -- torment_of_gudha (sub 25% hp)
+
 
 
 -- Next available ID: 1148
