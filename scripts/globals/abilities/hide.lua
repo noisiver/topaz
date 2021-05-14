@@ -14,7 +14,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local duration = math.random(30, 300)
+    local duration = math.random(30, 60)
     duration = duration * (1 + player:getMod(tpz.mod.HIDE_DURATION)/100)
     player:addStatusEffect(tpz.effect.HIDE, 1, 0, math.floor(duration * SNEAK_INVIS_DURATION_MULTIPLIER))
         if (target:isMob()) then
