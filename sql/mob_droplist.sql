@@ -10561,10 +10561,15 @@ INSERT INTO `mob_droplist` VALUES (1993,0,0,1000,529,50);
 INSERT INTO `mob_droplist` VALUES (1993,0,0,1000,825,430);
 INSERT INTO `mob_droplist` VALUES (1993,0,0,1000,4858,170);
 INSERT INTO `mob_droplist` VALUES (1993,0,0,1000,940,300);
-INSERT INTO `mob_droplist` VALUES (1994,0,0,1000,643,1000);		-- (Phantom Worm) Iron ore
-INSERT INTO `mob_droplist` VALUES (1994,0,0,1000,645,240);		-- Darksteel Ore
-INSERT INTO `mob_droplist` VALUES (1994,0,0,1000,646,100);		-- Adaman Ore
-INSERT INTO `mob_droplist` VALUES (1994,0,0,1000,736,1000);		-- SIlver Ore
+INSERT INTO `mob_droplist` VALUES (1994,0,0,1000,736,1000);		-- (Phantom Worm) Silver Ore
+INSERT INTO `mob_droplist` VALUES (1994,1,1,1000,736,240);		-- Silver Ore
+INSERT INTO `mob_droplist` VALUES (1994,1,1,1000,643,240);		--  Iron ore
+INSERT INTO `mob_droplist` VALUES (1994,1,1,1000,645,150);		-- Darksteel Ore
+INSERT INTO `mob_droplist` VALUES (1994,1,1,1000,646,100);		-- Adaman Ore
+INSERT INTO `mob_droplist` VALUES (1994,1,2,1000,736,240);		-- Silver Ore
+INSERT INTO `mob_droplist` VALUES (1994,1,2,1000,643,240);		--  Iron ore
+INSERT INTO `mob_droplist` VALUES (1994,1,2,1000,645,150);		-- Darksteel Ore
+INSERT INTO `mob_droplist` VALUES (1994,1,2,1000,646,100);		-- Adaman Ore
 INSERT INTO `mob_droplist` VALUES (1994,0,0,1000,18140,100);	-- Phantom tathlum
 INSERT INTO `mob_droplist` VALUES (1995,0,0,1000,827,100);
 INSERT INTO `mob_droplist` VALUES (1995,0,0,1000,940,180);
