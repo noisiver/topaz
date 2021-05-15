@@ -30,7 +30,8 @@ function onSpellCast(caster, target, spell)
 
 
     -- no point in making a separate function for this if the only thing they won't have in common is the name
-	target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 18.75, 0, 60)
+
+    target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 18.75, 0, 60)
 	target:addStatusEffect(tpz.effect.EVASION_DOWN, 20, 0, 60)
     handleNinjutsuDebuff(caster, target, spell, 30, 60, tpz.mod.FIRERES)
 	
