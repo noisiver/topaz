@@ -20,19 +20,19 @@ function onMobFight(mob, target)
 
     if twohourTime == 0 then
         printf("Setting two hour time");
-        mob:setLocalVar("twohourTime", math.random(60, 120))
+        mob:setLocalVar("twohourTime", math.random(5, 10))
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
+        mob:castSpell(420) -- Honor March
         mob:useMobAbility(696) -- Soul Voice
         mob:useMobAbility(780) -- Spinning Fin(10s Terror)
-        mob:castSpell(420) -- Honor March
         mob:setLocalVar("wingsTime", battletime + 10)
         mob:setLocalVar("wingsDown", 1)
     end
 
     if battletime >= wingsTime and wingsDown == 1 then
         printf("Wings Down");
-        mob:setLocalVar("twohourTime", battletime + math.random(50, 110))
+        mob:setLocalVar("twohourTime", battletime + math.random(5, 10))
         mob:setLocalVar("wingsTime", 0)
         mob:setLocalVar("wingsDown", 0)
     end
