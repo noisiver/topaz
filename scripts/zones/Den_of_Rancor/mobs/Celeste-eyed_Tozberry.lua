@@ -26,7 +26,7 @@ end
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
-    if mob:getHPP() <= 50 and hitTrigger == < 7 then
+    if mob:getHPP() <= 50 and hitTrigger  < 7 then
         mob:useMobAbility(731) -- Mijin Gakure
         mob:setHPP(100)
         hitTrigger = hitTrigger +1
