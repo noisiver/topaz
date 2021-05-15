@@ -3867,7 +3867,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,510); -- Berserk
 INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,1817);-- Thermal Pulse
 
 -- Carmine-Tailed Janberry
-INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50'6018,785); -- light_of_penance
+INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,785); -- light_of_penance
 INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,921); -- everyones_rancor
 INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,788); -- throat_stab
 INSERT INTO `mob_skill_lists` VALUES ('Carmine_Tailed_Janbery_hp_under_50',6018,861); -- spring_water
