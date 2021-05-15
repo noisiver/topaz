@@ -41,7 +41,7 @@ function onTrade(player, npc, trade)
       --  print("we got an item, boss!")
         if npcUtil.popFromQM(player, npc, ID.mob.MURGLEIS) then -- items and mob id here under mob = in IDs.lua
            -- print("we can pop the mob, boss!")
-            player:showText(npc, ID.text.SYS_OVERLOAD)
+            player:messageSpecial(npc, ID.text.SYS_OVERLOAD)
             player:PrintToPlayer("Why has a mere mortal awakened me from my slumber?",0,"Murgleis")
             player:confirmTrade()
         end

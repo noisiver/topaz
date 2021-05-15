@@ -66,7 +66,14 @@ zones[tpz.zone.THE_ELDIEME_NECROPOLIS] =
         APPARATUS_ELEMENTAL = 17576271,
         NAMORODO            = 17576272,
         MURGLEIS            = 17576959,
-        BURTGANG            = 17576958, 
+        BURTGANG            = 17576958,
+        SKULL_OF_GLUTTONY   = 17575938,
+        SKULL_OF_GREED      = 17575939,
+        SKULL_OF_SLOTH      = 17575940,
+        SKULL_OF_LUST       = 17575941,
+        SKULL_OF_PRIDE      = 17575942,
+        SKULL_OF_ENVY       = 17575943,
+        SKULL_OF_WRATH      = 17575944,
     },
     npc =
     {
