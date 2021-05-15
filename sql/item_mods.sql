@@ -9931,8 +9931,8 @@ INSERT INTO `item_mods` VALUES (13144,1,5);
 INSERT INTO `item_mods` VALUES (13145,5,20);
 INSERT INTO `item_mods` VALUES (13146,8,2);
 INSERT INTO `item_mods` VALUES (13146,23,3);
-INSERT INTO `item_mods` VALUES (13147,165,2); -- (Uggalepih Necklace) +2% Crit 
-INSERT INTO `item_mods` VALUES (13147,160,10) -- +10% Damage Taken
+INSERT INTO `item_mods` VALUES (13147,165,5); -- (Uggalepih Necklace) +5% Crit 
+INSERT INTO `item_mods` VALUES (13147,160,10); -- +10% Damage Taken
 INSERT INTO `item_mods` VALUES (13148,2,7);
 INSERT INTO `item_mods` VALUES (13148,108,7);
 INSERT INTO `item_mods` VALUES (13149,2,7);

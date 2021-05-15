@@ -3743,7 +3743,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Murgleis',2000,530); -- Momento Mori
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,154); -- Tachi: Rana 
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,405); -- Dire Whorl
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,1220); -- Auroral Drape
-INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,286); -- Berserk
+INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,510); -- Berserk
 -- Amano Meikyo
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru-Meikyo',2002,154); -- Tachi: Rana 
 
@@ -3863,7 +3863,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,822); --
 
 -- Friar Rush
 INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,3061); -- Firefly Fandango
-INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,3061); -- Berserk
+INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,510); -- Berserk
 INSERT INTO `mob_skill_lists` VALUES ('Friar_Rush',6017,1817);-- Thermal Pulse
 
 -- Carmine-Tailed Janberry
