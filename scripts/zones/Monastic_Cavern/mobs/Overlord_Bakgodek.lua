@@ -30,7 +30,6 @@ function onMobFight(mob, target)
 
     if mob:getHPP() <= 50 and hitTrigger == 0 then
         mob:showText(mob, 'Its time to get serious!')
-        target:PrintToPlayer("It's time to get serious!",0,"Bakgodek")
         mob:useMobAbility(2411) -- Phantasmal Dance
         mob:setModelId(429) -- Orcish Warmachine (WOTG)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6025)

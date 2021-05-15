@@ -35,8 +35,8 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
 
     if (mob:getPool() == 4377) then -- Worr the Clawfisted
-    local typeEffect = tpz.effect.HASTE
-    skill:setMsg(MobBuffMove(mob, typeEffect, 2500, 0, 30))
+       local typeEffect = tpz.effect.HASTE
+       MobBuffMove(mob, typeEffect, 2500, 0, 30)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)

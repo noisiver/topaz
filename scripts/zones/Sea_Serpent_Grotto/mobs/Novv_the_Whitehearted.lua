@@ -20,7 +20,7 @@ function onMobFight(mob, target)
 
     if twohourTime == 0 then
         printf("Setting two hour time");
-        mob:setLocalVar("twohourTime", math.random(30, 45))
+        mob:setLocalVar("twohourTime", math.random(60, 120))
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
         mob:useMobAbility(696) -- Soul Voice
@@ -32,8 +32,7 @@ function onMobFight(mob, target)
 
     if battletime >= wingsTime and wingsDown == 1 then
         printf("Wings Down");
-        mob:SetMagicCastingEnabled(false)
-        mob:setLocalVar("twohourTime", battletime + math.random(30, 45))
+        mob:setLocalVar("twohourTime", battletime + math.random(50, 110))
         mob:setLocalVar("wingsTime", 0)
         mob:setLocalVar("wingsDown", 0)
     end

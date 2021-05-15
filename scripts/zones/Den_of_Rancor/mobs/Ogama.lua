@@ -65,12 +65,12 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 486 or 488 or 490 or 492   then
-        mob:addHP(mob:getMaxHP() * .01)    
+        mob:addHP(mob:getMaxHP() * .05)    
     end
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 100, power = math.random(400, 600)})
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 100, power = math.random(200, 250)})
 end
 
 function onMobDeath(mob, player, isKiller)

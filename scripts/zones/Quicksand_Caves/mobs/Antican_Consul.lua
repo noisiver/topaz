@@ -9,6 +9,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 50)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 200)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 150)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
 function onMobFight(mob, target)

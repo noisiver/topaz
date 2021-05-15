@@ -39,6 +39,7 @@ function onMobFight(mob, target)
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:showText(mob, 'Protect me!')
         mob:setLocalVar("wingsTime", battletime + 10)
         mob:setLocalVar("wingsDown", 1)
         mob:setLocalVar("sdtRNG", math.random(1, 6))
@@ -124,7 +125,7 @@ end
 function onAdditionalEffect(mob, target, damage)
     local sdtRNG = mob:getLocalVar("sdtRNG")
     if sdtRNG > 0 then
-        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE + sdtRNG - 1, {chance = 1000})
+        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE + sdtRNG - 6, {chance = 1000})
     else
         return 0, 0, 0 -- Just in case its somehow not got a variable set
     end

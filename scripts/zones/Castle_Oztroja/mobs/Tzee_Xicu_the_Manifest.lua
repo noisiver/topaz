@@ -41,12 +41,11 @@ function onMobFight(mob, target)
 
     if twohourTime == 0 then
         printf("Setting two hour time");
-        mob:setLocalVar("twohourTime", math.random(15, 30))
+        mob:setLocalVar("twohourTime", math.random(30, 45))
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:showText(mob, 'Protect me!')
-        target:PrintToPlayer("Protect me!",0,"Tzee Xicu the Manifest")
         Guard:spawn()
         GuardTwo:spawn()
         GuardThree:spawn()
@@ -69,7 +68,7 @@ function onMobFight(mob, target)
 
     if battletime >= wingsTime and wingsDown == 1 then
         printf("Wings Down");
-        mob:setLocalVar("twohourTime", battletime + math.random(10, 25))
+        mob:setLocalVar("twohourTime", battletime + math.random(25, 40))
         mob:setLocalVar("wingsTime", 0)
         mob:setLocalVar("wingsDown", 0)
     end

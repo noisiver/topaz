@@ -31,7 +31,6 @@ function onMobFight(mob, target)
         mob:setLocalVar("twohourTime", math.random(20, 30))
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
-        mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:useMobAbility(2525) -- Chilling Roar(10s AOE Terror)
         mob:castSpell(218) -- Meteor
         mob:setLocalVar("wingsTime", battletime + 10)

@@ -24,13 +24,15 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
 
+
+    local typeEffect = tpz.effect.STUN
+
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 4)
+
     if (mob:getPool() == 2914) then -- Novv the Whitehearted
     local typeEffect = tpz.effect.TERROR
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 10)
     end
-    local typeEffect = tpz.effect.STUN
-
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 4)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
 	if dmg > 0 then target:tryInterruptSpell(mob, info.hitslanded) end

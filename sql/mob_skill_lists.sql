@@ -3854,9 +3854,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,774); -- Bubble
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,777);  -- Hydro shot
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller',6015,780); -- Spinning Fin
 -- Wyvern Form
-INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,813); -- Dispelling Wind
-INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,815); -- Wind Wall
-INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,821); -- Radiant Breath
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,819); -- Blizzard breath -- chance of ice spikes effect
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,820); -- Thunder breath -- chance of shock spikes effect
 INSERT INTO `mob_skill_lists` VALUES ('Pahh_the_Gullcaller_Wyvern',6016,822); -- Chaos breath -- chance of dread spikes effect

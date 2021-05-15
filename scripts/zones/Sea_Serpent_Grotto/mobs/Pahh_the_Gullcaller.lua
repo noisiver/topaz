@@ -52,7 +52,7 @@ function onMobWeaponSkill(target, mob, skill)
         mob:getStatusEffect(bufftwo):unsetFlag(tpz.effectFlag.DISPELABLE)
     end
     if skill:getID() == 822 then -- Chaos Breath
-        mob:addStatusEffect(tpz.effect.DREAD_SPIKES, 2000, 0, 30)
+        mob:addStatusEffect(tpz.effect.DREAD_SPIKES, 0, 0, 30, 0, 2000, 1)
         mob:getStatusEffect(buffthree):unsetFlag(tpz.effectFlag.DISPELABLE)
     end
 end
