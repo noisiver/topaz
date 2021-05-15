@@ -16,5 +16,5 @@ function onSpellCast(caster, target, spell)
     local subpower = 300
 
 
-    return tpz.effect.HONOR_MARCH
+    return tpz.effect.RHAPSODY
 end
