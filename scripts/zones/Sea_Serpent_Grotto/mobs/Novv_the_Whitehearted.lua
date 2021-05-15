@@ -25,7 +25,7 @@ function onMobFight(mob, target)
         printf("Wings Up");
         mob:useMobAbility(696) -- Soul Voice
         mob:useMobAbility(780) -- Spinning Fin(10s Terror)
-        mob:castSpell(420, mob) -- Honor March
+        mob:castSpell(417, mob) -- Honor March
         mob:setLocalVar("wingsTime", battletime + 10)
         mob:setLocalVar("wingsDown", 1)
     end
