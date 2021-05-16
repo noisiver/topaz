@@ -14,6 +14,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 20)
     mob:setMod(tpz.mod.DEF, 10000)
     mob:setMod(tpz.mod.UDMGPHYS, -50)
+    mob:setSpellList(1)
     mob:setMod(tpz.mod.SDT_WATER, 70)
     mob:setMod(tpz.mod.SDT_LIGHT, 70)
     mob:setMod(tpz.mod.SDT_EARTH, 70)
@@ -53,6 +54,7 @@ function onMobFight(mob, target)
     end
 
     if sdtRNG == 1 then
+        mob:setSpellList(439) -- Thunder
         mob:setMod(tpz.mod.SDT_WATER, 70)
         mob:setMod(tpz.mod.SDT_LIGHT, 70)
         mob:setMod(tpz.mod.SDT_EARTH, 130)
@@ -63,6 +65,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SDT_ICE, 70)
     end
     if sdtRNG == 2 then
+        mob:setSpellList(441) -- Fire
         mob:setMod(tpz.mod.SDT_WATER, 130)
         mob:setMod(tpz.mod.SDT_LIGHT, 70)
         mob:setMod(tpz.mod.SDT_EARTH, 70)
@@ -73,6 +76,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SDT_ICE, 70)
     end
     if sdtRNG == 3 then
+        mob:setSpellList(440) -- Earth
         mob:setMod(tpz.mod.SDT_WATER, 70)
         mob:setMod(tpz.mod.SDT_LIGHT, 70)
         mob:setMod(tpz.mod.SDT_EARTH, 70)
@@ -83,6 +87,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SDT_ICE, 70)
     end
     if sdtRNG == 4 then
+        mob:setSpellList(438) -- Ice
         mob:setMod(tpz.mod.SDT_WATER, 70)
         mob:setMod(tpz.mod.SDT_LIGHT, 70)
         mob:setMod(tpz.mod.SDT_EARTH, 70)
@@ -93,6 +98,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SDT_ICE, 70)
     end
     if sdtRNG == 5 then
+        mob:setSpellList(443) -- Wind
         mob:setMod(tpz.mod.SDT_WATER, 70)
         mob:setMod(tpz.mod.SDT_LIGHT, 70)
         mob:setMod(tpz.mod.SDT_EARTH, 70)
@@ -103,11 +109,12 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SDT_ICE, 130)
     end
     if sdtRNG == 6 then
+        mob:setSpellList(442) -- Water
         mob:setMod(tpz.mod.SDT_WATER, 70)
         mob:setMod(tpz.mod.SDT_LIGHT, 70)
         mob:setMod(tpz.mod.SDT_EARTH, 70)
-        mob:setMod(tpz.mod.SDT_WIND, 130)
-        mob:setMod(tpz.mod.SDT_THUNDER, 70)
+        mob:setMod(tpz.mod.SDT_WIND, 70)
+        mob:setMod(tpz.mod.SDT_THUNDER, 130)
         mob:setMod(tpz.mod.SDT_DARK, 70)
         mob:setMod(tpz.mod.SDT_FIRE, 70)
         mob:setMod(tpz.mod.SDT_ICE, 70)

@@ -26,8 +26,8 @@ end
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
-    if mob:getHPP() <= 50 and hitTrigger  < 7 then
-        mob:setHPP(100)
+    if mob:getHPP() <= 50 and hitTrigger < 7 then
+        mob:setHP(10000)
         mob:useMobAbility(731) -- Mijin Gakure
         hitTrigger = hitTrigger +1
         mob:setLocalVar("TriggerHit", hitTrigger)
