@@ -78,9 +78,7 @@ function onMobDespawn(mob)
 
     -- Set respawn of 21:05 to 24:05
     local respawnTime = 900  -- 21:05 to 24:05 respawn timer in 30 minute intervals
-    for offset = 1, 10 do
-        GetMobByID(KingArthroID - offset):setRespawnTime(respawnTime)
-    end
+
 	
 	SetServerVariable("KnightCrabRespawn",(os.time() + respawnTime))
 end
