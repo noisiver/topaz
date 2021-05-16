@@ -39,7 +39,7 @@ function onMobFight(mob, target)
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
-        mob:showText(mob, 'Protect me!')
+        target:PrintToPlayer("Your kind needs to be eradicated from existence!",0,"Za'Dha")
         mob:setLocalVar("wingsTime", battletime + 10)
         mob:setLocalVar("wingsDown", 1)
         mob:setLocalVar("sdtRNG", math.random(1, 6))

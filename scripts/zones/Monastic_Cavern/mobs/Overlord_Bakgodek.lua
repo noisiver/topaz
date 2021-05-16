@@ -29,7 +29,7 @@ function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
     if mob:getHPP() <= 50 and hitTrigger == 0 then
-        mob:showText(mob, 'Its time to get serious!')
+        target:PrintToPlayer("You are no match for me puny mithra!",0,"Bakgodek")
         mob:useMobAbility(2411) -- Phantasmal Dance
         mob:setModelId(429) -- Orcish Warmachine (WOTG)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6025)

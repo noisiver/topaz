@@ -45,7 +45,7 @@ function onMobFight(mob, target)
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
-        target:PrintToPlayer("Rid our castle of these scum!",0,"Tzee Xicu the Manifest")
+        target:PrintToPlayer("Rid our castle of these scum!",0,"Tzee Xicu")
         Guard:spawn()
         GuardTwo:spawn()
         GuardThree:spawn()
