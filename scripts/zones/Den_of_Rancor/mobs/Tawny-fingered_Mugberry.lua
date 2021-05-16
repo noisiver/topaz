@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
-            {id = tpz.jsa.PERFECT_DODGE, cooldown = 0, hpp = 100},
+            {id = tpz.jsa.PERFECT_DODGE, cooldown = 30, hpp = 100},
         },
     })
     mob:addMod(tpz.mod.ATTP, 25)
