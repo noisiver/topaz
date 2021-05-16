@@ -32,7 +32,7 @@ function onMobFight(mob, target)
         mob:addMod(tpz.mod.ATTP, 50)
         mob:addMod(tpz.mod.DEFP, 50)
         mob:addMod(tpz.mod.ACC, 100) 
-        mob:setLocalVar("wingsTime", battletime + 12)
+        mob:setLocalVar("wingsTime", battletime + 13)
         mob:setLocalVar("wingsDown", 1)
     end
 
