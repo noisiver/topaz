@@ -11,6 +11,7 @@ require("scripts/globals/magic")
 
 function onMobSpawn(mob)
      mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
 end
 
 function onMobInitialize(mob)
