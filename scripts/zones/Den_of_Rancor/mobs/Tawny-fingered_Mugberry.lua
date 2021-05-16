@@ -26,10 +26,8 @@ end
 
 function onMobFight(mob, target)
     if (mob:hasStatusEffect(tpz.effect.PERFECT_DODGE) == true) then
-        mob:setMod(tpz.mod.UDMGMAGIC, 200)
-        mob:setMod(tpz.mod.UDMGRANGE, 200)
+        mob:setMod(tpz.mod.UDMGRANGE, 100)
     else
-        mob:setMod(tpz.mod.UDMGMAGIC, 0)
         mob:setMod(tpz.mod.UDMGRANGE, 0)
     end
 end
