@@ -133,8 +133,8 @@ function onEventFinish(player, csid, option)
     elseif (csid == 41 and option == 0) then
         player:setCharVar("aBoysDreamCS", 1)
     elseif (csid == 15 and player:getCharVar("aBoysDreamCS") == 3) then
-        player:setCharVar("aBoysDreamCS", 5)
-    elseif player:getCharVar("aBoysDreamCS") == 5 and npcUtil.tradeHas(trade, 4562) then
+        player:setCharVar("aBoysDreamCS", 4)
+    elseif (csid == 47 and player:getCharVar("aBoysDreamCS") == 4) then
         player:setCharVar("aBoysDreamCS", 5)
     elseif (csid == 25 and player:getCharVar("aBoysDreamCS") == 6) then
         player:setCharVar("aBoysDreamCS", 7)
