@@ -3236,13 +3236,12 @@ namespace charutils
             {
                 // distribute gil
                 int32 gilPerPerson = static_cast<int32>(gil / members.size());
-                for (auto* PMember : members)
+                for (auto PMember : members)
                 {
                     // Check for gilfinder
-                    int32 gilForThisPerson = gilPerPerson + (gilPerPerson * PMember->getMod(Mod::GILFINDER) / 100);
-                    gilForThisPerson = std::clamp<int32>(gilForThisPerson, 1, gilForThisPerson);
-                    UpdateItem(PMember, LOC_INVENTORY, 0, gilForThisPerson);
-                    PMember->pushPacket(new CMessageBasicPacket(PMember, PMember, gilForThisPerson, 0, 565));
+                    gilPerPerson += gilPerPerson * PMember->getMod(Mod::GILFINDER) / 100;
+                    UpdateItem(PMember, LOC_INVENTORY, 0, gilPerPerson);
+                    PMember->pushPacket(new CMessageBasicPacket(PMember, PMember, gilPerPerson, 0, 565));
                 }
             }
         }
