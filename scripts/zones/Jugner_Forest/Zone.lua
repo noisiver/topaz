@@ -21,20 +21,11 @@ function onInitialize(zone)
     UpdateNMSpawnPoint(ID.mob.FRAELISSA)
     GetMobByID(ID.mob.FRAELISSA):setRespawnTime(math.random(900, 10800))
 
-		for offset = 1, 10 do
-			SpawnMob(17203216 - offset)
-		end
-	end
-
 
     tpz.conq.setRegionalConquestOverseers(zone:getRegionID())
 
     tpz.helm.initZone(zone, tpz.helm.type.LOGGING)
 
-    local respawnTime = 1  -- 0:15 to 3:15 spawn timer in 30 minute intervals
-    for offset = 1, 10 do
-        GetMobByID(ID.mob.KING_ARTHRO - offset):setRespawnTime(respawnTime)
-    end
 end
 
 function onZoneIn( player, prevZone)
