@@ -21,12 +21,6 @@ function onInitialize(zone)
     UpdateNMSpawnPoint(ID.mob.FRAELISSA)
     GetMobByID(ID.mob.FRAELISSA):setRespawnTime(math.random(900, 10800))
 
-	local re = GetServerVariable("KnightCrabRespawn")
-	if os.time() < re then
-		for offset = 1, 10 do
-			GetMobByID(17203216 - offset):setRespawnTime(re - os.time())
-		end
-	else
 		for offset = 1, 10 do
 			SpawnMob(17203216 - offset)
 		end

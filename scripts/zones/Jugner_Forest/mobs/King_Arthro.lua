@@ -71,15 +71,5 @@ end
 function onMobDeath(mob, player, isKiller)
 end
 
-function onMobDespawn(mob)
-    local KingArthroID = mob:getID()
 
-    GetMobByID(KingArthroID):setLocalVar("[POP]King_Arthro", 0)
-
-    -- Set respawn of 21:05 to 24:05
-    local respawnTime = 900  -- 21:05 to 24:05 respawn timer in 30 minute intervals
-
-	
-	SetServerVariable("KnightCrabRespawn",(os.time() + respawnTime))
-end
 
