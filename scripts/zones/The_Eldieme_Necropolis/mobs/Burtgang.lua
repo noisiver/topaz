@@ -16,6 +16,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, 200)
     mob:setMod(tpz.mod.UDMGPHYS, -10)
     mob:setMod(tpz.mod.REFRESH, 400)
+    --mob:setModelId(640) -- Dullahan
 end
 
 function onMobFight(mob, target)

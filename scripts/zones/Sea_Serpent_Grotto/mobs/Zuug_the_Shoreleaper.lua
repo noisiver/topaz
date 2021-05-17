@@ -27,7 +27,6 @@ function onMobFight(mob, target)
         printf("Wings Up");
         mob:useMobAbility(1893) -- Spirit Surge
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6012)
-        mob:addTP(3000)
         mob:addStatusEffect(tpz.effect.REGAIN, 3000, 3, 13)
         mob:addMod(tpz.mod.ATTP, 50)
         mob:addMod(tpz.mod.DEFP, 50)

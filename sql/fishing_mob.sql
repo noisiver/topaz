@@ -50,7 +50,7 @@ CREATE TABLE `fishing_mob` (
 
 LOCK TABLES `fishing_mob` WRITE;
 /*!40000 ALTER TABLE `fishing_mob` DISABLE KEYS */;
-INSERT INTO `fishing_mob` VALUES (17396141,'Odontotyrannus',151,1,15,15,2,0,91,1,0,1,0,0,17001,0,0);
+INSERT INTO `fishing_mob` VALUES (17396141,'Odontotyrannus',151,1,15,15,2,0,91,1,0,1,1000,0,17001,0,0);
 
 -- West Ronfaure 
 INSERT INTO `fishing_mob` VALUES (17186817,'Tree_Crab',100,1,1,15,15,255,255,0,0,1,1000,0,0,0,0);
