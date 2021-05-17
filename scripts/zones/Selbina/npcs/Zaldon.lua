@@ -525,9 +525,8 @@ function onTrade(player, npc, trade)
         end
 
     -- A BOY'S DREAM
-    elseif player:getCharVar("aBoysDreamCS") == 4 and npcUtil.tradeHas(trade, 4562) then
+    elseif player:getCharVar("aBoysDreamCS") >= 4  and npcUtil.tradeHas(trade, 4562) then
         player:startEvent(85)
-        player:setCharVar("aBoysDreamCS", 6)
 
     -- INSIDE THE BELLY
     elseif insideTheBelly == QUEST_ACCEPTED or insideTheBelly == QUEST_COMPLETED then
