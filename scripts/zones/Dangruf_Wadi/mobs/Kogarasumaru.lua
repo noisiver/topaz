@@ -28,6 +28,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("twohourTime", math.random(10, 15))
     elseif battletime >= twohourTime and STANCEtank == 0 then
         printf("DPS Stance");
+        target:PrintToPlayer("You cannot withstand my might!",0,"Kogarasumaru")
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 2500)
         mob:setMod(tpz.mod.COUNTER, 0)
@@ -46,6 +47,7 @@ function onMobFight(mob, target)
 
     if battletime >= STANCEdps and STANCEtank == 1 or DMGtaken == 1 then
         printf("Tank Stance");
+        target:PrintToPlayer("Go ahead, try and hit me!",0,"Kogarasumaru")
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.COUNTER, 100)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)

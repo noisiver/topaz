@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Meikyo Shisui
+-- Spirit Surge
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/status")
@@ -11,12 +11,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    MobBuffMove(mob, tpz.effect.MEIKYO_SHISUI, 1, 0, 30)
+    MobBuffMove(mob, tpz.effect.SPIRIT_SURGE, 10, 0, 30, 0, 30)
 
     skill:setMsg(tpz.msg.basic.USES)
 
-    mob:addTP(3000)
-    mob:addStatusEffect(tpz.effect.REGAIN, 3000, 3, 13)
 
-    return tpz.effect.MEIKYO_SHISUI
+    return tpz.effect.SPIRIT_SURGE
 end

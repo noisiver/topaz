@@ -3750,11 +3750,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru-Meikyo',2002,154); -- Tachi:
 --Burtgang
 INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,45); -- Atonement
 INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,405); -- Dire Whorl
-INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,1252); -- Shadow Spread
-INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,530); -- Momento Mori
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,2142); -- Mega Holy
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,3220); -- Infernal Bulwark
 
 
---Boyahda Merit Mobs
+--------------------------Boyahda Merit Mobs--------------------------
 
 -- Snaggletooth_Peapuk
 INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,1724); -- White Wind

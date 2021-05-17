@@ -23,7 +23,7 @@ end
 
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 45 then
+    if skill:getID() == 45 or 405 or 2142 then
         mob:resetEnmity(target)        
     end
 end

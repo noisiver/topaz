@@ -32,6 +32,7 @@ function onMobFight(mob, target)
     local GuardsDead = GetMobByID(ID.mob.ANTICAN_CONSUL):isDead() and GetMobByID(ID.mob.ANTICAN_PRAETOR):isDead()
 
     if mob:getHPP() <= 75 and hitTrigger == 0 and Shell == 0   then
+        target:PrintToPlayer("Guards! Clease our home of these pests",0,"Legatus")
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         Guard:spawn()
         Guard:updateEnmity(target)
@@ -42,6 +43,7 @@ function onMobFight(mob, target)
         printf("Spawning Guards 75%");
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 and Shell == 0  then
+        target:PrintToPlayer("Guards! Clease our home of these pests",0,"Legatus")
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:addMod(tpz.mod.ATTP, 25)
         mob:addMod(tpz.mod.ACC, 50)
@@ -56,6 +58,7 @@ function onMobFight(mob, target)
         printf("Spawning Guards 50%");
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 and Shell == 0  then
+        target:PrintToPlayer("Guards! Clease our home of these pests",0,"Legatus")
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:addMod(tpz.mod.ATTP, 25)
         mob:addMod(tpz.mod.ACC, 50)

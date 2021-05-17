@@ -24,6 +24,7 @@ function onMobFight(mob, target)
 
     if mob:getHPP() <= 90 and hitTrigger == 0 then
         printf("Magic");
+        target:PrintToPlayer("You cannot handle my power!",0,"Murgleis")
         mob:SetMagicCastingEnabled(true)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addMod(tpz.mod.ATT, -400)
@@ -34,6 +35,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 80 and hitTrigger == 1 then
         printf("Regenning");
+        target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
         target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
@@ -45,6 +47,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 70 and hitTrigger == 2 then
         printf("Phys");
+        target:PrintToPlayer("Give up already, you're too weak.",0,"Murgleis")
         mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
@@ -54,6 +57,7 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 60 and hitTrigger == 3 then
         mob:SetMagicCastingEnabled(true)
         printf("Magic");
+        target:PrintToPlayer("You cannot handle my power!",0,"Murgleis")
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addMod(tpz.mod.ATT, -400)
         mob:setMobMod(tpz.mobMod.MAGIC_COOL, 0)
@@ -63,6 +67,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 50 and hitTrigger == 4 then
         printf("Regenning");
+        target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
         target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
@@ -74,6 +79,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 40 and hitTrigger == 5 then
         printf("Phys");
+        target:PrintToPlayer("Give up already, you're too weak.",0,"Murgleis")
         mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
@@ -82,6 +88,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 30 and hitTrigger == 6 then
         printf("Magic");
+        target:PrintToPlayer("You cannot handle my power!",0,"Murgleis")
         mob:SetMagicCastingEnabled(true)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:addMod(tpz.mod.ATT, -400)
@@ -92,6 +99,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 20 and hitTrigger == 7 then
         printf("Regenning");
+        target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
         target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
@@ -103,6 +111,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 10 and hitTrigger == 8 then
         printf("Phys");
+        target:PrintToPlayer("Give up already, you're too weak.",0,"Murgleis")
         mob:SetMagicCastingEnabled(false)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
