@@ -28,12 +28,10 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    if (csid == 100) then
-        local prevzone = player:getPreviousZone()
-        if (prevzone == tpz.zone.PORT_JEUNO) then
-            player:setPos(0, 0, 0, 0, 232)
-        elseif (prevzone == tpz.zone.PORT_SAN_DORIA) then
-            player:setPos(0, 0, 0, 0, 246)
-        end
-    end
+	local prevzone = player:getPreviousZone()
+	if (prevzone == tpz.zone.PORT_JEUNO) then
+		player:setPos(0, 0, 0, 0, 232)
+	elseif (prevzone == tpz.zone.PORT_SAN_DORIA) then
+		player:setPos(0, 0, 0, 0, 246)
+	end
 end
