@@ -3933,6 +3933,23 @@ INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,3257); -- Sh
 INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,2206); -- Dark Invocation (sub 50% HP)
 INSERT INTO `mob_skill_lists` VALUES ('Tzee_Xicu_the_Manifest',6026,2375); -- Vorticose Sands (sub 25% HP)
 
+-- Duke Haborym Vampyr Form
+INSERT INTO `mob_skill_lists` VALUES ('Duke_Haborym_Vampyr',6027,2106); -- bloodrake
+INSERT INTO `mob_skill_lists` VALUES ('Duke_Haborym_Vampyr',6027,2108); -- nosferatus_kiss
+INSERT INTO `mob_skill_lists` VALUES ('Duke_Haborym_Vampyr',6027,2534); -- Minax Glare
+INSERT INTO `mob_skill_lists` VALUES ('Duke_Haborym_Vampyr',6027,2111); -- eternal_damnation (sub 50% HP)
+INSERT INTO `mob_skill_lists` VALUES ('Duke_Haborym_Vampyr',6027,2112); -- nocturnal_servitude (sub 25% hp)
+
+-- Marquis Allocen
+-- Autos
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen_Autos',6028,3264); -- salvation_scythe
+-- TP Moves
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,510); -- Berserk
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,569); -- Refueling
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,1377); -- fluorescence
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,1155); -- Subsonics
+
+
 
 
 -- Next available ID: 1148

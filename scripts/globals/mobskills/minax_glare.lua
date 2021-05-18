@@ -1,11 +1,8 @@
 ---------------------------------------------
--- Frightful Roar
---
--- Description: Weakens defense of enemies within range.
--- Type: Magical (Wind)
+-- Eternal Damnation
+-- Description: Inflicts Doom upon an enemy.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
-require("scripts/globals/settings")
 require("scripts/globals/status")
 ---------------------------------------------
 
@@ -14,7 +11,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.DEFENSE_DOWN
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 180))
-    return typeEffect
+    MobGazeMove(mob, target, tpz.effect.DEFENSE_DOWN, 75, 0, 30)
+    skill:setMsg(MobGazeMove(mob, target, tpz.effect.TERROR, 1, 0, 30))
+
+    return tpz.effect.DOOM
 end

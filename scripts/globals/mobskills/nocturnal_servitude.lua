@@ -1,6 +1,7 @@
 ---------------------------------------------
--- Eternal Damnation
--- Description: Inflicts Doom upon an enemy. Gaze attack.
+-- Nocturnal Servitude 
+-- Description: Conal gaze charm.
+-- Notes: Medium charge up time.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/status")
@@ -10,7 +11,7 @@ function onMobSkillCheck(target, mob, skill)
     local result = 1
     local mobhp = mob:getHPP()
 
-    if (mobhp <= 50) then
+    if (mobhp <= 25) then
         result = 0
     end
 
@@ -18,11 +19,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-    else
-        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10, 3, 30))
-    end
+    skill:setMsg(MobGazeMove(mob, target, tpz.effect.CHARM, 1, 0, 60))
 
-    return tpz.effect.DOOM
+    return tpz.effect.CHARM
 end

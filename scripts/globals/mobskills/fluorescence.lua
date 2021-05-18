@@ -1,8 +1,6 @@
 ---------------------------------------------
--- Frightful Roar
---
--- Description: Weakens defense of enemies within range.
--- Type: Magical (Wind)
+-- Fluorescence
+-- Berserk Ability.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -14,7 +12,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.DEFENSE_DOWN
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 180))
+    local typeEffect = tpz.effect.BOOST
+    skill:setMsg(MobBuffMove(mob, typeEffect, 200, 0, 180))
     return typeEffect
 end
