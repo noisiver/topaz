@@ -11,14 +11,14 @@ require("scripts/globals/npc_util")
 function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, 1136) then -- Uggalepih Key
         player:confirmTrade()
-        player:messageSpecial(ID.text.YOUR_KEY_BREAKS, 0, 1137)
+        player:messageSpecial(ID.text.YOUR_KEY_BREAKS, 0, 1136)
         npc:openDoor(6.5)
     end
 end
 
 function onTrigger(player, npc)
     if player:getXPos() > -208 then
-        player:messageSpecial(ID.text.THE_DOOR_IS_LOCKED, 1137)
+        player:messageSpecial(ID.text.THE_DOOR_IS_LOCKED, 1136)
     else
         npc:openDoor(11) -- retail timed
     end
