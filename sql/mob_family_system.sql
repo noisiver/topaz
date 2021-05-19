@@ -547,7 +547,7 @@ INSERT INTO `mob_family_system` VALUES (514,'Antica-Legatus',7,'Beastmen',1,40,1
 INSERT INTO `mob_family_system` VALUES (900,'AnimatedWeapon-Archery',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (901,'AnimatedWeapon-Axe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (902,'AnimatedWeapon-Club',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
-INSERT INTO `mob_family_system` VALUES (903,'Vajra',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.5,0.5,1,1.5,0.5,0.7,0.5,1.5,0,2,0);
+INSERT INTO `mob_family_system` VALUES (903,'Vajra',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
 INSERT INTO `mob_family_system` VALUES (904,'AnimatedWeapon-Greataxe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (905,'AnimatedWeapon-Greatkatana',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (906,'AnimatedWeapon-Greatsword',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
@@ -559,8 +559,8 @@ INSERT INTO `mob_family_system` VALUES (911,'AnimatedWeapon-Polearm',18,'Unclass
 INSERT INTO `mob_family_system` VALUES (912,'AnimatedWeapon-Scythe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (913,'AnimatedWeapon-Shield',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (914,'AnimatedWeapon-Staff',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
-INSERT INTO `mob_family_system` VALUES (915,'Murgleis_Burtgang',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.5,0.5,1,1.5,0.5,0.7,0.5,1.5,0,2,0);
-INSERT INTO `mob_family_system` VALUES (916,'Kogarasumaru',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.5,0.5,1,1.5,0.5,0.7,0.5,1.5,0,2,0);
+INSERT INTO `mob_family_system` VALUES (915,'Murgleis_Burtgang',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
+INSERT INTO `mob_family_system` VALUES (916,'Kogarasumaru',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
 
 
 
