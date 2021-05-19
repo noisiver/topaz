@@ -17,7 +17,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    if player:getZPos() =< -7 then
+    if player:getZPos() <= -7 then
         player:messageSpecial(ID.text.THE_DOOR_IS_LOCKED, 1137)
     else
         npc:openDoor(11) -- retail timed
