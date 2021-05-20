@@ -16,5 +16,5 @@ end
 
 function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.YARR_THE_PEARLEYED_PH, 30, 3600) -- 1 hour
-    tpz.mob.phOnDespawn(mob, ID.mob.NOVV_THE_WHITEHEARTED_PH, 30, 7200) -- 2 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.NOVV_THE_WHITEHEARTED_PH, 30, math.random(75600, 82800)) -- 21 to 23 hours
 end

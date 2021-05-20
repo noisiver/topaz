@@ -16,5 +16,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.TAWNY_FINGERED_MUGBERRY_PH, 30, 3600) -- 1 hour
+    tpz.mob.phOnDespawn(mob, ID.mob.TAWNY_FINGERED_MUGBERRY_PH, 30, math.random(75600, 82800)) -- 21 to 23 hours
 end

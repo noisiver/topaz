@@ -409,7 +409,7 @@ INSERT INTO `mob_skills` VALUES (576,910,'back_heel',0,7,2000,1500,4,0,0,2,0,0,0
 -- INSERT INTO `mob_skills` VALUES (577,321,'jettatura',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (578,912,'nihility_song',1,12.5,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (579,323,'choke_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (580,324,'fantod',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (580,324,'fantod',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (581,325,'blow',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (582,326,'cacodemonia',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (583,327,'beatdown',0,7.0,2000,1500,4,0,0,0,0,0,0);

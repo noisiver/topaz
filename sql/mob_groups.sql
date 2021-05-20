@@ -10424,7 +10424,7 @@ INSERT INTO `mob_groups` VALUES (31,2662,160,'Million_Eyes',600,0,1673,0,0,73,76
 INSERT INTO `mob_groups` VALUES (32,2948,160,'Ogama',0,32,1840,35000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (33,3953,160,'Tonberry_Decapitator',1260,0,2433,10500,0,83,85,0); 
 INSERT INTO `mob_groups` VALUES (34,3972,160,'Tonberry_Tracker',1560,0,2449,10000,0,83,85,0);
-INSERT INTO `mob_groups` VALUES (35,3964,160,'Tonberry_Pontifex',86400,0,2443,9000,0,83,85,0);
+INSERT INTO `mob_groups` VALUES (35,3964,160,'Tonberry_Pontifex',82800,0,2443,9000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (36,1877,160,'Hakutaku',0,128,1270,50000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (37,2718,160,'Mokumokuren',0,128,0,18000,0,82,82,0);
 
@@ -12681,7 +12681,7 @@ INSERT INTO `mob_groups` VALUES (29,3727,208,'Spelunking_Sabotender',600,0,2304,
 INSERT INTO `mob_groups` VALUES (30,3461,208,'Sand_Tarantula',600,0,228,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (31,1894,208,'Hastatus_XI-XII',0,32,1277,7000,0,65,68,0);
 INSERT INTO `mob_groups` VALUES (32,181,208,'Antican_Praetor',0,128,0,7000,0,82,83,0);
-INSERT INTO `mob_groups` VALUES (33,178,208,'Antican_Legatus',1200,0,127,35000,128,85,86,0);
+INSERT INTO `mob_groups` VALUES (33,178,208,'Antican_Legatus',82800,0,127,35000,128,85,86,0);
 INSERT INTO `mob_groups` VALUES (34,169,208,'Antican_Consul',0,128,0,7000,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (35,128,208,'Ancient_Vessel',0,128,0,8000,0,72,72,0);
 INSERT INTO `mob_groups` VALUES (36,4003,208,'Tribunus_VII-I',0,128,2470,10000,0,60,62,0);

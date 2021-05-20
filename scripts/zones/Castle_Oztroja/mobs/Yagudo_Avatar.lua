@@ -26,16 +26,16 @@ function onMobDespawn(mob)
         local hqId = mob:getID() + 3
         local ToD = GetServerVariable("[POP]Tzee_Xicu_the_Manifest")
         local kills = GetServerVariable("[PH]Tzee_Xicu_the_Manifest")
-        local popNow = (math.random(1, 5) == 3 or kills > 6)
+        local popNow = (math.random(1, 5) == 3 or kills > 0)
 
-        if os.time() > ToD and popNow then
+        if os.time() > ToD then
             DisallowRespawn(nqId, true)
             DisallowRespawn(hqId, false)
             UpdateNMSpawnPoint(hqId)
-            GetMobByID(hqId):setRespawnTime(math.random(75600, 86400))
+            GetMobByID(hqId):setRespawnTime(math.random(75600, 82800)) -- 21 to 23 hours
         else
             UpdateNMSpawnPoint(nqId)
-            mob:setRespawnTime(math.random(75600, 86400))
+            mob:setRespawnTime(math.random(75600, 82800)) -- 21 to 23 hours
             SetServerVariable("[PH]Tzee_Xicu_the_Manifest", kills + 1)
         end
     end

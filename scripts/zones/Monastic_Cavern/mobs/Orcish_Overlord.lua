@@ -34,16 +34,16 @@ function onMobDespawn(mob)
         local hqId = mob:getID() + 1
         local ToD = GetServerVariable("[POP]Overlord_Bakgodek")
         local kills = GetServerVariable("[PH]Overlord_Bakgodek")
-        local popNow = (math.random(1, 5) == 3 or kills > 6)
+        local popNow = (math.random(1, 5) == 3 or kills > 0)
 
-        if os.time() > ToD and popNow then
+        if os.time() > ToD then
             DisallowRespawn(nqId, true)
             DisallowRespawn(hqId, false)
             UpdateNMSpawnPoint(hqId)
-            GetMobByID(hqId):setRespawnTime(math.random(75600, 86400))
+            GetMobByID(hqId):setRespawnTime(math.random(75600, 82800)) -- 21 to 23 hrs
         else
             UpdateNMSpawnPoint(nqId)
-            mob:setRespawnTime(math.random(75600, 86400))
+            mob:setRespawnTime(math.random(75600, 82800)) -- 21 to 23 hrs
             SetServerVariable("[PH]Overlord_Bakgodek", kills + 1)
         end
     end

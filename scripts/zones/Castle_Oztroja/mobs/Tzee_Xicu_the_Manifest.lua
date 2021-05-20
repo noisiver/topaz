@@ -91,15 +91,23 @@ function onMobDeath(mob, player, isKiller)
     if isKiller then
         mob:showText(mob, ID.text.YAGUDO_KING_DEATH)
     end
+    DespawnMob(Guard)
+    DespawnMob(GuardTwo)
+    DespawnMob(GuardThree)
+    DespawnMob(GuardFour)
+    DespawnMob(GuardFive)
+    DespawnMob(GuardSix)
+    DespawnMob(GuardSeven)
+    DespawnMob(GuardEight)
 end
 
 function onMobDespawn(mob)
     -- reset hqnm system back to the nm placeholder
     local nqId = mob:getID() - 3
-    SetServerVariable("[POP]Tzee_Xicu_the_Manifest", os.time() + 259200) -- 3 days
+    SetServerVariable("[POP]Tzee_Xicu_the_Manifest", os.time() + 1) -- 0 hours
     SetServerVariable("[PH]Tzee_Xicu_the_Manifest", 0)
     DisallowRespawn(mob:getID(), true)
     DisallowRespawn(nqId, false)
     UpdateNMSpawnPoint(nqId)
-    GetMobByID(nqId):setRespawnTime(math.random(75600, 86400))
+    GetMobByID(nqId):setRespawnTime(math.random(75600, 82800)) -- 21 to 23 hours
 end
