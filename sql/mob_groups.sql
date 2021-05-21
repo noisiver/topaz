@@ -12153,7 +12153,8 @@ INSERT INTO `mob_groups` VALUES (65,3284,194,'Queen_of_Coins',0,128,2063,0,0,72,
 INSERT INTO `mob_groups` VALUES (66,5529,194,'Thunder_Elemental',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (67,870,194,'Custom_Cardian',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (68,1518,194,'Ghoul',600,0,961,0,0,23,26,0);
-INSERT INTO `mob_groups` VALUES (69,9003,194,'Vajra',0,128,3180,9001,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (69,9003,194,'Goblin_Tomb_Raider',0,128,3180,9001,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (70,6584,194,'Goblin_Grenade',0,128,999999,0,0,85,87,0);
 
 INSERT INTO `mob_groups` VALUES (9656,33,194,'Ace_of_Swords',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9657,75,194,'Ajido-Marujido',0,0,0,0,0,0,0,0);

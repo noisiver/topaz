@@ -55,6 +55,7 @@ zones[tpz.zone.OUTER_HORUTOTO_RUINS] =
         FULL_MOON_FOUNTAIN_OFFSET   = 17572197,
         JESTER_WHO_D_BE_KING_OFFSET = 17572201,
         APPARATUS_ELEMENTAL         = 17572203,
+        GOBLIN_TOMB_RAIDER          = 17571840,
     },
     npc =
     {

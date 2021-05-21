@@ -7697,7 +7697,9 @@ INSERT INTO `mob_droplist` VALUES (1465,0,0,1000,888,213); -- (Kraken NM) seashe
 INSERT INTO `mob_droplist` VALUES (1465,0,0,1000,1726,30); -- (Kraken NM) egret_fishing_rod
 INSERT INTO `mob_droplist` VALUES (1465,0,0,1000,4484,35); -- (Kraken NM) shall_shell
 INSERT INTO `mob_droplist` VALUES (1466,0,0,1000,842,240); -- (Kreutzet) Giant bird feather
-INSERT INTO `mob_droplist` VALUES (1466,0,0,1000,843,100); -- Giant bird plume
+INSERT INTO `mob_droplist` VALUES (1466,0,0,1000,842,150); -- (Kreutzet) Giant bird feather
+INSERT INTO `mob_droplist` VALUES (1466,0,0,1000,842,100); -- (Kreutzet) Giant bird feather
+INSERT INTO `mob_droplist` VALUES (1466,0,0,1000,843,150); -- Giant bird plume
 INSERT INTO `mob_droplist` VALUES (1466,0,0,1000,18018,240); -- Sirocco kukri
 INSERT INTO `mob_droplist` VALUES (1467,0,0,1000,640,10);
 INSERT INTO `mob_droplist` VALUES (1467,0,0,1000,641,610);
