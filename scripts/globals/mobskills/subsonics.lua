@@ -8,8 +8,12 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+        return 0
+    end
+    return 1
 end
+
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.DEFENSE_DOWN
