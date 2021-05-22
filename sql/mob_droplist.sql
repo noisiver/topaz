@@ -6369,8 +6369,8 @@ INSERT INTO `mob_droplist` VALUES (1228,4,0,1000,1163,0);
 INSERT INTO `mob_droplist` VALUES (1228,0,0,1000,1163,240);
 INSERT INTO `mob_droplist` VALUES (1228,2,0,1000,1163,150);
 INSERT INTO `mob_droplist` VALUES (1228,2,0,1000,6254,50); -- Aster Yggzi Bead Iii
-INSERT INTO `mob_droplist` VALUES (1229,2,0,1000,864,0);
-INSERT INTO `mob_droplist` VALUES (1229,0,0,1000,868,79);
+INSERT INTO `mob_droplist` VALUES (1229,2,0,1000,864,0); -- (Terror Pugil - Cape Terrigan)
+INSERT INTO `mob_droplist` VALUES (1229,0,0,1000,868,150); -- Handful of Pugil Scales
 INSERT INTO `mob_droplist` VALUES (1230,2,0,1000,864,0);
 INSERT INTO `mob_droplist` VALUES (1230,0,0,1000,868,80);
 INSERT INTO `mob_droplist` VALUES (1230,0,0,1000,4484,37);
@@ -11069,10 +11069,8 @@ INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,881,150);
 INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,1193,50);
 INSERT INTO `mob_droplist` VALUES (2107,4,0,1000,4400,0);
 INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,4400,310);
-INSERT INTO `mob_droplist` VALUES (2108,0,0,1000,881,60);
-INSERT INTO `mob_droplist` VALUES (2108,0,0,1000,936,110);
-INSERT INTO `mob_droplist` VALUES (2108,0,0,1000,1193,50);
-INSERT INTO `mob_droplist` VALUES (2108,0,0,1000,4400,250);
+INSERT INTO `mob_droplist` VALUES (2108,0,0,1000,881,100); -- (Robber Crab - Cape Terrigan) Crab Shell
+INSERT INTO `mob_droplist` VALUES (2108,0,0,1000,4400,240); -- Land Crab Meat
 INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,881,110);
 INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,936,110);
 INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,1052,50);
