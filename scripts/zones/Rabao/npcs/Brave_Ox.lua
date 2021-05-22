@@ -17,6 +17,7 @@ function onTrigger(player, npc)
         4868,  63700,    -- Dispel
         4860,  31850,    -- Stun
         4720,  31850,    -- Flash
+		4715, 28500,     -- Reprisal
        -- 4750, 546000,    -- Reraise III
         4638,  78260,    -- Banish III
        -- 4701,  20092,    -- Cura
