@@ -1567,8 +1567,8 @@ function doElementalNuke(caster, spell, target, spellParams)
             DMG = V + dINT
 
             -- Check/ set lower limit of 0 damage for negative dINT
-            if DMG < 1 then
-                DMG = math.random(5, 20)
+            if DMG <= 1 then
+                DMG = math.random(5, 7)
             end
 
         elseif dINT < I then
@@ -1602,7 +1602,7 @@ function doElementalNuke(caster, spell, target, spellParams)
             DMG = math.floor(DMG + mDMG + V + (dINT * M))
 
             if (DMG <= 0) then
-                DMG = math.random(5, 20)
+                DMG = math.random(5, 7)
             end
 
         elseif (dINT >= 50 and dINT <= 99) then
@@ -1730,14 +1730,6 @@ function doNuke(caster, target, spell, params)
         end
     end
     
-    if target:getMod(tpz.mod.MAGIC_STACKING_MDT) == 0 then
-        target:setMod(tpz.mod.MAGIC_STACKING_MDT,40)
-        target:queue(1100, function(target)
-            target:setMod(tpz.mod.MAGIC_STACKING_MDT,0)
-        end) 
-    else
-        DMG = DMG * target:getMod(tpz.mod.MAGIC_STACKING_MDT) / 100
-    end
 
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
     dmg = addBonuses(caster, spell, target, dmg, params)
@@ -1768,14 +1760,6 @@ function doDivineBanishNuke(caster, target, spell, params)
     --get the resisted damage
     dmg = dmg*resist
     
-    if target:getMod(tpz.mod.MAGIC_STACKING_MDT) == 0 then
-        target:setMod(tpz.mod.MAGIC_STACKING_MDT,40)
-        target:queue(1100, function(target)
-            target:setMod(tpz.mod.MAGIC_STACKING_MDT,0)
-        end) 
-    else
-        DMG = DMG * target:getMod(tpz.mod.MAGIC_STACKING_MDT) / 100
-    end
 
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
     dmg = addBonuses(caster, spell, target, dmg, params)
