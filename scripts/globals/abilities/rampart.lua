@@ -20,5 +20,5 @@ function onUseAbility(player, target, ability)
     target:addStatusEffect(tpz.effect.RAMPART, 25, 0, duration)
    
    local mob = player:getTarget()
-        player:addEnmity(mob, 1920, 1920)
+        mob:addEnmity(player, 1920, 1920)
 end
