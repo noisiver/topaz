@@ -12,13 +12,12 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
+    ability:setVE(ability:getVE() + 1920)
+    ability:setCE(ability:getCE() + 1920)
     return 0, 0
 end
 
 function onUseAbility(player, target, ability)
     local duration = 30 + player:getMod(tpz.mod.RAMPART_DURATION)
     target:addStatusEffect(tpz.effect.RAMPART, 25, 0, duration)
-   
-   local mob = player:getTarget()
-        mob:addEnmity(player, 1920, 1920)
 end
