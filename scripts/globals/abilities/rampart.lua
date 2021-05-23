@@ -18,4 +18,7 @@ end
 function onUseAbility(player, target, ability)
     local duration = 30 + player:getMod(tpz.mod.RAMPART_DURATION)
     target:addStatusEffect(tpz.effect.RAMPART, 25, 0, duration)
+   
+   local mob = player:getTarget()
+        mob:addEnmity(player, 1920, 1920)
 end
