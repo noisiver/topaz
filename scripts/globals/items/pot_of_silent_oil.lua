@@ -12,7 +12,7 @@ end
 
 function onItemUse(target)
     --local duration = math.random(60, 180)
-    local duration = 480
+    local duration = 540
     if (target:hasStatusEffect(tpz.effect.INVISIBLE)) then
         target:delStatusEffect(tpz.effect.INVISIBLE)
     end
