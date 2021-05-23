@@ -24,13 +24,19 @@ function onItemUse(target)
 end
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.HP, 20)
-    target:addMod(tpz.mod.INT, 3)
-    target:addMod(tpz.mod.HPHEAL, 3)
+    target:addMod(tpz.mod.MP, 10)
+    target:addMod(tpz.mod.STR, -2)
+    target:addMod(tpz.mod.VIT, -1)
+    target:addMod(tpz.mod.MND, 1)
+    target:addMod(tpz.mod.INT, 1)
+    target:addMod(tpz.mod.MPHEAL, 5)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.HP, 20)
-    target:delMod(tpz.mod.INT, 3)
-    target:delMod(tpz.mod.HPHEAL, 3)
+    target:delMod(tpz.mod.MP, 10)
+    target:delMod(tpz.mod.STR, -2)
+    target:delMod(tpz.mod.VIT, -1)
+    target:delMod(tpz.mod.MND, 1)
+    target:delMod(tpz.mod.INT, 1)
+    target:delMod(tpz.mod.MPHEAL, 5)
 end
