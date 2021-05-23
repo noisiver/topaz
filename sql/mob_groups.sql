@@ -12427,7 +12427,7 @@ INSERT INTO `mob_groups` VALUES (36,6424,200,'Funnel_Bats',600,0,919,0,0,53,55,0
 INSERT INTO `mob_groups` VALUES (37,1831,200,'Guardian_Statue',0,128,1245,18000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (38,2478,200,'Magic_Jug',600,0,1566,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (39,5888,200,'Frogamander',7200,0,3087,15000,0,71,73,0);
-INSERT INTO `mob_groups` VALUES (40,6463,200,'Donjon_Bat',600,0,0,0,0,51,55,0);
+INSERT INTO `mob_groups` VALUES (40,6463,200,'Donjon_Bat',600,0,0,0,0,53,55,0);
 INSERT INTO `mob_groups` VALUES (41,3549,200,'Serket',0,0,2203,50000,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (42,2664,200,'Mimic',0,128,1690,0,0,63,65,0);
 INSERT INTO `mob_groups` VALUES (43,5531,200,'Light_Elemental',0,128,0,0,0,75,75,0);
