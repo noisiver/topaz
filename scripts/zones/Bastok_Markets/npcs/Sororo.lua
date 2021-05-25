@@ -22,7 +22,7 @@ function onTrigger(player, npc)
         4622,   180, 3, -- Poisona
         4623,   324, 3, -- Paralyna
         4624,   990, 3, -- Blindna
-        4606,    82, 3, -- Dia
+        4631,    82, 3, -- Dia
         4651,   219, 3, -- Protect
         4656,  1584, 3, -- Shell
         --4721, 29700, 3, -- Repose
