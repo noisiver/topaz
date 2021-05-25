@@ -2735,9 +2735,8 @@ namespace charutils
 
     void TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl)
     {
-
         // This usually happens after a crash
-        TPZ_DEBUG_BREAK_IF(SkillID >= MAX_SKILLTYPE);   // выход за пределы допустимых умений
+        TPZ_DEBUG_BREAK_IF(SkillID >= MAX_SKILLTYPE); // выход за пределы допустимых умений
 
         if ((PChar->WorkingSkills.rank[SkillID] != 0) && !(PChar->WorkingSkills.skill[SkillID] & 0x8000))
         {
@@ -2745,9 +2744,10 @@ namespace charutils
             uint16 CapSkill = battleutils::GetMaxSkill(SkillID, PChar->GetMJob(), PChar->GetMLevel());
             // Max skill this victim level will allow.
             // Note this is no longer retail accurate, since now 'decent challenge' mobs allow to cap any skill.
+            bool usingMonsterLevel = PChar->GetMLevel() > lvl;
             uint16 MaxSkill = battleutils::GetMaxSkill(SkillID, PChar->GetMJob(), std::min(PChar->GetMLevel(), lvl));
 
-            int16  Diff = MaxSkill - CurSkill / 10;
+            int16 Diff = MaxSkill - CurSkill / 10;
             double SkillUpChance = Diff / 5.0 + map_config.skillup_chance_multiplier * (2.0 - log10(1.0 + CurSkill / 100));
 
             double random = tpzrand::GetRandomNumber(1.);
@@ -2772,8 +2772,8 @@ namespace charutils
             if (Diff > 0 && random < SkillUpChance)
             {
                 double chance = 0;
-                uint8  SkillAmount = 1;
-                uint8  tier = std::min(1 + (Diff / 5), 5);
+                uint8 SkillAmount = 1;
+                uint8 tier = std::min(1 + (Diff / 5), 5);
 
                 for (uint8 i = 0; i < 4; ++i) // 1 + 4 возможных дополнительных (максимум 5)
                 {
@@ -2781,15 +2781,28 @@ namespace charutils
 
                     switch (tier)
                     {
-                        case 5:  chance = 0.900; break;
-                        case 4:  chance = 0.700; break;
-                        case 3:  chance = 0.500; break;
-                        case 2:  chance = 0.300; break;
-                        case 1:  chance = 0.200; break;
-                        default: chance = 0.000; break;
+                        case 5:
+                            chance = 0.900;
+                            break;
+                        case 4:
+                            chance = 0.700;
+                            break;
+                        case 3:
+                            chance = 0.500;
+                            break;
+                        case 2:
+                            chance = 0.300;
+                            break;
+                        case 1:
+                            chance = 0.200;
+                            break;
+                        default:
+                            chance = 0.000;
+                            break;
                     }
 
-                    if (chance < random || SkillAmount == 5) break;
+                    if (chance < random || SkillAmount == 5)
+                        break;
 
                     tier -= 1;
                     SkillAmount += 1;
@@ -2807,7 +2820,7 @@ namespace charutils
                     }
                 }
 
-                if (SkillAmount + CurSkill >= CapSkill)
+                if (SkillAmount + CurSkill >= CapSkill && !usingMonsterLevel)
                 {
                     // skill is capped. set blue flag
                     SkillAmount = CapSkill - CurSkill;
@@ -2817,7 +2830,7 @@ namespace charutils
                 PChar->RealSkills.skill[SkillID] += SkillAmount;
                 PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, SkillID, SkillAmount, 38));
 
-                if ((CurSkill / 10) < (CurSkill + SkillAmount) / 10) //if gone up a level
+                if ((CurSkill / 10) < (CurSkill + SkillAmount) / 10) // if gone up a level
                 {
                     PChar->WorkingSkills.skill[SkillID] += 1;
                     PChar->pushPacket(new CCharSkillsPacket(PChar));
@@ -2836,6 +2849,8 @@ namespace charutils
             }
         }
     }
+
+
 
     /************************************************************************
     *                                                                       *

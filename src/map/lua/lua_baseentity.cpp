@@ -14452,6 +14452,43 @@ inline int32 CLuaBaseEntity::tryInterruptSpell(lua_State* L)
     return 0;
 }
 
+/************************************************************************
+ *  Function:
+ *  Purpose :
+ *  Example : player:trySkillUp(mob, tpz.skill.SWORD, 2)
+ *  Notes   : third argument is amount of hits landed
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::trySkillUp(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    CBattleEntity* PChar = (CBattleEntity*)m_PBaseEntity;
+    CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+    CBattleEntity* PMob = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
+
+    if (PChar->objtype != TYPE_PC)
+        return 0;
+
+    uint8 skill = 1;
+    if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
+        skill = (uint8)lua_tointeger(L, 2);
+
+    uint8 tries = 1;
+    if (!lua_isnil(L, 3) && lua_isnumber(L, 3))
+        tries = (uint8)lua_tointeger(L, 3);
+
+    while (tries != 0 && PChar && PMob)
+    {
+        charutils::TrySkillUP((CCharEntity*)PChar, (SKILLTYPE)skill, PMob->GetMLevel());
+        tries--;
+    }
+
+    return 0;
+}
+
+
+
 
 /************************************************************************
 *  Function: getBehaviour()
@@ -15722,6 +15759,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,delMobMod),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity, tryInterruptSpell),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity, trySkillUp),
+
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getBattleTime),
 
