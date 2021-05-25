@@ -42,6 +42,10 @@ function onSpellCast(caster, target, spell)
     end
 	
 	dmg = dmg * DARK_POWER
+	
+    local SDT = target:getMod(tpz.mod.SDT_DARK)
+	
+	dmg = dmg * (SDT / 100)
 
     if (target:isUndead()) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- No effect
