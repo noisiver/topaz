@@ -3753,6 +3753,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,405); -- Dire Whorl
 INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,2142); -- Mega Holy
 INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,3220); -- Infernal Bulwark
 
+-- Vajra(Goblin Tomb Raider)
+INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,45); -- Atonement
+INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,405); -- Dire Whorl
+INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,2142); -- Mega Holy
+INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,3220); -- Infernal Bulwark
+
+
 
 --------------------------Boyahda Merit Mobs--------------------------
 
