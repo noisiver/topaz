@@ -269,7 +269,7 @@ enum class Mod
     DRAGON_KILLER             = 233, // Enhances "Dragon Killer" effect
     DEMON_KILLER              = 234, // Enhances "Demon Killer" effect
     EMPTY_KILLER              = 235, // Enhances "Empty Killer" effect
-    HUMANOID_KILLER           = 236, // Enhances "Humanoid Killer" effect
+    HUMANOID_KILLER           = 236, // Enhances "Humanoid Killer" effect  Makes NM's/Mobs able to intimidate players!
     LUMORIAN_KILLER           = 237, // Enhances "Lumorian Killer" effect
     LUMINION_KILLER           = 238, // Enhances "Luminion Killer" effect
 

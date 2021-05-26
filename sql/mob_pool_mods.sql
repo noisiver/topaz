@@ -55,7 +55,6 @@ INSERT INTO `mob_pool_mods` VALUES (268,370,50,0);
 INSERT INTO `mob_pool_mods` VALUES (276,12,1,1);
 INSERT INTO `mob_pool_mods` VALUES (289,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (370,28,5,1);
-INSERT INTO `mob_pool_mods` VALUES (410,236,20,0);
 INSERT INTO `mob_pool_mods` VALUES (444,23,23,1); -- Bladmall immune to Sleep, Bind, Silence and Gravity.
 INSERT INTO `mob_pool_mods` VALUES (459,23,50,0); -- (Bloodlapper) Attack
 INSERT INTO `mob_pool_mods` VALUES (459,73,25,0); -- (Bloodlapper) Store TP

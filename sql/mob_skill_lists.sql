@@ -3816,7 +3816,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,648); -- Petro Eyes
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,649); -- Void Song
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,650); -- Thorn Song
 -- Mighty Strikes
-INSERT INTO `mob_skill_lists` VALUES ('Biast_MS',6010,645); -- Body Slam
+INSERT INTO `mob_skill_lists` VALUES ('Biast_MS',5999,645); -- Body Slam
 
 -- Novv the Whitehearted
 INSERT INTO `mob_skill_lists` VALUES ('Novv_the_Whitehearted',6010,771); -- Hydro Ball

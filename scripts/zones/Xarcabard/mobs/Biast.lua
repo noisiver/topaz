@@ -36,7 +36,7 @@ end
 function onMobFight(mob, target)
     if (mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) == true) then
         mob:setMod(tpz.mod.REGAIN, 500)
-        mob:setMobMod(tpz.mobMod.SKILL_LIST, 6010)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 5999)
     elseif (mob:hasStatusEffect(tpz.effect.MANAFONT) == true) then
         mob:setMod(tpz.mod.UFASTCAST, 50)
     elseif (mob:hasStatusEffect(tpz.effect.INVINCIBLE) == true) then
@@ -76,7 +76,7 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    SetServerVariable("[POP]Biast", os.time() + 900) -- 15m
+    SetServerVariable("[POP]Biast", os.time() + math.random(75600, 82800)) -- 21 to 23 hours
     DisallowRespawn(mob:getID()-1, false)
     GetMobByID(mob:getID()-1):setRespawnTime(GetMobRespawnTime(mob:getID()-1))
 end
