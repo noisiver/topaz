@@ -28,6 +28,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.acc100 = 1 params.acc200= 1.05 params.acc300= 1.10
     params.atk100 = 0.875; params.atk200 = 0.875; params.atk300 = 0.875
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+	if damage > 0 then player:trySkillUp(target, tpz.skill.POLEARM, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
     return tpHits, extraHits, criticalHit, damage
 
 end

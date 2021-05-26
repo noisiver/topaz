@@ -32,6 +32,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+	if damage > 0 then player:trySkillUp(target, tpz.skill.DAGGER, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
     local effect = tpz.effect.POISON
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
     local power = math.floor(player:getMainLvl() * (tp / 2000) + 20)

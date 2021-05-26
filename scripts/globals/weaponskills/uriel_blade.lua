@@ -26,6 +26,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.includemab = true
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
+	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
 
     if (damage > 0 and target:hasStatusEffect(tpz.effect.FLASH) == false) then
     target:addStatusEffect(tpz.effect.FLASH, 200, 0, 15)
