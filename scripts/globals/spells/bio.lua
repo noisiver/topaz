@@ -39,6 +39,7 @@ function onSpellCast(caster, target, spell)
     dmg = addBonuses(caster, spell, target, dmg)
     -- Add in target adjustment
     dmg = adjustForTarget(target, dmg, spell:getElement())
+	if dmg <= 0 then dmg = 1 end
     -- Add in final adjustments including the actual damage dealt
     local final = finalMagicAdjustments(caster, target, spell, dmg)
 
