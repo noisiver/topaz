@@ -38,11 +38,15 @@ require("scripts/globals/npc_util")
 
 function onTrade(player, npc, trade)
     if npcUtil.tradeHasExactly(trade, 478) then -- Clear Chip
-      --  print("we got an item, boss!")
         if npcUtil.popFromQM(player, npc, ID.mob.MURGLEIS) then -- items and mob id here under mob = in IDs.lua
-           -- print("we can pop the mob, boss!")
             player:messageSpecial(ID.text.SYS_OVERLOAD)
             player:PrintToPlayer("Why has a mere mortal awakened me from my slumber?",0,"Murgleis")
+            player:confirmTrade()
+        end
+    elseif npcUtil.tradeHasExactly(trade, 480) then -- White Chip
+        if npcUtil.popFromQM(player, npc, ID.mob.BURTGANG) then -- items and mob id here under mob = in IDs.lua
+            player:messageSpecial(ID.text.SYS_OVERLOAD)
+            player:PrintToPlayer("You will not defile this holy place!",0,"Burtgang")
             player:confirmTrade()
         end
     end

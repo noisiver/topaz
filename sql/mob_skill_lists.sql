@@ -3748,10 +3748,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru',2001,510); -- Berserk
 INSERT INTO `mob_skill_lists` VALUES ('Kogarasumaru-Meikyo',2002,154); -- Tachi: Rana 
 
 --Burtgang
-INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,45); -- Atonement
-INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,405); -- Dire Whorl
-INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,2142); -- Mega Holy
-INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2002,3220); -- Infernal Bulwark
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,45); -- Atonement
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,405); -- Dire Whorl
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,2142); -- Mega Holy
+INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,3220); -- Infernal Bulwark
 
 
 --------------------------Boyahda Merit Mobs--------------------------
