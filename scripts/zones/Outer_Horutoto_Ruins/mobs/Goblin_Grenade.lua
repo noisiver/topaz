@@ -12,6 +12,7 @@ function onMobSpawn(mob)
      mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
      mob:setMobMod(tpz.mobMod.GIL_MIN, 0)
      mob:setMobMod(tpz.mobMod.GIL_MAX, 0)
+     mob:useMobAbility(509) -- Self-destruct_Goblin_Grenade
 end
 
 function onMobDeath(mob, player, isKiller)
