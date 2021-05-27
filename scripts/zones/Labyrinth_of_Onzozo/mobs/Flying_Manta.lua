@@ -13,6 +13,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.LORD_OF_ONZOZO_PH, 25, math.random(75600, 86400)) -- 18 to 24 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.LORD_OF_ONZOZO_PH, 25, math.random(75600, 82800)) -- 18 to 23 hours
     tpz.mob.phOnDespawn(mob, ID.mob.PEG_POWLER_PH, 30,7200) -- 2hours
 end
