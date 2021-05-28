@@ -12,6 +12,8 @@ function onMobSpawn(mob)
      mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
      mob:setMobMod(tpz.mobMod.GIL_MIN, 0)
      mob:setMobMod(tpz.mobMod.GIL_MAX, 0)
+	 mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+	 mob:SetAutoAttackEnabled(false)
 end
 
 function onMobFight(mob, target)
