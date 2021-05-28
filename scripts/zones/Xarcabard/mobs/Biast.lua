@@ -22,13 +22,13 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 20)
     mob:addMod(tpz.mod.MDEF, 24) 
     mob:setMod(tpz.mod.SDT_WATER, 5)
-    mob:setMod(tpz.mod.SDT_LIGHT, 85)
-    mob:setMod(tpz.mod.SDT_EARTH, 85)
-    mob:setMod(tpz.mod.SDT_WIND, 85)
+    mob:setMod(tpz.mod.SDT_LIGHT, 100)
+    mob:setMod(tpz.mod.SDT_EARTH, 100)
+    mob:setMod(tpz.mod.SDT_WIND, 100)
     mob:setMod(tpz.mod.SDT_THUNDER, 150)
-    mob:setMod(tpz.mod.SDT_DARK, 85)
-    mob:setMod(tpz.mod.SDT_FIRE, 5)
-    mob:setMod(tpz.mod.SDT_ICE, 85)
+    mob:setMod(tpz.mod.SDT_DARK, 100)
+    mob:setMod(tpz.mod.SDT_FIRE, 50)
+    mob:setMod(tpz.mod.SDT_ICE, 100)
     mob:setMod(tpz.mod.REFRESH, 300)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
@@ -60,7 +60,7 @@ function onMobFight(mob, target)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.TERROR, {chance = 20, duration = 3})
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.TERROR, {chance = 20, duration = 2})
 end
 
 function onMobWeaponSkill(target, mob, skill)
