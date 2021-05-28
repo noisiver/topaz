@@ -547,7 +547,7 @@ INSERT INTO `mob_family_system` VALUES (514,'Antica-Legatus',7,'Beastmen',1,40,1
 INSERT INTO `mob_family_system` VALUES (900,'AnimatedWeapon-Archery',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (901,'AnimatedWeapon-Axe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (902,'AnimatedWeapon-Club',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
-INSERT INTO `mob_family_system` VALUES (903,'Goblin_Tomb_Raider',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
+INSERT INTO `mob_family_system` VALUES (903,'Goblin_Tomb_Raider',7,'Beastmen',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
 INSERT INTO `mob_family_system` VALUES (904,'AnimatedWeapon-Greataxe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (905,'AnimatedWeapon-Greatkatana',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (906,'AnimatedWeapon-Greatsword',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
