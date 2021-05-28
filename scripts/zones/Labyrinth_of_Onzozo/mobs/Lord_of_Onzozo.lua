@@ -17,6 +17,8 @@ function onMobSpawn(mob)
 end
 
 function onMobInitialize(mob)
+    mob:addMod(tpz.mod.UFASTCAST, 50)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 
