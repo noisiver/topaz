@@ -13,6 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
 end
+
 function onMobFight(mob, target)
     local battletime = mob:getBattleTime()
     local twohourTime = mob:getLocalVar("twohourTime")
