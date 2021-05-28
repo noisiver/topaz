@@ -1,3 +1,4 @@
+
 -- MySQL dump 10.16  Distrib 10.3.7-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: tpzdb
@@ -784,7 +785,7 @@ INSERT INTO `item_basic` VALUES (872,0,'square_of_tough_dhalmel_leather','tgh._d
 INSERT INTO `item_basic` VALUES (873,0,'square_of_light_ram_leather','light_ram_lth.',12,4,41,0,592);
 INSERT INTO `item_basic` VALUES (874,0,'amaltheia_hide','amaltheia_hide',12,4,41,0,1325);
 INSERT INTO `item_basic` VALUES (875,0,'square_of_amaltheia_leather','amaltheia_lth.',12,4,41,0,2650);
-INSERT INTO `item_basic` VALUES (876,0,'manta_skin','manta_skin',12,4,41,0,1017);
+INSERT INTO `item_basic` VALUES (876,0,'manta_skin','manta_skin',1,4,41,0,1017);
 INSERT INTO `item_basic` VALUES (877,0,'square_of_manta_leather','manta_leather',12,4,41,0,1101);
 INSERT INTO `item_basic` VALUES (878,0,'karakul_skin','karakul_skin',1,4,41,0,19);
 INSERT INTO `item_basic` VALUES (879,0,'square_of_karakul_leather','karakul_leather',12,4,41,0,197);
