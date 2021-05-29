@@ -16,6 +16,9 @@ function getQuestId(mainJobId)
 end
 
 function onTrade(player, npc, trade)
+        if npcUtil.tradeHasExactly(trade, wepId) then
+                player:startEvent(10086, mainJobId)
+			end
     for i, wepId in pairs(BaseNyzulWeapons) do
         if npcUtil.tradeHasExactly(trade, wepId) then
             local unlockingAMyth = player:getQuestStatus(JEUNO, getQuestId(i))
@@ -43,7 +46,7 @@ function onTrigger(player, npc)
     local nyzulWeaponMain = isBaseNyzulWeapon(player:getEquipID(tpz.slot.MAIN))
     local nyzulWeaponRanged = isBaseNyzulWeapon(player:getEquipID(tpz.slot.RANGED))
 
-    if player:getFameLevel(JEUNO) > 2 then
+    if unlockingAMyth == QUEST_AVAILABLE then
         if player:needToZone() and player:getCharVar("Upset_Zalsuhm") > 0 then
             player:startEvent(10090)
         else
