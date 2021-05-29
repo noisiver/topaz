@@ -17,7 +17,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:SetMagicCastingEnabled(false)
-    mob:setLocalVar("TriggerHit", 0)
 end
 
 function onMobFight(mob, target)
