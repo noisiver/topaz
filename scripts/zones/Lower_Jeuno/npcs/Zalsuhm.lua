@@ -43,7 +43,7 @@ function onTrigger(player, npc)
     local nyzulWeaponMain = isBaseNyzulWeapon(player:getEquipID(tpz.slot.MAIN))
     local nyzulWeaponRanged = isBaseNyzulWeapon(player:getEquipID(tpz.slot.RANGED))
 
-    if unlockingAMyth == QUEST_AVAILABLE then
+    if (unlockingAMyth == QUEST_AVAILABLE) then
         if player:needToZone() and player:getCharVar("Upset_Zalsuhm") > 0 then
             player:startEvent(10090)
         else
