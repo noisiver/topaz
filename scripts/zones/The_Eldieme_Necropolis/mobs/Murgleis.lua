@@ -39,7 +39,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 80 and hitTrigger == 1 then
         printf("Regenning");
-		if DAY == 0 then
+		if DAY == 0 or > 8 then
 		        mob:setLocalVar("RNGelement", math.random(1,8))
 		end
         target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
