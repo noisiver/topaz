@@ -16,9 +16,6 @@ function getQuestId(mainJobId)
 end
 
 function onTrade(player, npc, trade)
-        if npcUtil.tradeHasExactly(trade, wepId) then
-                player:startEvent(10086, mainJobId)
-			end
     for i, wepId in pairs(BaseNyzulWeapons) do
         if npcUtil.tradeHasExactly(trade, wepId) then
             local unlockingAMyth = player:getQuestStatus(JEUNO, getQuestId(i))
