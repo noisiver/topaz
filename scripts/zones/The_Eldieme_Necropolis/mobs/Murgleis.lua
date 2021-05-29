@@ -36,7 +36,7 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 80 and hitTrigger == 1 then
         printf("Regenning");
         target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
-        target:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
@@ -68,7 +68,7 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 50 and hitTrigger == 4 then
         printf("Regenning");
         target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
-        target:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
@@ -100,7 +100,7 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 20 and hitTrigger == 7 then
         printf("Regenning");
         target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
-        target:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
         mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 200, 0, 3600)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
