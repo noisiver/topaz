@@ -124,11 +124,12 @@ end
 
 
 function onMagicHit(caster, target, spell)
-    local DAY = target:getLocalVar("RNGelement")
-    local ELEM = spell:getElement()
-    if DAY == 0 then
-         target:setLocalVar("RNGelement", math.random(1,7))
-    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
+    local ELEM = target:getLocalVar("RNGelement")
+    if ELEM == 0 then
+         target:setLocalVar("RNGelement", math.random(1,8))
+         ELEM = target:getLocalVar("RNGelement")
+    end
+    if ((ELEM == spell:getElement()) and (caster:isPC() or caster:isPet())) then
         target:useMobAbility(624) -- 2 hour "cloud" animation
         target:delStatusEffect(34) -- Blaze spikes
         target:setMod(tpz.mod.REGEN, 0)
@@ -136,7 +137,9 @@ function onMagicHit(caster, target, spell)
         target:SetAutoAttackEnabled(true)
         target:SetMobAbilityEnabled(true)
         printf("Delete Buffs, Reset Element");
-        target:setLocalVar("RNGelement", math.random(1,7))
+        while (ELEM == target:getLocalVar("RNGelement")) do
+            target:setLocalVar("RNGelement", math.random(1,8))
+        end
     end
     return 1
 end
