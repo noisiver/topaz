@@ -19,6 +19,7 @@ function onMobSpawn(mob)
     mob:SetMagicCastingEnabled(false)
     mob:SetAutoAttackEnabled(true)
     mob:SetMobAbilityEnabled(true)
+    mob:setLocalVar("TriggerHit", 0)
 end
 
 function onMobFight(mob, target)
