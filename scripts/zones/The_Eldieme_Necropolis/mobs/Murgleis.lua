@@ -19,6 +19,8 @@ function onMobSpawn(mob)
     mob:SetMagicCastingEnabled(false)
     mob:SetAutoAttackEnabled(true)
     mob:SetMobAbilityEnabled(true)
+    local DAY = target:getLocalVar("RNGelement")
+	target:setLocalVar("RNGelement", 0)
 	end
 
 function onMobFight(mob, target)
