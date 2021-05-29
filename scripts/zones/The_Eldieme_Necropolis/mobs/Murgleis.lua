@@ -51,6 +51,7 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 2)
+        mob:setLocalVar("RNGelement", math.random(1,8))
     end
     if mob:getHPP() <= 70 and hitTrigger == 2 then
         printf("Phys");
