@@ -38,7 +38,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 80 and hitTrigger == 1 then
         printf("Regenning");
-		local DAY = target:getLocalVar("RNGelement")
+		local DAY = mob:getLocalVar("RNGelement")
 		if DAY == 0 then
 		        mob:setLocalVar("RNGelement", math.random(1,8))
 		end
@@ -74,7 +74,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 50 and hitTrigger == 4 then
         printf("Regenning");
-		local DAY = target:getLocalVar("RNGelement")
+		local DAY = mob:getLocalVar("RNGelement")
 		if DAY == 0 then
 		        mob:setLocalVar("RNGelement", math.random(1,8))
 		end
@@ -114,7 +114,7 @@ function onMobFight(mob, target)
 		if DAY == 0 then
 		        mob:setLocalVar("RNGelement", math.random(1,8))
 		end
-		local DAY = target:getLocalVar("RNGelement")
+		local DAY = mob:getLocalVar("RNGelement")
         target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
         target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
