@@ -17,8 +17,8 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:SetMagicCastingEnabled(false)
-	mob:SetAutoAttackEnabled(true)
-	mob:SetMobAbilityEnabled(true)
+	mob:SetAutoAttackEnabled(false)
+	mob:SetMobAbilityEnabled(false)
 end
 
 function onMobFight(mob, target)
