@@ -19,12 +19,10 @@ function onMobSpawn(mob)
     mob:SetMagicCastingEnabled(false)
     mob:SetAutoAttackEnabled(true)
     mob:SetMobAbilityEnabled(true)
-	target:setLocalVar("RNGelement", 0)
-	end
+end
 
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
-    local regenMode = mob:getLocalVar("RegenMode")
 
     if mob:getHPP() <= 90 and hitTrigger == 0 then
         printf("Magic");
@@ -48,7 +46,6 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 2)
-        mob:setLocalVar("RegenMode", 1)
     end
     if mob:getHPP() <= 70 and hitTrigger == 2 then
         printf("Phys");
@@ -83,7 +80,6 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 5)
-        mob:setLocalVar("RegenMode", 1)
     end
     if mob:getHPP() <= 40 and hitTrigger == 5 then
         printf("Phys");
@@ -118,7 +114,6 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 8)
-        mob:setLocalVar("RegenMode", 1)
     end
     if mob:getHPP() <= 10 and hitTrigger == 8 then
         printf("Phys");
@@ -137,7 +132,7 @@ end
 function onMagicHit(caster, target, spell)
     local DAY = target:getLocalVar("RNGelement")
     local ELEM = spell:getElement()
-	if regenMode == 1 then
+	if hitTrigger == 1 or hitTrigger == 4 or hitTrigger == 7 then
 		if DAY == 0 then
 			 target:setLocalVar("RNGelement", math.random(1,8))
 		elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
@@ -149,9 +144,8 @@ function onMagicHit(caster, target, spell)
 			target:SetMobAbilityEnabled(true)
 			printf("Delete Buffs, Reset Element");
 			target:setLocalVar("RNGelement", math.random(1,8))
-            mob:setLocalVar("RegenMode", 1)
 		end
-	end
+    end
     return 1
 end
 
