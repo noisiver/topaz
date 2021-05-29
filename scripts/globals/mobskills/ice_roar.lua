@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ICE, MOBPARAM_IGNORE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ICE)
-	if dmg > 0 then target:tryInterruptSpell(mob, info.hitslanded) end
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
 
     return dmg
 end

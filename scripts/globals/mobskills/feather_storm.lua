@@ -31,6 +31,6 @@ function onMobWeaponSkill(target, mob, skill)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
-	if dmg > 0 then target:tryInterruptSpell(mob, info.hitslanded) end
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
