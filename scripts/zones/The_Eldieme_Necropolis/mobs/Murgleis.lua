@@ -17,12 +17,13 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:SetMagicCastingEnabled(false)
-	mob:SetAutoAttackEnabled(false)
-	mob:SetMobAbilityEnabled(false)
-end
+    mob:SetAutoAttackEnabled(true)
+    mob:SetMobAbilityEnabled(true)
+	end
 
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
+    local regenMode = mob:getLocalVar("RegenMode")
 
     if mob:getHPP() <= 90 and hitTrigger == 0 then
         printf("Magic");
@@ -37,10 +38,6 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 80 and hitTrigger == 1 then
         printf("Regenning");
-		local DAY = target:getLocalVar("RNGelement")
-		if DAY == 0 then
-		        mob:setLocalVar("RNGelement", math.random(1,8))
-		end
         target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
         target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
@@ -50,11 +47,14 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 2)
+        mob:setLocalVar("RegenMode", 1)
     end
     if mob:getHPP() <= 70 and hitTrigger == 2 then
         printf("Phys");
         target:PrintToPlayer("Give up already, you're too weak.",0,"Murgleis")
         mob:SetMagicCastingEnabled(false)
+		mob:SetAutoAttackEnabled(true)
+		mob:SetMobAbilityEnabled(true)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
@@ -73,10 +73,6 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 50 and hitTrigger == 4 then
         printf("Regenning");
-		local DAY = target:getLocalVar("RNGelement")
-		if DAY == 0 then
-		        mob:setLocalVar("RNGelement", math.random(1,8))
-		end
         target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
         target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
@@ -86,12 +82,14 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 5)
-        mob:setLocalVar("RNGelement", math.random(1,8))
+        mob:setLocalVar("RegenMode", 1)
     end
     if mob:getHPP() <= 40 and hitTrigger == 5 then
         printf("Phys");
         target:PrintToPlayer("Give up already, you're too weak.",0,"Murgleis")
         mob:SetMagicCastingEnabled(false)
+		mob:SetAutoAttackEnabled(true)
+		mob:SetMobAbilityEnabled(true)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
@@ -110,10 +108,6 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 20 and hitTrigger == 7 then
         printf("Regenning");
-		if DAY == 0 then
-		        mob:setLocalVar("RNGelement", math.random(1,8))
-		end
-		local DAY = target:getLocalVar("RNGelement")
         target:PrintToPlayer("My barrier cannot be destroyed by the likes of you!",0,"Murgleis")
         target:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.REGEN, 300)
@@ -123,12 +117,14 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("TriggerHit", 8)
-        mob:setLocalVar("RNGelement", math.random(1,8))
+        mob:setLocalVar("RegenMode", 1)
     end
     if mob:getHPP() <= 10 and hitTrigger == 8 then
         printf("Phys");
         target:PrintToPlayer("Give up already, you're too weak.",0,"Murgleis")
         mob:SetMagicCastingEnabled(false)
+		mob:SetAutoAttackEnabled(true)
+		mob:SetMobAbilityEnabled(true)
         mob:addMod(tpz.mod.MATT, -30)
         mob:addMod(tpz.mod.ATT, 400)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
@@ -138,17 +134,23 @@ end
 
 
 function onMagicHit(caster, target, spell)
+    local DAY = target:getLocalVar("RNGelement")
     local ELEM = spell:getElement()
-    if (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
-        target:useMobAbility(624) -- 2 hour "cloud" animation
-        target:delStatusEffect(34) -- Blaze spikes
-        target:setMod(tpz.mod.REGEN, 0)
-        target:setMobMod(tpz.mobMod.NO_MOVE, 0)
-        target:SetAutoAttackEnabled(true)
-        target:SetMobAbilityEnabled(true)
-        printf("Delete Buffs, Reset Element");
-        target:setLocalVar("RNGelement", math.random(1,8))
-    end
+	if regenMode == 1 then
+		if DAY == 0 then
+			 target:setLocalVar("RNGelement", math.random(1,8))
+		elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) then
+			target:useMobAbility(624) -- 2 hour "cloud" animation
+			target:delStatusEffect(34) -- Blaze spikes
+			target:setMod(tpz.mod.REGEN, 0)
+			target:setMobMod(tpz.mobMod.NO_MOVE, 0)
+			target:SetAutoAttackEnabled(true)
+			target:SetMobAbilityEnabled(true)
+			printf("Delete Buffs, Reset Element");
+			target:setLocalVar("RNGelement", math.random(1,8))
+            mob:setLocalVar("RegenMode", 1)
+		end
+	end
     return 1
 end
 
