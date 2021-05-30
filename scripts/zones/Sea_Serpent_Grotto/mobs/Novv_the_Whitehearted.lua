@@ -36,6 +36,14 @@ function onMobFight(mob, target)
         mob:setLocalVar("wingsTime", 0)
         mob:setLocalVar("wingsDown", 0)
     end
+
+    if (mob:hasStatusEffect(tpz.effect.MARCH) == true) then
+        mob:setMod(tpz.mod.ATTP, 200)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
+    else
+        mob:setMod(tpz.mod.ATTP, 0)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+    end
 end
 
 function onMobDeath(mob, player, isKiller)
