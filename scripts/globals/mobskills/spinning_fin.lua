@@ -25,13 +25,13 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
 
 
-    local typeEffect = tpz.effect.STUN
-
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 4)
 
     if (mob:getPool() == 2914) then -- Novv the Whitehearted
-    local typeEffect = tpz.effect.TERROR
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 10)
+		local typeEffect = tpz.effect.TERROR
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 10)
+	else
+		local typeEffect = tpz.effect.STUN
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 4)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
