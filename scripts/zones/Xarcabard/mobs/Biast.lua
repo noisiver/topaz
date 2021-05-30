@@ -12,7 +12,6 @@ mixins =
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
 function onMobSpawn(mob)
@@ -57,10 +56,6 @@ function onMobFight(mob, target)
             {id = tpz.jsa.MANAFONT, cooldown = 0, hpp = 75},
         },
     })
-end
-
-function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.TERROR, {chance = 20, duration = 2})
 end
 
 function onMobWeaponSkill(target, mob, skill)

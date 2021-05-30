@@ -3820,7 +3820,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,2437); -- Aqua Blast
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,645); -- Body Slam
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,647); -- Chaos Blade
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,648); -- Petro Eyes
-INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,649); -- Void Song
 INSERT INTO `mob_skill_lists` VALUES ('Biast',6009,650); -- Thorn Song
 -- Mighty Strikes
 INSERT INTO `mob_skill_lists` VALUES ('Biast_MS',5999,645); -- Body Slam
