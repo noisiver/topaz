@@ -16,8 +16,12 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+    else
     target:setHP(1)
-    mob:resetEnmity(target)
+    end
+	mob:resetEnmity(target)
 
     return 0
 end

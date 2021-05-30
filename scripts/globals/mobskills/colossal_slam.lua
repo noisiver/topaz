@@ -14,9 +14,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+
     local typeEffect = tpz.effect.CURSE_II
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 20)
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+    else
+		MobStatusEffectMove(mob, target, typeEffect, 1, 0, 20)
+    end
 
     local numhits = 1
     local accmod = 1

@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Infernal Pestilence
 --
---  Description: Releases a horrible disease on targets in front.
+--  Description: Releases a horrible disease on targets in front. Additional effect: Zombie.
 --  Type: Magical
 --  Utsusemi/Blink absorb: Ignores shadows
 --  Range: Front arc
@@ -22,7 +22,11 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.CURSE_II
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+    else
+		MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
+    end
 
     local dmgmod = 0.5
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*1, tpz.magic.ele.WATER, dmgmod, TP_NO_EFFECT)
