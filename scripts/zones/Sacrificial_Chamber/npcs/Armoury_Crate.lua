@@ -83,6 +83,9 @@ local loot =
     [130] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
+        },
+        {
             {itemid = 13155, droprate =  240}, -- Enfeebling Torque
             {itemid = 13152, droprate =  240}, -- Divine Torque
             {itemid = 13150, droprate =  240}, -- Shield Torque

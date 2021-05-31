@@ -2125,8 +2125,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Gallu',467,2790);
 INSERT INTO `mob_skill_lists` VALUES ('Umbril',468,2970);
 INSERT INTO `mob_skill_lists` VALUES ('Umbril',468,2971);
 INSERT INTO `mob_skill_lists` VALUES ('Umbril',468,2972);
+INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,652); -- blaster
+INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,653); -- chaotic_eye
 INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,480); -- petrifactive_breath
 INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,483); -- charged_whisker
+INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',481,483); -- frenzied_rage
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',470,2519);
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',470,2520);
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',470,2521);
@@ -3728,7 +3731,8 @@ INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,401); -- Gliding Spike
 INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,402); -- Feather barrier
 INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,403); -- Stormwind
 INSERT INTO `mob_skill_lists` VALUES ('Dahu',1161,802); -- Great_Sandstorm
-INSERT INTO `mob_skill_lists` VALUES ('Picolaton',1162,926); -- Stormwind
+INSERT INTO `mob_skill_lists` VALUES ('Picolaton',1162,926); -- Stormwind Macan Gadangan
+
 
 
 -- Custom Content

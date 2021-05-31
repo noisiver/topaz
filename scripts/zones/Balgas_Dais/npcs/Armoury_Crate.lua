@@ -564,6 +564,9 @@ local loot =
     [110] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
+        },
+        {
             {itemid =  1591, droprate = 1000}, -- high-quality_coeurl_hide
         },
         {
@@ -582,40 +585,40 @@ local loot =
             {itemid =  4213, droprate = 1000}, -- icarus_wing
         },
         {
-            {itemid = 15293, droprate =  365}, -- gleemans_belt
-            {itemid = 15292, droprate =  635}, -- penitents_rope
+            {itemid = 15293, droprate =  400}, -- gleemans_belt
+            {itemid = 15292, droprate =  600}, -- penitents_rope
         },
         {
-            {itemid = 14663, droprate =  426}, -- teleport_ring_mea
-            {itemid = 14665, droprate =  574}, -- teleport_ring_yhoat
+            {itemid = 14663, droprate =  500}, -- teleport_ring_mea
+            {itemid = 14665, droprate =  500}, -- teleport_ring_yhoat
         },
         {
-            {itemid =     0, droprate =  848}, -- nothing
+            {itemid =     0, droprate =  950}, -- nothing
             {itemid = 15185, droprate =   58}, -- walkure_mask
-            {itemid =  4173, droprate =   78}, -- hi-reraiser
-            {itemid =   702, droprate =   16}, -- ebony_log
         },
         {
-            {itemid =   771, droprate =    9}, -- yellow_rock
-            {itemid =   775, droprate =    9}, -- black_rock
-            {itemid =   791, droprate =   16}, -- aquamarine
-            {itemid =   769, droprate =   16}, -- red_rock
-            {itemid =   770, droprate =   16}, -- blue_rock
-            {itemid =   774, droprate =   16}, -- purple_rock
-            {itemid =   700, droprate =   33}, -- mahogany_log
-            {itemid =   801, droprate =   33}, -- chrysoberyl
-            {itemid =   805, droprate =   33}, -- zircon
-            {itemid =   652, droprate =   49}, -- steel_ingot
-            {itemid =   654, droprate =   49}, -- darksteel_ingot
-            {itemid =   773, droprate =   49}, -- translucent_rock
-            {itemid =   803, droprate =   49}, -- sunstone
-            {itemid =   802, droprate =   66}, -- moonstone
-            {itemid =   653, droprate =   82}, -- mythril_ingot
-            {itemid =   810, droprate =   82}, -- fluorite
-            {itemid =   745, droprate =   98}, -- gold_ingot
-            {itemid =   784, droprate =   98}, -- jadeite
-            {itemid =   797, droprate =   98}, -- painite
-            {itemid =  4175, droprate =   99}, -- vile_elixir_+1
+            {itemid =   771, droprate =    10}, -- yellow_rock
+            {itemid =   775, droprate =    10}, -- black_rock
+            {itemid =   791, droprate =   10}, -- aquamarine
+            {itemid =   769, droprate =   10}, -- red_rock
+            {itemid =   770, droprate =   10}, -- blue_rock
+            {itemid =   774, droprate =   10}, -- purple_rock
+            {itemid =   700, droprate =   50}, -- mahogany_log
+            {itemid =   801, droprate =   50}, -- chrysoberyl
+            {itemid =   805, droprate =   50}, -- zircon
+            {itemid =   652, droprate =   50}, -- steel_ingot
+            {itemid =   654, droprate =   50}, -- darksteel_ingot
+            {itemid =   773, droprate =   50}, -- translucent_rock
+            {itemid =   803, droprate =   50}, -- sunstone
+            {itemid =   802, droprate =   50}, -- moonstone
+            {itemid =   653, droprate =   100}, -- mythril_ingot
+            {itemid =   810, droprate =   100}, -- fluorite
+            {itemid =   745, droprate =   100}, -- gold_ingot
+            {itemid =   784, droprate =   100}, -- jadeite
+            {itemid =   797, droprate =   100}, -- painite
+            {itemid =  4175, droprate =   100}, -- vile_elixir_+1
+            {itemid =  4173, droprate =   100}, -- hi-reraiser
+            {itemid =   702, droprate =   10}, -- ebony_log
         },
     },
     -- KSNM Royale Ramble

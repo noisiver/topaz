@@ -1042,12 +1042,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Helltail_Harry',70,150,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Helltail_Harry',70,357,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Helltail_Harry',70,358,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Orcish_Onager',71,362,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,164,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,165,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,166,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,194,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,195,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,212,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,164,1,255); -- thunder
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,165,1,255); -- thunder II
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,166,1,255); -- thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,194,1,255); -- thundaga
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,195,1,255); -- thundaga II
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan',72,212,1,255); -- burst
 INSERT INTO `mob_spell_lists` VALUES ('Duke_Amduscias',73,191,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Duke_Amduscias',73,214,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Duke_Amduscias',73,258,1,255);
@@ -4015,6 +4015,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 249, 1, 255); -- Blaze Sp
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku', 1006, 176, 1, 255); -- Firaga III
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006,147,24,255); -- Fire IV
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 204, 1, 255); -- Flare 
+
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan_SIlenced',1007,212,1,255); -- burst
 
 --Custom Content
 

@@ -306,7 +306,7 @@ INSERT INTO `mob_skills` VALUES (477,221,'dark_sphere',0,7.0,2000,1500,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (478,222,'hell_slash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (479,223,'horror_cloud',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (480,288,'petrifactive_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (481,225,'frenzied_rage',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (481,225,'frenzied_rage',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (482,290,'pounce',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (483,291,'charged_whisker',1,12.5,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (484,228,'black_cloud',1,15.0,2000,1500,4,0,0,0,0,0,0);
