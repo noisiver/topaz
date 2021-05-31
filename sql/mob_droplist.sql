@@ -15126,12 +15126,10 @@ INSERT INTO `mob_droplist` VALUES (2813,1,4,1000,4174,75); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (2813,1,5,1000,4173,75); -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (2813,1,5,1000,4172,75); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,16884,240); -- Narval 
-INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,2229,100);
-INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,3504,100);
-INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,3541,100);
-INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,3542,100);
+INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,2229,100); -- (Snaggletooth_Peapuk) Vial of chimera blood
+INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,3504,240); -- Peapuk wing
 INSERT INTO `mob_droplist` VALUES (2814,4,0,1000,5569,0);
-INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,5569,130);
+INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,5569,150); -- Puk egg
 INSERT INTO `mob_droplist` VALUES (2815,0,0,1000,646,72); -- Pygmytoise, Adaman Ore
 INSERT INTO `mob_droplist` VALUES (2815,0,0,1000,3541,137); -- Pygmytoise, Seasoning stone
 INSERT INTO `mob_droplist` VALUES (2815,0,0,1000,3543,71); -- Pygmytoise, Fossilized Fang
@@ -15794,13 +15792,11 @@ INSERT INTO `mob_droplist` VALUES (3005,0,0,1000,702,5); -- Ebony log
 INSERT INTO `mob_droplist` VALUES (3005,0,0,1000,700,5); -- Mahogany log
 INSERT INTO `mob_droplist` VALUES (3005,0,0,1000,703,1); -- Petrified log
 INSERT INTO `mob_droplist` VALUES (3006,0,0,1000,2198,108);
-INSERT INTO `mob_droplist` VALUES (3007,0,0,1000,816,111);
-INSERT INTO `mob_droplist` VALUES (3007,0,0,1000,839,371);
-INSERT INTO `mob_droplist` VALUES (3007,2,0,1000,839,0);
-INSERT INTO `mob_droplist` VALUES (3007,0,0,1000,3541,176);
-INSERT INTO `mob_droplist` VALUES (3007,0,0,1000,3542,75);
-INSERT INTO `mob_droplist` VALUES (3007,0,0,1000,3550,86);
-INSERT INTO `mob_droplist` VALUES (3008,0,0,1000,816,111);
+INSERT INTO `mob_droplist` VALUES (3007,0,0,1000,816,150); -- (Mourning Crawler) Spool of silk thread
+INSERT INTO `mob_droplist` VALUES (3007,0,0,1000,839,240); -- Piece of crawler cocoon
+INSERT INTO `mob_droplist` VALUES (3007,2,0,1000,839,0); -- Piece of crawler cocoon (Steal)
+INSERT INTO `mob_droplist` VALUES (3007,0,0,1000,3550,100); -- Spool of wyrdstrand
+INSERT INTO `mob_droplist` VALUES (3008,0,0,1000,816,150);
 INSERT INTO `mob_droplist` VALUES (3008,4,0,1000,839,0);
 INSERT INTO `mob_droplist` VALUES (3008,0,0,1000,3550,119);
 INSERT INTO `mob_droplist` VALUES (3008,4,0,1000,4357,0);
