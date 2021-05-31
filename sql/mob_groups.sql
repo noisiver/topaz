@@ -10554,11 +10554,11 @@ INSERT INTO `mob_groups` VALUES (6,3425,163,'Sable-tongued_Gonberry',0,128,0,400
 INSERT INTO `mob_groups` VALUES (7,4235,163,'Virid-faced_Shanberry',0,128,0,4000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (8,877,163,'Cyaneous-toed_Yallberry',0,128,0,4000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (9,4224,163,'Vermilion-eared_Noberry',0,128,0,4000,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (10,3290,163,'Qull_the_Fallstopper',0,128,0,0,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (11,3328,163,'Rauu_the_Whaleswooner',0,128,0,0,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (12,2038,163,'Hyohh_the_Conchblower',0,128,0,0,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (13,3123,163,'Pevv_the_Riverleaper',0,128,0,0,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (14,3442,163,'Sahagins_Wyvern',0,128,0,0,0,48,48,0);
+INSERT INTO `mob_groups` VALUES (10,3290,163,'Qull_the_Fallstopper',0,128,0,3300,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (11,3328,163,'Rauu_the_Whaleswooner',0,128,0,2800,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (12,2038,163,'Hyohh_the_Conchblower',0,128,0,2900,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (13,3123,163,'Pevv_the_Riverleaper',0,128,0,3200,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (14,3442,163,'Sahagins_Wyvern',0,128,0,1500,0,48,48,0);
 INSERT INTO `mob_groups` VALUES (15,3584,163,'Shantotto',0,0,0,0,0,0,0,0);
 
 -- ------------------------------------------------------------

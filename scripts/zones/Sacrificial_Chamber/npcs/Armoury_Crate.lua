@@ -83,47 +83,67 @@ local loot =
     [130] =
     {
         {
-            {itemid = 13155, droprate =  250}, -- Enfeebling Torque
-            {itemid = 13152, droprate =  250}, -- Divine Torque
-            {itemid = 13150, droprate =  250}, -- Shield Torque
-            {itemid = 13160, droprate =  250}, -- String Torque
+            {itemid = 13155, droprate =  240}, -- Enfeebling Torque
+            {itemid = 13152, droprate =  240}, -- Divine Torque
+            {itemid = 13150, droprate =  240}, -- Shield Torque
+            {itemid = 13160, droprate =  240}, -- String Torque
+            {itemid = 13157, droprate =  240}, -- Healing Torque 
+            {itemid = 13158, droprate =  240}, -- Summoning Torque 
+            {itemid = 13159, droprate =  240}, -- Ninjutsu Torque 
         },
         {
-            {itemid = 13156, droprate =  250}, -- Elemental Torque
-            {itemid = 13148, droprate =  250}, -- Evasion Torque
-            {itemid = 13151, droprate =  250}, -- Guarding Torque
-            {itemid = 13154, droprate =  250}, -- Enhancing Torque
+            {itemid = 13156, droprate =  240}, -- Elemental Torque
+            {itemid = 13148, droprate =  240}, -- Evasion Torque
+            {itemid = 13151, droprate =  240}, -- Guarding Torque
+            {itemid = 13154, droprate =  240}, -- Enhancing Torque
+            {itemid = 13161, droprate =  240}, -- Wind  Torque 
+            {itemid = 13153, droprate =  240}, -- Dark Torque 
+            {itemid = 13149, droprate =  240}, -- Parrying Torque 
         },
         {
-            {itemid =  1260, droprate =  125}, -- Chunk Of Water Ore
-            {itemid =  1257, droprate =  125}, -- Chunk Of Wind Ore
-            {itemid =  1256, droprate =  125}, -- Chunk Of Ice Ore
-            {itemid =  1259, droprate =  125}, -- Chunk Of Lightning Ore
-            {itemid =  1261, droprate =  125}, -- Chunk Of Light Ore
-            {itemid =  1255, droprate =  125}, -- Chunk Of Fire Ore
-            {itemid =  1262, droprate =  125}, -- Chunk Of Dark Ore
-            {itemid =  1258, droprate =  125}, -- Chunk Of Earth Ore
+            {itemid =  1260, droprate =  150}, -- Chunk Of Water Ore
+            {itemid =  1257, droprate =  150}, -- Chunk Of Wind Ore
+            {itemid =  1256, droprate =  150}, -- Chunk Of Ice Ore
+            {itemid =  1259, droprate =  150}, -- Chunk Of Lightning Ore
+            {itemid =  1261, droprate =  150}, -- Chunk Of Light Ore
+            {itemid =  1255, droprate =  150}, -- Chunk Of Fire Ore
+            {itemid =  1262, droprate =  150}, -- Chunk Of Dark Ore
+            {itemid =  1258, droprate =  150}, -- Chunk Of Earth Ore
         },
         {
             {itemid =     0, droprate =  750}, -- nothing
-            {itemid = 13158, droprate =  250}, -- Summoning Torque
+            {itemid = 13158, droprate =  240}, -- Summoning Torque
+            {itemid = 13156, droprate =  240}, -- Elemental Torque
+            {itemid = 13148, droprate =  240}, -- Evasion Torque
+            {itemid = 13151, droprate =  240}, -- Guarding Torque
+            {itemid = 13154, droprate =  240}, -- Enhancing Torque
+            {itemid = 13161, droprate =  240}, -- Wind  Torque 
+            {itemid = 13153, droprate =  240}, -- Dark Torque 
+            {itemid = 13149, droprate =  240}, -- Parrying Torque
+            {itemid = 13155, droprate =  240}, -- Enfeebling Torque
+            {itemid = 13152, droprate =  240}, -- Divine Torque
+            {itemid = 13150, droprate =  240}, -- Shield Torque
+            {itemid = 13160, droprate =  240}, -- String Torque
+            {itemid = 13157, droprate =  240}, -- Healing Torque 
+            {itemid = 13158, droprate =  240}, -- Summoning Torque 
+            {itemid = 13159, droprate =  240}, -- Ninjutsu Torque 
         },
         {
             {itemid =     0, droprate =  200}, -- nothing
             {itemid =   751, droprate =  800}, -- Platinum Beastcoin
         },
         {
-            {itemid =     0, droprate =  375}, -- nothing
-            {itemid =  4896, droprate =  125}, -- Fire Spirit Pact
-            {itemid =  4874, droprate =  125}, -- Scroll Of Absorb-str
-            {itemid =  4751, droprate =  125}, -- Scroll Of Erase
-            {itemid =  4714, droprate =  125}, -- Scroll Of Phalanx
-            {itemid =  4621, droprate =  125}, -- Scroll Of Raise Ii
+            {itemid =     0, droprate =  400}, -- nothing
+            {itemid =  4896, droprate =  150}, -- Fire Spirit Pact
+            {itemid =  4874, droprate =  150}, -- Scroll Of Absorb-str
+            {itemid =  4751, droprate =  150}, -- Scroll Of Erase
+            {itemid =  4714, droprate =  150}, -- Scroll Of Phalanx
+            {itemid =  4621, droprate =  150}, -- Scroll Of Raise Ii
         },
         {
-            {itemid =     0, droprate =  888}, -- nothing
-            {itemid =  4175, droprate =   56}, -- Vile Elixir +1
-            {itemid =  4173, droprate =   56}, -- Hi-reraiser
+            {itemid =     0, droprate =  900}, -- nothing
+            {itemid =  4175, droprate =   50}, -- Vile Elixir +1
+            {itemid =  4173, droprate =   50}, -- Hi-reraiser
         },
         {
             {itemid =   810, droprate =   10}, -- Fluorite
@@ -143,9 +163,8 @@ local loot =
         },
         {
             {itemid =   751, droprate =  500}, -- Platinum Beastcoin
-            {itemid =   887, droprate =  222}, -- Coral Fragment
-            {itemid =   837, droprate =   10}, -- Spool Of Malboro Fiber
-            {itemid =   652, droprate =  111}, -- Steel Ingot
+            {itemid =   887, droprate =  240}, -- Coral Fragment
+            {itemid =   652, droprate =  100}, -- Steel Ingot
             {itemid =   702, droprate =   56}, -- Ebony Log
         },
     },
