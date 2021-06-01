@@ -15,7 +15,7 @@ function onMobFight(mob, target)
 end
 
 function onMonsterMagicPrepare(mob, target)
-    target:PrintToPlayer("The Macan Gadangan's whiskers begin to twitch violently.",0,"")
+    mob:PrintToPlayer("The Macan Gadangan's whiskers begin to twitch violently.",0,"")
 end
 
 
