@@ -2129,7 +2129,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,652); -- blaster
 INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,653); -- chaotic_eye
 INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,480); -- petrifactive_breath
 INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,483); -- charged_whisker
-INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',481,483); -- frenzied_rage
+INSERT INTO `mob_skill_lists` VALUES ('Macan_Gadangan',469,481); -- frenzied_rage
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',470,2519);
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',470,2520);
 INSERT INTO `mob_skill_lists` VALUES ('Yilbegan',470,2521);
