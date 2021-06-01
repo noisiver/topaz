@@ -3768,20 +3768,20 @@ INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,3220); -- Infern
 --------------------------Boyahda Merit Mobs--------------------------
 
 -- Snaggletooth_Peapuk
-INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,1155); -- Subsonics
 INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,1158); -- Turbulence
+INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,366); -- Tail Blow
 INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,406); -- Hammer Beak
 INSERT INTO `mob_skill_lists` VALUES ('Snaggletooth_Peapuk',6000,724); -- Evasion
 -- Viseclaw 
-INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,2512); -- Venom Shower
-INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,443);	-- Bubble Curtain
+INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,448); -- Metallic Body
+INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,418);	-- Regeneration
 INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,445);	-- Scissor Guard
 INSERT INTO `mob_skill_lists` VALUES ('Viseclaw',6001,444);	-- Big Scissors
 -- Mourning_Crawler
 INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,356); -- Sharp Strike
-INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,379);	-- Chomp Rush
-INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,331);	-- Leafstorm
-INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,214);	-- Methane Breath
+INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,379); -- Chomp Rush
+INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,331); -- Leafstorm
+INSERT INTO `mob_skill_lists` VALUES ('Mourning_Crawler',6002,470); -- Methane Breath
 
 -- Alkyoneus
 -- Phase 1 WAR
