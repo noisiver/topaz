@@ -156,7 +156,7 @@ INSERT INTO `mob_skills` VALUES (327,165,'deep_kiss',0,7.0,2000,1500,4,0,0,0,0,0
 INSERT INTO `mob_skills` VALUES (328,72,'drill_branch',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (329,73,'pinecone_bomb',0,23.5,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (330,74,'shuffle',4,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (331,75,'leafstorm',1,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (331,75,'leafstorm',1,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (332,76,'entangle',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (333,77,'double_down',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (334,78,'sharp_sting',0,10.0,2000,1500,4,0,0,0,0,0,0);
