@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Shell IV
+-- Spell: Shell V
 -----------------------------------------
 require("scripts/globals/magic")
 require("scripts/globals/msg")

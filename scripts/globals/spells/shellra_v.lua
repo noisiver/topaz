@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Shellra
+-- Spell: Shellra V
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
