@@ -17,6 +17,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.ACC, 400) 
     mob:addMod(tpz.mod.EVA, 140)
     mob:setMod(tpz.mod.MACC, 1000) 
+    mob:setMod(tpz.mod.REFRESH, 400)
     mob:setLocalVar("[rage]timer", 1200) -- 20 minutes
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
