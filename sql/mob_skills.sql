@@ -1901,7 +1901,7 @@ INSERT INTO `mob_skills` VALUES (2068,439,'economizer',0,7.0,2000,0,16,4,0,0,0,0
 -- INSERT INTO `mob_skills` VALUES (2069,1813,'tribulation',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2070,1411,'dismemberment',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2071,1412,'dire_straight',0,7.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2072,1413,'earth_shatter',1,15.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2072,1413,'earth_shatter',1,10.0,2000,3500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2073,1414,'sinker_drill',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2074,1415,'detonating_grip',0,7.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2075,1819,'overthrow',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2569,7 +2569,7 @@ INSERT INTO `mob_skills` VALUES (2735,2479,'searing_tempest',1,30.0,2000,3500,4,
 -- INSERT INTO `mob_skills` VALUES (2738,1888,'scouring_spate',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2739,1889,'anvil_lightning',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2740,1890,'silent_storm',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2741,2485,'entomb',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2741,2485,'entomb',1,10.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2742,2486,'tenebral_crush',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2743,1509,'string_shredder',0,7.0,2000,1,4,0,324,0,10,4,0);
 INSERT INTO `mob_skills` VALUES (2744,1510,'armor_shatterer',0,7.0,2000,1,4,0,324,0,11,8,0);

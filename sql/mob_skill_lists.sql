@@ -3955,6 +3955,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,569); -- Refueling
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,1377); -- fluorescence
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,1155); -- Subsonics
 
+-- Antican Legatus
+INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,792); -- sandstorm
+INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,1255); -- occultation
+INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,521); -- spinning_attack
+INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,790); -- shoulder_slam
+INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,2741); -- Entomb(Sub 50% HP)
+INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,2072); -- Earth Shatter(sub 25% HP)
 
 
 
