@@ -22,7 +22,7 @@ end
 
 function onMobFight(mob, target)
     if (mob:hasStatusEffect(tpz.effect.SILENCE) == true) then
-        mob:setSpellList(1007)
+        mob:setSpellList(448)
         mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
     end
 end

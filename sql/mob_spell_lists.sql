@@ -3931,6 +3931,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,201,65,255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,191,75,255);-- stonega_iii
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,260,32,255); -- Dispel
 
+
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,58,4,255); -- Paralyze
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,105,1,255); -- enwater
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,151,24,255); -- Blizzard II
@@ -4015,8 +4016,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 249, 1, 255); -- Blaze Sp
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku', 1006, 176, 1, 255); -- Firaga III
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006,147,24,255); -- Fire IV
 INSERT INTO `mob_spell_lists` VALUES ('Hakutaku',1006, 204, 1, 255); -- Flare 
-
-INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan_SIlenced',1007,212,1,255); -- burst
 
 --Custom Content
 
@@ -4121,6 +4120,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,4,1,255); -- Cure IV
 INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,22,1,255); -- Holy II
 INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,30,1,255);  -- Banish III
 INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,40,1,255); -- banishga_iii
+
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan_SIlenced',448,212,1,255); -- Burst
 
 
 
