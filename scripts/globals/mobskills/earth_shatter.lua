@@ -1,6 +1,6 @@
 ---------------------------------------------------
 -- Earth Shatter
--- Deals Earth elemental damage to enemies within area of effect. Additional effect: Slow, Gravity, Accuracy Down, and Evasion Down.
+-- Deals Earth elemental damage to enemies within area of effect. Additional effect: Slow, Gravity, Rasp, Accuracy Down, and Evasion Down.
 -- Very long cast time, easy to stun or run away from.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -25,6 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 50, 0, 30)
     MobStatusEffectMove(mob, target, tpz.effect.ACCURACY_DOWN, 50, 0, 30)
     MobStatusEffectMove(mob, target, tpz.effect.EVASION_DOWN, 50, 0, 30)
+    MobStatusEffectMove(mob, target, tpz.effect.RASP, 25, 3, 30)
 
 
     local dmgmod = 1.5
