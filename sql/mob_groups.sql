@@ -12746,7 +12746,7 @@ INSERT INTO `mob_groups` VALUES (24,1087,212,'Doom_Warlock',600,0,688,0,0,76,78,
 INSERT INTO `mob_groups` VALUES (25,1341,212,'Fire_Elemental',600,4,831,0,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (26,4065,212,'Typhoon_Wyvern',900,0,42,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (27,976,212,'Demonic_Pugil',600,0,607,0,0,73,76,0);
-INSERT INTO `mob_groups` VALUES (28,1255,212,'Erlik',1200,0,790,0,0,75,78,0);
+INSERT INTO `mob_groups` VALUES (28,1255,212,'Erlik',600,0,790,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (29,339,212,'Baobhan_Sith',0,32,225,18000,0,77,81,0);
 INSERT INTO `mob_groups` VALUES (30,6334,212,'Antares',600,0,113,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (31,3856,212,'Taxim',0,32,2385,13500,0,78,79,0);
