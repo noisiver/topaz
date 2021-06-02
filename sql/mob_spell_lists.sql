@@ -3931,6 +3931,64 @@ INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,201,65,255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,191,75,255);-- stonega_iii
 INSERT INTO `mob_spell_lists` VALUES ('Altedour_I_Tavnazia',437,260,32,255); -- Dispel
 
+-- Avatar Fights
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime', 438, 181, 1, 255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438,152,24,255); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 207, 1, 255); -- Freeze II
+INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 356, 1, 255); -- Paralyaga
+
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime', 439, 196, 1, 255); -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439,167,24,255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 213, 1, 255); -- Burst II
+INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 252, 1, 255); -- Stun
+
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime', 440, 191, 1, 255); -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440,162,24,255); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 211, 1, 255); -- Quake II
+INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 357, 1, 255); -- Slowga
+
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 441, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441,147,24,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441, 205, 1, 255); -- Flare II
+
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime', 442, 201, 1, 255); -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442,172,24,255); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 215, 1, 255); -- Flood II
+INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 227, 1, 255); -- Poisonga III
+
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime', 443, 186, 1, 255); -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443,157,24,255); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 209, 1, 255); -- Tornado II
+INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 359, 1, 255); -- Silencega
+
+INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime', 444, 361, 1, 255); -- Blindga
+INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
+
+-- Mythic Weapon Battles
+
+-- Murgelis V1 100%
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,493,1,255);   -- Temper
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,511,1,255);   -- Haste II
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,360,1,255); -- Dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 227, 1, 255); -- Poisonga III
+
+--Murgelis V1 50%
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,146,24,255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,151,24,255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,156,24,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,161,24,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,166,24,255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,171,24,255); -- Water III
+
+--Burtgang
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,4,1,255); -- Cure IV
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,22,1,255); -- Holy II
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,30,1,255);  -- Banish III
+INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,40,1,255); -- banishga_iii
+
+INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan_SIlenced',448,212,1,255); -- Burst
 
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,58,4,255); -- Paralyze
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,105,1,255); -- enwater
@@ -4046,42 +4104,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,357,75,255)
 INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,359,75,255); -- silencega
 INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,360,75,255); -- dispelga
 
-
--- Avatar Fights
-INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime', 438, 181, 1, 255); -- Blizzaga III
-INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438,152,24,255); -- Blizzard IV
-INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 207, 1, 255); -- Freeze II
-INSERT INTO `mob_spell_lists` VALUES ('Shiva_Prime',438, 356, 1, 255); -- Paralyaga
-
-INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime', 439, 196, 1, 255); -- Thundaga III
-INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439,167,24,255); -- Thunder IV
-INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 213, 1, 255); -- Burst II
-INSERT INTO `mob_spell_lists` VALUES ('Ramuh_Prime',439, 252, 1, 255); -- Stun
-
-INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime', 440, 191, 1, 255); -- Stonega III
-INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440,162,24,255); -- Stone IV
-INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 211, 1, 255); -- Quake II
-INSERT INTO `mob_spell_lists` VALUES ('Titan_Prime',440, 357, 1, 255); -- Slowga
-
-INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime', 441, 176, 1, 255); -- Firaga III
-INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441,147,24,255); -- Fire IV
-INSERT INTO `mob_spell_lists` VALUES ('Ifrit_Prime',441, 205, 1, 255); -- Flare II
-
-INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime', 442, 201, 1, 255); -- Waterga III
-INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442,172,24,255); -- Water IV
-INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 215, 1, 255); -- Flood II
-INSERT INTO `mob_spell_lists` VALUES ('Leviathan_Prime',442, 227, 1, 255); -- Poisonga III
-
-INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime', 443, 186, 1, 255); -- Aeroga III
-INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443,157,24,255); -- Aero IV
-INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 209, 1, 255); -- Tornado II
-INSERT INTO `mob_spell_lists` VALUES ('Garuda_Prime',443, 359, 1, 255); -- Silencega
-
-INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime', 444, 361, 1, 255); -- Blindga
-INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444,360,24,255); -- Dispelga
-INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 232, 1, 255); -- Bio III
-INSERT INTO `mob_spell_lists` VALUES ('Fenrir_Prime',444, 503, 1, 255); -- Impact
-
 -- Zilart Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- tornado_ii
@@ -4099,29 +4121,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 213, 1, 255); -- Bu
 -- add all element -ga3 and am2
 
 
--- Mythic Weapon Battles
 
--- Murgelis V1 100%
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,493,1,255);   -- Temper
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,511,1,255);   -- Haste II
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',445,360,1,255); -- Dispelga
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis', 445, 227, 1, 255); -- Poisonga III
-
---Murgelis V1 50%
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,146,24,255); -- Fire III
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,151,24,255); -- Blizzard III
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,156,24,255); -- Aero III
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,161,24,255); -- Stone III
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,166,24,255); -- Thunder III
-INSERT INTO `mob_spell_lists` VALUES ('Murgleis',446,171,24,255); -- Water III
-
---Burtgang
-INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,4,1,255); -- Cure IV
-INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,22,1,255); -- Holy II
-INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,30,1,255);  -- Banish III
-INSERT INTO `mob_spell_lists` VALUES ('Burtgang',447,40,1,255); -- banishga_iii
-
-INSERT INTO `mob_spell_lists` VALUES ('Macan_Gadangan_SIlenced',448,212,1,255); -- Burst
 
 
 
