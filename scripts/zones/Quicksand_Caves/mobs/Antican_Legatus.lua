@@ -86,7 +86,6 @@ function onMobFight(mob, target)
     end
     if GuardsDead then
         printf("Protective shell removed");
-        target:PrintToPlayer("Hmpfh, looks like I'll have to deal with you myself.",0,"Legatus")
         mob:setMod(tpz.mod.REGEN, 0)
         mob:setMod(tpz.mod.UDMGPHYS, 0)
         mob:setMod(tpz.mod.UDMGRANGE, 0)
