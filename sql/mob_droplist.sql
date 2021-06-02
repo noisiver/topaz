@@ -1447,10 +1447,10 @@ INSERT INTO `mob_droplist` VALUES (224,0,0,1000,825,240);
 INSERT INTO `mob_droplist` VALUES (224,0,0,1000,940,150);
 INSERT INTO `mob_droplist` VALUES (224,0,0,1000,1031,50);
 INSERT INTO `mob_droplist` VALUES (224,0,0,1000,4871,100); -- Escape
-INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,1000);
-INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,500);
-INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,330);
-INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,250);
+INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,1000); -- (Baobhan Sith) Square Of Cheviot Cloth
+INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,240); -- Square Of Cheviot Cloth
+INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,150); -- Square Of Cheviot Cloth
+INSERT INTO `mob_droplist` VALUES (225,0,0,1000,1281,100); -- Square Of Cheviot Cloth
 INSERT INTO `mob_droplist` VALUES (226,0,0,1000,858,240);
 INSERT INTO `mob_droplist` VALUES (226,0,0,1000,940,80);
 INSERT INTO `mob_droplist` VALUES (227,2,0,1000,838,0);
