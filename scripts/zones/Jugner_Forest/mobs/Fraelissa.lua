@@ -13,7 +13,7 @@ end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    if not tpz.mob.phOnDespawn(mob, ID.mob.FRADUBIO_PH, 100, math.random(75600, 86400)) then -- 21-24 hours
+    if not tpz.mob.phOnDespawn(mob, ID.mob.FRADUBIO_PH, 100, math.random(36000, 43200)) then -- 21-24 hours
         mob:setRespawnTime(math.random(3600, 4500)) -- 60 to 75 minutes
     end
 end

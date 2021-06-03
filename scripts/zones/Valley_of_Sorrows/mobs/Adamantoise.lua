@@ -41,11 +41,11 @@ function onMobDespawn(mob)
 
         DisallowRespawn(ID.mob.ASPIDOCHELONE, false)
         UpdateNMSpawnPoint(ID.mob.ASPIDOCHELONE)
-        GetMobByID(ID.mob.ASPIDOCHELONE):setRespawnTime(75600 + math.random(0, 6) * 1800) -- 21 - 24 hours with half hour windows
+        GetMobByID(ID.mob.ASPIDOCHELONE):setRespawnTime(36000 + math.random(0, 6) * 1800) -- 21 - 24 hours with half hour windows
     else
         if LandKingSystem_NQ ~= 1 then
             UpdateNMSpawnPoint(ID.mob.ADAMANTOISE)
-            GetMobByID(ID.mob.ADAMANTOISE):setRespawnTime(75600 + math.random(0, 6) * 1800) -- 21 - 24 hours with half hour windows
+            GetMobByID(ID.mob.ADAMANTOISE):setRespawnTime(36000 + math.random(0, 6) * 1800) -- 21 - 24 hours with half hour windows
             SetServerVariable("[PH]Aspidochelone", kills + 1)
         end
     end

@@ -40,10 +40,10 @@ function onMobDespawn(mob)
             DisallowRespawn(nqId, true)
             DisallowRespawn(hqId, false)
             UpdateNMSpawnPoint(hqId)
-            GetMobByID(hqId):setRespawnTime(math.random(75600, 82800)) -- 21 to 23 hours
+            GetMobByID(hqId):setRespawnTime(math.random(36000, 43200)) -- 21 to 23 hours
         else
             UpdateNMSpawnPoint(nqId)
-            mob:setRespawnTime(math.random(75600, 82800)) -- 21 to 23 hours
+            mob:setRespawnTime(math.random(36000, 43200)) -- 21 to 23 hours
             SetServerVariable("[PH]Za_Dha_Adamantking", kills + 1)
         end
     end

@@ -12,5 +12,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.ENERGETIC_ERUCA_PH, 10, 86400) -- 24 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.ENERGETIC_ERUCA_PH, 10, 43200) -- 24 hours
 end

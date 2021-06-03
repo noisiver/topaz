@@ -71,7 +71,7 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    SetServerVariable("[POP]Biast", os.time() + math.random(75600, 82800)) -- 21 to 23 hours
+    SetServerVariable("[POP]Biast", os.time() + math.random(36000, 43200)) -- 21 to 23 hours
     DisallowRespawn(mob:getID()-1, false)
     GetMobByID(mob:getID()-1):setRespawnTime(GetMobRespawnTime(mob:getID()-1))
 end

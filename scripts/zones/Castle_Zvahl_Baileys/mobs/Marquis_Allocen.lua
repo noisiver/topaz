@@ -35,6 +35,6 @@ function onMobDespawn(mob)
 
     -- Set Marquis_Allocen's spawnpoint and respawn time (21-23 hours)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(75600, 82800))
+    mob:setRespawnTime(math.random(36000, 43200))
 
 end

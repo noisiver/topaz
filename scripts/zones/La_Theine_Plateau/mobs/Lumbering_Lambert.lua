@@ -15,5 +15,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.BLOODTEAR_PH, 50, math.random(75600, 86400)) -- 21-24 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.BLOODTEAR_PH, 50, math.random(36000, 43200)) -- 21-24 hours
 end
