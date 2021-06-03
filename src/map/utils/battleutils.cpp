@@ -582,7 +582,7 @@ namespace battleutils
         // int16 intStat = PDefender->INT();
         // int16 mattStat = PDefender->getMod(Mod::MATT);
 
-        switch (Action->spikesEffect)
+        switch (static_cast<SPIKES>(Action->spikesEffect))
         {
             case SPIKE_DREAD:
                 // drain same as damage taken
@@ -601,13 +601,27 @@ namespace battleutils
         Action->spikesMessage = 44;
         Action->spikesParam = std::max<int16>(PDefender->getMod(Mod::SPIKES_DMG), 0);
 
+        uint8 gallantsRoll = 0;
+
+        // check for gallant's roll
+        if (!Action->spikesEffect)
+        {
+            CStatusEffect* PEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_GALLANTS_ROLL);
+            if (PEffect && PEffect->GetPower()) // 0 power means bust
+            {
+                gallantsRoll = (uint8)(PEffect->GetPower());
+                Action->spikesEffect = SUBEFFECT_FIRE_DAMAGE; // looks like blaze spikes
+                Action->spikesParam = damage * gallantsRoll / 100;
+            }
+        }
+
         // Handle Retaliation
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_RETALIATION) && PDefender->PAI->IsEngaged()
-            && battleutils::GetHitRate(PDefender, PAttacker) / 2 > tpzrand::GetRandomNumber(100)
-            && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_RETALIATION) && PDefender->PAI->IsEngaged() &&
+            4 + battleutils::GetHitRate(PDefender, PAttacker) / 2 > tpzrand::GetRandomNumber(100) && facing(PDefender->loc.p, PAttacker->loc.p, 64))
         {
             // Retaliation rate is based on player acc vs mob evasion. Missed retaliations do not even display in log.
-            // Other theories exist but were not proven or reliably tested (I have to assume too many things to even consider JP translations about weapon delay), this at least has data to back it up.
+            // Other theories exist but were not proven or reliably tested (I have to assume too many things to even consider JP translations about weapon
+            // delay), this at least has data to back it up.
             // https://web.archive.org/web/20141228105335/http://www.bluegartr.com/threads/120193-Retaliation-Testing?s=7a6221e10ffdfaa6a7f5e8f0387f787d&p=4620727&viewfull=1#post4620727
             Action->reaction = REACTION_HIT;
             Action->spikesEffect = SUBEFFECT_COUNTER;
@@ -635,14 +649,16 @@ namespace battleutils
                 // Dmg math.
                 float DamageRatio = GetDamageRatio(PDefender, PAttacker, crit, 0.f);
                 uint16 dmg = (uint32)((PDefender->GetMainWeaponDmg() + battleutils::GetFSTR(PDefender, PAttacker, SLOT_MAIN)) * DamageRatio);
-                dmg = attackutils::CheckForDamageMultiplier(((CCharEntity*)PDefender), dynamic_cast<CItemWeapon*>(PDefender->m_Weapons[SLOT_MAIN]), dmg, PHYSICAL_ATTACK_TYPE::NORMAL, SLOT_MAIN);
+                dmg = attackutils::CheckForDamageMultiplier(((CCharEntity*)PDefender), dynamic_cast<CItemWeapon*>(PDefender->m_Weapons[SLOT_MAIN]), dmg,
+                                                            PHYSICAL_ATTACK_TYPE::NORMAL, SLOT_MAIN);
                 uint16 bonus = dmg * (PDefender->getMod(Mod::RETALIATION) / 100);
                 dmg = dmg + bonus;
 
                 // FINISH HIM! dun dun dun
                 // TP and stoneskin are handled inside TakePhysicalDamage
                 Action->spikesMessage = 536;
-                Action->spikesParam = battleutils::TakePhysicalDamage(PDefender, PAttacker, PHYSICAL_ATTACK_TYPE::NORMAL, dmg, false, SLOT_MAIN, 1, nullptr, true, true, true);
+                Action->spikesParam =
+                    battleutils::TakePhysicalDamage(PDefender, PAttacker, PHYSICAL_ATTACK_TYPE::NORMAL, dmg, false, SLOT_MAIN, 1, nullptr, true, true, true);
             }
         }
 
@@ -655,27 +671,67 @@ namespace battleutils
                 luautils::OnSpikesDamage(PDefender, PAttacker, Action, Action->spikesParam);
             }
 
+            int16 ramSS = PAttacker->getMod(Mod::RAMPART_STONESKIN);
+            if (ramSS)
+            {
+                if (Action->spikesParam >= ramSS)
+                {
+                    PAttacker->setModifier(Mod::RAMPART_STONESKIN, 0);
+                    Action->spikesParam = Action->spikesParam - ramSS;
+                }
+                else
+                {
+                    PAttacker->setModifier(Mod::RAMPART_STONESKIN, ramSS - Action->spikesParam);
+                    Action->spikesParam = 0;
+                }
+            }
+
             // calculate damage
             Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+
+            uint8 element = 1;
+
+            switch (static_cast<SPIKES>(Action->spikesEffect))
+            {
+                case SPIKE_BLAZE:
+                    element = 1;
+                    break;
+                case SPIKE_ICE:
+                    element = 2;
+                    break;
+                case SPIKE_SHOCK:
+                    element = 5;
+                    break;
+                case SPIKE_DREAD:
+                    element = 8;
+                    break;
+                default:
+                    break;
+            }
+
+            if (gallantsRoll)
+                element = 0;
 
             switch (Action->spikesEffect)
             {
                 case SPIKE_BLAZE:
                 case SPIKE_ICE:
                 case SPIKE_SHOCK:
-                    PAttacker->takeDamage(Action->spikesParam, PDefender, ATTACK_MAGICAL, GetSpikesDamageType(Action->spikesEffect));
+                    PAttacker->takeDamage(Action->spikesParam / getElementalSDTDivisor(PAttacker, element), PDefender, ATTACK_MAGICAL,
+                                          GetSpikesDamageType(Action->spikesEffect));
                     break;
 
                 case SPIKE_DREAD:
-                    if (PAttacker->m_EcoSystem == SYSTEM_UNDEAD)
+                    if (getElementalSDTDivisor(PAttacker, element) == 2)
                     {
-                        // is undead no effect
+                        // is undead or dark resistance too high, no effect
                         Action->spikesEffect = (SUBEFFECT)0;
                         return false;
                     }
                     else
                     {
                         Action->addEffectMessage = 132;
+                        Action->spikesMessage = 132;
 
                         if (PDefender->isAlive())
                         {
@@ -742,13 +798,13 @@ namespace battleutils
         }
 
         // Deal with spikesEffect effect gear
-        else if (PDefender->getMod(Mod::ITEM_SPIKES_TYPE) > 0)
+        else if (PDefender->getMod(Mod::ITEM_SPIKES_TYPE) > 0) // todo: this is probably where Sune-Ate are breaking and not doing any damage -.-
         {
             if (PDefender->objtype == TYPE_PC)
             {
                 CCharEntity* PCharDef = (CCharEntity*)PDefender;
 
-                for (auto&& slot : {SLOT_SUB, SLOT_BODY, SLOT_LEGS, SLOT_HEAD, SLOT_HANDS, SLOT_FEET})
+                for (auto&& slot : { SLOT_SUB, SLOT_BODY, SLOT_LEGS, SLOT_HEAD, SLOT_HANDS, SLOT_FEET })
                 {
                     CItemEquipment* PItem = PCharDef->getEquip(slot);
                     if (PItem)
@@ -782,6 +838,7 @@ namespace battleutils
         }
         return false;
     }
+
 
     bool HandleSpikesEquip(CBattleEntity* PAttacker, CBattleEntity* PDefender, actionTarget_t* Action, uint8 damage, SUBEFFECT spikesType, uint8 chance)
     {
@@ -871,12 +928,12 @@ namespace battleutils
 
         EFFECT previous_daze = EFFECT_NONE;
         uint16 previous_daze_power = 0;
-        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_SAMBA))
+        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_SAMBA) && (PDefender->m_EcoSystem != SYSTEM_UNDEAD))
         {
             previous_daze = EFFECT_DRAIN_DAZE;
             previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_SAMBA)->GetPower();
         }
-        else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_SAMBA))
+        else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_SAMBA) && (PDefender->m_EcoSystem != SYSTEM_UNDEAD))
         {
             previous_daze = EFFECT_ASPIR_DAZE;
             previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_SAMBA)->GetPower();
@@ -903,39 +960,130 @@ namespace battleutils
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_HASTE_DAZE, PAttacker->id);
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->id);
             }
-            if ((PDefender->m_EcoSystem != SYSTEM_UNDEAD) || (previous_daze == EFFECT_HASTE_DAZE))
+            if (getElementalSDTDivisor(PDefender, 8) == 1 || (previous_daze == EFFECT_HASTE_DAZE))
             {
-                PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(previous_daze,
-                    0, previous_daze_power,
-                    0, 10, PAttacker->id), true);
+                PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(previous_daze, 0, previous_daze_power, 0, 10, PAttacker->id), true);
             }
         }
 
         // Enspell overwrites weapon effects
-        if (PAttacker->getMod(Mod::ENSPELL) > 0 && (PAttacker->getMod(Mod::ENSPELL_CHANCE) == 0 ||
-            PAttacker->getMod(Mod::ENSPELL_CHANCE) > tpzrand::GetRandomNumber(100)))
+        if (PAttacker->getMod(Mod::ENSPELL) > 0 &&
+            (PAttacker->getMod(Mod::ENSPELL_CHANCE) == 0 || PAttacker->getMod(Mod::ENSPELL_CHANCE) > tpzrand::GetRandomNumber(100)))
         {
-            static SUBEFFECT enspell_subeffects[8] =
-            {
-                SUBEFFECT_FIRE_DAMAGE, SUBEFFECT_ICE_DAMAGE, SUBEFFECT_WIND_DAMAGE, SUBEFFECT_EARTH_DAMAGE,
+            static SUBEFFECT enspell_subeffects[8] = {
+                SUBEFFECT_FIRE_DAMAGE,      SUBEFFECT_ICE_DAMAGE,   SUBEFFECT_WIND_DAMAGE,  SUBEFFECT_EARTH_DAMAGE,
                 SUBEFFECT_LIGHTNING_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE,
-
-                //SUBEFFECT_ICE_DAMAGE,SUBEFFECT_WIND_DAMAGE,SUBEFFECT_EARTH_DAMAGE,SUBEFFECT_LIGHTNING_DAMAGE, my changes
-               // SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE,
             };
-            uint8 enspell = (uint8) PAttacker->getMod(Mod::ENSPELL);
-            if (enspell == ENSPELL_BLOOD_WEAPON)
+            uint8 enspell = (uint8)PAttacker->getMod(Mod::ENSPELL);
+
+            uint8 element = 1;
+            uint8 SDTdivisor = 1;
+
+            switch (enspell)
+            {
+                case ENSPELL_I_FIRE:
+                case ENSPELL_II_FIRE:
+                    element = ELEMENT_FIRE;
+                    break;
+                case ENSPELL_I_ICE:
+                case ENSPELL_II_ICE:
+                    element = ELEMENT_ICE;
+                    break;
+                case ENSPELL_I_WIND:
+                case ENSPELL_II_WIND:
+                    element = ELEMENT_WIND;
+                    break;
+                case ENSPELL_I_EARTH:
+                case ENSPELL_II_EARTH:
+                    element = ELEMENT_EARTH;
+                    break;
+                case ENSPELL_I_THUNDER:
+                case ENSPELL_II_THUNDER:
+                case ENSPELL_ROLLING_THUNDER:
+                    element = ELEMENT_THUNDER;
+                    break;
+                case ENSPELL_I_WATER:
+                case ENSPELL_II_WATER:
+                    element = ELEMENT_WATER;
+                    break;
+                case ENSPELL_I_LIGHT:
+                case ENSPELL_II_LIGHT:
+                case ENSPELL_AUSPICE:
+                    element = ELEMENT_LIGHT;
+                    break;
+                case ENSPELL_I_DARK:
+                case ENSPELL_BLOOD_WEAPON:
+                case ENSPELL_DRAIN_SAMBA:
+                case ENSPELL_ASPIR_SAMBA:
+                    element = ELEMENT_DARK;
+                    break;
+                default:
+                    break;
+            }
+
+            if (enspell == ENSPELL_HASTE_SAMBA)
+                element = 0;
+            else
+                SDTdivisor = getElementalSDTDivisor(PDefender, element);
+
+            if (enspell > 0 && enspell <= 6)
+            {
+                Action->additionalEffect = enspell_subeffects[enspell - 1];
+                Action->addEffectMessage = 163;
+                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1) / SDTdivisor;
+
+                if (Action->addEffectParam < 0)
+                {
+                    Action->addEffectParam = -Action->addEffectParam;
+                    Action->addEffectMessage = 384;
+                }
+
+                PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
+            }
+            else if (enspell > 8 && enspell <= 14 && isFirstSwing)
+            {
+                Action->additionalEffect = enspell_subeffects[enspell - 9];
+                Action->addEffectMessage = 163;
+                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 2, enspell - 9) / SDTdivisor;
+
+                if (Action->addEffectParam < 0)
+                {
+                    Action->addEffectParam = -Action->addEffectParam;
+                    Action->addEffectMessage = 384;
+                }
+
+                PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
+            }
+            else if (enspell > 6 && enspell <= 8)
+            {
+                Action->additionalEffect = enspell_subeffects[enspell - 7];
+                Action->addEffectMessage = 163;
+                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 3, enspell - 1) / SDTdivisor;
+
+                if (Action->addEffectParam < 0)
+                {
+                    Action->addEffectParam = -Action->addEffectParam;
+                    Action->addEffectMessage = 384;
+                }
+
+                PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
+            }
+            else if (enspell == ENSPELL_BLOOD_WEAPON)
             {
                 Action->additionalEffect = SUBEFFECT_HP_DRAIN;
                 Action->addEffectMessage = 161;
+                if (SDTdivisor == 1)
+                    Action->addEffectParam = PAttacker->addHP(Action->param);
+                else
+                    Action->addEffectParam = 0;
 
-                Action->addEffectParam = PAttacker->addHP(Action->param);
-
-                if (PChar != nullptr) {
+                if (PChar != nullptr)
+                {
                     PChar->updatemask |= UPDATE_HP;
                 }
             }
-            else if (enspell == ENSPELL_AUSPICE && isFirstSwing) {
+            else if (enspell == ENSPELL_AUSPICE && isFirstSwing)
+            {
                 Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
                 Action->addEffectMessage = 163;
                 Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 2, 7);
@@ -948,58 +1096,24 @@ namespace battleutils
 
                 PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
             }
-            else if (enspell <= ENSPELL_II_DARK) // Elemental enspells
-            {
-                if (enspell > ENSPELL_I_DARK && isFirstSwing ) // Tier II elemental enspell
-                {
-                    //Enlight II and Endark II currently not implemented; may vary
-                    Action->additionalEffect = enspell_subeffects[enspell - 9];
-                    Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 2, enspell - 8);
-                }
-                else if (enspell <= ENSPELL_I_DARK) // Tier I elemental enspell
-                {
-                    Action->additionalEffect = enspell_subeffects[enspell - 1];
-                    if (enspell >= ENSPELL_I_LIGHT) // Enlight or Endark
-                    {
-                        Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 3, enspell);
-                    }
-                    else
-                    {
-                        Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 1, enspell);
-                    }
-
-                }
-
-                if (Action->additionalEffect)
-                {
-                    if (Action->addEffectParam < 0)
-                    {
-                        Action->addEffectParam = -Action->addEffectParam;
-                        Action->addEffectMessage = 384;
-                    }
-                    else
-                    {
-                        Action->addEffectMessage = 163;
-                    }
-
-                    PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
-                }
-            }
         }
-        //check weapon for additional effects
+        // check weapon for additional effects ... TODO: weapon additional effects need to take into account SDT, needs to be done on each item script
+        // individually...
         else if (PAttacker->objtype == TYPE_PC && battleutils::GetScaledItemModifier(PAttacker, weapon, Mod::ADDITIONAL_EFFECT) > 0 &&
-            luautils::OnAdditionalEffect(PAttacker, PDefender, weapon, Action, finaldamage) == 0 && Action->additionalEffect)
+                 luautils::OnAdditionalEffect(PAttacker, PDefender, weapon, Action, finaldamage) == 0 && Action->additionalEffect)
         {
             if (Action->addEffectMessage == 163 && Action->addEffectParam < 0)
             {
                 Action->addEffectMessage = 384;
             }
         }
-        //check script for grip if main failed
-        else if (PAttacker->objtype == TYPE_PC && static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB) &&
-            weapon == PAttacker->m_Weapons[SLOT_MAIN] && static_cast<CItemWeapon*>(static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB))->getSkillType() == SKILL_NONE &&
-            battleutils::GetScaledItemModifier(PAttacker, static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB), Mod::ADDITIONAL_EFFECT) > 0 &&
-            luautils::OnAdditionalEffect(PAttacker, PDefender, static_cast<CItemWeapon*>(static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB)), Action, finaldamage) == 0 && Action->additionalEffect)
+        // check script for grip if main failed
+        else if (PAttacker->objtype == TYPE_PC && static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB) && weapon == PAttacker->m_Weapons[SLOT_MAIN] &&
+                 static_cast<CItemWeapon*>(static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB))->getSkillType() == SKILL_NONE &&
+                 battleutils::GetScaledItemModifier(PAttacker, static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB), Mod::ADDITIONAL_EFFECT) > 0 &&
+                 luautils::OnAdditionalEffect(PAttacker, PDefender, static_cast<CItemWeapon*>(static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB)), Action,
+                                              finaldamage) == 0 &&
+                 Action->additionalEffect)
         {
             if (Action->addEffectMessage == 163 && Action->addEffectParam < 0)
             {
@@ -1014,13 +1128,12 @@ namespace battleutils
                 Action->addEffectMessage = 384;
             }
         }
-        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE) ||
-            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_HASTE_DAZE) ||
-            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_DAZE))
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE) || PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_HASTE_DAZE) ||
+                 PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_DAZE))
         {
             // Generic drain for anyone able to do melee damage to a dazed target
             // TODO: ignore dazes from dancers outside party
-            int16 delay = PAttacker->GetWeaponDelay(false) / 10;
+            int16 delay = PAttacker->GetWeaponDelay(true) * 60 / 1000;
 
             if (PAttacker->PMaster == nullptr || PAttacker->objtype == TYPE_TRUST)
             {
@@ -1053,8 +1166,7 @@ namespace battleutils
                 }
                 else if (PAttacker->objtype == TYPE_TRUST && PAttacker->PMaster)
                 {
-                    static_cast<CCharEntity*>(PAttacker->PMaster)->ForPartyWithTrusts([&](CBattleEntity* PMember)
-                    {
+                    static_cast<CCharEntity*>(PAttacker->PMaster)->ForPartyWithTrusts([&](CBattleEntity* PMember) {
                         if (daze == EFFECT_NONE && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE, PMember->id))
                         {
                             daze = EFFECT_DRAIN_DAZE;
@@ -1093,23 +1205,26 @@ namespace battleutils
 
                 if (daze == EFFECT_DRAIN_DAZE)
                 {
-                    uint16 multiplier = (uint16)(3 + (5.5f * power - 1));
+                    uint16 multiplier = (uint16)(3 + (5.5f * (power - 1)));
                     int8 Samba = tpzrand::GetRandomNumber(1, (delay * multiplier) / 100 + 1);
 
                     // vary damage based on lvl diff
                     int8 lvlDiff = (PDefender->GetMLevel() - PAttacker->GetMLevel()) / 2;
 
-                    if (lvlDiff < -5) {
+                    if (lvlDiff < -5)
+                    {
                         lvlDiff = -5;
                     }
 
                     Samba -= lvlDiff;
 
-                    if (Samba > (finaldamage / 2)) {
+                    if (Samba > (finaldamage / 2))
+                    {
                         Samba = finaldamage / 2;
                     }
 
-                    if (finaldamage <= 2) {
+                    if (finaldamage <= 2)
+                    {
                         Samba = 0;
                     }
 
@@ -1122,8 +1237,9 @@ namespace battleutils
                     Action->addEffectMessage = 161;
                     Action->addEffectParam = Samba;
 
-                    PAttacker->addHP(Samba);    // does not do any additional drain to targets HP, only a portion of it
-                    if (PChar != nullptr) {
+                    PAttacker->addHP(Samba); // does not do any additional drain to targets HP, only a portion of it
+                    if (PChar != nullptr)
+                    {
                         PChar->updatemask |= UPDATE_HP;
                     }
                 }
@@ -1132,11 +1248,20 @@ namespace battleutils
                     uint16 multiplier = 1 + (2 * power - 1);
                     int8 Samba = tpzrand::GetRandomNumber(1, (delay * multiplier) / 100 + 1);
 
-                    if (Samba >= finaldamage / 4) { Samba = finaldamage / 4; }
+                    if (Samba >= finaldamage / 4)
+                    {
+                        Samba = finaldamage / 4;
+                    }
 
-                    if (finaldamage <= 2) { Samba = 0; }
+                    if (finaldamage <= 2)
+                    {
+                        Samba = 0;
+                    }
 
-                    if (Samba < 0) { Samba = 0; }
+                    if (Samba < 0)
+                    {
+                        Samba = 0;
+                    }
 
                     Action->additionalEffect = SUBEFFECT_MP_DRAIN;
                     Action->addEffectMessage = 162;
@@ -1146,7 +1271,8 @@ namespace battleutils
                     PAttacker->addMP(mpDrained);
                     Action->addEffectParam = mpDrained;
 
-                    if (PChar != nullptr) {
+                    if (PChar != nullptr)
+                    {
                         PChar->updatemask |= UPDATE_HP;
                     }
                 }
@@ -1161,379 +1287,6 @@ namespace battleutils
         }
     }
 
-    //void HandleEnspell(CBattleEntity* PAttacker, CBattleEntity* PDefender, actionTarget_t* Action, bool isFirstSwing, CItemWeapon* weapon, int32 finaldamage)
-    //{
-    //    CCharEntity* PChar = nullptr;
-
-    //    if (PAttacker->objtype == TYPE_PC)
-    //    {
-    //        PChar = (CCharEntity*)PAttacker;
-    //    }
-
-    //    Action->additionalEffect = SUBEFFECT_NONE;
-    //    Action->addEffectMessage = 0;
-    //    Action->addEffectParam = 0;
-
-    //    EFFECT previous_daze = EFFECT_NONE;
-    //    uint16 previous_daze_power = 0;
-    //    if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_SAMBA) && (PDefender->m_EcoSystem != SYSTEM_UNDEAD))
-    //    {
-    //        previous_daze = EFFECT_DRAIN_DAZE;
-    //        previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_SAMBA)->GetPower();
-    //    }
-    //    else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_SAMBA) && (PDefender->m_EcoSystem != SYSTEM_UNDEAD))
-    //    {
-    //        previous_daze = EFFECT_ASPIR_DAZE;
-    //        previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_SAMBA)->GetPower();
-    //    }
-    //    else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HASTE_SAMBA))
-    //    {
-    //        previous_daze = EFFECT_HASTE_DAZE;
-    //        previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_HASTE_SAMBA)->GetPower();
-    //    }
-    //    if (previous_daze != EFFECT_NONE)
-    //    {
-    //        if (PAttacker->PParty != nullptr)
-    //        {
-    //            for (uint8 i = 0; i < PAttacker->PParty->members.size(); i++)
-    //            {
-    //                PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_DRAIN_DAZE, PAttacker->PParty->members[i]->id);
-    //                PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_HASTE_DAZE, PAttacker->PParty->members[i]->id);
-    //                PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->PParty->members[i]->id);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_DRAIN_DAZE, PAttacker->id);
-    //            PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_HASTE_DAZE, PAttacker->id);
-    //            PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->id);
-    //        }
-    //        if (getElementalSDTDivisor(PDefender, 8) == 1 || (previous_daze == EFFECT_HASTE_DAZE))
-    //        {
-    //            PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(previous_daze, 0, previous_daze_power, 0, 10, PAttacker->id), true);
-    //        }
-    //    }
-
-    //    // Enspell overwrites weapon effects
-    //    if (PAttacker->getMod(Mod::ENSPELL) > 0 &&
-    //        (PAttacker->getMod(Mod::ENSPELL_CHANCE) == 0 || PAttacker->getMod(Mod::ENSPELL_CHANCE) > tpzrand::GetRandomNumber(100)))
-    //    {
-    //        static SUBEFFECT enspell_subeffects[8] = {
-    //            SUBEFFECT_FIRE_DAMAGE,      SUBEFFECT_ICE_DAMAGE,   SUBEFFECT_WIND_DAMAGE,  SUBEFFECT_EARTH_DAMAGE,
-    //            SUBEFFECT_LIGHTNING_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE,
-    //        };
-    //        uint8 enspell = (uint8)PAttacker->getMod(Mod::ENSPELL);
-
-    //        uint8 element = 1;
-    //        uint8 SDTdivisor = 1;
-
-    //        switch (enspell)
-    //        {
-    //            case ENSPELL_I_FIRE:
-    //            case ENSPELL_II_FIRE:
-    //                element = 1;
-    //                break;
-    //            case ENSPELL_I_ICE:
-    //            case ENSPELL_II_ICE:
-    //                element = 2;
-    //                break;
-    //            case ENSPELL_I_WIND:
-    //            case ENSPELL_II_WIND:
-    //                element = 3;
-    //                break;
-    //            case ENSPELL_I_EARTH:
-    //            case ENSPELL_II_EARTH:
-    //                element = 4;
-    //                break;
-    //            case ENSPELL_I_THUNDER:
-    //            case ENSPELL_II_THUNDER:
-    //                element = 5;
-    //                break;
-    //            case ENSPELL_I_WATER:
-    //            case ENSPELL_II_WATER:
-    //            case ENSPELL_ROLLING_THUNDER:
-    //                element = 6;
-    //                break;
-    //            case ENSPELL_I_LIGHT:
-    //            case ENSPELL_II_LIGHT:
-    //            case ENSPELL_AUSPICE:
-    //                element = 7;
-    //                break;
-    //            case ENSPELL_I_DARK:
-    //            case ENSPELL_BLOOD_WEAPON:
-    //            case ENSPELL_DRAIN_SAMBA:
-    //            case ENSPELL_ASPIR_SAMBA:
-    //                element = 8;
-    //                break;
-    //            default:
-    //                break;
-    //        }
-
-    //        if (enspell == ENSPELL_HASTE_SAMBA)
-    //            element = 0;
-    //        else
-    //            SDTdivisor = getElementalSDTDivisor(PDefender, element);
-
-    //        if (enspell > 0 && enspell <= 6)
-    //        {
-    //            Action->additionalEffect = enspell_subeffects[enspell + 1];
-    //            Action->addEffectMessage = 163;
-    //            Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1) / SDTdivisor;
-
-    //            if (Action->addEffectParam < 0)
-    //            {
-    //                Action->addEffectParam = -Action->addEffectParam;
-    //                Action->addEffectMessage = 384;
-    //            }
-
-    //            PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
-    //        }
-    //        else if (enspell > 8 && enspell <= 14 && isFirstSwing)
-    //        {
-    //            Action->additionalEffect = enspell_subeffects[enspell - 7];
-    //            Action->addEffectMessage = 163;
-    //            Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 2, enspell - 9) / SDTdivisor;
-
-    //            if (Action->addEffectParam < 0)
-    //            {
-    //                Action->addEffectParam = -Action->addEffectParam;
-    //                Action->addEffectMessage = 384;
-    //            }
-
-    //            PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
-    //        }
-    //        else if (enspell > 6 && enspell <= 8)
-    //        {
-    //            Action->additionalEffect = enspell_subeffects[enspell - 7];
-    //            Action->addEffectMessage = 163;
-    //            Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 3, enspell - 1) / SDTdivisor;
-
-    //            if (Action->addEffectParam < 0)
-    //            {
-    //                Action->addEffectParam = -Action->addEffectParam;
-    //                Action->addEffectMessage = 384;
-    //            }
-
-    //            PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
-    //        }
-    //        else if (enspell == ENSPELL_BLOOD_WEAPON)
-    //        {
-    //            Action->additionalEffect = SUBEFFECT_HP_DRAIN;
-    //            Action->addEffectMessage = 161;
-    //            if (SDTdivisor == 1)
-    //                Action->addEffectParam = PAttacker->addHP(Action->param);
-    //            else
-    //                Action->addEffectParam = 0;
-
-    //            if (PChar != nullptr)
-    //            {
-    //                PChar->updatemask |= UPDATE_HP;
-    //            }
-    //        }
-    //        else if (enspell == ENSPELL_AUSPICE && isFirstSwing)
-    //        {
-    //            Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
-    //            Action->addEffectMessage = 163;
-    //            Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 2, 7);
-
-    //            if (Action->addEffectParam < 0)
-    //            {
-    //                Action->addEffectParam = -Action->addEffectParam;
-    //                Action->addEffectMessage = 384;
-    //            }
-
-    //            PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
-    //        }
-    //    }
-    //    // check weapon for additional effects ... TODO: weapon additional effects need to take into account SDT, needs to be done on each item script
-    //    // individually...
-    //    else if (PAttacker->objtype == TYPE_PC && battleutils::GetScaledItemModifier(PAttacker, weapon, Mod::ADDITIONAL_EFFECT) > 0 &&
-    //             luautils::OnAdditionalEffect(PAttacker, PDefender, weapon, Action, finaldamage) == 0 && Action->additionalEffect)
-    //    {
-    //        if (Action->addEffectMessage == 163 && Action->addEffectParam < 0)
-    //        {
-    //            Action->addEffectMessage = 384;
-    //        }
-    //    }
-    //    // check script for grip if main failed
-    //    else if (PAttacker->objtype == TYPE_PC && static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB) && weapon == PAttacker->m_Weapons[SLOT_MAIN] &&
-    //             static_cast<CItemWeapon*>(static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB))->getSkillType() == SKILL_NONE &&
-    //             battleutils::GetScaledItemModifier(PAttacker, static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB), Mod::ADDITIONAL_EFFECT) > 0 &&
-    //             luautils::OnAdditionalEffect(PAttacker, PDefender, static_cast<CItemWeapon*>(static_cast<CCharEntity*>(PAttacker)->getEquip(SLOT_SUB)), Action,
-    //                                          finaldamage) == 0 &&
-    //             Action->additionalEffect)
-    //    {
-    //        if (Action->addEffectMessage == 163 && Action->addEffectParam < 0)
-    //        {
-    //            Action->addEffectMessage = 384;
-    //        }
-    //    }
-    //    else if (PAttacker->objtype == TYPE_MOB && ((CMobEntity*)PAttacker)->getMobMod(MOBMOD_ADD_EFFECT) > 0)
-    //    {
-    //        luautils::OnAdditionalEffect(PAttacker, PDefender, weapon, Action, finaldamage);
-    //        if (Action->addEffectMessage == 163 && Action->addEffectParam < 0)
-    //        {
-    //            Action->addEffectMessage = 384;
-    //        }
-    //    }
-    //    else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE) || PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_HASTE_DAZE) ||
-    //             PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_DAZE))
-    //    {
-    //        // Generic drain for anyone able to do melee damage to a dazed target
-    //        // TODO: ignore dazes from dancers outside party
-    //        int16 delay = PAttacker->GetWeaponDelay(true) * 60 / 1000;
-
-    //        if (PAttacker->PMaster == nullptr || PAttacker->objtype == TYPE_TRUST)
-    //        {
-    //            // TODO: All of this is very ugly, but is fairly fragile, be careful refactoring!
-    //            EFFECT daze = EFFECT_NONE;
-    //            uint16 power = 0;
-    //            if (PAttacker->objtype == TYPE_PC && PAttacker->PParty != nullptr)
-    //            {
-    //                for (uint8 i = 0; i < PAttacker->PParty->members.size(); i++)
-    //                {
-    //                    if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE, PAttacker->PParty->members[i]->id))
-    //                    {
-    //                        daze = EFFECT_DRAIN_DAZE;
-    //                        power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_DAZE, PAttacker->PParty->members[i]->id)->GetPower();
-    //                        break;
-    //                    }
-    //                    if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_HASTE_DAZE, PAttacker->PParty->members[i]->id))
-    //                    {
-    //                        daze = EFFECT_HASTE_DAZE;
-    //                        power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_HASTE_DAZE, PAttacker->PParty->members[i]->id)->GetPower();
-    //                        break;
-    //                    }
-    //                    if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->PParty->members[i]->id))
-    //                    {
-    //                        daze = EFFECT_ASPIR_DAZE;
-    //                        power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->PParty->members[i]->id)->GetPower();
-    //                        break;
-    //                    }
-    //                }
-    //            }
-    //            else if (PAttacker->objtype == TYPE_TRUST && PAttacker->PMaster)
-    //            {
-    //                static_cast<CCharEntity*>(PAttacker->PMaster)->ForPartyWithTrusts([&](CBattleEntity* PMember) {
-    //                    if (daze == EFFECT_NONE && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE, PMember->id))
-    //                    {
-    //                        daze = EFFECT_DRAIN_DAZE;
-    //                        power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_DAZE, PMember->id)->GetPower();
-    //                    }
-    //                    if (daze == EFFECT_NONE && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE, PMember->id))
-    //                    {
-    //                        daze = EFFECT_DRAIN_DAZE;
-    //                        power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_DAZE, PMember->id)->GetPower();
-    //                    }
-    //                    if (daze == EFFECT_NONE && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_DAZE, PMember->id))
-    //                    {
-    //                        daze = EFFECT_DRAIN_DAZE;
-    //                        power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_DAZE, PMember->id)->GetPower();
-    //                    }
-    //                });
-    //            }
-    //            else
-    //            {
-    //                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_DAZE, PAttacker->id))
-    //                {
-    //                    daze = EFFECT_DRAIN_DAZE;
-    //                    power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_DAZE, PAttacker->id)->GetPower();
-    //                }
-    //                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_HASTE_DAZE, PAttacker->id))
-    //                {
-    //                    daze = EFFECT_HASTE_DAZE;
-    //                    power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_HASTE_DAZE, PAttacker->id)->GetPower();
-    //                }
-    //                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->id))
-    //                {
-    //                    daze = EFFECT_ASPIR_DAZE;
-    //                    power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->id)->GetPower();
-    //                }
-    //            }
-
-    //            if (daze == EFFECT_DRAIN_DAZE)
-    //            {
-    //                uint16 multiplier = (uint16)(3 + (5.5f * (power - 1)));
-    //                int8 Samba = tpzrand::GetRandomNumber(1, (delay * multiplier) / 100 + 1);
-
-    //                // vary damage based on lvl diff
-    //                int8 lvlDiff = (PDefender->GetMLevel() - PAttacker->GetMLevel()) / 2;
-
-    //                if (lvlDiff < -5)
-    //                {
-    //                    lvlDiff = -5;
-    //                }
-
-    //                Samba -= lvlDiff;
-
-    //                if (Samba > (finaldamage / 2))
-    //                {
-    //                    Samba = finaldamage / 2;
-    //                }
-
-    //                if (finaldamage <= 2)
-    //                {
-    //                    Samba = 0;
-    //                }
-
-    //                if (Samba < 0)
-    //                {
-    //                    Samba = 0;
-    //                }
-
-    //                Action->additionalEffect = SUBEFFECT_HP_DRAIN;
-    //                Action->addEffectMessage = 161;
-    //                Action->addEffectParam = Samba;
-
-    //                PAttacker->addHP(Samba); // does not do any additional drain to targets HP, only a portion of it
-    //                if (PChar != nullptr)
-    //                {
-    //                    PChar->updatemask |= UPDATE_HP;
-    //                }
-    //            }
-    //            else if (daze == EFFECT_ASPIR_DAZE)
-    //            {
-    //                uint16 multiplier = 1 + (2 * power - 1);
-    //                int8 Samba = tpzrand::GetRandomNumber(1, (delay * multiplier) / 100 + 1);
-
-    //                if (Samba >= finaldamage / 4)
-    //                {
-    //                    Samba = finaldamage / 4;
-    //                }
-
-    //                if (finaldamage <= 2)
-    //                {
-    //                    Samba = 0;
-    //                }
-
-    //                if (Samba < 0)
-    //                {
-    //                    Samba = 0;
-    //                }
-
-    //                Action->additionalEffect = SUBEFFECT_MP_DRAIN;
-    //                Action->addEffectMessage = 162;
-
-    //                int16 mpDrained = PDefender->addMP(-Samba);
-
-    //                PAttacker->addMP(mpDrained);
-    //                Action->addEffectParam = mpDrained;
-
-    //                if (PChar != nullptr)
-    //                {
-    //                    PChar->updatemask |= UPDATE_HP;
-    //                }
-    //            }
-    //            else if (daze == EFFECT_HASTE_DAZE)
-    //            {
-    //                Action->additionalEffect = SUBEFFECT_HASTE;
-    //                // Ability haste added in scripts\globals\effects\haste_samba_haste_effect.lua
-    //                PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_HASTE_SAMBA_HASTE, 0, power, 0, 10));
-    //                // Status effect removed in CAttackRound constructor (i.e. after next attack round is calculated)
-    //            }
-    //        }
-    //    }
-    //}
 
     /************************************************************************
     *                                                                       *
@@ -3298,7 +3051,7 @@ namespace battleutils
 
     bool IsParalyzed(CBattleEntity* PAttacker)
     {
-        return (tpzrand::GetRandomNumber(100) < std::clamp(PAttacker->getMod(Mod::PARALYZE) - PAttacker->getMod(Mod::PARALYZERES), 0, 100));
+        return (tpzrand::GetRandomNumber(100) < std::clamp((int)PAttacker->getMod(Mod::PARALYZE), 0, 100));
     }
 
     /************************************************************************
@@ -3317,7 +3070,7 @@ namespace battleutils
             Shadow = PDefender->getMod(Mod::BLINK);
             modShadow = Mod::BLINK;
             //random chance, assume 80% proc
-            if (tpzrand::GetRandomNumber(100) < 20)
+            if (tpzrand::GetRandomNumber(100) < 40)
             {
                 return false;
             }
