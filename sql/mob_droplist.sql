@@ -726,9 +726,9 @@ INSERT INTO `mob_droplist` VALUES (126,0,0,1000,1121,100);
 INSERT INTO `mob_droplist` VALUES (126,0,0,1000,1980,490);
 INSERT INTO `mob_droplist` VALUES (126,0,0,1000,16995,150);
 INSERT INTO `mob_droplist` VALUES (127,2,0,1000,751,0); -- Antican Legatus) Platinum Beastcoin (Steal)
-INSERT INTO `mob_droplist` VALUES (127,1,3,1000,703,333); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (127,1,3,1000,702,333); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (127,1,3,1000,700,333); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (127,1,3,999,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (127,1,3,999,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (127,1,3,999,700,333); -- Mahogany log
 INSERT INTO `mob_droplist` VALUES (127,1,4,1000,4175,250); -- Vile ELixir +1
 INSERT INTO `mob_droplist` VALUES (127,1,4,1000,4174,250); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (127,1,5,1000,4173,250); -- Hi-Reraiser
@@ -10395,25 +10395,25 @@ INSERT INTO `mob_droplist` VALUES (1966,1,1,1000,12362,150);	-- (Overlord Bakgod
 INSERT INTO `mob_droplist` VALUES (1966,1,1,1000,17649,1000);	-- Nightmare Sword
 INSERT INTO `mob_droplist` VALUES (1966,0,0,1000,17928,240);	-- Juggernaut
 INSERT INTO `mob_droplist` VALUES (1966,0,0,1000,1432,1000); -- Paladin's Testimony
-INSERT INTO `mob_droplist` VALUES (1966,1,1,1000,700,333); -- Mahogany Log
-INSERT INTO `mob_droplist` VALUES (1966,1,1,1000,702,333); -- Ebony Log
-INSERT INTO `mob_droplist` VALUES (1966,1,1,1000,703,333); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (1966,1,2,1000,644,166); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (1966,1,2,1000,645,166); -- Chunk of darksteel ore
-INSERT INTO `mob_droplist` VALUES (1966,1,2,1000,737,166); -- Chunk Of Gold Ore
-INSERT INTO `mob_droplist` VALUES (1966,1,2,1000,738,166); -- Chunk Of Platinum Ore
-INSERT INTO `mob_droplist` VALUES (1966,1,2,1000,823,166); -- Spool Of Gold Thread
-INSERT INTO `mob_droplist` VALUES (1966,1,2,1000,830,166); -- Square Of Rainbow Cloth
+INSERT INTO `mob_droplist` VALUES (1966,1,1,999,700,333); -- Mahogany Log
+INSERT INTO `mob_droplist` VALUES (1966,1,1,999,702,333); -- Ebony Log
+INSERT INTO `mob_droplist` VALUES (1966,1,1,999,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (1966,1,2,996,644,166); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (1966,1,2,996,645,166); -- Chunk of darksteel ore
+INSERT INTO `mob_droplist` VALUES (1966,1,2,996,737,166); -- Chunk Of Gold Ore
+INSERT INTO `mob_droplist` VALUES (1966,1,2,996,738,166); -- Chunk Of Platinum Ore
+INSERT INTO `mob_droplist` VALUES (1966,1,2,996,823,166); -- Spool Of Gold Thread
+INSERT INTO `mob_droplist` VALUES (1966,1,2,996,830,166); -- Square Of Rainbow Cloth
 INSERT INTO `mob_droplist` VALUES (1966,1,3,1000,836,250);	-- Square of damascene cloth
 INSERT INTO `mob_droplist` VALUES (1966,1,3,1000,658,250);	-- Damascus ingot
 INSERT INTO `mob_droplist` VALUES (1966,1,3,1000,1110,250);	-- Vial of black beetle blood
 INSERT INTO `mob_droplist` VALUES (1966,1,3,1000,837,250);	-- Spool of malboro fiber
-INSERT INTO `mob_droplist` VALUES (1966,1,4,1000,844,166);	-- Phoenix feather
-INSERT INTO `mob_droplist` VALUES (1966,1,4,1000,942,166);	-- Philosopher's stone
-INSERT INTO `mob_droplist` VALUES (1966,1,4,1000,866,166);	-- Handful of wyvern scales
-INSERT INTO `mob_droplist` VALUES (1966,1,4,1000,887,166); -- Coral Fragment
-INSERT INTO `mob_droplist` VALUES (1966,1,4,1000,895,166); -- Ram Horn
-INSERT INTO `mob_droplist` VALUES (1966,1,4,1000,902,166); -- Demon Horn
+INSERT INTO `mob_droplist` VALUES (1966,1,4,996,844,166);	-- Phoenix feather
+INSERT INTO `mob_droplist` VALUES (1966,1,4,996,942,166);	-- Philosopher's stone
+INSERT INTO `mob_droplist` VALUES (1966,1,4,996,866,166);	-- Handful of wyvern scales
+INSERT INTO `mob_droplist` VALUES (1966,1,4,996,887,166); -- Coral Fragment
+INSERT INTO `mob_droplist` VALUES (1966,1,4,996,895,166); -- Ram Horn
+INSERT INTO `mob_droplist` VALUES (1966,1,4,996,902,166); -- Demon Horn
 INSERT INTO `mob_droplist` VALUES (1966,0,0,1000,1132,240); -- Square Of Raxa
 INSERT INTO `mob_droplist` VALUES (1966,1,6,1000,4172,250);	-- Reraiser
 INSERT INTO `mob_droplist` VALUES (1966,1,6,1000,4173,250);	-- Hi-Reraiser
@@ -13024,25 +13024,25 @@ INSERT INTO `mob_droplist` VALUES (2511,0,0,1000,17528,50);		-- Astral Signa
 INSERT INTO `mob_droplist` VALUES (2511,0,0,1000,17619,1000);	-- Daylight Dagger
 INSERT INTO `mob_droplist` VALUES (2511,0,0,1000,751,1000); -- Platinum Beastcoin
 INSERT INTO `mob_droplist` VALUES (2511,2,0,1000,751,0); -- Platinum Beastcoin (Steal)
-INSERT INTO `mob_droplist` VALUES (2511,1,1,1000,700,333); -- Mahogany Log
-INSERT INTO `mob_droplist` VALUES (2511,1,1,1000,702,333); -- Ebony Log
-INSERT INTO `mob_droplist` VALUES (2511,1,1,1000,703,333); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (2511,1,2,1000,644,166); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (2511,1,2,1000,645,166); -- Chunk of darksteel ore
-INSERT INTO `mob_droplist` VALUES (2511,1,2,1000,737,166); -- Chunk Of Gold Ore
-INSERT INTO `mob_droplist` VALUES (2511,1,2,1000,738,166); -- Chunk Of Platinum Ore
-INSERT INTO `mob_droplist` VALUES (2511,1,2,1000,823,166); -- Spool Of Gold Thread
-INSERT INTO `mob_droplist` VALUES (2511,1,2,1000,830,166); -- Square Of Rainbow Cloth
+INSERT INTO `mob_droplist` VALUES (2511,1,1,999,700,333); -- Mahogany Log
+INSERT INTO `mob_droplist` VALUES (2511,1,1,999,702,333); -- Ebony Log
+INSERT INTO `mob_droplist` VALUES (2511,1,1,999,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (2511,1,2,996,644,166); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (2511,1,2,996,645,166); -- Chunk of darksteel ore
+INSERT INTO `mob_droplist` VALUES (2511,1,2,996,737,166); -- Chunk Of Gold Ore
+INSERT INTO `mob_droplist` VALUES (2511,1,2,996,738,166); -- Chunk Of Platinum Ore
+INSERT INTO `mob_droplist` VALUES (2511,1,2,996,823,166); -- Spool Of Gold Thread
+INSERT INTO `mob_droplist` VALUES (2511,1,2,996,830,166); -- Square Of Rainbow Cloth
 INSERT INTO `mob_droplist` VALUES (2511,1,3,1000,836,250);	-- Square of damascene cloth
 INSERT INTO `mob_droplist` VALUES (2511,1,3,1000,658,250);	-- Damascus ingot
 INSERT INTO `mob_droplist` VALUES (2511,1,3,1000,1110,250);	-- Vial of black beetle blood
 INSERT INTO `mob_droplist` VALUES (2511,1,3,1000,837,250);	-- Spool of malboro fiber
-INSERT INTO `mob_droplist` VALUES (2511,1,4,1000,844,166);	-- Phoenix feather
-INSERT INTO `mob_droplist` VALUES (2511,1,4,1000,942,166);	-- Philosopher's stone
-INSERT INTO `mob_droplist` VALUES (2511,1,4,1000,866,166);	-- Handful of wyvern scales
-INSERT INTO `mob_droplist` VALUES (2511,1,4,1000,887,166); -- Coral Fragment
-INSERT INTO `mob_droplist` VALUES (2511,1,4,1000,895,166); -- Ram Horn
-INSERT INTO `mob_droplist` VALUES (2511,1,4,1000,902,166); -- Demon Horn
+INSERT INTO `mob_droplist` VALUES (2511,1,4,996,844,166);	-- Phoenix feather
+INSERT INTO `mob_droplist` VALUES (2511,1,4,996,942,166);	-- Philosopher's stone
+INSERT INTO `mob_droplist` VALUES (2511,1,4,996,866,166);	-- Handful of wyvern scales
+INSERT INTO `mob_droplist` VALUES (2511,1,4,996,887,166); -- Coral Fragment
+INSERT INTO `mob_droplist` VALUES (2511,1,4,996,895,166); -- Ram Horn
+INSERT INTO `mob_droplist` VALUES (2511,1,4,996,902,166); -- Demon Horn
 INSERT INTO `mob_droplist` VALUES (2511,0,0,1000,1132,240); -- Square Of Raxa
 INSERT INTO `mob_droplist` VALUES (2511,1,6,1000,4172,250);	-- Reraiser
 INSERT INTO `mob_droplist` VALUES (2511,1,6,1000,4173,250);	-- Hi-Reraiser
@@ -15217,25 +15217,25 @@ INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,17073,50);	-- Mistilteinn
 INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,751,1000); -- Platinum Beastcoin
 INSERT INTO `mob_droplist` VALUES (2830,2,0,1000,751,0); -- Platinum Beastcoin (Steal)
 INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,4748,1000);	-- Raise III
-INSERT INTO `mob_droplist` VALUES (2830,1,1,1000,700,333); -- Mahogany Log
-INSERT INTO `mob_droplist` VALUES (2830,1,1,1000,702,333); -- Ebony Log
-INSERT INTO `mob_droplist` VALUES (2830,1,1,1000,703,333); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (2830,1,2,1000,644,166); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (2830,1,2,1000,645,166); -- Chunk of darksteel ore
-INSERT INTO `mob_droplist` VALUES (2830,1,2,1000,737,166); -- Chunk Of Gold Ore
-INSERT INTO `mob_droplist` VALUES (2830,1,2,1000,738,166); -- Chunk Of Platinum Ore
-INSERT INTO `mob_droplist` VALUES (2830,1,2,1000,823,166); -- Spool Of Gold Thread
-INSERT INTO `mob_droplist` VALUES (2830,1,2,1000,830,166); -- Square Of Rainbow Cloth
+INSERT INTO `mob_droplist` VALUES (2830,1,1,999,700,333); -- Mahogany Log
+INSERT INTO `mob_droplist` VALUES (2830,1,1,999,702,333); -- Ebony Log
+INSERT INTO `mob_droplist` VALUES (2830,1,1,999,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (2830,1,2,996,644,166); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (2830,1,2,996,645,166); -- Chunk of darksteel ore
+INSERT INTO `mob_droplist` VALUES (2830,1,2,996,737,166); -- Chunk Of Gold Ore
+INSERT INTO `mob_droplist` VALUES (2830,1,2,996,738,166); -- Chunk Of Platinum Ore
+INSERT INTO `mob_droplist` VALUES (2830,1,2,996,823,166); -- Spool Of Gold Thread
+INSERT INTO `mob_droplist` VALUES (2830,1,2,996,830,166); -- Square Of Rainbow Cloth
 INSERT INTO `mob_droplist` VALUES (2830,1,3,1000,836,250);	-- Square of damascene cloth
 INSERT INTO `mob_droplist` VALUES (2830,1,3,1000,658,250);	-- Damascus ingot
 INSERT INTO `mob_droplist` VALUES (2830,1,3,1000,1110,250);	-- Vial of black beetle blood
 INSERT INTO `mob_droplist` VALUES (2830,1,3,1000,837,250);	-- Spool of malboro fiber
-INSERT INTO `mob_droplist` VALUES (2830,1,4,1000,844,166);	-- Phoenix feather
-INSERT INTO `mob_droplist` VALUES (2830,1,4,1000,942,166);	-- Philosopher's stone
-INSERT INTO `mob_droplist` VALUES (2830,1,4,1000,866,166);	-- Handful of wyvern scales
-INSERT INTO `mob_droplist` VALUES (2830,1,4,1000,887,166); -- Coral Fragment
-INSERT INTO `mob_droplist` VALUES (2830,1,4,1000,895,166); -- Ram Horn
-INSERT INTO `mob_droplist` VALUES (2830,1,4,1000,902,166); -- Demon Horn
+INSERT INTO `mob_droplist` VALUES (2830,1,4,996,844,166);	-- Phoenix feather
+INSERT INTO `mob_droplist` VALUES (2830,1,4,996,942,166);	-- Philosopher's stone
+INSERT INTO `mob_droplist` VALUES (2830,1,4,996,866,166);	-- Handful of wyvern scales
+INSERT INTO `mob_droplist` VALUES (2830,1,4,996,887,166); -- Coral Fragment
+INSERT INTO `mob_droplist` VALUES (2830,1,4,996,895,166); -- Ram Horn
+INSERT INTO `mob_droplist` VALUES (2830,1,4,996,902,166); -- Demon Horn
 INSERT INTO `mob_droplist` VALUES (2830,0,0,1000,1132,240); -- Square Of Raxa
 INSERT INTO `mob_droplist` VALUES (2830,1,6,1000,4172,250);	-- Reraiser
 INSERT INTO `mob_droplist` VALUES (2830,1,6,1000,4173,250);	-- Hi-Reraiser
