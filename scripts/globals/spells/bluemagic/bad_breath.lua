@@ -47,10 +47,11 @@ function onSpellCast(caster, target, spell)
 	local beast = (target:getSystem() == 6)
 	
 	if beast then
-		dmg = dmg * 1.25
+		damage = damage * 1.25
 	elseif vermin then
-		dmg = dmg * 0.75
+		damage = damage * 0.75
 	end
+	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     local params = {}

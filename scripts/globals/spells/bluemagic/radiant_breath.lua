@@ -53,7 +53,7 @@ function onSpellCast(caster, target, spell)
 	local demon = (target:getSystem() == 9)
 	
 	if demon then
-		dmg = dmg * 1.25
+		damage = damage * 1.25
 	end
 	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)

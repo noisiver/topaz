@@ -54,7 +54,7 @@ function onSpellCast(caster, target, spell)
 	local dragon = (target:getSystem() == 10)
 	
 	if dragon then
-		dmg = dmg * 1.25
+		damage = damage * 1.25
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
