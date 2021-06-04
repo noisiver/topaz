@@ -24,29 +24,24 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
-    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.effect = tpz.effect.VIT_DOWN
     local resist = applyResistance(caster, target, spell, params)
-    if (target:hasStatusEffect(tpz.effect.VIT_DOWN)) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
-    else
-		local params = {}
-		params.attribute = tpz.mod.INT
-		params.skillType = tpz.skill.BLUE_MAGIC
-		params.effect = tpz.effect.VIT_DOWN
-		local duration = 90 * resist
-		local level = (caster:getMainJob()  / 5)
-		local power = level 
+    local duration = 90 * resist
+	local level = (caster:getMainJob()  / 5)
+	local power = level 
 
-		if (resist >= 0.5) then -- Do it!
-			if (target:addStatusEffect(params.effect, power, 0, duration)) then
-				spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-			else
-				spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-			end
-		end
+    if (resist >= 0.5) then -- Do it!
+        if (target:addStatusEffect(params.effect, power, 0, duration)) then
+            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+        else
+            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        end
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
 
     return params.effect
 end
+
