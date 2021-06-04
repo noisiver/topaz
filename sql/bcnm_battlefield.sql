@@ -577,17 +577,17 @@ INSERT INTO `bcnm_battlefield` VALUES (130,1,17444901,3); -- amphibian_assault
 INSERT INTO `bcnm_battlefield` VALUES (130,1,17444902,3);
 INSERT INTO `bcnm_battlefield` VALUES (130,1,17444903,3);
 INSERT INTO `bcnm_battlefield` VALUES (130,1,17444904,3);
-INSERT INTO `bcnm_battlefield` VALUES (130,1,17444906,1);
+INSERT INTO `bcnm_battlefield` VALUES (130,1,17444906,0);
 INSERT INTO `bcnm_battlefield` VALUES (130,2,17444907,3);
 INSERT INTO `bcnm_battlefield` VALUES (130,2,17444908,3);
 INSERT INTO `bcnm_battlefield` VALUES (130,2,17444909,3);
 INSERT INTO `bcnm_battlefield` VALUES (130,2,17444910,3);
-INSERT INTO `bcnm_battlefield` VALUES (130,2,17444912,1);
+INSERT INTO `bcnm_battlefield` VALUES (130,2,17444912,0);
 INSERT INTO `bcnm_battlefield` VALUES (130,3,17444913,3);
 INSERT INTO `bcnm_battlefield` VALUES (130,3,17444914,3);
 INSERT INTO `bcnm_battlefield` VALUES (130,3,17444915,3);
 INSERT INTO `bcnm_battlefield` VALUES (130,3,17444916,3);
-INSERT INTO `bcnm_battlefield` VALUES (130,3,17444918,1);
+INSERT INTO `bcnm_battlefield` VALUES (130,3,17444918,0);
 INSERT INTO `bcnm_battlefield` VALUES (160,1,17453057,3); -- shadow_lord_battle
 INSERT INTO `bcnm_battlefield` VALUES (160,1,17453060,2);
 INSERT INTO `bcnm_battlefield` VALUES (160,2,17453058,3);
