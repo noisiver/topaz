@@ -48,9 +48,9 @@ function onSpellCast(caster, target, spell)
     local damage = (HP / 3) + (LVL / 0.625)
     local family = target:getSystem()
 
-	    if (family == tpz.eco.VERMIN) then
+	 if (family == tpz.eco.VERMIN) then
 		dmg = dmg * 1.25
-    if (family == tpz.eco.BEAST) then
+    elseif (family == tpz.eco.BEAST) then
 		dmg = dmg * 0.75
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
