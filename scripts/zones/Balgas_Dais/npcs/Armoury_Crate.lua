@@ -625,43 +625,61 @@ local loot =
     [112] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 24000},  -- gil
+        },
+        {
             {itemid =  1591, droprate = 1000}, -- Orichalcum Ingot
         },
         {
-            {itemid = 15293, droprate =  365}, -- gleemans_belt
-            {itemid = 15292, droprate =  635}, -- penitents_rope
+            {itemid = 17275, droprate =  250}, -- Coffinmaker
+            {itemid = 17509, droprate =  250}, -- Destroyers
+            {itemid = 17699, droprate =  250}, -- Dissector
+            {itemid = 18097, droprate =  250}, -- Gondo-Shizunori
         },
         {
-            {itemid = 14663, droprate =  426}, -- teleport_ring_mea
-            {itemid = 14665, droprate =  574}, -- teleport_ring_yhoat
+            {itemid = 15295, droprate =  250}, -- Hierarch Belt
+            {itemid = 12407, droprate =  250}, -- Palmerin's Shield 
+            {itemid = 14871, droprate =  250}, -- Trainer's Gloves 
+            {itemid = 15294, droprate =  250}, -- Warwolf Belt 
         },
         {
-            {itemid =     0, droprate =  848}, -- nothing
-            {itemid = 15185, droprate =   58}, -- walkure_mask
-            {itemid =  4173, droprate =   78}, -- hi-reraiser
-            {itemid =   702, droprate =   16}, -- ebony_log
+            {itemid = 17275, droprate =  250}, -- Coffinmaker
+            {itemid = 17509, droprate =  250}, -- Destroyers
+            {itemid = 17699, droprate =  250}, -- Dissector
+            {itemid = 18097, droprate =  250}, -- Gondo-Shizunori
         },
         {
-            {itemid =   771, droprate =    9}, -- yellow_rock
-            {itemid =   775, droprate =    9}, -- black_rock
-            {itemid =   791, droprate =   16}, -- aquamarine
-            {itemid =   769, droprate =   16}, -- red_rock
-            {itemid =   770, droprate =   16}, -- blue_rock
-            {itemid =   774, droprate =   16}, -- purple_rock
-            {itemid =   700, droprate =   33}, -- mahogany_log
-            {itemid =   801, droprate =   33}, -- chrysoberyl
-            {itemid =   805, droprate =   33}, -- zircon
-            {itemid =   652, droprate =   49}, -- steel_ingot
-            {itemid =   654, droprate =   49}, -- darksteel_ingot
-            {itemid =   773, droprate =   49}, -- translucent_rock
-            {itemid =   803, droprate =   49}, -- sunstone
-            {itemid =   802, droprate =   66}, -- moonstone
-            {itemid =   653, droprate =   82}, -- mythril_ingot
-            {itemid =   810, droprate =   82}, -- fluorite
-            {itemid =   745, droprate =   98}, -- gold_ingot
-            {itemid =   784, droprate =   98}, -- jadeite
-            {itemid =   797, droprate =   98}, -- painite
-            {itemid =  4175, droprate =   99}, -- vile_elixir_+1
+            {itemid = 15295, droprate =  250}, -- Hierarch Belt
+            {itemid = 12407, droprate =  250}, -- Palmerin's Shield 
+            {itemid = 14871, droprate =  250}, -- Trainer's Gloves 
+            {itemid = 15294, droprate =  250}, -- Warwolf Belt 
+        },
+        {
+            {itemid =     0, droprate =  250}, -- nothing
+            {itemid = 19027, droprate =   200}, -- Claymore Grip
+            {itemid =  19025, droprate =   200}, -- Pole Grip
+            {itemid =   19024, droprate =   200}, -- Sword Strap
+            {itemid =   15186, droprate =   200}, -- Trump Crown
+        },
+        {
+            {itemid = 887, droprate = 100},   -- Coral Fragment
+            {itemid = 645, droprate = 100},   -- Chunk Of Darksteel Ore
+            {itemid = 902, droprate = 100},   -- Demon Horn
+            {itemid = 702, droprate = 100},   -- Ebony Log
+            {itemid = 737, droprate = 100},   -- Chunk Of Gold Ore
+            {itemid = 823, droprate = 50},   -- Spool Of Gold Thread
+            {itemid = 4173, droprate = 10},  -- Hi-reraiser
+            {itemid = 700, droprate = 100},   -- Mahogany Log
+            {itemid = 644, droprate = 50},   -- Chunk Of Mythril Ore
+            {itemid = 703, droprate = 150},  -- Petrified Log
+            {itemid = 844, droprate = 10},    -- Phoenix Feather
+            {itemid = 738, droprate = 50},   -- Chunk Of Platinum Ore
+            {itemid = 830, droprate = 50},   -- Square Of Rainbow Cloth
+            {itemid = 895, droprate = 50},   -- Ram Horn
+            {itemid = 4172, droprate = 50},  -- Reraiser
+            {itemid = 4174, droprate = 50},  -- Vile Elixir
+            {itemid = 4175, droprate = 10},   -- Vile Elixir +1
+            {itemid = 866, droprate = 10},   -- Handful Of Wyvern Scales
         },
     },
 }

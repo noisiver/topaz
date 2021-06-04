@@ -28,14 +28,13 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
-function onMobFight(mob, target)
+function onMobEngaged(mob, target)
     local King = GetMobByID(mob:getID()+1)
     local KingTwo = GetMobByID(mob:getID()+2)
     local KingThree = GetMobByID(mob:getID()+3)
     local Queen = GetMobByID(mob:getID()+4)
     local QueenTwo = GetMobByID(mob:getID()+5)
     local Spawn = mob:getLocalVar("Spawn")
-    local Rage = mob:getLocalVar("Rage")
 
     DespawnMob(King)
     DespawnMob(KingTwo)
@@ -48,6 +47,11 @@ function onMobFight(mob, target)
         QueenTwo:updateEnmity(target)
         mob:setLocalVar("Spawn", 1)
     end
+end
+
+function onMobFight(mob, target)
+    local Rage = mob:getLocalVar("Rage")
+
     if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or mob:hasStatusEffect(tpz.effect.BIND)) then
         mob:setLocalVar("Rage", 1)
     end
