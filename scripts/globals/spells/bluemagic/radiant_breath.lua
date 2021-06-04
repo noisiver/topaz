@@ -47,16 +47,24 @@ function onSpellCast(caster, target, spell)
     params.bonus = 1.0
 
     local resist = applyResistance(caster, target, spell, params)
-    local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+    local HP = player:getHP()
+    local LVL = caster:getMainLvl()
+    local damage = (HP / 5) + (LVL / 0.75)
+	local demon = (target:getSystem() == 9)
+	
+	if demon then
+		dmg = dmg * 1.25
+	end
+	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (damage > 0 and resist > 0.3) then
+    if (damage > 0 and resist >= 0.5) then
     local typeEffect = tpz.effect.SLOW
         target:delStatusEffect(typeEffect)
         target:addStatusEffect(typeEffect, 3500, 0, getBlueEffectDuration(caster, resist, typeEffect))
     end
 
-    if (damage > 0 and resist > 0.3) then
+    if (damage > 0 and resist >= 0.5) then
         target:delStatusEffect(tpz.effect.SILENCE)
         target:addStatusEffect(tpz.effect.SILENCE, 25, 0, getBlueEffectDuration(caster, resist, tpz.effect.SILENCE))
     end

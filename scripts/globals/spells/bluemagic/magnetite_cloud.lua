@@ -45,7 +45,7 @@ function onSpellCast(caster, target, spell)
     local damage = BlueMagicalSpell(caster, target, spell, params, CHR_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (damage > 0 and resist > 0.0625) then
+    if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.WEIGHT
         target:delStatusEffect(typeEffect)
         target:addStatusEffect(typeEffect, 25, 0, getBlueEffectDuration(caster, resist, typeEffect))

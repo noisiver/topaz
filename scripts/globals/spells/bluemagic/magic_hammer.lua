@@ -30,17 +30,20 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local dmg = 0
+    local dmg = utils.clamp(20 + 0.8 * caster:getSkillLevel(tpz.skill.BLUE_MAGIC), 0, 500)
     local multi = 1.5
 
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 0.50
+        multi = multi + 2.0
     end
 
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.LIGHT
+    params.diff = caster:getStat(tpz.mod.MND)-target:getStat(tpz.mod.MND)
+    params.attribute = tpz.mod.MND
+    params.skillType = tpz.skill.BLUE_MAGIC
     params.multiplier = multi
     params.tMultiplier = 1.0
     params.duppercap = 35
@@ -51,21 +54,17 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.30
     params.chr_wsc = 0.0
+    local resist = applyResistance(caster, target, spell, params)
 
-    if (target:isUndead()) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- No effect
-    else
-        dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
-        dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
-        if (target:getMP() > 0) then
-            if (target:getMP() < dmg) then
-                dmg = target:getMP()
-            end
-            caster:addMP(dmg)
-        else
-            return 0
-        end
-    end
+
+	dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+	dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
+   
+   if dmg > 0 and resist >= 0.5  then
+		dmg = dmg * BLUE_POWER
+		caster:addMP(damage)
+	end
+
 
     return dmg
 end

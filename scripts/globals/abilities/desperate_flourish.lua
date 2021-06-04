@@ -65,7 +65,7 @@ function onUseAbility(player, target, ability, action)
 		
 		player:delMod(tpz.mod.ACC, -40)
 
-        if resist > 0.5 then
+        if resist >= 0.5 then
             target:delStatusEffectSilent(tpz.effect.WEIGHT)
             target:addStatusEffect(tpz.effect.WEIGHT, 100, 0, 60 * resist)
         else

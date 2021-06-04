@@ -338,7 +338,7 @@ function BluefSTR(dSTR)
 end
 
 function BlueGetHitRate(attacker, target, capHitRate)
-    local acc = attacker:getACC()
+    local acc = attacker:getACC() + 35 
     local eva = target:getEVA()
 
     if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
@@ -376,31 +376,29 @@ end
 function getBlueEffectDuration(caster, resist, effect)
     local duration = 0
 
-    if (resist == 0.125) then
+    if (resist >= 0.5) then
+        resist = 0.5
+    elseif (resist == 1) then
         resist = 1
-    elseif (resist == 0.25) then
-        resist = 2
-    elseif (resist == 0.5) then
-        resist = 3
-    else
-        resist = 4
+    else 
+        resist = 0
     end
 
     if (effect == tpz.effect.BIND) then
-        duration = math.random(0, 5) + resist * 5
+        duration = 30 * resist
     elseif (effect == tpz.effect.STUN) then
-        duration = math.random(2, 3) + resist
+        duration = 4 * resist
         -- printf("Duration of stun is %i", duration)
     elseif (effect == tpz.effect.WEIGHT) then
-        duration = math.random(20, 24) + resist * 9 -- 20-24
+        duration = 60 * resist
     elseif (effect == tpz.effect.PARALYSIS) then
-        duration = math.random(50, 60) + resist * 15 -- 50- 60
+        duration = 120 * resist
     elseif (effect == tpz.effect.SLOW) then
-        duration = math.random(60, 120) + resist * 15 -- 60- 120 -- Needs confirmation but capped max duration based on White Magic Spell Slow
+        duration = 120 * resist
     elseif (effect == tpz.effect.SILENCE) then
-        duration = math.random(60, 180) + resist * 15 -- 60- 180 -- Needs confirmation but capped max duration based on White Magic Spell Silence
+        duration = 90 * resist
     elseif (effect == tpz.effect.POISON) then
-        duration = math.random(20, 30) + resist * 9 -- 20-30 -- based on magic spell poison
+        duration = 90 * resist
     end
 
     return duration

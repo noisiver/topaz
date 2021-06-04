@@ -29,17 +29,17 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.BLUNT
     params.scattr = SC_FRAGMENTATION
     params.numhits = 1
-    params.multiplier = 1.0
-    params.tp150 = 1.375
-    params.tp300 = 1.75
-    params.azuretp = 1.875
+    params.multiplier = 4.0
+    params.tp150 = 4.0
+    params.tp300 = 4.0
+    params.azuretp = 4.0
     params.duppercap = 75
     params.str_wsc = 0.3
     params.dex_wsc = 0.0
-    params.vit_wsc = 0.0
+    params.vit_wsc = 0.3
     params.agi_wsc = 0.0
     params.int_wsc = 0.0
-    params.mnd_wsc = 0.5
+    params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
 
     local damage = BluePhysicalSpell(caster, target, spell, params)

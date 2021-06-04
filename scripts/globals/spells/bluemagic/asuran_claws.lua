@@ -29,11 +29,11 @@ function onSpellCast(caster, target, spell)
         params.damageType = tpz.damageType.HTH
         params.scattr = SC_IMPACTION
         params.numhits = 6
-        params.multiplier = 1.0
-        params.tp150 = 1.05
-        params.tp300 = 1.1
-        params.azuretp = 1.2
-        params.duppercap = 21
+		params.multiplier = 1.25
+		params.tp150 = 1.625
+		params.tp300 = 1.75
+		params.azuretp = 1.875
+		params.duppercap = 80 -- D upper >=69
         params.str_wsc = 0.3
         params.dex_wsc = 0.0
         params.vit_wsc = 0.0

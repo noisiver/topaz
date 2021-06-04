@@ -25,7 +25,7 @@ function onSpellCast(caster, target, spell)
     local StealChance = math.random(1, 100)
     local stolen = 0
 
-    if resist > 0.0625 and StealChance < 90 then
+    if resist >= 0.5 and StealChance < 90 then
         stolen = caster:stealStatusEffect(target)
         if stolen ~= 0 then
             spell:setMsg(tpz.msg.basic.MAGIC_STEAL)

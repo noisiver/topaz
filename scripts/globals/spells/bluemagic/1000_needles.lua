@@ -16,33 +16,49 @@ require("scripts/globals/bluemagic")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 -----------------------------------------
-
 function onMagicCastingCheck(caster, target, spell)
     return 0
 end
 
 function onSpellCast(caster, target, spell)
     local params = {}
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-        params.tpmod = TPMOD_CRITICAL
-        params.attackType = tpz.attackType.MAGICAL
-        params.damageType = tpz.damageType.LIGHT
-        params.scattr = SC_COMPRESSION
-        params.numhits = 1
-        params.multiplier = 1.5
-        params.tp150 = 1.5
-        params.tp300 = 1.5
-        params.azuretp = 1.5
-        params.duppercap = 49
-        params.str_wsc = 1.0
-        params.dex_wsc = 1.5
-        params.vit_wsc = 0.0
-        params.agi_wsc = 0.0
-        params.int_wsc = 2.0
-        params.mnd_wsc = 1.0
-        params.chr_wsc = 1.0
-    damage = BluePhysicalSpell(caster, target, spell, params)
-    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+    local multi = 1.0
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+		bonus = 100
+    end
+    params.attackType = tpz.attackType.MAGICAL
+    params.damageType = tpz.damageType.LIGHT
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.INT
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 1.0
+    -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
+    params.multiplier = multi
+    params.tMultiplier = 1.0
+    params.duppercap = 75
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+
+    local resist = applyResistance(caster, target, spell, params)
+    local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+	
+	if target:isNM() then
+		damage = 0
+	else
+		damage = 1000
+	end
+    
+	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+
+
 
     return damage
 end
+
+
+

@@ -23,17 +23,21 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    local multi = 2.0
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi + 2.0
+    end
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.EARTH
-    params.multiplier = 1.0
+    params.multiplier = multi
     params.tMultiplier = 1.0
-    params.duppercap = 13
+    params.duppercap = 75
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
-    params.int_wsc = 0.2
+    params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
@@ -51,9 +55,10 @@ function onSpellCast(caster, target, spell)
 
     local resist = applyResistance(caster, target, spell, params)
 
-    if (damage > 0 and resist > 0.0625) then
+    if (damage > 0 and resist >= 0.5) then
         if (target:canGainStatusEffect(tpz.effect.ACCURACY_DOWN)) then
-            target:addStatusEffect(tpz.effect.ACCURACY_DOWN, 20, 3, 60)
+			local level = (caster:getMainJob()  / 2)
+            target:addStatusEffect(tpz.effect.ACCURACY_DOWN, 10 + level, 3, 60)
         end
     end
 

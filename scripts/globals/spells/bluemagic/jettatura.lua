@@ -29,8 +29,12 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.TERROR
     local resist = applyResistance(caster, target, spell, params)
     local duration = 5 * resist
+	
+	if target:isNM() then
+		duration = 0
+	end
 
-    if (resist > 0.5) then -- Do it!
+    if (resist >= 0.5) then -- Do it!
         if (target:isFacing(caster)) then
             if (target:addStatusEffect(params.effect, 1, 0, duration)) then
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)

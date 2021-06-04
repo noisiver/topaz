@@ -58,9 +58,9 @@ INSERT INTO `blue_traits` VALUES (22, 4, 12, 170, 15);
 INSERT INTO `blue_traits` VALUES (23, 2, 106, 174, 8);
 INSERT INTO `blue_traits` VALUES (24, 2, 15, 288, 7);
 INSERT INTO `blue_traits` VALUES (24, 4, 16, 302, 5);
-INSERT INTO `blue_traits` VALUES (25, 2, 18, 259, 10);
-INSERT INTO `blue_traits` VALUES (25, 4, 18, 259, 15);
-INSERT INTO `blue_traits` VALUES (25, 6, 18, 259, 25);
+INSERT INTO `blue_traits` VALUES (25, 2, 18, 259, 10); -- Dual Wield
+INSERT INTO `blue_traits` VALUES (25, 4, 18, 259, 15); -- Dual Wield II
+INSERT INTO `blue_traits` VALUES (25, 6, 18, 259, 25); -- Dual Wield III
 INSERT INTO `blue_traits` VALUES (26, 2, 70, 306, 15);
 INSERT INTO `blue_traits` VALUES (27, 2, 110, 407, 5);
 INSERT INTO `blue_traits` VALUES (28, 2, 20, 0, 0);

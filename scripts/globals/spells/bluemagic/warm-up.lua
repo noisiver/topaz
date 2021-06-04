@@ -26,7 +26,7 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffectOne = tpz.effect.ACCURACY_BOOST
     local typeEffectTwo = tpz.effect.EVASION_BOOST
-    local power = 10
+    local power = 20
     local duration = 180
     local returnEffect = typeEffectOne
 

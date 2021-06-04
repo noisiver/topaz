@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 1.0
     local resist = applyResistance(caster, target, spell, params)
-    local duration = 30 * resist
+    local duration = 90 * resist
     local returnEffect = typeEffectOne
 
     if (resist >= 0.5) then

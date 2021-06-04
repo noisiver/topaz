@@ -35,12 +35,13 @@ function onSpellCast(caster, target, spell)
 
     if (target:getStatusEffect(tpz.effect.BURN) ~= nil) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
-    elseif (resist > 0.5) then
+    elseif (resist >= 0.5) then
         if (target:getStatusEffect(tpz.effect.CHOKE) ~= nil) then
             target:delStatusEffect(tpz.effect.CHOKE)
         end
         local sINT = caster:getStat(tpz.mod.INT)
-        local DOT = getElementalDebuffDOT(sINT)
+		local DOT = (caster:getMainJob()  / 5)
+		local DMG = (caster:getMainJob()  / 5) +3
         local effect = target:getStatusEffect(typeEffect)
         local noeffect = false
         if (effect ~= nil) then
@@ -56,7 +57,7 @@ function onSpellCast(caster, target, spell)
             end
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             local duration = math.floor(ELEMENTAL_DEBUFF_DURATION * resist)
-            target:addStatusEffect(typeEffect, DOT, 3, ELEMENTAL_DEBUFF_DURATION)
+            target:addStatusEffect(typeEffect, DOT, DMG, ELEMENTAL_DEBUFF_DURATION)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)

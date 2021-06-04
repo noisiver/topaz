@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     -- Due to conflicting information, making the dispel resistable.  Correct/tweak if wrong.
     -- Dispel has no status effect or resistance gear, so 0s instead of nulls.
     local resist = applyPlayerResistance(mob, 0, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), 0, tpz.magic.ele.LIGHT)
-    if (resist > 0.0625) then
+    if (resist >= 0.25) then
         target:dispelStatusEffect()
     end
 

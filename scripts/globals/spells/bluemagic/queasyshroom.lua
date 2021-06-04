@@ -51,6 +51,9 @@ function onSpellCast(caster, target, spell)
         target:delStatusEffect(tpz.effect.POISON)
         target:addStatusEffect(tpz.effect.POISON, 3, 0, getBlueEffectDuration(caster, resist, tpz.effect.POISON))
     end
+	
+        target:delStatusEffect(tpz.effect.BLINK)
+        target:delStatusEffect(tpz.effect.COPY_IMAGE)
 
     return damage
 end

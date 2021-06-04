@@ -32,15 +32,15 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.DARK
     params.multiplier = multi
     params.tMultiplier = 1.5
-    params.duppercap = 69
+    params.duppercap = 75
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
-    params.int_wsc = 0.0
+    params.int_wsc = 0.4
     params.mnd_wsc = 0.0
-    params.chr_wsc = 0.4
-    damage = BlueMagicalSpell(caster, target, spell, params, CHR_BASED)
+    params.chr_wsc = 0.0
+    damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     return damage

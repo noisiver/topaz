@@ -439,7 +439,7 @@ tpz.mob.onAddEffect = function(mob, target, damage, effect, params)
                     resist = applyResistanceAddEffect(mob, target, ae.ele, ae.eff)
                 end
 
-                if resist > 0.5 and not target:hasStatusEffect(ae.eff) then
+                if resist >= 0.5 and not target:hasStatusEffect(ae.eff) then
                     local power = params.power or ae.power or 0
                     local tick = ae.tick or 0
                     local duration = params.duration or ae.duration

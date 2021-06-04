@@ -34,7 +34,7 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 5 * resist
 
-    if (resist > 0.0625) then -- Do it!
+    if (resist >= 0.5) then -- Do it!
         if (target:addStatusEffect(typeEffect, 2, 0, duration)) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else

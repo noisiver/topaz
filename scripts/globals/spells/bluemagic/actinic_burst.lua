@@ -33,8 +33,8 @@ function onSpellCast(caster, target, spell)
     params.bonus =  150
     params.effect = nil
     local resist = applyResistance(caster, target, spell, params)
-    local duration = 20 * resist
-    local power = 200
+    local duration = 12 * resist
+    local power = 300
 
     if (resist > 0.0625) then -- Do it!
         if (target:addStatusEffect(typeEffect, power, 0, duration)) then

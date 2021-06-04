@@ -23,13 +23,19 @@ end
 
 function onSpellCast(caster, target, spell)
 
-    local dmg = 5 + 0.575 * caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
+    local dmg = 20 + caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
+    local multi = 1.5
+	
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi + 2.0
+    end
     --get resist multiplier (1x if no resist)
     local params = {}
     params.diff = caster:getStat(tpz.mod.MND)-target:getStat(tpz.mod.MND)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 1.0
+    params.multiplier = multi
     local resist = applyResistance(caster, target, spell, params)
     --get the resisted damage
     dmg = dmg*resist
@@ -43,11 +49,6 @@ function onSpellCast(caster, target, spell)
         dmg = 0
     end
 
-    if (target:isUndead()) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return dmg
-    end
-
     if (target:getHP() < dmg) then
         dmg = target:getHP()
     end
@@ -55,7 +56,12 @@ function onSpellCast(caster, target, spell)
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.DARK
     dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
-    caster:addHP(dmg)
+ 
+ if dmg > 0 and resist >= 0.5  then
+		dmg = dmg * BLUE_POWER
+		caster:addHP(damage)
+	end
+
 
     return dmg
 end

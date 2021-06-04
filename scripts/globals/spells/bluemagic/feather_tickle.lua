@@ -27,12 +27,21 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     local resist = applyResistance(caster, target, spell, params)
-    local power = 3000 * resist
+	local cap = target:getTP() * 0.4
+    local dmg = 1200 * resist
+
+	    if ((target:getTP()) < dmg) then
+            dmg = target:getTP()
+        end
+
+        if (dmg > cap) then
+            dmg = cap
+        end
 
     if (target:getTP() == 0) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     else
-        target:delTP(power)
+        target:delTP(dmg)
         spell:setMsg(tpz.msg.basic.MAGIC_TP_REDUCE)
     end
 

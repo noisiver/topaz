@@ -43,7 +43,7 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
 
     local resist = applyResistance(caster, target, spell, params)
-    if (resist > 0.0625) then
+    if (resist >= 0.5) then
         target:dispelStatusEffect()
     end
 

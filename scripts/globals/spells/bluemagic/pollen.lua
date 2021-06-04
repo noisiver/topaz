@@ -49,12 +49,17 @@ function onSpellCast(caster, target, spell)
     if (final > diff) then
         final = diff
     end
-    target:addHP(final)
+	
+	if target:hasStatusEffect(tpz.effect.CURSE_II) then
+		target:addHP(0)
+	else
+		target:addHP(final)
+		if (target:getAllegiance() == caster:getAllegiance() and (target:getObjType() == tpz.objType.PC or target:getObjType() == tpz.objType.MOB)) then
+			caster:updateEnmityFromCure(target, final)
+		end
+		spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
+	end
 
-    if (target:getAllegiance() == caster:getAllegiance() and (target:getObjType() == tpz.objType.PC or target:getObjType() == tpz.objType.MOB)) then
-        caster:updateEnmityFromCure(target, final)
-    end
-    spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
 
     return final
 end

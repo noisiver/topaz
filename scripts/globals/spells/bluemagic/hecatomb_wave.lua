@@ -48,7 +48,14 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.3
     params.chr_wsc = 0.0
-    damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+    local HP = player:getHP()
+    local LVL = caster:getMainLvl()
+    local damage = (HP / 4) + (LVL / 1.5)
+	local dragon = (target:getSystem() == 10)
+	
+	if dragon then
+		dmg = dmg * 1.25
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (damage > 0 and resist > 0.125) then

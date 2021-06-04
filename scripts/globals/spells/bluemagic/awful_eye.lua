@@ -32,14 +32,19 @@ function onSpellCast(caster, target, spell)
         params.diff = nil
         params.attribute = tpz.mod.INT
         params.skillType = tpz.skill.BLUE_MAGIC
+		params.effect = tpz.effect.STR_DOWN
         params.bonus = 0
         params.effect = nil
         local resist = applyResistance(caster, target, spell, params)
-        if (resist <= 0) then
+		local duration = 60 * resist
+		local level = (caster:getMainJob()  / 5)
+		local power = level 
+		
+        if (resist < 0.5) then
             spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
         else
-            spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
-            target:addStatusEffect(tpz.effect.STR_DOWN, ABSORB_SPELL_AMOUNT*resist, ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK) -- target loses STR
+			if (target:addStatusEffect(params.effect, power, 0, duration)) then
+				spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
