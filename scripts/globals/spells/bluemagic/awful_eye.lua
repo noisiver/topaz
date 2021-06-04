@@ -37,7 +37,7 @@ function onSpellCast(caster, target, spell)
         params.effect = nil
         local resist = applyResistance(caster, target, spell, params)
 		local duration = 60 * resist
-		local level = (caster:getMainJob()  / 5)
+		local level = (caster:getMainLvl()  / 5)
 		local power = level 
 		
         if (resist < 0.5) then

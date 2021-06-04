@@ -49,7 +49,6 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-    local resist = applyResistance(caster, target, spell, params)
 
 
     if (damage > 0 and resist >= 0.5) then
