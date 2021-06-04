@@ -57,7 +57,7 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         if (target:canGainStatusEffect(tpz.effect.ACCURACY_DOWN)) then
-			local level = (caster:getMainJob()  / 2)
+			local level = (caster:getMainLvl()  / 2)
             target:addStatusEffect(tpz.effect.ACCURACY_DOWN, 10 + level, 3, 60)
         end
     end
