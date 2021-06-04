@@ -28,7 +28,7 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 function onMobEngaged(mob, target)
-    local King = GetMobByID(mob:getID()+-1)
+    local King = GetMobByID(mob:getID()-1)
     local KingTwo = GetMobByID(mob:getID()+1)
     local KingThree = GetMobByID(mob:getID()+2)
     local Queen = GetMobByID(mob:getID()+3)
