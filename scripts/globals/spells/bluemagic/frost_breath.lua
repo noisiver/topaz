@@ -46,7 +46,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.3
     params.chr_wsc = 0.0
-    local HP = player:getHP()
+    local HP = caster:getHP()
     local LVL = caster:getMainLvl()
     local damage = (HP / 3) + (LVL / 0.625)
     local family = target:getSystem()
@@ -63,7 +63,7 @@ function onSpellCast(caster, target, spell)
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.PARALYSIS
         target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, 12, 0, getBlueEffectDuration(caster, resist, typeEffect))
+        target:addStatusEffect(typeEffect, 12.5, 0, getBlueEffectDuration(caster, resist, typeEffect))
     end
 
     return damage

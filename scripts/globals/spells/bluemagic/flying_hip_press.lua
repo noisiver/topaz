@@ -35,7 +35,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.2
     params.mnd_wsc = 0.5
     params.chr_wsc = 0.2
-    local HP = player:getHP()
+    local HP = caster:getHP()
 	local damage = (HP / 3)
     
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)

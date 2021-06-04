@@ -36,7 +36,7 @@ function onSpellCast(caster, target, spell)
 		local power = level 
 
 		if (resist >= 0.5) then -- Do it!
-			if (target:addStatusEffect(params.effect, power, 0, duration)) then
+			if (target:addStatusEffect(tpz.effect.VIT_DOWN, power, 0, duration)) then
 				spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
 			else
 				spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

@@ -45,7 +45,7 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     local resist = applyResistance(caster, target, spell, params)
     local multi = 1.08
-    local HP = player:getHP()
+    local HP = caster:getHP()
     local LVL = caster:getMainLvl()
     local damage = (HP / 10) + (LVL / 1.25)
 	local arcana = (target:getSystem() == 3)

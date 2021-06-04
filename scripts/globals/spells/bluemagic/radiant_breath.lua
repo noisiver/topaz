@@ -47,7 +47,7 @@ function onSpellCast(caster, target, spell)
     params.bonus = 1.0
 
     local resist = applyResistance(caster, target, spell, params)
-    local HP = player:getHP()
+    local HP = caster:getHP()
     local LVL = caster:getMainLvl()
     local damage = (HP / 5) + (LVL / 0.75)
 	local demon = (target:getSystem() == 9)

@@ -39,7 +39,7 @@ function onSpellCast(caster, target, spell)
         multi = multi + 2.0
     end
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-    params.attackType = tpz.damagaType.MAGICAL
+    params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.LIGHTNING
     params.multiplier = multi
     params.tMultiplier = 1.0
