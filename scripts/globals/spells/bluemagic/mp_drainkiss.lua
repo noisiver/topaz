@@ -75,7 +75,7 @@ function onSpellCast(caster, target, spell)
 
     if resist >= 0.5 then
 		dmg = dmg * BLUE_POWER
-		caster:addMP(damage)
+		caster:addMP(dmg)
 	end
 
     return dmg
