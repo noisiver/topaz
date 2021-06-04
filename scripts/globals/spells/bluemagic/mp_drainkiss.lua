@@ -73,7 +73,7 @@ function onSpellCast(caster, target, spell)
      dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
     -- add in final adjustments
 
-    if resist >= 0.5 then
+   if dmg > 0 and resist >= 0.5  then
 		dmg = dmg * BLUE_POWER
 		caster:addMP(dmg)
 	end
