@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.VIT_DOWN
     local resist = applyResistance(caster, target, spell, params)
     local duration = 90 * resist
-	local level = (caster:getMainJob()  / 5)
+	local level = (caster:getMainLvl()  / 5)
 	local power = level 
 
     if (resist >= 0.5) then -- Do it!

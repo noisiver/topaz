@@ -40,8 +40,8 @@ function onSpellCast(caster, target, spell)
             target:delStatusEffect(tpz.effect.CHOKE)
         end
         local sINT = caster:getStat(tpz.mod.INT)
-		local DOT = (caster:getMainJob()  / 5)
-		local DMG = (caster:getMainJob()  / 5) +3
+		local DOT = (caster:getMainLvl()  / 5)
+		local DMG = (caster:getMainLvl()  / 5) +3
         local effect = target:getStatusEffect(typeEffect)
         local noeffect = false
         if (effect ~= nil) then
