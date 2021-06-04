@@ -23,6 +23,12 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    local params = {}
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.MND
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 1.0
+    local resist = applyResistance(caster, target, spell, params)
     if (target:hasStatusEffect(tpz.effect.VIT_DOWN)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     else
@@ -30,7 +36,6 @@ function onSpellCast(caster, target, spell)
 		params.attribute = tpz.mod.INT
 		params.skillType = tpz.skill.BLUE_MAGIC
 		params.effect = tpz.effect.VIT_DOWN
-		local resist = applyResistance(caster, target, spell, params)
 		local duration = 90 * resist
 		local level = (caster:getMainJob()  / 5)
 		local power = level 
