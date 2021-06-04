@@ -49,7 +49,6 @@ function onSpellCast(caster, target, spell)
     params.diff = nil
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.DARK_MAGIC
-    params.skillType = 37
     params.bonus = 150
     params.effect = tpz.effect.STUN
     local resist = applyResistanceEffect(caster, target, spell, params)
