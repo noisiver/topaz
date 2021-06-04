@@ -48,14 +48,18 @@ function onSpellCast(caster, target, spell)
     local HP = player:getHP()
     local LVL = caster:getMainLvl()
     local damage = (HP / 10) + (LVL / 1.25)
-
+	local arcana = (target:getSystem() == 3)
+	
+	if arcana then
+		dmg = dmg * 1.25
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 0.50
     end
 
-    if (damage > 0 and resist => 0.5) then
+    if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.POISON
         target:delStatusEffect(typeEffect)
         target:addStatusEffect(typeEffect, 16, 0, getBlueEffectDuration(caster, resist, typeEffect)) -- Buffed to 16
