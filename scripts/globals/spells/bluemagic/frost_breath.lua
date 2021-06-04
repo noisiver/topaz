@@ -46,13 +46,8 @@ function onSpellCast(caster, target, spell)
     local HP = player:getHP()
     local LVL = caster:getMainLvl()
     local damage = (HP / 3) + (LVL / 0.625)
-    local family = target:getSystem()
 
-	 if (family == tpz.eco.VERMIN) then
-		dmg = dmg * 1.25
-    elseif (family == tpz.eco.BEAST) then
-		dmg = dmg * 0.75
-	end
+	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
