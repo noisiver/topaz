@@ -46,8 +46,14 @@ function onSpellCast(caster, target, spell)
     local HP = player:getHP()
     local LVL = caster:getMainLvl()
     local damage = (HP / 3) + (LVL / 0.625)
+    local family = target:getSystem()
 
-	
+	 if (family == tpz.eco.VERMIN) then
+		damage = damage * 1.25
+    elseif (family == tpz.eco.BEAST) then
+		damage = damage * 0.75
+	end
+
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
@@ -57,7 +63,7 @@ function onSpellCast(caster, target, spell)
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.PARALYSIS
         target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, 12.5, 0, getBlueEffectDuration(caster, resist, typeEffect))
+        target:addStatusEffect(typeEffect, 12, 0, getBlueEffectDuration(caster, resist, typeEffect))
     end
 
     return damage
