@@ -566,7 +566,19 @@ params.bonus = $4
 params.effect = $5
 ]]
 function applyResistanceEffect(caster, target, spell, params) -- says "effect" but this is the global resistance fetching formula, even for damage spells
-    local diff = params.diff or (caster:getStat(params.attribute) - target:getStat(params.attribute))
+    local effect = params.effect
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
+        res = 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
+        --print("restrait proc!")
+        if spell ~= nil then
+			spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+            if spell:isAoe() == 1 then
+				spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+            end
+        end
+    end
+    
+	local diff = params.diff or (caster:getStat(params.attribute) - target:getStat(params.attribute))
     local skill = params.skillType
     local bonus = params.bonus
     local effect = params.effect
@@ -612,18 +624,17 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     elseif getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
-    
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
-        res = 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
-        --print("restrait proc!")
-        if spell ~= nil then
-			spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-            if spell:isAoe() == 1 then
-				spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-            end
-        end
-    end
+	
 
+    
+    if target:isPC() and element ~= nil and element > 0 and element < 9 then
+        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and res < 0.5  then res = 0.5
+        elseif eleres < 1 and res < 0.25 then res = 0.25 end
+    end
+    --print(string.format("res was %f",res))
+    
     return res
 end
 
@@ -638,8 +649,16 @@ end
 function applyResistanceAddEffect(player, target, element, bonus)
 
     local p = getMagicHitRate(player, target, 0, element, 0, bonus)
-
-    return getMagicResist(p)
+	local res = getMagicResist(p)
+    
+    if target:isPC() and element ~= nil and element > 0 and element < 9 then
+        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and res < 0.5  then res = 0.5
+        elseif eleres < 1 and res < 0.25 then res = 0.25 end
+    end
+    
+    return res
 end
 
 function getMagicHitRate(caster, target, skillType, element, percentBonus, bonusAcc)
