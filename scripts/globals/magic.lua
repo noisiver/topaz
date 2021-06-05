@@ -581,7 +581,6 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
 	local diff = params.diff or (caster:getStat(params.attribute) - target:getStat(params.attribute))
     local skill = params.skillType
     local bonus = params.bonus
-    local effect = params.effect
 
     local element = spell:getElement()
     local percentBonus = 0
