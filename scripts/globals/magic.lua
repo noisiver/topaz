@@ -733,9 +733,9 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     local dMAcc = magicacc - magiceva
     print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
     if dMAcc < 0 then -- when penalty, half effective
-        p = 55 + math.floor(dMAcc/2)
+        p = 50 + math.floor(dMAcc/2)
     else
-        p = 55 + dMAcc
+        p = 50 + dMAcc
     end
     p = utils.clamp(p, 5, 95)
     
