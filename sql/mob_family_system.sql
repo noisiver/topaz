@@ -541,6 +541,7 @@ INSERT INTO `mob_family_system` VALUES (511,'Vanguard-Eye',9,'Demon',0,40,100,90
 INSERT INTO `mob_family_system` VALUES (512,'Morbol-NM',17,'Plantoid',1,40,140,100,4,2,4,4,4,5,4,1,3,1,3,1,1,1,1,1.3,1,1,1,1,0.5,1.3,0.5,4,2,0);
 INSERT INTO `mob_family_system` VALUES (513,'Salamander',14,'Lizard',1,60,120,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.05,0.05,1.3,1,1,1.3,1,1,4,2,0);
 INSERT INTO `mob_family_system` VALUES (514,'Antica-Legatus',7,'Beastmen',1,60,100,140,1,3,5,4,6,2,1,1,3,1,3,1,1,1,1,1.15,1.3,1.5,0.5,1.15,1.15,1.3,0.5,8,258,0);
+-- 515 free
 INSERT INTO `mob_family_system` VALUES (516,'Pteraketos',2,'Aquan',0,60,100,100,4,4,3,5,6,6,1,1,3,1,3,1,1,1,1,1.3,1.5,1.3,1.3,1.5,0.7,1.3,1.3,6,2,1);	 -- Whale
 INSERT INTO `mob_family_system` VALUES (517,'Pixie',11,'Elemental',2,60,100,100,5,5,5,5,1,1,1,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,41,0);
 INSERT INTO `mob_family_system` VALUES (518,'Harpeia',8,'Bird',4,60,100,100,3,3,3,3,2,2,2,1,3,1,3,1,1.25,1,1,1,1,1,1,1,1,1,1,0,1,0);
