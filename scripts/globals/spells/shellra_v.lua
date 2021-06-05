@@ -11,7 +11,10 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local power = 24 -- according to bg-wiki
+    local power = 25 -- according to bg-wiki
+	-- 24 at 0 merits
+	--62/256 = 24.218% ～ 70/256 = 27.343% *
+	-- 2/256 per merit
 
     local duration = calculateDuration(1800, spell:getSkillType(), spell:getSpellGroup(), caster, target, false)
     duration = calculateDurationForLvl(duration, 75, target:getMainLvl())
