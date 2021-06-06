@@ -61,7 +61,7 @@ function onSpellCast(caster, target, spell)
     -- add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
 	dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
 	-- add dmg variance 
-	dmg = (dmg * math.random(90, 120)) / 100
+	dmg = (dmg * math.random(85, 115)) / 100
 	-- add SDT
     local SDT = target:getMod(tpz.mod.SDT_LIGHT)
 	
