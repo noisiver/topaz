@@ -55,6 +55,19 @@ function onSpellCast(caster, target, spell)
 
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.DARK
+	local bird = (target:getSystem() == 8)
+	local aquan = (target:getSystem() == 2)
+	-- add correlation bonus
+	if bird then
+	 	dmg = dmg * 1.25
+	elseif aquan then
+		dmg = dmg * 0.75
+	end
+	-- add SDT
+    local SDT = target:getMod(tpz.mod.SDT_DARK)
+	
+	dmg = dmg * (SDT / 100)
+	-- add final adjustments
     dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
  
  if dmg > 0 and resist >= 0.5  then
