@@ -55,9 +55,13 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.30
     params.chr_wsc = 0.0
     local resist = applyResistance(caster, target, spell, params)
-
-
+	   
+	-- get the resisted damage
+    dmg = dmg*resist
+    -- add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
 	dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+	-- add dmg variance 
+	dmg = dmg * math.random(0.9, 1.2)
 	dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
    
    if dmg > 0 and resist >= 0.5  then

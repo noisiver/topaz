@@ -61,15 +61,18 @@ function onSpellCast(caster, target, spell)
 	local bird = (target:getSystem() == 8)
 	local aquan = (target:getSystem() == 2)
 	
-	if bird then
-		dmg = dmg * 1.25
-	elseif aquan then
-		dmg = dmg * 0.75
-	end
-    -- get the resisted damage
-    dmg = dmg*resist
+     -- get the resisted damage
+     dmg = dmg*resist
     -- add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
      dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+	-- add dmg variance
+	 dmg = dmg * math.random(0.9, 1.2)
+	-- add correlation bonus
+	 if bird then
+	 	 dmg = dmg * 1.25
+	 elseif aquan then
+		 dmg = dmg * 0.75
+	 end
      dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
     -- add in final adjustments
 
