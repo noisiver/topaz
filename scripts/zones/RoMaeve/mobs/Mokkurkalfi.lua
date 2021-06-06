@@ -13,6 +13,9 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
+    mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
+    mob:setMod(tpz.mod.BINDRESTRAIT, 100)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 35)
     mob:addMod(tpz.mod.ACC, 25) 
