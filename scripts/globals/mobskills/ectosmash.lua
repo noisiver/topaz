@@ -27,8 +27,6 @@ function onMobWeaponSkill(target, mob, skill)
 		local typeEffect = tpz.effect.WEAKNESS
 		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 30)
         local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.BLUNT, MOBPARAM_IGNORE_SHADOWS)
-    else
-
      end
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.BLUNT)
 	if dmg > 0 then target:tryInterruptSpell(mob, 1) end

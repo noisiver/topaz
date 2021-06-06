@@ -17,9 +17,19 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.CURSE_I
+    if (mob:getPool() == 9004) then -- The Big One
+        if target:hasStatusEffect(tpz.effect.FEALTY) then
+            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        else
+            local typeEffect = tpz.effect.CURSE_II -- Zombie
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 600))
+            skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 20))
+        end
+    else
+        local typeEffect = tpz.effect.CURSE_I
+
+        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 600))
+    end
 
     return typeEffect
 end
