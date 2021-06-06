@@ -11079,9 +11079,9 @@ INSERT INTO `mob_groups` VALUES (9010,3500,173,'Scimitar_Scorpion',792,0,113,0,0
 INSERT INTO `mob_groups` VALUES (1,3496,174,'Scavenger_Crab',0,128,0,0,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (2,3803,174,'Stygian_Pugil',0,128,0,0,0,64,66,0);
 INSERT INTO `mob_groups` VALUES (3,1018,174,'Devil_Manta',0,128,644,0,0,66,68,0);
-INSERT INTO `mob_groups` VALUES (4,1763,174,'Gordovs_Ghost',0,128,0,8500,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (5,1003,174,'Dervos_Ghost',0,128,0,8500,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (6,1609,174,'Gizerls_Ghost',0,128,0,8500,0,68,68,0);
+INSERT INTO `mob_groups` VALUES (4,1763,174,'Gordovs_Ghost',0,128,0,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (5,1003,174,'Dervos_Ghost',0,128,0,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (6,1609,174,'Gizerls_Ghost',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (7,3456,174,'Sand_Lizard',600,0,2153,0,0,61,64,0);
 INSERT INTO `mob_groups` VALUES (8,3375,174,'Robber_Crab',600,0,2110,0,0,60,63,0);
 INSERT INTO `mob_groups` VALUES (9,1900,174,'Haunt',1200,0,1282,0,0,63,66,0);
@@ -11119,6 +11119,7 @@ INSERT INTO `mob_groups` VALUES (40,5180,174,'Tangaroa',0,128,0,0,50000,96,97,0)
 INSERT INTO `mob_groups` VALUES (41,5181,174,'Koura',0,128,0,0,9999,92,93,0);
 INSERT INTO `mob_groups` VALUES (42,5182,174,'Pekapeka',0,128,0,0,0,92,93,0);
 INSERT INTO `mob_groups` VALUES (43,5183,174,'Moki',0,128,0,0,0,92,93,0);
+INSERT INTO `mob_groups` VALUES (44,9004,174,'The_Big_One',0,128,0,35000,0,85,85,0);
 
 -- ------------------------------------------------------------
 -- The_Eldieme_Necropolis_[S] (Zone 175)

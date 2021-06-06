@@ -222,7 +222,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,474);
 INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,475);
 INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,476);
 INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,477);
-INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,1794);
+INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,1794); -- Perdition
 INSERT INTO `mob_skill_lists` VALUES ('Likho',53,551);
 INSERT INTO `mob_skill_lists` VALUES ('Likho',53,555);
 INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1533);
