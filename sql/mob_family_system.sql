@@ -549,6 +549,9 @@ INSERT INTO `mob_family_system` VALUES (519,'Skormoth ',6,'Beast',4,60,100,100,3
 INSERT INTO `mob_family_system` VALUES (520,'Yztarg ',6,'Beast',4,60,100,100,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,6,1,0); -- Big Monkey
 INSERT INTO `mob_family_system` VALUES (521,'Naraka',19,'Undead',1,60,100,100,3,3,3,2,2,2,2,1,3,1,3,1,1,1,1,1.3,0.7,1.15,0.7,1.15,1.15,1.5,0.6,8,6,0);
 INSERT INTO `mob_family_system` VALUES (522,'Grimoire',3,'Arcana',1,60,90,90,3,3,3,3,1,1,1,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (523,'Gallu',9,'Demon',1,40,105,130,1,3,5,5,4,4,4,1,3,1,3,1,1,1,1,1.15,1.15,1.15,1.15,1.15,1.15,1.3,0.7,8,1,0);
+INSERT INTO `mob_family_system` VALUES (524,'Waktza',8,'Bird',4,60,100,100,3,3,3,3,2,2,2,1,3,1,3,1,1.25,1,1,1,1,1,1,1,1,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (525,'Zilant',10,'Dragon',4,40,120,90,4,1,3,2,2,3,1,1,3,1,3,1,1,1,1,0.05,0.05,1,1,1,1.3,1,1,1,1,0); 
 
 
 
