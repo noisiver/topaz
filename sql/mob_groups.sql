@@ -9642,10 +9642,10 @@ INSERT INTO `mob_groups` VALUES (7820,3992,143,'Treasure_Chest',0,0,0,0,0,0,0,0)
 
 INSERT INTO `mob_groups` VALUES (1,912,144,'Dark_Dragon',0,128,0,1250,0,25,25,0);
 INSERT INTO `mob_groups` VALUES (2,3536,144,'Seeker',0,128,0,575,0,23,23,0);
-INSERT INTO `mob_groups` VALUES (3,2304,144,'KuJhu_Graniteskin',0,128,0,0,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (4,3491,144,'SaNha_Soulsaver',0,128,0,0,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (5,929,144,'DaShu_Knightslayer',0,128,0,0,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (6,1777,144,'GoBha_Slaughterer',0,128,0,0,0,68,68,0);
+INSERT INTO `mob_groups` VALUES (3,2304,144,'KuJhu_Graniteskin',0,128,0,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (4,3491,144,'SaNha_Soulsaver',0,128,0,0,9000,85,85,0);
+INSERT INTO `mob_groups` VALUES (5,929,144,'DaShu_Knightslayer',0,128,0,9200,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (6,1777,144,'GoBha_Slaughterer',0,128,0,10000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (7,1447,144,'Gaki',0,128,0,6000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (8,3325,144,'Rasetsu',0,128,0,7500,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (9,2983,144,'Onki',0,128,0,3000,0,65,65,0);
