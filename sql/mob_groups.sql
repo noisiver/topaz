@@ -8198,7 +8198,7 @@ INSERT INTO `mob_groups` VALUES (6628,2904,121,'Noillurie',0,0,0,0,0,0,0,0);
 -- RoMaeve (Zone 122)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,2717,122,'Mokkurkalfi',0,128,0,0,0,68,70,0);
+INSERT INTO `mob_groups` VALUES (1,2717,122,'Mokkurkalfi',0,128,0,17500,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (2,2231,122,'Killing_Weapon',330,0,0,0,0,60,64,0);
 INSERT INTO `mob_groups` VALUES (3,2974,122,'Ominous_Weapon',330,0,0,0,0,61,65,0);
 INSERT INTO `mob_groups` VALUES (4,867,122,'Cursed_Puppet',330,0,547,0,0,65,69,0);
@@ -8206,16 +8206,16 @@ INSERT INTO `mob_groups` VALUES (5,623,122,'Cannonball',330,8,216,0,0,66,70,0);
 INSERT INTO `mob_groups` VALUES (6,4309,122,'Water_Elemental',330,4,2629,0,0,67,69,0);
 INSERT INTO `mob_groups` VALUES (7,2476,122,'Magic_Flagon',330,0,1565,0,0,64,69,0);
 INSERT INTO `mob_groups` VALUES (8,3912,122,'Thunder_Elemental',330,4,2410,0,0,67,69,0);
-INSERT INTO `mob_groups` VALUES (9,2873,122,'Nightmare_Vase',0,32,1806,7000,0,72,73,0);
+INSERT INTO `mob_groups` VALUES (9,2873,122,'Nightmare_Vase',0,32,1806,9000,0,72,73,0);
 INSERT INTO `mob_groups` VALUES (10,199,122,'Apocalyptic_Weapon',330,0,0,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (11,2077,122,'Infernal_Weapon',330,0,0,9600,0,79,81,0);
-INSERT INTO `mob_groups` VALUES (12,5426,122,'Martinet',7200,0,2946,0,0,72,74,0);
+INSERT INTO `mob_groups` VALUES (12,5426,122,'Martinet',7200,0,2946,9000,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (13,2793,122,'Mythril_Golem',330,0,1765,0,0,68,70,0);
 INSERT INTO `mob_groups` VALUES (14,906,122,'Darksteel_Golem',330,0,565,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (15,3420,122,'Rogue_Receptacle',0,32,3086,0,0,67,67,0);
 INSERT INTO `mob_groups` VALUES (16,5842,122,'Nargun',7200,0,0,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (17,1194,122,'Eldhrimnir',0,128,0,18000,0,82,82,0);
-INSERT INTO `mob_groups` VALUES (18,3603,122,'Shikigami_Weapon',76500,0,2237,0,0,77,80,0);
+INSERT INTO `mob_groups` VALUES (18,3603,122,'Shikigami_Weapon',76500,0,2237,20000,0,77,80,0);
 INSERT INTO `mob_groups` VALUES (19,2117,122,'Jackpot',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (20,4727,122,'Mimic_King',0,128,0,0,9999,93,95,0);
 INSERT INTO `mob_groups` VALUES (21,4726,122,'Mimic_Jester',0,128,0,0,9999,90,91,0);
@@ -8223,6 +8223,7 @@ INSERT INTO `mob_groups` VALUES (22,4725,122,'Mimic_Mage',0,128,0,0,9999,90,91,0
 INSERT INTO `mob_groups` VALUES (23,0,122,'Steely_Weapon',0,128,0,0,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (24,0,122,'Lode_Golem',0,128,0,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (25,0,122,'Fired_Urn',0,128,0,0,0,69,69,0);
+INSERT INTO `mob_groups` VALUES (26,2717,122,'Mokkurkalfi_Two',0,128,0,17500,0,85,85,0);
 
 INSERT INTO `mob_groups` VALUES (6650,3584,122,'Shantotto',0,0,0,0,0,0,0,0);
 
