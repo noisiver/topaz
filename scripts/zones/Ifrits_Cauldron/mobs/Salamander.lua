@@ -3,6 +3,10 @@
 --   NM: Salamander
 -----------------------------------
 require("scripts/globals/status")
+mixins =
+{
+    require("scripts/mixins/job_special")
+}
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -15,6 +19,15 @@ function onMobSpawn(mob)
     mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 50, 0, 3600)
     mob:getStatusEffect(bufftwo):unsetFlag(tpz.effectFlag.DISPELABLE)
     DespawnMob(mob:getID(), 180)
+end
+
+function onMobFight(mob, target)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {id = tpz.jsa.MEIKYO_SHISUI, cooldown = 60, hpp = 75},
+        },
+    })
 end
 
 function onMobDeath(mob, player, isKiller)

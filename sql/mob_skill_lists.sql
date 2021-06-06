@@ -3963,6 +3963,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,790); -- shoulder_slam
 INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,2741); -- Entomb(Sub 50% HP)
 INSERT INTO `mob_skill_lists` VALUES ('Legatus',6030,2072); -- Earth Shatter(sub 25% HP)
 
+--Salamander
+INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,1791); -- Incinerate
+INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,1956); -- Fire Break
+INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,367); -- Fireball
+INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,2102); -- boiling_blood
+INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,2101); -- demoralizing_roar
+INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,2099); --  batterhorn
+
 
 
 -- Next available ID: 1148

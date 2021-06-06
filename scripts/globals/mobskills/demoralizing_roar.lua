@@ -1,9 +1,9 @@
 ---------------------------------------------
--- Frightful Roar
+-- Demoralizing Roar
 --
 -- Description: Weakens defense of enemies within range.
 -- Type: Magical (Water)
--- 25%
+-- 50% 
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -16,6 +16,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.DEFENSE_DOWN
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 180))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 180))
     return typeEffect
 end
