@@ -13,7 +13,13 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.DOOM, 10, 3, 30))
+    local typeEffect = tpz.effect.DOOM
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+    else
+        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10, 3, 30))
+    end
 
     return tpz.effect.DOOM
 end
