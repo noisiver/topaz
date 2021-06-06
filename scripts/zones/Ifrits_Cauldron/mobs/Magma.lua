@@ -6,6 +6,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
 end
 
