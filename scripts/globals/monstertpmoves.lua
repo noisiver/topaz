@@ -726,8 +726,11 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         local element = mob:getStatusEffectElement(typeEffect)
 
         local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and res < 0.5  then res = 0.5
+        elseif eleres < 1 and res < 0.25 then res = 0.25 end
 
-        if (resist >= 0.25) then
+        if (resist >= 0.50) then
 
             local totalDuration = utils.clamp(duration * resist, 1)
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
