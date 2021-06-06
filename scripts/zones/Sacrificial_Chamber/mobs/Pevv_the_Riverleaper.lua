@@ -6,6 +6,10 @@
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+     mob:setMod(tpz.mod.REFRESH, 400)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+end
 
 function onMobFight(mob, target)
     -- spawn pet wyvern and assign it a target
