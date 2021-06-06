@@ -61,7 +61,12 @@ function onSpellCast(caster, target, spell)
     -- add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
 	dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
 	-- add dmg variance 
-	dmg = dmg * math.random(0.9, 1.2)
+	dmg = (dmg * math.random(90, 120)) / 100
+	-- add SDT
+    local SDT = target:getMod(tpz.mod.SDT_LIGHT)
+	
+	dmg = dmg * (SDT / 100)
+	-- add final adjustments
 	dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
    
    if dmg > 0 and resist >= 0.5  then
