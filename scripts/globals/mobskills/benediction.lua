@@ -9,7 +9,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    target:eraseAllStatusEffect()
+    local effect = tpz.effect.PARALYSIS
+		target:eraseAllStatusEffect()
+        target:delStatusEffect(effect)
 
     local maxHeal = target:getMaxHP() - target:getHP()
 
