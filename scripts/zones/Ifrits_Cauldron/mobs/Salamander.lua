@@ -18,6 +18,10 @@ function onMobSpawn(mob)
 
     mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 50, 0, 3600)
     mob:getStatusEffect(bufftwo):unsetFlag(tpz.effectFlag.DISPELABLE)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 35)
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
     DespawnMob(mob:getID(), 180)
 end
 
