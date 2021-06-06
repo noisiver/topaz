@@ -3051,7 +3051,7 @@ namespace battleutils
 
     bool IsParalyzed(CBattleEntity* PAttacker)
     {
-        return (tpzrand::GetRandomNumber(100) < std::clamp((int)PAttacker->getMod(Mod::PARALYZE), 0, 100));
+        return (tpzrand::GetRandomNumber(100) < std::clamp(static_cast<int>(PAttacker->getMod(Mod::PARALYZE)), 0, 100));
     }
 
     /************************************************************************
