@@ -12754,10 +12754,10 @@ INSERT INTO `mob_groups` VALUES (30,6334,212,'Antares',600,0,113,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (31,3856,212,'Taxim',0,32,2385,13500,0,78,79,0);
 INSERT INTO `mob_groups` VALUES (32,4100,212,'Ungur',0,32,2521,20000,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (33,109,212,'Amikiri',0,32,72,25000,0,80,82,0);
-INSERT INTO `mob_groups` VALUES (34,1550,212,'Gigaplasm',0,128,15,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (35,2469,212,'Macroplasm',0,128,15,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (36,2648,212,'Microplasm',0,128,15,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (37,2806,212,'Nanoplasm',0,128,15,0,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (34,1550,212,'Gigaplasm',0,128,0,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (35,2469,212,'Macroplasm',0,128,0,5000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (36,2648,212,'Microplasm',0,128,0,2500,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (37,2806,212,'Nanoplasm',0,128,0,500,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (38,348,212,'Baronial_Bat',0,128,231,18000,0,82,82,0);
 
 -- ------------------------------------------------------------

@@ -11,6 +11,15 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
 end
 
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 35)
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+end
+
 function onMobDeath(mob, player, isKiller)
     if (player:getCurrentMission(BASTOK) == tpz.mission.id.bastok.THE_SALT_OF_THE_EARTH and player:getCharVar("BASTOK91") == 2) then
         local victory = true
