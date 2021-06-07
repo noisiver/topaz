@@ -5,8 +5,14 @@
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+     mob:addMod(tpz.mod.ATTP, 200)
+     mob:addMod(tpz.mod.SLEEPRESTRAIT, 100)
+     mob:addMod(tpz.mod.LULLABYRESTRAIT, 100)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+end
+
 function onMobFight(mob, target)
-    mob:addMod(tpz.mod.ATTP, 200)
     mob:setMod(tpz.mod.REGAIN, 1000)
 end
 
