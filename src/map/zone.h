@@ -634,6 +634,7 @@ private:
 
 
     CTreasurePool*  m_TreasurePool;         // глобальный TreasuerPool
+    time_point m_timeZoneEmpty;    // The time_point when the last player left the zone
 
 protected:
 
