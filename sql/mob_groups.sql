@@ -10703,9 +10703,9 @@ INSERT INTO `mob_groups` VALUES (8727,4515,164,'Zolku-Azolku',0,0,0,0,0,0,0,0);
 
 INSERT INTO `mob_groups` VALUES (1,3579,165,'Shadow_Lord',0,128,0,30000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (2,4593,165,'Shadow_Lord',0,128,0,15000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (3,4498,165,'Zeid',0,128,0,0,0,75,76,0);
-INSERT INTO `mob_groups` VALUES (4,4498,165,'Zeid',0,128,0,0,0,75,78,0);
-INSERT INTO `mob_groups` VALUES (5,3580,165,'Shadow_of_Rage',0,128,0,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (3,4498,165,'Zeid',0,128,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (4,4498,165,'Zeid',0,128,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (5,3580,165,'Shadow_of_Rage',0,128,0,500,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (6,1788,165,'Grand_Marquis_Chomiel',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (7,1130,165,'Duke_Amduscias',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (8,811,165,'Count_Andromalius',0,128,0,0,0,60,60,0);

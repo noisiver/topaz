@@ -361,7 +361,7 @@ INSERT INTO `mob_skills` VALUES (532,902,'envoutement',0,7.0,2000,1500,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (533,903,'danse_macabre',0,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (534,278,'kartstrahl',0,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (535,279,'blitzstrahl',0,15.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (536,280,'panzerfaust',0,7.0,2000,1500,4,0,0,2,0,0,0);
+INSERT INTO `mob_skills` VALUES (536,280,'panzerfaust',0,15.0,2000,1500,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (537,281,'berserk',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (538,282,'panzerschreck',0,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (539,283,'typhoon',1,10.0,2000,1500,4,0,0,1,0,0,0);
@@ -808,15 +808,15 @@ INSERT INTO `mob_skills` VALUES (975,681,'vorpal_blade',0,7,2500,1500,4,0,0,0,4,
 INSERT INTO `mob_skills` VALUES (976,673,'berserk-ruf',1,15,2000,200,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (977,721,'warp',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (978,722,'warp',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (979,682,'power_slash',0,10,2000,500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (979,682,'power_slash',0,10,2000,500,4,0,0,0,0,0,0); -- Bastok 9-2 Zeid
 INSERT INTO `mob_skills` VALUES (980,683,'freeze_bite',0,10,2000,500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (981,684,'ground_strike',0,10,2000,500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (981,684,'ground_strike',0,10,2000,500,4,0,0,0,12,10,0);
 INSERT INTO `mob_skills` VALUES (982,671,'abyssal_drain',0,10,2000,500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (983,672,'abyssal_strike',0,10,2000,500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (983,672,'abyssal_strike',0,10,2000,500,4,0,0,0,14,9,0);
 INSERT INTO `mob_skills` VALUES (984,685,'electrocharge',0,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (985,686,'stellar_burst',2,7.0,5000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (986,687,'vortex',2,20.0,5000,1000,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (987,731,'shockwave',0,7.0,2000,1500,4,0,0,0,0,0,0);
+--INSERT INTO `mob_skills` VALUES (987,731,'shockwave',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (988,689,'eald2_warp_in',0,22.0,500,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (989,690,'eald2_warp_out',0,22.0,500,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (990,691,'gaea_stream_eta',0,15.0,4000,1500,4,0,0,0,0,0,0);
@@ -3023,8 +3023,8 @@ INSERT INTO `mob_skills` VALUES (3189,1508,'king_cobra_clamp',0,7.0,2000,1500,4,
 INSERT INTO `mob_skills` VALUES (3192,681,'vorpal_blade',0,7.0,2000,1500,4,0,0,0,4,8,0); -- Trion
 INSERT INTO `mob_skills` VALUES (3193,669,'royal_bash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3194,670,'royal_savior',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3195,671,'abyssal_drain',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Zied
-INSERT INTO `mob_skills` VALUES (3196,672,'abyssal_strike',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3195,671,'abyssal_drain',0,15.0,2000,1500,4,0,0,0,0,0,0); -- Zeid
+INSERT INTO `mob_skills` VALUES (3196,672,'abyssal_strike',0,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3197,684,'ground_strike',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3198,2029,'grapeshot',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Lion
 INSERT INTO `mob_skills` VALUES (3199,2030,'pirate_pummel',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -3929,6 +3929,7 @@ INSERT INTO `mob_skills` VALUES (4258,562,'mix_elemental_power',0,7.0,2000,1500,
 INSERT INTO `mob_skills` VALUES (4259,562,'mix_dragon_shield',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4260,563,'mix_dark_potion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4261,564,'mix_samsons_strength',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (52,110,'shockwave',1,10.0,2000,0,4,0,0,0,1,8,0); -- Great Sword WS
 
 
 

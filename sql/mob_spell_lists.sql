@@ -4099,10 +4099,10 @@ INSERT INTO `mob_spell_lists` VALUES ('Celeste_eyed_Tozberry',1011,346,1,255); -
 INSERT INTO `mob_spell_lists` VALUES ('Celeste_eyed_Tozberry',1011,349,1,255); -- kurayami_san
 INSERT INTO `mob_spell_lists` VALUES ('Celeste_eyed_Tozberry',1011,352,1,255); -- dokumori_san
 
-INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,356,76,255); -- paralyaga
-INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,357,75,255); -- slowga
-INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,359,75,255); -- silencega
-INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,360,75,255); -- dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,356,1,255); -- paralyaga
+INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,357,1,255); -- slowga
+INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,359,1,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,360,1,255); -- dispelga
 
 -- Zilart Missions
 
@@ -4124,6 +4124,14 @@ INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 52, 1, 255); -- Shell_V
 INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 404, 1, 255); -- dragonfoe_mambo
 INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 393, 1, 255); -- knights_minne_v 
 INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 504, 1, 255); -- regen_v 
+INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,242,1,255); -- Absorb-acc
+INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,266,1,255); -- Absorb-str
+INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,267,1,255); -- Absorb-dex
+INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,268,1,255); -- Absorb-vit
+INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,269,1,255); -- Absorb-agi
+INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,270,1,255); -- Absorb-int
+INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,271,1,255); -- Absorb-mnd
+INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,272,1,255); -- Absorb-chr
 
 
 

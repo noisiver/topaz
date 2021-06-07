@@ -12,6 +12,10 @@ require("scripts/globals/status")
 local ID = require("scripts/zones/Throne_Room/IDs")
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 35) 
+    mob:addMod(tpz.mod.ATTP, 45)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
@@ -25,6 +29,7 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
+    mob:setMod(tpz.mod.REGAIN, 500)
     local zeid = mob:getID()
     local shadow1 = GetMobByID(zeid + 1)
     local shadow2 = GetMobByID(zeid + 2)

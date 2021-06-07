@@ -5,6 +5,10 @@
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
+function onMobFight(mob, target)
+    mob:addMod(tpz.mod.ATTP, 200)
+    mob:setMod(tpz.mod.REGAIN, 1000)
+end
 
 function onMobDeath(mob, player, isKiller)
 end

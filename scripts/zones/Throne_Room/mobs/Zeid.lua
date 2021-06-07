@@ -4,6 +4,18 @@
 -- Mission 9-2 BASTOK BCNM Fight
 -----------------------------------
 local ID = require("scripts/zones/Throne_Room/IDs")
+require("scripts/globals/status")
+
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 35) 
+    mob:addMod(tpz.mod.ATTP, 45)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
+end
+
+function onMobFight(mob, target)
+    mob:setMod(tpz.mod.REGAIN, 500)
+end
 
 function onMobDeath(mob, player, isKiller)
     player:startEvent(32004, 3, 3, 1, 3, 3, 3, 3, 3)

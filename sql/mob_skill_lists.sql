@@ -2222,6 +2222,7 @@ INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',479,633);
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,979); -- Power Slash
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,980); -- Freeze Bite
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,981); -- GroundStrike
+INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,52); -- Shockwave
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,982); -- Abyssal Drain
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,983); -- Abyssal strike
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,1002); -- Summonshadows
