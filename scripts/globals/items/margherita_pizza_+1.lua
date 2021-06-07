@@ -28,7 +28,7 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.STR, 4)
     target:addMod(tpz.mod.DEX, 3)
     target:addMod(tpz.mod.AGI, 2)
-    target:addMod(tpz.mod.UNDEAD_KILLER, 25)
+    target:addMod(tpz.mod.UNDEAD_CIRCLE, 25)
 end
 
 function onEffectLose(target, effect)
@@ -36,5 +36,5 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.STR, 4)
     target:delMod(tpz.mod.DEX, 3)
     target:delMod(tpz.mod.AGI, 2)
-    target:delMod(tpz.mod.UNDEAD_KILLER, 25)
+    target:delMod(tpz.mod.UNDEAD_CIRCLE, 25)
 end
