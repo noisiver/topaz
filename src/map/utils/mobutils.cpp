@@ -422,13 +422,13 @@ void CalculateStats(CMobEntity * PMob)
         sVIT /= 4;
     }
 
-    PMob->stats.STR = floor(fSTR) + floor(mSTR) + floor(sSTR);
-    PMob->stats.DEX = floor(fDEX) + floor(mDEX) + floor(sDEX);
-    PMob->stats.VIT = floor(fVIT) + floor(mVIT) + floor(sVIT);
-    PMob->stats.AGI = floor(fAGI) + floor(mAGI) + floor(sAGI);
-    PMob->stats.INT = floor(fINT) + floor(mINT) + floor(sINT);
-    PMob->stats.MND = floor(fMND) + floor(mMND) + floor(sMND);
-    PMob->stats.CHR = floor(fCHR) + floor(mCHR) + floor(sCHR);
+    PMob->stats.STR = fSTR + mSTR + sSTR;
+    PMob->stats.DEX = fDEX + mDEX + sDEX;
+    PMob->stats.VIT = fVIT + mVIT + sVIT;
+    PMob->stats.AGI = fAGI + mAGI + sAGI;
+    PMob->stats.INT = fINT + mINT + sINT;
+    PMob->stats.MND = fMND + mMND + sMND;
+    PMob->stats.CHR = fCHR + mCHR + sCHR;
 
     if(isNM)
     {
