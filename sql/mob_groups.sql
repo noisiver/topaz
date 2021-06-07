@@ -12683,9 +12683,9 @@ INSERT INTO `mob_groups` VALUES (28,4001,208,'Triarius_X-XV',0,32,2469,11500,0,7
 INSERT INTO `mob_groups` VALUES (29,3727,208,'Spelunking_Sabotender',600,0,2304,0,0,62,68,0);
 INSERT INTO `mob_groups` VALUES (30,3461,208,'Sand_Tarantula',600,0,228,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (31,1894,208,'Hastatus_XI-XII',0,32,1277,7000,0,65,68,0);
-INSERT INTO `mob_groups` VALUES (32,181,208,'Antican_Praetor',0,128,0,7000,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (32,181,208,'Antican_Praetor',0,128,0,1500,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (33,178,208,'Antican_Legatus',36000,0,127,35000,128,85,86,0);
-INSERT INTO `mob_groups` VALUES (34,169,208,'Antican_Consul',0,128,0,7000,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (34,169,208,'Antican_Consul',0,128,0,1500,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (35,128,208,'Ancient_Vessel',0,128,0,8000,0,72,72,0);
 INSERT INTO `mob_groups` VALUES (36,4003,208,'Tribunus_VII-I',0,128,2470,10000,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (37,3201,208,'Proconsul_XII',7200,0,2024,13000,0,70,72,0);
@@ -12754,10 +12754,10 @@ INSERT INTO `mob_groups` VALUES (30,6334,212,'Antares',600,0,113,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (31,3856,212,'Taxim',0,32,2385,13500,0,78,79,0);
 INSERT INTO `mob_groups` VALUES (32,4100,212,'Ungur',0,32,2521,20000,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (33,109,212,'Amikiri',0,32,72,25000,0,80,82,0);
-INSERT INTO `mob_groups` VALUES (34,1550,212,'Gigaplasm',0,128,15,0,0,70,70,0);
-INSERT INTO `mob_groups` VALUES (35,2469,212,'Macroplasm',0,128,15,0,0,70,70,0);
-INSERT INTO `mob_groups` VALUES (36,2648,212,'Microplasm',0,128,15,0,0,70,70,0);
-INSERT INTO `mob_groups` VALUES (37,2806,212,'Nanoplasm',0,128,15,0,0,70,70,0);
+INSERT INTO `mob_groups` VALUES (34,1550,212,'Gigaplasm',0,128,15,0,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (35,2469,212,'Macroplasm',0,128,15,0,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (36,2648,212,'Microplasm',0,128,15,0,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (37,2806,212,'Nanoplasm',0,128,15,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (38,348,212,'Baronial_Bat',0,128,231,18000,0,82,82,0);
 
 -- ------------------------------------------------------------
