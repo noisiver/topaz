@@ -288,6 +288,9 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
         end
     end
     resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), avatarAccBonus, element)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and resist < 0.5  then resist = 0.5
+        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
     local magicDefense = getElementalDamageReduction(target, element)
 
@@ -455,6 +458,9 @@ function MobBreathMove(mob, target, percent, base, element, cap)
     if (element ~= nil and element > 0) then
         -- no skill available, pass nil
         local resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), 0, element)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and resist < 0.5  then resist = 0.5
+        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
         -- get elemental damage reduction
         local defense = getElementalDamageReduction(target, element)
