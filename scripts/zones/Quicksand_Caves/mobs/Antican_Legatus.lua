@@ -8,7 +8,6 @@ require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.EVA, 50)
     mob:setMod(tpz.mod.UFASTCAST, 50)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.SDT_WATER, 115)
