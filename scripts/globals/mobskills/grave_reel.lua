@@ -17,7 +17,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
     if (mob:getPool() == 9004) then -- The Big One
         dmgmod = 3
-        MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_TP, dmg
+        MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_TP, dmg)
     end
 
     skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
