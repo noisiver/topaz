@@ -41,6 +41,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.3
+	params.attkbonus = 1.5
     damage = BluePhysicalSpell(caster, target, spell, params)
 	if (target:isUndead()) then
 		damage = damage * 1.25

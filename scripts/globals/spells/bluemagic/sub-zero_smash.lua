@@ -35,10 +35,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.BLUNT
     params.scattr = SC_FRAGMENTATION
     params.numhits = 1
-    params.multiplier = 4.0
-    params.tp150 = 4.0
-    params.tp300 = 4.0
-    params.azuretp = 4.0
+    params.multiplier = 3.5
+    params.tp150 = 3.5
+    params.tp300 = 3.5
+    params.azuretp = 3.5
     params.duppercap = 75
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
