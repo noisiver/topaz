@@ -32,7 +32,7 @@ function onMobFight(mob, target)
     local lastVariance = mob:getLocalVar("hastemod")
     local BroDead = GetMobByID(17276930):isDead()
     if (HPVariance ~= lastVariance) then
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + ((HPvariance - lastVariance) * 200))
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + ((HPvariance - lastVariance) * 300))
         mob:setLocalVar("hastemod", HPvariance)
     end
     if BroDead then
