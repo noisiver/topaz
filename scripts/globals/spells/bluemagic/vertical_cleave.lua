@@ -34,7 +34,7 @@ function onSpellCast(caster, target, spell)
     params.tp300 = 4.0
     params.azuretp = 4.0
     params.duppercap = 75
-    params.str_wsc = 0.5
+    params.str_wsc = 0.4
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
