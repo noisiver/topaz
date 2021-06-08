@@ -6,6 +6,15 @@
 function onMobDeath(mob, player, isKiller)
 end
 
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.ACC, 20) 
+    mob:addMod(tpz.mod.EVA, 20)
+    mob:addMod(tpz.mod.MDEF, 24) 
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 1076)
+end
+
 function onMobDespawn(mob)
     local B_ToD = GetServerVariable("[POP]Biast")
     local X = mob:getXPos()
