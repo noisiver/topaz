@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.BLUNT, info.hitslanded)
     if (mob:getPool() == 9004) then -- The Big One
-        dmgmod = 3
+        dmgmod = 0.1
 		local typeEffect = tpz.effect.WEAKNESS
 		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 30)
         local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.BLUNT, MOBPARAM_IGNORE_SHADOWS)

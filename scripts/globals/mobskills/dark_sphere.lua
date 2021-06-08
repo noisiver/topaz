@@ -15,9 +15,22 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    if (mob:getPool() == 9004) then -- The Big One
+        dmgmod = 3
+		local typeEffect = tpz.effect.MAGIC_ATK_DOWN
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 24, 0, 30)
+		local typeEffectTwo = tpz.effect.MAGIC_ACC_DOWN
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 20, 0, 30)
+		local typeEffectFour = tpz.effect.INT_DOWN
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 20, 0, 30)
+		local typeEffectFive = tpz.effect.MND_DOWN
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 20, 0, 30)
+        target:setTP(0)
+    else
     local typeEffect = tpz.effect.BLINDNESS
 
     MobStatusEffectMove(mob, target, typeEffect, 80, 0, 120)
+    end
 
     local dmgmod = 2
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_MAB_BONUS, 1)
