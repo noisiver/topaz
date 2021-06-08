@@ -28,7 +28,7 @@ function onMobFight(mob, target)
     local Bro = GetMobByID(17276930)
     local Self = GetMobByID(mobID)
     local HPvariance = math.abs(Self:getHPP() - Bro:getHPP())
-    mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + (HPvariance * 100))
+    mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + (HPvariance * 10))
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17276930)
 
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17276930)
