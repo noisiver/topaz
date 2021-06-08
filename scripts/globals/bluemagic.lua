@@ -108,6 +108,9 @@ function BluePhysicalSpell(caster, target, spell, params)
     ----------------------------------------------
     -- Get the possible pDIF range and hit rate --
     ----------------------------------------------
+    if (params.attkbonus == nil) then
+		params.attkbonus = 1.0
+	end
     local bluphysattk = (caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2)) * params.attkbonus
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
