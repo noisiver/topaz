@@ -30,9 +30,9 @@ function onSpellCast(caster, target, spell)
         params.scattr = SC_IMPACTION
         params.numhits = 6
 		params.multiplier = 1
-		params.tp150 = 1.10
-		params.tp300 = 1.20
-		params.azuretp = 1.50
+		params.tp150 = 1
+		params.tp300 = 1
+		params.azuretp = 1
 		params.duppercap = 80 -- D upper >=69
         params.str_wsc = 0.0
         params.dex_wsc = 0.4

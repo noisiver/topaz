@@ -30,9 +30,9 @@ function onSpellCast(caster, target, spell)
     params.scattr = SC_DISTORTION
     params.numhits = 5
     params.multiplier = 1.5
-    params.tp150 = 0.8
-    params.tp300 = 1.0
-    params.azuretp = 1.0
+    params.tp150 = 1.5
+    params.tp300 = 1.5
+    params.azuretp = 1.5
     params.duppercap = 100 -- D upper >=69
     params.str_wsc = 0.2
     params.dex_wsc = 0.2

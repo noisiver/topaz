@@ -11,6 +11,7 @@
 -- Recast Time: 37.25 seconds
 -- Skillchain Element(s): Gravitation (can open/close Darkness with Distortion WSs and spells)
 -- Combos: Defense Bonus
+-- TODO: Ignores Shadows
 -----------------------------------------
 require("scripts/globals/bluemagic")
 require("scripts/globals/status")

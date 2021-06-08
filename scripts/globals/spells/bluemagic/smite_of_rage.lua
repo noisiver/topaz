@@ -29,10 +29,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.SLASHING
     params.scattr = SC_DETONATION
     params.numhits = 1
-    params.multiplier = 2.0
-    params.tp150 = 2.0
-    params.tp300 = 2.0
-    params.azuretp = 2.0
+    params.multiplier = 2.6
+    params.tp150 = 3.9
+    params.tp300 = 4.42
+    params.azuretp = 4.42
     params.duppercap = 35
     params.str_wsc = 0.2
     params.dex_wsc = 0.2
@@ -46,10 +46,6 @@ function onSpellCast(caster, target, spell)
 		damage = damage * 1.25
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-	
-	if (target:isUndead()) then
-		damage = damage * 1.25
-	end
 
     return damage
 end

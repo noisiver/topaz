@@ -20083,7 +20083,7 @@ INSERT INTO `item_mods` VALUES (16478,501,15);		-- proc chance: 15%
 INSERT INTO `item_mods` VALUES (16478,952,10);		-- 10/tick
 INSERT INTO `item_mods` VALUES (16478,953,60);		-- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (16479,431,1);
-INSERT INTO `item_mods` VALUES (16480,303,1);
+INSERT INTO `item_mods` VALUES (16480,303,1); -- Thief's Knife
 INSERT INTO `item_mods` VALUES (16481,2,26);
 INSERT INTO `item_mods` VALUES (16481,68,7);
 INSERT INTO `item_mods` VALUES (16484,9,2);

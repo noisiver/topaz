@@ -30,9 +30,9 @@ function onSpellCast(caster, target, spell)
     params.scattr = SC_COMPRESSION
     params.numhits = 1
     params.multiplier = 3.1
-    params.tp150 = 3.2
-    params.tp300 = 3.3
-    params.azuretp = 3.4
+    params.tp150 = 3.1
+    params.tp300 = 3.1
+    params.azuretp = 3.1
     params.duppercap = 49
     params.str_wsc = 0.0
     params.dex_wsc = 0.5
