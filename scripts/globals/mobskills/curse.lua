@@ -31,5 +31,5 @@ function onMobWeaponSkill(target, mob, skill)
         skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 600))
     end
 
-    return typeEffect
+    return tpz.effect.CURSE_I
 end

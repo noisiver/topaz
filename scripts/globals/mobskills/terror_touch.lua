@@ -22,14 +22,14 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_IGNORE_SHADOWS)
     if (mob:getPool() == 9004) then -- The Big One
         dmgmod = 3
-		local typeEffect = tpz.effect.ATTACK_DOWN
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 75, 0, 30)
-		local typeEffectTwo = tpz.effect.ACCURACY_DOWN
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 100, 0, 30)
+		local typeEffectTwo = tpz.effect.ATTACK_DOWN
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffectTwo, 75, 0, 30)
+		local typeEffectThree = tpz.effect.ACCURACY_DOWN
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffectThree, 100, 0, 30)
 		local typeEffectFour = tpz.effect.STR_DOWN
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 20, 0, 30)
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffectFour, 20, 0, 30)
 		local typeEffectFive = tpz.effect.DEX_DOWN
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 20, 0, 30)
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffectFive, 20, 0, 30)
         target:setTP(0)
     else
         local typeEffect = tpz.effect.ATTACK_DOWN
