@@ -20,6 +20,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 35)
     mob:addMod(tpz.mod.ACC, 25) 
     mob:addMod(tpz.mod.EVA, 30)
+    setLocalVar("hastemod", 0)
     DespawnMob(mob:getID(), 180)
 end
 
@@ -28,7 +29,15 @@ function onMobFight(mob, target)
     local Bro = GetMobByID(17276929)
     local Self = GetMobByID(mobID)
     local HPvariance = math.abs(Bro:getHPP() - Self:getHPP())
-    mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + (HPvariance * 10))
+    local lastVariance = mob:getLocalVar("hastemod")
+    local BroDead = GetMobByID(17276929):isDead()
+    if (HPVariance ~= lastVariance) then
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + ((HPvariance - lastVariance) * 500))
+        mob:setLocalVar("hastemod", HPvariance)
+    end
+	if BroDead then
+		    setLocalVar("hastemod", 0)
+	end
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17276929)
 end
 

@@ -20,6 +20,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 35)
     mob:addMod(tpz.mod.ACC, 25) 
     mob:addMod(tpz.mod.EVA, 30)
+	setLocalVar("hastemod", 0)
     DespawnMob(mob:getID(), 180)
 end
 
@@ -27,13 +28,18 @@ function onMobFight(mob, target)
     local mobID = mob:getID()
     local Bro = GetMobByID(17276930)
     local Self = GetMobByID(mobID)
-    local HPvariance = math.abs(Self:getHPP() - Bro:getHPP())
-    mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + (HPvariance * 10))
-    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17276930)
-
-    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17276930)
+    local HPvariance = math.abs(Bro:getHPP() - Self:getHPP())
+    local lastVariance = mob:getLocalVar("hastemod")
+    local BroDead = GetMobByID(17276930):isDead()
+    if (HPVariance ~= lastVariance) then
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + ((HPvariance - lastVariance) * 500))
+        mob:setLocalVar("hastemod", HPvariance)
+    end
+    if BroDead then
+            setLocalVar("hastemod", 0)
+    end
+    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17276929)
 end
-
 function onMobDeath(mob, player, isKiller)
     if player:getCurrentMission(BASTOK) == tpz.mission.id.bastok.THE_FINAL_IMAGE and player:getCharVar("MissionStatus") == 1 then
         player:setCharVar("Mission7-1MobKilled", 1)
