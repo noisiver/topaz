@@ -27,7 +27,7 @@ function onMobFight(mob, target)
     local mobID = mob:getID()
     local Bro = GetMobByID(17276930)
     local Self = GetMobByID(mobID)
-    local HPvariance = (Bro:getHPP() - Self:getHPP())
+    local HPvariance = (Self:getHPP() - Bro:getHPP())
     if (Self:getHPP() > Bro:getHPP()  == true) then
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + (HPvariance * 500))
     else
