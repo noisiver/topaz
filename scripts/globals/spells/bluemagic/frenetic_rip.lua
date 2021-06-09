@@ -43,6 +43,11 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
 	params.attkbonus = 1.5
     damage = BluePhysicalSpell(caster, target, spell, params)
+	local demon = (target:getSystem() == 10)
+	
+	if dragon then
+		damage = damage * 1.25
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     return damage
