@@ -42,6 +42,14 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     damage = BluePhysicalSpell(caster, target, spell, params)
+	local aquan = (target:getSystem() == 2)
+	local amorph = (target:getSystem() == 1)
+	
+	if aquan then
+		damage = damage * 1.25
+	elseif amorph then
+		damage = damage * 0.75
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     return damage
