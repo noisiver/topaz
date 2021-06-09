@@ -55,10 +55,11 @@ function onSpellCast(caster, target, spell)
         local typeEffect = tpz.effect.POISON
         target:delStatusEffect(typeEffect)
         target:addStatusEffect(typeEffect, 6, 3, getBlueEffectDuration(caster, resist, typeEffect))
+	else
+		target:delStatusEffect(tpz.effect.BLINK)
+        target:delStatusEffect(tpz.effect.COPY_IMAGE)
     end
 	
-        target:delStatusEffect(tpz.effect.BLINK)
-        target:delStatusEffect(tpz.effect.COPY_IMAGE)
 
     return damage
 end
