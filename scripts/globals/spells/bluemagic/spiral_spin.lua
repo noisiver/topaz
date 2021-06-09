@@ -42,6 +42,14 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     damage = BluePhysicalSpell(caster, target, spell, params)
+	local plantoid = (target:getSystem() == 17)
+	local lizard = (target:getSystem() == 14)
+	
+	if plantoid then
+		damage = damage * 1.25
+	elseif lizard then
+		damage = damage * 0.75
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     local chance = math.random()

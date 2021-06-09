@@ -43,6 +43,14 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     params.offcratiomod = caster:getStat(tpz.mod.DEF)
     damage = BluePhysicalSpell(caster, target, spell, params)
+	local plantoid = (target:getSystem() == 17)
+	local lizard = (target:getSystem() == 14)
+	
+	if plantoid then
+		damage = damage * 1.25
+	elseif lizard then
+		damage = damage * 0.75
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     return damage
