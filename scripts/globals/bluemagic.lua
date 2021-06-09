@@ -131,7 +131,6 @@ function BluePhysicalSpell(caster, target, spell, params)
 
     while (hitsdone < params.numhits) do
         local chance = math.random()
-    if (params.wipeshadows == nil) then
         if (chance <= hitrate) then -- it hit
             -- TODO: Check for shadow absorbs.
 
@@ -150,14 +149,9 @@ function BluePhysicalSpell(caster, target, spell, params)
 
             -- increment target's TP (100TP per hit landed)
             target:addTP(100)
-		elseif (params.wipeshadows == 1) then
-			target:delStatusEffect(tpz.effect.COPY_IMAGE)
-			target:delStatusEffect(tpz.effect.BLINK)
-			target:delStatusEffect(tpz.effect.THIRD_EYE)
 		else
 			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
-	end
 
         hitsdone = hitsdone + 1
     end
