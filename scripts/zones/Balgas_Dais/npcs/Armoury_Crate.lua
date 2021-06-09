@@ -628,7 +628,7 @@ local loot =
             {itemid = 65535, droprate = 1000, amount = 24000},  -- gil
         },
         {
-            {itemid =  1591, droprate = 1000}, -- Orichalcum Ingot
+            {itemid =  747, droprate = 1000}, -- Orichalcum Ingot
         },
         {
             {itemid = 17275, droprate =  250}, -- Coffinmaker
