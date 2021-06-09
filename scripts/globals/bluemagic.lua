@@ -381,10 +381,6 @@ end
 function getBlueEffectDuration(caster, resist, effect)
     local duration = 0
 
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
-        return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
-    end
-
     if (resist >= 0.5) then
         resist = 0.5
     elseif (resist == 1) then
