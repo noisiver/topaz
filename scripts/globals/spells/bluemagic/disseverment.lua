@@ -23,6 +23,12 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.INT
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 1.0
+    local resist = applyResistance(caster, target, spell, params)
+    local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_ACC
     params.attackType = tpz.attackType.PHYSICAL
@@ -44,12 +50,12 @@ function onSpellCast(caster, target, spell)
 	params.attkbonus = 0.9
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-
-    poison = target:getStatusEffect(tpz.effect.POISON)
-    local chance = math.random()
-    if (chance < 0.95 and poison == nil) then
-        local power = (caster:getMainLvl()/5) + 3 -- from http://wiki.ffxiclopedia.org/wiki/Disseverment
-        target:addStatusEffect(tpz.effect.POISON, power, 3, 180) -- for 180secs
+    
+	if (damage > 0 and resist >= 0.5) then
+        local typeEffect = tpz.effect.POISON
+        local power = (caster:getMainLvl()/5) + 3 
+        target:delStatusEffect(typeEffect)
+        target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect))
     end
 
     return damage

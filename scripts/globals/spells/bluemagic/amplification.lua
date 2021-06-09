@@ -24,9 +24,9 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffectOne = tpz.effect.MAGIC_ATK_BOOST
+    local typeEffectOne = tpz.effect.MAGIC_ACC_BOOST
     local typeEffectTwo = tpz.effect.MAGIC_DEF_BOOST
-    local power = 20
+    local power = 10
     local duration = 90
     local returnEffect = typeEffectOne
 
