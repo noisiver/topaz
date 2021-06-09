@@ -47,6 +47,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.20
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+	params.wipeshadows = 1
 
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
@@ -55,9 +56,6 @@ function onSpellCast(caster, target, spell)
         local typeEffect = tpz.effect.POISON
         target:delStatusEffect(typeEffect)
         target:addStatusEffect(typeEffect, 6, 3, getBlueEffectDuration(caster, resist, typeEffect))
-	else
-		target:delStatusEffect(tpz.effect.BLINK)
-        target:delStatusEffect(tpz.effect.COPY_IMAGE)
     end
 	
 
