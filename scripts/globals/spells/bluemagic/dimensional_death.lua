@@ -42,6 +42,11 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     damage = BluePhysicalSpell(caster, target, spell, params)
+	local arcana = (target:getSystem() == 3)
+	
+	if arcana then
+		damage = damage * 1.25
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     return damage

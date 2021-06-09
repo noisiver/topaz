@@ -48,6 +48,14 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     damage = BluePhysicalSpell(caster, target, spell, params)
+	local amorph = (target:getSystem() == 1)
+	local bird = (target:getSystem() == 8)
+	-- add correlation bonus
+	if amorph then
+	 	damage = damage * 1.25
+	elseif plantoid then
+		bird = damage * 0.75
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
 

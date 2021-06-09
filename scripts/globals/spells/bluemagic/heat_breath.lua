@@ -45,6 +45,14 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     local HP = caster:getHP()
     local damage = (HP / 2) 
+	local lizard = (target:getSystem() == 14)
+	local plantoid = (target:getSystem() == 17)
+	-- add correlation bonus
+	if lizard then
+	 	damage = damage * 1.25
+	elseif plantoid then
+		damage = damage * 0.75
+	end
 
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
