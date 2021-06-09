@@ -149,12 +149,11 @@ function BluePhysicalSpell(caster, target, spell, params)
 
             -- increment target's TP (100TP per hit landed)
             target:addTP(100)
+		else
+			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
 
         hitsdone = hitsdone + 1
-		if hitslanded = 0 then
-			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-		end
     end
 
     -- print("Hits landed "..hitslanded.."/"..hitsdone.." for total damage: "..finaldmg)
