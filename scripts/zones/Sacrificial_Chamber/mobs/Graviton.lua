@@ -12,8 +12,13 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.SLEEPRES, 50)
-    mob:addMod(tpz.mod.LULLABYRES, 50)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 35)
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:addMod(tpz.mod.SLEEPRES, 100)
+    mob:addMod(tpz.mod.LULLABYRES, 100)
     mob:setLocalVar("everyonesRancorHPP", math.random(20, 30))
 end
 
