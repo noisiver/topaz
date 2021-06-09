@@ -152,7 +152,7 @@ function BluePhysicalSpell(caster, target, spell, params)
         end
 
         hitsdone = hitsdone + 1
-		if dmg = 0 then
+		if hitslanded = 0 then
 			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
 		end
     end
