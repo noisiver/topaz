@@ -5271,7 +5271,11 @@ INSERT INTO `mob_droplist` VALUES (1025,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (1025,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (1025,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (1025,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (1026,2,0,1000,749,0);
+INSERT INTO `mob_droplist` VALUES (1026,2,0,1000,749,0); -- (Goblin Enchanter - Pso'xja)
+INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,650,50) -- Brass Ingot
+INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,744,10); -- Silver ingot
+INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,745,5); -- Gold ingot
+INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,746,5); -- Platinum ingot
 INSERT INTO `mob_droplist` VALUES (1027,0,0,1000,507,40);
 INSERT INTO `mob_droplist` VALUES (1027,0,0,1000,508,50);
 INSERT INTO `mob_droplist` VALUES (1027,0,0,1000,748,30);
@@ -5360,15 +5364,16 @@ INSERT INTO `mob_droplist` VALUES (1046,0,0,1000,745,10);
 INSERT INTO `mob_droplist` VALUES (1046,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,511,50);
-INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,650,50);
-INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,744,10);
-INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,746,5);
+INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,650,50); -- Brass Ingot
+INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,744,10); -- Silver ingot
+INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,745,5); -- Gold ingot
+INSERT INTO `mob_droplist` VALUES (1047,0,0,1000,746,5); -- Platinum ingot
 INSERT INTO `mob_droplist` VALUES (1047,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (1048,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (1048,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (1048,0,0,1000,650,50);
 INSERT INTO `mob_droplist` VALUES (1048,0,0,1000,744,50);
-INSERT INTO `mob_droplist` VALUES (1048,0,0,1000,745,1);
+INSERT INTO `mob_droplist` VALUES (1048,0,0,1000,745,5);
 INSERT INTO `mob_droplist` VALUES (1048,0,0,1000,746,5);
 INSERT INTO `mob_droplist` VALUES (1048,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (1048,0,0,1000,1038,50);
@@ -5823,7 +5828,7 @@ INSERT INTO `mob_droplist` VALUES (1115,0,0,1000,508,150);
 INSERT INTO `mob_droplist` VALUES (1115,2,0,1000,656,0);
 INSERT INTO `mob_droplist` VALUES (1115,0,0,1000,1426,50);
 INSERT INTO `mob_droplist` VALUES (1116,0,0,1000,605,100);  -- (Goblin Miner - Labyrinth of Onzozo) Pickaxe
-INSERT INTO `mob_droplist` VALUES (1116,2,0,1000,656,0);
+INSERT INTO `mob_droplist` VALUES (1116,2,0,1000,749,0); -- Mythril Beastcoin(Steal)
 INSERT INTO `mob_droplist` VALUES (1116,0,0,1000,737,10); -- Chunk of gold ore
 INSERT INTO `mob_droplist` VALUES (1116,0,0,1000,1056,50); -- Onzozo chest key
 INSERT INTO `mob_droplist` VALUES (1116,0,0,1000,17314,50); -- Quake grenade
