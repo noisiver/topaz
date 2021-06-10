@@ -157,7 +157,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
             -- increment target's TP (100TP per hit landed)
             target:addTP(100)
 		else
-			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+			spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
         end
 
         hitsdone = hitsdone + 1
