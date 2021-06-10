@@ -41,12 +41,13 @@ function onTrigger(player, npc)
             1652,   200,    -- Rice Vinegar
             5237,   492,    -- Shirataki
             2702,  5000,    -- Buckwheat Flour
-            4928,  2331,    -- Katon: Ichi
-            4931,  2331,    -- Hyoton: Ichi
-            4934,  2331,    -- Huton: Ichi
-            4937,  2331,    -- Doton: Ichi
-            4940,  2331,    -- Raiton: Ichi
-            4943,  2331,    -- Suiton: Ichi
+			626,     190, 		-- Black Pepper
+            --4928,  2331,    -- Katon: Ichi
+            --4931,  2331,    -- Hyoton: Ichi
+            --4934,  2331,    -- Huton: Ichi
+            --4937,  2331,    -- Doton: Ichi
+            --4940,  2331,    -- Raiton: Ichi
+            --4943,  2331,    -- Suiton: Ichi
             16982, 4752     -- Nodachi
             --4949,  2849,    -- Jubaku: Ichi
             --4952,  2849,    -- Hojo: Ichi
