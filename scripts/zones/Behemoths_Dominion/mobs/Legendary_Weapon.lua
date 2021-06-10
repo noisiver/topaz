@@ -60,6 +60,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("STANCEtank", 0)
         mob:setLocalVar("STANCEwat", 0)
     end
+    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17297449)
 end
 
 

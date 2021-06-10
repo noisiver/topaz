@@ -13,6 +13,7 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 50 then
         DespawnMob(mob:getID())
     end
+    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17281031)
 end
 
 function onMobDisengage(mob)
