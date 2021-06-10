@@ -8138,7 +8138,7 @@ INSERT INTO `mob_groups` VALUES (2,743,121,'Clipper',0,128,0,0,0,25,28,0);
 INSERT INTO `mob_groups` VALUES (3,413,121,'Bigclaw',0,128,0,0,0,42,45,0);
 INSERT INTO `mob_groups` VALUES (4,204,121,'Apsaras',0,128,0,0,0,26,31,0);
 INSERT INTO `mob_groups` VALUES (5,1832,121,'Guardian_Treant',0,128,0,3500,0,33,33,0);
-INSERT INTO `mob_groups` VALUES (6,1080,121,'Doomed_Pilgrims',0,128,0,17000,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (6,1080,121,'Doomed_Pilgrims',0,128,0,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (7,1690,121,'Goblin_Mugger',330,0,1117,0,0,25,29,0);
 INSERT INTO `mob_groups` VALUES (8,1666,121,'Goblin_Gambler',330,0,1076,0,0,25,29,0);
 INSERT INTO `mob_groups` VALUES (9,120,121,'Ancient_Bat',330,2,80,0,0,26,28,0);

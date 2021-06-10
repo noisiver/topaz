@@ -377,12 +377,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Doll',85,538);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',85,539);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',85,541);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',85,543);
-INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,486);
-INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,488);
-INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,489);
-INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,490);
-INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,491);
-INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,492);
+INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,486); -- whip_tongue
+INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,488); -- acid_breath
+INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,489); -- stinking_gas
+INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,490); -- undead_mold
+INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,491); -- call_of_the_grave
+INSERT INTO `mob_skill_lists` VALUES ('Doomed',86,492); -- abyss_blast
 INSERT INTO `mob_skill_lists` VALUES ('Dragon',87,642);
 INSERT INTO `mob_skill_lists` VALUES ('Dragon',87,643);
 INSERT INTO `mob_skill_lists` VALUES ('Dragon',87,644);

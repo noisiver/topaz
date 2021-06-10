@@ -20,6 +20,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 35)
     mob:addMod(tpz.mod.ACC, 25) 
     mob:addMod(tpz.mod.EVA, 30)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 	mob:setLocalVar("hastemod", 0)
     DespawnMob(mob:getID(), 180)
 end
