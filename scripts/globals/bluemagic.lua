@@ -117,7 +117,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (params.atk300 == nil) then
 		params.atk300 = 1.0
 	end
-    local atkmulti = fTP(tp, params.atk150, params.atk300)
+    local atkmulti = BluefTP(tp, params.atk150, params.atk300)
     local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2)) * params.attkbonus) * atkmulti)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
