@@ -9,13 +9,16 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
-function onMobFight(mob, target)
+function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.DEFP, -90) 
+    mob:setMod(tpz.mod.DEF, -90) 
     mob:addMod(tpz.mod.ACC, 100) 
     mob:addMod(tpz.mod.EVA, -100)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
     mob:SetMobAbilityEnabled(false)
+end
+
+function onMobFight(mob, target)
 end
 
 function onAdditionalEffect(mob, target, damage)
