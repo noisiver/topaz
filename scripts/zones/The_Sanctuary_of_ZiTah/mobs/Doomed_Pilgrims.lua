@@ -40,7 +40,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 489 then -- stinking gas
-    mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.POISON, 50, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.POISON, 50, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
     end
 end
 
