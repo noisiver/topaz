@@ -7701,7 +7701,7 @@ INSERT INTO `mob_groups` VALUES (23,5425,113,'Tegmine',7200,0,2945,10500,5000,70
 INSERT INTO `mob_groups` VALUES (24,1806,113,'Greater_Manticore',330,0,1228,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (25,1429,113,'Frostmane',0,32,912,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (26,2287,113,'Kreutzet',0,128,1466,11000,0,79,80,0);
-INSERT INTO `mob_groups` VALUES (27,302,113,'Axesarion_the_Wanderer',0,128,0,8200,0,68,70,0);
+INSERT INTO `mob_groups` VALUES (27,302,113,'Axesarion_the_Wanderer',0,128,0,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (28,1983,113,'Hobgoblin_Warrior',0,128,0,0,0,75,80,0);
 INSERT INTO `mob_groups` VALUES (29,1984,113,'Hobgoblin_White_Mage',0,128,0,0,0,75,80,0);
 INSERT INTO `mob_groups` VALUES (30,1972,113,'Hobgoblin_Black_Mage',0,128,0,0,0,75,80,0);
