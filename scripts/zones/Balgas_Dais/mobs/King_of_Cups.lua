@@ -10,7 +10,6 @@ require("scripts/globals/magic")
 mixins =
 {
     require("scripts/mixins/job_special"),
-    require("scripts/mixins/rage")
 }
 -----------------------------------
 
@@ -47,13 +46,30 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-    local Rage = mob:getLocalVar("Rage")
-
-    if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or mob:hasStatusEffect(tpz.effect.BIND)) then
-        mob:setLocalVar("Rage", 1)
-    end
-    if Rage == 1 then
-         mob:setLocalVar("[rage]timer", 1)
+    if (mob:hasStatusEffect(tpz.effect.WEIGHT) == true) or (mob:hasStatusEffect(tpz.effect.CURSE) == true) or (mob:hasStatusEffect(tpz.effect.BIND) == true)) then
+        mob:setDamage(255)
+        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 8000)
+        mob:setMod(tpz.mod.MEVA, 999)
+        mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
+        mob:setMod(tpz.mod.POISONRESTRAIT, 100)
+        mob:setMod(tpz.mod.PARALYZERESTRAIT, 100)
+        mob:setMod(tpz.mod.BLINDRESTRAIT, 100)
+        mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
+        mob:setMod(tpz.mod.VIRUSRESTRAIT, 100)
+        mob:setMod(tpz.mod.PETRIFYRESTRAIT, 100)
+        mob:setMod(tpz.mod.BINDRESTRAIT, 100)
+        mob:setMod(tpz.mod.CURSERESTRAIT, 100)
+        mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
+        mob:setMod(tpz.mod.SLOWRESTRAIT, 100)
+        mob:setMod(tpz.mod.STUNRESTRAIT, 100)
+        mob:setMod(tpz.mod.CHARMRESTRAIT, 100)
+        mob:setMod(tpz.mod.AMNESIARESTRAIT, 100)
+        mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
+        mob:setMod(tpz.mod.DEATHRESTRAIT, 100)
+        mob:setMod(tpz.mod.UDMGMAGIC, -95)
+        mob:setMod(tpz.mod.UDMGPHYS, -95)
+        mob:setMod(tpz.mod.UDMGRANGE, -95)
+        mob:setMod(tpz.mod.UDMGBREATH, -95)
     end
 end
 
