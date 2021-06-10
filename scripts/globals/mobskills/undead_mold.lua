@@ -17,9 +17,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.DISEASE
+    if mob:isNM() then
+        local typeEffectTwo = tpz.effect.PLAGUE
+        skill:setMsg(MobStatusEffectMove(mob, target, typeEffectTwo, 20, 3, 60))
+    else
+        local typeEffect = tpz.effect.DISEASE
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 180)
+        MobStatusEffectMove(mob, target, typeEffect, 1, 0, 180)
+    end
 
     local dmgmod = 1.5
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_NO_EFFECT)

@@ -14,7 +14,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PLAGUE
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 5, 0, 60))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 5, 3, 60))
 
     return typeEffect
 end
