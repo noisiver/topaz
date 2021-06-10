@@ -14,6 +14,7 @@ function onMobFight(mob, target)
     mob:addMod(tpz.mod.DEFP, -90) 
     mob:addMod(tpz.mod.ACC, 100) 
     mob:addMod(tpz.mod.EVA, -100)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
     mob:SetMobAbilityEnabled(false)
 end
 
