@@ -20,6 +20,7 @@ function onMobFight(mob, target)
     local twohourTime = mob:getLocalVar("twohourTime")
     local STANCEdps = mob:getLocalVar("STANCEdps")
     local STANCEtank = mob:getLocalVar("STANCEtank")
+    local STANCEthird = mob:getLocalVar("STANCEthird")
     local STANCEwat = mob:getLocalVar("STANCEwat")
 
     if twohourTime == 0 then
