@@ -3972,6 +3972,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,2102); -- boiling_blood
 INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,2101); -- demoralizing_roar
 INSERT INTO `mob_skill_lists` VALUES ('Salamander',6031,2099); --  batterhorn
 
+-- Kong
+INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,7); -- howling_fist
+INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,14); -- victory_smite
+INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,501); -- frightful_roar
+INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,2114); -- hellclap
+INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,665); -- grand_slam
+INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,607); -- slam_dunk 
+
+
 
 
 -- Next available ID: 1148

@@ -8234,8 +8234,8 @@ INSERT INTO `mob_groups` VALUES (6650,3584,122,'Shantotto',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (1,5865,123,'Ironshell_fished',0,128,0,0,0,35,37,0);
 INSERT INTO `mob_groups` VALUES (2,413,123,'Bigclaw',0,128,0,0,0,41,42,0);
 INSERT INTO `mob_groups` VALUES (3,461,123,'Bloodsucker',0,128,0,0,0,53,55,0);
-INSERT INTO `mob_groups` VALUES (4,3925,123,'Tipha',0,128,0,9500,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (5,657,123,'Carthi',0,128,0,9500,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (4,3925,123,'Tipha',0,128,0,9500,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (5,657,123,'Carthi',0,128,0,9500,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (6,4482,123,'Yuhtunga_Mandragora',330,0,2793,0,0,30,33,0);
 INSERT INTO `mob_groups` VALUES (7,1715,123,'Goblin_Smithy',330,0,1160,0,0,32,35,0);
 INSERT INTO `mob_groups` VALUES (8,2110,123,'Ivory_Lizard',330,0,1382,0,0,32,35,0);
@@ -8284,6 +8284,7 @@ INSERT INTO `mob_groups` VALUES (50,2924,123,'Nutcracker',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (51,6170,123,'Siren',0,128,0,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (52,0,123,'Pyuu_the_Spatemaker',0,128,0,0,0,73,73,0);
 INSERT INTO `mob_groups` VALUES (53,1715,123,'Goblin_Smithy',330,0,1160,0,0,34,37,0);
+INSERT INTO `mob_groups` VALUES (54,9005,123,'Kong',0,128,0,35000,0,85,85,0);
 
 -- ------------------------------------------------------------
 -- Yhoator_Jungle (Zone 124)
