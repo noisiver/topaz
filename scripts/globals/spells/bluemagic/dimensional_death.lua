@@ -41,6 +41,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.atk150 = 1.5; params.atk300 = 2.0
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local arcana = (target:getSystem() == 3)
 	

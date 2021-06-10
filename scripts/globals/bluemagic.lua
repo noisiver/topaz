@@ -53,7 +53,7 @@ MND_BASED = 3
 --      .mnd_wsc - Same as above.
 --      .chr_wsc - Same as above.
 --      .agi_wsc - Same as above.
-function BluePhysicalSpell(caster, target, spell, params)
+function BluePhysicalSpell(caster, target, spell, params, tp)
     -- store related values
     local magicskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -- skill + merits + equip bonuses
     -- TODO: Under Chain affinity?
@@ -111,7 +111,14 @@ function BluePhysicalSpell(caster, target, spell, params)
     if (params.attkbonus == nil) then
 		params.attkbonus = 1.0
 	end
-    local bluphysattk = (caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2)) * params.attkbonus
+    if (params.atk150 == nil) then
+		params.atk150 = 1.0
+	end
+    if (params.atk300 == nil) then
+		params.atk300 = 1.0
+	end
+    local atkmulti = fTP(tp, params.atk150, params.atk300)
+    local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2)) * params.attkbonus) * atkmulti)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
