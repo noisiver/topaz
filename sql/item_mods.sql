@@ -12148,11 +12148,13 @@ INSERT INTO `item_mods` VALUES (13941,27,3);
 INSERT INTO `item_mods` VALUES (13941,68,-4);
 INSERT INTO `item_mods` VALUES (13942,1,28); -- Panther Mask
 INSERT INTO `item_mods` VALUES (13942,14,5);
+INSERT INTO `item_mods` VALUES (13942,227,5);
 INSERT INTO `item_mods` VALUES (13942,1227,5);
 INSERT INTO `item_mods` VALUES (13942,1242,10);
 INSERT INTO `item_mods` VALUES (13942,384,200);
 INSERT INTO `item_mods` VALUES (13943,1,29); -- Panther Mask +1
 INSERT INTO `item_mods` VALUES (13943,14,6);
+INSERT INTO `item_mods` VALUES (13943,227,7);
 INSERT INTO `item_mods` VALUES (13943,1227,7);
 INSERT INTO `item_mods` VALUES (13943,1242,15);
 INSERT INTO `item_mods` VALUES (13943,384,300);
@@ -16648,11 +16650,13 @@ INSERT INTO `item_mods` VALUES (15219,13,-2);
 INSERT INTO `item_mods` VALUES (15220,5,20);
 INSERT INTO `item_mods` VALUES (15220,13,2);
 INSERT INTO `item_mods` VALUES (15220,14,2);
-INSERT INTO `item_mods` VALUES (15221,1,21);
+INSERT INTO `item_mods` VALUES (15221,1,21); -- Patroclus's Helm
 INSERT INTO `item_mods` VALUES (15221,8,2);
 INSERT INTO `item_mods` VALUES (15221,27,-5);
 INSERT INTO `item_mods` VALUES (15221,68,-5);
 INSERT INTO `item_mods` VALUES (15221,384,200);
+INSERT INTO `item_mods` VALUES (15221,232,5); -- Arcana Killer
+INSERT INTO `item_mods` VALUES (15221,1232,5); -- Arcane_Circle(5% dmg to arcana)
 INSERT INTO `item_mods` VALUES (15222,25,-10);
 INSERT INTO `item_mods` VALUES (15222,26,-10);
 INSERT INTO `item_mods` VALUES (15222,68,-10);
