@@ -364,7 +364,7 @@ function BlueGetHitRate(attacker, target, capHitRate, params, tp)
 		params.acc300 = 0
 	end
     local AccTPBonus = 0
-	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
+	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
     if chainAffinity ~= nil then
 		AccTPBonus =  BluefTP(tp, ftp1, params.acc150, params.acc300)
 	end
