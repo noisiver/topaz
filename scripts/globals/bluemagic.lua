@@ -172,9 +172,9 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
 
         hitsdone = hitsdone + 1
-        if finaldmg == 0 then
-            spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
-        end
+    end
+    if finaldmg == 0 then
+        spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
     end
 
     -- print("Hits landed "..hitslanded.."/"..hitsdone.." for total damage: "..finaldmg)
