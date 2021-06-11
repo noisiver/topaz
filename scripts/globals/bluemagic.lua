@@ -118,6 +118,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 		params.atk300 = 1.0
 	end
     local AtkTPBonus =  1
+	tp = caster:getTP()
     if (tp >= 0 and tp < 1500) then
 		AtkTPBonus = params.atk150
     elseif (tp >= 1500 and tp <= 3000) then
