@@ -48,6 +48,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.dura150 = 1.50; params.dura300 = 2.0
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
