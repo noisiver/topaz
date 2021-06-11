@@ -425,7 +425,7 @@ end
 function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     local duration = 0
 
-    if (resist < 0.5)
+    if (resist < 0.5) then
       resist = 0
     end
 
