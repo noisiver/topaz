@@ -424,7 +424,7 @@ function BlueGetHitRate(attacker, target, capHitRate)
 end
 
 -- Function to stagger duration of effects by using the resistance to change the value
-function getBlueEffectDuration(caster, resist, effect)
+function getBlueEffectDuration(caster, resist, effect, params)
     local duration = 0
     local DurationTPBonus = 1
 
