@@ -150,7 +150,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         params.offcratiomod = bluphysattk
     end
     -- print(params.offcratiomod)
-    local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl()) + CritTPBonus
+    local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl()) 
     local hitrate = BlueGetHitRate(caster, target, true)
 
     -- print("Hit rate "..hitrate)
@@ -170,7 +170,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
             -- Generate a random pDIF between min and max
             local pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
-            pdif = pdif/1000
+            pdif = pdif/1000 + CritTPBonus
 
             -- Apply it to our final D
             if (hitsdone == 0) then -- only the first hit benefits from multiplier
