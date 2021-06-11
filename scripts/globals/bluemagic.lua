@@ -117,12 +117,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (params.atk300 == nil) then
 		params.atk300 = 1.0
 	end
-    if (params.acc150 == nil) then
-		params.acc150 = 0
-	end
-    if (params.acc300 == nil) then
-		params.acc300 = 0
-	end
 		
 	local AtkTPBonus =  1
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
@@ -363,6 +357,12 @@ function BluefSTR(dSTR)
 end
 
 function BlueGetHitRate(attacker, target, capHitRate)
+    if (params.acc150 == nil) then
+		params.acc150 = 0
+	end
+    if (params.acc300 == nil) then
+		params.acc300 = 0
+	end
     local AccTPBonus = 0
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
     if chainAffinity ~= nil then
