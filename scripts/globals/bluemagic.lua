@@ -215,7 +215,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 
     if (caster:hasStatusEffect(tpz.effect.BURST_AFFINITY)) then
         ST = ST * 2
-        DurationTPBonus = BluefTP(tp, ftp1, params.dura150, params.dura300)
     end
 
     local convergenceBonus = 1.0
@@ -427,6 +426,11 @@ end
 -- Function to stagger duration of effects by using the resistance to change the value
 function getBlueEffectDuration(caster, resist, effect)
     local duration = 0
+    local DurationTPBonus = 1
+
+    if (caster:hasStatusEffect(tpz.effect.BURST_AFFINITY)) then
+        DurationTPBonus = BluefTP(tp, ftp1, params.dura150, params.dura300)
+    end
 
     if (resist >= 0.5) then
         resist = 0.5
