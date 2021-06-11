@@ -425,12 +425,8 @@ end
 function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     local duration = 0
 
-    if (resist >= 0.5) then
-        resist = 0.5
-    elseif (resist == 1) then
-        resist = 1
-    else 
-        resist = 0
+    if (resist < 0.5)
+      resist = 0
     end
 
     if (effect == tpz.effect.BIND) then
