@@ -32,8 +32,8 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = typeEffect
     local resist = applyResistanceEffect(caster, target, spell, params)
-	local level = math.floor((caster:getMainLvl()  / 2)) +3
-	local power = level 
+    local skill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
+    local power = math.max(skill / 4, 4)   
 
     if (resist >= 0.5) then -- Do it!
         if (target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect, false))) then
