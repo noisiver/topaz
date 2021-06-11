@@ -111,11 +111,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (params.attkbonus == nil) then
 		params.attkbonus = 1.0
 	end
-    if (params.atk100 == nil) then
-		params.atk100 = 1.0
-	end
-    if (params.atk200 == nil) then
-		params.atk200 = 1.0
+    if (params.atk150 == nil) then
+		params.atk150 = 1.0
 	end
     if (params.atk300 == nil) then
 		params.atk300 = 1.0
@@ -124,15 +121,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	local AtkTPBonus =  1
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
-        -- Calculate the total TP available for CA
-		tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
-		if (tp >= 0 and tp <= 1000) then
-			AtkTPBonus = params.atk100
-		elseif (tp > 1000 and tp <= 2000) then
-			AtkTPBonus = params.atk200
-		elseif (tp >= 2000) then
-			AtkTPBonus = params.atk300
-		end
+		AtkTPBonus =  BluefTP(tp, ftp1, params.atk150, params.atk300)
 	end
 	
 	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2)) * params.attkbonus) * AtkTPBonus)
