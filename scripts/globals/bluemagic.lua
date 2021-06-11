@@ -125,7 +125,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
         -- Calculate the total TP available for CA
-		tp = caster:getTP()
+		tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 		if (tp >= 0 and tp <= 1000) then
 			AtkTPBonus = params.atk100
 		elseif (tp > 1000 and tp <= 2000) then
