@@ -204,19 +204,11 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     if (D > params.duppercap) then
         D = params.duppercap
     end
-    if (params.dua150 == nil) then
-		params.dua150 = 0
-	end
-    if (params.dura300 == nil) then
-		params.dura300 = 0
-	end
 
     local ST = BlueGetWsc(caster, params) -- According to Wiki ST is the same as WSC, essentially Blue mage spells that are magical use the dmg formula of Magical type Weapon skills
-    local DurationTPBonus = 1
 
     if (caster:hasStatusEffect(tpz.effect.BURST_AFFINITY)) then
         ST = ST * 2
-        DurationTPBonus = BluefTP(tp, ftp1, params.dura150, params.dura300)
     end
 
     local convergenceBonus = 1.0
@@ -452,11 +444,7 @@ function getBlueEffectDuration(caster, resist, effect)
         duration = 90 * resist
     elseif (effect == tpz.effect.POISON) then
         duration = 90 * resist
-    else
-        duration = 120 * resist
     end
-
-    duration = duration * DurationTPBonus
 
     return duration
 end
