@@ -356,7 +356,7 @@ function BluefSTR(dSTR)
     return fSTR2
 end
 
-function BlueGetHitRate(attacker, target, capHitRate)
+function BlueGetHitRate(attacker, target, capHitRate, params, tp)
     if (params.acc150 == nil) then
 		params.acc150 = 0
 	end
