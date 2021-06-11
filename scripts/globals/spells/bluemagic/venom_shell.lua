@@ -24,7 +24,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.POISON
-    local dINT = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     local params = {}
     params.diff = nil
     params.attribute = tpz.mod.INT
@@ -32,11 +32,11 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = typeEffect
     local resist = applyResistanceEffect(caster, target, spell, params)
-    local duration = 180 * resist
-    local power = 6
+	local level = math.floor((caster:getMainLvl()  / 2)) +3
+	local power = level 
 
     if (resist >= 0.5) then -- Do it!
-        if (target:addStatusEffect(typeEffect, power, 0, duration)) then
+        if (target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect, false))) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
