@@ -27,7 +27,7 @@ function onSpellCast(caster, target, spell)
     local typeEffectOne = tpz.effect.MAGIC_ACC_BOOST
     local typeEffectTwo = tpz.effect.MAGIC_DEF_BOOST
     local power = 10
-    local duration = 90
+    local duration = 180
     local returnEffect = typeEffectOne
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then

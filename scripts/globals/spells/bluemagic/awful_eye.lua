@@ -40,14 +40,15 @@ function onSpellCast(caster, target, spell)
 		local level = (caster:getMainLvl()  / 5)
 		local power = level 
 		
-        if (resist < 0.5) then
-            spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    if (resist >= 0.5) then -- Do it!
+        local typeEffect = tpz.effect.STR_DOWN
+        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
+            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
-			if (target:addStatusEffect(params.effect, power, 0, duration)) then
-				spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     else
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
     return tpz.effect.STR_DOWN

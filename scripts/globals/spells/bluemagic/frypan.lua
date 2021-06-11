@@ -37,23 +37,25 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.BLUNT
     params.scattr = SC_IMPACTION
     params.numhits = 1
-    params.multiplier = 1.78
-    params.tp150 = 1.78
-    params.tp300 = 1.78
-    params.azuretp = 1.78
+    params.multiplier = 2.0
+    params.tp150 = 2.0
+    params.tp300 = 2.0
+    params.azuretp = 2.0
     params.duppercap = 75
-    params.str_wsc = 0.2
+    params.str_wsc = 0.4
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
     params.int_wsc = 0.0
     params.mnd_wsc = 0.2
     params.chr_wsc = 0.0
+    params.acc150 = 25; params.acc300 = 40
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (resist >= 0.5) then -- This line may need adjusting for retail accuracy.
-        target:addStatusEffect(tpz.effect.STUN, 1, 0, 5 * resist) -- pre-resist duration needs confirmed/adjusted
+    if (resist >= 0.25) then 
+        local typeEffect = tpz.effect.STUN
+        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
     return damage

@@ -32,12 +32,12 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.WATER
     params.multiplier = multi
     params.tMultiplier = 2.0
-    params.duppercap = 69
+    params.duppercap = 75
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
-    params.int_wsc = 0.2
+    params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
@@ -56,11 +56,11 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistance(caster, target, spell, params)
     local typeEffectOne = tpz.effect.DEFENSE_DOWN
     local typeEffectTwo = tpz.effect.ATTACK_DOWN
-    local duration = 60
+    local duration = 120 * resist
 
-    if (damage > 0 and resist > 0.3) then
-        target:addStatusEffect(typeEffectOne, 5, 0, duration)
-        target:addStatusEffect(typeEffectTwo, 5, 0, duration)
+    if (damage > 0 and resist >= 0.5) then
+        target:addStatusEffect(typeEffectOne, 10, 0, duration)
+        target:addStatusEffect(typeEffectTwo, 10, 0, duration)
     end
 
     return damage

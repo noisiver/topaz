@@ -27,8 +27,8 @@ function onSpellCast(caster, target, spell)
     local typeEffectOne = tpz.effect.ICE_SPIKES
     local typeEffectTwo = tpz.effect.DEFENSE_BOOST
     local powerOne = 12
-    local powerTwo = 12
-    local duration = 120
+    local powerTwo = 50
+    local duration = 180
     local returnEffect = typeEffectOne
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then

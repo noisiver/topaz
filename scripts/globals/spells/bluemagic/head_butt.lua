@@ -52,8 +52,9 @@ function onSpellCast(caster, target, spell)
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (resist > 0.25) then -- This line may need adjusting for retail accuracy.
-        target:addStatusEffect(tpz.effect.STUN, 1, 0, 4 * resist)
+    if (resist > 0.25) then  
+        local typeEffect = tpz.effect.STUN
+        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
     return damage

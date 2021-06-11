@@ -57,8 +57,8 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         if (target:canGainStatusEffect(tpz.effect.ACCURACY_DOWN)) then
-			local level = (caster:getMainLvl()  / 2)
-            target:addStatusEffect(tpz.effect.ACCURACY_DOWN, 10 + level, 3, 60)
+            local typeEffect = tpz.effect.ACCURACY_DOWN
+            target:addStatusEffect(typeEffect, 15, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
         end
     end
 
