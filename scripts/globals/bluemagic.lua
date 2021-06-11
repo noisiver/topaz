@@ -121,7 +121,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (tp >= 0 and tp < 1500) then
 		AtkTPBonus = params.atk150
     elseif (tp >= 1500 and tp <= 3000) then
-		AtkTPBonus = atk300
+		AtkTPBonus = params.atk300
 	end
 	
 	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2)) * params.attkbonus) * atkmulti)
