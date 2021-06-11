@@ -56,7 +56,7 @@ function onSpellCast(caster, target, spell)
         local typeEffect = tpz.effect.POISON
         local power = (caster:getMainLvl()/5) + 3 
         target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect))
+        target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
     return damage

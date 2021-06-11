@@ -23,11 +23,21 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.INT
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 1.0
+    local resist = applyResistance(caster, target, spell, params)
+    local params = {}
+    local multi = 2.5
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi * 1.83
+    end
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.WATER
-    params.multiplier = 1.83
+    params.multiplier = multi
     params.tMultiplier = 2.0
-    params.duppercap = 69
+    params.duppercap = 75
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -40,20 +50,20 @@ function onSpellCast(caster, target, spell)
         damage = math.floor(damage * 1.25)
         -- printf("is behind mob")
     end
+    local family = target:getSystem()
+
+	 if (family == tpz.eco.VERMIN) then
+		damage = damage * 1.25
+    elseif (family == tpz.eco.BEAST) then
+		damage = damage * 0.75
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     --TODO: Knockback? Where does that get handled? How much knockback does it have?
-    local params = {}
-    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-    params.attribute = tpz.mod.INT
-    params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
-    local resist = applyResistance(caster, target, spell, params)
-
-    if (damage > 0 and resist > 0.125) then
+    if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.BIND
-        target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect))
+        target:delStatusEffect(typeEffect) -- Wiki says it can overwrite itself or other binds
+        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
     return damage
