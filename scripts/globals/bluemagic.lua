@@ -119,6 +119,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	end
 		
 	local AtkTPBonus =  1
+	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
 		AtkTPBonus =  BluefTP(tp, ftp1, params.atk150, params.atk300)
