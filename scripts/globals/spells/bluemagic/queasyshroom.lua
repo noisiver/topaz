@@ -53,8 +53,9 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.POISON
-        target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, 6, 3, getBlueEffectDuration(caster, resist, typeEffect, true))
+	    local level = math.floor((caster:getMainLvl()  / 5)) +3
+	    local power = level 
+        target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect, true))
 	else
 		target:delStatusEffect(tpz.effect.BLINK)
         target:delStatusEffect(tpz.effect.COPY_IMAGE)

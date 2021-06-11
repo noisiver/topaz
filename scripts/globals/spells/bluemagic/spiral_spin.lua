@@ -23,22 +23,28 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.INT
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 1.0
+    local resist = applyResistance(caster, target, spell, params)
+    local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_CRITICAL
     params.attackType = tpz.attackType.PHYSICAL
-    params.damageType = tpz.damageType.SLASHING
+    params.damageType = tpz.damageType.PIERCING
     params.scattr = SC_TRANSFIXION
     params.numhits = 1
-    params.multiplier = 1.925
-    params.tp150 = 1.25
-    params.tp300 = 1.25
-    params.azuretp = 1.25
-    params.duppercap = 60
+    params.multiplier = 3.1
+    params.tp150 = 3.1
+    params.tp300 = 3.1
+    params.azuretp = 3.1
+    params.duppercap = 75
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
-    params.agi_wsc = 0.30
-    params.int_wsc = 0.10
+    params.agi_wsc = 0.3
+    params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     damage = BluePhysicalSpell(caster, target, spell, params)
@@ -52,12 +58,9 @@ function onSpellCast(caster, target, spell)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    local chance = math.random()
-
-    if (damage > 0 and chance > 4) then
+    if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.ACCURACY_DOWN
-        target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, 4, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
+        target:addStatusEffect(typeEffect, 30, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
     end
 
     return damage

@@ -65,7 +65,8 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         if (target:canGainStatusEffect(tpz.effect.STR_DOWN)) then
-            target:addStatusEffect(tpz.effect.STR_DOWN, 20, 3, 60)
+        local typeEffect = tpz.effect.STR_DOWN
+        target:addStatusEffect(typeEffect, 20, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- https://www.bg-wiki.com/bg/Mind_Blast says 20%
         end
     end
 
