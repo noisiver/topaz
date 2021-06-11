@@ -204,12 +204,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     if (D > params.duppercap) then
         D = params.duppercap
     end
-    if (params.dura150 == nil) then
-		params.dura150 = 0
-	end
-    if (params.dura300 == nil) then
-		params.dura300 = 0
-	end
 
     local ST = BlueGetWsc(caster, params) -- According to Wiki ST is the same as WSC, essentially Blue mage spells that are magical use the dmg formula of Magical type Weapon skills
 
@@ -424,7 +418,14 @@ function BlueGetHitRate(attacker, target, capHitRate)
 end
 
 -- Function to stagger duration of effects by using the resistance to change the value
-function getBlueEffectDuration(caster, resist, effect)
+function getBlueEffectDuration(caster, resist, effect, params)
+    if (params.dura150 == nil) then
+		params.dura150 = 0
+	end
+    if (params.dura300 == nil) then
+		params.dura300 = 0
+	end
+
     local duration = 0
     local DurationTPBonus = 1
 
