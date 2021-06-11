@@ -56,8 +56,7 @@ function onSpellCast(caster, target, spell)
                 target:delStatusEffect(typeEffect)
             end
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-            local duration = math.floor(ELEMENTAL_DEBUFF_DURATION * resist)
-            target:addStatusEffect(typeEffect, DOT, DMG, ELEMENTAL_DEBUFF_DURATION)
+            target:addStatusEffect(typeEffect, DOT, DMG, getBlueEffectDuration(caster, resist, typeEffect, true))
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
