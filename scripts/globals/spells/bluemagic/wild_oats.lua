@@ -55,7 +55,7 @@ function onSpellCast(caster, target, spell)
     if (damage > 0 and resist >= 0.5) then
 		local typeEffect = tpz.effect.VIT_DOWN
 		local power = 10
-        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect))
+        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, true))
     end
 
     return damage

@@ -354,6 +354,10 @@ function BluefTP(tp, ftp1, ftp2, ftp3)
     return 1 -- no ftp mod
 end
 
+function getAffinityDurationModifier(tp)
+  return 1.0 + (tp / 3000);
+end
+
 function BluefSTR(dSTR)
     local fSTR2 = nil
     if (dSTR >= 12) then
@@ -418,7 +422,7 @@ function BlueGetHitRate(attacker, target, capHitRate)
 end
 
 -- Function to stagger duration of effects by using the resistance to change the value
-function getBlueEffectDuration(caster, resist, effect)
+function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     local duration = 0
 
     if (resist >= 0.5) then
@@ -444,6 +448,12 @@ function getBlueEffectDuration(caster, resist, effect)
         duration = 90 * resist
     elseif (effect == tpz.effect.POISON) then
         duration = 90 * resist
+    else
+        duration = 120 * resist
+    end
+
+    if (varieswithtp and caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY)) then
+        duration = duration * getAffinityDurationModifier(caster:getTP())
     end
 
     return duration
