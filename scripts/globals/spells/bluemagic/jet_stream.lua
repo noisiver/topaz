@@ -41,6 +41,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.acc150 = 25; params.acc300 = 40
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)

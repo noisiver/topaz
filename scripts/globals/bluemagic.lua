@@ -357,7 +357,17 @@ function BluefSTR(dSTR)
 end
 
 function BlueGetHitRate(attacker, target, capHitRate)
-    local acc = attacker:getACC() + 35 
+    if (params.acc150 == nil) then
+		params.acc150 = 0
+	end
+    if (params.acc300 == nil) then
+		params.acc300 = 0
+	end
+    local AccTPBonus = 0
+    if chainAffinity ~= nil then
+		AccTPBonus =  BluefTP(tp, ftp1, params.acc150, params.acc300)
+	end
+    local acc = attacker:getACC() + 35 + AccTPBonus 
     local eva = target:getEVA()
 
     if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
