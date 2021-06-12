@@ -48,7 +48,7 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     local HP = caster:getHP()
     local LVL = caster:getMainLvl()
-    local damage = (HP / 3) + (LVL / 0.625)
+    local damage = (HP / 2) 
     local family = target:getSystem()
 
 	 if (family == tpz.eco.VERMIN) then
