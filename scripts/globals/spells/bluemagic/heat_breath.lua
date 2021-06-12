@@ -23,6 +23,9 @@ end
 
 function onSpellCast(caster, target, spell)
     local multi = 6.38
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi + 0.50
+    end
     local params = {}
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
@@ -55,10 +58,6 @@ function onSpellCast(caster, target, spell)
 	end
 
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 0.50
-    end
 
     return damage
 end
