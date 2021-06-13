@@ -5272,7 +5272,7 @@ INSERT INTO `mob_droplist` VALUES (1025,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (1025,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (1025,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (1026,2,0,1000,749,0); -- (Goblin Enchanter - Pso'xja)
-INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,650,50) -- Brass Ingot
+INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,650,50); -- Brass Ingot
 INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,744,10); -- Silver ingot
 INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,745,5); -- Gold ingot
 INSERT INTO `mob_droplist` VALUES (1026,0,0,1000,746,5); -- Platinum ingot
