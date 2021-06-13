@@ -62,6 +62,11 @@ function onSpellCast(caster, target, spell)
 		damage = damage * ConvergenceBonus
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
+	-- add SDT penalty
+	    local SDT = target:getMod(tpz.mod.SDT_ICE)
+		if SDT < 1 then
+			damage = damage * (SDT / 100)
+		end
 
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
