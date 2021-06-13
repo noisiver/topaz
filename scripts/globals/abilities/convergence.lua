@@ -16,6 +16,6 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-local power =  (1 + player:getMerit(tpz.merit.CONVERGENCE) * 5) 
+local power =  (player:getMerit(tpz.merit.CONVERGENCE) * 5) 
     player:addStatusEffect(tpz.effect.CONVERGENCE, power, 0, 60)
 end
