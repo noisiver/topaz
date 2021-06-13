@@ -241,6 +241,7 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
+    caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 
     return dmg
 end
