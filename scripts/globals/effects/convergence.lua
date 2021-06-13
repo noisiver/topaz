@@ -5,7 +5,7 @@
 -----------------------------------
 function onEffectGain(target, effect)
    target:addMod(tpz.mod.MATTK, effect:getPower())
-   target:addMod(tpz.mod.MACC, effect:getPower()))
+   target:addMod(tpz.mod.MACC, effect:getPower())
 end
 
 function onEffectTick(target, effect)
