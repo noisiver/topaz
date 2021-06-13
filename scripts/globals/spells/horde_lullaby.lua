@@ -56,6 +56,8 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = tpz.effect.LULLABY
     params.skillBonus = 0
+    spell:setRadius(4)
+	
     if caster:isPC() then
         local instrument = caster:getSkillLevel(caster:getWeaponSkillType(tpz.slot.RANGED))
         local skillcap = caster:getMaxSkillLevel(caster:getMainLvl(), tpz.job.BRD, tpz.skill.STRING_INSTRUMENT) -- will return the same whether string or wind, both are C for bard
