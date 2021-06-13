@@ -58,7 +58,7 @@ function onSpellCast(caster, target, spell)
 	end
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
-		dmg = dmg * ConvergenceBonus
+		damage = damage * ConvergenceBonus
 	end
 
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
