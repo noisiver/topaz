@@ -22,7 +22,6 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = tpz.effect.LULLABY
     resm = applyResistanceEffect(caster, target, spell, params)
-    spell:setRadius(4)
 
     if resm < 0.5 then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
