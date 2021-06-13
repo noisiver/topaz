@@ -46,7 +46,7 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-    if (mob:hasStatusEffect(tpz.effect.WEIGHT) == true) or (mob:hasStatusEffect(tpz.effect.CURSE) == true) or (mob:hasStatusEffect(tpz.effect.BIND) == true)) then
+	if (mob:hasStatusEffect(tpz.effect.WEIGHT) or mob:hasStatusEffect(tpz.effect.CURSE) or mob:hasStatusEffect(tpz.effect.BIND)) then
         mob:setDamage(255)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 8000)
         mob:setMod(tpz.mod.MEVA, 999)
