@@ -11,20 +11,18 @@ end
 
 function onMobFight(mob, target)
     if mob:getHPP() <= 50 then
+        target:PrintToPlayer("Oh no! He's coming! I'm out of here!",0,"Carthi")
         DespawnMob(mob:getID())
+		DespawnMob(mob:getID()-1)
     end
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17281030)
 end
 
-function onMobDisengage(mob)
-    DespawnMob(mob:getID(), 120)
+
+function onMobDespawn(mob)
+    local BigBoss = GetMobByID(17281063)
+    BigBoss:spawn()
 end
 
 function onMobDeath(mob, player, isKiller)
-    local BroDead = GetMobByID(17281030):isDead()
-    local BigBoss = GetMobByID(17281063)
-    if BroDead then
-        BigBoss:spawn()
-    end
 end
-
