@@ -44,7 +44,7 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistance(caster, target, spell, params)
     local HP = caster:getHP()
     local LVL = caster:getMainLvl()
-    local damage = (HP / 6) * (LVL / 1.875)
+    local damage = (HP / 6) + (LVL / 1.875)
 	-- add convergence bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
