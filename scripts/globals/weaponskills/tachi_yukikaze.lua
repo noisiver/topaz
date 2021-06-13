@@ -41,7 +41,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     if damage > 0 and (canOverwrite(target, effect, power)) and resist >= 0.5 then
         local duration = 60 * resist
-        target:delStatusEffect(effect)
+        target:delStatusEffectSilent(effect)
         target:addStatusEffect(effect, power, 3, duration)
     end
     return tpHits, extraHits, criticalHit, damage

@@ -39,7 +39,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     if damage > 0 and (canOverwrite(target, effect, power)) and resist >= 0.5 then
         local duration = 60 * resist
-        target:delStatusEffect(effect)
+        target:delStatusEffectSilent(effect)
         target:addStatusEffect(effect, power, 3, duration)
     end
 	if damage > 0 then player:trySkillUp(target, tpz.skill.KATANA, tpHits+extraHits) end

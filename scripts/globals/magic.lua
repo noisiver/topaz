@@ -1435,11 +1435,12 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
     end
 
     -- Remove previous Threnody
-    target:delStatusEffect(tpz.effect.THRENODY)
-
+    target:delStatusEffectSilent(tpz.effect.THRENODY)
+	
+	local basePower = 50
     local iBoost = caster:getMod(tpz.mod.THRENODY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     local power = basePower + iBoost*5
-    local duration = baseDuration * ((iBoost * 0.1) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
+    local duration = baseDuration * ((iBoost * 6) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
 
     if (caster:hasStatusEffect(tpz.effect.SOUL_VOICE)) then
         power = power * 2

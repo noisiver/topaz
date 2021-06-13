@@ -62,7 +62,7 @@ function onSpellCast(caster, target, spell)
     -- Try to overwrite weaker slow / haste
     if (canOverwrite(target, effect, power)) then
         -- overwrite them
-        target:delStatusEffect(effect)
+        target:delStatusEffectSilent(effect)
         target:addStatusEffect(effect, power, 3, duration)
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
     else
