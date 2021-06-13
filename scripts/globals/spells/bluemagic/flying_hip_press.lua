@@ -37,6 +37,12 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.2
     local HP = caster:getHP()
 	local damage = (HP / 3)
+	-- add convergence bonus
+	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
+		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
+		damage = damage * ConvergenceBonus
+		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
+	end
     
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 

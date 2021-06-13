@@ -56,9 +56,11 @@ function onSpellCast(caster, target, spell)
 	elseif plantoid then
 		damage = damage * 0.75
 	end
+	-- add convergence bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
 		damage = damage * ConvergenceBonus
+		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
