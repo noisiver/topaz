@@ -211,18 +211,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
         ST = ST * 2
     end
 
-    local convergenceBonus = 1.0
-    if (caster:hasStatusEffect(tpz.effect.CONVERGENCE)) then
-        convergenceEffect = getStatusEffect(tpz.effect.CONVERGENCE)
-        local convLvl = convergenceEffect:getPower()
-        if (convLvl == 1) then
-            convergenceBonus = 1.05
-        elseif (convLvl == 2) then
-            convergenceBonus = 1.1
-        elseif (convLvl == 3) then
-            convergenceBonus = 1.15
-        end
-    end
 
     local statBonus = 0
     local dStat = 0 -- Please make sure to add an additional stat check if there is to be a spell that uses neither INT, MND, or CHR. None currently exist.
@@ -237,7 +225,7 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
         statBonus = (dStat)* params.tMultiplier
     end
 
-    D =(((D + ST) * params.multiplier * convergenceBonus) + statBonus)
+    D =(((D + ST) * params.multiplier) + statBonus)
 
     -- At this point according to wiki we apply standard magic attack calculations
 
