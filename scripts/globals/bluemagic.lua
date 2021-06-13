@@ -243,7 +243,7 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
-		damage = damage * ConvergenceBonus
+		dmg = dmg * ConvergenceBonus
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
 
