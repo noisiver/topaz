@@ -15,7 +15,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_WATER, 100)
     mob:setMod(tpz.mod.SDT_LIGHT, 100)
     mob:setMod(tpz.mod.SDT_DARK, 50)
-    mob:setMobMod(tpz.mobMod.ATTACK_SKILL_LIST, 6028)
+    --mob:setMobMod(tpz.mobMod.ATTACK_SKILL_LIST, 6028)
+	mob:SetMobSkillAttack(6028)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
