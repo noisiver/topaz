@@ -615,11 +615,11 @@ INSERT INTO `mob_spell_lists` VALUES ('Shadow_Lord',20,245,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Shadow_Lord',20,247,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Shadow_Lord',20,250,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Shadow_Lord',20,254,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,356,76,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,357,75,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,359,75,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,360,75,255);
-INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,366,75,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,356,76,255); -- paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,357,75,255); -- slowga
+INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,359,75,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,360,75,255); -- dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Kam_Lanaut',21,366,75,255); -- graviga
 INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche',22,204,75,255);
 INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche',22,206,75,255);
 INSERT INTO `mob_spell_lists` VALUES ('Eald_Narche',22,208,75,255);

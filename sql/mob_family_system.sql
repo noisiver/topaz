@@ -409,7 +409,7 @@ INSERT INTO `mob_family_system` VALUES (347,'Marolith',3,'Asperous_Marolith',1,4
 INSERT INTO `mob_family_system` VALUES (348,'Matamata',14,'Lizard',3,30,120,90,2,5,1,6,6,4,3,3,3,3,4,1,1,1,1,1,1.25,1,0.875,1.125,0.875,1,1,4,3,0);
 INSERT INTO `mob_family_system` VALUES (349,'Geyser',18,'Unclassified',0,0,130,180,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1,1.25,0.875,1,1,1.25,0.875,4,2,0);
 INSERT INTO `mob_family_system` VALUES (350,'Iron_Giant',3,'Arcana',1,40,130,130,2,3,3,3,3,6,5,3,3,3,3,1,1,1,1,1,1,1,1,1.125,1,1,1,7,3,0);
-INSERT INTO `mob_family_system` VALUES (351,'Zilart',13,'Humanoid',0,40,90,110,3,3,2,3,2,2,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,3,0);
+INSERT INTO `mob_family_system` VALUES (351,'Zilart',13,'Humanoid',0,40,100,100,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0,3,0);
 INSERT INTO `mob_family_system` VALUES (352,'ArkAngel-EV',13,'Humanoid',0,40,100,90,2,5,3,6,6,2,4,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (353,'ArkAngel-GK',13,'Humanoid',0,60,120,100,3,4,1,5,5,4,6,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (354,'ArkAngel-HM',13,'Humanoid',0,60,90,110,3,3,2,3,2,2,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
@@ -553,6 +553,7 @@ INSERT INTO `mob_family_system` VALUES (523,'Gallu',9,'Demon',1,40,105,130,1,3,5
 INSERT INTO `mob_family_system` VALUES (524,'Waktza',8,'Bird',4,60,100,100,3,3,3,3,2,2,2,1,3,1,3,1,1.25,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (525,'Zilant',10,'Dragon',4,40,120,90,4,1,3,2,2,3,1,1,3,1,3,1,1,1,1,0.05,0.05,1,1,1,1.3,1,1,1,1,0);
 INSERT INTO `mob_family_system` VALUES (526,'Snaggletooth-Peapuk',10,'Dragon',2,40,100,100,3,3,5,2,4,4,3,1,3,1,3,1,1.25,1,1,1.15,1.3,1,1.15,1,1.15,1.15,1.15,3,3,1);
+INSERT INTO `mob_family_system` VALUES (527,'Zilart-Ealdnarche',13,'Humanoid',0,40,100,100,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,0.85,0.85,0,3,0);
 
 
 
