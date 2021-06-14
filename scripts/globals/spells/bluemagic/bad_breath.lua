@@ -59,7 +59,7 @@ function onSpellCast(caster, target, spell)
 	end
 	-- add SDT penalty
 	    local SDT = target:getMod(tpz.mod.SDT_EARTH)
-		if SDT < 1 then
+		if SDT < 100 then
 			damage = damage * (SDT / 100)
 		end
 	
