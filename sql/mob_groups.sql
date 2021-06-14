@@ -10790,9 +10790,9 @@ INSERT INTO `mob_groups` VALUES (24,2764,167,'Mousse',600,0,567,0,0,58,62,0);
 -- Chamber_of_Oracles (Zone 168)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,673,168,'Centurio_V-III',0,128,8000,0,0,70,70,0);
-INSERT INTO `mob_groups` VALUES (2,4000,168,'Triarius_V-VIII',0,128,0,7000,0,68,68,0);
-INSERT INTO `mob_groups` VALUES (3,3194,168,'Princeps_V-XI',0,128,0,6800,0,68,68,0);
+INSERT INTO `mob_groups` VALUES (1,673,168,'Centurio_V-III',0,128,11150,0,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (2,4000,168,'Triarius_V-VIII',0,128,0,9500,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (3,3194,168,'Princeps_V-XI',0,128,0,10000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (4,5345,168,'Maat',0,128,0,2500,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (5,5403,168,'Maat',0,128,0,2500,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (6,5404,168,'Maat',0,128,0,2500,0,70,70,0);
