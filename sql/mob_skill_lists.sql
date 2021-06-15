@@ -3980,6 +3980,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,2114); -- hellclap
 INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,665); -- grand_slam
 INSERT INTO `mob_skill_lists` VALUES ('Kong',6032,607); -- slam_dunk 
 
+--Ancient Vessel
+INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6032,520); -- double_ray
+INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6032,521); -- spinning_attack
+INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6032,523); -- mysterious_light
+INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6032,524); -- mind_drain
+INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6032,525); -- battery_charge
+
 
 
 

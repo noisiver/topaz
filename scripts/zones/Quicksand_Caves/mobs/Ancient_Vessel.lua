@@ -4,7 +4,49 @@
 -- Mithra and the Crystal (Zilart 12) Fight
 -----------------------------------
 require("scripts/globals/missions")
+require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 20)
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMod(tpz.mod.UDMGMAGIC, 0)
+    mob:setMod(tpz.mod.DMGMAGIC, 0)
+    mob:setMod(tpz.mod.UDMGBREATH, -100)
+    mob:setMod(tpz.mod.MDEF, 0)
+    mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 60)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+end
+
+function onMobFight(mob, target)
+    local battletime = mob:getBattleTime()
+    local twohourTime = mob:getLocalVar("twohourTime")
+    local STANCEdps = mob:getLocalVar("STANCEdps")
+    local STANCEtank = mob:getLocalVar("STANCEtank")
+
+    if twohourTime == 0 then
+        printf("Setting two hour time");
+        mob:setLocalVar("twohourTime", math.random(10, 15))
+    elseif battletime >= twohourTime and STANCEtank == 0 then
+        printf("Magic Immune Mode");
+        mob:useMobAbility(522) -- Spectral Barrier
+        mob:setLocalVar("STANCEdps", battletime + math.random(120, 180))
+        mob:setLocalVar("STANCEtank", 1)
+    end
+
+    if battletime >= STANCEdps and STANCEtank == 1 or DMGtaken == 1 then
+        printf("Phys Immune Mode");
+        mob:useMobAbility(1522) -- Energy Screen
+        mob:setLocalVar("twohourTime", battletime + math.random(120, 180))
+        mob:setLocalVar("STANCEdps", 0)
+        mob:setLocalVar("STANCEtank", 0)
+        mob:setLocalVar("DMGtaken", 0)
+    end
+end
+
 
 function onMobDeath(mob, player, isKiller)
 

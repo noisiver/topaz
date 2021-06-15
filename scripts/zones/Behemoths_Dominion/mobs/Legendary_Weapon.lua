@@ -11,8 +11,10 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 35) 
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 20)
-    mob:setMod(tpz.mod.UDMGMAGIC, -75)
     mob:addMod(tpz.mod.MDEF, 300) 
+    mob:setMod(tpz.mod.UDMGMAGIC, -75)
+    mob:setMod(tpz.mod.UDMGBREATH, -100)
+    mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 

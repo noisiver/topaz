@@ -4104,7 +4104,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,357,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,359,1,255); -- silencega
 INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,360,1,255); -- dispelga
 
--- Zilart Missions
+-- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- tornado_ii
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,186,1,255); -- aeroga_iii
@@ -4132,6 +4132,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,269,1,255); -- Absorb-agi
 INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,270,1,255); -- Absorb-int
 INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,271,1,255); -- Absorb-mnd
 INSERT INTO `mob_spell_lists` VALUES ('Zeid',2002,272,1,255); -- Absorb-chr
+
+-- Zilart Missions
+INSERT INTO `mob_spell_lists` VALUES ('AncientVessel',2003,181,1,255); -- blizzaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('AncientVessel',2003,196,1,255); -- thundaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('AncientVessel',2003,151,1,255); -- blizzard_iii
+INSERT INTO `mob_spell_lists` VALUES ('AncientVessel',2003,166,1,255); -- thunder_iii
 
 
 
