@@ -33,13 +33,15 @@ function onMobFight(mob, target)
     elseif battletime >= twohourTime and STANCEtank == 0 then
         printf("Magic Immune Mode");
         mob:useMobAbility(522) -- Spectral Barrier
+		mob:setMod(tpz.mod.UDMGMAGIC, -100)
         mob:setLocalVar("STANCEdps", battletime + math.random(120, 180))
         mob:setLocalVar("STANCEtank", 1)
     end
 
-    if battletime >= STANCEdps and STANCEtank == 1 or DMGtaken == 1 then
+    if battletime >= STANCEdps and STANCEtank == 1 then
         printf("Phys Immune Mode");
         mob:useMobAbility(1522) -- Energy Screen
+        mob:setMod(tpz.mod.UDMGPHYS, -100)
         mob:setLocalVar("twohourTime", battletime + math.random(120, 180))
         mob:setLocalVar("STANCEdps", 0)
         mob:setLocalVar("STANCEtank", 0)
