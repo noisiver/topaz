@@ -34,6 +34,7 @@ function onMobFight(mob, target)
         printf("Magic Immune Mode");
         mob:useMobAbility(522) -- Spectral Barrier
 		mob:setMod(tpz.mod.UDMGMAGIC, -100)
+        mob:setMod(tpz.mod.UDMGPHYS, 0)
         mob:setLocalVar("STANCEdps", battletime + math.random(120, 180))
         mob:setLocalVar("STANCEtank", 1)
     end
@@ -42,6 +43,7 @@ function onMobFight(mob, target)
         printf("Phys Immune Mode");
         mob:useMobAbility(1522) -- Energy Screen
         mob:setMod(tpz.mod.UDMGPHYS, -100)
+		mob:setMod(tpz.mod.UDMGMAGIC, 0)
         mob:setLocalVar("twohourTime", battletime + math.random(120, 180))
         mob:setLocalVar("STANCEdps", 0)
         mob:setLocalVar("STANCEtank", 0)
