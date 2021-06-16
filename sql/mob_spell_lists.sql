@@ -843,12 +843,11 @@ INSERT INTO `mob_spell_lists` VALUES ('ArkAngelEV',37,53,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('ArkAngelEV',37,54,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('ArkAngelEV',37,108,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('ArkAngelEV',37,112,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,338,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,339,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,342,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,345,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,348,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,351,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,340,1,255); -- Utsusemi: San
+INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,342,1,255); -- Jubaku: Ni
+INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,346,1,255); -- Hojo: San
+INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,349,1,255); -- Kurayami: San
+INSERT INTO `mob_spell_lists` VALUES ('ArkAngelHM',38,351,1,255); -- Dokumori: Ni
 INSERT INTO `mob_spell_lists` VALUES ('ArkAngelTT',39,147,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('ArkAngelTT',39,152,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('ArkAngelTT',39,157,1,255);
