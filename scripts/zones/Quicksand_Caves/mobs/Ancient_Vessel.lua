@@ -47,7 +47,6 @@ function onMobFight(mob, target)
         mob:setLocalVar("twohourTime", battletime + math.random(120, 180))
         mob:setLocalVar("STANCEdps", 0)
         mob:setLocalVar("STANCEtank", 0)
-        mob:setLocalVar("DMGtaken", 0)
     end
 end
 
