@@ -182,8 +182,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
             hitslanded = hitslanded + 1
 
             -- increment target's TP (100TP per hit landed)
-			local subtleblow = caster:getMod(tpz.mod.SUBTLE_BLOW)
-			local TP =  100 * (subtleblow / 100)
+			local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
+			local TP =  100 * (1 - subtleblow)
             target:addTP(TP)
         end
 
