@@ -7,10 +7,14 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.UFASTCAST, 30)
+    mob:setMod(tpz.mod.FASTCAST, 50)
 end
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
     tpz.mix.jobSpecial.config(mob, {
         between = 30,
         specials =
@@ -51,6 +55,22 @@ function onMobFight(mob, target)
         mob:setMobMod(tpz.mobMod.TELEPORT_TYPE, 1)
         mob:setMobMod(tpz.mobMod.SPAWN_LEASH, 22)
         mob:setSpellList(39)
+    end
+end
+
+function onMobDespawn(mob)
+    local ToD = GetServerVariable("[POP]AAGK")
+    local X = mob:getXPos()
+    local Y = mob:getYPos()
+    local Z = mob:getZPos()
+    SetServerVariable("[POP]AAEV", os.time() + 300)
+
+    if ToD <= os.time() and not GetMobByID(mob:getID() + 1):isSpawned() then
+        SpawnMob(mob:getID() + 1)
+        SpawnMob(mob:getID() + 2)
+        GetMobByID(mob:getID() + 1):setPos(X, Y, Z)
+        GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
+        DisallowRespawn(mob:getID(), true)
     end
 end
 

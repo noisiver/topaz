@@ -182,7 +182,10 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
             hitslanded = hitslanded + 1
 
             -- increment target's TP (100TP per hit landed)
-            target:addTP(100)
+			local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
+			local TP =  100 * (1 - subtleblow)
+            target:addTP(TP)
+			print(TP)
         end
 
         hitsdone = hitsdone + 1
@@ -238,7 +241,7 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     rparams.skillType = tpz.skill.BLUE_MAGIC
     magicAttack = math.floor(magicAttack * applyResistance(caster, target, spell, rparams))
 
-    dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
+    local dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
