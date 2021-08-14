@@ -507,6 +507,7 @@ function getCureFinal(caster, spell, basecure, minCure, isBlueMagic)
     end
 
     local final = math.floor(math.floor(math.floor(math.floor(basecure) * potency) * dayWeatherBonus) * rapture) * dSeal
+	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
     return final
 end
 
@@ -1033,7 +1034,7 @@ end
             target:addTP(100)
         end
     end
-
+	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
     return dmg
  end
 

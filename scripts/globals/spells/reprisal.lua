@@ -21,6 +21,6 @@ function onSpellCast(caster, target, spell)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end
-
+	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
     return typeEffect
 end
