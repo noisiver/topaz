@@ -17,9 +17,9 @@ function onSpellCast(caster, target, spell)
     duration = calculateDurationForLvl(duration, 75, target:getMainLvl())
 
     if enhskill <= 300 then
-        final = math.floor(enhskill / 25) + 16
+        final = math.floor(enhskill / 25) + 16 + caster:getMod(tpz.mod.PHALANX)
     else
-        final = math.floor((enhskill - 300.5) / 28.5) + 28
+        final = math.floor((enhskill - 300.5) / 28.5) + 28 + caster:getMod(tpz.mod.PHALANX)
     end
 
     if target:addStatusEffect(tpz.effect.PHALANX, final, 0, duration) then
