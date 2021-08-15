@@ -1803,7 +1803,7 @@ end
 function calculateDuration(duration, magicSkill, spellGroup, caster, target, useComposure)
     if magicSkill == tpz.skill.ENHANCING_MAGIC then -- Enhancing Magic
         -- Gear mods
-        duration = duration + duration * caster:getMod(tpz.mod.ENH_MAGIC_DURATION) / 100
+        duration = duration + duration * (caster:getMod(tpz.mod.ENH_MAGIC_DURATION) / 100 + 1)
 
         -- prior according to bg-wiki
         duration = duration + caster:getMerit(tpz.merit.ENHANCING_MAGIC_DURATION)
