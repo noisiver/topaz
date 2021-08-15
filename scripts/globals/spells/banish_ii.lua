@@ -35,7 +35,7 @@ function onSpellCast(caster, target, spell)
     if target:isUndead() and target:getMod(tpz.mod.SPDEF_DOWN) == 0 then
         local duration = 30 + caster:getMerit(tpz.merit.BANISH_EFFECT)
         target:queue(0, function(target)
-            target:addMod(tpz.mod.SPDEF_DOWN,70)
+            target:addMod(tpz.mod.SPDEF_DOWN,100)
         end)
         target:queue(duration*1000, function(target)
             target:setMod(tpz.mod.SPDEF_DOWN,0)
