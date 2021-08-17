@@ -14,6 +14,13 @@ end
 function onSpellCast(caster, target, spell)
     local effect = target:eraseStatusEffect()
 
+	target:delStatusEffect(tpz.effect.POISON)
+	target:delStatusEffect(tpz.effect.PARALYSIS)
+	target:delStatusEffect(tpz.effect.SILENCE)
+	target:delStatusEffect(tpz.effect.BLINDNESS)
+	target:delStatusEffect(tpz.effect.DISEASE)
+	target:delStatusEffect(tpz.effect.PLAGUE)
+	target:delStatusEffect(tpz.effect.CURSE_I)
     if (effect == tpz.effect.NONE) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     else
