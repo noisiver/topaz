@@ -33,7 +33,7 @@ end
 function applyBarspell(effectType, caster, target, spell)
     local enhanceSkill = caster:getSkillLevel(tpz.skill.ENHANCING_MAGIC)
     local mdefBonus = caster:getMerit(tpz.merit.BAR_SPELL_EFFECT) + caster:getMod(tpz.mod.BARSPELL_MDEF_BONUS)
-	local gearduration = (caster:getMod(tpz.mod.ENH_MAGIC_DURATION)/100) + 1)
+	local gearduration = ((caster:getMod(tpz.mod.ENH_MAGIC_DURATION) / 100) + 1)
 
     local power = calculateBarspellPower(caster, enhanceSkill)
     local duration = (150 + (enhanceSkill / 2)) * gearduration
