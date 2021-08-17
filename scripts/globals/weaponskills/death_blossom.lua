@@ -50,9 +50,11 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         --local duration = (tp / 50 + 40) * resist
         local duration = (30 + ((tp - 1000) * mod)) * resist
         local durationTwo = (30 + ((tp - 1000) * mod)) * resistTwo
+		local power = 25
+		local subPower = 10
 		
 		target:addStatusEffect(tpz.effect.PLAGUE, 50, 3, duration)
-		target:addStatusEffect(tpz.effect.MAGIC_DEF_DOWN, 10, 0, durationTwo)
+		target:addStatusEffect(tpz.effect.ADDLE, power, 0, durationTwo * resistTwo, 0, subPower)
 	end
 
     return tpHits, extraHits, criticalHit, damage
