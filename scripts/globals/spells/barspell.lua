@@ -37,6 +37,9 @@ function applyBarspell(effectType, caster, target, spell)
 
     local power = calculateBarspellPower(caster, enhanceSkill)
     local duration = (150 + (enhanceSkill / 2)) * gearduration
+    if caster:hasStatusEffect(tpz.effect.COMPOSURE) and caster:getID() == target:getID() then
+       duration = duration * 3
+    end
     --duration = calculateDuration(duration, tpz.skill.ENHANCING_MAGIC, tpz.magic.spellGroup.WHITE, caster, target)
 
     target:addStatusEffect(effectType, power, 0, duration, 0, mdefBonus) -- changed to 2.5m
