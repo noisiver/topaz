@@ -47,7 +47,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
     local resistTwo = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 0)
     if damage > 0 and resist or resistTwo >= 0.5 then
-        local duration = (tp / 40 + 5) 
+		local duration = (30 + ((tp - 1000) * 0.015)) 
+        --local duration = (tp / 40 + 5) 
         --local duration = (30 + ((tp - 1000) * mod)) * resist
         --local durationTwo = (30 + ((tp - 1000) * mod)) * resistTwo
 		local power = 25
