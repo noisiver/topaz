@@ -15,7 +15,7 @@ local ID = require("scripts/zones/Lower_Jeuno/IDs")
 --end
 
 function onTrade(player, npc, trade)
-	if npcUtil.tradeHas(trade, {{13965, 1}, {3495, 1}, {6255, 1}, {"gil", 1000000}})
+	if npcUtil.tradeHas(trade, {{13965, 1}, {3495, 1}, {6255, 1}, {"gil", 1000000}}) then
             player:confirmTrade()
             player:addItem(13965, 1, 138, 0)
             player:PrintToPlayer("I have successfully augmented your item and the the magical properties have been revealed!",0,"Taza")
