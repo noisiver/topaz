@@ -1878,6 +1878,8 @@ namespace battleutils
             // assuming this is like parry
             float gbase = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
             float skill = (float)gbase + ((float)gbase * (PDefender->getMod(Mod::GUARD_PERCENT) / 100));
+			uint16 monsterskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
+			uint16 guardskill = PDefender->GetSkill(SKILL_GUARD);
 
             if (PWeapon)
                 skill += PWeapon->getILvlParry(); //no weapon will ever have ilvl guard and parry
@@ -1887,10 +1889,7 @@ namespace battleutils
             if (diff < 0.4f) diff = 0.4f;
             if (diff > 1.4f) diff = 1.4f;
 
-            float dex = PAttacker->DEX();
-            float agi = PDefender->AGI();
-
-            return std::clamp<uint8>((uint8)((skill * 0.1f + (agi - dex) * 0.125f + 10.0f) * diff), 5, 65);
+           return std::clamp<uint8>((uint8)((guardskill - monsterskill) * 0.2325), 5, 50);
         }
 
         return 0;
