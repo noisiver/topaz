@@ -2,7 +2,7 @@
 -- Ability: Chakra
 -- Cures certain status effects and restores a small amount of HP to user.
 -- Obtained: Monk Level 35
--- Recast Time: 5:00
+-- Recast Time: 0:30
 -- Duration: Instant
 -----------------------------------
 require("scripts/globals/status")
