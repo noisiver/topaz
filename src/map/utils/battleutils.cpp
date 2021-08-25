@@ -1803,7 +1803,7 @@ namespace battleutils
                 return 0;
         }
 
-        float skillmodifier = (blockskill - attackskill) * 0.215f;
+        float skillmodifier = (blockskill - attackskill) * 0.2325f;
         return (int8)std::clamp((int32)((base + (int32)skillmodifier) * blockRateMod), 5, (shieldSize == 6 ? 100 : std::max<int32>((int32)(65 * blockRateMod), 100)));
     }
 
