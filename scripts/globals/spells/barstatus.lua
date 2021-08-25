@@ -30,7 +30,8 @@ function applyBarstatus(effectType, caster, target, spell)
     local power = calculateBarstatusPower(caster, enhanceSkill)
     local duration = (150 + (enhanceSkill / 2)) * gearduration
     --duration = calculateDuration(duration, tpz.skill.ENHANCING_MAGIC, tpz.magic.spellGroup.WHITE, caster, target)
-    if caster:hasStatusEffect(tpz.effect.COMPOSURE) and caster:getID() == target:getID() then
+  	-- Apply composure bonus
+	if caster:hasStatusEffect(tpz.effect.COMPOSURE) then
        duration = duration * 3
     end
 
