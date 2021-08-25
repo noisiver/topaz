@@ -1878,6 +1878,7 @@ namespace battleutils
             // assuming this is like parry
             float gbase = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
             float skill = (float)gbase + ((float)gbase * (PDefender->getMod(Mod::GUARD_PERCENT) / 100));
+            auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
 			uint16 monsterskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
 			uint16 guardskill = PDefender->GetSkill(SKILL_GUARD);
 
