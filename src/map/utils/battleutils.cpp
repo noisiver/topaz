@@ -1890,7 +1890,7 @@ namespace battleutils
             if (diff < 0.4f) diff = 0.4f;
             if (diff > 1.4f) diff = 1.4f;
 
-           return std::clamp<uint8>((uint8)((guardskill - monsterskill) * 0.2325), 5, 50);
+           return std::clamp<uint8>((uint8)50 +((guardskill - monsterskill) * 0.2325), 5, 50);
         }
 
         return 0;
