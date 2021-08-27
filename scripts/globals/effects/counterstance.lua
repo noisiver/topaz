@@ -7,7 +7,7 @@ require("scripts/globals/status")
 
 function onEffectGain(target, effect)
     local power = effect:getPower()
-    target:addMod(tpz.mod.COUNTER, -effect:getPower())
+    target:addMod(tpz.mod.COUNTER, effect:getPower())
     target:addMod(tpz.mod.ATTP, -power)
     target:addMod(tpz.mod.RATTP, -power)
 end
