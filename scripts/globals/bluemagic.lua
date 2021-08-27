@@ -190,6 +190,66 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
         hitsdone = hitsdone + 1
     end
+    local hthres = target:getMod(tpz.mod.HTHRES)
+    local pierceres = target:getMod(tpz.mod.PIERCERES)
+    local impactres = target:getMod(tpz.mod.IMPACTRES)
+    local slashres = target:getMod(tpz.mod.SLASHRES)
+    local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
+    
+    if params.damageType == tpz.damageType.HTH then
+        if hthres < 1000 then
+            finaldmg = finaldmg * (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
+        else
+            finaldmg = finaldmg * hthres / 1000
+        end
+    elseif params.damageType == tpz.damageType.PIERCING then
+        if pierceres < 1000 then
+            finaldmg = finaldmg * (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
+        else
+            finaldmg = finaldmg * pierceres / 1000
+        end
+    elseif params.damageType == tpz.damageType.BLUNT then
+        if impactres < 1000 then
+            finaldmg = finaldmg * (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
+        else
+            finaldmg = finaldmg * impactres / 1000
+        end
+    elseif params.damageType == tpz.damageType.SLASHING then
+        if slashres < 1000 then
+            finaldmg = finaldmg * (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
+        else
+            finaldmg = finaldmg * slashres / 1000
+        end
+    end
+    
+    -- Circle Effects
+    if target:isMob() and finaldmg > 0 then
+        local ecoC = target:getSystem()
+        local circlemult = 100
+        local mod = 0
+
+        if     ecoC == 1  then mod = 1226
+        elseif ecoC == 2  then mod = 1228
+        elseif ecoC == 3  then mod = 1232
+        elseif ecoC == 6  then mod = 1230
+        elseif ecoC == 8  then mod = 1225
+        elseif ecoC == 9  then mod = 1234
+        elseif ecoC == 10 then mod = 1233
+        elseif ecoC == 14 then mod = 1227
+        elseif ecoC == 16 then mod = 1238
+        elseif ecoC == 15 then mod = 1237
+        elseif ecoC == 17 then mod = 1229
+        elseif ecoC == 19 then mod = 1231
+        elseif ecoC == 20 then mod = 1224
+        end
+
+        if mod > 0 then
+            circlemult = 100 + caster:getMod(mod)
+        end
+
+        finaldmg = math.floor(finaldmg * circlemult / 100)
+    end
+
     if finaldmg == 0 then
         spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
     end
