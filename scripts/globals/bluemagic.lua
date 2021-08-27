@@ -288,9 +288,10 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
 		mod = utils.clamp(mod + target:getMod(tpz.mod.UDMGPHYS), -500, 100);
 		mod = 100 - mod;
 		dmg = (dmg * mod) / 100;
-		end
+		
     target:takeDamage(dmg, caster, attackType, damageType)
     target:updateEnmityFromDamage(caster, dmg)
+	end
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
