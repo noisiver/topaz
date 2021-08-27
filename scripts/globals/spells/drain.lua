@@ -40,8 +40,7 @@ function onSpellCast(caster, target, spell)
         dmg = 0
     end
 	
-    dmg = dmg * DARK_POWER
-	
+
     local SDT = target:getMod(tpz.mod.SDT_DARK)
 	
 	dmg = dmg * (SDT / 100)
