@@ -270,24 +270,9 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
 
     local attackType = params.attackType or tpz.attackType.NONE
     local damageType = params.damageType or tpz.damageType.NONE
-    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
-        dmg = target:magicDmgTaken(dmg)
-    elseif attackType == tpz.attackType.RANGED then
-        dmg = target:rangedDmgTaken(dmg)
-    elseif attackType == tpz.attackType.PHYSICAL then
-        dmg = target:physicalDmgTaken(dmg, damageType)
-    end
-    target:takeDamage(dmg, caster, attackType, damageType)
-    local Emult = params.enmityPercent == nil and 1 or params.enmityPercent/100
-    if not target:isPC() then
-		if taChar == nil then
-			target:updateEnmityFromDamage(caster,dmg*Emult)
-		else
-			target:updateEnmityFromDamage(taChar,dmg*Emult)
-		end
-	end
+    target:takeSpellDamage(caster, spell, dmg, attackType, damageType)
+    target:updateEnmityFromDamage(caster, dmg)
     target:handleAfflatusMiseryDamage(dmg)
-
     -- TP has already been dealt with.
     return dmg
 end
