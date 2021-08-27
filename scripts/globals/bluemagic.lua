@@ -275,7 +275,7 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
     elseif attackType == tpz.attackType.PHYSICAL then
-        dmg = target:physicalDmgTaken(dmg, damageType)
+        dmg = dmg * (target:getMod(tpz.mod.DMGPHYS) * target:getMod(tpz.mod.DMGPHYS_II)) * (target:getMod(tpz.mod.DMGPHYS)) * target:getMod(tpz.mod.UDMGPHYS)
     end
     target:takeDamage(dmg, caster, attackType, damageType)
     local Emult = params.enmityPercent == nil and 1 or params.enmityPercent/100
