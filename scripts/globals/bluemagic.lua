@@ -290,14 +290,7 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
 		dmg = (dmg * mod) / 100;
 		end
     target:takeDamage(dmg, caster, attackType, damageType)
-    local Emult = params.enmityPercent == nil and 1 or params.enmityPercent/100
-    if not target:isPC() then
-		if taChar == nil then
-			target:updateEnmityFromDamage(caster,dmg*Emult)
-		else
-			target:updateEnmityFromDamage(taChar,dmg*Emult)
-		end
-	end
+    target:updateEnmityFromDamage(caster, dmg)
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
