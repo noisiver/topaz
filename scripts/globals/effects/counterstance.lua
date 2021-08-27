@@ -6,12 +6,18 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.ABSORB_DMG_CHANCE, effect:getPower())
+    local power = effect:getPower()
+    target:addMod(tpz.mod.COUNTER, -effect:getPower())
+    target:addMod(tpz.mod.ATTP, -power)
+    target:addMod(tpz.mod.RATTP, -power)
 end
 
 function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.ABSORB_DMG_CHANCE, effect:getPower())
+    local power = effect:getPower()
+    target:delMod(tpz.mod.COUNTER, effect:getPower())
+    target:delMod(tpz.mod.ATTP, -power)
+    target:delMod(tpz.mod.RATTP, -power)
 end

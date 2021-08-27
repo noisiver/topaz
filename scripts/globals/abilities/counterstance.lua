@@ -14,8 +14,8 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local power = 100 
+    local power = 50 
 
-	--player:addStatusEffect(tpz.effect.SENTINEL, power, 3, 30)
-   target:addStatusEffect(tpz.effect.COUNTERSTANCE, power, 0, 15)
+   target:delStatusEffect(tpz.effect.COUNTERSTANCE) --if not found this will do nothing
+   target:addStatusEffect(tpz.effect.COUNTERSTANCE, power, 0, 300)
 end
