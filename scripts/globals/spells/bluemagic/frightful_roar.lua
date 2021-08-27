@@ -27,7 +27,7 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     local resist = applyResistance(caster, target, spell, params)
-    local power = 15
+    local power = 10
 
     if (resist >= 0.5) then -- Do it!
         local typeEffect = tpz.effect.DEFENSE_DOWN
