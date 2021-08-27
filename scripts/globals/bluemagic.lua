@@ -331,27 +331,15 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     local attackType = params.attackType or tpz.attackType.NONE
     local damageType = params.damageType or tpz.damageType.NONE
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
-		local mod = utils.clamp(target:getMod(tpz.mod.DMGMAGIC) + target:getMod(tpz.mod.DMG), -500, 50);
-		mod = utils.clamp(mod + target:getMod(tpz.mod.DMGMAGIC_II), -500, 75);
-		mod = utils.clamp(mod + target:getMod(tpz.mod.UDMGMAGIC), -500, 100);
-		mod = 100 - mod;
-		dmg = (dmg * mod) / 100;
+        dmg = target:magicDmgTaken(dmg)
     elseif attackType == tpz.attackType.RANGED then
-		local mod = utils.clamp(target:getMod(tpz.mod.DMGPHYS) + target:getMod(tpz.mod.DMG), -500, 50);
-		mod = utils.clamp(mod + target:getMod(tpz.mod.DMGPHYS_II), -500, 75);
-		mod = utils.clamp(mod + target:getMod(tpz.mod.UDMGRANGE), -500, 100);
-		mod = 100 - mod;
-		dmg = (dmg * mod) / 100;
+        dmg = target:rangedDmgTaken(dmg)
     elseif attackType == tpz.attackType.PHYSICAL then
-		local mod = utils.clamp(target:getMod(tpz.mod.DMGPHYS) + target:getMod(tpz.mod.DMG), -500, 50);
-		mod = utils.clamp(mod + target:getMod(tpz.mod.DMGPHYS_II), -500, 75);
-		mod = utils.clamp(mod + target:getMod(tpz.mod.UDMGPHYS), -500, 100);
-		mod = 100 - mod;
-		dmg = (dmg * mod) / 100;
-		
-    target:takeDamage(dmg, caster, attackType, damageType)
+        dmg = target:physicalDmgTaken(dmg, damageType)
+    end
+
+	target:takeDamage(dmg, caster, attackType, damageType)
     target:updateEnmityFromDamage(caster, dmg)
-	end
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
