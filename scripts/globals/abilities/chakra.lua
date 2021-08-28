@@ -5,7 +5,9 @@
 -- Recast Time: 0:30
 -- Duration: Instant
 -----------------------------------
+require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/msg")
 -----------------------------------
 
 local ChakraStatusEffects =
@@ -32,6 +34,7 @@ function onUseAbility(player, target, ability)
     --local recover = player:getStat(tpz.mod.VIT) * (2 + player:getMod(tpz.mod.CHAKRA_MULT) / 10) -- TODO: Figure out "function of level" addition (August 2017 update)
     local recover = player:getStat(tpz.mod.VIT) * (2 + player:getMod(tpz.mod.CHAKRA_MULT) / 10) * 1.5 
     player:setHP(player:getHP() + recover)
+	ability:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
 
     local merits = player:getMerit(tpz.merit.INVIGORATE)
     if merits > 0 then
