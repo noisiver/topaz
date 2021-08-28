@@ -767,35 +767,35 @@ INSERT INTO `guild_shops` VALUES (529,16388,11970,27700,20,0,5);     -- himantes
 INSERT INTO `guild_shops` VALUES (530,4509,12,12,255,48,100);	-- distilled water
 INSERT INTO `guild_shops` VALUES (530,610,45,252,255,48,100);	-- sandy flour
 INSERT INTO `guild_shops` VALUES (530,936,16,16,255,48,100);		-- rock salt
-INSERT INTO `guild_shops` VALUES (530,611,30,60,255,48,100);
+INSERT INTO `guild_shops` VALUES (530,611,30,60,255,48,100); -- Bag Of Rye Flour
 INSERT INTO `guild_shops` VALUES (530,612,45,194,255,48,100);	-- kazham peppers
 INSERT INTO `guild_shops` VALUES (530,614,60,361,255,48,100);	-- mhaura garlic
 INSERT INTO `guild_shops` VALUES (530,615,45,45,255,0,0);	-- selbina butter
-INSERT INTO `guild_shops` VALUES (530,616,60,60,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,618,21,42,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,620,45,45,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,621,21,21,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,622,36,36,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,625,66,66,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,627,40,40,255,5,100);
-INSERT INTO `guild_shops` VALUES (530,628,195,206,255,48,100);
+INSERT INTO `guild_shops` VALUES (530,616,60,60,12,2,12); -- Piece Of Pie Dough
+INSERT INTO `guild_shops` VALUES (530,618,21,42,255,48,100); -- Pod Of Blue Peas
+INSERT INTO `guild_shops` VALUES (530,620,45,45,255,48,100); -- Box Of Tarutaru Rice
+INSERT INTO `guild_shops` VALUES (530,621,21,21,255,48,100); -- Pot Of Crying Mustard
+INSERT INTO `guild_shops` VALUES (530,622,36,36,255,48,100); -- Pinch Of Dried Marjoram
+INSERT INTO `guild_shops` VALUES (530,625,66,66,255,48,100); -- Bottle Of Apple Vinegar
+--INSERT INTO `guild_shops` VALUES (530,627,40,40,255,5,100); -- Pot Of Maple Sugar
+INSERT INTO `guild_shops` VALUES (530,628,195,206,255,48,100); -- Stick Of Cinnamon
 INSERT INTO `guild_shops` VALUES (530,629,36,220,255,48,100);	-- millioncorn
-INSERT INTO `guild_shops` VALUES (530,636,30,57,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1111,450,450,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1554,431,754,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1555,1061,1854,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1590,536,992,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1840,1500,2800,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,2110,457,530,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,2111,525,530,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,2112,530,540,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,4156,3872,3936,55,11,22);
-INSERT INTO `guild_shops` VALUES (530,4356,154,992,165,24,65);
-INSERT INTO `guild_shops` VALUES (530,4358,61,64,255,49,100);
-INSERT INTO `guild_shops` VALUES (530,4359,180,475,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,4360,114,160,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,4362,117,120,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,4363,33,33,255,48,100);		-- faerie apple
+--INSERT INTO `guild_shops` VALUES (530,636,30,57,255,48,100); -- Sprig Of Chamomile
+INSERT INTO `guild_shops` VALUES (530,1111,450,450,255,0,0); -- Block Of Gelatin
+INSERT INTO `guild_shops` VALUES (530,1554,431,754,255,48,100); -- Onz Of Turmeric 
+INSERT INTO `guild_shops` VALUES (530,1555,1061,1854,255,48,100); -- Onz Of Coriander
+INSERT INTO `guild_shops` VALUES (530,1590,536,992,255,48,100); -- Sprig Of Holy Basil
+INSERT INTO `guild_shops` VALUES (530,1840,1500,2800,255,48,100); -- Bag Of Semolina
+INSERT INTO `guild_shops` VALUES (530,2110,457,530,255,48,100); -- fish stock
+INSERT INTO `guild_shops` VALUES (530,2111,525,530,255,48,100); -- soy stock
+INSERT INTO `guild_shops` VALUES (530,2112,530,540,255,48,100); -- Vanilla
+INSERT INTO `guild_shops` VALUES (530,4156,3872,3936,55,0,0); -- Bottle Of Mulsum 
+INSERT INTO `guild_shops` VALUES (530,4356,154,992,165,24,65);  -- Loaf Of White Bread
+INSERT INTO `guild_shops` VALUES (530,4358,61,64,255,0,0); -- Slice Of Hare Meat
+INSERT INTO `guild_shops` VALUES (530,4359,180,475,255,48,100); -- Slice Of Dhalmel Meat
+INSERT INTO `guild_shops` VALUES (530,4360,114,160,255,48,100); -- Bastore Sardine
+INSERT INTO `guild_shops` VALUES (530,4362,117,120,255,0,0); -- lizard egg
+INSERT INTO `guild_shops` VALUES (530,4363,33,33,255,0,0);		-- faerie apple
 INSERT INTO `guild_shops` VALUES (530,4364,102,427,255,48,100);       -- black_bread
 INSERT INTO `guild_shops` VALUES (530,4365,192,504,590,0,100);       -- rolanberry
 INSERT INTO `guild_shops` VALUES (530,4366,18,18,255,48,100);       -- la_theine_cbg.
