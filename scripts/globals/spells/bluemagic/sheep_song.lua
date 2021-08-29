@@ -32,6 +32,14 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = typeEffect
     local resist = applyResistanceEffect(caster, target, spell, params)
+	local lizard = (target:getSystem() == 14)
+	local plantoid = (target:getSystem() == 17)
+	-- add correlation bonus
+	if lizard then
+		params.bonus = 25
+	elseif plantoid then
+		params.bonus = -25
+	end
     local duration = 60 * resist
 
     if (resist >= 0.5) then -- Do it!

@@ -54,6 +54,16 @@ function onSpellCast(caster, target, spell)
     params.bonus = 1.0
 
     local resist = applyResistance(caster, target, spell, params)
+	local bird = (target:getSystem() == 8)
+	local aquan = (target:getSystem() == 2)
+	-- add correlation bonus
+	if bird then
+	 	dmg = dmg * 1.25
+		params.bonus = 25
+	elseif aquan then
+		dmg = dmg * 0.75
+		params.bonus = -25
+	end
 
     if (damage > 0 and resist >= 0.5) then
         if (target:canGainStatusEffect(tpz.effect.ACCURACY_DOWN)) then

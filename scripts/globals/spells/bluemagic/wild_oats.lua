@@ -48,8 +48,18 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    local damage = BluePhysicalSpell(caster, target, spell, params)
+    damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+	local beast = (target:getSystem() == 6)
+	local vermin = (target:getSystem() == 20)
+	
+	if beast then
+		damage = damage * 1.25
+		params.bonus = 25
+	elseif vermin then
+		damage = damage * 0.75
+		params.bonus = -25
+	end
 
 
     if (damage > 0 and resist >= 0.5) then
