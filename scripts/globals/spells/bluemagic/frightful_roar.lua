@@ -23,14 +23,21 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    local typeEffect = tpz.effect.DEFENSE_DOWN
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 0
+    params.effect = typeEffect
     local resist = applyResistance(caster, target, spell, params)
     local power = 15
+	local dragon = (target:getSystem() == 10)
+	
+	if dragon then
+		params.bonus = 25
+	end
 
     if (resist >= 0.5) then -- Do it!
-        local typeEffect = tpz.effect.DEFENSE_DOWN
         target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- https://www.bg-wiki.com/bg/Mind_Blast says 20%
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else

@@ -29,6 +29,15 @@ function onSpellCast(caster, target, spell)
     params.bonus = 50
     local resist = applyResistance(caster, target, spell, params)
     local effect = tpz.effect.NONE
+		local family = target:getSystem()
+
+		 if (family == tpz.eco.VERMIN) then
+			damage = damage * 1.25
+			params.bonus = 75
+		elseif (family == tpz.eco.BEAST) then
+			damage = damage * 0.75
+			params.bonus =  25
+		end
 
     if (resist >= 0.50) then
         spell:setMsg(tpz.msg.basic.MAGIC_ERASE)

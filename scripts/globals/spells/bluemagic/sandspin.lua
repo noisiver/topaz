@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Sandspin
--- Deals earth damage to enemies within range. Additional Effect: Accuracy Down
+-- Deals earth dmg to enemies within range. Additional Effect: Accuracy Down
 -- Spell cost: 10 MP
 -- Monster Type: Amorphs
 -- Spell Type: Magical (Earth)
@@ -27,9 +27,10 @@ function onSpellCast(caster, target, spell)
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
+    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
     params.attackType = tpz.attackType.MAGICAL
-    params.damageType = tpz.damageType.EARTH
+    params.dmgType = tpz.dmgType.EARTH
+    params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0
     params.duppercap = 19
@@ -40,8 +41,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+    dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 
     local params = {}
 
@@ -65,12 +65,14 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
 
-    if (damage > 0 and resist >= 0.5) then
+    dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
+
+    if (dmg > 0 and resist >= 0.5) then
         if (target:canGainStatusEffect(tpz.effect.ACCURACY_DOWN)) then
             local typeEffect = tpz.effect.ACCURACY_DOWN
             target:addStatusEffect(typeEffect, 15, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
         end
     end
 
-    return damage
+    return dmg
 end

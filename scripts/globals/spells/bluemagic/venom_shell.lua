@@ -33,7 +33,15 @@ function onSpellCast(caster, target, spell)
     params.effect = typeEffect
     local resist = applyResistanceEffect(caster, target, spell, params)
     local skill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    local power = (skill / 6)   
+    local power = (skill / 6) 
+	local amorph = (target:getSystem() == 1)
+	local bird = (target:getSystem() == 8)
+	-- add correlation bonus
+	if amorph then
+	 	 params.bonus = 25
+	elseif plantoid then
+		 params.bonus = -25
+	end	
 
     if (resist >= 0.5) then -- Do it!
         if (target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect, false))) then

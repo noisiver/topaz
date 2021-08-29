@@ -26,6 +26,7 @@ function onSpellCast(caster, target, spell)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.WATER
+    params.bonus = 0
     params.multiplier = 1.50
     params.tMultiplier = 1.0
     params.duppercap = 30
