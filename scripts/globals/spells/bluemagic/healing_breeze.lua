@@ -28,12 +28,12 @@ function onSpellCast(caster, target, spell)
     local constant = -45
     local power = getCurePowerOld(caster)
 
-    if (power > 170) then
-        divisor = 35.6666
-        constant = 87.62
-    elseif (power > 110) then
+    if (power > 459) then
+        divisor = 6.5
+        constant = 144.6666
+    elseif (power > 219) then
         divisor =  2
-        constant = 47.5
+        constant = 65
     end
 
     local final = getCureFinal(caster, spell, getBaseCureOld(power, divisor, constant), minCure, true)
