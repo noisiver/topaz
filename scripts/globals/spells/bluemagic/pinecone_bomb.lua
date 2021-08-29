@@ -21,7 +21,7 @@ function onMagicCastingCheck(caster,target,spell)
 end
 
 function onSpellCast(caster,target,spell)
-    local typeEffect = tpz.effect.SLEEP
+    local typeEffect = tpz.effect.SLEEP_I
     local params = {}
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
