@@ -33,6 +33,9 @@ function onUseAbility(player, target, ability)
 
     --local recover = player:getStat(tpz.mod.VIT) * (2 + player:getMod(tpz.mod.CHAKRA_MULT) / 10) -- TODO: Figure out "function of level" addition (August 2017 update)
     local recover = player:getStat(tpz.mod.VIT) * (2 + player:getMod(tpz.mod.CHAKRA_MULT) / 10) * 1.5 
+    if ((target:getMaxHP() - target:getHP()) < recover) then
+        recover = (target:getMaxHP() - target:getHP())
+    end
     player:setHP(player:getHP() + recover)
 	ability:setMsg(tpz.msg.basic.JA_RECOVERS_HP)
 
