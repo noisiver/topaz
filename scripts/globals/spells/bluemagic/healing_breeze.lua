@@ -24,8 +24,8 @@ end
 
 function onSpellCast(caster, target, spell)
     local minCure = 60
-    local divisor = 0.6666
-    local constant = -45
+    local divisor = 1
+    local constant = 20
     local power = getCurePowerOld(caster)
 
     if (power > 170) then
