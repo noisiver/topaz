@@ -42,8 +42,10 @@ function onSpellCast(caster, target, spell)
 	
 	if plantoid then
 		damage = damage * 1.25
+		params.bonus = 25
 	elseif lizard then
 		damage = damage * 0.75
+		params.bonus = -25
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 

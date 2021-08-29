@@ -28,7 +28,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
@@ -51,7 +51,6 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     damage = BluePhysicalSpell(caster, target, spell, params)
-    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 	local beast = (target:getSystem() == 6)
 	local vermin = (target:getSystem() == 20)
 	
@@ -62,6 +61,8 @@ function onSpellCast(caster, target, spell)
 		vermin = damage * 0.75
 		params.bonus = -25
 	end
+	
+    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
     
     if (damage > 0 and resist >= 0.5) then
 		local typeEffect = tpz.effect.SLOW

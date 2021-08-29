@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.multiplier = multi
     params.tMultiplier = 1.5
@@ -52,6 +52,7 @@ function onSpellCast(caster, target, spell)
 	
 	if arcana then
 		damage = damage * 1.25
+		params.bonus = 25
 	end
 	-- add convergence bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then

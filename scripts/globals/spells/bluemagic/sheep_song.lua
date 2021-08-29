@@ -24,10 +24,10 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.LULLABY
-    local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
+    local dINT = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
     local params = {}
     params.diff = nil
-    params.attribute = tpz.mod.INT
+    params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = typeEffect
