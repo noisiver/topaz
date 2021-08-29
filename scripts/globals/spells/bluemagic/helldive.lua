@@ -29,11 +29,11 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.BLUNT
     params.scattr = SC_TRANSFIXION
     params.numhits = 1
-    params.multiplier = 1.8
-    params.tp150 = 1.9
-    params.tp300 = 1.95
-    params.azuretp = 2.0
-    params.duppercap = 19
+    params.multiplier = 2.0
+    params.tp150 = 2.1
+    params.tp300 = 2.3
+    params.azuretp = 2.3
+    params.duppercap = 22
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
