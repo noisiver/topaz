@@ -69,11 +69,13 @@ function onSpellCast(caster, target, spell)
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.DARK
     dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
+    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
   
   if dmg > 0 and resist >= 0.5  then
 		dmg = dmg * BLUE_POWER
 		caster:addHP(damage)
 	end
+    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
     return dmg
 end
