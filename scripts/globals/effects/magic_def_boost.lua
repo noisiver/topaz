@@ -11,8 +11,12 @@ function onEffectGain(target, effect)
 end
 
 function onEffectTick(target, effect)
-effect:setPower(effect:getPower()-7)
+   local power = effect:getPower()
+effect:setPower(effect:getPower()-1)
 target:delMod(tpz.mod.MDEF, 7)
+	if  power <= 7 then
+		power = 7
+	end
 end
 
 function onEffectLose(target, effect)
