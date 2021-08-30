@@ -28,7 +28,7 @@ function onEffectTick(target, effect)
       elseif (power == 11) then
          decayby = 3
       end
-      effect:setPower(power+decayby)
+      effect:setPower(power-decayby)
       target:delMod(tpz.mod.MDEF, decayby)
    end
 end
