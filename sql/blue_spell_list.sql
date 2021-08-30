@@ -45,7 +45,7 @@ INSERT INTO `blue_spell_list` VALUES ('535','1646','1','14','1','0','0'); -- Col
 INSERT INTO `blue_spell_list` VALUES ('536','466','1','4','1','0','0'); -- Poison Breath
 INSERT INTO `blue_spell_list` VALUES ('537','489','2','14','1','0','0'); -- Stinking Gas
 INSERT INTO `blue_spell_list` VALUES ('538','530','4','6','1','0','0'); -- Memento Mori
-INSERT INTO `blue_spell_list` VALUES ('539','475','3','11','1','2','5'); -- Terror Touch
+INSERT INTO `blue_spell_list` VALUES ('539','475','3','11','3','2','5'); -- Terror Touch
 INSERT INTO `blue_spell_list` VALUES ('540','1778','4','8','1','4','6'); -- Spinal Cleave
 INSERT INTO `blue_spell_list` VALUES ('541','485','2','0','1','0','0'); -- Blood Saber
 INSERT INTO `blue_spell_list` VALUES ('542','433','2','0','1','0','0'); -- Digest
@@ -107,11 +107,11 @@ INSERT INTO `blue_spell_list` VALUES ('617','1447','3','11','1','9','0'); -- Ver
 INSERT INTO `blue_spell_list` VALUES ('618','638','2','0','1','0','0'); -- Blastbomb
 INSERT INTO `blue_spell_list` VALUES ('620','609','3','8','1','8','0'); -- Battle Dance
 INSERT INTO `blue_spell_list` VALUES ('621','1727','2','4','1','0','0'); -- Sandspray
-INSERT INTO `blue_spell_list` VALUES ('622','665','2','11','1','7','0'); -- Grand Slam
+INSERT INTO `blue_spell_list` VALUES ('622','665','2','11','3','7','0'); -- Grand Slam
 INSERT INTO `blue_spell_list` VALUES ('623','612','3','0','1','8','0'); -- Head Butt
 INSERT INTO `blue_spell_list` VALUES ('626','591','3','0','1','0','0'); -- Bomb Toss
-INSERT INTO `blue_spell_list` VALUES ('628','1081','3','15','1','8','0'); -- Frypan
-INSERT INTO `blue_spell_list` VALUES ('629','360','3','15','1','0','0'); -- Flying Hip Press
+INSERT INTO `blue_spell_list` VALUES ('628','1081','3','15','3','8','0'); -- Frypan
+INSERT INTO `blue_spell_list` VALUES ('629','360','3','15','3','0','0'); -- Flying Hip Press
 INSERT INTO `blue_spell_list` VALUES ('631','777','3','25','1','5','0'); -- Hydro Shot DW +4
 INSERT INTO `blue_spell_list` VALUES ('632','1744','3','0','1','0','0'); -- Diamondhide
 INSERT INTO `blue_spell_list` VALUES ('633','1745','5','21','1','0','0'); -- Enervation
