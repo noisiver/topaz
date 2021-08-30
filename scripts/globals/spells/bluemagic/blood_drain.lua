@@ -91,7 +91,6 @@ function onSpellCast(caster, target, spell)
 		dmg = dmg * BLUE_POWER
 		caster:addHP(damage)
 	end
-    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
     return dmg
 end

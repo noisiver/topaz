@@ -11,8 +11,6 @@ function onEffectGain(target, effect)
 end
 
 function onEffectTick(target, effect)
-effect:setPower(effect:getPower()-1)
-target:delMod(tpz.mod.MDEF, 4)
 end
 
 function onEffectLose(target, effect)

@@ -1,15 +1,15 @@
 -----------------------------------------
 -- Spell: Digest
--- Steals an enemy's HP. Ineffective against undead
+-- Steals an enemy's HP. 
 -- Spell cost: 20 MP
 -- Monster Type: Amorphs
--- Spell Type: Magical (Earth)
+-- Spell Type: Magical (Light)
 -- Blue Magic Points: 2
 -- Stat Bonus: HP-5, MP+5
 -- Level: 36
 -- Casting Time: 4 seconds
 -- Recast Time: 90 seconds
--- Magic Bursts on: Compression, Gravitation, Darkness
+-- Magic Bursts on: Transfixion, Fusion, Light
 -- Combos: None
 -----------------------------------------
 require("scripts/globals/magic")
@@ -44,7 +44,7 @@ function onSpellCast(caster, target, spell)
     end
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
     params.attackType = tpz.attackType.MAGICAL
-    params.dmgType = tpz.damageType.EARTH
+    params.dmgType = tpz.damageType.LIGHT
     params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0
@@ -84,7 +84,7 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
 	-- add SDT
-    local SDT = target:getMod(tpz.mod.SDT_EARTH)
+    local SDT = target:getMod(tpz.mod.SDT_LIGHT)
 	
 	dmg = dmg * (SDT / 100)
 	-- add final adjustments

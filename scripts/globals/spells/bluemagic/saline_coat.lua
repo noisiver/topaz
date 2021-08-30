@@ -25,8 +25,8 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.MAGIC_DEF_BOOST
-    local power = 56
-    local duration = 180
+    local power = 100
+    local duration = 30
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
@@ -38,7 +38,7 @@ function onSpellCast(caster, target, spell)
         caster:delStatusEffect(tpz.effect.DIFFUSION)
     end
 
-    if (target:addStatusEffect(typeEffect, power, 15, duration) == false) then
+    if (target:addStatusEffect(typeEffect, power, 0, duration) == false) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end
 

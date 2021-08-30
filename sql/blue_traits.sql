@@ -62,6 +62,6 @@ INSERT INTO `blue_traits` VALUES (25, 2, 18, 259, 10); -- Dual Wield
 INSERT INTO `blue_traits` VALUES (25, 4, 18, 259, 15); -- Dual Wield II
 INSERT INTO `blue_traits` VALUES (25, 6, 18, 259, 25); -- Dual Wield III
 INSERT INTO `blue_traits` VALUES (26, 2, 70, 306, 15);
-INSERT INTO `blue_traits` VALUES (27, 2, 110, 407, 5);
+INSERT INTO `blue_traits` VALUES (27, 2, 110, 407, 5); -- Magic burst bonus
 INSERT INTO `blue_traits` VALUES (28, 2, 20, 0, 0);
 INSERT INTO `blue_traits` VALUES (28, 3, 19, 303, 1);
