@@ -31,32 +31,12 @@ function onSpellCast(caster, target, spell)
     end
     --get resist multiplier (1x if no resist)
     local params = {}
-    params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
-    params.attribute = tpz.mod.INT
+    params.diff = caster:getStat(tpz.mod.MND)-target:getStat(tpz.mod.MND)
+    params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 1.0
     params.multiplier = multi
     local resist = applyResistance(caster, target, spell, params)
-    local params = {}
-    local multi = 2.0
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 2.0
-    end
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
-    params.attackType = tpz.attackType.MAGICAL
-    params.dmgType = tpz.dmgType.DARK
-    params.bonus = 0
-    params.multiplier = multi
-    params.tMultiplier = 1.0
-    params.duppercap = 35
-    params.str_wsc = 0.0
-    params.dex_wsc = 0.0
-    params.vit_wsc = 0.0
-    params.agi_wsc = 0.0
-    params.int_wsc = 0.4
-    params.mnd_wsc = 0.0
-    params.chr_wsc = 0.0
-    dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
     --get the resisted damage
     dmg = dmg*resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
