@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Sandspin
--- Deals earth dmg to enemies within range. Additional Effect: Accuracy Down
+-- Deals earth damage to enemies within range. Additional Effect: Accuracy Down
 -- Spell cost: 10 MP
 -- Monster Type: Amorphs
 -- Spell Type: Magical (Earth)
@@ -27,9 +27,9 @@ function onSpellCast(caster, target, spell)
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
+    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_damage
     params.attackType = tpz.attackType.MAGICAL
-    params.dmgType = tpz.dmgType.EARTH
+    params.dmgType = tpz.damageType.EARTH
     params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0

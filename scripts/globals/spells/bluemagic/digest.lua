@@ -44,7 +44,7 @@ function onSpellCast(caster, target, spell)
     end
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
     params.attackType = tpz.attackType.MAGICAL
-    params.dmgType = tpz.dmgType.DARK
+    params.dmgType = tpz.damageType.DARK
     params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0
