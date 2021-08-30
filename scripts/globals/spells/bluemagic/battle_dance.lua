@@ -27,7 +27,8 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
+    params.effect = tpz.effect.DEX_DOWN
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
@@ -54,7 +55,7 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
 		local typeEffect = tpz.effect.DEX_DOWN
-		local power = 10
+		local power = 18
         target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, true))
     end
 
