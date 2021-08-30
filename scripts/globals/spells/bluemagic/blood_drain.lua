@@ -59,9 +59,6 @@ function onSpellCast(caster, target, spell)
     dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
     dmg = dmg*resist
     dmg = addBonuses(caster, spell, target, dmg)
-    if (dmg > (caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 20)) then
-        dmg = (caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 20)
-    end
 
     if (dmg < 0) then
         dmg = 0
