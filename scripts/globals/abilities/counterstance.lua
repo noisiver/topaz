@@ -3,7 +3,7 @@
 -- Increases chance to counter but lowers defense.
 -- Obtained: Monk Level 45
 -- Recast Time: 5:00
--- Duration: 0:15
+-- Duration: 5:00
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
