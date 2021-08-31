@@ -135,8 +135,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
-		AtkTPBonus =  BluefTP(tp, tp, tp, tp)
-        CritTPBonus = BluefTP(tp, tp, tp, tp)
+		AtkTPBonus =  getTPModifier(caster:getTP())
+        CritTPBonus = getTPModifier(caster:getTP()) * 20
 	end
 
     if CritTPBonus > 0 then
@@ -418,9 +418,10 @@ function BluefTP(tp, ftp1, ftp2, ftp3)
     return 1 -- no ftp mod
 end
 
-function getAffinityDurationModifier(tp)
+function getTPModifier(tp)
   return 1.0 + (tp / 3000);
 end
+
 
 function BluefSTR(dSTR)
     local fSTR2 = nil
@@ -449,7 +450,7 @@ function BlueGetHitRate(attacker, target, capHitRate)
     local AccTPBonus = 0
 	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
     if chainAffinity ~= nil then
-		AccTPBonus =  BluefTP(tp, tp, tp, tp)
+		AccTPBonus =  getTPModifier(caster:getTP()) * 10
 	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
     local eva = target:getEVA()
@@ -513,7 +514,7 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     end
 
     if (varieswithtp and caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY)) then
-        duration = duration * getAffinityDurationModifier(caster:getTP())
+        duration = duration * getTPModifier(caster:getTP())
     end
 
     return duration
