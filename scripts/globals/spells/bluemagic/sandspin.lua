@@ -51,7 +51,8 @@ function onSpellCast(caster, target, spell)
 
     params.skillType = tpz.skill.BLUE_MAGIC
 
-    params.bonus = 1.0
+    params.bonus = 0
+	params.effect = tpz.effect.ACCURACY_DOWN
 
     local resist = applyResistance(caster, target, spell, params)
 	local bird = (target:getSystem() == 8)
