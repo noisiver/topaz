@@ -200,6 +200,7 @@ INSERT INTO `mob_pool_mods` VALUES (4670,3,100,1);
 INSERT INTO `mob_pool_mods` VALUES (4671,3,100,1);
 INSERT INTO `mob_pool_mods` VALUES (4672,3,100,1);
 INSERT INTO `mob_pool_mods` VALUES (4673,3,100,1);
+INSERT INTO `mob_pool_mods` VALUES (4438,31,5,1); -- Yagudo Parasite roam distance
 INSERT INTO `mob_pool_mods` VALUES (4836,62,1,1); -- Maat (BLM) NO_STANDBACK
 INSERT INTO `mob_pool_mods` VALUES (4837,62,1,1); -- Maat (RNG) NO_STANDBACK
 INSERT INTO `mob_pool_mods` VALUES (4932,30,1017,1); -- Maat (BST) SPECIAL_SKILL: call_beast
