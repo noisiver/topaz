@@ -215,7 +215,7 @@ INSERT INTO `mob_family_mods` VALUES (188,68,25,0);		-- Opo-opo +25 Evasion Raci
 -- Evasion Penalty
 INSERT INTO `mob_family_mods` VALUES (180,68,-10,0);	-- Marid -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (371,68,-10,0);	-- Marid -10 Evasion
-INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);		-- Bugbear -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	-- Bugbear -10 Evasion
 
 --MDB
 INSERT INTO `mob_family_mods` VALUES (175,29,12,0); -- Magic pot +12 MDB
@@ -402,6 +402,16 @@ INSERT INTO `mob_family_mods` VALUES (506,240,75,0);	 -- Purpleflash Brukdok Sle
 
 -- Roaming mods
 SET @roam_distance = 31, @roam_cool = 36, @roam_turns = 51, @roam_rate = 52;
+
+-- Bugbear
+INSERT INTO `mob_family_mods` VALUES (59,@roam_distance,0,1);
+INSERT INTO `mob_family_mods` VALUES (59,@roam_turns,0,1);
+INSERT INTO `mob_family_mods` VALUES (59,@roam_rate,0,1);
+
+-- Moblin
+INSERT INTO `mob_family_mods` VALUES (59,@roam_distance,5,1);
+INSERT INTO `mob_family_mods` VALUES (59,@roam_turns,3,1);
+INSERT INTO `mob_family_mods` VALUES (59,@roam_rate,30,1);
 
 -- Leech
 INSERT INTO `mob_family_mods` VALUES (172,@roam_distance,15,1);
