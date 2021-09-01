@@ -130,18 +130,18 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 		params.crit300 = 0
 	end
 		
-	local AtkTPBonus =  1
+	local AttkTPBonus =  1
 	local CritTPBonus =  0
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
 		if params.AttkTPModifier == true then
-			AtkTPBonus =  getAttkTPModifier(caster:getTP())
-			printf("Attack TP bonus : %u", AtkTPBonus)
+			AttkTPModifier =  getAttkTPModifier(caster:getTP())
+			print(string.format("Attk TP Modifier: %u",AttkTPModifier))
 		end
 		if params.CritTPModifier == true then
 			CritTPBonus = getTPModifier(caster:getTP()) * 45
-			printf("Crit TP bonus : %u", CritTPBonus)
+			print(string.format("Crit TP Modifier: %u",CritTPBonus))
 		end
 	end
 
@@ -151,10 +151,11 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
     end
 
-	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2)) * params.attkbonus) * AtkTPBonus) 
+	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2)) * AttkTPModifier) * AtkTPBonus) 
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
 		print(bluphysattk)
+		printf("Blue Phys Attk: %u", bluphysattk)
     end
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl()) 
@@ -462,7 +463,7 @@ function BlueGetHitRate(attacker, target, capHitRate)
     if chainAffinity ~= nil then
 		if params.AccTPModifier == true then
 			AccTPBonus =  getTPModifier(caster:getTP()) * 10
-			printf("Acc TP bonus : %u", AccTPBonus)
+			print(string.format("Acc TP Modifier: %u",AccTPBonus))
 		end
 	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
