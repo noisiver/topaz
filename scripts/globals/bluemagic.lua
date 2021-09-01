@@ -131,17 +131,16 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	end
 		
 	local AttkTPBonus =  1
+	local AttkTPModifier = 1
 	local CritTPBonus =  0
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
 		if params.AttkTPModifier == true then
 			AttkTPModifier =  getAttkTPModifier(caster:getTP())
-			GetPlayerByID(6):PrintToPlayer(string.format("Attack TP Modifier: %u",AttkTPModifier))
 		end
 		if params.CritTPModifier == true then
 			CritTPBonus = getTPModifier(caster:getTP()) * 45
-			GetPlayerByID(6):PrintToPlayer(string.format("Crit TP Modifier: %u",CritTPBonus))
 		end
 	end
 
@@ -463,7 +462,6 @@ function BlueGetHitRate(attacker, target, capHitRate)
     if chainAffinity ~= nil then
 		if params.AccTPModifier == true then
 			AccTPBonus =  getTPModifier(caster:getTP()) * 10
-			GetPlayerByID(6):PrintToPlayer(string.format("Acc TP Modifier: %u",AccTPBonus))
 		end
 	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
