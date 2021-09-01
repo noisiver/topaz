@@ -133,6 +133,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	local AttkTPBonus =  1
 	local AttkTPModifier = 1
 	local CritTPBonus =  0
+	local SpellCrit = 0
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
@@ -146,10 +147,10 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     if CritTPBonus > 1 then
         if math.random() < CritTPBonus then
-            CritTPBonus = 1
+            SpellCrit = 1
         end
 	else
-		CritTPBonus = 0
+		SpellCrit = 0
     end
 
 	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2))) * (params.attkbonus + AttkTPBonus)) 
@@ -176,7 +177,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
             -- Generate a random pDIF between min and max
             local pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
-            pdif = pdif/1000 + CritTPBonus
+            pdif = pdif/1000 + SpellCrit
 
             -- Apply it to our final D
             if (hitsdone == 0) then -- only the first hit benefits from multiplier
