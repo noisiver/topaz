@@ -154,7 +154,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
 		print(bluphysattk)
-		printf("Blue Phys Attk: %u", bluphysattk)
     end
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl()) 
