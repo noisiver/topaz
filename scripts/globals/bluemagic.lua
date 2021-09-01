@@ -145,7 +145,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	end
 
     if CritTPBonus > 0 then
-        if math.random() <= CritTPBonus then
+        if math.random() < CritTPBonus then
             CritTPBonus = 1
         end
     end
