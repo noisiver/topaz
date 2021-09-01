@@ -433,7 +433,7 @@ function getAttkTPModifier(tp)
 end
 
 function getCritTPModifier(tp)
-  return (tp / 2000) * 100;
+  return (tp / 3000) * 100;
 end
 
 
