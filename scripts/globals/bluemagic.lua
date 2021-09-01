@@ -140,14 +140,16 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 			AttkTPModifier =  getAttkTPModifier(caster:getTP())
 		end
 		if params.CritTPModifier == true then
-			CritTPBonus = getTPModifier(caster:getTP()) * 45
+			CritTPBonus = getCritTPModifier(caster:getTP()) 
 		end
 	end
 
-    if CritTPBonus > 0 then
+    if CritTPBonus > 1 then
         if math.random() < CritTPBonus then
             CritTPBonus = 1
         end
+	else
+		CritTPBonus = 0
     end
 
 	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2))) * (params.attkbonus + AttkTPBonus)) 
@@ -428,6 +430,10 @@ end
 
 function getAttkTPModifier(tp)
   return 1.5 + (tp / 2000);
+end
+
+function getCritTPModifier(tp)
+  return (tp / 2000) * 100;
 end
 
 
