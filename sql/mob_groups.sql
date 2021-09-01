@@ -7651,7 +7651,7 @@ INSERT INTO `mob_groups` VALUES (24,693,112,'Chaos_Elemental',0,128,452,0,0,50,5
 INSERT INTO `mob_groups` VALUES (25,510,112,'Boreal_Hound',300,0,0,30000,0,58,58,0);
 INSERT INTO `mob_groups` VALUES (26,509,112,'Boreal_Coeurl',300,0,0,22000,0,58,58,0);
 INSERT INTO `mob_groups` VALUES (27,511,112,'Boreal_Tiger',300,0,0,22000,0,58,58,0);
-INSERT INTO `mob_groups` VALUES (28,2276,112,'Koenigstiger',0,128,0,0,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (28,2276,112,'Koenigstiger',0,128,0,35000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (29,1983,112,'Hobgoblin_Warrior',0,128,0,0,0,50,55,0);
 INSERT INTO `mob_groups` VALUES (30,1984,112,'Hobgoblin_White_Mage',0,128,0,0,0,50,55,0);
 INSERT INTO `mob_groups` VALUES (31,1972,112,'Hobgoblin_Black_Mage',0,128,0,0,0,50,55,0);
