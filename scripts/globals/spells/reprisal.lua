@@ -17,10 +17,10 @@ function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.REPRISAL
 
     if target:addStatusEffect(typeEffect, reflectedPercent, 0, duration, 0, maxReflectedDamage) then
+		caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end
-	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
     return typeEffect
 end
