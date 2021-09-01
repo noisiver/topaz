@@ -137,9 +137,11 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if chainAffinity ~= nil then
 		if AttkTPModifier == true then
 			AtkTPBonus =  getAttkTPModifier(caster:getTP())
+			printf("Attack TP bonus : %u", AtkTPBonus)
 		end
 		if CritTPModifier == true then
 			CritTPBonus = getTPModifier(caster:getTP()) * 45
+			printf("Crit TP bonus : %u", CritTPBonus)
 		end
 	end
 
@@ -460,6 +462,7 @@ function BlueGetHitRate(attacker, target, capHitRate)
     if chainAffinity ~= nil then
 		if AccTPModifier == true then
 			AccTPBonus =  getTPModifier(caster:getTP()) * 10
+			printf("Acc TP bonus : %u", AccTPBonus)
 		end
 	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
