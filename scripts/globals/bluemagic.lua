@@ -471,12 +471,11 @@ function BlueGetHitRate(attacker, target, capHitRate)
     if chainAffinity ~= nil then
 		if params.AccTPModifier == true then
 			AccTPBonus = getAccTPModifier(caster:getTP()) 
-GetPlayerByID(6):PrintToPlayer(string.format("Acc TP Bonus %u",AccTPBonus))
 		end
 	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
     local eva = target:getEVA()
-GetPlayerByID(6):PrintToPlayer(string.format("Acc %u",acc))
+
     if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
         acc = acc + ((attacker:getMainLvl()-target:getMainLvl())*4)
     elseif (attacker:getMainLvl() < target:getMainLvl()) then -- acc penalty :(
