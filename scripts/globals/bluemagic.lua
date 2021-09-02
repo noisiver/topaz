@@ -139,9 +139,11 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if chainAffinity ~= nil then
 		if params.AttkTPModifier == true then
 			AttkTPModifier =  getAttkTPModifier(caster:getTP())
+			GetPlayerByID(6):PrintToPlayer(string.format("Attk TP Bonus %u",AttkTPModifier))
 		end
 		if params.CritTPModifier == true then
 			CritTPBonus = getCritTPModifier(caster:getTP()) 
+			GetPlayerByID(6):PrintToPlayer(string.format("Crit TP Bonus %u",CritTPBonus))
 		end
 	end
 
@@ -152,7 +154,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	else
 		SpellCrit = 0
     end
-
+	GetPlayerByID(6):PrintToPlayer(string.format("First Crit 1 or 0 check: %u",SpellCrit))
 	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2))) * (params.attkbonus + AttkTPBonus)) 
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
@@ -178,6 +180,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
             -- Generate a random pDIF between min and max
             local pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
             pdif = pdif/1000 + SpellCrit
+			GetPlayerByID(6):PrintToPlayer(string.format("Crit 1 or 2: %u",SpellCrit))
+			GetPlayerByID(6):PrintToPlayer(string.format("Pdif: %u",pdif))
 
             -- Apply it to our final D
             if (hitsdone == 0) then -- only the first hit benefits from multiplier
@@ -474,6 +478,8 @@ function BlueGetHitRate(attacker, target, capHitRate)
 		end
 	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
+	GetPlayerByID(6):PrintToPlayer(string.format("ACC TP Modifier: %u",AccTPBonus))
+	GetPlayerByID(6):PrintToPlayer(string.format("Overall Acc: %u",acc))
     local eva = target:getEVA()
 
     if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
