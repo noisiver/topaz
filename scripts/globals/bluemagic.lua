@@ -437,6 +437,10 @@ function getCritTPModifier(tp)
   return (tp / 3000) * 100;
 end
 
+function getAccTPModifier(tp)
+  return (20+ ((tp - 1000) * 0.010))
+end
+
 
 function BluefSTR(dSTR)
     local fSTR2 = nil
@@ -466,7 +470,7 @@ function BlueGetHitRate(attacker, target, capHitRate)
 	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
     if chainAffinity ~= nil then
 		if params.AccTPModifier == true then
-			AccTPBonus =  getTPModifier(caster:getTP()) * 10
+			AccTPBonus = getAccTPModifier(caster:getTP()) 
 		end
 	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
