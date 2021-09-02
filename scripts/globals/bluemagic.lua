@@ -192,9 +192,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         hitsdone = hitsdone + 1
 		-- increment target's TP (100TP per hit landed)
 		local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
-		local TP =  (hitsdone  * 100) * (1 - subtleblow)
+		local TP =  100 * (1 - subtleblow)
 		target:addTP(TP)
-		GetPlayerByID(6):PrintToPlayer(string.format("TP Given %u",TP))
     end
     local hthres = target:getMod(tpz.mod.HTHRES)
     local pierceres = target:getMod(tpz.mod.PIERCERES)
