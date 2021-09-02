@@ -149,13 +149,15 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     if CritTPBonus > 1 then
         if math.random() < CritTPBonus then
+		GetPlayerByID(6):PrintToPlayer(string.format("Crit Tp Bonus?",CritTPBonus))
             SpellCrit = 1
         end
 	else
 		SpellCrit = 0
     end
 	GetPlayerByID(6):PrintToPlayer(string.format("First Crit 1 or 0 check: %u",SpellCrit))
-	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2))) * (params.attkbonus + AttkTPBonus)) 
+	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2))) * (params.attkbonus + AttkTPModifier)) 
+	GetPlayerByID(6):PrintToPlayer(string.format("Blue attk: %u",bluphysattk))
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
