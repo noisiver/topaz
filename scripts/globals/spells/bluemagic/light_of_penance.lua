@@ -59,21 +59,15 @@ function onSpellCast(caster, target, spell)
         if (target:isFacing(caster)) then
             if (target:hasStatusEffect(typeEffectTwo) and target:getTP() == 0) then
                 target:addStatusEffect(typeEffectOne, 300, 0, duration)
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
             elseif  (target:hasStatusEffect(typeEffectTwo)) then
                 target:delTP(power)
                 target:addStatusEffect(typeEffectOne, 300, 0, duration)
-                spell:setMsg(tpz.msg.basic.MAGIC_TP_REDUCE)
             else
                 target:addStatusEffect(typeEffectOne, 300, 0, duration)
                 target:addStatusEffect(typeEffectTwo, 1, 0, durationTwo)
                 target:delTP(power)
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
             end
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     end
-
-    return damage
+	return damage
 end
