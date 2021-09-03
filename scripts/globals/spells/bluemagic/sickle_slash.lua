@@ -29,10 +29,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.HTH
     params.scattr = SC_COMPRESSION
     params.numhits = 1
-    params.multiplier = 3.1
-    params.tp150 = 3.1
-    params.tp300 = 3.1
-    params.azuretp = 3.1
+    params.multiplier = 2.5
+    params.tp150 = 2.5
+    params.tp300 = 2.5
+    params.azuretp = 2.5
     params.duppercap = 49
     params.str_wsc = 0.0
     params.dex_wsc = 0.5
