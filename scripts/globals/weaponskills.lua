@@ -442,12 +442,13 @@ end
         bonusWSmods = wsParams.bonusWSmods or 0
     }
 
-    local hitrate, firsthit = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
+    local hitrate, firsthit, slugwinder = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
     calcParams.firsthitRate = firsthit
     calcParams.multihitRate = hitrate
+	calcParams.slugwinder = slugwinder
 
     if wsID == 196 or wsID == 212  then -- Slugwinder 
-        calcParams.hitRate = calcParams.multihitRate
+        calcParams.hitRate = calcParams.slugwinder
     else
         calcParams.hitRate = calcParams.firsthitRate
     end
@@ -787,17 +788,24 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     if attacker:getMainLvl() > target:getMainLvl() then
         hitdiff = hitrate + math.floor((acc - eva) / 2) 
         firsthit = hitrate + math.floor((firstacc - eva) / 2)
+		slugwinder = hitrate + math.floor(((acc - eva) / 2)/ 2) 
     else 
         hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
         firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
+		slugwinder = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl())/ 2)
     end
+		GetPlayerByID(6):PrintToPlayer(string.format("Hit diff: %i",hitdiff))
+		GetPlayerByID(6):PrintToPlayer(string.format("first rate: %i",firsthit))
+		GetPlayerByID(6):PrintToPlayer(string.format("sluhwinder rate: %i",slugwinder))
 
     hitrate = hitdiff / 100
     firsthit = firsthit / 100
+	slugwinder = slugwinder / 100
     firsthit = utils.clamp(firsthit, 0.2, 0.99) 
     hitrate = utils.clamp(hitrate, 0.2, 0.99)
+	slugwinder = utils.clamp(hitrate, 0.2, 0.99)
 
-    return hitrate, firsthit
+    return hitrate, firsthit, slugwinder
 end
 
 function fTP(tp, ftp1, ftp2, ftp3)
