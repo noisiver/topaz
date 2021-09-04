@@ -55,7 +55,7 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         target:delStatusEffect(tpz.effect.WEIGHT)
-        target:addStatusEffect(tpz.effect.WEIGHT, 4, 0, getBlueEffectDuration(caster, resist, tpz.effect.WEIGHT))
+        target:addStatusEffect(tpz.effect.WEIGHT, 50, 0, getBlueEffectDuration(caster, resist, tpz.effect.WEIGHT))
     end
 
     return damage
