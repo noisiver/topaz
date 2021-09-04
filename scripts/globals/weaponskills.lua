@@ -446,10 +446,10 @@ end
     calcParams.firsthitRate = firsthit
     calcParams.multihitRate = hitrate
 
-    if wsID == 200 or wsID == 216  then -- What are these?
+    if wsID == 200 or wsID == 216  then -- Namas Arrow and Coronach
         calcParams.hitRate = calcParams.firsthitRate
     else
-        calcParams.hitRate = calcParams.multihitRate
+        calcParams.hitRate = calcParams.firsthitRate
     end
     --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
@@ -796,8 +796,6 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     firsthit = firsthit / 100
     firsthit = utils.clamp(firsthit, 0.2, 0.99) 
     hitrate = utils.clamp(hitrate, 0.2, 0.99)
-		GetPlayerByID(6):PrintToPlayer(string.format("Hit rate: %i",hitrate))
-		GetPlayerByID(6):PrintToPlayer(string.format("first rate: %i",firsthit))
 
     return hitrate, firsthit
 end
