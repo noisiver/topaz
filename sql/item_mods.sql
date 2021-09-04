@@ -4911,10 +4911,11 @@ INSERT INTO `item_mods` VALUES (11462,1,25);
 INSERT INTO `item_mods` VALUES (11462,8,11);
 INSERT INTO `item_mods` VALUES (11462,9,-5);
 INSERT INTO `item_mods` VALUES (11462,10,-5);
-INSERT INTO `item_mods` VALUES (11464,1,24);
+INSERT INTO `item_mods` VALUES (11464,1,24); -- Magus Keffiyeh (BLU AF Helm)
 INSERT INTO `item_mods` VALUES (11464,5,25);
 INSERT INTO `item_mods` VALUES (11464,12,5);
 INSERT INTO `item_mods` VALUES (11464,13,5);
+INSERT INTO `item_mods` VALUES (11464,936,10); -- Monster correlation bonus
 INSERT INTO `item_mods` VALUES (11465,1,24);
 INSERT INTO `item_mods` VALUES (11465,2,15);
 INSERT INTO `item_mods` VALUES (11465,10,3);

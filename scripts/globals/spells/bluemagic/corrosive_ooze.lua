@@ -59,8 +59,8 @@ function onSpellCast(caster, target, spell)
     local duration = 120 * resist
 
     if (damage > 0 and resist >= 0.5) then
-        target:addStatusEffect(typeEffectOne, 12.5, 0, duration)
-        target:addStatusEffect(typeEffectTwo, 12.5, 0, duration)
+        target:addStatusEffect(typeEffectOne, 10, 0, duration)
+        target:addStatusEffect(typeEffectTwo, 10, 0, duration)
     end
 
     return damage

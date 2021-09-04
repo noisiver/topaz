@@ -838,6 +838,7 @@ enum class Mod
     CONQUEST_BONUS            = 933, // Conquest points bonus granted (percentage)
     CONQUEST_REGION_BONUS     = 934, // Increases the influence points awarded to the player's nation when receiving conquest points
     CAMPAIGN_BONUS            = 935, // Increases the evaluation for allied forces by percentage
+	MONSTER_CORRELATION_BONUS = 936, // AF head
 
     SUBTLE_BLOW_II            = 973, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
     GARDENING_WILT_BONUS      = 975, // Increases the number of Vanadays a plant can survive before it wilts

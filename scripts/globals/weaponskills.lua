@@ -438,7 +438,7 @@ end
         fencerBonus = fencerBonus(attacker),
         bonusTP = wsParams.bonusTP or 0,
         bonusfTP = gorgetBeltFTP or 0,
-        bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC) + 100,
+        bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
         bonusWSmods = wsParams.bonusWSmods or 0
     }
 
@@ -446,10 +446,10 @@ end
     calcParams.firsthitRate = firsthit
     calcParams.multihitRate = hitrate
 
-    if wsID == 200 or wsID == 216  then -- What are these?
-        calcParams.hitRate = calcParams.firsthitRate
-    else
+    if wsID == 196 or wsID == 212  then -- Slugwinder 
         calcParams.hitRate = calcParams.multihitRate
+    else
+        calcParams.hitRate = calcParams.firsthitRate
     end
     --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed

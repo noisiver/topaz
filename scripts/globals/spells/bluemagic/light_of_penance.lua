@@ -69,6 +69,7 @@ function onSpellCast(caster, target, spell)
             end
         end
     end
+spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 	
 	return damage
 end
