@@ -795,9 +795,6 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
         firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
 		slugwinder = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl())/ 2)
     end
-		GetPlayerByID(6):PrintToPlayer(string.format("Hit diff: %i",hitdiff))
-		GetPlayerByID(6):PrintToPlayer(string.format("first rate: %i",firsthit))
-		GetPlayerByID(6):PrintToPlayer(string.format("sluhwinder rate: %i",slugwinder))
 
     hitrate = hitdiff / 100
     firsthit = firsthit / 100
