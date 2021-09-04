@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Light of Penance
--- Reduces an enemy's TP. Additional effect: Blindness and "Bind"
+-- Deals light damage. Reduces an enemy's TP. Additional effect: Blindness and "Bind"
 -- Spell cost: 53 MP
 -- Monster Type: Beastmen
 -- Spell Type: Magical (Light)
@@ -22,8 +22,6 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-	local typeEffectOne = tpz.effect.BLINDNESS
-    local typeEffectTwo = tpz.effect.BIND
     local params = {}
     local multi = 2.7
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
@@ -35,10 +33,6 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    local resist = applyResistance(caster, target, spell, params)
-    local duration = 12 * resist
-    local durationTwo = 30 * resist
-    local power = 100 * resist
     -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
     params.multiplier = multi
     params.tMultiplier = 1.0
@@ -47,26 +41,23 @@ function onSpellCast(caster, target, spell)
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
-    params.int_wsc = 0.0
-    params.mnd_wsc = 0.4
+    params.int_wsc = 0.4
+    params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
 
+    local resist = applyResistance(caster, target, spell, params)
     local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (damage > 0 and resist >= 0.5) then
-        if (target:isFacing(caster)) then
-            if (target:hasStatusEffect(typeEffectTwo) and target:getTP() == 0) then
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-            elseif  (target:hasStatusEffect(typeEffectTwo)) then
-                target:delTP(power)
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-            else
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-                target:addStatusEffect(typeEffectTwo, 1, 0, durationTwo)
-                target:delTP(power)
-            end
-        end
+		local typeEffectOne = tpz.effect.BLINDNESS
+		local typeEffectTwo = tpz.effect.BIND
+        target:delStatusEffect(tpz.effect.WEIGHT)
+        target:addStatusEffect(tpz.effect.typeEffectOne, 100, 0, 12 * resist)
+        target:addStatusEffect(tpz.effect.typeEffectTwo, 1, 0, getBlueEffectDuration(caster, resist, tpz.effect.typeEffectTwo))
+		target:delTP(100)
     end
-	return damage
+
+    return damage
 end
+
