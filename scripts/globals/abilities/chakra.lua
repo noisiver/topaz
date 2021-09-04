@@ -28,7 +28,6 @@ function onUseAbility(player, target, ability)
     for k, v in pairs(ChakraStatusEffects) do
         if bit.band(chakraRemoval, v) == v then
             player:delStatusEffect(tpz.effect[k])
-			ability:setMsg(tpz.msg.basic.JA_REMOVE_EFFECT_2)
         end
     end
 
@@ -39,6 +38,7 @@ function onUseAbility(player, target, ability)
     end
     player:setHP(player:getHP() + recover)
 	ability:setMsg(tpz.msg.basic.JA_RECOVERS_HP)
+	ability:setMsg(tpz.msg.basic.JA_REMOVE_EFFECT_2)
 
     local merits = player:getMerit(tpz.merit.INVIGORATE)
     if merits > 0 then
