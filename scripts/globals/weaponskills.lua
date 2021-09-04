@@ -439,6 +439,10 @@ end
         bonusTP = wsParams.bonusTP or 0,
         bonusfTP = gorgetBeltFTP or 0,
         bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC) + 100,
+		if wsID == 196 or wsID == 212  then -- Sidewinder and Slugshot
+			bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
+		end
+		
         bonusWSmods = wsParams.bonusWSmods or 0
     }
 
