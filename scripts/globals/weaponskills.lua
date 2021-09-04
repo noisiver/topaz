@@ -442,16 +442,12 @@ end
         bonusWSmods = wsParams.bonusWSmods or 0
     }
 
-    local hitrate, firsthit, slugwinder = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
-	slugwinder = slugwinder/2
+    local hitrate, firsthit = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
     calcParams.firsthitRate = firsthit
     calcParams.multihitRate = hitrate
-	calcParams.slugwinder = slugwinder
 
-    if wsID == 200 or wsID == 216  then -- Namas Arrow and Coronach
+    if wsID == 200 or wsID == 216  then -- What are these?
         calcParams.hitRate = calcParams.firsthitRate
-	elseif  if wsID == 196 or wsID == 212 then -- Sidewinder and Slugshot
-		calcParams.hitRate = calcParams.slugwinder
     else
         calcParams.hitRate = calcParams.multihitRate
     end
