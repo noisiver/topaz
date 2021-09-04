@@ -38,7 +38,6 @@ function onUseAbility(player, target, ability)
     end
     player:setHP(player:getHP() + recover)
 	ability:setMsg(tpz.msg.basic.JA_RECOVERS_HP)
-	ability:setMsg(tpz.msg.basic.JA_REMOVE_EFFECT)
 
     local merits = player:getMerit(tpz.merit.INVIGORATE)
     if merits > 0 then
