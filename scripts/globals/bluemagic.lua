@@ -498,8 +498,8 @@ function BlueGetHitRate(attacker, target, capHitRate)
 
     -- Applying hitrate caps
     if (capHitRate) then -- this isn't capped for when acc varies with tp, as more penalties are due
-        if (hitrate>0.95) then
-            hitrate = 0.95
+        if (hitrate>0.99) then
+            hitrate = 0.99
         end
         if (hitrate<0.2) then
             hitrate = 0.2
