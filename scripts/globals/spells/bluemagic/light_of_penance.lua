@@ -15,6 +15,7 @@
 require("scripts/globals/bluemagic")
 require("scripts/globals/status")
 require("scripts/globals/magic")
+require("scripts/globals/msg")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
@@ -35,10 +36,6 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    local resist = applyResistance(caster, target, spell, params)
-    local duration = 12 * resist
-    local durationTwo = 30 * resist
-    local power = 100 * resist
     -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
     params.multiplier = multi
     params.tMultiplier = 1.0
@@ -51,6 +48,10 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
 
+    local resist = applyResistance(caster, target, spell, params)
+    local duration = 12 * resist
+    local durationTwo = 30 * resist
+    local power = 100 * resist
     local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
@@ -68,5 +69,6 @@ function onSpellCast(caster, target, spell)
             end
         end
     end
+	
 	return damage
 end
