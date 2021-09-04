@@ -797,8 +797,8 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     firsthit = utils.clamp(firsthit, 0.5, 0.99) 
     hitrate = utils.clamp(hitrate, 0.5, 0.99)
 	if GetWeaponSkill(196) or GetWeaponSkill(212) then
-		hitrate = hitdiff / 50
-		firsthit = firsthit / 50
+		hitrate = hitdiff / 100
+		firsthit = firsthit / 100
 		firsthit = utils.clamp(firsthit, 0.5, 0.95) 
 		hitrate = utils.clamp(hitrate, 0.5, 0.95)
 	end
