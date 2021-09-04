@@ -794,8 +794,8 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
 
     hitrate = hitdiff / 100
     firsthit = firsthit / 100
-    firsthit = utils.clamp(firsthit, 0.5, 0.95) 
-    hitrate = utils.clamp(hitrate, 0.5, 0.95)
+    firsthit = utils.clamp(firsthit, 0.2, 0.99) 
+    hitrate = utils.clamp(hitrate, 0.2, 0.99)
 
     return hitrate, firsthit
 end
