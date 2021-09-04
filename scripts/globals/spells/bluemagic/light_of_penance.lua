@@ -55,7 +55,20 @@ function onSpellCast(caster, target, spell)
     local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-
+    if (damage > 0 and resist >= 0.5) then
+        if (target:isFacing(caster)) then
+            if (target:hasStatusEffect(typeEffectTwo) and target:getTP() == 0) then
+                target:addStatusEffect(typeEffectOne, 300, 0, duration)
+            elseif  (target:hasStatusEffect(typeEffectTwo)) then
+                target:delTP(power)
+                target:addStatusEffect(typeEffectOne, 300, 0, duration)
+            else
+                target:addStatusEffect(typeEffectOne, 300, 0, duration)
+                target:addStatusEffect(typeEffectTwo, 1, 0, durationTwo)
+                target:delTP(power)
+            end
+        end
+    end
 	
 	return damage
 end
