@@ -52,6 +52,7 @@ function onSpellCast(caster, target, spell)
     if (damage > 0 and resist >= 0.5) then
 		local typeEffectOne = tpz.effect.BLINDNESS
 		local typeEffectTwo = tpz.effect.BIND
+        target:delStatusEffect(tpz.effect.WEIGHT)
         target:addStatusEffect(tpz.effect.typeEffectOne, 100, 0, 12 * resist)
         target:addStatusEffect(tpz.effect.typeEffectTwo, 1, 0, getBlueEffectDuration(caster, resist, tpz.effect.typeEffectTwo))
 		target:delTP(100)
