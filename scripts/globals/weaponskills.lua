@@ -448,6 +448,8 @@ end
 
     if wsID == 200 or wsID == 216  then -- What are these?
         calcParams.hitRate = calcParams.firsthitRate
+    elseif wsID == 196 or wsID == 212  then -- Sidewinder and Slugshot
+		calcParams.hitRate = calcParams.multihitRate / 2
 	else
         calcParams.hitRate = calcParams.multihitRate
     end
@@ -794,14 +796,8 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
 
     hitrate = hitdiff / 100
     firsthit = firsthit / 100
-    firsthit = utils.clamp(firsthit, 0.5, 0.99) 
-    hitrate = utils.clamp(hitrate, 0.5, 0.99)
-	if GetWeaponSkill(196) or GetWeaponSkill(212) then
-		hitrate = hitdiff / 50
-		firsthit = firsthit / 50
-		firsthit = utils.clamp(firsthit, 0.5, 0.95) 
-		hitrate = utils.clamp(hitrate, 0.5, 0.95)
-	end
+    firsthit = utils.clamp(firsthit, 0.2, 0.99) 
+    hitrate = utils.clamp(hitrate, 0.2, 0.99)
 
     return hitrate, firsthit
 end
