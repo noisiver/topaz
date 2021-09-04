@@ -52,7 +52,7 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
 
-    local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+    local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (damage > 0 and resist >= 0.5) then
@@ -69,5 +69,6 @@ function onSpellCast(caster, target, spell)
             end
         end
     end
+	
 	return damage
 end
