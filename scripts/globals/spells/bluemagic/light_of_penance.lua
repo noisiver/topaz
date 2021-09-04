@@ -1,16 +1,16 @@
 -----------------------------------------
--- Spell: Light of Penance
--- Deals light damage. Reduces an enemy's TP. Additional effect: Blindness and "Bind"
--- Spell cost: 53 MP
--- Monster Type: Beastmen
--- Spell Type: Magical (Light)
--- Blue Magic Points: 5
--- Stat Bonus: CHR+1, HP+15
--- Level: 58
--- Casting Time: 3 seconds
--- Recast Time: 60 seconds
--- Magic Bursts on: Transfixion, Fusion, and Light
--- Combos: Auto Refresh
+-- Spell: Mysterious Light
+-- Deals wind damage to enemies within range. Additional effect: Weight
+-- Spell cost: 73 MP
+-- Monster Type: Arcana
+-- Spell Type: Magical (Wind)
+-- Blue Magic Points: 4
+-- Stat Bonus: AGI+3
+-- Level: 40
+-- Casting Time: 3.75 seconds
+-- Recast Time: 24.5 seconds
+-- Magic Bursts on: Detonation, Fragmentation, Light
+-- Combos: Max MP Boost
 -----------------------------------------
 require("scripts/globals/bluemagic")
 require("scripts/globals/status")
@@ -23,14 +23,14 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
-    local multi = 2.7
+    local multi = 2.5
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
     params.attackType = tpz.attackType.MAGICAL
-    params.damageType = tpz.damageType.LIGHT
-    params.diff = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
-    params.attribute = tpz.mod.MND
+    params.damageType = tpz.damageType.WIND
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
@@ -46,17 +46,17 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
 
     local resist = applyResistance(caster, target, spell, params)
-    local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+    local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+	if (target:isUndead()) then
+		damage = damage * 1.25
+		params.bonus = 25
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (damage > 0 and resist >= 0.5) then
-		local typeEffectOne = tpz.effect.BLINDNESS
-		local typeEffectTwo = tpz.effect.BIND
-        target:addStatusEffect(tpz.effect.typeEffectOne, 100, 0, 12 * resist)
-        target:addStatusEffect(tpz.effect.typeEffectTwo, 1, 0, getBlueEffectDuration(caster, resist, tpz.effect.typeEffectTwo))
-		target:delTP(100)
+        target:delStatusEffect(tpz.effect.WEIGHT)
+        target:addStatusEffect(tpz.effect.WEIGHT, 50, 0, getBlueEffectDuration(caster, resist, tpz.effect.WEIGHT))
     end
 
     return damage
 end
-
