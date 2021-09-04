@@ -785,21 +785,11 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     local firsthit = 0
     
     if attacker:getMainLvl() > target:getMainLvl() then
-		if GetWeaponSkill(196) or GetWeaponSkill(212) then
-			hitdiff = hitrate + math.floor((acc - eva) / 2)  / 2
-			firsthit = hitrate + math.floor((firstacc - eva) / 2) / 2
-		else
-			hitdiff = hitrate + math.floor((acc - eva) / 2) 
-			firsthit = hitrate + math.floor((firstacc - eva) / 2)
-		end
+        hitdiff = hitrate + math.floor((acc - eva) / 2) 
+        firsthit = hitrate + math.floor((firstacc - eva) / 2)
     else 
-		if GetWeaponSkill(196) or GetWeaponSkill(212) then
-			hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl())) / 2
-			firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl())) / 2
-		else
-			hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
-			firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
-		end
+        hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
+        firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
     end
 
     hitrate = hitdiff / 100
