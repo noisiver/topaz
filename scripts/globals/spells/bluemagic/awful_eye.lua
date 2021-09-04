@@ -36,9 +36,16 @@ function onSpellCast(caster, target, spell)
         params.bonus = 0
         params.effect = nil
         local resist = applyResistance(caster, target, spell, params)
-		local duration = 60 * resist
 		local level = (caster:getMainLvl()  / 5)
 		local power = level 
+		local family = target:getSystem()
+
+		 if (family == tpz.eco.VERMIN) then
+			params.bonus = 25
+		elseif (family == tpz.eco.BEAST) then
+			params.bonus = -25
+		end
+		local duration = 60 * resist
 		
     if (resist >= 0.5) then -- Do it!
         local typeEffect = tpz.effect.STR_DOWN

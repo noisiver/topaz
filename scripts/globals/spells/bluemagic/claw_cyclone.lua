@@ -29,11 +29,11 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.SLASHING
     params.scattr = SC_SCISSION
     params.numhits = 2
-    params.multiplier = 1.0
-    params.tp150 = 1.0
-    params.tp300 = 1.0
-    params.azuretp = 1.0
-    params.duppercap = 23
+    params.multiplier = 2.25
+    params.tp150 = 2.3
+    params.tp300 = 2.5
+    params.azuretp = 2.5
+    params.duppercap = 27
     params.str_wsc = 0.0
     params.dex_wsc = 0.3
     params.vit_wsc = 0.0
@@ -41,7 +41,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    params.atk150 = 1.5; params.atk300 = 2.0
+    params.AttkTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)

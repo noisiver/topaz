@@ -1,15 +1,15 @@
 -----------------------------------------
 -- Spell: Digest
--- Steals an enemy's HP. Ineffective against undead
+-- Steals an enemy's HP. 
 -- Spell cost: 20 MP
 -- Monster Type: Amorphs
--- Spell Type: Magical (Dark)
+-- Spell Type: Magical (Light)
 -- Blue Magic Points: 2
 -- Stat Bonus: HP-5, MP+5
 -- Level: 36
 -- Casting Time: 4 seconds
 -- Recast Time: 90 seconds
--- Magic Bursts on: Compression, Gravitation, Darkness
+-- Magic Bursts on: Transfixion, Fusion, Light
 -- Combos: None
 -----------------------------------------
 require("scripts/globals/magic")
@@ -37,6 +37,26 @@ function onSpellCast(caster, target, spell)
     params.bonus = 1.0
     params.multiplier = multi
     local resist = applyResistance(caster, target, spell, params)
+    local params = {}
+    local multi = 2.0
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi + 2.0
+    end
+    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
+    params.attackType = tpz.attackType.MAGICAL
+    params.dmgType = tpz.damageType.LIGHT
+    params.bonus = 0
+    params.multiplier = multi
+    params.tMultiplier = 1.0
+    params.duppercap = 35
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.4
+    params.chr_wsc = 0.0
+    dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     --get the resisted damage
     dmg = dmg*resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
@@ -53,18 +73,18 @@ function onSpellCast(caster, target, spell)
         dmg = target:getHP()
     end
 
-    params.attackType = tpz.attackType.MAGICAL
-    params.damageType = tpz.damageType.DARK
 	local bird = (target:getSystem() == 8)
 	local aquan = (target:getSystem() == 2)
 	-- add correlation bonus
 	if bird then
 	 	dmg = dmg * 1.25
+		params.bonus = 25
 	elseif aquan then
 		dmg = dmg * 0.75
+		params.bonus = -25
 	end
 	-- add SDT
-    local SDT = target:getMod(tpz.mod.SDT_DARK)
+    local SDT = target:getMod(tpz.mod.SDT_LIGHT)
 	
 	dmg = dmg * (SDT / 100)
 	-- add final adjustments

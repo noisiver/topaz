@@ -46,7 +46,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0
     params.duppercap = 35
@@ -70,8 +70,10 @@ function onSpellCast(caster, target, spell)
 	-- add correlation bonus
 	if bird then
 	 	dmg = dmg * 1.25
+		params.bonus = 25
 	elseif aquan then
 		dmg = dmg * 0.75
+		params.bonus = -25
 	end
 	-- add SDT
     local SDT = target:getMod(tpz.mod.SDT_DARK)

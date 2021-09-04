@@ -2805,7 +2805,7 @@ void SmallPacket0x053(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             // uint8 locationId = data.ref<uint8>(i + 0x02);
             uint16 itemId = data.ref<uint16>(i + 0x04);
 
-            if (equipSlotId > SLOT_BACK)
+            if (equipSlotId > SLOT_BACK || equipSlotId == SLOT_AMMO)
                 continue;
 
             auto PItem = itemutils::GetItem(itemId);
@@ -6110,6 +6110,7 @@ void SmallPacket0x102(map_session_data_t* session, CCharEntity* PChar, CBasicPac
                 ShowDebug("No match found. \n");
             }
         }
+        PChar->SetLocalVar("BlueSpellsLastChanged", time(nullptr));
     }
     else if ((PChar->GetMJob() == JOB_PUP || PChar->GetSJob() == JOB_PUP) && job == JOB_PUP && PChar->PAutomaton != nullptr && PChar->PPet == nullptr)
     {

@@ -17,9 +17,9 @@ function onSpellCast(caster, target, spell)
     duration = calculateDurationForLvl(duration, 33, target:getMainLvl())
 
     if enhskill <= 300 then
-        final = math.max(math.floor(enhskill / 10) - 2, 0)
+        final = math.max(math.floor(enhskill / 10) - 2, 0) + caster:getMod(tpz.mod.PHALANX)
     else
-        final = math.floor((enhskill - 300.5) / 28.5) + 28
+        final = math.floor((enhskill - 300.5) / 28.5) + 28 + caster:getMod(tpz.mod.PHALANX)
     end
 
     -- Cap at 35

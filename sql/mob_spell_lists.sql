@@ -4118,8 +4118,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 207, 1, 255); -- Fr
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx', 2000, 196, 1, 255); -- Thundaga III
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000, 213, 1, 255); -- Burst II
 INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 511, 1, 255); -- Haste II
-INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 47, 1, 255); -- Protect_V
-INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 52, 1, 255); -- Shell_V
+INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 129, 1, 255); -- Protectra_V
+INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 134, 1, 255); -- Shellra_V
 INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 404, 1, 255); -- dragonfoe_mambo
 INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 393, 1, 255); -- knights_minne_v 
 INSERT INTO `mob_spell_lists` VALUES ('Magma',2001, 504, 1, 255); -- regen_v 

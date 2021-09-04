@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
@@ -53,8 +53,10 @@ function onSpellCast(caster, target, spell)
 
 	 if (family == tpz.eco.VERMIN) then
 		damage = damage * 1.25
+		params.bonus = 25
     elseif (family == tpz.eco.BEAST) then
 		damage = damage * 0.75
+		params.bonus = -25
 	end
 	-- add convergence bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then

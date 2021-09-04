@@ -31,6 +31,14 @@ function onSpellCast(caster, target, spell)
 
     local resist = applyResistance(caster, target, spell, params)
     local effect = tpz.effect.NONE
+	local lizard = (target:getSystem() == 14)
+	local plantoid = (target:getSystem() == 17)
+	-- add correlation bonus
+	if lizard then
+		params.bonus = 75
+	elseif plantoid then
+		params.bonus = 25
+	end
 
     if (resist >= 0.50) then
         if (target:isFacing(caster)) then

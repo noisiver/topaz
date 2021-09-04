@@ -26,19 +26,20 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
+    params.effect = tpz.effect.DEFENSE_DOWN
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_CRITICAL
     params.attackType = tpz.attackType.PHYSICAL
-    params.damageType = tpz.damageType.SLASHING
+    params.damageType = tpz.damageType.PIERCING
     params.scattr = SC_GRAVITATION
     params.numhits = 3
-    params.multiplier = 1.925
-    params.tp150 = 1.925
-    params.tp300 = 1.925
-    params.azuretp = 1.925
+    params.multiplier = 1.1
+    params.tp150 = 1.1
+    params.tp300 = 1.1
+    params.azuretp = 1.1
     params.duppercap = 75
     params.str_wsc = 0.0
     params.dex_wsc = 0.3
@@ -47,13 +48,24 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.CritTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+	local beast = (target:getSystem() == 6)
+	local vermin = (target:getSystem() == 20)
+	
+	if beast then
+		damage = damage * 1.25
+		params.bonus = 25
+	elseif vermin then
+		damage = damage * 0.75
+		params.bonus = -25
+	end
 
 
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.DEFENSE_DOWN
-        target:addStatusEffect(typeEffect, 8, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
+        target:addStatusEffect(typeEffect, 12.5, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
     end
 
     return damage

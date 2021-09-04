@@ -14172,8 +14172,8 @@ INSERT INTO `mob_droplist` VALUES (2644,0,0,1000,925,10);
 INSERT INTO `mob_droplist` VALUES (2644,0,0,1000,1040,50);
 INSERT INTO `mob_droplist` VALUES (2644,2,0,1000,4370,0);
 INSERT INTO `mob_droplist` VALUES (2644,0,0,1000,4370,50);
-INSERT INTO `mob_droplist` VALUES (2645,0,0,1000,940,1000);
-INSERT INTO `mob_droplist` VALUES (2645,0,0,1000,17472,150);	-- (Western Shadow) Cross-Counters
+INSERT INTO `mob_droplist` VALUES (2645,0,0,1000,940,1000); -- Western Shadow
+INSERT INTO `mob_droplist` VALUES (2645,0,0,1000,17472,150);	--  Cross-Counters
 INSERT INTO `mob_droplist` VALUES (2646,0,0,1000,3112,570);
 INSERT INTO `mob_droplist` VALUES (2646,0,0,1000,3112,280);
 INSERT INTO `mob_droplist` VALUES (2646,0,0,1000,3112,190);

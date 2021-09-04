@@ -28,5 +28,5 @@ function onMobWeaponSkill(target, mob, skill)
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10, 3, 120))
 
-    return dmg
+    return tpz.effect.VIT_DOWN
 end

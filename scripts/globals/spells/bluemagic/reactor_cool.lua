@@ -26,7 +26,7 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffectOne = tpz.effect.ICE_SPIKES
     local typeEffectTwo = tpz.effect.DEFENSE_BOOST
-    local powerOne = 12
+    local powerOne = 18
     local powerTwo = 50
     local duration = 180
     local returnEffect = typeEffectOne

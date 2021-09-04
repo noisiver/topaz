@@ -47,7 +47,7 @@ function onSpellCast(caster, target, spell)
 
     local resist = applyResistance(caster, target, spell, params)
     local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-	local demon = (target:getSystem() == 10)
+	local dragon = (target:getSystem() == 10)
 	
 	if dragon then
 		damage = damage * 1.25

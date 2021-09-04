@@ -25,7 +25,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.SHOCK_SPIKES
-    local power = 12
+    local power = 18
     local duration = 180
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then

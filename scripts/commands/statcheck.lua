@@ -32,9 +32,9 @@ function onTrigger(player)
         local slashres = targ:getMod(tpz.mod.SLASHRES)
         local spdefdown = targ:getMod(tpz.mod.SPDEF_DOWN)
        
-        player:PrintToPlayer(string.format("%s Stats 0: MJOB: %u, SJOB: %u, HP: %u, MP: %u", targ:getName(), targ:getMainJob(), targ:getSubJob(), targ:getMaxHP(), targ:getMaxMP()))
-        player:PrintToPlayer(string.format("%s Stats 1: LVL: %u, SLVL: %u, ACC: %u, EVA: %u, ATT: %u, DEF: %u, MATT: %u, MACC: %u, MDEF: %u ", targ:getName(), targ:getMainLvl(), targ:getSubLvl(), acc,eva,att,def,matt,macc,mdef))
-        player:PrintToPlayer(string.format("%s Stats 2: STR: %u, DEX: %u, VIT: %u, AGI: %u, INT: %u, MND: %u, CHR: %u", targ:getName(), str,dex,vit,agi,int,mnd,chr))
+        player:PrintToPlayer(string.format("%s Stats 0: MJOB: %i, SJOB: %i, HP: %i, MP: %i", targ:getName(), targ:getMainJob(), targ:getSubJob(), targ:getMaxHP(), targ:getMaxMP()))
+        player:PrintToPlayer(string.format("%s Stats 1: LVL: %i, SLVL: %i, ACC: %i, EVA: %i, ATT: %i, DEF: %i, MATT: %i, MACC: %i, MDEF: %i ", targ:getName(), targ:getMainLvl(), targ:getSubLvl(), acc,eva,att,def,matt,macc,mdef))
+        player:PrintToPlayer(string.format("%s Stats 2: STR: %i, DEX: %i, VIT: %i, AGI: %i, INT: %i, MND: %i, CHR: %i", targ:getName(), str,dex,vit,agi,int,mnd,chr))
         player:PrintToPlayer(string.format("%s Stats 3: Fire: %f, Ice: %f, Wind: %f, Earth: %f, Water: %f, Thunder: %f", targ:getName(), fire, ice, wind, earth, water, thunder))
         player:PrintToPlayer(string.format("%s Stats 4: Dark: %f, Light: %f, hthres: %f, pierceres: %f, impactres: %f, slashres: %f, spdefdown: %f", targ:getName(),  dark, light, hthres, pierceres, impactres, slashres, spdefdown))
     else

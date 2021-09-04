@@ -43,9 +43,17 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
 	params.attkbonus = 2.0
-    params.atk150 = 1.5; params.atk300 = 2.0
+    params.AttkTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+	local beast = (target:getSystem() == 6)
+	local vermin = (target:getSystem() == 20)
+	
+	if beast then
+		damage = damage * 1.25
+	elseif vermin then
+		damage = damage * 0.75
+	end
 
     return damage
 end

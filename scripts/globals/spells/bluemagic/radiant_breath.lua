@@ -44,16 +44,16 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
 
     local resist = applyResistance(caster, target, spell, params)
     local HP = caster:getHP()
-    local LVL = caster:getMainLvl()
-    local damage = (HP / 5) + (LVL / 0.75)
+    local damage = (HP / 2) 
 	local demon = (target:getSystem() == 9)
 	
 	if demon then
 		damage = damage * 1.25
+		params.bonus = 25
 	end
 	-- add convergence bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then

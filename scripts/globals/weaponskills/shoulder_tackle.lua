@@ -36,6 +36,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         local duration = (tp/500) * applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 0)
         target:addStatusEffect(tpz.effect.STUN, 1, 0, duration)
     end
+		if damage > 0 then player:trySkillUp(target, tpz.skill.HAND_TO_HAND, tpHits+extraHits) end
+		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     return tpHits, extraHits, criticalHit, damage
 
 end

@@ -42,10 +42,10 @@ function onSpellCast(caster, target, spell)
             returnEffect = typeEffectTwo
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         elseif (target:hasStatusEffect(typeEffectTwo)) then
-            target:addStatusEffect(typeEffectOne, 10, 0, duration)
+            target:addStatusEffect(typeEffectOne, 12.5, 0, duration)
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
-            target:addStatusEffect(typeEffectOne, 10, 0, duration)
+            target:addStatusEffect(typeEffectOne, 12.5, 0, duration)
             target:addStatusEffect(typeEffectTwo, 8, 0, duration)
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         end

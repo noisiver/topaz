@@ -446,9 +446,9 @@ namespace battleutils
         {
             //Tier 2 enspells calculate the damage on each hit and increment the potency in Mod::ENSPELL_DMG per hit
             uint16 skill = PAttacker->GetSkill(SKILL_ENHANCING_MAGIC);
-            uint16 cap = 3 + ((12 * skill) / 100); //  uint16 cap = 3 + ((6 * skill) / 100);
+            uint16 cap = 6 + ((34 * skill) / 100); //  uint16 cap = 3 + ((6 * skill) / 100);
             if (skill > 200) {
-                cap = 7 + ((10 * skill) / 100); // cap = 5 + ((5 * skill) / 100);
+                cap = 14 + ((30 * skill) / 100); // cap = 5 + ((5 * skill) / 100);
             }
             cap *= 2;
 
@@ -1803,7 +1803,7 @@ namespace battleutils
                 return 0;
         }
 
-        float skillmodifier = (blockskill - attackskill) * 0.215f;
+        float skillmodifier = (blockskill - attackskill) * 0.2325f;
         return (int8)std::clamp((int32)((base + (int32)skillmodifier) * blockRateMod), 5, (shieldSize == 6 ? 100 : std::max<int32>((int32)(65 * blockRateMod), 100)));
     }
 
@@ -1878,6 +1878,9 @@ namespace battleutils
             // assuming this is like parry
             float gbase = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
             float skill = (float)gbase + ((float)gbase * (PDefender->getMod(Mod::GUARD_PERCENT) / 100));
+            auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
+			uint16 monsterskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
+			uint16 guardskill = PDefender->GetSkill(SKILL_GUARD);
 
             if (PWeapon)
                 skill += PWeapon->getILvlParry(); //no weapon will ever have ilvl guard and parry
@@ -1887,10 +1890,7 @@ namespace battleutils
             if (diff < 0.4f) diff = 0.4f;
             if (diff > 1.4f) diff = 1.4f;
 
-            float dex = PAttacker->DEX();
-            float agi = PDefender->AGI();
-
-            return std::clamp<uint8>((uint8)((skill * 0.1f + (agi - dex) * 0.125f + 10.0f) * diff), 5, 65);
+           return std::clamp<uint8>((uint8)50 +((guardskill - monsterskill) * 0.2325), 5, 50);
         }
 
         return 0;

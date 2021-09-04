@@ -13,6 +13,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-   local kickDmg = 18 + player:getWeaponDmg()
+   local kickDmg = 36 + player:getWeaponDmg()
+   player:delStatusEffect(tpz.effect.COUNTERSTANCE) -- Counterstance and Footwork don't stack
    player:addStatusEffect(tpz.effect.FOOTWORK, kickDmg, 0, 300, 0, 0)
 end

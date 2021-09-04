@@ -190,7 +190,7 @@ INSERT INTO `augments` VALUES (134, 0, 29, 1, 0, 0); -- Mag.Def.Bns.+1
 INSERT INTO `augments` VALUES (135, 0, 0, 0, 0, 0); -- 135 doesnt seem to be a valid Augment, incomplete or garbled text displays
 INSERT INTO `augments` VALUES (136, 0, 0, 0, 0, 0); -- 136 doesnt seem to be a valid Augment, incomplete or garbled text displays
 INSERT INTO `augments` VALUES (137, 0, 370, 1, 0, 0); -- Regen+1
-INSERT INTO `augments` VALUES (138, 0, 369, 1, 0, 0); -- Refresh+1
+INSERT INTO `augments` VALUES (138, 0, 529, 1, 0, 0); -- Refresh+1
 INSERT INTO `augments` VALUES (139, 0, 359, 1, 0, 0); -- Rapid Shot+1
 INSERT INTO `augments` VALUES (140, 0, 170, 1, 0, 0); -- Fast Cast+1
 INSERT INTO `augments` VALUES (141, 0, 296, 1, 0, 0); -- Conserve MP+1
@@ -1524,7 +1524,7 @@ INSERT INTO `augments` VALUES (1245, 0, 0, 0, 0, 0);
 
 INSERT INTO `augments` VALUES (1246, 0, 161, -2, 1, 0); -- Pet: Phy. Dmg. Taken -2%
 INSERT INTO `augments` VALUES (1247, 0, 163, -2, 1, 0); -- Pet: Magic Dmg. Taken -2%
-INSERT INTO `augments` VALUES (1248, 0, 0, 0, 0, 0); -- Enhancing Magic Effect Duration +1: Mod undefined as of yet so leaving blank.
+INSERT INTO `augments` VALUES (1248, 0, 890, 1, 0, 0); -- Enhancing Magic Effect Duration +1: Mod undefined as of yet so leaving blank.
 INSERT INTO `augments` VALUES (1249, 0, 477, 1, 0, 0); -- Helix Effect Duration+1
 INSERT INTO `augments` VALUES (1250, 0, 0, 0, 0, 0); -- Indi Effect Duration+1: Mod undefined as of yet so leaving blank.
 

@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
 
     params.skillType = tpz.skill.BLUE_MAGIC
 
-    params.bonus = 1.0
+    params.bonus = 0
 
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
@@ -55,6 +55,7 @@ function onSpellCast(caster, target, spell)
 	
 	if (target:isUndead()) then
 		damage = damage * 1.25
+		params.bonus = 25
 	end
 	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)

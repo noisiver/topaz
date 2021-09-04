@@ -31,6 +31,14 @@ function onSpellCast(caster, target, spell)
     local duration = 90 * resist
 	local level = (caster:getMainLvl()  / 5)
 	local power = level 
+	local aquan = (target:getSystem() == 2)
+	local amorph = (target:getSystem() == 1)
+	
+	if aquan then
+		params.bonus = 25
+	elseif amorph then
+		params.bonus = -25
+	end
 
     if (resist >= 0.5) then -- Do it!
         local typeEffect = tpz.effect.INT_DOWN

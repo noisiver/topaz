@@ -609,7 +609,8 @@ bool CAttack::CheckCounter()
         m_isCountered = true;
         m_isCritical = (tpzrand::GetRandomNumber(100) < battleutils::GetCritHitRate(m_victim, m_attacker, false));
     }
-    else if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_COUNTER))
+    else if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_COUNTER) &&
+        facing(m_victim->loc.p, m_attacker->loc.p, 40))
     { // Perfect Counter only counters hits that normal counter misses, always critical, can counter 1-3 times before wearing
         m_isCountered = true;
         m_isCritical = true;

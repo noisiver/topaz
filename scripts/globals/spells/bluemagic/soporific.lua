@@ -34,6 +34,14 @@ function onSpellCast(caster, target, spell)
     params.effect = typeEffect
     local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 90 * resist
+	local beast = (target:getSystem() == 6)
+	local vermin = (target:getSystem() == 20)
+	
+	if beast then
+		params.bonus = 25
+	elseif vermin then
+		params.bonus = -25
+	end
 
     if (resist >= 0.5) then -- Do it!
         if (target:addStatusEffect(typeEffect, 2, 0, duration)) then

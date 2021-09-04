@@ -71,5 +71,6 @@ function onSpellCast(caster, target, spell)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
+	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
     return tpz.effect.FLASH
 end

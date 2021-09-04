@@ -27,7 +27,16 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.TERROR
+    params.bonus = 0
     local resist = applyResistance(caster, target, spell, params)
+	local aquan = (target:getSystem() == 2)
+	local amorph = (target:getSystem() == 1)
+	
+	if aquan then
+		params.bonus = 25
+	elseif amorph then
+		params.bonus = -25
+	end
     local duration = 5 * resist
 	
 	if target:isNM() then

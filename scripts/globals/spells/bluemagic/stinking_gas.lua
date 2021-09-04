@@ -26,11 +26,17 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 0
     params.effect = tpz.effect.VIT_DOWN
     local resist = applyResistance(caster, target, spell, params)
-    local duration = 90 * resist
 	local level = (caster:getMainLvl()  / 5)
 	local power = level 
+	local arcana = (target:getSystem() == 3)
+	
+	if arcana then
+		params.bonus = 25
+	end
+	    local duration = 90 * resist
 
     if (resist >= 0.5) then -- Do it!
         local typeEffect = tpz.effect.VIT_DOWN

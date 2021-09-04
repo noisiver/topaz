@@ -24,8 +24,8 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.MAGIC_ATK_BOOST
-    local power = 20
-    local duration = 180
+    local power = 100
+    local duration = 30
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)

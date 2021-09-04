@@ -767,63 +767,63 @@ INSERT INTO `guild_shops` VALUES (529,16388,11970,27700,20,0,5);     -- himantes
 INSERT INTO `guild_shops` VALUES (530,4509,12,12,255,48,100);	-- distilled water
 INSERT INTO `guild_shops` VALUES (530,610,45,252,255,48,100);	-- sandy flour
 INSERT INTO `guild_shops` VALUES (530,936,16,16,255,48,100);		-- rock salt
-INSERT INTO `guild_shops` VALUES (530,611,30,60,255,48,100);
+INSERT INTO `guild_shops` VALUES (530,611,30,60,255,48,100); -- Bag Of Rye Flour
 INSERT INTO `guild_shops` VALUES (530,612,45,194,255,48,100);	-- kazham peppers
 INSERT INTO `guild_shops` VALUES (530,614,60,361,255,48,100);	-- mhaura garlic
 INSERT INTO `guild_shops` VALUES (530,615,45,45,255,0,0);	-- selbina butter
-INSERT INTO `guild_shops` VALUES (530,616,60,60,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,618,21,42,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,620,45,45,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,621,21,21,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,622,36,36,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,625,66,66,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,627,40,40,255,5,100);
-INSERT INTO `guild_shops` VALUES (530,628,195,206,255,48,100);
+INSERT INTO `guild_shops` VALUES (530,616,60,60,12,2,12); -- Piece Of Pie Dough
+INSERT INTO `guild_shops` VALUES (530,618,21,42,255,48,100); -- Pod Of Blue Peas
+INSERT INTO `guild_shops` VALUES (530,620,45,45,255,48,100); -- Box Of Tarutaru Rice
+INSERT INTO `guild_shops` VALUES (530,621,21,21,255,48,100); -- Pot Of Crying Mustard
+INSERT INTO `guild_shops` VALUES (530,622,36,36,255,48,100); -- Pinch Of Dried Marjoram
+INSERT INTO `guild_shops` VALUES (530,625,66,66,255,48,100); -- Bottle Of Apple Vinegar
+--INSERT INTO `guild_shops` VALUES (530,627,40,40,255,5,100); -- Pot Of Maple Sugar
+INSERT INTO `guild_shops` VALUES (530,628,195,206,255,48,100); -- Stick Of Cinnamon
 INSERT INTO `guild_shops` VALUES (530,629,36,220,255,48,100);	-- millioncorn
-INSERT INTO `guild_shops` VALUES (530,636,30,57,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1111,450,450,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1554,431,754,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1555,1061,1854,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1590,536,992,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,1840,1500,2800,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,2110,457,530,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,2111,525,530,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,2112,530,540,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,4156,3872,3936,55,11,22);
-INSERT INTO `guild_shops` VALUES (530,4356,154,992,165,24,65);
-INSERT INTO `guild_shops` VALUES (530,4358,61,64,255,49,100);
-INSERT INTO `guild_shops` VALUES (530,4359,180,475,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,4360,114,160,255,48,100);
-INSERT INTO `guild_shops` VALUES (530,4362,117,120,255,48,100);
+--INSERT INTO `guild_shops` VALUES (530,636,30,57,255,48,100); -- Sprig Of Chamomile
+INSERT INTO `guild_shops` VALUES (530,1111,450,450,255,0,0); -- Block Of Gelatin
+INSERT INTO `guild_shops` VALUES (530,1554,431,754,255,48,100); -- Onz Of Turmeric 
+INSERT INTO `guild_shops` VALUES (530,1555,1061,1854,255,48,100); -- Onz Of Coriander
+INSERT INTO `guild_shops` VALUES (530,1590,536,992,255,48,100); -- Sprig Of Holy Basil
+INSERT INTO `guild_shops` VALUES (530,1840,1500,2800,255,48,100); -- Bag Of Semolina
+INSERT INTO `guild_shops` VALUES (530,2110,457,530,255,48,100); -- fish stock
+INSERT INTO `guild_shops` VALUES (530,2111,525,530,255,48,100); -- soy stock
+INSERT INTO `guild_shops` VALUES (530,2112,530,540,255,48,100); -- Vanilla
+INSERT INTO `guild_shops` VALUES (530,4156,3872,3936,55,0,0); -- Bottle Of Mulsum 
+INSERT INTO `guild_shops` VALUES (530,4356,154,992,165,0,0);  -- Loaf Of White Bread
+INSERT INTO `guild_shops` VALUES (530,4358,61,64,255,0,0); -- Slice Of Hare Meat
+INSERT INTO `guild_shops` VALUES (530,4359,180,475,255,0,0); -- Slice Of Dhalmel Meat
+INSERT INTO `guild_shops` VALUES (530,4360,114,160,255,0,0); -- Bastore Sardine
+INSERT INTO `guild_shops` VALUES (530,4362,117,120,255,0,0); -- lizard egg
 INSERT INTO `guild_shops` VALUES (530,4363,33,33,255,48,100);		-- faerie apple
-INSERT INTO `guild_shops` VALUES (530,4364,102,427,255,48,100);       -- black_bread
+INSERT INTO `guild_shops` VALUES (530,4364,102,427,255,0,0);       -- black_bread
 INSERT INTO `guild_shops` VALUES (530,4365,192,504,590,0,100);       -- rolanberry
 INSERT INTO `guild_shops` VALUES (530,4366,18,18,255,48,100);       -- la_theine_cbg.
 INSERT INTO `guild_shops` VALUES (530,4367,36,238,255,48,100);       -- batagreens
-INSERT INTO `guild_shops` VALUES (530,4370,163,590,255,48,100);       -- honey
+INSERT INTO `guild_shops` VALUES (530,4370,163,590,255,0,0);       -- honey
 INSERT INTO `guild_shops` VALUES (530,4371,252,743,55,0,0);        -- grilled_hare
 INSERT INTO `guild_shops` VALUES (530,4372,83,230,255,48,100);       -- g._sheep_meat
-INSERT INTO `guild_shops` VALUES (530,4376,90,288,255,48,100);       -- meat_jerky
+INSERT INTO `guild_shops` VALUES (530,4376,90,288,255,0,0);       -- meat_jerky
 INSERT INTO `guild_shops` VALUES (530,4378,60,60,255,48,100);       -- selbina_milk
 INSERT INTO `guild_shops` VALUES (530,4380,437,1091,165,0,0);      -- smoked_salmon
 INSERT INTO `guild_shops` VALUES (530,4381,1382,3600,165,0,0);     -- meat_mithkabob
-INSERT INTO `guild_shops` VALUES (530,4382,58,64,165,24,65);          -- frost_turnip
-INSERT INTO `guild_shops` VALUES (530,4383,3906,5760,165,24,65);      -- gold_lobster
+INSERT INTO `guild_shops` VALUES (530,4382,58,64,165,0,0);          -- frost_turnip
+INSERT INTO `guild_shops` VALUES (530,4383,3906,5760,165,0,0);      -- gold_lobster
 INSERT INTO `guild_shops` VALUES (530,4387,709,1934,255,0,0);      -- wild_onion
 INSERT INTO `guild_shops` VALUES (530,4389,23,23,255,48,100);        -- san_dor._carrot
 INSERT INTO `guild_shops` VALUES (530,4390,51,198,255,48,100);       -- mithran_tomato
 INSERT INTO `guild_shops` VALUES (530,4392,25,25,255,48,100);       -- saruta_orange
-INSERT INTO `guild_shops` VALUES (530,4394,9,55,255,48,100);          -- ginger_cookie
+INSERT INTO `guild_shops` VALUES (530,4394,9,55,255,0,0);          -- ginger_cookie
 INSERT INTO `guild_shops` VALUES (530,4398,2149,3256,165,0,0);     -- fish_mithkabob
-INSERT INTO `guild_shops` VALUES (530,4399,2592,2700,165,33,65);     -- bluetail
+INSERT INTO `guild_shops` VALUES (530,4399,2592,2700,165,0,0);     -- bluetail
 INSERT INTO `guild_shops` VALUES (530,4406,734,1988,165,0,0);      -- baked_apple
-INSERT INTO `guild_shops` VALUES (530,4408,105,250,165,33,65);       -- tortilla
-INSERT INTO `guild_shops` VALUES (530,4409,132,211,165,33,65);       -- hard-boiled_egg
+INSERT INTO `guild_shops` VALUES (530,4408,105,250,165,0,0);       -- tortilla
+INSERT INTO `guild_shops` VALUES (530,4409,132,211,165,9,0);       -- hard-boiled_egg
 INSERT INTO `guild_shops` VALUES (530,4410,626,1962,165,0,0);      -- roast_mushroom
 INSERT INTO `guild_shops` VALUES (530,4412,240,1261,165,33,65);      -- thundermelon
 INSERT INTO `guild_shops` VALUES (530,4413,240,1420,165,0,0);      -- apple_pie
 INSERT INTO `guild_shops` VALUES (530,4415,93,565,165,24,65);         -- roasted_corn
-INSERT INTO `guild_shops` VALUES (530,4416,2716,6944,165,24,65);      -- pea_soup
+INSERT INTO `guild_shops` VALUES (530,4416,2716,6944,165,0,0);      -- pea_soup
 INSERT INTO `guild_shops` VALUES (530,4417,2475,15972,165,0,0);     -- egg_soup
 INSERT INTO `guild_shops` VALUES (530,4419,12390,14000,165,0,0);    -- mushroom_soup
 INSERT INTO `guild_shops` VALUES (530,4420,13124,13230,165,0,0);    -- tomato_soup
@@ -834,21 +834,21 @@ INSERT INTO `guild_shops` VALUES (530,4425,240,1113,55,0,0);       -- tomato_jui
 INSERT INTO `guild_shops` VALUES (530,4431,72,376,255,48,100);       -- san_dor._grape
 INSERT INTO `guild_shops` VALUES (530,4432,50,261,255,48,100);        -- kazham_pineapl.
 INSERT INTO `guild_shops` VALUES (530,4435,3520,3968,165,0,0);      -- cockatrice_meat
-INSERT INTO `guild_shops` VALUES (530,4436,240,1113,165,24,65);       -- baked_popoto
+INSERT INTO `guild_shops` VALUES (530,4436,240,1113,165,0,0);       -- baked_popoto
 INSERT INTO `guild_shops` VALUES (530,4437,240,1113,55,0,0);       -- roast_mutton
 INSERT INTO `guild_shops` VALUES (530,4438,2750,7084,55,0,0);      -- dhalmel_steak
 INSERT INTO `guild_shops` VALUES (530,4441,753,3720,55,0,0);       -- grape_juice
 INSERT INTO `guild_shops` VALUES (530,4442,300,1504,55,0,0);       -- pineapple_juice
-INSERT INTO `guild_shops` VALUES (530,4444,18,45,165,33,65);         -- rarab_tail
-INSERT INTO `guild_shops` VALUES (530,4445,41,88,165,33,65);         -- yagudo_cherry
-INSERT INTO `guild_shops` VALUES (530,4455,968,984,165,33,65);       -- pebble_soup
+INSERT INTO `guild_shops` VALUES (530,4444,18,45,165,0,0);         -- rarab_tail
+INSERT INTO `guild_shops` VALUES (530,4445,41,88,165,0,0);         -- yagudo_cherry
+INSERT INTO `guild_shops` VALUES (530,4455,968,984,165,0,0);       -- pebble_soup
 INSERT INTO `guild_shops` VALUES (530,4456,2452,10620,165,0,0);    -- boiled_crab
 INSERT INTO `guild_shops` VALUES (530,4457,4800,13920,165,0,0);     -- eel_kabob
-INSERT INTO `guild_shops` VALUES (530,4468,60,208,165,33,65);        -- pamamas
+INSERT INTO `guild_shops` VALUES (530,4468,60,208,165,0,0);        -- pamamas
 INSERT INTO `guild_shops` VALUES (530,4482,1408,1984,255,0,0);     -- nosteau_herring
 INSERT INTO `guild_shops` VALUES (530,4490,955,2284,165,0,0);       -- pickled_herring
 INSERT INTO `guild_shops` VALUES (530,4491,150,696,165,33,65);       -- watermelon
-INSERT INTO `guild_shops` VALUES (530,4492,1182,2845,55,11,22);      -- puls
+INSERT INTO `guild_shops` VALUES (530,4492,1182,2845,55,0,0);      -- puls
 INSERT INTO `guild_shops` VALUES (530,4499,75,320,165,24,65);         -- iron_bread
 INSERT INTO `guild_shops` VALUES (530,4537,967,2600,165,0,0);      -- roast_carp
 INSERT INTO `guild_shops` VALUES (530,4538,1628,4232,165,0,0);     -- roast_pipira
@@ -857,7 +857,7 @@ INSERT INTO `guild_shops` VALUES (530,4560,2861,2861,55,0,0);      -- vegetable_
 INSERT INTO `guild_shops` VALUES (530,4563,6113,15360,15,0,0);       -- pamama_tart
 INSERT INTO `guild_shops` VALUES (530,4570,42,42,255,48,100);       -- bird_egg
 INSERT INTO `guild_shops` VALUES (530,4571,36,238,255,48,100);       -- beaugreens
-INSERT INTO `guild_shops` VALUES (530,4572,1360,7260,55,11,22);      -- beaugr._saute
+INSERT INTO `guild_shops` VALUES (530,4572,1360,7260,55,0,0);      -- beaugr._saute
 
 -- Doggomehr (Northern San d'Oria) Smithing Guild (S)
 INSERT INTO `guild_shops` VALUES (531,640,9,36,255,48,100);
