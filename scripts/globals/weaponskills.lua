@@ -796,6 +796,7 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     firsthit = firsthit / 100
     firsthit = utils.clamp(firsthit, 0.2, 0.99) 
     hitrate = utils.clamp(hitrate, 0.2, 0.99)
+		GetPlayerByID(6):PrintToPlayer(string.format("Hit rate: %u",hitrate))
 
     return hitrate, firsthit
 end
