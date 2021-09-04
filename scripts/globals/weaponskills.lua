@@ -448,7 +448,9 @@ end
 
     if wsID == 200 or wsID == 216  then -- What are these?
         calcParams.hitRate = calcParams.firsthitRate
-    else
+    elseif  if wsID == 196 or wsID == 212  then -- Sidewinder and Slugshot
+		calcParams.hitRate = calcParams.multihitRate / 2
+	else
         calcParams.hitRate = calcParams.multihitRate
     end
     --[[
