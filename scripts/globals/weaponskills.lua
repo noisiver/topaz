@@ -446,8 +446,8 @@ end
     calcParams.firsthitRate = firsthit
     calcParams.multihitRate = hitrate
 
-    if wsID == 200 or wsID == 216  then -- Namas Arrow and Coronach
-        calcParams.hitRate = calcParams.firsthitRate
+    if wsID == 196 or wsID == 212  then -- Slugwinder 
+        calcParams.hitRate = calcParams.hitrate
     else
         calcParams.hitRate = calcParams.firsthitRate
     end
