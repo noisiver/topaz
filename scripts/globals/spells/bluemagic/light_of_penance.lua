@@ -36,6 +36,10 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
+    local resist = applyResistance(caster, target, spell, params)
+    local duration = 12 * resist
+    local durationTwo = 30 * resist
+    local power = 100 * resist
     -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
     params.multiplier = multi
     params.tMultiplier = 1.0
@@ -48,27 +52,10 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
 
-    local resist = applyResistance(caster, target, spell, params)
-    local duration = 12 * resist
-    local durationTwo = 30 * resist
-    local power = 100 * resist
     local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (damage > 0 and resist >= 0.5) then
-        if (target:isFacing(caster)) then
-            if (target:hasStatusEffect(typeEffectTwo) and target:getTP() == 0) then
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-            elseif  (target:hasStatusEffect(typeEffectTwo)) then
-                target:delTP(power)
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-            else
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-                target:addStatusEffect(typeEffectTwo, 1, 0, durationTwo)
-                target:delTP(power)
-            end
-        end
-    end
+
 	
 	return damage
 end
