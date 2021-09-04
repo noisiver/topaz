@@ -784,6 +784,7 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     local hitdiff = 0
     local hitrate = 75
     local firsthit = 0
+	local slugwinder = 0
     
     if attacker:getMainLvl() > target:getMainLvl() then
         hitdiff = hitrate + math.floor((acc - eva) / 2) 
