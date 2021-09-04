@@ -447,7 +447,7 @@ end
     calcParams.multihitRate = hitrate
 
     if wsID == 196 or wsID == 212  then -- Slugwinder 
-        calcParams.hitRate = calcParams.hitrate
+        calcParams.hitRate = calcParams.multihitRate
     else
         calcParams.hitRate = calcParams.firsthitRate
     end
