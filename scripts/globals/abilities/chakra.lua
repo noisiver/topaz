@@ -28,6 +28,7 @@ function onUseAbility(player, target, ability)
     for k, v in pairs(ChakraStatusEffects) do
         if bit.band(chakraRemoval, v) == v then
             player:delStatusEffect(tpz.effect[k])
+			ability:setMsg(tpz.msg.basic.JA_REMOVE_EFFECT)
         end
     end
 
