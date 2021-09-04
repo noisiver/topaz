@@ -60,7 +60,6 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.WEIGHT
-        target:delStatusEffect(typeEffect)
         target:addStatusEffect(typeEffect, 50, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
