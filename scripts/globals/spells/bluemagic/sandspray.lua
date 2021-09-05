@@ -35,7 +35,7 @@ function onSpellCast(caster, target, spell)
 
     if (resist >= 0.5) then -- Do it!
         local typeEffect = tpz.effect.BLINDNESS
-        if (target:addStatusEffect(typeEffect, 25, 0, getBlueEffectDuration(caster, resist, typeEffect, false))) then
+        if (target:addStatusEffect(typeEffect, 30, 0, getBlueEffectDuration(caster, resist, typeEffect, false))) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
