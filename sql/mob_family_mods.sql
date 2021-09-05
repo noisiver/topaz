@@ -409,7 +409,7 @@ INSERT INTO `mob_family_mods` VALUES (59,@roam_turns,0,1);
 INSERT INTO `mob_family_mods` VALUES (59,@roam_rate,0,1);
 
 -- Moblin
-INSERT INTO `mob_family_mods` VALUES (59,@roam_distance,5,1);
+INSERT INTO `mob_family_mods` VALUES (184,@roam_distance,5,1);
 
 -- Leech
 INSERT INTO `mob_family_mods` VALUES (172,@roam_distance,15,1);
