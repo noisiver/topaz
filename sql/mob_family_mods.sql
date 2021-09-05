@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.13, for Win64 (x86_64)
+8-- MySQL dump 10.13  Distrib 5.6.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: tpzdb
 -- ------------------------------------------------------
@@ -820,9 +820,6 @@ INSERT INTO `mob_family_mods` VALUES (240,@roam_rate,30,1);
 INSERT INTO `mob_family_mods` VALUES (190,@roam_cool,50,1);
 INSERT INTO `mob_family_mods` VALUES (190,@roam_rate,30,1);
 
-INSERT INTO `mob_family_mods` VALUES (59,@roam_cool,50,1);
-INSERT INTO `mob_family_mods` VALUES (59,@roam_rate,30,1);
-INSERT INTO `mob_family_mods` VALUES (59,@roam_turns,2,1);
 
 INSERT INTO `mob_family_mods` VALUES (126,54,180,1);
 INSERT INTO `mob_family_mods` VALUES (127,54,180,1);
