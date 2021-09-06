@@ -44,7 +44,7 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistance(caster, target, spell, params)
     local HP = caster:getHP()
     local LVL = caster:getMainLvl()
-    local damage = (HP / 6) + (LVL / 1.875)
+    local damage = (HP / 4) + (LVL / 1.5)
 	-- add convergence bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
@@ -60,7 +60,6 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.WEIGHT
-        target:delStatusEffect(typeEffect)
         target:addStatusEffect(typeEffect, 50, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 

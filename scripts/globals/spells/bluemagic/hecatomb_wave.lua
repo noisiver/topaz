@@ -46,8 +46,7 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.3
     params.chr_wsc = 0.0
     local HP = caster:getHP()
-    local LVL = caster:getMainLvl()
-    local damage = (HP / 4) + (LVL / 1.5)
+    local damage = (HP / 2) 
 	local dragon = (target:getSystem() == 10)
 	
 	if dragon then
@@ -67,10 +66,10 @@ function onSpellCast(caster, target, spell)
 		end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (damage > 0 and resist > 0.125) then
+    if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.BLINDNESS
         target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, 5, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
+        target:addStatusEffect(typeEffect, 20, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
     return damage
