@@ -1534,7 +1534,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 196, 1, 255); -- Th
 INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 201, 1, 255); -- Waterga 3
 INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 204, 1, 255); -- Flare
 INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 206, 1, 255); -- Freeze
-INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 208, 1, 255); -- Tornad
+INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 208, 1, 255); -- Tornado
 INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 210, 1, 255); -- Quake
 INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 212, 1, 255); -- Burst
 INSERT INTO `mob_spell_lists` VALUES ('Rani_HP_50to75', 161, 214, 1, 255); -- Flood
@@ -4026,6 +4026,63 @@ INSERT INTO `mob_spell_lists` VALUES ('Gaki',1000,231,35,255);   -- Bio II
 
 
 -- Dynamis
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,273,1,255); -- Sleepga
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,356,1,255); -- paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500, 357, 1, 255); -- Slowga
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,359,1,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,146,24,255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,151,24,255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,156,24,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,161,24,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,166,24,255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,171,24,255); -- Water III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe', 500, 106, 1, 255); -- Phalanx
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,250,1,255); -- Ice spikes
+
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel', 501, 204, 1, 255); -- Flare
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel', 501, 206, 1, 255); -- Freeze
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel', 501, 208, 1, 255); -- Tornado
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel', 501, 210, 1, 255); -- Quake
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel', 501, 212, 1, 255); -- Burst
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel', 501, 214, 1, 255); -- Flood
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,356,1,255); -- paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,14,1,255);  -- Poisona
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,15,1,255);  -- Paralyna
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,16,1,255);  -- Blindna
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,19,1,255);  -- Viruna
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,20,1,255);  -- Cursna
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,422,59,255);         -- Carnage Elegy
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,397,63,255);           -- Valor Minuet IV
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,420,60,255);         -- Victory March
+
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,242,1,255); -- Absorb-acc
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,266,1,255); -- Absorb-str
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,267,1,255); -- Absorb-dex
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,268,1,255); -- Absorb-vit
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,269,1,255); -- Absorb-agi
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,270,1,255); -- Absorb-int
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,271,1,255); -- Absorb-mnd
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,272,1,255); -- Absorb-chr
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,146,24,255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,151,24,255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,156,24,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,161,24,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,166,24,255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,171,24,255); -- Water III
+
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,46,63,75); -- Protect IV
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,51,68,75); -- Shell IV
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,56,13,255); -- Slow
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard', 503, 58, 1, 255); -- Paralyze
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,59,15,255); -- Silence
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,40,90,255); -- banishga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,55,1,255); -- aquaveil
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,53,1,255); -- blink
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,54,1,255); -- stoneskin
+INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,57,1,255); -- haste
+
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,57,1,255); -- Haste
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,128,1,255); -- Protectra IV
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,133,1,255); -- Shellra IV

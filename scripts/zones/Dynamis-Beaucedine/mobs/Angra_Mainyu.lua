@@ -7,6 +7,13 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/dynamis")
 require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+     mob:addMod(tpz.mod.DEFP, 30) 
+     mob:addMod(tpz.mod.ATTP, 20)
+     mob:addMod(tpz.mod.ACC, 50) 
+     mob:addMod(tpz.mod.EVA, 30)
+     mob:setMod(tpz.mod.REFRESH, 300)
+end
 
 function onMobEngaged(mob, target)
     local mobId = mob:getID()
