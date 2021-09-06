@@ -1638,14 +1638,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Kindred',358,560);
 INSERT INTO `mob_skill_lists` VALUES ('Kindred',358,563);
 INSERT INTO `mob_skill_lists` VALUES ('Kindred',358,1148);
 INSERT INTO `mob_skill_lists` VALUES ('Kindred',358,1149);
-INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,246);
-INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,247);
-INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,248);
-INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,249);
-INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,250);
-INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,251);
-INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,252);
-INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,253);
+INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,246); -- shackled_fists (h2h only)
+INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,247); -- foxfire (1-handed weapons only)
+INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,248); -- grim_halo(2-handed weaponls only)
+INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,249); -- netherspikes
+INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,251); -- aegis_schism
+INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,252); -- dancing_chains
+INSERT INTO `mob_skill_lists` VALUES ('Fomor',359,253); -- barbed_crescent
 INSERT INTO `mob_skill_lists` VALUES ('YagudoNM',360,617);
 INSERT INTO `mob_skill_lists` VALUES ('YagudoNM',360,618);
 INSERT INTO `mob_skill_lists` VALUES ('YagudoNM',360,619);
@@ -3735,7 +3735,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Dahu',1161,802); -- Great_Sandstorm
 INSERT INTO `mob_skill_lists` VALUES ('Picolaton',1162,926); -- Stormwind Macan Gadangan
 
 
-
 -- Custom Content
 
 -- Murgleis
@@ -3763,6 +3762,56 @@ INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,45); -- Atonemen
 INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,405); -- Dire Whorl
 INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,2142); -- Mega Holy
 INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,3220); -- Infernal Bulwark
+
+-- Dynamis
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-H2H',3000,246); -- shackled_fists (h2h only)
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-H2H',3000,249); -- netherspikes
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-H2H',3000,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-H2H',3000,251); -- aegis_schism
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-H2H',3000,252); -- dancing_chains
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-H2H',3000,253); -- barbed_crescent
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-H2H',3000,255); -- dimensional_death
+
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,247); -- foxfire (1-handed weapons only)
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,249); -- netherspikes
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,251); -- aegis_schism
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,252); -- dancing_chains
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,253); -- barbed_crescent
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,255); -- dimensional_death
+
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,248); -- grim_halo(2-handed weaponls only)
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,249); -- netherspikes
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,251); -- aegis_schism
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,252); -- dancing_chains
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,253); -- barbed_crescent
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,255); -- dimensional_death
+
+-- COP
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-H2H',3500,246); -- shackled_fists (h2h only)
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-H2H',3500,249); -- netherspikes
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-H2H',3500,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-H2H',3500,251); -- aegis_schism
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-H2H',3500,252); -- dancing_chains
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-H2H',3500,253); -- barbed_crescent
+
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-1Hand',3501,247); -- foxfire (1-handed weapons only)
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-1Hand',3501,249); -- netherspikes
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-1Hand',3501,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-1Hand',3501,251); -- aegis_schism
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-1Hand',3501,252); -- dancing_chains
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-1Hand',3501,253); -- barbed_crescent
+
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-2Hand',3502,248); -- grim_halo(2-handed weaponls only)
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-2Hand',3502,249); -- netherspikes
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-2Hand',3502,250); -- carnal_nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-2Hand',3502,251); -- aegis_schism
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-2Hand',3502,252); -- dancing_chains
+INSERT INTO `mob_skill_lists` VALUES ('Fomor-2Hand',3502,253); -- barbed_crescent
+
+
+
 
 
 

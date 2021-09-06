@@ -8675,7 +8675,7 @@ INSERT INTO `mob_groups` VALUES (3,3167,134,'Poison_Pukis',0,128,0,10000,0,82,82
 INSERT INTO `mob_groups` VALUES (4,4351,134,'Wind_Pukis',0,128,0,10000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (5,3122,134,'Petro_Pukis',0,128,0,10000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (6,1774,134,'Goublefaupe',0,128,1211,30000,0,81,83,0); -- Attestation
-INSERT INTO `mob_groups` VALUES (7,3289,134,'Quiebitiel',0,128,2066,30000,0,81,83,0); -- Attestation
+INSERT INTO `mob_groups` VALUES (7,3289,134,'Quiebitiel',0,128,2066,15000,0,81,83,0); -- Attestation
 INSERT INTO `mob_groups` VALUES (8,2660,134,'Mildaunegeux',0,128,1672,30000,0,81,83,0); -- Attestation
 INSERT INTO `mob_groups` VALUES (9,4219,134,'Velosareon',0,128,2574,30000,0,81,83,0); -- Attestation
 INSERT INTO `mob_groups` VALUES (10,892,134,'Dagourmarche',0,128,559,30000,0,81,83,0); -- Attestation
@@ -8683,7 +8683,7 @@ INSERT INTO `mob_groups` VALUES (11,893,134,'Dagourmarches_Wyvern',0,128,0,0,0,7
 INSERT INTO `mob_groups` VALUES (12,1179,134,'Dagourmarches_Avatar',0,128,0,0,0,71,73,0);
 INSERT INTO `mob_groups` VALUES (13,6094,134,'Taquede',0,128,9041,40000,8000,84,85,0); -- Odious Talisman 
 INSERT INTO `mob_groups` VALUES (14,2169,134,'Taquedes_Wyvern',0,128,0,0,8000,74,75,0);
-INSERT INTO `mob_groups` VALUES (15,6065,134,'Pignonpausard',0,128,9042,40000,8000,84,85,0); --  Odious Bell
+INSERT INTO `mob_groups` VALUES (15,6065,134,'Pignonpausard',0,128,9042,20000,8000,84,85,0); --  Odious Bell
 INSERT INTO `mob_groups` VALUES (16,6066,134,'Hitaume',0,128,9043,8000,40000,84,85,0); -- Odious Tree Root 
 INSERT INTO `mob_groups` VALUES (17,6067,134,'Cavanneche',0,128,9044,40000,8000,84,85,0); -- Odious Mirror 
 INSERT INTO `mob_groups` VALUES (18,6093,134,'Arch_Angra_Mainyu',0,128,9045,50000,0,86,87,0); -- Uber Boss
