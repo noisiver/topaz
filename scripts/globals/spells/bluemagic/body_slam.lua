@@ -23,6 +23,13 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    params.diff = nil
+    params.attribute = tpz.mod.INT
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 0
+    params.effect = tpz.effect.ATTACK_DOWN
+    local resist = applyResistance(caster, target, spell, params)
+    local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_ATTACK
     params.attackType = tpz.attackType.PHYSICAL
@@ -44,6 +51,20 @@ function onSpellCast(caster, target, spell)
     params.AttkTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+    
+	if (damage > 0 and resist >= 0.5) then
+		if (target:hasStatusEffect(tpz.effect.ATTACK_DOWN)) then
+			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
+		else
+			target:addStatusEffect(tpz.effect.ATTACK_DOWN, 25, 0, 20)
+		end
+	end
+	
+    if (damage > 0 and resist >= 0.5) then
+		local typeEffect = tpz.effect.SLOW
+		local power = 1500
+        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
+    end
 
     return damage
 end
