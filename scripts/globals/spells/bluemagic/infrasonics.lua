@@ -37,9 +37,7 @@ function onSpellCast(caster, target, spell)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+
 
     return params.effect
 end
