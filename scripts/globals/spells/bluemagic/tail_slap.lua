@@ -27,7 +27,7 @@ function onSpellCast(caster, target, spell)
     params.diff = nil
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
+    params.bonus = 150
     params.effect = tpz.effect.STUN
     local resist = applyResistanceEffect(caster, target, spell, params)
     local params = {}
@@ -53,8 +53,9 @@ function onSpellCast(caster, target, spell)
     local damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (resist >= 0.5) then -- This line may need adjusting for retail accuracy.
-        target:addStatusEffect(tpz.effect.STUN, 1, 0, 5 * resist) -- pre-resist duration needs confirmed/adjusted
+    if (damage > 0 and resist >= 0.25) then
+        local typeEffect = tpz.effect.STUN
+        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
     return damage
