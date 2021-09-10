@@ -48,7 +48,7 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     params.AccTPModifier = true
-	params.AttkPenalty = true
+	params.attkbonus = 0.9
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
     

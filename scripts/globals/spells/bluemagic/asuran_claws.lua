@@ -42,7 +42,6 @@ function onSpellCast(caster, target, spell)
         params.mnd_wsc = 0.0
         params.chr_wsc = 0.0
         params.AccTPModifier = true
-		params.AttkPenalty = true
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)
