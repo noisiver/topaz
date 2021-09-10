@@ -10,7 +10,13 @@ require("scripts/globals/monstertpmoves")
 --  slight knockback, whereas triple gears produce a very strong knockback.
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+	if(mob:getFamily() == 120) then
+		if (mob:AnimationSub() == 2) then --Needs to be tested
+			return 0
+		else
+			return 1
+		end
+	end
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -18,7 +24,8 @@ function onMobWeaponSkill(target, mob, skill)
     local accmod = 1
     local dmgmod = 1.2
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, MOBSKILL_PHYSICAL, MOBPARAM_BLUNT, MOBPARAM_WIPE_SHADOWS)
-    target:delHP(dmg)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_WIPE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

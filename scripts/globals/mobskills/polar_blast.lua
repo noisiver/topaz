@@ -31,10 +31,10 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    local dmgmod = MobBreathMove(mob, target, 0.01, 0.1, tpz.magic.ele.ICE, 700)
+    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.ICE, 700)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.ICE, MOBPARAM_IGNORE_SHADOWS)
 
-    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 15, 0, 60)
+    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 25, 0, 60)
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.ICE)
 

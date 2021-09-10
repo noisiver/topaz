@@ -22,6 +22,6 @@ function onMobWeaponSkill(target, mob, skill)
     local duration = 300
     local typeEffect = tpz.effect.PROTECT
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))
+    skill:setMsg(MobBuffMove(target, typeEffect, power, 0, duration))
     return typeEffect
 end

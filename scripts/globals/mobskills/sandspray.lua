@@ -18,8 +18,8 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
-    local power = 50 -- changed from 25
-    local duration = 90
+    local power = 100 -- https://www.bg-wiki.com/ffxi/Category:Qiqirn
+    local duration = 120
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, duration))
 

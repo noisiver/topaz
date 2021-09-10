@@ -14,12 +14,18 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 20, 0, 180)
 
-    local dmgmod = 1
+    local numhits = 1
     local accmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.THUNDER, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.THUNDER, MOBPARAM_WIPE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.THUNDER)
+    local dmgmod = 2.5
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_WIPE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
+
+    local typeEffect = tpz.effect.PARALYSIS
+
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 20)
+
     return dmg
 end

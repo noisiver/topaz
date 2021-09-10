@@ -17,9 +17,11 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local message = tpz.msg.basic.SKILL_MISS
     local typeEffect = tpz.effect.PARALYSIS
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 60))
+    skill:setMsg(MobGazeMove(mob, target, typeEffect, 50, 0, 120))
 
     return typeEffect
+
 end
