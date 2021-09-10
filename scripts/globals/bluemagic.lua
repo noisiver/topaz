@@ -8,7 +8,6 @@ TPMOD_DAMAGE = 2
 TPMOD_ACC = 3
 TPMOD_ATTACK = 4
 TPMOD_DURATION = 5
- local AccTPBonus = 0
 
 -- The SC the spell makes
 SC_IMPACTION = 0
@@ -138,16 +137,11 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
-		if params.AttkTPModifier == true then -- Check if spell is "Attack varies with TP"
+		if params.AttkTPModifier == true then
 			AttkTPModifier =  getAttkTPModifier(caster:getTP())
 		end
-		if params.CritTPModifier == true then -- Check if spell is "Chance of critical strike varies with TP"
+		if params.CritTPModifier == true then
 			CritTPBonus = getCritTPModifier(caster:getTP()) 
-		end
-	end
-    if chainAffinity ~= nil then
-		if params.AccTPModifier == true then -- Check if spell is "Acc Varies with TP"
-			AccTPBonus = getAccTPModifier(caster:getTP()) 
 		end
 	end
 
@@ -165,7 +159,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl()) 
-    local hitrate = BlueGetHitRate(caster, target, true)
+    local hitrate = BlueGetHitRate(caster, target, true, params)
     -- print("Hit rate "..hitrate)
     -- print("pdifmin "..cratio[1].." pdifmax "..cratio[2])
 
@@ -472,7 +466,14 @@ function BluefSTR(dSTR)
     return fSTR2
 end
 
-function BlueGetHitRate(attacker, target, capHitRate)
+function BlueGetHitRate(attacker, target, capHitRate, params)
+    local AccTPBonus = 0
+	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
+    if chainAffinity ~= nil then
+		if params.AccTPModifier == true then
+			AccTPBonus = getAccTPModifier(caster:getTP()) 
+		end
+	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
     local eva = target:getEVA()
 
