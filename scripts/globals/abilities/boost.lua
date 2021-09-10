@@ -21,6 +21,7 @@ function onUseAbility(player, target, ability)
         effect:setPower(effect:getPower() + power)
         player:addMod(tpz.mod.ATTP, power)
 		boost = boost + 1
+		player:setCharVar("boost", boost)
     else
         player:addStatusEffect(tpz.effect.BOOST, power, 0, 180)
 		player:setCharVar("boost", 1)
