@@ -14,12 +14,15 @@ end
 
 function onUseAbility(player, target, ability)
     local boost = player:getStatusEffect(tpz.effect.BOOST)
-    local multiplier = player:getCharVar("boost")
+    local multiplier = player:getCharVar("boost") -- Get boost variable from abilities/boost.lua
+	if multiplier == 0 then -- If buff isn't active, don't multiply by zero!
+		multiplier = 1
+	end
     if boost ~= nil then
-        multiplier = multiplier * ( (boost:getPower()/100) * 4) + 1  -- power is the raw % atk boost
+        multiplier = multiplier * ( (boost:getPower()/100) * 4) + 1  -- power is the raw % atk boost. Get boost damage bonus
     end
 
-    local dmg = math.floor(player:getStat(tpz.mod.MND) * (math.random(0.5,1)) * multiplier)
+    local dmg = math.floor(player:getStat(tpz.mod.MND) * (math.random(0.5,1)) * multiplier) -- Formula from BG wiki
     
     local penance = player:getMerit(tpz.merit.PENANCE)
     
