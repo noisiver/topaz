@@ -114,6 +114,9 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (params.AttkTPModifier == nil) then
 		params.AttkTPModifier = false
 	end
+    if (params.AttkPenalty == nil) then
+		params.AttkPenalty = false
+	end
     if (params.atk300 == nil) then
 		params.atk300 = 1.0
 	end
@@ -132,28 +135,35 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 		
 	local AttkTPBonus =  1
 	local AttkTPModifier = 1
+	local AttkPenalty = 1
 	local CritTPBonus =  0
 	local SpellCrit = 0
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
-    if chainAffinity ~= nil then
+	
+	if params.AttkPenalty == true then -- Check if spell has attack penalty
+		AttkPenalty = 0.9 -- Apply -10% attack end multiplier
+	end
+    
+	if chainAffinity ~= nil then -- Check for "Attack varies with TP"
 		if params.AttkTPModifier == true then
 			AttkTPModifier =  getAttkTPModifier(caster:getTP())
 		end
-		if params.CritTPModifier == true then
+		
+		if params.CritTPModifier == true then -- Check for "Chance of critical hit varies with TP"
 			CritTPBonus = getCritTPModifier(caster:getTP()) 
 		end
 	end
 
-    if CritTPBonus > 1 then
-        if math.random(100) < CritTPBonus then
-            SpellCrit = 1
+    if CritTPBonus > 1 then -- If crit TP bonus is high enough to be at least 1% then...
+        if math.random(100) < CritTPBonus then -- Roll for crit chance
+            SpellCrit = 1 -- It crit!
         end
 	else
-		SpellCrit = 0
+		SpellCrit = 0 -- It didn't crit
     end
 
-	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2))) * (params.attkbonus + AttkTPModifier)) 
+	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) / 2))) * (params.attkbonus + AttkTPModifier) * AttkPenalty) 
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
