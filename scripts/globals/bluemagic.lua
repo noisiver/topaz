@@ -8,6 +8,7 @@ TPMOD_DAMAGE = 2
 TPMOD_ACC = 3
 TPMOD_ATTACK = 4
 TPMOD_DURATION = 5
+ local AccTPBonus = 0
 
 -- The SC the spell makes
 SC_IMPACTION = 0
@@ -137,11 +138,16 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
-		if params.AttkTPModifier == true then
+		if params.AttkTPModifier == true then -- Check if spell is "Attack varies with TP"
 			AttkTPModifier =  getAttkTPModifier(caster:getTP())
 		end
-		if params.CritTPModifier == true then
+		if params.CritTPModifier == true then -- Check if spell is "Chance of critical strike varies with TP"
 			CritTPBonus = getCritTPModifier(caster:getTP()) 
+		end
+	end
+    if chainAffinity ~= nil then
+		if params.AccTPModifier == true then -- Check if spell is "Acc Varies with TP"
+			AccTPBonus = getAccTPModifier(caster:getTP()) 
 		end
 	end
 
@@ -467,13 +473,6 @@ function BluefSTR(dSTR)
 end
 
 function BlueGetHitRate(attacker, target, capHitRate)
-    local AccTPBonus = 0
-	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
-    if chainAffinity ~= nil then
-		if params.AccTPModifier == true then
-			AccTPBonus = getAccTPModifier(caster:getTP()) 
-		end
-	end
     local acc = attacker:getACC() + 35 + AccTPBonus 
     local eva = target:getEVA()
 
