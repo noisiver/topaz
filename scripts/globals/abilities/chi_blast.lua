@@ -14,7 +14,7 @@ end
 
 function onUseAbility(player, target, ability)
     local boost = player:getStatusEffect(tpz.effect.BOOST)
-    local multiplier = player:getLocalVar("boost")
+    local multiplier = player:getCharVar("boost")
     if boost ~= nil then
         multiplier = multiplier * ( (boost:getPower()/100) * 4) + 1  -- power is the raw % atk boost
     end
@@ -33,7 +33,7 @@ function onUseAbility(player, target, ability)
     target:updateEnmityFromDamage(player, dmg)
     target:updateClaim(player)
     player:delStatusEffect(tpz.effect.BOOST)
-	player:setLocalVar("boost", 0)
+	player:setCharVar("boost", 0)
 
     return dmg
 end
