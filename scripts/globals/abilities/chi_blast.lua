@@ -19,7 +19,7 @@ function onUseAbility(player, target, ability)
         multiplier = multiplier * ( (boost:getPower()/100) * 4) + 1  -- power is the raw % atk boost
     end
 
-    local dmg = math.floor(player:getStat(tpz.mod.MND) * (math.random(0.5,1)) * multiplier
+    local dmg = math.floor(player:getStat(tpz.mod.MND) * (math.random(0.5,1)) * multiplier)
     
     local penance = player:getMerit(tpz.merit.PENANCE)
     
