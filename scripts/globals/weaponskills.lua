@@ -29,9 +29,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     and not calcParams.mustMiss then
         if not shadowAbsorb(target) then
             critChance = math.random(100) -- See if we land a critical hit
-			GetPlayerByID(6):PrintToPlayer(string.format("Crit chance: %u",critChance))
             criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
-			GetPlayerByID(6):PrintToPlayer(string.format("Crit param: %u",calcParams.critRate))
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
             if criticalHit then
                 calcParams.criticalHit = true
@@ -142,7 +140,6 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
                 critrate = critrate + (10 + calcParams.flourishEffect:getSubPower()/2)/100
             end
         end
-
         -- Add on native crit hit rate (guesstimated, it actually follows an exponential curve)
         nativecrit = (attacker:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.AGI))*0.005 -- assumes +0.5% crit rate per 1 dDEX
         if (nativecrit > 0.2) then -- caps only apply to base rate, not merits and mods
@@ -163,7 +160,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         critrate = critrate + nativecrit
     end
     calcParams.critRate = critrate
-
+			GetPlayerByID(6):PrintToPlayer(string.format("Crit Rate: %u",critrate))
     -- Start the WS
     local hitdmg = 0
     local finaldmg = 0
