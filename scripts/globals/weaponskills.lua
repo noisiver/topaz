@@ -28,7 +28,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     or (calcParams.melee and math.random() < attacker:getMod(tpz.mod.ZANSHIN)/100))
     and not calcParams.mustMiss then
         if not shadowAbsorb(target) then
-            critChance = math.random(100) -- See if we land a critical hit
+            critChance = math.random() -- See if we land a critical hit
 			GetPlayerByID(6):PrintToPlayer(string.format("Crit chance: %u",critChance))
             criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
