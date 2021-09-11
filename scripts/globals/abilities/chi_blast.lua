@@ -22,7 +22,7 @@ function onUseAbility(player, target, ability)
         multiplier = multiplier * ( (boost:getPower()/100) * 4 + 1)  -- power is the raw % atk boost. Get boost damage bonus
     end
 
-    local dmg = math.floor(player:getStat(tpz.mod.MND) * 0.7)  * multiplier -- Formula from BG wiki
+	local dmg = math.floor((player:getStat(tpz.mod.MND) * (0.5 + (math.random() / 2))) * multiplier) / 3 -- Formula from BG wiki
     
     local penance = player:getMerit(tpz.merit.PENANCE)
     
