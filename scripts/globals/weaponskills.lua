@@ -28,12 +28,12 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     or (calcParams.melee and math.random() < attacker:getMod(tpz.mod.ZANSHIN)/100))
     and not calcParams.mustMiss then
         if not shadowAbsorb(target) then
-            critChance = math.random(100) -- See if we land a critical hit
+            critChance = math.random() -- See if we land a critical hit
             criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
             if criticalHit then
                 calcParams.criticalHit = true
-                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true)
+                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + (attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100)
             elseif forcedCrit then
                 calcParams.criticalHit = true
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + (attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100)
@@ -140,6 +140,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
                 critrate = critrate + (10 + calcParams.flourishEffect:getSubPower()/2)/100
             end
         end
+
         -- Add on native crit hit rate (guesstimated, it actually follows an exponential curve)
         nativecrit = (attacker:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.AGI))*0.005 -- assumes +0.5% crit rate per 1 dDEX
         if (nativecrit > 0.2) then -- caps only apply to base rate, not merits and mods
@@ -160,7 +161,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         critrate = critrate + nativecrit
     end
     calcParams.critRate = critrate
-			GetPlayerByID(6):PrintToPlayer(string.format("Crit Rate: %u",critrate))
+	GetPlayerByID(6):PrintToPlayer(string.format("Crit Rate: %i",critrate))
     -- Start the WS
     local hitdmg = 0
     local finaldmg = 0
