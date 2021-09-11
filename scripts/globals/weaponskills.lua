@@ -29,7 +29,9 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     and not calcParams.mustMiss then
         if not shadowAbsorb(target) then
             critChance = math.random() -- See if we land a critical hit
+			GetPlayerByID(6):PrintToPlayer(string.format("Crit chance: %u",critChance))
             criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
+			GetPlayerByID(6):PrintToPlayer(string.format("Crit hit?: %u",criticalHit))
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
             if criticalHit then
                 calcParams.criticalHit = true
