@@ -161,7 +161,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         critrate = critrate + nativecrit
     end
     calcParams.critRate = critrate
-	GetPlayerByID(6):PrintToPlayer(string.format("Crit Rate: %i",critrate))
+
     -- Start the WS
     local hitdmg = 0
     local finaldmg = 0
