@@ -19,7 +19,7 @@ function onUseAbility(player, target, ability)
 		multiplier = 1
 	end
     if boost ~= nil then
-        multiplier = multiplier * ( (boost:getPower()/100) * 4) + 1  -- power is the raw % atk boost. Get boost damage bonus
+        multiplier = multiplier * ( (boost:getPower()/100) * 4 + 1)  -- power is the raw % atk boost. Get boost damage bonus
     end
 
     local dmg = math.floor(player:getStat(tpz.mod.MND) * (0.5 + (math.random() / 2))) * multiplier -- Formula from BG wiki
