@@ -4030,7 +4030,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,273,1,255); -- Sleepga
 INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,356,1,255); -- paralyga
 INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,362,1,255); -- bindga
 INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500, 357, 1, 255); -- Slowga
-INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,361,1,255); -- Blindga
 INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,359,1,255); -- silencega
 INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,146,24,255); -- Fire III
 INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',500,151,24,255); -- Blizzard III
