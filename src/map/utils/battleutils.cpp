@@ -563,8 +563,25 @@ namespace battleutils
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
+
+            int16 ramSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            if (ramSS)
+            {
+                if (damage >= ramSS)
+                {
+                    PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
+                    damage = damage - ramSS;
+                }
+                else
+                {
+                    PDefender->setModifier(Mod::RAMPART_STONESKIN, ramSS - damage);
+                    damage = 0;
+                }
+            }
+
             damage = HandleStoneskin(PDefender, damage);
         }
+
         damage = std::clamp(damage, -99999, 99999);
 
         return damage;

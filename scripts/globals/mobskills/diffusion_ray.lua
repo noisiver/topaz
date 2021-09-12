@@ -12,9 +12,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = MobBreathMove(mob, target, 0.2, 0.65, tpz.magic.ele.LIGHT, 500)
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.damageType.BREATH, tpz.attackType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.LIGHT)
-
+    local dmgmod = 1.5
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.LIGHT, dmgmod, TP_NO_EFFECT, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_WIPE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
+	target:dispelStatusEffect()
     return dmg
 end

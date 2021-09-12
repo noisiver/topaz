@@ -14,31 +14,32 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+        return 0
+    end
+    return 1
 end
 
+
 function onMobWeaponSkill(target, mob, skill)
+	local message = tpz.msg.basic.SKILL_MISS
+    local typeEffect = tpz.effect.CHARM_I
+    local power = 0
 
-    --[[
-    power = 1
-    tic = 0
-    duration = 60
-
-    isEnfeeble = true
-    typeEffect = tpz.effect.NAME
-    statmod = tpz.mod.INT
-
-    resist = applyPlayerResistance(mob, typeEffect, target, isEnfeeble, typeEffect, statmod)
-    if (resist > 0.2) then
-        if (target:getStatusEffect(typeEffect) == nil) then
-            skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
-            target:addStatusEffect(typeEffect, power, tic, duration)
-        else
-            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-        end
-    else
+    if (not target:isPC()) then
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
+        return typeEffect
     end
+
+    local msg = MobGazeMove(mob, target, typeEffect, power, 3, 150)
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+    else
+	    if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
+        mob:charm(target)
+    end
+         skill:setMsg(msg)
+    end
+
     return typeEffect
-    ]]
 end

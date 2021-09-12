@@ -20,7 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     else
-		MobStatusEffectMove(mob, target, typeEffect, 1, 0, 20)
+		MobPhysicalStatusEffectMove(mob, target, typeEffect, 1, 0, 20)
     end
 
     local numhits = 1

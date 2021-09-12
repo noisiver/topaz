@@ -16,6 +16,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    skill:setMsg(MobBuffMove(mob, tpz.effect.MAGIC_SHIELD, 3, 0, 300))
-    return tpz.effect.MAGIC_SHIELD
+    local power = 1000 
+    skill:setMsg(MobBuffMove(mob, tpz.effect.RAMPART_STONESKIN, power, 0, 300))
+    return tpz.effect.RAMPART_STONESKIN
 end

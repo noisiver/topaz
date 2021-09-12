@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Vorticose Sands
 --
---  Description: Deals severe Wind damage to enemies within an area of effect. Additional effect: Silence
+--  Description: Deals severe Wind damage to enemies within an area of effect. Additional effect: Silence and equipment strip.
 --  Type:  Magical
 --
 --  Notes: Long charge up time, easily stunnable.
@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     for i = tpz.slot.MAIN, tpz.slot.BACK do
         target:unequipItem(i)
     end
-
+    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0xFFFF, 0, 60)
     local dmgmod = 2
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*6, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_WIPE_SHADOWS)

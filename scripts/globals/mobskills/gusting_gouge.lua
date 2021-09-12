@@ -1,8 +1,8 @@
 ---------------------------------------------
 --  Gusting Gouge
 --  Description: Deals Wind damage in a threefold attack to targets in a fan-shaped area of effect.
---  Type: Physical?
---  Utsusemi/Blink absorb: 2-3 shadows
+--  Type: Magic
+--  Utsusemi/Blink absorb: Ignores Shadows
 --  Notes: Used only by Lamia equipped with a one-handed weapon. If they lost their weapon, they'll use Hysteric Barrage instead.
 ---------------------------------------------
 require("scripts/globals/status")
@@ -18,11 +18,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 3
-    local accmod = 1
-    local dmgmod = 0.5
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCE, info.hitslanded)
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+    local dmgmod = 1.5
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
     return dmg
 end

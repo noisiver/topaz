@@ -33,7 +33,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
             if criticalHit then
                 calcParams.criticalHit = true
-                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true)
+                calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + (attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100)
             elseif forcedCrit then
                 calcParams.criticalHit = true
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + (attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100)

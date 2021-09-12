@@ -17,9 +17,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.BLINDNESS
+    local typeEffect = tpz.effect.FLASH
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 20, 0, 120))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 300, 0, 120))
 
     return typeEffect
 end

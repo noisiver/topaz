@@ -12,14 +12,15 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 1
-    local accmod = 1
-    local dmgmod = 1.5
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
+    local typeEffect = tpz.effect.BURN
+    local power = 15
 
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.CHARM_I, 0, 0, 60)
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+    MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
+   	if target:hasStatusEffect(tpz.effect.FEALTY) then
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+    else
+		skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.CHARM, 1, 0, 60))
+    end
 
-    return dmg
+	return tpz.effect.CHARM
 end

@@ -37,10 +37,10 @@ function onSpellCast(caster, target, spell)
 	elseif amorph then
 		params.bonus = -25
 	end
-    local duration = 5 * resist
+    local duration = 15 * resist
 	
 	if target:isNM() then
-		duration = 0
+		duration = duration / 2
 	end
 
     if (resist >= 0.5) then -- Do it!

@@ -46,11 +46,13 @@ function onSpellCast(caster, target, spell)
 
     local resist = applyResistance(caster, target, spell, params)
     local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-	
-	if target:isNM() then
-		damage = 0
-	else
-		damage = 1000
+
+	if resist = 1 then
+		if target:isNM() then
+			damage = 500
+		else
+			damage = 1000
+		end
 	end
 	-- add convergence bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then

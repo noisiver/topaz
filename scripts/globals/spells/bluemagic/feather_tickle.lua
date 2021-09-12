@@ -30,6 +30,10 @@ function onSpellCast(caster, target, spell)
 	local cap = target:getTP() * 0.4
     local dmg = 1200 * resist
 
+    if resist < 0.5 then
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+        dmg = 0
+    else
 	    if ((target:getTP()) < dmg) then
             dmg = target:getTP()
         end
@@ -38,12 +42,13 @@ function onSpellCast(caster, target, spell)
             dmg = cap
         end
 
-    if (target:getTP() == 0) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-    else
-        target:delTP(dmg)
-        spell:setMsg(tpz.msg.basic.MAGIC_TP_REDUCE)
+		if (target:getTP() == 0) then
+			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+		else
+			target:delTP(dmg)
+			spell:setMsg(tpz.msg.basic.MAGIC_TP_REDUCE)
     end
+end
 
     return tp
 end

@@ -18,7 +18,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
 
     MobBuffMove(mob, tpz.effect.MAGIC_DEF_BOOST, 30, 0, 90)
-    skill:setMsg(MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, 30, 0, 90))
+    skill:setMsg(MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, 100, 0, 90))
 
     return tpz.effect.DEFENSE_BOOST
 end

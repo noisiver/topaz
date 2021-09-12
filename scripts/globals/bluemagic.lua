@@ -137,10 +137,10 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
-		if params.AttkTPModifier == true then
-			AttkTPModifier =  getAttkTPModifier(caster:getTP())
+		if params.AttkTPModifier == true then --Check if "Attack varies with TP"
+			AttkTPModifier =  getAttkTPModifier(caster:getTP()) 
 		end
-		if params.CritTPModifier == true then
+		if params.CritTPModifier == true then --Check if "Chance of critical strike varies with TP"
 			CritTPBonus = getCritTPModifier(caster:getTP()) 
 		end
 	end
@@ -159,7 +159,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl()) 
-    local hitrate = BlueGetHitRate(caster, target, true)
+    local hitrate = BlueGetHitRate(caster, target, true, params)
     -- print("Hit rate "..hitrate)
     -- print("pdifmin "..cratio[1].." pdifmax "..cratio[2])
 
@@ -466,11 +466,11 @@ function BluefSTR(dSTR)
     return fSTR2
 end
 
-function BlueGetHitRate(attacker, target, capHitRate)
+function BlueGetHitRate(attacker, target, capHitRate, params)
     local AccTPBonus = 0
 	tp = attacker:getTP() + attacker:getMerit(tpz.merit.ENCHAINMENT)
     if chainAffinity ~= nil then
-		if params.AccTPModifier == true then
+		if params.AccTPModifier == true then --Check if "Accuracy varies with TP"
 			AccTPBonus = getAccTPModifier(caster:getTP()) 
 		end
 	end

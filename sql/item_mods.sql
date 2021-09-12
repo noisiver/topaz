@@ -21543,23 +21543,27 @@ INSERT INTO `item_mods` VALUES (17731,5,15);
 INSERT INTO `item_mods` VALUES (17731,228,2);
 INSERT INTO `item_mods` VALUES (17732,5,20);
 INSERT INTO `item_mods` VALUES (17732,228,2);
-INSERT INTO `item_mods` VALUES (17733,5,15);
+INSERT INTO `item_mods` VALUES (17733,5,15); -- Dragon Slayer
 INSERT INTO `item_mods` VALUES (17733,9,2);
 INSERT INTO `item_mods` VALUES (17733,10,2);
-INSERT INTO `item_mods` VALUES (17733,233,2);
-INSERT INTO `item_mods` VALUES (17734,5,20);
+INSERT INTO `item_mods` VALUES (17733,233,5); -- Dragon Killer
+INSERT INTO `item_mods` VALUES (17733,1233,5); -- Dragon Killer +5% Dmg
+INSERT INTO `item_mods` VALUES (17734,5,20); -- Wyrm Slayer
 INSERT INTO `item_mods` VALUES (17734,9,3);
 INSERT INTO `item_mods` VALUES (17734,10,3);
-INSERT INTO `item_mods` VALUES (17734,233,2);
-INSERT INTO `item_mods` VALUES (17735,5,15);
+INSERT INTO `item_mods` VALUES (17734,233,8); -- Dragon Killer
+INSERT INTO `item_mods` VALUES (17734,1233,8); -- Dragon Killer +8% Dmg
+INSERT INTO `item_mods` VALUES (17735,5,15); -- Demon Slayer
 INSERT INTO `item_mods` VALUES (17735,9,2);
 INSERT INTO `item_mods` VALUES (17735,10,2);
-INSERT INTO `item_mods` VALUES (17735,234,2);
-INSERT INTO `item_mods` VALUES (17736,5,20);
+INSERT INTO `item_mods` VALUES (17735,234,5); -- Demon Killer
+INSERT INTO `item_mods` VALUES (17735,1234,5); -- Demon Killer +5% Dmg
+INSERT INTO `item_mods` VALUES (17736,5,20); -- Devil Slayer
 INSERT INTO `item_mods` VALUES (17736,9,3);
 INSERT INTO `item_mods` VALUES (17736,10,3);
-INSERT INTO `item_mods` VALUES (17736,234,2);
-INSERT INTO `item_mods` VALUES (17738,25,7);
+INSERT INTO `item_mods` VALUES (17736,234,8); -- Demon Killer
+INSERT INTO `item_mods` VALUES (17736,1234,8); -- Demon Killer +8% dmg
+INSERT INTO `item_mods` VALUES (17738,25,7); -- Hauteclaire
 INSERT INTO `item_mods` VALUES (17738,111,8);
 INSERT INTO `item_mods` VALUES (17738,161,-7);
 INSERT INTO `item_mods` VALUES (17739,5,10);
@@ -21580,10 +21584,11 @@ INSERT INTO `item_mods` VALUES (17753,23,10);
 INSERT INTO `item_mods` VALUES (17753,165,3);
 INSERT INTO `item_mods` VALUES (17754,56,10);
 INSERT INTO `item_mods` VALUES (17754,57,-10);
-INSERT INTO `item_mods` VALUES (17755,5,20);
+INSERT INTO `item_mods` VALUES (17755,5,20); -- Beast Slayer
 INSERT INTO `item_mods` VALUES (17755,9,3);
 INSERT INTO `item_mods` VALUES (17755,10,3);
-INSERT INTO `item_mods` VALUES (17755,230,5);
+INSERT INTO `item_mods` VALUES (17755,230,5); -- Beast Killer
+INSERT INTO `item_mods` VALUES (17755,1230,5); -- Beast Killer Circle +5%
 INSERT INTO `item_mods` VALUES (17756,109,5);
 INSERT INTO `item_mods` VALUES (17757,28,2);
 INSERT INTO `item_mods` VALUES (17758,240,2);

@@ -13,14 +13,20 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+        return 0
+    end
+    return 1
 end
+
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 25
     local duration = 180
 
     local typeEffect = tpz.effect.REGEN
+	local effect = mob:getStatusEffect(typeEffect)
+	effect:unsetFlag(tpz.effectFlag.DISPELABLE)
 
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 3, duration))
     return typeEffect

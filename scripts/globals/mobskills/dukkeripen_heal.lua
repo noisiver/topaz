@@ -20,5 +20,5 @@ function onMobWeaponSkill(target, mob, skill)
 
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
-    return MobHealMove(mob, math.random(350, 500))
+    return MobHealMove(mob, math.random(500, 700))
 end
