@@ -15,9 +15,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 	local SSpower = 1000
-    local power = 0 
+    --local power = 0 
 	target:setMod(tpz.mod.RAMPART_STONESKIN, SSpower)
-    skill:setMsg(MobBuffMove(mob, tpz.effect.MAGIC_SHIELD, power, 0, 300))
+    --skill:setMsg(MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, power, 0, 300))
 
     return tpz.effect.MAGIC_SHIELD
 end
