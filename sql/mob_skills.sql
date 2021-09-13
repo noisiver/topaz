@@ -3520,7 +3520,7 @@ INSERT INTO `mob_skills` VALUES (3688,279,'stalking_prey',0,7.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (3689,344,'shuffle',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3690,345,'double_down',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3691,427,'bludgeon',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3692,428,'deal_out',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3692,428,'deal_out',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3693,396,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3694,397,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3695,398,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
