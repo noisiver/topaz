@@ -12,10 +12,10 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    if (target:hasStatusEffect(tpz.effect.SILENCE) or target:hasStatusEffect(tpz.effect.BLINDNESS) or target:hasStatusEffect(tpz.effect.POISON) or target:hasStatusEffect(tpz.effect.PARALYSIS) or target:hasStatusEffect(tpz.effect.PLAGUE)) then
+    if (target:hasStatusEffect(tpz.effect.SILENCE) or target:hasStatusEffect(tpz.effect.BLINDNESS) or target:hasStatusEffect(tpz.effect.POISON) or target:hasStatusEffect(tpz.effect.PARALYSIS)) then
         local effectRemoved = 0
         while effectRemoved == 0 do
-            num = math.random(1, 5)
+            num = math.random(1, 4)
             if (num == 1 and target:hasStatusEffect(tpz.effect.SILENCE)) then
                 effectRemoved = effectRemoved + 1
                 target:delStatusEffect(tpz.effect.SILENCE)
@@ -31,10 +31,6 @@ function onItemUse(target)
             elseif (num == 4 and target:hasStatusEffect(tpz.effect.PARALYSIS)) then
                 effectRemoved = effectRemoved + 1
                 target:delStatusEffect(tpz.effect.PARALYSIS)
-
-            elseif (num == 5 and target:hasStatusEffect(tpz.effect.PLAGUE)) then
-                effectRemoved = effectRemoved + 1
-                target:delStatusEffect(tpz.effect.PLAGUE)
             end
         end
     end
