@@ -42,16 +42,16 @@ INSERT INTO `mob_family_mods` VALUES (4,29,20,0);
 INSERT INTO `mob_family_mods` VALUES (4,7,60,1);
 INSERT INTO `mob_family_mods` VALUES (74,29,25,0);
 INSERT INTO `mob_family_mods` VALUES (61,29,25,0);
-INSERT INTO `mob_family_mods` VALUES (169,29,25,0);
-INSERT INTO `mob_family_mods` VALUES (110,29,13,0);
-INSERT INTO `mob_family_mods` VALUES (111,29,13,0);
-INSERT INTO `mob_family_mods` VALUES (4,244,20,0);
-INSERT INTO `mob_family_mods` VALUES (193,3,40,1);
-INSERT INTO `mob_family_mods` VALUES (34,3,100,1);
-INSERT INTO `mob_family_mods` VALUES (267,4,20,1);
-INSERT INTO `mob_family_mods` VALUES (87,4,18,1);
-INSERT INTO `mob_family_mods` VALUES (87,5,10,1);
-INSERT INTO `mob_family_mods` VALUES (87,3,10,1);
+INSERT INTO `mob_family_mods` VALUES (169,29,25,0); -- Kindred -25% MDT
+INSERT INTO `mob_family_mods` VALUES (110,29,13,0); -- Evil weapon 13% MDT
+INSERT INTO `mob_family_mods` VALUES (111,29,13,0); --- ??? Nothing is 111
+INSERT INTO `mob_family_mods` VALUES (193,3,40,1); -- Pet wyvern  100 MP
+INSERT INTO `mob_family_mods` VALUES (34,3,100,1); -- Carbuncle 100 MP
+INSERT INTO `mob_family_mods` VALUES (267,4,20,1); -- Guivre 20 yalm sight range
+INSERT INTO `mob_family_mods` VALUES (87,3,10,1); -- Dragon MP
+INSERT INTO `mob_family_mods` VALUES (87,4,18,1); -- Dragon 18 yalm sight range
+INSERT INTO `mob_family_mods` VALUES (87,5,10,1); -- Dragon 10 yalm sound range
+
 
 -- Define sublinks
 INSERT INTO `mob_family_mods` VALUES (240,10,1,1);
