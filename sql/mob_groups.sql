@@ -2509,7 +2509,7 @@ INSERT INTO `mob_groups` VALUES (16,5137,52,'Harvestman',36000,128,2891,10000,0,
 INSERT INTO `mob_groups` VALUES (17,3991,52,'Treant_Sapling',330,0,2464,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (18,714,52,'Chigoe',330,0,466,0,0,75,76,0);
 INSERT INTO `mob_groups` VALUES (19,1787,52,'Grand_Marid',0,32,1214,0,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (20,2562,52,'Marid',330,0,0,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (20,2562,52,'Marid',330,0,1617,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,765,52,'Colibri',330,0,500,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (22,5139,52,'Mahishasura',0,32,2893,15000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (23,3343,52,'Red_Kisser',330,0,174,0,0,76,78,0);
@@ -3195,14 +3195,14 @@ INSERT INTO `mob_groups` VALUES (12,3131,68,'Phlebotomic_Slug',600,0,174,0,0,67,
 INSERT INTO `mob_groups` VALUES (13,959,68,'Defoliator',600,0,598,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (14,71,68,'Air_Elemental',600,4,38,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (15,307,68,'Aydeewa_Diremite',600,0,204,0,0,68,71,0);
-INSERT INTO `mob_groups` VALUES (16,2782,68,'Mycohopper',600,0,1759,0,0,68,71,0);
+INSERT INTO `mob_groups` VALUES (16,2782,68,'Mycohopper',600,0,1759,6018,0,68,71,0);
 INSERT INTO `mob_groups` VALUES (17,1809,68,'Great_Ameretat',600,0,1238,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (18,5333,68,'Deforester',600,0,598,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (19,3245,68,'Qiqirn_Archaeologist',600,0,2050,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,3261,68,'Qiqirn_Mosstrooper',600,0,2056,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,2720,68,'Mold_Eater',600,0,1725,0,0,69,71,0);
 INSERT INTO `mob_groups` VALUES (22,667,68,'Cave_Tiger',600,0,437,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (23,5334,68,'Mycoskulker',600,0,1759,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (23,5334,68,'Mycoskulker',600,0,1759,6019,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (24,5335,68,'Slime_Eater',600,0,1725,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (25,5188,68,'Lizardtrap',7200,0,3083,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (26,858,68,'Crystal_Eater',0,128,545,30000,0,85,87,0);
