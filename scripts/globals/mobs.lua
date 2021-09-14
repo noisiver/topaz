@@ -134,6 +134,7 @@ tpz.mob.additionalEffect =
     TP_DRAIN   = 21,
     ATTK_DOWN  = 22,
     DISPEL = 23,
+	DISEASE    = 24,
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -401,6 +402,19 @@ local additionalEffects =
         mod = tpz.mod.INT,
         bonusAbilityParams = {bonusmab = 0, includemab = false},
         code = function(mob, target, power) target:dispelStatusEffect() end,
+    },
+    [tpz.mob.ae.DISEASE] =
+    {
+        chance = 25,
+        ele = tpz.magic.ele.FIRE,
+        sub = tpz.subEffect.DISEASE,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = tpz.effect.DISEASE,
+        power = 1,
+        duration = 60,
+        minDuration = 1,
+        maxDuration = 60,
     },
 }
 
