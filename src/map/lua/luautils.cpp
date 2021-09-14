@@ -2817,10 +2817,7 @@ namespace luautils
 
     int32 OnCriticalHit(CBattleEntity* PMob, CBattleEntity* PAttacker)
     {
-        TPZ_DEBUG_BREAK_IF(PMob == nullptr || PMob->objtype != TYPE_MOB);
-
-        PMob->PAI->EventHandler.triggerListener("CRITICAL_TAKE", PMob, PAttacker);
-
+        TPZ_DEBUG_BREAK_IF(PMob == nullptr || PMob->objtype != TYPE_MOB)
 
         CLuaBaseEntity LuaMobEntity(PMob);
         CLuaBaseEntity LuaKillerEntity(PAttacker);

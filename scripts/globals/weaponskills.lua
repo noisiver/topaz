@@ -605,12 +605,8 @@ function takeWeaponskillDamage(defender, attacker, wsParams, primaryMsg, attack,
 
             if finaldmg > 0 then
                 action:reaction(defender:getID(), tpz.reaction.HIT)
-                if wsResults.criticalHit then
-                    action:speceffect(defender:getID(), tpz.specEffect.CRITICAL_HIT)
-                else
-                    action:speceffect(defender:getID(), tpz.specEffect.RECOIL)
-                end
-			end
+                action:speceffect(defender:getID(), tpz.specEffect.RECOIL)
+            end
         else
             if primaryMsg then
                 action:messageID(defender:getID(), tpz.msg.basic.SELF_HEAL)
