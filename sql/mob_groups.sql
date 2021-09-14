@@ -3931,7 +3931,7 @@ INSERT INTO `mob_groups` VALUES (7,2580,79,'Marsh_Murre',330,0,1635,0,0,76,78,0)
 INSERT INTO `mob_groups` VALUES (8,6354,79,'Treant_Sapling',330,0,0,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (9,4309,79,'Water_Elemental',330,4,2629,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (10,603,79,'Caedarva_Leech',330,0,174,0,0,77,79,0);
-INSERT INTO `mob_groups` VALUES (11,3049,79,'Orderly_Imp',330,0,1002,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (11,3049,79,'Orderly_Imp',330,0,1002,0,0,79,81,0);
 INSERT INTO `mob_groups` VALUES (12,4342,79,'Wild_Karakul',330,0,2657,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (13,6483,79,'Jnun',330,0,1408,0,0,79,81,0);
 INSERT INTO `mob_groups` VALUES (14,2957,79,'Oil_Slick',330,0,1845,0,0,77,79,0);
