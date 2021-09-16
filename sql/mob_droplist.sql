@@ -69,7 +69,7 @@ INSERT INTO `mob_droplist` VALUES (5,0,0,1000,11621,100);
 INSERT INTO `mob_droplist` VALUES (5,0,0,1000,18778,100);
 INSERT INTO `mob_droplist` VALUES (6,0,0,1000,1622,50);
 INSERT INTO `mob_droplist` VALUES (6,2,0,1000,1640,0);
-INSERT INTO `mob_droplist` VALUES (6,0,0,1000,1640,290);
+INSERT INTO `mob_droplist` VALUES (6,0,0,1000,1640,150);
 INSERT INTO `mob_droplist` VALUES (6,2,0,1000,1680,0);
 INSERT INTO `mob_droplist` VALUES (6,0,0,1000,3085,60);
 INSERT INTO `mob_droplist` VALUES (7,0,0,1000,624,240); -- Abyss Sahagin
@@ -1580,10 +1580,13 @@ INSERT INTO `mob_droplist` VALUES (240,0,0,1000,11801,100);
 INSERT INTO `mob_droplist` VALUES (240,0,0,1000,19731,100);
 INSERT INTO `mob_droplist` VALUES (241,0,0,1000,922,195);
 INSERT INTO `mob_droplist` VALUES (241,0,0,1000,1029,50);
-INSERT INTO `mob_droplist` VALUES (242,0,0,1000,1640,80);
+INSERT INTO `mob_droplist` VALUES (242,0,0,1000,1640,240); -- (Battle Bugard - Mamook)Bugard skin
+INSERT INTO `mob_droplist` VALUES (242,0,0,1000,1640,150); -- Bugard skin
+INSERT INTO `mob_droplist` VALUES (242,0,0,1000,1680,100); -- High-quality bugard skin
+INSERT INTO `mob_droplist` VALUES (242,0,0,1000,1622,100); -- Bugard tusk
 INSERT INTO `mob_droplist` VALUES (243,0,0,1000,1617,50);
-INSERT INTO `mob_droplist` VALUES (244,0,0,1000,922,210);	-- battue bats inner horutoto ruins bat wing
-INSERT INTO `mob_droplist` VALUES (245,0,0,1000,557,30);
+INSERT INTO `mob_droplist` VALUES (244,0,0,1000,922,240);	-- battue bats inner horutoto ruins bat wing
+INSERT INTO `mob_droplist` VALUES (245,0,0,1000,557,50);
 INSERT INTO `mob_droplist` VALUES (245,2,0,1000,921,0);
 INSERT INTO `mob_droplist` VALUES (245,0,0,1000,921,1000);
 INSERT INTO `mob_droplist` VALUES (246,0,0,1000,557,240);
@@ -2174,11 +2177,11 @@ INSERT INTO `mob_droplist` VALUES (370,0,0,1000,1628,50); -- (Buffalo) Buffalo h
 INSERT INTO `mob_droplist` VALUES (370,0,0,1000,5152,50); -- Slice of buffalo meat
 INSERT INTO `mob_droplist` VALUES (370,0,0,1000,5703,100); -- Jug of Uleguerand milk
 INSERT INTO `mob_droplist` VALUES (371,0,0,1000,1622,50);
-INSERT INTO `mob_droplist` VALUES (371,0,0,1000,1640,350);
+INSERT INTO `mob_droplist` VALUES (371,0,0,1000,1640,150);
 INSERT INTO `mob_droplist` VALUES (371,2,0,1000,4372,0);
 INSERT INTO `mob_droplist` VALUES (372,0,0,1000,1622,50);
-INSERT INTO `mob_droplist` VALUES (372,0,0,1000,1640,420);
-INSERT INTO `mob_droplist` VALUES (372,0,0,1000,1680,70);
+INSERT INTO `mob_droplist` VALUES (372,0,0,1000,1640,150);
+INSERT INTO `mob_droplist` VALUES (372,0,0,1000,1680,50); -- High-quality bugard skin
 INSERT INTO `mob_droplist` VALUES (372,2,0,1000,4372,0);
 INSERT INTO `mob_droplist` VALUES (373,0,0,1000,1062,50);
 INSERT INTO `mob_droplist` VALUES (373,0,0,1000,1624,50); -- Bugbear mask
@@ -3355,7 +3358,7 @@ INSERT INTO `mob_droplist` VALUES (591,0,0,1000,786,40);
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,797,50);
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,803,40);
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,816,111);
-INSERT INTO `mob_droplist` VALUES (591,0,0,1000,1640,80);
+INSERT INTO `mob_droplist` VALUES (591,0,0,1000,1640,150);
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,5667,60);
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,11707,100);
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,18516,100);
@@ -3391,7 +3394,7 @@ INSERT INTO `mob_droplist` VALUES (598,0,0,1000,816,111);
 INSERT INTO `mob_droplist` VALUES (598,0,0,1000,839,160);
 INSERT INTO `mob_droplist` VALUES (598,0,0,1000,4357,260);
 INSERT INTO `mob_droplist` VALUES (599,0,0,1000,1622,50);
-INSERT INTO `mob_droplist` VALUES (599,0,0,1000,1640,80);
+INSERT INTO `mob_droplist` VALUES (599,0,0,1000,1640,150);
 INSERT INTO `mob_droplist` VALUES (600,0,0,1000,853,100);
 INSERT INTO `mob_droplist` VALUES (600,4,0,1000,853,0); -- Raptor Skin(Despoil)
 INSERT INTO `mob_droplist` VALUES (601,4,0,1000,853,0); -- Raptor Skin(Despoil)
@@ -5076,9 +5079,9 @@ INSERT INTO `mob_droplist` VALUES (978,2,0,1000,2889,0);
 INSERT INTO `mob_droplist` VALUES (978,0,0,1000,2889,100);
 
 -- Gigantobugard, Misareaux Coast (http://ffxidb.com/zones/25/gigantobugard)
-INSERT INTO `mob_droplist` VALUES (979,0,0,1000,1622,70); -- Bugard Tusk (6.7%)
-INSERT INTO `mob_droplist` VALUES (979,0,0,1000,1640,330); -- Bugard Skin (33.0%)
-INSERT INTO `mob_droplist` VALUES (979,0,0,1000,1680,120); -- High Quality Bugard Skin (11.7%)
+INSERT INTO `mob_droplist` VALUES (979,0,0,1000,1622,50); -- Bugard Tusk (6.7%)
+INSERT INTO `mob_droplist` VALUES (979,0,0,1000,1640,150); -- Bugard Skin (33.0%)
+INSERT INTO `mob_droplist` VALUES (979,0,0,1000,1680,50); -- High Quality Bugard Skin (11.7%)
 INSERT INTO `mob_droplist` VALUES (979,2,0,1000,4372,0); -- Giant Sheep Meat (Steal)
 
 INSERT INTO `mob_droplist` VALUES (980,0,0,1000,1036,40);
@@ -8510,7 +8513,7 @@ INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,14959,100);
 INSERT INTO `mob_droplist` VALUES (1652,2,0,1000,656,0);
 INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,13952,100);		-- (Mee Deggi The Punisher) Ochiudo's Kote
 INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,16703,900);		
-INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,1640,100);		-- (Megalobugard)
+INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,1640,150);		-- (Megalobugard)
 INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,1718,50);		-- Megalobugard tusk
 INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,14659,100);	-- Hercules' ring
 INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,15324,150);	-- Caitiff's socks
