@@ -11,7 +11,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATT, 200)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller))
 	if isKiller  then 
 		killer:addTreasure(5735, mob)--Cotton Coin Purse
 	end

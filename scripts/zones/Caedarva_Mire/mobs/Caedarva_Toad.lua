@@ -5,7 +5,7 @@
 -----------------------------------
 require("scripts/globals/quests")
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller))
 
     local TheWaywardAutomation = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.THE_WAYWARD_AUTOMATION)
     local TheWaywardAutomationProgress = player:getCharVar("TheWaywardAutomationProgress")
