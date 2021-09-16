@@ -5,7 +5,7 @@
 require("scripts/globals/hunts")
 ------------------------------
 
-function onMobDeath(mob, player, isKiller))
+function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 471)
 	if isKiller  then 
 		killer:addTreasure(5735, mob)--Cotton Coin Purse
