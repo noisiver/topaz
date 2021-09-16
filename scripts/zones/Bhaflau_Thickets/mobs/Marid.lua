@@ -10,14 +10,14 @@ mixins = {require("scripts/mixins/families/marid")}
 function onMobDeath(mob, player, isKiller)
 	local broken = mob:getLocalVar("Weapon")
 	if broken>= 1 then
-		isKiller:addTreasure(2147, mob) --Marid Tusk
+		player:addTreasure(2147, mob) --Marid Tusk
 		if broken == 2 then
-			isKiller:addTreasure(2147, mob) --Marid Tusk
+			player:addTreasure(2147, mob) --Marid Tusk
 		end
 	end
 
 	if isKiller and math.random(1,100) <= 24 then 
-		isKiller:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5735, mob)--Cotton Coin Purse
 	 end
 end
 

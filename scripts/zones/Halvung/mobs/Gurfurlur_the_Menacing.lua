@@ -49,13 +49,13 @@ function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.TROLL_SUBJUGATOR)
     for i = 1, 4 do DespawnMob(ID.mob.GURFURLUR_THE_MENACING + i) end
 	if isKiller  then 
-		isKiller:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end
 	if isKiller and math.random(1,100) <= 24 then 
-		isKiller:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end
 	if isKiller and math.random(1,100) <= 15 then 
-		isKiller:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end
 end
 

@@ -8,10 +8,10 @@ mixins = {require("scripts/mixins/families/imp")}
 function onMobDeath(mob, player, isKiller)
 	local broken = mob:getLocalVar("Weapon")
 	if broken>= 1 then
-		isKiller:addTreasure(2157, mob)--Imp Horn
+		player:addTreasure(2157, mob)--Imp Horn
 	end
 	
 	if isKiller and math.random(1,100) <= 24 then 
-		isKiller:addTreasure(2488, mob)--Alexandrite 
+		player:addTreasure(2488, mob)--Alexandrite 
 	end
 end
