@@ -159,6 +159,9 @@ local loot =
     [523] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
+        },
+        {
             {itemid = 14202, droprate =  240}, -- creek_m_clomps
             {itemid = 14203, droprate =  240}, -- creek_f_clomps
             {itemid = 14198, droprate =  240}, -- marine_m_boots
