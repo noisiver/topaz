@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     else
-        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10, 3, 30))
+        skill:setMsg(MobGazeMove(mob, target, typeEffect, 10, 3, 30))
     end
 
     return typeEffect

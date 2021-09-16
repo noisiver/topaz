@@ -342,7 +342,6 @@ INSERT INTO `fishing_mob` VALUES (16785412,'Greater_Pugil',2,1,1,10,15,255,255,0
 INSERT INTO `fishing_mob` VALUES (16785413,'Fishtrap',2,1,1,10,15,255,255,0,0,5,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16786431,'Fishtrap',2,1,1,10,15,255,255,0,0,6,1000,0,0,0,0);
 
-
 -- Phanauet Cannel
 --INSERT INTO `fishing_mob` VALUES (16781313,'Snipper',1,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
 --INSERT INTO `fishing_mob` VALUES (17244162,'Snipper',1,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
@@ -350,6 +349,57 @@ INSERT INTO `fishing_mob` VALUES (16786431,'Fishtrap',2,1,1,10,15,255,255,0,0,6,
 --INSERT INTO `fishing_mob` VALUES (17244164,'Fishtrap',1,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 --INSERT INTO `fishing_mob` VALUES (17244165,'Protozoan',1,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 --INSERT INTO `fishing_mob` VALUES (17244165,'Aipaloovik',1,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+
+-- Wajaom Woodlands
+INSERT INTO `fishing_mob` VALUES (16986113,'Red_Smoocher',51,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16986114,'Azoth_Apsaras',51,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16986115,'Red_Osculator',51,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16986116,'Kissing_Leech',51,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16986117,'Mercurial_Makara',51,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+
+-- Bhaflau Thickets
+INSERT INTO `fishing_mob` VALUES (16990209,'Red_Smoocher',52,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16990210,'Azoth_Apsaras',52,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16990211,'Red_Osculator',52,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16990212,'Kissing_Leech',52,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16990213,'Mercurial_Makara',52,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+
+-- Arrapago_Reef
+INSERT INTO `fishing_mob` VALUES (16998401,'Wootzshell',54,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16998402,'Arrapago_Leech',54,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16998403,'Chimera_Clot',54,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16998404,'Lahama',54,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16998405,'Llamhigyn_Y_Dwr',54,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16998406,'Giant_Orobon',54,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+
+-- Mount_Zhayolm
+INSERT INTO `fishing_mob` VALUES (17027073,'Sicklemoon_Crab',61,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17027074,'Zazalda_Clot',61,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17027075,'Vozold_Clot',61,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17027076,'Zazalda_Jagil',61,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17027077,'Vozold_Jagil',61,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17027078,'Giant_Orobon',61,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+
+-- Mamook
+INSERT INTO `fishing_mob` VALUES (17043457,'Suhur_Mas',65,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17043458,'Suhur_Mas',65,1,1,11,15,255,255,0,0,2,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17043459,'Mamool_Ja_Bloodsucker',65,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17043460,'Mamook_Mush',65,1,1,10,15,255,255,0,0,2,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17043461,'Mamook_Crab',65,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+
+-- Aydeewa_Subterrane
+INSERT INTO `fishing_mob` VALUES (17055745,'Cave_Mold',68,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17055746,'Cave_Mold',68,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17055747,'Anautogenous_Slug',68,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17055748,'Cave_Pugil',68,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17055749,'Aydeewa_Crab',68,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+
+-- Caedarva_Mire
+INSERT INTO `fishing_mob` VALUES (17100801,'Caedarva_Pondscum',79,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17100802,'Caedarva_Marshscum',79,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17100803,'Suhur_Mas',79,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17100804,'Llamhigyn_Y_Dwr',79,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17100805,'Llamhigyn_Y_Dwr',79,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 
 
 

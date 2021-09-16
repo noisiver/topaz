@@ -8,7 +8,7 @@ g_mixins.gears = function(mob)
 
     mob:addListener("COMBAT_TICK", "GEARS_CTICK", function(mob)
         local mobHPP = mob:getHPP()
-        if (mobHPP >= 26 and mobHPP <= 49) then
+        if (mobHPP >= 33 and mobHPP <= 65) then
             if mob:AnimationSub() ~= 1 then
                 mob:AnimationSub(1) -- double gear
                 mob:setMobMod(tpz.mobMod.SKILL_LIST, 151)
@@ -18,7 +18,7 @@ g_mixins.gears = function(mob)
             mob:delMod(tpz.mod.DEF, 20)
             mob:setLocalVar("Def1", 1)
         end
-        elseif mobHPP <= 25 then
+        elseif mobHPP <= 32 then
             if mob:AnimationSub() ~= 2 then
                 mob:AnimationSub(2) -- single gear
                 mob:setMobMod(tpz.mobMod.SKILL_LIST, 152)

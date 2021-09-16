@@ -19,7 +19,7 @@ function onMobSkillCheck(target, mob, skill)
     elseif (mob:getPool() ~= 4249) then
         mob:messageBasic(tpz.msg.basic.READIES_WS, 0, 40)
     end
-	if (mob:getFamily() == 176 or mob:getFamily() == 177 or or mob:getFamily() == 285) and mob:getPool() ~= 2526 or mob:getPool() ~= 2525 or mob:getPool() ~= 2524
+	if (mob:getFamily() == 176 or mob:getFamily() == 177 or or mob:getFamily() == 285) and mob:getPool() ~= 2526 or mob:getPool() ~= 2525 or mob:getPool() ~= 2524 then
 		return 1
 	end
 	return 0

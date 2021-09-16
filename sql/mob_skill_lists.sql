@@ -215,7 +215,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Behemoth',51,630);
 INSERT INTO `mob_skill_lists` VALUES ('Behemoth',51,631);
 INSERT INTO `mob_skill_lists` VALUES ('Behemoth',51,632);
 INSERT INTO `mob_skill_lists` VALUES ('Behemoth',51,633);
--- INSERT INTO `mob_skill_lists` VALUES ('Behemoth',51,634);
+-- INSERT INTO `mob_skill_lists` VALUES ('Behemoth',51,634);   chlevnik's death meteor (not a normal meteor attack animation)
 INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,472);
 INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,473);
 INSERT INTO `mob_skill_lists` VALUES ('Bhoot',52,474);
@@ -394,8 +394,18 @@ INSERT INTO `mob_skill_lists` VALUES ('Dragon',87,648);
 INSERT INTO `mob_skill_lists` VALUES ('Dragon',87,649);
 INSERT INTO `mob_skill_lists` VALUES ('Dragon',87,650);
 INSERT INTO `mob_skill_lists` VALUES ('Dragon',87,651);
--- 88: Bloody Bones
--- 89: Draugar
+INSERT INTO `mob_skill_lists` VALUES ('Bloody_Bones',88,478);
+INSERT INTO `mob_skill_lists` VALUES ('Bloody_Bones',88,479);
+INSERT INTO `mob_skill_lists` VALUES ('Bloody_Bones',88,484);
+INSERT INTO `mob_skill_lists` VALUES ('Bloody_Bones',88,485);
+INSERT INTO `mob_skill_lists` VALUES ('Bloody_Bones',88,1665); -- Marrow Drain
+INSERT INTO `mob_skill_lists` VALUES ('Bloody_Bones',88,1795); -- Malediction
+INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,478);
+INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,479);
+INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,484);
+INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,485);
+INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,1665); -- Marrow Drain
+INSERT INTO `mob_skill_lists` VALUES ('Draugar',89,1795); -- Malediction
 INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2113);
 INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2114);
 INSERT INTO `mob_skill_lists` VALUES ('Dvergr',90,2115);
@@ -790,6 +800,7 @@ INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1738); -- Groundburst(NM on
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1839); -- rushing_slash | slashing weapons
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1840); -- rushing_stab | Piercing weapons
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1920); -- rushing_drub | staff
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1923); -- Firespit(Magic)
 -- 177: MamoolJa Knight?
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,300);
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,301);

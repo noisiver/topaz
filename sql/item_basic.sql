@@ -4047,7 +4047,7 @@ INSERT INTO `item_basic` VALUES (4291,0,'sandfish','sandfish',12,1548,51,0,26);
 INSERT INTO `item_basic` VALUES (4292,0,'loaf_of_pain_de_neige','pain_de_neige',12,1548,56,0,56);
 INSERT INTO `item_basic` VALUES (4293,0,'serving_of_monastic_saute','monastic_saute',1,1580,54,0,533);  -- https://www.bg-wiki.com/bg/Monastic_Saute
 INSERT INTO `item_basic` VALUES (4294,0,'serving_of_medicinal_quus','medicinal_quus',1,1580,53,0,70);
-INSERT INTO `item_basic` VALUES (4295,0,'plate_of_royal_sautee','royal_sautee',1,1580,52,0,70);         -- https://www.bg-wiki.com/bg/Royal_Saute
+INSERT INTO `item_basic` VALUES (4295,0,'plate_of_royal_saute','royal_saute',1,1580,52,0,70);         -- https://www.bg-wiki.com/bg/Royal_Saute
 INSERT INTO `item_basic` VALUES (4296,0,'serving_of_green_curry','green_curry',1,1580,55,0,270);
 INSERT INTO `item_basic` VALUES (4297,0,'serving_of_black_curry','black_curry',1,1580,55,0,748);
 INSERT INTO `item_basic` VALUES (4298,0,'serving_of_red_curry','red_curry',1,1580,55,0,831);
@@ -4330,7 +4330,7 @@ INSERT INTO `item_basic` VALUES (4574,0,'meat_chiefkabob','meat_chiefkabob',12,1
 INSERT INTO `item_basic` VALUES (4575,0,'fish_chiefkabob','fish_chiefkabob',12,1548,53,0,383);
 INSERT INTO `item_basic` VALUES (4576,0,'wizard_cookie','wizard_cookie',99,1548,57,0,4);
 INSERT INTO `item_basic` VALUES (4577,0,'wild_cookie','wild_cookie',99,1548,57,0,6);
-INSERT INTO `item_basic` VALUES (4578,0,'sausage','sausage',12,1548,52,0,107);
+INSERT INTO `item_basic` VALUES (4578,0,'sausage','sausage',12,1548,52,0,12);
 INSERT INTO `item_basic` VALUES (4579,0,'elshimo_newt','elshimo_newt',1,1544,51,0,179);
 INSERT INTO `item_basic` VALUES (4580,0,'coral_butterfly','coral_butterfly',1,1544,51,0,127);
 INSERT INTO `item_basic` VALUES (4581,0,'blackened_newt','blackened_newt',1,1580,52,0,271);

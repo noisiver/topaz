@@ -13,7 +13,7 @@ require("scripts/globals/monstertpmoves")
 
 function onMobSkillCheck(target, mob, skill)
 	if (mob:getFamily() == 176 or mob:getFamily() == 177 or or mob:getFamily() == 285) and mob:getPool() ~= 2526 or mob:getPool() ~= 2533 or mob:getPool() ~= 2534
-	or mob:getPool() ~= 2516 or mob:getPool() ~= 2507 or mob:getPool() ~= 2528
+	or mob:getPool() ~= 2516 or mob:getPool() ~= 2507 or mob:getPool() ~= 2528 then
 		return 1
 	end
     return 0
