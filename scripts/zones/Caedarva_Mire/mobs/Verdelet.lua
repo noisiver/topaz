@@ -6,7 +6,7 @@
 mixins = {require("scripts/mixins/families/imp")}
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)))
+function onMobDeath(mob, player, isKiller)
 	if isKiller  then 
 		killer:addTreasure(5735, mob)--Cotton Coin Purse
 	end

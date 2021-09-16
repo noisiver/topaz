@@ -6,7 +6,7 @@ require("scripts/globals/hunts")
 mixins = {require("scripts/mixins/families/qutrub")}
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)))
+function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 470)
 	if isKiller  then 
 		killer:addTreasure(5735, mob)--Cotton Coin Purse
