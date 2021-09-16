@@ -13,7 +13,13 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    -- only brown-skinned mamool should use this move
+    local mobSkin = mob:getModelId()
+    if (mobSkin == 1639 or mobSkin == 1619) then
+        return 0
+    else
+        return 1
+    end
 end
 
 function onMobWeaponSkill(target, mob, skill)

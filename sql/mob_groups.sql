@@ -2367,11 +2367,11 @@ INSERT INTO `mob_groups` VALUES (112,1681,48,'Goblin_Lansquenet',0,128,0,0,0,75,
 -- Wajaom_Woodlands (Zone 51)
 -- ------------------------------------------------------------
 -- Fishing Start
-INSERT INTO `mob_groups` VALUES (1,3346,51,'Red_Smoocher',0,128,174,0,0,67,71,0);
+INSERT INTO `mob_groups` VALUES (1,3346,51,'Red_Smoocher',0,128,0,0,0,67,71,0);
 INSERT INTO `mob_groups` VALUES (2,313,51,'Azoth_Apsaras',0,128,0,0,0,68,70,0);
-INSERT INTO `mob_groups` VALUES (3,3344,51,'Red_Osculator',0,128,174,0,0,67,71,0);
-INSERT INTO `mob_groups` VALUES (4,2269,51,'Kissing_Leech',0,128,174,0,0,67,71,0);
-INSERT INTO `mob_groups` VALUES (5,2616,51,'Mercurial_Makara',0,128,607,0,0,68,70,0);
+INSERT INTO `mob_groups` VALUES (3,3344,51,'Red_Osculator',0,128,0,0,0,67,71,0);
+INSERT INTO `mob_groups` VALUES (4,2269,51,'Kissing_Leech',0,128,0,0,0,67,71,0);
+INSERT INTO `mob_groups` VALUES (5,2616,51,'Mercurial_Makara',0,128,0,0,0,68,70,0);
 -- Fishing End
 INSERT INTO `mob_groups` VALUES (6,714,51,'Chigoe',330,0,466,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (7,2396,51,'Lesser_Colibri',330,0,1509,0,0,81,83,0);
@@ -2489,11 +2489,11 @@ INSERT INTO `mob_groups` VALUES (1726,4524,51,'Zurmurwur_the_Ruthless',0,128,0,0
 -- Bhaflau_Thickets (Zone 52)
 -- ------------------------------------------------------------
 -- Fishing Start
-INSERT INTO `mob_groups` VALUES (1,3346,52,'Red_Smoocher',0,128,174,0,0,71,72,0);
+INSERT INTO `mob_groups` VALUES (1,3346,52,'Red_Smoocher',0,128,0,0,0,71,72,0);
 INSERT INTO `mob_groups` VALUES (2,313,52,'Azoth_Apsaras',0,128,0,0,0,71,72,0);
-INSERT INTO `mob_groups` VALUES (3,3344,52,'Red_Osculator',0,128,174,0,0,71,72,0);
-INSERT INTO `mob_groups` VALUES (4,2269,52,'Kissing_Leech',0,128,174,0,0,71,72,0);
-INSERT INTO `mob_groups` VALUES (5,2616,52,'Mercurial_Makara',0,128,607,0,0,71,72,0);
+INSERT INTO `mob_groups` VALUES (3,3344,52,'Red_Osculator',0,128,0,0,0,71,72,0);
+INSERT INTO `mob_groups` VALUES (4,2269,52,'Kissing_Leech',0,128,0,0,0,71,72,0);
+INSERT INTO `mob_groups` VALUES (5,2616,52,'Mercurial_Makara',0,128,0,0,0,71,72,0);
 -- Fishing End
 INSERT INTO `mob_groups` VALUES (6,67,52,'Aht_Urhgan_Attercop',330,0,34,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (7,2396,52,'Lesser_Colibri',330,0,1509,0,0,81,83,0);
@@ -2577,11 +2577,11 @@ INSERT INTO `mob_groups` VALUES (1792,3297,52,'Qutrub_Wastrel',0,128,0,0,0,75,80
 -- Arrapago_Reef (Zone 54)
 -- ------------------------------------------------------------
 --Fishing Start
-INSERT INTO `mob_groups` VALUES (1,6370,54,'Wootzshell',0,0,1248,0,0,72,73,0);
-INSERT INTO `mob_groups` VALUES (2,255,54,'Arrapago_Leech',0,128,174,0,0,73,74,0);
+INSERT INTO `mob_groups` VALUES (1,6370,54,'Wootzshell',0,128,0,0,0,72,73,0);
+INSERT INTO `mob_groups` VALUES (2,255,54,'Arrapago_Leech',0,128,0,0,0,73,74,0);
 INSERT INTO `mob_groups` VALUES (3,721,54,'Chimera_Clot',0,128,0,0,0,75,76,0);
-INSERT INTO `mob_groups` VALUES (4,2318,54,'Lahama',0,0,1464,0,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (5,2426,54,'Llamhigyn_Y_Dwr',0,128,687,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (4,2318,54,'Lahama',0,128,0,0,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (5,2426,54,'Llamhigyn_Y_Dwr',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (6,1534,54,'Giant_Orobon',0,128,0,0,0,78,83,0);
 -- Fishing End
 INSERT INTO `mob_groups` VALUES (7,5192,54,'Reserve_Draugar',600,0,0,0,5000,81,83,0);
@@ -2786,12 +2786,12 @@ INSERT INTO `mob_groups` VALUES (2,1506,57,'Gessho',0,128,0,2000,0,70,70,0);
 --Fishing Start
 INSERT INTO `mob_groups` VALUES (1971,139,57,'Angler_Orobon',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (1973,255,57,'Arrapago_Leech',0,128,0,0,0,73,74,0);
-INSERT INTO `mob_groups` VALUES (1975,1534,57,'Giant_Orobon',0,128,969,0,0,78,83,0);
+INSERT INTO `mob_groups` VALUES (1975,1534,57,'Giant_Orobon',0,128,0,0,0,78,83,0);
 --Fishing End
 INSERT INTO `mob_groups` VALUES (1976,1776,57,'Gowam',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (1977,2071,57,'Imp_Bandsman',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (1978,2318,57,'Lahama',0,128,0,0,0,77,78,0);
-INSERT INTO `mob_groups` VALUES (1979,2426,57,'Llamhigyn_Y_Dwr',0,128,1528,0,0,77,79,0);
+INSERT INTO `mob_groups` VALUES (1979,2426,57,'Llamhigyn_Y_Dwr',0,128,0,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (1980,3292,57,'Qultada',0,128,0,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (1981,3840,57,'Talacca_Clot',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (1982,4123,57,'Valkeng',0,128,0,0,0,60,60,0);
@@ -2982,7 +2982,7 @@ INSERT INTO `mob_groups` VALUES (53,34,62,'Achamoth',0,128,14,38000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (54,35,62,'Achamothcampa',0,128,0,8000,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (55,36,62,'Achamoth_Nympha',0,128,0,12000,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (56,2697,62,'Moblin_Millionaire',600,0,1712,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (57,6587,62,'Friars_Lantern',600,0,3143,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (57,6587,62,'Friars_Lantern',600,0,3143,0,0,85,87,0);
 
 INSERT INTO `mob_groups` VALUES (2132,4493,62,'Zazarg',0,128,0,0,0,0,0,0);
 
@@ -3039,10 +3039,10 @@ INSERT INTO `mob_groups` VALUES (2163,4307,64,'Watch_Wamoura',0,128,0,0,0,60,60,
 -- Mamook (Zone 65)
 -- ------------------------------------------------------------
 --Fishing Start
-INSERT INTO `mob_groups` VALUES (1,3807,65,'Suhur_Mas',0,128,2359,0,0,68,71,0);
-INSERT INTO `mob_groups` VALUES (2,2506,65,'Mamool_Ja_Bloodsucker',600,0,79,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (1,3807,65,'Suhur_Mas',0,128,0,0,0,68,71,0);
+INSERT INTO `mob_groups` VALUES (2,2506,65,'Mamool_Ja_Bloodsucker',0,128,0,0,0,68,72,0);
 INSERT INTO `mob_groups` VALUES (3,2504,65,'Mamook_Mush',0,128,0,0,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (4,2503,65,'Mamook_Crab',0,128,203,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (4,2503,65,'Mamook_Crab',0,128,0,0,0,76,78,0);
 --Fishing End
 INSERT INTO `mob_groups` VALUES (5,2526,65,'Mamool_Ja_Mimicker',600,0,1598,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (6,2013,65,'Hunting_Raptor',600,0,600,0,0,76,78,0);
@@ -3920,10 +3920,10 @@ INSERT INTO `mob_groups` VALUES (2775,4356,78,'Wivre-X',0,128,0,0,0,75,80,0);
 -- Caedarva_Mire (Zone 79)
 -- ------------------------------------------------------------
 --Fishing Start
-INSERT INTO `mob_groups` VALUES (1,605,79,'Caedarva_Pondscum',0,128,15,0,0,64,66,0);
-INSERT INTO `mob_groups` VALUES (2,604,79,'Caedarva_Marshscum',0,128,15,0,0,66,67,0);
-INSERT INTO `mob_groups` VALUES (3,3807,79,'Suhur_Mas',0,128,147,0,0,69,71,0);
-INSERT INTO `mob_groups` VALUES (4,2426,79,'Llamhigyn_Y_Dwr',0,128,687,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (1,605,79,'Caedarva_Pondscum',0,128,0,0,0,64,66,0);
+INSERT INTO `mob_groups` VALUES (2,604,79,'Caedarva_Marshscum',0,128,0,0,0,66,67,0);
+INSERT INTO `mob_groups` VALUES (3,3807,79,'Suhur_Mas',0,128,0,0,0,69,71,0);
+INSERT INTO `mob_groups` VALUES (4,2426,79,'Llamhigyn_Y_Dwr',0,128,0,0,0,76,78,0);
 --Fishing end
 INSERT INTO `mob_groups` VALUES (5,714,79,'Chigoe',330,0,466,0,0,70,74,0);
 INSERT INTO `mob_groups` VALUES (6,3224,79,'Puktrap',330,0,852,0,0,73,76,0);

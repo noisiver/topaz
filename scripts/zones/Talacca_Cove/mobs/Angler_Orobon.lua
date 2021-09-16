@@ -1,5 +1,5 @@
 -----------------------------------
--- Area: Arrapago Reef
+-- Area: Talacca Cove
 --  Mob: Angler_Orobon
 -----------------------------------
 mixins = {require("scripts/mixins/families/orobon")}

@@ -800,6 +800,7 @@ INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1738); -- Groundburst(NM on
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1839); -- rushing_slash | slashing weapons
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1840); -- rushing_stab | Piercing weapons
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1920); -- rushing_drub | staff
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1923); -- Firespit(Magic)
 -- 177: MamoolJa Knight?
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,300);
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,301);
