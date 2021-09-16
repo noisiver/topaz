@@ -8,8 +8,11 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
+	if isKiller and math.random(1,100) <= 24 then 
+		killer:addTreasure(2488, mob)--Alexandrite 
+	end
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.BLOODY_BONES_PH, 5, 36000) -- 21 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.BLOODY_BONES_PH, 20, 36000) -- 21 hours
 end

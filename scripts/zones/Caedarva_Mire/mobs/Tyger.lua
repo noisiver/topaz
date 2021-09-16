@@ -8,11 +8,17 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.SLEEPRES, 30)
-    mob:addMod(tpz.mod.BINDRES, 30)
-    mob:addMod(tpz.mod.GRAVITYRES, 30)
     mob:addMod(tpz.mod.ATT, 200)
 end
 
 function onMobDeath(mob, player, isKiller)
+	if isKiller  then 
+		killer:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 24 then 
+		killer:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 15 then 
+		killer:addTreasure(5735, mob)--Cotton Coin Purse
+	end
 end

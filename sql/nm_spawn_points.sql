@@ -6823,6 +6823,7 @@ INSERT INTO `nm_spawn_points` VALUES (17289323,1,-401,-0.452,257); -- Dahu
 INSERT INTO `nm_spawn_points` VALUES (17289638,0,-314.3860,0.1828,-113.7183); -- Picolaton
 INSERT INTO `nm_spawn_points` VALUES (17289638,1,-555.9838,0.2506,-70.8889); -- Picolaton
 INSERT INTO `nm_spawn_points` VALUES (17289638,2,-397.5341,-1.2509,-89.4616); -- Picolaton
+INSERT INTO `nm_spawn_points` VALUES (17072133,1,102.6850,-0.000,135.3932); -- Boompadu
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;

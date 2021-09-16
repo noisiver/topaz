@@ -9,6 +9,7 @@ g_mixins.families.imp = function(mob)
     mob:addListener("CRITICAL_TAKE", "IMP_CRITICAL_TAKE", function(mob)
         if math.random(100) < 20 and mob:AnimationSub() == 0 then
             mob:AnimationSub(1)
+			mob:setLocalVar("Weapon", broken)
         end
     end)
 

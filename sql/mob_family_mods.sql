@@ -101,8 +101,6 @@ INSERT INTO `mob_family_mods` VALUES (121,242,20,0);
 INSERT INTO `mob_family_mods` VALUES (52,242,20,0);
 INSERT INTO `mob_family_mods` VALUES (258,34,25,1);
 INSERT INTO `mob_family_mods` VALUES (234,37,1,1);
-INSERT INTO `mob_family_mods` VALUES (176,68,10,0);		-- Mamool ja +10 evasion
-INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Mamool ja +10 evasion
 INSERT INTO `mob_family_mods` VALUES (57,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (72,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (140,3,50,1);
@@ -155,23 +153,25 @@ INSERT INTO `mob_family_mods` VALUES (481,42,989,1);
 --INSERT INTO `mob_family_mods` VALUES (47,243,75,0);		-- bat blind resist
 
 -- Experience bonus
-INSERT INTO `mob_family_mods` VALUES (208,382,23,1);		-- Ram +23% EXP
-INSERT INTO `mob_family_mods` VALUES (266,382,23,1);		-- Wyvern +23% EXP 
+INSERT INTO `mob_family_mods` VALUES (208,382,23,1);	-- Ram +23% EXP
+INSERT INTO `mob_family_mods` VALUES (266,382,23,1);	-- Wyvern +23% EXP 
 
 
 -- Attack bonus
 INSERT INTO `mob_family_mods` VALUES (208,62,10,0);		-- Ram +10% Attack
 INSERT INTO `mob_family_mods` VALUES (242,62,10,0);		-- Tiger +10% Attack
 INSERT INTO `mob_family_mods` VALUES (136,62,10,0);		-- Goobbue +10% Attack
-INSERT INTO `mob_family_mods` VALUES (217,62,20,0);		-- Scorpion +20% Attack
 INSERT INTO `mob_family_mods` VALUES (179,62,10,0);		-- Manticore +10% Attack
+INSERT INTO `mob_family_mods` VALUES (246,62,20,0);		-- Troll +20% Attack 
+INSERT INTO `mob_family_mods` VALUES (217,62,20,0);		-- Scorpion +20% Attack
 INSERT INTO `mob_family_mods` VALUES (62,62,20,0);		-- Cerberus +20% Attack
 INSERT INTO `mob_family_mods` VALUES (180,62,50,0);		-- Marid +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (252,62,50,0);		-- Vampyr +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (191,62,50,0);		-- Orobon +50% Attack 
+INSERT INTO `mob_family_mods` VALUES (1,62,100,0);		-- Acrolith +100% Attack 
 
 -- Flat Attack Penalty
-INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
+INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);		-- Sahagin -20 Attack
 
 -- Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (122,63,100,0);	-- Ghrah +100% Defense Bonus
@@ -182,69 +182,91 @@ INSERT INTO `mob_family_mods` VALUES (233,63,20,0);		-- Soulflayer +20% Defense 
 INSERT INTO `mob_family_mods` VALUES (74,63,20,0);		-- Corse +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (2,63,20,0);			-- Adamantoise +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (275,63,20,0);		-- Mini-Adamantoise +20% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (180,63,150,0);	-- Marid +150% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (253,63,100,0);	-- Wamoura +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (254,63,200,0);	-- Wamouracampa +200% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (252,63,100,0);	-- Vampyr +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (191,63,100,0);	-- Orobon +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (27,63,100,0);		-- Apkallu +100% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (246,63,100,0);	-- Troll +100% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (209,63,150,0);	-- Rampart +150% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (63,63,150,0);	 	-- Chariot +150% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (180,63,150,0);	-- Marid +150% Defense Bonus
 
+-- Defense Penalty
+INSERT INTO `mob_family_mods` VALUES (1,63,-25,0);		-- Acrolith -25% Defense Penalty
 
 -- Flat Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (171,1,25,0);		-- Lamiae +25 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (182,1,25,0);		-- Merrow +25 Defense Bonus
 
--- Defense Penalty
-INSERT INTO `mob_family_mods` VALUES (1,63,-25,0);		-- Acrolith -25% Defense Penalty
-
 -- Evasion Bonus
 INSERT INTO `mob_family_mods` VALUES (196,68,10,0);		-- Poroggo +10 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (203,68,12,0);		-- Qutrub +12 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (204,68,12,0);		-- Qutrub +12 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (205,68,12,0);		-- Qutrub +12 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (203,68,50,0);		-- Qutrub(Normal) +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (204,68,12,0);		-- Qutrub(Unused) +12 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (205,68,12,0);		-- Qutrub(Qutrub_Wastrel) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (188,68,25,0);		-- Opo-opo +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (27,68,25,0);		-- Apkallu +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (199,68,50,0);		-- Qiqirn +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (198,68,50,0);		-- Puk +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (165,68,50,0);		-- Imp +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (72,68,50,0);		-- Colibri +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (176,68,50,0);		-- Mamool ja +50 evasion
+INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Gulool_Ja_Ja +10 evasion
+INSERT INTO `mob_family_mods` VALUES (165,68,100,0);	-- Imp +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (119,68,100,0);	-- Gear +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (165,68,100,0);	-- Gears +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (166,68,50,0);		-- Jakko(Imp) +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (90,68,100,0);		-- Dvergr +100 Evasion Racial
 
-
-
 -- Evasion Penalty
-INSERT INTO `mob_family_mods` VALUES (180,68,-10,0);	-- Marid -10 Evasion
-INSERT INTO `mob_family_mods` VALUES (371,68,-10,0);	-- Marid -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	-- Bugbear -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (180,68,-20,0);	-- Marid -20 Evasion
+INSERT INTO `mob_family_mods` VALUES (371,68,-20,0);	-- Marid -20 Evasion
+INSERT INTO `mob_family_mods` VALUES (246,68,-20,0);	-- Troll -20 Evasion
 
 -- PDT
+INSERT INTO `mob_family_mods` VALUES (203,387,375,0);	-- Qutrub +300%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,387,375,0);	-- Qutrub +300%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,387,375,0);	-- Qutrub +300%(Bonus)
+
+-- Breath Damage Taken(BDT)
+INSERT INTO `mob_family_mods` VALUES (203,388,375,0);	-- Qutrub +300%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,388,375,0);	-- Qutrub +300%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,388,375,0);	-- Qutrub +300%(Bonus)
 
 -- Ranged damage taken(RDT)
 
 -- Magic damage taken (MDT)
-INSERT INTO `mob_family_mods` VALUES (112,389,25,0); -- Flan +25%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (61,389,-25,0); -- Cardian -2%
-INSERT INTO `mob_family_mods` VALUES (74,389,-25,0); -- Corse -25%
-INSERT INTO `mob_family_mods` VALUES (110,389,-13,0); -- EvilWeapon -13%
-INSERT INTO `mob_family_mods` VALUES (122,389,-13,0); -- Ghrah -13%
-INSERT INTO `mob_family_mods` VALUES (123,389,-13,0); -- Ghrah -13%
-INSERT INTO `mob_family_mods` VALUES (124,389,-13,0); -- Ghrah -13%
+INSERT INTO `mob_family_mods` VALUES (112,389,25,0); 	-- Flan +25%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (203,389,375,0);	-- Qutrub +375%(+25% Bonus)
+INSERT INTO `mob_family_mods` VALUES (61,389,-25,0); 	-- Cardian -25%
+INSERT INTO `mob_family_mods` VALUES (74,389,-25,0); 	-- Corse -25%
+INSERT INTO `mob_family_mods` VALUES (110,389,-13,0); 	-- EvilWeapon -13%
+INSERT INTO `mob_family_mods` VALUES (122,389,-13,0); 	-- Ghrah -13%
+INSERT INTO `mob_family_mods` VALUES (123,389,-13,0); 	-- Ghrah -13%
+INSERT INTO `mob_family_mods` VALUES (124,389,-13,0); 	-- Ghrah -13%
 INSERT INTO `mob_family_mods` VALUES (175,389,-50,0);	-- Magic Pot -50%
-INSERT INTO `mob_family_mods` VALUES (171,389,-13,0); -- Lamiae -13%
+INSERT INTO `mob_family_mods` VALUES (171,389,-13,0); 	-- Lamiae -13%
 INSERT INTO `mob_family_mods` VALUES (4,389,-25,0);		-- Ahriman -25%
 INSERT INTO `mob_family_mods` VALUES (169,389,-25,0);	-- Kindred  -25%
-INSERT INTO `mob_family_mods` VALUES (52,389,-25,0);	-- Bhoot  -25%
-INSERT INTO `mob_family_mods` VALUES (63,389,-13,0);	-- Chariot  -13%
+INSERT INTO `mob_family_mods` VALUES (52,389,-25,0);		-- Bhoot  -25%
+INSERT INTO `mob_family_mods` VALUES (63,389,-13,0);		-- Chariot  -13%
 INSERT INTO `mob_family_mods` VALUES (209,389,-43,0);	-- Rampart  -43%
-INSERT INTO `mob_family_mods` VALUES (27,389,-25,0);	-- Apkallu  -25%
-INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);	-- Dvergr  -50%
+INSERT INTO `mob_family_mods` VALUES (27,389,-25,0);		-- Apkallu  -25%
+INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);		-- Dvergr  -50%
 
---MDB
-INSERT INTO `mob_family_mods` VALUES (171,29,10,0); -- Lamiae +10 MDB
+-- MDB
+INSERT INTO `mob_family_mods` VALUES (171,29,40,0); -- Lamiae +40 MDB
+INSERT INTO `mob_family_mods` VALUES (182,29,40,0); -- Merrow +40 MDB
 INSERT INTO `mob_family_mods` VALUES (175,29,12,0); -- Magic pot +12 MDB
 INSERT INTO `mob_family_mods` VALUES (252,29,24,0); -- Vampyr +24 MDB
 INSERT INTO `mob_family_mods` VALUES (191,29,24,0); -- Orobon +24 MDB
 INSERT INTO `mob_family_mods` VALUES (52,29,20,0); -- Bhoot +20 MDB
 INSERT INTO `mob_family_mods` VALUES (90,29,40,0); -- Dvergr +40 MDB
+
+--Crit Chance
+INSERT INTO `mob_family_mods` VALUES (176,165,10,0);		-- Mamool ja +10% Crit
+
+--Crit Reduction
 
 -- Immunities
 INSERT INTO `mob_family_mods` VALUES (92,23,2047,1); -- Dyna Statues immune all enfeebles
