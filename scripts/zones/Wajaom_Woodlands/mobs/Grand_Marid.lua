@@ -8,9 +8,9 @@ require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/families/marid")}
 
 function onMobDeath(mob, player, isKiller)
-	if mob:AnimationSub >= 1 then
+	if mob:AnimationSub() >= 1 then
 		player:addTreasure(2147, mob) --Marid Tusk
-		if mob:AnimationSub == 2 then
+		if mob:AnimationSub() == 2 then
 			player:addTreasure(2147, mob) --Marid Tusk
 		end
 	end
