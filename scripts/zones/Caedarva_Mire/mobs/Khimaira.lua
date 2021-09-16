@@ -5,7 +5,7 @@
 require("scripts/globals/titles")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller))))
+function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.KHIMAIRA_CARVER)
 	if isKiller  then 
 		killer:addTreasure(5735, mob)--Cotton Coin Purse
