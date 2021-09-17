@@ -12,5 +12,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.DEMONIC_TIPHIA_PH, 30, 7200) -- 2 to 8 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.DEMONIC_TIPHIA_PH, 30, 7200) -- 2 hours
 end
