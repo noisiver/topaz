@@ -8489,9 +8489,9 @@ INSERT INTO `mob_groups` VALUES (7,2585,127,'Master_Coeurl',330,0,1638,0,0,45,50
 INSERT INTO `mob_groups` VALUES (8,407,127,'Bhuta',330,1,264,0,0,46,48,0);
 INSERT INTO `mob_groups` VALUES (9,387,127,'Behemoth',0,128,251,70000,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (10,2255,127,'King_Behemoth',0,128,1450,75000,0,85,88,0);
-INSERT INTO `mob_groups` VALUES (11,3135,127,'Picklix_Longindex',0,128,0,0,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (12,2767,127,'Moxnix_Nightgoggle',0,128,0,0,0,58,58,0);
-INSERT INTO `mob_groups` VALUES (13,1074,127,'Doglix_Muttsnout',0,128,0,0,0,58,58,0);
+INSERT INTO `mob_groups` VALUES (11,3135,127,'Picklix_Longindex',0,128,0,6000,0,61,61,0);
+INSERT INTO `mob_groups` VALUES (12,2767,127,'Moxnix_Nightgoggle',0,128,0,6000,0,61,61,0);
+INSERT INTO `mob_groups` VALUES (13,1074,127,'Doglix_Muttsnout',0,128,0,6000,0,61,61,0);
 INSERT INTO `mob_groups` VALUES (14,130,127,'Ancient_Weapon',0,128,0,17500,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (15,2387,127,'Legendary_Weapon',0,128,0,17500,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (16,1836,127,'Gudanna',0,128,0,0,0,55,60,0);
