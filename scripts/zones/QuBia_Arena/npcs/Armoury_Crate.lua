@@ -462,6 +462,107 @@ local loot =
             {itemid =   805, droprate =   50}, -- zircon
         },
     },
+    -- BCNM Infernal Swarm
+    [515] =
+    {
+        {
+            {itemid = 65535, droprate = 1000, amount = 24000},  -- gil
+        },
+        {
+            {itemid = 13261, droprate =  200}, -- Ocean Sash 
+            {itemid = 13264, droprate =  200}, -- Jungle Sash
+            {itemid = 13263, droprate =  200}, -- Steppe Sash
+            {itemid = 13265, droprate =  200}, -- Desert Sash
+            {itemid = 13262, droprate =  200}, -- Forest Sash 
+        },
+        {
+            {itemid = 13261, droprate =  200}, -- Ocean Sash 
+            {itemid = 13264, droprate =  200}, -- Jungle Sash
+            {itemid = 13263, droprate =  200}, -- Steppe Sash
+            {itemid = 13265, droprate =  200}, -- Desert Sash
+            {itemid = 13262, droprate =  200}, -- Forest Sash 
+        },
+        {
+            {itemid =  13425, droprate =  240}, -- Guardian Earring 
+            {itemid =  13420, droprate =  240}, -- Kampfer Earring 
+            {itemid =  13433, droprate =  240}, -- Conjurer's Earring 
+            {itemid =  13431, droprate =  240}, -- Shinobi Earring 
+            {itemid =  13429, droprate =  240}, -- Tracker's Earring 
+            {itemid =  13422, droprate =  240}, -- Sorcerer's Earring 
+            {itemid =  13419, droprate =  240}, -- Soldier's Earring 
+            {itemid =  13427, droprate =  240}, -- Tamer's Earring 
+            {itemid =  13421, droprate =  240}, -- Medicine Earring 
+            {itemid =  13432, droprate =  240}, -- Drake Earring 
+            {itemid =  13423, droprate =  240}, -- Fencer's Earring 
+            {itemid =  13428, droprate =  240}, -- Minstrel's Earring 
+            {itemid =  13424, droprate =  240}, -- Rogue's Earring 
+            {itemid =  13430, droprate =  240}, -- Ronin Earring 
+            {itemid =  13426, droprate =  240}, -- Slayer's Earring 
+        },
+        {
+            {itemid =  13425, droprate =  240}, -- Guardian Earring 
+            {itemid =  13420, droprate =  240}, -- Kampfer Earring 
+            {itemid =  13433, droprate =  240}, -- Conjurer's Earring 
+            {itemid =  13431, droprate =  240}, -- Shinobi Earring 
+            {itemid =  13429, droprate =  240}, -- Tracker's Earring 
+            {itemid =  13422, droprate =  240}, -- Sorcerer's Earring 
+            {itemid =  13419, droprate =  240}, -- Soldier's Earring 
+            {itemid =  13427, droprate =  240}, -- Tamer's Earring 
+            {itemid =  13421, droprate =  240}, -- Medicine Earring 
+            {itemid =  13432, droprate =  240}, -- Drake Earring 
+            {itemid =  13423, droprate =  240}, -- Fencer's Earring 
+            {itemid =  13428, droprate =  240}, -- Minstrel's Earring 
+            {itemid =  13424, droprate =  240}, -- Rogue's Earring 
+            {itemid =  13430, droprate =  240}, -- Ronin Earring 
+            {itemid =  13426, droprate =  240}, -- Slayer's Earring 
+        },
+        {
+            {itemid =     0, droprate =  750}, -- nothing
+            {itemid = 13261, droprate =  200}, -- Ocean Sash 
+            {itemid = 13264, droprate =  200}, -- Jungle Sash
+            {itemid = 13263, droprate =  200}, -- Steppe Sash
+            {itemid = 13265, droprate =  200}, -- Desert Sash
+            {itemid = 13262, droprate =  200}, -- Forest Sash 
+        },
+        {
+            {itemid =     0, droprate =  200}, -- nothing
+            {itemid =   844, droprate =  800}, -- Phoenix Feather 
+        },
+        {
+            {itemid =     0, droprate =  200}, -- nothing
+            {itemid =   942, droprate =  240}, -- Philosopher's Stone 
+            {itemid =   844, droprate =  240}, -- Phoenix Feather 
+        },
+        {
+            {itemid =     0, droprate =  400}, -- nothing
+            {itemid =  4902, droprate =  150}, -- Light Spirit Pact
+            {itemid =  4774, droprate =  150}, -- Thunder III
+            {itemid =  4659, droprate =  150}, -- Shell IV
+            {itemid =  4613, droprate =  150}, -- Cure V
+        },
+        {
+            {itemid =     0, droprate =  200}, -- nothing
+            {itemid =   844, droprate =  240}, -- Phoenix Feather 
+            {itemid = 887, droprate = 100},   -- Coral Fragment
+            {itemid = 645, droprate = 100},   -- Chunk Of Darksteel Ore
+            {itemid = 902, droprate = 100},   -- Demon Horn
+            {itemid = 702, droprate = 100},   -- Ebony Log
+            {itemid = 737, droprate = 100},   -- Chunk Of Gold Ore
+            {itemid = 823, droprate = 50},   -- Spool Of Gold Thread
+            {itemid = 4173, droprate = 10},  -- Hi-reraiser
+            {itemid = 700, droprate = 100},   -- Mahogany Log
+            {itemid = 644, droprate = 50},   -- Chunk Of Mythril Ore
+            {itemid = 703, droprate = 150},  -- Petrified Log
+            {itemid = 844, droprate = 10},    -- Phoenix Feather
+            {itemid = 738, droprate = 50},   -- Chunk Of Platinum Ore
+            {itemid = 830, droprate = 50},   -- Square Of Rainbow Cloth
+            {itemid = 895, droprate = 50},   -- Ram Horn
+            {itemid = 4172, droprate = 50},  -- Reraiser
+            {itemid = 4174, droprate = 50},  -- Vile Elixir
+            {itemid = 4175, droprate = 10},   -- Vile Elixir +1
+            {itemid = 866, droprate = 10},   -- Handful Of Wyvern Scales
+        },
+    },
 }
 
 function onTrade(player, npc, trade)
