@@ -9,7 +9,6 @@
 
 require("scripts/globals/settings")
 require("scripts/globals/status")
-require("scripts/globals/msg")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -17,21 +16,29 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    --Grabbing variables.
-    local vit = target:getStat(tpz.mod.VIT)
-    local chr = player:getStat(tpz.mod.CHR)
-    local SSpower = 0
     local power = 0
-        
-	SSpower = (vit+chr)*2+50
-    -- Contradance check
-    if (player:hasStatusEffect(tpz.effect.DIVINE_SEAL) == true) then
-        SSpower = SSpower * 1.2
-        player:delStatusEffect(tpz.effect.DIVINE_SEAL)
+    local scale = 1
+    local duration = 180
+    local gear = player:getMod(tpz.mod.JIG_DURATION)
+    local mob = player:getTarget()
+    if mob then
+        local enmityList = mob:getEnmityList()
+        if enmityList and #enmityList > 0 then
+            if #enmityList < 6 then
+                power = 30
+            elseif #enmityList < 18 then
+                power = 30
+            else
+                power = 30
+            end
+        end
+
+        -- See if we should apply the effects to the player at the top of the hate list
+        if mob:getTarget() == target then
+            scale = scale
+        end
     end
-	
-	ability:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
-	target:setMod(tpz.mod.RAMPART_STONESKIN, SSpower)
-    target:addStatusEffect(tpz.effect.STONESKIN, power, 0, 120)
+
+    target:addStatusEffect(tpz.effect.MAGIC_DEF_BOOST, power, 0, duration)
 end
 
