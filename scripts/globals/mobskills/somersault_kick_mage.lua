@@ -1,31 +1,44 @@
 ---------------------------------------------
---  Rushing Drub
+--  Somersault Kick
 --
---  Description: Delivers a fourfold attack on a single target.
+--  Description: Somersaults a single target. Additional effect: Knockback
 --  Type: Physical
---  Utsusemi/Blink absorb: 4 shadows
+--  Utsusemi/Blink absorb: 1 shadow
 --  Range: Melee
---  Notes: Only used by Mamool Ja with staves.
+--  Notes:
 ---------------------------------------------
+require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
----------------------------------------------
 
+---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-	if mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.WHM then
-		if mob:AnimationSub() == 0 then
-			return 0
-		end
-	end
-    return 1
+
+  if(mob:getFamily() == 91) then
+    local mobSkin = mob:getModelId()
+
+    if (mobSkin ~= 1639) then
+        return 0
+    else
+        return 1
+    end
+  end
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 4
+    local numhits = 1
     local accmod = 1
-    local dmgmod = 1
+    local dmgmod = 2.5
+
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
+
+    if (mob:getPool() == 4377) then -- Worr the Clawfisted
+       local typeEffect = tpz.effect.HASTE
+       MobBuffMove(mob, typeEffect, 2500, 0, 30)
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
