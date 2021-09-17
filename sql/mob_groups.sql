@@ -12328,7 +12328,7 @@ INSERT INTO `mob_groups` VALUES (19,6344,197,'Olid_Funguar',600,0,1440,0,0,93,96
 INSERT INTO `mob_groups` VALUES (20,1341,197,'Fire_Elemental',600,4,832,0,0,52,54,0);
 INSERT INTO `mob_groups` VALUES (21,4309,197,'Water_Elemental',600,4,2631,0,0,52,54,0);
 INSERT INTO `mob_groups` VALUES (22,447,197,'Blazer_Beetle',600,0,292,0,0,52,54,0);
-INSERT INTO `mob_groups` VALUES (23,5854,197,'Dynast_Beetle',0,128,3065,6000,0,56,65,0);
+INSERT INTO `mob_groups` VALUES (23,5854,197,'Dynast_Beetle',0,128,3065,10000,0,63,65,0);
 INSERT INTO `mob_groups` VALUES (24,6075,197,'Helm_Beetle',600,0,1298,0,0,59,62,0);
 INSERT INTO `mob_groups` VALUES (25,6318,197,'Knight_Crawler',600,0,1457,0,0,60,63,0);
 INSERT INTO `mob_groups` VALUES (26,3232,197,'Puroboros',3600,0,2043,0,0,45,45,0);
