@@ -41,8 +41,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.MYTHIC)
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+		if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
+		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
     local resistTwo = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 0)
