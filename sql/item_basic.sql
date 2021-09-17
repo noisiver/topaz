@@ -4260,7 +4260,7 @@ INSERT INTO `item_basic` VALUES (4504,0,'acorn','acorn',12,4,59,0,2);
 INSERT INTO `item_basic` VALUES (4505,0,'handful_of_sunflower_seeds','sunflower_seeds',12,1548,59,0,24);
 INSERT INTO `item_basic` VALUES (4506,0,'mutton_tortilla','mutton_tortilla',12,1548,56,0,405);
 INSERT INTO `item_basic` VALUES (4507,0,'rarab_meatball','rarab_meatball',1,1580,52,0,326);
-INSERT INTO `item_basic` VALUES (4508,0,'serving_of_royal_jelly','royal_jelly',12,26204,0,0,150);
+INSERT INTO `item_basic` VALUES (4508,0,'serving_of_royal_jelly','royal_jelly',1,26204,0,0,150);
 INSERT INTO `item_basic` VALUES (4509,0,'flask_of_distilled_water','distilled_water',12,4,59,0,3);
 INSERT INTO `item_basic` VALUES (4510,0,'acorn_cookie','acorn_cookie',99,1548,57,0,6);
 INSERT INTO `item_basic` VALUES (4511,0,'bowl_of_ambrosia','ambrosia',1,30300,0,1,0);

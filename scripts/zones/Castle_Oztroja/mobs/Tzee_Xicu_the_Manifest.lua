@@ -8,6 +8,10 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/titles")
 require("scripts/globals/mobs")
 -----------------------------------
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
+end
+
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 50) 

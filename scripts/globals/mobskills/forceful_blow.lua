@@ -13,10 +13,9 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    -- only brown-skinned mamool should use this move
-    local mobSkin = mob:getModelId()
-    if (mobSkin == 1639 or mobSkin == 1619) then
-        return 0
+    -- Only used by unarmed(NIN or broken weapon) Mamools
+	if mob:getMainJob() == tpz.job.NIN or (mob:getMainJob() ~= tpz.job.NIN and mob:AnimationSub() == 1) then        
+		return 0
     else
         return 1
     end
@@ -25,7 +24,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 3
+    local dmgmod = 2
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)

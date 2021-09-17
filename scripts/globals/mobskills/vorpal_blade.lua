@@ -12,18 +12,19 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 
 function onMobSkillCheck(target, mob, skill)
-    -- Check for Grah Family id 122, 123, 124
-    -- if not in Paladin form, then ignore.
+    -- Check for Grah Family id 122, 123, 124, if not in Paladin form, then ignore.
     if ((mob:getFamily() == 122 or mob:getFamily() == 123 or mob:getFamily() == 124) and mob:AnimationSub() ~= 1) then
         return 1
-    elseif (mob:getPool() ~= 4249) then
-        mob:messageBasic(tpz.msg.basic.READIES_WS, 0, 40)
+    -- Check for the mamool ja family, if the mob is not a BLU, then ignore 
+    elseif mob:getFamily() == 176 and mob:getMainJob() ~= tpz.job.BLU then
+		if mob:AnimationSub() == 1 then
+        return 1
     end
-	if (mob:getFamily() == 176 or mob:getFamily() == 177 or or mob:getFamily() == 285) and mob:getPool() ~= 2526 or mob:getPool() ~= 2525 or mob:getPool() ~= 2524 then
-		return 1
-	end
-	return 0
+		end
+    return 0
 end
+
+
 
 function onMobWeaponSkill(target, mob, skill)
     if (mob:getPool() == 4249) then -- Volker@Throne_Room only

@@ -23,6 +23,10 @@ function onMobWeaponSkill(target, mob, skill)
 
     potency = potency - math.random(0, potency/4)
 
+    if (mob:getPool() == 385) then -- Beelzebub
+        potency = 10
+	end
+
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
     return MobHealMove(mob, mob:getMaxHP() * potency / 100)

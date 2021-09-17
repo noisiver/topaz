@@ -15,12 +15,16 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if (mob:getFamily() == 176 or mob:getFamily() == 177 or or mob:getFamily() == 285) and mob:getPool() ~= 2545 or mob:getPool() ~= 2538 or mob:getPool() ~= 2537 
-	or mob:getPool() ~= 2522 then
-		return 1
-	end
-    return 0
+    if mob:getMainJob() == tpz.job.BST or mob:getMainJob() == tpz.job.THF then
+        -- If animationSub is 1, the mob has already lost his weapeon and cant do this TP attack.
+        if mob:AnimationSub() == 0 then
+            return 0
+        end
+    end
+
+    return 1
 end
+
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 4
