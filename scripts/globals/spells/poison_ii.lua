@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Poison
+-- Spell: Poison II
 -----------------------------------------
 require("scripts/globals/magic")
 require("scripts/globals/msg")
@@ -14,7 +14,7 @@ function onSpellCast(caster, target, spell)
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
 
     local skill = caster:getSkillLevel(tpz.skill.ENFEEBLING_MAGIC)
-    local power = math.max(skill / 4, 4)       -- changed from 20
+    local power = math.max(skill / 10, 4)       -- changed from 20
     if skill > 400 then
         power = math.floor(skill * 49 / 183 - 55) -- No cap can be reached yet
     end
