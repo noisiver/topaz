@@ -9,13 +9,14 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.SLEEPRESTRAIT, 100)
+    mob:addMod(tpz.mod.LULLABYRESTRAIT, 100)
     mob:addMod(tpz.mod.DEFP, 30) 
     mob:addMod(tpz.mod.ATTP, 20)
     mob:addMod(tpz.mod.ACC, 100) 
     mob:addMod(tpz.mod.EVA, 50)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 50)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
-    mob:addMod(tpz.mod.SLEEPRESTRAIT, 100)
-    mob:addMod(tpz.mod.LULLABYRESTRAIT, 100)
 end
 
 function onMobDeath(mob, player, isKiller)
