@@ -37,14 +37,14 @@ INSERT INTO `blue_traits` VALUES (7, 2, 39, 231, 8);
 INSERT INTO `blue_traits` VALUES (8, 2, 3, 23, 10);
 INSERT INTO `blue_traits` VALUES (8, 2, 3, 24, 10);
 INSERT INTO `blue_traits` VALUES (9, 2, 11, 357, 10);
-INSERT INTO `blue_traits` VALUES (10, 2, 8, 5, 10);
-INSERT INTO `blue_traits` VALUES (10, 4, 8, 5, 30);
+INSERT INTO `blue_traits` VALUES (10, 2, 8, 5, 10); -- Max MP Boost
+INSERT INTO `blue_traits` VALUES (10, 4, 8, 5, 20); -- Max MP Boost II
 INSERT INTO `blue_traits` VALUES (11, 2, 4, 1, 10);
 INSERT INTO `blue_traits` VALUES (12, 2, 33, 229, 8);
 INSERT INTO `blue_traits` VALUES (13, 2, 6, 29, 10);
 INSERT INTO `blue_traits` VALUES (14, 8, 10, 369, 1);
-INSERT INTO `blue_traits` VALUES (15, 2, 7, 2, 30);
-INSERT INTO `blue_traits` VALUES (15, 4, 7, 2, 90);
+INSERT INTO `blue_traits` VALUES (15, 2, 7, 2, 30); -- Max Hp Boost
+INSERT INTO `blue_traits` VALUES (15, 4, 7, 2, 60); -- Max Hp Boost II
 INSERT INTO `blue_traits` VALUES (16, 2, 1, 25, 10);
 INSERT INTO `blue_traits` VALUES (16, 2, 1, 26, 10);
 INSERT INTO `blue_traits` VALUES (17, 2, 13, 296, 25);
@@ -65,3 +65,7 @@ INSERT INTO `blue_traits` VALUES (26, 2, 70, 306, 15);
 INSERT INTO `blue_traits` VALUES (27, 2, 110, 407, 5); -- Magic burst bonus
 INSERT INTO `blue_traits` VALUES (28, 2, 20, 0, 0);
 INSERT INTO `blue_traits` VALUES (28, 3, 19, 303, 1);
+INSERT INTO `blue_traits` VALUES (29, 4, 4, 1, 22); -- Defense Bonus II
+INSERT INTO `blue_traits` VALUES (30, 6, 4, 1, 35); -- Defense Bonus III
+INSERT INTO `blue_traits` VALUES (31, 4, 7, 2, 120); -- Max Hp Boost III
+INSERT INTO `blue_traits` VALUES (32, 4, 8, 5, 40); -- Max MP Boost III
