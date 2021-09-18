@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Overthrow
 --
---  Description: Throws a target backward.
+--  Description: Throws a target backward, dealing more damage at lower HP.
 --  Type: Physical
 --  Utsusemi/Blink absorb: Ignores shadows
 --  Range: Melee

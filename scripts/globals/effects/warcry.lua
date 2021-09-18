@@ -14,7 +14,6 @@ require("scripts/globals/status")
 
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.ATT, effect:getPower())
-    target:addMod(tpz.mod.ENMITY, effect:getPower())
     target:addMod(tpz.mod.TP_BONUS, effect:getSubPower())
 end
 
@@ -23,6 +22,5 @@ end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.ATT, effect:getPower())
-    target:delMod(tpz.mod.ENMITY, effect:getPower())
     target:delMod(tpz.mod.TP_BONUS, effect:getSubPower())
 end
