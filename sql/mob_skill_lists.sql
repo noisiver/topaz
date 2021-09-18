@@ -236,6 +236,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Bird',55,622);
 INSERT INTO `mob_skill_lists` VALUES ('Bird',55,623);
 INSERT INTO `mob_skill_lists` VALUES ('Bomb',56,510);
 INSERT INTO `mob_skill_lists` VALUES ('Bomb',56,511);
+INSERT INTO `mob_skill_lists` VALUES ('Bomb',56,342);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,493);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,494);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,495);
