@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 17774
 -- Item: Shiranui
--- Additional Effect: Light Damage (night time only)
+-- Additional Effect: Light Damage
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
