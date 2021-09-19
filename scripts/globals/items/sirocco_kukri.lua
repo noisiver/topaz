@@ -9,6 +9,15 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
+    local chance = 100
+    local SDT = target:getMod(tpz.mod.SDT_WIND)
+
+    if SDT <= 5 then
+        chance = 0
+    end
+    if (math.random(0, 99) >= chance) then
+        return 0, 0, 0
+    else
     local dmg = 10
     local params = {}
     params.bonusmab = 0
@@ -23,5 +32,6 @@ function onAdditionalEffect(player, target, damage)
         message = tpz.msg.basic.ADD_EFFECT_HEAL
     end
 
-    return tpz.subEffect.WIND_DAMAGE, message, dmg
+		return tpz.subEffect.WIND_DAMAGE, message, dmg
+	end
 end
