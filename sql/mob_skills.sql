@@ -1816,7 +1816,7 @@ INSERT INTO `mob_skills` VALUES (1978,1165,'abominable_belch',1,10.0,2000,1500,4
 -- INSERT INTO `mob_skills` VALUES (1984,1728,'wisecrack',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1985,1729,'fighters_roll',1,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1986,1730,'rogues_roll',1,7.0,2000,1500,1,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1987,1731,'gallant's_roll',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1987,1731,'gallants_roll',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1988,1732,'chaos_roll',1,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1989,1733,'hunters_roll',1,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1990,1734,'ninja_roll',1,7.0,2000,1500,1,0,0,0,0,0,0);

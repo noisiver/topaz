@@ -1,0 +1,23 @@
+---------------------------------------------
+-- Gallant's Roll
+--
+-- Description: Enhances defense.
+-- Type: Enhancing
+-- Utsusemi/Blink absorb: N/A
+-- Range: Self
+---------------------------------------------
+require("scripts/globals/monstertpmoves")
+require("scripts/globals/settings")
+require("scripts/globals/status")
+---------------------------------------------
+
+function onMobSkillCheck(target, mob, skill)
+    return 0
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    local typeEffect = tpz.effect.GALLANTS_ROLL
+    local power =  math.random(3,23)
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 300)) 
+    return typeEffect
+end
