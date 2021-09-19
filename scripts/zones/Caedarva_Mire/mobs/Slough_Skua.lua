@@ -23,7 +23,7 @@ function onMobFight(mob, target)
 		elseif roll == 5
 			mob:useMobAbility(1989)  -- hunters_roll
 			mob:setLocalVar("rolldice", battletime + math.random(60, 90))
-		elseif roll == 5
+		elseif roll == 6
 			mob:useMobAbility(1987)  -- gallants_roll
 			mob:setLocalVar("rolldice", battletime + math.random(60, 90))
 		end
