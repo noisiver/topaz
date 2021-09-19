@@ -12,6 +12,9 @@ local loot =
     [520] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
+        },
+        {
             {itemid = 14833, droprate =  125}, -- marine_m_gloves
             {itemid = 14834, droprate =  125}, -- marine_f_gloves
             {itemid = 14835, droprate =  125}, -- wood_gauntlets
@@ -84,6 +87,9 @@ local loot =
     -- BCNM Die by the Sword
     [521] =
     {
+        {
+            {itemid = 65535, droprate = 1000, amount = 9000},  -- gil
+        },
         {
             {itemid = 16655, droprate = 1000}, -- rusty_pick
         },
@@ -432,6 +438,9 @@ local loot =
     [528] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
+        },
+        {
             {itemid =  1441, droprate = 1000}, -- libation_abjuration
         },
         {
@@ -456,19 +465,31 @@ local loot =
             {itemid = 18004, droprate =  250}, -- trailers_kukri
         },
         {
+            {itemid = 14662, droprate =  250}, -- teleport_ring_dem
+            {itemid = 14663, droprate =  250}, -- teleport_ring_mea
+            {itemid = 17841, droprate =  250}, -- nursemaids_harp
+            {itemid = 18004, droprate =  250}, -- trailers_kukri
+        },
+        {
             {itemid = 14761, droprate =  250}, -- elusive_earring
             {itemid = 13691, droprate =  250}, -- knightly_mantle
             {itemid = 13689, droprate =  250}, -- hi-ether_tank
             {itemid = 13688, droprate =  250}, -- hi-potion_tank
         },
         {
-            {itemid =     0, droprate =  950}, -- nothing
-            {itemid = 15185, droprate =   50}, -- walkure_mask
+            {itemid = 14761, droprate =  250}, -- elusive_earring
+            {itemid = 13691, droprate =  250}, -- knightly_mantle
+            {itemid = 13689, droprate =  250}, -- hi-ether_tank
+            {itemid = 13688, droprate =  250}, -- hi-potion_tank
+        },
+        {
+            {itemid =     0, droprate =  750}, -- nothing
+            {itemid = 15185, droprate =   250}, -- walkure_mask
         },
         {
             {itemid =   791, droprate =   50}, -- aquamarine
             {itemid =   801, droprate =   50}, -- chrysoberyl
-            {itemid =   654, droprate =  100}, -- darksteel_ingot
+            {itemid =   654, droprate =  50}, -- darksteel_ingot
             {itemid =   702, droprate =   50}, -- ebony_log
             {itemid =   810, droprate =   50}, -- fluorite
             {itemid =   745, droprate =   50}, -- gold_ingot
