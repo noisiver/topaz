@@ -19,8 +19,6 @@ function onMobSkillCheck(target, mob, skill)
     else
         return 1
     end
-
-	return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
