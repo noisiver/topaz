@@ -2531,7 +2531,7 @@ INSERT INTO `mob_groups` VALUES (38,2525,52,'Mamool_Ja_Mimer',330,0,1595,0,0,81,
 INSERT INTO `mob_groups` VALUES (39,2528,52,'Mamool_Ja_Philosopher',300,0,1600,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (40,3652,52,'Skoffin',600,0,2268,0,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (41,2529,52,'Mamool_Ja_Pikeman',300,0,1601,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (42,2541,52,'Mamool_Jas_Wyvern',300,128,0,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (42,2541,52,'Mamool_Jas_Wyvern',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (43,5140,52,'Nis_Puk',0,32,2894,13000,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (44,2523,52,'Mamool_Ja_Lurker',300,0,1593,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (45,2507,52,'Mamool_Ja_Blusterer',300,0,1586,0,0,81,83,0);
@@ -3056,7 +3056,7 @@ INSERT INTO `mob_groups` VALUES (13,2539,65,'Mamool_Jas_Lizard',600,128,0,0,0,76
 INSERT INTO `mob_groups` VALUES (14,648,65,'Carriage_Lizard',600,0,424,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (15,4508,65,'Ziz',600,0,2805,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (16,2535,65,'Mamool_Ja_Spearman',600,0,1588,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (17,2541,65,'Mamool_Jas_Wyvern',600,128,0,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (17,2541,65,'Mamool_Jas_Wyvern',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (18,6604,65,'Puk',600,0,2036,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (19,1019,65,'Devout_Radol_Ja',0,128,646,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (20,4509,65,'Zizzy_Zillah',0,32,2807,30000,0,85,87,0);
@@ -3106,7 +3106,7 @@ INSERT INTO `mob_groups` VALUES (63,2658,65,'Mikirulu',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (64,691,65,'Chamrosh',0,128,450,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (65,2089,65,'Iriri_Samariri',0,128,1367,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (66,4295,65,'Wartkin',0,128,0,0,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (67,2541,65,'Mamool_Jas_Wyvern',600,128,0,0,0,76,78,0);
+INSERT INTO `mob_groups` VALUES (67,2541,65,'Mamool_Jas_Wyvern',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (68,0,65,'Venomfang',0,128,0,35000,0,85,87,0);
 
 INSERT INTO `mob_groups` VALUES (2227,4493,65,'Zazarg',0,128,0,0,0,0,0,0);
