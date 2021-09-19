@@ -10,11 +10,12 @@ function calculateBarstatusPower(caster, enhanceSkill)
     if (enhanceSkill == nil or enhanceSkill < 0) then
         enhanceSkill = 0
     end
-
+	local power = 0
+	power =  5 + 0.05 * enhanceSkill
     -- No known way to determine actual potency.
     --return 1 + 0.02 * enhanceSkill + meritBonus
     --return  40 + math.floor(enhanceSkill / 5) + meritBonus
-     return 5 + 0.05 * enhanceSkill
+     return power
 end
 
 function calculateBarstatusDuration(caster, enhanceSkill)
