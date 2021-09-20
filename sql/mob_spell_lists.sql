@@ -44,8 +44,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,3,21,40);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,4,41,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,5,85,255); -- Cure V
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,6,95,255); -- Cure VI
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,21,50,94);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,22,95,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,21,50,94); -- Holy
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,22,95,255); -- Holy II
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,23,3,35);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,24,36,84);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,25,85,255); -- Dia III

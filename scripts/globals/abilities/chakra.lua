@@ -33,6 +33,12 @@ function onUseAbility(player, target, ability)
 
     --local recover = player:getStat(tpz.mod.VIT) * (2 + player:getMod(tpz.mod.CHAKRA_MULT) / 10) -- TODO: Figure out "function of level" addition (August 2017 update)
     local recover = player:getStat(tpz.mod.VIT) * (2 + player:getMod(tpz.mod.CHAKRA_MULT) / 10) * 1.5 
+	if player:getMainJob() == tpz.job.MNK then  
+		recover = recover
+	else
+		recover = recover / 2 -- Nerf Chakra by half if subbed
+	end
+	
     if ((target:getMaxHP() - target:getHP()) < recover) then
         recover = (target:getMaxHP() - target:getHP())
     end
