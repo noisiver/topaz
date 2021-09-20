@@ -4,6 +4,7 @@
 -- Note: Paths around the 2 staircases
 -----------------------------------
 require("scripts/globals/hunts")
+require("scripts/globals/pathfind")
 
 local path =
 {
@@ -62,6 +63,10 @@ local path =
     -17.573, -8.500, -95.179
 }
 
+function onPath(mob)
+    tpz.path.patrol(mob, path)
+end
+
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ATTP, 100)
@@ -70,10 +75,6 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 5)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
     onPath(mob)
-end
-
-function onPath(mob)
-    tpz.path.patrol(mob, path)
 end
 
 function onMobRoam(mob)
