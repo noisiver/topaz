@@ -41,9 +41,9 @@ LOCK TABLES `mob_spell_lists` WRITE;
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,1,1,10);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,2,11,20);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,3,21,40);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,4,41,60);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,5,61,79);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,6,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,4,41,84);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,5,85,255); -- Cure V
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,6,95,255); -- Cure VI
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,21,50,94);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,22,95,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,23,3,35);
@@ -321,28 +321,28 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BRD',6,422,59,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BRD',6,462,33,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BRD',6,463,16,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,320,15,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,321,40,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,322,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,321,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,322,85,255); -- katon_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,323,15,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,324,40,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,325,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,324,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,325,85,255); -- hyoton_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,326,15,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,327,40,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,328,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,327,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,328,85,255); -- huton_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,329,15,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,330,40,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,331,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,330,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,331,85,255); -- doton_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,332,15,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,333,40,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,334,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,333,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,334,85,255); -- raiton_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,335,15,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,336,40,72);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,337,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,336,40,84);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,337,85,255); -- suiton_san
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,338,12,36);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,339,37,89); -- Utusemi: Ni
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,340,90,255); -- Utsusemi: San
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,341,30,64);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,342,65,255); -- jubaku_ni
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,341,30,84); -- jubaku_ichi
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,342,85,255); -- jubaku_ni
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,344,23,47);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,345,48,89); -- hojo_ni
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_NIN',7,346,90,255); -- hojo_san
