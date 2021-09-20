@@ -384,6 +384,10 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     if wsParams.useAutoTPFormula == nil or wsParams.useAutoTPFormula == false then
         finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.0 -- Add server bonus
     end
+	
+	 if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
+		finaldmg = math.floor(finaldmg * 0.5)
+	 end
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
