@@ -49,9 +49,7 @@ function onUseAbility(player, target, ability, action)
         isSneakValid = false
     end
 
-    player:addMod(tpz.mod.ACC, -40)
-	
-    local hitrate = getHitRate(player, target, true)
+    local hitrate = getHitRate(player, target, true, -50)
 	
 
     if (math.random() <= hitrate or isSneakValid) then
@@ -63,7 +61,6 @@ function onUseAbility(player, target, ability, action)
         params.bonus = 0 
         local resist = applyResistance(player, target, spell, params)
 		
-		player:delMod(tpz.mod.ACC, -40)
 
         if resist >= 0.5 then
             target:delStatusEffectSilent(tpz.effect.WEIGHT)
