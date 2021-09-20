@@ -19,7 +19,7 @@ function onAdditionalEffect(player, target, damage)
     end
     --print(string.format("step1: %u",chance))
 	--GetPlayerByID(6):PrintToPlayer(string.format("Proc chance: %u",chance))
-    if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0) <= 0.5) then
+    if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0) < 0.5) then
         return 0, 0, 0
     else
         target:delStatusEffect(tpz.effect.DEFENSE_BOOST)

@@ -16,11 +16,11 @@ function onAdditionalEffect(player, target, damage)
     if SDT <= 5 then
         chance = 0
     end
+   chance = chance * (SDT / 100)
     if (math.random(0, 99) >= chance) then
         return 0, 0, 0
     else
         local dmg = (player:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)) + 20
-        dmg = dmg * (SDT / 100)
         if (dmg > 120) then
             dmg = 120
         end
