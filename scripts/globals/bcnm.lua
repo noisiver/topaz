@@ -290,7 +290,7 @@ local battlefields = {
      -- {14,   78, 1177},   -- The Final Bout (BS50) -- TODO: mobskills Big Blow and Counterstance
         {15,   79, 1130},   -- Up in Arms (BS60)
      -- {16,   80, 1175},   -- Copycat (KS30)
-     -- {17,   81, 1178},   -- Operation Desert Swarm (KS30) -- TODO: Wild Rage gets stronger as they die. Build sleep resistance. Testing.
+		{17,   81, 1178},   -- Operation Desert Swarm (KS30) 
      -- {18,   82, 1180},   -- Prehistoric Pigeons (KS30) -- TODO: Build resistance to sleep quickly. When one dies, remaining ones become more powerful.
      -- {19,   83, 3351},   -- The Palborough Project (KC30)
      -- {20,   84, 3352},   -- Shell Shocked (KC50)
@@ -485,7 +485,7 @@ local battlefields = {
         {13,  525, 1131},   -- Factory Rejects (BS40) -- TODO: dolls grow size/power based on hidden timer. (wikis disagree on TP moves? factory immune? factory model?)
         {14,  526, 1177},   -- Idol Thoughts (BS50)
         {15,  527, 1177},   -- An Awful Autopsy (BS50) -- TODO: mobskill Infernal Pestilence
-     -- {16,  528, 1130},   -- Celery (BS60) -- TODO: mobs do not have their specific weaknesses. mobskill Bane.
+		{16,  528, 1130},   -- Celery (BS60) 
      -- {17,  529,    0},   -- Mirror Images (Quest)
         {18,  530, 2556},   -- A Furious Finale (DNC LB5)
      -- {19,  531,    0},   -- Clash of the Comrades (Quest)

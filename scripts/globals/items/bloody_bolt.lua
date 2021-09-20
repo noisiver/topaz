@@ -8,7 +8,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = 100
+    local chance = 105
     local SDT = target:getMod(tpz.mod.SDT_DARK)
 
     if SDT <= 5 then
@@ -17,7 +17,7 @@ function onAdditionalEffect(player, target, damage)
         chance = chance * (SDT / 100)
         chance = utils.clamp(chance, 5, 95)
     end
-    if (math.random(0, 99) >= chance or target:isUndead()) then
+    if (math.random(0, 99) >= chance or target:isUndead() or applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0) < 0.5) then
         return 0, 0, 0
     else
         local diff = player:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)

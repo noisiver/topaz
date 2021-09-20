@@ -4299,11 +4299,11 @@ INSERT INTO `item_mods` VALUES (11304,12,3);
 INSERT INTO `item_mods` VALUES (11304,13,3);
 INSERT INTO `item_mods` VALUES (11304,71,5);
 INSERT INTO `item_mods` VALUES (11304,337,15);
-INSERT INTO `item_mods` VALUES (11305,1,39);
+INSERT INTO `item_mods` VALUES (11305,1,39); -- Etoile Casaque
 INSERT INTO `item_mods` VALUES (11305,9,4);
 INSERT INTO `item_mods` VALUES (11305,23,12);
 INSERT INTO `item_mods` VALUES (11305,25,10);
-INSERT INTO `item_mods` VALUES (11305,493,20);
+INSERT INTO `item_mods` VALUES (11305,493,30); -- Enhances "Violent Flourish" Effect". +20 Macc to VF
 INSERT INTO `item_mods` VALUES (11306,1,40);
 INSERT INTO `item_mods` VALUES (11306,9,4);
 INSERT INTO `item_mods` VALUES (11306,23,14);

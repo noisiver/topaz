@@ -3467,4 +3467,18 @@ INSERT INTO `item_latents` VALUES(28256, 169, 25, 26, 2);   -- Hachiya Kyahan +1
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(13227, 1, 10, 0, 50);    -- Defense +10  while HP <=50% 
 INSERT INTO `item_latents` VALUES(13227, 23, 5, 1, 51);    -- Attack +5 while HP 51%=> 
-
+-- -------------------------------------------------------
+-- Ryumon
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(18422,62,2,13,66); 		-- +2% Attack 1 Shadow
+INSERT INTO `item_latents` VALUES(18422,62,4,13,444); 	-- +4% Attack 2 Shadows
+INSERT INTO `item_latents` VALUES(18422,62,6,13,445); 	-- +6% Attack 3 Shadows
+INSERT INTO `item_latents` VALUES(18422,62,10,13,446);	-- +10% Attack 4+ Shadows
+-- -------------------------------------------------------
+-- Musanto 
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(19279, 9, 3, 16, 2);    -- +3 Dex per person in party
+INSERT INTO `item_latents` VALUES(19279, 9, 3, 16, 3);    -- +3 Dex per person in party
+INSERT INTO `item_latents` VALUES(19279, 9, 3, 16, 4);    -- +3 Dex per person in party
+INSERT INTO `item_latents` VALUES(19279, 9, 3, 16, 5);    -- +3 Dex per person in party
+INSERT INTO `item_latents` VALUES(19279, 9, 3, 16, 6);    -- +3 Dex per person in party

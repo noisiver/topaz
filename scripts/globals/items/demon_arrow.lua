@@ -18,7 +18,7 @@ function onAdditionalEffect(player, target, damage)
         chance = chance * (SDT / 100)
         chance = utils.clamp(chance, 5, 95)
     end
-    if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0) <= 0.5) then
+    if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0) < 0.5) then
         return 0, 0, 0
     else
         target:delStatusEffect(tpz.effect.ATTACK_BOOST)

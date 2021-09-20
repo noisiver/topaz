@@ -25,8 +25,12 @@ function onMobWeaponSkill(target, mob, skill)
 
             skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 20))
         end
-    else
+    elseif (mob:getPool() == 160) or (mob:getPool() == 3612) or (mob:getPool() == 3227) or (mob:getPool() == 2588) then -- Celery BCNM Ghosts
         local typeEffect = tpz.effect.CURSE_I
+
+        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 7200))
+	else
+		local typeEffect = tpz.effect.CURSE_I
 
         skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 600))
     end

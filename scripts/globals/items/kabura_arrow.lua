@@ -20,7 +20,7 @@ function onAdditionalEffect(player, target, damage)
     end
     if (target:hasImmunity(16)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-    elseif (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0) <= 0.5) then
+    elseif (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0) < 0.5) then
         return 0, 0, 0
     else
         target:delStatusEffect(tpz.effect.SILENCE)

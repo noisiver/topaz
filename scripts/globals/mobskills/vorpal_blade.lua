@@ -13,16 +13,16 @@ require("scripts/globals/msg")
 
 function onMobSkillCheck(target, mob, skill)
     -- Check for Grah Family id 122, 123, 124, if not in Paladin form, then ignore.
-    if ((mob:getFamily() == 122 or mob:getFamily() == 123 or mob:getFamily() == 124) and mob:AnimationSub() ~= 1) then
-        return 1
+    if ((mob:getFamily() == 122 or mob:getFamily() == 123 or mob:getFamily() == 124) and mob:AnimationSub() == 1) then
+        return 0
     -- Check for the mamool ja family, if the mob is not a BLU, then ignore 
-    elseif mob:getFamily() == 176 and mob:getMainJob() ~= tpz.job.BLU then
-		if mob:AnimationSub() == 1 then
-        return 1
+    elseif mob:getFamily() == 176 and mob:getMainJob() == tpz.job.BLU then
+        return 0
     end
-		end
-    return 0
+
+    return 1
 end
+
 
 
 

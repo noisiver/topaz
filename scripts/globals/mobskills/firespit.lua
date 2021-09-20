@@ -12,20 +12,14 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-  if(mob:getFamily() == 91) then
-    local mobSkin = mob:getModelId()
-
-    if (mobSkin == 1639) then
-        return 0
-    else
-        return 1
+    if mob:getMainJob() == tpz.job.BLU or mob:getMainJob() == tpz.job.BST or mob:getMainJob() == tpz.job.DRG  or mob:getMainJob() == tpz.job.NIN  or mob:getMainJob() == tpz.job.THF  then
+        -- If animationSub is 1, the mob has already lost his weapeon and cant do this TP attack.
+        if mob:AnimationSub() == 0 then
+            return 0
+        end
     end
-  end
-	if (mob:getFamily() == 176 or mob:getFamily() == 177 or or mob:getFamily() == 285) and mob:getPool() = 2526 or mob:getPool() = 2533 or mob:getPool() = 2534
-	or mob:getPool() = 2516 or mob:getPool() = 2507 or mob:getPool() = 2528 then
-		return 1
-	end
-	return 0
+
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)

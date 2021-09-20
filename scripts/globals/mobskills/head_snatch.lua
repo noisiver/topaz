@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local targetcurrentHP = target:getHP()
+    local targetCurrentHP = target:getHP()
     local targetmaxHP = target:getMaxHP()
     local hpset=targetmaxHP*0.10
 

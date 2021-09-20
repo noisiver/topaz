@@ -12,6 +12,19 @@ local loot =
     [520] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
+        },
+        {
+            {itemid = 14833, droprate =  125}, -- marine_m_gloves
+            {itemid = 14834, droprate =  125}, -- marine_f_gloves
+            {itemid = 14835, droprate =  125}, -- wood_gauntlets
+            {itemid = 14836, droprate =  125}, -- wood_gloves
+            {itemid = 14837, droprate =  125}, -- creek_m_mitts
+            {itemid = 14838, droprate =  125}, -- creek_f_mitts
+            {itemid = 14839, droprate =  125}, -- river_gauntlets
+            {itemid = 14840, droprate =  125}, -- dune_bracers
+        },
+        {
             {itemid = 14833, droprate =  125}, -- marine_m_gloves
             {itemid = 14834, droprate =  125}, -- marine_f_gloves
             {itemid = 14835, droprate =  125}, -- wood_gauntlets
@@ -30,35 +43,53 @@ local loot =
             {itemid =   479, droprate =  125}, -- purple_chip
             {itemid =   480, droprate =  125}, -- white_chip
             {itemid =   481, droprate =  125}, -- black_chip
+            {itemid =   801, droprate =  150}, -- chrysoberyl
+            {itemid =   784, droprate =  150}, -- jaedeite
+            {itemid =   805, droprate =  150}, -- zircon
         },
         {
-            {itemid =     0, droprate =  125}, -- nothing
-            {itemid =   653, droprate =  125}, -- mythril_ingot
-            {itemid =   702, droprate =  125}, -- ebony_log
-            {itemid =   703, droprate =  125}, -- petrified_log
-            {itemid =   791, droprate =  125}, -- aquamarine
-            {itemid =   797, droprate =  125}, -- painite
-            {itemid =   801, droprate =  125}, -- chrysoberyl
-            {itemid =   802, droprate =  125}, -- moonstone
+            {itemid =     0, droprate =  750}, -- nothing
+            {itemid = 14833, droprate =  125}, -- marine_m_gloves
+            {itemid = 14834, droprate =  125}, -- marine_f_gloves
+            {itemid = 14835, droprate =  125}, -- wood_gauntlets
+            {itemid = 14836, droprate =  125}, -- wood_gloves
+            {itemid = 14837, droprate =  125}, -- creek_m_mitts
+            {itemid = 14838, droprate =  125}, -- creek_f_mitts
+            {itemid = 14839, droprate =  125}, -- river_gauntlets
+            {itemid = 14840, droprate =  125}, -- dune_bracers
+            {itemid =   769, droprate =   240}, -- red_rock
+            {itemid =   775, droprate =   240}, -- black_rock
+            {itemid =   653, droprate =  240}, -- mythril_ingot
+            {itemid =   702, droprate =  240}, -- ebony_log
+            {itemid =   703, droprate =  240}, -- petrified_log
+            {itemid =   791, droprate =  240}, -- aquamarine
+            {itemid =   797, droprate =  240}, -- painite
+            {itemid =   801, droprate =  240}, -- chrysoberyl
+            {itemid =   802, droprate =  240}, -- moonstone
+            {itemid =   772, droprate =   240}, -- green_rock
+            {itemid =   773, droprate =  240}, -- translucent_rock
         },
         {
             {itemid =     0, droprate =  625}, -- nothing
-            {itemid =  4749, droprate =  125}, -- scroll_of_reraise_ii
-            {itemid =  4812, droprate =  125}, -- scroll_of_flare
-            {itemid =  5005, droprate =  125}, -- scroll_of_valor_minuet_iv
+            {itemid =  4749, droprate =  150}, -- scroll_of_reraise_ii
+            {itemid =  4812, droprate =  150}, -- scroll_of_flare
+            {itemid =  5005, droprate =  150}, -- scroll_of_valor_minuet_iv
         },
         {
             {itemid =     0, droprate =  700}, -- nothing
-            {itemid =  4119, droprate =   75}, -- hi-potion_+3
+            {itemid =  4119, droprate =   240}, -- hi-potion_+3
             {itemid =  4173, droprate =  150}, -- hi-reraiser
             {itemid =  4174, droprate =   50}, -- vile_elixir
-            {itemid =  4175, droprate =   25}, -- vile_elixir_+1
+            {itemid =  4175, droprate =   10}, -- vile_elixir_+1
         },
     },
 
     -- BCNM Die by the Sword
     [521] =
     {
+        {
+            {itemid = 65535, droprate = 1000, amount = 9000},  -- gil
+        },
         {
             {itemid = 16655, droprate = 1000}, -- rusty_pick
         },
@@ -407,6 +438,9 @@ local loot =
     [528] =
     {
         {
+            {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
+        },
+        {
             {itemid =  1441, droprate = 1000}, -- libation_abjuration
         },
         {
@@ -431,19 +465,31 @@ local loot =
             {itemid = 18004, droprate =  250}, -- trailers_kukri
         },
         {
+            {itemid = 14662, droprate =  250}, -- teleport_ring_dem
+            {itemid = 14663, droprate =  250}, -- teleport_ring_mea
+            {itemid = 17841, droprate =  250}, -- nursemaids_harp
+            {itemid = 18004, droprate =  250}, -- trailers_kukri
+        },
+        {
             {itemid = 14761, droprate =  250}, -- elusive_earring
             {itemid = 13691, droprate =  250}, -- knightly_mantle
             {itemid = 13689, droprate =  250}, -- hi-ether_tank
             {itemid = 13688, droprate =  250}, -- hi-potion_tank
         },
         {
-            {itemid =     0, droprate =  950}, -- nothing
-            {itemid = 15185, droprate =   50}, -- walkure_mask
+            {itemid = 14761, droprate =  250}, -- elusive_earring
+            {itemid = 13691, droprate =  250}, -- knightly_mantle
+            {itemid = 13689, droprate =  250}, -- hi-ether_tank
+            {itemid = 13688, droprate =  250}, -- hi-potion_tank
+        },
+        {
+            {itemid =     0, droprate =  750}, -- nothing
+            {itemid = 15185, droprate =   250}, -- walkure_mask
         },
         {
             {itemid =   791, droprate =   50}, -- aquamarine
             {itemid =   801, droprate =   50}, -- chrysoberyl
-            {itemid =   654, droprate =  100}, -- darksteel_ingot
+            {itemid =   654, droprate =  50}, -- darksteel_ingot
             {itemid =   702, droprate =   50}, -- ebony_log
             {itemid =   810, droprate =   50}, -- fluorite
             {itemid =   745, droprate =   50}, -- gold_ingot
