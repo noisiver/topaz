@@ -18,6 +18,4 @@ function onUseAbility(player, target, ability)
     local merits = player:getMerit(tpz.merit.MANTRA)
 
     target:addStatusEffect(tpz.effect.MAX_HP_BOOST, merits, 0, 180)
-
-    return tpz.effect.MANTRA
 end
