@@ -454,7 +454,7 @@ end
     if wsID == 196 or wsID == 212  then -- Slugwinder 
         calcParams.hitRate = calcParams.slugwinder
     else
-        calcParams.hitRate = calcParams.firsthitRate
+		calcParams.hitRate = calcParams.multihitRate
     end
     --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
