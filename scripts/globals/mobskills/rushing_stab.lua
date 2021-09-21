@@ -17,9 +17,7 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
     if mob:getMainJob() == tpz.job.DRG then
         -- If animationSub is 1, the mob has already lost his weapeon and cant do this TP attack.
-        if mob:AnimationSub() == 0 then
-            return 0
-        end
+         return 0
     end
 
     return 1
