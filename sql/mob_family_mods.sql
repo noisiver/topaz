@@ -213,7 +213,7 @@ INSERT INTO `mob_family_mods` VALUES (176,68,50,0);		-- Mamool ja +50 evasion
 INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Gulool_Ja_Ja +10 evasion
 INSERT INTO `mob_family_mods` VALUES (165,68,100,0);	-- Imp +100 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (119,68,100,0);	-- Gear +100 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (165,68,100,0);	-- Gears +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES 120,68,100,0);	-- Gears +100 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (166,68,50,0);		-- Jakko(Imp) +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (90,68,100,0);		-- Dvergr +100 Evasion Racial
 
