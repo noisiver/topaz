@@ -3185,16 +3185,16 @@ INSERT INTO `mob_groups` VALUES (3,665,68,'Cave_Pugil',0,128,2900,0,0,69,69,0);
 INSERT INTO `mob_groups` VALUES (4,306,68,'Aydeewa_Crab',0,128,203,0,0,68,70,0);
 -- Fishing end
 INSERT INTO `mob_groups` VALUES (5,6354,68,'Treant_Sapling',600,0,462,0,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (6,3224,68,'Puktrap',600,0,2039,0,0,67,69,0);
+INSERT INTO `mob_groups` VALUES (6,3224,68,'Puktrap',330,0,2039,0,0,67,69,0);
 INSERT INTO `mob_groups` VALUES (7,3670,68,'Slime_Mold',600,0,15,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (8,3252,68,'Qiqirn_Enterpriser',600,0,2053,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (9,3256,68,'Qiqirn_Lieuter',600,0,2055,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (10,3258,68,'Qiqirn_Mine',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (11,1411,68,'Fossorial_Flea',600,0,466,0,0,66,68,0);
 INSERT INTO `mob_groups` VALUES (12,3131,68,'Phlebotomic_Slug',600,0,174,0,0,67,70,0);
-INSERT INTO `mob_groups` VALUES (13,959,68,'Defoliator',600,0,598,0,0,66,69,0);
+INSERT INTO `mob_groups` VALUES (13,959,68,'Defoliator',330,0,598,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (14,71,68,'Air_Elemental',600,4,38,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (15,307,68,'Aydeewa_Diremite',600,0,204,0,0,68,71,0);
+INSERT INTO `mob_groups` VALUES (15,307,68,'Aydeewa_Diremite',330,0,204,0,0,68,71,0);
 INSERT INTO `mob_groups` VALUES (16,2782,68,'Mycohopper',600,0,1759,6018,0,68,71,0);
 INSERT INTO `mob_groups` VALUES (17,1809,68,'Great_Ameretat',600,0,1238,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (18,5333,68,'Deforester',600,0,598,0,0,81,83,0);
@@ -3931,7 +3931,7 @@ INSERT INTO `mob_groups` VALUES (7,2580,79,'Marsh_Murre',330,0,1635,0,0,76,78,0)
 INSERT INTO `mob_groups` VALUES (8,6354,79,'Treant_Sapling',330,0,0,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (9,4309,79,'Water_Elemental',330,4,2629,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (10,603,79,'Caedarva_Leech',330,0,174,0,0,77,79,0);
-INSERT INTO `mob_groups` VALUES (11,3049,79,'Orderly_Imp',330,0,1002,0,0,79,81,0);
+INSERT INTO `mob_groups` VALUES (11,3049,79,'Orderly_Imp',330,0,1002,0,0,77,79,0);
 INSERT INTO `mob_groups` VALUES (12,4342,79,'Wild_Karakul',330,0,2657,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (13,6483,79,'Jnun',330,0,1408,0,0,79,81,0);
 INSERT INTO `mob_groups` VALUES (14,2957,79,'Oil_Slick',330,0,1845,0,0,77,79,0);
