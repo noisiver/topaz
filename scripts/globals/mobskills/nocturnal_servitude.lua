@@ -26,11 +26,16 @@ function onMobWeaponSkill(target, mob, skill)
 		return typeEffect
 	end
 	
-    if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-    else
-		skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 1, 0, 30))
-    end
+		local msg = MobStatusEffectMove(mob, target, typeEffect, power, 3, 30)
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+			skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		else
+			if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
+			mob:charm(target)
+		end
+			 skill:setMsg(msg)
+		end
+	end
 
     return typeEffect
 end

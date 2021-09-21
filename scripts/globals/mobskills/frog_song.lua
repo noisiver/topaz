@@ -36,7 +36,7 @@ function onMobWeaponSkill(target, mob, skill)
 			return typeEffect
 		end
 
-		local msg = MobStatusEffectMove(mob, target, typeEffect, power, 3, 150)
+		local msg = MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
 			skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
