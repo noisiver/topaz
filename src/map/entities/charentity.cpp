@@ -1148,6 +1148,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                     actionTarget.messageID = ability::GetAbsorbMessage(actionTarget.messageID);
                     actionTarget.param = -value;
                 }
+				state.ApplyEnmity();
                 first = false;
             }
         }
