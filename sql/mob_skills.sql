@@ -1576,7 +1576,7 @@ INSERT INTO `mob_skills` VALUES (1743,1232,'rock_smash',0,7.0,2000,1500,4,0,0,0,
 INSERT INTO `mob_skills` VALUES (1744,1233,'diamondhide',1,16.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1745,1234,'enervation',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1746,1235,'quake_stomp',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1747,1236,'zarraqa',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES(1747, 1236, 'zarraqa', 0, 25.0, 2000, 1500, 4, 4, 0, 0, 0, 0, 0);
 INSERT INTO `mob_skills` VALUES (1748,1237,'zarbzan',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1749,1238,'healing_stomp',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1750,1494,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
