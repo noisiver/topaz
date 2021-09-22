@@ -97,6 +97,7 @@ function utils.takeShadows(target, dmg, shadowbehav)
                         effect:setIcon(tpz.effect.COPY_IMAGE_3)
                     end
                 end
+					return 
             end
             -- remove icon
             if (shadowsLeft <= 0) then
@@ -111,7 +112,7 @@ function utils.takeShadows(target, dmg, shadowbehav)
             return dmg * ((shadowbehav-targShadows)/shadowbehav)
         end
     end
-	if  shadowsLeft > 0 then dmg = 0 end
+
     return dmg
 end
 
