@@ -111,7 +111,7 @@ function utils.takeShadows(target, dmg, shadowbehav)
             return dmg * ((shadowbehav-targShadows)/shadowbehav)
         end
     end
-	if shadows shadowsLeft > 0 then dmg = 0 end
+	if  shadowsLeft > 0 then dmg = 0 end
     return dmg
 end
 
