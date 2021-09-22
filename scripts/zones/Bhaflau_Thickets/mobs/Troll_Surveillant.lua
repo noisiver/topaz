@@ -2,7 +2,7 @@
 -- Area: Bhaflau Thickets
 --  Mob: Troll_Surveillant
 -----------------------------------
-mixins = {require("scripts/mixins/families/chigoe")}
+
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 

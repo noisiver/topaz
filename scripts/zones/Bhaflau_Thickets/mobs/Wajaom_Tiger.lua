@@ -2,7 +2,7 @@
 -- Area: Bhaflau Thickets
 --  Mob: Wajaom Tiger
 -----------------------------------
-mixins = {require("scripts/mixins/families/chigoe")}
+
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
