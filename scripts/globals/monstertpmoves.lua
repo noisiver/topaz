@@ -503,6 +503,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         -- dealt zero damage, so shadows took hit
         if (dmg == 0) then
             skill:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+			shadowbehav = 0
             return shadowbehav
         end
 
