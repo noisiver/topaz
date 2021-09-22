@@ -105,7 +105,11 @@ function utils.takeShadows(target, dmg, shadowbehav)
             end
 
             return 0
-        else --less shadows than this move will take, remove all and factor damage down
+		
+		elseif shadowsLeft > 0 then
+			return 0
+       
+		else --less shadows than this move will take, remove all and factor damage down
             target:delStatusEffect(tpz.effect.COPY_IMAGE)
             target:delStatusEffect(tpz.effect.BLINK)
             return dmg * ((shadowbehav-targShadows)/shadowbehav)
