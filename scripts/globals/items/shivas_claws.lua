@@ -14,7 +14,7 @@ require("scripts/globals/msg")
 function onAdditionalEffect(player, target, damage)
     local chance = 10
 
-    if (VanadielDayElement() == tpz.day.ICEDAY) then
+	if (VanadielDayOfTheWeek() == tpz.day.ICEDAY) then
         chance = chance+6
     end
 
