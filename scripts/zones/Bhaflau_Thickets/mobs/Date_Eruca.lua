@@ -3,6 +3,7 @@
 --  Mob: Date Eruca
 -----------------------------------
 mixins = {require("scripts/mixins/families/eruca")}
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

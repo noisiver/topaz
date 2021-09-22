@@ -3,6 +3,7 @@
 --  Mob: Mamool_Ja_Infiltrator
 -----------------------------------
 mixins = {require("scripts/mixins/families/chigoe")}
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

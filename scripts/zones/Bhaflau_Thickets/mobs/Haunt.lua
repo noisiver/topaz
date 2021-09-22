@@ -2,7 +2,7 @@
 -- Area: Bhaflau Thickets
 --  Mob: Haunt
 -----------------------------------
-local ID = require("scripts/zones/Wajaom_Woodlands/IDs")
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 require("scripts/globals/mobs")
 
 function onMobDeath(mob, player, isKiller)
