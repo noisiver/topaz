@@ -1381,6 +1381,29 @@ INSERT INTO `mob_pets` VALUES (17961257, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961267, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961277, 1, 15); -- Eschan Ilaern SMN
 
+INSERT INTO `mob_pets` VALUES (16990319, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17027162, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17027180, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17027331, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031185, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031197, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031231, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031244, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031296, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031343, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031354, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031359, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031402, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031438, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031471, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031503, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031513, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031525, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031540, 1, 18); -- Troll PUP
+INSERT INTO `mob_pets` VALUES (17031550, 1, 18); -- Troll PUP
+
+
+
 
 /*!40000 ALTER TABLE `mob_pets` ENABLE KEYS */;
 UNLOCK TABLES;
