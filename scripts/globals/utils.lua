@@ -88,6 +88,7 @@ function utils.takeShadows(target, dmg, shadowbehav)
 
             if (shadowsLeft > 0 and shadowType == tpz.mod.UTSUSEMI) then --update icon
                 effect = target:getStatusEffect(tpz.effect.COPY_IMAGE)
+				shadowbehav = 0
                 if (effect ~= nil) then
                     if (shadowsLeft == 1) then
                         effect:setIcon(tpz.effect.COPY_IMAGE)
@@ -97,7 +98,6 @@ function utils.takeShadows(target, dmg, shadowbehav)
                         effect:setIcon(tpz.effect.COPY_IMAGE_3)
                     end
                 end
-					return  shadowbehav
             end
             -- remove icon
             if (shadowsLeft <= 0) then
