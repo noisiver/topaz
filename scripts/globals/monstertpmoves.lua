@@ -503,7 +503,6 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         -- dealt zero damage, so shadows took hit
         if (dmg == 0) then
             skill:setMsg(tpz.msg.basic.SHADOW_ABSORB)
-			shadowbehav = 0
             return shadowbehav
         end
 
@@ -592,7 +591,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     --handling phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-    if (dmg < 0) then
+    if (dmg <= 0) then
         return 0
     end
 
