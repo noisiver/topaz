@@ -591,7 +591,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     --handling phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-    if (dmg <= 0) then
+    if (dmg < 0) then
         return 0
     end
 
