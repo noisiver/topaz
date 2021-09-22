@@ -85,7 +85,7 @@ function utils.takeShadows(target, dmg, shadowbehav)
         if shadowType == tpz.mod.BLINK then
             for i = 1, shadowbehav, 1 do
                 if shadowsLeft > 0 then
-                    if math.random() <= 0.8 then
+                    if math.random() <= 0.6 then
                         shadowsUsed = shadowsUsed + 1
                         shadowsLeft = shadowsLeft - 1
                     end
