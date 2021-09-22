@@ -1,9 +1,13 @@
 -----------------------------------
 -- Area: Mount Zhayolm
 --  Mob: Hilltroll_Puppetmaster
--- Note: 
+-- Job: PUP
 -----------------------------------
 -----------------------------------
+function onMobSpawn(mob)
+	mob:spawnPet()
+end
+
 
 function onMobDeath(mob)
 	if isKiller and math.random(1,100) <= 24 then 

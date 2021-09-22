@@ -1,10 +1,14 @@
 -----------------------------------
 -- Area: Bhaflau Thickets
 --  Mob: Troll_Surveillant
+-- Job: PUP
 -----------------------------------
 
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:spawnPet()
+end
 
 function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 

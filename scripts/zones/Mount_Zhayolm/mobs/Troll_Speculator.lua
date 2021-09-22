@@ -1,9 +1,12 @@
 -----------------------------------
 -- Area: Mount Zhayolm
 --  Mob: Troll_Speculator
--- Note: 
+-- Job: PUP
 -----------------------------------
 -----------------------------------
+function onMobSpawn(mob)
+	mob:spawnPet()
+end
 
 function onMobDeath(mob)
 	if isKiller and math.random(1,100) <= 24 then 
