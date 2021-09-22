@@ -656,7 +656,7 @@ void SetupJob(CMobEntity* PMob)
                 // Trolls love cannons, but they take a second to shoot
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1747);
                 // so slow down the trolls a bit
-                PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, );
+                PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
             }
             else if (PMob->m_Family == 3) // Aern
             {
