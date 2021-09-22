@@ -384,6 +384,10 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     if wsParams.useAutoTPFormula == nil or wsParams.useAutoTPFormula == false then
         finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.0 -- Add server bonus
     end
+	
+	 if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
+		finaldmg = math.floor(finaldmg * 0.5)
+	 end
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
@@ -438,7 +442,7 @@ end
         fencerBonus = fencerBonus(attacker),
         bonusTP = wsParams.bonusTP or 0,
         bonusfTP = gorgetBeltFTP or 0,
-        bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
+		bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC) + 100,
         bonusWSmods = wsParams.bonusWSmods or 0
     }
 
@@ -450,7 +454,7 @@ end
     if wsID == 196 or wsID == 212  then -- Slugwinder 
         calcParams.hitRate = calcParams.slugwinder
     else
-        calcParams.hitRate = calcParams.firsthitRate
+		calcParams.hitRate = calcParams.multihitRate
     end
     --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed

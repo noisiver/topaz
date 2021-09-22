@@ -110,7 +110,7 @@ local p6 = { --Maps that are price at 600 gil
     --Uoption[23],    --Dangruf Wadi
     --Uoption[24],    --Horutoto Ruins
     --Uoption[27],    --Gusgen Mines
-    --Uoption[59]        --Al Zahbi
+    Uoption[59]        --Al Zahbi
     }
 local p3 = {    --Maps that are price at 3000 gil
     Uoption[7],        --Davoi
@@ -156,8 +156,8 @@ local p3 = {    --Maps that are price at 3000 gil
     --Uoption[56],    --Al'Taieu
     --Uoption[57],    --Hu'Xzoi
     --Uoption[58],    --Ru'Hmet
-    --Uoption[60],    --Nashmau
-    --Uoption[61],    --Wajaom Woodlands
+    Uoption[60],    --Nashmau
+    Uoption[61],    --Wajaom Woodlands
     --Uoption[62],    --Caedarva Mire
     --Uoption[63],    --Mount Zhayolm
     --Uoption[64],    --Aydeewa Subterrane
@@ -165,7 +165,7 @@ local p3 = {    --Maps that are price at 3000 gil
     --Uoption[66],    --Halvung
     --Uoption[67],    --Arrapago Reef
     --Uoption[68],    --Alzadall Ruins
-    --Uoption[69]        --Bhaflau Thickets
+    Uoption[69]        --Bhaflau Thickets
     }
 local p30 = { --Maps that are price at 30, 000 gil
    -- Uoption[70],    --Vunkerl Inlet

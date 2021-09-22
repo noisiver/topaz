@@ -1,8 +1,9 @@
 -----------------------------------
 -- Ability: Blood Rage
--- Description: Enhances critical hit rate for party members within area of effect.
--- Obtained: WAR Level 87
--- Recast Time: 00:05:00
+-- Description: Enhances enmity and healing recieved.
+-- Note: Generates a high amount of enmity.
+-- Obtained: WAR Level 50
+-- Recast Time: 00:00:30
 -- Duration: 0:00:30
 -----------------------------------
 require("scripts/globals/settings")
@@ -15,8 +16,8 @@ end
 
 function onUseAbility(player, target, ability)
 
-    local duration = 180
+    local duration = 30
     duration = duration + player:getMod(tpz.mod.WARCRY_DURATION)
 
-    target:addStatusEffect(tpz.effect.BLOOD_RAGE, 10, 0, duration, 0, 25)
+    target:addStatusEffect(tpz.effect.BLOOD_RAGE, 25, 0, duration, 0, 30)
 end

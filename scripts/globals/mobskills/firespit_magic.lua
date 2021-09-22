@@ -13,9 +13,7 @@ require("scripts/globals/monstertpmoves")
 
 function onMobSkillCheck(target, mob, skill)
 	if mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.WHM then
-		if mob:AnimationSub() == 0 then
-			return 0
-		end
+		return 0
 	end
     
 	return 1

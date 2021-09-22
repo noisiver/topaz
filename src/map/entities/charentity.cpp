@@ -1106,17 +1106,22 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                 PPet->PAI->MobSkill(PPetTarget, PAbility->getMobSkillID());
             }
         }
-        //#TODO: make this generic enough to not require an if
-        else if (PAbility->isAoE() && this->PParty != nullptr)
+        else
         {
-            PAI->TargetFind->reset();
+            std::vector<CBattleEntity*> targets = { PTarget };
+            auto& PTargets = targets;
+            bool first = true;
 
-            float distance = PAbility->getRange();
+            if (PAbility->isAoE() && this->PParty != nullptr)
+            {
+                PAI->TargetFind->reset();
+
+                float distance = PAbility->getRange();
 
             PAI->TargetFind->findWithinArea(this, AOERADIUS_ATTACKER, distance);
-
-            uint16 msg = 0;
-            for (auto&& PTarget : PAI->TargetFind->m_targets)
+                PTargets = PAI->TargetFind->m_targets;
+            }
+            for (auto&& PTarget : PTargets)
             {
                 actionList_t& actionList = action.getNewActionList();
                 actionList.ActionTargetID = PTarget->id;
@@ -1124,91 +1129,28 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                 actionTarget.reaction = REACTION_NONE;
                 actionTarget.speceffect = SPECEFFECT_NONE;
                 actionTarget.animation = PAbility->getAnimationID();
-                actionTarget.messageID = PAbility->getMessage();
-
-                if (msg == 0) {
-                    msg = PAbility->getMessage();
-                }
-                else {
-                    msg = PAbility->getAoEMsg();
-                }
-
-                if (actionTarget.param < 0)
+                actionTarget.messageID = 0;
+                actionTarget.param = 0;
+                int32 value = luautils::OnUseAbility(this, PTarget, PAbility, &action);
+                // If a script set messageID directly, use that;
+                // otherwise, use the ability's message id.
+                if (actionTarget.messageID == 0)
                 {
-                    msg = ability::GetAbsorbMessage(msg);
-                    actionTarget.param = -actionTarget.param;
+                    actionTarget.messageID = first ? PAbility->getMessage() : PAbility->getAoEMsg();
                 }
 
-                actionTarget.messageID = msg;
-                actionTarget.param = luautils::OnUseAbility(this, PTarget, PAbility, &action);
+                // Display a generic message for the caster if no message is set.
+                if (first && actionTarget.messageID == 0)
+                    actionTarget.messageID = MSGBASIC_USES_JA;
+                actionTarget.param = value;
+                if (value < 0)
+                {
+                    actionTarget.messageID = ability::GetAbsorbMessage(actionTarget.messageID);
+                    actionTarget.param = -value;
+                }
+				state.ApplyEnmity();
+                first = false;
             }
-        }
-        else
-        {
-            actionList_t& actionList = action.getNewActionList();
-            actionList.ActionTargetID = PTarget->id;
-            actionTarget_t& actionTarget = actionList.getNewActionTarget();
-            actionTarget.reaction = REACTION_NONE;
-            actionTarget.speceffect = SPECEFFECT_RECOIL;
-            actionTarget.animation = PAbility->getAnimationID();
-            actionTarget.param = 0;
-            auto prevMsg = actionTarget.messageID;
-
-            int32 value = luautils::OnUseAbility(this, PTarget, PAbility, &action);
-            if (prevMsg == actionTarget.messageID) actionTarget.messageID = PAbility->getMessage();
-            if (actionTarget.messageID == 0) actionTarget.messageID = MSGBASIC_USES_JA;
-            actionTarget.param = value;
-
-            if (value < 0)
-            {
-                actionTarget.messageID = ability::GetAbsorbMessage(actionTarget.messageID);
-                actionTarget.param = -value;
-            }
-
-
-            //#TODO: move all of these to script!
-
-            //// Super Jump
-            //else if (PAbility->getID() == ABILITY_SUPER_JUMP)
-            //{
-            //    battleutils::jumpAbility(this, PTarget, 3);
-            //    action.messageID = 0;
-            //    this->loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, PAbility->getID(), 0, MSGBASIC_USES_JA));
-            //}
-
-            //#TODO: move these 3 BST abilities to scripts
-            //if (PAbility->getID() == ABILITY_GAUGE) {
-            //    if (PTarget != nullptr && PTarget->objtype == TYPE_MOB) {
-            //        if (((CMobEntity*)PTarget)->m_Type & MOBTYPE_NOTORIOUS ||
-            //            PTarget->m_EcoSystem == SYSTEM_BEASTMEN ||
-            //            PTarget->m_EcoSystem == SYSTEM_ARCANA)
-            //        {
-            //            //NM, Beastman or Arcana, cannot charm at all !
-            //            this->pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_CANNOT_CHARM));
-            //        }
-            //        else {
-            //            uint16 baseExp = charutils::GetRealExp(this->GetMLevel(), PTarget->GetMLevel());
-
-            //            if (baseExp >= 400) {//IT
-            //                this->pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_VERY_DIFFICULT_CHARM));
-            //            }
-            //            else if (baseExp >= 240) {//VT
-            //                this->pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_DIFFICULT_TO_CHARM));
-            //            }
-            //            else if (baseExp >= 120) {//T
-            //                this->pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_MIGHT_BE_ABLE_CHARM));
-            //            }
-            //            else if (baseExp >= 100) {//EM
-            //                this->pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_SHOULD_BE_ABLE_CHARM));
-            //            }
-            //            else {
-            //                this->pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_SHOULD_BE_ABLE_CHARM));
-            //            }
-            //        }
-            //    }
-            //}
-
-            state.ApplyEnmity();
         }
         PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), action.recast);
 

@@ -213,7 +213,7 @@ INSERT INTO `mob_family_mods` VALUES (176,68,50,0);		-- Mamool ja +50 evasion
 INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Gulool_Ja_Ja +10 evasion
 INSERT INTO `mob_family_mods` VALUES (165,68,100,0);	-- Imp +100 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (119,68,100,0);	-- Gear +100 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (165,68,100,0);	-- Gears +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (120,68,100,0);	-- Gears +100 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (166,68,50,0);		-- Jakko(Imp) +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (90,68,100,0);		-- Dvergr +100 Evasion Racial
 
@@ -224,20 +224,22 @@ INSERT INTO `mob_family_mods` VALUES (371,68,-20,0);	-- Marid -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (246,68,-20,0);	-- Troll -20 Evasion
 
 -- PDT
-INSERT INTO `mob_family_mods` VALUES (203,387,375,0);	-- Qutrub +300%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (204,387,375,0);	-- Qutrub +300%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (205,387,375,0);	-- Qutrub +300%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (203,387,150,0);	-- Qutrub +150%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,387,150,0);	-- Qutrub +150%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,387,150,0);	-- Qutrub +150%(Bonus)
 
 -- Breath Damage Taken(BDT)
-INSERT INTO `mob_family_mods` VALUES (203,388,375,0);	-- Qutrub +300%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (204,388,375,0);	-- Qutrub +300%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (205,388,375,0);	-- Qutrub +300%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (203,388,150,0);	-- Qutrub +150%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,388,150,0);	-- Qutrub +150%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,388,150,0);	-- Qutrub +150%(Bonus)
 
 -- Ranged damage taken(RDT)
 
 -- Magic damage taken (MDT)
 INSERT INTO `mob_family_mods` VALUES (112,389,25,0); 	-- Flan +25%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (203,389,375,0);	-- Qutrub +375%(+25% Bonus)
+INSERT INTO `mob_family_mods` VALUES (203,389,150,0);	-- Qutrub +150%(+25% Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,389,150,0);	-- Qutrub +150%(+25% Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,389,150,0);	-- Qutrub +150%(+25% Bonus)
 INSERT INTO `mob_family_mods` VALUES (61,389,-25,0); 	-- Cardian -25%
 INSERT INTO `mob_family_mods` VALUES (74,389,-25,0); 	-- Corse -25%
 INSERT INTO `mob_family_mods` VALUES (110,389,-13,0); 	-- EvilWeapon -13%
