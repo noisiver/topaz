@@ -7,7 +7,6 @@
 -- Aligned with the Breeze Gorget, Thunder Gorget & Soil Gorget.
 -- Aligned with the Breeze Belt, Thunder Belt & Soil Belt.
 -- Element: None
--- Staff weapon skill Skill level: 10 Delivers a single-hit attack. Damage varies with TP. Element: Non
 -- Modifiers: STR:50%
 -- 100%TP    200%TP    300%TP
 -- 1.00      1.25      1.50
