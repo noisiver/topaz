@@ -25,6 +25,7 @@ function onUseAbility(player, target, ability)
     target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL)
     
     player:addStatusEffect(tpz.effect.RERAISE, 3, 0, 3600) 
+	player:delStatusEffect(tpz.effect.WEAKNESS)
     player:setLocalVar("MijinGakure", 1)
     player:setHP(0)
   return dmg

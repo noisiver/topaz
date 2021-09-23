@@ -21,7 +21,8 @@ function onUseAbility(player, target, ability)
     if (player:getMainJob() == tpz.job.DNC) then
         amount = 12
     end
-    local duration = 15
-    local gear = player:getMod(tpz.mod.JIG_DURATION)
+	local gear = player:getMod(tpz.mod.JIG_DURATION)
+	local gearbonus =  15 * (gear / 100)
+    local duration = 15 + gearbonus
     player:addStatusEffectEx(tpz.effect.MEDITATE, 0, amount, 3, duration)
 end

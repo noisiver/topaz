@@ -6,6 +6,11 @@
 local ID = require("scripts/zones/Arrapago_Reef/IDs")
 require("scripts/globals/mobs")
 -----------------------------------
+function onMobEngaged(mob, target)
+	if mob:getMainJob() == tpz.job.DRG then
+		mob:spawnPet()
+	end
+end
 
 function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 

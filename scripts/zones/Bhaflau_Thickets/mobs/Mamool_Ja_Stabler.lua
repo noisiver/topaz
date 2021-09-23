@@ -2,7 +2,8 @@
 -- Area: Bhaflau Thickets
 --  Mob: Mamool_Ja_Stabler
 -----------------------------------
-mixins = {require("scripts/mixins/families/chigoe")}
+
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

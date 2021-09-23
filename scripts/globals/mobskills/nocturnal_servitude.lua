@@ -35,7 +35,6 @@ function onMobWeaponSkill(target, mob, skill)
 		end
 			 skill:setMsg(msg)
 		end
-	end
 
     return typeEffect
 end

@@ -66,55 +66,72 @@ end
 
 function utils.takeShadows(target, dmg, shadowbehav)
     if (shadowbehav == nil) then
-        shadowbehav = 1
+        shadowbehav = 1;
     end
 
-    local targShadows = target:getMod(tpz.mod.UTSUSEMI)
-    local shadowType = tpz.mod.UTSUSEMI
+    local targShadows = target:getMod(tpz.mod.UTSUSEMI);
+    local shadowType = tpz.mod.UTSUSEMI;
 
-    if (targShadows == 0) then --try blink, as utsusemi always overwrites blink this is okay
-        targShadows = target:getMod(tpz.mod.BLINK)
-        shadowType = tpz.mod.BLINK
+    if (targShadows == 0) then
+        --try blink, as utsusemi always overwrites blink this is okay
+        targShadows = target:getMod(tpz.mod.BLINK);
+        shadowType = tpz.mod.BLINK;
     end
+
+    local shadowsLeft = targShadows
+    local shadowsUsed = 0
 
     if (targShadows > 0) then
-    --Blink has a VERY high chance of blocking tp moves, so im assuming its 100% because its easier!
-
-        if (targShadows >= shadowbehav) then --no damage, just suck the shadows
-
-            local shadowsLeft = targShadows - shadowbehav
-
-            target:setMod(shadowType, shadowsLeft)
-
-            if (shadowsLeft > 0 and shadowType == tpz.mod.UTSUSEMI) then --update icon
-                effect = target:getStatusEffect(tpz.effect.COPY_IMAGE)
-                if (effect ~= nil) then
-                    if (shadowsLeft == 1) then
-                        effect:setIcon(tpz.effect.COPY_IMAGE)
-                    elseif (shadowsLeft == 2) then
-                        effect:setIcon(tpz.effect.COPY_IMAGE_2)
-                    elseif (shadowsLeft == 3) then
-                        effect:setIcon(tpz.effect.COPY_IMAGE_3)
+        if shadowType == tpz.mod.BLINK then
+            for i = 1, shadowbehav, 1 do
+                if shadowsLeft > 0 then
+                    if math.random() <= 0.6 then
+                        shadowsUsed = shadowsUsed + 1
+                        shadowsLeft = shadowsLeft - 1
                     end
                 end
             end
-            -- remove icon
-            if (shadowsLeft <= 0) then
-                target:delStatusEffect(tpz.effect.COPY_IMAGE)
-                target:delStatusEffect(tpz.effect.BLINK)
-            end
 
-            return 0
-        else --less shadows than this move will take, remove all and factor damage down
+            if shadowsUsed >= shadowbehav then
+                dmg = 0
+            else
+                dmg = ((dmg / shadowbehav) * (shadowbehav - shadowsUsed))
+            end
+        else
+            if (targShadows >= shadowbehav) then
+                shadowsLeft = targShadows - shadowbehav
+
+                if shadowsLeft > 0 then
+                    --update icon
+                    effect = target:getStatusEffect(tpz.effect.COPY_IMAGE)
+                    if (effect ~= nil) then
+                        if (shadowsLeft == 1) then
+                            effect:setIcon(tpz.effect.COPY_IMAGE)
+                        elseif (shadowsLeft == 2) then
+                            effect:setIcon(tpz.effect.COPY_IMAGE_2)
+                        elseif (shadowsLeft == 3) then
+                            effect:setIcon(tpz.effect.COPY_IMAGE_3)
+                        end
+                    end
+                end
+
+                dmg = 0
+            else
+                shadowsLeft = 0
+                dmg = dmg * ((shadowbehav - targShadows) / shadowbehav)
+            end
+        end
+
+        target:setMod(shadowType, shadowsLeft);
+
+        if (shadowsLeft <= 0) then
             target:delStatusEffect(tpz.effect.COPY_IMAGE)
             target:delStatusEffect(tpz.effect.BLINK)
-            return dmg * ((shadowbehav-targShadows)/shadowbehav)
         end
     end
 
     return dmg
 end
-
 function utils.conalDamageAdjustment(attacker, target, skill, max_damage, minimum_percentage)
     local final_damage = 1
     -- #TODO: Currently all cone attacks use static 45 degree (360 scale) angles in core, when cone attacks

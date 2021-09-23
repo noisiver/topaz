@@ -19,17 +19,18 @@ function onUseAbility(player, target, ability)
     local power = 0
     local scale = 1
     local duration = 180
-    local gear = player:getMod(tpz.mod.JIG_DURATION)
+	local gear = player:getMod(tpz.mod.JIG_DURATION)
+	local gearbonus =  30 * (gear / 100)
     local mob = player:getTarget()
     if mob then
         local enmityList = mob:getEnmityList()
         if enmityList and #enmityList > 0 then
             if #enmityList < 6 then
-                power = 30
+                power = 30 + gearbonus
             elseif #enmityList < 18 then
-                power = 30
+                power = 30 + gearbonus
             else
-                power = 30
+                power = 30 + gearbonus
             end
         end
 

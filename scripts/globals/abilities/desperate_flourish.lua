@@ -64,7 +64,7 @@ function onUseAbility(player, target, ability, action)
 
         if resist >= 0.5 then
             target:delStatusEffectSilent(tpz.effect.WEIGHT)
-            target:addStatusEffect(tpz.effect.WEIGHT, 100, 0, 60 * resist)
+            target:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 60 * resist)
         else
             ability:setMsg(tpz.msg.basic.JA_DAMAGE)
         end

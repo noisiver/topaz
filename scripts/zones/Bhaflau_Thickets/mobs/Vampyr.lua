@@ -2,7 +2,7 @@
 -- Area: Bhaflau Thickets
 --  Mob: Vampyr
 -----------------------------------
-
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

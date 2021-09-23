@@ -3,6 +3,7 @@
 --  Mob: Colibri
 -----------------------------------
 mixins = {require("scripts/mixins/families/colibri_mimic")}
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

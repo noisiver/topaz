@@ -2,8 +2,12 @@
 -- Area: Bhaflau Thickets
 --  Mob: Mamool_Ja_Pikeman
 -----------------------------------
-mixins = {require("scripts/mixins/families/chigoe")}
+
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
+function onMobEngaged(mob, target)
+	mob:spawnPet()
+end
 
 function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 

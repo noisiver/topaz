@@ -2514,7 +2514,7 @@ INSERT INTO `mob_groups` VALUES (21,765,52,'Colibri',330,0,500,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (22,5139,52,'Mahishasura',0,32,2893,15000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (23,3343,52,'Red_Kisser',330,0,174,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (24,4034,52,'Troll_Surveillant',330,0,2486,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (25,4035,52,'Trolls_Automaton',0,128,0,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (25,4035,52,'Trolls_Automaton',330,0,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (26,4029,52,'Troll_Shieldbearer',330,0,2485,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (27,4027,52,'Troll_Sabreur',330,0,2485,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (28,923,52,'Date_Eruca',330,0,573,0,0,81,83,0);
@@ -2881,7 +2881,7 @@ INSERT INTO `mob_groups` VALUES (14,1341,61,'Fire_Elemental',330,4,831,0,0,81,83
 INSERT INTO `mob_groups` VALUES (15,2758,61,'Mountain_Clot',330,0,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (16,1954,61,'Hilltroll_Warrior',330,0,1313,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (17,1951,61,'Hilltroll_Puppetmaster',330,0,1311,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (18,4035,61,'Trolls_Automaton',0,128,0,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (18,4035,61,'Trolls_Automaton',330,0,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (19,1946,61,'Hilltroll_Dark_Knight',330,0,1308,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,1949,61,'Hilltroll_Monk',330,0,1309,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,4247,61,'Volcanic_Leech',330,0,0,0,0,76,78,0);
@@ -2937,7 +2937,7 @@ INSERT INTO `mob_groups` VALUES (7,4032,62,'Troll_Stoneworker',600,0,2485,0,0,81
 INSERT INTO `mob_groups` VALUES (8,4022,62,'Troll_Lapidarist',600,0,2482,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (9,4030,62,'Troll_Smelter',600,0,2485,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (10,4015,62,'Troll_Engraver',600,0,2477,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (11,4035,62,'Trolls_Automaton',0,128,0,0,0,76,83,0);
+INSERT INTO `mob_groups` VALUES (11,4035,62,'Trolls_Automaton',600,0,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (12,4010,62,'Troll_Cameist',600,0,2474,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (13,4021,62,'Troll_Ironworker',600,0,2480,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (14,1160,62,'Earth_Elemental',600,4,0,0,0,81,83,0);

@@ -4,6 +4,7 @@
 -- !pos 71.000 -33.000 627.000 52
 -----------------------------------
 require("scripts/globals/hunts")
+local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 452)
