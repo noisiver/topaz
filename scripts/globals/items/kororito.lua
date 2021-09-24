@@ -9,7 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = 10
+    local chance = 20
     local SDT = target:getMod(tpz.mod.SDT_WATER)
    
    if SDT <= 5 then
