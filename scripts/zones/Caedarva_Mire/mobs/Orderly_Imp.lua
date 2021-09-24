@@ -5,8 +5,11 @@
 mixins = {require("scripts/mixins/families/imp")}
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.EVA, -50)
+    mob:addMod(tpz.mod.EVA, -75)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
+
 
 function onMobDeath(mob, player, isKiller)
 	if mob:AnimationSub() >= 1 then

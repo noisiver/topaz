@@ -5,6 +5,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Caedarva_Mire/IDs")
 require("scripts/globals/mobs")
+mixins = {require("scripts/mixins/families/karakul")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

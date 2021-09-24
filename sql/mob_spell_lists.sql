@@ -84,33 +84,33 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_WHM',1,477,86,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,144,13,22);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,145,38,47);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,146,62,67);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,147,73,85);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,148,86,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,147,73,94); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,148,95,255); -- Fire V
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,149,17,27);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,150,42,53);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,151,64,68);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,152,74,88);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,153,89,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,152,74,94); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,153,95,255); -- Blizzard V
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,154,9,18);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,155,34,44);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,156,59,66);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,157,72,82);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,158,83,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,157,72,94); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,158,95,255); -- Aero V
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,159,1,10);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,160,26,35);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,161,51,60);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,162,68,73);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,163,77,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,162,68,94); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,163,95,255); -- Stone V
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,164,21,46);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,165,46,55);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,166,66,70);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,167,75,92);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,168,92,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,167,75,94); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,168,95,255); -- Thunder V
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,169,5,12);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,170,30,40);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,171,55,61);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,172,70,78);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,173,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,172,70,94); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,173,95,255); -- Water V
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,174,28,35);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,175,53,60);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,176,69,90);

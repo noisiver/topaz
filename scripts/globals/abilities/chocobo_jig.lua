@@ -16,30 +16,12 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local power = 0
-    local scale = 1
-    local duration = 180
+    local duration = 300
 	local gear = player:getMod(tpz.mod.JIG_DURATION)
-	local gearbonus =  30 * (gear / 100)
-    local mob = player:getTarget()
-    if mob then
-        local enmityList = mob:getEnmityList()
-        if enmityList and #enmityList > 0 then
-            if #enmityList < 6 then
-                power = 30 + gearbonus
-            elseif #enmityList < 18 then
-                power = 30 + gearbonus
-            else
-                power = 30 + gearbonus
-            end
-        end
+	local gearbonus =  duration * (gear / 100)
+	local finalduration = duration + gearbonus
 
-        -- See if we should apply the effects to the player at the top of the hate list
-        if mob:getTarget() == target then
-            scale = scale
-        end
-    end
 
-    target:addStatusEffect(tpz.effect.MAGIC_DEF_BOOST, power, 0, duration)
+	player:addStatusEffect(tpz.effect.QUICKENING, 20, 0, finalduration)
 end
 

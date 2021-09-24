@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Kurayami: San
+-- Spell: Kurayami:Ni
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -11,33 +11,31 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-
     -- Base Stats
-    local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
-    --Duration Calculation
-    local duration = 420
     local params = {}
+    params.diff = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
     params.bonus = 0
-    duration = duration * applyResistance(caster, target, spell, params)
-    --Kurayami base power is 30 and is not affected by resistaces.
-    local power = 30
+    local resist = applyResistance(caster, target, spell, params)
 
-    --Calculates resist chanve from Reist Blind
-    if (math.random(0, 100) >= target:getMod(tpz.mod.BLINDRES)) then
-        if (duration >= 210) then
-
-            if (target:addStatusEffect(tpz.effect.BLINDNESS, power, 0, duration)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-            else
-                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-            end
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+    if (resist < 0.5) then
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
+        return 1
     end
-    return tpz.effect.BLINDNESS
+   --Kurayami base power is 30 and is not affected by resistaces.
+	local effect = tpz.effect.BLINDNESS
+	local power = 80
+    local duration = math.ceil(420 * resist)
+    -- Try to overwrite weaker blind
+    if (canOverwrite(target, effect, power)) then
+        -- overwrite them
+        target:delStatusEffectSilent(effect)
+        target:addStatusEffect(effect, power, 0, duration)
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
+    end
+
+    return effect
 end

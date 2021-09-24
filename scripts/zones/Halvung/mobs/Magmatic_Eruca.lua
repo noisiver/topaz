@@ -4,6 +4,9 @@
 -----------------------------------
 mixins = {require("scripts/mixins/families/eruca")}
 -----------------------------------
+function onMobSpawn(mob)
+	mob:AnimationSub(0)
+end
 
 function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 
