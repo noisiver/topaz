@@ -12,6 +12,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 20)
     mob:addMod(tpz.mod.MDEF, 300)
+    mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.UDMGMAGIC, -75)
     mob:setMod(tpz.mod.UDMGBREATH, -100)
     mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
@@ -28,7 +29,7 @@ function onMobFight(mob, target)
 
     if ResistanceChangeTime == 0 then
         printf("Setting ResistanceChangeTime");
-        mob:setLocalVar("ResistanceChangeTime", math.random(10, 15))
+        mob:setLocalVar("ResistanceChangeTime", 3)
         mob:setLocalVar("ResistanceMode", math.random(1,3))
     elseif battletime >= ResistanceChangeTime and ResistanceMode == 1 then
         printf("Piercing Mode");
@@ -37,7 +38,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SLASHRES, 0)
         mob:setMod(tpz.mod.PIERCERES, 1000)
         mob:setMod(tpz.mod.IMPACTRES, 0)
-        mob:setLocalVar("ResistanceChangeTime", battletime + math.random(120, 180))
+        mob:setLocalVar("ResistanceChangeTime", battletime + 120)
         mob:setLocalVar("ResistanceMode", math.random(1,3))
     end
 
@@ -48,7 +49,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SLASHRES, 1000)
         mob:setMod(tpz.mod.PIERCERES, 0)
         mob:setMod(tpz.mod.IMPACTRES, 0)
-        mob:setLocalVar("ResistanceChangeTime", battletime + math.random(120, 180))
+        mob:setLocalVar("ResistanceChangeTime", battletime + 120)
         mob:setLocalVar("ResistanceMode", math.random(1,3))
     end
 	
@@ -59,7 +60,7 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SLASHRES, 0)
         mob:setMod(tpz.mod.PIERCERES, 0)
         mob:setMod(tpz.mod.IMPACTRES, 1000)
-        mob:setLocalVar("ResistanceChangeTime", battletime + math.random(120, 180))
+        mob:setLocalVar("ResistanceChangeTime", battletime + 120)
         mob:setLocalVar("ResistanceMode", math.random(1,3))
     end
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17297450)
