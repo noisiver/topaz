@@ -75,6 +75,8 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- Recalculate accuracy if it varies with TP, applied to all hits
     if wsParams.acc100 ~= 0 then
         calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
+		calcParams.slugwinder = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
+		calcParams.multihitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
     end
 
     -- Calculate alpha, WSC, and our modifiers for our base per-hit damage
