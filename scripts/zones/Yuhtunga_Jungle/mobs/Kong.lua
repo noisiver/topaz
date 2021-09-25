@@ -13,6 +13,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.REGAIN, 50)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobDeath(mob, player, isKiller)

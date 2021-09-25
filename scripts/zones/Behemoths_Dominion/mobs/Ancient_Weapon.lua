@@ -16,53 +16,51 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGBREATH, -100)
     mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobFight(mob, target)
     local battletime = mob:getBattleTime()
-    local twohourTime = mob:getLocalVar("twohourTime")
-    local STANCEdps = mob:getLocalVar("STANCEdps")
-    local STANCEtank = mob:getLocalVar("STANCEtank")
-    local STANCEthird = mob:getLocalVar("STANCEthird")
-    local STANCEwat = mob:getLocalVar("STANCEwat")
+    local ResistanceChangeTime = mob:getLocalVar("ResistanceChangeTime")
+    local ResistanceMode = mob:getLocalVar("ResistanceMode")
 
-    if twohourTime == 0 then
-        printf("Setting two hour time");
-        mob:setLocalVar("twohourTime", math.random(10, 15))
-    elseif battletime >= twohourTime and STANCEtank == 0 then
+
+    if ResistanceChangeTime == 0 then
+        printf("Setting ResistanceChangeTime");
+        mob:setLocalVar("ResistanceChangeTime", math.random(10, 15))
+        mob:setLocalVar("ResistanceMode", math.random(1,3))
+    elseif battletime >= ResistanceChangeTime and ResistanceMode == 1 then
         printf("Piercing Mode");
-        mob:useMobAbility(624) -- 2 hour "cloud" animation
-        mob:setMod(tpz.mod.HTHRES, 1000)
-        mob:setMod(tpz.mod.SLASHRES, 0)
-        mob:setMod(tpz.mod.PIERCERES, 0)
-        mob:setMod(tpz.mod.IMPACTRES, 1000)
-        mob:setLocalVar("STANCEdps", battletime + math.random(120, 180))
-        mob:setLocalVar("STANCEtank", 1)
-    end
-
-    if battletime >= STANCEdps and STANCEtank == 1 then
-        printf("Slashing Mode");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.HTHRES, 0)
         mob:setMod(tpz.mod.SLASHRES, 0)
         mob:setMod(tpz.mod.PIERCERES, 1000)
         mob:setMod(tpz.mod.IMPACTRES, 0)
-        mob:setLocalVar("STANCEthird", battletime + math.random(120, 180))
-        mob:setLocalVar("STANCEdps", 0)
-        mob:setLocalVar("STANCEtank", 0)
-        mob:setLocalVar("STANCEwat", 1)
+        mob:setLocalVar("ResistanceChangeTime", battletime + math.random(120, 180))
+        mob:setLocalVar("ResistanceMode", math.random(1,3))
     end
-    if battletime >= STANCEthird and STANCEwat == 1 then
+
+    if battletime >= ResistanceChangeTime and ResistanceMode == 2 then
         printf("Slashing Mode");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setMod(tpz.mod.HTHRES, 0)
         mob:setMod(tpz.mod.SLASHRES, 1000)
         mob:setMod(tpz.mod.PIERCERES, 0)
         mob:setMod(tpz.mod.IMPACTRES, 0)
-        mob:setLocalVar("twohourTime", battletime + math.random(120, 180))
-        mob:setLocalVar("STANCEdps", 0)
-        mob:setLocalVar("STANCEtank", 0)
-        mob:setLocalVar("STANCEwat", 0)
+        mob:setLocalVar("ResistanceChangeTime", battletime + math.random(120, 180))
+        mob:setLocalVar("ResistanceMode", math.random(1,3))
+    end
+	
+    if battletime >= ResistanceChangeTime and ResistanceMode == 3 then
+        printf("Blunt Mode");
+        mob:useMobAbility(624) -- 2 hour "cloud" animation
+        mob:setMod(tpz.mod.HTHRES, 1000)
+        mob:setMod(tpz.mod.SLASHRES, 0)
+        mob:setMod(tpz.mod.PIERCERES, 0)
+        mob:setMod(tpz.mod.IMPACTRES, 1000)
+        mob:setLocalVar("ResistanceChangeTime", battletime + math.random(120, 180))
+        mob:setLocalVar("ResistanceMode", math.random(1,3))
     end
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17297450)
 end

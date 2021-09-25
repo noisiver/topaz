@@ -11,10 +11,12 @@ end
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 50)
-    mob:setMod(tpz.mod.DEF, -90) 
+    mob:addMod(tpz.mod.DEFP, -90) 
     mob:addMod(tpz.mod.ACC, 100) 
     mob:addMod(tpz.mod.EVA, -100)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:SetMobAbilityEnabled(false)
 end
 
