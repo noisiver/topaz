@@ -34,13 +34,13 @@ function onSpellCast(caster, target, spell)
             if (paralysis:getPower() < power) then
                 target:delStatusEffect(effect)
                 target:addStatusEffect(effect, power, 0, duration)
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
+                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
             else
                 spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
             end
         else
             target:addStatusEffect(effect, power, 0, duration)
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
+            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
