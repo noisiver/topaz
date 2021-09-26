@@ -78,6 +78,9 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 		calcParams.slugwinder = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
 		calcParams.multihitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
 		calcParams.firsthitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
+				GetPlayerByID(6):PrintToPlayer(string.format("calcParams.firsthitRate rate: %i",calcParams.firsthitRate))
+				GetPlayerByID(6):PrintToPlayer(string.format("calcParams.multihitRate rate: %i",calcParams.multihitRate))
+				GetPlayerByID(6):PrintToPlayer(string.format("calcParams.slugwinder rate: %i",calcParams.slugwinder))
     end
 
     -- Calculate alpha, WSC, and our modifiers for our base per-hit damage
