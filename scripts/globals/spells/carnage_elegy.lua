@@ -53,7 +53,11 @@ function onSpellCast(caster, target, spell)
         if caster:hasStatusEffect(tpz.effect.TROUBADOUR) then
             duration = duration * 2
         end
-
+		
+		-- Cap slow at 50%
+		if power > 5000 then
+			power = 5000
+		end
         -- Try to overwrite weaker elegy
         if target:addStatusEffect(tpz.effect.ELEGY, power, 0, duration) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)

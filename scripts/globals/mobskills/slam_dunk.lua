@@ -26,6 +26,10 @@ function onMobWeaponSkill(target, mob, skill)
     if mob:isInDynamis() then 
         dmgmod = 3
     end
+	
+	if (mob:getPool() == 9005) then -- Kong ZM5 NM
+		dmgmod = 3
+	end
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.H2H)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 20)

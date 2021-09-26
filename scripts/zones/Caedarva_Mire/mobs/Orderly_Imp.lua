@@ -13,6 +13,8 @@ end
 
 function onMobDeath(mob, player, isKiller)
 	if mob:AnimationSub() >= 1 then
-		player:addTreasure(2157, mob)--Imp Horn
+		if math.random(1,100) <= 24 then 
+			player:addTreasure(2157, mob)--Imp Horn
+		end
 	end
 end

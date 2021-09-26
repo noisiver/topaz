@@ -5,7 +5,18 @@
 -- !pos 0.278 -14.707 -1.411 221
 -----------------------------------
 local ID = require("scripts/zones/Ship_bound_for_Mhaura/IDs")
+require("scripts/globals/transport")
 -----------------------------------
+local messages =
+{
+    [tpz.transport.message.NEARING] = ID.text.NEARING_MHAURA,
+    [tpz.transport.message.DOCKING] = ID.text.DOCKING_IN_MHAURA
+}
+
+function onSpawn(npc)
+    npc:addPeriodicTrigger(tpz.transport.message.NEARING, tpz.transport.messageTime.SILVER_SEA, tpz.transport.epochOffset.NEARING)
+    npc:addPeriodicTrigger(tpz.transport.message.DOCKING, tpz.transport.messageTime.SILVER_SEA, tpz.transport.epochOffset.DOCKING)
+end
 
 function onTrade(player, npc, trade)
 end

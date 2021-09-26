@@ -981,7 +981,7 @@ INSERT INTO `mob_skills` VALUES (1148,311,'condemnation',4,10.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (1149,313,'quadrastrike',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1150,894,'quadrastrike',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1151,314,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- kindred
-INSERT INTO `mob_skills` VALUES (1152,304,'hecatomb_wave-auto',4,10.0,0,0,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1152,304,'hecatomb_wave-auto',4,10.0,0,0,4,4,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1153,897,'eagle_eye_shot',0,7.0,2000,1500,4,2,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1154,898,'ranged_attack',0,7.0,2000,1500,4,4,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1155,337,'subsonics',1,16.0,2000,1500,4,0,0,0,0,0,0);
@@ -3092,7 +3092,7 @@ INSERT INTO `mob_skills` VALUES (3260,354,'rinpyotosha',0,7.0,2000,1500,4,0,0,0,
 INSERT INTO `mob_skills` VALUES (3261,335,'bomb_toss',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3262,334,'goblin_rush',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3263,3007,'bear_killer',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3264,646,'salvation_scythe',1,15.0,0,0,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3264,313,'salvation_scythe',1,15.0,0,0,4,4,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3265,3009,'elemental_sforzo',0,7.0,2000,0,1,2,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3266,3010,'liement',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3267,3011,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);

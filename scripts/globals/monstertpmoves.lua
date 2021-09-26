@@ -503,6 +503,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         -- dealt zero damage, so shadows took hit
         if (dmg == 0) then
             skill:setMsg(tpz.msg.basic.SHADOW_ABSORB)
+			target:addHP(shadowbehav)
             return shadowbehav
         end
 
@@ -793,16 +794,7 @@ end
 
 function MobTakeAoEShadow(mob, target, max)
 
-    -- this should be using actual nin skill
-    -- TODO fix this
-    if (target:getMainJob() == tpz.job.NIN and math.random() < 0.6) then
-        max = max - 1
-        if (max < 1) then
-            max = 1
-        end
-    end
-
-    return math.random(1, max)
+    return max
 end
 
 function MobTPMod(tp)

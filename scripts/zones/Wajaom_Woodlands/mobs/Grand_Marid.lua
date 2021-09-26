@@ -9,9 +9,13 @@ mixins = {require("scripts/mixins/families/marid")}
 
 function onMobDeath(mob, player, isKiller)
 	if mob:AnimationSub() >= 1 then
-		player:addTreasure(2147, mob) --Marid Tusk
-		if mob:AnimationSub() == 2 then
+		if math.random(1,100) <= 24 then 
 			player:addTreasure(2147, mob) --Marid Tusk
+		end
+		if mob:AnimationSub() == 2 then
+			if math.random(1,100) <= 24 then 
+				player:addTreasure(2147, mob) --Marid Tusk
+			end
 		end
 	end
 
