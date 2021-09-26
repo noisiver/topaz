@@ -22,9 +22,9 @@ local dmgmod = 2       -- changed from 1
 local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*12*BOMB_TOSS_HPP, tpz.magic.ele.FIRE, dmgmod, TP_MAB_BONUS, 1)
 local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 	if (mob:getPool() == 3333) then-- Razon 
-    local HP = mob:getHP()
-    local amount = 650 * skill:getTotalTargets()
-    local dmg = MobFinalAdjustments(amount, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
+		local HP = mob:getHP()
+		local amount = 650 * skill:getTotalTargets()
+		local dmg = MobFinalAdjustments(amount, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
 		if mob:getPool() == 3333  and  HP < 2625 then
 		   dmg = 0
 		end
