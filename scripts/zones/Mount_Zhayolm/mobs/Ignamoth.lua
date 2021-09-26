@@ -7,8 +7,18 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
+    mob:addMod(tpz.mod.ATTP, 50) 
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:addMod(tpz.mod.ACC, 25) 	
+    -- immune: bind grav sleep para
+    mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
+    mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
+    mob:setMod(tpz.mod.BINDRESTRAIT, 100)
+    mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
+    mob:setMod(tpz.mod.PARALYZERESTRAIT, 100)
+
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)    mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
     mob:setMod(tpz.mod.REGAIN, 200)
 end
 
