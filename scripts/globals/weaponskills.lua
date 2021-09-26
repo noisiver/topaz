@@ -800,7 +800,7 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     else 
         hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
         firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
-		slugwinder = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()) * 0.85)
+		slugwinder = hitrate + math.floor(((acc - eva) / 2) - (2 * (target:getMainLvl() - attacker:getMainLvl()))) - 15
     end
 
     hitrate = hitdiff / 100
