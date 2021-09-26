@@ -45,9 +45,10 @@ end
 function onMobFight(mob, target)
     local fightTime = mob:getLocalVar("formTime")
 	local Animation = mob:getLocalVar("Animation")
-    mob:setLocalVar("Animation", math.random(1,2)) --Random roll for animation
-    
-	if Animation == 1 and os.time() > fightTime then
+
+    if Animation == 0 then
+	    mob:setLocalVar("Animation", math.random(1,2)) --Random roll for animation
+	elseif Animation == 1 and os.time() > fightTime then
         mob:AnimationSub(1)
         mob:setLocalVar("formTime", os.time() + math.random(43, 47))
 		mob:setLocalVar("Animation", math.random(1,2)) --Random roll for animation
