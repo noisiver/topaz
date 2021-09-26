@@ -445,7 +445,7 @@ end
         fencerBonus = fencerBonus(attacker),
         bonusTP = wsParams.bonusTP or 0,
         bonusfTP = gorgetBeltFTP or 0,
-		bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC) + 100,
+		bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
         bonusWSmods = wsParams.bonusWSmods or 0
     }
 
@@ -801,6 +801,9 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
         hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
         firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
 		slugwinder = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
+		GetPlayerByID(6):PrintToPlayer(string.format("Hit diff: %i",hitdiff))
+		GetPlayerByID(6):PrintToPlayer(string.format("+100 acc bonus rate: %i",firsthit))
+		GetPlayerByID(6):PrintToPlayer(string.format("slugwinder rate: %i",slugwinder))
     end
 
     hitrate = hitdiff / 100
