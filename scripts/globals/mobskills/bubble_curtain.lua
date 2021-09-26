@@ -20,6 +20,10 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SHELL
     local power = 50
 
+	if (mob:getPool() == 2612) then -- Megapod Megalops(Blade: Ku WSNM)
+		power = 100
+	end
+
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 180))
 
     return typeEffect
