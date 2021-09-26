@@ -81,6 +81,7 @@ function onUseAbility(player, target, ability)
     target:restoreHP(cure)
     target:wakeUp()
     player:updateEnmityFromCure(target, cure)
+    player:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
 
     return cure
 end

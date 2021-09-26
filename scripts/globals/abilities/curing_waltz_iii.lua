@@ -66,7 +66,7 @@ function onUseAbility(player, target, ability)
     -- Contradance check
     if (player:hasStatusEffect(tpz.effect.DIVINE_SEAL) == true) then
         cure = cure * 2
-        player:delStatusEffect(tpz.effect.DIVINE_SEAL)
+        player:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
     end
     --Applying server mods....
     cure = cure * CURE_POWER
