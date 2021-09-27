@@ -3,7 +3,12 @@
 --  Mob: Broken Troll Soldier
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
+mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
+function onMobSpawn(mob)
+	mob:AnimationSub(0)
+end
+
 -- Todo  make them spawn at 25-75% hp and stay
 function onMobEngaged(mob, target)
     local MaxHP = mob:getHP()

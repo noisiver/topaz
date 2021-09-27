@@ -10,7 +10,11 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+	if mob:getMainJob() == tpz.job.WAR or mob:getMainJob() == tpz.job.PLD or mob:getMainJob() == tpz.job.DRK then
+		return 0
+	end
+    
+	return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
