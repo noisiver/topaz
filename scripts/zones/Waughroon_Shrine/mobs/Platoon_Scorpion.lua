@@ -22,6 +22,7 @@ function onMobInitialize(mob)
                 if mob:getID() ~= allyId then
                     local potential_mimic = GetMobByID(allyId)
                     if potential_mimic ~= nil and mob:checkDistance(potential_mimic) < 15 and potential_mimic:getLocalVar('[ODS]LastAbilityMimic') + 6 < os.time() and canForceTPMove(potential_mimic) then
+						potential_mimic:wakeUp() -- wings retards fix your shit
                         potential_mimic:setLocalVar('[ODS]mimic', 1) -- set flag to prevent infinite loops
                         potential_mimic:setLocalVar('[ODS]LastAbilityMimic', os.time())
                         if skillID == 354 or skillID == 355 then potential_mimic:useMobAbility(skillID) end
@@ -45,11 +46,6 @@ function onMobInitialize(mob)
     end)
 end
 
-function onMobFight(mob, target)
-	if mob:checkDistance(target) < 10 then
-		mob:wakeup()
-	end
-end
 
 function onMobWeaponSkillPrepare(mob, target)
     if math.random() < 0.65 then return 354 else return 355 end -- prefer wild rage
