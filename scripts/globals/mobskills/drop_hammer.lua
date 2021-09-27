@@ -15,11 +15,7 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:AnimationSub() == 0 and mob:getFamily() == 246) then -- Troll
-        return 0
-    else
-        return 1
-    end
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)

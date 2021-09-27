@@ -3,12 +3,7 @@
 --  Mob: Troll_Artilleryman
 -- Note: 
 -----------------------------------
-mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
-function onMobSpawn(mob)
-	mob:AnimationSub(0)
-end
-
 
 function onMobDeath(mob)
 	if isKiller and math.random(1,100) <= 24 then 
