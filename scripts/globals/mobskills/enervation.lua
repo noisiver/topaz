@@ -11,16 +11,11 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-  if (mob:getFamily() == 91) then
-    local mobSkin = mob:getModelId()
-
-    if (mobSkin == 1680) then
-        return 0
-    else
-        return 1
-    end
-  end
-    return 0
+	if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.RDM or mob:getMainJob() == tpz.job.RNG or mob:getMainJob() == tpz.job.PUP then
+		return 0
+	end
+    
+	return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
