@@ -15,6 +15,7 @@ function onMobSpawn(mob)
         mob:mob:castSpell(251) -- Shock Spikes
     end
 end
+
 function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(2488, mob)--Alexandrite 
