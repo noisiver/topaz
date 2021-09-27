@@ -137,80 +137,110 @@ local loot =
     [4] =
     {
         {
-            {itemid = 0, droprate = 50},     -- Nothing
-            {itemid = 13251, droprate = 95}, -- Ocean Belt
-            {itemid = 13254, droprate = 95}, -- Jungle Belt
-            {itemid = 13253, droprate = 95}, -- Steppe Belt
-            {itemid = 13255, droprate = 95}, -- Desert Belt
-            {itemid = 13252, droprate = 95}, -- Forest Belt
-            {itemid = 13256, droprate = 95}, -- Ocean Stone
-            {itemid = 13259, droprate = 95}, -- Jungle Stone
-            {itemid = 13258, droprate = 95}, -- Steppe Stone
-            {itemid = 13260, droprate = 95}, -- Desert Stone
-            {itemid = 13257, droprate = 95}, -- Forest Stone
+            {itemid = 65535, droprate = 1000, amount = 12000},  -- gil
         },
         {
-            {itemid = 13292, droprate = 64}, -- Guardians Ring
-            {itemid = 13287, droprate = 65}, -- Kampfer Ring
-            {itemid = 13300, droprate = 65}, -- Conjurers Ring
-            {itemid = 13298, droprate = 65}, -- Shinobi Ring
-            {itemid = 13293, droprate = 65}, -- Slayers Ring
-            {itemid = 13289, droprate = 65}, -- Sorcerers Ring
-            {itemid = 13286, droprate = 64}, -- Soldiers Ring
-            {itemid = 13294, droprate = 65}, -- Tamers Ring
-            {itemid = 13296, droprate = 64}, -- Trackers Ring
-            {itemid = 13299, droprate = 65}, -- Drake Ring
-            {itemid = 13290, droprate = 65}, -- Fencers Ring
-            {itemid = 13295, droprate = 65}, -- Minstrels Ring
-            {itemid = 13288, droprate = 64}, -- Medicine Ring
-            {itemid = 13291, droprate = 65}, -- Rogues Ring
-            {itemid = 13297, droprate = 64}, -- Ronin Ring
-            {itemid = 13447, droprate = 30}, -- Platinum Ring
+            {itemid = 13251, droprate = 100}, -- Ocean Belt
+            {itemid = 13254, droprate = 100}, -- Jungle Belt
+            {itemid = 13253, droprate = 100}, -- Steppe Belt
+            {itemid = 13255, droprate = 100}, -- Desert Belt
+            {itemid = 13252, droprate = 100}, -- Forest Belt
+            {itemid = 13256, droprate = 100}, -- Ocean Stone
+            {itemid = 13259, droprate = 100}, -- Jungle Stone
+            {itemid = 13258, droprate = 100}, -- Steppe Stone
+            {itemid = 13260, droprate = 100}, -- Desert Stone
+            {itemid = 13257, droprate = 100}, -- Forest Stone
+        },
+        {
+            {itemid = 13251, droprate = 100}, -- Ocean Belt
+            {itemid = 13254, droprate = 100}, -- Jungle Belt
+            {itemid = 13253, droprate = 100}, -- Steppe Belt
+            {itemid = 13255, droprate = 100}, -- Desert Belt
+            {itemid = 13252, droprate = 100}, -- Forest Belt
+            {itemid = 13256, droprate = 100}, -- Ocean Stone
+            {itemid = 13259, droprate = 100}, -- Jungle Stone
+            {itemid = 13258, droprate = 100}, -- Steppe Stone
+            {itemid = 13260, droprate = 100}, -- Desert Stone
+            {itemid = 13257, droprate = 100}, -- Forest Stone
+        },
+        {
+            {itemid = 13292, droprate = 67}, -- Guardians Ring
+            {itemid = 13287, droprate = 67}, -- Kampfer Ring
+            {itemid = 13300, droprate = 67}, -- Conjurers Ring
+            {itemid = 13298, droprate = 67}, -- Shinobi Ring
+            {itemid = 13293, droprate = 67}, -- Slayers Ring
+            {itemid = 13289, droprate = 67}, -- Sorcerers Ring
+            {itemid = 13286, droprate = 67}, -- Soldiers Ring
+            {itemid = 13294, droprate = 67}, -- Tamers Ring
+            {itemid = 13296, droprate = 67}, -- Trackers Ring
+            {itemid = 13299, droprate = 67}, -- Drake Ring
+            {itemid = 13290, droprate = 67}, -- Fencers Ring
+            {itemid = 13295, droprate = 67}, -- Minstrels Ring
+            {itemid = 13288, droprate = 67}, -- Medicine Ring
+            {itemid = 13291, droprate = 67}, -- Rogues Ring
+            {itemid = 13297, droprate = 67}, -- Ronin Ring
+        },
+        {
+            {itemid = 13292, droprate = 67}, -- Guardians Ring
+            {itemid = 13287, droprate = 67}, -- Kampfer Ring
+            {itemid = 13300, droprate = 67}, -- Conjurers Ring
+            {itemid = 13298, droprate = 67}, -- Shinobi Ring
+            {itemid = 13293, droprate = 67}, -- Slayers Ring
+            {itemid = 13289, droprate = 67}, -- Sorcerers Ring
+            {itemid = 13286, droprate = 67}, -- Soldiers Ring
+            {itemid = 13294, droprate = 67}, -- Tamers Ring
+            {itemid = 13296, droprate = 67}, -- Trackers Ring
+            {itemid = 13299, droprate = 67}, -- Drake Ring
+            {itemid = 13290, droprate = 67}, -- Fencers Ring
+            {itemid = 13295, droprate = 67}, -- Minstrels Ring
+            {itemid = 13288, droprate = 67}, -- Medicine Ring
+            {itemid = 13291, droprate = 67}, -- Rogues Ring
+            {itemid = 13297, droprate = 67}, -- Ronin Ring
         },
         {
             {itemid = 0, droprate = 100},    -- Nothing
-            {itemid = 4818, droprate = 176}, -- Scroll Of Quake
+            {itemid = 4818, droprate = 150}, -- Scroll Of Quake
             {itemid = 4902, droprate = 10},  -- Light Spirit Pact
-            {itemid = 4814, droprate = 176}, -- Scroll Of Freeze
-            {itemid = 4719, droprate = 176}, -- Scroll Of Regen Iii
-            {itemid = 4172, droprate = 60},  -- Reraiser
-            {itemid = 4174, droprate = 60},  -- Vile Elixir
-            {itemid = 4621, droprate = 176}, -- Scroll Of Raise Ii
+            {itemid = 4814, droprate = 150}, -- Scroll Of Freeze
+            {itemid = 4719, droprate = 150}, -- Scroll Of Regen Iii
+            {itemid = 4172, droprate = 50},  -- Reraiser
+            {itemid = 4174, droprate = 50},  -- Vile Elixir
+            {itemid = 4621, droprate = 150}, -- Scroll Of Raise Ii
         },
         {
             {itemid = 0, droprate = 100},    -- Nothing
-            {itemid = 4818, droprate = 176}, -- Scroll Of Quake
+            {itemid = 4818, droprate = 150}, -- Scroll Of Quake
             {itemid = 4902, droprate = 10},  -- Light Spirit Pact
-            {itemid = 4814, droprate = 176}, -- Scroll Of Freeze
-            {itemid = 4719, droprate = 176}, -- Scroll Of Regen Iii
-            {itemid = 4172, droprate = 60},  -- Reraiser
-            {itemid = 4174, droprate = 60},  -- Vile Elixir
-            {itemid = 4621, droprate = 176}, -- Scroll Of Raise Ii
+            {itemid = 4814, droprate = 150}, -- Scroll Of Freeze
+            {itemid = 4719, droprate = 150}, -- Scroll Of Regen Iii
+            {itemid = 4172, droprate = 50},  -- Reraiser
+            {itemid = 4174, droprate = 50},  -- Vile Elixir
+            {itemid = 4621, droprate = 150}, -- Scroll Of Raise Ii
         },
         {
-            {itemid = 895, droprate = 59},   -- Ram Horn
-            {itemid = 700, droprate = 59},   -- Mahogany Log
-            {itemid = 653, droprate = 200},  -- Mythril Ingot
-            {itemid = 1116, droprate = 59},  -- Manticore Hide
-            {itemid = 866, droprate = 90},   -- Handful Of Wyvern Scales
-            {itemid = 1122, droprate = 90},  -- Wyvern Skin
-            {itemid = 703, droprate = 176},  -- Petrified Log
-            {itemid = 654, droprate = 59},   -- Darksteel Ingot
-            {itemid = 859, droprate = 59},   -- Ram Skin
-            {itemid = 746, droprate = 90},   -- Platinum Ingot
+            {itemid = 895, droprate = 50},   -- Ram Horn
+            {itemid = 700, droprate = 50},   -- Mahogany Log
+            {itemid = 653, droprate = 240},  -- Mythril Ingot
+            {itemid = 1116, droprate = 50},  -- Manticore Hide
+            {itemid = 866, droprate = 100},   -- Handful Of Wyvern Scales
+            {itemid = 1122, droprate = 100},  -- Wyvern Skin
+            {itemid = 703, droprate = 150},  -- Petrified Log
+            {itemid = 654, droprate = 50},   -- Darksteel Ingot
+            {itemid = 859, droprate = 50},   -- Ram Skin
+            {itemid = 746, droprate = 100},   -- Platinum Ingot
         },
         {
             {itemid = 0, droprate = 100},    -- Nothing
-            {itemid = 895, droprate = 59},   -- Ram Horn
-            {itemid = 700, droprate = 59},   -- Mahogany Log
-            {itemid = 653, droprate = 200},  -- Mythril Ingot
-            {itemid = 1116, droprate = 59},  -- Manticore Hide
-            {itemid = 866, droprate = 90},   -- Handful Of Wyvern Scales
-            {itemid = 1122, droprate = 90},  -- Wyvern Skin
-            {itemid = 703, droprate = 176},  -- Petrified Log
-            {itemid = 654, droprate = 59},   -- Darksteel Ingot
-            {itemid = 859, droprate = 59},   -- Ram Skin
-            {itemid = 746, droprate = 90},   -- Platinum Ingot
+            {itemid = 895, droprate = 50},   -- Ram Horn
+            {itemid = 700, droprate = 50},   -- Mahogany Log
+            {itemid = 653, droprate = 240},  -- Mythril Ingot
+            {itemid = 1116, droprate = 50},  -- Manticore Hide
+            {itemid = 866, droprate = 100},   -- Handful Of Wyvern Scales
+            {itemid = 1122, droprate = 100},  -- Wyvern Skin
+            {itemid = 703, droprate = 150},  -- Petrified Log
+            {itemid = 654, droprate = 50},   -- Darksteel Ingot
+            {itemid = 859, droprate = 50},   -- Ram Skin
+            {itemid = 746, droprate = 100},   -- Platinum Ingot
         },
     },
 

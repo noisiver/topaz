@@ -9512,7 +9512,7 @@ INSERT INTO `mob_groups` VALUES (18,1923,139,'Helltail_Harry',0,128,0,0,0,45,45,
 INSERT INTO `mob_groups` VALUES (19,804,139,'Cottontail',0,128,0,2400,0,38,39,0);
 INSERT INTO `mob_groups` VALUES (20,3693,139,'Sobbing_Eyes',0,128,0,2300,0,45,45,0);
 INSERT INTO `mob_groups` VALUES (21,773,139,'Compound_Eyes',0,128,0,1350,0,45,45,0);
-INSERT INTO `mob_groups` VALUES (22,1337,139,'Fighting_Sheep',0,128,0,5000,0,55,55,0);
+INSERT INTO `mob_groups` VALUES (22,1337,139,'Fighting_Sheep',0,128,0,5000,0,63,63,0);
 INSERT INTO `mob_groups` VALUES (23,249,139,'Armsmaster_Dekbuk',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (24,2436,139,'Longarmed_Gottditt',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (25,2202,139,'Keeneyed_Aufwuf',0,128,0,0,0,60,60,0);
@@ -12624,10 +12624,10 @@ INSERT INTO `mob_groups` VALUES (35,688,206,'Chahnameeds_Stomach',0,128,0,0,0,50
 INSERT INTO `mob_groups` VALUES (36,686,206,'Chahnameeds_Intestines',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (37,687,206,'Chahnameeds_Liver',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (38,685,206,'Chahnameed',1,0,0,0,0,1,1,0);
-INSERT INTO `mob_groups` VALUES (39,160,206,'Annihilated_Anthony',0,128,0,7500,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (40,3612,206,'Shredded_Samson',0,128,0,7500,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (41,2588,206,'Mauled_Murdock',0,128,0,7500,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (42,3227,206,'Punctured_Percy',0,128,0,7500,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (39,160,206,'Annihilated_Anthony',0,128,0,9500,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (40,3612,206,'Shredded_Samson',0,128,0,9500,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (41,2588,206,'Mauled_Murdock',0,128,0,9500,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (42,3227,206,'Punctured_Percy',0,128,0,9500,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (43,117,206,'Anansi',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (44,3701,206,'Son_of_Anansi',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (45,1343,206,'Fire_Pot',0,128,0,0,0,75,75,0);

@@ -4054,6 +4054,9 @@ INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6033,523); -- mysterious_l
 INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6033,524); -- mind_drain
 INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6033,525); -- battery_charge
 
+--Hostile Herbivores Auto-attack
+INSERT INTO `mob_skill_lists` VALUES ('Fighting_Sheep',6044,3859); -- sheep_charge_autoattack
+
 
 
 
