@@ -21,7 +21,6 @@ function onMobInitialize(mob)
             for _, allyId in ipairs(ID.operationDesertSwarm[bf]) do
                 if mob:getID() ~= allyId then
                     local potential_mimic = GetMobByID(allyId)
-                    potential_mimic:wakeUp() -- wiki says nearby scorps get woken up when a buddy uses a move
                     if potential_mimic ~= nil and mob:checkDistance(potential_mimic) < 15 and potential_mimic:getLocalVar('[ODS]LastAbilityMimic') + 6 < os.time() and canForceTPMove(potential_mimic) then
                         potential_mimic:setLocalVar('[ODS]mimic', 1) -- set flag to prevent infinite loops
                         potential_mimic:setLocalVar('[ODS]LastAbilityMimic', os.time())
@@ -46,9 +45,16 @@ function onMobInitialize(mob)
     end)
 end
 
+function onMobFight(mob, target)
+	if mob:getTP() >= 1000 then
+		wakeUp()
+	end
+end
+
 function onMobWeaponSkillPrepare(mob, target)
     if math.random() < 0.65 then return 354 else return 355 end -- prefer wild rage
-end
+		wakeUp()
+	end
 
 function onMobSpawn(mob)
     -- wiki: They cannot be feasibly slept after the 3rd or 4th Sleep... By the 9th cast [of Lullaby] it wears off immediately.
