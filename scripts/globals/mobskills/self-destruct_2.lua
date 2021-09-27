@@ -16,24 +16,22 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+local dmgmod = 2       -- changed from 1
+	BOMB_TOSS_HPP = skill:getMobHPP() / 100
+
+local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*6*BOMB_TOSS_HPP, tpz.magic.ele.FIRE, dmgmod, TP_MAB_BONUS, 1)
+local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 	if (mob:getPool() == 3333) then-- Razon 
 		local HP = mob:getHP()
 		local amount = 750 * skill:getTotalTargets()
 		local dmg = MobFinalAdjustments(amount, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
-		target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
-		if (mob:getPool() == 3333)  and HP < 1300 then
+		if mob:getPool() == 3333  and HP < 1300 then
 		   dmg = 0
 		end
-			return dmg
-	else
-		local dmgmod = 2       -- changed from 1
-			BOMB_TOSS_HPP = skill:getMobHPP() / 100
-
-		local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*6*BOMB_TOSS_HPP, tpz.magic.ele.FIRE, dmgmod, TP_MAB_BONUS, 1)
-		local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
-		mob:AnimationSub(0)
-		mob:AnimationSub(2)
-		target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
-			return dmg
 	end
+mob:AnimationSub(0)
+mob:AnimationSub(2)
+target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
+
+		return dmg
 end

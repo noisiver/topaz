@@ -77,6 +77,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
 		calcParams.slugwinder = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
 		calcParams.multihitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
+		calcParams.firsthitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
     end
 
     -- Calculate alpha, WSC, and our modifiers for our base per-hit damage
@@ -456,7 +457,7 @@ end
     if wsID == 196 or wsID == 212  then -- Slugwinder 
         calcParams.hitRate = calcParams.slugwinder
     else
-		calcParams.hitRate = calcParams.multihitRate
+		calcParams.hitRate = calcParams.firsthitRate
     end
     --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
@@ -799,7 +800,7 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     else 
         hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
         firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
-		slugwinder = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()) * 0.75)
+		slugwinder = hitrate + math.floor(((acc - eva) / 2) - (2 * (target:getMainLvl() - attacker:getMainLvl()))) - 10
     end
 
     hitrate = hitdiff / 100
