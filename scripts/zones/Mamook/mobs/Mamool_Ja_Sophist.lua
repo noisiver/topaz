@@ -3,10 +3,10 @@
 --  Mob: Mamool_Ja_Sophist
 -----------------------------------
 -----------------------------------
+function onMobFight(mob, target)
 local fightTime = mob:getLocalVar("CastTime")
 local SpawnTimer = mob:getLocalVar("SpawnTimer")
 
-function onMobFight(mob, target)
 	if SpawnTimer == 0 then
 		mob:setLocalVar("CastTime", os.time() + 3)
 		mob:setLocalVar("SpawnTimer", 1)

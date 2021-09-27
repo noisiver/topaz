@@ -5,10 +5,10 @@
 
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
+function onMobFight(mob, target)
 local fightTime = mob:getLocalVar("CastTime")
 local SpawnTimer = mob:getLocalVar("SpawnTimer")
-
-function onMobFight(mob, target)
+	
 	if SpawnTimer == 0 then
 		mob:setLocalVar("CastTime", os.time() + 3)
 		mob:setLocalVar("SpawnTimer", 1)
@@ -22,5 +22,4 @@ function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(2488, mob)--Alexandrite 
 	end
-	mob:setLocalVar("SpawnTimer", 0)
 end
