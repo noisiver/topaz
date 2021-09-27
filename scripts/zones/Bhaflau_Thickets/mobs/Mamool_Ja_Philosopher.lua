@@ -8,7 +8,7 @@ local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 local fightTime = mob:getLocalVar("CastTime")
 local SpawnTimer = mob:getLocalVar("SpawnTimer")
 
-function onMobSpawn(mob)
+function onMobFight(mob, target)
 	if SpawnTimer == 0 then
 		mob:setLocalVar("CastTime", os.time() + 3)
 		mob:setLocalVar("SpawnTimer", 1)
