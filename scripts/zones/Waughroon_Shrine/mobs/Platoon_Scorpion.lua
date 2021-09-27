@@ -54,7 +54,6 @@ end
 function onMobWeaponSkillPrepare(mob, target)
     if math.random() < 0.65 then return 354 else return 355 end -- prefer wild rage
 	end
-	end
 
 function onMobSpawn(mob)
     -- wiki: They cannot be feasibly slept after the 3rd or 4th Sleep... By the 9th cast [of Lullaby] it wears off immediately.
@@ -77,3 +76,4 @@ function onMobDeath(mob, player, isKiller)
         end 
     end
 end
+
