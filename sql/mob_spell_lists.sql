@@ -149,8 +149,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,238,18,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,239,16,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,240,27,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,245,12,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,247,25,82);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,248,83,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,248,95,255); -- Aspir II
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,249,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,252,45,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,253,20,40);
