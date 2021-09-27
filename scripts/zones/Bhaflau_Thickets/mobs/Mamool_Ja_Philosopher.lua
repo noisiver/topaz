@@ -14,7 +14,7 @@ function onMobSpawn(mob)
 		mob:setLocalVar("SpawnTimer", 1)
 	elseif SpawnTimer == 1 and os.time() > CastTime  then
 		mob:setLocalVar("CastTime", os.time() + 180)
-        mob:mob:castSpell(251) -- Shock Spikes
+        mob:castSpell(251) -- Shock Spikes
     end
 end
 
