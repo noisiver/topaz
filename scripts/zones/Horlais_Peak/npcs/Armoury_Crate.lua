@@ -672,68 +672,76 @@ local loot =
     [15] =
     {
         {
-            {itemid = 18378, droprate = 222}, -- Subduer
-            {itemid = 17699, droprate = 302}, -- Dissector
-            {itemid = 17509, droprate = 245}, -- Destroyers
-            {itemid = 18005, droprate = 208}, -- Heart Snatcher
+            {itemid = 65535, droprate = 1000, amount = 24000},  -- gil
         },
         {
-            {itemid = 0, droprate = 638},     -- Nothing
-            {itemid = 1133, droprate = 10},   -- Vial Of Dragon Blood
-            {itemid = 4486, droprate = 176},  -- Dragon Heart
-            {itemid = 4272, droprate = 176},  -- Slice Of Dragon Meat
+            {itemid = 18378, droprate = 250}, -- Subduer
+            {itemid = 17699, droprate = 250}, -- Dissector
+            {itemid = 17509, droprate = 250}, -- Destroyers
+            {itemid = 18005, droprate = 250}, -- Heart Snatcher
         },
         {
-            {itemid = 0, droprate = 638},     -- Nothing
-            {itemid = 1133, droprate = 10},   -- Vial Of Dragon Blood
-            {itemid = 4486, droprate = 176},  -- Dragon Heart
-            {itemid = 4272, droprate = 176},  -- Slice Of Dragon Meat
+            {itemid = 18378, droprate = 250}, -- Subduer
+            {itemid = 17699, droprate = 250}, -- Dissector
+            {itemid = 17509, droprate = 250}, -- Destroyers
+            {itemid = 18005, droprate = 250}, -- Heart Snatcher
         },
         {
-            {itemid = 0, droprate = 392},     -- Nothing
-            {itemid = 19026, droprate = 354}, -- Spear Strap
-            {itemid = 19024, droprate = 165}, -- Sword Strap
-            {itemid = 19025, droprate = 89},  -- Pole Grip
+            {itemid = 0, droprate = 500},     -- Nothing
+            {itemid = 19026, droprate = 240}, -- Spear Strap
+            {itemid = 19024, droprate = 240}, -- Sword Strap
+            {itemid = 19025, droprate = 240},  -- Pole Grip
         },
         {
-            {itemid = 14764, droprate = 586}, -- Minuet Earring
-            {itemid = 655, droprate = 184},   -- Adaman Ingot
-            {itemid = 747, droprate = 207},   -- Orichalcum Ingot
+            {itemid = 14764, droprate = 600}, -- Minuet Earring
+            {itemid = 655, droprate = 200},   -- Adaman Ingot
+            {itemid = 747, droprate = 200},   -- Orichalcum Ingot
         },
         {
-            {itemid = 17842, droprate = 238}, -- Sorrowful Harp
+            {itemid = 14764, droprate = 600}, -- Minuet Earring
+            {itemid = 655, droprate = 200},   -- Adaman Ingot
+            {itemid = 747, droprate = 200},   -- Orichalcum Ingot
+        },
+        {
+            {itemid = 17842, droprate = 250}, -- Sorrowful Harp
             {itemid = 14762, droprate = 250}, -- Attilas Earring
-            {itemid = 17700, droprate = 225}, -- Durandal
-            {itemid = 18006, droprate = 275}, -- Hoplites Harpe
+            {itemid = 17700, droprate = 250}, -- Durandal
+            {itemid = 18006, droprate = 250}, -- Hoplites Harpe
         },
         {
-            {itemid = 737, droprate = 122},   -- Chunk Of Gold Ore
-            {itemid = 4172, droprate = 54},   -- Reraiser
-            {itemid = 644, droprate = 41},    -- Chunk Of Mythril Ore
-            {itemid = 902, droprate = 81},    -- Demon Horn
-            {itemid = 702, droprate = 149},   -- Ebony Log
-            {itemid = 866, droprate = 54},    -- Handful Of Wyvern Scales
-            {itemid = 4175, droprate = 27},   -- Vile Elixir +1
-            {itemid = 700, droprate = 41},    -- Mahogany Log
-            {itemid = 887, droprate = 95},    -- Coral Fragment
-            {itemid = 703, droprate = 108},   -- Petrified Log
-            {itemid = 844, droprate = 135},   -- Phoenix Feather
-            {itemid = 738, droprate = 54},    -- Chunk Of Platinum Ore
-            {itemid = 895, droprate = 14},    -- Ram Horn
-            {itemid = 830, droprate = 14},    -- Square Of Rainbow Cloth
-            {itemid = 645, droprate = 68},    -- Chunk Of Darksteel Ore
-            {itemid = 4173, droprate = 14},   -- Hi-reraiser
-            {itemid = 1132, droprate = 135},  -- Square Of Raxa
+            {itemid = 17842, droprate = 250}, -- Sorrowful Harp
+            {itemid = 14762, droprate = 250}, -- Attilas Earring
+            {itemid = 17700, droprate = 250}, -- Durandal
+            {itemid = 18006, droprate = 250}, -- Hoplites Harpe
         },
         {
-            {itemid = 836, droprate = 96},    -- Square Of Damascene Cloth
-            {itemid = 658, droprate = 27},    -- Damascus Ingot
-            {itemid = 942, droprate = 164},   -- Philosophers Stone
-            {itemid = 844, droprate = 260},   -- Phoenix Feather
-            {itemid = 837, droprate = 96},    -- Spool Of Malboro Fiber
-            {itemid = 1132, droprate = 288},  -- Square Of Raxa
-            {itemid = 1110, droprate = 41},   -- Vial Of Black Beetle Blood
+            {itemid = 887, droprate = 100},   -- Coral Fragment
+            {itemid = 645, droprate = 100},   -- Chunk Of Darksteel Ore
+            {itemid = 902, droprate = 100},   -- Demon Horn
+            {itemid = 702, droprate = 100},   -- Ebony Log
+            {itemid = 737, droprate = 100},   -- Chunk Of Gold Ore
+            {itemid = 823, droprate = 50},   -- Spool Of Gold Thread
+            {itemid = 4173, droprate = 10},  -- Hi-reraiser
+            {itemid = 700, droprate = 100},   -- Mahogany Log
+            {itemid = 644, droprate = 50},   -- Chunk Of Mythril Ore
+            {itemid = 703, droprate = 150},  -- Petrified Log
+            {itemid = 844, droprate = 10},    -- Phoenix Feather
+            {itemid = 738, droprate = 50},   -- Chunk Of Platinum Ore
+            {itemid = 830, droprate = 50},   -- Square Of Rainbow Cloth
+            {itemid = 895, droprate = 50},   -- Ram Horn
+            {itemid = 4172, droprate = 50},  -- Reraiser
+            {itemid = 4174, droprate = 50},  -- Vile Elixir
+            {itemid = 4175, droprate = 10},   -- Vile Elixir +1
+            {itemid = 866, droprate = 10},   -- Handful Of Wyvern Scales
         },
+        {
+			{itemid = 942, droprate = 500},   -- Philosophers Stone
+            {itemid = 844, droprate = 500},   -- Phoenix Feather
+		},
+        {
+			{itemid = 942, droprate = 500},   -- Philosophers Stone
+            {itemid = 844, droprate = 500},   -- Phoenix Feather
+		},
     },
 
     -- KSNM Contaminated Colosseum

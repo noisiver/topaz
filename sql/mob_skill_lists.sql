@@ -4055,7 +4055,18 @@ INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6033,524); -- mind_drain
 INSERT INTO `mob_skill_lists` VALUES ('AncientVessel',6033,525); -- battery_charge
 
 --Hostile Herbivores Auto-attack
-INSERT INTO `mob_skill_lists` VALUES ('Fighting_Sheep',6044,3859); -- sheep_charge_autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Fighting_Sheep',6034,3859); -- sheep_charge_autoattack
+
+--Dragonian Berserker
+INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Berserker',6035,645); -- body_slam
+INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Berserker',6035,646); -- heavy_stomp
+INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Berserker',6035,647); -- chaos_blade
+
+--Dragonian Minstrel
+INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Minstrel',6036,647); -- chaos_blade
+INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Minstrel',6036,649); -- voidsong
+INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Minstrel',6036,650); -- thornsong
+INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Minstrel',6036,651); -- lodesong
 
 
 
