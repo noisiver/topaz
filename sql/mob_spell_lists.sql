@@ -149,8 +149,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,238,18,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,239,16,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,240,27,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,245,12,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,247,25,82);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,248,83,255);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,248,95,255); -- Aspir II
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,249,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,252,45,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_BLM',2,253,20,40);
@@ -1054,14 +1054,14 @@ INSERT INTO `mob_spell_lists` VALUES ('Beelzebub',74,5,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beelzebub',74,356,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beelzebub',74,359,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Sabotender_Campeon',75,5,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,373,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,376,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,382,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,387,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,392,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,421,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,432,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,434,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,373,1,255); -- foe_requiem_vi
+INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,376,1,255); -- horde_lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,382,1,255); -- armys_paeon_v
+INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,387,1,255); -- mages_ballad_ii
+INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,392,1,255); -- knights_minne_iv
+INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,421,1,255); -- battlefield_elegy
+INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,432,1,255); -- uncanny_etude
+INSERT INTO `mob_spell_lists` VALUES ('Dragonian_Minstrel',76,434,1,255); -- swift_etude
 INSERT INTO `mob_spell_lists` VALUES ('Tartaruga_Gigante',77,202,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Tartaruga_Gigante',77,214,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Tartaruga_Gigante',77,357,1,255);

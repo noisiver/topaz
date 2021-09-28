@@ -2,7 +2,9 @@
 -- Area: Halvung
 --  Mob: Hilltroll_Mirror_Guard
 -----------------------------------
+mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
+
 
 function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 
