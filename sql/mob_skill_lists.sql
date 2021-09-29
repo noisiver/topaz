@@ -4068,6 +4068,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Minstrel',6036,649); -- voidson
 INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Minstrel',6036,650); -- thornsong
 INSERT INTO `mob_skill_lists` VALUES ('Dragonian_Minstrel',6036,651); -- lodesong
 
+--Gladiatorial Weapon
+INSERT INTO `mob_skill_lists` VALUES ('Gladiatorial_Weapon',6037,513); -- smite_of_rage
+INSERT INTO `mob_skill_lists` VALUES ('Gladiatorial_Weapon',6037,514); -- whirl_of_rage
+INSERT INTO `mob_skill_lists` VALUES ('Gladiatorial_Weapon',6037,1558); -- smite_of_fury
+INSERT INTO `mob_skill_lists` VALUES ('Gladiatorial_Weapon',6037,1559); -- flurry_of_rage
+INSERT INTO `mob_skill_lists` VALUES ('Gladiatorial_Weapon',6037,1560); -- whispers_of_ire
 
 
 
