@@ -23,10 +23,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-
-    if (target:hasStatusEffect(tpz.effect.STR_DOWN)) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-    elseif (target:isFacing(caster)) then
+	local typeEffect = tpz.effect.STR_DOWN
         local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
         local params = {}
         params.diff = nil
@@ -48,9 +45,12 @@ function onSpellCast(caster, target, spell)
 		local duration = 60 * resist
 		
     if (resist >= 0.5) then -- Do it!
-        local typeEffect = tpz.effect.STR_DOWN
-        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+        if ((target:isFacing(caster))) then -- TODO: Apparently this check shouldn't exist for enemies using this spell? Need more info.
+            if (target:addStatusEffect(typeEffect, power, 0, duration)) then
+                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
+            else
+                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+            end
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end

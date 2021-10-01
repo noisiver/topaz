@@ -23,6 +23,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+	local typeEffect = tpz.effect.VIT_DOWN
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
@@ -39,15 +40,15 @@ function onSpellCast(caster, target, spell)
 	    local duration = 90 * resist
 
     if (resist >= 0.5) then -- Do it!
-        local typeEffect = tpz.effect.VIT_DOWN
-        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+        if (target:addStatusEffect(typeEffect, power, 0, duration)) then
+            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
+
 
     return params.effect
 end
