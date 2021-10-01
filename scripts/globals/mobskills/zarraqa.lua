@@ -12,7 +12,7 @@ require("scripts/globals/monstertpmoves")
 
 function onMobSkillCheck(target, mob, skill)
     -- Ranged attack only used when target is out of range
-    if (mob:checkDistance(target) >= 10) then
+    if (mob:checkDistance(target) >= 4) then
         return 0
     else
         return 1
