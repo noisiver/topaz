@@ -22,5 +22,5 @@ function onMobWeaponSkill(target, mob, skill)
     MobBuffMove(mob, typeEffectFour, 25, 0, 180)
     MobBuffMove(mob, typeEffectFive, 50, 0, 180)
     skill:setMsg(MobBuffMove(mob, typeEffectTwo, 2000, 0, 180)) 
-    return typeEffect
+    return typeEffectTwo
 end
