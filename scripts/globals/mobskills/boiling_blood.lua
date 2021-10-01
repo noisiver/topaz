@@ -17,7 +17,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectThree = tpz.effect.MAGIC_ATK_BOOST
     local typeEffectFour = tpz.effect.MAGIC_DEF_BOOST
     local typeEffectFive = tpz.effect.DEFENSE_BOOST
-    MobBuffMove(mob, typeEffect, 50, 0, 180)
+    MobBuffMove(mob, typeEffect, 25, 0, 180)
     MobBuffMove(mob, typeEffectThree, 25, 0, 180)
     MobBuffMove(mob, typeEffectFour, 25, 0, 180)
     MobBuffMove(mob, typeEffectFive, 50, 0, 180)
