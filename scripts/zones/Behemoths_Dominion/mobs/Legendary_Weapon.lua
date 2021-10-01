@@ -36,6 +36,7 @@ function onMobFight(mob, target)
     elseif battletime >= ResistanceChangeTime and ResistanceMode == 1 then
         printf("Piercing Mode");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
+		mob:AnimationSub(2) -- Piercing
         mob:setMod(tpz.mod.HTHRES, 0)
         mob:setMod(tpz.mod.SLASHRES, 0)
         mob:setMod(tpz.mod.PIERCERES, 1000)
@@ -47,6 +48,7 @@ function onMobFight(mob, target)
     if battletime >= ResistanceChangeTime and ResistanceMode == 2 then
         printf("Slashing Mode");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
+		mob:AnimationSub(1) -- Slashing
         mob:setMod(tpz.mod.HTHRES, 0)
         mob:setMod(tpz.mod.SLASHRES, 1000)
         mob:setMod(tpz.mod.PIERCERES, 0)
@@ -58,6 +60,7 @@ function onMobFight(mob, target)
 	if battletime >= ResistanceChangeTime and ResistanceMode == 3 then
         printf("Blunt Mode");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
+		mob:AnimationSub(3) -- Blunt+Impact
         mob:setMod(tpz.mod.HTHRES, 1000)
         mob:setMod(tpz.mod.SLASHRES, 0)
         mob:setMod(tpz.mod.PIERCERES, 0)
