@@ -39,7 +39,8 @@ function onSpellCast(caster, target, spell)
 
         caster:delStatusEffect(tpz.effect.DIFFUSION)
     end
-
+	caster:delStatusEffectSilent(tpz.effect.ACCURACY_BOOST)
+	caster:delStatusEffectSilent(tpz.effect.EVASION_BOOST)
     if (target:addStatusEffect(typeEffectOne, power, 0, duration) == false and target:addStatusEffect(typeEffectTwo, power, 0, duration) == false) then -- both statuses fail to apply
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     elseif (target:addStatusEffect(typeEffectOne, power, 0, duration) == false) then -- the first status fails to apply
