@@ -146,7 +146,7 @@ function onEventFinish(player, csid, option)
     local AFoffset = 8 * totalCraftedPieces
 
     -- OMENS
-    if csid == 714 then
+    if csid == 714 and omensProgress == 3 then
         player:setCharVar("OmensProgress", 4)
     elseif csid == 716 and omensProgress == 5 then
         npcUtil.completeQuest(player, AHT_URHGAN, tpz.quest.id.ahtUrhgan.OMENS, {
