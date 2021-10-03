@@ -11,7 +11,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local power = 26.56 -- Currently 68/70 4/5
+    local power = 27.343 -- Currently 70/70 5/5
 	-- 24 at 0 merits
 	--62/256 = 24.218% ～ 70/256 = 27.343% *
 	-- 2/256 per merit
