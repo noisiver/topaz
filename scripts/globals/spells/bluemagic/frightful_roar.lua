@@ -33,7 +33,7 @@ function onSpellCast(caster, target, spell)
 	local dragon = (target:getSystem() == 10)
 	
 	if dragon then
-		params.bonus = 25
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100 
 	end
 
     if (resist >= 0.5) then -- Do it!

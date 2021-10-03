@@ -78,7 +78,7 @@ function onSpellCast(caster, target, spell)
 	
 	if aquan then
 		dmg = dmg * 1.25
-		params.bonus = 25
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100
 	elseif amorph then
 		dmg = dmg * 0.75
 		params.bonus = -25

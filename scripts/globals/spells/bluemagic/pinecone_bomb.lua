@@ -55,7 +55,7 @@ function onSpellCast(caster,target,spell)
 	
 	if aquan then
 		beast = damage * 1.25
-		params.bonus = 25
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100
 	elseif amorph then
 		vermin = damage * 0.75
 		params.bonus = -25
