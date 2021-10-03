@@ -10542,10 +10542,7 @@ INSERT INTO `mob_droplist` VALUES (1982,0,0,1000,5831,100);
 INSERT INTO `mob_droplist` VALUES (1982,0,0,1000,5844,100);
 INSERT INTO `mob_droplist` VALUES (1982,0,0,1000,5845,100);
 INSERT INTO `mob_droplist` VALUES (1982,0,0,1000,5846,100);
-INSERT INTO `mob_droplist` VALUES (1983,0,0,1000,505,175);
-INSERT INTO `mob_droplist` VALUES (1983,2,0,1000,832,0);
-INSERT INTO `mob_droplist` VALUES (1983,0,0,1000,882,170);
-INSERT INTO `mob_droplist` VALUES (1983,0,0,1000,4372,100);
+INSERT INTO `mob_droplist` VALUES (1983,2,0,1000,2315,0);
 INSERT INTO `mob_droplist` VALUES (1983,0,0,1000,14946,240); -- Nightmare Gloves
 INSERT INTO `mob_droplist` VALUES (1984,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (1984,2,0,1000,2229,0);
@@ -16669,10 +16666,10 @@ INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,21558,240); -- Rune Kris 24%
 INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,19102,1000); -- Main Gauche(DNC Dagger) 100%
 INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,21558,240); -- Rune Kris 24% 
 
-INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,17742,1000); -- Vorpal Sword 100%
-INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,16563,240); -- Rune Blade 24% 
+INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,18426,1000); -- Sasuke Katana 100%
+INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,17791,240); -- Rai Kunimitsu 24% 
 
-INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,17742,1000); -- Vorpal Sword 100%
+INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,17743,1000); -- Wightslayer(BLU Sword) 100%
 INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,16563,240); -- Rune Blade 24% 
 
 INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,17742,1000); -- Vorpal Sword 100%

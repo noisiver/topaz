@@ -3029,7 +3029,7 @@ INSERT INTO `mob_groups` VALUES (10633,5872,63,'Qiqirn_Mine',0,128,0,0,0,75,75,0
 INSERT INTO `mob_groups` VALUES (1,2221,64,'Khimaira_13',0,128,0,0,0,70,70,0);
 
 INSERT INTO `mob_groups` VALUES (2157,2189,64,'Karababa',0,128,0,1000,1000,75,75,1);
-INSERT INTO `mob_groups` VALUES (2156,2063,64,'Immortal_Flan',0,128,0,0,0,53,53,0);
+INSERT INTO `mob_groups` VALUES (2156,2063,64,'Immortal_Flan',0,128,0,4500,0,53,53,0);
 INSERT INTO `mob_groups` VALUES (2159,3219,64,'Pudding_Master',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (2160,3582,64,'Shamarhaan',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (2161,4058,64,'Two-faced_Flan',0,128,0,0,0,75,75,0);
@@ -12247,6 +12247,7 @@ INSERT INTO `mob_groups` VALUES (57,5179,195,'Gasha-1stform',0,128,0,0,0,94,95,0
 INSERT INTO `mob_groups` VALUES (58,6561,195,'Lost_Soul',600,0,1542,0,0,42,46,0); 
 INSERT INTO `mob_groups` VALUES (59,9000,195,'Murgleis',0,128,3177,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (60,9002,195,'Burtgang',0,128,3179,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (61,9008,195,'Raubahn',0,128,3183,10000,0,85,87,0);
 
 INSERT INTO `mob_groups` VALUES (9757,3858,195,'Tebhi',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9761,3992,195,'Treasure_Chest',0,0,0,0,0,0,0,0);
@@ -12300,6 +12301,8 @@ INSERT INTO `mob_groups` VALUES (42,251,196,'Aroma_Fly',0,128,172,3500,0,38,40,0
 INSERT INTO `mob_groups` VALUES (43,5311,196,'Lorbulcrud',0,128,0,0,99999,90,92,0);
 INSERT INTO `mob_groups` VALUES (44,6552,196,'Ghoul',600,0,962,0,0,23,27,0);
 INSERT INTO `mob_groups` VALUES (45,6570,196,'Wight',600,0,2653,0,0,30,33,0);
+INSERT INTO `mob_groups` VALUES (46,9007,196,'Nagi',0,128,3182,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (47,9007,196,'Nagi_Clone',0,128,0,500,0,75,75,0);
 
 INSERT INTO `mob_groups` VALUES (9799,3992,196,'Treasure_Chest',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9805,4498,196,'Zeid',0,0,0,0,0,0,0,0);

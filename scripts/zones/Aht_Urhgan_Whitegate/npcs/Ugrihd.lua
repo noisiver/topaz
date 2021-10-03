@@ -80,7 +80,7 @@ function onEventFinish(player, csid, option, npc)
         end
 
         player:delCurrency("imperial_standing", quantity * price)
-        npc:showText(npc, ID.text.UGRIHD_PURCHASE_DIALOGUE)
+        player:showText(npc, ID.text.UGRIHD_PURCHASE_DIALOGUE) -- Was npc:
         player:messageSpecial(ID.text.ITEM_OBTAINED, item)
     end
 end

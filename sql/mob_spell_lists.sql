@@ -4160,6 +4160,24 @@ INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,357,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,359,1,255); -- silencega
 INSERT INTO `mob_spell_lists` VALUES ('Bistre_hearted_Malberry',1012,360,1,255); -- dispelga
 
+INSERT INTO `mob_spell_lists` VALUES ('Nagi',1013,339,1,255); -- Utusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Nagi',1013,340,1,255); -- Utsusemi: San
+
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,611,1,255); --disseverment
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,604,1,255); -- bad_breath
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,616,1,255); -- temporal_shift
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,595,1,255); -- 1000_needles
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,641,1,255); -- hysteric_barrage
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,647,1,255); -- zephyr_mantle
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,598,1,255); -- soporific
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,588,1,255); -- lowing
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,574,1,255); -- feather_barrier
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,617,1,255); -- vertical_cleave
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,636,1,255); -- warm-up
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,515,1,255); -- maelstrom
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,534,1,255); -- mysterious_light
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,536,1,255); -- poison_breath
+INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,560,1,255); -- frenetic_rip
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- tornado_ii
