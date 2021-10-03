@@ -3931,9 +3931,16 @@ INSERT INTO `mob_skills` VALUES (4260,563,'mix_dark_potion',0,7.0,2000,1500,4,0,
 INSERT INTO `mob_skills` VALUES (4261,564,'mix_samsons_strength',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (52,110,'shockwave',1,10.0,2000,0,4,0,0,0,1,8,0); -- Great Sword WS
 
-
+-- JA's
+INSERT INTO `mob_skills` VALUES (190,182,'reverse_flourish',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (221,207,'saber_dance',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (222,208,'fan_dance',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (177,9,'curing_waltz_iv',0,7.0,2000,1500,1,0,0,0,0,0,0);
 
 -- Mythic WS
-INSERT INTO `mob_skills` VALUES (44,13,'death_blossom',0,5.0,2000,0,4,0,0,0,1,8,0);
-INSERT INTO `mob_skills` VALUES (45,14,'atonement',0,5.0,2000,0,4,0,0,0,1,8,0);
-INSERT INTO `mob_skills` VALUES (154,176,'tachi_rana',0,5.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (44,13,'death_blossom',0,7.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (45,14,'atonement',0,7.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (154,176,'tachi_rana',0,7.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (25,40,'evisceration',0,7.0,2000,0,4,0,0,0,9,1,0);
+INSERT INTO `mob_skills` VALUES (29,44,'pyrrhic_kleos',0,7.0,2000,0,4,0,0,0,10,4,0);
+

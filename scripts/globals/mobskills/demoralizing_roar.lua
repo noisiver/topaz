@@ -1,7 +1,7 @@
 ---------------------------------------------
 -- Demoralizing Roar
 --
--- Description: Weakens defense of enemies within range.
+-- Description: Weakens attack of enemies within range.
 -- Type: Magical (Water)
 -- 50% 
 ---------------------------------------------
@@ -15,7 +15,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.DEFENSE_DOWN
+    local typeEffect = tpz.effect.ATTACK_DOWN
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 180))
     return typeEffect
 end

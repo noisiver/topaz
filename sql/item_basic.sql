@@ -1610,7 +1610,7 @@ INSERT INTO `item_basic` VALUES (1720,0,'teal_memosphere','teal_memosphere',1,61
 INSERT INTO `item_basic` VALUES (1721,0,'beryl_memosphere','beryl_memosphere',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (1722,0,'indigo_memosphere','indigo_memosphere',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (1723,0,'white_memosphere','white_memosphere',1,61524,0,1,0);
-INSERT INTO `item_basic` VALUES (1724,0,'soulflayer_robe','soulflayer_robe',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (1724,0,'soulflayer_robe','soulflayer_robe',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (1725,0,'snow_lily','snow_lily',1,4,44,0,30);
 INSERT INTO `item_basic` VALUES (1726,0,'egret_fishing_rod','egret_fishing_rod',1,57424,0,0,80);
 INSERT INTO `item_basic` VALUES (1727,0,'piece_of_garhada_teak_lumber','gar._teak_lumber',1,57428,0,0,80);
@@ -2222,7 +2222,7 @@ INSERT INTO `item_basic` VALUES (2332,0,'corsairs_testimony','cor._testimony',1,
 INSERT INTO `item_basic` VALUES (2333,0,'puppetmasters_testimony','pup._testimony',1,61504,0,1,0);
 INSERT INTO `item_basic` VALUES (2334,0,'poroggo_hat','poroggo_hat',12,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2335,0,'soulflayer_tentacle','soulfl._tentacle',12,4,44,0,933);
-INSERT INTO `item_basic` VALUES (2336,0,'soulflayer_staff','soulflayer_staff',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (2336,0,'soulflayer_staff','soulflayer_staff',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2337,0,'clump_of_wamoura_hair','wamoura_hair',12,4,40,0,150);
 INSERT INTO `item_basic` VALUES (2338,0,'wamoura_scale','wamoura_scale',12,4,44,0,312);
 INSERT INTO `item_basic` VALUES (2339,0,'chococard_(m)','chococard_(m)',1,12400,0,1,0);
@@ -2312,9 +2312,9 @@ INSERT INTO `item_basic` VALUES (2422,0,'mythril_mesh_sheet','mtl._mesh_sheet',1
 INSERT INTO `item_basic` VALUES (2423,0,'frigid_raptor_skin','frigid_skin',12,4,41,0,838);
 INSERT INTO `item_basic` VALUES (2424,0,'square_of_incombustible_wool','incomb._wool',12,4,40,0,608);
 INSERT INTO `item_basic` VALUES (2425,0,'square_of_humidified_velvet','humid._velvet',12,4,40,0,740);
-INSERT INTO `item_basic` VALUES (2426,0,'wivre_horn','wivre_horn',1,4,42,0,742);		-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (2427,0,'wivre_maul','wivre_maul',1,4,42,0,850);		-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (2428,0,'wivre_hide','wivre_hide',1,4,41,0,1050);		-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (2426,0,'wivre_horn','wivre_horn',12,4,42,0,742);		
+INSERT INTO `item_basic` VALUES (2427,0,'wivre_maul','wivre_maul',12,4,42,0,850);		
+INSERT INTO `item_basic` VALUES (2428,0,'wivre_hide','wivre_hide',1,4,41,0,1050);		
 INSERT INTO `item_basic` VALUES (2429,0,'phantasmal_abjuration_head','p.abjuration_hd.',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (2430,0,'phantasmal_abjuration_body','p.abjuration_bd.',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (2431,0,'phantasmal_abjuration_hands','p.abjuration_hn.',1,61524,0,1,0);

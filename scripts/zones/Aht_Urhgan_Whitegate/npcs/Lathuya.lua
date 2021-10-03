@@ -141,7 +141,7 @@ function onEventFinish(player, csid, option)
     local omensProgress = player:getCharVar("OmensProgress")
 
     local remainingBLUAF = player:getCharVar("[BLUAF]Remaining") -- Bitmask of AF the player has NOT crafted
-    local totalCraftedPieces = 3 - player:countMaskBits(remainingBLUAF)
+    local totalCraftedPieces = 3 - utils.mask.countBits(remainingBLUAF, 3)
     local currentTask = player:getCharVar("[BLUAF]Current")
     local AFoffset = 8 * totalCraftedPieces
 
@@ -152,7 +152,7 @@ function onEventFinish(player, csid, option)
         npcUtil.completeQuest(player, AHT_URHGAN, tpz.quest.id.ahtUrhgan.OMENS, {
             item = 15684,
             title = tpz.title.IMMORTAL_LION,
-            var = { OmensProgress }
+            var = { omensProgress }
         })
         player:delKeyItem(tpz.ki.SEALED_IMMORTAL_ENVELOPE)
 

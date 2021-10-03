@@ -212,7 +212,7 @@ INSERT INTO `mob_droplist` VALUES (33,0,0,1000,535,1000);	-- Ahtu engraved key
 INSERT INTO `mob_droplist` VALUES (33,0,0,1000,918,330);
 INSERT INTO `mob_droplist` VALUES (33,0,0,1000,923,240);
 INSERT INTO `mob_droplist` VALUES (34,0,0,1000,838,10); -- (Aht Urghan Attercop) Spider's Web
-INSERT INTO `mob_droplist` VALUES (34,0,0,1000,2462,100);
+INSERT INTO `mob_droplist` VALUES (34,0,0,1000,2462,100); -- Frayed Arrow
 INSERT INTO `mob_droplist` VALUES (35,0,0,1000,1122,240); -- (Aiatar) Wyvern Skin 
 INSERT INTO `mob_droplist` VALUES (35,0,0,1000,1691,240); -- Giant scale
 INSERT INTO `mob_droplist` VALUES (35,0,0,1000,15367,240); -- Falconer's Hose
@@ -1281,10 +1281,10 @@ INSERT INTO `mob_droplist` VALUES (203,0,0,1000,881,10);
 INSERT INTO `mob_droplist` VALUES (203,0,0,1000,936,110);
 INSERT INTO `mob_droplist` VALUES (203,0,0,1000,4400,100);
 INSERT INTO `mob_droplist` VALUES (203,0,0,1000,4400,50);
-INSERT INTO `mob_droplist` VALUES (204,2,0,1000,924,0);
-INSERT INTO `mob_droplist` VALUES (204,0,0,1000,1626,50);
-INSERT INTO `mob_droplist` VALUES (204,0,0,1000,1700,80);
-INSERT INTO `mob_droplist` VALUES (204,0,0,1000,2463,400);
+INSERT INTO `mob_droplist` VALUES (204,2,0,1000,924,0); -- (Aydeewa Diremite) Vial Of Fiend Blood (Steal)
+INSERT INTO `mob_droplist` VALUES (204,0,0,1000,1626,50); -- Bottle of avatar blood
+INSERT INTO `mob_droplist` VALUES (204,0,0,1000,1700,100); -- Spool of bloodthread
+INSERT INTO `mob_droplist` VALUES (204,0,0,1000,2463,100); -- Tuft of colorful hair
 INSERT INTO `mob_droplist` VALUES (205,0,0,1000,823,50);
 INSERT INTO `mob_droplist` VALUES (205,0,0,1000,915,100);
 INSERT INTO `mob_droplist` VALUES (205,0,0,1000,931,100);
@@ -4023,13 +4023,19 @@ INSERT INTO `mob_droplist` VALUES (752,4,0,1000,4552,0);
 INSERT INTO `mob_droplist` VALUES (753,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (753,0,0,1000,1034,50);
 INSERT INTO `mob_droplist` VALUES (754,2,0,1000,749,0);
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,700,10);
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,701,10);
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,702,10);
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,703,10);
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,918,50);
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,923,320);
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,4448,50);
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,700,50); -- (ToAU Treant) Mahogany log
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,701,50); -- Rosewood log
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,702,50); -- Ebony Log
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,703,50); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,918,240); -- Mistletoe
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,918,150); -- Mistletoe
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,918,100); -- Mistletoe
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,923,1000); -- Dryad Root
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,923,240); -- Dryad Root
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,923,150); -- Dryad Root
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,923,100); -- Dryad Root
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,4448,240); -- Puffball
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,4448,150); -- Puffball
 INSERT INTO `mob_droplist` VALUES (756,2,0,1000,4373,0);
 INSERT INTO `mob_droplist` VALUES (756,0,0,1000,5680,40);
 INSERT INTO `mob_droplist` VALUES (757,0,0,1000,1614,1000); -- (Elel) Corse bracelet
@@ -16657,11 +16663,11 @@ INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,19376,240); -- Efunotachi  24%
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,17744,1000); -- Brave Blade(PLD Sword) 100%
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,16563,240); -- Rune Blade 24% 
 
-INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,18003,1000); -- Swordbreaker(THF Dagger)
+INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,18003,1000); -- Swordbreaker(THF Dagger) 100%
 INSERT INTO `mob_droplist` VALUES (3180,0,0,1000,21558,240); -- Rune Kris 24% 
 
-INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,17742,1000); -- Vorpal Sword 100%
-INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,16563,240); -- Rune Blade 24% 
+INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,19102,1000); -- Main Gauche(DNC Dagger) 100%
+INSERT INTO `mob_droplist` VALUES (3181,0,0,1000,21558,240); -- Rune Kris 24% 
 
 INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,16563,240); -- Rune Blade 24% 

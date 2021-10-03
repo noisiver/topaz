@@ -56,6 +56,7 @@ zones[tpz.zone.OUTER_HORUTOTO_RUINS] =
         JESTER_WHO_D_BE_KING_OFFSET = 17572201,
         APPARATUS_ELEMENTAL         = 17572203,
         GOBLIN_TOMB_RAIDER          = 17571840,
+        LILISETTE          					= 17572319,
     },
     npc =
     {

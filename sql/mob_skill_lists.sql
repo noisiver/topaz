@@ -4075,6 +4075,17 @@ INSERT INTO `mob_skill_lists` VALUES ('Gladiatorial_Weapon',6037,1558); -- smite
 INSERT INTO `mob_skill_lists` VALUES ('Gladiatorial_Weapon',6037,1559); -- flurry_of_rage
 INSERT INTO `mob_skill_lists` VALUES ('Gladiatorial_Weapon',6037,1560); -- whispers_of_ire
 
+--Lilisette
+--Saber Dance
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6038,25); -- evisceration
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6038,29); -- pyrrhic_kleos
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6038,1745); -- enervation
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6038,1695); -- hypnic_lamp
+--Fan Dance
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,177); -- curing_waltz_iv
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,418); -- regeneration
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1745); -- enervation
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1695); -- hypnic_lamp
 
 
 -- Next available ID: 1148

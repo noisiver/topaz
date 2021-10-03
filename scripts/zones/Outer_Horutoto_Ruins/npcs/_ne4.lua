@@ -18,6 +18,13 @@ function onTrade(player, npc, trade)
             player:PrintToPlayer("The shiny dagger belongs to me!",0,"Goblin")
             player:confirmTrade()
         end
+	elseif npcUtil.tradeHasExactly(trade, 476) then -- Yellow Chip
+		if npcUtil.popFromQM(player, npc, ID.mob.LILISETTE) then -- items and mob id here under mob = in IDs.lua
+		   -- print("we can pop the mob, boss!")
+			player:messageSpecial(ID.text.SYS_OVERLOAD)
+			player:PrintToPlayer("I'm here to put on a grand show!",0,"Lilisette")
+			player:confirmTrade()
+		end
     end
 end
 
