@@ -33,7 +33,7 @@ function onSpellCast(caster, target, spell)
 	local amorph = (target:getSystem() == 1)
 	
 	if aquan then
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100
+		params.bonus = 25
 	elseif amorph then
 		params.bonus = -25
 	end

@@ -38,7 +38,7 @@ function onSpellCast(caster, target, spell)
 		local family = target:getSystem()
 
 		 if (family == tpz.eco.VERMIN) then
-			params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100
+			params.bonus = 25
 		elseif (family == tpz.eco.BEAST) then
 			params.bonus = -25
 		end

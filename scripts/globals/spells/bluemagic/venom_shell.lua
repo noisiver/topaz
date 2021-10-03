@@ -38,7 +38,7 @@ function onSpellCast(caster, target, spell)
 	local bird = (target:getSystem() == 8)
 	-- add correlation bonus
 	if amorph then
-	 	 params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100
+	 	 params.bonus = 25
 	elseif plantoid then
 		 params.bonus = -25
 	end	

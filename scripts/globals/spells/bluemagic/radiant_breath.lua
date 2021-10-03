@@ -53,7 +53,7 @@ function onSpellCast(caster, target, spell)
 	
 	if demon then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100
+		params.bonus = 25
 	end
 	-- add convergence bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
