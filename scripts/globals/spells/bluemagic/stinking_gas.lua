@@ -35,7 +35,7 @@ function onSpellCast(caster, target, spell)
 	local arcana = (target:getSystem() == 3)
 	
 	if arcana then
-		params.bonus = 25
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	end
 	    local duration = 90 * resist
 

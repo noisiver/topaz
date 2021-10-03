@@ -37,7 +37,7 @@ function onSpellCast(caster, target, spell)
 	if lizard then
 		params.bonus = 75
 	elseif plantoid then
-		params.bonus = 25
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	end
 
     if (resist >= 0.50) then
