@@ -48,7 +48,7 @@ function onSpellCast(caster, target, spell)
 	local arcana = (target:getSystem() == 3)
 	
 	if arcana then
-		damage = damage * 1.25
+		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
