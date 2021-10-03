@@ -1673,7 +1673,7 @@ namespace battleutils
         }
 
         //Reasonable assumption for the time being.
-        int base = 40;
+        int base = 60;
 
         int diff = PAttacker->GetMLevel() - PDefender->GetMLevel();
 
