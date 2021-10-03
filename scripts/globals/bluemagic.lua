@@ -134,7 +134,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	local AttkTPModifier = 0
 	local CritTPBonus =  0
 	local SpellCrit = 0
-	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluphysattk
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
@@ -154,6 +153,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 		SpellCrit = 0
     end
 	
+	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluphysattk
 	if BluAttkModifier == 0 then --Don't want to multiply by 0 in bluphysattk forrmula
 		BluAttkModifier = 1
 	end
