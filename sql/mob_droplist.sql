@@ -1716,6 +1716,9 @@ INSERT INTO `mob_droplist` VALUES (266,0,0,1000,1133,1000); -- Dragon Blood
 INSERT INTO `mob_droplist` VALUES (266,0,0,1000,1133,240); -- Dragon Blood
 INSERT INTO `mob_droplist` VALUES (266,0,0,1000,1133,150); -- Dragon Blood
 INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4486,240); -- Dragon Heart
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4486,150); -- Dragon Heart
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4486,100); -- Dragon Heart
+INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4272,1000); -- Slice of dragon meat
 INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4272,240); -- Slice of dragon meat
 INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4272,150); -- Slice of dragon meat
 INSERT INTO `mob_droplist` VALUES (266,0,0,1000,4272,100); -- Slice of dragon meat
@@ -1795,9 +1798,9 @@ INSERT INTO `mob_droplist` VALUES (281,1,2,1000,4809,100); -- Scroll of Waterga 
 INSERT INTO `mob_droplist` VALUES (281,0,0,1000,4822,100); -- Scroll of Flood
 INSERT INTO `mob_droplist` VALUES (281,0,0,1000,17455,100); -- Skirnir's wand
 INSERT INTO `mob_droplist` VALUES (281,2,0,1000,751,0); -- Platinum Beastcoin(Steal)
-INSERT INTO `mob_droplist` VALUES (281,1,1,1000,722,33);  -- Divine Log
-INSERT INTO `mob_droplist` VALUES (281,1,1,1000,831,33);  -- Square Of Shining Cloth
-INSERT INTO `mob_droplist` VALUES (281,1,1,1000,1110,33);  -- Vial Of Black Beetle Blood 
+INSERT INTO `mob_droplist` VALUES (281,1,1,999,722,333);  -- Divine Log
+INSERT INTO `mob_droplist` VALUES (281,1,1,999,831,333);  -- Square Of Shining Cloth
+INSERT INTO `mob_droplist` VALUES (281,1,1,999,1110,333);  -- Vial Of Black Beetle Blood 
 INSERT INTO `mob_droplist` VALUES (281,0,0,1000,1443,1000);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (281,0,0,1000,1443,240);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (281,0,0,1000,1443,150);  -- Pinch of dried mugwort
@@ -2469,9 +2472,9 @@ INSERT INTO `mob_droplist` VALUES (416,0,0,1000,17650,150);
 INSERT INTO `mob_droplist` VALUES (417,0,0,1000,4901,240); -- (Carmine-Tailed Janberry) Water Spirit pact
 INSERT INTO `mob_droplist` VALUES (417,0,0,1000,17454,240); -- Asklepios
 INSERT INTO `mob_droplist` VALUES (417,2,0,1000,751,0); -- Platinum Beastcoin(Steal)
-INSERT INTO `mob_droplist` VALUES (417,1,1,1000,722,33);  -- Divine Log
-INSERT INTO `mob_droplist` VALUES (417,1,1,1000,831,33);  -- Square Of Shining Cloth
-INSERT INTO `mob_droplist` VALUES (417,1,1,1000,1110,33);  -- Vial Of Black Beetle Blood 
+INSERT INTO `mob_droplist` VALUES (417,1,1,999,722,333);  -- Divine Log
+INSERT INTO `mob_droplist` VALUES (417,1,1,999,831,333);  -- Square Of Shining Cloth
+INSERT INTO `mob_droplist` VALUES (417,1,1,999,1110,333);  -- Vial Of Black Beetle Blood 
 INSERT INTO `mob_droplist` VALUES (417,0,0,1000,1443,1000);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (417,0,0,1000,1443,240);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (417,0,0,1000,1443,150);  -- Pinch of dried mugwort
@@ -2572,9 +2575,9 @@ INSERT INTO `mob_droplist` VALUES (439,0,0,1000,1051,50);
 INSERT INTO `mob_droplist` VALUES (439,2,0,1000,17296,0);
 INSERT INTO `mob_droplist` VALUES (440,0,0,1000,16912,150); -- (Celeste-Eyed Tozberry) Kitsutsuki
 INSERT INTO `mob_droplist` VALUES (440,2,0,1000,751,0); -- Platinum Beastcoin(Steal)
-INSERT INTO `mob_droplist` VALUES (440,1,1,1000,722,33);  -- Divine Log
-INSERT INTO `mob_droplist` VALUES (440,1,1,1000,831,33);  -- Square Of Shining Cloth
-INSERT INTO `mob_droplist` VALUES (440,1,1,1000,1110,33);  -- Vial Of Black Beetle Blood 
+INSERT INTO `mob_droplist` VALUES (440,1,1,999,722,333);  -- Divine Log
+INSERT INTO `mob_droplist` VALUES (440,1,1,999,831,333);  -- Square Of Shining Cloth
+INSERT INTO `mob_droplist` VALUES (440,1,1,999,1110,333);  -- Vial Of Black Beetle Blood 
 INSERT INTO `mob_droplist` VALUES (440,0,0,1000,1443,1000);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (440,0,0,1000,1443,240);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (440,0,0,1000,1443,150);  -- Pinch of dried mugwort
@@ -9757,9 +9760,9 @@ INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4618,50); --  scroll_of_curaga_
 INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4719,240); -- scroll_of_regen_iii
 INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4741,240); -- scroll_of_shellra_iv
 INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,13804,240); --  Minstrel's Coat
-INSERT INTO `mob_droplist` VALUES (1825,1,1,1000,1311,33); -- Piece Of Oxblood
-INSERT INTO `mob_droplist` VALUES (1825,1,1,1000,1312,33); -- Piece Of Angel Skin
-INSERT INTO `mob_droplist` VALUES (1825,1,1,1000,1313,33); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (1825,1,1,999,1311,333); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (1825,1,1,999,1312,333); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (1825,1,1,999,1313,333); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,100);
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,50);
 INSERT INTO `mob_droplist` VALUES (1826,0,0,1000,3170,30);
@@ -10455,9 +10458,9 @@ INSERT INTO `mob_droplist` VALUES (1972,0,0,1000,505,1000); -- Sheepskin
 INSERT INTO `mob_droplist` VALUES (1972,0,0,1000,531,1000); -- Lanolin
 INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,624,80); -- (Pahh the Gullcaller)
 INSERT INTO `mob_droplist` VALUES (1973,2,0,1000,751,0); -- Platinum Beastcoin
-INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1311,33); -- Piece Of Oxblood
-INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1312,33); -- Piece Of Angel Skin
-INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1313,33); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (1973,1,1,999,1311,333); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (1973,1,1,999,1312,333); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (1973,1,1,999,1313,333); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (1973,1,2,1000,644,80); -- Chunk of mythril ore
 INSERT INTO `mob_droplist` VALUES (1973,1,2,1000,737,80); -- Chunk of gold ore
 INSERT INTO `mob_droplist` VALUES (1973,1,2,1000,738,80); -- Chunk of platinum ore
@@ -12326,9 +12329,9 @@ INSERT INTO `mob_droplist` VALUES (2383,0,0,1000,4372,240);
 INSERT INTO `mob_droplist` VALUES (2383,0,0,1000,4378,70);
 INSERT INTO `mob_droplist` VALUES (2384,0,0,1000,13147,240); -- (Tawny-Fingered Mugberry) Uggalepih necklace
 INSERT INTO `mob_droplist` VALUES (2384,2,0,1000,751,0); -- Platinum Beastcoin(Steal)
-INSERT INTO `mob_droplist` VALUES (2384,1,1,1000,722,33);  -- Divine Log
-INSERT INTO `mob_droplist` VALUES (2384,1,1,1000,831,33);  -- Square Of Shining Cloth
-INSERT INTO `mob_droplist` VALUES (2384,1,1,1000,1110,33);  -- Vial Of Black Beetle Blood 
+INSERT INTO `mob_droplist` VALUES (2384,1,1,999,722,333);  -- Divine Log
+INSERT INTO `mob_droplist` VALUES (2384,1,1,999,831,333);  -- Square Of Shining Cloth
+INSERT INTO `mob_droplist` VALUES (2384,1,1,999,1110,333);  -- Vial Of Black Beetle Blood 
 INSERT INTO `mob_droplist` VALUES (2384,0,0,1000,1443,1000);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (2384,0,0,1000,1443,240);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (2384,0,0,1000,1443,150);  -- Pinch of dried mugwort
@@ -13892,9 +13895,9 @@ INSERT INTO `mob_droplist` VALUES (2587,0,0,1000,4370,50);
 INSERT INTO `mob_droplist` VALUES (2587,2,0,1000,4370,0);
 INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,624,100); -- (Voll The Sharkfinned)
 INSERT INTO `mob_droplist` VALUES (2588,2,0,1000,751,0); -- Platinum Beastcoin
-INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1311,33); -- Piece Of Oxblood
-INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1312,33); -- Piece Of Angel Skin
-INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1313,33); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (2588,1,1,999,1311,333); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (2588,1,1,999,1312,333); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (2588,1,1,999,1313,333); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (2588,1,2,1000,823,80); -- Gold Thread
 INSERT INTO `mob_droplist` VALUES (2588,1,2,1000,821,80); -- Rainbow Thread
 INSERT INTO `mob_droplist` VALUES (2588,1,2,1000,816,80); -- Silk Thread
@@ -14321,9 +14324,9 @@ INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,4508,50); -- Serving of royal j
 INSERT INTO `mob_droplist` VALUES (2672,0,0,1000,5562,100);
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,624,240); -- (Worr the Clawfisted) Phantom Kelp
 INSERT INTO `mob_droplist` VALUES (2673,2,0,1000,751,0); -- Platinum Beastcoin
-INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1311,33); -- Piece Of Oxblood
-INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1312,33); -- Piece Of Angel Skin
-INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1313,33); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (2673,1,1,999,1311,333); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (2673,1,1,999,1312,333); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (2673,1,1,999,1313,333); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (2673,1,2,1000,644,80); -- Chunk of mythril ore
 INSERT INTO `mob_droplist` VALUES (2673,1,2,1000,737,80); -- Chunk of gold ore
 INSERT INTO `mob_droplist` VALUES (2673,1,2,1000,738,80); -- Chunk of platinum ore
@@ -15137,9 +15140,9 @@ INSERT INTO `mob_droplist` VALUES (2812,0,0,1000,847,240);
 INSERT INTO `mob_droplist` VALUES (2812,0,0,1000,4570,150);
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,624,100); -- (Zuug the Shoreleaper)
 INSERT INTO `mob_droplist` VALUES (2813,2,0,1000,751,0); -- Platinum Beastcoin
-INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1311,33); -- Piece Of Oxblood
-INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1312,33); -- Piece Of Angel Skin
-INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1313,33); -- Siren's Hair
+INSERT INTO `mob_droplist` VALUES (2813,1,1,999,1311,333); -- Piece Of Oxblood
+INSERT INTO `mob_droplist` VALUES (2813,1,1,999,1312,333); -- Piece Of Angel Skin
+INSERT INTO `mob_droplist` VALUES (2813,1,1,999,1313,333); -- Siren's Hair
 INSERT INTO `mob_droplist` VALUES (2813,1,2,1000,823,80); -- Gold Thread
 INSERT INTO `mob_droplist` VALUES (2813,1,2,1000,821,80); -- Rainbow Thread
 INSERT INTO `mob_droplist` VALUES (2813,1,2,1000,816,80); -- Silk Thread
