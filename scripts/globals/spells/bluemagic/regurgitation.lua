@@ -58,8 +58,8 @@ function onSpellCast(caster, target, spell)
 		damage = damage * 0.75
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+	target:addEnmity(caster, 1, 640)
 
-    --TODO: Knockback? Where does that get handled? How much knockback does it have?
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.BIND
         target:delStatusEffect(typeEffect) -- Wiki says it can overwrite itself or other binds
