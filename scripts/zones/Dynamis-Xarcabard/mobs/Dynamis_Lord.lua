@@ -9,6 +9,14 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:addMod(tpz.mod.DEFP, 30) 
+	mob:addMod(tpz.mod.ATTP, 20)
+	mob:addMod(tpz.mod.ACC, 50) 
+	mob:addMod(tpz.mod.EVA, 30)
+	mob:setMod(tpz.mod.REFRESH, 400)
+	mob:setMod(tpz.mod.UDMGBREATH, -25)
+end
 
 function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {

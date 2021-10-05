@@ -1120,7 +1120,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Dynamis_Lord',86,359,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Dynamis_Lord',86,360,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Dynamis_Lord',86,362,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Dynamis_Lord',86,365,10,255);
-INSERT INTO `mob_spell_lists` VALUES ('Dynamis_Lord',86,367,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Dynamis_Lord',86,367,10,255); -- Death
 INSERT INTO `mob_spell_lists` VALUES ('Animated_Longsword',87,1,5,16);
 INSERT INTO `mob_spell_lists` VALUES ('Animated_Longsword',87,2,17,29);
 INSERT INTO `mob_spell_lists` VALUES ('Animated_Longsword',87,3,30,54);
@@ -4053,9 +4053,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,15,1,255);  -- Paralyna
 INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,16,1,255);  -- Blindna
 INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,19,1,255);  -- Viruna
 INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,20,1,255);  -- Cursna
-INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,422,59,255);         -- Carnage Elegy
-INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,397,63,255);           -- Valor Minuet IV
-INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,420,60,255);         -- Victory March
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,422,59,255); -- Carnage Elegy
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,397,63,255); -- Valor Minuet IV
+INSERT INTO `mob_spell_lists` VALUES ('Quiebitiel',501,420,60,255); -- Victory March
 
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,242,1,255); -- Absorb-acc
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,266,1,255); -- Absorb-str
@@ -4065,12 +4065,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,269,1,255); -- Absorb-agi
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,270,1,255); -- Absorb-int
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,271,1,255); -- Absorb-mnd
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,272,1,255); -- Absorb-chr
-INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,146,24,255); -- Fire III
-INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,151,24,255); -- Blizzard III
-INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,156,24,255); -- Aero III
-INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,161,24,255); -- Stone III
-INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,166,24,255); -- Thunder III
-INSERT INTO `mob_spell_lists` VALUES ('Goublefaupe',502,171,24,255); -- Water III
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,146,24,255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,151,24,255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,156,24,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,161,24,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,166,24,255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,171,24,255); -- Water III
 
 INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,46,63,75); -- Protect IV
 INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,51,68,75); -- Shell IV
@@ -4082,6 +4082,23 @@ INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,55,1,255); -- aquaveil
 INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,53,1,255); -- blink
 INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,54,1,255); -- stoneskin
 INSERT INTO `mob_spell_lists` VALUES ('Pignonpausard',503,57,1,255); -- haste
+
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,422,1,255); -- Carnage Elegy
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,397,1,255); -- Valor Minuet IV
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,420,1,255); -- Victory March
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,376,1,255); -- Horde Lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,146,24,255); -- Fire III
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,151,24,255); -- Blizzard III
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,156,24,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,161,24,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,166,24,255); -- Thunder III
+INSERT INTO `mob_spell_lists` VALUES ('Duke_Haures',504,171,24,255); -- Water III
+
+INSERT INTO `mob_spell_lists` VALUES ('Marquis_Caim',505,339,37,255); -- Utsusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Marquis_Caim',505,345,48,255); -- Hojo: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Marquis_Caim',505,348,44,255); -- Kurayami: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Marquis_Caim',505,342,1,255); -- jubaku_ni
+
 
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,57,1,255); -- Haste
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,128,1,255); -- Protectra IV
@@ -4111,10 +4128,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,157,24,255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,162,24,255); -- Stone IV
 INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,167,24,255); -- Thunder IV
 INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,172,24,255); -- Water IV
-INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,339,37,255);          -- Utsusemi: Ni
-INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,340,12,255);		  -- Utsusemi: San
-INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,345,48,255);          -- Hojo: Ni
-INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,348,44,255);          -- Kurayami: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,339,37,255); -- Utsusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,345,48,255); -- Hojo: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,348,44,255); -- Kurayami: Ni
 INSERT INTO `mob_spell_lists` VALUES ('Quicktrix_Hexhands',1004,342,1,255); -- jubaku_ni
 
 INSERT INTO `mob_spell_lists` VALUES ('Spellspear_Djokvukk',1005,147,24,255); -- Fire IV

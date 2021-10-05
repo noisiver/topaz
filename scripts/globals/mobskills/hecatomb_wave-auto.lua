@@ -16,7 +16,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
-    MobStatusEffectMove(mob, target, typeEffect, 15, 0, 180)
+    MobStatusEffectMove(mob, target, typeEffect, 50, 0, 180)
 
     local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.WIND, 400)
 
@@ -27,8 +27,8 @@ function onMobWeaponSkill(target, mob, skill)
     end
 
     if (dmg > 0) then
-       target:addTP(13)
-       mob:addTP(64)
+       target:addTP(20)
+       mob:addTP(80)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WIND)

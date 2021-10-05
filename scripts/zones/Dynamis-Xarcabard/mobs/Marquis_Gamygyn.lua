@@ -9,7 +9,8 @@ mixins =
 }
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.ATTACK_SKILL_LIST, 1157)
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMod(tpz.mod.UDMGBREATH, -25)
 end
 
 function onMobDeath(mob, player, isKiller)
