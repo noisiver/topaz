@@ -3,8 +3,8 @@
 --  Mob: Mamool_Ja_Philosopher
 -----------------------------------
 -----------------------------------
-function onMobFight(mob, target)
-local fightTime = mob:getLocalVar("CastTime")
+function onMobRoam(mob)
+local CastTime = mob:getLocalVar("CastTime")
 local SpawnTimer = mob:getLocalVar("SpawnTimer")
 
 	if SpawnTimer == 0 then
