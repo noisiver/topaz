@@ -63,7 +63,7 @@ function onMobDespawn(mob)
     local X = mob:getXPos()
     local Y = mob:getYPos()
     local Z = mob:getZPos()
-    SetServerVariable("[POP]AAEV", os.time() + 300)
+    SetServerVariable("[POP]AAGK", os.time() + 300)
 
     if ToD <= os.time() and not GetMobByID(mob:getID() + 1):isSpawned() then
         SpawnMob(mob:getID() + 1)
