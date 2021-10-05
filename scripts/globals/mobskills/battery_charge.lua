@@ -15,7 +15,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     if (mob:getPool() == 128) then -- Ancient Vessel
         local typeEffectTwo = tpz.effect.SHOCK_SPIKES
-        MobBuffMove(mob, typeEffectTwo, 15, 0, 30)
+		skill:setMsg(MobBuffMove(mob, typeEffectTwo, 15, 0, 30))
         typeEffectTwo:unsetFlag(tpz.effectFlag.DISPELABLE)
     end
     local typeEffect = tpz.effect.REFRESH

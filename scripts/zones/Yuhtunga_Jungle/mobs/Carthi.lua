@@ -6,7 +6,7 @@ local ID = require("scripts/zones/Yuhtunga_Jungle/IDs")
 require("scripts/globals/status")
 
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
@@ -22,7 +22,7 @@ end
 
 
 function onMobDespawn(mob)
-    local BigBoss = GetMobByID(17281063)
+    local BigBoss = GetMobByID(17281686)
     BigBoss:spawn()
 end
 

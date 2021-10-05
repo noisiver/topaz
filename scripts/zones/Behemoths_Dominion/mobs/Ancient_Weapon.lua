@@ -7,7 +7,6 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/regimes")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 35)
     mob:addMod(tpz.mod.DEFP, 35) 
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 20)

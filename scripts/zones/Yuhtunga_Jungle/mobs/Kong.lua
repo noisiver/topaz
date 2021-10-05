@@ -2,17 +2,17 @@
 -- Area: Yuhtunga Jungle
 --  Mob: Kong
 -- ZM5
+-- Attacks up to 4 times per combat round
 -----------------------------------
 local ID = require("scripts/zones/Yuhtunga_Jungle/IDs")
 require("scripts/globals/status")
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 25)
+    mob:addMod(tpz.mod.DEFP, 50)
     mob:setMod(tpz.mod.COUNTER, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
-    mob:setMod(tpz.mod.REGAIN, 50)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
