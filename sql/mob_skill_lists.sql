@@ -591,7 +591,7 @@ INSERT INTO `mob_skill_lists` VALUES ('God',134,1497);
 INSERT INTO `mob_skill_lists` VALUES ('God',134,1498);
 INSERT INTO `mob_skill_lists` VALUES ('God',134,1499);
 INSERT INTO `mob_skill_lists` VALUES ('Golem',135,674);
-INSERT INTO `mob_skill_lists` VALUES ('Golem',135,675);
+INSERT INTO `mob_skill_lists` VALUES ('Golem',135,675); -- heavy_strike
 INSERT INTO `mob_skill_lists` VALUES ('Golem',135,676);
 INSERT INTO `mob_skill_lists` VALUES ('Golem',135,677);
 INSERT INTO `mob_skill_lists` VALUES ('Golem',135,678);
@@ -1759,7 +1759,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2301);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2943);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2944);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',367,536);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',368,539);
+INSERT INTO `mob_skill_lists` VALUES ('Faust',368,539); -- Typhoon
 INSERT INTO `mob_skill_lists` VALUES ('Leech',369,414);
 INSERT INTO `mob_skill_lists` VALUES ('Leech',369,415);
 INSERT INTO `mob_skill_lists` VALUES ('Leech',369,416);
@@ -4098,6 +4098,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,250); -- Carnal Nightmare
 INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,46); -- expiacion
 INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,37); -- Seraph Blade
 INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,38); -- Circle Blade
+
+--Ullikummi
+INSERT INTO `mob_skill_lists` VALUES ('Ullikummi',6041,1035); -- Heavy Strike with knockback
 
 
 

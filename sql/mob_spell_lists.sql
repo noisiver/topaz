@@ -4065,6 +4065,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,269,1,255); -- Absorb-agi
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,270,1,255); -- Absorb-int
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,271,1,255); -- Absorb-mnd
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,272,1,255); -- Absorb-chr
+INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,275,1,255); -- Absorb-TP
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,146,24,255); -- Fire III
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,151,24,255); -- Blizzard III
 INSERT INTO `mob_spell_lists` VALUES ('Cavanneche',502,156,24,255); -- Aero III
@@ -4098,6 +4099,18 @@ INSERT INTO `mob_spell_lists` VALUES ('Marquis_Caim',505,339,37,255); -- Utsusem
 INSERT INTO `mob_spell_lists` VALUES ('Marquis_Caim',505,345,48,255); -- Hojo: Ni
 INSERT INTO `mob_spell_lists` VALUES ('Marquis_Caim',505,348,44,255); -- Kurayami: Ni
 INSERT INTO `mob_spell_lists` VALUES ('Marquis_Caim',505,342,1,255); -- jubaku_ni
+
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,242,1,255); -- Absorb-acc
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,266,1,255); -- Absorb-str
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,267,1,255); -- Absorb-dex
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,268,1,255); -- Absorb-vit
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,269,1,255); -- Absorb-agi
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,270,1,255); -- Absorb-int
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,271,1,255); -- Absorb-mnd
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,272,1,255); -- Absorb-chr
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,275,1,255); -- Absorb-TP
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,274,1,255); -- Sleepga II
+INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,232,65,255); -- bio_iii
 
 
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,57,1,255); -- Haste

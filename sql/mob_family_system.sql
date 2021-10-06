@@ -227,7 +227,7 @@ INSERT INTO `mob_family_system` VALUES (162,'HybridElemental-Water',11,'Elementa
 INSERT INTO `mob_family_system` VALUES (163,'Hydra',10,'Dragon',4,40,120,90,1,3,4,3,6,6,5,3,2,3,3,1,1,1,0.875,1,1,1,1,1,1,1,1,6,2,0); -- Unused
 INSERT INTO `mob_family_system` VALUES (164,'Hydra',10,'Dragon',4,60,125,90,1,3,4,3,6,6,5,3,2,3,3,1,1,1,1,0.85,0.85,1,1.3,0.6,0.6,0.6,0.6,6,2,0); -- Normal Hydra
 INSERT INTO `mob_family_system` VALUES (165,'Imp',9,'Demon',0,60,125,140,3,3,5,1,1,1,5,1,1,1,1,1,1,1,1,1.15,1.15,0.7,1.15,1.15,1.15,1.3,0.3,8,1,0); -- Normal Mob
-INSERT INTO `mob_family_system` VALUES (166,'Imp',9,'Demon',0,50,70,140,6,3,3,3,1,5,4,3,3,3,3,1,1.25,1,1,1,0.875,0.875,0.875,0.875,0.875,1,0.75,8,1,0); -- Jakko
+INSERT INTO `mob_family_system` VALUES (166,'Imp',9,'Demon',0,60,70,140,6,3,3,3,1,5,4,3,3,3,3,1,1.25,1,1,1,0.875,0.875,0.875,0.875,0.875,1,0.75,8,1,0); -- Jakko
 INSERT INTO `mob_family_system` VALUES (167,'Karakul',6,'Beast',1,40,90,110,1,3,4,3,4,3,5,3,3,3,3,1,1,1,1,1.25,1,1,1,1.25,1,1,1,4,1,1);
 INSERT INTO `mob_family_system` VALUES (168,'Khimaira',3,'Arcana',3,60,125,90,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,0.4,0.8,0.4,0.5,0.3,1.3,0.5,0.8,5,3,0); -- WAR/WAR
 INSERT INTO `mob_family_system` VALUES (169,'Kindred',9,'Demon',0,50,100,140,3,3,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1.3,1,8,257,0);-- present Kindred
