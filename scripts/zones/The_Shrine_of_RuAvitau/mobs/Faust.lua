@@ -9,6 +9,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.REFRESH, 300)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
 function onMobInitialize(mob)

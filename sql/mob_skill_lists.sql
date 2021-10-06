@@ -1758,7 +1758,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2301);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2942);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2943);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2944);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',367,536);
+INSERT INTO `mob_skill_lists` VALUES ('Despot',367,536); --panzerfaust
 INSERT INTO `mob_skill_lists` VALUES ('Faust',368,539); -- Typhoon
 INSERT INTO `mob_skill_lists` VALUES ('Leech',369,414);
 INSERT INTO `mob_skill_lists` VALUES ('Leech',369,415);
