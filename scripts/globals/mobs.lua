@@ -368,7 +368,6 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.TERROR,
         duration = 5,
-        code = function(mob, target, power) mob:resetEnmity(target) end,
     },
     [tpz.mob.ae.TP_DRAIN] =
     {
