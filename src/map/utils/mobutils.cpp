@@ -682,16 +682,17 @@ void SetupJob(CMobEntity* PMob)
             {
                 // aern
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1388);
-	            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+                PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
             }
             else if (PMob->m_Family == 358) // Dyna-Kindred
             {
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1146);
-                PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 8);
+                PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+            }
             else if (PMob->m_Family != 335) // exclude NIN Maat
             {
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
-	            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+                PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
             }
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
