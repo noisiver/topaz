@@ -23,6 +23,13 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.MOVE, 30)
 end
 
+function onMobFight(mob, target)
+local HP = mob:getHPP()
+local BaseAttack = 500
+local Attack = ((HP - 100 ) * -10) + BaseAttack
+	mob:setMod(tpz.mod.ATT, Attack)
+end
+
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENWATER)
 end
