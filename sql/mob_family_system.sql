@@ -338,10 +338,10 @@ INSERT INTO `mob_family_system` VALUES (274,'KingV',20,'Vermin',3,40,100,120,4,3
 INSERT INTO `mob_family_system` VALUES (273,'Serket',20,'Vermin',3,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1.3,1,1,1.3,0.50,1,1,4,258,0);
 INSERT INTO `mob_family_system` VALUES (275,'MiniAdamantoise',14,'Lizard',5,40,120,90,2,5,1,6,6,4,3,3,3,3,3,1,1,1,1,0.5,0.8,0.5,0.25,0.25,0.5,1,1,4,2,0);
 INSERT INTO `mob_family_system` VALUES (276,'BigWorm',1,'Amorph',3,0,70,180,6,3,6,3,1,2,4,3,3,3,3,1,1,1,1,1,1,1.25,0.875,1,1,1.25,0.875,4,2,0);
-INSERT INTO `mob_family_system` VALUES (277,'Genbu',14,'Lizard',5,30,120,90,2,4,1,4,1,1,1,1,2,1,3,1,1,1,1,0.75,1,1,0.5,1.125,0.5,1,1,6,1,0);
-INSERT INTO `mob_family_system` VALUES (278,'Seiryu',10,'Dragon',3,60,109,90,1,2,1,3,6,3,3,1,3,1,3,1,1,1,1,0.5,1.125,0.5,1,1,1,1,0,7,1,0);
-INSERT INTO `mob_family_system` VALUES (279,'Byakko',6,'Beast',3,60,111,120,1,1,4,2,3,6,5,1,3,1,3,1,1,1,1,1,0.875,1,1,1,1,0.5,1.25,5,1,0);
-INSERT INTO `mob_family_system` VALUES (280,'Suzaku',8,'Bird',3,60,130,120,1,3,4,3,4,4,5,1,2,1,2,0.75,1.25,1,0.75,0.5,0.5,0.875,1,1,1.125,1,1,7,1,0);
+INSERT INTO `mob_family_system` VALUES (277,'Genbu',14,'Lizard',5,30,120,90,2,4,1,4,1,1,1,1,2,1,3,1,1,1,1,0.1,0.5,0.5,0.5,1.3,0.1,0.5,0.5,6,1,0);
+INSERT INTO `mob_family_system` VALUES (278,'Seiryu',10,'Dragon',3,60,109,90,9,4,7,9,3,3,3,1,3,1,3,1,1,1,1,0.5,1.3,0.1,0.1,0.5,0.5,0.5,0.5,7,1,0);
+INSERT INTO `mob_family_system` VALUES (279,'Byakko',6,'Beast',3,60,111,120,4,3,4,9,6,4,4,1,3,1,3,1,1,1,1,0.5,0.5,0.5,0.5,0.5,0.5,0.1,1.3,5,1,0);
+INSERT INTO `mob_family_system` VALUES (280,'Suzaku',8,'Bird',3,60,130,120,3,3,3,3,3,3,3,1,3,1,2,0.75,1.25,1,0.75,0.1,0.1,0.5,0.5,0.5,1.3,0.5,0.5,7,1,0);
 INSERT INTO `mob_family_system` VALUES (281,'Kirin',6,'Beast',3,60,140,130,1,3,3,3,4,4,2,1,2,1,3,1,1,1,1,1,1,1.25,0.5,0.875,1,1,1,3,272,0);
 INSERT INTO `mob_family_system` VALUES (282,'Grav_iton',7,'Beastmen',1,40,91,140,3,1,3,2,1,5,4,3,3,3,2,1,1,1,1,1,1.25,1,1,1,1,0.5,1,7,1,0);
 INSERT INTO `mob_family_system` VALUES (284,'Vampyr',19,'Undead',3,40,100,120,1,3,3,4,3,6,6,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,8,6,0);  -- Oupire

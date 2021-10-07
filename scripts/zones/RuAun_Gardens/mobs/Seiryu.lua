@@ -11,6 +11,15 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
+function onMobSpawn(mob)
+	mob:setMod(tpz.mod.MAIN_DMG_RATING, 145)
+	mob:setMod(tpz.mod.ATT, 448)
+	mob:setMod(tpz.mod.DEF, 393)
+	mob:setMod(tpz.mod.EVA, 390)
+    mob:setMod(tpz.mod.MDEF, 12) 
+    mob:setMod(tpz.mod.REGAIN, 150)
+end
+
 function onMonsterMagicPrepare(mob, target)
     if not mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS, 0) then
         local rnd = math.random()
