@@ -47,7 +47,7 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistance(caster, target, spell, params)
     local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 
-	if resist = 1 then
+	if resist == 1 then
 		if target:isNM() then
 			damage = 500
 		else
