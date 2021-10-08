@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 50
     -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
     params.multiplier = multi
     params.tMultiplier = 1.0
@@ -47,7 +47,7 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistance(caster, target, spell, params)
     local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 
-	if resist = 1 then
+	if resist == 1 then
 		if target:isNM() then
 			damage = 500
 		else
