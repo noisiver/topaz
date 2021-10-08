@@ -58,9 +58,8 @@ function onSpellCast(caster, target, spell)
 		damage = damage * 0.75
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-	target:addEnmity(caster, 1, 640)
-
-    if (damage > 0 and resist >= 0.5) then
+	
+	if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.BIND
         target:delStatusEffect(typeEffect) -- Wiki says it can overwrite itself or other binds
         target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
