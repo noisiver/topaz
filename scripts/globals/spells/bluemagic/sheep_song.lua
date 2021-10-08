@@ -36,7 +36,7 @@ function onSpellCast(caster, target, spell)
 	local plantoid = (target:getSystem() == 17)
 	-- add correlation bonus
 	if lizard then
-		params.bonus = 25
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	elseif plantoid then
 		params.bonus = -25
 	end

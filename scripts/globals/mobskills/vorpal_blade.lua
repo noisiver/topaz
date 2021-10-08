@@ -18,6 +18,9 @@ function onMobSkillCheck(target, mob, skill)
     -- Check for the mamool ja family, if the mob is not a BLU, then ignore 
     elseif mob:getFamily() == 176 and mob:getMainJob() == tpz.job.BLU then
         return 0
+	-- Raubahn Mythic Fight
+	elseif mob:getFamily() == 919 and mob:getMainJob() == tpz.job.BLU then
+		return 0
     end
 
     return 1
@@ -34,10 +37,10 @@ function onMobWeaponSkill(target, mob, skill)
     local numhits = 4
     local accmod = 1
     local dmgmod = 1
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_CRIT_VARIES, 1.1, 1.2, 1.3)
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_CRIT_VARIES, 1.15, 1.3, 1.5)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
-    -- AA EV: Approx 900 damage to 75 DRG/35 THF.  400 to a NIN/WAR in Arhat, but took shadows.
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+  	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

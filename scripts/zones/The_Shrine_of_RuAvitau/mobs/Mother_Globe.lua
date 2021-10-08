@@ -38,10 +38,30 @@ end
 
 function onMobSpawn(mob)
     local now = os.time()
-    mob:addStatusEffectEx(tpz.effect.SHOCK_SPIKES, 0, 60, 0, 0) -- ~60 damage
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.REFRESH, 300)
+	mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
     mob:setLocalVar("Initial_SlaveTimer", now)
     mob:setLocalVar("SlaveRecast", now)
     onMobRoam(mob)
+end
+
+function onMonsterMagicPrepare(mob, target)
+	rnd = math.random()
+
+    if (rnd < 0.5) then
+        return 196 -- thundaga III
+    elseif (rnd < 0.7) then
+        return 167 -- thunder IV
+    elseif (rnd < 0.9) then
+        return 212 -- burst
+    else
+        return 239 -- shock
+    end
+
 end
 
 function onPath(mob)
@@ -123,7 +143,7 @@ function onMobFight(mob, target)
     -- TODO: Should have a SMN casting effect for ~3-5 seconds while calling.
     if mob:getLocalVar("SlavesSpawned") < 6 then
         if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
-            mob:addStatusEffectEx(tpz.effect.SHOCK_SPIKES, 0, 60, 0, 0) -- ~60 damage
+            mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
         end
 
         if mob:getBattleTime() % 30 == 0 and mob:getBattleTime() > 3 then

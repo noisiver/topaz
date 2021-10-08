@@ -46,6 +46,7 @@ zones[tpz.zone.GUSGEN_MINES] =
         PUDDING_OFFSET      = 17580338,
         APPARATUS_ELEMENTAL = 17580340,
         AROMA_FLY           = 17580341,
+		NAGI						= 17580429,
     },
     npc =
     {

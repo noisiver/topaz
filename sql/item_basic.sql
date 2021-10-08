@@ -1357,7 +1357,7 @@ INSERT INTO `item_basic` VALUES (1467,0,'chunk_of_relic_steel','relic_steel',1,4
 INSERT INTO `item_basic` VALUES (1468,0,'flask_of_marksmans_oil','marksmans_oil',1,4,44,0,3300);
 INSERT INTO `item_basic` VALUES (1469,0,'chunk_of_wootz_ore','wootz_ore',1,4,38,0,2650);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (1470,0,'sparkling_stone','sparkling_stone',1,4,39,0,2650);
-INSERT INTO `item_basic` VALUES (1471,0,'box_of_sticky_rice','sticky_rice',12,4,59,0,190);
+INSERT INTO `item_basic` VALUES (1471,0,'box_of_sticky_rice','sticky_rice',1,4,59,0,190);
 INSERT INTO `item_basic` VALUES (1472,0,'gardenia_seed','gardenia_seed',12,4,59,0,123);
 INSERT INTO `item_basic` VALUES (1473,0,'high-quality_scorpion_shell','h.q._scp._shell',1,4,42,0,3420);
 INSERT INTO `item_basic` VALUES (1474,0,'infinity_core','infinity_core',1,4,46,0,1325);

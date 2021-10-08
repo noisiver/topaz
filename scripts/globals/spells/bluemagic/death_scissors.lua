@@ -46,7 +46,7 @@ function onSpellCast(caster, target, spell)
 	local lizard = (target:getSystem() == 14)
 	
 	if plantoid then
-		damage = damage * 1.25
+		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
 	elseif lizard then
 		damage = damage * 0.75
 	end

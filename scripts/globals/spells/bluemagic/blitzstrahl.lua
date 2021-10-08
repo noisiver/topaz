@@ -54,8 +54,8 @@ function onSpellCast(caster, target, spell)
     damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 	
 	if (target:isUndead()) then
-		damage = damage * 1.25
-		params.bonus = 25
+		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)  
 	end
 	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)

@@ -12,6 +12,8 @@ require("scripts/globals/status")
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ATTP, 25)
+	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobFight(mob, target)
@@ -24,25 +26,21 @@ function onMobFight(mob, target)
         mob:setLocalVar("DanceChangeTime", 3)
         mob:setLocalVar("Dance", math.random(1, 2))
     elseif battletime >= DanceChangeTime and Dance == 1 then
-        printf("Saber Dance");
+        printf("Thorned Dance");
         target:PrintToPlayer("Now I'm really hyped!",0,"Lilisette")
-        mob:useMobAbility(221) -- Saber Dance
+        mob:useMobAbility(3308) -- Thorned Dance
 		mob:useMobAbility(25) -- evisceration
-		mob:useMobAbility(190) -- Reverse Flourish
+		mob:useMobAbility(2313) -- Reverse Flourish
 		mob:useMobAbility(29)  -- pyrrhic_kleos
-        mob:setMod(tpz.mod.REGAIN, 0)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6038)
         mob:setLocalVar("DanceChangeTime", battletime + 60)
         mob:setLocalVar("Dance", math.random(1, 2))
     end
 
     if battletime >= DanceChangeTime and Dance == 2 then
-        printf("Fan Dance");
+        printf("Sensual Dance");
         target:PrintToPlayer("The funs just getting started!",0,"Lilisette")
-        mob:useMobAbility(222) -- Fan Dance
-        mob:setMod(tpz.mod.REGAIN, 250)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
+        mob:useMobAbility(3309) -- Sensual Dance
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6039)
         mob:setLocalVar("DanceChangeTime", battletime + 60)
         mob:setLocalVar("Dance", math.random(1, 2))

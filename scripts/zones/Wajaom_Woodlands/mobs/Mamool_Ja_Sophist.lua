@@ -5,8 +5,8 @@
 local ID = require("scripts/zones/Wajaom_Woodlands/IDs")
 require("scripts/globals/mobs")
 -----------------------------------
-function onMobFight(mob, target)
-local fightTime = mob:getLocalVar("CastTime")
+function onMobRoam(mob)
+local CastTime = mob:getLocalVar("CastTime")
 local SpawnTimer = mob:getLocalVar("SpawnTimer")
 
 	if SpawnTimer == 0 then

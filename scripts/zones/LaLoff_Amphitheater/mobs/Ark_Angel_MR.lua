@@ -49,7 +49,7 @@ function onMobFight(mob, target)
 end
 
 function onMobDespawn(mob)
-    local ToD = GetServerVariable("[POP]AATT")
+    local ToD = GetServerVariable("[POP]AAEV")
     local X = mob:getXPos()
     local Y = mob:getYPos()
     local Z = mob:getZPos()

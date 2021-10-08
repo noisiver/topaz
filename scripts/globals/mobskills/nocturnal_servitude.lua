@@ -32,6 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
 		else
 			if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
 			mob:charm(target)
+			target:costume(257) --Red Bat
 		end
 			 skill:setMsg(msg)
 		end

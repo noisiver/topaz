@@ -591,7 +591,7 @@ INSERT INTO `mob_skill_lists` VALUES ('God',134,1497);
 INSERT INTO `mob_skill_lists` VALUES ('God',134,1498);
 INSERT INTO `mob_skill_lists` VALUES ('God',134,1499);
 INSERT INTO `mob_skill_lists` VALUES ('Golem',135,674);
-INSERT INTO `mob_skill_lists` VALUES ('Golem',135,675);
+INSERT INTO `mob_skill_lists` VALUES ('Golem',135,675); -- heavy_strike
 INSERT INTO `mob_skill_lists` VALUES ('Golem',135,676);
 INSERT INTO `mob_skill_lists` VALUES ('Golem',135,677);
 INSERT INTO `mob_skill_lists` VALUES ('Golem',135,678);
@@ -1758,8 +1758,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2301);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2942);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2943);
 -- INSERT INTO `mob_skill_lists` VALUES ('Automaton_Stormwaker',366,2944);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',367,536);
-INSERT INTO `mob_skill_lists` VALUES ('Doll',368,539);
+INSERT INTO `mob_skill_lists` VALUES ('Despot',367,536); --panzerfaust
+INSERT INTO `mob_skill_lists` VALUES ('Faust',368,539); -- Typhoon
 INSERT INTO `mob_skill_lists` VALUES ('Leech',369,414);
 INSERT INTO `mob_skill_lists` VALUES ('Leech',369,415);
 INSERT INTO `mob_skill_lists` VALUES ('Leech',369,416);
@@ -4082,10 +4082,26 @@ INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6038,29); -- pyrrhic_kleos
 INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6038,1745); -- enervation
 INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6038,1695); -- hypnic_lamp
 --Fan Dance
-INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,177); -- curing_waltz_iv
+INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,2320); -- curing_waltz_iv
 INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,418); -- regeneration
 INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1745); -- enervation
 INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1695); -- hypnic_lamp
+
+--Nagi
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,138); -- Blade: Kamu
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,132); -- Blade: Chi
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,132); -- Blade: Retsu
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,247); -- Fox Fire
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,250); -- Carnal Nightmare
+
+--Raubahn
+INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,46); -- expiacion
+INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,37); -- Seraph Blade
+INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,38); -- Circle Blade
+
+--Ullikummi
+INSERT INTO `mob_skill_lists` VALUES ('Ullikummi',6041,1035); -- Heavy Strike with knockback
+
 
 
 -- Next available ID: 1148

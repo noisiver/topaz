@@ -527,15 +527,15 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
         duration = 4 * resist
         -- printf("Duration of stun is %i", duration)
     elseif (effect == tpz.effect.WEIGHT) then
-        duration = 60 * resist
+        duration = 120 * resist
     elseif (effect == tpz.effect.PARALYSIS) then
-        duration = 120 * resist
+        duration = 180 * resist
     elseif (effect == tpz.effect.SLOW) then
-        duration = 120 * resist
+        duration = 180 * resist
     elseif (effect == tpz.effect.SILENCE) then
-        duration = 90 * resist
+        duration = 120 * resist
     elseif (effect == tpz.effect.POISON) then
-        duration = 90 * resist
+        duration = 180 * resist
     else
         duration = 120 * resist
     end

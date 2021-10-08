@@ -53,13 +53,13 @@ function onSpellCast(caster, target, spell)
     local family = target:getSystem()
 
 	 if (family == tpz.eco.VERMIN) then
-		damage = damage * 1.25
+		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
     elseif (family == tpz.eco.BEAST) then
 		damage = damage * 0.75
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+	target:addEnmity(caster, 1, 640)
 
-    --TODO: Knockback? Where does that get handled? How much knockback does it have?
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.BIND
         target:delStatusEffect(typeEffect) -- Wiki says it can overwrite itself or other binds

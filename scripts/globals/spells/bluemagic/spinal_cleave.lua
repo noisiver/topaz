@@ -18,7 +18,9 @@ require("scripts/globals/magic")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
-    return 0
+	spell:setFlag(tpz.magic.spellFlag.IGNORE_SHADOWS)
+    
+	return 0
 end
 
 function onSpellCast(caster, target, spell)
@@ -48,7 +50,7 @@ function onSpellCast(caster, target, spell)
 	local arcana = (target:getSystem() == 3)
 	
 	if arcana then
-		damage = damage * 1.25
+		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 

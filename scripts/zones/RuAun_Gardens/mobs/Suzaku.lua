@@ -11,6 +11,16 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
+function onMobSpawn(mob)
+	mob:setMod(tpz.mod.MAIN_DMG_RATING, 145)
+	mob:setMod(tpz.mod.ATT, 570)
+	mob:setMod(tpz.mod.DEF, 520)
+	mob:setMod(tpz.mod.EVA, 402)
+	mob:setMod(tpz.mod.VIT, 160)
+    mob:setMod(tpz.mod.MDEF, 12) 
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+end
+
 -- Return the selected spell ID.
 function onMonsterMagicPrepare(mob, target)
     -- Suzaku uses     Burn, Fire IV, Firaga III, Flare

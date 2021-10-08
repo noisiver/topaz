@@ -11,9 +11,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    MobBuffMove(mob, tpz.effect.FAN_DANCE, 1, 0, 30)
+    MobBuffMove(mob, tpz.effect.REVERSE_FLOURISH, 1, 0, 5)
 
     skill:setMsg(tpz.msg.basic.USES)
 
-    return 
+    return tpz.effect.REVERSE_FLOURISH
 end

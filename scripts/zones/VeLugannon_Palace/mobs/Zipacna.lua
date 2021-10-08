@@ -128,11 +128,17 @@ local travellocation = {
 
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.MOVE, 50);
+	mob:setMod(tpz.mod.MOVE, 45)
 end
 
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.REFRESH, 300)
+	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
     mob:setLocalVar("Traveling", travellocation.blue)
     onMobRoam(mob)
 end
