@@ -18,6 +18,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.EVA, 402)
 	mob:setMod(tpz.mod.VIT, 160)
     mob:setMod(tpz.mod.MDEF, 12) 
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
 -- Return the selected spell ID.
