@@ -814,8 +814,8 @@ INSERT INTO `mob_skills` VALUES (981,684,'ground_strike',0,10,2000,500,4,0,0,0,1
 INSERT INTO `mob_skills` VALUES (982,671,'abyssal_drain',0,10,2000,500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (983,672,'abyssal_strike',0,10,2000,500,4,0,0,0,14,9,0);
 INSERT INTO `mob_skills` VALUES (984,685,'electrocharge',0,15.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (985,686,'stellar_burst',2,7.0,5000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (986,687,'vortex',2,20.0,5000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (985,686,'stellar_burst',2,10.0,5000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (986,687,'vortex',2,15.0,5000,1000,4,0,0,0,0,0,0);
 --INSERT INTO `mob_skills` VALUES (987,731,'shockwave',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (988,689,'eald2_warp_in',0,22.0,500,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (989,690,'eald2_warp_out',0,22.0,500,0,1,0,0,0,0,0,0);
@@ -3300,8 +3300,8 @@ INSERT INTO `mob_skills` VALUES (3468,426,'binding_microtube',0,7.0,2000,1500,4,
 INSERT INTO `mob_skills` VALUES (3469,427,'twirling_dervish',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3470,445,'great_wheel',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3471,447,'light_blade',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3472,444,'vortex',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3473,446,'stellar_burst',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3472,444,'vortex',1,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3473,446,'stellar_burst',1,15.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3474,187,'bubble_curtain',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3475,192,'metallic_body',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3476,3220,'venom_storm',0,7.0,2000,1500,4,0,0,0,0,0,0);

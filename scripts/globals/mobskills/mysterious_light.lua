@@ -15,10 +15,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.WEIGHT
-
-    MobStatusEffectMove(mob, target, typeEffect, 50, 0, 60)
-
     local numhits = 1
     local accmod = 1
     local dmgmod = 2 
@@ -27,6 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
 
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.WEIGHT, 50, 0, 60)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

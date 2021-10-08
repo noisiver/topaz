@@ -11471,10 +11471,10 @@ INSERT INTO `mob_groups` VALUES (8,241,180,'Ark_Angels_Wyvern',0,128,0,2500,0,70
 -- The_Celestial_Nexus (Zone 181)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1158,181,'Ealdnarche',0,128,0,2000,5000,78,78,0);
-INSERT INTO `mob_groups` VALUES (2,1270,181,'Exoplates',0,128,0,10000,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (3,4676,181,'Ealdnarche_2',0,128,0,2600,5000,78,78,0);
-INSERT INTO `mob_groups` VALUES (4,2993,181,'Orbital',0,128,0,145,0,68,68,0);
+INSERT INTO `mob_groups` VALUES (1,1158,181,'Ealdnarche',0,128,0,7500,5000,85,85,0);
+INSERT INTO `mob_groups` VALUES (2,1270,181,'Exoplates',0,128,0,20000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (3,4676,181,'Ealdnarche_2',0,128,0,7500,5000,85,85,0);
+INSERT INTO `mob_groups` VALUES (4,2993,181,'Orbital',0,128,0,145,0,76,76,0);
 
 INSERT INTO `mob_groups` VALUES (9320,4498,181,'Zeid',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (11188,4676,181,'Ealdnarche_2',960,0,2889,0,0,78,78,0);

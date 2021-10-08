@@ -1,6 +1,6 @@
 ---------------------------------------------------
 -- Vortex
--- Creates a vortex that damages targets in an area of effect. Additional effect: Terror
+-- Creates a vortex that damages targets in an area of effect. Additional effect: Terror and bind.
 ---------------------------------------------------
 
 require("scripts/globals/settings")
@@ -14,17 +14,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 1
-    local accmod = 1
     local dmgmod = 1
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.TERROR, 1, 0, 9)
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BIND, 1, 0, 30)
-    if dmg > 0 then
-        mob:resetEnmity(target)
-    end
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 1, tpz.magic.ele.NONE, dmgmod, TP_NO_EFFECT, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.NONE, MOBPARAM_WIPE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
+	MobStatusEffectMove(mob, target, tpz.effect.TERROR, 1, 0, 15)
+	MobStatusEffectMove(mob, target, tpz.effect.BIND, 1, 0, 45)
+	
+	mob:resetEnmity(target)
 
     return dmg
 end
