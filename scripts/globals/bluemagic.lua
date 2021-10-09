@@ -385,7 +385,6 @@ function BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params)
     end
 
 	target:takeDamage(dmg, caster, attackType, damageType)
-    target:addEnmity(caster, 1, 640)
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
