@@ -359,7 +359,7 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
 end
 
 function BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params) 
-	-- Regurg has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
+	-- Regurgitation has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
     if (dmg < 0) then
         dmg = 0
     end

@@ -57,7 +57,7 @@ function onSpellCast(caster, target, spell)
     elseif (family == tpz.eco.BEAST) then
 		damage = damage * 0.75
 	end
-    damage = BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params)
+    damage = BlueFinalAdjustmentsCustomEnmity(caster, target, spell, damage, params) -- Regurgitation has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
 	
 	if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.BIND
