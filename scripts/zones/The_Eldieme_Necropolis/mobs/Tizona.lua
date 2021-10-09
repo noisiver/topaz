@@ -1,6 +1,6 @@
 ------------------------------
 -- Area: The Eldieme Necropolis
---   Tizona
+--   Raubahn
 --  !additem 475 
 ------------------------------
 require("scripts/globals/hunts")
@@ -30,7 +30,7 @@ function onMobFight(mob, target)
 		mob:useMobAbility(689) -- Benediction
         mob:setModelId(2234) -- Yellow Flan
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 112)
-        target:PrintToPlayer("This power...I cannot contain it much longer...",0,"Tizona")
+        target:PrintToPlayer("This power...I cannot contain it much longer...",0,"Raubahn")
 		Phase = 1
 	end
     if HP < 25 and Phase == 1 then
@@ -40,7 +40,7 @@ function onMobFight(mob, target)
 		mob:useMobAbility(689) -- Benediction
 		mob:setModelId(1774) -- Qutrub
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 203)
-		target:PrintToPlayer("It's...too....powerful.....",0,"Tizona")
+		target:PrintToPlayer("It's...too....powerful.....",0,"Raubahn")
 		Phase = 2
 	end
     if HP < 25 and Phase == 2 then
@@ -56,9 +56,6 @@ function onMobFight(mob, target)
 	end
 end
 
-
-function onMobWeaponSkill(target, mob, skill)
-end
 
 function onMobDeath(mob, player, isKiller)
 	player:PrintToPlayer("...and you too shall succumb.",0,"Soulflayer")
