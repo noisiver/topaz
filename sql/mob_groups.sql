@@ -1,4 +1,4 @@
-\-- MySQL dump 10.16  Distrib 10.2.7-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.16  Distrib 10.2.7-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: wiggo32
 -- ------------------------------------------------------
