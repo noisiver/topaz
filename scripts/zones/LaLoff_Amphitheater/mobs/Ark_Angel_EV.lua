@@ -36,18 +36,13 @@ function onMobEngaged(mob, target)
 end
 
 function onMobDespawn(mob)
-    local ToD = GetServerVariable("[POP]AATT")
     local X = mob:getXPos()
     local Y = mob:getYPos()
     local Z = mob:getZPos()
-    SetServerVariable("[POP]AATT", os.time() + 300)
-
-    if ToD <= os.time() and not GetMobByID(mob:getID() + 1):isSpawned() then
-        SpawnMob(mob:getID() + 1)
-        GetMobByID(mob:getID() + 1):setPos(X, Y, Z)
-        GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
-        DisallowRespawn(mob:getID(), true)
-    end
+	SpawnMob(mob:getID() + 1)
+	GetMobByID(mob:getID() + 1):setPos(X, Y, Z)
+	GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
+	DisallowRespawn(mob:getID(), true)
 end
 
 function onMobDeath(mob, player, isKiller)
