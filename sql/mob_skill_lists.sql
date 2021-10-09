@@ -4088,9 +4088,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1745); -- enervation
 INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1695); -- hypnic_lamp
 
 --Nagi
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,138); -- Blade: Kamu
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,129); -- Blade: Retsu
 INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,132); -- Blade: Chi
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,132); -- Blade: Retsu
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,138); -- Blade: Kamu
 INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,247); -- Fox Fire
 INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,250); -- Carnal Nightmare
 
