@@ -1054,9 +1054,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Slime',229,433);
 INSERT INTO `mob_skill_lists` VALUES ('Slime',230,431);
 INSERT INTO `mob_skill_lists` VALUES ('Slime',230,432);
 INSERT INTO `mob_skill_lists` VALUES ('Slime',230,433);
-INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2183);
-INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2184);
-INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2185);
+INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2183); -- fuscous_ooze
+INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2184); -- purulent_ooze
+INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2185); -- corrosive_ooze
 INSERT INTO `mob_skill_lists` VALUES ('Snoll',232,1644);
 INSERT INTO `mob_skill_lists` VALUES ('Snoll',232,1645);
 INSERT INTO `mob_skill_lists` VALUES ('Snoll',232,1646);

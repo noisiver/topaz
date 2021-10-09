@@ -17,7 +17,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- TODO: Encumberance seems to do nothing?
     local typeEffect = tpz.effect.WEIGHT
     local duration = 45
 
@@ -28,5 +27,11 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobMagicalMove(mob, target, skill, baseDamage, tpz.magic.ele.WATER, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
+	
+    for i = tpz.slot.MAIN, tpz.slot.BACK do
+        target:unequipItem(i)
+    end
+    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0xFFFF, 0, 30)
+	
     return dmg
 end

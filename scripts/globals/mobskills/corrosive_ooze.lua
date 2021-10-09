@@ -21,8 +21,8 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectTwo = tpz.effect.DEFENSE_DOWN
     local duration = 120
 
-    MobStatusEffectMove(mob, target, typeEffectOne, 15, 0, duration)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 15, 0, duration)
+    MobStatusEffectMove(mob, target, typeEffectOne, 33, 0, duration)
+    MobStatusEffectMove(mob, target, typeEffectTwo, 33, 0, duration)
 
     local dmgmod = 1
     local baseDamage = mob:getWeaponDmg()*1.5

@@ -15,7 +15,7 @@ function onMobWeaponSkill(target, mob, skill)
     for i = tpz.slot.MAIN, tpz.slot.BACK do
         target:unequipItem(i)
     end
-    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0xFFFF, 0, 60)
+    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0xFFFF, 0, 30)
     skill:setMsg(tpz.msg.basic.NONE)
     return 0
 end

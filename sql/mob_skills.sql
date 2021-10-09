@@ -2015,7 +2015,7 @@ INSERT INTO `mob_skills` VALUES (2182,1580,'spiral_burst',0,7.0,2000,1000,4,0,0,
 INSERT INTO `mob_skills` VALUES (2183,1572,'fuscous_ooze',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2184,1573,'purulent_ooze',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2185,1574,'corrosive_ooze',1,15.0,2000,1000,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2186,1930,'mucilaginous_ooze',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2186,1930,'mucilaginous_ooze',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2187,1537,'dustvoid',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2188,1538,'slaverous_gale',1,15.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2189,1539,'aeolian_void',4,15.0,2000,1000,4,0,0,0,0,0,0);
