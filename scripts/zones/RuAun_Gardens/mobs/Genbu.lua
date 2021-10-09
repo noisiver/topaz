@@ -26,7 +26,7 @@ end
 
 function onMobFight(mob, target)
 local HP = mob:getHPP()
-local BaseAttack = 500
+local BaseAttack = 348
 local Attack = ((HP - 100 ) * -10) + BaseAttack
 	mob:setMod(tpz.mod.ATT, Attack)
 end
