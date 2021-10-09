@@ -4095,9 +4095,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,247); -- Fox Fire
 INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,250); -- Carnal Nightmare
 
 --Raubahn
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6041,46); -- expiacion
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6041,37); -- Seraph Blade
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6041,38); -- Circle Blade
+INSERT INTO `mob_skill_lists` VALUES ('Tizona',6041,46); -- expiacion
+INSERT INTO `mob_skill_lists` VALUES ('Tizona',6041,37); -- Seraph Blade
+INSERT INTO `mob_skill_lists` VALUES ('Tizona',6041,38); -- Circle Blade
 
 --Ullikummi
 INSERT INTO `mob_skill_lists` VALUES ('Ullikummi',6042,1035); -- Heavy Strike with knockback
