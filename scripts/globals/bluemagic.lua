@@ -352,13 +352,17 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     end
 
 	if GetSpell(648) then
+		target:takeDamage(dmg, caster, attackType, damageType)
+		target:handleAfflatusMiseryDamage(dmg)
+		-- TP has already been dealt with.
 		target:addEnmity(caster, 1, 640)
 	else
+		target:takeDamage(dmg, caster, attackType, damageType)
+		target:handleAfflatusMiseryDamage(dmg)
+		-- TP has already been dealt with.
 		target:updateEnmityFromDamage(caster, dmg)
 	end
-	target:takeDamage(dmg, caster, attackType, damageType)
-    target:handleAfflatusMiseryDamage(dmg)
-    -- TP has already been dealt with.
+
     return dmg
 end
 
