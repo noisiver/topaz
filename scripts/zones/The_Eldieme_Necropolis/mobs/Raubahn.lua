@@ -17,11 +17,13 @@ function onMobSpawn(mob)
 	mob:setModelId(2234) -- Raubahn
 	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
 	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setUnkillable(true)
 end
 
 function onMobFight(mob, target)
     local Phase = mob:getLocalVar("Phase")
-    if mob:getHPP() <= math.random(10, 25) and Phase == 0 then
+    if mob:getHPP() <= math.random(1, 25) and Phase == 0 then
+		printf("Phase 1");
 		mob:addMod(tpz.mod.ATTP, 20)
 		mob:addMod(tpz.mod.DEFP, 20) 
 		mob:useMobAbility(689) -- Benediction
@@ -30,7 +32,8 @@ function onMobFight(mob, target)
         target:PrintToPlayer("This power...I cannot contain it much longer...",0,"Raubahn")
 		mob:setLocalVar("Phase", 1)
 	end
-    if mob:getHPP() <= math.random(10, 25) and Phase == 1 then
+    if mob:getHPP() <= math.random(1, 25) and Phase == 1 then
+		printf("Phase 2");
 		mob:addMod(tpz.mod.ATTP, 20)
 		mob:addMod(tpz.mod.DEFP, 20) 
 		mob:useMobAbility(689) -- Benediction
@@ -39,7 +42,8 @@ function onMobFight(mob, target)
 		target:PrintToPlayer("It's...too....powerful.....",0,"Raubahn")
 		mob:setLocalVar("Phase", 2)
 	end
-    if mob:getHPP() <= math.random(10, 25) and Phase == 2 then
+    if mob:getHPP() <= math.random(1, 25) and Phase == 2 then
+		printf("Phase 3");
 		mob:addMod(tpz.mod.ATTP, 20)
 		mob:addMod(tpz.mod.DEFP, 20) 
 		mob:useMobAbility(689) -- Benediction
@@ -47,6 +51,7 @@ function onMobFight(mob, target)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 1963)
 		target:PrintToPlayer("...All will succumb to the void....",0,"Soulflayer")
 		mob:setLocalVar("Phase", 3)
+		mob:setUnkillable(false)
 	end
 end
 

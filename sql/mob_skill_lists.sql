@@ -4088,19 +4088,19 @@ INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1745); -- enervation
 INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1695); -- hypnic_lamp
 
 --Nagi
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,129); -- Blade: Retsu
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,132); -- Blade: Chi
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,138); -- Blade: Kamu
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,247); -- Fox Fire
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,250); -- Carnal Nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,129); -- Blade: Retsu
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,132); -- Blade: Chi
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,138); -- Blade: Kamu
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,247); -- Fox Fire
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,250); -- Carnal Nightmare
 
 --Raubahn
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,46); -- expiacion
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,37); -- Seraph Blade
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,38); -- Circle Blade
+INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6041,46); -- expiacion
+INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6041,37); -- Seraph Blade
+INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6041,38); -- Circle Blade
 
 --Ullikummi
-INSERT INTO `mob_skill_lists` VALUES ('Ullikummi',6041,1035); -- Heavy Strike with knockback
+INSERT INTO `mob_skill_lists` VALUES ('Ullikummi',6042,1035); -- Heavy Strike with knockback
 
 
 
