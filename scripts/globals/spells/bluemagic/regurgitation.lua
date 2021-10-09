@@ -57,7 +57,7 @@ function onSpellCast(caster, target, spell)
     elseif (family == tpz.eco.BEAST) then
 		damage = damage * 0.75
 	end
-    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+    damage = BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params)
 	
 	if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.BIND

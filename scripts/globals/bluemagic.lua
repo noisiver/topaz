@@ -350,12 +350,42 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     elseif attackType == tpz.attackType.PHYSICAL then
         dmg = target:physicalDmgTaken(dmg, damageType)
     end
+
 	target:takeDamage(dmg, caster, attackType, damageType)
-	if GetSpell() == 648 then
-		target:addEnmity(caster, 1, 640)
-	else
-		target:updateEnmityFromDamage(caster, dmg)
-	end
+    target:updateEnmityFromDamage(caster, dmg)
+    target:handleAfflatusMiseryDamage(dmg)
+    -- TP has already been dealt with.
+    return dmg
+end
+
+function BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params) 
+	-- Regurg has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
+    if (dmg < 0) then
+        dmg = 0
+    end
+
+    dmg = dmg * BLUE_POWER
+
+    dmg = dmg - target:getMod(tpz.mod.PHALANX)
+    if (dmg < 0) then
+        dmg = 0
+    end
+
+    -- handling stoneskin
+    dmg = utils.stoneskin(target, dmg)
+
+    local attackType = params.attackType or tpz.attackType.NONE
+    local damageType = params.damageType or tpz.damageType.NONE
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
+        dmg = target:magicDmgTaken(dmg)
+    elseif attackType == tpz.attackType.RANGED then
+        dmg = target:rangedDmgTaken(dmg)
+    elseif attackType == tpz.attackType.PHYSICAL then
+        dmg = target:physicalDmgTaken(dmg, damageType)
+    end
+
+	target:takeDamage(dmg, caster, attackType, damageType)
+    target:addEnmity(caster, 1, 640)
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
