@@ -350,19 +350,14 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     elseif attackType == tpz.attackType.PHYSICAL then
         dmg = target:physicalDmgTaken(dmg, damageType)
     end
-
-	if GetSpell(648) then
-		target:takeDamage(dmg, caster, attackType, damageType)
-		target:handleAfflatusMiseryDamage(dmg)
-		-- TP has already been dealt with.
+	target:takeDamage(dmg, caster, attackType, damageType)
+	if GetSpell() == 648 then
 		target:addEnmity(caster, 1, 640)
 	else
-		target:takeDamage(dmg, caster, attackType, damageType)
-		target:handleAfflatusMiseryDamage(dmg)
-		-- TP has already been dealt with.
 		target:updateEnmityFromDamage(caster, dmg)
 	end
-
+    target:handleAfflatusMiseryDamage(dmg)
+    -- TP has already been dealt with.
     return dmg
 end
 
