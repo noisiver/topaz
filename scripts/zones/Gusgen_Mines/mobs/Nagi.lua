@@ -16,6 +16,7 @@ function onMobSpawn(mob)
 end
 
 function onSpellPrecast(mob, spell)
+	local target = mob:getTarget()
     local Guard = GetMobByID(17580445)
     local GuardTwo = GetMobByID(17580446)
     local GuardThree = GetMobByID(17580466)
