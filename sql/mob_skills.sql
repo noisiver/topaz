@@ -2142,7 +2142,7 @@ INSERT INTO `mob_skills` VALUES (2301,1488,'magic_mortar',0,10.0,2000,1,4,0,225,
 -- INSERT INTO `mob_skills` VALUES (2310,2054,'stutter_step',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2311,2055,'building_flourish',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2312,2056,'desperate_flourish',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2313,1716,'reverse_flourish',0,7.0,2000,250,1,0,0,0,0,0,0); -- rousing_samba animation
+INSERT INTO `mob_skills` VALUES (2313,1716,'reverse_flourish_DNCLB',0,7.0,2000,250,1,0,0,0,0,0,0); -- rousing_samba animation
 -- INSERT INTO `mob_skills` VALUES (2314,2058,'parsimony',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2315,2059,'alacrity',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2316,2060,'manifestation',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -3934,6 +3934,7 @@ INSERT INTO `mob_skills` VALUES (52,110,'shockwave',1,10.0,2000,0,4,0,0,0,1,8,0)
 -- JA's
 INSERT INTO `mob_skills` VALUES (221,207,'saber_dance',0,7.0,2000,1500,1,0,0,0,0,0,0); -- Thorned Dance Animation
 INSERT INTO `mob_skills` VALUES (222,208,'fan_dance',0,7.0,2000,1500,1,0,0,0,0,0,0); -- Sensual dance Animation
+INSERT INTO `mob_skills` VALUES (190,182,'reverse_flourish',0,7.0,2000,1500,1,0,0,0,0,0,0);
 
 
 -- Mythic WS

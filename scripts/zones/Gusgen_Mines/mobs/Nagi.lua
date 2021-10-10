@@ -2,6 +2,7 @@
 -- Area: Gusgen Mines
 --   Nagi
 --   !additem 474 
+--	  !pos 220.5291 -39.6000 254.1887
 ------------------------------
 require("scripts/globals/mobs")
 require("scripts/globals/status")
@@ -11,6 +12,7 @@ function onMobSpawn(mob)
 	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
 	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
 	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
 function onSpellPrecast(mob, spell)
@@ -33,16 +35,16 @@ function onSpellPrecast(mob, spell)
 		GuardThree:updateEnmity(target)
 		GuardFour:updateEnmity(target)
 		GuardFive:updateEnmity(target)
-		GetMobByID(mob:getID() + 1):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
-		GetMobByID(mob:getID() + 2):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 2):setSpawn(X, Y, Z)
-		GetMobByID(mob:getID() + 3):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 3):setSpawn(X, Y, Z)
-		GetMobByID(mob:getID() + 4):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 4):setSpawn(X, Y, Z)
-		GetMobByID(mob:getID() + 5):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 5):setSpawn(X, Y, Z)
+		Guard:setPos(X, Y, Z)
+		Guard:setSpawn(X, Y, Z)
+		GuardTwo:setPos(X, Y, Z)
+		GuardTwo:setSpawn(X, Y, Z)
+		GuardThree:setPos(X, Y, Z)
+		GuardThree:setSpawn(X, Y, Z)
+		GuardFour:setPos(X, Y, Z)
+		GuardFour:setSpawn(X, Y, Z)
+		GuardFive:setPos(X, Y, Z)
+		GuardFive:setSpawn(X, Y, Z)
 	end
 	if (spell:getID() == 339) then -- Utsusemi: Ni
 		Guard:spawn()
@@ -53,14 +55,14 @@ function onSpellPrecast(mob, spell)
         GuardTwo:updateEnmity(target)
         GuardThree:updateEnmity(target)
         GuardFour:updateEnmity(target)
-		GetMobByID(mob:getID() + 1):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
-		GetMobByID(mob:getID() + 2):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 2):setSpawn(X, Y, Z)
-		GetMobByID(mob:getID() + 3):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 3):setSpawn(X, Y, Z)
-		GetMobByID(mob:getID() + 4):setPos(X, Y, Z)
-		GetMobByID(mob:getID() + 4):setSpawn(X, Y, Z)
+		Guard:setPos(X, Y, Z)
+		Guard:setSpawn(X, Y, Z)
+		GuardTwo:setPos(X, Y, Z)
+		GuardTwo:setSpawn(X, Y, Z)
+		GuardThree:setPos(X, Y, Z)
+		GuardThree:setSpawn(X, Y, Z)
+		GuardFour:setPos(X, Y, Z)
+		GuardFour:setSpawn(X, Y, Z)
 	end
 end
 
@@ -70,5 +72,5 @@ function onMobDeath(mob, player, isKiller)
     DespawnMob(GuardThree)
     DespawnMob(GuardFour)
     DespawnMob(GuardFive)
-player:PrintToPlayer("Fighting you was an honor.",0,"Nagi")
+	player:PrintToPlayer("Fighting you was an honor.",0,"Nagi")
   end
