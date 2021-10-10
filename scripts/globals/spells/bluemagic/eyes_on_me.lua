@@ -37,11 +37,11 @@ function onSpellCast(caster, target, spell)
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
-    params.int_wsc = 0.4
+    params.int_wsc = 0.0
     params.mnd_wsc = 0.0
-    params.chr_wsc = 0.0
-    damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-	local demon = (target:getSystem() == 10)
+    params.chr_wsc = 0.4
+    damage = BlueMagicalSpell(caster, target, spell, params, CHR_BASED)
+	local dragon = (target:getSystem() == 10)
 	
 	if dragon then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)

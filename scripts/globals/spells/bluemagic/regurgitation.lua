@@ -43,9 +43,9 @@ function onSpellCast(caster, target, spell)
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
     params.int_wsc = 0.0
-    params.mnd_wsc = 0.30
+    params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
-    damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+    damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     if (caster:isBehind(target, 15)) then -- guesstimating the angle at 15 degrees here
         damage = math.floor(damage * 1.25)
         -- printf("is behind mob")
