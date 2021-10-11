@@ -353,6 +353,9 @@ INSERT INTO `mob_family_mods` VALUES (256,29,12,0); -- Weeper +12 MDB
 INSERT INTO `mob_family_mods` VALUES (220,29,12,0); -- Seether +12 MDB
 INSERT INTO `mob_family_mods` VALUES (181,389,-50,0); -- Memory Receptacle -50% MDT
 INSERT INTO `mob_family_mods` VALUES (503,29,12,0); -- Mammet +12 MDB
+INSERT INTO `mob_family_mods` VALUES (499,387,100,0); -- Stray +100% PDT(Bonus)
+INSERT INTO `mob_family_mods` VALUES (499,388,100,0); -- Stray +100% BDT(Bonus)
+INSERT INTO `mob_family_mods` VALUES (499,389,100,0); -- Stray +100% MDT(Bonus)
 
 -- Dynamis Mobs
 INSERT INTO `mob_family_mods` VALUES (337,62,50,0);	-- Quadav +50% Attk
