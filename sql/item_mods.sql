@@ -23340,7 +23340,7 @@ INSERT INTO `item_mods` VALUES (18864,119,1);
 INSERT INTO `item_mods` VALUES (18865,8,3); -- Zonure 
 INSERT INTO `item_mods` VALUES (18865,23,8);
 INSERT INTO `item_mods` VALUES (18865,224,10); -- Vermin Killer(Intimidate)
-INSERT INTO `item_mods` VALUES (18865,1224,10); -- Vermin Circle( % DMG)
+INSERT INTO `item_mods` VALUES (18865,1224,10); -- Vermin Circle(% DMG)
 INSERT INTO `item_mods` VALUES (18866,10,-1);
 INSERT INTO `item_mods` VALUES (18867,5,15);
 INSERT INTO `item_mods` VALUES (18867,25,4);
