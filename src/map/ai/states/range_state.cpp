@@ -96,7 +96,7 @@ bool CRangeState::Update(time_point tick)
     {
         auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, m_errorMsg);
 
-        CanUseRangedAttack(PTarget);
+        CanFinishRangedAttack(PTarget); 
         float xDiff = m_startPos.x - m_PEntity->loc.p.x;
         float yDiff = m_startPos.y = m_PEntity->loc.p.y;
         float realDist = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
@@ -202,7 +202,7 @@ bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_SEE);
         return false;
     }
-    if (distance(m_PEntity->loc.p, PTarget->loc.p) > 40) // changed from 25. Determines max range mob can run before interrupting ranged attack once it begins
+    if (distance(m_PEntity->loc.p, PTarget->loc.p) > 40) 
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY);
         return false;
@@ -211,6 +211,55 @@ bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_PERFORM_ACTION);
         return false;
+    }
+
+    return true;
+}
+
+bool CRangeState::CanFinishRangedAttack(CBattleEntity* PTarget)
+{
+    if (!PTarget)
+    {
+        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_CANNOT_ATTACK_TARGET);
+        return false;
+    }
+
+    if (auto PChar = dynamic_cast<CCharEntity*>(m_PEntity))
+    {
+        CItemWeapon* PRanged = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_RANGED));
+        CItemWeapon* PAmmo = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_AMMO));
+
+        if (!((PRanged && PRanged->isType(ITEM_WEAPON)) || (PAmmo && PAmmo->isThrowing())))
+        {
+            m_errorMsg = std::make_unique<CMessageBasicPacket>(PChar, PChar, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
+            return false;
+        }
+
+        auto SkillType = PRanged ? PRanged->getSkillType() : PAmmo->getSkillType();
+
+        switch (SkillType)
+        {
+            case SKILL_THROWING:
+            {
+                // remove barrage, doesn't work here
+                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_BARRAGE);
+                break;
+            }
+            case SKILL_ARCHERY:
+            case SKILL_MARKSMANSHIP:
+            {
+                PRanged = dynamic_cast<CItemWeapon*>(PChar->getEquip(SLOT_AMMO));
+                if (PRanged != nullptr && PRanged->isType(ITEM_WEAPON))
+                {
+                    break;
+                }
+            }
+            default:
+            {
+                m_errorMsg = std::make_unique<CMessageBasicPacket>(PChar, PChar, 0, 0, MSGBASIC_NO_RANGED_WEAPON);
+                return false;
+            }
+        }
     }
 
     return true;
