@@ -574,7 +574,7 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     elseif (effect == tpz.effect.POISON) then
         duration = 180 * resist
     else
-        duration = 120 * resist
+        duration = 180 * resist
     end
 
     if (varieswithtp and caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY)) then

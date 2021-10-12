@@ -56,7 +56,7 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistance(caster, target, spell, params)
     local typeEffectOne = tpz.effect.DEFENSE_DOWN
     local typeEffectTwo = tpz.effect.ATTACK_DOWN
-    local duration = 120 * resist
+    local duration = 180 * resist
 
     if (damage > 0 and resist >= 0.5) then
         target:addStatusEffect(typeEffectOne, 10, 0, duration)
