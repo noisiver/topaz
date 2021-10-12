@@ -714,6 +714,36 @@ function MobDrainAttribute(mob, target, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
+local function DrainMultipleAttributes(mob, target, power, tick, count, duration)
+    local attributes = {};
+    local currIndex = 1;
+    while (currIndex <= count) do
+      local newAttr = math.random(136, 142);
+      for _, attr in pairs(attributes) do
+        if (attr == newAttr) then
+          newAttr = -1;
+        end
+      end
+      if (newAttr ~= -1) then
+        attributes[currIndex] = newAttr;
+        currIndex = currIndex + 1;
+      end
+    end
+
+    local msg = tpz.msg.basic.SKILL_MISS;
+    
+    for i = 1,count,1 do
+      local newMsg = MobDrainAttribute(mob, target, attributes[i], power, tick, duration);
+      if (newMsg == tpz.msg.basic.ATTR_DRAINED) then
+        msg = newMsg;
+      elseif (msg == tpz.msg.basic.SKILL_MISS)
+        msg = newMsg;
+      end
+    end
+    
+    return msg;
+end
+
 function MobDrainStatusEffectMove(mob, target)
     -- try to drain buff
     local effect = mob:stealStatusEffect(target)
