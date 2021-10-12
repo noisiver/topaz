@@ -147,11 +147,15 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     if CritTPBonus > 1 then
         if math.random(100) < CritTPBonus then
-            SpellCrit = 1
+            SpellCrit = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100)) -- It crit!
         end
 	else
-		SpellCrit = 0
+		SpellCrit = 0 -- It didn't crit
     end
+	
+	if caster:hasStatusEffect(tpz.effect.SNEAK_ATTACK) and spell:isAoE() == 0 and params.attackType ~= tpz.attackType.RANGED and caster:isBehind(target) then -- Has sneak attack
+		SpellCrit = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
+	end
 	
 	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluphysattk
 	if BluAttkModifier == 0 then --Don't want to multiply by 0 in bluphysattk forrmula
@@ -265,7 +269,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
 
     -- print("Hits landed "..hitslanded.."/"..hitsdone.." for total damage: "..finaldmg)
-
+	caster:delStatusEffectSilent(tpz.effect.SNEAK_ATTACK)
+	--caster:delStatusEffectSilent(tpz.effect.TRICK_ATTACK) NYI
     return finaldmg
 end
 
@@ -511,7 +516,7 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
 			AccTPBonus = getAccTPModifier(caster:getTP()) 
 		end
 	end
-    local acc = attacker:getACC() + 35 + AccTPBonus 
+    local acc = attacker:getACC() + 30 + AccTPBonus + attacker:getMerit(tpz.merit.PHYSICAL_POTENCY) --https://www.bluegartr.com/threads/37619-Blue-Mage-Best-thread-ever?p=2097460&viewfull=1#post2097460 
     local eva = target:getEVA()
 
     if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
@@ -569,7 +574,7 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     elseif (effect == tpz.effect.POISON) then
         duration = 180 * resist
     else
-        duration = 120 * resist
+        duration = 180 * resist
     end
 
     if (varieswithtp and caster:hasStatusEffect(tpz.effect.CHAIN_AFFINITY)) then
