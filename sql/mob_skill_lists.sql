@@ -1054,9 +1054,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Slime',229,433);
 INSERT INTO `mob_skill_lists` VALUES ('Slime',230,431);
 INSERT INTO `mob_skill_lists` VALUES ('Slime',230,432);
 INSERT INTO `mob_skill_lists` VALUES ('Slime',230,433);
-INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2183);
-INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2184);
-INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2185);
+INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2183); -- fuscous_ooze
+INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2184); -- purulent_ooze
+INSERT INTO `mob_skill_lists` VALUES ('Slug',231,2185); -- corrosive_ooze
 INSERT INTO `mob_skill_lists` VALUES ('Snoll',232,1644);
 INSERT INTO `mob_skill_lists` VALUES ('Snoll',232,1645);
 INSERT INTO `mob_skill_lists` VALUES ('Snoll',232,1646);
@@ -1512,11 +1512,27 @@ INSERT INTO `mob_skill_lists` VALUES ('TrollGurfurlur',326,1804);
 INSERT INTO `mob_skill_lists` VALUES ('TrollGurfurlur',326,1805);
 INSERT INTO `mob_skill_lists` VALUES ('TrollGurfurlur',326,1806);
 INSERT INTO `mob_skill_lists` VALUES ('TrollGurfurlur',326,1807);
-INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,590);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,590); -- (Dynamis Goblin Normal Mob)
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,591);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1081);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1082);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1082);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1083);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1084);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1085);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1086);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1087);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1099);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1100);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1101);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1102);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1103);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1104);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1105);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1106);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1107);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1108);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1109);
 -- 328: Cottus
 INSERT INTO `mob_skill_lists` VALUES ('AbsoluteVirtue',329,1378);
 INSERT INTO `mob_skill_lists` VALUES ('AbsoluteVirtue',329,1379);
@@ -1775,11 +1791,16 @@ INSERT INTO `mob_skill_lists` VALUES ('Crab',372,443);
 INSERT INTO `mob_skill_lists` VALUES ('Crab',372,444);
 INSERT INTO `mob_skill_lists` VALUES ('Crab',372,445);
 INSERT INTO `mob_skill_lists` VALUES ('Crab',372,448);
-INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,590);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,590); -- (Dynamis Goblin NM)
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,591);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1081);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1082);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1082);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1083);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1084);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1085);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1086);
+INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1087);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1099);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1100);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1101);
@@ -4088,19 +4109,19 @@ INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1745); -- enervation
 INSERT INTO `mob_skill_lists` VALUES ('Lilisette',6039,1695); -- hypnic_lamp
 
 --Nagi
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,129); -- Blade: Retsu
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,132); -- Blade: Chi
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,138); -- Blade: Kamu
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,247); -- Fox Fire
-INSERT INTO `mob_skill_lists` VALUES ('Nagi',6039,250); -- Carnal Nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,129); -- Blade: Retsu
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,132); -- Blade: Chi
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,138); -- Blade: Kamu
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,247); -- Fox Fire
+INSERT INTO `mob_skill_lists` VALUES ('Nagi',6040,250); -- Carnal Nightmare
 
 --Raubahn
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,46); -- expiacion
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,37); -- Seraph Blade
-INSERT INTO `mob_skill_lists` VALUES ('Raubahn_Mythic',6040,38); -- Circle Blade
+INSERT INTO `mob_skill_lists` VALUES ('Tizona',6041,46); -- expiacion
+INSERT INTO `mob_skill_lists` VALUES ('Tizona',6041,37); -- Seraph Blade
+INSERT INTO `mob_skill_lists` VALUES ('Tizona',6041,38); -- Circle Blade
 
 --Ullikummi
-INSERT INTO `mob_skill_lists` VALUES ('Ullikummi',6041,1035); -- Heavy Strike with knockback
+INSERT INTO `mob_skill_lists` VALUES ('Ullikummi',6042,1035); -- Heavy Strike with knockback
 
 
 

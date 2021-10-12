@@ -22,7 +22,7 @@ function onTrade(player, npc, trade)
             player:confirmTrade()
         end
     elseif npcUtil.tradeHasExactly(trade, 475) then -- Blue Chip
-        if npcUtil.popFromQM(player, npc, ID.mob.RAUBAHN) then -- items and mob id here under mob = in IDs.lua
+        if npcUtil.popFromQM(player, npc, ID.mob.TIZONA) then -- items and mob id here under mob = in IDs.lua
             player:messageSpecial(ID.text.SYS_OVERLOAD)
             player:PrintToPlayer("You shall bow before the immortals.",0,"Raubahn")
             player:confirmTrade()

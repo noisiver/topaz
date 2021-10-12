@@ -12,7 +12,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.REGAIN
-    local power = 250
+    local power = 25
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 3, 60)) 
     
 	return typeEffect

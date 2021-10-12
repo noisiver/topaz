@@ -17,7 +17,7 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-	mob:setMod(tpz.mod.REGAIN, 1000)
+	mob:setMod(tpz.mod.REGAIN, 500)
 end
 
 

@@ -101,6 +101,10 @@ bool CRangeState::Update(time_point tick)
         {
             m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_MOVE_AND_INTERRUPT);
         }
+        else if (battleutils::IsParalyzed(m_PEntity))
+        {
+            m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_IS_PARALYZED);
+        }
 
         action_t action;
         auto cast_errorMsg = dynamic_cast<CMessageBasicPacket*>(m_errorMsg.get());

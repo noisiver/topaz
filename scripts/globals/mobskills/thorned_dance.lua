@@ -11,7 +11,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.DOUBLE_ATTACK
+    local typeEffect = tpz.effect.SABER_DANCE
     local power = 50
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 60)) 
     

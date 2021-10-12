@@ -74,7 +74,7 @@ zones[tpz.zone.THE_ELDIEME_NECROPOLIS] =
         SKULL_OF_PRIDE      = 17575942,
         SKULL_OF_ENVY       = 17575943,
         SKULL_OF_WRATH      = 17575944,
-        RAUBAHN      				= 17576449,
+        TIZONA      				= 17576449,
     },
     npc =
     {

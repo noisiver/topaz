@@ -56,7 +56,7 @@ CREATE TABLE `fishing_fish` (
 LOCK TABLES `fishing_fish` WRITE;
 /*!40000 ALTER TABLE `fishing_fish` DISABLE KEYS */;
 INSERT INTO `fishing_fish` VALUES (5476,'Abaia',90,100,32,7,13,269,317,1,0,255,255,0,1,0,0,1,500,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5455,'Ahtapot',0,90,31,8,7,54,144,1,0,255,255,0,0,0,0,1,500,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5455,'Ahtapot',0,90,31,8,7,54,144,1,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5461,'Alabaligi',0,37,16,5,11,1,1,0,0,255,255,0,0,0,0,1,0,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4316,'Armored Pisces',90,108,31,9,12,52,124,1,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (688,'Arrowwood Log',0,4,18,13,2,1,1,1,0,255,255,0,0,0,1,1,500,0,'',0);
@@ -130,7 +130,7 @@ INSERT INTO `fishing_fish` VALUES (5129,'Lik',90,140,48,2,14,185,465,1,0,255,255
 INSERT INTO `fishing_fish` VALUES (4315,'Lungfish',0,31,15,10,14,1,1,0,0,255,255,0,0,0,0,1,0,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5468,'Matsya',90,110,40,5,12,163,331,1,0,255,255,0,1,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5467,'Megalodon',0,87,34,10,11,446,625,1,0,255,255,0,0,0,0,1,0,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5454,'Mercanbaligi',0,86,31,7,9,1,1,0,0,255,255,0,0,0,0,1,400,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5454,'Mercanbaligi',0,86,31,7,9,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4401,'Moat Carp',0,11,16,10,9,1,1,0,0,255,255,0,0,0,0,1,0,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1638,'Moblin Mask',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,800,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5134,'Mola Mola',90,135,16,12,12,130,184,1,1,255,255,16,1,0,0,1,500,0,'',0);

@@ -21595,9 +21595,10 @@ INSERT INTO `item_mods` VALUES (17758,240,2);
 INSERT INTO `item_mods` VALUES (17758,244,2);
 INSERT INTO `item_mods` VALUES (17758,247,2);
 INSERT INTO `item_mods` VALUES (17758,249,2);
-INSERT INTO `item_mods` VALUES (17759,8,4);
+INSERT INTO `item_mods` VALUES (17759,8,4); -- Koggelmander
 INSERT INTO `item_mods` VALUES (17759,9,4);
-INSERT INTO `item_mods` VALUES (17759,224,2);
+INSERT INTO `item_mods` VALUES (17759,224,10); -- Vermn Killer(Intimidate)
+INSERT INTO `item_mods` VALUES (17759,1224,10); -- Vermin Circle(% DMG)
 INSERT INTO `item_mods` VALUES (17760,11,2);
 INSERT INTO `item_mods` VALUES (17760,68,2);
 INSERT INTO `item_mods` VALUES (17762,366,4);
@@ -21777,7 +21778,8 @@ INSERT INTO `item_mods` VALUES (17963,13,-1);
 INSERT INTO `item_mods` VALUES (17963,14,-1);
 INSERT INTO `item_mods` VALUES (17963,73,1);
 INSERT INTO `item_mods` VALUES (17964,48,5);      -- Barkborer: Weapon Skill Accuracy +5
-INSERT INTO `item_mods` VALUES (17964,229,7);     -- Enhances Plantoid Killer effect +7
+INSERT INTO `item_mods` VALUES (17964,229,10);    -- Plantoid Killer(Intimidate)
+INSERT INTO `item_mods` VALUES (17964,1229,10);   -- Plantoid Circle(% DMG)
 INSERT INTO `item_mods` VALUES (17965,55,5);
 INSERT INTO `item_mods` VALUES (17965,56,5);
 INSERT INTO `item_mods` VALUES (17966,366,4);
@@ -21987,8 +21989,9 @@ INSERT INTO `item_mods` VALUES (18129,289,5);
 INSERT INTO `item_mods` VALUES (18130,25,11);
 INSERT INTO `item_mods` VALUES (18130,68,11);
 INSERT INTO `item_mods` VALUES (18130,289,6);
-INSERT INTO `item_mods` VALUES (18131,23,8);
-INSERT INTO `item_mods` VALUES (18131,230,2);
+INSERT INTO `item_mods` VALUES (18131,23,8); -- Zaide
+INSERT INTO `item_mods` VALUES (18131,230,10); -- Beast Killer(Intimidate)
+INSERT INTO `item_mods` VALUES (18131,1230,10); -- Beast Circle(% DMG)
 INSERT INTO `item_mods` VALUES (18134,24,5);
 INSERT INTO `item_mods` VALUES (18134,26,5);
 INSERT INTO `item_mods` VALUES (18135,24,5);
@@ -22529,8 +22532,9 @@ INSERT INTO `item_mods` VALUES (18499,2,10);
 INSERT INTO `item_mods` VALUES (18499,5,10);
 INSERT INTO `item_mods` VALUES (18500,384,100);
 INSERT INTO `item_mods` VALUES (18503,431,1);
-INSERT INTO `item_mods` VALUES (18504,11,4);
-INSERT INTO `item_mods` VALUES (18504,229,2);
+INSERT INTO `item_mods` VALUES (18504,11,4); -- Eventreuse 
+INSERT INTO `item_mods` VALUES (18504,229,10); -- Plantoid Killer(Intimidate)
+INSERT INTO `item_mods` VALUES (18504,1229,10); -- Platnoid Circle(% DMG)
 INSERT INTO `item_mods` VALUES (18506,288,1);
 INSERT INTO `item_mods` VALUES (18509,288,1);
 INSERT INTO `item_mods` VALUES (18510,8,8);       -- Vermeil Bhuj: STR+8
@@ -23333,9 +23337,10 @@ INSERT INTO `item_mods` VALUES (18861,28,5);
 INSERT INTO `item_mods` VALUES (18862,25,5);
 INSERT INTO `item_mods` VALUES (18862,30,5);
 INSERT INTO `item_mods` VALUES (18864,119,1);
-INSERT INTO `item_mods` VALUES (18865,8,3);
+INSERT INTO `item_mods` VALUES (18865,8,3); -- Zonure 
 INSERT INTO `item_mods` VALUES (18865,23,8);
-INSERT INTO `item_mods` VALUES (18865,224,2);
+INSERT INTO `item_mods` VALUES (18865,224,10); -- Vermin Killer(Intimidate)
+INSERT INTO `item_mods` VALUES (18865,1224,10); -- Vermin Circle(% DMG)
 INSERT INTO `item_mods` VALUES (18866,10,-1);
 INSERT INTO `item_mods` VALUES (18867,5,15);
 INSERT INTO `item_mods` VALUES (18867,25,4);
@@ -23806,8 +23811,9 @@ INSERT INTO `item_mods` VALUES (19108,68,5);
 INSERT INTO `item_mods` VALUES (19111,14,4);
 INSERT INTO `item_mods` VALUES (19111,119,2);
 INSERT INTO `item_mods` VALUES (19112,12,4);
-INSERT INTO `item_mods` VALUES (19113,68,8);
-INSERT INTO `item_mods` VALUES (19113,227,2);
+INSERT INTO `item_mods` VALUES (19113,68,8); -- Ermine's Tail
+INSERT INTO `item_mods` VALUES (19113,227,10); -- Lizard Killer(Intimidate)
+INSERT INTO `item_mods` VALUES (19113,1227,10); -- Lizard Circle(% DMG)
 INSERT INTO `item_mods` VALUES (19114,2,8);
 INSERT INTO `item_mods` VALUES (19114,10,2);
 INSERT INTO `item_mods` VALUES (19119,26,6);
@@ -23865,8 +23871,9 @@ INSERT INTO `item_mods` VALUES (19156,2,10);
 INSERT INTO `item_mods` VALUES (19156,5,10);
 INSERT INTO `item_mods` VALUES (19157,2,5);
 INSERT INTO `item_mods` VALUES (19157,5,5);
-INSERT INTO `item_mods` VALUES (19158,110,5);
-INSERT INTO `item_mods` VALUES (19158,227,2);
+INSERT INTO `item_mods` VALUES (19158,110,5); -- Scheherazade 
+INSERT INTO `item_mods` VALUES (19158,227,10); -- Lizard Killer(Intimidate)
+INSERT INTO `item_mods` VALUES (19158,1227,10); -- Lizard Circle(% DMG)
 INSERT INTO `item_mods` VALUES (19160,431,1);
 INSERT INTO `item_mods` VALUES (19163,368,10);    -- Nightfall: Regain +10
 INSERT INTO `item_mods` VALUES (19165,10,3);
@@ -24011,8 +24018,9 @@ INSERT INTO `item_mods` VALUES (19270,5,5);
 INSERT INTO `item_mods` VALUES (19270,13,2);
 INSERT INTO `item_mods` VALUES (19271,1,10);
 INSERT INTO `item_mods` VALUES (19272,522,10);
-INSERT INTO `item_mods` VALUES (19273,68,5);
-INSERT INTO `item_mods` VALUES (19273,230,2);
+INSERT INTO `item_mods` VALUES (19273,68,5); -- Onishibari
+INSERT INTO `item_mods` VALUES (19273,230,10); -- Beast Killer(Intimidate)
+INSERT INTO `item_mods` VALUES (19273,1230,10); -- Beast Circle(% DMG)
 INSERT INTO `item_mods` VALUES (19276,68,1);
 INSERT INTO `item_mods` VALUES (19277,25,1);
 INSERT INTO `item_mods` VALUES (19278,27,-5);
