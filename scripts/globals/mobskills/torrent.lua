@@ -1,6 +1,6 @@
 ---------------------------------------------
 --  Torrent
---  Description: Removes all Equipment
+--  Description: Removes and encumbers a random amount of equipment
 --  Type: Magical Enfeebling
 --  Ignore Shadows, Single target
 ---------------------------------------------
@@ -12,10 +12,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    for i = tpz.slot.MAIN, tpz.slot.BACK do
-        target:unequipItem(i)
-    end
-    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0xFFFF, 0, 30)
-    skill:setMsg(tpz.msg.basic.NONE)
+	MobEncumberMove(target, 5, 60)
+	skill:setMsg(tpz.msg.basic.NONE)
     return 0
 end

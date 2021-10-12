@@ -792,6 +792,30 @@ function MobHealMove(target, heal)
     return heal
 end
 
+local function MobEncumberMove(target, maxSlots, duration)
+    local encumberSlots = {};
+    local currIndex = 1;
+    while (currIndex <= maxSlots) do
+      local newSlot = math.random(0, 15);
+      for _, slot in pairs(encumberSlots) do
+        if (slot == newSlot) then
+          newSlot = -1;
+        end
+      end
+      if (newSlot ~= -1) then
+        encumberSlots[currIndex] = newSlot;
+        currIndex = currIndex + 1;
+      end
+    end
+
+    local mask = 0;
+    for i = 1,maxSlots,1 do
+      target:unequipItem(encumberSlots[i]);
+      mask = mask + math.pow(2, encumberSlots[i]);
+    end
+    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
+end
+
 function MobTakeAoEShadow(mob, target, max)
 
     return max

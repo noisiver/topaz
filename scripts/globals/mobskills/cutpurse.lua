@@ -11,6 +11,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
--- todo make a random for which gear to remove and how many pieces
-   target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0x002, 0, 60)
+	MobEncumberMove(target, 1, 60)
+	skill:setMsg(tpz.msg.basic.NONE)
+    return 0
 end
