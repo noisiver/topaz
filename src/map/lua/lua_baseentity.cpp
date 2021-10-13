@@ -9518,23 +9518,6 @@ inline int32 CLuaBaseEntity::reloadParty(lua_State* L)
 }
 
 /************************************************************************
-*  Function: reloadPC()
-*  Purpose : Reloads players incase they don't load.
-*  Example : Someone didn't load for you, reload them around you.
-************************************************************************/
-
-inline int32 CLuaBaseEntity::reloadParty(lua_State* L)
-{
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
-    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
-	PChar->SpawnPCList[PCurrentChar->id] = PCurrentChar;
-	PChar->pushPacket(new CCharPacket(PCurrentChar, ENTITY_SPAWN, UPDATE_ALL_CHAR));
-	PChar->pushPacket(new CCharSyncPacket(PCurrentChar));
-
-    return 0;
-}
-
-/************************************************************************
 *  Function: disableLevelSync()
 *  Purpose : Disables...wait for it...Level Sync
 *  Example : target:disableLevelSync()
@@ -15525,7 +15508,6 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getAllianceSize),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,reloadParty),
-	LUNAR_DECLARE_METHOD(CLuaBaseEntity,reloadPC),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,disableLevelSync),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,isLevelSync),
 
