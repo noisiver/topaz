@@ -23,9 +23,6 @@ end
 function onSpellCast(caster, target, spell)
     local params = {}
     local multi = 1.0
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-		bonus = 100
-    end
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.LIGHT
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
