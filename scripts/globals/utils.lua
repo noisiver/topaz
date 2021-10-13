@@ -132,6 +132,7 @@ function utils.takeShadows(target, dmg, shadowbehav)
 
     return dmg
 end
+
 function utils.conalDamageAdjustment(attacker, target, skill, max_damage, minimum_percentage)
     local final_damage = 1
     -- #TODO: Currently all cone attacks use static 45 degree (360 scale) angles in core, when cone attacks

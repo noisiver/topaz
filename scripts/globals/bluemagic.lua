@@ -269,8 +269,6 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
 
     -- print("Hits landed "..hitslanded.."/"..hitsdone.." for total damage: "..finaldmg)
-	caster:delStatusEffectSilent(tpz.effect.SNEAK_ATTACK)
-	--caster:delStatusEffectSilent(tpz.effect.TRICK_ATTACK) NYI
     return finaldmg
 end
 
@@ -391,6 +389,8 @@ function BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params)
 
 	target:takeDamage(dmg, caster, attackType, damageType)
     target:handleAfflatusMiseryDamage(dmg)
+	caster:delStatusEffectSilent(tpz.effect.SNEAK_ATTACK)
+	--caster:delStatusEffectSilent(tpz.effect.TRICK_ATTACK) NYI
     -- TP has already been dealt with.
     return dmg
 end

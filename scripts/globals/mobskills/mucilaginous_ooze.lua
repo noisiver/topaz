@@ -21,11 +21,7 @@ function onMobWeaponSkill(target, mob, skill)
     local duration = 120
 
     MobStatusEffectMove(mob, target, typeEffect, 2500, 0, duration)
-
-    for i = tpz.slot.MAIN, tpz.slot.BACK do
-        target:unequipItem(i)
-    end
-    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0xFFFF, 0, 60)
+	MobEncumberMove(target, 5, 90)
 	
     return typeEffect
 end
