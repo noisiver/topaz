@@ -22,6 +22,10 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    local multi = 2.0
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi + 0.50
+    end
     local params = {}
     params.attackType = tpz.attackType.BREATH
     params.damageType = tpz.damageType.EARTH
@@ -30,7 +34,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-    params.multiplier = 2.0
+    params.multiplier = multi
     params.tMultiplier = 1.0
     params.duppercap = 56
     params.str_wsc = 0.0
@@ -53,9 +57,12 @@ function onSpellCast(caster, target, spell)
 	end
 	-- add SDT penalty
 	    local SDT = target:getMod(tpz.mod.SDT_EARTH)
-		if SDT < 100 then
-			damage = damage * (SDT / 100)
+		if target:isMob() then
+			if SDT < 100 then
+				damage = damage * (SDT / 100)
+			end
 		end
+		
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (damage > 0 and resist >= 0.5) then

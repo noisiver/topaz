@@ -62,10 +62,13 @@ function onSpellCast(caster, target, spell)
 	end
 	-- add SDT penalty
 	    local SDT = target:getMod(tpz.mod.SDT_WATER)
-		if SDT < 100 then
-			damage = damage * (SDT / 100)
+		if target:isMob() then
+			if SDT < 100 then
+				damage = damage * (SDT / 100)
+			end
 		end
-    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+    
+	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 0.50

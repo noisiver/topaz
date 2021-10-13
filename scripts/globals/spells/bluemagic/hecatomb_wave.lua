@@ -36,6 +36,9 @@ function onSpellCast(caster, target, spell)
     params.attackType = tpz.attackType.BREATH
     params.damageType = tpz.damageType.WIND
     params.multiplier = 1.375
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi + 0.50
+    end
     params.tMultiplier = 1.0
     params.duppercap = 54
     params.str_wsc = 0.0
@@ -61,9 +64,12 @@ function onSpellCast(caster, target, spell)
 	end
 	-- add SDT penalty
 	    local SDT = target:getMod(tpz.mod.SDT_WIND)
-		if SDT < 100 then
-			damage = damage * (SDT / 100)
+		if target:isMob() then
+			if SDT < 100 then
+				damage = damage * (SDT / 100)
+			end
 		end
+		
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (damage > 0 and resist >= 0.5) then

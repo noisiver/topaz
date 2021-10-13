@@ -66,8 +66,10 @@ function onSpellCast(caster, target, spell)
 	end
 	-- add SDT penalty
 	    local SDT = target:getMod(tpz.mod.SDT_ICE)
-		if SDT < 100 then
-			damage = damage * (SDT / 100)
+		if target:isMob() then
+			if SDT < 100 then
+				damage = damage * (SDT / 100)
+			end
 		end
 
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
