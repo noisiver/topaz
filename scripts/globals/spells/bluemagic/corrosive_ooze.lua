@@ -46,6 +46,8 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+	local bird = (target:getSystem() == 8)
+	local aquan = (target:getSystem() == 2)
     damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 	-- add correlation bonus
 	if bird then
