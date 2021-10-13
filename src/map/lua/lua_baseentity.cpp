@@ -9523,14 +9523,13 @@ inline int32 CLuaBaseEntity::reloadParty(lua_State* L)
 *  Example : Someone didn't load for you, reload them around you.
 ************************************************************************/
 
-inline int32 CLuaBaseEntity::reloadPC(lua_State* L)
+inline int32 CLuaBaseEntity::reloadParty(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
-    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
-    PChar->SpawnPCList[PChar->id] = PChar;
-    PChar->pushPacket(new CCharPacket(PChar, ENTITY_SPAWN, UPDATE_ALL_CHAR));
-    PChar->pushPacket(new CCharSyncPacket(PChar));
+	PChar->SpawnPCList[PCurrentChar->id] = PCurrentChar;
+	PChar->pushPacket(new CCharPacket(PCurrentChar, ENTITY_SPAWN, UPDATE_ALL_CHAR));
+	PChar->pushPacket(new CCharSyncPacket(PCurrentChar));
 
     return 0;
 }
