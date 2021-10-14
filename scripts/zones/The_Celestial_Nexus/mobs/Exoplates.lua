@@ -9,7 +9,6 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.REGAIN, 50)
 end
 
 function onMobSpawn(mob)
@@ -17,12 +16,14 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 50)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.REFRESH, 400)
     mob:AnimationSub(0)
     mob:SetAutoAttackEnabled(false)
     mob:setUnkillable(true)
 end
 
 function onMobFight(mob, target)
+	mob:setMod(tpz.mod.REGAIN, 50)
     local shifts = mob:getLocalVar("shifts")
     local shiftTime = mob:getLocalVar("shiftTime")
 

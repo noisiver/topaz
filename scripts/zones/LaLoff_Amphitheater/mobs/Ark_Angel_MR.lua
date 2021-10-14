@@ -13,6 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 20)
+    mob:setMod(tpz.mod.MDEF, 12) 
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
     tpz.mix.jobSpecial.config(mob, {
         specials =
@@ -46,16 +47,17 @@ function onMobFight(mob, target)
         mob:useMobAbility(710)
         mob:setLocalVar("Charm", 1)
     end
-end
-
-function onMobDespawn(mob)
-    local X = mob:getXPos()
-    local Y = mob:getYPos()
-    local Z = mob:getZPos()
-	SpawnMob(mob:getID() + 1)
-	GetMobByID(mob:getID() + 1):setPos(X, Y, Z)
-	GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
-	DisallowRespawn(mob:getID(), true)
+	
+	if mob:getHPP() <= 25  then
+		local X = mob:getXPos()
+		local Y = mob:getYPos()
+		local Z = mob:getZPos()
+		SpawnMob(mob:getID() + 3)
+		GetMobByID(mob:getID() + 3):setPos(X, Y, Z)
+		GetMobByID(mob:getID() + 3):setSpawn(X, Y, Z)
+		GetMobByID(mob:getID() + 3):updateEnmity(target)
+		DisallowRespawn(mob:getID(), true)
+	end
 end
 
 function onMobDeath(mob, player, isKiller)

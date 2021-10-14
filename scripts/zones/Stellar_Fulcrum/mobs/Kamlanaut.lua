@@ -17,6 +17,14 @@ local skillToAbsorb =
     [828] = tpz.mod.WATER_ABSORB, -- water_blade
 }
 
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.REFRESH, 400)
+end
+
 function onMobEngaged(mob, target)
     mob:setLocalVar("nextEnSkill", os.time() + 10)
 end

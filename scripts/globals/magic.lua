@@ -353,7 +353,7 @@ function doBoostGain(caster, target, spell, effect)
     local duration = calculateDuration(300, spell:getSkillType(), spell:getSpellGroup(), caster, target)
 
     --calculate potency
-    local magicskill = target:getSkillLevel(spell:getSkillType())
+    local magicskill = caster:getSkillLevel(spell:getSkillType())
 
     local potency = math.floor((magicskill - 300) / 10) + 5
 

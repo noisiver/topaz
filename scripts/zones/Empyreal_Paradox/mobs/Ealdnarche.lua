@@ -5,11 +5,19 @@
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.TELEPORT_CD, 30)
-    mob:setMobMod(tpz.mobMod.TELEPORT_START, 988)
-    mob:setMobMod(tpz.mobMod.TELEPORT_END, 989)
-    mob:setMobMod(tpz.mobMod.TELEPORT_TYPE, 1)
     mob:setMod(tpz.mod.MDEF, 50);
+end
+
+function onMobFight(mob, target)
+	mob:setMod(tpz.mod.REGAIN, 100)
+    local battletime = mob:getBattleTime()
+    local WarpTime = mob:getLocalVar("WarpTime")
+    if WarpTime == 0 then
+        mob:setLocalVar("WarpTime", math.random(15, 20))
+	elseif battletime >= WarpTime then
+		mob:useMobAbility(989) -- Warp out
+		mob:setLocalVar("WarpTime", battletime + math.random(15, 20))
+	end
 end
 
 function onMobSpawn(mob)

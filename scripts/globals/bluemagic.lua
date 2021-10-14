@@ -56,9 +56,7 @@ MND_BASED = 3
 function BluePhysicalSpell(caster, target, spell, params, tp)
     -- store related values
     local magicskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -- skill + merits + equip bonuses
-    -- TODO: Under Chain affinity?
     -- TODO: Under Efflux?
-    -- TODO: Merits.
     -- TODO: Under Azure Lore.
 
     ---------------------------------
@@ -88,6 +86,13 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     local multiplier = params.multiplier
 
+    -- Caculate for Bonus WSC Chance from Empyrean Set
+
+    local bonusWSC = 0
+    if caster:getMod(tpz.mod.AUGMENT_BLU_MAGIC) > math.random(0,99) then
+       bonusWSC = 2 -- BLU Empyrean set triples the base WSC when it procs.
+    end
+
     -- If under CA, replace multiplier with fTP(multiplier, tp150, tp300)
     local chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
     if chainAffinity ~= nil then
@@ -98,7 +103,15 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         end
 
         multiplier = BluefTP(tp, multiplier, params.tp150, params.tp300)
+        bonusWSC = bonusWSC + 1 -- Chain Affinity Doubles the Base WSC.
     end
+
+    -- Calculate final WSC bonuses
+
+    WSC = WSC + (WSC * bonusWSC)
+
+    -- See BG Wiki for reference. Chain Affinity is Double WSC. BLU Empyrean is Triple WSC
+    -- when the set procs, and stacks with Chain Affinity for a maximum 4x WSC total.
 
     -- TODO: Modify multiplier to account for family bonus/penalty
     local finalD = math.floor(D + fStr + WSC) * multiplier
@@ -306,7 +319,7 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     -- At this point according to wiki we apply standard magic attack calculations
 
     local magicAttack = 1.0
-    local multTargetReduction = 1.0 -- TODO: Make this dynamically change, temp static till implemented.
+    local multTargetReduction = 1.0 -- Always 1.0
     magicAttack = math.floor(D * multTargetReduction)
 
     local rparams = {}

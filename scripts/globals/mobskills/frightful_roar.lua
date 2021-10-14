@@ -3,7 +3,7 @@
 --
 -- Description: Weakens defense of enemies within range.
 -- Type: Magical (Water)
--- 25%
+-- 50%
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -15,12 +15,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if (mob:getPool() == 6169) then -- Kong
-		local typeEffectThree = tpz.effect.TERROR
-		MobStatusEffectMove(mob, target, typeEffect, 1, 0, 10)
+    if (mob:getPool() == 9005) then -- Kong
+		local typeEffect = tpz.effect.TERROR
+		MobStatusEffectMove(mob, target, tpz.effect.DEFENSE_DOWN, 50, 0, 180)
+		skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 10))
     else
-    local typeEffect = tpz.effect.DEFENSE_DOWN
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 25, 0, 180))
-    end
-    return tpz.effect.DEFENSE_DOWN
+		local typeEffect = tpz.effect.DEFENSE_DOWN
+		skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 180))
+   end
+   
+   return tpz.effect.DEFENSE_DOWN
 end

@@ -9,7 +9,11 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.REGAIN, 50)
+    mob:setMod(tpz.mod.REFRESH, 400)
+end
+
+function onMobFight(mob, target)
+	mob:setMod(tpz.mod.REGAIN, 50)
 end
 
 function onMobDeath(mob, player, isKiller)

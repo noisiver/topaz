@@ -1516,7 +1516,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,590); -- (Dynamis Goblin Norm
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,591);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1081);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1082);
-INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1082);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1083);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1084);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1085);
@@ -1795,7 +1794,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,590); -- (Dynamis Goblin NM)
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,591);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1081);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1082);
-INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1082);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1083);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1084);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1085);
@@ -1942,8 +1940,6 @@ INSERT INTO `mob_skill_lists` VALUES ('TiamatWyrm',393,1285);
 INSERT INTO `mob_skill_lists` VALUES ('TiamatWyrm',393,1286);
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,985); -- Stellar Burst
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,986); -- Vortex
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,988); -- Warp In
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,989); -- Warp Out
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Celestial Nexus, phase 2)',394,1006); -- Omega Javelin
 INSERT INTO `mob_skill_lists` VALUES ('Calcabrina',395,537);
 -- 396: Bedrock_Barry
@@ -3724,8 +3720,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1143,829); -- Grea
 INSERT INTO `mob_skill_lists` VALUES ('Kamlanaut (Apoc Nigh)',1143,830); -- Light Blade
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,985); -- Stellar Burst
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,986); -- Vortex
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,988); -- Warp In (Works the same as Ealdnarche's)
-INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,989); -- Warp Out (Works the same as Ealdnarche's)
 INSERT INTO `mob_skill_lists` VALUES ('Ealdnarche (Apoc Nigh)',1144,1006); -- Omega Javelin
 INSERT INTO `mob_skill_lists` VALUES ('Atori-Tutori_qm',1145,7); -- Howling Fist
 INSERT INTO `mob_skill_lists` VALUES ('Atori-Tutori_qm',1145,9); -- Asuran Fists

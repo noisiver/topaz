@@ -342,10 +342,8 @@ void CMagicState::ApplyEnmity(CBattleEntity* PTarget, int ce, int ve)
 
 bool CMagicState::HasMoved()
 {
-    float xDiff = m_startPos.x - m_PEntity->loc.p.x;
-    float yDiff = m_startPos.y = m_PEntity->loc.p.y;
-    float realDist = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
-    return (realDist > 1.2f);
+    return floorf(m_startPos.x * 10 + 0.5f) / 10 != floorf(m_PEntity->loc.p.x * 10 + 0.5f) / 10 ||
+        floorf(m_startPos.z * 10 + 0.5f) / 10 != floorf(m_PEntity->loc.p.z * 10 + 0.5f) / 10;
 }
 
 void CMagicState::TryInterrupt(CBattleEntity* PAttacker)
