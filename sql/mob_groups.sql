@@ -10565,9 +10565,9 @@ INSERT INTO `mob_groups` VALUES (8575,3992,162,'Treasure_Chest',0,0,0,0,0,0,0,0)
 -- Sacrificial_Chamber (Zone 163)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1798,163,'Grav_iton',0,128,0,10000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (2,2729,163,'Molyb_iton',0,128,0,9500,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (3,4052,163,'Tungs_iton',0,128,0,9000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (1,1798,163,'Grav_iton',0,128,0,5000,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (2,2729,163,'Molyb_iton',0,128,0,5000,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (3,4052,163,'Tungs_iton',0,128,0,5000,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (4,4674,163,'Tungs_itons_Elemental',0,128,0,5000,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (5,3970,163,'Tonberrys_Avatar',0,128,0,2400,0,57,58,0);
 INSERT INTO `mob_groups` VALUES (6,3425,163,'Sable-tongued_Gonberry',0,128,0,4000,0,65,65,0);
@@ -10808,9 +10808,9 @@ INSERT INTO `mob_groups` VALUES (24,2764,167,'Mousse',600,0,567,0,0,58,62,0);
 -- Chamber_of_Oracles (Zone 168)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,673,168,'Centurio_V-III',0,128,11150,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (2,4000,168,'Triarius_V-VIII',0,128,0,9500,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (3,3194,168,'Princeps_V-XI',0,128,0,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (1,673,168,'Centurio_V-III',0,128,5000,0,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (2,4000,168,'Triarius_V-VIII',0,128,0,5000,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (3,3194,168,'Princeps_V-XI',0,128,0,5000,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (4,5345,168,'Maat',0,128,0,2500,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (5,5403,168,'Maat',0,128,0,2500,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (6,5404,168,'Maat',0,128,0,2500,0,70,70,0);
