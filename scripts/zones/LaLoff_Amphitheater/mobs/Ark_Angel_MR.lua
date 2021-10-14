@@ -9,12 +9,10 @@ require("scripts/globals/status")
 -- TODO: Allegedly has a 12 hp/sec regen.  Determine if true, and add to onMobInitialize if so.
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 20)
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 10) 
     mob:setMod(tpz.mod.MDEF, 12) 
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {

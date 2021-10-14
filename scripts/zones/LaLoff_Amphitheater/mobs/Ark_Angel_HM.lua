@@ -10,12 +10,13 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 20)
     mob:setMod(tpz.mod.MDEF, 12) 
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+	mob:setMod(tpz.mod.SUB_DMG_RATING, 120)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     tpz.mix.jobSpecial.config(mob, {
         between = 30,
         specials =

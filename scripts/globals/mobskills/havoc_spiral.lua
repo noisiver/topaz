@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
 
    -- Witnessed 280 to a melee, 400 to a BRD, and 500 to a wyvern, so...
    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-   MobStatusEffectMove(mob, target, tpz.effect.SLEEP_I, 1, 0, 60)
+	MobPhysicalStatusEffectMove(mob, target, tpz.effect.SLEEP_I, 1, 0, 30)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
    return dmg
 end

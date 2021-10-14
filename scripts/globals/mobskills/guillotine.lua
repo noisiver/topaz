@@ -19,13 +19,14 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 4
     local accmod = 1
-    local dmgmod = 0.4
+    local dmgmod = 1
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
-    MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, (skill:getTP()*30/1000)+30)
+    MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 45)
 
     -- 242 to a NIN, but shadows ate some hits...
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
