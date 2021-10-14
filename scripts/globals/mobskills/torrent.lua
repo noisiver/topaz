@@ -14,5 +14,5 @@ end
 function onMobWeaponSkill(target, mob, skill)
 	MobEncumberMove(target, 5, 60)
 	skill:setMsg(tpz.msg.basic.NONE)
-    return 1
+    return 0
 end

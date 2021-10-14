@@ -843,7 +843,7 @@ local function MobEncumberMove(target, maxSlots, duration)
       target:unequipItem(encumberSlots[i]);
       mask = mask + math.pow(2, encumberSlots[i]);
     end
-    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
+   return target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
 end
 
 function MobTakeAoEShadow(mob, target, max)
