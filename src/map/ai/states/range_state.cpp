@@ -97,10 +97,7 @@ bool CRangeState::Update(time_point tick)
         auto PTarget = m_PEntity->IsValidTarget(m_targid, TARGET_ENEMY, m_errorMsg);
 
         CanUseRangedAttack(PTarget);
-        float xDiff = m_startPos.x - m_PEntity->loc.p.x;
-        float yDiff = m_startPos.y = m_PEntity->loc.p.y;
-        float realDist = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
-        if (realDist > 0.5f)
+        if (m_startPos.x != m_PEntity->loc.p.x || m_startPos.y != m_PEntity->loc.p.y)
         {
             m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_MOVE_AND_INTERRUPT);
         }
