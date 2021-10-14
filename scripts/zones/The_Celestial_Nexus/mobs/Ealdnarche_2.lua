@@ -17,12 +17,18 @@ end
 
 function onMobFight(mob, target)
 	mob:setMod(tpz.mod.REGAIN, 100)
+    local battletime = mob:getBattleTime()
+    local WarpTime = mob:getLocalVar("WarpTime")
+    if WarpTime == 0 then
+        mob:setLocalVar("WarpTime", math.random(15, 20))
+	elseif battletime >= WarpTime then
+		mob:useMobAbility(989) -- Warp out
+		mob:setLocalVar("WarpTime", math.random(15, 20))
+	end
 end
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GA_CHANCE, 25)
