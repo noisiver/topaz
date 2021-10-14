@@ -3403,25 +3403,23 @@ namespace battleutils
     {
         static const Mod resistances[][4] =
         {
-            {Mod::NONE,       Mod::NONE, Mod::NONE, Mod::NONE}, // SC_NONE
-            {Mod::LIGHTDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_TRANSFIXION
-            {Mod::DARKDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_COMPRESSION
-            {Mod::FIREDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_LIQUEFACTION
-            {Mod::EARTHDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_SCISSION
-            {Mod::WATERDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_REVERBERATION
-            {Mod::WINDDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_DETONATION
-            {Mod::ICEDEF,     Mod::NONE, Mod::NONE, Mod::NONE}, // SC_INDURATION
-            {Mod::THUNDERDEF, Mod::NONE, Mod::NONE, Mod::NONE}, // SC_IMPACTION
+            { Mod::SDT_LIGHT, Mod::NONE, Mod::NONE, Mod::NONE },   // SC_TRANSFIXION
+            { Mod::SDT_DARK, Mod::NONE, Mod::NONE, Mod::NONE },    // SC_COMPRESSION
+            { Mod::SDT_FIRE, Mod::NONE, Mod::NONE, Mod::NONE },    // SC_LIQUEFACTION
+            { Mod::SDT_EARTH, Mod::NONE, Mod::NONE, Mod::NONE },   // SC_SCISSION
+            { Mod::SDT_WATER, Mod::NONE, Mod::NONE, Mod::NONE },   // SC_REVERBERATION
+            { Mod::SDT_WIND, Mod::NONE, Mod::NONE, Mod::NONE },    // SC_DETONATION
+            { Mod::SDT_ICE, Mod::NONE, Mod::NONE, Mod::NONE },     // SC_INDURATION
+            { Mod::SDT_THUNDER, Mod::NONE, Mod::NONE, Mod::NONE }, // SC_IMPACTION
 
-            { Mod::EARTHDEF, Mod::DARKDEF, Mod::NONE, Mod::NONE }, // SC_GRAVITATION
-            { Mod::ICEDEF, Mod::WATERDEF, Mod::NONE, Mod::NONE }, // SC_DISTORTION
-            {Mod::FIREDEF,  Mod::LIGHTDEF,   Mod::NONE, Mod::NONE}, // SC_FUSION
-            {Mod::WINDDEF,  Mod::THUNDERDEF, Mod::NONE, Mod::NONE}, // SC_FRAGMENTATION
+            { Mod::SDT_EARTH, Mod::SDT_DARK, Mod::NONE, Mod::NONE },   // SC_GRAVITATION
+            { Mod::SDT_ICE, Mod::SDT_WATER, Mod::NONE, Mod::NONE },    // SC_DISTORTION
+            { Mod::SDT_FIRE, Mod::SDT_LIGHT, Mod::NONE, Mod::NONE },   // SC_FUSION
+            { Mod::SDT_WIND, Mod::SDT_THUNDER, Mod::NONE, Mod::NONE }, // SC_FRAGMENTATION
 
-            {Mod::FIREDEF, Mod::WINDDEF,  Mod::THUNDERDEF, Mod::LIGHTDEF}, // SC_LIGHT
-            {Mod::ICEDEF,  Mod::EARTHDEF, Mod::WATERDEF,   Mod::DARKDEF},  // SC_DARKNESS
-            {Mod::FIREDEF, Mod::WINDDEF,  Mod::THUNDERDEF, Mod::LIGHTDEF}, // SC_LIGHT
-            {Mod::ICEDEF,  Mod::EARTHDEF, Mod::WATERDEF,   Mod::DARKDEF},  // SC_DARKNESS_II
+            { Mod::SDT_FIRE, Mod::SDT_WIND, Mod::SDT_THUNDER, Mod::SDT_LIGHT }, // SC_LIGHT
+            { Mod::SDT_ICE, Mod::SDT_EARTH, Mod::SDT_WATER, Mod::SDT_DARK },    // SC_DARKNESS
+            { Mod::SDT_FIRE, Mod::SDT_WIND, Mod::SDT_THUNDER, Mod::SDT_LIGHT }, // SC_LIGHT
         };
 
         Mod defMod = Mod::NONE;
@@ -3446,9 +3444,9 @@ namespace battleutils
             case SC_GRAVITATION:
             case SC_DISTORTION:
                 if (PDefender->getMod(resistances[element][0]) < PDefender->getMod(resistances[element][1]))
-                    defMod = resistances[element][0];
-                else
                     defMod = resistances[element][1];
+                else
+                    defMod = resistances[element][0];
                 break;
 
                 // Level 3 & 4 skill chains
@@ -3457,12 +3455,12 @@ namespace battleutils
             case SC_DARKNESS:
             case SC_DARKNESS_II:
                 if (PDefender->getMod(resistances[element][0]) < PDefender->getMod(resistances[element][1]))
-                    defMod = resistances[element][0];
-                else
                     defMod = resistances[element][1];
-                if (PDefender->getMod(resistances[element][2]) < PDefender->getMod(defMod))
+                else
+                    defMod = resistances[element][0];
+                if (PDefender->getMod(resistances[element][2]) > PDefender->getMod(defMod))
                     defMod = resistances[element][2];
-                if (PDefender->getMod(resistances[element][3]) < PDefender->getMod(defMod))
+                if (PDefender->getMod(resistances[element][3]) > PDefender->getMod(defMod))
                     defMod = resistances[element][3];
                 break;
 
@@ -3474,28 +3472,28 @@ namespace battleutils
 
         switch (defMod)
         {
-            case Mod::FIREDEF:
+            case Mod::SDT_FIRE:
                 *appliedEle = ELEMENT_FIRE;
                 break;
-            case Mod::ICEDEF:
+            case Mod::SDT_ICE:
                 *appliedEle = ELEMENT_ICE;
                 break;
-            case Mod::WINDDEF:
+            case Mod::SDT_WIND:
                 *appliedEle = ELEMENT_WIND;
                 break;
-            case Mod::EARTHDEF:
+            case Mod::SDT_EARTH:
                 *appliedEle = ELEMENT_EARTH;
                 break;
-            case Mod::THUNDERDEF:
+            case Mod::SDT_THUNDER:
                 *appliedEle = ELEMENT_THUNDER;
                 break;
-            case Mod::WATERDEF:
+            case Mod::SDT_WATER:
                 *appliedEle = ELEMENT_WATER;
                 break;
-            case Mod::LIGHTDEF:
+            case Mod::SDT_LIGHT:
                 *appliedEle = ELEMENT_LIGHT;
                 break;
-            case Mod::DARKDEF:
+            case Mod::SDT_DARK:
                 *appliedEle = ELEMENT_DARK;
                 break;
             default:
@@ -3562,9 +3560,10 @@ namespace battleutils
         auto PChar = dynamic_cast<CCharEntity *>(PAttacker);
         if (PChar && PChar->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PChar->loc.p, PDefender->loc.p, 64))
         {
-            damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar)/100.f));    
+            damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));  
         }
-        damage = damage * (1000 - resistance) / 1000;
+        damage = damage * resistance / 100;
+        // ShowDebug("DamageAfterResist: %u\n, Resistance:%u\n,", damage, resistance);
         damage = MagicDmgTaken(PDefender, damage, appliedEle);
         if (damage > 0)
         {
@@ -3575,7 +3574,7 @@ namespace battleutils
         damage = std::clamp(damage, -99999, 99999);
 
         PDefender->takeDamage(damage, PAttacker, ATTACK_SPECIAL, appliedEle == ELEMENT_NONE ? DAMAGE_NONE : (DAMAGETYPE)(DAMAGE_ELEMENTAL + appliedEle));
-
+        // ShowDebug("FinalDamage: %u\n,", damage);
         battleutils::ClaimMob(PDefender, PAttacker);
         PDefender->updatemask |= UPDATE_STATUS;
 
