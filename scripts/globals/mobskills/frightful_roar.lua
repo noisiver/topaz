@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
     else
 		local typeEffect = tpz.effect.DEFENSE_DOWN
 		skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 180))
-   
    end
-    return typeEffect
+   
+   return typeEffect
 end
