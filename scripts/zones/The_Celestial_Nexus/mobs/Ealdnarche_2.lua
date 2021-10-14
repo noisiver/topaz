@@ -9,23 +9,16 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.TELEPORT_CD, 30)
+    mob:setMobMod(tpz.mobMod.TELEPORT_START, 988)
+    mob:setMobMod(tpz.mobMod.TELEPORT_END, 989)
+    mob:setMobMod(tpz.mobMod.TELEPORT_TYPE, 1)
     -- 60% fast cast, -75% physical damage taken, 10tp/tick regain, no standback
     mob:addMod(tpz.mod.UFASTCAST, 60)
     mob:addMod(tpz.mod.UDMGPHYS, -75)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
-function onMobFight(mob, target)
-	mob:setMod(tpz.mod.REGAIN, 100)
-    local battletime = mob:getBattleTime()
-    local WarpTime = mob:getLocalVar("WarpTime")
-    if WarpTime == 0 then
-        mob:setLocalVar("WarpTime", math.random(15, 20))
-	elseif battletime >= WarpTime then
-		mob:useMobAbility(989) -- Warp out
-		mob:setLocalVar("WarpTime", battletime + math.random(15, 20))
-	end
-end
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
