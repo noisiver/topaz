@@ -22,7 +22,7 @@ function onMobFight(mob, target)
     if WarpTime == 0 then
         mob:setLocalVar("WarpTime", math.random(15, 20))
 	elseif battletime >= WarpTime then
-		mob:useMobAbility(math.random(988,989) -- Warp In / Out
+		mob:useMobAbility(989) -- Warp out
 		mob:setLocalVar("WarpTime", battletime + math.random(15, 20))
 	end
 end
