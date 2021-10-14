@@ -1516,7 +1516,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,590); -- (Dynamis Goblin Norm
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,591);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1081);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1082);
-INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1082);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1083);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1084);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',327,1085);
@@ -1794,7 +1793,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Crab',372,448);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,590); -- (Dynamis Goblin NM)
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,591);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1081);
-INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1082);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1082);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1083);
 INSERT INTO `mob_skill_lists` VALUES ('Goblin',373,1084);
