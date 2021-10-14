@@ -16,6 +16,9 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+	SpawnMob(mob:getID() + 1)
+	GetMobByID(mob:getID() + 1):setPos(X, Y, Z)
+	GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
 end
 
 function onMobDeath(mob, player, isKiller)
