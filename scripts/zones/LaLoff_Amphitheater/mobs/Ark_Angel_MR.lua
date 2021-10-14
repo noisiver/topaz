@@ -13,6 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 20)
+    mob:setMod(tpz.mod.MDEF, 12) 
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
     tpz.mix.jobSpecial.config(mob, {
         specials =
