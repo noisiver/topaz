@@ -345,7 +345,7 @@ bool CMagicState::HasMoved()
     float xDiff = m_startPos.x - m_PEntity->loc.p.x;
     float yDiff = m_startPos.y = m_PEntity->loc.p.y;
     float realDist = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
-    return (realDist > 1.2f);
+    return (realDist < 1.2f);
 }
 
 void CMagicState::TryInterrupt(CBattleEntity* PAttacker)
