@@ -736,7 +736,7 @@ local function DrainMultipleAttributes(mob, target, power, tick, count, duration
       local newMsg = MobDrainAttribute(mob, target, attributes[i], power, tick, duration);
       if (newMsg == tpz.msg.basic.ATTR_DRAINED) then
         msg = newMsg;
-      elseif (msg == tpz.msg.basic.SKILL_MISS)
+      elseif (msg == tpz.msg.basic.SKILL_MISS) then
         msg = newMsg;
       end
     end
