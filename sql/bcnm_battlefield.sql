@@ -561,17 +561,17 @@ INSERT INTO `bcnm_battlefield` VALUES (116,3,17375493,3); -- beyond_infinity (Ba
 INSERT INTO `bcnm_battlefield` VALUES (128,1,17444865,3); -- temple_of_uggalepih
 INSERT INTO `bcnm_battlefield` VALUES (128,1,17444866,3);
 INSERT INTO `bcnm_battlefield` VALUES (128,1,17444867,3);
-INSERT INTO `bcnm_battlefield` VALUES (128,1,17444868,0);
+INSERT INTO `bcnm_battlefield` VALUES (128,1,17444868,1);
 INSERT INTO `bcnm_battlefield` VALUES (128,1,17444869,0);
 INSERT INTO `bcnm_battlefield` VALUES (128,2,17444870,3);
 INSERT INTO `bcnm_battlefield` VALUES (128,2,17444871,3);
 INSERT INTO `bcnm_battlefield` VALUES (128,2,17444872,3);
-INSERT INTO `bcnm_battlefield` VALUES (128,2,17444873,0);
+INSERT INTO `bcnm_battlefield` VALUES (128,2,17444873,1);
 INSERT INTO `bcnm_battlefield` VALUES (128,2,17444874,0);
 INSERT INTO `bcnm_battlefield` VALUES (128,3,17444875,3);
 INSERT INTO `bcnm_battlefield` VALUES (128,3,17444876,3);
 INSERT INTO `bcnm_battlefield` VALUES (128,3,17444877,3);
-INSERT INTO `bcnm_battlefield` VALUES (128,3,17444878,0);
+INSERT INTO `bcnm_battlefield` VALUES (128,3,17444878,1);
 INSERT INTO `bcnm_battlefield` VALUES (128,3,17444879,0);
 INSERT INTO `bcnm_battlefield` VALUES (129,1,17444880,3); -- jungle_boogymen
 INSERT INTO `bcnm_battlefield` VALUES (129,1,17444881,3);
