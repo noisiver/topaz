@@ -15,7 +15,6 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.UFASTCAST, 50)
 	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
 	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
-	mob:setModelId(32) -- Human Male
     mob:setUnkillable(true)
 end
 
