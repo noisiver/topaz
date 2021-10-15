@@ -2,6 +2,7 @@
 -- Area: Outer Horutoto Ruins
 --   Lilisette
 --   !additem 476 
+--   !pos -571 0.4000 740.0266
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
@@ -10,8 +11,6 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
 	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
 	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
@@ -30,7 +29,7 @@ function onMobFight(mob, target)
         target:PrintToPlayer("Now I'm really hyped!",0,"Lilisette")
         mob:useMobAbility(3308) -- Thorned Dance
 		mob:useMobAbility(25) -- evisceration
-		mob:useMobAbility(190) -- Reverse Flourish
+		--mob:useMobAbility(2313) -- Reverse Flourish
 		mob:useMobAbility(29)  -- pyrrhic_kleos
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6038)
         mob:setLocalVar("DanceChangeTime", battletime + 60)

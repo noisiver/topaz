@@ -11,7 +11,6 @@ require("scripts/globals/status")
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 300) 
-    mob:addMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.UFASTCAST, 50)
     mob:setMod(tpz.mod.UDMGMAGIC, 200)
     mob:setMod(tpz.mod.UDMGPHYS, -10)

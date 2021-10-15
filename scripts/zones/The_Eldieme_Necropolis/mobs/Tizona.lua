@@ -11,8 +11,6 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.DEFP, 10) 
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMod(tpz.mod.UFASTCAST, 50)
 	mob:setModelId(2234) -- Raubahn
