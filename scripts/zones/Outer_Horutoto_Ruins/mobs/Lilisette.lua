@@ -29,7 +29,7 @@ function onMobFight(mob, target)
         target:PrintToPlayer("Now I'm really hyped!",0,"Lilisette")
         mob:useMobAbility(3308) -- Thorned Dance
 		mob:useMobAbility(25) -- evisceration
-		--mob:useMobAbility(2313) -- Reverse Flourish
+		mob:useMobAbility(2313) -- Reverse Flourish
 		mob:useMobAbility(29)  -- pyrrhic_kleos
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6038)
         mob:setLocalVar("DanceChangeTime", battletime + 60)
