@@ -26,12 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     local hp = mob:getHP()
     local dmg = 0
 
-    if (tp <= 2000) then -- 1000 - 2000
-		dmg = math.floor(hp * (math.floor(0.016 * tp) + 16) / 256)
-    else -- 2001 - 3000
-		dmg = math.floor(hp * (math.floor(0.016 * tp) + 16) / 256)
-    end
-	
+	dmg = math.floor(hp * (math.floor(0.016 * tp) + 16) / 256)
 	dmg = target:breathDmgTaken(dmg)
 
     -- Handling phalanx
@@ -49,6 +44,5 @@ function onMobWeaponSkill(target, mob, skill)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.ELEMENTAL)
-	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
