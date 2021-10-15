@@ -15,6 +15,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.UFASTCAST, 50)
 	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
 	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+	mob:setModelId(32) -- Human Male
     mob:setUnkillable(true)
 end
 
@@ -48,7 +49,7 @@ function onMobFight(mob, target)
 		mob:addMod(tpz.mod.ATTP, 20)
 		mob:addMod(tpz.mod.DEFP, 20) 
 		mob:setModelId(1775) -- Soulflayer
-        mob:setMobMod(tpz.mobMod.SKILL_LIST, 1963)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 233)
 		target:PrintToPlayer("...All will succumb to the void....",0,"Soulflayer")
 		mob:setUnkillable(false)
 	end
