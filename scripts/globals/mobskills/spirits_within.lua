@@ -27,6 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = 0
 
 	dmg = math.floor(hp * (math.floor(0.016 * tp) + 16) / 256)
+	dmg = dmg * 0.5
 	dmg = target:breathDmgTaken(dmg)
 
     -- Handling phalanx
