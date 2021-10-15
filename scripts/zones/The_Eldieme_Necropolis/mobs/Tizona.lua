@@ -2,6 +2,7 @@
 -- Area: The Eldieme Necropolis
 --   Raubahn
 --  !additem 475 
+--	!pos 105.9537,0.4000,-179.0539
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/titles")
