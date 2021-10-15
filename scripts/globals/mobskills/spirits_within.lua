@@ -26,11 +26,8 @@ function onMobWeaponSkill(target, mob, skill)
     local hp = mob:getHP()
     local dmg = 0
 
-    if (tp <= 2000) then -- 1000 - 2000
-        dmg = math.floor(hp * (math.floor(0.016 * tp) + 16) / 256)
-    end
-
-    dmg = target:breathDmgTaken(dmg)
+	dmg = math.floor(hp * (math.floor(0.016 * tp) + 16) / 256)
+	dmg = target:breathDmgTaken(dmg)
 
     -- Handling phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
