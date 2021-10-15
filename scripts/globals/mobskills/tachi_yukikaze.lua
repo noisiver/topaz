@@ -12,7 +12,6 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 
 function onMobSkillCheck(target, mob, skill)
-	mob:messageBasic(tpz.msg.basic.READIES_WS, 0, 690+256)
     return 0
 end
 
@@ -25,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     -- Never actually got a good damage sample.  Putting it between Gekko and Kasha.
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-	MobPhysicalStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 25, 0, 60)
+	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BLINDNESS, 25, 0, 60)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
