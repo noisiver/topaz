@@ -17,7 +17,7 @@ function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
-            {id = tpz.jsa.BENEDICTION, hpp = math.random(20, 30)}, -- "Uses Benediction once."
+            {id = tpz.jsa.BENEDICTION, hpp = math.random(50, 55)}, -- "Uses Benediction once."
             {id = tpz.jsa.INVINCIBLE, hpp = math.random(90, 95), cooldown = 90}, -- "Uses Invincible many times."
         },
     })
