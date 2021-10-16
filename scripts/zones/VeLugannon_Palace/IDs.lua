@@ -46,6 +46,19 @@ zones[tpz.zone.VELUGANNON_PALACE] =
             DET7 = 17502555, -- Island Byakko (4)
             DET8 = 17502557,
         }
+        DETECTORS     = 
+        {
+           
+            DET9 = 17502559, -- Genbu North Basement (2-2)
+            DET10 = 17502561,
+            DET11 = 17502563, -- Byakko North Basement (3-1)
+            DET12 = 17502565,
+            DET13 = 17502535, -- Seiryu South Basement (0-1)
+            DET14 = 17502537,
+            DET15 = 17502541, -- Suzaku South Basement (0-2)
+            DET16 = 17502539,
+        }
+
     },
     npc =
     {
