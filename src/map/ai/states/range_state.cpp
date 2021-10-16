@@ -100,7 +100,7 @@ bool CRangeState::Update(time_point tick)
         float xDiff = m_startPos.x - m_PEntity->loc.p.x;
         float yDiff = m_startPos.z - m_PEntity->loc.p.z;
         float realDist = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
-        if (realDist > 1.2f)
+        if (realDist > 0.6f)
 		{
 		m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_MOVE_AND_INTERRUPT);
 		}
