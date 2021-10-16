@@ -45,15 +45,18 @@ function onMobFight(mob, target)
         mob:useMobAbility(710)
         mob:setLocalVar("Charm", 1)
     end
+	
+	if mob:getHPP() <= 25  then
+		local X = mob:getXPos()
+		local Y = mob:getYPos()
+		local Z = mob:getZPos()
+		SpawnMob(mob:getID() + 3)
+		GetMobByID(mob:getID() + 3):setPos(X, Y, Z)
+		GetMobByID(mob:getID() + 3):setSpawn(X, Y, Z)
+		GetMobByID(mob:getID() + 3):updateEnmity(target)
+		DisallowRespawn(mob:getID(), true)
+	end
 end
 
 function onMobDeath(mob, player, isKiller)
-	local X = mob:getXPos()
-	local Y = mob:getYPos()
-	local Z = mob:getZPos()
-	SpawnMob(mob:getID() + 3)
-	GetMobByID(mob:getID() + 3):setPos(X, Y, Z)
-	GetMobByID(mob:getID() + 3):setSpawn(X, Y, Z)
-	GetMobByID(mob:getID() + 3):updateEnmity(target)
-	DisallowRespawn(mob:getID(), true)
 end
