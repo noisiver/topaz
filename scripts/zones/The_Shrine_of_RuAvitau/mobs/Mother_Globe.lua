@@ -44,8 +44,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.REFRESH, 300)
 	mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
-    mob:setLocalVar("Initial_SlaveTimer", now)
-    mob:setLocalVar("SlaveRecast", now)
     onMobRoam(mob)
 end
 
@@ -69,61 +67,37 @@ function onPath(mob)
 end
 
 function onMobRoam(mob)
-    local now = os.time()
-    local slaves = mob:getLocalVar("SlavesSpawned")
-    local slaveRecast = mob:getLocalVar("SlaveRecast")
-    if slaves > 6 then
-        mob:setLocalVar("SlavesSpawned", 0)
-    end
-    if slaves < 6 and (now >= mob:getLocalVar("Initial_SlaveTimer") + 60) then
-        for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
-            local pet = GetMobByID(i)
-            if not pet:isSpawned() and (now > slaveRecast + 10) then
-                local pPet = nil
-                local petId = pet:getID()
-                switch (petId): caseof {
-                    [17506397] = function() 
-                        pet:setSpawn(mob:getXPos(), mob:getYPos(), mob:getZPos())
-                        pet:spawn()
-                        pet:pathTo(mob:getXPos() + 0.15, mob:getYPos(), mob:getZPos() + 0.15) 
-                    end,
-                    [17506398] = function() 
-                        pPet = GetMobByID(petId - 1)
-                        pet:setSpawn(mob:getXPos(), mob:getYPos(), mob:getZPos())
-                        pet:spawn()
-                        pet:pathTo(pPet:getXPos() + 0.5, pPet:getYPos(), pPet:getZPos() + 0.5) 
-                    end,
-                    [17506399] = function() 
-                        pPet = GetMobByID(petId - 1)
-                        pet:setSpawn(mob:getXPos(), mob:getYPos(), mob:getZPos())
-                        pet:spawn()
-                        pet:pathTo(pPet:getXPos() + 0.5, pPet:getYPos(), pPet:getZPos() + 0.5) 
-                    end,
-                    [17506400] = function() 
-                        pPet = GetMobByID(petId - 1)
-                        pet:setSpawn(mob:getXPos(), mob:getYPos(), mob:getZPos())
-                        pet:spawn()
-                        pet:pathTo(pPet:getXPos() + 0.5, pPet:getYPos(), pPet:getZPos() + 0.5) 
-                    end,
-                    [17506401] = function() 
-                        pPet = GetMobByID(petId - 1)
-                        pet:setSpawn(mob:getXPos(), mob:getYPos(), mob:getZPos())
-                        pet:spawn()
-                        pet:pathTo(pPet:getXPos() + 0.5, pPet:getYPos(), pPet:getZPos() + 0.5) 
-                    end,
-                    [17506402] = function() 
-                        pPet = GetMobByID(petId - 1)
-                        pet:setSpawn(mob:getXPos(), mob:getYPos(), mob:getZPos())
-                        pet:spawn()
-                        pet:pathTo(pPet:getXPos() + 0.5, pPet:getYPos(), pPet:getZPos() + 0.5) 
-                    end,
-                }
-                mob:setLocalVar("SlaveRecast", now)
-                mob:setLocalVar("SlavesSpawned", mob:getLocalVar("SlavesSpawned") + 1)
-                break
-            end
-        end
-    end
+	if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
+		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
+	end
+	
+    local Slave = GetMobByID(17506397)
+    local SlaveTwo = GetMobByID(17506398)
+    local SlaveThree = GetMobByID(17506399)
+    local SlaveFour = GetMobByID(17506400)
+    local SlaveFive = GetMobByID(17506401)
+    local SlaveSix = GetMobByID(17506402)
+    local X = mob:getXPos()
+    local Y = mob:getYPos()
+    local Z = mob:getZPos()
+	Guard:spawn()
+	GuardTwo:spawn()
+	GuardThree:spawn()
+	GuardFour:spawn()
+	GuardFive:spawn()
+	GuardSix:spawn()
+	Slave:setPos(X, Y, Z)
+	Slave:setSpawn(X, Y, Z)
+	SlaveTwo:setPos(X, Y, Z)
+	SlaveTwo:setSpawn(X, Y, Z)
+	SlaveThree:setPos(X, Y, Z)
+	SlaveThree:setSpawn(X, Y, Z)
+	SlaveFour:setPos(X, Y, Z)
+	SlaveFour:setSpawn(X, Y, Z)
+	SlaveFive:setPos(X, Y, Z)
+	SlaveFive:setSpawn(X, Y, Z)
+	SlaveSix:setPos(X, Y, Z)
+	SlaveSix:setSpawn(X, Y, Z)
 
     if (mob:isFollowingPath() == false) then
         mob:pathThrough(tpz.path.first(path))
@@ -131,33 +105,19 @@ function onMobRoam(mob)
 end
 
 function onMobFight(mob, target)
-    -- Keep pets linked
-    for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
-        local pet = GetMobByID(i)
-        if pet:getCurrentAction() == tpz.act.ROAMING then
-            pet:updateEnmity(target)
-        end
-    end
-
-    -- Summons a single orb every 30 seconds.  Needs to be last, so other code runs.
-    -- TODO: Should have a SMN casting effect for ~3-5 seconds while calling.
-    if mob:getLocalVar("SlavesSpawned") < 6 then
-        if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
-            mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
-        end
-
-        if mob:getBattleTime() % 30 == 0 and mob:getBattleTime() > 3 then
-            for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
-                local pet = GetMobByID(i)
-                if not pet:isSpawned() then
-                    pet:setSpawn(mob:getXPos() + 1, mob:getYPos(), mob:getZPos() + 1)
-                    pet:spawn()
-                    pet:updateEnmity(target)
-                    return
-                end
-            end
-        end
-    end
+	if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
+		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
+	end
+	
+	for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
+		local pet = GetMobByID(i)
+		if not pet:isSpawned() then
+			pet:setSpawn(mob:getXPos() + 1, mob:getYPos(), mob:getZPos() + 1)
+			pet:spawn()
+			pet:updateEnmity(target)
+			return
+		end
+	end
 end
 
 function onAdditionalEffect(mob, target, damage)
