@@ -45,7 +45,7 @@ zones[tpz.zone.VELUGANNON_PALACE] =
             DET6 = 17502539,
             DET7 = 17502555, -- Island Byakko (4)
             DET8 = 17502557,
-        }
+        },
         DETECTORS     = 
         {
            
