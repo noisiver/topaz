@@ -148,18 +148,59 @@ function onMobRoam(mob)
 end
 
 function onMobFight(mob, target)
+    local now = os.time()
+    local slaves = mob:getLocalVar("SlavesSpawned")
+    local slaveRecast = mob:getLocalVar("SlaveRecast")
 	if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
 		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
 	end
 	
-	for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
-		local pet = GetMobByID(i)
-		if not pet:isSpawned() then
-			spawnPetInBattle(mob, pet)
-			return
-		end
-	end
+    if slaves > 6 then
+        mob:setLocalVar("SlavesSpawned", 0)
+    end
+
+        -- Summons a single orb every 30 seconds.  Needs to be last, so other code runs.
+        -- TODO: Should have a SMN casting effect for ~3-5 seconds while calling.
+    if slaves < 6 and (now >= mob:getLocalVar("Initial_SlaveTimer")) then
+        for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
+            local pet = GetMobByID(i)
+            if not pet:isSpawned() and (now > slaveRecast + 30) then
+                local pPet = nil
+                local petId = pet:getID()
+                switch (petId): caseof {
+                    [17506397] = function() 
+                        pet:setSpawn(mob:getXPos() + 1, mob:getYPos(), mob:getZPos())
+                        spawnPetInBattle(mob, pet)
+                    end,
+                    [17506398] = function() 
+                        pet:setSpawn(mob:getXPos() + 2, mob:getYPos(), mob:getZPos())
+                        spawnPetInBattle(mob, pet)
+                    end,
+                    [17506399] = function() 
+                        pet:setSpawn(mob:getXPos() + 3, mob:getYPos(), mob:getZPos())
+                        spawnPetInBattle(mob, pet)
+                    end,
+                    [17506400] = function() 
+                        pet:setSpawn(mob:getXPos() + 4, mob:getYPos(), mob:getZPos())
+                        spawnPetInBattle(mob, pet)
+                    end,
+                    [17506401] = function() 
+                        pet:setSpawn(mob:getXPos() + 5, mob:getYPos(), mob:getZPos())
+                        spawnPetInBattle(mob, pet)
+                    end,
+                    [17506402] = function() 
+                        pet:setSpawn(mob:getXPos() + 6, mob:getYPos(), mob:getZPos())
+                        spawnPetInBattle(mob, pet)
+                    end,
+                }
+                mob:setLocalVar("SlaveRecast", now)
+                mob:setLocalVar("SlavesSpawned", mob:getLocalVar("SlavesSpawned") + 1)
+                break
+            end
+        end
+    end
 end
+
 
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER)
