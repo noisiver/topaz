@@ -32,6 +32,22 @@ local path =
     859, -99, -539,
 }
 
+function spawnPetInBattle(mob, pet)
+    mob:entityAnimationPacket("casm")
+    mob:SetAutoAttackEnabled(false)
+    mob:SetMagicCastingEnabled(false)
+    mob:SetMobAbilityEnabled(false)
+    mob:timer(3000, function(mob)
+        mob:entityAnimationPacket("shsm")
+        mob:SetAutoAttackEnabled(true)
+        mob:SetMagicCastingEnabled(true)
+        mob:SetMobAbilityEnabled(true)
+        pet:spawn()
+        pet:updateEnmity(mob:getTarget())
+    end)
+end
+
+
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
@@ -139,9 +155,7 @@ function onMobFight(mob, target)
 	for i = ID.mob.MOTHER_GLOBE.SLAVE_START, ID.mob.MOTHER_GLOBE.SLAVE_END do
 		local pet = GetMobByID(i)
 		if not pet:isSpawned() then
-			pet:setSpawn(mob:getXPos() + 3, mob:getYPos(), mob:getZPos() + 3)
-			pet:spawn()
-			pet:updateEnmity(target)
+			spawnPetInBattle(mob, pet)
 			return
 		end
 	end
