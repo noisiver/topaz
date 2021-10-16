@@ -428,7 +428,7 @@ end
 function spawnSteamCleaner(mob)
     local now = os.time()
     local sc = GetMobByID(ID.mob.STEAM_CLEANER)
-    if now >= GetServerVariable("SteamCleaner_Respawn") and (math.random(100) < 99) then
+    if now >= GetServerVariable("SteamCleaner_Respawn") and (math.random(100) < 20) then
        if not sc:isSpawned() then
           mob:setLocalVar("summoning", 1)
           mob:entityAnimationPacket("casm")

@@ -11368,7 +11368,7 @@ INSERT INTO `mob_groups` VALUES (9237,3992,176,'Treasure_Chest',0,0,0,0,0,0,0,0)
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,3056,177,'Ornamental_Weapon',330,0,1957,0,0,74,76,0);
-INSERT INTO `mob_groups` VALUES (2,1013,177,'Detector',330,0,639,500,0,72,74,0);
+INSERT INTO `mob_groups` VALUES (2,1013,177,'Detector',1800,0,639,500,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (3,638,177,'Caretaker',0,128,415,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (4,2792,177,'Mystic_Weapon',330,0,1764,0,0,74,77,0);
 INSERT INTO `mob_groups` VALUES (5,71,177,'Air_Elemental',330,0,38,0,0,79,80,0);
