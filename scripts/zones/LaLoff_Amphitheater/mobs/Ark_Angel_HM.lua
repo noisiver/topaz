@@ -14,6 +14,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.MDEF, 12) 
 	mob:setMod(tpz.mod.SUB_DMG_RATING, 120)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setUnkillable(true)
     tpz.mix.jobSpecial.config(mob, {
         between = 30,
         specials =
@@ -36,7 +37,7 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-	if mob:getHPP() <= 25  then
+	if mob:getHPP() <= 10  then
 		local X = mob:getXPos()
 		local Y = mob:getYPos()
 		local Z = mob:getZPos()
@@ -53,6 +54,7 @@ function onMobFight(mob, target)
 		GetMobByID(mob:getID() + 2):updateEnmity(target)
 		GetMobByID(mob:getID() + 3):updateEnmity(target)
 		DisallowRespawn(mob:getID(), true)
+		mob:setUnkillable(false)
 	end
 end
 

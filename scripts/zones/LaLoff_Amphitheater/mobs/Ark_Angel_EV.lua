@@ -14,10 +14,11 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 10) 
     mob:setMod(tpz.mod.MDEF, 12) 
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setUnkillable(true)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
-            {id = tpz.jsa.BENEDICTION, hpp = math.random(50, 55)}, -- "Uses Benediction once."
+            {id = tpz.jsa.BENEDICTION, hpp = math.random(20, 50)}, -- "Uses Benediction once."
             {id = tpz.jsa.INVINCIBLE, hpp = math.random(90, 95), cooldown = 90}, -- "Uses Invincible many times."
         },
     })
@@ -35,7 +36,7 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-	if mob:getHPP() <= 25  then
+	if mob:getHPP() <= 10  then
 		local X = mob:getXPos()
 		local Y = mob:getYPos()
 		local Z = mob:getZPos()
@@ -44,6 +45,7 @@ function onMobFight(mob, target)
 		GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
 		GetMobByID(mob:getID() + 1):updateEnmity(target)
 		DisallowRespawn(mob:getID(), true)
+		mob:setUnkillable(false)
 	end
 end
 
