@@ -13,8 +13,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.MOVE, 200)
-    onMobRoam(mob)
+    mob:setMod(tpz.mod.MOVE, 50)
+	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+	onMobRoam(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
