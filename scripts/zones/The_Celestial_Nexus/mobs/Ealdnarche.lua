@@ -33,10 +33,17 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
+	local orbitalOne = GetMobByID(mob:getID()+3)
+	local orbitalTwo = GetMobByID(mob:getID()+4)
+	
+	 if orbitalOne:isSpawned() then
+		orbitalOne:updateEnmity(target)
+	end
+	if  orbitalTwo:isSpawned() then
+		orbitalTwo:updateEnmity(target)
+	end
+	
     if (mob:getBattleTime() % 9 <= 2) then
-        local orbitalOne = GetMobByID(mob:getID()+3)
-        local orbitalTwo = GetMobByID(mob:getID()+4)
-
         if not orbitalOne:isSpawned() then
             orbitalOne:setPos(mob:getPos())
             orbitalOne:spawn()

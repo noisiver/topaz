@@ -23,7 +23,6 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.UDMGMAGIC, 50)
         mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
         mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
-        mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17289655)
         mob:SetMobAbilityEnabled(true)
         mob:setLocalVar("Bro", 1)
     end

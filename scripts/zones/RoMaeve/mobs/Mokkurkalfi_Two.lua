@@ -39,7 +39,6 @@ function onMobFight(mob, target)
 	if BroDead then
 		    mob:setLocalVar("hastemod", 0)
 	end
-    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17276929)
 end
 
 function onMobDeath(mob, player, isKiller)
