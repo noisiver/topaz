@@ -80,6 +80,7 @@ function onMobFight(mob, target)
     mob:setMod(tpz.mod.SDT_DARK, 100)
     mob:setMod(tpz.mod.SDT_FIRE, 100)
     mob:setMod(tpz.mod.SDT_ICE, 100)
+    mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
 	mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17506396)
 end
 
