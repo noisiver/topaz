@@ -29,7 +29,7 @@ function onMonsterMagicPrepare(mob, target)
     else
         return 239 -- shock
     end
-
+    return 0 -- Still need a return, so use 0 when not casting
 end
 
 function onMobDeath(mob, player, isKiller)
