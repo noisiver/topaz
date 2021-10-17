@@ -29,14 +29,14 @@ function onMonsterMagicPrepare(mob, target)
     else
         return 239 -- shock
     end
-
+    return 0 -- Still need a return, so use 0 when not casting
 end
 
 function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    local respawn = math.random(7200, 14400)
-    mob:setRespawnTime(respawn) -- 2 to 4 hours
+    local respawn = 7200
+    mob:setRespawnTime(respawn) -- 2 hours
     SetServerVariable("SteamCleaner_Respawn", (os.time() + respawn))
 end

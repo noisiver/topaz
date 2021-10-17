@@ -714,7 +714,7 @@ function MobDrainAttribute(mob, target, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
-local function DrainMultipleAttributes(mob, target, power, tick, count, duration)
+function DrainMultipleAttributes(mob, target, power, tick, count, duration)
     local attributes = {};
     local currIndex = 1;
     while (currIndex <= count) do
@@ -822,7 +822,7 @@ function MobHealMove(target, heal)
     return heal
 end
 
-local function MobEncumberMove(target, maxSlots, duration)
+function MobEncumberMove(target, maxSlots, duration)
     local encumberSlots = {};
     local currIndex = 1;
     while (currIndex <= maxSlots) do
@@ -843,7 +843,7 @@ local function MobEncumberMove(target, maxSlots, duration)
       target:unequipItem(encumberSlots[i]);
       mask = mask + math.pow(2, encumberSlots[i]);
     end
-   return target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
+    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
 end
 
 function MobTakeAoEShadow(mob, target, max)

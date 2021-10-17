@@ -8493,8 +8493,8 @@ INSERT INTO `mob_groups` VALUES (10,2255,127,'King_Behemoth',0,128,1450,75000,0,
 INSERT INTO `mob_groups` VALUES (11,3135,127,'Picklix_Longindex',0,128,0,6000,0,61,61,0);
 INSERT INTO `mob_groups` VALUES (12,2767,127,'Moxnix_Nightgoggle',0,128,0,6000,0,61,61,0);
 INSERT INTO `mob_groups` VALUES (13,1074,127,'Doglix_Muttsnout',0,128,0,6000,0,61,61,0);
-INSERT INTO `mob_groups` VALUES (14,130,127,'Ancient_Weapon',0,128,0,17500,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (15,2387,127,'Legendary_Weapon',0,128,0,17500,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (14,130,127,'Ancient_Weapon',0,128,0,17500,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (15,2387,127,'Legendary_Weapon',0,128,0,17500,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (16,1836,127,'Gudanna',0,128,0,0,0,55,60,0);
 INSERT INTO `mob_groups` VALUES (17,4695,127,'Pil-VNM',0,128,0,0,9999,94,95,0);
 INSERT INTO `mob_groups` VALUES (18,6558,127,'Lost_Soul',330,1,1541,0,0,45,47,0);
@@ -10565,9 +10565,9 @@ INSERT INTO `mob_groups` VALUES (8575,3992,162,'Treasure_Chest',0,0,0,0,0,0,0,0)
 -- Sacrificial_Chamber (Zone 163)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1798,163,'Grav_iton',0,128,0,10000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (2,2729,163,'Molyb_iton',0,128,0,9500,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (3,4052,163,'Tungs_iton',0,128,0,9000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (1,1798,163,'Grav_iton',0,128,0,5000,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (2,2729,163,'Molyb_iton',0,128,0,5000,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (3,4052,163,'Tungs_iton',0,128,0,5000,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (4,4674,163,'Tungs_itons_Elemental',0,128,0,5000,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (5,3970,163,'Tonberrys_Avatar',0,128,0,2400,0,57,58,0);
 INSERT INTO `mob_groups` VALUES (6,3425,163,'Sable-tongued_Gonberry',0,128,0,4000,0,65,65,0);
@@ -10808,9 +10808,9 @@ INSERT INTO `mob_groups` VALUES (24,2764,167,'Mousse',600,0,567,0,0,58,62,0);
 -- Chamber_of_Oracles (Zone 168)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,673,168,'Centurio_V-III',0,128,11150,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (2,4000,168,'Triarius_V-VIII',0,128,0,9500,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (3,3194,168,'Princeps_V-XI',0,128,0,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (1,673,168,'Centurio_V-III',0,128,5000,0,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (2,4000,168,'Triarius_V-VIII',0,128,0,5000,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (3,3194,168,'Princeps_V-XI',0,128,0,5000,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (4,5345,168,'Maat',0,128,0,2500,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (5,5403,168,'Maat',0,128,0,2500,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (6,5404,168,'Maat',0,128,0,2500,0,70,70,0);
@@ -11368,7 +11368,7 @@ INSERT INTO `mob_groups` VALUES (9237,3992,176,'Treasure_Chest',0,0,0,0,0,0,0,0)
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,3056,177,'Ornamental_Weapon',330,0,1957,0,0,74,76,0);
-INSERT INTO `mob_groups` VALUES (2,1013,177,'Detector',330,0,639,500,0,72,74,0);
+INSERT INTO `mob_groups` VALUES (2,1013,177,'Detector',1800,0,639,500,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (3,638,177,'Caretaker',0,128,415,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (4,2792,177,'Mystic_Weapon',330,0,1764,0,0,74,77,0);
 INSERT INTO `mob_groups` VALUES (5,71,177,'Air_Elemental',330,0,38,0,0,79,80,0);
@@ -11458,14 +11458,14 @@ INSERT INTO `mob_groups` VALUES (9307,4498,179,'Zeid',0,0,0,0,0,0,0,0);
 -- LaLoff_Amphitheater (Zone 180)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,237,180,'Ark_Angel_HM',0,128,0,7000,1000,85,85,0);
-INSERT INTO `mob_groups` VALUES (2,238,180,'Ark_Angel_MR',0,128,0,7000,1000,85,85,0);
-INSERT INTO `mob_groups` VALUES (3,240,180,'Ark_Angels_Tiger',0,128,0,2500,0,76,76,0);
-INSERT INTO `mob_groups` VALUES (4,239,180,'Ark_Angels_Mandragora',0,128,0,2500,0,76,76,0);
-INSERT INTO `mob_groups` VALUES (5,235,180,'Ark_Angel_EV',0,128,0,7000,1000,85,85,0);
-INSERT INTO `mob_groups` VALUES (6,242,180,'Ark_Angel_TT',0,128,0,7000,1000,85,85,0);
-INSERT INTO `mob_groups` VALUES (7,236,180,'Ark_Angel_GK',0,128,0,7000,1000,85,85,0);
-INSERT INTO `mob_groups` VALUES (8,241,180,'Ark_Angels_Wyvern',0,128,0,2500,0,76,76,0);
+INSERT INTO `mob_groups` VALUES (1,237,180,'Ark_Angel_HM',0,128,0,7000,9999,81,81,0);
+INSERT INTO `mob_groups` VALUES (2,238,180,'Ark_Angel_MR',0,128,0,7000,9999,81,81,0);
+INSERT INTO `mob_groups` VALUES (3,240,180,'Ark_Angels_Tiger',0,128,0,1000,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (4,239,180,'Ark_Angels_Mandragora',0,128,0,1000,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (5,235,180,'Ark_Angel_EV',0,128,0,7000,9999,81,81,0);
+INSERT INTO `mob_groups` VALUES (6,242,180,'Ark_Angel_TT',0,128,0,7000,9999,81,81,0);
+INSERT INTO `mob_groups` VALUES (7,236,180,'Ark_Angel_GK',0,128,0,7000,9999,81,81,0);
+INSERT INTO `mob_groups` VALUES (8,241,180,'Ark_Angels_Wyvern',0,128,0,9999,0,75,75,0);
 
 -- ------------------------------------------------------------
 -- The_Celestial_Nexus (Zone 181)

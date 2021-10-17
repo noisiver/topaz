@@ -11,11 +11,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 10) 
     mob:setMod(tpz.mod.MDEF, 16) 
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setUnkillable(true)
     tpz.mix.jobSpecial.config(mob, {
         between = 30,
         specials =
@@ -58,7 +58,7 @@ function onMobFight(mob, target)
         mob:setSpellList(39)
     end
 	
-	if mob:getHPP() <= 25  then
+	if mob:getHPP() <= 10  then
 		local X = mob:getXPos()
 		local Y = mob:getYPos()
 		local Z = mob:getZPos()
@@ -68,6 +68,7 @@ function onMobFight(mob, target)
 		GetMobByID(mob:getID() + 1):setSpawn(X, Y, Z)
 		GetMobByID(mob:getID() + 1):updateEnmity(target)
 		DisallowRespawn(mob:getID(), true)
+		mob:setUnkillable(false)
 	end
 end
 

@@ -62,15 +62,12 @@ function onSpellCast(caster, target, spell)
 		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	end
 	
-    local duration = 300
     local playerHP = caster:getLocalVar("self-destruct_hp")
-    local damage = playerHP - 1
+    local damage = ((playerHP - 1) * 2) * resist
 
     if damage > 0 then
         target:takeSpellDamage(caster, spell, playerHP, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
         caster:setHP(1)
-        caster:delStatusEffect(tpz.effect.WEAKNESS)
-        caster:addStatusEffect(tpz.effect.WEAKNESS, 1, 0, duration)
     end
 
     return damage

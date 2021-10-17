@@ -31,7 +31,7 @@ function onMonsterMagicPrepare(mob, target)
     else
         return 112 -- flash
     end
-
+    return 0 -- Still need a return, so use 0 when not casting
 end
 
 function onAdditionalEffect(mob, target, damage)
