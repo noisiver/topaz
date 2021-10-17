@@ -58,7 +58,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.REFRESH, 300)
-	mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
+	mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 3600)
 
     local Slave = GetMobByID(17506397)
     local SlaveTwo = GetMobByID(17506398)
@@ -111,7 +111,7 @@ end
 
 function onMobRoam(mob)
 	if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
-		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
+		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 3600)
 	end
 	
     local Slave = GetMobByID(17506397)
@@ -152,7 +152,7 @@ function onMobFight(mob, target)
     local slaves = mob:getLocalVar("SlavesSpawned")
     local slaveRecast = mob:getLocalVar("SlaveRecast")
 	if mob:hasStatusEffect(tpz.effect.SHOCK_SPIKES) == false then
-		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 60)
+		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 3600)
 	end
 	
     if slaves > 6 then
