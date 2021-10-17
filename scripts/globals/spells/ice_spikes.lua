@@ -14,9 +14,13 @@ function onSpellCast(caster, target, spell)
     local duration = calculateDuration(SPIKE_EFFECT_DURATION, spell:getSkillType(), spell:getSpellGroup(), caster, target)
     local typeEffect = tpz.effect.ICE_SPIKES
 
-    local int = caster:getStat(tpz.mod.INT)
-    local magicAtk = caster:getMod(tpz.mod.MATT)
-    local power = ((int + 10) / 20 + 2) * (1 + magicAtk / 100)
+    local INT = caster:getStat(tpz.mod.INT)
+    local MAB = caster:getMod(tpz.mod.MATT)
+    local power = math.floor((INT + 50) / 20) * (1 + MAB / 100)
+
+	if power > 15 then
+		power = 15
+	end
 
     if target:addStatusEffect(typeEffect, power, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
