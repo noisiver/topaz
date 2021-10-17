@@ -51,6 +51,12 @@ function onSpellCast(caster, target, spell)
     params.AttkTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+	local demon = (target:getSystem() == 9)
+	
+	if demon then
+		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+	end
     
 	if (target:hasStatusEffect(tpz.effect.ATTACK_DOWN) == false) and resist >= 0.5  then
 		target:addStatusEffect(tpz.effect.ATTACK_DOWN, 20, 0, 180)

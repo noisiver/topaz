@@ -26,10 +26,19 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 0
     params.effect = tpz.effect.PLAGUE
     local resist = applyResistance(caster, target, spell, params)
-    local duration = 60 * resist
     local power = 50
+	local lizard = (target:getSystem() == 14)
+	local plantoid = (target:getSystem() == 17)
+	-- add correlation bonus
+	if lizard then
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+	elseif plantoid then
+		params.bonus = -25
+	end
+    local duration = 60 * resist
 
     if (resist >= 0.5) then -- Do it!
         if (target:addStatusEffect(params.effect, power, 0, duration)) then

@@ -49,12 +49,13 @@ function onSpellCast(caster, target, spell)
     local HP = caster:getHP()
     local LVL = caster:getMainLvl()
     local damage = (HP / 2) 
-    local family = target:getSystem()
+	local vermin = (target:getSystem() == 20)
+	local beast = (target:getSystem() == 6)
 
-	 if (family == tpz.eco.VERMIN) then
+	 if vermin then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
 		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-    elseif (family == tpz.eco.BEAST) then
+    elseif beast then
 		damage = damage * 0.75
 		params.bonus = -25
 	end

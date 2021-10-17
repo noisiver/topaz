@@ -23,6 +23,11 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    params.diff = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    params.attribute = tpz.mod.MND
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 0
+    local params = {}
     local multi = 3.2
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
@@ -46,20 +51,13 @@ function onSpellCast(caster, target, spell)
 	-- add correlation bonus
 	if amorph then
 	 	damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-	elseif plantoid then
-		bird = damage * 0.75
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+	elseif bird then
+		damage = damage * 0.75
+		params.bonus = -25
 	end
+	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-
-    local params = {}
-
-    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-
-    params.attribute = tpz.mod.INT
-
-    params.skillType = tpz.skill.BLUE_MAGIC
-
-    params.bonus = 1.0
 
     local resist = applyResistance(caster, target, spell, params)
 

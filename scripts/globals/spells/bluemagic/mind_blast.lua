@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.multiplier = multi
     params.tMultiplier = 1.5
@@ -51,6 +51,7 @@ function onSpellCast(caster, target, spell)
 	
 	if dragon then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 

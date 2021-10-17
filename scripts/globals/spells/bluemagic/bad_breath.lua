@@ -26,7 +26,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    params.bonus = 25
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
@@ -112,9 +112,8 @@ function onSpellCast(caster, target, spell)
     if (damage > 0 and resist >= 0.5) then
     local typeEffect = tpz.effect.BLINDNESS
         target:delStatusEffect(typeEffect)
-        target:addStatusEffect(typeEffect, 25, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
+        target:addStatusEffect(typeEffect, 30, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
     return damage
-
 end
