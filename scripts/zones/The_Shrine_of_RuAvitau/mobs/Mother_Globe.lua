@@ -171,8 +171,6 @@ end
 
 
 function onMobFight(mob, target)
-    mob:setMod(tpz.mod.DEFP, 0) 
-    mob:setMod(tpz.mod.ATTP, 0)
     local now = os.time()
     local slaves = mob:getLocalVar("SlavesSpawned")
     local slaveRecast = mob:getLocalVar("SlaveRecast")
