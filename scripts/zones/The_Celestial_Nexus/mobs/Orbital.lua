@@ -14,6 +14,16 @@ end
 
 function onMobFight(mob, target)
 	mob:setMod(tpz.mod.REGAIN, 50)
+	local EaldOne = GetMobByID(17518595)
+	local EaldTwo = GetMobByID(17518600)
+	local EaldThree = GetMobByID(17518605)
+	 if EaldOne:isSpawned() then
+		mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17518595)
+	elseif EaldTwo:isSpawned() then
+		mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17518600)
+	elseif EaldThree:isSpawned() then
+		mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17518605)
+	end
 end
 
 function onMobDeath(mob, player, isKiller)
