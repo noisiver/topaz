@@ -71,10 +71,6 @@ end
 
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.ACC, 50) 
-    mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.REFRESH, 300)
 	mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 3600)
     local now = os.time()
@@ -175,6 +171,8 @@ end
 
 
 function onMobFight(mob, target)
+    mob:setMod(tpz.mod.DEFP, 0) 
+    mob:setMod(tpz.mod.ATTP, 0)
     local now = os.time()
     local slaves = mob:getLocalVar("SlavesSpawned")
     local slaveRecast = mob:getLocalVar("SlaveRecast")
