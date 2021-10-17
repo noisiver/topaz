@@ -54,6 +54,18 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
+    mob:setMod(tpz.mod.DEF, 329) 
+    mob:setMod(tpz.mod.ATT, 378)
+    mob:setMod(tpz.mod.ACC, 321) 
+    mob:setMod(tpz.mod.EVA, 302)
+    mob:setMod(tpz.mod.SDT_WATER, 100)
+    mob:setMod(tpz.mod.SDT_LIGHT, 100)
+    mob:setMod(tpz.mod.SDT_EARTH, 100)
+    mob:setMod(tpz.mod.SDT_WIND, 100)
+    mob:setMod(tpz.mod.SDT_THUNDER, 150)
+    mob:setMod(tpz.mod.SDT_DARK, 100)
+    mob:setMod(tpz.mod.SDT_FIRE, 100)
+    mob:setMod(tpz.mod.SDT_ICE, 100)
 	mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17506396)
 end
 

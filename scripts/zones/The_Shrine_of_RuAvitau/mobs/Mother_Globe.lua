@@ -192,7 +192,7 @@ function onMobFight(mob, target)
 	SlaveOne:updateEnmity(target)
 	SlaveTwo:updateEnmity(target)
 	SlaveThree:updateEnmity(target)
-	SlaveFOur:updateEnmity(target)
+	SlaveFour:updateEnmity(target)
 	SlaveFive:updateEnmity(target)
 	SlaveSix:updateEnmity(target)
 	
