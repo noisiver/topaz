@@ -21,7 +21,7 @@ function onMobFight(mob, target)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.EVA, 50)
+    mob:setMod(tpz.mod.REFRESH, 400)
 end
 
 function onMobDeath(mob, player, isKiller)
