@@ -18,21 +18,23 @@ require("scripts/globals/weaponskills")
 
 function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
-    local params = {}
-    params.numHits = 1
-    params.ftp100 = 3 params.ftp200 = 4.5 params.ftp300 = 5.5
-    params.str_wsc = 0.5 params.dex_wsc = 0.0 params.vit_wsc = 0.5 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
-    params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
-    params.canCrit = false
-    params.acc100 = 0.0 params.acc200= 0.0 params.acc300= 0.0
-    params.atk100 = 1.5; params.atk200 = 1.5; params.atk300 = 1.5
+	local params = {}
+    params.ftp100 = 3.0 params.ftp200 = 3.5 params.ftp300 = 4.0
+    params.str_wsc = 1.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
+    params.ele = tpz.magic.ele.FIRE
+    params.skill = tpz.skill.AXE
+    params.includemab = true
+	params.enmityMult = 0.5
+	params.bonusmacc = 50
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
-        params.ftp100 = 2.5 params.ftp200 = 6.5 params.ftp300 = 10.375
-        params.str_wsc = 0.5 params.vit_wsc = 0.5
+        params.ftp300 = 3.75
+        params.str_wsc = 0.4 params.int_wsc = 0.4
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+    local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
+	if damage > 0 then player:trySkillUp(target, tpz.skill.AXE, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     return tpHits, extraHits, criticalHit, damage
 
 end
