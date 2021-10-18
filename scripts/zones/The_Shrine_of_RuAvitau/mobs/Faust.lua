@@ -12,33 +12,56 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
-function onMobInitialize(mob)
-	mob:setMod(tpz.mod.MOVE, 60)
-end
 
 function onMobFight(mob, target)
-	mob:setMod(tpz.mod.REGAIN, 500)
-end
-
-
-function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 539 then
-        local Typhoon = mob:getLocalVar("Typhoon")
-
-        Typhoon = Typhoon +1
-        mob:setLocalVar("Typhoon", Typhoon)
-
-        if Typhoon > 2 then
-            mob:setLocalVar("Typhoon", 0)
-        else
-            mob:useMobAbility(539)
-        end
+    local changeTime = mob:getLocalVar("changeTime")
+    local state = mob:getLocalVar("state")
+    -- > 40% uses Typhoon back to back every 15 seconds
+    if mob:getHPP() >= 50 and mob:getBattleTime() - changeTime >= 15 and mob:checkDistance(mob:getTarget()) <= 10 then
+        mob:useMobAbility(539)
+        mob:timer(4000, function(faust)
+            if faust:checkDistance(faust:getTarget()) <= 10 then
+                faust:useMobAbility(539)
+            end
+        end)
+        mob:setLocalVar("changeTime", mob:getBattleTime())
+    -- < 40% spams Typhoon over and over
+    elseif mob:getHPP() < 50 and state == 0 then
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 367)
+        mob:setMod(tpz.mod.REGAIN, 3000)
+        mob:setLocalVar("state", 1)
     end
 end
 
+function onMobRoam(mob)
+    local roam = mob:getLocalVar("roam")
+    local faustPos = mob:getPos()
+    -- Stationary looking back and forth every 9 seconds
+    if (roam >= 2 and faustPos.x == 740 and faustPos.y == 0 and faustPos.z == -99) then
+        mob:setLocalVar("roam", 0)
+        if (faustPos.rot ~= 255) then
+            faustPos.rot = 255
+        else
+            faustPos.rot = 190
+        end
+        mob:setPos(faustPos.x, faustPos.y, faustPos.z, faustPos.rot)
+    else 
+        mob:setLocalVar("roam", roam+1)
+        mob:pathThrough({ 740.000, -0.400, -99.000 })
+    end
+end
+
+function onMobDisengage(mob)
+    mob:setLocalVar("changeTime", 0)
+    mob:setLocalVar("state", 0)
+    mob:setMobMod(tpz.mobMod.SKILL_LIST, 0)
+    mob:delMod(tpz.mod.REGAIN, 3000)
+    mob:setTP(0)
+end
 
 function onMobDeath(mob, player, isKiller)
 end
+
 
 function onMobDespawn(mob)
     mob:setRespawnTime(14400) -- 4 hours
