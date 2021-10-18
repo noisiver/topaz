@@ -3,10 +3,10 @@
 --  Mob: Faust
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.ACC, 50) 
-    mob:addMod(tpz.mod.EVA, 25)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 20)
+    mob:addMod(tpz.mod.ACC, 20) 
+    mob:addMod(tpz.mod.EVA, 20)
     mob:setMod(tpz.mod.REFRESH, 300)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
