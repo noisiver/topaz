@@ -1324,7 +1324,7 @@ function shadowAbsorb(target)
     local shadowType = tpz.mod.UTSUSEMI
 
     if targShadows == 0 then
-        if math.random() < 0.8 then
+        if math.random() < 0.5 then
             targShadows = target:getMod(tpz.mod.BLINK)
             shadowType = tpz.mod.BLINK
         end
