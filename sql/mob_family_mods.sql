@@ -410,6 +410,7 @@ INSERT INTO `mob_family_mods` VALUES (511,25,50,0);	-- Ahriman +50 ACC
 INSERT INTO `mob_family_mods` VALUES (511,68,50,0);	-- Ahriman +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (511,389,-25,0); -- Ahriman -25% MDT
 INSERT INTO `mob_family_mods` VALUES (511,29,70,0);	 -- Ahriman +50 MDB
+INSERT INTO `mob_family_mods` VALUES (511,23,16,1);	 -- Silence Immunity
 INSERT INTO `mob_family_mods` VALUES (511,28,-100,1); -- Ahriman -100% exp
 
 
