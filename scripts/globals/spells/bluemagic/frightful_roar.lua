@@ -26,14 +26,14 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
+    params.bonus = 25
     params.effect = tpz.effect.DEFENSE_DOWN
     local resist = applyResistance(caster, target, spell, params)
     local power = 15
 	local dragon = (target:getSystem() == 10)
 	
 	if dragon then
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+		params.bonus = 50 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	end
 
     if (resist >= 0.5) then -- Do it!

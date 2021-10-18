@@ -29,6 +29,14 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.EVASION_DOWN
     local resist = applyResistance(caster, target, spell, params)
     local power = 20
+	local vermin = (target:getSystem() == 20)
+	local beast = (target:getSystem() == 6)
+
+	 if vermin then
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    elseif beast then
+		params.bonus = -25
+	end
 
     if (resist >= 0.5) then -- Do it!
         local typeEffect = tpz.effect.EVASION_DOWN

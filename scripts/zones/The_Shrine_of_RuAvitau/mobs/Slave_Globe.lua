@@ -13,18 +13,16 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.MOVE, 50)
-	mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
-	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
-	onMobRoam(mob)
+	mob:setHP(600)
+    mob:addMod(tpz.mod.MOVE, 45)
+    onPath(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN)
 end
 
-function onMobRoam(mob)
+function onPath(mob)
     local mother = GetMobByID(ID.mob.MOTHER_GLOBE.MOTHER)
     if mother:isSpawned() then
         local mobId = mob:getID()
@@ -56,6 +54,10 @@ function onMobEngaged(mob, target)
     end
 end
 
+function onMobFight(mob, target)
+	mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17506396)
+end
+
 function onMobDeath(mob)
 end
 
@@ -65,3 +67,4 @@ function onMobDespawn(mob)
         mother:setLocalVar("SlavesSpawned", mother:getLocalVar("SlavesSpawned") - 1)
     end
 end
+

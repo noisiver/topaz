@@ -33,6 +33,14 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = typeEffect
     local resist = applyResistanceEffect(caster, target, spell, params)
+	local aquan = (target:getSystem() == 2)
+	local amorph = (target:getSystem() == 1)
+	
+	if aquan then
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+	elseif amorph then
+		params.bonus = -25
+	end
     local duration = 90 * resist
 
     if (resist >= 0.5) then -- Do it!

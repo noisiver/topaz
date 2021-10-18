@@ -50,13 +50,17 @@ function onSpellCast(caster, target, spell)
         damage = math.floor(damage * 1.25)
         -- printf("is behind mob")
     end
-    local family = target:getSystem()
+	local vermin = (target:getSystem() == 20)
+	local beast = (target:getSystem() == 6)
 
-	 if (family == tpz.eco.VERMIN) then
+	 if vermin then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-    elseif (family == tpz.eco.BEAST) then
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    elseif beast then
 		damage = damage * 0.75
+		params.bonus = -25
 	end
+	
     damage = BlueFinalAdjustmentsCustomEnmity(caster, target, spell, damage, params) -- Regurgitation has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
 	
 	if (damage > 0 and resist >= 0.5) then

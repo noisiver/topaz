@@ -12,6 +12,7 @@ function onMobInitialize(mob)
     -- 60% fast cast, -75% physical damage taken, 10tp/tick regain, no standback
     mob:addMod(tpz.mod.UFASTCAST, 60)
     mob:addMod(tpz.mod.UDMGPHYS, -75)
+    mob:addMod(tpz.mod.UDMGRANGE, -75)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
