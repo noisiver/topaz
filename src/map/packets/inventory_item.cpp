@@ -78,11 +78,6 @@ CInventoryItemPacket::CInventoryItemPacket(CItem* PItem, uint8 LocationID, uint8
             ref<uint8>(0x14) = flags;
         }
 
-        if (PItem->isType(ITEM_WEAPON) && ((CItemWeapon*)PItem)->isUnlockable())
-        {
-            ref<uint16>(0x11) = 0;
-        }
-
         if (PItem->getCharPrice() != 0)
         {
             ref<uint8>(0x10) = 0x19;
