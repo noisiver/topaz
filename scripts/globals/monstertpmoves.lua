@@ -793,7 +793,11 @@ end
 -- similar to statuseffect move except it will only take effect if facing
 function MobGazeMove(mob, target, typeEffect, power, tick, duration)
     if (target:isFacing(mob)) then
-        return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
+		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
+			return tpz.msg.basic.SKILL_NO_EFFECT
+		else
+			return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
+		end
     end
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
