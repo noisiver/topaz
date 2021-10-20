@@ -180,11 +180,11 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     --firstHitChance = utils.clamp(firstHitChance, 35, 95)
     firstHitChance = utils.clamp(firstHitChance, 20, 95)
 
-    local MS = mob:getLocalVar("MightyStrikes")
+    local MS = 0
     if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
-       mob:setLocalVar("MightyStrikes", 1)
+       MS = 1
     else
-       mob:setLocalVar("MightyStrikes", 0)
+       MS = 0
     end
 
     if ((chance*100) <= firstHitChance) then
