@@ -23,7 +23,7 @@ function onMobFight(mob, target)
     if Dance == 0 then
         printf("Setting Dance");
         mob:setLocalVar("DanceChangeTime", 3)
-        mob:setLocalVar("Dance", math.random(1, 2))
+        mob:setLocalVar("Dance", 1)
     elseif battletime >= DanceChangeTime and Dance == 1 then
         printf("Thorned Dance");
         target:PrintToPlayer("Now I'm really hyped!",0,"Lilisette")
@@ -33,7 +33,7 @@ function onMobFight(mob, target)
 		mob:useMobAbility(29)  -- pyrrhic_kleos
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6038)
         mob:setLocalVar("DanceChangeTime", battletime + 60)
-        mob:setLocalVar("Dance", math.random(1, 2))
+        mob:setLocalVar("Dance", 2)
     end
 
     if battletime >= DanceChangeTime and Dance == 2 then
@@ -42,7 +42,7 @@ function onMobFight(mob, target)
         mob:useMobAbility(3309) -- Sensual Dance
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6039)
         mob:setLocalVar("DanceChangeTime", battletime + 60)
-        mob:setLocalVar("Dance", math.random(1, 2))
+        mob:setLocalVar("Dance", 1)
     end
 end
 

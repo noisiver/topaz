@@ -50,11 +50,11 @@ function onUseAbility(player, target, ability)
     TPGain = TPGain * 10
 
     player:addTP(TPGain)
-    player:delStatusEffect(tpz.effect.FINISHING_MOVE_1)
-    player:delStatusEffect(tpz.effect.FINISHING_MOVE_2)
-    player:delStatusEffect(tpz.effect.FINISHING_MOVE_3)
-    player:delStatusEffect(tpz.effect.FINISHING_MOVE_4)
-    player:delStatusEffect(tpz.effect.FINISHING_MOVE_5)
+    player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_1)
+    player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_2)
+    player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_3)
+    player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_4)
+    player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_5)
 
     return TPGain
 end

@@ -157,6 +157,17 @@ inline int32 CLuaMobSkill::getMobHPP(lua_State* L)
     return 1;
 }
 
+
+inline int32 CLuaMobSkill::setKnockback(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaMobSkill == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+
+    m_PLuaMobSkill->setKnockback((uint8)lua_tointeger(L, -1));
+
+    return 0;
+}
+
 /************************************************************************
 *                                                                       *
 *  declare lua function                                                 *

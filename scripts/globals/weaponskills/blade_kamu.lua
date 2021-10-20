@@ -32,6 +32,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.ignored100 = 0.25
     params.ignored200 = 0.25
     params.ignored300 = 0.25
+	params.enmityMult = 1.5
 
     if USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.str_wsc = 0.6 params.int_wsc = 0.6
@@ -46,7 +47,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     if damage > 0 then
         if not target:hasStatusEffect(tpz.effect.ACCURACY_DOWN) and resist >= 0.5 then
             local duration = tp / 1000 * 60 * resist
-            target:addStatusEffect(tpz.effect.ACCURACY_DOWN, 10, 0, duration)
+            target:addStatusEffect(tpz.effect.ACCURACY_DOWN, 30, 0, duration)
         end
     end
 	if damage > 0 then player:trySkillUp(target, tpz.skill.KATANA, tpHits+extraHits) end

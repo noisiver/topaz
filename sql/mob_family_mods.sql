@@ -270,6 +270,9 @@ INSERT INTO `mob_family_mods` VALUES (176,165,10,0);		-- Mamool ja +10% Crit
 
 --Crit Reduction
 
+-- -GA Chance
+INSERT INTO `mob_family_mods` VALUES (175,7,50,1);	-- Magic Pot 50% chance to -Ga
+
 -- Immunities
 INSERT INTO `mob_family_mods` VALUES (92,23,2047,1); -- Dyna Statues immune all enfeebles
 INSERT INTO `mob_family_mods` VALUES (93,23,2047,1); -- Dyna Statues immune all enfeebles
@@ -407,6 +410,7 @@ INSERT INTO `mob_family_mods` VALUES (511,25,50,0);	-- Ahriman +50 ACC
 INSERT INTO `mob_family_mods` VALUES (511,68,50,0);	-- Ahriman +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (511,389,-25,0); -- Ahriman -25% MDT
 INSERT INTO `mob_family_mods` VALUES (511,29,70,0);	 -- Ahriman +50 MDB
+INSERT INTO `mob_family_mods` VALUES (511,23,16,1);	 -- Silence Immunity
 INSERT INTO `mob_family_mods` VALUES (511,28,-100,1); -- Ahriman -100% exp
 
 

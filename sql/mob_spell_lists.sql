@@ -762,33 +762,33 @@ INSERT INTO `mob_spell_lists` VALUES ('Aern_SMN',35,295,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,144,13,22);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,145,38,47);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,146,62,67);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,147,73,85);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,148,86,255);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,147,73,94);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,148,95,255); -- Fire V
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,149,17,27);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,150,42,53);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,151,64,68);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,152,74,88);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,153,89,255);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,152,74,94);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,153,95,255); -- Blizzard V
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,154,9,18);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,155,34,44);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,156,59,66);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,157,72,82);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,158,83,255);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,157,72,94);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,158,95,255); -- Aero V
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,159,1,10);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,160,26,35);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,161,51,60);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,162,68,73);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,163,77,255);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,162,68,94);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,163,95,255); -- Stone V
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,164,21,46);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,165,46,55);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,166,66,70);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,167,75,92);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,168,92,255);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,167,75,94);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,168,95,255); -- Thunder V
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,169,5,12);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,170,30,40);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,171,55,61);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,172,70,78);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,173,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,172,70,94);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,173,95,255); -- Water V
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,174,28,35);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,175,53,60);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,176,69,90);
@@ -817,8 +817,8 @@ INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,226,72,255);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,230,10,34);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,231,35,84);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,232,85,255); -- Bio III
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,247,25,82);
-INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,248,83,255);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,248,95,255); -- Aspir II
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,249,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,252,45,255);
 INSERT INTO `mob_spell_lists` VALUES ('MagicPot',36,253,20,40);
