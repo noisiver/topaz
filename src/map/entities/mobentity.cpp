@@ -884,146 +884,92 @@ void CMobEntity::DropItems(CCharEntity* PChar)
     DropList_t* DropList = itemutils::GetDropList(m_DropID);
     // ShowDebug(CL_CYAN"DropID: %u dropping with TH Level: %u\n" CL_RESET, PMob->m_DropID, PMob->m_THLvl);
 
+uint16 gDropBase[7][15] = { { 2400, 4800, 5600, 6000, 6400, 6666, 6800, 6900, 7050, 7200, 7350, 7400, 7600, 7800, 8000 },
+                                { 1500, 3000, 4000, 4250, 4500, 4750, 5000, 5250, 5500, 5750, 6000, 6250, 6500, 6750, 7000 },
+                                { 1000, 1200, 1500, 1650, 1800, 1900, 2000, 2100, 2250, 2400, 2650, 2800, 2950, 3100, 3250 },
+                                { 0500, 0600, 0700, 0750, 800, 850, 900, 950, 1050, 1150, 1250, 1350, 1550, 1750, 2000 },
+                                { 0100, 0150, 0200, 0225, 0250, 0300, 0350, 0400, 0475, 0550, 0650, 0750, 825, 900, 1000 },
+                                { 0050, 0075, 0100, 0120, 0140, 0160, 180, 0200, 0230, 0260, 0300, 0350, 0400, 0450, 0500 },
+                                { 0010, 0020, 0030, 0035, 0040, 0045, 0050, 0060, 0070, 80, 90, 0100, 0115, 0130, 0150 } };
+
     if (DropList != nullptr && !getMobMod(MOBMOD_NO_DROPS) && (DropList->Items.size() || DropList->Groups.size()))
     {
-        // THLvl is the number of 'extra chances' at an item. If the item is obtained, then break out.
-        // uint8 maxRolls = 1 + (m_THLvl > 2 ? 2 : m_THLvl);
-        // only roll once now, always
-        uint8 maxRolls = 1;
-        // uint8 bonus = (m_THLvl > 2 ? (m_THLvl - 2) * 10 : 0);
-        // no flat bonus anymore
-        uint8 bonus = 0;
-        float mult = 0.00f;
-        if (m_THLvl == 1)
-        {
-            maxRolls = 2;
-        }
-        else if (m_THLvl == 2)
-        {
-            mult = 0.20f;
-            maxRolls = 2;
-        }
-        else if (m_THLvl == 3)
-        {
-            mult = 0.30f;
-            maxRolls = 2;
-        }
-        else if (m_THLvl == 4)
-        {
-            mult = 0.35f;
-            maxRolls = 2;
-        }
-        else if (m_THLvl >= 5)
-        {
-            mult = 0.40f;
-            maxRolls = 2;
-        }
-
-        // ShowDebug("m_THLvl was %u, mult was %.2f, maxRolls was %u\n",m_THLvl,mult,maxRolls);
-
+        uint16 th = m_THLvl;
+        if (th > 14)
+            th = 14;
         for (const DropGroup_t& group : DropList->Groups)
         {
-            for (uint8 roll = 0; roll < maxRolls; ++roll)
+            uint16 rate = group.GroupRate;
+            uint16 category = 7;
+            if (rate < 5)
+                category = 6;
+            else if (rate < 10)
+                category = 5;
+            else if (rate < 50)
+                category = 4;
+            else if (rate < 100)
+                category = 3;
+            else if (rate < 150)
+                category = 2;
+            else if (rate < 240)
+                category = 1;
+            else if (rate < 1000)
+                category = 6;
+
+            uint16 comp = 10000;
+            if (category < 7)
+                comp = gDropBase[category][th];
+
+            if (tpzrand::GetRandomNumber(10000) < comp)
             {
-                // Determine if this group should drop an item
-
-                // 0.8 is the TH level:
-
-                // 1 % +(1 % * 99 % * 0.8) = 1.792 %
-
-                // 50 % +(50 % * 50 % * 0.8) = 70 %
-
-                // 80 % +(80 % * 20 % * 0.8) = 92.8 %
-
-                uint16 rate = group.GroupRate;
-
-                if (roll + 1 < maxRolls) // not our last roll
+                // Each item in the group is given its own weight range which is the previous value to the previous value + item.DropRate
+                // Such as 2 items with drop rates of 200 and 800 would be 0-199 and 200-999 respectively
+                uint16 previousRateValue = 0;
+                uint16 itemRoll = tpzrand::GetRandomNumber(1000);
+                for (const DropItem_t& item : group.Items)
                 {
-                    // ShowDebug("doing NON-last roll\n");
-                    if (rate > 0 && ((tpzrand::GetRandomNumber(1000) < rate) || m_THLvl > 68))
+                    if (previousRateValue + item.DropRate > itemRoll)
                     {
-                        // Each item in the group is given its own weight range which is the previous value to the previous value + item.DropRate
-                        // Such as 2 items with drop rates of 200 and 800 would be 0-199 and 200-999 respectively
-                        uint16 previousRateValue = 0;
-                        uint16 itemRoll = tpzrand::GetRandomNumber(1000);
-                        for (const DropItem_t& item : group.Items)
-                        {
-                            if (previousRateValue + item.DropRate > itemRoll)
-                            {
-                                if (AddItemToPool(item.ItemID, ++dropCount))
-                                    return;
-                                break;
-                            }
-                            previousRateValue += item.DropRate;
-                        }
+                        if (AddItemToPool(item.ItemID, ++dropCount))
+                            return;
                         break;
                     }
+                    previousRateValue += item.DropRate;
                 }
-                else // is our last roll, apply the mult
-                {
-                    // ShowDebug("doing last roll\n");
-                    if (rate > 0 && (tpzrand::GetRandomNumber(1000) < (rate + (rate * (1000 - rate) / 1000 * mult)) || m_THLvl > 68))
-                    {
-                        // Each item in the group is given its own weight range which is the previous value to the previous value + item.DropRate
-                        // Such as 2 items with drop rates of 200 and 800 would be 0-199 and 200-999 respectively
-                        uint16 previousRateValue = 0;
-                        uint16 itemRoll = tpzrand::GetRandomNumber(1000);
-                        for (const DropItem_t& item : group.Items)
-                        {
-                            if (previousRateValue + item.DropRate > itemRoll)
-                            {
-                                if (AddItemToPool(item.ItemID, ++dropCount))
-                                    return;
-                                break;
-                            }
-                            previousRateValue += item.DropRate;
-                        }
-                        break;
-                    }
-                }
+                break;
             }
         }
 
         for (const DropItem_t& item : DropList->Items)
         {
-            for (uint8 roll = 0; roll < maxRolls; ++roll)
+            uint16 rate = item.DropRate;
+            uint16 category = 7;
+            if (rate < 5)
+                category = 6;
+            else if (rate < 10)
+                category = 5;
+            else if (rate < 50)
+                category = 4;
+            else if (rate < 100)
+                category = 3;
+            else if (rate < 150)
+                category = 2;
+            else if (rate < 240)
+                category = 1;
+            else if (rate < 1000)
+                category = 6;
+
+            uint16 comp = 10000;
+            if (category < 7)
+                comp = gDropBase[category][th];
+
+            if (tpzrand::GetRandomNumber(10000) < comp)
             {
-                // Determine if this group should drop an item
-
-                // 0.8 is the TH level:
-
-                // 1 % +(1 % * 99 % * 0.8) = 1.792 %
-
-                // 50 % +(50 % * 50 % * 0.8) = 70 %
-
-                // 80 % +(80 % * 20 % * 0.8) = 92.8 %
-
-                uint16 rate = item.DropRate;
-
-                if (roll + 1 < maxRolls) // not our last roll
-                {
-                    // ShowDebug("doing NON-last roll\n");
-                    if (rate > 0 && ((tpzrand::GetRandomNumber(1000) < rate) || m_THLvl > 68))
-                    {
-                        if (AddItemToPool(item.ItemID, ++dropCount))
-                            return;
-                        break;
-                    }
-                }
-                else // is our last roll, apply the mult
-                {
-                    // ShowDebug("doing last roll\n");
-                    if (rate > 0 && (tpzrand::GetRandomNumber(1000) < (rate + (rate * (1000 - rate) / 1000 * mult)) || m_THLvl > 68))
-                    {
-                        if (AddItemToPool(item.ItemID, ++dropCount))
-                            return;
-                        break;
-                    }
-                }
+                if (AddItemToPool(item.ItemID, ++dropCount))
+                    return;
             }
         }
     }
-
     uint16 Pzone = PChar->getZone();
 
     bool validZone = ((Pzone > 0 && Pzone < 39) || (Pzone > 42 && Pzone < 134) || (Pzone > 135 && Pzone < 185) || (Pzone > 188 && Pzone < 255));
