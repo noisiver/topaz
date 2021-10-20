@@ -914,7 +914,7 @@ uint16 gDropBase[7][15] = { { 2400, 4800, 5600, 6000, 6400, 6666, 6800, 6900, 70
             else if (rate < 240)
                 category = 1;
             else if (rate < 1000)
-                category = 6;
+                category = 0;
 
             uint16 comp = 10000;
             if (category < 7)
@@ -957,7 +957,7 @@ uint16 gDropBase[7][15] = { { 2400, 4800, 5600, 6000, 6400, 6666, 6800, 6900, 70
             else if (rate < 240)
                 category = 1;
             else if (rate < 1000)
-                category = 6;
+                category = 0;
 
             uint16 comp = 10000;
             if (category < 7)
