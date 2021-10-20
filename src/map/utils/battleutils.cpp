@@ -2488,9 +2488,14 @@ namespace battleutils
             bool isOffhand = attackNumber == 1;
             bool isTwoHanded = targ_weapon && targ_weapon->isTwoHanded();
 
-            if (isOffhand || isTwoHanded)
+            if (isTwoHanded)
             {
                 maxHitRate = 99;    // changed to 99%
+            }
+          
+		    if (isOffhand)
+            {
+                maxHitRate = 95;    
             }
 
             hitrate = std::clamp(hitrate, 20, maxHitRate);
