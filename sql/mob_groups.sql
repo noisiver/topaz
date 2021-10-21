@@ -379,7 +379,7 @@ INSERT INTO `mob_groups` VALUES (25,852,9,'Cryptonberry_Harrier',600,0,540,0,0,5
 INSERT INTO `mob_groups` VALUES (26,3971,9,'Tonberrys_Elemental',0,128,0,0,0,49,53,0);
 INSERT INTO `mob_groups` VALUES (27,856,9,'Cryptonberry_Stalker',600,0,543,0,0,53,60,0);
 INSERT INTO `mob_groups` VALUES (28,1043,9,'Diremite_Stalker',924,0,661,0,0,57,59,0);
-INSERT INTO `mob_groups` VALUES (29,2043,9,'Ice_Elemental',600,4,1347,0,0,63,80,0);
+INSERT INTO `mob_groups` VALUES (29,2043,9,'Ice_Elemental',600,4,1347,0,0,63,65,0);
 INSERT INTO `mob_groups` VALUES (30,1677,9,'Goblin_Hunter',600,0,1092,0,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (31,1654,9,'Goblin_Enchanter',600,0,1026,0,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (32,1679,9,'Goblin_Jeweler',600,0,3102,0,0,56,58,0);
@@ -402,11 +402,11 @@ INSERT INTO `mob_groups` VALUES (48,1465,9,'Gargoyle-Kappa',0,128,0,0,0,52,52,0)
 INSERT INTO `mob_groups` VALUES (49,1466,9,'Gargoyle-Lambda',0,128,0,0,0,53,53,0);
 INSERT INTO `mob_groups` VALUES (50,1467,9,'Gargoyle-Mu',0,128,0,0,0,54,54,0);
 INSERT INTO `mob_groups` VALUES (51,1463,9,'Gargoyle',600,0,932,0,0,53,57,0);
-INSERT INTO `mob_groups` VALUES (52,3992,9,'Treasure_Chest',0,128,0,0,0,55,60,0);
+INSERT INTO `mob_groups` VALUES (52,3992,9,'Treasure_Chest',0,128,0,0,0,58,60,0);
 INSERT INTO `mob_groups` VALUES (53,6387,9,'Gazer',924,0,315,0,0,42,44,0);
 INSERT INTO `mob_groups` VALUES (54,1040,9,'Diremite',924,0,657,0,0,42,46,0);
 INSERT INTO `mob_groups` VALUES (55,3685,9,'Snowball',924,0,2286,0,0,43,46,0);
-INSERT INTO `mob_groups` VALUES (56,1861,9,'Gyre-Carlin',0,32,1260,0,0,75,80,0);
+INSERT INTO `mob_groups` VALUES (56,1861,9,'Gyre-Carlin',0,32,1260,4500,0,47,49,0);
 INSERT INTO `mob_groups` VALUES (57,2922,9,'Nunyunuwi',0,128,0,3500,0,56,58,0);
 INSERT INTO `mob_groups` VALUES (58,292,9,'Avalanche',600,0,30,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (59,3231,9,'Purgatory_Bat',600,0,234,0,0,72,76,0);
@@ -416,6 +416,8 @@ INSERT INTO `mob_groups` VALUES (62,1432,9,'Frost_Lizard',600,0,913,0,0,73,77,0)
 INSERT INTO `mob_groups` VALUES (63,1042,9,'Diremite_Dominator',924,0,660,0,0,74,77,0);
 INSERT INTO `mob_groups` VALUES (64,217,9,'Archaic_Chest',0,128,153,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (65,1750,9,'Golden-Tongued_Culberry',0,128,1190,20000,30000,84,85,0);
+INSERT INTO `mob_groups` VALUES (66,913,9,'Dark_Elemental',600,4,568,0,0,63,65,0);
+INSERT INTO `mob_groups` VALUES (67,2043,9,'Ice_Elemental',600,4,1347,0,0,84,86,0);
 
 -- ------------------------------------------------------------
 -- The_Shrouded_Maw (Zone 10)
@@ -12113,8 +12115,8 @@ INSERT INTO `mob_groups` VALUES (4,6438,194,'Stink_Bats',480,0,241,0,0,15,18,0);
 INSERT INTO `mob_groups` VALUES (5,1011,194,'Desmodont',0,32,637,1300,0,26,27,0);
 INSERT INTO `mob_groups` VALUES (6,3395,194,'Rotten_Jam',480,0,297,0,0,12,15,0);
 INSERT INTO `mob_groups` VALUES (7,5874,194,'Legalox_Heftyhind',600,0,3080,2000,0,32,33,0);
-INSERT INTO `mob_groups` VALUES (8,6429,194,'Fetor_Bats',330,0,0,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (9,6413,194,'Fuligo',330,0,297,0,0,84,85,0);
+INSERT INTO `mob_groups` VALUES (8,6429,194,'Fetor_Bats',330,0,0,0,0,15,18,0);
+INSERT INTO `mob_groups` VALUES (9,6413,194,'Fuligo',330,0,297,0,0,20,23,0);
 INSERT INTO `mob_groups` VALUES (10,439,194,'Black_Slime',600,0,15,0,0,23,25,0);
 INSERT INTO `mob_groups` VALUES (11,1517,194,'Ghoul',600,0,961,0,0,23,26,0);
 INSERT INTO `mob_groups` VALUES (12,771,194,'Combat',600,0,82,0,0,20,23,0);
