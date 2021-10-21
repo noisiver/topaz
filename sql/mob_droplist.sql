@@ -4275,8 +4275,8 @@ INSERT INTO `mob_droplist` VALUES (804,4,0,1000,935,0); -- Ahriman wing(Despoil)
 INSERT INTO `mob_droplist` VALUES (805,0,0,1000,867,1000); -- (Fafnir) Handful of dragon scales
 INSERT INTO `mob_droplist` VALUES (805,0,0,1000,13914,240); -- Aegishjalmr
 INSERT INTO `mob_droplist` VALUES (805,0,0,1000,14075,240); -- Andvaranauts
-INSERT INTO `mob_droplist` VALUES (805,1,3,1000,16555,50); -- Ridill
-INSERT INTO `mob_droplist` VALUES (805,1,3,1000,17653,950); -- Hrotti
+INSERT INTO `mob_droplist` VALUES (805,1,3,240,16555,50); -- Ridill
+INSERT INTO `mob_droplist` VALUES (805,1,3,240,17653,950); -- Hrotti
 INSERT INTO `mob_droplist` VALUES (805,0,0,1000,16942,100); -- Balmung
 INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1321,250); -- Earthen abjuration: hands
 INSERT INTO `mob_droplist` VALUES (805,1,1,1000,1326,250); -- Aquarian abjuration: hands
