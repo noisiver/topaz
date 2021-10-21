@@ -13791,15 +13791,15 @@ INSERT INTO `mob_droplist` VALUES (2564,1,4,1000,15040,8); -- Argute Bracers
 INSERT INTO `mob_droplist` VALUES (2564,1,4,1000,16349,8); -- Commodore Trews
 INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15074,4); -- Cleric's Cap
 INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15081,4); -- Bard's Roundlet
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15108,4); -- Valor Gauntlets
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15118,4); -- Melee Hose
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15125,4); -- Monster Trousers
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15127,4); -- Scout's Braccae
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15129,4); -- Koga Hakama
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15132,4); -- Warrior's Calligae
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15136,4); -- Duelist's Boots
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15145,4); -- Wyrm Greaves
-INSERT INTO `mob_droplist` VALUES (2564,1,3,1000,15146,4); -- Summoner's Pigaches
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15108,90); -- Valor Gauntlets
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15118,90); -- Melee Hose
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15125,90); -- Monster Trousers
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15127,90); -- Scout's Braccae
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15129,90); -- Koga Hakama
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15132,90); -- Warrior's Calligae
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15136,90); -- Duelist's Boots
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15145,90); -- Wyrm Greaves
+INSERT INTO `mob_droplist` VALUES (2564,1,3,50,15146,91); -- Summoner's Pigaches
 INSERT INTO `mob_droplist` VALUES (2565,0,0,1000,856,100);
 INSERT INTO `mob_droplist` VALUES (2565,4,0,1000,4358,0);
 INSERT INTO `mob_droplist` VALUES (2565,0,0,1000,4358,240);
@@ -16931,15 +16931,15 @@ INSERT INTO `mob_droplist` VALUES (9001,1,4,1000,15040,8); -- Argute Bracers
 INSERT INTO `mob_droplist` VALUES (9001,1,4,1000,16349,8); -- Commodore Trews
 INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15074,4); -- Cleric's Cap
 INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15081,4); -- Bard's Roundlet
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15108,4); -- Valor Gauntlets
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15118,4); -- Melee Hose
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15125,4); -- Monster Trousers
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15127,4); -- Scout's Braccae
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15129,4); -- Koga Hakama
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15132,4); -- Warrior's Calligae
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15136,4); -- Duelist's Boots
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15145,4); -- Wyrm Greaves
-INSERT INTO `mob_droplist` VALUES (9001,1,3,1000,15146,4); -- Summoner's Pigaches
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15108,90); -- Valor Gauntlets
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15118,90); -- Melee Hose
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15125,90); -- Monster Trousers
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15127,90); -- Scout's Braccae
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15129,90); -- Koga Hakama
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15132,90); -- Warrior's Calligae
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15136,90); -- Duelist's Boots
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15145,90); -- Wyrm Greaves
+INSERT INTO `mob_droplist` VALUES (9001,1,3,50,15146,91); -- Summoner's Pigaches
 INSERT INTO `mob_droplist` VALUES (9001,0,0,1000,1453,10);  -- Montiont Silverpiece
 INSERT INTO `mob_droplist` VALUES (9001,1,5,150,3380,250); -- Odious Scale
 INSERT INTO `mob_droplist` VALUES (9001,1,5,150,3381,250); -- OOdious Leather
