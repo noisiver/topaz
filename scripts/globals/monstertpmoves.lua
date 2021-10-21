@@ -180,11 +180,11 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     --firstHitChance = utils.clamp(firstHitChance, 35, 95)
     firstHitChance = utils.clamp(firstHitChance, 20, 95)
 
-    local MS = mob:getLocalVar("MightyStrikes")
+    local MS = 0
     if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
-       mob:setLocalVar("MightyStrikes", 1)
+       MS = 1
     else
-       mob:setLocalVar("MightyStrikes", 0)
+       MS = 0
     end
 
     if ((chance*100) <= firstHitChance) then
@@ -793,7 +793,11 @@ end
 -- similar to statuseffect move except it will only take effect if facing
 function MobGazeMove(mob, target, typeEffect, power, tick, duration)
     if (target:isFacing(mob)) then
-        return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
+		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
+			return tpz.msg.basic.SKILL_NO_EFFECT
+		else
+			return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
+		end
     end
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
