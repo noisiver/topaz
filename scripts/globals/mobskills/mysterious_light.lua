@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Mysterious Light
 --
---  Description: Deals wind damage to enemies within range. Additional effect: Weight.
+--  Description: Deals physical damage to enemies within range. Additional effect: Weight.
 --  Type: Magical (Wind)
 --
 --
