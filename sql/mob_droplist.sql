@@ -15190,22 +15190,22 @@ INSERT INTO `mob_droplist` VALUES (2818,0,0,1000,495,500);
 INSERT INTO `mob_droplist` VALUES (2818,0,0,1000,495,250);
 INSERT INTO `mob_droplist` VALUES (2819,0,0,1000,12562,240); -- (Kirin) kirins_osode
 INSERT INTO `mob_droplist` VALUES (2819,0,0,1000,17567,240); -- (Kirin) kirins_pole
-INSERT INTO `mob_droplist` VALUES (2819,1,1,500,1315,60); -- (Kirin) d.abjuration_bd.
-INSERT INTO `mob_droplist` VALUES (2819,1,1,500,1337,60); -- (Kirin) w.abjuration_lg.
-INSERT INTO `mob_droplist` VALUES (2819,1,1,500,1340,60); -- (Kirin) n.abjuration_bd.
-INSERT INTO `mob_droplist` VALUES (2819,1,2,200,1315,60); -- (Kirin) d.abjuration_bd. #2
-INSERT INTO `mob_droplist` VALUES (2819,1,2,200,1337,60); -- (Kirin) w.abjuration_lg. #2
-INSERT INTO `mob_droplist` VALUES (2819,1,2,200,1340,60); -- (Kirin) n.abjuration_bd. #2
-INSERT INTO `mob_droplist` VALUES (2819,1,3,1000,658,80); -- (Kirin) damascus_ingot
-INSERT INTO `mob_droplist` VALUES (2819,1,3,1000,747,80); -- (Kirin) orichalcum_ingot
-INSERT INTO `mob_droplist` VALUES (2819,1,3,1000,831,80); -- (Kirin) shining_cloth
-INSERT INTO `mob_droplist` VALUES (2819,1,4,1000,658,80); -- (Kirin) damascus_ingot #2
-INSERT INTO `mob_droplist` VALUES (2819,1,4,1000,747,80); -- (Kirin) orichalcum_ingot #2
-INSERT INTO `mob_droplist` VALUES (2819,1,4,1000,831,80); -- (Kirin) shining_cloth #2
-INSERT INTO `mob_droplist` VALUES (2819,1,5,1000,4748,75); -- (Kirin) scroll_of_raise_iii
-INSERT INTO `mob_droplist` VALUES (2819,1,5,1000,4818,75); -- (Kirin) scroll_of_quake
-INSERT INTO `mob_droplist` VALUES (2819,1,6,1000,4748,75); -- (Kirin) scroll_of_raise_iii #2
-INSERT INTO `mob_droplist` VALUES (2819,1,6,1000,4818,75); -- (Kirin) scroll_of_quake #2
+INSERT INTO `mob_droplist` VALUES (2819,1,1,1000,1315,333); -- (Kirin) d.abjuration_bd.
+INSERT INTO `mob_droplist` VALUES (2819,1,1,1000,1337,333); -- (Kirin) w.abjuration_lg.
+INSERT INTO `mob_droplist` VALUES (2819,1,1,1000,1340,334); -- (Kirin) n.abjuration_bd.
+INSERT INTO `mob_droplist` VALUES (2819,1,2,150,1315,333); -- (Kirin) d.abjuration_bd. #2
+INSERT INTO `mob_droplist` VALUES (2819,1,2,150,1337,333); -- (Kirin) w.abjuration_lg. #2
+INSERT INTO `mob_droplist` VALUES (2819,1,2,150,1340,334); -- (Kirin) n.abjuration_bd. #2
+INSERT INTO `mob_droplist` VALUES (2819,1,3,240,658,333); -- (Kirin) damascus_ingot
+INSERT INTO `mob_droplist` VALUES (2819,1,3,240,747,333); -- (Kirin) orichalcum_ingot
+INSERT INTO `mob_droplist` VALUES (2819,1,3,240,831,334); -- (Kirin) shining_cloth
+INSERT INTO `mob_droplist` VALUES (2819,1,4,240,658,333); -- (Kirin) damascus_ingot #2
+INSERT INTO `mob_droplist` VALUES (2819,1,4,240,747,333); -- (Kirin) orichalcum_ingot #2
+INSERT INTO `mob_droplist` VALUES (2819,1,4,240,831,334); -- (Kirin) shining_cloth #2
+INSERT INTO `mob_droplist` VALUES (2819,1,5,150,4748,500); -- (Kirin) scroll_of_raise_iii
+INSERT INTO `mob_droplist` VALUES (2819,1,5,150,4818,500); -- (Kirin) scroll_of_quake
+INSERT INTO `mob_droplist` VALUES (2819,1,6,150,4748,500); -- (Kirin) scroll_of_raise_iii #2
+INSERT INTO `mob_droplist` VALUES (2819,1,6,150,4818,500); -- (Kirin) scroll_of_quake #2
 INSERT INTO `mob_droplist` VALUES (2820,0,0,1000,1419,1000); -- (Mother Globe) springstone
 INSERT INTO `mob_droplist` VALUES (2820,0,0,1000,1419,240); -- (Mother Globe) springstone #2
 INSERT INTO `mob_droplist` VALUES (2820,0,0,1000,1441,150); -- (Mother Globe) lib._abjuration
