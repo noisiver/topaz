@@ -115,21 +115,21 @@ local loot =
         },
         {
             {itemid =     0, droprate =  750}, -- nothing
-            {itemid = 13158, droprate =  66}, -- Summoning Torque
-            {itemid = 13156, droprate =  66}, -- Elemental Torque
-            {itemid = 13148, droprate =  66}, -- Evasion Torque
-            {itemid = 13151, droprate =  66}, -- Guarding Torque
-            {itemid = 13154, droprate =  66}, -- Enhancing Torque
-            {itemid = 13161, droprate =  66}, -- Wind  Torque 
-            {itemid = 13153, droprate =  66}, -- Dark Torque 
-            {itemid = 13149, droprate =  66}, -- Parrying Torque
-            {itemid = 13155, droprate =  66}, -- Enfeebling Torque
-            {itemid = 13152, droprate =  66}, -- Divine Torque
-            {itemid = 13150, droprate =  66}, -- Shield Torque
-            {itemid = 13160, droprate =  66}, -- String Torque
-            {itemid = 13157, droprate =  66}, -- Healing Torque 
-            {itemid = 13158, droprate =  66}, -- Summoning Torque 
-            {itemid = 13159, droprate =  76}, -- Ninjutsu Torque 
+            {itemid = 13158, droprate =  16}, -- Summoning Torque
+            {itemid = 13156, droprate =  16}, -- Elemental Torque
+            {itemid = 13148, droprate =  16}, -- Evasion Torque
+            {itemid = 13151, droprate =  16}, -- Guarding Torque
+            {itemid = 13154, droprate =  16}, -- Enhancing Torque
+            {itemid = 13161, droprate =  17}, -- Wind  Torque 
+            {itemid = 13153, droprate =  17}, -- Dark Torque 
+            {itemid = 13149, droprate =  17}, -- Parrying Torque
+            {itemid = 13155, droprate =  17}, -- Enfeebling Torque
+            {itemid = 13152, droprate =  17}, -- Divine Torque
+            {itemid = 13150, droprate =  17}, -- Shield Torque
+            {itemid = 13160, droprate =  17}, -- String Torque
+            {itemid = 13157, droprate =  17}, -- Healing Torque 
+            {itemid = 13158, droprate =  17}, -- Summoning Torque 
+            {itemid = 13159, droprate =  17}, -- Ninjutsu Torque 
         },
         {
             {itemid =     0, droprate =  200}, -- nothing
@@ -137,11 +137,11 @@ local loot =
         },
         {
             {itemid =     0, droprate =  400}, -- nothing
-            {itemid =  4896, droprate =  150}, -- Fire Spirit Pact
-            {itemid =  4874, droprate =  150}, -- Scroll Of Absorb-str
-            {itemid =  4751, droprate =  150}, -- Scroll Of Erase
-            {itemid =  4714, droprate =  150}, -- Scroll Of Phalanx
-            {itemid =  4621, droprate =  150}, -- Scroll Of Raise Ii
+            {itemid =  4896, droprate =  120}, -- Fire Spirit Pact
+            {itemid =  4874, droprate =  120}, -- Scroll Of Absorb-str
+            {itemid =  4751, droprate =  120}, -- Scroll Of Erase
+            {itemid =  4714, droprate =  120}, -- Scroll Of Phalanx
+            {itemid =  4621, droprate =  120}, -- Scroll Of Raise Ii
         },
         {
             {itemid =     0, droprate =  900}, -- nothing
