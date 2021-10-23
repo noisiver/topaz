@@ -104,14 +104,14 @@ local loot =
             {itemid = 13149, droprate =  148}, -- Parrying Torque 
         },
         {
-            {itemid =  1260, droprate =  150}, -- Chunk Of Water Ore
-            {itemid =  1257, droprate =  150}, -- Chunk Of Wind Ore
-            {itemid =  1256, droprate =  150}, -- Chunk Of Ice Ore
-            {itemid =  1259, droprate =  150}, -- Chunk Of Lightning Ore
-            {itemid =  1261, droprate =  150}, -- Chunk Of Light Ore
-            {itemid =  1255, droprate =  150}, -- Chunk Of Fire Ore
-            {itemid =  1262, droprate =  150}, -- Chunk Of Dark Ore
-            {itemid =  1258, droprate =  150}, -- Chunk Of Earth Ore
+            {itemid =  1260, droprate =  125}, -- Chunk Of Water Ore
+            {itemid =  1260, droprate =  125}, -- Chunk Of Water Ore
+            {itemid =  1256, droprate =  125}, -- Chunk Of Ice Ore
+            {itemid =  1259, droprate =  125}, -- Chunk Of Lightning Ore
+            {itemid =  1261, droprate =  125}, -- Chunk Of Light Ore
+            {itemid =  1255, droprate =  125}, -- Chunk Of Fire Ore
+            {itemid =  1262, droprate =  125}, -- Chunk Of Dark Ore
+            {itemid =  1258, droprate =  125}, -- Chunk Of Earth Ore
         },
         {
             {itemid =     0, droprate =  750}, -- nothing
