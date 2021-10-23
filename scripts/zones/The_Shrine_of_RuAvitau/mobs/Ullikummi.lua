@@ -17,7 +17,7 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
-	mob:setMod(tpz.mod.REGAIN, 3000)
+	mob:setMod(tpz.mod.REGAIN, 500)
 end
 
 function onMonsterMagicPrepare(mob, target)
