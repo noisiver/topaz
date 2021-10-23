@@ -20,7 +20,6 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.VIT, 188)
 	mob:setMod(tpz.mod.COUNTER, 10)
 	mob:setMod(tpz.mod.MOVE, -15)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
 function onMobFight(mob, target)
