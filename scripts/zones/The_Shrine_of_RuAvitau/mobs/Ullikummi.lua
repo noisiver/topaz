@@ -10,14 +10,12 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 20)
     mob:addMod(tpz.mod.ACC, 25) 
     mob:setMod(tpz.mod.REFRESH, 300)
 end
 
 function onMobFight(mob, target)
-	mob:setMod(tpz.mod.REGAIN, 3000)
+	mob:setMod(tpz.mod.REGAIN, 500)
 end
 
 function onMonsterMagicPrepare(mob, target)
