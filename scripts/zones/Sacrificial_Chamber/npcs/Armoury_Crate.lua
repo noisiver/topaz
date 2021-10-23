@@ -104,7 +104,7 @@ local loot =
             {itemid = 13149, droprate =  148}, -- Parrying Torque 
         },
         {
-            {itemid =  1260, droprate =  125}, -- Chunk Of Water Ore
+            {itemid =  1257, droprate =  125}, -- Chunk Of Wind Ore
             {itemid =  1260, droprate =  125}, -- Chunk Of Water Ore
             {itemid =  1256, droprate =  125}, -- Chunk Of Ice Ore
             {itemid =  1259, droprate =  125}, -- Chunk Of Lightning Ore
