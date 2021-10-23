@@ -4112,6 +4112,85 @@ INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,275,1,255); -- Absorb-TP
 INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,274,1,255); -- Sleepga II
 INSERT INTO `mob_spell_lists` VALUES ('Olla_Media',506,232,65,255); -- bio_iii
 
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,144,13,22);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,145,38,47);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,146,62,67);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,147,73,94); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,148,95,255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,149,17,27);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,150,42,53);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,151,64,68);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,152,74,94); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,153,95,255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,154,9,18);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,155,34,44);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,156,59,66);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,157,72,94); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,158,95,255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,159,1,10);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,160,26,35);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,161,51,60);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,162,68,94); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,163,95,255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,164,21,46);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,165,46,55);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,166,66,70);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,167,75,94); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,168,95,255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,169,5,12);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,170,30,40);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,171,55,61);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,172,70,94); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,173,95,255); -- Water V
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,174,28,35);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,175,53,60);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,176,69,90);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,179,32,39);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,180,57,62);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,181,71,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,184,23,31);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,185,48,56);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,186,67,71);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,189,15,22);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,190,40,47);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,191,63,67);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,194,36,43);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,195,61,65);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,196,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,199,19,27);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,200,44,52);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,201,65,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,204,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,206,50,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,208,52,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,210,54,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,212,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,214,58,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,220,3,17);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,221,43,64);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,225,24,71);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,226,72,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,230,10,34);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,231,35,84);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,232,85,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,235,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,236,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,237,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,238,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,239,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,240,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,245,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,248,95,255); -- Aspir II
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,251,10,255); -- Shock Spikes
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,252,45,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,253,20,40);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,254,4,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,258,7,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,259,41,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,273,31,55);
+INSERT INTO `mob_spell_lists` VALUES ('Mamool_BLM',507,274,56,255);
+
 
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,57,1,255); -- Haste
 INSERT INTO `mob_spell_lists` VALUES ('Goblin_Statue',1001,128,1,255); -- Protectra IV

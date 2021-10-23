@@ -27,7 +27,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("changeTime", mob:getBattleTime())
     -- < 40% spams Typhoon over and over
     elseif mob:getHPP() < 50 and state == 0 then
-        mob:setMobMod(tpz.mobMod.SKILL_LIST, 367)
+        mob:setMobMod(tpz.mobMod.SKILL_LIST, 368)
         mob:setMod(tpz.mod.REGAIN, 3000)
         mob:setLocalVar("state", 1)
     end
