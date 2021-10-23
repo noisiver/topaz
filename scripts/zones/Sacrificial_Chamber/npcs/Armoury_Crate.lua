@@ -86,22 +86,22 @@ local loot =
             {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
         },
         {
-            {itemid = 13155, droprate =  240}, -- Enfeebling Torque
-            {itemid = 13152, droprate =  240}, -- Divine Torque
-            {itemid = 13150, droprate =  240}, -- Shield Torque
-            {itemid = 13160, droprate =  240}, -- String Torque
-            {itemid = 13157, droprate =  240}, -- Healing Torque 
-            {itemid = 13158, droprate =  240}, -- Summoning Torque 
-            {itemid = 13159, droprate =  240}, -- Ninjutsu Torque 
+            {itemid = 13155, droprate =  142}, -- Enfeebling Torque
+            {itemid = 13152, droprate =  142}, -- Divine Torque
+            {itemid = 13150, droprate =  142}, -- Shield Torque
+            {itemid = 13160, droprate =  142}, -- String Torque
+            {itemid = 13157, droprate =  142}, -- Healing Torque 
+            {itemid = 13158, droprate =  142}, -- Summoning Torque 
+            {itemid = 13159, droprate =  148}, -- Ninjutsu Torque 
         },
         {
-            {itemid = 13156, droprate =  240}, -- Elemental Torque
-            {itemid = 13148, droprate =  240}, -- Evasion Torque
-            {itemid = 13151, droprate =  240}, -- Guarding Torque
-            {itemid = 13154, droprate =  240}, -- Enhancing Torque
-            {itemid = 13161, droprate =  240}, -- Wind  Torque 
-            {itemid = 13153, droprate =  240}, -- Dark Torque 
-            {itemid = 13149, droprate =  240}, -- Parrying Torque 
+            {itemid = 13156, droprate =  142}, -- Elemental Torque
+            {itemid = 13148, droprate =  142}, -- Evasion Torque
+            {itemid = 13151, droprate =  142}, -- Guarding Torque
+            {itemid = 13154, droprate =  142}, -- Enhancing Torque
+            {itemid = 13161, droprate =  142}, -- Wind  Torque 
+            {itemid = 13153, droprate =  142}, -- Dark Torque 
+            {itemid = 13149, droprate =  148}, -- Parrying Torque 
         },
         {
             {itemid =  1260, droprate =  150}, -- Chunk Of Water Ore
@@ -115,21 +115,21 @@ local loot =
         },
         {
             {itemid =     0, droprate =  750}, -- nothing
-            {itemid = 13158, droprate =  240}, -- Summoning Torque
-            {itemid = 13156, droprate =  240}, -- Elemental Torque
-            {itemid = 13148, droprate =  240}, -- Evasion Torque
-            {itemid = 13151, droprate =  240}, -- Guarding Torque
-            {itemid = 13154, droprate =  240}, -- Enhancing Torque
-            {itemid = 13161, droprate =  240}, -- Wind  Torque 
-            {itemid = 13153, droprate =  240}, -- Dark Torque 
-            {itemid = 13149, droprate =  240}, -- Parrying Torque
-            {itemid = 13155, droprate =  240}, -- Enfeebling Torque
-            {itemid = 13152, droprate =  240}, -- Divine Torque
-            {itemid = 13150, droprate =  240}, -- Shield Torque
-            {itemid = 13160, droprate =  240}, -- String Torque
-            {itemid = 13157, droprate =  240}, -- Healing Torque 
-            {itemid = 13158, droprate =  240}, -- Summoning Torque 
-            {itemid = 13159, droprate =  240}, -- Ninjutsu Torque 
+            {itemid = 13158, droprate =  66}, -- Summoning Torque
+            {itemid = 13156, droprate =  66}, -- Elemental Torque
+            {itemid = 13148, droprate =  66}, -- Evasion Torque
+            {itemid = 13151, droprate =  66}, -- Guarding Torque
+            {itemid = 13154, droprate =  66}, -- Enhancing Torque
+            {itemid = 13161, droprate =  66}, -- Wind  Torque 
+            {itemid = 13153, droprate =  66}, -- Dark Torque 
+            {itemid = 13149, droprate =  66}, -- Parrying Torque
+            {itemid = 13155, droprate =  66}, -- Enfeebling Torque
+            {itemid = 13152, droprate =  66}, -- Divine Torque
+            {itemid = 13150, droprate =  66}, -- Shield Torque
+            {itemid = 13160, droprate =  66}, -- String Torque
+            {itemid = 13157, droprate =  66}, -- Healing Torque 
+            {itemid = 13158, droprate =  66}, -- Summoning Torque 
+            {itemid = 13159, droprate =  76}, -- Ninjutsu Torque 
         },
         {
             {itemid =     0, droprate =  200}, -- nothing
