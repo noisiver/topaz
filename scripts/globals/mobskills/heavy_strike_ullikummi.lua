@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
 	local typeEffect = tpz.effect.SLOW
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-	if dmg > 0 then
+	if dmg > 4 then
 		mob:resetEnmity(target) 
 	end
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1250, 0, 120)
