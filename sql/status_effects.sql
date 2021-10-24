@@ -218,7 +218,7 @@ INSERT INTO `status_effects` VALUES (172,'intension',40,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (173,'dread_spikes',41,34,0,0,0,0,0,0,800);
 INSERT INTO `status_effects` VALUES (174,'magic_acc_down',16418,0,0,0,0,0,1,0,1);
 INSERT INTO `status_effects` VALUES (175,'magic_atk_down',16418,0,0,0,0,0,1,0,1);
-INSERT INTO `status_effects` VALUES (176,'quickening',44,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (176,'quickening',172,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (177,'encumbrance',8388608,0,0,0,0,0,0,0,1);
 INSERT INTO `status_effects` VALUES (178,'firestorm',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (179,'hailstorm',32,0,0,0,0,0,0,0,0);
