@@ -7,7 +7,7 @@ require("scripts/globals/hunts")
 require("scripts/globals/pathfind")
 require("scripts/globals/status")
 
-local path =
+local pathNodes =
 {
     -17.930, -8.500, -93.215,
     -18.553, -7.713, -91.224,
@@ -65,7 +65,7 @@ local path =
 	}
 
 function onPath(mob)
-    tpz.path.patrol(mob, path)
+    tpz.path.patrol(mob, pathNodes)
 end
 
 function onMobSpawn(mob)
@@ -81,7 +81,7 @@ end
 function onMobRoam(mob)
     -- move to start position if not moving
     if not mob:isFollowingPath() then
-        mob:pathThrough(tpz.path.first(path))
+        mob:pathThrough(tpz.path.first(pathNodes))
     end
 end
 
