@@ -19,7 +19,7 @@ end
 
 function onTrigger(player, mobId, noDepop)
     local zone = player:getZone()
-    if zone:getType() == xi.zoneType.INSTANCED then
+    if zone:getType() == tpz.zoneType.INSTANCED then
         local instance = player:getInstance()
         local targ
 
