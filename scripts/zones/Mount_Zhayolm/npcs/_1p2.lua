@@ -6,6 +6,7 @@
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/titles")
+local ID = require("scripts/zones/Mount_Zhayolm/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
