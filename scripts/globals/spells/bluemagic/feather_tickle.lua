@@ -39,6 +39,13 @@ function onSpellCast(caster, target, spell)
 	end
 	
 	local dmg = 1200 * resist
+	
+	if aquan then
+	 	dmg = dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
+	elseif amorph then
+		dmg = dmg * 0.75
+	end
+	
 
     if resist < 0.5 then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
