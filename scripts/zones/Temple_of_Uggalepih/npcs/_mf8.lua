@@ -12,7 +12,7 @@ function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, 1137) then -- Prelate Key
         player:confirmTrade()
         player:messageSpecial(ID.text.YOUR_KEY_BREAKS, 0, 1137)
-        npc:openDoor(6.5)
+        npc:openDoor(11)
     end
 end
 
