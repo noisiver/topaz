@@ -1363,7 +1363,7 @@ INSERT INTO `synth_recipes` VALUES (19963,1,0,0,79,0,0,0,0,0,0,4100,4242,2161,0,
 -- INSERT INTO `synth_recipes` VALUES (19966,1,0,0,255,0,0,0,0,0,0,4100,4242,16452,0,0,0,0,0,0,0,654,654,654,654,1,1,1,1,'Misericorde (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19967,1,0,0,255,0,0,0,0,0,0,4100,4242,16412,0,0,0,0,0,0,0,894,1226,1226,1226,1,6,6,6,'Mythril Claws (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19968,1,0,0,255,0,0,0,0,0,0,4100,4242,17487,0,0,0,0,0,0,0,937,937,937,937,1,1,1,1,'Corrosive Claws (desynth)');
--- INSERT INTO `synth_recipes` VALUES (19969,1,0,0,255,0,0,0,0,0,0,4100,4242,2162,0,0,0,0,0,0,0,651,652,652,652,1,1,1,1,'Mamool Ja Helmet (desynth)');
+INSERT INTO `synth_recipes` VALUES (19969,1,0,0,19,0,0,0,0,0,0,4100,4242,2162,0,0,0,0,0,0,0,652,652,652,652,1,1,1,1,'Mamool Ja Helmet (desynth)');
 INSERT INTO `synth_recipes` VALUES (19970,1,0,0,42,0,0,0,0,0,0,4100,4242,16589,0,0,0,0,0,0,0,715,852,651,651,1,1,4,5,'Two-Hand. Sword (desynth)');
 INSERT INTO `synth_recipes` VALUES (19971,1,0,0,95,0,0,0,0,0,0,4100,4242,16707,0,0,0,0,0,0,0,1235,719,1228,1228,6,6,6,8,'Bhuj (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19972,1,0,0,255,0,0,0,0,0,0,4100,4242,16392,0,0,0,0,0,0,0,714,651,651,651,1,2,2,2,'Metal Knuckles (desynth)');
