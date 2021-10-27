@@ -86,50 +86,50 @@ local loot =
             {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
         },
         {
-            {itemid = 13155, droprate =  240}, -- Enfeebling Torque
-            {itemid = 13152, droprate =  240}, -- Divine Torque
-            {itemid = 13150, droprate =  240}, -- Shield Torque
-            {itemid = 13160, droprate =  240}, -- String Torque
-            {itemid = 13157, droprate =  240}, -- Healing Torque 
-            {itemid = 13158, droprate =  240}, -- Summoning Torque 
-            {itemid = 13159, droprate =  240}, -- Ninjutsu Torque 
+            {itemid = 13155, droprate =  142}, -- Enfeebling Torque
+            {itemid = 13152, droprate =  142}, -- Divine Torque
+            {itemid = 13150, droprate =  142}, -- Shield Torque
+            {itemid = 13160, droprate =  142}, -- String Torque
+            {itemid = 13157, droprate =  142}, -- Healing Torque 
+            {itemid = 13158, droprate =  142}, -- Summoning Torque 
+            {itemid = 13159, droprate =  148}, -- Ninjutsu Torque 
         },
         {
-            {itemid = 13156, droprate =  240}, -- Elemental Torque
-            {itemid = 13148, droprate =  240}, -- Evasion Torque
-            {itemid = 13151, droprate =  240}, -- Guarding Torque
-            {itemid = 13154, droprate =  240}, -- Enhancing Torque
-            {itemid = 13161, droprate =  240}, -- Wind  Torque 
-            {itemid = 13153, droprate =  240}, -- Dark Torque 
-            {itemid = 13149, droprate =  240}, -- Parrying Torque 
+            {itemid = 13156, droprate =  142}, -- Elemental Torque
+            {itemid = 13148, droprate =  142}, -- Evasion Torque
+            {itemid = 13151, droprate =  142}, -- Guarding Torque
+            {itemid = 13154, droprate =  142}, -- Enhancing Torque
+            {itemid = 13161, droprate =  142}, -- Wind  Torque 
+            {itemid = 13153, droprate =  142}, -- Dark Torque 
+            {itemid = 13149, droprate =  148}, -- Parrying Torque 
         },
         {
-            {itemid =  1260, droprate =  150}, -- Chunk Of Water Ore
-            {itemid =  1257, droprate =  150}, -- Chunk Of Wind Ore
-            {itemid =  1256, droprate =  150}, -- Chunk Of Ice Ore
-            {itemid =  1259, droprate =  150}, -- Chunk Of Lightning Ore
-            {itemid =  1261, droprate =  150}, -- Chunk Of Light Ore
-            {itemid =  1255, droprate =  150}, -- Chunk Of Fire Ore
-            {itemid =  1262, droprate =  150}, -- Chunk Of Dark Ore
-            {itemid =  1258, droprate =  150}, -- Chunk Of Earth Ore
+            {itemid =  1257, droprate =  125}, -- Chunk Of Wind Ore
+            {itemid =  1260, droprate =  125}, -- Chunk Of Water Ore
+            {itemid =  1256, droprate =  125}, -- Chunk Of Ice Ore
+            {itemid =  1259, droprate =  125}, -- Chunk Of Lightning Ore
+            {itemid =  1261, droprate =  125}, -- Chunk Of Light Ore
+            {itemid =  1255, droprate =  125}, -- Chunk Of Fire Ore
+            {itemid =  1262, droprate =  125}, -- Chunk Of Dark Ore
+            {itemid =  1258, droprate =  125}, -- Chunk Of Earth Ore
         },
         {
             {itemid =     0, droprate =  750}, -- nothing
-            {itemid = 13158, droprate =  240}, -- Summoning Torque
-            {itemid = 13156, droprate =  240}, -- Elemental Torque
-            {itemid = 13148, droprate =  240}, -- Evasion Torque
-            {itemid = 13151, droprate =  240}, -- Guarding Torque
-            {itemid = 13154, droprate =  240}, -- Enhancing Torque
-            {itemid = 13161, droprate =  240}, -- Wind  Torque 
-            {itemid = 13153, droprate =  240}, -- Dark Torque 
-            {itemid = 13149, droprate =  240}, -- Parrying Torque
-            {itemid = 13155, droprate =  240}, -- Enfeebling Torque
-            {itemid = 13152, droprate =  240}, -- Divine Torque
-            {itemid = 13150, droprate =  240}, -- Shield Torque
-            {itemid = 13160, droprate =  240}, -- String Torque
-            {itemid = 13157, droprate =  240}, -- Healing Torque 
-            {itemid = 13158, droprate =  240}, -- Summoning Torque 
-            {itemid = 13159, droprate =  240}, -- Ninjutsu Torque 
+            {itemid = 13158, droprate =  16}, -- Summoning Torque
+            {itemid = 13156, droprate =  16}, -- Elemental Torque
+            {itemid = 13148, droprate =  16}, -- Evasion Torque
+            {itemid = 13151, droprate =  16}, -- Guarding Torque
+            {itemid = 13154, droprate =  16}, -- Enhancing Torque
+            {itemid = 13161, droprate =  17}, -- Wind  Torque 
+            {itemid = 13153, droprate =  17}, -- Dark Torque 
+            {itemid = 13149, droprate =  17}, -- Parrying Torque
+            {itemid = 13155, droprate =  17}, -- Enfeebling Torque
+            {itemid = 13152, droprate =  17}, -- Divine Torque
+            {itemid = 13150, droprate =  17}, -- Shield Torque
+            {itemid = 13160, droprate =  17}, -- String Torque
+            {itemid = 13157, droprate =  17}, -- Healing Torque 
+            {itemid = 13158, droprate =  17}, -- Summoning Torque 
+            {itemid = 13159, droprate =  17}, -- Ninjutsu Torque 
         },
         {
             {itemid =     0, droprate =  200}, -- nothing
@@ -137,11 +137,11 @@ local loot =
         },
         {
             {itemid =     0, droprate =  400}, -- nothing
-            {itemid =  4896, droprate =  150}, -- Fire Spirit Pact
-            {itemid =  4874, droprate =  150}, -- Scroll Of Absorb-str
-            {itemid =  4751, droprate =  150}, -- Scroll Of Erase
-            {itemid =  4714, droprate =  150}, -- Scroll Of Phalanx
-            {itemid =  4621, droprate =  150}, -- Scroll Of Raise Ii
+            {itemid =  4896, droprate =  120}, -- Fire Spirit Pact
+            {itemid =  4874, droprate =  120}, -- Scroll Of Absorb-str
+            {itemid =  4751, droprate =  120}, -- Scroll Of Erase
+            {itemid =  4714, droprate =  120}, -- Scroll Of Phalanx
+            {itemid =  4621, droprate =  120}, -- Scroll Of Raise Ii
         },
         {
             {itemid =     0, droprate =  900}, -- nothing

@@ -622,7 +622,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_SMN:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 180);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 100); // SMN only has "buffs"
             break;
         case JOB_NIN:
@@ -689,7 +689,7 @@ void SetupJob(CMobEntity* PMob)
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1146);
                 PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
             }
-            else if (PMob->m_Family != 335) // exclude NIN Maat
+            else if (PMob->m_Family != 335 || PMob->m_Family != 335) // exclude NIN Maat and Mamools
             {
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
                 PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
@@ -698,7 +698,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
             break;
         case JOB_BST:
-            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 70);
+            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 180);
             PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1017);
             break;
         case JOB_PUP:
