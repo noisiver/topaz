@@ -12622,10 +12622,10 @@ INSERT INTO `mob_groups` VALUES (27,2831,206,'Nephiyl_Rampartbreacher',0,128,0,3
 INSERT INTO `mob_groups` VALUES (28,2828,206,'Nephiyl_Keepcollapser',0,128,0,3200,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (29,2829,206,'Nephiyl_Moatfiller',0,128,0,0,3000,60,60,0);
 INSERT INTO `mob_groups` VALUES (30,2830,206,'Nephiyl_Pinnacletosser',0,128,0,2800,0,60,60,0);
-INSERT INTO `mob_groups` VALUES (31,4119,206,'Vaicoliaux_B_DAurphe',0,128,0,3200,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (32,2494,206,'Maldaramet_B_DAurphe',0,128,0,2900,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (33,1050,206,'Disfaurit_B_DAurphe',0,128,0,2900,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (34,2147,206,'Jeumouque_B_DAurphe',0,128,0,2900,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (31,4119,206,'Vaicoliaux_B_DAurphe',0,128,0,3200,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (32,2494,206,'Maldaramet_B_DAurphe',0,128,0,2900,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (33,1050,206,'Disfaurit_B_DAurphe',0,128,0,2900,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (34,2147,206,'Jeumouque_B_DAurphe',0,128,0,2900,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (35,688,206,'Chahnameeds_Stomach',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (36,686,206,'Chahnameeds_Intestines',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (37,687,206,'Chahnameeds_Liver',0,128,0,0,0,50,50,0);
