@@ -243,14 +243,14 @@ local loot =
             {itemid = 14204, droprate =  125}, -- river_gaiters
         },
         {
-            {itemid = 14202, droprate =  125}, -- creek_m_clomps
+			{itemid = 14204, droprate =  125}, -- river_gaiters
+			{itemid = 14202, droprate =  125}, -- creek_m_clomps
             {itemid = 14203, droprate =  125}, -- creek_f_clomps
             {itemid = 14198, droprate =  125}, -- marine_m_boots
             {itemid = 14199, droprate =  125}, -- marine_f_boots
             {itemid = 14200, droprate =  125}, -- wood_m_ledelsens
             {itemid = 14201, droprate =  125}, -- wood_f_ledelsens
             {itemid = 14205, droprate =  125}, -- dune_sandals
-            {itemid = 14204, droprate =  125}, -- river_gaiters
         },
         {
             {itemid =   801, droprate =   100}, -- chrysoberyl
@@ -297,14 +297,14 @@ local loot =
         },
         {
             {itemid =     0, droprate =  750}, -- nothing
-            {itemid = 14202, droprate =  31}, -- creek_m_clomps
-            {itemid = 14203, droprate =  31}, -- creek_f_clomps
-            {itemid = 14198, droprate =  31}, -- marine_m_boots
             {itemid = 14199, droprate =  31}, -- marine_f_boots
             {itemid = 14200, droprate =  31}, -- wood_m_ledelsens
             {itemid = 14201, droprate =  31}, -- wood_f_ledelsens
             {itemid = 14205, droprate =  31}, -- dune_sandals
             {itemid = 14204, droprate =  33}, -- river_gaiters
+            {itemid = 14202, droprate =  31}, -- creek_m_clomps
+            {itemid = 14203, droprate =  31}, -- creek_f_clomps
+            {itemid = 14198, droprate =  31}, -- marine_m_boots
         },
     },
 
