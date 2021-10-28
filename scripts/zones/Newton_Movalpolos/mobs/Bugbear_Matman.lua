@@ -10,7 +10,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ATTP, 25)
     mob:setMod(tpz.mod.STORETP, 100)
-	mob:setMod(tpz.mod.SLOWRESTRAIT, 100)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 5000)
 end
 
