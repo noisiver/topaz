@@ -71,7 +71,7 @@ function onSpellCast(caster, target, spell)
         -- You'd have to script the use of every individual spell in Amnaf's list..
     end
     
-    if target:isUndead() and target:getFamily() ~= 52 and target:getFamily() ~= 121 then -- non-ghost undead
+    if target:isUndead() and target:getFamily() == 227 or target:getFamily() == 88 or target:getFamily() == 89 then -- skeletons
         resist = 1/16
     end
 
