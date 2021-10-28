@@ -49,9 +49,11 @@ function onSpellCast(caster, target, spell)
     duration = duration * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.SLEEP, target))
     
-    if target:isUndead() and target:getFamily() == 227 or target:getFamily() == 88 or target:getFamily() == 89 then -- skeletons
-        resist = 1/16
-    end
+   	if target:isMob() then
+		if target:isUndead() and target:getFamily() == 227 or target:getFamily() == 88 or target:getFamily() == 89 then -- skeletons
+			resist = 1/16
+		end
+	end
 
     if resist >= 0.5 then
         if target:addStatusEffect(params.effect, 2, 0, duration) then
