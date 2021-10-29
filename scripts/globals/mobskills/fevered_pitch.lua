@@ -18,14 +18,47 @@ function onMobWeaponSkill(target, mob, skill)
 
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.5
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
+    local dmgmod = 0
+	local defdownpower = 0
+	local stunpower = 0
+	
+    local moon = VanadielMoonPhase()
+    if moon > 90 then -- Full Moon
+        dmgmod = 2
+		defdownpower = 50
+		stunpower = 7
+    elseif moon > 75 then
+        dmgmod = 1.75
+		defdownpower = 45
+		stunpower = 6
+    elseif moon > 60 then
+        dmgmod = 1.5
+		defdownpower = 40
+		stunpower = 5
+    elseif moon > 40 then
+        dmgmod = 1.25
+		defdownpower = 30
+		stunpower = 4
+    elseif moon > 25 then
+        dmgmod = 1
+		defdownpower = 20
+		stunpower = 3
+    elseif moon > 10 then
+        dmgmod = 0.75
+		defdownpower = 10
+		stunpower = 2
+    else
+        dmgmod = 0.5
+		defdownpower = 5
+		stunpower = 1
+    end	
+	
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.DEFENSE_DOWN, 30, 0, 120)
-
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.STUN, 1, 0, 4)
-
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.DEFENSE_DOWN, defdownpower, 0, 120)
+	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.STUN, 1, 0, stunpower)
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

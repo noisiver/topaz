@@ -135,6 +135,7 @@ tpz.mob.additionalEffect =
     ATTK_DOWN  = 22,
     DISPEL = 23,
     DISEASE    = 24,
+    AMNESIA    = 25,
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -413,6 +414,19 @@ local additionalEffects =
         duration = 60,
         minDuration = 1,
         maxDuration = 60,
+    },
+    [tpz.mob.ae.AMNESIA] =
+    {
+        chance = 25,
+        ele = tpz.magic.ele.FIRE,
+        sub = tpz.subEffect.AMNESIA,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = tpz.effect.AMNESIA,
+        power = 1,
+        duration = 30,
+        minDuration = 1,
+        maxDuration = 30,
     },
 }
 

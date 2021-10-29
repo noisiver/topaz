@@ -29,13 +29,14 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectTwo = tpz.effect.MAX_MP_DOWN
 
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 30)
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 30)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffectTwo, 50, 0, 30)
 
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-	if dmg > 0 then
-        target:tryInterruptSpell(mob, info.hitslanded)
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
+    if (MobPhysicalHit(skill)) then
         target:delTP(2000)
     end
+	
     return dmg
 end

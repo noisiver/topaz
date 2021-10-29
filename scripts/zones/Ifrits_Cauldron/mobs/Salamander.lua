@@ -3,6 +3,7 @@
 --   NM: Salamander
 -----------------------------------
 require("scripts/globals/status")
+local ID = require("scripts/zones/Ifrits_Cauldron/IDs")
 mixins =
 {
     require("scripts/mixins/job_special")

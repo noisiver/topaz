@@ -6824,6 +6824,13 @@ INSERT INTO `nm_spawn_points` VALUES (17289638,0,-314.3860,0.1828,-113.7183); --
 INSERT INTO `nm_spawn_points` VALUES (17289638,1,-555.9838,0.2506,-70.8889); -- Picolaton
 INSERT INTO `nm_spawn_points` VALUES (17289638,2,-397.5341,-1.2509,-89.4616); -- Picolaton
 INSERT INTO `nm_spawn_points` VALUES (17072133,1,102.6850,-0.000,135.3932); -- Boompadu
+INSERT INTO `nm_spawn_points` VALUES (17113175,1,-204.612,-0.313,-119.12); -- Voirloup
+INSERT INTO `nm_spawn_points` VALUES (17150047,1,153.0917,-31.5289,-204.6853); -- Dyinyinga
+INSERT INTO `nm_spawn_points` VALUES (17150081,1,-387.4279,-7.5377,41.0321); -- Erle
+INSERT INTO `nm_spawn_points` VALUES (17174682,1,-362.9068,-8.1757,123.5949); -- Hemodrosophila
+INSERT INTO `nm_spawn_points` VALUES (17117250,1,264.6308,-49.5511,414.2611); -- Pallas(Vunkerl)
+INSERT INTO `nm_spawn_points` VALUES (17141885,1,310.285,31.511,-481.958); -- Vasiliceratops
+INSERT INTO `nm_spawn_points` VALUES (17141885,2,234.5122,32.0575,-651.4021); -- Vasiliceratops
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;
