@@ -11,7 +11,7 @@ g_mixins.families = g_mixins.families or {}
 g_mixins.families.ruszor = function(mob)
     
 	mob:addListener("SPAWN", "RUSZOR_SPAWN", function(mob)
-		mob:setBehaviour(bit.bor(mob:getBehaviour(), xi.behavior.NO_TURN))
+		mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
         mob:AnimationSub(0)
     end)
 	mob:addListener("TICK", "RUSZOR_TICK", function(mob)
