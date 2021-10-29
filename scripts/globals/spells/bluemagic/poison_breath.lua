@@ -67,7 +67,8 @@ function onSpellCast(caster, target, spell)
 				damage = damage * (SDT / 100)
 			end
 		end
-    
+ 	
+	damage = damage * resist	   
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
