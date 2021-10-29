@@ -9184,7 +9184,7 @@ INSERT INTO `mob_groups` VALUES (22,1546,137,'Gidim',300,0,976,0,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (23,1770,137,'Gorgotaur',300,0,359,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (24,3845,137,'Tarbotaur',300,0,2378,0,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (25,3691,137,'Snow_Wight',300,0,2125,0,0,80,81,0);
-INSERT INTO `mob_groups` VALUES (26,5556,137,'Tikbalang',0,128,3042,35000,0,88,90,0);
+INSERT INTO `mob_groups` VALUES (26,5556,137,'Tikbalang',14400,0,3042,35000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (27,1442,137,'Fusty_Gnole',300,0,920,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (28,634,137,'Caracal',300,0,413,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (29,5869,137,'Zirnitra',14400,0,6040,20000,0,85,87,0);
@@ -9193,7 +9193,7 @@ INSERT INTO `mob_groups` VALUES (31,913,137,'Dark_Elemental',0,4,568,0,0,80,80,0
 INSERT INTO `mob_groups` VALUES (32,2609,137,'Megalotaur',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (33,3978,137,'Torvotaur',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (34,6566,137,'Snow_Wight',300,0,2125,0,0,80,81,0);
-INSERT INTO `mob_groups` VALUES (35,6742,137,'Prince_Orobas',0,128,6039,35000,0,88,90,0);
+INSERT INTO `mob_groups` VALUES (35,6742,137,'Prince_Orobas',0,32,6039,35000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (36,3487,137,'Savage_RuszorBig',300,0,2168,0,0,82,83,0);
 
 INSERT INTO `mob_groups` VALUES (7380,2,137,'1st_Iron_Musketeer',0,0,0,0,0,0,0,0);
