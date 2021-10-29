@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+mixins = {require("scripts/mixins/families/ruszor")}
 ------------------------------
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 2)
@@ -22,52 +23,64 @@ function onMobSpawn(mob)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+	local AquaCannonCounter = mob:getLocalVar("AquaCannonCounter")
+	local AquaCannonMax = mob:getLocalVar("AquaCannonMax")
+	local IceGuillotineCounter = mob:getLocalVar("IceGuillotineCounter")
+	local IceGuillotineMax = mob:getLocalVar("IceGuillotineMax")
+	local Roll = math.random()
     if skill:getID() == 2439 then -- Hydro Wave
-        local AquaCannonCounter = mob:getLocalVar("AquaCannonCounter")
-        local AquaCannonMax = mob:getLocalVar("AquaCannonMax")
-        local IceGuillotineCounter = mob:getLocalVar("IceGuillotineCounter")
-        local IceGuillotineMax = mob:getLocalVar("IceGuillotineMax")
-		
-        if AquaCannonCounter == 0 and AquaCannonMax == 0 then
-            AquaCannonMax = math.random(4, 10)
-            mob:setLocalVar("AquaCannonMax", AquaCannonMax)
-        end
-
-        AquaCannonCounter = AquaCannonCounter + 1
-        mob:setLocalVar("AquaCannonCounter", AquaCannonCounter)
-
-        if AquaCannonCounter > AquaCannonMax then
-            mob:setLocalVar("AquaCannonCounter", 0)
-            mob:setLocalVar("AquaCannonMax", 0)
+		if Roll < 0.2 then
+			AquaCannonMax = 10
+		elseif Roll < 0.5 then
+			AquaCannonMax = 8
+		elseif Roll < 0.7 then
+			AquaCannonMax 6
+		elseif Roll < 0.8 then
+			AquaCannonMax 4
+		end
+		mob:setLocalVar("AquaCannonMax", AquaCannonMax)
+	end
+	
+	if AquaCannonMax > 0 then
+		if AquaCannonCounter > AquaCannonMax then
+			mob:setLocalVar("AquaCannonCounter", 0)
+			mob:setLocalVar("AquaCannonMax", 0)
 			mob:delStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 60, tpz.effect.SILENCE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
 			mob:delStatusEffec(tpz.effect.PROWESS)
-        else
-            mob:useMobAbility(2441) -- Aqua Cannon
-        end
-    end
-	
+		else
+			mob:useMobAbility(2441) -- Aqua Cannon
+			AquaCannonCounter = AquaCannonCounter + 1
+			mob:setLocalVar("AquaCannonCounter", AquaCannonCounter)
+		end
+	end
+
     if skill:getID() == 2438 then -- Frozen Mist
-        local IceGuillotineCounter = mob:getLocalVar("IceGuillotineCounter")
-        local IceGuillotineMax = mob:getLocalVar("IceGuillotineMax")
+		if Roll < 0.2 then
+			IceGuillotineMax = 10
+		elseif Roll < 0.5 then
+			IceGuillotineMax = 8
+		elseif Roll < 0.7 then
+			IceGuillotineMax 6
+		elseif Roll < 0.8 then
+			IceGuillotineMax 4
+		end
+		mob:setLocalVar("IceGuillotineMax", IceGuillotineMax)
+	end
 
-        if IceGuillotineCounter == 0 and IceGuillotineMax == 0 then
-            IceGuillotineMax = math.random(4, 10)
-            mob:setLocalVar("IceGuillotineMax", IceGuillotineMax)
-        end
-
-        IceGuillotineCounter = IceGuillotineCounter + 1
-        mob:setLocalVar("IceGuillotineCounter", IceGuillotineCounter)
-
-        if IceGuillotineCounter > IceGuillotineMax then
-            mob:setLocalVar("IceGuillotineCounter", 0)
-            mob:setLocalVar("IceGuillotineMax", 0)
+	  if IceGuillotineMax > 0 then
+		if IceGuillotineCounter > IceGuillotineMax then
+			mob:setLocalVar("IceGuillotineCounter", 0)
+			mob:setLocalVar("IceGuillotineMax", 0)
 			mob:delStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 60, tpz.effect.PARALYSIS, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
 			mob:delStatusEffec(tpz.effect.PROWESS)
-        else
-            mob:useMobAbility(2440) -- Ice Guillotine
-        end
-    end
+		else
+			mob:useMobAbility(2440) -- Ice Guillotine
+			IceGuillotineCounter = IceGuillotineCounter + 1
+			mob:setLocalVar("IceGuillotineCounter", IceGuillotineCounter)
+		end
+	end
 end
+
 
 function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.SCYLLA_SKINNER)
