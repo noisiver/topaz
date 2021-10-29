@@ -9036,8 +9036,8 @@ INSERT INTO `mob_groups` VALUES (24,4206,136,'Vasuki',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (25,2182,136,'Kaliya',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (26,275,136,'Astika',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (27,6567,136,'Thawed_Bones',300,0,2125,0,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (28,0,136,'Scylla',43200,0,6038,20000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (29,0,136,'Came-cruse',0,128,0,12000,0,82,82,0);
+INSERT INTO `mob_groups` VALUES (28,6737,136,'Scylla',43200,0,6038,20000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (29,763,136,'Came-cruse',14400,0,0,12000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (30,6738,136,'RuszorBig',300,0,2135,0,0,81,82,0);
 
 INSERT INTO `mob_groups` VALUES (7241,2,136,'1st_Iron_Musketeer',0,0,0,0,0,0,0,0);
