@@ -1992,10 +1992,10 @@ INSERT INTO `mob_skills` VALUES (2159,1568,'pandemic_nip',0,7.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (2160,1569,'bombilation',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2161,1570,'cimicine_discharge',1,15.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2162,1571,'emetic_discharge',0,7.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2163,1907,'seedspray',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2163,1549,'seedspray',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2164,1550,'viscid_emission',4,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2165,1909,'rotten_stench',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2166,1910,'floral_bouquet',1,10.0,2000,5000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2166,1910,'floral_bouquet',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2167,1553,'bloody_caress',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2168,1912,'bloody_caress_kirtimukha',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2169,1913,'soothing_aroma',1,10.0,2000,5000,4,0,0,0,0,0,0);
