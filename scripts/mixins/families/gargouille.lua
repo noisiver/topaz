@@ -22,11 +22,11 @@ g_mixins.families.gargouille = function(mob)
 
             if animationSub == 0 or animationSub == 4 then
                 mob:AnimationSub(1)
-                mob:setLocalVar("swapTime", os.time() + 60)
+                mob:setLocalVar("swapTime", os.time() + math.random(45, 60))
 
             elseif animationSub == 1 then
                 mob:AnimationSub(0)
-                mob:setLocalVar("swapTime", os.time() + 60)
+                mob:setLocalVar("swapTime", os.time() + math.random(45, 60))
             end
         end
     end)
