@@ -986,7 +986,7 @@ INSERT INTO `mob_groups` VALUES (26,1412,27,'Foul_Meat',960,0,898,0,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (27,1387,27,'Fomor_Paladin',924,0,2877,0,0,44,48,0);
 INSERT INTO `mob_groups` VALUES (28,1380,27,'Fomor_Bard',924,0,856,0,0,44,48,0);
 INSERT INTO `mob_groups` VALUES (29,2488,27,'Mahisha',43200,0,1575,7000,0,48,50,0);
-INSERT INTO `mob_groups` VALUES (30,2675,27,'Minotaur',600,0,0,6200,0,46,48,0);
+INSERT INTO `mob_groups` VALUES (30,2675,27,'Minotaur',600,0,0,6200,0,47,48,0);
 INSERT INTO `mob_groups` VALUES (32,71,27,'Air_Elemental',960,4,38,0,0,45,50,0);
 INSERT INTO `mob_groups` VALUES (33,3912,27,'Thunder_Elemental',960,4,2410,0,0,45,50,0);
 INSERT INTO `mob_groups` VALUES (34,913,27,'Dark_Elemental',330,4,568,0,0,50,50,0);
