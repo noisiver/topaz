@@ -1,9 +1,7 @@
 -----------------------------------
--- Area: West Sarutabaruta [S]
---  Mob: Tiny Lycopodium
--- Note: PH for Jeduah
+-- Area: Fort Karugo-Narugo [S]
+--  Mob: Lycopodium
 -----------------------------------
-local ID = require("scripts/zones/West_Sarutabaruta_[S]/IDs")
 require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/families/lycopodium")}
 -----------------------------------
@@ -11,6 +9,3 @@ mixins = {require("scripts/mixins/families/lycopodium")}
 function onMobDeath(mob, player, isKiller)
 end
 
-function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.JEDUAH_PH, 20, 3600) -- 1 hour
-end

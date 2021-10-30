@@ -4,6 +4,7 @@
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/status")
+mixins = {require("scripts/mixins/families/ladybug")}
 ------------------------------
 function onMobInitialize(mob)
     mob:addMod(tpz.mod.ATTP, 25)
@@ -15,12 +16,6 @@ function onMobInitialize(mob)
 	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
 	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
 	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
-end
-
-function onMobFight(mob, target)
-	if VanadielHour() >= 6 and VanadielHour() <= 18 then
-		mob:setMod(tpz.mod.REGAIN, 250)
-	end
 end
 
 function onMobDeath(mob, player, isKiller)

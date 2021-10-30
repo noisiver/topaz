@@ -1,8 +1,9 @@
 -----------------------------------
--- Area: La Vaule [S]
---  Mob: Mariehene
+-- Area: Grauberg [S]
+--  Mob: Brasscap
 -----------------------------------
-mixins = {require("scripts/mixins/families/ladybug")}
+mixins = {require("scripts/mixins/families/coppercap")}
+require("scripts/globals/world")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
