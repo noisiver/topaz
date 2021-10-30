@@ -655,8 +655,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2435); -- severing_fang
 INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2436); -- zero_smash
 INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2438); -- frozen_mist
 INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2439); -- hydro_wave
-INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2440); -- ice_guillotine
-INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2441); -- aqua_cannon
 INSERT INTO `mob_skill_lists` VALUES ('Gowam',146,33); -- burning blade
 INSERT INTO `mob_skill_lists` VALUES ('Gowam',146,35); -- flat balde
 INSERT INTO `mob_skill_lists` VALUES ('Gowam',146,36); -- shinning blade

@@ -36,7 +36,7 @@ function onMobWeaponSkill(target, mob, skill)
 			AquaCannonMax = 8
 		elseif Roll < 0.7 then
 			AquaCannonMax = 6
-		elseif Roll < 0.8 then
+		else Roll < 0.8 then
 			AquaCannonMax = 4
 		end
 		mob:setLocalVar("AquaCannonMax", AquaCannonMax)
@@ -47,7 +47,6 @@ function onMobWeaponSkill(target, mob, skill)
 			mob:setLocalVar("AquaCannonCounter", 0)
 			mob:setLocalVar("AquaCannonMax", 0)
 			mob:delStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 60, tpz.effect.SILENCE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
-			mob:delStatusEffec(tpz.effect.PROWESS)
 		else
 			mob:useMobAbility(2441) -- Aqua Cannon
 			AquaCannonCounter = AquaCannonCounter + 1
@@ -62,7 +61,7 @@ function onMobWeaponSkill(target, mob, skill)
 			IceGuillotineMax = 8
 		elseif Roll < 0.7 then
 			IceGuillotineMax = 6
-		elseif Roll < 0.8 then
+		else Roll < 0.8 then
 			IceGuillotineMax = 4
 		end
 		mob:setLocalVar("IceGuillotineMax", IceGuillotineMax)
@@ -73,7 +72,6 @@ function onMobWeaponSkill(target, mob, skill)
 			mob:setLocalVar("IceGuillotineCounter", 0)
 			mob:setLocalVar("IceGuillotineMax", 0)
 			mob:delStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 60, tpz.effect.PARALYSIS, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
-			mob:delStatusEffec(tpz.effect.PROWESS)
 		else
 			mob:useMobAbility(2440) -- Ice Guillotine
 			IceGuillotineCounter = IceGuillotineCounter + 1

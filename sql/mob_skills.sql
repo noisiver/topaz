@@ -2268,8 +2268,8 @@ INSERT INTO `mob_skills` VALUES (2436,1698,'sub-zero_smash',1,15.0,2000,1000,4,0
 INSERT INTO `mob_skills` VALUES (2437,1699,'aqua_blast',4,15.0,2000,1000,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (2438,1700,'frozen_mist',1,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2439,1701,'hydro_wave',1,15.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2440,2184,'ice_guillotine',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2441,2185,'aqua_cannon',1,10.0,2000,1500,4,0,0,4,0,0,0);
+INSERT INTO `mob_skills` VALUES (2440,1702,'ice_guillotine',1,10.0,2000,1500,4,0,0,0,0,0,0); -- try same as severeing fang animation id
+INSERT INTO `mob_skills` VALUES (2441,1703,'aqua_cannon',1,10.0,2000,1500,4,0,0,4,0,0,0); -- try same as squa blast animation id
 INSERT INTO `mob_skills` VALUES (2442,1714,'thorned_dance',0,7.0,2000,1000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2443,1715,'sensual_dance',0,7.0,2000,1000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2444,1712,'dancers_fury',0,7.0,2000,1000,4,0,0,0,0,0,0);

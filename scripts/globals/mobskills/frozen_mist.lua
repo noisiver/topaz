@@ -35,7 +35,7 @@ function onMobWeaponSkill(target, mob, skill)
 	    local typeEffect = tpz.effect.PROWESS
 		local power = 10
 		mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 60, tpz.effect.PARALYSIS, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
-		MobBuffMove(mob, typeEffect, power, 0, 60)
+		mob:addStatusEffectEx(tpz.effect.HUMANOID_KILLER, 0, 10, 0, 30)	
 	end
 
     return tpz.effect.PHYSICAL_SHIELD
