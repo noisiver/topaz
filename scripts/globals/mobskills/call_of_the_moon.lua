@@ -16,7 +16,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.PROWESS
+    local typeEffect = tpz.effect.PROWESS_KILLER
  
  local moon = VanadielMoonPhase()
     local power = 0
@@ -36,6 +36,7 @@ function onMobWeaponSkill(target, mob, skill)
         power = 5
     end	
 	
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 30)) 
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 30))
+    mob:addStatusEffectEx(tpz.effect.HUMANOID_KILLER, 0, power, 0, 30)	
     return typeEffect
 end
