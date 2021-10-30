@@ -72,7 +72,7 @@ INSERT INTO `mob_family_system` VALUES (2,'Adamantoise',14,'Lizard',3,30,120,90,
 INSERT INTO `mob_family_system` VALUES (3,'Aern',15,'Luminian',0,40,110,140,1,1,1,1,1,1,1,3,3,3,3,1,1,1,1,1,1,1,1,1,1,0.5,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (4,'Ahriman',9,'Demon',0,40,87,140,3,3,4,4,3,4,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1.3,0.3,8,3,0);
 INSERT INTO `mob_family_system` VALUES (5,'Amoeban',21,'Voragean',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,32,0);
-INSERT INTO `mob_family_system` VALUES (6,'Amphiptere',8,'Bird',4,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,0.7,0.85,0.2,1,0.7,0.7,0.7,0.5,0,1,0);
+INSERT INTO `mob_family_system` VALUES (6,'Amphiptere',8,'Bird',4,30,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,0.7,0.85,0.2,1,0.7,0.7,0.7,0.5,0,1,0);
 INSERT INTO `mob_family_system` VALUES (7,'AnimatedWeapon-Archery',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (8,'AnimatedWeapon-Axe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (9,'AnimatedWeapon-Club',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
