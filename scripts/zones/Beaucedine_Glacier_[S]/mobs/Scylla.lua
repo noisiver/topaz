@@ -35,9 +35,9 @@ function onMobWeaponSkill(target, mob, skill)
 		elseif Roll < 0.5 then
 			AquaCannonMax = 8
 		elseif Roll < 0.7 then
-			AquaCannonMax 6
+			AquaCannonMax = 6
 		elseif Roll < 0.8 then
-			AquaCannonMax 4
+			AquaCannonMax = 4
 		end
 		mob:setLocalVar("AquaCannonMax", AquaCannonMax)
 	end
@@ -61,9 +61,9 @@ function onMobWeaponSkill(target, mob, skill)
 		elseif Roll < 0.5 then
 			IceGuillotineMax = 8
 		elseif Roll < 0.7 then
-			IceGuillotineMax 6
+			IceGuillotineMax = 6
 		elseif Roll < 0.8 then
-			IceGuillotineMax 4
+			IceGuillotineMax = 4
 		end
 		mob:setLocalVar("IceGuillotineMax", IceGuillotineMax)
 	end
