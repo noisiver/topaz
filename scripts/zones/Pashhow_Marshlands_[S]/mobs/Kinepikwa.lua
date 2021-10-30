@@ -11,6 +11,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ATTP, 25)
     mob:setMod(tpz.mod.REGAIN, 100)
+    mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.REGEN, 50)
 	mob:setMod(tpz.mod.MOVE, 12)
 end

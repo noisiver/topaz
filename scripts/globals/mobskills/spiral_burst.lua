@@ -12,9 +12,11 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if mob:isNM() then
-        return 0
-    end
+ if VanadielHour() >= 6 and VanadielHour() <= 18 then
+		if mob:isNM() then
+			return 0
+		end
+	end
     return 1
 end
 
