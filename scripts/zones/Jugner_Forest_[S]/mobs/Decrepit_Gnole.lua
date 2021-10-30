@@ -4,7 +4,6 @@
 -----------------------------------
 local ID = require("scripts/zones/Jugner_Forest_[S]/IDs")
 require("scripts/globals/mobs")
-mixins = {require("scripts/mixins/families/gnole")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
