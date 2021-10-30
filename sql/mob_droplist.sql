@@ -15829,7 +15829,7 @@ INSERT INTO `mob_droplist` VALUES (2987,0,0,1000,15942,100); -- (Ramponneau) Sum
 INSERT INTO `mob_droplist` VALUES (2988,0,0,1000,16185,308);
 INSERT INTO `mob_droplist` VALUES (2989,0,0,1000,18604,240);	--astaroth cane
 INSERT INTO `mob_droplist` VALUES (2990,0,0,1000,15850,50); -- Lava's Ring
-INSERT INTO `mob_droplist` VALUES (2991,0,0,1000,15851,100); -- (Lamina) Kusha's Ring
+INSERT INTO `mob_droplist` VALUES (2991,0,0,1000,15851,50); -- (Lamina) Kusha's Ring
 INSERT INTO `mob_droplist` VALUES (2992,0,0,1000,15941,240);	-- (Chonchon) Headlong Belt
 INSERT INTO `mob_droplist` VALUES (2993,0,0,1000,16037,240);	--(Eldritch Edge) Helenus's Earring
 INSERT INTO `mob_droplist` VALUES (2994,0,0,1000,16038,240);	-- (Blighting Brand) Cassandra's Earring
