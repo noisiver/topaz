@@ -15877,7 +15877,7 @@ INSERT INTO `mob_droplist` VALUES (3017,0,0,1000,19230,240);	-- (Patripatan) Nou
 INSERT INTO `mob_droplist` VALUES (3018,0,0,1000,2857,240);		-- (Saa Doyi The Fervid) Lump Of Tokkyu Tama-Hagane 
 INSERT INTO `mob_droplist` VALUES (3019,0,0,1000,19045,240);
 INSERT INTO `mob_droplist` VALUES (3020,0,0,1000,16024,220);
-INSERT INTO `mob_droplist` VALUES (3021,0,0,1000,16036,100); -- (Goblintrap) Wilhelm's Earring
+INSERT INTO `mob_droplist` VALUES (3021,0,0,1000,16036,50); -- (Goblintrap) Wilhelm's Earring
 INSERT INTO `mob_droplist` VALUES (3022,0,0,1000,16032,150);	--(Ni'zho Bladebender) Muffle Earring
 INSERT INTO `mob_droplist` VALUES (3023,0,0,1000,15852,100); -- (Boll Weevil) Nasatya's Ring
 INSERT INTO `mob_droplist` VALUES (3024,0,0,1000,852,50); -- (Drachenlizard) Lizard Skin
@@ -15962,7 +15962,7 @@ INSERT INTO `mob_droplist` VALUES (3081,0,0,1000,16187,122); -- (Shankha) Adoube
 INSERT INTO `mob_droplist` VALUES (3082,0,0,1000,2808,125); -- (Melusine) Ebon Pigment
 INSERT INTO `mob_droplist` VALUES (3082,0,0,1000,2809,125); -- (Melusine) Furia Pigment
 INSERT INTO `mob_droplist` VALUES (3083,0,0,1000,11496,50); -- (Lizardtrap) Fenrir's Crown
-INSERT INTO `mob_droplist` VALUES (3084,0,0,1000,16035,100); -- (Goaftrap) Altdorf's Earring
+INSERT INTO `mob_droplist` VALUES (3084,0,0,1000,16035,50); -- (Goaftrap) Altdorf's Earring
 INSERT INTO `mob_droplist` VALUES (3085,0,0,1000,11408,100); -- (Sarcopsylla) Morana's Pigaches
 INSERT INTO `mob_droplist` VALUES (3086,0,0,1000,11533,240); -- (Rogue Receptacle) Lyricist's Gonnelle
 INSERT INTO `mob_droplist` VALUES (3087,0,0,1000,15944,240); -- (Frogamander) Selemnus Belt
