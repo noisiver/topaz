@@ -423,7 +423,7 @@ INSERT INTO `mob_groups` VALUES (67,2043,9,'Ice_Elemental',600,4,1347,0,0,84,86,
 -- The_Shrouded_Maw (Zone 10)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1027,10,'Diabolos',0,128,0,5200,5000,54,55,0);
+INSERT INTO `mob_groups` VALUES (1,1027,10,'Diabolos',0,128,0,6000,5000,54,55,0);
 INSERT INTO `mob_groups` VALUES (2,5156,10,'Diremite',10,128,0,0,0,43,43,0);
 INSERT INTO `mob_groups` VALUES (3,3104,10,'Pasuk',0,128,0,0,0,40,40,0);
 INSERT INTO `mob_groups` VALUES (4,5186,10,'Diabolos',0,128,0,11000,0,80,82,0);

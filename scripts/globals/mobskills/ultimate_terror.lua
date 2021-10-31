@@ -14,32 +14,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    
-    if math.random() < 3/7 then
-        skill:setMsg(MobDrainAttribute(mob, target, 136, 21, 3, 60))
-    end
-    
-    if math.random() < 3/7 then
-        skill:setMsg(MobDrainAttribute(mob, target, 137, 21, 3, 60))
-    end
-
-    if math.random() < 3/7 then
-        skill:setMsg(MobDrainAttribute(mob, target, 138, 21, 3, 60))
-    end
-
-    if math.random() < 3/7 then
-        skill:setMsg(MobDrainAttribute(mob, target, 139, 21, 3, 60))
-    end
-
-    if math.random() < 3/7 then
-        skill:setMsg(MobDrainAttribute(mob, target, 140, 21, 3, 60))
-    end
-
-    if math.random() < 3/7 then
-        skill:setMsg(MobDrainAttribute(mob, target, 141, 21, 3, 60))
-    end
-
-    if math.random() < 3/7 then
-        skill:setMsg(MobDrainAttribute(mob, target, 142, 21, 3, 60))
-    end
+    if (MobPhysicalHit(skill)) then
+		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 3, math.random(1, 7), 120))
+	end
+	return 1
 end

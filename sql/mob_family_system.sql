@@ -99,7 +99,7 @@ INSERT INTO `mob_family_system` VALUES (31,'Automaton-Valoredge',18,'Unclassifie
 INSERT INTO `mob_family_system` VALUES (32,'Avatar-Atomos',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,41,0);
 INSERT INTO `mob_family_system` VALUES (33,'Avatar-Alexander',5,'Avatar',4,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,41,0);
 INSERT INTO `mob_family_system` VALUES (34,'Avatar-Carbuncle',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,41,0);
-INSERT INTO `mob_family_system` VALUES (35,'Avatar-Diabolos',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,1,0.50,0,41,0);
+INSERT INTO `mob_family_system` VALUES (35,'Avatar-Diabolos',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,1,0.5,0,41,0);
 INSERT INTO `mob_family_system` VALUES (36,'Avatar-Fenrir',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,0.875,1,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (37,'Avatar-Garuda',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,1,0.875,0.875,0.875,0.875,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (38,'Avatar-Ifrit',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,1,0.875,0.875,0,41,0);

@@ -1309,12 +1309,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Deviator',113,195,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Deviator',113,200,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Deviator',113,226,1,255); -- might not have access to poisonga 2
 INSERT INTO `mob_spell_lists` VALUES ('Deviator',113,274,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,254,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,231,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,245,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,247,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,273,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,259,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,254,1,255); -- blind
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,231,1,255); -- bio_ii
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,245,1,255); -- drain
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,247,1,255); -- aspir
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,273,1,255); -- sleepga
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Darkness_Named',115,259,1,255); -- sleep_ii
 INSERT INTO `mob_spell_lists` VALUES ('Golden_Tongued_Culberry',116,367,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Golden_Tongued_Culberry',116,359,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Golden_Tongued_Culberry',116,356,1,255);

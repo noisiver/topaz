@@ -3,6 +3,8 @@
 -- The Shrouded Maw mission battlefield
 -----------------------------------
 local ID = require("scripts/zones/The_Shrouded_Maw/IDs")
+require("scripts/globals/common")
+require("scripts/globals/settings")
 require("scripts/globals/battlefield")
 require("scripts/globals/missions")
 require("scripts/globals/status")
