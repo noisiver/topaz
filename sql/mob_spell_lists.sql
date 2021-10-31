@@ -4394,6 +4394,14 @@ INSERT INTO `mob_spell_lists` VALUES ('AncientVessel',2003,196,1,255); -- thunda
 INSERT INTO `mob_spell_lists` VALUES ('AncientVessel',2003,151,1,255); -- blizzard_iii
 INSERT INTO `mob_spell_lists` VALUES ('AncientVessel',2003,166,1,255); -- thunder_iii
 
+INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,14,1,255);  -- Poisona
+INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,15,1,255);  -- Paralyna
+INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,16,1,255);  -- Blindna
+INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,17,1,255);  -- Silena
+INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,18,1,255);  -- Stona
+INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,19,1,255);  -- Viruna
+INSERT INTO `mob_spell_lists` VALUES ('Came-Cruise',2004,181,1,255); -- blizzaga_iii
+
 
 
 

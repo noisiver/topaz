@@ -406,9 +406,9 @@ INSERT INTO `mob_skills` VALUES (573,872,'self-destruct_1',1,10.0,2000,1500,4,0,
 -- INSERT INTO `mob_skills` VALUES (574,318,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (575,319,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (576,910,'back_heel',0,7,2000,1500,4,0,0,2,0,0,0);
--- INSERT INTO `mob_skills` VALUES (577,321,'jettatura',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (577,321,'jettatura',4,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (578,912,'nihility_song',1,12.5,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (579,323,'choke_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (579,323,'choke_breath',4,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (580,324,'fantod',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (581,325,'blow',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (582,326,'cacodemonia',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2656,7 +2656,7 @@ INSERT INTO `mob_skills` VALUES (2813,2557,'dunur_strike',4,15.0,2000,1500,4,0,0
 -- INSERT INTO `mob_skills` VALUES (2825,2569,'louring_skies',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2826,1992,'exponential_burst',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2827,2571,'sudden_lunge',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2828,911,'jettatura',4,10,2000,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2828,911,'jettatura',4,7,2000,3000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2829,2573,'aqua_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2830,2574,'royal_decree',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2831,2575,'grace_of_hera',0,7.0,2000,1500,4,0,0,0,0,0,0);

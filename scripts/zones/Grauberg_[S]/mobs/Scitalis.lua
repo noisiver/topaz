@@ -26,7 +26,7 @@ end
 
 
 function onAdditionalEffect(mob, target, damage)
-return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENAERO, {chance = 100, power = math.random(120, 150)})
+	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENAERO, {chance = 100, power = math.random(120, 150)})
 end
 
 function onMobDeath(mob, player, isKiller)
