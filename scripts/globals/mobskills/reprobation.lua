@@ -13,9 +13,13 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 ---------------------------------------------
 
-function onMobSkillCheck(target,mob,skill)
-    return 0
+function onMobSkillCheck(target, mob, skill)
+    if mob:isMobType(MOBTYPE_NOTORIOUS) then
+        return 0
+    end
+    return 1
 end
+
 
 function onMobWeaponSkill(target, mob, skill)
     local dispel =  target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD))

@@ -26,7 +26,7 @@ zones[tpz.zone.BATALLIA_DOWNS_S] =
         BURLIBIX_BRAWNBACK_PH =
         {
             [17121398] = 17121399,
-            [17121402] = 17121399,
+            -- [17121402] = 17121399,
         },
         LA_VELUE_PH =
         {

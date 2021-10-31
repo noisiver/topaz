@@ -107,6 +107,7 @@ tpz.path =
         return t2
     end,
 
+
     -- continusly run the path
     patrol = function(npc, points, flags)
         if npc:atPoint(tpz.path.first(points)) or npc:atPoint(tpz.path.last(points)) then
@@ -125,5 +126,23 @@ tpz.path =
                 i = i + 50
             end
         end
+    end,
+
+    patrolsimple = function(npc, points, flags)
+        local nextPatrolIndex = npc:getLocalVar("nextPatrolIndex")
+        local length = tpz.path.length(points)
+        local i = nextPatrolIndex > 0 and nextPatrolIndex or 1
+
+        if i <= length then
+            if npc:atPoint(tpz.path.get(points, i)) then
+                i = i + 1
+            end
+        else
+            i = 1
+        end
+
+        npc:pathThrough(tpz.path.get(points, i), flags)
+        npc:setLocalVar("nextPatrolIndex", i)
     end
+
 }

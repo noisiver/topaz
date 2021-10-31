@@ -1,9 +1,9 @@
 ---------------------------------------------
 -- Emetic Discharge
--- Family: Bloodlapper and Brummbar
+-- Used by: Bloodlapper and Brummbar
 -- Description: Transfers all ailments to target
 -- Type: Enfeebling
--- Utsusemi/Blink absorb: 2-3 shadows
+-- Utsusemi/Blink absorb: 3 shadows
 -- Notes:
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -13,7 +13,10 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -25,9 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
                         tpz.effect.EVASION_DOWN, tpz.effect.DEFENSE_DOWN, tpz.effect.MAGIC_ACC_DOWN, tpz.effect.MAGIC_ATK_DOWN, tpz.effect.MAGIC_EVASION_DOWN,
                         tpz.effect.MAGIC_DEF_DOWN, tpz.effect.MAX_TP_DOWN, tpz.effect.MAX_MP_DOWN, tpz.effect.MAX_HP_DOWN}
 
-    local dmg = utils.takeShadows(target, 1, math.random(2, 3)) --removes 2-3 shadows
-    --if removed more shadows than were up or there weren't any
-    if (dmg > 0) then
+    local dmg = utils.takeShadows(target, 1, 3) 
         for i, effect in ipairs(removables) do
             if (mob:hasStatusEffect(effect)) then
                 local statusEffect = mob:getStatusEffect(effect)
@@ -35,7 +36,6 @@ function onMobWeaponSkill(target, mob, skill)
                 mob:delStatusEffect(effect)
             end
         end
-    end
 
     skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
     return 0

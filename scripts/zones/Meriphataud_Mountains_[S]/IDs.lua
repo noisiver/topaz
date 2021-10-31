@@ -27,6 +27,10 @@ zones[tpz.zone.MERIPHATAUD_MOUNTAINS_S] =
         {
             [17174708] = 17174709,
         },
+        HEMODROSOPHILA_PH =
+        {
+            [17174681] = 17174682,
+        },
         BLOODLAPPER = 17174889,
     },
     npc =

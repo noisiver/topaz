@@ -68,6 +68,7 @@ function onSpellCast(caster, target, spell)
 			end
 		end
 	
+	damage = damage * resist	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (damage > 0 and resist >= 0.5) then

@@ -25,6 +25,10 @@ zones[tpz.zone.XARCABARD_S] =
         {
             [17338384] = 17338386,
         },
+        PRINCE_OROBAS_PH =
+        {
+            [17338457] = 17338462,
+        },
     },
     npc =
     {

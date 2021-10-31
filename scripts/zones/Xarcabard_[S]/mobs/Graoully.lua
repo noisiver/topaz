@@ -4,10 +4,26 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
+
+function onMobSpawn(mob)
+    local bufftwo = tpz.effect.BLAZE_SPIKES
+
+    mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 70, 0, 3600)
+    mob:getStatusEffect(bufftwo):unsetFlag(tpz.effectFlag.DISPELABLE)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.ACC, 25)
+    mob:setMod(tpz.mod.REFRESH, 400)
+	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
+	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
+	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
+	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
 end
 
 function onAdditionalEffect(mob, target, damage)

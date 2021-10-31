@@ -723,10 +723,11 @@ enum EFFECT
     EFFECT_FULL_SPEED_AHEAD         = 803, // Used to track Full Speed Ahead quest minigame
     // EFFECT_PLACEHOLDER           = 804  // Description
     // 804-1022
+    EFFECT_DEEPSLEEP                = 901,
     // EFFECT_PLACEHOLDER           = 1023 // The client dat file seems to have only this many "slots", results of exceeding that are untested.
 };
 
-#define MAX_EFFECTID    804  // 768 real + 32 custom
+#define MAX_EFFECTID    1000  // 768 real + 32 custom
 
 /************************************************************************
 *                                                                       *

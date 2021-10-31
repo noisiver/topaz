@@ -9,7 +9,7 @@ require("scripts/globals/status")
 
 function onMobSkillCheck(target, mob, skill)
     local zone = mob:getZoneID()
-    if (mob:isInDynamis() or zone == 5) then
+    if (mob:isInDynamis() or zone == 5 or zone == 137 or zone == 138 or zone == 155) then
         return 0
     end
     return 1

@@ -3,7 +3,32 @@
 --   NM: Dyinyinga
 ------------------------------
 require("scripts/globals/hunts")
+local ID = require("scripts/zones/Rolanberry_Fields_[S]/IDs")
+require("scripts/globals/mobs")
+require("scripts/globals/status")
 ------------------------------
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
+
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
+	mob:setMod(tpz.mod.MOVE, 20)
+	mob:setMod(tpz.mod.UDMGMAGIC, 25)
+end
+
+function onMobFight(mob, target)
+	mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.AMNESIA, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+	mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.SILENCE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.SLOW, {power = 25})
+end
+
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 511)

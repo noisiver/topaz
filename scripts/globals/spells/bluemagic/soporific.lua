@@ -42,6 +42,12 @@ function onSpellCast(caster, target, spell)
 	elseif vermin then
 		params.bonus = -25
 	end
+	
+   	if target:isMob() then
+		if target:isUndead() and target:getFamily() == 227 or target:getFamily() == 88 or target:getFamily() == 89 then -- skeletons
+			resist = 1/16
+		end
+	end
 
     if (resist >= 0.5) then -- Do it!
         if (target:addStatusEffect(typeEffect, 1, 0, duration)) then

@@ -548,7 +548,7 @@ void CMobController::FaceTarget(uint16 targid)
 {
     TracyZoneScoped;
     if (PMob->StatusEffectContainer->HasStatusEffect(
-            { EFFECT_SLEEP, EFFECT_SLEEP_II, EFFECT_LULLABY, EFFECT_TERROR, EFFECT_STUN, EFFECT_PETRIFICATION}))
+            { EFFECT_SLEEP, EFFECT_SLEEP_II, EFFECT_LULLABY, EFFECT_TERROR, EFFECT_STUN, EFFECT_PETRIFICATION, EFFECT_DEEPSLEEP}))
     {
         return;
     }

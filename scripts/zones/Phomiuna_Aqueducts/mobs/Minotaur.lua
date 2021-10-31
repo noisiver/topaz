@@ -4,7 +4,12 @@
 -----------------------------------
 mixins = {require("scripts/mixins/fomor_hate")}
 require("scripts/globals/missions")
+require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 2)
+end
 
 function onMobSpawn(mob)
     mob:setLocalVar("fomorHateAdj", -2)
@@ -13,6 +18,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
+	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
 end
 
 function onMobDeath(mob, player, isKiller)

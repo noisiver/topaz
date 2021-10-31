@@ -6,8 +6,8 @@
 
 function onEffectGain(target, effect)
     -- minimum time is 10 seconds!
-    if (effect:getPower() < 10) then
-        effect:setPower(10)
+    if (effect:getPower() < 5) then
+        effect:setPower(5)
     end
 end
 

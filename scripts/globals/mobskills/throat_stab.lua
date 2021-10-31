@@ -18,20 +18,18 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local targetCurrentHP = target:getHP()
+    local targetmaxHP = target:getMaxHP()
+    local hpset=targetmaxHP*0.05
 
-    local currentHP = target:getHP()
-    -- remove all by 5%
-    local damage = 0
-
-    -- if have more hp then 20%, then reduce to 5%
-    if (currentHP / target:getMaxHP() > 0.2) then
-        damage = currentHP * .95
+    if (targetCurrentHP > hpset) then
+        dmg = targetCurrentHP - hpset
     else
-        -- else you die
-        damage = currentHP
+        dmg = 0
     end
+	
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.NONE, MOBPARAM_IGNORE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     mob:resetEnmity(target)
     return dmg

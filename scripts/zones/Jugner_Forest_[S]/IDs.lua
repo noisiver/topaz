@@ -30,6 +30,10 @@ zones[tpz.zone.JUGNER_FOREST_S] =
         {
             [17113380] = 17113381, -- 195.578 -0.556 -347.699
         },
+        VOIRLOUP_PH =
+        {
+            [17113174] = 17113175, -- 156 0 -438
+        },
         FINGERFILCHER_DRADZAD = 17113462,
         COBRACLAW_BUCHZVOTCH  = 17113464,
     },

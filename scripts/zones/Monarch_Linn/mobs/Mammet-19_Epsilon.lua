@@ -9,8 +9,8 @@ function onMobSpawn(mob)
     mob:SetMagicCastingEnabled(false)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
+    mob:addMod(tpz.mod.ACC, 15) 
+    mob:addMod(tpz.mod.EVA, 15)
     mob:setMod(tpz.mod.REFRESH, 40)
 end
 
@@ -37,21 +37,21 @@ function changeForm(mob)
     -- setDamage works beautifully, but setDelay doesn't seem to be working.  Increased DMG turned off.
     if (newform == 0) then -- Hand Form, ~3s delay
         mob:SetMagicCastingEnabled(false)
-        mob:setDelay(2400)
+		mob:setMod(tpz.mod.HASTE_MAGIC, 2000)
         mob:setDamage(40)
     elseif (newform == 1) then -- Sword Form, ~2s delay, melee hits for ~50-100 vs WHM/BLM w/o buffs, 40 DMG seems to work.
         mob:SetMagicCastingEnabled(false)
-        mob:setDelay(1500)
         mob:setDamage(40)
+		mob:setMod(tpz.mod.HASTE_MAGIC, 2500)
     elseif (newform == 2) then -- Polearm Form, ~3-3.5s delay, melee hits for ~100-150.  Takes about 70-80 DMG to make this happen.
         mob:SetMagicCastingEnabled(false)
-        mob:setDelay(3250)
         mob:setDamage(75)
+		mob:setMod(tpz.mod.HASTE_MAGIC, 1500)
     elseif (newform == 3) then -- Staff Form, ~4s delay, ~10 seconds between spell ends and next cast
         mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
         mob:SetMagicCastingEnabled(true)
-        mob:setDelay(3700)
         mob:setDamage(40)
+		mob:setMod(tpz.mod.HASTE_MAGIC, 0)
     end
     mob:AnimationSub(newform)
     mob:setLocalVar('changeTime', mob:getBattleTime())

@@ -16,7 +16,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- Add knock back!
     local numhits = 1
     local accmod = 1
     local dmgmod = 1.5

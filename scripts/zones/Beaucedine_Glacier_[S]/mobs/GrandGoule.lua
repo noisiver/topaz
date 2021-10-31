@@ -4,7 +4,19 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.ACC, 25)
+    mob:addMod(tpz.mod.EVA, 50)
+	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
+	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
+	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
+	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
+	mob:AnimationSub(0)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)

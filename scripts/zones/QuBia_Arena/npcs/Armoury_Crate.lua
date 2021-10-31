@@ -233,24 +233,24 @@ local loot =
             {itemid = 65535, droprate = 1000, amount = 15000},  -- gil
         },
         {
-            {itemid = 14202, droprate =  240}, -- creek_m_clomps
-            {itemid = 14203, droprate =  240}, -- creek_f_clomps
-            {itemid = 14198, droprate =  240}, -- marine_m_boots
-            {itemid = 14199, droprate =  240}, -- marine_f_boots
-            {itemid = 14200, droprate =  240}, -- wood_m_ledelsens
-            {itemid = 14201, droprate =  240}, -- wood_f_ledelsens
-            {itemid = 14205, droprate =  240}, -- dune_sandals
-            {itemid = 14204, droprate =  240}, -- river_gaiters
+            {itemid = 14202, droprate =  125}, -- creek_m_clomps
+            {itemid = 14203, droprate =  125}, -- creek_f_clomps
+            {itemid = 14198, droprate =  125}, -- marine_m_boots
+            {itemid = 14199, droprate =  125}, -- marine_f_boots
+            {itemid = 14200, droprate =  125}, -- wood_m_ledelsens
+            {itemid = 14201, droprate =  125}, -- wood_f_ledelsens
+            {itemid = 14205, droprate =  125}, -- dune_sandals
+            {itemid = 14204, droprate =  125}, -- river_gaiters
         },
         {
-            {itemid = 14202, droprate =  240}, -- creek_m_clomps
-            {itemid = 14203, droprate =  240}, -- creek_f_clomps
-            {itemid = 14198, droprate =  240}, -- marine_m_boots
-            {itemid = 14199, droprate =  240}, -- marine_f_boots
-            {itemid = 14200, droprate =  240}, -- wood_m_ledelsens
-            {itemid = 14201, droprate =  240}, -- wood_f_ledelsens
-            {itemid = 14205, droprate =  240}, -- dune_sandals
-            {itemid = 14204, droprate =  240}, -- river_gaiters
+			{itemid = 14204, droprate =  125}, -- river_gaiters
+			{itemid = 14202, droprate =  125}, -- creek_m_clomps
+            {itemid = 14203, droprate =  125}, -- creek_f_clomps
+            {itemid = 14198, droprate =  125}, -- marine_m_boots
+            {itemid = 14199, droprate =  125}, -- marine_f_boots
+            {itemid = 14200, droprate =  125}, -- wood_m_ledelsens
+            {itemid = 14201, droprate =  125}, -- wood_f_ledelsens
+            {itemid = 14205, droprate =  125}, -- dune_sandals
         },
         {
             {itemid =   801, droprate =   100}, -- chrysoberyl
@@ -280,9 +280,9 @@ local loot =
             {itemid =  4175, droprate =   50}, -- vile_elixir_+1
         },
         {
-            {itemid =  4812, droprate =  240}, -- scroll_of_flare
-            {itemid =  5005, droprate =  240}, -- scroll_of_valor_minuet_iv
-            {itemid =  4749, droprate =  240}, -- scroll_of_reraise_ii
+            {itemid =  4812, droprate =  333}, -- scroll_of_flare
+            {itemid =  5005, droprate =  333}, -- scroll_of_valor_minuet_iv
+            {itemid =  4749, droprate =  334}, -- scroll_of_reraise_ii
         },
         {
             {itemid =     0, droprate =  500}, -- nothing
@@ -297,14 +297,14 @@ local loot =
         },
         {
             {itemid =     0, droprate =  750}, -- nothing
-            {itemid = 14202, droprate =  240}, -- creek_m_clomps
-            {itemid = 14203, droprate =  240}, -- creek_f_clomps
-            {itemid = 14198, droprate =  240}, -- marine_m_boots
-            {itemid = 14199, droprate =  240}, -- marine_f_boots
-            {itemid = 14200, droprate =  240}, -- wood_m_ledelsens
-            {itemid = 14201, droprate =  240}, -- wood_f_ledelsens
-            {itemid = 14205, droprate =  240}, -- dune_sandals
-            {itemid = 14204, droprate =  240}, -- river_gaiters
+            {itemid = 14199, droprate =  31}, -- marine_f_boots
+            {itemid = 14200, droprate =  31}, -- wood_m_ledelsens
+            {itemid = 14201, droprate =  31}, -- wood_f_ledelsens
+            {itemid = 14205, droprate =  31}, -- dune_sandals
+            {itemid = 14204, droprate =  33}, -- river_gaiters
+            {itemid = 14202, droprate =  31}, -- creek_m_clomps
+            {itemid = 14203, droprate =  31}, -- creek_f_clomps
+            {itemid = 14198, droprate =  31}, -- marine_m_boots
         },
     },
 

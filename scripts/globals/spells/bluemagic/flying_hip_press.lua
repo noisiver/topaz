@@ -32,6 +32,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
+    local resist = applyResistance(caster, target, spell, params)
     params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 2.912
@@ -58,7 +59,8 @@ function onSpellCast(caster, target, spell)
 				damage = damage * (SDT / 100)
 			end
 		end
-    
+  
+	damage = damage * resist	  
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     return damage

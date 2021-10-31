@@ -4,6 +4,8 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
+mixins = {require("scripts/mixins/families/coppercap")}
+require("scripts/globals/world")
 -----------------------------------
 
 function onMobInitialize(mob)

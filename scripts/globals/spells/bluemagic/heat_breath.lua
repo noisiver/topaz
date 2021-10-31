@@ -71,7 +71,8 @@ function onSpellCast(caster, target, spell)
 				damage = damage * (SDT / 100)
 			end
 		end
-
+	
+	damage = damage * resist	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     return damage
