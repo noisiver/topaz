@@ -1671,6 +1671,7 @@ void CStatusEffectContainer::TickRegen(time_point tick)
             {
                 DelStatusEffectSilent(EFFECT_HEALING);
                 m_POwner->takeDamage(damage);
+			if (!m_POwner->StatusEffectContainer->HasStatusEffect(EFFECT_DEEPSLEEP))
                 WakeUp();
             }
         }
