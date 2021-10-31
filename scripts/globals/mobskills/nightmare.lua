@@ -16,7 +16,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:addStatusEffectEx(tpz.effect.DEEPSLEEP,0,1,3,90)
     MobStatusEffectMove(mob, target, tpz.effect.BIO, 21, 3, 90)
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 90))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 3, 90))
 
     return typeEffect
 end
