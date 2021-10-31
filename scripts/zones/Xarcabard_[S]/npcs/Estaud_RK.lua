@@ -1,20 +1,21 @@
+
 -----------------------------------
--- Area: Beaucedine Glacier (S)
---   NPC: Moana, C.A.
+-- Area: Xarcabard [S]
+--  NPC: Estaud, R.K.
 -- Type: Campaign Arbiter
--- !pos -27.237 -60.888 -48.111 136
+-- !pos TODO
 -----------------------------------
 require("scripts/globals/campaign")
 -----------------------------------
 
-local campaignEvent = 457
+local campaignEvent = 454
 
 function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
     if player:getCampaignAllegiance() == 0 then
-        player:startEvent(453)
+        player:startEvent(450)
     else
         tpz.campaign.campaignArbiterOnTrigger(player, npc, campaignEvent)        
     end

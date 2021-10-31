@@ -1,8 +1,9 @@
+
 -----------------------------------
--- Area: Beaucedine Glacier (S)
---   NPC: Moana, C.A.
+-- Area: Xarcabard [S]
+--  NPC: Sleiney, C.A.
 -- Type: Campaign Arbiter
--- !pos -27.237 -60.888 -48.111 136
+-- !pos TODO
 -----------------------------------
 require("scripts/globals/campaign")
 -----------------------------------
