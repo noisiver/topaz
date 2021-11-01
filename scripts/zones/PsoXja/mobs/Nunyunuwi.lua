@@ -11,7 +11,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
-    mob:addStatusEffect(tpz.effect.REGEN, 50, 3, 0)
+    mob:setMod(tpz.mod.REGEN, 100)
 end
 
 function onMobDeath(mob, player, isKiller)
