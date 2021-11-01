@@ -24,33 +24,33 @@ function onMobWeaponSkill(target, mob, skill)
 	
     local moon = VanadielMoonPhase()
     if moon > 90 then -- Full Moon
-        dmgmod = 2
+        dmgmod = 4
 		defdownpower = 50
 		stunpower = 7
     elseif moon > 75 then
-        dmgmod = 1.75
+        dmgmod = 3.9
 		defdownpower = 45
 		stunpower = 6
     elseif moon > 60 then
-        dmgmod = 1.5
+        dmgmod = 3.8
 		defdownpower = 40
 		stunpower = 5
     elseif moon > 40 then
-        dmgmod = 1.25
+        dmgmod = 3.5
 		defdownpower = 30
 		stunpower = 4
     elseif moon > 25 then
-        dmgmod = 1
+        dmgmod = 3.3
 		defdownpower = 20
 		stunpower = 3
     elseif moon > 10 then
-        dmgmod = 0.75
+        dmgmod = 3.1
 		defdownpower = 10
 		stunpower = 2
     else
-        dmgmod = 0.5
+        dmgmod = 3.1
 		defdownpower = 5
-		stunpower = 1
+		stunpower = 2
     end	
 	
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
