@@ -134,9 +134,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     elseif ((1.2 < ratio) and (ratio <= 1.5)) then
         maxRatio = (ratio * 0.25) + ratio
     elseif ((1.5 < ratio) and (ratio <= 2.625)) then
-        maxRatio = ratio + 0.375
+        maxRatio = 2
     elseif ((2.625 < ratio) and (ratio <= 3.25)) then
-        maxRatio = 4        -- monsters cap at 4.0 https://www.bluegartr.com/threads/114636-Monster-Avatar-Pet-damage
+        maxRatio = 2        -- https://forum.square-enix.com/ffxi/threads/31310-March-27-2013-%28JST%29-Version-Update 2.0 in era
     else
         maxRatio = ratio
     end
@@ -178,7 +178,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     end
 
     --firstHitChance = utils.clamp(firstHitChance, 35, 95)
-    firstHitChance = utils.clamp(firstHitChance, 20, 95)
+    firstHitChance = utils.clamp(firstHitChance, 20, 100)
 
     local MS = 0
     if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
