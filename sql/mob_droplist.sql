@@ -2928,6 +2928,7 @@ INSERT INTO `mob_droplist` VALUES (506,0,0,1000,702,10);
 INSERT INTO `mob_droplist` VALUES (506,0,0,1000,1452,10);
 INSERT INTO `mob_droplist` VALUES (506,0,0,1000,1453,10);
 INSERT INTO `mob_droplist` VALUES (506,0,0,1000,2521,50);
+INSERT INTO `mob_droplist` VALUES (506,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (507,0,0,1000,19233,150); -- Lyft crossbow
 INSERT INTO `mob_droplist` VALUES (508,0,0,1000,15504,321);	-- (Coo Keja The Unseen) Ajase Bead Necklace
 INSERT INTO `mob_droplist` VALUES (509,2,0,1000,4373,0);
@@ -3360,6 +3361,7 @@ INSERT INTO `mob_droplist` VALUES (589,0,0,1000,849,100);
 INSERT INTO `mob_droplist` VALUES (589,0,0,1000,940,170);
 INSERT INTO `mob_droplist` VALUES (589,0,0,1000,3075,140);
 INSERT INTO `mob_droplist` VALUES (590,0,0,1000,2521,50);
+INSERT INTO `mob_droplist` VALUES (590,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,786,40);
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,797,50);
 INSERT INTO `mob_droplist` VALUES (591,0,0,1000,803,40);
@@ -4780,6 +4782,7 @@ INSERT INTO `mob_droplist` VALUES (919,0,0,1000,891,1000);
 INSERT INTO `mob_droplist` VALUES (919,0,0,1000,922,240);
 INSERT INTO `mob_droplist` VALUES (919,0,0,1000,1041,50);
 INSERT INTO `mob_droplist` VALUES (920,0,0,1000,2521,50);
+INSERT INTO `mob_droplist` VALUES (920,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (921,0,0,1000,624,330);
 INSERT INTO `mob_droplist` VALUES (921,0,0,1000,4360,410);
 INSERT INTO `mob_droplist` VALUES (921,0,0,1000,4443,240);
@@ -5206,6 +5209,7 @@ INSERT INTO `mob_droplist` VALUES (1010,4,0,1000,924,0);
 INSERT INTO `mob_droplist` VALUES (1010,0,0,1000,924,100);
 INSERT INTO `mob_droplist` VALUES (1010,0,0,1000,2903,100);
 INSERT INTO `mob_droplist` VALUES (1011,0,0,1000,2521,50); -- Gnole claw
+INSERT INTO `mob_droplist` VALUES (1011,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (1012,0,0,1000,507,1000);
 INSERT INTO `mob_droplist` VALUES (1012,0,0,1000,508,1000);
 INSERT INTO `mob_droplist` VALUES (1012,0,0,1000,748,1000);
@@ -7957,6 +7961,7 @@ INSERT INTO `mob_droplist` VALUES (1528,0,0,1000,849,190);
 INSERT INTO `mob_droplist` VALUES (1528,0,0,1000,940,10);
 INSERT INTO `mob_droplist` VALUES (1529,0,0,1000,15457,240); -- Swift Belt
 INSERT INTO `mob_droplist` VALUES (1530,0,0,1000,2521,100);
+INSERT INTO `mob_droplist` VALUES (1530,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (1531,0,0,1000,5736,210);
 INSERT INTO `mob_droplist` VALUES (1531,0,0,1000,14552,350);
 INSERT INTO `mob_droplist` VALUES (1531,0,0,1000,14963,230);
@@ -8063,12 +8068,14 @@ INSERT INTO `mob_droplist` VALUES (1545,0,0,1000,1769,100);
 INSERT INTO `mob_droplist` VALUES (1545,0,0,1000,1997,100);
 INSERT INTO `mob_droplist` VALUES (1545,0,0,1000,2315,100);
 INSERT INTO `mob_droplist` VALUES (1545,0,0,1000,2521,50);
+INSERT INTO `mob_droplist` VALUES (1545,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (1545,0,0,1000,2532,100);
 INSERT INTO `mob_droplist` VALUES (1545,0,0,1000,4272,30);
 INSERT INTO `mob_droplist` VALUES (1545,0,0,1000,11418,100);
 INSERT INTO `mob_droplist` VALUES (1546,2,0,1000,825,0);
 INSERT INTO `mob_droplist` VALUES (1546,0,0,1000,825,240);
 INSERT INTO `mob_droplist` VALUES (1547,0,0,1000,2521,50);
+INSERT INTO `mob_droplist` VALUES (1547,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (1547,0,0,1000,2902,100);
 INSERT INTO `mob_droplist` VALUES (1548,2,0,1000,832,0);
 INSERT INTO `mob_droplist` VALUES (1548,0,0,1000,859,1000);
@@ -8843,6 +8850,7 @@ INSERT INTO `mob_droplist` VALUES (1727,0,0,1000,846,60);
 INSERT INTO `mob_droplist` VALUES (1727,0,0,1000,1683,90);
 INSERT INTO `mob_droplist` VALUES (1728,0,0,1000,2518,100);
 INSERT INTO `mob_droplist` VALUES (1728,0,0,1000,2521,50);
+INSERT INTO `mob_droplist` VALUES (1728,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (1728,0,0,1000,4203,100);
 INSERT INTO `mob_droplist` VALUES (1729,0,0,1000,4277,100);
 INSERT INTO `mob_droplist` VALUES (1730,1,1,1000,16935,900);	-- (Moo Ouzi The Swiftblade) Barbarian's Sword
@@ -13960,6 +13968,7 @@ INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1713,500);
 INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1816,80);
 INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,4272,30);
 INSERT INTO `mob_droplist` VALUES (2593,0,0,1000,2521,240); -- (Vulkodlac)
+INSERT INTO `mob_droplist` VALUES (2593,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (2593,0,0,1000,15915,150); -- Sothic rope
 INSERT INTO `mob_droplist` VALUES (2594,0,0,1000,2616,1000);
 INSERT INTO `mob_droplist` VALUES (2594,0,0,1000,16154,380);

@@ -21,16 +21,18 @@ g_mixins.families.gnole = function(mob)
     end)
 
     mob:addListener("COMBAT_TICK", "GNOLE_COMBAT", function(mob)
-	   local moon = VanadielMoonPhase()
-	   local moonphase = 0
-		if moon > 90 then -- Full Moon
-			mob:setMod(tpz.mod.MAIN_DMG_RATING, 75)
-		else
-			mob:setMod(tpz.mod.MAIN_DMG_RATING, 50)
-		end
         attemptTransform(mob, 60)
     end)
 end
+    mob:addListener("ENGAGE", "GNOLE_ENGAGE", function(mob, target)
+	   local moon = VanadielMoonPhase()
+	   local moonphase = 0
+		if moon > 90 then -- Full Moon
+			mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
+		else
+			mob:addMod(tpz.mod.MAIN_DMG_RATING, -25)
+		end
+	end)
 
 function attemptTransform(mob, timeThreshold)
     local transformTime = mob:getLocalVar("transformTime")
