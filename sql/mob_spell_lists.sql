@@ -1283,9 +1283,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Club',108,247,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Club',108,274,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Club',108,360,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Club',108,361,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,54,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,190,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,357,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,54,1,255); -- stoneskin
+INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,190,1,255); -- stonega_ii
+INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,357,1,255); -- slowga
 INSERT INTO `mob_spell_lists` VALUES ('Pasuk',110,245,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Pasuk',110,247,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Jormungand', 111, 250, 1, 255);

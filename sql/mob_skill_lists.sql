@@ -1200,14 +1200,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Worm',258,428);
 INSERT INTO `mob_skill_lists` VALUES ('Worm',258,429);
 -- INSERT INTO `mob_skill_lists` VALUES ('Worm',258,1889);
 -- INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1297);
-INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1299);
-INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1300);
-INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1301);
-INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1302);
-INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1303);
-INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1304);
-INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1305);
-INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1306);
+INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1299); -- typhoon_wing
+INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1300); -- spike_flail
+INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1301); -- geotic_breath
+INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1305); -- absolute_terror
+INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1306); -- horrid_roar_3
+INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1302); -- touchdown
+INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1303); -- ochre_blast
+INSERT INTO `mob_skill_lists` VALUES ('OuryuWyrm',259,1304); -- bai_wing
 INSERT INTO `mob_skill_lists` VALUES ('FafnirWyrm',260,951);
 INSERT INTO `mob_skill_lists` VALUES ('FafnirWyrm',260,952); -- Alliance only targeting version of Spike Flail
 INSERT INTO `mob_skill_lists` VALUES ('FafnirWyrm',260,953);
