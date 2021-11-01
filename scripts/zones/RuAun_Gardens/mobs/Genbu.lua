@@ -12,7 +12,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setMod(tpz.mod.MAIN_DMG_RATING, 120)
+	mob:addMod(tpz.mod.MAIN_DMG_RATING, 20)
 	mob:setMod(tpz.mod.ATTP, 10)
 	mob:setMod(tpz.mod.DEF, 640)
 	mob:setMod(tpz.mod.EVA, 337)

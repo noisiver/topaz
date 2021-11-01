@@ -15,11 +15,7 @@ function onMobInitialize( mob )
 end
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.WINDRES, -64)
-    mob:setMod(tpz.mod.SILENCERES, 35)
-    mob:setMod(tpz.mod.STUNRES, 35)
-    mob:setMod(tpz.mod.BINDRES, 35)
-    mob:setMod(tpz.mod.GRAVITYRES, 35)
+	mob:addMod(tpz.mod.MAIN_DMG_RATING, 45)
     mob:addStatusEffect(tpz.effect.REGEN, 50, 3, 0)
     mob:setLocalVar("numAdds", 1)
 end
