@@ -29,8 +29,6 @@ g_mixins.families.gnole = function(mob)
 	   local moonphase = 0
 		if moon > 90 then -- Full Moon
 			mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
-		else
-			mob:addMod(tpz.mod.MAIN_DMG_RATING, -25)
 		end
 	end)
 end
