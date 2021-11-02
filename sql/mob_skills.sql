@@ -373,10 +373,10 @@ INSERT INTO `mob_skills` VALUES (543,287,'meltdown',1,15.0,2000,5000,4,0,0,0,0,0
 -- INSERT INTO `mob_skills` VALUES(1905, 916, 'noctoshield', 1, 10.0, 2000, 1500, 1, 0, 0, 0, 0, 0, 0);
 -- INSERT INTO `mob_skills` VALUES(1906, 917, 'ultimate_terror', 1, 10.0, 2000, 1500, 4, 0, 0, 0, 0, 0, 0);
 -- INSERT INTO `mob_skills` VALUES(1908, 918, 'nightmare', 1, 10.0, 2000, 3000, 4, 0, 0, 0, 0, 0, 0);
-INSERT INTO `mob_skills` VALUES (544,288,'camisado',0,7.0,2000,1500,4,0,0,4,0,0,0);
--- INSERT INTO `mob_skills` VALUES (545,289,'somnolence',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (546,290,'noctoshield',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (547,291,'ultimate_terror',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (544,915,'camisado',0,7.0,2000,1500,4,0,0,4,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (545,1126,'somnolence',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (546,916,'noctoshield',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (547,917,'ultimate_terror',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (548,292,'blindeye',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (549,293,'eyes_on_me',0,13.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (550,294,'hypnosis',4,10.0,2000,1500,4,0,0,0,0,0,0);
@@ -385,9 +385,9 @@ INSERT INTO `mob_skills` VALUES (552,296,'binding_wave',1,15.0,2000,1500,4,0,0,0
 INSERT INTO `mob_skills` VALUES (553,297,'airy_shield',0,7.0,2000,1500,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (554,298,'pet_charm',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (555,299,'magic_barrier',0,7.0,2000,1500,1,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (556,300,'dream_shroud',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (556,1127,'dream_shroud',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (557,301,'level_5_petrify',1,15.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (558,302,'nightmare',1,20.0,2000,3500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (558,918,'nightmare',1,20.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (559,303,'soul_drain',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (560,304,'hecatomb_wave',4,10.0,2000,2000,4,4,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (561,971,'electromagnetic_field',1,10.0,2000,1500,4,0,0,1,0,0,0);
