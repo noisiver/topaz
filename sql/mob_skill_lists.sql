@@ -1403,9 +1403,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1709);
 INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1710);
 INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1711);
 INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2070);
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2071);
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2072);
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2073);
+INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2071); -- dire_straight
+INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2072); -- earth_shatter
+INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2073); -- sinker_drill
 INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2074);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1778);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1779);
@@ -4158,6 +4158,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Dahak',6051,1792);  -- Nullsong
 --Tikbalang
 INSERT INTO `mob_skill_lists` VALUES ('Tikbalang',6052,498);  -- Triclip
 INSERT INTO `mob_skill_lists` VALUES ('Tikbalang',6052,502);  -- Mortal Ray
+
+INSERT INTO `mob_skill_lists` VALUES ('JettaturaOnly',6053,2828); -- Jettatura
+
+INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2071); -- dire_straight
+INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2072); -- earth_shatter
+INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2073); -- sinker_drill
 
 
 -- Next available ID: 1148

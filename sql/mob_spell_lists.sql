@@ -4402,6 +4402,34 @@ INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,18,1,255);  -- Stona
 INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,19,1,255);  -- Viruna
 INSERT INTO `mob_spell_lists` VALUES ('Came-Cruise',2004,181,1,255); -- blizzaga_iii
 
+--Oupire
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Earth',2005,162,1,255);  -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Earth',2005,191,1,255);  -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Earth',2005,357,1,255);  -- Slowga
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Earth',2005,365,1,255);  -- Breakga
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Water',2006,172,1,255);  -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Water',2006,201,1,255);  -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Water',2006,226,1,255);  -- Poisonga II
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Wind',2007,157,1,255);  -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Wind',2007,186,1,255);  -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Wind',2007,359,1,255);  -- Silencega
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Wind',2007,366,1,255);  -- Gravityga
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Fire',2008,147,1,255);  -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Fire',2008,176,1,255);  -- Firega III
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Ice',2009,152,1,255);  -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Ice',2009,181,1,255);  -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Ice',2009,356,1,255);  -- Paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Ice',2009,362,1,255);  -- Bindga
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,167,1,255);  -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,196,1,255);  -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,252,1,255);  -- Stun
+
+
 
 
 

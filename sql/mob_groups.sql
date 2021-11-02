@@ -3300,7 +3300,7 @@ INSERT INTO `mob_groups` VALUES (3,3254,72,'Qiqirn_Goldsmith',600,0,2054,0,0,81,
 INSERT INTO `mob_groups` VALUES (4,6713,72,'Qiqirn_Mine',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (5,504,72,'Boompadu',7200,0,339,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (6,783,72,'Cookieduster_Lipiroon',0,32,507,30000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (7,3069,72,'Oupire',14400,0,1961,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (7,3069,72,'Oupire',14400,0,1961,44000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (8,2931,72,'Ob',0,128,1832,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (9,705,72,'Cheese_Hoarder_Gigiroon',0,128,460,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (10,243,72,'Armed_Gears',0,128,168,32000,0,85,87,0);

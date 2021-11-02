@@ -11092,27 +11092,27 @@ INSERT INTO `mob_droplist` VALUES (2106,0,0,1000,1055,50);
 INSERT INTO `mob_droplist` VALUES (2106,0,0,1000,4579,150);
 INSERT INTO `mob_droplist` VALUES (2106,0,0,1000,4704,0); -- auspice
 INSERT INTO `mob_droplist` VALUES (2106,0,0,1000,4718,50);
-INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,881,150);
-INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,1193,50);
-INSERT INTO `mob_droplist` VALUES (2107,4,0,1000,4400,0);
-INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,4400,310);
+INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,881,150); -- Crab Shell
+INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,1193,50); -- High-Quality Crab Shell
+INSERT INTO `mob_droplist` VALUES (2107,4,0,1000,4400,0); -- Slice Of Land Crab Meat(Despoil)
+INSERT INTO `mob_droplist` VALUES (2107,0,0,1000,4400,240); -- Slice Of Land Crab Meat
 INSERT INTO `mob_droplist` VALUES (2108,0,0,1000,881,100); -- (Robber Crab - Cape Terrigan) Crab Shell
 INSERT INTO `mob_droplist` VALUES (2108,0,0,1000,4400,240); -- Land Crab Meat
-INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,881,110);
-INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,936,110);
+INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,881,100);
+INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,936,100);
 INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,1052,50);
-INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,1193,30);
+INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,1193,50);
 INSERT INTO `mob_droplist` VALUES (2109,4,0,1000,4400,0);
-INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,4400,190);
+INSERT INTO `mob_droplist` VALUES (2109,0,0,1000,4400,150);
 INSERT INTO `mob_droplist` VALUES (2110,0,0,1000,881,100);
 INSERT INTO `mob_droplist` VALUES (2110,4,0,1000,881,0);
 INSERT INTO `mob_droplist` VALUES (2110,0,0,1000,1051,50);
 INSERT INTO `mob_droplist` VALUES (2110,0,0,1000,1193,10);
 INSERT INTO `mob_droplist` VALUES (2110,4,0,1000,4400,0);
 INSERT INTO `mob_droplist` VALUES (2110,0,0,1000,4400,240);
-INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,881,310);
+INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,881,240);
 INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,1193,50);
-INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,4400,370);
+INSERT INTO `mob_droplist` VALUES (2111,0,0,1000,4400,240);
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,658,100);	-- (Roc) Damascus Ingot
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4172,240);	  -- Reraiser 
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4174,240); -- Vile elixir

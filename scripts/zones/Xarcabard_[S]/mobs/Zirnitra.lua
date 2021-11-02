@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/titles")
 require("scripts/globals/pathfind")
 mixins = {require("scripts/mixins/families/amphiptere")}
 ------------------------------
