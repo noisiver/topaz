@@ -229,7 +229,7 @@ INSERT INTO `mob_family_mods` VALUES (170,68,25,0);		-- Ladybug +25 Evasion Raci
 INSERT INTO `mob_family_mods` VALUES (192,68,25,0);		-- Peiste +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (195,68,25,0);		-- Pixie +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (231,68,25,0);		-- Slug +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +25 Evasion Racial
 
 -- Evasion Penalty
 INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	-- Bugbear -10 Evasion
