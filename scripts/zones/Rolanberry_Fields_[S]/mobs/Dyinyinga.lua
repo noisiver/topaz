@@ -6,6 +6,7 @@ require("scripts/globals/hunts")
 local ID = require("scripts/zones/Rolanberry_Fields_[S]/IDs")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/world")
 ------------------------------
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
