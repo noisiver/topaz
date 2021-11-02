@@ -4177,8 +4177,9 @@ INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,119); -- wheeling_thrust
 INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,120); -- impulse_drive
 
 INSERT INTO `mob_skill_lists` VALUES ('BlockHeadOnly',6058,368); -- Block Head
-
 INSERT INTO `mob_skill_lists` VALUES ('FragBombOnly',6059,1119); -- Frag Bomb
+INSERT INTO `mob_skill_lists` VALUES ('BellyDanceOnly',6060,1950); -- Bely Dance
+INSERT INTO `mob_skill_lists` VALUES ('AmorphicSpikesOnly',6061,1824); -- Armophic Spikes
 
 
 -- Next available ID: 1148

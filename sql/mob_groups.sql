@@ -2635,7 +2635,7 @@ INSERT INTO `mob_groups` VALUES (52,5328,54,'Nostokulshedra',600,0,0,30000,0,81,
 INSERT INTO `mob_groups` VALUES (53,2631,54,'Merrow_Wavedancer',600,0,1657,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (54,2335,54,'Lamia_Idolater',600,0,1492,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (55,2338,54,'Lamia_Necromancer',600,0,1494,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (56,5892,54,'Euryale',7200,0,3091,30000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (56,5892,54,'Euryale',7200,0,3091,35000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (57,2361,54,'Lamia_Toxophilite',600,0,1495,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (58,3541,54,'Seneschal_Imp',600,0,1002,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (59,2630,54,'Merrow_Typhoondancer',600,0,1657,0,0,81,83,0);
@@ -2951,7 +2951,7 @@ INSERT INTO `mob_groups` VALUES (18,5209,62,'Copper_Borer',0,128,6025,30000,0,85
 INSERT INTO `mob_groups` VALUES (19,2686,62,'Moblin_Billionaire',600,0,1704,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,1341,62,'Fire_Elemental',600,4,831,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,1426,62,'Friars_Lantern',600,0,908,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (22,5210,62,'Flammeri',0,128,6026,30000,5000,85,87,0);
+INSERT INTO `mob_groups` VALUES (22,5210,62,'Flammeri',0,128,6026,35000,5000,88,90,0);
 INSERT INTO `mob_groups` VALUES (23,4280,62,'Wamoura',600,0,2608,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (25,4009,62,'Troll_Artilleryman',600,0,2473,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (26,4012,62,'Troll_Combatant',600,0,2475,0,0,81,83,0);
