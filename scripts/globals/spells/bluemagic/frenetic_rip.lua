@@ -33,7 +33,7 @@ function onSpellCast(caster, target, spell)
     params.tp150 = 2.08
     params.tp300 = 2.36
     params.azuretp = 2.61
-    params.duppercap = 75 -- D upper >=69
+    params.duppercap = 80 -- D upper >=69
     params.str_wsc = 0.2
     params.dex_wsc = 0.2
     params.vit_wsc = 0.0

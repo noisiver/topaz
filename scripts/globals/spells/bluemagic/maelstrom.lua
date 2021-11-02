@@ -36,7 +36,7 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.WATER
     params.multiplier = multi
     params.tMultiplier = 1.5
-    params.duppercap = 75
+    params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
