@@ -16,7 +16,8 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
-    mob:setMod(tpz.mod.MACC, 100) 
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
+    mob:setMod(tpz.mod.MACC, 50) 
     mob:setMod(tpz.mod.REFRESH, 400)
 end
 
