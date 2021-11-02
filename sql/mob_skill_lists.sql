@@ -4176,6 +4176,8 @@ INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,116); -- penta_thrust
 INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,119); -- wheeling_thrust
 INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,120); -- impulse_drive
 
+INSERT INTO `mob_skill_lists` VALUES ('BlockHeadOnly',6058,368); -- Block Head
+
 
 -- Next available ID: 1148
 
