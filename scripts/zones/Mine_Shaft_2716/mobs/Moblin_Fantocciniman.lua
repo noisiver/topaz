@@ -12,9 +12,9 @@ function onMobInitialize(mob)
         if mob:getLocalVar("standby") == 1 and mob:getHPP() < 99 then
             mob:messageText(mob, ID.text.OW_YOU_MAKE_ME_MAD_NOW)
             mob:setLocalVar("standby", 0)
-            mob:setMobMod(dsp.mobMod.HP_STANDBACK, -1)
+            mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
             mob:SetAutoAttackEnabled(true)
-            mob:setMobMod(dsp.mobMod.SKILL_LIST, 184)
+            mob:setMobMod(tpz.mobMod.SKILL_LIST, 184)
             mob:getBattlefield():setEnemyCondition(mob, 2) -- CONDITION_WIN_REQUIREMENT
         end
     end)
@@ -22,7 +22,7 @@ end
 
 function onMobSpawn(mob)
     mob:setLocalVar("standby", 1)
-    mob:setMobMod(dsp.mobMod.HP_STANDBACK, 99)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 99)
     mob:SetAutoAttackEnabled(false)
 end
 
@@ -48,7 +48,7 @@ function onMonsterAbilityPrepare(mob)
 end
 
 function onMobFight(mob, target)
-mob:setMod(dsp.mod.REGAIN, 500) -- normaly 100, set high for testing
+mob:setMod(tpz.mod.REGAIN, 500) -- normaly 100, set high for testing
  --[[   local dice_rolls =
     {
         -- Ability ID, weight, target type (0 = Fantoccini, 1 = Fantoccini's Target, 2 = Player)
@@ -109,11 +109,11 @@ function onMobDeath(mob, player, isKiller)
     mob:messageText(mob, ID.text.HUFF_YOU_PLAY_TOO_ROUGH)
     local fantocinni = GetMobByID(mob:getID() + 2) -- Fantocinni is always offset by 2
     if fantocinni and fantocinni:isAlive() then
-        fantocinni:addStatusEffect(dsp.effect.TERROR, 1, 0, 900)
+        fantocinni:addStatusEffect(tpz.effect.TERROR, 1, 0, 900)
         if fantocinni:hasPet() then
             local pet = fantocinni:getPet()
             if pet and pet:isAlive() then
-                pet:addStatusEffect(dsp.effect.TERROR, 1, 0, 900)
+                pet:addStatusEffect(tpz.effect.TERROR, 1, 0, 900)
             end
         end
     end
