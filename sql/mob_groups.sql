@@ -5687,7 +5687,7 @@ INSERT INTO `mob_groups` VALUES (44,915,91,'Dark_Ixion',0,128,0,100000,0,85,85,0
 INSERT INTO `mob_groups` VALUES (52,4701,91,'Agathos',0,128,0,0,0,95,96,0);
 INSERT INTO `mob_groups` VALUES (53,6573,91,'Wight',330,1,958,0,0,50,60,0);
 INSERT INTO `mob_groups` VALUES (54,3492,91,'Dyinyinga',0,32,2172,10000,0,65,68,0);
-INSERT INTO `mob_groups` VALUES (55,6739,91,'Erle',0,32,6035,0,0,63,65,0);
+INSERT INTO `mob_groups` VALUES (55,6739,91,'Erle',0,32,6035,6500,0,63,65,0);
 
 INSERT INTO `mob_groups` VALUES (4321,1,91,'1st_Gold_Musketeer',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (4322,2,91,'1st_Iron_Musketeer',0,0,0,0,0,0,0,0);
