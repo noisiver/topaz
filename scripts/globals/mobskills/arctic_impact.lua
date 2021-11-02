@@ -1,10 +1,8 @@
 ---------------------------------------------
---  Freeze Rush
+--  Arctic Impact
 --
---  Description: Makes an icy charge at a single target.
+--  Description: AoE ice damage (~275 each).
 --  Type: Magical
---  Utsusemi/Blink absorb: Ignores shadows.
---  Range: Melee
 --  Notes:
 ---------------------------------------------
 require("scripts/globals/settings")
@@ -17,9 +15,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 2
+    local dmgmod = 1
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.ICE, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ICE, MOBPARAM_IGNORE_SHADOWS)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ICE, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ICE)
     return dmg
 end

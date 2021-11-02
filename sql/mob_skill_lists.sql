@@ -4165,6 +4165,17 @@ INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2071); -- dire_straight
 INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2072); -- earth_shatter
 INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2073); -- sinker_drill
 
+-- Mithran Trackers
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeX',6055,18); -- shadowstitch
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeX',6055,23); -- dancing_edge
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeX',6055,25); -- evisceration
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeY',6056,101); -- vorpal_scythe
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeY',6056,102); -- guillotine
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeY',6056,104); -- spiral_hell
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,116); -- penta_thrust
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,119); -- wheeling_thrust
+INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,120); -- impulse_drive
+
 
 -- Next available ID: 1148
 

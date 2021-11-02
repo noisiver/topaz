@@ -206,16 +206,16 @@ INSERT INTO `mob_family_system` VALUES (141,'Hippogryph',8,'Bird',1,60,100,140,4
 INSERT INTO `mob_family_system` VALUES (142,'Hound',19,'Undead',1,40,100,120,3,3,11,4,4,4,4,1,3,1,7,1.125,1,1,1,1.5,0.5,1.3,1,1.3,1.3,1.5,0.5,8,6,0);	-- boreal hound
 INSERT INTO `mob_family_system` VALUES (143,'Hound',19,'Undead',1,40,100,120,3,3,4,4,4,4,4,1,4,1,4,1.125,1,1,1,1.5,0.5,1.3,1,1.3,1.3,1.5,0.5,8,6,0);
 INSERT INTO `mob_family_system` VALUES (144,'Hpemde',15,'Luminian',1,40,90,120,4,1,4,2,3,6,6,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
-INSERT INTO `mob_family_system` VALUES (145,'Humanoid-Elvaan',13,'Humanoid',0,40,100,90,2,5,3,6,6,2,4,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
-INSERT INTO `mob_family_system` VALUES (146,'Humanoid-Galka',13,'Humanoid',0,40,120,100,3,4,1,5,5,4,6,3,3,3,3,1,1,1,1,1.125,1.125,1.125,1.125,1.125,1.125,1.125,1.125,0,0,0);
-INSERT INTO `mob_family_system` VALUES (147,'Humanoid-Galka',13,'Humanoid',0,40,120,100,3,4,1,5,5,4,6,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
-INSERT INTO `mob_family_system` VALUES (148,'Humanoid-Galka',13,'Humanoid',0,40,120,100,3,4,1,5,5,4,6,3,3,3,3,1,1,1,1,1.125,1,1,1,1,1,1.126,0.875,0,0,0);
-INSERT INTO `mob_family_system` VALUES (149,'Humanoid-Hume',13,'Humanoid',0,40,90,110,3,3,2,3,2,2,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
-INSERT INTO `mob_family_system` VALUES (150,'Humanoid-Hume',13,'Humanoid',0,64,90,110,4,4,4,4,4,4,4,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,0.875,0.875,0.875,0,1,0);
-INSERT INTO `mob_family_system` VALUES (151,'Humanoid-Mithra',13,'Humanoid',0,40,80,110,5,1,5,2,4,5,6,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
-INSERT INTO `mob_family_system` VALUES (152,'Humanoid-Mithra',13,'Humanoid',0,40,80,110,5,1,5,2,4,5,6,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);
-INSERT INTO `mob_family_system` VALUES (153,'Humanoid-Tarutaru',13,'Humanoid',0,40,70,140,6,4,5,3,1,5,4,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
-INSERT INTO `mob_family_system` VALUES (154,'Humanoid-Tarutaru',13,'Humanoid',0,40,70,140,6,4,5,3,1,5,4,3,3,3,3,0.75,0.75,0.75,0.75,1,1,1,1,1,1,1,1,0,0,0);
+INSERT INTO `mob_family_system` VALUES (145,'Humanoid-Elvaan',13,'Humanoid',0,40,100,90,2,5,3,6,6,2,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (146,'Humanoid-Galka',13,'Humanoid',0,40,120,100,3,4,1,5,5,4,6,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);
+INSERT INTO `mob_family_system` VALUES (147,'Humanoid-Galka',13,'Humanoid',0,40,120,100,3,4,1,5,5,4,6,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (148,'Humanoid-Galka',13,'Humanoid',0,40,120,100,3,4,1,5,5,4,6,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);
+INSERT INTO `mob_family_system` VALUES (149,'Humanoid-Hume',13,'Humanoid',0,40,90,110,3,3,2,3,2,2,3,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (150,'Humanoid-Hume',13,'Humanoid',0,64,90,110,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (151,'Humanoid-Mithra',13,'Humanoid',0,40,80,110,5,1,5,2,4,5,6,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (152,'Humanoid-Mithra',13,'Humanoid',0,40,80,110,5,1,5,2,4,5,6,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);
+INSERT INTO `mob_family_system` VALUES (153,'Humanoid-Tarutaru',13,'Humanoid',0,40,70,140,6,4,5,3,1,5,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (154,'Humanoid-Tarutaru',13,'Humanoid',0,40,70,140,6,4,5,3,1,5,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);
 INSERT INTO `mob_family_system` VALUES (155,'HybridElemental-Air',11,'Elemental',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);
 INSERT INTO `mob_family_system` VALUES (156,'HybridElemental-Dark',11,'Elemental',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);
 INSERT INTO `mob_family_system` VALUES (157,'HybridElemental-Earth',11,'Elemental',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);

@@ -4429,6 +4429,10 @@ INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,167,1,255);  -- Thun
 INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,196,1,255);  -- Thundaga III
 INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,252,1,255);  -- Stun
 
+INSERT INTO `mob_spell_lists` VALUES ('Shikaree_Z',2011,3,1,255);  -- Cure III
+
+
+
 
 
 
