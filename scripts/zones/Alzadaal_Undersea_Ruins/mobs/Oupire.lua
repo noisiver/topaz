@@ -75,22 +75,16 @@ end
 function onAdditionalEffect(mob, target, damage)
 	local ElementMode = mob:getLocalVar("ElementMode")
 	if ElementMode == 1 then
-		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENSTONE)
 		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PETRIFY)
 	elseif ElementMode == 2 then
-		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENWATER)
 		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.POISON, {power = 25})
 	elseif ElementMode == 3 then
-		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENAERO)
 		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.SILENCE)
 	elseif ElementMode == 4 then
-		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENFIRE)
 		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PLAGUE, {power = 25})
 	elseif ElementMode == 5 then
-		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENBLIZZARD)
 		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {power = 25})
 	elseif ElementMode == 6 then
-		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER)
 		return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN)
 	end
 end
