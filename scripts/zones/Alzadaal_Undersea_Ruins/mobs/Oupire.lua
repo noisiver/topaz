@@ -90,19 +90,19 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 local function setResist(element)
-	if resist = 0 then -- Not Earth/Water/Ice element
+	if element == 0 then -- Not Earth/Water/Ice element
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
-	elseif resist = 1 then -- Earth
+	elseif element == 1 then -- Earth
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 100)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
-	elseif resist = 2 then -- Water
+	elseif element == 2 then -- Water
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 100)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
-	elseif resist = 5 then -- Ice
+	elseif element == 5 then -- Ice
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 100)
