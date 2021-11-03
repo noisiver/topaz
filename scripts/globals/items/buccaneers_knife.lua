@@ -12,13 +12,13 @@ function onAdditionalEffect(player, target, damage)
     if target:getID() == 17502568 and (player:getEquipID(tpz.slot.MAIN) == 17622) then
         local chance = 90
 
-        if math.random(100) <= chance then
-            target:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
-            local finalDMG = math.floor(40, 60)
-                if target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
-                    target:setUnkillable(false)
-                end
-                return tpz.subEffect.WATER_DAMAGE, tpz.msg.basic.ADD_EFFECT_DMG, finalDMG
+	if math.random(100) <= chance then
+		target:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
+		local finalDMG = math.floor(40, 60)
+			if target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
+				target:setUnkillable(false)
+			end
+			return tpz.subEffect.WATER_DAMAGE, tpz.msg.basic.ADD_EFFECT_DMG, finalDMG
         end
     end
 
