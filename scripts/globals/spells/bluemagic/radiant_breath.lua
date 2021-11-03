@@ -65,14 +65,7 @@ function onSpellCast(caster, target, spell)
 	if head == 16150 or head == 11465 then 
 		damage = damage *1.1 -- Saurian Helm and Mirage Keffiyeh
 	end 
-	-- add SDT penalty
-	    local SDT = target:getMod(tpz.mod.SDT_LIGHT)
-		if target:isMob() then
-			if SDT < 100 then
-				damage = damage * (SDT / 100)
-			end
-		end
-	
+
 	damage = damage * resist	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 

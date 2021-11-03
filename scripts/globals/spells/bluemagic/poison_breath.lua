@@ -65,14 +65,7 @@ function onSpellCast(caster, target, spell)
 	if head == 16150 or head == 11465 then 
 		damage = damage *1.1 -- Saurian Helm and Mirage Keffiyeh
 	end 
-	-- add SDT penalty
-	    local SDT = target:getMod(tpz.mod.SDT_WATER)
-		if target:isMob() then
-			if SDT < 100 then
-				damage = damage * (SDT / 100)
-			end
-		end
- 	
+
 	damage = damage * resist	   
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
@@ -82,7 +75,6 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.POISON
-        target:delStatusEffect(typeEffect)
         target:addStatusEffect(typeEffect, 16, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- Buffed to 16
     end
 
