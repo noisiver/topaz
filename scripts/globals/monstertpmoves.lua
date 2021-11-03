@@ -133,10 +133,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         maxRatio = ratio + 0.3
     elseif ((1.2 < ratio) and (ratio <= 1.5)) then
         maxRatio = (ratio * 0.25) + ratio
-    elseif ((1.5 < ratio) and (ratio <= 2.625)) then
-        maxRatio = 2
-    elseif ((2.625 < ratio) and (ratio <= 3.25)) then
-        maxRatio = 2        -- https://forum.square-enix.com/ffxi/threads/31310-March-27-2013-%28JST%29-Version-Update 2.0 in era
+    elseif ((1.5 < ratio) and (ratio <= 2.0)) then
+        maxRatio = 2 -- https://forum.square-enix.com/ffxi/threads/31310-March-27-2013-%28JST%29-Version-Update 2.0 in era
     else
         maxRatio = ratio
     end
