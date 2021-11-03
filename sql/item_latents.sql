@@ -3214,7 +3214,7 @@ INSERT INTO `item_latents` VALUES(19234, 24, 4, 16, 6);     -- RATK +4~16, party
 INSERT INTO `item_latents` VALUES(19234, 26, 2, 16, 3);     -- RACC +1~8, party size 3+. Effect strengthens with more members
 INSERT INTO `item_latents` VALUES(19234, 26, 2, 16, 4);     -- RACC +1~8, party size 3+. Effect strengthens with more members
 INSERT INTO `item_latents` VALUES(19234, 26, 2, 16, 5);     -- RACC +1~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 26, 2, 16, 6);     -- RACC +1~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 26, 2, 16, 6);     -- RACC +1~8, party size 3+. Effect strengthens with more members
 
 -- Onishibari
 INSERT INTO `item_latents` VALUES(19273, 165, 7, 59, 6);    -- Onishibari - Vs. beasts: Critical hit rate +7%
