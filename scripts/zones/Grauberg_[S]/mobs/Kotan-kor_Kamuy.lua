@@ -20,6 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:useMobAbility(1330)  -- Hoof Volley
 	end
 end
+
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end

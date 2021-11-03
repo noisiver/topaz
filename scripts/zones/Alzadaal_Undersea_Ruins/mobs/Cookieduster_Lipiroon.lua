@@ -4,7 +4,25 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
+    mob:addMod(tpz.mod.ATTP, 100)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:setMod(tpz.mod.REFRESH, 400)
+	mob:setMod(tpz.mod.POISONRESTRAIT, 100)
+	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
+	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
+	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
+	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 1728 then -- Faze
+		mob:useMobAbility(1730)  -- Deadeye
+	end
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
