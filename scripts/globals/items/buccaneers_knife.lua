@@ -23,10 +23,8 @@ function onAdditionalEffect(player, target, damage)
         dmg = dmg * applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
         dmg = adjustForTarget(target, dmg, tpz.magic.ele.WATER)
         dmg = finalMagicNonSpellAdjustments(player, target, tpz.magic.ele.WATER, dmg)
-		target:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
-			if target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
-				target:setUnkillable(false)
-			end
+		target:setUnkillable(false)
+
 		local message = tpz.msg.basic.ADD_EFFECT_DMG
 		if (dmg < 0) then
 			message = tpz.msg.basic.ADD_EFFECT_HEAL
