@@ -15,6 +15,14 @@ function onMobSkillCheck(target,mob,skill)
     -- skillList 728 = Ultima
     -- skillList 729 = Proto-Ultima
     local skillList = mob:getMobMod(tpz.mobMod.SKILL_LIST)
+	local mobhp = mob:getHPP()
+	if mob:getPool() == 2973 then
+		if mobhp > 25 and target:isBehind(mob) then
+			return 0
+		else
+			return 1
+		end
+	end
 
     if (skillList == 54 or (skillList == 727 and mob:AnimationSub() == 1)) and target:isBehind(mob) then
         return 0

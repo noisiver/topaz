@@ -1,10 +1,6 @@
 ---------------------------------------------
--- Ion_Efflux
---
--- Description: 10'(?) cone  Paralysis, ignores Utsusemi
--- Type: Magical
---
--- Range: 10 yalms
+-- Target Analysis
+-- Randomly absorbs 1 to 7 attributes from target.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -20,16 +16,13 @@ function onMobSkillCheck(target, mob, skill)
 			return 1
 		end
 	end
-    if (mob:AnimationSub() <= 1) then
-        return 0
-    end
-    return 1
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.PARALYSIS
+    if (MobPhysicalHit(skill)) then
+		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 3, math.random(1, 7), 120))
+	end
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 20, 0, 60))
-
-    return typeEffect
+    return 1
 end

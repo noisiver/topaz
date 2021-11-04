@@ -19,6 +19,12 @@ function onMobSkillCheck(target, mob, skill)
     local skillList = mob:getMobMod(tpz.mobMod.SKILL_LIST)
     local mobhp = mob:getHPP()
     local phase = mob:getLocalVar("battlePhase")
+	if mob:getPool() == 4083 then -- Ultima COP Mission
+		if mobhp <= 20 then
+			return 0
+		else
+			return 1
+		end
 
     if ((skillList == 729 and phase < 4) or (skillList == 728 and mobhp < 20)) then
         if mob:getLocalVar("nuclearWaste") == 0 then
@@ -30,8 +36,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 2.5
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*1.5, tpz.magic.ele.LIGHT, dmgmod, TP_MAB_BONUS, 1)
+    local dmgmod = 2
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.LIGHT, dmgmod, TP_MAB_BONUS, 1)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)

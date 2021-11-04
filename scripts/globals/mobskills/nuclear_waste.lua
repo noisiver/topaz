@@ -16,6 +16,12 @@ function onMobSkillCheck(target,mob,skill)
     local skillList = mob:getMobMod(tpz.mobMod.SKILL_LIST)
     local mobhp = mob:getHPP()
     local phase = mob:getLocalVar("battlePhase")
+	if mob:getPool() == 4083 then -- Ultima COP Mission
+		if mobhp <= 70 and mobhp > 40 then
+			return 0
+		else
+			return 1
+		end
 
     if ((skillList == 729 and phase >= 1 and phase <= 2) or (skillList == 728 and mobhp < 70 and mobhp >= 40)) then
         if mob:getLocalVar("nuclearWaste") == 0 then
@@ -30,7 +36,7 @@ function onMobWeaponSkill(target, mob, skill)
     mob:setLocalVar("nuclearWaste", 1)
     local typeEffect = tpz.effect.ELEMENTALRES_DOWN
     local resist = applyPlayerResistance(mob,typeEffect,target,mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT),0,0);
-    if (resist >= 0.25) then
+    if (resist >= 0.50) then
         target:addStatusEffectEx(typeEffect, 0, 50, 0, 60)
         skill:setMsg(tpz.msg.basic.NONE)
     else
