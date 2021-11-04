@@ -1352,6 +1352,10 @@ INSERT INTO `mob_pets` VALUES (17182989, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17183008, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17183019, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17183021, 1, 15); -- Yagudo_s_Elemental
+--NMs edited by Shiyo
+INSERT INTO `mob_pets` VALUES (17326093, 1, 14); -- Taquedes_Wyvern
+INSERT INTO `mob_pets` VALUES (17326090, 1, 14); -- Dagourmarches_Wyvern
+INSERT INTO `mob_pets` VALUES (17326090, 2, 15); -- Dagourmarches_Avatar
 
 INSERT INTO `mob_pets` VALUES (16986197, 1, 9); -- Percipient_Zoraal_Ja
 

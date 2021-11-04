@@ -3818,7 +3818,7 @@ INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,252); -- dancing_c
 INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,253); -- barbed_crescent
 INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-1Hand',3001,255); -- dimensional_death
 
-INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,248); -- grim_halo(2-handed weaponls only)
+INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,248); -- grim_halo(2-handed weapons only)
 INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,249); -- netherspikes
 INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,250); -- carnal_nightmare
 INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-2Hand',3002,251); -- aegis_schism
