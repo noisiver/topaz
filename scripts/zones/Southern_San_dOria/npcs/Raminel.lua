@@ -55,39 +55,23 @@ local path =
     -139.296539, -2.000000, 16.786556
 }
 
+
 function onSpawn(npc)
     npc:initNpcAi()
     npc:setPos(tpz.path.first(path))
-    onPath(npc)
-
-    -- test fromStart
-    local start = tpz.path.fromStart(path, 2)
-    local startFirst = tpz.path.get(path, 3)
-
-    if (start[1] ~= startFirst[1] or start[2] ~= startFirst[2] or start[3] ~= startFirst[3]) then
-        printf("[Error] start path is not right %f %f %f actually = %f %f %f", startFirst[1], startFirst[2], startFirst[3], start[1], start[2], start[3])
-    end
-
-    -- test fromEnd
-    -- local endPt = tpz.path.fromEnd(path, 2)
-    -- local endFirst = tpz.path.get(path, 37)
-
-    -- if (endPt[1] ~= endFirst[1] or endPt[2] ~= endFirst[2] or endPt[3] ~= endFirst[3]) then
-    --     printf("[Error] endPt path is not right %f %f %f actually = %f %f %f", endFirst[1], endFirst[2], endFirst[3], endPt[1], endPt[2], endPt[3])
-    -- end
 end
 
 function onPath(npc)
-    if (npc:atPoint(tpz.path.get(path, 23))) then
+    if npc:atPoint(tpz.path.get(path, 23)) then
         npc:lookAt(GetNPCByID(ID.npc.ARPETION):getPos())
         npc:wait()
-    elseif (npc:atPoint(tpz.path.get(path, -1))) then
+    elseif npc:atPoint(tpz.path.get(path, -1)) then
         -- give package to Lusiane, wait 4 seconds, then continue
         local lus = GetNPCByID(ID.npc.LUSIANE)
         lus:showText(npc, ID.text.RAMINEL_DELIVERY)
         npc:showText(lus, ID.text.LUSIANE_THANK)
         npc:wait()
-    elseif (npc:atPoint(tpz.path.last(path))) then
+    elseif npc:atPoint(tpz.path.last(path)) then
         -- when I walk away stop looking at me
         GetNPCByID(ID.npc.LUSIANE):clearTargID()
     end
@@ -109,12 +93,10 @@ end
 
 function onTrigger(player, npc)
     player:startEvent(614)
-    npc:wait()
 end
 
 function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option, npc)
-    npc:wait(0)
 end
