@@ -11,6 +11,7 @@ require("scripts/globals/titles")
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATT, -20)
+	mob:setDamage(109)
     mob:addMod(tpz.mod.EVA, 40)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then

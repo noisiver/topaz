@@ -13,6 +13,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(180)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
