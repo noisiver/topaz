@@ -1,30 +1,28 @@
 ---------------------------------------------
--- Bloodrake
+--  Amatsu: Kazakiri 
 --
--- Description: Slashes up a single target. Additional effect: Drain
--- Type: Physical
--- Utsusemi/Blink absorb: 1 shadow?
--- Range: Melee
--- Notes: A spell equivalent to Sanguine Blade in terms of functionality where damage dealt is absorbed as health recovered.
+--  Description:  Tachi: Jinpu variant, ~200
+--  Type: Physical
+--  Shadow per hit
+--  Range: Melee
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
----------------------------------------------
+require("scripts/globals/msg")
 
 function onMobSkillCheck(target, mob, skill)
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 3
+    local numhits = 2
     local accmod = 1
-    local dmgmod = 2
+    local dmgmod = 1
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, info.hitslanded)
 
-	skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
-
     return dmg
 end

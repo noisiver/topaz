@@ -6,7 +6,17 @@
 local ID = require("scripts/zones/Carpenters_Landing/IDs")
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/missions")
+require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 10)
+	mob:setMod(tpz.mod.STORETP, 100)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180) -- 3 minutes

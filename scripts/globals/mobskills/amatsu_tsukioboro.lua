@@ -1,30 +1,29 @@
 ---------------------------------------------
--- Bloodrake
+--  Amatsu: Tsukioboro 
 --
--- Description: Slashes up a single target. Additional effect: Drain
--- Type: Physical
--- Utsusemi/Blink absorb: 1 shadow?
--- Range: Melee
--- Notes: A spell equivalent to Sanguine Blade in terms of functionality where damage dealt is absorbed as health recovered.
+--  Description:  Silences target. Damage varies with TP.
+--  Type: Physical
+--  Shadow per hit
+--  Range: Melee
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
----------------------------------------------
+require("scripts/globals/msg")
 
 function onMobSkillCheck(target, mob, skill)
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 3
+    local numhits = 1
     local accmod = 1
-    local dmgmod = 2
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
+    local dmgmod = 3
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_ATK_VARIES, 2, 2, 2)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
-	skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SILENCE, 1, 0, 60)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
-
     return dmg
 end

@@ -6,6 +6,7 @@
 local ID = require("scripts/zones/Carpenters_Landing/IDs")
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/missions")
+require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -13,19 +14,33 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ACC, 30) 
+    mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.REFRESH, 40)
+    local sp = {}
+    sp[tpz.job.BLM] = tpz.jsa.MANAFONT
+    sp[tpz.job.SMN] = tpz.jsa.ASTRAL_FLOW
+    sp[tpz.job.THF] = tpz.jsa.PERFECT_DODGE
+
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
             {
-                id = tpz.jsa.MIJIN_GAKURE,
+                id = sp[mob:getMainJob()],
                 begCode = function(mob)
                     mob:messageText(mob, ID.text.CRYPTONBERRY_ASSASSIN_2HR)
                 end,
             },
         },
     })
-
     mob:setLocalVar("despawnTime", os.time() + 180)
+    local main = GetMobByID(ID.mob.CRYPTONBERRY_EXECUTOR)
+    local targ = main:getTarget()
+    if targ then
+        mob:updateClaim(targ)
+    end
 end
 
 function onMobEngaged(mob, target)
