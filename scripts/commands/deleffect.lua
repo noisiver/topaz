@@ -13,27 +13,28 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!deleffect {player} <effect>")
+    player:PrintToPlayer("!deleffect <effect> {player}")
 end
 
 function onTrigger(player, arg1, arg2)
     local targ
     local id
 
+
     if (arg1 == nil) then
+        targ = player
+        id = arg2
+    elseif (arg2 == nil) then
         error(player, "You must provide an effect ID.")
         return
-    elseif (arg2 == nil) then
-        targ = player
-        id = arg1
     else
-        targ = GetPlayerByName(arg1)
-        id = arg2
+        targ = GetPlayerByName(arg2)
+        id = arg1
     end
 
     -- validate target
     if (targ == nil) then
-        error(player, string.format("Player named '%s' not found!", arg1))
+        error(player, string.format("Player named '%s' not found!", arg2)
         return
     end
 
@@ -49,6 +50,6 @@ function onTrigger(player, arg1, arg2)
     -- delete status effect
     targ:delStatusEffect(id)
     if (targ:getID() ~= player:getID()) then
-        player:PrintToPlayer(string.format("Removed effect %i from %s.", id, targ:getName()))
+        player:PrintToPlayer(string.format("%s effect removed from %i.", targ:getName(), id))
     end
 end
