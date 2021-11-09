@@ -25,6 +25,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.canCrit = false
     params.acc100 = 0.0 params.acc200= 0.0 params.acc300= 0.0
     params.atk100 = 1; params.atk200 = 1; params.atk300 = 1
+	params.bonusmacc = 50
+	
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_SWORD, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
