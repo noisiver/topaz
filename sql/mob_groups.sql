@@ -1196,8 +1196,8 @@ INSERT INTO `mob_groups` VALUES (56,21,33,'Absolute_Virtue',0,128,3,66000,0,92,9
 INSERT INTO `mob_groups` VALUES (57,6190,33,'Ulaern_whm',960,0,2514,0,5000,70,73,0);
 INSERT INTO `mob_groups` VALUES (58,6197,33,'Ulaern_brd',960,0,2514,0,0,70,73,0);
 INSERT INTO `mob_groups` VALUES (59,6194,33,'Ulaern_pld',960,0,2514,0,0,70,73,0);
-INSERT INTO `mob_groups` VALUES (7,4088,33,'Ulxzomit',960,0,2517,0,0,68,72,0); -- baby ul'xzomit
-INSERT INTO `mob_groups` VALUES (24,2978,33,'Omxzomit',960,0,1856,0,0,72,76,0); -- baby om'xzomit
+INSERT INTO `mob_groups` VALUES (60,4088,33,'Ulxzomit',960,0,2517,0,0,68,72,0); -- baby ul'xzomit
+INSERT INTO `mob_groups` VALUES (61,2978,33,'Omxzomit',960,0,1856,0,0,72,76,0); -- baby om'xzomit
 
 -- ------------------------------------------------------------
 -- Grand_Palace_of_HuXzoi (Zone 34)
