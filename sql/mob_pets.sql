@@ -1383,39 +1383,7 @@ INSERT INTO `mob_pets` VALUES (17961257, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961267, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961277, 1, 15); -- Eschan Ilaern SMN
 
---Zomits
-INSERT INTO `mob_pets` VALUES (16912394, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912394, 2, 9); -- Mom Ulxzomit
 
-INSERT INTO `mob_pets` VALUES (16912409, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912409, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912422, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912422, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912426, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912426, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912429, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912429, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912432, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912432, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912435, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912435, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912446, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912446, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912449, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912449, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912452, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912452, 1, 9); -- Mom Ulxzomit
-
-INSERT INTO `mob_pets` VALUES (16912468, 1, 9); -- Mom Ulxzomit
-INSERT INTO `mob_pets` VALUES (16912468, 1, 9); -- Mom Ulxzomit
 
 
 /*!40000 ALTER TABLE `mob_pets` ENABLE KEYS */;
