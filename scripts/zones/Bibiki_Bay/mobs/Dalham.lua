@@ -29,13 +29,13 @@ function onMobFight(mob)
         mob:setLocalVar("Stage", 1)
         mob:setLocalVar("TwoHourCloud", 1)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
-    elseif Stage == 1 TwoHourCloud == 1 and hpp <= 40 then
+    elseif Stage == 1 and TwoHourCloud == 1 and hpp <= 40 then
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setLocalVar("Stage", 2)
         mob:setLocalVar("TwoHourCloud", 2)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 100)
-    elseif Stage == 2 TwoHourCloud == 2 and hpp <= 25 then
+    elseif Stage == 2 and TwoHourCloud == 2 and hpp <= 25 then
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:setLocalVar("Stage", 3)
         mob:setLocalVar("TwoHourCloud", 3)
