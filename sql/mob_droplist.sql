@@ -6207,12 +6207,12 @@ INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,12472,10);
 INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,12728,10);
 INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,12856,10);
 INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,12984,10);
-INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,510,50);
-INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,511,50);
-INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,605,130);
+INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,510,50); -- (Goblin Welldigger - Western Altepa) Goblin Armor
+INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,511,50); -- Goblin Mask
+INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,605,150); -- Pickaxe
 INSERT INTO `mob_droplist` VALUES (1188,2,0,1000,656,0);
-INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,4509,250);
-INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,4518,80);
+INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,4509,100); -- Distilled water
+INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,4518,100); -- Strip Of Sheep Jerky
 INSERT INTO `mob_droplist` VALUES (1189,0,0,1000,15506,240); -- (Goblin Wolfman) Parade Gorget
 INSERT INTO `mob_droplist` VALUES (1190,0,0,1000,13145,500);
 INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,891,70);
