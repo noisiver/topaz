@@ -1354,7 +1354,6 @@ INSERT INTO `mob_pets` VALUES (17183019, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17183021, 1, 15); -- Yagudo_s_Elemental
 --NMs edited by Shiyo
 INSERT INTO `mob_pets` VALUES (17326093, 1, 14); -- Taquedes_Wyvern
-INSERT INTO `mob_pets` VALUES (17326090, 1, 14); -- Dagourmarches_Wyvern
 INSERT INTO `mob_pets` VALUES (17326090, 2, 15); -- Dagourmarches_Avatar
 
 INSERT INTO `mob_pets` VALUES (16986197, 1, 9); -- Percipient_Zoraal_Ja
@@ -1383,6 +1382,40 @@ INSERT INTO `mob_pets` VALUES (17961253, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961257, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961267, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961277, 1, 15); -- Eschan Ilaern SMN
+
+--Zomits
+INSERT INTO `mob_pets` VALUES (16912394, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912394, 2, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912409, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912409, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912422, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912422, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912426, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912426, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912429, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912429, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912432, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912432, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912435, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912435, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912446, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912446, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912449, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912449, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912452, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912452, 1, 9); -- Mom Ulxzomit
+
+INSERT INTO `mob_pets` VALUES (16912468, 1, 9); -- Mom Ulxzomit
+INSERT INTO `mob_pets` VALUES (16912468, 1, 9); -- Mom Ulxzomit
 
 
 /*!40000 ALTER TABLE `mob_pets` ENABLE KEYS */;
