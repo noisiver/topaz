@@ -218,7 +218,7 @@ INSERT INTO `traits` VALUES (14,'store tp',12,50,3,73,20,NULL,0);
 INSERT INTO `traits` VALUES (14,'store tp',12,70,4,73,25,NULL,0);
 INSERT INTO `traits` VALUES (14,'store tp',12,90,5,73,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,25,1,288,10,NULL,0);
-INSERT INTO `traits` VALUES (15,'double attack',1,76,1,288,25,NULL,0); -- Custom to make monsters stronger
+INSERT INTO `traits` VALUES (15,'double attack',1,76,2,288,25,NULL,0); -- Custom to make monsters stronger
 INSERT INTO `traits` VALUES (15,'double attack',1,80,2,288,12,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,81,3,288,14,'ABYSSEA',0); -- level 76 prior to ROV update (05/14/2015), set Abby tag so it's removed from 75-cap servers
 INSERT INTO `traits` VALUES (15,'double attack',1,85,4,288,16,'ROV',0);
