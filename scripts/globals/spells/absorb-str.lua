@@ -40,5 +40,6 @@ function onSpellCast(caster, target, spell)
 			end
         end
     end
+	caster:delStatusEffectSilent(tpz.effect.NETHER_VOID)
     return tpz.effect.STR_DOWN
 end

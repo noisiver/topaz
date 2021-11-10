@@ -41,6 +41,10 @@ function onSpellCast(caster, target, spell)
 
     dmg = dmg * DARK_POWER
 	
+	if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
+		dmg = dmg * 1.5
+	end
+	
     local SDT = target:getMod(tpz.mod.SDT_DARK)
 	
 	if target:isMob() then
@@ -60,6 +64,6 @@ function onSpellCast(caster, target, spell)
         caster:addMP(dmg)
         target:delMP(dmg)
     end
-
+	caster:delStatusEffectSilent(tpz.effect.NETHER_VOID)
     return dmg
 end

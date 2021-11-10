@@ -1,9 +1,10 @@
 -----------------------------------------
--- Spell: Aspir
+-- Spell: Drain III
 -- Drain functions only on skill level!!
 -----------------------------------------
 require("scripts/globals/magic")
 require("scripts/globals/status")
+require("scripts/globals/settings")
 require("scripts/globals/msg")
 -----------------------------------------
 
@@ -18,7 +19,9 @@ function onSpellCast(caster, target, spell)
     end
     --calculate raw damage (unknown function  -> only dark skill though) - using http://www.bluegartr.com/threads/44518-Drain-Calculations
     -- also have small constant to account for 0 dark skill
-    local dmg = 20 +  (caster:getSkillLevel(tpz.skill.DARK_MAGIC) / 3 )
+    local dmg = 300 + caster:getSkillLevel(tpz.skill.DARK_MAGIC) 
+
+
     --get resist multiplier (1x if no resist)
     local params = {}
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
@@ -30,8 +33,6 @@ function onSpellCast(caster, target, spell)
     dmg = dmg*resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
     dmg = addBonuses(caster, spell, target, dmg)
-	-- add dmg variance
-	dmg = (dmg * math.random(85, 115)) / 100
     --add in target adjustment
     dmg = adjustForTarget(target, dmg, spell:getElement())
     --add in final adjustments
@@ -39,13 +40,13 @@ function onSpellCast(caster, target, spell)
     if (dmg < 0) then
         dmg = 0
     end
-
-    dmg = dmg * DARK_POWER
+	
+	dmg = dmg * DARK_POWER
 	
 	if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
 		dmg = dmg * 1.5
 	end
-
+	
     local SDT = target:getMod(tpz.mod.SDT_DARK)
 	
 	if target:isMob() then
@@ -57,14 +58,16 @@ function onSpellCast(caster, target, spell)
         return dmg
     end
 
-    if (target:getMP() > dmg) then
-        caster:addMP(dmg)
-        target:delMP(dmg)
-    else
-        dmg = target:getMP()
-        caster:addMP(dmg)
-        target:delMP(dmg)
+    dmg = finalMagicAdjustments(caster, target, spell, dmg)
+
+    local leftOver = (caster:getHP() + dmg) - caster:getMaxHP()
+
+    if (leftOver > 0) then
+        caster:addStatusEffect(tpz.effect.MAX_HP_BOOST, (leftOver/caster:getMaxHP())*100, 0, 60)
     end
 
+    caster:addHP(dmg)
+    spell:setMsg(tpz.msg.basic.MAGIC_DRAIN_HP) --change msg to 'xxx hp drained from the yyyy.'
+	caster:delStatusEffectSilent(tpz.effect.NETHER_VOID)
     return dmg
 end
