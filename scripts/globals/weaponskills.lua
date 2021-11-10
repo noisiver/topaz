@@ -231,6 +231,11 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     if calcParams.melee then -- souleaterBonus() checks for the effect inside itself
         finaldmg = finaldmg + souleaterBonus(attacker, (calcParams.tpHitsLanded+calcParams.extraHitsLanded))
     end
+	
+	-- Apply Consume MP bonus
+    if calcParams.melee then -- consumeMPBonus() checks for the effect inside itself
+        finaldmg = finaldmg + consumeMPBonus(attacker, (calcParams.tpHitsLanded+calcParams.extraHitsLanded))
+    end
 
     -- Factor in "all hits" bonus damage mods
     local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
@@ -300,8 +305,9 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
 
     -- Delete statuses that may have been spent by the WS
     attacker:delStatusEffectsByFlag(tpz.effectFlag.DETECTABLE)
-    attacker:delStatusEffect(tpz.effect.SNEAK_ATTACK)
+    attacker:delStatusEffectSilent(tpz.effect.SNEAK_ATTACK)
     attacker:delStatusEffectSilent(tpz.effect.BUILDING_FLOURISH)
+	attacker:delStatusEffectSilent(tpz.effect.CONSUME_MANA)
 
     --[[
     -- Calculate reductions
@@ -678,6 +684,26 @@ function souleaterBonus(attacker, numhits)
             hitscounted = hitscounted + 1
         end
         attacker:delHP(numhits*0.10*attacker:getHP())
+        return damage
+    else
+        return 0
+    end
+end
+
+function consumeMPBonus(attacker, numhits)
+    if attacker:hasStatusEffect(tpz.effect.CONSUME_MANA) then
+        local damage = 0
+        local percent = 0.5
+
+        local hitscounted = 0
+        while (hitscounted < numhits) do
+            local mp = attacker:getMP()
+            if mp > 10 then
+                damage = damage + mp*percent
+            end
+            hitscounted = hitscounted + 1
+        end
+        attacker:delMP(mp)
         return damage
     else
         return 0
