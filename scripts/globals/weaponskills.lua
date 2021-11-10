@@ -703,7 +703,7 @@ function consumeMPBonus(attacker, numhits)
             end
             hitscounted = hitscounted + 1
         end
-        attacker:delMP(mp)
+        attacker:setMP(0)
         return damage
     else
         return 0
