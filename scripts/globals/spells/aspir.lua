@@ -65,6 +65,6 @@ function onSpellCast(caster, target, spell)
         caster:addMP(dmg)
         target:delMP(dmg)
     end
-
+	caster:delStatusEffectSilent(tpz.effect.NETHER_VOID)
     return dmg
 end
