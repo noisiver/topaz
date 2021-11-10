@@ -961,10 +961,10 @@ end
         dmg = dmg * ELEMENTAL_POWER
     elseif (skill == tpz.skill.DARK_MAGIC) then
         dmg = dmg * DARK_POWER
+		if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
+			dmg = dmg * 1.5
+		end
         local id = spell:getID()
-        if id == 245 or id == 246 or id == 247 or id == 248 then
-            dmg = math.floor(dmg * (math.random()/2 + 0.5)) -- aspir1/2, drain1/2, someone noted somewhere this is how it is randomized but now i can't find the source atm
-        end
     elseif (skill == tpz.skill.NINJUTSU) then
         dmg = dmg * NINJUTSU_POWER
     elseif (skill == tpz.skill.DIVINE_MAGIC) then

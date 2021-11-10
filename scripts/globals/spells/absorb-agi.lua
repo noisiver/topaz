@@ -25,12 +25,18 @@ function onSpellCast(caster, target, spell)
         params.bonus = 0
         params.effect = nil
         local resist = applyResistance(caster, target, spell, params)
+		local NetherVoidBonus = 1.5
         if (resist < 0.5) then
             spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
         else
             spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_AGI)
-            caster:addStatusEffect(tpz.effect.AGI_BOOST, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100), ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK) -- caster gains AGI
-            target:addStatusEffect(tpz.effect.AGI_DOWN, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100), ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK)    -- target loses AGI
+			if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
+				caster:addStatusEffect(tpz.effect.AGI_BOOST, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100) * NetherVoidBonus, ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK) -- caster gains AGI
+				target:addStatusEffect(tpz.effect.AGI_DOWN, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100) * NetherVoidBonus, ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK)    -- target loses AGI
+			else
+				caster:addStatusEffect(tpz.effect.AGI_BOOST, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100), ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK) -- caster gains AGI
+				target:addStatusEffect(tpz.effect.AGI_DOWN, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100), ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK)    -- target loses AGI
+			end
         end
     end
     return tpz.effect.AGI_DOWN

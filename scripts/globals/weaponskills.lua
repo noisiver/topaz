@@ -693,7 +693,7 @@ end
 function consumeMPBonus(attacker, numhits)
     if attacker:hasStatusEffect(tpz.effect.CONSUME_MANA) then
         local damage = 0
-        local percent = 0.5
+        local percent = 2
 
         local hitscounted = 0
         while (hitscounted < numhits) do
