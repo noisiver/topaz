@@ -961,9 +961,6 @@ end
         dmg = dmg * ELEMENTAL_POWER
     elseif (skill == tpz.skill.DARK_MAGIC) then
         dmg = dmg * DARK_POWER
-		if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
-			dmg = dmg * 1.5
-		end
         local id = spell:getID()
     elseif (skill == tpz.skill.NINJUTSU) then
         dmg = dmg * NINJUTSU_POWER
