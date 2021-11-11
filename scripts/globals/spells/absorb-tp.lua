@@ -49,9 +49,6 @@ function onSpellCast(caster, target, spell)
             dmg = cap
         end
 
-		if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
-			dmg = dmg * NetherVoidBonus
-		end
         -- drain
         caster:addTP(dmg)
         target:addTP(-dmg)
