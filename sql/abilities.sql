@@ -69,10 +69,10 @@ INSERT INTO `abilities` VALUES (43,'hide',6,45,1,300,63,0,0,10,2000,0,6,20.0,0,0
 INSERT INTO `abilities` VALUES (44,'sneak_attack',6,15,1,60,64,0,0,17,2000,0,6,20.0,0,1,0,708,0,NULL);
 INSERT INTO `abilities` VALUES (45,'mug',6,35,4,180,65,129,0,183,2000,0,3,5.4,0,1,300,0,0,NULL);		-- made 60s
 INSERT INTO `abilities` VALUES (46,'shield_bash',7,15,4,60,73,0,0,185,2000,0,3,4.4,0,450,900,768,0,NULL);
-INSERT INTO `abilities` VALUES(47, 'holy_circle', 7, 5, 1, 600, 74, 131, 0, 29, 2000, 0, 6, 20.0, 1, 1, 20, 770, 0, NULL);
+INSERT INTO `abilities` VALUES(47, 'holy_circle', 7, 5, 1, 300, 74, 131, 0, 29, 2000, 0, 6, 20.0, 1, 1, 20, 770, 0, NULL);
 INSERT INTO `abilities` VALUES (48,'sentinel',7,30,1,300,75,0,0,11,2000,0,6,20.0,0,1,900,772,0,NULL);
 INSERT INTO `abilities` VALUES (49,'souleater',8,30,1,360,85,0,0,20,2000,0,6,20.0,0,1,1300,832,0,NULL);
-INSERT INTO `abilities` VALUES(50, 'arcane_circle', 8, 5, 1, 600, 86, 134, 0, 30, 2000, 0, 6, 20.0, 1, 1, 20, 834, 0, NULL);
+INSERT INTO `abilities` VALUES(50, 'arcane_circle', 8, 5, 1, 300, 86, 134, 0, 30, 2000, 0, 6, 20.0, 1, 1, 20, 834, 0, NULL);
 INSERT INTO `abilities` VALUES (51,'last_resort',8,15,1,300,87,0,0,12,2000,0,6,20.0,0,1,1300,836,0,NULL);
 INSERT INTO `abilities` VALUES (52,'charm',9,1,4,15,97,0,0,13,2000,0,6,18.0,0,320,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (53,'gauge',9,10,4,30,98,0,0,14,2000,0,6,23.0,0,0,0,0,0,NULL);
@@ -86,8 +86,8 @@ INSERT INTO `abilities` VALUES (60,'barrage',11,30,1,180,125,0,0,23,2000,0,6,20.
 INSERT INTO `abilities` VALUES (61,'call_wyvern',14,1,1,1200,163,0,0,94,2000,0,6,20.0,0,1,300,0,4,NULL);
 INSERT INTO `abilities` VALUES (62,'third_eye',12,15,1,60,133,0,0,24,2000,0,6,20.0,0,1,0,1088,0,NULL);
 INSERT INTO `abilities` VALUES (63,'meditate',12,30,1,180,134,0,0,25,2000,0,6,20.0,0,300,0,1094,0,NULL);
-INSERT INTO `abilities` VALUES(64, 'warding_circle', 12, 5, 1, 600, 135, 148, 0, 31, 2000, 0, 6, 20.0, 1, 1, 20, 1090, 0, NULL);
-INSERT INTO `abilities` VALUES(65, 'ancient_circle', 14, 5, 1, 600, 157, 150, 0, 32, 2000, 0, 6, 20.0, 1, 1, 20, 1216, 0, NULL);
+INSERT INTO `abilities` VALUES(64, 'warding_circle', 12, 5, 1, 300, 135, 148, 0, 31, 2000, 0, 6, 20.0, 1, 1, 20, 1090, 0, NULL);
+INSERT INTO `abilities` VALUES(65, 'ancient_circle', 14, 5, 1, 300, 157, 150, 0, 32, 2000, 0, 6, 20.0, 1, 1, 20, 1216, 0, NULL);
 INSERT INTO `abilities` VALUES (66,'jump',14,10,4,60,158,110,0,204,2000,0,3,9.5,0,0,0,1218,0,NULL);
 INSERT INTO `abilities` VALUES (67,'high_jump',14,35,4,120,159,110,0,209,2000,0,3,11.5,0,0,0,1220,0,NULL);
 INSERT INTO `abilities` VALUES (68,'super_jump',14,50,4,180,160,110,0,214,2000,0,3,12.5,0,0,0,1221,0,NULL);
