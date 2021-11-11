@@ -892,9 +892,9 @@ function getSpellBonusAcc(caster, target, spell, params)
 
     local skillchainTier, skillchainCount = FormMagicBurst(element, target)
 
-    --add acc for skillchains
+    --add macc for skillchains
     if (skillchainTier > 0) then
-        magicAccBonus = magicAccBonus + 200 -- jimmayus said this is 30 not 25
+        magicAccBonus = magicAccBonus + 50 -- jimmayus said this is 30 not 25
     end
 
     --Add acc for klimaform
