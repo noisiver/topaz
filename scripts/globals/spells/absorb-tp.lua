@@ -21,7 +21,6 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.DARK_MAGIC
     local resist = applyResistance(caster, target, spell, params)
-	local NetherVoidBonus = 1.5
 
     --get the resisted damage
     dmg = dmg * resist
