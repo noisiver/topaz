@@ -5,6 +5,9 @@
 -----------------------------------
 require("scripts/globals/titles")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(130)
+end
 
 function onMobFight(mob, target)
 
@@ -38,6 +41,15 @@ end
 function onMobDeath(mob, player, isKiller)
 
     player:addTitle(tpz.title.HYDRA_HEADHUNTER)
+	if isKiller  then 
+		player:addTreasure(5736, mob)--Linen Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 24 then 
+		player:addTreasure(5736, mob)--Linen Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 15 then 
+		player:addTreasure(5736, mob)--Linen Coin Purse
+	end
 
 end
 

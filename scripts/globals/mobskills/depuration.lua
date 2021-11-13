@@ -25,7 +25,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    mob:eraseAllStatusEffect()
+    local effect = tpz.effect.PARALYSIS
+    local effectTwo = tpz.effect.SILENCE
+		target:eraseAllStatusEffect()
+        target:delStatusEffect(effect)
+        target:delStatusEffect(effectTwo)
 
     return 0
 end

@@ -43,11 +43,16 @@ function onSpellCast(caster, target, spell)
 	
 	dmg = dmg * DARK_POWER
 	
+	--apply SDT penalty
     local SDT = target:getMod(tpz.mod.SDT_DARK)
-	
 	if target:isMob() then
-		dmg = dmg * (SDT / 100)
+		if SDT < 100 then
+			dmg = dmg * (SDT / 100)
+		end
 	end
+	
+	-- add dmg variance
+	dmg = (dmg * math.random(85, 115)) / 100
 
     if (target:isUndead()) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- No effect
@@ -59,7 +64,7 @@ function onSpellCast(caster, target, spell)
     local leftOver = (caster:getHP() + dmg) - caster:getMaxHP()
 
     if (leftOver > 0) then
-        caster:addStatusEffect(tpz.effect.MAX_HP_BOOST, (leftOver/caster:getMaxHP())*100, 0, 60)
+        caster:addStatusEffect(tpz.effect.MAX_HP_BOOST, (leftOver/caster:getMaxHP())*100, 0, 180)
     end
 
     caster:addHP(dmg)

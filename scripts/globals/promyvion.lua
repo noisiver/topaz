@@ -7,7 +7,7 @@ require("scripts/globals/status")
 
 tpz = tpz or {}
 tpz.promyvion = tpz.promyvion or {}
-
+	--TODO: Item drops
 ------------------------------------
 -- LOCAL FUNCTIONS
 ------------------------------------

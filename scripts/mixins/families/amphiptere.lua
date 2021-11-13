@@ -21,15 +21,18 @@ g_mixins.families.amphiptere = function(mob)
         local ReavingWindAura = mob:getLocalVar("ReavingWindAura")
         local ReavingWindKnockback = mob:getLocalVar("ReavingWindKnockback")
 		local animationSub = mob:AnimationSub()
+		local BattleTime = mob:getBattleTime()
 		if ReavingWindAura > 0 and os.time() > ReavingWindAura then -- Remove knockback aura
 			mob:AnimationSub(0)
 			mob:setLocalVar("ReavingWindKnockback", 0)
 		end
 		
-		if animationSub == 2 then
-			if os.time() > ReavingWindKnockback then 
+	if animationSub == 2 then
+		if ReavingWindKnockback == 0 then
+			mob:setLocalVar("ReavingWindKnockback", BattleTime + 3)
+		elseif BattleTime > ReavingWindKnockback then 
 				mob:useMobAbility(2434) -- Knockback
-				mob:setLocalVar("ReavingWindKnockback", os.time() + 3)
+				mob:setLocalVar("ReavingWindKnockback", BattleTime + 3)
 			end
 		end
 	end)

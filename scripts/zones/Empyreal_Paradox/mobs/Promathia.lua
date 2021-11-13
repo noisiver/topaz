@@ -1,44 +1,38 @@
 -----------------------------------
 -- Area: Empyreal Paradox
---  Mob: Promathia
--- Note: Phase 1
+--  MOB: Promathia
 -----------------------------------
 local ID = require("scripts/zones/Empyreal_Paradox/IDs")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
-
-function onMobInitialize(mob)
-    mob:addMod(tpz.mod.REGAIN, 50)
-    mob:addMod(tpz.mod.UFASTCAST, 50)
+function onMobSpawn(mob)
+	mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+	mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.MDEF, 30)
+    mob:setMod(tpz.mod.UDMGMAGIC, -20)
+    mob:setMod(tpz.mod.REFRESH, 40)
 end
 
-function onMobEngaged(mob, target)
+function onMobInitialize(mob)
+    mob:setMod(tpz.mod.REGAIN, 50)
+    mob:setMod(tpz.mod.UFASTCAST,50)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 18)
+end
+
+function onMobEngaged(mob,target)
     local bcnmAllies = mob:getBattlefield():getAllies()
-    for i, v in pairs(bcnmAllies) do
-        if v:getName() == "Prishe" then
-            if not v:getTarget() then
-                v:entityAnimationPacket("prov")
-                v:showText(v, ID.text.PRISHE_TEXT)
-                v:setLocalVar("ready", mob:getID())
-            end
-        else
-            v:addEnmity(mob, 0, 1)
-        end
+    for i,v in pairs(bcnmAllies) do
+        v:addEnmity(mob, 0, 1)
     end
 end
 
-function onMobFight(mob, target)
+function onMobFight(mob,target)
     if mob:AnimationSub() == 3 and not mob:hasStatusEffect(tpz.effect.STUN) then
         mob:AnimationSub(0)
         mob:stun(1500)
-    end
-
-    local bcnmAllies = mob:getBattlefield():getAllies()
-    for i, v in pairs(bcnmAllies) do
-        if not v:getTarget() then
-            v:addEnmity(mob, 0, 1)
-        end
     end
 end
 
@@ -50,31 +44,21 @@ end
 
 function onMobDeath(mob, player, isKiller)
     local battlefield = mob:getBattlefield()
-    if player then
-        player:startEvent(32004, battlefield:getArea())
-    else
-        for _, member in pairs(battlefield:getPlayers()) do
-            member:startEvent(32004, battlefield:getArea())
-        end
-    end
+    player:startEvent(32004, battlefield:getBattlefieldNumber())
 end
 
-function onEventUpdate(player, csid, option)
-    -- printf("updateCSID: %u", csid)
+function onEventUpdate(player,csid,option)
 end
 
-function onEventFinish(player, csid, option, target)
-    -- printf("finishCSID: %u", csid)
-
+function onEventFinish(player,csid,option,target)
     if csid == 32004 then
         DespawnMob(target:getID())
         mob = SpawnMob(target:getID()+1)
         local bcnmAllies = mob:getBattlefield():getAllies()
-        for i, v in pairs(bcnmAllies) do
+        for i,v in pairs(bcnmAllies) do
             v:resetLocalVars()
             local spawn = v:getSpawnPos()
             v:setPos(spawn.x, spawn.y, spawn.z, spawn.rot)
         end
     end
-
 end

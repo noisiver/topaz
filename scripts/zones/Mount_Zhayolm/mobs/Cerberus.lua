@@ -5,6 +5,9 @@
 require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(135)
+end
 
 function onMobFight(mob, target)
     if mob:getHPP() > 25 then
@@ -16,6 +19,15 @@ end
 
 function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.CERBERUS_MUZZLER)
+	if isKiller  then 
+		player:addTreasure(5736, mob)--Linen Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 24 then 
+		player:addTreasure(5736, mob)--Linen Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 15 then 
+		player:addTreasure(5736, mob)--Linen Coin Purse
+	end
 end
 
 function onMobDespawn(mob)

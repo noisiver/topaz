@@ -5,8 +5,20 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/titles")
+require("scripts/globals/pathfind")
 mixins = {require("scripts/mixins/families/amphiptere")}
 ------------------------------
+local path1 = {
+    92, -36, 150,
+    -1, -36, 159,
+    -3, -36, 65,
+    -78, -36, 62,
+    -113, -35, 64,
+    -120, -36, 123,
+	-134, -28, 85,
+}
+
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 2)
 end
@@ -22,6 +34,11 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
 	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
 	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
+    onPath(mob)
+end
+
+function onMobRoam(mob)
+    onPath(mob)
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -64,6 +81,10 @@ end
 
 function onMonsterMagicPrepare(mob, target)
     return 359 -- Silencega
+end
+
+function onPath(mob)
+	tpz.path.patrolsimple(mob, path1, tpz.path.flag.RUN)
 end
 
 function onMobDespawn(mob)

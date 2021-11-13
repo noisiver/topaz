@@ -30,8 +30,6 @@ function onSpellCast(caster, target, spell)
     dmg = dmg*resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
     dmg = addBonuses(caster, spell, target, dmg)
-	-- add dmg variance
-	dmg = (dmg * math.random(85, 115)) / 100
     --add in target adjustment
     dmg = adjustForTarget(target, dmg, spell:getElement())
     --add in final adjustments
@@ -42,11 +40,16 @@ function onSpellCast(caster, target, spell)
 
     dmg = dmg * DARK_POWER
 	
+	--apply SDT penalty
     local SDT = target:getMod(tpz.mod.SDT_DARK)
-	
 	if target:isMob() then
-		dmg = dmg * (SDT / 100)
+		if SDT < 100 then
+			dmg = dmg * (SDT / 100)
+		end
 	end
+
+	-- add dmg variance
+	dmg = (dmg * math.random(85, 115)) / 100
 
     if (target:isUndead()) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- No effect
@@ -61,6 +64,5 @@ function onSpellCast(caster, target, spell)
         caster:addMP(dmg)
         target:delMP(dmg)
     end
-
     return dmg
 end

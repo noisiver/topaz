@@ -18,6 +18,10 @@ zones[tpz.zone.SEALIONS_DEN] =
         LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The [/January/February/March/April/May/June/July/August/September/October/November/December] <number> Login Campaign is currently underway!<space>
         LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
         CONQUEST_BASE           = 7420, -- Tallying conquest results...
+        BCNM_SEALED             = 7086, -- A solid iron gate. It is tightly locked...
+        BCNM_CLEARANCE          = 7360, -- Currently, <total> members of your party (including yourself) have clearance to enter the battlefield.
+        CONQUEST_BASE           = 7419, -- Tallying conquest results...
+        BCNM_ENTERING           = 7582, -- Entering the battlefield for "<bcnmindex>"!
     },
     mob =
     {

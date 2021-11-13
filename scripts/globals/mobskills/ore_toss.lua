@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.BLUNT, MOBPARAM_1_SHADOW)
 
     if mob:isInDynamis() then 
-        dmgmod = 4
+        dmgmod = 3
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.BLUNT)

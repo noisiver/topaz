@@ -15,6 +15,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 25)
 	mob:setMod(tpz.mod.SLASHRES, 0)
 	mob:setMod(tpz.mod.IMPACTRES, 0)
+	mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 	mob:AnimationSub(0)
 end
 

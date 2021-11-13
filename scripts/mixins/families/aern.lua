@@ -21,26 +21,73 @@ g_mixins.families.aern = function(mob)
                 end
             end
             if curr_reraise < reraises then
-                local dropid = mob:getDropID()
-                mob:setDropID(0)
+                mob:setMobMod(tpz.mobMod.NO_DROPS, 1) -- Aern will not drop any items if reraising, not even seals.
                 local target = mob:getTarget()
-                if target then killer = target end
                 mob:timer(12000, function(mob)
                     mob:setHP(mob:getMaxHP())
-                    mob:setDropID(dropid)
+                    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
                     mob:AnimationSub(3)
                     mob:setLocalVar("AERN_RERAISES", curr_reraise + 1)
                     mob:resetAI()
                     mob:stun(3000)
-                    if mob:checkDistance(killer) < 40 then
+                    if target and target:isAlive() and mob:checkDistance(target) < 40 then
+                        mob:updateClaim(target)
+                        mob:updateEnmity(target)
+                    elseif killer:isAlive() and mob:checkDistance(killer) < 40 then
                         mob:updateClaim(killer)
                         mob:updateEnmity(killer)
+                    else
+                        local partySize = killer:getPartySize()
+                        local i = 1
+                        for _, partyMember in pairs(killer:getAlliance()) do
+                            if partyMember:isAlive() and mob:checkDistance(partyMember) < 40 then
+                                mob:updateClaim(partyMember)
+                                mob:updateEnmity(partyMember)
+                                break
+                            elseif i == partySize then
+                                mob:disengage()
+                            end
+                            i = i + 1
+                        end
                     end
                     mob:triggerListener("AERN_RERAISE", mob, curr_reraise + 1)
                 end)
             end
         end
     end)
+    mob:addListener("SPAWN", "AERN_SPAWN", function(mob)
+        mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
+		mob:AnimationSub(1)
+    end)
+    mob:addListener("COMBAT_TICK", "AERN_COMBAT_TICK", function(mob)
+        local BraceletsTime = mob:getLocalVar("BraceletsTime")
+
+        if BraceletsTime > 0 and os.time() > BraceletsTime then
+            local animationSub = mob:AnimationSub()
+
+            if animationSub == 0 or animationSub == 1 or animationSub == 4 then
+				mob:delMod(tpz.mod.MAGIC_HASTE, 2500)
+				mob:setMod(tpz.mod.ATTP, 0)
+				mob:setMod(tpz.mod.MATT, 0)
+				mob:setMod(tpz.mod.UDMGPHYS, 0) 
+				mob:setMod(tpz.mod.UDMGRANGE, 0)
+				mob:setMod(tpz.mod.UDMGMAGIC, 0)
+                mob:AnimationSub(2)
+                mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
+
+            elseif animationSub == 1 then
+				mob:addMod(tpz.mod.MAGIC_HASTE, 2500)
+				mob:setMod(tpz.mod.ATTP, 100)
+				mob:setMod(tpz.mod.MATT, 48)
+				mob:setMod(tpz.mod.UDMGPHYS, 60) 
+				mob:setMod(tpz.mod.UDMGRANGE, 60)
+				mob:setMod(tpz.mod.UDMGMAGIC, 60)
+                mob:AnimationSub(1)
+                mob:setLocalVar("BraceletsTime", os.time() + 30)
+            end
+        end
+    end)
 end
+
 
 return g_mixins.families.aern

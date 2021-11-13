@@ -7,16 +7,34 @@ require("scripts/globals/zone")
 zones = zones or {}
 
 zones[tpz.zone.BONEYARD_GULLY] = {
-    text = {
+    text =
+    {
         ITEM_CANNOT_BE_OBTAINED = 6382, -- You cannot obtain the <item>. Come back after sorting your inventory.
         ITEM_OBTAINED           = 6388, -- Obtained: <item>.
         GIL_OBTAINED            = 6389, -- Obtained <number> gil.
         KEYITEM_OBTAINED        = 6391, -- Obtained key item: <keyitem>.
-        CARRIED_OVER_POINTS     = 6999, -- You have carried over <number> login point[/s].
-        LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The [/January/February/March/April/May/June/July/August/September/October/November/December] <number> Login Campaign is currently underway!<space>
-        LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
-        CONQUEST_BASE           = 7421, -- Tallying conquest results...
-        TUCHULCHA_SANDPIT       = 7740, -- Tuchulcha retreats beneath the soil!
+        BCNM_SEALED             = 7078, -- An ominous veil of pitch-black gas blocks your path. You cannot proceed any further...
+        CONQUEST_BASE           = 7420, -- Tallying conquest results...
+        BCNM_CLEARANCE          = 7360, -- Currently, <total> members of your party (including yourself) have clearance to enter the battlefield.
+        BCNM_ENTERING           = 7583, -- Entering the battlefield for "<bcnmindex>"!
+        WE_ARE_TRACKERS         = 7703, -- We are the Mithran Trackers!
+        HOW_IS_THIS_POSSIBLE    = 7704, -- H-how...is this possible...?
+        ENOUGH_TIME             = 7705, -- Enough time has been wasted! (Z, ready)
+        FOLLOW_MY_LEAD          = 7706, -- Follow my lead! (Z, begin)
+        TIME_TO_DIE             = 7707, -- Time to die! (Z, mid)
+        YOUR_SINS               = 7708, -- Your sins will be judged! (Z, end)
+        THAT_SCENT              = 7709, -- That...that scent...
+        TAKE_ME_FOR_A_FOOL      = 7710, -- Do you take me for a fool?
+        CANT_HAVE_LOST          = 7715, -- I...I can't have lost...
+        READY_TO_REAP           = 7716, -- Ready to rrrreap! (Y, ready)
+        MASSACRRRE_BEGIN        = 7717, -- Let the massacrrre begin! (Y, begin)
+        JUST_FOR_YOU            = 7718, -- Just for you, sugarplum! (Y, mid)
+        IN_YOUR_EYE             = 7719, -- In your eye, honeycakes! (Y, end)
+        DEFEATED                = 7726, -- Defeated...on my...first hunt...
+        READY_TO_RUMBLE         = 7727, -- Ready to rrrumble! (X, ready)
+        TIME_TO_HUNT            = 7728, -- Mithran Trackers! Time to hunt! (X, begin)
+        MY_TURN_MY_TURN         = 7729, -- My turn! My turn! (X, mid)
+        YOURE_MINE              = 7730, -- You're mine! (X, end)
     },
     mob =
     {

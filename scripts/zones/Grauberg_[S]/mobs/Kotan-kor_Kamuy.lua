@@ -7,7 +7,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ATTP, 25)
+	mob:addMod(tpz.mod.ATTP, 50)
 	mob:addMod(tpz.mod.ACC, 25) 
 	mob:addMod(tpz.mod.EVA, 25)
 	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
@@ -20,6 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:useMobAbility(1330)  -- Hoof Volley
 	end
 end
+
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end

@@ -19,20 +19,33 @@ function onMobSpawn(mob)
         SetDropRate(4398, 1901, chance * 10) -- Vice of Antipathy
     end
     qm:setLocalVar("[SEA]IxAern_DropRate", 0)
+	
+	mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+	mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.REFRESH, 40)
+	mob:AnimationSub(1) -- Reset the subanim - otherwise it will respawn with bracers on. Note that Aerns are never actually supposed to be in subanim 0.
+end
 
-    mob:AnimationSub(1) -- Reset the subanim - otherwise it will respawn with bracers on. Note that Aerns are never actually supposed to be in subanim 0.
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 120)
 end
 
 function onMobFight(mob, target)
     -- The mob gains a huge boost when it 2hours to attack speed and attack.
     -- It forces the minions to 2hour as well. Wiki says 50% but all videos show 60%.
     if (mob:getLocalVar("BracerMode") == 0) then
-        if (mob:getHPP() < math.random(50, 60)) then
+        if (mob:getHPP() < 50 then
             -- Go into bracer mode
             mob:setLocalVar("BracerMode", 1)
             mob:AnimationSub(2)
-            mob:addMod(tpz.mod.ATT, 200)
-            mob:addMod(tpz.mod.HASTE_ABILITY, 1500)
+			mob:addMod(tpz.mod.MAGIC_HASTE, 2500)
+			mob:setMod(tpz.mod.ATTP, 100)
+			mob:setMod(tpz.mod.MATT, 48)
+			mob:setMod(tpz.mod.UDMGPHYS, 60) 
+			mob:setMod(tpz.mod.UDMGRANGE, 60)
+			mob:setMod(tpz.mod.UDMGMAGIC, 60)
             mob:useMobAbility(3411) -- Hundred Fists
 
             -- Force minions to 2hour

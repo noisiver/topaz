@@ -133,10 +133,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         maxRatio = ratio + 0.3
     elseif ((1.2 < ratio) and (ratio <= 1.5)) then
         maxRatio = (ratio * 0.25) + ratio
-    elseif ((1.5 < ratio) and (ratio <= 2.625)) then
-        maxRatio = ratio + 0.375
-    elseif ((2.625 < ratio) and (ratio <= 3.25)) then
-        maxRatio = 4        -- monsters cap at 4.0 https://www.bluegartr.com/threads/114636-Monster-Avatar-Pet-damage
+    elseif ((1.5 < ratio) and (ratio <= 2.0)) then
+        maxRatio = 2 -- https://forum.square-enix.com/ffxi/threads/31310-March-27-2013-%28JST%29-Version-Update 2.0 in era
     else
         maxRatio = ratio
     end
@@ -178,7 +176,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     end
 
     --firstHitChance = utils.clamp(firstHitChance, 35, 95)
-    firstHitChance = utils.clamp(firstHitChance, 20, 95)
+    firstHitChance = utils.clamp(firstHitChance, 20, 100)
 
     local MS = 0
     if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
@@ -839,11 +837,20 @@ function MobEncumberMove(target, maxSlots, duration)
       if (newSlot ~= -1) then
         encumberSlots[currIndex] = newSlot;
         currIndex = currIndex + 1;
+        if (newSlot == 0) then
+            encumberSlots[currIndex] = 1;
+            currIndex = currIndex + 1;
+            maxSlots = maxSlots + 1;
+        elseif (newSlot == 1) then
+            encumberSlots[currIndex] = 0;
+            currIndex = currIndex + 1;
+            maxSlots = maxSlots + 1;
+        end
       end
     end
 
     local mask = 0;
-    for i = 1,maxSlots,1 do
+    for i = 1,#encumberSlots,1 do
       target:unequipItem(encumberSlots[i]);
       mask = mask + math.pow(2, encumberSlots[i]);
     end

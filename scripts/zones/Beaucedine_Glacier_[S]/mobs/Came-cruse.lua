@@ -22,6 +22,18 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.STUNRESTRAIT, 100)
 end
 
+function onMobFight(mob, target)
+    local battletime = mob:getBattleTime()
+    local BlizzagaTime = mob:getLocalVar("BlizzagaTime")
+
+    if BlizzagaTime == 0 then
+        mob:setLocalVar("BlizzagaTime", math.random(15, 20))
+    elseif battletime >= BlizzagaTime then
+		mob:castSpell(181) -- Blizzaga III
+        mob:setLocalVar("BlizzagaTime", battletime + math.random(15,20))
+    end
+end
+
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 536)
 end

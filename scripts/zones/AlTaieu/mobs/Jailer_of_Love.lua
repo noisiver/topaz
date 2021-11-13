@@ -19,6 +19,9 @@ local minionGroup =
     [7] = 25, -- Qnhpemde
 }
 
+function onMobSpawn(mob)
+	mob:setDamage(280)
+end
 function onMobEngaged(mob, target)
     mob:hideName(false)
     mob:untargetable(false)

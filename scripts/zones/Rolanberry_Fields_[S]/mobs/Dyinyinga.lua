@@ -6,6 +6,7 @@ require("scripts/globals/hunts")
 local ID = require("scripts/zones/Rolanberry_Fields_[S]/IDs")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/world")
 ------------------------------
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
@@ -21,6 +22,11 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
+	if mob:getWeather() == tpz.weather.RAIN or mob:getWeather() == tpz.weather.SQUALL then
+		mob:setMod(tpz.mod.REGEN, 30)
+	else
+		mob:setMod(tpz.mod.REGEN, 0)
+	end
 	mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.AMNESIA, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
 	mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.SILENCE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
 end

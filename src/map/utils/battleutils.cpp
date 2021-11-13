@@ -2742,7 +2742,7 @@ namespace battleutils
         if (attackerType == TYPE_MOB || attackerType == TYPE_PET)
         {
             // Mobs and pets cap at 4.25 regardless of crit so no need to bother with crits for the max
-            maxRatio = 4.25f;
+            maxRatio = 2.0f;
         }
         else
         {

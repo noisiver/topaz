@@ -2,17 +2,27 @@
 -- Area: Sealions Den
 --  Mob: Omega
 -----------------------------------
-local ID = require("scripts/zones/Sealions_Den/IDs")
-require("scripts/globals/titles")
-require("scripts/globals/mobs")
+local ID = require("scripts/zones/Sealions_Den/IDs");
+require("scripts/globals/status");
+require("scripts/globals/titles");
+require("scripts/globals/msg");
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 20) 
-     mob:addMod(tpz.mod.ATTP, 10)
-     mob:addMod(tpz.mod.ACC, 30) 
-     mob:addMod(tpz.mod.EVA, 30)
-     mob:addMod(tpz.mod.MDEF, 14) 
+	mob:addMod(tpz.mod.DEFP, 20) 
+	mob:addMod(tpz.mod.ATTP, 100)
+	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
+	mob:addMod(tpz.mod.ACC, 30) 
+	mob:addMod(tpz.mod.EVA, 30)
+	mob:setMod(tpz.mod.MDEF, 14) 
+	mob:setMod(tpz.mod.COUNTER, 10)
+	mob:setMod(tpz.mod.REGEN, 1)
+	mob:setMod(tpz.mod.REGAIN, 100) -- Should use TP move every ~10 seconds
+	mob:setMod(tpz.mod.DOUBLE_ATTACK, 25) 
+	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 10)
+	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
+	mob:addTP(3000)
+	mob:setLocalVar("speed", 0)
 end
 
 function onMobInitialize(mob)
@@ -21,11 +31,22 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
-function onMobFight(mob, target)
-    -- Gains regain at under 25% HP
-    if mob:getHPP() < 25 and not mob:hasStatusEffect(tpz.effect.REGAIN) then
-        mob:addStatusEffect(tpz.effect.REGAIN, 5, 3, 0)
-        mob:getStatusEffect(tpz.effect.REGAIN):setFlag(tpz.effectFlag.DEATH)
+function onMobFight(mob,target)
+    -- Gains attack speed at 60% and 25% HP
+    local speed = mob:getLocalVar("speed")
+    local hpp = mob:getHPP()
+    if hpp <= 60 and speed < 1 then
+        mob:setLocalVar("speed", 1)
+		mob:setMod(tpz.mod.HASTE_MAGIC, 1500)
+        mob:setMod(tpz.mod.REGAIN, 150)
+    elseif hpp <= 25 and speed < 2 then
+        mob:setLocalVar("speed", 2)
+		mob:setMod(tpz.mod.HASTE_MAGIC, 2500)
+        mob:setMod(tpz.mod.REGAIN, 200)
+    elseif hpp <= 10 and speed < 3 then
+        mob:setLocalVar("speed", 3)
+		mob:setMod(tpz.mod.HASTE_MAGIC, 5000)
+        mob:setMod(tpz.mod.REGAIN, 200)
     end
 end
 

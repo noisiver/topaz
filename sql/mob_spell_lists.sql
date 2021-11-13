@@ -1283,9 +1283,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Club',108,247,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Club',108,274,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Club',108,360,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Club',108,361,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,54,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,190,1,255);
-INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,357,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,54,1,255); -- stoneskin
+INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,190,1,255); -- stonega_ii
+INSERT INTO `mob_spell_lists` VALUES ('Ouryu',109,357,1,255); -- slowga
 INSERT INTO `mob_spell_lists` VALUES ('Pasuk',110,245,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Pasuk',110,247,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Jormungand', 111, 250, 1, 255);
@@ -4401,6 +4401,175 @@ INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,17,1,255);  -- Silena
 INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,18,1,255);  -- Stona
 INSERT INTO `mob_spell_lists` VALUES ('Came-cruse',2004,19,1,255);  -- Viruna
 INSERT INTO `mob_spell_lists` VALUES ('Came-Cruise',2004,181,1,255); -- blizzaga_iii
+
+--Oupire
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Earth',2005,162,1,255);  -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Earth',2005,191,1,255);  -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Earth',2005,357,1,255);  -- Slowga
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Earth',2005,365,1,255);  -- Breakga
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Water',2006,172,1,255);  -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Water',2006,201,1,255);  -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Water',2006,226,1,255);  -- Poisonga II
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Wind',2007,157,1,255);  -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Wind',2007,186,1,255);  -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Wind',2007,359,1,255);  -- Silencega
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Wind',2007,366,1,255);  -- Gravityga
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Fire',2008,147,1,255);  -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Fire',2008,176,1,255);  -- Firega III
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Ice',2009,152,1,255);  -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Ice',2009,181,1,255);  -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Ice',2009,356,1,255);  -- Paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Ice',2009,362,1,255);  -- Bindga
+
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,167,1,255);  -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,196,1,255);  -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES ('Oupire_Thunder',2010,252,1,255);  -- Stun
+
+INSERT INTO `mob_spell_lists` VALUES ('Shikaree_Z',2011,3,1,255);  -- Cure III
+
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,1,1,10);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,2,11,20);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,3,21,40);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,4,41,60);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,5,61,255); -- Cure V
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,6,95,255); -- Cure VI
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,21,50,94); -- Holy
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,22,95,255); -- Holy II
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,23,3,35);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,24,36,84);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,25,85,255); -- Dia III
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,28,5,29);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,29,30,60);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,30,61,89);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,31,90,255); -- banish_iv
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,33,18,54);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,34,60,84);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,35,85,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,38,15,39);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,39,40,89);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,40,90,255); -- banishga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,43,7,26);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,44,27,46);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,45,47,62);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,46,63,75);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,47,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,48,17,36);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,49,37,56);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,50,57,67);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,51,68,75);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,52,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,53,19,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,54,28,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,55,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,56,13,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,57,40,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,58,4,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,59,15,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,108,21,43);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,110,44,65);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,111,66,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,112,45,255);
+INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,477,86,255);
+
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,144,13,22);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,145,38,47);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,146,62,67);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,147,73,94); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,148,95,255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,149,17,27);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,150,42,53);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,151,64,68);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,152,74,94); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,153,95,255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,154,9,18);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,155,34,44);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,156,59,66);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,157,72,94); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,158,95,255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,159,1,10);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,160,26,35);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,161,51,60);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,162,68,94); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,163,95,255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,164,21,46);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,165,46,55);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,166,66,70);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,167,75,94); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,168,95,255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,169,5,12);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,170,30,40);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,171,55,61);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,172,70,94); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,173,95,255); -- Water V
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,174,28,35);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,175,53,60);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,176,69,90);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,179,32,39);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,180,57,62);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,181,71,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,184,23,31);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,185,48,56);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,186,67,71);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,189,15,22);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,190,40,47);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,191,63,67);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,194,36,43);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,195,61,65);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,196,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,199,19,27);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,200,44,52);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,201,65,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,204,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,206,50,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,208,52,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,210,54,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,212,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,214,58,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,220,3,17);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,221,43,64);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,225,24,71);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,226,72,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,230,10,34);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,231,35,60);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,232,61,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,235,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,236,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,237,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,238,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,239,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,240,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,245,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,248,95,255); -- Aspir II
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,249,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,252,45,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,253,20,40);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,254,4,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,258,7,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,259,41,255);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,273,31,55);
+INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,274,56,255);
+
+--Ix'zdei
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,167,1,255); -- thunder_IV
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,157,1,255); -- aero_IV
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,196,1,255); -- thundaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,191,1,255); -- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,176,1,255); -- firaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,186,1,255); -- aeroga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,232,1,255); -- bio_iii
+
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,360,1,255); -- dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,359,1,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,34,1,255); -- diaga_ii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,108,1,255); -- regen
+
+
+
 
 
 

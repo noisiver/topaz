@@ -12,6 +12,14 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local mobhp = mob:getHPP()
+	if mob:getPool() == 2973 then
+		if mobhp > 25 then
+			return 0
+		else
+			return 1
+		end
+	end
     if (mob:AnimationSub() <= 1) then
         return 0
     end

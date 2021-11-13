@@ -155,6 +155,10 @@ INSERT INTO `mob_family_mods` VALUES (481,42,989,1);
 -- Experience bonus
 INSERT INTO `mob_family_mods` VALUES (208,382,23,1);	-- Ram +23% EXP
 INSERT INTO `mob_family_mods` VALUES (266,382,23,1);	-- Wyvern +23% EXP 
+INSERT INTO `mob_family_mods` VALUES (109,382,10,1);	-- Euvhi +10% EXP 
+INSERT INTO `mob_family_mods` VALUES (194,382,10,1);	-- Phuabo +10% EXP 
+INSERT INTO `mob_family_mods` VALUES (132,382,10,1);	-- Gnole +10% EXP 
+
 
 
 -- Attack bonus
@@ -211,16 +215,16 @@ INSERT INTO `mob_family_mods` VALUES (204,68,12,0);		-- Qutrub(Unused) +12 Evasi
 INSERT INTO `mob_family_mods` VALUES (205,68,12,0);		-- Qutrub(Qutrub_Wastrel) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (188,68,25,0);		-- Opo-opo +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (27,68,25,0);		-- Apkallu +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (199,68,50,0);		-- Qiqirn +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (198,68,50,0);		-- Puk +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (72,68,50,0);		-- Colibri +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (176,68,50,0);		-- Mamool ja +50 evasion
+INSERT INTO `mob_family_mods` VALUES (199,68,25,0);		-- Qiqirn +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (198,68,25,0);		-- Puk +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (72,68,25,0);		-- Colibri +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (176,68,25,0);		-- Mamool ja +25 evasion
 INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Gulool_Ja_Ja +10 evasion
-INSERT INTO `mob_family_mods` VALUES (165,68,100,0);	-- Imp +100 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (119,68,100,0);	-- Gear +100 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (120,68,100,0);	-- Gears +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (165,68,50,0);		-- Imp +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (119,68,50,0);		-- Gear +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (120,68,50,0);		-- Gears +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (166,68,50,0);		-- Jakko(Imp) +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (90,68,100,0);		-- Dvergr +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (90,68,50,0);		-- Dvergr +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (131,68,25,0);		-- Gnat +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (6,68,25,0);			-- Amphiptere +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (117,68,25,0);		-- Gargouille +25 Evasion Racial
@@ -229,7 +233,7 @@ INSERT INTO `mob_family_mods` VALUES (170,68,25,0);		-- Ladybug +25 Evasion Raci
 INSERT INTO `mob_family_mods` VALUES (192,68,25,0);		-- Peiste +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (195,68,25,0);		-- Pixie +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (231,68,25,0);		-- Slug +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +100 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +25 Evasion Racial
 
 -- Evasion Penalty
 INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	-- Bugbear -10 Evasion
@@ -284,6 +288,11 @@ INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	-- Dvergr +40 MDB
 INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	-- Amphiptere +20 MDB
 INSERT INTO `mob_family_mods` VALUES (195,29,16,0); 	-- Pixie +16 MDB
 INSERT INTO `mob_family_mods` VALUES (39,29,40,0); 	-- Monoceros +40 MDB
+INSERT INTO `mob_family_mods` VALUES (109,29,20,0); 	-- Euvhi +20 MDB
+INSERT INTO `mob_family_mods` VALUES (122,29,20,0); 	-- Ghrah +20 MDB
+INSERT INTO `mob_family_mods` VALUES (123,29,20,0); 	-- Ghrah +20 MDB
+INSERT INTO `mob_family_mods` VALUES (124,29,20,0); 	-- Ghrah +20 MDB
+INSERT INTO `mob_family_mods` VALUES (272,29,20,0); 	-- Zdei +20 MDB
 
 --Crit Chance
 INSERT INTO `mob_family_mods` VALUES (176,165,10,0);		-- Mamool ja +10% Crit
@@ -1002,7 +1011,7 @@ INSERT INTO `mob_family_mods` VALUES (264,59,125,1);
 INSERT INTO `mob_family_mods` VALUES (169,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (358,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (371,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (165,29,24,0); -- Imp MDEF 24
+
 
 /*!40000 ALTER TABLE `mob_family_mods` ENABLE KEYS */;
 UNLOCK TABLES;

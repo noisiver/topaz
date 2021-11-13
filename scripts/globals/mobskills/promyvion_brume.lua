@@ -5,7 +5,7 @@
 --  Type: Magical Water
 --  Utsusemi/Blink absorb: Wipes shadows
 --  Range: 10' cone
---  Notes: Additional effect can be removed with Poisona.
+--  Notes: Resets hate.
 ---------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")

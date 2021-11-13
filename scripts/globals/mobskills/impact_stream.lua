@@ -5,7 +5,7 @@
 --  Type: Magical
 --  Wipe Shadows
 --  Range: 10.0' AoE
---  Notes:
+--  Notes: Lightning damage.
 ---------------------------------------------
 
 require("scripts/globals/settings")
@@ -21,12 +21,12 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect1 = tpz.effect.STUN
     local typeEffect2 = tpz.effect.DEFENSE_DOWN
 
-    MobStatusEffectMove(mob, target, typeEffect1, 1, 0, 4)
+    local dmgmod = 1
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.THUNDER, dmgmod, TP_MAB_BONUS, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING, MOBPARAM_WIPE_SHADOWS)
+    
+	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
+	MobStatusEffectMove(mob, target, typeEffect1, 1, 0, 8)
     MobStatusEffectMove(mob, target, typeEffect2, 50, 0, 60)
-
-    local dmgmod = 1.5
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.LIGHT, dmgmod, 0, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, MOBPARAM_WIPE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
     return dmg
 end

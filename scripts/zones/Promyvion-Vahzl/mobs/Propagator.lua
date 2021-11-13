@@ -16,7 +16,7 @@ end
 
 function onMobFight(mob, target)
     if mob:getHPP() <= 25  then
-        mob:setMod(tpz.mod.REGAIN, 500)
+        mob:setMod(tpz.mod.REGAIN, 250)
     end
 end
 

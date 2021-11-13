@@ -1352,6 +1352,9 @@ INSERT INTO `mob_pets` VALUES (17182989, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17183008, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17183019, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17183021, 1, 15); -- Yagudo_s_Elemental
+--NMs edited by Shiyo
+INSERT INTO `mob_pets` VALUES (17326093, 1, 14); -- Taquedes_Wyvern
+INSERT INTO `mob_pets` VALUES (17326090, 2, 15); -- Dagourmarches_Avatar
 
 INSERT INTO `mob_pets` VALUES (16986197, 1, 9); -- Percipient_Zoraal_Ja
 
@@ -1379,6 +1382,8 @@ INSERT INTO `mob_pets` VALUES (17961253, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961257, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961267, 1, 15); -- Eschan Ilaern SMN
 INSERT INTO `mob_pets` VALUES (17961277, 1, 15); -- Eschan Ilaern SMN
+
+
 
 
 /*!40000 ALTER TABLE `mob_pets` ENABLE KEYS */;

@@ -52,14 +52,12 @@ function onSpellCast(caster, target, spell)
 		damage = damage * ConvergenceBonus
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
-	-- add SDT penalty
-	    local SDT = target:getMod(tpz.mod.SDT_WIND)
-		if target:isMob() then
-			if SDT < 100 then
-				damage = damage * (SDT / 100)
-			end
-		end
-  
+	-- add breath damage gear
+	local head = caster:getEquipID(tpz.slot.HEAD)
+	if head == 16150 or head == 11465 then 
+		damage = damage *1.1 -- Saurian Helm and Mirage Keffiyeh
+	end 
+
 	damage = damage * resist	  
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 

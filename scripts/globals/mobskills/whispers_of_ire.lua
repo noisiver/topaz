@@ -12,9 +12,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-	local amount = 1
-    local dmg = MobFinalAdjustments(amount, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_2_SHADOW)
-	if (skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) then 
+    if (MobPhysicalHit(skill)) then
 		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 3, math.random(1, 7), 120))
 	end
 

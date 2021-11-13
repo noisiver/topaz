@@ -19,14 +19,14 @@ end
 
 function onUseAbility(player, target, ability)
     player:delStatusEffectSilent(tpz.effect.LIGHT_ARTS)
-    player:delStatusEffect(tpz.effect.ADDENDUM_WHITE)
-    player:delStatusEffect(tpz.effect.PENURY)
-    player:delStatusEffect(tpz.effect.CELERITY)
-    player:delStatusEffect(tpz.effect.ACCESSION)
-    player:delStatusEffect(tpz.effect.RAPTURE)
-    player:delStatusEffect(tpz.effect.ALTRUISM)
-    player:delStatusEffect(tpz.effect.TRANQUILITY)
-    player:delStatusEffect(tpz.effect.PERPETUANCE)
+    player:delStatusEffectSilent(tpz.effect.ADDENDUM_WHITE)
+    player:delStatusEffectSilent(tpz.effect.PENURY)
+    player:delStatusEffectSilent(tpz.effect.CELERITY)
+    player:delStatusEffectSilent(tpz.effect.ACCESSION)
+    player:delStatusEffectSilent(tpz.effect.RAPTURE)
+    player:delStatusEffectSilent(tpz.effect.ALTRUISM)
+    player:delStatusEffectSilent(tpz.effect.TRANQUILITY)
+    player:delStatusEffectSilent(tpz.effect.PERPETUANCE)
 
     local helixbonus = 0
     if (player:getMainJob() == tpz.job.SCH and player:getMainLvl() >= 20) then

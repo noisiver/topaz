@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Fluorescence
--- Berserk Ability.
+-- Boost Ability.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")

@@ -892,9 +892,9 @@ function getSpellBonusAcc(caster, target, spell, params)
 
     local skillchainTier, skillchainCount = FormMagicBurst(element, target)
 
-    --add acc for skillchains
+    --add macc for skillchains
     if (skillchainTier > 0) then
-        magicAccBonus = magicAccBonus + 200 -- jimmayus said this is 30 not 25
+        magicAccBonus = magicAccBonus + 50 -- jimmayus said this is 30 not 25
     end
 
     --Add acc for klimaform
@@ -962,9 +962,6 @@ end
     elseif (skill == tpz.skill.DARK_MAGIC) then
         dmg = dmg * DARK_POWER
         local id = spell:getID()
-        if id == 245 or id == 246 or id == 247 or id == 248 then
-            dmg = math.floor(dmg * (math.random()/2 + 0.5)) -- aspir1/2, drain1/2, someone noted somewhere this is how it is randomized but now i can't find the source atm
-        end
     elseif (skill == tpz.skill.NINJUTSU) then
         dmg = dmg * NINJUTSU_POWER
     elseif (skill == tpz.skill.DIVINE_MAGIC) then

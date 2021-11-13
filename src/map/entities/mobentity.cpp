@@ -342,9 +342,9 @@ uint16 CMobEntity::TPUseChance()
 {
     auto& MobSkillList = battleutils::GetMobSkillList(getMobMod(MOBMOD_SKILL_LIST));
     if (StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI) && health.tp >= 1000)
-        {
-            return 10000;
-        }
+    {
+        return 10000;
+    }
     else
     {
         if (health.tp < 1000 || MobSkillList.empty() || !static_cast<CMobController*>(PAI->GetController())->IsWeaponSkillEnabled())
@@ -352,9 +352,17 @@ uint16 CMobEntity::TPUseChance()
             return 0;
         }
 
-        if ((GetHPP() / 100.0f) * 3000 <= health.tp && health.tp >= 1000)
+        if (health.tp == 3000)
         {
             return 10000;
+        }
+        else if (health.tp > 1999)
+        {
+            return 24;
+        }
+        else
+        {
+            return 12;
         }
     }
 

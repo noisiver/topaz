@@ -21843,10 +21843,10 @@ INSERT INTO `item_mods` VALUES (18022,9,3);
 INSERT INTO `item_mods` VALUES (18022,10,3);
 INSERT INTO `item_mods` VALUES (18022,12,3);
 INSERT INTO `item_mods` VALUES (18022,27,-1);
-INSERT INTO `item_mods` VALUES (18023,2,20);
-INSERT INTO `item_mods` VALUES (18023,245,2);
-INSERT INTO `item_mods` VALUES (18024,2,22);
-INSERT INTO `item_mods` VALUES (18024,245,3);
+INSERT INTO `item_mods` VALUES (18023,2,20); -- Jambiya 
+INSERT INTO `item_mods` VALUES (18023,1245,5); -- Resist Virus 5%
+INSERT INTO `item_mods` VALUES (18024,2,22); -- Jambiya +1
+INSERT INTO `item_mods` VALUES (18024,1245,7); -- Resist Virus 7%
 INSERT INTO `item_mods` VALUES (18026,68,-10);
 INSERT INTO `item_mods` VALUES (18027,24,5);
 INSERT INTO `item_mods` VALUES (18027,110,5);
@@ -21856,15 +21856,15 @@ INSERT INTO `item_mods` VALUES (18030,2,15);
 INSERT INTO `item_mods` VALUES (18030,68,4);
 INSERT INTO `item_mods` VALUES (18031,2,20);
 INSERT INTO `item_mods` VALUES (18031,68,5);
-INSERT INTO `item_mods` VALUES (18032,2,15);
+INSERT INTO `item_mods` VALUES (18032,2,15); -- Adder Jambiya
 INSERT INTO `item_mods` VALUES (18032,68,4);
-INSERT INTO `item_mods` VALUES (18032,241,2);
-INSERT INTO `item_mods` VALUES (18032,246,2);
+INSERT INTO `item_mods` VALUES (18032,1241,5); -- Resist Poison
+INSERT INTO `item_mods` VALUES (18032,1246,5); -- Resist Petrify
 INSERT INTO `item_mods` VALUES (18032,431,1);
-INSERT INTO `item_mods` VALUES (18033,2,20);
+INSERT INTO `item_mods` VALUES (18033,2,20); -- Adder Jambiya +1
 INSERT INTO `item_mods` VALUES (18033,68,5);
-INSERT INTO `item_mods` VALUES (18033,241,3);
-INSERT INTO `item_mods` VALUES (18033,246,3);
+INSERT INTO `item_mods` VALUES (18033,1241,10); -- Resist Poison
+INSERT INTO `item_mods` VALUES (18033,1246,10); -- Resist Petrify
 INSERT INTO `item_mods` VALUES (18033,431,1);
 INSERT INTO `item_mods` VALUES (18035,23,3);
 INSERT INTO `item_mods` VALUES (18035,25,3);

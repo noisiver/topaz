@@ -14,5 +14,5 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     skill:setMsg(tpz.msg.basic.NONE)
-    return 0
+    return 1
 end

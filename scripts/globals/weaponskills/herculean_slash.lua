@@ -32,10 +32,17 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
+		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_SWORD, tpHits+extraHits) end
+		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.PARALYSIS) == false) then
-        local duration = (tp/1000 * 60) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
-        target:addStatusEffect(tpz.effect.PARALYSIS, 30, 0, duration)
+    local effect = tpz.effect.PARALYSIS
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
+    local power = 25
+
+    if damage > 0 and (canOverwrite(target, effect, power)) and resist >= 0.5 then
+        local duration = (tp/1000 * 60) * resist
+        target:delStatusEffectSilent(effect)
+        target:addStatusEffect(effect, power, 3, duration)
     end
     return tpHits, extraHits, criticalHit, damage
 

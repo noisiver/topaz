@@ -11,6 +11,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(175)
     mob:setSpellList(0) -- If it dies with the ability to cast spells, the next spawn would be able to cast from the start.
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20) -- This gives around 6 - 15 seconds between casts. Doesn't seem to work anywhere except in this function.
 

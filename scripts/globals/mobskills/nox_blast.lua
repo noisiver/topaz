@@ -25,25 +25,25 @@ function onMobWeaponSkill(target, mob, skill)
     local moon = VanadielMoonPhase()
 	local moonpower = 0
     if moon > 90 then -- Full Moon
-        dmgmod = 1.5
+        dmgmod = 3
 		moonpower = 300
     elseif moon > 75 then
-        dmgmod = 1.4
+        dmgmod = 2.9
 		moonpower = 250
     elseif moon > 60 then
-        dmgmod = 1.2
+        dmgmod = 2.8
 		moonpower = 200
     elseif moon > 40 then
-        dmgmod = 1.0
+        dmgmod = 2.6
 		moonpower = 150
     elseif moon > 25 then
-        dmgmod = 0.7
+        dmgmod = 2.4
 		moonpower = 125
     elseif moon > 10 then
-        dmgmod = 0.6
+        dmgmod = 2.2
 		moonpower = 100
     else
-        dmgmod = 0.5
+        dmgmod = 2.2
 		moonpower = 75
     end
 	

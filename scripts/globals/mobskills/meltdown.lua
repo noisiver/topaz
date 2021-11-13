@@ -10,6 +10,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:getPool() == 1049 then --Disaster Idol
+		return 1
+	end
     return 0
 end
 

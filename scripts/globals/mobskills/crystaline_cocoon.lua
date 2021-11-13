@@ -19,8 +19,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect1 = tpz.effect.PROTECT
     local typeEffect2 = tpz.effect.SHELL
-    local power1 = 50
-    local power2 = 20
+    local power1 = 250
+    local power2 = 50
     local duration = 300
 
     skill:setMsg(MobBuffMove(mob, typeEffect1, power1, 0, duration))

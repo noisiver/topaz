@@ -10,6 +10,7 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 
 function onMobSpawn(mob)
+	mob:setDamage(155)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {

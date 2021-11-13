@@ -1,42 +1,37 @@
 -----------------------------------
 -- Area: Empyreal Paradox
---  Mob: Promathia
--- Note: Phase 2
+--  MOB: Promathia (phase 2)
 -----------------------------------
 local ID = require("scripts/zones/Empyreal_Paradox/IDs")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/magic")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.MAIN_DMG_RATING, 50)
+	mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+	mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.MDEF, 60)
+    mob:setMod(tpz.mod.UDMGMAGIC, -20)
+    mob:setMod(tpz.mod.REFRESH, 40)
+end
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.REGAIN, 50)
-    mob:addMod(tpz.mod.UFASTCAST, 50)
+    mob:setMod(tpz.mod.REGAIN, 50)
+    mob:setMod(tpz.mod.UFASTCAST,15)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 18)
 end
 
-function onMobSpawn(mob)
-    local battlefield = mob:getBattlefield()
-    if GetMobByID(ID.mob.PROMATHIA_OFFSET + (battlefield:getArea() - 1) * 2):isDead() then
-        battlefield:setLocalVar("phaseChange", 0)
-    end
-end
-
-function onMobEngaged(mob, target)
+function onMobEngaged(mob,target)
     local bcnmAllies = mob:getBattlefield():getAllies()
-    for i, v in pairs(bcnmAllies) do
-        if v:getName() == "Prishe" then
-            if not v:getTarget() then
-                v:entityAnimationPacket("prov")
-                v:showText(v, ID.text.PRISHE_TEXT + 1)
-                v:setLocalVar("ready", mob:getID())
-            end
-        else
-            v:addEnmity(mob, 0, 1)
-        end
+    for i,v in pairs(bcnmAllies) do
+        v:addEnmity(mob, 0, 1)
     end
 end
 
-function onMobFight(mob, target)
+function onMobFight(mob,target,spell)
     if mob:AnimationSub() == 3 and not mob:hasStatusEffect(tpz.effect.STUN) then
         mob:AnimationSub(0)
         mob:stun(1500)
@@ -45,32 +40,22 @@ function onMobFight(mob, target)
     elseif mob:AnimationSub() == 1 and not mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
         mob:AnimationSub(0)
     end
-
-    local bcnmAllies = mob:getBattlefield():getAllies()
-    for i, v in pairs(bcnmAllies) do
-        if not v:getTarget() then
-            v:addEnmity(mob, 0, 1)
-        end
+    local now = os.time()
+    if now >= mob:getLocalVar("meteor") then
+        mob:setLocalVar("meteor", now + 60)
+        mob:castSpell(218, target)
     end
 end
 
 function onSpellPrecast(mob, spell)
-    if spell:getID() == 218 then
+    if spell:getID() == 219 then
+        spell:setMPCost(1)
+    elseif spell:getID() == 218 then             
         spell:setAoE(tpz.magic.aoe.RADIAL)
         spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
         spell:setRadius(30)
         spell:setAnimation(280)
         spell:setMPCost(1)
-    elseif spell:getID() == 219 then
-        spell:setMPCost(1)
-    end
-end
-
-function onMagicCastingCheck(mob, target, spell)
-    if math.random() > 0.75 then
-        return 219
-    else
-        return 218
     end
 end
 

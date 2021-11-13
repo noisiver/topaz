@@ -75,6 +75,38 @@ local MISAREAUX_COAST = {
             end
         end
     end,
+    --[[..............................................................................................
+    prepareSpheroidTP: prepareSpheroidsMobskill
+    ..............................................................................................]]
+    prepareSpheroidTP = function(initiator)
+        local mobskill = ({ 561, 562, 984 })[math.random(1, 3)]
+        for mobid = ID.mob.SPHEROID, ID.mob.SPHEROID + 2 do
+            local mob = GetMobByID(mobid)
+            mob:setTP(0)
+            mob:setLocalVar("tp", math.random(1000, 3000))
+
+            if mobid == initiator then
+                mob:showText(mob, ID.text.SPHEROID_OFFSET)
+                mob:timer(1000, function(mob)
+                    if mob:isDead() then return; end
+                    mob:showText(mob, ID.text.SPHEROID_OFFSET + 2)
+                    mob:queue(0, function(mob)
+                        mob:useMobAbility(mobskill)
+                    end)
+                end)
+            else
+                mob:timer(1000, function(mob)
+                    if mob:isDead() then return; end
+                    mob:showText(mob, ID.text.SPHEROID_OFFSET + 1)
+                    mob:queue(0, function(mob)
+                        mob:useMobAbility(mobskill)
+                    end)
+                end)
+            end
+        end
+    end,
 }
+
+
 
 return MISAREAUX_COAST

@@ -18,6 +18,13 @@ function onMobSkillCheck(target, mob, skill)
     -- skillList 729 = Proto-Ultima
     local skillList = mob:getMobMod(tpz.mobMod.SKILL_LIST)
     local mobhp = mob:getHPP()
+	if mob:getPool() == 2973 then
+		if mobhp < 25 then
+			return 0
+		else
+			return 1
+		end
+	end
 
     if ((skillList == 54 and mobhp < 26) or (skillList == 727 and mob:AnimationSub() == 1)) then
         return 0
@@ -32,6 +39,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BIND
     local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.MAGICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
     mob:resetEnmity(target)
 

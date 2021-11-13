@@ -14,10 +14,17 @@ require("scripts/globals/status")
 
 function onMobSkillCheck(target, mob, skill)
     local mobhp = mob:getHPP()
+	if mob:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
+		return 1
+	end
 
-    if (mobhp < 26) then
-        return 0
-    end
+	if mob:getPool() == 2973 then
+		if mobhp < 25 then
+			return 0
+		else
+			return 1
+		end
+	end
     return 1
 end
 

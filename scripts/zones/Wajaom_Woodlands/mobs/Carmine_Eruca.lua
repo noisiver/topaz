@@ -3,9 +3,11 @@
 --  Mob: Carmine Eruca
 -----------------------------------
 mixins = {require("scripts/mixins/families/eruca")}
+require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:AnimationSub(0)
+	mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 end
 
 

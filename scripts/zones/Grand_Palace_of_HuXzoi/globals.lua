@@ -20,7 +20,13 @@ GRAND_PALACE_OF_HUXZOI = {
                 end
             end)
         end
-    end
+    end,
+    --[[..............................................................................................
+    handle mobile Quasilumin pathing
+    ..............................................................................................]]
+    onQuasiluminPath = function(quasilumin)
+        -- TODO: open doors / close doors for quasilumins
+    end,
 }
 
 return GRAND_PALACE_OF_HUXZOI

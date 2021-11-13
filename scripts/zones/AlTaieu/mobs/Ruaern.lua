@@ -6,7 +6,15 @@
 mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/AlTaieu/IDs")
 require("scripts/globals/missions")
+require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+	mob:addMod(tpz.mod.ACC, 25) 
+    mob:setMod(tpz.mod.SDT_WIND, 50)
+    mob:setMod(tpz.mod.SDT_DARK, 50)
+end
 
 function onMobDeath(mob, player, isKiller)
 

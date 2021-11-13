@@ -38,13 +38,16 @@ CREATE TABLE `mob_pool_mods` (
 LOCK TABLES `mob_pool_mods` WRITE;
 /*!40000 ALTER TABLE `mob_pool_mods` DISABLE KEYS */;
 
+-- Dual Wield
+INSERT INTO `mob_pool_mods` VALUES (237,44,1,1); -- Ark Angel HM 
+INSERT INTO `mob_pool_mods` VALUES (3598,44,1,1); -- Shikaree X
+
 INSERT INTO `mob_pool_mods` VALUES (21,29,100,0);
 INSERT INTO `mob_pool_mods` VALUES (60,370,20,0);
 INSERT INTO `mob_pool_mods` VALUES (70,48,434,1);
 INSERT INTO `mob_pool_mods` VALUES (154,163,-70,0);
 INSERT INTO `mob_pool_mods` VALUES (236,30,732,1);
 INSERT INTO `mob_pool_mods` VALUES (236,33,60,1);
-INSERT INTO `mob_pool_mods` VALUES (237,44,1,1);
 INSERT INTO `mob_pool_mods` VALUES (242,40,30,1);
 INSERT INTO `mob_pool_mods` VALUES (242,41,936,1);
 INSERT INTO `mob_pool_mods` VALUES (242,42,962,1);
@@ -56,9 +59,6 @@ INSERT INTO `mob_pool_mods` VALUES (276,12,1,1);
 INSERT INTO `mob_pool_mods` VALUES (289,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (370,28,5,1);
 INSERT INTO `mob_pool_mods` VALUES (444,23,23,1); -- Bladmall immune to Sleep, Bind, Silence and Gravity.
-INSERT INTO `mob_pool_mods` VALUES (459,23,50,0); -- (Bloodlapper) Attack
-INSERT INTO `mob_pool_mods` VALUES (459,73,25,0); -- (Bloodlapper) Store TP
-INSERT INTO `mob_pool_mods` VALUES (459,430,20,0); -- (Bloodlapper) Quad Attack
 INSERT INTO `mob_pool_mods` VALUES (519,160,-50,0);
 INSERT INTO `mob_pool_mods` VALUES (532,160,-50,0);
 INSERT INTO `mob_pool_mods` VALUES (592,68,15,0);
@@ -157,9 +157,6 @@ INSERT INTO `mob_pool_mods` VALUES (3268,56,1,1);
 INSERT INTO `mob_pool_mods` VALUES (3379,4,4,1);
 INSERT INTO `mob_pool_mods` VALUES (3540,3,100,1);
 INSERT INTO `mob_pool_mods` VALUES (3549,370,50,0);
---INSERT INTO `mob_pool_mods` VALUES (3598,368,70,0);
---INSERT INTO `mob_pool_mods` VALUES (3600,368,70,0);
---INSERT INTO `mob_pool_mods` VALUES (3601,368,70,0);
 INSERT INTO `mob_pool_mods` VALUES (3667,28,-100,1);
 INSERT INTO `mob_pool_mods` VALUES (3759,163,-100,0);
 INSERT INTO `mob_pool_mods` VALUES (3781,4,4,1);

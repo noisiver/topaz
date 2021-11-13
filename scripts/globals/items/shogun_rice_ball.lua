@@ -33,6 +33,12 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.DEX, 4)
     target:addMod(tpz.mod.VIT, 4)
     target:addMod(tpz.mod.CHR, 4)
+    if target:isMob() and target:getPool() == 3875 then -- Tenzen
+        target:addMod(tpz.mod.ATP, 50)
+        target:addMod(tpz.mod.UDMGPHYS, -25)
+		target:addMod(tpz.mod.UDMGMAGIC, -25)
+        target:addMod(tpz.mod.DOUBLE_ATTACK, 5)
+    end
 
 end
 
@@ -41,4 +47,10 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.DEX, 4)
     target:delMod(tpz.mod.VIT, 4)
     target:delMod(tpz.mod.CHR, 4)
+    if target:isMob() and target:getPool() == 3875 then -- Tenzen
+        target:delMod(tpz.mod.ATP, 50)
+        target:delMod(tpz.mod.UDMGPHYS, -25)
+		target:delMod(tpz.mod.UDMGMAGIC, -25)
+        target:delMod(tpz.mod.DOUBLE_ATTACK, 5)
+    end
 end

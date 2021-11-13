@@ -3,7 +3,7 @@
 --
 --  Description: Makes an icy charge at a single target.
 --  Type: Magical
---  Utsusemi/Blink absorb: 1 shadow
+--  Utsusemi/Blink absorb: Ignores shadows.
 --  Range: Melee
 --  Notes:
 ---------------------------------------------
