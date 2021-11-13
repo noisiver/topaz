@@ -155,6 +155,10 @@ INSERT INTO `mob_family_mods` VALUES (481,42,989,1);
 -- Experience bonus
 INSERT INTO `mob_family_mods` VALUES (208,382,23,1);	-- Ram +23% EXP
 INSERT INTO `mob_family_mods` VALUES (266,382,23,1);	-- Wyvern +23% EXP 
+INSERT INTO `mob_family_mods` VALUES (109,382,10,1);	-- Euvhi +10% EXP 
+INSERT INTO `mob_family_mods` VALUES (194,382,10,1);	-- Phuabo +10% EXP 
+INSERT INTO `mob_family_mods` VALUES (132,382,10,1);	-- Gnole +10% EXP 
+
 
 
 -- Attack bonus
@@ -284,6 +288,11 @@ INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	-- Dvergr +40 MDB
 INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	-- Amphiptere +20 MDB
 INSERT INTO `mob_family_mods` VALUES (195,29,16,0); 	-- Pixie +16 MDB
 INSERT INTO `mob_family_mods` VALUES (39,29,40,0); 	-- Monoceros +40 MDB
+INSERT INTO `mob_family_mods` VALUES (109,29,20,0); 	-- Euvhi +20 MDB
+INSERT INTO `mob_family_mods` VALUES (122,29,20,0); 	-- Ghrah +20 MDB
+INSERT INTO `mob_family_mods` VALUES (123,29,20,0); 	-- Ghrah +20 MDB
+INSERT INTO `mob_family_mods` VALUES (124,29,20,0); 	-- Ghrah +20 MDB
+INSERT INTO `mob_family_mods` VALUES (272,29,20,0); 	-- Zdei +20 MDB
 
 --Crit Chance
 INSERT INTO `mob_family_mods` VALUES (176,165,10,0);		-- Mamool ja +10% Crit
@@ -1002,7 +1011,7 @@ INSERT INTO `mob_family_mods` VALUES (264,59,125,1);
 INSERT INTO `mob_family_mods` VALUES (169,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (358,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (371,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (165,29,24,0); -- Imp MDEF 24
+
 
 /*!40000 ALTER TABLE `mob_family_mods` ENABLE KEYS */;
 UNLOCK TABLES;

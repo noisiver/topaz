@@ -55,28 +55,37 @@ g_mixins.families.aern = function(mob)
             end
         end
     end)
+    mob:addListener("SPAWN", "AERN_SPAWN", function(mob)
+        mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
+		mob:AnimationSub(1)
+    end)
     mob:addListener("COMBAT_TICK", "AERN_COMBAT_TICK", function(mob)
-		local BattleTime = mob:getBattleTime() 
-		local BraceletsTime = mob:getLocalVar("BraceletsTime")
-		local AnimationSub = mob:AnimationSub()
-		if currentTime  >= BraceletsTime then
-			mob:AnimationSub(1)
-		end
-		if BraceletsTime == 0 then
-		mob:setLocalVar("BraceletsTime", BattleTime + 30)
-		else
-			if AnimationSub == 1 then
-				mob:setMod(tpz.mod.ATTP, 100)
-				mob:setMod(tpz.mod.UDMGPHYS, 60) 
-				mob:setMod(tpz.mod.UDMGRANGE, 60)
-				mob:setMod(tpz.mod.UDMGMAGIC, 60)
-			else
+        local BraceletsTime = mob:getLocalVar("BraceletsTime")
+
+        if BraceletsTime > 0 and os.time() > BraceletsTime then
+            local animationSub = mob:AnimationSub()
+
+            if animationSub == 0 or animationSub == 1 or animationSub == 4 then
+				mob:delMod(tpz.mod.MAGIC_HASTE, 2500)
 				mob:setMod(tpz.mod.ATTP, 0)
+				mob:setMod(tpz.mod.MATT, 0)
 				mob:setMod(tpz.mod.UDMGPHYS, 0) 
 				mob:setMod(tpz.mod.UDMGRANGE, 0)
 				mob:setMod(tpz.mod.UDMGMAGIC, 0)
-			end
-		end
+                mob:AnimationSub(2)
+                mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
+
+            elseif animationSub == 1 then
+				mob:addMod(tpz.mod.MAGIC_HASTE, 2500)
+				mob:setMod(tpz.mod.ATTP, 100)
+				mob:setMod(tpz.mod.MATT, 48)
+				mob:setMod(tpz.mod.UDMGPHYS, 60) 
+				mob:setMod(tpz.mod.UDMGRANGE, 60)
+				mob:setMod(tpz.mod.UDMGMAGIC, 60)
+                mob:AnimationSub(1)
+                mob:setLocalVar("BraceletsTime", os.time() + 30)
+            end
+        end
     end)
 end
 

@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Optic Induration
 --
---  Description: Charges up a powerful, calcifying beam directed at targets in a fan-shaped area of effect. Additional effect: Petrification &amp enmity reset
+--  Description: Charges up a powerful, calcifying beam directed at targets in a fan-shaped area of effect. Additional effect: Petrification & enmity reset
 --  Type: Magical
 --  Utsusemi/Blink absorb: Ignores shadows
 --  Range: Unknown cone
@@ -10,30 +10,24 @@
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
-
+local ID = require("scripts/zones/Grand_Palace_of_HuXzoi/IDs")
 ---------------------------------------------
-function onMobSkillCheck(target, mob, skill)
-    if (mob:AnimationSub() == 2 or mob:AnimationSub() == 3) then
+function onMobSkillCheck(target,mob,skill)
+    if not GetMobByID() == ID.mob.JAILER_OF_TEMPERANCE or mob:AnimationSub() == 2 or mob:AnimationSub() == 3 then
         return 1
     end
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local dmgmod = 2
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() *6, tpz.magic.ele.DARK, dmgmod, TP_NO_EFFECT, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
+	
     local typeEffect = tpz.effect.PETRIFICATION
-
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
-
-    local dmgmod = 5
-    local accmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
-
+	
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
-
-    mob:resetEnmity(target)
-
-
-    return dmg
-
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
+    mob:lowerEnmity(target, 75)
+	return dmg
 end

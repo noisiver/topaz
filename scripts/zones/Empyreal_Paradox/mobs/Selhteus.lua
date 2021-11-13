@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Empyreal Paradox
---  Mob: Selh'teus
+--  MOB: Selh'teus
 -- Chains of Promathia 8-4 BCNM Fight
 -----------------------------------
 require("scripts/globals/status")
@@ -9,11 +9,15 @@ local ID = require("scripts/zones/Empyreal_Paradox/IDs")
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.REGAIN, 50)
+    mob:setMod(tpz.mod.REGAIN, 50)
+end
+
+function onMobEngaged(mob, target)
     mob:SetAutoAttackEnabled(false)
 end
 
 function onMobFight(mob, target)
+    mob:SetAutoAttackEnabled(false)
     if target:getTarget():getID() ~= mob:getID() then
         local targetPos = target:getPos()
         local radians = (256 - targetPos.rot) * (math.pi / 128)

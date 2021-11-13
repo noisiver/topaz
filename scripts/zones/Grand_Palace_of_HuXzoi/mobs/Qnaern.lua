@@ -9,14 +9,31 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setMod(tpz.mod.REFRESH, 40)
+    mob:AnimationSub(1)
     local mJob = mob:getMainJob()
-
     if mJob == tpz.job.RDM then
-        mob:setMod(tpz.mod.FASTCAST, 15)
-        tpz.mix.jobSpecial.config(mob, {specials = {{id = tpz.jsa.CHAINSPELL, hpp = math.random(90, 95), cooldown = 120}}})
+        mob:setMod(tpz.mod.FASTCAST,15)
+        tpz.mix.jobSpecial.config(mob, {
+            specials =
+            {
+                {
+                    id = tpz.jsa.CHAINSPELL,
+                    cooldown = math.random(180, 210)
+                },
+            },
+        })
     elseif mJob == tpz.job.WHM then
         mob:setMod(tpz.mod.REGEN, 3)
-        tpz.mix.jobSpecial.config(mob, {specials = {{id = tpz.jsa.BENEDICTION, hpp = math.random(20, 40), cooldown = 120}}})
+        tpz.mix.jobSpecial.config(mob, {
+            specials =
+            {
+                {
+                    id = tpz.jsa.BENEDICTION,
+                    cooldown = math.random(180, 210)
+                },
+            },
+        })
     end
 end
 

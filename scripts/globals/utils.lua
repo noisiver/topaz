@@ -35,6 +35,22 @@ function utils.permgen(max_val, min_val)
     return utils.shuffle(indices)
 end
 
+function utils.chance(likelihood)
+    return math.random(100) <= likelihood
+end
+
+function utils.diceroll(count, sides)
+    local total = 0
+    for _ = 1, count do
+        total = total + math.random(sides)
+    end
+    return total
+end
+
+function utils.distance(position1, position2)
+    return math.sqrt(math.pow(position2.x - position1.x, 2) + math.pow(position2.y - position1.y, 2) + math.pow(position2.z - position1.z, 2))
+end
+
 function utils.clamp(input, min_val, max_val)
     if input < min_val then
         input = min_val

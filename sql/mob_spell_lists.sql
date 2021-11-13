@@ -4554,6 +4554,20 @@ INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,259,41,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,273,31,55);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,274,56,255);
 
+--Ix'zdei
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,167,1,255); -- thunder_IV
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,157,1,255); -- aero_IV
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,196,1,255); -- thundaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,191,1,255); -- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,176,1,255); -- firaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,186,1,255); -- aeroga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-BLM',2014,232,1,255); -- bio_iii
+
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,360,1,255); -- dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,359,1,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,34,1,255); -- diaga_ii
+INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,108,1,255); -- regen
+
 
 
 

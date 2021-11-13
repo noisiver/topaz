@@ -14,17 +14,33 @@ zones[tpz.zone.THE_GARDEN_OF_RUHMET] =
         ITEM_OBTAINED           = 6388, -- Obtained: <item>.
         GIL_OBTAINED            = 6389, -- Obtained <number> gil.
         KEYITEM_OBTAINED        = 6391, -- Obtained key item: <keyitem>.
-        CARRIED_OVER_POINTS     = 6999, -- You have carried over <number> login point[/s].
-        LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The [/January/February/March/April/May/June/July/August/September/October/November/December] <number> Login Campaign is currently underway!<space>
-        LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
-        CONQUEST_BASE           = 7439, -- Tallying conquest results...
-        NO_NEED_INVESTIGATE     = 7618, -- There is no need to investigate further.
-        PORTAL_SEALED           = 7647, -- The portal is firmly sealed by a mysterious energy.
-        UNKNOWN_PRESENCE        = 7755, -- You sense some unknown presence...
-        NONE_HOSTILE            = 7756, -- You sense some unknown presence, but it does not seem hostile.
-        MENACING_CREATURES      = 7757, -- Menacing creatures appear out of nowhere!
-        SHEER_ANIMOSITY         = 7758, -- <name> is enveloped in sheer animosity!
-        HOMEPOINT_SET           = 7763, -- Home point set!
+        BCNM_CLEARANCE          = 7360, -- Currently, <total> members of your party (including yourself) have clearance to enter the battlefield.
+        CONQUEST_BASE           = 7438, -- Tallying conquest results...
+        NO_RESPONSE             = 7597, -- There is no response. You cannot escape!
+        BCNM_ENTERING           = 7601, -- Entering the battlefield for "<bcnmindex>"!
+        BCNM_SEALED             = 7605, -- Nothing happens...
+        PORTAL_WONT_OPEN_SIDE   = 7611, -- The portal won't open from this side.
+        NO_NEED_INVESTIGATE     = 7617, -- There is no need to investigate further.
+        PORTAL_SEALED           = 7646, -- The portal is firmly sealed by a mysterious energy.
+        UNKNOWN_PRESENCE        = 7754, -- You sense some unknown presence...
+        NONE_HOSTILE            = 7755, -- You sense some unknown presence, but it does not seem hostile.
+        MENACING_CREATURES      = 7756, -- Menacing creatures appear out of nowhere!
+        SHEER_ANIMOSITY         = 7757, -- <name> is enveloped in sheer animosity!
+        HOMEPOINT_SET           = 7762, -- Home point set!
+        RUHMET_MAP_COMPLETE     = 7750, -- ...Security update. Zilartian intruder and three members of ...
+    },
+    quasilumin_text =
+    {
+        [16921083] = 7740,
+        [16921084] = 7741,
+        [16921085] = 7742,
+        [16921086] = 7743,
+        [16921087] = 7744,
+        [16921088] = 7745,
+        [16921089] = 7746,
+        [16921090] = 7747,
+        [16921091] = 7748,
+        [16921092] = 7749,
     },
     mob =
     {
@@ -76,6 +92,25 @@ zones[tpz.zone.THE_GARDEN_OF_RUHMET] =
         JAILER_OF_FORTITUDE_QM     = 16921027,
         IXAERN_DRK_QM              = 16921028,
         JAILER_OF_FAITH_QM         = 16921029,
+        QNZDEI_DOORS = -- Qn'Zdei mob id to the door it is associated with
+        {
+            [16920577] = 16921068,
+            [16920578] = 16921068,
+            [16920579] = 16921068,
+            [16920580] = 16921068,
+            [16920581] = 16921069,
+            [16920582] = 16921069,
+            [16920583] = 16921069,
+            [16920584] = 16921069,
+            [16920585] = 16921070,
+            [16920586] = 16921070,
+            [16920587] = 16921070,
+            [16920588] = 16921070,
+            [16920764] = 16921072,
+            [16920765] = 16921072,
+            [16920766] = 16921072,
+            [16920767] = 16921072,
+        },
     },
 }
 

@@ -14,13 +14,17 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.ICE_SPIKES
     local typeEffect2 = tpz.effect.DEFENSE_BOOST
-    local power = 17
+	local enhskill = mob:getSkillLevel(tpz.skill.ENHANCING_MAGIC)
+	if enhskill = 0 then
+		enhskill = 1
+	end
+    local power = 20 + (enhskill / 30)
 
     -- Todo: check message behavior, this double setMsg() looks wrong
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 60))
     local effect1 = mob:getStatusEffect(tpz.effect.ICE_SPIKES)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
-    skill:setMsg(MobBuffMove(mob, typeEffect2, 26, 0, 60))
+    skill:setMsg(MobBuffMove(mob, typeEffect2, 50, 0, 60))
     local effect2 = mob:getStatusEffect(tpz.effect.DEFENSE_BOOST)
 
     return typeEffect

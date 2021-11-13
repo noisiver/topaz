@@ -4,7 +4,13 @@
 -- Note: PH for Ix'Aern DRK and DRG
 -----------------------------------
 local ID = require("scripts/zones/The_Garden_of_RuHmet/IDs")
+require("scripts/globals/mobs")
 -----------------------------------
+function onMobEngaged(mob, target)
+	if mob:getMainJob() == tpz.job.DRG or mob:getMainJob() == tpz.job.SMN then
+		mob:spawnPet()
+	end
+end
 
 function onMobSpawn(mob)
     local IxAernDRG_PH = GetServerVariable("[SEA]IxAernDRG_PH") -- Should be be the ID of the mob that spawns the actual PH

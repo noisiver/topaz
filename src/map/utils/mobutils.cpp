@@ -622,8 +622,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_SMN:
+		 if (PMob->m_Family != 3)  // Exclude Aerns, should only summon in combat and hide their jobs
+		 {
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 180);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 100); // SMN only has "buffs"
+		 }
             break;
         case JOB_NIN:
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);

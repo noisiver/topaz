@@ -463,13 +463,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Eruca',107,1791);
 INSERT INTO `mob_skill_lists` VALUES ('Eruca',108,344);
 INSERT INTO `mob_skill_lists` VALUES ('Eruca',108,346);
 INSERT INTO `mob_skill_lists` VALUES ('Eruca',108,1791);
-INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1447);
+INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1447); -- vertical_cleave
 INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1448);
 INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1449);
 INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1450);
 INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1451);
 INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1452);
-INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1453);
+INSERT INTO `mob_skill_lists` VALUES ('Euvhi',109,1453); -- nutrient_aborption
 INSERT INTO `mob_skill_lists` VALUES ('EvilWeapon',110,513);
 INSERT INTO `mob_skill_lists` VALUES ('EvilWeapon',110,514);
 INSERT INTO `mob_skill_lists` VALUES ('Konjac',111,433); -- digest
@@ -517,14 +517,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,474);
 INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,475);
 INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,476);
 INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,477);
-INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1441);
+INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1441); -- actinic_burst
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1442);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1443);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1444);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1445);
-INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1446);
+INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1446); -- sickle_slash
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',123,1441);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',123,1443);
+INSERT INTO `mob_skill_lists` VALUES ('Ghrah',123,1444);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',123,1445);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',123,1446);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',124,1441);
@@ -641,11 +642,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Hound',143,467);
 INSERT INTO `mob_skill_lists` VALUES ('Hound',143,468);
 INSERT INTO `mob_skill_lists` VALUES ('Hound',143,469);
 INSERT INTO `mob_skill_lists` VALUES ('Hound',143,470);
-INSERT INTO `mob_skill_lists` VALUES ('Hpemde',144,1365);
+INSERT INTO `mob_skill_lists` VALUES ('Hpemde',144,1365); -- tail_thrust
 INSERT INTO `mob_skill_lists` VALUES ('Hpemde',144,1366);
 INSERT INTO `mob_skill_lists` VALUES ('Hpemde',144,1367);
 INSERT INTO `mob_skill_lists` VALUES ('Hpemde',144,1368);
-INSERT INTO `mob_skill_lists` VALUES ('Hpemde',144,1369);
+INSERT INTO `mob_skill_lists` VALUES ('Hpemde',144,1369); -- ichor_stream
 INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2435); -- severing_fang
 INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2436); -- zero_smash
 INSERT INTO `mob_skill_lists` VALUES ('Scylla',145,2438); -- frozen_mist
@@ -894,12 +895,12 @@ INSERT INTO `mob_skill_lists` VALUES ('PetWyvern',193,902);
 INSERT INTO `mob_skill_lists` VALUES ('PetWyvern',193,903);
 INSERT INTO `mob_skill_lists` VALUES ('PetWyvern',193,904);
 INSERT INTO `mob_skill_lists` VALUES ('PetWyvern',193,905);
-INSERT INTO `mob_skill_lists` VALUES ('Phuabo',194,1353);
+INSERT INTO `mob_skill_lists` VALUES ('Phuabo',194,1353); -- aerial_collision
 INSERT INTO `mob_skill_lists` VALUES ('Phuabo',194,1354);
 INSERT INTO `mob_skill_lists` VALUES ('Phuabo',194,1355);
 INSERT INTO `mob_skill_lists` VALUES ('Phuabo',194,1356);
 INSERT INTO `mob_skill_lists` VALUES ('Phuabo',194,1357);
-INSERT INTO `mob_skill_lists` VALUES ('Phuabo',194,1358);
+INSERT INTO `mob_skill_lists` VALUES ('Phuabo',194,1358); -- plasma_charge
 INSERT INTO `mob_skill_lists` VALUES ('Pixie',195,2193);
 INSERT INTO `mob_skill_lists` VALUES ('Pixie',195,2194);
 INSERT INTO `mob_skill_lists` VALUES ('Pixie',195,2195);
@@ -1251,31 +1252,32 @@ INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,817);
 INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,818);
 INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,821);
 -- 268: Wyvern
-INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1347);
+INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1347); -- dual_strike
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1348);
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1349);
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1350);
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1351);
-INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1352);
+INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1352); -- saline_coat
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo',270,617);
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo',270,618);
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo',270,619);
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo',270,620);
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo',270,764);
-INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1370);
+INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1370); -- vitriolic_barrage
 INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1371);
 INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1372);
 INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1373);
 INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1374);
 INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1375);
 INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1376);
-INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1377);
-INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1463);
+INSERT INTO `mob_skill_lists` VALUES ('Yovra',271,1377); -- fluorescence
+INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1463); -- reactor_cool
+INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1464);
 INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1465);
 INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1466);
 INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1467);
 INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1468);
-INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1469);
+INSERT INTO `mob_skill_lists` VALUES ('Zdei',272,1469); -- reactor_overload
 INSERT INTO `mob_skill_lists` VALUES ('Serket',273,717);
 INSERT INTO `mob_skill_lists` VALUES ('Serket',273,719);
 INSERT INTO `mob_skill_lists` VALUES ('Serket',273,720);

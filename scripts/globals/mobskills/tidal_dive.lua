@@ -21,15 +21,15 @@ function onMobWeaponSkill(target, mob, skill)
     local accmod = 1
     local dmgmod = 0.5
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.NONE, info.hitslanded)
-
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.NONE)
-
-        local typeEffect = tpz.effect.BIND
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, MOBPARAM_WIPE_SHADOWS)
+        
+	local typeEffect = tpz.effect.BIND
+    local typeEffectTwo = tpz.effect.WEIGHT
+	
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 30)
-
-    typeEffect = tpz.effect.WEIGHT
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 60)
+	MobPhysicalStatusEffectMove(mob, target, skill, typeEffectTwo, 75, 0, 60)
 
     return dmg
 end

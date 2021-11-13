@@ -33,7 +33,7 @@ function onSpellCast(caster, target, spell)
     params.tp150 = 3.1
     params.tp300 = 3.1
     params.azuretp = 3.1
-    params.duppercap = 70 --guesstimated attack % bonuses
+    params.duppercap = 70 
     params.str_wsc = 0.5
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
