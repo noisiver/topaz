@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Promyvion - Vahzl
---  MOB: Seether
+--  MOB: Gorger
 -----------------------------------
 require("scripts/globals/promyvion")
 mixins = {require("scripts/mixins/families/empty")}
