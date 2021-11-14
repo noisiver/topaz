@@ -128,7 +128,6 @@ bool CItemWeapon::addWsPoints(uint16 points)
         if (newPoints > currentPoints)
         {
             setCurrentUnlockPoints(newPoints);
-            return false;
         }
         return (getCurrentUnlockPoints() >= m_wsunlockpoints);
     }
