@@ -63,11 +63,17 @@ function onSpellCast(caster, target, spell)
 
     local leftOver = (caster:getHP() + dmg) - caster:getMaxHP()
 
-    if (leftOver > 0) then
+    if (leftOver > 0) and caster:hasStatusEffect(tpz.effect.CURSE_II) == false then
         caster:addStatusEffect(tpz.effect.MAX_HP_BOOST, (leftOver/caster:getMaxHP())*100, 0, 180)
     end
 
-    caster:addHP(dmg)
+	-- Heal for 0 if afflicted with zombie
+	if caster:hasStatusEffect(tpz.effect.CURSE_II) then
+		caster:addHP(0)
+	else
+		caster:addHP(dmg)
+	end
+	
     spell:setMsg(tpz.msg.basic.MAGIC_DRAIN_HP) --change msg to 'xxx hp drained from the yyyy.'
     return dmg
 end
