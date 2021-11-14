@@ -9,7 +9,6 @@ function onEffectGain(target, effect)
 	target:addMod(tpz.mod.MAIN_DMG_RATING, 25)
     target:addMod(tpz.mod.ATTP, 200)
     target:addMod(tpz.mod.MATT, 200)
-    target:addMod(tpz.mod.REGEN_DOWN, 50)
 end
 
 function onEffectTick(target, effect)
@@ -19,5 +18,4 @@ function onEffectLose(target, effect)
 	target:delMod(tpz.mod.MAIN_DMG_RATING, 25)
     target:delMod(tpz.mod.ATTP, 200)
     target:delMod(tpz.mod.MATT, 200)
-	target:delMod(tpz.mod.REGEN_DOWN, 50)
 end
