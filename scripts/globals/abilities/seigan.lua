@@ -20,8 +20,8 @@ end
 
 function onUseAbility(player, target, ability)
     if (target:isWeaponTwoHanded()) then
-        target:delStatusEffect(tpz.effect.HASSO)
-        target:delStatusEffect(tpz.effect.SEIGAN)
+        target:delStatusEffectSilent(tpz.effect.HASSO)
+        target:delStatusEffectSilent(tpz.effect.SEIGAN)
         target:addStatusEffect(tpz.effect.SEIGAN, 0, 0, 300)
     end
 end
