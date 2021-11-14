@@ -68,10 +68,6 @@ end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 120)
-    mob:addImmunity(tpz.immunity.SLEEP)
-    mob:addImmunity(tpz.immunity.DARKSLEEP)
-    mob:addImmunity(tpz.immunity.LIGHTSLEEP)
-    mob:addImmunity(tpz.immunity.SILENCE)
     mob:setMod(tpz.mod.REGEN, 25)
 end
 
