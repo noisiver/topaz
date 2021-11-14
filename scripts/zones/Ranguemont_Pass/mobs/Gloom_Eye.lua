@@ -6,6 +6,15 @@ require("scripts/globals/hunts")
 require("scripts/globals/status")
 require("scripts/globals/utils")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(120)
+	mob:addMod(tpz.mod.ATTP, 100)
+    mob:addMod(tpz.mod.DEFP, 25) 
+	mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+end
 
 function onMobFight(mob, target)
     --[[

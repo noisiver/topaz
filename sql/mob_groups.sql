@@ -10767,7 +10767,7 @@ INSERT INTO `mob_groups` VALUES (9,3537,166,'Seeker_Bats',600,0,80,0,0,25,28,0);
 INSERT INTO `mob_groups` VALUES (10,2987,166,'Ooze',600,0,15,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (11,666,166,'Cave_Scorpion',600,0,436,0,0,30,33,0);
 INSERT INTO `mob_groups` VALUES (12,3776,166,'Stirge',600,0,401,0,0,30,33,0);
-INSERT INTO `mob_groups` VALUES (13,5849,166,'Gloom_Eye',0,32,3060,9000,0,73,74,0);
+INSERT INTO `mob_groups` VALUES (13,5849,166,'Gloom_Eye',0,32,3060,9500,0,73,74,0);
 INSERT INTO `mob_groups` VALUES (14,3838,166,'Taisai',600,0,2374,0,0,35,38,0);
 INSERT INTO `mob_groups` VALUES (15,3839,166,'Taisaijin',0,128,2375,9500,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (16,1537,166,'Giant_Scorpion',600,0,972,0,0,38,40,0);
