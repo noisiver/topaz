@@ -36,7 +36,7 @@ function onMobFight(mob, target)
     -- The mob gains a huge boost when it 2hours to attack speed and attack.
     -- It forces the minions to 2hour as well. Wiki says 50% but all videos show 60%.
     if (mob:getLocalVar("BracerMode") == 0) then
-        if (mob:getHPP() < 50 then
+        if (mob:getHPP() < 50) then
             -- Go into bracer mode
             mob:setLocalVar("BracerMode", 1)
             mob:AnimationSub(2)
@@ -47,9 +47,8 @@ function onMobFight(mob, target)
 			mob:setMod(tpz.mod.UDMGRANGE, 60)
 			mob:setMod(tpz.mod.UDMGMAGIC, 60)
             mob:useMobAbility(3411) -- Hundred Fists
-		end
-
-            -- Force minions to 2hour
+		
+			-- Force minions to 2hour
             for i = 1, 2 do
                 local minion = GetMobByID(mob:getID() + i)
                 if (minion:getCurrentAction() ~= tpz.act.NONE) then
