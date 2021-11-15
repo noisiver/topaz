@@ -573,9 +573,9 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         --print("restrait proc!")
         if spell ~= nil then
 			spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-            if spell:isAoe() == 1 then
-				spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-            end
+            -- if spell:isAoe() == 1 then -- Errors
+				-- spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+            -- end
         end
     end
     
