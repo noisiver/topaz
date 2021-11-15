@@ -1197,7 +1197,7 @@ INSERT INTO `mob_groups` VALUES (57,6190,33,'Ulaern_whm',960,0,2514,0,5000,70,73
 INSERT INTO `mob_groups` VALUES (58,6197,33,'Ulaern_brd',960,0,2514,0,0,70,73,0);
 INSERT INTO `mob_groups` VALUES (59,6194,33,'Ulaern_pld',960,0,2514,0,0,70,73,0);
 INSERT INTO `mob_groups` VALUES (60,4088,33,'Ulxzomit_Baby',960,0,1856,0,0,68,70,0); -- baby ul'xzomit
-INSERT INTO `mob_groups` VALUES (61,2978,33,'Omxzomit_Baby',960,0,1856,0,0,72,74,0); -- baby om'xzomit
+INSERT INTO `mob_groups` VALUES (61,4088,33,'Omxzomit_Baby',960,0,1856,0,0,72,74,0); -- baby om'xzomit
 INSERT INTO `mob_groups` VALUES (62,6744,33,'Omxzomit',960,0,1856,0,0,75,76,0); -- single om'xzomit
 
 -- ------------------------------------------------------------
