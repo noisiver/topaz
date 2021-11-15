@@ -544,3 +544,71 @@ tpz.mob.onAddEffect = function(mob, target, damage, effect, params)
 
     return 0, 0, 0
 end
+
+function MakeMobInactive(mob)
+    mob:setAggressive(0)
+    mob:hideName(true)
+    mob:untargetable(true)
+    mob:setUnkillable(true)
+end
+
+function AffectWeatherMob(mobId, weather, nqWeather, nqChance, hqWeather, hqChance)
+    local shouldSpawnMob = false
+    if (weather == nqWeather and math.random(100) <= nqChance) or
+        (weather == hqWeather and math.random(100) <= hqChance) then
+        shouldSpawnMob = true
+    end
+
+    local mob = GetMobByID(mobId)
+    if shouldSpawnMob and not mob:isSpawned() then
+        local mobRespawn = GetServerVariable(string.format("[WMR]%i", mobId))
+        if os.time() > mobRespawn + 5 then
+            mob:setRespawnTime(math.random(5, 10)) -- pop 5-15 sec after weather starts
+        else
+            mob:setRespawnTime(mobRespawn - os.time()) -- deduct time remaining on window is window isn't ready
+        end
+        DisallowRespawn(mobId, false)
+    else
+        DisallowRespawn(mobId, true)
+    end
+end
+
+function DespawnWeatherMob(mobId, respawn)
+    SetServerVariable(string.format("[WMR]%i", mobId), respawn)
+    DisallowRespawn(mobId, true) -- prevents accidental 'pop' during no wind weather and immediate despawn
+end
+
+-- Set mob
+function TeleportMob(mob, hidden, callback)
+    local hidetime = hidden or 5000
+    if hidetime < 2000 then
+        hidetime = 2000
+    end
+    mob:queue(0, function(mob)
+        if mob:isDead() then
+            return
+        end
+        mob:SetAutoAttackEnabled(false)
+        mob:SetMagicCastingEnabled(false)
+        mob:SetMobAbilityEnabled(false)
+        mob:SetMobSkillAttack(false)
+        mob:hideName(true)
+        mob:untargetable(true)
+        mob:entityAnimationPacket("kesu")
+        if callback then
+            mob:timer(1500, callback)
+        end
+        mob:timer(hidetime, function(mob)
+            mob:SetAutoAttackEnabled(true)
+            mob:SetMagicCastingEnabled(true)
+            mob:SetMobAbilityEnabled(true)
+            mob:SetMobSkillAttack(true)
+            mob:hideName(false)
+            mob:untargetable(false)
+            if mob:isDead() then
+                return
+            end
+            mob:entityAnimationPacket("deru")
+        end)
+    end)
+end
