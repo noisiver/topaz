@@ -2974,9 +2974,9 @@ INSERT INTO `mob_droplist` VALUES (517,0,0,1000,880,220);
 INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1614,80);
 INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1639,10);
 INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1740,100);
-INSERT INTO `mob_droplist` VALUES (518,0,0,1000,886,167);   -- (Count_Bifrons) demon_skull
+INSERT INTO `mob_droplist` VALUES (518,0,0,1000,886,150);   -- (Count_Bifrons) demon_skull
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,902,240);   -- demon_horn
-INSERT INTO `mob_droplist` VALUES (518,0,0,1000,4875,83);   -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (518,0,0,1000,4875,240);   -- scroll_of_absorb-dex
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,16792,240); -- goshishos_scythe
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,18374,150); -- Mighty Sword
 INSERT INTO `mob_droplist` VALUES (519,1,1,50,1450,334); -- (THF Kindred NM) Lungo-Nango Jadeshell
@@ -3318,7 +3318,7 @@ INSERT INTO `mob_droplist` VALUES (579,2,0,1000,921,0);
 INSERT INTO `mob_droplist` VALUES (579,0,0,1000,921,460);
 INSERT INTO `mob_droplist` VALUES (579,0,0,1000,935,90);
 INSERT INTO `mob_droplist` VALUES (579,0,0,1000,1038,50);
-INSERT INTO `mob_droplist` VALUES (580,0,0,1000,4875,80);
+INSERT INTO `mob_droplist` VALUES (580,0,0,1000,4875,100); -- Scroll of Absorb-DEX
 INSERT INTO `mob_droplist` VALUES (580,0,0,1000,4883,100);
 INSERT INTO `mob_droplist` VALUES (581,0,0,1000,4373,100);
 INSERT INTO `mob_droplist` VALUES (581,0,0,1000,4374,240);
@@ -3859,7 +3859,7 @@ INSERT INTO `mob_droplist` VALUES (715,0,0,1000,3358,1000); -- Shrouded Bjijou
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,886,202);   -- (Duke_Haborym) demon_skull
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,902,240);   -- demon_horn
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,4111,10);   -- dark_cluster
-INSERT INTO `mob_droplist` VALUES (716,0,0,1000,4875,298);  -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (716,0,0,1000,4875,240);  -- scroll_of_absorb-dex
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,16786,317); -- barbarians_scythe
 INSERT INTO `mob_droplist` VALUES (717,1,1,50,1450,334); -- (DRK Kindred NM) Lungo-Nango Jadeshell
 INSERT INTO `mob_droplist` VALUES (717,1,1,50,1453,333); -- Montiont Silverpiece
@@ -3998,7 +3998,7 @@ INSERT INTO `mob_droplist` VALUES (741,0,0,1000,14887,100);
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,886,50);    -- (Eclipse_Demon) demon_skull
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,902,100);    -- demon_horn
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,2825,10);  -- square_of_cambric
-INSERT INTO `mob_droplist` VALUES (742,0,0,1000,4875,10);   -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (742,0,0,1000,4875,100);   -- scroll_of_absorb-dex
 INSERT INTO `mob_droplist` VALUES (743,0,0,1000,642,70);
 INSERT INTO `mob_droplist` VALUES (743,0,0,1000,736,30);
 INSERT INTO `mob_droplist` VALUES (743,0,0,1000,768,400);
@@ -7327,9 +7327,9 @@ INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,499,50); -- Gigas necklace
 INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,1434,190);
 INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,2385,10); -- Moldy buckler
 INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,2386,50); -- Hoary battle horn
-INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,886,50);   -- (Judicator_Demon) demon_skull
+INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,886,50);   -- (Judicator Demon - Uleguerand Range) demon_skull
 INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,902,100);  -- demon_horn
-INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,4875,50);  -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,4875,100);  -- scroll_of_absorb-dex
 INSERT INTO `mob_droplist` VALUES (1416,2,0,1000,751,0); --(Judicator Demon)
 INSERT INTO `mob_droplist` VALUES (1416,4,0,1000,886,0); -- Demom Skull(Despoil)
 INSERT INTO `mob_droplist` VALUES (1416,4,0,1000,902,0); -- Demon Horn(Despoil)
