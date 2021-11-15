@@ -1,5 +1,5 @@
 -----------------------------------
--- Area: Promyvion-Dem
+-- Area: Promyvion - Vahzl
 --  MOB: Seether
 -----------------------------------
 require("scripts/globals/promyvion")

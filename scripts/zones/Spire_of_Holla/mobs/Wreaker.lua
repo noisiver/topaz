@@ -5,6 +5,7 @@
 
 require("scripts/globals/pathfind")
 require("scripts/globals/promyvion")
+require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/empty")}
 
 function onMobInitialize(mob)
@@ -18,7 +19,8 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)
@@ -34,16 +36,6 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-	local shadowSpread = 1252
-	local trinaryAbsorption = 1248
-	
-	if mob:getHPP() < 20 and math.random() < 0.9 then
-		return trinaryAbsorption
-	elseif math.random() < 0.5 then
-		return shadowSpread
-	else
-		return 0
-	end
 end
 
 function onMobRoam(mob)

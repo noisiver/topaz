@@ -1,7 +1,9 @@
 -----------------------------------
 -- Area: Spire of Dem
 --  Mob: Progenerator
+require("scripts/globals/pathfind")
 require("scripts/globals/promyvion")
+require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
@@ -24,7 +26,8 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)

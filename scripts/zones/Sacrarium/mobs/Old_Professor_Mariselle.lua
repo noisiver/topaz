@@ -4,6 +4,8 @@
 -----------------------------------
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
+require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -11,6 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMod(tpz.mod.REGEN, 10)
     local OP_Mariselle = mob:getID();

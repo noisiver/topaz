@@ -12,7 +12,14 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+
+    local dispel = target:eraseStatusEffect()
+
+    if (dispel ~= tpz.effect.NONE) then
+        return 0
+    end
+
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)

@@ -14487,7 +14487,45 @@ inline int32 CLuaBaseEntity::trySkillUp(lua_State* L)
     return 0;
 }
 
+/************************************************************************
+*  Function:  addRoamFlag
+*  Purpose : 
+*  Example : 
+*  Notes   : 
+************************************************************************/
 
+int32 CLuaBaseEntity::addRoamFlag(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    CMobEntity* PEntity = dynamic_cast<CMobEntity*>(m_PBaseEntity);
+
+    PEntity->m_roamFlags |= lua_tointeger(L, 1);
+
+    return 0;
+
+}
+
+/************************************************************************
+*  Function: delRoamFlag
+*  Purpose :
+*  Example :
+*  Notes   :
+************************************************************************/
+
+int32 CLuaBaseEntity::delRoamFlag(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    CMobEntity* PEntity = dynamic_cast<CMobEntity*>(m_PBaseEntity);
+
+    if (PEntity->m_roamFlags & ((uint16)lua_tointeger(L, 1)))
+        PEntity->m_roamFlags -= ((uint16)lua_tointeger(L, 1));
+
+    return 0;
+}
 
 
 /************************************************************************
@@ -15760,6 +15798,9 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity, tryInterruptSpell),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity, trySkillUp),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,addRoamFlag),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,delRoamFlag),
+
 
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getBattleTime),

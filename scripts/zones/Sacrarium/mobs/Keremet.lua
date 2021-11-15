@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
+require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)

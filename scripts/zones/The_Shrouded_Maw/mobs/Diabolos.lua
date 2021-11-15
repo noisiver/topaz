@@ -3,6 +3,7 @@
 --  Mob: Diabolos
 -----------------------------------
 local ID = require("scripts/zones/The_Shrouded_Maw/IDs")
+require("scripts/globals/status")
 
 -- TODO: CoP Diabolos
 -- 1) Make the diremites in the pit all aggro said player that falls into region. Should have a respawn time of 10 seconds.
@@ -21,6 +22,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 

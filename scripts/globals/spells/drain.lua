@@ -60,7 +60,13 @@ function onSpellCast(caster, target, spell)
 
     dmg = finalMagicAdjustments(caster, target, spell, dmg)
 
-    caster:addHP(dmg)
+	-- Heal for 0 if afflicted with zombie
+	if caster:hasStatusEffect(tpz.effect.CURSE_II) then
+		caster:addHP(0)
+	else
+		caster:addHP(dmg)
+	end
+	
     return dmg
 
 end

@@ -3,6 +3,7 @@
 --  Mob: Nunyunuwi
 -----------------------------------
 require("scripts/globals/missions")
+require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -11,6 +12,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REGEN, 100)
 end
 

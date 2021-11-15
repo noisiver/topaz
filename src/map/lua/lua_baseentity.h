@@ -720,6 +720,8 @@ public:
     int32 getTHlevel(lua_State*);           // Returns the Monster's current Treasure Hunter Tier
 
     int32 trySkillUp(lua_State* L);
+    int32 addRoamFlag(lua_State* L);
+    int32 delRoamFlag(lua_State* L);
 };
 
 #endif

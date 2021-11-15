@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL)
 	if dmg > 0 then
-		dmg = 500
+		dmg = 600
 	end
 
     return dmg
