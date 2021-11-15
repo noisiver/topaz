@@ -701,8 +701,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
             break;
         case JOB_BST:
+		 if (PMob->m_Family != 3)  // Exclude Aerns, should only summon in combat and hide their jobs
+		 {
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 180);
             PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1017);
+		 }
             break;
         case JOB_PUP:
             PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1901);

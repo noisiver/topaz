@@ -6,7 +6,7 @@ mixins = {require("scripts/mixins/families/aern")}
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobEngaged(mob, target)
-	if mob:getMainJob() == tpz.job.DRG or mob:getMainJob() == tpz.job.SMN then
+	if mob:getMainJob() == tpz.job.DRG or mob:getMainJob() == tpz.job.SMN or mob:getMainJob() == tpz.job.BST then
 		mob:spawnPet()
 	end
 end
