@@ -6,6 +6,8 @@
 -- Involved in Quest: The Potential Within
 -----------------------------------
 require("scripts/globals/wsquest")
+require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)

@@ -4568,6 +4568,26 @@ INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,359,1,255); -- silencega
 INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,34,1,255); -- diaga_ii
 INSERT INTO `mob_spell_lists` VALUES ('Ixzdei-RDM',2015,108,1,255); -- regen
 
+--T4, T3 -ga's, and AM's
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016, 204, 1, 255); -- Flare
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016, 206, 1, 255); -- Freeze
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016, 208, 1, 255); -- Tornado
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016, 210, 1, 255); -- Quake
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016, 212, 1, 255); -- Burst
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016, 214, 1, 255); -- Flood
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,175,1,255);   -- Firaga II
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,180,1,255);   -- Blizaga II
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,185,1,255);   -- Aeroga II
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,190,1,255);   -- Stonega II
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,195,1,255);   -- Thundaga II
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,200,1,255);   -- Waterga II
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,147,1,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,152,1,255); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,157,1,255); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,162,1,255); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,167,1,255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,172,1,255); -- Water IV
+
 
 
 
