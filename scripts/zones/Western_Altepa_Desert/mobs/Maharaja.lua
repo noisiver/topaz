@@ -18,7 +18,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 300)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-end-
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
