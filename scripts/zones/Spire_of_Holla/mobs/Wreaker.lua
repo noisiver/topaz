@@ -36,16 +36,6 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-	local shadowSpread = 1252
-	local trinaryAbsorption = 1248
-	
-	if mob:getHPP() < 20 and math.random() < 0.9 then
-		return trinaryAbsorption
-	elseif math.random() < 0.5 then
-		return shadowSpread
-	else
-		return 0
-	end
 end
 
 function onMobRoam(mob)
