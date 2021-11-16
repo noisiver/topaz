@@ -582,9 +582,10 @@ INSERT INTO `mob_family_system` VALUES (913,'AnimatedWeapon-Shield',18,'Unclassi
 INSERT INTO `mob_family_system` VALUES (914,'AnimatedWeapon-Staff',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (915,'Murgleis_Burtgang',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
 INSERT INTO `mob_family_system` VALUES (916,'Kogarasumaru',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
-INSERT INTO `mob_family_system` VALUES (917,'Lilisette',13,'Humanoid',0,40,90,110,4,3,5,3,4,4,1,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (918,'Nagi',13,'Humanoid',0,40,90,110,4,2,6,2,2,5,5,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (919,'Raubahn',13,'Humanoid',0,40,90,110,5,5,5,5,4,5,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (917,'Lilisette',13,'Humanoid',0,40,100,110,4,3,5,3,4,4,1,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (918,'Nagi',13,'Humanoid',0,40,100,110,4,2,6,2,2,5,5,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (919,'Raubahn',13,'Humanoid',0,40,100,110,5,5,5,5,4,5,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (920,'Zeid',13,'Humanoid',0,40,100,110,1,4,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,1.3,0.5,0,2,0);
 
 
 

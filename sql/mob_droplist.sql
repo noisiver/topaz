@@ -16715,8 +16715,9 @@ INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,17742,1000); -- Vorpal Sword(RD
 INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,16563,240); -- Rune Blade 24% 
 
 INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,18443,1000); -- Windslicer(GKT) 100%
-INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,19376,240); -- Efunotachi  24% 
-
+INSERT INTO `mob_droplist` VALUES (3178,1,0,240,12742,500); -- Rune Bangles  24% 
+INSERT INTO `mob_droplist` VALUES (3178,1,0,240,17333,500); -- Rune Arrow  24% 
+ 
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,17744,1000); -- Brave Blade(PLD Sword) 100%
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,16563,240); -- Rune Blade 24% 
 
@@ -16732,8 +16733,9 @@ INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,17791,240); -- Rai Kunimitsu 24
 INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,17743,1000); -- Wightslayer(BLU Sword) 100%
 INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,16563,240); -- Rune Blade 24% 
 
-INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,17742,1000); -- Vorpal Sword 100%
-INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,16563,240); -- Rune Blade 24% 
+INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,18944,1000); -- Death Sickle 100%
+INSERT INTO `mob_droplist` VALUES (3184,1,0,240,21817,500); -- Rune Scythe 24% 
+INSERT INTO `mob_droplist` VALUES (3184,1,0,240,21661,500); -- Rune Algol 24% 
 
 INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,16563,240); -- Rune Blade 24% 

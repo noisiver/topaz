@@ -61,6 +61,7 @@ zones[tpz.zone.ORDELLES_CAVES] =
         NECROPLASM          = 17568138,
         APPARATUS_ELEMENTAL = 17568139,
         AROMA_LEECH         = 17568140,
+        ZEID         = 17568213,
     },
     npc =
     {
