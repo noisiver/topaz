@@ -1,14 +1,12 @@
 -----------------------------------
 -- Area: Spire of Holla
 --  Mob: Wreaker
------------------------------------
-
 require("scripts/globals/pathfind")
 require("scripts/globals/promyvion")
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/families/empty")}
-
+-----------------------------------
 function onMobInitialize(mob)
 end
 
