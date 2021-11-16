@@ -11,7 +11,7 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:AnimationSub() == 3) then
+    if (mob:AnimationSub() == 0) then
         return 0
     end
     return 1
@@ -19,7 +19,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    mob:addStatusEffectEx(tpz.effect.ABSORB_DAMAGE, 0, 100, 0, 30)
+	mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 3, 0, 30)
     skill:setMsg(tpz.msg.basic.NONE)
 
     return 0
