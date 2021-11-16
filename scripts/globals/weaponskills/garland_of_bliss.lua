@@ -23,11 +23,12 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local params = {}
     params.ftp100 = 2 params.ftp200 = 2 params.ftp300 = 2
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0
-    params.mnd_wsc = 0.4 params.chr_wsc = 0.0
+    params.mnd_wsc = 1 params.chr_wsc = 0.0
     params.ele = tpz.magic.ele.LIGHT
     params.skill = tpz.skill.STAFF
     params.includemab = true
 	params.enmityMult = 0.5
+	params.bonusmacc = 100
 
     if USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.ftp100 = 2.25 params.ftp200 = 2.25 params.ftp300 = 2.25
@@ -38,10 +39,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.MYTHIC)
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
-    if damage > 0 then
+		if damage > 0 then player:trySkillUp(target, tpz.skill.STAFF, tpHits+extraHits) end
+		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+		
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 50)
+    if damage > 0 and resist >= 0.5 then
         if not target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) then
-            local duration = (30 + tp / 1000 * 30) * applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
-            target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 12.5, 0, duration)
+            local duration = (30 + tp / 1000 * 30) 
+            target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 12.5, 0, duration * resist)
         end
     end
 
