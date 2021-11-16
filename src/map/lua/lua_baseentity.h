@@ -708,6 +708,8 @@ public:
     int32 weaknessTrigger(lua_State* L);
     int32 hasPreventActionEffect(lua_State*);
     int32 stun(lua_State* L);
+    int32 drawIn(lua_State* L);
+
 
     int32 getPool(lua_State *L);            // Returns a mobs pool ID. If entity is not a mob, returns nil.
     int32 getDropID(lua_State* L);
