@@ -24,12 +24,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
-function onMobFight(mob, target)
-    if mob:getHPP() <= 25  then
-        mob:setMod(tpz.mod.REGAIN, 500)
-    end
-end
-
 function onMobEngaged(mob,target)
 end
 
@@ -67,6 +61,10 @@ function onMobRoam(mob)
 end
 
 function onMobFight(mob,target)
+    if mob:getHPP() <= 25  then
+        mob:setMod(tpz.mod.REGAIN, 500)
+    end
+	
 	local terrorEndTime = mob:getLocalVar("EmptyTerror")
 	if terrorEndTime == 0 then
 		return
