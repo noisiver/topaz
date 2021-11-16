@@ -11,18 +11,16 @@ require("scripts/globals/status")
 function onMobSkillCheck(target, mob, skill)
     local result = 1
     local mobhp = mob:getHPP()
+	
+	if mob:getPool() == 504 then --Boompadu
+		if mobhp <= 25 then
+		result = 1
+		end
+	end
 
     if (mobhp <= 25) then
         result = 0
     end
-	if(mob:getFamily() == 1) then --Acrolith
-		if mob:getPool() == 504 then --Boompadu
-			if mobhp > 25 then
-			result = 1
-			end
-		end
-		result = 0
-	end
 
     return result
 end
@@ -40,7 +38,9 @@ function onMobWeaponSkill(target, mob, skill)
 		local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, tpz.magic.ele.EARTH, dmgmod, TP_NO_EFFECT, 1)
 		local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, MOBPARAM_WIPE_SHADOWS)
 		target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
-	else
+		return dmg
+	end
+	
 		local numhits = 1
 		local accmod = 1
 		local dmgmod = 2 
@@ -53,6 +53,6 @@ function onMobWeaponSkill(target, mob, skill)
 
 		target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
 		if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
-	end
+	
     return dmg
 end
