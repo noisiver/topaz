@@ -7,7 +7,6 @@ require("scripts/globals/promyvion")
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/families/empty")}
-require("scripts/globals/pathfind")
 -----------------------------------
 
 function onMobSpawn(mob)
