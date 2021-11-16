@@ -24,31 +24,31 @@ end
 function onSpellCast(caster, target, spell)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-	params.tpmod = TPMOD_ACC
-	params.attackType = tpz.attackType.PHYSICAL
-	params.damageType = tpz.damageType.SLASHING
-	params.scattr = SC_IMPACTION
-	params.numhits = 6
-	params.multiplier = 1
-	params.tp150 = 1
-	params.tp300 = 1
-	params.azuretp = 1
-	params.duppercap = 80 -- D upper >=69
-	params.str_wsc = 0.0
-	params.dex_wsc = 0.4
-	params.vit_wsc = 0.0
-	params.agi_wsc = 0.0
-	params.int_wsc = 0.0
-	params.mnd_wsc = 0.0
-	params.chr_wsc = 0.0
-	params.AccTPModifier = true
-	params.attkbonus = 0.9
+        params.tpmod = TPMOD_ACC
+        params.attackType = tpz.attackType.PHYSICAL
+        params.damageType = tpz.damageType.SLASHING
+        params.scattr = SC_IMPACTION
+        params.numhits = 6
+		params.multiplier = 1
+		params.tp150 = 1
+		params.tp300 = 1
+		params.azuretp = 1
+		params.duppercap = 80 -- D upper >=69
+        params.str_wsc = 0.0
+        params.dex_wsc = 0.4
+        params.vit_wsc = 0.0
+        params.agi_wsc = 0.0
+        params.int_wsc = 0.0
+        params.mnd_wsc = 0.0
+        params.chr_wsc = 0.0
+		params.attkbonus = 0.9
+        params.AccTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)
-	
+	-- add correlation bonus
 	if lizard then
-		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
+	 	damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
 	elseif plantoid then
 		damage = damage * 0.75
 	end
@@ -56,4 +56,3 @@ function onSpellCast(caster, target, spell)
 
     return damage
 end
-
