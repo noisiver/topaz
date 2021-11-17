@@ -30,7 +30,7 @@ function onMobFight(mob, target)
 		mob:castSpell(277) -- Dread Spikes
 		local zonePlayers = player:getZone():getPlayers()
 		for _, zonePlayer in pairs(zonePlayers) do
-			player:PrintToPlayer("Give me all you've got!",0,"Zeid")
+			mob:PrintToPlayer("Give me all you've got!",0,"Zeid")
 		end
 		mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
 	end
@@ -41,7 +41,7 @@ function onMobFight(mob, target)
 		mob:setMobMod(tpz.mobMod.SKILL_LIST, 6064)
 		local zonePlayers = player:getZone():getPlayers()
 		for _, zonePlayer in pairs(zonePlayers) do
-			player:PrintToPlayer("I must fight with you longer!",0,"Zeid")
+			mob:PrintToPlayer("I must fight with you longer!",0,"Zeid")
 		end
 		mob:setLocalVar("TwoHourUsed", 1)
 	end
@@ -54,7 +54,7 @@ function onMobFight(mob, target)
 			mob:castSpell(246) -- Drain II
 			local zonePlayers = player:getZone():getPlayers()
 			for _, zonePlayer in pairs(zonePlayers) do
-				player:PrintToPlayer("I feed off your rage!",0,"Zeid")
+				mob:PrintToPlayer("I feed off your rage!",0,"Zeid")
 			end
 			mob:setLocalVar("DrainTime", BattleTime + 30)
 		end
