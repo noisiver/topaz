@@ -2265,7 +2265,7 @@ INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',479,633);
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,979); -- Power Slash
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,980); -- Freeze Bite
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,981); -- GroundStrike
-INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,52); -- Shockwave
+INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,987); -- Shockwave
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,982); -- Abyssal Drain
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,983); -- Abyssal strike
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,1002); -- Summonshadows
@@ -4186,7 +4186,7 @@ INSERT INTO `mob_skill_lists` VALUES ('FazeOnly',6062,1728); -- Armophic Spikes
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,979); -- Power Slash
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,980); -- Freeze Bite
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,981); -- GroundStrike
-INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,52); -- Shockwave
+INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,987); -- Shockwave
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,982); -- Abyssal Drain
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,983); -- Abyssal strike
 

@@ -925,7 +925,7 @@ INSERT INTO `mob_skills` VALUES (983,672,'abyssal_strike',0,10,2000,500,4,0,0,0,
 INSERT INTO `mob_skills` VALUES (984,685,'electrocharge',0,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (985,686,'stellar_burst',2,10.0,5000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (986,687,'vortex',2,15.0,5000,1000,4,0,0,0,0,0,0);
---INSERT INTO `mob_skills` VALUES (987,731,'shockwave',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (987,688,'shockwave_zeid',1,10.0,2000,0,4,0,0,0,5,0,0);
 INSERT INTO `mob_skills` VALUES (988,689,'eald2_warp_in',0,22.0,500,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (989,690,'eald2_warp_out',0,22.0,500,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (990,691,'gaea_stream_eta',0,15.0,4000,1500,4,0,0,0,0,0,0);

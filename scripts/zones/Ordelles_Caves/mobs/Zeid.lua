@@ -21,18 +21,48 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
+	local StunTime = mob:getLocalVar("StunTime")
 	local DreadSpikesTime = mob:getLocalVar("DreadSpikesTime")
-    local BattleTime = mob:getBattleTime()
-	if DreadSpikesTime == 0 then
-		mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
-	elseif BattleTime >= DreadSpikesTime then
-		mob:castSpell(252) -- Stun
-		mob:castSpell(277) -- Dread Spikes
-		local zonePlayers = mob:getZone():getPlayers()
-		for _, zonePlayer in pairs(zonePlayers) do
-			target:PrintToPlayer("Give me all you've got!",0,"Zeid")
+	local DrainTime = mob:getLocalVar("DrainTime")
+	local BattleTime = mob:getBattleTime()
+	
+	if mob:getHPP() >= 50 then
+		if StunTime == 0 then
+			mob:setLocalVar("StunTime", BattleTime + 30)
+		elseif BattleTime >= StunTime then
+			mob:castSpell(252) -- Stun
+			local zonePlayers = mob:getZone():getPlayers()
+			for _, zonePlayer in pairs(zonePlayers) do
+				target:PrintToPlayer("No, pay closer attention and copy my technique.",0,"Zeid")
+			end
+			mob:setLocalVar("StunTime", BattleTime + 30)
 		end
-		mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
+	end
+	
+	if mob:getHPP() <= 50 and mob:getHPP() > 25 then
+		if DreadSpikesTime == 0 then
+			mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
+		elseif BattleTime >= DreadSpikesTime then
+			mob:castSpell(277) -- Dread Spikes
+			local zonePlayers = mob:getZone():getPlayers()
+			for _, zonePlayer in pairs(zonePlayers) do
+				target:PrintToPlayer("Give me all you've got!",0,"Zeid")
+			end
+			mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
+		end
+	end
+	
+	if mob:getHPP() <= 25 then
+		if DrainTime == 0 then
+			mob:setLocalVar("DrainTime", BattleTime)
+		elseif BattleTime >= DrainTime then
+			mob:castSpell(246) -- Drain II
+			local zonePlayers = mob:getZone():getPlayers()
+			for _, zonePlayer in pairs(zonePlayers) do
+				target:PrintToPlayer("I feed off your rage!",0,"Zeid")
+			end
+			mob:setLocalVar("DrainTime", BattleTime + 30)
+		end
 	end
 	
 	local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
@@ -44,20 +74,6 @@ function onMobFight(mob, target)
 			target:PrintToPlayer("I must fight with you longer!",0,"Zeid")
 		end
 		mob:setLocalVar("TwoHourUsed", 1)
-	end
-	
-	if mob:getHPP() <= 25 then
-		local DrainTime = mob:getLocalVar("DrainTime")
-		if DrainTime == 0 then
-			mob:setLocalVar("DrainTime", BattleTime)
-		elseif BattleTime >= DrainTime then
-			mob:castSpell(246) -- Drain II
-			local zonePlayers = mob:getZone():getPlayers()
-			for _, zonePlayer in pairs(zonePlayers) do
-				target:PrintToPlayer("I feed off your rage!",0,"Zeid")
-			end
-			mob:setLocalVar("DrainTime", BattleTime + 30)
-		end
 	end
 end
 
