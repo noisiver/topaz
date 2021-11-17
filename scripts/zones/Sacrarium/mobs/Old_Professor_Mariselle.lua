@@ -46,15 +46,15 @@ function onMobFight(mob,target)
             if m:isSpawned() then
                 m:timer(1500, function(mob)
                     TeleportMob(mob, 7500)
+					local battletarget = mob:getTarget()
+					local t = battletarget:getPos()
+					t.rot = battletarget:getRotPos()
+					local angle = math.random() * math.pi
+					local pos = NearLocation(t, 15, angle)
+					mob:teleport(pos, battletarget)
                 end)
             end
         end
-		local battletarget = mob:getTarget()
-		local t = battletarget:getPos()
-		t.rot = battletarget:getRotPos()
-		local angle = math.random() * math.pi
-		local pos = NearLocation(t, 15, angle)
-		mob:teleport(pos, battletarget)
     end
     
     -- Summons a pupil every 10 seconds.
