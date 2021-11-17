@@ -333,6 +333,8 @@ public:
     uint32            m_moghouseID;
     uint16            m_moghancementID;
 
+    uint8              m_hitCounter; // auto-attack it counter for Tredecim Scythe
+
     int8			  getShieldSize();
 
     bool			  getWeaponSkillKill();
