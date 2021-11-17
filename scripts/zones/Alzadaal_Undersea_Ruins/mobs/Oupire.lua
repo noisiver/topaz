@@ -42,8 +42,8 @@ function onMobWeaponSkill(target, mob, skill)
 	if skill:getID() == 2109 then --Heliovoid
         mob:setLocalVar("ElementMode", 1) --Earth
 		mob:setSpellList(2005)
-		SetEarthResist(mob)
-		DeleteSpikes(mob)
+		setEarthResist(mob)
+		deleteSpikes(mob)
 		mob:castSpell(191) -- Stonega III
 		if StoneskinApplied == 0 then -- Only supposed to get once per fight
 			mob:addStatusEffect(tpz.effect.STONESKIN, 2000, 0, 0) 
@@ -52,33 +52,33 @@ function onMobWeaponSkill(target, mob, skill)
 	elseif skill:getID() == 2108 then --Nosferatu's Kiss
         mob:setLocalVar("ElementMode", 2) --Water
 		mob:setSpellList(2006)
-		SetWaterResist(mob)
-		DeleteSpikes(mob)
+		setWaterResist(mob)
+		deleteSpikes(mob)
 		mob:castSpell(201) -- Waterga III
 	elseif skill:getID() == 2110 then --Wings of Gehenna
         mob:setLocalVar("ElementMode", 3) --Wind
 		mob:setSpellList(2007)
-		SetNoResist(mob)
-		DeleteSpikes(mob)
+		setNoResist(mob)
+		deleteSpikes(mob)
 		mob:castSpell(186) -- Aeroga III
 		mob:addStatusEffect(tpz.effect.BLINK, 20, 0, 0) --Blink
     elseif skill:getID() == 2106 then --Bloodrake
         mob:setLocalVar("ElementMode", 4) --Fire
 		mob:setSpellList(2008)
-		SetNoResist(mob)
-		DeleteSpikes(mob)
+		setNoResist(mob)
+		deleteSpikes(mob)
 		mob:castSpell(176) -- Firaga III
     elseif skill:getID() == 2111 then --Eternal Damnation
         mob:setLocalVar("ElementMode", 5) --Ice
 		mob:setSpellList(2009)
-		SetIceResist(mob)
-		DeleteSpikes(mob)
+		setIceResist(mob)
+		deleteSpikes(mob)
 		mob:castSpell(181) -- Blizzaga III
     elseif skill:getID() == 2107 then --Decollation
         mob:setLocalVar("ElementMode", 6) --Thunder
 		mob:setSpellList(2010)
-		SetNoResist(mob)
-		DeleteSpikes(mob)
+		setNoResist(mob)
+		deleteSpikes(mob)
 		mob:castSpell(196) -- Thundaga III
     end
 end
@@ -108,29 +108,29 @@ function onAdditionalEffect(mob, target, damage)
 	end
 end
 
-local function SetNoResist(mob)
+local function setNoResist(mob)
 	mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 	mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 	mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
 end
 
-local function SetEarthResist(mob)
+local function setEarthResist(mob)
 	mob:setMod(tpz.mod.SLOWRESTRAIT, 100)
 	mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 	mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
 end
 
-local function SetWaterResist(mob)
+local function setWaterResist(mob)
 	mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 	mob:setMod(tpz.mod.POISONRESTRAIT, 100)
 	mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
 end
-local function SetIceResist(mob)
+local function setIceResist(mob)
 	mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 	mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 	mob:setMod(tpz.mod.PARALYZERESTRAIT, 100)
 end
-local function DeleteSpikes(mob)
+local function deleteSpikes(mob)
 	mob:delStatusEffect(tpz.effect.BLAZE_SPIKES)
 	mob:delStatusEffect(tpz.effect.ICE_SPIKES)
 	mob:delStatusEffect(tpz.effect.SHOCK_SPIKES)
