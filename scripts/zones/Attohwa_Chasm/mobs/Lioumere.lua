@@ -6,6 +6,7 @@ mixins = {require("scripts/mixins/families/antlion_ambush")}
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/status")
+require("scripts/globals/pathfind")
 -- TODO: reset hate and disengage (goes unclaimed if not attacked)
 
 function onMobInitialize(mob)
