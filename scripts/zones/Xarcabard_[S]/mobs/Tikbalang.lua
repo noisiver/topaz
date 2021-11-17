@@ -20,7 +20,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 502 then -- Mortal Ray
 		local typeEffect = tpz.effect.DREAD_SPIKES
-		local drainAmount = mob:getMaxHP() * 0.01
+		local drainAmount = mob:getMaxHP() * 0.10
 		mob:addStatusEffect(typeEffect, 0, 0, 60, 0, drainAmount, 1)
 	end
 end
