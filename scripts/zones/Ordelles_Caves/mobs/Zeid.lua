@@ -28,22 +28,22 @@ function onMobFight(mob, target)
 	elseif BattleTime >= DreadSpikesTime then
 		mob:castSpell(252) -- Stun
 		mob:castSpell(277) -- Dread Spikes
+		mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
 		local zonePlayers = player:getZone():getPlayers()
 		for _, zonePlayer in pairs(zonePlayers) do
 			player:PrintToPlayer("Give me all you've got!",0,"Zeid")
 		end
-		mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
 	end
 	
 	local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
 	if mob:getHPP() <= 50 and TwoHourUsed == 0 then
 		mob:useMobAbility(695) -- Blood weapon
 		mob:setMobMod(tpz.mobMod.SKILL_LIST, 6064)
+		mob:setLocalVar("TwoHourUsed", 1)
 		local zonePlayers = player:getZone():getPlayers()
 		for _, zonePlayer in pairs(zonePlayers) do
 			player:PrintToPlayer("I must fight with you longer!",0,"Zeid")
 		end
-		mob:setLocalVar("TwoHourUsed", 1)
 	end
 	
 	if mob:getHPP() <= 25 then
@@ -52,11 +52,11 @@ function onMobFight(mob, target)
 			mob:setLocalVar("DrainTime", BattleTime)
 		elseif BattleTime >= DrainTime then
 			mob:castSpell(246) -- Drain II
+			mob:setLocalVar("DrainTime", BattleTime + 30)
 			local zonePlayers = player:getZone():getPlayers()
 			for _, zonePlayer in pairs(zonePlayers) do
 				player:PrintToPlayer("I feed off your rage!",0,"Zeid")
 			end
-			mob:setLocalVar("DrainTime", BattleTime + 30)
 		end
 	end
 end
