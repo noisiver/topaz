@@ -16,6 +16,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMod(tpz.mod.REGEN, 10)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     local OP_Mariselle = mob:getID();
     
     for i = OP_Mariselle, OP_Mariselle+2 do
