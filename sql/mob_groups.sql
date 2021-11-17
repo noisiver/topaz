@@ -291,7 +291,7 @@ INSERT INTO `mob_groups` VALUES (19,2953,7,'Ogrefly',330,0,1842,0,0,44,47,0);
 INSERT INTO `mob_groups` VALUES (20,2010,7,'Hunter_Antlion',330,0,1339,0,0,45,46,0);
 INSERT INTO `mob_groups` VALUES (21,337,7,'Bane_Lizard',330,0,221,0,0,47,49,0);
 INSERT INTO `mob_groups` VALUES (22,3141,7,'Pit_Antlion',330,0,1999,0,0,49,51,0);
-INSERT INTO `mob_groups` VALUES (23,2421,7,'Lioumere',0,128,0,4400,0,50,52,0);
+INSERT INTO `mob_groups` VALUES (23,2421,7,'Lioumere',0,128,0,6500,0,55,57,0);
 INSERT INTO `mob_groups` VALUES (24,6388,7,'Hecteyes',330,0,1288,0,0,35,39,0);
 INSERT INTO `mob_groups` VALUES (25,1369,7,'Flesh_Eater',330,0,848,0,0,34,37,0);
 INSERT INTO `mob_groups` VALUES (26,4346,7,'Will-o-the-Wykes',330,8,3101,0,0,40,43,0);
