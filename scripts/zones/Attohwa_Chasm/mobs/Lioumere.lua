@@ -6,7 +6,6 @@ mixins = {require("scripts/mixins/families/antlion_ambush")}
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/status")
-require("scripts/globals/pathfind")
 -- TODO: reset hate and disengage (goes unclaimed if not attacked)
 
 function onMobInitialize(mob)
@@ -14,25 +13,16 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local pathing = mob:getLocalVar("pathing")
-    if mob:getHP() + 100 < pathing then
-        mob:setLocalVar("pathing", 0)
-        mob:SetAutoAttackEnabled(true)
-        local pos = target:getPos();
-        mob:pathThrough({ pos.x, pos.y, pos.z }, tpz.path.flag.SCRIPT)
-    elseif mob:atPoint({479, 20, 41}) then
-        mob:setLocalVar("pathing", 0)
+ local Pos = mob:getPos()
+	if Pos.x == 479 and Pos.y == 20 and Pos.z == 41 then
         mob:SetAutoAttackEnabled(true)
         mob:setHP(mob:getMaxHP())
     end
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    mob:queue(0, function(mob)
-        mob:pathThrough({479, 20, 41}, tpz.path.flag.SCRIPT)
-        mob:setLocalVar("pathing", mob:getHP())
-        mob:SetAutoAttackEnabled(false)
-    end)
+	mob:pathThrough({ 479, 20, 41 })
+	mob:SetAutoAttackEnabled(false)
 end
 
 function onMobSpawn(mob)
