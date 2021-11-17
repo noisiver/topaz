@@ -41,11 +41,12 @@ function onMobFight(mob,target)
     if mob:getLocalVar("teleport") < os.time() then
         mob:setLocalVar("teleport", os.time() + math.random(20, 30))
         TeleportMob(mob, 5000)
+		mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.STANDBACK))
 		local battletarget = mob:getTarget()
 		local t = battletarget:getPos()
 		t.rot = battletarget:getRotPos()
 		local angle = math.random() * math.pi
-		local pos = NearLocation(t, 15, angle)
+		local pos = NearLocation(t, 30, angle)
 		mob:teleport(pos, battletarget)
         for i = OP_Mariselle+1, OP_Mariselle+2 do
             local m = GetMobByID(i)
