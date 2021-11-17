@@ -30,9 +30,9 @@ function onMobFight(mob, target)
 	local ElementMode = mob:getLocalVar("ElementMode")
 	if ElementMode == 4 then
 		mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 50, 0, 3600) 
-	elseif ElementMode == 5
+	elseif ElementMode == 5 then
 		mob:addStatusEffect(tpz.effect.ICE_SPIKES, 50, 0, 3600) 
-	elseif ElementMode == 6
+	elseif ElementMode == 6 then
 		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 15, 0, 3600) 
 	end
 end
