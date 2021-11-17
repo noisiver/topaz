@@ -25,7 +25,7 @@ function onMobFight(mob, target)
     local BattleTime = mob:getBattleTime()
 	if DreadSpikesTime == 0 then
 		mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
-	elseif DreadSpikesTime >= BattleTime then
+	elseif BattleTime >= DreadSpikesTime then
 		mob:castSpell(252) -- Stun
 		mob:castSpell(277) -- Dread Spikes
 		local zonePlayers = mob:getZone():getPlayers()
@@ -50,7 +50,7 @@ function onMobFight(mob, target)
 		local DrainTime = mob:getLocalVar("DrainTime")
 		if DrainTime == 0 then
 			mob:setLocalVar("DrainTime", BattleTime)
-		elseif DrainTime >= BattleTime then
+		elseif BattleTime >= DrainTime then
 			mob:castSpell(246) -- Drain II
 			local zonePlayers = mob:getZone():getPlayers()
 			for _, zonePlayer in pairs(zonePlayers) do
