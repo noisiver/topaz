@@ -21,7 +21,7 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-	mob:pathThrough({ 479, 20, 41 })
+	mob:pathTo(479, 20, 41)
 	mob:SetAutoAttackEnabled(false)
 end
 
