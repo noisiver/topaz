@@ -41,9 +41,10 @@ function onMobFight(mob, target)
 	
 	if mob:getHPP() <= 50 and mob:getHPP() > 25 then
 		if DreadSpikesTime == 0 then
-			mob:setLocalVar("DreadSpikesTime", BattleTime + 30)
+			mob:setLocalVar("DreadSpikesTime", BattleTime)
 		elseif BattleTime >= DreadSpikesTime then
-			mob:castSpell(277) -- Dread Spikes
+			local typeEffect = tpz.effect.DREAD_SPIKES
+			mob:addStatusEffect(typeEffect, 0, 0, 60, 0, 1000, 1)
 			local zonePlayers = mob:getZone():getPlayers()
 			for _, zonePlayer in pairs(zonePlayers) do
 				target:PrintToPlayer("Give me all you've got!",0,"Zeid")
