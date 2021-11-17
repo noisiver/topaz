@@ -42,7 +42,7 @@ function onMobWeaponSkill(target, mob, skill)
 	if skill:getID() == 2109 then --Heliovoid
         mob:setLocalVar("ElementMode", 1) --Earth
 		mob:setSpellList(2005)
-		setEarthResisttarget, mob, skill)
+		setEarthResist(target, mob, skill)
 		deleteSpikes(mob)
 		mob:castSpell(191) -- Stonega III
 		if StoneskinApplied == 0 then -- Only supposed to get once per fight
@@ -114,7 +114,7 @@ local function setNoResist(target, mob, skill)
 	mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
 end
 
-local function setEarthResisttarget, mob, skill)
+local function setEarthResist(target, mob, skill)
 	mob:setMod(tpz.mod.SLOWRESTRAIT, 100)
 	mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 	mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
