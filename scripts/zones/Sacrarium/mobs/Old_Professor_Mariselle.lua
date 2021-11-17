@@ -41,17 +41,17 @@ function onMobFight(mob,target)
     if mob:getLocalVar("teleport") < os.time() then
         mob:setLocalVar("teleport", os.time() + math.random(20, 30))
         TeleportMob(mob, 5000)
+		local battletarget = mob:getTarget()
+		local t = battletarget:getPos()
+		t.rot = battletarget:getRotPos()
+		local angle = math.random() * math.pi
+		local pos = NearLocation(t, 15, angle)
+		mob:teleport(pos, battletarget)
         for i = OP_Mariselle+1, OP_Mariselle+2 do
             local m = GetMobByID(i)
             if m:isSpawned() then
                 m:timer(1500, function(mob)
                     TeleportMob(mob, 7500)
-					local battletarget = mob:getTarget()
-					local t = battletarget:getPos()
-					t.rot = battletarget:getRotPos()
-					local angle = math.random() * math.pi
-					local pos = NearLocation(t, 15, angle)
-					mob:teleport(pos, battletarget)
                 end)
             end
         end
