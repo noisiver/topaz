@@ -48,7 +48,7 @@ function onMobFight(mob,target)
             local m = GetMobByID(i)
             if m:isSpawned() then
                 m:timer(1500, function(mob)
-                    TeleportMob(mob, 7500
+                    TeleportMob(mob, 7500)
 					mob:setPos(math.random(88, 112), -2, math.random(100, 131))
                 end)
             end
