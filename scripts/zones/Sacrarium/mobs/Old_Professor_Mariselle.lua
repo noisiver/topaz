@@ -46,7 +46,12 @@ function onMobFight(mob,target)
             if m:isSpawned() then
                 m:timer(1500, function(mob)
                     TeleportMob(mob, 7500)
-					mob:useMobAbility(962) --tarutaru_warp_ii
+					local battletarget = mob:getTarget()
+					local t = battletarget:getPos()
+					t.rot = battletarget:getRotPos()
+					local angle = math.random() * math.pi
+					local pos = NearLocation(t, 15, angle)
+					mob:teleport(pos, battletarget)
                 end)
             end
         end
