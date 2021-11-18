@@ -52,10 +52,7 @@ function onMobFight(mob, target)
 			mob:setLocalVar("DrainTime", BattleTime)
 		elseif BattleTime >= DrainTime then
 			mob:castSpell(246) -- Drain II
-			local zonePlayers = mob:getZone():getPlayers()
-			for _, zonePlayer in pairs(zonePlayers) do
-				target:PrintToPlayer("I feed off your rage!",0,"Zeid")
-			end
+			target:PrintToPlayer("I feed off your rage!",0,"Zeid")
 			mob:setLocalVar("DrainTime", BattleTime + 45)
 		end
 	end
