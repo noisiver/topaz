@@ -83,8 +83,5 @@ function onSpellPrecast(mob, spell)
 end
 
 function onMobDeath(mob, player, isKiller)
-	local zonePlayers = player:getZone():getPlayers()
-	for _, zonePlayer in pairs(zonePlayers) do
 		player:PrintToPlayer("You have learned well.",0,"Zeid")
-	end
 end
