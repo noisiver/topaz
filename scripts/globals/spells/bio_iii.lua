@@ -14,6 +14,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+	local meritBonus = caster:getMerit(tpz.merit.BIO_III)
     local skillLvl = caster:getSkillLevel(tpz.skill.DARK_MAGIC)
     local basedmg = skillLvl / 4
     local params = {}
@@ -44,7 +45,7 @@ function onSpellCast(caster, target, spell)
     local final = finalMagicAdjustments(caster, target, spell, dmg)
 
     -- Calculate duration
-    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = calculateDuration(30 + (meritBonus - 30), spell:getSkillType(), spell:getSpellGroup(), caster, target)
 
     -- Check for Dia
     local dia = target:getStatusEffect(tpz.effect.DIA)

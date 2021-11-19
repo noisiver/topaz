@@ -14,6 +14,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+	local meritBonus = caster:getMerit(tpz.merit.DIA_III)
     local basedmg = caster:getSkillLevel(tpz.skill.ENFEEBLING_MAGIC) / 4
     local params = {}
     params.dmg = basedmg
@@ -43,7 +44,7 @@ function onSpellCast(caster, target, spell)
     local final = finalMagicAdjustments(caster, target, spell, dmg)
 
     -- Calculate duration and bonus
-    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = calculateDuration(30 + (meritBonus - 30), spell:getSkillType(), spell:getSpellGroup(), caster, target)
     local dotBonus = caster:getMod(tpz.mod.DIA_DOT) -- Dia Wand
 
     -- Check for Bio
