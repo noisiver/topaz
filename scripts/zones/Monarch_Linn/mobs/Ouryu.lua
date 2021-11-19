@@ -66,7 +66,7 @@ function onMobFight(mob, target)
                 mob:getBattleTime() - changeTime > 120) then
             mob:AnimationSub(1)
             mob:addStatusEffectEx(tpz.effect.TOO_HIGH, 0, 1, 0, 0)
-            mob:SetMobSkillAttack(1298)
+            mob:SetMobSkillAttack(731)
             mob:setLocalVar("changeTime", mob:getBattleTime())
         end
     end
