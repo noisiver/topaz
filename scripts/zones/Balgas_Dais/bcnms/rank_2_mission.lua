@@ -3,10 +3,15 @@
 -- Name: Mission Rank 2
 -- !pos 299 -123 345 146
 -----------------------------------
+local ID = require("scripts/zones/Balgas_Dais/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/npc_util")
+require("scripts/globals/common")
+require("scripts/globals/settings")
+require("scripts/globals/status")
+require("scripts/globals/titles")
 -----------------------------------
 
 function onBattlefieldTick(battlefield, tick)
