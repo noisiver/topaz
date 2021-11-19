@@ -21,14 +21,16 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-	local typeEffect = tpz.effect.CHARM_I	
+	local message = tpz.msg.basic.SKILL_MISS
+	local typeEffect = tpz.effect.CHARM_I
+	local power = 0
 	
 	if (not target:isPC()) then
 		skill:setMsg(tpz.msg.basic.SKILL_MISS)
 		return typeEffect
 	end
 	
-		local msg = MobStatusEffectMove(mob, target, typeEffect, power, 3, 30)
+		local msg = MobStatusEffectMove(mob, target, typeEffect, 0, 3, 30)
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
 			skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
@@ -36,7 +38,7 @@ function onMobWeaponSkill(target, mob, skill)
 			mob:charm(target)
 			target:costume(257) --Red Bat
 		end
-			 skill:setMsg(msg)
+			 skill:setMsg(tpz.msg.basic.SKILL_MISS)
 		end
 
     return typeEffect
