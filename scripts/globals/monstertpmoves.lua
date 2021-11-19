@@ -834,6 +834,9 @@ function MobEncumberMove(target, maxSlots, duration)
           newSlot = -1;
         end
       end
+      if (newSlot ~= -1) then
+        encumberSlots[currIndex] = newSlot;
+        currIndex = currIndex + 1;
         if (newSlot == 0) then
             encumberSlots[currIndex] = 1;
             currIndex = currIndex + 1;
@@ -850,8 +853,9 @@ function MobEncumberMove(target, maxSlots, duration)
             encumberSlots[currIndex] = 2;
             currIndex = currIndex + 1;
             maxSlots = maxSlots + 1;
-        end
-    end
+	    end
+	  end
+	end
 
     local mask = 0;
     for i = 1,#encumberSlots,1 do
