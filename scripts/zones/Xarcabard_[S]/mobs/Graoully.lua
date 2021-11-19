@@ -16,10 +16,10 @@ function onMobSpawn(mob)
 
     mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 70, 0, 3600)
     mob:getStatusEffect(bufftwo):unsetFlag(tpz.effectFlag.DISPELABLE)
-	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
-    mob:addMod(tpz.mod.ATTP, 100)
-    mob:addMod(tpz.mod.DEFP, 25) 
+	mob:setDamage(250) -- 350-450 on DD's
+    mob:addMod(tpz.mod.DEFP, 100) 
     mob:addMod(tpz.mod.ACC, 25)
+    mob:addMod(tpz.mod.EVA, 50)
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMod(tpz.mod.MOVE, 12)
 	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)

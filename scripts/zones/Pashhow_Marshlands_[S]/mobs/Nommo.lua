@@ -11,8 +11,8 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(250) -- 350-450 on DD's
     mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
 	mob:setMod(tpz.mod.EVA, 50)
 	mob:setMod(tpz.mod.MOVE, 25)
 	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
