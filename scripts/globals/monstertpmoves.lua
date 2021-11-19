@@ -827,16 +827,13 @@ end
 function MobEncumberMove(target, maxSlots, duration)
     local encumberSlots = {};
     local currIndex = 1;
-    while (currIndex <= maxSlots) do
+	while (currIndex <= maxSlots) and (#encumberSlots < 16) do
       local newSlot = math.random(0, 15);
       for _, slot in pairs(encumberSlots) do
         if (slot == newSlot) then
           newSlot = -1;
         end
       end
-      if (newSlot ~= -1) then
-        encumberSlots[currIndex] = newSlot;
-        currIndex = currIndex + 1;
         if (newSlot == 0) then
             encumberSlots[currIndex] = 1;
             currIndex = currIndex + 1;
@@ -845,8 +842,15 @@ function MobEncumberMove(target, maxSlots, duration)
             encumberSlots[currIndex] = 0;
             currIndex = currIndex + 1;
             maxSlots = maxSlots + 1;
+        elseif (newSlot == 2) then
+            encumberSlots[currIndex] = 3;
+            currIndex = currIndex + 1;
+            maxSlots = maxSlots + 1;
+        elseif (newSlot == 3) then
+            encumberSlots[currIndex] = 2;
+            currIndex = currIndex + 1;
+            maxSlots = maxSlots + 1;
         end
-      end
     end
 
     local mask = 0;
