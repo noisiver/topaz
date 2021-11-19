@@ -32,9 +32,10 @@ function onMobFight(mob, target)
     -- end
 	
     -- use 2hr
-    if mob:AnimationSub() == 2 or mob:AnimationSub() == 0 and mob:getLocalVar("twoHour") == 0 and mob:getHPP() <= math.random(90, 75) then
+	local TwoHourTime = mob:getLocalVar("TwoHourTime")
+    if mob:AnimationSub() ~= 1 and TwoHourTime == 0 and mob:getHPP() <= math.random(90, 75) then
         mob:useMobAbility(694)
-        mob:setLocalVar("twoHour", 1)
+        mob:setLocalVar("TwoHourTime", 1)
     end
 
     if (mob:hasStatusEffect(tpz.effect.INVINCIBLE) == false and mob:actionQueueEmpty() == true) then
