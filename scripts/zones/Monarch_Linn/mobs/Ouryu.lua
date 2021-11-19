@@ -33,7 +33,7 @@ function onMobFight(mob, target)
 		local WakeUp = mob:getLocalVar("WakeUp")
 		if WakeUp == 0 then
 			mob:setLocalVar("WakeUp", os.time() + math.random(3, 15))
-		elseif WakeUp >= os.time then
+		elseif WakeUp >= os.time() then
 			mob:wakeUp()
 		end
 	end
