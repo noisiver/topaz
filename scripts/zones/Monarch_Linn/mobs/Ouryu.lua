@@ -38,19 +38,16 @@ function onMobFight(mob, target)
 		end
 	end
 
+    -- use 2hr
+    if (mob:AnimationSub() == 2 and mob:getLocalVar("twoHour") == 0 and mob:getHPP() <= math.random(90, 75)) then
+        mob:useMobAbility(694)
+        mob:setLocalVar("twoHour", 1)
+    end
+
     if (mob:hasStatusEffect(tpz.effect.INVINCIBLE) == false and mob:actionQueueEmpty() == true) then
         local changeTime = mob:getLocalVar("changeTime")
-        local twohourTime = mob:getLocalVar("twohourTime")
 
-        if (twohourTime == 0) then
-            twohourTime = math.random(8, 14)
-            mob:setLocalVar("twohourTime", twohourTime)
-        end
-
-        if (mob:AnimationSub() == 2 and mob:getBattleTime()/15 > twohourTime) then
-            mob:useMobAbility(694)
-            mob:setLocalVar("twohourTime", math.random((mob:getBattleTime()/15)+12, (mob:getBattleTime()/15)+16))
-        elseif (mob:AnimationSub() == 0 and mob:getBattleTime() - changeTime > 60) then
+        if (mob:AnimationSub() == 0 and mob:getBattleTime() - changeTime > 60) then
             mob:AnimationSub(1)
             mob:addStatusEffectEx(tpz.effect.TOO_HIGH, 0, 1, 0, 0)
 			mob:SetMobSkillAttack(731)
