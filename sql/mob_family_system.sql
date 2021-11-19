@@ -586,6 +586,7 @@ INSERT INTO `mob_family_system` VALUES (917,'Lilisette',13,'Humanoid',0,40,100,1
 INSERT INTO `mob_family_system` VALUES (918,'Nagi',13,'Humanoid',0,40,100,110,4,2,6,2,2,5,5,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
 INSERT INTO `mob_family_system` VALUES (919,'Raubahn',13,'Humanoid',0,40,100,110,5,5,5,5,4,5,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
 INSERT INTO `mob_family_system` VALUES (920,'Zeid',13,'Humanoid',0,40,100,110,1,4,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,1.3,0.5,0,2,0);
+INSERT INTO `mob_family_system` VALUES (921,'Iron_Eater',13,'Humanoid',0,40,100,110,1,3,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
 
 
 

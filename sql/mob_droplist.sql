@@ -1153,7 +1153,7 @@ INSERT INTO `mob_droplist` VALUES (187,0,0,1000,17305,50);
 INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1630,100);
 INSERT INTO `mob_droplist` VALUES (188,2,0,1000,1667,0);
 INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1667,1000);
-INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1880,170);
+INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1880,150); -- Clustered Tar
 INSERT INTO `mob_droplist` VALUES (188,0,0,1000,17305,50);
 INSERT INTO `mob_droplist` VALUES (189,0,0,1000,853,100);
 INSERT INTO `mob_droplist` VALUES (189,4,0,1000,853,0); -- Raptor Skin(Despoil)
@@ -9720,7 +9720,7 @@ INSERT INTO `mob_droplist` VALUES (1817,0,0,1000,5378,100);
 INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,1630,100);
 INSERT INTO `mob_droplist` VALUES (1818,2,0,1000,1667,0);
 INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,1667,970);
-INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,1880,330);
+INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,1880,150);
 INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,17305,50);
 INSERT INTO `mob_droplist` VALUES (1819,4,0,1000,853,0); -- Raptor Skin(Despoil)
 INSERT INTO `mob_droplist` VALUES (1819,0,0,1000,853,100);
@@ -16737,8 +16737,8 @@ INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,18944,1000); -- Death Sickle 10
 INSERT INTO `mob_droplist` VALUES (3184,1,0,240,21817,500); -- Rune Scythe 24% 
 INSERT INTO `mob_droplist` VALUES (3184,1,0,240,21661,500); -- Rune Algol 24% 
 
-INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,17742,1000); -- Vorpal Sword 100%
-INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,16563,240); -- Rune Blade 24% 
+INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,18492,1000); -- Sturdy Axe 100%
+INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,18206,240); -- Rune Chopper 24% 
 
 INSERT INTO `mob_droplist` VALUES (3186,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3186,0,0,1000,16563,240); -- Rune Blade 24% 

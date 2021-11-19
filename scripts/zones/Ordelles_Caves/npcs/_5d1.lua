@@ -16,6 +16,12 @@ function onTrade(player, npc, trade)
             player:PrintToPlayer("You have much left to learn.",0,"Zeid")
             player:confirmTrade()
         end
+	elseif npcUtil.tradeHasExactly(trade, 474) then -- Red Chip
+        if npcUtil.popFromQM(player, npc, ID.mob.IRON_EATER) then 
+            player:showText(npc, ID.text.SYS_OVERLOAD)
+            player:PrintToPlayer("You dare challgenge a mythril muskteer?",0,"Iron Eater")
+            player:confirmTrade()
+        end
     end
 end
 

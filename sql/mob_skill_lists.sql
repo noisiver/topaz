@@ -4190,6 +4190,12 @@ INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,987); -- Shockwave
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,982); -- Abyssal Drain
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,983); -- Abyssal strike
 
+--Iron Eater Mythic
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,979); -- Shield Break
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,980); -- Armor Break
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,981); -- Steel Cyclone
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythicSub50',6066,982); -- King's Justice
+
 
 -- Next available ID: 1148
 
