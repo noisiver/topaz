@@ -6832,6 +6832,7 @@ INSERT INTO `nm_spawn_points` VALUES (17117250,1,264.6308,-49.5511,414.2611); --
 INSERT INTO `nm_spawn_points` VALUES (17141885,1,310.285,31.511,-481.958); -- Vasiliceratops
 INSERT INTO `nm_spawn_points` VALUES (17141885,2,234.5122,32.0575,-651.4021); -- Vasiliceratops
 INSERT INTO `nm_spawn_points` VALUES (17338462,1,9.880,-24.173,-135.875); -- Prince Orobas
+INSERT INTO `nm_spawn_points` VALUES (16900306,1,-68.2988,0.5204,708.0948); -- Aiatar
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;
