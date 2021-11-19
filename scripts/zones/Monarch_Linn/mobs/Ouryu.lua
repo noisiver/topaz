@@ -4,6 +4,8 @@
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")
+require("scripts/globals/magic")
+mixins = {require("scripts/mixins/families/wyrm_wakeup")}
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -23,21 +25,12 @@ end
 
 function onMobFight(mob, target)
 
-    local bf = mob:getBattlefield()
-    if bf:getID() == 961 and mob:getHPP() <= 30 then
-        bf:win()
-        return
-    end
+    -- local bf = mob:getBattlefield()
+    -- if bf:getID() == 961 and mob:getHPP() <= 30 then
+        -- bf:win()
+        -- return
+    -- end
 	
-	if mob:hasStatusEffect(tpz.effect.TOO_HIGH) then
-		local WakeUp = mob:getLocalVar("WakeUp")
-		if WakeUp == 0 then
-			mob:setLocalVar("WakeUp", os.time() + math.random(3, 15))
-		elseif WakeUp >= os.time() then
-			mob:wakeUp()
-		end
-	end
-
     -- use 2hr
     if (mob:AnimationSub() == 2 and mob:getLocalVar("twoHour") == 0 and mob:getHPP() <= math.random(90, 75)) then
         mob:useMobAbility(694)
@@ -47,20 +40,18 @@ function onMobFight(mob, target)
     if (mob:hasStatusEffect(tpz.effect.INVINCIBLE) == false and mob:actionQueueEmpty() == true) then
         local changeTime = mob:getLocalVar("changeTime")
 
-        if (mob:AnimationSub() == 0 and mob:getBattleTime() - changeTime > 60) then
+        if (mob:AnimationSub() == 0 and not hasSleepEffects(mob) and mob:getBattleTime() - changeTime > 60) then
             mob:AnimationSub(1)
             mob:addStatusEffectEx(tpz.effect.TOO_HIGH, 0, 1, 0, 0)
 			mob:SetMobSkillAttack(731)
             --and record the time this phase was started
             mob:setLocalVar("changeTime", mob:getBattleTime())
         -- subanimation 1 is flight, so check if he should land
-        elseif (mob:AnimationSub() == 1 and
-                mob:getBattleTime() - changeTime > 120) then
+        elseif (mob:AnimationSub() == 1 and not hasSleepEffects(mob) and mob:getBattleTime() - changeTime > 120) then
             mob:useMobAbility(1302)
             mob:setLocalVar("changeTime", mob:getBattleTime())
         -- subanimation 2 is grounded mode, so check if he should take off
-        elseif (mob:AnimationSub() == 2 and
-                mob:getBattleTime() - changeTime > 120) then
+        elseif (mob:AnimationSub() == 2 and not hasSleepEffects(mob) and mob:getBattleTime() - changeTime > 120) then
             mob:AnimationSub(1)
             mob:addStatusEffectEx(tpz.effect.TOO_HIGH, 0, 1, 0, 0)
             mob:SetMobSkillAttack(731)
