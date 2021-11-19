@@ -31,6 +31,16 @@ function onMobFight(mob, target)
         -- return
     -- end
 	
+	--wake up if slept
+	local SleepTime = mob:getLocalVar("SleepTime")
+    if mob:AnimationSub() == 1 and hasSleepEffects(mob) then
+		mob:setLocalVar("SleepTime", mob:getBattleTime() + math.random(5, 15))
+	elseif mob:getBattleTime() >= SleepTime then
+		mob:wakeUp()
+		mob:delStatusEffect(tpz.effect.SLEEP_I)
+		mob:delStatusEffect(tpz.effect.SLEEP_II)
+		mob:delStatusEffect(tpz.effect.LULLABY)
+    end
     -- use 2hr
 	local TwoHourTime = mob:getLocalVar("TwoHourTime")
     if mob:AnimationSub() ~= 1 and TwoHourTime == 0 and mob:getHPP() <= math.random(75, 90) then
