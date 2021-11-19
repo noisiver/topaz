@@ -25,14 +25,13 @@ end
 
 function onMobFight(mob, target)
 
-    -- local bf = mob:getBattlefield()
-    -- if bf:getID() == 961 and mob:getHPP() <= 30 then
-        -- bf:win()
-        -- return
-    -- end
+    local bf = mob:getBattlefield()
+    if bf:getID() == 961 and mob:getHPP() <= 30 then
+        bf:win()
+        return
+    end
 	
 	--wake up if slept
-	local SleepTime = mob:getLocalVar("SleepTime")
     if mob:AnimationSub() == 1 and hasSleepEffects(mob) then
 		mob:wakeUp()
 		mob:delStatusEffect(tpz.effect.SLEEP_I)
