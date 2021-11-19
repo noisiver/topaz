@@ -40,7 +40,7 @@ LOCK TABLES `mob_family_mods` WRITE;
 --INSERT INTO `mob_family_mods` VALUES (175,29,50,0);
 INSERT INTO `mob_family_mods` VALUES (4,29,20,0);
 INSERT INTO `mob_family_mods` VALUES (4,7,60,1);
-INSERT INTO `mob_family_mods` VALUES (74,29,25,0);
+INSERT INTO `mob_family_mods` VALUES (74,29,25,0); -- Corse -25% MDT
 INSERT INTO `mob_family_mods` VALUES (61,29,25,0);
 INSERT INTO `mob_family_mods` VALUES (169,29,25,0); -- Kindred -25% MDT
 INSERT INTO `mob_family_mods` VALUES (110,29,13,0); -- Evil weapon 13% MDT
