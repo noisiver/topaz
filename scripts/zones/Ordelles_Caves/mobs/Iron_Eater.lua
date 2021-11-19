@@ -1,7 +1,7 @@
 -----------------------------------
 -- Area: Ordelle's Caves
 --   NM: Zeid
--- !additem 481
+-- !additem 474
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
@@ -45,7 +45,7 @@ function onMobFight(mob, target)
 		mob:setLocalVar("DefenderTime", BattleTime + 60)
 	end
 
-	if BattleTime >= DefenderTime then
+	if DefenderTime > 0 and BattleTime >= DefenderTime then
 		mob:useMobAbility(698) -- Defender
 		mob:setDamage(75)
 		mob:setMod(tpz.mod.ATTP, -50)
