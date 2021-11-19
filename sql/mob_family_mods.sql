@@ -497,6 +497,12 @@ INSERT INTO `mob_family_mods` VALUES (506,240,75,0);	 -- Purpleflash Brukdok Sle
 -- Roaming mods
 SET @roam_distance = 31, @roam_cool = 36, @roam_turns = 51, @roam_rate = 52;
 
+-- Yovra
+INSERT INTO `mob_family_mods` VALUES (271,@roam_turns,3,1);
+INSERT INTO `mob_family_mods` VALUES (271,@roam_distance,15,1);
+INSERT INTO `mob_family_mods` VALUES (271,@roam_cool,35,1);
+INSERT INTO `mob_family_mods` VALUES (271,@roam_rate,30,1);
+
 -- Bugbear
 INSERT INTO `mob_family_mods` VALUES (59,@roam_distance,0,1);
 INSERT INTO `mob_family_mods` VALUES (59,@roam_turns,0,1);
