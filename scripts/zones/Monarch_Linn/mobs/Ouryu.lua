@@ -33,7 +33,7 @@ function onMobFight(mob, target)
 	
     -- use 2hr
 	local TwoHourTime = mob:getLocalVar("TwoHourTime")
-    if mob:AnimationSub() ~= 1 and TwoHourTime == 0 and mob:getHPP() <= math.random(90, 75) then
+    if mob:AnimationSub() ~= 1 and TwoHourTime == 0 and mob:getHPP() <= math.random(75, 90) then
         mob:useMobAbility(694)
         mob:setLocalVar("TwoHourTime", 1)
     end
