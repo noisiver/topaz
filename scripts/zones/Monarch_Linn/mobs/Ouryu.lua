@@ -53,7 +53,7 @@ function onMobFight(mob, target)
         elseif (mob:AnimationSub() == 0 and mob:getBattleTime() - changeTime > 60) then
             mob:AnimationSub(1)
             mob:addStatusEffectEx(tpz.effect.TOO_HIGH, 0, 1, 0, 0)
-            mob:SetMobSkillAttack(1298)
+			mob:SetMobSkillAttack(731)
             --and record the time this phase was started
             mob:setLocalVar("changeTime", mob:getBattleTime())
         -- subanimation 1 is flight, so check if he should land
