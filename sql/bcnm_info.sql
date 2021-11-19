@@ -46,7 +46,7 @@ CREATE TABLE `bcnm_info` (
 LOCK TABLES `bcnm_info` WRITE;
 /*!40000 ALTER TABLE `bcnm_info` DISABLE KEYS */;
 set autocommit=0;
-INSERT INTO `bcnm_info` VALUES (0,139,'rank_2_mission','nobody',0,1800,1800,25,6,0,5,1);
+INSERT INTO `bcnm_info` VALUES (0,139,'the_rank_2_mission','nobody',0,1800,1800,25,6,0,5,1);
 INSERT INTO `bcnm_info` VALUES (1,139,'tails_of_woe','nobody',0,1800,1800,40,6,1,15,0);
 INSERT INTO `bcnm_info` VALUES (2,139,'dismemberment_brigade','nobody',0,1800,1800,60,6,2,15,0);
 INSERT INTO `bcnm_info` VALUES (3,139,'the_secret_weapon','nobody',0,1800,1800,75,6,0,5,1);
@@ -73,7 +73,7 @@ INSERT INTO `bcnm_info` VALUES (34,140,'wings_of_fury','nobody',0,900,900,20,3,3
 INSERT INTO `bcnm_info` VALUES (35,140,'petrifying_pair','nobody',0,900,900,30,3,35,15,0);
 INSERT INTO `bcnm_info` VALUES (36,140,'toadal_recall','nobody',0,1800,1800,30,6,36,15,0);
 INSERT INTO `bcnm_info` VALUES (37,140,'mirror_mirror','nobody',0,900,900,40,3,0,7,0);
-INSERT INTO `bcnm_info` VALUES (64,144,'rank_2_mission','nobody',0,1800,1800,25,6,0,5,1);
+INSERT INTO `bcnm_info` VALUES (64,144,'the_rank_2_mission','nobody',0,1800,1800,25,6,0,5,1);
 INSERT INTO `bcnm_info` VALUES (65,144,'worms_turn','nobody',0,1800,1800,40,6,65,15,0);
 INSERT INTO `bcnm_info` VALUES (66,144,'grimshell_shocktroopers','nobody',0,1800,1800,60,6,66,15,0);
 INSERT INTO `bcnm_info` VALUES (67,144,'on_my_way','nobody',0,1800,1800,75,6,0,5,1);
@@ -95,7 +95,7 @@ INSERT INTO `bcnm_info` VALUES (82,144,'prehistoric_pigeons','nobody',0,1800,180
 INSERT INTO `bcnm_info` VALUES (83,144,'palborough_project','nobody',0,900,900,0,3,83,15,0);
 INSERT INTO `bcnm_info` VALUES (84,144,'shell_shocked','nobody',0,1800,1800,0,6,84,15,0);
 INSERT INTO `bcnm_info` VALUES (85,144,'beyond_infinity','nobody',0,600,600,99,6,0,5,0);
-INSERT INTO `bcnm_info` VALUES (96,146,'rank_2_mission','nobody',0,1800,1800,25,6,0,5,1);
+INSERT INTO `bcnm_info` VALUES (96,146,'the_rank_2_mission','nobody',0,1800,1800,25,6,0,5,1);
 INSERT INTO `bcnm_info` VALUES (97,146,'steamed_sprouts','nobody',0,1800,1800,40,6,97,15,0);
 INSERT INTO `bcnm_info` VALUES (98,146,'divine_punishers','nobody',0,1800,1800,60,6,98,15,0);
 INSERT INTO `bcnm_info` VALUES (99,146,'saintly_invitation','nobody',0,1800,1800,75,6,0,5,1);
@@ -173,7 +173,7 @@ INSERT INTO `bcnm_info` VALUES (481,203,'class_reunion','nobody',0,1800,1800,99,
 INSERT INTO `bcnm_info` VALUES (482,203,'trial-size_trial_by_ice','nobody',0,900,900,20,1,0,5,0);
 INSERT INTO `bcnm_info` VALUES (483,203,'waking_the_beast','nobody',0,1800,1800,0,18,0,5,0);
 INSERT INTO `bcnm_info` VALUES (484,203,'sugar-coated_directive','nobody',0,1800,1800,99,6,0,5,0);
-INSERT INTO `bcnm_info` VALUES (512,206,'rank_5_mission','nobody',0,900,900,50,6,0,5,1);
+INSERT INTO `bcnm_info` VALUES (512,206,'the_rank_5_mission','nobody',0,900,900,50,6,0,5,1);
 INSERT INTO `bcnm_info` VALUES (513,206,'come_into_my_parlor','nobody',0,1800,1800,0,6,513,15,0);
 INSERT INTO `bcnm_info` VALUES (514,206,'e-vase-ive_action','nobody',0,1800,1800,0,6,514,15,0);
 INSERT INTO `bcnm_info` VALUES (515,206,'infernal_swarm','nobody',0,1800,1800,0,6,515,15,0);
@@ -246,7 +246,7 @@ INSERT INTO `bcnm_info` VALUES (896,29,'storms_of_fate','nobody',0,1800,1800,0,1
 INSERT INTO `bcnm_info` VALUES (897,29,'wyrmking_descends','nobody',0,3600,3600,0,18,897,7,0);
 INSERT INTO `bcnm_info` VALUES (928,30,'ouryu_cometh','nobody',0,3600,3600,0,18,928,7,0);
 INSERT INTO `bcnm_info` VALUES (960,31,'ancient_vows','nobody',0,1800,1800,40,6,0,5,1);
-INSERT INTO `bcnm_info` VALUES (961,31,'savage','nobody',0,1800,1800,50,6,0,5,1);
+INSERT INTO `bcnm_info` VALUES (961,31,'the_savage','nobody',0,1800,1800,50,6,0,5,1);
 INSERT INTO `bcnm_info` VALUES (962,31,'fire_in_the_sky','nobody',0,900,900,40,18,962,15,0);
 INSERT INTO `bcnm_info` VALUES (963,31,'bad_seed','nobody',0,1800,1800,40,18,963,15,0);
 INSERT INTO `bcnm_info` VALUES (964,31,'bugard_in_the_clouds','nobody',0,900,900,50,18,964,15,0);
