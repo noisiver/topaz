@@ -50,7 +50,7 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:delStatusEffect(tpz.effect.SHOCK_SPIKES)
 		mob:castSpell(191) -- Stonega III
 		if StoneskinApplied == 0 then -- Only supposed to get once per fight
-			mob:addStatusEffect(tpz.effect.STONESKIN, 2000, 0, 0) 
+			mob:addStatusEffect(tpz.effect.STONESKIN, 2000, 0, 3600) 
 			mob:setLocalVar("StoneskinApplied", 1) 
 		end
 	elseif skill:getID() == 2108 then --Nosferatu's Kiss
