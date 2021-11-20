@@ -1458,7 +1458,7 @@ end
 
 function handleNinjutsuDebuff(caster, target, spell, basePower, baseDuration, modifier)
     -- Add new
-	local resist = applyResistanceAbility(player, target, tpz.magic.ele.NONE, tpz.skill.NINJUTSU, 25)
+	local resist = applyResistanceAbility(caster, target, tpz.magic.ele.NONE, tpz.skill.NINJUTSU, 25)
     target:addStatusEffectEx(tpz.effect.NINJUTSU_ELE_DEBUFF, 0, basePower, 0, baseDuration * resist, 0, modifier, 0)
     return tpz.effect.NINJUTSU_ELE_DEBUFF
 end
