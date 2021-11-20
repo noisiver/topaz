@@ -20,6 +20,7 @@ zones[tpz.zone.NEWTON_MOVALPOLOS] =
         LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
         CONQUEST_BASE           = 7049, -- Tallying conquest results...
         COME_CLOSER             = 7230, -- H0000! C0mE cL0SEr! C0mE cL0SEr! CAn'T TrAdE fr0m S0 fAr AwAy!
+        ITEM_EXPLODES           = 7234, -- The <item> ignites... </n> .. and explodes!
         MINING_IS_POSSIBLE_HERE = 7238, -- Mining is possible here if you have <item>.
         CHEST_UNLOCKED          = 7253, -- You unlock the chest!
         SHOWMAN_DECLINE         = 7264, -- ... Me no want that. Thing me want not here! It not being here!!!
