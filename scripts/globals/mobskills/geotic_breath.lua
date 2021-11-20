@@ -14,11 +14,9 @@ require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if mob:hasStatusEffect(tpz.effect.INVINCIBLE) then
+	if not target:isInfront(mob, 128) then
         return 1
-    elseif not target:isInfront(mob, 128) then
-        return 1
-    elseif mob:AnimationSub() ~= 0 then
+    elseif mob:AnimationSub() == 1 then
         return 1
     end
 
@@ -27,7 +25,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.EARTH, 750)
-    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.9)
+    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.25)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.EARTH, MOBPARAM_IGNORE_SHADOWS)
 
