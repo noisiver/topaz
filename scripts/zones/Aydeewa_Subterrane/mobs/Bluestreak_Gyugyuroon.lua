@@ -28,6 +28,7 @@ local path = {
 	-543, 17, -176,
 
 }
+
 function onMobSpawn(mob)
 	mob:setMod(tpz.mod.UDMGMAGIC, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 0)
@@ -38,8 +39,14 @@ function onMobFight(mob, target)
 		mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10)
 	end
 	
+ local Pos = mob:getPos()
+	if Pos.x == -543 and Pos.y == 17 and Pos.z == -176 then
+        mob:SetAutoAttackEnabled(true)
+    end
+	
 	if mob:getHPP() <= 25 then
-		mob:pathThrough(path, tpz.path.flag.RUN)
+		mob:pathTo(-543, 17, -176)
+		mob:SetAutoAttackEnabled(false)
 	end
 end
 
