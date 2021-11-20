@@ -28,24 +28,25 @@ local path = {
 	-543, 17, -176,
 
 }
+
 function onMobSpawn(mob)
 	mob:setMod(tpz.mod.UDMGMAGIC, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 0)
-	mob:delRoamFlag(512)
 end
 
 function onMobFight(mob, target)
 	if mob:checkDistance(target)  <= 5 then
-	mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10)
+		mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10)
 	end
 	
+ local Pos = mob:getPos()
+	if Pos.x == -543 and Pos.y == 17 and Pos.z == -176 then
+        mob:SetAutoAttackEnabled(true)
+    end
+	
 	if mob:getHPP() <= 25 then
-		mob:addRoamFlag(512) -- ignore attacking
-		if not mob:isFollowingPath() then
-			mob:disengage()
-			-- mob:pathThrough(path, tpz.path.flag.RUN)
-			tpz.path.patrolsimple(mob, path, tpz.path.flag.RUN)
-		end
+		mob:pathTo(-543, 17, -176)
+		mob:SetAutoAttackEnabled(false)
 	end
 end
 
