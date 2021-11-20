@@ -12,7 +12,7 @@ end
 
 function onSpellCast(caster, target, spell)
     --doNinjutsuNuke(V, M, caster, spell, target, hasMultipleTargetReduction, resistBonus)
-    local duration = 15 + caster:getMerit(tpz.merit.KATON_EFFECT) -- T1 bonus debuff duration
+    local duration = 30 + caster:getMerit(tpz.merit.KATON_EFFECT) -- T1 bonus debuff duration
     local bonusAcc = 0
     local bonusMab = caster:getMerit(tpz.merit.KATON_EFFECT) -- T1 mag atk
 
