@@ -33,4 +33,5 @@ end
 
 function onMobDeath(mob, player, isKiller)
     mob:showText(mob, mob:getLocalVar("chat"))
+	DespawnMob(GetMobByID(mob:getID()+1))
 end

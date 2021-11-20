@@ -46,4 +46,7 @@ end
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 489)
+    DespawnMob(TigerOne)
+    DespawnMob(TigerTwo)
+    DespawnMob(TigerThree)
 end
