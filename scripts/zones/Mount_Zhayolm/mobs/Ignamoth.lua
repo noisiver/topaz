@@ -4,11 +4,15 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
 
 function onMobInitialize(mob)
-    mob:addMod(tpz.mod.ATTP, 50) 
-    mob:addMod(tpz.mod.DEFP, 50) 
+	mob:setDamage(250)
+    mob:addMod(tpz.mod.DEFP, 100) 
     mob:addMod(tpz.mod.EVA, 25)
     mob:addMod(tpz.mod.ACC, 25) 	
     -- immune: bind grav sleep para
@@ -17,8 +21,7 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.BINDRESTRAIT, 100)
     mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
     mob:setMod(tpz.mod.PARALYZERESTRAIT, 100)
-
-    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)    mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
+  	mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
     mob:setMod(tpz.mod.REGAIN, 200)
 end
 

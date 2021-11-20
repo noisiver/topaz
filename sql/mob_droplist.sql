@@ -11432,10 +11432,10 @@ INSERT INTO `mob_droplist` VALUES (2184,2,0,1000,936,0);
 INSERT INTO `mob_droplist` VALUES (2184,0,0,1000,936,110);
 INSERT INTO `mob_droplist` VALUES (2184,0,0,1000,4400,100);
 INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,868,100);
-INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,1274,1000);
-INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,4484,1000);
-INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,4484,1000);
-INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,4484,1000);
+INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,1274,1000); -- (Sea Hog) Soujthern Pearl
+INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,4484,1000); -- Shall shell
+INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,4484,1000); -- Shall shell
+INSERT INTO `mob_droplist` VALUES (2185,0,0,1000,4484,1000); -- Shall shell
 INSERT INTO `mob_droplist` VALUES (2186,0,0,1000,4484,80);
 INSERT INTO `mob_droplist` VALUES (2186,0,0,1000,14122,100);
 INSERT INTO `mob_droplist` VALUES (2187,0,0,1000,4484,960);
@@ -15916,7 +15916,7 @@ INSERT INTO `mob_droplist` VALUES (3024,0,0,1000,3552,50); -- (Drachenlizard) Sq
 INSERT INTO `mob_droplist` VALUES (3024,0,0,1000,4362,150); -- (Drachenlizard) Lizard Egg
 INSERT INTO `mob_droplist` VALUES (3025,0,0,1000,816,100); -- (Champion Crawler) Silk Thread
 INSERT INTO `mob_droplist` VALUES (3025,0,0,1000,3550,50); -- (Champion Crawler) Wyrdstrand
-INSERT INTO `mob_droplist` VALUES (3026,0,0,1000,19232,150);
+INSERT INTO `mob_droplist` VALUES (3026,0,0,1000,19232,100); -- (Ignamoth) Octant
 INSERT INTO `mob_droplist` VALUES (3027,0,0,1000,19277,100); -- (Ankabut) Tsugumi
 INSERT INTO `mob_droplist` VALUES (3028,0,0,1000,11529,240); -- (Kegpaunch Doshgnosh) Frugal Cape
 INSERT INTO `mob_droplist` VALUES (3029,0,0,1000,2820,150); -- (Drumskull Zogdregg) Aptant: Geoc

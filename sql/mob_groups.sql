@@ -11330,7 +11330,7 @@ INSERT INTO `mob_groups` VALUES (32,3442,176,'Sahagins_Wyvern',0,128,0,0,0,58,60
 INSERT INTO `mob_groups` VALUES (33,476,176,'Blubber_Eyes',600,0,316,0,0,55,58,0);
 INSERT INTO `mob_groups` VALUES (34,3336,176,'Razorjaw_Pugil',600,0,2080,0,0,57,60,0);
 INSERT INTO `mob_groups` VALUES (35,4377,176,'Worr_the_Clawfisted',0,32,2673,35000,0,83,85,0);
-INSERT INTO `mob_groups` VALUES (36,3521,176,'Sea_Hog',0,32,2185,8000,0,62,62,0);
+INSERT INTO `mob_groups` VALUES (36,3521,176,'Sea_Hog',0,32,2185,8000,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (37,4250,176,'Voll_the_Sharkfinned',0,32,2588,35000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (38,2764,176,'Mousse',600,0,15,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (39,4309,176,'Water_Elemental',600,4,2629,0,0,65,68,0);

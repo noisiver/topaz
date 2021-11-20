@@ -3489,8 +3489,8 @@ INSERT INTO `mob_skill_lists` VALUES ('NM_Rocs',1004,924); -- Dread Dive
 -- INSERT INTO `mob_skill_lists` VALUES ('NM_Rocs',1004,925); -- Feather Barrier (For now using 402. Retail data needed. Diff is likely animation time.)
 INSERT INTO `mob_skill_lists` VALUES ('NM_Rocs',1004,926); -- Stormwind
 INSERT INTO `mob_skill_lists` VALUES ('Nargun',1005,677); -- Thunder Break
-INSERT INTO `mob_skill_lists` VALUES ('Ignamoth',1006,1952);
-INSERT INTO `mob_skill_lists` VALUES ('Ignamoth',1006,1956);
+INSERT INTO `mob_skill_lists` VALUES ('Ignamoth',1006,1952); -- erratic_flutter
+INSERT INTO `mob_skill_lists` VALUES ('Ignamoth',1006,1956); -- fire_break
 INSERT INTO `mob_skill_lists` VALUES ('Ankabut',1007,704);
 INSERT INTO `mob_skill_lists` VALUES ('White_Coney',1008,323); -- only Wild Carrot
 INSERT INTO `mob_skill_lists` VALUES ('Ophiotaurus',1009,2922); -- Soulshattering Roar
