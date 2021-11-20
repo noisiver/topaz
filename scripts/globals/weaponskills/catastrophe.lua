@@ -40,7 +40,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
     if not target:isUndead() then
-        local drain = math.floor(damage * 0.4)
+        local drain = math.floor(damage * (math.random(30, 70) / 100))
         player:addHP(drain)
     end
 

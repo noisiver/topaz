@@ -42,7 +42,7 @@ function changeForm(mob)
     elseif (newform == 1) then -- Sword Form, ~2s delay, melee hits for ~50-100 vs WHM/BLM w/o buffs, 40 DMG seems to work.
         mob:SetMagicCastingEnabled(false)
         mob:setDamage(40)
-		mob:setMod(tpz.mod.HASTE_MAGIC, 2500)
+		mob:setMod(tpz.mod.HASTE_MAGIC, 3000)
     elseif (newform == 2) then -- Polearm Form, ~3-3.5s delay, melee hits for ~100-150.  Takes about 70-80 DMG to make this happen.
         mob:SetMagicCastingEnabled(false)
         mob:setDamage(75)

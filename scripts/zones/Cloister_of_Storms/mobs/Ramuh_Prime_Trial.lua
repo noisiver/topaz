@@ -34,7 +34,15 @@ end
 end
 
 function onAdditionalEffect(mob, target, damage)
-return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER, {chance = 100, power = 250})
+	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER, {chance = 100, power = 250})
+end
+
+function onSpellPrecast(mob, spell)
+    if spell:getID() == 252 then -- Stun
+        spell:setAoE(tpz.magic.aoe.RADIAL)
+        spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
+        spell:setRadius(10)
+	end
 end
 
 function onMobDeath(mob, player, isKiller)

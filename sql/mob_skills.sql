@@ -635,8 +635,8 @@ INSERT INTO `mob_skills` VALUES (693,434,'perfect_dodge',0,7.0,2000,0,1,2,0,0,0,
 INSERT INTO `mob_skills` VALUES (694,438,'invincible',0,7.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (695,439,'blood_weapon',0,7.0,2000,0,1,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (696,438,'soul_voice',0,7.0,2000,0,1,2,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (697,441,'berserk',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (698,442,'defender',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (697,441,'berserk_ja',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (698,442,'defender',0,7.0,2000,1500,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (699,443,'aggressor',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (700,444,'boost',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (701,445,'focus',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -925,7 +925,7 @@ INSERT INTO `mob_skills` VALUES (983,672,'abyssal_strike',0,10,2000,500,4,0,0,0,
 INSERT INTO `mob_skills` VALUES (984,685,'electrocharge',0,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (985,686,'stellar_burst',2,10.0,5000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (986,687,'vortex',2,15.0,5000,1000,4,0,0,0,0,0,0);
---INSERT INTO `mob_skills` VALUES (987,731,'shockwave',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (987,688,'shockwave_zeid',1,10.0,2000,0,4,0,0,0,5,0,0);
 INSERT INTO `mob_skills` VALUES (988,689,'eald2_warp_in',0,22.0,500,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (989,690,'eald2_warp_out',0,22.0,500,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (990,691,'gaea_stream_eta',0,15.0,4000,1500,4,0,0,0,0,0,0);
@@ -1236,7 +1236,7 @@ INSERT INTO `mob_skills` VALUES (1294,658,'gregale_wing_air',1,30.0,2000,1500,4,
 INSERT INTO `mob_skills` VALUES (1295,659,'absolute_terror',0,18.0,4000,1500,4,8,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1296,660,'horrid_roar_3',0,18.0,4000,1500,4,8,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1297,1041,'ocher_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1298,966,'ochre_blast_alt',0,40.0,2000,0,4,16,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1298,966,'ochre_blast_alt',0,40.0,0,0,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1299,653,'typhoon_wing',1,30.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1300,654,'spike_flail',1,23.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1301,965,'geotic_breath',4,18.0,2000,1500,4,0,0,0,0,0,0);

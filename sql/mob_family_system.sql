@@ -332,7 +332,7 @@ INSERT INTO `mob_family_system` VALUES (267,'GuivreWyvern',10,'Dragon',1,60,115,
 INSERT INTO `mob_family_system` VALUES (268,'Wyvern/Undead',10,'Dragon',1,40,109,90,1,2,1,3,6,3,3,1,3,1,3,1,1,1,1,0.5,1,0.875,1,1,1,0.375,1.25,8,1,0);
 INSERT INTO `mob_family_system` VALUES (269,'Xzomit',15,'Luminian',0,40,100,110,3,3,4,6,4,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1,1.3,1.3,1.3,1,1,0,1,0); -- Mom
 INSERT INTO `mob_family_system` VALUES (270,'Yagudo',7,'Beastmen',0,40,100,120,3,3,3,3,4,5,3,1,3,1,3,1,1,1,1,1.3,1.5,1,1,1.3,1.3,1.3,1.3,3,1,0);
-INSERT INTO `mob_family_system` VALUES (271,'Yovra',15,'Luminian',3,40,100,140,2,2,4,6,4,4,4,1,3,1,5,1,1,1,1,1,1,1,1.3,0.3,1,0.7,1.15,0,2,0);
+INSERT INTO `mob_family_system` VALUES (271,'Yovra',15,'Luminian',1,40,100,140,2,2,4,6,4,4,4,1,3,1,5,1,1,1,1,1,1,1,1.3,0.3,1,0.7,1.15,0,2,0);
 INSERT INTO `mob_family_system` VALUES (272,'Zdei',16,'Luminion',0,40,100,140,6,6,4,4,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,1,0);
 INSERT INTO `mob_family_system` VALUES (274,'KingV',20,'Vermin',3,40,100,120,4,3,4,3,3,6,5,3,2,3,3,1,1,1,1,1,1.25,1,1,1,0.875,1.25,0.875,4,2,0);
 INSERT INTO `mob_family_system` VALUES (273,'Serket',20,'Vermin',3,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1.3,1,1,1.3,0.50,1,1,4,258,0);
@@ -582,9 +582,11 @@ INSERT INTO `mob_family_system` VALUES (913,'AnimatedWeapon-Shield',18,'Unclassi
 INSERT INTO `mob_family_system` VALUES (914,'AnimatedWeapon-Staff',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (915,'Murgleis_Burtgang',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
 INSERT INTO `mob_family_system` VALUES (916,'Kogarasumaru',19,'Undead',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1.5,1,1,1,1.5,0,2,0);
-INSERT INTO `mob_family_system` VALUES (917,'Lilisette',13,'Humanoid',0,40,90,110,4,3,5,3,4,4,1,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (918,'Nagi',13,'Humanoid',0,40,90,110,4,2,6,2,2,5,5,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (919,'Raubahn',13,'Humanoid',0,40,90,110,5,5,5,5,4,5,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (917,'Lilisette',13,'Humanoid',0,40,100,110,4,3,5,3,4,4,1,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (918,'Nagi',13,'Humanoid',0,40,100,110,4,2,6,2,2,5,5,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (919,'Raubahn',13,'Humanoid',0,40,100,110,5,5,5,5,4,5,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (920,'Zeid',13,'Humanoid',0,40,100,110,1,4,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,1.3,0.5,0,2,0);
+INSERT INTO `mob_family_system` VALUES (921,'Iron_Eater',13,'Humanoid',0,40,100,110,1,3,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
 
 
 

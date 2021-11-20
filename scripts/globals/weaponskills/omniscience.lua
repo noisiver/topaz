@@ -23,25 +23,28 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local params = {}
     params.ftp100 = 2 params.ftp200 = 2 params.ftp300 = 2
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0
-    params.mnd_wsc = 0.3 params.chr_wsc = 0.0
+    params.mnd_wsc = 1 params.chr_wsc = 0.0
     params.ele = tpz.magic.ele.DARK
     params.skill = tpz.skill.STAFF
     params.includemab = true
 	params.enmityMult = 0.5
+	params.bonusmacc = 100
 
     if USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.mnd_wsc = 0.8
     end
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
+		if damage > 0 then player:trySkillUp(target, tpz.skill.STAFF, tpHits+extraHits) end
+		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
     -- Apply Aftermath
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.MYTHIC)
-
-    if damage > 0 then
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 50)
+    if damage > 0 and resist >= 0.5 then
         if not target:hasStatusEffect(tpz.effect.MAGIC_ATK_DOWN) then
             local duration = tp / 1000 * 60
-            target:addStatusEffect(tpz.effect.MAGIC_ATK_DOWN, 10, 0, duration)
+            target:addStatusEffect(tpz.effect.MAGIC_ATK_DOWN, 10, 0, duration * resist)
         end
     end
 

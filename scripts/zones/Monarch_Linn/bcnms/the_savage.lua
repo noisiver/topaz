@@ -2,8 +2,12 @@
 -- Area: Monarch Linn
 -- Name: The Savage
 -----------------------------------
+local ID = require("scripts/zones/Monarch_Linn/IDs")
+require("scripts/globals/common")
+require("scripts/globals/settings")
 require("scripts/globals/battlefield")
 require("scripts/globals/missions")
+require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
 

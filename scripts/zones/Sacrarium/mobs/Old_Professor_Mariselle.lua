@@ -30,6 +30,10 @@ function onMobSpawn(mob)
     end
 end
 
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+end
+
 function onMobEngaged(mob)
     mob:setLocalVar("teleport", os.time() + math.random(20, 30))
     mob:setLocalVar("spawntime", os.time() + 10)
@@ -41,11 +45,13 @@ function onMobFight(mob,target)
     if mob:getLocalVar("teleport") < os.time() then
         mob:setLocalVar("teleport", os.time() + math.random(20, 30))
         TeleportMob(mob, 5000)
+		mob:setPos(math.random(88, 112), -2, math.random(100, 131))
         for i = OP_Mariselle+1, OP_Mariselle+2 do
             local m = GetMobByID(i)
             if m:isSpawned() then
                 m:timer(1500, function(mob)
                     TeleportMob(mob, 7500)
+					mob:setPos(math.random(88, 112), -2, math.random(100, 131))
                 end)
             end
         end

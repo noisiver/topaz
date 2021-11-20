@@ -26,6 +26,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.skill = tpz.skill.STAFF
     params.includemab = true
 	params.enmityMult = 0.5
+	params.bonusmacc = 50
     -- 50/50 shot of being light or dark
     params.ele = tpz.magic.ele.LIGHT
     if math.random() < 0.5 then
@@ -37,5 +38,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
+		if damage > 0 then player:trySkillUp(target, tpz.skill.STAFF, tpHits+extraHits) end
+		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     return tpHits, extraHits, criticalHit, damage
 end

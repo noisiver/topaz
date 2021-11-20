@@ -5,6 +5,7 @@
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/promyvion")
+require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 

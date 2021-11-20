@@ -23,26 +23,26 @@ function onPath(mob)
     local MotherSeven = GetMobByID(16912792)
 	local mobId = mob:getID()
 	switch (mobId): caseof {
-		[16912485] = function() mob:pathTo(MotherOne:getXPos() + 0.15, MotherOne:getYPos(), MotherOne:getZPos() + 0.15) end,
-		[16912486] = function() mob:pathTo(MotherOne:getXPos() + 0.15, MotherOne:getYPos(), MotherOne:getZPos() + 0.15) end,
+		[16912485] = function() mob:pathTo(MotherOne:getXPos(), MotherOne:getYPos(), MotherOne:getZPos()) end,
+		[16912486] = function() mob:pathTo(MotherOne:getXPos(), MotherOne:getYPos(), MotherOne:getZPos()) end,
 		
-		[16912505] = function() mob:pathTo(MotherTwo:getXPos() + 0.15, MotherTwo:getYPos(), MotherTwo:getZPos() + 0.15) end,
-		[16912506] = function() mob:pathTo(MotherTwo:getXPos() + 0.15, MotherTwo:getYPos(), MotherTwo:getZPos() + 0.15) end,
+		[16912505] = function() mob:pathTo(MotherTwo:getXPos(), MotherTwo:getYPos(), MotherTwo:getZPos()) end,
+		[16912506] = function() mob:pathTo(MotherTwo:getXPos(), MotherTwo:getYPos(), MotherTwo:getZPos()) end,
 		
-		[16912522] = function() mob:pathTo(MotherThree:getXPos() + 0.15, MotherThree:getYPos(), MotherThree:getZPos() + 0.15) end,
-		[16912523] = function() mob:pathTo(MotherThree:getXPos() + 0.15, MotherThree:getYPos(), MotherThree:getZPos() + 0.15) end,
+		[16912522] = function() mob:pathTo(MotherThree:getXPos(), MotherThree:getYPos(), MotherThree:getZPos()) end,
+		[16912523] = function() mob:pathTo(MotherThree:getXPos(), MotherThree:getYPos(), MotherThree:getZPos()) end,
 		
-		[16912579] = function() mob:pathTo(MotherFour:getXPos() + 0.15, MotherFour:getYPos(), MotherFour:getZPos() + 0.15) end,
-		[16912580] = function() mob:pathTo(MotherFour:getXPos() + 0.15, MotherFour:getYPos(), MotherFour:getZPos() + 0.15) end,
+		[16912579] = function() mob:pathTo(MotherFour:getXPos(), MotherFour:getYPos(), MotherFour:getZPos()) end,
+		[16912580] = function() mob:pathTo(MotherFour:getXPos(), MotherFour:getYPos(), MotherFour:getZPos()) end,
 
-		[16912688] = function() mob:pathTo(MotherFive:getXPos() + 0.15, MotherFive:getYPos(), MotherFive:getZPos() + 0.15) end,
-		[16912689] = function() mob:pathTo(MotherFive:getXPos() + 0.15, MotherFive:getYPos(), MotherFive:getZPos() + 0.15) end,
+		[16912688] = function() mob:pathTo(MotherFive:getXPos(), MotherFive:getYPos(), MotherFive:getZPos()) end,
+		[16912689] = function() mob:pathTo(MotherFive:getXPos(), MotherFive:getYPos(), MotherFive:getZPos()) end,
 
-		[16912786] = function() mob:pathTo(MotherSix:getXPos() + 0.15, MotherSix:getYPos(), MotherSix:getZPos() + 0.15) end,
-		[16912787] = function() mob:pathTo(MotherSix:getXPos() + 0.15, MotherSix:getYPos(), MotherSix:getZPos() + 0.15) end,
+		[16912786] = function() mob:pathTo(MotherSix:getXPos(), MotherSix:getYPos(), MotherSix:getZPos()) end,
+		[16912787] = function() mob:pathTo(MotherSix:getXPos(), MotherSix:getYPos(), MotherSix:getZPos()) end,
 		
-		[16912793] = function() mob:pathTo(MotherSeven:getXPos() + 0.15, MotherSeven:getYPos(), MotherSeven:getZPos() + 0.15) end,
-		[16912794] = function() mob:pathTo(MotherSeven:getXPos() + 0.15, MotherSeven:getYPos(), MotherSeven:getZPos() + 0.15) end,
+		[16912793] = function() mob:pathTo(MotherSeven:getXPos(), MotherSeven:getYPos(), MotherSeven:getZPos()) end,
+		[16912794] = function() mob:pathTo(MotherSeven:getXPos(), MotherSeven:getYPos(), MotherSeven:getZPos()) end,
 	}
 end
 

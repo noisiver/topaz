@@ -13,15 +13,22 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	 return 0
+	local CurrentTP = mob:getTP()
+	mob:setLocalVar("TP", CurrentTP)
+		return 0
 end
-
 
 function onMobWeaponSkill(target, mob, skill)
     local dmgmod = 1
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.EARTH, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, MOBPARAM_IGNORE_SHADOWS)
-	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
-    skill:setMsg(tpz.msg.basic.HIT_DMG)
+	
+	local CurrentTP = mob:getLocalVar("TP")
+	local AddTP = CurrentTP + 100
+   target:addTP(20)
+   mob:addTP(AddTP)
+
+	
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
     return dmg
 end

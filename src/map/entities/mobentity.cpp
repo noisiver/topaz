@@ -352,17 +352,17 @@ uint16 CMobEntity::TPUseChance()
             return 0;
         }
 
-        if (health.tp == 3000)
+		if (health.tp == 3000 || (GetHPP() <= 25 && health.tp >= 1000))
         {
             return 10000;
         }
         else if (health.tp > 1999)
         {
-            return 24;
+            return 45;
         }
         else
         {
-            return 12;
+            return 20;
         }
     }
 

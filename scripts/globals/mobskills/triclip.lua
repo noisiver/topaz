@@ -26,16 +26,16 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
     
+	local typeEffect = tpz.effect.DEX_DOWN
+	local power = 10
+	local tick = 3
+	local duration = 120
+		
 	if (mob:getPool() == 5556) then -- Tikbalang 
 		local typeEffect = tpz.effect.MAX_HP_DOWN
 		local power = 50
 		local tick = 0
 		local duration = 30
-	else
-		local typeEffect = tpz.effect.DEX_DOWN
-		local power = 10
-		local tick = 3
-		local duration = 120
 	end
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)

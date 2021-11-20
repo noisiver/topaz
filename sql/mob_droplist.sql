@@ -1153,7 +1153,7 @@ INSERT INTO `mob_droplist` VALUES (187,0,0,1000,17305,50);
 INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1630,100);
 INSERT INTO `mob_droplist` VALUES (188,2,0,1000,1667,0);
 INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1667,1000);
-INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1880,170);
+INSERT INTO `mob_droplist` VALUES (188,0,0,1000,1880,150); -- Clustered Tar
 INSERT INTO `mob_droplist` VALUES (188,0,0,1000,17305,50);
 INSERT INTO `mob_droplist` VALUES (189,0,0,1000,853,100);
 INSERT INTO `mob_droplist` VALUES (189,4,0,1000,853,0); -- Raptor Skin(Despoil)
@@ -2974,9 +2974,9 @@ INSERT INTO `mob_droplist` VALUES (517,0,0,1000,880,220);
 INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1614,80);
 INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1639,10);
 INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1740,100);
-INSERT INTO `mob_droplist` VALUES (518,0,0,1000,886,167);   -- (Count_Bifrons) demon_skull
+INSERT INTO `mob_droplist` VALUES (518,0,0,1000,886,150);   -- (Count_Bifrons) demon_skull
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,902,240);   -- demon_horn
-INSERT INTO `mob_droplist` VALUES (518,0,0,1000,4875,83);   -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (518,0,0,1000,4875,240);   -- scroll_of_absorb-dex
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,16792,240); -- goshishos_scythe
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,18374,150); -- Mighty Sword
 INSERT INTO `mob_droplist` VALUES (519,1,1,50,1450,334); -- (THF Kindred NM) Lungo-Nango Jadeshell
@@ -3318,7 +3318,7 @@ INSERT INTO `mob_droplist` VALUES (579,2,0,1000,921,0);
 INSERT INTO `mob_droplist` VALUES (579,0,0,1000,921,460);
 INSERT INTO `mob_droplist` VALUES (579,0,0,1000,935,90);
 INSERT INTO `mob_droplist` VALUES (579,0,0,1000,1038,50);
-INSERT INTO `mob_droplist` VALUES (580,0,0,1000,4875,80);
+INSERT INTO `mob_droplist` VALUES (580,0,0,1000,4875,100); -- Scroll of Absorb-DEX
 INSERT INTO `mob_droplist` VALUES (580,0,0,1000,4883,100);
 INSERT INTO `mob_droplist` VALUES (581,0,0,1000,4373,100);
 INSERT INTO `mob_droplist` VALUES (581,0,0,1000,4374,240);
@@ -3859,7 +3859,7 @@ INSERT INTO `mob_droplist` VALUES (715,0,0,1000,3358,1000); -- Shrouded Bjijou
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,886,202);   -- (Duke_Haborym) demon_skull
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,902,240);   -- demon_horn
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,4111,10);   -- dark_cluster
-INSERT INTO `mob_droplist` VALUES (716,0,0,1000,4875,298);  -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (716,0,0,1000,4875,240);  -- scroll_of_absorb-dex
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,16786,317); -- barbarians_scythe
 INSERT INTO `mob_droplist` VALUES (717,1,1,50,1450,334); -- (DRK Kindred NM) Lungo-Nango Jadeshell
 INSERT INTO `mob_droplist` VALUES (717,1,1,50,1453,333); -- Montiont Silverpiece
@@ -3998,7 +3998,7 @@ INSERT INTO `mob_droplist` VALUES (741,0,0,1000,14887,100);
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,886,50);    -- (Eclipse_Demon) demon_skull
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,902,100);    -- demon_horn
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,2825,10);  -- square_of_cambric
-INSERT INTO `mob_droplist` VALUES (742,0,0,1000,4875,10);   -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (742,0,0,1000,4875,100);   -- scroll_of_absorb-dex
 INSERT INTO `mob_droplist` VALUES (743,0,0,1000,642,70);
 INSERT INTO `mob_droplist` VALUES (743,0,0,1000,736,30);
 INSERT INTO `mob_droplist` VALUES (743,0,0,1000,768,400);
@@ -7327,9 +7327,9 @@ INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,499,50); -- Gigas necklace
 INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,1434,190);
 INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,2385,10); -- Moldy buckler
 INSERT INTO `mob_droplist` VALUES (1414,0,0,1000,2386,50); -- Hoary battle horn
-INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,886,50);   -- (Judicator_Demon) demon_skull
+INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,886,50);   -- (Judicator Demon - Uleguerand Range) demon_skull
 INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,902,100);  -- demon_horn
-INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,4875,50);  -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (1415,0,0,1000,4875,100);  -- scroll_of_absorb-dex
 INSERT INTO `mob_droplist` VALUES (1416,2,0,1000,751,0); --(Judicator Demon)
 INSERT INTO `mob_droplist` VALUES (1416,4,0,1000,886,0); -- Demom Skull(Despoil)
 INSERT INTO `mob_droplist` VALUES (1416,4,0,1000,902,0); -- Demon Horn(Despoil)
@@ -9720,7 +9720,7 @@ INSERT INTO `mob_droplist` VALUES (1817,0,0,1000,5378,100);
 INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,1630,100);
 INSERT INTO `mob_droplist` VALUES (1818,2,0,1000,1667,0);
 INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,1667,970);
-INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,1880,330);
+INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,1880,150);
 INSERT INTO `mob_droplist` VALUES (1818,0,0,1000,17305,50);
 INSERT INTO `mob_droplist` VALUES (1819,4,0,1000,853,0); -- Raptor Skin(Despoil)
 INSERT INTO `mob_droplist` VALUES (1819,0,0,1000,853,100);
@@ -16715,8 +16715,9 @@ INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,17742,1000); -- Vorpal Sword(RD
 INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,16563,240); -- Rune Blade 24% 
 
 INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,18443,1000); -- Windslicer(GKT) 100%
-INSERT INTO `mob_droplist` VALUES (3178,0,0,1000,19376,240); -- Efunotachi  24% 
-
+INSERT INTO `mob_droplist` VALUES (3178,1,0,240,12742,500); -- Rune Bangles  24% 
+INSERT INTO `mob_droplist` VALUES (3178,1,0,240,17333,500); -- Rune Arrow  24% 
+ 
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,17744,1000); -- Brave Blade(PLD Sword) 100%
 INSERT INTO `mob_droplist` VALUES (3179,0,0,1000,16563,240); -- Rune Blade 24% 
 
@@ -16732,11 +16733,12 @@ INSERT INTO `mob_droplist` VALUES (3182,0,0,1000,17791,240); -- Rai Kunimitsu 24
 INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,17743,1000); -- Wightslayer(BLU Sword) 100%
 INSERT INTO `mob_droplist` VALUES (3183,0,0,1000,16563,240); -- Rune Blade 24% 
 
-INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,17742,1000); -- Vorpal Sword 100%
-INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,16563,240); -- Rune Blade 24% 
+INSERT INTO `mob_droplist` VALUES (3184,0,0,1000,18944,1000); -- Death Sickle 100%
+INSERT INTO `mob_droplist` VALUES (3184,1,0,240,21817,500); -- Rune Scythe 24% 
+INSERT INTO `mob_droplist` VALUES (3184,1,0,240,21661,500); -- Rune Algol 24% 
 
-INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,17742,1000); -- Vorpal Sword 100%
-INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,16563,240); -- Rune Blade 24% 
+INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,18492,1000); -- Sturdy Axe 100%
+INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,18206,240); -- Rune Chopper 24% 
 
 INSERT INTO `mob_droplist` VALUES (3186,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3186,0,0,1000,16563,240); -- Rune Blade 24% 

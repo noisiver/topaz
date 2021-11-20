@@ -7,9 +7,8 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 ------------------------------
 function onMobSpawn(mob)
-	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
-    mob:addMod(tpz.mod.ATTP, 100)
-    mob:addMod(tpz.mod.DEFP, 20) 
+	mob:setDamage(350) -- Hits for 400 crits for 600
+    mob:addMod(tpz.mod.DEFP, 25) 
 	mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMod(tpz.mod.MOVE, 12)

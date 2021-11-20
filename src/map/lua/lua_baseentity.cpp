@@ -14929,6 +14929,25 @@ inline int32 CLuaBaseEntity::stun(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: drawIn()
+ *  Purpose : Arbitraily let a mob draw in a player
+ *  Example : mob:drawIn(player)
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::drawIn(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isuserdata(L, 1));
+
+    CLuaBaseEntity* PEntity = Lunar<CLuaBaseEntity>::check(L, 1);
+    bool initial = lua_isnil(L, 2) ? true : lua_toboolean(L, 2);
+    if (m_PBaseEntity != nullptr && PEntity != nullptr)
+        battleutils::DrawIn((CBattleEntity*)PEntity->GetBaseEntity(), (CMobEntity*)m_PBaseEntity, initial);
+
+    return 0;
+}
+
+/************************************************************************
 *  Function: getPool()
 *  Purpose : Returns a Mob's Pool ID integer
 *  Example : if (mob:getPool() = 4006) then
@@ -15823,6 +15842,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,weaknessTrigger),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasPreventActionEffect),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,stun),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity, drawIn),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getPool),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getDropID),

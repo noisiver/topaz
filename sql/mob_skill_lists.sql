@@ -2265,7 +2265,7 @@ INSERT INTO `mob_skill_lists` VALUES ('King_Behemoth',479,633);
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,979); -- Power Slash
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,980); -- Freeze Bite
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,981); -- GroundStrike
-INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,52); -- Shockwave
+INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,987); -- Shockwave
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,982); -- Abyssal Drain
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,983); -- Abyssal strike
 INSERT INTO `mob_skill_lists` VALUES ('Zeid',480,1002); -- Summonshadows
@@ -4158,12 +4158,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Dahak',6051,650);
 INSERT INTO `mob_skill_lists` VALUES ('Dahak',6051,651);
 INSERT INTO `mob_skill_lists` VALUES ('Dahak',6051,1792);  -- Nullsong
 
---Tikbalang
 INSERT INTO `mob_skill_lists` VALUES ('Tikbalang',6052,498);  -- Triclip
 INSERT INTO `mob_skill_lists` VALUES ('Tikbalang',6052,502);  -- Mortal Ray
-
 INSERT INTO `mob_skill_lists` VALUES ('JettaturaOnly',6053,2828); -- Jettatura
-
 INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2071); -- dire_straight
 INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2072); -- earth_shatter
 INSERT INTO `mob_skill_lists` VALUES ('Boompadu',6054,2073); -- sinker_drill
@@ -4184,6 +4181,20 @@ INSERT INTO `mob_skill_lists` VALUES ('FragBombOnly',6059,1119); -- Frag Bomb
 INSERT INTO `mob_skill_lists` VALUES ('BellyDanceOnly',6060,1950); -- Bely Dance
 INSERT INTO `mob_skill_lists` VALUES ('AmorphicSpikesOnly',6061,1824); -- Armophic Spikes
 INSERT INTO `mob_skill_lists` VALUES ('FazeOnly',6062,1728); -- Armophic Spikes
+
+--Zeid Mythic
+INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,979); -- Power Slash
+INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,980); -- Freeze Bite
+INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,981); -- GroundStrike
+INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,987); -- Shockwave
+INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,982); -- Abyssal Drain
+INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,983); -- Abyssal strike
+
+--Iron Eater Mythic
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,80); -- Shield Break
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,83); -- Armor Break
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,88); -- Steel Cyclone
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythicSub50',6066,982); -- King's Justice
 
 
 -- Next available ID: 1148

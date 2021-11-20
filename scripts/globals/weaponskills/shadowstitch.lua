@@ -32,14 +32,13 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-	if damage > 0 then player:trySkillUp(target, tpz.skill.DAGGER, tpHits+extraHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+		if damage > 0 then player:trySkillUp(target, tpz.skill.DAGGER, tpHits+extraHits) end
+		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
-
-    if (damage > 0) then
-        local chance = (tp-1000) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0) > math.random() * 150
-        if (target:hasStatusEffect(tpz.effect.BIND) == false and chance) then
-            local duration = (30 + (tp/1000 * 5)) * applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
+	local resist =  applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0) 
+    if damage > 0 and resist >= 0.5 then
+        if (target:hasStatusEffect(tpz.effect.BIND) == false) then
+            local duration = (30 + (tp/1000 * 5)) * resist
             target:addStatusEffect(tpz.effect.BIND, 1, 0, duration)
         end
     end

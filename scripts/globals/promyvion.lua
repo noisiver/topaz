@@ -149,10 +149,10 @@ tpz.promyvion.setEmptyModel = function (mob)
         end,
         [241] = function()
             selectRandomModel({
-                [1] = 1117,
-                [2] = 1119,
-                [3] = 1120,
-                [4] = 1121
+                [1] = 1123,
+                [2] = 1124,
+                [3] = 1125,
+                [4] = 1126
             }, mob) -- Thinker
         end,
         [255] = function()

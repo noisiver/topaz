@@ -5,14 +5,21 @@
 -----------------------------------
 local ID = require("scripts/zones/The_Garden_of_RuHmet/IDs")
 require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
 function onMobEngaged(mob, target)
-	if mob:getMainJob() == tpz.job.DRG or mob:getMainJob() == tpz.job.SMN then
+	mob:SetMagicCastingEnabled(true)
+	if mob:getMainJob() == tpz.job.DRG or mob:getMainJob() == tpz.job.BST then
 		mob:spawnPet()
 	end
 end
 
+function onMobRoam(mob)
+	mob:SetMagicCastingEnabled(false)
+end
+
 function onMobSpawn(mob)
+	mob:SetMagicCastingEnabled(false)
     local IxAernDRG_PH = GetServerVariable("[SEA]IxAernDRG_PH") -- Should be be the ID of the mob that spawns the actual PH
 
     -- Pick the Ix'Aern (DRG) PH if the server doesn't have one, and the if the actual PH/NM isn't up. Then, set it.

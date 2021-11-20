@@ -1,9 +1,9 @@
 -----------------------------------
--- Area: Rolanberry Fields
+-- Area: Riverne - Site A01
 --  Mob: Flame Drake
 -- Note: PH for Aiatar
 -----------------------------------
-local ID = require("scripts/zones/Rolanberry_Fields/IDs")
+local ID = require("scripts/zones/Riverne-Site_A01/IDs")
 require("scripts/globals/mobs")
 -----------------------------------
 

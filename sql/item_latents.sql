@@ -262,8 +262,11 @@ INSERT INTO `item_latents` VALUES(12461, 369, 1, 13, 4);
 INSERT INTO `item_latents` VALUES(12589, 370, 2, 13, 3);
 INSERT INTO `item_latents` VALUES(12621, 370, 2, 13, 3);
 INSERT INTO `item_latents` VALUES(12717, 71, 5, 13, 6);
-INSERT INTO `item_latents` VALUES(12742, 1, 32, 56, 0);     -- Rune Bangles +32 Def.
-INSERT INTO `item_latents` VALUES(12742, 68, 5, 56, 0);     -- Rune Bangles +5 Eva.
+-- -------------------------------------------------------
+-- Rune Bangles
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(12742, 1, 42, 56, 0);     -- Rune Bangles +42 Def.
+INSERT INTO `item_latents` VALUES(12742, 68, 15, 56, 0);     -- Rune Bangles +15 Eva.
 INSERT INTO `item_latents` VALUES(12742, 369, -4, 56, 0);   -- Rune Bangles -4MP/tic
 INSERT INTO `item_latents` VALUES(12751, 71, 4, 13, 6);
 
@@ -1989,8 +1992,11 @@ INSERT INTO `item_latents` VALUES(16367, 8, 4, 52, 1);      -- cumulative STR+5 
 INSERT INTO `item_latents` VALUES(16378, 14, 1, 26, 1);     -- CHR+1 during Nighttime
 INSERT INTO `item_latents` VALUES(16378, 27, -1, 0, 75);    -- Enmity-1 when HP <75%
 
-INSERT INTO `item_latents` VALUES(16408, 8, 7, 56, 0);      -- Rune Baghnakhs +7 STR
-INSERT INTO `item_latents` VALUES(16408, 291, 1, 56, 0);    -- Rune Baghnakhs +1 Counter
+-- -------------------------------------------------------
+-- Rune Baghnakhs
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(16408, 8, 17, 56, 0);      -- Rune Baghnakhs +7 STR
+INSERT INTO `item_latents` VALUES(16408, 291, 11, 56, 0);    -- Rune Baghnakhs +1 Counter
 INSERT INTO `item_latents` VALUES(16408, 369, -4, 56, 0);   -- Rune Baghnakhs -4MP/tic
 
 -- -------------------------------------------------------
@@ -2021,8 +2027,11 @@ INSERT INTO `item_latents` VALUES(16427,25,9,37,6);         -- Acc+9 Last Quarte
 INSERT INTO `item_latents` VALUES(16427,25,15,37,4);        -- Acc+15 Full Moon
 
 
-INSERT INTO `item_latents` VALUES(16563, 9, 5, 56, 0);      -- Rune Blade +5 DEX
-INSERT INTO `item_latents` VALUES(16563, 366, 4, 56, 0);    -- Rune Blade DMG: 43
+-- -------------------------------------------------------
+-- Rune Blade
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(16563, 9, 15, 56, 0);      -- Rune Blade +15 DEX
+INSERT INTO `item_latents` VALUES(16563, 366, 14, 56, 0);    -- Rune Blade DMG: 53
 INSERT INTO `item_latents` VALUES(16563, 369, -4, 56, 0);   -- Rune Blade -4MP/tic
 
 -- -------------------------------------------------------
@@ -2061,6 +2070,9 @@ INSERT INTO `item_latents` VALUES(16605, 25, 8, 13, 279);
 INSERT INTO `item_latents` VALUES(16605, 25, 8, 13, 280);
 INSERT INTO `item_latents` VALUES(16605, 25, 8, 13, 281);
 INSERT INTO `item_latents` VALUES(16605, 25, 8, 13, 282);
+-- -------------------------------------------------------
+-- Rune Axe
+-- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(16647, 23, 5, 56, 0);     -- Rune Axe +5 Atk.
 INSERT INTO `item_latents` VALUES(16647, 369, -3, 56, 0);   -- Rune Axe -3MP/tic
 INSERT INTO `item_latents` VALUES(16647, 370, 5, 56, 0);    -- Rune Axe +5HP/tic
@@ -2132,15 +2144,24 @@ INSERT INTO `item_latents` VALUES(16976, 23, 18, 6, 1000);  -- Attack+18 while T
 INSERT INTO `item_latents` VALUES(16976, 25, 5, 6, 1000);   -- Accuracy+5 while TP <100%
 INSERT INTO `item_latents` VALUES(16976, 366, 6, 6, 1000);  -- DMG+6 while TP <100%
 
+-- -------------------------------------------------------
+-- Mistilteinn
+-- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(17073, 369, 1, 7, 2);     -- Mistilteinn adds Refresh 1MP per tick
 INSERT INTO `item_latents` VALUES(17073, 406, 30, 7, 2);    -- Mistilteinn drains 30TP if TP >= 30
-INSERT INTO `item_latents` VALUES(17093, 12, 2, 56, 0);     -- Rune Staff +2 INT
-INSERT INTO `item_latents` VALUES(17093, 13, 2, 56, 0);     -- Rune Staff +2 MND
-INSERT INTO `item_latents` VALUES(17093, 14, 2, 56, 0);     -- Rune Staff +2 CHR
-INSERT INTO `item_latents` VALUES(17093, 28, 1, 56, 0);     -- Rune Staff +1 MAB
+-- -------------------------------------------------------
+-- Rune Staff
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(17093, 12, 12, 56, 0);     -- Rune Staff +12 INT
+INSERT INTO `item_latents` VALUES(17093, 13, 12, 56, 0);     -- Rune Staff +12 MND
+INSERT INTO `item_latents` VALUES(17093, 14, 12, 56, 0);     -- Rune Staff +12 CHR
+INSERT INTO `item_latents` VALUES(17093, 28, 20, 56, 0);     -- Rune Staff +20 MAB
 INSERT INTO `item_latents` VALUES(17093, 369, -4, 56, 0);   -- Rune Staff -4MP/tic
-INSERT INTO `item_latents` VALUES(17158, 26, 5, 56, 0);     -- Rune Bow +5 R. Acc.
-INSERT INTO `item_latents` VALUES(17158, 27, -2, 56, 0);    -- Rune Bow -2 Enmity
+-- -------------------------------------------------------
+-- Rune Bow
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(17158, 26, 15, 56, 0);     -- Rune Bow +15 R. Acc.
+INSERT INTO `item_latents` VALUES(17158, 27, -12, 56, 0);    -- Rune Bow -12 Enmity
 INSERT INTO `item_latents` VALUES(17158, 369, -4, 56, 0);   -- Rune Bow -4MP/tic
 
 -- -------------------------------------------------------
@@ -2187,9 +2208,15 @@ INSERT INTO `item_latents` VALUES(17270, 24, 9, 53, 0);     -- RATT +9 in areas 
 
 INSERT INTO `item_latents` VALUES(17275, 165, 6, 47, 0);
 INSERT INTO `item_latents` VALUES(17275, 376, 13, 47, 0);
-INSERT INTO `item_latents` VALUES(17333, 10, 1, 56, 0);     -- Rune Arrow +1 VIT
-INSERT INTO `item_latents` VALUES(17333, 24, 10, 56, 0);    -- Rune Arrow +10 R.Atk.
+-- -------------------------------------------------------
+-- Rune Arrow
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(17333, 10, 11, 56, 0);     -- Rune Arrow +1 VIT
+INSERT INTO `item_latents` VALUES(17333, 24, 20, 56, 0);    -- Rune Arrow +10 R.Atk.
 INSERT INTO `item_latents` VALUES(17333, 369, -1, 56, 0);   -- Rune Arrow -1MP/tic
+-- -------------------------------------------------------
+-- Frenzy Fife
+-- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(17365, 8, 4, 25, 0);      -- Frenzy Fife, STR+4 song/roll active
 
 -- -------------------------------------------------------
@@ -2210,9 +2237,15 @@ INSERT INTO `item_latents` VALUES(17456, 2, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(17456, 5, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(17456, 57, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(17456, 59, -10, 47, 0);
-INSERT INTO `item_latents` VALUES(17461, 23, 10, 56, 0);    -- Rune Rod +10 Atk.
-INSERT INTO `item_latents` VALUES(17461, 112, 6, 56, 0);    -- Rune Rod +6 Healing Magic Skill
+-- -------------------------------------------------------
+-- Rune Rod
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(17461, 23, 20, 56, 0);    -- Rune Rod +20 Atk.
+INSERT INTO `item_latents` VALUES(17461, 112, 16, 56, 0);    -- Rune Rod +16 Healing Magic Skill
 INSERT INTO `item_latents` VALUES(17461, 369, -4, 56, 0);   -- Rune Rod -4MP/tic
+-- -------------------------------------------------------
+-- Mighty Cudgel
+-- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(17465, 12, 9, 28, 0);     -- Mighty Cudgel INT+9 on Firesday (has 1 base INT to total +9)
 INSERT INTO `item_latents` VALUES(17465, 13, 9, 28, 0);     -- Mighty Cudgel MND+9 on Firesday (has 1 base MND to total +9)
 INSERT INTO `item_latents` VALUES(17465, 54, 15, 28, 0);    -- [Element: Fire]+15
@@ -2587,10 +2620,16 @@ INSERT INTO `item_latents` VALUES(18073, 23, 9, 53, 0);     -- ATT +9 in areas o
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(18075, 8, 2, 26, 2);      -- Dusk - Dawn: STR +2
 
-INSERT INTO `item_latents` VALUES(18084, 9, 6, 56, 0);      -- Rune Halberd +6 DEX
-INSERT INTO `item_latents` VALUES(18084, 288, 5, 56, 0);    -- Rune Halberd +5% Dbl.Atk.
+-- -------------------------------------------------------
+-- Rune Halberd
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(18084, 9, 16, 56, 0);      -- Rune Halberd +16 DEX
+INSERT INTO `item_latents` VALUES(18084, 288, 15, 56, 0);    -- Rune Halberd +15% Dbl.Atk.
 INSERT INTO `item_latents` VALUES(18084, 369, -3, 56, 0);   -- Rune Halberd -3MP/tic
 
+-- -------------------------------------------------------
+-- Mighty lance
+-- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(18091, 54, 15, 28, 0);    -- [Element: Fire]+15
 INSERT INTO `item_latents` VALUES(18091, 366, 12, 28, 0);   -- Mighty Lance DMG+12 on Firesday
 INSERT INTO `item_latents` VALUES(18097, 165, 6, 47, 0);
@@ -3410,8 +3449,11 @@ INSERT INTO `item_latents` VALUES(20483, 976, 5, 13, 60);   -- Guard +5% if Dodg
 -- INSERT INTO `item_latents` VALUES(21525, 26, 40, ??, 0); -- Pitre Fists: Dynamis (D): Automaton: Ranged Accuracy+40
 -- INSERT INTO `item_latents` VALUES(21525, 30, 10, ??, 0); -- Pitre Fists: Dynamis (D): Magic Accuracy+10
 -- INSERT INTO `item_latents` VALUES(21525, 30, 40, ??, 0); -- Pitre Fists: Dynamis (D): Automaton: Magic Accuracy+40
-INSERT INTO `item_latents` VALUES(21558,11,5,56,0);         -- Rune Kris: Agi+5     MP>0
-INSERT INTO `item_latents` VALUES(21558,73,5,56,0);         -- Rune Kris: StoreTP+5 MP>0
+-- -------------------------------------------------------
+-- Rune Kris
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(21558,11,15,56,0);         -- Rune Kris: Agi+15     MP>0
+INSERT INTO `item_latents` VALUES(21558,73,15,56,0);         -- Rune Kris: StoreTP+15 MP>0
 INSERT INTO `item_latents` VALUES(21558,369,-3,56,0);       -- Rune Kris: Refresh-3 MP>0
 -- INSERT INTO `item_latents` VALUES(21573, 25, 10, ??, 0); -- Assassin's Knife: Dynamis (D): Accuracy+10
 -- INSERT INTO `item_latents` VALUES(21573, 30, 10, ??, 0); -- Assassin's Knife: Dynamis (D): Magic Accuracy+10
@@ -3447,9 +3489,9 @@ INSERT INTO `item_latents` VALUES(21558,369,-3,56,0);       -- Rune Kris: Refres
 -- INSERT INTO `item_latents` VALUES(21631, 30, 10, ??, 0); -- Mirage Sword: (D): Magic Accuracy+10
 -- INSERT INTO `item_latents` VALUES(21632, 25, 10, ??, 0); -- Luhlaza Sword: (D): Accuracy+10
 -- INSERT INTO `item_latents` VALUES(21632, 30, 10, ??, 0); -- Luhlaza Sword: (D): Magic Accuracy+10
-INSERT INTO `item_latents` VALUES(21661, 10, 5, 56, 0);     -- Rune Algol: Latent effect (MP>0): VIT+5
+INSERT INTO `item_latents` VALUES(21661, 10, 15, 56, 0);     -- Rune Algol: Latent effect (MP>0): VIT+15
 INSERT INTO `item_latents` VALUES(21661, 369, -3, 56, 0);   -- Rune Algol: Drains 3 MP/tic from player (while weapon is drawn).
-INSERT INTO `item_latents` VALUES(21661, 840, 1, 56, 0);    -- Rune Algol: Latent effect (MP>0): Weapon skill damage +1%
+INSERT INTO `item_latents` VALUES(21661, 840, 11, 56, 0);    -- Rune Algol: Latent effect (MP>0): Weapon skill damage +1%
 -- INSERT INTO `item_latents` VALUES(21667, 25, 10, ??, 0); -- Futhark Claymore: (D): Accuracy+10
 -- INSERT INTO `item_latents` VALUES(21667, 30, 10, ??, 0); -- Futhark Claymore: (D): Magic Accuracy+10
 -- INSERT INTO `item_latents` VALUES(21668, 25, 10, ??, 0); -- Peord Claymore: (D): Accuracy+10
@@ -3478,8 +3520,8 @@ INSERT INTO `item_latents` VALUES(20510, 976, 5, 13, 60);   -- Guard +5% if Dodg
 -- -------------------------------------------------------
 -- Rune Scythe
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(21817, 2, 10, 56, 0);     -- HP+10
-INSERT INTO `item_latents` VALUES(21817, 165, 5, 56, 0);    -- Critical hit rate +5
+INSERT INTO `item_latents` VALUES(21817, 2, 20, 56, 0);     -- HP+20
+INSERT INTO `item_latents` VALUES(21817, 165, 15, 56, 0);    -- Critical hit rate +15
 INSERT INTO `item_latents` VALUES(21817, 369, -3, 56, 0);   -- Drains 3 MP/tic from player
 
 -- INSERT INTO `item_latents` VALUES(21823, 25, 10, ??, 0); -- Abyss Scythe: (D): Accuracy+10

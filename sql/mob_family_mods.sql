@@ -40,7 +40,7 @@ LOCK TABLES `mob_family_mods` WRITE;
 --INSERT INTO `mob_family_mods` VALUES (175,29,50,0);
 INSERT INTO `mob_family_mods` VALUES (4,29,20,0);
 INSERT INTO `mob_family_mods` VALUES (4,7,60,1);
-INSERT INTO `mob_family_mods` VALUES (74,29,25,0);
+INSERT INTO `mob_family_mods` VALUES (74,29,25,0); -- Corse -25% MDT
 INSERT INTO `mob_family_mods` VALUES (61,29,25,0);
 INSERT INTO `mob_family_mods` VALUES (169,29,25,0); -- Kindred -25% MDT
 INSERT INTO `mob_family_mods` VALUES (110,29,13,0); -- Evil weapon 13% MDT
@@ -496,6 +496,12 @@ INSERT INTO `mob_family_mods` VALUES (506,240,75,0);	 -- Purpleflash Brukdok Sle
 
 -- Roaming mods
 SET @roam_distance = 31, @roam_cool = 36, @roam_turns = 51, @roam_rate = 52;
+
+-- Yovra
+INSERT INTO `mob_family_mods` VALUES (271,@roam_turns,3,1);
+INSERT INTO `mob_family_mods` VALUES (271,@roam_distance,15,1);
+INSERT INTO `mob_family_mods` VALUES (271,@roam_cool,35,1);
+INSERT INTO `mob_family_mods` VALUES (271,@roam_rate,30,1);
 
 -- Bugbear
 INSERT INTO `mob_family_mods` VALUES (59,@roam_distance,0,1);
