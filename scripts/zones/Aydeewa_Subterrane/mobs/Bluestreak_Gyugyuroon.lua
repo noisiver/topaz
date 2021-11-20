@@ -32,7 +32,7 @@ local path = {
 function onMobSpawn(mob)
 	mob:setMod(tpz.mod.UDMGMAGIC, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 0)
-	mob:delRoamFlag(512)
+	mob:SetAutoAttackEnabled(true)
 end
 
 function onMobFight(mob, target)
