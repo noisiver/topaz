@@ -4180,7 +4180,7 @@ INSERT INTO `mob_skill_lists` VALUES ('BlockHeadOnly',6058,368); -- Block Head
 INSERT INTO `mob_skill_lists` VALUES ('FragBombOnly',6059,1119); -- Frag Bomb
 INSERT INTO `mob_skill_lists` VALUES ('BellyDanceOnly',6060,1950); -- Bely Dance
 INSERT INTO `mob_skill_lists` VALUES ('AmorphicSpikesOnly',6061,1824); -- Armophic Spikes
-INSERT INTO `mob_skill_lists` VALUES ('FazeOnly',6062,1728); -- Armophic Spikes
+INSERT INTO `mob_skill_lists` VALUES ('FazeOnly',6062,1728); -- Faze
 
 --Zeid Mythic
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythic',6063,979); -- Power Slash
@@ -4195,6 +4195,9 @@ INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,80); -- Shield Brea
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,83); -- Armor Break
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,88); -- Steel Cyclone
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythicSub50',6066,982); -- King's Justice
+
+INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1963); -- Mind Blast
+INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1965); -- Immortal Shield
 
 
 -- Next available ID: 1148

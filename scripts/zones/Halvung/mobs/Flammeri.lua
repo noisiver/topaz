@@ -7,6 +7,10 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 ------------------------------
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+end
+
+function onMobSpawn(mob)
 	mob:setDamage(250) -- 350-450 on DD's
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ACC, 50) 

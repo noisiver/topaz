@@ -4588,6 +4588,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,162,1,255); -- Stone IV
 INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,167,1,255); -- Thunder IV
 INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,172,1,255); -- Water IV
 
+INSERT INTO `mob_spell_lists` VALUES ('Vidhuwa_The_Wrathborn',2017, 214, 1, 255); -- Flood
+
 
 
 
