@@ -35,16 +35,11 @@ end
 
 function onMobFight(mob, target)
 	if mob:checkDistance(target)  <= 5 then
-	mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10)
+		mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10)
 	end
 	
 	if mob:getHPP() <= 25 then
-		mob:addRoamFlag(512) -- ignore attacking
-		if not mob:isFollowingPath() then
-			mob:disengage()
-			-- mob:pathThrough(path, tpz.path.flag.RUN)
-			tpz.path.patrolsimple(mob, path, tpz.path.flag.RUN)
-		end
+		mob:pathThrough(path, tpz.path.flag.RUN)
 	end
 end
 
