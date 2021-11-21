@@ -18,7 +18,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.DOUBLE_ATTACK, 25) 
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 10)
 	mob:addTP(3000)
-	local order = mob:setLocalVar("order", 0)
+	mob:setLocalVar("order", 0)
 end
 
 function onMobInitialize(mob)
