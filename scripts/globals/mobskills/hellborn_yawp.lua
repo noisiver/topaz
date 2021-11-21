@@ -28,7 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:eraseStatusEffect()
 	end
 	if (mob:getPool() == 6737) then --Count Bifrons 
-		mob:addStatusEffect(tpz.effect.ABSORB_DAMAGE, 0, 100, 0, 30)
+		mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 3, 0, 30)
 	end
     return dmg
 end
