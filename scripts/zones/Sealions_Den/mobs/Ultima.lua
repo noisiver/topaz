@@ -24,28 +24,28 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+	local order = mob:setLocalVar("order", 0)
 end
 
 -- Ultima has a low likelyhood of using particle shield during phase 1 (Compared to his other abilities)
 function onMobWeaponSkillPrepare(mob, target)
+
     if mob:getHPP() < 20 then
 
         local order = mob:getLocalVar("order")       
         
         if order == 0 then
             mob:setLocalVar("order", 1)
-			return 0
-         elseif order == 1 then
+            return 1270
+        elseif order == 1 then
             mob:setLocalVar("order", 2)
-             return 1270  
-        elseif order == 2 then
-            mob:setLocalVar("order", 3)
-             return 1260  
-        elseif order == 3 then
-            mob:setLocalVar("order", 1)
-             return 1260  
+            return 1260    
+        else
+            mob:setLocalVar("order", 0)
+            return 1260  
         end
     end
+
 
 end
 
