@@ -42,6 +42,7 @@ function onMonsterAbilityPrepare(mob)
         return ({1259, 1269, 1270})[math.random(1, 3)]
     elseif hpp >= 40 then
         mob:queue(500, function(mob)
+			mob:setMod(tpz.mod.REGAIN, 3000)
             mob:useMobAbility(({1262,1263,1264,1265,1266,1267})[math.random(1,6)])
         end)
         return 1268
