@@ -2,7 +2,14 @@
 -- Area: Mount Zhayolm
 --   NM: Garharlor_the_Unruly
 -----------------------------------
+mixins = {
+require("scripts/mixins/weapon_break")
+require("scripts/mixins/job_special")
+}
 -----------------------------------
+function onMobSpawn(mob)
+     mob:setMod(tpz.mod.REFRESH, 400)
+end
 
 function onMobDeath(mob)
 	if isKiller  then 

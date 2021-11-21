@@ -2912,7 +2912,7 @@ INSERT INTO `mob_groups` VALUES (39,910,61,'Dark_Bugler',0,128,0,0,0,86,88,0);
 INSERT INTO `mob_groups` VALUES (40,914,61,'Dark_Esquire',0,128,569,0,0,86,88,0);
 INSERT INTO `mob_groups` VALUES (41,1215,61,'Energetic_Eruca',0,32,770,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (42,1468,61,'Garharlor_the_Unruly',3600,0,929,35000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (43,1460,61,'Garfurlar_the_Rabid',3600,0,929,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (43,1460,61,'Garfurlar_the_Rabid',3600,0,0,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (44,1469,61,'Garhorlur_the_Brutal',3600,0,0,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (45,122,61,'Ancient_Bombs',0,128,84,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (46,524,61,'Brass_Borer',0,128,347,35000,0,85,87,0);
