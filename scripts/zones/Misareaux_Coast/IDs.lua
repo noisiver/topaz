@@ -40,6 +40,7 @@ zones[tpz.zone.MISAREAUX_COAST] =
         PM6_2_MOB_OFFSET = 16879893,
         BOGGELMANN       = 16879897,
         GRATION          = 16879899,
+        SPHEROID         = 16879893,
         ZIPHIUS          = 16879900,
 
     },
