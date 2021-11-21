@@ -4199,6 +4199,11 @@ INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythicSub50',6066,982); -- King'
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1963); -- Mind Blast
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1965); -- Immortal Shield
 
+INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,598); -- berserk
+INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,599); -- arctic_impact
+INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,600); -- cold_wave
+INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,601); -- hiemal_storm
+
 
 -- Next available ID: 1148
 
