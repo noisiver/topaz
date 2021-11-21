@@ -224,7 +224,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Likho',53,555);
 INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1533);
 INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1534);
 INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1535);
--- INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1536)
+INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1536)
 INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1537);
 INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1538);
 INSERT INTO `mob_skill_lists` VALUES ('Omega',54,1539);

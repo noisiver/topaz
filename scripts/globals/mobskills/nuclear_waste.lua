@@ -13,6 +13,12 @@ function onMobSkillCheck(target,mob,skill)
     -- skillList 727 = Proto-Omega
     -- skillList 728 = Ultima
     -- skillList 729 = Proto-Ultima
+    if ((skillList == 729 and phase >= 1 and phase <= 2) or (skillList == 728 and mobhp < 70 and mobhp >= 40)) then
+        if mob:getLocalVar("nuclearWaste") == 0 then
+            return 0
+        end
+    end
+	
     local skillList = mob:getMobMod(tpz.mobMod.SKILL_LIST)
     local mobhp = mob:getHPP()
     local phase = mob:getLocalVar("battlePhase")
@@ -22,12 +28,7 @@ function onMobSkillCheck(target,mob,skill)
 		else
 			return 1
 		end
-
-    if ((skillList == 729 and phase >= 1 and phase <= 2) or (skillList == 728 and mobhp < 70 and mobhp >= 40)) then
-        if mob:getLocalVar("nuclearWaste") == 0 then
-            return 0
-        end
-    end
+	end
 
     return 1
 end
