@@ -50,14 +50,8 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobFight(mob, target)
-    -- Gains regain at under 25% HP
-    if mob:getHPP() < 25 and not mob:hasStatusEffect(tpz.effect.REGAIN) then
-        mob:addStatusEffect(tpz.effect.REGAIN, 5, 3, 0)
-        mob:getStatusEffect(tpz.effect.REGAIN):setFlag(tpz.effectFlag.DEATH)
-    end
-
     if mob:getHPP() < 20 then
-        mob:setMod(tpz.mod.REGAIN, 500)
+        mob:setMod(tpz.mod.REGAIN, 150)
     end
 
 

@@ -38,15 +38,15 @@ function onMobFight(mob,target)
     if hpp <= 60 and speed < 1 then
         mob:setLocalVar("speed", 1)
 		mob:setMod(tpz.mod.HASTE_MAGIC, 1500)
-        mob:setMod(tpz.mod.REGAIN, 150)
+        mob:setMod(tpz.mod.REGAIN, 75)
     elseif hpp <= 25 and speed < 2 then
         mob:setLocalVar("speed", 2)
 		mob:setMod(tpz.mod.HASTE_MAGIC, 2500)
-        mob:setMod(tpz.mod.REGAIN, 200)
+        mob:setMod(tpz.mod.REGAIN, 100)
     elseif hpp <= 10 and speed < 3 then
         mob:setLocalVar("speed", 3)
 		mob:setMod(tpz.mod.HASTE_MAGIC, 5000)
-        mob:setMod(tpz.mod.REGAIN, 200)
+        mob:setMod(tpz.mod.REGAIN, 150)
     end
 end
 
