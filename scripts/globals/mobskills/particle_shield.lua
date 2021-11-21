@@ -12,9 +12,6 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.DEFENSE_BOOST) then
-		return 1
-	end
     local mobhp = mob:getHPP()
 
 	if mob:getPool() == 4083 then -- Ultima COP Mission

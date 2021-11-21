@@ -29,17 +29,6 @@ end
 
 -- Ultima has a low likelyhood of using particle shield during phase 1 (Compared to his other abilities)
 function onMobWeaponSkillPrepare(mob, target)
-    if mob:getHPP() > 75 then
-        local checker = math.random()
-        if checker < 0.50 then 
-            return 1259 
-        elseif checker < 0.75 then
-            return 1269
-        else
-            return 1270 
-        end
-    end
-
     if mob:getHPP() < 20 then
 
         local order = mob:getLocalVar("order")       
