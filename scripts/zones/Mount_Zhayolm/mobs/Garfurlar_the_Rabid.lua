@@ -3,7 +3,7 @@
 --   NM: Garfurlar_the_Rabid
 -----------------------------------
 mixins = {
-require("scripts/mixins/weapon_break")
+require("scripts/mixins/weapon_break"),
 require("scripts/mixins/job_special")
 }
 require("scripts/globals/pathfind")

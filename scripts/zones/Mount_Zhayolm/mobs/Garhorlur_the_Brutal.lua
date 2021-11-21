@@ -3,7 +3,7 @@
 --   NM: Garhorlur_the_Brutal
 -----------------------------------
 mixins = {
-require("scripts/mixins/weapon_break")
+require("scripts/mixins/weapon_break"),
 require("scripts/mixins/job_special")
 }
 require("scripts/globals/pathfind")

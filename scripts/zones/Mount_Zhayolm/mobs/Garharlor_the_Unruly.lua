@@ -4,7 +4,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Mount_Zhayolm/IDs")
 mixins = {
-require("scripts/mixins/weapon_break")
+require("scripts/mixins/weapon_break"),
 require("scripts/mixins/job_special")
 }
 -----------------------------------
