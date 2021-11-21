@@ -9,7 +9,7 @@ require("scripts/globals/msg");
 
 function onMobSpawn(mob)
 	mob:addMod(tpz.mod.DEFP, 20) 
-	mob:addMod(tpz.mod.ATTP, 100)
+	mob:addMod(tpz.mod.ATTP, 25)
 	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
 	mob:addMod(tpz.mod.ACC, 30) 
 	mob:addMod(tpz.mod.EVA, 30)
