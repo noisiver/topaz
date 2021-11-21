@@ -18,7 +18,6 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.DOUBLE_ATTACK, 25) 
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 10)
 	mob:addTP(3000)
-	mob:setLocalVar("order", 0)
 end
 
 function onMobInitialize(mob)
@@ -35,13 +34,16 @@ function onMobWeaponSkillPrepare(mob, target)
         
         if order == 0 then
             mob:setLocalVar("order", 1)
-            return 1270
-        elseif order == 1 then
+			return 0
+         elseif order == 1 then
             mob:setLocalVar("order", 2)
-            return 1260    
-        else
-            mob:setLocalVar("order", 0)
-            return 1260  
+             return 1270  
+        elseif order == 2 then
+            mob:setLocalVar("order", 3)
+             return 1260  
+        elseif order == 3 then
+            mob:setLocalVar("order", 1)
+             return 1260  
         end
     end
 
