@@ -27,7 +27,7 @@ function onMobInitialize(mob)
 end
 
 -- Ultima has a low likelyhood of using particle shield during phase 1 (Compared to his other abilities)
-function OnMobSkillCheck(mob, target)
+function onMobWeaponSkillPrepare(mob, target)
     if mob:getHPP() < 20 then
 
         local order = mob:getLocalVar("order")       
