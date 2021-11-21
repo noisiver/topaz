@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
