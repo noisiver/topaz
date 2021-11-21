@@ -24,6 +24,15 @@ function onMobDeath(mob, player, isKiller)
 	end
 end
 
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
+
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 25, power = math.random(100, 150)})
+end
+
 function onMobDespawn(mob)
     mob:setRespawnTime(7200) -- 2 hours
 end
