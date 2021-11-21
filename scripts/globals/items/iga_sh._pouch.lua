@@ -1,6 +1,6 @@
 -----------------------------------------
--- ID: 6303
--- Item: Iga Shuriken Pouch
+-- ID: 6299
+-- Item: Sh. Pouch
 -- When used, you will obtain one stack of Shurikens
 -----------------------------------------
 require("scripts/globals/msg")
@@ -15,5 +15,5 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addItem(19783, 99)
+    target:addItem(17301, 99)
 end
