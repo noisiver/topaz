@@ -13,6 +13,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.REGEN) then
+		return 1
+	end
     -- only used during daytime
     local currentTime = VanadielHour()
     if (currentTime >= 6 and currentTime <= 18) then

@@ -13,6 +13,10 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.BOOST) then
+		return 1
+	end
+	
   if (mob:getFamily() == 91) then
     local mobSkin = mob:getModelId()
 

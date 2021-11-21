@@ -13,6 +13,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.AGI_BOOST) then
+		return 1
+	end
     return 0
 end
 
