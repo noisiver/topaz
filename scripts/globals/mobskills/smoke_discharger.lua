@@ -23,14 +23,6 @@ function onMobSkillCheck(target, mob, skill)
         return 0
     end
 	
-	if mob:getPool() == 4083 then -- Ultima COP Mission
-		if mobhp <= 70 and mobhp > 40 then
-			return 0
-		else
-			return 1
-		end
-	end
-
     return 1
 end
 

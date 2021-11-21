@@ -16,19 +16,11 @@ function onMobSkillCheck(target, mob, skill)
     local skillList = mob:getMobMod(tpz.mobMod.SKILL_LIST)
     local mobhp = mob:getHPP()
     local phase = mob:getLocalVar("battlePhase")
+	
     if mob:getLocalVar("nuclearWaste") == 1 then
         return 0
     end
 	
-	if mob:getPool() == 4083 then -- Ultima COP Mission
-		if mobhp <= 70 and mobhp > 40 then
-			return 0
-		else
-			return 1
-		end
-	end
-
-
     return 1
 end
 
