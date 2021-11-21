@@ -3,8 +3,13 @@
 --   NM: Aynu-kaysey
 -----------------------------------
 require("scripts/globals/hunts")
-mixins = {require("scripts/mixins/families/qutrub")}
+require("scripts/globals/status")
 -----------------------------------
+
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 50)
+    mob:setMod(tpz.mod.STORETP, 50)
+end
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 470)

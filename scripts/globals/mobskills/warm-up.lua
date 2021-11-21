@@ -14,6 +14,11 @@ function onMobSkillCheck(target, mob, skill)
         -- If animationSub is 1, the mob has already lost his weapeon and cant do this TP attack.
 		return 0
 	end
+	
+	if mob:hasStatusEffect(tpz.effect.EVASION_BOOST) then
+		return 1
+	end
+    return 0
 
     return 1
 end

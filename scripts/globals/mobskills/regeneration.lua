@@ -12,6 +12,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.REGEN) then
+		return 1
+	end
     return 0
 end
 

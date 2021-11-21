@@ -2,7 +2,27 @@
 -- Area: Mount Zhayolm
 --   NM: Garfurlar_the_Rabid
 -----------------------------------
+mixins = {
+require("scripts/mixins/weapon_break"),
+require("scripts/mixins/job_special")
+}
+require("scripts/globals/pathfind")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17027467)
+     mob:setMod(tpz.mod.REFRESH, 400)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+	 onPath(mob)
+end
+
+function onMobFight(mob, target)
+	mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17027467)
+end
+
+function onPath(mob)
+	local Unruly = GetMobByID(17027467)
+	mob:pathTo(Unruly:getXPos(), Unruly:getYPos(), Unruly:getZPos())
+end
 
 function onMobDeath(mob)
 	if isKiller  then 

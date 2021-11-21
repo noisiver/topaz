@@ -10,6 +10,9 @@ require("scripts/globals/zone")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.COUNTERSTANCE) then
+		return 1
+	end
     return 0
 end
 

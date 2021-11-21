@@ -3358,6 +3358,31 @@ namespace luautils
         lua_pop(LuaHandle, 1);
         return retVal;
     }
+	
+    uint16 OnMobWeaponSkillPrepare(CBaseEntity* PMob, CBaseEntity* PTarget)
+    {
+        lua_prepscript("scripts/zones/%s/mobs/%s.lua", PMob->loc.zone->GetName(), PMob->GetName());
+        if (!prepFile(File, "onMobWeaponSkillPrepare"))
+        {
+            CLuaBaseEntity LuaMobEntity(PMob);
+            Lunar<CLuaBaseEntity>::push(LuaHandle, &LuaMobEntity);
+
+            CLuaBaseEntity LuaBaseEntity(PTarget);
+            Lunar<CLuaBaseEntity>::push(LuaHandle, &LuaBaseEntity);
+            if (lua_pcall(LuaHandle, 2, 1, 0))
+            {
+                lua_pop(LuaHandle, 1);
+                return 0;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+        int32 retVal = (!lua_isnil(LuaHandle, -1) && lua_isnumber(LuaHandle, -1) ? (uint16)lua_tonumber(LuaHandle, -1) : 0);
+        lua_pop(LuaHandle, 1);
+        return retVal;
+    }
 
     /***********************************************************************
     *                                                                       *

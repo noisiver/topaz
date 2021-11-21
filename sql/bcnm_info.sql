@@ -208,7 +208,7 @@ INSERT INTO `bcnm_info` VALUES (608,211,'trial_by_water','nobody',0,1800,1800,0,
 INSERT INTO `bcnm_info` VALUES (609,211,'trial-size_trial_by_water','nobody',0,900,900,20,1,0,5,0);
 INSERT INTO `bcnm_info` VALUES (610,211,'waking_the_beast','nobody',0,1800,1800,0,18,0,5,0);
 INSERT INTO `bcnm_info` VALUES (611,211,'sugar-coated_directive','nobody',0,1800,1800,99,6,0,5,0);
-INSERT INTO `bcnm_info` VALUES (640,6,'flames_for_the_dead','nobody',0,1800,1800,99,6,0,5,0);
+INSERT INTO `bcnm_info` VALUES (640,6,'flames_for_the_dead','nobody',0,1800,1800,60,6,0,5,0);
 INSERT INTO `bcnm_info` VALUES (641,6,'follow_the_white_rabbit','nobody',0,1800,1800,75,18,641,15,0);
 INSERT INTO `bcnm_info` VALUES (642,6,'when_hell_freezes_over','nobody',0,900,900,75,18,642,15,0);
 INSERT INTO `bcnm_info` VALUES (643,6,'brothers','nobody',0,1800,1800,75,18,643,15,0);
@@ -225,7 +225,7 @@ INSERT INTO `bcnm_info` VALUES (704,10,'darkness_named','nobody',0,1800,1800,40,
 INSERT INTO `bcnm_info` VALUES (705,10,'test_your_mite','nobody',0,1800,1800,40,18,705,15,0);
 INSERT INTO `bcnm_info` VALUES (706,10,'waking_dreams','nobody',0,1800,1800,0,18,0,5,0);
 INSERT INTO `bcnm_info` VALUES (736,13,'century_of_hardship','nobody',0,1800,1800,60,6,0,5,1);
-INSERT INTO `bcnm_info` VALUES (737,13,'return_to_the_depths','nobody',0,1800,1800,99,6,0,7,0);
+INSERT INTO `bcnm_info` VALUES (737,13,'return_to_the_depths','nobody',0,1800,1800,40,6,0,7,0);
 INSERT INTO `bcnm_info` VALUES (738,13,'bionic_bug','nobody',0,1800,1800,0,18,738,15,0);
 INSERT INTO `bcnm_info` VALUES (739,13,'pulling_the_strings','nobody',0,900,900,0,1,739,15,0);
 INSERT INTO `bcnm_info` VALUES (740,13,'automaton_assault','nobody',0,900,900,60,6,740,15,0);

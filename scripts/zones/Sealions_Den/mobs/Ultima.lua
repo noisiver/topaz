@@ -9,7 +9,7 @@ require("scripts/globals/msg");
 
 function onMobSpawn(mob)
 	mob:addMod(tpz.mod.DEFP, 20) 
-	mob:addMod(tpz.mod.ATTP, 100)
+	mob:addMod(tpz.mod.ATTP, 25)
 	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
 	mob:addMod(tpz.mod.ACC, 30) 
 	mob:addMod(tpz.mod.EVA, 30)
@@ -18,54 +18,51 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.DOUBLE_ATTACK, 25) 
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 10)
 	mob:addTP(3000)
-    mob:setLocalVar("phase", 0)
 end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+	local order = mob:setLocalVar("order", 0)
 end
 
-function onMobFight(mob,target)
-    local phase = mob:getLocalVar("phase")
-    if mob:getHPP() < 20 and phase == 0 then
-        mob:setLocalVar("phase", 1)
+-- Ultima has a low likelyhood of using particle shield during phase 1 (Compared to his other abilities)
+function onMobWeaponSkillPrepare(mob, target)
+
+    if mob:getHPP() < 20 then
+
+        local order = mob:getLocalVar("order")       
+        
+        if order == 0 then
+            mob:setLocalVar("order", 1)
+            return 1270
+        elseif order == 1 then
+            mob:setLocalVar("order", 2)
+            return 1260    
+        else
+            mob:setLocalVar("order", 0)
+            return 1260  
+        end
+    end
+
+
+end
+
+function onMobFight(mob, target)
+    if mob:getHPP() < 20 then
         mob:setMod(tpz.mod.REGAIN, 500)
     end
-end;
 
 
-function onMonsterAbilityPrepare(mob)
-    local hpp = mob:getHPP()
-    if hpp >= 70 then
-        return ({1259, 1269, 1270})[math.random(1, 3)]
-    elseif hpp >= 40 then
-        mob:queue(500, function(mob)
-            mob:useMobAbility(({1262,1263,1264,1265,1266,1267})[math.random(1,6)])
-        end)
-        return 1268
-    elseif hpp >= 20 then
-        return ({1261, 1269, 1270})[math.random(1, 3)]
-    else
-        mob:setMod(tpz.mod.REGAIN, 0)
-        mob:queue(6000, function(mob)
-            mob:useMobAbility(1260)
-        end)
-        mob:queue(12000, function(mob)
-            mob:setMod(tpz.mod.REGAIN, 500)
-            mob:useMobAbility(1260)
-        end)
-
-        -- use only particle shield if not active
-        if mob:hasStatusEffect(tpz.effect.DEFENSE_BOOST) then
-            return 1260
-        end
-        return 1270
+    if mob:getLocalVar("nuclearWaste") == 1 then
+        local ability = math.random(1262,1267)
+        mob:useMobAbility(ability)
+        mob:setLocalVar("nuclearWaste", 0)
     end
-
-    return 0
+    
 end
+
 
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {duration = 60})

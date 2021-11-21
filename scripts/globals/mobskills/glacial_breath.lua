@@ -27,7 +27,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local dmgmod = MobBreathMove(mob, target, 0.25, 1, tpz.magic.ele.ICE, 1000)
-    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.9)
+    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.25)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.ICE, MOBPARAM_IGNORE_SHADOWS)
 

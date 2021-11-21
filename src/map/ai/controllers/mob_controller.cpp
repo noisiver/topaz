@@ -280,6 +280,13 @@ bool CMobController::MobSkill(int wsList)
 
     std::shuffle(skillList.begin(), skillList.end(), tpzrand::mt());
     CBattleEntity* PActionTarget {nullptr};
+	
+    uint16 scriptChoice = luautils::OnMobWeaponSkillPrepare((CBaseEntity*)PMob, (CBaseEntity*)PTarget);
+    if (scriptChoice != 0)
+    {
+        skillList.insert(skillList.begin(), scriptChoice);
+    }
+
 
     for (auto skillid : skillList)
     {

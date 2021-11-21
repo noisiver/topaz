@@ -12,9 +12,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
-end
-
-function onMobSpawn(mob)
     mob:setLocalVar("salted", 1)
     mob:AnimationSub(1)
 end

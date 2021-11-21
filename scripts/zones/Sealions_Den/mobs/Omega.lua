@@ -10,7 +10,7 @@ require("scripts/globals/msg");
 
 function onMobSpawn(mob)
 	mob:addMod(tpz.mod.DEFP, 20) 
-	mob:addMod(tpz.mod.ATTP, 100)
+	mob:addMod(tpz.mod.ATTP, 25)
 	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
 	mob:addMod(tpz.mod.ACC, 30) 
 	mob:addMod(tpz.mod.EVA, 30)
@@ -46,7 +46,7 @@ function onMobFight(mob,target)
     elseif hpp <= 10 and speed < 3 then
         mob:setLocalVar("speed", 3)
 		mob:setMod(tpz.mod.HASTE_MAGIC, 5000)
-        mob:setMod(tpz.mod.REGAIN, 200)
+        mob:setMod(tpz.mod.REGAIN, 500)
     end
 end
 

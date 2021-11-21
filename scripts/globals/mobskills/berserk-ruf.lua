@@ -6,7 +6,10 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 -----------------------------------
 
-function OnMobSkillCheck(target, mob, skill)
+function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.WARCRY) then
+		return 1
+	end
     return 0
 end
 
