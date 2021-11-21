@@ -12,6 +12,14 @@ function onMobSpawn(mob)
      mob:setMod(tpz.mod.REFRESH, 400)
 end
 
+function onMobFight(mob, target)
+	local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
+	if mob:getHPP() <= math.random(25, 50) and TwoHourUsed == 0 then
+		mob:useMobAbility(2252) -- Eagle eye Shot
+		mob:setLocalVar("TwoHourUsed", 1)
+	end
+end
+
 function onMobDeath(mob)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
