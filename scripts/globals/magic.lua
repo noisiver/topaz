@@ -672,6 +672,10 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
     if (bonusAcc == nil) then
         bonusAcc = 0
     end
+	
+	if caster:isMob() and skillType == tpz.skill.SINGING then
+		macc = macc * 2
+	 end
 
     local magicacc = caster:getMod(tpz.mod.MACC) + caster:getILvlMacc()
 
