@@ -4590,6 +4590,13 @@ INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,172,1,255); -- Water IV
 
 INSERT INTO `mob_spell_lists` VALUES ('Vidhuwa_The_Wrathborn',2017, 214, 1, 255); -- Flood
 
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,5,1,255); -- Cure V
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,10,1,255); -- Curaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,10,1,255); -- Curaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,143,1,255); --Erase
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,40,1,255); -- Banishga III
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,34,1,255); -- Diaga II
+
 
 
 

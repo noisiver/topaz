@@ -3065,7 +3065,7 @@ INSERT INTO `mob_groups` VALUES (15,4508,65,'Ziz',600,0,2805,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (16,2535,65,'Mamool_Ja_Spearman',600,0,1588,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (17,2541,65,'Mamool_Jas_Wyvern',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (18,6604,65,'Puk',600,0,2036,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (19,1019,65,'Devout_Radol_Ja',0,128,646,30000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (19,1019,65,'Devout_Radol_Ja',600,0,646,50000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (20,4509,65,'Zizzy_Zillah',0,32,2807,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (21,2518,65,'Mamool_Ja_Frogman',600,0,1590,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (22,2513,65,'Mamool_Ja_Diver',600,0,1590,0,0,81,83,0);
