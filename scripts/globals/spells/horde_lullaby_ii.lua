@@ -36,7 +36,8 @@ function onSpellCast(caster, target, spell)
 	
 	if caster:isMob() then
         local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
-		params.skillBonus = sLvl * 2
+        local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
+		params.skillBonus = (sLvl + iLvl) * 2
 	end
 
     resm = applyResistanceEffect(caster, target, spell, params)
