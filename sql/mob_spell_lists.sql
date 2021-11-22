@@ -4592,10 +4592,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Vidhuwa_The_Wrathborn',2017, 214, 1, 255)
 
 INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,5,1,255); -- Cure V
 INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,10,1,255); -- Curaga IV
-INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,10,1,255); -- Curaga IV
 INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,143,1,255); --Erase
 INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,40,1,255); -- Banishga III
 INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,34,1,255); -- Diaga II
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,359,1,255); -- Silencega
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,356,1,255); -- Paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,357,1,255); -- Slowga
 
 INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,376,1,255);	-- Horde Lullaby
 INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,392,1,255);	-- Knight's Minne IV
