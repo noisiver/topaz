@@ -12,41 +12,76 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setLocalVar("salted", 1)
-    mob:AnimationSub(1)
+    mob:AnimationSub(4) -- starting animationSub
+    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
 end
 
-function onMobEngaged(mob)
-    mob:setLocalVar("salted", 0)
-    mob:setLocalVar("shifttime", 15)
+function onMobSpawn(mob)
 end
 
-function onMobFight(mob)
-    local size = mob:AnimationSub()
-    local shifttime = mob:getLocalVar("shifttime")
-    if mob:getBattleTime() > shifttime then
-        if size == 3 then
-            mob:useMobAbility(1644)
-        else
-            mob:setLocalVar("shifttime", shifttime + 15)
-            mob:AnimationSub(size + 1)
-            mob:addMod(tpz.mod.ATT, 25)
-        end
+function onMobEngaged(mob, target)   
+end
+
+function onMobFight(mob, player, target)
+    local changeTime = mob:getLocalVar("changeTime")
+    local delay = mob:getLocalVar("delayed")
+    local cd = mob:getLocalVar("cooldown")
+    local salty = mob:getLocalVar("salty")
+    local melting = mob:getLocalVar("melt")
+
+    mob:setDamage(130)
+
+    -- handle salt usage
+    if melting == 1 then
+        player:messageText(player, ID.text.BEGINS_TO_MELT)
+        mob:setLocalVar("melt", 0)
+    end   
+    
+    -- handle salt cooldown 
+    if (cd < os.time() and salty == 1) then
+        player:messageText(player, ID.text.SHOOK_SALT)
+        mob:setLocalVar("salty", 0)
     end
-end
 
-function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 1644 then
-        mob:setLocalVar('suicide', 1)
-        mob:showText(mob, ID.text.THE_EXPLOSION)
+    -- big
+    if (delay < os.time() and mob:AnimationSub() == 4 and mob:getBattleTime() - changeTime > 11) then
+        mob:setLocalVar("delayed", 0)
+        mob:AnimationSub(5) 
+        mob:setLocalVar("changeTime", mob:getBattleTime())
+        mob:setDamage(140)
+    -- bigger  
+    elseif (delay < os.time() and mob:AnimationSub() == 5 and mob:getBattleTime() - changeTime > 11) then
+        player:messageText(player, ID.text.LARGE_STEAM) -- approx. midway point - give warning
+        mob:setLocalVar("delayed", 0)
+        mob:AnimationSub(6)
+        mob:setLocalVar("changeTime", mob:getBattleTime())
+        mob:setDamage(150)
+
+    -- biggest
+    elseif (delay < os.time() and mob:AnimationSub() == 6 and mob:getBattleTime() - changeTime > 11) then
+        mob:setLocalVar("delayed", 0)
+        mob:AnimationSub(7)
+        mob:setLocalVar("changeTime", mob:getBattleTime())
+        mob:setDamage(160)
+    -- self-destruct   
+    elseif (delay < os.time() and mob:AnimationSub() == 7 and mob:getBattleTime() - changeTime > 12) then
+        mob:useMobAbility(1644)
+        mob:setLocalVar("changeTime", mob:getBattleTime())
+        mob:setLocalVar("gameover", 1)
     end
 end
 
 function onMobDeath(mob, player, isKiller)
-    if mob:getLocalVar('suicide') == 1 then
-        mob:getBattlefield():lose()
-    else
-        mob:getBattlefield():win()
+    local bf = mob:getBattlefield() 
+    local changeTime = mob:getLocalVar("changeTime")
+    local gameOver = mob:getLocalVar("gameover")
+
+    -- end BCNM  
+    if (gameOver == 1 and mob:getBattleTime() - changeTime > 3) then 
+        mob:AnimationSub(4)   
+        bf:lose()
+        return
     end
 end
+
 
