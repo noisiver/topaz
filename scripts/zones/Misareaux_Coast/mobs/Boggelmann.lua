@@ -16,6 +16,7 @@ end
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 120)
 end
+
 function onMobFight(mob)
 	local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
 	if mob:getHPP() <= 50 and TwoHourUsed == 0 then
@@ -26,11 +27,9 @@ end
 
 
 function onMobWeaponSkillPrepare(mob, target)
-	if mob:getHPP() > 25 then
-		return 0
+	if mob:getHPP() < 25 then
+		return 1363
 	end
-
-	return 1363
 end
 
 
