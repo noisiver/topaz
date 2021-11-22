@@ -11,12 +11,19 @@ g_mixins.families.growing_bomb = function(mob)
 		if amount > 500 then
 			if animationSub == 0 then
 				mob:AnimationSub(1)
+				mob:setDamage(150)
+				mob:setMod(tpz.mod.UFASTCAST, 12)
+				mob:setMod(tpz.mod.MATT, 60)
 			elseif animationSub == 1 then
 				mob:AnimationSub(2)
+				mob:setDamage(250)
+				mob:setMod(tpz.mod.UFASTCAST, 25)
+				mob:setMod(tpz.mod.MATT, 75)
 			elseif animationSub == 2 then
 				mob:AnimationSub(3)
-			elseif animationSub == 3 then
-				mob:AnimationSub(4)
+				mob:setDamage(300)
+				mob:setMod(tpz.mod.UFASTCAST, 50)
+				mob:setMod(tpz.mod.MATT, 100)
 			end
 		end
     end)

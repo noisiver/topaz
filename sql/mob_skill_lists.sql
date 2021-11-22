@@ -4207,7 +4207,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,601); -- hiemal_storm
 
 INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,510); -- berserk
 INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,512); -- heat wave
-INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,594); -- Vulcanian Impact
+INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,342); -- Vulcanian Impact
 INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,596); -- hellstorm
 
 
