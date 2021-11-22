@@ -1,30 +1,22 @@
 -----------------------------------
 -- Area: Misareaux Coast
---  Mob: Warder_Euphrosyne
+-- Mob: Warder Euphrosyne
 -----------------------------------
-require("scripts/zones/Misareaux_Coast/globals")
-require("scripts/globals/missions");
-require("scripts/globals/status")
+require("scripts/globals/missions")
+mixins = {require("scripts/mixins/warders_cop")}
+local ID = require("scripts/zones/Misareaux_Coast/IDs")
 -----------------------------------
-
-function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 120)
-end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
-    mob:setMod(tpz.mod.REFRESH, 40)
-    mob:SetMobAbilityEnabled(false)
-    mob:setLocalVar("tp", math.random(1000, 3000))
+    mob:SetMobAbilityEnabled(false) -- ability use handled in mixin
+    mob:setLocalVar("warder", 2)
+    mob:setLocalVar("electro", 1)
 end
 
-function onMobFight(mob)
-    if mob:getTP() >= mob:getLocalVar("tp") then
-        MISAREAUX_COAST.prepareSpheroidTP(mob:getID())
-    end
+function onMobDisengage(mob)
+    -- reset variables so that disengaging mobs won't break mixin
+    mob:setLocalVar("changeTime", 0)
+    mob:setLocalVar("initiate", 0)
 end
 
 function onMobDeath(mob, player, isKiller)
