@@ -45,7 +45,12 @@ function onSpellCast(caster, target, spell)
     end
 
     local resist = applyResistanceEffect(caster, target, spell, params)
-    -- print(resist)
+	--Fealty makes you immune to charm
+	if target:hasStatusEffect(tpz.effect.FEALTY) then
+		spell:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		resist = 0
+	end
+	-- print(resist)
     if (resist >= 0.50 and caster:getCharmChance(target, false) > 0) then
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         if (caster:isMob()) then
