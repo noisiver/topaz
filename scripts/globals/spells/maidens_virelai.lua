@@ -43,7 +43,13 @@ function onSpellCast(caster, target, spell)
             params.skillBonus = sLvl + iLvl - skillcap*2 -- every point over the skillcap (only attainable from gear/merits) is an extra +1 magic accuracy
         end
     end
-
+	
+	if caster:isMob() then
+        local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
+        local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
+		params.skillBonus = (sLvl + iLvl) * 2
+	end
+	
     local resist = applyResistanceEffect(caster, target, spell, params)
     -- print(resist)
     if (resist >= 0.50 and caster:getCharmChance(target, false) > 0) then

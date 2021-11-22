@@ -38,6 +38,12 @@ function onSpellCast(caster, target, spell)
         end
     end
 
+	if caster:isMob() then
+        local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
+        local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
+		params.skillBonus = (sLvl + iLvl) * 2
+	end
+	
     resm = applyResistance(caster, target, spell, params)
     if (resm < 0.5) then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
