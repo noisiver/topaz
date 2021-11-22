@@ -5,6 +5,7 @@
 local ID = require("scripts/zones/Bearclaw_Pinnacle/IDs")
 require("scripts/globals/titles");
 require("scripts/globals/status");
+require("scripts/globals/player")
 -----------------------------------
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
