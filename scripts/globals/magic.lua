@@ -1412,41 +1412,41 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
     params.bonus = staff
     params.skillBonus = 0
     if caster:isPC() then
-        local instrument = caster:getSkillLevel(caster:getWeaponSkillType(tpz.slot.RANGED))
+        local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
+        local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
         local skillcap = caster:getMaxSkillLevel(caster:getMainLvl(), tpz.job.BRD, tpz.skill.STRING_INSTRUMENT) -- will return the same whether string or wind, both are C for bard
-    
-        if instrument > skillcap then
-            params.skillBonus = instrument - skillcap -- every point over the skillcap (only attainable from gear/merits) is an extra +1 magic accuracy
+        
+        local rangedType = caster:getWeaponSkillType(tpz.slot.RANGED)
+        if rangedType ~= tpz.skill.STRING_INSTRUMENT and rangedType ~= tpz.skill.WIND_INSTRUMENT then iLvl = sLvl end
+        
+        if sLvl + iLvl > skillcap*2 then
+            params.skillBonus = sLvl + iLvl - skillcap*2 -- every point over the skillcap (only attainable from gear/merits) is an extra +1 magic accuracy
         end
     end
 
     local resm = applyResistance(caster, target, spell, params)
     -- print("rsem=" .. resm)
-	 if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		resm = 1
-	end
 
-    if (resm < 0.5) then
+    if resm < 0.5 then
         -- print("resm resist")
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
         return tpz.effect.THRENODY
     end
 
     -- Remove previous Threnody
-    target:delStatusEffectSilent(tpz.effect.THRENODY)
-	
-	local basePower = 50
+    target:delStatusEffect(tpz.effect.THRENODY)
+
     local iBoost = caster:getMod(tpz.mod.THRENODY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     local power = basePower + iBoost*5
-    local duration = baseDuration * ((iBoost * 6) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
+    local duration = baseDuration * ((iBoost * 0.1) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
 
-    if (caster:hasStatusEffect(tpz.effect.SOUL_VOICE)) then
+    if caster:hasStatusEffect(tpz.effect.SOUL_VOICE) then
         power = power * 2
-    elseif (caster:hasStatusEffect(tpz.effect.MARCATO)) then
+    elseif caster:hasStatusEffect(tpz.effect.MARCATO) then
         power = power * 1.5
     end
 
-    if (caster:hasStatusEffect(tpz.effect.TROUBADOUR)) then
+    if caster:hasStatusEffect(tpz.effect.TROUBADOUR) then
         duration = duration * 2
     end
 
@@ -1455,6 +1455,7 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
 
     return tpz.effect.THRENODY
 end
+
 
 function handleNinjutsuDebuff(caster, target, spell, basePower, baseDuration, modifier)
     -- Add new
