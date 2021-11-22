@@ -4597,6 +4597,16 @@ INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,143,1,255); --Erase
 INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,40,1,255); -- Banishga III
 INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,34,1,255); -- Diaga II
 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,376,1,255);	-- Horde Lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,392,1,255);	-- Knight's Minne IV
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,373,1,255);	-- Foe Requiem VI 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,442,1,255);	-- Lightning Carol
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,422,1,255);	-- Carnage Elegy 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,397,1,255);	-- Valor Minuet IV 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,432,1,255);	-- Uncanny Etude
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,434,1,255);	-- Swift Etude 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,420,1,255);	-- Victory March 
+
 
 
 
