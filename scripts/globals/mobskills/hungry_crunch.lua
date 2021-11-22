@@ -8,7 +8,11 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target,mob,skill)
-    return 0
+	if mob:getPool() == 484 then
+		return 0
+	else
+		return 1
+	end
 end
 
 function onMobWeaponSkill(target, mob, skill)
