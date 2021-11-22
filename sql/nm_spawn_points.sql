@@ -6833,6 +6833,10 @@ INSERT INTO `nm_spawn_points` VALUES (17141885,1,310.285,31.511,-481.958); -- Va
 INSERT INTO `nm_spawn_points` VALUES (17141885,2,234.5122,32.0575,-651.4021); -- Vasiliceratops
 INSERT INTO `nm_spawn_points` VALUES (17338462,1,9.880,-24.173,-135.875); -- Prince Orobas
 INSERT INTO `nm_spawn_points` VALUES (16900306,1,-68.2988,0.5204,708.0948); -- Aiatar
+INSERT INTO `nm_spawn_points` VALUES (17043532,1,106.430,-3.784,-79.590); -- Devout_Radol_Ja
+INSERT INTO `nm_spawn_points` VALUES (17031312,1,-331.4,19.454,98.508); -- Flammeri
+INSERT INTO `nm_spawn_points` VALUES (17031312,2,9.3051,9.9474,61.9507); -- Flammeri
+INSERT INTO `nm_spawn_points` VALUES (16998560,1,-84.38,-4.343,497.333); -- Merrow No.5
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;
