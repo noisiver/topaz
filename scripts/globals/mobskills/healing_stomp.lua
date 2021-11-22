@@ -29,9 +29,9 @@ function onMobWeaponSkill(target, mob, skill)
     local duration = 180
 
     local typeEffect = tpz.effect.REGEN
+	skill:setMsg(MobBuffMove(target, typeEffect, power, 3, duration))
 	local effect = mob:getStatusEffect(typeEffect)
 	effect:unsetFlag(tpz.effectFlag.DISPELABLE)
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, 3, duration))
     return typeEffect
 end
