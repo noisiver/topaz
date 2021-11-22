@@ -29,7 +29,7 @@ function onMobSpawn(mob)
         {
             {
                 id = tpz.jsa.MIJIN_GAKURE,
-                hpp = 100,
+                hpp = math.random(10, 30),
                 begCode = function(mob)
                     mob:messageText(mob, ID.text.CRYPTONBERRY_EXECUTOR_2HR)
                 end,
