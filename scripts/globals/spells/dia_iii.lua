@@ -46,6 +46,10 @@ function onSpellCast(caster, target, spell)
     -- Calculate duration and bonus
     local duration = 30 + (meritBonus - 30)
     local dotBonus = caster:getMod(tpz.mod.DIA_DOT) -- Dia Wand
+	
+	if caster:isMob() then
+		duration = 180
+	end
 
     -- Check for Bio
     local bio = target:getStatusEffect(tpz.effect.BIO)
