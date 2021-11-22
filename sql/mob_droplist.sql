@@ -1784,7 +1784,7 @@ INSERT INTO `mob_droplist` VALUES (276,0,0,1000,775,42);
 INSERT INTO `mob_droplist` VALUES (276,0,0,1000,776,53);
 INSERT INTO `mob_droplist` VALUES (277,2,0,1000,17316,0);
 INSERT INTO `mob_droplist` VALUES (277,0,0,1000,17471,240); -- Horrent Mace
-INSERT INTO `mob_droplist` VALUES (277,0,0,1000,18707,150); -- Fire Bomblet
+INSERT INTO `mob_droplist` VALUES (277,0,0,1000,18707,100); -- Fire Bomblet
 INSERT INTO `mob_droplist` VALUES (278,2,0,1000,864,0);
 INSERT INTO `mob_droplist` VALUES (278,0,0,1000,868,100);
 INSERT INTO `mob_droplist` VALUES (278,0,0,1000,1888,220);

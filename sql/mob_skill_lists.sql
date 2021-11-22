@@ -4178,7 +4178,7 @@ INSERT INTO `mob_skill_lists` VALUES ('ShikareeZ',6057,120); -- impulse_drive
 
 INSERT INTO `mob_skill_lists` VALUES ('BlockHeadOnly',6058,368); -- Block Head
 INSERT INTO `mob_skill_lists` VALUES ('FragBombOnly',6059,1119); -- Frag Bomb
-INSERT INTO `mob_skill_lists` VALUES ('BellyDanceOnly',6060,1950); -- Bely Dance
+INSERT INTO `mob_skill_lists` VALUES ('BellyDanceOnly',6060,1762); -- Bely Dance
 INSERT INTO `mob_skill_lists` VALUES ('AmorphicSpikesOnly',6061,1824); -- Armophic Spikes
 INSERT INTO `mob_skill_lists` VALUES ('FazeOnly',6062,1728); -- Faze
 
@@ -4203,6 +4203,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,598); -- berserk
 INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,599); -- arctic_impact
 INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,600); -- cold_wave
 INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,601); -- hiemal_storm
+
+INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,510); -- berserk
+INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,512); -- heat wave
+INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,594); -- Vulcanian Impact
+INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,596); -- hellstorm
 
 
 -- Next available ID: 1148

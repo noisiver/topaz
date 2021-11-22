@@ -446,7 +446,7 @@ INSERT INTO `mob_skills` VALUES (503,856,'unblessed_armor',0,7.0,2000,1500,1,0,0
 INSERT INTO `mob_skills` VALUES (509,253,'self-destruct_Goblin_Grenade',1,10.0,2000,10000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (510,254,'berserk',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (511,253,'self-destruct',1,20.0,2000,3000,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (512,256,'heat_wave',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (512,256,'heat_wave',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (513,257,'smite_of_rage',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (514,258,'whirl_of_rage',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (515,814,'toxic_spit',0,9.5,2000,1500,4,0,0,0,0,0,0);

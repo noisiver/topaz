@@ -115,7 +115,7 @@ INSERT INTO `mob_family_system` VALUES (47,'Bats',8,'Bird',0,40,100,120,4,4,5,3,
 INSERT INTO `mob_family_system` VALUES (48,'Bee',20,'Vermin',0,40,95,120,5,4,4,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.5,0.7,1.3,1.3,1.3,1.3,1.3,3,257,1);
 INSERT INTO `mob_family_system` VALUES (49,'Beetle',20,'Vermin',1,40,100,110,3,3,2,5,5,5,5,1,3,1,3,1,1,1,1,1,1.5,1,1,1,1,1,1,4,257,1);	-- changed hp from 117
 INSERT INTO `mob_family_system` VALUES (51,'Behemoth',6,'Beast',4,40,110,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,6,1,0);
-INSERT INTO `mob_family_system` VALUES (52,'Bhoot',19,'Undead',1,60,125,140,3,3,4,4,1,5,5,1,1,1,1,0.5,0.5,0.5,0.75,1.3,0.4,1.15,1,0.6,1.15,1.3,0.4,2,6,0);
+INSERT INTO `mob_family_system` VALUES (52,'Bhoot',19,'Undead',1,60,125,140,3,3,4,4,1,5,5,1,1,1,1,0.5,0.5,0.5,0.75,1.15,0.4,1,1,0.6,1,1.15,0.4,2,6,0);
 INSERT INTO `mob_family_system` VALUES (53,'Grimoire',3,'Arcana',1,40,90,90,1,3,4,3,6,6,5,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (54,'Biotechnological',18,'Unclassified',2,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1.15,1,1,1,0,3,0);
 INSERT INTO `mob_family_system` VALUES (55,'Bird',8,'Bird',0,40,100,120,4,4,5,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.5,1,1,1,1.3,1.3,1.3,1,2,1);
@@ -151,8 +151,8 @@ INSERT INTO `mob_family_system` VALUES (84,'Doll',3,'Arcana',1,40,100,90,3,3,3,5
 INSERT INTO `mob_family_system` VALUES (85,'Doll',3,'Arcana',1,40,100,90,3,3,3,5,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,1.5,0.7,0.7,0.7,2,32,0);	-- normal dolls
 INSERT INTO `mob_family_system` VALUES (86,'Doomed',19,'Undead',2,40,100,120,4,4,3,4,3,4,4,1,3,1,3,1.125,1,1,1,1.3,0.6,1,1,1,0.7,1.3,0.2,8,6,0);
 INSERT INTO `mob_family_system` VALUES (87,'Dragon',10,'Dragon',2,30,125,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,8,2,0);
-INSERT INTO `mob_family_system` VALUES (88,'Draugar',19,'Undead',0,40,100,140,1,3,4,3,1,5,4,3,3,3,3,0.875,0.5,1.125,1.25,1.25,0.875,1,1,1,1,1.25,0.5,8,6,0); -- Bloody Bones
-INSERT INTO `mob_family_system` VALUES (89,'Draugar',19,'Undead',0,60,125,140,3,4,3,5,3,5,4,1,1,1,1,0.875,0.5,1.125,1.25,1.3,0.7,1.15,1.15,1.15,1.15,1.3,0.5,8,6,0); -- Normal Mob
+INSERT INTO `mob_family_system` VALUES (88,'Draugar',19,'Undead',0,40,100,140,1,3,4,3,1,5,4,3,3,3,3,0.875,0.5,1.125,1.25,1.25,0.7,1,1,1,1,1.15,0.5,8,6,0); -- Bloody Bones
+INSERT INTO `mob_family_system` VALUES (89,'Draugar',19,'Undead',0,60,125,140,3,4,3,5,3,5,4,1,1,1,1,0.875,0.5,1.125,1.25,1.15,0.7,1,1,1,1,1.15,0.5,8,6,0); -- Normal Mob
 INSERT INTO `mob_family_system` VALUES (90,'Dvergr',9,'Demon',1,60,125,95,3,3,5,5,1,1,5,1,1,1,1,1,1,1,1,0.5,0.3,0.5,0.3,0.5,0.3,0.7,0.05,0,1,0);
 INSERT INTO `mob_family_system` VALUES (91,'DvergrSkull',9,'Demon',0,40,92,140,6,3,3,3,1,5,4,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,7,0);
 INSERT INTO `mob_family_system` VALUES (92,'DynamisStatue-Goblin',18,'Unclassified',3,20,30,120,3,3,3,3,3,3,3,1,3,1,3,1,0.75,0.8125,0.865,1.15,1.15,1.15,1.15,1.15,1.15,1.3,0.85,0,1,0);

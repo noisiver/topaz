@@ -4607,6 +4607,13 @@ INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,432,1,255);	-- Uncanny E
 INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,434,1,255);	-- Swift Etude 
 INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,420,1,255);	-- Victory March 
 
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb', 2020, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020,147,1,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 204, 1, 255); -- Flare 
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 235, 1, 255); -- Burn
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 249, 1, 255); -- Blaze Spikes
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 312, 1, 255); -- Enfire
+
 
 
 

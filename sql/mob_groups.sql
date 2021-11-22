@@ -2955,7 +2955,7 @@ INSERT INTO `mob_groups` VALUES (18,5209,62,'Copper_Borer',0,128,6025,30000,0,85
 INSERT INTO `mob_groups` VALUES (19,2686,62,'Moblin_Billionaire',600,0,1704,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,1341,62,'Fire_Elemental',600,4,831,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,1426,62,'Friars_Lantern',600,0,908,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (22,5210,62,'Flammeri',0,128,6026,35000,5000,88,90,0);
+INSERT INTO `mob_groups` VALUES (22,5210,62,'Flammeri',7200,0,6026,35000,5000,88,90,0);
 INSERT INTO `mob_groups` VALUES (23,4280,62,'Wamoura',600,0,2608,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (25,4009,62,'Troll_Artilleryman',600,0,2473,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (26,4012,62,'Troll_Combatant',600,0,2475,0,0,81,83,0);
