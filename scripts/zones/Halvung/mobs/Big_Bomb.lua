@@ -6,8 +6,10 @@ require("scripts/globals/hunts")
 mixins = {require("scripts/mixins/families/growing_bomb")}
 ------------------------------
 function onMobSpawn(mob)
+	mob:setDamage(125)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
+	mob:setMod(tpz.mod.MATT, 48)
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
