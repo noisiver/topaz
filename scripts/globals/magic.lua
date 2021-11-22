@@ -676,7 +676,7 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
     local magicacc = caster:getMod(tpz.mod.MACC) + caster:getILvlMacc()
 	
 	if caster:isMob() and skillType == tpz.skill.SINGING then
-		magicacc = magicacc * 2
+		macc = macc * 2
 	 end
 
     -- Get the base acc (just skill + skill mod (79 + skillID = ModID) + magic acc mod)
