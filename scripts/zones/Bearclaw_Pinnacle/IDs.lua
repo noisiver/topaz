@@ -20,9 +20,9 @@ zones[tpz.zone.BEARCLAW_PINNACLE] =
         ORB_MESSAGE_OFFSET      = 7364, -- There is a crack in the <item>. It no longer contains a monster.
         CONQUEST_BASE           = 7421, -- Tallying conquest results...
         BLOWN_AWAY              = 7607, -- Blown out of area
-        BEGINS_TO_MELT          = 7663, -- Begings to Melt
-        LARGE_STEAM             = 7664, -- Emitting a large amount of steam
-        SHOOK_SALT              = 7665, -- Shook off the salt
+        BEGINS_TO_MELT          = 7664, -- Begings to Melt
+        LARGE_STEAM             = 7665, -- Emitting a large amount of steam
+        SHOOK_SALT              = 7666, -- Shook off the salt
     },
     mob =
     {
