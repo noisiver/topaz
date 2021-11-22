@@ -17,9 +17,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
 end
 
-function onMobSpawn(mob)
-end
-
 function onMobEngaged(mob, target)   
 end
 
