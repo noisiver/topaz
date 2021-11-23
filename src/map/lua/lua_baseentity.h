@@ -493,6 +493,7 @@ public:
 
     int32 getEntity(lua_State* L);
     int32 getNearbyEntities(lua_State* L);
+    int32 getNearbyMobs(lua_State* L);
     int32 canChangeState(lua_State* L);
 
     int32 wakeUp(lua_State*);                  //wakes target if necessary

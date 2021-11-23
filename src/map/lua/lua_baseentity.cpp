@@ -10507,6 +10507,40 @@ inline int32 CLuaBaseEntity::getNearbyEntities(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: getNearbyMobs(distance)
+ *  Purpose : Returns a Lua table of all mobs surrounding target with provided distance
+ *  Example : mob:getNearbyMobs(distance)
+ *  Notes   :
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getNearbyMobs(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    position_t position = m_PBaseEntity->loc.p;
+
+    float max_distance = (float)lua_tonumber(L, 1);
+    lua_pop(L, 1);
+
+    lua_newtable(L);
+    int newTable = lua_gettop(L);
+
+    zoneutils::GetZone(m_PBaseEntity->getZone())->ForEachMob([&L, &newTable, &position, &max_distance](CMobEntity* PMob) {
+        if (distance(position, PMob->loc.p) <= max_distance)
+        {
+            lua_getglobal(L, CLuaBaseEntity::className);
+            lua_pushstring(L, "new");
+            lua_gettable(L, -2);
+            lua_insert(L, -2);
+            lua_pushlightuserdata(L, (void*)PMob);
+            lua_pcall(L, 2, 1, 0);
+            lua_rawseti(L, newTable, PMob->id);
+        }
+    });
+
+    return 1;
+}
+
+/************************************************************************
 *  Function: canChangeState()
 *  Purpose : Returns true if a mob isn't even in it's final form, bro
 *  Example : if mob:canChangeState() then
@@ -15619,6 +15653,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getEntity),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getNearbyEntities),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getNearbyMobs),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,canChangeState),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,wakeUp),
