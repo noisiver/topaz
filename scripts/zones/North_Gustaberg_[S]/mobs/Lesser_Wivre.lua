@@ -1,18 +1,18 @@
 -----------------------------------
--- Area: Grauberg [S]
---  Mob: Wivre
--- Note: PH for Vasiliceratops
+-- Area: North Gustaberg [S]
+--  Mob: Lesser Wivre
 -----------------------------------
-local ID = require("scripts/zones/Grauberg_[S]/IDs")
+local ID = require("scripts/zones/North_Gustaberg_[S]/IDs")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
-
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
  end
+ 
+function onMobDeath(mob, player, isKiller)
+end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.VASILICERATOPS_PH, 20, 7200) -- 2 hours
 end
