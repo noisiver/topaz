@@ -14,6 +14,9 @@ g_mixins.weapon_break = function(mob)
 
     mob:addListener("SPAWN", "WEAPON_BREAK", function(mob)
         mob:setLocalVar("BreakChance", 10)
+		if mob:isNM() then
+			mob:setLocalVar("BreakChance", 1)
+		end
     end)
 
     -- chance to break weapon when taking a critical hit

@@ -2394,8 +2394,8 @@ INSERT INTO `mob_groups` VALUES (17,1787,51,'Grand_Marid',0,32,1214,0,0,85,87,0)
 INSERT INTO `mob_groups` VALUES (18,106,51,'Ameretat',330,0,2923,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (19,4275,51,'Wajaom_Tiger',330,0,2601,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,5555,51,'Chelicerata',0,128,3041,0,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (21,4518,51,'Zoraal_Jas_Pkuucha',0,32,2810,15000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (22,3118,51,'Percipient_Zoraal_Ja',0,128,0,15000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (21,4518,51,'Zoraal_Jas_Pkuucha',0,32,2810,17500,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (22,3118,51,'Percipient_Zoraal_Ja',0,128,0,17500,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (23,67,51,'Aht_Urhgan_Attercop',300,0,34,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (24,1900,51,'Haunt',330,1,1279,0,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (25,3223,51,'Puk',330,0,2035,0,0,81,83,0);

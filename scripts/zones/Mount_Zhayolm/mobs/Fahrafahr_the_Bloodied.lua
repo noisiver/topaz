@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+mixins = {require("scripts/mixins/weapon_break")}
 ------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(250) -- 350-450 on DD's
