@@ -560,6 +560,7 @@ INSERT INTO `mob_family_system` VALUES (530,'Ameretat',17,'Plantoid',1,60,125,10
 INSERT INTO `mob_family_system` VALUES (531,'Ziz',8,'Bird',1,60,125,140,1,1,1,4,3,3,2,1,1,1,1,1,1,1,1,1,0.7,1.5,0.7,0.7,1.15,1.15,1.3,4,1,0); 
 INSERT INTO `mob_family_system` VALUES (532,'Xzomit-Baby',15,'Luminian',0,60,100,110,3,3,4,2,4,4,4,1,4,1,3,1,1,1,1,1.3,1.3,1,1.3,1.3,1.3,1,1,0,1,0); -- Baby
 INSERT INTO `mob_family_system` VALUES (533,'TenzenAndKidsWarriorsPath',7,'Beastmen',0,40,100,120,3,3,3,2,2,3,3,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1,3,1,0); --  Tenzen COP 7-5 The Warrior's Path
+INSERT INTO `mob_family_system` VALUES (534,'Quasilumin',15,'Luminian',1,40,100,100,5,5,5,5,5,5,5,5,5,5,5,2,2,2,2,2,2,2,2,2,2,2,2,0,2,0); -- Escort Quasilumin
 
 
 
