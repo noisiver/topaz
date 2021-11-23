@@ -4462,9 +4462,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,49,37,56);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,50,57,67);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,51,68,75);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,52,80,255);
-INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,53,19,255);
-INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,54,28,255);
-INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,55,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,56,13,255);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,57,40,255);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,58,4,255);
@@ -4535,7 +4532,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,225,24,71);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,226,72,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,230,10,34);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,231,35,60);
-INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,232,61,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,235,24,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,236,22,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,237,20,255);
@@ -4544,8 +4540,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,239,16,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,240,27,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,245,12,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,247,25,94);
-INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,248,95,255); -- Aspir II
-INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,249,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,252,45,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,253,20,40);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,254,4,255);
