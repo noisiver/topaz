@@ -80,7 +80,7 @@ g_mixins.families.aern = function(mob)
 			mob:AnimationSub(2)
 			mob:setLocalVar("BraceletsOff", os.time() + 30)
 		end
-		if BraceletsOff >= 0 and os.time() > BraceletsOff then
+		if BraceletsOff > 0 and os.time() >= BraceletsOff then
 			mob:delMod(tpz.mod.MAGIC_HASTE, 2500)
 			mob:setMod(tpz.mod.ATTP, 0)
 			mob:setMod(tpz.mod.MATT, 0)
