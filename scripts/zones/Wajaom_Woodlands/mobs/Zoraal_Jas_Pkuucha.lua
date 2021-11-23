@@ -8,18 +8,14 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/colibri_mimic")}
 ------------------------------
-
 function onMobSpawn(mob)
+    mob:setLocalVar("whenToPopZoraal", math.random(20, 50))
+    mob:setLocalVar("hasPoppedZoraal", 0)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25)
     mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-end
-
-function onMobSpawn(mob)
-    mob:setLocalVar("whenToPopZoraal", math.random(20, 50))
-    mob:setLocalVar("hasPoppedZoraal", 0)
 end
 
 function onMobDisengage(mob)
