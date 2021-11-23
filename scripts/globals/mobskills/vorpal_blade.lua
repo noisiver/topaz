@@ -16,10 +16,10 @@ function onMobSkillCheck(target, mob, skill)
     if ((mob:getFamily() == 122 or mob:getFamily() == 123 or mob:getFamily() == 124) and mob:AnimationSub() == 1) then
         return 0
     -- Check for the mamool ja family, if the mob is not a BLU, then ignore 
-    elseif mob:getFamily() == 176 and mob:getMainJob() == tpz.job.BLU then
+    elseif mob:getFamily() == 176 and mob:getMainJob() == tpz.job.BLU and mob:AnimationSub() == 0 or mob:AnimationSub() > 1 then
         return 0
 	-- Raubahn Mythic Fight
-	elseif mob:getFamily() == 919 and mob:getMainJob() == tpz.job.BLU then
+	elseif mob:getFamily() == 919 and mob:getMainJob() == tpz.job.BLU and mob:AnimationSub() == 0 or mob:AnimationSub() > 1 then
 		return 0
     end
 
