@@ -33,7 +33,7 @@ function onMobFight(mob, target)
 	
 	if BerserkTime == 0 then
 		mob:setLocalVar("BerserkTime", BattleTime + 30)
-	elseif BattleTime >= BerserkTime and Stance == 1 then
+	elseif BattleTime >= BerserkTime and Stance == 0 then
 		mob:useMobAbility(697) -- Berserk
 		mob:setDamage(150)
 		mob:setMod(tpz.mod.ATTP, 100)
@@ -44,10 +44,10 @@ function onMobFight(mob, target)
 		mob:setMod(tpz.mod.UDMGMAGIC, 12)
 		target:PrintToPlayer("Sometimes, one must step back from the trees in order to see the forest.",0,"Iron Eater")
 		mob:setLocalVar("DefenderTime", BattleTime + 60)
-		mob:setLocalVar("Stance", 2)
+		mob:setLocalVar("Stance", 1)
 	end
 
-	if DefenderTime > 0 and BattleTime >= DefenderTime and Stance == 2 then
+	if DefenderTime > 0 and BattleTime >= DefenderTime and Stance == 1 then
 		mob:useMobAbility(698) -- Defender
 		mob:setDamage(75)
 		mob:setMod(tpz.mod.ATTP, -50)
@@ -58,7 +58,7 @@ function onMobFight(mob, target)
 		mob:setMod(tpz.mod.UDMGMAGIC, -12)
 		target:PrintToPlayer("Eyes open, always be learning.",0,"Iron Eater")
 		mob:setLocalVar("BerserkTime", BattleTime + 60)
-		mob:setLocalVar("Stance", 2)
+		mob:setLocalVar("Stance", 0)
 	end
 end
 
