@@ -827,7 +827,7 @@ end
 function MobEncumberMove(target, maxSlots, duration)
     local encumberSlots = {};
     local currIndex = 1;
-	while (currIndex <= maxSlots) and (#encumberSlots < 16) do
+    while (currIndex <= maxSlots) and (#encumberSlots < 16) do
       local newSlot = math.random(0, 15);
       for _, slot in pairs(encumberSlots) do
         if (slot == newSlot) then
@@ -853,9 +853,9 @@ function MobEncumberMove(target, maxSlots, duration)
             encumberSlots[currIndex] = 2;
             currIndex = currIndex + 1;
             maxSlots = maxSlots + 1;
-	    end
-	  end
-	end
+        end
+      end
+    end
 
     local mask = 0;
     for i = 1,#encumberSlots,1 do
@@ -863,6 +863,33 @@ function MobEncumberMove(target, maxSlots, duration)
       mask = mask + math.pow(2, encumberSlots[i]);
     end
     target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
+end
+
+function MobCharmMove(mob, target, costume, duration)
+	-- 0 costume = none
+    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(tpz.mod.CHR)-target:getStat(tpz.mod.CHR), 0, tpz.magic.ele.WATER)
+        local eleres = target:getMod(tpz.magic.ele.WATER+53)
+        if     eleres < 0  and resist < 0.5  then resist = 0.5
+        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+		
+	if (not target:isPC()) then
+		skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	end
+	
+	if resist >= 0.5 and caster:getCharmChance(target, false) > 0 then
+		local msg = MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration)
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+			skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		else
+			if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
+			mob:charm(target)
+			target:costume(costume) 
+		end
+			 skill:setMsg(tpz.msg.basic.SKILL_MISS)
+		end
+	else
+		skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	end
 end
 
 function MobTakeAoEShadow(mob, target, max)
