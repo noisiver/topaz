@@ -7,7 +7,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function defeated(mob)
-    mob:showText(mob, 7912) -- I am defeated... My honor is as dust before the wind...
+    mob:showText(mob, 7913) -- I am defeated... My honor is as dust before the wind...
     local mobId = mob:getID()
     local makki = GetMobByID(mobId + 1)
     makki:showText(makki, 7919) -- What? Nooo!
@@ -18,9 +18,10 @@ function defeated(mob)
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(200)
 	mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 25) 
+	mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setLocalVar("progress", 100)
@@ -33,7 +34,7 @@ function onMobEngaged(mob,target)
     mob:SetAutoAttackEnabled(true)
     mob:SetMobAbilityEnabled(true)
     mob:setLocalVar("nextmsg", math.random(3, 4))
-    mob:showText(mob, 7911) -- You will fall to my blade!
+    mob:showText(mob, 7909) -- You will fall to my blade!
     local mobId = mob:getID()
 
     local makki = GetMobByID(mobId + 1)
@@ -97,7 +98,7 @@ function onMobFight(mob)
             mob:useMobAbility(1399)
             meikyoShisui = 6
         elseif meikyoShisui == 6 then
-            mob:showText(mob, 7911) -- Tenzen: Your life is but a fading dream...
+            mob:showText(mob, 7912) -- Tenzen: Your life is but a fading dream...
             for _, player in pairs(mob:getBattlefield():getPlayers()) do
                 player:showText(player, 7878) -- You are overwhelmed by Tenzen's Cosmic Elucidation.
             end
@@ -110,7 +111,7 @@ function onMobFight(mob)
         mob:setLocalVar("meikyo_shisui", meikyoShisui)
     elseif now >= progress then
         if progress == 100 then
-            mob:showText(mob, 7913) -- Tenzen uses a shogun rice ball....
+            mob:showText(mob, 7911) -- Tenzen uses a shogun rice ball....
             mob:useMobAbility(1398)
             mob:setLocalVar("progress", 105)
         elseif progress == 105 then
