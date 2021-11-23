@@ -2990,7 +2990,7 @@ INSERT INTO `mob_groups` VALUES (53,34,62,'Achamoth',0,128,14,38000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (54,35,62,'Achamothcampa',0,128,0,8000,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (55,36,62,'Achamoth_Nympha',0,128,0,12000,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (56,2697,62,'Moblin_Millionaire',600,0,1712,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (57,6587,62,'Friars_Lantern',600,0,3143,0,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (57,6587,62,'Friars_Lantern_Grow',600,0,3143,0,0,85,87,0);
 
 INSERT INTO `mob_groups` VALUES (2132,4493,62,'Zazarg',0,128,0,0,0,0,0,0);
 
