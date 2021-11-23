@@ -10,22 +10,26 @@ function changeToForm(mob, form)
     -- 0:ball - 1:humanoid - 2:spider - 3:bird
 
     -- Remove previous form bonuses
+	mob:setDamage(100)
 	mob:setMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.EVA, 340)
     mob:setMod(tpz.mod.DMGPHYS, 50)
     mob:setMod(tpz.mod.DMGMAGIC, -50)
 
     if form == 1 then
+		mob:setDamage(50)
         mob:setMod(tpz.mod.ATP, -50)
 		mob:setMod(tpz.mod.EVA, 340)
         mob:setMod(tpz.mod.DMGPHYS, -50)
         mob:setMod(tpz.mod.DMGMAGIC, 0)
     elseif form == 2 then
+		mob:setDamage(180)
         mob:setMod(tpz.mod.ATP, 50)
 		mob:setMod(tpz.mod.EVA, 340)
         mob:setMod(tpz.mod.DMGPHYS, 50)
         mob:setMod(tpz.mod.DMGMAGIC, 50)
     elseif form == 3 then
+		mob:setDamage(100)
 		mob:setMod(tpz.mod.ATTP, 10)
         mob:setMod(tpz.mod.EVA, 400)
         mob:setMod(tpz.mod.DMGPHYS, 0)
