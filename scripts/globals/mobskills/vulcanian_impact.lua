@@ -13,7 +13,7 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-	if (mob:getPool() == 1426) or (mob:getPool() == 416) then 
+	if (mob:getPool() == 1426) or (mob:getPool() == 416) (mob:getPool() == 6587)  and mob:AnimationSub() >= 2 then 
 		return 0
 	else
 		return 1
