@@ -18,7 +18,7 @@ function defeated(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setDamage(200)
+	mob:setDamage(150)
 	mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
 	mob:addMod(tpz.mod.ACC, 50) 
