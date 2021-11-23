@@ -13,6 +13,9 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
+		return 1
+	end
     return 0
 end
 

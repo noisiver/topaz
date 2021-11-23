@@ -13,6 +13,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.ATTACK_BOOST) then
+		return 1
+	end
     if (mob:AnimationSub() ~=0) then
         return 1
     else
