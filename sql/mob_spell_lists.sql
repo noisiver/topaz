@@ -4462,9 +4462,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,49,37,56);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,50,57,67);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,51,68,75);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,52,80,255);
-INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,53,19,255);
-INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,54,28,255);
-INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,55,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,56,13,255);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,57,40,255);
 INSERT INTO `mob_spell_lists` VALUES ('Cherukiki',2012,58,4,255);
@@ -4535,7 +4532,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,225,24,71);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,226,72,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,230,10,34);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,231,35,60);
-INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,232,61,255); -- Bio III
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,235,24,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,236,22,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,237,20,255);
@@ -4544,8 +4540,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,239,16,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,240,27,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,245,12,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,247,25,94);
-INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,248,95,255); -- Aspir II
-INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,249,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,252,45,255);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,253,20,40);
 INSERT INTO `mob_spell_lists` VALUES ('Kukki-Chebukki',2013,254,4,255);
@@ -4589,6 +4583,32 @@ INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,167,1,255); -- Thunder 
 INSERT INTO `mob_spell_lists` VALUES ('Mokumokuren',2016,172,1,255); -- Water IV
 
 INSERT INTO `mob_spell_lists` VALUES ('Vidhuwa_The_Wrathborn',2017, 214, 1, 255); -- Flood
+
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,5,1,255); -- Cure V
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,10,1,255); -- Curaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,143,1,255); --Erase
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,40,1,255); -- Banishga III
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,34,1,255); -- Diaga II
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,359,1,255); -- Silencega
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,356,1,255); -- Paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Devout_Radol_Ja',2018,357,1,255); -- Slowga
+
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,376,1,255);	-- Horde Lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,392,1,255);	-- Knight's Minne IV
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,373,1,255);	-- Foe Requiem VI 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,442,1,255);	-- Lightning Carol
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,422,1,255);	-- Carnage Elegy 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,397,1,255);	-- Valor Minuet IV 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,432,1,255);	-- Uncanny Etude
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,434,1,255);	-- Swift Etude 
+INSERT INTO `mob_spell_lists` VALUES ('Merrow_No5',2019,420,1,255);	-- Victory March 
+
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb', 2020, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020,147,1,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 204, 1, 255); -- Flare 
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 235, 1, 255); -- Burn
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 249, 1, 255); -- Blaze Spikes
+INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 312, 1, 255); -- Enfire
 
 
 

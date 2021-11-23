@@ -16,13 +16,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
-end
-
-function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180) -- 3 minutes
-end
-
-function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         delay = 180,
         specials =
@@ -37,6 +30,11 @@ function onMobSpawn(mob)
         },
     })
 end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180) -- 3 minutes
+end
+
 
 function onMobFight(mob, target)
     -- spawn Assassins when enmity is gained against Executor

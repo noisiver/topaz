@@ -19,7 +19,7 @@ function onUseAbility(player, target, ability)
     local helix = target:getStatusEffect(tpz.effect.HELIX)
     if helix ~= nil then
         local mvPower = helix:getSubPower()
-        local resist = applyResistanceAbility(player, target, tpz.magic.ele.NONE, tpz.skill.ELEMENTAL_MAGIC, 25) -- seems reasonable...
+        local resist = applyResistanceAbility(player, target, tpz.magic.ele.NONE, tpz.skill.ELEMENTAL_MAGIC, caster:getMod(tpz.mod.MACC) + 25) -- seems reasonable...
         -- Doesn't work against NMs apparently
         if mvPower > 0 or resist < 0.25 then
             ability:setMsg(tpz.msg.basic.JA_MISS) --Miss

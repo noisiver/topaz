@@ -3,6 +3,7 @@
 -- Desc: this file contains functions that are shared by multiple luas in this zone's directory
 -----------------------------------
 local ID = require("scripts/zones/Misareaux_Coast/IDs")
+require("scripts/globals/status")
 require("scripts/globals/npc_util")
 -----------------------------------
 

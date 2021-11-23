@@ -31,9 +31,27 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.SINGING
     params.bonus = bonus
     params.effect = tpz.effect.CHARM_I
+    if caster:isPC() then
+        local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
+        local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
+        local skillcap = caster:getMaxSkillLevel(caster:getMainLvl(), tpz.job.BRD, tpz.skill.STRING_INSTRUMENT) -- will return the same whether string or wind, both are C for bard
+        
+        local rangedType = caster:getWeaponSkillType(tpz.slot.RANGED)
+        if rangedType ~= tpz.skill.STRING_INSTRUMENT and rangedType ~= tpz.skill.WIND_INSTRUMENT then iLvl = sLvl end
+        
+        if sLvl + iLvl > skillcap*2 then
+            params.skillBonus = sLvl + iLvl - skillcap*2 -- every point over the skillcap (only attainable from gear/merits) is an extra +1 magic accuracy
+        end
+    end
+
     local resist = applyResistanceEffect(caster, target, spell, params)
-    -- print(resist)
-    if (resist >= 0.25 and caster:getCharmChance(target, false) > 0) then
+	--Fealty makes you immune to charm
+	if target:hasStatusEffect(tpz.effect.FEALTY) then
+		spell:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		resist = 0
+	end
+	-- print(resist)
+    if (resist >= 0.50 and caster:getCharmChance(target, false) > 0) then
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         if (caster:isMob()) then
             target:addStatusEffect(tpz.effect.CHARM_I, 0, 0, 30*resist)

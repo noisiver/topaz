@@ -14,14 +14,15 @@ zones[tpz.zone.BEARCLAW_PINNACLE] =
         ITEM_OBTAINED           = 6388, -- Obtained: <item>.
         GIL_OBTAINED            = 6389, -- Obtained <number> gil.
         KEYITEM_OBTAINED        = 6391, -- Obtained key item: <keyitem>.
-        BCNM_SEALED             = 7077, -- A fierce column of wind blocks your path. You cannot proceed any further...
-        BCNM_CLEARANCE          = 7360, -- Currently, <total> members of your party (including yourself) have clearance to enter the battlefield.
-        BCNM_ENTERING           = 7583, -- Entering the battlefield for "<bcnmindex>"!
-        CONQUEST_BASE           = 7420, -- Tallying conquest results...
-        THE_EXPLOSION           = 7607, -- The explosion has blown you out of the area!
-        BEGIN_TO_MELT           = 7663, -- The Snoll Tzar has begun to melt!
-        EMIT_STEAM              = 7664, -- The Snoll Tzar is emitting a large amount of steam.
-        SHAKES_SALT             = 7665, -- The Snoll Tzar shakes off the salt!
+        CARRIED_OVER_POINTS     = 6999, -- You have carried over <number> login point[/s].
+        LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The [/January/February/March/April/May/June/July/August/September/October/November/December] <number> Login Campaign is currently underway!<space>
+        LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
+        ORB_MESSAGE_OFFSET      = 7364, -- There is a crack in the <item>. It no longer contains a monster.
+        CONQUEST_BASE           = 7421, -- Tallying conquest results...
+        BLOWN_AWAY              = 7607, -- Blown out of area
+        BEGINS_TO_MELT          = 7664, -- Begings to Melt
+        LARGE_STEAM             = 7665, -- Emitting a large amount of steam
+        SHOOK_SALT              = 7666, -- Shook off the salt
     },
     mob =
     {

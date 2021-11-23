@@ -45,7 +45,11 @@ function onSpellCast(caster, target, spell)
     local final = finalMagicAdjustments(caster, target, spell, dmg)
 
     -- Calculate duration
-    local duration = calculateDuration(30 + (meritBonus - 30), spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = 30 + (meritBonus - 30)
+	
+	if caster:isMob() then
+		duration = 180
+	end
 
     -- Check for Dia
     local dia = target:getStatusEffect(tpz.effect.DIA)

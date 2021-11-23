@@ -28,13 +28,13 @@ function onMobWeaponSkill(target, mob, skill)
 		skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
 
 		return dmg
-	end
 	elseif RNG == 2 then
 		local effect1 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE+tpz.effectFlag.FOOD)
 		local dmg = 0
 
 		if (effect1 ~= 0) then
 			local count = 1
+		end
 
 
         skill:setMsg(tpz.msg.basic.EFFECT_DRAINED)

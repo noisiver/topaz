@@ -12,80 +12,84 @@ g_mixins.families = g_mixins.families or {}
 
 g_mixins.families.aern = function(mob)
     mob:addListener("DEATH", "AERN_DEATH", function(mob, killer)
-        if killer then
-            local reraises = mob:getLocalVar("AERN_RERAISE_MAX")
-            local curr_reraise = mob:getLocalVar("AERN_RERAISES")
-            if reraises == 0 then
-                if math.random() < 0.4 then
-                    reraises = 1
-                end
-            end
-            if curr_reraise < reraises then
-                mob:setMobMod(tpz.mobMod.NO_DROPS, 1) -- Aern will not drop any items if reraising, not even seals.
-                local target = mob:getTarget()
-                mob:timer(12000, function(mob)
-                    mob:setHP(mob:getMaxHP())
-                    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
-                    mob:AnimationSub(3)
-                    mob:setLocalVar("AERN_RERAISES", curr_reraise + 1)
-                    mob:resetAI()
-                    mob:stun(3000)
-                    if target and target:isAlive() and mob:checkDistance(target) < 40 then
-                        mob:updateClaim(target)
-                        mob:updateEnmity(target)
-                    elseif killer:isAlive() and mob:checkDistance(killer) < 40 then
-                        mob:updateClaim(killer)
-                        mob:updateEnmity(killer)
-                    else
-                        local partySize = killer:getPartySize()
-                        local i = 1
-                        for _, partyMember in pairs(killer:getAlliance()) do
-                            if partyMember:isAlive() and mob:checkDistance(partyMember) < 40 then
-                                mob:updateClaim(partyMember)
-                                mob:updateEnmity(partyMember)
-                                break
-                            elseif i == partySize then
-                                mob:disengage()
-                            end
-                            i = i + 1
-                        end
-                    end
-                    mob:triggerListener("AERN_RERAISE", mob, curr_reraise + 1)
-                end)
-            end
-        end
+		if not mob:isNM() then
+			if killer then
+				local reraises = mob:getLocalVar("AERN_RERAISE_MAX")
+				local curr_reraise = mob:getLocalVar("AERN_RERAISES")
+				if reraises == 0 then
+					if math.random() < 0.4 then
+						reraises = 1
+					end
+				end
+				if curr_reraise < reraises then
+					mob:setMobMod(tpz.mobMod.NO_DROPS, 1) -- Aern will not drop any items if reraising, not even seals.
+					local target = mob:getTarget()
+					mob:timer(12000, function(mob)
+						mob:setHP(mob:getMaxHP())
+						mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+						mob:AnimationSub(3)
+						mob:setLocalVar("AERN_RERAISES", curr_reraise + 1)
+						mob:resetAI()
+						mob:stun(3000)
+						if target and target:isAlive() and mob:checkDistance(target) < 40 then
+							mob:updateClaim(target)
+							mob:updateEnmity(target)
+						elseif killer:isAlive() and mob:checkDistance(killer) < 40 then
+							mob:updateClaim(killer)
+							mob:updateEnmity(killer)
+						else
+							local partySize = killer:getPartySize()
+							local i = 1
+							for _, partyMember in pairs(killer:getAlliance()) do
+								if partyMember:isAlive() and mob:checkDistance(partyMember) < 40 then
+									mob:updateClaim(partyMember)
+									mob:updateEnmity(partyMember)
+									break
+								elseif i == partySize then
+									mob:disengage()
+								end
+								i = i + 1
+							end
+						end
+						mob:triggerListener("AERN_RERAISE", mob, curr_reraise + 1)
+					end)
+				end
+			end
+		end
     end)
     mob:addListener("SPAWN", "AERN_SPAWN", function(mob)
         mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
 		mob:AnimationSub(1)
     end)
+    mob:addListener("ROAM_TICK", "AERN_ROAM", function(mob)
+		mob:AnimationSub(1)
+    end)
     mob:addListener("COMBAT_TICK", "AERN_COMBAT_TICK", function(mob)
-        local BraceletsTime = mob:getLocalVar("BraceletsTime")
+	local BraceletsTime = mob:getLocalVar("BraceletsTime")
+	local BraceletsOff = mob:getLocalVar("BraceletsOff")
 
-        if BraceletsTime > 0 and os.time() > BraceletsTime then
-            local animationSub = mob:AnimationSub()
-
-            if animationSub == 0 or animationSub == 1 or animationSub == 4 then
-				mob:delMod(tpz.mod.MAGIC_HASTE, 2500)
-				mob:setMod(tpz.mod.ATTP, 0)
-				mob:setMod(tpz.mod.MATT, 0)
-				mob:setMod(tpz.mod.UDMGPHYS, 0) 
-				mob:setMod(tpz.mod.UDMGRANGE, 0)
-				mob:setMod(tpz.mod.UDMGMAGIC, 0)
-                mob:AnimationSub(2)
-                mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
-
-            elseif animationSub == 1 then
-				mob:addMod(tpz.mod.MAGIC_HASTE, 2500)
-				mob:setMod(tpz.mod.ATTP, 100)
-				mob:setMod(tpz.mod.MATT, 48)
-				mob:setMod(tpz.mod.UDMGPHYS, 60) 
-				mob:setMod(tpz.mod.UDMGRANGE, 60)
-				mob:setMod(tpz.mod.UDMGMAGIC, 60)
-                mob:AnimationSub(1)
-                mob:setLocalVar("BraceletsTime", os.time() + 30)
-            end
-        end
+		if BraceletsTime == 0 then
+			mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
+		elseif os.time() >= BraceletsTime then
+			mob:addMod(tpz.mod.MAGIC_HASTE, 2500)
+			mob:setMod(tpz.mod.ATTP, 100)
+			mob:setMod(tpz.mod.MATT, 48)
+			mob:setMod(tpz.mod.UDMGPHYS, 60) 
+			mob:setMod(tpz.mod.UDMGRANGE, 60)
+			mob:setMod(tpz.mod.UDMGMAGIC, 60)
+			mob:AnimationSub(2)
+			mob:setLocalVar("BraceletsOff", os.time() + 30)
+		end
+		if BraceletsOff >= 0 and os.time() > BraceletsOff then
+			mob:delMod(tpz.mod.MAGIC_HASTE, 2500)
+			mob:setMod(tpz.mod.ATTP, 0)
+			mob:setMod(tpz.mod.MATT, 0)
+			mob:setMod(tpz.mod.UDMGPHYS, 0) 
+			mob:setMod(tpz.mod.UDMGRANGE, 0)
+			mob:setMod(tpz.mod.UDMGMAGIC, 0)
+			mob:AnimationSub(1)
+			mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
+		end
     end)
 end
 

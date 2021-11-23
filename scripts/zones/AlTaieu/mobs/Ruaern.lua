@@ -3,7 +3,10 @@
 --   NM: Ru'aern
 -- Note: Spawned by Rubious Crystals for PM 8-1
 -----------------------------------
-mixins = {require("scripts/mixins/job_special")}
+mixins = {
+require("scripts/mixins/job_special"),
+require("scripts/mixins/families/aern")
+}
 local ID = require("scripts/zones/AlTaieu/IDs")
 require("scripts/globals/missions")
 require("scripts/globals/status")
@@ -15,6 +18,18 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_WIND, 50)
     mob:setMod(tpz.mod.SDT_DARK, 50)
 end
+
+function onMobEngaged(mob, target)
+	mob:SetMagicCastingEnabled(true)
+	if mob:getMainJob() == tpz.job.DRG or mob:getMainJob() == tpz.job.BST then
+		mob:spawnPet()
+	end
+end
+
+function onMobRoam(mob)
+	mob:SetMagicCastingEnabled(false)
+end
+
 
 function onMobDeath(mob, player, isKiller)
 

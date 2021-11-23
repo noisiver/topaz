@@ -12,7 +12,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.HUMANOID_KILLER) then
+	if mob:hasStatusEffect(tpz.effect.HUMANOID_KILLER) or mob:hasStatusEffect(tpz.effect.PROWESS_KILLER)  then
 		return 1
 	end
     return 0

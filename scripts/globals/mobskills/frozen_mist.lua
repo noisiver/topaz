@@ -14,6 +14,9 @@ require("scripts/globals/world")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
+		return 1
+	end
 	if (mob:getPool() == 6737) then
 		return 0
 	end

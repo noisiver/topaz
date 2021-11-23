@@ -1,43 +1,36 @@
 -----------------------------------------
 -- ID: 5267
--- Item: Shu'Meyo Salt
--- Additional Effect: Melts Snoll Tzar
+-- Item: Chunk Of Shu'Meyo Salt
+-- Effect: Adds 20 seconds to the Snoll Tzar fight
 -----------------------------------------
-local ID = require("scripts/zones/Bearclaw_Pinnacle/IDs")
-require("scripts/globals/status")
+require("scripts/globals/settings")
 require("scripts/globals/msg")
------------------------------------
+require("scripts/globals/status")
+require("scripts/globals/player")
+-----------------------------------------
 
-function onItemCheck(target)
-    if target:getPool() == 3684 and target:getLocalVar("salted") ~= 1 then
-        return 0
+local ID = require("scripts/zones/Bearclaw_Pinnacle/IDs")
+
+function onItemCheck(target, param, player)
+    local result = 0
+	local id = target:getID()
+
+	if id ~= 16801793 then -- snoll tzar
+        result = tpz.msg.basic.ITEM_UNABLE_TO_USE
+    elseif target:checkDistance(player) > 10 then
+        result = tpz.msg.basic.TOO_FAR_AWAY
     end
-        return 1
+
+    return result
 end
 
-function onItemUse(target, item)
-    if target:getLocalVar("salted") ~= 1 then
-        target:showText(target, ID.text.BEGIN_TO_MELT)
-        target:setLocalVar("shifttime", target:getLocalVar("shifttime") + 20)
-        target:setLocalVar("salted", 1)
-        target:timer(7000, function(target)
-            if target:isDead() then
-                return
-            end
-            target:showText(target, ID.text.EMIT_STEAM)
-        end)
-        target:timer(1400, function(target)
-            if target:isDead() then
-                return
-            end
-            target:showText(target, ID.text.EMIT_STEAM)
-        end)
-        target:timer(21000, function(target)
-            if target:isDead() then
-                return
-            end
-            target:setLocalVar("salted", 0)
-            target:showText(target, ID.text.SHAKES_SALT)
-        end)
+function onItemUse(target, player)
+    local salt = target:getLocalVar("salty")
+
+    if (salt == 0) then -- random time until shaken off
+        target:setLocalVar("delayed", os.time() + 20)
+        target:setLocalVar("cooldown", os.time() + math.random(15, 20))
+        target:setLocalVar("salty", 1)
+        target:setLocalVar("melt", 1)    
     end
 end

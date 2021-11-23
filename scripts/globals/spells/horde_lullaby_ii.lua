@@ -21,6 +21,19 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.SINGING
     params.bonus = 0
     params.effect = tpz.effect.LULLABY
+    if caster:isPC() then
+        local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
+        local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
+        local skillcap = caster:getMaxSkillLevel(caster:getMainLvl(), tpz.job.BRD, tpz.skill.STRING_INSTRUMENT) -- will return the same whether string or wind, both are C for bard
+        
+        local rangedType = caster:getWeaponSkillType(tpz.slot.RANGED)
+        if rangedType ~= tpz.skill.STRING_INSTRUMENT and rangedType ~= tpz.skill.WIND_INSTRUMENT then iLvl = sLvl end
+        
+        if sLvl + iLvl > skillcap*2 then
+            params.skillBonus = sLvl + iLvl - skillcap*2 -- every point over the skillcap (only attainable from gear/merits) is an extra +1 magic accuracy
+        end
+    end
+
     resm = applyResistanceEffect(caster, target, spell, params)
 
     if resm < 0.5 then

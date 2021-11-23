@@ -33,7 +33,7 @@ function onMobEngaged(mob,target)
     mob:SetAutoAttackEnabled(true)
     mob:SetMobAbilityEnabled(true)
     mob:setLocalVar("nextmsg", math.random(3, 4))
-    mob:showText(mob, 7910) -- You will fall to my blade!
+    mob:showText(mob, 7911) -- You will fall to my blade!
     local mobId = mob:getID()
 
     local makki = GetMobByID(mobId + 1)
