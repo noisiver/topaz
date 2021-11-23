@@ -11,10 +11,10 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
-    local accmod = 2
+    local accmod = 4
     local dmgmod = 4.0
 
-    local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
+    local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_ATK_VARIES, 2, 2, 2)
 
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, info.hitslanded)
 
