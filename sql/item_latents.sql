@@ -2955,10 +2955,10 @@ INSERT INTO `item_latents` VALUES(18508, 27, 1, 16, 4);      -- Enmity +1~4, par
 INSERT INTO `item_latents` VALUES(18508, 27, 1, 16, 5);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
 INSERT INTO `item_latents` VALUES(18508, 27, 1, 16, 6);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18508, 161, 2, 16, 3);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 161, 2, 16, 4);     -- -PDT +8~8 party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 161, 2, 16, 5);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 161, 2, 16, 6);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 161, -2, 16, 3);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 161, -2, 16, 4);     -- -PDT +8~8 party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 161, -2, 16, 5);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 161, -2, 16, 6);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Carbuncle's Pole
