@@ -84,8 +84,6 @@ tpz.race =
 tpz.status =
 {
     NORMAL          =  0,
-    NPC             =  0,
-    MOB             =  1,
     UPDATE          =  1,
     DISAPPEAR       =  2,
     INVISIBLE       =  3,
