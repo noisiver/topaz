@@ -23,7 +23,6 @@ function onMobSpawn(mob)
 end
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 12)
 end
 
 function onMobEngaged(mob)
