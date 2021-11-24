@@ -191,6 +191,7 @@ function onMobRoam(mob)
             end
         end
     end
+	local data = escorts[escort]
 	if progress ~= EscortProgress.ENROUTE then
 		mob:showText(mob, ID.text.RECOMMENCING_PATROL)
 		mob:setLocalVar("progress", EscortProgress.ENROUTE)
