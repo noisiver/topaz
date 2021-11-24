@@ -189,18 +189,15 @@ function onMobRoam(mob)
                 mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
                 mob:setLocalVar("progress", EscortProgress.PAUSED)
             end
-        else
-		mob:setLocalVar("progress", EscortProgress.ENROUTE)
+        end
     end
-    local progress = mob:getLocalVar("progress")
-    local escort = mob:getLocalVar("escort")
-    local data = escorts[escort]
-	if progress ~= EscortProgress.PAUSED then
+	if  mob:getNearbyMobs(12) == false then
+	        printf("Setting two hour time");
 		mob:showText(mob, ID.text.RECOMMENCING_PATROL)
-		printf("Recommencing Patrol");
+		mob:setLocalVar("progress", EscortProgress.ENROUTE)
 		mob:pathThrough(data.path[point], tpz.path.flag.WALK)
 	end
-		local opened_door = mob:getLocalVar("opened_door")
+    local opened_door = mob:getLocalVar("opened_door")
     if opened_door ~= 0 then
         local npc = GetNPCByID(opened_door)
         if mob:checkDistance(npc) > 15 then
