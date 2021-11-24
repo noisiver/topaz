@@ -10,7 +10,10 @@ require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/zdei")}
 -----------------------------------
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 12)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 12)
     mob:setMobMod(tpz.mobMod.LINK_RADIUS, 50)
+	mob:setAggressive(true)
 	mob:setDamage(125)
 	mob:addMod(tpz.mod.DEFP, 25) 
 	mob:addMod(tpz.mod.ATTP, 25)
