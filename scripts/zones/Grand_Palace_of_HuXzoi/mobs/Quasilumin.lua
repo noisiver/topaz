@@ -189,6 +189,10 @@ function onMobRoam(mob)
                 mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
                 mob:setLocalVar("progress", EscortProgress.PAUSED)
             end
+		else
+            mob:showText(mob, ID.text.RECOMMENCING_PATROL)
+            mob:setLocalVar("progress", EscortProgress.ENROUTE)
+            mob:pathThrough(data.path[point], tpz.path.flag.WALK)
         end
     end
     local opened_door = mob:getLocalVar("opened_door")
