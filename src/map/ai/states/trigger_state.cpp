@@ -16,8 +16,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see http://www.gnu.org/licenses/
 
-This file is part of DarkStar-server source code.
-
 ===========================================================================
 */
 
@@ -38,16 +36,11 @@ bool CTriggerState::Update(time_point tick)
     if (!IsCompleted())
     {
         auto PChar = static_cast<CCharEntity*>(GetTarget());
-        if (PChar)
+        if (PChar && luautils::OnTrigger(PChar, m_PEntity) == -1 && m_PEntity->animation == ANIMATION_CLOSE_DOOR)
         {
-            int32 result = luautils::OnTrigger(PChar, m_PEntity);
-            m_PEntity->PAI->EventHandler.triggerListener("ON_TRIGGER", PChar, m_PEntity);
-            if (result == -1 && m_PEntity->animation == ANIMATION_CLOSE_DOOR)
-            {
-                close = true;
-                m_PEntity->animation = ANIMATION_OPEN_DOOR;
-                m_PEntity->updatemask |= UPDATE_HP;
-            }
+            close = true;
+            m_PEntity->animation = ANIMATION_OPEN_DOOR;
+            m_PEntity->updatemask |= UPDATE_HP;
         }
         Complete();
     }
