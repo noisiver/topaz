@@ -221,6 +221,9 @@ function onPath(mob)
             mob:showText(mob, ID.text.PATROL_COMPLETE)
             mob:setLocalVar("progress", EscortProgress.COMPLETE)
             mob:setLocalVar("expire", os.time() + 60)
+            mob:setStatus(tpz.status.INVISIBLE)
+            DespawnMob(mob:getID())
+            GetNPCByID(data.door):openDoor(60)
         elseif progress ~= EscortProgress.COMPLETE then
             point = point + 1
             mob:setLocalVar("point", point)
