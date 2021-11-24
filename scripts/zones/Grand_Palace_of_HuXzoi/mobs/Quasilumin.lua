@@ -194,15 +194,15 @@ function onMobRoam(mob)
         end
     end
 	if entities == false then
-		print(made it past check)
+        printf("entites == false");
 		if recommencetext == 0 then
 			mob:showText(mob, ID.text.RECOMMENCING_PATROL)
 			mob:setLocalVar("progress", EscortProgress.ENROUTE)
 			mob:pathThrough(data.path[point], tpz.path.flag.WALK)
 			mob:setLocalVar("recommencetext", 1)
-			print(made it past check 2)
+        printf("start patrol");
 		elseif recommencetext > 0 then
-		print(made it past check3)
+        printf("elseif");
 		end
 	end
     local opened_door = mob:getLocalVar("opened_door")
