@@ -189,12 +189,13 @@ function onMobRoam(mob)
                 mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
                 mob:setLocalVar("progress", EscortProgress.PAUSED)
             end
-        end
+        else
+		mob:setLocalVar("progress", EscortProgress.ENROUTE)
     end
     local progress = mob:getLocalVar("progress")
     local escort = mob:getLocalVar("escort")
     local data = escorts[escort]
-	if progress ~= EscortProgress.ENROUTE then
+	if progress ~= EscortProgress.PAUSED then
 		mob:showText(mob, ID.text.RECOMMENCING_PATROL)
 		printf("Recommencing Patrol");
 		mob:pathThrough(data.path[point], tpz.path.flag.WALK)
