@@ -182,19 +182,26 @@ function onMobRoam(mob)
     end
 
     local entities = mob:getNearbyMobs(12)
+	local recommencetext = mob:getLocalVar("recommencetext")
     for i, entity in pairs(entities) do
         if entity:getAggressive() == 1 and mob:getID() ~= entity:getID() and entity:isSpawned() and entity:getCurrentAction() == tpz.action.ROAMING then
             entity:updateEnmity(mob)
             if progress ~= EscortProgress.PAUSED then
                 mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
                 mob:setLocalVar("progress", EscortProgress.PAUSED)
+				mob:setLocalVar("recommencetext", 0)
             end
-		else
-            mob:showText(mob, ID.text.RECOMMENCING_PATROL)
-            mob:setLocalVar("progress", EscortProgress.ENROUTE)
-            mob:pathThrough(data.path[point], tpz.path.flag.WALK)
         end
     end
+	if entity:getAggressive() == 0 then
+		if recommencetext == 0 then
+			mob:showText(mob, ID.text.RECOMMENCING_PATROL)
+		elseif recommencetext > 0 then
+			mob:setLocalVar("progress", EscortProgress.ENROUTE)
+			mob:pathThrough(data.path[point], tpz.path.flag.WALK)
+			mob:setLocalVar("recommencetext", 1)
+		end
+	end
     local opened_door = mob:getLocalVar("opened_door")
     if opened_door ~= 0 then
         local npc = GetNPCByID(opened_door)
