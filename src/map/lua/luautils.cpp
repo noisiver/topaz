@@ -1495,23 +1495,10 @@ namespace luautils
     *                                                                       *
     ************************************************************************/
 
-        int32 OnTrigger(CCharEntity* PChar, CBaseEntity* PNpc)
+    int32 OnTrigger(CCharEntity* PChar, CBaseEntity* PNpc)
     {
-        const char* script_path = nullptr;
-        switch (PNpc->objtype)
-        {
-            case TYPE_FELLOW:
-                script_path = "scripts/globals/pets/fellow.lua";
-                break;
-            case TYPE_NPC:
-                script_path = "scripts/zones/%s/npcs/%s.lua";
-                break;
-            case TYPE_MOB:
-                script_path = "scripts/zones/%s/mobs/%s.lua";
-                break;
-        }
-
-        lua_prepscript(script_path, PChar->loc.zone->GetName(), PNpc->GetName());
+        TracyZoneScoped;
+        lua_prepscript("scripts/zones/%s/npcs/%s.lua", PChar->loc.zone->GetName(), PNpc->GetName());
 
         PChar->m_event.reset();
         PChar->m_event.Target = PNpc;
