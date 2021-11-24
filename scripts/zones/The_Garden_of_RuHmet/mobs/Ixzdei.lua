@@ -23,10 +23,11 @@ function onMobFight(mob)
     local recover = mob:getLocalVar("recover")
     if mob:getHPP() <= recover then
         local pos = mob:getSpawnPos()
-        mob:pathThrough({pos.x, pos.y, pos.z}, tpz.path.flag.SCRIPT)
-        mob:SetAutoAttackEnabled(false)
+		mob:pathTo(pos.x, pos.y, pos.z)
+		mob:SetAutoAttackEnabled(false)
 
-        if mob:atPoint({pos.x, pos.y, pos.z}) then
+	local Pos = mob:getPos()
+		if Pos.x == pos.x and Pos.y == pos.y and Pos.z == pos.z then
             local time = mob:getLocalVar("time")
             local now = os.time()
             if time ~= 0 and now > time then
