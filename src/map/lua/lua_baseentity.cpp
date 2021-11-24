@@ -14140,6 +14140,22 @@ inline int32 CLuaBaseEntity::setAggressive(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: getAggressive()
+ *  Purpose : Get a Mob's current aggressive state (passive or aggresive)
+ *  Example : mob:getAggressive()
+ *  Notes   : 0=passive, 1=aggresive
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getAggressive(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    lua_pushinteger(L, ((CMobEntity*)m_PBaseEntity)->m_Aggro);
+
+    return 1;
+}
+
+/************************************************************************
 *  Function: setTrueDetection()
 *  Purpose : Toggle True Detection on or off for a Mob
 *  Example : mob:setTrueDetection(1)
@@ -15832,6 +15848,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasImmunity),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setAggressive),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getAggressive),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setTrueDetection),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setUnkillable),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,untargetable),
