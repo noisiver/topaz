@@ -9,6 +9,15 @@
 require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/zdei")}
 -----------------------------------
+function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.LINK_RADIUS, 50)
+	mob:setDamage(125)
+	mob:addMod(tpz.mod.DEFP, 25) 
+	mob:addMod(tpz.mod.ATTP, 25)
+	mob:addMod(tpz.mod.ACC, 25) 
+	mob:addMod(tpz.mod.EVA, 25)
+	mob:setMod(tpz.mod.MDEF, 24) 
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.SOUND_RANGE, 12)
