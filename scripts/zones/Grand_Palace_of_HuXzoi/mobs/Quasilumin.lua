@@ -191,6 +191,22 @@ function onMobRoam(mob)
             end
         end
     end
+	local progress = mob:getLocalVar("progress")
+    local point = mob:getLocalVar("point")
+    local escort = mob:getLocalVar("escort")
+    local data = escorts[escort]
+    for i, entity in pairs(entities) do
+        if entity:getAggressive() == 1 and mob:getID() ~= entity:getID() and entity:isSpawned() == false and entity:getCurrentAction() == tpz.action.ROAMING then
+            entity:updateEnmity(mob)
+			printf("Setting two hour time");
+            if progress ~= EscortProgress.ENROUTE then
+				printf("Setting two hour time");
+				mob:showText(mob, ID.text.RECOMMENCING_PATROL)
+				mob:setLocalVar("progress", EscortProgress.ENROUTE)
+				mob:pathThrough(data.path[point], tpz.path.flag.WALK)
+            end
+        end
+    end
 	if  mob:getNearbyMobs(12) == false then
 	        printf("Setting two hour time");
 		mob:showText(mob, ID.text.RECOMMENCING_PATROL)
