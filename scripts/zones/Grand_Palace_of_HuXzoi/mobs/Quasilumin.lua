@@ -235,24 +235,23 @@ function onTrigger(player,mob)
     local escort = mob:getLocalVar("escort")
     local data = escorts[escort]
 
-    if data ~= nil then
-        if progress == EscortProgress.ENROUTE then
-            mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
-            mob:showText(mob, ID.text.PATROL_SUSPENDED)
-            mob:setLocalVar("progress", EscortProgress.PAUSED)
-        elseif progress == EscortProgress.PAUSED then
-            mob:showText(mob, ID.text.RECOMMENCING_PATROL)
-            mob:setLocalVar("progress", EscortProgress.ENROUTE)
-            mob:pathThrough(data.path[point], tpz.path.flag.WALK)
-        elseif progress == EscortProgress.COMPLETE then
-            mob:showText(mob, ID.text.DUTY_COMPLETE)
-            mob:showText(mob, data.direction)
-            -- TODO: display animation and NPC is not pushing update packet to players in range
-            mob:setStatus(tpz.status.INVISIBLE)
-            DespawnMob(mob:getID())
-            GetNPCByID(data.door):openDoor(60)
-        end
-    end
+
+	if progress == EscortProgress.ENROUTE then
+		mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
+		mob:showText(mob, ID.text.PATROL_SUSPENDED)
+		mob:setLocalVar("progress", EscortProgress.PAUSED)
+	elseif progress == EscortProgress.PAUSED then
+		mob:showText(mob, ID.text.RECOMMENCING_PATROL)
+		mob:setLocalVar("progress", EscortProgress.ENROUTE)
+		mob:pathThrough(data.path[point], tpz.path.flag.WALK)
+	elseif progress == EscortProgress.COMPLETE then
+		mob:showText(mob, ID.text.DUTY_COMPLETE)
+		mob:showText(mob, data.direction)
+		-- TODO: display animation and NPC is not pushing update packet to players in range
+		mob:setStatus(tpz.status.INVISIBLE)
+		DespawnMob(mob:getID())
+		GetNPCByID(data.door):openDoor(60)
+	end
 end
 
 function onMobDeath(mob, killer)
