@@ -22,6 +22,10 @@ function onMobSkillCheck(target, mob, skill)
 	elseif mob:getFamily() == 919 and mob:getMainJob() == tpz.job.BLU and mob:AnimationSub() == 0 or mob:AnimationSub() > 1 then
 		return 0
     end
+	
+    if ((mob:getFamily() == 122 or mob:getFamily() == 123 or mob:getFamily() == 124) and mob:AnimationSub() == 3) then
+        return 1
+	end
 
     return 1
 end
