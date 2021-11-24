@@ -6,6 +6,7 @@
 -- Animation Sub 2 Bar Form
 -- Animation Sub 3 Ring Form
 -----------------------------------
+local ID = require("scripts/zones/The_Garden_of_RuHmet/IDs")
 require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/zdei")}
 -----------------------------------
@@ -26,6 +27,15 @@ function onMobInitialize(mob)
 end
 
 function onMobEngaged(mob)
+	local target = mob:getTarget()
+    local ZdeiOne = GetMobByID(16921011)
+    local ZdeiTwo = GetMobByID(16921012)
+    local ZdeiThree = GetMobByID(16921013)
+    local ZdeiFour = GetMobByID(16921014)
+	ZdeiOne:updateEnmity(target)
+	ZdeiTwo:updateEnmity(target)
+	ZdeiThree:updateEnmity(target)
+	ZdeiFour:updateEnmity(target)
     mob:SetAutoAttackEnabled(true)
     mob:setLocalVar("recover", math.random(20, 50))
 end
