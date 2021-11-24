@@ -186,6 +186,7 @@ function onMobRoam(mob)
         if entity:getAggressive() == 1 and mob:getID() ~= entity:getID() and entity:isSpawned() and entity:getCurrentAction() == tpz.action.ROAMING then
             entity:updateEnmity(mob)
             if progress ~= EscortProgress.PAUSED then
+				printf("Recommencing Patrol");
                 mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
                 mob:setLocalVar("progress", EscortProgress.PAUSED)
             end
@@ -195,7 +196,6 @@ function onMobRoam(mob)
     local escort = mob:getLocalVar("escort")
     local data = escorts[escort]
 	if progress ~= EscortProgress.ENROUTE then
-		mob:showText(mob, ID.text.RECOMMENCING_PATROL)
 		mob:setLocalVar("progress", EscortProgress.ENROUTE)
 		mob:pathThrough(data.path[point], tpz.path.flag.WALK)
 	end
