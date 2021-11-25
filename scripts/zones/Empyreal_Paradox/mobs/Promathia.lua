@@ -42,8 +42,15 @@ end
 
 function onMobDeath(mob, player, isKiller)
     local battlefield = mob:getBattlefield()
-    player:startEvent(32004)
+    if player then
+        player:startEvent(32004, battlefield:getArea())
+    else
+        for _, member in pairs(battlefield:getPlayers()) do
+            member:startEvent(32004, battlefield:getArea())
+        end
+    end
 end
+
 
 function onEventUpdate(player,csid,option)
 end
