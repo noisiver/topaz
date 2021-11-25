@@ -13,7 +13,7 @@ function onMobInitialize(mob)
 end
 
 function onMobRoam(mob)
-    local promathia = ID.mob.PROMATHIA_OFFSET + (mob:getBattlefield():getBattlefieldNumber() - 1) * 2
+    local promathia = ID.mob.PROMATHIA_OFFSET
     local wait = mob:getLocalVar("wait")
     local ready = mob:getLocalVar("ready")
 
