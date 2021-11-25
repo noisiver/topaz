@@ -6,6 +6,7 @@ local ID = require("scripts/zones/Empyreal_Paradox/IDs")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/magic")
+require("scripts/globals/player")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.MAIN_DMG_RATING, 50)
@@ -58,4 +59,5 @@ function onSpellPrecast(mob, spell)
 end
 
 function onMobDeath(mob, player, isKiller)
+	mob:getBattlefield():win()
 end
