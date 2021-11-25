@@ -40,6 +40,7 @@ function onMobEngaged(mob, target)
     mob:entityAnimationPacket("prov")
     mob:showText(mob, ID.text.PRISHE_TEXT + 1)
     mob:setLocalVar("ready", mob:getID())
+    mob:useMobAbility(1488)
     mob:useMobAbility(1487)
     mob:addStatusEffectEx(tpz.effect.SILENCE, 0, 0, 0, 5)
 end
