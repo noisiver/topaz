@@ -181,16 +181,27 @@ function onMobRoam(mob)
         return
     end
 
-    -- local entities = mob:getNearbyMobs(12)
-    -- for i, entity in pairs(entities) do
-        -- if entity:getAggressive() == 1 and mob:getID() ~= entity:getID() and entity:isSpawned() and entity:getCurrentAction() == tpz.action.ROAMING then
-            -- entity:updateEnmity(mob)
-            -- if progress ~= EscortProgress.PAUSED then
-                -- mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
-                -- mob:setLocalVar("progress", EscortProgress.PAUSED)
-            -- end
-        -- end
-    -- end
+    local progress = mob:getLocalVar("progress")
+    local point = mob:getLocalVar("point")
+    local escort = mob:getLocalVar("escort")
+    local data = escorts[escort]
+    local entities = mob:getNearbyMobs(12)
+    local mobNearby = false;
+    for i, entity in pairs(entities) do
+        if entity:getAggressive() == 1 and mob:getID() ~= entity:getID() and entity:isSpawned() then
+            mobNearby = true;
+            entity:updateEnmity(mob)
+            if progress ~= EscortProgress.PAUSED then
+                mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
+                mob:setLocalVar("progress", EscortProgress.PAUSED)
+            end
+		end
+	end
+    if not mobNearby and progress == EscortProgress.PAUSED then
+		mob:showText(mob, ID.text.RECOMMENCING_PATROL)
+		mob:setLocalVar("progress", EscortProgress.ENROUTE)
+		mob:pathThrough(data.path[point], tpz.path.flag.WALK)
+	end
     local opened_door = mob:getLocalVar("opened_door")
     if opened_door ~= 0 then
         local npc = GetNPCByID(opened_door)
