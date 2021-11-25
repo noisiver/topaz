@@ -1339,7 +1339,7 @@ INSERT INTO `mob_skills` VALUES (1397,1042,'oisoya',0,15.0,2000,0,4,0,0,0,0,0,0)
 INSERT INTO `mob_skills` VALUES (1398,1032,'riceball',0,7.0,2000,0,1,0,0,0,0,0,0); -- riceball eating
 -- INSERT INTO `mob_skills` VALUES (1399,1035,'cosmic_elucidation',1,50.0,2000,1500,4,0,0,0,0,0,0);  -- ???
 -- INSERT INTO `mob_skills` VALUES (1400,1144,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1401,1145,'soul_accretion',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1401,1145,'soul_accretion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1402,1146,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1403,1056,'explosive_impulse',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1404,1148,'ocher_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1575,10 +1575,10 @@ INSERT INTO `mob_skills` VALUES (1626,1370,'4000_needles',1,10.0,2000,1500,4,0,0
 -- INSERT INTO `mob_skills` VALUES (1634,1378,'sheep_song',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1635,1379,'sheep_charge',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1636,1380,'trebuchet',1,10.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1637,410,'power_attack',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1637,410,'power_attack_gration',0,7.0,2000,0,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1638,406,'lightning_roar',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1639,408,'impact_roar',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1640,409,'grand_slam',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1640,409,'grand_slam_gration',1,15.0,2000,0,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1641,23,'eagle_eye_shot',0,7.0,2000,1500,4,2,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1642,1386,'whirl_of_rage',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1643,1387,'smite_of_rage',0,7.0,2000,1500,4,0,0,0,0,0,0);

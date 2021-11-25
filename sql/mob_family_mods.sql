@@ -294,6 +294,9 @@ INSERT INTO `mob_family_mods` VALUES (123,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (124,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (272,29,20,0); 	-- Zdei +20 MDB
 
+-- Move SPeed
+INSERT INTO `mob_family_mods` VALUES (1,169,-15,0); 	-- Acrolith -15%
+
 --Crit Chance
 INSERT INTO `mob_family_mods` VALUES (176,165,10,0);		-- Mamool ja +10% Crit
 

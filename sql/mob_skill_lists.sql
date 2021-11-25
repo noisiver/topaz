@@ -188,7 +188,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,853);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,854);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,855);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,856);
--- INSERT INTO `mob_skill_lists` VALUES ('Bat',46,256);
+INSERT INTO `mob_skill_lists` VALUES ('Bat',46,1401); -- soul_accretion
 INSERT INTO `mob_skill_lists` VALUES ('Bat',46,392);
 INSERT INTO `mob_skill_lists` VALUES ('Bat',46,394);
 INSERT INTO `mob_skill_lists` VALUES ('Bat',46,1155);
@@ -4200,15 +4200,25 @@ INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythicSub50',6066,982); -- King'
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1963); -- Mind Blast
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1965); -- Immortal Shield
 
-INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,598); -- berserk
-INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,599); -- arctic_impact
-INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,600); -- cold_wave
-INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,601); -- hiemal_storm
+INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,598); -- Berserk
+INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,599); -- Arctic_impact
+INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,600); -- Cold_wave
+INSERT INTO `mob_skill_lists` VALUES ('Snoll_Tzar',6068,601); -- Hiemal_storm
 
-INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,510); -- berserk
-INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,512); -- heat wave
+INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,510); -- Berserk
+INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,512); -- Heat wave
 INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,342); -- Vulcanian Impact
-INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,596); -- hellstorm
+INSERT INTO `mob_skill_lists` VALUES ('Big_Bomb',6069,596); -- Hellstorm
+
+INSERT INTO `mob_skill_lists` VALUES ('GloeosuccusOnly',6070,436); -- Gloeosuccus
+INSERT INTO `mob_skill_lists` VALUES ('TripleAttackOnly',6071,400); -- Triple Attack
+
+INSERT INTO `mob_skill_lists` VALUES ('Gration',6072,1637);  -- power_attack_gration
+INSERT INTO `mob_skill_lists` VALUES ('Gration',6072,1640); -- grand_slam_gration
+
+INSERT INTO `mob_skill_lists` VALUES ('PetriBreathOnly',6073,269); -- petribreath
+INSERT INTO `mob_skill_lists` VALUES ('BarbedCrescentOnly',6074,253); -- Barbed Crescent
+INSERT INTO `mob_skill_lists` VALUES ('SlingBombOnly',6075,567); -- sling_bomb Crescent
 
 
 -- Next available ID: 1148

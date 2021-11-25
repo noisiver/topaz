@@ -4610,6 +4610,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 235, 1, 255); -- Burn
 INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 249, 1, 255); -- Blaze Spikes
 INSERT INTO `mob_spell_lists` VALUES ('Big_Bomb',2020, 312, 1, 255); -- Enfire
 
+INSERT INTO `mob_spell_lists` VALUES ('Kurrea',2021, 359, 1, 255); -- Silencega
+INSERT INTO `mob_spell_lists` VALUES ('Kurrea',2021, 366, 1, 255); -- Graviga
+INSERT INTO `mob_spell_lists` VALUES ('Kurrea',2021, 186, 1, 255); -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES ('Kurrea',2021, 157, 1, 255); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Kurrea',2021, 208, 1, 255); -- Tornado
+
 
 
 

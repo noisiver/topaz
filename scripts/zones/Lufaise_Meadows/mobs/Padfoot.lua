@@ -8,6 +8,8 @@
 -- !pos -141.523 -15.529 91.709 24
 -----------------------------------
 local ID = require("scripts/zones/Lufaise_Meadows/IDs")
+require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -16,6 +18,9 @@ function onMobSpawn(mob)
     else
         mob:setDropID(1972)
     end
+	mob:setMod(tpz.mod.MAIN_DMG_RATING, 15)
+	mob:setMod(tpz.mod.DEFP, 25) 
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 end
 
 function onMobDeath(mob, player, isKiller)

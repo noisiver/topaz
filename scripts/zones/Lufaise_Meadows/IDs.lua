@@ -29,6 +29,16 @@ zones[tpz.zone.LUFAISE_MEADOWS] =
         MURDEROUS_PRESENCE          = 7736, -- Wait, you sense a murderous presence...!
         YOU_CAN_SEE_FOR_MALMS       = 7737, -- You can see for malms in every direction.
         SPINE_CHILLING_PRESENCE     = 7739, -- You sense a spine-chilling presence!
+        KURREA_SLURPS_SOUP     		= 7785, -- Kurrea slurps down the adamantoise soup!
+		KURREA_MUSCLES_BULGE     		= 7786, -- Kurrea's muscles bulge crazily!
+		KURREA_SCALES_SHINE     		= 7787, -- Kurrea's scales shine mysteriously!
+		KURREA_FIERCE_WIND     		= 7788, -- Kurrea is enveloped by a fierce wind!
+		KURREA_HIDE_RIGID     		= 7789, -- Kurrea's hide grows rigid!
+		KURREA_VEINS_POPPING     		= 7790, -- The veins in Kurrea's head are popping out!
+		KURREA_EYES_GLOW     		= 7791, -- Kurrea's eyes glow weirdly!
+		KURREA_WOUNDS_DISAPPEAR     	= 7792, -- Kurrea's wounds disappear!
+		KURREA_OMINOUS_AURA     	= 7793, -- Kurrea is surrounded by an ominous aura!
+		KURREA_FACE_GREEN     	= 7794, -- Kurrea's face has turned green...
         COMMON_SENSE_SURVIVAL       = 8734, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
     },
     mob =

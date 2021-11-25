@@ -6361,7 +6361,7 @@ INSERT INTO `mob_droplist` VALUES (1216,0,0,1000,17766,240); -- Lyft Scimitar
 INSERT INTO `mob_droplist` VALUES (1217,2,0,1000,4374,0);
 INSERT INTO `mob_droplist` VALUES (1217,0,0,1000,4374,500);
 INSERT INTO `mob_droplist` VALUES (1217,0,0,1000,4374,240);
-INSERT INTO `mob_droplist` VALUES (1218,0,0,1000,12360,240); -- Tatami Shield
+INSERT INTO `mob_droplist` VALUES (1218,0,0,1000,12360,1000); -- Tatami Shield
 INSERT INTO `mob_droplist` VALUES (1219,4,0,1000,1619,0); -- Hippogryph Feather(Despoil)
 INSERT INTO `mob_droplist` VALUES (1219,0,0,1000,1619,50); -- Hippogryph Feather
 INSERT INTO `mob_droplist` VALUES (1219,0,0,1000,1690,240);
@@ -16907,6 +16907,8 @@ INSERT INTO `mob_droplist` VALUES (6040,0,0,1000,2750,1000);  -- Amphiptere hide
 INSERT INTO `mob_droplist` VALUES (6040,0,0,1000,2750,240);  -- Amphiptere hide
 INSERT INTO `mob_droplist` VALUES (6040,0,0,1000,647,240);  -- Chunk of molybdenum ore
 INSERT INTO `mob_droplist` VALUES (6040,0,0,1000,19236,150);  -- Hightail bullet
+INSERT INTO `mob_droplist` VALUES (6041,0,0,1000,2843,50);  -- (Sengann) Square of lineadach
+INSERT INTO `mob_droplist` VALUES (6042,0,0,1000,15054,50);  -- (Yal-Un Eke) Beacon Cuffs
 
 
 
