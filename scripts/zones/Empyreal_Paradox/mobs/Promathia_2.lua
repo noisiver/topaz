@@ -59,5 +59,7 @@ function onSpellPrecast(mob, spell)
 end
 
 function onMobDeath(mob, player, isKiller)
+    DespawnMob(mob:getID()+1)
+	DespawnMob(mob:getID()+2)
 	mob:getBattlefield():win()
 end
