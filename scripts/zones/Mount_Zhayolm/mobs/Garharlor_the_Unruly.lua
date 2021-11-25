@@ -9,6 +9,7 @@ require("scripts/mixins/weapon_break"),
 -----------------------------------
 function onMobSpawn(mob)
      mob:setMod(tpz.mod.REFRESH, 400)
+	mob:setLocalVar("TwoHourUsed", 0)
 end
 
 function onMobFight(mob, target)
@@ -19,7 +20,7 @@ function onMobFight(mob, target)
 	end
 end
 
-function onMobDeath(mob)
+function onMobDeath(mob, player, isKiller)
 	if isKiller  then 
 		player:addTreasure(5736, mob)--Linen Coin Purse
 	end

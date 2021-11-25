@@ -1384,7 +1384,7 @@ INSERT INTO `mob_skills` VALUES (1442,1066,'core_meltdown',1,20.0,2000,4000,4,0,
 INSERT INTO `mob_skills` VALUES (1443,1061,'hexidiscs',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1444,1062,'vorpal_blade',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Only used in human form
 INSERT INTO `mob_skills` VALUES (1445,1063,'damnation_dive',4,10.0,2000,1500,4,0,0,3,0,0,0); -- Only used in bird form.  logged on eo'ghrah. theres a version that supposedly has knockback?
-INSERT INTO `mob_skills` VALUES (1446,1064,'sickle_slash',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Only used in spider form.
+INSERT INTO `mob_skills` VALUES (1446,1064,'sickle_slash_ghrah',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Only used in spider form.
 INSERT INTO `mob_skills` VALUES (1447,1070,'vertical_cleave',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1448,1071,'efflorescent_foetor',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1449,1072,'stupor_spores',1,15.0,2000,1000,4,0,0,0,0,0,0);

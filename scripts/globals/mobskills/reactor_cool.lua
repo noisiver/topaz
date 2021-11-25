@@ -18,7 +18,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.ICE_SPIKES
     local typeEffect2 = tpz.effect.DEFENSE_BOOST
 	local enhskill = mob:getSkillLevel(tpz.skill.ENHANCING_MAGIC)
-	if enhskill = 0 then
+	if enhskill == 0 then
 		enhskill = 1
 	end
     local power = 20 + (enhskill / 30)

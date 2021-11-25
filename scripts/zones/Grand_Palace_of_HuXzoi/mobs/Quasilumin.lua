@@ -181,16 +181,27 @@ function onMobRoam(mob)
         return
     end
 
+    local progress = mob:getLocalVar("progress")
+    local point = mob:getLocalVar("point")
+    local escort = mob:getLocalVar("escort")
+    local data = escorts[escort]
     local entities = mob:getNearbyMobs(12)
+    local mobNearby = false;
     for i, entity in pairs(entities) do
-        if entity:getAggressive() == 1 and mob:getID() ~= entity:getID() and entity:isSpawned() and entity:getCurrentAction() == tpz.action.ROAMING then
+        if entity:getAggressive() == 1 and mob:getID() ~= entity:getID() and entity:isSpawned() then
+            mobNearby = true;
             entity:updateEnmity(mob)
             if progress ~= EscortProgress.PAUSED then
                 mob:pathThrough(mob:getPos(), tpz.path.flag.NONE)
                 mob:setLocalVar("progress", EscortProgress.PAUSED)
             end
-        end
-    end
+		end
+	end
+    if not mobNearby and progress == EscortProgress.PAUSED then
+		mob:showText(mob, ID.text.RECOMMENCING_PATROL)
+		mob:setLocalVar("progress", EscortProgress.ENROUTE)
+		mob:pathThrough(data.path[point], tpz.path.flag.WALK)
+	end
     local opened_door = mob:getLocalVar("opened_door")
     if opened_door ~= 0 then
         local npc = GetNPCByID(opened_door)
@@ -221,6 +232,11 @@ function onPath(mob)
             mob:showText(mob, ID.text.PATROL_COMPLETE)
             mob:setLocalVar("progress", EscortProgress.COMPLETE)
             mob:setLocalVar("expire", os.time() + 60)
+            mob:showText(mob, ID.text.DUTY_COMPLETE)
+            mob:showText(mob, data.direction)
+            mob:setStatus(tpz.status.INVISIBLE)
+            DespawnMob(mob:getID())
+            GetNPCByID(data.door):openDoor(60)
         elseif progress ~= EscortProgress.COMPLETE then
             point = point + 1
             mob:setLocalVar("point", point)

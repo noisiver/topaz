@@ -15,29 +15,35 @@ function onMobSpawn(mob)
     local skin = math.random(1161, 1168)
     mob:setModelId(skin)
     if (skin == 1161) then -- Fire
-        mob:setMod(tpz.mod.ICERES, 27)
-        mob:setMod(tpz.mod.WATERRES, -27)
+        mob:setMod(tpz.mod.SDT_FIRE, 5)
+        mob:setMod(tpz.mod.SDT_ICE, 5)
+        mob:setMod(tpz.mod.SDT_WATER, 0150)
     elseif (skin == 1162) then --Ice
-        mob:setMod(tpz.mod.WINDRES, 27)
-        mob:setMod(tpz.mod.FIRERES, -27)
+        mob:setMod(tpz.mod.SDT_ICE, 5)
+        mob:setMod(tpz.mod.SDT_WIND, 5)
+        mob:setMod(tpz.mod.SDT_FIRE, 0150)
     elseif (skin == 1163) then -- Wind
-        mob:setMod(tpz.mod.ICERES, -27)
-        mob:setMod(tpz.mod.EARTHRES, 27)
+        mob:setMod(tpz.mod.SDT_WIND, 5)
+        mob:setMod(tpz.mod.SDT_EARTH, 5)
+        mob:setMod(tpz.mod.SDT_ICE, 0150)
     elseif (skin == 1164) then --Earth
-        mob:setMod(tpz.mod.THUNDERRES, 27)
-        mob:setMod(tpz.mod.WINDRES, -27)
-    elseif (skin == 1165) then --Lightning
-        mob:setMod(tpz.mod.WATERRES, 27)
-        mob:setMod(tpz.mod.EARTHRES, -27)
+        mob:setMod(tpz.mod.SDT_EARTH, 5)
+        mob:setMod(tpz.mod.SDT_THUNDER, 5)
+        mob:setMod(tpz.mod.SDT_WIND, 0150)
+    elseif (skin == 1165) then --Thunder
+        mob:setMod(tpz.mod.SDT_THUNDER, 5)
+        mob:setMod(tpz.mod.SDT_WATER, 5)
+        mob:setMod(tpz.mod.SDT_EARTH, 0150)
     elseif (skin == 1166) then -- Water
-        mob:setMod(tpz.mod.THUNDERRES, -27)
-        mob:setMod(tpz.mod.FIRERES, 27)
+        mob:setMod(tpz.mod.SDT_WATER, 5)
+        mob:setMod(tpz.mod.SDT_FIRE, 5)
+        mob:setMod(tpz.mod.SDT_THUNDER, 0150)
     elseif (skin == 1167) then --Light
-        mob:setMod(tpz.mod.LIGHTRES, 27)
-        mob:setMod(tpz.mod.DARKRES, -27)
+        mob:setMod(tpz.mod.SDT_LIGHT, 5)
+        mob:setMod(tpz.mod.SDT_DARK, 0150)
     elseif (skin == 1168) then --Dark
-        mob:setMod(tpz.mod.DARKRES, 27)
-        mob:setMod(tpz.mod.LIGHTRES, -27)
+        mob:setMod(tpz.mod.SDT_DARK, 5)
+        mob:setMod(tpz.mod.SDT_LIGHT, 0150)
     end
 end
 

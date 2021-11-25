@@ -6,6 +6,9 @@ g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
 
 g_mixins.families.growing_bomb = function(mob)
+    mob:addListener("SPAWN", "GROWING_BOMB_SPAWN", function(mob)
+		mob:AnimationSub(0)
+    end)
     mob:addListener("TAKE_DAMAGE", "GROWING_BOMB_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
 		local animationSub = mob:AnimationSub()
 		if amount > 500 then

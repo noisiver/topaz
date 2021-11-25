@@ -493,6 +493,7 @@ public:
 
     int32 getEntity(lua_State* L);
     int32 getNearbyEntities(lua_State* L);
+    int32 getNearbyMobs(lua_State* L);
     int32 canChangeState(lua_State* L);
 
     int32 wakeUp(lua_State*);                  //wakes target if necessary
@@ -668,6 +669,7 @@ public:
     int32 hasImmunity(lua_State*);          // Check if the mob has immunity for a type of spell (list at mobentity.h)
 
     int32 setAggressive(lua_State* L);
+    int32 getAggressive(lua_State* L);
     int32 setTrueDetection(lua_State* L);
     int32 setUnkillable(lua_State* L);
     int32 untargetable(lua_State* L);

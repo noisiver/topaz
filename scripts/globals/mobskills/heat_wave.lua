@@ -11,7 +11,11 @@ require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    return 0
+	if (mob:getPool() == 1426) or (mob:getPool() == 416) (mob:getPool() == 6587)  and mob:AnimationSub() >= 0 then 
+		return 0
+	else
+		return 1
+	end
 end
 
 function onMobWeaponSkill(target, mob, skill)

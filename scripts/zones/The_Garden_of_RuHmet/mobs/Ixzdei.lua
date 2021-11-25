@@ -6,15 +6,36 @@
 -- Animation Sub 2 Bar Form
 -- Animation Sub 3 Ring Form
 -----------------------------------
+local ID = require("scripts/zones/The_Garden_of_RuHmet/IDs")
 require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/zdei")}
 -----------------------------------
+function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 12)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 12)
+    mob:setMobMod(tpz.mobMod.LINK_RADIUS, 50)
+	mob:setAggressive(true)
+	mob:setDamage(125)
+	mob:addMod(tpz.mod.DEFP, 25) 
+	mob:addMod(tpz.mod.ATTP, 25)
+	mob:addMod(tpz.mod.ACC, 25) 
+	mob:addMod(tpz.mod.EVA, 25)
+	mob:setMod(tpz.mod.MDEF, 24) 
+end
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 12)
 end
 
 function onMobEngaged(mob)
+	local target = mob:getTarget()
+    local ZdeiOne = GetMobByID(16921011)
+    local ZdeiTwo = GetMobByID(16921012)
+    local ZdeiThree = GetMobByID(16921013)
+    local ZdeiFour = GetMobByID(16921014)
+	ZdeiOne:updateEnmity(target)
+	ZdeiTwo:updateEnmity(target)
+	ZdeiThree:updateEnmity(target)
+	ZdeiFour:updateEnmity(target)
     mob:SetAutoAttackEnabled(true)
     mob:setLocalVar("recover", math.random(20, 50))
 end
@@ -23,10 +44,11 @@ function onMobFight(mob)
     local recover = mob:getLocalVar("recover")
     if mob:getHPP() <= recover then
         local pos = mob:getSpawnPos()
-        mob:pathThrough({pos.x, pos.y, pos.z}, tpz.path.flag.SCRIPT)
-        mob:SetAutoAttackEnabled(false)
+		mob:pathTo(pos.x, pos.y, pos.z)
+		mob:SetAutoAttackEnabled(false)
 
-        if mob:atPoint({pos.x, pos.y, pos.z}) then
+	local Pos = mob:getPos()
+		if Pos.x == pos.x and Pos.y == pos.y and Pos.z == pos.z then
             local time = mob:getLocalVar("time")
             local now = os.time()
             if time ~= 0 and now > time then

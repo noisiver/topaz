@@ -7,20 +7,21 @@ require("scripts/globals/status")
 -----------------------------------
 
 function defeated(mob)
-    mob:showText(mob, 7912) -- I am defeated... My honor is as dust before the wind...
+    mob:showText(mob, 7913) -- I am defeated... My honor is as dust before the wind...
     local mobId = mob:getID()
     local makki = GetMobByID(mobId + 1)
-    makki:showText(makki, 7919) -- What? Nooo!
+    makki:showText(makki, 7920) -- What? Nooo!
     local kukki = GetMobByID(mobId + 2)
-    kukki:showText(kukki, 7925) -- We're doomed!
+    kukki:showText(kukki, 7926) -- We're doomed!
     local cheru = GetMobByID(mobId + 3)
-    cheru:showText(cheru, 7931) -- Our samurai life is over!
+    cheru:showText(cheru, 7932) -- Our samurai life is over!
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(150)
 	mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 25) 
+	mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setLocalVar("progress", 100)
@@ -37,11 +38,11 @@ function onMobEngaged(mob,target)
     local mobId = mob:getID()
 
     local makki = GetMobByID(mobId + 1)
-    makki:showText(makki, 7914) -- Samurai Sky Pirate Power!
+    makki:showText(makki, 7915) -- Samurai Sky Pirate Power!
     local kukki = GetMobByID(mobId + 2)
-    kukki:showText(kukki, 7920) -- Chebukki Sumo Siblings!
+    kukki:showText(kukki, 7921) -- Chebukki Sumo Siblings!
     local cheru = GetMobByID(mobId + 3)
-    cheru:showText(cheru, 7926) -- Feel the fear! The Chebukkis are here!
+    cheru:showText(cheru, 7927) -- Feel the fear! The Chebukkis are here!
 
     -- three tarus fight with tenzen
     local offset = mobId - ID.mob.WARRIORS_PATH_OFFSET
@@ -97,7 +98,7 @@ function onMobFight(mob)
             mob:useMobAbility(1399)
             meikyoShisui = 6
         elseif meikyoShisui == 6 then
-            mob:showText(mob, 7911) -- Tenzen: Your life is but a fading dream...
+            mob:showText(mob, 7912) -- Tenzen: Your life is but a fading dream...
             for _, player in pairs(mob:getBattlefield():getPlayers()) do
                 player:showText(player, 7878) -- You are overwhelmed by Tenzen's Cosmic Elucidation.
             end
@@ -110,7 +111,7 @@ function onMobFight(mob)
         mob:setLocalVar("meikyo_shisui", meikyoShisui)
     elseif now >= progress then
         if progress == 100 then
-            mob:showText(mob, 7913) -- Tenzen uses a shogun rice ball....
+            mob:showText(mob, 7914) -- Tenzen uses a shogun rice ball....
             mob:useMobAbility(1398)
             mob:setLocalVar("progress", 105)
         elseif progress == 105 then
@@ -139,11 +140,11 @@ function onMagicHit(caster, target, spell)
     target:setLocalVar("nextmsg", target:getBattleTime() + math.random(4, 5))
     local mobId = target:getID()
     local makki = GetMobByID(mobId + 1)
-    makki:showText(makki, 7915) -- Lord Tenzen is invincible!
+    makki:showText(makki, 7916) -- Lord Tenzen is invincible!
     local kukki = GetMobByID(mobId + 2)
-    kukki:showText(kukki, 7921) -- Eye of the tiger!
+    kukki:showText(kukki, 7922) -- Eye of the tiger!
     local cheru = GetMobByID(mobId + 3)
-    cheru:showText(cheru, 7927) -- Go for the eyes! The eyes!
+    cheru:showText(cheru, 7928) -- Go for the eyes! The eyes!
 end
 
 function onMobDeath(mob, player, isKiller)

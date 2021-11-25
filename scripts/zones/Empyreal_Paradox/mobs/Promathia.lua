@@ -7,10 +7,8 @@ require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
 	mob:addMod(tpz.mod.ACC, 25) 
-    mob:addMod(tpz.mod.EVA, 25)
     mob:setMod(tpz.mod.MDEF, 30)
     mob:setMod(tpz.mod.UDMGMAGIC, -20)
     mob:setMod(tpz.mod.REFRESH, 40)
@@ -44,8 +42,15 @@ end
 
 function onMobDeath(mob, player, isKiller)
     local battlefield = mob:getBattlefield()
-    player:startEvent(32004, battlefield:getBattlefieldNumber())
+    if player then
+        player:startEvent(32004, battlefield:getArea())
+    else
+        for _, member in pairs(battlefield:getPlayers()) do
+            member:startEvent(32004, battlefield:getArea())
+        end
+    end
 end
+
 
 function onEventUpdate(player,csid,option)
 end
