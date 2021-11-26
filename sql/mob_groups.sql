@@ -986,7 +986,7 @@ INSERT INTO `mob_groups` VALUES (25,1395,27,'Fomors_Elemental',0,128,0,0,0,36,43
 INSERT INTO `mob_groups` VALUES (26,1412,27,'Foul_Meat',960,0,898,0,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (27,1387,27,'Fomor_Paladin',924,0,2877,0,0,44,48,0);
 INSERT INTO `mob_groups` VALUES (28,1380,27,'Fomor_Bard',924,0,856,0,0,44,48,0);
-INSERT INTO `mob_groups` VALUES (29,2488,27,'Mahisha',43200,0,1575,7000,0,48,50,0);
+INSERT INTO `mob_groups` VALUES (29,2488,27,'Mahisha',43200,128,1575,7000,0,50,52,0);
 INSERT INTO `mob_groups` VALUES (30,2675,27,'Minotaur',600,0,0,6200,0,47,48,0);
 INSERT INTO `mob_groups` VALUES (32,71,27,'Air_Elemental',960,4,38,0,0,45,50,0);
 INSERT INTO `mob_groups` VALUES (33,3912,27,'Thunder_Elemental',960,4,2410,0,0,45,50,0);
@@ -996,10 +996,10 @@ INSERT INTO `mob_groups` VALUES (36,1390,27,'Fomor_Samurai',924,0,878,0,0,44,48,
 INSERT INTO `mob_groups` VALUES (37,1388,27,'Fomor_Ranger',924,0,873,0,0,44,48,0);
 INSERT INTO `mob_groups` VALUES (38,1383,27,'Fomor_Dark_Knight',924,0,863,0,0,44,48,0);
 INSERT INTO `mob_groups` VALUES (39,1382,27,'Fomor_Black_Mage',924,0,861,0,0,44,48,0);
-INSERT INTO `mob_groups` VALUES (40,3997,27,'Tres_Duendes',43200,0,2468,6200,0,47,49,0);
+INSERT INTO `mob_groups` VALUES (40,3997,27,'Tres_Duendes',43200,0,2468,5500,0,48,50,0);
 INSERT INTO `mob_groups` VALUES (41,1128,27,'Duendes_Amoroso',0,128,0,0,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (42,1389,27,'Fomor_Red_Mage',924,0,875,0,0,44,48,0);
-INSERT INTO `mob_groups` VALUES (43,1169,27,'Eba',28800,0,739,6500,0,48,50,0);
+INSERT INTO `mob_groups` VALUES (43,1169,27,'Eba',28800,128,739,6500,0,50,52,0);
 INSERT INTO `mob_groups` VALUES (44,4531,27,'Aqueduct_Spider',330,0,3006,0,0,44,48,0);
 
 

@@ -2968,10 +2968,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Tefenet',849,652); -- blaster
 INSERT INTO `mob_skill_lists` VALUES ('Tefenet',849,653); -- chaotic eye
 -- INSERT INTO `mob_skill_lists` VALUES ('Tefenet',849,2209); -- blink of peril
 -- INSERT INTO `mob_skill_lists` VALUES ('Tefenet',849,2602); -- mortal blast
--- INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1157); -- slipstream
--- INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1341); -- knife edge circle
--- INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1342); -- train fall
-INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,395); -- jet stream
+INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1666); -- sonic_boom
+INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1667); -- jet_stream
+INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1157); -- slipstream
+INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1158); -- turbulence
+INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1341); -- knife edge circle
+INSERT INTO `mob_skill_lists` VALUES ('Treble_Noctules',850,1342); -- train fall
 INSERT INTO `mob_skill_lists` VALUES ('Vetehinen',851,2564); -- blazing bound
 INSERT INTO `mob_skill_lists` VALUES ('Vetehinen',851,2565); -- molting burst
 INSERT INTO `mob_skill_lists` VALUES ('Halimede',852,2562); -- acrid stream
