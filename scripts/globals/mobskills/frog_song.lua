@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
 		MobStatusEffectMove(mob, target, tpz.effect.MND_DOWN, 30, 0, 60)
 		MobStatusEffectMove(mob, target, tpz.effect.CHR_DOWN, 30, 0, 60)
 	local typeEffect = tpz.effect.STR_DOWN
-		skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 30, 3, 60))
+		skill:setMsg(tpz.msg.basic.ATTR_DRAINED)
 	else
 		local message = tpz.msg.basic.SKILL_MISS
 		local typeEffect = tpz.effect.CHARM_I
