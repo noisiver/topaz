@@ -67,4 +67,10 @@ function onMobFight(mob,target)
 end;
 
 function onMobDeath(mob, player, isKiller)
+	DespawnMob(mob:getID()+1)
+	DespawnMob(mob:getID()+2)
+	DespawnMob(mob:getID()+3)
+	DespawnMob(mob:getID()+4)
+	DespawnMob(mob:getID()+5)
+	DespawnMob(mob:getID()+6)
 end

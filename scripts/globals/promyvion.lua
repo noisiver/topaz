@@ -131,7 +131,7 @@ tpz.promyvion.setEmptyModel = function (mob)
                 [4] = 1138
             }, mob) -- Craver
         end,
-        [137] = function()
+        [138] = function()
             selectRandomModel({
                 [1] = 1129,
                 [2] = 1130,

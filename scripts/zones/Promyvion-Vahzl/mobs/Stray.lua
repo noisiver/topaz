@@ -3,6 +3,7 @@
 --   NM: Stray
 -----------------------------------
 require("scripts/globals/promyvion")
+mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
 
@@ -12,7 +13,9 @@ end
 
 function onMobSpawn(mob)
     tpz.promyvion.strayOnSpawn(mob)
+	tpz.promyvion.setEmptyModel(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
+    tpz.promyvion.onEmptyDeath(mob)
 end
