@@ -4,6 +4,11 @@
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
+    mob:setMod(tpz.mod.REFRESH, 40)
+	mob:addMod(tpz.mod.MDEF, 12) 
+end
 
 function onMobSpawn(mob)
     mob:SetMagicCastingEnabled(false)
@@ -11,7 +16,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 15) 
     mob:addMod(tpz.mod.EVA, 15)
-    mob:setMod(tpz.mod.REFRESH, 40)
 end
 
 function onMobFight(mob, target)

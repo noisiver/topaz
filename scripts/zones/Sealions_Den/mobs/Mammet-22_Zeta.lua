@@ -8,6 +8,7 @@ require("scripts/globals/titles");
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
+    mob:setMod(tpz.mod.REFRESH, 40)
 	mob:addMod(tpz.mod.MDEF, 12) 
 end
 

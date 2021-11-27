@@ -789,24 +789,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Undead',28,258,7,255);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,259,41,255);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,273,31,55);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,274,56,255);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,174,40,40);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,175,60,60);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,176,75,75);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,179,40,40);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,180,60,60);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,181,75,75);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,184,40,40);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,185,60,60);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,186,75,75);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,189,40,40);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,190,60,60);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,191,75,75);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,194,40,40);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,195,60,60);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,196,75,75);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,199,40,40);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,200,60,60);
-INSERT INTO `mob_spell_lists` VALUES ('Mammet',29,201,75,75);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-19',29,174,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-19',29,179,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-19',29,184,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-19',29,189,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-19',29,194,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-19',29,199,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_SMN',30,288,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_SMN',30,290,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Yagudo_SMN',30,291,1,255);
@@ -4616,6 +4604,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Kurrea',2021, 186, 1, 255); -- Aeroga III
 INSERT INTO `mob_spell_lists` VALUES ('Kurrea',2021, 157, 1, 255); -- Aero IV
 INSERT INTO `mob_spell_lists` VALUES ('Kurrea',2021, 208, 1, 255); -- Tornado
 
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,175,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,180,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,185,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,190,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,195,1,255);
+INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,200,1,255);
 
 
 
