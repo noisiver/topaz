@@ -179,7 +179,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
-	GetPlayerByID(6):PrintToPlayer(string.format("BLU Attk: %u",bluphysattk))
+    -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl()) 
     local hitrate = BlueGetHitRate(caster, target, true, params)
     -- print("Hit rate "..hitrate)
