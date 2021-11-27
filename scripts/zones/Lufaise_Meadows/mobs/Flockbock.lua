@@ -16,7 +16,7 @@ function onMobSpawn(mob)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 1110 then -- Petribreath
+    if skill:getID() == 269 then -- Petribreath
         mob:resetEnmity(target)        
     end
 end
