@@ -1574,6 +1574,36 @@ inline int32 CLuaBaseEntity::setStatus(lua_State *L)
 }
 
 /************************************************************************
+ *  Function: getFomorHate()
+ *  Purpose : Returns the current fomor hate of the player
+ *  Example : local status = player:getFomorHate()
+ *  Notes   :
+ ************************************************************************/
+inline int32 CLuaBaseEntity::getFomorHate(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    lua_pushinteger(L, ((CCharEntity*)m_PBaseEntity)->m_fomorHate);
+    return 1;
+}
+/************************************************************************
+ *  Function: setFomorHate()
+ *  Purpose : Updates PC's fomor hate (both DB and local)
+ *  Example : player:setFomorHate(4)
+ ************************************************************************/
+inline int32 CLuaBaseEntity::setFomorHate(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, -1) || !lua_isnumber(L, -1));
+    int32 value = (int32)lua_tointeger(L, -1);
+    ((CCharEntity*)m_PBaseEntity)->SetFomorHate(value);
+    lua_pushnil(L);
+    return 1;
+}
+
+
+/************************************************************************
 *  Function: getCurrentAction()
 *  Purpose : Returns the current state of a non-NPC entity
 *  Example : if (target:getCurrentAction() ~= ACTION_MOBABILITY_USING)
@@ -15292,6 +15322,9 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getStatus),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setStatus),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getCurrentAction),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity, getFomorHate),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity, setFomorHate),
+
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,lookAt),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,clearTargID),

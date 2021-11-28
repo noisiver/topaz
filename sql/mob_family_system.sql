@@ -176,7 +176,7 @@ INSERT INTO `mob_family_system` VALUES (110,'EvilWeapon',3,'Arcana',0,40,100,120
 INSERT INTO `mob_family_system` VALUES (112,'Flan',1,'Amorph',1,60,125,140,5,5,1,5,1,2,2,1,1,1,1,0.75,0.75,0.6,1,1.15,0.85,0.85,0.85,0.85,0.6,1.15,0.7,6,129,0);
 INSERT INTO `mob_family_system` VALUES (113,'Fly',20,'Vermin',0,40,100,90,5,4,4,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.5,1,1,1.3,1.3,1.3,1.3,3,2,1); -- Normal Fly
 INSERT INTO `mob_family_system` VALUES (114,'Flytrap',17,'Plantoid',0,40,100,90,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,1.50,1.15,0.6,1,1,0.6,0.6,1.15,3,2,1);
-INSERT INTO `mob_family_system` VALUES (115,'Fomor',19,'Undead',0,40,100,90,3,3,4,5,4,4,3,1,3,1,3,1,1,1,1,1.125,0.5,1,1,1,1,1.125,0.5,8,6,0);
+INSERT INTO `mob_family_system` VALUES (115,'Fomor',19,'Undead',0,40,100,90,3,3,4,5,4,4,3,1,3,1,3,1,1,1,1,1.3,0.5,1,1,1,1,1.3,0.5,8,6,0); -- COP fomors with fomor hate
 INSERT INTO `mob_family_system` VALUES (116,'Funguar',17,'Plantoid',0,40,102,110,3,4,4,4,5,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.3,0.5,1.5,0.5,8,2,1);
 INSERT INTO `mob_family_system` VALUES (117,'Gargouille',9,'Demon',0,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,0.7,1.15,0.5,0.85,1,1.15,0.4,8,3,0);
 INSERT INTO `mob_family_system` VALUES (118,'Gargoyle',9,'Demon',0,40,100,120,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,0.7,1.15,0.5,0.85,1,1.15,0.4,2,259,0);
@@ -417,7 +417,7 @@ INSERT INTO `mob_family_system` VALUES (355,'ArkAngel-MR',13,'Humanoid',0,40,80,
 INSERT INTO `mob_family_system` VALUES (356,'ArkAngel-TT',13,'Humanoid',0,40,70,140,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (357,'Ambush_Antlion',20,'Vermin',1,40,125,125,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1,1.125,0.875,1,1,1.25,0.875,8,2,0); 
 INSERT INTO `mob_family_system` VALUES (358,'Kindred',9,'Demon',0,70,100,140,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,0.85,0.85,0.85,0.85,0.85,0.85,0.85,0.85,8,257,0); -- dynamis demons
-INSERT INTO `mob_family_system` VALUES (359,'Fomor',19,'Undead',0,40,105,90,2,5,3,6,2,3,4,1,3,1,3,1,1,1,1,1.125,0.5,1,1,1,1,1.125,0.5,8,6,0);
+INSERT INTO `mob_family_system` VALUES (359,'Fomor',19,'Undead',0,40,105,90,2,5,3,6,2,3,4,1,3,1,3,1,1,1,1,1.3,0.5,0.85,1,1,1,1.3,0.5,8,6,0); -- Non-COP Fomor(TOAU)
 INSERT INTO `mob_family_system` VALUES (360,'YagudoNM',7,'Beastmen',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.15,1.3,0.85,0.85,1.15,1.15,1.15,1.15,3,1,0); -- Dynamis
 INSERT INTO `mob_family_system` VALUES (361,'DynamisLord',18,'Unclassified',1,40,120,140,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,0.85,0.85,8,1,0);
 INSERT INTO `mob_family_system` VALUES (362,'SabotenderFlorido',17,'Plantoid',0,50,100,90,3,5,5,3,5,5,3,1,3,1,3,1,1,1,1,1,1.25,1,1,1,0.5,0.875,1.25,6,0,0);

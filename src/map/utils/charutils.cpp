@@ -822,6 +822,7 @@ namespace charutils
         PChar->animation = (HP == 0 ? ANIMATION_DEATH : ANIMATION_NONE);
 
         PChar->StatusEffectContainer->LoadStatusEffects();
+        PChar->m_fomorHate = GetCharVar(PChar, "FOMOR_HATE");
 
         charutils::LoadEquip(PChar);
         PChar->health.hp = zoneutils::IsResidentialArea(PChar) ? PChar->GetMaxHP() : HP;

@@ -936,6 +936,7 @@ INSERT INTO `mob_family_mods` VALUES (358,54,120,1);
 
 INSERT INTO `mob_family_mods` VALUES (115,54,100,1);
 INSERT INTO `mob_family_mods` VALUES (359,54,100,1);
+INSERT INTO `mob_family_mods` VALUES (115,85,1,1); -- Fomor Hate
 
 -- All animated weapons have MP
 INSERT INTO `mob_family_mods` VALUES (7,3,50,1);
