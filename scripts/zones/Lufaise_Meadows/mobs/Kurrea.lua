@@ -10,14 +10,15 @@ function onMobSpawn(mob)
 	mob:setDamage(120)
     mob:setMod(tpz.mod.REGEN, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
+	mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
 function onMobFight(mob)
-    local recover = mob:getLocalVar("recover")
+    local EatSoup = mob:getLocalVar("EatSoup")
     local battletime = mob:getBattleTime()
-	if recover == 0 then
-		mob:setLocalVar("time", battletime + math.random(20, 30))
-	elseif battletime >= recover then
+	if EatSoup == 0 then
+		mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
+	elseif battletime >= EatSoup then
         local pos = mob:getSpawnPos()
 		mob:pathTo(-249.320,-16.189,41.497)
 		mob:SetAutoAttackEnabled(false)
@@ -57,7 +58,7 @@ function onMobFight(mob)
 			mob:delStatusEffect(tpz.effect.MDEF)
 		end
 		mob:SetAutoAttackEnabled(true)
-		mob:setLocalVar("time", battletime + math.random(20, 30))
+		mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
 	end
 end
 
