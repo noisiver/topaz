@@ -9288,13 +9288,13 @@ inline int32 CLuaBaseEntity::forMembersInRange(lua_State* L)
 }
 
 /************************************************************************
-*  Function: addPartyEffect()
-*  Purpose : Adds effect to members of the entire party
-*  Example : player:addPartyEffect(EFFECT, 1, 2, 3, ...)?
-*  Notes   : Must have at least three members, scales to six max
-************************************************************************/
+ *  Function: addPartyEffect(effect, power, tick, duration)
+ *  Purpose : Adds a specified status effect to members of the entire party
+ *  Example : player:addPartyEffect(EFFECT, 15, 3, 60)
+ *  Notes   : Party members must be within 50
+ ************************************************************************/
 
-inline int32 CLuaBaseEntity::addPartyEffect(lua_State *L)
+inline int32 CLuaBaseEntity::addPartyEffect(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
@@ -9305,84 +9305,85 @@ inline int32 CLuaBaseEntity::addPartyEffect(lua_State *L)
     TPZ_DEBUG_BREAK_IF(lua_isnil(L, 4) || !lua_isnumber(L, 4));
 
     int32 n = lua_gettop(L);
-
-    CStatusEffect * PEffect = new CStatusEffect(
-        (EFFECT)lua_tointeger(L, 1),
-        (uint16)lua_tointeger(L, 2),
-        (uint16)lua_tointeger(L, 3),
-        (uint16)lua_tointeger(L, 4),
-        (n >= 5 ? (uint16)lua_tointeger(L, 5) : 0),
-        (n >= 6 ? (uint16)lua_tointeger(L, 6) : 0),
-        (n >= 7 ? (uint16)lua_tointeger(L, 7) : 0));
-
     CBattleEntity* PEntity = ((CBattleEntity*)m_PBaseEntity);
 
-    PEntity->ForParty([PEffect](CBattleEntity* PMember)
-    {
-        PMember->StatusEffectContainer->AddStatusEffect(PEffect);
+    PEntity->ForParty([&](CBattleEntity* PMember) {
+        if (PMember != nullptr && PEntity->loc.zone->GetID() == PMember->loc.zone->GetID() && distanceSquared(PEntity->loc.p, PMember->loc.p) < 50.0 * 50.0 &&
+            !PMember->isDead())
+        {
+            PMember->StatusEffectContainer->AddStatusEffect(new CStatusEffect((EFFECT)lua_tointeger(L, 1),                  // Effect ID
+                                                                              (uint16)lua_tointeger(L, 1),                  // Effect Icon (Associated with ID)
+                                                                              (uint16)lua_tointeger(L, 2),                  // Power
+                                                                              (uint16)lua_tointeger(L, 3),                  // Tick
+                                                                              (uint16)lua_tointeger(L, 4),                  // Duration
+                                                                              (n >= 5 ? (uint16)lua_tointeger(L, 5) : 0),   // SubID
+                                                                              (n >= 6 ? (uint16)lua_tointeger(L, 6) : 0),   // Sub Power
+                                                                              (n >= 7 ? (uint16)lua_tointeger(L, 7) : 0))); // Tier
+        }
     });
+
     return 0;
 }
 
-/************************************************************************
-*  Function: hasPartyEffect()
-*  Purpose : Returns true if all members of party have a specified effect
-*  Example : if (player:hasPartyEffect(EFFECT)) then
-*  Notes   : Currently not used in any script
-************************************************************************/
 
-inline int32 CLuaBaseEntity::hasPartyEffect(lua_State *L)
+/************************************************************************
+ *  Function: hasPartyEffect()
+ *  Purpose : Returns true if all members of party have a specified effect
+ *  Example : if (player:hasPartyEffect(EFFECT)) then
+ *  Notes   : Currently not used in any script
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::hasPartyEffect(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
 
     TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    CCharEntity* PChar = ((CCharEntity*)m_PBaseEntity);
+    bool hasEffect = true;
+    CCharEntity* PEntity = ((CCharEntity*)m_PBaseEntity);
 
-    if (PChar->PParty != nullptr)
-    {
-        for (const auto& member : PChar->PParty->members)
+    PEntity->ForParty([&](CBattleEntity* PMember) {
+        if (PMember != nullptr && PEntity->loc.zone->GetID() == PMember->loc.zone->GetID())
         {
-            if (member->loc.zone == PChar->loc.zone)
+            if (!PMember->StatusEffectContainer->HasStatusEffect((EFFECT)lua_tointeger(L, 1)))
             {
-                if (member->StatusEffectContainer->HasStatusEffect((EFFECT)lua_tointeger(L, 1)))
-                {
-                    lua_pushboolean(L, true);
-                    return 1;
-                }
+                hasEffect = false;
             }
         }
-    }
-    lua_pushboolean(L, false);
+    });
+
+    lua_pushboolean(L, hasEffect);
     return 1;
 }
 
-/************************************************************************
-*  Function: removePartyEffect()
-*  Purpose : Deletes specified effect from all party members
-*  Example : player:removePartyEffect(EFFECT)
-*  Notes   :
-************************************************************************/
 
-inline int32 CLuaBaseEntity::removePartyEffect(lua_State *L)
+/************************************************************************
+ *  Function: delPartyEffect()
+ *  Purpose : Deletes specified effect from all party members
+ *  Example : player:delPartyEffect(EFFECT)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::delPartyEffect(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
 
     TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    CCharEntity* PChar = ((CCharEntity*)m_PBaseEntity);
+    CBattleEntity* PEntity = ((CBattleEntity*)m_PBaseEntity);
 
-    for (const auto& member : PChar->PParty->members)
-    {
-        if (member->loc.zone == PChar->loc.zone)
+    PEntity->ForParty([&](CBattleEntity* PMember) {
+        if (PMember != nullptr && PEntity->loc.zone->GetID() == PMember->loc.zone->GetID())
         {
-            member->StatusEffectContainer->DelStatusEffect((EFFECT)lua_tointeger(L, 1));
+            PMember->StatusEffectContainer->DelStatusEffect((EFFECT)lua_tointeger(L, 1));
         }
-    }
+    });
+
     return 0;
 }
+
 
 /************************************************************************
 *  Function: getAlliance()
@@ -15617,7 +15618,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addPartyEffect),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasPartyEffect),
-    LUNAR_DECLARE_METHOD(CLuaBaseEntity,removePartyEffect),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity, delPartyEffect),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getAlliance),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getAllianceSize),
