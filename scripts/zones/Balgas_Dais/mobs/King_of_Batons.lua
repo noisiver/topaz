@@ -27,6 +27,7 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
+
 function onMobEngaged(mob, target)
     local Queen = GetMobByID(mob:getID()+3)
     local QueenTwo = GetMobByID(mob:getID()+4)

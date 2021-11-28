@@ -3,6 +3,7 @@
 --   NM: Pahh the Gullcaller
 -----------------------------------
 require("scripts/globals/hunts")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, 6015)

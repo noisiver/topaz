@@ -397,11 +397,15 @@ function doEnspell(caster, target, spell, effect)
 
     --calculate potency
     local magicskill = target:getSkillLevel(tpz.skill.ENHANCING_MAGIC)
+	local level = target:getMainLvl()
 
     local potency = 3 + math.floor(6 * magicskill / 100)
     if magicskill > 200 then
         potency = 5 + math.floor(5 * magicskill / 100)
     end
+	if magicskill == 0 then
+		potency = 3 + math.floor(level / 10)
+	end
 
     if target:addStatusEffect(effect, potency, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)

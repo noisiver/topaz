@@ -30,7 +30,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobFight(mob, target)
-    if mob:getHPP() < 20 then
+    if mob:getHPP() <= 20 then
         local nextMob = GetMobByID(mob:getID() - 5) --Procreator aggros at <20%
         if not nextMob:isEngaged() then
             nextMob:updateEnmity(target)

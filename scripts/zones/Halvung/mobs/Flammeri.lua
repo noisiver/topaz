@@ -28,6 +28,11 @@ function onAdditionalEffect(mob, target, damage)
 	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENDARK, {chance = 100, power = math.random(120, 150)})
 end
 
+function onMobDespawn(mob)
+    UpdateNMSpawnPoint(mob:getID())
+    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+end
+
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 467)
 	if isKiller  then 

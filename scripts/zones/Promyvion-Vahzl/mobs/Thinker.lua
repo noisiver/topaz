@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Promyvion - Vahzl
---  MOB: Think
+--  MOB: Thinker
 -----------------------------------
 require("scripts/globals/promyvion")
 mixins = {require("scripts/mixins/families/empty")}
