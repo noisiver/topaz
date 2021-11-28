@@ -1,8 +1,8 @@
 ---------------------------------------------------
---  Ballistic  Kick
+--  Ballistic Kick
 --
 --  Description:  Conal MASSIVE damage + hate reset.
---  Type: Magical
+--  Type: Physical
 --
 ---------------------------------------------------
 require("scripts/globals/settings")

@@ -4870,8 +4870,8 @@ INSERT INTO `mob_droplist` VALUES (928,0,0,1000,1829,50);
 INSERT INTO `mob_droplist` VALUES (928,0,0,1000,4272,10);
 INSERT INTO `mob_droplist` VALUES (928,0,0,1000,11524,320);
 INSERT INTO `mob_droplist` VALUES (928,0,0,1000,11598,30);
-INSERT INTO `mob_droplist` VALUES (929,0,0,1000,14948,100);
-INSERT INTO `mob_droplist` VALUES (929,0,0,1000,15895,100);
+INSERT INTO `mob_droplist` VALUES (929,0,0,1000,14948,100); -- (Garharlor The Unruly - Mount Z Troll Trio) Genie Gages
+INSERT INTO `mob_droplist` VALUES (929,0,0,1000,15895,100); -- Trance Belt
 INSERT INTO `mob_droplist` VALUES (930,0,0,1000,644,1000);
 INSERT INTO `mob_droplist` VALUES (930,0,0,1000,955,220);
 INSERT INTO `mob_droplist` VALUES (930,0,0,1000,13115,240);	-- (Gargantua) Elemental Charm
