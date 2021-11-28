@@ -16,7 +16,6 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REGAIN, 200)
     mob:setLocalVar("regain", 200)
     mob:setLocalVar("chat", ID.text.CANT_HAVE_LOST)
 end
