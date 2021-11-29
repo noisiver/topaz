@@ -28,8 +28,6 @@ function onMobFight(mob, player, target)
     local salty = mob:getLocalVar("salty")
     local melting = mob:getLocalVar("melt")
 
-    mob:setDamage(150)
-
     -- handle salt usage
     if melting == 1 then
         player:messageText(player, ID.text.BEGINS_TO_MELT)
