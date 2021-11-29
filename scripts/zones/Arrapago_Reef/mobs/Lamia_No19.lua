@@ -3,11 +3,29 @@
 --  Mob: Lamia No.19
 -----------------------------------
 mixins = {require("scripts/mixins/weapon_break")}
+require("scripts/globals/mobs")
+require("scripts/globals/status")
+------------------------------
+
+function onMobSpawn(mob)
+	mob:setDamage(120) 
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.MOVE, 12) 
+    mob:addMod(tpz.mod.SPELLINTERRUPT, 33) 
+	mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.REFRESH, 400)
+   mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+end
 
 function onMobEngaged(mob, target)
     local mobId = mob:getID()
     SpawnMob(mobId+1):updateEnmity(target)
     SpawnMob(mobId+2):updateEnmity(target)
+end
+
+function onMobDespawn(mob)
+    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
 end
 
 function onMobDeath(mob, player, isKiller)
