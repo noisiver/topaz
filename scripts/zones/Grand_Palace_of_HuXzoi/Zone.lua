@@ -41,15 +41,6 @@ function onConquestUpdate(zone, updatetype)
 end
 
 function onZoneIn(player, prevZone)
-    local cs = -1
-
-    if (player:getXPos() == 0 and player:getYPos() == 0 and player:getZPos() == 0) then
-        player:setPos(-20, -1.5, -355.482, 192)
-    end
-
-    player:setCharVar("Hu-Xzoi-TP", 0)
-
-    return cs
 end
 
 function afterZoneIn(player)
