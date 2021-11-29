@@ -6,4 +6,8 @@ local ID = require("scripts/zones/Grand_Palace_of_HuXzoi/IDs")
 -----------------------------------
 
 function onTrigger(player,npc)
+    if player:getZPos() < 440 then
+        player:messageSpecial(ID.text.DOES_NOT_RESPOND)
+        return 1
+    end
 end
