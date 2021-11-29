@@ -21,6 +21,7 @@ function onMobSpawn(mob)
 	mob:addMod(tpz.mod.ACC, 25) 
 	mob:addMod(tpz.mod.EVA, 25)
 	mob:setMod(tpz.mod.MDEF, 24) 
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
 function onMobInitialize(mob)
