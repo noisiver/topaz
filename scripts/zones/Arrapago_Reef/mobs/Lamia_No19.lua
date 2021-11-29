@@ -9,12 +9,11 @@ require("scripts/globals/status")
 
 function onMobSpawn(mob)
 	mob:setDamage(120) 
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ACC, 25) 
-    mob:addMod(tpz.mod.MOVE, 12) 
-    mob:addMod(tpz.mod.SPELLINTERRUPT, 33) 
-	mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-    mob:setMod(tpz.mod.REFRESH, 400)
+	mob:addMod(tpz.mod.DEFP, 20) 
+	mob:addMod(tpz.mod.ACC, 25) 
+	mob:addMod(tpz.mod.MOVE, 12) 
+	mob:addMod(tpz.mod.SPELLINTERRUPT, 33) 
+	mob:setMod(tpz.mod.REFRESH, 400)
    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 

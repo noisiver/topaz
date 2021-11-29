@@ -4932,7 +4932,7 @@ INSERT INTO `mob_droplist` VALUES (944,0,0,1000,847,150);
 INSERT INTO `mob_droplist` VALUES (944,0,0,1000,2490,100);
 INSERT INTO `mob_droplist` VALUES (944,0,0,1000,4570,60);
 INSERT INTO `mob_droplist` VALUES (944,0,0,1000,5835,100);
-INSERT INTO `mob_droplist` VALUES (945,0,0,1000,2503,240);
+INSERT INTO `mob_droplist` VALUES (945,0,0,1000,2503,240); -- Almonds
 INSERT INTO `mob_droplist` VALUES (946,0,0,1000,1404,1000); -- (Genbu) seal_of_genbu
 INSERT INTO `mob_droplist` VALUES (946,0,0,1000,1404,240); -- (Genbu) seal_of_genbu
 INSERT INTO `mob_droplist` VALUES (946,0,0,1000,18161,1000); -- (Genbu) arctic_wind
@@ -6874,7 +6874,7 @@ INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,925,10); -- Giant stinger (VERY
 INSERT INTO `mob_droplist` VALUES (1336,2,0,1000,4370,0); -- Pot of Honey (STEAL)
 INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,4370,50); -- Pot of Honey (Common)
 ---INSERT INTO `mob_droplist` VALUES (1336,0,0,1000,9082,100); -- Bee Pollen (Uncommon)
-INSERT INTO `mob_droplist` VALUES (1337,0,0,1000,18422,150); -- Ryumon
+INSERT INTO `mob_droplist` VALUES (1337,0,0,1000,18422,150); -- (Hundredfaced Hapool Ja) Ryumon
 INSERT INTO `mob_droplist` VALUES (1338,2,0,1000,656,0); -- (Hundredscar Hajwaj) Beastcoin - steal
 INSERT INTO `mob_droplist` VALUES (1338,0,0,1000,13051,1000); -- (Hundredscar Hajwaj) Coarse Leggings
 INSERT INTO `mob_droplist` VALUES (1338,0,0,1000,17412,100); -- (Hundredscar Hajwaj) Wild Cudgel
