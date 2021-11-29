@@ -13,7 +13,7 @@ end
 
 function onTrigger(player, npc)
     if not player:hasKeyItem(tpz.ki.MAP_OF_ALTAIEU) then
-        local progress = player:getVar("altaieu_map_progress")
+        local progress = player:getCharVar("altaieu_map_progress")
         if progress == 1048575 then
             player:showText(npc, ID.text.ALTAIEU_MAP_COMPLETE)
             npcUtil.giveKeyItem(player, tpz.ki.MAP_OF_ALTAIEU)
@@ -21,7 +21,7 @@ function onTrigger(player, npc)
         else
             index = npc:getID() - ID.npc.QUASILUMIN_OFFSET
             if bit.band(progress, bit.lshift(1, index)) ~= 1 then
-                player:setVar("altaieu_map_progress", bit.bor(progress, bit.lshift(1, index)))
+                player:setCharVar("altaieu_map_progress", bit.bor(progress, bit.lshift(1, index)))
             end
         end
     end

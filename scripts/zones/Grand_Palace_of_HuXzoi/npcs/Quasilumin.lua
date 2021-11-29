@@ -13,7 +13,7 @@ end
 
 function onTrigger(player, npc)
     if not player:hasKeyItem(tpz.ki.MAP_OF_HUXZOI) then
-        local progress = player:getVar("huxzoi_map_progress")
+        local progress = player:getCharVar("huxzoi_map_progress")
         if progress == 1023 then
             player:showText(npc, ID.text.HUXZOI_MAP_COMPLETE, player:getRace())
             npcUtil.giveKeyItem(player, tpz.ki.MAP_OF_HUXZOI)
@@ -21,7 +21,7 @@ function onTrigger(player, npc)
         else
             index = npc:getID() - ID.npc.QUASILUMIN_OFFSET
             if bit.band(progress, bit.lshift(1, index)) ~= 1 then
-                player:setVar("huxzoi_map_progress", bit.bor(progress, bit.lshift(1, index)))
+                player:setCharVar("huxzoi_map_progress", bit.bor(progress, bit.lshift(1, index)))
             end
         end
     end
