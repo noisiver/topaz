@@ -8,7 +8,7 @@ require("scripts/globals/status");
 require("scripts/globals/player")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(150)
+	mob:setDamage(250)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ACC, 30) 
