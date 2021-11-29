@@ -1,4 +1,4 @@
------------------------------------
+d-----------------------------------
 -- Area: Grand Palace of Hu'Xzoi
 --  NPC: ???
 -- Note: Spawns Ix'Aern (MNK)
