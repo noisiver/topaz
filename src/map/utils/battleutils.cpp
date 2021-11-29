@@ -3186,10 +3186,10 @@ namespace battleutils
     }
 
     /************************************************************************
-    *                                                                       *
-    *  Gets SkillChain Effect                                               *
-    *                                                                       *
-    ************************************************************************/
+     *                                                                       *
+     *  Gets SkillChain Effect                                               *
+     *                                                                       *
+     ************************************************************************/
 #define PAIR(x, y) ((x << 8) + y)
 
     uint8 GetSkillchainSubeffect(SKILLCHAIN_ELEMENT skillchain)
@@ -3248,52 +3248,49 @@ namespace battleutils
 
     static const std::map<std::pair<SKILLCHAIN_ELEMENT, SKILLCHAIN_ELEMENT>, SKILLCHAIN_ELEMENT> skillchain_map = {
         // Level 3 Pairs
-        {{SC_LIGHT, SC_LIGHT},SC_LIGHT_II},
-        {{SC_DARKNESS, SC_DARKNESS}, SC_DARKNESS_II},
+        { { SC_LIGHT, SC_LIGHT }, SC_LIGHT_II },
+        { { SC_DARKNESS, SC_DARKNESS }, SC_DARKNESS_II },
 
         // Level 2 Pairs
-        {{SC_DISTORTION, SC_GRAVITATION}, SC_DARKNESS},
-        {{SC_FRAGMENTATION, SC_GRAVITATION}, SC_FRAGMENTATION},
+        { { SC_GRAVITATION, SC_DISTORTION }, SC_DARKNESS },
+        { { SC_GRAVITATION, SC_FRAGMENTATION }, SC_FRAGMENTATION },
 
-        {{SC_GRAVITATION, SC_DISTORTION}, SC_DARKNESS},
-        {{SC_FUSION, SC_DISTORTION}, SC_FUSION},
+        { { SC_DISTORTION, SC_GRAVITATION }, SC_DARKNESS },
+        { { SC_DISTORTION, SC_FUSION }, SC_FUSION },
 
-        {{SC_GRAVITATION, SC_FUSION}, SC_GRAVITATION},
-        {{SC_FRAGMENTATION, SC_FUSION}, SC_LIGHT},
+        { { SC_FUSION, SC_GRAVITATION }, SC_GRAVITATION },
+        { { SC_FUSION, SC_FRAGMENTATION }, SC_LIGHT },
 
-        {{SC_DISTORTION, SC_FRAGMENTATION}, SC_DISTORTION},
-        {{SC_FUSION, SC_FRAGMENTATION}, SC_LIGHT},
+        { { SC_FRAGMENTATION, SC_DISTORTION }, SC_DISTORTION },
+        { { SC_FRAGMENTATION, SC_FUSION }, SC_LIGHT },
 
-			//Level 1 Pairs > Level 2 Skillchain
+        // Level 1 Pairs
+        { { SC_TRANSFIXION, SC_COMPRESSION }, SC_COMPRESSION },
+        { { SC_TRANSFIXION, SC_SCISSION }, SC_DISTORTION },
+        { { SC_TRANSFIXION, SC_REVERBERATION }, SC_REVERBERATION },
 
-        {{SC_SCISSION, SC_TRANSFIXION}, SC_DISTORTION},
-        {{SC_IMPACTION, SC_LIQUEFACTION}, SC_FUSION},
-        {{SC_COMPRESSION, SC_DETONATION}, SC_GRAVITATION},
-        {{SC_REVERBERATION, SC_INDURATION}, SC_FRAGMENTATION},
+        { { SC_COMPRESSION, SC_TRANSFIXION }, SC_TRANSFIXION },
+        { { SC_COMPRESSION, SC_DETONATION }, SC_DETONATION },
 
-            // Level 1 Pairs
-        {{SC_COMPRESSION, SC_TRANSFIXION}, SC_COMPRESSION},
-        {{SC_REVERBERATION, SC_TRANSFIXION}, SC_REVERBERATION},
+        { { SC_LIQUEFACTION, SC_SCISSION }, SC_SCISSION },
+        { { SC_LIQUEFACTION, SC_IMPACTION }, SC_FUSION },
 
-        {{SC_TRANSFIXION, SC_COMPRESSION}, SC_TRANSFIXION},
-        {{SC_DETONATION, SC_COMPRESSION}, SC_DETONATION},
+        { { SC_SCISSION, SC_LIQUEFACTION }, SC_LIQUEFACTION },
+        { { SC_SCISSION, SC_REVERBERATION }, SC_REVERBERATION },
+        { { SC_SCISSION, SC_DETONATION }, SC_DETONATION },
 
-        {{SC_SCISSION, SC_LIQUEFACTION}, SC_SCISSION},
+        { { SC_REVERBERATION, SC_INDURATION }, SC_INDURATION },
+        { { SC_REVERBERATION, SC_IMPACTION }, SC_IMPACTION },
 
-        {{SC_LIQUEFACTION, SC_SCISSION}, SC_LIQUEFACTION},
-        {{SC_REVERBERATION, SC_SCISSION}, SC_REVERBERATION},
-        {{SC_DETONATION, SC_SCISSION}, SC_DETONATION},
+        { { SC_DETONATION, SC_COMPRESSION }, SC_GRAVITATION },
+        { { SC_DETONATION, SC_SCISSION }, SC_SCISSION },
 
-        {{SC_INDURATION, SC_REVERBERATION}, SC_INDURATION},
-        {{SC_IMPACTION, SC_REVERBERATION}, SC_IMPACTION},
+        { { SC_INDURATION, SC_COMPRESSION }, SC_COMPRESSION },
+        { { SC_INDURATION, SC_REVERBERATION }, SC_FRAGMENTATION },
+        { { SC_INDURATION, SC_IMPACTION }, SC_IMPACTION },
 
-        {{SC_SCISSION, SC_DETONATION}, SC_SCISSION},
-
-        {{SC_COMPRESSION, SC_INDURATION}, SC_COMPRESSION},
-        {{SC_IMPACTION, SC_INDURATION}, SC_IMPACTION},
-
-        {{SC_LIQUEFACTION, SC_IMPACTION}, SC_LIQUEFACTION},
-        {{SC_DETONATION, SC_IMPACTION}, SC_DETONATION}
+        { { SC_IMPACTION, SC_LIQUEFACTION }, SC_LIQUEFACTION },
+        { { SC_IMPACTION, SC_DETONATION }, SC_DETONATION }
     };
 
     SKILLCHAIN_ELEMENT FormSkillchain(const std::list<SKILLCHAIN_ELEMENT>& resonance, const std::list<SKILLCHAIN_ELEMENT>& skill)
@@ -3302,7 +3299,7 @@ namespace battleutils
         {
             for (auto& skill_element : skill)
             {
-                if (auto skillchain = skillchain_map.find({ skill_element, resonance_element }); skillchain != skillchain_map.end())
+                if (auto skillchain = skillchain_map.find({ resonance_element, skill_element }); skillchain != skillchain_map.end())
                 {
                     return skillchain->second;
                 }
@@ -3310,7 +3307,6 @@ namespace battleutils
         }
         return SC_NONE;
     }
-
 
     SUBEFFECT GetSkillChainEffect(CBattleEntity* PDefender, uint8 primary, uint8 secondary, uint8 tertiary)
     {
@@ -3328,14 +3324,14 @@ namespace battleutils
         else
         {
             std::list<SKILLCHAIN_ELEMENT> resonanceProperties;
-            std::list<SKILLCHAIN_ELEMENT> skillProperties = {(SKILLCHAIN_ELEMENT)primary, (SKILLCHAIN_ELEMENT)secondary, (SKILLCHAIN_ELEMENT)tertiary};
+            std::list<SKILLCHAIN_ELEMENT> skillProperties = { (SKILLCHAIN_ELEMENT)primary, (SKILLCHAIN_ELEMENT)secondary, (SKILLCHAIN_ELEMENT)tertiary };
 
             // Chainbound active on target
             if (PCBEffect)
             {
-                if (PCBEffect->GetStartTime() + 3s < server_clock::now())
+                if (PCBEffect->GetStartTime() + 1s < server_clock::now())
                 {
-                    //Konzen-Ittai
+                    // Konzen-Ittai
                     if (PCBEffect->GetPower() > 1)
                     {
                         resonanceProperties.push_back(SC_LIGHT);
@@ -3356,7 +3352,6 @@ namespace battleutils
                 PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SKILLCHAIN, 0, combined_properties, 0, 10, 0, 0, 0));
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_CHAINBOUND);
                 PSCEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SKILLCHAIN, 0);
-
             }
             // Previous effect exists
             else if (PSCEffect && PSCEffect->GetTier() == 0)
@@ -3365,7 +3360,7 @@ namespace battleutils
                 // Previous effect is an opening effect, meaning the power is
                 // actually the ID of the opening weaponskill.  We need all 3
                 // of the possible skillchain properties on the initial link.
-                if (PSCEffect->GetStartTime() + 3s < server_clock::now())
+                if (PSCEffect->GetStartTime() + 1s < server_clock::now())
                 {
                     auto properties = PSCEffect->GetPower();
                     resonanceProperties.push_back((SKILLCHAIN_ELEMENT)(properties & 0b1111));
@@ -3378,8 +3373,11 @@ namespace battleutils
             {
                 // Previous effect is not an opening effect, meaning the power is
                 // The skill chain ID resonating.
-                resonanceProperties.push_back((SKILLCHAIN_ELEMENT)PSCEffect->GetPower());
-                skillchain = FormSkillchain(resonanceProperties, skillProperties);
+                if (PSCEffect->GetStartTime() + 1s < server_clock::now())
+                {
+                    resonanceProperties.push_back((SKILLCHAIN_ELEMENT)PSCEffect->GetPower());
+                    skillchain = FormSkillchain(resonanceProperties, skillProperties);
+                }
             }
 
             if (skillchain != SC_NONE)
@@ -3389,7 +3387,7 @@ namespace battleutils
                 PSCEffect->SetDuration(PSCEffect->GetDuration() - 1000);
                 PSCEffect->SetTier(GetSkillchainTier((SKILLCHAIN_ELEMENT)skillchain));
                 PSCEffect->SetPower(skillchain);
-                PSCEffect->SetSubPower(std::min(PSCEffect->GetSubPower() + 1, 5)); // Linked, limited to 5
+                PSCEffect->SetSubPower(std::min(PSCEffect->GetSubPower() + 1, 6)); // Linked, limited to 6
 
                 return (SUBEFFECT)GetSkillchainSubeffect((SKILLCHAIN_ELEMENT)skillchain);
             }
@@ -3406,27 +3404,26 @@ namespace battleutils
 
     int16 GetSkillchainMinimumResistance(SKILLCHAIN_ELEMENT element, CBattleEntity* PDefender, ELEMENT* appliedEle)
     {
-        static const Mod resistances[][4] =
-        {
-            {Mod::NONE,       Mod::NONE, Mod::NONE, Mod::NONE}, // SC_NONE
-            {Mod::LIGHTDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_TRANSFIXION
-            {Mod::DARKDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_COMPRESSION
-            {Mod::FIREDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_LIQUEFACTION
-            {Mod::EARTHDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_SCISSION
-            {Mod::WATERDEF,   Mod::NONE, Mod::NONE, Mod::NONE}, // SC_REVERBERATION
-            {Mod::WINDDEF,    Mod::NONE, Mod::NONE, Mod::NONE}, // SC_DETONATION
-            {Mod::ICEDEF,     Mod::NONE, Mod::NONE, Mod::NONE}, // SC_INDURATION
-            {Mod::THUNDERDEF, Mod::NONE, Mod::NONE, Mod::NONE}, // SC_IMPACTION
+        static const Mod resistances[][4] = {
+            { Mod::NONE, Mod::NONE, Mod::NONE, Mod::NONE },        // SC_NONE
+            { Mod::SDT_LIGHT, Mod::NONE, Mod::NONE, Mod::NONE },   // SC_TRANSFIXION
+            { Mod::SDT_DARK, Mod::NONE, Mod::NONE, Mod::NONE },    // SC_COMPRESSION
+            { Mod::SDT_FIRE, Mod::NONE, Mod::NONE, Mod::NONE },    // SC_LIQUEFACTION
+            { Mod::SDT_EARTH, Mod::NONE, Mod::NONE, Mod::NONE },   // SC_SCISSION
+            { Mod::SDT_WATER, Mod::NONE, Mod::NONE, Mod::NONE },   // SC_REVERBERATION
+            { Mod::SDT_WIND, Mod::NONE, Mod::NONE, Mod::NONE },    // SC_DETONATION
+            { Mod::SDT_ICE, Mod::NONE, Mod::NONE, Mod::NONE },     // SC_INDURATION
+            { Mod::SDT_THUNDER, Mod::NONE, Mod::NONE, Mod::NONE }, // SC_IMPACTION
 
-            { Mod::EARTHDEF, Mod::DARKDEF, Mod::NONE, Mod::NONE }, // SC_GRAVITATION
-            { Mod::ICEDEF, Mod::WATERDEF, Mod::NONE, Mod::NONE }, // SC_DISTORTION
-            {Mod::FIREDEF,  Mod::LIGHTDEF,   Mod::NONE, Mod::NONE}, // SC_FUSION
-            {Mod::WINDDEF,  Mod::THUNDERDEF, Mod::NONE, Mod::NONE}, // SC_FRAGMENTATION
+            { Mod::SDT_EARTH, Mod::SDT_DARK, Mod::NONE, Mod::NONE },   // SC_GRAVITATION
+            { Mod::SDT_ICE, Mod::SDT_WATER, Mod::NONE, Mod::NONE },    // SC_DISTORTION
+            { Mod::SDT_FIRE, Mod::SDT_LIGHT, Mod::NONE, Mod::NONE },   // SC_FUSION
+            { Mod::SDT_WIND, Mod::SDT_THUNDER, Mod::NONE, Mod::NONE }, // SC_FRAGMENTATION
 
-            {Mod::FIREDEF, Mod::WINDDEF,  Mod::THUNDERDEF, Mod::LIGHTDEF}, // SC_LIGHT
-            {Mod::ICEDEF,  Mod::EARTHDEF, Mod::WATERDEF,   Mod::DARKDEF},  // SC_DARKNESS
-            {Mod::FIREDEF, Mod::WINDDEF,  Mod::THUNDERDEF, Mod::LIGHTDEF}, // SC_LIGHT
-            {Mod::ICEDEF,  Mod::EARTHDEF, Mod::WATERDEF,   Mod::DARKDEF},  // SC_DARKNESS_II
+            { Mod::SDT_FIRE, Mod::SDT_WIND, Mod::SDT_THUNDER, Mod::SDT_LIGHT }, // SC_LIGHT
+            { Mod::SDT_ICE, Mod::SDT_EARTH, Mod::SDT_WATER, Mod::SDT_DARK },    // SC_DARKNESS
+            { Mod::SDT_FIRE, Mod::SDT_WIND, Mod::SDT_THUNDER, Mod::SDT_LIGHT }, // SC_LIGHT
+            { Mod::SDT_ICE, Mod::SDT_EARTH, Mod::SDT_WATER, Mod::SDT_DARK },    // SC_DARKNESS_II
         };
 
         Mod defMod = Mod::NONE;
@@ -3451,9 +3448,9 @@ namespace battleutils
             case SC_GRAVITATION:
             case SC_DISTORTION:
                 if (PDefender->getMod(resistances[element][0]) < PDefender->getMod(resistances[element][1]))
-                    defMod = resistances[element][0];
-                else
                     defMod = resistances[element][1];
+                else
+                    defMod = resistances[element][0];
                 break;
 
                 // Level 3 & 4 skill chains
@@ -3462,12 +3459,12 @@ namespace battleutils
             case SC_DARKNESS:
             case SC_DARKNESS_II:
                 if (PDefender->getMod(resistances[element][0]) < PDefender->getMod(resistances[element][1]))
-                    defMod = resistances[element][0];
-                else
                     defMod = resistances[element][1];
-                if (PDefender->getMod(resistances[element][2]) < PDefender->getMod(defMod))
+                else
+                    defMod = resistances[element][0];
+                if (PDefender->getMod(resistances[element][2]) > PDefender->getMod(defMod))
                     defMod = resistances[element][2];
-                if (PDefender->getMod(resistances[element][3]) < PDefender->getMod(defMod))
+                if (PDefender->getMod(resistances[element][3]) > PDefender->getMod(defMod))
                     defMod = resistances[element][3];
                 break;
 
@@ -3479,28 +3476,28 @@ namespace battleutils
 
         switch (defMod)
         {
-            case Mod::FIREDEF:
+            case Mod::SDT_FIRE:
                 *appliedEle = ELEMENT_FIRE;
                 break;
-            case Mod::ICEDEF:
+            case Mod::SDT_ICE:
                 *appliedEle = ELEMENT_ICE;
                 break;
-            case Mod::WINDDEF:
+            case Mod::SDT_WIND:
                 *appliedEle = ELEMENT_WIND;
                 break;
-            case Mod::EARTHDEF:
+            case Mod::SDT_EARTH:
                 *appliedEle = ELEMENT_EARTH;
                 break;
-            case Mod::THUNDERDEF:
+            case Mod::SDT_THUNDER:
                 *appliedEle = ELEMENT_THUNDER;
                 break;
-            case Mod::WATERDEF:
+            case Mod::SDT_WATER:
                 *appliedEle = ELEMENT_WATER;
                 break;
-            case Mod::LIGHTDEF:
+            case Mod::SDT_LIGHT:
                 *appliedEle = ELEMENT_LIGHT;
                 break;
-            case Mod::DARKDEF:
+            case Mod::SDT_DARK:
                 *appliedEle = ELEMENT_DARK;
                 break;
             default:
@@ -3513,25 +3510,26 @@ namespace battleutils
     std::vector<ELEMENT> GetSkillchainMagicElement(SKILLCHAIN_ELEMENT skillchain)
     {
         static const std::unordered_map<SKILLCHAIN_ELEMENT, std::vector<ELEMENT>> resonanceToElement = {
-            {SC_NONE, {}},
-            {SC_TRANSFIXION, {ELEMENT_LIGHT}},
-            {SC_COMPRESSION, {ELEMENT_DARK}},
-            {SC_LIQUEFACTION, {ELEMENT_FIRE}},
-            {SC_SCISSION, {ELEMENT_EARTH}},
-            {SC_REVERBERATION, {ELEMENT_WATER}},
-            {SC_DETONATION, {ELEMENT_WIND}},
-            {SC_INDURATION, {ELEMENT_ICE}},
-            {SC_IMPACTION, {ELEMENT_THUNDER}},
+            { SC_NONE, {} },
+            { SC_TRANSFIXION, { ELEMENT_LIGHT } },
+            { SC_COMPRESSION, { ELEMENT_DARK } },
+            { SC_LIQUEFACTION, { ELEMENT_FIRE } },
+            { SC_SCISSION, { ELEMENT_EARTH } },
+            { SC_REVERBERATION, { ELEMENT_WATER } },
+            { SC_DETONATION, { ELEMENT_WIND } },
+            { SC_INDURATION, { ELEMENT_ICE } },
+            { SC_IMPACTION, { ELEMENT_THUNDER } },
 
-            {SC_GRAVITATION, {ELEMENT_DARK, ELEMENT_EARTH}},
-            {SC_DISTORTION, {ELEMENT_WATER, ELEMENT_ICE}},
-            {SC_FUSION, {ELEMENT_LIGHT, ELEMENT_FIRE}},
-            {SC_FRAGMENTATION, {ELEMENT_WIND, ELEMENT_THUNDER}},
+            { SC_GRAVITATION, { ELEMENT_DARK, ELEMENT_EARTH } },
+            { SC_DISTORTION, { ELEMENT_WATER, ELEMENT_ICE } },
+            { SC_FUSION, { ELEMENT_LIGHT, ELEMENT_FIRE } },
+            { SC_FRAGMENTATION, { ELEMENT_WIND, ELEMENT_THUNDER } },
 
-            {SC_LIGHT, {ELEMENT_LIGHT, ELEMENT_FIRE, ELEMENT_WIND, ELEMENT_THUNDER}},
-            {SC_DARKNESS, {ELEMENT_DARK, ELEMENT_EARTH, ELEMENT_WATER, ELEMENT_ICE}},
-            {SC_LIGHT_II, {ELEMENT_LIGHT}},
-            {SC_DARKNESS_II, {ELEMENT_DARK}}};
+            { SC_LIGHT, { ELEMENT_LIGHT, ELEMENT_FIRE, ELEMENT_WIND, ELEMENT_THUNDER } },
+            { SC_DARKNESS, { ELEMENT_DARK, ELEMENT_EARTH, ELEMENT_WATER, ELEMENT_ICE } },
+            { SC_LIGHT_II, { ELEMENT_LIGHT } },
+            { SC_DARKNESS_II, { ELEMENT_DARK } }
+        };
 
         return resonanceToElement.at(skillchain);
     }
@@ -3550,26 +3548,27 @@ namespace battleutils
         ELEMENT appliedEle = ELEMENT_NONE;
         int16 resistance = GetSkillchainMinimumResistance(skillchain, PDefender, &appliedEle);
 
-        TPZ_DEBUG_BREAK_IF(chainLevel <= 0 || chainLevel > 4 || chainCount <= 0 || chainCount > 5);
+        TPZ_DEBUG_BREAK_IF(chainLevel <= 0 || chainLevel > 4 || chainCount <= 0 || chainCount > 6);
 
         // Skill chain damage = (Closing Damage)
         //                      × (Skill chain Level/Number from Table)
-        //                      × (1 + Skill chain Bonus ÷ 100)
-        //                      × (1 + Skill chain Damage + %/100)
+        //            OOE       × (1 + Skill chain Bonus ÷ 100)
+        //            OOE       × (1 + Skill chain Damage + %/100)
         //            TODO:     × (1 + Day/Weather bonuses)
         //            TODO:     × (1 + Staff Affinity)
 
-        auto damage = (int32)floor((double)(abs(lastSkillDamage))
-            * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000
-            * (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100
-            * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
-
-        auto PChar = dynamic_cast<CCharEntity *>(PAttacker);
+        auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000);
+        // OOE    * (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100
+        // OOE    * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
+        // ShowDebug("RawDamage: %u\n,", damage);
+        auto PChar = dynamic_cast<CCharEntity*>(PAttacker);
         if (PChar && PChar->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PChar->loc.p, PDefender->loc.p, 64))
         {
-            damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar)/100.f));    
+            damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));
         }
-        damage = damage * (1000 - resistance) / 1000;
+        damage = damage * std::clamp((int32)resistance, 10, 100) / 100;
+
+        // ShowDebug("DamageAfterResist: %u\n, Resistance:%u\n,", damage, resistance);
         damage = MagicDmgTaken(PDefender, damage, appliedEle);
         if (damage > 0)
         {
@@ -3580,11 +3579,9 @@ namespace battleutils
         damage = std::clamp(damage, -99999, 99999);
 
         PDefender->takeDamage(damage, PAttacker, ATTACK_SPECIAL, appliedEle == ELEMENT_NONE ? DAMAGE_NONE : (DAMAGETYPE)(DAMAGE_ELEMENTAL + appliedEle));
-
+        // ShowDebug("FinalDamage: %u\n,", damage);
         battleutils::ClaimMob(PDefender, PAttacker);
         PDefender->updatemask |= UPDATE_STATUS;
-
-        PDefender->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
 
         switch (PDefender->objtype)
         {
@@ -3642,8 +3639,13 @@ namespace battleutils
                 PPlayer->StatusEffectContainer->DelStatusEffect(EFFECT_HEALING);
                 PPlayer->updatemask |= UPDATE_HP;
             }
+            else if (PPlayer->isSitting())
+            {
+                PPlayer->animation = ANIMATION_NONE;
+            }
         }
     }
+
 
     /************************************************************************
     *                                                                       *
