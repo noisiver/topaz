@@ -111,6 +111,7 @@ zones[tpz.zone.THE_GARDEN_OF_RUHMET] =
             [16920766] = 16921072,
             [16920767] = 16921072,
         },
+        QUASILUMIN_OFFSET = 16921083,
     },
 }
 
