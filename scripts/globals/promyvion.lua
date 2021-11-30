@@ -289,7 +289,7 @@ tpz.promyvion.onRegionEnter = function(player, region)
         end
 
         if event ~= nil then
-            player:startOptionalCutscene(event)
+            player:startEvent(event)
         end
     end
 end
