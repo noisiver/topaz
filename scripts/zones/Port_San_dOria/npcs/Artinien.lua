@@ -3,7 +3,6 @@
 --  NPC: Artinien
 -----------------------------------
 local ID = require("scripts/zones/Port_San_dOria/IDs")
-require("scripts/globals/events/starlight_festivals")
 require("scripts/globals/pathfind")
 -----------------------------------
 local flags = tpz.path.flag.NONE

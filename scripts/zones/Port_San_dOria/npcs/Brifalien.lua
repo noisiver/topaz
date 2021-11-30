@@ -8,7 +8,6 @@ local ID = require("scripts/zones/Port_San_dOria/IDs")
 require("scripts/globals/npc_util")
 require("scripts/globals/keyitems")
 require("scripts/globals/quests")
-require("scripts/globals/events/starlight_festivals")
 require("scripts/globals/pathfind")
 -----------------------------------
 local flags = tpz.path.flag.NONE
