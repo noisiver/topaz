@@ -51,15 +51,15 @@ function onSpellPrecast(mob, spell)
 end
 
 function onMobDespawn(mob)
-    DespawnMob(Guard)
-    DespawnMob(GuardTwo)
-    DespawnMob(GuardThree)
-    DespawnMob(GuardFour)
     mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
 end
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 461)
+    DespawnMob(Guard)
+    DespawnMob(GuardTwo)
+    DespawnMob(GuardThree)
+    DespawnMob(GuardFour)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end

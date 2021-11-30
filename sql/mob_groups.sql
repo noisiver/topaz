@@ -3089,7 +3089,7 @@ INSERT INTO `mob_groups` VALUES (37,2522,65,'Mamool_Ja_Infiltrator',600,0,1592,0
 INSERT INTO `mob_groups` VALUES (38,2507,65,'Mamool_Ja_Blusterer',600,0,1587,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (39,4308,65,'Watch_Wyvern',600,0,2268,0,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (40,6605,65,'Sea_Puk',600,0,2038,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (41,921,65,'Darting_Kachaal_Ja',259200,0,572,30000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (41,921,65,'Darting_Kachaal_Ja',7200,0,572,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (42,6363,65,'Nipper',600,0,1816,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (43,2529,65,'Mamool_Ja_Pikeman',600,0,1592,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (44,2537,65,'Mamool_Ja_Stabler',600,0,1604,0,0,81,83,0);

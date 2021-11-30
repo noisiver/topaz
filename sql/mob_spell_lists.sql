@@ -4611,6 +4611,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,190,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,195,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,200,1,255);
 
+INSERT INTO `mob_spell_lists` VALUES ('Darting_Kachaal_Ja',2023,186,1,255); -- Aeroga III
+
 
 
 
