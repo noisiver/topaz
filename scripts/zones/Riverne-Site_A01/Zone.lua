@@ -39,6 +39,18 @@ end
 function onRegionEnter(player, region)
 end
 
+function onGameDay()
+    -- move storage hole
+    local positions =
+    {
+        {275.1907, 0.8048, 273.8457},
+        {581.000,  -1.0981,   426.000},
+        {-245.6420,  19.9981,  -718.3527},
+    }
+    local newPosition = npcUtil.pickNewPosition(ID.npc.SHIELD_BUG_QM, positions)
+    GetNPCByID(ID.npc.SHIELD_BUG_QM):setPos(newPosition.x, newPosition.y, newPosition.z)
+end
+
 function onEventUpdate(player, csid, option)
 end
 

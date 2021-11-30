@@ -2490,8 +2490,8 @@ INSERT INTO `mob_droplist` VALUES (417,1,4,1000,4174,75); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (417,1,5,1000,4173,75); -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (417,1,5,1000,4172,75); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (418,0,0,1000,14669,100); -- (Carmine Dobsonfly) Jaeger Ring
-INSERT INTO `mob_droplist` VALUES (418,0,0,1000,15183,240); -- Dobson Bandana
-INSERT INTO `mob_droplist` VALUES (418,0,0,1000,15184,100); -- Voyager Sallet
+INSERT INTO `mob_droplist` VALUES (418,0,0,1000,15183,100); -- Dobson Bandana
+INSERT INTO `mob_droplist` VALUES (418,0,0,1000,15184,50); -- Voyager Sallet
 INSERT INTO `mob_droplist` VALUES (419,0,0,1000,816,111);
 INSERT INTO `mob_droplist` VALUES (419,0,0,1000,839,90);
 INSERT INTO `mob_droplist` VALUES (419,0,0,1000,4357,50);
@@ -6683,7 +6683,7 @@ INSERT INTO `mob_droplist` VALUES (1290,0,0,1000,4866,50);
 INSERT INTO `mob_droplist` VALUES (1291,0,0,1000,1690,1000); -- (Heliodromos) Hippogryph Tailfeather
 INSERT INTO `mob_droplist` VALUES (1291,0,0,1000,1690,240); -- Hippogryph Tailfeather
 INSERT INTO `mob_droplist` VALUES (1291,0,0,1000,1690,150); -- Hippogryph Tailfeather
-INSERT INTO `mob_droplist` VALUES (1291,0,0,1000,15348,240); -- Mountain Gaiters
+INSERT INTO `mob_droplist` VALUES (1291,0,0,1000,15348,150); -- Mountain Gaiters
 INSERT INTO `mob_droplist` VALUES (1292,2,0,1000,847,0);
 INSERT INTO `mob_droplist` VALUES (1292,0,0,1000,847,150);
 INSERT INTO `mob_droplist` VALUES (1292,0,0,1000,17281,261);	-- (Helldiver) Wingedge

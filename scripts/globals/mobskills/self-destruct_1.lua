@@ -10,7 +10,6 @@ require("scripts/globals/status")
 function onMobSkillCheck(target, mob, skill)
 	if mob:AnimationSub() == 2 then
 		return 0
-	else
 	end
 	
 	return 1
