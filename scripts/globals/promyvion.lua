@@ -230,9 +230,25 @@ end
 
 tpz.promyvion.receptacleOnDeath = function(mob, isKiller)
     if isKiller then
+        local ID = zones[mob:getZoneID()]
+        local mobId = mob:getID()
+        local floor = ID.mob.MEMORY_RECEPTACLES[mobId][1]
+        local streamId = ID.mob.MEMORY_RECEPTACLES[mobId][3]
+        local stream = GetNPCByID(streamId)
+
         mob:AnimationSub(0)
+
+        -- open floor exit portal
+        if stream:getLocalVar("[promy]floorExit") == 1 then
+            randomizeFloorExit(ID, floor)
+            local events = ID.npc.MEMORY_STREAMS[streamId][7]
+            local event = events[math.random(#events)]
+            stream:setLocalVar("[promy]destination", event)
+            stream:openDoor(180)
+        end
     end
 end
+
 
 tpz.promyvion.receptacleOnDespawn = function(mob)
     local ID = zones[mob:getZoneID()]
