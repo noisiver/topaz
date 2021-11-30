@@ -3,7 +3,6 @@
 --   NM: Stray
 -----------------------------------
 require("scripts/globals/promyvion")
-mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 function onMobRoam(mob)
     tpz.promyvion.strayOnRoam(mob)
