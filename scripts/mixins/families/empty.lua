@@ -10,27 +10,43 @@ g_mixins.families.empty = function(mob)
     mob:addListener("DEATH", "DYNAMIS_ITEM_DISTRIBUTION", function(mob, killer)
         local element = mob:getLocalVar("element")
         if element == 1  then
+		if math.random(1,100) <= 24 then 
             killer:addTreasure(1613, mob) -- Malevolent Memory (darkness skillchain)
+		end
         elseif element == 2 then
-            killer:addTreasure(1611, mob) -- Somber Memory (water)
-            killer:addTreasure(1613) -- Malevolent Memory (darkness skillchain)
+			if math.random(1,100) <= 24 then 
+				killer:addTreasure(1611, mob) -- Somber Memory (water)
+				killer:addTreasure(1613) -- Malevolent Memory (darkness skillchain)
+			end
         elseif element == 3 then
-            killer:addTreasure(1610, mob) -- Startling Memory (lightning)
-            killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
+			if math.random(1,100) <= 24 then 
+				killer:addTreasure(1610, mob) -- Startling Memory (lightning)
+				killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
+			end
         elseif element == 4  then
-            killer:addTreasure(1609, mob) -- Profane Memory (earth)
-            killer:addTreasure(1613, mob) -- Malevolent Memory (darkness skillchain)
+			if math.random(1,100) <= 24 then 
+				killer:addTreasure(1609, mob) -- Profane Memory (earth)
+				killer:addTreasure(1613, mob) -- Malevolent Memory (darkness skillchain)
+			end
         elseif element == 5 then
-            killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
+			if math.random(1,100) <= 24 then 
+				killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
+			end
         elseif element == 6  then
-            killer:addTreasure(1606, mob) -- Burning Memory (fire)
-            killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
+			if math.random(1,100) <= 24 then 
+				killer:addTreasure(1606, mob) -- Burning Memory (fire)
+				killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
+			end
         elseif element == 7 then
-            killer:addTreasure(1607, mob) -- Bitter Memory (ice)
-            killer:addTreasure(1613, mob) -- Malevolent Memory (darkness skillchain)
+			if math.random(1,100) <= 24 then 
+				killer:addTreasure(1607, mob) -- Bitter Memory (ice)
+				killer:addTreasure(1613, mob) -- Malevolent Memory (darkness skillchain)
+			end
         elseif element == 8 then
-            killer:addTreasure(1608, mob) -- Fleeting Memory (wind)
-            killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
+			if math.random(1,100) <= 24 then 
+				killer:addTreasure(1608, mob) -- Fleeting Memory (wind)
+				killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
+			end
         end
     end)
 end
