@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: Phomiuna_Aqueducts
---  Mob: Teratotaur
+-- Area: Lufaise_Meadows
+--  Mob: Gigas Braver
 -----------------------------------
 mixins = {require("scripts/mixins/fomor_hate")}
 

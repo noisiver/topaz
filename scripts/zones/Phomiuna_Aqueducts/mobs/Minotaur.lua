@@ -12,7 +12,8 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setLocalVar("fomorHateAdj", -2)
+    mob:setLocalVar("fomorHateDecrease", 1)
+    mob:setLocalVar("fomorHateAdj", 1)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 30) 
