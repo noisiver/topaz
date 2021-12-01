@@ -3117,7 +3117,7 @@ INSERT INTO `mob_groups` VALUES (65,2089,65,'Iriri_Samariri',0,128,1367,35000,0,
 INSERT INTO `mob_groups` VALUES (66,4295,65,'Wartkin',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (67,2541,65,'Mamool_Jas_Wyvern',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (68,0,65,'Venomfang',0,128,0,35000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (70,2008,65,'Hundredfaced_Hapool_Ja_Clone',0,128,0,1000,0,76,77,0);
+INSERT INTO `mob_groups` VALUES (70,2008,65,'Hundredfaced_Clone',0,128,0,1000,0,76,77,0);
 
 INSERT INTO `mob_groups` VALUES (2227,4493,65,'Zazarg',0,128,0,0,0,0,0,0);
 
