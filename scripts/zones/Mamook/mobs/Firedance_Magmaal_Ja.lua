@@ -17,15 +17,19 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.STUNRESTRAIT, 100)
 end
 
+function onMobDespawn(mob)
+    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+end
+
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 461)
 	if isKiller  then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 	if isKiller and math.random(1,100) <= 15 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 end

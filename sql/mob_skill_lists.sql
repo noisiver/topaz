@@ -4220,7 +4220,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Gration',6072,1640); -- grand_slam_gratio
 
 INSERT INTO `mob_skill_lists` VALUES ('PetriBreathOnly',6073,269); -- petribreath
 INSERT INTO `mob_skill_lists` VALUES ('BarbedCrescentOnly',6074,253); -- Barbed Crescent
-INSERT INTO `mob_skill_lists` VALUES ('SlingBombOnly',6075,567); -- sling_bomb Crescent
+INSERT INTO `mob_skill_lists` VALUES ('SlingBombOnly',6075,567); -- sling_bomb 
+INSERT INTO `mob_skill_lists` VALUES ('FirespitOnly',6076,1733); -- Firespit
 
 
 -- Next available ID: 1148

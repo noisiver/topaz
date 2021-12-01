@@ -73,8 +73,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     calcParams.finalDmg = damage
 
     damage = takeWeaponskillDamage(target, player, {}, primary, attack, calcParams, action)
-	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
-	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits) end
 
 
     return calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.criticalHit, damage

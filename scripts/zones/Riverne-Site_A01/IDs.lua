@@ -34,10 +34,12 @@ zones[tpz.zone.RIVERNE_SITE_A01] =
         HELIODROMOS_PH_OFFSET    = 16900107,
         HELIODROMOS_OFFSET       = 16900110,
         CARMINE_DOBSONFLY_OFFSET = 16900230,
+        SHIELDTRAP = 16900320,
     },
     npc =
     {
         DISPLACEMENT_OFFSET = 16900334,
+        SHIELD_BUG_QM     = 16900325,
     },
 }
 

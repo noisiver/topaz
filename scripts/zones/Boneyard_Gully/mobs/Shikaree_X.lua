@@ -16,8 +16,6 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REGAIN, 175)
-    mob:setLocalVar("regain", 175)
     mob:setLocalVar("chat", ID.text.DEFEATED)
 end
 
@@ -25,6 +23,7 @@ function onMobEngaged(mob, target)
     SpawnMob(mob:getID() + 2)
     mob:setLocalVar("distracted", 0)
     mob:setMod(tpz.mod.REGAIN, 175)
+	mob:setLocalVar("regain", 175)
 end
 
 function onMobWeaponSkill(target, mob, skill)

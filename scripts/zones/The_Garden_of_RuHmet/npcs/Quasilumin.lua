@@ -13,7 +13,7 @@ end
 
 function onTrigger(player, npc)
     if not player:hasKeyItem(tpz.ki.MAP_OF_RUHMET) then
-        local progress = player:getVar("ruhmet_map_progress")
+        local progress = player:getCharVar("ruhmet_map_progress")
         if progress == 1023 then
             player:showText(npc, ID.text.RUHMET_MAP_COMPLETE, player:getRace())
             npcUtil.giveKeyItem(player, tpz.ki.MAP_OF_RUHMET)
@@ -21,7 +21,7 @@ function onTrigger(player, npc)
         else
             index = npc:getID() - ID.npc.QUASILUMIN_OFFSET
             if bit.band(progress, bit.lshift(1, index)) ~= 1 then
-                player:setVar("ruhmet_map_progress", bit.bor(progress, bit.lshift(1, index)))
+                player:setCharVar("ruhmet_map_progress", bit.bor(progress, bit.lshift(1, index)))
             end
         end
     end

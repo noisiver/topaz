@@ -21,4 +21,5 @@ function onItemUse(target, item)
         target:delStatusEffectSilent(effect)
     end
     target:addStatusEffectEx(effect, 0, 0, 0, 60)
+	target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.AMNESIA)
 end

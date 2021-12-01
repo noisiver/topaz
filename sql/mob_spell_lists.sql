@@ -4611,6 +4611,19 @@ INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,190,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,195,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Mammet-22',2022,200,1,255);
 
+INSERT INTO `mob_spell_lists` VALUES ('Darting_Kachaal_Ja',2023,186,1,255); -- Aeroga III
+
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,250,1,255); -- Ice Spikes
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,238,1,255); -- Rasp 
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,232,1,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,161,1,255); -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,156,1,255); -- Aero III
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,171,1,255); -- Water III
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,180,1,255); -- Blizzaga II
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,259,1,255); -- Sleep II
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,206,1,255); -- Freeze 
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,212,1,255); -- Burst 
+INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,210,1,255); -- Quake 
 
 
 

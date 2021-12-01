@@ -15,7 +15,7 @@ function onTrigger(player,npc)
         return 1
     end
 
-    return -1
+    
 end
 
 function onEventUpdate(player,csid,option)

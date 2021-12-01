@@ -39,15 +39,19 @@ function onAdditionalEffect(mob, target, damage)
 	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.POISON, {chance = 100, power = 40})
 end
 
+function onMobDespawn(mob)
+    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+end
+
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 471)
 	if isKiller  then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 	if isKiller and math.random(1,100) <= 15 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 end

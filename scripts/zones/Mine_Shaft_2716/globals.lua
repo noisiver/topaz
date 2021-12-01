@@ -19,7 +19,6 @@ function recallBugbby(mob, target)
                 bugbby:resetEnmity(previousTarget)
             end
             bugbby:updateEnmity(target)
-            bugbby:enrage(target)
             bugbby:setTP(3000)
         end
     end

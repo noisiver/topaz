@@ -26,7 +26,7 @@ end
 local function openMouth(mob)
     mob:addMod(tpz.mod.ATTP, 100)
     mob:addMod(tpz.mod.DEFP, -50)
-    mob:addMod(tpz.mod.DMGMAGIC, -50)
+    mob:addMod(tpz.mod.DMGMAGIC, 50)
     mob:setLocalVar("[hpemde]closeMouthHP", mob:getHP() - math.ceil(mob:getMaxHP() / 3))
     mob:AnimationSub(3)
     mob:wait(2000)

@@ -3,9 +3,14 @@
 --  Mob: Heliodromos
 -----------------------------------
 local ID = require("scripts/zones/Riverne-Site_A01/IDs")
+require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
-
 function onMobSpawn(mob)
+	mob:setMod(tpz.mod.MAIN_DMG_RATING, 25)
+	mob:addMod(tpz.mod.DEFP, 25) 
+	mob:addMod(tpz.mod.ACC, 25) 
+    mob:setMod(tpz.mod.REFRESH, 40)
     SetServerVariable("Heliodromos_Despawn", 0)
 end
 
@@ -48,7 +53,7 @@ function onMobDespawn(mob)
     end
 
     if (allHeliodromosDead) then
-        SetServerVariable("Heliodromos_ToD", os.time() + math.random(43200, 54000)) -- 12 to 15 hours
+        SetServerVariable("Heliodromos_ToD", os.time() + math.random(36000, 43200)) -- 11 to 12 hours
 
         -- allow placeholders to respawn
         for i = ID.mob.HELIODROMOS_PH_OFFSET, ID.mob.HELIODROMOS_PH_OFFSET + 2 do

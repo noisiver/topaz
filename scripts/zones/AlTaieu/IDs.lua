@@ -19,6 +19,7 @@ zones[tpz.zone.ALTAIEU] =
         LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The [/January/February/March/April/May/June/July/August/September/October/November/December] <number> Login Campaign is currently underway!<space>
         LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
         CONQUEST_BASE           = 7149, -- Tallying conquest results...
+        ALTAIEU_MAP_COMPLETE    = 7385, -- You seem unfamiliar with the city of Al'Taieu. Perhaps this may assist you in your travels.
         QUASILUMIN_01           = 7365, -- This is Al'Taieu. The celestial capital overflowing with the blessings of Altana.
         NOTHING_OF_INTEREST     = 7475, -- There is nothing of interest here.
         OMINOUS_SHADOW          = 7476, -- An ominous shadow falls over you...
@@ -70,6 +71,7 @@ zones[tpz.zone.ALTAIEU] =
         AURORAL_UPDRAFT_OFFSET    = 16912902,
         SWIRLING_VORTEX_OFFSET    = 16912908,
         DIMENSIONAL_PORTAL_OFFSET = 16912910,
+        QUASILUMIN_OFFSET         = 16912965,
     },
 }
 

@@ -2412,25 +2412,25 @@ INSERT INTO `item_latents` VALUES(17759, 165, 7, 59, 20);   -- Koggelmander - Vs
 -- -------------------------------------------------------
 -- Lyft Scimitar
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(17766, 10, 2, 16, 3);     -- VIT +1~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 10, 2, 16, 4);     -- VIT +1~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 10, 2, 16, 5);     -- VIT +1~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 10, 2, 16, 6);     -- VIT +1~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 10, 2, 15, 3);     -- VIT +1~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 10, 2, 15, 4);     -- VIT +1~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 10, 2, 15, 5);     -- VIT +1~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 10, 2, 15, 6);     -- VIT +1~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(17766, 27, 1, 16, 3);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 27, 1, 16, 4);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 27, 1, 16, 5);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 27, 1, 16, 6);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 27, 1, 15, 3);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 27, 1, 15, 4);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 27, 1, 15, 5);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 27, 1, 15, 6);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(17766, 23, 2, 16, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 23, 2, 16, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 23, 2, 16, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 23, 2, 16, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(17766, 25, 1, 16, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 25, 1, 16, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 25, 1, 16, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 25, 1, 16, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
 
 -- Kodachi Of Trials
 INSERT INTO `item_latents` VALUES(17773, 2, -20, 47, 0);
@@ -2509,30 +2509,30 @@ INSERT INTO `item_latents` VALUES(17952, 160, 2, 15, 3);    -- DMG increases by 
 INSERT INTO `item_latents` VALUES(17952, 160, 2, 15, 4);    -- DMG increases by 2 per member
 INSERT INTO `item_latents` VALUES(17952, 160, 2, 15, 5);    -- DMG increases by 2 per member
 INSERT INTO `item_latents` VALUES(17952, 160, 2, 15, 6);    -- DMG increases by 2 per member
-INSERT INTO `item_latents` VALUES(17952, 366, 2, 16, 3);
-INSERT INTO `item_latents` VALUES(17952, 366, 2, 16, 4);
-INSERT INTO `item_latents` VALUES(17952, 366, 2, 16, 5);
-INSERT INTO `item_latents` VALUES(17952, 366, 2, 16, 6);
+INSERT INTO `item_latents` VALUES(17952, 366, 2, 15, 3);
+INSERT INTO `item_latents` VALUES(17952, 366, 2, 15, 4);
+INSERT INTO `item_latents` VALUES(17952, 366, 2, 15, 5);
+INSERT INTO `item_latents` VALUES(17952, 366, 2, 15, 6);
 
 INSERT INTO `item_latents` VALUES(17964, 165, 7, 59, 17);   -- Barkborer - Vs. plantoid: Critical hit rate +7%
 
 -- -------------------------------------------------------
 -- Lyft Tabar
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(17970, 9, 1, 16, 3);      -- DEX +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 9, 1, 16, 4);      -- DEX +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 9, 1, 16, 5);      -- DEX +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 9, 1, 16, 6);      -- DEX +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 9, 1, 15, 3);      -- DEX +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 9, 1, 15, 4);      -- DEX +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 9, 1, 15, 5);      -- DEX +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 9, 1, 15, 6);      -- DEX +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(17970, 23, 2, 16, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 23, 2, 16, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 23, 2, 16, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 23, 2, 16, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(17970, 25, 1, 16, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 25, 1, 16, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 25, 1, 16, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17970, 25, 1, 16, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17970, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- San d'Orian Dagger / Kingdom Dagger
@@ -2940,25 +2940,25 @@ INSERT INTO `item_latents` VALUES(18504, 165, 7, 59, 17);   -- Eventreuse - Vs. 
 -- -------------------------------------------------------
 -- Lyft Voulge
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18508, 2, 20, 16, 3);     -- HP +20~80, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 2, 20, 16, 4);     -- HP +20~80, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 2, 20, 16, 5);     -- HP +20~80, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 2, 20, 16, 6);     -- HP +20~80, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 2, 20, 15, 3);     -- HP +20~80, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 2, 20, 15, 4);     -- HP +20~80, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 2, 20, 15, 5);     -- HP +20~80, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 2, 20, 15, 6);     -- HP +20~80, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18508, 10, 2, 16, 3);      -- VIT +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 10, 2, 16, 4);      -- VIT +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 10, 2, 16, 5);      -- VIT +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 10, 2, 16, 6);      -- VIT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 10, 2, 15, 3);      -- VIT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 10, 2, 15, 4);      -- VIT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 10, 2, 15, 5);      -- VIT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 10, 2, 15, 6);      -- VIT +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18508, 27, 1, 16, 3);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 27, 1, 16, 4);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 27, 1, 16, 5);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 27, 1, 16, 6);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 27, 1, 15, 3);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 27, 1, 15, 4);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 27, 1, 15, 5);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 27, 1, 15, 6);      -- Enmity +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18508, 161, -2, 16, 3);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 161, -2, 16, 4);     -- -PDT +8~8 party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 161, -2, 16, 5);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18508, 161, -2, 16, 6);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 161, -2, 15, 3);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 161, -2, 15, 4);     -- -PDT +8~8 party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 161, -2, 15, 5);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18508, 161, -2, 15, 6);     -- -PDT +2~8, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Carbuncle's Pole
@@ -3011,20 +3011,20 @@ INSERT INTO `item_latents` VALUES(18768, 23, 12, 9, 4);
 -- -------------------------------------------------------
 -- Lyft Sainti
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 16, 3);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 16, 4);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 16, 5);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 16, 6);     -- ATT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 3);     -- ATT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 4);     -- ATT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 5);     -- ATT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 6);     -- ATT +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 16, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 16, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 16, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 16, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 16, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 16, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 16, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 16, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Perdu Wand
@@ -3084,41 +3084,41 @@ INSERT INTO `item_latents` VALUES(18949, 302, 1, 0, 25);    -- Tiple Attack 1% w
 -- -------------------------------------------------------
 -- Lyft Scythe
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18958, 12, 1, 16, 3);      -- INT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 12, 1, 16, 4);      -- INT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 12, 1, 16, 5);      -- INT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 12, 1, 16, 6);      -- INT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 12, 1, 15, 3);      -- INT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 12, 1, 15, 4);      -- INT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 12, 1, 15, 5);      -- INT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 12, 1, 15, 6);      -- INT +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18958, 551, 1, 16, 5);     -- Dark Affinity Macc +10~20, party size 5+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 551, 2, 16, 6);     -- Dark Affinity Macc +10~20. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 551, 1, 15, 5);     -- Dark Affinity Macc +10~20, party size 5+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 551, 2, 15, 6);     -- Dark Affinity Macc +10~20. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18958, 315, 2, 16, 3);     -- Enhance Drain/aspir +2~8%, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 315, 2, 16, 4);     -- Enhance Drain/aspir +2~8%. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 315, 2, 16, 5);     -- Enhance Drain/aspir +2~8%. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 315, 2, 16, 6);     -- Enhance Drain/aspir +2~8%. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 315, 2, 15, 3);     -- Enhance Drain/aspir +2~8%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 315, 2, 15, 4);     -- Enhance Drain/aspir +2~8%. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 315, 2, 15, 5);     -- Enhance Drain/aspir +2~8%. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 315, 2, 15, 6);     -- Enhance Drain/aspir +2~8%. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18958, 521, 4, 16, 3);     -- Augments absorbs +4~15%, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 521, 4, 16, 4);     -- Augments absorbs +4~15%. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 521, 4, 16, 5);     -- Augments absorbs +4~15%. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18958, 521, 3, 16, 6);     -- Augments absorbs +4~15%. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 521, 4, 15, 3);     -- Augments absorbs +4~15%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 521, 4, 15, 4);     -- Augments absorbs +4~15%. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 521, 4, 15, 5);     -- Augments absorbs +4~15%. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18958, 521, 3, 15, 6);     -- Augments absorbs +4~15%. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Lyft Ferule
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18872, 8, 1, 16, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 8, 1, 16, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 8, 1, 16, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 8, 1, 16, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 8, 1, 15, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 8, 1, 15, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 8, 1, 15, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 8, 1, 15, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18872, 23, 2, 16, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 23, 2, 16, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 23, 2, 16, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 23, 2, 16, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18872, 25, 1, 16, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 25, 1, 16, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 25, 1, 16, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18872, 25, 1, 16, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18872, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Conqueror 75
@@ -3179,20 +3179,20 @@ INSERT INTO `item_latents` VALUES(19120, 25, 6, 13, 370);
 -- -------------------------------------------------------
 -- Lyft Jambiya
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(19125, 9, 1, 16, 3);      -- DEX +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 9, 1, 16, 4);      -- DEX +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 9, 1, 16, 5);      -- DEX +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 9, 1, 16, 6);      -- DEX +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 9, 1, 15, 3);      -- DEX +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 9, 1, 15, 4);      -- DEX +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 9, 1, 15, 5);      -- DEX +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 9, 1, 15, 6);      -- DEX +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19125, 23, 2, 16, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 23, 2, 16, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 23, 2, 16, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 23, 2, 16, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19125, 25, 1, 16, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 25, 1, 16, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 25, 1, 16, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19125, 25, 1, 16, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19125, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Papilio Kirpan
@@ -3207,10 +3207,10 @@ INSERT INTO `item_latents` VALUES(19158, 165, 7, 59, 14);   -- Scheherazade - Vs
 -- -------------------------------------------------------
 -- Lyft Claymore
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(19161, 345, 250, 16, 3);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19161, 345, 500, 16, 4);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19161, 345, 750, 16, 5);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19161, 345, 1000, 16, 6);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19161, 345, 250, 15, 3);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19161, 345, 500, 15, 4);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19161, 345, 750, 15, 5);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19161, 345, 1000, 15, 6);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Wurger
@@ -3220,38 +3220,38 @@ INSERT INTO `item_latents` VALUES(19222, 24, 3, 52, 6);     -- Ranged attack +3 
 -- -------------------------------------------------------
 -- Lyft Crossbow
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(19233, 13, 1, 16, 3);     -- MND +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 13, 1, 16, 4);     -- MND +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 13, 1, 16, 5);     -- MND +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 13, 1, 16, 6);     -- MND +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 13, 1, 15, 3);     -- MND +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 13, 1, 15, 4);     -- MND +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 13, 1, 15, 5);     -- MND +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 13, 1, 15, 6);     -- MND +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19233, 24, 2, 16, 3);     -- RATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 24, 2, 16, 4);     -- RATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 24, 2, 16, 5);     -- RATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 24, 2, 16, 6);     -- RATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 24, 2, 15, 3);     -- RATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 24, 2, 15, 4);     -- RATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 24, 2, 15, 5);     -- RATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 24, 2, 15, 6);     -- RATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19233, 26, 1, 16, 3);     -- RACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 26, 1, 16, 4);     -- RACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 26, 1, 16, 5);     -- RACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19233, 26, 1, 16, 6);     -- RACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 26, 1, 15, 3);     -- RACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 26, 1, 15, 4);     -- RACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 26, 1, 15, 5);     -- RACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19233, 26, 1, 15, 6);     -- RACC +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Lyft Hexagun
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(19234, 11, 1, 16, 3);     -- AGI +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 11, 1, 16, 4);     -- AGI +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 11, 1, 16, 5);     -- AGI +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 11, 1, 16, 6);     -- AGI +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 11, 1, 15, 3);     -- AGI +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 11, 1, 15, 4);     -- AGI +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 11, 1, 15, 5);     -- AGI +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 11, 1, 15, 6);     -- AGI +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19234, 24, 2, 16, 3);     -- RATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 24, 2, 16, 4);     -- RATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 24, 2, 16, 5);     -- RATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 24, 2, 16, 6);     -- RATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 24, 2, 15, 3);     -- RATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 24, 2, 15, 4);     -- RATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 24, 2, 15, 5);     -- RATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 24, 2, 15, 6);     -- RATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19234, 26, 1, 16, 3);     -- RACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 26, 1, 16, 4);     -- RACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 26, 1, 16, 5);     -- RACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19234, 26, 1, 16, 6);     -- RACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 26, 1, 15, 3);     -- RACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 26, 1, 15, 4);     -- RACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 26, 1, 15, 5);     -- RACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19234, 26, 1, 15, 6);     -- RACC +1~4, party size 3+. Effect strengthens with more members
 
 -- Onishibari
 INSERT INTO `item_latents` VALUES(19273, 165, 7, 59, 6);    -- Onishibari - Vs. beasts: Critical hit rate +7%
@@ -3259,74 +3259,74 @@ INSERT INTO `item_latents` VALUES(19273, 165, 7, 59, 6);    -- Onishibari - Vs. 
 -- -------------------------------------------------------
 -- Musanto (Lyft Katana)
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(19279, 11, 1, 16, 3);      -- AGI +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 11, 1, 16, 4);      -- AGI +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 11, 1, 16, 5);      -- AGI +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 11, 1, 16, 6);      -- AGI +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 11, 1, 15, 3);      -- AGI +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 11, 1, 15, 4);      -- AGI +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 11, 1, 15, 5);      -- AGI +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 11, 1, 15, 6);      -- AGI +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19279, 27, 1, 16, 3);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 27, 1, 16, 4);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 27, 1, 16, 5);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 27, 1, 16, 6);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 27, 1, 15, 3);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 27, 1, 15, 4);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 27, 1, 15, 5);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 27, 1, 15, 6);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19279, 68, 1, 16, 3);     -- EVA +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 68, 1, 16, 4);     -- EVA +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 68, 1, 16, 5);     -- EVA +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19279, 68, 1, 16, 6);     -- EVA +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 68, 1, 15, 3);     -- EVA +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 68, 1, 15, 4);     -- EVA +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 68, 1, 15, 5);     -- EVA +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19279, 68, 1, 15, 6);     -- EVA +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Unshomaru  (Lyft Great Katana)
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 16, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 16, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 16, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 16, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 16, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 16, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 16, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 16, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 16, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 16, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 16, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 16, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Lyft Lance
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(19306, 8, 1, 16, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 8, 1, 16, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 8, 1, 16, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 8, 1, 16, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 8, 1, 15, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 8, 1, 15, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 8, 1, 15, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 8, 1, 15, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19306, 23, 2, 16, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 23, 2, 16, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 23, 2, 16, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 23, 2, 16, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(19306, 25, 1, 16, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 25, 1, 16, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 25, 1, 16, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19306, 25, 1, 16, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19306, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Lyft Pole
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 16, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 16, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 16, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 16, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 16, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 16, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 16, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 16, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 16, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 16, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 16, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 16, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Conqueror 90

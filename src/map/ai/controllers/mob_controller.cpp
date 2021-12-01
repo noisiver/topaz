@@ -1025,11 +1025,44 @@ bool CMobController::Engage(uint16 targid)
     return ret;
 }
 
+int32 CMobController::GetFomorHate(CBattleEntity* PTarget)
+{
+    if (!PTarget || PTarget->objtype != TYPE_PC)
+    {
+        return -1;
+    }
+    CCharEntity* PChar = (CCharEntity*)PTarget;
+    int32 hate = (int32)PChar->m_fomorHate;
+    PChar->ForAlliance([PChar, &hate](CBattleEntity* PMember) {
+        if (PMember->id != PChar->id && PMember->objtype == TYPE_PC && PMember->loc.zone->GetID() == PChar->loc.zone->GetID())
+        {
+            int32 memberHate = ((CCharEntity*)PMember)->m_fomorHate;
+            if (memberHate > hate)
+            {
+                hate = memberHate;
+            }
+        }
+    });
+    return hate;
+}
+
+
 bool CMobController::CanAggroTarget(CBattleEntity* PTarget)
 {
     TracyZoneScoped;
     TracyZoneIString(PMob->GetName());
     TracyZoneIString(PTarget->GetName());
+
+    // Don't aggro I'm a fomor and I don't hate you
+    if (PMob->getMobMod(MOBMOD_FOMOR_HATE) > 0)
+    {
+        int32 hate = GetFomorHate(PTarget);
+        if (hate >= 0 && hate < 8)
+        {
+            return false;
+        }
+    }
+
 
     // Don't aggro I'm neutral
     if ((PMob->getMobMod(MOBMOD_ALWAYS_AGGRO) == 0 && !PMob->m_Aggro) || PMob->m_neutral || PMob->isDead())

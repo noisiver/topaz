@@ -9,7 +9,7 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 40)
-	mob:setMod(tpz.mod.REGEN, 0)
+	mob:setMod(tpz.mod.REGEN, 2)
 end
 
 function onMobFight(mob, target)
@@ -43,6 +43,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    UpdateNMSpawnPoint(mob:getID())
     mob:setRespawnTime(math.random(36000, 43200)) -- 11 to 12 hours
 end

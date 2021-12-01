@@ -9,7 +9,7 @@ require("scripts/globals/keyitems")
 require("scripts/globals/pathfind")
 require("scripts/globals/quests")
 -----------------------------------
-
+local flags = tpz.path.flag.NONE
 local path =
 {
     -138.436340, -2.000000, 16.227097,
@@ -55,32 +55,33 @@ local path =
     -139.296539, -2.000000, 16.786556
 }
 
-
 function onSpawn(npc)
     npc:initNpcAi()
     npc:setPos(tpz.path.first(path))
+    onPath(npc)
 end
 
 function onPath(npc)
-    if npc:atPoint(tpz.path.get(path, 23)) then
+    if (npc:atPoint(tpz.path.get(path, 23))) then
         npc:lookAt(GetNPCByID(ID.npc.ARPETION):getPos())
         npc:wait()
-    elseif npc:atPoint(tpz.path.get(path, -1)) then
+    elseif (npc:atPoint(tpz.path.get(path, -1))) then
         -- give package to Lusiane, wait 4 seconds, then continue
         local lus = GetNPCByID(ID.npc.LUSIANE)
         lus:showText(npc, ID.text.RAMINEL_DELIVERY)
         npc:showText(lus, ID.text.LUSIANE_THANK)
         npc:wait()
-    elseif npc:atPoint(tpz.path.last(path)) then
+    elseif (npc:atPoint(tpz.path.last(path))) then
         -- when I walk away stop looking at me
         GetNPCByID(ID.npc.LUSIANE):clearTargID()
     end
 
     -- go back and forth the set path
-    tpz.path.patrol(npc, path)
+    tpz.path.patrolsimple(npc, path, flags)
 end
 
 function onTrade(player, npc, trade)
+    onStarlightSmilebringersTrade(player, trade, npc)
     if (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.RIDING_ON_THE_CLOUDS) == QUEST_ACCEPTED and player:getCharVar("ridingOnTheClouds_1") == 1) then
         if (trade:hasItemQty(1127, 1) and trade:getItemCount() == 1) then -- Trade Kindred seal
             player:setCharVar("ridingOnTheClouds_1", 0)
@@ -93,10 +94,12 @@ end
 
 function onTrigger(player, npc)
     player:startEvent(614)
+    npc:wait()
 end
 
 function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option, npc)
+    npc:wait(0)
 end

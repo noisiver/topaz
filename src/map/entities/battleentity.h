@@ -677,6 +677,8 @@ public:
     std::unique_ptr<CStatusEffectContainer> StatusEffectContainer;
     std::unique_ptr<CRecastContainer> PRecastContainer;
     std::unique_ptr<CNotorietyContainer> PNotorietyContainer;
+    std::unordered_map<Mod, int16, EnumClassHash> m_modStat;     // массив модификаторов
+    std::unordered_map<Mod, int16, EnumClassHash> m_modStatSave; // saved state
 
 private:
 
@@ -687,8 +689,6 @@ private:
     uint16      m_battleTarget {0};
     time_point  m_battleStartTime;
 
-    std::unordered_map<Mod, int16, EnumClassHash>		m_modStat;	// массив модификаторов
-    std::unordered_map<Mod, int16, EnumClassHash>		m_modStatSave;	// saved state
     std::unordered_map<PetModType, std::unordered_map<Mod, int16, EnumClassHash>, EnumClassHash> m_petMod;
 };
 

@@ -100,6 +100,7 @@ enum MOBMODIFIER : int
     MOBMOD_NO_LINK             = 69, // If set, mob cannot link until unset.
     MOBMOD_NO_REST             = 70, // Mob cannot regain hp (e.g. re-burrowing antlions during ENM).
     MOBMOD_FAMILYLINK          = 74, // Mob will link with mobs of the same familly in the zone. Usefull to make a NM link if the family doesn't, like Cactrot Rapido.
+    MOBMOD_FOMOR_HATE          = 85, // Mob aggros according to fomor hate
 };
 
 #endif

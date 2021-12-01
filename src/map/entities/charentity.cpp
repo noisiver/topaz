@@ -221,7 +221,19 @@ CCharEntity::CCharEntity()
     lastCastTime = 0;
     nextFishTime = 0;
     fishingToken = 0;
+    m_fomorHate = 0;
 }
+
+void CCharEntity::SetFomorHate(uint32 fomorHate)
+{
+    if (fomorHate > 60)
+    {
+        fomorHate = 60;
+    }
+    m_fomorHate = fomorHate;
+    charutils::SetCharVar(this, "FOMOR_HATE", fomorHate);
+}
+
 
 CCharEntity::~CCharEntity()
 {
