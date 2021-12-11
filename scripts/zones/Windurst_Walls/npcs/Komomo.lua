@@ -5,7 +5,7 @@
 -----------------------------------
 require("scripts/globals/settings")
 local ID = require("scripts/zones/Windurst_Walls/IDs")
-require("scripts/globals/events/starlight_festivals")
+
 require("scripts/globals/pathfind")
 -----------------------------------
 local flags = tpz.path.flag.RUN

@@ -13,7 +13,8 @@ function onMobSpawn(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setLocalVar("fomorHateAdj", -1)
+    mob:setLocalVar("fomorHateDecrease", 1)
+    mob:setLocalVar("fomorHateAdj", 1)
 end
 
 function onMobDeath(mob, player, isKiller)

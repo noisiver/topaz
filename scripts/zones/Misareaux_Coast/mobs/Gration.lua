@@ -15,7 +15,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REGAIN, 100)
     mob:setMod(tpz.mod.REFRESH, 40)
 	mob:setMobMod(tpz.mobMod.HP_STANDBACK,-1)
-    mob:setLocalVar("fomorHateAdj", -2)
+    mob:setLocalVar("fomorHateDecrease", 1)
+    mob:setLocalVar("fomorHateAdj", 2)
 end
 
 function onMobWeaponSkill(target, mob, skill)

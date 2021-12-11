@@ -4,7 +4,7 @@
 -- Working 100%
 -----------------------------------
 local ID = require("scripts/zones/Windurst_Woods/IDs")
-require("scripts/globals/events/starlight_festivals")
+
 require("scripts/globals/pathfind")
 -----------------------------------
 local flags = tpz.path.flag.RUN
