@@ -45,7 +45,7 @@ CRangeState::CRangeState(CBattleEntity* PEntity, uint16 targid) :
         throw CStateInitException(std::move(m_errorMsg));
     }
 
-    auto delay = m_PEntity->GetRangedWeaponDelay(false) + 180; // changed to true
+    auto delay = m_PEntity->GetRangedWeaponDelay(false);
     delay = battleutils::GetSnapshotReduction(m_PEntity, delay);
 
     // TODO: Allow trusts to use this
@@ -138,12 +138,17 @@ bool CRangeState::Update(time_point tick)
         Complete();
     }
 
-    if (IsCompleted() && tick > GetEntryTime() + m_aimTime + 1.5s)
+    if (IsCompleted())
     {
-        return true;
+        if (tick > GetEntryTime() + m_aimTime + m_returnWeaponDelay)
+        {
+            ((CCharEntity*)m_PEntity)->m_LastRangedAttackTime = GetEntryTime() + m_aimTime + m_returnWeaponDelay;
+            return true;
+        }
     }
     return false;
 }
+
 
 void CRangeState::Cleanup(time_point tick)
 {
@@ -210,6 +215,13 @@ bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
     if (!m_PEntity->PAI->TargetFind->canSee(&PTarget->loc.p))
     {
         m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_CANNOT_PERFORM_ACTION);
+        return false;
+    }
+
+    // There is a slight cooldown on ranged attacks after the previous shot
+    if (m_PEntity->PAI->getTick() - ((CCharEntity*)m_PEntity)->m_LastRangedAttackTime < m_freePhaseTime)
+    {
+        m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, PTarget, 0, 0, MSGBASIC_WAIT_LONGER);
         return false;
     }
 
