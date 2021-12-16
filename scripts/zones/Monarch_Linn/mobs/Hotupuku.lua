@@ -5,6 +5,7 @@
 -- Key item ID: 674
 -----------------------------------
 require("scripts/globals/titles")
+require("scripts/globals/mobs")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
