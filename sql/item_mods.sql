@@ -19702,6 +19702,7 @@ INSERT INTO `item_mods` VALUES (16276,27,-2);
 INSERT INTO `item_mods` VALUES (16276,71,1);
 INSERT INTO `item_mods` VALUES (16276,72,1);
 INSERT INTO `item_mods` VALUES (16277,68,5);
+INSERT INTO `item_mods` VALUES (16277,897,95);   -- Bandolero Scarf Gilfinder+95
 INSERT INTO `item_mods` VALUES (16278,14,5);
 INSERT INTO `item_mods` VALUES (16278,121,5);
 INSERT INTO `item_mods` VALUES (16279,2,3);
