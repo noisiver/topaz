@@ -58,7 +58,7 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:setLocalVar("Shell", 2)
         mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, amount, attacker, attackType, damageType)
-        if amount > 1500  then
+        if amount >= 1500  then
             mob:removeListener("URAGNITE_TAKE_DAMAGE")
         printf("Outside Shell");
         mob:setMod(tpz.mod.REGEN, 0)

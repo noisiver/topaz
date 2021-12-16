@@ -6,7 +6,14 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/status")
------------------------------------
+require("scripts/globals/mobs")
+------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 15) 
+    mob:addMod(tpz.mod.EVA, 15)
+end
 
 function onMobInitialize(mob)
     mob:setMod(tpz.mod.REGAIN, 200) -- "Seemed to have very high TP gain." (guessing 200 after watching video)

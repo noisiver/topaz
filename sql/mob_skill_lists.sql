@@ -4222,6 +4222,12 @@ INSERT INTO `mob_skill_lists` VALUES ('PetriBreathOnly',6073,269); -- petribreat
 INSERT INTO `mob_skill_lists` VALUES ('BarbedCrescentOnly',6074,253); -- Barbed Crescent
 INSERT INTO `mob_skill_lists` VALUES ('SlingBombOnly',6075,567); -- sling_bomb 
 INSERT INTO `mob_skill_lists` VALUES ('FirespitOnly',6076,1733); -- Firespit
+INSERT INTO `mob_skill_lists` VALUES ('NimbleSnapOnly',6077,1597); -- nimble_snap
+INSERT INTO `mob_skill_lists` VALUES ('PainfulWhipOnly',6078,1574); -- Painful_Whip
+
+INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan_AutoAttack',6079,3568); -- Snort_Autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,496); -- Rabid_Dance
+INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,1331); -- Counterstance
 
 
 -- Next available ID: 1148

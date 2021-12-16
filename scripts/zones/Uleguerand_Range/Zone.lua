@@ -11,7 +11,19 @@ require("scripts/globals/zone")
 -----------------------------------
 
 function onInitialize(zone)
-    GetMobByID(ID.mob.MOUNTAIN_WORM_NM):setRespawnTime(math.random(36000, 43200)) -- 21 to 24 hours
+    if math.random(2) == 1 then
+        DisallowRespawn(ID.mob.FATHER_FROST, true)
+        DisallowRespawn(ID.mob.SNOW_MAIDEN, false)
+        UpdateNMSpawnPoint(ID.mob.SNOW_MAIDEN)
+        GetMobByID(ID.mob.SNOW_MAIDEN):setRespawnTime(900) 
+    else
+        DisallowRespawn(ID.mob.SNOW_MAIDEN, true)
+        DisallowRespawn(ID.mob.FATHER_FROST, false)
+        UpdateNMSpawnPoint(ID.mob.FATHER_FROST)
+        GetMobByID(ID.mob.FATHER_FROST):setRespawnTime(900) 
+    end
+
+    GetMobByID(ID.mob.MOUNTAIN_WORM_NM):setRespawnTime(900) 
 
     -- ffxiclopedia's pages for Black Coney and White Coney say 7 and 5 Earth seconds respectively, in game it is very fast
     -- https://ffxiclopedia.fandom.com/wiki/Black_Coney

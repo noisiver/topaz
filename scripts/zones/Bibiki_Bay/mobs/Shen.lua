@@ -1,7 +1,15 @@
 -----------------------------------
 -- Area: Bibiki Bay
 --  Mob: Shen
------------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 10)
+	mob:setDamage(145)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
+end
 
 function onMobFight(mob, target)
     if (mob:getBattleTime() % 45 == 0) then

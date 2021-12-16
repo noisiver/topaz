@@ -1,0 +1,14 @@
+    IMMUNITY_NONE        = 0x00,
+    IMMUNITY_SLEEP       = 0x01,
+    IMMUNITY_GRAVITY     = 0x02,
+    IMMUNITY_BIND        = 0x04,
+    IMMUNITY_STUN        = 0x08,
+    IMMUNITY_SILENCE     = 0x10,   // 16
+    IMMUNITY_PARALYZE    = 0x20,   // 32
+    IMMUNITY_BLIND       = 0x40,   // 64
+    IMMUNITY_SLOW        = 0x80,   // 128
+    IMMUNITY_POISON      = 0x100,  // 256
+    IMMUNITY_ELEGY       = 0x200,  // 512
+    IMMUNITY_REQUIEM     = 0x400,  // 1024
+    IMMUNITY_LIGHT_SLEEP = 0x800,  // 2048
+    IMMUNITY_DARK_SLEEP  = 0x1000, // 4096

@@ -51,6 +51,8 @@ zones[tpz.zone.ULEGUERAND_RANGE] =
         WHITE_CONEY = 16798079,
         BLACK_CONEY = 16798080,
         MOUNTAIN_WORM_NM = 16798031,
+        SNOW_MAIDEN = 16797809,
+        FATHER_FROST = 16797810,
     },
     npc =
     {
