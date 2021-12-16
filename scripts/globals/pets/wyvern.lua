@@ -198,7 +198,7 @@ function onMobSpawn(mob)
                 local lowest = resistances[1]
                 local breath = breathList[1]
                 for i, v in ipairs(breathList) do
-                    if resistances[i] < lowest then
+                    if resistances[i] > lowest then
                         lowest = resistances[i]
                         breath = v
                     end

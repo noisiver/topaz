@@ -227,9 +227,20 @@ time_point CPlayerController::getLastAttackTime()
     return m_lastAttackTime;
 }
 
+
 void CPlayerController::setLastAttackTime(time_point _lastAttackTime)
 {
     m_lastAttackTime = _lastAttackTime;
+}
+
+time_point CPlayerController::getLastRangedAttackTime()
+{
+    return m_lastRangedAttackTime;
+}
+
+void CPlayerController::setLastRangedAttackTime(time_point _lastRangedAttackTime)
+{
+    m_lastRangedAttackTime = _lastRangedAttackTime;
 }
 
 void CPlayerController::setLastErrMsgTime(time_point _LastErrMsgTime)
