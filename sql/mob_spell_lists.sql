@@ -4632,6 +4632,13 @@ INSERT INTO `mob_spell_lists` VALUES ('Geush_Urvan',2025,356,1,255); -- Paralyga
 
 INSERT INTO `mob_spell_lists` VALUES ('Skvader',2026,40,1,255); -- banishga_iii 
 
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Collector',2027,40,1,255); -- banishga_iii 
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Collector',2027,35,1,255); -- diaga_iii 
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Collector',2027,21,1,255); -- holy 
+
+INSERT INTO `mob_spell_lists` VALUES ('Sword_Sorcerer_Solisoq',2028,34,1,255); -- diaga_iii 
+INSERT INTO `mob_spell_lists` VALUES ('Sword_Sorcerer_Solisoq',2028,21,1,255); -- holy 
+
 
 
 

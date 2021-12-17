@@ -4229,6 +4229,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan_AutoAttack',6079,3568); -- Sn
 INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,496); -- Rabid_Dance
 INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,1331); -- Counterstance
 
+INSERT INTO `mob_skill_lists` VALUES ('EarthShockOnly',6081,361); -- Earthshock
+INSERT INTO `mob_skill_lists` VALUES ('FrypanOnly',6082,1081); -- Frypan
+
 
 -- Next available ID: 1148
 
