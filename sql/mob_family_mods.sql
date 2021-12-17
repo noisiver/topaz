@@ -53,7 +53,7 @@ INSERT INTO `mob_family_mods` VALUES (87,4,18,1); -- Dragon 18 yalm sight range
 INSERT INTO `mob_family_mods` VALUES (87,5,10,1); -- Dragon 10 yalm sound range
 
 
--- Define sublinks
+-- Define sublinks aka will link with other families??
 INSERT INTO `mob_family_mods` VALUES (240,10,1,1);
 INSERT INTO `mob_family_mods` VALUES (169,10,1,1);
 INSERT INTO `mob_family_mods` VALUES (358,10,1,1);
@@ -66,6 +66,7 @@ INSERT INTO `mob_family_mods` VALUES (47,10,3,1);
 INSERT INTO `mob_family_mods` VALUES (245,10,4,1);
 INSERT INTO `mob_family_mods` VALUES (216,10,4,1);
 INSERT INTO `mob_family_mods` VALUES (133,10,5,1);
+INSERT INTO `mob_family_mods` VALUES(373, 10, 5, 1);
 INSERT INTO `mob_family_mods` VALUES (184,10,5,1);
 INSERT INTO `mob_family_mods` VALUES (59,10,5,1);
 INSERT INTO `mob_family_mods` VALUES (253,10,6,1);
