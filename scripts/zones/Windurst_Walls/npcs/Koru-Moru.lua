@@ -68,9 +68,30 @@ function onTrigger(player, npc)
     local CarbuncleDebacle = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CARBUNCLE_DEBACLE)
     local CarbuncleDebacleProgress = player:getCharVar("CarbuncleDebacleProgress")
 
+    if (blastFromPast == QUEST_AVAILABLE and qStarStruck == QUEST_COMPLETED and player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CLASS_REUNION) ~= QUEST_ACCEPTED and player:getFameLevel(WINDURST) >= 3 and player:needToZone() == false) then
+        player:startEvent(214)
+    elseif (blastFromPast == QUEST_ACCEPTED and blastProg >= 2) then
+        player:startEvent(215)
+    elseif (blastFromPast == QUEST_ACCEPTED) then
+        player:startEvent(216)
+    elseif (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.MAKING_THE_GRADE) == QUEST_ACCEPTED) then
+        local makingGradeProg = player:getCharVar("QuestMakingTheGrade_prog")
+        if (makingGradeProg == 0 and player:hasItem(544)) then
+            player:startEvent(287) -- MAKING THE GRADE: Have test answers but not talked/given to Fuepepe
+        elseif (makingGradeProg == 1) then
+            player:startEvent(285) -- MAKING THE GRADE: Turn in Test Answer & Told to go back to Fuepepe & Chomoro
+        elseif (makingGradeProg >= 2) then
+            player:startEvent(286) -- MAKING THE GRADE: Reminder to go away
+        else
+            player:startEvent(193)
+        end
+    elseif (qStarStruck == QUEST_ACCEPTED) then
+        player:startEvent(198)
+    elseif ((qStarStruck == QUEST_AVAILABLE) and (ClassReunion ~= QUEST_ACCEPTED) and player:hasItem(584)) then
+        player:startEvent(197)
     ----------------------------------------------------------
     -- Carbuncle Debacle
-    if (CarbuncleDebacle == QUEST_ACCEPTED and CarbuncleDebacleProgress == 1 or CarbuncleDebacleProgress == 2) then
+    elseif (CarbuncleDebacle == QUEST_ACCEPTED and CarbuncleDebacleProgress == 1 or CarbuncleDebacleProgress == 2) then
         player:startEvent(416) -- go and see Ripapa
     elseif (CarbuncleDebacle == QUEST_ACCEPTED and CarbuncleDebacleProgress == 4) then
         player:startEvent(417) -- now go and see Agado-Pugado
@@ -99,33 +120,6 @@ function onTrigger(player, npc)
     elseif (ThePuppetMaster == QUEST_COMPLETED and ClassReunion ~= 2) then
         player:startEvent(405) -- new cs after completed AF1
     ----------------------------------------------------------
-	--Moved below in priority order so SMN AF is not blocked by blast from the past of starstruck.
-	----------------------------------------------------------
-	elseif (blastFromPast == QUEST_AVAILABLE and qStarStruck == QUEST_COMPLETED and player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CLASS_REUNION) ~= QUEST_ACCEPTED and player:getFameLevel(WINDURST) >= 3 and player:needToZone() == false) then
-        player:startEvent(214)
-    elseif (blastFromPast == QUEST_ACCEPTED and blastProg >= 2) then
-        player:startEvent(215)
-    elseif (blastFromPast == QUEST_ACCEPTED) then
-        player:startEvent(216)
-    elseif (player:getQuestStatus(WINDURST, tpz.quest.id.windurst.MAKING_THE_GRADE) == QUEST_ACCEPTED) then
-        local makingGradeProg = player:getCharVar("QuestMakingTheGrade_prog")
-        if (makingGradeProg == 0 and player:hasItem(544)) then
-            player:startEvent(287) -- MAKING THE GRADE: Have test answers but not talked/given to Fuepepe
-        elseif (makingGradeProg == 1) then
-            player:startEvent(285) -- MAKING THE GRADE: Turn in Test Answer & Told to go back to Fuepepe & Chomoro
-        elseif (makingGradeProg >= 2) then
-            player:startEvent(286) -- MAKING THE GRADE: Reminder to go away
-        else
-            player:startEvent(193)
-        end
-    elseif (qStarStruck == QUEST_ACCEPTED) then
-        player:startEvent(198)
-    elseif ((qStarStruck == QUEST_AVAILABLE) and (ClassReunion ~= QUEST_ACCEPTED) and player:hasItem(584)) then
-        player:startEvent(197)
-	
-	
-	
-	
     elseif (rootProblem == QUEST_ACCEPTED and player:getCharVar("rootProblem") == 1) then
         player:startEvent(348, 0, 829)
     else
