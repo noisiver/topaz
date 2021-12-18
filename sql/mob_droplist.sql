@@ -2637,10 +2637,10 @@ INSERT INTO `mob_droplist` VALUES (446,0,0,1000,2168,500);
 INSERT INTO `mob_droplist` VALUES (446,0,0,1000,2169,1000);
 INSERT INTO `mob_droplist` VALUES (446,0,0,1000,5565,1000);
 INSERT INTO `mob_droplist` VALUES (446,0,0,1000,18385,450);
-INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,476);
-INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,376);
-INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,276);
-INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1756,1000);
+INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,1000); -- (Cerebrator) Teal memosphere
+INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,240); -- Teal memosphere
+INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,150); -- Teal memosphere
+INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1756,1000); -- Remnant of a cerebrator
 INSERT INTO `mob_droplist` VALUES (448,4,0,1000,846,0);
 INSERT INTO `mob_droplist` VALUES (448,0,0,1000,846,810);
 INSERT INTO `mob_droplist` VALUES (448,0,0,1000,889,1000);
@@ -2997,10 +2997,10 @@ INSERT INTO `mob_droplist` VALUES (521,1,1,50,1456,333); -- One Hundred Byne Bil
 INSERT INTO `mob_droplist` VALUES (521,0,0,1000,4249,1000); -- Copy Of "schultz Stratagems"
 INSERT INTO `mob_droplist` VALUES (521,0,0,1000,15087,100); -- Warrior's Lorica
 INSERT INTO `mob_droplist` VALUES (521,0,0,1000,3358,1000); -- Shrouded Bjijou
-INSERT INTO `mob_droplist` VALUES (522,0,0,1000,1722,537);
-INSERT INTO `mob_droplist` VALUES (522,0,0,1000,1722,437);
-INSERT INTO `mob_droplist` VALUES (522,0,0,1000,1722,337);
-INSERT INTO `mob_droplist` VALUES (522,0,0,1000,1757,965);
+INSERT INTO `mob_droplist` VALUES (522,0,0,1000,1722,1000); -- (Coveter) Indigo memosphere
+INSERT INTO `mob_droplist` VALUES (522,0,0,1000,1722,240); -- Indigo memosphere
+INSERT INTO `mob_droplist` VALUES (522,0,0,1000,1722,150); -- Indigo memosphere
+INSERT INTO `mob_droplist` VALUES (522,0,0,1000,1757,1000); -- Remnant of a coveter
 INSERT INTO `mob_droplist` VALUES (523,0,0,1000,2888,100);
 INSERT INTO `mob_droplist` VALUES (523,0,0,1000,2889,100);
 INSERT INTO `mob_droplist` VALUES (524,0,0,1000,534,305);	-- (Crane Fly - Meriph) Gausebit Grass
@@ -3548,7 +3548,7 @@ INSERT INTO `mob_droplist` VALUES (641,0,0,1000,5375,100);
 INSERT INTO `mob_droplist` VALUES (641,0,0,1000,5378,100);
 INSERT INTO `mob_droplist` VALUES (641,0,0,1000,5378,100);
 INSERT INTO `mob_droplist` VALUES (641,0,0,1000,5735,100);
-INSERT INTO `mob_droplist` VALUES (642,0,0,1000,1723,1000); --White memosphere
+INSERT INTO `mob_droplist` VALUES (642,0,0,1000,1723,1000); --(Deviator) White memosphere
 INSERT INTO `mob_droplist` VALUES (642,0,0,1000,1723,240); --White memosphere
 INSERT INTO `mob_droplist` VALUES (642,0,0,1000,1723,150); --White memosphere
 INSERT INTO `mob_droplist` VALUES (642,0,0,1000,1759,240); -- Recollection of suffering
@@ -11356,10 +11356,10 @@ INSERT INTO `mob_droplist` VALUES (2163,0,0,1000,4272,30);
 INSERT INTO `mob_droplist` VALUES (2163,0,0,1000,11526,100);
 INSERT INTO `mob_droplist` VALUES (2164,0,0,1000,3369,10);
 INSERT INTO `mob_droplist` VALUES (2165,0,0,1000,3368,10);
-INSERT INTO `mob_droplist` VALUES (2166,0,0,1000,1721,240);
-INSERT INTO `mob_droplist` VALUES (2166,0,0,1000,1721,240);
-INSERT INTO `mob_droplist` VALUES (2166,0,0,1000,1721,240);
-INSERT INTO `mob_droplist` VALUES (2166,0,0,1000,1758,240);
+INSERT INTO `mob_droplist` VALUES (2166,0,0,1000,1721,1000); -- (Satiator) Beryl memosphere
+INSERT INTO `mob_droplist` VALUES (2166,0,0,1000,1721,240); -- Beryl memosphere
+INSERT INTO `mob_droplist` VALUES (2166,0,0,1000,1721,150); -- Beryl memosphere
+INSERT INTO `mob_droplist` VALUES (2166,0,0,1000,1758,1000); -- Remnant of a satiator
 INSERT INTO `mob_droplist` VALUES (2167,0,0,1000,853,100);
 INSERT INTO `mob_droplist` VALUES (2167,4,0,1000,853,0); -- Raptor Skin(Despoil)
 INSERT INTO `mob_droplist` VALUES (2168,0,0,1000,2754,100); -- Ruszor fang 
@@ -14006,9 +14006,9 @@ INSERT INTO `mob_droplist` VALUES (2598,2,0,1000,4358,0);
 INSERT INTO `mob_droplist` VALUES (2598,0,0,1000,4358,370);
 INSERT INTO `mob_droplist` VALUES (2599,0,0,1000,924,70);
 INSERT INTO `mob_droplist` VALUES (2599,0,0,1000,1125,10);
-INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1723,240); -- (Wailer) White memosphere
+INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1723,1000); -- (Wailer) White memosphere
+INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1723,240); -- White memosphere
 INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1723,150); -- White memosphere
-INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1723,100); -- White memosphere
 INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1760,240); -- Recollection of animosity
 INSERT INTO `mob_droplist` VALUES (2601,4,0,1000,861,0); -- (Wajaom Tiger)
 INSERT INTO `mob_droplist` VALUES (2601,0,0,1000,861,240); -- Tiger Hide
