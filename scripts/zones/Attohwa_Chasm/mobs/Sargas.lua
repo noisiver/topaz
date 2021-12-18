@@ -5,6 +5,13 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(150)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)

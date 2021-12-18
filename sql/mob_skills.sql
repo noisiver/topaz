@@ -1535,7 +1535,7 @@ INSERT INTO `mob_skills` VALUES (1575,865,'suctorial_tentacle',0,7.0,2000,1500,4
 -- INSERT INTO `mob_skills` VALUES (1594,1338,'toxic_spit',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1595,1339,'geist_wall',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1596,1340,'numbing_noise',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1597,1341,'nimble_snap',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1597,1341,'nimble_snap_three_hit',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1598,1342,'cyclotail',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1599,1343,'hammer_beak',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1600,1344,'poison_pick',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -3506,6 +3506,7 @@ INSERT INTO `mob_skills` VALUES (3560,491,'amatsu_gachirin',0,7.0,2000,1500,4,0,
 -- INSERT INTO `mob_skills` VALUES (3566,475,'shearing_gale',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3567,476,'beclouding_dust',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3568,3312,'#1776',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3568,848,'snort_autoattack',0,7,0,0,0,4,0,0,4,0,0);
 -- INSERT INTO `mob_skills` VALUES (3569,3313,'#1777',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3570,3314,'#1778',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3571,3315,'#1779',0,7.0,2000,1500,4,0,0,0,0,0,0);

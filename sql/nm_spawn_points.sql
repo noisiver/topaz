@@ -6837,11 +6837,11 @@ INSERT INTO `nm_spawn_points` VALUES (17043532,1,106.430,-3.784,-79.590); -- Dev
 INSERT INTO `nm_spawn_points` VALUES (17031312,1,-331.4,19.454,98.508); -- Flammeri
 INSERT INTO `nm_spawn_points` VALUES (17031312,2,9.3051,9.9474,61.9507); -- Flammeri
 INSERT INTO `nm_spawn_points` VALUES (16998560,1,-84.38,-4.343,497.333); -- Merrow No.5
-
 INSERT INTO `nm_spawn_points` VALUES (16875638,1,298.786,-7.893,176.391); -- Flockbock
 INSERT INTO `nm_spawn_points` VALUES (16875638,2,254.7924,1.0120,-132.1439); -- Flockbock
 INSERT INTO `nm_spawn_points` VALUES (16875638,3,382.5570,0.9357,-90.5554); -- Flockbock
 INSERT INTO `nm_spawn_points` VALUES (16875638,4,-86.2889,-8,-281.5505); -- Flockbock
+INSERT INTO `nm_spawn_points` VALUES (16826517,1,110.552,15.510,-21.166); -- Swashstox Beadblinker
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;

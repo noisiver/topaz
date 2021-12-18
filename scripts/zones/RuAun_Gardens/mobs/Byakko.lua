@@ -17,13 +17,11 @@ function onMobSpawn(mob)
 	mob:setDamage(145)
 	mob:setMod(tpz.mod.DEF, 415)
 	mob:setMod(tpz.mod.VIT, 125)
-    mob:setMod(tpz.mod.MDEF, 12) 
+    mob:setMod(tpz.mod.MDEF, 12)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 40)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
-function onMobSpawn(mob)
-	mob:setMod(tpz.mod.TRIPLE_ATTACK, 40)
-end
 
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENLIGHT)

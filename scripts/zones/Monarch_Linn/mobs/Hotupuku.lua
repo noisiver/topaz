@@ -5,6 +5,7 @@
 -- Key item ID: 674
 -----------------------------------
 require("scripts/globals/titles")
+require("scripts/globals/mobs")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
@@ -24,8 +25,8 @@ function onMobSpawn(mob)
     })
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
+    mob:addMod(tpz.mod.ACC, 15) 
+    mob:addMod(tpz.mod.EVA, 15)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 

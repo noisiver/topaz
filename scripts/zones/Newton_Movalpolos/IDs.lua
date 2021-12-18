@@ -30,8 +30,13 @@ zones[tpz.zone.NEWTON_MOVALPOLOS] =
     },
     mob =
     {
+        SWASHTOX_BEADBLINKER_PH    =
+        {
+            [16826507] = 16826517,
+        },
         MIMIC                = 16826564,
         BUGBEAR_MATMAN       = 16826570,
+        GOBLIN_COLLECTOR     = 16826569,
     },
     npc =
     {

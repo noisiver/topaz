@@ -16,12 +16,9 @@ require("scripts/globals/status")
 -- Note: Diabolos Prime fight drops all tiles at once.
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 30) 
+    mob:addMod(tpz.mod.DEFP, 15) 
     mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 

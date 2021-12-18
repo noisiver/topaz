@@ -5,6 +5,7 @@
 mixins = {require("scripts/mixins/fomor_hate")}
 require("scripts/globals/status")
 require("scripts/globals/mobs")
+local ID = require("scripts/zones/Phomiuna_Aqueducts/IDs")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setMod(tpz.mod.MAIN_DMG_RATING, 25)

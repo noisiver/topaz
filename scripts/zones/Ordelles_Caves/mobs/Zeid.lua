@@ -79,6 +79,10 @@ function onSpellPrecast(mob, spell)
 	end
 end
 
+function onMobDisengage(mob)
+	mob:setLocalVar("TwoHourUsed", 0)
+end
+
 function onMobDeath(mob, player, isKiller)
 		player:PrintToPlayer("You have learned well.",0,"Zeid")
 end

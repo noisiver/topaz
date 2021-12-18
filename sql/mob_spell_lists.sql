@@ -4625,6 +4625,20 @@ INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,206,1,255); -- Freeze
 INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,212,1,255); -- Burst 
 INSERT INTO `mob_spell_lists` VALUES ('Elel',2024,210,1,255); -- Quake 
 
+INSERT INTO `mob_spell_lists` VALUES ('Geush_Urvan',2025,181,1,255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Geush_Urvan',2025,152,1,255); -- blizzard_iv 
+INSERT INTO `mob_spell_lists` VALUES ('Geush_Urvan',2025,362,1,255); -- Bindga 
+INSERT INTO `mob_spell_lists` VALUES ('Geush_Urvan',2025,356,1,255); -- Paralyga 
+
+INSERT INTO `mob_spell_lists` VALUES ('Skvader',2026,40,1,255); -- banishga_iii 
+
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Collector',2027,40,1,255); -- banishga_iii 
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Collector',2027,35,1,255); -- diaga_iii 
+INSERT INTO `mob_spell_lists` VALUES ('Goblin_Collector',2027,21,1,255); -- holy 
+
+INSERT INTO `mob_spell_lists` VALUES ('Sword_Sorcerer_Solisoq',2028,34,1,255); -- diaga_iii 
+INSERT INTO `mob_spell_lists` VALUES ('Sword_Sorcerer_Solisoq',2028,21,1,255); -- holy 
+
 
 
 

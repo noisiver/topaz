@@ -11,8 +11,6 @@ function onMobSpawn(mob)
 	mob:setDamage(150)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:AnimationSub(4) -- starting animationSub
     mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
