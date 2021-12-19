@@ -5,12 +5,15 @@
 require("scripts/globals/hunts")
 require("scripts/globals/status")
 require("scripts/globals/mobs")
+local ID = require("scripts/zones/Lufaise_Meadows/IDs")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(120)
     mob:setMod(tpz.mod.REGEN, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:SetAutoAttackEnabled(true)
+    mob:SetMagicCastingEnabled(true)
 end
 
 function onMobFight(mob)
