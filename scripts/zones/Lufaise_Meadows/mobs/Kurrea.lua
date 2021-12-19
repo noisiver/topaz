@@ -20,6 +20,7 @@ end
 
 function onMobFight(mob)
     local EatSoup = mob:getLocalVar("EatSoup")
+    local CurrentlyEating = mob:getLocalVar("CurrentlyEating")
     local battletime = mob:getBattleTime()
 	if EatSoup == 0 then
 		mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
@@ -29,16 +30,18 @@ function onMobFight(mob)
 		mob:SetAutoAttackEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(false)
+        mob:setLocalVar("CurrentlyEating", 0)
         mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
 	end
 
 	local Pos = mob:getPos()
 	local RNG = math.random(1, 8)
-	if Pos.x == -245 and Pos.y == -16 and Pos.z == 41 then
+	if Pos.x == -245 and Pos.y == -16 and Pos.z == 41 and CurrentlyEating == 0 then
 		mob:showText(mob, 7785) -- Kurrea slurps down the adamantoise soup!
  		mob:SetAutoAttackEnabled(true)
         mob:SetMagicCastingEnabled(true)
         mob:SetMobAbilityEnabled(true)
+        mob:setLocalVar("CurrentlyEating", 1)
 		if RNG == 1 then
 			mob:showText(mob, 7786) -- Kurrea's muscles bulge crazily!
 			mob:addMod(tpz.mod.MAIN_DMG_RATING, 50)
