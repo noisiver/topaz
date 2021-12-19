@@ -9,6 +9,11 @@ local ID = require("scripts/zones/Lufaise_Meadows/IDs")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(120)
+    mob:setmod(tpz.mod.MAIN_DMG_RATING, 0)
+    mob:setmod(tpz.mod.DMGPHYS, 0)
+    mob:setmod(tpz.mod.UFASTCAST, 0)
+    mob:setmod(tpz.mod.MATT, 36)
+    mob:setmod(tpz.mod.MDEF, 10)
     mob:setMod(tpz.mod.REGEN, 25)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
     mob:setMod(tpz.mod.REFRESH, 400)
@@ -47,7 +52,7 @@ function onMobFight(mob)
 			mob:addMod(tpz.mod.MAIN_DMG_RATING, 50)
 		elseif RNG == 2 then
 			mob:showText(mob, 7787) -- Kurrea's scales shine mysteriously!
-			mob:addStatusEffect(tpz.effect.MDEF, 50, 0, 0)
+			mob:addmod(tpz.mod.MDEF, 50)
 		elseif RNG == 3 then
 			mob:showText(mob, 7788) -- Kurrea is enveloped by a fierce wind!
 			mob:castSpell(186) -- Aeroga III
@@ -56,10 +61,10 @@ function onMobFight(mob)
 			mob:addMod(tpz.mod.DMGPHYS, 50)
 		elseif RNG == 5 then
 			mob:showText(mob, 7790) -- The veins in Kurrea's head are popping out!
-			mob:addmod(tpz.mod.FASTCAST, 50)
+			mob:addmod(tpz.mod.UFASTCAST, 50)
 		elseif RNG == 6 then
 			mob:showText(mob, 7791) -- Kurrea's eyes glow weirdly!
-			mob:addStatusEffect(tpz.effect.MATT, 100, 0, 0)
+			mob:addmod(tpz.mod.MATT, 100)
 		elseif RNG == 7 then
 			mob:showText(mob, 7792) -- Kurrea's wounds disappear!
 			mob:addHP(mob:getMaxHP() * .25)
@@ -67,9 +72,9 @@ function onMobFight(mob)
 			mob:showText(mob, 7794) -- Kurrea's face has turned green...
 			mob:setmod(tpz.mod.MAIN_DMG_RATING, 0)
 			mob:setmod(tpz.mod.DMGPHYS, 0)
-			mob:setmod(tpz.mod.FASTCAST, 0)
-			mob:delStatusEffect(tpz.effect.MATT)
-			mob:delStatusEffect(tpz.effect.MDEF)
+			mob:setmod(tpz.mod.UFASTCAST, 0)
+			mob:setmod(tpz.mod.MATT, 36)
+            mob:setmod(tpz.mod.MDEF, 10)
 		end
 	end
 end
