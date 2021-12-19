@@ -23,7 +23,7 @@ function onMobFight(mob)
 		mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
 	elseif battletime >= EatSoup then
         local pos = mob:getSpawnPos()
-		mob:pathTo(-245.2178,-16.0504,41.2311)
+		mob:pathTo(-245, -16, 41)
 		mob:SetAutoAttackEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
@@ -31,7 +31,7 @@ function onMobFight(mob)
 
 	local Pos = mob:getPos()
 	local RNG = math.random(1, 8)
-	if Pos.x == -245.2178 and Pos.y == -16.0504 and Pos.z == 41.2311 then
+	if Pos.x == -245 and Pos.y == -16 and Pos.z == 41 then
 		mob:showText(mob, 7785) -- Kurrea slurps down the adamantoise soup!
 		if RNG == 1 then
 			mob:showText(mob, 7786) -- Kurrea's muscles bulge crazily!
