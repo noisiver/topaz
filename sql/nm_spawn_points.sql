@@ -6842,6 +6842,10 @@ INSERT INTO `nm_spawn_points` VALUES (16875638,2,254.7924,1.0120,-132.1439); -- 
 INSERT INTO `nm_spawn_points` VALUES (16875638,3,382.5570,0.9357,-90.5554); -- Flockbock
 INSERT INTO `nm_spawn_points` VALUES (16875638,4,-86.2889,-8,-281.5505); -- Flockbock
 INSERT INTO `nm_spawn_points` VALUES (16826517,1,110.552,15.510,-21.166); -- Swashstox Beadblinker
+INSERT INTO `nm_spawn_points` VALUES (16797809,1,439.147,-20.270,-88.217); -- Snow Maiden
+INSERT INTO `nm_spawn_points` VALUES (16797810,1,379.470,-12.048,-82.365); -- Father Frost
+INSERT INTO `nm_spawn_points` VALUES (16887885,1,134.242,-0.366,198.999); -- Mahisha
+INSERT INTO `nm_spawn_points` VALUES (16887953,1,-139.212,-0.486,-23.191,66); -- Eba
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;

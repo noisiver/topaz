@@ -7,12 +7,12 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
-    local targid = GetMobByID(ID.mob.SHEN):getTargID()
+    local targid = GetMobByID(ID.mob.SHEN):GetTargetID()
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, targid)
 end
 
 function onMobSpawn(mob)
-    local targid = GetMobByID(ID.mob.SHEN):getTargID()
+    local targid = GetMobByID(ID.mob.SHEN):GetTargetID()
     mob:setMobMod(tpz.mobMod.SHARE_TARGET, targid)
 end
 
