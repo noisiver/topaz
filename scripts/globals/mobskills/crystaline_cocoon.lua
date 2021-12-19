@@ -26,8 +26,8 @@ function onMobWeaponSkill(target, mob, skill)
     local power2 = 50
     local duration = 300
 
-    skill:setMsg(MobBuffMove(mob, typeEffect1, power1, 0, duration))
-    MobBuffMove(mob, typeEffect2, power2, 0, duration)
+    skill:setMsg(MobBuffMove(mob, typeEffect2, power2, 0, duration))
+    MobBuffMove(mob, typeEffect1, power1, 0, duration)
 
     return typeEffect1
 end
