@@ -33,6 +33,8 @@ function onMobFight(mob)
 	local RNG = math.random(1, 8)
 	if Pos.x == -245 and Pos.y == -16 and Pos.z == 41 then
 		mob:showText(mob, 7785) -- Kurrea slurps down the adamantoise soup!
+ 		mob:SetAutoAttackEnabled(true)
+        mob:SetMagicCastingEnabled(true)
 		if RNG == 1 then
 			mob:showText(mob, 7786) -- Kurrea's muscles bulge crazily!
 			mob:addMod(tpz.mod.MAIN_DMG_RATING, 50)
@@ -62,8 +64,6 @@ function onMobFight(mob)
 			mob:delStatusEffect(tpz.effect.MATT)
 			mob:delStatusEffect(tpz.effect.MDEF)
 		end
-		mob:SetAutoAttackEnabled(true)
-        mob:SetMagicCastingEnabled(true)
 	end
 end
 
