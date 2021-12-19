@@ -6819,33 +6819,33 @@ INSERT INTO `nm_spawn_points` VALUES (17649822,46,35.051,5.000,197.337);
 INSERT INTO `nm_spawn_points` VALUES (17649822,47,7.846,5.191,202.515);
 INSERT INTO `nm_spawn_points` VALUES (17649822,48,19.666,6.000,160.166);
 INSERT INTO `nm_spawn_points` VALUES (17649822,49,39.591,5.000,165.616);
-INSERT INTO `nm_spawn_points` VALUES (17289323,1,-401,-0.452,257); -- Dahu
+INSERT INTO `nm_spawn_points` VALUES (17289323,0,-401,-0.452,257); -- Dahu
 INSERT INTO `nm_spawn_points` VALUES (17289638,0,-314.3860,0.1828,-113.7183); -- Picolaton
 INSERT INTO `nm_spawn_points` VALUES (17289638,1,-555.9838,0.2506,-70.8889); -- Picolaton
 INSERT INTO `nm_spawn_points` VALUES (17289638,2,-397.5341,-1.2509,-89.4616); -- Picolaton
-INSERT INTO `nm_spawn_points` VALUES (17072133,1,102.6850,-0.000,135.3932); -- Boompadu
-INSERT INTO `nm_spawn_points` VALUES (17113175,1,-204.612,-0.313,-119.12); -- Voirloup
-INSERT INTO `nm_spawn_points` VALUES (17150047,1,153.0917,-31.5289,-204.6853); -- Dyinyinga
-INSERT INTO `nm_spawn_points` VALUES (17150081,1,-387.4279,-7.5377,41.0321); -- Erle
-INSERT INTO `nm_spawn_points` VALUES (17174682,1,-362.9068,-8.1757,123.5949); -- Hemodrosophila
-INSERT INTO `nm_spawn_points` VALUES (17117250,1,264.6308,-49.5511,414.2611); -- Pallas(Vunkerl)
-INSERT INTO `nm_spawn_points` VALUES (17141885,1,310.285,31.511,-481.958); -- Vasiliceratops
-INSERT INTO `nm_spawn_points` VALUES (17141885,2,234.5122,32.0575,-651.4021); -- Vasiliceratops
-INSERT INTO `nm_spawn_points` VALUES (17338462,1,9.880,-24.173,-135.875); -- Prince Orobas
-INSERT INTO `nm_spawn_points` VALUES (16900306,1,-68.2988,0.5204,708.0948); -- Aiatar
-INSERT INTO `nm_spawn_points` VALUES (17043532,1,106.430,-3.784,-79.590); -- Devout_Radol_Ja
-INSERT INTO `nm_spawn_points` VALUES (17031312,1,-331.4,19.454,98.508); -- Flammeri
-INSERT INTO `nm_spawn_points` VALUES (17031312,2,9.3051,9.9474,61.9507); -- Flammeri
-INSERT INTO `nm_spawn_points` VALUES (16998560,1,-84.38,-4.343,497.333); -- Merrow No.5
-INSERT INTO `nm_spawn_points` VALUES (16875638,1,298.786,-7.893,176.391); -- Flockbock
-INSERT INTO `nm_spawn_points` VALUES (16875638,2,254.7924,1.0120,-132.1439); -- Flockbock
-INSERT INTO `nm_spawn_points` VALUES (16875638,3,382.5570,0.9357,-90.5554); -- Flockbock
-INSERT INTO `nm_spawn_points` VALUES (16875638,4,-86.2889,-8,-281.5505); -- Flockbock
-INSERT INTO `nm_spawn_points` VALUES (16826517,1,110.552,15.510,-21.166); -- Swashstox Beadblinker
-INSERT INTO `nm_spawn_points` VALUES (16797809,1,439.147,-20.270,-88.217); -- Snow Maiden
-INSERT INTO `nm_spawn_points` VALUES (16797810,1,379.470,-12.048,-82.365); -- Father Frost
-INSERT INTO `nm_spawn_points` VALUES (16887885,1,134.242,-0.366,198.999); -- Mahisha
-INSERT INTO `nm_spawn_points` VALUES (16887953,1,-139.212,-0.486,-23.191); -- Eba
+INSERT INTO `nm_spawn_points` VALUES (17072133,0,102.6850,-0.000,135.3932); -- Boompadu
+INSERT INTO `nm_spawn_points` VALUES (17113175,0,-204.612,-0.313,-119.12); -- Voirloup
+INSERT INTO `nm_spawn_points` VALUES (17150047,0,153.0917,-31.5289,-204.6853); -- Dyinyinga
+INSERT INTO `nm_spawn_points` VALUES (17150081,0,-387.4279,-7.5377,41.0321); -- Erle
+INSERT INTO `nm_spawn_points` VALUES (17174682,0,-362.9068,-8.1757,123.5949); -- Hemodrosophila
+INSERT INTO `nm_spawn_points` VALUES (17117250,0,264.6308,-49.5511,414.2611); -- Pallas(Vunkerl)
+INSERT INTO `nm_spawn_points` VALUES (17141885,0,310.285,31.511,-481.958); -- Vasiliceratops
+INSERT INTO `nm_spawn_points` VALUES (17141885,1,234.5122,32.0575,-651.4021); -- Vasiliceratops
+INSERT INTO `nm_spawn_points` VALUES (17338462,0,9.880,-24.173,-135.875); -- Prince Orobas
+INSERT INTO `nm_spawn_points` VALUES (16900306,0,-68.2988,0.5204,708.0948); -- Aiatar
+INSERT INTO `nm_spawn_points` VALUES (17043532,0,106.430,-3.784,-79.590); -- Devout_Radol_Ja
+INSERT INTO `nm_spawn_points` VALUES (17031312,0,-331.4,19.454,98.508); -- Flammeri
+INSERT INTO `nm_spawn_points` VALUES (17031312,1,9.3051,9.9474,61.9507); -- Flammeri
+INSERT INTO `nm_spawn_points` VALUES (16998560,0,-84.38,-4.343,497.333); -- Merrow No.5
+INSERT INTO `nm_spawn_points` VALUES (16875638,0,298.786,-7.893,176.391); -- Flockbock
+INSERT INTO `nm_spawn_points` VALUES (16875638,1,254.7924,1.0120,-132.1439); -- Flockbock
+INSERT INTO `nm_spawn_points` VALUES (16875638,2,382.5570,0.9357,-90.5554); -- Flockbock
+INSERT INTO `nm_spawn_points` VALUES (16875638,3,-86.2889,-8,-281.5505); -- Flockbock
+INSERT INTO `nm_spawn_points` VALUES (16826517,0,110.552,15.510,-21.166); -- Swashstox Beadblinker
+INSERT INTO `nm_spawn_points` VALUES (16797809,0,439.147,-20.270,-88.217); -- Snow Maiden
+INSERT INTO `nm_spawn_points` VALUES (16797810,0,379.470,-12.048,-82.365); -- Father Frost
+INSERT INTO `nm_spawn_points` VALUES (16887885,0,134.242,-0.366,198.999); -- Mahisha
+INSERT INTO `nm_spawn_points` VALUES (16887953,0,-139.212,-0.486,-23.191); -- Eba
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -7,13 +7,11 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
-    local targid = GetMobByID(ID.mob.SHEN):GetTargetID()
-    mob:setMobMod(tpz.mobMod.SHARE_TARGET, targid)
+    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 16793859)
 end
 
 function onMobSpawn(mob)
-    local targid = GetMobByID(ID.mob.SHEN):GetTargetID()
-    mob:setMobMod(tpz.mobMod.SHARE_TARGET, targid)
+    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 16793859)
 end
 
 function onMobDeath(mob, player, isKiller)
