@@ -4448,7 +4448,7 @@ INSERT INTO `mob_groups` VALUES (153,1323,82,'Ferocious_Pugil',0,128,147,0,0,39,
 INSERT INTO `mob_groups` VALUES (154,5133,82,'Thread_Leech',0,128,895,0,0,39,51,0);
 INSERT INTO `mob_groups` VALUES (155,2001,82,'Huge_Leech',0,128,0,0,0,39,51,0);
 INSERT INTO `mob_groups` VALUES (156,1518,82,'Ghoul',330,1,959,0,0,39,51,0);
-INSERT INTO `mob_groups` VALUES (157,947,82,'Voirloup',0,32,6031,35000,0,88,90,0);
+INSERT INTO `mob_groups` VALUES (157,6751,82,'Voirloup',0,32,6031,35000,0,88,90,0);
 
 -- ------------------------------------------------------------
 -- Vunkerl_Inlet_[S] (Zone 83)
