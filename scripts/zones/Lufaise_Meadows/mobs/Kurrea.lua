@@ -10,10 +10,12 @@ local ID = require("scripts/zones/Lufaise_Meadows/IDs")
 function onMobSpawn(mob)
 	mob:setDamage(120)
     mob:setMod(tpz.mod.REGEN, 25)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
+    mob:SetMobAbilityEnabled(true)
 end
 
 function onMobFight(mob)
@@ -26,6 +28,7 @@ function onMobFight(mob)
 		mob:pathTo(-245, -16, 41)
 		mob:SetAutoAttackEnabled(false)
         mob:SetMagicCastingEnabled(false)
+        mob:SetMobAbilityEnabled(false)
         mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
 	end
 
@@ -35,6 +38,7 @@ function onMobFight(mob)
 		mob:showText(mob, 7785) -- Kurrea slurps down the adamantoise soup!
  		mob:SetAutoAttackEnabled(true)
         mob:SetMagicCastingEnabled(true)
+        mob:SetMobAbilityEnabled(true)
 		if RNG == 1 then
 			mob:showText(mob, 7786) -- Kurrea's muscles bulge crazily!
 			mob:addMod(tpz.mod.MAIN_DMG_RATING, 50)
