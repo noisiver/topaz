@@ -22,6 +22,8 @@ function onMobFight(mob)
         local pos = mob:getSpawnPos()
 		mob:pathTo(-245.2178,-16.0504,41.2311)
 		mob:SetAutoAttackEnabled(false)
+        mob:SetMagicCastingEnabled(false)
+        mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
 	end
 
 	local Pos = mob:getPos()
@@ -58,7 +60,7 @@ function onMobFight(mob)
 			mob:delStatusEffect(tpz.effect.MDEF)
 		end
 		mob:SetAutoAttackEnabled(true)
-		mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
+        mob:SetMagicCastingEnabled(true)
 	end
 end
 
