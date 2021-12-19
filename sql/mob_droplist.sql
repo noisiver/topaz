@@ -7252,12 +7252,12 @@ INSERT INTO `mob_droplist` VALUES (1395,4,0,1000,2924,0);
 INSERT INTO `mob_droplist` VALUES (1395,0,0,1000,2924,140);
 INSERT INTO `mob_droplist` VALUES (1395,4,0,1000,4377,0);
 INSERT INTO `mob_droplist` VALUES (1395,0,0,1000,4377,240);
-INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,1856,1000);
-INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,15512,240);
-INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,18360,1000);
-INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,1853,1000);
-INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,15511,160);
-INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,18222,1000);
+INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,1856,1000); -- (Jailer of Faith) Third virtue
+INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,15512,150); -- Faith torque
+INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,18360,1000); -- Faith baghnakhs
+INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,1853,1000); --(Jailer of Fortitude) Second virtue
+INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,15511,150); -- Fortitude torque
+INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,18222,1000); -- Fortitude axe
 INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,1847,1000); -- (Jailer of Hope) Fifth virtue
 INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,15509,240); -- Hope torque
 INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,17595,1000); -- Hope staff
@@ -7271,9 +7271,9 @@ INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,18100,1000); -- Love halberd
 INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,1849,1000); -- (Jailer of Prudence) Sixth virtue
 INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,15510,240); -- Prudence torque
 INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,18397,1000); -- Prudence rod
-INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,1850,1000);
-INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,15513,220);
-INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,17948,1000);
+INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,1850,1000); -- (Jailer of Temperance) First virtue
+INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,15513,150); -- Temperance torque
+INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,17948,1000); -- Temperance axe
 INSERT INTO `mob_droplist` VALUES (1403,0,0,1000,14551,1000);
 INSERT INTO `mob_droplist` VALUES (1404,0,0,1000,930,10);
 INSERT INTO `mob_droplist` VALUES (1404,0,0,1000,1125,10);
@@ -15367,12 +15367,12 @@ INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,4744,50);
 INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,4745,50);
 INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,13073,240);	-- (Ge'dha Evileye) Holy Phial
 INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,13731,100);	-- Faerie Tunic
-INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1870,780);
-INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1903,220);
-INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1854,810);
-INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1902,190);
-INSERT INTO `mob_droplist` VALUES (2845,0,0,1000,1851,750); -- Ixaern_mnk
-INSERT INTO `mob_droplist` VALUES (2845,0,0,1000,1901,250);
+INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1870,240); -- (Ix DRG) Deed Of Sensibility
+INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1903,100); -- Vice Of Aspersion
+INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1854,240); -- (Ix DRK) Deed Of Moderation
+INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1902,100); -- Vice Of Avarice
+INSERT INTO `mob_droplist` VALUES (2845,0,0,1000,1851,100); -- (Ixaern MNK) Deed of placidity
+INSERT INTO `mob_droplist` VALUES (2845,0,0,1000,1901,100); -- Vice of antipathy
 INSERT INTO `mob_droplist` VALUES (2846,0,0,1000,856,100);
 INSERT INTO `mob_droplist` VALUES (2846,0,0,1000,584,70);
 INSERT INTO `mob_droplist` VALUES (2846,2,0,1000,4358,0);

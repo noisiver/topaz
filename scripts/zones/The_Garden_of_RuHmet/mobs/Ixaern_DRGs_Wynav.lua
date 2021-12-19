@@ -1,23 +1,34 @@
 -----------------------------------
 -- Area: The Garden of Ru'Hmet
---  Mob: Ix'aern DRG's Wynav
+--  MOB: Ix'Aern (DRK)'s Wynav
 -----------------------------------
+mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setLocalVar("hpTrigger", math.random(10, 75))
+    target:setMobMod(tpz.mobMod.MAGIC_COOL, 14)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {
+                id = tpz.jsa.SOUL_VOICE,
+                hpp = math.random(20, 30),
+                begCode = function(mob)
+                    -- Once the Wynav does Soul Voice it will continue to only cast Maiden's Virelai until it dies
+                    mob:setLocalVar("soul_voiced", 1)
+                end,
+            },
+        },
+    })
 end
 
-function onMobFight(mob, target)
-    local hpTrigger = mob:getLocalVar("hpTrigger")
-    if (mob:getLocalVar("SoulVoice") == 0 and mob:getHPP() <= hpTrigger) then
-        mob:setLocalVar("SoulVoice", 1)
-        mob:useMobAbility(696) -- Soul Voice
+function onMonsterMagicPrepare(mob,target)
+    if mob:getLocalVar("soul_voiced") == 1 then
+        return 466 -- Maiden's Virelai
     end
-end
 
-function onMonsterMagicPrepare(mob, target)
     local spellList =
     {
         [1] = 382,
@@ -28,18 +39,13 @@ function onMonsterMagicPrepare(mob, target)
         [6] = 400,
         [7] = 422,
         [8] = 462,
-        [9] = 466 -- Virelai (charm)
     }
-    if (mob:hasStatusEffect(tpz.effect.SOUL_VOICE)) then
-        return spellList[math.random(1, 9)] -- Virelai possible.
-    else
-        return spellList[math.random(1, 8)] -- No Virelai!
-    end
+    return spellList[math.random(#spellList)]
 end
 
 function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    mob:setLocalVar("repop", mob:getBattleTime()) -- This get erased on respawn automatic.
+    mob:setLocalVar("repop", os.time() + 10)
 end

@@ -7,8 +7,22 @@ mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)
+	mob:setDamage(145)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.REFRESH, 50)
     -- Change animation to open
     mob:AnimationSub(2)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {id = tpz.jsa.MANAFONT, hpp = math.random(70, 75)},
+            {id = tpz.jsa.MANAFONT, hpp = math.random(40, 45)},
+            {id = tpz.jsa.MANAFONT, hpp = math.random(20, 25)},
+        },
+    })
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 120)
 end
 
 function onMobFight(mob)
@@ -25,6 +39,15 @@ function onMobFight(mob)
         end
         mob:setLocalVar("changeTime", mob:getBattleTime())
     end
+end
+
+function onMonsterMagicPrepare(mob,target)
+    local spells = {162, 191, 357, 365}
+    local spell = spells[math.random(#spells)]
+    if (spell == 162 or spell == 191) and mob:hasStatusEffect(tpz.effect.MANAFONT) then
+        spell = 211 -- Quake II
+    end
+    return spell
 end
 
 function onMobDeath(mob)
