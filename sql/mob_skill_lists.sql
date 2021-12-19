@@ -4232,6 +4232,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,1331); -- Counterstance
 INSERT INTO `mob_skill_lists` VALUES ('EarthShockOnly',6081,361); -- Earthshock
 INSERT INTO `mob_skill_lists` VALUES ('FrypanOnly',6082,1081); -- Frypan
 
+INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1353); -- aerial_collision
+INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1355); -- spine_lash
+INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1358); -- plasma_charge
+
 
 -- Next available ID: 1148
 

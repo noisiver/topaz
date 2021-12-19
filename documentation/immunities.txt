@@ -12,3 +12,6 @@
     IMMUNITY_REQUIEM     = 0x400,  // 1024
     IMMUNITY_LIGHT_SLEEP = 0x800,  // 2048
     IMMUNITY_DARK_SLEEP  = 0x1000, // 4096
+
+
+    All But Requiem/Light Sleep/Dark Sleep = 1023

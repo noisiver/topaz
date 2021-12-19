@@ -1,11 +1,41 @@
 -----------------------------------
 -- Area: Al'Taieu
---  Mob: Qn'xzomit
+--  MOB: Qn'xzomit
 -- Note: Pet for JOL and JOJ
 -----------------------------------
-mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/AlTaieu/IDs")
+require("scripts/globals/status")
+require("scripts/globals/utils")
 -----------------------------------
+
+function onMobInitialize(mob)
+    mob:SetMagicCastingEnabled(false)
+    mob:SetMobAbilityEnabled(false)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)
+    mob:setMod(tpz.mod.SUSC_TO_WS_STUN,1)
+end
+
+function onMobEngage(mob, target)
+    utils.linkAlliance(mob, target)
+end
+
+function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+end
+
+function onMobFight(mob, target)
+    if mob:getID() < ID.mob.JAILER_OF_LOVE then
+        local now = os.time()
+        local mijin = mob:getLocalVar("mijin")
+        if mijin > 1 and now > mijin then
+            mob:setLocalVar("mijin", 1)
+            mob:useMobAbility(tpz.jsa.MIJIN_GAKURE)
+            mob:stun(6000)
+        elseif mijin < 1 and mob:getHP() < mob:getMaxHP() then
+            mob:setLocalVar("mijin", now + 5)
+        end
+    end
+end
 
 function onMobDeath(mob, player, isKiller)
 end

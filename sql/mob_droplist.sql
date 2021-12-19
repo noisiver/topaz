@@ -7258,19 +7258,19 @@ INSERT INTO `mob_droplist` VALUES (1396,0,0,1000,18360,1000);
 INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,1853,1000);
 INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,15511,160);
 INSERT INTO `mob_droplist` VALUES (1397,0,0,1000,18222,1000);
-INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,1847,1000);
-INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,15509,230);
-INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,17595,1000);
-INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,1848,1000);
-INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,15508,180);
-INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,17710,1000);
-INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,1911,490);
-INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,1912,490);
-INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,15514,450);
-INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,18100,1000);
-INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,1849,1000);
-INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,15510,220);
-INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,18397,1000);
+INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,1847,1000); -- (Jailer of Hope) Fifth virtue
+INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,15509,240); -- Hope torque
+INSERT INTO `mob_droplist` VALUES (1398,0,0,1000,17595,1000); -- Hope staff
+INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,1848,1000); -- (Jailer of Justice) Fourth virtue
+INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,15508,240); -- Justice torque
+INSERT INTO `mob_droplist` VALUES (1399,0,0,1000,17710,1000); -- Justice sword
+INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,1911,240); -- (Jailer of Love) Aura of adulation
+INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,1912,240); -- Aura of voracity
+INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,15514,240); -- Love torque
+INSERT INTO `mob_droplist` VALUES (1400,0,0,1000,18100,1000); -- Love halberd
+INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,1849,1000); -- (Jailer of Prudence) Sixth virtue
+INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,15510,240); -- Prudence torque
+INSERT INTO `mob_droplist` VALUES (1401,0,0,1000,18397,1000); -- Prudence rod
 INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,1850,1000);
 INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,15513,220);
 INSERT INTO `mob_droplist` VALUES (1402,0,0,1000,17948,1000);

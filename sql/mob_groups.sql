@@ -481,7 +481,7 @@ INSERT INTO `mob_groups` VALUES (42,1720,11,'Goblins_Bat',0,128,0,0,0,36,38,0);
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,1661,12,'Goblin_Foreman',600,0,1057,0,0,66,69,0);
-INSERT INTO `mob_groups` VALUES (2,1720,12,'Goblins_Bat',0,128,1167,0,0,56,59,0);
+INSERT INTO `mob_groups` VALUES (2,1720,12,'Goblins_Bat',0,128,0,0,0,56,59,0);
 INSERT INTO `mob_groups` VALUES (3,1692,12,'Goblin_Packman',600,0,1122,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (4,567,12,'Bugbear_Trashman',600,0,379,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (5,1658,12,'Goblin_Fireman',600,0,1050,0,0,66,69,0);
@@ -509,7 +509,7 @@ INSERT INTO `mob_groups` VALUES (15,1160,12,'Earth_Elemental',600,4,733,0,0,70,7
 --INSERT INTO `mob_groups` VALUES (27,1675,12,'Goblin_Hangman',600,0,1090,0,0,75,79,0);
 --INSERT INTO `mob_groups` VALUES (28,1719,12,'Goblin_Swordsman',600,0,1166,0,0,78,78,0);
 INSERT INTO `mob_groups` VALUES (16,1676,12,'Goblin_Headman',600,0,1091,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (17,1720,12,'Goblins_Bat',0,128,1167,0,0,71,73,0);
+INSERT INTO `mob_groups` VALUES (17,1720,12,'Goblins_Bat',0,128,0,0,0,71,73,0);
 INSERT INTO `mob_groups` VALUES (18,6432,12,'Nightmare_Bats',600,0,1782,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (19,1680,12,'Goblin_Junkman',600,0,1096,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,2684,12,'Moblin_Aidman',600,0,1703,0,0,81,83,0);
@@ -1192,7 +1192,7 @@ INSERT INTO `mob_groups` VALUES (49,2132,33,'Jailer_of_Hope',0,128,1398,34000,0,
 INSERT INTO `mob_groups` VALUES (50,2133,33,'Jailer_of_Justice',0,128,1399,37000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (51,3271,33,'Qnxzomit',0,128,0,2000,0,67,67,0);
 INSERT INTO `mob_groups` VALUES (52,2135,33,'Jailer_of_Prudence',0,128,1401,34000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (53,2134,33,'Jailer_of_Love',0,128,1400,0,0,90,90,0);
+INSERT INTO `mob_groups` VALUES (53,2134,33,'Jailer_of_Love',0,128,1400,55000,0,90,90,0);
 INSERT INTO `mob_groups` VALUES (54,3422,33,'Ruphuabo',0,128,0,0,0,67,67,0);
 INSERT INTO `mob_groups` VALUES (55,3270,33,'Qnhpemde',0,128,0,0,0,67,67,0);
 INSERT INTO `mob_groups` VALUES (56,21,33,'Absolute_Virtue',0,128,3,66000,0,92,92,0);
