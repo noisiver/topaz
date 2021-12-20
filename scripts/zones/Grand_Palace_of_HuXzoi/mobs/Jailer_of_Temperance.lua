@@ -9,7 +9,7 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setDamage(145)
+	mob:setDamage(100)
     -- Set AnimationSub to 0, put it in pot form
     -- Change it's damage resists. Pot for take
 

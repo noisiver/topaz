@@ -10,7 +10,7 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 
 function onMobSpawn(mob)
-	mob:setDamage(145)
+	mob:setDamage(155)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ATTP, 25)
     mob:setMod(tpz.mod.REFRESH, 50)
