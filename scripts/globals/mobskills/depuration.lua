@@ -11,6 +11,7 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -27,9 +28,12 @@ function onMobWeaponSkill(target, mob, skill)
 
     local effect = tpz.effect.PARALYSIS
     local effectTwo = tpz.effect.SILENCE
-		target:eraseAllStatusEffect()
-        target:delStatusEffect(effect)
-        target:delStatusEffect(effectTwo)
+    
+    target:eraseAllStatusEffect()
+    target:delStatusEffect(effect)
+    target:delStatusEffect(effectTwo)
+    
+    skill:setMsg(tpz.msg.basic.SKILL_ERASE)
 
     return 0
 end
