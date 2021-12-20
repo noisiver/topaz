@@ -10,6 +10,8 @@ require("scripts/globals/status")
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMod(tpz.mod.SUSC_TO_WS_STUN,1)
+    mob:setDamage(145)
 end
 
 function onMobSpawn(mob)
@@ -30,15 +32,11 @@ function onMobSpawn(mob)
 
     mob:AnimationSub(0) -- Mouth closed
     mob:addStatusEffectEx(tpz.effect.FLEE, 0, 100, 0, 60)
-    mob:setMod(tpz.mod.TRIPLE_ATTACK, 20)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
     mob:setMod(tpz.mod.REGEN, 10)
-    mob:addMod(tpz.mod.BINDRES, 30)
-    mob:addMod(tpz.mod.SLOWRES, 10)
-    mob:addMod(tpz.mod.BLINDRES, 10)
-    mob:addMod(tpz.mod.SLEEPRES, 30)
-    mob:addMod(tpz.mod.PETRIFYRES, 10)
-    mob:addMod(tpz.mod.GRAVITYRES, 10)
-    mob:addMod(tpz.mod.LULLABYRES, 30)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.REFRESH, 50) 
 end
 
 function onMobDisEngage(mob, target)

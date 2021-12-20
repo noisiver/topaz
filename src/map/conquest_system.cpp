@@ -24,6 +24,7 @@
 #include "vana_time.h"
 #include "utils/zoneutils.h"
 #include "utils/charutils.h"
+#include "zone.h"
 
 #include "packets/conquest_map.h"
 
@@ -128,6 +129,7 @@ namespace conquest
     void LoseInfluencePoints(CCharEntity* PChar)
     {
         REGIONTYPE region = PChar->loc.zone->GetRegionID();
+        ZONETYPE zonetype = PChar->loc.zone->GetType();
         int points = 0;
 
         switch (region)
@@ -176,6 +178,12 @@ namespace conquest
                 break;
             }
         }
+        // change point value to 0 for BCNM zones. all BCNM have zonetype 4
+        if (zonetype == 4)
+        {
+            points = 0;
+        }	
+
 
         conquest::UpdateInfluencePoints(points, BEASTMEN, region);
     }

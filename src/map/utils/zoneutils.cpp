@@ -705,6 +705,7 @@ REGIONTYPE GetCurrentRegion(uint16 ZoneID)
         case ZONE_ORDELLES_CAVES:
         case ZONE_SELBINA:
         case ZONE_VALKURM_DUNES:
+        case ZONE_SHIP_BOUND_FOR_MHAURA:	
             return REGION_ZULKHEIM;
         case ZONE_BATALLIA_DOWNS:
         case ZONE_CARPENTERS_LANDING:
@@ -744,6 +745,7 @@ REGIONTYPE GetCurrentRegion(uint16 ZoneID)
         case ZONE_MAZE_OF_SHAKHRAMI:
         case ZONE_MHAURA:
         case ZONE_TAHRONGI_CANYON:
+        case ZONE_SHIP_BOUND_FOR_SELBINA:
             return REGION_KOLSHUSHU;
         case ZONE_ALTAR_ROOM:
         case ZONE_ATTOHWA_CHASM:

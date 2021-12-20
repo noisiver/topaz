@@ -16,15 +16,14 @@ function onMobSpawn(mob)
         SetDropRate(4398, 1901, 0)
     else
         SetDropRate(4398, 1851, 0)
-        SetDropRate(4398, 1901, chance * 10) -- Vice of Antipathy
+        SetDropRate(4398, 1901, chance * 2.4) -- Vice of Antipathy
     end
     qm:setLocalVar("[SEA]IxAern_DropRate", 0)
 	
-	mob:addMod(tpz.mod.ATTP, 25)
+	mob:setDamage(145)
     mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 25) 
-    mob:addMod(tpz.mod.EVA, 25)
-    mob:setMod(tpz.mod.REFRESH, 40)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.REFRESH, 50)
 	mob:AnimationSub(1) -- Reset the subanim - otherwise it will respawn with bracers on. Note that Aerns are never actually supposed to be in subanim 0.
 end
 

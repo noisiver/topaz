@@ -9,7 +9,7 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setDamage(100)
+	mob:setDamage(145)
     -- Set AnimationSub to 0, put it in pot form
     -- Change it's damage resists. Pot for take
 
@@ -21,12 +21,10 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.PIERCERES, 0)
     mob:setMod(tpz.mod.IMPACTRES, 1000)
     -- Set the magic resists. It always takes no damage from direct magic
-    for n =1, #tpz.magic.resistMod, 1 do
-        mob:setMod(tpz.magic.resistMod[n], 0)
-    end
-    for n =1, #tpz.magic.defenseMod, 1 do
-        mob:setMod(tpz.magic.defenseMod[n], 1000)
-    end
+    mob:setMod(tpz.mod.UDMGBREATH, -100)
+    mob:setMod(tpz.mod.UDMGMAGIC, -100)
+    --150% move speed
+    mob:setMod(tpz.mod.MOVE, 50)
 end
 
 function onMobFight(mob)

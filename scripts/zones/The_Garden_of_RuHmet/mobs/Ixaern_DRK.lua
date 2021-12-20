@@ -52,6 +52,10 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(145)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.REFRESH, 50)
     mob:AnimationSub(1)
 
     tpz.mix.jobSpecial.config(mob, {

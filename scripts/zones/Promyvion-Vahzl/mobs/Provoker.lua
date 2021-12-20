@@ -11,7 +11,9 @@ mixins = {require("scripts/mixins/families/empty")}
 
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMod(tpz.mod.REGAIN, 10)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
     tpz.promyvion.setEmptyModel(mob)
 end
