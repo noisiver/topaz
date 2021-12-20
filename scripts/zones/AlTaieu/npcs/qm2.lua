@@ -8,7 +8,6 @@ local ID = require("scripts/zones/AlTaieu/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    --[[
     -- JAILER OF JUSTICE
     if (
         not GetMobByID(ID.mob.JAILER_OF_JUSTICE):isSpawned() and
@@ -20,7 +19,6 @@ function onTrade(player, npc, trade)
         player:tradeComplete()
         SpawnMob(ID.mob.JAILER_OF_JUSTICE):updateClaim(player)
     end
-    --]]
 end
 
 function onTrigger(player, npc)
