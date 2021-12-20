@@ -26,6 +26,7 @@
 #include "../../common/utils.h"
 #include "../ai/ai_container.h"
 #include "../ai/controllers/mob_controller.h"
+#include "../ai/controllers/player_controller.h"
 #include "../ai/helpers/pathfind.h"
 #include "../ai/helpers/targetfind.h"
 #include "../ai/states/attack_state.h"
@@ -51,6 +52,7 @@
 #include "../roe.h"
 #include "../treasure_pool.h"
 #include "../conquest_system.h"
+#include "../utils/zoneutils.h"
 
 CMobEntity::CMobEntity()
 {
@@ -85,6 +87,9 @@ CMobEntity::CMobEntity()
     m_HiPartySize = 0;
     m_THLvl = 0;
     m_ItemStolen = false;
+    m_autoTargetReady = true;
+    m_autoTargetKiller = nullptr;
+
 
     strRank = 3;
     vitRank = 3;
@@ -468,6 +473,177 @@ bool CMobEntity::IsUntargetable()
     return m_flags & FLAG_UNTARGETABLE;
 }
 
+void CMobEntity::DoAutoTarget()
+{
+    if (!m_autoTargetReady)
+        return;
+    m_autoTargetReady = false;
+
+    // logic walk-thru:
+    // check each alliance-member of mob claimer if they were engaged with this mob when it died
+    // person who landed the final blow designates a new target for the alliance (closest mob to that person)
+    // which is a mob that is trying to attack a player and can be attacked by the alliance (white or red name mob)
+    // this way, when auto-target triggers, the entire alliance/party will always engage on the same mob together
+    // it is no longer a requirement for players to face towards a mob in order to auto-target it
+
+    CCharEntity* POwner = nullptr;
+    if (this->m_autoTargetKiller)
+        POwner = m_autoTargetKiller;
+    else if (this->m_OwnerID.id)
+        POwner = zoneutils::GetChar(m_OwnerID.id);
+    if (!POwner)
+        return;
+    CZone* PZone = zoneutils::GetZone(POwner->getZone());
+    if (!PZone)
+        return;
+
+    if (PZone->GetType() != ZONETYPE_DYNAMIS)
+    {
+        POwner->ForAlliance(
+            [](CBattleEntity* PMemberBE)
+            {
+                if (PMemberBE && PMemberBE->objtype == TYPE_PC)
+                    ((CCharEntity*)PMemberBE)->m_autoTargetOverride = nullptr;
+            });
+
+        POwner->ForAlliance(
+            [this, POwner](CBattleEntity* PMemberBE)
+            {
+                bool success = false;
+
+                if (PMemberBE && PMemberBE->objtype == TYPE_PC && PMemberBE->loc.zone->GetID() == this->loc.zone->GetID() &&
+                    ((CCharEntity*)PMemberBE)->m_LastEngagedTargID == this->targid && ((CCharEntity*)PMemberBE)->m_hasAutoTarget)
+                {
+                    CCharEntity* PMember = (CCharEntity*)PMemberBE;
+                    std::unique_ptr<CBasicPacket> errMsg;
+                    if (PMember->m_autoTargetOverride)
+                    {
+                        if (PMember->m_autoTargetOverride->allegiance == ALLEGIANCE_MOB && PMember->IsMobOwner(PMember->m_autoTargetOverride) &&
+                            !((CBattleEntity*)(PMember->m_autoTargetOverride)->IsNameHidden()) &&
+                            distanceSquared(PMember->loc.p, PMember->m_autoTargetOverride->loc.p) < 29.0f * 29.0f)
+                        {
+                            auto controller{ static_cast<CPlayerController*>(PMember->PAI->GetController()) };
+                            success = controller->ChangeTarget(PMember->m_autoTargetOverride->targid);
+                        }
+                    }
+                    else
+                    {
+                        auto controller{ static_cast<CPlayerController*>(PMember->PAI->GetController()) };
+                        CMobEntity* PWinner = nullptr;
+                        for (auto&& PPotentialTarget : PMember->SpawnMOBList)
+                        {
+                            CBattleEntity* PMob = (CBattleEntity*)PPotentialTarget.second;
+                            CBattleEntity* PMobTarget = (CBattleEntity*)(PMob->GetEntity(PMob->GetBattleTargetID()));
+
+                            if ((PMob->objtype == TYPE_MOB || PMob->objtype == TYPE_PET) && PMob->animation == ANIMATION_ATTACK &&
+                                PMob->allegiance == ALLEGIANCE_MOB && PMember->IsMobOwner(PMob) && !PMob->IsNameHidden() && PMob->id != this->id &&
+                                distanceSquared(PMember->loc.p, PMob->loc.p) < 29 * 29 && !PMember->m_autoTargetOverride &&
+                                ((PMobTarget->objtype == TYPE_PC && PMember->IsPartiedWith((CCharEntity*)PMobTarget)) ||
+                                 (PMobTarget->objtype == TYPE_PET && PMobTarget->PMaster && PMobTarget->PMaster->objtype == TYPE_PC &&
+                                  PMember->IsPartiedWith((CCharEntity*)(PMobTarget->PMaster)))))
+                            {
+                                if (PWinner)
+                                {
+                                    if (distanceSquared(PMob->loc.p, POwner->loc.p) < distanceSquared(PWinner->loc.p, POwner->loc.p))
+                                        PWinner = (CMobEntity*)PMob;
+                                }
+                                else
+                                {
+                                    PWinner = (CMobEntity*)PMob;
+                                }
+                            }
+                        }
+                        if (PWinner)
+                        {
+                            success = controller->ChangeTarget(PWinner->targid);
+                            PMember->ForAlliance(
+                                [PMember, PWinner](CBattleEntity* PMembermember)
+                                {
+                                    if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
+                                        PMembermember->animation == ANIMATION_ATTACK)
+                                        ((CCharEntity*)PMembermember)->m_autoTargetOverride = (CBattleEntity*)PWinner;
+                                });
+                        }
+                    }
+                }
+
+                if (!success && PMemberBE && PMemberBE->objtype == TYPE_PC)
+                    ((CCharEntity*)PMemberBE)->m_LastEngagedTargID = 0;
+            });
+    }
+    else // use dynamis version of checking all nearby players, not just alliance
+    {
+        PZone->ForEachChar(
+            [](CCharEntity* PChar)
+            {
+                if (PChar && PChar->objtype == TYPE_PC)
+                    PChar->m_autoTargetOverride = nullptr;
+            });
+
+        PZone->ForEachChar(
+            [this, POwner, PZone](CCharEntity* PChar)
+            {
+                bool success = false;
+
+                if (PChar && PChar->objtype == TYPE_PC && PChar->loc.zone->GetID() == this->loc.zone->GetID() && PChar->m_LastEngagedTargID == this->targid &&
+                    PChar->m_hasAutoTarget)
+                {
+                    CCharEntity* PMember = PChar;
+                    std::unique_ptr<CBasicPacket> errMsg;
+                    if (PMember->m_autoTargetOverride)
+                    {
+                        if (PMember->m_autoTargetOverride->allegiance == ALLEGIANCE_MOB && PMember->IsMobOwner(PMember->m_autoTargetOverride) &&
+                            !((CBattleEntity*)(PMember->m_autoTargetOverride)->IsNameHidden()) &&
+                            distanceSquared(PMember->loc.p, PMember->m_autoTargetOverride->loc.p) < 29.0f * 29.0f)
+                        {
+                            auto controller{ static_cast<CPlayerController*>(PMember->PAI->GetController()) };
+                            success = controller->ChangeTarget(PMember->m_autoTargetOverride->targid);
+                        }
+                    }
+                    else
+                    {
+                        auto controller{ static_cast<CPlayerController*>(PMember->PAI->GetController()) };
+                        CMobEntity* PWinner = nullptr;
+                        for (auto&& PPotentialTarget : PMember->SpawnMOBList)
+                        {
+                            CBattleEntity* PMob = (CBattleEntity*)PPotentialTarget.second;
+
+                            if ((PMob->objtype == TYPE_MOB || PMob->objtype == TYPE_PET) && PMob->animation == ANIMATION_ATTACK &&
+                                PMob->allegiance == ALLEGIANCE_MOB && PMember->IsMobOwner(PMob) && !PMob->IsNameHidden() && PMob->id != this->id &&
+                                distanceSquared(PMember->loc.p, PMob->loc.p) < 29 * 29 && !PMember->m_autoTargetOverride)
+                            {
+                                if (PWinner)
+                                {
+                                    if (distanceSquared(PMob->loc.p, POwner->loc.p) < distanceSquared(PWinner->loc.p, POwner->loc.p))
+                                        PWinner = (CMobEntity*)PMob;
+                                }
+                                else
+                                {
+                                    PWinner = (CMobEntity*)PMob;
+                                }
+                            }
+                        }
+                        if (PWinner)
+                        {
+                            success = controller->ChangeTarget(PWinner->targid);
+                            PZone->ForEachChar(
+                                [PMember, PWinner](CCharEntity* PMembermember)
+                                {
+                                    if (PMembermember->objtype == TYPE_PC && PMembermember->loc.zone->GetID() == PMember->loc.zone->GetID() &&
+                                        PMembermember->animation == ANIMATION_ATTACK)
+                                        PMembermember->m_autoTargetOverride = (CBattleEntity*)PWinner;
+                                });
+                        }
+                    }
+                }
+
+                if (!success && PChar && PChar->objtype == TYPE_PC)
+                    PChar->m_LastEngagedTargID = 0;
+            });
+    }
+}
+
+
 void CMobEntity::PostTick()
 {
     CBattleEntity::PostTick();
@@ -535,6 +711,8 @@ void CMobEntity::Spawn()
     m_HiPartySize = 0;
     m_THLvl = 0;
     m_ItemStolen = false;
+    m_autoTargetReady = true;
+    m_autoTargetKiller = nullptr;
     m_DropItemTime = 1000;
     animationsub = (uint8)getMobMod(MOBMOD_SPAWN_ANIMATIONSUB);
     CallForHelp(false);
@@ -1207,6 +1385,7 @@ void CMobEntity::OnDespawn(CDespawnState&)
 
 void CMobEntity::Die()
 {
+    DoAutoTarget();
     m_THLvl = PEnmityContainer->GetHighestTH();
     PEnmityContainer->Clear();
     PAI->ClearStateStack();

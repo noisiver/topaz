@@ -151,6 +151,7 @@ public:
     bool      IsHPHidden();
     void      Untargetable(bool untargetable);
     bool      IsUntargetable();
+    void      DoAutoTarget();
 
     void      PostTick() override;
     float     GetRoamDistance();
@@ -179,6 +180,10 @@ public:
     bool      m_AllowRespawn;             // if true, allow respawn
     uint32    m_RespawnTime;              // respawn time
     uint32    m_DropItemTime;             // time until monster death animation
+
+    bool m_autoTargetReady;          // autotarget logic is in multiple places. makes sure it only triggers once.
+    CCharEntity* m_autoTargetKiller; // the player that landed the killing blow. used in auto-target logic
+
 
     uint32    m_DropID;                   // dropid of items to be dropped. dropid in Database (mob_droplist)
 

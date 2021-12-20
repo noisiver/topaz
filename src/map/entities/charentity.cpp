@@ -204,6 +204,8 @@ CCharEntity::CCharEntity()
     petZoningInfo.petMP = 0;
     petZoningInfo.petTP = 0;
 
+    m_LastEngagedTargID = 0;
+
     m_PlayTime = 0;
     m_SaveTime = 0;
     m_reloadParty = 0;
@@ -690,14 +692,15 @@ bool CCharEntity::CanAttack(CBattleEntity* PTarget, std::unique_ptr<CBasicPacket
     if (!IsMobOwner(PTarget))
     {
         errMsg = std::make_unique<CMessageBasicPacket>(this, PTarget, 0, 0, MSGBASIC_ALREADY_CLAIMED);
-
-        PAI->Disengage();
+        if (PAI->Disengage())
+            m_LastEngagedTargID = 0;
         return false;
     }
     else if (dist > 30)
     {
         errMsg = std::make_unique<CMessageBasicPacket>(this, PTarget, 0, 0, MSGBASIC_LOSE_SIGHT);
-        PAI->Disengage();
+        if (PAI->Disengage())
+            m_LastEngagedTargID = 0;
         return false;
     }
     else if (!facing(this->loc.p, PTarget->loc.p, 64))
@@ -705,43 +708,42 @@ bool CCharEntity::CanAttack(CBattleEntity* PTarget, std::unique_ptr<CBasicPacket
         errMsg = std::make_unique<CMessageBasicPacket>(this, PTarget, 0, 0, MSGBASIC_UNABLE_TO_SEE_TARG);
         return false;
     }
+    else if (PTarget->IsNameHidden())
+    {
+        return false;
+    }
     else if ((dist - PTarget->m_ModelSize) > GetMeleeRange())
     {
+        if (PTarget->objtype != TYPE_PC && (dist - PTarget->m_ModelSize) < GetMeleeRange() + 5 &&
+            (PTarget->PAI->PathFind->IsFollowingPath() || PTarget->PAI->PathFind->IsFollowingScriptedPath()) &&
+            abs(PTarget->loc.p.rotation - this->loc.p.rotation) < 30)
+        { // we are chasing a moving monster, add 5 to our melee range
+            return true;
+        }
         errMsg = std::make_unique<CMessageBasicPacket>(this, PTarget, 0, 0, MSGBASIC_TARG_OUT_OF_RANGE);
         return false;
     }
     return true;
 }
 
+
 bool CCharEntity::OnAttack(CAttackState& state, action_t& action)
 {
-    auto controller {static_cast<CPlayerController*>(PAI->GetController())};
+    auto controller{ static_cast<CPlayerController*>(PAI->GetController()) };
     controller->setLastAttackTime(server_clock::now());
     auto ret = CBattleEntity::OnAttack(state, action);
 
     auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
 
-    if (PTarget->isDead())
+    if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
     {
-        if (this->m_hasAutoTarget && PTarget->objtype == TYPE_MOB) // Auto-Target
-        {
-            for (auto&& PPotentialTarget : this->SpawnMOBList)
-            {
-                if (PPotentialTarget.second->animation == ANIMATION_ATTACK &&
-                    facing(this->loc.p, PPotentialTarget.second->loc.p, 64) &&
-                    distance(this->loc.p, PPotentialTarget.second->loc.p) <= 10)
-                {
-                    std::unique_ptr<CBasicPacket> errMsg;
-                    if (IsValidTarget(PPotentialTarget.second->targid, TARGET_ENEMY, errMsg))
-                    {
-                        controller->ChangeTarget(PPotentialTarget.second->targid);
-                    }
-                }
-            }
-        }
+        ((CMobEntity*)PTarget)->m_autoTargetKiller = this;
+        ((CMobEntity*)PTarget)->DoAutoTarget();
     }
+
     return ret;
 }
+
 
 void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
 {
@@ -800,6 +802,11 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
                 }
             }
         }
+    }
+    if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
+    {
+        ((CMobEntity*)PTarget)->m_autoTargetKiller = this;
+        ((CMobEntity*)PTarget)->DoAutoTarget();
     }
 }
 
@@ -943,6 +950,12 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
             }
         }
         battleutils::ClaimMob(PBattleTarget, this);
+
+        if (PBattleTarget->isDead() && PBattleTarget->objtype == TYPE_MOB)
+        {
+            ((CMobEntity*)PBattleTarget)->m_autoTargetKiller = this;
+            ((CMobEntity*)PBattleTarget)->DoAutoTarget();
+        }
     }
     else
     {
@@ -1177,6 +1190,13 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 
         pushPacket(new CCharRecastPacket(this));
 
+        if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
+        {
+            ((CMobEntity*)PTarget)->m_autoTargetKiller = this;
+            ((CMobEntity*)PTarget)->DoAutoTarget();
+        }
+
+
         //#TODO: refactor
         //if (this->getMijinGakure())
         //{
@@ -1402,6 +1422,13 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
     // only remove detectables
     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
 
+    if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
+    {
+        ((CMobEntity*)PTarget)->m_autoTargetKiller = this;
+        ((CMobEntity*)PTarget)->DoAutoTarget();
+    }
+
+
     // Try to double shot
     //#TODO: figure out the packet structure of double/triple shot
     //if (this->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBLE_SHOT, 0) && !this->secondDoubleShotTaken &&	!isBarrage && !isSange)
@@ -1434,6 +1461,23 @@ bool CCharEntity::IsMobOwner(CBattleEntity* PBattleTarget)
             found = true;
         }
     });
+
+    return found;
+}
+
+
+bool CCharEntity::IsPartiedWith(CCharEntity* PTarget)
+{
+    bool found = false;
+
+    static_cast<CCharEntity*>(this)->ForAlliance(
+        [&PTarget, &found](CBattleEntity* PEntity)
+        {
+            if (PEntity->id == PTarget->id)
+            {
+                found = true;
+            }
+        });
 
     return found;
 }
@@ -1638,6 +1682,7 @@ CBattleEntity* CCharEntity::IsValidTarget(uint16 targid, uint16 validTargetFlags
 
 void CCharEntity::Die()
 {
+    m_LastEngagedTargID = 0;
     if (PLastAttacker)
         loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(PLastAttacker, this, 0, 0, MSGBASIC_PLAYER_DEFEATED_BY));
     else
