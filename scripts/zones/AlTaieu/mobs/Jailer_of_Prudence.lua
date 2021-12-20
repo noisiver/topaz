@@ -10,12 +10,39 @@ require("scripts/globals/status")
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
-    mob:setMod(tpz.mod.SUSC_TO_WS_STUN,1)
-    mob:setDamage(145)
+    mob:setMobMod(tpz.mobMod.ALLI_HATE, 30)
+    mob:addListener("WEAPONSKILL_STATE_ENTER", "PRUDENCE_MIMIC_START", function(mob, skillID)
+        local prudenceIDs = { 16912846, 16912847 }
+        if mob:getLocalVar('[JoP]mimic') ~= 1 and mob:isAlive() then
+            for _, jailer in ipairs(prudenceIDs) do
+                if mob:getID() ~= jailer then
+                    local prudence_mimic = GetMobByID(jailer)
+                    if prudence_mimic:isAlive() and utils.canUseAbility(mob) == true and prudence_mimic:getLocalVar('[JoP]LastAbilityMimic') + 6 < os.time() and mob:checkDistance(prudence_mimic) <= 10 then
+                        prudence_mimic:setLocalVar('[JoP]mimic', 1)
+                        prudence_mimic:setLocalVar('[JoP]LastAbilityMimic', os.time())
+                        prudence_mimic:useMobAbility(skillID)
+                    end
+                end
+            end
+        end
+    end)
+
+    mob:addListener("WEAPONSKILL_STATE_EXIT", "PRUDENCE_MIMIC_STOP", function(mob, skillID)
+        mob:setLocalVar('[JoP]mimic', 0)
+    end)
 end
 
+
+
 function onMobSpawn(mob)
-	mob:setDamage(180)
+	mob:setDamage(145)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
+    mob:setMod(tpz.mod.REGEN, 10)
+    mob:setMod(tpz.mod.DEFP, 25) 
+    mob:setMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.DMGMAGIC, 0)
+    mob:setMod(tpz.mod.REFRESH, 50) 
+    mob:setMod(tpz.mod.SUSC_TO_WS_STUN,1)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
@@ -32,11 +59,6 @@ function onMobSpawn(mob)
 
     mob:AnimationSub(0) -- Mouth closed
     mob:addStatusEffectEx(tpz.effect.FLEE, 0, 100, 0, 60)
-    mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
-    mob:setMod(tpz.mod.REGEN, 10)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:setMod(tpz.mod.REFRESH, 50) 
 end
 
 function onMobDisEngage(mob, target)
@@ -69,12 +91,14 @@ function onMobDespawn(mob)
     if (mob:getID() == ID.mob.JAILER_OF_PRUDENCE_1) then
         secondPrudence:setMobMod(tpz.mobMod.NO_DROPS, 0)
         secondPrudence:AnimationSub(3) -- Mouth Open
-        secondPrudence:addMod(tpz.mod.ATTP, 100)
-        secondPrudence:delMod(tpz.mod.DEFP, -50)
+        mob:addMod(tpz.mod.ATTP, 100)
+        mob:addMod(tpz.mod.DEFP, -50)
+        mob:addMod(tpz.mod.DMGMAGIC, 100)
     else
         firstPrudence:setMobMod(tpz.mobMod.NO_DROPS, 0)
         firstPrudence:AnimationSub(3) -- Mouth Open
-        firstPrudence:addMod(tpz.mod.ATTP, 100)
-        firstPrudence:delMod(tpz.mod.DEFP, -50)
+        mob:addMod(tpz.mod.ATTP, 100)
+        mob:addMod(tpz.mod.DEFP, -50)
+        mob:addMod(tpz.mod.DMGMAGIC, 100)
     end
 end
