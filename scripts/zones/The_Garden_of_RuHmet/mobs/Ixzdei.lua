@@ -55,7 +55,7 @@ function onMobEngaged(mob)
 	ZdeiThree:updateEnmity(target)
 	ZdeiFour:updateEnmity(target)
     mob:SetAutoAttackEnabled(true)
-    mob:setLocalVar("recover", math.random(20, 50))
+    mob:setLocalVar("recover", math.random(5, 10))
 end
 
 function onMobFight(mob)
