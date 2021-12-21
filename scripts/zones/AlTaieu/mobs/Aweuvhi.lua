@@ -1,10 +1,14 @@
 -----------------------------------
 -- Area: AlTaieu
---  Mob: Aw'euvhi
+--  MOB: Aw_euvhi
 -----------------------------------
 local ID = require("scripts/zones/AlTaieu/IDs")
+mixins = {require("scripts/mixins/families/euvhi")}
 require("scripts/globals/keyitems")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+end
 
 function onMobDeath(mob, player, isKiller)
     local mobID = mob:getID()

@@ -1,6 +1,6 @@
 -----------------------------------
--- Area: The Garden of Ru'Hmet
---  NPC: Aw'Euvhi
+-- Area: Grand Palace of Hu'Xzoi
+--  NPC: Eo'Euvhi
 -----------------------------------
 mixins = {require("scripts/mixins/families/euvhi")}
 -----------------------------------
