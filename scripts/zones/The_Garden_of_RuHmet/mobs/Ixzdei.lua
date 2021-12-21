@@ -22,11 +22,21 @@ function onMobSpawn(mob)
 	mob:addMod(tpz.mod.EVA, 25)
 	mob:setMod(tpz.mod.MDEF, 24) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:SetMagicCastingEnabled(false)
     mob:setLocalVar("healed", 0)
 end
 
 function onMobInitialize(mob)
+end
+
+function onPath(mob)
+    local spawnPos = mob:getSpawnPos()
+    mob:pathThrough({spawnPos.x, spawnPos.y, spawnPos.z})
+    local pos = mob:getPos()
+    if spawnPos.x == pos.x and spawnPos.z == pos.z then
+        mob:setPos(spawnPos.x, spawnPos.y, spawnPos.z, mob:getRotPos() + 16)
+    end
 end
 
 function onMobEngaged(mob)
@@ -56,6 +66,7 @@ function onMobEngaged(mob)
 	ZdeiThree:updateEnmity(target)
 	ZdeiFour:updateEnmity(target)
     mob:SetAutoAttackEnabled(true)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     mob:setLocalVar("recover", math.random(5, 50))
 end
 
