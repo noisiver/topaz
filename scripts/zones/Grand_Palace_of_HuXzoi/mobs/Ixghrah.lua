@@ -104,8 +104,8 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
-    local cop = player:getCurrentMission(COP)
-    if cop == tpz.mission.id.cop.A_FATE_DECIDED and player:getVar("PromathiaStatus") == 1 then
-        player:setVar("PromathiaStatus", 2)
+    if (player:getCurrentMission(COP) == tpz.mission.id.cop.A_FATE_DECIDED  and player:getCharVar("PromathiaStatus")==1) then
+        player:setCharVar("PromathiaStatus", 2)
     end
 end
+

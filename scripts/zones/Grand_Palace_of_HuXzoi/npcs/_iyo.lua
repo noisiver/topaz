@@ -1,15 +1,21 @@
 -----------------------------------
 -- Area: Grand Palace of Hu'Xzoi
---  NPC: Cermet Portal (Security Gate)
------------------------------------
-local ID = require("scripts/zones/Grand_Palace_of_HuXzoi/IDs")
+--  NPC: Cermet Portal (Locked)
 -----------------------------------
 
-function onTrigger(player,npc)
-    if player:getXPos() > 600 then
-        player:messageSpecial(ID.text.DOES_NOT_RESPOND)
-        return 1
+function onTrade(player, npc, trade)
+end
+
+function onTrigger(player, npc)
+    if player:getXPos() < 600 then
+        npc:openDoor()
+    else
+        player:messageSpecial(7230)
     end
+end
 
-    
+function onEventUpdate(player, csid, option)
+end
+
+function onEventFinish(player, csid, option)
 end
