@@ -22,7 +22,6 @@ function onMobWeaponSkill(target, mob, skill)
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	else
         dmg = target:physicalDmgTaken(dmg, tpz.damageType.BLUNT)
-        dmg = dmg * 2
 		target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	end
 
