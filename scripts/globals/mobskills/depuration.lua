@@ -1,19 +1,18 @@
 ---------------------------------------------
--- Depuration
--- Family: Aern
--- Type: Healing
--- Can be dispelled: N/A
--- Utsusemi/Blink absorb: N/A
--- Range: Self
--- Notes: Erases all negative effects on the mob.
--- Aerns will generally not attempt to use this ability if no erasable effects exist on them.
+--  Geist Wall
+--
+--  Description: Party memory erase.
+--  Type: Enfeebling
+--  Notes: Removes one detrimental magic effect for party members within area of effect.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+
     local dispel = target:eraseStatusEffect()
 
     if (dispel ~= tpz.effect.NONE) then
@@ -24,12 +23,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local dispel = target:eraseStatusEffect()
 
-    local effect = tpz.effect.PARALYSIS
-    local effectTwo = tpz.effect.SILENCE
-		target:eraseAllStatusEffect()
-        target:delStatusEffect(effect)
-        target:delStatusEffect(effectTwo)
+    if (dispel == tpz.effect.NONE) then
+        -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+    else
+        skill:setMsg(tpz.msg.basic.SKILL_ERASE)
+    end
 
-    return 0
+    return dispel
 end

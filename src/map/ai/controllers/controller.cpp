@@ -54,10 +54,17 @@ bool CController::Engage(uint16 targid)
 {
     if (POwner)
     {
-        return POwner->PAI->Internal_Engage(targid);
+        bool ret = POwner->PAI->Internal_Engage(targid);
+        if (ret && POwner->objtype == TYPE_PC && targid)
+        {
+            ((CCharEntity*)POwner)->m_LastEngagedTargID = targid;
+            // ShowDebug("LETID updated.\n");
+        }
+        return ret;
     }
     return false;
 }
+
 
 bool CController::ChangeTarget(uint16 targid)
 {

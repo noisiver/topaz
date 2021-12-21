@@ -50,6 +50,7 @@ end
 function onMobEngaged(mob, target)
     mob:setLocalVar("pop_pets", os.time() + 150)
     mob:setLocalVar("shift", os.time() + math.random(120, 180))
+    mob:AnimationSub(2)
     mob:hideName(false)
     mob:untargetable(false)
 end
