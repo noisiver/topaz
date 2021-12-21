@@ -23,6 +23,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.MDEF, 24) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:SetMagicCastingEnabled(false)
+    mob:setLocalVar("healed", 0)
 end
 
 function onMobInitialize(mob)
@@ -60,6 +61,7 @@ end
 
 function onMobFight(mob)
     local recover = mob:getLocalVar("recover")
+    local healed = mob:getLocalVar("healed")
     if mob:getHPP() <= recover then
         local pos = mob:getSpawnPos()
 		mob:pathTo(pos.x, pos.y, pos.z)
@@ -69,10 +71,11 @@ function onMobFight(mob)
 		if Pos.x == pos.x and Pos.y == pos.y and Pos.z == pos.z then
             local time = mob:getLocalVar("time")
             local now = os.time()
-            if time ~= 0 and now > time then
+            if time ~= 0 and now > time and healed == 0 then
                 mob:SetAutoAttackEnabled(true)
                 mob:setHP(mob:getMaxHP())
                 mob:setLocalVar("recover", 0)
+                mob:setLocalVar("healed", 1)
             elseif time == 0 then
                 mob:setLocalVar("time", os.time() + math.random(10, 25))
             end
