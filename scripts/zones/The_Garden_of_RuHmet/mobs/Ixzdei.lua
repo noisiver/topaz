@@ -22,12 +22,29 @@ function onMobSpawn(mob)
 	mob:addMod(tpz.mod.EVA, 25)
 	mob:setMod(tpz.mod.MDEF, 24) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:SetMagicCastingEnabled(false)
 end
 
 function onMobInitialize(mob)
 end
 
 function onMobEngaged(mob)
+    local spellList =
+    {
+        [1] = 144,
+        [2] = 149,
+        [3] = 154,
+        [4] = 159,
+        [5] = 164,
+        [6] = 169,
+        [7] = 216,
+        [8] = 260,
+        [9] = 230,
+        [10] = 254,
+    }
+    mob:SetMagicCastingEnabled(true)
+    mob:castSpell(spellList[math.random(#spellList)])
+
 	local target = mob:getTarget()
     local ZdeiOne = GetMobByID(16921011)
     local ZdeiTwo = GetMobByID(16921012)
@@ -57,7 +74,7 @@ function onMobFight(mob)
                 mob:setHP(mob:getMaxHP())
                 mob:setLocalVar("recover", 0)
             elseif time == 0 then
-                mob:setLocalVar("time", os.time() + 3)
+                mob:setLocalVar("time", os.time() + math.random(5, 15))
             end
         end
     end
