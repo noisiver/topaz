@@ -150,7 +150,6 @@ namespace luautils
         lua_register(LuaHandle, "UpdateNMSpawnPoint", luautils::UpdateNMSpawnPoint);
         lua_register(LuaHandle, "SetDropRate", luautils::SetDropRate);
         lua_register(LuaHandle, "NearLocation", luautils::nearLocation);
-        lua_register(LuaHandle, "GetItemIDByName", luautils::GetItemIDByName);
         lua_register(LuaHandle, "terminate", luautils::terminate);
 
         lua_register(LuaHandle, "GetHealingTickDelay", luautils::GetHealingTickDelay);
@@ -4529,46 +4528,6 @@ namespace luautils
 
         return 1;
     }
-
-    inline int32 GetItemIDByName(lua_State* L)
-    {
-        uint32 id = 0;
-        // ShowDebug("1\n");
-        if (lua_isnil(L, 1) || !lua_isstring(L, 1))
-        {
-            lua_pushinteger(L, 0);
-            return 1;
-        }
-        // ShowDebug("2\n");
-        const char* itemname = lua_tostring(L, 1);
-        char itemname_esc[64] = { 0 };
-        Sql_EscapeStringLen(SqlHandle, itemname_esc, itemname, std::min(strlen(itemname), sizeof(itemname_esc) - 1));
-        int32 ret = Sql_Query(SqlHandle, "SELECT itemid FROM item_basic WHERE name = '%s' LIMIT 1;", itemname_esc);
-        if (ret == SQL_SUCCESS && Sql_NumRows(SqlHandle) == 1 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
-        {
-            id = Sql_GetUIntData(SqlHandle, 0);
-            // ShowDebug("3\n");
-        }
-        else
-        {
-            std::string fmtQuery1 = "SELECT itemid FROM item_basic WHERE name LIKE '%";
-            fmtQuery1 += itemname_esc;
-            fmtQuery1 += "%' LIMIT 1;";
-            ret = Sql_QueryStr(SqlHandle, (const char*)(fmtQuery1.c_str()));
-            // ShowDebug("4\n");
-            if (ret == SQL_SUCCESS && Sql_NumRows(SqlHandle) == 1 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
-            {
-                id = Sql_GetUIntData(SqlHandle, 0);
-                // ShowDebug("5\n");
-            }
-        }
-        // ShowDebug("6\n");
-        lua_pushinteger(L, id);
-        // ShowDebug("7\n");
-        return 1;
-    }
-
-
 
 
     int32 OnPlayerLevelUp(CCharEntity* PChar)
