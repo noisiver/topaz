@@ -74,7 +74,7 @@ function onMobFight(mob)
                 mob:setHP(mob:getMaxHP())
                 mob:setLocalVar("recover", 0)
             elseif time == 0 then
-                mob:setLocalVar("time", os.time() + math.random(5, 15))
+                mob:setLocalVar("time", os.time() + math.random(10, 25))
             end
         end
     end
