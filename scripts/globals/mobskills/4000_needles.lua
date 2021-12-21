@@ -1,7 +1,8 @@
 ---------------------------------------------
--- 4000 Needles
+-- 10000 Needles
 --
 -- Description: Shoots multiple needles at enemies within range.
+-- Type: Physical
 --
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -15,10 +16,13 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local needles = 4000 / skill:getTotalTargets()
-
-    local dmg = MobFinalAdjustments(needles, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.LIGHT, MOBPARAM_WIPE_SHADOWS)
-
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.LIGHT)
+    local dmg = MobFinalAdjustments(needles, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_WIPE_SHADOWS)
+	if target:hasStatusEffect(tpz.effect.FEALTY) then
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	else
+        dmg = target:physicalDmgTaken(dmg, tpz.damageType.BLUNT)
+		target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+	end
 
     return dmg
 end
