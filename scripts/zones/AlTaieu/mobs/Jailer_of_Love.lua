@@ -27,8 +27,9 @@ end
 
 function onMobSpawn(mob)
 	mob:setDamage(280)
-    mob:addMod(tpz.mod.DEFP, 100) 
-    mob:addMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.ATT, 500)
+    mob:setMod(tpz.mod.DEF, 620)
+    mob:setMod(tpz.mod.EVA, 355) 
     mob:setMod(tpz.mod.REFRESH, 50)
     mob:setMod(tpz.mod.UDMGMAGIC, -58)
     mob:setMod(tpz.mod.REGAIN, 75)

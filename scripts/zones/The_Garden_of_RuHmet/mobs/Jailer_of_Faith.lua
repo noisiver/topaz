@@ -8,8 +8,9 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
 	mob:setDamage(155)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.ATT, 500)
+    mob:setMod(tpz.mod.DEF, 450)
+    mob:setMod(tpz.mod.EVA, 275) 
     mob:setMod(tpz.mod.REFRESH, 50)
     -- Change animation to open
     mob:AnimationSub(2)
@@ -23,21 +24,30 @@ function onMobSpawn(mob)
     })
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 120)
+        mob:setLocalVar("Form", 0)
+        mob:setLocalVar("ClosedTime", 0)
+        mob:setLocalVar("OpenTime", 0)
 end
 
 function onMobFight(mob)
     -- Forms: 0 = Closed  1 = Closed  2 = Open 3 = Closed
-    local randomTime = math.random(45, 180)
-    local changeTime = mob:getLocalVar("changeTime")
+    local OpenTime = mob:getLocalVar("OpenTime")
+    local ClosedTime = mob:getLocalVar("ClosedTime")
+    local Form = mob:getLocalVar("Form")
+    local BattleTime = mob:getBattleTime()
 
-    if mob:getBattleTime() - changeTime > randomTime then
+    if BattleTime > ClosedTime and form == 0 then
         -- Change close to open.
-        if (mob:AnimationSub() == 1) then
-            mob:AnimationSub(2)
-        else -- Change from open to close
-            mob:AnimationSub(1)
-        end
-        mob:setLocalVar("changeTime", mob:getBattleTime())
+        mob:AnimationSub(2)
+        mob:setMod(tpz.mod.DMG, 12.5) 
+        mob:setLocalVar("Form", 1)
+        mob:setLocalVar("OpenTime", 180)
+    end
+    if BattleTime > ClosedTime and form == 1 then -- Change from open to close
+        mob:AnimationSub(1)
+        mob:setMod(tpz.mod.DMG, -25) 
+        mob:setLocalVar("Form", 0)
+        mob:setLocalVar("ClosedTime", 60)
     end
 end
 

@@ -562,6 +562,15 @@ INSERT INTO `mob_family_system` VALUES (532,'Xzomit-Baby',15,'Luminian',0,60,100
 INSERT INTO `mob_family_system` VALUES (533,'TenzenAndKidsWarriorsPath',7,'Beastmen',0,40,100,120,3,3,3,2,2,3,3,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1,3,1,0); --  Tenzen COP 7-5 The Warrior's Path
 INSERT INTO `mob_family_system` VALUES (534,'Quasilumin',15,'Luminian',1,40,100,100,5,5,5,5,5,5,5,5,5,5,5,2,2,2,2,2,2,2,2,2,2,2,2,0,2,0); -- Escort Quasilumin
 
+INSERT INTO `mob_family_system` VALUES (535,'Jailer_of_Faith',15,'Luminian',0,40,100,140,1,3,4,4,4,4,4,1,3,1,3,1,1,1,1,1.5,1.15,1.15,1.15,1.15,0.6,0.6,1.15,0,2,0);
+INSERT INTO `mob_family_system` VALUES (536,'Jailer_of_Fortitude',16,'Luminion',0,40,100,140,5,3,3,3,3,3,3,1,3,1,3,0.875,0.875,0.875,0.875,1,1,1,1,1,1,1,1,7,2,0);
+INSERT INTO `mob_family_system` VALUES (537,'Jailer_of_Hope',15,'Luminian',2,60,100,100,2,1,4,1,4,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.3,0.5,0.85,1.3,0,2,0);
+INSERT INTO `mob_family_system` VALUES (538,'Jailer_of_Justice',15,'Luminian',0,40,100,110,3,3,4,6,4,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1,1.3,1.3,1.3,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (539,'Jailer_of_Love',15,'Luminian',1,40,100,140,2,2,4,6,4,4,4,1,3,1,5,1,1,1,1,1,1,1,1.3,0.3,1,0.7,1.15,0,2,0);
+INSERT INTO `mob_family_system` VALUES (540,'Jailer_of_Prudence',15,'Luminian',1,40,100,120,7,7,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1.3,1.3,1.3,1.3,1.3,0.85,1.15,0,2,0);
+INSERT INTO `mob_family_system` VALUES (541,'Jailer_of_Temperance',16,'Luminion',0,40,100,140,6,6,4,4,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,1,0);
+
+
 
 
 

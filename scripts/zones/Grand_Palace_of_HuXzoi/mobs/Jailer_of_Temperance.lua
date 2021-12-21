@@ -10,6 +10,10 @@ require("scripts/globals/magic")
 
 function onMobSpawn(mob)
 	mob:setDamage(100)
+    mob:setMod(tpz.mod.ATT, 620)
+    mob:setMod(tpz.mod.DEF, 300)
+    mob:setMod(tpz.mod.EVA, 360)
+    mob:setMod(tpz.mod.REFRESH, 50)
     -- Set AnimationSub to 0, put it in pot form
     -- Change it's damage resists. Pot for take
 
