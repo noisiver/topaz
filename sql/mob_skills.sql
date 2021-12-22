@@ -3506,7 +3506,6 @@ INSERT INTO `mob_skills` VALUES (3560,491,'amatsu_gachirin',0,7.0,2000,1500,4,0,
 -- INSERT INTO `mob_skills` VALUES (3566,475,'shearing_gale',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3567,476,'beclouding_dust',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3568,3312,'#1776',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3568,848,'snort_autoattack',0,7,0,0,0,4,0,0,4,0,0);
 -- INSERT INTO `mob_skills` VALUES (3569,3313,'#1777',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3570,3314,'#1778',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3571,3315,'#1779',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -3806,6 +3805,7 @@ INSERT INTO `mob_skills` VALUES (3859,6,'sheep_charge_autoattack',0,7.0,0,0,4,0,
 -- INSERT INTO `mob_skills` VALUES (3865,3609,'metallic_body',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3866,3610,'needleshot',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3867,3611,'questionmarks_needles',1,10.0,2000,1500,4,0,0,0,0,0,0); -- ???_needles.lua isn't a valid filename
+INSERT INTO `mob_skills` VALUES (3868,848,'snort_autoattack',0,7,0,0,0,4,0,0,4,0,0);
 -- INSERT INTO `mob_skills` VALUES (3868,3612,'frogkick',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3869,3613,'spore',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3870,3614,'queasyshroom',0,7.0,2000,1500,4,0,0,0,0,0,0);
