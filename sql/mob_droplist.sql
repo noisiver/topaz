@@ -15678,8 +15678,8 @@ INSERT INTO `mob_droplist` VALUES (2910,0,0,1000,2718,10);
 INSERT INTO `mob_droplist` VALUES (2910,0,0,1000,2723,10);
 INSERT INTO `mob_droplist` VALUES (2910,0,0,1000,3495,15);
 INSERT INTO `mob_droplist` VALUES (2910,0,0,1000,5896,850);
-INSERT INTO `mob_droplist` VALUES (2911,1,1,1000,14676,150); -- (Padfoot - Real)Assailant's Ring
-INSERT INTO `mob_droplist` VALUES (2911,1,1,1000,14782,100); -- Astral Earring
+INSERT INTO `mob_droplist` VALUES (2911,1,1,1000,14676,500); -- (Padfoot - Real)Assailant's Ring
+INSERT INTO `mob_droplist` VALUES (2911,1,1,1000,14782,500); -- Astral Earring
 INSERT INTO `mob_droplist` VALUES (2912,0,0,1000,953,310);
 INSERT INTO `mob_droplist` VALUES (2912,0,0,1000,574,70);
 INSERT INTO `mob_droplist` VALUES (2912,2,0,1000,573,0);
