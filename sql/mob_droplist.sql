@@ -949,10 +949,11 @@ INSERT INTO `mob_droplist` VALUES (161,0,0,1000,2488,100);
 INSERT INTO `mob_droplist` VALUES (161,0,0,1000,5368,100);
 INSERT INTO `mob_droplist` VALUES (161,0,0,1000,5383,100);
 INSERT INTO `mob_droplist` VALUES (161,0,0,1000,5384,100);
-INSERT INTO `mob_droplist` VALUES (162,0,0,1000,880,50);
+INSERT INTO `mob_droplist` VALUES (162,0,0,1000,880,240); -- Bone chip
 INSERT INTO `mob_droplist` VALUES (162,0,0,1000,1614,100); -- Corse Bracelet
-INSERT INTO `mob_droplist` VALUES (162,0,0,1000,1639,50);
-INSERT INTO `mob_droplist` VALUES (162,0,0,1000,1740,240);
+INSERT INTO `mob_droplist` VALUES (162,0,0,1000,1639,50); -- Corse robe
+INSERT INTO `mob_droplist` VALUES (162,0,0,1000,1740,240); -- Iolite
+INSERT INTO `mob_droplist` VALUES (162,0,0,1000,4111,1); -- Dark Cluster
 INSERT INTO `mob_droplist` VALUES (163,0,0,1000,902,100);
 INSERT INTO `mob_droplist` VALUES (163,0,0,1000,1048,50);
 INSERT INTO `mob_droplist` VALUES (163,0,0,1000,17415,240);
@@ -2969,10 +2970,11 @@ INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4741,100);
 INSERT INTO `mob_droplist` VALUES (516,0,0,1000,4750,240);
 INSERT INTO `mob_droplist` VALUES (517,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (517,4,0,1000,880,0);
-INSERT INTO `mob_droplist` VALUES (517,0,0,1000,880,220);
-INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1614,100);
+INSERT INTO `mob_droplist` VALUES (517,0,0,1000,880,240); -- Bone chip
+INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1614,100); -- Corse bracelet
 INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1639,50); -- Corse Robe
-INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1740,240);
+INSERT INTO `mob_droplist` VALUES (517,0,0,1000,1740,240); -- Iolite
+INSERT INTO `mob_droplist` VALUES (517,0,0,1000,4111,1); -- Dark Cluster
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,886,150);   -- (Count_Bifrons) demon_skull
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,902,240);   -- demon_horn
 INSERT INTO `mob_droplist` VALUES (518,0,0,1000,4875,240);   -- scroll_of_absorb-dex
