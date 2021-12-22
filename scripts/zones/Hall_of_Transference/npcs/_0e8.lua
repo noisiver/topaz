@@ -5,17 +5,12 @@
 -----------------------------------
 local ID = require("scripts/zones/Hall_of_Transference/IDs")
 -----------------------------------
-
-function onTrade(player, npc, trade)
-    if
-        player:getCharVar("MeaChipRegistration") == 0 and
-        player:getCharVar("skyShortcut") == 1 and
-        trade:hasItemQty(478, 1) and
-        trade:getItemCount() == 1
-    then
-        player:startEvent(164)
+function onTrade(player,npc,trade)
+    if (player:getVar("MeaChipRegistration") == 0 and player:getVar("skyShortcut") == 1 and trade:hasItemQty(478,1) and trade:getItemCount() == 1) then
+        player:tradeComplete();
+        player:startEvent(164);
     end
-end
+end;
 
 function onTrigger(player, npc)
     if player:getCharVar("MeaChipRegistration") == 1 then
