@@ -11371,7 +11371,7 @@ INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,857,10); -- (Savanna Dhalmel) D
 INSERT INTO `mob_droplist` VALUES (2169,4,0,1000,893,0); -- Dhalmel Hide (Despoil)
 INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,893,100); -- Giant femur
 INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,938,10); -- Sprig of papaka grass
-INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,2539,150); -- Tuft of dhalmel hair
+INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,2539,100); -- Tuft of dhalmel hair
 INSERT INTO `mob_droplist` VALUES (2169,4,0,1000,4359,0); -- Dhamel Meat(Despoil)
 INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,4359,240); -- Slice of dhalmel meat
 INSERT INTO `mob_droplist` VALUES (2170,0,0,1000,542,100);
