@@ -8,9 +8,9 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
 	mob:setDamage(155)
-    mob:setMod(tpz.mod.ATT, 500)
-    mob:setMod(tpz.mod.DEF, 450)
-    mob:setMod(tpz.mod.EVA, 275) 
+    mob:setMod(tpz.mod.ATT, 435) -- 500
+    mob:setMod(tpz.mod.DEF, 412) -- 450
+    mob:setMod(tpz.mod.EVA, 236) -- 275
     mob:setMod(tpz.mod.REFRESH, 50)
     -- Change animation to open
     mob:AnimationSub(2)
