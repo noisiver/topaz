@@ -2192,8 +2192,8 @@ INSERT INTO `mob_droplist` VALUES (373,2,0,1000,1654,0);
 INSERT INTO `mob_droplist` VALUES (373,0,0,1000,1654,50); -- Igneous rock
 INSERT INTO `mob_droplist` VALUES (374,2,0,1000,644,0);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1063,50);
-INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1624,130);
-INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1650,130);
+INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1624,150);
+INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1650,240);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1654,50);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1696,130);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1781,150);
@@ -2206,7 +2206,7 @@ INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1781,240); -- Sylvan stone
 INSERT INTO `mob_droplist` VALUES (375,0,0,1000,15349,240); -- Rutter sabatons
 INSERT INTO `mob_droplist` VALUES (376,0,0,1000,2827,150); -- (Bugbear Muscleman) Rugged Gold Thread
 INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1624,110);
-INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1650,330);
+INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1650,240);
 INSERT INTO `mob_droplist` VALUES (377,2,0,1000,1654,0);
 INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1654,10);
 INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1696,130);
@@ -2222,7 +2222,7 @@ INSERT INTO `mob_droplist` VALUES (379,0,0,1000,1781,140);
 INSERT INTO `mob_droplist` VALUES (380,2,0,1000,644,0);
 INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1063,50);
 INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1624,10);
-INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1650,120);
+INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1650,240);
 INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1654,100);
 INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1781,220);
 INSERT INTO `mob_droplist` VALUES (381,0,0,1000,3158,730);
@@ -3998,8 +3998,8 @@ INSERT INTO `mob_droplist` VALUES (742,0,0,1000,886,50);    -- (Eclipse_Demon) d
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,902,100);    -- demon_horn
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,2825,10);  -- square_of_cambric
 INSERT INTO `mob_droplist` VALUES (742,0,0,1000,4875,100);   -- scroll_of_absorb-dex
-INSERT INTO `mob_droplist` VALUES (743,0,0,1000,642,70);
-INSERT INTO `mob_droplist` VALUES (743,0,0,1000,736,30);
+INSERT INTO `mob_droplist` VALUES (743,0,0,1000,642,100);
+INSERT INTO `mob_droplist` VALUES (743,0,0,1000,736,50);
 INSERT INTO `mob_droplist` VALUES (743,0,0,1000,768,400);
 INSERT INTO `mob_droplist` VALUES (743,0,0,1000,3255,150);
 INSERT INTO `mob_droplist` VALUES (744,0,0,1000,4468,110);
@@ -4012,15 +4012,15 @@ INSERT INTO `mob_droplist` VALUES (745,0,0,1000,1474,100);  -- Infinity Core
 INSERT INTO `mob_droplist` VALUES (746,0,0,1000,1623,50); -- (Eft) Eft Skin
 INSERT INTO `mob_droplist` VALUES (746,0,0,1000,1741,10); -- High-quality eft skin 
 INSERT INTO `mob_droplist` VALUES (746,2,0,1000,4362,0);
-INSERT INTO `mob_droplist` VALUES (746,0,0,1000,4362,160);
+INSERT INTO `mob_droplist` VALUES (746,0,0,1000,4362,150);
 INSERT INTO `mob_droplist` VALUES (747,0,0,1000,980,50);
 INSERT INTO `mob_droplist` VALUES (748,0,0,1000,1006,50);
 INSERT INTO `mob_droplist` VALUES (749,0,0,1000,967,50);
 INSERT INTO `mob_droplist` VALUES (750,0,0,1000,993,50);
 INSERT INTO `mob_droplist` VALUES (751,0,0,1000,529,50);
 INSERT INTO `mob_droplist` VALUES (751,2,0,1000,825,0);
-INSERT INTO `mob_droplist` VALUES (751,0,0,1000,825,210);
-INSERT INTO `mob_droplist` VALUES (751,0,0,1000,940,210);
+INSERT INTO `mob_droplist` VALUES (751,0,0,1000,825,240);
+INSERT INTO `mob_droplist` VALUES (751,0,0,1000,940,240);
 INSERT INTO `mob_droplist` VALUES (752,0,0,1000,2504,100); -- Heavy Quadav chestplate
 INSERT INTO `mob_droplist` VALUES (752,0,0,1000,2505,100); -- Heavy Quadav backplate
 INSERT INTO `mob_droplist` VALUES (752,2,0,1000,2531,0);
