@@ -13,7 +13,7 @@ function onTrade(player, npc, trade)
         not GetMobByID(ID.mob.JAILER_OF_JUSTICE):isSpawned() and
         trade:hasItemQty(1853, 1) and -- second_virtue
         trade:hasItemQty(1854, 1) and -- deed_of_moderation
-        trade:hasItemQty(1855, 1) and -- hq_xzomit_organ
+        trade:hasItemQty(1855, 1) and -- high-quality_xzomit_organ
         trade:getItemCount() == 3
     ) then
         player:tradeComplete()
