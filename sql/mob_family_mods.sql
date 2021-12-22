@@ -1007,7 +1007,8 @@ INSERT INTO `mob_family_mods` VALUES (267,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (268,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (87,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (136,59,145,1);
-INSERT INTO `mob_family_mods` VALUES (179,59,125,1);
+INSERT INTO `mob_family_mods` VALUES (179,59,125,1); -- Manticore +25 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (180,59,125,1); -- marid +25 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (217,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (208,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (210,59,110,1);
