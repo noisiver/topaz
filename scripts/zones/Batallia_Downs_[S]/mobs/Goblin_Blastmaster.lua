@@ -11,5 +11,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.BURLIBIX_BRAWNBACK_PH, 10, 10800) -- 3 hours
+    tpz.mob.phOnDespawn(mob, ID.mob.BURLIBIX_BRAWNBACK_PH, 20, 10800) -- 3 hours
 end
