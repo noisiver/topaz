@@ -10,6 +10,10 @@ require("scripts/globals/status")
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
     mob:setMod(tpz.mod.SUSC_TO_WS_STUN,1)
+    mob:setMobMod(tpz.mobMod.SKILL_LIST, 194)
+end
+
+function onMobSpawn(mob)
     mob:setDamage(175)
     mob:setMod(tpz.mod.ATT, 600)
     mob:setMod(tpz.mod.DEF, 565)
@@ -18,10 +22,6 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.UFASTCAST, 150)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 50) -- adding so mp pool isnt diminished
-    mob:setMobMod(tpz.mobMod.SKILL_LIST, 194)
-end
-
-function onMobSpawn(mob)
     mob:SetMagicCastingEnabled(false)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
