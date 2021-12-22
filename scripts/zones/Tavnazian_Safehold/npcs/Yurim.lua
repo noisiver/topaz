@@ -79,6 +79,11 @@ function onTrade(player, npc, trade)
             player:addItem(28419) -- Hachirin-No-Obi
             player:PrintToPlayer("Very good! My research on Obis is now fully complete!",0,"Yurim")
             player:messageSpecial(ID.text.ITEM_OBTAINED, 28419)
+    elseif npcUtil.tradeHas(trade, {{15495, 1}, {15496, 1}, {15497, 1}, {15498, 1}, {15499, 1},{15500, 1}, {15501, 1}, {15502, 1}}) then
+            player:confirmTrade()
+            player:addItem(27510) -- Fotia Gorget
+            player:PrintToPlayer("Very good! My research on Gorgets is now fully complete!",0,"Yurim")
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 27510)
     end
 end
 
