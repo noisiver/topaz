@@ -2192,7 +2192,7 @@ INSERT INTO `mob_droplist` VALUES (373,2,0,1000,1654,0);
 INSERT INTO `mob_droplist` VALUES (373,0,0,1000,1654,50); -- Igneous rock
 INSERT INTO `mob_droplist` VALUES (374,2,0,1000,644,0);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1063,50);
-INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1624,150);
+INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1624,50);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1650,240);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1654,50);
 INSERT INTO `mob_droplist` VALUES (374,0,0,1000,1696,130);
@@ -2205,7 +2205,7 @@ INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1650,240); -- Chunk of kopparnic
 INSERT INTO `mob_droplist` VALUES (375,0,0,1000,1781,240); -- Sylvan stone
 INSERT INTO `mob_droplist` VALUES (375,0,0,1000,15349,240); -- Rutter sabatons
 INSERT INTO `mob_droplist` VALUES (376,0,0,1000,2827,150); -- (Bugbear Muscleman) Rugged Gold Thread
-INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1624,110);
+INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1624,50);
 INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1650,240);
 INSERT INTO `mob_droplist` VALUES (377,2,0,1000,1654,0);
 INSERT INTO `mob_droplist` VALUES (377,0,0,1000,1654,10);
@@ -2214,14 +2214,14 @@ INSERT INTO `mob_droplist` VALUES (378,0,0,1000,1624,50); -- (Bugbear Strongman)
 INSERT INTO `mob_droplist` VALUES (378,0,0,1000,14334,150); -- Shinimusha Haidate
 INSERT INTO `mob_droplist` VALUES (378,0,0,1000,15369,240); -- Aikido Koshita
 INSERT INTO `mob_droplist` VALUES (379,2,0,1000,644,0);
-INSERT INTO `mob_droplist` VALUES (379,0,0,1000,1624,80);
+INSERT INTO `mob_droplist` VALUES (379,0,0,1000,1624,50);
 INSERT INTO `mob_droplist` VALUES (379,0,0,1000,1650,240);
 INSERT INTO `mob_droplist` VALUES (379,0,0,1000,1654,50);
 INSERT INTO `mob_droplist` VALUES (379,0,0,1000,1696,130);
 INSERT INTO `mob_droplist` VALUES (379,0,0,1000,1781,140);
 INSERT INTO `mob_droplist` VALUES (380,2,0,1000,644,0);
 INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1063,50);
-INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1624,10);
+INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1624,50);
 INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1650,240);
 INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1654,100);
 INSERT INTO `mob_droplist` VALUES (380,0,0,1000,1781,220);
@@ -12791,10 +12791,10 @@ INSERT INTO `mob_droplist` VALUES (2456,0,0,1000,13013,240);	--tottering toby st
 INSERT INTO `mob_droplist` VALUES (2457,2,0,1000,846,0);
 INSERT INTO `mob_droplist` VALUES (2457,0,0,1000,846,50);
 INSERT INTO `mob_droplist` VALUES (2457,0,0,1000,1616,100);
-INSERT INTO `mob_droplist` VALUES (2458,2,0,1000,852,0);
-INSERT INTO `mob_droplist` VALUES (2458,0,0,1000,1616,100);
+INSERT INTO `mob_droplist` VALUES (2458,2,0,1000,852,0); -- Tracker Antlion
+INSERT INTO `mob_droplist` VALUES (2458,0,0,1000,1616,50); -- Antlion jaw
 INSERT INTO `mob_droplist` VALUES (2458,4,0,1000,1616,0);
-INSERT INTO `mob_droplist` VALUES (2458,0,0,1000,1649,240);
+INSERT INTO `mob_droplist` VALUES (2458,0,0,1000,1649,10); -- Scarlet stone
 INSERT INTO `mob_droplist` VALUES (2459,0,0,1000,1449,90);
 INSERT INTO `mob_droplist` VALUES (2459,0,0,1000,1450,10);
 INSERT INTO `mob_droplist` VALUES (2459,2,0,1000,1452,0);
