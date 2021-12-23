@@ -882,12 +882,11 @@ function MobCharmMove(mob, target, skill, costume, duration)
 			skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		elseif (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
 			mob:charm(target)
-			target:costume(costume) 
+			target:costume(costume)
+            skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
 		else
 			 skill:setMsg(tpz.msg.basic.SKILL_MISS)
 		end
-	else
-		skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 end
 
