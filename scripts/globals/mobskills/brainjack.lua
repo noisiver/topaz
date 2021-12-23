@@ -5,6 +5,7 @@
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
+require("scripts/globals/msg")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -16,11 +17,7 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 15
 
     MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
-   	if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-    else
-		skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.CHARM, 1, 0, 60))
-    end
+    MobCharmMove(mob, target, skill, 0, 60)
 
-	return tpz.effect.CHARM
+    return tpz.effect.CHARM_I
 end
