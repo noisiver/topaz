@@ -871,7 +871,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
         local eleres = target:getMod(tpz.magic.ele.LIGHT+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
-		
+	    GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
 		skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
