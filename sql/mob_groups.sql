@@ -6442,7 +6442,7 @@ INSERT INTO `mob_groups` VALUES (5,5478,97,'Yagudo_High_Priest',330,0,2712,0,0,7
 INSERT INTO `mob_groups` VALUES (6,4417,97,'Yagudo_Eradicator',330,0,2707,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (7,4442,97,'Yagudo_Prelate',330,0,2746,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (8,5481,97,'Yagudo_Sentinel',330,0,2764,0,0,76,79,0);
-INSERT INTO `mob_groups` VALUES (9,4298,97,'War_Lynx',330,0,0,0,0,68,72,0);
+INSERT INTO `mob_groups` VALUES (9,4298,97,'War_Lynx',330,0,1557,0,0,68,72,0);
 INSERT INTO `mob_groups` VALUES (10,2772,97,'Muq_Shabeel',5400,0,3094,15000,0,72,72,0);
 INSERT INTO `mob_groups` VALUES (11,6355,97,'Treant_Sapling',330,0,2465,0,0,56,59,0);
 INSERT INTO `mob_groups` VALUES (12,6309,97,'Stag_Beetle',330,0,2320,0,0,44,47,0);
