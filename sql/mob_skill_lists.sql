@@ -4239,8 +4239,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1358); -- p
 INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6084,1699); -- Pecking Flurry
 INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6084,1702); -- Wise Crack
 
-INSERT INTO `mob_skill_lists` VALUES ('TestingCharm',6085,2112); -- nocturnal_servitude Crack
-
 
 -- Next available ID: 1148
 
