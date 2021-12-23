@@ -22,6 +22,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    MobCharmMove(mob, target, 257, 60)
+    MobCharmMove(mob, target, skill, 257, 60)
     return 0
 end

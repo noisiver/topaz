@@ -865,7 +865,7 @@ function MobEncumberMove(target, maxSlots, duration)
     target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
 end
 
-function MobCharmMove(mob, target, costume, duration)
+function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
     local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(tpz.mod.CHR)-target:getStat(tpz.mod.CHR), 0, tpz.magic.ele.WATER)
         local eleres = target:getMod(tpz.magic.ele.WATER+53)
