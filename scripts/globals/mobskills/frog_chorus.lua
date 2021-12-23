@@ -32,11 +32,10 @@ function onMobWeaponSkill(target, mob, skill)
 	local msg = MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
 	if target:hasStatusEffect(tpz.effect.FEALTY) then
 		skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-	else
-		if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
+	elseif (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
 		mob:charm(target)
 		target:costume(2239) --Frog
-	end
+	else
 		 skill:setMsg(msg)
 	end
 
