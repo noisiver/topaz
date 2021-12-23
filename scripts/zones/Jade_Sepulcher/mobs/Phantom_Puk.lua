@@ -14,7 +14,7 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    mob:setLocalVar("boreas_mantle", os.time() + 90)
+    mob:setLocalVar("boreas_mantle", os.time() + math.random(15, 30))
 end
 
 function onMobFight(mob, target)
