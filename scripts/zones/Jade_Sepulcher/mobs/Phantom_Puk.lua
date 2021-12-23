@@ -6,6 +6,7 @@
 local ID = require("scripts/zones/Jade_Sepulcher/IDs")
 -----------------------------------
 function onMobSpawn(mob)
+	mob:setDamage(200)
 	mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:setMod(tpz.mod.REFRESH, 40)

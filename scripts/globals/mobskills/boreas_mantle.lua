@@ -21,7 +21,6 @@ function onMobWeaponSkill(target, mob, skill)
     local maxhp = clonehp / hpp
     for cloneid = mobid + 1, mobid + 4 do
         clone = SpawnMob(cloneid)
-        clone:setMaxHP(maxhp)
         clone:setHP(clonehp)
         clone:updateEnmity(player)
         clone:setPos(mob:getXPos(), mob:getYPos(), mob:getZPos())

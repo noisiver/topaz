@@ -1369,23 +1369,23 @@ INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039393,2);
 INSERT INTO `bcnm_battlefield` VALUES (1124,1,17039400,3); -- shield_of_diplomacy
 
 INSERT INTO `bcnm_battlefield` VALUES (1152,1,17051649,3); -- making_a_mockery
-INSERT INTO `bcnm_battlefield` VALUES (1152,1,17051651,3); -- making_a_mockery
-INSERT INTO `bcnm_battlefield` VALUES (1152,1,17051653,3); -- making_a_mockery
+INSERT INTO `bcnm_battlefield` VALUES (1152,2,17051651,3); -- making_a_mockery
+INSERT INTO `bcnm_battlefield` VALUES (1152,3,17051653,3); -- making_a_mockery
 INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051655,3); -- shadows_of_the_mind
 INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051656,0); -- shadows_of_the_mind
 INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051657,0); -- shadows_of_the_mind
 INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051658,0); -- shadows_of_the_mind
 INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051659,0); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051661,3); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051662,0); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051663,0); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051664,0); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051665,0); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051667,3); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051668,0); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051669,0); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051670,0); -- shadows_of_the_mind
-INSERT INTO `bcnm_battlefield` VALUES (1153,1,17051671,0); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,2,17051661,3); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,2,17051662,0); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,2,17051663,0); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,2,17051664,0); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,2,17051665,0); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,3,17051667,3); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,3,17051668,0); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,3,17051669,0); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,3,17051670,0); -- shadows_of_the_mind
+INSERT INTO `bcnm_battlefield` VALUES (1153,3,17051671,0); -- shadows_of_the_mind
 INSERT INTO `bcnm_battlefield` VALUES (1156,1,17051694,3); -- puppet_in_peril
 
 -- //////////////////////////////////////////////////////////////

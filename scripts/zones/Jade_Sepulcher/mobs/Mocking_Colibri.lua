@@ -6,6 +6,7 @@ mixins = {require("scripts/mixins/families/colibri_mimic")}
 -----------------------------------
 
 function onMobSpawn(mob)
+	mob:setDamage(150)
 	mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:setMod(tpz.mod.REFRESH, 40)
