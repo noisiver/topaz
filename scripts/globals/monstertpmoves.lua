@@ -868,9 +868,9 @@ end
 function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
         local statmod = tpz.mod.CHR
-        local element = mob:getStatusEffectElement(tpz.effect.CHARM)
+        local element = mob:getStatusEffectElement(tpz.effect.CHARM_I)
 
-        local resist = applyPlayerResistance(mob, tpz.effect.CHARM, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -883,6 +883,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
 			return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
+        	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration)
 			mob:charm(target)
 			target:costume(costume)
            return skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
