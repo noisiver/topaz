@@ -867,8 +867,11 @@ end
 
 function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
-    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(tpz.mod.CHR)-target:getStat(tpz.mod.CHR), 0, mob:getStatusEffectElement(tpz.effect.CHARM_I))
-        local eleres = target:getMod(tpz.magic.ele.LIGHT+53)
+        local statmod = tpz.mod.CHR
+        local element = mob:getStatusEffectElement(tpz.effect.CHARM)
+
+        local resist = applyPlayerResistance(mob, tpz.effect.CHARM, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 	    GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
