@@ -881,16 +881,15 @@ function MobCharmMove(mob, target, skill, costume, duration)
 	
 	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return skill:setMsg(msg)
+		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
         	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)
-            local msg = MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)
 			mob:charm(target)
 			target:costume(costume)
-            return skill:setMsg(msg)
+            return skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
         end
 	else
-	    return skill:setMsg(msg)
+	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 end
 
