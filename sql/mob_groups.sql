@@ -4632,7 +4632,7 @@ INSERT INTO `mob_groups` VALUES (10,1646,84,'Goblin_Corpsman',330,0,1024,0,0,62,
 INSERT INTO `mob_groups` VALUES (11,1638,84,'Goblin_Blastmaster',330,0,1024,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (12,1698,84,'Goblin_Pioneer',330,0,1137,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (13,1688,84,'Goblin_Mine',0,128,0,0,0,58,58,0);
-INSERT INTO `mob_groups` VALUES (14,5364,84,'Machairodus',330,0,2275,0,0,46,48,0);
+INSERT INTO `mob_groups` VALUES (14,5364,84,'Smilodon',330,0,2275,0,0,46,48,0);
 INSERT INTO `mob_groups` VALUES (15,6571,84,'Wight',330,1,958,0,0,38,40,0);
 INSERT INTO `mob_groups` VALUES (16,6353,84,'Stalking_Sapling',330,0,2323,0,0,24,27,0);
 INSERT INTO `mob_groups` VALUES (17,1266,84,'Evil_Spirit',330,1,795,0,0,41,41,0);
@@ -11135,7 +11135,7 @@ INSERT INTO `mob_groups` VALUES (19,1801,174,'Greater_Cockatrice',600,0,3164,0,0
 INSERT INTO `mob_groups` VALUES (20,2314,174,'Ladon',600,0,1477,0,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (21,3115,174,'Pelican',0,32,1988,22000,0,80,81,0);
 INSERT INTO `mob_groups` VALUES (22,6417,174,'Kuftal_Delver',600,0,1467,0,0,77,79,0);
-INSERT INTO `mob_groups` VALUES (23,3677,174,'Smilodon',600,0,0,0,0,78,8,0);
+INSERT INTO `mob_groups` VALUES (23,3677,174,'Machairodus',600,0,0,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (24,962,174,'Deinonychus',600,0,601,0,0,65,68,0);
 INSERT INTO `mob_groups` VALUES (25,1687,174,'Goblin_Mercenary',600,0,1115,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (26,1634,174,'Goblin_Alchemist',600,0,1014,0,0,66,69,0);
