@@ -1640,7 +1640,7 @@ INSERT INTO `mob_skills` VALUES (1698,1169,'leeching_current',1,10.0,2000,1500,4
 INSERT INTO `mob_skills` VALUES (1699,1176,'pecking_flurry',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1700,1177,'snatch_morsel',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1701,1178,'feather_tickle',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1702,1179,'wisecrack',1,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1702,1179,'wisecrack',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1703,1170,'barrier_tusk',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1704,1171,'onrush',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1705,1172,'stampede',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1918,7 +1918,7 @@ INSERT INTO `mob_skills` VALUES (1969,1333,'reprobation',1,10.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (1977,1721,'deathgnash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1978,1165,'abominable_belch',1,10.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1979,1723,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1980,1724,'boreas_mantle',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1980,1724,'boreas_mantle',0,7.0,2000,1500,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1981,1725,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1982,1726,'nullifying_dropkick',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1983,1727,'auroral_uppercut',0,7.0,2000,1500,4,0,0,0,0,0,0);

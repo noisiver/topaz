@@ -4236,6 +4236,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1353); -- a
 INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1355); -- spine_lash
 INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1358); -- plasma_charge
 
+INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6083,1699); -- Pecking Flurry
+INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6083,1702); -- Wise Crack
+
 
 -- Next available ID: 1148
 

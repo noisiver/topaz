@@ -166,8 +166,8 @@ local battlefields = {
 
     [tpz.zone.TALACCA_COVE] =
     {
-     -- { 0, 1088,    0},   -- Call to Arms (ISNM)
-     -- { 1, 1089,    0},   -- Compliments to the Chef (ISNM)
+        { 0, 1088,    0},   -- Call to Arms (ISNM)
+        { 1, 1089,    0},   -- Compliments to the Chef (ISNM)
      -- { 2, 1090,    0},   -- Puppetmaster Blues (Quest)
         { 3, 1091, 2332},   -- Breaking the Bonds of Fate (COR LB5)
         { 4, 1092,    0},   -- Legacy of the Lost (TOAU35)
@@ -181,8 +181,8 @@ local battlefields = {
 
     [tpz.zone.NAVUKGO_EXECUTION_CHAMBER] =
     {
-     -- { 0, 1120,    0},   -- Tough Nut to Crack (ISNM)
-     -- { 1, 1121,    0},   -- Happy Caster (ISNM)
+        { 0, 1120,    0},   -- Tough Nut to Crack (ISNM)
+        { 1, 1121,    0},   -- Happy Caster (ISNM)
         { 2, 1122,    0},   -- Omens (BLU AF2)
         { 3, 1123, 2333},   -- Achieving True Power (PUP LB5)
         { 4, 1124,    0},   -- Shield of Diplomacy (TOAU22)
@@ -195,8 +195,8 @@ local battlefields = {
 
     [tpz.zone.JADE_SEPULCHER] =
     {
-     -- { 0, 1152,    0},   -- Making a Mockery (ISNM)
-     -- { 1, 1153,    0},   -- Shadows of the Mind (ISNM)
+        { 0, 1152,    0},   -- Making a Mockery (ISNM)
+        { 1, 1153,    0},   -- Shadows of the Mind (ISNM)
         { 2, 1154, 2331},   -- The Beast Within (BLU LB5)
      -- { 3, 1155,    0},   -- Moment of Truth (Quest)
         { 4, 1156,    0},   -- Puppet in Peril (TOAU29)
@@ -667,11 +667,17 @@ function checkReqs(player, npc, bfid, registrant)
         [1056] = function() return ( cop == mi.cop.DAWN and copStat == 2                                                                                                    ) end, -- PM8-4: Dawn
         [1057] = function() return ( player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.APOCALYPSE_NIGH) == QUEST_ACCEPTED and player:getCharVar('ApocalypseNigh') == 4        ) end, -- Apocalypse Nigh
         [1090] = function() return ( player:hasKeyItem(tpz.ki.TOGGLE_SWITCH)                                                                                                ) end, -- Quest: Puppetmaster Blues
+        [1088] = function() return ( player:hasKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER)                                                                                        ) end, -- ISNM: Call to ARms
+        [1089] = function() return ( player:hasKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER)                                                                                        ) end, -- ISNM: Compliments to the Chef
         [1091] = function() return ( mjob == tpz.job.COR and mlvl >= 66                                                                                                     ) end, -- Quest: Breaking the Bonds of Fate (COR LB5)
         [1092] = function() return ( toau == mi.toau.LEGACY_OF_THE_LOST                                                                                                     ) end, -- TOAU35: Legacy of the Lost
+        [1120] = function() return ( player:hasKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER)                                                                                        ) end, -- ISNM: Tough nut to Crack
+        [1121] = function() return ( player:hasKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER)                                                                                        ) end, -- ISNM: Happy Caster
         [1122] = function() return ( player:getQuestStatus(AHT_URHGAN,tpz.quest.id.ahtUrhgan.OMENS) == QUEST_ACCEPTED and player:getCharVar('OmensProgress') == 1           ) end, -- Quest: Omens (BLU AF Quest 2)
         [1123] = function() return ( mjob == tpz.job.PUP and mlvl >= 66                                                                                                     ) end, -- Quest: Achieving True Power (PUP LB5)
         [1124] = function() return ( toau == mi.toau.SHIELD_OF_DIPLOMACY and toauStat == 2                                                                                  ) end, -- TOAU22: Shield of Diplomacy
+        [1152] = function() return ( player:hasKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER)                                                                                        ) end, -- ISNM: Making a Mockery
+        [1153] = function() return ( player:hasKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER)                                                                                        ) end, -- ISNM: Shadows of the Mind
         [1154] = function() return ( mjob == tpz.job.BLU and mlvl >= 66                                                                                                     ) end, -- Quest: The Beast Within (BLU LB5)
         [1156] = function() return ( toau == mi.toau.PUPPET_IN_PERIL and toauStat == 1                                                                                      ) end, -- TOAU29: Puppet in Peril
         [1290] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.RED_CARD) and npcid == getEntranceOffset(0)                        ) end, -- NW Apollyon
