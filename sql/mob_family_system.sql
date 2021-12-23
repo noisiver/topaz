@@ -305,7 +305,7 @@ INSERT INTO `mob_family_system` VALUES (240,'Tauri',9,'Demon',1,40,105,130,1,3,5
 INSERT INTO `mob_family_system` VALUES (241,'Thinker',12,'Empty',1,50,100,90,3,3,2,4,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (242,'Tiger',6,'Beast',1,60,100,120,4,3,4,4,6,4,4,1,3,1,3,1,1,1,1,1.5,1,1,1,1.5,1.3,1,1,5,257,1);
 INSERT INTO `mob_family_system` VALUES (243,'Tonberry',7,'Beastmen',0,40,100,140,4,4,5,2,4,4,4,1,3,1,3,1,1,1,1,1.15,1.5,1.15,1,1.3,0.85,0.5,1,7,1,0);	-- normal tonberry
-INSERT INTO `mob_family_system` VALUES (244,'Tonberry',7,'Beastmen',0,40,100,140,4,4,5,2,4,4,4,1,3,1,3,1,1,1,1,0.66,0.825,0.66,0.66,0.66,0.66,0.33,0.66,7,1,0);
+INSERT INTO `mob_family_system` VALUES (244,'Tonberry',7,'Beastmen',0,40,100,140,4,4,5,2,4,4,4,1,3,1,3,1,1,1,1,1.15,1.5,1.15,1,1.3,0.85,0.5,1,7,1,0); -- COP Tonberry
 INSERT INTO `mob_family_system` VALUES (245,'Treant',17,'Plantoid',2,40,100,120,4,4,3,4,4,4,5,1,3,1,3,1,1,1,1,1.5,1.3,1.3,1,1.3,1,1,1.5,4,2,0);
 INSERT INTO `mob_family_system` VALUES (246,'Troll',7,'Beastmen',1,60,125,120,1,5,1,5,1,2,2,1,1,1,1,1,1,1,1,0.4,0.7,1,1,0.7,1.15,0.85,0.85,1,1,0);
 INSERT INTO `mob_family_system` VALUES (247,'Tubes',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);

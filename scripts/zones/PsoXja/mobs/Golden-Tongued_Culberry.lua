@@ -12,7 +12,7 @@ function onMobSpawn(mob)
 	mob:setDamage(125)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
-    mob:setMod(tpz.mod.MDEF, 100) 
+    mob:setMod(tpz.mod.MDEF, 112) 
     mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 0)
 end
