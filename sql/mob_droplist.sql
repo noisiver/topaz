@@ -11840,10 +11840,10 @@ INSERT INTO `mob_droplist` VALUES (2274,4,0,1000,922,0);
 INSERT INTO `mob_droplist` VALUES (2274,0,0,1000,922,250);
 INSERT INTO `mob_droplist` VALUES (2274,0,0,1000,924,120);
 INSERT INTO `mob_droplist` VALUES (2274,0,0,1000,930,10);
-INSERT INTO `mob_droplist` VALUES (2275,4,0,1000,2518,0);
-INSERT INTO `mob_droplist` VALUES (2275,0,0,1000,2518,100);
-INSERT INTO `mob_droplist` VALUES (2275,2,0,1000,4372,0);
-INSERT INTO `mob_droplist` VALUES (2275,0,0,1000,5668,50);
+INSERT INTO `mob_droplist` VALUES (2275,4,0,1000,2518,0); --(Smilodon - Batallia[S]) (Despoil) Smilodon hide
+INSERT INTO `mob_droplist` VALUES (2275,0,0,1000,2518,100); -- Smilodon hide
+INSERT INTO `mob_droplist` VALUES (2275,2,0,1000,4372,0); -- (Steal) Giant sheep Meat
+INSERT INTO `mob_droplist` VALUES (2275,0,0,1000,5668,50); -- Smilodon liver
 INSERT INTO `mob_droplist` VALUES (2276,0,0,1000,836,70);
 INSERT INTO `mob_droplist` VALUES (2276,0,0,1000,1300,100);
 INSERT INTO `mob_droplist` VALUES (2276,0,0,1000,1301,100);
