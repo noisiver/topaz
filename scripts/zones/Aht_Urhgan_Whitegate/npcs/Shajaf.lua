@@ -14,7 +14,7 @@ end
 function onTrigger(player,npc)
     if player:hasKeyItem(tpz.ki.CONFIDENTIAL_IMPERIAL_ORDER) or player:hasKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER) then
         player:startEvent(161)
-    elseif player:getVar("next_isnm_order") > os.time() then
+    elseif player:getCharVar("next_isnm_order") > os.time() then
         player:startEvent(163)
     else
         player:startEvent(160, player:getCurrency("imperial_standing"))
@@ -28,10 +28,10 @@ function onEventFinish(player,csid,option)
     if option == 1 then
         npcUtil.giveKeyItem(player, tpz.ki.CONFIDENTIAL_IMPERIAL_ORDER)
         player:delCurrency("imperial_standing", 2000)
-        player:setVar("next_isnm_order", getMidnight())
+        player:setCharVar("next_isnm_order", getMidnight())
     elseif option == 2 then
         npcUtil.giveKeyItem(player, tpz.ki.SECRET_IMPERIAL_ORDER)
         player:delCurrency("imperial_standing", 3000)
-        player:setVar("next_isnm_order", getMidnight())
+        player:setCharVar("next_isnm_order", getMidnight())
     end
 end
