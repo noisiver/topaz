@@ -2256,15 +2256,15 @@ INSERT INTO `mob_droplist` VALUES (383,0,0,1000,4468,110);
 INSERT INTO `mob_droplist` VALUES (383,0,0,1000,5187,70);
 INSERT INTO `mob_droplist` VALUES (383,0,0,1000,17296,100);
 INSERT INTO `mob_droplist` VALUES (384,0,0,1000,5373,100);
-INSERT INTO `mob_droplist` VALUES (385,0,0,1000,541,89);
-INSERT INTO `mob_droplist` VALUES (385,0,0,1000,857,159);
-INSERT INTO `mob_droplist` VALUES (385,0,0,1000,857,110);
-INSERT INTO `mob_droplist` VALUES (385,0,0,1000,857,70);
+INSERT INTO `mob_droplist` VALUES (385,0,0,1000,541,100); -- (Bull Dhlamel) Cup of dhalmel saliva
+INSERT INTO `mob_droplist` VALUES (385,0,0,1000,857,150); -- Dhalmel hide
+INSERT INTO `mob_droplist` VALUES (385,0,0,1000,857,100); -- Dhalmel hide
+INSERT INTO `mob_droplist` VALUES (385,0,0,1000,857,50); -- Dhalmel hide
 INSERT INTO `mob_droplist` VALUES (385,4,0,1000,893,0);
-INSERT INTO `mob_droplist` VALUES (385,0,0,1000,893,106);
-INSERT INTO `mob_droplist` VALUES (385,0,0,1000,938,90);
-INSERT INTO `mob_droplist` VALUES (385,0,0,1000,4359,480);
-INSERT INTO `mob_droplist` VALUES (385,0,0,1000,4359,290);
+INSERT INTO `mob_droplist` VALUES (385,0,0,1000,893,100); -- Giant femur
+INSERT INTO `mob_droplist` VALUES (385,0,0,1000,938,50); -- Sprig of papaka grass
+INSERT INTO `mob_droplist` VALUES (385,0,0,1000,4359,240); -- Slice of dhalmel meat
+INSERT INTO `mob_droplist` VALUES (385,0,0,1000,4359,150); -- Slice of dhalmel meat
 INSERT INTO `mob_droplist` VALUES (386,0,0,1000,891,440);
 INSERT INTO `mob_droplist` VALUES (386,0,0,1000,922,490);
 INSERT INTO `mob_droplist` VALUES (386,0,0,1000,924,10);
@@ -2388,11 +2388,11 @@ INSERT INTO `mob_droplist` VALUES (400,0,0,1000,1782,150);
 INSERT INTO `mob_droplist` VALUES (401,0,0,1000,891,70);
 INSERT INTO `mob_droplist` VALUES (401,0,0,1000,922,160);
 INSERT INTO `mob_droplist` VALUES (401,0,0,1000,924,100);
-INSERT INTO `mob_droplist` VALUES (402,0,0,1000,857,180);
-INSERT INTO `mob_droplist` VALUES (402,0,0,1000,893,130);
+INSERT INTO `mob_droplist` VALUES (402,0,0,1000,857,150);
+INSERT INTO `mob_droplist` VALUES (402,0,0,1000,893,100);
 INSERT INTO `mob_droplist` VALUES (402,0,0,1000,3238,180);
-INSERT INTO `mob_droplist` VALUES (402,0,0,1000,4359,520);
-INSERT INTO `mob_droplist` VALUES (402,0,0,1000,4359,430);
+INSERT INTO `mob_droplist` VALUES (402,0,0,1000,4359,240);
+INSERT INTO `mob_droplist` VALUES (402,0,0,1000,4359,150);
 INSERT INTO `mob_droplist` VALUES (403,0,0,1000,881,10);
 INSERT INTO `mob_droplist` VALUES (403,0,0,1000,936,110);
 INSERT INTO `mob_droplist` VALUES (403,0,0,1000,4400,100);
@@ -3512,13 +3512,13 @@ INSERT INTO `mob_droplist` VALUES (630,0,0,1000,14041,100);
 INSERT INTO `mob_droplist` VALUES (631,0,0,1000,846,236);
 INSERT INTO `mob_droplist` VALUES (631,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (631,0,0,1000,894,150);
-INSERT INTO `mob_droplist` VALUES (632,0,0,1000,857,209);
-INSERT INTO `mob_droplist` VALUES (632,0,0,1000,857,110);
-INSERT INTO `mob_droplist` VALUES (632,0,0,1000,857,70);
-INSERT INTO `mob_droplist` VALUES (632,0,0,1000,893,149);
-INSERT INTO `mob_droplist` VALUES (632,0,0,1000,938,66);
-INSERT INTO `mob_droplist` VALUES (632,0,0,1000,4359,510);
+INSERT INTO `mob_droplist` VALUES (632,0,0,1000,857,150);
+INSERT INTO `mob_droplist` VALUES (632,0,0,1000,857,100);
+INSERT INTO `mob_droplist` VALUES (632,0,0,1000,857,50);
+INSERT INTO `mob_droplist` VALUES (632,0,0,1000,893,100);
+INSERT INTO `mob_droplist` VALUES (632,0,0,1000,938,50);
 INSERT INTO `mob_droplist` VALUES (632,0,0,1000,4359,240);
+INSERT INTO `mob_droplist` VALUES (632,0,0,1000,4359,150);
 INSERT INTO `mob_droplist` VALUES (633,0,0,1000,1116,100); -- (Desert Manticore - Western Altepa Desert) Manticore hide
 INSERT INTO `mob_droplist` VALUES (633,0,0,1000,1123,50); -- Manticore fang
 INSERT INTO `mob_droplist` VALUES (633,0,0,1000,1163,240); -- Lock of manticore hair
@@ -8385,10 +8385,10 @@ INSERT INTO `mob_droplist` VALUES (1618,0,0,1000,2151,240);
 INSERT INTO `mob_droplist` VALUES (1618,2,0,1000,2155,0);
 INSERT INTO `mob_droplist` VALUES (1618,0,0,1000,2166,100);
 INSERT INTO `mob_droplist` VALUES (1619,0,0,1000,2506,150); -- Ladybug wing
-INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,857,240);
 INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,857,150);
+INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,857,100);
 INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,893,100);
-INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,938,10);
+INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,938,50);
 INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,4359,240);
 INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,4359,150);
 INSERT INTO `mob_droplist` VALUES (1621,0,0,1000,2523,50); -- Peiste skin
@@ -11370,7 +11370,7 @@ INSERT INTO `mob_droplist` VALUES (2168,0,0,1000,5755,240); -- Slab of ruszor me
 INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,857,10); -- (Savanna Dhalmel) Dhalmel Hide
 INSERT INTO `mob_droplist` VALUES (2169,4,0,1000,893,0); -- Dhalmel Hide (Despoil)
 INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,893,100); -- Giant femur
-INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,938,10); -- Sprig of papaka grass
+INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,938,50); -- Sprig of papaka grass
 INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,2539,100); -- Tuft of dhalmel hair
 INSERT INTO `mob_droplist` VALUES (2169,4,0,1000,4359,0); -- Dhamel Meat(Despoil)
 INSERT INTO `mob_droplist` VALUES (2169,0,0,1000,4359,240); -- Slice of dhalmel meat
@@ -11555,8 +11555,8 @@ INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,12348,240); -- Serket shield
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,13552,240); -- Serket ring
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,16767,240); -- Triple dagger
 INSERT INTO `mob_droplist` VALUES (2204,0,0,1000,638,80);
-INSERT INTO `mob_droplist` VALUES (2204,0,0,1000,893,120);
-INSERT INTO `mob_droplist` VALUES (2204,0,0,1000,938,10);
+INSERT INTO `mob_droplist` VALUES (2204,0,0,1000,893,100);
+INSERT INTO `mob_droplist` VALUES (2204,0,0,1000,938,50);
 INSERT INTO `mob_droplist` VALUES (2204,0,0,1000,13086,248);	-- (Serpopard Ishtar) Cerulean Pendant
 INSERT INTO `mob_droplist` VALUES (2205,0,0,1000,979,50);
 INSERT INTO `mob_droplist` VALUES (2206,0,0,1000,1005,50);
@@ -14003,7 +14003,7 @@ INSERT INTO `mob_droplist` VALUES (2597,2,0,1000,936,0);
 INSERT INTO `mob_droplist` VALUES (2597,0,0,1000,936,240);
 INSERT INTO `mob_droplist` VALUES (2598,0,0,1000,534,160);
 INSERT INTO `mob_droplist` VALUES (2598,0,0,1000,856,60);
-INSERT INTO `mob_droplist` VALUES (2598,0,0,1000,938,10);
+INSERT INTO `mob_droplist` VALUES (2598,0,0,1000,938,50);
 INSERT INTO `mob_droplist` VALUES (2598,2,0,1000,4358,0);
 INSERT INTO `mob_droplist` VALUES (2598,0,0,1000,4358,370);
 INSERT INTO `mob_droplist` VALUES (2599,0,0,1000,924,70);
@@ -14309,13 +14309,13 @@ INSERT INTO `mob_droplist` VALUES (2654,0,0,1000,4872,50);
 INSERT INTO `mob_droplist` VALUES (2654,0,0,1000,4876,50);
 INSERT INTO `mob_droplist` VALUES (2654,0,0,1000,4877,50);
 INSERT INTO `mob_droplist` VALUES (2654,0,0,1000,4878,50);
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,180);	-- wild dhalmel dhalmel hide
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,110);	-- wild dhalmel dhalmel hide
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,70);	-- wild dhalmel dhalmel hide
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,893,120);	-- wild dhalmel giant femur
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,938,70);	-- wild dhalmel Sprig of papaka grass
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,4359,520);	-- wild dhalmel dhalmel meat
-INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,4359,370);	-- wild dhalmel dhalmel meat
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,150);	-- wild dhalmel dhalmel hide
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,100);	-- wild dhalmel dhalmel hide
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,857,50);	-- wild dhalmel dhalmel hide
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,893,100);	-- wild dhalmel giant femur
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,938,50);	-- wild dhalmel Sprig of papaka grass
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,4359,240);	-- wild dhalmel dhalmel meat
+INSERT INTO `mob_droplist` VALUES (2655,0,0,1000,4359,150);	-- wild dhalmel dhalmel meat
 INSERT INTO `mob_droplist` VALUES (2656,0,0,1000,878,150);
 INSERT INTO `mob_droplist` VALUES (2656,0,0,1000,5571,100); 
 INSERT INTO `mob_droplist` VALUES (2657,0,0,1000,878,150);
