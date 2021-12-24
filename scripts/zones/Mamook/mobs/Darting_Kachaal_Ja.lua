@@ -13,12 +13,27 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 40)
 	mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
+	mob:setLocalVar("RunAwayTime", 0)
+	mob:setLocalVar("RunAwayPath", 0)
 end
 
 function onMobEngaged(mob)
+	local StunTime = mob:getLocalVar("StunTime")
+	local RunAwayTime = mob:getLocalVar("RunAwayTime")
+	local RunBackTime = mob:getLocalVar("RunAwayTime")
+	local RunAwayPath = mob:getLocalVar("RunBackTime")
+	local BattleTime = mob:getBattleTime()
+	mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
+    if RunAwayPath > 0 then
+	    mob:setLocalVar("RunBackTime", BattleTime + 45)
+	    mob:setLocalVar("RunAwayPath", 1)
+    else
+    	mob:setLocalVar("RunAwayTime", BattleTime + 45)
+		mob:setLocalVar("RunAwayPath", 0)
+    end
 end
 
 function onMobFight(mob, target)
