@@ -36,10 +36,10 @@ function onMobFight(mob, target)
 	local BattleTime = mob:getBattleTime()
 
 	if UtsuTime == 0 then
-		mob:setLocalVar("UtsuTime", BattleTime + 5)
+		mob:setLocalVar("UtsuTime", BattleTime + 45)
 	elseif BattleTime >= UtsuTime then
 		mob:castSpell(339, mob) -- Utusemi: Ni
-		mob:setLocalVar("UtsuTime", BattleTime + 5)
+		mob:setLocalVar("UtsuTime", BattleTime + 45)
 	end
 end
 
