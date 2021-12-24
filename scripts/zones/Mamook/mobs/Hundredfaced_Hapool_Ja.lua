@@ -12,7 +12,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:setMod(tpz.mod.REFRESH, 400)
-    mob:setMod(tpz.mod.REGAIN, 150)
+    mob:setMod(tpz.mod.REGAIN, 200)
      tpz.mix.jobSpecial.config(mob, {
         specials =
         {
@@ -20,6 +20,7 @@ function onMobSpawn(mob)
         },
      })
     mob:SetMagicCastingEnabled(false)
+    mob:setLocalVar("UtsuTime", 0)
 end
 
 function onMobRoam(mob)
@@ -28,6 +29,18 @@ end
 
 function onMobEngaged(mob)
     mob:SetMagicCastingEnabled(true)
+end
+
+function onMobFight(mob, target)
+	local UtsuTime = mob:getLocalVar("UtsuTime")
+	local BattleTime = mob:getBattleTime()
+
+	if UtsuTime == 0 then
+		mob:setLocalVar("UtsuTime", BattleTime + 45)
+	elseif BattleTime >= UtsuTime then
+		mob:castSpell(339) -- Utusemi: Ni
+		mob:setLocalVar("UtsuTime", BattleTime + 45)
+	end
 end
 
 function onSpellPrecast(mob, spell)
