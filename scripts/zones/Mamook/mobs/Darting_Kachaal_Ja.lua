@@ -25,12 +25,13 @@ function onMobEngaged(mob)
 	local RunBackTime = mob:getLocalVar("RunAwayTime")
 	local RunAwayPath = mob:getLocalVar("RunBackTime")
 	local BattleTime = mob:getBattleTime()
+    local RNG = math.random(1,2)
 	mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
-    if RunAwayPath > 0 then
+    if RNG == 1 then
 	    mob:setLocalVar("RunBackTime", BattleTime + 45)
 	    mob:setLocalVar("RunAwayPath", 1)
-    else
+    elseif RNG == 2 then
     	mob:setLocalVar("RunAwayTime", BattleTime + 45)
 		mob:setLocalVar("RunAwayPath", 0)
     end
