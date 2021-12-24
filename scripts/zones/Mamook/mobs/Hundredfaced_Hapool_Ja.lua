@@ -74,6 +74,10 @@ end
 
 function onMobDespawn(mob)
     mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+    DespawnMob(Guard)
+    DespawnMob(GuardTwo)
+    DespawnMob(GuardThree)
+    DespawnMob(GuardFour)
 end
 
 function onMobDeath(mob, player, isKiller)
