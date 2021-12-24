@@ -14,12 +14,32 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
-     tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.CHAINSPELL, cooldown = 180, hpp = 90},
-        },
-     })
+	local GuardOne = GetMobByID(mob:getID()+1)
+	local GuardTwo = GetMobByID(mob:getID()+2)
+
+	if GuardOne:isSpawned() then
+		GuardOne:updateEnmity(target)
+	end
+	if  GuardTwo:isSpawned() then
+		GuardTwo:updateEnmity(target)
+	end
+
+	if not GuardOne:isSpawned() then
+		GuardOne:setPos(mob:getPos())
+		GuardOne:spawn()
+		GuardOne:updateEnmity(target)
+	elseif not GuardTwo:isSpawned() then
+		GuardTwo:setPos(mob:getPos())
+		GuardTwo:spawn()
+		GuardTwo:updateEnmity(target)
+	end
+
+    tpz.mix.jobSpecial.config(mob, {
+    specials =
+    {
+        {id = tpz.jsa.CHAINSPELL, cooldown = 180, hpp = 90},
+    },
+    })
 end
 
 function onMobDeath(mob, player, isKiller)
