@@ -43,6 +43,8 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    DespawnMob(mob:getID()+1)
+    DespawnMob(mob:getID()+2)
 	if isKiller  then 
 		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
