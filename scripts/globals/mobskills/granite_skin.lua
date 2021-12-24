@@ -20,10 +20,11 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local typeEffectOne = tpz.effect.PHYSICAL_SHIELD
+    skill:setMsg(MobBuffMove(mob, typeEffectOne, 1, 0, 45))
+    local effect1 = mob:getStatusEffect(typeEffectOne)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 
-    -- addEx to pervent dispel
-    mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 45)
-    skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
-
-    return tpz.effect.PHYSICAL_SHIELD
+    return typeEffectOne
 end
+
