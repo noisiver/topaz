@@ -25,6 +25,8 @@ function onMobWeaponSkill(target, mob, skill)
 
     if (target:isFacing(mob)) then
         MobCharmMove(mob, target, skill, 0, 120)
+        return tpz.effect.CHARM_I
+    else
+        return tpz.msg.basic.SKILL_NO_EFFECT
     end
-    return tpz.effect.CHARM_I
 end
