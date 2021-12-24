@@ -692,7 +692,7 @@ void SetupJob(CMobEntity* PMob)
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1146);
                 PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
             }
-            else if (PMob->m_Family != 335 || PMob->m_Family != 335) // exclude NIN Maat and Mamools
+            else if (PMob->m_Family != 335 || PMob->m_Family != 176) // exclude NIN Maat and Mamools
             {
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
                 PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
