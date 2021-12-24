@@ -20,28 +20,15 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob)
-	local StunTime = mob:getLocalVar("StunTime")
-	local RunAwayTime = mob:getLocalVar("RunAwayTime")
-	local RunBackTime = mob:getLocalVar("RunAwayTime")
-	local RunAwayPath = mob:getLocalVar("RunBackTime")
-	local BattleTime = mob:getBattleTime()
-    local RNG = math.random(1,2)
 	mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
-    if RNG == 1 then
-	    mob:setLocalVar("RunBackTime", BattleTime + 45)
-	    mob:setLocalVar("RunAwayPath", 1)
-    elseif RNG == 2 then
-    	mob:setLocalVar("RunAwayTime", BattleTime + 45)
-		mob:setLocalVar("RunAwayPath", 0)
-    end
 end
 
 function onMobFight(mob, target)
 	local StunTime = mob:getLocalVar("StunTime")
 	local RunAwayTime = mob:getLocalVar("RunAwayTime")
-	local RunBackTime = mob:getLocalVar("RunAwayTime")
-	local RunAwayPath = mob:getLocalVar("RunBackTime")
+	local RunBackTime = mob:getLocalVar("RunBackTime")
+	local RunAwayPath = mob:getLocalVar("RunAwayPath")
 	local BattleTime = mob:getBattleTime()
 
     local spellList =
@@ -50,11 +37,6 @@ function onMobFight(mob, target)
         [2] = 362,-- bindga
     }
 
-	local Pos = mob:getPos()
-	if Pos.x == -205 and Pos.y == 18 and Pos.z == -367 or Pos.x == 38 and Pos.y == 17 and Pos.z == -391 then
-        mob:SetMagicCastingEnabled(true)
-    end
-	
 	if RunAwayTime == 0 then
 		mob:setLocalVar("RunAwayTime", BattleTime + 45)
 	elseif BattleTime >= RunAwayTime and RunAwayPath == 0 then
