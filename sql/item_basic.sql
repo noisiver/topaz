@@ -1504,7 +1504,7 @@ INSERT INTO `item_basic` VALUES (1614,0,'corse_bracelet','corse_bracelet',1,4,50
 INSERT INTO `item_basic` VALUES (1615,0,'buffalo_horn','buffalo_horn',1,4,42,0,2687);
 INSERT INTO `item_basic` VALUES (1616,0,'antlion_jaw','antlion_jaw',1,4,42,0,2740);
 INSERT INTO `item_basic` VALUES (1617,0,'flytrap_leaf','flytrap_leaf',1,4,44,0,1350);
-INSERT INTO `item_basic` VALUES (1618,0,'uragnite_shell','uragnite_shell',12,4,42,0,1500);
+INSERT INTO `item_basic` VALUES (1618,0,'uragnite_shell','uragnite_shell',1,4,42,0,1500);
 INSERT INTO `item_basic` VALUES (1619,0,'hippogryph_feather','hippogryph_fthr.',12,4,40,0,1428);
 INSERT INTO `item_basic` VALUES (1620,0,'taurus_horn','taurus_horn',1,4,42,0,577);
 INSERT INTO `item_basic` VALUES (1621,0,'taurus_wing','taurus_wing',1,4,44,0,1237);
@@ -1526,7 +1526,7 @@ INSERT INTO `item_basic` VALUES (1636,0,'square_of_moblinweave','moblinweave',12
 INSERT INTO `item_basic` VALUES (1637,0,'square_of_bugard_leather','bugard_leather',12,4,41,0,450);
 INSERT INTO `item_basic` VALUES (1638,0,'moblin_mask','moblin_mask',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (1639,0,'corse_robe','corse_robe',1,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (1640,0,'bugard_skin','bugard_skin',12,4,41,0,450);	-- was 210
+INSERT INTO `item_basic` VALUES (1640,0,'bugard_skin','bugard_skin',1,4,41,0,450);	-- was 210
 INSERT INTO `item_basic` VALUES (1641,0,'bottle_of_fire_anima','fire_anima',99,4100,44,1,0);
 INSERT INTO `item_basic` VALUES (1642,0,'bottle_of_ice_anima','ice_anima',99,4100,44,1,0);
 INSERT INTO `item_basic` VALUES (1643,0,'bottle_of_wind_anima','wind_anima',99,4100,44,1,0);
@@ -1750,7 +1750,7 @@ INSERT INTO `item_basic` VALUES (1860,0,'jar_of_moblin_putty','moblin_putty',12,
 INSERT INTO `item_basic` VALUES (1861,0,'moblin_sheepskin','moblin_sheepskin',12,12356,0,1,0);
 INSERT INTO `item_basic` VALUES (1862,0,'square_of_moblin_sheep_leather','m._sheep_lth.',12,12356,0,1,0);
 INSERT INTO `item_basic` VALUES (1863,0,'clump_of_moblin_sheep_wool','m._sheep_wool',12,12356,0,1,0);
-INSERT INTO `item_basic` VALUES (1864,0,'high-quality_antlion_jaw','h.q._antlion_jaw',12,12356,0,1,0);
+INSERT INTO `item_basic` VALUES (1864,0,'high-quality_antlion_jaw','h.q._antlion_jaw',1,12356,0,1,0);
 INSERT INTO `item_basic` VALUES (1865,0,'orc_helm_cutting','orc_cutting',1,45120,0,1,0);
 INSERT INTO `item_basic` VALUES (1866,0,'set_of_quadav_barbut_parts','quadav_parts',1,45120,0,1,0);
 INSERT INTO `item_basic` VALUES (1867,0,'yagudo_headdress_cutting','yagudo_cutting',1,45120,0,1,0);
