@@ -30,6 +30,6 @@ function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 15 then 
 		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
-	    DespawnMob(mob:getID()+1)
-		DespawnMob(mob:getID()+2)
+	DespawnMob(mob:getID()+1)
+	DespawnMob(mob:getID()+2)
 end

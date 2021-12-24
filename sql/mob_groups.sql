@@ -2955,7 +2955,7 @@ INSERT INTO `mob_groups` VALUES (14,1160,62,'Earth_Elemental',600,4,0,0,0,81,83,
 INSERT INTO `mob_groups` VALUES (15,437,62,'Black_Pudding',600,0,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (16,4281,62,'Wamouracampa',600,0,2609,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (17,642,62,'Magmatic_Eruca',600,0,419,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (18,5209,62,'Copper_Borer',0,128,6025,30000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (18,5209,62,'Copper_Borer',7200,0,6025,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (19,2686,62,'Moblin_Billionaire',600,0,1704,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,1341,62,'Fire_Elemental',600,4,831,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,1426,62,'Friars_Lantern',600,0,908,0,0,81,83,0);
@@ -2973,9 +2973,9 @@ INSERT INTO `mob_groups` VALUES (33,4013,62,'Troll_Cuirasser',600,0,2476,0,0,81,
 INSERT INTO `mob_groups` VALUES (34,163,62,'Antares',600,0,6030,0,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (35,2794,62,'Mythril_Mouth_Monamaq',7200,0,1766,60000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (36,4024,62,'Troll_Mythril_Guard',5,0,0,0,0,76,77,0);
-INSERT INTO `mob_groups` VALUES (37,2267,62,'Kirlirger_the_Abhorrent',600,0,1454,30000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (38,1302,62,'Farlarder_the_Shrewd',600,0,819,30000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (39,1091,62,'Dorgerwor_the_Astute',259200,0,692,30000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (37,2267,62,'Kirlirger_the_Abhorrent',7200,0,1454,30000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (38,1302,62,'Farlarder_the_Shrewd',7200,0,819,30000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (39,1091,62,'Dorgerwor_the_Astute',7200,0,692,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (40,894,62,'Dahak',1800,0,6029,0,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (41,718,62,'Chiliarch_Gordarvor',0,128,0,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (42,1937,62,'Hetairoi_Vuryargur',0,128,0,30000,0,85,87,0);

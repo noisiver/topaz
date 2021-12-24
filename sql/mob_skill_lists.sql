@@ -4239,6 +4239,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1358); -- p
 INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6084,1699); -- Pecking Flurry
 INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6084,1702); -- Wise Crack
 INSERT INTO `mob_skill_lists` VALUES ('Blazing_Angon_Only',6085,2098); -- Blazing Angon
+INSERT INTO `mob_skill_lists` VALUES ('Zarbzan_Only',6086,1748); -- zarbzan
+INSERT INTO `mob_skill_lists` VALUES ('Thermal_Pulse_Only',6087,1817); -- thermal_pulse
 
 
 -- Next available ID: 1148

@@ -2190,7 +2190,7 @@ INSERT INTO `mob_skills` VALUES (2248,432,'invincible',0,18.0,2000,0,1,0,30,0,0,
 INSERT INTO `mob_skills` VALUES (2249,432,'blood_weapon',0,18.0,2000,0,1,0,30,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2250,1994,'familiar',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2251,1995,'soul_voice',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2252,1298,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- troll
+INSERT INTO `mob_skills` VALUES (2252,1298,'eagle_eye_shot_troll',0,25.0,2000,0,4,2,0,0,0,0,0); -- troll
 -- INSERT INTO `mob_skills` VALUES (2253,1997,'meikyo_shisui',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2254,1998,'mijin_gakure',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2255,1999,'spirit_surge',0,7.0,2000,0,1,2,0,0,0,0,0);
