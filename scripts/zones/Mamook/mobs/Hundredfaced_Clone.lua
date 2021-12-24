@@ -19,7 +19,7 @@ function onMobFight(mob, target)
 	if MijinTime == 0 then
 		mob:setLocalVar("MijinTime", BattleTime + math.random(30, 60))
 	elseif BattleTime >= MijinTime then
-		mob:castSpell(731) -- Mijin Gakure
+		mob:useMobAbility(731) -- Mijin Gakure
 		mob:setLocalVar("MijinTime", BattleTime + math.random(30, 60))
 	end
 end
