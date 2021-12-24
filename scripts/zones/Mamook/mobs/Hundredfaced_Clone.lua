@@ -5,17 +5,23 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
-mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REGAIN, 250)
+    mob:setMod(tpz.mod.REGAIN, 300)
     mob:SetMagicCastingEnabled(false)
-     tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.MIJIN_GAKURE, cooldown = 45, hpp = 100},
-        },
-     })
+    mob:setLocalVar("MijinTime", BattleTime + 0)
+end
+
+function onMobFight(mob, target)
+	local MijinTime = mob:getLocalVar("MijinTime")
+	local BattleTime = mob:getBattleTime()
+
+	if MijinTime == 0 then
+		mob:setLocalVar("MijinTime", BattleTime + math.random(30, 60))
+	elseif BattleTime >= MijinTime then
+		mob:castSpell(731) -- Mijin Gakure
+		mob:setLocalVar("MijinTime", BattleTime + math.random(30, 60))
+	end
 end
 
 function onMobDeath(mob, player, isKiller)
