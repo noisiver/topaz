@@ -10,6 +10,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
+		return 1
+	end
     local phase = mob:getLocalVar("battlePhase")
     if (phase >= 3) then
         if mob:getLocalVar("nuclearWaste") == 0 and mob:getLocalVar("citadelBuster") == 0 then
@@ -20,8 +23,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.PHYSICAL_SHIELD
+    local typeEffectOne = tpz.effect.PHYSICAL_SHIELD
+    skill:setMsg(MobBuffMove(mob, typeEffectOne, 1, 0, 60))
+    local effect1 = mob:getStatusEffect(typeEffectOne)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, 1, 0, 60))
-    return typeEffect
+    return typeEffectOne
 end
