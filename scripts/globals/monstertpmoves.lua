@@ -824,7 +824,15 @@ function MobHealMove(target, heal)
     return heal
 end
 
-function MobEncumberMove(target, maxSlots, duration)
+function MobEncumberMove(mob, target, maxSlots, duration)
+    local statmod = tpz.mod.INT
+    local element = mob:getStatusEffectElement(tpz.effect.ENCUMBRANCE_I)
+
+    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local eleres = target:getMod(element+53)
+    if     eleres < 0  and resist < 0.5  then resist = 0.5
+    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
     local encumberSlots = {};
     local currIndex = 1;
 	while (currIndex <= maxSlots) and (#encumberSlots < 16) do
@@ -862,7 +870,9 @@ function MobEncumberMove(target, maxSlots, duration)
       target:unequipItem(encumberSlots[i]);
       mask = mask + math.pow(2, encumberSlots[i]);
     end
-    target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
+    if resist >= 0.5 then
+        target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration * resist);
+    end
 end
 
 function MobCharmMove(mob, target, skill, costume, duration)
