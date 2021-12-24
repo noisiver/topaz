@@ -19,6 +19,15 @@ function onMobSpawn(mob)
             {id = tpz.jsa.MIJIN_GAKURE, cooldown = 45, hpp = 100},
         },
      })
+    mob:SetMagicCastingEnabled(false)
+end
+
+function onMobRoam(mob)
+    mob:SetMagicCastingEnabled(false)
+end
+
+function onMobEngaged(mob)
+    mob:SetMagicCastingEnabled(true)
 end
 
 function onSpellPrecast(mob, spell)
