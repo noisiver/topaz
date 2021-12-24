@@ -38,12 +38,12 @@ function onMobFight(mob, target)
     }
 
 	if RunAwayTime == 0 then
-		mob:setLocalVar("RunAwayTime", BattleTime + 45)
+		mob:setLocalVar("RunAwayTime", BattleTime + 15)
 	elseif BattleTime >= RunAwayTime and RunAwayPath == 0 then
         mob:castSpell(spellList[math.random(#spellList)])
         mob:SetMagicCastingEnabled(false)
 		mob:pathTo(-205, 18, -367)
-		mob:setLocalVar("RunBackTime", BattleTime + 45)
+		mob:setLocalVar("RunBackTime", BattleTime + 15)
 		mob:setLocalVar("RunAwayPath", 1)
 	end
 	
@@ -51,7 +51,7 @@ function onMobFight(mob, target)
         mob:castSpell(spellList[math.random(#spellList)])
         mob:SetMagicCastingEnabled(false)
 		mob:pathTo(38, 17, -391)
-		mob:setLocalVar("RunAwayTime", BattleTime + 45)
+		mob:setLocalVar("RunAwayTime", BattleTime + 15)
 		mob:setLocalVar("RunAwayPath", 0)
 	end
 end
