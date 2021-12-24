@@ -10,6 +10,7 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -17,36 +18,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if (mob:getPool() == 2914) then -- Novv the Whitehearted
-		MobStatusEffectMove(mob, target, tpz.effect.DEX_DOWN, 30, 0, 60)
-		MobStatusEffectMove(mob, target, tpz.effect.VIT_DOWN, 30, 0, 60)
-		MobStatusEffectMove(mob, target, tpz.effect.AGI_DOWN, 30, 0, 60)
-		MobStatusEffectMove(mob, target, tpz.effect.INT_DOWN, 30, 0, 60)
-		MobStatusEffectMove(mob, target, tpz.effect.MND_DOWN, 30, 0, 60)
-		MobStatusEffectMove(mob, target, tpz.effect.CHR_DOWN, 30, 0, 60)
-	local typeEffect = tpz.effect.STR_DOWN
-		skill:setMsg(tpz.msg.basic.ATTR_DRAINED)
-	else
-		local message = tpz.msg.basic.SKILL_MISS
-		local typeEffect = tpz.effect.CHARM_I
-		local power = 0
 
-		if (not target:isPC()) then
-			skill:setMsg(tpz.msg.basic.SKILL_MISS)
-			return typeEffect
-		end
+    MobCharmMove(mob, target, skill, 2239, 60)
 
-		local msg = MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
-		if target:hasStatusEffect(tpz.effect.FEALTY) then
-			skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-		else
-			if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
-			mob:charm(target)
-			target:costume(2239) --Frog
-		end
-			 skill:setMsg(msg)
-		end
-	end
-
-    return typeEffect
+    return tpz.effect.CHARM_I
 end

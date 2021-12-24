@@ -10,6 +10,10 @@ require("scripts/globals/magic")
 
 function onMobSpawn(mob)
 	mob:setDamage(100)
+    mob:setMod(tpz.mod.ATT, 560) -- 620
+    mob:setMod(tpz.mod.DEF, 253) -- 300
+    mob:setMod(tpz.mod.EVA, 324) -- 360
+    mob:setMod(tpz.mod.REFRESH, 50)
     -- Set AnimationSub to 0, put it in pot form
     -- Change it's damage resists. Pot for take
 
@@ -33,7 +37,7 @@ function onMobFight(mob)
     local changeTime = mob:getLocalVar("changeTime")
 
     -- If we're in a pot form, but going to change to either Rings/Poles
-    if ((mob:AnimationSub() == 0 or mob:AnimationSub() == 1) and mob:getBattleTime() - changeTime > randomTime) then
+    if mob:AnimationSub() == 0 or mob:AnimationSub() == 4 or mob:AnimationSub() == 1 and mob:getBattleTime() - changeTime > randomTime then
         local aniChange = math.random(2, 3)
         mob:AnimationSub(aniChange)
 

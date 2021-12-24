@@ -865,6 +865,34 @@ function MobEncumberMove(target, maxSlots, duration)
     target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration);
 end
 
+function MobCharmMove(mob, target, skill, costume, duration)
+	-- 0 costume = none
+        local statmod = tpz.mod.CHR
+        local element = mob:getStatusEffectElement(tpz.effect.CHARM_I)
+
+        local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and resist < 0.5  then resist = 0.5
+        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+	if (not target:isPC()) then
+		skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	end
+	
+	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		else
+        	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)
+			mob:charm(target)
+			target:costume(costume)
+            return skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
+        end
+	else
+	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	end
+end
+
 function MobTakeAoEShadow(mob, target, max)
 
     return max

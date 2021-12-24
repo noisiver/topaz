@@ -2093,7 +2093,7 @@ INSERT INTO `synth_recipes` VALUES (29956,1,0,0,0,7,0,0,0,0,0,4100,4242,12496,0,
 -- INSERT INTO `synth_recipes` VALUES (29968,1,0,0,0,255,0,0,0,0,0,4100,4242,12577,0,0,0,0,0,0,0,649,850,650,650,1,1,2,2,'Brass Harness (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29969,1,0,0,0,255,0,0,0,0,0,4100,4242,12930,0,0,0,0,0,0,0,851,931,931,931,2,3,3,3,'Gold Sabatons (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29970,1,0,0,0,255,0,0,0,0,0,4100,4242,1382,0,0,0,0,0,0,0,931,931,931,931,2,2,2,2,'Cursed Schuhs (desynth)');
--- INSERT INTO `synth_recipes` VALUES (29971,1,0,0,0,255,0,0,0,0,0,4098,4240,1614,0,0,0,0,0,0,0,760,814,815,801,1,1,1,1,'Corse Bracelet (desynth)');
+INSERT INTO `synth_recipes` VALUES (29971,1,0,0,0,255,0,0,0,0,0,4098,4240,1614,0,0,0,0,0,0,0,760,814,815,801,1,1,1,1,'Corse Bracelet (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29972,1,0,0,0,255,0,0,0,0,0,4100,4242,13515,0,0,0,0,0,0,0,744,745,745,745,1,1,1,1,'Electrum Ring (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29973,1,0,0,0,255,0,0,0,0,0,4100,4242,17081,0,0,0,0,0,0,0,649,649,648,650,1,2,1,1,'Brass Rod (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29974,1,0,0,0,255,0,0,0,0,0,4100,4242,14864,0,0,0,0,0,0,0,744,744,744,744,3,3,3,3,'Palmer\'s Bangles (desynth)');

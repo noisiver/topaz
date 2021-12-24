@@ -34,10 +34,9 @@ function onMobWeaponSkill(target, mob, skill)
     local msg = MobGazeMove(mob, target, typeEffect, power, 3, 150)
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-    else
-	    if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
+    elseif (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
         mob:charm(target)
-    end
+    else
          skill:setMsg(msg)
     end
 

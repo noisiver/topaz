@@ -10,11 +10,15 @@ require("scripts/globals/mobs")
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
     mob:setMod(tpz.mod.SUSC_TO_WS_STUN,1)
+end
+
+function onMobSpawn(mob)
     mob:setDamage(175)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:setMod(tpz.mod.REFRESH, 50) 
-  end
+    mob:setMod(tpz.mod.ATT, 535)
+    mob:setMod(tpz.mod.DEF, 522)
+    mob:setMod(tpz.mod.EVA, 324) 
+    mob:setMod(tpz.mod.REFRESH, 50)
+end
 
 function onMobEngaged(mob)
     local now = os.time()

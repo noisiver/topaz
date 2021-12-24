@@ -4225,7 +4225,7 @@ INSERT INTO `mob_skill_lists` VALUES ('FirespitOnly',6076,1733); -- Firespit
 INSERT INTO `mob_skill_lists` VALUES ('NimbleSnapOnly',6077,1597); -- nimble_snap
 INSERT INTO `mob_skill_lists` VALUES ('PainfulWhipOnly',6078,1574); -- Painful_Whip
 
-INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan_AutoAttack',6079,3568); -- Snort_Autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan_AutoAttack',6079,1364); -- Snort_Autoattack
 INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,496); -- Rabid_Dance
 INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,1331); -- Counterstance
 
@@ -4235,6 +4235,9 @@ INSERT INTO `mob_skill_lists` VALUES ('FrypanOnly',6082,1081); -- Frypan
 INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1353); -- aerial_collision
 INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1355); -- spine_lash
 INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1358); -- plasma_charge
+
+INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6084,1699); -- Pecking Flurry
+INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6084,1702); -- Wise Crack
 
 
 -- Next available ID: 1148

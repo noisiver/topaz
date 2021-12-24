@@ -50,6 +50,12 @@ function onSpellCast(caster, target, spell)
     params.AccTPModifier = true
 	params.attkbonus = 0.9
     damage = BluePhysicalSpell(caster, target, spell, params)
+    local luminions = (target:getSystem() == 16)
+	
+	if luminions then
+		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
+		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
     
 	if (damage > 0 and resist >= 0.5) then

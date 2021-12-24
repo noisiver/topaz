@@ -36,10 +36,11 @@ end
 
 function onMobSpawn(mob)
 	mob:setDamage(180)
+    mob:setMod(tpz.mod.ATT, 321)
+    mob:setMod(tpz.mod.DEF, 416)
+    mob:setMod(tpz.mod.EVA, 395) 
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
     mob:setMod(tpz.mod.REGEN, 10)
-    mob:setMod(tpz.mod.DEFP, 25) 
-    mob:setMod(tpz.mod.ATTP, 25)
     mob:setMod(tpz.mod.DMGMAGIC, 0)
     mob:setMod(tpz.mod.REFRESH, 50) 
     mob:setMod(tpz.mod.SUSC_TO_WS_STUN,1)

@@ -305,7 +305,7 @@ INSERT INTO `mob_family_system` VALUES (240,'Tauri',9,'Demon',1,40,105,130,1,3,5
 INSERT INTO `mob_family_system` VALUES (241,'Thinker',12,'Empty',1,50,100,90,3,3,2,4,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (242,'Tiger',6,'Beast',1,60,100,120,4,3,4,4,6,4,4,1,3,1,3,1,1,1,1,1.5,1,1,1,1.5,1.3,1,1,5,257,1);
 INSERT INTO `mob_family_system` VALUES (243,'Tonberry',7,'Beastmen',0,40,100,140,4,4,5,2,4,4,4,1,3,1,3,1,1,1,1,1.15,1.5,1.15,1,1.3,0.85,0.5,1,7,1,0);	-- normal tonberry
-INSERT INTO `mob_family_system` VALUES (244,'Tonberry',7,'Beastmen',0,40,100,140,4,4,5,2,4,4,4,1,3,1,3,1,1,1,1,0.66,0.825,0.66,0.66,0.66,0.66,0.33,0.66,7,1,0);
+INSERT INTO `mob_family_system` VALUES (244,'Tonberry',7,'Beastmen',0,40,100,140,4,4,5,2,4,4,4,1,3,1,3,1,1,1,1,1.15,1.5,1.15,1,1.3,0.85,0.5,1,7,1,0); -- COP Tonberry
 INSERT INTO `mob_family_system` VALUES (245,'Treant',17,'Plantoid',2,40,100,120,4,4,3,4,4,4,5,1,3,1,3,1,1,1,1,1.5,1.3,1.3,1,1.3,1,1,1.5,4,2,0);
 INSERT INTO `mob_family_system` VALUES (246,'Troll',7,'Beastmen',1,60,125,120,1,5,1,5,1,2,2,1,1,1,1,1,1,1,1,0.4,0.7,1,1,0.7,1.15,0.85,0.85,1,1,0);
 INSERT INTO `mob_family_system` VALUES (247,'Tubes',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
@@ -561,6 +561,15 @@ INSERT INTO `mob_family_system` VALUES (531,'Ziz',8,'Bird',1,60,125,140,1,1,1,4,
 INSERT INTO `mob_family_system` VALUES (532,'Xzomit-Baby',15,'Luminian',0,60,100,110,3,3,4,2,4,4,4,1,4,1,3,1,1,1,1,1.3,1.3,1,1.3,1.3,1.3,1,1,0,1,0); -- Baby
 INSERT INTO `mob_family_system` VALUES (533,'TenzenAndKidsWarriorsPath',7,'Beastmen',0,40,100,120,3,3,3,2,2,3,3,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1,3,1,0); --  Tenzen COP 7-5 The Warrior's Path
 INSERT INTO `mob_family_system` VALUES (534,'Quasilumin',15,'Luminian',1,40,100,100,5,5,5,5,5,5,5,5,5,5,5,2,2,2,2,2,2,2,2,2,2,2,2,0,2,0); -- Escort Quasilumin
+
+INSERT INTO `mob_family_system` VALUES (535,'Jailer_of_Faith',15,'Luminian',0,40,100,140,1,3,4,4,4,4,4,1,3,1,3,1,1,1,1,1.5,1.15,1.15,1.15,1.15,0.6,0.6,1.15,0,2,0);
+INSERT INTO `mob_family_system` VALUES (536,'Jailer_of_Fortitude',16,'Luminion',0,40,100,140,5,3,3,3,3,3,3,1,3,1,3,0.875,0.875,0.875,0.875,1,1,1,1,1,1,1,1,7,2,0);
+INSERT INTO `mob_family_system` VALUES (537,'Jailer_of_Hope',15,'Luminian',2,60,100,100,2,1,4,1,4,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.3,0.5,0.85,1.3,0,2,0);
+INSERT INTO `mob_family_system` VALUES (538,'Jailer_of_Justice',15,'Luminian',0,40,100,110,3,3,4,6,4,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1,1.3,1.3,1.3,1,1,0,1,0);
+INSERT INTO `mob_family_system` VALUES (539,'Jailer_of_Love',15,'Luminian',1,40,100,140,2,2,4,6,4,4,4,1,3,1,5,1,1,1,1,1,1,1,1.3,0.3,1,0.7,1.15,0,2,0);
+INSERT INTO `mob_family_system` VALUES (540,'Jailer_of_Prudence',15,'Luminian',1,40,100,120,7,7,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1.3,1.3,1.3,1.3,1.3,0.85,1.15,0,2,0);
+INSERT INTO `mob_family_system` VALUES (541,'Jailer_of_Temperance',16,'Luminion',0,40,100,140,6,6,4,4,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,1,0);
+
 
 
 

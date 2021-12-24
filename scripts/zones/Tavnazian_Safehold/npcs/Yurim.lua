@@ -6,6 +6,7 @@
 require("scripts/globals/missions")
 require("scripts/globals/npc_util")
 require("scripts/globals/quests")
+local ID = require("scripts/zones/Tavnazian_Safehold/IDs")
 -----------------------------------
 
 -- base items
@@ -72,6 +73,17 @@ function onTrade(player, npc, trade)
                 break
             end
         end
+    end
+	if npcUtil.tradeHas(trade, {{15435, 1}, {15436, 1}, {15437, 1}, {15438, 1}, {15439, 1},{15440, 1}, {15441, 1}, {15442, 1}}) then
+            player:confirmTrade()
+            player:addItem(28419) -- Hachirin-No-Obi
+            player:PrintToPlayer("Very good! My research on Obis is now fully complete!",0,"Yurim")
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 28419)
+    elseif npcUtil.tradeHas(trade, {{15495, 1}, {15496, 1}, {15497, 1}, {15498, 1}, {15499, 1},{15500, 1}, {15501, 1}, {15502, 1}}) then
+            player:confirmTrade()
+            player:addItem(27510) -- Fotia Gorget
+            player:PrintToPlayer("Very good! My research on Gorgets is now fully complete!",0,"Yurim")
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 27510)
     end
 end
 

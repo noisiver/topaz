@@ -66,7 +66,8 @@ INSERT INTO `mob_family_mods` VALUES (47,10,3,1);
 INSERT INTO `mob_family_mods` VALUES (245,10,4,1);
 INSERT INTO `mob_family_mods` VALUES (216,10,4,1);
 INSERT INTO `mob_family_mods` VALUES (133,10,5,1);
-INSERT INTO `mob_family_mods` VALUES(373, 10, 5, 1);
+INSERT INTO `mob_family_mods` VALUES(373, 10, 5, 1); -- Dynamis goblin?
+INSERT INTO `mob_family_mods` VALUES(532, 10, 5, 1); -- Xzomit baby?
 INSERT INTO `mob_family_mods` VALUES (184,10,5,1);
 INSERT INTO `mob_family_mods` VALUES (59,10,5,1);
 INSERT INTO `mob_family_mods` VALUES (253,10,6,1);
@@ -251,6 +252,7 @@ INSERT INTO `mob_family_mods` VALUES (205,387,150,0);	-- Qutrub +150%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (203,388,150,0);	-- Qutrub +150%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (204,388,150,0);	-- Qutrub +150%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (205,388,150,0);	-- Qutrub +150%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (62,388,25,0);		-- Cerberus +25%(Bonus)
 
 -- Ranged damage taken(RDT)
 
@@ -1006,7 +1008,8 @@ INSERT INTO `mob_family_mods` VALUES (267,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (268,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (87,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (136,59,145,1);
-INSERT INTO `mob_family_mods` VALUES (179,59,125,1);
+INSERT INTO `mob_family_mods` VALUES (179,59,125,1); -- Manticore +25 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (180,59,125,1); -- marid +25 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (217,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (208,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (210,59,110,1);

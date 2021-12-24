@@ -20,9 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
 	if target:hasStatusEffect(tpz.effect.FEALTY) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	else
-        dmg = target:physicalDmgTaken(dmg, tpz.damageType.BLUNT)
 		target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-		if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
 	end
 
     return dmg

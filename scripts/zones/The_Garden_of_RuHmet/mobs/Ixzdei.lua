@@ -22,12 +22,40 @@ function onMobSpawn(mob)
 	mob:addMod(tpz.mod.EVA, 25)
 	mob:setMod(tpz.mod.MDEF, 24) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:SetMagicCastingEnabled(false)
+    mob:setLocalVar("healed", 0)
 end
 
 function onMobInitialize(mob)
 end
 
+function onPath(mob)
+    local spawnPos = mob:getSpawnPos()
+    mob:pathThrough({spawnPos.x, spawnPos.y, spawnPos.z})
+    local pos = mob:getPos()
+    if spawnPos.x == pos.x and spawnPos.z == pos.z then
+        mob:setPos(spawnPos.x, spawnPos.y, spawnPos.z, mob:getRotPos() + 16)
+    end
+end
+
 function onMobEngaged(mob)
+    local spellList =
+    {
+        [1] = 144,
+        [2] = 149,
+        [3] = 154,
+        [4] = 159,
+        [5] = 164,
+        [6] = 169,
+        [7] = 216,
+        [8] = 260,
+        [9] = 230,
+        [10] = 254,
+    }
+    mob:SetMagicCastingEnabled(true)
+    mob:castSpell(spellList[math.random(#spellList)])
+
 	local target = mob:getTarget()
     local ZdeiOne = GetMobByID(16921011)
     local ZdeiTwo = GetMobByID(16921012)
@@ -38,11 +66,13 @@ function onMobEngaged(mob)
 	ZdeiThree:updateEnmity(target)
 	ZdeiFour:updateEnmity(target)
     mob:SetAutoAttackEnabled(true)
-    mob:setLocalVar("recover", math.random(20, 50))
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+    mob:setLocalVar("recover", math.random(5, 50))
 end
 
 function onMobFight(mob)
     local recover = mob:getLocalVar("recover")
+    local healed = mob:getLocalVar("healed")
     if mob:getHPP() <= recover then
         local pos = mob:getSpawnPos()
 		mob:pathTo(pos.x, pos.y, pos.z)
@@ -52,12 +82,13 @@ function onMobFight(mob)
 		if Pos.x == pos.x and Pos.y == pos.y and Pos.z == pos.z then
             local time = mob:getLocalVar("time")
             local now = os.time()
-            if time ~= 0 and now > time then
+            if time ~= 0 and now > time and healed == 0 then
                 mob:SetAutoAttackEnabled(true)
                 mob:setHP(mob:getMaxHP())
                 mob:setLocalVar("recover", 0)
+                mob:setLocalVar("healed", 1)
             elseif time == 0 then
-                mob:setLocalVar("time", os.time() + 3)
+                mob:setLocalVar("time", os.time() + math.random(10, 25))
             end
         end
     end

@@ -11,8 +11,9 @@ require("scripts/globals/magic")
 
 function onMobSpawn(mob)
 	mob:setDamage(155)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.ATT, 711) -- 775
+    mob:setMod(tpz.mod.DEF, 841) -- 894
+    mob:setMod(tpz.mod.EVA, 247)  -- 275
     mob:setMod(tpz.mod.REFRESH, 50)
     mob:setMod(tpz.mod.SUSC_TO_WS_STUN,1)
     tpz.mix.jobSpecial.config(mob, {

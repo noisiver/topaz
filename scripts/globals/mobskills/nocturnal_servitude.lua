@@ -5,6 +5,7 @@
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/status")
+require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -22,25 +23,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-	local message = tpz.msg.basic.SKILL_MISS
-	local typeEffect = tpz.effect.CHARM_I
-	local power = 0
+    MobCharmMove(mob, target, skill, 257, 60)
 
-	if (not target:isPC()) then
-		skill:setMsg(tpz.msg.basic.SKILL_MISS)
-		return typeEffect
-	end
-
-		local msg = MobStatusEffectMove(mob, target, typeEffect, 0, 3, 30)
-		if target:hasStatusEffect(tpz.effect.FEALTY) then
-			skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-		else
-			if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
-			mob:charm(target)
-			target:costume(257) --Red Bat
-		end
-			 skill:setMsg(tpz.msg.basic.SKILL_MISS)
-		end
-
-    return typeEffect
+    return tpz.effect.CHARM_I
 end
