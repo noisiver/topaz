@@ -11,6 +11,7 @@ require("scripts/globals/pathfind")
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.MOVE, 45)
     mob:setMobMod(tpz.mobMod.LINK_RADIUS, 30)
+    mob:setAggressive(0)
     onPath(mob)
 end
 
