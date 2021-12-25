@@ -52,6 +52,7 @@ g_mixins.families.euvhi = function(mob)
                 open_form(mob)
             elseif mob:AnimationSub() == 0 and mob:getHP() <  mob:getLocalVar("[euvhi]closeMouthHP") then
                 close_form(mob) 
+                mob:setLocalVar("changeTime", os.time() + math.random(50, 80))
             end
         end
     end)
