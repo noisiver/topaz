@@ -5,7 +5,7 @@
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 mixins = {
-    require("scripts/mixins/job_special")
+    require("scripts/mixins/job_special"),
     require("scripts/mixins/weapon_break")
 }
 -----------------------------------
