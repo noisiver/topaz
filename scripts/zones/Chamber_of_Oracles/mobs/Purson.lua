@@ -6,6 +6,7 @@
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 require("scripts/globals/magic")
 mixins =
 {

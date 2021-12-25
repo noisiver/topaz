@@ -4252,6 +4252,11 @@ INSERT INTO `mob_skill_lists` VALUES ('LamieNo9',6090,1758); -- tail_slap
 INSERT INTO `mob_skill_lists` VALUES ('LamieNo9',6090,1762); -- belly_dance
 INSERT INTO `mob_skill_lists` VALUES ('LamieNo9',6090,1929); -- pole_swing
 
+INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,1793); -- vampiric_root
+INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,319); -- bad_breath
+INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,320); -- sweet_breath
+
+
 
 
 -- Next available ID: 1148

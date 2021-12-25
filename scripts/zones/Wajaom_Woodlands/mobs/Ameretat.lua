@@ -1,7 +1,8 @@
 -----------------------------------
--- Area: Aydeewa Subterrane
---  Mob: Great_Ameretat
+-- Area: Wajaom Woodlands
+--  Mob: Ameretat
 -----------------------------------
+local ID = require("scripts/zones/Wajaom_Woodlands/IDs")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 mixins = {require("scripts/mixins/families/ameretat")}
@@ -18,4 +19,7 @@ function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end
+end
+
+function onMobDespawn(mob)
 end
