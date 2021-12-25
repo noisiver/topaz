@@ -29,6 +29,7 @@ enum SKILLFLAG
 {
     SKILLFLAG_NONE           = 0x000,
     SKILLFLAG_TWO_HOUR       = 0x002,
+    SKILLFLAG_JOB_ABILITY = 0x001,
     // Special skill (ranged attack / call beast)
     SKILLFLAG_SPECIAL        = 0x004,
     SKILLFLAG_HIT_ALL        = 0x008,
@@ -48,6 +49,7 @@ public:
     bool        isAoE() const;
     bool        isConal() const;
     bool        isSingle() const;
+    bool isJobAbility() const;
     bool        isTwoHour() const;
     bool        isSpecial() const;
     bool        isAttackReplacement() const;
