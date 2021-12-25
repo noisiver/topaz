@@ -43,11 +43,6 @@ g_mixins.families.euvhi = function(mob)
         end
     end)
 
-    mob:addListener("CRITICAL_TAKE", "EUVHI_CRITICAL_TAKE", function(mob)
-        close_form(mob)
-        mob:setLocalVar("changeTime", os.time() + math.random(50, 80))
-    end)
-
 
     mob:addListener("COMBAT_TICK", "EUVHI_CTICK", function(mob)
         local changeTime = mob:getLocalVar("changeTime")
