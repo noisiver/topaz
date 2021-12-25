@@ -2859,9 +2859,9 @@ INSERT INTO `mob_groups` VALUES (4,5430,60,'Ashu_Talif_Crew2',0,128,0,0,0,60,60,
 INSERT INTO `mob_groups` VALUES (5,5431,60,'Ashu_Talif_Crew3',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (6,263,60,'Ashu_Talif_Crew',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (7,262,60,'Ashu_Talif_Captain',0,128,0,0,0,68,68,0);
-INSERT INTO `mob_groups` VALUES(11, 263, 60, 'Ashu_Talif_Crew', 0, 128, 0, 450, 0, 75, 75, 0); -- rng
-INSERT INTO `mob_groups` VALUES(12, 5431, 60, 'Ashu_Talif_Crew2', 0, 128, 0, 450, 0, 75, 75, 0); -- rdm
-INSERT INTO `mob_groups` VALUES(13, 5430, 60, 'Ashu_Talif_Crew3', 0, 128, 0, 500, 0, 75, 75, 0); -- mnk
+INSERT INTO `mob_groups` VALUES(11, 263, 60, 'Ashu_Talif_Crew', 0, 128, 0, 550, 0, 75, 75, 0); -- rng
+INSERT INTO `mob_groups` VALUES(12, 5431, 60, 'Ashu_Talif_Crew2', 0, 128, 0, 550, 0, 75, 75, 0); -- rdm
+INSERT INTO `mob_groups` VALUES(13, 5430, 60, 'Ashu_Talif_Crew3', 0, 128, 0, 600 , 0, 75, 75, 0); -- mnk
 INSERT INTO `mob_groups` VALUES(14, 4305, 60, 'Watch_Imp', 0, 128, 0, 750, 0, 70, 70, 0);
 INSERT INTO `mob_groups` VALUES(15, 3826, 60, 'Swiftwinged_Gekko', 0, 128, 0, 6500, 0, 77, 78, 0);
 
