@@ -4640,6 +4640,26 @@ INSERT INTO `mob_spell_lists` VALUES ('Sword_Sorcerer_Solisoq',2028,34,1,255); -
 INSERT INTO `mob_spell_lists` VALUES ('Sword_Sorcerer_Solisoq',2028,21,1,255); -- holy 
 
 
+INSERT INTO `mob_spell_lists` VALUES('Seed_Crystal', 2029, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES('Seed_Crystal', 2029, 181, 1, 255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES('Seed_Crystal', 2029, 186, 1, 255); -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES('Seed_Crystal', 2029, 191 , 1, 255); -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES('Seed_Crystal', 2029, 196, 1, 255); -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES('Seed_Crystal', 2029, 201, 1, 255); -- Waterga III
+
+INSERT INTO `mob_spell_lists` VALUES('AncientTier1', 2030, 204, 60, 255);
+INSERT INTO `mob_spell_lists` VALUES('AncientTier1', 2030, 206, 50, 255);
+INSERT INTO `mob_spell_lists` VALUES('AncientTier1', 2030, 208, 52, 255);
+INSERT INTO `mob_spell_lists` VALUES('AncientTier1', 2030, 210, 54, 255);
+INSERT INTO `mob_spell_lists` VALUES('AncientTier1', 2030, 212, 56, 255);
+INSERT INTO `mob_spell_lists` VALUES('AncientTier1', 2030, 214, 58, 255);
+
+INSERT INTO `mob_spell_lists` VALUES('Swiftwinged_Gekko', 2031, 273, 1, 255); -- Sleepga
+INSERT INTO `mob_spell_lists` VALUES('Swiftwinged_Gekko', 2031, 356, 1, 255); -- Paralyga
+INSERT INTO `mob_spell_lists` VALUES('Swiftwinged_Gekko', 2031, 361, 1, 255); -- Bindga
+INSERT INTO `mob_spell_lists` VALUES('Swiftwinged_Gekko', 2031, 366, 1, 255); -- Graviga
+
+
 
 
 
