@@ -50,7 +50,7 @@ g_mixins.families.euvhi = function(mob)
         if os.time() >= changeTime and mob:getCurrentAction() == tpz.act.ATTACK then
             if mob:AnimationSub() == 4 then
                 open_form(mob)
-            elseif mob:AnimationSub() == 0 and mob:getHP() <  mob:getLocalVar("[euvhi]closeMouthHP") then
+            elseif mob:AnimationSub() == 6 and mob:getHP() <  mob:getLocalVar("[euvhi]closeMouthHP") then
                 close_form(mob) 
                 mob:setLocalVar("changeTime", os.time() + math.random(50, 80))
             end
