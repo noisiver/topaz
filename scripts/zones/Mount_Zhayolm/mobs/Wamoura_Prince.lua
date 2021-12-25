@@ -22,10 +22,12 @@ function onMobRoam(mob)
     if mob:AnimationSub() == 0 and os.time() > roamTime then
         mob:AnimationSub(1)
         mob:setMod(tpz.mod.MOVE, -15)
+        mob:setMod(tpz.mod.DMG, -33)
         mob:setLocalVar("formTime", os.time() + math.random(43, 47))
     elseif mob:AnimationSub() == 1 and os.time() > roamTime then
         mob:AnimationSub(0)
         mob:setMod(tpz.mod.MOVE, 0)
+        mob:setMod(tpz.mod.DMG, 0)
         mob:setLocalVar("formTime", os.time() + math.random(43, 47))
     end
 
@@ -53,11 +55,13 @@ function onMobFight(mob, target)
 	elseif Animation == 1 and os.time() > fightTime then
         mob:AnimationSub(1)
         mob:setMod(tpz.mod.MOVE, -15)
+        mob:setMod(tpz.mod.DMG, -33)
         mob:setLocalVar("formTime", os.time() + math.random(43, 47))
 		mob:setLocalVar("Animation", math.random(1,2)) --Random roll for animation
     elseif Animation == 2 and os.time() > fightTime then
         mob:AnimationSub(0)
         mob:setMod(tpz.mod.MOVE, 0)
+        mob:setMod(tpz.mod.DMG, 0)
         mob:setLocalVar("formTime", os.time() + math.random(43, 47))
 		mob:setLocalVar("Animation", math.random(1,2)) --Random roll for animation
     end
