@@ -2413,7 +2413,7 @@ INSERT INTO `mob_groups` VALUES (32,4369,51,'Woodtroll_Warrior',330,0,2482,0,0,8
 INSERT INTO `mob_groups` VALUES (33,4367,51,'Woodtroll_Monk',330,0,2474,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (34,4364,51,'Woodtroll_Dark_Knight',300,0,2480,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (35,4368,51,'Woodtroll_Ranger',330,0,2485,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (36,5863,51,'Gharial',7200,0,3075,16000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (36,5863,51,'Gharial',7200,0,3075,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (37,71,51,'Air_Elemental',330,4,38,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (38,2018,51,'Hydra',172800,0,3147,73000,0,95,95,0);
 INSERT INTO `mob_groups` VALUES (39,2534,51,'Mamool_Ja_Sophist',300,0,1602,0,0,81,83,0);

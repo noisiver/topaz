@@ -4256,6 +4256,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,1793); -- vampiric_root
 INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,319); -- bad_breath
 INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,320); -- sweet_breath
 
+INSERT INTO `mob_skill_lists` VALUES ('Demoralizing_Roar_Only',6092,2101); -- demoralizing_roar
+
 
 
 
