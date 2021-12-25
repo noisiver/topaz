@@ -14,7 +14,11 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:AnimationSub(12)
-    mob:setLocalVar("rolldice", battletime + math.random(20, 30))
+end
+
+function onMobEngaged(mob)
+    mob:setLocalVar("rolldice", math.random(20, 30))
+    mob:setLocalVar("twohourtime", math.random(45, 60))
 end
 
 function onMobFight(mob, target)
