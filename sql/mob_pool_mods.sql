@@ -215,6 +215,17 @@ INSERT INTO `mob_pool_mods` VALUES(595, 74, 212, 1); -- Cactrot Rapido will link
 INSERT INTO `mob_pool_mods` VALUES(2978, 74, 269, 1); -- Baby Xzomit link to Moms
 INSERT INTO `mob_pool_mods` VALUES(4088, 74, 269, 1); -- Baby Xzomit link to Moms
 
+INSERT INTO `mob_pool_mods` VALUES(4285, 74, 245, 1); -- Sapplings link with treants
+INSERT INTO `mob_pool_mods` VALUES(3991, 74, 245, 1); -- Sapplings link with treants
+INSERT INTO `mob_pool_mods` VALUES(5340, 74, 245, 1); -- Sapplings link with treants
+
+
+INSERT INTO `mob_pool_mods` VALUES(2961, 74, 216, 1); -- Treants link with sapplings
+INSERT INTO `mob_pool_mods` VALUES(768, 74, 216, 1); -- Treants link with sapplings
+INSERT INTO `mob_pool_mods` VALUES(1208, 74, 216, 1); -- Treants link with sapplings
+INSERT INTO `mob_pool_mods` VALUES(2275, 74, 216, 1); -- Treants link with sapplings
+INSERT INTO `mob_pool_mods` VALUES(3990, 74, 216, 1); -- Treants link with sapplings
+
 INSERT INTO `mob_pool_mods` VALUES (2031,28,-100,1); -- Hydras_Avatar EXP_BONUS: don't give XP
 INSERT INTO `mob_pool_mods` VALUES (2032,28,-100,1); -- Hydras_Hound EXP_BONUS: don't give XP
 INSERT INTO `mob_pool_mods` VALUES (2033,28,-100,1); -- Hydras_Wyvern EXP_BONUS: don't give XP
