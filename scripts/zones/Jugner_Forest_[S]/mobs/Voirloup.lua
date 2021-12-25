@@ -16,6 +16,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
 	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
 	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
+    mob:AnimationSub(1)
 end
 
 function onMobDeath(mob, player, isKiller)
