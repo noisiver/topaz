@@ -40,7 +40,7 @@ function onRegionEnter(player, region)
 end
 
 function onGameDay()
-    -- move storage hole
+    -- move shield bug ???
     local positions =
     {
         {275.1907, 0.8048, 273.8457},

@@ -36,9 +36,11 @@ zones[tpz.zone.AYDEEWA_SUBTERRANE] =
         NOSFERATU          = 17056157,
         PANDEMONIUM_WARDEN = 17056168,
         CHIGRE             = 17056186,
+        CRYSTAL_EATER      = 17056155,
     },
     npc =
     {
+    DAMPSOIL     = 17056365,
     },
 }
 
