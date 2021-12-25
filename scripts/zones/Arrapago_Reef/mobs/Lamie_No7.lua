@@ -7,8 +7,9 @@ require("scripts/globals/mobs")
 mixins ={require("scripts/mixins/weapon_break")}
 ------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 25) 
+	mob:setDamage(125) 
     mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 15) 
     mob:addMod(tpz.mod.EVA, 15)
     mob:setMod(tpz.mod.REGAIN, 0)
@@ -111,8 +112,6 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
-    DespawnMob(mob:getID()+1)
-    DespawnMob(mob:getID()+2)
 	if isKiller  then 
 		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
