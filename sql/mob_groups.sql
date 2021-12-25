@@ -1248,7 +1248,7 @@ INSERT INTO `mob_groups` VALUES (6,6183,35,'Awaern_rng',960,0,9053,0,0,81,84,0);
 INSERT INTO `mob_groups` VALUES (7,6185,35,'Awaern_nin',960,0,9053,0,0,81,84,0);
 INSERT INTO `mob_groups` VALUES (8,6186,35,'Awaern_drg',960,0,9053,0,0,81,84,0);
 INSERT INTO `mob_groups` VALUES (9,56,35,'Aerns_Wynav',0,128,0,0,0,65,68,0);
-INSERT INTO `mob_groups` VALUES (10,6174,35,'Awaern_mnk',960,0,198,0,0,81,84,0);
+INSERT INTO `mob_groups` VALUES (10,6174,35,'Awaern_mnk',960,0,9053,0,0,81,84,0);
 INSERT INTO `mob_groups` VALUES (11,6175,35,'Awaern_whm',960,0,9053,0,9999,81,84,0);
 INSERT INTO `mob_groups` VALUES (12,6182,35,'Awaern_brd',960,0,9053,0,0,81,84,0);
 INSERT INTO `mob_groups` VALUES (13,300,35,'Awghrah',960,0,200,0,0,79,82,0);
