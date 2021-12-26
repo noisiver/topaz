@@ -324,8 +324,8 @@ public:
     uint32			  m_PlayTime;
     uint32			  m_SaveTime;
 
-    uint16 m_LastEngagedTargID;          // my most recent engage target. used for auto-target logic
-    CBattleEntity* m_autoTargetOverride; // When a party member auto-targets, this gets set to all of alliance to ensure everyone autotargets same mob 
+    uint16           m_LastEngagedTargID;             // my most recent engage target. used for auto-target logic
+    CBattleEntity*   m_autoTargetOverride;           // When a party member auto-targets, this gets set to all of alliance to ensure everyone autotargets same mob 
     uint32            m_LastYell;
 
     uint8			  m_GMlevel;                    // Level of the GM flag assigned to this character
