@@ -3218,7 +3218,7 @@ INSERT INTO `mob_groups` VALUES (19,3245,68,'Qiqirn_Archaeologist',600,0,2050,0,
 INSERT INTO `mob_groups` VALUES (20,3261,68,'Qiqirn_Mosstrooper',600,0,2056,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,2720,68,'Mold_Eater',600,0,1725,0,0,69,71,0);
 INSERT INTO `mob_groups` VALUES (22,667,68,'Cave_Tiger',600,0,2601,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (23,5334,68,'Mycoskulker',600,0,1759,6019,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (23,5334,68,'Mycoskulker',600,0,6019,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (24,5335,68,'Slime_Eater',600,0,1725,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (25,5188,68,'Lizardtrap',7200,0,3083,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (26,858,68,'Crystal_Eater',0,128,545,30000,0,85,87,0);
@@ -3233,6 +3233,7 @@ INSERT INTO `mob_groups` VALUES (34,717,68,'Chigre',0,128,467,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (35,4668,68,'Morta',0,128,0,0,35000,95,95,0);
 INSERT INTO `mob_groups` VALUES (36,5187,68,'Ravishing_Rafflesia',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (37,6582,68,'Vampyr',600,0,6028,0,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (38,5334,68,'Mycoskulker_Popped',0,128,0,0,0,81,83,0);
 
 INSERT INTO `mob_groups` VALUES (2276,110,68,'Amnaf_blu',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (2288,1506,68,'Gessho',0,128,0,0,0,0,0,0);

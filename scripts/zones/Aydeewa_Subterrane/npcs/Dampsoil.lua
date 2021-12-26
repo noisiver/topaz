@@ -31,16 +31,18 @@ function onTrade(player, npc, trade)
         {-260.1673,  36.2386,  -27.9922},
         {-276.5262,  36.7957,  -96.8899},
     }
+    local funguars =
+    { {17056106}, {17056107}, {17056110}, {17056111} }
 
     for _,v in pairs(crystals) do
         if npcUtil.tradeHas(trade, v) then 
             player:confirmTrade()
-            npc:setStatus(tpz.status.DISAPPEAR)
-            npc:setStatus(tpz.status.NORMAL)
             local newPosition = npcUtil.pickNewPosition(ID.npc.DAMPSOIL, positions)
             GetNPCByID(ID.npc.DAMPSOIL):setPos(newPosition.x, newPosition.y, newPosition.z)
-            if math.random(100) <= 25 and npcUtil.popFromQM(player, npc, ID.mob.CRYSTAL_EATER, {radius = 5, hide = 0}) then
+            if math.random(100) <= 25 and npcUtil.popFromQM(player, npc, ID.mob.CRYSTAL_EATER, {radius = 5, hide = 14400}) then
                 player:messageSpecial(ID.text.DRAWS_NEAR)
+            else
+                npcUtil.popFromQM(player, npc, funguars[math.random(#funguars)], {radius = 5, hide = 0})
             end
         end
     end
