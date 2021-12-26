@@ -4257,6 +4257,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,319); -- bad_breath
 INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,320); -- sweet_breath
 
 INSERT INTO `mob_skill_lists` VALUES ('Demoralizing_Roar_Only',6092,2101); -- demoralizing_roar
+INSERT INTO `mob_skill_lists` VALUES ('Stampede_Only',6093,1705); -- Stampede
+
+INSERT INTO `mob_skill_lists` VALUES ('Nis_Puk',6094,1718); -- crosswind
+INSERT INTO `mob_skill_lists` VALUES ('Nis_Puk',6094,1723); -- ill_wind
+
+INSERT INTO `mob_skill_lists` VALUES ('Zikko',6095,2003); -- grating_tantara
+INSERT INTO `mob_skill_lists` VALUES ('Zikko',6095,2004); -- stifling_tantara
 
 
 

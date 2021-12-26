@@ -4659,6 +4659,18 @@ INSERT INTO `mob_spell_lists` VALUES('Swiftwinged_Gekko', 2031, 356, 1, 255); --
 INSERT INTO `mob_spell_lists` VALUES('Swiftwinged_Gekko', 2031, 361, 1, 255); -- Bindga
 INSERT INTO `mob_spell_lists` VALUES('Swiftwinged_Gekko', 2031, 366, 1, 255); -- Graviga
 
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,252,1,255); -- stun
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,266,1,255); -- absorb-str
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,267,1,255); -- absorb-dex
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,268,1,255); -- absorb-vit
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,269,1,255); -- absorb-agi
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,270,1,255); -- absorb-int
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,271,1,255); -- absorb-mnd
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,272,1,255); -- absorb-chr
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,275,1,255); -- absorb-tp
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,246,1,255); -- drain_II
+INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,231,1,255); -- Bio II
+
 
 
 

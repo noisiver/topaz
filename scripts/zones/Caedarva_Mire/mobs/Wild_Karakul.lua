@@ -14,6 +14,14 @@ function onMobDeath(mob, player, isKiller)
 	end
 end
 
+function onMobWeaponSkill(target, mob, skill)
+    local spawns = { 17100890, 17100891, 17100893, 17100894, 17100901, 17100902}
+    local ChigoeOne = GetMobByID(spawns[math.random(#spawns)])
+	ChigoeOne:setPos(mob:getPos())
+	ChigoeOne:spawn()
+	ChigoeOne:updateEnmity(target)
+end
+
 function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.PEALLAIDH_PH, 20, 3600) -- 1 hour
 end

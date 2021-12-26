@@ -5,6 +5,27 @@
 -----------------------------------
 require("scripts/globals/hunts")
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
+-----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(125) 
+    mob:addMod(tpz.mod.DEFP, 25) 
+end
+
+function onMobFight(mob, target)
+    if VanadielHour() >= 6 and VanadielHour() <= 18 then
+	    mob:setMod(tpz.mod.REGEN, 50)
+    else
+	    mob:setMod(tpz.mod.REGEN, 0)
+    end
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.BIND)
+end
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 452)
