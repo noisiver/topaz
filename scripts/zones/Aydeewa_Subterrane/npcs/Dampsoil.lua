@@ -39,7 +39,7 @@ function onTrade(player, npc, trade)
             player:confirmTrade()
             local newPosition = npcUtil.pickNewPosition(ID.npc.DAMPSOIL, positions)
             GetNPCByID(ID.npc.DAMPSOIL):setPos(newPosition.x, newPosition.y, newPosition.z)
-            if math.random(100) <= 25 and npcUtil.popFromQM(player, npc, ID.mob.CRYSTAL_EATER, {radius = 5, hide = 14400}) then
+            if math.random(100) <= 5 and npcUtil.popFromQM(player, npc, ID.mob.CRYSTAL_EATER, {radius = 5, hide = 14400}) then
                 player:messageSpecial(ID.text.DRAWS_NEAR)
             else
                 npcUtil.popFromQM(player, npc, funguars[math.random(#funguars)], {radius = 5, hide = 0})
