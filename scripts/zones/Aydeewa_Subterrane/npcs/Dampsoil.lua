@@ -6,6 +6,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Aydeewa_Subterrane/IDs")
 require("scripts/globals/npc_util")
+require("scripts/globals/status")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -34,6 +35,7 @@ function onTrade(player, npc, trade)
     for _,v in pairs(crystals) do
         if npcUtil.tradeHas(trade, v) then 
             player:confirmTrade()
+            npc:setStatus(tpz.status.DISAPPEAR)
             local newPosition = npcUtil.pickNewPosition(ID.npc.DAMPSOIL, positions)
             GetNPCByID(ID.npc.DAMPSOIL):setPos(newPosition.x, newPosition.y, newPosition.z)
             if math.random(100) <= 25 and npcUtil.popFromQM(player, npc, ID.mob.CRYSTAL_EATER, {radius = 5, hide = 0}) then
