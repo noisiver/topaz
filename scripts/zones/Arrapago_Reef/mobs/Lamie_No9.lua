@@ -15,10 +15,15 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, 6090) 
     mob:AnimationSub(12)
+    mob:setLocalVar("twohourtime", 0)
 end
 
 function onMobEngaged(mob)
     mob:setLocalVar("twohourtime", math.random(90, 180))
+end
+
+function onMobDisengage(mob)
+    mob:setLocalVar("twohourtime", 0)
 end
 
 
