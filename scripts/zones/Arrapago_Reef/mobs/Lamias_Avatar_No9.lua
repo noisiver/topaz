@@ -6,7 +6,7 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    Avatar:setLocalVar("AstralFlow", 0)
+    mob:setLocalVar("AstralFlow", 0)
 end
 
 function onMobFight(mob, target)
