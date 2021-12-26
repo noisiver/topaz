@@ -29,6 +29,7 @@ end
 
 function onMobFight(mob, target)
     local SpawnPet = mob:getLocalVar("SpawnPet")
+    local twohourtime = mob:getLocalVar("twohourtime")
     local battletime = mob:getBattleTime()
     local Avatar = GetMobByID(mob:getID()+1)
     if battletime >= SpawnPet and not Avatar:isSpawned() then
