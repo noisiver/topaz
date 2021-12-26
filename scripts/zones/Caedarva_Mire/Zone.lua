@@ -72,7 +72,7 @@ function onRegionEnter(player, region)
     local RNG = math.random(100)
     
     if (regionId <= 10) then
-        if RNG <= 50
+        if RNG <= 50 then
             player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
         elseif RNG <= 25 then
             player:addStatusEffect(stauseffects[math.random(#stauseffects)]))

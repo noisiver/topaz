@@ -32,7 +32,7 @@ function onTrade(player, npc, trade)
     }
 
     for _,v in pairs(crystals)
-        if npcUtil.tradeHas(trade, v) then 
+        do npcUtil.tradeHas(trade, v) then 
             player:confirmTrade()
             local newPosition = npcUtil.pickNewPosition(ID.npc.DAMPSOIL, positions)
             GetNPCByID(ID.npc.DAMPSOIL):setPos(newPosition.x, newPosition.y, newPosition.z)
