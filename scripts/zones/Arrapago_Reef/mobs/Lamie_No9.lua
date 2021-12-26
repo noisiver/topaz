@@ -4,7 +4,6 @@
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
-mixins ={require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(125) 
@@ -17,6 +16,11 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, 6090) 
     mob:AnimationSub(12)
 end
+
+function onMobEngaged(mob)
+    mob:setLocalVar("twohourtime", math.random(90, 180))
+end
+
 
 function onMobFight(mob, target)
     local SpawnPet = mob:getLocalVar("SpawnPet")
@@ -33,12 +37,11 @@ function onMobFight(mob, target)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6060) -- Belly Dance only
     end
 
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.ASTRAL_FLOW, cooldown = math.random(45, 90), hpp = 90},
-        },
-    })
+    if battletime >= twohourtime then
+        mob:useMobAbility(734) -- Astral Flow
+        Avatar:setLocalVar("AstralFlow", 1)
+        mob:setLocalVar("twohourtime", battletime + math.random(90, 180))
+    end
 end
 
 function onMobDeath(mob, player, isKiller)

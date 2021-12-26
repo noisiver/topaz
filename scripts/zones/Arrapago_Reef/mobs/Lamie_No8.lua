@@ -11,7 +11,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 15) 
     mob:addMod(tpz.mod.EVA, 15)
-    mob:setMod(tpz.mod.REGAIN, 200)
+    mob:setMod(tpz.mod.REGAIN, 250)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, 6088) -- Arrow Deluge only
     mob:AnimationSub(12)
@@ -29,7 +29,6 @@ function onMobFight(mob, target)
     end
     if battletime >= twohourtime then
         mob:useMobAbility(1932) -- Eagle Eye Shot
-	    mob:addTP(3000)
         mob:setLocalVar("twohourtime", battletime + math.random(45, 60))
     end
 end

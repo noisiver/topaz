@@ -18,8 +18,8 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob)
-    mob:setLocalVar("rolldice", math.random(20, 30))
-    mob:setLocalVar("twohourtime", math.random(45, 60))
+    mob:setLocalVar("rolldice", math.random(15, 30))
+    mob:setLocalVar("twohourtime", math.random(45, 90))
 end
 
 function onMobFight(mob, target)
@@ -101,13 +101,13 @@ function onMobFight(mob, target)
                 mob:useMobAbility(1753) -- hysteric_barrage
             end
         end
-        mob:setLocalVar("rolldice", battletime + math.random(20, 30))
+        mob:setLocalVar("rolldice", battletime + math.random(45, 60))
     end
 
     if battletime >= twohourtime then
-        mob:useMobAbility(1752) -- Wild Card
+        mob:useMobAbility(1934) -- Wild Card
 	    mob:addTP(3000)
-        mob:setLocalVar("twohourtime", battletime + math.random(45, 60))
+        mob:setLocalVar("twohourtime", battletime + math.random(60, 90))
     end
 end
 
