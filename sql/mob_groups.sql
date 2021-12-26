@@ -1162,7 +1162,7 @@ INSERT INTO `mob_groups` VALUES (19,6205,33,'Omaern_whm',960,0,1853,0,5000,75,78
 INSERT INTO `mob_groups` VALUES (20,6211,33,'Omaern_bst',960,0,1853,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (21,6216,33,'Omaern_drg',960,0,1853,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (22,6217,33,'Omaern_smn',960,0,1853,0,5000,75,78,0);
-INSERT INTO `mob_groups` VALUES (23,2976,33,'Omhpemde',960,0,2515,0,0,73,77,0);
+INSERT INTO `mob_groups` VALUES (23,2976,33,'Omhpemde',960,0,1854,0,0,73,77,0);
 INSERT INTO `mob_groups` VALUES (24,6744,33,'Omxzomit',960,0,2517,0,0,75,76,0); -- mom om'xzomit
 INSERT INTO `mob_groups` VALUES (25,6215,33,'Omaern_nin',960,0,1853,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (26,6209,33,'Omaern_pld',960,0,1853,0,5000,75,78,0);

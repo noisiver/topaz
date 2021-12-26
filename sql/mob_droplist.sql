@@ -9951,18 +9951,18 @@ INSERT INTO `mob_droplist` VALUES (1853,0,0,1000,4108,5);
 INSERT INTO `mob_droplist` VALUES (1853,0,0,1000,4109,5);
 INSERT INTO `mob_droplist` VALUES (1853,0,0,1000,4110,5);
 INSERT INTO `mob_droplist` VALUES (1853,0,0,1000,4111,5);
-INSERT INTO `mob_droplist` VALUES (1854,4,0,1000,1783,0);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,1783,50);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,1787,50);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,1871,150);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4104,120);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4105,120);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4106,120);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4107,120);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4108,120);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4109,120);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4110,120);
-INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4111,120);
+INSERT INTO `mob_droplist` VALUES (1854,4,0,1000,1783,0); -- (Omhpemde) Sample of Luminian tissue - Despoil
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,1787,100); -- Hpemde organ
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,1871,50); -- High-quality hpemde organ
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,1783,10); -- Sample of Luminian tissue
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4104,5);
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4105,5);
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4106,5);
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4107,5);
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4108,5);
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4109,5);
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4110,5);
+INSERT INTO `mob_droplist` VALUES (1854,0,0,1000,4111,5);
 INSERT INTO `mob_droplist` VALUES (1855,4,0,1000,1783,0); -- (Om'phuabo)  Sample of Luminian tissue - Despoil
 INSERT INTO `mob_droplist` VALUES (1855,0,0,1000,1784,240); -- Phuabo organ
 INSERT INTO `mob_droplist` VALUES (1855,0,0,1000,1783,50); -- Sample of Luminian tissue
@@ -13133,7 +13133,7 @@ INSERT INTO `mob_droplist` VALUES (2514,0,0,1000,4108,5);
 INSERT INTO `mob_droplist` VALUES (2514,0,0,1000,4109,5);
 INSERT INTO `mob_droplist` VALUES (2514,0,0,1000,4110,5);
 INSERT INTO `mob_droplist` VALUES (2514,0,0,1000,4111,5);
-INSERT INTO `mob_droplist` VALUES (2515,4,0,1000,1783,0); -- (Hpemde - All) Sample of Luminian tissue - Despoil
+INSERT INTO `mob_droplist` VALUES (2515,4,0,1000,1783,0); -- (Ulhpemde) Sample of Luminian tissue - Despoil
 INSERT INTO `mob_droplist` VALUES (2515,0,0,1000,1787,50); -- Hpemde organ
 INSERT INTO `mob_droplist` VALUES (2515,0,0,1000,1871,50); -- High-quality hpemde organ
 INSERT INTO `mob_droplist` VALUES (2515,0,0,1000,1783,10); -- Sample of Luminian tissue
