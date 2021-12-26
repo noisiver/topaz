@@ -70,9 +70,9 @@ function onRegionEnter(player, region)
     local Zikko = GetMobByID(17101144)
     local Respawn = GetServerVariable("Zikko_Respawn")
     local RNG = math.random(100)
-    local regionId = region:GetRegionID()
+    local RegionID = region:GetRegionID()
     
-    if (regionId <= 10) then
+    if (RegionID <= 10) then
         if RNG <= 50 then
             player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
         elseif RNG <= 25 then
