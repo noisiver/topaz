@@ -70,6 +70,7 @@ function onRegionEnter(player, region)
     local Zikko = GetMobByID(17101144)
     local Respawn = GetServerVariable("Zikko_Respawn")
     local RNG = math.random(100)
+    local regionId = region:GetRegionID()
     
     if (regionId <= 10) then
         if RNG <= 50 then
