@@ -36,6 +36,7 @@ function onTrade(player, npc, trade)
         if npcUtil.tradeHas(trade, v) then 
             player:confirmTrade()
             npc:setStatus(tpz.status.DISAPPEAR)
+            npc:setStatus(tpz.status.NORMAL)
             local newPosition = npcUtil.pickNewPosition(ID.npc.DAMPSOIL, positions)
             GetNPCByID(ID.npc.DAMPSOIL):setPos(newPosition.x, newPosition.y, newPosition.z)
             if math.random(100) <= 25 and npcUtil.popFromQM(player, npc, ID.mob.CRYSTAL_EATER, {radius = 5, hide = 0}) then
