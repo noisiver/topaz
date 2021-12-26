@@ -73,16 +73,17 @@ function onRegionEnter(player, region)
     local RegionID = region:GetRegionID()
     
     if (RegionID <= 10) then
-        if RNG <= 50 then
-            player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
-        elseif RNG <= 25 then
-            player:addStatusEffect(stauseffects[math.random(#stauseffects)])
-        elseif RNG <= 5 and Respawn <= os.time() then
-            player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
-            Zikko:setPos(player:getPos())
-            SpawnMob(ID.mob.ZIKKO):updateClaim(player)
-            SetServerVariable("Zikko_Respawn", os.time() + 120)
-        end
+        player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
+        -- if RNG <= 50 then
+            -- player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
+        -- elseif RNG <= 25 then
+            -- player:addStatusEffect(stauseffects[math.random(#stauseffects)])
+        -- elseif RNG <= 5 and Respawn <= os.time() then
+            -- player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
+            -- Zikko:setPos(player:getPos())
+            -- SpawnMob(ID.mob.ZIKKO):updateClaim(player)
+            -- SetServerVariable("Zikko_Respawn", os.time() + 120)
+        -- end
     end
 end
 
