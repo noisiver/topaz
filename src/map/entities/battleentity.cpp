@@ -45,6 +45,7 @@
 #include "../utils/petutils.h"
 #include "../utils/puppetutils.h"
 #include "../weapon_skill.h"
+#include "../lua/luautils.cpp"
 
 CBattleEntity::CBattleEntity()
 {
