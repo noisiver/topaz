@@ -1326,7 +1326,7 @@ INSERT INTO `mob_skills` VALUES (1384,1019,'disseverment',0,7.0,2000,2000,4,0,0,
 INSERT INTO `mob_skills` VALUES (1385,1020,'biotic_boomerang',1,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1386,1021,'medusa_javelin',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1387,1017,'sideswipe',0,7.0,2000,2000,4,0,0,5,0,0,0);
-INSERT INTO `mob_skills` VALUES (1388,1015,'ranged_attack',0,25.0,2000,2000,4,4,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1388,1015,'ranged_attack',0,25.0,2000,0,4,4,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1389,1016,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1390,1036,'amatsu_torimai',0,7.0,2000,0,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1391,1038,'amatsu_kazakiri',0,7.0,2000,0,4,0,0,0,0,0,0);
