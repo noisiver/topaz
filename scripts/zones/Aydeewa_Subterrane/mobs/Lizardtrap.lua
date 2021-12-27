@@ -4,7 +4,16 @@
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 10) 
+    mob:addMod(tpz.mod.ACC, 12) 
+    mob:addMod(tpz.mod.EVA, 12)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
+    mob:setMod(tpz.mod.REFRESH, 400)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)

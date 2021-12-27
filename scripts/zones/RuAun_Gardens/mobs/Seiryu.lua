@@ -18,6 +18,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.EVA, 390)
     mob:setMod(tpz.mod.MDEF, 12) 
     mob:setMod(tpz.mod.REGAIN, 150)
+    mob:setMod(tpz.mod.REFRESH, 300)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 

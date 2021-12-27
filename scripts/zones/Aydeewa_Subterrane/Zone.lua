@@ -39,6 +39,22 @@ function onRegionEnter(player, region)
     end
 end
 
+function onGameDay()
+    -- move damp soil
+    local positions =
+    {
+        {-302.285,36.687,-32.392},
+        {-308.9644,  36.7856,   -1.1265},
+        {-314.3235,  36.9701,  -15.5626},
+        {-272.4044,  36.5532,  -64.8852},
+        {-274.8207,  36.7241,  -96.9227},
+        {-260.1673,  36.2386,  -27.9922},
+        {-276.5262,  36.7957,  -96.8899},
+    }
+    local newPosition = npcUtil.pickNewPosition(ID.npc.DAMPSOIL, positions)
+    GetNPCByID(ID.npc.DAMPSOIL):setPos(newPosition.x, newPosition.y, newPosition.z)
+end
+
 function onRegionLeave(player, region)
 end
 

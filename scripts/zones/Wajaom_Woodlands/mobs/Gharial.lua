@@ -3,12 +3,21 @@
 --   NM: Gharial
 -----------------------------------
 require("scripts/globals/hunts")
+require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(250) 
+    mob:addMod(tpz.mod.DEFP, 25) 
+	mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
+    mob:setMod(tpz.mod.REFRESH, 400)
+	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
+end
 
-function onMobInitialize(mob)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
-    mob:setMod(tpz.mod.MOVE, 12)
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 2101 then -- Demoralizing Roar
+		mob:useMobAbility(2102)  -- Boiling Blood
+	end
 end
 
 function onMobDeath(mob, player, isKiller)

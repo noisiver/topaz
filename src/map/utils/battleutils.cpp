@@ -22,18 +22,18 @@
 #include "../../common/timer.h"
 #include "../../common/utils.h"
 
+#include <algorithm>
+#include <array>
 #include <math.h>
 #include <string.h>
-#include <algorithm>
 #include <unordered_map>
-#include <array>
 
 #include "../packets/char.h"
 #include "../packets/char_health.h"
 #include "../packets/char_update.h"
 #include "../packets/entity_update.h"
-#include "../packets/message_basic.h"
 #include "../packets/inventory_finish.h"
+#include "../packets/message_basic.h"
 
 #include "../lua/luautils.h"
 
@@ -43,6 +43,7 @@
 #include "charutils.h"
 #include "battleutils.h"
 #include "attackutils.h"
+#include "../anticheat.h"
 #include "../attack.h"
 #include "../map.h"
 #include "../party.h"
@@ -63,6 +64,7 @@
 #include "../item_container.h"
 #include "../items/item_weapon.h"
 #include "../packets/pet_sync.h"
+#include "../packets/char_recast.h"
 #include "../packets/char_sync.h"
 #include "../packets/position.h"
 #include "../packets/lock_on.h"
@@ -73,6 +75,7 @@
 #include "../ai/states/magic_state.h"
 #include "../utils/petutils.h"
 #include "zoneutils.h"
+
 
 
 /************************************************************************
@@ -3310,6 +3313,8 @@ namespace battleutils
 
     SUBEFFECT GetSkillChainEffect(CBattleEntity* PDefender, uint8 primary, uint8 secondary, uint8 tertiary)
     {
+        const std::lock_guard<std::mutex> lock(PDefender->scMutex);
+
         CStatusEffect* PSCEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SKILLCHAIN, 0);
         CStatusEffect* PCBEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_CHAINBOUND, 0);
         SKILLCHAIN_ELEMENT skillchain = SC_NONE;
@@ -3329,7 +3334,7 @@ namespace battleutils
             // Chainbound active on target
             if (PCBEffect)
             {
-                if (PCBEffect->GetStartTime() + 1s < server_clock::now())
+                if (PCBEffect->GetStartTime() + 3s < server_clock::now())
                 {
                     // Konzen-Ittai
                     if (PCBEffect->GetPower() > 1)
@@ -3360,7 +3365,7 @@ namespace battleutils
                 // Previous effect is an opening effect, meaning the power is
                 // actually the ID of the opening weaponskill.  We need all 3
                 // of the possible skillchain properties on the initial link.
-                if (PSCEffect->GetStartTime() + 1s < server_clock::now())
+                if (PSCEffect->GetStartTime() + 3s < server_clock::now())
                 {
                     auto properties = PSCEffect->GetPower();
                     resonanceProperties.push_back((SKILLCHAIN_ELEMENT)(properties & 0b1111));
@@ -3373,7 +3378,7 @@ namespace battleutils
             {
                 // Previous effect is not an opening effect, meaning the power is
                 // The skill chain ID resonating.
-                if (PSCEffect->GetStartTime() + 1s < server_clock::now())
+                if (PSCEffect->GetStartTime() + 3s < server_clock::now())
                 {
                     resonanceProperties.push_back((SKILLCHAIN_ELEMENT)PSCEffect->GetPower());
                     skillchain = FormSkillchain(resonanceProperties, skillProperties);
@@ -6296,5 +6301,38 @@ namespace battleutils
 
         if (absorbedMP > 0)
             PDefender->addMP(absorbedMP);
+    }
+    void HandlePlayerAbilityUsed(CBattleEntity* PSource, CAbility* PAbility, action_t* action)
+    {
+        TPZ_DEBUG_BREAK_IF(PSource == nullptr);
+
+        CCharEntity* PIterSource = nullptr;
+
+        if (PSource->objtype != TYPE_PC)
+        {
+            if (PSource->PMaster && PSource->PMaster->objtype == TYPE_PC)
+            {
+                PIterSource = static_cast<CCharEntity*>(PSource->PMaster);
+            }
+        }
+        else
+        {
+            PIterSource = static_cast<CCharEntity*>(PSource);
+        }
+
+        if (PIterSource)
+        {
+            for (SpawnIDList_t::const_iterator it = PIterSource->SpawnMOBList.begin(); it != PIterSource->SpawnMOBList.end(); ++it)
+            {
+                CMobEntity* PCurrentMob = (CMobEntity*)it->second;
+
+                // Unclear if the required conditions include enmity and/or alliance.
+                // Let's go with just alliance for now.
+                if (PCurrentMob->m_OwnerID.id != 0 && PIterSource->IsMobOwner(PCurrentMob) && distance(PIterSource->loc.p, PCurrentMob->loc.p) < 15.0)
+                {
+                    PCurrentMob->PAI->EventHandler.triggerListener("PLAYER_ABILITY_USED", PCurrentMob, PSource, PAbility, action);
+                }
+            }
+        }
     }
 };

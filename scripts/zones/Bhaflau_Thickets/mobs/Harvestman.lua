@@ -4,9 +4,16 @@
 -- !pos 398.130 -10.675 179.169 52
 -----------------------------------
 require("scripts/globals/hunts")
+require("scripts/globals/status")
 require("scripts/globals/mobs")
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(125) 
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:SetMobAbilityEnabled(false)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)

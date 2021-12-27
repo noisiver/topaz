@@ -1870,9 +1870,9 @@ INSERT INTO `mob_skills` VALUES (1926,1270,'groundburst',1,15.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (1929,1278,'pole_swing',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1930,1279,'tidal_slash',1,10,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1931,1280,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- lamiae
-INSERT INTO `mob_skills` VALUES (1932,16,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- swift shot ??
+INSERT INTO `mob_skills` VALUES (1932,16,'eagle_eye_shot_shadowignore',0,25.0,2000,0,4,2,0,0,0,0,0); -- swift shot ??
 INSERT INTO `mob_skills` VALUES (1933,432,'azure_lore',0,7.0,2000,1500,1,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1934,432,'wild_card',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1934,432,'wild_card',0,7.0,2000,1500,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1935,1679,'overdrive',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1936,1299,'shibaraku',0,7.0,2000,1500,4,0,0,0,0,0,0);  -- need correct animation & timings
 -- INSERT INTO `mob_skills` VALUES (1937,1681,'.',0,7.0,2000,1500,4,0,0,0,0,0,0); -- gessho's teleport is probably here, one skill in one out.
@@ -1941,8 +1941,8 @@ INSERT INTO `mob_skills` VALUES (1999,362,'hiden_sokyaku',0,7.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (2000,363,'shiko_no_mitate',0,7.0,2000,1500,1,0,0,0,0,0,0); -- need correct animation & timings
 INSERT INTO `mob_skills` VALUES (2001,364,'happobarai',0,7.0,2000,1500,4,0,0,0,0,0,0);      -- need correct animation & timings
 INSERT INTO `mob_skills` VALUES (2002,354,'rinpyotosha',0,7.0,2000,1500,1,0,0,0,0,0,0);     -- need correct animation & timings
--- INSERT INTO `mob_skills` VALUES (2003,1181,'grating_tantara',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2004,1182,'stifling_tantara',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2003,1181,'grating_tantara',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2004,1182,'stifling_tantara',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2005,1157,'reward',0,50.0,2000,1500,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2006,1750,'azure_lore',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2007,1751,'wild_card',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1962,7 +1962,7 @@ INSERT INTO `mob_skills` VALUES (2005,1157,'reward',0,50.0,2000,1500,1,0,0,0,0,0
 INSERT INTO `mob_skills` VALUES (2021,438,'eraser',0,7.0,2000,0,16,4,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2022,1367,'tenebrous_mist',1,13.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2023,1368,'thunderstrike',1,13.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2024,1371,'tourbillion',1,18.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2024,1371,'tourbillion',1,18.0,2000,1500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (2025,1369,'dreadstorm',1,13.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2026,1381,'fossilizing_breath',4,12.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2027,1382,'plague_swipe',4,12.0,2000,1500,4,0,0,0,0,0,0);
@@ -2032,11 +2032,11 @@ INSERT INTO `mob_skills` VALUES (2090,1429,'typhonic_arrow',0,7.0,2000,1500,4,0,
 INSERT INTO `mob_skills` VALUES (2091,1430,'meteoric_impact',0,7.0,2000,1500,4,0,0,0,0,0,0);  -- Zazarg
 INSERT INTO `mob_skills` VALUES (2092,1431,'scouring_bubbles',2,7.0,2000,1500,4,0,0,0,0,0,0);  -- Mihli
 -- INSERT INTO `mob_skills` VALUES (2093,1837,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2094,1432,'fire_angon',1,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2094,1432,'fire_angon',2,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2095,1437,'batterhorn',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2096,1438,'clobber',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2097,1439,'granite_skin',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2098,1433,'blazing_angon',1,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2098,1433,'blazing_angon',2,15.0,2000,1500,4,0,0,5,0,0,0);
 INSERT INTO `mob_skills` VALUES (2099,1437,'batterhorn',4,10.0,2000,1000,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (2100,1436,'clobber',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2101,1434,'demoralizing_roar',1,10.0,2000,1000,4,0,0,0,0,0,0);
@@ -2190,7 +2190,7 @@ INSERT INTO `mob_skills` VALUES (2248,432,'invincible',0,18.0,2000,0,1,0,30,0,0,
 INSERT INTO `mob_skills` VALUES (2249,432,'blood_weapon',0,18.0,2000,0,1,0,30,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2250,1994,'familiar',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2251,1995,'soul_voice',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2252,1298,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- troll
+INSERT INTO `mob_skills` VALUES (2252,1298,'eagle_eye_shot_troll',0,25.0,2000,0,4,2,0,0,0,0,0); -- troll
 -- INSERT INTO `mob_skills` VALUES (2253,1997,'meikyo_shisui',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2254,1998,'mijin_gakure',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2255,1999,'spirit_surge',0,7.0,2000,0,1,2,0,0,0,0,0);

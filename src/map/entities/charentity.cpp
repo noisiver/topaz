@@ -28,17 +28,18 @@
 #include "../packets/action.h"
 #include "../packets/basic.h"
 #include "../packets/char.h"
+#include "../packets/char_appearance.h"
+#include "../packets/char_health.h"
+#include "../packets/char_recast.h"
 #include "../packets/char_sync.h"
 #include "../packets/char_update.h"
-#include "../packets/char_recast.h"
-#include "../packets/lock_on.h"
+#include "../packets/entity_update.h"
 #include "../packets/inventory_finish.h"
 #include "../packets/key_items.h"
+#include "../packets/lock_on.h"
 #include "../packets/menu_raisetractor.h"
-#include "../packets/char_health.h"
-#include "../packets/char_appearance.h"
-#include "../packets/message_system.h"
 #include "../packets/message_special.h"
+#include "../packets/message_system.h"
 
 #include "../ai/ai_container.h"
 #include "../ai/controllers/player_controller.h"
@@ -47,15 +48,19 @@
 #include "../ai/states/attack_state.h"
 #include "../ai/states/death_state.h"
 #include "../ai/states/item_state.h"
+#include "../ai/states/magic_state.h"
 #include "../ai/states/raise_state.h"
 #include "../ai/states/range_state.h"
 #include "../ai/states/weaponskill_state.h"
-#include "../ai/states/magic_state.h"
 
 #include "charentity.h"
 #include "automatonentity.h"
 #include "trustentity.h"
 #include "../ability.h"
+#include "../battlefield.h"
+#include "../enmity_container.h"
+#include "../notoriety_container.h"
+#include "../instance.h"
 #include "../conquest_system.h"
 #include "../spell.h"
 #include "../attack.h"
@@ -63,6 +68,7 @@
 #include "../utils/charutils.h"
 #include "../utils/battleutils.h"
 #include "../utils/gardenutils.h"
+#include "../utils/zoneutils.h"
 #include "../item_container.h"
 #include "../items/item_weapon.h"
 #include "../items/item_usable.h"
@@ -77,6 +83,7 @@
 #include "../packets/char_job_extra.h"
 #include "../packets/status_effects.h"
 #include "../mobskill.h"
+
 
 CCharEntity::CCharEntity()
 {
@@ -1180,6 +1187,9 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                 first = false;
             }
         }
+
+        battleutils::HandlePlayerAbilityUsed(this, PAbility, &action);
+
         PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), action.recast);
 
         uint16 recastID = PAbility->getRecastId();

@@ -16,6 +16,7 @@ end
 
 function onMobSpawn(mob)
 	mob:setDamage(155)
+    mob:setMod(tpz.mod.REFRESH, 300)
     mob:addStatusEffect(tpz.effect.REGEN, 50, 3, 0)
     mob:setLocalVar("numAdds", 1)
 end

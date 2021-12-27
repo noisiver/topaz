@@ -20,6 +20,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     SetServerVariable("XolotlDead", 0)
 end
 
@@ -79,23 +80,10 @@ end
 
 function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.XOLOTL_XTRAPOLATOR)
-
-    SetServerVariable("XolotlDead", 1)
 end
 
 function onMobDespawn(mob)
-    -- "If he despawns, he will repop again the next night and keep doing so until he is defeated"
-    local XolotlDead = GetServerVariable("XolotlDead")
-    local Xolotl = GetMobByID(ID.mob.XOLOTL)
-
-    if XolotlDead == 1 then
-        UpdateNMSpawnPoint(mob:getID())
-        local respawn = math.random(36000, 43200) -- 11 to 12hr
-        mob:setRespawnTime(respawn)
-        SetServerVariable("XolotlRespawn",(os.time() + respawn))
-        DisallowRespawn(Xolotl:getID(), true)
-    elseif XolotlDead == 0 then
-        DisallowRespawn(Xolotl:getID(), true)
-    end
+    mob:setRespawnTime(math.random(36000, 43200)) -- 11 to 123 hours
 end
+
 

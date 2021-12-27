@@ -4238,6 +4238,34 @@ INSERT INTO `mob_skill_lists` VALUES ('Jailer_of_Hope_Under_25',6083,1358); -- p
 
 INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6084,1699); -- Pecking Flurry
 INSERT INTO `mob_skill_lists` VALUES ('Mocking_Colibri',6084,1702); -- Wise Crack
+INSERT INTO `mob_skill_lists` VALUES ('Blazing_Angon_Only',6085,2098); -- Blazing Angon
+INSERT INTO `mob_skill_lists` VALUES ('Zarbzan_Only',6086,1748); -- zarbzan
+INSERT INTO `mob_skill_lists` VALUES ('Thermal_Pulse_Only',6087,1817); -- thermal_pulse
+INSERT INTO `mob_skill_lists` VALUES ('Arrow_Deluge_Only',6088,1761); -- arrow_deluge
+
+INSERT INTO `mob_skill_lists` VALUES ('LamieNo9s_Avatar',6089,862); -- slowga
+INSERT INTO `mob_skill_lists` VALUES ('LamieNo9s_Avatar',6089,861); -- spting_Water
+INSERT INTO `mob_skill_lists` VALUES ('LamieNo9s_Avatar',6089,865); -- grand_fall
+
+INSERT INTO `mob_skill_lists` VALUES ('LamieNo9',6090,1759); -- hypnotic_sway
+INSERT INTO `mob_skill_lists` VALUES ('LamieNo9',6090,1758); -- tail_slap
+INSERT INTO `mob_skill_lists` VALUES ('LamieNo9',6090,1762); -- belly_dance
+INSERT INTO `mob_skill_lists` VALUES ('LamieNo9',6090,1929); -- pole_swing
+
+INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,1793); -- vampiric_root
+INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,319); -- bad_breath
+INSERT INTO `mob_skill_lists` VALUES ('Ameretat',6091,320); -- sweet_breath
+
+INSERT INTO `mob_skill_lists` VALUES ('Demoralizing_Roar_Only',6092,2101); -- demoralizing_roar
+INSERT INTO `mob_skill_lists` VALUES ('Stampede_Only',6093,1705); -- Stampede
+
+INSERT INTO `mob_skill_lists` VALUES ('Nis_Puk',6094,1718); -- crosswind
+INSERT INTO `mob_skill_lists` VALUES ('Nis_Puk',6094,1723); -- ill_wind
+
+INSERT INTO `mob_skill_lists` VALUES ('Zikko',6095,2003); -- grating_tantara
+INSERT INTO `mob_skill_lists` VALUES ('Zikko',6095,2004); -- stifling_tantara
+
+
 
 
 -- Next available ID: 1148

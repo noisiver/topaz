@@ -12,13 +12,35 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:setMod(tpz.mod.REFRESH, 400)
-    mob:setMod(tpz.mod.REGAIN, 150)
+    mob:setMod(tpz.mod.REGAIN, 200)
      tpz.mix.jobSpecial.config(mob, {
         specials =
         {
             {id = tpz.jsa.MIJIN_GAKURE, cooldown = 45, hpp = 100},
         },
      })
+    mob:SetMagicCastingEnabled(false)
+    mob:setLocalVar("UtsuTime", 0)
+end
+
+function onMobRoam(mob)
+    mob:SetMagicCastingEnabled(false)
+end
+
+function onMobEngaged(mob)
+    mob:SetMagicCastingEnabled(true)
+end
+
+function onMobFight(mob, target)
+	local UtsuTime = mob:getLocalVar("UtsuTime")
+	local BattleTime = mob:getBattleTime()
+
+	if UtsuTime == 0 then
+		mob:setLocalVar("UtsuTime", BattleTime + 45)
+	elseif BattleTime >= UtsuTime then
+		mob:castSpell(339, mob) -- Utusemi: Ni
+		mob:setLocalVar("UtsuTime", BattleTime + 45)
+	end
 end
 
 function onSpellPrecast(mob, spell)
@@ -52,6 +74,10 @@ end
 
 function onMobDespawn(mob)
     mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+    DespawnMob(Guard)
+    DespawnMob(GuardTwo)
+    DespawnMob(GuardThree)
+    DespawnMob(GuardFour)
 end
 
 function onMobDeath(mob, player, isKiller)
@@ -61,12 +87,12 @@ function onMobDeath(mob, player, isKiller)
     DespawnMob(GuardThree)
     DespawnMob(GuardFour)
 	if isKiller  then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 	if isKiller and math.random(1,100) <= 15 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 end

@@ -9,6 +9,7 @@ require("scripts/globals/world")
 
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 40)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
 function onMobInitialize(mob)

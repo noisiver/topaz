@@ -11,6 +11,20 @@ require("scripts/globals/zone")
 -----------------------------------
 
 function onInitialize(zone)
+    -- Gravity / Zikko  Marsh
+    zone:registerRegion(1, 134, -6, -184, 149, -6, 178) -- Lamian Fang Key Marsh
+    -- Karakul Marsh 
+    zone:registerRegion(2, 307, -14, -333, 297, -14, -347)
+    zone:registerRegion(3, 301, -14, -365, 310, -14, -387)
+    zone:registerRegion(4, 290, -14, -379, 0, 0, 0)
+    --Jnun/Imp/Fly Marsh 
+    zone:registerRegion(5, 447, -6, -288, 0, 0, 0)
+    zone:registerRegion(6, 451, -6, -298, 0, 0, 0)
+    zone:registerRegion(7, 458, -6, -310, 0, 0, 0)
+    zone:registerRegion(8, 469, -6, -301, 0, 0, 0)
+    zone:registerRegion(9, 457, -6, -328, 0, 0, 0)
+    zone:registerRegion(10, 458, -6, -341, 0, 0, 0)
+
     UpdateNMSpawnPoint(ID.mob.AYNU_KAYSEY)
     GetMobByID(ID.mob.AYNU_KAYSEY):setRespawnTime(math.random(900, 10800))
     GetMobByID(ID.mob.KHIMAIRA):setRespawnTime(math.random(12, 36)*3600) -- 12 to 36 hours after maintenance, in 1-hour increments
@@ -45,6 +59,31 @@ function afterZoneIn(player)
 end
 
 function onRegionEnter(player, region)
+    local stauseffects =
+    {
+        [1] = tpz.effect.QUICKENING, 25, 0, 180,
+        [2] = tpz.effect.FLEE, 100, 0, 180,
+        [3] = tpz.effect.STONESKIN, 350, 0, 180,
+        [4] = tpz.effect.HASTE, 1465, 0, 180,
+        [5] = tpz.effect.SLOW, 2550, 0, 180,
+    }
+    local Zikko = GetMobByID(17101144)
+    local Respawn = GetServerVariable("Zikko_Respawn")
+    local RNG = math.random(100)
+    local RegionID = region:GetRegionID()
+    
+    if (RegionID <= 10) then
+        if RNG <= 50 then
+            player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
+        elseif RNG <= 25 then
+            player:addStatusEffect(stauseffects[math.random(#stauseffects)])
+        elseif RNG <= 5 and Respawn <= os.time() then
+            player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
+            Zikko:setPos(player:getPos())
+            SpawnMob(ID.mob.ZIKKO):updateClaim(player)
+            SetServerVariable("Zikko_Respawn", os.time() + 120)
+        end
+    end
 end
 
 function onEventUpdate(player, csid, option)

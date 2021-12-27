@@ -110,9 +110,9 @@ local job2hr = {
     [tpz.job.DRG] = tpz.jsa.CALL_WYVERN,
     [tpz.job.SMN] = tpz.jsa.ASTRAL_FLOW,
     [tpz.job.BLU] = tpz.jsa.AZURE_LORE,
+    [tpz.job.COR] = tpz.jsa.WILD_CARD,
 
 -- following abilities are not yet defined on tpz.jsa:
---  [tpz.job.COR] = tpz.jsa.WILD_CARD,
 --  [tpz.job.PUP] = tpz.jsa.OVERDRIVE,
 --  [tpz.job.DNC] = tpz.jsa.TRANCE,
 --  [tpz.job.SCH] = tpz.jsa.TABULA_RASA,

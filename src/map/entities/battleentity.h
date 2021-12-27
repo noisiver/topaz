@@ -25,6 +25,7 @@
 #include <set>
 #include <vector>
 #include <unordered_map>
+#include <mutex>
 
 #include "baseentity.h"
 #include "../map.h"
@@ -502,6 +503,7 @@ public:
 
     uint8           GetSpeed();
 
+    std::mutex      scMutex;
     bool            isDead();					// проверяем, мертва ли сущность
     bool            isAlive();
     bool            isInAssault();
@@ -628,6 +630,7 @@ public:
     virtual void OnEngage(CAttackState&);
     virtual void OnDisengage(CAttackState&);
     /* Casting */
+    virtual void OnCastStarting(CMagicState& state);
     virtual void OnCastFinished(CMagicState&, action_t&);
     virtual void OnCastInterrupted(CMagicState&, action_t&, MSGBASIC_ID msg);
     /* Weaponskill */

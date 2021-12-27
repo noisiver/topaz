@@ -24,12 +24,13 @@
 
 #include "../../common/cbasetypes.h"
 #include "../blue_spell.h"
-#include "../status_effect.h"
 #include "../merit.h"
+#include "../status_effect.h"
 
 #include <list>
 
 #include "../entities/battleentity.h"
+
 
 class CAbility;
 class CItemWeapon;
@@ -259,6 +260,8 @@ namespace battleutils
     CBattleEntity*      GetCoverAbilityUser(CBattleEntity* PCoverAbilityTarget, CBattleEntity* PMob);
     bool                IsMagicCovered(CCharEntity* PCoverAbilityUser);
     void                ConvertDmgToMP(CBattleEntity* PDefender, int32 damage, bool IsCovered);
-};
+
+    void                HandlePlayerAbilityUsed(CBattleEntity* PSource, CAbility* PAbility, action_t* action);
+    };
 
 #endif

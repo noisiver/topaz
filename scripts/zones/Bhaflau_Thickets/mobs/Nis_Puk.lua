@@ -7,6 +7,11 @@ require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(125) 
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:setMod(tpz.mod.REFRESH, 400)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
