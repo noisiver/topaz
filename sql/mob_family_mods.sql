@@ -342,7 +342,7 @@ INSERT INTO `mob_family_mods` VALUES (34,465,100,0);	-- Carbuncle - Light
 -- Yovra
 INSERT INTO `mob_family_mods` VALUES (271,68,50,0);		-- +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (271,63,50,0);		-- +50% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (271,370,50,1);	-- +50/tick Regen
+INSERT INTO `mob_family_mods` VALUES (271,370,50,0);	-- +50/tick Regen
 INSERT INTO `mob_family_mods` VALUES (271,28,35,1);		-- +35% Experience Bonus
 
 -- Antlion
