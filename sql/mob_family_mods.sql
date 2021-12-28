@@ -454,7 +454,7 @@ INSERT INTO `mob_family_mods` VALUES (511,29,70,0);	 -- Ahriman +50 MDB
 INSERT INTO `mob_family_mods` VALUES (511,23,16,1);	 -- Silence Immunity
 INSERT INTO `mob_family_mods` VALUES (511,28,-100,1); -- Ahriman -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (92,366,100,0); -- Statue-Goblin +100 WEP DMG
+INSERT INTO `mob_family_mods` VALUES (92,366,150,0); -- Statue-Goblin +150 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (92,62,300,0);	-- Statue-Goblin +300% Attk
 INSERT INTO `mob_family_mods` VALUES (92,25,50,0);	-- Statue-Goblin +50 ACC
 INSERT INTO `mob_family_mods` VALUES (92,68,50,0);	-- Statue-Goblin +50 EVAS
@@ -464,7 +464,7 @@ INSERT INTO `mob_family_mods` VALUES (92,73,100,0);	-- Statue-Goblin +100 Store 
 INSERT INTO `mob_family_mods` VALUES (92,1,5000,0);  -- Statue-Goblin +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (92,28,-100,1); -- Statue-Goblin -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (93,366,100,0); -- Statue-Orc +100 WEP DMG
+INSERT INTO `mob_family_mods` VALUES (93,366,150,0); -- Statue-Orc +150 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (93,62,300,0);	-- Statue-Orc +300% Attk
 INSERT INTO `mob_family_mods` VALUES (93,25,50,0);	-- Statue-Orc +50 ACC
 INSERT INTO `mob_family_mods` VALUES (93,68,50,0);	-- Statue-Orc +50 EVAS
@@ -474,7 +474,7 @@ INSERT INTO `mob_family_mods` VALUES (93,73,100,0);	-- Statue-Orc +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (93,1,5000,0);  -- Statue-Orc +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (93,28,-100,1); -- Statue-Orc -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (94,366,100,0); -- Statue-Quadav +100 WEP DMG
+INSERT INTO `mob_family_mods` VALUES (94,366,150,0); -- Statue-Quadav +150 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (94,62,300,0);	-- Statue-Quadav +300% Attk
 INSERT INTO `mob_family_mods` VALUES (94,25,50,0);	-- Statue-Quadav +50 ACC
 INSERT INTO `mob_family_mods` VALUES (94,68,50,0);	-- Statue-Quadav +50 EVAS
@@ -484,7 +484,7 @@ INSERT INTO `mob_family_mods` VALUES (94,73,100,0);	-- Statue-Quadav +100 Store 
 INSERT INTO `mob_family_mods` VALUES (94,1,5000,0);  -- Statue-Quadav +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (94,28,-100,1); -- Statue-Quadav -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (95,366,100,0); -- Statue-Yagudo +100 WEP DMG
+INSERT INTO `mob_family_mods` VALUES (95,366,150,0); -- Statue-Yagudo +150 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (95,62,300,0);	-- Statue-Yagudo +300% Attk
 INSERT INTO `mob_family_mods` VALUES (95,25,50,0);	-- Statue-Yagudo +50 ACC
 INSERT INTO `mob_family_mods` VALUES (95,68,50,0);	-- Statue-Yagudo +50 EVAS
