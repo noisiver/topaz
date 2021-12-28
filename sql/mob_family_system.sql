@@ -264,9 +264,9 @@ INSERT INTO `mob_family_system` VALUES (199,'Qiqirn',7,'Beastmen',0,60,125,140,3
 INSERT INTO `mob_family_system` VALUES (200,'Quadav',7,'Beastmen',0,40,100,110,3,3,4,4,4,5,3,1,3,1,3,1,1.25,1,1,1,1.3,1.3,1.3,1.5,1,1.3,1.3,6,258,0);
 INSERT INTO `mob_family_system` VALUES (201,'Quadav',7,'Beastmen',1,40,100,110,3,3,4,4,4,5,3,1,3,1,3,1,1,1,1,0.5,0.563,0.5,0.5,0.625,0.438,0.5,0.5,6,258,0); -- BoWho_Warmonger & NiZho_Bladebender
 INSERT INTO `mob_family_system` VALUES (202,'Quadav',7,'Beastmen',1,40,100,110,3,3,4,4,4,5,3,1,3,1,3,1,1,1,1,1,1.3,1.3,1.3,1.5,1,1.3,1.3,6,258,0);	-- Normal Present Quadav
-INSERT INTO `mob_family_system` VALUES (203,'Qutrub',19,'Undead',0,60,350,140,3,3,1,2,5,1,5,1,1,1,1,2,2,2,2,1.3,0.5,1,0.85,0.85,1,1.15,0.5,8,6,0); -- Normal Mob
-INSERT INTO `mob_family_system` VALUES (204,'Qutrub',19,'Undead',0,40,300,140,1,3,3,3,1,5,4,3,3,3,3,1,1,1,1,1.125,0.875,1,1,1,1,1.125,0.5,8,6,0); -- Unused?
-INSERT INTO `mob_family_system` VALUES (205,'Qutrub',19,'Undead',0,40,300,140,1,3,3,3,1,5,4,3,3,3,3,1.875,1.875,1.875,1.875,2.109,1.64,1.875,1.875,1.875,1.875,2.109,0.937,8,6,0); -- Qutrub_Wastrel
+INSERT INTO `mob_family_system` VALUES (203,'Qutrub',19,'Undead',0,60,350,140,3,3,1,2,5,1,5,1,1,1,1,1,1,1,1,1.15,0.5,0.85,0.7,0.7,0.85,1.15,0.5,8,6,0); -- Normal Mob
+INSERT INTO `mob_family_system` VALUES (204,'Qutrub',19,'Undead',0,60,350,140,3,3,1,2,5,1,5,1,1,1,1,1,1,1,1,1.15,0.5,0.85,0.7,0.7,0.85,1.15,0.5,8,6,0); -- Unused?
+INSERT INTO `mob_family_system` VALUES (205,'Qutrub',19,'Undead',0,60,350,140,3,3,1,2,5,1,5,1,1,1,1,1,1,1,1,1.15,0.5,0.85,0.7,0.7,0.85,1.15,0.5,8,6,0); -- Qutrub_Wastrel
 INSERT INTO `mob_family_system` VALUES (206,'Rabbit',6,'Beast',0,40,100,120,4,3,4,4,4,4,4,1,3,1,3,1,1,1,1,1.3,1.15,1.3,1.15,1.5,1.5,1.15,1.5,4,257,1);
 INSERT INTO `mob_family_system` VALUES (207,'Rafflesia',17,'Plantoid',0,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1.3,1,1.15,0.6,0.85,1,0.7,1,4,2,0);
 INSERT INTO `mob_family_system` VALUES (208,'Ram',6,'Beast',3,40,110,100,3,4,3,4,4,4,4,1,3,1,3,1,1,1,1,1,0.7,1,0.7,1.15,1.15,1,1,4,257,0); -- missing attk and acc
