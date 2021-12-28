@@ -4,7 +4,6 @@
 -----------------------------------
 require("scripts/globals/missions")
 require("scripts/globals/status")
-require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -12,7 +11,6 @@ function onMobSpawn(mob)
     mob:untargetable(true)
     mob:AnimationSub(5)
     mob:wait(2000)
-    mob:setMod(tpz.mod.REGEN, 50)
 end
 
 function onMobEngaged(mob, target)
@@ -20,7 +18,6 @@ function onMobEngaged(mob, target)
     mob:untargetable(false)
     mob:AnimationSub(6)
     mob:wait(2000)
-    mob:setMod(tpz.mod.REGEN, 50)
 end
 
 function onMobDisengage(mob)
