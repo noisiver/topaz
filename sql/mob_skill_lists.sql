@@ -4265,6 +4265,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Nis_Puk',6094,1723); -- ill_wind
 INSERT INTO `mob_skill_lists` VALUES ('Zikko',6095,2003); -- grating_tantara
 INSERT INTO `mob_skill_lists` VALUES ('Zikko',6095,2004); -- stifling_tantara
 
+INSERT INTO `mob_skill_lists` VALUES ('Debugging',6096,1834); -- debugging
+
 
 
 
