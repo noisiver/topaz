@@ -23,10 +23,9 @@ function onMobFight(mob, target)
 	local CharmTime = mob:getLocalVar("CharmTime")
 	local BattleTime = mob:getBattleTime()
     tpz.mix.jobSpecial.config(mob, {
-        between = 180,
         specials =
         {
-            {id = tpz.jsa.SOUL_VOICE, duration = 30, cooldown = 0, hpp = 75},
+            {id = tpz.jsa.SOUL_VOICE, duration = 30, cooldown = 180, hpp = 75},
         },
     })
 	if mob:hasStatusEffect(tpz.effect.SOUL_VOICE) then
