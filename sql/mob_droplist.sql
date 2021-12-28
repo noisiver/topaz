@@ -2637,11 +2637,11 @@ INSERT INTO `mob_droplist` VALUES (446,0,0,1000,2168,500); -- Cerberus claw
 INSERT INTO `mob_droplist` VALUES (446,0,0,1000,2169,1000); -- Cerberus hide
 INSERT INTO `mob_droplist` VALUES (446,0,0,1000,5565,1000); -- Slice of Cerberus meat
 INSERT INTO `mob_droplist` VALUES (446,0,0,1000,18385,240); -- Algol
-INSERT INTO `mob_droplist` VALUES (446,0,0,240,16108,200); -- Goliard Chapeau 
-INSERT INTO `mob_droplist` VALUES (446,0,0,240,14570,200); -- Goliard Saio 
-INSERT INTO `mob_droplist` VALUES (446,0,0,240,14985,200); -- Goliard Cuffs
-INSERT INTO `mob_droplist` VALUES (446,0,0,240,15649,200); -- Goliard Trews 
-INSERT INTO `mob_droplist` VALUES (446,0,0,240,15735,200); -- Goliard Clogs 
+INSERT INTO `mob_droplist` VALUES (446,0,0,1000,16108,200); -- Goliard Chapeau 
+INSERT INTO `mob_droplist` VALUES (446,0,0,1000,14570,200); -- Goliard Saio 
+INSERT INTO `mob_droplist` VALUES (446,0,0,1000,14985,200); -- Goliard Cuffs
+INSERT INTO `mob_droplist` VALUES (446,0,0,1000,15649,200); -- Goliard Trews 
+INSERT INTO `mob_droplist` VALUES (446,0,0,1000,15735,200); -- Goliard Clogs 
 INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,1000); -- (Cerebrator) Teal memosphere
 INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,240); -- Teal memosphere
 INSERT INTO `mob_droplist` VALUES (447,0,0,1000,1720,150); -- Teal memosphere
@@ -7491,11 +7491,11 @@ INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,2372,1000); -- Khimaira Mane
 INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,2373,1000); -- Khimaira Tail
 INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,17738,50); -- Hauteclaire
 INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,18847,100); -- Seveneyes
-INSERT INTO `mob_droplist` VALUES (1437,0,0,240,16106,200); -- Askar Zucchetto 
-INSERT INTO `mob_droplist` VALUES (1437,0,0,240,14568,200); -- Askar Korazin
-INSERT INTO `mob_droplist` VALUES (1437,0,0,240,14983,200); -- Askar Manopolas
-INSERT INTO `mob_droplist` VALUES (1437,0,0,240,15647,200); -- Askar Dirs
-INSERT INTO `mob_droplist` VALUES (1437,0,0,240,15733,200); -- Askar Gambieras
+INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,16106,200); -- Askar Zucchetto 
+INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,14568,200); -- Askar Korazin
+INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,14983,200); -- Askar Manopolas
+INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,15647,200); -- Askar Dirs
+INSERT INTO `mob_droplist` VALUES (1437,0,0,1000,15733,200); -- Askar Gambieras
 INSERT INTO `mob_droplist` VALUES (1438,0,0,1000,2621,1000);
 INSERT INTO `mob_droplist` VALUES (1438,0,0,1000,15022,380);
 INSERT INTO `mob_droplist` VALUES (1438,0,0,1000,15022,190);
@@ -16588,11 +16588,11 @@ INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,2158,1000); -- (Hydra)  Hydra F
 INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,2172,1000); -- (Hydra)  Hydra Scale 110%
 INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,15530,240); -- (Hydra)  Berserker's Torque 24%
 INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,17952,240); -- (Hydra)  Sirius Axe 24%
-INSERT INTO `mob_droplist` VALUES (3147,0,0,240,16107,200); -- Denali Bonnet 
-INSERT INTO `mob_droplist` VALUES (3147,0,0,240,14569,200); -- Denali Jacket 
-INSERT INTO `mob_droplist` VALUES (3147,0,0,240,14984,200); -- Denali Wristbands 
-INSERT INTO `mob_droplist` VALUES (3147,0,0,240,15648,200); -- Denali Kecks 
-INSERT INTO `mob_droplist` VALUES (3147,0,0,240,15734,200); -- Denali Gamashes 
+INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,16107,200); -- Denali Bonnet 
+INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,14569,200); -- Denali Jacket 
+INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,14984,200); -- Denali Wristbands 
+INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,15648,200); -- Denali Kecks 
+INSERT INTO `mob_droplist` VALUES (3147,0,0,1000,15734,200); -- Denali Gamashes 
 INSERT INTO `mob_droplist` VALUES (3148,2,0,1000,1452,0); -- O. Bronzepiece
 INSERT INTO `mob_droplist` VALUES (3148,0,0,1000,18308,50);
 INSERT INTO `mob_droplist` VALUES (3148,0,0,1000,18290,50);
