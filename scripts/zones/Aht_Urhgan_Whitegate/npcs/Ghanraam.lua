@@ -58,10 +58,9 @@ require("scripts/globals/npc_util")
 
 local function checkForWeapon(trade, withCurrency)
     local IMPERIAL_BRONZE_PIECE = 2184
-    local itemsToCheckFor = {}
     -- create table of traded items, with key/val of itemId/itemQty
     for weaponIndex = 1, 20 do
-        table.insert(itemsToCheckFor, BaseNyzulWeapons[weaponIndex])
+        local itemsToCheckFor = { [1] = BaseNyzulWeapons[weaponIndex] };
         if (withCurrency) then
             table.insert(itemsToCheckFor, IMPERIAL_BRONZE_PIECE)
         end
