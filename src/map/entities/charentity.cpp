@@ -721,12 +721,6 @@ bool CCharEntity::CanAttack(CBattleEntity* PTarget, std::unique_ptr<CBasicPacket
     }
     else if ((dist - PTarget->m_ModelSize) > GetMeleeRange())
     {
-        if (PTarget->objtype != TYPE_PC && (dist - PTarget->m_ModelSize) < GetMeleeRange() + 5 &&
-            (PTarget->PAI->PathFind->IsFollowingPath() || PTarget->PAI->PathFind->IsFollowingScriptedPath()) &&
-            abs(PTarget->loc.p.rotation - this->loc.p.rotation) < 30)
-        { // we are chasing a moving monster, add 5 to our melee range
-            return true;
-        }
         errMsg = std::make_unique<CMessageBasicPacket>(this, PTarget, 0, 0, MSGBASIC_TARG_OUT_OF_RANGE);
         return false;
     }
