@@ -16,6 +16,16 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.EVA, 30)
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.GA_CHANCE, 25)
+    if GetMobByID(mob:getID() - 1):isDead() and GetMobByID(mob:getID() - 2):isDead() then
+        mob:getBattlefield():setLocalVar("phaseChange", 0)
+    end
+end
+
 function onMobFight(mob, target)
 	mob:setMod(tpz.mod.REGAIN, 100)
     local battletime = mob:getBattleTime()
@@ -28,15 +38,6 @@ function onMobFight(mob, target)
 	end
 end
 
-function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.EVA, 30)
-    mob:setMod(tpz.mod.REFRESH, 400)
-    mob:setMobMod(tpz.mobMod.GA_CHANCE, 25)
-    if GetMobByID(mob:getID() - 1):isDead() and GetMobByID(mob:getID() - 2):isDead() then
-        mob:getBattlefield():setLocalVar("phaseChange", 0)
-    end
-end
 
 function onMobDeath(mob, player, isKiller)
 end

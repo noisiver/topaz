@@ -12,8 +12,8 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setMod(tpz.mod.ATTP, 10)
 	mob:setDamage(120)
+	mob:setMod(tpz.mod.ATTP, 10)
 	mob:setMod(tpz.mod.DEF, 640)
 	mob:setMod(tpz.mod.EVA, 337)
     mob:setMod(tpz.mod.MDEF, 12) 

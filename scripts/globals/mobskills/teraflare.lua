@@ -13,17 +13,19 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    local mobhp = mob:getHPP()
+   --[[ local mobhp = mob:getHPP()
 
     if (mobhp <= 10 and mob:getLocalVar("GigaFlare") ~= 0) then -- make sure Gigaflare has happened first - don't want a random Megaflare to block it.
         mob:setLocalVar("MegaFlareQueue", 1) -- set up Megaflare for being called by the script again.
     end
 
     return 1
+        Taken from Megaflare fix later
+    ]]
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local MegaFlareQueue = mob:getLocalVar("MegaFlareQueue") - 1 -- decrement the amount of queued Megaflares.
+    --[[local MegaFlareQueue = mob:getLocalVar("MegaFlareQueue") - 1 -- decrement the amount of queued Megaflares.
     mob:setLocalVar("MegaFlareQueue", MegaFlareQueue)
     mob:setLocalVar("FlareWait", 0) -- reset the variables for Megaflare.
     mob:setLocalVar("tauntShown", 0)
@@ -33,8 +35,9 @@ function onMobWeaponSkill(target, mob, skill)
     if (bit.band(mob:getBehaviour(), tpz.behavior.NO_TURN) == 0) then -- re-enable noturn
         mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     end
+        Taken from Megaflare fix later]]
 
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.FIRE, 850)
+    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.FIRE, 1800)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.FIRE)

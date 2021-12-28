@@ -296,6 +296,7 @@ INSERT INTO `mob_family_mods` VALUES (122,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (123,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (124,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (272,29,20,0); 	-- Zdei +20 MDB
+INSERT INTO `mob_family_mods` VALUES (449,29,62,0); 	-- Bahamut +62 MDB
 
 -- Move SPeed
 INSERT INTO `mob_family_mods` VALUES (1,169,-15,0); 	-- Acrolith -15%
