@@ -26,17 +26,20 @@ function onMobFight(mob, target)
         between = 180,
         specials =
         {
-            {id = tpz.jsa.SOUL_VOICE, cooldown = 0, hpp = 75},
+            {id = tpz.jsa.SOUL_VOICE, duration = 30, cooldown = 0, hpp = 75},
         },
     })
 	if mob:hasStatusEffect(tpz.effect.SOUL_VOICE) then
 		if CharmTime == 0 then
 			mob:setLocalVar("CharmTime", BattleTime + math.random(1, 30))
-		elseif BattleTime >= CharmTime then
+		elseif CharmTime > 0 and BattleTime >= CharmTime then
 			mob:castSpell(466) -- Maidens Virelai
 			mob:setLocalVar("CharmTime", BattleTime + math.random(1, 30))
 		end
 	end
+    if mob:hasStatusEffect(tpz.effect.SOUL_VOICE) == false then
+        mob:setLocalVar("CharmTime", 0)
+    end
 	
 	if mob:getHPP() <= 15 then
 		if PaeonTime == 0 then
