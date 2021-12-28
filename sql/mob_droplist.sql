@@ -2903,7 +2903,7 @@ INSERT INTO `mob_droplist` VALUES (497,0,0,1000,19218,100);
 INSERT INTO `mob_droplist` VALUES (498,0,0,1000,2678,1000);
 INSERT INTO `mob_droplist` VALUES (498,0,0,1000,16277,100);
 INSERT INTO `mob_droplist` VALUES (498,0,0,1000,17757,100);
-INSERT INTO `mob_droplist` VALUES (499,0,0,1000,724,10);
+INSERT INTO `mob_droplist` VALUES (499,0,0,1000,724,10); -- Piece Of Magnolia Lumbe
 INSERT INTO `mob_droplist` VALUES (499,0,0,1000,1536,40);
 INSERT INTO `mob_droplist` VALUES (500,2,0,1000,2150,0);
 INSERT INTO `mob_droplist` VALUES (500,0,0,1000,2150,240);
@@ -3099,12 +3099,12 @@ INSERT INTO `mob_droplist` VALUES (542,0,0,1000,1064,50);
 INSERT INTO `mob_droplist` VALUES (542,0,0,1000,1119,150);
 INSERT INTO `mob_droplist` VALUES (542,0,0,1000,1728,120);
 INSERT INTO `mob_droplist` VALUES (542,0,0,1000,4171,100);
-INSERT INTO `mob_droplist` VALUES (543,0,0,1000,724,50);
+INSERT INTO `mob_droplist` VALUES (543,0,0,1000,724,100); --(Cryptonberry Stalker) Piece Of Magnolia Lumber
 INSERT INTO `mob_droplist` VALUES (543,2,0,1000,749,0);
-INSERT INTO `mob_droplist` VALUES (543,0,0,1000,1064,50);
-INSERT INTO `mob_droplist` VALUES (543,0,0,1000,1119,150);
-INSERT INTO `mob_droplist` VALUES (543,0,0,1000,1728,100);
-INSERT INTO `mob_droplist` VALUES (543,0,0,1000,4171,10);
+INSERT INTO `mob_droplist` VALUES (543,0,0,1000,1064,50); -- Pso'Xja chest key
+INSERT INTO `mob_droplist` VALUES (543,0,0,1000,1119,150); -- Tonberry coat
+INSERT INTO `mob_droplist` VALUES (543,0,0,1000,1728,100); -- Chunk of ordrynite
+INSERT INTO `mob_droplist` VALUES (543,0,0,1000,4171,10); -- Flask of vitriol
 INSERT INTO `mob_droplist` VALUES (544,0,0,1000,529,50);
 INSERT INTO `mob_droplist` VALUES (544,2,0,1000,825,0);
 INSERT INTO `mob_droplist` VALUES (544,0,0,1000,825,240);
@@ -3583,10 +3583,10 @@ INSERT INTO `mob_droplist` VALUES (650,0,0,1000,4621,100);	-- Scroll of Raise II
 INSERT INTO `mob_droplist` VALUES (650,0,0,1000,4719,100);	-- Scroll of Regen III
 INSERT INTO `mob_droplist` VALUES (650,0,0,1000,4741,150);	-- Scroll of Shellra IV
 INSERT INTO `mob_droplist` VALUES (650,0,0,1000,13616,100);	-- Dodge cape
-INSERT INTO `mob_droplist` VALUES (651,0,0,1000,842,150);
+INSERT INTO `mob_droplist` VALUES (651,0,0,1000,842,150); -- (Diatryma) Giant bird feather
 INSERT INTO `mob_droplist` VALUES (651,4,0,1000,842,0);  -- Giant Bird Feather(Despoil)
-INSERT INTO `mob_droplist` VALUES (651,0,0,1000,843,100);
-INSERT INTO `mob_droplist` VALUES (651,0,0,1000,5209,240);
+INSERT INTO `mob_droplist` VALUES (651,0,0,1000,843,50); -- Giant bird plume
+INSERT INTO `mob_droplist` VALUES (651,0,0,1000,5209,240); -- Slice Of Diatryma Meat
 INSERT INTO `mob_droplist` VALUES (652,0,0,1000,846,240);
 INSERT INTO `mob_droplist` VALUES (652,0,0,1000,925,50);
 INSERT INTO `mob_droplist` VALUES (652,2,0,1000,4370,0);
@@ -11895,7 +11895,7 @@ INSERT INTO `mob_droplist` VALUES (2286,0,0,1000,17306,290);
 INSERT INTO `mob_droplist` VALUES (2287,0,0,1000,3252,100);
 INSERT INTO `mob_droplist` VALUES (2287,4,0,1000,17306,0);
 INSERT INTO `mob_droplist` VALUES (2287,0,0,1000,17306,370);
-INSERT INTO `mob_droplist` VALUES (2288,0,0,1000,724,50);
+INSERT INTO `mob_droplist` VALUES (2288,0,0,1000,724,10);
 INSERT INTO `mob_droplist` VALUES (2288,0,0,1000,1536,50);
 INSERT INTO `mob_droplist` VALUES (2289,0,0,1000,852,150);
 INSERT INTO `mob_droplist` VALUES (2289,0,0,1000,1692,240); -- Carmine Chip
@@ -12320,17 +12320,11 @@ INSERT INTO `mob_droplist` VALUES (2379,0,0,1000,4362,100); -- Lizard egg
 INSERT INTO `mob_droplist` VALUES (2380,0,0,1000,1620,50);
 INSERT INTO `mob_droplist` VALUES (2380,0,0,1000,1697,100);
 INSERT INTO `mob_droplist` VALUES (2380,0,0,1000,1877,50);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,531,190);
-INSERT INTO `mob_droplist` VALUES (2381,2,0,1000,832,0);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,859,250);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,859,130);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,859,80);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,859,60);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,859,50);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,859,40);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,895,410);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,895,210);
-INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,5208,80);
+INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,531,50); -- (Tavnazian Ram) Lanolin cube
+INSERT INTO `mob_droplist` VALUES (2381,2,0,1000,832,0); -- (Steal) Clump Of Sheep Wool
+INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,859,150); -- Ram skin
+INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,895,100); -- Ram horn
+INSERT INTO `mob_droplist` VALUES (2381,0,0,1000,5208,240); -- Slice Of Tavnazian Ram Meat
 INSERT INTO `mob_droplist` VALUES (2382,0,0,1000,505,175);
 INSERT INTO `mob_droplist` VALUES (2382,0,0,1000,505,30);
 INSERT INTO `mob_droplist` VALUES (2382,2,0,1000,832,0);
@@ -12731,7 +12725,7 @@ INSERT INTO `mob_droplist` VALUES (2446,0,0,1000,17303,240);
 INSERT INTO `mob_droplist` VALUES (2446,0,0,1000,3497,240); -- Forgotten Step
 INSERT INTO `mob_droplist` VALUES (2446,0,0,1000,3497,150); -- Forgotten Step
 INSERT INTO `mob_droplist` VALUES (2446,0,0,1000,3497,100); -- Forgotten Step
-INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,677,50);
+INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,677,50); -- (Tonberry Stabber) Chunk Of White Steel
 INSERT INTO `mob_droplist` VALUES (2447,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2447,4,0,1000,952,0);
 INSERT INTO `mob_droplist` VALUES (2447,0,0,1000,1049,50);
