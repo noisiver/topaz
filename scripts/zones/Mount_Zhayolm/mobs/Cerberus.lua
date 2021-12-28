@@ -13,7 +13,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.EVA, 356) 
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REGEN, 10) 
-    mob:setMod(tpz.mod.REFRESH, 50) 
+    mob:setMod(tpz.mod.REFRESH, 50)
+    mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end
 
 function onMobInitialize(mob)

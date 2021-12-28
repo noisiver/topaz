@@ -18,6 +18,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 50)
     mob:setLocalVar("Raged", 0)
     mob:AnimationSub(0)
+    mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end
 
 function onMobInitialize(mob)
