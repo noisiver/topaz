@@ -38,7 +38,7 @@ function onMobFight(mob, target)
     if broken < 2 then
         mob:setMod(tpz.mod.REGAIN, 100)
     end
-    if broken < 1
+    if broken < 1 then
         mob:setMod(tpz.mod.REGEN, 100)
     else
         mob:setMod(tpz.mod.REGEN, 10)
