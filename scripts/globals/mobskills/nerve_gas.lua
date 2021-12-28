@@ -22,12 +22,12 @@ function onMobSkillCheck(target, mob, skill)
         end
     elseif (mob:getFamily() == 313) then -- Tinnin can use at will
         return 0
+    end
+    
+   if mob:getPool() == 2018 and mob:AnimationSub() < 2 then -- Hydra HNM
+        return 1
     else
-        if (mob:AnimationSub() < 2) then
-            return 0
-        else
-            return 1
-        end
+        return 0
     end
 
 end
