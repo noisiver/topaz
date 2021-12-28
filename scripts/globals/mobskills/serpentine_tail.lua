@@ -12,21 +12,8 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-
-    if (mob:getFamily() == 316) then
-        local mobSkin = mob:getModelId()
-
-        if (mobSkin == 1796) then
-            return 0
-        else
-            return 1
-        end
-    elseif (mob:getFamily() == 313) then -- Tinnin
-        if (mob:AnimationSub() < 2 and target:isBehind(mob, 48) == true) then
-            return 0
-        else
-            return 1
-        end
+    if target:isInfront(mob, 128) then
+        return 1
     end
 
     return 0

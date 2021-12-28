@@ -12,20 +12,14 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-  if(mob:getFamily() == 316) then
-    local mobSkin = mob:getModelId()
-
-    if (mobSkin == 1805) then
-        return 0
-    else
-        return 1
+    if mob:getPool() == 2220 then
+        if mob:AnimationSub() > 0 then
+            return 1
+        end
     end
-  end
-   --[[TODO: Khimaira should only use this when its wings are up, which is animationsub() == 0.
-   There's no system to put them "down" yet, so it's not really fair to leave it active.
-   Tyger's fair game, though. :)]]
     return 0
 end
+
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 3

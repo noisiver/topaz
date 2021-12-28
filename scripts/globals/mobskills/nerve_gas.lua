@@ -23,7 +23,7 @@ function onMobSkillCheck(target, mob, skill)
     elseif (mob:getFamily() == 313) then -- Tinnin can use at will
         return 0
     else
-        if (mob:AnimationSub() == 0) then
+        if (mob:AnimationSub() < 2) then
             return 0
         else
             return 1

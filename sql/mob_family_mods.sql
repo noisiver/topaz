@@ -308,6 +308,9 @@ INSERT INTO `mob_family_mods` VALUES (176,165,10,0);		-- Mamool ja +10% Crit
 -- -GA Chance
 INSERT INTO `mob_family_mods` VALUES (175,7,50,1);	-- Magic Pot 50% chance to -Ga
 
+-- Dual Wield
+INSERT INTO `mob_family_mods` VALUES (285,44,1,1); -- Gulool_Ja_Ja
+
 -- Immunities
 INSERT INTO `mob_family_mods` VALUES (92,23,2047,1); -- Dyna Statues immune all enfeebles
 INSERT INTO `mob_family_mods` VALUES (93,23,2047,1); -- Dyna Statues immune all enfeebles
