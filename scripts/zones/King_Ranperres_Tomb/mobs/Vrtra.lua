@@ -4,7 +4,25 @@
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/titles")
+require("scripts/globals/mobs")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(250)
+    mob:setMod(tpz.mod.ATT, 870)
+    mob:setMod(tpz.mod.DEF, 536)
+    mob:setMod(tpz.mod.EVA, 356)
+    mob:setMod(tpz.mod.UDMGMAGIC, -40)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.REGEN, 30)
+    mob:setMod(tpz.mod.UFASTCAST, 50) 
+    mob:setMod(tpz.mod.REFRESH, 50)
+	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
+    mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
+end
 
 local offsets = {1, 3, 5, 2, 4, 6}
 

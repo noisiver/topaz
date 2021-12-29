@@ -1927,6 +1927,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Ladybug',390,2182);
 INSERT INTO `mob_skill_lists` VALUES ('VrtraWyrm',391,1309);
 INSERT INTO `mob_skill_lists` VALUES ('VrtraWyrm',391,1310);
 INSERT INTO `mob_skill_lists` VALUES ('VrtraWyrm',391,1311);
+INSERT INTO `mob_skill_lists` VALUES ('VrtraWyrm',391,1312);
+INSERT INTO `mob_skill_lists` VALUES ('VrtraWyrm',391,1314);
 INSERT INTO `mob_skill_lists` VALUES ('VrtraWyrm',391,1315);
 INSERT INTO `mob_skill_lists` VALUES ('VrtraWyrm',391,1316);
 -- INSERT INTO `mob_skill_lists` VALUES ('JormungandWyrm',392,1031);

@@ -4,23 +4,34 @@
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")
+require("scripts/globals/status")
+require("scripts/globals/titles")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setDamage(190)
+	mob:setDamage(250)
+    mob:setMod(tpz.mod.ATT, 870)
+    mob:setMod(tpz.mod.ATTP, 0)
+    mob:setMod(tpz.mod.DEF, 536)
+    mob:setMod(tpz.mod.EVA, 356)
+    mob:setMod(tpz.mod.UDMGMAGIC, -40)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.COUNTER, 5)
+    mob:setMod(tpz.mod.UFASTCAST, 50)
+    mob:setMod(tpz.mod.REGEN, 10)
+    mob:setMod(tpz.mod.REFRESH, 50)
+    mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     mob:SetMobSkillAttack(0) -- resetting so it doesn't respawn in flight mode.
     mob:AnimationSub(0) -- subanim 0 is only used when it spawns until first flight.
-    --mob:addMod(tpz.mod.FIREDEF,128)
-    --mob:addMod(tpz.mod.ICEDEF,128)
-    --mob:addMod(tpz.mod.WINDDEF,128)
-    --mob:addMod(tpz.mod.EARTHDEF,128)
-    --mob:addMod(tpz.mod.THUNDERDEF,128)
-    --mob:addMod(tpz.mod.WATERDEF,128)
-    --mob:addMod(tpz.mod.LIGHTDEF,128)
-    --mob:addMod(tpz.mod.DARKDEF,128)
-    mob:addMod(tpz.mod.DMGMAGIC,-50)
-    mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
+end
+
+function onMobDisengage(mob)
+    mob:setMod(tpz.mod.ATTP, 0)
 end
 
 function onMobFight(mob, target)
@@ -68,6 +79,9 @@ function onMobFight(mob, target)
             mob:setLocalVar("changeTime", mob:getBattleTime())
             mob:setLocalVar("changeHP", mob:getHP()/1000)
         end
+    end
+    if mob:getHPP() <= 25 then
+        mob:setMod(tpz.mod.ATTP, 200)
     end
 end
 
