@@ -13,7 +13,7 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:getPool() == 513 -- Boroka
+	if mob:getPool() == 513 then -- Boroka
 		return 1
 	end
     local zone = mob:getZoneID()
