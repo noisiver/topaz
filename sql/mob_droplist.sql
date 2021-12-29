@@ -7297,19 +7297,24 @@ INSERT INTO `mob_droplist` VALUES (1408,0,0,1000,940,330);
 INSERT INTO `mob_droplist` VALUES (1409,0,0,1000,959,1000);
 INSERT INTO `mob_droplist` VALUES (1409,0,0,1000,1237,184);
 INSERT INTO `mob_droplist` VALUES (1409,0,0,1000,13228,286);	-- (Jolly Green) Shaman's Belt
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,647,1000);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,17586,250);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,658,40);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,722,10);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,836,70);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,837,70);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,860,380);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,903,50);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,1133,10);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,1311,50);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,1313,670);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,1816,80);
-INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,4272,30);
+INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,647,1000); -- (Jormungand) Chunk of molybdenum ore
+INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,647,1000); -- Chunk of molybdenum ore
+INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,647,1000); -- Chunk of molybdenum ore
+INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,647,240); -- Chunk of molybdenum ore
+INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,17586,240); -- Mercurial Pole
+INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,903,240); -- Dragon Talon
+INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,4272,240); -- Slice of dragon meat
+INSERT INTO `mob_droplist` VALUES (1410,0,0,1000,1133,240); -- Vial of dragon blood
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,1110,100); -- Vial of black beetle blood
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,836,100); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,655,100); -- Adaman ingot
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,722,100); -- Divine log
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,860,100); -- Behemoth hide
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,1313,100); -- Lock of Siren's hair
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,658,100); -- Damascus ingot
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,4486,100); -- Dragon heart
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,1311,100); -- Piece of oxblood
+INSERT INTO `mob_droplist` VALUES (1410,1,0,240,837,100); -- Spool of malboro fiber
 INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,497,240);
 INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,499,50); -- Gigas necklace
 INSERT INTO `mob_droplist` VALUES (1411,0,0,1000,1426,150);
@@ -12484,22 +12489,22 @@ INSERT INTO `mob_droplist` VALUES (2413,0,0,1000,4108,150);
 INSERT INTO `mob_droplist` VALUES (2414,0,0,1000,1041,50);
 INSERT INTO `mob_droplist` VALUES (2414,0,0,1000,4108,1000);
 INSERT INTO `mob_droplist` VALUES (2415,0,0,1000,4108,1000);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,655,60);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,14869,300);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,15322,260);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,658,30);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,722,90);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,836,30);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,837,70);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,860,130);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,903,60);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1110,60);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1133,60);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1311,110);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1313,90);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1816,490);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,4272,70);
-INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,4486,70);
+INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1816,1000); -- (Tiamat) Wyrm Horn
+INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,14869,240); -- Noritsune Kote
+INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,15322,240); -- Herald's Gaiters
+INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,903,240); -- Dragon Talon
+INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,4272,240); -- Slice of dragon meat
+INSERT INTO `mob_droplist` VALUES (2416,0,0,1000,1133,240); -- Vial of dragon blood
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,1110,100); -- Vial of black beetle blood
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,836,100); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,655,100); -- Adaman ingot
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,722,100); -- Divine log
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,860,100); -- Behemoth hide
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,1313,100); -- Lock of Siren's hair
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,658,100); -- Damascus ingot
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,4486,100); -- Dragon heart
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,1311,100); -- Piece of oxblood
+INSERT INTO `mob_droplist` VALUES (2416,1,0,240,837,100); -- Spool of malboro fiber
 INSERT INTO `mob_droplist` VALUES (2417,2,0,1000,656,0);
 INSERT INTO `mob_droplist` VALUES (2417,0,0,1000,4876,59);
 INSERT INTO `mob_droplist` VALUES (2417,0,0,1000,4878,77);
@@ -13980,18 +13985,26 @@ INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,866,70);
 INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,1122,270);
 INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,1124,330);
 INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,16885,1000);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,658,40);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,15175,100);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,836,70);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,860,380);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,903,50);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1133,10);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1712,1000);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1712,500);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1713,1000);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1713,500);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1816,80);
-INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,4272,30);
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1816,1000); -- (Vrtra) Wyrm horn
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,15175,240); -- Reviler's helm
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1712,1000); -- Clump of cashmere wool
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1712,500); -- Clump of cashmere wool
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1713,1000); -- Spool of cashmere thread
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1713,500); -- Spool of cashmere thread
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,4272,240); -- Slice of dragon meat
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1133,240); -- Vial of dragon blood
+INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,903,240); -- Dragon talon
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,1110,100); -- Vial of black beetle blood
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,836,100); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,655,100); -- Adaman ingot
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,722,100); -- Divine log
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,860,100); -- Behemoth hide
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,1313,100); -- Lock of Siren's hair
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,658,100); -- Damascus ingot
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,4486,100); -- Dragon heart
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,1311,100); -- Piece of oxblood
+INSERT INTO `mob_droplist` VALUES (2592,1,0,240,837,100); -- Spool of malboro fiber
+
 INSERT INTO `mob_droplist` VALUES (2593,0,0,1000,2521,240); -- (Vulkodlac)
 INSERT INTO `mob_droplist` VALUES (2593,4,0,1000,2521,0); -- Gnole claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (2593,0,0,1000,15915,150); -- Sothic rope
@@ -16925,7 +16938,7 @@ INSERT INTO `mob_droplist` VALUES (6043,0,0,1000,2819,100);  -- (Sword Sorcerer 
 ---------------------Dynamis---------------------
 
 -- Bastok
-INSERT INTO `mob_droplist` VALUES (9000,11,1,50,18314,250); -- (Dynamis Bastok High Level Normal Enemies) Ito Relic GKT
+INSERT INTO `mob_droplist` VALUES (9000,1,1,50,18314,250); -- (Dynamis Bastok High Level Normal Enemies) Ito Relic GKT
 INSERT INTO `mob_droplist` VALUES (9000,1,1,50,18284,250); -- Relic Axe
 INSERT INTO `mob_droplist` VALUES (9000,1,1,50,18278,250); -- Relic Blade
 INSERT INTO `mob_droplist` VALUES (9000,1,1,50,18302,250); -- Relic Scythe

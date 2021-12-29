@@ -9,15 +9,15 @@ local ID = require("scripts/zones/Lufaise_Meadows/IDs")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(120)
-    mob:setmod(tpz.mod.MAIN_DMG_RATING, 0)
-    mob:setmod(tpz.mod.DMGPHYS, 0)
-    mob:setmod(tpz.mod.UFASTCAST, 0)
-    mob:setmod(tpz.mod.MATT, 36)
-    mob:setmod(tpz.mod.MDEF, 10)
+    mob:setMod(tpz.mod.MAIN_DMG_RATING, 0)
+    mob:setMod(tpz.mod.DMGPHYS, 0)
+    mob:setMod(tpz.mod.UFASTCAST, 0)
+    mob:setMod(tpz.mod.MATT, 36)
+    mob:setMod(tpz.mod.MDEF, 10)
     mob:setMod(tpz.mod.REGEN, 25)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
     mob:setMod(tpz.mod.REFRESH, 400)
-	mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
     mob:SetMobAbilityEnabled(true)
@@ -49,32 +49,33 @@ function onMobFight(mob)
         mob:setLocalVar("CurrentlyEating", 1)
 		if RNG == 1 then
 			mob:showText(mob, 7786) -- Kurrea's muscles bulge crazily!
-			mob:addMod(tpz.mod.MAIN_DMG_RATING, 50)
+			mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
 		elseif RNG == 2 then
 			mob:showText(mob, 7787) -- Kurrea's scales shine mysteriously!
-			mob:addmod(tpz.mod.MDEF, 50)
+			mob:addMod(tpz.mod.MDEF, 25)
 		elseif RNG == 3 then
 			mob:showText(mob, 7788) -- Kurrea is enveloped by a fierce wind!
-			mob:castSpell(186) -- Aeroga III
+            mob:addMod(tpz.mod.HASTE_MAGIC, 2500)
 		elseif RNG == 4 then
 			mob:showText(mob, 7789) -- Kurrea's hide grows rigid!
-			mob:addMod(tpz.mod.DMGPHYS, 50)
+			mob:addMod(tpz.mod.UDMGPHYS, 25)
 		elseif RNG == 5 then
 			mob:showText(mob, 7790) -- The veins in Kurrea's head are popping out!
-			mob:addmod(tpz.mod.UFASTCAST, 50)
+			mob:addMod(tpz.mod.UFASTCAST, 25)
 		elseif RNG == 6 then
 			mob:showText(mob, 7791) -- Kurrea's eyes glow weirdly!
-			mob:addmod(tpz.mod.MATT, 100)
+			mob:addMod(tpz.mod.MATT, 25)
 		elseif RNG == 7 then
 			mob:showText(mob, 7792) -- Kurrea's wounds disappear!
 			mob:addHP(mob:getMaxHP() * .25)
 		elseif RNG == 8 then
 			mob:showText(mob, 7794) -- Kurrea's face has turned green...
-			mob:setmod(tpz.mod.MAIN_DMG_RATING, 0)
-			mob:setmod(tpz.mod.DMGPHYS, 0)
-			mob:setmod(tpz.mod.UFASTCAST, 0)
-			mob:setmod(tpz.mod.MATT, 36)
-            mob:setmod(tpz.mod.MDEF, 10)
+			mob:setMod(tpz.mod.MAIN_DMG_RATING, 0)
+			mob:setMod(tpz.mod.UDMGPHYS, 0)
+			mob:setMod(tpz.mod.UFASTCAST, 0)
+            mob:setMod(tpz.mod.HASTE_MAGIC, 0)
+			mob:setMod(tpz.mod.MATT, 36)
+            mob:setMod(tpz.mod.MDEF, 10)
 		end
 	end
 end
