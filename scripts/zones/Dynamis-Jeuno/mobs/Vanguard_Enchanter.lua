@@ -8,6 +8,9 @@ mixins =
     require("scripts/mixins/job_special")
 }
 -----------------------------------
+function onMobDespawn(mob)
+    tpz.mob.phOnDespawn(mob, ID.mob.MORGMOX_MOLDNOGGIN_PH, 50, 3600) -- 20 minutes
+end
 
 function onMobDeath(mob, player, isKiller)
 end

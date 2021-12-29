@@ -60,6 +60,39 @@ zones[tpz.zone.DYNAMIS_JEUNO] =
                 {mob = 17547458, eye = dynamis.eye.GREEN},
             },
         },
+        TUFFLIX_LOGLIMBS_PH      = {[17547290] = 17547291}, -- Vanguard_Hitman
+        SMELTIX_THICKHIDE_PH      = {[17547295] = 17547298}, -- Goblin_Replica
+        JABKIX_PIGEONPECS_PH      = {[17547296] = 17547299}, -- Goblin_Replica
+        WASABIX_CALLUSDIGIT_PH      = {[17547297] = 17547300}, -- Goblin_Replica
+        HERMITRIX_TOOTHROT_PH      = {[17547309] = 17547311}, -- Vanguard_Welldigger
+        WYRMWIX_SNAKESPECS_PH      = {[17547308] = 17547312}, -- Vanguard_Alchemist
+        MORGMOX_MOLDNOGGIN_PH      = {[17547321] = 17547322}, -- Vanguard_Enchanter
+        SPARKSPOX_SWEATBROW_PH      = {[17547320] = 17547329}, -- Vanguard_Shaman
+        ELIXMIX_HOOKNOSE_PH      = {[17547353] = 17547355}, -- Vanguard_Armorer
+        BANDRIX_ROCKJAW_PH      = {[17547352] = 17547356}, -- Vanguard_Tinkerer
+        BUFFRIX_EARGONE_PH      = {[17547373] = 17547387}, -- Vanguard_Necromancer
+        HUMNOX_DRUMBELLY_PH      = {[17547372] = 17547378}, -- Vanguard_Shaman
+        TICKTOX_BEADYEYES_PH      = {[17547393] = 17547394}, -- Goblin_Replica
+        LURKLOX_DHALMELNECK_PH      = {[17547392] = 17547395}, -- Goblin_Replica
+        TRAILBLIX_GOATMUG_PH      = {[17547391] = 17547396}, -- Goblin_Replica
+        KIKKLIX_LONGLEGS_PH      = {[17547406] = 17547407}, -- Vanguard_Shaman
+        KARASHIX_SWOLLENSKULL_PH      = {[17547419] = 17547424}, -- Vanguard_Welldigger
+        RUTRIX_HAMGAM_PHS      = {[17547452] = 17547454}, -- Vanguard_Dragontamer
+        SNYPESTIX_EAGLEBEAK_PH      = {[17547467] = 17547468}, -- Goblin_Statue
+        ANVILIX_SOOTWRISTS_PH      = {[17547471] = 17547472}, -- Vanguard_Welldigger
+        BOOTRIX_JAGGEDELBOW_PH      = {[17547470] = 17547473}, -- Vanguard_Pitfighter
+        MOBPIX_MUCOUSMOUTH_PH      = {[17547469] = 17547474}, -- Vanguard_Smithy
+        DISTILIX_STICKYTOES_PH      = {[17547475] = 17547478}, -- Vanguard_Alchemist
+        EREMIX_SNOTTYNOSTRIL_PH      = {[17547466] = 17547479}, -- Vanguard_Hitman
+        CLOKTIX_LONGNAIL_PH      = {[17547289] = 17547294}, -- Vanguard_Armorer
+        JABBROX_GRANNYGUISE_PH      = {[17547265] = 17547480}, -- Goblin_Golem
+        SCRUFFIX_SHAGGYCHEST_PH      = {[17547266] = 17547485}, -- Vanguard_Smithy
+        BLAZOX_BONEYBOD_PH      = {[17547267] = 17547487}, -- Vanguard_Welldigger
+        PROWLOX_BARRELBELLY_PH      = {[17547268] = 17547490}, -- Vanguard_Pathfinder
+        MORTILOX_WARTPAWS_PH      = {[17547270] = 17547438}, -- Vanguard_Shaman
+        SLYSTIX_MEGAPEEPERS_PH      = {[17547286] = 17547492}, -- Vanguard_Necromancer
+        TYMEXOX_NINEFINGERS_PH      = {[17547288] = 17547486}, -- Vanguard_Ronin
+
     },
     npc =
     {

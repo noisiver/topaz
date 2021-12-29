@@ -9,5 +9,10 @@ mixins =
 }
 -----------------------------------
 
+function onMobDespawn(mob)
+    tpz.mob.phOnDespawn(mob, ID.mob.WYRMWIX_SNAKESPECS_PH, 50, 3600) -- 20 minutes
+    tpz.mob.phOnDespawn(mob, ID.mob.DISTILIX_STICKYTOES_PH, 50, 3600) -- 20 minutes
+end
+
 function onMobDeath(mob, player, isKiller)
 end
