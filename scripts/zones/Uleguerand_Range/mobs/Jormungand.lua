@@ -16,7 +16,9 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UFASTCAST, 50)
     mob:setMod(tpz.mod.REGEN, 30)
     mob:setMod(tpz.mod.REGAIN, 0)
-    mob:setMod(tpz.mod.REFRESH, 50)
+    mob:setMod(tpz.mod.REFRESH, 400)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:SetMobSkillAttack(0) -- resetting so it doesn't respawn in flight mode.
     mob:AnimationSub(0) -- subanim 0 is only used when it spawns until first flight.
     mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
