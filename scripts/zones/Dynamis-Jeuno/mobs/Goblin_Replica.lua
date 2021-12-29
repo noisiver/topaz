@@ -7,12 +7,9 @@ require("scripts/globals/dynamis")
 
 function onMobSpawn(mob)
     dynamis.refillStatueOnSpawn(mob)
-end
-
-function onMobFight(mob, target)
-	mob:setDamage(250)
     mob:setMod(tpz.mod.REFRESH, 300)
 end
+
 
 function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.SMELTIX_THICKHIDE_PH, 50, 3600) -- 20 minutes
