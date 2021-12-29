@@ -36,6 +36,16 @@ function onMobRoam(mob)
     end
 end
 
+function onMobEngaged(mob)
+	local target = mob:getTarget()
+    local HeliodromosOne = GetMobByID(16900110)
+    local HeliodromosTwo = GetMobByID(16900111)
+    local HeliodromosThree = GetMobByID(16900112)
+	HeliodromosOne:updateEnmity(target)
+	HeliodromosTwo:updateEnmity(target)
+	HeliodromosThree:updateEnmity(target)
+end
+
 function onMobDeath(mob, player, isKiller)
     -- one of the heliodromos was killed. set a 10 minute despawn timer before the others despawn
     if (isKiller and GetServerVariable("Heliodromos_Despawn") == 0) then
