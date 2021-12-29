@@ -54,7 +54,7 @@ INSERT INTO `status_effects` VALUES (6,'silence',8405024,0,0,2,0,0,3,1,1);
 INSERT INTO `status_effects` VALUES (7,'petrification',8388640,7,0,2,10,0,4,1,1);
 INSERT INTO `status_effects` VALUES (8,'disease',8409120,8,0,2,0,0,1,1,1);
 INSERT INTO `status_effects` VALUES (9,'curse',8405024,9,0,2,0,0,8,1,1);
-INSERT INTO `status_effects` VALUES (10,'stun',8388642,0,0,2,7,0,5,1,1);
+INSERT INTO `status_effects` VALUES (10,'stun',8388640,0,0,2,7,0,5,1,1);
 INSERT INTO `status_effects` VALUES (11,'bind',8405026,0,0,2,0,0,2,1,1);
 INSERT INTO `status_effects` VALUES (12,'weight',8405026,0,32,1,0,0,3,1,1);
 INSERT INTO `status_effects` VALUES (13,'slow',8405026,0,33,1,0,0,4,1,1);

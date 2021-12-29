@@ -23,6 +23,11 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
+	mob:setDamage(250)
+    mob:setMod(tpz.mod.REFRESH, 300)
+end
+
+function onMobFight(mob, target)
     if (mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) == true) then
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 30)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 1156)

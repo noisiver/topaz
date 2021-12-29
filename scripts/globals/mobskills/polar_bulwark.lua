@@ -23,7 +23,7 @@ function onMobSkillCheck(target, mob, skill)
         end
     end
 
-    if (mob:AnimationSub() == 0) then
+    if (mob:AnimationSub() < 2) then
         return 0
     else
         return 1

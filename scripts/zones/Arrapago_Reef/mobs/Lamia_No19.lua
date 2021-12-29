@@ -14,13 +14,18 @@ function onMobSpawn(mob)
 	mob:addMod(tpz.mod.MOVE, 12) 
 	mob:addMod(tpz.mod.SPELLINTERRUPT, 33) 
 	mob:setMod(tpz.mod.REFRESH, 400)
-   mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setLocalVar("SpawnGuards", 0)
 end
 
-function onMobEngaged(mob, target)
+function onMobFight(mob, target)
+	local SpawnGuards = mob:getLocalVar("SpawnGuards")
     local mobId = mob:getID()
-    SpawnMob(mobId+1):updateEnmity(target)
-    SpawnMob(mobId+2):updateEnmity(target)
+    if SpawnGuards == 0 then
+        SpawnMob(mobId+1):updateEnmity(target)
+        SpawnMob(mobId+2):updateEnmity(target)
+        mob:setLocalVar("SpawnGuards", 1)
+    end
 end
 
 function onMobDespawn(mob)

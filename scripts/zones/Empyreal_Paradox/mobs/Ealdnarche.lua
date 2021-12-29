@@ -3,6 +3,17 @@
 --  Mob: Eald'narche
 -- Apocalypse Nigh Final Fight
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+-----------------------------------
+function onMobSpawn(mob)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 50)
+    mob:setMod(tpz.mod.UDMGMAGIC, -95)
+    mob:setMod(tpz.mod.REFRESH, 400)
+end
 
 function onMobInitialize(mob)
     mob:setMod(tpz.mod.MDEF, 50);

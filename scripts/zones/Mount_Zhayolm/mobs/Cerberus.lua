@@ -4,9 +4,21 @@
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/titles")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(135)
+    mob:setMod(tpz.mod.ATT, 870)
+    mob:setMod(tpz.mod.DEF, 536)
+    mob:setMod(tpz.mod.EVA, 356) 
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.REGEN, 10) 
+    mob:setMod(tpz.mod.REFRESH, 50)
+    mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
 end
 
 function onMobFight(mob, target)
@@ -14,6 +26,11 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.REGAIN, 10)
     else
         mob:setMod(tpz.mod.REGAIN, 70)
+    end
+    if mob:hasStatusEffect(tpz.effect.BLAZE_SPIKES) then
+        mob:setMod(tpz.mod.DMG, math.random(10, 20))
+     else
+        mob:setMod(tpz.mod.DMG, 0)
     end
 end
 

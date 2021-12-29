@@ -244,23 +244,23 @@ INSERT INTO `mob_family_mods` VALUES (371,68,-20,0);	-- Marid -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (246,68,-20,0);	-- Troll -20 Evasion
 
 -- PDT
-INSERT INTO `mob_family_mods` VALUES (203,387,150,0);	-- Qutrub +150%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (204,387,150,0);	-- Qutrub +150%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (205,387,150,0);	-- Qutrub +150%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (203,387,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,387,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,387,200,0);	-- Qutrub +200%(Bonus)
 
 -- Breath Damage Taken(BDT)
-INSERT INTO `mob_family_mods` VALUES (203,388,150,0);	-- Qutrub +150%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (204,388,150,0);	-- Qutrub +150%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (205,388,150,0);	-- Qutrub +150%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (203,388,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,388,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,388,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (62,388,25,0);		-- Cerberus +25%(Bonus)
 
 -- Ranged damage taken(RDT)
 
 -- Magic damage taken (MDT)
 INSERT INTO `mob_family_mods` VALUES (112,389,25,0); 	-- Flan +25%(Bonus)
-INSERT INTO `mob_family_mods` VALUES (203,389,150,0);	-- Qutrub +150%(+25% Bonus)
-INSERT INTO `mob_family_mods` VALUES (204,389,150,0);	-- Qutrub +150%(+25% Bonus)
-INSERT INTO `mob_family_mods` VALUES (205,389,150,0);	-- Qutrub +150%(+25% Bonus)
+INSERT INTO `mob_family_mods` VALUES (203,389,200,0);	-- Qutrub +200%(+200% Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,389,200,0);	-- Qutrub +200%(+200% Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,389,200,0);	-- Qutrub +200%(+200% Bonus)
 INSERT INTO `mob_family_mods` VALUES (61,389,-25,0); 	-- Cardian -25%
 INSERT INTO `mob_family_mods` VALUES (74,389,-25,0); 	-- Corse -25%
 INSERT INTO `mob_family_mods` VALUES (110,389,-13,0); 	-- EvilWeapon -13%
@@ -296,6 +296,7 @@ INSERT INTO `mob_family_mods` VALUES (122,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (123,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (124,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (272,29,20,0); 	-- Zdei +20 MDB
+INSERT INTO `mob_family_mods` VALUES (449,29,62,0); 	-- Bahamut +62 MDB
 
 -- Move SPeed
 INSERT INTO `mob_family_mods` VALUES (1,169,-15,0); 	-- Acrolith -15%
@@ -307,6 +308,9 @@ INSERT INTO `mob_family_mods` VALUES (176,165,10,0);		-- Mamool ja +10% Crit
 
 -- -GA Chance
 INSERT INTO `mob_family_mods` VALUES (175,7,50,1);	-- Magic Pot 50% chance to -Ga
+
+-- Dual Wield
+INSERT INTO `mob_family_mods` VALUES (285,44,1,1); -- Gulool_Ja_Ja
 
 -- Immunities
 INSERT INTO `mob_family_mods` VALUES (92,23,2047,1); -- Dyna Statues immune all enfeebles
@@ -342,7 +346,7 @@ INSERT INTO `mob_family_mods` VALUES (34,465,100,0);	-- Carbuncle - Light
 -- Yovra
 INSERT INTO `mob_family_mods` VALUES (271,68,50,0);		-- +50 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (271,63,50,0);		-- +50% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (271,370,50,1);	-- +50/tick Regen
+INSERT INTO `mob_family_mods` VALUES (271,370,50,0);	-- +50/tick Regen
 INSERT INTO `mob_family_mods` VALUES (271,28,35,1);		-- +35% Experience Bonus
 
 -- Antlion
@@ -450,8 +454,7 @@ INSERT INTO `mob_family_mods` VALUES (511,29,70,0);	 -- Ahriman +50 MDB
 INSERT INTO `mob_family_mods` VALUES (511,23,16,1);	 -- Silence Immunity
 INSERT INTO `mob_family_mods` VALUES (511,28,-100,1); -- Ahriman -100% exp
 
-
-INSERT INTO `mob_family_mods` VALUES (92,62,300,0);	-- Statue-Goblin +300% Attk
+INSERT INTO `mob_family_mods` VALUES (92,366,150,0); -- Statue-Goblin +150 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (92,25,50,0);	-- Statue-Goblin +50 ACC
 INSERT INTO `mob_family_mods` VALUES (92,68,50,0);	-- Statue-Goblin +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (92,29,112,0);	-- Statue-Goblin +112 MDB
@@ -460,7 +463,7 @@ INSERT INTO `mob_family_mods` VALUES (92,73,100,0);	-- Statue-Goblin +100 Store 
 INSERT INTO `mob_family_mods` VALUES (92,1,5000,0);  -- Statue-Goblin +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (92,28,-100,1); -- Statue-Goblin -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (93,62,300,0);	-- Statue-Orc +300% Attk
+INSERT INTO `mob_family_mods` VALUES (93,366,150,0); -- Statue-Orc +150 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (93,25,50,0);	-- Statue-Orc +50 ACC
 INSERT INTO `mob_family_mods` VALUES (93,68,50,0);	-- Statue-Orc +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (93,29,62,0);	-- Statue-Orc +62 MDB
@@ -469,7 +472,7 @@ INSERT INTO `mob_family_mods` VALUES (93,73,100,0);	-- Statue-Orc +100 Store TP
 INSERT INTO `mob_family_mods` VALUES (93,1,5000,0);  -- Statue-Orc +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (93,28,-100,1); -- Statue-Orc -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (94,62,300,0);	-- Statue-Quadav +300% Attk
+INSERT INTO `mob_family_mods` VALUES (94,366,150,0); -- Statue-Quadav +150 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (94,25,50,0);	-- Statue-Quadav +50 ACC
 INSERT INTO `mob_family_mods` VALUES (94,68,50,0);	-- Statue-Quadav +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (94,29,112,0);	-- Statue-Quadav +112 MDB
@@ -478,7 +481,7 @@ INSERT INTO `mob_family_mods` VALUES (94,73,100,0);	-- Statue-Quadav +100 Store 
 INSERT INTO `mob_family_mods` VALUES (94,1,5000,0);  -- Statue-Quadav +5000 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (94,28,-100,1); -- Statue-Quadav -100% exp
 
-INSERT INTO `mob_family_mods` VALUES (95,62,300,0);	-- Statue-Yagudo +300% Attk
+INSERT INTO `mob_family_mods` VALUES (95,366,150,0); -- Statue-Yagudo +150 WEP DMG
 INSERT INTO `mob_family_mods` VALUES (95,25,50,0);	-- Statue-Yagudo +50 ACC
 INSERT INTO `mob_family_mods` VALUES (95,68,50,0);	-- Statue-Yagudo +50 EVAS
 INSERT INTO `mob_family_mods` VALUES (95,29,162,0);	-- Statue-Yagudo +162 MDB

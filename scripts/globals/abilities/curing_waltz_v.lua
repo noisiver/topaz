@@ -77,6 +77,7 @@ function onUseAbility(player, target, ability)
 
     --Do it
     target:restoreHP(cure)
+    target:wakeUp()
     player:updateEnmityFromCure(target, cure)
 
     return cure

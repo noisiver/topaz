@@ -21,7 +21,7 @@ function onMobWeaponSkill(target, mob, skill)
     local accmod = 1
     local dmgmod = 2
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 1.5, 2)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_WIPE_SHADOWS)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded*math.random(2, 3))
    local dispelled = math.random(2, 3)
 
    if (info.hitslanded ~= 0) then

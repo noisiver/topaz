@@ -5,6 +5,16 @@
 local ID = require("scripts/zones/Riverne-Site_B01/IDs")
 require("scripts/globals/quests")
 require("scripts/globals/status")
+-----------------------------------
+
+function onMobSpawn(mob)
+	mob:setDamage(125)
+	mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25)
+    mob:setMod(tpz.mod.UFASTCAST, 50) 
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+end
 
 
 function onMobInitialise(mob)

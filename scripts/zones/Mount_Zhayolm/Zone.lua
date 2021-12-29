@@ -9,7 +9,6 @@ require("scripts/globals/zone")
 -----------------------------------
 
 function onInitialize(zone)
-    GetMobByID(ID.mob.CERBERUS):setRespawnTime(math.random(12, 36) * 3600)
 
     tpz.helm.initZone(zone, tpz.helm.type.MINING)
 end

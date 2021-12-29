@@ -1,4 +1,4 @@
----------------------------------------------
+s---------------------------------------------
 --  Impact Stream
 --
 --  Description: 50% Defense Down, Stun
@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING, MOBPARAM_WIPE_SHADOWS)
     
 	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
-	MobStatusEffectMove(mob, target, typeEffect1, 1, 0, 8)
-    MobStatusEffectMove(mob, target, typeEffect2, 50, 0, 60)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect1, 1, 0, 8)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect2, 50, 0, 60)
     return dmg
 end
