@@ -149,7 +149,7 @@ INSERT INTO `mob_family_system` VALUES (82,'Djinn',3,'Arcana',0,60,100,100,3,3,3
 INSERT INTO `mob_family_system` VALUES (83,'Doll',3,'Arcana',1,40,100,90,3,3,3,5,4,4,4,1,3,1,3,1,1,1,1,7,0.7,0.7,0.7,1.3,0.7,0.7,0.7,2,33,0);
 INSERT INTO `mob_family_system` VALUES (84,'Doll',3,'Arcana',1,40,100,90,3,3,3,5,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,1.3,0.7,0.7,0.7,2,33,0);
 INSERT INTO `mob_family_system` VALUES (85,'Doll',3,'Arcana',1,40,100,90,3,3,3,5,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,1.5,0.7,0.7,0.7,2,32,0);	-- normal dolls
-INSERT INTO `mob_family_system` VALUES (86,'Doomed',19,'Undead',2,40,100,120,4,4,3,4,3,4,4,1,3,1,3,1.125,1,1,1,1.3,0.6,1,1,1,0.7,1.3,0.2,8,6,0);
+INSERT INTO `mob_family_system` VALUES (86,'Doomed',19,'Undead',2,40,100,120,4,4,3,4,3,4,4,1,3,1,3,1.125,1,0.85,0.85,1.3,0.6,1,1,1,0.7,1.3,0.2,8,6,0);
 INSERT INTO `mob_family_system` VALUES (87,'Dragon',10,'Dragon',2,30,125,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,8,2,0);
 INSERT INTO `mob_family_system` VALUES (88,'Draugar',19,'Undead',0,40,100,140,1,3,4,3,1,5,4,3,3,3,3,0.875,0.5,1.125,1.25,1.25,0.7,1,1,1,1,1.15,0.5,8,6,0); -- Bloody Bones
 INSERT INTO `mob_family_system` VALUES (89,'Draugar',19,'Undead',0,60,125,140,3,4,3,5,3,5,4,1,1,1,1,0.875,0.5,1.125,1.25,1.15,0.7,1,1,1,1,1.15,0.5,8,6,0); -- Normal Mob
@@ -569,6 +569,7 @@ INSERT INTO `mob_family_system` VALUES (538,'Jailer_of_Justice',15,'Luminian',0,
 INSERT INTO `mob_family_system` VALUES (539,'Jailer_of_Love',15,'Luminian',1,40,100,140,2,2,4,6,4,4,4,1,3,1,5,1,1,1,1,1,1,1,1.3,0.3,1,0.7,1.15,0,2,0);
 INSERT INTO `mob_family_system` VALUES (540,'Jailer_of_Prudence',15,'Luminian',1,40,100,120,7,7,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1.3,1.3,1.3,1.3,1.3,0.85,1.15,0,2,0);
 INSERT INTO `mob_family_system` VALUES (541,'Jailer_of_Temperance',16,'Luminion',0,40,100,140,6,6,4,4,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,1,0);
+INSERT INTO `mob_family_system` VALUES (542,'Toad',7,'Beastmen',0,60,125,140,5,5,3,2,1,3,1,1,1,1,1,1,1,0.85,0.85,1,0.7,1,0.85,1.15,0.2,0.3,1,6,2,0);
 
 
 
