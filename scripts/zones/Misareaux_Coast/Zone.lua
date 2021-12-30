@@ -37,8 +37,6 @@ function onGameHour(zone)
     end
     if vHour >= 2 or vHour <= 8 and zone:getWeather() ~= GLOOM and zone:getWeather() ~= THUNDER and zone:getWeather() ~= WIND then
         zone:setWeather(FOG)
-    else
-        zone:setWeather(NONE)
     end
 end
 
