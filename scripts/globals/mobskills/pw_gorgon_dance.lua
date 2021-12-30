@@ -15,7 +15,7 @@ require("scripts/globals/status")
 function onMobSkillCheck(target, mob, skill)
 
     local mobhp = mob:getHPP()
-    if (mobhp <= 25) then -- She's under 25%, it's okay to use this.
+    if (mobhp <= 30) then -- She's under 25%, it's okay to use this.
         return 0
     else
         return 1
@@ -24,6 +24,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
-    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, math.random(60, 180)))
+    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 180))
     return typeEffect
 end

@@ -12,14 +12,16 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
+		return 1
+	end
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-	local SSpower = 1000
-    local power = 0
-	target:setMod(tpz.mod.RAMPART_STONESKIN, SSpower)
-    skill:setMsg(MobBuffMove(mob, tpz.effect.STONESKIN, power, 0, 300))
 
-    return tpz.effect.STONESKIN
+    MobBuffMove(mob, tpz.effect.MAGIC_SHIELD, 3, 0, 300)
+    skill:setMsg(tpz.msg.basic.NONE)
+
+    return 0
 end

@@ -6506,11 +6506,55 @@ INSERT INTO `mob_droplist` VALUES (1255,0,0,1000,3072,280);
 INSERT INTO `mob_droplist` VALUES (1256,0,0,1000,2888,10);
 INSERT INTO `mob_droplist` VALUES (1256,0,0,1000,2890,70);
 INSERT INTO `mob_droplist` VALUES (1256,0,0,1000,2915,60);
-INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,2355,80);
-INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,15791,100);
+INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,2355,240); -- (Gulool Ja Ja) Ja Ja's Chestplate
+INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,15791,100); -- Volunteer's Ring
+INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,686,1000); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,686,1000); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,686,240); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,4175,240); -- Vile ELixir +1
+INSERT INTO `mob_droplist` VALUES (1257,0,0,1000,4174,240); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1257,1,0,1000,16087,200); -- Deimos's Mask 
+INSERT INTO `mob_droplist` VALUES (1257,1,0,1000,14549,200); -- Deimos's Cuirass 
+INSERT INTO `mob_droplist` VALUES (1257,1,0,1000,14964,200); -- Deimos's Gauntlets 
+INSERT INTO `mob_droplist` VALUES (1257,1,0,1000,15628,200); -- Deimos's Cuisses 
+INSERT INTO `mob_droplist` VALUES (1257,1,0,1000,15714,200); -- Deimos's Leggings 
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,1110,100); -- Vial of black beetle blood
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,836,100); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,655,100); -- Adaman ingot
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,722,100); -- Divine log
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,860,100); -- Behemoth hide
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,1313,100); -- Lock of Siren's hair
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,658,100); -- Damascus ingot
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,4486,100); -- Dragon heart
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,1311,100); -- Piece of oxblood
+INSERT INTO `mob_droplist` VALUES (1257,1,1,240,837,100); -- Spool of malboro fiber
+INSERT INTO `mob_droplist` VALUES (1257,1,2,240,5770,500); -- Super Reraiser
+INSERT INTO `mob_droplist` VALUES (1257,1,2,240,4173,500); -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (1258,0,0,1000,2904,100);
-INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,2356,80);
-INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,15792,100);
+INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,2356,240); -- (Gurfurlur the Menacing) Gurfurlur's Helmet
+INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,15792,100); -- Mercenary's Ring 
+INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,686,1000); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,686,1000); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,686,240); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,4175,240); -- Vile ELixir +1
+INSERT INTO `mob_droplist` VALUES (1259,0,0,1000,4174,240); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1259,1,0,1000,16095,200); -- Hikazu Kabuto  
+INSERT INTO `mob_droplist` VALUES (1259,1,0,1000,14557,200); -- Hikazu Hara-Ate 
+INSERT INTO `mob_droplist` VALUES (1259,1,0,1000,14972,200); -- Hikazu Gote  
+INSERT INTO `mob_droplist` VALUES (1259,1,0,1000,15636,200); -- Hikazu Hakama  
+INSERT INTO `mob_droplist` VALUES (1259,1,0,1000,15722,200); -- Hikazu Sune-Ate 
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,1110,100); -- Vial of black beetle blood
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,836,100); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,655,100); -- Adaman ingot
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,722,100); -- Divine log
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,860,100); -- Behemoth hide
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,1313,100); -- Lock of Siren's hair
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,658,100); -- Damascus ingot
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,4486,100); -- Dragon heart
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,1311,100); -- Piece of oxblood
+INSERT INTO `mob_droplist` VALUES (1259,1,1,240,837,100); -- Spool of malboro fiber
+INSERT INTO `mob_droplist` VALUES (1259,1,2,240,5770,500); -- Super Reraiser
+INSERT INTO `mob_droplist` VALUES (1259,1,2,240,4173,500); -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (1260,0,0,1000,1626,150); --(Gyr Carlin) Bottle of avatar blood
 INSERT INTO `mob_droplist` VALUES (1260,0,0,1000,1782,240); -- Florid stone
 INSERT INTO `mob_droplist` VALUES (1260,0,0,1000,14866,50); -- Concealing cuffs
@@ -8539,8 +8583,30 @@ INSERT INTO `mob_droplist` VALUES (1648,0,0,1000,2490,50);
 INSERT INTO `mob_droplist` VALUES (1649,0,0,1000,776,10);
 INSERT INTO `mob_droplist` VALUES (1649,0,0,1000,816,100);
 INSERT INTO `mob_droplist` VALUES (1650,0,0,1000,3250,10);
-INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,2357,100);
-INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,14959,100);
+INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,2357,240); -- (Medusa) Medusa's Armlet
+INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,14959,100); -- Mercenary's dastanas
+INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,686,1000); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,686,1000); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,686,240); -- Imperial Wootz Ingot
+INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,4175,240); -- Vile ELixir +1
+INSERT INTO `mob_droplist` VALUES (1651,0,0,1000,4174,240); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1651,1,0,1000,16091,200); -- Freya's Mask
+INSERT INTO `mob_droplist` VALUES (1651,1,0,1000,14553,200); -- Freya's Jerkin
+INSERT INTO `mob_droplist` VALUES (1651,1,0,1000,14968,200); -- Freya's Gloves
+INSERT INTO `mob_droplist` VALUES (1651,1,0,1000,15632,200); -- Freya's Trousers
+INSERT INTO `mob_droplist` VALUES (1651,1,0,1000,15718,200); -- Freya's Ledelsens
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,1110,100); -- Vial of black beetle blood
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,836,100); -- Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,655,100); -- Adaman ingot
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,722,100); -- Divine log
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,860,100); -- Behemoth hide
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,1313,100); -- Lock of Siren's hair
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,658,100); -- Damascus ingot
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,4486,100); -- Dragon heart
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,1311,100); -- Piece of oxblood
+INSERT INTO `mob_droplist` VALUES (1651,1,1,240,837,100); -- Spool of malboro fiber
+INSERT INTO `mob_droplist` VALUES (1651,1,2,240,5770,500); -- Super Reraiser
+INSERT INTO `mob_droplist` VALUES (1651,1,2,240,4173,500); -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (1652,2,0,1000,656,0);
 INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,13952,100);		-- (Mee Deggi The Punisher) Ochiudo's Kote
 INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,16703,900);		
