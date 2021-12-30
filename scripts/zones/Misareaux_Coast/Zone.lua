@@ -5,6 +5,7 @@
 -----------------------------------
 require("scripts/globals/conquest")
 require("scripts/globals/helm")
+require("scripts/globals/world")
 local ID = require("scripts/zones/Misareaux_Coast/IDs")
 local MISAREAUX_COAST = require("scripts/zones/Misareaux_Coast/globals")
 -----------------------------------
@@ -33,6 +34,11 @@ function onGameHour(zone)
     local vHour = VanadielHour()
     if vHour >= 22 or vHour <= 7 then
         MISAREAUX_COAST.ziphiusHandleQM()
+    end
+    if vHour >= 2 or vHour <= 8 and zone:getWeather() ~= GLOOM and zone:getWeather() ~= THUNDER and zone:getWeather() ~= WIND then
+        zone:setWeather(FOG)
+    else
+        zone:setWeather(NONE)
     end
 end
 
