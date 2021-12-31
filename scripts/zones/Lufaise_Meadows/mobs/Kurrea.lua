@@ -36,7 +36,7 @@ function onMobFight(mob)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(false)
         mob:setLocalVar("CurrentlyEating", 0)
-        mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
+        mob:setLocalVar("EatSoup", battletime + math.random(60, 75))
 	end
 
 	local Pos = mob:getPos()
