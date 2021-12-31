@@ -6846,6 +6846,9 @@ INSERT INTO `nm_spawn_points` VALUES (16797809,0,439.147,-20.270,-88.217); -- Sn
 INSERT INTO `nm_spawn_points` VALUES (16797810,0,379.470,-12.048,-82.365); -- Father Frost
 INSERT INTO `nm_spawn_points` VALUES (16887885,0,134.242,-0.366,198.999); -- Mahisha
 INSERT INTO `nm_spawn_points` VALUES (16887953,0,-139.212,-0.486,-23.191); -- Eba
+INSERT INTO `nm_spawn_points` VALUES (16879737,0,204.733, -24.365, 316.403); -- Odqan
+INSERT INTO `nm_spawn_points` VALUES (16879737,1,83.241 ,-8.259, -41.968); -- Odqan
+INSERT INTO `nm_spawn_points` VALUES (16879737,2,490.6467, -24.1248, 314.5225); -- Odqan
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;

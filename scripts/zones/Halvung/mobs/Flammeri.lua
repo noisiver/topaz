@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+local ID = require("scripts/zones/Halvung/IDs")
 ------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(250) -- 350-450 on DD's
