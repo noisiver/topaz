@@ -28,7 +28,7 @@ function onMobFight(mob)
     local CurrentlyEating = mob:getLocalVar("CurrentlyEating")
     local battletime = mob:getBattleTime()
 	if EatSoup == 0 then
-		mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
+		mob:setLocalVar("EatSoup", battletime + math.random(60, 75))
 	elseif battletime >= EatSoup then
         local pos = mob:getSpawnPos()
 		mob:pathTo(-245, -16, 41)
@@ -36,7 +36,7 @@ function onMobFight(mob)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(false)
         mob:setLocalVar("CurrentlyEating", 0)
-        mob:setLocalVar("EatSoup", battletime + math.random(20, 30))
+        mob:setLocalVar("EatSoup", battletime + math.random(60, 75))
 	end
 
 	local Pos = mob:getPos()

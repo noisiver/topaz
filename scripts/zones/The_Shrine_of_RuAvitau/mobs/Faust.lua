@@ -2,6 +2,11 @@
 -- Area: The Shrine of Ru'Avitau
 --  Mob: Faust
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/pathfind")
+local ID = require("scripts/zones/The_Shrine_of_RuAvitau/IDs")
+-----------------------------------
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 20)

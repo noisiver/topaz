@@ -8,6 +8,21 @@ local ID = require("scripts/zones/Halvung/IDs")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(200)
+    mob:setMod(tpz.mod.ATT, 870)
+    mob:setMod(tpz.mod.DEF, 536)
+    mob:setMod(tpz.mod.EVA, 356)
+    mob:addMod(tpz.mod.MDEF, 80)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.REGEN, 10) 
+    mob:setMod(tpz.mod.REFRESH, 50)
+    mob:setLocalVar("AddsTime", 0)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
+end
 
 function onMobEngaged(mob, target)
     for i = ID.mob.GURFURLUR_THE_MENACING + 1, ID.mob.GURFURLUR_THE_MENACING + 4 do
@@ -16,7 +31,10 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-    if mob:getBattleTime() % 60 < 2 and mob:getBattleTime() > 10 then
+	local AddsTime = mob:getLocalVar("AddsTime")
+    local BattleTime = mob:getBattleTime()
+
+	if BattleTime >= AddsTime then
         if not GetMobByID(ID.mob.GURFURLUR_THE_MENACING + 1):isSpawned() then
             GetMobByID(ID.mob.GURFURLUR_THE_MENACING + 1):setSpawn(mob:getXPos()+math.random(1, 5), mob:getYPos(), mob:getZPos()+math.random(1, 5))
             SpawnMob(ID.mob.GURFURLUR_THE_MENACING + 1):updateEnmity(target)
@@ -30,6 +48,7 @@ function onMobFight(mob, target)
             GetMobByID(ID.mob.GURFURLUR_THE_MENACING + 4):setSpawn(mob:getXPos()+math.random(1, 5), mob:getYPos(), mob:getZPos()+math.random(1, 5))
             SpawnMob(ID.mob.GURFURLUR_THE_MENACING + 4):updateEnmity(target)
         end
+        mob:setLocalVar("AddsTime", AddsTime + 300)
     end
 
     for i = ID.mob.GURFURLUR_THE_MENACING + 1, ID.mob.GURFURLUR_THE_MENACING + 4 do
@@ -39,6 +58,12 @@ function onMobFight(mob, target)
             pet:updateEnmity(target)
         end
     end
+    tpz.mix.jobSpecial.config(mob, {
+    specials =
+    {
+        {id = tpz.jsa.HUNDRED_FISTS, cooldown = 180, hpp = 90},
+    },
+    })
 end
 
 function onMobDisengage(mob)
@@ -49,13 +74,13 @@ function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.TROLL_SUBJUGATOR)
     for i = 1, 4 do DespawnMob(ID.mob.GURFURLUR_THE_MENACING + i) end
 	if isKiller  then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
-	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+	if isKiller  then 
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
-	if isKiller and math.random(1,100) <= 15 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
+	if isKiller  then 
+		player:addTreasure(5736, mob)--Linen Coin Purse
 	end
 end
 

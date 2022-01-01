@@ -12,7 +12,7 @@ require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
-function onMobSkillCheck(target, mob, skill)
+--[[function onMobSkillCheck(target, mob, skill)
     local mobSkin = mob:getModelId()
 
     if (mobSkin == 1863) then
@@ -20,13 +20,25 @@ function onMobSkillCheck(target, mob, skill)
     else
         return 1
     end
+end]]
+
+function onMobSkillCheck(target, mob, skill)
+    local mobhp = mob:getHPP()
+    if (mob:getPool() == 1846 and mobhp <= 30 then
+        return 0
+    else
+        return 1
+    end
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.EARTH, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, math.random(2, 3)*info.hitslanded)
-
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
+    local numhits = 1
+    local accmod = 1
+    local dmgmod = 2
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.H2H, MOBPARAM_2_SHADOW)
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.H2H)
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
+

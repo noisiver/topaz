@@ -15,7 +15,7 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
     local mobhp = mob:getHPP()
 
-    if (mobhp <= 20) then
+    if (mobhp <= 30) then
         return 0
     else
         return 1
@@ -28,13 +28,13 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
     local duration = 120
 
-    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 25, 3, duration)
+    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 15, 3, duration)
     MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 100, 3, duration)
     MobStatusEffectMove(mob, target, tpz.effect.POISON, 25, 3, duration)
     MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 5, 3, duration)
     MobStatusEffectMove(mob, target, tpz.effect.BIND, 1, 0, duration)
     MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, duration)
-    MobStatusEffectMove(mob, target, tpz.effect.SLOW, 2500, 0, duration)
+    MobStatusEffectMove(mob, target, tpz.effect.SLOW, 2550, 0, duration)
 	MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 50, 0, duration)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)

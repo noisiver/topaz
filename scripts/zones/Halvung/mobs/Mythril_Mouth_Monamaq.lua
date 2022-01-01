@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+local ID = require("scripts/zones/Halvung/IDs")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)

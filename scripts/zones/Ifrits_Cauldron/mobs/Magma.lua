@@ -3,6 +3,7 @@
 --   NM: Magma
 -----------------------------------
 require("scripts/globals/status")
+local ID = require("scripts/zones/Ifrits_Cauldron/IDs")
 -----------------------------------
 
 function onMobInitialize(mob)

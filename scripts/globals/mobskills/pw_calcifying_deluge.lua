@@ -1,37 +1,32 @@
 ---------------------------------------------
 -- Calcifying Deluge
 --
--- Description: Delivers a threefold ranged attack to targets in an area of effect. Additional effect: Petrification
+-- Description: Delivers a threefold ranged attack to targets in a frontal cone. Additional effect: Petrification
 -- Type: Physical
 -- Utsusemi/Blink absorb: 2-3 shadows
 -- Range: Unknown
 -- Notes: Used only by Medusa.
 ---------------------------------------------
+require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
-require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    local mobSkin = mob:getModelId()
-
-    if (mobSkin == 1865) then
-        return 0
-    else
-        return 1
-    end
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 3
     local accmod = 1
-    local dmgmod = 0.2
+    local dmgmod = 1
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, MOBPARAM_3_SHADOW)
+
     local typeEffect = tpz.effect.PETRIFICATION
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 120)
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 30)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
-
+	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
