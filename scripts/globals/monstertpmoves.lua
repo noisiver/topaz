@@ -308,7 +308,7 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     local percentBonus = 0
     local magicaccbonus = 0
 	
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) or target:hasStatusEffect(tpz.effect.FEALTY) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
