@@ -907,6 +907,7 @@ INSERT INTO `nm_spawn_points` VALUES (17121576,0,-153.108,-10.397,15.353); -- La
 INSERT INTO `nm_spawn_points` VALUES (17121603,0,137,8.5,-472); -- Habergoass
 INSERT INTO `nm_spawn_points` VALUES (17125433,0,358.667,-0.5,-181.406); -- Hawkeyed Dnatbat (La Vaule [S])
 INSERT INTO `nm_spawn_points` VALUES (17125452,0,137.606,3.346,-279.05); -- Ashmaker Gotblut (La Vaule [S])
+INSERT INTO `nm_spawn_points` VALUES(17129519, 0, 335.363, 0.301, -201.806); --King Arthro Sandworm
 INSERT INTO `nm_spawn_points` VALUES (17137005,0,678.599,-10.219,532.811);
 INSERT INTO `nm_spawn_points` VALUES (17137705,0,678.599,-10.219,532.811); -- Ankabut
 INSERT INTO `nm_spawn_points` VALUES (17137821,0,49.650,1.692,630.371); -- Gloomanita
@@ -3486,6 +3487,7 @@ INSERT INTO `nm_spawn_points` VALUES (17301538,46,-5.326,0.571,-14.812);
 INSERT INTO `nm_spawn_points` VALUES (17301538,47,-30.577,0.141,8.469);
 INSERT INTO `nm_spawn_points` VALUES (17301538,48,-21.907,-0.202,-18.879);
 INSERT INTO `nm_spawn_points` VALUES (17301538,49,0.627,0.175,-7.521);
+INSERT INTO `nm_spawn_points` VALUES(17305666, 0, 431.779, 0.243, 112.373); -- Serket Sandworm
 INSERT INTO `nm_spawn_points` VALUES (17309954,0,-0.100,-42.000,-291.000); -- Despot
 INSERT INTO `nm_spawn_points` VALUES (17326106,0,159.983,0.441,-178.390); -- GuNha_Wallstormer
 INSERT INTO `nm_spawn_points` VALUES (17326114,0,183.227,0.338,-197.513); -- NaHya_Floodmaker

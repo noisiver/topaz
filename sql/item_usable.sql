@@ -1256,7 +1256,7 @@ INSERT INTO `item_usable` VALUES (5419,'black_mine',1,1,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5420,'paralyzing_tube',1,1,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5421,'silencing_tube',1,1,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5422,'binding_tube',1,1,0,0,0,0,0,0);
-INSERT INTO `item_usable` VALUES (5423,'bottled_fay',1,10,0,0,0,0,0,0);
+INSERT INTO `item_usable` VALUES(5423, 'bottled_fay', 1, 10, 80, 3, 0, 0, 0, 0);
 INSERT INTO `item_usable` VALUES (5424,'serene_serinette',1,1,55,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5425,'joyous_serinette',1,1,55,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5426,'maze_compass',1,10,0,0,0,0,0,0);

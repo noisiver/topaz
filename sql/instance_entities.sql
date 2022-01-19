@@ -689,6 +689,27 @@ INSERT INTO `instance_entities` VALUES (79,17006761);
 INSERT INTO `instance_entities` VALUES (79,17006762);
 INSERT INTO `instance_entities` VALUES (79,17006763);
 
+-- Sandworm (WotG HNM)
+
+INSERT INTO `instance_entities` VALUES(81, 17129519);
+INSERT INTO `instance_entities` VALUES(81, 17129520);
+INSERT INTO `instance_entities` VALUES(81, 17129532);
+INSERT INTO `instance_entities` VALUES(84, 17129519);
+INSERT INTO `instance_entities` VALUES(84, 17129520);
+INSERT INTO `instance_entities` VALUES(84, 17129532);
+INSERT INTO `instance_entities` VALUES(88, 17158202);
+INSERT INTO `instance_entities` VALUES(88, 17158203);
+
+INSERT INTO `instance_entities` VALUES(91, 17158202);
+INSERT INTO `instance_entities` VALUES(91, 17158203);
+INSERT INTO `instance_entities` VALUES(95, 17305666);
+INSERT INTO `instance_entities` VALUES(95, 17305667);
+INSERT INTO `instance_entities` VALUES(97, 17305666);
+INSERT INTO `instance_entities` VALUES(97, 17305667);
+INSERT INTO `instance_entities` VALUES(98, 17305666);
+INSERT INTO `instance_entities` VALUES(98, 17305667);
+
+
 /*!40000 ALTER TABLE `instance_entities` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
