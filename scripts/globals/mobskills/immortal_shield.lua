@@ -1,23 +1,33 @@
 ---------------------------------------------
 -- Immortal Shield
---
--- Description: Magic Shield effect like Rampart. Note that enfeebling spells and songs still land.
--- Type: Magical
+-- Description: Grants a Magic Shield to the user.
+-- Note: missing proper rottating shield animation for status buff
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+        -- only use this skill if there is no remainig magical stoneskin
+        return 0
+    end
+
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
-	local SSpower = 1000
-    local power = 0
-	target:setMod(tpz.mod.RAMPART_STONESKIN, SSpower)
-    skill:setMsg(MobBuffMove(mob, tpz.effect.STONESKIN, power, 0, 300))
+    -- need a capture to determine how much should be absorbed
+    local magicalStoneskinAmount = 1000
+    
+    if (mob:isNM()) then
+        magicalStoneskinAmount = 1500
+    end
 
-    return tpz.effect.STONESKIN
+    mob:setMod(tpz.mod.RAMPART_STONESKIN, magicalStoneskinAmount)
+    skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT) -- lasted 15 mins
+
+    return tpz.effect.MAGIC_SHIELD
 end

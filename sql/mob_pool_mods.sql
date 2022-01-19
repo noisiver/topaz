@@ -218,6 +218,7 @@ INSERT INTO `mob_pool_mods` VALUES(4088, 74, 269, 1); -- Baby Xzomit link to Mom
 INSERT INTO `mob_pool_mods` VALUES(4285, 74, 245, 1); -- Sapplings link with treants
 INSERT INTO `mob_pool_mods` VALUES(3991, 74, 245, 1); -- Sapplings link with treants
 INSERT INTO `mob_pool_mods` VALUES(5340, 74, 245, 1); -- Sapplings link with treants
+INSERT INTO `mob_pool_mods` VALUES(2392, 74, 245, 1); -- Sapplings link with treants
 
 
 INSERT INTO `mob_pool_mods` VALUES(2961, 74, 216, 1); -- Treants link with sapplings

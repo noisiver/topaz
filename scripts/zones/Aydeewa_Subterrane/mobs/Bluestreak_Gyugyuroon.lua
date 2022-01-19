@@ -37,7 +37,7 @@ end
 
 function onMobFight(mob, target)
 	if mob:checkDistance(target)  <= 5 then
-		mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10)
+		mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10, 0)
 	end
 	
  local Pos = mob:getPos()
@@ -46,7 +46,7 @@ function onMobFight(mob, target)
     end
 	
 	if mob:getHPP() <= 25 then
-		mob:pathTo(-543, 17, -176)
+		mob:pathTo(-543, 17, -176, 0)
 		mob:SetAutoAttackEnabled(false)
 	end
 end
