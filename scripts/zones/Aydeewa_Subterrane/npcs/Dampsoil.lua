@@ -37,7 +37,7 @@ function onTrade(player, npc, trade)
     for _,v in pairs(crystals) do
         if npcUtil.tradeHas(trade, v) then 
             player:confirmTrade()
-            local newPosition = npcUtil.pickNewPosition(ID.npc.DAMPSOIL, positions)
+            local newPosition = npcUtil.pickNewPosition(ID.npc.DAMPSOIL, positions, false)
             GetNPCByID(ID.npc.DAMPSOIL):setPos(newPosition.x, newPosition.y, newPosition.z)
             if math.random(100) <= 5 and npcUtil.popFromQM(player, npc, ID.mob.CRYSTAL_EATER, {radius = 5, hide = 14400}) then
                 player:messageSpecial(ID.text.DRAWS_NEAR)
