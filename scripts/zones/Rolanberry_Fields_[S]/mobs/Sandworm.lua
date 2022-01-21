@@ -3,6 +3,7 @@
 --  Mob: Sandworm
 -- Note:  Title Given if Sandworm does not Doomvoid
 -----------------------------------
+mixins ={require("scripts/mixins/rage")}
 local ID = require("scripts/zones/Rolanberry_Fields_[S]/IDs")
 require("scripts/globals/titles")
 require("scripts/globals/status")
@@ -10,10 +11,14 @@ require("scripts/globals/monstertpmoves")
 -----------------------------------
 
 function onMobSpawn(mob)
-end
-
-function onMobDeath(mob, player, isKiller)
-    player:addTitle(tpz.title.SANDWORM_WRANGLER)
+	mob:setDamage(250)
+    mob:setMod(tpz.mod.DEF, 522)
+    mob:setMod(tpz.mod.EVA, 395) 
+    mob:setMod(tpz.mod.REGAIN, 0)
+    mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 2064)
+	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
+    mob:setLocalVar("[rage]timer", 5400) -- 90 minutes
 end
 
 function onMobFight(mob, target)
@@ -57,4 +62,8 @@ function onInstanceCreated(player, target, instance)
     else
         player:messageText(target, ID.text.CANNOT_ENTER, false)
     end
+end
+
+function onMobDeath(mob, player, isKiller)
+    player:addTitle(tpz.title.SANDWORM_WRANGLER)
 end

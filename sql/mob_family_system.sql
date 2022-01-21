@@ -103,7 +103,7 @@ INSERT INTO `mob_family_system` VALUES (35,'Avatar-Diabolos',5,'Avatar',0,40,100
 INSERT INTO `mob_family_system` VALUES (36,'Avatar-Fenrir',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,0.875,1,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (37,'Avatar-Garuda',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,1,0.875,0.875,0.875,0.875,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (38,'Avatar-Ifrit',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,1,0.875,0.875,0,41,0);
-INSERT INTO `mob_family_system` VALUES (39,'Monoceros',11,'Elemental',2,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,0.7,0.7,0.7,1.3,0.3,0.7,1,0.5,0,41,0);
+INSERT INTO `mob_family_system` VALUES (39,'Monoceros-Dark',11,'Elemental',2,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,0.7,0.7,0.7,1.3,0.3,0.7,1,0.5,0,41,0);
 INSERT INTO `mob_family_system` VALUES (40,'Avatar-Leviathan',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,1,0.875,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (41,'Avatar-Odin',5,'Avatar',2,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1.125,1,0,41,0);
 INSERT INTO `mob_family_system` VALUES (42,'Avatar-Odin',5,'Avatar',2,40,100,120,3,3,3,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,41,0);
@@ -570,6 +570,7 @@ INSERT INTO `mob_family_system` VALUES (539,'Jailer_of_Love',15,'Luminian',1,40,
 INSERT INTO `mob_family_system` VALUES (540,'Jailer_of_Prudence',15,'Luminian',1,40,100,120,7,7,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1.3,1.3,1.3,1.3,1.3,0.85,1.15,0,2,0);
 INSERT INTO `mob_family_system` VALUES (541,'Jailer_of_Temperance',16,'Luminion',0,40,100,140,6,6,4,4,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,1,0);
 INSERT INTO `mob_family_system` VALUES (542,'Toad',7,'Beastmen',0,60,125,140,5,5,3,2,1,3,1,1,1,1,1,1,1,0.85,0.85,1,0.7,1,0.85,1.15,0.2,0.3,1,6,2,0);
+INSERT INTO `mob_family_system` VALUES (543,'Monoceros-Light',11,'Elemental',2,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,0.6,0.85,0.6,0.85,0.6,0.85,0.3,1.3,0,41,0);
 
 
 
