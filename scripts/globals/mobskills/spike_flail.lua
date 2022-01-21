@@ -1,6 +1,6 @@
 ---------------------------------------------------
 -- Spike Flail
--- Deals extreme damage in a threefold attack to targets behind the user.
+-- Deals extreme damage to targets behind the user.
 ---------------------------------------------------
 
 require("scripts/globals/settings")
@@ -27,11 +27,11 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 3
+    local numhits = 1
     local accmod = 1
-    local dmgmod = 1
+    local dmgmod = 2
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_3_SHADOW)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded*math.random(2, 3))
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg

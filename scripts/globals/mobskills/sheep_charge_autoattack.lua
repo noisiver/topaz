@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
 	
 	local CurrentTP = mob:getLocalVar("TP")
-	local AddTP = CurrentTP + 100
+	local AddTP = CurrentTP + 200
     if (MobPhysicalHit(skill)) then
        target:addTP(20)
        mob:addTP(AddTP)

@@ -336,8 +336,15 @@ INSERT INTO `mob_family_mods` VALUES (125,23,2048,1); -- Giant Bird light sleep 
 INSERT INTO `mob_family_mods` VALUES (203,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (205,23,1,1); -- Qutrub sleep Immunity
+INSERT INTO `mob_family_mods` VALUES (214,23,128,1); -- Sandworm slow Immunity
+INSERT INTO `mob_family_mods` VALUES (215,23,128,1); -- Sandworm slow Immunity
+INSERT INTO `mob_family_mods` VALUES (214,23,512,1); -- Sandworme elegy Immunity
+INSERT INTO `mob_family_mods` VALUES (215,23,512,1); -- Sandworm elegy Immunity
+
+
 -- Status resist
-INSERT INTO `mob_family_mods` VALUES (125,254,100,0); -- Giant Bird resist lullaby effect?
+INSERT INTO `mob_family_mods` VALUES (125,1254,100,0); -- Giant Bird 100% lullaby resist
+INSERT INTO `mob_family_mods` VALUES (192,1243,95,0); -- Peiste 95% blind resist
 
 
 -- Absorb

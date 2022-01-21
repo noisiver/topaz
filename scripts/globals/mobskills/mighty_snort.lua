@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.STUN
 
 	local CurrentTP = mob:getLocalVar("TP")
-	local AddTP = CurrentTP + 100
+	local AddTP = CurrentTP + 200
 
     target:addTP(20)
     mob:addTP(AddTP)
