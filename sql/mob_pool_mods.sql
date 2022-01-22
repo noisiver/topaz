@@ -42,7 +42,7 @@ LOCK TABLES `mob_pool_mods` WRITE;
 INSERT INTO `mob_pool_mods` VALUES (237,44,1,1); -- Ark Angel HM 
 INSERT INTO `mob_pool_mods` VALUES (3598,44,1,1); -- Shikaree X
 
-INSERT INTO `mob_pool_mods` VALUES (21,29,100,0);
+INSERT INTO `mob_pool_mods` VALUES (21,29,100,0); -- Absolute Virtue +100 MDEF
 INSERT INTO `mob_pool_mods` VALUES (60,370,20,0);
 INSERT INTO `mob_pool_mods` VALUES (70,48,434,1);
 INSERT INTO `mob_pool_mods` VALUES (154,163,-70,0);
@@ -237,6 +237,14 @@ INSERT INTO `mob_pool_mods` VALUES (4187,28,-100,1); -- Vanguards_Hecteyes EXP_B
 INSERT INTO `mob_pool_mods` VALUES (4188,28,-100,1); -- Vanguards_Scorpion EXP_BONUS: don't give XP
 INSERT INTO `mob_pool_mods` VALUES (4189,28,-100,1); -- Vanguards_Slime EXP_BONUS: don't give XP
 INSERT INTO `mob_pool_mods` VALUES (4190,28,-100,1); -- Vanguards_Wyvern EXP_BONUS: don't give XP
+
+-- Dynamis mob pets
+INSERT INTO `mob_pool_mods` VALUES (4185,30,50,0); -- +50 Macc
+INSERT INTO `mob_pool_mods` VALUES (4186,30,50,0); -- +50 Macc
+INSERT INTO `mob_pool_mods` VALUES (4187,30,50,0); -- +50 Macc
+INSERT INTO `mob_pool_mods` VALUES (4188,30,50,0); -- +50 Macc
+INSERT INTO `mob_pool_mods` VALUES (4189,30,50,0); -- +50 Macc 
+INSERT INTO `mob_pool_mods` VALUES (4190,30,50,0); -- +50 Macc
 
 
 
