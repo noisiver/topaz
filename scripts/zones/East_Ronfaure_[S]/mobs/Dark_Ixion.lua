@@ -87,7 +87,8 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    for v = 2334,2338,1 do -- TP move ID
+   --[[
+   for v = 2334,2338,1 do -- TP move ID
         if skill:getID() == v then -- If TP Move is part of for loop then...
             local TPMove = mob:getLocalVar("TPMove")
 
@@ -99,6 +100,24 @@ function onMobWeaponSkill(target, mob, skill)
             else
                 mob:useMobAbility(v) -- Re-use same TP move
             end
+        end
+    end
+    ]]
+    local isEffectedMove = false;
+    for v = 2334,2338 do -- TP move ID
+        if skill:getID() == v then
+            isEffectedMove = true;
+        end
+    end
+    
+    if isEffectedMove then
+        local isRepeat = mob:getLocalVar("IsRepeat")
+        
+        if isRepeat then
+            mob:setLocalVar("IsRepeat", false);
+        else
+            mob:useMobAbility(v) -- Re-use same TP move
+            mob:setLocalVar("IsRepeat", true);
         end
     end
 end
