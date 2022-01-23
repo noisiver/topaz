@@ -82,9 +82,10 @@ enum SPIKES
     SPIKE_CURSE = 4,
     SPIKE_SHOCK = 5,
     SPIKE_REPRISAL = 6,
-    SPIKE_WIND = 7,
-    SPIKE_STONE = 8,
+    SPIKE_GALE = 7,
+    SPIKE_CLOD = 8,
     SPIKE_DELUGE = 9,
+    SPIKE_GLINT = 10,
     RETALIATION = 63
 };
 
