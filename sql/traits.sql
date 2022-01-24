@@ -109,28 +109,6 @@ INSERT INTO `traits` VALUES (3,'attack bonus',8,91,7,23,84,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (3,'attack bonus',8,91,7,24,84,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (3,'attack bonus',8,99,8,23,96,'ROV',0);
 INSERT INTO `traits` VALUES (3,'attack bonus',8,99,8,24,96,'ROV',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',23,30,1,23,10,NULL,0); -- Mob(WAR)
-INSERT INTO `traits` VALUES (3,'attack bonus',23,30,1,24,10,NULL,0);
-INSERT INTO `traits` VALUES (3,'attack bonus',23,76,2,23,22,'ROV',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',23,76,2,24,22,'ROV',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',23,90,3,23,35,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',23,90,3,24,35,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,10,1,23,10,NULL,0); -- Mob(DRK)
-INSERT INTO `traits` VALUES (3,'attack bonus',25,10,1,24,10,NULL,0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,30,2,23,22,NULL,0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,30,2,24,22,NULL,0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,50,3,23,35,NULL,0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,50,3,24,35,NULL,0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,70,4,23,48,NULL,0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,70,4,24,48,NULL,0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,76,5,23,60,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,76,5,24,60,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,83,6,23,72,'ROV',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,83,6,24,72,'ROV',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,91,7,23,84,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,91,7,24,84,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,99,8,23,96,'ROV',0);
-INSERT INTO `traits` VALUES (3,'attack bonus',25,99,8,24,96,'ROV',0);
 INSERT INTO `traits` VALUES (3,'attack bonus',14,10,1,23,10,NULL,0);
 INSERT INTO `traits` VALUES (3,'attack bonus',14,10,1,24,10,NULL,0);
 INSERT INTO `traits` VALUES (3,'attack bonus',14,91,2,23,22,'ABYSSEA',0);
@@ -144,17 +122,8 @@ INSERT INTO `traits` VALUES (4,'defense bonus',7,10,1,1,10,NULL,0);
 INSERT INTO `traits` VALUES (4,'defense bonus',7,30,2,1,22,NULL,0);
 INSERT INTO `traits` VALUES (4,'defense bonus',7,50,3,1,35,NULL,0);
 INSERT INTO `traits` VALUES (4,'defense bonus',7,70,4,1,48,NULL,0);
-INSERT INTO `traits` VALUES (4,'defense bonus',7,76,5,1,60,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (4,'defense bonus',7,91,6,1,72,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (4,'defense bonus',23,10,1,1,10,NULL,0); -- Mob(WAR)
---INSERT INTO `traits` VALUES (4,'defense bonus',23,81,2,1,22,'ROV',0);
---INSERT INTO `traits` VALUES (4,'defense bonus',23,60,3,1,35,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (4,'defense bonus',24,10,1,1,10,NULL,0); -- Mob(PLD)
-INSERT INTO `traits` VALUES (4,'defense bonus',24,30,2,1,22,NULL,0);
-INSERT INTO `traits` VALUES (4,'defense bonus',24,50,3,1,35,NULL,0);
-INSERT INTO `traits` VALUES (4,'defense bonus',24,70,4,1,48,NULL,0);
---INSERT INTO `traits` VALUES (4,'defense bonus',24,76,5,1,60,'ABYSSEA',0);
---INSERT INTO `traits` VALUES (4,'defense bonus',24,91,6,1,72,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (4,'defense bonus',7,98,5,1,60,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (4,'defense bonus',7,99,6,1,72,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',4,10,1,28,20,NULL,0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',4,30,2,28,24,NULL,0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',4,50,3,28,28,NULL,0);
@@ -249,16 +218,15 @@ INSERT INTO `traits` VALUES (14,'store tp',12,50,3,73,20,NULL,0);
 INSERT INTO `traits` VALUES (14,'store tp',12,70,4,73,25,NULL,0);
 INSERT INTO `traits` VALUES (14,'store tp',12,90,5,73,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,25,1,288,10,NULL,0);
-INSERT INTO `traits` VALUES (15,'double attack',1,76,1,288,25,NULL,0); -- Custom for mobs
+INSERT INTO `traits` VALUES (15,'double attack',1,76,2,288,25,NULL,0); -- Custom to make monsters stronger
 INSERT INTO `traits` VALUES (15,'double attack',1,99,3,288,12,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,99,4,288,14,'ABYSSEA',0); -- level 76 prior to ROV update (05/14/2015), set Abby tag so it's removed from 75-cap servers
 INSERT INTO `traits` VALUES (15,'double attack',1,99,5,288,16,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,99,6,288,18,'ROV',0);
-INSERT INTO `traits` VALUES (15,'double attack',23,25,1,288,25,NULL,0); -- Mob(WAR)
 INSERT INTO `traits` VALUES (16,'triple attack',6,40,1,302,10,NULL,0);
 INSERT INTO `traits` VALUES (16,'triple attack',6,60,2,302,15,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (17,'counter',2,10,1,291,10,NULL,0);		-- changed from 8%
-INSERT INTO `traits` VALUES (17,'counter',2,99,2,291,12,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (17,'counter',2,81,2,291,12,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (18,'dual wield',6,10,1,259,10,'ABYSSEA',0);
 --INSERT INTO `traits` VALUES (18,'dual wield',6,10,1,25,10,NULL,0);
 INSERT INTO `traits` VALUES (18,'dual wield',6,45,2,259,15,'ABYSSEA',0);
@@ -288,12 +256,12 @@ INSERT INTO `traits` VALUES (23,'martial arts',2,31,3,173,120,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,46,4,173,140,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,61,5,173,160,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,75,6,173,180,NULL,0);
-INSERT INTO `traits` VALUES (23,'martial arts',2,99,7,173,200,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (23,'martial arts',2,82,7,173,200,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,25,1,173,80,'TOAU',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,50,2,173,100,'TOAU',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,75,3,173,120,'TOAU',0);
-INSERT INTO `traits` VALUES (23,'martial arts',18,98,4,173,140,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (23,'martial arts',18,99,5,173,160,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (23,'martial arts',18,87,4,173,140,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (23,'martial arts',18,97,5,173,160,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,20,1,71,3,NULL,0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,35,2,71,6,NULL,0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,50,3,71,9,NULL,0);
@@ -537,24 +505,20 @@ INSERT INTO `traits` VALUES (94,'fine-tuning',18,75,1,0,0,'TOAU',3140);
 INSERT INTO `traits` VALUES (95,'optimization',18,75,1,0,0,'TOAU',3142);
 INSERT INTO `traits` VALUES (96,'closed position',19,75,1,0,0,'WOTG',3206);
 INSERT INTO `traits` VALUES (97,'stormsurge',20,75,1,0,0,'WOTG',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,78,1,421,5,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,86,2,421,8,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,98,1,421,5,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,99,2,421,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,50,1,421,5,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,70,2,421,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,84,3,421,11,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,91,4,421,14,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,85,1,421,5,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,95,2,421,8,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,98,3,421,11,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,99,4,421,14,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,98,1,421,5,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,99,2,421,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',19,97,1,421,5,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',19,98,2,421,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',19,99,3,421,11,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',24,85,1,421,5,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',24,95,2,421,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',23,78,1,421,5,'ABYSSEA',0); -- Mob(WAR)
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',23,86,2,421,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,79,1,908,5,'ABYSSEA',0);   -- Paladin
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,85,2,908,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,91,3,908,11,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,96,1,908,5,'ABYSSEA',0);   -- Paladin
+INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,97,2,908,8,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,98,3,908,11,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,99,4,908,14,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',10,98,1,908,5,'ABYSSEA',0);   -- Bard
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',10,99,2,908,8,'ABYSSEA',0);
@@ -562,9 +526,6 @@ INSERT INTO `traits` VALUES (99,'crit. def. bonus',14,98,1,908,5,'ABYSSEA',0);  
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',14,99,2,908,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',18,98,1,908,5,'ABYSSEA',0);   -- Puppetmaster
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',18,99,2,908,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',24,79,1,908,5,'ABYSSEA',0); -- Mob(PLD)
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',24,85,2,908,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',24,91,3,908,11,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',1,50,1,486,20,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',1,70,2,486,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',8,88,1,486,20,'ABYSSEA',0);

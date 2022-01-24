@@ -125,7 +125,7 @@ namespace battleutils
             }
         }
 
-        fmtQuery = "SELECT skillid,war,mnk,whm,blm,rdm,thf,pld,drk,bst,brd,rng,sam,nin,drg,smn,blu,cor,pup,dnc,sch,geo,run,mobwar,mobpld,mobdrk \
+        fmtQuery = "SELECT skillid,war,mnk,whm,blm,rdm,thf,pld,drk,bst,brd,rng,sam,nin,drg,smn,blu,cor,pup,dnc,sch,geo,run \
                 FROM skill_ranks \
                 LIMIT 64";
 

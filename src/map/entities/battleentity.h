@@ -84,13 +84,10 @@ enum JOBTYPE
     JOB_DNC = 19,
     JOB_SCH = 20,
     JOB_GEO = 21,
-    JOB_RUN = 22,
-    JOB_MOB_WAR = 23, 
-    JOB_MOB_PLD = 24, 
-    JOB_MOB_DRK = 25
+    JOB_RUN = 22
 };
 
-#define MAX_JOBTYPE		100
+#define MAX_JOBTYPE		23
 
 enum SKILLTYPE
 {

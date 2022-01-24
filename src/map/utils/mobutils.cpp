@@ -297,12 +297,10 @@ void CalculateStats(CMobEntity * PMob)
 
     switch(mJob){
     case JOB_PLD:
-    case JOB_MOB_PLD:
     case JOB_WHM:
     case JOB_BLM:
     case JOB_RDM:
     case JOB_DRK:
-    case JOB_MOB_DRK:
     case JOB_BLU:
     case JOB_SCH:
     case JOB_SMN:
@@ -314,12 +312,10 @@ void CalculateStats(CMobEntity * PMob)
 
     switch(sJob){
     case JOB_PLD:
-    case JOB_MOB_PLD:
     case JOB_WHM:
     case JOB_BLM:
     case JOB_RDM:
     case JOB_DRK:
-    case JOB_MOB_DRK:
     case JOB_BLU:
     case JOB_SCH:
     case JOB_SMN:
@@ -602,15 +598,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
-        case JOB_MOB_PLD:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
-            PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
-            break;
         case JOB_DRK:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
-            PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
-            break;
-        case JOB_MOB_DRK:
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;

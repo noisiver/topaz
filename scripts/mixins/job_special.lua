@@ -111,9 +111,6 @@ local job2hr = {
     [tpz.job.SMN] = tpz.jsa.ASTRAL_FLOW,
     [tpz.job.BLU] = tpz.jsa.AZURE_LORE,
     [tpz.job.COR] = tpz.jsa.WILD_CARD,
-    [tpz.job.MOB_WAR] = tpz.jsa.MIGHTY_STRIKES,
-    [tpz.job.MOB_PLD] = tpz.jsa.INVINCIBLE,
-    [tpz.job.MOB_DRK] = tpz.jsa.BLOOD_WEAPON,
 
 -- following abilities are not yet defined on tpz.jsa:
 --  [tpz.job.PUP] = tpz.jsa.OVERDRIVE,
