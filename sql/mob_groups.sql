@@ -1429,8 +1429,8 @@ INSERT INTO `mob_groups` VALUES (135,6166,37,'Temenos_Aern',0,128,2862,6500,500,
 -- Apollyon (Zone 38)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1346,38,'Jidra',0,128,0,6000,0,81,82,0); -- leafless
-INSERT INTO `mob_groups` VALUES (2,2149,38,'Jidra',0,128,0,6000,0,81,82,0);
+INSERT INTO `mob_groups` VALUES (1,1346,38,'Jidra',0,128,0,6000,0,81,82,0); -- leafless(Boss)
+INSERT INTO `mob_groups` VALUES (2,2149,38,'Jidra',0,128,0,6000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (3,211,38,'Arboricole_Hornet',0,128,2860,6000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (4,213,38,'Arboricole_Raven',0,128,2860,6000,500,78,80,0);
 INSERT INTO `mob_groups` VALUES (5,212,38,'Arboricole_Opo-opo',0,128,2860,6000,0,78,80,0);
@@ -1527,8 +1527,8 @@ INSERT INTO `mob_groups` VALUES (94,6126,38,'Fir_Bholg',0,128,2856,0,100,78,80,0
 INSERT INTO `mob_groups` VALUES (95,6127,38,'Fir_Bholg',0,128,2856,0,0,78,80,0); -- SAM hume
 INSERT INTO `mob_groups` VALUES (96,6128,38,'Fir_Bholg',0,128,2856,0,500,78,80,0); -- RDM mithra
 INSERT INTO `mob_groups` VALUES (97,6129,38,'Fir_Bholg',0,128,2856,0,500,78,80,0); -- BLM taru
-INSERT INTO `mob_groups` VALUES (98,6104,38,'Barometz',0,128,2856,8500,0,78,80,0)
-INSERT INTO `mob_groups` VALUES (99,6130,38,'Borametz',0,128,2856,7000,0,78,80,0)
+INSERT INTO `mob_groups` VALUES (98,6104,38,'Barometz',0,128,2856,8500,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (99,6130,38,'Borametz',0,128,2856,7000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (100,6131,38,'Apollyon_Cleaner',0,128,2858,8500,800,78,80,0);
 INSERT INTO `mob_groups` VALUES (101,6132,38,'Kerkopes',0,128,2861,9500,0,81,82,0);
 
