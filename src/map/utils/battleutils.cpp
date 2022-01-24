@@ -3762,6 +3762,14 @@ namespace battleutils
                 break;
             }
         }
+        if (PDefender->objtype == TYPE_MOB)
+        {
+            // Listener (hook)
+            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PAttacker, PDefender);
+
+            // Binding
+            luautils::OnSkillchain(PAttacker, PDefender);
+        }
 
         return damage;
     }
