@@ -1607,15 +1607,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             PTarget = attackRound.GetCoverAbilityUserEntity();
             list.ActionTargetID = PTarget->id;
         }
-        auto rangedAttack = attack.GetAttackType() == PHYSICAL_ATTACK_TYPE::RANGED || attack.GetAttackType() == PHYSICAL_ATTACK_TYPE::DAKEN;
-        if (!rangedAttack)
+
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_DODGE, 0))
         {
-            if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PERFECT_DODGE, 0))
-            {
-                actionTarget.messageID = 32;
-                actionTarget.reaction = REACTION_EVADE;
-                actionTarget.speceffect = SPECEFFECT_NONE;
-            }
+            actionTarget.messageID = 32;
+            actionTarget.reaction = REACTION_EVADE;
+            actionTarget.speceffect = SPECEFFECT_NONE;
         }
         else if ((tpzrand::GetRandomNumber(100) < attack.GetHitRate() || attackRound.GetSATAOccured()) &&
                  !PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_ALL_MISS))
@@ -1639,58 +1636,49 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             else if (attack.CheckAnticipated() || attack.CheckCounter())
             {
                 if (attack.IsAnticipated())
-                    if (!rangedAttack)
-                    {
-                        {
-                            actionTarget.messageID = 30;
-                            actionTarget.reaction = REACTION_EVADE;
-                            actionTarget.speceffect = SPECEFFECT_NONE;
-                        }
-                    }
+                {
+                    actionTarget.messageID = 30;
+                    actionTarget.reaction = REACTION_EVADE;
+                    actionTarget.speceffect = SPECEFFECT_NONE;
+                }
                 if (attack.IsCountered())
-                    if (!rangedAttack)
+                {
+                    actionTarget.reaction = REACTION_EVADE;
+                    actionTarget.speceffect = SPECEFFECT_NONE;
+                    actionTarget.param = 0;
+                    actionTarget.messageID = 0;
+                    actionTarget.spikesEffect = SUBEFFECT_COUNTER;
+                    if (battleutils::IsAbsorbByShadow(this))
                     {
+                        actionTarget.spikesParam = 1;
+                        actionTarget.spikesMessage = MSGBASIC_COUNTER_ABS_BY_SHADOW;
+                    }
+                    else
+                    {
+                        int16 naturalh2hDMG = 0;
+                        if (auto targ_weapon = dynamic_cast<CItemWeapon*>(PTarget->m_Weapons[SLOT_MAIN]);
+                           (targ_weapon && targ_weapon->getSkillType() == SKILL_HAND_TO_HAND) || (PTarget->objtype == TYPE_MOB && PTarget->GetMJob() == JOB_MNK))
                         {
-                            actionTarget.reaction = REACTION_EVADE;
-                            actionTarget.speceffect = SPECEFFECT_NONE;
-                            actionTarget.param = 0;
-                            actionTarget.messageID = 0;
-                            actionTarget.spikesEffect = SUBEFFECT_COUNTER;
-                            if (battleutils::IsAbsorbByShadow(this))
-                            {
-                                actionTarget.spikesParam = 1;
-                                actionTarget.spikesMessage = MSGBASIC_COUNTER_ABS_BY_SHADOW;
-                            }
-                            else
-                            {
-                                int16 naturalh2hDMG = 0;
-                                if (auto targ_weapon = dynamic_cast<CItemWeapon*>(PTarget->m_Weapons[SLOT_MAIN]);
-                                    (targ_weapon && targ_weapon->getSkillType() == SKILL_HAND_TO_HAND) ||
-                                    (PTarget->objtype == TYPE_MOB && PTarget->GetMJob() == JOB_MNK))
-                                {
-                                    naturalh2hDMG = (int16)((PTarget->GetSkill(SKILL_HAND_TO_HAND) * 0.11f) + 3);
-                                }
+                            naturalh2hDMG = (int16)((PTarget->GetSkill(SKILL_HAND_TO_HAND) * 0.11f) + 3);
+                        }
 
-                                float DamageRatio = battleutils::GetDamageRatio(PTarget, this, attack.IsCritical(), 0.f);
-                                auto damage =
-                                    (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * DamageRatio);
-                                actionTarget.spikesParam = battleutils::TakePhysicalDamage(PTarget, this, attack.GetAttackType(), damage, false, SLOT_MAIN, 1,
-                                                                                           nullptr, true, false, true);
-                                actionTarget.spikesMessage = 33;
-                                if (PTarget->objtype == TYPE_PC)
-                                {
-                                    auto targ_weapon = dynamic_cast<CItemWeapon*>(PTarget->m_Weapons[SLOT_MAIN]);
-                                    uint8 skilltype = (targ_weapon == nullptr ? SKILL_HAND_TO_HAND : targ_weapon->getSkillType());
-                                    charutils::TrySkillUP((CCharEntity*)PTarget, (SKILLTYPE)skilltype, GetMLevel());
-                                } // In case the Automaton can counter
-                                else if (PTarget->objtype == TYPE_PET && PTarget->PMaster && PTarget->PMaster->objtype == TYPE_PC &&
-                                         static_cast<CPetEntity*>(PTarget)->getPetType() == PETTYPE_AUTOMATON)
-                                {
-                                    puppetutils::TrySkillUP((CAutomatonEntity*)PTarget, SKILL_AUTOMATON_MELEE, GetMLevel());
-                                }
-                            }
+                        float DamageRatio = battleutils::GetDamageRatio(PTarget, this, attack.IsCritical(), 0.f);
+                        auto damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * DamageRatio);
+                        actionTarget.spikesParam = battleutils::TakePhysicalDamage(PTarget, this, attack.GetAttackType(), damage, false, SLOT_MAIN, 1, nullptr, true, false, true);
+                        actionTarget.spikesMessage = 33;
+                        if (PTarget->objtype == TYPE_PC)
+                        {
+                            auto targ_weapon = dynamic_cast<CItemWeapon*>(PTarget->m_Weapons[SLOT_MAIN]);
+                            uint8 skilltype = (targ_weapon == nullptr ? SKILL_HAND_TO_HAND : targ_weapon->getSkillType());
+                            charutils::TrySkillUP((CCharEntity*)PTarget, (SKILLTYPE)skilltype, GetMLevel());
+                        } // In case the Automaton can counter
+                        else if (PTarget->objtype == TYPE_PET && PTarget->PMaster && PTarget->PMaster->objtype == TYPE_PC &&
+                            static_cast<CPetEntity*>(PTarget)->getPetType() == PETTYPE_AUTOMATON)
+                        {
+                            puppetutils::TrySkillUP((CAutomatonEntity*)PTarget, SKILL_AUTOMATON_MELEE, GetMLevel());
                         }
                     }
+                }
             }
             else
             {
@@ -1729,13 +1717,10 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
                 // Guarded. TODO: Stuff guards that shouldn't.
                 if (attack.IsGuarded())
-                    if (!rangedAttack)
-                    {
-                        {
-                            actionTarget.reaction = REACTION_GUARD;
-                            battleutils::HandleTacticalGuard(PTarget);
-                        }
-                    }
+                {
+                    actionTarget.reaction = REACTION_GUARD;
+                    battleutils::HandleTacticalGuard(PTarget);
+                }
 
                 // Apply Feint
                 if (CStatusEffect* PFeintEffect = StatusEffectContainer->GetStatusEffect(EFFECT_FEINT))
