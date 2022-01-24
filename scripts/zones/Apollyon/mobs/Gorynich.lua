@@ -57,6 +57,13 @@ function onMobRoam(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
+    local Cynoprosopi = mob:getID(16932976)
+    local GorynichKillCounter = GetServerVariable("GorynichKillCounter")
+    -- Killing Gorynich reduce Cynoprosopi's Maximum HP, Attack, Accuracy and Attack Speed.
+    Cynoprosopi:addMod(tpz.mod.ACC, -50)
+    Cynoprosopi:addMod(tpz.mod.HASTE_MAGIC, -1000)
+    SetServerVariable("GorynichKillCounter", GorynichKillCounter + 90)
+
     if isKiller or noKiller then
         local mobID = mob:getID()
         local battlefield = mob:getBattlefield()

@@ -15511,29 +15511,30 @@ INSERT INTO `mob_droplist` VALUES (2854,0,0,1000,15681,50);
 INSERT INTO `mob_droplist` VALUES (2854,0,0,1000,15682,50);
 INSERT INTO `mob_droplist` VALUES (2854,0,0,1000,15683,50);
 INSERT INTO `mob_droplist` VALUES (2855,0,0,1000,12298,1000);
-INSERT INTO `mob_droplist` VALUES (2856,0,0,1000,1875,300);
-INSERT INTO `mob_droplist` VALUES (2857,0,0,1000,1875,400);
-INSERT INTO `mob_droplist` VALUES (2858,0,0,1000,1875,500);
-INSERT INTO `mob_droplist` VALUES (2859,0,0,1000,1875,700);
-INSERT INTO `mob_droplist` VALUES (2860,0,0,1000,1875,800);
-INSERT INTO `mob_droplist` VALUES (2861,0,0,1000,1875,1000);
-INSERT INTO `mob_droplist` VALUES (2862,0,0,1000,1875,1000);
-INSERT INTO `mob_droplist` VALUES (2862,0,0,1000,1875,1000);
-INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000);
-INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000);
-INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000);
-INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000);
-INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000);
+-- LimbusAncient Beastcoin
+INSERT INTO `mob_droplist` VALUES (2856,0,0,1000,1875,240); -- (Bardha) 
+INSERT INTO `mob_droplist` VALUES (2857,0,0,1000,1875,240); -- (Mountain_Buffalo) 
+INSERT INTO `mob_droplist` VALUES (2858,0,0,1000,1875,240); --  (Apollyon Scavenger)
+INSERT INTO `mob_droplist` VALUES (2859,0,0,1000,1875,240); --  (Fire Elemental)
+INSERT INTO `mob_droplist` VALUES (2860,0,0,1000,1875,240); --  (Kaiser Behemoth)
+INSERT INTO `mob_droplist` VALUES (2861,0,0,1000,1875,1000); -- (Kerkopes)
+INSERT INTO `mob_droplist` VALUES (2862,0,0,1000,1875,1000); -- (Gorynich) 
+INSERT INTO `mob_droplist` VALUES (2862,0,0,1000,1875,1000); -- (Gorynich)
+INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000); -- (Kronprinz Behemoth)
+INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000); -- (Kronprinz Behemoth)
+INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000); -- (Kronprinz Behemoth)
+INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000); -- (Kronprinz Behemoth)
+INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,240); -- (Kronprinz Behemoth)
 INSERT INTO `mob_droplist` VALUES (2864,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (2864,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (2864,2,0,1000,749,0);
-INSERT INTO `mob_droplist` VALUES (2864,0,0,1000,12699,11);
+INSERT INTO `mob_droplist` VALUES (2864,0,0,1000,12699,10);
 INSERT INTO `mob_droplist` VALUES (2865,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (2865,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (2865,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (2865,0,0,1000,828,50);
-INSERT INTO `mob_droplist` VALUES (2865,0,0,1000,12699,11);
-INSERT INTO `mob_droplist` VALUES (2865,0,0,1000,1539,70);
+INSERT INTO `mob_droplist` VALUES (2865,0,0,1000,12699,10);
+INSERT INTO `mob_droplist` VALUES (2865,0,0,1000,1539,100);
 INSERT INTO `mob_droplist` VALUES (2866,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (2866,0,0,1000,880,150);
 INSERT INTO `mob_droplist` VALUES (2866,0,0,1000,940,100);

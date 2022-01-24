@@ -17,6 +17,10 @@ local path =
     {-569.656, -0.254, 239.459}
 }
 
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.DEF, 4000)
+end
+
 function onMobRoam(mob)
     if not mob:isFollowingPath() then
         local point = math.random(#path)

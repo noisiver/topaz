@@ -45,6 +45,10 @@ local path =
     }
 }
 
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.SDT_DARK, 100)
+end
+
 function onPath(mob)
     mob:setLocalVar("pause", os.time()+1)
 end
