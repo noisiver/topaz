@@ -4,7 +4,7 @@
 -----------------------------------
 mixins =
 {
-require("scripts/mixins/job_special")
+require("scripts/mixins/job_special"),
 require("scripts/mixins/families/soulflayer")
 }
 -----------------------------------

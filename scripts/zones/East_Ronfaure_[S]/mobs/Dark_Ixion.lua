@@ -127,10 +127,11 @@ function onMobDisengage(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
-    for i = DarkIxionID do
-        local DarkIxion = GetMobByID(i)
-        if DarkIxion:isSpawned() then
-            DespawnMob(i)
+    for i = 1,#DarkIxionID do -- despawn all ixions in all zones
+        local id = DarkIxionID[i];
+        local DarkIxion = GetMobByID(id)
+        if DarkIxion:isSpawned() and mob ~= id then
+            DespawnMob(id)
         end
     end
     player:addTitle(tpz.title.IXION_HORNBREAKER)
