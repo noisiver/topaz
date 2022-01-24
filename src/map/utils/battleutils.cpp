@@ -4983,6 +4983,7 @@ namespace battleutils
             ConvertDmgToMP(PDefender, damage, IsCovered);
 
             damage = HandleFanDance(PDefender, damage);
+            damage = HandlePositionalPDT(PDefender, damage);
         }
 
         return damage;
@@ -5193,6 +5194,26 @@ namespace battleutils
                 // reduce fan dance effectiveness by 10% each hit, to a min of 20%
                 PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FAN_DANCE)->SetPower(power - 10);
             }
+        }
+        return damage;
+    }
+
+    int32 HandlePositionalPDT(CBattleEntity* PDefender, int32 damage)
+    {
+        auto PAttacker = PDefender->GetBattleTarget();
+        // Handle frontal PDT
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FRONTALPDT)->GetPower();
+            float resist = 1.0f - (power / 100.0f);
+            damage = (int32)(damage * resist);
+        }
+        // Handle behind PDT
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_BEHINDPDT) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BEHINDPDT)->GetPower();
+            float resist = 1.0f - (power / 100.0f);
+            damage = (int32)(damage * resist);
         }
         return damage;
     }
