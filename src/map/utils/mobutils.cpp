@@ -838,17 +838,23 @@ void SetupBattlefieldMob(CMobEntity* PMob)
 
     // never despawn
     PMob->SetDespawnTime(0s);
-    // never despawn
-    PMob->SetDespawnTime(0s);
-    // do not roam around
-    PMob->m_roamFlags |= ROAMFLAG_EVENT;
-    PMob->m_maxRoamDistance = 0.5f;
-    if ((PMob->m_bcnmID != 864) && (PMob->m_bcnmID != 704) && (PMob->m_bcnmID != 706))
+    // Limbus mobs
+    uint16 zoneID = PMob->getZone();
+    if (zoneID == 37 || zoneID == 38)
     {
-        // bcnmID 864 (desires of emptiness), 704 (darkness named), and 706 (waking dreams) don't superlink
-        // force all mobs in same instance to superlink
-        // plus one in case id is zero
-        PMob->setMobMod(MOBMOD_SUPERLINK, PMob->m_battlefieldID);
+        PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
+    }
+    else
+    {// do not roam around
+        PMob->m_roamFlags |= ROAMFLAG_EVENT;
+        PMob->m_maxRoamDistance = 0.5f;
+        if((PMob->m_bcnmID != 864) && (PMob->m_bcnmID != 704) && (PMob->m_bcnmID != 706))
+        {
+            // bcnmID 864 (desires of emptiness), 704 (darkness named), and 706 (waking dreams) don't superlink
+            // force all mobs in same instance to superlink
+            // plus one in case id is zero
+            PMob->setMobMod(MOBMOD_SUPERLINK, PMob->m_battlefieldID);
+        }
     }
 
 }
