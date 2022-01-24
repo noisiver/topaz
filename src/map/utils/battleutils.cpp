@@ -343,38 +343,41 @@ namespace battleutils
         return 1;
     }
 
-    uint32 getMagicResist(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint32 skill, uint8 element)
+    float getMagicResist(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skill, uint8 element)
     {
         float resist = 1.0;
         float p = 0;
         float DMacc = 0;
-        uint32 casterLvl = PAttacker->GetMLevel();
-        uint32 targetLvl = PDefender->GetMLevel();
-        uint32 magicacc = PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC);
+        float casterLvl = PAttacker->GetMLevel();
+        float targetLvl = PDefender->GetMLevel();
+        float magicacc = PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC);
+        float mevaskill = 5 + (targetLvl - 1) * 2.8;
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-        uint32 meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element - 1]));
-
-        if (!skill)
-            {
-                skill = (uint16)(136 + (casterLvl - 50) * 4.8f);
-            }
-        magicacc = (uint32)((casterLvl - targetLvl) * 4);
-        DMacc = (uint32)(magicacc - meva);
-
+        float meva = mevaskill + PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element - 1]));
+        //printf("Macc before = %f, p before = %f", magicacc, p);
+        magicacc = (float)((casterLvl - targetLvl) * 4);
+        DMacc = (float)(magicacc - meva);
+        // printf("Macc after = %f, DMacc after = %f", magicacc, DMacc);
         if (DMacc < 0)
         {
             p = 50 + DMacc / 2;
         }
         else
         {
-            p = 50 + DMacc;
+            p = 50 + DMacc; 
         }
+        // printf("p after = %f", p);
+        p = std::clamp(p, 5.0f, 95.0f);
 
-        double half = (1 - p);
-        double quart = pow(half, 2);
-        double eighth = pow(half, 3);
-        double resvar = tpzrand::GetRandomNumber(1.);
-
+        p = p / getElementalSDTDivisor(PAttacker, element);
+        // printf("p after sdt = %f", p);
+        p = p / 100;
+        // printf("p after dividing by 100 = %f", p);
+        float half = (1 - p);
+        float quart = pow(half, 2);
+        float eighth = pow(half, 3);
+        float resvar = tpzrand::GetRandomNumber(1.);
+        // printf("resvar = %f", resvar);
         if (PDefender->getMod(resistarray[element - 1]) < 0 && resvar < 0.5)
         {
             return 0.5f;
@@ -774,8 +777,7 @@ namespace battleutils
                 case SPIKE_BLAZE:
                 case SPIKE_ICE:
                 case SPIKE_SHOCK:
-                    PAttacker->takeDamage(Action->spikesParam * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element) /
-                                              getElementalSDTDivisor(PAttacker, element),
+                    PAttacker->takeDamage(Action->spikesParam * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element),
                                           PDefender, ATTACK_MAGICAL,
                                           GetSpikesDamageType(Action->spikesEffect));
                     break;
@@ -810,8 +812,7 @@ namespace battleutils
                             }
                             PDefender->addHP(Action->spikesParam);
                         }
-                        PAttacker->takeDamage(Action->spikesParam * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element) /
-                                                  getElementalSDTDivisor(PAttacker, element),
+                        PAttacker->takeDamage(Action->spikesParam * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element),
                                               PDefender, ATTACK_MAGICAL,
                                               DAMAGE_DARK);
                     }
@@ -820,8 +821,7 @@ namespace battleutils
                 case SPIKE_REPRISAL:
                     if (Action->reaction == REACTION_BLOCK)
                     {
-                        PAttacker->takeDamage(Action->spikesParam * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element) /
-                                                  getElementalSDTDivisor(PAttacker, element),
+                        PAttacker->takeDamage(Action->spikesParam * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element),
                                               PDefender, ATTACK_MAGICAL,
                                               DAMAGE_LIGHT);
                         auto PEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_REPRISAL);
