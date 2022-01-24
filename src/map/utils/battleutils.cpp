@@ -6285,6 +6285,8 @@ namespace battleutils
                 return DAMAGE_NONE;
             case SUBEFFECT_SHOCK_SPIKES:
                 return DAMAGE_LIGHTNING;
+            case SUBEFFECT_DELUGE_SPIKES:
+                return DAMAGE_WATER;
             case SUBEFFECT_REPRISAL:
                 return DAMAGE_LIGHT;
             case SUBEFFECT_GALE_SPIKES:
