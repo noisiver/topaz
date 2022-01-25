@@ -333,6 +333,8 @@ namespace battleutils
             return 1;
 
         float res = (float)(PTarget->getMod((Mod)(967 + element)));
+        float mod = (float)(PTarget->getMod((Mod)(968)));
+        printf("mod 968 %f \n", mod);
         printf("SDT res %f \n", res);
         // todo -- magic burst
         if (res <= 5.0f)
