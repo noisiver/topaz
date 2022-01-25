@@ -1229,11 +1229,6 @@ namespace battleutils
                     break;
             }
 
-            if (enspell == ENSPELL_HASTE_SAMBA)
-                element = 0;
-            else
-                SDTdivisor = getElementalSDTDivisor(PDefender, element);
-
             if (enspell > 0 && enspell <= 6)
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 1];
