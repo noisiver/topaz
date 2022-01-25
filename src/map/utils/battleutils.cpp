@@ -337,6 +337,8 @@ namespace battleutils
         printf("mod 968 %f \n", mod);
         printf("SDT res %f \n", res);
         // todo -- magic burst
+        if (res == 0)
+            return 1;
         if (res <= 5.0f)
             return 8;
         if (res <= 50.0f)
