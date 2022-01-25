@@ -354,7 +354,7 @@ namespace battleutils
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element - 1]));
         printf("Macc before = %f \np before = %f \n", magicacc, p);
-        magicacc = (float)((casterLvl - targetLvl) * 4);
+        magicacc = (float)magicacc + ((casterLvl - targetLvl) * 4);
         DMacc = (float)(magicacc - meva);
          printf("Macc after = %f \nDMacc after = %f \n", magicacc, DMacc);
         if (DMacc < 0)
@@ -365,9 +365,9 @@ namespace battleutils
         {
             p = 50 + DMacc; 
         }
-        printf("p after = %f \n", p);
+        printf("p DMacc after %f \n", p);
         p = std::clamp(p, 5.0f, 95.0f);
-
+        printf("p after clamping to 5,95 = %f \n", p);
         p = p / getElementalSDTDivisor(PAttacker, element);
         printf("p after sdt = %f \n", p);
         p = p / 100;
