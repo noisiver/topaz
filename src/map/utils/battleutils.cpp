@@ -647,45 +647,37 @@ namespace battleutils
             case SPIKE_BLAZE:
                 element = ELEMENT_FIRE;
                 damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
-                damage = damageTaken;
                 break;
             case SPIKE_ICE:
                 element = ELEMENT_ICE;
                 damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
-                damage = damageTaken;
                 break;
             case SPIKE_GALE:
                 element = ELEMENT_WIND;
                 damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
-                damage = damageTaken;
                 break;
             case SPIKE_CLOD:
                 element = ELEMENT_EARTH;
                 damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
-                damage = damageTaken;
                 break;
             case SPIKE_SHOCK:
                 element = ELEMENT_THUNDER;
                 damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
-                damage = damageTaken;
                 break;
             case SPIKE_DELUGE:
                 element = ELEMENT_WATER;
                 damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
-                damage = damageTaken;
                 break;
             case SPIKE_REPRISAL:
                 element = ELEMENT_LIGHT;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element);
-                damage = damageTaken;
+                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element);
                 break;
             case SPIKE_GLINT:
             case SPIKE_DREAD:
             case SPIKE_CURSE:
                 element = ELEMENT_DARK;
                 // drain same as damage taken
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element);
-                damage = damageTaken;
+                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element);
                 break;
             default:
                 break;
