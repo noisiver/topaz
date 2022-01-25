@@ -333,7 +333,7 @@ namespace battleutils
             return 1;
 
         float res = (float)(PTarget->getMod((Mod)(967 + element)));
-
+        printf("SDT res %f \n", res);
         // todo -- magic burst
         if (res <= 5.0f)
             return 8;
@@ -380,10 +380,9 @@ namespace battleutils
         };
         //p = std::clamp(p, 5.0f, 95.0f);
         printf("p after clamping to 5,95 = %f \n", p);
+        printf("SDT element %f \n", element);
         p = p / getElementalSDTDivisor(PAttacker, element);
         printf("p after sdt = %f \n", p);
-        p = p / 100;
-        printf("p after dividing by 100 = %f \n", p);
         float half = (1 - p);
         float quart = static_cast<float>(pow(half, 2));
         float eighth = static_cast<float>(pow(half, 3));
