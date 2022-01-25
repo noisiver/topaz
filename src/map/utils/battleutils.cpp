@@ -354,10 +354,10 @@ namespace battleutils
         float mevaskill = static_cast<float> (5 + (targetLvl - 1) * 2.8);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = mevaskill + PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element - 1]));
-        //printf("Macc before = %f, p before = %f", magicacc, p);
+        printf("Macc before = %f, p before = %f", magicacc, p);
         magicacc = (float)((casterLvl - targetLvl) * 4);
         DMacc = (float)(magicacc - meva);
-        // printf("Macc after = %f, DMacc after = %f", magicacc, DMacc);
+         printf("Macc after = %f, DMacc after = %f", magicacc, DMacc);
         if (DMacc < 0)
         {
             p = 50 + DMacc / 2;
@@ -366,18 +366,18 @@ namespace battleutils
         {
             p = 50 + DMacc; 
         }
-        // printf("p after = %f", p);
+        printf("p after = %f", p);
         p = std::clamp(p, 5.0f, 95.0f);
 
         p = p / getElementalSDTDivisor(PAttacker, element);
-        // printf("p after sdt = %f", p);
+        printf("p after sdt = %f", p);
         p = p / 100;
-        // printf("p after dividing by 100 = %f", p);
+        printf("p after dividing by 100 = %f", p);
         float half = (1 - p);
         float quart = static_cast<float>(pow(half, 2));
         float eighth = static_cast<float>(pow(half, 3));
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
-        // printf("resvar = %f", resvar);
+        printf("resvar = %f", resvar);
         if (PDefender->getMod(resistarray[element - 1]) < 0 && resvar < 0.5)
         {
             return 0.5f;
