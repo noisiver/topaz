@@ -4273,6 +4273,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2331); --
 INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2332); --
 INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2333); --
 
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,332); -- Entangle
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,927); -- drill_branch_cemetary
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,928); -- pinecone_bomb_cemetary
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,929); -- leafstorm_cemetary
+
 
 
 

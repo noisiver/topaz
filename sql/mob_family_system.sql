@@ -244,7 +244,7 @@ INSERT INTO `mob_family_system` VALUES (179,'Manticore',6,'Beast',1,50,105,130,2
 INSERT INTO `mob_family_system` VALUES (180,'Marid',6,'Beast',2,60,125,90,1,5,1,5,5,4,4,3,1,1,1,1,1,1,1,1,0.7,1.15,1,0.7,1,1,1,4,257,0);
 INSERT INTO `mob_family_system` VALUES (181,'MemoryReceptacle',12,'Empty',2,0,100,0,3,3,1,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,256,0);
 INSERT INTO `mob_family_system` VALUES (182,'Merrow',7,'Beastmen',0,60,125,120,3,3,2,2,4,4,1,1,1,1,1,1,1,1,1,0.85,0.85,1,1.15,0.7,0.6,1.3,0.7,6,1,0);
-INSERT INTO `mob_family_system` VALUES (183,'Mimic',3,'Arcana',0,0,90,90,2,2,2,2,2,2,2,1,3,1,3,0.5,0.5,0.5,0.5,1,1,1,1,1,1,0.875,1.125,7,34,0);
+INSERT INTO `mob_family_system` VALUES (183,'Mimic',3,'Arcana',0,60,100,100,1,1,1,1,1,1,1,1,3,1,3,0.5,0.5,0.5,0.5,1,1,1,1,1,1,1,1,7,34,0);
 INSERT INTO `mob_family_system` VALUES (184,'Moblin',7,'Beastmen',0,40,92,140,3,3,5,3,4,4,4,1,3,1,3,1,1,1,1,1.15,1.15,1.15,1,1.15,1.15,1.5,0.7,5,1,0);
 INSERT INTO `mob_family_system` VALUES (185,'Moogle',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (186,'Morbol',17,'Plantoid',1,40,140,100,4,2,4,4,4,5,4,1,3,1,3,1,1,1,1,1.5,1.3,1.3,1.3,1.3,0.5,1.3,0.5,4,2,0);

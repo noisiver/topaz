@@ -5,6 +5,11 @@
 require("scripts/globals/limbus")
 local ID = require("scripts/zones/Apollyon/IDs")
 
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.UDMGMAGIC, -15)
+    mob:addMod(tpz.mod.MDEF, 15)
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
     if mob:getID() == ID.mob.APOLLYON_NE_MOB[1]+1 then
         if isKiller or noKiller then

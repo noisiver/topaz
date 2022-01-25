@@ -18,17 +18,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.POISON
-    local duration = 60
-    local power = mob:getMainLvl() / 3
+    local typeEffectTwo = tpz.effect.STUN
 
-    if (math.random() <= 0.5) then
-        -- stun
-        typeEffect = tpz.effect.STUN
-        duration = 10
-        power = 1
-    end
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, duration))
+    MobStatusEffectMove(mob, target, typeEffectTwo, 1, 0, 10)
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 20, 0, 60))
 
     mob:resetEnmity(target)
     return typeEffect

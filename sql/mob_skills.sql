@@ -526,7 +526,7 @@ INSERT INTO `mob_skills` VALUES (584,328,'uppercut',0,7.0,2000,1500,4,0,0,2,0,0,
 -- INSERT INTO `mob_skills` VALUES (585,329,'hekaton_punch',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (586,330,'blank_gaze',4,7.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (587,331,'antiphase',1,15.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (588,398,'death_trap',1,30.0,2000,2000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (588,398,'death_trap',1,30.0,2000,3500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (589,333,'mortal_ray',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (590,334,'goblin_rush',0,6.0,2000,1500,4,0,0,1,0,0,0);
 INSERT INTO `mob_skills` VALUES (591,335,'bomb_toss',2,13.5,2000,2000,4,0,0,0,0,0,0);
@@ -865,10 +865,10 @@ INSERT INTO `mob_skills` VALUES (923,144,'giga_scream',0,7.0,2000,1000,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (924,145,'dread_dive',0,7.0,2000,1500,4,0,0,2,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (925,669,'feather_barrier',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (926,147,'stormwind',1,15.0,6000,1500,4,0,0,0,0,0,0); -- animation times may very.
--- INSERT INTO `mob_skills` VALUES (927,671,'drill_branch',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (928,672,'pinecone_bomb',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (929,75,'leafstorm',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (930,674,'entangle',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (927,72,'drill_branch_cemetary',4,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (928,73,'pinecone_bomb_cemetary',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (929,75,'leafstorm_cemetary',1,10.0,2000,1500,4,0,0,0,0,0,0);
+--INSERT INTO `mob_skills` VALUES (930,76,'entangle',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (931,633,'cross_reaver',4,7,2000,500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (932,634,'havoc_spiral',1,10,2000,500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (933,635,'dominion_slash',2,10,2000,500,4,0,0,0,0,0,0);
