@@ -348,15 +348,19 @@ namespace battleutils
         float resist = 1.0;
         float p = 0;
         float DMacc = 0;
+        float levelcorrectionpenalty = 0;
         float casterLvl = PAttacker->GetMLevel();
         float targetLvl = PDefender->GetMLevel();
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC));
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element - 1]));
-        printf("Macc before = %f \np before = %f \n", magicacc, p);
-        magicacc = (float)magicacc + ((casterLvl - targetLvl) * 4);
+        printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
+        levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
+        printf("\Level Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
+        magicacc = magicacc + levelcorrectionpenalty;
+        printf("\magicacc after correction penalty = %f \n", magicacc);
         DMacc = (float)(magicacc - meva);
-         printf("Macc after = %f \nDMacc after = %f \n", magicacc, DMacc);
+        printf("\nDMacc after = %f \n", DMacc);
         if (DMacc < 0)
         {
             p = 50 + DMacc / 2;
@@ -366,7 +370,15 @@ namespace battleutils
             p = 50 + DMacc; 
         }
         printf("p DMacc after %f \n", p);
-        p = std::clamp(p, 5.0f, 95.0f);
+        if (p < 5)
+        {
+            p = 5.0f;
+        }
+        else if (p > 95)
+        {
+            p = 95.0f;
+        };
+        //p = std::clamp(p, 5.0f, 95.0f);
         printf("p after clamping to 5,95 = %f \n", p);
         p = p / getElementalSDTDivisor(PAttacker, element);
         printf("p after sdt = %f \n", p);
