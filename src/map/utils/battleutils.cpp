@@ -353,10 +353,10 @@ namespace battleutils
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC));
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element - 1]));
-        printf("Macc before = %f \n p before = %f \n", magicacc, p);
+        printf("Macc before = %f \np before = %f \n", magicacc, p);
         magicacc = (float)((casterLvl - targetLvl) * 4);
         DMacc = (float)(magicacc - meva);
-         printf("Macc after = %f \n DMacc after = %f \n", magicacc, DMacc);
+         printf("Macc after = %f \nDMacc after = %f \n", magicacc, DMacc);
         if (DMacc < 0)
         {
             p = 50 + DMacc / 2;
