@@ -360,9 +360,9 @@ namespace battleutils
         float meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element - 1]));
         printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
-        printf("\Level Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
+        printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
         magicacc = magicacc + levelcorrectionpenalty;
-        printf("\magicacc after correction penalty = %f \n", magicacc);
+        printf("\nmagicacc after correction penalty = %f \n", magicacc);
         DMacc = (float)(magicacc - meva);
         printf("\nDMacc after = %f \n", DMacc);
         if (DMacc < 0)
@@ -384,7 +384,7 @@ namespace battleutils
         };
         //p = std::clamp(p, 5.0f, 95.0f);
         printf("p after clamping to 5,95 = %f \n", p);
-        printf("SDT element %f \n", element);
+        printf("SDT element %i \n", element);
         p = p / getElementalSDTDivisor(PAttacker, element);
         printf("p after sdt = %f \n", p);
         float half = (1 - p);
@@ -612,7 +612,7 @@ namespace battleutils
             dBonus -= 0.25f;
 
         damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element));
-        printf("\Element before enspell damage = %f \n", element);
+        printf("\nElement before enspell damage = %i \n", element);
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element));
@@ -1240,7 +1240,7 @@ namespace battleutils
                 Action->addEffectMessage = 163;
                 Action->addEffectParam =
                     CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1) * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
-                    printf("\Element inside T1 enspell call = %f \n", element);
+                    printf("\nElement inside T1 enspell call = %i \n", element);
                 if (Action->addEffectParam < 0)
                 {
                     Action->addEffectParam = -Action->addEffectParam;
