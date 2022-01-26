@@ -8,20 +8,22 @@ require("scripts/globals/mobs")
 local ID = require("scripts/zones/Everbloom_Hollow/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(150)
+    mob:setDamage(150)
     mob:setMod(tpz.mod.DEF, 10000)
     mob:setMod(tpz.mod.EVA, 340)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.UDMGMAGIC, -99)
+    mob:setMod(tpz.mod.UDMGBREATH, -99)
     mob:setMod(tpz.mod.WATER_ABSORB, 100)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
     mob:setMod(tpz.mod.REFRESH, 400)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 2064)
 end
 
 function onMobRoam(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, -99)
+    mob:setMod(tpz.mod.UDMGBREATH, -99)
 end
 
 function onMobFight(mob, target)
@@ -33,8 +35,10 @@ function onMobFight(mob, target)
               if actionTarget.messageID == 196 then --skillchain messageID
                 mob:timer(10000, function(mob) -- lower resistance to magic for 10 seconds(Magic burst window)
                     mob:setMod(tpz.mod.UDMGMAGIC, 0)
+                    mob:setMod(tpz.mod.UDMGBREATH, 0)
                 end)
                 mob:setMod(tpz.mod.UDMGMAGIC, -99)
+                mob:setMod(tpz.mod.UDMGBREATH, -99)
               end
             end
           end
@@ -58,6 +62,7 @@ end
 
 function onMobDisengage(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, -99)
+    mob:setMod(tpz.mod.UDMGBREATH, -99)
 end
 
 function onMobDeath(mob, player, isKiller)
