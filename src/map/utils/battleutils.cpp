@@ -332,7 +332,7 @@ namespace battleutils
         if (!element)
             return 1;
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
-        float res = (float)(PTarget->getMod(resistarray[element]));
+        float res = (float)(PTarget->getMod(resistarray[element +1]));
         printf("SDT res %f \n", res);
         // todo -- magic burst
         if (res == 0)
@@ -355,7 +355,7 @@ namespace battleutils
         float targetLvl = PDefender->GetMLevel();
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC));
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-        float meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
+        float meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element +1]));
         printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
         printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
@@ -390,12 +390,12 @@ namespace battleutils
         float quart = static_cast<float>(pow(half, 2));
         float eighth = static_cast<float>(pow(half, 3));
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
-        printf("resvar = %f \n", resvar);
-        if (PDefender->getMod(resistarray[element - 1]) < 0 && resvar < 0.5)
+        printf("p after resist rolls = %f \n", p);
+        if (PDefender->getMod(resistarray[element + 1]) < 0 && resvar < 0.5)
         {
             return 0.5f;
         }
-        else if (PDefender->getMod(resistarray[element - 1]) < 1 && resvar < 0.25)
+        else if (PDefender->getMod(resistarray[element + 1]) < 1 && resvar < 0.25)
         {
             return 0.25f;
         };
@@ -536,7 +536,7 @@ namespace battleutils
             else if (PAttacker->getMod(Mod::ENSPELL_DMG) < cap)
             {
                 PAttacker->addModifier(Mod::ENSPELL_DMG, 1);
-                damage = PAttacker->getMod(Mod::ENSPELL_DMG);
+                damage = PAttacker->getMod(Mod::ENSPELL_DMG) + 1
             }
             damage += PAttacker->getMod(Mod::ENSPELL_DMG_BONUS);
 
@@ -581,7 +581,7 @@ namespace battleutils
         {
             CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
            // if (waist && waist->getID() == obi[element])
-            if (waist && waist->getID() == obi[element - 1])
+            if (waist && waist->getID() == obi[element + 1])
             {
                 obiBonus = true;
             }
@@ -592,29 +592,29 @@ namespace battleutils
             dBonus += tpzrand::GetRandomNumber(100) / 1000.0f;
         }
        // if (WeekDay == strongDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        if (WeekDay == strongDay[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (WeekDay == strongDay[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.1f;
         //else if (WeekDay == weakDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (WeekDay == weakDay[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (WeekDay == weakDay[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.1f;
        //if (weather == strongWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        if (weather == strongWeatherSingle[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (weather == strongWeatherSingle[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.1f;
        // else if (weather == strongWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == strongWeatherDouble[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == strongWeatherDouble[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.25f;
        // else if (weather == weakWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == weakWeatherSingle[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherSingle[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.1f;
         //else if (weather == weakWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == weakWeatherDouble[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherDouble[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.25f;
 
-        damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element));
+        damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element +1));
         printf("\nElement before enspell damage = %i \n", element);
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
-        damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element));
+        damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
 
         if (damage > 0)
         {
