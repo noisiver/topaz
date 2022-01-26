@@ -331,8 +331,12 @@ namespace battleutils
     {
         if (!element)
             return 1;
+        if (PTarget->objtype == TYPE_PC)
+        {
+            PTarget = PTarget->GetBattleTarget();
+        }
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
-        float res = (float)(PTarget->getMod(resistarray[element]));
+        float res = (float)(PTarget->getMod(resistarray[element -1]));
         printf("SDT res %f \n", res);
         // todo -- magic burst
         if (res == 0)
@@ -378,7 +382,7 @@ namespace battleutils
         else if (p > 95)
         {
             p = 95.0f;
-        };
+        }
         //p = std::clamp(p, 5.0f, 95.0f);
         printf("p after clamping to 5,95 = %f \n", p);
         printf("SDT element %i \n", element);
@@ -397,7 +401,7 @@ namespace battleutils
         else if (PDefender->getMod(resistarray[element]) < 1 && resvar < 0.25)
         {
             return 0.25f;
-        };
+        }
 
         // Determine resist based on which thresholds have been crossed.
         if (resvar <= eighth)
@@ -610,10 +614,10 @@ namespace battleutils
             dBonus -= 0.25f;
 
         damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element +1, +30));
-        printf("\nElement before enspell damage = %i \n", element);
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
+        printf("\nElement before enspell damage = %i \n", element);
 
         if (damage > 0)
         {
