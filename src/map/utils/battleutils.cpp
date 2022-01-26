@@ -332,7 +332,7 @@ namespace battleutils
         if (!element)
             return 1;
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
-        float res = (float)(PTarget->getMod(resistarray[element - 1]));
+        float res = (float)(PTarget->getMod(resistarray[element]));
         printf("SDT res %f \n", res);
         // todo -- magic burst
         if (res == 0)
@@ -355,7 +355,7 @@ namespace battleutils
         float targetLvl = PDefender->GetMLevel();
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC));
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-        float meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element - 1]));
+        float meva = PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
         printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
         printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
@@ -365,18 +365,18 @@ namespace battleutils
         printf("\nDMacc after = %f \n", DMacc);
         if (DMacc < 0)
         {
-            p = 50 + DMacc / 2;
+            p = floor(50 + DMacc / 2);
         }
         else
         {
-            p = 50 + DMacc; 
+            p = floor(50 + DMacc); 
         }
         printf("p DMacc after %f \n", p);
         if (p < 5)
         {
-            p = floor(5.0f);
+            p = 5.0f;
         }
-        else if (p > floor(95))
+        else if (p > 95)
         {
             p = 95.0f;
         };
@@ -536,7 +536,7 @@ namespace battleutils
             else if (PAttacker->getMod(Mod::ENSPELL_DMG) < cap)
             {
                 PAttacker->addModifier(Mod::ENSPELL_DMG, 1);
-                damage = PAttacker->getMod(Mod::ENSPELL_DMG) - 1;
+                damage = PAttacker->getMod(Mod::ENSPELL_DMG);
             }
             damage += PAttacker->getMod(Mod::ENSPELL_DMG_BONUS);
 
