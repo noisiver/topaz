@@ -805,16 +805,16 @@ namespace battleutils
             switch (static_cast<SPIKES>(Action->spikesEffect))
             {
                 case SPIKE_BLAZE:
-                    element = 1;
+                    element = ELEMENT_FIRE;
                     break;
                 case SPIKE_ICE:
-                    element = 2;
+                    element = ELEMENT_ICE;
                     break;
                 case SPIKE_SHOCK:
-                    element = 5;
+                    element = ELEMENT_THUNDER;
                     break;
                 case SPIKE_DREAD:
-                    element = 8;
+                    element = ELEMENT_DARK;
                     break;
                 default:
                     break;
