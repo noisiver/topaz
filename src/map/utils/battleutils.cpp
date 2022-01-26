@@ -1237,7 +1237,8 @@ namespace battleutils
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 1];
                 Action->addEffectMessage = 163;
-                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1);
+                Action->addEffectParam =
+                    CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1);
                     printf("\nElement inside T1 enspell call = %i \n", element);
                 if (Action->addEffectParam < 0)
                 {
@@ -1251,7 +1252,8 @@ namespace battleutils
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 9];
                 Action->addEffectMessage = 163;
-                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 2, enspell - 9);
+                Action->addEffectParam =
+                    CalculateEnspellDamage(PAttacker, PDefender, 2, enspell - 9);
 
                 if (Action->addEffectParam < 0)
                 {
@@ -1265,7 +1267,8 @@ namespace battleutils
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 7];
                 Action->addEffectMessage = 163;
-                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 3, enspell - 1);
+                Action->addEffectParam =
+                    CalculateEnspellDamage(PAttacker, PDefender, 3, enspell - 1);
 
                 if (Action->addEffectParam < 0)
                 {
@@ -1294,7 +1297,7 @@ namespace battleutils
                 Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
                 Action->addEffectMessage = 163;
                 Action->addEffectParam =
-                    CalculateEnspellDamage(PAttacker, PDefender, 2, 7) * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
+                    CalculateEnspellDamage(PAttacker, PDefender, 2, 7);
 
                 if (Action->addEffectParam < 0)
                 {
