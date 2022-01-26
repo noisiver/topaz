@@ -3,6 +3,11 @@
 --  Mob: Apollyon Cleaner
 -----------------------------------
 local ID = require("scripts/zones/Apollyon/IDs")
+-----------------------------------
+
+function onMobSpawn(mob)
+    mob:setAggressive(1)
+end
 
 function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then

@@ -19,6 +19,7 @@ local path =
 
 function onMobSpawn(mob)
     local start = (mob:getID() - ID.mob.APOLLYON_NE_MOB[5]) - 1
+    mob:setAggressive(1)
     mob:setLocalVar("point", start)
 end
 

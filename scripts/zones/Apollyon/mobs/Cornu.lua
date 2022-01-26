@@ -4,6 +4,9 @@
 -----------------------------------
 require("scripts/globals/limbus");
 -----------------------------------
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.EVA, 50)
+end
 
 function onMobDeath(mob, player, isKiller)
 end;
