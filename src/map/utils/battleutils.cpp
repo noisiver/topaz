@@ -394,6 +394,8 @@ namespace battleutils
         float half = (1 - p);
         float quart = static_cast<float>(pow(half, 2));
         float eighth = static_cast<float>(pow(half, 3));
+        p = floor(p * 100) / 100;
+        printf("p trying to remove decimals = %f \n", p);
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
         printf("p after resist rolls = %f \n", p);
         if (PDefender->getMod(resistarray[element]) < 0 && resvar < 0.5)
