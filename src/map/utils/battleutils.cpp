@@ -337,16 +337,18 @@ namespace battleutils
         }
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
         float res = (float)(PTarget->getMod(resistarray[element -1]));
-        printf("SDT res %f \n", res);
-        // todo -- magic burst
         if (res == 0)
             return 1;
         if (res <= 5.0f)
-            return 8;
-        if (res <= 50.0f)
-            return 2;
+            return 0.5f;
+        if (res >= 150.0f)
+            return 1.5f;
+        printf("SDT res %f \n", res);
+        res = res / 100;
+        printf("SDT res after dividing %f \n", res);
+        // todo -- magic burst
 
-        return 1;
+        return res;
     }
 
     float getMagicResist(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skill, uint8 element, uint8 bonus)
@@ -386,7 +388,7 @@ namespace battleutils
         //p = std::clamp(p, 5.0f, 95.0f);
         printf("p after clamping to 5,95 = %f \n", p);
         printf("SDT element %i \n", element);
-        p = p / getElementalSDTDivisor(PAttacker, element);
+        p = p * getElementalSDTDivisor(PAttacker, element);
         p = p / 100;
         printf("p after sdt = %f \n", p);
         float half = (1 - p);
