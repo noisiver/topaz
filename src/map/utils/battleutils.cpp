@@ -536,7 +536,7 @@ namespace battleutils
             else if (PAttacker->getMod(Mod::ENSPELL_DMG) < cap)
             {
                 PAttacker->addModifier(Mod::ENSPELL_DMG, 1);
-                damage = PAttacker->getMod(Mod::ENSPELL_DMG) + 1
+                damage = PAttacker->getMod(Mod::ENSPELL_DMG) + 1;
             }
             damage += PAttacker->getMod(Mod::ENSPELL_DMG_BONUS);
 
