@@ -327,7 +327,7 @@ namespace battleutils
         return false;
     }
 
-    uint8 getElementalSDTDivisor(CBattleEntity* PTarget, uint8 element)
+    float getElementalSDTDivisor(CBattleEntity* PTarget, uint8 element)
     {
         if (!element)
             return 1;
@@ -337,13 +337,13 @@ namespace battleutils
         }
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
         float res = (float)(PTarget->getMod(resistarray[element -1]));
+        printf("SDT res %f \n", res);
         if (res == 0)
             return 1;
         if (res <= 5.0f)
             return 0.5f;
         if (res >= 150.0f)
             return 1.5f;
-        printf("SDT res %f \n", res);
         res = res / 100;
         printf("SDT res after dividing %f \n", res);
         // todo -- magic burst
