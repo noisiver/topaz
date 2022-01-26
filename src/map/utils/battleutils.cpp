@@ -1028,11 +1028,8 @@ namespace battleutils
         uint8 element = 1;
         uint8 spikes = (uint8)PAttacker->getMod(Mod::SPIKES);
 
-        switch (spikes)
+        switch (static_cast<SPIKES>(Action->spikesEffect))
         {
-            case SPIKE_BLAZE:
-                element = ELEMENT_FIRE;
-                break;
             case SPIKE_ICE:
                 element = ELEMENT_ICE;
                 break;
@@ -1047,9 +1044,6 @@ namespace battleutils
                 break;
             case SPIKE_DELUGE:
                 element = ELEMENT_WATER;
-                break;
-            case SPIKE_REPRISAL:
-                element = ELEMENT_LIGHT;
                 break;
             case SPIKE_GLINT:
             case SPIKE_DREAD:
