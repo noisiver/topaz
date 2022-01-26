@@ -376,9 +376,9 @@ namespace battleutils
         printf("p DMacc after %f \n", p);
         if (p < 5)
         {
-            p = 5.0f;
+            p = floor(5.0f);
         }
-        else if (p > 95)
+        else if (p > floor(95))
         {
             p = 95.0f;
         };
@@ -612,6 +612,7 @@ namespace battleutils
             dBonus -= 0.25f;
 
         damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element));
+        printf("\Element before enspell damage = %f \n", element);
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element));
@@ -1239,7 +1240,7 @@ namespace battleutils
                 Action->addEffectMessage = 163;
                 Action->addEffectParam =
                     CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1) * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element);
-
+                    printf("\Element inside T1 enspell call = %f \n", element);
                 if (Action->addEffectParam < 0)
                 {
                     Action->addEffectParam = -Action->addEffectParam;
