@@ -418,73 +418,6 @@ namespace battleutils
         return 1;
     }
 
-    float getMagicResistSpikes(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skill, uint8 element, uint8 bonus)
-    {
-        float p = 0;
-        float DMacc = 0;
-        float levelcorrectionpenalty = 0;
-        float casterLvl = PDefender->GetMLevel();
-        float targetLvl = PAttacker->GetMLevel();
-        float magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
-        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-        float meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
-        printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
-        levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
-        printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
-        magicacc = magicacc + levelcorrectionpenalty;
-        printf("\nmagicacc after correction penalty = %f \n", magicacc);
-        DMacc = (float)(magicacc - meva);
-        printf("\nDMacc after = %f \n", DMacc);
-        if (DMacc < 0)
-        {
-            p = floor(50 + DMacc / 2);
-        }
-        else
-        {
-            p = floor(50 + DMacc);
-        }
-        printf("p DMacc after %f \n", p);
-        if (p < 5)
-        {
-            p = 5.0f;
-        }
-        else if (p > 95)
-        {
-            p = 95.0f;
-        }
-        // p = std::clamp(p, 5.0f, 95.0f);
-        printf("p after clamping to 5,95 = %f \n", p);
-        printf("SDT element %i \n", element);
-        p = p * getElementalSDTDivisor(PDefender, element);
-        p = p / 100;
-        printf("p after sdt = %f \n", p);
-        float half = (1 - p);
-        float quart = static_cast<float>(pow(half, 2));
-        float eighth = static_cast<float>(pow(half, 3));
-        p = floor(p * 100) / 100;
-        printf("p trying to remove decimals = %f \n", p);
-        float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
-        printf("p after resist rolls = %f \n", p);
-        if (PAttacker->getMod(resistarray[element]) < 0 && resvar < 0.5)
-        {
-            return 0.5f;
-        }
-        else if (PAttacker->getMod(resistarray[element]) < 1 && resvar < 0.25)
-        {
-            return 0.25f;
-        }
-
-        // Determine resist based on which thresholds have been crossed.
-        if (resvar <= eighth)
-            return 0.125f;
-        else if (resvar <= quart)
-            return 0.25f;
-        else if (resvar <= half)
-            return 0.5f;
-
-        return 1;
-    }
-
     bool CanUseWeaponskill(CCharEntity* PChar, CWeaponSkill* PSkill)
     {
         if ((((PSkill->getSkillLevel() > 0 && PChar->GetSkill(PSkill->getType()) >= PSkill->getSkillLevel() &&
@@ -734,38 +667,38 @@ namespace battleutils
         {
             case SPIKE_BLAZE:
                 element = ELEMENT_FIRE;
-                damage = damage * getMagicResistSpikes(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_ICE:
                 element = ELEMENT_ICE;
-                damage = damage * getMagicResistSpikes(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_GALE:
                 element = ELEMENT_WIND;
-                damage = damage * getMagicResistSpikes(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_CLOD:
                 element = ELEMENT_EARTH;
-                damage = damage * getMagicResistSpikes(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_SHOCK:
                 element = ELEMENT_THUNDER;
-                damage = damage * getMagicResistSpikes(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_DELUGE:
                 element = ELEMENT_WATER;
-                damage = damage * getMagicResistSpikes(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_REPRISAL:
                 element = ELEMENT_LIGHT;
-                damage = damageTaken * getMagicResistSpikes(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element, +30);
+                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element, +30);
                 break;
             case SPIKE_GLINT:
             case SPIKE_DREAD:
             case SPIKE_CURSE:
                 element = ELEMENT_DARK;
                 // drain same as damage taken
-                damage = damageTaken * getMagicResistSpikes(PAttacker, PDefender, SKILL_DARK_MAGIC, element, +30);
+                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element, +30);
                 break;
             default:
                 break;
