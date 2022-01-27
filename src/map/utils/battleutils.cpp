@@ -1026,42 +1026,17 @@ namespace battleutils
 
     void HandleSpikesStatusEffect(CBattleEntity* PAttacker, CBattleEntity* PDefender, actionTarget_t* Action)
     {
-        float resist = 1;
-        uint8 element = 1;
-        uint8 spikes = (uint8)PAttacker->getMod(Mod::SPIKES);
-
-        switch (static_cast<SPIKES>(Action->spikesEffect))
+        int lvlDiff = 0;
+        if (PDefender)
         {
-            case SPIKE_ICE:
-                element = ELEMENT_ICE;
-                break;
-            case SPIKE_GALE:
-                element = ELEMENT_WIND;
-                break;
-            case SPIKE_CLOD:
-                element = ELEMENT_EARTH;
-                break;
-            case SPIKE_SHOCK:
-                element = ELEMENT_THUNDER;
-                break;
-            case SPIKE_DELUGE:
-                element = ELEMENT_WATER;
-                break;
-            case SPIKE_GLINT:
-            case SPIKE_DREAD:
-            case SPIKE_CURSE:
-                element = ELEMENT_DARK;
-                break;
-            default:
-                break;
+            lvlDiff = std::clamp((PDefender->GetMLevel() - PAttacker->GetMLevel()), -5, 5) * 2;
         }
-        static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
 
         switch (Action->spikesEffect)
         {
             case SUBEFFECT_CURSE_SPIKES:
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
+                if (tpzrand::GetRandomNumber(100) < 20 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 15, 0, 180));
                 }
@@ -1069,7 +1044,7 @@ namespace battleutils
             }
             case SUBEFFECT_ICE_SPIKES:
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
+                if (tpzrand::GetRandomNumber(100) < 20 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30));
                 }
@@ -1077,7 +1052,7 @@ namespace battleutils
             }
             case SUBEFFECT_SHOCK_SPIKES:
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
+                if (tpzrand::GetRandomNumber(100) < 20 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 3));
                 }
@@ -1085,7 +1060,7 @@ namespace battleutils
             }
             case SUBEFFECT_GALE_SPIKES:
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
+                if (tpzrand::GetRandomNumber(100) < 20 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30));
                 }
@@ -1093,7 +1068,7 @@ namespace battleutils
             }
             case SUBEFFECT_CLOD_SPIKES:
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
+                if (tpzrand::GetRandomNumber(100) < 20 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30));
                 }
@@ -1101,7 +1076,7 @@ namespace battleutils
             }
             case SUBEFFECT_DELUGE_SPIKES:
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
+                if (tpzrand::GetRandomNumber(100) < 20 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30));
                 }
@@ -1109,7 +1084,7 @@ namespace battleutils
             }
             case SUBEFFECT_GLINT_SPIKES:
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_KO) == false)
+                if (tpzrand::GetRandomNumber(100) < 20 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_KO) == false)
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_KO, EFFECT_KO, 1, 0, 0));
                 }
