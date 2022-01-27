@@ -394,6 +394,14 @@ namespace battleutils
         printf("p after clamping to 5,95 = %f \n", p);
         printf("SDT element %i \n", element);
         p = p * getElementalSDTDivisor(PAttacker, element);
+        if (p < 5)
+        {
+            p = 5.0f;
+        }
+        else if (p > 95)
+        {
+            p = 95.0f;
+        }
         p = p / 100;
         printf("p after sdt = %f \n", p);
         float half = (1 - p);
