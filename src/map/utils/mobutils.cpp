@@ -607,7 +607,7 @@ void SetupJob(CMobEntity* PMob)
         case JOB_WAR:
             if (mJob >= 25 || sJob >= 25)
             {
-                PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
+                PMob->addModifier(Mod::DOUBLE_ATTACK, 15);
             }
             break;
         case JOB_BLM:
