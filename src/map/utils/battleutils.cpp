@@ -996,7 +996,6 @@ namespace battleutils
             default:
                 break;
         }
-        resist = static_cast<int32>(getMagicResist(PAttacker, PDefender, SKILL_EVASION, element, +30));
         if (resist >= 0.5)
         {
             // spikes landed
