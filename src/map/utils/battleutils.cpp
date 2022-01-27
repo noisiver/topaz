@@ -1067,7 +1067,7 @@ namespace battleutils
                 break;
             }
             case SUBEFFECT_SHOCK_SPIKES:
-                element = ELEMENT_ICE;
+                element = ELEMENT_THUNDER;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 printf("Spikes status effect hit rate %f \n", resist);
             {
