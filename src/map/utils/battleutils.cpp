@@ -337,7 +337,7 @@ namespace battleutils
         }
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
         float res = (float)(PTarget->getMod(resistarray[element -1]));
-        printf("SDT res %f \n", res);
+        // printf("SDT res %f \n", res);
         if (res == 0)
             return 1;
         if (res <= 5.0f)
@@ -345,7 +345,7 @@ namespace battleutils
         if (res >= 150.0f)
             return 1.5f;
         res = res / 100;
-        printf("SDT res after dividing %f \n", res);
+        // printf("SDT res after dividing %f \n", res);
         // todo -- magic burst
 
         return res;
@@ -366,13 +366,13 @@ namespace battleutils
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
             meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
         }
-        printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
+        // printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
-        printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
+        // printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
         magicacc = magicacc + levelcorrectionpenalty;
-        printf("\nmagicacc after correction penalty = %f \n", magicacc);
+        // printf("\nmagicacc after correction penalty = %f \n", magicacc);
         DMacc = (float)(magicacc - meva);
-        printf("\nDMacc after = %f \n", DMacc);
+        // printf("\nDMacc after = %f \n", DMacc);
         if (DMacc < 0)
         {
             p = floor(50 + DMacc / 2);
@@ -381,7 +381,7 @@ namespace battleutils
         {
             p = floor(50 + DMacc); 
         }
-        printf("p DMacc after %f \n", p);
+        // printf("p DMacc after %f \n", p);
         if (p < 5)
         {
             p = 5.0f;
@@ -391,8 +391,8 @@ namespace battleutils
             p = 95.0f;
         }
         //p = std::clamp(p, 5.0f, 95.0f);
-        printf("p after clamping to 5,95 = %f \n", p);
-        printf("SDT element %i \n", element);
+        // printf("p after clamping to 5,95 = %f \n", p);
+        // printf("SDT element %i \n", element);
         p = p * getElementalSDTDivisor(PAttacker, element);
         if (p < 5)
         {
@@ -403,14 +403,14 @@ namespace battleutils
             p = 95.0f;
         }
         p = p / 100;
-        printf("p after sdt = %f \n", p);
+        // printf("p after sdt = %f \n", p);
         float half = (1 - p);
         float quart = static_cast<float>(pow(half, 2));
         float eighth = static_cast<float>(pow(half, 3));
         p = floor(p * 100) / 100;
-        printf("p trying to remove decimals = %f \n", p);
+        // printf("p trying to remove decimals = %f \n", p);
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
-        printf("p after resist rolls = %f \n", p);
+        // printf("p after resist rolls = %f \n", p);
         if (PDefender->getMod(resistarray[element]) < 0 && resvar < 0.5)
         {
             return 0.5f;
@@ -634,7 +634,7 @@ namespace battleutils
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
-        printf("\nElement before enspell damage = %i \n", element);
+        // printf("\nElement before enspell damage = %i \n", element);
 
         if (damage > 0)
         {
@@ -1047,7 +1047,7 @@ namespace battleutils
             case SUBEFFECT_CURSE_SPIKES:
                 element = ELEMENT_DARK;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                printf("Spikes status effect hit rate %f \n", resist);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
@@ -1058,7 +1058,7 @@ namespace battleutils
             case SUBEFFECT_ICE_SPIKES:
                 element = ELEMENT_ICE;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                printf("Spikes status effect hit rate %f \n", resist);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
                 {
@@ -1069,7 +1069,7 @@ namespace battleutils
             case SUBEFFECT_SHOCK_SPIKES:
                 element = ELEMENT_THUNDER;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                printf("Spikes status effect hit rate %f \n", resist);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
                 {
@@ -1080,7 +1080,7 @@ namespace battleutils
             case SUBEFFECT_GALE_SPIKES:
                 element = ELEMENT_WIND;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                printf("Spikes status effect hit rate %f \n", resist);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
                 {
@@ -1091,7 +1091,7 @@ namespace battleutils
             case SUBEFFECT_CLOD_SPIKES:
                 element = ELEMENT_EARTH;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                printf("Spikes status effect hit rate %f \n", resist);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
                 {
@@ -1102,7 +1102,7 @@ namespace battleutils
             case SUBEFFECT_DELUGE_SPIKES:
                 element = ELEMENT_WATER;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                printf("Spikes status effect hit rate %f \n", resist);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
                 {
@@ -1113,7 +1113,7 @@ namespace battleutils
             case SUBEFFECT_GLINT_SPIKES:
                 element = ELEMENT_DARK;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                printf("Spikes status effect hit rate %f \n", resist);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_KO) == false)
                 {
@@ -1246,7 +1246,7 @@ namespace battleutils
                 Action->addEffectMessage = 163;
                 Action->addEffectParam =
                     CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1);
-                    printf("\nElement inside T1 enspell call = %i \n", element);
+                // printf("\nElement inside T1 enspell call = %i \n", element);
                 if (Action->addEffectParam < 0)
                 {
                     Action->addEffectParam = -Action->addEffectParam;
