@@ -691,7 +691,7 @@ namespace battleutils
             case SPIKE_CURSE:
                 element = ELEMENT_DARK;
                 // drain same as damage taken
-                damage = damageTaken
+                damage = damageTaken;
                 break;
             default:
                 break;
