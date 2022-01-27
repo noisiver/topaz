@@ -632,7 +632,7 @@ void SetupJob(CMobEntity* PMob)
                 PMob->m_Family == 74 || PMob->m_Family == 81)
             // Promy mobs, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite
             {
-                PMob->setModifier(Mod::SLEEPRESTRAIT, 0);
+                PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
             }
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
