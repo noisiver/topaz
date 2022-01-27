@@ -359,12 +359,13 @@ namespace battleutils
         float casterLvl = PAttacker->GetMLevel();
         float targetLvl = PDefender->GetMLevel();
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
+        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
+        float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
         if (magicacc <= 30)
         {
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
+            meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
         }
-        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-        float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
         printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
         printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
