@@ -1051,7 +1051,7 @@ namespace battleutils
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 15, 0, 180));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, 30 * resist));
                 }
                 break;
             }
@@ -1062,7 +1062,7 @@ namespace battleutils
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30 * resist));
                 }
                 break;
             }
@@ -1073,7 +1073,7 @@ namespace battleutils
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 3));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 4 * resist));
                 }
                 break;
             }
@@ -1084,7 +1084,7 @@ namespace battleutils
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30 * resist));
                 }
                 break;
             }
@@ -1095,7 +1095,7 @@ namespace battleutils
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30 * resist));
                 }
                 break;
             }
@@ -1106,7 +1106,7 @@ namespace battleutils
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30 * resist));
                 }
                 break;
             }
