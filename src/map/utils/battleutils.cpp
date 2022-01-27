@@ -5260,6 +5260,7 @@ namespace battleutils
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FRONTALPDT)->GetPower();
             float resist = 1.0f - (power / 100.0f);
             damage = (int32)(damage * resist);
+            printf("frontal pdt %f \n", power);
         }
         // Handle behind PDT
         else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_BEHINDPDT) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
@@ -5267,6 +5268,7 @@ namespace battleutils
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BEHINDPDT)->GetPower();
             float resist = 1.0f - (power / 100.0f);
             damage = (int32)(damage * resist);
+            printf("behind pdt %f \n", power);
         }
         return damage;
     }
