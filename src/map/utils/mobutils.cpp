@@ -887,6 +887,7 @@ void SetupLimbusMob(CMobEntity* PMob)
         PMob->addModifier(Mod::EVA, 50);
         PMob->addModifier(Mod::MDEF, 40);
         PMob->addModifier(Mod::UDMGMAGIC, -13);
+        PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
     else
@@ -900,6 +901,7 @@ void SetupLimbusMob(CMobEntity* PMob)
         PMob->addModifier(Mod::ACC, 30);
         PMob->addModifier(Mod::EVA, 30);
         PMob->addModifier(Mod::MDEF, 15);
+        PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
 
@@ -930,6 +932,7 @@ void SetupAssaultMob(CMobEntity* PMob)
         PMob->addModifier(Mod::EVA, 50);
         PMob->addModifier(Mod::MDEF, 40);
         PMob->addModifier(Mod::UDMGMAGIC, -13);
+        PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
     else
@@ -943,6 +946,7 @@ void SetupAssaultMob(CMobEntity* PMob)
         PMob->addModifier(Mod::ACC, 30);
         PMob->addModifier(Mod::EVA, 30);
         PMob->addModifier(Mod::MDEF, 15);
+        PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
 
@@ -973,6 +977,7 @@ void SetupSalvageMob(CMobEntity* PMob)
         PMob->addModifier(Mod::EVA, 50);
         PMob->addModifier(Mod::MDEF, 40);
         PMob->addModifier(Mod::UDMGMAGIC, -13);
+        PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
     else
@@ -986,6 +991,7 @@ void SetupSalvageMob(CMobEntity* PMob)
         PMob->addModifier(Mod::ACC, 30);
         PMob->addModifier(Mod::EVA, 30);
         PMob->addModifier(Mod::MDEF, 15);
+        PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
 
@@ -1016,6 +1022,7 @@ void SetupNyzulMob(CMobEntity* PMob)
         PMob->addModifier(Mod::EVA, 50);
         PMob->addModifier(Mod::MDEF, 40);
         PMob->addModifier(Mod::UDMGMAGIC, -13);
+        PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
     else
@@ -1029,6 +1036,7 @@ void SetupNyzulMob(CMobEntity* PMob)
         PMob->addModifier(Mod::ACC, 30);
         PMob->addModifier(Mod::EVA, 30);
         PMob->addModifier(Mod::MDEF, 15);
+        PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
 
