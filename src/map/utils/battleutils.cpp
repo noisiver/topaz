@@ -5017,7 +5017,6 @@ namespace battleutils
         resist = std::max(resist, 0.5f); // PDT caps at -50%
         resist += PDefender->getMod(Mod::DMGPHYS_II) / 100.f; // Add Burtgang reduction after 50% cap. Extends cap to -68%
         damage = (int32)(damage * resist);
-        damage = HandlePositionalPDT(PDefender, damage);
 
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 0)
             damage = HandleSteamJacket(PDefender, damage, damageType);
@@ -5255,7 +5254,6 @@ namespace battleutils
     int32 HandlePositionalPDT(CBattleEntity* PDefender, int32 damage)
     {
         auto target = PDefender->GetBattleTarget();
-        printf("hello world\n");
         // Handle frontal PDT
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT) && infront(target->loc.p, PDefender->loc.p, 64))
         {
