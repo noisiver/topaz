@@ -62,6 +62,7 @@ end
 
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, -100)
+    mob:setMod(tpz.mod.UDMGBREATH, -100)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
@@ -75,6 +76,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
             GetMobByID(ID.mob.APOLLYON_SE_MOB[4]):spawn()
         elseif killCount == 8 then
             GetMobByID(ID.mob.APOLLYON_SE_MOB[4]):setMod(tpz.mod.UDMGMAGIC, 0)
+            GetMobByID(ID.mob.APOLLYON_SE_MOB[4]):setMod(tpz.mod.UDMGBREATH, 0)
         end
     end
 end

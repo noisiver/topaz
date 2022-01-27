@@ -5,8 +5,9 @@
 local ID = require("scripts/zones/Apollyon/IDs")
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.UDMGMAGIC, -100)
     mob:setMod(tpz.mod.UDMGPHYS, -80)
+    mob:setMod(tpz.mod.UDMGMAGIC, -100)
+    mob:setMod(tpz.mod.UDMGBREATH, -100)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

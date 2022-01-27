@@ -15512,14 +15512,14 @@ INSERT INTO `mob_droplist` VALUES (2854,0,0,1000,15682,50);
 INSERT INTO `mob_droplist` VALUES (2854,0,0,1000,15683,50);
 INSERT INTO `mob_droplist` VALUES (2855,0,0,1000,12298,1000);
 -- LimbusAncient Beastcoin
-INSERT INTO `mob_droplist` VALUES (2856,0,0,1000,1875,240); -- (Bardha) 
-INSERT INTO `mob_droplist` VALUES (2857,0,0,1000,1875,240); -- (Mountain_Buffalo) 
-INSERT INTO `mob_droplist` VALUES (2858,0,0,1000,1875,240); --  (Apollyon Scavenger)
-INSERT INTO `mob_droplist` VALUES (2859,0,0,1000,1875,240); --  (Fire Elemental)
-INSERT INTO `mob_droplist` VALUES (2860,0,0,1000,1875,240); --  (Kaiser Behemoth)
-INSERT INTO `mob_droplist` VALUES (2861,0,0,1000,1875,1000); -- (Kerkopes)
-INSERT INTO `mob_droplist` VALUES (2862,0,0,1000,1875,1000); -- (Gorynich) 
-INSERT INTO `mob_droplist` VALUES (2862,0,0,1000,1875,1000); -- (Gorynich)
+INSERT INTO `mob_droplist` VALUES (2856,0,0,1000,1875,240); -- (1 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (2857,0,0,1000,1875,240); --  (1 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (2858,0,0,1000,1875,240); --  (1 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (2859,0,0,1000,1875,240); --  (1 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (2860,0,0,1000,1875,240); --  (1 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (2861,0,0,1000,1875,1000); -- (1 100% Ancient Beastcoin)
+INSERT INTO `mob_droplist` VALUES (2862,0,0,1000,1875,1000); -- (2 100% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (2862,0,0,1000,1875,1000); -- (2 100% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000); -- (Kronprinz Behemoth)
 INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000); -- (Kronprinz Behemoth)
 INSERT INTO `mob_droplist` VALUES (2863,0,0,1000,1875,1000); -- (Kronprinz Behemoth)
