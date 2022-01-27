@@ -756,6 +756,18 @@ void SetupJob(CMobEntity* PMob)
         default:
             break;
     }
+    // This switch is subjob only
+    switch (sJob)
+    {
+        case JOB_WAR:
+            if (sLvl >= 25)
+            {
+                PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
+            }
+            break;
+        default:
+            break;
+    }
 }
 
 void SetupRoaming(CMobEntity* PMob)
