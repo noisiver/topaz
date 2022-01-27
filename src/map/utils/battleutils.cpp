@@ -1041,45 +1041,13 @@ namespace battleutils
     {
         float resist = 1;
         uint8 element = 1;
-        uint8 spikes = (uint8)PAttacker->getMod(Mod::SPIKES);
-
-        switch (spikes)
-        {
-            case SPIKE_BLAZE:
-                element = ELEMENT_FIRE;
-                break;
-            case SPIKE_ICE:
-                element = ELEMENT_ICE;
-                break;
-            case SPIKE_GALE:
-                element = ELEMENT_WIND;
-                break;
-            case SPIKE_CLOD:
-                element = ELEMENT_EARTH;
-                break;
-            case SPIKE_SHOCK:
-                element = ELEMENT_THUNDER;
-                break;
-            case SPIKE_DELUGE:
-                element = ELEMENT_WATER;
-                break;
-            case SPIKE_REPRISAL:
-                element = ELEMENT_LIGHT;
-                break;
-            case SPIKE_GLINT:
-            case SPIKE_DREAD:
-            case SPIKE_CURSE:
-                element = ELEMENT_DARK;
-                break;
-            default:
-                break;
-        }
-        static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-        printf("Spikes status effect hit rate %f \n", resist);
 
         switch (Action->spikesEffect)
         {
             case SUBEFFECT_CURSE_SPIKES:
+                element = ELEMENT_DARK;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
@@ -1088,6 +1056,9 @@ namespace battleutils
                 break;
             }
             case SUBEFFECT_ICE_SPIKES:
+                element = ELEMENT_ICE;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
                 {
@@ -1096,6 +1067,9 @@ namespace battleutils
                 break;
             }
             case SUBEFFECT_SHOCK_SPIKES:
+                element = ELEMENT_ICE;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
                 {
@@ -1104,6 +1078,9 @@ namespace battleutils
                 break;
             }
             case SUBEFFECT_GALE_SPIKES:
+                element = ELEMENT_WIND;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
                 {
@@ -1112,6 +1089,9 @@ namespace battleutils
                 break;
             }
             case SUBEFFECT_CLOD_SPIKES:
+                element = ELEMENT_EARTH;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
                 {
@@ -1120,6 +1100,9 @@ namespace battleutils
                 break;
             }
             case SUBEFFECT_DELUGE_SPIKES:
+                element = ELEMENT_WATER;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
                 {
@@ -1128,6 +1111,9 @@ namespace battleutils
                 break;
             }
             case SUBEFFECT_GLINT_SPIKES:
+                element = ELEMENT_DARK;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                printf("Spikes status effect hit rate %f \n", resist);
             {
                 if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_KO) == false)
                 {
