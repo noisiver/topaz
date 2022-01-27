@@ -667,31 +667,31 @@ namespace battleutils
         {
             case SPIKE_BLAZE:
                 element = ELEMENT_FIRE;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PDefender, PAttacker, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_ICE:
                 element = ELEMENT_ICE;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PDefender, PAttacker, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_GALE:
                 element = ELEMENT_WIND;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PDefender, PAttacker, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_CLOD:
                 element = ELEMENT_EARTH;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PDefender, PAttacker, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_SHOCK:
                 element = ELEMENT_THUNDER;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PDefender, PAttacker, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_DELUGE:
                 element = ELEMENT_WATER;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PDefender, PAttacker, SKILL_ENHANCING_MAGIC, element, +30);
                 break;
             case SPIKE_REPRISAL:
                 element = ELEMENT_LIGHT;
-                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element, +30);
+                damage = damageTaken * getMagicResist(PDefender, PAttacker, SKILL_DIVINE_MAGIC, element, +30);
                 break;
             case SPIKE_GLINT:
             case SPIKE_DREAD:
