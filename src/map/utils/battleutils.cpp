@@ -5036,7 +5036,7 @@ namespace battleutils
             ConvertDmgToMP(PDefender, damage, IsCovered);
 
             damage = HandleFanDance(PDefender, damage);
-            damage = HandlePositionalPDT(PDefender, damage);
+            //damage = HandlePositionalPDT(PDefender, damage); doesn't work...
         }
 
         return damage;
