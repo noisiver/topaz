@@ -604,6 +604,12 @@ void SetupJob(CMobEntity* PMob)
     // This switch falls back to a subjob if a mainjob isn't matched, and is mainly magic stuff
     switch(job)
     {
+        case JOB_WAR:
+            if (mJob >= 25)
+            {
+                PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
+            }
+            break;
         case JOB_BLM:
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 40);
@@ -611,10 +617,23 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 20);
             break;
         case JOB_PLD:
+            if ((PMob->m_Family >= 75 && PMob->m_Family <= 77) || (PMob->m_Family >= 137 && PMob->m_Family <= 138) || PMob->m_Family == 57 ||
+                PMob->m_Family == 241 || PMob->m_Family == 194 || PMob->m_Family == 272 || PMob->m_Family == 220 || PMob->m_Family == 78)
+                // Crabs, Beetles, promy mobs, Phuabo, Zdei, Buffalos
+            {
+                PMob->setModifier(Mod::SLEEPRESTRAIT, 0);  
+            }
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_DRK:
+            if ((PMob->m_Family >= 255 && PMob->m_Family <= 256) || (PMob->m_Family >= 203 && PMob->m_Family <= 205) ||
+                (PMob->m_Family >= 88 && PMob->m_Family <= 89) || PMob->m_Family == 227 || PMob->m_Family == 72 || PMob->m_Family == 217 ||
+                PMob->m_Family == 74 || PMob->m_Family == 81)
+            // Promy mobs, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite
+            {
+                PMob->setModifier(Mod::SLEEPRESTRAIT, 0);
+            }
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
