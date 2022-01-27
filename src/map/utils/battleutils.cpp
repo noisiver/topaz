@@ -5257,7 +5257,7 @@ namespace battleutils
         auto target = PDefender->GetBattleTarget();
         printf("hello world\n");
         // Handle frontal PDT
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT) && infront(target->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FRONTALPDT)->GetPower();
             float resist = 1.0f - (power / 100.0f);
