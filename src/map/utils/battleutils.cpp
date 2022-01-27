@@ -5254,8 +5254,9 @@ namespace battleutils
     int32 HandlePositionalPDT(CBattleEntity* PDefender, int32 damage)
     {
         auto PAttacker = PDefender->GetBattleTarget();
+        printf("pattacker %f \n", PAttacker);
         // Handle frontal PDT
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FRONTALPDT)->GetPower();
             float resist = 1.0f - (power / 100.0f);
