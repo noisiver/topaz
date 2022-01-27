@@ -11,12 +11,6 @@ function onMobSpawn(mob)
 	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
  end
 
- function onMobFight(mob, target)
- if mob:hasStatusEffect(tpz.effect.FRONTAL_PDT) then
-    printf("I have frontal PDT")
- end
- end
-
 function onMobDeath(mob, player, isKiller)
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
