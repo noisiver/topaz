@@ -591,6 +591,8 @@ void SetupJob(CMobEntity* PMob)
     JOBTYPE mJob = PMob->GetMJob();
     JOBTYPE sJob = PMob->GetSJob();
     JOBTYPE job;
+    uint8 mLvl = PMob->GetMLevel();
+    uint8 sLvl = PMob->GetSLevel();
 
     if (grade::GetJobGrade(mJob, 1) > 0) // check if mainjob gives mp
     {
@@ -605,9 +607,9 @@ void SetupJob(CMobEntity* PMob)
     switch(job)
     {
         case JOB_WAR:
-            if (mJob >= 25 || sJob >= 25)
+            if (mLvl >= 25 || sJob >= sLvl)
             {
-                PMob->addModifier(Mod::DOUBLE_ATTACK, 15);
+                PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
             }
             break;
         case JOB_BLM:
