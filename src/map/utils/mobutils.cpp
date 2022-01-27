@@ -621,8 +621,8 @@ void SetupJob(CMobEntity* PMob)
         case JOB_PLD:
             if ((PMob->m_Family >= 75 && PMob->m_Family <= 77) || (PMob->m_Family >= 137 && PMob->m_Family <= 138) || PMob->m_Family == 57 ||
                 PMob->m_Family == 241 || PMob->m_Family == 194 || PMob->m_Family == 272 || PMob->m_Family == 220 || PMob->m_Family == 78 ||
-                PMob->m_Family == 49)
-                // Crabs, Beetles, promy mobs, Phuabo, Zdei, Buffalos
+                PMob->m_Family == 49 || PMob->m_Family == 2)
+                // Crabs, Beetles, promy mobs, Phuabo, Zdei, Buffalos, Adamantoise
             {
                 PMob->setModifier(Mod::SLEEPRESTRAIT, 0);  
             }
