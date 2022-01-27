@@ -24,7 +24,12 @@ end
 function onMobFight(mob, target)
 end
 
-function onMobWeaponSkill(target, mob, skill)
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
+
+function onAdditionalEffect(mob, target, damage)
+	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.POISON, {chance = 100, power = 150})
 end
 
 function onMobDisengage(mob)
