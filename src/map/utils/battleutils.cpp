@@ -5253,22 +5253,23 @@ namespace battleutils
 
     int32 HandlePositionalPDT(CBattleEntity* PDefender, int32 damage)
     {
-        auto target = PDefender->GetBattleTarget();
+        auto PAttacker = PDefender->GetBattleTarget();
+        printf("pattacker %f \n", PAttacker);
         // Handle frontal PDT
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT) && infront(target->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FRONTALPDT)->GetPower();
             float resist = 1.0f - (power / 100.0f);
             damage = (int32)(damage * resist);
-            printf("frontal pdt %i \n", power);
+            printf("frontal pdt %f \n", power);
         }
         // Handle behind PDT
-        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_BEHINDPDT) && behind(target->loc.p, PDefender->loc.p, 64))
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_BEHINDPDT) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BEHINDPDT)->GetPower();
             float resist = 1.0f - (power / 100.0f);
             damage = (int32)(damage * resist);
-            printf("behind pdt %i \n", power);
+            printf("behind pdt %f \n", power);
         }
         return damage;
     }
