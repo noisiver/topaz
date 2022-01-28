@@ -13,15 +13,15 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.FRONTAL_PDT) then
+	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
 		return 1
 	end
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffectOne = tpz.effect.FRONTAL_PDT
-    MobBuffMove(mob, typeEffectOne, 100, 0, 60)
+    local typeEffectOne = tpz.effect.PHYSICAL_SHIELD
+    MobBuffMove(mob, typeEffectOne, 3, 0, 60)
     local effect1 = mob:getStatusEffect(typeEffectOne)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 

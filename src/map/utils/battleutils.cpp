@@ -5255,17 +5255,25 @@ namespace battleutils
     {
         auto PAttacker = PDefender->GetBattleTarget();
         // Handle frontal PDT
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
-            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FRONTALPDT)->GetPower();
-            float resist = 1.0f - (power / 100.0f);
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 3)
+            {
+                resist = 0;
+            }
             damage = (int32)(damage * resist);
         }
         // Handle behind PDT
-        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_BEHINDPDT) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
         {
-            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BEHINDPDT)->GetPower();
-            float resist = 1.0f - (power / 100.0f);
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 4)
+            {
+                resist = 0;
+            }
             damage = (int32)(damage * resist);
         }
         return damage;
