@@ -37,7 +37,7 @@ end
 
 function onMobFight(mob, target)
 	if mob:checkDistance(target)  <= 5 then
-		mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10, 0)
+		mob:pathTo(target:getXPos() + 10, target:getYPos(), target:getZPos() +10)
 	end
 	
  local Pos = mob:getPos()
