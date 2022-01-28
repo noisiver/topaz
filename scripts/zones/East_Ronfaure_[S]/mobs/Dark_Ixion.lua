@@ -58,8 +58,8 @@ end
 
 function onMobFight(mob, target)
 	local Ashed = mob:getLocalVar("Ashed")
-    local AuraTimeOn = mob:getLocalVar("AuraTime")
-    local AuraTimeOff = mob:getLocalVar("AuraTime")
+    local AuraTimeOn = mob:getLocalVar("AuraTimeOn")
+    local AuraTimeOff = mob:getLocalVar("AuraTimeOff")
     local Stance = mob:getLocalVar("Stance")
     if Ashed == 0 then -- Failed to hit with stygian ash
 		mob:SetAutoAttackEnabled(false)
@@ -67,7 +67,9 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:addStatusEffect(tpz.effect.FLEE, 100, 0, 60)
         mob:pathTo(target:getXPos() + 50, target:getYPos(), target:getZPos() +50, 0)
-        DespawnMob(mob:GetMobByID())
+        mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
+        end)
+        DespawnMob(mob:getID())
         local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
         ixion:spawn()
     end
