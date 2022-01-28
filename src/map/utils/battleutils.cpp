@@ -5036,7 +5036,7 @@ namespace battleutils
             ConvertDmgToMP(PDefender, damage, IsCovered);
 
             damage = HandleFanDance(PDefender, damage);
-            damage = HandlePositionalPDT(PDefender, damage);
+            //damage = HandlePositionalPDT(PDefender, damage); doesn't work...
         }
 
         return damage;
@@ -5253,22 +5253,18 @@ namespace battleutils
 
     int32 HandlePositionalPDT(CBattleEntity* PDefender, int32 damage)
     {
-        int16 frontalPDT = PDefender->getMod(Mod::FRONTAL_PDT);
-        int16 behindPDT = PDefender->getMod(Mod::BEHIND_PDT);
-        auto attacker = PDefender->GetBattleTarget();
-        printf("hello world\n");
+        auto PAttacker = PDefender->GetBattleTarget();
         // Handle frontal PDT
-        if (frontalPDT && infront(attacker->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_FRONTALPDT) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
-            int power = PDefender->getMod(Mod::FRONTAL_PDT) / 100.f;
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FRONTALPDT)->GetPower();
             float resist = 1.0f - (power / 100.0f);
             damage = (int32)(damage * resist);
-            printf("handling frontal pdt if statement\n");
         }
         // Handle behind PDT
-        else if (behindPDT && behind(attacker->loc.p, PDefender->loc.p, 64))
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_BEHINDPDT) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
         {
-            int power = PDefender->getMod(Mod::BEHIND_PDT) / 100.f;
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BEHINDPDT)->GetPower();
             float resist = 1.0f - (power / 100.0f);
             damage = (int32)(damage * resist);
         }
