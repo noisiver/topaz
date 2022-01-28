@@ -9,6 +9,7 @@ local ID = require("scripts/zones/East_Ronfaure_[S]/IDs")
 -----------------------------------
 local DarkIxionID =
 {
+    17109367,
     17150321,
     17113468,
     17121697,
@@ -48,7 +49,7 @@ end
 function onMobEngaged(mob)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i];
-        local DarkIxion = GetMobByID(id)
+        local DarkIxion = mob:GetMobByID(id)
         if DarkIxion:isSpawned() and mob ~= id then
             DespawnMob(id)
         end
@@ -61,15 +62,15 @@ function onMobFight(mob, target)
     local AuraTimeOff = mob:getLocalVar("AuraTime")
     local Stance = mob:getLocalVar("Stance")
     if Ashed == 0 then -- Failed to hit with stygian ash
+		mob:SetAutoAttackEnabled(false)
+        mob:SetMagicCastingEnabled(false)
+        mob:SetMobAbilityEnabled(false)
+        mob:addStatusEffect(tpz.effect.FLEE, 100, 0, 60)
+        mob:pathTo(target:getXPos() + 50, target:getYPos(), target:getZPos() +50, 0)
         mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
-		    mob:SetAutoAttackEnabled(false)
-            mob:SetMagicCastingEnabled(false)
-            mob:SetMobAbilityEnabled(false)
-            mob:addStatusEffect(tpz.effect.FLEE, 100, 0, 60)
-            mob:pathTo(target:getXPos() + 500, target:getYPos(), target:getZPos() +500, 0)
         end)
-        DespawnMob(GetMobByID())
-        local ixion = GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
+        DespawnMob(mob:GetMobByID())
+        local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
         ixion:spawn()
     end
     local BattleTime = mob:getBattleTime()
@@ -135,7 +136,7 @@ end
 function onMobDeath(mob, player, isKiller)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i];
-        local DarkIxion = GetMobByID(id)
+        local DarkIxion = mob:GetMobByID(id)
         if DarkIxion:isSpawned() and mob ~= id then
             DespawnMob(id)
         end
