@@ -2274,10 +2274,10 @@ INSERT INTO `mob_skills` VALUES (2331,2075,'ixionauto_four',0,7.0,0,0,4,0,0,4,0,
 INSERT INTO `mob_skills` VALUES (2332,2076,'ixionauto_five',0,7.0,0,0,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (2333,2077,'ixionauto_six',0,7.0,0,0,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (2334,1640,'wrath_of_zeus',1,15.0,2000,4000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2335,1639,'lightning_spear',4,15.0,2000,4000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2336,1642,'acheron_kick',4,10.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2335,1639,'lightning_spear',4,15.0,2000,4000,4,0,0,0,0,0,0); -- correct animation
+INSERT INTO `mob_skills` VALUES (2336,1642,'acheron_kick',4,10.0,2000,1000,4,0,0,0,0,0,0); -- correct animation
 INSERT INTO `mob_skills` VALUES (2337,1653,'damsel_memento',0,7.0,2000,1000,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2338,1641,'rampant_stance',1,7.0,2000,4000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2338,1641,'rampant_stance',1,7.0,2000,4000,4,0,0,0,0,0,0); -- correct animation
 -- INSERT INTO `mob_skills` VALUES (2339,2083,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2340,2084,'extreme_purgation',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2341,2085,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2307,7 +2307,7 @@ INSERT INTO `mob_skills` VALUES (2361,1269,'stave_toss',0,7.0,2000,1500,4,0,0,0,
 -- INSERT INTO `mob_skills` VALUES (2366,1221,'mine_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2367,2111,'moribund_hack',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2368,2112,'damsel_memento',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2369,1652,'scintillant_lance',4,10.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2369,1652,'scintillant_lance',4,10.0,2000,1000,4,0,0,0,0,0,0); -- correct animation
 -- INSERT INTO `mob_skills` VALUES (2370,2114,'grace_of_hera',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2371,2115,'noxious_spray',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2372,2116,'hellborn_yawp',1,10.0,2000,1500,4,0,0,0,0,0,0);
