@@ -61,7 +61,7 @@ function onMobFight(mob, target)
     local AuraTimeOff = mob:getLocalVar("AuraTime")
     local Stance = mob:getLocalVar("Stance")
     if Ashed == 0 then -- Failed to hit with stygian ash
-        mob:timer(1000, function(mob) -- after 10 seconds of running, despawn
+        mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
 		    mob:SetAutoAttackEnabled(false)
             mob:SetMagicCastingEnabled(false)
             mob:SetMobAbilityEnabled(false)
