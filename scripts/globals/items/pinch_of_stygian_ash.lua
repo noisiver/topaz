@@ -9,9 +9,7 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     if (target:getPool() == 915) then -- Dark Ixion
-        if damage > 0 then
-            target:setLocalVar("Ashed", 1)
-        end
+        target:setLocalVar("Ashed", 1)
     end
     return 0, 0, 0
 end
