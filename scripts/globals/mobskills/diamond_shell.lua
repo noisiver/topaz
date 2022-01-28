@@ -9,15 +9,15 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.BEHIND_PDT) then
+	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
 		return 1
 	end
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffectOne = tpz.effect.BEHIND_PDT
-    MobBuffMove(mob, typeEffectOne, 100, 0, 60)
+    local typeEffectOne = tpz.effect.PHYSICAL_SHIELD
+    MobBuffMove(mob, typeEffectOne, 4, 0, 120) -- Behind PDT
     local effect1 = mob:getStatusEffect(typeEffectOne)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 
@@ -25,4 +25,3 @@ function onMobWeaponSkill(target, mob, skill)
 
     return tpz.effect.PHYSICAL_SHIELD
 end
-

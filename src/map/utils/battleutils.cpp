@@ -5074,6 +5074,7 @@ namespace battleutils
             ConvertDmgToMP(PDefender, damage, IsCovered);
 
             damage = HandleFanDance(PDefender, damage);
+            damage = HandlePositionalPDT(PDefender, damage); 
         }
 
         return damage;
@@ -5255,10 +5256,8 @@ namespace battleutils
     {
         auto PAttacker = PDefender->GetBattleTarget();
         // Handle frontal PDT
-        printf("hello world\n");
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
-            printf("hello world two\n");
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
             float resist = 1.0f;
             if (power == 3)
