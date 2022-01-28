@@ -9,7 +9,6 @@ local ID = require("scripts/zones/East_Ronfaure_[S]/IDs")
 -----------------------------------
 local DarkIxionID =
 {
-    17109367,
     17150321,
     17113468,
     17121697,
@@ -37,6 +36,7 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
+    mob:setLocalVar("Ashed", 0)
     mob:setLocalVar("AuraTimeOn", 0)
     mob:setLocalVar("AuraTimeOff", 0)
     mob:setLocalVar("Stance", 0)
@@ -57,6 +57,15 @@ function onMobFight(mob, target)
     local AuraTimeOn = mob:getLocalVar("AuraTime")
     local AuraTimeOff = mob:getLocalVar("AuraTime")
     local Stance = mob:getLocalVar("Stance")
+    if Ashed == 0 then -- Failed to hit with stygian ash
+        mob:addStatusEffect(tpz.effect.FLEE, 100, 0, 60)
+        mob:pathTo(target:getXPos() + 50, target:getYPos(), target:getZPos() +50, 0)
+        mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
+        DespawnMob(GetMobByID())
+        local ixion = GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
+        ixion:spawn()
+        end)
+    end
     local BattleTime = mob:getBattleTime()
 	if AuraTimeOn == 0 then
 		mob:setLocalVar("AuraTimeOn", BattleTime + 180)
