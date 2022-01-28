@@ -37,7 +37,6 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
-    mob:setLocalVar("Ashed", 0)
     mob:setLocalVar("AuraTimeOn", 0)
     mob:setLocalVar("AuraTimeOff", 0)
     mob:setLocalVar("Stance", 0)
