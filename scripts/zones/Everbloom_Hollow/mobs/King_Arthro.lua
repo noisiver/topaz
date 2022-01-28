@@ -27,22 +27,13 @@ function onMobRoam(mob)
 end
 
 function onMobFight(mob, target)
-    mob:addListener("WEAPONSKILL_TAKE", "KA_WEAPONSKILL_TAKE", function(target, user, wsid, tp, action)
-
-        for _,actionList in pairs(action.actionLists) do
-          if actionList.ActionTargetID == target then -- maybe mob instead of target
-            for __,actionTarget in pairs(actionList.actionTargets) do
-              if actionTarget.messageID == 196 then --skillchain messageID
-                mob:timer(10000, function(mob) -- lower resistance to magic for 10 seconds(Magic burst window)
-                    mob:setMod(tpz.mod.UDMGMAGIC, 0)
-                    mob:setMod(tpz.mod.UDMGBREATH, 0)
-                end)
-                mob:setMod(tpz.mod.UDMGMAGIC, -99)
-                mob:setMod(tpz.mod.UDMGBREATH, -99)
-              end
-            end
-          end
-        end
+     mob:addListener("SKILLCHAIN_TAKE", "MANTICORE_TAKE_DAMAGE", function(mob)
+        mob:timer(10000, function(mob) -- lower resistance to magic for 10 seconds(Magic burst window)
+            mob:setMod(tpz.mod.UDMGMAGIC, 0)
+            mob:setMod(tpz.mod.UDMGBREATH, 0)
+        end)
+        mob:setMod(tpz.mod.UDMGMAGIC, -99)
+        mob:setMod(tpz.mod.UDMGBREATH, -99)
     end)
 end
 
