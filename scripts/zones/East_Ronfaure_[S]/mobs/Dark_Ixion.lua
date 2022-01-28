@@ -70,10 +70,9 @@ function onMobFight(mob, target)
 	if AuraTimeOn == 0 then
 		mob:setLocalVar("AuraTimeOn", BattleTime + 180)
 	elseif BattleTime >= AuraTimeOn and Stance == 0 then
-		mob:useMobAbility(697) -- Howl
         mob:setDamage(150)
         mob:setMod(tpz.mod.REGAIN, 250)
-        mob:AnimationSub(1)
+        mob:AnimationSub(3)
 		mob:setLocalVar("AuraTimeOff", BattleTime + 60)
 		mob:setLocalVar("Stance", 1)
 	end
