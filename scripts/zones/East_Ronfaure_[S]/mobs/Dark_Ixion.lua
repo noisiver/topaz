@@ -67,8 +67,6 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:addStatusEffect(tpz.effect.FLEE, 100, 0, 60)
         mob:pathTo(target:getXPos() + 50, target:getYPos(), target:getZPos() +50, 0)
-        mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
-        end)
         DespawnMob(mob:GetMobByID())
         local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
         ixion:spawn()
