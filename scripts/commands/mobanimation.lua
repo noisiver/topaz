@@ -1,6 +1,6 @@
 
 ---------------------------------------------------------------------------------------------------
--- func: entityanimation
+-- func: mobanimation
 -- desc: Sends an entity animation packet for the given target
 ---------------------------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!entityanimation {npcID} <animationID>")
+    player:PrintToPlayer("!mobanimation {npcID} <animationID>")
 end
 
 function onTrigger(player, arg1, arg2)
@@ -27,7 +27,7 @@ function onTrigger(player, arg1, arg2)
         animationId = arg1
     else
         -- player provided npcId and animationId.
-        targ = GetNPCByID(tonumber(arg1))
+        targ = GetMobByID(tonumber(arg1))
         animationId = arg2
     end
 
