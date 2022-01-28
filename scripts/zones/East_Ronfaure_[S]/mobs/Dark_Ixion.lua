@@ -68,10 +68,10 @@ function onMobFight(mob, target)
         mob:addStatusEffect(tpz.effect.FLEE, 100, 0, 60)
         mob:pathTo(target:getXPos() + 50, target:getYPos(), target:getZPos() +50, 0)
         mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
+            DespawnMob(mob:getID())
+            local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
+            ixion:spawn()
         end)
-        DespawnMob(mob:getID())
-        local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
-        ixion:spawn()
     end
     local BattleTime = mob:getBattleTime()
 	if AuraTimeOn == 0 then
