@@ -27,7 +27,7 @@ function onTrigger(player, arg1, arg2)
         animationId = arg1
     else
         -- player provided npcId and animationId.
-        targ = GetNPCByID(tonumber(arg1))
+        targ = GetMobByID(tonumber(arg1))
         animationId = arg2
     end
 
