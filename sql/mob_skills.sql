@@ -2267,9 +2267,9 @@ INSERT INTO `mob_skills` VALUES (2320,2064,'curing_waltz_iv',0,7.0,2000,1500,1,0
 -- INSERT INTO `mob_skills` VALUES (2326,2070,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2327,1221,'mine_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- Dark Ixion Autoattacks
-INSERT INTO `mob_skills` VALUES (2328,1634,'ixionauto_one',0,7.0,0,0,4,0,0,4,0,0,0); -- correct animation(horn)
-INSERT INTO `mob_skills` VALUES (2329,1633,'ixionauto_two',0,7.0,0,0,4,0,0,4,0,0,0); -- correct animation(horn)
-INSERT INTO `mob_skills` VALUES (2330,1632,'ixionauto_three',0,7.0,0,0,4,0,0,4,0,0,0); -- correct animation(horn)
+INSERT INTO `mob_skills` VALUES (2328,1634,'ixionauto_one',0,3.0,0,0,4,0,0,4,0,0,0); -- correct animation(horn)
+INSERT INTO `mob_skills` VALUES (2329,1633,'ixionauto_two',0,3.0,0,0,4,0,0,4,0,0,0); -- correct animation(horn)
+INSERT INTO `mob_skills` VALUES (2330,1632,'ixionauto_three',0,3.0,0,0,4,0,0,4,0,0,0); -- correct animation(horn)
 INSERT INTO `mob_skills` VALUES (2331,1631,'ixionauto_four',0,7.0,0,0,4,0,0,4,0,0,0); -- What is this for??
 INSERT INTO `mob_skills` VALUES (2332,1630,'ixionauto_five',0,7.0,0,0,4,0,0,4,0,0,0); -- What is this for??
 INSERT INTO `mob_skills` VALUES (2333,1629,'ixionauto_six',0,7.0,0,0,4,0,0,4,0,0,0); -- What is this for??
