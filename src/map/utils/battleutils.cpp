@@ -5266,6 +5266,26 @@ namespace battleutils
             }
             damage = (int32)(damage * resist);
         }
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 5)
+            {
+                resist = 0.75;
+            }
+            damage = (int32)(damage * resist);
+        }
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 6)
+            {
+                resist = 0.5;
+            }
+            damage = (int32)(damage * resist);
+        }
         // Handle behind PDT
         else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
         {
@@ -5274,6 +5294,26 @@ namespace battleutils
             if (power == 4)
             {
                 resist = 0;
+            }
+            damage = (int32)(damage * resist);
+        }
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 7)
+            {
+                resist = 0.75;
+            }
+            damage = (int32)(damage * resist);
+        }
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 8)
+            {
+                resist = 0.5;
             }
             damage = (int32)(damage * resist);
         }

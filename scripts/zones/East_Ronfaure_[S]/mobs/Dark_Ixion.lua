@@ -61,6 +61,9 @@ function onMobFight(mob, target)
     local AuraTimeOn = mob:getLocalVar("AuraTimeOn")
     local AuraTimeOff = mob:getLocalVar("AuraTimeOff")
     local Stance = mob:getLocalVar("Stance")
+	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) == false then
+		mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 5, 0, 3600)
+	end
     if Ashed == 0 then -- Failed to hit with stygian ash
 		mob:SetAutoAttackEnabled(false)
         mob:SetMagicCastingEnabled(false)

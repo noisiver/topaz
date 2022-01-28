@@ -1,6 +1,10 @@
 -----------------------------------
 -- Physical Shield
 -- Blocks all physical attacks
+-- If power is 8, 50% PDT from BEHIND
+-- If power is 7, 75% PDT from BEHIND
+-- If power is 6, 50% PDT in FRONT
+-- If power is 5, 75% PDT in FRONT
 -- If power is 4, 100% PDT from BEHIND
 -- If power is 3, 100% PDT in FRONT
 -- If Power is 2, 100% physical absorb
