@@ -36,7 +36,7 @@ function onMobWeaponSkill (target, mob, skill)
     if skill:getID() == 2192 then
         local Guivre = GetMobByID(17158400)
         local LambtonWorm = GetMobByID(17158401)
-        RNG = math.random(1,2)
+        local RNG = math.random(1,2)
         -- player:setPos(-289.0951, -20.2527, 54.2799, 0, 127) -- Behemoth's Dominion    
         if RNG == 1 then
             player:setPos(219.9899, -15.6340, -180.4311, 0, 93) -- Ruhotz Silvermines Zone
