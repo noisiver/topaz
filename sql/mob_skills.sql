@@ -2271,9 +2271,9 @@ INSERT INTO `mob_skills` VALUES (2328,1634,'ixionauto_one',0,3.0,0,0,4,0,0,0,0,0
 INSERT INTO `mob_skills` VALUES (2329,1633,'ixionauto_two',0,3.0,0,0,4,0,0,0,0,0,0); -- correct animation(horn)
 INSERT INTO `mob_skills` VALUES (2330,1632,'ixionauto_three',0,3.0,0,0,4,0,0,0,0,0,0); -- correct animation(horn)
 INSERT INTO `mob_skills` VALUES (2331,1631,'ixionauto_four',0,7.0,0,0,4,0,0,0,0,0,0); -- What is this for??
-INSERT INTO `mob_skills` VALUES (2332,1630,'ixionauto_five',0,7.0,0,0,4,0,0,0,0,0,0); -- What is this for??
+--INSERT INTO `mob_skills` VALUES (2332,1630,'ixionauto_five',0,7.0,0,0,4,0,0,0,0,0,0); -- What is this for??
 INSERT INTO `mob_skills` VALUES (2333,1629,'ixionauto_six',0,7.0,0,0,4,0,0,0,0,0,0); -- What is this for??
-INSERT INTO `mob_skills` VALUES (2334,1640,'wrath_of_zeus',1,15.0,2000,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2332,1638,'wrath_of_zeus',1,15.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2335,1639,'lightning_spear',4,20.0,2000,3000,4,0,0,0,0,0,0); -- correct animation
 INSERT INTO `mob_skills` VALUES (2336,1642,'acheron_kick',4,10.0,2000,1000,4,0,0,0,0,0,0); -- correct animation
 INSERT INTO `mob_skills` VALUES (2337,1644,'damsel_memento',0,7.0,2000,1000,1,0,0,0,0,0,0); --- maybe correct animation
