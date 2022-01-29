@@ -5256,6 +5256,7 @@ namespace battleutils
     {
         auto PAttacker = PDefender->GetBattleTarget();
         // Handle frontal PDT
+        printf("hello world\n");
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
@@ -5268,6 +5269,7 @@ namespace battleutils
         }
         else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
+            printf("hello world inside\n");
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
             float resist = 1.0f;
             if (power == 5)
