@@ -142,11 +142,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,845);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,846);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ifrit',38,847);
 -- INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,1542);
---INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2334);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2334);
 --INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2335);
 --INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2336);
 --INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2337);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2338);
+--INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2338);
 --INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2369); -- scintillant_lance
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,858);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,859);
