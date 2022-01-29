@@ -69,6 +69,7 @@ function onMobFight(mob, target)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(false)
         mob:addStatusEffect(tpz.effect.FLEE, 50, 0, 60)
+        mob:disengage()
         mob:pathTo(target:getXPos() + 50, target:getYPos(), target:getZPos() +50)
         mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
             DespawnMob(mob:getID())
@@ -97,22 +98,23 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-   --[[
-   for v = 2334,2338,1 do -- TP move ID
-        if skill:getID() == v then -- If TP Move is part of for loop then...
-            local TPMove = mob:getLocalVar("TPMove")
+    if mob:AnimationSub() == 3 then
+       for v = 2334,2338,1 do -- TP move ID
+            if skill:getID() == v then -- If TP Move is part of for loop then...
+                local TPMove = mob:getLocalVar("TPMove")
 
-            TPMove = TPMove +1 -- Count number of times TP move was used
-            mob:setLocalVar("TPMove", TPMove)
+                TPMove = TPMove +1 -- Count number of times TP move was used
+                mob:setLocalVar("TPMove", TPMove)
 
-            if TPMove > 1 then -- Only use up to twice in a row
-                mob:setLocalVar("TPMove", 0)
-            else
-                mob:useMobAbility(v) -- Re-use same TP move
+                if TPMove > 1 then -- Only use up to twice in a row
+                    mob:setLocalVar("TPMove", 0)
+                else
+                    mob:useMobAbility(v) -- Re-use same TP move
+                end
             end
         end
     end
-    ]]
+    --[[
     local isEffectedMove = false;
     for v = 2334,2338 do -- TP move ID
         if skill:getID() == v then
@@ -130,9 +132,12 @@ function onMobWeaponSkill(target, mob, skill)
             mob:setLocalVar("IsRepeat", true);
         end
     end
+    ]]
 end
 
 function onMobDisengage(mob)
+    local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
+    ixion:spawn()
     mob:AnimationSub(0)
 end
 
