@@ -1041,13 +1041,13 @@ namespace battleutils
     {
         float resist = 1.0f;
         uint8 element = 1;
-
+        printf("Spikes resist before getMagicResist %f \n", resist);
         switch (Action->spikesEffect)
         {
             case SUBEFFECT_CURSE_SPIKES:
                 element = ELEMENT_DARK;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                // printf("Spikes status effect hit rate %f \n", resist);
+               // printf("Spikes resist after getMagicResist %f \n", resist);
             {
                 if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
@@ -1058,9 +1058,10 @@ namespace battleutils
             case SUBEFFECT_ICE_SPIKES:
                 element = ELEMENT_ICE;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                // printf("Spikes status effect hit rate %f \n", resist);
+                printf("Spikes resist after getMagicResist %f \n", resist);
             {
                 if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
+                    printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30));
                 }
