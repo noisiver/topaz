@@ -33,34 +33,18 @@ end
     --TODO: Currently, Doomvoid only takes the primary target and properly creates the instance, taking them inside. Second target executes
     -- the setPos command but ends up inside zone without instance set.
 function onMobWeaponSkill (target, mob, skill)
-    if skill:getID() == 2192 then 
-        local primaryTarget = mob:getTarget()
-        if primaryTarget then
-            if primaryTarget:getID() == target:getID() then
-                target:createInstance(88, 93)
-            else
-                local instance = primaryTarget:getInstance()
-                if instance then
-                    target:setInstance(instance)
-                end
-            end
-
-            target:startEvent(202)
+    if skill:getID() == 2192 then
+        local Guivre = GetMobByID(17158400)
+        local LambtonWorm = GetMobByID(17158401)
+        RNG = math.random(1,2)
+        -- player:setPos(-289.0951, -20.2527, 54.2799, 0, 127) -- Behemoth's Dominion    
+        if RNG == 1 then
+            player:setPos(219.9899, -15.6340, -180.4311, 0, 93) -- Ruhotz Silvermines Zone
+            Guivre:spawn()
+        elseif RNG == 2 then
+            player:setPos(19.3717, 0.3757, 139.9185, 0, 93) -- Ruhotz Silvermines Zone
+            LambtonWorm:spawn()
         end
-    end
-end
-
-function onEventFinish(player, csid, option, target)
-    if csid == 202 and option == 0 then
-        player:setPos(0, 0, 0, 0, 93)
-        player:addTempItem(5423)
-    end
-end
-function onInstanceCreated(player, target, instance)
-    if (instance) then
-        player:setInstance(instance)
-    else
-        player:messageText(target, ID.text.CANNOT_ENTER, false)
     end
 end
 
