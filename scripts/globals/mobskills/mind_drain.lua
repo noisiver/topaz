@@ -20,16 +20,18 @@ function onMobWeaponSkill(target, mob, skill)
         local typeEffectSix = tpz.effect.MND_DOWN
         local typeEffectSeven = tpz.effect.INT_DOWN
         local typeEffectEight = tpz.effect.CHR_DOWN
-        MobStatusEffectMove(mob, target, typeEffectTwo, 10, 3, 120)
-        MobStatusEffectMove(mob, target, typeEffectThree, 10, 3, 120)
-        MobStatusEffectMove(mob, target, typeEffectFour, 10, 3, 120)
-        MobStatusEffectMove(mob, target, typeEffectFive, 10, 3, 120)
-        MobStatusEffectMove(mob, target, typeEffectSix, 10, 3, 120)
-        MobStatusEffectMove(mob, target, typeEffectSeven, 10, 3, 120)
-        MobStatusEffectMove(mob, target, typeEffectEight, 10, 3, 120)
+        MobStatusEffectMove(mob, target, typeEffectTwo, 10, 3, 300)
+        MobStatusEffectMove(mob, target, typeEffectThree, 10, 3, 300)
+        MobStatusEffectMove(mob, target, typeEffectFour, 10, 3, 300)
+        MobStatusEffectMove(mob, target, typeEffectFive, 10, 3, 300)
+        MobStatusEffectMove(mob, target, typeEffectSix, 10, 3, 300)
+        MobStatusEffectMove(mob, target, typeEffectSeven, 10, 3, 300)
+        MobStatusEffectMove(mob, target, typeEffectEight, 10, 3, 300)
     end
 
     local typeEffect = tpz.effect.MND_DOWN
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10, 3, 120))
+    local power = (target:getStat(tpz.mod.MND) * 0.2) +5
+
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 3, 300))
     return typeEffect
 end

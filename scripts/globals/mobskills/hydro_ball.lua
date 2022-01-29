@@ -18,8 +18,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.STR_DOWN
+    local power = (target:getStat(tpz.mod.STR) * 0.2) +5
 
-    MobStatusEffectMove(mob, target, typeEffect, 10, 3, 120)
+    MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
 
     local dmgmod = 1
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 1.5, tpz.magic.ele.WATER, dmgmod, TP_MAB_BONUS, 1)
