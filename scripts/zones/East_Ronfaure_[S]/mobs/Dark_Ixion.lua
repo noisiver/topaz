@@ -136,12 +136,14 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDisengage(mob)
+    mob:setLocalVar("Ashed", 0)
     local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
     ixion:spawn()
     mob:AnimationSub(0)
 end
 
 function onMobDeath(mob, player, isKiller)
+    mob:setLocalVar("Ashed", 0)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i];
         local DarkIxion = mob:GetMobByID(id)
