@@ -138,6 +138,7 @@ tpz.mob.additionalEffect =
     AMNESIA    = 25,
     BIND       = 26,
     WEIGHT     = 27,
+    FLASH     =  28,
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -453,6 +454,19 @@ local additionalEffects =
         eff = tpz.effect.WEIGHT,
         power = 25,
         duration = 30,
+        minDuration = 1,
+        maxDuration = 30,
+    },
+    [tpz.mob.ae.FLASH] =
+    {
+        chance = 25,
+        ele = tpz.magic.ele.LIGHT,
+        sub = tpz.subEffect.FLASH,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = tpz.effect.FLASH,
+        power = 300,
+        duration = 12,
         minDuration = 1,
         maxDuration = 30,
     },
