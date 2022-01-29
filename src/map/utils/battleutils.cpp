@@ -5272,7 +5272,7 @@ namespace battleutils
             float resist = 1.0f;
             if (power == 5)
             {
-                resist = 0.75;
+                resist = 0.75f;
             }
             damage = (int32)(damage * resist);
         }
@@ -5282,7 +5282,7 @@ namespace battleutils
             float resist = 1.0f;
             if (power == 6)
             {
-                resist = 0.5;
+                resist = 0.5f;
             }
             damage = (int32)(damage * resist);
         }
@@ -5303,7 +5303,7 @@ namespace battleutils
             float resist = 1.0f;
             if (power == 7)
             {
-                resist = 0.75;
+                resist = 0.75f;
             }
             damage = (int32)(damage * resist);
         }
@@ -5313,7 +5313,7 @@ namespace battleutils
             float resist = 1.0f;
             if (power == 8)
             {
-                resist = 0.5;
+                resist = 0.5f;
             }
             damage = (int32)(damage * resist);
         }
