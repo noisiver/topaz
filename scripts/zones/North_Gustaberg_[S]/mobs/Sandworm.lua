@@ -34,15 +34,16 @@ end
     -- the setPos command but ends up inside zone without instance set.
 function onMobWeaponSkill (target, mob, skill)
     if skill:getID() == 2192 then
-        local Guivre = GetMobByID(17158400)
+        --local Guivre = GetMobByID(17158400)
+        local Guivre = GetMobByID(17297511)
         local LambtonWorm = GetMobByID(17158401)
         local RNG = math.random(1,2)
-        -- player:setPos(-289.0951, -20.2527, 54.2799, 0, 127) -- Behemoth's Dominion    
         if RNG == 1 then
-            target:setPos(219.9899, -15.6340, -180.4311, 0, 93) -- Ruhotz Silvermines Zone
+            --target:setPos(219.9899, -15.6340, -180.4311, 0, 93) -- Ruhotz Silvermines Zone
+            player:setPos(-289.0951, -20.2527, 54.2799, 0, 127) -- Behemoth's Dominion 
             Guivre:spawn()
         elseif RNG == 2 then
-            target:setPos(19.3717, 0.3757, 139.9185, 0, 93) -- Ruhotz Silvermines Zone
+            --target:setPos(19.3717, 0.3757, 139.9185, 0, 93) -- Ruhotz Silvermines Zone
             LambtonWorm:spawn()
         end
     end
