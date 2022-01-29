@@ -15272,15 +15272,7 @@ inline int32 CLuaBaseEntity::spawnPCs(lua_State* L)
 
     CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
 
-    if (PChar != nullptr && !(PChar->nameflags.flags & FLAG_DC))
-    {
-        PChar->nameflags.flags |= FLAG_DC;
-        PChar->updatemask |= UPDATE_HP;
-        if (PChar->status == STATUS_NORMAL)
-        {
-            PChar->loc.zone->SpawnPCs(PChar);
-        }
-    }
+    PChar->loc.zone->SpawnPCs(PChar);
 
     return 1;
 }
