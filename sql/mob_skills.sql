@@ -2279,7 +2279,7 @@ INSERT INTO `mob_skills` VALUES (2335,1639,'lightning_spear',4,20.0,2000,3000,4,
 INSERT INTO `mob_skills` VALUES (2336,1642,'acheron_kick',4,10.0,2000,1000,4,0,0,0,0,0,0); -- correct animation
 INSERT INTO `mob_skills` VALUES (2337,1644,'damsel_memento',0,7.0,2000,1000,1,0,0,0,0,0,0); --- maybe correct animation
 INSERT INTO `mob_skills` VALUES (2338,1641,'rampant_stance',1,7.0,2000,3000,4,0,0,0,0,0,0); -- correct animation
-INSERT INTO `mob_skills` VALUES (2339,1642,'wrath_of_zeus',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (2339,1642,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2340,2084,'extreme_purgation',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2341,2085,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2342,2086,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
