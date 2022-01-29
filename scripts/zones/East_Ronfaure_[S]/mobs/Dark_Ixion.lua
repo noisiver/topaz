@@ -49,7 +49,7 @@ end
 function onMobEngaged(mob)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i];
-        local DarkIxion = mob:GetMobByID(id)
+        local DarkIxion = GetMobByID(id)
         if DarkIxion:isSpawned() and mob ~= id then
             DespawnMob(id)
         end
@@ -75,7 +75,7 @@ function onMobFight(mob, target)
         mob:pathTo(target:getXPos() + 50, target:getYPos(), target:getZPos() +50)
         mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
             DespawnMob(mob:getID())
-            local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
+            local ixion = GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
             ixion:spawn()
         end)
     end
@@ -142,7 +142,7 @@ end
 
 function onMobDisengage(mob)
     mob:setLocalVar("Ashed", 0)
-    local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
+    local ixion = GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
     ixion:spawn()
     mob:AnimationSub(0)
 end
@@ -151,7 +151,7 @@ function onMobDeath(mob, player, isKiller)
     mob:setLocalVar("Ashed", 0)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i];
-        local DarkIxion = mob:GetMobByID(id)
+        local DarkIxion = GetMobByID(id)
         if DarkIxion:isSpawned() and mob ~= id then
             DespawnMob(id)
         end
