@@ -35,14 +35,14 @@ function onMobFight(mob, target)
         params.skillType = tpz.skill.ENFEEBLING_MAGIC
         params.bonus = 0
         params.effect = tpz.effect.AMNESIA
-        local resist = applyResistanceEffect(caster, target, spell, params)
+        local resist = applyResistanceEffect(mob, target, spell, params)
         target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 15 * resist)
         local params = {}
         params.diff = dMND
         params.skillType = tpz.skill.ENFEEBLING_MAGIC
         params.bonus = 0
         params.effect = tpz.effect.SILENCE
-        local resist = applyResistanceEffect(caster, target, spell, params)
+        local resist = applyResistanceEffect(mob, target, spell, params)
         target:addStatusEffect(tpz.effect.SILENCE, 1, 0, 15 * resist)
     end
 end
