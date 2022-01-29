@@ -15259,6 +15259,24 @@ inline int32 CLuaBaseEntity::getTHlevel(lua_State* L)
     return 1;
 }
 
+/************************************************************************
+ *  Function: spawnPCs()
+ *  Purpose : Spawns players around you.
+ *  Example : spawnPCs()
+ *  Notes   : GM Command
+ ************************************************************************/
+inline int32 CLuaBaseEntity::spawnPCs(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    CCharEntity* PChar = (CCharEntity*)m_PBaseEntity;
+
+    PChar->loc.zone->SpawnPCs(PChar);
+
+    return 1;
+}
+
 //=======================================================//
 
 const char CLuaBaseEntity::className[] = "CBaseEntity";
@@ -15947,6 +15965,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getDespoilDebuff),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,itemStolen),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getTHlevel),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,spawnPCs),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getPlayerRegionInZone),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,updateToEntireZone),
 
