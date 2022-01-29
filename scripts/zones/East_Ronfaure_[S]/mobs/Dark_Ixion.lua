@@ -100,6 +100,9 @@ end
 function onMobWeaponSkill(target, mob, skill)
     if mob:AnimationSub() == 3 then
        for v = 2334,2338,1 do -- TP move ID
+            if skill:getID() == 2337 -- Doesn't use Damsel Memento twice
+                return
+            end
             if skill:getID() == v then -- If TP Move is part of for loop then...
                 local TPMove = mob:getLocalVar("TPMove")
 
