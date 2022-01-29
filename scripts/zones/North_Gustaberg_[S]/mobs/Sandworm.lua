@@ -39,10 +39,10 @@ function onMobWeaponSkill (target, mob, skill)
         local RNG = math.random(1,2)
         -- player:setPos(-289.0951, -20.2527, 54.2799, 0, 127) -- Behemoth's Dominion    
         if RNG == 1 then
-            player:setPos(219.9899, -15.6340, -180.4311, 0, 93) -- Ruhotz Silvermines Zone
+            target:setPos(219.9899, -15.6340, -180.4311, 0, 93) -- Ruhotz Silvermines Zone
             Guivre:spawn()
         elseif RNG == 2 then
-            player:setPos(19.3717, 0.3757, 139.9185, 0, 93) -- Ruhotz Silvermines Zone
+            target:setPos(19.3717, 0.3757, 139.9185, 0, 93) -- Ruhotz Silvermines Zone
             LambtonWorm:spawn()
         end
     end
