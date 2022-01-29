@@ -159,7 +159,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	end
 
     if CritTPBonus > 1 then
-        if math.random(100) < CritTPBonus then
+        if math.random(100) < CritTPBonus + target:getMod(tpz.mod.ENEMYCRITRATE) then
             SpellCrit = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100)) -- It crit!
         end
 	else

@@ -204,7 +204,7 @@ enum class Mod
 
     CRITHITRATE               = 165, // Raises chance to crit
     CRIT_DMG_INCREASE         = 421, // Raises the damage of critical hit by percent %
-    RANGED_CRIT_DMG_INCREASE  = 964, // Increases ranged critical damage by a percent
+    RANGED_CRIT_DMG_INCREASE  = 1013, // Increases ranged critical damage by a percent
     ENEMYCRITRATE             = 166, // Raises chance enemy will crit
     CRIT_DEF_BONUS            = 908, // Reduces crit hit damage
     MAGIC_CRITHITRATE         = 562, // Raises chance to magic crit
@@ -222,7 +222,7 @@ enum class Mod
     HASTE_GEAR                = 384, // Haste (and Slow) from equipment - 10000 base, 375 = 3.75%
     SPELLINTERRUPT            = 168, // % Spell Interruption Rate
     MOVE                      = 169, // % Movement Speed
-    MOUNT_MOVE                = 972, // % Mount Movement Speed
+    MOUNT_MOVE                = 1017, // % Mount Movement Speed
     FASTCAST                  = 170, // Increases Spell Cast Time (TRAIT)
     UFASTCAST                 = 407, // uncapped fast cast
     CURE_CAST_TIME            = 519, // cure cast time reduction
@@ -290,7 +290,7 @@ enum class Mod
     AMNESIARES                = 253, // Enhances "Resist Amnesia" effect
     LULLABYRES                = 254, // Enhances "Resist Lullaby" effect
     DEATHRES                  = 255, // Used by gear and ATMA that give resistance to instance KO
-    STATUSRES                 = 958, // "Resistance to All Status Ailments"
+    STATUSRES                 = 1000, // "Resistance to All Status Ailments"
 
     SLEEPRESTRAIT = 1240,
     POISONRESTRAIT = 1241,
@@ -376,9 +376,9 @@ enum class Mod
     SHIELD_MASTERY_TP         = 485, // Shield mastery TP bonus when blocking with a shield
     SENTINEL_EFFECT           = 837, // Sentinel effect in percents
     SHIELD_DEF_BONUS          = 905, // Shield Defense Bonus
-    COVER_TO_MP               = 965, // Converts a successful cover's phsyical damage to MP
-    COVER_MAGIC_AND_RANGED    = 966, // Redirects ranged and single target magic attacks to the cover ability user
-    COVER_DURATION            = 967, // Increases Cover Duration
+    COVER_TO_MP               = 1014, // Converts a successful cover's phsyical damage to MP
+    COVER_MAGIC_AND_RANGED    = 1015, // Redirects ranged and single target magic attacks to the cover ability user
+    COVER_DURATION            = 1016, // Increases Cover Duration
 
     // Dark Knight
     ARCANE_CIRCLE_DURATION    = 858, // Arcane Circle extended duration in seconds
@@ -455,7 +455,7 @@ enum class Mod
     HIGH_JUMP_ENMITY_REDUCTION = 363, // for gear that reduces more enmity from high jump
     FORCE_JUMP_CRIT           = 828, // Critical hit rate bonus for jump and high jump
     WYVERN_EFFECTIVE_BREATH   = 829, // Increases the threshold for triggering healing breath/offensive breath more inclined to pick elemental weakness
-    WYVERN_SUBJOB_TRAITS      = 974, // Adds subjob traits to wyvern on spawn
+    WYVERN_SUBJOB_TRAITS      = 1010, // Adds subjob traits to wyvern on spawn
 
     // Summoner
     AVATAR_PERPETUATION       = 371, // stores base cost of current avatar
@@ -567,14 +567,14 @@ enum class Mod
     GRIMOIRE_SPELLCASTING     = 489, // "Grimoire: Reduces spellcasting time" bonus
 
     // Geo
-    CARDINAL_CHANT            = 959,
-    INDI_DURATION             = 960,
-    GEOMANCY                  = 961,
-    WIDENED_COMPASS           = 962,
-    MENDING_HALATION          = 968,
-    RADIAL_ARCANA             = 969,
-    CURATIVE_RECANTATION      = 970,
-    PRIMEVAL_ZEAL             = 971,
+    CARDINAL_CHANT            = 1001,
+    INDI_DURATION             = 1002,
+    GEOMANCY                  = 1003,
+    WIDENED_COMPASS           = 1004,
+    MENDING_HALATION          = 1005,
+    RADIAL_ARCANA             = 1006,
+    CURATIVE_RECANTATION      = 1007,
+    PRIMEVAL_ZEAL             = 1008,
 
     ENSPELL                   = 341, // stores the type of enspell active (0 if nothing)
     ENSPELL_DMG               = 343, // stores the base damage of the enspell before reductions
@@ -589,7 +589,7 @@ enum class Mod
 
     // Rune Fencer
 
-    INQUARTATA                = 963, // increases parry rate by a flat %.
+    INQUARTATA                = 1012, // increases parry rate by a flat %.
 
     // Stores the amount of elemental affinity (elemental staves mostly) - damage, acc, and perpetuation is all handled separately
     FIRE_AFFINITY_DMG         = 347, // They're stored separately due to Magian stuff - they can grant different levels of
@@ -840,8 +840,8 @@ enum class Mod
     CAMPAIGN_BONUS            = 935, // Increases the evaluation for allied forces by percentage
 	MONSTER_CORRELATION_BONUS = 936, // AF head
 
-    SUBTLE_BLOW_II            = 973, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
-    GARDENING_WILT_BONUS      = 975, // Increases the number of Vanadays a plant can survive before it wilts
+    SUBTLE_BLOW_II            = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
+    GARDENING_WILT_BONUS      = 1011, // Increases the number of Vanadays a plant can survive before it wilts
     TP_BOOST_WHEN_DMGD        = 1239,    // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
 
 
@@ -877,6 +877,8 @@ enum class Mod
     BURDEN_DECAY_IGNORE_CHANCE = 1185,
     FIRE_BURDEN_PERC_EXTRA = 1186,
     SUPER_INTIMIDATION = 1187,
+    FRONTAL_PDT = 1188,
+    BEHIND_PDT = 1189,
 
      VERMIN_CIRCLE = 1224,
     BIRD_CIRCLE = 1225,

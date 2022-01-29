@@ -139,7 +139,7 @@ bool CAttack::IsGuarded()
         }
         else
         {
-            m_damageRatio = 0;
+            m_damageRatio = 0.25f;
         }
     }
     return m_isGuarded;

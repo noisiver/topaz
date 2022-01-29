@@ -4671,6 +4671,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,275,1,255); -- absorb-tp
 INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,246,1,255); -- drain_II
 INSERT INTO `mob_spell_lists` VALUES ('Harvestman',2032,231,1,255); -- Bio II
 
+INSERT INTO `mob_spell_lists` VALUES ('Serket_Past',2033,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Serket_Past',2033,366,1,255); -- graviga
+
+INSERT INTO `mob_spell_lists` VALUES ('Limbus_GiantBirds',2034,376,1,255); -- Horde Lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Limbus_GiantBirds',2034,423,1,255); -- massacre elegy
+
 
 
 

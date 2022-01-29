@@ -21,6 +21,7 @@ zones[tpz.zone.NORTH_GUSTABERG_S] =
         FISHING_MESSAGE_OFFSET  = 7355, -- You can't fish here.
         MINING_IS_POSSIBLE_HERE = 7544, -- Mining is possible here if you have <item>.
         COMMON_SENSE_SURVIVAL   = 9076, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        CANNOT_ENTER            = 7719, -- You cannot enter at this time. Please wait a moment and try again.  
     },
     mob =
     {

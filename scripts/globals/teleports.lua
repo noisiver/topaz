@@ -75,7 +75,9 @@ local ids =
     SOUTHERN_SAN_DORIA_S  = 61,
     BASTOK_MARKETS_S      = 62,
     WINDURST_WATERS_S     = 63,
-    CAMPAIGN              = 64
+    CAMPAIGN              = 64,
+    EVERBLOOM_EXIT        = 65,
+    GHOYUS_EXIT           = 66
 }
 tpz.teleport.id = ids
 
@@ -141,7 +143,9 @@ local destinations =
     [ids.ZVAHL_KEEP]            = {-555.996,  -70.100,   59.989,   0, 162},
     [ids.SOUTHERN_SAN_DORIA_S]  = { -98.000,    1.000,  -41.000, 224,  80},
     [ids.BASTOK_MARKETS_S]      = {-291.000,  -10.000, -107.000, 212,  87},
-    [ids.WINDURST_WATERS_S]     = { -31.442,   -5.000,  129.202, 128,  94}
+    [ids.WINDURST_WATERS_S]     = { -31.442,   -5.000,  129.202, 128,  94},
+    [ids.EVERBLOOM_EXIT]        = { 181.831,  -19.872, -240.360,   9,  81},
+    [ids.GHOYUS_EXIT]           = { 143.031, -001.190, -319.190, 135,  95}
 }
 
 tpz.teleport.type =

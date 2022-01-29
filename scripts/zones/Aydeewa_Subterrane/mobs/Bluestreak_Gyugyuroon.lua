@@ -46,7 +46,7 @@ function onMobFight(mob, target)
     end
 	
 	if mob:getHPP() <= 25 then
-		mob:pathTo(-543, 17, -176)
+		mob:pathTo(-543, 17, -176, 0)
 		mob:SetAutoAttackEnabled(false)
 	end
 end

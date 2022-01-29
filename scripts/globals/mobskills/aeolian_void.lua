@@ -15,15 +15,16 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local dmgmod = 1.5
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, tpz.magic.ele.WIND, dmgmod, TP_MAB_BONUS, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_IGNORE_SHADOWS)
+
     local typeEffectOne = tpz.effect.SILENCE
     local typeEffectTwo = tpz.effect.BLINDNESS
 
-    MobStatusEffectMove(mob, target, typeEffectOne, 1, 0, 60)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 15, 0, 60)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
+    MobStatusEffectMove(mob, target, typeEffectOne, 1, 0, 120)
+    MobStatusEffectMove(mob, target, typeEffectTwo, 100, 0, 120)
 
-    local dmgmod = MobBreathMove(mob, target, 0.25, 2.5, tpz.magic.ele.EARTH, 300)
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.EARTH, MOBPARAM_IGNORE_SHADOWS)
-
-    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.EARTH)
     return dmg
 end

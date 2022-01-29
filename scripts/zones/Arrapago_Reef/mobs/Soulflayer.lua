@@ -2,7 +2,7 @@
 -- Area: Arrapago Reef
 --  Mob: Soulflayer
 -----------------------------------
-
+mixins = {require("scripts/mixins/families/soulflayer")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

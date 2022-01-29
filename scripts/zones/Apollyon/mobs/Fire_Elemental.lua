@@ -5,6 +5,13 @@
 require("scripts/globals/limbus")
 local ID = require("scripts/zones/Apollyon/IDs")
 
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.HTHRES, 750)
+    mob:setMod(tpz.mod.SLASHRES, 750)
+    mob:setMod(tpz.mod.PIERCERES, 750)
+    mob:setMod(tpz.mod.IMPACTRES, 750)
+end
+
 function onMobEngaged(mob, target)
     GetMobByID(ID.mob.APOLLYON_SW_MOB[4]+3):updateEnmity(target)
     GetMobByID(ID.mob.APOLLYON_SW_MOB[4]+11):updateEnmity(target)

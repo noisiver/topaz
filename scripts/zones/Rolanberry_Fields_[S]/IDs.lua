@@ -19,6 +19,7 @@ zones[tpz.zone.ROLANBERRY_FIELDS_S] =
         LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
         FISHING_MESSAGE_OFFSET  = 7069, -- You can't fish here.
         COMMON_SENSE_SURVIVAL   = 9249, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        CANNOT_ENTER            = 7700, -- You cannot enter at this time. Please wait a moment and try again.    
     },
     mob =
     {

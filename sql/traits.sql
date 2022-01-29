@@ -218,7 +218,6 @@ INSERT INTO `traits` VALUES (14,'store tp',12,50,3,73,20,NULL,0);
 INSERT INTO `traits` VALUES (14,'store tp',12,70,4,73,25,NULL,0);
 INSERT INTO `traits` VALUES (14,'store tp',12,90,5,73,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,25,1,288,10,NULL,0);
-INSERT INTO `traits` VALUES (15,'double attack',1,76,2,288,25,NULL,0); -- Custom to make monsters stronger
 INSERT INTO `traits` VALUES (15,'double attack',1,99,3,288,12,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,99,4,288,14,'ABYSSEA',0); -- level 76 prior to ROV update (05/14/2015), set Abby tag so it's removed from 75-cap servers
 INSERT INTO `traits` VALUES (15,'double attack',1,99,5,288,16,'ROV',0);
@@ -505,20 +504,20 @@ INSERT INTO `traits` VALUES (94,'fine-tuning',18,75,1,0,0,'TOAU',3140);
 INSERT INTO `traits` VALUES (95,'optimization',18,75,1,0,0,'TOAU',3142);
 INSERT INTO `traits` VALUES (96,'closed position',19,75,1,0,0,'WOTG',3206);
 INSERT INTO `traits` VALUES (97,'stormsurge',20,75,1,0,0,'WOTG',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,98,1,421,5,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,99,2,421,8,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,78,1,421,5,'ABYSSEA',0); -- WAR
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,86,2,421,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,50,1,421,5,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,70,2,421,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,98,3,421,11,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,99,4,421,14,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,98,1,421,5,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,99,2,421,8,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,85,1,421,5,'ABYSSEA',0); -- DRK
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,95,2,421,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',19,97,1,421,5,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',19,98,2,421,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',19,99,3,421,11,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,96,1,908,5,'ABYSSEA',0);   -- Paladin
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,97,2,908,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,98,3,908,11,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,79,1,908,5,'ABYSSEA',0);   -- Paladin
+INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,85,2,908,8,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,91,3,908,11,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',7,99,4,908,14,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',10,98,1,908,5,'ABYSSEA',0);   -- Bard
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',10,99,2,908,8,'ABYSSEA',0);

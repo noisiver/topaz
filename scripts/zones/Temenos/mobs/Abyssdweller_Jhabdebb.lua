@@ -10,15 +10,23 @@ function onMobEngaged(mob, target)
         GetMobByID(ID.mob.TEMENOS_C_MOB[3]+7):isDead() and GetMobByID(ID.mob.TEMENOS_C_MOB[3]+8):isDead() and
         GetMobByID(ID.mob.TEMENOS_C_MOB[3]+9):isDead() and GetMobByID(ID.mob.TEMENOS_C_MOB[3]+10):isDead()
     then
-        mob:setMod(tpz.mod.SLASHRES, 1400)
-        mob:setMod(tpz.mod.PIERCERES, 1400)
-        mob:setMod(tpz.mod.IMPACTRES, 1400)
-        mob:setMod(tpz.mod.HTHRES, 1400)
+        mob:setDamage(150)
+        mob:setMod(tpz.mod.UDMGPHYS, 0)
+        mob:setMod(tpz.mod.UDMGRANGE, 0)
+        mob:setMod(tpz.mod.UDMGMAGIC, -13)
+        mob:setMod(tpz.mod.UDMGBREATH, 0)
     else
-        mob:setMod(tpz.mod.SLASHRES, 300)
-        mob:setMod(tpz.mod.PIERCERES, 300)
-        mob:setMod(tpz.mod.IMPACTRES, 300)
-        mob:setMod(tpz.mod.HTHRES, 300)
+	    mob:setDamage(400)
+        mob:setMod(tpz.mod.UDMGPHYS, -90)
+        mob:setMod(tpz.mod.UDMGRANGE, -90)
+        mob:setMod(tpz.mod.UDMGMAGIC, -90)
+        mob:setMod(tpz.mod.UDMGBREATH, -90)
+    end
+    if GetMobByID(ID.mob.TEMENOS_C_MOB[3]+1):isDead() and GetMobByID(ID.mob.TEMENOS_C_MOB[3]+2):isDead() then
+	    mob:setDamage(250)
+        mob:setMod(tpz.mod.UDMGPHYS, -50)
+        mob:setMod(tpz.mod.UDMGMAGIC, -50)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
     end
     GetMobByID(ID.mob.TEMENOS_C_MOB[3]+1):updateEnmity(target)
     GetMobByID(ID.mob.TEMENOS_C_MOB[3]+2):updateEnmity(target)

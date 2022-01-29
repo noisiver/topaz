@@ -2,7 +2,11 @@
 -- Area: Alzadaal Undersea Ruins (72)
 --  Mob: Nepionic Soulflayer
 -----------------------------------
-mixins = {require("scripts/mixins/job_special")}
+mixins =
+{
+require("scripts/mixins/job_special"),
+require("scripts/mixins/families/soulflayer")
+}
 -----------------------------------
 function onMobSpawn(mob)
 	mob:addMod(tpz.mod.DEFP, 25) 

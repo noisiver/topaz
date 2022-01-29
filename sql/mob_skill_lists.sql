@@ -147,7 +147,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2335);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2336);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2337);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2338);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2369);
+--INSERT INTO `mob_skill_lists` VALUES ('Avatar-Ixion',39,2369); -- scintillant_lance
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,858);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,859);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',40,860);
@@ -1005,6 +1005,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Sandworm',214,2192);
 INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2187);
 INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2188);
 INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2189);
+INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2190);
+INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2191);
+INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2192);
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,685);
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,686);
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,687);
@@ -4262,6 +4265,16 @@ INSERT INTO `mob_skill_lists` VALUES ('Nis_Puk',6094,1723); -- ill_wind
 
 INSERT INTO `mob_skill_lists` VALUES ('Zikko',6095,2003); -- grating_tantara
 INSERT INTO `mob_skill_lists` VALUES ('Zikko',6095,2004); -- stifling_tantara
+
+INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2328); -- Horn Autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2329); -- Horn Autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2330); -- Horn Autoattack
+
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,332); -- Entangle
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,927); -- drill_branch_cemetary
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,928); -- pinecone_bomb_cemetary
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,929); -- leafstorm_cemetary
+
 
 
 

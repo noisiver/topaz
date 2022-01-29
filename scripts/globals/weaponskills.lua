@@ -152,7 +152,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
         local fencerBonus = calcParams.fencerBonus or 0
         nativecrit = nativecrit + attacker:getMod(tpz.mod.CRITHITRATE)/100 + attacker:getMerit(tpz.merit.CRIT_HIT_RATE)/100
-                                + fencerBonus - target:getMerit(tpz.merit.ENEMY_CRIT_RATE)/100
+                                + fencerBonus + target:getMod(tpz.mod.ENEMYCRITRATE)/100  - target:getMerit(tpz.merit.ENEMY_CRIT_RATE)/100
 
         -- Innin critical boost when attacker is behind target
         if (attacker:hasStatusEffect(tpz.effect.INNIN) and attacker:isBehind(target, 23)) then

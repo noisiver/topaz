@@ -31,12 +31,27 @@ function onRegionEnter(player, region)
 end
 
 function onGameHour(zone)
+    local Odqan = GetMobByID(16879737)
+    local SpawnTimer = Odqan:getLocalVar("SpawnTimer")
+    local Time = os.time()
     local vHour = VanadielHour()
     if vHour >= 22 or vHour <= 7 then
         MISAREAUX_COAST.ziphiusHandleQM()
     end
     if vHour >= 2 or vHour <= 8 and zone:getWeather() ~= GLOOM and zone:getWeather() ~= THUNDER and zone:getWeather() ~= WIND then
-        zone:setWeather(FOG)
+        -- Atomic Clusters
+        SpawnMob(16879777)
+        SpawnMob(16879833)
+        SpawnMob(16879722)
+    if not Odqan:isSpawned() and Time >= SpawnTimer then
+        SpawnMob(Odqan)
+        Odqan:setLocalVar("SpawnTimer", Time + 3200)
+        end
+    else
+        DespawnMob(16879777)
+        DespawnMob(16879833)
+        DespawnMob(16879722)
+        DespawnMob(Odqan)
     end
 end
 

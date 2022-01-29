@@ -327,17 +327,106 @@ namespace battleutils
         return false;
     }
 
-    uint8 getElementalSDTDivisor(CBattleEntity* PTarget, uint8 element)
+    float getElementalSDTDivisor(CBattleEntity* PTarget, uint8 element)
     {
         if (!element)
             return 1;
-
-        float res = (float)(PTarget->getMod((Mod)(53 + element))) * (1.0f - (((float)PTarget->getMod(Mod::SPDEF_DOWN)) / 100.0f));
-
+        if (PTarget->objtype == TYPE_PC)
+        {
+            PTarget = PTarget->GetBattleTarget();
+        }
+        Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
+        float res = (float)(PTarget->getMod(resistarray[element -1]));
+        // printf("SDT res %f \n", res);
+        if (res == 0)
+            return 1;
+        if (res <= 5.0f)
+            return 0.5f;
+        if (res >= 150.0f)
+            return 1.5f;
+        res = res / 100;
+        // printf("SDT res after dividing %f \n", res);
         // todo -- magic burst
 
-        if (res >= 50.0f)
-            return 2;
+        return res;
+    }
+
+    float getMagicResist(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skill, uint8 element, uint8 bonus)
+    {
+        float p = 0;
+        float DMacc = 0;
+        float levelcorrectionpenalty = 0;
+        float casterLvl = PAttacker->GetMLevel();
+        float targetLvl = PDefender->GetMLevel();
+        float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
+        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
+        float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
+        if (magicacc <= 30)
+        {
+            magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
+            meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
+        }
+        // printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
+        levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
+        // printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
+        magicacc = magicacc + levelcorrectionpenalty;
+        // printf("\nmagicacc after correction penalty = %f \n", magicacc);
+        DMacc = (float)(magicacc - meva);
+        // printf("\nDMacc after = %f \n", DMacc);
+        if (DMacc < 0)
+        {
+            p = floor(50 + DMacc / 2);
+        }
+        else
+        {
+            p = floor(50 + DMacc); 
+        }
+        // printf("p DMacc after %f \n", p);
+        if (p < 5)
+        {
+            p = 5.0f;
+        }
+        else if (p > 95)
+        {
+            p = 95.0f;
+        }
+        //p = std::clamp(p, 5.0f, 95.0f);
+        // printf("p after clamping to 5,95 = %f \n", p);
+        // printf("SDT element %i \n", element);
+        p = p * getElementalSDTDivisor(PAttacker, element);
+        if (p < 5)
+        {
+            p = 5.0f;
+        }
+        else if (p > 95)
+        {
+            p = 95.0f;
+        }
+        p = p / 100;
+        // printf("p after sdt = %f \n", p);
+        float half = (1 - p);
+        float quart = static_cast<float>(pow(half, 2));
+        float eighth = static_cast<float>(pow(half, 3));
+        p = floor(p * 100) / 100;
+        // printf("p trying to remove decimals = %f \n", p);
+        float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
+        // printf("p after resist rolls = %f \n", p);
+        if (PDefender->getMod(resistarray[element]) < 0 && resvar < 0.5)
+        {
+            return 0.5f;
+        }
+        else if (PDefender->getMod(resistarray[element]) < 1 && resvar < 0.25)
+        {
+            return 0.25f;
+        }
+
+        // Determine resist based on which thresholds have been crossed.
+        if (resvar <= eighth)
+            return 0.125f;
+        else if (resvar <= quart)
+            return 0.25f;
+        else if (resvar <= half)
+            return 0.5f;
 
         return 1;
     }
@@ -467,7 +556,7 @@ namespace battleutils
             else if (PAttacker->getMod(Mod::ENSPELL_DMG) < cap)
             {
                 PAttacker->addModifier(Mod::ENSPELL_DMG, 1);
-                damage = PAttacker->getMod(Mod::ENSPELL_DMG) - 1;
+                damage = PAttacker->getMod(Mod::ENSPELL_DMG) + 1;
             }
             damage += PAttacker->getMod(Mod::ENSPELL_DMG_BONUS);
 
@@ -505,31 +594,14 @@ namespace battleutils
         WEATHER weakWeatherSingle[8] = { WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_RAIN, WEATHER_GLOOM, WEATHER_AURORAS };
         WEATHER weakWeatherDouble[8] = { WEATHER_SQUALL, WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_DARKNESS, WEATHER_STELLAR_GLARE };
         uint32 obi[8] = { 15435, 15436, 15437, 15438, 15439, 15440, 15441, 15442 };
-        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
+        Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
         bool obiBonus = false;
-
-        //double half = (double)(PDefender->getMod(resistarray[element])) / 100;
-        double half = (double)(PDefender->getMod(resistarray[element - 1])) / 100;
-        double quart = pow(half, 2);
-        double eighth = pow(half, 3);
-        double sixteenth = pow(half, 4);
-        double resvar = tpzrand::GetRandomNumber(1.);
-
-        // Determine resist based on which thresholds have been crossed.
-        if (resvar <= sixteenth)
-            resist = 0.0625f;
-        else if (resvar <= eighth)
-            resist = 0.125f;
-        else if (resvar <= quart)
-            resist = 0.25f;
-        else if (resvar <= half)
-            resist = 0.5f;
 
         if (PAttacker->objtype == TYPE_PC)
         {
             CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
            // if (waist && waist->getID() == obi[element])
-            if (waist && waist->getID() == obi[element - 1])
+            if (waist && waist->getID() == obi[element + 1])
             {
                 obiBonus = true;
             }
@@ -540,28 +612,29 @@ namespace battleutils
             dBonus += tpzrand::GetRandomNumber(100) / 1000.0f;
         }
        // if (WeekDay == strongDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        if (WeekDay == strongDay[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (WeekDay == strongDay[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.1f;
         //else if (WeekDay == weakDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (WeekDay == weakDay[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (WeekDay == weakDay[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.1f;
        //if (weather == strongWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        if (weather == strongWeatherSingle[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (weather == strongWeatherSingle[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.1f;
        // else if (weather == strongWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == strongWeatherDouble[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == strongWeatherDouble[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.25f;
        // else if (weather == weakWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == weakWeatherSingle[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherSingle[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.1f;
         //else if (weather == weakWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == weakWeatherDouble[element - 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherDouble[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.25f;
 
-        damage = (int32)(damage * resist);
+        damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element +1, +30));
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
-        damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element));
+        damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
+        // printf("\nElement before enspell damage = %i \n", element);
 
         if (damage > 0)
         {
@@ -598,21 +671,53 @@ namespace battleutils
 
     uint16 CalculateSpikeDamage(CBattleEntity* PAttacker, CBattleEntity* PDefender, actionTarget_t* Action, uint16 damageTaken)
     {
-        uint16 damage = Action->spikesParam;
+        uint8 element = 1;
+        float damage = Action->spikesParam;
         // int16 intStat = PDefender->INT();
         // int16 mattStat = PDefender->getMod(Mod::MATT);
 
         switch (static_cast<SPIKES>(Action->spikesEffect))
         {
+            case SPIKE_BLAZE:
+                element = ELEMENT_FIRE;
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                break;
+            case SPIKE_ICE:
+                element = ELEMENT_ICE;
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                break;
+            case SPIKE_GALE:
+                element = ELEMENT_WIND;
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                break;
+            case SPIKE_CLOD:
+                element = ELEMENT_EARTH;
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                break;
+            case SPIKE_SHOCK:
+                element = ELEMENT_THUNDER;
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                break;
+            case SPIKE_DELUGE:
+                element = ELEMENT_WATER;
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                break;
+            case SPIKE_REPRISAL:
+                element = ELEMENT_LIGHT;
+                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element, +30);
+                break;
+            case SPIKE_GLINT:
             case SPIKE_DREAD:
+            case SPIKE_CURSE:
+                element = ELEMENT_DARK;
                 // drain same as damage taken
-                damage = damageTaken;
+                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element, +30);
                 break;
             default:
                 break;
         }
 
-        return damage;
+        return static_cast<uint16>(damage);
     }
 
     bool HandleSpikesDamage(CBattleEntity* PAttacker, CBattleEntity* PDefender, actionTarget_t* Action, int32 damage)
@@ -679,8 +784,7 @@ namespace battleutils
                 // FINISH HIM! dun dun dun
                 // TP and stoneskin are handled inside TakePhysicalDamage
                 Action->spikesMessage = 536;
-                Action->spikesParam =
-                    battleutils::TakePhysicalDamage(PDefender, PAttacker, PHYSICAL_ATTACK_TYPE::NORMAL, dmg, false, SLOT_MAIN, 1, nullptr, true, true, true);
+                battleutils::TakePhysicalDamage(PDefender, PAttacker, PHYSICAL_ATTACK_TYPE::NORMAL, dmg, false, SLOT_MAIN, 1, nullptr, true, true, true);
             }
         }
 
@@ -716,16 +820,16 @@ namespace battleutils
             switch (static_cast<SPIKES>(Action->spikesEffect))
             {
                 case SPIKE_BLAZE:
-                    element = 1;
+                    element = ELEMENT_FIRE;
                     break;
                 case SPIKE_ICE:
-                    element = 2;
+                    element = ELEMENT_ICE;
                     break;
                 case SPIKE_SHOCK:
-                    element = 5;
+                    element = ELEMENT_THUNDER;
                     break;
                 case SPIKE_DREAD:
-                    element = 8;
+                    element = ELEMENT_DARK;
                     break;
                 default:
                     break;
@@ -739,7 +843,8 @@ namespace battleutils
                 case SPIKE_BLAZE:
                 case SPIKE_ICE:
                 case SPIKE_SHOCK:
-                    PAttacker->takeDamage(Action->spikesParam / getElementalSDTDivisor(PAttacker, element), PDefender, ATTACK_MAGICAL,
+                    PAttacker->takeDamage(Action->spikesParam,
+                                          PDefender, ATTACK_MAGICAL,
                                           GetSpikesDamageType(Action->spikesEffect));
                     break;
 
@@ -773,14 +878,18 @@ namespace battleutils
                             }
                             PDefender->addHP(Action->spikesParam);
                         }
-                        PAttacker->takeDamage(Action->spikesParam, PDefender, ATTACK_MAGICAL, DAMAGE_DARK);
+                            PAttacker->takeDamage(Action->spikesParam,
+                                              PDefender, ATTACK_MAGICAL,
+                                              DAMAGE_DARK);
                     }
                     break;
 
                 case SPIKE_REPRISAL:
                     if (Action->reaction == REACTION_BLOCK)
                     {
-                        PAttacker->takeDamage(Action->spikesParam, PDefender, ATTACK_MAGICAL, DAMAGE_LIGHT);
+                        PAttacker->takeDamage(Action->spikesParam,
+                                              PDefender, ATTACK_MAGICAL,
+                                              DAMAGE_LIGHT);
                         auto PEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_REPRISAL);
                         if (PEffect)
                         {
@@ -864,9 +973,44 @@ namespace battleutils
 
     bool HandleSpikesEquip(CBattleEntity* PAttacker, CBattleEntity* PDefender, actionTarget_t* Action, uint8 damage, SUBEFFECT spikesType, uint8 chance)
     {
-        int lvlDiff = std::clamp((PDefender->GetMLevel() - PAttacker->GetMLevel()), -5, 5) * 2;
+        uint8 spikes = (uint8)PAttacker->getMod(Mod::SPIKES);
 
-        if (tpzrand::GetRandomNumber(100) < chance + lvlDiff)
+        int resist = 1;
+        uint8 element = 1;
+
+        switch (spikes)
+        {
+            case SPIKE_BLAZE:
+                element = ELEMENT_FIRE;
+                break;
+            case SPIKE_ICE:
+                element = ELEMENT_ICE;
+                break;
+            case SPIKE_GALE:
+                element = ELEMENT_WIND;
+                break;
+            case SPIKE_CLOD:
+                element = ELEMENT_EARTH;
+                break;
+            case SPIKE_SHOCK:
+                element = ELEMENT_THUNDER;
+                break;
+            case SPIKE_DELUGE:
+                element = ELEMENT_WATER;
+                break;
+            case SPIKE_REPRISAL:
+                element = ELEMENT_LIGHT;
+                break;
+            case SPIKE_GLINT:
+            case SPIKE_DREAD:
+            case SPIKE_CURSE:
+                element = ELEMENT_DARK;
+                break;
+            default:
+                break;
+        }
+        resist = static_cast<int32>(getMagicResist(PAttacker, PDefender, SKILL_EVASION, element, +30));
+        if (resist >= 0.5)
         {
             // spikes landed
             if (spikesType == SUBEFFECT_CURSE_SPIKES)
@@ -878,7 +1022,10 @@ namespace battleutils
             {
                 auto ratio = std::clamp<uint8>(damage / 4, 1, 255);
                 Action->spikesParam = HandleStoneskin(PAttacker, damage - tpzrand::GetRandomNumber<uint16>(ratio) + tpzrand::GetRandomNumber<uint16>(ratio));
-                PAttacker->takeDamage(Action->spikesParam, PDefender, ATTACK_MAGICAL, GetSpikesDamageType(spikesType));
+                PAttacker->takeDamage(Action->spikesParam),
+                                      PDefender,
+                                      ATTACK_MAGICAL,
+                                      GetSpikesDamageType(spikesType);
             }
 
             // Temp till moved to script.
@@ -892,35 +1039,85 @@ namespace battleutils
 
     void HandleSpikesStatusEffect(CBattleEntity* PAttacker, CBattleEntity* PDefender, actionTarget_t* Action)
     {
-        int lvlDiff = 0;
-        if (PDefender)
-        {
-            lvlDiff = std::clamp((PDefender->GetMLevel() - PAttacker->GetMLevel()), -5, 5) * 2;
-        }
+        float resist = 1;
+        uint8 element = 1;
 
         switch (Action->spikesEffect)
         {
             case SUBEFFECT_CURSE_SPIKES:
+                element = ELEMENT_DARK;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
+                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 15, 0, 180));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, 30 * resist));
                 }
                 break;
             }
             case SUBEFFECT_ICE_SPIKES:
+                element = ELEMENT_ICE;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (tpzrand::GetRandomNumber(100) < 20 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
+                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30 * resist));
                 }
                 break;
             }
             case SUBEFFECT_SHOCK_SPIKES:
+                element = ELEMENT_THUNDER;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (tpzrand::GetRandomNumber(100) < 30 + lvlDiff && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
+                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 3));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 4 * resist));
+                }
+                break;
+            }
+            case SUBEFFECT_GALE_SPIKES:
+                element = ELEMENT_WIND;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                // printf("Spikes status effect hit rate %f \n", resist);
+            {
+                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
+                {
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30 * resist));
+                }
+                break;
+            }
+            case SUBEFFECT_CLOD_SPIKES:
+                element = ELEMENT_EARTH;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                // printf("Spikes status effect hit rate %f \n", resist);
+            {
+                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
+                {
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30 * resist));
+                }
+                break;
+            }
+            case SUBEFFECT_DELUGE_SPIKES:
+                element = ELEMENT_WATER;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                // printf("Spikes status effect hit rate %f \n", resist);
+            {
+                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
+                {
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30 * resist));
+                }
+                break;
+            }
+            case SUBEFFECT_GLINT_SPIKES:
+                element = ELEMENT_DARK;
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                // printf("Spikes status effect hit rate %f \n", resist);
+            {
+                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_KO) == false)
+                {
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_KO, EFFECT_KO, 1, 0, 0));
                 }
                 break;
             }
@@ -1043,17 +1240,13 @@ namespace battleutils
                     break;
             }
 
-            if (enspell == ENSPELL_HASTE_SAMBA)
-                element = 0;
-            else
-                SDTdivisor = getElementalSDTDivisor(PDefender, element);
-
             if (enspell > 0 && enspell <= 6)
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 1];
                 Action->addEffectMessage = 163;
-                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1) / SDTdivisor;
-
+                Action->addEffectParam =
+                    CalculateEnspellDamage(PAttacker, PDefender, 1, enspell - 1);
+                // printf("\nElement inside T1 enspell call = %i \n", element);
                 if (Action->addEffectParam < 0)
                 {
                     Action->addEffectParam = -Action->addEffectParam;
@@ -1066,7 +1259,8 @@ namespace battleutils
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 9];
                 Action->addEffectMessage = 163;
-                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 2, enspell - 9) / SDTdivisor;
+                Action->addEffectParam =
+                    CalculateEnspellDamage(PAttacker, PDefender, 2, enspell - 9);
 
                 if (Action->addEffectParam < 0)
                 {
@@ -1080,7 +1274,8 @@ namespace battleutils
             {
                 Action->additionalEffect = enspell_subeffects[enspell - 7];
                 Action->addEffectMessage = 163;
-                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 3, enspell - 1) / SDTdivisor;
+                Action->addEffectParam =
+                    CalculateEnspellDamage(PAttacker, PDefender, 3, enspell - 1);
 
                 if (Action->addEffectParam < 0)
                 {
@@ -1108,7 +1303,8 @@ namespace battleutils
             {
                 Action->additionalEffect = SUBEFFECT_LIGHT_DAMAGE;
                 Action->addEffectMessage = 163;
-                Action->addEffectParam = CalculateEnspellDamage(PAttacker, PDefender, 2, 7);
+                Action->addEffectParam =
+                    CalculateEnspellDamage(PAttacker, PDefender, 2, 7);
 
                 if (Action->addEffectParam < 0)
                 {
@@ -1116,7 +1312,9 @@ namespace battleutils
                     Action->addEffectMessage = 384;
                 }
 
-                PDefender->takeDamage(Action->addEffectParam, PAttacker, ATTACK_MAGICAL, GetEnspellDamageType((ENSPELL)enspell));
+                PDefender->takeDamage(Action->addEffectParam,
+                                                         PAttacker, ATTACK_MAGICAL,
+                                      GetEnspellDamageType((ENSPELL)enspell));
             }
         }
         // check weapon for additional effects ... TODO: weapon additional effects need to take into account SDT, needs to be done on each item script
@@ -1901,7 +2099,7 @@ namespace battleutils
             float gbase = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
             float skill = (float)gbase + ((float)gbase * (PDefender->getMod(Mod::GUARD_PERCENT) / 100));
             auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
-			uint16 monsterskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
+			uint16 enemyskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
 			uint16 guardskill = PDefender->GetSkill(SKILL_GUARD);
 
             if (PWeapon)
@@ -1912,7 +2110,14 @@ namespace battleutils
             if (diff < 0.4f) diff = 0.4f;
             if (diff > 1.4f) diff = 1.4f;
 
-           return std::clamp<uint8>((uint8)50 +((guardskill - monsterskill) * 0.2325), 5, 50);
+        if (PDefender->objtype == TYPE_MOB)
+        {
+            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 50));
+        }
+        else
+        {
+            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 20));
+        }
         }
 
         return 0;
@@ -3610,6 +3815,14 @@ namespace battleutils
                 break;
             }
         }
+        if (PDefender->objtype == TYPE_MOB)
+        {
+            // Listener (hook)
+            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PAttacker, PDefender);
+
+            // Binding
+            luautils::OnSkillchain(PAttacker, PDefender);
+        }
 
         return damage;
     }
@@ -4823,6 +5036,7 @@ namespace battleutils
             ConvertDmgToMP(PDefender, damage, IsCovered);
 
             damage = HandleFanDance(PDefender, damage);
+            damage = HandlePositionalPDT(PDefender, damage); 
         }
 
         return damage;
@@ -4860,6 +5074,7 @@ namespace battleutils
             ConvertDmgToMP(PDefender, damage, IsCovered);
 
             damage = HandleFanDance(PDefender, damage);
+            damage = HandlePositionalPDT(PDefender, damage); 
         }
 
         return damage;
@@ -5033,6 +5248,74 @@ namespace battleutils
                 // reduce fan dance effectiveness by 10% each hit, to a min of 20%
                 PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_FAN_DANCE)->SetPower(power - 10);
             }
+        }
+        return damage;
+    }
+
+    int32 HandlePositionalPDT(CBattleEntity* PDefender, int32 damage)
+    {
+        auto PAttacker = PDefender->GetBattleTarget();
+        // Handle frontal PDT
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 3)
+            {
+                resist = 0;
+            }
+            damage = (int32)(damage * resist);
+        }
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 5)
+            {
+                resist = 0.75;
+            }
+            damage = (int32)(damage * resist);
+        }
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 6)
+            {
+                resist = 0.5;
+            }
+            damage = (int32)(damage * resist);
+        }
+        // Handle behind PDT
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 4)
+            {
+                resist = 0;
+            }
+            damage = (int32)(damage * resist);
+        }
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 7)
+            {
+                resist = 0.75;
+            }
+            damage = (int32)(damage * resist);
+        }
+        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        {
+            int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 8)
+            {
+                resist = 0.5;
+            }
+            damage = (int32)(damage * resist);
         }
         return damage;
     }
@@ -6125,6 +6408,8 @@ namespace battleutils
                 return DAMAGE_NONE;
             case SUBEFFECT_SHOCK_SPIKES:
                 return DAMAGE_LIGHTNING;
+            case SUBEFFECT_DELUGE_SPIKES:
+                return DAMAGE_WATER;
             case SUBEFFECT_REPRISAL:
                 return DAMAGE_LIGHT;
             case SUBEFFECT_GALE_SPIKES:

@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/limbus")
 require("scripts/globals/pathfind")
+require("scripts/globals/mobs")
 local ID = require("scripts/zones/Apollyon/IDs")
 local flags = tpz.path.flag.NONE
 local path =
@@ -11,6 +12,14 @@ local path =
     {424.271, 0.000, 22.975},
     {496.692, 0.000, 22.934}
 }
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.UDMGPHYS, -25)
+    mob:setMod(tpz.mod.UDMGRANGE, -25)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
 
 function onMobRoam(mob)
     local pause = mob:getLocalVar("pause")
@@ -20,6 +29,10 @@ function onMobRoam(mob)
         mob:pathTo(path[point][1], path[point][2], path[point][3], flags)
         mob:setLocalVar("pause", os.time()+40)
     end
+end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PARALYZE, {power = 50, chance = 100})
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

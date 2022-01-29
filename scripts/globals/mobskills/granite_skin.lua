@@ -21,10 +21,12 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffectOne = tpz.effect.PHYSICAL_SHIELD
-    skill:setMsg(MobBuffMove(mob, typeEffectOne, 1, 0, 45))
+    MobBuffMove(mob, typeEffectOne, 3, 0, 120) -- Frontal PDT
     local effect1 = mob:getStatusEffect(typeEffectOne)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 
-    return typeEffectOne
+    skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT) -- lasted 15 mins
+
+    return tpz.effect.PHYSICAL_SHIELD
 end
 

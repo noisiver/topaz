@@ -752,6 +752,26 @@ uint16 CBattleEntity::EVA()
     return std::max(0, (m_modStat[Mod::EVA] + evasion + AGI() / 2));
 }
 
+uint16 CBattleEntity::MEVA()
+{
+    int16 targetLvl = GetMJob();
+    int16 magicevasion = 0;
+    if (targetLvl > 50)
+    {
+        magicevasion = 136 + (targetLvl - 50) * 4.8;
+    }
+    else
+    {
+        magicevasion = 5 + (targetLvl - 1) * 2.8;
+    };
+    
+    if (magicevasion > 200)
+    { // Magic evasion skill is 0.9 evasion post-200
+        magicevasion = (int16)(200 + (magicevasion - 200) * 0.9);
+    }
+    return std::max<int16>(0, (m_modStat[Mod::MEVA]));
+}
+
 /************************************************************************
 *                                                                       *
 *                                                                       *

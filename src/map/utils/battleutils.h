@@ -82,9 +82,10 @@ enum SPIKES
     SPIKE_CURSE = 4,
     SPIKE_SHOCK = 5,
     SPIKE_REPRISAL = 6,
-    SPIKE_WIND = 7,
-    SPIKE_STONE = 8,
+    SPIKE_GALE = 7,
+    SPIKE_CLOD = 8,
     SPIKE_DELUGE = 9,
+    SPIKE_GLINT = 10,
     RETALIATION = 63
 };
 
@@ -224,6 +225,7 @@ namespace battleutils
     // returns damage taken
     int32               HandleStoneskin(CBattleEntity* PDefender, int32 damage);
     int32               HandleFanDance(CBattleEntity* PDefender, int32 damage);
+    int32               HandlePositionalPDT(CBattleEntity* PDefender, int32 damage);
 
     // stores damage for afflatus misery if active
     void                HandleAfflatusMiseryDamage(CBattleEntity* PDefender, int32 damage);

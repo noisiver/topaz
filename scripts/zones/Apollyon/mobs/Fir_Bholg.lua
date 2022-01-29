@@ -5,6 +5,13 @@
 require("scripts/globals/limbus")
 mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/Apollyon/IDs")
+-----------------------------------
+function onMobSpawn(mob)
+    if mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.RDM then
+        mob:setMod(tpz.mod.UDMGMAGIC, -25)
+        mob:addMod(tpz.mod.MDEF, 55)
+    end
+end
 
 function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then

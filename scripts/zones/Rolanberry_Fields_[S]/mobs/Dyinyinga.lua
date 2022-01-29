@@ -7,6 +7,8 @@ local ID = require("scripts/zones/Rolanberry_Fields_[S]/IDs")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 require("scripts/globals/world")
+require("scripts/globals/magic")
+require("scripts/globals/utils")
 ------------------------------
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
@@ -27,8 +29,22 @@ function onMobFight(mob, target)
 	else
 		mob:setMod(tpz.mod.REGEN, 0)
 	end
-	mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.AMNESIA, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
-	mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.SILENCE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+    if mob:checkDistance(target)  <= 8 then
+        local params = {}
+        params.diff = dINT
+        params.skillType = tpz.skill.ENFEEBLING_MAGIC
+        params.bonus = 0
+        params.effect = tpz.effect.AMNESIA
+        local resist = applyResistanceEffect(caster, target, spell, params)
+        target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 15 * resist)
+        local params = {}
+        params.diff = dMND
+        params.skillType = tpz.skill.ENFEEBLING_MAGIC
+        params.bonus = 0
+        params.effect = tpz.effect.SILENCE
+        local resist = applyResistanceEffect(caster, target, spell, params)
+        target:addStatusEffect(tpz.effect.SILENCE, 1, 0, 15 * resist)
+    end
 end
 
 function onAdditionalEffect(mob, target, damage)

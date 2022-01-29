@@ -176,7 +176,7 @@ INSERT INTO `mob_family_mods` VALUES (252,62,50,0);		-- Vampyr +50% Attack
 INSERT INTO `mob_family_mods` VALUES (191,62,50,0);		-- Orobon +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (1,62,100,0);		-- Acrolith +100% Attack 
 INSERT INTO `mob_family_mods` VALUES (132,62,25,0);		-- Gnole +25% Attack 
-INSERT INTO `mob_family_mods` VALUES (6,62,50,0);			-- Amphiptere +50% Attack 
+INSERT INTO `mob_family_mods` VALUES (6,62,50,0);		-- Amphiptere +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (207,62,50,0);		-- Rafflesia +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (211,62,50,0);		-- Ruszor +50% Attack 
 
@@ -190,7 +190,7 @@ INSERT INTO `mob_family_mods` VALUES (124,63,100,0);	-- Ghrah +100% Defense Bonu
 INSERT INTO `mob_family_mods` VALUES (272,63,20,0);		-- Zdei +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (233,63,20,0);		-- Soulflayer +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (74,63,20,0);		-- Corse +20% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (2,63,20,0);			-- Adamantoise +20% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (2,63,20,0);		-- Adamantoise +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (275,63,20,0);		-- Mini-Adamantoise +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (253,63,100,0);	-- Wamoura +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (254,63,200,0);	-- Wamouracampa +200% Defense Bonus
@@ -212,7 +212,7 @@ INSERT INTO `mob_family_mods` VALUES (182,1,25,0);		-- Merrow +25 Defense Bonus
 
 -- Evasion Bonus
 INSERT INTO `mob_family_mods` VALUES (196,68,10,0);		-- Poroggo +10 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (203,68,50,0);		-- Qutrub(Normal) +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (203,68,12,0);		-- Qutrub(Normal) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (204,68,12,0);		-- Qutrub(Unused) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (205,68,12,0);		-- Qutrub(Qutrub_Wastrel) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (188,68,25,0);		-- Opo-opo +25 Evasion Racial
@@ -275,6 +275,7 @@ INSERT INTO `mob_family_mods` VALUES (52,389,-25,0);	-- Bhoot  -25%
 INSERT INTO `mob_family_mods` VALUES (63,389,-13,0);	-- Chariot  -13%
 INSERT INTO `mob_family_mods` VALUES (209,389,-43,0);	-- Rampart  -43%
 INSERT INTO `mob_family_mods` VALUES (27,389,-25,0);	-- Apkallu  -25%
+INSERT INTO `mob_family_mods` VALUES (191,389,-13,0);	-- Orobon  -13%
 INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);	-- Dvergr  -50%
 INSERT INTO `mob_family_mods` VALUES (117,389,-13,0);	-- Gargouille  -13%
 INSERT INTO `mob_family_mods` VALUES (6,389,-25,0);		-- Amphiptere  -25%
@@ -291,7 +292,6 @@ INSERT INTO `mob_family_mods` VALUES (171,29,40,0); 	-- Lamiae +40 MDB
 INSERT INTO `mob_family_mods` VALUES (182,29,40,0); 	-- Merrow +40 MDB
 INSERT INTO `mob_family_mods` VALUES (175,29,12,0); 	-- Magic pot +12 MDB
 INSERT INTO `mob_family_mods` VALUES (252,29,24,0); 	-- Vampyr +24 MDB
-INSERT INTO `mob_family_mods` VALUES (191,29,24,0); 	-- Orobon +24 MDB
 INSERT INTO `mob_family_mods` VALUES (52,29,20,0);  	-- Bhoot +20 MDB
 INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	    -- Dvergr +40 MDB
 INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	    -- Amphiptere +20 MDB
@@ -332,9 +332,18 @@ INSERT INTO `mob_family_mods` VALUES (63,23,256,1); -- Chariot poison immunity
 INSERT INTO `mob_family_mods` VALUES (217,23,256,1); -- Scorpion poison immunity
 INSERT INTO `mob_family_mods` VALUES (273,23,256,1); -- Serket poison immunity
 INSERT INTO `mob_family_mods` VALUES (274,23,256,1); -- King Vinegaroon poison immunity
-INSERT INTO `mob_family_mods` VALUES (125,23,2048,1); -- Giant Bird light sleep immunity immunity
-INSERT INTO `mob_family_mods` VALUES (125,254,100,0); -- Giant Bird resist lullaby effect?
---Archaic machines/technological beings immune to poison
+INSERT INTO `mob_family_mods` VALUES (125,23,2048,1); -- Giant Bird light sleep immunity 
+INSERT INTO `mob_family_mods` VALUES (203,23,1,1); -- Qutrub sleep Immunity
+INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity
+INSERT INTO `mob_family_mods` VALUES (205,23,1,1); -- Qutrub sleep Immunity
+INSERT INTO `mob_family_mods` VALUES (214,23,640,1); -- Sandworm slow and elegy Immunity
+INSERT INTO `mob_family_mods` VALUES (215,23,640,1); -- Sandworm slow and elegy Immunity
+
+
+
+-- Status resist
+INSERT INTO `mob_family_mods` VALUES (125,1254,100,0); -- Giant Bird 100% lullaby resist
+INSERT INTO `mob_family_mods` VALUES (192,1243,95,0); -- Peiste 95% blind resist
 
 
 -- Absorb

@@ -18,7 +18,7 @@ function onMobSpawn(mob)
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.FAFNIR_QM):setStatus(tpz.status.DISAPPEAR)
     end
-
+    mob:AnimationSub(0)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
 
@@ -56,6 +56,10 @@ function onMobFight(mob, target)
         mob:setLocalVar("wingsTime", 0)
         mob:setLocalVar("wingsDown", 0)
     end
+end
+
+function onMobDisengage(mob)
+    mob:AnimationSub(0)
 end
 
 function onMobDeath(mob, player, isKiller)
