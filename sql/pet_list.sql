@@ -62,6 +62,7 @@ INSERT INTO `pet_list` VALUES (17, 'Alexander', 4589, 1, 99, 0, 7);
 INSERT INTO `pet_list` VALUES (18, 'Odin', 4591, 1, 99, 0, 8);
 INSERT INTO `pet_list` VALUES (19, 'Atomos', 1, 1, 99, 0, 0);
 INSERT INTO `pet_list` VALUES (20, 'CaitSith', 1, 1, 99, 0, 0);
+-- NQ Jugs
 INSERT INTO `pet_list` VALUES (21, 'SheepFamiliar', 4598, 23, 35, 3600, 0);
 INSERT INTO `pet_list` VALUES (22, 'HareFamiliar', 4641, 23, 35, 5400, 0);
 INSERT INTO `pet_list` VALUES (23, 'CrabFamiliar', 4610, 23, 55, 1800, 0);
@@ -77,12 +78,13 @@ INSERT INTO `pet_list` VALUES (32, 'FunguarFamiliar', 4614, 33, 65, 3600, 0);
 INSERT INTO `pet_list` VALUES (33, 'BeetleFamiliar', 4606, 38, 45, 3600, 0);
 INSERT INTO `pet_list` VALUES (34, 'AntlionFamiliar', 4625, 38, 50, 3600, 0);
 INSERT INTO `pet_list` VALUES (35, 'MiteFamiliar', 4623, 43, 55, 3600, 0);
-INSERT INTO `pet_list` VALUES (36, 'LullabyMelodia', 4599, 43, 55, 3600, 0);
-INSERT INTO `pet_list` VALUES (37, 'KeenearedSteffi', 4595, 43, 55, 5400, 0);
-INSERT INTO `pet_list` VALUES (38, 'FlowerpotBen', 4603, 51, 63, 3600, 0);
-INSERT INTO `pet_list` VALUES (39, 'SaberSiravarde', 4605, 51, 63, 3600, 0);
-INSERT INTO `pet_list` VALUES (40, 'ColdbloodComo', 4601, 53, 65, 3600, 0);
-INSERT INTO `pet_list` VALUES (41, 'ShellbusterOrob', 4597, 53, 65, 3600, 0);
+-- HQ Jugs
+INSERT INTO `pet_list` VALUES (36, 'LullabyMelodia', 4599, 43, 75, 3600, 0);
+INSERT INTO `pet_list` VALUES (37, 'KeenearedSteffi', 4595, 43, 75, 5400, 0);
+INSERT INTO `pet_list` VALUES (38, 'FlowerpotBen', 4603, 51, 75, 3600, 0);
+INSERT INTO `pet_list` VALUES (39, 'SaberSiravarde', 4605, 51, 75, 3600, 0);
+INSERT INTO `pet_list` VALUES (40, 'ColdbloodComo', 4601, 53, 75, 3600, 0);
+INSERT INTO `pet_list` VALUES (41, 'ShellbusterOrob', 4597, 53, 75, 3600, 0);
 INSERT INTO `pet_list` VALUES (42, 'VoraciousAudrey', 4620, 53, 75, 3600, 0);
 INSERT INTO `pet_list` VALUES (43, 'AmbusherAllie', 4622, 58, 75, 3600, 0);
 INSERT INTO `pet_list` VALUES (44, 'LifedrinkerLars', 4624, 63, 75, 3600, 0);
@@ -90,6 +92,7 @@ INSERT INTO `pet_list` VALUES (45, 'PanzerGalahad', 4607, 63, 75, 3600, 0);
 INSERT INTO `pet_list` VALUES (46, 'ChopsueyChucky', 4626, 63, 85, 1800, 0);
 INSERT INTO `pet_list` VALUES (47, 'AmigoSabotender', 4618, 75, 85, 1200, 0);
 INSERT INTO `pet_list` VALUES (48, 'Wyvern', 5551, 1, 99, 0, 0);
+-- Post Abyssea Jugs
 INSERT INTO `pet_list` VALUES (49, 'Crafty Clyvonne', 4608, 76, 90, 7200, 0);
 INSERT INTO `pet_list` VALUES (50, 'Bloodclaw Shasr', 4609, 90, 99, 7200, 0);
 INSERT INTO `pet_list` VALUES (51, 'Lucky Lulush', 4612, 76, 99, 7200, 0);
