@@ -56,6 +56,13 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+    --Using this for testing purposes to force Doomvoid TP move.
+    local forceDV = mob:getLocalVar("trample")
+    
+    if forceDV ~= 0 then
+        mob:useMobAbility(2333) -- Doomvoid
+        mob:setLocalVar("trample", 0)
+    end
 	local Ashed = mob:getLocalVar("Ashed")
     local AuraTimeOn = mob:getLocalVar("AuraTimeOn")
     local AuraTimeOff = mob:getLocalVar("AuraTimeOff")
@@ -74,7 +81,8 @@ function onMobFight(mob, target)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(false)
         mob:addStatusEffect(tpz.effect.FLEE, 50, 0, 60)
-        mob:pathTo(478, -6, -423, 0)
+        mob:disengage()
+        mob:pathTo(478, -6, -423)
         mob:timer(10000, function(mob) -- after 10 seconds of running, despawn, then respawn in next zone
             DespawnMob(mob:getID())
             local ixion = GetMobByID(17113468)
