@@ -874,8 +874,9 @@ void SetupDynamisMob(CMobEntity* PMob)
 
 void SetupLimbusMob(CMobEntity* PMob)
 {
+    uint8 mLvl = PMob->GetMLevel();
     // Bonus stats for difficulty
-    if (PMob->m_Type & MOBTYPE_NOTORIOUS)
+    if (mLvl >= 81)
     {
         // boost mobs weapon damage
         PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);

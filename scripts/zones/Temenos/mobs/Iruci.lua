@@ -6,8 +6,13 @@ local ID = require("scripts/zones/Temenos/IDs")
 
 function onMobEngaged(mob, target)
     if GetMobByID(ID.mob.TEMENOS_C_MOB[1]+3):isDead() then
-        mob:addStatusEffect(tpz.effect.REGAIN, 7, 3, 0)
-        mob:addStatusEffect(tpz.effect.REGEN, 50, 3, 0)
+	    mob:setDamage(175)
+        mob:addMod(tpz.mod.DEFP, 50)
+        mob:addMod(tpz.mod.ACC, 50)
+        mob:addMod(tpz.mod.EVA, 50)
+        mob:addMod(tpz.mod.MDEF, 40)
+        mob:setMod(tpz.mod.REGEN, 60)
+        mob:setMod(tpz.mod.REGAIN, 100)
     end
 end
 
