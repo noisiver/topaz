@@ -889,7 +889,6 @@ void SetupLimbusMob(CMobEntity* PMob)
         PMob->addModifier(Mod::MDEF, 40);
         PMob->addModifier(Mod::UDMGMAGIC, -13);
         PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
     }
     else
     {
@@ -903,7 +902,6 @@ void SetupLimbusMob(CMobEntity* PMob)
         PMob->addModifier(Mod::EVA, 30);
         PMob->addModifier(Mod::MDEF, 15);
         PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
     }
 
     // No gil drops or exp
