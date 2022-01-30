@@ -9,7 +9,7 @@ local ID = require("scripts/zones/East_Ronfaure_[S]/IDs")
 -----------------------------------
 local DarkIxionID =
 {
-    --17109367, -- Ronfaure
+    17109367, -- Ronfaure
     17150321,
     17113468, -- Jugner
     17121697,
