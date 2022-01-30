@@ -484,7 +484,7 @@ local additionalEffects =
         minDuration = 1,
         maxDuration = 30,
         tick = 3,
-        code = function(mob, target, power) if target:eff:getPower() < 150 then power = (target:eff:getPower() + 30) end end,
+        code = function(mob, target, power) if power < 150 target:hasStatusEffect(tpz.effect.POISON) then power = power + 30 end end,
     },
 }
 
