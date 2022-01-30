@@ -61,7 +61,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
     local GorynichKillCounter = GetServerVariable("GorynichKillCounter")
     -- Killing Gorynich reduce Cynoprosopi's Maximum HP, Attack, Accuracy and Attack Speed.
     SetServerVariable("GorynichKillCounter", GorynichKillCounter + 90)
-    Cynoprosopi:addMod(tpz.mod.ACC, -50)
+    Cynoprosopi:addMod(tpz.mod.ACC, -25)
     Cynoprosopi:addMod(tpz.mod.HASTE_MAGIC, -1000)
 
     if isKiller or noKiller then

@@ -14,6 +14,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.STORETP, 50)
 	mob:setDamage(140)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.FAFNIR_QM):setStatus(tpz.status.DISAPPEAR)
     end
