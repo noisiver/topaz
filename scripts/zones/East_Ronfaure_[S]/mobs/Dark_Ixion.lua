@@ -22,8 +22,7 @@ end
 
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.DEF, 522)
-    mob:setMod(tpz.mod.EVA, 395) 
-    mob:addMod(tpz.mod.MDEF, 40)
+    mob:setMod(tpz.mod.EVA, 394) 
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
@@ -57,13 +56,6 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
-    --Using this for testing purposes to force Doomvoid TP move.
-    local forceDV = mob:getLocalVar("trample")
-    
-    if forceDV ~= 0 then
-        mob:useMobAbility(2333) -- Doomvoid
-        mob:setLocalVar("trample", 0)
-    end
 	local Ashed = mob:getLocalVar("Ashed")
     local AuraTimeOn = mob:getLocalVar("AuraTimeOn")
     local AuraTimeOff = mob:getLocalVar("AuraTimeOff")
