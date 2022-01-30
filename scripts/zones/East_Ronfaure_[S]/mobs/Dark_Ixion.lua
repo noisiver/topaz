@@ -109,7 +109,7 @@ function onMobFight(mob, target)
         printf("Setting trample time");
 	elseif BattleTime >= TrampleTime and Stance == 0 and AnimationSub == 0 then
         printf("Battle time greater than trample time");
- 
+        mob:resetEnmity(target)
         if mob:getHPP() > 75 and TrackingTarget == 0 then
             printf("Tracking target above 75 HP");
             mob:AnimationSub(1)
@@ -119,29 +119,22 @@ function onMobFight(mob, target)
                 printf("Trampling above 75 HP");
                 mob:useMobAbility(2333) -- Trample
                 mob:AnimationSub(0)
-		--mob:setLocalVar("TrampleTime", BattleTime + 120)
-		mob:setLocalVar("TrampleTime", BattleTime + 30)
+		        --mob:setLocalVar("TrampleTime", BattleTime + 120)
+		        mob:setLocalVar("TrampleTime", BattleTime + 30)
                 mob:setLocalVar("TrackingTarget", 0)
             end
         elseif mob:getHPP() > 25 and mob:getHPP() <= 75 and TrackingTarget == 0 then
-            printf("Tracking between 26 and 75 HP");
+            printf("Tracking target above 75 HP");
             mob:AnimationSub(1)
             mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
             mob:setLocalVar("TrackingTarget", 1)
-            if mob:checkDistance(target) <= 5 and TrampleTracker == 0 then
-                printf("First Trample between 26 and 75 HP");
-                mob:useMobAbility(2333) -- Trample
-                mob:setLocalVar("TrampleTracker", 1)
-                mob:setLocalVar("TrackingTarget", 0)
-            end
-            if mob:checkDistance(target) <= 5 and TrampleTracker == 1 then
-                printf("Second Trample between 26 and 75 HP");
+            if mob:checkDistance(target) <= 5 then
+                printf("Trampling above 75 HP");
                 mob:useMobAbility(2333) -- Trample
                 mob:AnimationSub(0)
+		        --mob:setLocalVar("TrampleTime", BattleTime + 120)
+		        mob:setLocalVar("TrampleTime", BattleTime + 5)
                 mob:setLocalVar("TrackingTarget", 0)
-                mob:setLocalVar("TrampleTracker", 0)
-		--mob:setLocalVar("TrampleTime", BattleTime + 120)
-		mob:setLocalVar("TrampleTime", BattleTime + 30)
             end
         end
     end
