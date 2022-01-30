@@ -9,9 +9,9 @@ local ID = require("scripts/zones/East_Ronfaure_[S]/IDs")
 -----------------------------------
 local DarkIxionID =
 {
-    17109367,
+    --17109367, -- Ronfaure
     17150321,
-    17113468,
+    17113468, -- Jugner
     17121697,
     17142112,
     17166730,
@@ -24,7 +24,6 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.DEF, 522)
     mob:setMod(tpz.mod.EVA, 395) 
     mob:addMod(tpz.mod.MDEF, 40)
-    mob:addMod(tpz.mod.GUARD_PERCENT, 100)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
@@ -49,7 +48,7 @@ end
 function onMobEngaged(mob)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i];
-        local DarkIxion = mob:GetMobByID(id)
+        local DarkIxion = GetMobByID(id)
         if DarkIxion:isSpawned() and mob ~= id then
             DespawnMob(id)
         end
@@ -61,6 +60,12 @@ function onMobFight(mob, target)
     local AuraTimeOn = mob:getLocalVar("AuraTimeOn")
     local AuraTimeOff = mob:getLocalVar("AuraTimeOff")
     local Stance = mob:getLocalVar("Stance")
+    local TrampleTime = mob:getLocalVar("TrampleTime")
+    local TrampleTracker = mob:getLocalVar("TrampleTracker")
+    local TrackingTarget = mob:getLocalVar("TrackingTarget")
+    local BattleTime = mob:getBattleTime()
+    local AnimationSub = mob:AnimationSub()
+
 	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) == false then
 		mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 5, 0, 3600)
 	end
@@ -70,17 +75,18 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:addStatusEffect(tpz.effect.FLEE, 50, 0, 60)
         mob:disengage()
-        mob:pathTo(target:getXPos() + 50, target:getYPos(), target:getZPos() +50)
-        mob:timer(10000, function(mob) -- after 10 seconds of running, despawn
+        mob:pathTo(478, -6, -423, 0)
+        mob:timer(10000, function(mob) -- after 10 seconds of running, despawn, then respawn in next zone
             DespawnMob(mob:getID())
-            local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
+            local ixion = GetMobByID(17113468)
             ixion:spawn()
         end)
     end
-    local BattleTime = mob:getBattleTime()
+
 	if AuraTimeOn == 0 then
 		mob:setLocalVar("AuraTimeOn", BattleTime + 180)
-	elseif BattleTime >= AuraTimeOn and Stance == 0 then
+	elseif BattleTime >= AuraTimeOn and Stance == 0 and AnimationSub == 0 then
+        printf("Aura Mode On");
         mob:setDamage(150)
         mob:setMod(tpz.mod.REGAIN, 250)
         mob:AnimationSub(3)
@@ -89,17 +95,65 @@ function onMobFight(mob, target)
 	end
 
 	if AuraTimeOff > 0 and BattleTime >= AuraTimeOff and Stance == 1 then
+        printf("Aura Mode Off");
         mob:setMod(tpz.mod.REGAIN, 0)
         mob:setDamage(100)
         mob:AnimationSub(0)
 		mob:setLocalVar("AuraTimeOn", BattleTime + 180)
 		mob:setLocalVar("Stance", 0)
 	end
+
+    if TrampleTime == 0 then
+		--mob:setLocalVar("TrampleTime", BattleTime + 120)
+		mob:setLocalVar("TrampleTime", BattleTime + 30)
+        printf("Setting trample time");
+	elseif BattleTime >= TrampleTime and Stance == 0 and AnimationSub == 0 then
+        printf("Battle time greater than trample time");
+        local players = mob:getEnmityList();
+        local target = players[math.random(#players)];
+        if mob:getHPP() > 75 and TrackingTarget == 0 then
+            printf("Tracking target above 75 HP");
+            mob:AnimationSub(1)
+            mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
+            mob:setLocalVar("TrackingTarget", 1)
+            if mob:checkDistance(target) <= 5 then
+                printf("Trampling above 75 HP");
+                mob:useMobAbility(2333) -- Trample
+                mob:AnimationSub(0)
+		--mob:setLocalVar("TrampleTime", BattleTime + 120)
+		mob:setLocalVar("TrampleTime", BattleTime + 30)
+                mob:setLocalVar("TrackingTarget", 0)
+            end
+        elseif mob:getHPP() > 25 and mob:getHPP() <= 75 and TrackingTarget == 0 then
+            printf("Tracking between 26 and 75 HP");
+            mob:AnimationSub(1)
+            mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
+            mob:setLocalVar("TrackingTarget", 1)
+            if mob:checkDistance(target) <= 5 and TrampleTracker == 0 then
+                printf("First Trample between 26 and 75 HP");
+                mob:useMobAbility(2333) -- Trample
+                mob:setLocalVar("TrampleTracker", 1)
+                mob:setLocalVar("TrackingTarget", 0)
+            end
+            if mob:checkDistance(target) <= 5 and TrampleTracker == 1 then
+                printf("Second Trample between 26 and 75 HP");
+                mob:useMobAbility(2333) -- Trample
+                mob:AnimationSub(0)
+                mob:setLocalVar("TrackingTarget", 0)
+                mob:setLocalVar("TrampleTracker", 0)
+		--mob:setLocalVar("TrampleTime", BattleTime + 120)
+		mob:setLocalVar("TrampleTime", BattleTime + 30)
+            end
+        end
+    end
 end
 
 function onMobWeaponSkill(target, mob, skill)
     if mob:AnimationSub() == 3 then
        for v = 2334,2338,1 do -- TP move ID
+            if skill:getID() == 2337 then -- Doesn't use Damsel Memento twice
+                return
+            end
             if skill:getID() == v then -- If TP Move is part of for loop then...
                 local TPMove = mob:getLocalVar("TPMove")
 
@@ -136,15 +190,17 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDisengage(mob)
-    local ixion = mob:GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
+    mob:setLocalVar("Ashed", 0)
+    local ixion = GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
     ixion:spawn()
     mob:AnimationSub(0)
 end
 
 function onMobDeath(mob, player, isKiller)
+    mob:setLocalVar("Ashed", 0)
     for i = 1,#DarkIxionID do -- despawn all ixions in all zones
         local id = DarkIxionID[i];
-        local DarkIxion = mob:GetMobByID(id)
+        local DarkIxion = GetMobByID(id)
         if DarkIxion:isSpawned() and mob ~= id then
             DespawnMob(id)
         end

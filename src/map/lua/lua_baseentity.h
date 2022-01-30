@@ -421,6 +421,7 @@ public:
     int32 recalculateAbilitiesTable(lua_State*);
 
     // Parties and Alliances
+    int32 getPlayersInRange(lua_State* L);
     int32 getParty(lua_State* L);
     int32 getPartyWithTrusts(lua_State* L);
     int32 getPartySize(lua_State* L);               // Get the size of a party in an entity's alliance
@@ -690,6 +691,8 @@ public:
     int32 setMobMod(lua_State*);
     int32 addMobMod(lua_State*);
     int32 delMobMod(lua_State*);
+    int32 addImmunity(lua_State*);
+    int32 delImmunity(lua_State*);
 
     int32 tryInterruptSpell(lua_State* L);
 

@@ -30,20 +30,8 @@ function onMobFight(mob, target)
 		mob:setMod(tpz.mod.REGEN, 0)
 	end
     if mob:checkDistance(target)  <= 8 then
-        local params = {}
-        params.diff = dINT
-        params.skillType = tpz.skill.ENFEEBLING_MAGIC
-        params.bonus = 0
-        params.effect = tpz.effect.AMNESIA
-        local resist = applyResistanceEffect(caster, target, spell, params)
-        target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 15 * resist)
-        local params = {}
-        params.diff = dMND
-        params.skillType = tpz.skill.ENFEEBLING_MAGIC
-        params.bonus = 0
-        params.effect = tpz.effect.SILENCE
-        local resist = applyResistanceEffect(caster, target, spell, params)
-        target:addStatusEffect(tpz.effect.SILENCE, 1, 0, 15 * resist)
+        target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 15)
+        target:addStatusEffect(tpz.effect.SILENCE, 1, 0, 15)
     end
 end
 

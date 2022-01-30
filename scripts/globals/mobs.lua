@@ -138,6 +138,8 @@ tpz.mob.additionalEffect =
     AMNESIA    = 25,
     BIND       = 26,
     WEIGHT     = 27,
+    FLASH     =  28,
+    PSNSTACK  =  29,
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -455,6 +457,34 @@ local additionalEffects =
         duration = 30,
         minDuration = 1,
         maxDuration = 30,
+    },
+    [tpz.mob.ae.FLASH] =
+    {
+        chance = 25,
+        ele = tpz.magic.ele.LIGHT,
+        sub = tpz.subEffect.FLASH,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = tpz.effect.FLASH,
+        power = 300,
+        duration = 12,
+        minDuration = 1,
+        maxDuration = 30,
+    },
+    [tpz.mob.ae.PSNSTACK] =
+    {
+        chance = 25,
+        ele = tpz.magic.ele.WATER,
+        sub = tpz.subEffect.POISON,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = tpz.effect.POISON,
+        power = 1,
+        duration = 30,
+        minDuration = 1,
+        maxDuration = 30,
+        tick = 3,
+        code = function(mob, target, power) if target:eff:getPower() < 150 then power = (target:eff:getPower() + 30) end end,
     },
 }
 

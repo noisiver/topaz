@@ -21,11 +21,14 @@ function onMobWeaponSkill(target, mob, skill)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.LIGHTNING, MOBPARAM_IGNORE_SHADOWS)
 
+    local typeEffect = tpz.effect.AMNESIA
+
     local distance = mob:checkDistance(target)
     distance = utils.clamp(distance, 0, 50)
     dmg = dmg * ((50 - distance) / 50)
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.LIGHTNING)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 120)
     return dmg
 end
 

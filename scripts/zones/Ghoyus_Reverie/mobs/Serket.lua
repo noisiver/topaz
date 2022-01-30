@@ -29,7 +29,7 @@ function onMobInitialize(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
-	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.POISON, {chance = 100, power = 150})
+	return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PSNSTACK, {chance = 100, power = 30})
 end
 
 function onMobDisengage(mob)

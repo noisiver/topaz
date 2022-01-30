@@ -1039,30 +1039,31 @@ namespace battleutils
 
     void HandleSpikesStatusEffect(CBattleEntity* PAttacker, CBattleEntity* PDefender, actionTarget_t* Action)
     {
-        float resist = 1;
+        float resist = 1.0f;
         uint8 element = 1;
-
+        printf("Spikes resist before getMagicResist %f \n", resist);
         switch (Action->spikesEffect)
         {
             case SUBEFFECT_CURSE_SPIKES:
                 element = ELEMENT_DARK;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                // printf("Spikes status effect hit rate %f \n", resist);
+               // printf("Spikes resist after getMagicResist %f \n", resist);
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
+                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, 30 * resist));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, 30));
                 }
                 break;
             }
             case SUBEFFECT_ICE_SPIKES:
                 element = ELEMENT_ICE;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                // printf("Spikes status effect hit rate %f \n", resist);
+                printf("Spikes resist after getMagicResist %f \n", resist);
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
+                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
+                    printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30 * resist));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30));
                 }
                 break;
             }
@@ -1071,9 +1072,9 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
+                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 4 * resist));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 4));
                 }
                 break;
             }
@@ -1082,9 +1083,9 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
+                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30 * resist));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30));
                 }
                 break;
             }
@@ -1093,9 +1094,9 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
+                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30 * resist));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30));
                 }
                 break;
             }
@@ -1104,9 +1105,9 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
+                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30 * resist));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30));
                 }
                 break;
             }
@@ -1115,7 +1116,7 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5 && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_KO) == false)
+                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_KO) == false)
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_KO, EFFECT_KO, 1, 0, 0));
                 }
@@ -5266,28 +5267,28 @@ namespace battleutils
             }
             damage = (int32)(damage * resist);
         }
-        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
             float resist = 1.0f;
             if (power == 5)
             {
-                resist = 0.75;
+                resist = 0.25f;
             }
             damage = (int32)(damage * resist);
         }
-        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
             float resist = 1.0f;
             if (power == 6)
             {
-                resist = 0.5;
+                resist = 0.5f;
             }
             damage = (int32)(damage * resist);
         }
         // Handle behind PDT
-        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
             float resist = 1.0f;
@@ -5297,23 +5298,23 @@ namespace battleutils
             }
             damage = (int32)(damage * resist);
         }
-        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
             float resist = 1.0f;
             if (power == 7)
             {
-                resist = 0.75;
+                resist = 0.25f;
             }
             damage = (int32)(damage * resist);
         }
-        else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
         {
             int power = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
             float resist = 1.0f;
             if (power == 8)
             {
-                resist = 0.5;
+                resist = 0.5f;
             }
             damage = (int32)(damage * resist);
         }
