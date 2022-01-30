@@ -571,6 +571,7 @@ INSERT INTO `mob_family_system` VALUES (540,'Jailer_of_Prudence',15,'Luminian',1
 INSERT INTO `mob_family_system` VALUES (541,'Jailer_of_Temperance',16,'Luminion',0,40,100,140,6,6,4,4,4,4,4,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,1,0);
 INSERT INTO `mob_family_system` VALUES (542,'Toad',7,'Beastmen',0,60,125,140,5,5,3,2,1,3,1,1,1,1,1,1,1,0.85,0.85,1,0.7,1,0.85,1.15,0.2,0.3,1,6,2,0);
 INSERT INTO `mob_family_system` VALUES (543,'Monoceros-Light',11,'Elemental',2,60,100,100,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.6,0.85,0.6,0.85,0.6,0.85,0.3,1.3,0,41,0);
+INSERT INTO `mob_family_system` VALUES (544,'Proto_Omega',18,'Unclassified',2,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1.15,1,1,0.05,0,3,0);
 
 
 
