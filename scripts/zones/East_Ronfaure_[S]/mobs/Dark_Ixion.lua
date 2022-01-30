@@ -132,7 +132,7 @@ function onMobFight(mob, target)
             mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
             mob:setLocalVar("TrackingTarget", 1)
             if mob:checkDistance(target) <= 5 then
-                if TrampleTracker > 2 then
+                if TrampleTracker > 1 then
                     --mob:setLocalVar("TrampleTime", BattleTime + 120)
 		            mob:setLocalVar("TrampleTime", BattleTime + 30)
                     mob:setLocalVar("TrackingTarget", 0)
@@ -148,24 +148,26 @@ function onMobFight(mob, target)
                 end
             end
         end
-        if mob:getHPP() <= 25 and TrackingTarget == 0 and TrampleTracker < 3 then
-            printf("Tracking target below 75 HP");
+        if mob:getHPP() <= 25 and TrackingTarget == 0 then
+            printf("Tracking target below 25 HP");
             mob:resetEnmity(target)
             mob:AnimationSub(1)
             mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
             mob:setLocalVar("TrackingTarget", 1)
             if mob:checkDistance(target) <= 5 then
-                TrampleTracker = TrampleTracker +1
-                mob:setLocalVar("TrampleTracker", TrampleTracker)
-                if TrampleTracker > 3 then
+                if TrampleTracker > 2 then
                     --mob:setLocalVar("TrampleTime", BattleTime + 120)
 		            mob:setLocalVar("TrampleTime", BattleTime + 30)
+                    mob:setLocalVar("TrackingTarget", 0)
                     mob:setLocalVar("TrampleTracker", 0)
+                    mob:AnimationSub(0)
                 else
-                    printf("Trampling below 75 HP");
+                    printf("Trampling below 25 HP");
                     mob:setLocalVar("TrackingTarget", 0)
                     mob:useMobAbility(2333) -- Trample
                     mob:AnimationSub(0)
+                    TrampleTracker = TrampleTracker +1
+                    mob:setLocalVar("TrampleTracker", TrampleTracker)
                 end
             end
         end
