@@ -15,6 +15,7 @@ local path =
 function onMobSpawn(mob)
     mob:setDamage(600)
     mob:setMod(tpz.mod.DEF, 4000)
+	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end
 
 function onMobRoam(mob)

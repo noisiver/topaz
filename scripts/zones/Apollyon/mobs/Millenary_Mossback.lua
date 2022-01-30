@@ -8,6 +8,11 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.DEF, 4000)
     mob:addMod(tpz.mod.MDEF, 30)
     mob:setMod(tpz.mod.UDMGMAGIC, -25)
+    mob:setMod(tpz.mod.SDT_LIGHT, 50)
+    mob:setMod(tpz.mod.SDT_WIND, 50)
+    mob:setMod(tpz.mod.SDT_THUNDER, 50)
+    mob:setMod(tpz.mod.SDT_DARK, 50)
+    mob:setMod(tpz.mod.SDT_FIRE, 50)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
