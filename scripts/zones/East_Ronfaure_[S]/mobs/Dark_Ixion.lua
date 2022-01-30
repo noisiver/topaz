@@ -74,7 +74,6 @@ function onMobFight(mob, target)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(false)
         mob:addStatusEffect(tpz.effect.FLEE, 50, 0, 60)
-        mob:disengage()
         mob:pathTo(478, -6, -423, 0)
         mob:timer(10000, function(mob) -- after 10 seconds of running, despawn, then respawn in next zone
             DespawnMob(mob:getID())
@@ -86,7 +85,7 @@ function onMobFight(mob, target)
 	if AuraTimeOn == 0 then
 		mob:setLocalVar("AuraTimeOn", BattleTime + 180)
 	elseif BattleTime >= AuraTimeOn and Stance == 0 and AnimationSub == 0 then
-        printf("Aura Mode On");
+        --printf("Aura Mode On");
         mob:setDamage(150)
         mob:setMod(tpz.mod.REGAIN, 250)
         mob:AnimationSub(3)
@@ -95,7 +94,7 @@ function onMobFight(mob, target)
 	end
 
 	if AuraTimeOff > 0 and BattleTime >= AuraTimeOff and Stance == 1 then
-        printf("Aura Mode Off");
+        --printf("Aura Mode Off");
         mob:setMod(tpz.mod.REGAIN, 0)
         mob:setDamage(100)
         mob:AnimationSub(0)
@@ -104,42 +103,39 @@ function onMobFight(mob, target)
 	end
 
     if TrampleTime == 0 then
-		--mob:setLocalVar("TrampleTime", BattleTime + 120)
-		mob:setLocalVar("TrampleTime", BattleTime + 30)
-        printf("Setting trample time");
+		mob:setLocalVar("TrampleTime", BattleTime + 120)
+        --printf("Setting trample time");
 	elseif BattleTime >= TrampleTime and Stance == 0 and AnimationSub == 0 then
-        printf("Battle time greater than trample time");
+        --printf("Battle time greater than trample time");
         mob:setLocalVar("TrampleTracker", 0)
         if mob:getHPP() > 75 and TrackingTarget == 0 then
-            printf("Tracking target above 75 HP");
+            --printf("Tracking target above 75 HP");
             mob:resetEnmity(target)
             mob:AnimationSub(1)
             mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
             mob:setLocalVar("TrackingTarget", 1)
             if mob:checkDistance(target) <= 5 then
-                printf("Trampling above 75 HP");
+                --printf("Trampling above 75 HP");
                 mob:useMobAbility(2333) -- Trample
                 mob:AnimationSub(0)
-		        --mob:setLocalVar("TrampleTime", BattleTime + 120)
-		        mob:setLocalVar("TrampleTime", BattleTime + 30)
+		        mob:setLocalVar("TrampleTime", BattleTime + 120)
                 mob:setLocalVar("TrackingTarget", 0)
             end
         end
         if mob:getHPP() > 25 and mob:getHPP() <= 75 and TrackingTarget == 0 then
-            printf("Tracking target below 75 HP");
+            --printf("Tracking target below 75 HP");
             mob:resetEnmity(target)
             mob:AnimationSub(1)
             mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
             mob:setLocalVar("TrackingTarget", 1)
             if mob:checkDistance(target) <= 5 then
                 if TrampleTracker > 1 then
-                    --mob:setLocalVar("TrampleTime", BattleTime + 120)
-		            mob:setLocalVar("TrampleTime", BattleTime + 30)
+		            mob:setLocalVar("TrampleTime", BattleTime + 120)
                     mob:setLocalVar("TrackingTarget", 0)
                     mob:setLocalVar("TrampleTracker", 0)
                     mob:AnimationSub(0)
                 else
-                    printf("Trampling below 75 HP");
+                    --printf("Trampling below 75 HP");
                     mob:setLocalVar("TrackingTarget", 0)
                     mob:useMobAbility(2333) -- Trample
                     mob:AnimationSub(0)
@@ -149,20 +145,19 @@ function onMobFight(mob, target)
             end
         end
         if mob:getHPP() <= 25 and TrackingTarget == 0 then
-            printf("Tracking target below 25 HP");
+            --printf("Tracking target below 25 HP");
             mob:resetEnmity(target)
             mob:AnimationSub(1)
             mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
             mob:setLocalVar("TrackingTarget", 1)
             if mob:checkDistance(target) <= 5 then
                 if TrampleTracker > 2 then
-                    --mob:setLocalVar("TrampleTime", BattleTime + 120)
-		            mob:setLocalVar("TrampleTime", BattleTime + 30)
+		            mob:setLocalVar("TrampleTime", BattleTime + 120)
                     mob:setLocalVar("TrackingTarget", 0)
                     mob:setLocalVar("TrampleTracker", 0)
                     mob:AnimationSub(0)
                 else
-                    printf("Trampling below 25 HP");
+                    --printf("Trampling below 25 HP");
                     mob:setLocalVar("TrackingTarget", 0)
                     mob:useMobAbility(2333) -- Trample
                     mob:AnimationSub(0)
@@ -194,25 +189,6 @@ function onMobWeaponSkill(target, mob, skill)
             end
         end
     end
-    --[[
-    local isEffectedMove = false;
-    for v = 2334,2338 do -- TP move ID
-        if skill:getID() == v then
-            isEffectedMove = true;
-        end
-    end
-    
-    if isEffectedMove then
-        local isRepeat = mob:getLocalVar("IsRepeat")
-        
-        if isRepeat then
-            mob:setLocalVar("IsRepeat", false);
-        else
-            mob:useMobAbility(v) -- Re-use same TP move
-            mob:setLocalVar("IsRepeat", true);
-        end
-    end
-    ]]
 end
 
 function onMobDisengage(mob)
