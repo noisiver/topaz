@@ -132,17 +132,19 @@ function onMobFight(mob, target)
             mob:pathTo(target:getXPos(), target:getYPos(), target:getZPos())
             mob:setLocalVar("TrackingTarget", 1)
             if mob:checkDistance(target) <= 5 then
-                TrampleTracker = TrampleTracker +1
-                mob:setLocalVar("TrampleTracker", TrampleTracker)
                 if TrampleTracker > 2 then
                     --mob:setLocalVar("TrampleTime", BattleTime + 120)
 		            mob:setLocalVar("TrampleTime", BattleTime + 30)
+                    mob:setLocalVar("TrackingTarget", 0)
                     mob:setLocalVar("TrampleTracker", 0)
+                    mob:AnimationSub(0)
                 else
                     printf("Trampling below 75 HP");
                     mob:setLocalVar("TrackingTarget", 0)
                     mob:useMobAbility(2333) -- Trample
                     mob:AnimationSub(0)
+                    TrampleTracker = TrampleTracker +1
+                    mob:setLocalVar("TrampleTracker", TrampleTracker)
                 end
             end
         end
