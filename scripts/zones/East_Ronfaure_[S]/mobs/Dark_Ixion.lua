@@ -109,8 +109,7 @@ function onMobFight(mob, target)
         printf("Setting trample time");
 	elseif BattleTime >= TrampleTime and Stance == 0 and AnimationSub == 0 then
         printf("Battle time greater than trample time");
-        local players = mob:getEnmityList();
-        local target = players[math.random(#players)];
+ 
         if mob:getHPP() > 75 and TrackingTarget == 0 then
             printf("Tracking target above 75 HP");
             mob:AnimationSub(1)
