@@ -138,12 +138,11 @@ function onMobFight(mob, target)
                     --mob:setLocalVar("TrampleTime", BattleTime + 120)
 		            mob:setLocalVar("TrampleTime", BattleTime + 30)
                     mob:setLocalVar("TrampleTracker", 0)
-                    mob:setLocalVar("TrackingTarget", 0)
-                    mob:AnimationSub(0)
                 else
                     printf("Trampling below 75 HP");
                     mob:setLocalVar("TrackingTarget", 0)
                     mob:useMobAbility(2333) -- Trample
+                    mob:AnimationSub(0)
                 end
             end
         end
