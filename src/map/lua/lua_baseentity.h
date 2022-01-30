@@ -691,6 +691,8 @@ public:
     int32 setMobMod(lua_State*);
     int32 addMobMod(lua_State*);
     int32 delMobMod(lua_State*);
+    int32 addImmunity(lua_State*);
+    int32 delImmunity(lua_State*);
 
     int32 tryInterruptSpell(lua_State* L);
 

@@ -14559,6 +14559,54 @@ inline int32 CLuaBaseEntity::delMobMod(lua_State *L)
 }
 
 /************************************************************************
+ *  Function: addImmunity()
+ *  Purpose : Adds an immunity to the mob
+ *  Example : mob:addImmunity(ImmuneID)
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::addImmunity(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    // putting this in here to find elusive bug
+    if (!(m_PBaseEntity->objtype & TYPE_MOB))
+    {
+        ShowError("CLuaBaseEntity::addImmunity Expected type mob (%d) but its a (%d)\n", m_PBaseEntity->id, m_PBaseEntity->objtype);
+        return 0;
+    }
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    ((CMobEntity*)m_PBaseEntity)->m_Immunity |= (uint16)lua_tointeger(L, 1);
+
+    return 0;
+}
+
+/************************************************************************
+ *  Function: delImmunity()
+ *  Purpose : Removes an immunity from the mob
+ *  Example : mob:delImmunity(ImmuneID)
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::delImmunity(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    // putting this in here to find elusive bug
+    if (!(m_PBaseEntity->objtype & TYPE_MOB))
+    {
+        ShowError("CLuaBaseEntity::delImmunity Expected type mob (%d) but its a (%d)\n", m_PBaseEntity->id, m_PBaseEntity->objtype);
+        return 0;
+    }
+
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    ((CMobEntity*)m_PBaseEntity)->m_Immunity &= ~(uint16)lua_tointeger(L, 1);
+
+    return 0;
+}
+
+/************************************************************************
 *  Function: getBattleTime()
 *  Purpose : Returns the time the Mob has been engaged in seconds
 *  Example : if (mob:getBattleTime() == 3600) then -- 1 Hour
@@ -15970,6 +16018,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setMobMod),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addMobMod),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,delMobMod),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,addImmunity),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,delImmunity),
 
     LUNAR_DECLARE_METHOD(CLuaBaseEntity, tryInterruptSpell),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity, trySkillUp),
