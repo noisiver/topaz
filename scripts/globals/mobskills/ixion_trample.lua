@@ -21,7 +21,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded*math.random(1, 4))
 	
-    local mp = (target:getMaxMP() * math.random(1, 3)) / 10
+    local mp = math.floor((target:getMaxMP() * math.random(1, 3)) / 10)
 
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
