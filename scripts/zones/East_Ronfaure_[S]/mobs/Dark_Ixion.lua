@@ -36,6 +36,7 @@ function onMobSpawn(mob)
     mob:setLocalVar("AuraTimeOn", 0)
     mob:setLocalVar("AuraTimeOff", 0)
     mob:setLocalVar("Stance", 0)
+    mob:setLocalVar("RunAwayWait", 0)
 end
 
 function onMobRoam(mob)
@@ -70,6 +71,7 @@ function onMobFight(mob, target)
     local TrampleTime = mob:getLocalVar("TrampleTime")
     local TrampleTracker = mob:getLocalVar("TrampleTracker")
     local TrackingTarget = mob:getLocalVar("TrackingTarget")
+    local RunAwayWait = mob:getLocalVar("RunAwayWait")
     local BattleTime = mob:getBattleTime()
     local AnimationSub = mob:AnimationSub()
 
@@ -81,13 +83,14 @@ function onMobFight(mob, target)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(false)
         mob:addStatusEffect(tpz.effect.FLEE, 50, 0, 60)
-        mob:disengage()
         mob:pathTo(478, -6, -423)
-        mob:timer(10000, function(mob) -- after 10 seconds of running, despawn, then respawn in next zone
+        mob:setLocalVar("RunAwayWait", 15)
+        if BattleTime >= RunAwayWait and RunAwayWait > 0 then
             DespawnMob(mob:getID())
             local ixion = GetMobByID(17113468)
             ixion:spawn()
-        end)
+            mob:setLocalVar("RunAwayWait", 0)
+        end
     end
 
 	if AuraTimeOn == 0 then
