@@ -28,6 +28,6 @@ function onMobWeaponSkill(target, mob, skill)
     mob:eraseAllStatusEffect()
     local typeEffect = tpz.effect.REGEN
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, 24, 3, 180))
+    skill:setMsg(MobBuffMove(mob, typeEffect, 24, 3, 300))
     return typeEffect
 end

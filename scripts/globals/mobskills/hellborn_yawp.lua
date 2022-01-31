@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_MAB_BONUS, 1)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
-    MobStatusEffectMove(mob, target, typeEffect, power, 0, 120)
+    MobStatusEffectMove(mob, target, typeEffect, power, 0, 300)
 	if (mob:getPool() == 6742) then -- Prince Orobas
 		target:dispelStatusEffect()
 		mob:eraseStatusEffect()

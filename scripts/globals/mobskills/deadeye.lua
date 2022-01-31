@@ -21,8 +21,8 @@ function onMobWeaponSkill(target, mob, skill)
     local defDown = false
     local mDefDown = false
 
-    defDown = MobGazeMove(mob, target, tpz.effect.DEFENSE_DOWN, 50, 0, 120)
-    mDefDown = MobGazeMove(mob, target, tpz.effect.MAGIC_DEF_DOWN, 50, 0, 120)
+    defDown = MobGazeMove(mob, target, tpz.effect.DEFENSE_DOWN, 50, 0, 300)
+    mDefDown = MobGazeMove(mob, target, tpz.effect.MAGIC_DEF_DOWN, 50, 0, 300)
 
     skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
 

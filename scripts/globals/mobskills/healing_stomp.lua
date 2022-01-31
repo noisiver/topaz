@@ -26,7 +26,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 25
-    local duration = 180
+    local duration = 300
 
     local typeEffect = tpz.effect.REGEN
 	skill:setMsg(MobBuffMove(target, typeEffect, power, 3, duration))

@@ -15,7 +15,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.STONESKIN
     local base = mob:getMainLvl()*2 + 50
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, base, 0, 180))
+    skill:setMsg(MobBuffMove(mob, typeEffect, base, 0, 300))
 
     return tpz.effect.STONESKIN
 

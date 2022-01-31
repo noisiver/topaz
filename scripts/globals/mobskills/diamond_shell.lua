@@ -17,7 +17,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffectOne = tpz.effect.PHYSICAL_SHIELD
-    MobBuffMove(mob, typeEffectOne, 4, 0, 120) -- Behind PDT
+    MobBuffMove(mob, typeEffectOne, 4, 0, 300) -- Behind PDT
     local effect1 = mob:getStatusEffect(typeEffectOne)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
 

@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     if (MobPhysicalHit(skill)) then
 		mob:resetEnmity(target) 
 	end
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1250, 0, 120)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1250, 0, 300)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

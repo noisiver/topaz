@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
 
     if (math.random(1, 100) < skill:getTP()/3) then
-        MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.INT_DOWN, 10, 3, 120)
+        MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.INT_DOWN, 10, 3, 300)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)

@@ -19,7 +19,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
 
-    MobStatusEffectMove(mob, target, typeEffect, 50, 0, 180)
+    MobStatusEffectMove(mob, target, typeEffect, 50, 0, 300)
 
     local dmgmod = 1
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_NO_EFFECT)

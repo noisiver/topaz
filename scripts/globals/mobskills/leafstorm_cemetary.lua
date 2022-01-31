@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dispel = target:dispelStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD))
     local typeEffect = tpz.effect.SLOW
 
-    MobStatusEffectMove(mob, target, typeEffect, 2550, 1, 120)
+    MobStatusEffectMove(mob, target, typeEffect, 2550, 1, 300)
 
     if dispel == tpz.effect.NONE then
         -- no effect

@@ -13,7 +13,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if (MobPhysicalHit(skill)) then
-		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 3, math.random(1, 7), 120))
+		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 3, math.random(1, 7), 300))
 	end
 
     return 1

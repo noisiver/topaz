@@ -24,6 +24,6 @@ function onMobWeaponSkill(target, mob, skill)
 	local typeEffect = tpz.effect.DEFENSE_DOWN
 	
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
-	MobStatusEffectMove(mob, target, typeEffect, 33, 0, 180)
+	MobStatusEffectMove(mob, target, typeEffect, 33, 0, 300)
     return dmg
 end

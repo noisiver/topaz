@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     else
         local typeEffect = tpz.effect.DISEASE
 
-        MobStatusEffectMove(mob, target, typeEffect, 1, 0, 180)
+        MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
     end
 
     local dmgmod = 1.5

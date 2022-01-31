@@ -12,7 +12,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 10
-    local duration = 180
+    local duration = 300
     local typeEffect = tpz.effect.ICE_SPIKES
 
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))

@@ -12,7 +12,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.BLINK
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, 3, 0, 180))
+    skill:setMsg(MobBuffMove(mob, typeEffect, 3, 0, 300))
 
     return typeEffect
 

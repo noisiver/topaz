@@ -55,8 +55,8 @@ function onMobWeaponSkill(target, mob, skill)
     -- print(mabTotal)
     -- print(mdbTotal)
 
-    skill:setMsg(MobBuffMove(mob, typeEffect1, mabTotal, 0, 180))
-    MobBuffMove(mob, typeEffect2, mdbTotal, 0, 180)
+    skill:setMsg(MobBuffMove(mob, typeEffect1, mabTotal, 0, 300))
+    MobBuffMove(mob, typeEffect2, mdbTotal, 0, 300)
 
     return typeEffect1
 end

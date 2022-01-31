@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local duration = 180
+    local duration = 300
 
 
     local dmgmod = 1

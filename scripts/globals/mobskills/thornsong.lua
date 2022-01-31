@@ -22,7 +22,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = math.random(100,150)
-    local duration = 180
+    local duration = 300
     local typeEffect = tpz.effect.BLAZE_SPIKES
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))
     return typeEffect

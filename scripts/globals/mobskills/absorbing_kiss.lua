@@ -15,7 +15,7 @@ function onMobWeaponSkill(target, mob, skill)
     -- str down - chr down
     local effectType = math.random(136, 142)
 
-    skill:setMsg(MobDrainAttribute(mob, target, effectType, 10, 3, 120))
+    skill:setMsg(MobDrainAttribute(mob, target, effectType, 10, 3, 300))
 
     return 1
 end

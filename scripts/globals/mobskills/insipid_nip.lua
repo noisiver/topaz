@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded)
 
     if (MobPhysicalHit(skill, dmg, target, info.hitslanded)) then
-        DrainMultipleAttributes(mob, target, 25, 3, 1, 120)
+        DrainMultipleAttributes(mob, target, 25, 3, 1, 300)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)

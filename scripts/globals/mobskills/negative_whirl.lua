@@ -17,7 +17,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
 
-    MobStatusEffectMove(mob, target, typeEffect, 1250, 0, 120)
+    MobStatusEffectMove(mob, target, typeEffect, 1250, 0, 300)
 
     local dmgmod = 1.5
 

@@ -21,7 +21,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 30 + (mob:getMainLvl() / 1)
-    local duration = 180
+    local duration = 300
 
     local typeEffect = tpz.effect.EVASION_BOOST
 

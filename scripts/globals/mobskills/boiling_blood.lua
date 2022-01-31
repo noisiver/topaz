@@ -19,9 +19,9 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectTwo = tpz.effect.HASTE
     local typeEffectThree = tpz.effect.MAGIC_ATK_BOOST
     local typeEffectFour = tpz.effect.MAGIC_DEF_BOOST
-    MobBuffMove(mob, typeEffect, 50, 0, 180)
-    MobBuffMove(mob, typeEffectThree, 25, 0, 180)
-    MobBuffMove(mob, typeEffectFour, 25, 0, 180)
-    skill:setMsg(MobBuffMove(mob, typeEffectTwo, 2000, 0, 180)) 
+    MobBuffMove(mob, typeEffect, 50, 0, 300)
+    MobBuffMove(mob, typeEffectThree, 25, 0, 300)
+    MobBuffMove(mob, typeEffectFour, 25, 0, 300)
+    skill:setMsg(MobBuffMove(mob, typeEffectTwo, 2000, 0, 300)) 
     return typeEffectTwo
 end

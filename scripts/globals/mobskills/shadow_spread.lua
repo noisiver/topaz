@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
         currentMsg = msg
     end
 
-    msg = MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 50, 0, 180)
+    msg = MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 50, 0, 300)
 
     if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
         typeEffect = tpz.effect.BLINDNESS
