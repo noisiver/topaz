@@ -1429,7 +1429,7 @@ INSERT INTO `mob_groups` VALUES (135,6166,37,'Temenos_Aern',0,128,6049,6500,500,
 -- Apollyon (Zone 38)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1346,38,'Jidra',0,128,0,6000,0,81,82,0); -- leafless(Boss)
+INSERT INTO `mob_groups` VALUES (1,1346,38,'Jidra',0,128,0,20000,0,81,82,0); -- leafless(Boss)
 INSERT INTO `mob_groups` VALUES (2,2149,38,'Jidra',0,128,0,6000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (3,211,38,'Arboricole_Hornet',0,128,2860,6000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (4,213,38,'Arboricole_Raven',0,128,2860,6000,500,78,80,0);
@@ -1438,7 +1438,7 @@ INSERT INTO `mob_groups` VALUES (6,214,38,'Arboricole_Spider',0,128,2860,6000,0,
 INSERT INTO `mob_groups` VALUES (7,209,38,'Arboricole_Beetle',0,128,2860,6000,500,78,80,0);
 INSERT INTO `mob_groups` VALUES (8,210,38,'Arboricole_Crawler',0,128,2860,6000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (9,201,38,'Apollyon_Sapling',0,128,2860,6000,500,78,80,0);
-INSERT INTO `mob_groups` VALUES (10,183,38,'Armoury_Crate',0,128,2860,8000,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (10,2664,38,'Armoury_Crate',0,128,2860,8000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (11,6688,38,'Air_Elemental',0,128,2860,8000,2000,78,80,0);
 INSERT INTO `mob_groups` VALUES (12,6689,38,'Dark_Elemental',0,128,2860,8000,2000,78,80,0);
 INSERT INTO `mob_groups` VALUES (13,6690,38,'Earth_Elemental',0,128,2860,8000,2000,78,80,0);
@@ -8523,8 +8523,8 @@ INSERT INTO `mob_groups` VALUES (15,2387,127,'Legendary_Weapon',0,128,0,17500,0,
 INSERT INTO `mob_groups` VALUES (16,1836,127,'Gudanna',0,128,0,0,0,55,60,0);
 INSERT INTO `mob_groups` VALUES (17,4695,127,'Pil-VNM',0,128,0,0,9999,94,95,0);
 INSERT INTO `mob_groups` VALUES (18,6558,127,'Lost_Soul',330,1,1541,0,0,45,47,0);
-INSERT INTO `mob_groups` VALUES(19, 1841, 127, 'Guivre', 0, 128, 1251, 80000, 0, 95, 95, 0);
-INSERT INTO `mob_groups` VALUES(20, 2322, 127, 'Lambton_Worm', 0, 128, 1482, 80000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES (19, 1841, 127, 'Guivre', 0, 128, 1251, 80000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES (20, 2322, 127, 'Lambton_Worm', 0, 128, 1482, 80000, 0, 95, 95, 0);
 
 -- ------------------------------------------------------------
 -- Valley_of_Sorrows (Zone 128)
@@ -10109,6 +10109,9 @@ INSERT INTO `mob_groups` VALUES (3,920,154,'Darter',600,0,6013,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (4,978,154,'Demonic_Rose',600,0,2925,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (5,1280,154,'Fafnir',0,128,805,70000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (6,2840,154,'Nidhogg',0,128,1781,70000,0,90,90,0);
+INSERT INTO `mob_groups` VALUES (7, 2254, 86, 'King_Arthro', 0, 128, 1448, 80000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES (8, 2271, 86, 'Knight_Crab', 0, 128, 0, 2400, 0, 76, 76, 7);
+INSERT INTO `mob_groups` VALUES (9, 2322, 86, 'Lambton_Worm', 0, 128, 1481, 80000, 0, 95, 95, 0);
 
 INSERT INTO `mob_groups` VALUES (8176,2226,154,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (8177,2405,154,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);

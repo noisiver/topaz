@@ -1,7 +1,7 @@
 ---------------------------------------------
 --  Pinecone Bomb
 --
---  Description: Single target damage with sleep.
+--  Description: High single target damage.
 --
 --
 ---------------------------------------------
@@ -22,7 +22,6 @@ function onMobWeaponSkill(target, mob, skill)
 
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded)
 
-    local typeEffect = tpz.effect.SLEEP_I
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
