@@ -4994,7 +4994,14 @@ namespace battleutils
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
-            damage = -damage;
+            if (PDefender->getMod(Mod::MAGIC_ABSORB) > 100)
+            {
+                damage = -damage * PDefender->getMod(Mod::MAGIC_ABSORB);
+            }
+            else
+            {
+                damage = -damage;
+            }
         else if ((element && tpzrand::GetRandomNumber(100) < PDefender->getMod(nullarray[element - 1])) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_NULL))
             damage = 0;
@@ -5067,7 +5074,14 @@ namespace battleutils
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::PHYS_ABSORB))
-            damage = -damage;
+            if (PDefender->getMod(Mod::PHYS_ABSORB) > 100)
+            {
+                damage = -damage * PDefender->getMod(Mod::PHYS_ABSORB);
+            }
+            else
+            {
+                damage = -damage;
+            }
         else if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::NULL_PHYSICAL_DAMAGE))
             damage = 0;
         else
