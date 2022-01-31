@@ -10,7 +10,7 @@ local ID = require("scripts/zones/East_Ronfaure_[S]/IDs")
 local DarkIxionID =
 {
     --17109367, -- Ronfaure
-    17150321,
+    17150321, -- Rolanberry
     17113468, -- Jugner
     17121697,
     17142112,
@@ -74,7 +74,7 @@ function onMobFight(mob, target)
 		mob:SetAutoAttackEnabled(false)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(false)
-        mob:addStatusEffect(tpz.effect.FLEE, 50, 0, 60)
+        mob:addStatusEffect(tpz.effect.FLEE, 25, 0, 60)
         mob:pathTo(478, -6, -423)
         mob:setLocalVar("RunAwayWait", 15)
         if BattleTime >= RunAwayWait and RunAwayWait > 0 then
@@ -194,7 +194,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDisengage(mob)
+function onMobDespawn(mob)
     mob:setLocalVar("Ashed", 0)
     local ixion = GetMobByID(DarkIxionID[math.random(#DarkIxionID)])
     ixion:spawn()

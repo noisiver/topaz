@@ -999,15 +999,17 @@ INSERT INTO `mob_skill_lists` VALUES ('Sahagin',213,771);
 INSERT INTO `mob_skill_lists` VALUES ('Sahagin',213,774);
 INSERT INTO `mob_skill_lists` VALUES ('Sahagin',213,777);
 INSERT INTO `mob_skill_lists` VALUES ('Sahagin',213,780);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',214,2190);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',214,2191);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',214,2192);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2187);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2188);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2189);
-INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2190);
-INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2191);
-INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2192);
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2187); -- dustvoid
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2188); -- slaverous_gale
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2189); -- aeolian_void
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2190); -- extreme_purgation
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2191); -- desiccation
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2187); -- dustvoid
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2188); -- slaverous_gale
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2189); -- aeolian_void
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2190); -- extreme_purgation
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2191); -- desiccation
+INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2192); -- doomvoid
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,685);
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,686);
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,687);
