@@ -1465,19 +1465,19 @@ INSERT INTO `mob_groups` VALUES (33,1797,38,'Grave_Digger',0,128,0,10000,0,81,82
 INSERT INTO `mob_groups` VALUES (34,2082,38,'Inhumer',0,128,2859,9000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (35,1263,38,'Evil_Armory',0,128,0,12000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (36,1374,38,'Flying_Spear',0,128,2862,4500,600,78,80,0);
-INSERT INTO `mob_groups` VALUES (37,1759,38,'Goobbue_Harvester',0,128,0,13000,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (37,1759,38,'Goobbue_Harvester',0,128,0,13000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (38,345,38,'Barometz',0,128,2856,8500,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (39,507,38,'Borametz',0,128,2856,7000,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (40,3895,38,'Thiazi',0,128,0,10000,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (41,409,38,'Bialozar',0,128,0,10000,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (42,796,38,'Cornu',0,128,2857,9000,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (43,3634,38,'Sirin',0,128,2861,8500,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (44,203,38,'Apollyon_Sweeper',0,128,0,11000,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (40,3895,38,'Thiazi',0,128,0,7000,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (41,409,38,'Bialozar',0,128,0,7000,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (42,796,38,'Cornu',0,128,2857,7000,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (43,3634,38,'Sirin',0,128,2861,7000,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (44,203,38,'Apollyon_Sweeper',0,128,0,11000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (45,200,38,'Apollyon_Cleaner',0,128,2858,8500,800,78,80,0);
 INSERT INTO `mob_groups` VALUES (46,2039,38,'Hyperion',0,128,0,12000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (47,2959,38,'Okeanos',0,128,0,12000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (48,843,38,'Cronos',0,128,0,12000,0,81,82,0);
-INSERT INTO `mob_groups` VALUES (49,2211,38,'Kerkopes',0,128,2861,9500,0,81,82,0);
+INSERT INTO `mob_groups` VALUES (49,2211,38,'Kerkopes',0,128,2861,9500,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (50,841,38,'Criosphinx',0,128,2862,13000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (51,6168,38,'Hieracosphinx',0,128,2862,13000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (52,4008,38,'Troglodyte_Dhalmel',0,128,2862,9500,0,78,80,0);
@@ -1530,7 +1530,8 @@ INSERT INTO `mob_groups` VALUES (97,6129,38,'Fir_Bholg',0,128,2856,0,500,78,80,0
 INSERT INTO `mob_groups` VALUES (98,6104,38,'Barometz',0,128,2856,8500,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (99,6130,38,'Borametz',0,128,2856,7000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (100,6131,38,'Apollyon_Cleaner',0,128,2858,8500,800,78,80,0);
-INSERT INTO `mob_groups` VALUES (101,6132,38,'Kerkopes',0,128,2861,9500,0,81,82,0);
+INSERT INTO `mob_groups` VALUES (101,6132,38,'Kerkopes',0,128,2861,9500,0,78,80,0);
+INSERT INTO `mob_groups` VALUES (102,3895,38,'Thiazi',0,128,0,20000,0,81,82,0);
 
 -- ------------------------------------------------------------
 -- Dynamis-Valkurm (Zone 39)
@@ -3845,7 +3846,7 @@ INSERT INTO `mob_groups` VALUES (2634,3332,77,'Razfahd',0,128,0,0,0,75,75,0);
 -- Hazhalm_Testing_Grounds (Zone 78)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (2685,110,78,'Amnaf_blu',0,128,0,0,0,0,0,0);
+INSERT INTO `mob_groups` VALUES (1,110,78,'Amnaf_blu',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (2686,133,78,'Andhrimnir',0,128,0,0,0,85,90,0);
 INSERT INTO `mob_groups` VALUES (2687,137,78,'Angantyr',0,128,0,0,0,75,80,0);
 INSERT INTO `mob_groups` VALUES (2688,234,78,'Ariri_Samariri',0,128,0,0,0,85,90,0);
@@ -8538,6 +8539,8 @@ INSERT INTO `mob_groups` VALUES (5,4125,128,'Valley_Manticore',330,0,2537,0,0,71
 INSERT INTO `mob_groups` VALUES (6,44,128,'Adamantoise',0,128,21,7000,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (7,268,128,'Aspidochelone',0,128,183,15000,0,85,88,0);
 INSERT INTO `mob_groups` VALUES (8,3643,128,'Skahnowa',1,0,0,0,0,1,1,0);
+INSERT INTO `mob_groups` VALUES(9, 6756, 128, 'Serket', 0, 128, 2202, 85000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES(10, 2322, 128, 'Lambton_Worm', 0, 128, 1483, 80000, 0, 95, 95, 0);
 
 INSERT INTO `mob_groups` VALUES (6861,2226,128,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6862,2405,128,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);
