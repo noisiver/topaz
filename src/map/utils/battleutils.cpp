@@ -3796,6 +3796,15 @@ namespace battleutils
         }
         damage = std::clamp(damage, -99999, 99999);
 
+        if (PDefender->objtype == TYPE_MOB)
+        {
+            // Listener (hook)
+            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker);
+
+            // Binding
+            luautils::OnSkillchain(PDefender, PAttacker);
+        }
+
         PDefender->takeDamage(damage, PAttacker, ATTACK_SPECIAL, appliedEle == ELEMENT_NONE ? DAMAGE_NONE : (DAMAGETYPE)(DAMAGE_ELEMENTAL + appliedEle));
         // ShowDebug("FinalDamage: %u\n,", damage);
         battleutils::ClaimMob(PDefender, PAttacker);
@@ -3822,14 +3831,6 @@ namespace battleutils
             {
                 break;
             }
-        }
-        if (PDefender->objtype == TYPE_MOB)
-        {
-            // Listener (hook)
-            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PAttacker, PDefender);
-
-            // Binding
-            luautils::OnSkillchain(PAttacker, PDefender);
         }
 
         return damage;
