@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
         power = status:getPower() * 2
     end
 
-    skill:setMsg(MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, power, 0, 180))
+    skill:setMsg(MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, power, 0, 300))
 
     return tpz.effect.DEFENSE_BOOST
 end

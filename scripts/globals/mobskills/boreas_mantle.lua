@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
         clone:setHP(clonehp)
         clone:updateEnmity(player)
         clone:setPos(mob:getXPos(), mob:getYPos(), mob:getZPos())
-        clone:addStatusEffect(tpz.effect.BLINK, 3, 0, 180)
+        clone:addStatusEffect(tpz.effect.BLINK, 3, 0, 300)
     end
 
     mob:timer(30000, function(mob)

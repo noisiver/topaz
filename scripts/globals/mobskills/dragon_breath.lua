@@ -25,6 +25,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local dmgmod = MobBreathMove(mob, target, 0.25, 1, tpz.magic.ele.FIRE, 1000)
+    if (mob:getPool() == 883) then -- Cynoprosopi
+        dmgmod = MobBreathMove(mob, target, 0.25, 1, tpz.magic.ele.FIRE, 250)
+    end
     dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.25)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)

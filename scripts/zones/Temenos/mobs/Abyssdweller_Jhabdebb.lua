@@ -22,14 +22,17 @@ function onMobEngaged(mob, target)
         mob:setMod(tpz.mod.UDMGMAGIC, -90)
         mob:setMod(tpz.mod.UDMGBREATH, -90)
     end
+    GetMobByID(ID.mob.TEMENOS_C_MOB[3]+1):updateEnmity(target)
+    GetMobByID(ID.mob.TEMENOS_C_MOB[3]+2):updateEnmity(target)
+end
+
+function onMobFight(mob, target)
     if GetMobByID(ID.mob.TEMENOS_C_MOB[3]+1):isDead() and GetMobByID(ID.mob.TEMENOS_C_MOB[3]+2):isDead() then
 	    mob:setDamage(250)
         mob:setMod(tpz.mod.UDMGPHYS, -50)
         mob:setMod(tpz.mod.UDMGMAGIC, -50)
         mob:setMod(tpz.mod.UDMGBREATH, -50)
     end
-    GetMobByID(ID.mob.TEMENOS_C_MOB[3]+1):updateEnmity(target)
-    GetMobByID(ID.mob.TEMENOS_C_MOB[3]+2):updateEnmity(target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

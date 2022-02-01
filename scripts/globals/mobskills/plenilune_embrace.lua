@@ -54,8 +54,8 @@ function onMobWeaponSkill(target, mob, skill)
 	local typeEffect = tpz.effect.ATTACK_BOOST
     local typeEffectTwo = tpz.effect.MAGIC_ATK_BOOST
 
-	MobBuffMove(mob, typeEffect, moonpower, 0, 120)
-	MobBuffMove(mob, typeEffectTwo, moonpower, 0, 120)
+	MobBuffMove(mob, typeEffect, moonpower, 0, 300)
+	MobBuffMove(mob, typeEffectTwo, moonpower, 0, 300)
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
 	return MobHealMove(mob, heal)

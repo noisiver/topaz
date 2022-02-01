@@ -15,7 +15,7 @@ function onMobWeaponSkill(target, mob, skill)
     local message = tpz.msg.basic.SKILL_MISS
     local typeEffect = tpz.effect.LULLABY
 
-    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 120))
+    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 300))
 
     return typeEffect
 end

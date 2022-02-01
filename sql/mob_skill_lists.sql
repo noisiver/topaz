@@ -999,15 +999,17 @@ INSERT INTO `mob_skill_lists` VALUES ('Sahagin',213,771);
 INSERT INTO `mob_skill_lists` VALUES ('Sahagin',213,774);
 INSERT INTO `mob_skill_lists` VALUES ('Sahagin',213,777);
 INSERT INTO `mob_skill_lists` VALUES ('Sahagin',213,780);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',214,2190);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',214,2191);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',214,2192);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2187);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2188);
-INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2189);
-INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2190);
-INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2191);
-INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2192);
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2187); -- dustvoid
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2188); -- slaverous_gale
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2189); -- aeolian_void
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2190); -- extreme_purgation
+INSERT INTO `mob_skill_lists` VALUES ('LambtonWorm',214,2191); -- desiccation
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2187); -- dustvoid
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2188); -- slaverous_gale
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2189); -- aeolian_void
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2190); -- extreme_purgation
+INSERT INTO `mob_skill_lists` VALUES ('Sandworm',215,2191); -- desiccation
+INSERT INTO `mob_skill_lists` VALUES('Sandworm', 215, 2192); -- doomvoid
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,685);
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,686);
 INSERT INTO `mob_skill_lists` VALUES ('Sapling',216,687);
@@ -2505,10 +2507,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1527);
 INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1528);
 INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1529);
 INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1530);
-INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1532);
+--INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1532); -- Pod Ejection
 INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1533);
 INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1534);
--- INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1536);
+INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1536);
 INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1538);
 INSERT INTO `mob_skill_lists` VALUES ('Proto-Omega',727,1539);
 INSERT INTO `mob_skill_lists` VALUES ('Ultima',728,1259);
@@ -4270,10 +4272,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2328); -- Horn Aut
 INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2329); -- Horn Autoattack
 INSERT INTO `mob_skill_lists` VALUES ('Dark_Ixion_Autos',6096,2330); -- Horn Autoattack
 
-INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,332); -- Entangle
-INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,927); -- drill_branch_cemetary
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,328); -- drill_branch
 INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,928); -- pinecone_bomb_cemetary
 INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,929); -- leafstorm_cemetary
+INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,930); -- entangle_cemetary
 
 
 

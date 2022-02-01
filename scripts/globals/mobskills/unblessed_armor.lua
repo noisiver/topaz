@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SHELL
     local power = 50
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 180))
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 300))
 
     return typeEffect
 end

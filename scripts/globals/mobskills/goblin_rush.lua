@@ -16,9 +16,9 @@ function onMobWeaponSkill(target, mob, skill)
     local numhits = 3
     local accmod = 1
     local dmgmod = 0.7      -- changed to 0.5
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_ATK_VARIES, 1, 2, 3)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
-    if (mob:isNM()) then
+    if mob:isInDynamis() or mob:isNM() then  
         dmgmod = 1.33
     end
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)

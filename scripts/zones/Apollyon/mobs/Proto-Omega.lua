@@ -13,10 +13,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:addMod(tpz.mod.MDEF, 68)
     mob:setMobMod(tpz.mobMod.SUPERLINK, mob:getShortID())
     mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
-    mob:setMod(tpz.mod.UDMGPHYS, -75)
-    mob:setMod(tpz.mod.UDMGRANGE, -75)
+    mob:setMod(tpz.mod.UDMGPHYS, -90)
+    mob:setMod(tpz.mod.UDMGRANGE, -90)
     mob:setMod(tpz.mod.UDMGMAGIC, 0)
     mob:setMod(tpz.mod.MOVE, 100) -- "Moves at Flee Speed in Quadrupedal stance and in the Final Form"
 end
@@ -33,7 +34,7 @@ function onMobFight(mob, target)
         formTime = os.time()
         mob:setMod(tpz.mod.UDMGPHYS, 0)
         mob:setMod(tpz.mod.UDMGRANGE, 0)
-        mob:setMod(tpz.mod.UDMGMAGIC, -75)
+        mob:setMod(tpz.mod.UDMGMAGIC, -90)
         mob:setMod(tpz.mod.MOVE, 0)
     end
 

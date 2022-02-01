@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/limbus")
 require("scripts/globals/pathfind")
+require("scripts/globals/mobs")
 local ID = require("scripts/zones/Temenos/IDs")
 local flags = tpz.path.flag.NONE
 local path =
@@ -19,6 +20,23 @@ local path =
         {60.000, 6.000, 142.640}
     },
 }
+
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.UDMGMAGIC, -15)
+    mob:addMod(tpz.mod.MDEF, 15)
+    mob:setMod(tpz.mod.HTHRES, 750)
+    mob:setMod(tpz.mod.SLASHRES, 750)
+    mob:setMod(tpz.mod.PIERCERES, 750)
+    mob:setMod(tpz.mod.IMPACTRES, 750)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.SILENCE, {chance = 100})
+end
 
 function onMobRoam(mob)
     if mob:getBattlefieldID() == 1300 then

@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.DEFENSE_DOWN
     local power = 75
-    local duration = 120
+    local duration = 300
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 0, duration)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)

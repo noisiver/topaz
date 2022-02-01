@@ -15,6 +15,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 2 + math.floor((mob:getMainLvl() / 10))
-    skill:setMsg(MobBuffMove(mob, tpz.effect.PHALANX, power, 0, 120))
+    skill:setMsg(MobBuffMove(mob, tpz.effect.PHALANX, power, 0, 300))
     return tpz.effect.PHALANX
 end

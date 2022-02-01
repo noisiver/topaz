@@ -45,6 +45,7 @@ function onPath(mob)
 end
 
 function onMobRoam(mob)
+    mob:setMP(0)
     local offset = mob:getID() - ID.mob.APOLLYON_NW_MOB[2]
     local pause = mob:getLocalVar("pause")
     if pause < os.time() and offset ~= 2 then

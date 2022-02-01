@@ -28,7 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
     dmg = dmg * ((50 - distance) / 50)
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.LIGHTNING)
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 120)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
     return dmg
 end
 

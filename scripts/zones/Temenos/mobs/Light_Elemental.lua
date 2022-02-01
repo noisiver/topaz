@@ -2,7 +2,26 @@
 -- Area: Temenos E T
 --  Mob: Light Elemental
 -----------------------------------
+require("scripts/globals/limbus")
+require("scripts/globals/mobs")
 local ID = require("scripts/zones/Temenos/IDs")
+-----------------------------------
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.UDMGMAGIC, -15)
+    mob:addMod(tpz.mod.MDEF, 15)
+    mob:setMod(tpz.mod.HTHRES, 750)
+    mob:setMod(tpz.mod.SLASHRES, 750)
+    mob:setMod(tpz.mod.PIERCERES, 750)
+    mob:setMod(tpz.mod.IMPACTRES, 750)
+end
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.FLASH, {chance = 100})
+end
 
 function onMobEngaged(mob, target)
     local mobID = mob:getID()

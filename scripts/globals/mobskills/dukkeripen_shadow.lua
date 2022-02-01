@@ -18,7 +18,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    skill:setMsg(MobBuffMove(mob, tpz.effect.BLINK, 10, 0, 120))
+    skill:setMsg(MobBuffMove(mob, tpz.effect.BLINK, 10, 0, 300))
 
     return tpz.effect.BLINK
 end

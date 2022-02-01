@@ -4,16 +4,16 @@
 -- Note:  Title Given if Sandworm does not Doomvoid
 -----------------------------------
 mixins ={require("scripts/mixins/rage")}
-local ID = require("scripts/zones/Rolanberry_Fields_[S]/IDs")
+local ID = require("scripts/zones/North_Gustaberg_[S]/IDs")
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setDamage(250)
-    mob:setMod(tpz.mod.DEF, 522)
-    mob:setMod(tpz.mod.EVA, 395) 
+	mob:setDamage(150)
+    mob:setMod(tpz.mod.DEF, 400)
+    mob:setMod(tpz.mod.EVA, 350) 
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 2064)
@@ -30,21 +30,43 @@ function onMobFight(mob, target)
         mob:setLocalVar("dv", 0)
     end
 end
-    --TODO: Currently, Doomvoid only takes the primary target and properly creates the instance, taking them inside. Second target executes
-    -- the setPos command but ends up inside zone without instance set.
+
+function onMobWeaponSkillPrepare(mob, target)
+    if mob:getHPP() < 40 then
+        local rnd = math.random()
+
+        if rnd < 0.5 then
+            return 2192 -- doomvoid
+        elseif rnd < 0.6 then
+            return 2191 -- desiccation
+        elseif rnd < 0.7 then
+            return 2190 -- extreme_purgation
+        elseif rnd < 0.8 then
+            return 2189 -- aeolian_void
+        elseif rnd < 0.9 then
+            return 2188 -- slaverous_gale
+        else
+            return 2187 -- dustvoid
+        end
+    end
+end
+
 function onMobWeaponSkill (target, mob, skill)
-    if skill:getID() == 2192 then
+    if skill:getID() == 2192 then -- Doomvoid
         --local Guivre = GetMobByID(17158400)
         local Guivre = GetMobByID(17297511)
-        local LambtonWorm = GetMobByID(17158401)
+        local LambtonWorm = GetMobByID(17297512)
         local RNG = math.random(1,2)
         if RNG == 1 then
             --target:setPos(219.9899, -15.6340, -180.4311, 0, 93) -- Ruhotz Silvermines Zone
-            player:setPos(-289.0951, -20.2527, 54.2799, 0, 127) -- Behemoth's Dominion 
+            target:setPos(-289.0951, -20.2527, 54.2799, 0, 127) -- Behemoth's Dominion 
             Guivre:spawn()
+            DespawnMob(mob:getID())
         elseif RNG == 2 then
             --target:setPos(19.3717, 0.3757, 139.9185, 0, 93) -- Ruhotz Silvermines Zone
+            target:setPos(-289.0951, -20.2527, 54.2799, 0, 127) -- Behemoth's Dominion 
             LambtonWorm:spawn()
+            DespawnMob(mob:getID())
         end
     end
 end

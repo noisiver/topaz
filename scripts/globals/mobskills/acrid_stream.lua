@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.MAGIC_DEF_DOWN
     local power = 20
 
-    local duration = 120
+    local duration = 300
 
     MobStatusEffectMove(mob, target, typeEffect, power, 0, duration)
 

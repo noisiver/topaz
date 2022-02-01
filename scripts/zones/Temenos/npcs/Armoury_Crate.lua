@@ -38,24 +38,25 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid =    0, droprate = 250},
-                {itemid = 1954, droprate = 159},
-                {itemid = 1940, droprate = 146},
-                {itemid = 1932, droprate =  85},
-                {itemid = 1956, droprate = 171},
-                {itemid = 1934, droprate = 110},
-                {itemid = 2658, droprate = 220},
-                {itemid = 2716, droprate =  98},
+                {itemid =    0, droprate = 300},
+                {itemid = 1954, droprate = 100}, -- NIN
+                {itemid = 1940, droprate = 100}, -- THF
+                {itemid = 1932, droprate = 100}, -- MNK
+                {itemid = 1956, droprate = 100}, -- DRG
+                {itemid = 1934, droprate = 100}, -- WHM
+                {itemid = 2658, droprate = 100}, -- COR
+                {itemid = 2716, droprate = 100}, -- SCH 
             },
             {
-                {itemid =    0, droprate = 250},
-                {itemid = 1954, droprate = 159},
-                {itemid = 1940, droprate = 146},
-                {itemid = 1932, droprate =  85},
-                {itemid = 1956, droprate = 171},
-                {itemid = 1934, droprate = 110},
-                {itemid = 2658, droprate = 220},
-                {itemid = 2716, droprate =  98},
+                {itemid =    0, droprate = 300},
+                {itemid = 1954, droprate = 100}, -- NIN
+                {itemid = 1940, droprate = 100}, -- THF
+                {itemid = 1932, droprate = 100}, -- MNK
+                {itemid = 1956, droprate = 100}, -- DRG
+                {itemid = 1934, droprate = 100}, -- WHM
+                {itemid = 2658, droprate = 100}, -- COR
+                {itemid = 2716, droprate = 100}, -- SCH 
+
             },
         },
     -- northern tower floor 2
@@ -85,30 +86,30 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid =    0, droprate = 400},
-                {itemid = 1932, droprate = 333},
-                {itemid = 1954, droprate = 200},
-                {itemid = 1950, droprate = 100},
-                {itemid = 1940, droprate =  90},
-                {itemid = 1942, droprate =  70},
-                {itemid = 1934, droprate =  90},
-                {itemid = 1936, droprate = 100},
-                {itemid = 1958, droprate =  90},
-                {itemid = 2656, droprate =  67},
-                {itemid = 1956, droprate = 167},
+                {itemid =    0, droprate = 300},
+                {itemid = 1932, droprate = 70}, -- MNK
+                {itemid = 1954, droprate = 70}, -- NIN
+                {itemid = 1950, droprate = 70}, -- RNG
+                {itemid = 1940, droprate = 70}, -- THF
+                {itemid = 1942, droprate = 70}, -- PLD
+                {itemid = 1934, droprate = 70}, -- WHM
+                {itemid = 1936, droprate = 70}, -- BLM
+                {itemid = 1958, droprate = 70}, -- SMN
+                {itemid = 2656, droprate = 70}, -- BLU
+                {itemid = 1956, droprate = 70}, -- DRG
             },
             {
-                {itemid =    0, droprate = 400},
-                {itemid = 1932, droprate = 333},
-                {itemid = 1954, droprate = 200},
-                {itemid = 1950, droprate = 100},
-                {itemid = 1940, droprate =  90},
-                {itemid = 1942, droprate =  70},
-                {itemid = 1934, droprate =  90},
-                {itemid = 1936, droprate = 100},
-                {itemid = 1958, droprate =  90},
-                {itemid = 2656, droprate =  67},
-                {itemid = 1956, droprate = 167},
+                {itemid =    0, droprate = 300},
+                {itemid = 1932, droprate = 70}, -- MNK
+                {itemid = 1954, droprate = 70}, -- NIN
+                {itemid = 1950, droprate = 70}, -- RNG
+                {itemid = 1940, droprate = 70}, -- THF
+                {itemid = 1942, droprate = 70}, -- PLD
+                {itemid = 1934, droprate = 70}, -- WHM
+                {itemid = 1936, droprate = 70}, -- BLM
+                {itemid = 1958, droprate = 70}, -- SMN
+                {itemid = 2656, droprate = 70}, -- BLU
+                {itemid = 1956, droprate = 70}, -- DRG
             },
         },
     -- northern tower floor 3
@@ -138,31 +139,32 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1956, droprate =  27},
-                {itemid = 1932, droprate = 324},
-                {itemid = 1950, droprate =  80},
-                {itemid = 1934, droprate = 189},
-                {itemid = 1930, droprate =  50},
-                {itemid = 1940, droprate =  27},
-                {itemid = 1936, droprate =  81},
-                {itemid = 1944, droprate =  80},
-                {itemid = 1958, droprate =  81},
-                {itemid = 2658, droprate = 270},
-                {itemid = 2714, droprate = 108},
+                {itemid =    0, droprate = 450},
+                {itemid = 1956, droprate = 50}, -- DRG
+                {itemid = 1932, droprate = 50}, -- MNK
+                {itemid = 1950, droprate = 50}, -- RNG
+                {itemid = 1934, droprate = 50}, -- WHM
+                {itemid = 1930, droprate = 50}, -- WAR
+                {itemid = 1940, droprate = 50}, -- THF
+                {itemid = 1936, droprate = 50}, -- BLM
+                {itemid = 1944, droprate = 50}, -- DRK
+                {itemid = 1958, droprate = 50}, -- SMN
+                {itemid = 2658, droprate = 50}, -- COR
+                {itemid = 2714, droprate = 50}, -- DNC 
             },
             {
-                {itemid =    0, droprate = 300},
-                {itemid = 1956, droprate =  27},
-                {itemid = 1932, droprate = 324},
-                {itemid = 1950, droprate =  80},
-                {itemid = 1934, droprate = 189},
-                {itemid = 1930, droprate =  50},
-                {itemid = 1940, droprate =  27},
-                {itemid = 1936, droprate =  81},
-                {itemid = 1944, droprate =  80},
-                {itemid = 1958, droprate =  81},
-                {itemid = 2658, droprate = 270},
-                {itemid = 2714, droprate = 108},
+                {itemid =    0, droprate = 450},
+                {itemid = 1956, droprate = 50}, -- DRG
+                {itemid = 1932, droprate = 50}, -- MNK
+                {itemid = 1950, droprate = 50}, -- RNG
+                {itemid = 1934, droprate = 50}, -- WHM
+                {itemid = 1930, droprate = 50}, -- WAR
+                {itemid = 1940, droprate = 50}, -- THF
+                {itemid = 1936, droprate = 50}, -- BLM
+                {itemid = 1944, droprate = 50}, -- DRK
+                {itemid = 1958, droprate = 50}, -- SMN
+                {itemid = 2658, droprate = 50}, -- COR
+                {itemid = 2714, droprate = 50}, -- DNC 
             },
         },
     -- northern tower floor 4
@@ -193,29 +195,29 @@ local loot =
             },
             {
                 {itemid =    0, droprate = 300},
-                {itemid = 1942, droprate =  90},
-                {itemid = 1934, droprate = 435},
-                {itemid = 1956, droprate =  80},
-                {itemid = 1940, droprate = 174},
-                {itemid = 1958, droprate =  87},
-                {itemid = 1954, droprate =  90},
-                {itemid = 1936, droprate =  87},
-                {itemid = 1930, droprate =  43},
-                {itemid = 2656, droprate =  27},
-                {itemid = 2658, droprate = 261},
+                {itemid = 1942, droprate = 70}, -- PLD
+                {itemid = 1934, droprate = 70}, -- WHM
+                {itemid = 1956, droprate = 70}, -- DRG
+                {itemid = 1940, droprate = 70}, -- THF
+                {itemid = 1958, droprate = 70}, -- SMN
+                {itemid = 1954, droprate = 70}, -- NIN
+                {itemid = 1936, droprate = 70}, -- BLM
+                {itemid = 1930, droprate = 70}, -- WAR
+                {itemid = 2656, droprate = 70}, -- BLU
+                {itemid = 2658, droprate = 70}, -- COR
             },
             {
                 {itemid =    0, droprate = 300},
-                {itemid = 1942, droprate =  90},
-                {itemid = 1934, droprate = 435},
-                {itemid = 1956, droprate =  80},
-                {itemid = 1940, droprate = 174},
-                {itemid = 1958, droprate =  87},
-                {itemid = 1954, droprate =  90},
-                {itemid = 1936, droprate =  87},
-                {itemid = 1930, droprate =  43},
-                {itemid = 2656, droprate =  27},
-                {itemid = 2658, droprate = 261},
+                {itemid = 1942, droprate = 70}, -- PLD
+                {itemid = 1934, droprate = 70}, -- WHM
+                {itemid = 1956, droprate = 70}, -- DRG
+                {itemid = 1940, droprate = 70}, -- THF
+                {itemid = 1958, droprate = 70}, -- SMN
+                {itemid = 1954, droprate = 70}, -- NIN
+                {itemid = 1936, droprate = 70}, -- BLM
+                {itemid = 1930, droprate = 70}, -- WAR
+                {itemid = 2656, droprate = 70}, -- BLU
+                {itemid = 2658, droprate = 70}, -- COR
             },
         },
     -- northern tower floor 5
@@ -245,30 +247,30 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid =    0, droprate = 200},
-                {itemid = 1954, droprate =  67},
-                {itemid = 1940, droprate = 353},
-                {itemid = 1936, droprate =  87},
-                {itemid = 1956, droprate = 110},
-                {itemid = 1958, droprate =  87},
-                {itemid = 1942, droprate =  50},
-                {itemid = 1950, droprate =  60},
-                {itemid = 1932, droprate =  59},
-                {itemid = 2716, droprate = 100},
-                {itemid = 2714, droprate = 110},
+                {itemid =    0, droprate = 300},
+                {itemid = 1954, droprate = 70}, -- NIN
+                {itemid = 1940, droprate = 70}, -- THF
+                {itemid = 1936, droprate = 70}, -- BLM
+                {itemid = 1956, droprate = 70}, -- DRG
+                {itemid = 1958, droprate = 70}, -- SMN
+                {itemid = 1942, droprate = 70}, -- PLD
+                {itemid = 1950, droprate = 70}, -- RNG
+                {itemid = 1932, droprate = 70}, -- MNK
+                {itemid = 2716, droprate = 70}, -- SCH 
+                {itemid = 2714, droprate = 70}, -- DNC 
             },
             {
-                {itemid =    0, droprate = 200},
-                {itemid = 1954, droprate =  67},
-                {itemid = 1940, droprate = 353},
-                {itemid = 1936, droprate =  87},
-                {itemid = 1956, droprate = 110},
-                {itemid = 1958, droprate =  87},
-                {itemid = 1942, droprate =  50},
-                {itemid = 1950, droprate =  60},
-                {itemid = 1932, droprate =  59},
-                {itemid = 2716, droprate = 100},
-                {itemid = 2714, droprate = 110},
+                {itemid =    0, droprate = 300},
+                {itemid = 1954, droprate = 70}, -- NIN
+                {itemid = 1940, droprate = 70}, -- THF
+                {itemid = 1936, droprate = 70}, -- BLM
+                {itemid = 1956, droprate = 70}, -- DRG
+                {itemid = 1958, droprate = 70}, -- SMN
+                {itemid = 1942, droprate = 70}, -- PLD
+                {itemid = 1950, droprate = 70}, -- RNG
+                {itemid = 1932, droprate = 70}, -- MNK
+                {itemid = 2716, droprate = 70}, -- SCH 
+                {itemid = 2714, droprate = 70}, -- DNC 
             },
         },
     -- northern tower floor 6
@@ -298,27 +300,27 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1954, droprate = 263},
-                {itemid = 1932, droprate =  59},
-                {itemid = 1942, droprate =  53},
-                {itemid = 1934, droprate =  60},
-                {itemid = 1956, droprate = 526},
-                {itemid = 1930, droprate =  60},
-                {itemid = 1936, droprate =  53},
-                {itemid = 1950, droprate = 158},
-                {itemid = 2716, droprate = 105},
+                {itemid = 1954, droprate = 111}, -- NIN
+                {itemid = 1932, droprate = 111}, -- MNK
+                {itemid = 1942, droprate = 111}, -- PLD
+                {itemid = 1934, droprate = 111}, -- WHM
+                {itemid = 1956, droprate = 111}, -- DRG
+                {itemid = 1930, droprate = 111}, -- WAR
+                {itemid = 1936, droprate = 111}, -- BLM
+                {itemid = 1950, droprate = 111}, -- RNG
+                {itemid = 2716, droprate = 112}, -- SCH 
             },
             {
-                {itemid =    0, droprate = 300},
-                {itemid = 1954, droprate = 263},
-                {itemid = 1932, droprate =  59},
-                {itemid = 1942, droprate =  53},
-                {itemid = 1934, droprate =  60},
-                {itemid = 1956, droprate = 526},
-                {itemid = 1930, droprate =  60},
-                {itemid = 1936, droprate =  53},
-                {itemid = 1950, droprate = 158},
-                {itemid = 2716, droprate = 105},
+                {itemid =    0, droprate = 550},
+                {itemid = 1954, droprate = 45}, -- NIN
+                {itemid = 1932, droprate = 45}, -- MNK
+                {itemid = 1942, droprate = 45}, -- PLD
+                {itemid = 1934, droprate = 45}, -- WHM
+                {itemid = 1956, droprate = 45}, -- DRG
+                {itemid = 1930, droprate = 45}, -- WAR
+                {itemid = 1936, droprate = 45}, -- BLM
+                {itemid = 1950, droprate = 45}, -- RNG
+                {itemid = 2716, droprate = 45}, -- SCH 
             },
         },
     -- northern tower floor 7
@@ -343,20 +345,21 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1956, droprate = 240},
-                {itemid = 1932, droprate = 120},
-                {itemid = 1940, droprate = 200},
-                {itemid = 1934, droprate =  40},
-                {itemid = 1954, droprate = 120},
-                {itemid = 2658, droprate = 200},
-                {itemid = 2716, droprate =  80},
+                {itemid = 1956, droprate = 125}, -- DRG
+                {itemid = 1932, droprate = 125}, -- MNK
+                {itemid = 1940, droprate = 125}, -- THF
+                {itemid = 1934, droprate = 125}, -- WHM
+                {itemid = 1954, droprate = 125}, -- NIN
+                {itemid = 2658, droprate = 125}, -- COR
+                {itemid = 2716, droprate = 125}, -- SCH
+                {itemid = 1942, droprate = 125}, -- PLD
             },
             {
                 {itemid = 1904, droprate = 1000},
             },
             {
-                {itemid =    0, droprate = 100},
-                {itemid = 2127, droprate =  55},
+                {itemid =    0, droprate = 950},
+                {itemid = 2127, droprate =  50},
             },
         },
     },
@@ -389,13 +392,13 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid =    0, droprate = 100},
-                {itemid = 1948, droprate = 172},
-                {itemid = 1938, droprate = 138},
-                {itemid = 1952, droprate = 138},
-                {itemid = 1958, droprate = 207},
-                {itemid = 1930, droprate = 241},
-                {itemid = 2656, droprate = 172},
+                {itemid =    0, droprate = 400},
+                {itemid = 1948, droprate = 100}, -- BRD
+                {itemid = 1938, droprate = 100}, -- RDM
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1958, droprate = 100}, -- SMN
+                {itemid = 1930, droprate = 100}, -- WAR
+                {itemid = 2656, droprate = 100}, -- BLU
             },
         },
     -- western tower floor 2
@@ -421,25 +424,24 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1948, droprate = 179},
-                {itemid = 1938, droprate = 571},
-                {itemid = 1944, droprate =  71},
-                {itemid = 1952, droprate = 179},
-                {itemid = 1946, droprate = 120},
-                {itemid = 1934, droprate =  71},
-                {itemid = 1930, droprate = 143},
-                {itemid = 2660, droprate = 143},
+                {itemid =    0, droprate = 300},
+                {itemid = 1948, droprate = 100}, -- BRD
+                {itemid = 1938, droprate = 100}, -- RDM
+                {itemid = 1944, droprate = 100}, -- DRK
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1934, droprate = 100}, -- WHM
+                {itemid = 1930, droprate = 100}, -- WAR
+                {itemid = 2660, droprate = 100}, -- PUP
             },
             {
-                {itemid =    0, droprate = 200},
-                {itemid = 1948, droprate = 179},
-                {itemid = 1938, droprate = 571},
-                {itemid = 1944, droprate =  71},
-                {itemid = 1952, droprate = 179},
-                {itemid = 1946, droprate = 120},
-                {itemid = 1934, droprate =  71},
-                {itemid = 1930, droprate = 143},
-                {itemid = 2660, droprate = 143},
+                {itemid =    0, droprate = 300},
+                {itemid = 1948, droprate = 100}, -- BRD
+                {itemid = 1938, droprate = 100}, -- RDM
+                {itemid = 1944, droprate = 100}, -- DRK
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1934, droprate = 100}, -- WHM
+                {itemid = 1930, droprate = 100}, -- WAR
+                {itemid = 2660, droprate = 100}, -- PUP
             },
         },
     -- western tower floor 3
@@ -470,33 +472,22 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1948, droprate = 536},
-                {itemid = 1952, droprate = 107},
-                {itemid = 1938, droprate =  60},
-                {itemid = 1934, droprate = 110},
-                {itemid = 1930, droprate =  80},
-                {itemid = 2660, droprate =  90},
-                {itemid = 1946, droprate =  71},
-                {itemid = 1944, droprate = 103},
-                {itemid = 1958, droprate = 160},
-                {itemid = 1954, droprate =  36},
-                {itemid = 2656, droprate = 250},
-                {itemid = 2716, droprate = 350},
+                {itemid =    0, droprate = 400},
+                {itemid = 1948, droprate = 100}, -- BRD
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1946, droprate = 100}, -- BST
+                {itemid = 1954, droprate = 100}, -- NIN
+                {itemid = 2656, droprate = 100}, -- BLU
+                {itemid = 2716, droprate = 100}, -- SCH
             },
             {
-                {itemid =    0, droprate = 750},
-                {itemid = 1948, droprate = 536},
-                {itemid = 1952, droprate = 107},
-                {itemid = 1938, droprate =  60},
-                {itemid = 1934, droprate = 110},
-                {itemid = 1930, droprate =  80},
-                {itemid = 2660, droprate =  90},
-                {itemid = 1946, droprate =  71},
-                {itemid = 1944, droprate = 103},
-                {itemid = 1958, droprate = 160},
-                {itemid = 1954, droprate =  36},
-                {itemid = 2656, droprate = 250},
-                {itemid = 2716, droprate = 350},
+                {itemid =    0, droprate = 400},
+                {itemid = 1948, droprate = 100}, -- BRD
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1946, droprate = 100}, -- BST
+                {itemid = 1954, droprate = 100}, -- NIN
+                {itemid = 2656, droprate = 100}, -- BLU
+                {itemid = 2716, droprate = 100}, -- SCH
             },
         },
     -- western tower floor 4
@@ -523,27 +514,24 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1952, droprate = 533},
-                {itemid = 1946, droprate =  90},
-                {itemid = 1938, droprate = 133},
-                {itemid = 1932, droprate =  90},
-                {itemid = 1958, droprate =  10},
-                {itemid = 1954, droprate = 133},
-                {itemid = 1944, droprate = 133},
-                {itemid = 1930, droprate = 133},
-                {itemid = 2660, droprate =  33},
+                {itemid =    0, droprate = 300},
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1938, droprate = 100}, -- RDM
+                {itemid = 1958, droprate = 100}, -- SMN
+                {itemid = 1954, droprate = 100}, -- NIN
+                {itemid = 1944, droprate = 100}, -- DRK
+                {itemid = 1930, droprate = 100}, -- WAR
+                {itemid = 2660, droprate = 100}, -- PUP
             },
             {
-                {itemid =    0, droprate = 500},
-                {itemid = 1952, droprate = 533},
-                {itemid = 1946, droprate =  90},
-                {itemid = 1938, droprate = 133},
-                {itemid = 1932, droprate =  90},
-                {itemid = 1958, droprate =  10},
-                {itemid = 1954, droprate = 133},
-                {itemid = 1944, droprate = 133},
-                {itemid = 1930, droprate = 133},
-                {itemid = 2660, droprate =  33},
+                {itemid =    0, droprate = 300},
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1938, droprate = 100}, -- RDM
+                {itemid = 1958, droprate = 100}, -- SMN
+                {itemid = 1954, droprate = 100}, -- NIN
+                {itemid = 1944, droprate = 100}, -- DRK
+                {itemid = 1930, droprate = 100}, -- WAR
+                {itemid = 2660, droprate = 100}, -- PUP
             },
         },
     -- western tower floor 5
@@ -576,27 +564,25 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1954, droprate =  59},
-                {itemid = 1930, droprate = 294},
-                {itemid = 1946, droprate =  59},
-                {itemid = 1934, droprate =  78},
-                {itemid = 1958, droprate = 176},
-                {itemid = 1938, droprate =  59},
-                {itemid = 1948, droprate =  25},
-                {itemid = 1932, droprate = 118},
-                {itemid = 2656, droprate = 294},
+                {itemid = 1954, droprate = 125}, -- NIN
+                {itemid = 1930, droprate = 125}, -- WAR
+                {itemid = 1946, droprate = 125}, -- BST
+                {itemid = 1958, droprate = 125}, -- SMN
+                {itemid = 1938, droprate = 125}, -- RDM
+                {itemid = 1932, droprate = 125}, -- MNK
+                {itemid = 2656, droprate = 125}, -- BLU
+                {itemid = 2716, droprate = 125}, -- SCH
             },
             {
-                {itemid =    0, droprate = 200},
-                {itemid = 1954, droprate =  59},
-                {itemid = 1930, droprate = 294},
-                {itemid = 1946, droprate =  59},
-                {itemid = 1934, droprate =  78},
-                {itemid = 1958, droprate = 176},
-                {itemid = 1938, droprate =  59},
-                {itemid = 1948, droprate =  25},
-                {itemid = 1932, droprate = 118},
-                {itemid = 2656, droprate = 294},
+                {itemid =    0, droprate = 600},
+                {itemid = 1954, droprate = 50}, -- NIN
+                {itemid = 1930, droprate = 50}, -- WAR
+                {itemid = 1946, droprate = 50}, -- BST
+                {itemid = 1958, droprate = 50}, -- SMN
+                {itemid = 1938, droprate = 50}, -- RDM
+                {itemid = 1932, droprate = 50}, -- MNK
+                {itemid = 2656, droprate = 50}, -- BLU
+                {itemid = 2716, droprate = 50}, -- SCH
             },
         },
     -- western tower floor 6
@@ -625,27 +611,25 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1954, droprate = 200},
-                {itemid = 1958, droprate = 400},
-                {itemid = 1948, droprate = 100},
-                {itemid = 1934, droprate = 150},
-                {itemid = 1932, droprate =  50},
-                {itemid = 1930, droprate =  60},
-                {itemid = 1938, droprate = 200},
-                {itemid = 1944, droprate =  60},
-                {itemid = 1952, droprate = 200},
+                {itemid = 1954, droprate = 125}, -- NIN
+                {itemid = 1958, droprate = 125}, -- SMN
+                {itemid = 1948, droprate = 125}, -- BRD
+                {itemid = 1934, droprate = 125}, -- WHM
+                {itemid = 1932, droprate = 125}, -- MNK
+                {itemid = 1938, droprate = 125}, -- RDM
+                {itemid = 1952, droprate = 125}, -- SAM
+                {itemid = 2656, droprate = 125}, -- BLU
             },
             {
-                {itemid =    0, droprate = 400},
-                {itemid = 1954, droprate = 200},
-                {itemid = 1958, droprate = 400},
-                {itemid = 1948, droprate = 100},
-                {itemid = 1934, droprate = 150},
-                {itemid = 1932, droprate =  50},
-                {itemid = 1930, droprate =  60},
-                {itemid = 1938, droprate = 200},
-                {itemid = 1944, droprate =  60},
-                {itemid = 1952, droprate = 200},
+                {itemid =    0, droprate = 600},
+                {itemid = 1954, droprate = 50}, -- NIN
+                {itemid = 1958, droprate = 50}, -- SMN
+                {itemid = 1948, droprate = 50}, -- BRD
+                {itemid = 1934, droprate = 50}, -- WHM
+                {itemid = 1932, droprate = 50}, -- MNK
+                {itemid = 1938, droprate = 50}, -- RDM
+                {itemid = 1952, droprate = 50}, -- SAM
+                {itemid = 2656, droprate = 50}, -- BLU
             },
         },
     -- western tower floor 7
@@ -674,19 +658,21 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1948, droprate =  36},
-                {itemid = 1952, droprate = 143},
-                {itemid = 1930, droprate = 143},
-                {itemid = 1958, droprate = 214},
-                {itemid = 1938, droprate =  71},
-                {itemid = 2656, droprate = 321},
+                {itemid = 1948, droprate = 125}, -- BRD
+                {itemid = 1952, droprate = 125}, -- SAM
+                {itemid = 1930, droprate = 125}, -- WAR
+                {itemid = 1958, droprate = 125}, -- SMN
+                {itemid = 1938, droprate = 125}, -- RDM
+                {itemid = 2656, droprate = 125}, -- BLU
+                {itemid = 1932, droprate = 125}, -- MNK
+                {itemid = 1946, droprate = 125}, -- BST
             },
             {
                 {itemid = 1906, droprate = 1000},
             },
             {
-                {itemid =    0, droprate = 100},
-                {itemid = 2127, droprate =  55},
+                {itemid =    0, droprate = 950},
+                {itemid = 2127, droprate =  50},
             },
         },
     },
@@ -718,13 +704,14 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1944, droprate =  65},
-                {itemid = 1936, droprate =  97},
-                {itemid = 1946, droprate =  40},
-                {itemid = 1942, droprate =  95},
-                {itemid = 2660, droprate = 194},
-                {itemid = 2714, droprate =  32},
-                {itemid = 1950, droprate = 161},
+                {itemid = 1944, droprate = 125}, -- DRK
+                {itemid = 1936, droprate = 125}, -- BLM
+                {itemid = 1946, droprate = 125}, -- BST
+                {itemid = 1942, droprate = 125}, -- PLD
+                {itemid = 2660, droprate = 125}, -- PUP
+                {itemid = 2714, droprate = 125}, -- DNC 
+                {itemid = 1950, droprate = 125}, -- RNG
+                {itemid = 1956, droprate = 125}, -- DRG
             },
         },
     -- eastern tower floor 2
@@ -758,31 +745,29 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1936, droprate = 367},
-                {itemid = 1952, droprate =  70},
-                {itemid = 1950, droprate =  40},
-                {itemid = 1942, droprate = 333},
-                {itemid = 1958, droprate =  20},
-                {itemid = 1956, droprate = 106},
-                {itemid = 1938, droprate =  33},
-                {itemid = 1944, droprate =  76},
-                {itemid = 1948, droprate =  95},
-                {itemid = 2658, droprate =  67},
-                {itemid = 1946, droprate = 133},
+                {itemid = 1936, droprate = 100}, -- BLM
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1950, droprate = 100}, -- RNG
+                {itemid = 1942, droprate = 100}, -- PLD
+                {itemid = 1956, droprate = 100}, -- DRG
+                {itemid = 1938, droprate = 100}, -- RDM
+                {itemid = 1944, droprate = 100}, -- DRK
+                {itemid = 1948, droprate = 100}, -- BRD
+                {itemid = 2658, droprate = 100}, -- COR
+                {itemid = 1946, droprate = 100}, -- BST
             },
             {
-                {itemid =    0, droprate = 350},
-                {itemid = 1936, droprate = 367},
-                {itemid = 1952, droprate =  70},
-                {itemid = 1950, droprate =  40},
-                {itemid = 1942, droprate = 333},
-                {itemid = 1958, droprate =  20},
-                {itemid = 1956, droprate = 106},
-                {itemid = 1938, droprate =  33},
-                {itemid = 1944, droprate =  76},
-                {itemid = 1948, droprate =  95},
-                {itemid = 2658, droprate =  67},
-                {itemid = 1946, droprate = 133},
+                {itemid =    0, droprate = 500},
+                {itemid = 1936, droprate = 50}, -- BLM
+                {itemid = 1952, droprate = 50}, -- SAM
+                {itemid = 1950, droprate = 50}, -- RNG
+                {itemid = 1942, droprate = 50}, -- PLD
+                {itemid = 1956, droprate = 50}, -- DRG
+                {itemid = 1938, droprate = 50}, -- RDM
+                {itemid = 1944, droprate = 50}, -- DRK
+                {itemid = 1948, droprate = 50}, -- BRD
+                {itemid = 2658, droprate = 50}, -- COR
+                {itemid = 1946, droprate = 50}, -- BST
             },
         },
     -- eastern tower floor 3
@@ -816,29 +801,29 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1942, droprate = 625},
-                {itemid = 1944, droprate = 102},
-                {itemid = 1950, droprate =  42},
-                {itemid = 1952, droprate =  83},
-                {itemid = 1946, droprate =  50},
-                {itemid = 1940, droprate =  83},
-                {itemid = 1936, droprate =  70},
-                {itemid = 1938, droprate =  42},
-                {itemid = 1948, droprate =  42},
-                {itemid = 2660, droprate = 292},
+                {itemid = 1942, droprate = 100}, -- PLD
+                {itemid = 1944, droprate = 100}, -- DRK
+                {itemid = 1950, droprate = 100}, -- RNG
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1946, droprate = 100}, -- BST
+                {itemid = 1940, droprate = 100}, -- THF
+                {itemid = 1936, droprate = 100}, -- BLM
+                {itemid = 1938, droprate = 100}, -- RDM
+                {itemid = 1948, droprate = 100}, -- BRD
+                {itemid = 2660, droprate = 100}, -- PUP
             },
             {
-                {itemid =    0, droprate = 300},
-                {itemid = 1942, droprate = 625},
-                {itemid = 1944, droprate = 102},
-                {itemid = 1950, droprate =  42},
-                {itemid = 1952, droprate =  83},
-                {itemid = 1946, droprate =  50},
-                {itemid = 1940, droprate =  83},
-                {itemid = 1936, droprate =  70},
-                {itemid = 1938, droprate =  42},
-                {itemid = 1948, droprate =  42},
-                {itemid = 2660, droprate = 292},
+                {itemid =    0, droprate = 500},
+                {itemid = 1942, droprate = 50}, -- PLD
+                {itemid = 1944, droprate = 50}, -- DRK
+                {itemid = 1950, droprate = 50}, -- RNG
+                {itemid = 1952, droprate = 50}, -- SAM
+                {itemid = 1946, droprate = 50}, -- BST
+                {itemid = 1940, droprate = 50}, -- THF
+                {itemid = 1936, droprate = 50}, -- BLM
+                {itemid = 1938, droprate = 50}, -- RDM
+                {itemid = 1948, droprate = 50}, -- BRD
+                {itemid = 2660, droprate = 50}, -- PUP
             },
         },
     -- eastern tower floor 4
@@ -871,27 +856,29 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1950, droprate = 417},
-                {itemid = 1956, droprate =  75},
-                {itemid = 1944, droprate = 208},
-                {itemid = 1940, droprate = 167},
-                {itemid = 1946, droprate =  62},
-                {itemid = 1936, droprate =  69},
-                {itemid = 2660, droprate = 208},
-                {itemid = 1952, droprate =  42},
-                {itemid = 2658, droprate =  83},
+                {itemid = 1950, droprate = 100}, -- RNG
+                {itemid = 1956, droprate = 100}, -- DRG
+                {itemid = 1944, droprate = 100}, -- DRK
+                {itemid = 1940, droprate = 100}, -- THF
+                {itemid = 1946, droprate = 100}, -- BST
+                {itemid = 1936, droprate = 100}, -- BLM
+                {itemid = 2660, droprate = 100}, -- PUP
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 2658, droprate = 100}, -- COR
+                {itemid = 1938, droprate = 100}, -- RDM
             },
             {
-                {itemid =    0, droprate = 400},
-                {itemid = 1950, droprate = 417},
-                {itemid = 1956, droprate =  75},
-                {itemid = 1944, droprate = 208},
-                {itemid = 1940, droprate = 167},
-                {itemid = 1946, droprate =  62},
-                {itemid = 1936, droprate =  69},
-                {itemid = 2660, droprate = 208},
-                {itemid = 1952, droprate =  42},
-                {itemid = 2658, droprate =  83},
+                {itemid =    0, droprate = 500},
+                {itemid = 1950, droprate = 50}, -- RNG
+                {itemid = 1956, droprate = 50}, -- DRG
+                {itemid = 1944, droprate = 50}, -- DRK
+                {itemid = 1940, droprate = 50}, -- THF
+                {itemid = 1946, droprate = 50}, -- BST
+                {itemid = 1936, droprate = 50}, -- BLM
+                {itemid = 2660, droprate = 50}, -- PUP
+                {itemid = 1952, droprate = 50}, -- SAM
+                {itemid = 2658, droprate = 50}, -- COR
+                {itemid = 1938, droprate = 50}, -- RDM
             },
         },
     -- eastern tower floor 5
@@ -920,29 +907,29 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1944, droprate = 208},
-                {itemid = 1938, droprate =  42},
-                {itemid = 1946, droprate =  36},
-                {itemid = 1940, droprate =  83},
-                {itemid = 1942, droprate =  20},
-                {itemid = 1952, droprate =  94},
-                {itemid = 1956, droprate =  42},
-                {itemid = 1936, droprate =  49},
-                {itemid = 1950, droprate = 167},
-                {itemid = 2714, droprate = 458},
+                {itemid = 1944, droprate = 100}, -- DRK
+                {itemid = 1938, droprate = 100}, -- RDM
+                {itemid = 1946, droprate = 100}, -- BST
+                {itemid = 1940, droprate = 100}, -- THF
+                {itemid = 1942, droprate = 100}, -- PLD
+                {itemid = 1952, droprate = 100}, -- SAM
+                {itemid = 1956, droprate = 100}, -- DRG
+                {itemid = 1936, droprate = 100}, -- BLM
+                {itemid = 1950, droprate = 100}, -- RNG
+                {itemid = 2714, droprate = 100}, -- DNC 
             },
             {
-                {itemid =    0, droprate = 200},
-                {itemid = 1944, droprate = 208},
-                {itemid = 1938, droprate =  42},
-                {itemid = 1946, droprate =  36},
-                {itemid = 1940, droprate =  83},
-                {itemid = 1942, droprate =  20},
-                {itemid = 1952, droprate =  94},
-                {itemid = 1956, droprate =  42},
-                {itemid = 1936, droprate =  49},
-                {itemid = 1950, droprate = 167},
-                {itemid = 2714, droprate = 458},
+                {itemid =    0, droprate = 500},
+                {itemid = 1944, droprate = 50}, -- DRK
+                {itemid = 1938, droprate = 50}, -- RDM
+                {itemid = 1946, droprate = 50}, -- BST
+                {itemid = 1940, droprate = 50}, -- THF
+                {itemid = 1942, droprate = 50}, -- PLD
+                {itemid = 1952, droprate = 50}, -- SAM
+                {itemid = 1956, droprate = 50}, -- DRG
+                {itemid = 1936, droprate = 50}, -- BLM
+                {itemid = 1950, droprate = 50}, -- RNG
+                {itemid = 2714, droprate = 50}, -- DNC
             },
         },
     -- eastern tower floor 6
@@ -971,33 +958,33 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1942, droprate =  68},
-                {itemid = 1948, droprate =  74},
-                {itemid = 1936, droprate = 259},
-                {itemid = 1940, droprate =  74},
-                {itemid = 1956, droprate =  74},
-                {itemid = 1950, droprate =  62},
-                {itemid = 2656, droprate = 150},
-                {itemid = 1938, droprate =  76},
-                {itemid = 1952, droprate =  53},
-                {itemid = 2658, droprate = 111},
-                {itemid = 2714, droprate = 370},
-                {itemid = 1946, droprate = 333},
+                {itemid = 1942, droprate = 87}, -- PLD
+                {itemid = 1948, droprate = 83}, -- BRD
+                {itemid = 1936, droprate = 83}, -- BLM
+                {itemid = 1940, droprate = 83}, -- THF
+                {itemid = 1956, droprate = 83}, -- DRG
+                {itemid = 1950, droprate = 83}, -- RNG
+                {itemid = 2656, droprate = 83}, -- BLU
+                {itemid = 1938, droprate = 83}, -- RDM
+                {itemid = 1952, droprate = 83}, -- SAM
+                {itemid = 2658, droprate = 83}, -- COR
+                {itemid = 2714, droprate = 83}, -- DNC 
+                {itemid = 1946, droprate = 83}, -- BST
             },
             {
-                {itemid =    0, droprate = 300},
-                {itemid = 1942, droprate =  68},
-                {itemid = 1948, droprate =  74},
-                {itemid = 1936, droprate = 259},
-                {itemid = 1940, droprate =  74},
-                {itemid = 1956, droprate =  74},
-                {itemid = 1950, droprate =  62},
-                {itemid = 2656, droprate = 150},
-                {itemid = 1938, droprate =  76},
-                {itemid = 1952, droprate =  53},
-                {itemid = 2658, droprate = 111},
-                {itemid = 2714, droprate = 370},
-                {itemid = 1946, droprate = 333},
+                {itemid =    0, droprate = 400},
+                {itemid = 1942, droprate = 50}, -- PLD
+                {itemid = 1948, droprate = 50}, -- BRD
+                {itemid = 1936, droprate = 50}, -- BLM
+                {itemid = 1940, droprate = 50}, -- THF
+                {itemid = 1956, droprate = 50}, -- DRG
+                {itemid = 1950, droprate = 50}, -- RNG
+                {itemid = 2656, droprate = 50}, -- BLU
+                {itemid = 1938, droprate = 50}, -- RDM
+                {itemid = 1952, droprate = 50}, -- SAM
+                {itemid = 2658, droprate = 50}, -- COR
+                {itemid = 2714, droprate = 50}, -- DNC 
+                {itemid = 1946, droprate = 50}, -- BST
             },
         },
     -- eastern tower floor 7
@@ -1025,20 +1012,21 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1942, droprate =  38},
-                {itemid = 1950, droprate =  67},
-                {itemid = 1944, droprate = 100},
-                {itemid = 1936, droprate = 233},
-                {itemid = 1946, droprate =  80},
-                {itemid = 2660, droprate = 333},
-                {itemid = 2714, droprate =  67},
+                {itemid = 1942, droprate = 125}, -- PLD
+                {itemid = 1950, droprate = 125}, -- RNG
+                {itemid = 1944, droprate = 125}, -- DRK
+                {itemid = 1936, droprate = 125}, -- BLM
+                {itemid = 1946, droprate = 125}, -- BST
+                {itemid = 2660, droprate = 125}, -- PUP
+                {itemid = 2714, droprate = 125}, -- DNC
+                {itemid = 1948, droprate = 125}, -- BRD
             },
             {
                 {itemid = 1905, droprate = 1000},
             },
             {
-                {itemid =    0, droprate = 100},
-                {itemid = 2127, droprate =  55},
+                {itemid =    0, droprate = 950},
+                {itemid = 2127, droprate =  50},
             },
         },
     },
@@ -1092,12 +1080,12 @@ local loot =
             {itemid = 1875, droprate = 1000},
         },
         {
-            {itemid = 1930, droprate = 265},
-            {itemid = 1938, droprate = 118},
-            {itemid = 1948, droprate = 147},
-            {itemid = 1958, droprate = 147},
-            {itemid = 1952, droprate = 118},
-            {itemid = 2656, droprate = 235},
+            {itemid = 1930, droprate = 170}, -- WAR
+            {itemid = 1938, droprate = 166}, -- RDM
+            {itemid = 1948, droprate = 166}, -- BRD
+            {itemid = 1958, droprate = 166}, -- SMN
+            {itemid = 1952, droprate = 166}, -- SAM
+            {itemid = 2656, droprate = 166}, -- BLU
         },
         {
             {itemid = 1986, droprate = 1000},
@@ -1128,13 +1116,13 @@ local loot =
             {itemid = 1875, droprate = 1000},
         },
         {
-            {itemid = 1944, droprate = 250},
-            {itemid = 1936, droprate =  94},
-            {itemid = 1950, droprate =  63},
-            {itemid = 1942, droprate = 125},
-            {itemid = 1946, droprate =  63},
-            {itemid = 2660, droprate = 281},
-            {itemid = 2714, droprate = 125},
+            {itemid = 1944, droprate = 148}, -- DRK
+            {itemid = 1936, droprate = 142}, -- BLM
+            {itemid = 1950, droprate = 142}, -- RNG
+            {itemid = 1942, droprate = 142}, -- PLD
+            {itemid = 1946, droprate = 142}, -- BST
+            {itemid = 2660, droprate = 142}, -- PUP
+            {itemid = 2714, droprate = 142}, -- DNC 
         },
         {
             {itemid = 1908, droprate = 1000},
@@ -1165,14 +1153,14 @@ local loot =
             {itemid = 1875, droprate = 1000},
         },
         {
-            {itemid = 1934, droprate =  53},
-            {itemid = 1940, droprate = 132},
-            {itemid = 1954, droprate = 105},
-            {itemid = 1932, droprate = 211},
-            {itemid = 1956, droprate = 211},
-            {itemid = 1930, droprate = 100},
-            {itemid = 2658, droprate = 211},
-            {itemid = 2716, droprate = 105},
+            {itemid = 1934, droprate = 125}, -- WHM
+            {itemid = 1940, droprate = 125}, -- THF
+            {itemid = 1954, droprate = 125}, -- NIN
+            {itemid = 1932, droprate = 125}, -- MNK
+            {itemid = 1956, droprate = 125}, -- DRG
+            {itemid = 1930, droprate = 125}, -- WAR
+            {itemid = 2658, droprate = 125}, -- COR
+            {itemid = 2716, droprate = 125}, -- SCH 
         },
         {
             {itemid = 1907, droprate = 1000},
@@ -1242,11 +1230,11 @@ local loot =
                 {itemid = 1875, droprate = 1000},
             },
             {
-                {itemid = 1934, droprate = 200},
-                {itemid = 1930, droprate = 200},
-                {itemid = 1958, droprate = 200},
-                {itemid = 2658, droprate = 400},
-                {itemid = 1940, droprate = 200},
+                {itemid = 1934, droprate = 200}, -- WHM
+                {itemid = 1930, droprate = 200}, -- WAR
+                {itemid = 1958, droprate = 200}, -- SMN
+                {itemid = 2658, droprate = 200}, -- COR
+                {itemid = 1940, droprate = 200}, -- THF
             },
         },
     },

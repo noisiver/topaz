@@ -30,7 +30,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.PARALYSIS
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 35, 0, 180)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 35, 0, 300)
 
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
 	 if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, 1) end

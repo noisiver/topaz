@@ -21,9 +21,9 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
     local typeEffect = tpz.effect.PLAGUE
-	MobStatusEffectMove(mob, target, tpz.effect.DEFENSE_DOWN, 50, 0, 120)
-	MobStatusEffectMove(mob, target, tpz.effect.MAGIC_DEF_DOWN, 50, 0, 120)
-    MobStatusEffectMove(mob, target, typeEffect, 5, 3, 120)
+	MobStatusEffectMove(mob, target, tpz.effect.DEFENSE_DOWN, 50, 0, 300)
+	MobStatusEffectMove(mob, target, tpz.effect.MAGIC_DEF_DOWN, 50, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffect, 5, 3, 300)
 
     return dmg
 end

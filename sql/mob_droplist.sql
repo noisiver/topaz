@@ -15511,7 +15511,7 @@ INSERT INTO `mob_droplist` VALUES (2854,0,0,1000,15681,50);
 INSERT INTO `mob_droplist` VALUES (2854,0,0,1000,15682,50);
 INSERT INTO `mob_droplist` VALUES (2854,0,0,1000,15683,50);
 INSERT INTO `mob_droplist` VALUES (2855,0,0,1000,12298,1000);
--- LimbusAncient Beastcoin
+-- Limbus (Ancient Beastcoin)
 INSERT INTO `mob_droplist` VALUES (2856,0,0,1000,1875,240); -- (1 24% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (2857,0,0,1000,1875,240); --  (1 24% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (2858,0,0,1000,1875,240); --  (1 24% Ancient Beastcoin) 
@@ -16998,6 +16998,38 @@ INSERT INTO `mob_droplist` VALUES (6042,0,0,1000,15054,50);  -- (Yal-Un Eke) Bea
 INSERT INTO `mob_droplist` VALUES (6043,0,0,1000,2811,100);  -- (Sword Sorcerer Solisoq) Aptant of primus
 INSERT INTO `mob_droplist` VALUES (6043,0,0,1000,2815,100);  -- (Sword Sorcerer Solisoq) Aptant of arkhe
 INSERT INTO `mob_droplist` VALUES (6043,0,0,1000,2819,100);  -- (Sword Sorcerer Solisoq) Aptant of fyrst
+INSERT INTO `mob_droplist` VALUES (6044,0,0,1000,1875,1000); -- (1 100% 1 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6044,0,0,1000,1875,240); -- (1 100% 1 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6045,0,0,1000,1875,1000); -- (1 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6045,0,0,1000,1875,240); --  (1 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6045,0,0,1000,1875,240); --  (1 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6046,0,0,1000,1875,1000); -- (5 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6046,0,0,1000,1875,1000); -- (5 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6046,0,0,1000,1875,1000); -- (5 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6046,0,0,1000,1875,1000); -- (5 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6046,0,0,1000,1875,1000); -- (5 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6046,0,0,1000,1875,240); -- (5 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6046,0,0,1000,1875,240); -- (5 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6047,0,0,1000,1875,1000); -- (6 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6047,0,0,1000,1875,1000); -- (6 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6047,0,0,1000,1875,1000); -- (6 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6047,0,0,1000,1875,1000); -- (6 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6047,0,0,1000,1875,1000); -- (6 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6047,0,0,1000,1875,1000); -- (6 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6047,0,0,1000,1875,240); -- (6 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6047,0,0,1000,1875,240); -- (6 100% 2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6048,0,0,1000,1875,240); -- (2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6048,0,0,1000,1875,240); -- (2 24% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6049,0,0,1000,1875,1000); -- (1 100% 1 10% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6049,0,0,1000,1875,100); -- (1 100% 1 10% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6050,0,0,1000,1875,1000); -- (4 100% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6050,0,0,1000,1875,1000); -- (4 100% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6050,0,0,1000,1875,1000); -- (4 100% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6050,0,0,1000,1875,1000); -- (4 100% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,100); -- (3 100% 1 10% Ancient Beastcoin) 
 
 
 
@@ -17546,6 +17578,7 @@ INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4108,5);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4109,5);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4110,60);
 INSERT INTO `mob_droplist` VALUES (9053,0,0,1000,4111,5);
+
 
 
 

@@ -933,7 +933,7 @@ function onTrigger(player, npc)
                                 elseif model == 961 then
                                     tpz.limbus.handleLootRolls(battlefield, loot[bfid][i], nil, npc)
                                 elseif model == 962 then
-                                    tpz.limbus.extendTimeLimit(battlefield, 15, tpz.zone.APOLLYON)
+                                    tpz.limbus.extendTimeLimit(battlefield, 5, tpz.zone.APOLLYON)
                                 end
                             end
                         end
@@ -960,7 +960,7 @@ function onTrigger(player, npc)
                                         elseif crateID == itemPH then
                                             tpz.limbus.handleLootRolls(battlefield, loot[bfid][i], nil, npc)
                                         elseif crateID == timePH then
-                                            tpz.limbus.extendTimeLimit(battlefield, 15, tpz.zone.APOLLYON)
+                                            tpz.limbus.extendTimeLimit(battlefield, 5, tpz.zone.APOLLYON)
                                         else
                                             if mimicSpawned == 0 or mimicSpawned == 2 or mimicSpawned == 4 or mimicSpawned == 6 then
                                                 npc:setStatus(tpz.status.DISAPPEAR)
@@ -998,7 +998,7 @@ function onTrigger(player, npc)
                                     elseif model == 961 then
                                         tpz.limbus.handleLootRolls(battlefield, loot[bfid][i], nil, npc)
                                     elseif model == 962 then
-                                        tpz.limbus.extendTimeLimit(battlefield, 15, tpz.zone.APOLLYON)
+                                        tpz.limbus.extendTimeLimit(battlefield, 5, tpz.zone.APOLLYON)
                                     end
                                 end
                             end

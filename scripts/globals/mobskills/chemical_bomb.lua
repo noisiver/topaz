@@ -43,7 +43,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectTwo = tpz.effect.SLOW
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
-    MobStatusEffectMove(mob, target, typeEffectOne, 5000, 0, 120)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 5000, 0, 120)
+    MobStatusEffectMove(mob, target, typeEffectOne, 5000, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffectTwo, 5000, 0, 300)
     return dmg
 end

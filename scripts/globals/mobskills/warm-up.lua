@@ -32,17 +32,17 @@ function onMobWeaponSkill(target, mob, skill)
         1 of the 2 effects unlike the blue magic version
     ]]
     if (mob:hasStatusEffect(tpz.effect.ACCURACY_BOOST)) then
-        skill:setMsg(MobBuffMove(mob, tpz.effect.EVASION_BOOST, power, 0, 180))
+        skill:setMsg(MobBuffMove(mob, tpz.effect.EVASION_BOOST, power, 0, 300))
         EFFECT = tpz.effect.EVASION_BOOST
     elseif (mob:hasStatusEffect(tpz.effect.ACCURACY_BOOST)) then
-        skill:setMsg(MobBuffMove(mob, tpz.effect.ACCURACY_BOOST, power, 0, 180))
+        skill:setMsg(MobBuffMove(mob, tpz.effect.ACCURACY_BOOST, power, 0, 300))
         EFFECT = tpz.effect.ACCURACY_BOOST
     else
         if (rand < 0.5) then
-            skill:setMsg(MobBuffMove(mob, tpz.effect.EVASION_BOOST, power, 0, 180))
+            skill:setMsg(MobBuffMove(mob, tpz.effect.EVASION_BOOST, power, 0, 300))
             EFFECT = tpz.effect.EVASION_BOOST
         else
-            skill:setMsg(MobBuffMove(mob, tpz.effect.ACCURACY_BOOST, power, 0, 180))
+            skill:setMsg(MobBuffMove(mob, tpz.effect.ACCURACY_BOOST, power, 0, 300))
             EFFECT = tpz.effect.ACCURACY_BOOST
         end
     end

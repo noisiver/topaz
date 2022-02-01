@@ -103,7 +103,6 @@ INSERT INTO `mob_family_mods` VALUES (121,242,20,0);
 INSERT INTO `mob_family_mods` VALUES (52,242,20,0);
 INSERT INTO `mob_family_mods` VALUES (258,34,25,1);
 INSERT INTO `mob_family_mods` VALUES (234,37,1,1);
-INSERT INTO `mob_family_mods` VALUES (57,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (72,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (140,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (141,3,50,1);
@@ -296,7 +295,7 @@ INSERT INTO `mob_family_mods` VALUES (52,29,20,0);  	-- Bhoot +20 MDB
 INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	    -- Dvergr +40 MDB
 INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	    -- Amphiptere +20 MDB
 INSERT INTO `mob_family_mods` VALUES (195,29,16,0); 	-- Pixie +16 MDB
-INSERT INTO `mob_family_mods` VALUES (39,29,40,0); 	    -- Monoceros +40 MDB
+INSERT INTO `mob_family_mods` VALUES (39,29,40,0); 	    -- Dark Monoceros +40 MDB
 INSERT INTO `mob_family_mods` VALUES (109,29,20,0); 	-- Euvhi +20 MDB
 INSERT INTO `mob_family_mods` VALUES (122,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (123,29,20,0); 	-- Ghrah +20 MDB

@@ -17,9 +17,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    MobStatusEffectMove(mob, target, tpz.effect.SLOW, 1250, 0, 120)
+    MobStatusEffectMove(mob, target, tpz.effect.SLOW, 1250, 0, 300)
 
-    MobStatusEffectMove(mob, target, tpz.effect.SLOW, 128, 0, 120)
+    MobStatusEffectMove(mob, target, tpz.effect.SLOW, 128, 0, 300)
     local currentHP = target:getHP()
     -- remove all by 5%
     local stab = currentHP * .95

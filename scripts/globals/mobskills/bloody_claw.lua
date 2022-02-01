@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
 
-    DrainMultipleAttributes(mob, target, 10, 3, 1, 120)
+    DrainMultipleAttributes(mob, target, 10, 3, 1, 300)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
 
     return dmg

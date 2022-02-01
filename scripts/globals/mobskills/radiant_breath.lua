@@ -18,8 +18,8 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectOne = tpz.effect.SLOW
     local typeEffectTwo = tpz.effect.SILENCE
 
-    MobStatusEffectMove(mob, target, typeEffectOne, 1250, 0, 120)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 1, 0, 120)
+    MobStatusEffectMove(mob, target, typeEffectOne, 1250, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffectTwo, 1, 0, 300)
 
     local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.LIGHT, 900)
 

@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.INT_DOWN
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 10, 3, 120)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 10, 3, 300)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
 

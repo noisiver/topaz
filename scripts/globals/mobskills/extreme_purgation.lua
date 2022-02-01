@@ -58,8 +58,12 @@ function onMobWeaponSkill(target, mob, skill)
         if (effect10 ~= 0) then
             count = count + 1
         end
-        
-        skill:setMsg(tpz.msg.basic.EFFECT_DRAINED)
+
+        if count == 0 then
+            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        else
+            skill:setMsg(tpz.msg.basic.EFFECT_DRAINED)
+        end
 
         return count
     end

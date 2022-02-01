@@ -361,18 +361,20 @@ namespace battleutils
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
-        if (magicacc <= 30)
+        if (PAttacker->objtype == TYPE_MOB || PAttacker->objtype == TYPE_PC)
         {
-            magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
+            casterLvl = PDefender->GetMLevel();
+            targetLvl = PAttacker->GetMLevel();
             meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
+            magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
         }
-        // printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
+         //printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
-        // printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
+         //printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
         magicacc = magicacc + levelcorrectionpenalty;
-        // printf("\nmagicacc after correction penalty = %f \n", magicacc);
+         //printf("\nmagicacc after correction penalty = %f \n", magicacc);
         DMacc = (float)(magicacc - meva);
-        // printf("\nDMacc after = %f \n", DMacc);
+         //printf("\nDMacc after = %f \n", DMacc);
         if (DMacc < 0)
         {
             p = floor(50 + DMacc / 2);
@@ -381,7 +383,7 @@ namespace battleutils
         {
             p = floor(50 + DMacc); 
         }
-        // printf("p DMacc after %f \n", p);
+         //printf("p DMacc after %f \n", p);
         if (p < 5)
         {
             p = 5.0f;
@@ -390,9 +392,9 @@ namespace battleutils
         {
             p = 95.0f;
         }
-        //p = std::clamp(p, 5.0f, 95.0f);
-        // printf("p after clamping to 5,95 = %f \n", p);
-        // printf("SDT element %i \n", element);
+        p = std::clamp(p, 5.0f, 95.0f);
+         //printf("p after clamping to 5,95 = %f \n", p);
+         //printf("SDT element %i \n", element);
         p = p * getElementalSDTDivisor(PAttacker, element);
         if (p < 5)
         {
@@ -403,14 +405,14 @@ namespace battleutils
             p = 95.0f;
         }
         p = p / 100;
-        // printf("p after sdt = %f \n", p);
+         //printf("p after sdt = %f \n", p);
         float half = (1 - p);
         float quart = static_cast<float>(pow(half, 2));
         float eighth = static_cast<float>(pow(half, 3));
         p = floor(p * 100) / 100;
-        // printf("p trying to remove decimals = %f \n", p);
+         //printf("p trying to remove decimals = %f \n", p);
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
-        // printf("p after resist rolls = %f \n", p);
+         //printf("p after resist rolls = %f \n", p);
         if (PDefender->getMod(resistarray[element]) < 0 && resvar < 0.5)
         {
             return 0.5f;
@@ -1041,7 +1043,7 @@ namespace battleutils
     {
         float resist = 1.0f;
         uint8 element = 1;
-        printf("Spikes resist before getMagicResist %f \n", resist);
+        //printf("Spikes resist before getMagicResist %f \n", resist);
         switch (Action->spikesEffect)
         {
             case SUBEFFECT_CURSE_SPIKES:
@@ -1058,10 +1060,10 @@ namespace battleutils
             case SUBEFFECT_ICE_SPIKES:
                 element = ELEMENT_ICE;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                printf("Spikes resist after getMagicResist %f \n", resist);
+                //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                 if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
-                    printf("Spikes resist inside ice spikes function %f \n", resist);
+                    //printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30));
                 }
@@ -1070,7 +1072,7 @@ namespace battleutils
             case SUBEFFECT_SHOCK_SPIKES:
                 element = ELEMENT_THUNDER;
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
-                // printf("Spikes status effect hit rate %f \n", resist);
+                //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                 if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
                 {
@@ -4992,7 +4994,14 @@ namespace battleutils
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
-            damage = -damage;
+            if (PDefender->getMod(Mod::MAGIC_ABSORB) > 100)
+            {
+                damage = -damage * PDefender->getMod(Mod::MAGIC_ABSORB);
+            }
+            else
+            {
+                damage = -damage;
+            }
         else if ((element && tpzrand::GetRandomNumber(100) < PDefender->getMod(nullarray[element - 1])) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_NULL))
             damage = 0;
@@ -5065,7 +5074,14 @@ namespace battleutils
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::PHYS_ABSORB))
-            damage = -damage;
+            if (PDefender->getMod(Mod::PHYS_ABSORB) > 100)
+            {
+                damage = -damage * PDefender->getMod(Mod::PHYS_ABSORB);
+            }
+            else
+            {
+                damage = -damage;
+            }
         else if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::NULL_PHYSICAL_DAMAGE))
             damage = 0;
         else

@@ -18,7 +18,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SHOCK_SPIKES
     local randy = math.random(15, 20)
-    skill:setMsg(MobBuffMove(mob, typeEffect, randy, 0, 180))
+    skill:setMsg(MobBuffMove(mob, typeEffect, randy, 0, 300))
 
     return typeEffect
 end

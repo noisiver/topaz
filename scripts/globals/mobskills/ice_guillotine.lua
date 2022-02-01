@@ -26,8 +26,8 @@ function onMobWeaponSkill(target, mob, skill)
 	local typeEffectThree = tpz.effect.AMNESIA
 		
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ICE)
-	MobStatusEffectMove(mob, target, typeEffect, 33, 0, 180)
-	MobStatusEffectMove(mob, target, typeEffectTwo, 20, 0, 120)
+	MobStatusEffectMove(mob, target, typeEffect, 33, 0, 300)
+	MobStatusEffectMove(mob, target, typeEffectTwo, 20, 0, 300)
 	MobStatusEffectMove(mob, target, typeEffectThree, 1, 0, 30)
 
 	return dmg
