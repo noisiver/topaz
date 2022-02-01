@@ -1051,9 +1051,9 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                // printf("Spikes resist after getMagicResist %f \n", resist);
             {
-                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
+                if (resist >= 0.5f  && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, 30));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, 30 * resist));
                 }
                 break;
             }
@@ -1062,10 +1062,11 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
-                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false)
+                    if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false &&
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::PARALYZERESTRAIT))
                     //printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30 * resist));
                 }
                 break;
             }
@@ -1074,9 +1075,10 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
-                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false)
+                    if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false &&
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::STUNRESTRAIT))
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 4));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 4 * resist));
                 }
                 break;
             }
@@ -1085,9 +1087,10 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false)
+                    if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false &&
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SILENCERESTRAIT))
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30 * resist));
                 }
                 break;
             }
@@ -1096,9 +1099,10 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false)
+                    if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT))
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30 * resist));
                 }
                 break;
             }
@@ -1107,9 +1111,10 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false)
+                    if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT))
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30 * resist));
                 }
                 break;
             }
@@ -1118,7 +1123,7 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
-                if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_KO) == false)
+                    if (resist >= 0.5f && tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::DEATHRESTRAIT))
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_KO, EFFECT_KO, 1, 0, 0));
                 }
