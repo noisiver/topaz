@@ -3805,10 +3805,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,2142); -- Mega Holy
 INSERT INTO `mob_skill_lists` VALUES ('Burtgang',2003,3220); -- Infernal Bulwark
 
 -- Vajra(Goblin Tomb Raider)
-INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,45); -- Atonement
-INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,405); -- Dire Whorl
-INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,2142); -- Mega Holy
-INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,3220); -- Infernal Bulwark
+INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,27); -- Mandalic Stab
+INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,590); -- Goblin Rush
+INSERT INTO `mob_skill_lists` VALUES ('Goblin_Tomb_Raider',2004,591); -- Bomb Toss
 
 -- Dynamis
 INSERT INTO `mob_skill_lists` VALUES ('HydraCorps-H2H',3000,246); -- shackled_fists (h2h only)
@@ -4200,7 +4199,7 @@ INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,983); -- Abyssal st
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,80); -- Shield Break
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,83); -- Armor Break
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,88); -- Steel Cyclone
-INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythicSub50',6066,982); -- King's Justice
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythicSub50',6066,90); -- King's Justice
 
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1963); -- Mind Blast
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1965); -- Immortal Shield

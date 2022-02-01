@@ -443,7 +443,7 @@ INSERT INTO `mob_skills` VALUES (503,856,'unblessed_armor',0,7.0,2000,1500,1,0,0
 -- INSERT INTO `mob_skills` VALUES (506,863,'palsynyxis',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (507,864,'painful_whip',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (508,865,'suctorial_tentacle',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (509,253,'self-destruct_Goblin_Grenade',1,10.0,2000,10000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (509,253,'self-destruct_Goblin_Grenade',1,50.0,2000,3000,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (510,254,'berserk',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (511,253,'self-destruct',1,20.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (512,256,'heat_wave',1,10.0,2000,1500,4,0,0,0,0,0,0);
@@ -4047,12 +4047,14 @@ INSERT INTO `mob_skills` VALUES (222,208,'fan_dance',0,7.0,2000,1500,1,0,0,0,0,0
 
 
 -- Mythic WS
+INSERT INTO `mob_skills` VALUES (27,42,'mandalic_stab',0,7.0,2000,0,4,0,0,0,1,8,0);
+-- INSERT INTO `mob_skills` VALUES (25,1712,'evisceration',0,7.0,2000,1500,4,0,0,0,9,1,0); -- Dancer's Fury animation
+INSERT INTO `mob_skills` VALUES (29,1713,'pyrrhic_kleos',0,7.0,2000,1500,4,0,0,0,10,4,0); -- Whirling Edge animation
 INSERT INTO `mob_skills` VALUES (44,13,'death_blossom',0,7.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (45,14,'atonement',0,7.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (46,15,'expiacion',0,7.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (90,101,'kings_justice',0,7.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (154,176,'tachi_rana',0,7.0,2000,0,4,0,0,0,1,8,0);
--- INSERT INTO `mob_skills` VALUES (25,1712,'evisceration',0,7.0,2000,1500,4,0,0,0,9,1,0); -- Dancer's Fury animation
-INSERT INTO `mob_skills` VALUES (29,1713,'pyrrhic_kleos',0,7.0,2000,1500,4,0,0,0,10,4,0); -- Whirling Edge animation
 -- INSERT INTO `mob_skills` VALUES (129,152,'blade_retsu',1,10.0,2000,0,4,0,0,0,1,8,0);
 -- INSERT INTO `mob_skills` VALUES (132,155,'blade_chi',4,15.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (138,161,'blade_kamu',0,7.0,2000,0,4,0,0,0,1,8,0);

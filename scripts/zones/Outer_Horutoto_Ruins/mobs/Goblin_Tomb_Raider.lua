@@ -8,33 +8,34 @@ require("scripts/globals/status")
 ------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 30)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.ACC, 15) 
 end
 
 function onMobFight(mob, target)
     local battletime = mob:getBattleTime()
-    local twohourTime = mob:getLocalVar("twohourTime")
-    local wingsTime = mob:getLocalVar("wingsTime")
-    local wingsDown = mob:getLocalVar("wingsDown")
-    local Guard = GetMobByID(17571922)
-    local GuardTwo = GetMobByID(17571924)
-    local GuardThree = GetMobByID(17571926)
-    local GuardFour = GetMobByID(17571928)
-    local GuardFive = GetMobByID(17572165)
-    local GuardSix = GetMobByID(17572169)
-    local GuardSeven = GetMobByID(17572171)
-    local GuardEight = GetMobByID(17572174)
+    local BombTime = mob:getLocalVar("BombTime")
+    local Guard = GetMobByID(17572321)
+    local GuardTwo = GetMobByID(17572322)
+    local GuardThree = GetMobByID(17572323)
+    local GuardFour = GetMobByID(17572324)
+    local GuardFive = GetMobByID(17572325)
+    local GuardSix = GetMobByID(17572326)
+    local GuardSeven = GetMobByID(17572327)
+    local GuardEight = GetMobByID(17572328)
 
-    if twohourTime == 0 then
-        printf("Setting two hour time");
-        mob:setLocalVar("twohourTime", math.random(60, 90))
-    elseif battletime >= twohourTime and wingsDown == 0 then
-        printf("Wings Up");
+    if BombTime == 0 then
+        --printf("Setting bombs spawn time");
+        mob:setLocalVar("BombTime", math.random(60, 90))
+    elseif battletime >= BombTime then
+        --printf("Spawning Bombs");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
-        target:PrintToPlayer("You want what's in my bag? Fine, take it!",0,"Goblin")
+        mob:setTP(0)
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("You want what's in my bag? Fine, take it!",0,"Goblin")
+        end
         Guard:spawn()
         GuardTwo:spawn()
         GuardThree:spawn()
@@ -51,20 +52,30 @@ function onMobFight(mob, target)
         GuardSix:updateEnmity(target)
         GuardSeven:updateEnmity(target)
         GuardEight:updateEnmity(target)
-        mob:setLocalVar("wingsTime", battletime + 30)
-        mob:setLocalVar("wingsDown", 1)
+        mob:setLocalVar("BombTime", battletime + math.random(180, 300))
     end
+end
 
-    if battletime >= wingsTime and wingsDown == 1 then
-        printf("Wings Down");
-        mob:setLocalVar("twohourTime", battletime + math.random(60, 90))
-        mob:setLocalVar("wingsTime", 0)
-        mob:setLocalVar("wingsDown", 0)
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 591 then -- Bomb Toss
+        local BombToss = mob:getLocalVar("BombToss")
+
+        BombToss = BombToss +1
+        mob:setLocalVar("BombToss", BombToss)
+
+        if BombToss > 2 then
+            mob:setLocalVar("BombToss", 0)
+        else
+            mob:useMobAbility(591) -- Bomb Toss
+        end
     end
 end
 
 function onMobDeath(mob, player, isKiller)
-player:PrintToPlayer("I..guess..you...deserve...it...m...m..more...",0,"Goblin")
+    local zonePlayers = mob:getZone():getPlayers()
+    for _, zonePlayer in pairs(zonePlayers) do
+        player:PrintToPlayer("I..guess..you...deserve...it...m...m..more...",0,"Goblin")
+    end
     DespawnMob(Guard)
     DespawnMob(GuardTwo)
     DespawnMob(GuardThree)
