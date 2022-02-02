@@ -29,10 +29,15 @@ function onMobFight(mob, target)
 	else
 		mob:setMod(tpz.mod.REGEN, 0)
 	end
-    if mob:checkDistance(target)  <= 8 then
-        target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 15)
-        target:addStatusEffect(tpz.effect.SILENCE, 1, 0, 15)
+    local nearbyPlayers = mob:getPlayersInRange(8)
+    if nearbyPlayers == nil then return end
+    for _,v in ipairs(nearbyPlayers) do
+        v:delStatusEffectSilent(tpz.effect.AMNESIA)
+        v:addStatusEffectEx(tpz.effect.AMNESIA, tpz.effect.AMNESIA, 1, 0, 5)
+        v:delStatusEffectSilent(tpz.effect.SILENCE)
+        v:addStatusEffectEx(tpz.effect.SILENCE, tpz.effect.SILENCE, 1, 0, 5)
     end
+
 end
 
 function onAdditionalEffect(mob, target, damage)
