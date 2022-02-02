@@ -6851,6 +6851,7 @@ INSERT INTO `nm_spawn_points` VALUES (16887953,0,-139.212,-0.486,-23.191); -- Eb
 INSERT INTO `nm_spawn_points` VALUES (16879737,0,204.733, -24.365, 316.403); -- Odqan
 INSERT INTO `nm_spawn_points` VALUES (16879737,1,83.241 ,-8.259, -41.968); -- Odqan
 INSERT INTO `nm_spawn_points` VALUES (16879737,2,490.6467, -24.1248, 314.5225); -- Odqan
+INSERT INTO `nm_spawn_points` VALUES (17334356,0,105.307,-20.258,-131.396); -- Becut
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;
