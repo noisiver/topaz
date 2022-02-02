@@ -23,13 +23,11 @@ function onMobRoam(mob)
     end
 end
 
+
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.COUNTER, 75)
     mob:setMod(tpz.mod.SLASHRES, 0)
     mob:setMod(tpz.mod.PIERCERES, 1500)
-end
-
-function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
