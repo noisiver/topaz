@@ -32,6 +32,9 @@ end
 
 function onGameHour(zone)
     local Odqan = GetMobByID(16879737)
+    local ClusterOne = GetMobByID(16879777)
+    local ClusterTwo = GetMobByID(16879833)
+    local ClusterThree = GetMobByID(16879722)
     local SpawnTimer = Odqan:getLocalVar("SpawnTimer")
     local Time = os.time()
     local vHour = VanadielHour()
@@ -40,9 +43,15 @@ function onGameHour(zone)
     end
     if vHour >= 2 or vHour <= 8 and zone:getWeather() ~= GLOOM and zone:getWeather() ~= THUNDER and zone:getWeather() ~= WIND then
         -- Atomic Clusters
-        SpawnMob(16879777)
-        SpawnMob(16879833)
-        SpawnMob(16879722)
+        if not ClusterOne:isSpawned() then
+            SpawnMob(16879777)
+        end
+        if not ClusterTwo:isSpawned() then
+            SpawnMob(16879833)
+        end
+        if not ClusterThree:isSpawned() then
+            SpawnMob(16879722)
+        end
     if not Odqan:isSpawned() and Time >= SpawnTimer then
         SpawnMob(Odqan)
         Odqan:setLocalVar("SpawnTimer", Time + 3200)
