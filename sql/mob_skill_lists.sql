@@ -4196,10 +4196,12 @@ INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,982); -- Abyssal Dr
 INSERT INTO `mob_skill_lists` VALUES ('ZeidMythicSub50',6064,983); -- Abyssal strike
 
 --Iron Eater Mythic
-INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,80); -- Shield Break
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,85); -- Weapon Break
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,83); -- Armor Break
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,88); -- Steel Cyclone
-INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythicSub50',6066,90); -- King's Justice
+INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,90); -- King's Justice
+
+--6066 unused
 
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1963); -- Mind Blast
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1965); -- Immortal Shield
@@ -4276,6 +4278,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,928); -- pinecone_b
 INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,929); -- leafstorm_cemetary
 INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,930); -- entangle_cemetary
 
+--6066 unused
 
 
 

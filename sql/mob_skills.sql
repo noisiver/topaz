@@ -1466,7 +1466,7 @@ INSERT INTO `mob_skills` VALUES (1524,1084,'dissipation',2,20.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (1525,1090,'guided_missile_ii',2,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1526,1085,'colossal_blow',0,10.0,2000,3000,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (1527,1086,'laser_shower',4,20.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1528,1087,'floodlight',2,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1528,1087,'floodlight',4,20.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1529,1089,'hyper_pulse',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Proto-Omega
 INSERT INTO `mob_skills` VALUES (1530,1088,'stun_cannon',4,20.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1531,772,'wz_recover_all',0,7.0,2000,1500,4,0,0,0,0,0,0);
