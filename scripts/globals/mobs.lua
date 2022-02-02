@@ -139,7 +139,6 @@ tpz.mob.additionalEffect =
     BIND       = 26,
     WEIGHT     = 27,
     FLASH     =  28,
-    PSNSTACK  =  29,
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -470,21 +469,6 @@ local additionalEffects =
         duration = 12,
         minDuration = 1,
         maxDuration = 30,
-    },
-    [tpz.mob.ae.PSNSTACK] =
-    {
-        chance = 25,
-        ele = tpz.magic.ele.WATER,
-        sub = tpz.subEffect.POISON,
-        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
-        applyEffect = true,
-        eff = tpz.effect.POISON,
-        power = 1,
-        duration = 30,
-        minDuration = 1,
-        maxDuration = 30,
-        tick = 3,
-        code = function(mob, target, power) if power < 150 and target:hasStatusEffect(tpz.effect.POISON) then power = power + 30 end end,
     },
 }
 
