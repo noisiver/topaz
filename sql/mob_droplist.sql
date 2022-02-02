@@ -6476,10 +6476,10 @@ INSERT INTO `mob_droplist` VALUES (1250,0,0,1000,1311,50);
 INSERT INTO `mob_droplist` VALUES (1250,0,0,1000,1634,100);
 INSERT INTO `mob_droplist` VALUES (1250,0,0,1000,11416,100);
 INSERT INTO `mob_droplist` VALUES (1250,0,0,1000,19247,100);
-INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,909,50);
-INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,11288,100);
-INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,19212,100);
-INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,909,240);	-- (Guivre - Kuftal)  Guivre's skull
+INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,909,1000); -- (Guivre - Past) Guivre's skull
+INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,11288,240); -- Zahak's Mail
+INSERT INTO `mob_droplist` VALUES (1251,0,0,1000,19212,240); -- Black Tathlum
+INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,909,240);	-- (Guivre - Present)  Guivre's skull
 INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,1122,240);	-- Wyvern skin
 INSERT INTO `mob_droplist` VALUES (1252,0,0,1000,1124,100);	-- Wyvern wing
 INSERT INTO `mob_droplist` VALUES (1253,0,0,1000,2961,1480);
@@ -7635,12 +7635,12 @@ INSERT INTO `mob_droplist` VALUES (1446,0,0,1000,16238,50); -- Poison Taster's C
 INSERT INTO `mob_droplist` VALUES (1447,0,0,1000,2149,240); -- Apkallu Feather
 INSERT INTO `mob_droplist` VALUES (1447,2,0,1000,5447,0);
 INSERT INTO `mob_droplist` VALUES (1447,0,0,1000,5568,100);
-INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,836,70);
-INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,11286,100);
-INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,12924,1000);
-INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,15899,50);
-INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,16178,100);
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,1000);	-- (King Arthro Jugner) Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,836,50); -- King Arthro - Past) Square of damascene cloth
+INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,11286,240); -- Avalon breastplate
+INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,16178,240); -- Avalon shield
+INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,12924,50); -- Magic cuisses
+INSERT INTO `mob_droplist` VALUES (1448,0,0,1000,13189,50); -- Speed belt
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,1000);	-- (King Arthro Present) Square of damascene cloth
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,240); -- Square of damascene cloth
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,100); -- Square of damascene cloth
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4172,1000); -- Reraiser
@@ -7878,13 +7878,15 @@ INSERT INTO `mob_droplist` VALUES (1480,0,0,1000,888,480);
 INSERT INTO `mob_droplist` VALUES (1480,0,0,1000,1664,170);
 INSERT INTO `mob_droplist` VALUES (1480,0,0,1000,4290,190);
 INSERT INTO `mob_droplist` VALUES (1480,0,0,1000,4484,100);
-INSERT INTO `mob_droplist` VALUES (1481,0,0,1000,16275,100);
-INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,901,50);
-INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,909,50);
-INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,11285,100);
-INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,16344,100);
-INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,17751,100);
-INSERT INTO `mob_droplist` VALUES (1483,0,0,1000,836,70);
+INSERT INTO `mob_droplist` VALUES (1481,0,0,1000,16275,100); -- 1481 Unused
+INSERT INTO `mob_droplist` VALUES (1482,1,0,1000,901,333); -- (Lambton Worm) Venomous claw
+INSERT INTO `mob_droplist` VALUES (1482,1,0,1000,909,334); -- Guivre's skull
+INSERT INTO `mob_droplist` VALUES (1482,1,0,1000,836,333); -- Square Of Damascene Cloth 
+INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,11285,240); -- Morgana's cotehardie
+INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,16275,240); -- Ancient torque
+INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,16344,240); -- Oily trousers
+INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,17751,240); -- Fragarach
+INSERT INTO `mob_droplist` VALUES (1483,0,0,1000,836,70); -- 1483 Unused
 INSERT INTO `mob_droplist` VALUES (1484,0,0,1000,2926,100);
 INSERT INTO `mob_droplist` VALUES (1485,0,0,1000,1869,240); -- Lamia Skin
 INSERT INTO `mob_droplist` VALUES (1485,0,0,1000,2229,100);
@@ -11619,15 +11621,15 @@ INSERT INTO `mob_droplist` VALUES (2201,0,0,1000,749,50);   -- mythril_beastcoin
 INSERT INTO `mob_droplist` VALUES (2201,0,0,1000,1452,10);  -- ordelle_bronzepiece
 INSERT INTO `mob_droplist` VALUES (2201,0,0,1000,1470,10);  -- sparkling_stone
 INSERT INTO `mob_droplist` VALUES (2201,0,0,1000,1474,100); -- infinity_core
-INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,901,50);
-INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,4173,420);
-INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,4175,610);
-INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,11287,100);
-INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,12348,100);
-INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,13552,100);
-INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,16767,100);
-INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,19213,100);
-INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,901,150);	-- (Serket) Venomous claw
+INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,901,50); -- (Serket - Past) Venomous claw
+INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,4173,50); -- Hi-reraiser
+INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,4175,50); -- Vile elixir +1
+INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,11287,240); -- Antares harness
+INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,19213,240); -- White tathlum
+INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,12348,50); -- Serket shield
+INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,13552,50); -- Serket ring
+INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,16767,50); -- Triple dagger
+INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,901,150);	-- (Serket - Present) Venomous claw
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,4172,240); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,4173,240); -- Hi-reraiser
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,4174,240); -- Vile elixir

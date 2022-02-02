@@ -11,7 +11,7 @@ require("scripts/globals/monstertpmoves")
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setDamage(150)
+	mob:setDamage(100)
     mob:setMod(tpz.mod.DEF, 400)
     mob:setMod(tpz.mod.EVA, 350) 
     mob:setMod(tpz.mod.REGAIN, 0)

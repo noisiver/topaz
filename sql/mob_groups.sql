@@ -8524,7 +8524,7 @@ INSERT INTO `mob_groups` VALUES (15,2387,127,'Legendary_Weapon',0,128,0,17500,0,
 INSERT INTO `mob_groups` VALUES (16,1836,127,'Gudanna',0,128,0,0,0,55,60,0);
 INSERT INTO `mob_groups` VALUES (17,4695,127,'Pil-VNM',0,128,0,0,9999,94,95,0);
 INSERT INTO `mob_groups` VALUES (18,6558,127,'Lost_Soul',330,1,1541,0,0,45,47,0);
-INSERT INTO `mob_groups` VALUES (19, 1841, 127, 'Guivre', 0, 128, 1251, 80000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES (19, 6760, 127, 'Guivre', 0, 128, 1251, 80000, 0, 95, 95, 0);
 INSERT INTO `mob_groups` VALUES (20, 2322, 127, 'Lambton_Worm', 0, 128, 1482, 80000, 0, 95, 95, 0);
 
 -- ------------------------------------------------------------
@@ -8539,8 +8539,8 @@ INSERT INTO `mob_groups` VALUES (5,4125,128,'Valley_Manticore',330,0,2537,0,0,71
 INSERT INTO `mob_groups` VALUES (6,44,128,'Adamantoise',0,128,21,7000,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (7,268,128,'Aspidochelone',0,128,183,15000,0,85,88,0);
 INSERT INTO `mob_groups` VALUES (8,3643,128,'Skahnowa',1,0,0,0,0,1,1,0);
-INSERT INTO `mob_groups` VALUES(9, 6756, 128, 'Serket', 0, 128, 2202, 85000, 0, 95, 95, 0);
-INSERT INTO `mob_groups` VALUES(10, 2322, 128, 'Lambton_Worm', 0, 128, 1483, 80000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES(9, 6759, 128, 'Serket', 0, 128, 2202, 85000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES(10, 2322, 128, 'Lambton_Worm', 0, 128, 1482, 80000, 0, 95, 95, 0);
 
 INSERT INTO `mob_groups` VALUES (6861,2226,128,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6862,2405,128,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);
@@ -10113,9 +10113,9 @@ INSERT INTO `mob_groups` VALUES (3,920,154,'Darter',600,0,6013,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (4,978,154,'Demonic_Rose',600,0,2925,0,0,75,78,0);
 INSERT INTO `mob_groups` VALUES (5,1280,154,'Fafnir',0,128,805,70000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (6,2840,154,'Nidhogg',0,128,1781,70000,0,90,90,0);
-INSERT INTO `mob_groups` VALUES (7, 2254, 154, 'King_Arthro', 0, 128, 1448, 80000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES (7, 6758, 154, 'King_Arthro', 0, 128, 1448, 80000, 0, 95, 95, 0);
 INSERT INTO `mob_groups` VALUES (8, 2271, 154, 'Knight_Crab', 0, 128, 0, 2400, 0, 76, 76, 0);
-INSERT INTO `mob_groups` VALUES (9, 2322, 154, 'Lambton_Worm', 0, 128, 1481, 80000, 0, 95, 95, 0);
+INSERT INTO `mob_groups` VALUES (9, 2322, 154, 'Lambton_Worm', 0, 128, 1482, 80000, 0, 95, 95, 0);
 
 INSERT INTO `mob_groups` VALUES (8176,2226,154,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (8177,2405,154,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);
