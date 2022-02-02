@@ -553,6 +553,14 @@ void CalculateStats(CMobEntity * PMob)
     {
         SetupNyzulMob(PMob);
     }
+    else if (zoneType == ZONETYPE_EINHERJAR)
+    {
+        SetupEinherjarMob(PMob);
+    }
+    else if (zoneType == ZONETYPE_STRONGHOLDS)
+    {
+        SetupStrongholdsMob(PMob);
+    }
 
     if(PMob->m_Type & MOBTYPE_NOTORIOUS)
     {
@@ -963,8 +971,9 @@ void SetupAssaultMob(CMobEntity* PMob)
 
 void SetupSalvageMob(CMobEntity* PMob)
 {
+    uint8 mLvl = PMob->GetMLevel();
     // Bonus stats for difficulty
-    if (PMob->m_Type & MOBTYPE_NOTORIOUS)
+    if (mLvl >= 81)
     {
         // boost mobs weapon damage
         PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
@@ -1046,6 +1055,90 @@ void SetupNyzulMob(CMobEntity* PMob)
 
     // never despawn and zonewide hate
     PMob->SetDespawnTime(0s);
+    PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
+
+    PMob->addModifier(Mod::REFRESH, 400);
+}
+
+void SetupEinherjarMob(CMobEntity* PMob)
+{
+    uint8 mLvl = PMob->GetMLevel();
+    // Bonus stats for difficulty
+    if (mLvl >= 81)
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 50);
+        PMob->addModifier(Mod::DEFP, 50);
+        PMob->addModifier(Mod::ACC, 50);
+        PMob->addModifier(Mod::EVA, 50);
+        PMob->addModifier(Mod::MDEF, 40);
+        PMob->addModifier(Mod::UDMGMAGIC, -13);
+        PMob->addModifier(Mod::REGEN, 30);
+        PMob->addModifier(Mod::REGAIN, 50);
+    }
+    else
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 120);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 25);
+        PMob->addModifier(Mod::DEFP, 25);
+        PMob->addModifier(Mod::ACC, 30);
+        PMob->addModifier(Mod::EVA, 30);
+        PMob->addModifier(Mod::MDEF, 15);
+        PMob->addModifier(Mod::REGEN, 30);
+    }
+
+    // No gil drops or exp
+    PMob->setMobMod(MOBMOD_GIL_MAX, -1);
+    PMob->setMobMod(MOBMOD_MUG_GIL, -1);
+    PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
+
+    // never despawn and zonewide hate
+    PMob->SetDespawnTime(0s);
+    PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
+
+    PMob->addModifier(Mod::REFRESH, 400);
+}
+
+void SetupStrongholdsMob(CMobEntity* PMob)
+{
+    // Bonus stats for difficulty
+    if (PMob->m_Type & MOBTYPE_NOTORIOUS)
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 50);
+        PMob->addModifier(Mod::DEFP, 50);
+        PMob->addModifier(Mod::ACC, 50);
+        PMob->addModifier(Mod::EVA, 50);
+        PMob->addModifier(Mod::MDEF, 40);
+        PMob->addModifier(Mod::UDMGMAGIC, -13);
+        PMob->addModifier(Mod::REGEN, 30);
+        PMob->addModifier(Mod::REGAIN, 50);
+    }
+    else
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 120);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 25);
+        PMob->addModifier(Mod::DEFP, 25);
+        PMob->addModifier(Mod::ACC, 30);
+        PMob->addModifier(Mod::EVA, 30);
+        PMob->addModifier(Mod::MDEF, 15);
+        PMob->addModifier(Mod::REGEN, 30);
+        PMob->addModifier(Mod::REGAIN, 50);
+    }
+
+    // zonewide hate
     PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
 
     PMob->addModifier(Mod::REFRESH, 400);
