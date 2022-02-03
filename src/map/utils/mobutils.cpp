@@ -933,10 +933,7 @@ void SetupAssaultMob(CMobEntity* PMob)
         PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
-        PMob->addModifier(Mod::ATTP, 50);
-        PMob->addModifier(Mod::DEFP, 50);
         PMob->addModifier(Mod::ACC, 50);
-        PMob->addModifier(Mod::EVA, 50);
         PMob->addModifier(Mod::MDEF, 40);
         PMob->addModifier(Mod::UDMGMAGIC, -13);
         PMob->addModifier(Mod::REGEN, 30);
@@ -948,10 +945,7 @@ void SetupAssaultMob(CMobEntity* PMob)
         PMob->setMobMod(MOBMOD_WEAPON_BONUS, 120);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
-        PMob->addModifier(Mod::ATTP, 25);
-        PMob->addModifier(Mod::DEFP, 25);
         PMob->addModifier(Mod::ACC, 30);
-        PMob->addModifier(Mod::EVA, 30);
         PMob->addModifier(Mod::MDEF, 15);
         PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
