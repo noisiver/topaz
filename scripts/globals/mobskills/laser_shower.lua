@@ -10,28 +10,25 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    local currentForm = mob:getLocalVar("form") -- this var is only set for proto-omega
-
-    if (currentForm == 2) then
+    if mob:AnimationSub() == 2 and mob:getHPP() < 20 then
         return 0
     end
     return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = MobBreathMove(mob, target, 0.2, 1.25, tpz.magic.ele.LIGHT, 1600)
-    local dis = ((mob:checkDistance(target)*2) / 20)
+    local dmgmod = MobBreathMove(mob, target, 0.25, 1, tpz.magic.ele.ELEMENTAL, 900)
 
-    dmgmod = dmgmod * dis
-    dmgmod = utils.clamp(dmgmod, 50, 1600)
+    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.25)
 
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.ELEMENTAL, MOBPARAM_IGNORE_SHADOWS)
 
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.DEFENSE_DOWN, 25, 0, 60)
 
-    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.LIGHT)
+    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.ELEMENTAL)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.DEFENSE_DOWN, 75, 0, 300)
     return dmg
 end

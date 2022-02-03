@@ -220,12 +220,44 @@ INSERT INTO `mob_pool_mods` VALUES(3991, 74, 245, 1); -- Sapplings link with tre
 INSERT INTO `mob_pool_mods` VALUES(5340, 74, 245, 1); -- Sapplings link with treants
 INSERT INTO `mob_pool_mods` VALUES(2392, 74, 245, 1); -- Sapplings link with treants
 
-
 INSERT INTO `mob_pool_mods` VALUES(2961, 74, 216, 1); -- Treants link with sapplings
 INSERT INTO `mob_pool_mods` VALUES(768, 74, 216, 1); -- Treants link with sapplings
 INSERT INTO `mob_pool_mods` VALUES(1208, 74, 216, 1); -- Treants link with sapplings
 INSERT INTO `mob_pool_mods` VALUES(2275, 74, 216, 1); -- Treants link with sapplings
 INSERT INTO `mob_pool_mods` VALUES(3990, 74, 216, 1); -- Treants link with sapplings
+
+INSERT INTO `mob_pool_mods` VALUES(1115, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(2164, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(1767, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(3801, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(1278, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(6631, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(6617, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(6619, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(6628, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(3679, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(5325, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(996, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(396, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(983, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(987, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(1172, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(51, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(990, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(2078, 74, 240, 1); -- Demons link with Tauri
+INSERT INTO `mob_pool_mods` VALUES(6742, 74, 240, 1); -- Demons link with Tauri
+
+INSERT INTO `mob_pool_mods` VALUES(4068, 74, 169, 1); -- Tauri link with demons
+INSERT INTO `mob_pool_mods` VALUES(2721, 74, 169, 1); -- Tauri link with demons
+INSERT INTO `mob_pool_mods` VALUES(5861, 74, 169, 1); -- Tauri link with demons
+INSERT INTO `mob_pool_mods` VALUES(1770, 74, 169, 1); -- Tauri link with demons
+INSERT INTO `mob_pool_mods` VALUES(3845, 74, 169, 1); -- Tauri link with demons
+INSERT INTO `mob_pool_mods` VALUES(5556, 74, 169, 1); -- Tauri link with demons
+INSERT INTO `mob_pool_mods` VALUES(3978, 74, 169, 1); -- Tauri link with demons
+
+
+
+
 
 INSERT INTO `mob_pool_mods` VALUES (2031,28,-100,1); -- Hydras_Avatar EXP_BONUS: don't give XP
 INSERT INTO `mob_pool_mods` VALUES (2032,28,-100,1); -- Hydras_Hound EXP_BONUS: don't give XP

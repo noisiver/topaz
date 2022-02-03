@@ -25,11 +25,15 @@ end
 
 function onBattlefieldEnter(player, battlefield)
     player:delKeyItem(tpz.ki.COSMOCLEANSE)
+    player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.COSMOCLEANSE)
     player:setCharVar("Cosmo_Cleanse_TIME", os.time())
-    if player:getCharVar("ApollyonEntrance") == 0 then
+    if player:hasKeyItem(tpz.ki.BLACK_CARD) then
         player:delKeyItem(tpz.ki.BLACK_CARD)
-    else
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.BLACK_CARD)
+    end
+    if player:hasKeyItem(tpz.ki.RED_CARD) then
         player:delKeyItem(tpz.ki.RED_CARD)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.RED_CARD)
     end
 end
 

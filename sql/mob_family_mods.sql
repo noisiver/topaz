@@ -40,7 +40,6 @@ LOCK TABLES `mob_family_mods` WRITE;
 --INSERT INTO `mob_family_mods` VALUES (175,29,50,0);
 INSERT INTO `mob_family_mods` VALUES (4,29,20,0);
 INSERT INTO `mob_family_mods` VALUES (4,7,60,1);
-INSERT INTO `mob_family_mods` VALUES (74,29,25,0); -- Corse -25% MDT
 INSERT INTO `mob_family_mods` VALUES (61,29,25,0);
 INSERT INTO `mob_family_mods` VALUES (169,29,25,0); -- Kindred -25% MDT
 INSERT INTO `mob_family_mods` VALUES (110,29,13,0); -- Evil weapon 13% MDT
@@ -329,8 +328,9 @@ INSERT INTO `mob_family_mods` VALUES (119,23,256,1); -- Gears poison immunity
 INSERT INTO `mob_family_mods` VALUES (120,23,256,1); -- Gears poison immunity
 INSERT INTO `mob_family_mods` VALUES (63,23,256,1); -- Chariot poison immunity
 INSERT INTO `mob_family_mods` VALUES (217,23,256,1); -- Scorpion poison immunity
-INSERT INTO `mob_family_mods` VALUES (273,23,256,1); -- Serket poison immunity
+INSERT INTO `mob_family_mods` VALUES (273,23,256,1); -- Serket-Present poison immunity
 INSERT INTO `mob_family_mods` VALUES (274,23,256,1); -- King Vinegaroon poison immunity
+INSERT INTO `mob_family_mods` VALUES (547,23,256,1); -- Serket-Past poison immunity
 INSERT INTO `mob_family_mods` VALUES (125,23,2048,1); -- Giant Bird light sleep immunity 
 INSERT INTO `mob_family_mods` VALUES (203,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity

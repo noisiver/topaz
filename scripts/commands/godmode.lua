@@ -28,8 +28,6 @@ function onTrigger(player)
         player:addStatusEffect(tpz.effect.REFRESH, 99, 0, 0)
         player:addStatusEffect(tpz.effect.REGEN, 99, 0, 0)
         player:addStatusEffect(tpz.effect.FEALTY, 1, 0, 0)
-        player:addStatusEffect(tpz.effect.POISON, 1, 1, 7200)
-        player:addStatusEffect(tpz.effect.CURSE, 1, 1, 7200)
 
         -- Add bonus mods to the player..
         player:addMod(tpz.mod.RACC, 2500)
@@ -41,7 +39,7 @@ function onTrigger(player)
         player:addMod(tpz.mod.RDEF, 2500)
         player:addMod(tpz.mod.DEF, 2500)
         player:addMod(tpz.mod.MDEF, 2500)
-        player:addMod(tpz.mod.MEVA, 2500)
+        player:setMod(tpz.mod.MEVA, 2500)
 
         -- Heal the player from the new buffs..
         player:addHP( 50000 )
@@ -77,6 +75,6 @@ function onTrigger(player)
         player:delMod(tpz.mod.RDEF, 2500)
         player:delMod(tpz.mod.DEF, 2500)
         player:delMod(tpz.mod.MDEF, 2500)
-        player:delMod(tpz.mod.MEVA, 2500)
+        player:setMod(tpz.mod.MEVA, 240)
     end
 end

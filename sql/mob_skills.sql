@@ -443,7 +443,7 @@ INSERT INTO `mob_skills` VALUES (503,856,'unblessed_armor',0,7.0,2000,1500,1,0,0
 -- INSERT INTO `mob_skills` VALUES (506,863,'palsynyxis',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (507,864,'painful_whip',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (508,865,'suctorial_tentacle',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (509,253,'self-destruct_Goblin_Grenade',1,10.0,2000,10000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (509,253,'self-destruct_Goblin_Grenade',1,50.0,2000,3000,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (510,254,'berserk',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (511,253,'self-destruct',1,20.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (512,256,'heat_wave',1,10.0,2000,1500,4,0,0,0,0,0,0);
@@ -1466,11 +1466,11 @@ INSERT INTO `mob_skills` VALUES (1524,1084,'dissipation',2,20.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (1525,1090,'guided_missile_ii',2,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1526,1085,'colossal_blow',0,10.0,2000,3000,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (1527,1086,'laser_shower',4,20.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1528,1087,'floodlight',2,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1528,1087,'floodlight',4,20.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1529,1089,'hyper_pulse',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Proto-Omega
 INSERT INTO `mob_skills` VALUES (1530,1088,'stun_cannon',4,20.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1531,772,'wz_recover_all',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1532,1124,'pod_ejection',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1532,1124,'pod_ejection',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1533,1117,'pile_pitch',0,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1534,926,'guided_missile',2,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1535,1119,'hyper_pulse',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Omega
@@ -2272,7 +2272,7 @@ INSERT INTO `mob_skills` VALUES (2329,1633,'ixionauto_two',0,3.0,0,0,4,0,0,0,0,0
 INSERT INTO `mob_skills` VALUES (2330,1632,'ixionauto_three',0,3.0,0,0,4,0,0,0,0,0,0); -- correct animation(horn)
 INSERT INTO `mob_skills` VALUES (2331,1631,'ixionauto_four',0,7.0,0,0,4,0,0,0,0,0,0); -- What is this for??
 INSERT INTO `mob_skills` VALUES (2332,1630,'ixionauto_five',0,7.0,0,0,4,0,0,0,0,0,0); -- What is this for??
-INSERT INTO `mob_skills` VALUES (2333,1629,'ixion_trample',1,10.0,2000,1500,4,0,0,0,0,0,0); -- What is this for??
+INSERT INTO `mob_skills` VALUES (2333,1629,'ixion_trample',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Firaga explosion
 INSERT INTO `mob_skills` VALUES (2334,1640,'wrath_of_zeus',1,15.0,2000,2500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2335,1639,'lightning_spear',4,20.0,2000,2500,4,0,0,0,0,0,0); -- correct animation
 INSERT INTO `mob_skills` VALUES (2336,1642,'acheron_kick',4,10.0,2000,1000,4,0,0,0,0,0,0); -- correct animation
@@ -4047,12 +4047,14 @@ INSERT INTO `mob_skills` VALUES (222,208,'fan_dance',0,7.0,2000,1500,1,0,0,0,0,0
 
 
 -- Mythic WS
+INSERT INTO `mob_skills` VALUES (27,42,'mandalic_stab',0,7.0,2000,0,4,0,0,0,1,8,0);
+-- INSERT INTO `mob_skills` VALUES (25,1712,'evisceration',0,7.0,2000,1500,4,0,0,0,9,1,0); -- Dancer's Fury animation
+INSERT INTO `mob_skills` VALUES (29,1713,'pyrrhic_kleos',0,7.0,2000,1500,4,0,0,0,10,4,0); -- Whirling Edge animation
 INSERT INTO `mob_skills` VALUES (44,13,'death_blossom',0,7.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (45,14,'atonement',0,7.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (46,15,'expiacion',0,7.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (90,101,'kings_justice',0,7.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (154,176,'tachi_rana',0,7.0,2000,0,4,0,0,0,1,8,0);
--- INSERT INTO `mob_skills` VALUES (25,1712,'evisceration',0,7.0,2000,1500,4,0,0,0,9,1,0); -- Dancer's Fury animation
-INSERT INTO `mob_skills` VALUES (29,1713,'pyrrhic_kleos',0,7.0,2000,1500,4,0,0,0,10,4,0); -- Whirling Edge animation
 -- INSERT INTO `mob_skills` VALUES (129,152,'blade_retsu',1,10.0,2000,0,4,0,0,0,1,8,0);
 -- INSERT INTO `mob_skills` VALUES (132,155,'blade_chi',4,15.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (138,161,'blade_kamu',0,7.0,2000,0,4,0,0,0,1,8,0);

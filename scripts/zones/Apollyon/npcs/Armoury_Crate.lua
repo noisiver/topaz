@@ -886,20 +886,20 @@ local loot =
                 {itemid = 1875, droprate = 1000}, -- Ancient Beastcoin
             },
             {
-                {itemid = 1925, droprate = 659}, -- Omega's Eye
-                {itemid = 1927, droprate = 394}, -- Omega's Foreleg
-                {itemid = 1928, droprate = 388}, -- Omega's Hinf Leg
-                {itemid = 1929, droprate = 404}, -- Omega's Tail
+                {itemid = 1925, droprate = 250}, -- Omega's Eye
+                {itemid = 1927, droprate = 250}, -- Omega's Foreleg
+                {itemid = 1928, droprate = 250}, -- Omega's Hinf Leg
+                {itemid = 1929, droprate = 250}, -- Omega's Tail
             },
             {
-                {itemid = 1928, droprate = 394}, -- Omega's Hind Leg
-                {itemid = 1929, droprate = 402}, -- Omega's Tail
-                {itemid = 1925, droprate = 659}, -- Omega's Eye
-                {itemid = 1927, droprate = 383}, -- Omega's Foreleg
+                {itemid = 1928, droprate = 250}, -- Omega's Hind Leg
+                {itemid = 1929, droprate = 250}, -- Omega's Tail
+                {itemid = 1925, droprate = 250}, -- Omega's Eye
+                {itemid = 1927, droprate = 250}, -- Omega's Foreleg
             },
             {
-                {itemid =    0, droprate = 735}, -- Nothing
-                {itemid = 1926, droprate = 265}, -- Omega's Heart
+                {itemid =    0, droprate = 750}, -- Nothing
+                {itemid = 1926, droprate = 250}, -- Omega's Heart
             },
         },
     },
@@ -1020,7 +1020,7 @@ function onTrigger(player, npc)
                                 elseif model == 961 then
                                     tpz.limbus.handleLootRolls(battlefield, loot[bfid][i], nil, npc)
                                 elseif model == 962 then
-                                    tpz.limbus.extendTimeLimit(battlefield, 15, tpz.zone.APOLLYON)
+                                    tpz.limbus.extendTimeLimit(battlefield, 5, tpz.zone.APOLLYON)
                                 end
                             end
                         end
@@ -1041,7 +1041,7 @@ function onTrigger(player, npc)
                                 elseif model == 961 then
                                     tpz.limbus.handleLootRolls(battlefield, loot[bfid][i], nil, npc)
                                 elseif model == 962 then
-                                    tpz.limbus.extendTimeLimit(battlefield, 15, tpz.zone.APOLLYON)
+                                    tpz.limbus.extendTimeLimit(battlefield, 10, tpz.zone.APOLLYON)
                                 end
                             end
                         end

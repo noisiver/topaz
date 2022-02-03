@@ -51,6 +51,8 @@ namespace mobutils
         void  SetupAssaultMob(CMobEntity* PMob);
         void  SetupSalvageMob(CMobEntity* PMob);
         void  SetupNyzulMob(CMobEntity* PMob);
+        void  SetupEinherjarMob(CMobEntity* PMob);
+        void  SetupStrongholdsMob(CMobEntity* PMob);
         void  SetupBattlefieldMob(CMobEntity* PMob);
         void  SetupDungeonMob(CMobEntity* PMob);
         void  SetupEventMob(CMobEntity* PMob);

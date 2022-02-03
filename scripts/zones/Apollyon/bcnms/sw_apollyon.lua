@@ -31,7 +31,9 @@ end
 
 function onBattlefieldEnter(player, battlefield)
     player:delKeyItem(tpz.ki.COSMOCLEANSE)
+    player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.COSMOCLEANSE)
     player:delKeyItem(tpz.ki.RED_CARD)
+    player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.RED_CARD)
     player:setCharVar("Cosmo_Cleanse_TIME", os.time())
     if battlefield:getLocalVar("raceF1") == 0 then
         battlefield:setLocalVar("raceF1", player:getRace())

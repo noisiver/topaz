@@ -8,7 +8,7 @@ require("scripts/globals/mobs")
 local ID = require("scripts/zones/Everbloom_Hollow/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(150)
+    mob:setDamage(120)
     mob:setMod(tpz.mod.DEF, 10000)
     mob:setMod(tpz.mod.EVA, 340)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)

@@ -2,40 +2,47 @@
 -- Area: Apollyon Central
 --  Mob: Gunpod
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(120)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 10)
+end
+
 local loot = 
 {
     [1] = -- AF
+    -- 40% chance at AF upgrade mat
     {
         {
-            {itemid = 1933, droprate =  9}, -- MNK
-            {itemid = 1931, droprate = 53}, -- WAR
-            {itemid = 1959, droprate =  6}, -- SMN
-            {itemid = 1935, droprate = 12}, -- WHM
-            {itemid = 1945, droprate = 29}, -- DRK
-            {itemid = 1957, droprate = 12}, -- DRG
-            {itemid = 1949, droprate = 35}, -- BRD
-            {itemid = 2659, droprate = 35}, -- COR
-            {itemid = 1939, droprate = 12}, -- RDM
-            {itemid = 1951, droprate = 12}, -- RNG
-            {itemid = 2661, droprate = 12}, -- PUP
-            {itemid = 1937, droprate = 18}, -- BLM
-            {itemid = 1955, droprate = 29}, -- NIN
-            {itemid = 2717, droprate = 12}, -- SCH
-            {itemid = 1947, droprate = 12}, -- BST
-            {itemid = 2657, droprate = 18}, -- BLU
-            {itemid = 2715, droprate =  5}, -- DNC
-            {itemid = 1953, droprate = 35}, -- SAM
-            {itemid = 1941, droprate = 41}, -- THF
-            {itemid = 1943, droprate = 18}, -- PLD
+            {itemid = 1933, droprate = 20}, -- MNK
+            {itemid = 1931, droprate = 20}, -- WAR
+            {itemid = 1959, droprate = 20}, -- SMN
+            {itemid = 1935, droprate = 20}, -- WHM
+            {itemid = 1945, droprate = 20}, -- DRK
+            {itemid = 1957, droprate = 20}, -- DRG
+            {itemid = 1949, droprate = 20}, -- BRD
+            {itemid = 2659, droprate = 20}, -- COR
+            {itemid = 1939, droprate = 20}, -- RDM
+            {itemid = 1951, droprate = 20}, -- RNG
+            {itemid = 2661, droprate = 20}, -- PUP
+            {itemid = 1937, droprate = 20}, -- BLM
+            {itemid = 1955, droprate = 20}, -- NIN
+            {itemid = 2717, droprate = 20}, -- SCH
+            {itemid = 1947, droprate = 20}, -- BST
+            {itemid = 2657, droprate = 20}, -- BLU
+            {itemid = 2715, droprate = 20}, -- DNC
+            {itemid = 1953, droprate = 20}, -- SAM
+            {itemid = 1941, droprate = 20}, -- THF
+            {itemid = 1943, droprate = 20}, -- PLD
         },
     },
+    -- 60% chance at chip or crafting mat
     [2] = -- Chip
     {
         {
-            {itemid = 1987, droprate = 53}, -- Charcoal Chip
-            {itemid = 1988, droprate = 76}, -- Magenta Chip
-            {itemid = 1909, droprate = 64}, -- Smalt Chip
-            {itemid = 1910, droprate = 41}, -- Smoky Chip
+            {itemid = 1987, droprate = 50}, -- Charcoal Chip
+            {itemid = 1988, droprate = 50}, -- Magenta Chip
+            {itemid = 1909, droprate = 50}, -- Smalt Chip
+            {itemid = 1910, droprate = 50}, -- Smoky Chip
         },
     },
     [3] = -- Crafting

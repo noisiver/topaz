@@ -3,6 +3,7 @@
 --   NM: Zeid
 -- !additem 474
 -----------------------------------
+mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
@@ -36,33 +37,41 @@ function onMobFight(mob, target)
 	elseif BattleTime >= BerserkTime and Stance == 0 then
 		mob:useMobAbility(697) -- Berserk
 		mob:setDamage(150)
-		mob:setMod(tpz.mod.ATTP, 100)
+		mob:setMod(tpz.mod.ATTP, 25)
 		mob:setMod(tpz.mod.DEFP, -50)
 		mob:setMod(tpz.mod.MDEF, 0)
 		mob:setMod(tpz.mod.UDMGPHYS, 12) 
 		mob:setMod(tpz.mod.UDMGRANGE, 12)
 		mob:setMod(tpz.mod.UDMGMAGIC, 12)
-		target:PrintToPlayer("Sometimes, one must step back from the trees in order to see the forest.",0,"Iron Eater")
 		mob:setLocalVar("DefenderTime", BattleTime + 60)
 		mob:setLocalVar("Stance", 1)
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("Sometimes, one must step back from the trees in order to see the forest.",0,"Iron Eater")
+        end
 	end
 
 	if DefenderTime > 0 and BattleTime >= DefenderTime and Stance == 1 then
 		mob:useMobAbility(698) -- Defender
 		mob:setDamage(75)
-		mob:setMod(tpz.mod.ATTP, -50)
-		mob:setMod(tpz.mod.DEFP, 200)
+		mob:setMod(tpz.mod.DEFP, 150)
 		mob:setMod(tpz.mod.MDEF, 24)
 		mob:setMod(tpz.mod.UDMGPHYS, -12) 
 		mob:setMod(tpz.mod.UDMGRANGE, -12)
 		mob:setMod(tpz.mod.UDMGMAGIC, -12)
-		target:PrintToPlayer("Eyes open, always be learning.",0,"Iron Eater")
 		mob:setLocalVar("BerserkTime", BattleTime + 60)
 		mob:setLocalVar("Stance", 0)
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("Eyes open, always be learning.",0,"Iron Eater")
+        end
 	end
 end
 
 
 function onMobDeath(mob, player, isKiller)
-		player:PrintToPlayer("All rivers eventually lead out to sea... May we meet again.",0,"Iron Eater")
+    local zonePlayers = mob:getZone():getPlayers()
+    for _, zonePlayer in pairs(zonePlayers) do
+        zonePlayer:PrintToPlayer("All rivers eventually lead out to sea... May we meet again.",0,"Iron Eater")
+    end
 end

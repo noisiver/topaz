@@ -11,7 +11,7 @@ function onMobSpawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    if mob:getID() == ID.mob.APOLLYON_NE_MOB[1]+1 then
+    if mob:getID() == 16933055 then
         if isKiller or noKiller then
             local battlefield = mob:getBattlefield()
             local randomF1 = battlefield:getLocalVar("randomF1")
