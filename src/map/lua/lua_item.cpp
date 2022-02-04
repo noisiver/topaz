@@ -338,6 +338,38 @@ inline int32 CLuaItem::getSignature(lua_State* L)
 
     return 1;
 }
+
+inline int32 CLuaItem::getAppraisalID(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaItem == nullptr);
+
+    uint8 appId = 0;
+
+    if ((m_PLuaItem->getID() >= 2190 && m_PLuaItem->getID() <= 2196) ||
+        (m_PLuaItem->getID() >= 2276 && m_PLuaItem->getID() <= 2286)) // Only return ID if it's an appraisable item
+    {
+        appId = m_PLuaItem->m_extra[0x16];
+    }
+
+    lua_pushinteger(L, appId);
+    return 1;
+}
+
+inline int32 CLuaItem::setAppraisalID(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PLuaItem == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+
+    if ((m_PLuaItem->getID() >= 2190 && m_PLuaItem->getID() <= 2196) ||
+        (m_PLuaItem->getID() >= 2276 && m_PLuaItem->getID() <= 2286)) // Only set ID if it's an appraisable item
+    {
+        auto id = (uint8)lua_tointeger(L, 1);
+        m_PLuaItem->m_extra[0x16] = id;
+    }
+
+    return 1;
+}
+
 //==========================================================//
 
 const char CLuaItem::className[] = "CItem";

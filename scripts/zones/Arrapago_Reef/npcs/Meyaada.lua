@@ -13,6 +13,19 @@ local ID = require("scripts/zones/Arrapago_Reef/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
+    if player:getCharVar("AnnyEvent2020") == 7 and Anniversary_Event_2021 == 1 then
+        if trade:hasItemQty(4376, 1) and player:getFreeSlotsCount() > 0 and trade:getItemCount() == 1 then
+            player:tradeComplete()
+            player:setCharVar("AnnyEvent2020", 8)
+            player:addItem(4494)
+            player:PrintToPlayer("Meyaada : Always with the crappy rations...", 0xD)
+            player:PrintToPlayer("Meyaada : Take this to the one who taught you to get around quickly..", 0xD)
+            player:messageSpecial((ID.text.ITEM_OBTAINED), 4494)
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 4494)
+            player:PrintToPlayer("Meyaada : Come back after cleaning up that mess of an inventory...", 0xD)
+        end
+    end
 end
 
 function onTrigger(player, npc)
@@ -42,7 +55,6 @@ function onTrigger(player, npc)
             player:startEvent(223, 50, IPpoint)
         else
             player:startEvent(7)
-            -- player:delKeyItem(tpz.ki.ASSAULT_ARMBAND)
         end
 
     -- DEFAULT DIALOG

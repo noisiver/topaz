@@ -1,18 +1,28 @@
 -----------------------------------
 --
--- Assault: Excavation Duty
+-- Assault: Lebros Supplies
 --
 -----------------------------------
 local ID = require("scripts/zones/Lebros_Cavern/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/missions")
 require("scripts/globals/assault")
+require("scripts/globals/status")
 require("scripts/globals/zone")
 -----------------------------------
 
 function onInstanceCreated(instance)
-    instance:getEntity(bit.band(ID.npc.RUNE_OF_RELEASE, 0xFFF), tpz.objType.NPC):setPos(49.999,-40.837,96.999,0)
-    instance:getEntity(bit.band(ID.npc.ANCIENT_LOCKBOX, 0xFFF), tpz.objType.NPC):setPos(50.000,-40.070,99.999,0)
+    if math.random(1,100) >= 50 then
+        instance:getEntity(bit.band(17035306, 0xFFF), tpz.objType.MOB):setSpawn(-304.151, -8.470, -180.556, 250)
+    end
+    if math.random(1,100) >= 50 then
+        instance:getEntity(bit.band(17035307, 0xFFF), tpz.objType.MOB):setSpawn(-555.575, -10.872, -149.561, 201)
+    end
+    if math.random(1,100) >= 50 then
+        instance:getEntity(bit.band(17035308, 0xFFF), tpz.objType.MOB):setSpawn(-291.425, -8.264, -137.649, 142)
+    end
+    instance:getEntity(bit.band(ID.npc.RUNE_OF_RELEASE, 0xFFF), tpz.objType.NPC):setPos(-330, -10, -262, 128)
+    instance:getEntity(bit.band(ID.npc.ANCIENT_LOCKBOX, 0xFFF), tpz.objType.NPC):setPos(-330, -10, -265, 128)
 
     spawnMobInAssault(instance, ID.mob)
 end
@@ -30,7 +40,7 @@ function onInstanceFailure(instance)
 end
 
 function onInstanceProgressUpdate(instance, progress)
-    if progress >= 5 then    
+    if progress >= 12 then
         instance:complete()
     end
 end
