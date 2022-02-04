@@ -4,11 +4,12 @@
 -- Type: Assault Mission Giver
 -- !pos 127.565 0.161 -43.846 50
 -----------------------------------
-require("scripts/globals/keyitems")
 local ID = require("scripts/zones/Aht_Urhgan_Whitegate/IDs")
+require("scripts/globals/keyitems")
 require("scripts/globals/besieged")
 require("scripts/globals/missions")
 require("scripts/globals/npc_util")
+require("scripts/globals/settings")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -25,11 +26,14 @@ function onTrigger(player, npc)
         haveimperialIDtag = 0
     end
 
---[[    if (rank > 0) then
+    if (rank > 0 and IS_ASSAULT_ACTIVATED == 1) then
+        if (rank > MAX_ASSAULT_PROMOTION_ALLOWED) then
+            rank = MAX_ASSAULT_PROMOTION_ALLOWED
+        end
         player:startEvent(274, rank, haveimperialIDtag, assaultPoints, player:getCurrentAssault())
-    else]]
+    else
         player:startEvent(280) -- no rank
-    --end
+    end
 end
 
 function onEventUpdate(player, csid, option)
@@ -58,7 +62,7 @@ function onEventFinish(player, csid, option)
                 [5]  = {itemid = 15491, price = 10000},
                 [6]  = {itemid = 17715, price = 15000},
                 [7]  = {itemid = 18113, price = 15000},
-                [8]  = {itemid = 17591, price = 15000},
+                [8]  = {itemid = 17951, price = 15000},
                 [9]  = {itemid = 14935, price = 20000},
                 [10] = {itemid = 15688, price = 20000},
                 [11] = {itemid = 15609, price = 20000},
@@ -66,7 +70,7 @@ function onEventFinish(player, csid, option)
 
             local choice = items[item]
             if choice and npcUtil.giveItem(player, choice.itemid) then
-                player:delAssaultPoint("MAMOOL_ASSAULT_POINT", choice.price)
+                player:delAssaultPoint(choice.price, 1) -- Remove from MAMOOL_ASSAULT_POINT
             end
         end
     end
