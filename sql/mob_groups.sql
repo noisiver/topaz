@@ -1340,7 +1340,7 @@ INSERT INTO `mob_groups` VALUES (48,1223,37,'Enhanced_Lizard',0,128,2856,10000,0
 INSERT INTO `mob_groups` VALUES (49,1229,37,'Enhanced_Slime',0,128,2856,10000,1000,78,80,0);
 INSERT INTO `mob_groups` VALUES (50,1226,37,'Enhanced_Pugil',0,128,2856,10000,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (51,1231,37,'Enhanced_Vulture',0,128,2856,11000,1000,78,80,0);
-INSERT INTO `mob_groups` VALUES (52,3209,37,'Proto-Ultima',0,128,0,26000,2000,85,85,0);
+INSERT INTO `mob_groups` VALUES (52,3209,37,'Proto-Ultima',0,128,0,50000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (53,6144,37,'Kingslayer_Doggvdegg',0,128,6051,20000,0,75,80,0);
 INSERT INTO `mob_groups` VALUES (54,2152,37,'JiGho_Ageless',0,128,6051,20000,0,75,80,0);
 INSERT INTO `mob_groups` VALUES (55,2279,37,'Koo_Buzu_the_Theomanic',0,128,6051,20000,0,75,80,0);
@@ -4181,7 +4181,7 @@ INSERT INTO `mob_groups` VALUES (32,6268,81,'Orcish_Stonechucker',330,0,1884,0,0
 INSERT INTO `mob_groups` VALUES (33,6265,81,'Orcish_Fodder',330,0,1902,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (34,6267,81,'Orcish_Neckchopper',330,0,1927,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (35,3148,81,'Pixie',330,0,2000,0,0,53,55,0);
-INSERT INTO `mob_groups` VALUES (36,3448,81,'Sandworm',36000,0,0,80000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (36,3448,81,'Sandworm',36000,0,0,70000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (37,1696,81,'Goblin_Picaroon',330,0,1135,0,0,56,59,0);
 INSERT INTO `mob_groups` VALUES (38,3038,81,'Orcish_Transporter',0,128,283,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (39,3018,81,'Orcish_Guard',0,128,1910,0,0,60,60,0);
@@ -5184,7 +5184,7 @@ INSERT INTO `mob_groups` VALUES (42,6241,88,'Copper_Quadav',330,0,511,0,0,59,64,
 INSERT INTO `mob_groups` VALUES (43,5339,88,'Drachenlizard',330,0,3024,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (44,1688,88,'Goblin_Mine',0,128,0,0,0,51,51,0);
 INSERT INTO `mob_groups` VALUES (45,1713,88,'Goblin_Skirmisher',330,0,1158,0,0,56,59,0);
-INSERT INTO `mob_groups` VALUES (46,3448,88,'Sandworm',36000,0,0,80000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (46,3448,88,'Sandworm',36000,0,0,70000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (47,1696,88,'Goblin_Picaroon',330,0,1135,0,0,71,73,0);
 INSERT INTO `mob_groups` VALUES (48,3276,88,'Quadav_Transporter',0,128,2061,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (49,3274,88,'Quadav_Guard',0,128,2061,0,0,60,60,0);
@@ -5701,7 +5701,7 @@ INSERT INTO `mob_groups` VALUES (39,6240,91,'Brass_Quadav',330,0,349,0,0,65,69,0
 INSERT INTO `mob_groups` VALUES (40,3745,91,'Sprite',330,0,2001,0,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (41,1713,91,'Goblin_Skirmisher',330,0,1158,0,0,56,59,0);
 INSERT INTO `mob_groups` VALUES (42,1688,91,'Goblin_Mine',0,128,0,0,0,53,53,0);
-INSERT INTO `mob_groups` VALUES (43,3448,91,'Sandworm',36000,0,0,80000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (43,3448,91,'Sandworm',36000,0,0,70000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (44,915,91,'Dark_Ixion',36000,0,0,100000,0,95,95,0);
 INSERT INTO `mob_groups` VALUES (52,4701,91,'Agathos',0,128,0,0,0,95,96,0);
 INSERT INTO `mob_groups` VALUES (53,6573,91,'Wight',330,1,958,0,0,50,60,0);
@@ -6180,7 +6180,7 @@ INSERT INTO `mob_groups` VALUES (31,3148,95,'Pixie',330,0,2001,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (32,3181,95,'Poroggo_Gent',330,8,2014,0,0,56,67,0);
 INSERT INTO `mob_groups` VALUES (33,3934,95,'Toad',330,0,0,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (34,4710,95,'Ramponneau',0,32,2987,5200,4500,52,54,0);
-INSERT INTO `mob_groups` VALUES (35,3448,95,'Sandworm',36000,0,0,80000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (35,3448,95,'Sandworm',36000,0,0,70000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (36,1696,95,'Goblin_Picaroon',330,0,0,0,0,57,62,0);
 INSERT INTO `mob_groups` VALUES (37,4457,95,'Yagudo_Transporter',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (38,4421,95,'Yagudo_Guard',0,128,0,0,0,60,60,0);
@@ -6481,7 +6481,7 @@ INSERT INTO `mob_groups` VALUES (35,1341,97,'Fire_Elemental',330,4,831,0,0,75,75
 INSERT INTO `mob_groups` VALUES (36,3745,97,'Sprite',330,0,2001,0,0,66,67,0);
 INSERT INTO `mob_groups` VALUES (37,1697,97,'Goblin_Picket',330,0,1136,0,0,71,74,0);
 INSERT INTO `mob_groups` VALUES (38,1688,97,'Goblin_Mine',0,128,0,0,0,66,67,0);
-INSERT INTO `mob_groups` VALUES (39,3448,97,'Sandworm',36000,0,0,80000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (39,3448,97,'Sandworm',36000,0,0,70000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (40,459,97,'Bloodlapper',0,128,300,20000,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (41,4457,97,'Yagudo_Transporter',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (42,4421,97,'Yagudo_Guard',0,128,0,0,0,60,60,0);
@@ -6638,7 +6638,7 @@ INSERT INTO `mob_groups` VALUES (28,4454,98,'Yagudos_Elemental',0,128,0,0,0,66,6
 INSERT INTO `mob_groups` VALUES (29,1160,98,'Earth_Elemental',330,4,733,0,0,75,80,0);
 INSERT INTO `mob_groups` VALUES (30,5725,98,'Hyakinthos',5400,0,2990,6200,0,58,59,0);
 INSERT INTO `mob_groups` VALUES (31,3745,98,'Sprite',330,0,2001,0,0,62,64,0);
-INSERT INTO `mob_groups` VALUES (32,3448,98,'Sandworm',36000,0,0,80000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (32,3448,98,'Sandworm',36000,0,0,70000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (33,4457,98,'Yagudo_Transporter',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (34,4421,98,'Yagudo_Guard',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (35,2087,98,'Iqi-Balam',1,0,0,0,0,1,1,0);
