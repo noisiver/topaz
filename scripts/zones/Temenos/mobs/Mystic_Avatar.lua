@@ -7,15 +7,26 @@ local ID = require("scripts/zones/Temenos/IDs")
 
 function onMobSpawn(mob)
     local mobID = mob:getID()
+    mob:setMod(tpz.mod.SDT_FIRE, 100)
+    mob:setMod(tpz.mod.SDT_ICE, 100)
+    mob:setMod(tpz.mod.SDT_WIND, 100)
+    mob:setMod(tpz.mod.SDT_EARTH, 100)
+    mob:setMod(tpz.mod.SDT_THUNDER, 100)
+    mob:setMod(tpz.mod.SDT_WATER, 100)
+    mob:setMod(tpz.mod.SDT_LIGHT, 100)
+    mob:setMod(tpz.mod.SDT_DARK, 100)
+    mob:setMod(tpz.mod.UDMGMAGIC, 0)
+    mob:setMod(tpz.mod.MDEF, 0)
     if mobID == ID.mob.TEMENOS_C_MOB[2] then --Carbuncle (Central Temenos 2nd Floor)
-        mob:setMod(tpz.mod.FIREDEF, 256)
-        mob:setMod(tpz.mod.ICEDEF, 256)
-        mob:setMod(tpz.mod.WINDDEF, 256)
-        mob:setMod(tpz.mod.EARTHDEF, 256)
-        mob:setMod(tpz.mod.THUNDERDEF, 256)
-        mob:setMod(tpz.mod.WATERDEF, 256)
-        mob:setMod(tpz.mod.LIGHTDEF, 256)
-        mob:setMod(tpz.mod.DARKDEF, -128)
+        mob:setMod(tpz.mod.SDT_FIRE, 50)
+        mob:setMod(tpz.mod.SDT_ICE, 50)
+        mob:setMod(tpz.mod.SDT_WIND, 50)
+        mob:setMod(tpz.mod.SDT_EARTH, 50)
+        mob:setMod(tpz.mod.SDT_THUNDER, 50)
+        mob:setMod(tpz.mod.SDT_WATER, 50)
+        mob:setMod(tpz.mod.SDT_LIGHT, 50)
+        mob:setMod(tpz.mod.SDT_DARK, 100)
+        mob:addMod(tpz.mod.EVA, 50)
     end
 end
 
@@ -40,7 +51,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
         elseif mobID >= ID.mob.TEMENOS_C_MOB[2]+9 then
             local element_offset = mobID - ID.mob.TEMENOS_C_MOB[2]+8
             local partner_offset = element_offset % 6 -- Levithan's partner starts at 0
-            GetMobByID(ID.mob.TEMENOS_C_MOB[2]):setMod(tpz.mod.FIREDEF - 1 + element_offset, -128)
+            GetMobByID(ID.mob.TEMENOS_C_MOB[2]):setMod(tpz.mod.SDT_FIRE - 1 + element_offset, 100)
             if GetMobByID(ID.mob.TEMENOS_C_MOB[2] + 3 + partner_offset):isAlive() then
                 DespawnMob(ID.mob.TEMENOS_C_MOB[2] + 3 + partner_offset)
                 SpawnMob(ID.mob.TEMENOS_C_MOB[2] + 9 + partner_offset)

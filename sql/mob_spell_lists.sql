@@ -539,7 +539,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,273,31,55);
 INSERT INTO `mob_spell_lists` VALUES ('Ahriman',11,274,56,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,53,19,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,59,15,255);
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,102,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,102,20,70); -- Enaero
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,154,9,33);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,155,34,58);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,156,59,71);
@@ -554,7 +554,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Air',12,208,56,255); -- Tornado
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,54,28,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,56,13,74);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,79,75,255);
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,103,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,103,18,70); -- Enstone
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,159,1,25);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,160,26,50);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,161,51,67);
@@ -566,7 +566,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,191,63,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,238,18,50);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Earth',13,210,56,255); -- Quake
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,58,4,255);
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,101,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,101,22,70); -- Enblizzard
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,149,17,41);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,150,42,63);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,151,64,73);
@@ -580,7 +580,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,250,20,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,258,7,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Ice',14,206,56,255); -- Freeze
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,55,10,255);
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,105,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,105,27,70); -- Enwater
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,169,5,29);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,170,30,54);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,171,55,69);
@@ -594,7 +594,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,221,43,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,225,24,59);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,240,27,50);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Water',15,214,56,255); -- Flood
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,104,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,104,16,70); -- Enthunder
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,164,21,45);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,165,46,65);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,166,66,74);
@@ -607,7 +607,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,239,16,50);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,251,30,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,252,37,255);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Thunder',16,212,56,255); -- Burst 
-INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,100,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,100,24,70); -- Enfire
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,144,13,37);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,145,38,61);
 INSERT INTO `mob_spell_lists` VALUES ('Elemental_Fire',17,146,62,72);
@@ -4676,6 +4676,19 @@ INSERT INTO `mob_spell_lists` VALUES ('Serket_Past',2033,366,1,255); -- graviga
 
 INSERT INTO `mob_spell_lists` VALUES ('Limbus_GiantBirds',2034,376,1,255); -- Horde Lullaby
 INSERT INTO `mob_spell_lists` VALUES ('Limbus_GiantBirds',2034,423,1,255); -- massacre elegy
+
+INSERT INTO `mob_spell_lists` VALUES ('Batteilant_Bhoot',2035,181,1,255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Batteilant_Bhoot',2035,152,1,255); -- blizzard_iv 
+INSERT INTO `mob_spell_lists` VALUES ('Batteilant_Bhoot',2035,274,1,255); -- Sleepga_II 
+INSERT INTO `mob_spell_lists` VALUES ('Batteilant_Bhoot',2035,250,1,255); -- Ice_Spikes 
+INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Imp',2036,181,1,255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Imp',2036,152,1,255); -- blizzard_iv 
+INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Imp',2036,207,1,255); -- freeze_ii 
+INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Soulflayer',2037,167,1,255); -- thunder_iv 
+INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Soulflayer',2037,196,1,255); -- thundaga_iii 
+INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Soulflayer',2037,359,1,255); -- Silencega 
+INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Soulflayer',2037,356,1,255); -- Paralyga 
+
 
 
 
