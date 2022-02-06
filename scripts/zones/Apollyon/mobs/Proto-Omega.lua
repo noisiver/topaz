@@ -19,7 +19,10 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.ACC, 300) 
     mob:setMod(tpz.mod.EVA, 300)
     mob:setMod(tpz.mod.REFRESH, 50)
+    mob:setMod(tpz.mod.REGAIN, 0)
     mob:addMod(tpz.mod.MDEF, 68)
+	mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
+	mob:setMod(tpz.mod.COUNTER, 25) 
     mob:setMobMod(tpz.mobMod.SUPERLINK, mob:getShortID())
     mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     mob:setMod(tpz.mod.UDMGPHYS, -90)
@@ -28,6 +31,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGBREATH, 0)
     mob:setMod(tpz.mod.MOVE, 25) -- "Moves at Flee Speed in Quadrupedal stance and in the Final Form"
     mob:setLocalVar("form", 0)
+    mob:setLocalVar("Gunpod", 0)
 end
 
 function onMobFight(mob, target)
@@ -35,6 +39,7 @@ function onMobFight(mob, target)
     local formTime = mob:getLocalVar("formWait")
     local lifePercent = mob:getHPP()
     local currentForm = mob:getLocalVar("form")
+    local Gunpod = mob:getLocalVar("Gunpod")
     local AnimationSub = mob:AnimationSub()
 
     local First = mob:getLocalVar("First")
@@ -156,8 +161,12 @@ function onMobFight(mob, target)
                 if mob:AnimationSub() == 1 then
                     mob:AnimationSub(2)
                     mob:setBehaviour(bit.band(mob:getBehaviour(), bit.bnot(tpz.behavior.NO_TURN)))
-                    if not GetMobByID(mobID + 1):isSpawned() then
-                        mob:useMobAbility(1532)
+                    if not GetMobByID(mobID + 1):isSpawned()then
+                        if Gunpod < 6 then
+                            Gunpod = Gunpod +1
+                            mob:setLocalVar("Gunpod", Gunpod)
+                            mob:useMobAbility(1532)
+                        end
                     end 
                 else
                     mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
@@ -168,7 +177,11 @@ function onMobFight(mob, target)
         elseif currentForm == 2 then
             if formTime < os.time() then
                 if not GetMobByID(mobID + 1):isSpawned() then
-                    mob:useMobAbility(1532)
+                    if Gunpod < 6 then
+                        Gunpod = Gunpod +1
+                        mob:setLocalVar("Gunpod", Gunpod)
+                        mob:useMobAbility(1532)
+                    end
                 end 
             mob:setLocalVar("formWait", os.time() + 60)
             end

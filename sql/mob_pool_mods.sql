@@ -146,7 +146,6 @@ INSERT INTO `mob_pool_mods` VALUES (3099,23,23,1); -- Parata immune to Sleep, Bi
 INSERT INTO `mob_pool_mods` VALUES (3124,48,434,1);
 INSERT INTO `mob_pool_mods` VALUES (3129,370,50,0);
 INSERT INTO `mob_pool_mods` VALUES (3168,28,10,1);
-INSERT INTO `mob_pool_mods` VALUES (3208,370,20,0);
 INSERT INTO `mob_pool_mods` VALUES (3245,56,1,1);
 INSERT INTO `mob_pool_mods` VALUES (3252,56,1,1);
 INSERT INTO `mob_pool_mods` VALUES (3257,56,1,1);

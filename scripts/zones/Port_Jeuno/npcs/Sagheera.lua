@@ -257,7 +257,7 @@ local abcShop =
 local COSMO_READY = 2147483649 -- BITMASK for the purchase
 
 local function getCosmoCleanseTime(player)
-    local cosmoWaitTime = player:hasKeyItem(tpz.ki.RHAPSODY_IN_MAUVE) and 3600 or 72000
+    local cosmoWaitTime = 43200 -- 12 hours
     local lastCosmoTime = player:getCharVar("Cosmo_Cleanse_TIME")
 
     if lastCosmoTime ~= 0 then

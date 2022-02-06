@@ -3,8 +3,8 @@
 --  Mob: Gunpod
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(120)
-    mob:setMod(tpz.mod.TRIPLE_ATTACK, 10)
+	mob:setDamage(200)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 5)
 end
 
 local loot = 

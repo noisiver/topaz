@@ -7878,7 +7878,11 @@ INSERT INTO `mob_droplist` VALUES (1480,0,0,1000,888,480);
 INSERT INTO `mob_droplist` VALUES (1480,0,0,1000,1664,170);
 INSERT INTO `mob_droplist` VALUES (1480,0,0,1000,4290,190);
 INSERT INTO `mob_droplist` VALUES (1480,0,0,1000,4484,100);
-INSERT INTO `mob_droplist` VALUES (1481,0,0,1000,16275,100); -- 1481 Unused
+INSERT INTO `mob_droplist` VALUES (1481,0,0,1000,2654,1000); -- (Dark Ixion) Dark Ixion Horn
+INSERT INTO `mob_droplist` VALUES (1481,0,0,1000,2655,1000); -- Dark Ixion Tail
+INSERT INTO `mob_droplist` VALUES (1481,0,0,1000,11289,240); -- Ixion Cloak
+INSERT INTO `mob_droplist` VALUES (1481,0,0,1000,19107,240); -- Azoth
+INSERT INTO `mob_droplist` VALUES (1481,0,0,1000,16242,240); -- Ixion Cape
 INSERT INTO `mob_droplist` VALUES (1482,1,0,1000,901,333); -- (Lambton Worm) Venomous claw
 INSERT INTO `mob_droplist` VALUES (1482,1,0,1000,909,334); -- Guivre's skull
 INSERT INTO `mob_droplist` VALUES (1482,1,0,1000,836,333); -- Square Of Damascene Cloth 

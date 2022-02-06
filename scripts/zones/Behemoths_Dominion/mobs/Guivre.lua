@@ -6,7 +6,6 @@ require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/pathfind")
 -----------------------------------
---TODO: Missing pathNodes positions
 local pathNodes =
 {
     -180, -19, 58,
@@ -61,6 +60,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 2064)
     mob:setLocalVar("RunAwayPath", 0)
 	mob:setLocalVar("RunAway", 0)
+    onPath(mob)
 end
 
 function onMobRoam(mob)
@@ -74,6 +74,7 @@ function onMobEngaged(mob)
     mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
     mob:SetMobAbilityEnabled(true)
+    mob:delStatusEffect(tpz.effect.FLEE)
     mob:setMod(tpz.mod.UDMGPHYS, 0)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
     mob:setMod(tpz.mod.UDMGBREATH, 0)
@@ -120,6 +121,7 @@ function onMobFight(mob, target)
                 mob:delStatusEffect(effect)
             end
         end
+        mob:addStatusEffect(tpz.effect.FLEE, 25, 0, 60)
         mob:setMod(tpz.mod.UDMGPHYS, -100)
         mob:setMod(tpz.mod.UDMGMAGIC, -100)
         mob:setMod(tpz.mod.UDMGBREATH, -100)
@@ -138,6 +140,7 @@ function onMobFight(mob, target)
                 mob:delStatusEffect(effect)
             end
         end
+        mob:addStatusEffect(tpz.effect.FLEE, 25, 0, 60)
         mob:setMod(tpz.mod.UDMGPHYS, -100)
         mob:setMod(tpz.mod.UDMGMAGIC, -100)
         mob:setMod(tpz.mod.UDMGBREATH, -100)

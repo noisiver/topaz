@@ -30,6 +30,7 @@ local path =
 function onMobRoam(mob)
     local offset = mob:getID() - ID.mob.TEMENOS_N_MOB[6]
     local pause = mob:getLocalVar("pause")
+	mob:spawnPet()
     if pause < os.time() then
         local point = (mob:getLocalVar("point") % 2)+1
         mob:setLocalVar("point", point)

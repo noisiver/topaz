@@ -2,12 +2,24 @@
 -- Area: Temenos N T
 --  Mob: Skadi
 -----------------------------------
-mixins = {require("scripts/mixins/job_special")}
 local ID = require("scripts/zones/Temenos/IDs")
+
+function onMobSpawn(mob)
+    mob:setLocalVar("Charm", 0)
+end
 
 function onMobEngaged(mob, target)
     GetMobByID(ID.mob.TEMENOS_N_MOB[2]+2):updateEnmity(target)
     GetMobByID(ID.mob.TEMENOS_N_MOB[2]+1):updateEnmity(target)
+end
+
+function onMobFight(mob, target)
+    local charm = mob:getLocalVar("Charm")
+
+    if (charm == 0 and mob:getHPP() <  50) then
+        mob:useMobAbility(710)
+        mob:setLocalVar("Charm", 1)
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
