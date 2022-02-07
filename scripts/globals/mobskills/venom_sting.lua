@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.POISON
     local power = 100
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 3, 60)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 3, 300)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
 	if dmg > 0 and skill:getMsg() ~= 31 then target:tryInterruptSpell(mob, info.hitslanded) end

@@ -297,7 +297,7 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.PETRIFICATION,
         power = 1,
-        duration = 30,
+        duration = 10,
         minDuration = 1,
         maxDuration = 45,
     },
