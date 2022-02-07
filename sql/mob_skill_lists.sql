@@ -4278,6 +4278,52 @@ INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,928); -- pinecone_b
 INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,929); -- leafstorm_cemetary
 INSERT INTO `mob_skill_lists` VALUES ('Cemetary_Cherry',6097,930); -- entangle_cemetary
 
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Shiva',6098,881);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Shiva',6098,882);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Shiva',6098,883);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Shiva',6098,884);
+
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Ramuh',6099,890);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Ramuh',6099,891);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Ramuh',6099,892);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Ramuh',6099,893);
+
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Titan',6100,853);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Titan',6100,854);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Titan',6100,855);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Titan',6100,856);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Titan',6100,857);
+
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Ifrit',6101,845);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Ifrit',6101,846);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Ifrit',6101,847);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Ifrit',6101,848);
+
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Leviathan',6102,861);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Leviathan',6102,863);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Leviathan',6102,864);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Leviathan',6102,865);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Leviathan',6102,866);
+
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Garuda',6103,872);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Garuda',6103,873);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Garuda',6103,874);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Garuda',6103,875);
+
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Fenrir',6104,833);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Fenrir',6104,835);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Fenrir',6104,836);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Fenrir',6104,838);
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Fenrir',6104,839);
+
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,906); -- healing_ruby
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,907); -- poison_nails
+-- INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,908); -- shining_ruby
+-- INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,909); -- glittering_ruby
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,910); -- meteorite
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,911); -- healing_ruby_ii
+INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,912); -- searing_light
+
 --6066 unused
 
 

@@ -58,14 +58,14 @@ function onTrigger(player, npc)
     elseif player:getCurrentMission(TOAU) > tpz.mission.id.toau.PRESIDENT_SALAHEEM or (player:getCurrentMission(TOAU) == tpz.mission.id.toau.PRESIDENT_SALAHEEM and player:getCharVar("AhtUrganStatus") >= 1) then
         local currentTime = os.time()
         local refreshTime = player:getCharVar("lastTagTime")
-        local diffday = math.floor((currentTime - refreshTime)/86400)
+        local diffday = math.floor((currentTime - refreshTime)/28800)
         local tagStock = player:getCurrency("id_tags")
-        local allTagsTimeCS = (refreshTime - 1009897200) + (diffday * 86400)
+        local allTagsTimeCS = (refreshTime - 1009897200) + (diffday * 28800)
         local haveimperialIDtag = 0
         local tagsAvail = 0
 
         while currentTime >= refreshTime and tagStock < 3 do
-            refreshTime = refreshTime + 86400
+            refreshTime = refreshTime + 28800
             tagStock = tagStock + 1
         end
 
@@ -116,7 +116,7 @@ function onEventFinish(player, csid, option)
         npcUtil.giveKeyItem(player, tpz.ki.IMPERIAL_ARMY_ID_TAG)
 
         if tagStock >= 3 then
-            player:setCharVar("lastTagTime", os.time() + 86400)
+            player:setCharVar("lastTagTime", os.time() + 28800)
         end
         player:setCurrency("id_tags", tagStock - 1)
     elseif csid == 268 and option == 2 and hasOrders(player) and not player:hasKeyItem(tpz.ki.IMPERIAL_ARMY_ID_TAG) then

@@ -541,21 +541,9 @@ void CalculateStats(CMobEntity * PMob)
     {
         SetupLimbusMob(PMob);
     }
-    else if (zoneType == ZONETYPE_ASSAULT)
+    else if (zoneType == ZONETYPE_DUNGEON_INSTANCED)
     {
-        SetupAssaultMob(PMob);
-    }
-    else if (zoneType == ZONETYPE_SALVAGE)
-    {
-        SetupSalvageMob(PMob);
-    }
-    else if (zoneType == ZONETYPE_NYZUL)
-    {
-        SetupNyzulMob(PMob);
-    }
-    else if (zoneType == ZONETYPE_EINHERJAR)
-    {
-        SetupEinherjarMob(PMob);
+        SetupDungeonInstancedMob(PMob);
     }
     else if (zoneType == ZONETYPE_STRONGHOLDS)
     {
@@ -924,59 +912,17 @@ void SetupLimbusMob(CMobEntity* PMob)
     PMob->addModifier(Mod::REFRESH, 400);
 }
 
-void SetupAssaultMob(CMobEntity* PMob)
-{
-    // Bonus stats for difficulty
-    if (PMob->m_Type & MOBTYPE_NOTORIOUS)
-    {
-        // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
-
-        PMob->addModifier(Mod::ACC, 50);
-        PMob->addModifier(Mod::MDEF, 40);
-        PMob->addModifier(Mod::UDMGMAGIC, -13);
-        PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
-    }
-    else
-    {
-        // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 120);
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
-
-        PMob->addModifier(Mod::ACC, 30);
-        PMob->addModifier(Mod::MDEF, 15);
-        PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
-    }
-
-    // No gil drops or exp
-    PMob->setMobMod(MOBMOD_GIL_MAX, -1);
-    PMob->setMobMod(MOBMOD_MUG_GIL, -1);
-    PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
-
-    // never despawn and zonewide hate
-    PMob->SetDespawnTime(0s);
-    PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
-
-    PMob->addModifier(Mod::REFRESH, 400);
-}
-
-void SetupSalvageMob(CMobEntity* PMob)
+void SetupDungeonInstancedMob(CMobEntity* PMob)
 {
     uint8 mLvl = PMob->GetMLevel();
     // Bonus stats for difficulty
     if (mLvl >= 81)
     {
         // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 200);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
-        PMob->addModifier(Mod::ATTP, 50);
-        PMob->addModifier(Mod::DEFP, 50);
         PMob->addModifier(Mod::ACC, 50);
-        PMob->addModifier(Mod::EVA, 50);
         PMob->addModifier(Mod::MDEF, 40);
         PMob->addModifier(Mod::UDMGMAGIC, -13);
         PMob->addModifier(Mod::REGEN, 30);
@@ -985,106 +931,13 @@ void SetupSalvageMob(CMobEntity* PMob)
     else
     {
         // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 120);
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 135);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
-        PMob->addModifier(Mod::ATTP, 25);
-        PMob->addModifier(Mod::DEFP, 25);
         PMob->addModifier(Mod::ACC, 30);
-        PMob->addModifier(Mod::EVA, 30);
         PMob->addModifier(Mod::MDEF, 15);
         PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
-    }
-
-    // No gil drops or exp
-    PMob->setMobMod(MOBMOD_GIL_MAX, -1);
-    PMob->setMobMod(MOBMOD_MUG_GIL, -1);
-    PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
-
-    // never despawn and zonewide hate
-    PMob->SetDespawnTime(0s);
-    PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
-
-    PMob->addModifier(Mod::REFRESH, 400);
-}
-
-void SetupNyzulMob(CMobEntity* PMob)
-{
-    // Bonus stats for difficulty
-    if (PMob->m_Type & MOBTYPE_NOTORIOUS)
-    {
-        // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
-
-        PMob->addModifier(Mod::ATTP, 50);
-        PMob->addModifier(Mod::DEFP, 50);
-        PMob->addModifier(Mod::ACC, 50);
-        PMob->addModifier(Mod::EVA, 50);
-        PMob->addModifier(Mod::MDEF, 40);
-        PMob->addModifier(Mod::UDMGMAGIC, -13);
-        PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
-    }
-    else
-    {
-        // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 120);
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
-
-        PMob->addModifier(Mod::ATTP, 25);
-        PMob->addModifier(Mod::DEFP, 25);
-        PMob->addModifier(Mod::ACC, 30);
-        PMob->addModifier(Mod::EVA, 30);
-        PMob->addModifier(Mod::MDEF, 15);
-        PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
-    }
-
-    // No gil drops or exp
-    PMob->setMobMod(MOBMOD_GIL_MAX, -1);
-    PMob->setMobMod(MOBMOD_MUG_GIL, -1);
-    PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
-
-    // never despawn and zonewide hate
-    PMob->SetDespawnTime(0s);
-    PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
-
-    PMob->addModifier(Mod::REFRESH, 400);
-}
-
-void SetupEinherjarMob(CMobEntity* PMob)
-{
-    uint8 mLvl = PMob->GetMLevel();
-    // Bonus stats for difficulty
-    if (mLvl >= 81)
-    {
-        // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
-
-        PMob->addModifier(Mod::ATTP, 50);
-        PMob->addModifier(Mod::DEFP, 50);
-        PMob->addModifier(Mod::ACC, 50);
-        PMob->addModifier(Mod::EVA, 50);
-        PMob->addModifier(Mod::MDEF, 40);
-        PMob->addModifier(Mod::UDMGMAGIC, -13);
-        PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
-    }
-    else
-    {
-        // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 120);
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
-
-        PMob->addModifier(Mod::ATTP, 25);
-        PMob->addModifier(Mod::DEFP, 25);
-        PMob->addModifier(Mod::ACC, 30);
-        PMob->addModifier(Mod::EVA, 30);
-        PMob->addModifier(Mod::MDEF, 15);
-        PMob->addModifier(Mod::REGEN, 30);
     }
 
     // No gil drops or exp

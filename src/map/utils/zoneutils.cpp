@@ -514,7 +514,7 @@ void LoadMOBList()
                 if (
                     PMob->m_Type & MOBTYPE_EVENT || PMob->m_Type & MOBTYPE_FISHED || PMob->m_Type & MOBTYPE_BATTLEFIELD ||
                     PMob->m_Type & MOBTYPE_NOTORIOUS || zoneType == ZONETYPE_BATTLEFIELD || zoneType == ZONETYPE_DYNAMIS ||
-                    zoneType == ZONETYPE_LIMBUS || zoneType == ZONETYPE_ASSAULT || zoneType == ZONETYPE_SALVAGE || zoneType == ZONETYPE_NYZUL)
+                    zoneType == ZONETYPE_LIMBUS)
                 {
                     PMob->setMobMod(MOBMOD_CHARMABLE, 0);
                 }

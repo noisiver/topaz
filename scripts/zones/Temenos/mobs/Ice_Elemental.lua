@@ -32,8 +32,8 @@ local path =
 }
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.UDMGMAGIC, -15)
-    mob:addMod(tpz.mod.MDEF, 15)
+    mob:setMod(tpz.mod.UDMGMAGIC, -25)
+    mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.HTHRES, 750)
     mob:setMod(tpz.mod.SLASHRES, 750)
     mob:setMod(tpz.mod.PIERCERES, 750)
