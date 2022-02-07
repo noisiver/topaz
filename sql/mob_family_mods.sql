@@ -38,11 +38,7 @@ CREATE TABLE `mob_family_mods` (
 LOCK TABLES `mob_family_mods` WRITE;
 /*!40000 ALTER TABLE `mob_family_mods` DISABLE KEYS */;
 --INSERT INTO `mob_family_mods` VALUES (175,29,50,0);
-INSERT INTO `mob_family_mods` VALUES (4,29,20,0);
 INSERT INTO `mob_family_mods` VALUES (4,7,60,1);
-INSERT INTO `mob_family_mods` VALUES (61,29,25,0);
-INSERT INTO `mob_family_mods` VALUES (110,29,13,0); -- Evil weapon 13% MDT
-INSERT INTO `mob_family_mods` VALUES (111,29,13,0); --- ??? Nothing is 111
 INSERT INTO `mob_family_mods` VALUES (193,3,40,1); -- Pet wyvern  100 MP
 INSERT INTO `mob_family_mods` VALUES (34,3,100,1); -- Carbuncle 100 MP
 INSERT INTO `mob_family_mods` VALUES (267,4,20,1); -- Guivre 20 yalm sight range
@@ -944,6 +940,12 @@ INSERT INTO `mob_family_mods` VALUES (240,@roam_rate,30,1);
 INSERT INTO `mob_family_mods` VALUES (190,@roam_cool,50,1);
 INSERT INTO `mob_family_mods` VALUES (190,@roam_rate,30,1);
 
+-- Sandworm
+INSERT INTO `mob_family_mods` VALUES (215,@roam_cool,25,1);
+INSERT INTO `mob_family_mods` VALUES (215,@roam_distance,50,1);
+INSERT INTO `mob_family_mods` VALUES (215,@roam_turns,2,1);
+INSERT INTO `mob_family_mods` VALUES (215,@roam_rate,30,1);
+
 
 INSERT INTO `mob_family_mods` VALUES (126,54,180,1);
 INSERT INTO `mob_family_mods` VALUES (127,54,180,1);
@@ -976,10 +978,6 @@ INSERT INTO `mob_family_mods` VALUES (20,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (21,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (23,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (24,3,50,1);
-
-
--- Sahagins have 50% dmg reduction to water	
-INSERT INTO `mob_family_mods` VALUES (213,20,128,0);
 
 -- Never standback
 INSERT INTO `mob_family_mods` VALUES (32,56,-1,1);

@@ -7,12 +7,18 @@ require("scripts/globals/mobs")
 local ID = require("scripts/zones/Temenos/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.UDMGMAGIC, -25)
-    mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.HTHRES, 750)
     mob:setMod(tpz.mod.SLASHRES, 750)
     mob:setMod(tpz.mod.PIERCERES, 750)
     mob:setMod(tpz.mod.IMPACTRES, 750)
+    local mobID = mob:getID()
+    if mobID == ID.mob.TEMENOS_C_MOB[2]+1 or mobID == ID.mob.TEMENOS_C_MOB[2]+2 then
+        mob:setMod(tpz.mod.UDMGMAGIC, -20)
+        mob:setMod(tpz.mod.MDEF, 16)
+    else
+        mob:setMod(tpz.mod.UDMGMAGIC, -25)
+        mob:setMod(tpz.mod.MDEF, 70)
+    end
 end
 
 function onMobInitialize(mob)

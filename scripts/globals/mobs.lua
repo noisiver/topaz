@@ -466,7 +466,7 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.FLASH,
         power = 300,
-        duration = 12,
+        duration = 3,
         minDuration = 1,
         maxDuration = 30,
     },
