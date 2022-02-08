@@ -47,7 +47,7 @@ function onMobSpawn(mob)
 	mob:setDamage(175)
     mob:setMod(tpz.mod.ATT, 522)
     mob:setMod(tpz.mod.DEF, 522)
-    mob:setMod(tpz.mod.EVA, 395)
+    mob:setMod(tpz.mod.EVA, 320)
     mob:addMod(tpz.mod.MDEF, 40)
 	mob:setMod(tpz.mod.VIT, 50)
     mob:setMod(tpz.mod.UDMGPHYS, 0)
@@ -84,33 +84,30 @@ function onMobFight(mob, target)
 	local RunAwayPath = mob:getLocalVar("RunAwayPath")
     local RunAway = mob:getLocalVar("RunAway")
 
-    if mob:getHPP() <= 90 and mob:getHPP() >= 80 and RunAway == 0 then
+    if mob:getHPP() <= 90 and mob:getHPP() > 80 and RunAway == 0 then
 		mob:setLocalVar("RunAwayPath", 1)
 		mob:setLocalVar("RunAway", 1)
-    elseif mob:getHPP() <= 90 and mob:getHPP() >= 80 and RunAway == 1  then
+    elseif mob:getHPP() <= 80 and mob:getHPP() > 70 and RunAway == 1  then
 		mob:setLocalVar("RunAwayPath", 2)
 		mob:setLocalVar("RunAway", 2)
-    elseif mob:getHPP() <= 80 and mob:getHPP() >= 70 and RunAway == 2  then
+    elseif mob:getHPP() <= 70 and mob:getHPP() > 60 and RunAway == 2  then
 		mob:setLocalVar("RunAwayPath", 1)
 		mob:setLocalVar("RunAway", 3)
-    elseif mob:getHPP() <= 70 and mob:getHPP() >= 60 and RunAway == 3  then
+    elseif mob:getHPP() <= 60 and mob:getHPP() > 50 and RunAway == 3  then
 		mob:setLocalVar("RunAwayPath", 2)
 		mob:setLocalVar("RunAway", 4)
-    elseif mob:getHPP() <= 60 and mob:getHPP() >= 50 and RunAway == 4  then
+    elseif mob:getHPP() <= 50 and mob:getHPP() > 40 and RunAway == 4  then
 		mob:setLocalVar("RunAwayPath", 1)
 		mob:setLocalVar("RunAway", 5)
-    elseif mob:getHPP() <= 50 and mob:getHPP() >= 40 and RunAway == 5  then
+    elseif mob:getHPP() <= 40 and mob:getHPP() > 30 and RunAway == 5  then
 		mob:setLocalVar("RunAwayPath", 2)
 		mob:setLocalVar("RunAway", 6)
-    elseif mob:getHPP() <= 40 and mob:getHPP() >= 30 and RunAway == 6  then
+    elseif mob:getHPP() <= 30 and mob:getHPP() > 20 and RunAway == 6  then
 		mob:setLocalVar("RunAwayPath", 1)
 		mob:setLocalVar("RunAway", 7)
-    elseif mob:getHPP() <= 30 and mob:getHPP() >= 20 and RunAway == 7  then
+    elseif mob:getHPP() <= 20 and mob:getHPP() > 10 and RunAway == 7  then
 		mob:setLocalVar("RunAwayPath", 2)
 		mob:setLocalVar("RunAway", 8)
-    elseif mob:getHPP() <= 20 and mob:getHPP() >= 10 and RunAway == 8  then
-		mob:setLocalVar("RunAwayPath", 1)
-		mob:setLocalVar("RunAway", 9)
     elseif mob:getHPP() <= 10 and mob:getHPP() >= 1 and RunAway == 9  then
     	mob:setLocalVar("RunAway", 10)
     end

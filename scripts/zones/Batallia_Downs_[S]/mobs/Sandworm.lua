@@ -9,6 +9,16 @@ require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 -----------------------------------
+local SandwormID =
+{
+    17109357, -- East Ronfaure
+    --17121693, -- Batallia Downs
+    17138041, -- North Gustaberg
+    17150317, -- Rolanberry Fields 
+    17166720, -- West Sarutabaruta 
+    17174888, -- Meriphataud Mountains
+    17178901  -- Sauromugue Champaign
+}
 
 function onMobSpawn(mob)
 	mob:setDamage(100)
@@ -17,11 +27,28 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 2064)
+    mob:setMobMod(tpz.mobMod.MUG_GIL, 2000)
 	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     mob:setLocalVar("[rage]timer", 5400) -- 90 minutes
 end
+function onMobEngaged(mob)
+    for i = 1,#SandwormID do -- despawn all sandworms in all zones
+        local id = SandwormID[i];
+        local Sandworm = GetMobByID(id)
+        if Sandworm:isSpawned() and mob ~= id then
+            DespawnMob(id)
+        end
+    end
+end
 
 function onMobFight(mob, target)
+    for i = 1,#SandwormID do -- despawn all sandworms in all zones
+        local id = SandwormID[i];
+        local Sandworm = GetMobByID(id)
+        if Sandworm:isSpawned() and mob ~= id then
+            DespawnMob(id)
+        end
+    end
     --Using this for testing purposes to force Doomvoid TP move.
     local forceDV = mob:getLocalVar("dv")
     
