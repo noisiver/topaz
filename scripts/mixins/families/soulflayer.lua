@@ -7,20 +7,20 @@ g_mixins.families = g_mixins.families or {}
 
 g_mixins.families.amphiptere = function(mob)
     mob:addListener("SPAWN", "SOULFLAYER_SPAWN", function(mob)
-        mob:AnimationSub(0) -- Needs testing for proper animation sub
+        mob:AnimationSub(0) -- No spiny shield
     end)
     mob:addListener("ROAM_TICK", "SOULFLAYER_ROAM", function(mob)
         if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
-            mob:AnimationSub(0) -- Needs testing for proper animation sub
+            mob:AnimationSub(0) -- No spinny shield
         else
-            mob:AnimationSub(1) -- Needs testing for proper animation sub
+            mob:AnimationSub(1) -- One spiny shield
         end
     end)
 	mob:addListener("COMBAT_TICK", "SOULFLAYER_CTICK", function(mob)
         if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
-            mob:AnimationSub(0) -- Needs testing for proper animation sub
+            mob:AnimationSub(0) -- No spinny shield
         else
-            mob:AnimationSub(1) -- Needs testing for proper animation sub
+            mob:AnimationSub(1) -- One spiny shield
         end
 	end)
 end

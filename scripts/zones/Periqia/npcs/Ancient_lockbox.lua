@@ -13,11 +13,13 @@ function onTrigger(player, npc)
         [SEAGULL_GROUNDED] =
         {
             {
-                {itemid = 2286, droprate = 500}, -- ??? box
-                {itemid = 2190, droprate = 300}, -- ??? sword
-                {itemid = 2192, droprate = 300}, -- ??? polearm
-                {itemid = 2195, droprate = 100}, -- ??? gloves
-                {itemid = 0,    droprate = 100}, -- Nothing
+                {itemid = 2286, droprate = 1000}, -- ??? box
+            },
+            {
+                {itemid = 2190, droprate = 1000}, -- ??? sword
+            },
+            {
+                {itemid = 2195, droprate = 1000}, -- ??? gloves
             },
         },
         [REQUIEM] =
@@ -36,17 +38,22 @@ function onTrigger(player, npc)
         [SEAGULL_GROUNDED] =
         {
             {
-                {itemid = 4173, droprate = 700}, -- Hi-Reraiser
-                {itemid = 0,    droprate = 300}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 13688, droprate = 100}, -- Hi-Potion Tank
-                {itemid = 13689, droprate = 100}, -- Hi-Ether Tank
-                {itemid = 0,     droprate = 800}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4119, droprate = 530}, -- Hi-Potion 3
-                {itemid = 0,    droprate = 470}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
+            },
+            {
+                {itemid = 2336, droprate = 1000}, -- Souolflayer Staff
+            },
+            {
+                {itemid = 1724, droprate = 1000}, -- Soulflayer Robe
+            },
+            {
+                {itemid = 2335, droprate = 1000}, -- Soulflayer Tentancle
             },
         },
         [REQUIEM] =
