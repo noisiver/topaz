@@ -7,12 +7,18 @@ require("scripts/globals/mobs")
 local ID = require("scripts/zones/Temenos/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.UDMGMAGIC, -25)
-    mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.HTHRES, 750)
     mob:setMod(tpz.mod.SLASHRES, 750)
     mob:setMod(tpz.mod.PIERCERES, 750)
     mob:setMod(tpz.mod.IMPACTRES, 750)
+    local mobID = mob:getID()
+    if mobID == ID.mob.TEMENOS_C_MOB[2]+3 then
+        mob:setMod(tpz.mod.UDMGMAGIC, -20)
+        mob:setMod(tpz.mod.MDEF, 12)
+    else
+        mob:setMod(tpz.mod.UDMGMAGIC, -25)
+        mob:setMod(tpz.mod.MDEF, 70)
+    end
 end
 
 function onMobInitialize(mob)
@@ -29,7 +35,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
         if battlefield:getLocalVar("crateOpenedF1") ~= 1 then
             local mobID = mob:getID()
             if mobID >= ID.mob.TEMENOS_C_MOB[2] then
-                GetMobByID(ID.mob.TEMENOS_C_MOB[2]):setMod(tpz.mod.FIREDEF, -128)
+                GetMobByID(ID.mob.TEMENOS_C_MOB[2]):setMod(tpz.mod.SDT_FIRE, 100)
                 if GetMobByID(ID.mob.TEMENOS_C_MOB[2]+4):isAlive() then
                     DespawnMob(ID.mob.TEMENOS_C_MOB[2]+4)
                     SpawnMob(ID.mob.TEMENOS_C_MOB[2]+10)

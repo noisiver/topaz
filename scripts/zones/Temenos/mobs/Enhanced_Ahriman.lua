@@ -3,6 +3,11 @@
 --  Mob: Enhanced Ahriman
 -----------------------------------
 local ID = require("scripts/zones/Temenos/IDs")
+-----------------------------------
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.UDMGMAGIC, -50)
+end
+
 
 function onMobEngaged(mob, target)
     if GetMobByID(ID.mob.TEMENOS_C_MOB[1]+4):isDead() then

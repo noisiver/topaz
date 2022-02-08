@@ -30,6 +30,7 @@ function onMobFight(mob, target)
     if GetMobByID(ID.mob.TEMENOS_C_MOB[3]):isDead() and GetMobByID(ID.mob.TEMENOS_C_MOB[3]+1):isDead() then
 	    mob:setDamage(250)
         mob:setMod(tpz.mod.UDMGPHYS, -50)
+        mob:setMod(tpz.mod.UDMGRANGE, -50)
         mob:setMod(tpz.mod.UDMGMAGIC, -50)
         mob:setMod(tpz.mod.UDMGBREATH, -50)
     end

@@ -8201,11 +8201,6 @@ inline int32 CLuaBaseEntity::takeDamage(lua_State *L)
         {
             PDefender->StatusEffectContainer->WakeUp();
         }
-
-        if (removePetrify)
-        {
-            PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_PETRIFICATION);
-        }
     }
 
     // Bind has a chance to break from all direct attacks, even if they don't deal damage
