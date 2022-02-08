@@ -8,9 +8,12 @@ require("scripts/globals/mobs")
 
 function onMobSpawn(mob)
 	mob:setDamage(140)
-    mob:addMod(tpz.mod.DEFP, 20) 
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:setMod(tpz.mod.REFRESH, 40)
+	mob:setMod(tpz.mod.ATTP, 50)
+    mob:setMod(tpz.mod.DEF, 522)
+    mob:setMod(tpz.mod.EVA, 335)
+	mob:setMod(tpz.mod.VIT, 50)
+    mob:setMod(tpz.mod.REGEN, 200)
+    mob:setMod(tpz.mod.REFRESH, 300)
 end
 
 function onMobInitialize(mob)
