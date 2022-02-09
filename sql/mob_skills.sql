@@ -1671,7 +1671,7 @@ INSERT INTO `mob_skills` VALUES (1728,1203,'faze',0,7,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1730,1204,'deadeye',4,10,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1731,1149,'forceful_blow',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1732,1150,'somersault_kick',0,7.0,2000,1000,4,0,0,4,0,0,0);
-INSERT INTO `mob_skills` VALUES (1733,1151,'firespit',0,25.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1733,1151,'firespit',0,30.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1734,1152,'warm-up',0,7.0,2000,1000,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1735,1153,'javelin_throw',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1736,1154,'axe_throw',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1732,7 +1732,7 @@ INSERT INTO `mob_skills` VALUES (1790,1228,'gates_of_hades',1,20.0,2000,1500,4,0
 INSERT INTO `mob_skills` VALUES (1791,1217,'incinerate',4,12.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1792,1212,'nullsong',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1793,1213,'vampiric_root',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1794,1214,'perdition',0,7.0,2000,10000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1794,1214,'perdition',0,7.0,2000,5000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1795,1215,'malediction',1,10.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1796,1540,'piercing_shriek',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1797,1320,'rushing_slash',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1861,7 +1861,7 @@ INSERT INTO `mob_skills` VALUES (1911,1125,'ruinous_omen',1,30,2000,3000,4,0,0,0
 INSERT INTO `mob_skills` VALUES (1920,1264,'rushing_drub',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1921,1265,'forceful_blow',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1922,1266,'somersault_kick_mage',0,7.0,2000,1000,4,0,0,4,0,0,0);
-INSERT INTO `mob_skills` VALUES (1923,1267,'firespit_magic',0,25.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1923,1267,'firespit_magic',0,30.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1924,1268,'warm-up',0,7.0,2000,1500,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1925,1669,'stave_toss',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1926,1270,'groundburst',1,15.0,2000,1500,4,0,0,0,0,0,0);

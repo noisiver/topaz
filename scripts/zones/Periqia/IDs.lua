@@ -51,21 +51,28 @@ zones[tpz.zone.PERIQIA] =
 
     mob =
     {
-        [SEAGULL_GROUNDED] =
+        -- Seagull Grounded
+        [31] =
         {
-            MOBS_START =
-            {
-                17006594, 17006595, 17006596, 17006597, 17006598, 17006599, 17006600, 17006601,
-                17006602, 17006603, 17006604, 17006605, 17006606, 17006607, 17006608, 17006610, 17006611,
-            },
-        },
-        [REQUIEM] =
-        {
-            MOBS_START =
-            {
-                17006612, 17006613, 17006614, 17006615, 17006616, 17006617, 17006619, 17006620, 17006621,
-                17006623, 17006625, 17006626, 17006627, 17006628, 17006630, 17006631, 17006633, 17006634,
-            },
+            ENHANCED_JNUN  = 17006901,
+            ENHANCED_IMP  = 17006902,
+            ENHANCED_SOULFLAYER  = 17006903,
+            BATTEILANT_BHOOT  = 17006904, 
+            BATTEILANT_BHOOT2  = 17006905,
+            BATTEILANT_BHOOT3  = 17006906,
+            BATTEILANT_BHOOT4  = 17006907,
+            BATTEILANT_BHOOT5  = 17006908,
+            --BATTEILANT_BHOOT6  = 17006909, 
+            DARKLING_DRAUGAR = 17006910,
+            DARKLING_DRAUGAR2 = 17006911,
+            DRACONIC_DRAUGAR = 17006912,
+            DRAUGARS_WYVERN = 17006913,
+            DRACONIC_DRAUGA2 = 17006914,
+            DRAUGARS_WYVERN2 = 17006915,
+            DRACONIC_DRAUGAR3 = 17006916,
+            DRAUGARS_WYVERN3 = 17006917,
+            MIMIC = 17006918,
+            --BATTEILANT_BHOOT7 = 17006919,
         },
         -- Shades of Vengeance
         [79] =
@@ -81,7 +88,6 @@ zones[tpz.zone.PERIQIA] =
             K23H1LAMIA9  = 17006762,
             K23H1LAMIA10 = 17006763,
         }
-
     },
 
 
@@ -95,7 +101,7 @@ zones[tpz.zone.PERIQIA] =
         _1K3            = 17006842,
         _1K4            = 17006843,
         _1K5            = 17006844,
-        _1K6            = 17006845,
+        _1K6            = 17006845, -- Seagull Grounded Door
         _1K7            = 17006846,
         _1K8            = 17006847,
         _1K9            = 17006848,
@@ -122,13 +128,13 @@ zones[tpz.zone.PERIQIA] =
         _1KU            = 17006869,
         _1KV            = 17006870,
         _1KW            = 17006871,
-        _1KX            = 17006872,
+        _1KX            = 17006872, -- Seagull Grounded Door
         _1KY            = 17006873,
-        _1KZ            = 17006874,
+        _1KZ            = 17006874, -- Seagull Grounded Door
         _JK0            = 17006875,
-        _JK1            = 17006876,
+        _JK1            = 17006876, -- Seagull Grounded Door
         _JK2            = 17006877,
-        _JK3            = 17006878,
+        _JK3            = 17006878, -- Seagull Grounded Door
         _JK4            = 17006879,
         _JK5            = 17006880,
         _JK6            = 17006881,
@@ -150,7 +156,7 @@ zones[tpz.zone.PERIQIA] =
         _JKM            = 17006897,
         _JKN            = 17006898,
         _JKO            = 17006899,
-    }
+     }
 }
 
 return zones[tpz.zone.PERIQIA]

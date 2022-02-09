@@ -11,16 +11,15 @@ require("scripts/globals/zone")
 -----------------------------------
 
 function onInstanceCreated(instance)
-    instance:getEntity(bit.band(ID.npc.RUNE_OF_RELEASE, 0xFFF), tpz.objType.NPC):setPos(-495.000,-9.695,-72.000,0)
-    instance:getEntity(bit.band(ID.npc.ANCIENT_LOCKBOX, 0xFFF), tpz.objType.NPC):setPos(-490.000,-9.900,-72.000,0)
-
+    for i, v in pairs(ID.mob[31]) do
+        SpawnMob(v, instance)
+    end
     instance:getEntity(bit.band(ID.npc._1K6, 0xFFF), tpz.objType.NPC):setAnimation(8)
     instance:getEntity(bit.band(ID.npc._1KX, 0xFFF), tpz.objType.NPC):setAnimation(8)
     instance:getEntity(bit.band(ID.npc._1KZ, 0xFFF), tpz.objType.NPC):setAnimation(8)
     instance:getEntity(bit.band(ID.npc._JK1, 0xFFF), tpz.objType.NPC):setAnimation(8)
     instance:getEntity(bit.band(ID.npc._JK3, 0xFFF), tpz.objType.NPC):setAnimation(8)
-
-    spawnMobInAssault(instance, ID.mob)
+        --GetNPCByID(door):setAnimation(animation)
 end
 
 function  afterInstanceRegister(player)
@@ -28,11 +27,6 @@ function  afterInstanceRegister(player)
 end
 
 function onInstanceTimeUpdate(instance, elapsed)
-    
-    local npc = instance:getEntity(bit.band(ID.npc.EXCALIACE, 0xFFF), tpz.objType.NPC)
-    if npc ~= nil then
-        onTrack(npc)
-    end
     updateInstanceTime(instance, elapsed, ID.text)
 end
 

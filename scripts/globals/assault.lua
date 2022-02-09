@@ -160,9 +160,9 @@ end
 -- -------------------------------------------------------------------
 -- onAssaultTrigger(player, npc, csid, orders, indexID)
 -- Selection of the entrance portal of the assault
--- -------------------------------------------------------------------
+-- ------------------------------------------------------------------- 
 function onAssaultTrigger(player, npc, csid, orders, indexID)
-    if player:hasKeyItem(orders) and player:getCharVar("assaultEntered") == 0 and IS_ASSAULT_ACTIVATED == 1 then
+    if player:hasKeyItem(orders) and player:getCharVar("assaultEntered") == 0 then
         -- don't allow players under level sync to enter
         if player:hasStatusEffect(tpz.effect.LEVEL_SYNC) then
             local sync_error = AssaultGetLevelSyncError(player)

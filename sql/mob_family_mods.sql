@@ -980,6 +980,9 @@ INSERT INTO `mob_family_mods` VALUES (23,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (24,3,50,1);
 
 -- Never standback
+INSERT INTO `mob_family_mods` VALUES (233,56,-1,1);
+INSERT INTO `mob_family_mods` VALUES (165,56,-1,1);
+INSERT INTO `mob_family_mods` VALUES (166,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (32,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (33,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (34,56,-1,1);
