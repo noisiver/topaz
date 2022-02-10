@@ -34,7 +34,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg,mob,skill,target,tpz.attackType.MAGICAL,tpz.damageType.WIND,MOBPARAM_IGNORE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
     if target:hasStatusEffect(tpz.effect.ELEMENTALRES_DOWN) then
         target:delStatusEffectSilent(tpz.effect.ELEMENTALRES_DOWN)
     end

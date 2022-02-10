@@ -78,11 +78,9 @@ function onMobSkillCheck(target,mob,skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local basedmg = 2088
-    if mob:getWeather() == tpz.weather.AURORAS or mob:getWeather() == tpz.weather.STELLAR_GLARE then basedmg = basedmg + 520 end
-	if VanadielDayElement() == tpz.day.LIGHTSDAY then basedmg = basedmg + 208 end
-    local damage = basedmg/(1+(target:getMod(tpz.mod.MDEF)/100))
-    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.MAGICAL,tpz.damageType.LIGHT,MOBPARAM_IGNORE_SHADOWS)
+    local dmgmod = 2
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*6, tpz.magic.ele.LIGHT, dmgmod, TP_MAB_BONUS, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
     mob:resetEnmity(target)
     return dmg

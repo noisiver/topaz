@@ -10,6 +10,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
+		return 1
+	end
     local phase = mob:getLocalVar("battlePhase")
     if (phase >= 3) then
         if mob:getLocalVar("nuclearWaste") == 0 and mob:getLocalVar("citadelBuster") == 0 then

@@ -23,6 +23,6 @@ function onMobWeaponSkill(target, mob, skill)
     else
         skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
     end
-
+    mob:resetEnmity(target)
     return count
 end
