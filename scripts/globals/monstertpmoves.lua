@@ -478,6 +478,11 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return 0
     end
 
+    if target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
+        return 0
+    end
+
     -- set message to damage
     -- this is for AoE because its only set once
     skill:setMsg(tpz.msg.basic.DAMAGE)

@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Periqia (Requiem)
---  Mob: Batteilant Bhoot
+--  Mob: Darkling Draugar
 -- BLM
 -----------------------------------
 function onMobSpawn(mob)

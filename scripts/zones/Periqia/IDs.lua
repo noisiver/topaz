@@ -73,6 +73,8 @@ zones[tpz.zone.PERIQIA] =
             DRAUGARS_WYVERN3 = 17006917,
             MIMIC = 17006918,
             --BATTEILANT_BHOOT7 = 17006919,
+            DARKLING_DRAUGAR2 = 17006920,
+            DARKLING_DRAUGAR3 = 17006921,
         },
         -- Shades of Vengeance
         [79] =

@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Periqia (Requiem)
---  Mob: Batteilant Bhoot
+--  Mob: Draconic Draugar
 -- DRG
 -----------------------------------
 function onMobRoam(mob)

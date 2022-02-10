@@ -19,13 +19,13 @@ function onMobRoam(mob)
     end
 	local RunAwayPath = mob:getLocalVar("RunAwayPath")
 	if RunAwayPath == 1 then -- TODO: Needs proper pathing, gets stuck
-	    mob:pathTo(-339, -15, 205, tpz.path.flag.RUN)
+	    mob:setPos(-339, -15, 205, tpz.path.flag.RUN)
     end
     if RunAwayPath == 2 then -- TODO: Needs proper pathing, gets stuck
-	    mob:pathTo( -380, -15, 51, tpz.path.flag.RUN) 
+	    mob:setPos( -380, -15, 51, tpz.path.flag.RUN) 
     end
     if RunAwayPath == 3 then -- TODO: Needs proper pathing, gets stuck
-	    mob:pathTo(-482,-10,-83, tpz.path.flag.RUN) 
+	    mob:setPos(-482,-10,-83, tpz.path.flag.RUN) 
     end
 end
 
@@ -73,7 +73,7 @@ function onMobFight(mob, target)
         mob:disengage()
     end
 
-	if mob:getHPP() < 70 then
+	if mob:getHPP() <= 70 then
 		if ImmortalShieldTime == 0 then
 			mob:setLocalVar("ImmortalShieldTime", BattleTime + math.random(15, 45))
 		elseif BattleTime >= ImmortalShieldTime then
