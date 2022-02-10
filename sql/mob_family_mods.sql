@@ -277,6 +277,9 @@ INSERT INTO `mob_family_mods` VALUES (62,389,-50,0);	-- Cerberus  -63%
 INSERT INTO `mob_family_mods` VALUES (163,389,-63,0);	-- Hydra  -63%
 INSERT INTO `mob_family_mods` VALUES (164,389,-63,0);	-- Hydra  -63%
 INSERT INTO `mob_family_mods` VALUES (168,389,-63,0);	-- Khimaira  -63%
+INSERT INTO `mob_family_mods` VALUES (252,389,-25,0); 	-- Vampyr(NM) -25%
+INSERT INTO `mob_family_mods` VALUES (284,389,-38,0); 	-- Vampyr(NM) -38%
+
 
 
 
@@ -284,7 +287,8 @@ INSERT INTO `mob_family_mods` VALUES (168,389,-63,0);	-- Khimaira  -63%
 INSERT INTO `mob_family_mods` VALUES (171,29,40,0); 	-- Lamiae +40 MDB
 INSERT INTO `mob_family_mods` VALUES (182,29,40,0); 	-- Merrow +40 MDB
 INSERT INTO `mob_family_mods` VALUES (175,29,12,0); 	-- Magic pot +12 MDB
-INSERT INTO `mob_family_mods` VALUES (252,29,24,0); 	-- Vampyr +24 MDB
+INSERT INTO `mob_family_mods` VALUES (252,29,10,0); 	-- Vampyr +10 MDB
+INSERT INTO `mob_family_mods` VALUES (284,29,20,0); 	-- Vampyr(NM) +20 MDB
 INSERT INTO `mob_family_mods` VALUES (52,29,20,0);  	-- Bhoot +20 MDB
 INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	    -- Dvergr +40 MDB
 INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	    -- Amphiptere +20 MDB
@@ -980,6 +984,7 @@ INSERT INTO `mob_family_mods` VALUES (23,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (24,3,50,1);
 
 -- Never standback
+INSERT INTO `mob_family_mods` VALUES (112,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (233,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (165,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (166,56,-1,1);

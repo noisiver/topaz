@@ -13,7 +13,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.BURN
+    local typeEffect = tpz.effect.REQUIEM
     local power = 15
 
     MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)

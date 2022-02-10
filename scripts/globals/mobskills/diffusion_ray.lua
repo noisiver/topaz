@@ -5,17 +5,23 @@
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/status")
+require("scripts/globals/settings")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if target:isInfront(mob, 128) then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1.5
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.LIGHT, dmgmod, TP_NO_EFFECT, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_WIPE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
+    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.LIGHT, 1000)
+    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.25)
+
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.LIGHT, MOBPARAM_WIPE_SHADOWS)
+
+    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.LIGHT)
 	target:dispelStatusEffect()
     return dmg
 end
