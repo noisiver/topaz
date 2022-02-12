@@ -336,6 +336,14 @@ INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (205,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (214,23,640,1); -- Sandworm slow and elegy Immunity
 INSERT INTO `mob_family_mods` VALUES (215,23,640,1); -- Sandworm slow and elegy Immunity
+INSERT INTO `mob_family_mods` VALUES (319,23,36,0);	-- Shiva - Paralyze and Bind
+INSERT INTO `mob_family_mods` VALUES (320,23,8,0);	-- Ramuh - Stun
+INSERT INTO `mob_family_mods` VALUES (321,23,640,0); -- Titan - Slow and Elegy
+INSERT INTO `mob_family_mods` VALUES (322,23,100,0); -- Ifrit - Plague and Addle
+INSERT INTO `mob_family_mods` VALUES (323,23,256,0); -- Leviathan - Poison
+INSERT INTO `mob_family_mods` VALUES (324,23,18,0);	-- Garuda - Silence and Gravity
+INSERT INTO `mob_family_mods` VALUES (325,23,64,0);	-- Fenrir - Blind
+INSERT INTO `mob_family_mods` VALUES (378,23,64,0);	-- Diabolos - Blind
 
 
 

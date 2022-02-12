@@ -626,10 +626,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_DRK:
-            if ((PMob->m_Family >= 255 && PMob->m_Family <= 256) || (PMob->m_Family >= 203 && PMob->m_Family <= 205) ||
+            if ((PMob->m_Family >= 255 && PMob->m_Family <= 256) || (PMob->m_Family >= 319 && PMob->m_Family <= 325) ||
+                (PMob->m_Family >= 203 && PMob->m_Family <= 205) ||
                 (PMob->m_Family >= 88 && PMob->m_Family <= 89) || PMob->m_Family == 227 || PMob->m_Family == 72 || PMob->m_Family == 217 ||
-                PMob->m_Family == 74 || PMob->m_Family == 81)
-            // Promy mobs, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite
+                PMob->m_Family == 74 || PMob->m_Family == 81|| PMob->m_Family == 378)
+            // Promy mobs, Avatars, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite, Diabolos
             {
                 PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
             }
