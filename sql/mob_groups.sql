@@ -426,7 +426,7 @@ INSERT INTO `mob_groups` VALUES (67,2043,9,'Ice_Elemental',600,4,1347,0,0,84,86,
 INSERT INTO `mob_groups` VALUES (1,1027,10,'Diabolos',0,128,0,6000,5000,54,55,0);
 INSERT INTO `mob_groups` VALUES (2,5156,10,'Diremite',10,128,0,0,0,43,43,0);
 INSERT INTO `mob_groups` VALUES (3,3104,10,'Pasuk',0,128,0,0,0,40,40,0);
-INSERT INTO `mob_groups` VALUES (4,5186,10,'Diabolos',0,128,0,11000,0,80,82,0);
+INSERT INTO `mob_groups` VALUES (4,5186,10,'Diabolos_Prime',0,128,3198,17000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (5,5157,10,'Diremite_Dominator',10,128,0,0,0,78,78,0);
 
 -- ------------------------------------------------------------
@@ -2753,7 +2753,7 @@ INSERT INTO `mob_groups` VALUES (8,1112,56,'Draugars_Wyvern',0,128,0,0,0,73,75,0
 INSERT INTO `mob_groups` VALUES (23,9030,56,'Enhanced_Jnun',0,128,0,20000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (24,9031,56,'Enhanced_Imp',0,128,0,20000,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (25,9032,56,'Enhanced_Soulflayer',0,128,0,70000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (100,2664,56,'Mimic',0,128,0,15000,0,81,82,0);
+INSERT INTO `mob_groups` VALUES (100,9033,56,'Mimic',0,128,0,15000,0,81,82,0);
 
 -- Custom end
 
@@ -10931,7 +10931,7 @@ INSERT INTO `mob_groups` VALUES (40,6721,169,'Cutlass_Scorpion',600,0,3159,0,0,6
 -- Full_Moon_Fountain (Zone 170)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1322,170,'Fenrir_Prime',0,128,3176,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (1,1322,170,'Fenrir_Prime',0,128,3176,20000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (2,32,170,'Ace_of_Cups',0,128,12,0,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (3,30,170,'Ace_of_Batons',0,128,10,0,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (4,33,170,'Ace_of_Swords',0,128,13,0,0,73,75,0);

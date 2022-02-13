@@ -362,8 +362,6 @@ INSERT INTO `mob_family_mods` VALUES (211,464,100,0);	-- Ruszor - Water
 INSERT INTO `mob_family_mods` VALUES (231,464,100,0);	-- Slug - Water	
 INSERT INTO `mob_family_mods` VALUES (324,461,100,0);	-- Garuda - Wind
 INSERT INTO `mob_family_mods` VALUES (198,461,100,0);	-- Puk - Wind
-INSERT INTO `mob_family_mods` VALUES (325,466,100,0);	-- Fenrir - Dark
-INSERT INTO `mob_family_mods` VALUES (378,466,100,0);	-- Diabolos - Dark
 INSERT INTO `mob_family_mods` VALUES (34,465,100,0);	-- Carbuncle - Light
 
 -- Yovra

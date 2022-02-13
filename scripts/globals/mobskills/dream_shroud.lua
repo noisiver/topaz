@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Amplification
+-- Dream Shroud
 -- Enhances Magic Attack and Magic Defense. Bonus stacks when used by mobs.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -30,8 +30,8 @@ function onMobWeaponSkill(target, mob, skill)
     -- print(mabTotal)
     -- print(mdbTotal)
 
-    skill:setMsg(MobBuffMove(target, typeEffect1, mabTotal, 0, 300))
-    MobBuffMove(target, typeEffect2, mdbTotal, 0, 300)
+    skill:setMsg(MobBuffMove(mob, typeEffect1, mabTotal, 0, 300))
+    MobBuffMove(mob, typeEffect2, mdbTotal, 0, 300)
 
     return typeEffect1
 end

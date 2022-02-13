@@ -11,12 +11,14 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.ATTP, 20)
-     mob:addMod(tpz.mod.ACC, 30) 
-     mob:addMod(tpz.mod.EVA, 30)
-end
-
-function onMobSpawn(mob)
+    mob:setDamage(140)
+    mob:setMod(tpz.mod.ATT, 522)
+    mob:setMod(tpz.mod.DEF, 522)
+    mob:setMod(tpz.mod.EVA, 314) 
+    mob:setMod(tpz.mod.UFASTCAST, 25)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.REFRESH, 50) 
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
@@ -26,7 +28,8 @@ function onMobSpawn(mob)
 end
 
 
- function onMobInitialize(mob)
+
+function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 

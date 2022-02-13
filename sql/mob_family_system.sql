@@ -100,7 +100,7 @@ INSERT INTO `mob_family_system` VALUES (32,'Avatar-Atomos',5,'Avatar',1,40,100,1
 INSERT INTO `mob_family_system` VALUES (33,'Avatar-Alexander',5,'Avatar',4,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.4,0.4,0.4,0.4,0.4,0.4,0.05,0.4,0,41,0);
 INSERT INTO `mob_family_system` VALUES (34,'Avatar-Carbuncle',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.3,0.3,0.3,0.3,0.3,0.3,0.05,1,0,41,0);
 INSERT INTO `mob_family_system` VALUES (35,'Avatar-Diabolos',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,1,0.5,0,41,0);
-INSERT INTO `mob_family_system` VALUES (36,'Avatar-Fenrir',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,0.875,1,0.875,0,41,0);
+INSERT INTO `mob_family_system` VALUES (36,'Avatar-Fenrir',5,'Avatar',1,40,100,120,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,0.6,0.6,0.6,0.6,0.6,0.6,1.3,0.05,0,41,0);
 INSERT INTO `mob_family_system` VALUES (37,'Avatar-Garuda',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,1,0.875,0.875,0.875,0.875,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (38,'Avatar-Ifrit',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,1,0.875,0.875,0,41,0);
 INSERT INTO `mob_family_system` VALUES (39,'Monoceros-Dark',11,'Elemental',2,60,100,100,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.7,0.7,0.7,1.3,0.3,0.7,1,0.5,0,41,0);
@@ -437,7 +437,7 @@ INSERT INTO `mob_family_system` VALUES (374,'Fly',20,'Vermin',0,40,100,90,5,4,4,
 INSERT INTO `mob_family_system` VALUES (375,'FlyDark',20,'Vermin',0,40,100,90,5,4,4,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.5,1,1,1.3,1.3,1.3,1.3,3,2,1); --Huntfly
 INSERT INTO `mob_family_system` VALUES (376,'Raptor',14,'Lizard',1,50,100,120,4,4,5,3,4,4,4,1,3,1,3,1,1,1,1,1,1,1.3,1.3,1.3,1.5,1.3,1.3,1,258,1); -- Nival_Raptor(Ice raptor)
 INSERT INTO `mob_family_system` VALUES (377,'Raptor',14,'Lizard',1,50,100,120,4,4,5,3,4,4,4,1,3,1,3,1,1,1,1,1,1,1.3,1.3,1.3,1.5,1.3,1.3,1,258,1);
-INSERT INTO `mob_family_system` VALUES (378,'Avatar-Diabolos',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,1,0.50,0,1,0);
+INSERT INTO `mob_family_system` VALUES (378,'Avatar-Diabolos',5,'Avatar',0,40,100,120,3,3,3,3,3,3,3,1,3,1,3,0.5,0.5,0.5,0.5,0.85,0.85,0.85,0.85,0.85,0.85,1,1.50,0,1,0);
 INSERT INTO `mob_family_system` VALUES (379,'Pet-Carbuncle',5,'Avatar',0,40,100,120,9,9,9,9,9,9,9,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0);
 INSERT INTO `mob_family_system` VALUES (380,'Pet-Diabolos',5,'Avatar',0,40,100,120,9,9,9,9,9,9,9,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1.125,1,0,0,0);
 INSERT INTO `mob_family_system` VALUES (381,'Pet-Fenrir',5,'Avatar',1,40,100,120,9,9,9,9,9,9,9,1,3,1,3,1,1,1,1,0.875,0.875,0.875,0.875,0.875,0.875,1,0.875,0,0,0);

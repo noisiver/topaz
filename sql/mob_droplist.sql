@@ -16795,12 +16795,12 @@ INSERT INTO `mob_droplist` VALUES (3175,0,0,1000,8922,150); -- (Garuda Prime) Ga
 INSERT INTO `mob_droplist` VALUES (3175,0,0,1000,18063,50); -- Garuda's Sickle 5%
 
 INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,8926,150); -- (Fenrir Prime) Fenritear 15%
-INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,17711,50); -- Shiva's Shotel 5%
-INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18404,50); -- Ramuh's Mace 5%
-INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18021,50); -- Titan's Baselard 5%
-INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,17192,50); -- Ifrit's Bow 5%
-INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18109,50); -- Leviathan's Couse 5%
-INSERT INTO `mob_droplist` VALUES (3176,0,0,1000,18063,50); -- Garuda's Sickle 5%
+INSERT INTO `mob_droplist` VALUES (3176,1,0,50,17711,166); -- Shiva's Shotel 5%
+INSERT INTO `mob_droplist` VALUES (3176,1,0,50,18404,166); -- Ramuh's Mace 5%
+INSERT INTO `mob_droplist` VALUES (3176,1,0,50,18021,166); -- Titan's Baselard 5%
+INSERT INTO `mob_droplist` VALUES (3176,1,0,50,17192,166); -- Ifrit's Bow 5%
+INSERT INTO `mob_droplist` VALUES (3176,1,0,50,18109,166); -- Leviathan's Couse 5%
+INSERT INTO `mob_droplist` VALUES (3176,1,0,50,18063,170); -- Garuda's Sickle 5%
 
 -- Animated Weapons(Mythic)
 INSERT INTO `mob_droplist` VALUES (3177,0,0,1000,17742,1000); -- Vorpal Sword(RDM Sword) 100%
@@ -16864,6 +16864,14 @@ INSERT INTO `mob_droplist` VALUES (3196,0,0,1000,16563,240); -- Rune Blade 24%
 
 INSERT INTO `mob_droplist` VALUES (3197,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3197,0,0,1000,16563,240); -- Rune Blade 24% 
+
+INSERT INTO `mob_droplist` VALUES (3198,0,0,1000,9537,150); -- (Diabolos Prime) Darkness Sphere 15%
+INSERT INTO `mob_droplist` VALUES (3198,1,0,50,17711,166); -- Shiva's Shotel 5%
+INSERT INTO `mob_droplist` VALUES (3198,1,0,50,18404,166); -- Ramuh's Mace 5%
+INSERT INTO `mob_droplist` VALUES (3198,1,0,50,18021,166); -- Titan's Baselard 5%
+INSERT INTO `mob_droplist` VALUES (3198,1,0,50,17192,166); -- Ifrit's Bow 5%
+INSERT INTO `mob_droplist` VALUES (3198,1,0,50,18109,166); -- Leviathan's Couse 5%
+INSERT INTO `mob_droplist` VALUES (3198,1,0,50,18063,170); -- Garuda's Sickle 5%
 
 
 
