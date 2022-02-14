@@ -19,6 +19,8 @@ zones[tpz.zone.PERIQIA] =
         NOT_HAVE_ENOUGH_GIL           = 6394, -- You do not have enough gil.
         ITEMS_OBTAINED                = 6398, -- You obtain <number> <item>!
         CANNOT_ENTER_LEVEL_RESTRICTED = 7021, -- Your party is unable to participate because certain members' levels are restricted.
+        PLAYER_OBTAINS_TEMP_ITEM      = 7309, --  <name> obtains <temp item>!
+        OBTAINED_TEMP_ITEM            = 7310, --  Obtained <temp item>!
         PLAYER_OBTAINS_ITEM           = 7311, -- <name> obtains <item>!
         ASSAULT_START_OFFSET          = 7446, -- USE ONLY to chose the right starting text for the right assault
         TIME_TO_COMPLETE              = 7507, -- You have <number> [minute/minutes] (Earth time) to complete this mission.
@@ -28,6 +30,7 @@ zones[tpz.zone.PERIQIA] =
         ASSAULT_POINTS_OBTAINED       = 7511, -- You gain <number> [Assault point/Assault points]!
         TIME_REMAINING_MINUTES        = 7512, -- ime remaining: <number> [minute/minutes] (Earth time).
         TIME_REMAINING_SECONDS        = 7513, -- ime remaining: <number> [second/seconds] (Earth time).
+        FADES_INTO_NOTHINGNESS        = 7514, -- the <item> fades into nothingness...
         PARTY_FALLEN                  = 7515, -- ll party members have fallen in battle. Mission failure in <number> [minute/minutes].
         EXCALIACE_START               = 7524, -- Such a lot of trouble for one little corsair... Shall we be on our way?
         EXCALIACE_END1                = 7525, -- Yeah, I got it. Stay here and keep quiet.
@@ -47,6 +50,7 @@ zones[tpz.zone.PERIQIA] =
         EXCALIACE_TOO_CLOSE           = 7539, -- Okay, okay, you got me! I promise I won't run again if you step back a bit...please. Someone's been eating too much garlic...
         EXCALIACE_TIRED               = 7540, -- <Pant>...<wheeze>...
         EXCALIACE_CAUGHT              = 7541, -- Damn...
+        TRIPLE_DOT                    = 7543, -- ...
     },
 
     mob =

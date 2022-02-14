@@ -136,7 +136,7 @@ tpz.appraisalUtil.appraisalItems =
             {
                 {65, 18366}, -- Gust Claymore
                 {30, 16978}, -- Uchigatana+1
-                { 5, 18434}, -- Kosetsusamonji
+                { 1, 18434}, -- Kosetsusamonji
             },
         },
         [SAGELORD_ELIMINATION] =
@@ -547,7 +547,7 @@ tpz.appraisalUtil.appraisalItems =
                 {30, 12696}, -- Leather Gloves
                 {20, 12721}, -- Cotton Gloves
                 {18, 12728}, -- Cuffs
-                { 5, 14936}, -- Storm Manopolas
+                { 1, 14936}, -- Storm Manopolas
             },
         },
         [REQUIEM] =
@@ -1171,10 +1171,7 @@ tpz.appraisalUtil.appraisalItems =
                 {20, 2153}, -- Qiqirn Sandbag
                 { 5, 2163}, -- Imp Wing
                 {10, 4196}, -- Rotton Quiver
-                { 6, 4227}, -- Bronze Bolt Quiver
                 {10, 4387}, -- Wild Onion
-                { 5, 5336}, -- Holy Bolt Quiver
-                { 3, 5337}, -- Sleep Bolt Quiver
             },
         },
         [GOLDEN_SALVAGE] =

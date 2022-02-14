@@ -1,5 +1,5 @@
 -----------------------------------------
--- ID: 5385
+-- ID: 5392
 -- Champion's Drink
 -- Increases Critical hit rate (potency) of the user (amount unknown)
 -----------------------------------------

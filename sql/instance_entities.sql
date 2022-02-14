@@ -182,25 +182,27 @@ LOCK TABLES `instance_entities` WRITE;
 -- Seagull Grounded
 -- Custom Start
 -- Mobs
-INSERT INTO `instance_entities` VALUES (31,17006901); -- Works ???
+INSERT INTO `instance_entities` VALUES (31,17006901); 
 INSERT INTO `instance_entities` VALUES (31,17006902);
-INSERT INTO `instance_entities` VALUES (31,17006903); -- Works ???
-INSERT INTO `instance_entities` VALUES (31,17006904); -- Works ???
+INSERT INTO `instance_entities` VALUES (31,17006903); 
+INSERT INTO `instance_entities` VALUES (31,17006904); 
 INSERT INTO `instance_entities` VALUES (31,17006905);
 INSERT INTO `instance_entities` VALUES (31,17006906);
 INSERT INTO `instance_entities` VALUES (31,17006907);
 INSERT INTO `instance_entities` VALUES (31,17006908);
-INSERT INTO `instance_entities` VALUES (31,17006909);  -- Works ???
+INSERT INTO `instance_entities` VALUES (31,17006909);  
 INSERT INTO `instance_entities` VALUES (31,17006910);
 INSERT INTO `instance_entities` VALUES (31,17006911);
-INSERT INTO `instance_entities` VALUES (31,17006912); -- Works ???
+INSERT INTO `instance_entities` VALUES (31,17006912); 
 INSERT INTO `instance_entities` VALUES (31,17006913);
 INSERT INTO `instance_entities` VALUES (31,17006914);
 INSERT INTO `instance_entities` VALUES (31,17006915);
 INSERT INTO `instance_entities` VALUES (31,17006916);
-INSERT INTO `instance_entities` VALUES (31,17006917); -- Works ???
+INSERT INTO `instance_entities` VALUES (31,17006917); 
 INSERT INTO `instance_entities` VALUES (31,17006918);
-INSERT INTO `instance_entities` VALUES (31,17006919); -- Works ???
+INSERT INTO `instance_entities` VALUES (31,17006919); 
+INSERT INTO `instance_entities` VALUES (31,17006920); 
+INSERT INTO `instance_entities` VALUES (31,17006921); 
 -- What are these?
 --INSERT INTO `instance_entities` VALUES (31,17006596);
 --INSERT INTO `instance_entities` VALUES (31,17006597);
@@ -222,8 +224,8 @@ INSERT INTO `instance_entities` VALUES (31,17006919); -- Works ???
 -- INSERT INTO `instance_entities` VALUES (31,17006634);
 -- INSERT INTO `instance_entities` VALUES (31,17006634);
 --Npcs
-INSERT INTO `instance_entities` VALUES (31,17006809);
-INSERT INTO `instance_entities` VALUES (31,17006810);
+INSERT INTO `instance_entities` VALUES (31,17006809); -- Ancient_Lockbox
+INSERT INTO `instance_entities` VALUES (31,17006810); -- Rune_of_Release
 INSERT INTO `instance_entities` VALUES (31,17006836);
 INSERT INTO `instance_entities` VALUES (31,17006841);
 INSERT INTO `instance_entities` VALUES (31,17006842);

@@ -571,8 +571,13 @@ params.bonus = $4
 params.effect = $5
 ]]
 function applyResistanceEffect(caster, target, spell, params) -- says "effect" but this is the global resistance fetching formula, even for damage spells
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+        return 1/8
+    end
+
     local effect = params.effect
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) or target:hasStatusEffect(tpz.effect.FEALTY) then
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
         res = 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
         --print("restrait proc!")
         if spell ~= nil then

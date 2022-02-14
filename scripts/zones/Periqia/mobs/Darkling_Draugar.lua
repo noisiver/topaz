@@ -1,30 +1,27 @@
 -----------------------------------
 -- Area: Periqia (Requiem)
 --  Mob: Darkling Draugar
--- BLM
+-- THF
+-----------------------------------
+local ID = require("scripts/zones/Periqia/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
-    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:setMod(tpz.mod.CRITHITRATE, 100)
 end
 
 function onMobRoam(mob)
     if mob:getTP() > 1000 then
         mob:setTP(1000)
     end
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
-function onMobEngaged(mob, target)
-	if mob:getMainJob() == tpz.job.DRG then
-		mob:spawnPet()
-	end
+function onMobEngaged(mob)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
 end
 
 function onMobFight(mob, target)
-	local StunTime = mob:getLocalVar("StunTime")
-	local DreadSpikesTime = mob:getLocalVar("DreadSpikesTime")
-	local DrainTime = mob:getLocalVar("DrainTime")
-	local BattleTime = mob:getBattleTime()
 end
 
 function onMobWeaponSkillPrepare(mob, target)

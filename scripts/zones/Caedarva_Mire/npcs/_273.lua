@@ -39,7 +39,6 @@ function onEventUpdate(player, csid, option, target)
         player:createInstance(79, 56)
     else
         onAssaultUpdate(player, csid, option, target, tpz.ki.PERIQIA_ASSAULT_ORDERS, 56)
-        player:addKeyItem(1870) -- MAP_OF_PERIQIA
     end
 end
 

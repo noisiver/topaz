@@ -13,7 +13,7 @@ end
 function onItemUse(target)
     local effect = tpz.effect.RERAISE
     local power = 3
-    local duration = 600
+    local duration = 3600
 
     if (target:addStatusEffect(effect, power, 3, duration)) then
         target:messagePublic(tpz.msg.basic.GAINS_EFFECT_OF_ITEM, target, effect, effect)
