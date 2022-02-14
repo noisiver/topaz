@@ -1981,6 +1981,11 @@ namespace battleutils
         uint16 attackskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
         uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
 
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
+        {
+            return 0;
+        }
+
         if (PDefender->objtype == TYPE_PC)
         {
             CCharEntity* PChar = (CCharEntity*)PDefender;
@@ -2051,6 +2056,10 @@ namespace battleutils
                 job == JOB_BLU || job == JOB_MNK || job == JOB_GEO ||
                 job == JOB_SCH)
             {
+                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
+                {
+                    return 0;
+                }
                 // http://wiki.ffxiclopedia.org/wiki/Talk:Parrying_Skill
                 // {(Parry Skill x .125) + ([Player Agi - Enemy Dex] x .125)} x Diff
 
@@ -2103,6 +2112,10 @@ namespace battleutils
 
         if (validWeapon && hasGuardSkillRank && PDefender->PAI->IsEngaged())
         {
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
+        {
+            return 0;
+        }
             // assuming this is like parry
             float gbase = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
             float skill = (float)gbase + ((float)gbase * (PDefender->getMod(Mod::GUARD_PERCENT) / 100));
