@@ -335,6 +335,17 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 		dmg = dmg * ConvergenceBonus
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
+    --handling rampart stoneskin
+    local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
+    if ramSS > 0 then
+        if dmg >= ramSS then
+            target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
+            dmg = dmg - ramSS
+        else
+            target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
+            dmg = 0
+        end
+    end
 	local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
 	local TP =  100 * (1 - subtleblow)
 	target:addTP(TP)
@@ -354,9 +365,6 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
         dmg = 0
     end
 
-    -- handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
-
     local attackType = params.attackType or tpz.attackType.NONE
     local damageType = params.damageType or tpz.damageType.NONE
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
@@ -366,6 +374,22 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     elseif attackType == tpz.attackType.PHYSICAL then
         dmg = target:physicalDmgTaken(dmg, damageType)
     end
+
+    --handling rampart stoneskin
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
+        local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
+        if ramSS > 0 then
+            if dmg >= ramSS then
+                target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
+                dmg = dmg - ramSS
+            else
+                target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
+                dmg = 0
+            end
+        end
+    end
+    -- handling stoneskin
+    dmg = utils.stoneskin(target, dmg)
 
 	target:takeDamage(dmg, caster, attackType, damageType)
     target:updateEnmityFromDamage(caster, dmg)
