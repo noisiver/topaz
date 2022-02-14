@@ -399,8 +399,8 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
     --handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
-    dmg = utils.clamp(dmg, -99999, 99999)
+    finaldmg = utils.stoneskin(target, finaldmg)
+    finaldmg = utils.clamp(finaldmg, -99999, 99999)
     finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
     return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
 end
@@ -499,8 +499,8 @@ end
     finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.05 -- Add server bonus
     calcParams.finalDmg = finaldmg
     --handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
-    dmg = utils.clamp(dmg, -99999, 99999)
+    finaldmg = utils.stoneskin(target, finaldmg)
+    finaldmg = utils.clamp(finaldmg, -99999, 99999)
     finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
     attacker:delStatusEffect(tpz.effect.FLASHY_SHOT)
     attacker:delStatusEffect(tpz.effect.STEALTH_SHOT)
