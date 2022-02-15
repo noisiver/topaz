@@ -401,5 +401,7 @@ Lunar<CLuaItem>::Register_t CLuaItem::methods[] =
     LUNAR_DECLARE_METHOD(CLuaItem,isHandToHand),
     LUNAR_DECLARE_METHOD(CLuaItem,isShield),
     LUNAR_DECLARE_METHOD(CLuaItem,getSignature),
+    LUNAR_DECLARE_METHOD(CLuaItem, getAppraisalID),
+    LUNAR_DECLARE_METHOD(CLuaItem, setAppraisalID),
     {nullptr,nullptr}
 };

@@ -165,6 +165,7 @@ INSERT INTO `mob_family_mods` VALUES (246,62,20,0);		-- Troll +20% Attack
 INSERT INTO `mob_family_mods` VALUES (217,62,20,0);		-- Scorpion +20% Attack
 INSERT INTO `mob_family_mods` VALUES (62,62,20,0);		-- Cerberus +20% Attack
 INSERT INTO `mob_family_mods` VALUES (180,62,50,0);		-- Marid +50% Attack 
+INSERT INTO `mob_family_mods` VALUES (89,62,50,0);		-- Draugar +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (252,62,50,0);		-- Vampyr +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (191,62,50,0);		-- Orobon +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (1,62,100,0);		-- Acrolith +100% Attack 
@@ -264,6 +265,7 @@ INSERT INTO `mob_family_mods` VALUES (175,389,-50,0);	-- Magic Pot -50%
 INSERT INTO `mob_family_mods` VALUES (171,389,-13,0); 	-- Lamiae -13%
 INSERT INTO `mob_family_mods` VALUES (4,389,-25,0);		-- Ahriman -25%
 INSERT INTO `mob_family_mods` VALUES (169,389,-25,0);	-- Kindred  -25%
+INSERT INTO `mob_family_mods` VALUES (89,389,-13,0);	-- Draugar  -13%
 INSERT INTO `mob_family_mods` VALUES (52,389,-25,0);	-- Bhoot  -25%
 INSERT INTO `mob_family_mods` VALUES (63,389,-13,0);	-- Chariot  -13%
 INSERT INTO `mob_family_mods` VALUES (209,389,-43,0);	-- Rampart  -43%
@@ -277,6 +279,9 @@ INSERT INTO `mob_family_mods` VALUES (62,389,-50,0);	-- Cerberus  -63%
 INSERT INTO `mob_family_mods` VALUES (163,389,-63,0);	-- Hydra  -63%
 INSERT INTO `mob_family_mods` VALUES (164,389,-63,0);	-- Hydra  -63%
 INSERT INTO `mob_family_mods` VALUES (168,389,-63,0);	-- Khimaira  -63%
+INSERT INTO `mob_family_mods` VALUES (252,389,-25,0); 	-- Vampyr(NM) -25%
+INSERT INTO `mob_family_mods` VALUES (284,389,-38,0); 	-- Vampyr(NM) -38%
+
 
 
 
@@ -284,7 +289,9 @@ INSERT INTO `mob_family_mods` VALUES (168,389,-63,0);	-- Khimaira  -63%
 INSERT INTO `mob_family_mods` VALUES (171,29,40,0); 	-- Lamiae +40 MDB
 INSERT INTO `mob_family_mods` VALUES (182,29,40,0); 	-- Merrow +40 MDB
 INSERT INTO `mob_family_mods` VALUES (175,29,12,0); 	-- Magic pot +12 MDB
-INSERT INTO `mob_family_mods` VALUES (252,29,24,0); 	-- Vampyr +24 MDB
+INSERT INTO `mob_family_mods` VALUES (252,29,10,0); 	-- Vampyr +10 MDB
+INSERT INTO `mob_family_mods` VALUES (284,29,20,0); 	-- Vampyr(NM) +20 MDB
+INSERT INTO `mob_family_mods` VALUES (89,29,20,0);  	-- Draugar +20 MDB
 INSERT INTO `mob_family_mods` VALUES (52,29,20,0);  	-- Bhoot +20 MDB
 INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	    -- Dvergr +40 MDB
 INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	    -- Amphiptere +20 MDB
@@ -333,9 +340,7 @@ INSERT INTO `mob_family_mods` VALUES (205,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (214,23,640,1); -- Sandworm slow and elegy Immunity
 INSERT INTO `mob_family_mods` VALUES (215,23,640,1); -- Sandworm slow and elegy Immunity
 
-
-
--- Status resist
+-- Status resist trait
 INSERT INTO `mob_family_mods` VALUES (125,1254,100,0); -- Giant Bird 100% lullaby resist
 INSERT INTO `mob_family_mods` VALUES (192,1243,95,0); -- Peiste 95% blind resist
 
@@ -350,8 +355,6 @@ INSERT INTO `mob_family_mods` VALUES (211,464,100,0);	-- Ruszor - Water
 INSERT INTO `mob_family_mods` VALUES (231,464,100,0);	-- Slug - Water	
 INSERT INTO `mob_family_mods` VALUES (324,461,100,0);	-- Garuda - Wind
 INSERT INTO `mob_family_mods` VALUES (198,461,100,0);	-- Puk - Wind
-INSERT INTO `mob_family_mods` VALUES (325,466,100,0);	-- Fenrir - Dark
-INSERT INTO `mob_family_mods` VALUES (378,466,100,0);	-- Diabolos - Dark
 INSERT INTO `mob_family_mods` VALUES (34,465,100,0);	-- Carbuncle - Light
 
 -- Yovra
@@ -980,6 +983,7 @@ INSERT INTO `mob_family_mods` VALUES (23,3,50,1);
 INSERT INTO `mob_family_mods` VALUES (24,3,50,1);
 
 -- Never standback
+INSERT INTO `mob_family_mods` VALUES (112,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (233,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (165,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (166,56,-1,1);

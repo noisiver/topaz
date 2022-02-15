@@ -1,24 +1,23 @@
 -----------------------------------------
 -- ID: 5851
 -- Item: Berserkers Tonic
--- Item Effect: Increases double attack rate by 25%
+-- Item Effect: Increases double attack rate by 50%
 -----------------------------------------
-require("scripts/globals/settings")
+require("scripts/globals/status")
 require("scripts/globals/msg")
 
---function onItemCheck(target)
-    --if (target:hasStatusEffect(tpz.effect.MEDICINE)) then
-      --  return tpz.msg.basic.ITEM_NO_USE_MEDICATED
-    --end
-  --  return 0
---end
 function onItemCheck(target)
-    if (target:hasStatusEffect(tpz.effect.MEDICINE)) then
-        return tpz.msg.basic.ITEM_NO_USE_MEDICATED
-    end
     return 0
 end
 
 function onItemUse(target)
-   target:addStatusEffectEx(tpz.effect.DOUBLE_ATTACK, tpz.effect.ATTACK_BOOST, 100, 0, 1800)
+    local effect = tpz.effect.MULTI_STRIKES
+    local power = 50
+    local duration = 60
+
+    if (target:addStatusEffect(effect, power, 0, duration)) then
+        target:messagePublic(tpz.msg.basic.GAINS_EFFECT_OF_ITEM, target, effect, effect)
+    else
+        target:messagePublic(tpz.msg.basic.NO_EFFECT, target, effect)
+    end
 end

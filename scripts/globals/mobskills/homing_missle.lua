@@ -8,7 +8,10 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if target:isInfront(mob, 128) then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -19,15 +22,15 @@ function onMobWeaponSkill(target, mob, skill)
     if (targetcurrentHP > hpset) then
         dmg= targetcurrentHP - hpset
     else
-        dmg=0
+        dmg = 0
     end
 	
 	if target:hasStatusEffect(tpz.effect.FEALTY) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+        dmg = 0
 	else
 		target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-		if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
+        mob:resetEnmity(target)
 	end
-    mob:resetEnmity(target)
     return dmg
 end

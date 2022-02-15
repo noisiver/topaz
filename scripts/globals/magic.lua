@@ -571,8 +571,13 @@ params.bonus = $4
 params.effect = $5
 ]]
 function applyResistanceEffect(caster, target, spell, params) -- says "effect" but this is the global resistance fetching formula, even for damage spells
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+        return 1/8
+    end
+
     local effect = params.effect
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) or target:hasStatusEffect(tpz.effect.FEALTY) then
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
         res = 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
         --print("restrait proc!")
         if spell ~= nil then
@@ -1463,7 +1468,7 @@ end
 
 function handleNinjutsuDebuff(caster, target, spell, basePower, baseDuration, modifier)
     -- Add new
-	local resist = applyResistanceAbility(caster, target, tpz.magic.ele.NONE, tpz.skill.NINJUTSU, caster:getMod(tpz.mod.MACC) +25)
+	local resist = applyResistanceAbility(caster, target, tpz.magic.ele.NONE, tpz.skill.NINJUTSU, caster:getMod(tpz.mod.MACC) +53)
     target:addStatusEffectEx(tpz.effect.NINJUTSU_ELE_DEBUFF, 0, basePower, 0, baseDuration * resist, 0, modifier, 0)
     return tpz.effect.NINJUTSU_ELE_DEBUFF
 end
@@ -1711,7 +1716,7 @@ function doNinjutsuNuke(caster, target, spell, params)
 
     mabBonus = mabBonus + caster:getMod(tpz.mod.NIN_NUKE_BONUS) -- "enhances ninjutsu damage" bonus
     if (caster:hasStatusEffect(tpz.effect.INNIN) and caster:isBehind(target, 23)) then -- Innin mag atk bonus from behind, guesstimating angle at 23 degrees
-        mabBonus = mabBonus + 30
+        mabBonus = mabBonus + 50
     end
     params.skillType = tpz.skill.NINJUTSU
     params.attribute = tpz.mod.INT
@@ -1733,23 +1738,23 @@ function doNuke(caster, target, spell, params)
 	end
     --get the resisted damage
     dmg = dmg*resist
-    if (skill == tpz.skill.NINJUTSU) then
+    if (spell:getSkillType() == tpz.skill.NINJUTSU) then
         if (caster:getMainJob() == tpz.job.NIN) then -- NIN main gets a bonus to their ninjutsu nukes
             local ninSkillBonus = 100
             if (spell:getID() % 3 == 2) then -- ichi nuke spell ids are 320, 323, 326, 329, 332, and 335
-                ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 50)/2) -- getSkillLevel includes bonuses from merits and modifiers (ie. gear)
+                ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 50) / 4) -- getSkillLevel includes bonuses from merits and modifiers (ie. gear)
             elseif (spell:getID() % 3 == 0) then -- ni nuke spell ids are 1 more than their corresponding ichi spell
-                ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 125)/2)
+                ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 125) / 2)
             else -- san nuke spell, also has ids 1 more than their corresponding ni spell
-                ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 275)/2)
+                ninSkillBonus = 100 + math.floor((caster:getSkillLevel(tpz.skill.NINJUTSU) - 276))
             end
-            ninSkillBonus = utils.clamp(ninSkillBonus, 100, 200) -- bonus caps at +100%, and does not go negative
+            ninSkillBonus = utils.clamp(ninSkillBonus, 100, 1000) -- bonus caps at +1000%, and does not go negative
             dmg = dmg * ninSkillBonus/100
         end
         -- boost with Futae
         if (caster:hasStatusEffect(tpz.effect.FUTAE)) then
             dmg = math.floor(dmg * 1.50)
-            caster:delStatusEffect(tpz.effect.FUTAE)
+            caster:delStatusEffectSilent(tpz.effect.FUTAE)
         end
     end
     

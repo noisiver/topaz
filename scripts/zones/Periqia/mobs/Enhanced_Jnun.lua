@@ -2,7 +2,11 @@
 -- Area: Periqia (Requiem)
 --  Mob: Batteilant Bhoot
 -----------------------------------
+local ID = require("scripts/zones/Periqia/IDs")
+-----------------------------------
 function onMobSpawn(mob)
+    mob:setMod(tpz.mod.MDEF, 40)
+    mob:setMod(tpz.mod.UDMGMAGIC, -13)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
@@ -17,10 +21,15 @@ function onMobRoam(mob)
     if mob:getTP() > 1000 then
         mob:setTP(1000)
     end
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
 function onMobEngaged(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+    return 492 -- Only uses Abyss Blast
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -54,6 +63,9 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller)
+    if isKiller or noKiller then
+        mob:getEntity(bit.band(ID.npc._1KX, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Door H-9
+    end
 end
 
 function onMobDespawn(mob)

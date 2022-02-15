@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 5433
 -- Item: Dusty Elixir
--- Item Effect: Instantly restores 25% of HP and MP
+-- Item Effect: Instantly restores 50% of HP and MP
 -----------------------------------------
 require("scripts/globals/msg")
 
@@ -20,7 +20,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addHP(target:getMaxHP() * .25)
-    target:addMP(target:getMaxMP() * .25)
+    target:addHP(target:getMaxHP() * .50)
+    target:addMP(target:getMaxMP() * .50)
     target:messageBasic(tpz.msg.basic.RECOVERS_HP_AND_MP)
 end

@@ -301,7 +301,7 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     local percentBonus = 0
     local magicaccbonus = 0
 	
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) or target:hasStatusEffect(tpz.effect.FEALTY) then
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
@@ -474,6 +474,11 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     --handle pd
     if ((target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) )
             and attackType==tpz.attackType.PHYSICAL) then
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
+        return 0
+    end
+    -- handle fanatics drink/tonic/powder
+    if target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
     end
@@ -749,6 +754,10 @@ end
 -- Adds a status effect to a target
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
+    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+	    return tpz.msg.basic.SKILL_NO_EFFECT
+    end
+
     if (target:canGainStatusEffect(typeEffect, power)) then
         local statmod = tpz.mod.INT
         local element = mob:getStatusEffectElement(typeEffect)
@@ -826,6 +835,10 @@ function MobEncumberMove(mob, target, maxSlots, duration)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
+    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+    end
+
     local encumberSlots = {};
     local currIndex = 1;
 	while (currIndex <= maxSlots) and (#encumberSlots < 16) do
@@ -883,7 +896,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
 	end
 	
 	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
-		if target:hasStatusEffect(tpz.effect.FEALTY) then
+		if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
 		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
         	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)

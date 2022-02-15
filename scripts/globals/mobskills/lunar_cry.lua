@@ -18,17 +18,17 @@ function onMobWeaponSkill(target, mob, skill)
     local buffvalue = 1
 
     if (moon > 90) then
-        buffvalue = 31
+        buffvalue = 62
     elseif (moon > 75) then
-        buffvalue = 26
+        buffvalue = 52
     elseif (moon > 60) then
-        buffvalue = 21
+        buffvalue = 42
     elseif (moon > 40) then
-        buffvalue = 16
+        buffvalue = 32
     elseif (moon > 25) then
-        buffvalue = 11
+        buffvalue = 22
     elseif (moon > 10) then
-        buffvalue = 6
+        buffvalue = 12
     end
 
     target:addStatusEffect(tpz.effect.ACCURACY_DOWN, buffvalue, 0, 300)

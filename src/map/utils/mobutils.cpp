@@ -626,10 +626,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_DRK:
-            if ((PMob->m_Family >= 255 && PMob->m_Family <= 256) || (PMob->m_Family >= 203 && PMob->m_Family <= 205) ||
+            if ((PMob->m_Family >= 255 && PMob->m_Family <= 256) || (PMob->m_Family >= 319 && PMob->m_Family <= 325) ||
+                (PMob->m_Family >= 203 && PMob->m_Family <= 205) ||
                 (PMob->m_Family >= 88 && PMob->m_Family <= 89) || PMob->m_Family == 227 || PMob->m_Family == 72 || PMob->m_Family == 217 ||
-                PMob->m_Family == 74 || PMob->m_Family == 81)
-            // Promy mobs, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite
+                PMob->m_Family == 74 || PMob->m_Family == 81|| PMob->m_Family == 378)
+            // Promy mobs, Avatars, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite, Diabolos
             {
                 PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
             }
@@ -922,20 +923,16 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
         PMob->setMobMod(MOBMOD_WEAPON_BONUS, 200);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
-        PMob->addModifier(Mod::ACC, 50);
-        PMob->addModifier(Mod::MDEF, 40);
-        PMob->addModifier(Mod::UDMGMAGIC, -13);
         PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }
     else
     {
         // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 135);
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
         PMob->addModifier(Mod::ACC, 30);
-        PMob->addModifier(Mod::MDEF, 15);
         PMob->addModifier(Mod::REGEN, 30);
         PMob->addModifier(Mod::REGAIN, 50);
     }

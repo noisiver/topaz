@@ -12,6 +12,10 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local skillList = mob:getMobMod(tpz.mobMod.SKILL_LIST)
+    local mobhp = mob:getHPP()
+    local phase = mob:getLocalVar("battlePhase")
+    local mobhp = mob:getHPP()
 	local mobhp = mob:getHPP()
 	if mob:getPool() == 4083 then -- Ultima COP Mission
 		if mobhp <= 20 then
@@ -20,6 +24,12 @@ function onMobSkillCheck(target, mob, skill)
 			return 1
 		end
 	end
+
+    if ((skillList == 729 and phase < 2) or (skillList == 728 and mobhp > 70)) then
+        if mob:getLocalVar("nuclearWaste") == 0 then
+            return 0
+        end
+    end
 
 
     return 1

@@ -1,18 +1,30 @@
 -----------------------------------
 -- Area: Periqia (Requiem)
---  Mob: Batteilant Bhoot
+--  Mob: Draconic Draugar
 -- DRG
 -----------------------------------
+local ID = require("scripts/zones/Periqia/IDs")
+-----------------------------------
+function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:setMod(tpz.mod.CRITHITRATE, 100)
+end
+
 function onMobRoam(mob)
     if mob:getTP() > 1000 then
         mob:setTP(1000)
     end
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
-function onMobEngaged(mob, target)
-	if mob:getMainJob() == tpz.job.DRG then
-		mob:spawnPet()
-	end
+function onMobEngaged(mob)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+end
+
+function onMobFight(mob, target)
+    local instance = mob:getInstance()
+	local Pet = GetMobByID(mob:getID(instance)+1, instance)
+	Pet:updateEnmity(target)
 end
 
 function onMobWeaponSkillPrepare(mob, target)

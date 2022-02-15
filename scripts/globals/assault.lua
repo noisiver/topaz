@@ -363,6 +363,7 @@ function onEventFinishExitRune(player, csid, option, ASSAULT_POINT, textTable, Z
         local instance = player:getInstance()
         local chars = instance:getChars()
         for _, v in pairs(chars) do
+            v:delKeyItem(1870) -- MAP_OF_PERIQIA
             v:setPos(0, 0, 0, 0, ZONE)
         end
     end
@@ -400,7 +401,7 @@ function runeReleaseFinish(player, ASSAULT_POINT, textTable)
                 v:addAssaultPoint(ASSAULT_POINT, points)
             else
                 points = math.floor(points*(1.5))
-                v:setCharVar("AssaultPromotion", v:getCharVar("AssaultPromotion") +5)
+                v:setCharVar("AssaultPromotion", v:getCharVar("AssaultPromotion") +1)
                 v:addAssaultPoint(ASSAULT_POINT, points)
             end
             v:messageSpecial(textTable.ASSAULT_POINTS_OBTAINED, points)
