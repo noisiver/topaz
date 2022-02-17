@@ -40,6 +40,6 @@ function onTrigger(player, modifier, amount, target)
     end
 
     local oldmod = player:getMod(modID)
-    player:setMod(modID, amount)
+    target:setMod(modID, amount)
     player:PrintToPlayer(string.format("Target name: %s (Target ID: %i) | Old %s modifier value: %i | New %s modifier value: %i", target:getName(), target:getID(), modifier, oldmod, modifier, amount))
 end
