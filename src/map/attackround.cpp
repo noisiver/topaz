@@ -63,11 +63,14 @@ CAttackRound::CAttackRound(CBattleEntity* attacker, CBattleEntity* defender)
     // Build dual wield off hand weapon attacks.
     if (IsH2H())
     {
-        // Build left hand H2H attacks.
-        CreateAttacks(dynamic_cast<CItemWeapon*>(attacker->m_Weapons[SLOT_MAIN]), LEFTATTACK);
+        if (!m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
+        {
+            // Build left hand H2H attacks.
+            CreateAttacks(dynamic_cast<CItemWeapon*>(attacker->m_Weapons[SLOT_MAIN]), LEFTATTACK);
 
-        // Build kick attacks.
-        CreateKickAttacks();
+            // Build kick attacks.
+            CreateKickAttacks();
+        }
     }
 
     else if (attacker->m_dualWield)
@@ -297,15 +300,36 @@ void CAttackRound::CreateAttacks(CItemWeapon* PWeapon, PHYSICAL_ATTACK_DIRECTION
     // Quad/Triple/Double Attack
     else if (tpzrand::GetRandomNumber(100) < quadAttack)
     {
-        AddAttackSwing(PHYSICAL_ATTACK_TYPE::QUAD, direction, 3);
+        if (m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
+        {
+            AddAttackSwing(PHYSICAL_ATTACK_TYPE::KICK, LEFTATTACK, 3);
+        }
+        else
+        {
+            AddAttackSwing(PHYSICAL_ATTACK_TYPE::QUAD, direction, 3);
+        }
     }
     else if (tpzrand::GetRandomNumber(100) < tripleAttack)
     {
-        AddAttackSwing(PHYSICAL_ATTACK_TYPE::TRIPLE, direction, 2);
+        if (m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
+        {
+            AddAttackSwing(PHYSICAL_ATTACK_TYPE::KICK, LEFTATTACK, 2);
+        }
+        else
+        {
+            AddAttackSwing(PHYSICAL_ATTACK_TYPE::TRIPLE, direction, 2);
+        }
     }
     else if (tpzrand::GetRandomNumber(100) < doubleAttack)
     {
-        AddAttackSwing(PHYSICAL_ATTACK_TYPE::DOUBLE, direction, 1);
+        if (m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
+        {
+            AddAttackSwing(PHYSICAL_ATTACK_TYPE::KICK, LEFTATTACK, 1);
+        }
+        else
+        {
+            AddAttackSwing(PHYSICAL_ATTACK_TYPE::DOUBLE, direction, 1);
+        }
     }
     // Mythic Weapons Aftermath, only main hand
     else if (direction == PHYSICAL_ATTACK_DIRECTION::RIGHTATTACK && tpzrand::GetRandomNumber(100) < occAttThriceRate)
@@ -384,9 +408,15 @@ void CAttackRound::CreateAttacks(CItemWeapon* PWeapon, PHYSICAL_ATTACK_DIRECTION
             PChar->pushPacket(new CInventoryFinishPacket());
         }
     }
-
-    // Default hit
-    AddAttackSwing(PHYSICAL_ATTACK_TYPE::NORMAL, direction, 1);
+    if (m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
+    {
+        AddAttackSwing(PHYSICAL_ATTACK_TYPE::KICK, RIGHTATTACK, 1);
+    }
+    else
+    {
+        // Default hit
+        AddAttackSwing(PHYSICAL_ATTACK_TYPE::NORMAL, direction, 1);
+    }
 }
 
 /************************************************************************
