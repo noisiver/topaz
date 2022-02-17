@@ -309,6 +309,37 @@ INSERT INTO `instance_entities` VALUES (31,17006926);
 --INSERT INTO `instance_entities` VALUES (32,17006809);
 --INSERT INTO `instance_entities` VALUES (32,17006810);
 -- Golden Salvage
+-- Custom Start
+INSERT INTO `instance_entities` VALUES (41,17002756);
+INSERT INTO `instance_entities` VALUES (41,17002757);
+INSERT INTO `instance_entities` VALUES (41,17002760);
+INSERT INTO `instance_entities` VALUES (41,17002761);
+INSERT INTO `instance_entities` VALUES (41,17002762);
+INSERT INTO `instance_entities` VALUES (41,17002763);
+INSERT INTO `instance_entities` VALUES (41,17002764);
+INSERT INTO `instance_entities` VALUES (41,17002765);
+INSERT INTO `instance_entities` VALUES (41,17002766);
+INSERT INTO `instance_entities` VALUES (41,17002767);
+INSERT INTO `instance_entities` VALUES (41,17002768);
+INSERT INTO `instance_entities` VALUES (41,17002769);
+INSERT INTO `instance_entities` VALUES (41,17002770);
+INSERT INTO `instance_entities` VALUES (41,17002771);
+INSERT INTO `instance_entities` VALUES (41,17002772);
+INSERT INTO `instance_entities` VALUES (41,17002773);
+INSERT INTO `instance_entities` VALUES (41,17002774);
+INSERT INTO `instance_entities` VALUES (41,17002775);
+-- Mobs
+-- npc
+INSERT INTO `instance_entities` VALUES (41,17002654);
+INSERT INTO `instance_entities` VALUES (41,17002655);
+INSERT INTO `instance_entities` VALUES (41,17002731);
+--INSERT INTO `instance_entities` VALUES (41,17002752); -- Gate at G-7
+INSERT INTO `instance_entities` VALUES (41,17002753);
+-- Chests
+INSERT INTO `instance_entities` VALUES (41,17002776); 
+INSERT INTO `instance_entities` VALUES (41,17002777);  
+INSERT INTO `instance_entities` VALUES (41,17002778); 
+INSERT INTO `instance_entities` VALUES (41,17002779); 
 -- mobs
 -- INSERT INTO `instance_entities` VALUES (41,17002497);
 -- INSERT INTO `instance_entities` VALUES (41,17002498);

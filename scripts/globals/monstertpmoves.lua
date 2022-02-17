@@ -836,7 +836,7 @@ function MobEncumberMove(mob, target, maxSlots, duration)
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
     if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
-	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	    resist = 0.25
     end
 
     local encumberSlots = {};

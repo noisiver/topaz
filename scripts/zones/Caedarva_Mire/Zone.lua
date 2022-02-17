@@ -71,11 +71,15 @@ function onRegionEnter(player, region)
     local RegionID = region:GetRegionID()
     
     if (RegionID <= 10) then
+            printf("Entered Region")
         if RNG <= 50 then
+            printf("Apply Weight")
             player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
         elseif RNG <= 25 then
+            printf("Apply Random Status from Table")
             player:addStatusEffect(stauseffects[math.random(#stauseffects)])
         elseif RNG <= 5 and Respawn <= os.time() then
+            printf("Spawn Zikko")
             player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
             Zikko:setPos(player:getPos())
             SpawnMob(ID.mob.ZIKKO):updateClaim(player)

@@ -34,7 +34,6 @@ function onMobWeaponSkill(target, mob, skill)
 	
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.NONE, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
-	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
 	if  (target:isFacing(mob)) then
 		mob:resetEnmity(target)
 	end

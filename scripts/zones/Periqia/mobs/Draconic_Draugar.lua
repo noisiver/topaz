@@ -11,10 +11,36 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
+	local Path = mob:getLocalVar("Path")
+	local Wait = mob:getLocalVar("Wait")
+    local flags = tpz.path.flag.NONE
     if mob:getTP() > 1000 then
         mob:setTP(1000)
     end
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    if mob:getID(instance) == 17006912 then
+        if os.time() > Wait and Path == 0 then
+            mob:pathTo(-341,-15,300, flags)
+            mob:setLocalVar("Path", 1)
+            mob:setLocalVar("Wait", os.time()+17)
+        end
+        if os.time() > Wait and Path == 1 then
+            mob:pathTo(-340,-15,226, flags)
+            mob:setLocalVar("Path", 0)
+            mob:setLocalVar("Wait", os.time()+17)
+        end
+    end
+    if mob:getID(instance) == 17006916 then
+        if os.time() > Wait and Path == 0 then
+            mob:pathTo(-273,-15,178, flags)
+            mob:setLocalVar("Path", 1)
+            mob:setLocalVar("Wait", os.time()+30)
+        end
+        if os.time() > Wait and Path == 1 then
+            mob:pathTo(-321,-15,179, flags)
+            mob:setLocalVar("Path", 0)
+            mob:setLocalVar("Wait", os.time()+30)
+        end
+    end
 end
 
 function onMobEngaged(mob)

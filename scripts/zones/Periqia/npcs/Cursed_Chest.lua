@@ -1,5 +1,5 @@
 -----------------------------------
--- Area: Seagull Grounded
+-- Area: Seagull Grounded(Periqia)
 -- NPC:  Cursed Chest
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -7,6 +7,9 @@ require("scripts/globals/msg")
 local ID = require("scripts/zones/Periqia/IDs")
 -----------------------------------
 function onTrade(player,npc,trade)
+    --if npc:getID() == 17006923 then
+        --npc:setPos(-292.5529,-15.3060,260.6910, 126)
+    --end
 end
 
 function onTrigger(player, npc)

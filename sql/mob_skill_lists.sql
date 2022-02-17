@@ -873,11 +873,11 @@ INSERT INTO `mob_skill_lists` VALUES ('OrcishWarmachine',190,636);
 INSERT INTO `mob_skill_lists` VALUES ('OrcishWarmachine',190,637);
 INSERT INTO `mob_skill_lists` VALUES ('OrcishWarmachine',190,638);
 INSERT INTO `mob_skill_lists` VALUES ('OrcishWarmachine',190,639);
-INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1693);
-INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1694);
-INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1695);
-INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1696);
-INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1697);
+INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1693); -- gnash
+INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1694); -- vile_belch
+INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1695); -- hypnic_lamp
+INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1696); -- seismic_tail
+INSERT INTO `mob_skill_lists` VALUES ('Orobon',191,1697); -- seaspray
 INSERT INTO `mob_skill_lists` VALUES ('Peiste',192,2152); -- aqua_fortis
 INSERT INTO `mob_skill_lists` VALUES ('Peiste',192,2153); -- regurgitation
 INSERT INTO `mob_skill_lists` VALUES ('Peiste',192,2154); -- delta_thrust
@@ -1444,14 +1444,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2112);
 INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1753);
 INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1758);
 -- 311: free
-INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1977);
-INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1978);
-INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1693);
-INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1694);
-INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1695);
-INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1696);
-INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1697);
-INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1698);
+INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1977); -- deathgnash
+INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1978); -- abominable_belch
+INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1693); -- gnash
+INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1694); -- vile_belch
+INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1695); -- hypnic_lamp
+INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1696); -- seismic_tail
+INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1697); -- seaspray
+INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1698); -- leeching_current
 INSERT INTO `mob_skill_lists` VALUES ('Tinnin',313,1828);
 INSERT INTO `mob_skill_lists` VALUES ('Tinnin',313,1829);
 INSERT INTO `mob_skill_lists` VALUES ('Tinnin',313,1830);
@@ -4323,6 +4323,14 @@ INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,907); -- poi
 INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,910); -- meteorite
 INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,911); -- healing_ruby_ii
 INSERT INTO `mob_skill_lists` VALUES ('MysticAvatar-Carbuncle',6105,912); -- searing_light
+INSERT INTO `mob_skill_lists` VALUES ('Lamia_No3',6106,2086); -- grim_reaper
+INSERT INTO `mob_skill_lists` VALUES ('Lamia_No3',6106,1758); -- tail_slap
+INSERT INTO `mob_skill_lists` VALUES ('Lamia_No3',6106,1759); -- hypnotic_sway
+INSERT INTO `mob_skill_lists` VALUES ('Evolved_Apkallu',6107,1714);
+INSERT INTO `mob_skill_lists` VALUES ('Evolved_Apkallu',6107,1715);
+INSERT INTO `mob_skill_lists` VALUES ('Evolved_Apkallu',6107,1716);
+INSERT INTO `mob_skill_lists` VALUES ('Evolved_Apkallu',6107,1717);
+INSERT INTO `mob_skill_lists` VALUES ('Evolved_Qutrub',6108,1782);
 
 --6066 unused
 

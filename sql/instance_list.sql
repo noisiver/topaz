@@ -86,7 +86,7 @@ INSERT INTO `instance_list` VALUES (32,'requiem',79,30,-458.409,-10.000,-320.966
 -- INSERT INTO `instance_list` VALUES (38,'operation:snake_eyes',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (39,'wake_the_puppet',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (40,'the_price_is_right',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
-INSERT INTO `instance_list` VALUES (41,'golden_salvage',54,30,386.000,-12.000,17.000,46,-1,-1,-1,-1);
+INSERT INTO `instance_list` VALUES (41,'golden_salvage',54,60,386.000,-12.000,17.000,46,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (42,'lamia_no_13',54,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 INSERT INTO `instance_list` VALUES (43,'extermination',54,30,298.099,-3.943,135.234,149,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (44,'demolition_duty',54,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
