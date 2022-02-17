@@ -20,26 +20,11 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
     local currentHP = target:getHP()
-    -- remove all by 5%
-    local damage = 0
-
-    --[[-- if have more hp then 30%, then reduce to 5%
-    if (target:getHPP() > 30) then
-        damage = currentHP * .95
-    else
-        -- else you die
-        damage = currentHP
-    end --]]
-    -- if have more hp then 30%, then reduce to 5%
-    if (target:getHPP() > 5) then
-        damage = currentHP * .95
-    end
-    local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, MOBPARAM_IGNORE_SHADOWS)
-
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
-
+    local damage = currentHP * .90
+    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.MAGICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
+	target:addStatusEffect(tpz.effect.STUN, 1, 0, 1)
     mob:resetEnmity(target)
 
     return dmg
