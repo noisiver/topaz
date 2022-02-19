@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
--- func: despawnmob <mobid-optional>
--- desc: Despawns the given mob <t> or mobID)
+-- func: setstatus <mobid-optional>
+-- desc: Despawns the given mob/npc <t> or mobID/npcid)
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =
@@ -11,16 +11,15 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!despawnmob {mobID}")
+    player:PrintToPlayer("!setstatus {mobID}")
 end
 
-function onTrigger(player, mobId)
+function onTrigger(player, mobId, statustoggle)
+
     local zone = player:getZone()
     if zone:getType() == tpz.zoneType.INSTANCED then
         local instance = player:getInstance()
         local targ
-        -- validate mobId
-        local targ
         if (mobId == nil) then
             targ = player:getCursorTarget()
             if (targ == nil or not targ:isMob()) then
@@ -28,18 +27,16 @@ function onTrigger(player, mobId)
                 return
             end
         else
-            targ = GetMobByID(mobId, instance)
+            targ = GetNPCByID(mobId, instance)
             if (targ == nil) then
                 error(player, "Invalid mobID.")
                 return
             end
         end
-        -- despawn mob
-        DespawnMob(mobId, instance)
-        player:PrintToPlayer(string.format("Despawned %s %i.", targ:getName(), targ:getID()))
+        -- set status
+        GetNPCByID(mobId, instance):setStatus(tpz.status.statustoggle)
+        player:PrintToPlayer(string.format("Set status for %s %i.", targ:getName(), targ:getID()))
     else
-        -- validate mobId
-        local targ
         if (mobId == nil) then
             targ = player:getCursorTarget()
             if (targ == nil or not targ:isMob()) then
@@ -47,14 +44,13 @@ function onTrigger(player, mobId)
                 return
             end
         else
-            targ = GetMobByID(mobId)
+            targ = GetNPCByID(mobId)
             if (targ == nil) then
                 error(player, "Invalid mobID.")
                 return
             end
         end
-        -- despawn mob
-        DespawnMob(targ:getID())
-        player:PrintToPlayer(string.format("Despawned %s %i.", targ:getName(), targ:getID()))
+        -- set status
+        GetNPCByID(mobId):setStatus(tpz.status.statustoggle)
     end
 end
