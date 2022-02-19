@@ -1503,7 +1503,7 @@ void CCharEntity::OnRaise()
         }
 
         //add weakness effect (75% reduction in HP/MP)
-        if (GetLocalVar("MijinGakure") == 0)
+        if (GetLocalVar("MijinGakure") == 0 && GetLocalVar("GMRaise") == 0)
         {
             CStatusEffect* PWeaknessEffect = new CStatusEffect(EFFECT_WEAKNESS, EFFECT_WEAKNESS, weaknessLvl, 0, 300);
             StatusEffectContainer->AddStatusEffect(PWeaknessEffect);
@@ -1524,6 +1524,12 @@ void CCharEntity::OnRaise()
         {
             actionTarget.animation = 511;
             hpReturned = (uint16)(GetMaxHP());
+        }
+        else if (GetLocalVar ("GMRaise") != 0)
+        {
+            actionTarget.animation = 511;
+            hpReturned = (uint16)(GetMaxHP());
+            ratioReturned = 1.0f;
         }
         else if (m_hasRaise == 1)
         {
@@ -1569,6 +1575,7 @@ void CCharEntity::OnRaise()
         }
 
         SetLocalVar("MijinGakure", 0);
+        SetLocalVar("GMRaise", 0);
 
         m_hasRaise = 0;
     }
