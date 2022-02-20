@@ -143,7 +143,13 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         end
 
         -- Add on native crit hit rate (guesstimated, it actually follows an exponential curve)
-        nativecrit = (attacker:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.AGI))*0.005 -- assumes +0.5% crit rate per 1 dDEX
+        if attacker:getWeaponDamageType(tpz.slot.RANGED) == true then  -- Ranged uses DAgi not DDex
+            nativecrit = (attacker:getStat(tpz.mod.AGI) - target:getStat(tpz.mod.AGI))*0.005 -- assumes +0.5% crit rate per 1 dDEX
+            --printf("Your native ranged crit is... %i", nativecrit)
+        else
+            nativecrit = (attacker:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.AGI))*0.005 -- assumes +0.5% crit rate per 1 dDEX
+            --printf("Your native melee crit is... %i", nativecrit)
+        end
         if (nativecrit > 0.2) then -- caps only apply to base rate, not merits and mods
             nativecrit = 0.2
         elseif (nativecrit < 0.05) then
