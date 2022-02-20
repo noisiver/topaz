@@ -2155,7 +2155,7 @@ namespace battleutils
     {
         auto weapon = GetEntityWeapon(PAttacker, (SLOTTYPE)slot);
         giveTPtoAttacker = giveTPtoAttacker && !PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI);
-        giveTPtoVictim = giveTPtoVictim && physicalAttackType != PHYSICAL_ATTACK_TYPE::DAKEN;
+        giveTPtoVictim = giveTPtoVictim && physicalAttackType != PHYSICAL_ATTACK_TYPE::DAKEN && !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI);
         bool isRanged = (slot == SLOT_AMMO || slot == SLOT_RANGED);
         int32 baseDamage = damage;
         ATTACKTYPE attackType = ATTACK_PHYSICAL;
@@ -2567,7 +2567,10 @@ namespace battleutils
             PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK);
 
         // Apply TP
-        PAttacker->addTP(std::max((PAttacker->getMod(Mod::SAVETP)), standbyTp));
+        if (!PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI))
+        {
+            PAttacker->addTP(std::max((PAttacker->getMod(Mod::SAVETP)), standbyTp));
+        }
 
         // Remove Hagakure Effect if present
         if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HAGAKURE))
