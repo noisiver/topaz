@@ -752,9 +752,8 @@ tpz.appraisalUtil.appraisalItems =
             items =
             {
                 {50, 13454}, -- Copper Ring
-                {30, 13465}, -- Brass Ring
-                {15, 13514}, -- Archer Ring
-                { 5, 15773}, -- Imperial Ring
+                {49, 13465}, -- Brass Ring
+                { 1, 15773}, -- Imperial Ring
             },
         },
         [IMPERIAL_AGENT_RESCUE] =
@@ -1055,17 +1054,13 @@ tpz.appraisalUtil.appraisalItems =
         {
             items =
             {
-                {10,  776}, -- White Rock
-                {20, 1164}, -- Tsurara
-                { 2, 1411}, -- Phalaenopsis
-                { 5, 1472}, -- Gardenia Seed
-                { 8, 1887}, -- Glass Sheet
-                {20, 2146}, -- Merrow Scale
-                {15, 2336}, -- Soulflayer Staff
+                {25,  776}, -- White Rock
+                {25, 1164}, -- Tsurara
+                {10, 1411}, -- Phalaenopsis
+                {10, 1472}, -- Gardenia Seed
+                {10, 1887}, -- Glass Sheet
                 {10, 4097}, -- Ice Crystal
-                { 1, 5315}, -- Toolbag: Jusa
-                { 3, 5353}, -- Iron Bullet Pouch
-                { 6, 5450}, -- Lakerda
+                {10, 5450}, -- Lakerda
             },
         },
         [ORICHALCUM_SURVEY] =

@@ -4331,6 +4331,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Evolved_Apkallu',6107,1715);
 INSERT INTO `mob_skill_lists` VALUES ('Evolved_Apkallu',6107,1716);
 INSERT INTO `mob_skill_lists` VALUES ('Evolved_Apkallu',6107,1717);
 INSERT INTO `mob_skill_lists` VALUES ('Evolved_Qutrub',6108,1782);
+INSERT INTO `mob_skill_lists` VALUES ('Ferocious_Wamoura',6109,1952); -- erratic_flutter
+INSERT INTO `mob_skill_lists` VALUES ('Ferocious_Wamoura',6109,1954); -- erosion_dust
+INSERT INTO `mob_skill_lists` VALUES ('Ferocious_Wamoura',6109,1955); -- exuviation
+INSERT INTO `mob_skill_lists` VALUES ('Ferocious_Wamoura',6109,1956); -- fire_break
+INSERT INTO `mob_skill_lists` VALUES ('Ravaging_Diremite',6110,362);
+INSERT INTO `mob_skill_lists` VALUES ('Ravaging_Diremite',6110,363);
+INSERT INTO `mob_skill_lists` VALUES ('Ravaging_Diremite',6110,365);
 
 --6066 unused
 

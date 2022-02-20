@@ -34,10 +34,6 @@ function afterInstanceRegister(player)
     player:addTempItem(5826)    -- Lucid Potion III
     player:addTempItem(5827)    -- Lucid ether
     player:addTempItem(5432)    -- Dusty ether
-    player:addTempItem(5390)    -- Braver's Drink
-    player:addTempItem(5385)    -- Barbarian's Drink
-    player:addTempItem(5393)    -- Monarch's Drink
-    player:addTempItem(5387)    -- Oracle's Drink
     afterAssaultRegister(player, 5347, ID.text, ID.mob)
 end
 

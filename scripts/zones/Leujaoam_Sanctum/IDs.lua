@@ -47,24 +47,27 @@ zones[tpz.zone.LEUJAOAM_SANCTUM] =
 
     mob =
     {
-        [LEUJAOAM_CLEANSING] =
+        -- Leujaoam Cleansing
+        [1] =
         {
-            MOBS_START =
-            {
-                17059841, 17059842, 17059843, 17059844, 17059845, 17059846, 17059847, 17059848,
-                17059849, 17059850, 17059851, 17059852, 17059853, 17059854, 17059855,
-            },
-        },
-        [ORICHALCUM_SURVEY] =
-        {
-            MOBS_START =
-            {
-                17059856, 17059857, 17059858, 17059859, 17059860, 17059861, 17059862, 17059863,
-            },
-            MINING_POINTS =
-            {
-                17060016, 17060017, 17060018, 17060019, 17060020, 17060021, 17060022, 17060023, 17060024, 17060025,
-            },
+            LEUJAOAM_WORM  = 17060177,
+            LEUJAOAM_WORM2  = 17060178,
+            LEUJAOAM_WORM3  = 17060179,
+            LEUJAOAM_WORM4  = 17060180, 
+            RUBY_ERUCA  = 17060181,
+            RUBY_ERUCA2  = 17060182,
+            RUBY_ERUCA3  = 17060183,
+            LOST_WAMOURACAMPA = 17060187,
+            RUBY_ERUCA4 = 17060188,
+            RUBY_ERUCA5 = 17060189,
+            BODACIOUS_ELLY = 17060190,
+            LOST_WAMOURACAMPA2 = 17060191,
+            LOST_WAMOURACAMPA3 = 17060192,
+            LOST_WAMOURACAMPA4 = 17060193,
+            LOST_WAMOURACAMPA5 = 17060194,
+            RUBY_ERUCA6 = 17060196,
+            LOST_WAMOURACAMPA6 = 17060197,
+            RAVAGING_DIREMITE = 17060200,
         },
     },
 
@@ -73,6 +76,7 @@ zones[tpz.zone.LEUJAOAM_SANCTUM] =
         ANCIENT_LOCKBOX = 17060014,
         RUNE_OF_RELEASE = 17060015,
         MULWAHAH        = 17060026,
+        _1xn            = 17060138, -- G-8 Ice Wall
     }
 }
 

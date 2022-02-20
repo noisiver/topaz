@@ -13,9 +13,10 @@ function onTrigger(player, npc)
         [LEUJAOAM_CLEANSING] =
         {
             {
-                {itemid = 2286, droprate = 600}, -- ??? Box
-                {itemid = 2278, droprate = 300}, -- ??? Ring
-                {itemid = 0,    droprate = 100}, -- Nothing
+                {itemid = 2278, droprate = 1000}, -- ??? Ring
+            },
+            {
+                {itemid = 2286, droprate = 1000}, -- ??? Box
             },
         },
     }
@@ -24,20 +25,25 @@ function onTrigger(player, npc)
         [LEUJAOAM_CLEANSING] =
         {
             {
-                {itemid = 4155, droprate = 800}, -- Remedy
-                {itemid = 0,    droprate = 200}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4155, droprate = 200}, -- Remedy
-                {itemid = 0,    droprate = 800}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4119, droprate = 500}, -- Hi-Potion +3
-                {itemid = 0,    droprate = 500}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4119, droprate = 200}, -- Hi-Potion +3
-                {itemid = 0,    droprate = 800}, -- Nothing
+                {itemid = 2338, droprate = 1000}, -- Wamoura Scale
+            },
+            {
+                {itemid = 2338, droprate = 1000}, -- Wamoura Scale
+            },
+            {
+                {itemid = 2337, droprate = 1000}, -- Clump Of Wamoura Hair 
+            },
+            {
+                {itemid = 2337, droprate = 1000}, -- Clump Of Wamoura Hair 
             },
         },
     }

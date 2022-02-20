@@ -24,8 +24,6 @@ function onSpellCast(caster, target, spell)
     -- Magic Accuracy reduction (not affected by enfeebling skill)
     local subPower = 20 + utils.clamp(math.floor(dMND / 5), 0, 20)
 
-    --Duration, including resistance.
-    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
 
     local params = {}
     params.diff = dMND
@@ -33,6 +31,8 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = tpz.effect.ADDLE
     local resist = applyResistanceEffect(caster, target, spell, params)
+    --Duration, including resistance.
+    local duration = 180 * resist
 
     if resist >= 0.5 then -- Do it!
         if target:addStatusEffect(params.effect, power, 0, duration * resist, 0, subPower) then

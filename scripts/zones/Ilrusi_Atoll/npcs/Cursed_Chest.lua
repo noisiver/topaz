@@ -15,17 +15,6 @@ end
 function onTrigger(player, npc)
     local instance = npc:getInstance()
     local LamiaNo13 = GetMobByID(17002763,instance)
-    npc:entityAnimationPacket("open")
-    npc:setLocalVar("open", 1)
-    npc:timer(15000, function(npc)
-        npc:entityAnimationPacket("kesu")
-    end)
-    npc:timer(16000, function(npc)
-        npc:setStatus(tpz.status.DISAPPEAR)
-        npc:timer(500, function(mob)
-            npc:setLocalVar("open", 0)
-        end)
-    end)
     if npc:getID() == 17002776 then -- G-10
         player:addTempItem(5432)    -- Dusty ether
         player:addTempItem(5827)    -- Lucid ether
@@ -79,6 +68,17 @@ function onTrigger(player, npc)
             end
         end
     end
+    npc:entityAnimationPacket("open")
+    npc:setLocalVar("open", 1)
+    npc:timer(15000, function(npc)
+        npc:entityAnimationPacket("kesu")
+    end)
+    npc:timer(16000, function(npc)
+        npc:setStatus(tpz.status.DISAPPEAR)
+        npc:timer(500, function(mob)
+            npc:setLocalVar("open", 0)
+        end)
+    end)
 end
 
 function onEventUpdate(player, csid, option)
