@@ -2314,8 +2314,10 @@ namespace battleutils
         int32 corrected = PDefender->takeDamage(damage, PAttacker, attackType, damageType);
         if (damage < 0)
             damage = -corrected;
-
-        battleutils::ClaimMob(PDefender, PAttacker);
+        if (!isCounter)
+        {
+            battleutils::ClaimMob(PDefender, PAttacker);
+        }
 
         if (damage > 0)
         {
@@ -2327,10 +2329,13 @@ namespace battleutils
             switch (PDefender->objtype)
             {
                 case TYPE_MOB:
-                    if (taChar == nullptr)
-                        ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(PAttacker, damage);
-                    else
-                        ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(taChar, damage);
+                    if (!isCounter)
+                    {
+                        if (taChar == nullptr)
+                            ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(PAttacker, damage);
+                        else
+                            ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(taChar, damage);
+                    }
 
                     if (((CMobEntity*)PDefender)->m_HiPCLvl < PAttacker->GetMLevel())
                     {
