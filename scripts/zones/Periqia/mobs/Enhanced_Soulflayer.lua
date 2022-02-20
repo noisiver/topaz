@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:SetMagicCastingEnabled(false)
     mob:SetMobAbilityEnabled(false)
-	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
+	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 20)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
@@ -23,18 +23,18 @@ function onMobRoam(mob)
     end
 	local RunAwayPath = mob:getLocalVar("RunAwayPath")
 	if RunAwayPath == 1 then 
-	    mob:setPos(-339, -15, 205, tpz.path.flag.RUN)
+	    mob:setPos(-339, -15, 205, 190)
         mob:SetMagicCastingEnabled(true)
 	    mob:setLocalVar("RunAway", 1)
     end
     if RunAwayPath == 2 then 
-	    mob:setPos( -380, -15, 51, tpz.path.flag.RUN)
+	    mob:setPos( -380, -15, 51, 210)
         mob:SetMagicCastingEnabled(false)
         mob:SetMobAbilityEnabled(true)
 	    mob:setLocalVar("RunAway", 2)
     end
     if RunAwayPath == 3 then 
-	    mob:setPos(-482,-10,-83, tpz.path.flag.RUN)
+	    mob:setPos(-482,-10,-83, 220)
         mob:SetMagicCastingEnabled(true)
         mob:SetMobAbilityEnabled(true)
 	    mob:setLocalVar("RunAway", 3)

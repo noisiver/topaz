@@ -36,22 +36,51 @@ CREATE TABLE `instance_entities` (
 LOCK TABLES `instance_entities` WRITE;
 /*!40000 ALTER TABLE `instance_entities` DISABLE KEYS */;
 -- Leujaoam Cleansing
+-- Custom Start
+
+-- Npcs
+INSERT INTO `instance_entities` VALUES (1,17060014);
+INSERT INTO `instance_entities` VALUES (1,17060015);
+INSERT INTO `instance_entities` VALUES (1,17060138);
+INSERT INTO `instance_entities` VALUES (1,17060146);
+INSERT INTO `instance_entities` VALUES (1,17060147);
+
+INSERT INTO `instance_entities` VALUES (1,17060201);
+INSERT INTO `instance_entities` VALUES (1,17060202);
+INSERT INTO `instance_entities` VALUES (1,17060203);
+INSERT INTO `instance_entities` VALUES (1,17060204);
+INSERT INTO `instance_entities` VALUES (1,17060205);
+INSERT INTO `instance_entities` VALUES (1,17060206);
+INSERT INTO `instance_entities` VALUES (1,17060207);
+INSERT INTO `instance_entities` VALUES (1,17060208);
+INSERT INTO `instance_entities` VALUES (1,17060209);
+INSERT INTO `instance_entities` VALUES (1,17060210);
+
+-- Custom End
 -- Mobs
--- INSERT INTO `instance_entities` VALUES (1,17059841);
--- INSERT INTO `instance_entities` VALUES (1,17059842);
--- INSERT INTO `instance_entities` VALUES (1,17059843);
--- INSERT INTO `instance_entities` VALUES (1,17059844);
--- INSERT INTO `instance_entities` VALUES (1,17059845);
--- INSERT INTO `instance_entities` VALUES (1,17059846);
--- INSERT INTO `instance_entities` VALUES (1,17059847);
--- INSERT INTO `instance_entities` VALUES (1,17059848);
--- INSERT INTO `instance_entities` VALUES (1,17059849);
--- INSERT INTO `instance_entities` VALUES (1,17059850);
--- INSERT INTO `instance_entities` VALUES (1,17059851);
--- INSERT INTO `instance_entities` VALUES (1,17059852);
--- INSERT INTO `instance_entities` VALUES (1,17059853);
--- INSERT INTO `instance_entities` VALUES (1,17059854);
--- INSERT INTO `instance_entities` VALUES (1,17059855);
+INSERT INTO `instance_entities` VALUES (1,17060177);
+INSERT INTO `instance_entities` VALUES (1,17060178);
+INSERT INTO `instance_entities` VALUES (1,17060179);
+INSERT INTO `instance_entities` VALUES (1,17060180);
+INSERT INTO `instance_entities` VALUES (1,17060181);
+INSERT INTO `instance_entities` VALUES (1,17060182);
+INSERT INTO `instance_entities` VALUES (1,17060183);
+INSERT INTO `instance_entities` VALUES (1,17060184);
+INSERT INTO `instance_entities` VALUES (1,17060185);
+INSERT INTO `instance_entities` VALUES (1,17060186);
+INSERT INTO `instance_entities` VALUES (1,17060187);
+INSERT INTO `instance_entities` VALUES (1,17060188);
+INSERT INTO `instance_entities` VALUES (1,17060189);
+INSERT INTO `instance_entities` VALUES (1,17060190);
+INSERT INTO `instance_entities` VALUES (1,17060191);
+INSERT INTO `instance_entities` VALUES (1,17060192);
+INSERT INTO `instance_entities` VALUES (1,17060193);
+INSERT INTO `instance_entities` VALUES (1,17060194);
+INSERT INTO `instance_entities` VALUES (1,17060196);
+INSERT INTO `instance_entities` VALUES (1,17060197);
+INSERT INTO `instance_entities` VALUES (1,17060198);
+INSERT INTO `instance_entities` VALUES (1,17060199);
+INSERT INTO `instance_entities` VALUES (1,17060200);
 -- Npcs
 -- INSERT INTO `instance_entities` VALUES (1,17060014);
 -- INSERT INTO `instance_entities` VALUES (1,17060015);
@@ -309,6 +338,37 @@ INSERT INTO `instance_entities` VALUES (31,17006926);
 --INSERT INTO `instance_entities` VALUES (32,17006809);
 --INSERT INTO `instance_entities` VALUES (32,17006810);
 -- Golden Salvage
+-- Custom Start
+INSERT INTO `instance_entities` VALUES (41,17002756);
+INSERT INTO `instance_entities` VALUES (41,17002757);
+INSERT INTO `instance_entities` VALUES (41,17002760);
+INSERT INTO `instance_entities` VALUES (41,17002761);
+INSERT INTO `instance_entities` VALUES (41,17002762);
+INSERT INTO `instance_entities` VALUES (41,17002763);
+INSERT INTO `instance_entities` VALUES (41,17002764);
+INSERT INTO `instance_entities` VALUES (41,17002765);
+INSERT INTO `instance_entities` VALUES (41,17002766);
+INSERT INTO `instance_entities` VALUES (41,17002767);
+INSERT INTO `instance_entities` VALUES (41,17002768);
+INSERT INTO `instance_entities` VALUES (41,17002769);
+INSERT INTO `instance_entities` VALUES (41,17002770);
+INSERT INTO `instance_entities` VALUES (41,17002771);
+INSERT INTO `instance_entities` VALUES (41,17002772);
+INSERT INTO `instance_entities` VALUES (41,17002773);
+INSERT INTO `instance_entities` VALUES (41,17002774);
+INSERT INTO `instance_entities` VALUES (41,17002775);
+-- Mobs
+-- npc
+INSERT INTO `instance_entities` VALUES (41,17002654);
+INSERT INTO `instance_entities` VALUES (41,17002655);
+INSERT INTO `instance_entities` VALUES (41,17002731);
+--INSERT INTO `instance_entities` VALUES (41,17002752); -- Gate at G-7
+INSERT INTO `instance_entities` VALUES (41,17002753);
+-- Chests
+INSERT INTO `instance_entities` VALUES (41,17002776); 
+INSERT INTO `instance_entities` VALUES (41,17002777);  
+INSERT INTO `instance_entities` VALUES (41,17002778); 
+INSERT INTO `instance_entities` VALUES (41,17002779); 
 -- mobs
 -- INSERT INTO `instance_entities` VALUES (41,17002497);
 -- INSERT INTO `instance_entities` VALUES (41,17002498);

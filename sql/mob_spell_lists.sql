@@ -1031,20 +1031,20 @@ INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,356,1,255); -- p
 INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,362,1,255); -- bindga
 INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,366,1,255); -- graviga
 INSERT INTO `mob_spell_lists` VALUES ('Overlord_s_Tombstone',49,367,1,255); -- Death
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,147,73,85); -- fire_iv
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,152,74,88); -- blizzard_iv
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,157,72,82); -- aero_iv
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,163,77,255); -- stone_iv
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,167,75,92); -- thunder_iv
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,172,70,78); -- water_iv
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,181,71,255); -- blizzaga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,186,67,71); -- aeroga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,191,63,67); -- stonega_iii
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,196,73,255); -- thundaga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,201,65,255); -- waterga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,227,65,255); -- poisonga_iii
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,232,65,255); -- bio_iii
-INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,249,65,255); -- blaze_spikes
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,147,1,255); -- fire_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,152,1,255); -- blizzard_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,157,1,255); -- aero_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,163,1,255); -- stone_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,167,1,255); -- thunder_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,172,1,255); -- water_iv
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,181,1,255); -- blizzaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,186,1,255); -- aeroga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,191,1,255); -- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,196,1,255); -- thundaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,201,1,255); -- waterga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,227,1,255); -- poisonga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,232,1,255); -- bio_iii
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,249,1,255); -- blaze_spikes
 INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicu_Idol',50,367,1,255); -- Death
 INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Hecteyes',51,360,1,255); -- dispelga
 INSERT INTO `mob_spell_lists` VALUES ('Vanguard_s_Crow',52,359,1,255); -- silencega
@@ -4689,6 +4689,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Soulflayer',2037,167,1,255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Soulflayer',2037,196,1,255); -- thundaga_iii 
 INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Soulflayer',2037,359,1,255); -- Silencega 
 INSERT INTO `mob_spell_lists` VALUES ('Enhanced_Soulflayer',2037,356,1,255); -- Paralyga 
+INSERT INTO `mob_spell_lists` VALUES ('Ferocious_Wamoura',2038, 147, 1, 255); -- fire_IV
+INSERT INTO `mob_spell_lists` VALUES ('Ferocious_Wamoura',2038, 176, 1, 255); -- firaga_iii
+INSERT INTO `mob_spell_lists` VALUES ('Ferocious_Wamoura',2038, 205, 1, 255); -- flare_ii
+INSERT INTO `mob_spell_lists` VALUES ('Leujaoam_Worm',2039,162,1,255); -- stonega_IV
+INSERT INTO `mob_spell_lists` VALUES ('Leujaoam_Worm',2039,191,1,255); -- stonega_iii
+INSERT INTO `mob_spell_lists` VALUES ('Leujaoam_Worm',2039,211,1,255); -- quake_II
 
 
 

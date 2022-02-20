@@ -15,13 +15,16 @@ function error(player, msg)
 end
 
 function onTrigger(player, mobId, despawntime, respawntime)
-
+    local zone = player:getZone()
+    if zone:getType() == tpz.zoneType.INSTANCED then
+        local instance = player:getInstance()
+        local targ
     -- validate mobId
     if (mobId == nil) then
         error(player, "You must provide a mob ID.")
         return
     end
-    local targ = GetMobByID(mobId)
+    local targ = GetMobByID(mobId, instance)
     if (targ == nil) then
         error(player, "Invalid mob ID.")
         return
@@ -39,6 +42,33 @@ function onTrigger(player, mobId, despawntime, respawntime)
         return
     end
 
-    SpawnMob( targ:getID(), despawntime, respawntime )
+    SpawnMob(mobId, instance)
     player:PrintToPlayer( string.format("Spawned %s %s.", targ:getName(), targ:getID()) )
+    else
+        -- validate mobId
+        if (mobId == nil) then
+            error(player, "You must provide a mob ID.")
+            return
+        end
+        local targ = GetMobByID(mobId)
+        if (targ == nil) then
+            error(player, "Invalid mob ID.")
+            return
+        end
+
+        -- validate despawntime
+        if (despawntime ~= nil and despawntime < 0) then
+            error(player, "Invalid despawn time.")
+            return
+        end
+
+        -- validate respawntime
+        if (respawntime ~= nil and respawntime < 0) then
+            error(player, "Invalid respawn time.")
+            return
+        end
+
+        SpawnMob( targ:getID(), despawntime, respawntime )
+        player:PrintToPlayer( string.format("Spawned %s %s.", targ:getName(), targ:getID()) )
+    end
 end

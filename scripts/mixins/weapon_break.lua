@@ -13,7 +13,7 @@ g_mixins.weapon_break = function(mob)
     -- this can be overridden in onMobSpawn
 
     mob:addListener("SPAWN", "WEAPON_BREAK", function(mob)
-        mob:setLocalVar("BreakChance", 10)
+        mob:setLocalVar("BreakChance", 5)
 		if mob:isNM() then
 			mob:setLocalVar("BreakChance", 1)
 		end

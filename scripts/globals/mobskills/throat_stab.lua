@@ -18,20 +18,13 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local targetCurrentHP = target:getHP()
-    local targetmaxHP = target:getMaxHP()
-    local hpset=targetmaxHP*0.05
-
-    if (targetCurrentHP > hpset) then
-        dmg = targetCurrentHP - hpset
-    else
-        dmg = 0
-    end
-	
-    local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.NONE, MOBPARAM_IGNORE_SHADOWS)
+    local currentHP = target:getHP()
+    local damage = currentHP * 0.95
+    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.MAGICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
 	target:addStatusEffect(tpz.effect.STUN, 1, 0, 1)
     mob:resetEnmity(target)
+
     return dmg
 end
 

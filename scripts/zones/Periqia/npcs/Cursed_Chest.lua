@@ -1,5 +1,5 @@
 -----------------------------------
--- Area: Seagull Grounded
+-- Area: Seagull Grounded(Periqia)
 -- NPC:  Cursed Chest
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -7,20 +7,12 @@ require("scripts/globals/msg")
 local ID = require("scripts/zones/Periqia/IDs")
 -----------------------------------
 function onTrade(player,npc,trade)
+    --if npc:getID() == 17006923 then
+        --npc:setPos(-292.5529,-15.3060,260.6910, 126)
+    --end
 end
 
 function onTrigger(player, npc)
-    npc:entityAnimationPacket("open")
-    npc:setLocalVar("open", 1)
-    npc:timer(15000, function(npc)
-        npc:entityAnimationPacket("kesu")
-    end)
-    npc:timer(16000, function(npc)
-        npc:setStatus(tpz.status.DISAPPEAR)
-        npc:timer(500, function(mob)
-            npc:setLocalVar("open", 0)
-        end)
-    end)
     if npc:getID() == 17006922 then -- North
         player:addTempItem(5851) -- berserkers tonic
         player:addTempItem(5839) -- stalwarts tonic
@@ -104,6 +96,17 @@ function onTrigger(player, npc)
             zonePlayer:messageSpecial(ID.text.EXCALIACE_NOT_USE)
         end
     end
+    npc:entityAnimationPacket("open")
+    npc:setLocalVar("open", 1)
+    npc:timer(15000, function(npc)
+        npc:entityAnimationPacket("kesu")
+    end)
+    npc:timer(16000, function(npc)
+        npc:setStatus(tpz.status.DISAPPEAR)
+        npc:timer(500, function(mob)
+            npc:setLocalVar("open", 0)
+        end)
+    end)
 end
 
 function onEventUpdate(player, csid, option)

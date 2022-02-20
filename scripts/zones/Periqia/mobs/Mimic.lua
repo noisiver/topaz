@@ -5,8 +5,9 @@
 local ID = require("scripts/zones/Periqia/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
     mob:hideName(true)
+	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 15)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
 end
 
@@ -16,6 +17,7 @@ end
 
 function onMobRoam(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    --mob:setPos(-299.5302,-15.5611,140.4806,90)
 end
 
 function onMobEngaged(mob)

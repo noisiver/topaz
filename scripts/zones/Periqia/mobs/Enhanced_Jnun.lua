@@ -7,6 +7,7 @@ local ID = require("scripts/zones/Periqia/IDs")
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.MDEF, 40)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
+    mob:setMod(tpz.mod.MOVE, -30)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
@@ -65,6 +66,10 @@ end
 function onMobDeath(mob, player, isKiller)
     if isKiller or noKiller then
         mob:getEntity(bit.band(ID.npc._1KX, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Door H-9
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("You hear something nearby open...",0,"???")
+        end
     end
 end
 

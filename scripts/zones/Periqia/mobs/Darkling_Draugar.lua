@@ -6,15 +6,42 @@
 local ID = require("scripts/zones/Periqia/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:addMod(tpz.mod.TRIPLE_ATTACK, 15)
     mob:setMod(tpz.mod.CRITHITRATE, 100)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
 function onMobRoam(mob)
+	local Path = mob:getLocalVar("Path")
+	local Wait = mob:getLocalVar("Wait")
+    local flags = tpz.path.flag.NONE
     if mob:getTP() > 1000 then
         mob:setTP(1000)
     end
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    if mob:getID(instance) == 17006910 then
+        if os.time() > Wait and Path == 0 then
+            mob:pathTo(-340,-15,251, flags)
+            mob:setLocalVar("Path", 1)
+            mob:setLocalVar("Wait", os.time()+15)
+        end
+        if os.time() > Wait and Path == 1 then
+            mob:pathTo(-340,-15,226, flags)
+            mob:setLocalVar("Path", 0)
+            mob:setLocalVar("Wait", os.time()+15)
+        end
+    end
+    if mob:getID(instance) == 17006921 then
+        if os.time() > Wait and Path == 0 then
+            mob:pathTo(-366,-15,102, flags)
+            mob:setLocalVar("Path", 1)
+            mob:setLocalVar("Wait", os.time()+15)
+        end
+        if os.time() > Wait and Path == 1 then
+            mob:pathTo(-318,-15,102, flags)
+            mob:setLocalVar("Path", 0)
+            mob:setLocalVar("Wait", os.time()+15)
+        end
+    end
 end
 
 function onMobEngaged(mob)

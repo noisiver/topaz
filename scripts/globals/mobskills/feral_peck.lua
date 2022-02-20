@@ -25,20 +25,13 @@ end
 
 
 function onMobWeaponSkill(target, mob, skill)
-    local targetCurrentHP = target:getHP()
-    local targetmaxHP = target:getMaxHP()
-    local hpset=targetmaxHP*0.10
-
-    if (targetCurrentHP > hpset) then
-        dmg = targetCurrentHP - hpset
-    else
-        dmg = 0
-    end
-	
-    local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.NONE, MOBPARAM_IGNORE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
-	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
+    local currentHP = target:getHP()
+    local damage = currentHP * 0.90
+    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.MAGICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
+	target:addStatusEffect(tpz.effect.STUN, 1, 0, 1)
     mob:resetEnmity(target)
+
     return dmg
 end
 

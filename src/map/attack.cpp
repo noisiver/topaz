@@ -676,7 +676,7 @@ void CAttack::ProcessDamage()
         m_baseDamage = std::max<uint16>(m_attacker->GetMainWeaponDmg(), 3);
         if (m_attackType == PHYSICAL_ATTACK_TYPE::KICK)
         {
-            m_baseDamage = m_attacker->getMod(Mod::KICK_DMG) + 3;
+            m_baseDamage = m_baseDamage + m_attacker->getMod(Mod::KICK_DMG) + 3;
         }
         m_damage = (uint32)(((m_baseDamage + m_naturalH2hDamage + m_trickAttackDamage +
             battleutils::GetFSTR(m_attacker, m_victim, slot)) * m_damageRatio));

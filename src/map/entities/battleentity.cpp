@@ -266,6 +266,10 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
         {
             WeaponDelay -= getMod(Mod::MARTIAL_ARTS) * 1000 / 60;
         }
+        if (StatusEffectContainer->HasStatusEffect(EFFECT_FOOTWORK))
+        {
+            WeaponDelay = WeaponDelay * 2;
+        }
         else if (auto subweapon = dynamic_cast<CItemWeapon*>(m_Weapons[SLOT_SUB]); subweapon && subweapon->getDmgType() > 0 &&
             subweapon->getDmgType() < 4)
         {
@@ -273,6 +277,17 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
             WeaponDelay += subweapon->getDelay();
             //apply dual wield delay reduction
             WeaponDelay = (uint16)(WeaponDelay * ((100.0f - getMod(Mod::DUAL_WIELD)) / 100.0f));
+        }
+        //Add Fencer JA haste 
+        CItemWeapon* PMain = dynamic_cast<CItemWeapon*>(m_Weapons[SLOT_MAIN]);
+        CItemWeapon* PSub = dynamic_cast<CItemWeapon*>(m_Weapons[SLOT_SUB]);
+        if (PMain && !PMain->isTwoHanded() && !PMain->isHandToHand() &&
+                 (!PSub || PSub->getSkillType() == SKILL_NONE || m_Weapons[SLOT_SUB]->IsShield()))
+        {
+            if (getMod(Mod::FENCER_JA_HASTE) > 0)
+            {
+                WeaponDelay = (uint16)(WeaponDelay * ((100.0f - getMod(Mod::FENCER_JA_HASTE)) / 100.0f));
+            }
         }
 
         //apply haste and delay reductions that don't affect tp
@@ -301,6 +316,7 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
         // TODO: Could be converted to value/1024 if the exact cap is ever determined.
         MinimumDelay -= (uint16)(MinimumDelay * 0.8);
         WeaponDelay = (WeaponDelay < MinimumDelay) ? MinimumDelay : WeaponDelay;
+        //printf("Your weapon delay is... %i \n", WeaponDelay);
     }
     return WeaponDelay;
 }

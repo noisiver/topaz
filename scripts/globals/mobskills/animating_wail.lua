@@ -14,6 +14,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 9036 then -- Evolved_Qutrub (Assault - Golden Salvage)
+        return 0
+    end
 	if mob:hasStatusEffect(tpz.effect.HASTE) then
 		return 1
 	end

@@ -1,13 +1,52 @@
 -----------------------------------
 -- Area: Leujaoam Sanctum (Leujaoam Cleansing)
 --  Mob: Leujaoam Worm
-mixins = {require("scripts/mixins/families/worm")}
 -----------------------------------
-
-function onMobDeath(mob, player, isKiller)
+local ID = require("scripts/zones/Ilrusi_Atoll/IDs")
+require("scripts/globals/utils")
+-----------------------------------
+function onMobSpawn(mob)
+    mob:hideName(true)
+    mob:setMod(tpz.mod.MDEF, 0)
+    mob:setMod(tpz.mod.UDMGMAGIC, 0)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:addMod(tpz.mod.SPELLINTERRUPT, 300)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
+	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 15)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+    local instance = npc:getInstance()
+    for v = 17060184,17060186,1 do
+        if mob:getID(instance) == v then
+            mob:setMobMod(tpz.mobMod.DRAW_IN, 0) 
+        end
+    end
 end
 
-function onMobDespawn(mob)
-    local instance = mob:getInstance()
-    instance:setProgress(instance:getProgress() + 1)
+function onMobRoam(mob)
+    if mob:getTP() > 1000 then
+        mob:setTP(1000)
+    end
+end
+
+function onMobEngaged(mob)
+    mob:hideName(false)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+end
+
+function onMobFight(mob, target)
+	local StunTime = mob:getLocalVar("StunTime")
+	local DreadSpikesTime = mob:getLocalVar("DreadSpikesTime")
+	local DrainTime = mob:getLocalVar("DrainTime")
+	local BattleTime = mob:getBattleTime()
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+end
+
+function onMobWeaponSkill(target, mob, skill)
+end
+
+function onMobDeath(mob, player, isKiller)
 end

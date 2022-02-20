@@ -31,25 +31,27 @@ zones[tpz.zone.ILRUSI_ATOLL] =
     },
     mob =
     {
-        [GOLDEN_SALVAGE] =
+        -- Golden Salvage
+        [41] =
         {
-            MOBS_START =
-            {
-                17002497, 17002498, 17002499, 17002500, 17002501, 17002502, 17002503, 17002504,
-            },
-            ILRUSI_CURSED_CHEST_OFFSET = 17002505,
-        },
-        [EXTERMINATION] =
-        {
-            MOBS_START =
-            {
-                17002521, 17002522, 17002523, 17002524, 17002525, 17002526, 17002527, 17002528, 17002529, 17002530,
-                17002531, 17002532, 17002533, 17002534, 17002535, 17002536, 17002537, 17002538, 17002539, 17002540,
-            },
-            NMS =
-            {
-                CRAB = 17002541, LEECH = 17002542, SLIME = 17002543, TOAD = 17002544
-            },
+            LAMIA_BERSAGLIERE  = 17002756,
+            MERROW_BALLADEER  = 17002757,
+            EVOLVED_QUTRUB  = 17002760,
+            EVOLVED_QUTRUB2  = 17002761, 
+            EVOLVED_APKALLU  = 17002762,
+            LAMIA_NO3  = 17002763,
+            EVOLVED_OROBON  = 17002764,
+            EVOLVED_QUTRUB3  = 17002765,
+            MERROW_BALLADEER2 = 17002766,
+            MERROW_BALLADEER3 = 17002767,
+            EVOLVED_QUTRUB4 = 17002768,
+            LAMIA_BERSAGLIERE2 = 17002769,
+            LAMIA_BERSAGLIERE3 = 17002770,
+            EVOLVED_QUTRUB5 = 17002771,
+            EVOLVED_OROBON2 = 17002772,
+            MERROW_BALLADEER4 = 17002773,
+            MERROW_BALLADEER5 = 17002774,
+            EVOLVED_QUTRUB6 = 17002775,
         },
     },
     npc =

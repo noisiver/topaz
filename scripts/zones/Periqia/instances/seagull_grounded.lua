@@ -45,7 +45,6 @@ end
 
 function onInstanceFailure(instance)
     local chars = instance:getChars()
-
     for _,v in pairs(chars) do
         v:delKeyItem(1870) -- MAP_OF_PERIQIA
     end

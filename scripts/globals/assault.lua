@@ -364,6 +364,8 @@ function onEventFinishExitRune(player, csid, option, ASSAULT_POINT, textTable, Z
         local chars = instance:getChars()
         for _, v in pairs(chars) do
             v:delKeyItem(1870) -- MAP_OF_PERIQIA
+            v:delKeyItem(1869) -- MAP_OF_ILRUSI_ATOLL
+            v:delKeyItem(1866) -- MAP_OF_LEUJAOAM_SANCTUM
             v:setPos(0, 0, 0, 0, ZONE)
         end
     end

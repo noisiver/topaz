@@ -11,42 +11,29 @@ require("scripts/globals/zone")
 -----------------------------------
 
 function onInstanceCreated(instance)
-    instance:setProgress(math.random(ID.mob[GOLDEN_SALVAGE].ILRUSI_CURSED_CHEST_OFFSET, ID.mob[GOLDEN_SALVAGE].ILRUSI_CURSED_CHEST_OFFSET + 11))
-    local figureheadChest = instance:getProgress()
-    local spawnPoints =
-        {
-            [1]  = {590,-15, 109,127},
-            [2]  = {346, -2, 113, 49},
-            [3]  = {351,-15, -14,134},
-            [4]  = {288,-15,-105,248},
-            [5]  = {331,-15,-181,202},
-            [6]  = {330, -3, -34,163},
-            [7]  = {221, -1, -32,226},
-            [8]  = {546, -7, 161,156},
-            [9]  = {334,-15,-145,132},
-            [10] = {370,-16,-131, 75},
-            [11] = {305, -2,  73, 54},
-            [12] = {273, -2,  30, 99},
-            [13] = {380, -2, 149, 78},
-            [14] = {473, -2, 133,131},
-            [15] = {462, -2, 181,130},
-            [16] = {546, -8, 258, 81},
-        }
+    for i, v in pairs(ID.mob[41]) do
+        SpawnMob(v, instance)
+    end
     
-    for i = ID.mob[GOLDEN_SALVAGE].ILRUSI_CURSED_CHEST_OFFSET, ID.mob[GOLDEN_SALVAGE].ILRUSI_CURSED_CHEST_OFFSET + 7 do
+   --[[ for i = ID.mob[GOLDEN_SALVAGE].ILRUSI_CURSED_CHEST_OFFSET, ID.mob[GOLDEN_SALVAGE].ILRUSI_CURSED_CHEST_OFFSET + 7 do
         local sPoint = math.random(1,#spawnPoints) -- Randoms the 1st 8 points for chests, last 4 are static on boats
         instance:getEntity(bit.band(i, 0xFFF), tpz.objType.NPC):setPos(spawnPoints[sPoint])
         instance:getEntity(bit.band(i, 0xFFF), tpz.objType.NPC):setStatus(tpz.status.NORMAL)
         table.remove(spawnPoints,sPoint)
-    end
+    end ]]
 
-    instance:getEntity(bit.band(ID.npc.RUNE_OF_RELEASE, 0xFFF), tpz.objType.NPC):setPos(380.000,-7.894,64.999,0)
-    instance:getEntity(bit.band(ID.npc.ANCIENT_LOCKBOX, 0xFFF), tpz.objType.NPC):setPos(380.000,-7.756,61.999,0)
-
-    spawnMobInAssault(instance, ID.mob)
+    instance:getEntity(bit.band(ID.npc.RUNE_OF_RELEASE, 0xFFF), tpz.objType.NPC):setPos(435.7197,-7.0001,-123.3230,95)
+    instance:getEntity(bit.band(ID.npc.ANCIENT_LOCKBOX, 0xFFF), tpz.objType.NPC):setPos(435.7197,-7.0001,-125.3230,95)
 end
 
 function afterInstanceRegister(player)
+    player:addKeyItem(1869) -- MAP_OF_ILRUSI_ATOLL
+    player:addTempItem(5436)    -- Dusty reraise
+    player:addTempItem(5824)    -- Lucid Potion
+    player:addTempItem(5825)    -- Lucid Potion II
+    player:addTempItem(5826)    -- Lucid Potion III
+    player:addTempItem(5827)    -- Lucid ether
+    player:addTempItem(5432)    -- Dusty ether
     afterAssaultRegister(player, 5347, ID.text, ID.mob)
 end
 
@@ -55,6 +42,10 @@ function onInstanceTimeUpdate(instance, elapsed)
 end
 
 function onInstanceFailure(instance)
+    local chars = instance:getChars()
+    for _,v in pairs(chars) do
+        v:delKeyItem(1869) -- MAP_OF_ILRUSI_ATOLL
+    end
     onAssaultFailure(instance, 102, ID.text)
 end
 

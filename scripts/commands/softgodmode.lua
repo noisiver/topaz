@@ -16,6 +16,7 @@ function onTrigger(player)
         player:setCharVar("SoftGodMode", 1)
 
         -- Add bonus effects to the player..
+        player:addStatusEffect(tpz.effect.HUNDRED_FISTS, 1, 0, 0)
         player:addStatusEffect(tpz.effect.MAX_HP_BOOST,200,0,0)
         player:addStatusEffect(tpz.effect.REGAIN,50,0,0)
         player:addStatusEffect(tpz.effect.REFRESH,999,0,0)
@@ -32,6 +33,7 @@ function onTrigger(player)
         player:setCharVar("SoftGodMode", 0)
 
         -- Remove bonus effects..
+        player:delStatusEffect(tpz.effect.HUNDRED_FISTS)
         player:delStatusEffect(tpz.effect.MAX_HP_BOOST)
         player:delStatusEffect(tpz.effect.REGAIN)
         player:delStatusEffect(tpz.effect.REFRESH)

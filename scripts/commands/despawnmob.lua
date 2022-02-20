@@ -15,25 +15,46 @@ function error(player, msg)
 end
 
 function onTrigger(player, mobId)
-
-    -- validate mobId
-    local targ
-    if (mobId == nil) then
-        targ = player:getCursorTarget()
-        if (targ == nil or not targ:isMob()) then
-            error(player, "You must either provide a mobID or target a mob.")
-            return
+    local zone = player:getZone()
+    if zone:getType() == tpz.zoneType.INSTANCED then
+        local instance = player:getInstance()
+        local targ
+        -- validate mobId
+        local targ
+        if (mobId == nil) then
+            targ = player:getCursorTarget()
+            if (targ == nil or not targ:isMob()) then
+                error(player, "You must either provide a mobID or target a mob.")
+                return
+            end
+        else
+            targ = GetMobByID(mobId, instance)
+            if (targ == nil) then
+                error(player, "Invalid mobID.")
+                return
+            end
         end
+        -- despawn mob
+        DespawnMob(mobId, instance)
+        player:PrintToPlayer(string.format("Despawned %s %i.", targ:getName(), targ:getID()))
     else
-        targ = GetMobByID(mobId)
-        if (targ == nil) then
-            error(player, "Invalid mobID.")
-            return
+        -- validate mobId
+        local targ
+        if (mobId == nil) then
+            targ = player:getCursorTarget()
+            if (targ == nil or not targ:isMob()) then
+                error(player, "You must either provide a mobID or target a mob.")
+                return
+            end
+        else
+            targ = GetMobByID(mobId)
+            if (targ == nil) then
+                error(player, "Invalid mobID.")
+                return
+            end
         end
+        -- despawn mob
+        DespawnMob(targ:getID())
+        player:PrintToPlayer(string.format("Despawned %s %i.", targ:getName(), targ:getID()))
     end
-
-    -- despawn mob
-    DespawnMob(targ:getID())
-    player:PrintToPlayer(string.format("Despawned %s %i.", targ:getName(), targ:getID()))
-
 end

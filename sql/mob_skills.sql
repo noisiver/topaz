@@ -1696,8 +1696,8 @@ INSERT INTO `mob_skills` VALUES (1754,1186,'dukkeripen_heal',0,7.0,2000,1500,1,0
 INSERT INTO `mob_skills` VALUES (1755,1187,'dukkeripen_shadow',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1756,1188,'dukkeripen',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1757,1501,'dukkeripen',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1758,1190,'tail_slap',4,10.0,2000,1500,4,0,0,3,0,0,0);
-INSERT INTO `mob_skills` VALUES (1759,1191,'hypnotic_sway',4,10,2000,2000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1758,1190,'tail_slap',4,10.0,2000,1500,4,0,0,3,0,0,0); -- Lamia
+INSERT INTO `mob_skills` VALUES (1759,1191,'hypnotic_sway',4,10,2000,2000,4,0,0,0,0,0,0); -- Lamia
 -- INSERT INTO `mob_skills` VALUES (1760,1192,'swift_shot',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1761,1192,'arrow_deluge',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1762,1193,'belly_dance',1,10.0,2000,1500,4,0,0,0,0,0,0);
@@ -2023,8 +2023,8 @@ INSERT INTO `mob_skills` VALUES (2081,1422,'hammer-go-round',1,10.0,2000,1500,4,
 INSERT INTO `mob_skills` VALUES (2082,1423,'hammerblow',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2083,1424,'drop_hammer',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2084,1425,'seismohammer',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2085,1829,'venomous_tail',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2086,1830,'grim_reaper',4,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2085,1190,'venomous_tail',4,10.0,2000,1500,4,0,0,0,0,0,0); -- was 1829
+INSERT INTO `mob_skills` VALUES (2086,1278,'grim_reaper',4,10.0,2000,1500,4,0,0,0,0,0,0); -- was 1830
 -- INSERT INTO `mob_skills` VALUES (2087,1831,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2088,1427,'victory_beacon',2,7.0,2000,1500,4,0,0,0,0,0,0);  -- Rughadjeen
 INSERT INTO `mob_skills` VALUES (2089,1428,'salamander_flame',2,7.0,2000,1500,4,0,0,0,0,0,0);  -- Gadalar

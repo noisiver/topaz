@@ -212,6 +212,7 @@ enum class Mod
 
     FENCER_TP_BONUS           = 903, // TP Bonus to weapon skills from Fencer Trait
     FENCER_CRITHITRATE        = 904, // Increased Crit chance from Fencer Trait
+    FENCER_JA_HASTE           = 986, // Increased JA Haste chance from Fencer Trait
 
     SMITE                     = 898, // Raises attack when using H2H or 2H weapons (256 scale)
     TACTICAL_GUARD            = 899, // Tp increase when guarding
@@ -897,7 +898,6 @@ enum class Mod
     LUMINION_CIRCLE = 1238
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
-    // SPARE = 986, // stuff
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
 };

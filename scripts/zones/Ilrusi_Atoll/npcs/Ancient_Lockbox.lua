@@ -30,9 +30,10 @@ function onTrigger(player, npc)
         [GOLDEN_SALVAGE] =
         {
             {
-                {itemid = 2277, droprate = 619}, -- ??? earring
-                {itemid = 2286, droprate = 390}, -- ??? box
-                {itemid = 0, droprate = 100}, -- Nothing
+                {itemid = 2192, droprate = 1000}, -- ??? Polearm
+            },
+            {
+                {itemid = 2286, droprate = 1000}, -- ??? box
             },
         },
         [LAMIA_NO_13] =
@@ -50,16 +51,22 @@ function onTrigger(player, npc)
         [GOLDEN_SALVAGE] =
         {
             {
-                {itemid = 4118, droprate = 934}, -- Hi-Potion 2
-                {itemid = 0, droprate = 100}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 13688, droprate = 539}, -- Hi-Potion Tank
-                {itemid = 0, droprate = 461}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4172, droprate = 255}, -- Reraiser
-                {itemid = 0, droprate = 745}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
+            },
+            {
+                {itemid = 2167, droprate = 1000}, -- Lamian Armlet
+            },
+            {
+                {itemid = 2167, droprate = 1000}, -- Lamian Armlet
+            },
+            {
+                {itemid = 1869, droprate = 1000}, -- Lamia Skin 
             },
         },
         [LAMIA_NO_13] =

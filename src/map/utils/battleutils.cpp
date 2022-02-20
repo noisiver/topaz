@@ -786,7 +786,8 @@ namespace battleutils
                 // FINISH HIM! dun dun dun
                 // TP and stoneskin are handled inside TakePhysicalDamage
                 Action->spikesMessage = 536;
-                battleutils::TakePhysicalDamage(PDefender, PAttacker, PHYSICAL_ATTACK_TYPE::NORMAL, dmg, false, SLOT_MAIN, 1, nullptr, true, true, true);
+                Action->spikesParam =
+                    battleutils::TakePhysicalDamage(PDefender, PAttacker, PHYSICAL_ATTACK_TYPE::NORMAL, dmg, false, SLOT_MAIN, 1, nullptr, true, true, true);
             }
         }
 
@@ -2133,11 +2134,11 @@ namespace battleutils
 
         if (PDefender->objtype == TYPE_MOB)
         {
-            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 50));
+            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 20));
         }
         else
         {
-            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 20));
+            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 50));
         }
         }
 
@@ -2154,7 +2155,7 @@ namespace battleutils
     {
         auto weapon = GetEntityWeapon(PAttacker, (SLOTTYPE)slot);
         giveTPtoAttacker = giveTPtoAttacker && !PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI);
-        giveTPtoVictim = giveTPtoVictim && physicalAttackType != PHYSICAL_ATTACK_TYPE::DAKEN;
+        giveTPtoVictim = giveTPtoVictim && physicalAttackType != PHYSICAL_ATTACK_TYPE::DAKEN && !PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI);
         bool isRanged = (slot == SLOT_AMMO || slot == SLOT_RANGED);
         int32 baseDamage = damage;
         ATTACKTYPE attackType = ATTACK_PHYSICAL;
@@ -2314,8 +2315,10 @@ namespace battleutils
         int32 corrected = PDefender->takeDamage(damage, PAttacker, attackType, damageType);
         if (damage < 0)
             damage = -corrected;
-
-        battleutils::ClaimMob(PDefender, PAttacker);
+        if (!isCounter)
+        {
+            battleutils::ClaimMob(PDefender, PAttacker);
+        }
 
         if (damage > 0)
         {
@@ -2327,10 +2330,13 @@ namespace battleutils
             switch (PDefender->objtype)
             {
                 case TYPE_MOB:
-                    if (taChar == nullptr)
-                        ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(PAttacker, damage);
-                    else
-                        ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(taChar, damage);
+                    if (!isCounter)
+                    {
+                        if (taChar == nullptr)
+                            ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(PAttacker, damage);
+                        else
+                            ((CMobEntity*)PDefender)->PEnmityContainer->UpdateEnmityFromDamage(taChar, damage);
+                    }
 
                     if (((CMobEntity*)PDefender)->m_HiPCLvl < PAttacker->GetMLevel())
                     {
@@ -2561,7 +2567,10 @@ namespace battleutils
             PAttacker->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ATTACK);
 
         // Apply TP
-        PAttacker->addTP(std::max((PAttacker->getMod(Mod::SAVETP)), standbyTp));
+        if (!PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI))
+        {
+            PAttacker->addTP(std::max((PAttacker->getMod(Mod::SAVETP)), standbyTp));
+        }
 
         // Remove Hagakure Effect if present
         if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HAGAKURE))
@@ -2858,6 +2867,121 @@ namespace battleutils
             critRate = 1;
         }
 
+        // Crit rate delta from stats caps at +-15
+        return std::min(critRate, static_cast<int32>(15)) * sign;
+    }
+
+    uint8 GetRangedCritHitRate(CBattleEntity* PAttacker, CBattleEntity* PDefender, bool ignoreSneakTrickAttack)
+    {
+        int32 crithitrate = 5;
+        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_MIGHTY_STRIKES, 0) ||
+            PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_MIGHTY_STRIKES))
+        {
+            return 100;
+        }
+        else if (PAttacker->objtype == TYPE_PC && (!ignoreSneakTrickAttack) && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK_ATTACK))
+        {
+            if (behind(PAttacker->loc.p, PDefender->loc.p, 64) || PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE) ||
+                PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBT))
+            {
+                crithitrate = 100;
+            }
+        }
+        else if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_THF && charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_ASSASSIN) &&
+                 (!ignoreSneakTrickAttack) && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_TRICK_ATTACK))
+        {
+            CBattleEntity* taChar = battleutils::getAvailableTrickAttackChar(PAttacker, PDefender);
+            if (taChar != nullptr)
+                crithitrate = 100;
+        }
+        else
+        {
+            // apply merit mods and traits
+            if (PAttacker->objtype == TYPE_PC)
+            {
+                CCharEntity* PCharAttacker = static_cast<CCharEntity*>(PAttacker);
+                crithitrate += PCharAttacker->PMeritPoints->GetMeritValue(MERIT_CRIT_HIT_RATE, PCharAttacker);
+
+                // Add Fencer crit hit rate
+                CItemWeapon* PMain = dynamic_cast<CItemWeapon*>(PCharAttacker->m_Weapons[SLOT_MAIN]);
+                CItemWeapon* PSub = dynamic_cast<CItemWeapon*>(PCharAttacker->m_Weapons[SLOT_SUB]);
+                if (PMain && !PMain->isTwoHanded() && !PMain->isHandToHand() &&
+                    (!PSub || PSub->getSkillType() == SKILL_NONE || PCharAttacker->m_Weapons[SLOT_SUB]->IsShield()))
+                {
+                    crithitrate += PCharAttacker->getMod(Mod::FENCER_CRITHITRATE);
+                }
+            }
+
+            // ShowDebug("Crit rate mod before Innin/Yonin: %d\n", crithitrate);
+            if (PDefender->objtype == TYPE_PC)
+            {
+                crithitrate -= ((CCharEntity*)PDefender)->PMeritPoints->GetMeritValue(MERIT_ENEMY_CRIT_RATE, (CCharEntity*)PDefender);
+            }
+
+            // Check for Innin crit rate bonus from behind target
+            if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+            {
+                crithitrate += PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_INNIN)->GetSubPower();
+            }
+            // Check for Yonin enemy crit rate reduction while in front of target
+            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_YONIN) && infront(PDefender->loc.p, PAttacker->loc.p, 64))
+            {
+                crithitrate -= PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_YONIN)->GetPower();
+            }
+
+            // ShowDebug("Crit rate mod after Innin/Yonin: %d\n", crithitrate);
+            //printf("Your crit rate before dagi is... %i \n", crithitrate);
+            crithitrate += GetAgiCritBonus(PAttacker, PDefender);
+            //printf("Your crit rate after dagi is... %i \n", crithitrate);
+            crithitrate += PAttacker->getMod(Mod::CRITHITRATE);
+            crithitrate += PDefender->getMod(Mod::ENEMYCRITRATE);
+            crithitrate = std::clamp(crithitrate, 0, 100);
+        }
+        return (uint8)crithitrate;
+    }
+
+    int8 GetAgiCritBonus(CBattleEntity* PAttacker, CBattleEntity* PDefender)
+    {
+        // https://www.bg-wiki.com/bg/Critical_Hit_Rate
+        int32 attackeragi = PAttacker->AGI();
+        int32 defenderagi = PDefender->AGI();
+        int32 dAgi = attackeragi - defenderagi;
+        int32 dAgiAbs = std::abs(dAgi);
+        int32 sign = 1;
+
+        if (dAgi < 0)
+        {
+            // Target has higher AGI so this will be a decrease to crit rate
+            sign = -1;
+        }
+
+        // Default to +0 crit rate for a delta of 0-6
+        int32 critRate = 0;
+        if (dAgiAbs > 39)
+        {
+            // 40-50: (dDEX-35)
+            critRate = dAgiAbs - (int32)35;
+        }
+        else if (dAgiAbs > 29)
+        {
+            // 30-39: +4
+            critRate = 4;
+        }
+        else if (dAgiAbs > 19)
+        {
+            // 20-29: +3
+            critRate = 3;
+        }
+        else if (dAgiAbs > 13)
+        {
+            // 14-19: +2
+            critRate = 2;
+        }
+        else if (dAgiAbs > 6)
+        {
+            critRate = 1;
+        }
+        printf("Your agi bonus is... %i \n", critRate);
         // Crit rate delta from stats caps at +-15
         return std::min(critRate, static_cast<int32>(15)) * sign;
     }

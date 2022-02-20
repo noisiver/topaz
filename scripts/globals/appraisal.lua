@@ -135,7 +135,7 @@ tpz.appraisalUtil.appraisalItems =
             items =
             {
                 {65, 18366}, -- Gust Claymore
-                {30, 16978}, -- Uchigatana+1
+                {34, 16978}, -- Uchigatana+1
                 { 1, 18434}, -- Kosetsusamonji
             },
         },
@@ -362,6 +362,17 @@ tpz.appraisalUtil.appraisalItems =
                 {15, 18076}, -- Spark Spear
             },
         },
+        [GOLDEN_SALVAGE] =
+        {
+            items =
+            {
+                {40, 18076}, -- Spark Spear
+                {40, 16769}, -- Brass Zaghnal
+                {10, 17138}, -- Willow Wand +1
+                {9, 17124}, -- Holly Pole +1
+                {1, 18843}, -- Flan Smasher
+            },
+        },
         [tpz.appraisalUtil.Origin.NYZUL_JUGGLER_HECATOMB] =
         {
             items =
@@ -543,10 +554,10 @@ tpz.appraisalUtil.appraisalItems =
         {
             items =
             {
-                {28, 12695}, -- Bronze Mittens + 1
+                {30, 12695}, -- Bronze Mittens + 1
                 {30, 12696}, -- Leather Gloves
                 {20, 12721}, -- Cotton Gloves
-                {18, 12728}, -- Cuffs
+                {19, 12728}, -- Cuffs
                 { 1, 14936}, -- Storm Manopolas
             },
         },
@@ -741,9 +752,8 @@ tpz.appraisalUtil.appraisalItems =
             items =
             {
                 {50, 13454}, -- Copper Ring
-                {30, 13465}, -- Brass Ring
-                {15, 13514}, -- Archer Ring
-                { 5, 15773}, -- Imperial Ring
+                {49, 13465}, -- Brass Ring
+                { 1, 15773}, -- Imperial Ring
             },
         },
         [IMPERIAL_AGENT_RESCUE] =
@@ -1044,17 +1054,13 @@ tpz.appraisalUtil.appraisalItems =
         {
             items =
             {
-                {10,  776}, -- White Rock
-                {20, 1164}, -- Tsurara
-                { 2, 1411}, -- Phalaenopsis
-                { 5, 1472}, -- Gardenia Seed
-                { 8, 1887}, -- Glass Sheet
-                {20, 2146}, -- Merrow Scale
-                {15, 2336}, -- Soulflayer Staff
+                {25,  776}, -- White Rock
+                {25, 1164}, -- Tsurara
+                {10, 1411}, -- Phalaenopsis
+                {10, 1472}, -- Gardenia Seed
+                {10, 1887}, -- Glass Sheet
                 {10, 4097}, -- Ice Crystal
-                { 1, 5315}, -- Toolbag: Jusa
-                { 3, 5353}, -- Iron Bullet Pouch
-                { 6, 5450}, -- Lakerda
+                {10, 5450}, -- Lakerda
             },
         },
         [ORICHALCUM_SURVEY] =
@@ -1163,13 +1169,13 @@ tpz.appraisalUtil.appraisalItems =
         {
             items =
             {
-                { 1,  113}, -- Cleaning Tool Set
-                { 2,  821}, -- Rainbow Thread
+                {1,  113}, -- Cleaning Tool Set
+                {2,  821}, -- Rainbow Thread
                 {25,  880}, -- Bone Chip
-                { 5, 1523}, -- Apple Mint
-                { 3, 1654}, -- Igneous Rock
+                {10, 1523}, -- Apple Mint
+                {13, 1654}, -- Igneous Rock
                 {20, 2153}, -- Qiqirn Sandbag
-                { 5, 2163}, -- Imp Wing
+                {9, 2163}, -- Imp Wing
                 {10, 4196}, -- Rotton Quiver
                 {10, 4387}, -- Wild Onion
             },
@@ -1178,25 +1184,11 @@ tpz.appraisalUtil.appraisalItems =
         {
             items =
             {
-                { 1,    90}, -- Rusty Bucket
-                {24,  2165}, -- Qutrub Gorget
+                {20,    90}, -- Rusty Bucket
+                {20,  2165}, -- Qutrub Gorget
                 {20,  2167}, -- Lamian Armlet
-                { 6,  2418}, -- Aht Urhgan Brass Ingot
-                { 2,  4129}, -- Stone Quiver
-                { 6,  4220}, -- Bone Quiver
-                { 2,  4221}, -- Beetle Quiver
-                { 1,  4222}, -- Horn Quiver
-                { 5,  4223}, -- Scorpion Quiver
-                { 5,  4224}, -- Demon Quiver
-                { 3,  4225}, -- Iron Quiver
-                { 4,  4226}, -- Silver Quiver
-                { 1,  4509}, -- Distilled Water
-                { 5,  5018}, -- Puppet's Operetta
-                { 5,  5332}, -- Kabura Quiver
-                { 1,  5333}, -- Sleep Quiver
-                {14,  5453}, -- Istakoz
-                { 1, 17391}, -- Willow Fishing Rod
-                { 1, 17396}, -- Little Worm
+                {20, 17391}, -- Willow Fishing Rod
+                {20, 17396}, -- Little Worm
             },
         },
         [LAMIA_NO_13] =
