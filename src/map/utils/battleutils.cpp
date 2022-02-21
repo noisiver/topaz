@@ -1750,7 +1750,14 @@ namespace battleutils
         int eva = PDefender->EVA();
         hitrate = hitrate + (acc - eva) / 2 + (PAttacker->GetMLevel() - PDefender->GetMLevel()) * 2;
 
+        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SHARPSHOT))
+        {
+            uint8 finalhitrate = std::clamp(hitrate, 20, 100);
+            //printf("Your hit rate with sharpshot is.. %i \n", finalhitrate);
+            return finalhitrate;
+        }
         uint8 finalhitrate = std::clamp(hitrate, 20, 95);
+        //printf("Your hit rate is.. %i \n", finalhitrate);
         return finalhitrate;
     }
 
@@ -2992,7 +2999,7 @@ namespace battleutils
         {
             critRate = 1;
         }
-        printf("Your agi bonus is... %i \n", critRate);
+        //printf("Your agi bonus is... %i \n", critRate);
         // Crit rate delta from stats caps at +-15
         return std::min(critRate, static_cast<int32>(15)) * sign;
     }
