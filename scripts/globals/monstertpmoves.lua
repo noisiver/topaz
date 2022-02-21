@@ -208,18 +208,18 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             pdif = pdif/1000  --multiplier set.
         if math.random()*100 < target:getGuardRate(mob) then -- Try to guard
             target:trySkillUp(mob, tpz.skill.GUARD, 1)
-            target:PrintToPlayer("Successfully guarded a TP move swing!")
+            --target:PrintToPlayer("Successfully guarded a TP move swing!")
             pdif = pdif - 1
             if pdif < 0.25 then pdif = 0.25 end -- Cap at 0.25 pdif
         end
         if math.random()*100 < target:getParryRate(mob) then -- Try to parry
             --target:trySkillUp(mob, tpz.skill.PARRY, 1)
-            target:PrintToPlayer("Successfully parried a TP move swing!")
+            --target:PrintToPlayer("Successfully parried a TP move swing!")
             hitdamage = 0
         end
         if math.random()*100 < target:getBlockRate(mob) then  -- Try To block
             target:trySkillUp(mob, tpz.skill.SHIELD, 1)
-            target:PrintToPlayer("Successfully blocked a TP move swing!")
+            --target:PrintToPlayer("Successfully blocked a TP move swing!")
             hitdamage = target:getBlockedDamage(hitdamage)
         end
             finaldmg = finaldmg + hitdamage * pdif
