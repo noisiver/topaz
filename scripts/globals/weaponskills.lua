@@ -70,7 +70,7 @@ end
 -- acc100, acc200, acc300, ignoresDef, ignore100, ignore200, ignore300, atk100, atk200, atk300, kick, hybridWS, hitsHigh, formless
 --
 -- See doPhysicalWeaponskill or doRangedWeaponskill for how calcParams are determined.
-function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams)
+function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, isRanged)
 
     -- Recalculate accuracy if it varies with TP, applied to all hits
     if wsParams.acc100 ~= 0 then
@@ -132,9 +132,9 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- Calculate critrates
     local critRate = 0
 
-    if (wsParams.canCrit) then -- Work out critical hit ratios
-        local nativecrit = 0
-        critrate = fTP(tp, wsParams.crit100, wsParams.crit200, wsParams.crit300)
+    if wsParams.canCrit then -- Work out critical hit ratios
+        local nativecrit = 0.05
+        critRate = fTP(tp, wsParams.crit100, wsParams.crit200, wsParams.crit300)
 
         if calcParams.flourishEffect then
             if calcParams.flourishEffect:getPower() > 1 then
@@ -143,16 +143,19 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         end
 
         -- Add on native crit hit rate (guesstimated, it actually follows an exponential curve)
-        if attacker:getWeaponDamageType(tpz.slot.RANGED) == true then  -- Ranged uses DAgi not DDex
-            nativecrit = (attacker:getStat(tpz.mod.AGI) - target:getStat(tpz.mod.AGI))*0.005 -- assumes +0.5% crit rate per 1 dDEX
-            --printf("Your native ranged crit is... %i", nativecrit)
-        else
-            nativecrit = (attacker:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.AGI))*0.005 -- assumes +0.5% crit rate per 1 dDEX
-            --printf("Your native melee crit is... %i", nativecrit)
+        if isRanged then -- Ranged uses dAGI
+            local dAGI = (attacker:getStat(tpz.mod.AGI) - target:getStat(tpz.mod.AGI))
+            if dAGI > 0 then
+                nativecrit = nativecrit + math.floor(dAGI/10)/100 -- no known cap
+                --attacker:PrintToPlayer(string.format("native ranged crit rate was %d", nativecrit*100))
+            end
+         else
+            local dDEX = (attacker:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.AGI))
+            nativecrit = nativecrit + getDexCritBonus(dDEX)
+            --attacker:PrintToPlayer(string.format("native melee crit rate was %d", nativecrit*100))
         end
-        if (nativecrit > 0.2) then -- caps only apply to base rate, not merits and mods
-            nativecrit = 0.2
-        elseif (nativecrit < 0.05) then
+        -- Always minimum 5% native crit
+        if nativecrit < 0.05 then
             nativecrit = 0.05
         end
 
@@ -306,7 +309,7 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     calcParams.hitRate = getHitRate(attacker, target, false, calcParams.bonusAcc)
 
     -- Send our wsParams off to calculate our raw WS damage, hits landed, and shadows absorbed
-    calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams)
+    calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, false)
     local finaldmg = calcParams.finalDmg
 
     -- Delete statuses that may have been spent by the WS
@@ -489,7 +492,7 @@ end
 --]]
 
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
-    calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams)
+    calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, true)
     local finaldmg = calcParams.finalDmg
 
     -- Calculate reductions
@@ -1418,4 +1421,22 @@ function shadowAbsorb(target)
         return true
     end
     return false
+end
+
+function getDexCritBonus(dDEX)
+    local nativeCrit = 0
+    if dDEX > 50 then -- Caps at 15% maximum benefit from dDEX
+        nativeCrit = 0.15
+    elseif (dDEX > 39) then
+        nativeCrit = (dDEX-35)/100
+    elseif (dDEX > 29) then
+        nativeCrit = 0.04
+    elseif (dDEX > 19) then
+        nativeCrit = 0.03
+    elseif (dDEX > 13) then
+        nativeCrit = 0.02
+    elseif (dDEX > 6) then
+        nativeCrit = 0.01
+    end
+    return nativeCrit
 end

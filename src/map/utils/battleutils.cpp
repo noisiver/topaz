@@ -2834,11 +2834,12 @@ namespace battleutils
             }
 
             // ShowDebug("Crit rate mod after Innin/Yonin: %d\n", crithitrate);
-
+            //printf("Your crit rate before dDex is... %i \n", crithitrate);
             crithitrate += GetDexCritBonus(PAttacker, PDefender);
+            //printf("Your crit rate after dDex is... %i \n", crithitrate);
             crithitrate += PAttacker->getMod(Mod::CRITHITRATE);
             crithitrate += PDefender->getMod(Mod::ENEMYCRITRATE);
-            crithitrate = std::clamp(crithitrate, 0, 100);
+            crithitrate = std::clamp(crithitrate, 5, 100);
         }
         return (uint8)crithitrate;
     }
@@ -2849,44 +2850,36 @@ namespace battleutils
         int32 attackerdex = PAttacker->DEX();
         int32 defenderagi = PDefender->AGI();
         int32 dDex = attackerdex - defenderagi;
-        int32 dDexAbs = std::abs(dDex);
-        int32 sign = 1;
-        
-        if (dDex < 0)
-        {
-            // Target has higher AGI so this will be a decrease to crit rate
-            sign = -1;
-        }
 
         // Default to +0 crit rate for a delta of 0-6
         int32 critRate = 0;
-        if (dDexAbs > 39) 
+        if (dDex > 39)
         {
             // 40-50: (dDEX-35)
-            critRate = dDexAbs - (int32)35;
+            critRate = dDex - (int32)35;
         }
-        else if (dDexAbs > 29)
+        else if (dDex > 29)
         {
             // 30-39: +4
             critRate = 4;
         }
-        else if (dDexAbs > 19)
+        else if (dDex > 19)
         {
             // 20-29: +3
             critRate = 3;
         }
-        else if (dDexAbs > 13)
+        else if (dDex > 13)
         {
             // 14-19: +2
             critRate = 2;
         }
-        else if (dDexAbs > 6)
+        else if (dDex > 6)
         {
             critRate = 1;
         }
-
-        // Crit rate delta from stats caps at +-15
-        return std::min(critRate, static_cast<int32>(15)) * sign;
+        //printf("Your dDex bonus is... %i \n", critRate);
+        // Crit rate delta from stats caps at +15
+        return std::min(critRate, static_cast<int32>(15));
     }
 
     uint8 GetRangedCritHitRate(CBattleEntity* PAttacker, CBattleEntity* PDefender, bool ignoreSneakTrickAttack)
@@ -2948,12 +2941,12 @@ namespace battleutils
             }
 
             // ShowDebug("Crit rate mod after Innin/Yonin: %d\n", crithitrate);
-            //printf("Your crit rate before dagi is... %i \n", crithitrate);
+            //printf("Your crit rate before dAgi is... %i \n", crithitrate);
             crithitrate += GetAgiCritBonus(PAttacker, PDefender);
-            //printf("Your crit rate after dagi is... %i \n", crithitrate);
+            //printf("Your crit rate after dAgi is... %i \n", crithitrate);
             crithitrate += PAttacker->getMod(Mod::CRITHITRATE);
             crithitrate += PDefender->getMod(Mod::ENEMYCRITRATE);
-            crithitrate = std::clamp(crithitrate, 0, 100);
+            crithitrate = std::clamp(crithitrate, 5, 100);
         }
         return (uint8)crithitrate;
     }
@@ -2964,44 +2957,18 @@ namespace battleutils
         int32 attackeragi = PAttacker->AGI();
         int32 defenderagi = PDefender->AGI();
         int32 dAgi = attackeragi - defenderagi;
-        int32 dAgiAbs = std::abs(dAgi);
-        int32 sign = 1;
-
-        if (dAgi < 0)
-        {
-            // Target has higher AGI so this will be a decrease to crit rate
-            sign = -1;
-        }
 
         // Default to +0 crit rate for a delta of 0-6
         int32 critRate = 0;
-        if (dAgiAbs > 39)
+        critRate = dAgi / 10; // The floor from integer division is intended
+        if (dAgi < 0)
         {
-            // 40-50: (dDEX-35)
-            critRate = dAgiAbs - (int32)35;
+            critRate = 0;
         }
-        else if (dAgiAbs > 29)
-        {
-            // 30-39: +4
-            critRate = 4;
-        }
-        else if (dAgiAbs > 19)
-        {
-            // 20-29: +3
-            critRate = 3;
-        }
-        else if (dAgiAbs > 13)
-        {
-            // 14-19: +2
-            critRate = 2;
-        }
-        else if (dAgiAbs > 6)
-        {
-            critRate = 1;
-        }
-        //printf("Your agi bonus is... %i \n", critRate);
-        // Crit rate delta from stats caps at +-15
-        return std::min(critRate, static_cast<int32>(15)) * sign;
+        //printf("Your dAgi bonus is... %i \n", critRate);
+
+        // No known cap, putting at 95%
+        return std::min(critRate, static_cast<int32>(95));
     }
 
     /************************************************************************
