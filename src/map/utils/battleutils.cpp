@@ -1700,6 +1700,10 @@ namespace battleutils
         int acc = 0;
         int hitrate = 75;
 
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
+        {
+            return 100;
+        }
         if (PAttacker->objtype == TYPE_PC)
         {
             CCharEntity* PChar = (CCharEntity*)PAttacker;
@@ -1982,7 +1986,8 @@ namespace battleutils
         uint16 attackskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
         uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
 
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) ||
+            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
         {
             return 0;
         }
@@ -2057,7 +2062,8 @@ namespace battleutils
                 job == JOB_BLU || job == JOB_MNK || job == JOB_GEO ||
                 job == JOB_SCH)
             {
-                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
+                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) ||
+                    PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
                 {
                     return 0;
                 }
@@ -2113,7 +2119,8 @@ namespace battleutils
 
         if (validWeapon && hasGuardSkillRank && PDefender->PAI->IsEngaged())
         {
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
+            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) ||
+                PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
         {
             return 0;
         }
@@ -2618,6 +2625,10 @@ namespace battleutils
     {
         int32 hitrate = 75;
 
+        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
+        {
+                return 100;
+        }
         if (PAttacker->objtype == TYPE_PC && ((PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK_ATTACK) && (behind(PAttacker->loc.p, PDefender->loc.p, 64) || PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))) ||
             (charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_ASSASSIN) && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_TRICK_ATTACK) && battleutils::getAvailableTrickAttackChar(PAttacker, PDefender))))
         {
