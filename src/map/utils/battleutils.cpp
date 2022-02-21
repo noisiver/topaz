@@ -1752,7 +1752,7 @@ namespace battleutils
 
         if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SHARPSHOT))
         {
-            uint8 finalhitrate = std::clamp(hitrate, 20, 100);
+            uint8 finalhitrate = std::clamp(hitrate, 20, 99);
             //printf("Your hit rate with sharpshot is.. %i \n", finalhitrate);
             return finalhitrate;
         }
