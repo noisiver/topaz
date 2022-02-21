@@ -16,19 +16,14 @@ function error(player, msg)
     player:PrintToPlayer("!deleffect {player} <effect>")
 end
 
-function onTrigger(player, arg1, arg2)
+function onTrigger(player, arg1)
     local targ
-    local id
 
     if (arg1 == nil) then
         error(player, "You must provide an effect ID.")
         return
-    elseif (arg2 == nil) then
-        targ = player
-        id = arg1
     else
         targ = GetPlayerByName(arg1)
-        id = arg2
     end
 
     -- validate target
@@ -37,17 +32,10 @@ function onTrigger(player, arg1, arg2)
         return
     end
 
-    -- validate effect
-    id = tonumber(id) or tpz.effect[string.upper(id)]
-    if (id == nil) then
-        error(player, "Invalid effect.")
-        return
-    elseif (id == 0) then
-        id = 1
-    end
-
     -- delete status effect
-    targ:delStatusEffect(id)
+    for v = 1,31,1 do
+        targ:delStatusEffect(v)
+    end
     if (targ:getID() ~= player:getID()) then
         player:PrintToPlayer(string.format("Removed effect %i from %s.", id, targ:getName()))
     end
