@@ -34,7 +34,7 @@ function onTrigger(player, arg1)
 
     -- delete status effect
     for v = 1,31,1 do
-        targ:delStatusEffect(v)
+        targ:delStatusEffectSilent(v)
     end
     if (targ:getID() ~= player:getID()) then
         player:PrintToPlayer(string.format("Removed effect %i from %s.", id, targ:getName()))
