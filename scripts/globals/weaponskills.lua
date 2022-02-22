@@ -401,9 +401,13 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
         finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.0 -- Add server bonus
     end
 	
-	 if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
-		finaldmg = math.floor(finaldmg * 0.5)
-	 end
+	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
+	finaldmg = math.floor(finaldmg * 0.5)
+	end
+
+    if attacker:getMainJob() == tpz.job.SAM then
+        finaldmg = math.floor(finaldmg * 0.5)
+    end
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg

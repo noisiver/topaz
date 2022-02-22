@@ -39,6 +39,13 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    local IgnisRunes = player:getLocalVar("IgnisRunes")
+    if damage > 0 and IgnisRunes <=2 then
+        for v = 524,530,1 do
+            player:delStatusEffectSilent(v)
+        end
+        player:addStatusEffect(tpz.effect.IGNIS, 1, 0, 300)
+    end
     local effect = tpz.effect.PARALYSIS
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
     local power = 25
