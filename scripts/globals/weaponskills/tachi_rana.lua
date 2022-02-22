@@ -39,6 +39,16 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    local UndaRunes = player:getLocalVar("UndaRunes")
+    if damage > 0 and UndaRunes <=2 then
+        for v = 523,527,1 do
+            player:delStatusEffectSilent(v)
+        end
+        for v = 529,530,1 do
+            player:delStatusEffectSilent(v)
+        end
+        player:addStatusEffect(tpz.effect.UNDA, 1, 0, 300)
+    end
 
     return tpHits, extraHits, criticalHit, damage
 end

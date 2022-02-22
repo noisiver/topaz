@@ -842,6 +842,10 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
         {
             damslot = SLOT_RANGED;
         }
+        if (PWeaponSkill->getID() >= 1 && PWeaponSkill->getID() <= 15)
+        {
+            damslot = SLOT_MAIN;
+        }
 
         PAI->TargetFind->reset();
         //#TODO: revise parameters

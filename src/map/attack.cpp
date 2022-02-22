@@ -576,7 +576,8 @@ bool CAttack::IsCountered()
 bool CAttack::CheckCounter()
 {
     if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
-        m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION))
+        m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
+        m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
     {
         return false;
     }
