@@ -132,9 +132,9 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- Calculate critrates
     local critRate = 0
 
-    if wsParams.canCrit then -- Work out critical hit ratios
+    if (wsParams.canCrit) then -- Work out critical hit ratios
         local nativecrit = 0.05
-        critRate = fTP(tp, wsParams.crit100, wsParams.crit200, wsParams.crit300)
+        critrate = fTP(tp, wsParams.crit100, wsParams.crit200, wsParams.crit300)
 
         if calcParams.flourishEffect then
             if calcParams.flourishEffect:getPower() > 1 then
