@@ -3453,10 +3453,10 @@ namespace battleutils
                 switch (modShadow)
                 {
                     case Mod::UTSUSEMI:
-                        PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_COPY_IMAGE);
+                        PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_COPY_IMAGE);
                         break;
                     case Mod::BLINK:
-                        PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_BLINK);
+                        PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_BLINK);
                         break;
                     default:
                         break;
