@@ -12,14 +12,11 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:addMod(tpz.mod.SPELLINTERRUPT, 300)
-    mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
 	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 15)
 	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
     local instance = npc:getInstance()
-    for v = 17060184,17060186,1 do
-        if mob:getID(instance) == v then
-            mob:setMobMod(tpz.mobMod.DRAW_IN, 0) 
-        end
+    if mob:getID(instance) == 17060180 or mob:getID(instance) == 17060177 or or mob:getID(instance) == 17060178 then
+        mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
     end
 end
 

@@ -14,6 +14,9 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 9058 then -- Troll Destroyer(Assault - Lebros Cavern)
+        return 0
+    end
     if (mob:AnimationSub() == 4 and mob:getFamily() == 246) then -- Troll
         return 0
     else
@@ -27,7 +30,7 @@ function onMobWeaponSkill(target, mob, skill)
     local accmod = 1
     local dmgmod = 1.5
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_3_SHADOW)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded*math.random(2, 3))
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end

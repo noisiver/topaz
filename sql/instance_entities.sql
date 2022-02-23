@@ -115,6 +115,87 @@ INSERT INTO `instance_entities` VALUES (1,17060200);
 -- INSERT INTO `instance_entities` VALUES (12, 17047809);
 
 -- Excavation Duty
+
+-- Custom Start
+-- Mobs
+INSERT INTO `instance_entities` VALUES (21,17035562);
+INSERT INTO `instance_entities` VALUES (21,17035563);
+INSERT INTO `instance_entities` VALUES (21,17035564);
+INSERT INTO `instance_entities` VALUES (21,17035565);
+INSERT INTO `instance_entities` VALUES (21,17035566);
+INSERT INTO `instance_entities` VALUES (21,17035567);
+INSERT INTO `instance_entities` VALUES (21,17035568);
+INSERT INTO `instance_entities` VALUES (21,17035569);
+INSERT INTO `instance_entities` VALUES (21,17035570);
+INSERT INTO `instance_entities` VALUES (21,17035571);
+INSERT INTO `instance_entities` VALUES (21,17035572);
+INSERT INTO `instance_entities` VALUES (21,17035573);
+INSERT INTO `instance_entities` VALUES (21,17035574);
+INSERT INTO `instance_entities` VALUES (21,17035575);
+INSERT INTO `instance_entities` VALUES (21,17035576);
+INSERT INTO `instance_entities` VALUES (21,17035577);
+INSERT INTO `instance_entities` VALUES (21,17035578);
+INSERT INTO `instance_entities` VALUES (21,17035579);
+INSERT INTO `instance_entities` VALUES (21,17035580);
+INSERT INTO `instance_entities` VALUES (21,17035581);
+INSERT INTO `instance_entities` VALUES (21,17035582);
+INSERT INTO `instance_entities` VALUES (21,17035583);
+INSERT INTO `instance_entities` VALUES (21,17035584);
+INSERT INTO `instance_entities` VALUES (21,17035585);
+INSERT INTO `instance_entities` VALUES (21,17035586);
+INSERT INTO `instance_entities` VALUES (21,17035587);
+INSERT INTO `instance_entities` VALUES (21,17035588);
+INSERT INTO `instance_entities` VALUES (21,17035589);
+INSERT INTO `instance_entities` VALUES (21,17035590);
+INSERT INTO `instance_entities` VALUES (21,17035591);
+INSERT INTO `instance_entities` VALUES (21,17035592);
+INSERT INTO `instance_entities` VALUES (21,17035593);
+INSERT INTO `instance_entities` VALUES (21,17035594);
+INSERT INTO `instance_entities` VALUES (21,17035595);
+INSERT INTO `instance_entities` VALUES (21,17035596);
+INSERT INTO `instance_entities` VALUES (21,17035597);
+INSERT INTO `instance_entities` VALUES (21,17035598);
+INSERT INTO `instance_entities` VALUES (21,17035599);
+INSERT INTO `instance_entities` VALUES (21,17035600);
+INSERT INTO `instance_entities` VALUES (21,17035601);
+INSERT INTO `instance_entities` VALUES (21,17035602);
+INSERT INTO `instance_entities` VALUES (21,17035603);
+INSERT INTO `instance_entities` VALUES (21,17035604);
+INSERT INTO `instance_entities` VALUES (21,17035605);
+INSERT INTO `instance_entities` VALUES (21,17035606);
+INSERT INTO `instance_entities` VALUES (21,17035607);
+INSERT INTO `instance_entities` VALUES (21,17035608);
+INSERT INTO `instance_entities` VALUES (21,17035609);
+INSERT INTO `instance_entities` VALUES (21,17035610);
+INSERT INTO `instance_entities` VALUES (21,17035611);
+INSERT INTO `instance_entities` VALUES (21,17035612);
+INSERT INTO `instance_entities` VALUES (21,17035613);
+INSERT INTO `instance_entities` VALUES (21,17035614);
+
+-- Npcs
+INSERT INTO `instance_entities` VALUES (21,17035478);
+INSERT INTO `instance_entities` VALUES (21,17035479);
+INSERT INTO `instance_entities` VALUES (21,17035512);
+INSERT INTO `instance_entities` VALUES (21,17035517);
+INSERT INTO `instance_entities` VALUES (21,17035520);
+INSERT INTO `instance_entities` VALUES (21,17035526);
+INSERT INTO `instance_entities` VALUES (21,17035527);
+INSERT INTO `instance_entities` VALUES (21,17035537);
+INSERT INTO `instance_entities` VALUES (21,17035538);
+INSERT INTO `instance_entities` VALUES (21,17035539);
+INSERT INTO `instance_entities` VALUES (21,17035540);
+INSERT INTO `instance_entities` VALUES (21,17035541);
+INSERT INTO `instance_entities` VALUES (21,17035552);
+INSERT INTO `instance_entities` VALUES (21,17035554);
+-- Chests
+INSERT INTO `instance_entities` VALUES (21,17035615);
+INSERT INTO `instance_entities` VALUES (21,17035616);
+INSERT INTO `instance_entities` VALUES (21,17035617);
+INSERT INTO `instance_entities` VALUES (21,17035618);
+INSERT INTO `instance_entities` VALUES (21,17035619);
+INSERT INTO `instance_entities` VALUES (21,17035620);
+
+-- Custom End
 -- Mobs
 -- INSERT INTO `instance_entities` VALUES (21,17035265);
 -- INSERT INTO `instance_entities` VALUES (21,17035266);

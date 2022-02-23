@@ -605,8 +605,8 @@ INSERT INTO `mob_family_system` VALUES (918,'Nagi',13,'Humanoid',0,40,100,110,4,
 INSERT INTO `mob_family_system` VALUES (919,'Raubahn',13,'Humanoid',0,40,100,110,5,5,5,5,4,5,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
 INSERT INTO `mob_family_system` VALUES (920,'Zeid',13,'Humanoid',0,40,100,110,1,4,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,1.3,0.5,0,2,0);
 INSERT INTO `mob_family_system` VALUES (921,'Iron_Eater',13,'Humanoid',0,40,100,110,1,3,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-
-
+INSERT INTO `mob_family_system` VALUES (922,'Goblin_ExcavationDuty',7,'Beastmen',0,60,100,120,2,2,4,2,3,3,3,1,1,1,1,1,1,1,1,1.3,1.3,1.3,1.3,1.3,1.3,1.5,1.0,1,2,0); -- Assault
+INSERT INTO `mob_family_system` VALUES (923,'Troll_ExcavationDuty',7,'Beastmen',1,60,125,120,1,5,1,5,1,2,2,1,1,1,1,1,1,1,1,0.4,0.7,1,1,0.7,1.15,0.85,0.85,1,2,0); -- Assault
 
 -- 10,22,50,96,111,317-318,405,411-434,439-443 available for use
 

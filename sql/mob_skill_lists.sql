@@ -4338,6 +4338,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Ferocious_Wamoura',6109,1956); -- fire_br
 INSERT INTO `mob_skill_lists` VALUES ('Ravaging_Diremite',6110,362);
 INSERT INTO `mob_skill_lists` VALUES ('Ravaging_Diremite',6110,363);
 INSERT INTO `mob_skill_lists` VALUES ('Ravaging_Diremite',6110,365);
+INSERT INTO `mob_skill_lists` VALUES ('GoblinRushOnly',6111,590);
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2081); -- hammer-go-round
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2082); -- hammerblow
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2083); -- drop_hammer
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2084); -- seismohammer
 
 --6066 unused
 

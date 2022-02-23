@@ -4695,6 +4695,26 @@ INSERT INTO `mob_spell_lists` VALUES ('Ferocious_Wamoura',2038, 205, 1, 255); --
 INSERT INTO `mob_spell_lists` VALUES ('Leujaoam_Worm',2039,162,1,255); -- stonega_IV
 INSERT INTO `mob_spell_lists` VALUES ('Leujaoam_Worm',2039,191,1,255); -- stonega_iii
 INSERT INTO `mob_spell_lists` VALUES ('Leujaoam_Worm',2039,211,1,255); -- quake_II
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,128,1,255); -- protectra_iv
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,133,1,255); -- shellra_iv
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,34,1,255); -- diaga_ii
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,143,1,255); -- erase
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,14,1,255);  -- Poisona
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,15,1,255);  -- Paralyna
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,16,1,255);  -- Blindna
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,17,1,255);  -- Silena
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,19,1,255);  -- Viruna
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Cleric',2040,20,1,255);  -- Cursna
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,242,1,255); -- Absorb-acc
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,266,1,255); -- Absorb-str
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,267,1,255); -- Absorb-dex
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,268,1,255); -- Absorb-vit
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,269,1,255); -- Absorb-agi
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,270,1,255); -- Absorb-int
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,271,1,255); -- Absorb-mnd
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,272,1,255); -- Absorb-chr
+INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,275,1,255); -- Absorb-TP
+INSERT INTO `mob_spell_lists` VALUES ('Troll_Templar',2042,4,1,255); -- Cure IV
 
 
 

@@ -701,11 +701,11 @@ tpz.appraisalUtil.appraisalItems =
             items =
             {
                 {25, 13313}, -- Shell Earring
-                {21, 13321}, -- Bone Earring
+                {20, 13321}, -- Bone Earring
                 {25, 13323}, -- Beetle Earring
                 {20, 13327}, -- Silver Earring
-                { 6, 14790}, -- Reraise Earring
-                { 3, 15968}, -- Storm Loop
+                { 9, 14790}, -- Reraise Earring
+                { 1, 15968}, -- Storm Loop
             },
         },
         [GOLDEN_SALVAGE] =
@@ -1149,20 +1149,12 @@ tpz.appraisalUtil.appraisalItems =
         {
             items =
             {
-                {15,  640}, -- Copper Ore
-                {10,  769}, -- Red Rock
-                { 5,  828}, -- Velvet Cloth
-                { 8,  928}, -- Bomb Ash
-                { 8, 1108}, -- Sulfur
-                { 5, 1590}, -- Holy Basil
-                {20, 2160}, -- Troll Pauldron
-                {15, 2175}, -- Flan Meat
-                { 1, 2302}, -- Troll Bronze Ingot
-                { 2, 5340}, -- Silver Bullet Pouch
-                { 1, 5341}, -- Spartan Bullet Pouch
-                { 2, 5353}, -- Iron Bullet Pouch
-                { 4, 5359}, -- Bronze Bullet Pouch
-                { 3, 5363}, -- Bullet Pouch
+                {20,  640}, -- Copper Ore
+                {16,  769}, -- Red Rock
+                {16,  928}, -- Bomb Ash
+                {16, 1108}, -- Sulfur
+                {16, 1590}, -- Holy Basil
+                {16, 2175}, -- Flan Meat
             },
         },
         [SEAGULL_GROUNDED] =

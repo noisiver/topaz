@@ -13,9 +13,10 @@ function onTrigger(player, npc)
         [EXCAVATION_DUTY] =
         {
             {
-                {itemid = 2286, droprate = 600}, -- ??? Box
-                {itemid = 2277, droprate = 300}, -- ??? Earring
-                {itemid = 0,    droprate = 100}, -- Nothing
+                {itemid = 2286, droprate = 1000}, -- ??? Box
+            },
+            {
+                {itemid = 2277, droprate = 1000}, -- ??? Earring
             },
         },
         [LEBROS_SUPPLIES] =
@@ -32,20 +33,19 @@ function onTrigger(player, npc)
         [EXCAVATION_DUTY] =
         {
             {
-                {itemid = 4155, droprate = 800}, -- Remedy
-                {itemid = 0,    droprate = 200},         -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4155, droprate = 200}, -- Remedy
-                {itemid = 0,    droprate = 800}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4119, droprate = 500}, -- Hi-Potion +3
-                {itemid = 0,    droprate = 500}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4119, droprate = 200}, -- Hi-Potion +3
-                {itemid = 0,    droprate = 800}, -- Nothing
+                {itemid = 2160, droprate = 1000}, -- Troll Pauldron
+            },
+            {
+                {itemid = 2161, droprate = 1000}, -- Troll Vambrace
             },
         },
         [LEBROS_SUPPLIES] =

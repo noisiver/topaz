@@ -942,9 +942,8 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     PMob->setMobMod(MOBMOD_MUG_GIL, -1);
     PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
 
-    // never despawn and zonewide hate
+    // never despawn
     PMob->SetDespawnTime(0s);
-    PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
 
     PMob->addModifier(Mod::REFRESH, 400);
 }

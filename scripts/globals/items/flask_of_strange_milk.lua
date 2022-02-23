@@ -13,7 +13,7 @@ end
 
 function onItemUse(target)
     local effect = tpz.effect.REGEN
-    local power = 6
+    local power = 20
     local duration = 600
 
     if (target:addStatusEffect(effect, power, 3, duration)) then
