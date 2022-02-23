@@ -63,7 +63,7 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.STUN
-        target:delStatusEffect(typeEffect) -- Wiki says it can overwrite itself or other binds
+        target:delStatusEffectSilent(typeEffect) -- Wiki says it can overwrite itself or other binds
         target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 

@@ -33,13 +33,13 @@ function onTrigger(player)
         player:setCharVar("SoftGodMode", 0)
 
         -- Remove bonus effects..
-        player:delStatusEffect(tpz.effect.HUNDRED_FISTS)
-        player:delStatusEffect(tpz.effect.MAX_HP_BOOST)
-        player:delStatusEffect(tpz.effect.REGAIN)
-        player:delStatusEffect(tpz.effect.REFRESH)
-        player:delStatusEffect(tpz.effect.REGEN)
-        player:delStatusEffect(tpz.effect.CHAINSPELL)
-        player:delStatusEffect(tpz.effect.MANAFONT)
+        player:delStatusEffectSilent(tpz.effect.HUNDRED_FISTS)
+        player:delStatusEffectSilent(tpz.effect.MAX_HP_BOOST)
+        player:delStatusEffectSilent(tpz.effect.REGAIN)
+        player:delStatusEffectSilent(tpz.effect.REFRESH)
+        player:delStatusEffectSilent(tpz.effect.REGEN)
+        player:delStatusEffectSilent(tpz.effect.CHAINSPELL)
+        player:delStatusEffectSilent(tpz.effect.MANAFONT)
 
     end
 end

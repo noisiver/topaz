@@ -1191,8 +1191,8 @@ tpz.regime.bookOnEventFinish = function(player, option, regimeType)
 
         elseif act == "REFRESH" then
             player:delStatusEffectSilent(tpz.effect.REFRESH)
-            player:delStatusEffect(tpz.effect.SUBLIMATION_COMPLETE)
-            player:delStatusEffect(tpz.effect.SUBLIMATION_ACTIVATED)
+            player:delStatusEffectSilent(tpz.effect.SUBLIMATION_COMPLETE)
+            player:delStatusEffectSilent(tpz.effect.SUBLIMATION_ACTIVATED)
             player:addStatusEffect(tpz.effect.REFRESH, 1, 3, 3600, 0, 3)
 
         elseif act == "PROTECT" then

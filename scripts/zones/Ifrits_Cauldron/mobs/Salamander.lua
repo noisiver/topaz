@@ -39,7 +39,7 @@ end
 
 function onMobDeath(mob, player, isKiller)
     local Red = GetMobByID(mob:getID() +1)
-    Red:delStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
-    Red:delStatusEffect(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
-    Red:delStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
+    Red:delStatusEffectSilent(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
+    Red:delStatusEffectSilent(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
+    Red:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
 end

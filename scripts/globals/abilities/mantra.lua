@@ -13,7 +13,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:delStatusEffect(tpz.effect.MAX_HP_BOOST)
+    player:delStatusEffectSilent(tpz.effect.MAX_HP_BOOST)
 
     local merits = player:getMerit(tpz.merit.MANTRA)
 

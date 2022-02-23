@@ -44,7 +44,7 @@ function onUseAbility(player, target, ability)
     else
         local refresh = player:getStatusEffect(tpz.effect.REFRESH)
         if refresh == nil or refresh:getSubPower() < 3 then
-            player:delStatusEffect(tpz.effect.REFRESH)
+            player:delStatusEffectSilent(tpz.effect.REFRESH)
             player:addStatusEffect(tpz.effect.SUBLIMATION_ACTIVATED, 0, 3, 7200)
         else
             ability:setMsg(tpz.msg.basic.JA_NO_EFFECT_2)

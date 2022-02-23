@@ -24,6 +24,6 @@ function onMobDeath(mob, player, isKiller)
     local Add = GetMobByID(mob:getID()+5)
     Add:spawn()
     Add:updateEnmity(player)
-    Red:delStatusEffect(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
+    Red:delStatusEffectSilent(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
     printf("Delete status - Arrow Shield");
 end

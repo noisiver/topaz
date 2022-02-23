@@ -18,7 +18,7 @@ function onAbilityCheck(player, target, ability)
         return tpz.msg.basic.REQUIRES_COMBAT, 0
     else
         if (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_1)) then
-            player:delStatusEffect(tpz.effect.FINISHING_MOVE_1)
+            player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_1)
             return 0, 0
         elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_2)) then
             player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_2)

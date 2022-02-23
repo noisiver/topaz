@@ -515,8 +515,8 @@ end
     finaldmg = utils.stoneskin(target, finaldmg)
     finaldmg = utils.clamp(finaldmg, -99999, 99999)
     finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
-    attacker:delStatusEffect(tpz.effect.FLASHY_SHOT)
-    attacker:delStatusEffect(tpz.effect.STEALTH_SHOT)
+    attacker:delStatusEffectSilent(tpz.effect.FLASHY_SHOT)
+    attacker:delStatusEffectSilent(tpz.effect.STEALTH_SHOT)
 	
     return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
 end
@@ -1244,8 +1244,8 @@ end
             bonusHits = bonusHits + 1
         end
         if (i == 1) then
-            attacker:delStatusEffect(tpz.effect.ASSASSINS_CHARGE)
-            attacker:delStatusEffect(tpz.effect.WARRIOR_S_CHARGE)
+            attacker:delStatusEffectSilent(tpz.effect.ASSASSINS_CHARGE)
+            attacker:delStatusEffectSilent(tpz.effect.WARRIOR_S_CHARGE)
 
             -- recalculate DA/TA/QA rate
             doubleRate = (attacker:getMod(tpz.mod.DOUBLE_ATTACK) + attacker:getMerit(tpz.merit.DOUBLE_ATTACK_RATE))/100

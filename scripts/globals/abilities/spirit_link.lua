@@ -50,7 +50,7 @@ function onUseAbility(player, target, ability)
 
         if (skin >= drainamount) then
             if (skin == drainamount) then
-                player:delStatusEffect(tpz.effect.STONESKIN)
+                player:delStatusEffectSilent(tpz.effect.STONESKIN)
             else
                 local effect = player:getStatusEffect(tpz.effect.STONESKIN)
                 effect:setPower(effect:getPower() - drainamount) -- fixes the status effeect so when it ends it uses the new power instead of old
@@ -58,7 +58,7 @@ function onUseAbility(player, target, ability)
 
             end
         else
-            player:delStatusEffect(tpz.effect.STONESKIN)
+            player:delStatusEffectSilent(tpz.effect.STONESKIN)
             player:takeDamage(drainamount - skin)
         end
 
@@ -75,12 +75,12 @@ function onUseAbility(player, target, ability)
         healPet = healPet + 15
     end
 
-    pet:delStatusEffect(tpz.effect.POISON)
-    pet:delStatusEffect(tpz.effect.BLINDNESS)
-    pet:delStatusEffect(tpz.effect.PARALYSIS)
+    pet:delStatusEffectSilent(tpz.effect.POISON)
+    pet:delStatusEffectSilent(tpz.effect.BLINDNESS)
+    pet:delStatusEffectSilent(tpz.effect.PARALYSIS)
 
     if (math.random(1, 2) == 1) then
-        pet:delStatusEffect(tpz.effect.DOOM)
+        pet:delStatusEffectSilent(tpz.effect.DOOM)
     end
     if (pet:getHP() < pet:getMaxHP()) then -- sleep is only removed if it heals the wyvern
         removeSleepEffects(pet)
@@ -111,7 +111,7 @@ function onUseAbility(player, target, ability)
         while copyi < empathyTotal do
             copyEffect = validEffects[copyi+1]
             if pet:hasStatusEffect(copyEffect:getType()) then
-                pet:delStatusEffect(copyEffect:getType())
+                pet:delStatusEffectSilent(copyEffect:getType())
             end
 
             pet:addStatusEffect(copyEffect:getType(), copyEffect:getPower(), copyEffect:getTick(), math.ceil((copyEffect:getTimeRemaining())/1000)) -- id, power, tick, duration(convert ms to s)

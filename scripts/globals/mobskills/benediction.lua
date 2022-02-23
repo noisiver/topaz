@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     for i, effect in ipairs(removables) do
         if (target:hasStatusEffect(effect)) then
-            target:delStatusEffect(effect)
+            target:delStatusEffectSilent(effect)
         end
     end
 

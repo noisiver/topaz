@@ -27,7 +27,7 @@ function onUseAbility(player, target, ability)
     local penance = player:getMerit(tpz.merit.PENANCE)
     
     if penance > 0 then
-        target:delStatusEffect(tpz.effect.INHIBIT_TP)
+        target:delStatusEffectSilent(tpz.effect.INHIBIT_TP)
         target:addStatusEffect(tpz.effect.INHIBIT_TP,25,3,penance)
     end
 
@@ -35,7 +35,7 @@ function onUseAbility(player, target, ability)
     target:takeDamage(dmg, player, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL)
     target:updateEnmityFromDamage(player, dmg)
     target:updateClaim(player)
-    player:delStatusEffect(tpz.effect.BOOST)
+    player:delStatusEffectSilent(tpz.effect.BOOST)
 	player:setCharVar("boost", 0)
 
     return dmg

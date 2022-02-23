@@ -381,7 +381,7 @@ function doBoostGain(caster, target, spell, effect)
             --printf("BOOST-GAIN: CHECKING FOR EFFECT %d...", effect)
             if caster:hasStatusEffect(effect) then
                 --printf("BOOST-GAIN: HAS EFFECT %d, DELETING...", effect)
-                caster:delStatusEffect(effect)
+                caster:delStatusEffectSilent(effect)
             end
     end
 
@@ -1443,7 +1443,7 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
     end
 
     -- Remove previous Threnody
-    target:delStatusEffect(tpz.effect.THRENODY)
+    target:delStatusEffectSilent(tpz.effect.THRENODY)
 
     local iBoost = caster:getMod(tpz.mod.THRENODY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     local power = basePower + iBoost*5

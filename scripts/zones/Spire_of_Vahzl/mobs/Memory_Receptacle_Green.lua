@@ -24,6 +24,6 @@ function onMobDeath(mob, player, isKiller)
     local Add = GetMobByID(mob:getID()+3)
     Add:spawn()
     Add:updateEnmity(player)
-    Red:delStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
+    Red:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
     printf("Delete status - Magic Shield");
 end

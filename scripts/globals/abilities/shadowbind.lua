@@ -27,7 +27,7 @@ function onUseAbility(player, target, ability, action)
     local duration = 30 + player:getMod(tpz.mod.SHADOW_BIND_EXT)
     local recycleChance = player:getMod(tpz.mod.RECYCLE) + player:getMerit(tpz.merit.RECYCLE)
     if (player:hasStatusEffect(tpz.effect.UNLIMITED_SHOT)) then
-        player:delStatusEffect(tpz.effect.UNLIMITED_SHOT)
+        player:delStatusEffectSilent(tpz.effect.UNLIMITED_SHOT)
         recycleChance = 100
     end
 

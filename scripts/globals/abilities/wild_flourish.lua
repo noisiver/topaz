@@ -29,7 +29,7 @@ end
 
 function onUseAbility(player, target, ability, action)
     if (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_2)) then
-        player:delStatusEffect(tpz.effect.FINISHING_MOVE_2)
+        player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_2)
     elseif (player:hasStatusEffect(tpz.effect.FINISHING_MOVE_3)) then
         player:delStatusEffectSilent(tpz.effect.FINISHING_MOVE_3)
         player:addStatusEffect(tpz.effect.FINISHING_MOVE_1, 1, 0, 7200)
