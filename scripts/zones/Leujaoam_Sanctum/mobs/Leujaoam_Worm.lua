@@ -15,7 +15,7 @@ function onMobSpawn(mob)
 	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 15)
 	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
     local instance = npc:getInstance()
-    if mob:getID(instance) == 17060180 or mob:getID(instance) == 17060177 or or mob:getID(instance) == 17060178 then
+    if mob:getID(instance) == 17060180 or mob:getID(instance) == 17060177 or mob:getID(instance) == 17060178 then
         mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
     end
 end
@@ -46,4 +46,8 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller)
+    local instance = mob:getInstance()
+    if mob:getID(instance) == 17060180 then
+         GetMobByID(17060179,instance):setMobMod(tpz.mobMod.DRAW_IN, 2) 
+    end
 end
