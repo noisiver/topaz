@@ -575,9 +575,9 @@ namespace battleutils
             else
             {
                 if (element == ELEMENT_DARK)
-                    PAttacker->StatusEffectContainer->DelStatusEffect(EFFECT_ENDARK);
+                    PAttacker->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ENDARK);
                 else
-                    PAttacker->StatusEffectContainer->DelStatusEffect(EFFECT_ENLIGHT);
+                    PAttacker->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ENLIGHT);
             }
 
             damage += PAttacker->getMod(Mod::ENSPELL_DMG_BONUS);
@@ -872,7 +872,7 @@ namespace battleutils
                                 int remainingDrain = PEffect->GetSubPower();
                                 if (remainingDrain - Action->spikesParam <= 0)
                                 {
-                                    PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_DREAD_SPIKES);
+                                    PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_DREAD_SPIKES);
                                 }
                                 else
                                 {
@@ -900,7 +900,7 @@ namespace battleutils
                             int remainingReflect = PEffect->GetSubPower();
                             if (remainingReflect - Action->spikesParam <= 0)
                             {
-                                PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_REPRISAL);
+                                PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_REPRISAL);
                             }
                             else
                             {
@@ -1953,7 +1953,7 @@ namespace battleutils
                 // ShowDebug("Aquaveil counter: %u\n", aquaCount);
                 if (aquaCount - 1 == 0) // removes the status, but still prevents the interrupt
                 {
-                    PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_AQUAVEIL);
+                    PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_AQUAVEIL);
                 }
                 else
                 {
@@ -3453,10 +3453,10 @@ namespace battleutils
                 switch (modShadow)
                 {
                     case Mod::UTSUSEMI:
-                        PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_COPY_IMAGE);
+                        PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_COPY_IMAGE);
                         break;
                     case Mod::BLINK:
-                        PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_BLINK);
+                        PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_BLINK);
                         break;
                     default:
                         break;
@@ -3696,7 +3696,7 @@ namespace battleutils
                     skillchain = FormSkillchain(resonanceProperties, skillProperties);
                 }
                 PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SKILLCHAIN, 0, combined_properties, 0, 10, 0, 0, 0));
-                PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_CHAINBOUND);
+                PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_CHAINBOUND);
                 PSCEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SKILLCHAIN, 0);
             }
             // Previous effect exists
@@ -4397,7 +4397,7 @@ namespace battleutils
         {
             damage += (uint32)(floor(m_PChar->health.mp / 10));
             m_PChar->health.mp = 0;
-            m_PChar->StatusEffectContainer->DelStatusEffect(EFFECT_CONSUME_MANA);
+            m_PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_CONSUME_MANA);
         }
         return damage;
     }
@@ -5363,7 +5363,7 @@ namespace battleutils
                 return 0;
             }
 
-            PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_STONESKIN);
+            PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_STONESKIN);
             return damage - skin;
         }
 
@@ -5555,7 +5555,7 @@ namespace battleutils
         {
             if (PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_PIANISSIMO))
             {
-                PCaster->StatusEffectContainer->DelStatusEffect(EFFECT_PIANISSIMO);
+                PCaster->StatusEffectContainer->DelStatusEffectSilent(EFFECT_PIANISSIMO);
                 return SPELLAOE_NONE;
             }
             else

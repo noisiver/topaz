@@ -1433,7 +1433,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
             // Remove Saboteur
             if (PSpell->getSkillType() == SKILLTYPE::SKILL_ENFEEBLING_MAGIC)
             {
-                StatusEffectContainer->DelStatusEffect(EFFECT_SABOTEUR);
+                StatusEffectContainer->DelStatusEffectSilent(EFFECT_SABOTEUR);
             }
             if (msg == MSGBASIC_NONE)
             {
@@ -1745,7 +1745,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                     if (power > 0)
                         PTarget->StatusEffectContainer->AddStatusEffect(
                             new CStatusEffect(EFFECT_EVASION_DOWN, EFFECT_EVASION_DOWN, power, 3, 30, 0, power / 10));
-                    StatusEffectContainer->DelStatusEffect(EFFECT_FEINT);
+                    StatusEffectContainer->DelStatusEffectSilent(EFFECT_FEINT);
                 }
 
 

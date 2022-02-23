@@ -85,7 +85,7 @@ void CWeaponSkillState::SpendCost()
     else if (m_PEntity->StatusEffectContainer->HasStatusEffect(EFFECT_SEKKANOKI))
     {
         tp = m_PEntity->addTP(-1000);
-         m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_SEKKANOKI);
+        m_PEntity->StatusEffectContainer->DelStatusEffectSilent(EFFECT_SEKKANOKI);
         // moved to later on so we can check to disable TP bonus effects
     }
     else

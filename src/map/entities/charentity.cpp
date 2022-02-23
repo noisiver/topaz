@@ -901,7 +901,7 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
 
                     if (StatusEffectContainer->HasStatusEffect(EFFECT_UNLIMITED_SHOT))
                     {
-                        StatusEffectContainer->DelStatusEffect(EFFECT_UNLIMITED_SHOT);
+                        StatusEffectContainer->DelStatusEffectSilent(EFFECT_UNLIMITED_SHOT);
                         recycleChance = 100;
                     }
                     if (tpzrand::GetRandomNumber(100) > recycleChance)
@@ -1348,7 +1348,7 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         // Only remove unlimited shot on hit
         if (hitOccured && this->StatusEffectContainer->HasStatusEffect(EFFECT_UNLIMITED_SHOT))
         {
-            StatusEffectContainer->DelStatusEffect(EFFECT_UNLIMITED_SHOT);
+            StatusEffectContainer->DelStatusEffectSilent(EFFECT_UNLIMITED_SHOT);
             recycleChance = 100;
         }
 
@@ -1419,7 +1419,7 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         // remove shadows
         while (realHits-- && tpzrand::GetRandomNumber(100) <= power && battleutils::IsAbsorbByShadow(this));
 
-        StatusEffectContainer->DelStatusEffect(EFFECT_SANGE);
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_SANGE);
     }
     battleutils::ClaimMob(PTarget, this);
     battleutils::RemoveAmmo(this, ammoConsumed);

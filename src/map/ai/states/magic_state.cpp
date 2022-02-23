@@ -329,13 +329,13 @@ void CMagicState::ApplyEnmity(CBattleEntity* PTarget, int ce, int ve)
     {
         m_PEntity->delModifier(Mod::ENMITY, -m_PEntity->StatusEffectContainer->GetStatusEffect(EFFECT_TRANQUILITY)->GetPower());
         if (enmityApplied)
-            m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_TRANQUILITY);
+            m_PEntity->StatusEffectContainer->DelStatusEffectSilent(EFFECT_TRANQUILITY);
     }
     if (m_PEntity->StatusEffectContainer->HasStatusEffect(EFFECT_EQUANIMITY) && m_PSpell->getSpellGroup() == SPELLGROUP_BLACK)
     {
         m_PEntity->delModifier(Mod::ENMITY, -m_PEntity->StatusEffectContainer->GetStatusEffect(EFFECT_EQUANIMITY)->GetPower());
         if (enmityApplied)
-            m_PEntity->StatusEffectContainer->DelStatusEffect(EFFECT_EQUANIMITY);
+            m_PEntity->StatusEffectContainer->DelStatusEffectSilent(EFFECT_EQUANIMITY);
     }
     if (m_PSpell->isNa())
     {

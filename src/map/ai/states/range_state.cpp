@@ -182,7 +182,7 @@ bool CRangeState::CanUseRangedAttack(CBattleEntity* PTarget)
             case SKILL_THROWING:
             {
                 // remove barrage, doesn't work here
-                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_BARRAGE);
+                PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_BARRAGE);
                 break;
             }
             case SKILL_ARCHERY:
@@ -254,7 +254,7 @@ bool CRangeState::CanFinishRangedAttack(CBattleEntity* PTarget)
             case SKILL_THROWING:
             {
                 // remove barrage, doesn't work here
-                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_BARRAGE);
+                PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_BARRAGE);
                 break;
             }
             case SKILL_ARCHERY:

@@ -615,7 +615,7 @@ bool CAttack::CheckCounter()
     { // Perfect Counter only counters hits that normal counter misses, always critical, can counter 1-3 times before wearing
         m_isCountered = true;
         m_isCritical = true;
-        m_victim->StatusEffectContainer->DelStatusEffect(EFFECT_PERFECT_COUNTER);
+        m_victim->StatusEffectContainer->DelStatusEffectSilent(EFFECT_PERFECT_COUNTER);
     }
     return m_isCountered;
 }
