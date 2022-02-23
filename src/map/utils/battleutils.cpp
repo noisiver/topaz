@@ -2589,7 +2589,13 @@ namespace battleutils
         // Remove Hagakure Effect if present
         if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HAGAKURE))
         {
-            PAttacker->StatusEffectContainer->DelStatusEffect(EFFECT_HAGAKURE);
+            PAttacker->StatusEffectContainer->DelStatusEffectSilent(EFFECT_HAGAKURE);
+        }
+
+        // Apply Sengikori Effect if present
+        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SENGIKORI))
+        {
+            PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SENGIKORI, EFFECT_SENGIKORI, 1, 0, 30));
         }
 
         return damage;
@@ -3897,9 +3903,8 @@ namespace battleutils
         //            TODO:     × (1 + Day/Weather bonuses)
         //            TODO:     × (1 + Staff Affinity)
 
-        auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000);
-        // OOE    * (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100
-        // OOE    * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
+        auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000 *
+                                   (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100 * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
         // ShowDebug("RawDamage: %u\n,", damage);
         auto PChar = dynamic_cast<CCharEntity*>(PAttacker);
         if (PChar && PChar->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PChar->loc.p, PDefender->loc.p, 64))

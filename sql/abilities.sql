@@ -310,7 +310,7 @@ INSERT INTO `abilities` VALUES (254,'mana_wall',4,76,1,600,39,0,0,222,2000,0,6,2
 INSERT INTO `abilities` VALUES (255,'divine_emblem',7,75,1,180,80,100,0,222,2000,0,6,20.0,0,1,3600,0,0,NULL);
 INSERT INTO `abilities` VALUES (256,'nether_void',8,60,1,180,91,100,0,224,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (257,'double_shot',11,79,1,180,126,0,0,225,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
-INSERT INTO `abilities` VALUES (258,'sengikori',12,25,1,180,141,100,0,226,2000,0,6,20.0,0,1,80,0,0,NULL);
+INSERT INTO `abilities` VALUES (258,'sengikori',12,25,1,90,141,100,0,226,2000,0,6,20.0,1,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (259,'futae',13,50,1,60,148,0,0,227,2000,0,6,20.0,0,1,0,0,0,'ABYSSEA');		-- level 50, 60 second cooldown
 INSERT INTO `abilities` VALUES (260,'spirit_jump',14,77,4,60,166,100,0,228,2000,0,6,20.0,0,1,80,1218,0,NULL);
 INSERT INTO `abilities` VALUES (261,'presto',19,40,1,15,236,100,0,229,2000,0,6,20.0,0,1,80,0,0,NULL);
@@ -338,8 +338,8 @@ INSERT INTO `abilities` VALUES (283,'tenuto',10,83,1,5,47,0,0,257,2000,0,6,20.0,
 INSERT INTO `abilities` VALUES (284,'marcato',10,95,1,600,48,0,0,251,2000,0,6,20.0,0,0,0,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (285,'bounty_shot',11,87,4,60,51,100,0,261,2000,0,6,20.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (286,'decoy_shot',11,95,4,300,52,100,0,261,2000,0,6,20.0,0,0,0,0,0,NULL); -- needs animation
-INSERT INTO `abilities` VALUES (287,'hamanoha',12,65,4,300,53,100,0,249,2000,0,6,12.0,0,0,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (288,'hagakure',12,75,1,180,54,0,0,249,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
+INSERT INTO `abilities` VALUES (287,'hamanoha',12,65,4,90,53,100,0,249,2000,0,6,12.0,0,0,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (288,'hagakure',12,55,1,90,54,0,0,249,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (291,'issekigan',13,65,1,300,57,0,0,246,2000,0,6,20.0,0,1,0,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (292,'dragon_breaker',14,87,4,300,58,320,0,236,2000,0,6,8.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (293,'soul_jump',14,85,4,120,167,100,0,209,2000,0,6,7.0,0,1,0,1220,0,NULL); -- check animation
@@ -362,7 +362,7 @@ INSERT INTO `abilities` VALUES (314,'ternary_flourish',19,93,1,30,226,0,0,222,20
 -- INSERT INTO `abilities` VALUES (317,'immanence',20,87,1,1,231,100,0,245,2000,0,6,0.0,0,1,80,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (318,'smiting_breath',14,90,4,60,238,100,0,135,2000,0,6,8.0,0,1,80,0,0,NULL); -- check animation
 -- INSERT INTO `abilities` VALUES (319,'restoring_breath',14,90,1,60,239,100,0,130,2000,0,6,0.0,0,1,80,0,0,NULL); -- check animation
-INSERT INTO `abilities` VALUES (320,'konzen-ittai',12,76,4,180,132,529,0,39,2000,0,14,4.0,0,1,300,0,0,'ABYSSEA');	-- changed from level 65
+INSERT INTO `abilities` VALUES (320,'konzen-ittai',12,55,4,180,132,529,0,39,2000,0,14,4.0,0,1,300,0,0,'ABYSSEA');	-- changed from level 65
 INSERT INTO `abilities` VALUES (321,'bully',6,40,4,60,240,127,0,248,2000,0,6,8.0,0,1,300,0,4,'ABYSSEA');	-- changed to level 40, 180s cd
 INSERT INTO `abilities` VALUES (322,'maintenance',18,30,1,90,214,0,0,83,2000,0,6,12.0,0,0,0,1474,0,'ABYSSEA'); -- ta257
 INSERT INTO `abilities` VALUES (323,'brazen_rush',1,96,1,3600,254,100,0,271,2000,0,6,0.0,0,1,300,0,0,NULL);

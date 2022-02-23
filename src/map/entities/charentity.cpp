@@ -787,6 +787,7 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
             }
         }
     }
+    StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
     charutils::RemoveStratagems(this, PSpell);
     if (PSpell->tookEffect())
     {
@@ -954,6 +955,8 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                 }
             }
         }
+        // Remove Sengikori Effect if present
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
         battleutils::ClaimMob(PBattleTarget, this);
 
         if (PBattleTarget->isDead() && PBattleTarget->objtype == TYPE_MOB)
