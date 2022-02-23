@@ -34,7 +34,7 @@ function onSpellCast(caster, target, spell)
             local inhibit_tp = target:getStatusEffect(effect)
             if (inhibit_tp ~= nil) then
                 if (inhibit_tp:getPower() < power) then
-                    target:delStatusEffect(effect)
+                    target:delStatusEffectSilent(effect)
                     target:addStatusEffect(effect, power, 0, duration)
                     spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
                 else

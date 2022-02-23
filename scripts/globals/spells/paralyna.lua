@@ -12,7 +12,7 @@ end
 
 function onSpellCast(caster, target, spell)
     if (target:getStatusEffect(tpz.effect.PARALYSIS) ~= nil) then
-        target:delStatusEffect(tpz.effect.PARALYSIS)
+        target:delStatusEffectSilent(tpz.effect.PARALYSIS)
         spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

@@ -58,7 +58,7 @@ function onSpellCast(caster, target, spell)
     end
 
     -- Do it!
-    target:delStatusEffect(tpz.effect.DIA)
+    target:delStatusEffectSilent(tpz.effect.DIA)
     target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 10, 1)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 

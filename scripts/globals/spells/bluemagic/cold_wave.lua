@@ -37,7 +37,7 @@ function onSpellCast(caster, target, spell)
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     elseif (resist >= 0.5) then
         if (target:getStatusEffect(tpz.effect.CHOKE) ~= nil) then
-            target:delStatusEffect(tpz.effect.CHOKE)
+            target:delStatusEffectSilent(tpz.effect.CHOKE)
         end
         local sINT = caster:getStat(tpz.mod.INT)
 		local DOT = (caster:getMainLvl()  / 5)
@@ -53,7 +53,7 @@ function onSpellCast(caster, target, spell)
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
         else
             if (effect ~= nil) then
-                target:delStatusEffect(typeEffect)
+                target:delStatusEffectSilent(typeEffect)
             end
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             target:addStatusEffect(typeEffect, DOT, DMG, getBlueEffectDuration(caster, resist, typeEffect, true))

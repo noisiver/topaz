@@ -12,7 +12,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    caster:delStatusEffect(tpz.effect.ENMITY_BOOST)
+    caster:delStatusEffectSilent(tpz.effect.ENMITY_BOOST)
 
     caster:addStatusEffect(tpz.effect.PAX, 15, 0, 300)
     return tpz.effect.PAX

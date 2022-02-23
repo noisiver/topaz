@@ -34,7 +34,7 @@ function onSpellCast(caster, target, spell)
             local attackdown = target:getStatusEffect(effect)
             if (attackdown ~= nil) then
                 if (attackdown:getPower() < power) then
-                    target:delStatusEffect(effect)
+                    target:delStatusEffectSilent(effect)
                     target:addStatusEffect(effect, power, 0, duration)
                     spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
                 else

@@ -41,7 +41,7 @@ function onSpellCast(caster, target, spell)
                 caster:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
             end
 
-            target:delStatusEffect(effect)
+            target:delStatusEffectSilent(effect)
             return 1
         end
     end

@@ -23,19 +23,19 @@ function onSpellCast(caster, target, spell)
     if (target:hasStatusEffect(tpz.effect.DOOM) and power > math.random(1, 100)) then
         -- remove doom
         final = tpz.effect.DOOM
-        target:delStatusEffect(tpz.effect.DOOM)
+        target:delStatusEffectSilent(tpz.effect.DOOM)
         spell:setMsg(tpz.msg.basic.NARROWLY_ESCAPE)
     elseif (curse ~= nil and bane ~= nil) then
-        target:delStatusEffect(tpz.effect.CURSE_I)
-        target:delStatusEffect(tpz.effect.BANE)
+        target:delStatusEffectSilent(tpz.effect.CURSE_I)
+        target:delStatusEffectSilent(tpz.effect.BANE)
         final = tpz.effect.CURSE_I
         spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
     elseif (curse ~= nil) then
-        target:delStatusEffect(tpz.effect.CURSE_I)
+        target:delStatusEffectSilent(tpz.effect.CURSE_I)
         final = tpz.effect.CURSE_I
         spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
     elseif (bane ~= nil) then
-        target:delStatusEffect(tpz.effect.BANE)
+        target:delStatusEffectSilent(tpz.effect.BANE)
         final = tpz.effect.BANE
         spell:setMsg(tpz.msg.basic.MAGIC_REMOVE_EFFECT)
     end

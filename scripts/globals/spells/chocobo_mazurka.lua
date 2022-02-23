@@ -24,7 +24,7 @@ function onSpellCast(caster, target, spell)
     elseif (caster:hasStatusEffect(tpz.effect.MARCATO)) then
         duration = duration * 1.5
     end
-    caster:delStatusEffect(tpz.effect.MARCATO)
+    caster:delStatusEffectSilent(tpz.effect.MARCATO)
 
     if (caster:hasStatusEffect(tpz.effect.TROUBADOUR)) then
         duration = duration * 2

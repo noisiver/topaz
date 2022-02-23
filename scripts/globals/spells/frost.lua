@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
             spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
         else
             if (target:getStatusEffect(tpz.effect.CHOKE) ~= nil) then
-                target:delStatusEffect(tpz.effect.CHOKE)
+                target:delStatusEffectSilent(tpz.effect.CHOKE)
             end
             local sINT = caster:getStat(tpz.mod.INT)
             local DOT = getElementalDebuffDOT(sINT)
@@ -44,7 +44,7 @@ function onSpellCast(caster, target, spell)
                 spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
             else
                 if (effect ~= nil) then
-                    target:delStatusEffect(tpz.effect.FROST)
+                    target:delStatusEffectSilent(tpz.effect.FROST)
                 end
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
                 local duration = math.floor(ELEMENTAL_DEBUFF_DURATION * resist)
