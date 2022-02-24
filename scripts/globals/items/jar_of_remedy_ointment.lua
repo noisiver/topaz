@@ -18,19 +18,19 @@ function onItemUse(target)
             num = math.random(1, 4)
             if (num == 1 and target:hasStatusEffect(tpz.effect.SILENCE)) then
                 effectRemoved = effectRemoved + 1
-                target:delStatusEffect(tpz.effect.SILENCE)
+                target:delStatusEffectSilent(tpz.effect.SILENCE)
 
             elseif (num == 2 and target:hasStatusEffect(tpz.effect.BLINDNESS)) then
                 effectRemoved = effectRemoved + 1
-                target:delStatusEffect(tpz.effect.BLINDNESS)
+                target:delStatusEffectSilent(tpz.effect.BLINDNESS)
 
             elseif (num == 3 and target:hasStatusEffect(tpz.effect.POISON)) then
                 effectRemoved = effectRemoved + 1
-                target:delStatusEffect(tpz.effect.POISON)
+                target:delStatusEffectSilent(tpz.effect.POISON)
 
             elseif (num == 4 and target:hasStatusEffect(tpz.effect.PARALYSIS)) then
                 effectRemoved = effectRemoved + 1
-                target:delStatusEffect(tpz.effect.PARALYSIS)
+                target:delStatusEffectSilent(tpz.effect.PARALYSIS)
             end
         end
     end

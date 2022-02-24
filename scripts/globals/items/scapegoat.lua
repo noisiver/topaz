@@ -21,7 +21,7 @@ function onItemUse(target)
         if oPower > power then
             target:messageBasic(tpz.msg.basic.NO_EFFECT)
         else
-            target:delStatusEffect(tpz.effect.RERAISE)
+            target:delStatusEffectSilent(tpz.effect.RERAISE)
             target:addStatusEffect(tpz.effect.RERAISE, power, 0, duration)
         end
     else

@@ -13,7 +13,7 @@ end
 function onItemUse(target)
 
     if (target:hasStatusEffect(tpz.effect.BLINDNESS) == true) then
-        target:delStatusEffect(tpz.effect.BLINDNESS)
+        target:delStatusEffectSilent(tpz.effect.BLINDNESS)
     end
 end
 

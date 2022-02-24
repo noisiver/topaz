@@ -21,7 +21,7 @@ function onAdditionalEffect(player, target, damage)
     if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0) < 0.5) then
         return 0, 0, 0
     else
-        target:delStatusEffect(tpz.effect.ATTACK_BOOST)
+        target:delStatusEffectSilent(tpz.effect.ATTACK_BOOST)
         target:addStatusEffect(tpz.effect.ATTACK_DOWN, 12.5, 0, 60)
         return tpz.subEffect.DEFENSE_DOWN, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.ATTACK_DOWN
     end

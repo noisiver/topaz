@@ -9,7 +9,7 @@ require("scripts/globals/status")
 function onItemCheck(target)
     local effect = target:getStatusEffect(tpz.effect.ENCHANTMENT)
     if effect ~= nil and effect:getSubType() == 14789 then
-        target:delStatusEffect(tpz.effect.ENCHANTMENT)
+        target:delStatusEffectSilent(tpz.effect.ENCHANTMENT)
     end
     return 0
 end

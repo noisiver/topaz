@@ -23,7 +23,6 @@ function onAdditionalEffect(player, target, damage)
     elseif (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0) < 0.5) then
         return 0, 0, 0
     else
-        target:delStatusEffect(tpz.effect.POISON)
         if (not target:hasStatusEffect(tpz.effect.POISON)) then
             target:addStatusEffect(tpz.effect.POISON, 4, 3, 30)
         end

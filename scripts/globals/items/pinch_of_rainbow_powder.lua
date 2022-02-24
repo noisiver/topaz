@@ -16,7 +16,7 @@ end
 
 function onItemUse(target)
     local duration = 180
-    target:delStatusEffect(tpz.effect.INVISIBLE)
+    target:delStatusEffectSilent(tpz.effect.INVISIBLE)
     target:addStatusEffect(tpz.effect.INVISIBLE, 0, 10, math.floor(duration * SNEAK_INVIS_DURATION_MULTIPLIER))
     target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 600)
 end

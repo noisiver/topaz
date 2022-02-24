@@ -12,8 +12,8 @@ end
 
 function onItemUse(target)
     if (target:hasStatusEffect(tpz.effect.FOOD) == true) then
-        target:delStatusEffect(tpz.effect.FOOD)
+        target:delStatusEffectSilent(tpz.effect.FOOD)
     elseif (target:hasStatusEffect(tpz.effect.FIELD_SUPPORT_FOOD) == true) then
-        target:delStatusEffect(tpz.effect.FIELD_SUPPORT_FOOD)
+        target:delStatusEffectSilent(tpz.effect.FIELD_SUPPORT_FOOD)
     end
 end

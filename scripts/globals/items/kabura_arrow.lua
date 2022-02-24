@@ -23,7 +23,6 @@ function onAdditionalEffect(player, target, damage)
     elseif (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0) < 0.5) then
         return 0, 0, 0
     else
-        target:delStatusEffect(tpz.effect.SILENCE)
         if (not target:hasStatusEffect(tpz.effect.SILENCE)) then
             target:addStatusEffect(tpz.effect.SILENCE, 1, 0, 60)
         end

@@ -16,6 +16,6 @@ end
 function onItemUse(target)
     target:AnimationSub(2)
     target:SetMobSkillAttack(0)
-    target:delStatusEffect(tpz.effect.TOO_HIGH)
+    target:delStatusEffectSilent(tpz.effect.TOO_HIGH)
     target:setLocalVar("changeTime", target:getBattleTime())
 end

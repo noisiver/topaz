@@ -32,7 +32,7 @@ function onItemUse(target)
     end
 
     for k,v in pairs(has) do
-        target:delStatusEffect(v)
+        target:delStatusEffectSilent(v)
     end
 
     if statusNum > 0 then

@@ -23,7 +23,7 @@ function onAdditionalEffect(player, target, damage)
     elseif (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0) < 0.5) then
         return 0, 0, 0
     else
-        target:delStatusEffect(tpz.effect.BLINDNESS)
+        target:delStatusEffectSilent(tpz.effect.BLINDNESS)
         if (not target:hasStatusEffect(tpz.effect.BLINDNESS)) then
             target:addStatusEffect(tpz.effect.BLINDNESS, 20, 0, 30)
         end
