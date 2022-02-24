@@ -277,6 +277,30 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         finaldmg = math.floor(finaldmg * circlemult / 100)
     end
 
+    -- Handle Positional PDT
+    if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3 then
+            finaldmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 5 then
+            finaldmg = math.floor(finaldmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 6 then
+            finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
+        end
+    end
+    if caster:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 4 then
+            finaldmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 7 then
+            finaldmg = math.floor(finaldmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 8 then
+            finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
+        end
+    end
+
     if finaldmg == 0 then
         spell:setMsg(tpz.msg.basic.MAGIC_FAIL)
     end
