@@ -27,8 +27,8 @@ function onUseAbility(player, target, ability)
     player:delStatusEffectSilent(tpz.effect.UNDA)
     player:setLocalVar("UndaRunes", 0)
     player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.GEO_MAGIC_DEF_BOOST, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
-    local arcana = (target:getSystem() == 3)
-	if arcana then
+    local demon = target:getSystem() == 9
+	if demon then
         target:addStatusEffect(tpz.effect.HAMANOHA, 12, 0, 180)
     end
 end
