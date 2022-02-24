@@ -1054,7 +1054,7 @@ namespace battleutils
             {
                 if (resist >= 0.5f  && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, 30 * resist));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1067,7 +1067,7 @@ namespace battleutils
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::PARALYZERESTRAIT))
                     //printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1079,7 +1079,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::STUNRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 4 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, (uint32)(4 * (float)resist)));
                 }
                 break;
             }
@@ -1091,7 +1091,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SILENCERESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1103,7 +1103,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1115,7 +1115,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -2148,11 +2148,11 @@ namespace battleutils
 
         if (PDefender->objtype == TYPE_MOB)
         {
-            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 20));
+            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * (uint8)0.2325), 5, 20));
         }
         else
         {
-            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 50));
+            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * (uint8)0.2325), 5, 50));
         }
         }
 
