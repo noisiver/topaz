@@ -2103,7 +2103,7 @@ namespace battleutils
                 // Inquartata grants a flat parry rate bonus.
                 int16 inquartataBonus = PDefender->getMod(Mod::INQUARTATA);
                 parryRate += inquartataBonus;
-
+                //printf("Your parryrtate is... %i \n", parryRate);
                 return parryRate;
             }
         }
@@ -2131,28 +2131,25 @@ namespace battleutils
         {
             return 0;
         }
-            // assuming this is like parry
-            float gbase = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
-            float skill = (float)gbase + ((float)gbase * (PDefender->getMod(Mod::GUARD_PERCENT) / 100));
-            auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
-			uint16 enemyskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
-			uint16 guardskill = PDefender->GetSkill(SKILL_GUARD);
-
-            if (PWeapon)
-                skill += PWeapon->getILvlParry(); //no weapon will ever have ilvl guard and parry
-
-            float diff = 1.0f + (((float)PDefender->GetMLevel() - PAttacker->GetMLevel()) / 15.0f);
-
-            if (diff < 0.4f) diff = 0.4f;
-            if (diff > 1.4f) diff = 1.4f;
+        // making this is like block
+        float skill = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
+        float guardmod = (100.0f + PDefender->getMod(Mod::GUARD_PERCENT)) / 100.0f;
+        auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
+		float enemyskill = (float)PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
+        float guardchance = (skill - enemyskill) * 0.2325f;
+        //printf("Your guard chance before adding 50 base is... %f \n", guardchance);
+        guardchance = guardchance + 50.0f;
+        //printf("Your guard chance AFTER adding 50 base is... %f \n", guardchance);
+        guardchance = guardchance * guardmod;
+        //printf("Your guard chance AFTER multiplying by gear mod is... %f \n", guardchance);
 
         if (PDefender->objtype == TYPE_MOB)
         {
-            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * (uint8)0.2325), 5, 20));
+            return static_cast<uint8>(std::clamp<float>((uint8)guardchance, 5, 20));
         }
         else
         {
-            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * (uint8)0.2325), 5, 50));
+            return static_cast<uint8>(std::clamp<float>((uint8)guardchance, 5, 50 * guardmod));
         }
         }
 
