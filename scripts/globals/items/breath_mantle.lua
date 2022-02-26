@@ -12,7 +12,7 @@ function onItemCheck(target)
     local effect = target:getStatusEffect(tpz.effect.ENCHANTMENT)
     if (effect ~= nil) then
         if (effect:getSubType() == 15486) then
-            target:delStatusEffect(tpz.effect.ENCHANTMENT)
+            target:delStatusEffectSilent(tpz.effect.ENCHANTMENT)
         end
     end
     return 0
@@ -20,7 +20,7 @@ end
 
 function onItemUse(target)
     if (target:hasStatusEffect(tpz.effect.ENCHANTMENT) == true) then
-        target:delStatusEffect(tpz.effect.ENCHANTMENT)
+        target:delStatusEffectSilent(tpz.effect.ENCHANTMENT)
         target:addStatusEffect(tpz.effect.ENCHANTMENT, 0, 0, 1800, 15486)
     else
         target:addStatusEffect(tpz.effect.ENCHANTMENT, 0, 0, 1800, 15486)

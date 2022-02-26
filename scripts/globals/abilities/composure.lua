@@ -14,6 +14,6 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:delStatusEffect(tpz.effect.COMPOSURE)
+    player:delStatusEffectSilent(tpz.effect.COMPOSURE)
     player:addStatusEffect(tpz.effect.COMPOSURE, 1, 0, 7200)
 end

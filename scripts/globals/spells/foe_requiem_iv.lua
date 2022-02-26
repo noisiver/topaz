@@ -57,7 +57,7 @@ function onSpellCast(caster, target, spell)
     elseif (caster:hasStatusEffect(tpz.effect.MARCATO)) then
         power = power * 1.5
     end
-    caster:delStatusEffect(tpz.effect.MARCATO)
+    caster:delStatusEffectSilent(tpz.effect.MARCATO)
 
     duration = duration + ((iBoost * 14) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
 

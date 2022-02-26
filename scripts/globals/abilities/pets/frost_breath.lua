@@ -22,7 +22,7 @@ function onUseAbility(pet, target, skill, action)
     local deep = 1
     if (pet:hasStatusEffect(tpz.effect.MAGIC_ATK_BOOST) == true) then
         deep = deep + 1 + (master:getMerit(tpz.merit.DEEP_BREATHING)-1)*0.25
-        pet:delStatusEffect(tpz.effect.MAGIC_ATK_BOOST)
+        pet:delStatusEffectSilent(tpz.effect.MAGIC_ATK_BOOST)
     end
 
     local gear = master:getMod(tpz.mod.WYVERN_BREATH)/256 -- Master gear that enhances breath

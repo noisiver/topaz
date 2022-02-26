@@ -71,12 +71,12 @@ function onSpellCast(caster, target, spell)
 
     if (damage > 0 and resist >= 0.5) then
     local typeEffect = tpz.effect.SLOW
-        target:delStatusEffect(typeEffect)
+        target:delStatusEffectSilent(typeEffect)
         target:addStatusEffect(typeEffect, 3500, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 
     if (damage > 0 and resist >= 0.5) then
-        target:delStatusEffect(tpz.effect.SILENCE)
+        target:delStatusEffectSilent(tpz.effect.SILENCE)
         target:addStatusEffect(tpz.effect.SILENCE, 25, 0, getBlueEffectDuration(caster, resist, tpz.effect.SILENCE))
     end
 

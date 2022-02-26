@@ -11,13 +11,28 @@ require("scripts/globals/zone")
 -----------------------------------
 
 function onInstanceCreated(instance)
-    instance:getEntity(bit.band(ID.npc.RUNE_OF_RELEASE, 0xFFF), tpz.objType.NPC):setPos(49.999,-40.837,96.999,0)
-    instance:getEntity(bit.band(ID.npc.ANCIENT_LOCKBOX, 0xFFF), tpz.objType.NPC):setPos(50.000,-40.070,99.999,0)
+    --for i, v in pairs(ID.mob[21]) do
+    for v = 17035562,17035612,1 do
+        SpawnMob(v, instance)
+    end
+    instance:getEntity(bit.band(ID.npc.RUNE_OF_RELEASE, 0xFFF), tpz.objType.NPC):setPos(160.1609,-40.0341,325.9784,0)
+    instance:getEntity(bit.band(ID.npc.ANCIENT_LOCKBOX, 0xFFF), tpz.objType.NPC):setPos(160.1609,-40.0341,328.9784,0)
 
-    spawnMobInAssault(instance, ID.mob)
+    instance:getEntity(bit.band(ID.npc._1rx, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Brittle Rocks
+    instance:getEntity(bit.band(ID.npc._1ry, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Brittle Rocks
+    instance:getEntity(bit.band(ID.npc._1rz, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Brittle Rocks
+    instance:getEntity(bit.band(ID.npc._jr0, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Brittle Rocks
+    instance:getEntity(bit.band(ID.npc._jr1, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Brittle Rocks
 end
 
 function afterInstanceRegister(player)
+    player:addKeyItem(1868)     -- MAP_OF_LEBROS_CAVERN
+    player:addTempItem(5436)    -- Dusty reraise
+    player:addTempItem(5431)    -- Dusty Potion
+    player:addTempItem(5824)    -- Lucid Potion
+    player:addTempItem(5825)    -- Lucid Potion II
+    player:addTempItem(5826)    -- Lucid Potion III
+    player:addTempItem(5437)    -- Flask of Strange Milk
     afterAssaultRegister(player, 5345, ID.text, ID.mob)
 end
 
@@ -26,11 +41,15 @@ function onInstanceTimeUpdate(instance, elapsed)
 end
 
 function onInstanceFailure(instance)
+    local chars = instance:getChars()
+    for _,v in pairs(chars) do
+        v:delKeyItem(1868) -- MAP_OF_LEBROS_CAVERN
+    end
     onAssaultFailure(instance, 102, ID.text)
 end
 
 function onInstanceProgressUpdate(instance, progress)
-    if progress >= 5 then    
+    if progress == 1 then    
         instance:complete()
     end
 end

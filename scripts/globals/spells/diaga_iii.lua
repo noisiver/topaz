@@ -56,7 +56,7 @@ function onSpellCast(caster, target, spell)
     -- Try to kill same tier Bio (non-default behavior)
     if BIO_OVERWRITE == 1 and bio ~= nil then
         if bio:getPower() <= 3 then
-            target:delStatusEffect(tpz.effect.BIO)
+            target:delStatusEffectSilent(tpz.effect.BIO)
         end
     end
 

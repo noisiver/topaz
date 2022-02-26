@@ -375,7 +375,7 @@ function onMobFight(mob, target)
 	if RunAwayPath == 1 then
         for i, effect in ipairs(removables) do
             if (target:hasStatusEffect(effect)) then
-                target:delStatusEffect(effect)
+                target:delStatusEffectSilent(effect)
             end
         end
         mob:setMod(tpz.mod.UDMGPHYS, -100)
@@ -390,7 +390,7 @@ function onMobFight(mob, target)
 	if RunAwayPath == 2 then
         for i, effect in ipairs(removables) do
             if (target:hasStatusEffect(effect)) then
-                target:delStatusEffect(effect)
+                target:delStatusEffectSilent(effect)
             end
         end
         mob:setMod(tpz.mod.UDMGPHYS, -100)

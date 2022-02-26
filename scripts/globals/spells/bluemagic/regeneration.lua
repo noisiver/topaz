@@ -35,11 +35,11 @@ function onSpellCast(caster, target, spell)
             duration = duration + (duration/100)* diffMerit
         end
 
-        caster:delStatusEffect(tpz.effect.DIFFUSION)
+        caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
 
     if (target:hasStatusEffect(tpz.effect.REGEN) and target:getStatusEffect(tpz.effect.REGEN):getTier() == 1) then
-        target:delStatusEffect(tpz.effect.REGEN)
+        target:delStatusEffectSilent(tpz.effect.REGEN)
     end
 
     if (target:addStatusEffect(typeEffect, power, 3, duration, 0, 0, 0) == false) then

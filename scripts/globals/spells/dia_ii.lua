@@ -50,7 +50,7 @@ function onSpellCast(caster, target, spell)
     local bio = target:getStatusEffect(tpz.effect.BIO)
 
     -- Do it!
-    target:delStatusEffect(tpz.effect.BIO)
+    target:delStatusEffectSilent(tpz.effect.BIO)
     target:addStatusEffect(tpz.effect.DIA, 2 + dotBonus, 3, duration, 0, 10, 2)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 

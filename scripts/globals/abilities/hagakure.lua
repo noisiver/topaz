@@ -6,6 +6,7 @@
 -- Duration: 1:00 or Next Weaponskill
 -----------------------------------
 require("scripts/globals/status")
+require("scripts/globals/utils")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -19,12 +20,19 @@ end
 
 function onUseAbility(player, target, ability)
     local Runes = player:getLocalVar("LuxRunes")
-    local power = Runes * 50
+    local power = 50
+    if player:getMainLvl() >= 60 and player:getMainLvl() < 75 then
+        power = utils.clamp(power * Runes, 50, 100)
+    elseif player:getMainLvl() == 75 then
+        power = power * Runes
+    end
     local duration = Runes * 10
     player:delStatusEffectSilent(tpz.effect.LUX)
     player:delStatusEffectSilent(tpz.effect.LUX)
     player:delStatusEffectSilent(tpz.effect.LUX)
     player:setLocalVar("LuxRunes", 0)
-    player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.REGEN, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
+    player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.GEO_REGEN, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
+    player:delStatusEffectSilent(tpz.effect.HAGAKURE)
+    player:addStatusEffect(tpz.effect.HAGAKURE, 1, 0, 60)
 end
 

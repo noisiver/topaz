@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
         local paralysis = target:getStatusEffect(effect)
         if (paralysis ~= nil) then
             if (paralysis:getPower() < power) then
-                target:delStatusEffect(effect)
+                target:delStatusEffectSilent(effect)
                 target:addStatusEffect(effect, power, 0, duration)
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
             else

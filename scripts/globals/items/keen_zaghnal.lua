@@ -10,7 +10,7 @@ require("scripts/globals/status")
 
 function onItemCheck(target)
     if (target:getEquipID(tpz.slot.MAIN) ~= 18067) then
-        target:delStatusEffect(tpz.effect.ACCURACY_BOOST, 18067)
+        target:delStatusEffectSilent(tpz.effect.ACCURACY_BOOST, 18067)
     end
     return 0
 end

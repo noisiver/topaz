@@ -37,7 +37,7 @@ function onSpellCast(caster, target, spell)
     elseif (caster:hasStatusEffect(tpz.effect.MARCATO)) then
         power = power * 1.5
     end
-    caster:delStatusEffect(tpz.effect.MARCATO)
+    caster:delStatusEffectSilent(tpz.effect.MARCATO)
 
     -- convert to new haste system
     power = (power / 1024) * 10000

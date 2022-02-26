@@ -13,7 +13,7 @@ end
 function onItemUse(target)
 
     if (target:hasStatusEffect(tpz.effect.SILENCE) == true) then
-        target:delStatusEffect(tpz.effect.SILENCE)
+        target:delStatusEffectSilent(tpz.effect.SILENCE)
     end
 end
 

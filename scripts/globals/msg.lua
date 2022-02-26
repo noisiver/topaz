@@ -222,6 +222,7 @@ tpz.msg.basic =
     ITEM_YOU_OBTAIN_FROM    = 98,   -- You obtain a ${item} from ${target}.
     ITEM_NO_USE_LEVEL       = 104,  -- Unable to use item.${lb}You do not meet the level requirement.
     ITEM_NO_USE_MEDICATED   = 111,  -- You cannot use ${item} while medicated.
+    ITEM_ALL_STATS_BOOSTED  = 365,  -- All of ${target}'s status parameters are boosted.
     ITEM_NO_USE_INVENTORY   = 308,  -- Unable to use the ${item}.${lb}${target}'s inventory is full.
     ITEM_RECEIVES_EFFECT    = 375,  -- ${actor} uses a ${item}.${lb}${target} receives the effect of ${status}.
     ITEM_OBTAINS_A          = 376,  -- ${actor} uses a ${item}.${lb}${target} obtains a ${item2}.

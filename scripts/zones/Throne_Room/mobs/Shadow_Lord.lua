@@ -33,7 +33,7 @@ function onMobFight(mob, target)
             -- subanimation 0 is first phase subanim, so just go straight to magic mode
             if (mob:AnimationSub() == 0) then
                 mob:AnimationSub(1)
-                mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD)
+                mob:delStatusEffectSilent(tpz.effect.PHYSICAL_SHIELD)
                 mob:addStatusEffectEx(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
                 mob:SetAutoAttackEnabled(false)
                 mob:SetMagicCastingEnabled(true)
@@ -45,7 +45,7 @@ function onMobFight(mob, target)
             elseif (mob:AnimationSub() == 2 and (mob:getHP() <= changeHP - 1000 or
                     mob:getBattleTime() - changeTime > 300)) then
                 mob:AnimationSub(1)
-                mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD)
+                mob:delStatusEffectSilent(tpz.effect.PHYSICAL_SHIELD)
                 mob:addStatusEffectEx(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
                 mob:SetAutoAttackEnabled(false)
                 mob:SetMagicCastingEnabled(true)
@@ -58,7 +58,7 @@ function onMobFight(mob, target)
                 -- and use an ability before changing
                 mob:useMobAbility(673)
                 mob:AnimationSub(2)
-                mob:delStatusEffect(tpz.effect.MAGIC_SHIELD)
+                mob:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
                 mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
                 mob:SetAutoAttackEnabled(true)
                 mob:SetMagicCastingEnabled(false)
@@ -89,8 +89,8 @@ function onMobDeath(mob, player, isKiller)
     mob:AnimationSub(0)
     mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
-    mob:delStatusEffect(tpz.effect.MAGIC_SHIELD)
-    mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD)
+    mob:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
+    mob:delStatusEffectSilent(tpz.effect.PHYSICAL_SHIELD)
 end
 
 function onMobDespawn(mob)
@@ -98,8 +98,8 @@ function onMobDespawn(mob)
     mob:AnimationSub(0)
     mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
-    mob:delStatusEffect(tpz.effect.MAGIC_SHIELD)
-    mob:delStatusEffect(tpz.effect.PHYSICAL_SHIELD)
+    mob:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
+    mob:delStatusEffectSilent(tpz.effect.PHYSICAL_SHIELD)
 end
 
 function onEventUpdate(player, csid, option)

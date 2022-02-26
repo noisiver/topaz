@@ -58,7 +58,7 @@ function onSpellCast(caster, target, spell)
     -- Try to kill same tier Dia (default behavior)
     if DIA_OVERWRITE == 1 and dia ~= nil then
         if dia:getPower() <= 4 then
-            target:delStatusEffect(tpz.effect.DIA)
+            target:delStatusEffectSilent(tpz.effect.DIA)
         end
     end
 

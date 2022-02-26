@@ -66,10 +66,10 @@ function onSpellCast(caster, target, spell)
     if (statusDel == 0) then -- this gets set to 0 if there's no status to delete.
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
     elseif (statusDelMis ~= 0) then -- no need to check for statusDelMis because it can't be 0 if this isn't
-        target:delStatusEffect(statusDel)
-        target:delStatusEffect(statusDelMis)
+        target:delStatusEffectSilent(statusDel)
+        target:delStatusEffectSilent(statusDelMis)
     else
-        target:delStatusEffect(statusDel)
+        target:delStatusEffectSilent(statusDel)
     end
 
     return statusDel

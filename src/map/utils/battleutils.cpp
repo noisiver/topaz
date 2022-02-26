@@ -575,9 +575,9 @@ namespace battleutils
             else
             {
                 if (element == ELEMENT_DARK)
-                    PAttacker->StatusEffectContainer->DelStatusEffect(EFFECT_ENDARK);
+                    PAttacker->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ENDARK);
                 else
-                    PAttacker->StatusEffectContainer->DelStatusEffect(EFFECT_ENLIGHT);
+                    PAttacker->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ENLIGHT);
             }
 
             damage += PAttacker->getMod(Mod::ENSPELL_DMG_BONUS);
@@ -872,7 +872,7 @@ namespace battleutils
                                 int remainingDrain = PEffect->GetSubPower();
                                 if (remainingDrain - Action->spikesParam <= 0)
                                 {
-                                    PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_DREAD_SPIKES);
+                                    PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_DREAD_SPIKES);
                                 }
                                 else
                                 {
@@ -900,7 +900,7 @@ namespace battleutils
                             int remainingReflect = PEffect->GetSubPower();
                             if (remainingReflect - Action->spikesParam <= 0)
                             {
-                                PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_REPRISAL);
+                                PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_REPRISAL);
                             }
                             else
                             {
@@ -1054,7 +1054,7 @@ namespace battleutils
             {
                 if (resist >= 0.5f  && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, 30 * resist));
+                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1067,7 +1067,7 @@ namespace battleutils
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::PARALYZERESTRAIT))
                     //printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, 30 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1079,7 +1079,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::STUNRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, 4 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_STUN, EFFECT_STUN, 1, 0, (uint32)(4 * (float)resist)));
                 }
                 break;
             }
@@ -1091,7 +1091,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SILENCERESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, 30 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SILENCE, EFFECT_SILENCE, 1, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1103,7 +1103,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, 30 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1115,7 +1115,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, 30 * resist));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1953,7 +1953,7 @@ namespace battleutils
                 // ShowDebug("Aquaveil counter: %u\n", aquaCount);
                 if (aquaCount - 1 == 0) // removes the status, but still prevents the interrupt
                 {
-                    PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_AQUAVEIL);
+                    PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_AQUAVEIL);
                 }
                 else
                 {
@@ -2103,7 +2103,7 @@ namespace battleutils
                 // Inquartata grants a flat parry rate bonus.
                 int16 inquartataBonus = PDefender->getMod(Mod::INQUARTATA);
                 parryRate += inquartataBonus;
-
+                //printf("Your parryrtate is... %i \n", parryRate);
                 return parryRate;
             }
         }
@@ -2131,28 +2131,25 @@ namespace battleutils
         {
             return 0;
         }
-            // assuming this is like parry
-            float gbase = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
-            float skill = (float)gbase + ((float)gbase * (PDefender->getMod(Mod::GUARD_PERCENT) / 100));
-            auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
-			uint16 enemyskill = PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
-			uint16 guardskill = PDefender->GetSkill(SKILL_GUARD);
-
-            if (PWeapon)
-                skill += PWeapon->getILvlParry(); //no weapon will ever have ilvl guard and parry
-
-            float diff = 1.0f + (((float)PDefender->GetMLevel() - PAttacker->GetMLevel()) / 15.0f);
-
-            if (diff < 0.4f) diff = 0.4f;
-            if (diff > 1.4f) diff = 1.4f;
+        // making this is like block
+        float skill = (float)PDefender->GetSkill(SKILL_GUARD) + PDefender->getMod(Mod::GUARD);
+        float guardmod = (100.0f + PDefender->getMod(Mod::GUARD_PERCENT)) / 100.0f;
+        auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
+		float enemyskill = (float)PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0));
+        float guardchance = (skill - enemyskill) * 0.2325f;
+        //printf("Your guard chance before adding 50 base is... %f \n", guardchance);
+        guardchance = guardchance + 50.0f;
+        //printf("Your guard chance AFTER adding 50 base is... %f \n", guardchance);
+        guardchance = guardchance * guardmod;
+        //printf("Your guard chance AFTER multiplying by gear mod is... %f \n", guardchance);
 
         if (PDefender->objtype == TYPE_MOB)
         {
-            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 20));
+            return static_cast<uint8>(std::clamp<float>((uint8)guardchance, 5, 20));
         }
         else
         {
-            return static_cast<uint8>(std::clamp<uint8>((uint8)50 + ((guardskill - enemyskill) * 0.2325), 5, 50));
+            return static_cast<uint8>(std::clamp<float>((uint8)guardchance, 5, 50 * guardmod));
         }
         }
 
@@ -2589,7 +2586,13 @@ namespace battleutils
         // Remove Hagakure Effect if present
         if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HAGAKURE))
         {
-            PAttacker->StatusEffectContainer->DelStatusEffect(EFFECT_HAGAKURE);
+            PAttacker->StatusEffectContainer->DelStatusEffectSilent(EFFECT_HAGAKURE);
+        }
+
+        // Apply Sengikori Effect if present
+        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SENGIKORI))
+        {
+            PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SENGIKORI, EFFECT_SENGIKORI, 1, 0, 30));
         }
 
         return damage;
@@ -3690,7 +3693,7 @@ namespace battleutils
                     skillchain = FormSkillchain(resonanceProperties, skillProperties);
                 }
                 PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SKILLCHAIN, 0, combined_properties, 0, 10, 0, 0, 0));
-                PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_CHAINBOUND);
+                PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_CHAINBOUND);
                 PSCEffect = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SKILLCHAIN, 0);
             }
             // Previous effect exists
@@ -3897,9 +3900,8 @@ namespace battleutils
         //            TODO:     × (1 + Day/Weather bonuses)
         //            TODO:     × (1 + Staff Affinity)
 
-        auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000);
-        // OOE    * (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100
-        // OOE    * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
+        auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000 *
+                                   (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100 * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
         // ShowDebug("RawDamage: %u\n,", damage);
         auto PChar = dynamic_cast<CCharEntity*>(PAttacker);
         if (PChar && PChar->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PChar->loc.p, PDefender->loc.p, 64))
@@ -4392,7 +4394,7 @@ namespace battleutils
         {
             damage += (uint32)(floor(m_PChar->health.mp / 10));
             m_PChar->health.mp = 0;
-            m_PChar->StatusEffectContainer->DelStatusEffect(EFFECT_CONSUME_MANA);
+            m_PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_CONSUME_MANA);
         }
         return damage;
     }
@@ -5174,7 +5176,6 @@ namespace battleutils
             ConvertDmgToMP(PDefender, damage, IsCovered);
 
             damage = HandleFanDance(PDefender, damage);
-            damage = HandlePositionalPDT(PDefender, damage); 
         }
 
         return damage;
@@ -5219,7 +5220,6 @@ namespace battleutils
             ConvertDmgToMP(PDefender, damage, IsCovered);
 
             damage = HandleFanDance(PDefender, damage);
-            damage = HandlePositionalPDT(PDefender, damage); 
         }
 
         return damage;
@@ -5358,7 +5358,7 @@ namespace battleutils
                 return 0;
             }
 
-            PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_STONESKIN);
+            PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_STONESKIN);
             return damage - skin;
         }
 
@@ -5550,7 +5550,7 @@ namespace battleutils
         {
             if (PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_PIANISSIMO))
             {
-                PCaster->StatusEffectContainer->DelStatusEffect(EFFECT_PIANISSIMO);
+                PCaster->StatusEffectContainer->DelStatusEffectSilent(EFFECT_PIANISSIMO);
                 return SPELLAOE_NONE;
             }
             else

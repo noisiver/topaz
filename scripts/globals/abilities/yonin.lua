@@ -14,7 +14,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    target:delStatusEffect(tpz.effect.INNIN)
-    target:delStatusEffect(tpz.effect.YONIN)
+    target:delStatusEffectSilent(tpz.effect.INNIN)
+    target:delStatusEffectSilent(tpz.effect.YONIN)
     target:addStatusEffect(tpz.effect.YONIN, 30, 15, 300, 0, 20)
 end

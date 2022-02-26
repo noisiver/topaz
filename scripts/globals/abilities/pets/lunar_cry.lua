@@ -29,8 +29,8 @@ function onPetAbility(target, pet, skill)
     else
         buffvalue = 1
     end
-    target:delStatusEffect(tpz.effect.ACCURACY_DOWN)
-    target:delStatusEffect(tpz.effect.EVASION_DOWN)
+    target:delStatusEffectSilent(tpz.effect.ACCURACY_DOWN)
+    target:delStatusEffectSilent(tpz.effect.EVASION_DOWN)
     target:addStatusEffect(tpz.effect.ACCURACY_DOWN, buffvalue, 0, 180)
     target:addStatusEffect(tpz.effect.EVASION_DOWN, 32-buffvalue, 0, 180)
     skill:setMsg(tpz.msg.basic.NONE)

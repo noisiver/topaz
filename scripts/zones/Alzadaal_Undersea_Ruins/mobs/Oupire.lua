@@ -45,9 +45,9 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 100)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
-		mob:delStatusEffect(tpz.effect.BLAZE_SPIKES)
-		mob:delStatusEffect(tpz.effect.ICE_SPIKES)
-		mob:delStatusEffect(tpz.effect.SHOCK_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.BLAZE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.ICE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.SHOCK_SPIKES)
 		mob:castSpell(191) -- Stonega III
 		if StoneskinApplied == 0 then -- Only supposed to get once per fight
 			mob:addStatusEffect(tpz.effect.STONESKIN, 2000, 0, 3600) 
@@ -59,9 +59,9 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 100)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
-		mob:delStatusEffect(tpz.effect.BLAZE_SPIKES)
-		mob:delStatusEffect(tpz.effect.ICE_SPIKES)
-		mob:delStatusEffect(tpz.effect.SHOCK_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.BLAZE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.ICE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.SHOCK_SPIKES)
 		mob:castSpell(201) -- Waterga III
 	elseif skill:getID() == 2110 then --Wings of Gehenna
         mob:setLocalVar("ElementMode", 3) --Wind
@@ -69,9 +69,9 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
-		mob:delStatusEffect(tpz.effect.BLAZE_SPIKES)
-		mob:delStatusEffect(tpz.effect.ICE_SPIKES)
-		mob:delStatusEffect(tpz.effect.SHOCK_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.BLAZE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.ICE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.SHOCK_SPIKES)
 		mob:castSpell(186) -- Aeroga III
 		mob:addStatusEffect(tpz.effect.BLINK, 20, 0, 0) --Blink
     elseif skill:getID() == 2106 then --Bloodrake
@@ -80,9 +80,9 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
-		mob:delStatusEffect(tpz.effect.BLAZE_SPIKES)
-		mob:delStatusEffect(tpz.effect.ICE_SPIKES)
-		mob:delStatusEffect(tpz.effect.SHOCK_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.BLAZE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.ICE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.SHOCK_SPIKES)
 		mob:castSpell(176) -- Firaga III
     elseif skill:getID() == 2111 then --Eternal Damnation
         mob:setLocalVar("ElementMode", 5) --Ice
@@ -90,9 +90,9 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 100)
-		mob:delStatusEffect(tpz.effect.BLAZE_SPIKES)
-		mob:delStatusEffect(tpz.effect.ICE_SPIKES)
-		mob:delStatusEffect(tpz.effect.SHOCK_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.BLAZE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.ICE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.SHOCK_SPIKES)
 		mob:castSpell(181) -- Blizzaga III
     elseif skill:getID() == 2107 then --Decollation
         mob:setLocalVar("ElementMode", 6) --Thunder
@@ -100,9 +100,9 @@ function onMobWeaponSkill(target, mob, skill)
 		mob:setMod(tpz.mod.SLOWRESTRAIT, 0)
 		mob:setMod(tpz.mod.POISONRESTRAIT, 0)
 		mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
-		mob:delStatusEffect(tpz.effect.BLAZE_SPIKES)
-		mob:delStatusEffect(tpz.effect.ICE_SPIKES)
-		mob:delStatusEffect(tpz.effect.SHOCK_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.BLAZE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.ICE_SPIKES)
+		mob:delStatusEffectSilent(tpz.effect.SHOCK_SPIKES)
 		mob:castSpell(196) -- Thundaga III
     end
 end

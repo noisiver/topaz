@@ -11,6 +11,6 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:delStatusEffect(tpz.effect.FOOD)
-    target:delStatusEffect(tpz.effect.FIELD_SUPPORT_FOOD)
+    target:delStatusEffectSilent(tpz.effect.FOOD)
+    target:delStatusEffectSilent(tpz.effect.FIELD_SUPPORT_FOOD)
 end

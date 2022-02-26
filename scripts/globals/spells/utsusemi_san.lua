@@ -12,7 +12,7 @@ end
 function onSpellCast(caster, target, spell)
     if target:hasStatusEffect(tpz.effect.THIRD_EYE) then
         -- Third Eye and Utsusemi don't stack. Utsusemi removes Third Eye.
-        target:delStatusEffect(tpz.effect.THIRD_EYE)
+        target:delStatusEffectSilent(tpz.effect.THIRD_EYE)
     end
 
     local effect = target:getStatusEffect(tpz.effect.COPY_IMAGE)

@@ -23,7 +23,7 @@ function onSpellCast(caster, target, spell)
         return 0
     end
 
-    target:delStatusEffect(tpz.effect.REFRESH)
+    target:delStatusEffectSilent(tpz.effect.REFRESH)
     target:addStatusEffect(tpz.effect.REFRESH, mp, 0, duration)
 
     return tpz.effect.REFRESH

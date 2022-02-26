@@ -1866,8 +1866,8 @@ namespace charutils
 
                         if (!((CItemWeapon*)PChar->m_Weapons[SLOT_MAIN])->isTwoHanded())
                         {
-                            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_HASSO);
-                            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_SEIGAN);
+                            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_HASSO);
+                            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_SEIGAN);
                         }
 
                     }
@@ -4850,27 +4850,27 @@ namespace charutils
         if (PSpell->getSpellGroup() == SPELLGROUP_WHITE)
         {
             //rapture to be deleted in applicable scripts
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_PENURY);
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_CELERITY);
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_ENLIGHTENMENT);
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_ALTRUISM);
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_TRANQUILITY);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_PENURY);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_CELERITY);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ENLIGHTENMENT);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ALTRUISM);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_TRANQUILITY);
             if (PSpell->getAOE() == SPELLAOE_RADIAL_ACCE)
             {
-                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_ACCESSION);
+                PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ACCESSION);
             }
         }
         else if (PSpell->getSpellGroup() == SPELLGROUP_BLACK)
         {
             //ebullience to be deleted in applicable scripts
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_PARSIMONY);
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_ALACRITY);
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_ENLIGHTENMENT);
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_FOCALIZATION);
-            PChar->StatusEffectContainer->DelStatusEffect(EFFECT_EQUANIMITY);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_PARSIMONY);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ALACRITY);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_ENLIGHTENMENT);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_FOCALIZATION);
+            PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_EQUANIMITY);
             if (PSpell->getAOE() == SPELLAOE_RADIAL_MANI)
             {
-                PChar->StatusEffectContainer->DelStatusEffect(EFFECT_MANIFESTATION);
+                PChar->StatusEffectContainer->DelStatusEffectSilent(EFFECT_MANIFESTATION);
             }
         }
     }

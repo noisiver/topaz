@@ -366,6 +366,7 @@ function onEventFinishExitRune(player, csid, option, ASSAULT_POINT, textTable, Z
             v:delKeyItem(1870) -- MAP_OF_PERIQIA
             v:delKeyItem(1869) -- MAP_OF_ILRUSI_ATOLL
             v:delKeyItem(1866) -- MAP_OF_LEUJAOAM_SANCTUM
+            v:delKeyItem(1868) -- MAP_OF_LEBROS_CAVERN
             v:setPos(0, 0, 0, 0, ZONE)
         end
     end

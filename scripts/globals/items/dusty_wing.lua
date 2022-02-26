@@ -3,6 +3,9 @@
 -- Dusty Wing
 -- Increases TP of the user by 300
 -----------------------------------------
+require("scripts/globals/status")
+require("scripts/globals/msg")
+-----------------------------------------
 
 function onItemCheck(target)
     return 0

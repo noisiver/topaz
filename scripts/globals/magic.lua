@@ -381,7 +381,7 @@ function doBoostGain(caster, target, spell, effect)
             --printf("BOOST-GAIN: CHECKING FOR EFFECT %d...", effect)
             if caster:hasStatusEffect(effect) then
                 --printf("BOOST-GAIN: HAS EFFECT %d, DELETING...", effect)
-                caster:delStatusEffect(effect)
+                caster:delStatusEffectSilent(effect)
             end
     end
 
@@ -1443,7 +1443,7 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
     end
 
     -- Remove previous Threnody
-    target:delStatusEffect(tpz.effect.THRENODY)
+    target:delStatusEffectSilent(tpz.effect.THRENODY)
 
     local iBoost = caster:getMod(tpz.mod.THRENODY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     local power = basePower + iBoost*5
@@ -1515,12 +1515,51 @@ function getElementalSDT(element, target) -- takes into account if magic burst w
         SDT = 100
 		--print("invalid SDT detected")
     end
-    
+
+    -- Handle Magic Bursts
     local MB1 = 0
     local MB2 = 0
     MB1, MB2 = FormMagicBurst(element, target)
     
     if MB1 > 0 then -- window is open for this element
+        if SDT == 5 then
+            SDT = 10
+        elseif SDT == 10 then
+            SDT = 15
+        elseif SDT == 15 then
+            SDT = 20
+        elseif SDT == 20 then
+            SDT = 25
+        elseif SDT == 25 then
+            SDT = 30
+        elseif SDT == 30 then
+            SDT = 40
+        elseif SDT == 40 then
+            SDT = 50
+        elseif SDT == 50 then
+            SDT = 60
+        elseif SDT == 60 then
+            SDT = 70
+        elseif SDT == 70 then
+            SDT = 85
+        elseif SDT == 85 then
+            SDT = 100
+        elseif SDT == 100 then
+            SDT = 115
+        elseif SDT == 115 then
+            SDT = 130
+        elseif SDT == 130 then
+            SDT = 150
+        elseif SDT == 150 then
+            SDT = 150
+        else
+            print(string.format("non-standard SDT tier on target %u valve pls fix",target:getID()))
+            SDT = SDT + 10
+        end
+    end
+
+    -- Handle Sengikori
+    if target:isMob() and target:hasStatusEffect(tpz.effect.SENGIKORI) then
         if SDT == 5 then
             SDT = 10
         elseif SDT == 10 then

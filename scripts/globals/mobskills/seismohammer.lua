@@ -11,6 +11,9 @@ require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 9058 then -- Troll Destroyer(Assault - Lebros Cavern)
+        return 0
+    end
     if (mob:AnimationSub() == 4 and mob:getFamily() == 246) then -- Troll
         return 0
     else

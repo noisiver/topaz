@@ -164,7 +164,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
                                 + fencerBonus + target:getMod(tpz.mod.ENEMYCRITRATE)/100  - target:getMerit(tpz.merit.ENEMY_CRIT_RATE)/100
 
         -- Innin critical boost when attacker is behind target
-        if (attacker:hasStatusEffect(tpz.effect.INNIN) and attacker:isBehind(target, 23)) then
+        if (attacker:hasStatusEffect(tpz.effect.INNIN) and attacker:isBehind(target, 90)) then
             nativecrit = nativecrit + attacker:getStatusEffect(tpz.effect.INNIN):getPower()
         end
 
@@ -400,11 +400,34 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     if wsParams.useAutoTPFormula == nil or wsParams.useAutoTPFormula == false then
         finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.0 -- Add server bonus
     end
-	
+    -- Handle Positional PDT
+    if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3 then
+            finaldmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 5 then
+            finaldmg = math.floor(finaldmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 6 then
+            finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
+        end
+    end
+    if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 4 then
+            finaldmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 7 then
+            finaldmg = math.floor(finaldmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 8 then
+            finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
+        end
+    end
+    -- Handle Footwork damage reduction
 	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
 	finaldmg = math.floor(finaldmg * 0.5)
 	end
-
+    -- Handle Samurai main job damage reduction
     if attacker:getMainJob() == tpz.job.SAM then
         finaldmg = math.floor(finaldmg * 0.5)
     end
@@ -508,6 +531,30 @@ end
     else
         finaldmg = finaldmg * pierceres / 1000
     end
+
+    -- Handle Positional PDT
+    if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 3 then
+            finaldmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 5 then
+            finaldmg = math.floor(finaldmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 6 then
+            finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
+        end
+    end
+    if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 4 then
+            finaldmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 7 then
+            finaldmg = math.floor(finaldmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):getPower() == 8 then
+            finaldmg = math.floor(finaldmg * 0.50) -- 50% DR
+        end
+    end
 	
     finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.05 -- Add server bonus
     calcParams.finalDmg = finaldmg
@@ -515,8 +562,8 @@ end
     finaldmg = utils.stoneskin(target, finaldmg)
     finaldmg = utils.clamp(finaldmg, -99999, 99999)
     finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
-    attacker:delStatusEffect(tpz.effect.FLASHY_SHOT)
-    attacker:delStatusEffect(tpz.effect.STEALTH_SHOT)
+    attacker:delStatusEffectSilent(tpz.effect.FLASHY_SHOT)
+    attacker:delStatusEffectSilent(tpz.effect.STEALTH_SHOT)
 	
     return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
 end
@@ -791,13 +838,13 @@ function getHitRate(attacker, target, capHitRate, bonus)
     if (bonus == nil) then
         bonus = 0
     end
-    if (attacker:hasStatusEffect(tpz.effect.INNIN) and attacker:isBehind(target, 23)) then -- Innin acc boost if attacker is behind target
+    if (attacker:hasStatusEffect(tpz.effect.INNIN) and attacker:isBehind(target, 90)) then -- Innin acc boost if attacker is behind target
         bonus = bonus + attacker:getStatusEffect(tpz.effect.INNIN):getPower()
     end
-    if (target:hasStatusEffect(tpz.effect.YONIN) and attacker:isFacing(target, 23)) then -- Yonin evasion boost if attacker is facing target
+    if (target:hasStatusEffect(tpz.effect.YONIN) and attacker:isFacing(target, 90)) then -- Yonin evasion boost if attacker is facing target
         bonus = bonus - target:getStatusEffect(tpz.effect.YONIN):getPower()
     end
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 23)) then --TRAIT_AMBUSH
+    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then --TRAIT_AMBUSH
         bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
     end
 
@@ -841,7 +888,7 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     if (bonus == nil) then
         bonus = 0
     end
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 23)) then --TRAIT_AMBUSH
+    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then --TRAIT_AMBUSH
         bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
     end
 
@@ -1177,7 +1224,7 @@ function getMultiAttacks(attacker, target, numHits)
     local oaTwiceRate = attacker:getMod(tpz.mod.MYTHIC_OCC_ATT_TWICE)/100
 
     -- Add Ambush Augments to Triple Attack
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 23)) then -- TRAIT_AMBUSH
+    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then -- TRAIT_AMBUSH
         tripleRate = tripleRate + attacker:getMerit(tpz.merit.AMBUSH) / 3 -- Value of Ambush is 3 per mert, augment gives +1 Triple Attack per merit
     end
     --[[
@@ -1244,8 +1291,8 @@ end
             bonusHits = bonusHits + 1
         end
         if (i == 1) then
-            attacker:delStatusEffect(tpz.effect.ASSASSINS_CHARGE)
-            attacker:delStatusEffect(tpz.effect.WARRIOR_S_CHARGE)
+            attacker:delStatusEffectSilent(tpz.effect.ASSASSINS_CHARGE)
+            attacker:delStatusEffectSilent(tpz.effect.WARRIOR_S_CHARGE)
 
             -- recalculate DA/TA/QA rate
             doubleRate = (attacker:getMod(tpz.mod.DOUBLE_ATTACK) + attacker:getMerit(tpz.merit.DOUBLE_ATTACK_RATE))/100

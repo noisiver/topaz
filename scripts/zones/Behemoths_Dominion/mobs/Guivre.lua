@@ -74,7 +74,7 @@ function onMobEngaged(mob)
     mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
     mob:SetMobAbilityEnabled(true)
-    mob:delStatusEffect(tpz.effect.FLEE)
+    mob:delStatusEffectSilent(tpz.effect.FLEE)
     mob:setMod(tpz.mod.UDMGPHYS, 0)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
     mob:setMod(tpz.mod.UDMGBREATH, 0)
@@ -115,7 +115,7 @@ function onMobFight(mob, target)
 	if RunAwayPath == 1 then
         for i, effect in ipairs(removables) do
             if (mob:hasStatusEffect(effect)) then
-                mob:delStatusEffect(effect)
+                mob:delStatusEffectSilent(effect)
             end
         end
         mob:addStatusEffect(tpz.effect.FLEE, 25, 0, 60)
@@ -134,7 +134,7 @@ function onMobFight(mob, target)
 	if RunAwayPath == 2 then
         for i, effect in ipairs(removables) do
             if (mob:hasStatusEffect(effect)) then
-                mob:delStatusEffect(effect)
+                mob:delStatusEffectSilent(effect)
             end
         end
         mob:addStatusEffect(tpz.effect.FLEE, 25, 0, 60)

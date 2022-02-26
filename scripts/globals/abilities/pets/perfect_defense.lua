@@ -21,7 +21,7 @@ function onPetAbility(target, pet, skill, master)
         end
         duration = 30 + summoningSkill / 20
     end
-    target:delStatusEffect(tpz.effect.PERFECT_DEFENSE)
+    target:delStatusEffectSilent(tpz.effect.PERFECT_DEFENSE)
     target:addStatusEffect(tpz.effect.PERFECT_DEFENSE, power, 3, duration)
     skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
     master:setMP(0)

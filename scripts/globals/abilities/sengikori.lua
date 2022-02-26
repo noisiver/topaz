@@ -20,11 +20,12 @@ end
 
 function onUseAbility(player, target, ability)
     local Runes = player:getLocalVar("IgnisRunes")
-    local power = Runes * 10
+    local power = Runes * 7
     local duration = Runes * 30
     player:delStatusEffectSilent(tpz.effect.IGNIS)
     player:delStatusEffectSilent(tpz.effect.IGNIS)
     player:delStatusEffectSilent(tpz.effect.IGNIS)
     player:setLocalVar("IgnisRunes", 0)
-    player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.ATTACK_BOOST, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
+    player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.GEO_ATTACK_BOOST, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
+    target:addStatusEffect(tpz.effect.SENGIKORI, 12, 0, 60)
 end

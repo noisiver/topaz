@@ -615,7 +615,7 @@ bool CAttack::CheckCounter()
     { // Perfect Counter only counters hits that normal counter misses, always critical, can counter 1-3 times before wearing
         m_isCountered = true;
         m_isCritical = true;
-        m_victim->StatusEffectContainer->DelStatusEffect(EFFECT_PERFECT_COUNTER);
+        m_victim->StatusEffectContainer->DelStatusEffectSilent(EFFECT_PERFECT_COUNTER);
     }
     return m_isCountered;
 }
@@ -780,6 +780,70 @@ void CAttack::ProcessDamage()
                 break;
         }
         m_damage = m_damage * circlemult / 100;
+    }
+
+    // Handle frontal PDT
+    if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(m_attacker->loc.p, m_victim->loc.p, 64))
+    {
+        int power = m_victim->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+        float resist = 1.0f;
+        if (power == 3)
+        {
+            resist = 0;
+        }
+        m_damage = (uint16)(m_damage * (float)resist);
+    }
+    if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(m_attacker->loc.p, m_victim->loc.p, 64))
+    {
+        int power = m_victim->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+        float resist = 1.0f;
+        if (power == 5)
+        {
+            resist = 0.25f;
+        }
+        m_damage = (uint16)(m_damage * (float)resist);
+    }
+    if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(m_attacker->loc.p, m_victim->loc.p, 64))
+    {
+        int power = m_victim->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+        float resist = 1.0f;
+        if (power == 6)
+        {
+            resist = 0.5f;
+        }
+        m_damage = (uint16)(m_damage * (float)resist);
+    }
+
+    // Handle behind PDT
+    if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(m_attacker->loc.p, m_victim->loc.p, 64))
+    {
+        int power = m_victim->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+        float resist = 1.0f;
+        if (power == 4)
+        {
+            resist = 0;
+        }
+        m_damage = (uint16)(m_damage * (float)resist);
+    }
+    if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(m_attacker->loc.p, m_victim->loc.p, 64))
+    {
+        int power = m_victim->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+        float resist = 1.0f;
+        if (power == 7)
+        {
+            resist = 0.25f;
+        }
+        m_damage = (uint16)(m_damage * (float)resist);
+    }
+    if (m_victim->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(m_attacker->loc.p, m_victim->loc.p, 64))
+    {
+        int power = m_victim->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+        float resist = 1.0f;
+        if (power == 8)
+        {
+            resist = 0.5f;
+        }
+        m_damage = (uint16)(m_damage * (float)resist);
     }
 
     // Try skill up.

@@ -12,6 +12,6 @@ end
 
 function onItemUse(target)
     local duration = 5400
-    target:delStatusEffect(tpz.effect.RERAISE)
+    target:delStatusEffectSilent(tpz.effect.RERAISE)
     target:addStatusEffect(tpz.effect.RERAISE, 2, 0, duration)
 end

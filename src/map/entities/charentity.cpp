@@ -787,6 +787,7 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
             }
         }
     }
+    StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
     charutils::RemoveStratagems(this, PSpell);
     if (PSpell->tookEffect())
     {
@@ -900,7 +901,7 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
 
                     if (StatusEffectContainer->HasStatusEffect(EFFECT_UNLIMITED_SHOT))
                     {
-                        StatusEffectContainer->DelStatusEffect(EFFECT_UNLIMITED_SHOT);
+                        StatusEffectContainer->DelStatusEffectSilent(EFFECT_UNLIMITED_SHOT);
                         recycleChance = 100;
                     }
                     if (tpzrand::GetRandomNumber(100) > recycleChance)
@@ -954,6 +955,8 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
                 }
             }
         }
+        // Remove Sengikori Effect if present
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
         battleutils::ClaimMob(PBattleTarget, this);
 
         if (PBattleTarget->isDead() && PBattleTarget->objtype == TYPE_MOB)
@@ -1345,7 +1348,7 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         // Only remove unlimited shot on hit
         if (hitOccured && this->StatusEffectContainer->HasStatusEffect(EFFECT_UNLIMITED_SHOT))
         {
-            StatusEffectContainer->DelStatusEffect(EFFECT_UNLIMITED_SHOT);
+            StatusEffectContainer->DelStatusEffectSilent(EFFECT_UNLIMITED_SHOT);
             recycleChance = 100;
         }
 
@@ -1385,6 +1388,70 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
             actionTarget.messageID = 382;
         }
 
+        // Handle frontal PDT
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(this->loc.p, PTarget->loc.p, 64))
+        {
+            int power = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 3)
+            {
+                resist = 0;
+            }
+            actionTarget.param = (int32)(actionTarget.param * (float)resist);
+        }
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(this->loc.p, PTarget->loc.p, 64))
+        {
+            int power = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 5)
+            {
+                resist = 0.25f;
+            }
+            actionTarget.param = (int32)(actionTarget.param * (float)resist);
+        }
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && infront(this->loc.p, PTarget->loc.p, 64))
+        {
+            int power = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 6)
+            {
+                resist = 0.5f;
+            }
+            actionTarget.param = (int32)(actionTarget.param * (float)resist);
+        }
+
+        // Handle Behind PDT
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(this->loc.p, PTarget->loc.p, 64))
+        {
+            int power = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 4)
+            {
+                resist = 0;
+            }
+            actionTarget.param = (int32)(actionTarget.param * (float)resist);
+        }
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(this->loc.p, PTarget->loc.p, 64))
+        {
+            int power = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 7)
+            {
+                resist = 0.25f;
+            }
+            actionTarget.param = (int32)(actionTarget.param * (float)resist);
+        }
+        if (PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_PHYSICAL_SHIELD) && behind(this->loc.p, PTarget->loc.p, 64))
+        {
+            int power = PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_PHYSICAL_SHIELD)->GetPower();
+            float resist = 1.0f;
+            if (power == 8)
+            {
+                resist = 0.5f;
+            }
+            actionTarget.param = (int32)(actionTarget.param * (float)resist);
+        }
+
         //add additional effects
         //this should go AFTER damage taken
         //or else sleep effect won't work
@@ -1416,7 +1483,7 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         // remove shadows
         while (realHits-- && tpzrand::GetRandomNumber(100) <= power && battleutils::IsAbsorbByShadow(this));
 
-        StatusEffectContainer->DelStatusEffect(EFFECT_SANGE);
+        StatusEffectContainer->DelStatusEffectSilent(EFFECT_SANGE);
     }
     battleutils::ClaimMob(PTarget, this);
     battleutils::RemoveAmmo(this, ammoConsumed);

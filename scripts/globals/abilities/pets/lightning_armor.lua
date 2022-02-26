@@ -16,7 +16,7 @@ function onPetAbility(target, pet, skill, summoner)
     local bonusTime = utils.clamp(summoner:getSkillLevel(tpz.skill.SUMMONING_MAGIC) - 300, 0, 200)
     local duration = 180 + bonusTime
 
-    target:delStatusEffect(tpz.effect.SHOCK_SPIKES)
+    target:delStatusEffectSilent(tpz.effect.SHOCK_SPIKES)
     target:addStatusEffect(tpz.effect.SHOCK_SPIKES, 15, 0, duration)
     skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
     return tpz.effect.SHOCK_SPIKES

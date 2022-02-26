@@ -14,7 +14,7 @@ function onItemCheck(target)
     if not pet then
         return tpz.msg.basic.REQUIRES_A_PET, 0
     elseif effect ~= nil and effect:getSubType() == 18242 then
-        target:delStatusEffect(tpz.effect.ENCHANTMENT)
+        target:delStatusEffectSilent(tpz.effect.ENCHANTMENT)
     end
     return 0
 end

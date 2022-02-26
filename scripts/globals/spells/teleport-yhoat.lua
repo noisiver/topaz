@@ -14,7 +14,7 @@ end
 function onSpellCast(caster, target, spell)
     if target:getObjType() == tpz.objType.PC then
         if target:hasKeyItem(tpz.ki.YHOATOR_GATE_CRYSTAL) then
-            target:delStatusEffect(tpz.effect.MOUNTED)
+            target:delStatusEffectSilent(tpz.effect.MOUNTED)
             target:addStatusEffectEx(tpz.effect.TELEPORT, 0, tpz.teleport.id.YHOAT, 0, 4.7)
             spell:setMsg(tpz.msg.basic.MAGIC_TELEPORT)
         else

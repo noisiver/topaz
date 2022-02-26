@@ -581,7 +581,7 @@ INSERT INTO `mob_skills` VALUES (639,383,'fountain',4,9.5,2000,1500,4,0,0,0,0,0,
 -- INSERT INTO `mob_skills` VALUES (640,384,'touchdown',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (641,973,'recoil_dive',4,15.5,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (642,386,'flame_breath',4,12.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (643,387,'poison_breath',4,12.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (643,387,'poison_breath_dragon',4,12.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (644,388,'wind_breath',4,12.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (645,389,'body_slam',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (646,390,'heavy_stomp',1,15.0,2000,1500,4,0,0,0,0,0,0);

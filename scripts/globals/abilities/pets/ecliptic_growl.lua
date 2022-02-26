@@ -33,12 +33,12 @@ function onPetAbility(target, pet, skill, summoner)
     else
         buffvalue = 1
     end
-    target:delStatusEffect(tpz.effect.STR_BOOST)
-    target:delStatusEffect(tpz.effect.DEX_BOOST)
-    target:delStatusEffect(tpz.effect.VIT_BOOST)
-    target:delStatusEffect(tpz.effect.AGI_BOOST)
-    target:delStatusEffect(tpz.effect.MND_BOOST)
-    target:delStatusEffect(tpz.effect.CHR_BOOST)
+    target:delStatusEffectSilent(tpz.effect.STR_BOOST)
+    target:delStatusEffectSilent(tpz.effect.DEX_BOOST)
+    target:delStatusEffectSilent(tpz.effect.VIT_BOOST)
+    target:delStatusEffectSilent(tpz.effect.AGI_BOOST)
+    target:delStatusEffectSilent(tpz.effect.MND_BOOST)
+    target:delStatusEffectSilent(tpz.effect.CHR_BOOST)
 
     target:addStatusEffect(tpz.effect.STR_BOOST, buffvalue, 0, duration)
     target:addStatusEffect(tpz.effect.DEX_BOOST, buffvalue, 0, duration)

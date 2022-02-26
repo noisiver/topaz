@@ -28,7 +28,7 @@ function onMobFight(mob, target)
             target:addStatusEffect(tpz.effect.POISON, 100, 3, math.random(3, 6) * 3) -- Poison for 3-6 ticks.
         else
             if target:getStatusEffect(tpz.effect.POISON):getPower() < 100 then
-                target:delStatusEffect(tpz.effect.POISON)
+                target:delStatusEffectSilent(tpz.effect.POISON)
                 target:addStatusEffect(tpz.effect.POISON, 100, 3, math.random(3, 6) * 3) -- Poison for 3-6 ticks.
             end
         end

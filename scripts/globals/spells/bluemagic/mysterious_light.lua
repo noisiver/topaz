@@ -54,7 +54,7 @@ function onSpellCast(caster, target, spell)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     if (damage > 0 and resist >= 0.5) then
-        target:delStatusEffect(tpz.effect.WEIGHT)
+        target:delStatusEffectSilent(tpz.effect.WEIGHT)
         target:addStatusEffect(tpz.effect.WEIGHT, 50, 0, getBlueEffectDuration(caster, resist, tpz.effect.WEIGHT))
     end
 
