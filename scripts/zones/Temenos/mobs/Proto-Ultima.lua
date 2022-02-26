@@ -153,22 +153,29 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local phase = mob:getLocalVar("battlePhase")
-    local battletarget = mob:getTarget()
+    local HolyTarget = mob:getLocalVar("HolyTarget")
+    local BattleTarget = mob:getTarget()
+
+    mob:setLocalVar("HolyTarget", 0)
     if phase > 1 then
         for v = 1259,1267,1 do -- TP move ID
-            if skill:getID() == v then -- If TP Move is part of for loop then...
+            if skill:getID() == v and HolyTarget < 1 then -- If TP Move is part of for loop then...
                --[[ local players = mob:getEnmityList()
                 local target = players[math.random(#players)]
                 mob:castSpell(22, target.entity) -- Holy II ]]
-                mob:castSpell(22, battletarget) -- Holy II
+                mob:castSpell(22, BattleTarget) -- Holy II
+                HolyTarget = HolyTarget +1
+                mob:setLocalVar("HolyTarget", HolyTarget)
             end
         end
         for _,v in pairs(SkillID) do
-            if skill:getID() == v then -- Other TP moves
+            if skill:getID() == v and HolyTarget < 1 then -- Other TP moves
                --[[ local players = mob:getEnmityList()
                 local target = players[math.random(#players)]
                 mob:castSpell(22, target.entity) -- Holy II ]]
-                mob:castSpell(22, battletarget) -- Holy II
+                mob:castSpell(22, BattleTarget) -- Holy II
+                HolyTarget = HolyTarget +1
+                mob:setLocalVar("HolyTarget", HolyTarget)
             end
         end
     end
