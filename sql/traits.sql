@@ -519,8 +519,10 @@ INSERT INTO `traits` VALUES (99,'crit. def. bonus',14,98,1,908,5,'ABYSSEA',0);  
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',14,99,2,908,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',18,98,1,908,5,'ABYSSEA',0);   -- Puppetmaster
 INSERT INTO `traits` VALUES (99,'crit. def. bonus',18,99,2,908,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (100,'tactical parry',1,50,1,486,20,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (100,'tactical parry',1,70,2,486,30,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (100,'tactical parry',1,30,1,486,20,'ABYSSEA',0); -- WAR
+INSERT INTO `traits` VALUES (100,'tactical parry',1,40,2,486,30,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (100,'tactical parry',1,50,3,486,40,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (100,'tactical parry',1,60,4,486,50,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',8,88,1,486,20,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',8,98,2,486,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (100,'tactical parry',13,50,1,486,20,'ABYSSEA',0);
