@@ -48,7 +48,7 @@ function onMobDeath(mob, player, isKiller)
             local position = GetNPCByID(ID.npc.IXAERN_DRK_QM):getLocalVar("position")
             local currentMobID = mob:getID()
             if (currentMobID >= ID.mob.AWAERN_DRK_GROUPS[position] and currentMobID <= ID.mob.AWAERN_DRK_GROUPS[position] + 2) then
-                if (math.random(1, 8) == 1) then
+                if (math.random(1, 4) == 1) then
                     qm2:setLocalVar("hatedPlayer", player:getID())
                     qm2:setLocalVar("hateTimer", os.time() + 600) -- player with animosity has 10 minutes to touch QM
                     player:messageSpecial(ID.text.SHEER_ANIMOSITY)

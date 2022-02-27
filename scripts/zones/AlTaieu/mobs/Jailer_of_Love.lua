@@ -6,18 +6,18 @@
 local ID = require("scripts/zones/AlTaieu/IDs")
 require("scripts/globals/status")
 -----------------------------------
-
-local spellList =
+local elementToAbsorb =
 {
-    { 147, 176 }, -- Fire IV, Firaga III
-    { 162, 191, 357, 365 }, -- Stone IV, Stonega III, Slowga, Breakga
-    { 172, 201, 226 }, -- Water IV, Waterga III, Poisonga II
-    { 157, 186, 359, 366 }, -- Aero IV, Aeroga III, Silencga, Graviga
-    { 152, 181, 356, 362 }, -- Blizzard IV, Blizzaga III, Bindga, Paralyga
-    { 167, 196 }, -- Thunder IV, Thundaga III
-    { 232, 274, 360, 361 }, -- Bio III, Sleepga II, Blindga, Dispelga
-    { 21, 30, 35, 40 },     -- Diaga III, banishga III, Banish III, Holy
+    [307] = tpz.mod.FIRE_ABSORB,  -- Substitute
+    [404] = tpz.mod.ICE_ABSORB,   -- Smite of Rage
+    [603] = tpz.mod.WIND_ABSORB,  -- Lateral Slash
+    [604] = tpz.mod.EARTH_ABSORB, -- Throat Stab
+    [624] = tpz.mod.LTNG_ABSORB,  -- Vulture 1
+    [625] = tpz.mod.WATER_ABSORB, -- Vulture 2
+    [626] = tpz.mod.DARK_ABSORB, -- Vulture 3
+    [627] = tpz.mod.LIGHT_ABSORB, -- Vulture 4
 }
+
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
@@ -30,15 +30,18 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.ATT, 437)
     mob:setMod(tpz.mod.DEF, 580)
     mob:setMod(tpz.mod.EVA, 322) 
-    mob:setMod(tpz.mod.REFRESH, 50)
+    mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.UDMGMAGIC, -58)
     mob:setMod(tpz.mod.REGAIN, 75)
     mob:setMod(tpz.mod.REGEN, 250)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 28)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setLocalVar("element",math.random(1,8))
-    mob:setMod(tpz.mod.FIRE_ABSORB + mob:getLocalVar("element") - 1, 100)
     mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.STANDBACK))
     mob:setMobMod(tpz.mobMod.STANDBACK_RANGE, 13)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+    mob:SetAutoAttackEnabled(true)
+    mob:SetMobAbilityEnabled(true)
+    mob:SetMagicCastingEnabled(true)
     mob:setLocalVar("af1", 1)
     mob:setLocalVar("af2", 1)
     mob:setLocalVar("af3", 1)
@@ -51,18 +54,46 @@ end
 function onMobEngaged(mob, target)
     mob:setLocalVar("pop_pets", os.time() + 150)
     mob:setLocalVar("shift", os.time() + math.random(120, 180))
+    mob:setLocalVar("element", math.random(1, 8)) -- pick a random element to absorb after engaging
+    mob:setMod(tpz.mod.FIRE_ABSORB + mob:getLocalVar("element") - 1, 100)
     mob:AnimationSub(2)
     mob:hideName(false)
     mob:untargetable(false)
 end
 
-function onMonsterMagicPrepare(mob, target)
-    local elementalList = spellList[mob:getLocalVar("element")]
-    return elementalList[math.random(1, #elementalList)]
-end
-
 function onMobFight(mob, target, pet)
     local now = os.time()
+
+    -- Enable movement / attacking if no pets are out
+    for i = 16912849, 16912875 do
+        local pet = GetMobByID(i)
+        if pet:isSpawned() then
+            mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+            mob:SetAutoAttackEnabled(false)
+            mob:SetMobAbilityEnabled(false)
+            mob:SetMagicCastingEnabled(false)
+        end
+    end
+
+    -- Set spell list based on current element JOL is absorbing
+    local currentAbsorb = mob:getLocalVar("element")
+    if currentAbsorb == 1 then -- fire
+        mob:setSpellList(485)
+    elseif currentAbsorb == 2 then -- ice
+        mob:setSpellList(486)
+    elseif currentAbsorb == 3 then -- wind
+        mob:setSpellList(487)
+    elseif currentAbsorb == 4 then -- earth
+        mob:setSpellList(488)
+    elseif currentAbsorb == 5 then -- ltng
+        mob:setSpellList(489)
+    elseif currentAbsorb == 6 then -- water
+        mob:setSpellList(490)
+    elseif currentAbsorb == 7 then -- light
+        mob:setSpellList(484)
+    elseif currentAbsorb == 8 then -- dark
+        mob:setSpellList(491)
+    end
 
     -- reduce regen after nine Xzomits and Hpemdes are killed
     if mob:getLocalVar("JoL_Regen_Reduction") == 0 and mob:getLocalVar("JoL_Qn_xzomit_Killed") >= 9 and mob:getLocalVar("JoL_Qn_hpemde_Killed") >= 9 then
@@ -181,24 +212,33 @@ function onMobFight(mob, target, pet)
    
     -- change elements
     if now > mob:getLocalVar("shift") then
-        mob:useMobAbility(625)
-        mob:setLocalVar("shift", os.time() + math.random(100, 160))
+        mob:useMobAbility(624)
+        -- Remove previous absorb mod
+        local previousAbsorb = mob:getLocalVar("element")
+        mob:setMod(tpz.mod.FIRE_ABSORB + mob:getLocalVar("element") - 1, 0)
+
+        mob:setLocalVar("shift", os.time() + math.random(120, 180))
+        mob:setLocalVar("element", math.random(1, 8)) -- pick a random element to absorb
+        -- Add current absorb
+        mob:setMod(tpz.mod.FIRE_ABSORB + mob:getLocalVar("element") - 1, 100)
     end
 end
 
 function onMobDeath(mob, player, isKiller)
-    if firstCall then
-        -- 25% chance to spawn Absolute Virtue
-        if math.random(100) <= 25 then
-            local AV = SpawnMob(ID.mob.ABSOLUTE_VIRTUE, 180)
-            if player then
-                AV:updateClaim(player)
-            end
-        end
-        for pet = mobid + 1, mobid + 27 do
-            DespawnMob(pet)
+    -- despawn pets
+    for i = ID.mob.JAILER_OF_LOVE + 1, ID.mob.JAILER_OF_LOVE + 27 do
+        if GetMobByID(i):isSpawned() then
+            DespawnMob(i)
         end
     end
+    -- Spawn AV
+    local AV = GetMobByID(ID.mob.ABSOLUTE_VIRTUE)
+    local mobX = mob:getXPos()
+    local mobY = mob:getYPos()
+    local mobZ = mob:getZPos()
+    AV:setSpawn(mobX, mobY, mobZ)
+    AV:spawn()
+    AV:updateClaim(player)
 end
 
 function onMobDespawn(mob)
