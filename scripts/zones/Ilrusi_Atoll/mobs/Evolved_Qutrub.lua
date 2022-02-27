@@ -73,6 +73,7 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
+    return 1782 -- Only uses Animating Wail
 end
 
 function onMobWeaponSkill(target, mob, skill)

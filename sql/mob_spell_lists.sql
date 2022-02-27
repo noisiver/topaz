@@ -4716,6 +4716,13 @@ INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,272,1,255); -- A
 INSERT INTO `mob_spell_lists` VALUES ('DRK_ExcavationDuty',2041,275,1,255); -- Absorb-TP
 INSERT INTO `mob_spell_lists` VALUES ('Troll_Templar',2042,4,1,255); -- Cure IV
 
+INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,367,1,255); -- Death
+INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,362,1,255); -- bindga
+INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,365,1,255); -- breakga
+INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,366,1,255); -- graviga
+INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,357,1,255); -- slowga
+INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,361,1,255); -- slowga
+
 
 
 

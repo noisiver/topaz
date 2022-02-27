@@ -3,6 +3,7 @@
 -- Mob: Poroggo Casanova
 -- ToAU Quest: Prince and the Hopper
 -----------------------------------
+mixins = {require("scripts/mixins/families/poroggo")}
 local ID = require("scripts/zones/Mamook/IDs")
 
 function onMobSpawn(mob)

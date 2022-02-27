@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Boiling Blood
--- Increases attack, magic attack, magic defense, defense and grants a haste effect.
+-- Decreases defense and grants a potent (25%) haste effect.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -17,11 +17,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BERSERK
     local typeEffectTwo = tpz.effect.HASTE
-    local typeEffectThree = tpz.effect.MAGIC_ATK_BOOST
-    local typeEffectFour = tpz.effect.MAGIC_DEF_BOOST
     MobBuffMove(mob, typeEffect, 50, 0, 300)
-    MobBuffMove(mob, typeEffectThree, 25, 0, 300)
-    MobBuffMove(mob, typeEffectFour, 25, 0, 300)
-    skill:setMsg(MobBuffMove(mob, typeEffectTwo, 2000, 0, 300)) 
+    skill:setMsg(MobBuffMove(mob, typeEffectTwo, 2500, 0, 300)) 
     return typeEffectTwo
 end

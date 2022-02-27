@@ -88,6 +88,57 @@ INSERT INTO `instance_entities` VALUES (1,17060200);
 -- INSERT INTO `instance_entities` VALUES (1,17060146);
 -- INSERT INTO `instance_entities` VALUES (1,17060147);
 
+-- Imperial Agent Rescue
+-- Mobs
+INSERT INTO `instance_entities` VALUES(11,  17047923);
+INSERT INTO `instance_entities` VALUES(11,  17047924);
+INSERT INTO `instance_entities` VALUES(11,  17047925);
+INSERT INTO `instance_entities` VALUES(11,  17047926);
+INSERT INTO `instance_entities` VALUES(11,  17047927);
+INSERT INTO `instance_entities` VALUES(11,  17047928);
+INSERT INTO `instance_entities` VALUES(11,  17047929);
+INSERT INTO `instance_entities` VALUES(11,  17047930);
+INSERT INTO `instance_entities` VALUES(11,  17047931);
+INSERT INTO `instance_entities` VALUES(11,  17047932);
+INSERT INTO `instance_entities` VALUES(11,  17047933);
+INSERT INTO `instance_entities` VALUES(11,  17047934);
+INSERT INTO `instance_entities` VALUES(11,  17047935);
+INSERT INTO `instance_entities` VALUES(11,  17047936);
+INSERT INTO `instance_entities` VALUES(11,  17047937);
+INSERT INTO `instance_entities` VALUES(11,  17047938);
+INSERT INTO `instance_entities` VALUES(11,  17047939);
+INSERT INTO `instance_entities` VALUES(11,  17047940);
+INSERT INTO `instance_entities` VALUES(11,  17047941);
+INSERT INTO `instance_entities` VALUES(11,  17047942);
+INSERT INTO `instance_entities` VALUES(11,  17047943);
+INSERT INTO `instance_entities` VALUES(11,  17047944);
+INSERT INTO `instance_entities` VALUES(11,  17047945);
+INSERT INTO `instance_entities` VALUES(11,  17047946);
+INSERT INTO `instance_entities` VALUES(11,  17047947);
+-- Npcs
+INSERT INTO `instance_entities` VALUES(11,  17047808); -- Ancient_Lockbox
+INSERT INTO `instance_entities` VALUES(11,  17047809); -- Rune_of_Release
+--INSERT INTO `instance_entities` VALUES(11,  17047810); -- Brujeel
+--INSERT INTO `instance_entities` VALUES(11,  17047815); -- NOT CAPTURED
+--INSERT INTO `instance_entities` VALUES(11,  17047832); -- Zahakahm
+--INSERT INTO `instance_entities` VALUES(11,  17047863); -- NOT CAPTURED
+INSERT INTO `instance_entities` VALUES(11,  17047864); -- Door?
+INSERT INTO `instance_entities` VALUES(11,  17047865); -- Door?
+INSERT INTO `instance_entities` VALUES(11,  17047866); -- Door?
+INSERT INTO `instance_entities` VALUES(11,  17047895); -- Door?
+INSERT INTO `instance_entities` VALUES(11,  17047896); -- Door?
+INSERT INTO `instance_entities` VALUES(11,  17047897); -- Door?
+INSERT INTO `instance_entities` VALUES(11,  17047898); -- North Door
+INSERT INTO `instance_entities` VALUES(11,  17047899); -- Door?
+INSERT INTO `instance_entities` VALUES(11,  17047900); -- SouthWest Door
+INSERT INTO `instance_entities` VALUES(11,  17047901); -- Door?
+INSERT INTO `instance_entities` VALUES(11,  17047902); -- SouthEast Door
+INSERT INTO `instance_entities` VALUES(11,  17047916); -- Pot Hatch(Door)
+INSERT INTO `instance_entities` VALUES(11,  17047917); -- Pot Hatch(Door)
+INSERT INTO `instance_entities` VALUES(11,  17047918); -- Pot Hatch(Door)
+-- Chests
+INSERT INTO `instance_entities` VALUES (11,17047948);
+
 -- Preemtive Strike
 -- Mobs
 -- INSERT INTO `instance_entities` VALUES (12, 17047570);

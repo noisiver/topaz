@@ -808,7 +808,13 @@ INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1840); -- rushing_stab | Pi
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1920); -- rushing_drub | staff
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1922); -- somersault_kick(mage)
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1923); -- Firespit(Magic)
--- 177: MamoolJa Knight?
+INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2094); -- fire_angon
+INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2095); -- batterhorn
+INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2096); -- clobber
+INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2097); -- granite_skin
+INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2098); -- blazing_angon
+INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2101); -- demoralizing_roar
+INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2102); -- boiling_blood
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,300);
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,301);
 INSERT INTO `mob_skill_lists` VALUES ('Mandragora',178,302);

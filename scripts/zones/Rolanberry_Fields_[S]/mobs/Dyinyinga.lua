@@ -25,7 +25,7 @@ end
 
 function onMobFight(mob, target)
 	if mob:getWeather() == tpz.weather.RAIN or mob:getWeather() == tpz.weather.SQUALL then
-		mob:setMod(tpz.mod.REGEN, 30)
+		mob:setMod(tpz.mod.REGEN, 100)
 	else
 		mob:setMod(tpz.mod.REGEN, 0)
 	end
@@ -34,8 +34,8 @@ function onMobFight(mob, target)
     for _,v in ipairs(nearbyPlayers) do
         v:delStatusEffectSilent(tpz.effect.AMNESIA)
         v:addStatusEffectEx(tpz.effect.AMNESIA, tpz.effect.AMNESIA, 1, 0, 5)
-        v:delStatusEffectSilent(tpz.effect.SILENCE)
-        v:addStatusEffectEx(tpz.effect.SILENCE, tpz.effect.SILENCE, 1, 0, 5)
+        v:delStatusEffectSilent(tpz.effect.MUTE)
+        v:addStatusEffectEx(tpz.effect.MUTE, tpz.effect.MUTE, 1, 0, 5)
     end
 
 end

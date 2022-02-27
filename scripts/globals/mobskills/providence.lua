@@ -14,7 +14,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+    if (mob:isMobType(MOBTYPE_NOTORIOUS)) or mob:getPool() == 9061 then -- Poroggo_Shifu(Imperial Agent Rescue - Assault)
         return 0
     end
     return 1
@@ -23,8 +23,6 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 2500
     local duration = 300
     local typeEffect = tpz.effect.HASTE
-	
-    ProvidenceBuff = mob:getLocalVar("Providence")
 	mob:setLocalVar("Providence", 1)
 
 

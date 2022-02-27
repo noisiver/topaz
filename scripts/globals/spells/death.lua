@@ -14,7 +14,8 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    if target:isUndead() or target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) or math.random(0, 99) < target:getMod(tpz.mod.DEATHRES) then
+    if target:isUndead() or target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) or target:hasStatusEffect(tpz.effect.FEALTY)
+    or math.random(0, 99) < target:getMod(tpz.mod.DEATHRES) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         return 0
     end

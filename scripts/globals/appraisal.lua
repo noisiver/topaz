@@ -762,8 +762,8 @@ tpz.appraisalUtil.appraisalItems =
             {
                 {50, 13454}, -- Copper Ring
                 {30, 13465}, -- Brass Ring
-                {15, 13549}, -- Ether Ring
-                { 5, 15774}, -- Storm Ring
+                {19, 13549}, -- Ether Ring
+                {1, 15774}, -- Storm Ring
             },
         },
         [tpz.appraisalUtil.Origin.NYZUL_BOMB_KING] = 
@@ -1084,20 +1084,11 @@ tpz.appraisalUtil.appraisalItems =
         {
             items =
             {
-                { 7, 5566}, -- Date
-                { 5, 4388}, -- Eggplant
-                {10, 2156}, -- Imperial Tea Leaves
-                { 4, 2475}, -- Kaolin
+                {20, 2475}, -- Kaolin
                 {20, 2227}, -- Mamool Ja Collar
-                {15, 2334}, -- Poroggo Hat
-                { 6,  638}, -- Sage
-                { 5,  829}, -- Silk Cloth
-                { 1, 5310}, -- Tollbag Kawa
-                { 1, 5314}, -- Tollbag Shihei
-                { 1, 5309}, -- Toolbag Tsura
-                {10, 4387}, -- Wild Onion
-                { 1, 5308}, -- Tollbag Uchi
-                {14, 5453}, -- Istakoz
+                {20, 2334}, -- Poroggo Hat
+                {20,  638}, -- Sage
+                {20, 4387}, -- Wild Onion
             },
         },
         [LEBROS_SUPPLIES] =

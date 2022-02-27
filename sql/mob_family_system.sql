@@ -238,7 +238,7 @@ INSERT INTO `mob_family_system` VALUES (173,'Limule',21,'Voragean',0,40,100,120,
 INSERT INTO `mob_family_system` VALUES (174,'Lizard',14,'Lizard',1,40,100,120,4,3,5,4,4,4,4,1,3,1,3,1,1,1,1,1,1.5,1.5,1,1,1.3,1.3,1.3,1,2,1);
 INSERT INTO `mob_family_system` VALUES (175,'MagicPot',3,'Arcana',2,40,80,140,3,3,4,5,3,3,4,1,3,1,3,1,1,1.25,1.5,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,7,32,0);
 INSERT INTO `mob_family_system` VALUES (176,'MamoolJa',7,'Beastmen',1,60,125,120,2,2,2,3,2,3,2,1,1,1,1,1,1,1,1,1,0.7,1.15,0.7,0.7,1,1,1,3,1,0); -- Normal Mobs
-INSERT INTO `mob_family_system` VALUES (177,'MamoolJaKnight',7,'Beastmen',3,40,120,120,2,1,1,3,3,3,3,3,3,3,3,1,1,1,1,1,1.125,1.125,1,1,1,1,1,3,1,0);
+INSERT INTO `mob_family_system` VALUES (177,'MamoolJaKnight',7,'Beastmen',3,60,125,120,2,2,2,3,2,3,2,1,1,1,1,1,1,1,1,1,0.7,1.15,0.7,0.7,1,1,1,3,1,0);
 INSERT INTO `mob_family_system` VALUES (178,'Mandragora',17,'Plantoid',0,40,100,120,5,3,4,4,4,4,4,1,3,1,2,1,1.25,1,1,1.5,1.5,1.5,1.0,1.5,1.0,1.0,1.5,4,2,1);
 INSERT INTO `mob_family_system` VALUES (179,'Manticore',6,'Beast',1,50,105,130,2,5,2,5,4,4,5,1,3,1,3,1,1,1,1,0.5,1.3,0.5,1.3,1.3,1.5,1,1,3,257,0);
 INSERT INTO `mob_family_system` VALUES (180,'Marid',6,'Beast',2,60,125,90,1,5,1,5,5,4,4,3,1,1,1,1,1,1,1,1,0.7,1.15,1,0.7,1,1,1,4,257,0);

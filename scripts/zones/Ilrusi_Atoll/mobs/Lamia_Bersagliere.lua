@@ -21,7 +21,7 @@ function onMobRoam(mob)
     local Time = os.time()
         if mob:getID(instance) == 17002756 then
         if Time > Turn then
-            mob:setPos(323.0879,-10.0000,-53.6659, math.random(-255, 255))
+            mob:setPos(323.0879,-10.0000,-53.6659, math.random(0, 255))
             mob:setLocalVar("Turn", Time + 25)
         end
     end

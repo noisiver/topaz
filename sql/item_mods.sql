@@ -18503,6 +18503,8 @@ INSERT INTO `item_mods` VALUES (15772,245,3);
 INSERT INTO `item_mods` VALUES (15773,167,4); -- (Imperial Ring) 4% Haste
 INSERT INTO `item_mods` VALUES (15773,25,-10); -- (Imperial Ring) -10 Acc
 INSERT INTO `item_mods` VALUES (15773,26,-10); -- (Imperial Ring) -10 RAcc
+INSERT INTO `item_mods` VALUES (15774,25,10); -- (Storm Ring) +10 Acc
+INSERT INTO `item_mods` VALUES (15774,160,5); -- (Storm Ring) Damage Taken +5%
 INSERT INTO `item_mods` VALUES (15775,1,5);
 INSERT INTO `item_mods` VALUES (15775,29,2);
 INSERT INTO `item_mods` VALUES (15775,246,2);
@@ -18945,7 +18947,7 @@ INSERT INTO `item_mods` VALUES (15965,68,5);      -- Evasion +5
 INSERT INTO `item_mods` VALUES (15965,516,3);     -- Converts 3% of damage taken to MP
 INSERT INTO `item_mods` VALUES (15966,24,2);
 INSERT INTO `item_mods` VALUES (15967,46,1);
-INSERT INTO `item_mods` VALUES (15968,23,5);
+INSERT INTO `item_mods` VALUES (15968,23,10); -- (Storm Loop) +10 Attack
 INSERT INTO `item_mods` VALUES (15970,2,20);
 INSERT INTO `item_mods` VALUES (15970,72,1);
 INSERT INTO `item_mods` VALUES (15970,251,2);
