@@ -49,18 +49,14 @@ function onSpellCast(caster, target, spell)
     local dia = target:getStatusEffect(tpz.effect.DIA)
 
     -- Calculate DoT effect (rough, though fairly accurate)
-    local dotdmg = 5 + math.floor(caster:getSkillLevel(tpz.skill.DARK_MAGIC) / 60)
+    local dotdmg = 100
 
     -- Do it!
-    target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 25, 4)
+    target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 20, 4)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 
     -- Try to kill same tier Dia (default behavior)
-    if DIA_OVERWRITE == 1 and dia ~= nil then
-        if dia:getPower() <= 4 then
-            target:delStatusEffectSilent(tpz.effect.DIA)
-        end
-    end
+    target:delStatusEffectSilent(tpz.effect.DIA)
 
     return final
 end
