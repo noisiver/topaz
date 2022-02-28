@@ -45,7 +45,7 @@ function onMobSpawn(mob)
             {id = tpz.jsa.CHAINSPELL, cooldown = 0, hpp = 100},
             {id = tpz.jsa.INVINCIBLE, cooldown = 0, hpp = 100},
             {id = tpz.jsa.PERFECT_DODGE, cooldown = 0, hpp = 100},
-            {id = tpz.jsa.SOUL_VOICE, cooldown = 0, hpp = 100},
+            {id = tpz.jsa.SOUL_VOICE, duration = 30, cooldown = 0, hpp = 100},
             {id = tpz.jsa.MIJIN_GAKURE, cooldown = 0, hpp = 100},
             {id = tpz.jsa.EAGLE_EYE_SHOT, cooldown = 0, hpp = 100},
             {id = tpz.jsa.BENEDICTION, cooldown = 0, hpp = 100},

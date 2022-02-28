@@ -27,9 +27,10 @@ end
 
 function onMobSpawn(mob)
 	mob:setDamage(280)
-    mob:setMod(tpz.mod.ATT, 437)
-    mob:setMod(tpz.mod.DEF, 580)
-    mob:setMod(tpz.mod.EVA, 322) 
+    mob:setMod(tpz.mod.ATT, 437) -- 500
+    mob:setMod(tpz.mod.DEF, 580) -- 620
+    mob:addMod(tpz.mod.EVA, 10)  -- 355
+    mob:setMod(tpz.mod.MDEF, 60) -- +60
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.UDMGMAGIC, -58)
     mob:setMod(tpz.mod.REGAIN, 75)
@@ -48,6 +49,9 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
+    mob:SetAutoAttackEnabled(true)
+    mob:SetMobAbilityEnabled(true)
+    mob:SetMagicCastingEnabled(true)
     mob:untargetable(false)
 end
 
@@ -64,7 +68,7 @@ end
 function onMobFight(mob, target, pet)
     local now = os.time()
 
-    -- Enable movement / attacking if no pets are out
+    -- Disable movement / attacking if pets are out
     for i = 16912849, 16912875 do
         local pet = GetMobByID(i)
         if pet:isSpawned() then

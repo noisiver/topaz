@@ -5,6 +5,7 @@
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 mixins = {require("scripts/mixins/job_special")}
+local ID = require("scripts/zones/The_Shrine_of_RuAvitau/IDs")
 --------------------------------------------------
 
 
@@ -13,7 +14,10 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REGAIN, 150)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMod(tpz.mod.REGAIN, 50)
 end
 
 function onAdditionalEffect(mob, target, damage)
@@ -38,6 +42,18 @@ function onMonsterMagicPrepare(mob, target)
 
 end
 
+function onMobDespawn(mob)
+    local Kirin = GetMobByID(ID.mob.KIRIN)
+    Kirin:setMobMod(tpz.mobMod.NO_MOVE, 0)
+    Kirin:setMod(tpz.mod.UDMGPHYS, 0)
+    Kirin:setMod(tpz.mod.UDMGRANGE, 0)
+    Kirin:setMod(tpz.mod.UDMGMAGIC, 0)
+    Kirin:setMod(tpz.mod.UDMGBREATH, 0)
+    Kirin:SetAutoAttackEnabled(true)
+    Kirin:SetMobAbilityEnabled(true)
+    Kirin:SetMagicCastingEnabled(true)
+    Kirin:setUnkillable(false)
+end
 
 function onMobDeath(mob, player, isKiller)
 end
