@@ -3158,7 +3158,7 @@ INSERT INTO `mob_groups` VALUES (60,2659,65,'Mikiruru',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (61,2881,65,'Nikilulu',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (62,2657,65,'Mikiluru',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (63,2658,65,'Mikirulu',0,128,0,0,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (64,691,65,'Chamrosh',0,128,450,30000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (64,691,65,'Chamrosh',0,128,450,15000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (65,2089,65,'Iriri_Samariri',0,128,1367,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (66,4295,65,'Wartkin',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (67,2541,65,'Mamool_Jas_Wyvern',0,128,0,0,0,76,78,0);

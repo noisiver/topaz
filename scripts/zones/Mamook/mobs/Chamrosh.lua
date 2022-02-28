@@ -14,10 +14,13 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
-    mob:setLocalVar("changeTime", 150)
-    mob:setLocalVar("useWise", math.random(25, 50))
+	mob:setDamage(125)
+    mob:setMod(tpz.mod.ATT, 522)
     mob:addMod(tpz.mod.UFASTCAST, 150)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
+    mob:setLocalVar("changeTime", 60)
+    mob:setLocalVar("useWise", math.random(25, 50))
 end
 
 function onMobFight(mob, target)
@@ -39,22 +42,27 @@ function onMobFight(mob, target)
         mob:useMobAbility(1702)
         mob:setLocalVar("usedMainSpec", 1)
     end
-    if mob:getBattleTime() == changeTime then
+    if mob:getBattleTime() >= changeTime then
         if mob:AnimationSub() == 0 then
             mob:AnimationSub(1)
             mob:setSpellList(0)
-            mob:setLocalVar("changeTime", mob:getBattleTime() + 150)
+            mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
         else
             mob:AnimationSub(0)
             mob:setSpellList(302)
-            mob:setLocalVar("changeTime", mob:getBattleTime() + 150)
+            mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
         end
     end
 end
 
 function onMagicHit(caster, target, spell)
     if spell:tookEffect() and target:AnimationSub() == 1 and (caster:isPC() or caster:isPet()) then
-        target:setLocalVar("COPY_SPELL", spell:getID())
+        if spell:getID() == 533 then return end -- Doesn't mimic self-destruct
+        if spell:getID() >= 23 and spell:getID() <= 40 or spell:getID() >= 144 and spell:getID() <= 203 or spell:getID() >= 220 and spell:getID() <= 233 then
+            target:setLocalVar("COPY_SPELL", spell:getID() +1)
+        else
+            target:setLocalVar("COPY_SPELL", spell:getID())
+        end
         target:setLocalVar("LAST_CAST", target:getBattleTime())
     end
 

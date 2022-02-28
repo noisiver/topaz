@@ -1351,6 +1351,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Gulool',285,1801);
 INSERT INTO `mob_skill_lists` VALUES ('Vulpangue',286,1718);
 INSERT INTO `mob_skill_lists` VALUES ('Vulpangue',286,1721);
 INSERT INTO `mob_skill_lists` VALUES ('Vulpangue',286,1722);
+INSERT INTO `mob_skill_lists` VALUES ('Vulpangue',286,1723);
 INSERT INTO `mob_skill_lists` VALUES ('Vulpangue',286,1724);
 INSERT INTO `mob_skill_lists` VALUES ('Vulpangue',286,2360);
 INSERT INTO `mob_skill_lists` VALUES ('Chamrosh',287,1699);
