@@ -36,8 +36,11 @@ function onUseAbility(player, target, ability)
 	if player:getMainJob() == tpz.job.MNK then  
 		recover = recover
 	else
-		recover = recover / 2 -- Nerf Chakra by half if subbed
+		recover = recover * 0.5 -- Nerf Chakra by half if subbed
 	end
+    -- Apply cure potency received stat mod
+    local healingReceivedMultiplier = 1 + (player:getMod(tpz.mod.CURE_POTENCY_RCVD) / 100)
+    recover = recover * healingReceivedMultiplier
 	
     if ((target:getMaxHP() - target:getHP()) < recover) then
         recover = (target:getMaxHP() - target:getHP())

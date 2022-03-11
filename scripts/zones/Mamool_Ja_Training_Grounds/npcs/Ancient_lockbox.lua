@@ -13,9 +13,10 @@ function onTrigger(player, npc)
         [IMPERIAL_AGENT_RESCUE] =
         {
             {
-                {itemid = 2286, droprate = 600}, -- ??? box
-                {itemid = 2278, droprate = 300}, -- ??? ring
-                {itemid =    0, droprate = 100}, -- Nothing
+                {itemid = 2286, droprate = 1000}, -- ??? box
+            },
+            {
+                {itemid = 2278, droprate = 1000}, -- ??? ring
             },
         },
         [PREEMPTIVE_STRIKE] =
@@ -32,16 +33,19 @@ function onTrigger(player, npc)
         [IMPERIAL_AGENT_RESCUE] =
         {
             {
-                {itemid = 4118, droprate = 900}, -- Hi-Potion 2
-                {itemid =    0, droprate = 100}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 13688, droprate = 100}, -- Hi-Potion Tank
-                {itemid =     0, droprate = 900}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
             },
             {
-                {itemid = 4172, droprate = 530}, -- Reraiser
-                {itemid =    0, droprate = 470}, -- Nothing
+                {itemid = 5736, droprate = 1000}, -- Linen Coin Purse
+            },
+            {
+                {itemid = 2227, droprate = 1000}, -- Mamool Ja Collar
+            },
+            {
+                {itemid = 2162, droprate = 1000}, -- Mamool Ja Helmet
             },
         },
         [PREEMPTIVE_STRIKE] =

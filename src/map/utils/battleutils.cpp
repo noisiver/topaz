@@ -2141,7 +2141,7 @@ namespace battleutils
         guardchance = guardchance + 50.0f;
         //printf("Your guard chance AFTER adding 50 base is... %f \n", guardchance);
         guardchance = guardchance * guardmod;
-        //printf("Your guard chance AFTER multiplying by gear mod is... %f \n", guardchance);
+        //printf("Your guard chance AFTER multiplying by guard mod is... %f \n", guardchance);
 
         if (PDefender->objtype == TYPE_MOB)
         {

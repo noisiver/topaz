@@ -44,13 +44,13 @@ INSERT INTO `mob_droplist` VALUES (2,4,0,1000,842,0);  -- (Abaraxas) Giant Bird 
 INSERT INTO `mob_droplist` VALUES (2,0,0,1000,842,1000);
 INSERT INTO `mob_droplist` VALUES (2,0,0,1000,842,240);
 INSERT INTO `mob_droplist` VALUES (2,0,0,1000,843,100);
-INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1913,240);
-INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1914,240);
-INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1915,150);
+INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1913,1000); -- (Absolute VIrtue)
+INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1914,1000);
+INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1915,1000);
 INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1916,1000);
 INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1917,1000);
 INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1918,1000);
-INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1919,240);
+INSERT INTO `mob_droplist` VALUES (3,0,0,1000,1919,1000);
 INSERT INTO `mob_droplist` VALUES (4,0,0,1000,902,100);
 INSERT INTO `mob_droplist` VALUES (4,0,0,1000,1048,50);
 INSERT INTO `mob_droplist` VALUES (4,0,0,1000,4897,100);

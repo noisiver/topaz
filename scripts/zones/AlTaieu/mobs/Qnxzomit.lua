@@ -20,6 +20,9 @@ function onMobEngage(mob, target)
 end
 
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
@@ -44,6 +47,10 @@ function onMobDespawn(mob)
     if (mob:getID() > ID.mob.JAILER_OF_LOVE) then
         local JoL = GetMobByID(ID.mob.JAILER_OF_LOVE)
         local xzomitsKilled = JoL:getLocalVar("JoL_Qn_xzomit_Killed")
+        JoL:setMobMod(tpz.mobMod.NO_MOVE, 0)
+        JoL:SetAutoAttackEnabled(true)
+        JoL:SetMobAbilityEnabled(true)
+        JoL:SetMagicCastingEnabled(true)
         JoL:setLocalVar("JoL_Qn_xzomit_Killed", xzomitsKilled + 1)
     end
 end

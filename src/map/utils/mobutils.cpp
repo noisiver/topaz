@@ -611,8 +611,8 @@ void SetupJob(CMobEntity* PMob)
         case JOB_BLM:
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 40);
-            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
-            PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 20);
+            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 5);
+            PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 10);
             break;
         case JOB_PLD:
             if ((PMob->m_Family >= 75 && PMob->m_Family <= 77) || (PMob->m_Family >= 137 && PMob->m_Family <= 138) || PMob->m_Family == 57 ||

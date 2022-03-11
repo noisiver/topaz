@@ -53,12 +53,15 @@ function onSpellCast(caster, target, spell)
     -- http://wiki.ffo.jp/html/1954.html
     -- This formula gives correct values for every breakpoint listed on that site
     --local dotdmg = math.floor((skillLvl + 29) / 40)
-     local dotdmg = math.floor((skillLvl + 29) / 5)
+    local dotdmg = math.floor((skillLvl + 29) / 5)
+    if caster:isMob() then -- Don't let this scale out of control from mobs
+        dotdmg = math.floor(dotdmg * 0.5)
+    end
     dotdmg = utils.clamp(dotdmg, 3, 100)
 
     -- Do it!
     target:delStatusEffectSilent(tpz.effect.DIA)
-    target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 15, 2)
+    target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 10, 2)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 
     return final

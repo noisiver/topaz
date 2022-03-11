@@ -27,9 +27,9 @@ g_mixins.families.gnole = function(mob)
     mob:addListener("ENGAGE", "GNOLE_ENGAGE", function(mob, target)
 	   local moon = VanadielMoonPhase()
 	   local moonphase = 0
-		if moon > 90 then -- Full Moon
-			mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
-		end
+	   if moon > 90 then -- Full Moon
+		    mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
+	   end
 	end)
 end
 

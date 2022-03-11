@@ -2,6 +2,7 @@
 -- Area: Mamook
 --  Mob: Poroggo
 -----------------------------------
+mixins = {require("scripts/mixins/families/poroggo")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

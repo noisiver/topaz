@@ -23,6 +23,8 @@ function onMobInitialize(mob)
             if target then
                 targetid = target:getShortID()
             end
+            mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+            mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
             mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
             mob:timer(9000, function(mob)
                 mob:setHP(mob:getMaxHP())
@@ -38,6 +40,7 @@ function onMobInitialize(mob)
             end)
         else
             -- death
+            mob:setMobMod(tpz.mobMod.EXP_BONUS, 0)
             mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
             DespawnMob(QnAernA)
             DespawnMob(QnAernB)

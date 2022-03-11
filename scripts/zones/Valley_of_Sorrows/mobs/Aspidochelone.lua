@@ -18,11 +18,20 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGRANGE, 0)
     mob:AnimationSub(0)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+    mob:SetAutoAttackEnabled(true)
+    mob:SetMobAbilityEnabled(true)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.ADAMANTOISE_QM):setStatus(tpz.status.DISAPPEAR)
     end
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
+end
+
+function onMobRoam(mob)
+    mob:AnimationSub(0)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+    mob:SetAutoAttackEnabled(true)
+    mob:SetMobAbilityEnabled(true)
 end
 
 function onMobInitialize(mob)

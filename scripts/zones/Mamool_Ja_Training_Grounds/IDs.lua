@@ -34,26 +34,6 @@ zones[tpz.zone.MAMOOL_JA_TRAINING_GROUNDS] =
 
     mob =
     {
-        [IMPERIAL_AGENT_RESCUE] =
-        {
-            MOBS_START =
-            {
-                17047553, 17047554, 17047556, 17047557, 17047559, 17047560, 17047561, 17047563, 17047564, 17047565, 17047566,   -- Mamool                                                                           -- pets
-                GATE_1 = 17047567, GATE_2 = 17047568, GATE_3 = 17047569,
-            },
-            GATES      =
-            {
-                17047567, 17047568, 17047569,
-            },
-        },
-        [PREEMPTIVE_STRIKE] =
-        {
-            MOBS_START =
-            {
-                17047570, 17047571, 17047572, 17047573, 17047574, 17047575, 17047576, 17047577, 17047578, 17047579,
-                17047580, 17047581, 17047582, 17047583, 17047584, 17047585, 17047586, 17047587, 17047588, 17047589,
-            },
-        },
     },
 
     npc =
@@ -61,9 +41,10 @@ zones[tpz.zone.MAMOOL_JA_TRAINING_GROUNDS] =
         ANCIENT_LOCKBOX = 17047808,
         RUNE_OF_RELEASE = 17047809,
         BRUJEEL         = 17047810,
-        DOOR_1          = 17047898, -- north
-        DOOR_2          = 17047900, -- southwest
-        DOOR_3          = 17047902, -- southest
+        DOOR_1          = 17047898, -- North
+        DOOR_2          = 17047900, -- SouthWest
+        DOOR_3          = 17047902, -- SouthEast
+        DOOR_4          = 17047895, -- G-8 
         POT_HATCH       = 17047916,
     },
 }

@@ -18,6 +18,9 @@ function onSpellCast(caster, target, spell)
     if skill > 400 then
         power = math.min((skill - 225) / 5, 55) -- Cap is 55 hp/tick
     end
+    if caster:isMob() then -- Don't let this scale out of control from mobs
+        power = math.floor(power * 0.5)
+    end
     power = calculatePotency(power, spell:getSkillType(), caster, target)
 
     local duration = 90

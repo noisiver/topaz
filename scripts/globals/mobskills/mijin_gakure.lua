@@ -22,6 +22,8 @@ function onMobWeaponSkill(target, mob, skill)
         dmg = math.floor(dmg / 16)
     end
 
+    if dmg > 1250 then dmg = 1250 end -- Don't do silly damage if the mob has high HP
+
 
 --    if mob:isInDynamis() then -- dynamis mobs will kill themselves, other mobs might not
 --        mob:setHP(0)

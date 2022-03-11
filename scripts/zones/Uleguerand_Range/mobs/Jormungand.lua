@@ -17,6 +17,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REGEN, 30)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.GA_CHANCE, 60)
 	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 45)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:SetMobSkillAttack(0) -- resetting so it doesn't respawn in flight mode.

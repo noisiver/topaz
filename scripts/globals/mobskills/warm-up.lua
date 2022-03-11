@@ -10,15 +10,14 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.EVASION_BOOST) then
+		return 1
+	end
     if mob:getMainJob() == tpz.job.BLU or mob:getMainJob() == tpz.job.BST or mob:getMainJob() == tpz.job.DRG  or mob:getMainJob() == tpz.job.NIN  or mob:getMainJob() == tpz.job.THF  then
         -- If animationSub is 1, the mob has already lost his weapeon and cant do this TP attack.
 		return 0
 	end
 	
-	if mob:hasStatusEffect(tpz.effect.EVASION_BOOST) then
-		return 1
-	end
-
     return 1
 end
 

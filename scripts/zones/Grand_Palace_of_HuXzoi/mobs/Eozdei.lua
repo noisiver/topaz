@@ -30,7 +30,7 @@ function onMobDeath(mob, player, isKiller)
         local ph = nm:getLocalVar("ph")
         local pop = nm:getLocalVar("pop")
 
-        if ph == mobId and pop ~= 0 and os.time() > pop and utils.chance(50) then
+        if ph == mobId and pop ~= 0 and os.time() > pop then
             local pos = mob:getSpawnPos()
             nm:setSpawn(pos.x, pos.y, pos.z)
             SpawnMob(ID.mob.JAILER_OF_TEMPERANCE):updateClaim(player)

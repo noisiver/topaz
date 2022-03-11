@@ -57,9 +57,13 @@ function onSpellCast(caster, target, spell)
     else                      dotdmg = 2    -- changed from 1
     end
 
+    if caster:isMob() then -- Don't let this scale out of control from mobs
+        dotdmg = math.floor(dotdmg * 0.5)
+    end
+
     -- Do it!
     target:delStatusEffectSilent(tpz.effect.DIA)
-    target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 10, 1)
+    target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 5, 1)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 
     return final
