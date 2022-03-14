@@ -2947,7 +2947,7 @@ INSERT INTO `mob_groups` VALUES (42,1468,61,'Garharlor_the_Unruly',3600,0,929,35
 INSERT INTO `mob_groups` VALUES (43,1460,61,'Garfurlar_the_Rabid',3600,0,0,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (44,1469,61,'Garhorlur_the_Brutal',3600,0,0,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (45,122,61,'Ancient_Bombs',0,128,84,30000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (46,524,61,'Brass_Borer',0,128,347,35000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (46,524,61,'Brass_Borer',0,128,347,15000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (47,738,61,'Claret',0,128,477,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (48,118,61,'Anantaboga',0,128,78,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (49,2223,61,'Khromasoul_Bhurborlor',0,128,1438,39000,0,85,87,0);
@@ -3380,7 +3380,7 @@ INSERT INTO `mob_groups` VALUES (5,504,72,'Boompadu',7200,0,339,30000,0,85,87,0)
 INSERT INTO `mob_groups` VALUES (6,783,72,'Cookieduster_Lipiroon',0,32,507,35000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (7,3069,72,'Oupire',14400,0,1961,50000,0,90,90,0);
 INSERT INTO `mob_groups` VALUES (8,2931,72,'Ob',0,128,1832,30000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (9,705,72,'Cheese_Hoarder_Gigiroon',0,128,460,17000,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (9,705,72,'Cheese_Hoarder_Gigiroon',0,128,460,15000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (10,243,72,'Armed_Gears',0,128,168,32000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (11,4594,72,'Wulgaru',0,128,2828,32000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (12,1413,72,'Fourth_Rampart',600,0,0,0,0,85,87,0);

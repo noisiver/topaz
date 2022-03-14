@@ -17,7 +17,7 @@ function onMobSpawn(mob)
 	mob:setDamage(125)
     mob:setMod(tpz.mod.ATT, 522)
     mob:addMod(tpz.mod.UFASTCAST, 150)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 450)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:setLocalVar("changeTime", 60)
     mob:setLocalVar("useWise", math.random(25, 50))
