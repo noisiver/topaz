@@ -27,6 +27,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.hybridWS = true
     params.ele = tpz.magic.ele.WATER
     params.skill = tpz.skill.KATANA
+	params.bonusmacc = 50
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.str_wsc = 0.3 params.int_wsc = 0.3

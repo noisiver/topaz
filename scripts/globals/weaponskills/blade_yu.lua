@@ -25,6 +25,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.skill = tpz.skill.KATANA
     params.includemab = true
 	params.enmityMult = 0.5
+	params.bonusmacc = 100
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.ftp100 = 3 params.ftp200 = 3 params.ftp300 = 3

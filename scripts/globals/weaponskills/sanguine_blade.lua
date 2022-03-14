@@ -37,6 +37,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.ele = tpz.magic.ele.DARK
     params.skill = tpz.skill.SWORD
     params.includemab = true
+	params.bonusmacc = 100
 
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then

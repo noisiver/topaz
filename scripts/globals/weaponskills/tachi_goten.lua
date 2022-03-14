@@ -30,6 +30,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.hybridWS = true
     params.ele = tpz.magic.ele.LIGHTNING
     params.skill = tpz.skill.GREAT_KATANA
+	params.bonusmacc = 50
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.ftp100 = .5 params.ftp200 = .75 params.ftp300 = 1

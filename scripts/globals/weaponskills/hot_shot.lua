@@ -29,6 +29,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.hybridWS = true
     params.ele = tpz.magic.ele.FIRE
     params.skill = tpz.skill.MARKSMANSHIP
+	params.bonusmacc = 50
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.ftp200 = 1.55 params.ftp300 = 2.1
