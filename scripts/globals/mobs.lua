@@ -155,7 +155,7 @@ local additionalEffects =
         power = 20,
         duration = 30,
         minDuration = 1,
-        maxDuration = 45,
+        maxDuration = 180,
     },
     [tpz.mob.ae.CURSE] =
     {
@@ -253,7 +253,7 @@ local additionalEffects =
         power = 25,
         duration = 30,
         minDuration = 1,
-        maxDuration = 60,
+        maxDuration = 180,
     },
     [tpz.mob.ae.HP_DRAIN] =
     {
@@ -286,7 +286,7 @@ local additionalEffects =
         power = 20,
         duration = 30,
         minDuration = 1,
-        maxDuration = 60,
+        maxDuration = 180,
     },
     [tpz.mob.ae.PETRIFY] =
     {
@@ -299,7 +299,7 @@ local additionalEffects =
         power = 1,
         duration = 10,
         minDuration = 1,
-        maxDuration = 45,
+        maxDuration = 180,
     },
     [tpz.mob.ae.PLAGUE] =
     {
@@ -312,7 +312,7 @@ local additionalEffects =
         power = 1,
         duration = 60,
         minDuration = 1,
-        maxDuration = 60,
+        maxDuration = 180,
     },
     [tpz.mob.ae.POISON] =
     {
@@ -325,7 +325,7 @@ local additionalEffects =
         power = 1,
         duration = 30,
         minDuration = 1,
-        maxDuration = 30,
+        maxDuration = 180,
         tick = 3,
     },
     [tpz.mob.ae.SILENCE] =
@@ -339,7 +339,7 @@ local additionalEffects =
         power = 1,
         duration = 30,
         minDuration = 1,
-        maxDuration = 30,
+        maxDuration = 180,
     },
     [tpz.mob.ae.SLOW] =
     {
@@ -352,7 +352,7 @@ local additionalEffects =
         power = 1000,
         duration = 30,
         minDuration = 1,
-        maxDuration = 45,
+        maxDuration = 180,
     },
     [tpz.mob.ae.STUN] =
     {
@@ -394,7 +394,7 @@ local additionalEffects =
         power = 20,
         duration = 60,
         minDuration = 1,
-        maxDuration = 60,
+        maxDuration = 180,
     },
     [tpz.mob.ae.DISPEL] =
     {
@@ -416,7 +416,7 @@ local additionalEffects =
         power = 1,
         duration = 60,
         minDuration = 1,
-        maxDuration = 60,
+        maxDuration = 180,
     },
     [tpz.mob.ae.AMNESIA] =
     {
@@ -429,7 +429,7 @@ local additionalEffects =
         power = 1,
         duration = 30,
         minDuration = 1,
-        maxDuration = 30,
+        maxDuration = 60,
     },
     [tpz.mob.ae.BIND] =
     {
@@ -442,7 +442,7 @@ local additionalEffects =
         power = 1,
         duration = 30,
         minDuration = 1,
-        maxDuration = 30,
+        maxDuration = 45,
     },
     [tpz.mob.ae.WEIGHT] =
     {
@@ -455,7 +455,7 @@ local additionalEffects =
         power = 25,
         duration = 30,
         minDuration = 1,
-        maxDuration = 30,
+        maxDuration = 60,
     },
     [tpz.mob.ae.FLASH] =
     {

@@ -11,6 +11,10 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+    mob:setDamage(125)
+    mob:setMod(tpz.mod.DEF, 400)
+    mob:setMod(tpz.mod.EVA, 300)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 900)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:setLocalVar("BreakChance", 5)
 end
@@ -24,6 +28,37 @@ function onCriticalHit(mob, attacker)
             mob:AnimationSub(2) -- both horns broken
         end
     end
+end
+
+function onMobFight(mob, target)
+    if mob:hasStatusEffect(tpz.effect.PHALANX) then
+        mob:setMod(tpz.mod.SDT_FIRE, 50)
+        mob:setMod(tpz.mod.SDT_ICE, 20)
+        mob:setMod(tpz.mod.SDT_WIND, 50)
+        mob:setMod(tpz.mod.SDT_EARTH, 50)
+        mob:setMod(tpz.mod.SDT_THUNDER, 20)
+        mob:setMod(tpz.mod.SDT_WATER, 50)
+        mob:setMod(tpz.mod.SDT_LIGHT, 50)
+        mob:setMod(tpz.mod.SDT_DARK, 50)
+        mob:setMod(tpz.mod.SDT_DARK, 50)
+        mob:setMod(tpz.mod.UDMGPHYS, -50)
+        mob:setMod(tpz.mod.UDMGRANGE, -50)
+    else
+        mob:setMod(tpz.mod.SDT_FIRE, 70)
+        mob:setMod(tpz.mod.SDT_ICE, 50)
+        mob:setMod(tpz.mod.SDT_WIND, 100)
+        mob:setMod(tpz.mod.SDT_EARTH, 70)
+        mob:setMod(tpz.mod.SDT_THUNDER, 50)
+        mob:setMod(tpz.mod.SDT_WATER, 70)
+        mob:setMod(tpz.mod.SDT_LIGHT, 70)
+        mob:setMod(tpz.mod.SDT_DARK, 70)
+        mob:setMod(tpz.mod.UDMGPHYS, 0)
+        mob:setMod(tpz.mod.UDMGRANGE, 0)
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+    return 1703 -- Always keeps Barrier Tusk up
 end
 
 function onMobDeath(mob, player, isKiller)

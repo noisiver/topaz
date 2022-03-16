@@ -36,6 +36,12 @@ function onTrigger(player, arg1)
     for v = 1,31,1 do
         targ:delStatusEffectSilent(v)
     end
+    for v = 128,135,1 do
+        targ:delStatusEffectSilent(v)
+    end
+    for v = 192,194,1 do
+        targ:delStatusEffectSilent(v)
+    end
     if (targ:getID() ~= player:getID()) then
         player:PrintToPlayer(string.format("Removed effect %i from %s.", id, targ:getName()))
     end

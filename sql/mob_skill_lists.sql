@@ -1380,10 +1380,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,484); -- Black Cloud
 INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,485); -- Blood Saber
 INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,1795); -- Malediction
 -- 293: Chigre
-INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1713);
-INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1714);
-INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1715);
-INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1716);
+INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1714); -- wing_slap
+INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1715); -- beak_lunge
+INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1716); -- frigid_shuffle
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1703);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1704);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1705);

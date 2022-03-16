@@ -17,6 +17,7 @@ end
 
 function onMobFight(mob, target)
     mob:addListener("ATTACK","COLLECTOR_ATTACK", function(mob)
+        local target = mob:getTarget()
         mob:resetEnmity(target)
     end)
 end

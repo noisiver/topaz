@@ -333,6 +333,9 @@ INSERT INTO `mob_family_mods` VALUES (217,23,256,1); -- Scorpion poison immunity
 INSERT INTO `mob_family_mods` VALUES (273,23,256,1); -- Serket-Present poison immunity
 INSERT INTO `mob_family_mods` VALUES (274,23,256,1); -- King Vinegaroon poison immunity
 INSERT INTO `mob_family_mods` VALUES (547,23,256,1); -- Serket-Past poison immunity
+INSERT INTO `mob_family_mods` VALUES (66,23,256,1); -- Clot poison immunity
+INSERT INTO `mob_family_mods` VALUES (67,23,256,1); -- Clot poison immunity
+INSERT INTO `mob_family_mods` VALUES (290,23,256,1); -- Claret(Clot) poison immunity
 INSERT INTO `mob_family_mods` VALUES (125,23,2048,1); -- Giant Bird light sleep immunity 
 INSERT INTO `mob_family_mods` VALUES (203,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity
