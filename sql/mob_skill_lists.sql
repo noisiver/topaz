@@ -1379,7 +1379,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,479); -- Horror Cloud
 INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,484); -- Black Cloud
 INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,485); -- Blood Saber
 INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,1795); -- Malediction
--- 293: Chigre
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshah',293,316); -- impale
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshah',293,317); -- vampiric_lash
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshah',293,319); -- bad_breath
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshah',293,320); -- sweet_breath
 INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1714); -- wing_slap
 INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1715); -- beak_lunge
 INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1716); -- frigid_shuffle
@@ -1389,12 +1392,11 @@ INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1705);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1706);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1707);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1708);
-INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,316);
-INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,317);
--- INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,318);
-INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,319);
-INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,320);
--- INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,1332);
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,316); -- impale
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,317); -- vampiric_lash
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,319); -- bad_breath
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,320); -- sweet_breath
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,1332); -- extremely_bad_breath
 INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1958);
 INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1959);
 INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1960);
