@@ -361,14 +361,45 @@ namespace battleutils
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
-        if (PAttacker->objtype == TYPE_MOB || PAttacker->objtype == TYPE_PC)
+        //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
+        // Add +skill from gear
+        if (skill == SKILL_ENHANCING_MAGIC)
+        {
+            magicacc += static_cast<float>(PAttacker->getMod(Mod::ENHANCE));
+        }
+        else if (skill == SKILL_DIVINE_MAGIC)
+        {
+            magicacc += static_cast<float>(PAttacker->getMod(Mod::DIVINE));
+        }
+        else if (skill == SKILL_DARK_MAGIC)
+        {
+            magicacc += static_cast<float>(PAttacker->getMod(Mod::DARK));
+        }
+        // Spikes are PDefender for Macc
+        if (PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLAZE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SHOCK_SPIKES) ||
+            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ICE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DREAD_SPIKES) ||
+            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DELUGE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_GALE_SPIKES) ||
+            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_CLOD_SPIKES))
         {
             casterLvl = PDefender->GetMLevel();
             targetLvl = PAttacker->GetMLevel();
             meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
+            //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
+            if (skill == SKILL_ENHANCING_MAGIC)
+            {
+                magicacc += static_cast<float>(PDefender->getMod(Mod::ENHANCE));
+            }
+            else if (skill == SKILL_DIVINE_MAGIC)
+            {
+                magicacc += static_cast<float>(PDefender->getMod(Mod::DIVINE));
+            }
+            else if (skill == SKILL_DARK_MAGIC)
+            {
+                magicacc += static_cast<float>(PDefender->getMod(Mod::DARK));
+            }
         }
-         //printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
+        //printf("Macc after gear mod = %f \nmeva after = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
          //printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
         magicacc = magicacc + levelcorrectionpenalty;
@@ -395,6 +426,7 @@ namespace battleutils
         p = std::clamp(p, 5.0f, 95.0f);
          //printf("p after clamping to 5,95 = %f \n", p);
          //printf("SDT element %i \n", element);
+        // Add SDT
         p = p * getElementalSDTDivisor(PAttacker, element);
         if (p < 5)
         {
@@ -413,6 +445,7 @@ namespace battleutils
          //printf("p trying to remove decimals = %f \n", p);
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
          //printf("p after resist rolls = %f \n", p);
+        // Apply "special" gear resist bonus for players
         if (PDefender->getMod(resistarray[element]) < 0 && resvar < 0.5)
         {
             return 0.5f;
