@@ -4757,7 +4757,16 @@ INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,362,1,255); -- b
 INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,365,1,255); -- breakga
 INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,366,1,255); -- graviga
 INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,357,1,255); -- slowga
-INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,361,1,255); -- slowga
+INSERT INTO `mob_spell_lists` VALUES ('Poroggo_Providence',2043,361,1,255); -- blindga
+
+INSERT INTO `mob_spell_lists` VALUES ('Anantaboga',2044,376,1,255); -- Horde Lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Anantaboga',2044,466,1,255); -- Maiden's Viralai
+INSERT INTO `mob_spell_lists` VALUES ('Anantaboga',2044,382,1,255); -- armys_paeon_v
+INSERT INTO `mob_spell_lists` VALUES ('Anantaboga',2044,420,1,255); -- victory_march
+INSERT INTO `mob_spell_lists` VALUES ('Anantaboga',2044,392,1,255); -- knights_minne_iv
+INSERT INTO `mob_spell_lists` VALUES ('Anantaboga',2044,422,59,255);  -- Carnage Elegy
+INSERT INTO `mob_spell_lists` VALUES ('Anantaboga',2044,373,1,255);	-- Foe Requiem VI 
+INSERT INTO `mob_spell_lists` VALUES ('Anantaboga',2044,397,1,255);	-- Valor Minuet IV 
 
 
 

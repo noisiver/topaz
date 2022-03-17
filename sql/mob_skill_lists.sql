@@ -1397,14 +1397,16 @@ INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,317); -- vam
 INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,319); -- bad_breath
 INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,320); -- sweet_breath
 INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,1332); -- extremely_bad_breath
-INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1958);
-INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1959);
-INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1960);
-INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1962);
-INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,644);
-INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,645);
-INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,646);
--- INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,256);
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1958); -- magic_hammer
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1959); -- water_bomb
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1960); -- frog_cheer
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1961); -- providence
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1962); -- frog_chorus
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,647); -- Chaos_Blade
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,649); -- Voidsong
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,650); -- Thornsong
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,651); -- Lodesong
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga ',298,1792); -- Nullsong
 INSERT INTO `mob_skill_lists` VALUES ('Dextrose',299,1821);
 INSERT INTO `mob_skill_lists` VALUES ('Dextrose',299,1822);
 -- INSERT INTO `mob_skill_lists` VALUES ('Dextrose',299,1823);

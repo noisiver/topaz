@@ -2952,7 +2952,7 @@ INSERT INTO `mob_groups` VALUES (44,1469,61,'Garhorlur_the_Brutal',3600,0,0,3500
 INSERT INTO `mob_groups` VALUES (45,122,61,'Ancient_Bombs',0,128,84,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (46,524,61,'Brass_Borer',0,128,347,15000,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (47,738,61,'Claret',0,128,477,15000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (48,118,61,'Anantaboga',0,128,78,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (48,118,61,'Anantaboga',0,128,78,30000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (49,2223,61,'Khromasoul_Bhurborlor',0,128,1438,39000,0,88,88,0);
 INSERT INTO `mob_groups` VALUES (50,6686,61,'Troll_Grenadier',0,128,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (51,6685,61,'Troll_Cuirasser',0,128,0,0,0,81,83,0);
@@ -3162,7 +3162,7 @@ INSERT INTO `mob_groups` VALUES (61,2881,65,'Nikilulu',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (62,2657,65,'Mikiluru',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (63,2658,65,'Mikirulu',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (64,691,65,'Chamrosh',0,128,450,15000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (65,2089,65,'Iriri_Samariri',0,128,1367,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (65,2089,65,'Iriri_Samariri',0,128,1367,30000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (66,4295,65,'Wartkin',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (67,2541,65,'Mamool_Jas_Wyvern',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (68,0,65,'Venomfang',0,128,0,35000,0,85,87,0);

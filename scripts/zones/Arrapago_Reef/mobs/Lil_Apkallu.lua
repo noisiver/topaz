@@ -50,12 +50,14 @@ function onMobFight(mob,target)
     local TwoHourDelay = mob:getLocalVar("TwoHourDelay")
     local TwoHourCounter = mob:getLocalVar("TwoHourCounter")
     local TwoHourMax = mob:getLocalVar("TwoHourMax")
+    local WingWhirlTime = mob:getLocalVar("WingWhirlTime")
 	local BattleTime = mob:getBattleTime()
 
     -- Yawn use timer
 	if YawnTime == 0 then
 		mob:setLocalVar("YawnTime", BattleTime + math.random(45, 60))
-	elseif BattleTime >= YawnTime and mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) == false then
+	elseif (BattleTime >= YawnTime and WingWhirlTime == 0 and mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) == false
+    and mob:actionQueueEmpty()) then
 		mob:useMobAbility(1713) -- Yawn
         mob:setLocalVar("TwoHourCounter", 0)
         mob:setLocalVar("TwoHourMax", 0)
@@ -95,7 +97,8 @@ end
 
 function onMobWeaponSkillPrepare(mob, target)
 	local WingWhirlTime = mob:getLocalVar("WingWhirlTime")
-    if WingWhirlTime > 0 then
+    local TwoHourTime = mob:getLocalVar("TwoHourTime")
+    if WingWhirlTime > 0 and TwoHourTime == 0 then
         return 1717 -- Wing Whirl
     end
 end

@@ -22,7 +22,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    MobCharmMove(mob, target, skill, 2239, 60)
+    MobCharmMove(mob, target, skill, 2239, 120)
 
     return tpz.effect.CHARM_I
 end

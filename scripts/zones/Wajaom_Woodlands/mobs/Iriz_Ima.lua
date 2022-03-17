@@ -14,6 +14,7 @@ function onMobSpawn(mob)
     mob:setDamage(125)
     mob:setMod(tpz.mod.DEF, 500)
     mob:setMod(tpz.mod.EVA, 300)
+    mob:setMod(tpz.mod.MOVE, -25)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 900)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:setLocalVar("BreakChance", 5)
