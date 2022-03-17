@@ -2,8 +2,11 @@
 -- Area: Mamook
 --   NM: Iriri Samariri (T2 ZNM)
 -----------------------------------
+require("scripts/globals/mobs")
+require("scripts/globals/status")
 mixins =
 {
+require("scripts/mixins/rage"),
 require("scripts/mixins/job_special"),
 require("scripts/mixins/families/poroggo")
 }

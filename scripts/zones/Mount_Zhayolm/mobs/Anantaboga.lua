@@ -2,10 +2,9 @@
 -- Area: Mount Zhayolm
 --   NM: Anantaboga (T2 ZNM)
 -----------------------------------
-mixins =
-{
-require("scripts/mixins/job_special"),
-}
+require("scripts/globals/mobs")
+require("scripts/globals/status")
+mixins = {require("scripts/mixins/rage")}
 -----------------------------------
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)

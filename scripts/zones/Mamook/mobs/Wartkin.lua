@@ -3,6 +3,8 @@
 --   Adds for: Iriri Samariri (T2 ZNM)
 --  Wartkin
 -----------------------------------
+require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
 function onMobInitialize(mob)
 end
