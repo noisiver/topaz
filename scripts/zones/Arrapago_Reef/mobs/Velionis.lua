@@ -18,6 +18,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UFASTCAST, 10)
     mob:setLocalVar("HPP", 90)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 7)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 450)
     mob:SetAutoAttackEnabled(false)
 end

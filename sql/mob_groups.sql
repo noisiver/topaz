@@ -2995,7 +2995,7 @@ INSERT INTO `mob_groups` VALUES (23,4280,62,'Wamoura',600,0,2608,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (25,4009,62,'Troll_Artilleryman',600,0,2473,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (26,4012,62,'Troll_Combatant',600,0,2475,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (27,4036,62,'Troll_Targeteer',600,0,2487,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (28,1170,62,'Ebony_Pudding',600,0,740,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (28,1170,62,'Ebony_Pudding',720,0,740,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (29,416,62,'Big_Bomb',0,128,277,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (30,4023,62,'Troll_Machinist',600,0,2484,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (31,4028,62,'Troll_Scrimer',600,0,2482,0,0,81,83,0);
