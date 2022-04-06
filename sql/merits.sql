@@ -197,7 +197,7 @@ INSERT INTO `merits` VALUES (1732,'life_cycle_recast',5,20,1048576,6,26);
 INSERT INTO `merits` VALUES (1734,'blaze_of_glory_recast',5,20,1048576,6,26);
 INSERT INTO `merits` VALUES (1736,'dematerialize_recast',5,20,1048576,6,26);
 INSERT INTO `merits` VALUES (2048,'warriors_charge',5,5,1,7,31);
-INSERT INTO `merits` VALUES (2050,'tomahawk',5,15,1,7,31);
+INSERT INTO `merits` VALUES (2050,'tomahawk',5,5,1,7,31);
 INSERT INTO `merits` VALUES (2052,'savagery',5,100,1,7,31);
 INSERT INTO `merits` VALUES (2054,'aggressive_aim',5,4,1,7,31);
 INSERT INTO `merits` VALUES (2112,'mantra',5,4,2,7,32);
