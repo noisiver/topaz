@@ -266,6 +266,16 @@ function onMobSpawn(mob)
     end)
 end
 
+function onMobFight(mob, target)
+    local master = mob:getMaster()
+    local SpiritPower = master:getLocalVar("SpiritPower")
+    if SpiritPower > 0 then
+        mob:setMod(tpz.mod.ATTP, SpiritPower * 15)
+    else
+        mob:setMod(tpz.mod.ATTP, 0)
+    end
+end
+
 function onMobDeath(mob, player)
     local master = mob:getMaster()
     local numLvls = mob:getLocalVar("level_Ups")

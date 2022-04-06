@@ -29,11 +29,7 @@ function onAbilityCheck(player, target, ability)
     if (player:getPet() == nil) then
         return tpz.msg.basic.REQUIRES_A_PET, 0
     else
-        if (player:getPet():getHP() == player:getPet():getMaxHP() and player:getMerit(tpz.merit.EMPATHY) == 0) then
-            return tpz.msg.basic.UNABLE_TO_USE_JA, 0
-        else
-            return 0, 0
-        end
+        return 0, 0
     end
 end
 
@@ -43,6 +39,12 @@ function onUseAbility(player, target, ability)
     local drainamount = (math.random(25, 35) / 100) * playerHP
     if (player:getPet():getHP() == player:getPet():getMaxHP()) then
         drainamount = 0 -- Prevents player HP lose if wyvern is at full HP
+    end
+    -- Add spirit power per use of spirit link
+    local SpiritPower = player:getLocalVar("SpiritPower")
+    if SpiritPower < 3 then
+        SpiritPower = SpiritPower + 1
+        player:setLocalVar("SpiritPower", SpiritPower)
     end
 
     if (player:hasStatusEffect(tpz.effect.STONESKIN)) then
