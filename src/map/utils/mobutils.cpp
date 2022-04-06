@@ -638,11 +638,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_WHM:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_BRD:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 25);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 60);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
@@ -651,7 +651,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             break;
         case JOB_RDM:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 15);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
@@ -665,8 +665,8 @@ void SetupJob(CMobEntity* PMob)
             break;
         case JOB_NIN:
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
-            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 20);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
+            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 75);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         default:
