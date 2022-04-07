@@ -8,8 +8,9 @@ require("scripts/globals/titles")
 -----------------------------------
 
 function onMobSpawn(mob)
+	mob:setDamage(130)
+    mob:setMod(tpz.mod.ATT, 500)
     mob:addMod(tpz.mod.DEFP, 50) 
-    mob:setMod(tpz.mod.ATT, 750)
     mob:setMod(tpz.mod.ACC, 400) 
     mob:addMod(tpz.mod.EVA, 140)
     mob:setMod(tpz.mod.MACC, 1000) 

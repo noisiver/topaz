@@ -6,6 +6,12 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
 require("scripts/globals/titles")
 -----------------------------------
+function onMobSpawn(mob)
+	mob:setDamage(130)
+    mob:setMod(tpz.mod.ATT, 500)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.EVA, 50)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 2)
