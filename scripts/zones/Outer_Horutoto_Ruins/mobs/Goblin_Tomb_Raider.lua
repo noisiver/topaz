@@ -57,16 +57,23 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 591 then -- Bomb Toss
-        local BombToss = mob:getLocalVar("BombToss")
+    if skill:getID() == 591 then
+        local BombTossCounter = mob:getLocalVar("BombTossCounter")
+        local BombTossMax = mob:getLocalVar("BombTossMax")
 
-        BombToss = BombToss +1
-        mob:setLocalVar("BombToss", BombToss)
+        if BombTossCounter == 0 and BombTossMax == 0 then
+            BombTossMax = math.random(2, 5)
+            mob:setLocalVar("BombTossMax", BombTossMax)
+        end
 
-        if BombToss > 2 then
-            mob:setLocalVar("BombToss", 0)
+        BombTossCounter = BombTossCounter + 1
+        mob:setLocalVar("BombTossCounter", BombTossCounter)
+
+        if BombTossCounter > BombTossMax then
+            mob:setLocalVar("BombTossCounter", 0)
+            mob:setLocalVar("BombTossMax", 0)
         else
-            mob:useMobAbility(591) -- Bomb Toss
+            mob:useMobAbility(591)
         end
     end
 end
