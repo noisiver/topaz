@@ -62,7 +62,7 @@ function onMobWeaponSkill(target, mob, skill)
         local BombTossMax = mob:getLocalVar("BombTossMax")
 
         if BombTossCounter == 0 and BombTossMax == 0 then
-            BombTossMax = math.random(2, 5)
+            BombTossMax = math.random(5, 10)
             mob:setLocalVar("BombTossMax", BombTossMax)
         end
 
