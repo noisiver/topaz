@@ -27,6 +27,6 @@ function onMobWeaponSkill(target, mob, skill)
     
 	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect1, 1, 0, 8)
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect2, 50, 0, 60)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect2, 50, 0, 300)
     return dmg
 end
