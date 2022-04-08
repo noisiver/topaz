@@ -801,7 +801,8 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
         if (resist >= 0.50) then
 
-            local totalDuration = utils.clamp(duration * resist, 1)
+            -- Reduce duration by resist percentage
+            local totalDuration = duration * resist
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
