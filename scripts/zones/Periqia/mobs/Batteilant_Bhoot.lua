@@ -63,6 +63,7 @@ function onMobFight(mob, target)
 	local DreadSpikesTime = mob:getLocalVar("DreadSpikesTime")
 	local DrainTime = mob:getLocalVar("DrainTime")
 	local BattleTime = mob:getBattleTime()
+    mob:setMod(tpz.mod.SDT_THUNDER, 150) -- Easy to stun because they spam Perdition
 end
 
 function onMobWeaponSkillPrepare(mob, target)
