@@ -42,5 +42,13 @@ function onSpellCast(caster, target, spell)
         end
     end
 
+    if (resist >= 0.0625) then -- Do it!
+	    local typeEffect = tpz.effect.STUN
+        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- https://www.bg-wiki.com/bg/Mind_Blast says 20%
+            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+
     return typeEffect
 end

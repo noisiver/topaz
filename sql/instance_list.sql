@@ -46,7 +46,7 @@ CREATE TABLE `instance_list` (
 LOCK TABLES `instance_list` WRITE;
 /*!40000 ALTER TABLE `instance_list` DISABLE KEYS */;
 INSERT INTO `instance_list` VALUES (0,'TEST',0,0,0.000,0.000,0.000,0,-1,-1,-1,-1);
-INSERT INTO `instance_list` VALUES (1,'leujaoam_cleansing',79,60,280.000,-7.500,35.000,195,-1,-1,-1,-1);
+INSERT INTO `instance_list` VALUES (1,'leujaoam_cleansing',79,120,280.000,-7.500,35.000,195,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (2,'orichalcum_survey',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (3,'escort_professor_chanoix',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (4,'shanarha_grass_conservation',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
@@ -56,7 +56,7 @@ INSERT INTO `instance_list` VALUES (1,'leujaoam_cleansing',79,60,280.000,-7.500,
 -- INSERT INTO `instance_list` VALUES (8,'imperial_code',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (9,'red_versus_blue',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (10,'bloody_rondo',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
-INSERT INTO `instance_list` VALUES (11,'imperial_agent_rescue',52,60,220.000,1.465,-504.999, 0, -1, -1, -1, -1);
+INSERT INTO `instance_list` VALUES (11,'imperial_agent_rescue',52,120,220.000,1.465,-504.999, 0, -1, -1, -1, -1);
 INSERT INTO `instance_list` VALUES (12,'preemptive_strike',52,30,-60.35,-5.0,27.67,46,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (13,'sagelord_elimination',52,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (14,'breaking_morale',52,15,0.000,0.000,0.000,0,-1,-1,-1,-1);
@@ -66,7 +66,7 @@ INSERT INTO `instance_list` VALUES (12,'preemptive_strike',52,30,-60.35,-5.0,27.
 -- INSERT INTO `instance_list` VALUES (18,'marids_in_the_mist',52,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (19,'azure_ailments',52,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (20,'the_susanoo_shuffle',52,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
-INSERT INTO `instance_list` VALUES (21,'excavation_duty',61,60,124.999,-39.309,19.999,0,-1,-1,-1,-1);
+INSERT INTO `instance_list` VALUES (21,'excavation_duty',61,120,124.999,-39.309,19.999,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (22,'lebros_supplies',61,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 INSERT INTO `instance_list` VALUES (23,'troll_fugitives',61,30,-459.912,-9.860,342.319,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (24,'evade_and_escape',61,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
@@ -76,7 +76,7 @@ INSERT INTO `instance_list` VALUES (23,'troll_fugitives',61,30,-459.912,-9.860,3
 -- INSERT INTO `instance_list` VALUES (28,'egg_conservation',61,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (29,'operation:black_pearl',61,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (30,'better_than_one',61,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
-INSERT INTO `instance_list` VALUES (31,'seagull_grounded',79,60,-350,-15.245,380,0,-1,-1,-1,-1);
+INSERT INTO `instance_list` VALUES (31,'seagull_grounded',79,120,-350,-15.245,380,0,-1,-1,-1,-1);
 INSERT INTO `instance_list` VALUES (32,'requiem',79,30,-458.409,-10.000,-320.966,90,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (33,'saving_private_ryaaf',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (34,'shooting_down_the_baron',79,15,0.000,0.000,0.000,0,-1,-1,-1,-1);
@@ -86,7 +86,7 @@ INSERT INTO `instance_list` VALUES (32,'requiem',79,30,-458.409,-10.000,-320.966
 -- INSERT INTO `instance_list` VALUES (38,'operation:snake_eyes',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (39,'wake_the_puppet',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (40,'the_price_is_right',79,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
-INSERT INTO `instance_list` VALUES (41,'golden_salvage',54,60,386.000,-12.000,17.000,46,-1,-1,-1,-1);
+INSERT INTO `instance_list` VALUES (41,'golden_salvage',54,120,386.000,-12.000,17.000,46,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (42,'lamia_no_13',54,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
 INSERT INTO `instance_list` VALUES (43,'extermination',54,30,298.099,-3.943,135.234,149,-1,-1,-1,-1);
 -- INSERT INTO `instance_list` VALUES (44,'demolition_duty',54,30,0.000,0.000,0.000,0,-1,-1,-1,-1);
