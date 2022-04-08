@@ -27,7 +27,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SILENCE
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
 
 	MobEncumberMove(target, 5, 60)
     local dmgmod = 2

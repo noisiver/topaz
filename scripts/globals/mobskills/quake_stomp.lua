@@ -31,7 +31,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 100
-    local duration = 60
+    local duration = 300
 
     local typeEffect = tpz.effect.BOOST
 

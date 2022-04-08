@@ -17,7 +17,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
 
-    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 60))
+    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 300))
 
     return typeEffect
 end

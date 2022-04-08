@@ -18,7 +18,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SILENCE
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
 
 
     local dmgmod = MobBreathMove(mob, target, 0.25, 2, tpz.magic.ele.WIND, 800)

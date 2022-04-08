@@ -14,11 +14,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffectOne = tpz.effect.STONESKIN
-    MobBuffMove(mob, tpz.effect.HASTE, 3520, 0, 60)
-    MobBuffMove(mob, tpz.effect.MAGIC_ATK_BOOST, 24, 0, 60)
-    MobBuffMove(mob, tpz.effect.MAGIC_DEF_BOOST, 24, 0, 60)
-    MobBuffMove(mob, tpz.effect.ATTACK_BOOST, 33, 0, 60)
-    MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, 33, 0, 60)
+    MobBuffMove(mob, tpz.effect.HASTE, 3520, 0, 300)
+    MobBuffMove(mob, tpz.effect.MAGIC_ATK_BOOST, 24, 0, 300)
+    MobBuffMove(mob, tpz.effect.MAGIC_DEF_BOOST, 24, 0, 300)
+    MobBuffMove(mob, tpz.effect.ATTACK_BOOST, 33, 0, 300)
+    MobBuffMove(mob, tpz.effect.DEFENSE_BOOST, 33, 0, 300)
     local effect1 = mob:getStatusEffect(typeEffectOne)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     skill:setMsg(MobBuffMove(mob, typeEffectOne, 2000, 0, 300))

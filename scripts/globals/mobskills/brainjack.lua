@@ -17,7 +17,7 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 15
 
     MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
-    MobCharmMove(mob, target, skill, 0, 60)
+    MobCharmMove(mob, target, skill, 0, 300)
 
     return tpz.effect.CHARM_I
 end

@@ -20,7 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
     local message = tpz.msg.basic.SKILL_MISS
     local typeEffect = tpz.effect.AMNESIA
     local power = 1
-    local duration = 60
+    local duration = 300
 
     local dmgmod = 1
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_MAB_BONUS)

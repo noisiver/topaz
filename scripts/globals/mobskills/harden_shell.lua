@@ -21,6 +21,6 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.DEFENSE_BOOST
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, 150, 0, 60))
+    skill:setMsg(MobBuffMove(mob, typeEffect, 150, 0, 300))
     return typeEffect
 end

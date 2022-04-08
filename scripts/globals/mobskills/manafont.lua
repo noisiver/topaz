@@ -11,7 +11,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    MobBuffMove(mob, tpz.effect.MANAFONT, 1, 0, 60)
+    MobBuffMove(mob, tpz.effect.MANAFONT, 1, 0, 300)
 
     skill:setMsg(tpz.msg.basic.USES)
 

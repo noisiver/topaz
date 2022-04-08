@@ -28,7 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.SLOW
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 2500, 0, 60)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 2500, 0, 300)
 
     return dmg
 end

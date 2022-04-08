@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
 
-    MobStatusEffectMove(mob, target, tpz.effect.MAGIC_DEF_DOWN, 20, 0, 60) -- Needs adjusted to retail values for power/duration
+    MobStatusEffectMove(mob, target, tpz.effect.MAGIC_DEF_DOWN, 20, 0, 300) -- Needs adjusted to retail values for power/duration
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
     return dmg

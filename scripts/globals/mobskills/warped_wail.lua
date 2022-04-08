@@ -27,8 +27,8 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectTwo = tpz.effect.MAX_MP_DOWN
 	    
 	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 60))
-	MobStatusEffectMove(mob, target, typeEffectTwo, 50, 0, 60)
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 300))
+	MobStatusEffectMove(mob, target, typeEffectTwo, 50, 0, 300)
 
     return dmg
 end

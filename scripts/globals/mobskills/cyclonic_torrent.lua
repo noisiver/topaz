@@ -28,7 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.MUTE
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
 
     return dmg
 end

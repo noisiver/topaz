@@ -31,7 +31,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     -- curse LAST so you don't die
     local typeEffect = tpz.effect.CURSE_I
-    MobStatusEffectMove(mob, target, typeEffect, 25, 0, 60)
+    MobStatusEffectMove(mob, target, typeEffect, 25, 0, 300)
 
     return dmg
 end

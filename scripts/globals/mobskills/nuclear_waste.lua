@@ -38,7 +38,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.ELEMENTALRES_DOWN
     local resist = applyPlayerResistance(mob,typeEffect,target,mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT),0,0);
     if (resist >= 0.50) then
-        target:addStatusEffectEx(typeEffect, 0, 50, 0, 60)
+        target:addStatusEffectEx(typeEffect, 0, 50, 0, 300)
         skill:setMsg(tpz.msg.basic.NONE)
     else
         skill:setMsg(tpz.msg.basic.SKILL_MISS)

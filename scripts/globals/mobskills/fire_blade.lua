@@ -15,6 +15,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.ENFIRE
-    skill:setMsg(MobBuffMove(mob, typeEffect, 65, 0, 60))
+    skill:setMsg(MobBuffMove(mob, typeEffect, 65, 0, 300))
     return typeEffect
 end

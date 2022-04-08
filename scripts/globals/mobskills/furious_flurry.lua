@@ -25,8 +25,8 @@ function onMobWeaponSkill(target, mob, skill)
     local typeeffectTwo = tpz.effect.SILENCE
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.H2H)
-    MobPhysicalStatusEffectMove(mob, target, skill, typeeffectOne, 50, 0, 60)
-    MobPhysicalStatusEffectMove(mob, target, skill, typeeffectTwo, 1, 0, 60)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeeffectOne, 50, 0, 300)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeeffectTwo, 1, 0, 300)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
 
     return dmg
