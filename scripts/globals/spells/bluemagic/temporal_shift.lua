@@ -26,7 +26,7 @@ function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.STUN
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     local params = {}
-    params.diff = nil
+    params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 150
@@ -34,16 +34,6 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistanceEffect(caster, target, spell, params)
 
     if (resist >= 0.0625) then -- Do it!
-        local typeEffect = tpz.effect.STUN
-        if target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    end
-
-    if (resist >= 0.0625) then -- Do it!
-	    local typeEffect = tpz.effect.STUN
         target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- https://www.bg-wiki.com/bg/Mind_Blast says 20%
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
