@@ -1,9 +1,10 @@
 ---------------------------------------------
--- Defender JA
+-- (Vulture 4)
+-- Dummy ability used for 2hr animation.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
-require("scripts/globals/status")
+require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -11,7 +12,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.DEFENDER
-    skill:setMsg(MobBuffMove(mob, typeEffect, 0, 0, 60))
-    return typeEffect
+    skill:setMsg(tpz.msg.basic.NONE)
+    return 0
 end
