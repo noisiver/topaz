@@ -20,7 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
         skill:setMsg(tpz.msg.basic.SKILL_ERASE)
         return erase
     else
-        skill:setMsg(MobBuffMove(mob, tpz.effect.REGAIN, 10, 3, 60))
+        skill:setMsg(MobBuffMove(mob, tpz.effect.REGAIN, 10, 3, 300))
         return tpz.effect.REGAIN
     end
 end

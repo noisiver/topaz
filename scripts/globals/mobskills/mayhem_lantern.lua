@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.ATTACK_BOOST
     local typeEffectTwo = tpz.effect.SHOCK
 	MobBuffMove(mob, typeEffect, power, 0, duration) -- Attack Boost
-	MobStatusEffectMove(mob, target, typeEffectTwo, powerTwo, 3, 60) -- Shock
+	MobStatusEffectMove(mob, target, typeEffectTwo, powerTwo, 3, 300) -- Shock
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)

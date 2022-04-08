@@ -16,7 +16,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.REQUIEM
     local power = 15
 
-    MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
+    MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
     MobCharmMove(mob, target, skill, 0, 300)
 
     return tpz.effect.CHARM_I

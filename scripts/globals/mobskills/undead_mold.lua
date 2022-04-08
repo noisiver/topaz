@@ -19,7 +19,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     if mob:isNM() then
         local typeEffectTwo = tpz.effect.PLAGUE
-        skill:setMsg(MobStatusEffectMove(mob, target, typeEffectTwo, 20, 3, 60))
+        skill:setMsg(MobStatusEffectMove(mob, target, typeEffectTwo, 20, 3, 300))
     else
         local typeEffect = tpz.effect.DISEASE
 

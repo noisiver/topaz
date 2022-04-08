@@ -27,7 +27,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.AMNESIA
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 3, 60)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 3, 300)
 
     local dmgmod = 2
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*6, tpz.magic.ele.LIGHT, dmgmod, TP_NO_EFFECT)

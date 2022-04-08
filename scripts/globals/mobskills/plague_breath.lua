@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.POISON
     local power = mob:getMainLvl() / 4 + 1
 
-    MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
+    MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
 
     local dmgmod = MobBreathMove(mob, target, 0.1, 1, tpz.magic.ele.WATER, 250)
 

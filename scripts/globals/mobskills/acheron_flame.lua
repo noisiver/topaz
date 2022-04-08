@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BURN
     local power = 21
 
-    MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
+    MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
 
     local dmgmod = 2.5
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*6, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)

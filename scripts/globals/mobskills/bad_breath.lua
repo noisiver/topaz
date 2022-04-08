@@ -17,7 +17,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
 
     MobStatusEffectMove(mob, target, tpz.effect.SLOW, 2500, 0, 300)
-    MobStatusEffectMove(mob, target, tpz.effect.POISON, mob:getMainLvl() / 2, 3, 60)
+    MobStatusEffectMove(mob, target, tpz.effect.POISON, mob:getMainLvl() / 2, 3, 300)
     MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 300)
     MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 25, 0, 300)
     MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 50, 0, 300)

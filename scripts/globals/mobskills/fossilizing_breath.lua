@@ -12,6 +12,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if (target:isInfront(mob, 90) == false) then
+        return 1
+    end
   if (mob:getFamily() == 316) then
     local mobSkin = mob:getModelId()
 
