@@ -72,6 +72,7 @@ end
 function onMobDeath(mob, player, isKiller)
     local zonePlayers = mob:getZone():getPlayers()
     for _, zonePlayer in pairs(zonePlayers) do
-        zonePlayer:PrintToPlayer("All rivers eventually lead out to sea... May we meet again.",0,"Iron Eater")
+        player:PrintToPlayer("All rivers eventually lead out to sea... May we meet again.",0,"Iron Eater")
+        break
     end
 end

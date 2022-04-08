@@ -82,6 +82,7 @@ function onMobDeath(mob, player, isKiller)
     local zonePlayers = mob:getZone():getPlayers()
     for _, zonePlayer in pairs(zonePlayers) do
         player:PrintToPlayer("I..guess..you...deserve...it...m...m..more...",0,"Goblin")
+        break
     end
     DespawnMob(Guard)
     DespawnMob(GuardTwo)
