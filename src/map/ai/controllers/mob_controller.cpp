@@ -517,6 +517,14 @@ void CMobController::DoCombatTick(time_point tick)
         }
     }
 
+        // i'm a worm pop back up
+    if (PMob->m_roamFlags & ROAMFLAG_WORM)
+    {
+        PMob->animationsub = 0;
+        PMob->HideName(false);
+        PMob->Untargetable(false);
+    }
+
 
     HandleEnmity();
     PTarget = static_cast<CBattleEntity*>(PMob->GetEntity(PMob->GetBattleTargetID()));
@@ -1020,6 +1028,13 @@ bool CMobController::Engage(uint16 targid)
         if(PMob->getBigMobMod(MOBMOD_SPECIAL_DELAY) != 0)
         {
             m_LastSpecialTime = m_Tick - std::chrono::milliseconds(PMob->getBigMobMod(MOBMOD_SPECIAL_COOL) + tpzrand::GetRandomNumber(PMob->getBigMobMod(MOBMOD_SPECIAL_DELAY)));
+        }
+        // i'm a worm pop back up
+        if (PMob->m_roamFlags & ROAMFLAG_WORM)
+        {
+            PMob->animationsub = 0;
+            PMob->HideName(false);
+            PMob->Untargetable(false);
         }
     }
     return ret;
