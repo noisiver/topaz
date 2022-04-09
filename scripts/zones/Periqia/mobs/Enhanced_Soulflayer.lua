@@ -121,7 +121,7 @@ function onMobFight(mob, target)
             printf("Setting first Shield Time")
 		elseif BattleTime >= ImmortalShieldTime then
 		    mob:useMobAbility(1965) -- Immortal Shield
-		    mob:setLocalVar("ImmortalShieldTime", BattleTime + math.random(120, 150))
+		    mob:setLocalVar("ImmortalShieldTime", BattleTime + math.random(90, 120))
 		end
 	end
 
