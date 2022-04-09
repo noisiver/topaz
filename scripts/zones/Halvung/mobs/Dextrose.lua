@@ -23,19 +23,34 @@ function onMobSpawn(mob)
     mob:setDamage(125)
     mob:setMod(tpz.mod.DEF, 500)
     mob:setMod(tpz.mod.EVA, 340)
+    mob:setMod(tpz.mod.MDEF, 0)
+    mob:setMod(tpz.mod.UDMGMAGIC, 25)
+    mob:setMod(tpz.mod.UDMGBREATH, 0) 
+    mob:setMod(tpz.mod.SDT_FIRE, 100)
+    mob:setMod(tpz.mod.SDT_ICE, 70)
+    mob:setMod(tpz.mod.SDT_WIND, 70)
+    mob:setMod(tpz.mod.SDT_EARTH, 70)
+    mob:setMod(tpz.mod.SDT_THUNDER, 100)
+    mob:setMod(tpz.mod.SDT_WATER, 50)
+    mob:setMod(tpz.mod.SDT_LIGHT, 100)
+    mob:setMod(tpz.mod.SDT_DARK, 60)
     mob:setMod(tpz.mod.UFASTCAST, 50)
     mob:setMod(tpz.mod.REGAIN, 100)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 900)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6500) -- 7k Gil
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 7300) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
 	mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
     mob:SetMobAbilityEnabled(true)
     mob:setLocalVar("FindPuddingTime", 0)
+    mob:setLocalVar("SyngerismUses", 0)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
 
 function onMobFight(mob, target)
 	local FindPuddingTime = mob:getLocalVar("FindPuddingTime")
+    local SyngerismUses = mob:getLocalVar("SyngerismUses")
 	local PathToPudding = mob:getLocalVar("PathToPudding")
 	local Pudding = mob:getLocalVar("Pudding")
 	local LastPudding = mob:getLocalVar("LastPudding")
@@ -54,10 +69,28 @@ function onMobFight(mob, target)
             printf("retal on target")
         end
     end)
+    -- Every 25% missing HP, look for an Ebony Pudding
+        if mob:getHPP() < 75 and SyngerismUses == 0 then
+            mob:setLocalVar("PathToPudding", 0)
+            mob:setLocalVar("FindPuddingTime", 1)
+            mob:setLocalVar("SyngerismUses", 1)
+        end
+        if mob:getHPP() < 50 and SyngerismUses == 1 then
+            mob:setLocalVar("PathToPudding", 0)
+            mob:setLocalVar("FindPuddingTime", 1)
+            mob:setLocalVar("SyngerismUses", 2)
+        end
+        if mob:getHPP() < 25 and SyngerismUses == 2 then
+            mob:setLocalVar("PathToPudding", 0)
+            mob:setLocalVar("FindPuddingTime", 1)
+            mob:setLocalVar("SyngerismUses", 3)
+        end
     -- Search for a Ebony Pudding to heal off of(Synergism TP Move)
-	if FindPuddingTime == 0 then
-		mob:setLocalVar("FindPuddingTime", BattleTime + 30)
-	elseif BattleTime >= FindPuddingTime and PathToPudding == 0 then
+        if FindPuddingTime == 1 and PathToPudding == 0 then
+        if GetMobByID(17031451):isDead() and GetMobByID(17031453):isDead() and GetMobByID(17031456):isDead() and
+        GetMobByID(17031460):isDead() and GetMobByID(17031461):isDead() then
+            return
+        end
         Pudding = 17031451
         -- If dead, go to next pudding in list
         if GetMobByID(Pudding):isDead() then
@@ -97,7 +130,7 @@ function onMobFight(mob, target)
             mob:useMobAbility(1826) -- Synergism
             --printf("Using Synergism")
             mob:setLocalVar("LastPudding", Pudding)
-            mob:setLocalVar("FindPuddingTime", BattleTime + 30)
+            mob:setLocalVar("FindPuddingTime", 0)
             mob:setLocalVar("PathToPudding", 0)
             mob:setLocalVar("Retaliated", 0)
         end
@@ -109,6 +142,7 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
+    return 1821 -- Spams Amplification only
 end
 
 function onMobWeaponSkill(target, mob, skill)

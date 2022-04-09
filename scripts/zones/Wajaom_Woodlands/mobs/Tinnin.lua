@@ -15,25 +15,48 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 12000)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 30000)
-    mob:setMobMod(tpz.mobMod.MUG_GIL, 8000)
-    mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
-    mob:setMod(tpz.mod.UDMGBREATH, -100) -- immune to breath damage
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(130)
+    mob:setMod(tpz.mod.ATT, 975)
+    mob:setMod(tpz.mod.DEF, 630)
+    mob:setMod(tpz.mod.EVA, 457) --Hydra family * 1.15
+    mob:setMod(tpz.mod.MDEF, 20)
+    mob:setMod(tpz.mod.UDMGMAGIC, 0)
+    mob:setMod(tpz.mod.UDMGBREATH, -100)
+    mob:setMod(tpz.mod.SDT_FIRE, 60)
+    mob:setMod(tpz.mod.SDT_ICE, 60)
+    mob:setMod(tpz.mod.SDT_WIND, 60)
+    mob:setMod(tpz.mod.SDT_EARTH, 100)
+    mob:setMod(tpz.mod.SDT_THUNDER, 100)
+    mob:setMod(tpz.mod.SDT_WATER, 100)
+    mob:setMod(tpz.mod.SDT_LIGHT, 100)
+    mob:setMod(tpz.mod.SDT_DARK, 100)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 15)
+    mob:setMod(tpz.mod.REGEN, 50)
+    mob:setMod(tpz.mod.REGAIN, 50)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 12000)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 14000)
+    mob:setMobMod(tpz.mobMod.MUG_GIL, 8000)
+    mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
+    mob:setMod(tpz.mod.UDMGBREATH, -100) -- immune to breath damage
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:setHP(mob:getMaxHP()/2)
     mob:setUnkillable(true)
-    mob:setMod(tpz.mod.REGEN, 50)
-
+	mob:addTP(3000)
+        tpz.mix.jobSpecial.config(mob, {
+            specials =
+            {
+                {id = tpz.jsa.MIGHTY_STRIKES, hpp = 0},
+            },
+        })
     -- Regen Head every 1.5-4 minutes 90-240
     mob:setLocalVar("headTimer", os.time() + math.random(60, 190))
 
     -- Number of crits to lose a head
-    mob:setLocalVar("CritToTheFace", math.random(10, 30))
+    mob:setLocalVar("CritToTheFace", math.random(50, 100))
     mob:setLocalVar("crits", 0)
 end
 
@@ -62,6 +85,12 @@ function onMobRoam(mob)
             mob:setMod(tpz.mod.REGEN, 10)
             mob:setLocalVar("thirdHead", 1)
             mob:setUnkillable(false) -- It can be killed now that has all his heads
+            tpz.mix.jobSpecial.config(mob, { -- It can now use Mighty Strikes
+                specials =
+                {
+                    {id = tpz.jsa.MIGHTY_STRIKES, hpp = math.random(5, 40)},
+                },
+            })
         else
             mob:addHP(mob:getMaxHP() * .05)
         end
@@ -98,6 +127,12 @@ function onMobFight(mob, target)
             mob:addHP(mob:getMaxHP() * .25)
             mob:setLocalVar("thirdHead", 1)
             mob:setUnkillable(false) -- It can be killed now that has all his heads
+            tpz.mix.jobSpecial.config(mob, { -- It can now use Mighty Strikes
+                specials =
+                {
+                    {id = tpz.jsa.MIGHTY_STRIKES, hpp = math.random(5, 40)},
+                },
+            })
         else
             mob:addHP(mob:getMaxHP() * .05)
         end
@@ -108,6 +143,10 @@ function onMobFight(mob, target)
         mob:useMobAbility(1828) -- Pyric Blast
         mob:useMobAbility(1830) -- Polar Blast
         mob:useMobAbility(1832) -- Barofield
+    end
+
+    if mob:getHPP() < 25 then -- Spams TP moves at low HP
+       mob:setMod(tpz.mod.REGAIN, 500)
     end
 end
 
@@ -126,13 +165,23 @@ function onCriticalHit(mob)
         end
 
         -- Number of crits to lose a head, re-randoming
-        mob:setLocalVar("CritToTheFace", math.random(10, 30))
+        mob:setLocalVar("CritToTheFace", math.random(50, 100))
 
         critNum = 0 -- reset the crits on the NM
     else
         critNum = critNum + 1
     end
     mob:setLocalVar("crits", critNum)
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    -- Nerve Gas will only and always be used after immediately after Pyric Bulwark or Polar Bulwark.
+    if skill:getID() == 1829 or skill:getID() == 1831 then 
+        mob:useMobAbility(1836) -- Nerve Gas
+    end
 end
 
 function onMobDrawIn(mob, target)

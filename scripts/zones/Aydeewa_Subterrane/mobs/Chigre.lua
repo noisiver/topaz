@@ -15,7 +15,9 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.DEF, 450)
     mob:setMod(tpz.mod.ACC, 500)
     mob:setMod(tpz.mod.EVA, 400)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 450)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 3000) -- 5k Gil
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 5000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
@@ -28,39 +30,29 @@ function onMobFight(mob, target)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    local effects = { } 
-    if not target:hasStatusEffect(tpz.effect.BLINDNESS) then
-        table.insert(effects, tpz.mob.ae.BLIND)
-    end
-    if not target:hasStatusEffect(tpz.effect.POISON) then
-        table.insert(effects, tpz.mob.ae.POISON)
-    end
-    if not target:hasStatusEffect(tpz.effect.PARALYSIS) then
-        table.insert(effects, tpz.mob.ae.PARALYZE)
-    end
-    if not target:hasStatusEffect(tpz.effect.SLOW) then
-        table.insert(effects, tpz.mob.ae.SLOW)
-    end
-    if not target:hasStatusEffect(tpz.effect.PETRIFICATION) then
-        table.insert(effects, tpz.mob.ae.PETRIFY)
-    end
-    if not target:hasStatusEffect(tpz.effect.SILENCE) then
-        table.insert(effects, tpz.mob.ae.SILENCE)
-    end
-    if not target:hasStatusEffect(tpz.effect.CURSE) then
-        table.insert(effects, tpz.mob.ae.CURSE)
-    end
-    if not target:hasStatusEffect(tpz.effect.PLAGUE) then
-        table.insert(effects, tpz.mob.ae.PLAGUE)
+    local possibleEffects = { };
+    local chigreEffects = {
+      [tpz.effect.BLINDNESS] = tpz.mob.ae.BLIND,
+      [tpz.effect.POISON] = tpz.mob.ae.POISON,
+      [tpz.effect.PARALYSIS] = tpz.mob.ae.PARALYZE,
+      [tpz.effect.SLOW] = tpz.mob.ae.SLOW,
+      [tpz.effect.PETRIFICATION] = tpz.mob.ae.PETRIFY,
+      [tpz.effect.SILENCE] = tpz.mob.ae.SILENCE,
+      [tpz.effect.CURSE_I] = tpz.mob.ae.CURSE,
+      [tpz.effect.PLAGUE] = tpz.mob.ae.PLAGUE
+    };
+    
+    for debuff,effect in pairs(chigreEffects) do
+        if not target:hasStatusEffect(debuff) then
+            table.insert(possibleEffects,effect);
+        end
     end
 
-    if target:hasStatusEffect(tpz.effect.BLINDNESS) and target:hasStatusEffect(tpz.effect.POISON) and target:hasStatusEffect(tpz.effect.PARALYSIS)
-    and target:hasStatusEffect(tpz.effect.SLOW) and target:hasStatusEffect(tpz.effect.PETRIFICATION) and target:hasStatusEffect(tpz.effect.SILENCE)
-    and target:hasStatusEffect(tpz.effect.CURSE_I) and target:hasStatusEffect(tpz.effect.PLAGUE) then
+    if #possibleEffects == 0 then
         return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.HP_DRAIN, {chance = 100, power = 80})
     end
 
-    return tpz.mob.onAddEffect(mob, target, damage, effects[math.random(#effects)], {chance = 100, duration = 180})
+    return tpz.mob.onAddEffect(mob, target, damage, possibleEffects[math.random(#possibleEffects)], {duration = 180})
 end
 
 

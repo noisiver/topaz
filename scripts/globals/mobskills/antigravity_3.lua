@@ -7,12 +7,10 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if(mob:getFamily() == 120) then
-		if (mob:AnimationSub() == 0) then --Needs to be tested
-			return 0
-		else
-			return 1
-		end
+	if (mob:AnimationSub() == 0) then --Needs to be tested
+		return 0
+	else
+		return 1
 	end
 end
 

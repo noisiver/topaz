@@ -17,7 +17,13 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BERSERK
     local typeEffectTwo = tpz.effect.HASTE
-    MobBuffMove(mob, typeEffect, 50, 0, 300)
-    skill:setMsg(MobBuffMove(mob, typeEffectTwo, 2500, 0, 300)) 
+    local power = 50
+    local powerTwo = 2500
+    if mob:getPool() == 930 then -- Dea
+        power = 100
+        powerTwo = 5000
+    end
+    MobBuffMove(mob, typeEffect, power, 0, 300)
+    skill:setMsg(MobBuffMove(mob, typeEffectTwo, powerTwo, 0, 300)) 
     return typeEffectTwo
 end

@@ -16,7 +16,9 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.EVA, 340)
     mob:setMod(tpz.mod.ENHANCE, 331)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, 298)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 900)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6500) -- 7k Gil
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 7300) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
 

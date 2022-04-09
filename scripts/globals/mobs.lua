@@ -138,7 +138,8 @@ tpz.mob.additionalEffect =
     AMNESIA    = 25,
     BIND       = 26,
     WEIGHT     = 27,
-    FLASH     =  28,
+    FLASH      = 28,
+    RECOVER_MP = 29
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -146,29 +147,29 @@ local additionalEffects =
 {
     [tpz.mob.ae.BLIND] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.DARK,
         sub = tpz.subEffect.BLIND,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.BLINDNESS,
         power = 20,
-        duration = 30,
+        duration = 180,
         minDuration = 1,
         maxDuration = 180,
     },
     [tpz.mob.ae.CURSE] =
     {
-        chance = 20,
+        chance = 100,
         ele = tpz.magic.ele.DARK,
         sub = tpz.subEffect.CURSE,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.CURSE_I,
         power = 50,
-        duration = 300,
+        duration = 1800,
         minDuration = 1,
-        maxDuration = 300,
+        maxduration = 1800,
     },
     [tpz.mob.ae.ENAERO] =
     {
@@ -244,20 +245,20 @@ local additionalEffects =
     },
     [tpz.mob.ae.EVA_DOWN] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.ICE,
         sub = tpz.subEffect.EVASION_DOWN,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.EVASION_DOWN,
         power = 25,
-        duration = 30,
+        duration = 180,
         minDuration = 1,
         maxDuration = 180,
     },
     [tpz.mob.ae.HP_DRAIN] =
     {
-        chance = 10,
+        chance = 100,
         ele = tpz.magic.ele.DARK,
         sub = tpz.subEffect.HP_DRAIN,
         msg = tpz.msg.basic.ADD_EFFECT_HP_DRAIN,
@@ -267,7 +268,7 @@ local additionalEffects =
     },
     [tpz.mob.ae.MP_DRAIN] =
     {
-        chance = 10,
+        chance = 100,
         ele = tpz.magic.ele.DARK,
         sub = tpz.subEffect.MP_DRAIN,
         msg = tpz.msg.basic.ADD_EFFECT_MP_DRAIN,
@@ -277,20 +278,20 @@ local additionalEffects =
     },
     [tpz.mob.ae.PARALYZE] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.ICE,
         sub = tpz.subEffect.PARALYSIS,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.PARALYSIS,
         power = 20,
-        duration = 30,
+        duration = 180,
         minDuration = 1,
         maxDuration = 180,
     },
     [tpz.mob.ae.PETRIFY] =
     {
-        chance = 20,
+        chance = 100,
         ele = tpz.magic.ele.EARTH,
         sub = tpz.subEffect.PETRIFY,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
@@ -303,7 +304,7 @@ local additionalEffects =
     },
     [tpz.mob.ae.PLAGUE] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.WATER,
         sub = tpz.subEffect.PLAGUE,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
@@ -316,47 +317,47 @@ local additionalEffects =
     },
     [tpz.mob.ae.POISON] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.WATER,
         sub = tpz.subEffect.POISON,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.POISON,
-        power = 1,
-        duration = 30,
+        power = 10,
+        duration = 180,
         minDuration = 1,
         maxDuration = 180,
         tick = 3,
     },
     [tpz.mob.ae.SILENCE] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.WIND,
         sub = tpz.subEffect.SILENCE,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.SILENCE,
         power = 1,
-        duration = 30,
+        duration = 180,
         minDuration = 1,
         maxDuration = 180,
     },
     [tpz.mob.ae.SLOW] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.EARTH,
         sub = tpz.subEffect.DEFENSE_DOWN,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.SLOW,
-        power = 1000,
-        duration = 30,
+        power = 2500,
+        duration = 180,
         minDuration = 1,
         maxDuration = 180,
     },
     [tpz.mob.ae.STUN] =
     {
-        chance = 20,
+        chance = 100,
         ele = tpz.magic.ele.LIGHTNING,
         sub = tpz.subEffect.STUN,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
@@ -366,7 +367,7 @@ local additionalEffects =
     },
     [tpz.mob.ae.TERROR] =
     {
-        chance = 20,
+        chance = 100,
         sub = tpz.subEffect.PARALYSIS,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
@@ -375,7 +376,7 @@ local additionalEffects =
     },
     [tpz.mob.ae.TP_DRAIN] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.DARK,
         sub = tpz.subEffect.TP_DRAIN,
         msg = tpz.msg.basic.ADD_EFFECT_TP_DRAIN,
@@ -385,7 +386,7 @@ local additionalEffects =
     },
     [tpz.mob.ae.ATTK_DOWN] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.WATER,
         sub = tpz.subEffect.ATTACK_DOWN,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
@@ -398,7 +399,7 @@ local additionalEffects =
     },
     [tpz.mob.ae.DISPEL] =
     {
-        chance = 33,
+        chance = 100,
         ele = tpz.magic.ele.DARK,
         sub = tpz.subEffect.DISPEL,
         mod = tpz.mod.INT,
@@ -407,7 +408,7 @@ local additionalEffects =
     },
     [tpz.mob.ae.DISEASE] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.FIRE,
         sub = tpz.subEffect.DISEASE,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
@@ -420,46 +421,46 @@ local additionalEffects =
     },
     [tpz.mob.ae.AMNESIA] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.FIRE,
         sub = tpz.subEffect.AMNESIA,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.AMNESIA,
         power = 1,
-        duration = 30,
+        duration = 180,
         minDuration = 1,
         maxDuration = 60,
     },
     [tpz.mob.ae.BIND] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.ICE,
         sub = tpz.subEffect.BIND,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.BIND,
         power = 1,
-        duration = 30,
+        duration = 180,
         minDuration = 1,
         maxDuration = 45,
     },
     [tpz.mob.ae.WEIGHT] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.WIND,
         sub = tpz.subEffect.WEIGHT,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.WEIGHT,
         power = 25,
-        duration = 30,
+        duration = 180,
         minDuration = 1,
         maxDuration = 60,
     },
     [tpz.mob.ae.FLASH] =
     {
-        chance = 25,
+        chance = 100,
         ele = tpz.magic.ele.LIGHT,
         sub = tpz.subEffect.FLASH,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
@@ -468,7 +469,17 @@ local additionalEffects =
         power = 300,
         duration = 3,
         minDuration = 1,
-        maxDuration = 30,
+        maxduration = 180,
+    },
+    [tpz.mob.ae.RECOVER_MP] =
+        -- Used by Achamoth. Additional effect: Achamoth recovers 30 MP.
+    {
+        chance = 100,
+        ele = tpz.magic.ele.DARK,
+        sub = tpz.subEffect.NONE,
+        msg = tpz.msg.basic.ADD_EFFECT_MP_HEAL,
+        power = 30,
+        code = function(mob, target, power) mob:addMP(power) end,
     },
 }
 

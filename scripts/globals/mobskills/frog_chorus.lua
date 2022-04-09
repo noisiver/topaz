@@ -15,6 +15,9 @@ require("scripts/globals/msg")
 
 function onMobSkillCheck(target, mob, skill)
     if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+        if mob:getHPP() > 20 then
+            return 1
+        end
         return 0
     end
     return 1

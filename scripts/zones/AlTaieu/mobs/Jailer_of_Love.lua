@@ -89,7 +89,7 @@ function onMobFight(mob, target, pet)
         mob:setSpellList(487)
     elseif currentAbsorb == 4 then -- earth
         mob:setSpellList(488)
-    elseif currentAbsorb == 5 then -- ltng
+    elseif currentAbsorb == 5 then -- lightning
         mob:setSpellList(489)
     elseif currentAbsorb == 6 then -- water
         mob:setSpellList(490)

@@ -5,10 +5,14 @@
 -- Ignores Shadows
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
+require("scripts/globals/settings")
 require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 2920 then -- Nuhn
+        return 1
+    end
     return 0
 end
 

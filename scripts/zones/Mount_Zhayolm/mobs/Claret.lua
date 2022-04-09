@@ -22,7 +22,9 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.REGEN, math.floor(mob:getMaxHP()*.004))
     mob:addMod(tpz.mod.MOVE, 15)
     mob:setMod(tpz.mod.REGAIN, 50)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 450)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 3000) -- 5k Gil
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 5000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
     mob:SetAutoAttackEnabled(false)
 end
 

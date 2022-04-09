@@ -25,7 +25,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 3
+    local dmgmod = 2
 	if  mob:AnimationSub() == 0 then --Needs testing for proper animation sub
 		mob:AnimationSub(1) --Needs testing for proper animation sub
 	elseif

@@ -16,7 +16,9 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.EVA, 350)
     mob:setMod(tpz.mod.COUNTER, 5)
     mob:setMod(tpz.mod.MOVE, -25)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 450)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 3000) -- 5k Gil
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 5000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
     mob:setLocalVar("TwoHourTime", 0)
     mob:setLocalVar("RunAroundTime",0)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
@@ -33,11 +35,21 @@ function onMobRoam(mob)
 		mob:delRoamFlag(512)
 		return
 	end
+    -- Ensure he stays tagged
+    local NearbyPlayers = mob:getPlayersInRange(50)
+        if NearbyPlayers == nil then return end
+        if NearbyPlayers then
+            for _,v in ipairs(NearbyPlayers) do
+                mob:updateClaim(v)
+            end
+        end
 	
 	-- scripted run around
 	mob:addRoamFlag(512) -- ignore attacking
 	if not mob:isFollowingPath() then
-		mob:disengage()
+        if mob:getHPP() >= 5 then
+		    mob:disengage()
+        end
 		local point = {math.random(485, 508),-2.742,math.random(173,182)}
 		mob:pathThrough(point, tpz.path.flag.RUN)
 	end

@@ -670,11 +670,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',149,1395);
 INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',149,1397);
 -- INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',149,1398);
 INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',149,1399);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2043);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2044);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2045);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2052);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2053);
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2043); -- artificial_gravity_3
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2044); -- antigravity_3
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2045); -- rail_cannon_3
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2052); -- restoral
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2053); -- heavy_armature
 INSERT INTO `mob_skill_lists` VALUES ('Gears2',151,2046);
 INSERT INTO `mob_skill_lists` VALUES ('Gears2',151,2047);
 INSERT INTO `mob_skill_lists` VALUES ('Gears2',151,2048);
@@ -758,6 +758,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1752); -- gusting_gouge
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1753); -- hysteric_barrage
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1754); -- dukkeripen_heal
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1755); -- dukkeripen_shadow
+INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1756); -- dukkeripen_para
 -- INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1756); -- dukkeripen
 -- INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1757); -- dukkeripen
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1758); -- tail_slap
@@ -1417,33 +1418,30 @@ INSERT INTO `mob_skill_lists` VALUES ('Reacton',300,511);
 INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1709);
 INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1710);
 INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1711);
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2070);
 INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2071); -- dire_straight
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2072); -- earth_shatter
 INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2073); -- sinker_drill
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2074);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1778);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1779);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1780);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1781);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1782);
-INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1783);
-INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1784);
+INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1783); -- fortifying_wail
 INSERT INTO `mob_skill_lists` VALUES ('Big_Bang',304,2218); -- penumbral_impact
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1920);
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1921);
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1922);
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1923);
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1924);
--- INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1925);
--- INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1926);
-INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,2361);
--- 306: Dea
+INSERT INTO `mob_skill_lists` VALUES ('Dea',306,2101);
+INSERT INTO `mob_skill_lists` VALUES ('Dea',306,2102);
+INSERT INTO `mob_skill_lists` VALUES ('Dea',306,2103);
 -- 307: Kalos_Eunomia
-INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1743);
-INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1744);
-INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1745);
-INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1746);
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1894); -- potent_lunge
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1896); -- rock_smash
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1897); -- diamondhide
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1898); -- enervation
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1899); -- quake_stomp
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1900); -- healing_stomp
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2106);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2107);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2108);
@@ -1451,9 +1449,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2109);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2110);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2111);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2112);
-INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1753);
-INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1758);
--- 311: free
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1753); -- hysteric_barrage
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1754); -- dukkeripen_heal
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1755); -- dukkeripen_shadow
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1756); -- dukkeripen_para
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1758); -- tail_slap
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1759); -- hypnotic_sway
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1762); -- belly_dance
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1929); -- pole_swing
+INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJuAutoattack',311,1777); -- Only use with Sword out
 INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1977); -- deathgnash
 INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1978); -- abominable_belch
 INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1693); -- gnash
@@ -4353,6 +4357,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2081); -- hammer-go
 INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2082); -- hammerblow
 INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2083); -- drop_hammer
 INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2084); -- seismohammer
+INSERT INTO `mob_skill_lists` VALUES ('UnblestJambiyaOnly',6113,1784); -- unblest_jambiya
+INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1963); -- Mind Blast
+INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1964); -- Immortal Mind
+INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1967); -- Tribulation
+INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1968); -- Immortal Anathema
 
 --6066 unused
 

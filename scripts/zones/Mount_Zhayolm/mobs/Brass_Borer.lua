@@ -17,13 +17,15 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.MATT, 0)
 	mob:setMod(tpz.mod.MOVE, -25)
     mob:setMod(tpz.mod.SDT_LIGHT, 50)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 450)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 3000) -- 5k Gil
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 5000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:setLocalVar("formTime", os.time() + math.random(60, 90))
-    mob:setLocalVar("defUp", math.random(25, 50))
+    mob:setLocalVar("defUp", math.random(50, 75))
     mob:setLocalVar("DEF", math.random(3, 5))
-    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
 function onMobRoam(mob)
@@ -60,13 +62,21 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.UDMGMAGIC, 33)
         mob:setLocalVar("formTime", os.time() + math.random(60, 90))
     end
-
+    -- Amber Scutum - > Cannonball Logic
     if mob:getHPP() < mob:getLocalVar("defUp") and mob:getLocalVar("usedMainSpec") <= mob:getLocalVar("DEF") then
+        -- Uses Amber Scutum 3-5 times in a row then spams Cannonball
         mob:useMobAbility(1815)
         mob:setLocalVar("usedMainSpec", mob:getLocalVar("usedMainSpec") +1)
     elseif mob:getLocalVar("usedMainSpec") >= 5 and mob:getLocalVar("Cannonball") == 0 then
-        mob:useMobAbility(1818)
         mob:setLocalVar("Cannonball", 1)
+        mob:setMod(tpz.mod.REGAIN, 200)
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+	local Cannonball = mob:getLocalVar("Cannonball")
+    if Cannonball > 0 then
+        mob:useMobAbility(1818)
     end
 end
 

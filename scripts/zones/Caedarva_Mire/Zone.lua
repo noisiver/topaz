@@ -8,6 +8,7 @@ require("scripts/globals/missions")
 require("scripts/globals/titles")
 require("scripts/globals/helm")
 require("scripts/globals/zone")
+require("scripts/globals/status")
 -----------------------------------
 
 function onInitialize(zone)
@@ -71,7 +72,7 @@ function onRegionEnter(player, region)
     local RegionID = region:GetRegionID()
     
     if (RegionID <= 10) then
-            printf("Entered Region")
+        printf("Entered Region")
         if RNG <= 50 then
             printf("Apply Weight")
             player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)

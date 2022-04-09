@@ -35,9 +35,9 @@ function onMobWeaponSkill(target, mob, skill)
         target:delMP(dmg)
     end
 		
+		MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_MP, dmg)
+        MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_TP, dmg)
 		skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
-		skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_MP, dmg))
-        skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_TP, dmg))
 
 
     return dmg

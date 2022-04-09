@@ -20,8 +20,9 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     if mob:getID() == 16990631 then -- Final Form
-        mob:setMobMod(tpz.mobMod.GIL_MAX, 1500)
-        mob:setMobMod(tpz.mobMod.EXP_BONUS, 0)
+        mob:setMobMod(tpz.mobMod.GIL_MIN, 6500) -- 7k Gil
+        mob:setMobMod(tpz.mobMod.GIL_MAX, 7300) 
+        mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
         mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
     end
     local NearbyPlayers = mob:getPlayersInRange(50)

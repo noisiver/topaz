@@ -52,11 +52,12 @@ function onGameHour(zone)
         if not ClusterThree:isSpawned() then
             SpawnMob(16879722)
         end
-    if not Odqan:isSpawned() and Time >= SpawnTimer then
-        SpawnMob(Odqan)
-        Odqan:setLocalVar("SpawnTimer", Time + 3200)
+        if not Odqan:isSpawned() and Time >= SpawnTimer then
+            SpawnMob(Odqan)
+            Odqan:setLocalVar("SpawnTimer", Time + 3200)
         end
-    else
+    end
+    if vHour > 8 then -- Despawn after 8 PM
         DespawnMob(16879777)
         DespawnMob(16879833)
         DespawnMob(16879722)

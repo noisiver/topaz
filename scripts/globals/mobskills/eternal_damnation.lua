@@ -13,7 +13,7 @@ function onMobSkillCheck(target, mob, skill)
 		return 1
 	end
 
-    if (mobhp <= 50) then
+    if (mobhp < 50) then
         result = 0
     end
 

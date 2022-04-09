@@ -271,6 +271,7 @@ INSERT INTO `mob_family_mods` VALUES (63,389,-13,0);	-- Chariot  -13%
 INSERT INTO `mob_family_mods` VALUES (209,389,-43,0);	-- Rampart  -43%
 INSERT INTO `mob_family_mods` VALUES (27,389,-25,0);	-- Apkallu  -25%
 INSERT INTO `mob_family_mods` VALUES (191,389,-13,0);	-- Orobon  -13%
+INSERT INTO `mob_family_mods` VALUES (233,389,-25,0);	-- Soulflayer  -25%
 INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);	-- Dvergr  -50%
 INSERT INTO `mob_family_mods` VALUES (117,389,-13,0);	-- Gargouille  -13%
 INSERT INTO `mob_family_mods` VALUES (6,389,-25,0);		-- Amphiptere  -25%
@@ -293,6 +294,7 @@ INSERT INTO `mob_family_mods` VALUES (252,29,10,0); 	-- Vampyr +10 MDB
 INSERT INTO `mob_family_mods` VALUES (284,29,20,0); 	-- Vampyr(NM) +20 MDB
 INSERT INTO `mob_family_mods` VALUES (89,29,20,0);  	-- Draugar +20 MDB
 INSERT INTO `mob_family_mods` VALUES (52,29,20,0);  	-- Bhoot +20 MDB
+INSERT INTO `mob_family_mods` VALUES (233,29,20,0); 	-- Soulflayer +20 MDB
 INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	    -- Dvergr +40 MDB
 INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	    -- Amphiptere +20 MDB
 INSERT INTO `mob_family_mods` VALUES (195,29,16,0); 	-- Pixie +16 MDB
@@ -1038,12 +1040,13 @@ INSERT INTO `mob_family_mods` VALUES (268,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (87,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (136,59,145,1);
 INSERT INTO `mob_family_mods` VALUES (179,59,125,1); -- Manticore +25 Weapon dmg
-INSERT INTO `mob_family_mods` VALUES (180,59,125,1); -- marid +25 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (180,59,125,1); -- Marid +25 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (217,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (208,59,120,1);
 INSERT INTO `mob_family_mods` VALUES (210,59,110,1);
 INSERT INTO `mob_family_mods` VALUES (242,59,110,1);
 INSERT INTO `mob_family_mods` VALUES (240,59,120,1);
+INSERT INTO `mob_family_mods` VALUES (257,59,125,1); -- Wivre +25 Weapon dmg
 
 INSERT INTO `mob_family_mods` VALUES (259,59,125,1);
 INSERT INTO `mob_family_mods` VALUES (260,59,125,1);

@@ -13,6 +13,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.DEFENSE_BOOST) then
+		return 0
+	end
     if (mob:AnimationSub() ~=1) then
         return 1
     else

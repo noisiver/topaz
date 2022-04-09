@@ -1057,14 +1057,14 @@ tpz.mod =
     CRITHITRATE                     = 165,
     CRIT_DMG_INCREASE               = 421,
     RANGED_CRIT_DMG_INCREASE        = 964, -- Increases ranged critical damage by a percent
-    ENEMYCRITRATE                   = 166,
+    ENEMYCRITRATE                   = 1256,
     CRIT_DEF_BONUS                  = 908, -- Reduces crit hit damage
     MAGIC_CRITHITRATE               = 562,
     MAGIC_CRIT_DMG_INCREASE         = 563,
     HASTE_MAGIC                     = 167,
     SPELLINTERRUPT                  = 168,
     MOVE                            = 169, -- % Movement Speed
-    MOUNT_MOVE                      = 972, -- % Mount Movement Speed
+    MOUNT_MOVE                      = 1017, -- % Mount Movement Speed
     FASTCAST                        = 170,
     UFASTCAST                       = 407,
     CURE_CAST_TIME                  = 519,
@@ -1151,7 +1151,7 @@ tpz.mod =
     DUAL_WIELD                      = 259,
     DOUBLE_ATTACK                   = 288,
     SUBTLE_BLOW                     = 289,
-    SUBTLE_BLOW_II                  = 973, -- Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
+    SUBTLE_BLOW_II                  = 1009, -- Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
     ENF_MAG_POTENCY                 = 290, -- Increases Enfeebling magic potency %
     COUNTER                         = 291,
     KICK_ATTACK_RATE                = 292,
@@ -1594,19 +1594,20 @@ tpz.mod =
     BERSERK_DURATION                = 954, -- Berserk Duration
     AGGRESSOR_DURATION              = 955, -- Aggressor Duration
     DEFENDER_DURATION               = 956, -- Defender Duration
-    CARDINAL_CHANT                  = 959,
-    INDI_DURATION                   = 960,
-    GEOMANCY                        = 961,
-    WIDENED_COMPASS                 = 962,
-    MENDING_HALATION                = 968,
-    RADIAL_ARCANA                   = 969,
-    CURATIVE_RECANTATION            = 970,
-    PRIMEVAL_ZEAL                   = 971,
-    COVER_TO_MP                     = 965, -- Converts a successful cover's phsyical damage to MP
-    COVER_MAGIC_AND_RANGED          = 966, -- Redirects ranged and single target magic attacks to the cover ability user
-    COVER_DURATION                  = 967, -- Increases Cover Duration
-    WYVERN_SUBJOB_TRAITS            = 974, -- Adds subjob traits to wyvern
-    GARDENING_WILT_BONUS            = 975, -- Increases the number of Vanadays a plant can survive before it wilts
+    -- Geo
+    CARDINAL_CHANT                  = 1001,
+    INDI_DURATION                   = 1002,
+    GEOMANCY                        = 1003,
+    WIDENED_COMPASS                 = 1004,
+    MENDING_HALATION                = 1005,
+    RADIAL_ARCANA                   = 1006,
+    CURATIVE_RECANTATION            = 1007,
+    PRIMEVAL_ZEAL                   = 1008,
+    COVER_TO_MP                     = 1014, -- Converts a successful cover's phsyical damage to MP
+    COVER_MAGIC_AND_RANGED          = 1015, -- Redirects ranged and single target magic attacks to the cover ability user
+    COVER_DURATION                  = 1016, -- Increases Cover Duration
+    WYVERN_SUBJOB_TRAITS            = 1010, -- Adds subjob traits to wyvern
+    GARDENING_WILT_BONUS            = 1011, -- Increases the number of Vanadays a plant can survive before it wilts
     SUPER_JUMP                      = 988,
     
     SPDEF_DOWN                      = 958, -- Specific Damage Taken (or Special Damage Taken) reduction as a percent
@@ -1630,26 +1631,23 @@ tpz.mod =
     SDT_LIGHT = 974,
     SDT_DARK = 975,
     
-    SUSC_TO_WS_STUN = 976,
-    COVER_DURATION = 977,
-    ENHANCES_COVER = 978,
-    AUGMENTS_COVER = 979,
-    COVERED_MP_FLAG = 980,
-    RAMPART_STONESKIN = 981,
-    TAME_SUCCESS_RATE = 982,
-    MAGIC_STACKING_MDT = 983,
-    FIRE_BURDEN_DECAY = 984,
-    BURDEN_DECAY_IGNORE_CHANCE = 985,
-    FIRE_BURDEN_PERC_EXTRA = 986,
-	SUPER_INTIMIDATION = 987,
+    SUSC_TO_WS_STUN = 1176,
+    ENHANCES_COVER = 1178,
+    AUGMENTS_COVER = 1179,
+    COVERED_MP_FLAG = 1180,
+    RAMPART_STONESKIN = 1181,
+    TAME_SUCCESS_RATE = 1182,
+    MAGIC_STACKING_MDT = 1183,
+    FIRE_BURDEN_DECAY = 1184,
+    BURDEN_DECAY_IGNORE_CHANCE = 1185,
+    FIRE_BURDEN_PERC_EXTRA = 1186,
+    SUPER_INTIMIDATION = 1187,
     FRONTAL_PDT = 1188,
     BEHIND_PDT = 1189,
 	
-	WYVERN_SUBJOB_TRAITS = 990,
-    
-    PENGUIN_RING_EFFECT = 1000,   
-    ALBATROSS_RING_EFFECT = 1001,   
-    PELICAN_RING_EFFECT = 1002,
+    PENGUIN_RING_EFFECT = 1190,   
+    ALBATROSS_RING_EFFECT = 1191,   
+    PELICAN_RING_EFFECT = 1192,
     
     VERMIN_CIRCLE           = 1224,
     BIRD_CIRCLE             = 1225,
@@ -2406,6 +2404,28 @@ tpz.mobMod =
     NO_LINK             = 69, -- If set, mob cannot link until unset.
     NO_REST             = 70, -- Mob cannot regain hp (e.g. re-burrowing antlions during ENM).
     FAMILYLINK          = 74,  -- Mob will link with mobs of the same familly in the zone. Usefull to make a NM link if the family doesn't, like Cactrot Rapido.
+}
+
+------------------------------------
+-- Immunities
+------------------------------------
+
+tpz.immunity =
+{
+    SLEEP       = 1,
+    GRAVITY     = 2,
+    BIND        = 4,
+    STUN        = 8,
+    SILENCE     = 16,
+    PARALYZE    = 32,
+    BLIND       = 64,
+    SLOW        = 128,
+    POISON      = 256,
+    ELEGY       = 512,
+    REQUIEM     = 1024,
+    LIGHTSLEEP  = 2048,
+    DARKSLEEP   = 4096,
+    ADDLE       = 8192,
 }
 
 ------------------------------------

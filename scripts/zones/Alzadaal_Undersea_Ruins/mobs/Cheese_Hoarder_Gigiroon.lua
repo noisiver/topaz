@@ -21,10 +21,14 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setDamage(125)
+	mob:setDamage(150)
     mob:setMod(tpz.mod.DEF, 450)
-    mob:setMod(tpz.mod.EVA, 380) 
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 450)
+    mob:setMod(tpz.mod.ACC, 500) 
+    mob:setMod(tpz.mod.EVA, 380)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 25) 
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 3000) -- 5k Gil
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 5000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
     mob:SetAutoAttackEnabled(true)
     mob:SetMagicCastingEnabled(true)
     mob:SetMobAbilityEnabled(true)
@@ -36,58 +40,58 @@ function onMobFight(mob, target)
     local LayingMines = mob:getLocalVar("LayingMines")
     local LayingMinesMultuple = mob:getLocalVar("LayingMinesMultuple")
     local MineLayingDelay = mob:getLocalVar("MineLayingDelay")
-    local battletime = mob:getBattleTime()
+    local BattleTime = mob:getBattleTime()
     local mobX = mob:getXPos()
     local mobY = mob:getYPos()
     local mobZ = mob:getZPos()
     local pet = GetMobByID(17072173)
-    if battletime >= MineLayingDelay and LayingMines == 1 then
+    if BattleTime >= MineLayingDelay and LayingMines == 1 then
         if not pet:isSpawned() then
             pet:spawn()
             pet:setPos(mobX, mobY, mobZ)
             pet:updateEnmity(target)
         end
     end
-    if battletime >= MineLayingDelay and LayingMinesMultuple == 1 then
+    if BattleTime >= MineLayingDelay and LayingMinesMultuple == 1 then
         if not GetMobByID(17072173):isSpawned() then
             pet = GetMobByID(17072173)
             pet:spawn()
             pet:setPos(mobX, mobY, mobZ)
             pet:updateEnmity(target)
-            mob:setLocalVar("MineLayingDelay", battletime + 5)
+            mob:setLocalVar("MineLayingDelay", BattleTime + 5)
         elseif not GetMobByID(17072174):isSpawned() then
             pet = GetMobByID(17072174)
             pet:spawn()
             pet:setPos(mobX, mobY, mobZ)
             pet:updateEnmity(target)
-            mob:setLocalVar("MineLayingDelay", battletime + 5)
+            mob:setLocalVar("MineLayingDelay", BattleTime + 5)
         elseif not GetMobByID(17072175):isSpawned() then
             pet = GetMobByID(17072175)
             pet:spawn()
             pet:setPos(mobX, mobY, mobZ)
             pet:updateEnmity(target)
-            mob:setLocalVar("MineLayingDelay", battletime + 5)
+            mob:setLocalVar("MineLayingDelay", BattleTime + 5)
         elseif not GetMobByID(17072176):isSpawned() then
             pet = GetMobByID(17072176)
             pet:spawn()
             pet:setPos(mobX, mobY, mobZ)
             pet:updateEnmity(target)
-            mob:setLocalVar("MineLayingDelay", battletime + 5)
+            mob:setLocalVar("MineLayingDelay", BattleTime + 5)
         elseif not GetMobByID(17072177):isSpawned() then
             pet = GetMobByID(17072177)
             pet:spawn()
             pet:setPos(mobX, mobY, mobZ)
             pet:updateEnmity(target)
-            mob:setLocalVar("MineLayingDelay", battletime + 5)
+            mob:setLocalVar("MineLayingDelay", BattleTime + 5)
         end
     end
 	if LayMine == 0 then
-		mob:setLocalVar("LayMine", battletime + math.random(60, 75))
-	elseif battletime >= LayMine then
+		mob:setLocalVar("LayMine", BattleTime + math.random(60, 75))
+	elseif BattleTime >= LayMine then
         local RNG = math.random()
         if RNG < 0.8 then
             if LayingMines == 0 then
-                mob:setLocalVar("MineLayingDelay", battletime + 3)
+                mob:setLocalVar("MineLayingDelay", BattleTime + 3)
                 mob:setLocalVar("LayingMines", 1)
             end
             local pos = mob:getSpawnPos()
@@ -95,10 +99,10 @@ function onMobFight(mob, target)
 		    mob:SetAutoAttackEnabled(false)
             mob:SetMagicCastingEnabled(false)
             mob:SetMobAbilityEnabled(false)
-            mob:setLocalVar("LayMine", battletime + math.random(90, 180))
+            mob:setLocalVar("LayMine", BattleTime + math.random(90, 180))
         else
             if LayingMines == 0 then
-                mob:setLocalVar("MineLayingDelay", battletime + 3)
+                mob:setLocalVar("MineLayingDelay", BattleTime + 3)
                 mob:setLocalVar("LayingMinesMultuple", 1)
             end
             local pos = mob:getSpawnPos()
@@ -106,7 +110,7 @@ function onMobFight(mob, target)
 		    mob:SetAutoAttackEnabled(false)
             mob:SetMagicCastingEnabled(false)
             mob:SetMobAbilityEnabled(false)
-            mob:setLocalVar("LayMine", battletime + math.random(90, 180))
+            mob:setLocalVar("LayMine", BattleTime + math.random(90, 180))
         end
 	end
 

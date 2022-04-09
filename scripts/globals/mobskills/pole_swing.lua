@@ -15,6 +15,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 1272 then -- Experimental Lamia
+        return 0
+    end
     if mob:AnimationSub() == 0 and (mob:getMainJob() == tpz.job.SMN or mob:getMainJob() == tpz.job.BLM) then
         return 0
     else

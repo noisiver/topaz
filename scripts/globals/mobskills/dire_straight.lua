@@ -15,6 +15,14 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local AnimationSub = mob:AnimationSub()
+    if mob:getPool() == 4594 then -- Wulgaru
+        if AnimationSub > 0 then
+            return 1
+        else
+            return 0
+        end
+    end
     local mobhp = mob:getHPP()
 	if(mob:getFamily() == 1) then --Acrolith
 		if mob:getPool() == 504 then --Boompadu

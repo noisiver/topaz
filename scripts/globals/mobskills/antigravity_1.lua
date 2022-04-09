@@ -10,12 +10,10 @@ require("scripts/globals/monstertpmoves")
 --  slight knockback, whereas triple gears produce a very strong knockback.
 
 function onMobSkillCheck(target, mob, skill)
-	if(mob:getFamily() == 120) then
-		if (mob:AnimationSub() == 2) then --Needs to be tested
-			return 0
-		else
-			return 1
-		end
+	if (mob:AnimationSub() == 2) then --Needs to be tested
+		return 0
+	else
+		return 1
 	end
 end
 
