@@ -14,7 +14,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
         local mobID = mob:getID()
         local battlefield = mob:getBattlefield()
         local itemF3 = battlefield:getLocalVar("itemF3")
-        if itemF3 == mobID then
+        if 16933082 == mobID then -- Big pot
             local mobX = mob:getXPos()
             local mobY = mob:getYPos()
             local mobZ = mob:getZPos()
