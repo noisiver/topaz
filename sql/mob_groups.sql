@@ -2655,7 +2655,7 @@ INSERT INTO `mob_groups` VALUES (56,5892,54,'Euryale',14400,0,3091,35000,0,88,90
 INSERT INTO `mob_groups` VALUES (57,2361,54,'Lamia_Toxophilite',600,0,1495,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (58,3541,54,'Seneschal_Imp',600,0,1002,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (59,2630,54,'Merrow_Typhoondancer',600,0,1657,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (60,1211,54,'Emperor_Apkallu',600,0,767,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (60,1211,54,'Emperor_Apkallu',300,0,767,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (61,2894,54,'Nix_Songstress',600,0,1657,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (62,913,54,'Dark_Elemental',600,4,568,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (63,2367,54,'Lamie_No9',14400,0,3011,30000,0,85,87,0);

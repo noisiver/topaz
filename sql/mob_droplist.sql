@@ -1044,7 +1044,6 @@ INSERT INTO `mob_droplist` VALUES (172,0,0,1000,18252,240);	-- Mithra satchet
 INSERT INTO `mob_droplist` VALUES (173,0,0,1000,2149,240); -- (Arrapago Apkallu)
 INSERT INTO `mob_droplist` VALUES (173,2,0,1000,5453,0);
 INSERT INTO `mob_droplist` VALUES (173,0,0,1000,5568,100);
-INSERT INTO `mob_droplist` VALUES (173,0,0,1000,2601,10); -- Greenling (ZNM - Lil Apkallu Pop)
 INSERT INTO `mob_droplist` VALUES (174,0,0,1000,924,100);
 INSERT INTO `mob_droplist` VALUES (174,0,0,1000,930,10);
 INSERT INTO `mob_droplist` VALUES (174,0,0,1000,1125,10);
@@ -4103,8 +4102,9 @@ INSERT INTO `mob_droplist` VALUES (766,0,0,1000,3145,100);
 INSERT INTO `mob_droplist` VALUES (766,0,0,1000,3145,50);
 INSERT INTO `mob_droplist` VALUES (766,0,0,1000,3145,30);
 INSERT INTO `mob_droplist` VALUES (766,0,0,1000,11902,100);
-INSERT INTO `mob_droplist` VALUES (767,0,0,1000,2149,240);
+INSERT INTO `mob_droplist` VALUES (767,0,0,1000,2149,240); -- (Emperor Apkallu)
 INSERT INTO `mob_droplist` VALUES (767,0,0,1000,5568,100);
+INSERT INTO `mob_droplist` VALUES (767,0,0,1000,2601,10); -- Greenling (ZNM - Lil Apkallu Pop)
 INSERT INTO `mob_droplist` VALUES (768,0,0,1000,1124,330);
 INSERT INTO `mob_droplist` VALUES (768,0,0,1000,1132,50);
 INSERT INTO `mob_droplist` VALUES (768,0,0,1000,2549,240);
