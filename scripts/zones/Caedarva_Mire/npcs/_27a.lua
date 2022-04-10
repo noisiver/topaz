@@ -13,10 +13,8 @@ function onTrigger(player, npc)
 
     if (player:hasKeyItem(tpz.ki.CYAN_DEEP_SALT)) then
         player:startEvent(304)
-    else
-        player:startEvent(306)
     end
-
+    return 1
 end
 
 function onEventUpdate(player, csid, option)
@@ -26,6 +24,7 @@ function onEventFinish(player, csid, option)
 
     if (csid == 304 and option == 1) then
         player:delKeyItem(tpz.ki.CYAN_DEEP_SALT)
+        player:setPos(-719, -12, 760, 80) 
     end
 
 end

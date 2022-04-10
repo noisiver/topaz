@@ -8,13 +8,14 @@ require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    if npcUtil.tradeHas(trade, 2583) and npcUtil.popFromQM(player, npc, ID.mob.SARAMEYA, {hide = 0}) then -- Buffalo Corpse
+    if npcUtil.tradeHas(trade, 2583) and npcUtil.popFromQM(player, npc, ID.mob.SARAMEYA) then -- Buffalo Corpse
         player:confirmTrade()
+        player:messageSpecial(ID.text.DRAWS_NEAR)
     end
 end
 
 function onTrigger(player, npc)
-    player:messageSpecial(ID.text.NOTHING_HAPPENS)
+    player:messageSpecial(ID.text.SICKLY_SWEET)
 end
 
 function onEventUpdate(player, csid, option)

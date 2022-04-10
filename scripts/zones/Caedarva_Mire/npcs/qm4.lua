@@ -10,11 +10,12 @@ require("scripts/globals/npc_util")
 function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, 2593) and npcUtil.popFromQM(player, npc, ID.mob.TYGER) then -- Singed Buffalo
         player:confirmTrade()
+        player:messageSpecial(ID.text.OMINOUS_PRESENCE)
     end
 end
 
 function onTrigger(player, npc)
-    player:messageSpecial(ID.text.NOTHING_HAPPENS)
+    player:messageSpecial(ID.text.HEADY_FRAGRANCE)
 end
 
 function onEventUpdate(player, csid, option)
