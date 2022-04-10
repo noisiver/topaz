@@ -4713,6 +4713,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Serket_Past',2033,366,1,255); -- graviga
 
 INSERT INTO `mob_spell_lists` VALUES ('Limbus_GiantBirds',2034,376,1,255); -- Horde Lullaby
 INSERT INTO `mob_spell_lists` VALUES ('Limbus_GiantBirds',2034,423,1,255); -- massacre elegy
+INSERT INTO `mob_spell_lists` VALUES ('Limbus_GiantBirds',2034,462,1,255); -- Magic Finale
 
 INSERT INTO `mob_spell_lists` VALUES ('Batteilant_Bhoot',2035,181,1,255); -- Blizzaga III
 INSERT INTO `mob_spell_lists` VALUES ('Batteilant_Bhoot',2035,152,1,255); -- blizzard_iv 
