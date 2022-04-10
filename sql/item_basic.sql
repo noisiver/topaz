@@ -4081,7 +4081,7 @@ INSERT INTO `item_basic` VALUES (4325,0,'hobgoblin_pie','hobgoblin_pie',12,1548,
 INSERT INTO `item_basic` VALUES (4326,0,'serving_of_frog_flambe','frog_flambe',12,1548,52,0,535);
 INSERT INTO `item_basic` VALUES (4327,0,'bowl_of_emerald_soup','emerald_soup',1,1580,55,0,361);
 INSERT INTO `item_basic` VALUES (4328,0,'loaf_of_hobgoblin_bread','hobgoblin_bread',12,1548,56,0,91);
-INSERT INTO `item_basic` VALUES (4329,0,'serving_of_newt_flambe','newt_flambe',1,1580,52,0,183);
+INSERT INTO `item_basic` VALUES (4329,0,'serving_of_newt_flambe','newt_flambe',12,1580,52,0,183);
 INSERT INTO `item_basic` VALUES (4330,0,'plate_of_witch_risotto','witch_risotto',1,1580,56,0,183);
 INSERT INTO `item_basic` VALUES (4331,0,'imperial_omelette','imperial_omelette',1,1580,52,0,2566);
 INSERT INTO `item_basic` VALUES (4332,0,'orange_kuchen_+1','orange_kuchen_+1',1,1548,57,0,95);
@@ -4331,9 +4331,9 @@ INSERT INTO `item_basic` VALUES (4575,0,'fish_chiefkabob','fish_chiefkabob',12,1
 INSERT INTO `item_basic` VALUES (4576,0,'wizard_cookie','wizard_cookie',99,1548,57,0,4);
 INSERT INTO `item_basic` VALUES (4577,0,'wild_cookie','wild_cookie',99,1548,57,0,6);
 INSERT INTO `item_basic` VALUES (4578,0,'sausage','sausage',12,1548,52,0,12);
-INSERT INTO `item_basic` VALUES (4579,0,'elshimo_newt','elshimo_newt',1,1544,51,0,179);
+INSERT INTO `item_basic` VALUES (4579,0,'elshimo_newt','elshimo_newt',12,1544,51,0,179);
 INSERT INTO `item_basic` VALUES (4580,0,'coral_butterfly','coral_butterfly',1,1544,51,0,127);
-INSERT INTO `item_basic` VALUES (4581,0,'blackened_newt','blackened_newt',1,1580,52,0,271);
+INSERT INTO `item_basic` VALUES (4581,0,'blackened_newt','blackened_newt',12,1580,52,0,271);
 INSERT INTO `item_basic` VALUES (4582,0,'serving_of_bass_meuniere','bass_meuniere',1,1580,53,0,311);
 INSERT INTO `item_basic` VALUES (4583,0,'serving_of_salmon_meuniere','salmon_meuniere',1,1580,53,0,255);
 INSERT INTO `item_basic` VALUES (4584,0,'serving_of_flounder_meuniere','flounder_meuniere',1,1580,53,0,1628);
