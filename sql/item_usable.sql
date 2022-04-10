@@ -1842,6 +1842,7 @@ INSERT INTO `item_usable` VALUES (6298,'manji_shuriken_pouch',1,1,55,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (6299,'shuriken_pouch',1,1,55,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (6300,'koga_shuriken_pouch',1,1,55,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (6302,'fuma_shuriken_pouch',1,1,55,0,0,0,0,0);
+INSERT INTO `item_usable` VALUES (6303,'iga_shuriken_pouch',1,1,55,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (6339,'rolanberry_daifuku',1,1,28,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (6340,'rolanberry_daifuku_+1',1,1,28,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (6341,'bean_daifuku',1,1,28,0,0,0,0,0);
