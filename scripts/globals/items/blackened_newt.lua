@@ -3,12 +3,11 @@
 -- Item: Blackened Newt
 -- Food Effect: 180Min, All Races
 -----------------------------------------
--- Dexterity 4
--- Mind -3
--- Attack % 18
--- Attack Cap 60
--- Virus Resist 4
--- Curse Resist 4
+-- +2 STR
+-- +3 AGI
+--- 2 INT
+-- +12% ranged attack(Cap: 50)
+-- -10 enmity
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -27,19 +26,19 @@ function onItemUse(target)
 end
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.DEX, 4)
-    target:addMod(tpz.mod.MND, -3)
-    target:addMod(tpz.mod.FOOD_ATTP, 18)
-    target:addMod(tpz.mod.FOOD_ATT_CAP, 60)
-    target:addMod(tpz.mod.VIRUSRES, 4)
-    target:addMod(tpz.mod.CURSERES, 4)
+    target:addMod(tpz.mod.STR, 2)
+    target:addMod(tpz.mod.AGI, 3)
+    target:addMod(tpz.mod.INT, -2)
+    target:addMod(tpz.mod.FOOD_RATTP, 12)
+    target:addMod(tpz.mod.FOOD_RATT_CAP, 50)
+    target:addMod(tpz.mod.ENMITY, -10)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.DEX, 4)
-    target:delMod(tpz.mod.MND, -3)
-    target:delMod(tpz.mod.FOOD_ATTP, 18)
-    target:delMod(tpz.mod.FOOD_ATT_CAP, 60)
-    target:delMod(tpz.mod.VIRUSRES, 4)
-    target:delMod(tpz.mod.CURSERES, 4)
+    target:delMod(tpz.mod.STR, 2)
+    target:delMod(tpz.mod.AGI, 3)
+    target:delMod(tpz.mod.INT, -2)
+    target:delMod(tpz.mod.FOOD_RATTP, 12)
+    target:delMod(tpz.mod.FOOD_RATT_CAP, 50)
+    target:delMod(tpz.mod.ENMITY, -10)
 end
