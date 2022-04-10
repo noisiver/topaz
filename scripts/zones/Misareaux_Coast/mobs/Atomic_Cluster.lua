@@ -9,9 +9,6 @@ local ID = require("scripts/zones/Misareaux_Coast/IDs")
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setMod(tpz.mod.MAIN_DMG_RATING, 25)
-	mob:setMod(tpz.mod.DEFP, 25) 
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 end
 
 function onMobRoam(mob)
@@ -20,12 +17,9 @@ function onMobRoam(mob)
         DespawnMob(mob:getID())
     end
 end
+
 function onMobDespawn(mob)
-    UpdateNMSpawnPoint(mob:getID())
 end
 
 function onMobDeath(mob, player, isKiller)
-    local Time = os.time()
-    mob:setLocalVar("SpawnTimer", Time + 3200)
-    tpz.hunts.checkHunt(mob, player, 443)
 end
