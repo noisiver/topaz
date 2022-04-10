@@ -981,7 +981,7 @@ INSERT INTO `mob_droplist` VALUES (164,0,0,1000,19102,50);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,914,490);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,939,440);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,939,220);
-INSERT INTO `mob_droplist` VALUES (165,0,0,1000,13056,100);		--(ARgus) Peacock Charm
+INSERT INTO `mob_droplist` VALUES (165,0,0,1000,13056,100);		--(Argus) Peacock Charm
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,921,100);
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,935,100);
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,942,100);
