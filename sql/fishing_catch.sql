@@ -76,6 +76,7 @@ INSERT INTO `fishing_catch` VALUES (65,1,128);
 INSERT INTO `fishing_catch` VALUES (65,2,40);
 INSERT INTO `fishing_catch` VALUES (68,1,127);
 INSERT INTO `fishing_catch` VALUES (79,1,132);
+INSERT INTO `fishing_catch` VALUES (83,1,139); -- Vunkerl Inlet[S](Entire Zone - not accurate)
 INSERT INTO `fishing_catch` VALUES (100,1,17);
 INSERT INTO `fishing_catch` VALUES (101,1,16);
 INSERT INTO `fishing_catch` VALUES (102,1,23);

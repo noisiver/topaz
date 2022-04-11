@@ -401,6 +401,13 @@ INSERT INTO `fishing_mob` VALUES (17100803,'Suhur_Mas',79,1,1,10,15,255,255,0,0,
 INSERT INTO `fishing_mob` VALUES (17100804,'Llamhigyn_Y_Dwr',79,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (17100805,'Llamhigyn_Y_Dwr',79,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 
+-- Vunkerl Inlet [S]
+INSERT INTO `fishing_mob` VALUES (17117185,'Submarine_Nipper',83,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17117186,'Thalassic_Pugil',83,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17117187,'Abyssal_Pugil',83,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17117188,'Bloodsucker',83,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17117189,'Bloodsucker',83,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+
 
 
 /*!40000 ALTER TABLE `fishing_mob` ENABLE KEYS */;

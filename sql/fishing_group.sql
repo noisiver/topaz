@@ -1122,6 +1122,22 @@ INSERT INTO `fishing_group` VALUES (138,5449,0,0,0,0,0,0,0,0,0,'0');
 INSERT INTO `fishing_group` VALUES (138,5450,0,0,0,0,0,0,0,0,0,'0');
 INSERT INTO `fishing_group` VALUES (138,5451,0,0,0,0,0,0,0,0,0,'0');
 INSERT INTO `fishing_group` VALUES (138,5452,0,0,0,0,0,0,0,0,0,'0');
+
+-- Vunkerl Inlet[S](Entire Zone - not accurate)
+INSERT INTO `fishing_group` VALUES (139,5466,0,0,0,0,0,0,0,0,0,'0'); -- Trumpet Shell
+INSERT INTO `fishing_group` VALUES (139,5472,0,0,0,0,0,0,0,0,0,'0'); -- Garpike
+INSERT INTO `fishing_group` VALUES (139,5468,0,0,0,0,0,0,0,0,0,'0'); -- Matsya 
+INSERT INTO `fishing_group` VALUES (139,5473,0,0,0,0,0,0,0,0,0,'0'); -- Bastore Sweeper 
+INSERT INTO `fishing_group` VALUES (139,5475,0,0,0,0,0,0,0,0,0,'0'); -- Gigant Octopus 
+INSERT INTO `fishing_group` VALUES (139,4443,0,0,0,0,0,0,0,0,0,'0');
+INSERT INTO `fishing_group` VALUES (139,4360,0,0,0,0,0,0,0,0,0,'0');
+INSERT INTO `fishing_group` VALUES (139,4514,0,0,0,0,0,0,0,0,0,'0');
+INSERT INTO `fishing_group` VALUES (139,4481,0,0,0,0,0,0,0,0,0,'0');
+INSERT INTO `fishing_group` VALUES (139,4461,0,0,0,0,0,0,0,0,0,'0');
+INSERT INTO `fishing_group` VALUES (139,688,0,0,0,0,0,0,0,0,0,'0');
+INSERT INTO `fishing_group` VALUES (139,90,0,0,0,0,0,0,0,0,0,'0');
+INSERT INTO `fishing_group` VALUES (139,14117,0,0,0,0,0,0,0,0,0,'0');
+INSERT INTO `fishing_group` VALUES (139,14242,0,0,0,0,0,0,0,0,0,'0');
 /*!40000 ALTER TABLE `fishing_group` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
