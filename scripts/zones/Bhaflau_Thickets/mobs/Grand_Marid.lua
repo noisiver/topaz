@@ -38,6 +38,7 @@ function onMobDespawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
+    player:addCurrency("zeni_point", 50)
 	if mob:AnimationSub() >= 1 then
 		if math.random(1,100) <= 24 then 
 			player:addTreasure(2147, mob) --Marid Tusk

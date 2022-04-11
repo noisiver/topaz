@@ -22,6 +22,10 @@ local function spawnMinions(mob, target)
     end
 end
 
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)
+end
+
 function onMobSpawn(mob)
     mob:setDamage(130)
     mob:setMod(tpz.mod.ATT, 522)
@@ -78,6 +82,7 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    player:addCurrency("zeni_point", 1500)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end

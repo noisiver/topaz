@@ -57,6 +57,7 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    player:addCurrency("zeni_point", 1000)
 	if mob:AnimationSub() >= 1 then
 		if math.random(1,100) <= 10 then 
 			player:addTreasure(2147, mob) --Marid Tusk

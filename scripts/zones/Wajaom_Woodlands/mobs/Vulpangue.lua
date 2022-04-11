@@ -41,4 +41,14 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, killer)
+    player:addCurrency("zeni_point", 500)
+	if isKiller  then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 24 then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 15 then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
 end

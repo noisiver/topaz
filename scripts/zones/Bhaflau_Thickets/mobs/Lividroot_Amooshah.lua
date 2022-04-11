@@ -56,6 +56,7 @@ function onMobDeath(mob, player, isKiller)
         NextForm:spawn()
     end
     if mob:getID() == 16990631 then -- Final Form
+        player:addCurrency("zeni_point", 1000)
 	    if isKiller  then 
 		    player:addTreasure(5735, mob)--Cotton Coin Purse
 	    end

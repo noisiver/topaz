@@ -16,6 +16,7 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)
 end
 
 function onMobSpawn(mob)
@@ -190,6 +191,7 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller)
+    player:addCurrency("zeni_point", 1500)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end

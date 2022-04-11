@@ -16,6 +16,7 @@ require("scripts/globals/mobs")
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.GA_CHANCE, 50)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)
 end
 
 function onMobSpawn(mob)
@@ -148,4 +149,14 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 function onMobDeath(mob, player, isKiller)
+    player:addCurrency("zeni_point", 2000)
+	if isKiller  then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 24 then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 15 then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
 end

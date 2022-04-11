@@ -1,9 +1,7 @@
 -----------------------------------
--- Area: Bhaflau Thickets
---  Mob: Greater Colibri
+-- Area: Halvung
+--  Mob: Trolls Automaton
 -----------------------------------
-mixins = {require("scripts/mixins/families/colibri_mimic")}
-local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

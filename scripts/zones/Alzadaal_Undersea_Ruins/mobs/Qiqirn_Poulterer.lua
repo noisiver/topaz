@@ -1,9 +1,9 @@
 -----------------------------------
--- Area: Bhaflau Thickets
---  Mob: Greater Colibri
+-- Area: Alzadaal Undersea Ruins (72)
+--  Mob: Qiqirn Poulterer
 -----------------------------------
-mixins = {require("scripts/mixins/families/colibri_mimic")}
-local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
+local ID = require("scripts/zones/Alzadaal_Undersea_Ruins/IDs")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

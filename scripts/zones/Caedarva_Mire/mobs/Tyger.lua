@@ -12,6 +12,10 @@ mixins =
 require("scripts/globals/magic")
 require("scripts/globals/status")
 -----------------------------------
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)
+end
+
 function onMobSpawn(mob)
 	mob:setDamage(90)
     mob:setMod(tpz.mod.ATT, 450)
@@ -132,6 +136,7 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    player:addCurrency("zeni_point", 2000)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end
