@@ -246,7 +246,6 @@ function onEventFinish(player,csid,option)
     
     if csid == 908 then
         player:setCharVar("ZeniStatus",1)
-        player:addCurrency("zeni_point", 2000)
     end
     
     if ZNM_Enabled == 1 then
