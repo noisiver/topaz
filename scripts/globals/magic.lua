@@ -1621,6 +1621,7 @@ function getElementalSDT(element, target) -- takes into account if magic burst w
     end
     
     local SDTcoe = (1 - target:getMod(tpz.mod.SPDEF_DOWN)/100) -- warrior's tomahawk, or whm's banish against undead
+    -- Never make SPDEF down 100 or this breaks
     if SDTcoe < 0.03 then
         SDTcoe = 0.03
     elseif SDTcoe > 1 then
