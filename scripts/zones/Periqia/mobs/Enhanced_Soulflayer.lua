@@ -41,6 +41,9 @@ function onMobRoam(mob)
     end
     -- Make sure he doesn't roam with shiled up somehow
     mob:setMod(tpz.mod.RAMPART_STONESKIN, 0)
+    if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+        mob:AnimationSub(0)
+    end
     mob:setMod(tpz.mod.REGEN, 0)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
