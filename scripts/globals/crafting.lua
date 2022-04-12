@@ -3,6 +3,7 @@
 --  Info from:
 --      http://wiki.ffxiclopedia.org/wiki/Crafts_%26_Hobbies
 -------------------------------------------------
+require("scripts/globals/status")
 
 -----------------------------------
 -- IDs for signupGuild bitmask
@@ -172,9 +173,6 @@ function tradeTestItem(player, npc, trade, craftID)
         trade:hasItemQty(myTI, 1) and
         trade:getItemCount() == 1) then
         newRank = player:getSkillRank(craftID) + 1
-        if player:getCharVar('[GUILD]currentGuild') == guildID + 1 then
-            player:setCharVar('[GUILD]daily_points', -1)
-        end
     end
 
     return newRank
@@ -207,6 +205,39 @@ function getAdvImageSupportCost(player, craftID)
 
 end
 
+function onEventUpdateDenounce(player, craftID)
+    local ID = zones[player:getZoneID()]
+    local rank = player:getSkillRank(craftID)
+    player:setSkillRank(craftID, rank - 1)
+    player:setSkillLevel(craftID, rank * 100)
+    player:messageSpecial(ID.text.RENOUNCE_CRAFTSMAN, 0, craftID - 49)
+end
+
+function onTriggerDenounceCheck(player, eventId, realSkill, rankCap, param3)
+
+    if player:getLocalVar("denounceDialog") == 0 then
+        local count = 0
+        local bitmask = 0
+    
+        for craftID = tpz.skill.WOODWORKING, tpz.skill.COOKING do
+            local rank = player:getSkillRank(craftID)
+            if rank < 6 then
+                bitmask = bit.bor(bitmask, bit.lshift(1, craftID - 48))
+            else
+                count = count + 1
+            end
+        end
+        -- if the number of eligible guilds for denouncement is greater than 1
+        if count > 1 then
+            player:setLocalVar("denounceDialog", 1)
+            player:startEvent(eventId, VanadielTime(), realSkill, rankCap, param3, 0, 0, count, bitmask)
+            return true
+        end
+    end
+
+    return false
+end
+
 function unionRepresentativeTrigger(player, guildID, csid, currency, keyitems)
     local gpItem, remainingPoints = player:getCurrentGPItem(guildID)
     local rank = player:getSkillRank(guildID + 48)
@@ -237,7 +268,7 @@ function unionRepresentativeTriggerFinish(player, option, target, guildID, curre
             player:messageSpecial(text.GUILD_NEW_CONTRACT, guildID)
         else
             player:messageSpecial(text.GUILD_TERMINATE_CONTRACT, guildID, oldGuild)
-            player:setCharVar('[GUILD]daily_points', -1)
+            player:setCharVar('[GUILD]daily_points', 8000) -- set to unobtainable amount (use 24000 for retail)
         end
     elseif (category == 3) then -- keyitem
         local ki = keyitems[bit.band(bit.rshift(option, 5), 15) - 1]
@@ -254,6 +285,28 @@ function unionRepresentativeTriggerFinish(player, option, target, guildID, curre
         local idx = bit.band(option, 3)
         local i = items[(category - 1) * 4 + idx]
         local quantity = math.min(bit.rshift(option, 9), 12)
+        local cost = quantity * i.cost
+        if (i and rank >= i.rank) then
+            if (player:getCurrency(currency) >= cost) then
+                local delivered = 0
+                for count = 1, quantity do -- addItem does not appear to honor quantity if the item doesn't stack.
+                    if (player:addItem(i.id, true)) then
+                        player:delCurrency(currency, i.cost)
+                        player:messageSpecial(text.ITEM_OBTAINED, i.id)
+                        delivered = delivered + 1
+                    end
+                end
+                if (delivered == 0) then
+                    player:messageSpecial(text.ITEM_CANNOT_BE_OBTAINED, i.id)
+                end
+            else
+               player:messageText(target, text.NOT_HAVE_ENOUGH_GP, false, 6)
+            end
+        end
+    elseif (category == 0 and currency == "guild_Fishing" and (option - 515) % 512 == 0) then
+        --robber rig fix i guess
+        local i = items[-1]
+        local quantity = (option - 3) / 512
         local cost = quantity * i.cost
         if (i and rank >= i.rank) then
             if (player:getCurrency(currency) >= cost) then
