@@ -84,6 +84,7 @@ end
 
 function onEventUpdate(player, csid, option, target)
     if (csid == 10020) then
+    printf("hello")
         unionRepresentativeTriggerFinish(player, option, target, 0, "guild_Fishing", keyitems, items)
     end
 end
