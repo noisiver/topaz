@@ -294,7 +294,7 @@ end
 function unionRepresentativeTrade(player, npc, trade, csid, guildID)
     local gpItem, remainingPoints = player:getCurrentGPItem(guildID)
     local text = zones[player:getZoneID()].text
-        printf("hello")
+
     if (player:getCharVar('[GUILD]currentGuild') - 1 == guildID) then
         if remainingPoints == 0 then
             player:messageText(npc, text.NO_MORE_GP_ELIGIBLE)
