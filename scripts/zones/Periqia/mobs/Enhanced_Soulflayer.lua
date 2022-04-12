@@ -39,6 +39,8 @@ function onMobRoam(mob)
         mob:SetMobAbilityEnabled(true)
 	    mob:setLocalVar("RunAway", 3)
     end
+    -- Make sure he doesn't roam with shiled up somehow
+    mob:setMod(tpz.mod.RAMPART_STONESKIN, 0)
     mob:setMod(tpz.mod.REGEN, 0)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
