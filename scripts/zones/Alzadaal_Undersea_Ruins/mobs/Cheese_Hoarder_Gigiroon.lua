@@ -135,8 +135,8 @@ function onMobFight(mob, target)
 	end
 end
 
-function onMobDeath(mob, killer)
-    player:addCurrency("zeni_point", 1000)
+function onMobDeath(mob, player, isKiller)
+    player:addCurrency("zeni_point", 1500)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end
@@ -146,6 +146,17 @@ function onMobDeath(mob, killer)
 	if isKiller and math.random(1,100) <= 15 then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end
+    -- 2
+	if isKiller  then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 24 then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 15 then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+    --3
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end
