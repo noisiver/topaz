@@ -75,23 +75,22 @@ local items = {
 }
 
 function onTrade(player, npc, trade)
-    unionRepresentativeTrade(player, npc, trade, 10021, 5)
+    unionRepresentativeTrade(player, npc, trade, 10021, 6)
 end
 
 function onTrigger(player, npc)
-    unionRepresentativeTrigger(player, 5, 10020, "guild_fishing", keyitems)
+    unionRepresentativeTrigger(player, 6, 10020, "guild_fishing", keyitems)
 end
 
 function onEventUpdate(player, csid, option, target)
     if (csid == 10020) then
-    printf("hello")
-        unionRepresentativeTriggerFinish(player, option, target, 5, "guild_Fishing", keyitems, items)
+        unionRepresentativeTriggerFinish(player, option, target, 6, "guild_Fishing", keyitems, items)
     end
 end
 
 function onEventFinish(player, csid, option, target)
     if (csid == 10020) then
-        unionRepresentativeTriggerFinish(player, option, target, 5, "guild_Fishing", keyitems, items)
+        unionRepresentativeTriggerFinish(player, option, target, 6, "guild_Fishing", keyitems, items)
     elseif (csid == 10021) then
         player:messageSpecial(ID.text.GP_OBTAINED, option)
     end
