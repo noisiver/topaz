@@ -33,7 +33,7 @@ function onSpellCast(caster, target, spell)
     
     -- special defense down, 50% I, 70% II, 97% III
     if target:isUndead() and target:getMod(tpz.mod.SPDEF_DOWN) == 0 then
-        local duration = 180 + caster:getMerit(tpz.merit.BANISH_EFFECT)
+        local duration = 45 + caster:getMerit(tpz.merit.BANISH_EFFECT)
         target:queue(0, function(target)
             target:addMod(tpz.mod.SPDEF_DOWN,97)
         end)
