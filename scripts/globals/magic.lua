@@ -1135,15 +1135,15 @@ function calculateMagicBurst(caster, spell, target, params)
 
     if (skillchainTier > 0) then
         if (skillchainCount == 1) then -- two weaponskills
-            skillchainburst = 2.0 -- was 1.35
+            skillchainburst = 1.5 -- was 1.35
         elseif (skillchainCount == 2) then -- three weaponskills
-            skillchainburst = 2.15 -- was 1.45
+            skillchainburst = 1.6 -- was 1.45
         elseif (skillchainCount == 3) then -- four weaponskills
-             skillchainburst = 2.25 -- was 1.55
+             skillchainburst = 1.7 -- was 1.55
         elseif (skillchainCount == 4) then -- five weaponskills
-            skillchainburst = 2.35 -- was 1.65
+            skillchainburst = 1.8 -- was 1.65
         elseif (skillchainCount == 5) then -- six weaponskills
-            skillchainburst = 2.45 -- was 1.75
+            skillchainburst = 2.0 -- was 1.75
         else
             -- Something strange is going on if this occurs.
             skillchainburst = 1.0
