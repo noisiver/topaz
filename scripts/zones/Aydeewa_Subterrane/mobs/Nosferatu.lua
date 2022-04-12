@@ -149,7 +149,7 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 function onMobDeath(mob, player, isKiller)
-    player:addCurrency("zeni_point", 1500)
+    player:addCurrency("zeni_point", 300)
 	if isKiller  then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
 	end

@@ -98,7 +98,7 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 function onMobDeath(mob, player, isKiller)
-    player:addCurrency("zeni_point", 1500)
+    player:addCurrency("zeni_point", 300)
     for v = 17031601, 17031604, 1 do
         DespawnMob(v)
     end
