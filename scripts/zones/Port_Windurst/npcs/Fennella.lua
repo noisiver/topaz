@@ -75,11 +75,11 @@ local items = {
 }
 
 function onTrade(player, npc, trade)
-    unionRepresentativeTrade(player, npc, trade, 10021, 0)
+    unionRepresentativeTrade(player, npc, trade, 10021, 5)
 end
 
 function onTrigger(player, npc)
-    unionRepresentativeTrigger(player, 0, 10020, "guild_fishing", keyitems)
+    unionRepresentativeTrigger(player, 5, 10020, "guild_fishing", keyitems)
 end
 
 function onEventUpdate(player, csid, option, target)
