@@ -84,7 +84,7 @@ g_mixins.families.karakul = function(mob)
     end)
 
     mob:addListener("DISENGAGE", "karakul_DISENGAGE", function(mob)
-        mob:setLocalVar("ResleepTime", os.time() + 120) -- karakul crawlers go back to sleep exactly 2 minutes after they were engaged.
+        mob:setLocalVar("ResleepTime", os.time() + 120) -- karakul go back to sleep exactly 2 minutes after they were engaged.
     end)
 end
 

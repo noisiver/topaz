@@ -2,6 +2,7 @@
 -- Area: Arrapago Reef
 --  Mob: Jnun
 -----------------------------------
+mixins = {require("scripts/mixins/families/karakul")} -- Used for sleeping mixin
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
