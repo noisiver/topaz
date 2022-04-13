@@ -14,6 +14,7 @@ end
 function onItemUse(target)
 local removablesMajor =
 {
+    tpz.effect.SLOW,
     tpz.effect.BIND,
     tpz.effect.WEIGHT,
     tpz.effect.ADDLE,
@@ -25,8 +26,10 @@ local removablesMajor =
     tpz.effect.DROWN,
     tpz.effect.DIA,
     tpz.effect.BIO,
-
+    tpz.effect.REQUIEM,
+    tpz.effect.ELEGY,
 }
+
 local removablesMinor =
 {
     tpz.effect.STR_DOWN,
