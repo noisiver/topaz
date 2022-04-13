@@ -249,7 +249,7 @@ INSERT INTO `traits` VALUES (23,'martial arts',2,31,3,173,120,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,46,4,173,140,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,61,5,173,160,NULL,0);
 INSERT INTO `traits` VALUES (23,'martial arts',2,75,6,173,180,NULL,0);
-INSERT INTO `traits` VALUES (23,'martial arts',2,82,7,173,200,'ABYSSEA',0);
+--INSERT INTO `traits` VALUES (23,'martial arts',2,82,7,173,200,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,25,1,173,80,'TOAU',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,50,2,173,100,'TOAU',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,75,3,173,120,'TOAU',0);
