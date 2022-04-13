@@ -1,8 +1,9 @@
 -----------------------------------
--- Area: Arrapago Reef
+-- Area: Caedarva Mire
 --  Mob: Jnun
 -----------------------------------
 -----------------------------------
+
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
