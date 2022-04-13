@@ -175,7 +175,22 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 		BluAttkModifier = 1
 	end
 
-	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) * 0.75) + caster:getMod(tpz.mod.ATT)) * ((caster:getMod(tpz.mod.ATTP) / 100) + 1)) * BluAttkModifier) 
+	local bluphysattk = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
+    --printf("Attack after Skill - > %u", bluphysattk)
+    -- Add attack from food/gear/JA's
+    bluphysattk = bluphysattk + caster:getStat(tpz.mod.ATT)
+    --printf("Attack after food/gear/jas - > %u", bluphysattk)
+    -- Remove skill from weapon(sword/club/etc)
+    if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.SWORD) then
+        bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.SWORD) + caster:getMod(tpz.mod.SKILL_SWORD))
+    end
+    if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.CLUB) then
+        bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.CLUB) + caster:getMod(tpz.mod.CLUB))
+    end
+    --printf("Attack after weapon skill removed - > %u", bluphysattk)
+    -- Add attack from TP bonus and attack bonus on specific BLU spells
+    bluphysattk = bluphysattk * BluAttkModifier
+    --printf("Attack after TP bonus - > %u", bluphysattk)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
