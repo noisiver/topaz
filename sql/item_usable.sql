@@ -1447,7 +1447,7 @@ INSERT INTO `item_usable` VALUES (5640,'m&p_cracker',1,1,29,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5641,'m&p_dumpling',1,1,29,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5642,'serving_of_cilbir',1,1,28,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5643,'serving_of_cibarious_cilbir',1,1,28,0,0,0,0,0);
-INSERT INTO `item_usable` VALUES (5644,'jack-o-pie',1,1,28,0,0,0,0,0);
+INSERT INTO `item_usable` VALUES (5644,'jack-o-pie',1,1,10,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5645,'piece_of_witch_nougat',1,1,25,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5646,'handful_of_bloody_chocolate',1,1,24,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5647,'lik_kabob',1,1,28,0,0,0,0,0);
