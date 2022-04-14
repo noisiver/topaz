@@ -69,7 +69,7 @@ INSERT INTO `fishing_fish` VALUES (4318,'Bibiki Urchin',0,3,24,13,1,1,1,0,1,255,
 INSERT INTO `fishing_fish` VALUES (4314,'Bibikibo',0,8,22,12,3,1,1,0,1,255,255,0,0,0,0,1,700,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4429,'Black Eel',0,47,24,5,8,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5138,'Black Ghost',0,88,31,9,11,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4384,'Black Sole',0,96,33,5,11,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4384,'Black Sole',0,96,33,5,11,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4471,'Bladefish',0,71,21,6,12,49,116,1,0,255,255,0,0,0,0,1,750,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4313,'Blindfish',0,28,18,6,8,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4399,'Bluetail',0,55,24,4,12,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
@@ -90,7 +90,7 @@ INSERT INTO `fishing_fish` VALUES (4528,'Crystal Bass',0,35,31,7,12,1,1,0,0,255,
 INSERT INTO `fishing_fish` VALUES (1210,'Damp Scroll',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4428,'Dark Bass',0,33,23,7,8,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5447,'Denizanasi',0,5,28,13,0,1,1,0,0,255,255,0,0,0,0,1,250,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5457,'Dil',0,96,33,5,11,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5457,'Dil',0,96,33,5,11,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4290,'Elshimo Frog',0,30,16,6,13,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4579,'Elshimo Newt',0,60,16,8,11,1,1,0,0,255,255,0,0,0,0,1,700,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4454,'Emperor Fish',0,91,36,4,13,64,179,1,0,255,255,0,0,0,0,1,200,0,'',0);
