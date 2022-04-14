@@ -44,7 +44,7 @@ enum EFFECTFLAG
     EFFECTFLAG_NONE             = 0x0000,
     EFFECTFLAG_DISPELABLE       = 0x0001,
     EFFECTFLAG_ERASABLE         = 0x0002,
-    EFFECTFLAG_ATTACK           = 0x0004,   // исчезает при нанесении урона
+    EFFECTFLAG_ATTACK           = 0x0004,   // disappears when damage is dealt
     EFFECTFLAG_EMPATHY          = 0X0008,   // effect can be copied to wyvern by use of merited Spirit Link
     EFFECTFLAG_DAMAGE           = 0x0010,   // исчезает при получении урона
     EFFECTFLAG_DEATH            = 0x0020,   // исчезает при смерти
@@ -545,7 +545,7 @@ enum EFFECT
     EFFECT_PALISADE                 = 478, // PLD 95
     EFFECT_SCARLET_DELIRIUM         = 479, // DRK 95
     EFFECT_SCARLET_DELIRIUM_1       = 480, // DRK 95
-    EFFECT_CONTRADANCE              = 481, // WAS NONE
+    EFFECT_ABDHALJS_SEAL            = 481,      // WAS NONE
     EFFECT_DECOY_SHOT               = 482, // RNG 95
     EFFECT_HAGAKURE                 = 483, // SAM 95
     EFFECT_ISSEKIGAN                = 484, // NIN 95
@@ -645,6 +645,7 @@ enum EFFECT
     EFFECT_COMMITMENT               = 579,
     EFFECT_GEO_HASTE                = 580,
     EFFECT_FLURRY_II                = 581,
+    EFFECT_CONTRADANCE              = 582,
     EFFECT_APOGEE                   = 583,
     EFFECT_ENTRUST                  = 584,
     EFFECT_COSTUME_II               = 585,

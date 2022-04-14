@@ -1189,6 +1189,12 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             }
         }
 
+        // Remove Contradance after using a Waltz
+        if (StatusEffectContainer->HasStatusEffect(EFFECT_CONTRADANCE) && PAbility->getID() > ABILITY_HASTE_SAMBA && PAbility->getID() < ABILITY_HEALING_WALTZ ||
+            PAbility->getID() == ABILITY_DIVINE_WALTZ || PAbility->getID() == ABILITY_DIVINE_WALTZ_II)
+        {
+            StatusEffectContainer->DelStatusEffectSilent(EFFECT_CONTRADANCE);
+        }
         battleutils::HandlePlayerAbilityUsed(this, PAbility, &action);
 
         PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), action.recast);

@@ -745,6 +745,7 @@ tpz.effect =
     COMMITMENT               = 579,
     GEO_HASTE                = 580,
     FLURRY_II                = 581,
+    CONTRADANCE              = 582,
     APOGEE                   = 583,
     ENTRUST                  = 584,
     COSTUME_II               = 585,

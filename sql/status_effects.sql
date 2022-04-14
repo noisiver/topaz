@@ -611,6 +611,7 @@ INSERT INTO `status_effects` VALUES (578,'fishy_intuition',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (579,'commitment',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (580,'geo_haste',8388640,0,0,0,0,0,3,0,0);
 INSERT INTO `status_effects` VALUES (581,'flurry_ii',32,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (582,'contradance',21,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (583,'apogee',2097185,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (584,'entrust',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (585,'costume',32,0,0,0,0,0,0,0,0);

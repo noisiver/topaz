@@ -64,10 +64,10 @@ function onUseAbility(player, target, ability)
     cure = math.floor(cure * (1.0 + (player:getMod(tpz.mod.WALTZ_POTENTCY)/100)))
 
     -- Contradance check
-    if (player:hasStatusEffect(tpz.effect.DIVINE_SEAL) == true) then
+    if (player:hasStatusEffect(tpz.effect.CONTRADANCE) == true) then
         cure = cure * 2
-        player:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
     end
+
     --Applying server mods....
     cure = cure * CURE_POWER
 
@@ -82,5 +82,4 @@ function onUseAbility(player, target, ability)
     player:updateEnmityFromCure(target, cure)
 
     return cure
-
 end
