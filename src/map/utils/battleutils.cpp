@@ -1189,12 +1189,12 @@ namespace battleutils
 
         EFFECT previous_daze = EFFECT_NONE;
         uint16 previous_daze_power = 0;
-        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_SAMBA) && (PDefender->m_EcoSystem != SYSTEM_UNDEAD))
+        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_SAMBA))
         {
             previous_daze = EFFECT_DRAIN_DAZE;
             previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_SAMBA)->GetPower();
         }
-        else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_SAMBA) && (PDefender->m_EcoSystem != SYSTEM_UNDEAD))
+        else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_SAMBA))
         {
             previous_daze = EFFECT_ASPIR_DAZE;
             previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_SAMBA)->GetPower();
@@ -1221,7 +1221,7 @@ namespace battleutils
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_HASTE_DAZE, PAttacker->id);
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->id);
             }
-            if (getElementalSDTDivisor(PDefender, 8) == 1 || (previous_daze == EFFECT_HASTE_DAZE))
+            if ((PDefender->m_EcoSystem != SYSTEM_UNDEAD) || (previous_daze == EFFECT_HASTE_DAZE))
             {
                 PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(previous_daze, 0, previous_daze_power, 0, 10, PAttacker->id), true);
             }
