@@ -129,7 +129,7 @@ INSERT INTO `fishing_fish` VALUES (2216,'Lamp Marimo',0,0,10,13,2,1,1,0,0,255,25
 INSERT INTO `fishing_fish` VALUES (5129,'Lik',90,140,48,2,14,185,465,1,0,255,255,0,1,8,0,1,300,1977,'',0);
 INSERT INTO `fishing_fish` VALUES (4315,'Lungfish',0,31,15,10,14,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5468,'Matsya',90,110,40,5,12,163,331,1,0,255,255,0,1,0,0,1,100,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5467,'Megalodon',0,87,34,10,11,446,625,1,0,255,255,0,0,0,0,1,0,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5467,'Megalodon',0,87,34,10,11,446,625,1,0,255,255,0,0,0,0,1,350,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5454,'Mercanbaligi',0,86,31,7,9,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4401,'Moat Carp',0,11,16,10,9,1,1,0,0,255,255,0,0,0,0,1,900,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1638,'Moblin Mask',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,500,0,'',0);
@@ -171,7 +171,7 @@ INSERT INTO `fishing_fish` VALUES (4463,'Takitaro',90,101,18,3,14,59,127,1,0,255
 INSERT INTO `fishing_fish` VALUES (5130,'Tavnazian Goby',0,75,30,7,8,1,1,0,0,255,255,0,0,0,0,1,700,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4478,'Three-Eyed Fish',0,79,25,10,10,50,117,1,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4483,'Tiger Cod',0,29,23,9,9,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4310,'Tiny Goldfish',0,20,22,0,14,1,1,0,0,255,255,0,0,0,0,3,0,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4310,'Tiny Goldfish',0,20,22,0,14,1,1,0,0,255,255,0,0,0,0,3,900,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5120,'Titanic Sawfish',90,125,39,6,13,86,145,1,1,255,255,0,1,0,0,1,50,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4476,'Titanictus',90,101,35,3,12,79,209,1,1,255,255,0,1,0,0,1,300,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4426,'Tricolored Carp',0,27,19,12,12,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
@@ -189,7 +189,7 @@ INSERT INTO `fishing_fish` VALUES (4385,'Zafmlug Bass',0,48,27,6,7,1,1,0,0,255,2
 INSERT INTO `fishing_fish` VALUES (4288,'Zebra Eel',0,71,24,10,10,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1624,'Bugbear Mask',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (3965,'Adoulinian Kelp',0,5,24,13,2,1,1,0,0,255,255,0,0,0,1,1,250,0,'',0);
-INSERT INTO `fishing_fish` VALUES (591,'Ripped cap',0,1,10,13,2,1,1,0,0,2,23,0,0,0,1,1,0,0,'',0);
+INSERT INTO `fishing_fish` VALUES (591,'Ripped cap',0,1,10,13,2,1,1,0,0,2,23,0,0,0,1,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (65535,'Gil',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,100,0,'',0);
 /*!40000 ALTER TABLE `fishing_fish` ENABLE KEYS */;
 UNLOCK TABLES;
