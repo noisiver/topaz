@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 150
+    params.bonus = 200
     params.effect = tpz.effect.STUN
     local resist = applyResistanceEffect(caster, target, spell, params)
 
