@@ -29,7 +29,7 @@ local GearSets =  {
              {id = 3, items = {16084, 14546, 14961, 15625, 15711},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.DOUBLE_ATTACK, 5, 0, 0}} },  --  Ares's set (5% DA)
              {id = 4, items = {16107, 14569, 14984, 15648, 15734},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.ACC, 20, 0, 0}} },           --  Denali Jacket Set (Increases Accuracy +20)
              {id = 5, items = {16106, 14568, 14983, 15647, 15733},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.HPP, 10, 0, 0}} },           --  Askar Korazin Set (Max HP Boost %10)
-             {id = 6, items = {16069, 14530, 14940, 15609, 15695},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.SUBTLE_BLOW, 8, 0, 0}} },    --  Pahluwan Khazagand Set (8% is guess)
+             {id = 6, items = {16069, 14530, 14940, 15609, 15695},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.SUBTLE_BLOW, 50, 0, 0}} },    --  Pahluwan Khazagand Set (+50 Subtle Blow)
              {id = 7, items = {16100, 14562, 14977, 15641, 15727},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.MATT, 5, 0, 0}} },           --  Morrigan's Robe Set (+5 Magic. Atk Bonus)
              {id = 8, items = {16096, 14558, 14973, 15637, 15723},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.FASTCAST, 5, 0, 0}} },       --  Marduk's Jubbah Set (5% fastcast)
              {id = 9, items = {16108, 14570, 14985, 15649, 15735},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.MDEF, 10, 0, 0}} },          --  Goliard Saio Set - Total Set Bonus +10% Magic Def. Bonus
@@ -48,7 +48,7 @@ local GearSets =  {
              {id = 21, items = { 6141, 14581, 15005, 16312, 15749},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 1, 1, 0}, {tpz.mod.ATT, 1, 1, 0}} },       --  Iron Ram Chainmail Set. Double mod here! It is why it has 2 IDs.
              {id = 23, items = {16142, 14582, 15006, 16313, 15750} , matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HP, 10, 10, 0}} },        --  Fourth Division Cuirass Set
              {id = 24, items = {16143, 14583, 15007, 16314, 15751} , matches = 2, matchType = matchtype.any, mods = {{tpz.mod.MP, 10, 10, 0}} },        --  Cobra Unit Coat Set
-             {id = 25, items = {16062, 14525, 14933, 15604, 15688} , matches = 5, matchType = matchtype.any, mods = {{tpz.mod.UDMGBREATH, -8, 0, 0}, {tpz.mod.UDMGMAGIC, -8, 0, 0}} },       --  Amir Korazin Set - Double mod here! It is why it has 2 IDs.
+             {id = 25, items = {16062, 14525, 14933, 15604, 15688} , matches = 5, matchType = matchtype.any, mods = {{tpz.mod.DMGBREATH, -15, 0, 0}, {tpz.mod.DMGMAGIC, -15, 0, 0}} },       --  Amir Korazin Set - Double mod here! It is why it has 2 IDs. -15% BDT and -15% MDT
 
              {id = 27, items = {11281, 15015, 16337, 11364}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.STORETP, 5, 5, 5}} },             --  Hachiryu Haramaki Set - Store tp
              {id = 28, items = {11064, 11084, 11104, 11124, 11144}, matches = 5, matchType = matchtype.any, mods = {{tpz.mod.DA_DOUBLE_DAMAGE, 5, 0, 0}} }, --  Ravager's Armor +2 Set - Double attack double damage chance
