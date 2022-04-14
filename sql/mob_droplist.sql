@@ -17621,6 +17621,14 @@ INSERT INTO `mob_droplist` VALUES (9056,0,0,1000,2600,10); -- Pile Of Golden Tee
 INSERT INTO `mob_droplist` VALUES (9057,0,0,1000,2229,240); -- (Chigoe - WoTG) Vial Of Chimera Blood
 INSERT INTO `mob_droplist` VALUES (9057,0,0,1000,2365,10); -- Vial of demon blood
 
+INSERT INTO `mob_droplist` VALUES (9058,0,0,1000,2154,1000); -- (Northern Piranu) Orobon Lure
+INSERT INTO `mob_droplist` VALUES (9058,0,0,1000,15702,240); -- Spagyric nails
+INSERT INTO `mob_droplist` VALUES (9058,0,0,1000,18418,240); -- Otori
+
+INSERT INTO `mob_droplist` VALUES (9059,0,0,1000,2154,1000); -- (Southern Piranu) Orobon Lure
+INSERT INTO `mob_droplist` VALUES (9059,0,0,1000,15702,240); -- Spagyric nails
+INSERT INTO `mob_droplist` VALUES (9059,0,0,1000,18419,240); -- Kugui
+
 
 
 

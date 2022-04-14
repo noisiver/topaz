@@ -154,6 +154,7 @@ local GearSets =  {
              {id = 200, items = {27740, 27881, 28029, 28168, 28306},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.DMGPHYS, -10, 0, 0}} },          -- Outrider set (Phys damage taken -10%)
              {id = 201, items = {27741, 27882, 28030, 28169, 28307},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.CRIT_DMG_INCREASE, 10, 0, 0}} }, -- Espial set (Crit damage +10%)
              {id = 202, items = {27742, 27883, 28031, 28170, 28308},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.REFRESH, 3, 0, 0}} },            -- Wayfarer set (Refresh+3)
+             {id = 203, items = {18418, 18419},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.MATT, 30, 0, 0}, {tpz.mod.MACC, 15, 0, 0}} },         -- North/South Piranu Katanas Mag atk bonus+30 and Mag acc +15
         }
 
              -- increment id by (number of mods in previous gearset - 1)
