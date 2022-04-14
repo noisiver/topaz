@@ -54,7 +54,7 @@ function onSpellCast(caster, target, spell)
 
     params.skillType = tpz.skill.DIVINE_MAGIC
 
-    params.bonus =  150
+    params.bonus =  200
 
     params.effect = nil
 
