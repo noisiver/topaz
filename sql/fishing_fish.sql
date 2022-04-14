@@ -57,7 +57,7 @@ LOCK TABLES `fishing_fish` WRITE;
 /*!40000 ALTER TABLE `fishing_fish` DISABLE KEYS */;
 INSERT INTO `fishing_fish` VALUES (5476,'Abaia',90,100,32,7,13,269,317,1,0,255,255,0,1,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5455,'Ahtapot',0,90,31,8,7,54,144,1,0,255,255,0,0,0,0,1,450,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5461,'Alabaligi',0,37,16,5,11,1,1,0,0,255,255,0,0,0,0,1,0,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5461,'Alabaligi',0,37,16,5,11,1,1,0,0,255,255,0,0,0,0,1,750,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4316,'Armored Pisces',90,108,31,9,12,52,124,1,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (688,'Arrowwood Log',0,4,18,13,2,1,1,1,0,255,255,0,0,0,1,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4461,'Bastore Bream',0,86,31,7,9,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0); -- was 250
