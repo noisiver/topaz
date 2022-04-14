@@ -22,14 +22,14 @@ function onUseAbility(player, target, ability)
         local enmityList = mob:getEnmityList()
         if enmityList and #enmityList > 0 then
             if #enmityList < 6 then
-                subtleBlow = math.floor(player:getMainLvl() / 4) + 12 -- changed from 20
-                accuracy = math.floor(player:getMainLvl() / 4) + 2   -- changed from 15
+                subtleBlow = math.floor(player:getMainLvl() / 5) -- 15 @ level 75
+                accuracy = math.floor(player:getMainLvl() / 8) + 1   -- 10 @ level 75
             elseif #enmityList < 18 then
-                subtleBlow = math.floor(player:getMainLvl() / 4) + 12 -- changed from 50
-                accuracy = math.floor(player:getMainLvl() / 4) + 2  -- changed from 25
+                subtleBlow = math.floor(player:getMainLvl() / 5) -- 15 @ level 75
+                accuracy = math.floor(player:getMainLvl() / 8) + 1  -- 10 @ level 75
             else
-                subtleBlow = math.floor(player:getMainLvl() / 4) + 12-- changed from 50
-                accuracy = math.floor(player:getMainLvl() / 4) + 2  -- changed from 49
+                subtleBlow = math.floor(player:getMainLvl() / 5) -- 15 @ level 75
+                accuracy = math.floor(player:getMainLvl() / 8) + 1  -- 10 @ level 75
             end
         end
 
