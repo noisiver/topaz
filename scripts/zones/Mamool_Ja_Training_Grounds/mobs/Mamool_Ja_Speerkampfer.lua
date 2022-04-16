@@ -3,14 +3,15 @@
 --  Mob: Mamool Ja Speerkampfer
 -- Job: DRG
 -----------------------------------
+require("scripts/globals/status")
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(75)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -25)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:addImmunity(tpz.immunity.SLEEP)
 	mob:setLocalVar("TwoHourUsed", 0)
     --mob:AnimationSub(0)
 end
@@ -31,7 +32,7 @@ function onMobFight(mob, target)
     local instance = mob:getInstance()
 	local Pet = GetMobByID(mob:getID(instance)+1, instance)
 	local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
-	if mob:getHPP() <= 25 and TwoHourUsed == 0 then
+	if mob:getHPP() <= 50 and TwoHourUsed == 0 then
         mob:useMobAbility(732) -- Call Wyvern
         Pet:spawn()
         mob:setLocalVar("TwoHourUsed", 1)

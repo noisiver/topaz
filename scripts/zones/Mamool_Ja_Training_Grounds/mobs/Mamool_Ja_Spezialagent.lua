@@ -3,15 +3,16 @@
 --  Mob: Mamool Ja Medic
 -- Job: NIN
 -----------------------------------
+require("scripts/globals/status")
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(75)
     mob:setMod(tpz.mod.MDEF, 40)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
     mob:setMod(tpz.mod.COUNTER, 35)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:addImmunity(tpz.immunity.SLEEP)
     mob:setStatus(tpz.status.INVISIBLE)
 end
 
@@ -132,11 +133,11 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller)
-    local instance = mob:getInstance()
-    local mobX = mob:getXPos()
-    local mobY = mob:getYPos()
-    local mobZ = mob:getZPos()
-    if GetNPCByID(17047948, instance):getStatus() == (tpz.status.DISAPPEAR) then
+    if isKiller or noKiller then
+        local instance = mob:getInstance()
+        local mobX = mob:getXPos()
+        local mobY = mob:getYPos()
+        local mobZ = mob:getZPos()
         GetNPCByID(17047948, instance):setPos(mobX, mobY, mobZ)
         GetNPCByID(17047948, instance):setStatus(tpz.status.NORMAL)
         GetNPCByID(17047948, instance):setLocalVar("Message", 0)GetNPCByID(17047948, instance):setLocalVar("Message", 0)

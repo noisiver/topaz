@@ -3,15 +3,16 @@
 --  Mob: Mamool Ja Medizin
 -- Job: WHM
 -----------------------------------
+require("scripts/globals/status")
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
 mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(75)
     mob:setMod(tpz.mod.MDEF, 55)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:addImmunity(tpz.immunity.SLEEP)
     --mob:AnimationSub(0)
 end
 
@@ -52,11 +53,11 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller)
-    local instance = mob:getInstance()
-    local mobX = mob:getXPos()
-    local mobY = mob:getYPos()
-    local mobZ = mob:getZPos()
-    if GetNPCByID(17047948, instance):getStatus() == (tpz.status.DISAPPEAR) then
+    if isKiller or noKiller then
+        local instance = mob:getInstance()
+        local mobX = mob:getXPos()
+        local mobY = mob:getYPos()
+        local mobZ = mob:getZPos()
         GetNPCByID(17047948, instance):setPos(mobX, mobY, mobZ)
         GetNPCByID(17047948, instance):setStatus(tpz.status.NORMAL)
         GetNPCByID(17047948, instance):setLocalVar("Message", 0)GetNPCByID(17047948, instance):setLocalVar("Message", 0)

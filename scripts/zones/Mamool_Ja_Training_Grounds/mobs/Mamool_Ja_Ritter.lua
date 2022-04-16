@@ -6,7 +6,6 @@
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(75)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -25)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 20)
@@ -35,7 +34,7 @@ function onMobFight(mob, target)
     local zonePlayers = mob:getZone():getPlayers()
 	if mob:getHPP() <= 50 then
     for _, zonePlayer in pairs(zonePlayers) do
-        zonePlayer:PrintToPlayer("The Wivre wails in pain as it falls over dead!",0,"???")
+        zonePlayer:PrintToPlayer("The Wivre wails in pain as it falls over dead!",0,"Trained Wivre")
     end
         DespawnMob(mob:getID(instance), instance)
         Dragoon:spawn()

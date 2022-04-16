@@ -6,7 +6,6 @@
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(75)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -25)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 20)
@@ -44,18 +43,18 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller)
-    local instance = mob:getInstance()
-    local mobX = mob:getXPos()
-    local mobY = mob:getYPos()
-    local mobZ = mob:getZPos()
-    if GetNPCByID(17047948, instance):getStatus() == (tpz.status.DISAPPEAR) then
+    if isKiller or noKiller then
+        local instance = mob:getInstance()
+        local mobX = mob:getXPos()
+        local mobY = mob:getYPos()
+        local mobZ = mob:getZPos()
         GetNPCByID(17047948, instance):setPos(mobX, mobY, mobZ)
         GetNPCByID(17047948, instance):setStatus(tpz.status.NORMAL)
         GetNPCByID(17047948, instance):setLocalVar("Message", 0)GetNPCByID(17047948, instance):setLocalVar("Message", 0)
-    end
-    SpawnMob(17047945, instance)
-    local zonePlayers = mob:getZone():getPlayers()
-    for _, zonePlayer in pairs(zonePlayers) do
-        zonePlayer:PrintToPlayer("Who dare defiles our land?",0,"Ritter")
+        SpawnMob(17047945, instance)
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("Who dare defiles our land?",0,"Ritter")
+        end
     end
 end
