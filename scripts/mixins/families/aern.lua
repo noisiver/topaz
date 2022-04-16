@@ -66,7 +66,7 @@ g_mixins.families.aern = function(mob)
     end)
 
     mob:addListener("ENGAGE", "AERN_ENGAGE", function(mob, target)
-        mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 30))
+        mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 45))
     end)
 
     mob:addListener("COMBAT_TICK", "AERN_COMBAT_TICK", function(mob)
