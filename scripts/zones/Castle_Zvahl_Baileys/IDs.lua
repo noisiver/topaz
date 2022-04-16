@@ -29,7 +29,7 @@ zones[tpz.zone.CASTLE_ZVAHL_BAILEYS] =
         MARQUIS_SABNOCK_PH =
         {
             [17436879] = 17436881,
-            [17436882] = 17436881,
+            --[17436882] = 17436881,
         },
         LIKHO            = 17436714,
         MARQUIS_ALLOCEN  = 17436913,

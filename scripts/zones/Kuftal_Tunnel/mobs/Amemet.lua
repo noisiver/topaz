@@ -10,6 +10,7 @@ require("scripts/globals/status")
 ------------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(100)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
     mob:addMod(tpz.mod.ACC, 30) 

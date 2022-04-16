@@ -8,6 +8,7 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/titles")
 -----------------------------------
 function onMobSpawn(mob)
+    mob:setDamage(145)
     mob:addMod(tpz.mod.ATTP, 50)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ACC, 50) 

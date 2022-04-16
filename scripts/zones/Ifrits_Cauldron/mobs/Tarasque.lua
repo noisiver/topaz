@@ -10,7 +10,7 @@ require("scripts/globals/msg")
 ------------------------------
 function onMobSpawn(mob)
     local bufftwo = tpz.effect.BLAZE_SPIKES
-
+    mob:setDamage(110)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ATTP, 30)
     mob:addMod(tpz.mod.ACC, 50) 
