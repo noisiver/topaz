@@ -2,6 +2,7 @@
 -- Flames for the Dead
 -- Bearclaw Pinnacle mission battlefield
 -----------------------------------
+local ID = require("scripts/zones/Bearclaw_Pinnacle/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/missions")
 -----------------------------------

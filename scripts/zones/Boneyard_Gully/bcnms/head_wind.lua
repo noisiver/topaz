@@ -2,6 +2,7 @@
 -- Head Wind
 -- Boneyard Gully mission battlefield
 -----------------------------------
+local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/missions")
 -----------------------------------

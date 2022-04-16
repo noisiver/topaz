@@ -1504,7 +1504,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,498); -- triclip
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,499); -- back_swish
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,500); -- mow
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,501); -- frightful_roar
-INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,502); -- mortal_ray (TODO: change to Chthonian Ray when it is coded)
+INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,1359); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,503); -- unblessed_armor
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,881);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,882);
@@ -4362,6 +4362,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1963); -- Min
 INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1964); -- Immortal Mind
 INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1967); -- Tribulation
 INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1968); -- Immortal Anathema
+
+INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,257); -- Follow The White Rabbit ENM
+INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,259);
+INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,1570); -- wild_carrot_ENM
+INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,661);
 
 --6066 unused
 

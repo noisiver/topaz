@@ -3,6 +3,7 @@
 -- Boneyard Gully ENM, Miasma Filter
 -- !addkeyitem MIASMA_FILTER
 -----------------------------------
+local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/keyitems")
 -----------------------------------
@@ -39,6 +40,6 @@ end
 
 function onEventFinish(player, csid, option)
     if csid == 32001 then
-        player:addExp(2000)
+        player:addExp(3000)
     end
 end

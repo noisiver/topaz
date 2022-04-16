@@ -1062,6 +1062,72 @@ INSERT INTO `bcnm_battlefield` VALUES (611,3,17641496,3);
 INSERT INTO `bcnm_battlefield` VALUES (640,1,16801793,3); -- flames_for_the_dead
 INSERT INTO `bcnm_battlefield` VALUES (640,2,16801794,3);
 INSERT INTO `bcnm_battlefield` VALUES (640,3,16801795,3);
+INSERT INTO `bcnm_battlefield` VALUES (641,1,16801796,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,1,16801797,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,1,16801798,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,1,16801799,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,1,16801800,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,1,16801801,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,2,16801803,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,2,16801804,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,2,16801805,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,2,16801806,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,2,16801807,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,2,16801808,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,3,16801810,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,3,16801811,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,3,16801812,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,3,16801813,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,3,16801814,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (641,3,16801815,3); -- Follow the White Rabbit
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801818,1); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801819,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801820,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801821,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801822,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801823,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801826,3); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801827,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801828,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801829,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801830,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801831,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801834,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801835,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801836,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,1,16801837,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801818,1); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801819,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801820,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801821,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801822,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801823,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801826,3); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801827,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801828,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801829,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801830,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801831,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801834,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801835,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801836,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,2,16801837,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801818,1); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801819,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801820,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801821,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801822,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801823,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801826,3); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801827,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801828,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801829,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801830,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801831,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801834,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801835,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801836,0); -- (When Hell Freezes Over zone 1) Snow Devil
+INSERT INTO `bcnm_battlefield` VALUES (642,3,16801837,0); -- (When Hell Freezes Over zone 1) Snow Devil
 INSERT INTO `bcnm_battlefield` VALUES (643,1,16801841,3); -- brothers
 INSERT INTO `bcnm_battlefield` VALUES (643,1,16801842,3);
 INSERT INTO `bcnm_battlefield` VALUES (643,2,16801844,3);
@@ -1122,6 +1188,36 @@ INSERT INTO `bcnm_battlefield` VALUES (675,3,16810046,0);
 INSERT INTO `bcnm_battlefield` VALUES (675,3,16810047,0); -- Nepionic Bladmall
 INSERT INTO `bcnm_battlefield` VALUES (675,3,16810048,0);
 INSERT INTO `bcnm_battlefield` VALUES (675,3,16810049,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810051,3); -- (Totentanz zone 1) Gwyn Ap Knudd
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810052,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810053,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810054,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810055,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810056,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810057,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810058,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810059,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,1,16810060,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810062,3); -- (Totentanz zone 2) Gwyn Ap Knudd
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810063,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810064,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810065,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810066,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810067,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810068,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810069,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810070,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,2,16810071,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810073,3); -- (Totentanz zone 3) Gwyn Ap Knudd
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810074,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810075,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810076,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810077,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810078,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810079,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810080,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810081,0);
+INSERT INTO `bcnm_battlefield` VALUES (676,3,16810082,0);
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818177,3); -- darkness_named
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818178,1);
 INSERT INTO `bcnm_battlefield` VALUES (704,1,16818179,1);

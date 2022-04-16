@@ -1876,6 +1876,8 @@ INSERT INTO `mob_spell_lists` VALUES ('Halimede',201,356,1,255); -- Paralyga
 INSERT INTO `mob_spell_lists` VALUES ('Mindertaur',202,5,1,255); -- Cure V
 INSERT INTO `mob_spell_lists` VALUES ('Mindertaur',202,29,1,255); -- Banish II
 INSERT INTO `mob_spell_lists` VALUES ('Mindertaur',202,112,1,255); -- Flash
+INSERT INTO `mob_spell_lists` VALUES ('Mindertaur',202,46,1,255); -- Protect IV
+INSERT INTO `mob_spell_lists` VALUES ('Mindertaur',202,50,1,255); -- Shell III
 INSERT INTO `mob_spell_lists` VALUES ('Eldertaur',203,5,1,255); --  Cure V
 INSERT INTO `mob_spell_lists` VALUES ('Eldertaur',203,46,1,255); -- Protect IV
 INSERT INTO `mob_spell_lists` VALUES ('Eldertaur',203,50,1,255); -- Shell III
@@ -4918,6 +4920,10 @@ INSERT INTO `mob_spell_lists` VALUES ('MahjlaefTwoShields',2059, 204, 1, 255); -
 INSERT INTO `mob_spell_lists` VALUES ('MahjlaefTwoShields',2059, 210, 1, 255); -- Quake 
 INSERT INTO `mob_spell_lists` VALUES ('MahjlaefTwoShields',2059, 206, 1, 255); -- Freeze 
 INSERT INTO `mob_spell_lists` VALUES ('MahjlaefTwoShields',2059, 212, 1, 255); -- Burst 
+
+INSERT INTO `mob_spell_lists` VALUES ('SnowDevil',2060,181,1,255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('SnowDevil',2060,152,1,94); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('SnowDevil',2060,455,1,94); -- Ice Threnody
 
 
 
