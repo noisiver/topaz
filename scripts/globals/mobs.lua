@@ -139,7 +139,8 @@ tpz.mob.additionalEffect =
     BIND       = 26,
     WEIGHT     = 27,
     FLASH      = 28,
-    RECOVER_MP = 29
+    RECOVER_MP = 29,
+    SLEEP      = 30
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -480,6 +481,20 @@ local additionalEffects =
         msg = tpz.msg.basic.ADD_EFFECT_MP_HEAL,
         power = 30,
         code = function(mob, target, power) mob:addMP(power) end,
+    },
+    [tpz.mob.ae.SLEEP] =
+    {
+        chance = 100,
+        ele = tpz.magic.ele.DARK,
+        sub = tpz.subEffect.SLEEP,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = tpz.effect.SLEEP,
+        power = 300,
+        duration = 60,
+        minDuration = 0,
+        maxduration = 60,
+        code = function(mob, target, power) mob:resetEnmity(target) end,
     },
 }
 
