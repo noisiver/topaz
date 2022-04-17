@@ -12,12 +12,12 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-	local meritBonus = caster:getMerit(tpz.merit.SLOW_II)
+	local meritBonus = caster:getMerit(tpz.merit.SLOW_II) * 100
     local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
 
     -- Lowest ~12.5%
     -- Highest ~35.1%
-    local power = utils.clamp(math.floor(dMND * 226 / 15) + 2380 + (meritBonus - 1), 1250, 3510 + (meritBonus - 1))
+    local power = utils.clamp(math.floor(dMND * 226 / 15) + 2380 + (meritBonus - 100), 1250, 3510 + (meritBonus - 100))
     power = calculatePotency(power, spell:getSkillType(), caster, target)
 
     --Duration, including resistance.
