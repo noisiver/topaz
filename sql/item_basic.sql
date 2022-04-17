@@ -2048,7 +2048,7 @@ INSERT INTO `item_basic` VALUES (2158,0,'hydra_fang','hydra_fang',12,4,42,0,2850
 INSERT INTO `item_basic` VALUES (2159,0,'qutrub_bandage','qutrub_bandage',12,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2160,0,'troll_pauldron','troll_pauldron',12,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2161,0,'troll_vambrace','troll_vambrace',12,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (2162,0,'mamool_ja_helmet','mamool_ja_helmet',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (2162,0,'mamool_ja_helmet','mamool_ja_helmet',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2163,0,'imp_wing','imp_wing',12,4,44,0,16);
 INSERT INTO `item_basic` VALUES (2164,0,'pephredo_hive_chip','peph._hive_chip',12,4,44,0,16);
 INSERT INTO `item_basic` VALUES (2165,0,'qutrub_gorget','qutrub_gorget',12,4100,50,1,0);
@@ -2113,7 +2113,7 @@ INSERT INTO `item_basic` VALUES (2223,0,'halvung_brass_key','halv._brass_key',1,
 INSERT INTO `item_basic` VALUES (2224,0,'mamook_silverscale_key','m._silverscale_key',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (2225,0,'mamook_tanscale_key','m._tanscale_key',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (2226,0,'mamook_blackscale_key','m._blackscale_key',1,61524,0,1,0);
-INSERT INTO `item_basic` VALUES (2227,0,'mamool_ja_collar','mamool_ja_collar',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (2227,0,'mamool_ja_collar','mamool_ja_collar',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2228,0,'chunk_of_luminium_ore','luminium_ore',1,4,39,0,990);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (2229,0,'vial_of_chimera_blood','chimera_blood',12,4,44,0,240);
 INSERT INTO `item_basic` VALUES (2230,0,'lambent_fire_cell','lam._fire_cell',12,4100,46,1,0);
