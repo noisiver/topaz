@@ -80,16 +80,44 @@ end
 function onGameHour(zone)
     local hour = VanadielHour()
 
-    if hour == 0 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START, ID.npc.MIASMA_END, 1 do
+    if hour == 0 then -- Open / Close Miasma ALL opened at 0:00
+        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
+        end
+        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
+        end
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.OPEN_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
+    elseif hour == 3 then -- Open / Close Miasma
+        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
+        end
+        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
+        end
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.CLOSE_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
+    elseif hour == 6 then -- Open / Close Miasma
+        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
+        end
+        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
             GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
         end
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.OPEN_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.CLOSE_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-    elseif hour == 6 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START, ID.npc.MIASMA_END, 1 do
+    elseif hour == 9 then -- Open / Close Miasma
+        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
+        end
+        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
             GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
         end
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.CLOSE_DOOR)
@@ -97,21 +125,38 @@ function onGameHour(zone)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
     elseif hour == 12 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START, ID.npc.MIASMA_END, 1 do
+        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
+        end
+        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
             GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
         end
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.OPEN_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.CLOSE_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-    elseif hour == 18 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START, ID.npc.MIASMA_END, 1 do
+    elseif hour == 15 then -- Open / Close Miasma
+        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
+        end
+        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
             GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
         end
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.CLOSE_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
         GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
+    elseif hour == 18 then -- Open / Close Miasma
+        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
+        end
+        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
+            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
+        end
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.OPEN_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.CLOSE_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
     end
 end
 
