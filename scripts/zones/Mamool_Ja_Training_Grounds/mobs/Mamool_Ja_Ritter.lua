@@ -34,7 +34,7 @@ function onMobFight(mob, target)
     local zonePlayers = mob:getZone():getPlayers()
 	if mob:getHPP() <= 50 then
     for _, zonePlayer in pairs(zonePlayers) do
-        zonePlayer:PrintToPlayer("The Wivre wails in pain as it falls over dead!",0,"Trained Wivre")
+        zonePlayer:PrintToPlayer("The Wivre wails in pain as it falls over dead!",0,"???")
     end
         DespawnMob(mob:getID(instance), instance)
         Dragoon:spawn()
