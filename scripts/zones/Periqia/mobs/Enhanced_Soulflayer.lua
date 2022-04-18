@@ -55,6 +55,10 @@ function onMobEngaged(mob)
     end
 	if RunAwayPath == 1 then
         mob:setHP(63000)
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("The Enhanced Soulflayer attempts to call for help!",0,"???")
+        end
     end
     if RunAwayPath == 2 then
         mob:setHP(56000)
