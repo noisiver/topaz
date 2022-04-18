@@ -35,7 +35,7 @@ function onMobWeaponSkill(target, mob, skill)
     dmg = dmg * ((50 - distance) / 50)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
-	target:addStatusEffect(tpz.effect.STUN, 1, 0, 1)
+    if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end
 
     return dmg
 end

@@ -37,7 +37,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 45)
-	target:addStatusEffect(tpz.effect.STUN, 1, 0, 1)
+    if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end
     mob:resetEnmity(target)
 
     return dmg

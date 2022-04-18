@@ -9,6 +9,16 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(120)
+    mob:setMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.DEFP, 10)
+    mob:addMod(tpz.mod.EVA, 10)
+    mob:setMod(tpz.mod.REFRESH, 300)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    mob:addImmunity(tpz.immunity.GRAVITY)
+    mob:addImmunity(tpz.immunity.BIND)
+    mob:addImmunity(tpz.immunity.STUN)
     -- Aggros via ambush, not superlinking
     mob:setMobMod(tpz.mobMod.SUPERLINK, 0)
 
