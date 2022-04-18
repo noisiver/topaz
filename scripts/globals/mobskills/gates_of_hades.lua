@@ -15,7 +15,10 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-  if(mob:getFamily() == 316) then
+    if mob:getPool() == 5890 then -- Custom Marquis Naberius Castle Baileys
+        return 1
+    end
+    if(mob:getFamily() == 316) then
     local mobSkin = mob:getModelId()
 
     if (mobSkin == 1793) then
@@ -23,7 +26,7 @@ function onMobSkillCheck(target, mob, skill)
     else
         return 1
     end
-  end
+    end
     local result = 1
     local mobhp = mob:getHPP()
     if (family == 315 and mobhp < 50) then -- Tyger < 50%

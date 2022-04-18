@@ -345,20 +345,20 @@ INSERT INTO `mob_droplist` VALUES (50,0,0,1000,497,1000); --(Alkyoneus) Gigas So
 INSERT INTO `mob_droplist` VALUES (50,0,0,1000,497,240); -- Gigas Socks
 INSERT INTO `mob_droplist` VALUES (50,0,0,1000,499,1000); -- Gigas Necklace
 INSERT INTO `mob_droplist` VALUES (50,0,0,1000,499,240); -- Gigas Necklace
-INSERT INTO `mob_droplist` VALUES (50,1,1,1000,658,33); -- Damascus Ingot
-INSERT INTO `mob_droplist` VALUES (50,1,1,1000,1132,33); -- Square Of Raxa
-INSERT INTO `mob_droplist` VALUES (50,1,1,1000,844,33); -- Phoenix Feather
-INSERT INTO `mob_droplist` VALUES (50,1,2,1000,823,80); -- Gold Thread
-INSERT INTO `mob_droplist` VALUES (50,1,2,1000,821,80); -- Rainbow Thread
-INSERT INTO `mob_droplist` VALUES (50,1,2,1000,816,80); -- Silk Thread
-INSERT INTO `mob_droplist` VALUES (50,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (50,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (50,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (50,1,4,1000,4175,75); -- Vile ELixir +1
-INSERT INTO `mob_droplist` VALUES (50,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (50,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (50,1,5,1000,4172,75); -- Reraiser
-INSERT INTO `mob_droplist` VALUES (50,0,0,1000,14022,100); --Alkyoneus's bracelets
+INSERT INTO `mob_droplist` VALUES (50,1,1,1000,658,333); -- Damascus Ingot
+INSERT INTO `mob_droplist` VALUES (50,1,1,1000,1132,333); -- Square Of Raxa
+INSERT INTO `mob_droplist` VALUES (50,1,1,1000,844,334); -- Phoenix Feather
+INSERT INTO `mob_droplist` VALUES (50,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (50,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (50,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (50,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (50,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (50,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (50,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (50,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (50,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (716,1,6,150,4172,500); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (50,0,0,1000,14022,50); --Alkyoneus's bracelets
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,2681,1000);
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,11473,120);
 INSERT INTO `mob_droplist` VALUES (51,0,0,1000,18449,150);
@@ -1808,10 +1808,10 @@ INSERT INTO `mob_droplist` VALUES (281,1,1,1000,1110,334);  -- Vial Of Black Bee
 INSERT INTO `mob_droplist` VALUES (281,0,0,1000,1443,1000);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (281,0,0,1000,1443,240);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (281,0,0,1000,1443,150);  -- Pinch of dried mugwort
-INSERT INTO `mob_droplist` VALUES (281,1,4,1000,4175,75); -- Vile Elixir +1
-INSERT INTO `mob_droplist` VALUES (281,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (281,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (281,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (281,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (281,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (281,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (281,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (282,2,0,1000,880,0);
 INSERT INTO `mob_droplist` VALUES (282,0,0,1000,880,280);
 INSERT INTO `mob_droplist` VALUES (282,0,0,1000,18396,240);
@@ -2441,10 +2441,10 @@ INSERT INTO `mob_droplist` VALUES (410,0,0,1000,19102,50);
 -- Capricious Cassie (Fei'yin) http://ffxidb.com/zones/204/capricious-cassie
 INSERT INTO `mob_droplist` VALUES (411,2,0,1000,920,0); -- Malboro Vine (Steal)
 INSERT INTO `mob_droplist` VALUES (411,0,0,1000,837,150); -- Malboro Fiber (14%)
-INSERT INTO `mob_droplist` VALUES (411,0,0,1000,4172,1000); -- Reraiser (90%)
-INSERT INTO `mob_droplist` VALUES (411,0,0,1000,4173,240); -- Hi-reraiser (24%)
-INSERT INTO `mob_droplist` VALUES (411,0,0,1000,4174,1000); -- Vile Elixir (78%)
-INSERT INTO `mob_droplist` VALUES (411,0,0,1000,4175,240); -- Vile Elixir +1 (29%)
+INSERT INTO `mob_droplist` VALUES (411,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (411,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (411,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (411,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (411,0,0,1000,13402,150); -- Cassie Earring (20%)
 INSERT INTO `mob_droplist` VALUES (411,0,0,1000,13622,240); -- Amity Cape (38%)
 INSERT INTO `mob_droplist` VALUES (411,0,0,1000,13978,240); -- Aiming Bracelets (26%)
@@ -2484,13 +2484,13 @@ INSERT INTO `mob_droplist` VALUES (417,0,0,1000,1443,1000);  -- Pinch of dried m
 INSERT INTO `mob_droplist` VALUES (417,0,0,1000,1443,240);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (417,0,0,1000,1443,150);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (417,0,0,1000,1443,100);  -- Pinch of dried mugwort
-INSERT INTO `mob_droplist` VALUES (417,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (417,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (417,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (417,1,4,1000,4175,75); -- Vile Elixir +1
-INSERT INTO `mob_droplist` VALUES (417,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (417,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (417,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (417,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (417,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (417,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (417,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (417,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (417,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (417,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (418,0,0,1000,14669,100); -- (Carmine Dobsonfly) Jaeger Ring
 INSERT INTO `mob_droplist` VALUES (418,0,0,1000,15183,100); -- Dobson Bandana
 INSERT INTO `mob_droplist` VALUES (418,0,0,1000,15184,50); -- Voyager Sallet
@@ -2587,16 +2587,16 @@ INSERT INTO `mob_droplist` VALUES (440,0,0,1000,1443,1000);  -- Pinch of dried m
 INSERT INTO `mob_droplist` VALUES (440,0,0,1000,1443,240);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (440,0,0,1000,1443,150);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (440,0,0,1000,1443,100);  -- Pinch of dried mugwort
-INSERT INTO `mob_droplist` VALUES (440,1,2,1000,823,80); -- Gold Thread
-INSERT INTO `mob_droplist` VALUES (440,1,2,1000,821,80); -- Rainbow Thread
-INSERT INTO `mob_droplist` VALUES (440,1,2,1000,816,80); -- Silk Thread
-INSERT INTO `mob_droplist` VALUES (440,1,3,1000,644,80); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (440,1,3,1000,737,80); -- Chunk of gold ore
-INSERT INTO `mob_droplist` VALUES (440,1,3,1000,738,80); -- Chunk of platinum ore
-INSERT INTO `mob_droplist` VALUES (440,1,4,1000,4175,75); -- Vile Elixir +1
-INSERT INTO `mob_droplist` VALUES (440,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (440,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (440,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (440,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (440,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (440,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (440,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (440,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (440,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (440,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (440,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (440,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (440,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (441,0,0,1000,893,100); -- (Celphie) Giant femur
 INSERT INTO `mob_droplist` VALUES (441,0,0,1000,4359,240); -- Slice of dhalmel meat
 INSERT INTO `mob_droplist` VALUES (441,0,0,1000,15505,240); -- Dhalmel Whistle
@@ -2612,11 +2612,11 @@ INSERT INTO `mob_droplist` VALUES (443,0,0,1000,644,240); -- Chunk of mythril or
 INSERT INTO `mob_droplist` VALUES (443,0,0,1000,645,150); -- Chunk of darksteel ore
 INSERT INTO `mob_droplist` VALUES (443,0,0,1000,646,100); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (443,0,0,1000,1121,1000); -- Antican robe
-INSERT INTO `mob_droplist` VALUES (443,0,0,1000,4769,240); -- Scroll of Stone III
-INSERT INTO `mob_droplist` VALUES (443,0,0,1000,4770,100); -- Scroll of Stone IV
-INSERT INTO `mob_droplist` VALUES (443,0,0,1000,4798,240); -- Scroll of Stonega II
-INSERT INTO `mob_droplist` VALUES (443,0,0,1000,4799,100); -- Scroll of Stonega III
-INSERT INTO `mob_droplist` VALUES (443,0,0,1000,4818,50); -- Scroll of Quake
+INSERT INTO `mob_droplist` VALUES (443,1,1,240,4769,200); -- Scroll of Stone III
+INSERT INTO `mob_droplist` VALUES (443,1,1,240,4770,200); -- Scroll of Stone IV
+INSERT INTO `mob_droplist` VALUES (443,1,1,240,4798,200); -- Scroll of Stonega II
+INSERT INTO `mob_droplist` VALUES (443,1,1,240,4799,200); -- Scroll of Stonega III
+INSERT INTO `mob_droplist` VALUES (443,1,1,240,4818,200); -- Scroll of Quake
 INSERT INTO `mob_droplist` VALUES (443,0,0,1000,13803,240); -- Shaman's Cloak
 INSERT INTO `mob_droplist` VALUES (444,0,0,1000,14806,240); -- (Centurio Xii-I) Intruder Earring
 INSERT INTO `mob_droplist` VALUES (445,0,0,1000,3172,460);
@@ -3865,11 +3865,25 @@ INSERT INTO `mob_droplist` VALUES (715,1,1,50,1456,333); -- One Hundred Byne Bil
 INSERT INTO `mob_droplist` VALUES (715,0,0,1000,4249,1000); -- Copy Of "schultz Stratagems"
 INSERT INTO `mob_droplist` VALUES (715,0,0,1000,15073,100); -- Melee Crown
 INSERT INTO `mob_droplist` VALUES (715,0,0,1000,3358,1000); -- Shrouded Bjijou
-INSERT INTO `mob_droplist` VALUES (716,0,0,1000,886,202);   -- (Duke Haborym) demon_skull
-INSERT INTO `mob_droplist` VALUES (716,0,0,1000,902,240);   -- demon_horn
-INSERT INTO `mob_droplist` VALUES (716,0,0,1000,4111,10);   -- dark_cluster
-INSERT INTO `mob_droplist` VALUES (716,0,0,1000,4875,240);  -- scroll_of_absorb-dex
+INSERT INTO `mob_droplist` VALUES (716,0,0,1000,886,1000);   -- (Duke Haborym - Baileys) demon_skull
 INSERT INTO `mob_droplist` VALUES (716,0,0,1000,16786,240); -- barbarians scythe
+INSERT INTO `mob_droplist` VALUES (716,0,0,1000,902,1000);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (716,0,0,1000,902,240);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (716,1,1,1000,942,500);   -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (716,1,1,1000,1446,500);   -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (716,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (716,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (716,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (716,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (716,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (716,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (716,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (716,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (716,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (716,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (716,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (716,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (716,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (717,1,1,50,1450,334); -- (DRK Kindred NM) Lungo-Nango Jadeshell
 INSERT INTO `mob_droplist` VALUES (717,1,1,50,1453,333); -- Montiont Silverpiece
 INSERT INTO `mob_droplist` VALUES (717,1,1,50,1456,333); -- One Hundred Byne Bill
@@ -4725,19 +4739,19 @@ INSERT INTO `mob_droplist` VALUES (907,0,0,1000,18139,240); -- Bomb Core
 INSERT INTO `mob_droplist` VALUES (907,1,1,999,836,333); -- Square Of Damascene Cloth
 INSERT INTO `mob_droplist` VALUES (907,1,1,999,942,333); -- Philosopher's Stone
 INSERT INTO `mob_droplist` VALUES (907,1,1,999,1132,333); -- Square Of Raxa
-INSERT INTO `mob_droplist` VALUES (907,1,6,1000,823,80); -- Gold Thread
-INSERT INTO `mob_droplist` VALUES (907,1,6,1000,821,80); -- Rainbow Thread
-INSERT INTO `mob_droplist` VALUES (907,1,6,1000,816,80); -- Silk Thread
-INSERT INTO `mob_droplist` VALUES (907,1,2,1000,644,80); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (907,1,2,1000,737,80); -- Chunk of gold ore
-INSERT INTO `mob_droplist` VALUES (907,1,2,1000,738,80); -- Chunk of platinum ore
-INSERT INTO `mob_droplist` VALUES (907,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (907,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (907,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (907,1,4,1000,4175,75); -- Vile Elixir +1
-INSERT INTO `mob_droplist` VALUES (907,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (907,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (907,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (907,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (907,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (907,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (907,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (907,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (907,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (907,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (907,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (907,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (907,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (907,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (907,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (907,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (908,0,0,1000,928,240); -- Friar's Lantern: pinch_of_bomb_ash
 INSERT INTO `mob_droplist` VALUES (908,2,0,1000,17316,0); -- bomb_arm
 INSERT INTO `mob_droplist` VALUES (908,0,0,1000,17316,240); -- bomb_arm
@@ -6339,9 +6353,25 @@ INSERT INTO `mob_droplist` VALUES (1212,0,0,1000,4272,50);
 INSERT INTO `mob_droplist` VALUES (1212,0,0,1000,4377,240);
 INSERT INTO `mob_droplist` VALUES (1212,0,0,1000,5152,50);
 INSERT INTO `mob_droplist` VALUES (1212,0,0,1000,11742,440);
-INSERT INTO `mob_droplist` VALUES (1213,0,0,1000,886,50); -- (Grand Duke Batym)
-INSERT INTO `mob_droplist` VALUES (1213,0,0,1000,902,100);
-INSERT INTO `mob_droplist` VALUES (1213,0,0,1000,16787,100);
+INSERT INTO `mob_droplist` VALUES (1213,0,0,1000,886,1000); -- (Grand Duke Batym) Demon skull
+INSERT INTO `mob_droplist` VALUES (1213,0,0,1000,16787,150); -- Demonslicer
+INSERT INTO `mob_droplist` VALUES (1213,0,0,1000,902,1000);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (1213,0,0,1000,902,240);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (1213,1,1,1000,942,500);   -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (1213,1,1,1000,1446,500);   -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (1213,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (1213,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (1213,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (1213,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (1213,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (1213,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (1213,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (1213,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (1213,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (1213,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (1213,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1213,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (1213,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1214,0,0,1000,2151,240); -- (Grand Marid) Marid hide
 INSERT INTO `mob_droplist` VALUES (1214,2,0,1000,2155,0);
 INSERT INTO `mob_droplist` VALUES (1214,0,0,1000,2166,100); -- Lock of marid hair
@@ -8462,16 +8492,45 @@ INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,4359,240);
 INSERT INTO `mob_droplist` VALUES (1620,0,0,1000,4359,150);
 INSERT INTO `mob_droplist` VALUES (1621,0,0,1000,2523,50); -- Peiste skin
 INSERT INTO `mob_droplist` VALUES (1621,0,0,1000,2524,100); -- Peiste Stinger
-INSERT INTO `mob_droplist` VALUES (1622,0,0,1000,886,50); -- (Marquis_Allocen - Castle Zvahl Baileys)
-INSERT INTO `mob_droplist` VALUES (1622,0,0,1000,902,100);
-INSERT INTO `mob_droplist` VALUES (1622,0,0,1000,16757,100);
-INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,886,50); -- (Marquis Amon)
-INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,902,100);
-INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,4754,50);
-INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,4755,50);
-INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,4784,50);
-INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,4812,10);
-INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,17232,100);
+INSERT INTO `mob_droplist` VALUES (1622,0,0,1000,886,1000); -- (Marquis Allocen - Castle Zvahl Baileys)
+INSERT INTO `mob_droplist` VALUES (1622,0,0,1000,16757,240); -- Corsair's knife
+INSERT INTO `mob_droplist` VALUES (1622,0,0,1000,902,1000);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (1622,0,0,1000,902,240);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (1622,1,1,1000,942,500);   -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (1622,1,1,1000,1446,500);   -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (1622,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (1622,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (1622,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (1622,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (1622,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (1622,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (1622,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (1622,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (1622,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (1622,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (1622,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1622,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (1622,1,6,150,4172,500); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,886,50); -- (Marquis Amon - Baileys)
+INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,17232,240); -- Lion crossbow
+INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,902,1000);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (1623,0,0,1000,902,240);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (1623,1,1,1000,942,500);   -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (1623,1,1,1000,1446,500);   -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (1623,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (1623,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (1623,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (1623,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (1623,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (1623,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (1623,1,4,240,4754,250); -- Scroll of Fire III
+INSERT INTO `mob_droplist` VALUES (1623,1,4,240,4755,250); -- Scroll of Fire IV
+INSERT INTO `mob_droplist` VALUES (1623,1,4,240,4784,250); -- Scroll of Firaga III
+INSERT INTO `mob_droplist` VALUES (1623,1,4,240,4812,250); -- Scroll of Flare
+INSERT INTO `mob_droplist` VALUES (1623,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (1623,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1623,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (1623,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1624,1,1,50,1450,334); -- (BST Kindred NM) Lungo-Nango Jadeshell
 INSERT INTO `mob_droplist` VALUES (1624,1,1,50,1453,333); -- Montiont Silverpiece
 INSERT INTO `mob_droplist` VALUES (1624,1,1,50,1456,333); -- One Hundred Byne Bill
@@ -9844,16 +9903,16 @@ INSERT INTO `mob_droplist` VALUES (1824,1,2,240,17960,334); -- Labrys
 INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,19033,240); -- Wind grip
 INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,19036,240); -- Earth grip
 INSERT INTO `mob_droplist` VALUES (1825,2,0,1000,751,0); -- (Novv the Whitehearted)  Platinum Beastcoin (Steal)
-INSERT INTO `mob_droplist` VALUES (1825,1,2,1000,823,80); -- Gold Thread
-INSERT INTO `mob_droplist` VALUES (1825,1,2,1000,821,80); -- Rainbow Thread
-INSERT INTO `mob_droplist` VALUES (1825,1,2,1000,816,80); -- Silk Thread
-INSERT INTO `mob_droplist` VALUES (1825,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (1825,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (1825,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (1825,1,4,1000,4175,75); -- Vile ELixir +1
-INSERT INTO `mob_droplist` VALUES (1825,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (1825,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (1825,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (1825,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (1825,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (1825,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (1825,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (1825,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (1825,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (1825,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (1825,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1825,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (1825,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4613,100); --  scroll_of_cure_v
 INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4618,50); --  scroll_of_curaga_iv
 INSERT INTO `mob_droplist` VALUES (1825,0,0,1000,4719,240); -- scroll_of_regen_iii
@@ -9957,22 +10016,19 @@ INSERT INTO `mob_droplist` VALUES (1839,0,0,1000,1667,1000);
 INSERT INTO `mob_droplist` VALUES (1839,0,0,1000,14658,150);	-- Atlaua's ring
 INSERT INTO `mob_droplist` VALUES (1839,0,0,1000,15373,100); -- Bravo's subligar
 INSERT INTO `mob_droplist` VALUES (1840,0,0,1000,16911,240); -- (Ogama) Amanojaku
-INSERT INTO `mob_droplist` VALUES (1840,0,0,1000,1703,1000); -- Kunwu Ore
-INSERT INTO `mob_droplist` VALUES (1840,0,0,1000,1703,240); -- Kunwu Ore
-INSERT INTO `mob_droplist` VALUES (1840,0,0,1000,1703,150); -- Kunwu Ore
-INSERT INTO `mob_droplist` VALUES (1840,1,2,1000,823,80); -- Gold Thread
-INSERT INTO `mob_droplist` VALUES (1840,1,2,1000,821,80); -- Rainbow Thread
-INSERT INTO `mob_droplist` VALUES (1840,1,2,1000,816,80); -- Silk Thread
-INSERT INTO `mob_droplist` VALUES (1840,1,6,1000,644,80); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (1840,1,6,1000,737,80); -- Chunk of gold ore
-INSERT INTO `mob_droplist` VALUES (1840,1,6,1000,738,80); -- Chunk of platinum ore
-INSERT INTO `mob_droplist` VALUES (1840,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (1840,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (1840,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (1840,1,4,1000,4175,75); -- Vile Elixir +1
-INSERT INTO `mob_droplist` VALUES (1840,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (1840,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (1840,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (1840,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (1840,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (1840,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (1840,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (1840,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (1840,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (1840,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (1840,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (1840,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (1840,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (1840,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1840,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (1840,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1841,0,0,1000,3294,100);
 INSERT INTO `mob_droplist` VALUES (1841,0,0,1000,3294,50);
 INSERT INTO `mob_droplist` VALUES (1841,0,0,1000,11760,100);
@@ -10561,22 +10617,24 @@ INSERT INTO `mob_droplist` VALUES (1971,4,0,1000,4368,0);
 INSERT INTO `mob_droplist` VALUES (1971,0,0,1000,17868,240);
 INSERT INTO `mob_droplist` VALUES (1972,0,0,1000,505,1000); -- Sheepskin
 INSERT INTO `mob_droplist` VALUES (1972,0,0,1000,531,1000); -- Lanolin
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,624,80); -- (Pahh the Gullcaller)
-INSERT INTO `mob_droplist` VALUES (1973,2,0,1000,751,0); -- Platinum Beastcoin
+INSERT INTO `mob_droplist` VALUES (1973,2,0,1000,751,0); -- (Pahh the Gullcaller) Platinum Beastcoin(Steal)
+INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,16882,240); -- Calamar
 INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1311,333); -- Piece Of Oxblood
 INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1312,333); -- Piece Of Angel Skin
 INSERT INTO `mob_droplist` VALUES (1973,1,1,1000,1313,334); -- Siren's Hair
-INSERT INTO `mob_droplist` VALUES (1973,1,2,1000,644,80); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (1973,1,2,1000,737,80); -- Chunk of gold ore
-INSERT INTO `mob_droplist` VALUES (1973,1,2,1000,738,80); -- Chunk of platinum ore
-INSERT INTO `mob_droplist` VALUES (1973,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (1973,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (1973,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (1973,1,4,1000,4175,75); -- Vile ELixir +1
-INSERT INTO `mob_droplist` VALUES (1973,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (1973,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (1973,1,5,1000,4172,75); -- Reraiser
-INSERT INTO `mob_droplist` VALUES (1973,0,0,1000,16882,240); -- Calamar
+INSERT INTO `mob_droplist` VALUES (1973,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (1973,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (1973,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (1973,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (1973,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (1973,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (1973,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (1973,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (1973,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (1973,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (1973,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (1973,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (1973,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1974,0,0,1000,14021,50); -- (Pallas - Vunkerl) Pallas's bracelets
 INSERT INTO `mob_droplist` VALUES (1974,0,0,1000,16173,240); -- Pallas's Shield
 INSERT INTO `mob_droplist` VALUES (1975,0,0,1000,497,1000);	-- (Pallas - Upper Delkfutts) Gigas Socks
@@ -11643,10 +11701,10 @@ INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,12348,50); -- Serket shield
 INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,13552,50); -- Serket ring
 INSERT INTO `mob_droplist` VALUES (2202,0,0,1000,16767,50); -- Triple dagger
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,901,150);	-- (Serket - Present) Venomous claw
-INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,4172,240); -- Reraiser
-INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,4173,240); -- Hi-reraiser
-INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,4174,240); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,4175,150); -- Vile elixir +1
+INSERT INTO `mob_droplist` VALUES (2203,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (2203,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (2203,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (2203,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,12348,240); -- Serket shield
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,13552,240); -- Serket ring
 INSERT INTO `mob_droplist` VALUES (2203,0,0,1000,16767,240); -- Triple dagger
@@ -12442,16 +12500,16 @@ INSERT INTO `mob_droplist` VALUES (2384,0,0,1000,1443,1000);  -- Pinch of dried 
 INSERT INTO `mob_droplist` VALUES (2384,0,0,1000,1443,240);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (2384,0,0,1000,1443,150);  -- Pinch of dried mugwort
 INSERT INTO `mob_droplist` VALUES (2384,0,0,1000,1443,100);  -- Pinch of dried mugwort
-INSERT INTO `mob_droplist` VALUES (2384,1,2,1000,644,80); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (2384,1,2,1000,737,80); -- Chunk of gold ore
-INSERT INTO `mob_droplist` VALUES (2384,1,2,1000,738,80); -- Chunk of platinum ore
-INSERT INTO `mob_droplist` VALUES (2384,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (2384,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (2384,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (2384,1,4,1000,4175,75); -- Vile Elixir +1
-INSERT INTO `mob_droplist` VALUES (2384,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (2384,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (2384,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (2384,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (2384,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (2384,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (2384,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (2384,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (2384,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (2384,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (2384,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (2384,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (2384,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (2385,0,0,1000,880,1000);	-- (Taxim) Bone chip
 INSERT INTO `mob_droplist` VALUES (2385,0,0,1000,880,240); -- Bone chip
 INSERT INTO `mob_droplist` VALUES (2385,1,1,1000,4759,240); -- Scroll of Blizzard III
@@ -14052,16 +14110,16 @@ INSERT INTO `mob_droplist` VALUES (2588,2,0,1000,751,0); -- Platinum Beastcoin
 INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1311,333); -- Piece Of Oxblood
 INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1312,333); -- Piece Of Angel Skin
 INSERT INTO `mob_droplist` VALUES (2588,1,1,1000,1313,334); -- Siren's Hair
-INSERT INTO `mob_droplist` VALUES (2588,1,2,1000,823,80); -- Gold Thread
-INSERT INTO `mob_droplist` VALUES (2588,1,2,1000,821,80); -- Rainbow Thread
-INSERT INTO `mob_droplist` VALUES (2588,1,2,1000,816,80); -- Silk Thread
-INSERT INTO `mob_droplist` VALUES (2588,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (2588,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (2588,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (2588,1,4,1000,4175,75); -- Vile ELixir +1
-INSERT INTO `mob_droplist` VALUES (2588,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (2588,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (2588,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (2588,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (2588,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (2588,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (2588,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (2588,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (2588,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (2588,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (2588,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (2588,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (2588,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (2588,0,0,1000,13875,100); -- Monsoon Jinpachi
 INSERT INTO `mob_droplist` VALUES (2589,0,0,1000,920,240); -- (Voluptuous Vilma) Malboro Vine
 INSERT INTO `mob_droplist` VALUES (2589,0,0,1000,1446,50); -- Lacquer tree log
@@ -14491,16 +14549,16 @@ INSERT INTO `mob_droplist` VALUES (2673,2,0,1000,751,0); -- Platinum Beastcoin
 INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1311,333); -- Piece Of Oxblood
 INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1312,333); -- Piece Of Angel Skin
 INSERT INTO `mob_droplist` VALUES (2673,1,1,1000,1313,334); -- Siren's Hair
-INSERT INTO `mob_droplist` VALUES (2673,1,2,1000,644,80); -- Chunk of mythril ore
-INSERT INTO `mob_droplist` VALUES (2673,1,2,1000,737,80); -- Chunk of gold ore
-INSERT INTO `mob_droplist` VALUES (2673,1,2,1000,738,80); -- Chunk of platinum ore
-INSERT INTO `mob_droplist` VALUES (2673,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (2673,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (2673,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (2673,1,4,1000,4175,75); -- Vile ELixir +1
-INSERT INTO `mob_droplist` VALUES (2673,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (2673,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (2673,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (2673,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (2673,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (2673,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (2673,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (2673,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (2673,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (2673,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (2673,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (2673,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (2673,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (2673,0,0,1000,17504,240); -- Pagures
 INSERT INTO `mob_droplist` VALUES (2674,0,0,1000,529,50);
 INSERT INTO `mob_droplist` VALUES (2674,2,0,1000,825,0);
@@ -15306,16 +15364,16 @@ INSERT INTO `mob_droplist` VALUES (2813,2,0,1000,751,0); -- Platinum Beastcoin
 INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1311,333); -- Piece Of Oxblood
 INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1312,333); -- Piece Of Angel Skin
 INSERT INTO `mob_droplist` VALUES (2813,1,1,1000,1313,334); -- Siren's Hair
-INSERT INTO `mob_droplist` VALUES (2813,1,2,1000,823,80); -- Gold Thread
-INSERT INTO `mob_droplist` VALUES (2813,1,2,1000,821,80); -- Rainbow Thread
-INSERT INTO `mob_droplist` VALUES (2813,1,2,1000,816,80); -- Silk Thread
-INSERT INTO `mob_droplist` VALUES (2813,1,3,1000,703,80); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (2813,1,3,1000,702,80); -- Ebony log
-INSERT INTO `mob_droplist` VALUES (2813,1,3,1000,700,80); -- Mahogany log
-INSERT INTO `mob_droplist` VALUES (2813,1,4,1000,4175,75); -- Vile Elixir +1
-INSERT INTO `mob_droplist` VALUES (2813,1,4,1000,4174,75); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (2813,1,5,1000,4173,75); -- Hi-Reraiser
-INSERT INTO `mob_droplist` VALUES (2813,1,5,1000,4172,75); -- Reraiser
+INSERT INTO `mob_droplist` VALUES (2813,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (2813,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (2813,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (2813,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (2813,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (2813,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (2813,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (2813,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (2813,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (2813,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (2813,0,0,1000,16884,240); -- Narval 
 INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,2229,100); -- (Snaggletooth_Peapuk) Vial of chimera blood
 INSERT INTO `mob_droplist` VALUES (2814,0,0,1000,3504,240); -- Peapuk wing
@@ -16052,7 +16110,24 @@ INSERT INTO `mob_droplist` VALUES (3043,0,0,1000,15854,150); -- (Burlibix Brawnb
 INSERT INTO `mob_droplist` VALUES (3044,0,0,1000,11405,240); -- (Habergoass) Kyoshu Kyahan
 INSERT INTO `mob_droplist` VALUES (3045,0,0,1000,18453,150); -- (Grand'Goule) Unshomaru
 INSERT INTO `mob_droplist` VALUES (3046,0,0,1000,16298,100); -- (Splacknuck) Knack Pendant
-INSERT INTO `mob_droplist` VALUES (3047,0,0,1000,19239,240); -- (Marquis Sabnock) Astrolabe
+INSERT INTO `mob_droplist` VALUES (3047,0,0,1000,19239,50); -- (Marquis Sabnock) Astrolabe
+INSERT INTO `mob_droplist` VALUES (3047,0,0,1000,902,1000);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (3047,0,0,1000,902,240);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (3047,1,1,1000,942,500);   -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (3047,1,1,1000,1446,500);   -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (3047,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (3047,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (3047,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (3047,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (3047,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (3047,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (3047,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (3047,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (3047,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (3047,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (3047,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (3047,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (3047,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (3048,0,0,1000,2833,240); -- (Donnergugi) Thunder Coral
 INSERT INTO `mob_droplist` VALUES (3049,0,0,1000,16299,240); -- (Mind Hoarder) Lleu's Charm
 INSERT INTO `mob_droplist` VALUES (3050,0,0,1000,2814,250); -- (Demoiselle Desolee) Aptant: Bellum
@@ -16104,6 +16179,23 @@ INSERT INTO `mob_droplist` VALUES (3086,0,0,1000,11533,240); -- (Rogue Receptacl
 INSERT INTO `mob_droplist` VALUES (3087,0,0,1000,15944,240); -- (Frogamander) Selemnus Belt
 INSERT INTO `mob_droplist` VALUES (3088,0,0,1000,17969,100); -- (Killer Jonny) Fendoir
 INSERT INTO `mob_droplist` VALUES (3089,0,0,1000,2831,240); -- (Marquis Naberius) Yellow Brass Chain
+INSERT INTO `mob_droplist` VALUES (3089,0,0,1000,902,1000);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (3089,0,0,1000,902,240);   -- demon_horn
+INSERT INTO `mob_droplist` VALUES (3089,1,1,1000,942,500);   -- Philosopher's Stone
+INSERT INTO `mob_droplist` VALUES (3089,1,1,1000,1446,500);   -- Lacquer Tree Log 
+INSERT INTO `mob_droplist` VALUES (3089,1,2,240,823,333); -- Gold Thread
+INSERT INTO `mob_droplist` VALUES (3089,1,2,240,821,333); -- Rainbow Thread
+INSERT INTO `mob_droplist` VALUES (3089,1,2,240,816,334); -- Silk Thread
+INSERT INTO `mob_droplist` VALUES (3089,1,3,240,644,333); -- Chunk of mythril ore
+INSERT INTO `mob_droplist` VALUES (3089,1,3,240,737,333); -- Chunk of gold ore
+INSERT INTO `mob_droplist` VALUES (3089,1,3,240,738,334); -- Chunk of platinum ore
+INSERT INTO `mob_droplist` VALUES (3089,1,4,240,703,333); -- Petrified Log
+INSERT INTO `mob_droplist` VALUES (3089,1,4,240,702,333); -- Ebony log
+INSERT INTO `mob_droplist` VALUES (3089,1,4,240,700,334); -- Mahogany log
+INSERT INTO `mob_droplist` VALUES (3089,1,5,150,4175,500); -- Vile Elixir +1
+INSERT INTO `mob_droplist` VALUES (3089,1,5,150,4174,500); -- Vile elixir
+INSERT INTO `mob_droplist` VALUES (3089,1,6,150,4173,500); -- Hi-Reraiser
+INSERT INTO `mob_droplist` VALUES (3089,1,6,150,4172,500); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (3090,0,0,1000,2818,150); -- (Sabotender Corrido) Aptant: Ishis
 INSERT INTO `mob_droplist` VALUES (3090,0,0,1000,2816,150); -- (Sabotender Corrido) Aptant: Tachus
 INSERT INTO `mob_droplist` VALUES (3091,0,0,1000,19125,240); -- (Euryale) Lyft Jambiya

@@ -10597,7 +10597,7 @@ INSERT INTO `mob_groups` VALUES (40,6614,161,'Judicator_Demon',600,0,1416,0,0,81
 INSERT INTO `mob_groups` VALUES (41,6634,161,'Stygian_Demon',600,0,2352,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (42,2568,161,'Marquis_Allocen',0,128,1622,30000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (43,6613,161,'Gore_Demon',600,0,1206,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (44,2569,161,'Marquis_Amon',0,128,1623,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (44,2569,161,'Marquis_Amon',36000,0,1623,8500,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (45,1134,161,'Duke_Haborym',0,128,716,30000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (46,1786,161,'Grand_Duke_Batym',0,128,1213,30000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (47,993,161,'Grand_Dukes_Demons_Avatar',0,128,0,0,0,81,81,0);

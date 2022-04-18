@@ -4059,6 +4059,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Duke_Haborym_Vampyr',6027,2112); -- noctu
 -- Marquis Allocen
 -- Autos
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen_Autos',6028,3264); -- salvation_scythe
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen_Autos',6028,564); -- condemnation_autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen_Autos',6028,1147); -- demonic_howl_autoattack
 -- TP Moves
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,510); -- Berserk
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,569); -- Refueling
