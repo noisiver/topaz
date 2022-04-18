@@ -41,7 +41,7 @@ function onMobDeath(mob, player, isKiller)
     -- All Perifools are dead
     if GetMobByID(16793711):isDead() and GetMobByID(16793712):isDead() and GetMobByID(16793713):isDead() and
     GetMobByID(16793714):isDead() and GetMobByID(16793715):isDead() and GetMobByID(16793716):isDead() then
-        player:setCharVar("OneGoodDead", 2)
+        player:setCharVar("OneGoodDeed", 2)
     end
 end
 

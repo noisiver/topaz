@@ -18,15 +18,15 @@ function onTrigger(player, npc)
         player:startEvent(619)
     elseif (player:getMainLvl() >= 7 and player:getQuestStatus(WINDURST, tpz.quest.id.windurst.ONE_GOOD_DEED) == QUEST_AVAILABLE) then
         player:startEvent(594)
-    elseif (player:getCharVar("OneGoodDead") == 1) then
+    elseif (player:getCharVar("OneGoodDeed") == 1) then
         player:startEvent(596)
-    elseif (player:getCharVar("OneGoodDead") == 3) then
+    elseif (player:getCharVar("OneGoodDeed") == 3) then
         player:startEvent(595)
-    elseif (player:getCharVar("OneGoodDead") == 4) then
+    elseif (player:getCharVar("OneGoodDeed") == 4) then
         player:startEvent(599)
-    elseif (player:getCharVar("OneGoodDead") == 5) then
+    elseif (player:getCharVar("OneGoodDeed") == 5) then
         player:startEvent(597)
-    elseif (player:getCharVar("OneGoodDead") == 6) then
+    elseif (player:getCharVar("OneGoodDeed") == 6) then
         player:startEvent(598)
     else
         player:startEvent(202)
@@ -42,19 +42,19 @@ function onEventFinish(player, csid, option)
     end
     if (csid == 594 and option == 1) then
         player:addQuest(WINDURST, tpz.quest.id.windurst.ONE_GOOD_DEED)
-        player:setCharVar("OneGoodDead", 1)
+        player:setCharVar("OneGoodDeed", 1)
     elseif (csid == 595) then
         player:delKeyItem(tpz.ki.DEED_TO_PURGONORGO_ISLE)
-        player:setCharVar("OneGoodDead", 4)
+        player:setCharVar("OneGoodDeed", 4)
     elseif csid == 597 and
         npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.ONE_GOOD_DEED, {
             gil = 3200,
-            var = "OneGoodDead",
+            var = "OneGoodDeed",
         })
     then
        player:addFame(WINDURST, 300)
-       player:setCharVar("OneGoodDead", 6)
+       player:setCharVar("OneGoodDeed", 6)
     elseif (csid == 598) then
-        player:setCharVar("OneGoodDead", 7)
+        player:setCharVar("OneGoodDeed", 7)
     end
 end
