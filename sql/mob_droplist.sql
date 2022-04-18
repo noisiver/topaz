@@ -8888,7 +8888,7 @@ INSERT INTO `mob_droplist` VALUES (1709,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (1709,0,0,1000,1062,50);
 INSERT INTO `mob_droplist` VALUES (1709,0,0,1000,1631,50);
 INSERT INTO `mob_droplist` VALUES (1709,0,0,1000,1638,100);
-INSERT INTO `mob_droplist` VALUES (1710,0,0,1000,1729,240);
+INSERT INTO `mob_droplist` VALUES (1710,0,0,1000,1729,150); -- Moblin Hotrok
 INSERT INTO `mob_droplist` VALUES (1710,0,0,1000,3494,240); -- Forgotten Hope
 INSERT INTO `mob_droplist` VALUES (1710,0,0,1000,3494,150);
 INSERT INTO `mob_droplist` VALUES (1710,0,0,1000,3494,100);
@@ -16165,7 +16165,7 @@ INSERT INTO `mob_droplist` VALUES (3077,0,0,1000,1695,155); -- (Mantrap) Habaner
 INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1062,50); -- Oldton Chest Key
 INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1625,50); -- Moblin Helm
 INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1632,100); -- Moblin Mail
-INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1729,240); -- Moblin Hotrok
+INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1729,150); -- Moblin Hotrok
 INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1858,150); 
 INSERT INTO `mob_droplist` VALUES (3079,0,0,1000,16028,150); -- (Thunderclaw Thuban) Psyche Earring
 INSERT INTO `mob_droplist` VALUES (3080,0,0,1000,2846,240); -- (Legalox Heftyhind) Hefty Oak Lumber
