@@ -196,7 +196,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             target:trySkillUp(mob, tpz.skill.SHIELD, 1)
             --target:PrintToPlayer("Successfully blocked first hit TP move swing!")
             hitdamage = target:getBlockedDamage(hitdamage)
-                --printf("Potency : %u", potency)
+            --printf("Potency : %u", potency)
         end
         finaldmg = finaldmg + hitdamage * pdif
         hitslanded = hitslanded + 1
@@ -213,7 +213,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
                 if pdif < 0.25 then pdif = 0.25 end -- Cap at 0.25 pdif
             end
             if math.random()*100 < target:getParryRate(mob) then -- Try to parry
-                --target:trySkillUp(mob, tpz.skill.PARRY, 1)
+                target:trySkillUp(mob, tpz.skill.PARRY, 1)
                 --target:PrintToPlayer("Successfully parried a TP move swing!")
                 hitdamage = 0
             end
@@ -223,7 +223,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
                 hitdamage = target:getBlockedDamage(hitdamage)
             end
             finaldmg = finaldmg + hitdamage * pdif
-            hitdamage = hitslanded + 1
+            hitslanded = hitslanded + 1
         end
         hitsdone = hitsdone + 1
     end
@@ -231,6 +231,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     -- printf("final: %f, hits: %f, acc: %f", finaldmg, hitslanded, hitrate)
     -- printf("ratio: %f, min: %f, max: %f, pdif, %f hitdmg: %f", ratio, minRatio, maxRatio, pdif, hitdamage)
 
+    -- Fully parried the attack(Displays miss)
     if (hitslanded >= 1 and finaldmg < 1) then
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
     end
