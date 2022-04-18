@@ -3,7 +3,7 @@
 -- NPC:   ???
 -- Notes: Involved in the Quest "One Good Deed?"
 -- Spawns 6 Peerifools
--- !pos 217,-321.699,-2.739,-735.332 4
+-- !pos -321.699 -2.739 -735.332 4
 -----------------------------------
 local ID = require("scripts/zones/Bibiki_Bay/IDs")
 require("scripts/globals/npc_util")
