@@ -44,7 +44,6 @@ function onMobFight(mob, target)
         v:delStatusEffectSilent(tpz.effect.MUTE)
         v:addStatusEffectEx(tpz.effect.MUTE, tpz.effect.MUTE, 1, 0, 5)
     end
-
 end
 
 function onAdditionalEffect(mob, target, damage)
