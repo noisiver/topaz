@@ -39,9 +39,10 @@ function onMobFight(mob, target)
         Pet:spawn()
         mob:setLocalVar("CallWyvernUsed", 1)
 	end
-    if mob:getHPP() <= 25 and SpiritSurgeUsed == 0 then
+    if mob:getHPP() <= 25 and SpiritSurgeUsed == 0 and mob:actionQueueEmpty() then
+        local zonePlayers = mob:getZone():getPlayers()
         for _, zonePlayer in pairs(zonePlayers) do
-            zonePlayer:PrintToPlayer("The Speerkampfer calls upon the power of his wyvern!",0,"Speerkampfer")
+            zonePlayer:PrintToPlayer("The Speerkampfer sacrifices his wyvern to gain it's strength'!",0,"Speerkampfer")
         end
         DespawnMob(mob:getID(instance) +1, instance)
         mob:useMobAbility(1893) -- Spirit Surge
@@ -59,6 +60,7 @@ function onMobFight(mob, target)
     end
 	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) == false then
 		mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 6, 0, 3600)
+        mob:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):unsetFlag(tpz.effectFlag.DISPELABLE)
 	end
 end
 
