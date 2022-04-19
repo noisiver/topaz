@@ -79,7 +79,7 @@ INSERT INTO `fishing_fish` VALUES (5465,'Caedarva Frog',0,30,17,6,13,1,1,0,0,255
 INSERT INTO `fishing_fish` VALUES (4309,'Cave Cherax',90,130,36,7,4,118,232,1,0,255,255,0,1,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4379,'Cheval Salmon',0,21,21,7,7,1,1,0,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4443,'Cobalt Jellyfish',0,5,28,13,0,1,1,0,0,255,255,0,0,0,0,1,250,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5128,'Cone Calamary',0,48,40,10,5,1,1,0,0,255,255,1,0,0,0,3,850,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5128,'Cone Calamary',0,48,40,10,5,1,1,0,0,255,255,1,0,0,0,3,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4515,'Copper Frog',0,16,22,8,4,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (13454,'Copper ring',0,3,40,13,2,1,1,0,0,255,255,1,0,0,1,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4580,'Coral Butterfly',0,40,28,10,8,1,1,0,0,255,255,0,0,0,0,1,500,0,'',0);
@@ -117,7 +117,7 @@ INSERT INTO `fishing_fish` VALUES (2341,'Hydrogauge',0,7,25,13,2,1,1,0,0,6,25,0,
 INSERT INTO `fishing_fish` VALUES (4470,'Icefish',0,49,24,11,7,1,1,0,0,255,255,0,0,0,0,3,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5453,'Istakoz',0,46,35,4,3,1,1,0,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5136,'Istavrit',0,37,19,11,5,1,1,1,0,255,255,0,0,0,0,1,400,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5456,'Istiridye',0,53,27,13,2,1,1,0,0,255,255,0,0,0,0,1,850,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5456,'Istiridye',0,53,27,13,2,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4307,'Jungle Catfish',0,80,29,9,11,45,111,1,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5448,'Kalamar',0,48,40,10,5,1,1,0,0,255,255,1,0,0,0,3,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5140,'Kalkanbaligi',90,105,19,6,12,85,116,1,1,255,255,16,1,0,0,1,300,0,'',0);
