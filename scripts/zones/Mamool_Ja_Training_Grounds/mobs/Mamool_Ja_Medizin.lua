@@ -42,6 +42,7 @@ end
 function onMobFight(mob, target)
 	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) == false then
 		mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 6, 0, 3600)
+        mob:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):unsetFlag(tpz.effectFlag.DISPELABLE)
 	end
 end
 
