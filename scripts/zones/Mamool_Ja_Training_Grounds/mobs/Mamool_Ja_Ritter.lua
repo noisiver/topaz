@@ -32,7 +32,7 @@ function onMobFight(mob, target)
     local instance = mob:getInstance()
 	local Dragoon = GetMobByID(mob:getID(instance) +1, instance)
     local zonePlayers = mob:getZone():getPlayers()
-	if mob:getHPP() <= 10 then
+	if mob:getHPP() <= 50 then
         for _, zonePlayer in pairs(zonePlayers) do
             zonePlayer:PrintToPlayer("The Wivre wails in pain as it falls over dead!",0,"???")
         end
@@ -47,7 +47,8 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() > 0 and skill:getID() ~= 2098 and skill:getID() ~= 272 then -- Uses Blazing Angon after every TP move
+    -- Uses Blazing Angon after every TP move except itself and Fire Angon
+    if skill:getID() > 0 and skill:getID() ~= 2098 and skill:getID() ~= 272 and skill:getID() ~= 2094 then 
          mob:useMobAbility(2098) 
     end
 end

@@ -33,6 +33,7 @@ function onMobFight(mob, target)
 	local Pet = GetMobByID(mob:getID(instance)+1, instance)
 	local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
 	if mob:getHPP() <= 50 and TwoHourUsed == 0 then
+        mob:setMod(tpz.mod.REGAIN, 500)
         mob:useMobAbility(732) -- Call Wyvern
         Pet:spawn()
         mob:setLocalVar("TwoHourUsed", 1)
