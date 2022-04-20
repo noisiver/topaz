@@ -25,8 +25,14 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.SHOCK_SPIKES
-    local power = 18
-    local duration = 180
+	local INT = caster:getStat(tpz.mod.INT)
+    local MAB = caster:getMod(tpz.mod.MATT)
+    local power = math.floor((INT + 50) / 20) * (1 + MAB / 100)
+
+	if power > 15 then
+		power = 15
+	end
+    local duration = 300
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
