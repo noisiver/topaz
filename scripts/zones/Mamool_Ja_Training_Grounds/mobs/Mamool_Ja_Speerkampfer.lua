@@ -42,7 +42,7 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 25 and SpiritSurgeUsed == 0 and mob:actionQueueEmpty() then
         local zonePlayers = mob:getZone():getPlayers()
         for _, zonePlayer in pairs(zonePlayers) do
-            zonePlayer:PrintToPlayer("The Speerkampfer sacrifices his wyvern to gain it's strength'!",0,"Speerkampfer")
+            zonePlayer:PrintToPlayer("The Speerkampfer sacrifices his wyvern to gain it's strength!",0,"Speerkampfer")
         end
         DespawnMob(mob:getID(instance) +1, instance)
         mob:useMobAbility(1893) -- Spirit Surge
