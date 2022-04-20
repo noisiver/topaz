@@ -15,6 +15,7 @@ function onTrigger(player)
     for _, zonePlayer in pairs(zonePlayers) do
         zonePlayer:setLocalVar("GMRaise", 1)
         zonePlayer:sendRaise(3)
+        zonePlayer:setHP(9999)
         zonePlayer:setMP(9999)
         zonePlayer:resetRecasts()
         zonePlayer:PrintToPlayer( string.format( "Sucessfully raised and reset everyone's JA's") )
