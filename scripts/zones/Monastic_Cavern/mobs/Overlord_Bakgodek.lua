@@ -24,28 +24,44 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_ICE, 50)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setModelId(4) -- Normal orcish form
+end
+
+function onMobEngaged(mob, target)
+    mob:showText(mob, ID.text.ORC_KING_ENGAGE)
+    -- Despawn all Orcs in room and disable them respawning
+    for v = 17391756, 17391802, 1 do
+        DespawnMob(v)
+        DisallowRespawn(v, true)
+    end
 end
 
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
-    if mob:getHPP() <= 50 and hitTrigger == 0 then
-        target:PrintToPlayer("You are no match for me puny mithra!",0,"Bakgodek")
+    if mob:getHPP() < 50 and hitTrigger == 0 then
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("You are no match for me puny mithra!",0,"Bakgodek")
+        end
         mob:useMobAbility(2411) -- Phantasmal Dance
         mob:setModelId(429) -- Orcish Warmachine (WOTG)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6025)
         mob:setLocalVar("TriggerHit", 1)
     end
-end
-
-function onMobEngaged(mob, target)
-    mob:showText(mob, ID.text.ORC_KING_ENGAGE)
+    if mob:getHPP() < 25 then
+        mob:setMod(tpz.mod.REGAIN, 100)
+    end
 end
 
 function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.OVERLORD_OVERTHROWER)
     if isKiller then
         mob:showText(mob, ID.text.ORC_KING_DEATH)
+    end
+    -- Allow Orcs in room to respawn
+    for v = 17391756, 17391802, 1 do
+        DisallowRespawn(v, false)
     end
 end
 
