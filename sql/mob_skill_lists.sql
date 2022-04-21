@@ -238,6 +238,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,494);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,495);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,496);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,497);
+INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,1364); -- Mighty Snort
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,382);
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,383);
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,384);
@@ -4245,7 +4246,7 @@ INSERT INTO `mob_skill_lists` VALUES ('FirespitOnly',6076,1733); -- Firespit
 INSERT INTO `mob_skill_lists` VALUES ('NimbleSnapOnly',6077,1597); -- nimble_snap
 INSERT INTO `mob_skill_lists` VALUES ('PainfulWhipOnly',6078,1574); -- Painful_Whip
 
-INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan_AutoAttack',6079,1364); -- Snort_Autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan_AutoAttack',6079,4232); -- Snort_Autoattack
 INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,496); -- Rabid_Dance
 INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,1331); -- Counterstance
 

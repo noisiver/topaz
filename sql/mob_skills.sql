@@ -241,7 +241,7 @@ INSERT INTO `mob_skills` VALUES (302,46,'wild_oats',0,7.0,2000,1500,4,0,0,0,0,0,
 INSERT INTO `mob_skills` VALUES (304,48,'photosynthesis',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (305,49,'leaf_dagger',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (306,50,'scream',1,15.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES(307, 439, 'substitute', 0, 7.0, 2000, 0, 1, 0, 0, 0, 0, 0, 0); -- 2 Hour "Cloud" animaton(Fire / Red)
+INSERT INTO `mob_skills` VALUES(307, 439, 'substitute', 0, 7.0, 2000, 0, 1, 0, 0, 0, 0, 0, 0); -- 2 hr "Cloud" animaton(Fire / Red)
 INSERT INTO `mob_skills` VALUES (308,52,'frogkick',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (309,53,'spore',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (310,54,'queasyshroom',0,7,2000,1500,4,0,0,0,0,0,0);
@@ -563,8 +563,8 @@ INSERT INTO `mob_skills` VALUES (621,969,'snowball',2,11.0,2000,1500,4,0,0,0,0,0
 INSERT INTO `mob_skills` VALUES (622,366,'helldive',0,9.0,2000,1500,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (623,367,'wing_cutter',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (624,434,'vulture_1',0,7.0,2000,0,1,0,0,0,0,0,0); -- 2 hr cloud (Wind / Green)
--- INSERT INTO `mob_skills` VALUES (625,436,'vulture_2',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (626,437,'vulture_3',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (625,436,'vulture_2',0,7.0,2000,0,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (626,437,'vulture_3',0,7.0,2000,0,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (627,438,'vulture_4',0,7.0,2000,1500,4,0,0,0,0,0,0); -- 2 hr cloud (Light / White)
 INSERT INTO `mob_skills` VALUES (628,372,'wild_horn',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (629,373,'thunderbolt',1,30.0,2000,1500,4,8,0,0,0,0,0);
@@ -1302,7 +1302,7 @@ INSERT INTO `mob_skills` VALUES (1360,855,'apocalyptic_ray',4,15.0,2000,2500,4,0
 -- INSERT INTO `mob_skills` VALUES (1361,1105,'viscid_secretion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1362,1106,'wild_ginseng',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1363,822,'hungry_crunch',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1364,848,'mighty_snort',4,12.5,0,0,4,0,0,4,0,0,0);
+INSERT INTO `mob_skills` VALUES (1364,1108,'mighty_snort',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1365,1043,'tail_thrust',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1366,1044,'temporal_shift',1,15.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1367,1031,'sinuate_rush',1,10.0,2000,1000,4,0,0,0,0,0,0);
@@ -4019,7 +4019,8 @@ INSERT INTO `mob_skills` VALUES (3993,441,'sucker_punch',0,7.0,2000,1500,4,0,0,0
 -- INSERT INTO `mob_skills` VALUES (4078,3822,'#2286',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (4079,3823,'#2287',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (4080,3824,'#2288',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (4232,549,'potion',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Monberaux
+--INSERT INTO `mob_skills` VALUES (4232,549,'potion',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Monberaux
+INSERT INTO `mob_skills` VALUES (4232,848,'snort_autoattack',4,12.5,0,0,4,0,0,4,0,0,0); -- Geush Urvan AutoAttack
 INSERT INTO `mob_skills` VALUES (4234,550,'x-potion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4235,550,'hyper-potion',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (4236,550,'max_potion',0,7.0,2000,1500,4,0,0,0,0,0,0);

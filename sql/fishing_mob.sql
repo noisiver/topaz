@@ -331,8 +331,7 @@ INSERT INTO `fishing_mob` VALUES (16789506,'Ghost_Crab',3,1,1,11,15,255,255,0,0,
 INSERT INTO `fishing_mob` VALUES (16789507,'Greater_Pugil',3,1,1,10,15,255,255,0,0,3,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16789508,'Kraken',3,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16789509,'Harajnite',3,1,1,10,15,255,255,1,106,1,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (16789519,'Harajnite',3,1,1,10,15,255,255,1,106,2,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (16789520,'Harajnite',3,1,1,10,15,255,255,1,106,3,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16789510,'Cyclopean_Conch',3,1,1,10,15,255,255,1,106,1,1000,0,0,0,0);
 
 -- Carpenters' Landing
 INSERT INTO `fishing_mob` VALUES (16785409,'Snipper',2,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
@@ -414,6 +413,22 @@ INSERT INTO `fishing_mob` VALUES (16969732,'Gugru_Jagil',47,1,1,11,15,255,255,0,
 INSERT INTO `fishing_mob` VALUES (16969733,'Blanched_Kraken',47,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16969734,'Gugru_Orobon',47,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16969735,'Southern_Piranu',47,1,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
+
+-- Silver Sea Route to Nashmau
+INSERT INTO `fishing_mob` VALUES (17014785,'Cyan_Deep_Crab',58,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17014786,'Submarine_Nipper',58,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17014787,'Thalassic_Pugil',58,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17014788,'Abyssal_Pugil',58,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17014789,'Bathybic_Kulshedra',58,1,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17014790,'Orobon',58,1,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
+
+-- Silver Sea Route to Al Zhabi
+INSERT INTO `fishing_mob` VALUES (17018881,'Cyan_Deep_Crab',59,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17018882,'Submarine_Nipper',59,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17018883,'Thalassic_Pugil',59,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17018884,'Abyssal_Pugil',59,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17018885,'Bathybic_Kulshedra',59,1,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
+INSERT INTO `fishing_mob` VALUES (17018886,'Orobon',59,1,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
 
 -- Vunkerl Inlet [S]
 INSERT INTO `fishing_mob` VALUES (17117185,'Submarine_Nipper',83,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);

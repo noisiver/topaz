@@ -1700,18 +1700,18 @@ INSERT INTO `item_latents` VALUES(15530, 370, -50, 10, 0);
 -- -------------------------------------------------------
 -- Shark Necklace
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15532, 369, -3, 56, 2);   -- Has a hidden effect of draining 3 MP/tick while weapon is drawn.
-INSERT INTO `item_latents` VALUES(15532, 370, 1, 56, 2);    -- Latent Effect is triggered when the player's weapon is drawn and has more than 2 MP.
+--INSERT INTO `item_latents` VALUES(15532, 369, -3, 56, 2);   -- Has a hidden effect of 2/tick regen when weapon ISN'T drawn
+INSERT INTO `item_latents` VALUES(15532, 370, 2, 11, 0);    -- 2 HP/tick Latent Effect is triggered when the player's weapon ISN'T drawn
 
 -- -------------------------------------------------------
 -- Rajas Ring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 45);     -- INT+1 above level 45
-INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 60);     -- INT+1 above level 60
-INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 75);     -- INT+1 above level 75
-INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 45);     -- MND+1 above level 45
-INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 60);     -- MND+1 above level 60
-INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 75);     -- MND+1 above level 75
+INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 45);     -- STR+1 above level 45
+INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 60);     -- STR+1 above level 60
+INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 75);     -- STR+1 above level 75
+INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 45);     -- DEX+1 above level 45
+INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 60);     -- DEX+1 above level 60
+INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 75);     -- DEX+1 above level 75
 
 -- -------------------------------------------------------
 -- Tamas Ring

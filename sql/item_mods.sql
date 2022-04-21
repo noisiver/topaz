@@ -17420,10 +17420,10 @@ INSERT INTO `item_mods` VALUES (15464,68,7);
 INSERT INTO `item_mods` VALUES (15465,1,7);
 INSERT INTO `item_mods` VALUES (15465,27,4);
 INSERT INTO `item_mods` VALUES (15465,68,9);
-INSERT INTO `item_mods` VALUES (15466,1,7);
+INSERT INTO `item_mods` VALUES (15466,1,7); -- Birdman Cape
 INSERT INTO `item_mods` VALUES (15466,5,30);
 INSERT INTO `item_mods` VALUES (15466,14,9);
-INSERT INTO `item_mods` VALUES (15466,1242,2);
+INSERT INTO `item_mods` VALUES (15466,1242,20); -- PARALYZERESTRAIT
 INSERT INTO `item_mods` VALUES (15467,1,5);
 INSERT INTO `item_mods` VALUES (15467,2,7);
 INSERT INTO `item_mods` VALUES (15467,5,7);
@@ -18963,9 +18963,10 @@ INSERT INTO `item_mods` VALUES (15974,68,4); -- (Velocity Earring)
 INSERT INTO `item_mods` VALUES (15974,1250,10); -- SLOWRESTRAIT
 INSERT INTO `item_mods` VALUES (15978,5,10);
 INSERT INTO `item_mods` VALUES (15978,71,1);
-INSERT INTO `item_mods` VALUES (15979,8,1);
+INSERT INTO `item_mods` VALUES (15979,8,1); -- (Fowling Earring)
 INSERT INTO `item_mods` VALUES (15979,25,3);
-INSERT INTO `item_mods` VALUES (15979,225,2);
+INSERT INTO `item_mods` VALUES (15979,225,5); -- Bird Killer 5% intimidate
+INSERT INTO `item_mods` VALUES (15979,1225,5); -- Bird Circle 5% damage increase vs birds
 INSERT INTO `item_mods` VALUES (15980,26,1);
 INSERT INTO `item_mods` VALUES (15980,71,1);
 INSERT INTO `item_mods` VALUES (15980,72,1);

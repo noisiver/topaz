@@ -5,8 +5,24 @@
 -----------------------------------
 local ID = require("scripts/zones/Open_sea_route_to_Mhaura/IDs")
 -----------------------------------
+local mobList = {
+    16969736,
+    16969737,
+    16969738,
+    16969739,
+    16969740,
+}
 
 function onInitialize(zone)
+    -- 5% Chance to spawn a random mob from table when boat trip begins
+	if math.random(1,100) <= 5 then 
+        GetMobByID(mobList[math.random(#mobList)]):spawn()
+    end
+
+    -- Despawn previous boat rides mobs
+    for v = 16969736, 16969737, 1 do
+        DespawnMob(GetMobByID(v))
+    end
 end
 
 function onZoneIn(player, prevZone)
@@ -21,6 +37,15 @@ end
 function onTransportEvent(player, transport)
     player:startEvent(1028)
     player:messageSpecial(ID.text.DOCKING_IN_MHAURA)
+end
+
+function onGameHour(zone)
+    -- 5% Chance to spawn a random mob from table every hour
+    if VanadielHour() % 1 == 0 then
+		if math.random(1,100) <= 5 then 
+            GetMobByID(mobList[math.random(#mobList)]):spawn()
+        end
+    end
 end
 
 function onEventUpdate(player, csid, option)

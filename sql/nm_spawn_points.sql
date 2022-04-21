@@ -6852,6 +6852,8 @@ INSERT INTO `nm_spawn_points` VALUES (16879737,0,204.733, -24.365, 316.403); -- 
 INSERT INTO `nm_spawn_points` VALUES (16879737,1,83.241 ,-8.259, -41.968); -- Odqan
 INSERT INTO `nm_spawn_points` VALUES (16879737,2,490.6467, -24.1248, 314.5225); -- Odqan
 INSERT INTO `nm_spawn_points` VALUES (17334356,0,105.307,-20.258,-131.396); -- Becut
+INSERT INTO `nm_spawn_points` VALUES (17707025,0,-6.387,-11.662,-13.986); -- Blackbeard (Ship Bound for Selbina Pirates)
+INSERT INTO `nm_spawn_points` VALUES (17711121,0,-0.700,-7.160,23.512); -- Silverhook (Ship Bound for Mhaura Pirates )
 
 /*!40000 ALTER TABLE `nm_spawn_points` ENABLE KEYS */;
 UNLOCK TABLES;

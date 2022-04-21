@@ -46,7 +46,7 @@ LOCK TABLES `status_effects` WRITE;
 /*!40000 ALTER TABLE `status_effects` DISABLE KEYS */;
 INSERT INTO `status_effects` VALUES (0,'ko',0,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (1,'weakness',8388608,0,0,3,0,0,0,1,1);
-INSERT INTO `status_effects` VALUES (2,'sleep',8388656,2,19,1,193,0,8,1,1);
+INSERT INTO `status_effects` VALUES (2,'sleep',8388656,2,19,1,193,0,8,1,1); -- real sleep
 INSERT INTO `status_effects` VALUES (3,'poison',8405024,0,0,2,0,0,6,1,1);
 INSERT INTO `status_effects` VALUES (4,'paralysis',8405024,0,0,1,0,0,2,1,1);
 INSERT INTO `status_effects` VALUES (5,'blindness',8405024,0,0,1,0,0,8,1,1);
@@ -58,7 +58,7 @@ INSERT INTO `status_effects` VALUES (10,'stun',8388640,0,0,2,7,0,5,1,1);
 INSERT INTO `status_effects` VALUES (11,'bind',8405026,0,0,2,0,0,2,1,1);
 INSERT INTO `status_effects` VALUES (12,'weight',8405026,0,32,1,0,0,3,1,1);
 INSERT INTO `status_effects` VALUES (13,'slow',8405026,0,33,1,0,0,4,1,1);
-INSERT INTO `status_effects` VALUES (14,'charm',8388640,0,0,2,0,0,7,0,1);
+INSERT INTO `status_effects` VALUES (14,'charm',8388640,0,0,2,0,0,7,0,1); -- real charm
 INSERT INTO `status_effects` VALUES (15,'doom',8388640,0,0,2,0,0,8,1,1);
 INSERT INTO `status_effects` VALUES (16,'amnesia',8388640,0,0,2,0,0,1,1,1);
 INSERT INTO `status_effects` VALUES (17,'charm',8388640,0,0,2,0,0,7,0,1);

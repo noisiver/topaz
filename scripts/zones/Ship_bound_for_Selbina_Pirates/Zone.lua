@@ -8,6 +8,11 @@ require("scripts/globals/zone")
 -----------------------------------
 
 function onInitialize(zone)
+    -- Play pirate music(Changes when day/night cycle happens)
+    for _, player in pairs(zone:getPlayers()) do
+        player:ChangeMusic(0, 170)
+        player:ChangeMusic(1, 170)
+    end
 end
 
 function onZoneIn(player, prevZone)
@@ -24,6 +29,23 @@ end
 
 function onTransportEvent(player, transport)
     player:startEvent(255)
+end
+
+function onGameHour(zone)
+    local vHour = VanadielHour()
+    -- Play pirate music(Changes when day/night cycle happens)
+    if vHour > 0 then
+        for _, player in pairs(zone:getPlayers()) do
+            player:ChangeMusic(0, 170)
+            player:ChangeMusic(1, 170)
+        end
+    end
+    if VanadielHour() % 1 == 0 then
+        for _, player in pairs(zone:getPlayers()) do
+            player:ChangeMusic(0, 170)
+            player:ChangeMusic(1, 170)
+        end
+    end
 end
 
 function onEventUpdate(player, csid, option)
