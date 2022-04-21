@@ -12,7 +12,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
-    --mob:AnimationSub(0)
+    mob:setLocalVar("AngonTime", 30)
 end
 
 function onMobRoam(mob)
@@ -29,6 +29,8 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+	local AngonTime = mob:getLocalVar("AngonTime")
+    local BattleTime = mob:getBattleTime()
     local instance = mob:getInstance()
 	local Dragoon = GetMobByID(mob:getID(instance) +1, instance)
     local zonePlayers = mob:getZone():getPlayers()
@@ -40,6 +42,17 @@ function onMobFight(mob, target)
         Dragoon:spawn()
         Dragoon:updateEnmity(target)
 	end
+
+    -- Uses Blazing Angon every 30 seconds
+    if AngonTime > 0 and BattleTime >= AngonTime and mob:actionQueueEmpty() then
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("The Ritter adds fire to his angons!",0,"Ritter")
+        end
+        mob:useMobAbility(2098) -- Blazing Angon
+        mob:setLocalVar("AngonTime", 0)
+        mob:setLocalVar("AngonTime", BattleTime + 30)
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -47,10 +60,6 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- Uses Blazing Angon after every TP move except itself and Fire Angon
-    if skill:getID() > 0 and skill:getID() ~= 2098 and skill:getID() ~= 272 and skill:getID() ~= 2094 then 
-         mob:useMobAbility(2098) 
-    end
 end
 
 function onMobDespawn(mob)
