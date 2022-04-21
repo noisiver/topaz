@@ -57,7 +57,7 @@ function onSpellCast(caster, target, spell)
 		if (target:hasStatusEffect(tpz.effect.ATTACK_DOWN)) then
 			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
 		else
-			target:addStatusEffect(tpz.effect.ATTACK_DOWN, 25, 0, 180)
+			target:addStatusEffect(tpz.effect.ATTACK_DOWN, 25, 0, 360)
 		end
 	end
 
