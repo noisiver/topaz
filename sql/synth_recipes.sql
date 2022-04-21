@@ -2678,7 +2678,7 @@ INSERT INTO `synth_recipes` VALUES (39924,1,0,0,0,0,88,0,0,0,0,4100,4242,14253,0
 -- INSERT INTO `synth_recipes` VALUES (39928,1,0,0,0,0,255,0,0,0,0,4100,4242,12729,0,0,0,0,0,0,0,818,819,807,807,3,4,2,2,'Linen Cuffs (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (39929,1,0,0,0,0,255,0,0,0,0,4100,4242,13212,0,0,0,0,0,0,0,820,822,823,821,1,1,1,1,'Tarutaru Sash (desynth)');
 INSERT INTO `synth_recipes` VALUES (39930,1,0,0,0,0,9,0,0,0,0,4100,4242,12848,0,0,0,0,0,0,0,817,817,817,817,8,8,8,8,'Brais (desynth)');
-INSERT INTO `synth_recipes` VALUES (39931,1,0,0,0,0,43,0,0,0,0,4098,4240,1639,0,0,0,0,0,0,0,828,828,828,828,2,3,3,3,'Corse Robe (desynth)');
+INSERT INTO `synth_recipes` VALUES (39931,1,0,0,0,0,15,0,0,0,0,4098,4240,1639,0,0,0,0,0,0,0,828,828,828,828,2,3,3,3,'Corse Robe (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (39932,1,0,0,0,0,255,0,0,0,0,4100,4242,13585,0,0,0,0,0,0,0,816,820,820,820,6,1,1,1,'White Cape (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (39933,1,0,0,0,0,255,0,0,0,0,4100,4242,14854,0,0,0,0,0,0,0,819,850,850,850,5,1,1,1,'Noct Gloves (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (39934,1,0,0,0,0,255,0,0,0,0,4100,4242,14360,0,0,0,0,0,0,0,816,816,816,816,3,3,3,3,'R.K. Cloak +1 (desynth)');
