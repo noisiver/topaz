@@ -120,7 +120,7 @@ INSERT INTO `mob_family_system` VALUES (53,'Grimoire',3,'Arcana',1,40,90,90,1,3,
 INSERT INTO `mob_family_system` VALUES (54,'Biotechnological',18,'Unclassified',2,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1.15,1,1,1,0,3,0);
 INSERT INTO `mob_family_system` VALUES (55,'Bird',8,'Bird',0,40,100,120,4,4,5,3,4,4,4,1,3,1,3,1,1.25,1,1,1.3,1.5,1,1,1,1.3,1.3,1.3,1,2,1);
 INSERT INTO `mob_family_system` VALUES (56,'Bomb',3,'Arcana',0,40,100,140,3,3,4,4,4,4,4,1,3,1,3,1,1,1,1,1.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,1,33,0);
-INSERT INTO `mob_family_system` VALUES (57,'Buffalo',6,'Beast',2,40,110,120,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1.125,1,1,2,1,0);
+INSERT INTO `mob_family_system` VALUES (57,'Buffalo',6,'Beast',2,40,110,120,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,1.15,0.7,1.15,1.15,1.15,1.3,1.15,1.15,2,1,0);
 INSERT INTO `mob_family_system` VALUES (58,'Bugard',14,'Lizard',1,40,105,110,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,0.7,1.3,1.15,1.15,1.15,1.15,0.7,1.15,1,2,0);
 INSERT INTO `mob_family_system` VALUES (59,'Bugbear',7,'Beastmen',1,40,105,90,3,3,5,2,4,4,4,1,3,1,2,1,1,1,1,1.15,1.15,1.15,1,1.15,1.15,1.5,0.7,5,1,0);
 INSERT INTO `mob_family_system` VALUES (60,'CaitSith',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
