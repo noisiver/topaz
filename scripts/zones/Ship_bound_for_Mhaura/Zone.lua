@@ -38,7 +38,7 @@ end
 function onTransportEvent(player, transport)
     player:startEvent(512)
     -- Despawn previous boat rides mobs
-    for v = 17678342, 17678351, 1 do
+    for v = 17682438, 17682446, 1 do
         DespawnMob(v)
     end
 end

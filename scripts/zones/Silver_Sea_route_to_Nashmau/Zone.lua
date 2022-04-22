@@ -26,8 +26,8 @@ function onInitialize(zone)
     for v = 17014791, 17014796, 1 do
         DespawnMob(v)
     end
-    DespawnMob(GetMobByID(17014798))
-    DespawnMob(GetMobByID(17014801))
+    DespawnMob(17014798)
+    DespawnMob(17014801)
 end
 
 
@@ -40,8 +40,10 @@ end
 function onTransportEvent(player, transport)
     player:startEvent(1025)
     -- Despawn previous boat rides mobs
-    for v = 17678342, 17678351, 1 do
+    for v = 17014791, 17014796, 1 do
         DespawnMob(v)
+    DespawnMob(17014798)
+    DespawnMob(17014801)
     end
 end
 

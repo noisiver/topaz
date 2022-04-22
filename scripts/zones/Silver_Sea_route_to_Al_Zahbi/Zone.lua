@@ -27,8 +27,8 @@ function onInitialize(zone)
     for v = 17018887, 17018892, 1 do
         DespawnMob(v)
     end
-    DespawnMob(GetMobByID(17018894))
-    DespawnMob(GetMobByID(17018897))
+    DespawnMob(17018894)
+    DespawnMob(17018897)
 end
 
 function onZoneIn(player, prevZone)
@@ -44,9 +44,11 @@ function onTransportEvent(player, transport)
     player:startEvent(1025)
     player:messageSpecial(ID.text.DOCKING_IN_AL_ZAHBI)
     -- Despawn previous boat rides mobs
-    for v = 17678342, 17678351, 1 do
+    for v = 17018887, 17018892, 1 do
         DespawnMob(v)
     end
+    DespawnMob(17018894)
+    DespawnMob(17018897)
 end
 
 function onGameHour(zone)

@@ -38,7 +38,7 @@ function onTransportEvent(player, transport)
     player:startEvent(1028)
     player:messageSpecial(ID.text.DOCKING_IN_AL_ZAHBI)
     -- Despawn previous boat rides mobs
-    for v = 17678342, 17678351, 1 do
+    for v = 16965640, 16965644, 1 do
         DespawnMob(v)
     end
 end
