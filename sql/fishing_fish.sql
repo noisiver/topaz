@@ -159,7 +159,7 @@ INSERT INTO `fishing_fish` VALUES (16606,'Rusty Greatsword',0,7,15,13,2,1,1,0,0,
 INSERT INTO `fishing_fish` VALUES (14117,'Rusty Leggings',0,7,26,13,2,1,1,0,0,255,255,9,0,0,1,1,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (16655,'Rusty Pick',0,7,15,13,2,1,1,0,0,255,255,8,0,0,1,1,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (14242,'Rusty Subligar',0,5,22,13,2,1,1,0,0,255,255,8,0,0,1,1,650,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4305,'Ryugu Titan',90,150,48,1,15,214,485,1,1,255,255,0,1,0,0,1,300,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4305,'Ryugu Titan',90,150,48,1,15,214,485,1,1,255,255,0,1,0,0,1,200,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4291,'Sandfish',0,50,36,3,10,1,1,0,0,255,255,1,0,0,0,3,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5459,'Sazanbaligi',0,56,18,10,14,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4475,'Sea Zombie',90,100,39,3,15,79,192,1,1,255,255,0,1,0,0,1,300,0,'',0);
@@ -173,7 +173,7 @@ INSERT INTO `fishing_fish` VALUES (4478,'Three-Eyed Fish',0,79,25,10,10,50,117,1
 INSERT INTO `fishing_fish` VALUES (4483,'Tiger Cod',0,29,23,9,9,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4310,'Tiny Goldfish',0,20,22,0,14,1,1,0,0,255,255,0,0,0,0,3,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5120,'Titanic Sawfish',90,125,39,6,13,86,145,1,1,255,255,0,1,0,0,1,50,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4476,'Titanictus',90,101,35,3,12,79,209,1,1,255,255,0,1,0,0,1,300,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4476,'Titanictus',90,101,35,3,12,79,209,1,1,255,255,0,1,0,0,1,200,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4426,'Tricolored Carp',0,27,19,12,12,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4319,'Tricorn',90,100,25,11,9,109,181,1,0,255,255,0,1,0,0,1,300,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4317,'Trilobite',0,59,27,5,6,1,1,0,1,255,255,0,0,0,0,1,500,0,'',0);
