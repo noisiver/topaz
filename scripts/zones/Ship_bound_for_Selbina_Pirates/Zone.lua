@@ -29,7 +29,6 @@ end
 
 function onTransportEvent(player, transport)
     player:startEvent(255)
-    player:messageSpecial(ID.text.DOCKING_IN_SELBINA)
 end
 
 function onGameHour(zone)

@@ -32,7 +32,6 @@ end
 
 function onTransportEvent(player, transport)
     player:startEvent(512)
-    player:messageSpecial(ID.text.DOCKING_IN_MHAURA)
 end
 
 function onGameHour(zone)

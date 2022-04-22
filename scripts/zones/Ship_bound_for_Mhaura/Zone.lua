@@ -37,7 +37,6 @@ end
 
 function onTransportEvent(player, transport)
     player:startEvent(512)
-    player:messageSpecial(ID.text.DOCKING_IN_MHAURA)
     -- Despawn previous boat rides mobs
     for v = 17678342, 17678351, 1 do
         DespawnMob(v)

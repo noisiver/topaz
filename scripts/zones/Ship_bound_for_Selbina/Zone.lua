@@ -41,7 +41,6 @@ end
 
 function onTransportEvent(player, transport)
     player:startEvent(255)
-    player:messageSpecial(ID.text.DOCKING_IN_SELBINA)
     -- Despawn previous boat rides mobs
     for v = 17678342, 17678351, 1 do
         DespawnMob(v)
