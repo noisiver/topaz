@@ -20,11 +20,6 @@ function onInitialize(zone)
 	if math.random(1,100) <= 5 then 
         GetMobByID(mobList[math.random(#mobList)]):spawn()
     end
-
-    -- Despawn previous boat rides mobs
-    for v = 17678342, 17678351, 1 do
-        DespawnMob(GetMobByID(v))
-    end
 end
 
 function onZoneIn(player, prevZone)
@@ -46,6 +41,10 @@ end
 
 function onTransportEvent(player, transport)
     player:startEvent(255)
+    -- Despawn previous boat rides mobs
+    for v = 17678342, 17678351, 1 do
+        DespawnMob(v)
+    end
 end
 
 function onGameHour(zone)

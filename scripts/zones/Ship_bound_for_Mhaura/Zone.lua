@@ -22,7 +22,7 @@ function onInitialize(zone)
 
     -- Despawn previous boat rides mobs
     for v = 17682438, 17682446, 1 do
-        DespawnMob(GetMobByID(v))
+        DespawnMob(v)
     end
 end
 
