@@ -2,7 +2,7 @@
 -- Area: Caedarva Mire
 --  Mob: Jnun
 -----------------------------------
-mixins = {require("scripts/mixins/families/karakul")} -- Used for sleeping mixin
+mixins = {require("scripts/mixins/families/jnun")}
 -----------------------------------
 
 function onMobSpawn(mob)
