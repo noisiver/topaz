@@ -9,7 +9,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 50)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 200)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 150)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)
@@ -17,4 +17,8 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    local legatus = GetMobByID(ID.mob.ANTICAN_LEGATUS)
+    if GetMobByID(ID.mob.ANTICAN_CONSUL):isDead() and GetMobByID(ID.mob.ANTICAN_PRAETOR):isDead() then
+        legatus:setLocalVar("Guards", 0)
+    end
 end
