@@ -95,13 +95,18 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     -- If under CA, replace multiplier with fTP(multiplier, tp150, tp300)
     local chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
-    if chainAffinity ~= nil then
+    local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
+    if chainAffinity ~= nil or azureLore ~= nil then
         -- Calculate the total TP available for the fTP multiplier.
         local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
         if tp > 3000 then
             tp = 3000
         end
-
+        -- Azure Lore treats all spells like they're 3k TP'
+        if azureLore ~= nil then
+            tp = 3000
+        end
+        --printf("%u", tp)
         multiplier = BluefTP(tp, multiplier, params.tp150, params.tp300)
         bonusWSC = bonusWSC + 1 -- Chain Affinity Doubles the Base WSC.
     end
