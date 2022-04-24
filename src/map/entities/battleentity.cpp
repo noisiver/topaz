@@ -755,6 +755,7 @@ uint16 CBattleEntity::DEF()
     int32 DEF = 8 + m_modStat[Mod::DEF] + VIT() / 2;
     if (this->StatusEffectContainer->HasStatusEffect(EFFECT_COUNTERSTANCE, 0))
     {
+        DEF += (DEF * m_modStat[Mod::DEFP] / 100);
         return DEF / 2;
     }
 
