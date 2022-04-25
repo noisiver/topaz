@@ -22137,9 +22137,10 @@ INSERT INTO `item_mods` VALUES (18254,68,-4);
 INSERT INTO `item_mods` VALUES (18255,24,20);
 INSERT INTO `item_mods` VALUES (18255,26,-15);
 INSERT INTO `item_mods` VALUES (18256,119,1);
-INSERT INTO `item_mods` VALUES (18257,10,4);
+INSERT INTO `item_mods` VALUES (18257,10,4); -- Bibiki Seashell
 INSERT INTO `item_mods` VALUES (18257,59,3);
-INSERT INTO `item_mods` VALUES (18257,228,2);
+INSERT INTO `item_mods` VALUES (18257,228,5); -- AQUAN_KILLER 5% Intimidate
+INSERT INTO `item_mods` VALUES (18257,1228,5); -- AQUAN_CIRCLE 5% damage increase vs Aquans
 INSERT INTO `item_mods` VALUES (18263,256,1); -- Stage 4 Spharai - Aftermath
 INSERT INTO `item_mods` VALUES (18263,356,10); -- Final Heaven
 INSERT INTO `item_mods` VALUES (18264,23,20); -- Spharai LV75 - ATT +20
