@@ -33,6 +33,7 @@ function onMobRoam(mob)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, 6024)
     mob:setModelId(4) -- Normal orcish form
+    mob:setLocalVar("TriggerHit", 0)
 end
 
 function onMobEngaged(mob, target)
