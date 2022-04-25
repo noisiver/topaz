@@ -376,7 +376,7 @@ enum class Mod
     ABSORB_PHYSDMG_TO_MP      = 426, // Absorbs a percentage of physical damage taken to MP.
     SHIELD_MASTERY_TP         = 485, // Shield mastery TP bonus when blocking with a shield
     SENTINEL_EFFECT           = 837, // Sentinel effect in percents
-    SHIELD_DEF_BONUS          = 905, // Shield Defense Bonus
+    SHIELD_DEF_BONUS          = 905, // Shield Defense Bonus (Block Amount)
     COVER_TO_MP               = 1014, // Converts a successful cover's phsyical damage to MP
     COVER_MAGIC_AND_RANGED    = 1015, // Redirects ranged and single target magic attacks to the cover ability user
     COVER_DURATION            = 1016, // Increases Cover Duration

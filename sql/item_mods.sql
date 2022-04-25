@@ -7993,8 +7993,9 @@ INSERT INTO `item_mods` VALUES (12360,234,2);
 INSERT INTO `item_mods` VALUES (12361,1,20); -- Sipar
 INSERT INTO `item_mods` VALUES (12361,55,-20);
 INSERT INTO `item_mods` VALUES (12361,518,98); -- 98% Block Rate
-INSERT INTO `item_mods` VALUES (12362,1,23);
-INSERT INTO `item_mods` VALUES (12362,385,15);
+INSERT INTO `item_mods` VALUES (12362,1,23); -- Highlander's Targe
+INSERT INTO `item_mods` VALUES (12362,385,15); -- +15 Shield bash
+INSERT INTO `item_mods` VALUES (12362,905,25); -- + 25% dmg blocked
 INSERT INTO `item_mods` VALUES (12363,1,5);
 INSERT INTO `item_mods` VALUES (12363,4,30);
 INSERT INTO `item_mods` VALUES (12364,1,2);
