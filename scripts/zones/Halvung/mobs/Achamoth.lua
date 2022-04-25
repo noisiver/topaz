@@ -74,12 +74,12 @@ function onMobFight(mob, target)
             return
         end 
         if not pet:isSpawned() and not FirstWamoura:isSpawned() then
-            pet:setSpawn(mob:getXPos() + 1, mob:getYPos(), mob:getZPos())
+            pet:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
             spawnPetInBattle(mob, pet)
             mob:setLocalVar("SummonTime", BattleTime + 60)
         else
             pet = GetMobByID(mob:getID() +2)
-            pet:setSpawn(mob:getXPos() + 1, mob:getYPos(), mob:getZPos())
+            pet:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
             spawnPetInBattle(mob, pet)
             mob:setLocalVar("SummonTime", BattleTime + 60)
         end

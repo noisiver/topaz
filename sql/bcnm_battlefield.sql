@@ -1134,6 +1134,9 @@ INSERT INTO `bcnm_battlefield` VALUES (643,2,16801844,3);
 INSERT INTO `bcnm_battlefield` VALUES (643,2,16801845,3);
 INSERT INTO `bcnm_battlefield` VALUES (643,3,16801847,3);
 INSERT INTO `bcnm_battlefield` VALUES (643,3,16801848,3);
+INSERT INTO `bcnm_battlefield` VALUES (644,1,16801850,3); -- Holy Cow
+INSERT INTO `bcnm_battlefield` VALUES (644,2,16801852,3);
+INSERT INTO `bcnm_battlefield` VALUES (644,3,16801854,3);
 INSERT INTO `bcnm_battlefield` VALUES (672,1,16809987,3); -- head_wind
 INSERT INTO `bcnm_battlefield` VALUES (672,1,16809986,3);
 INSERT INTO `bcnm_battlefield` VALUES (672,1,16809985,3);

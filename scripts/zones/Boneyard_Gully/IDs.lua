@@ -35,6 +35,13 @@ zones[tpz.zone.BONEYARD_GULLY] = {
         TIME_TO_HUNT            = 7728, -- Mithran Trackers! Time to hunt! (X, begin)
         MY_TURN_MY_TURN         = 7729, -- My turn! My turn! (X, mid)
         YOURE_MINE              = 7730, -- You're mine! (X, end)
+        -- 7731-7737 more Sin Hunters speaking
+        RETREATS_SOIL           = 7740, -- The Tuchulcha retreats beeanth the soil!
+        GIANT_ANTLION           = 7741, -- A giant antlion appears! This one may be carrying an armoury crate!
+        ANTLION_ESCAPED         = 7742, -- It's the antlion that escaped earlier!
+        SMALL_ANTLION           = 7743, -- A small antlion appears! It doesn't seem large enough to carry an armoury crate.
+        TUCHULCHA_DEATH         = 7744, -- Tuchulcha drops an armoury crate!
+        -- 7746 - 7753 more Sin Hunters speaking
     },
     mob =
     {

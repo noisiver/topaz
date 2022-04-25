@@ -344,9 +344,9 @@ INSERT INTO `mob_groups` VALUES (12,444,8,'Bladmall',0,128,0,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (13,2833,8,'Nepionic_Parata',0,128,0,0,0,73,73,0);
 INSERT INTO `mob_groups` VALUES (14,2832,8,'Nepionic_Bladmall',0,128,0,0,0,73,73,0);
 INSERT INTO `mob_groups` VALUES (15,1860,8,'Gwyn_Ap_Knudd',0,128,0,10500,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (16,598,8,'Cadaver_Warrior',0,0,0,0,0,76,77,0);
-INSERT INTO `mob_groups` VALUES (17,599,8,'Cadaver_Witch',0,0,0,0,0,76,77,0);
-INSERT INTO `mob_groups` VALUES (18,1250,8,'Erdgeist',0,0,0,0,0,76,77,0);
+INSERT INTO `mob_groups` VALUES (16,598,8,'Cadaver_Warrior',0,128,0,0,0,76,77,0);
+INSERT INTO `mob_groups` VALUES (17,599,8,'Cadaver_Witch',0,128,0,0,0,76,77,0);
+INSERT INTO `mob_groups` VALUES (18,1250,8,'Erdgeist',0,128,0,0,0,76,77,0);
 
 -- ------------------------------------------------------------
 -- PsoXja (Zone 9)
@@ -9954,7 +9954,7 @@ INSERT INTO `mob_groups` VALUES (3,3156,148,'Platinum_Quadav',600,0,2006,0,0,69,
 INSERT INTO `mob_groups` VALUES (4,3463,148,'Sapphire_Quadav',600,0,2159,0,0,69,72,0);
 INSERT INTO `mob_groups` VALUES (5,3410,148,'Ruby_Quadav',1200,0,2129,3700,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (6,46,148,'Adaman_Quadav',1200,0,23,4000,0,72,74,0);
-INSERT INTO `mob_groups` VALUES (7,1034,148,'Diamond_Quadav',0,128,650,3500,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (7,1034,148,'Diamond_Quadav',600,0,650,3500,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (8,6683,148,'ZaDha_Adamantking',0,128,2830,45000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (9,2780,148,'MuZha_Infernoblade',0,128,0,0,0,72,75,0);
 INSERT INTO `mob_groups` VALUES (10,2017,148,'HuRhe_Marrowgorger',0,128,0,0,0,72,75,0);
@@ -10039,7 +10039,7 @@ INSERT INTO `mob_groups` VALUES (12,3006,150,'Orcish_Dragoon',600,0,1892,0,0,65,
 INSERT INTO `mob_groups` VALUES (13,3044,150,'Orcish_Warlord',1200,0,1953,5000,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (14,3031,150,'Orcish_Protector',600,0,1935,0,0,70,72,0);
 INSERT INTO `mob_groups` VALUES (15,3019,150,'Orcish_Hexspinner',1200,0,1920,5000,0,69,73,0);
-INSERT INTO `mob_groups` VALUES (16,3027,150,'Orcish_Overlord',0,128,1932,5000,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (16,3027,150,'Orcish_Overlord',600,0,1932,5000,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (17,3075,150,'Overlord_Bakgodek',0,128,1966,45000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (18,555,150,'Bugaboo',0,128,0,17500,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (19,2664,150,'Mimic',0,128,1678,0,0,65,72,0);
@@ -10090,7 +10090,7 @@ INSERT INTO `mob_groups` VALUES (33,4412,151,'Yagudo_Conductor',600,0,2834,0,0,6
 INSERT INTO `mob_groups` VALUES (34,4407,151,'Yagudo_Assassin',600,0,2695,0,0,64,69,0);
 INSERT INTO `mob_groups` VALUES (35,4425,151,'Yagudo_High_Priest',1440,0,2714,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (36,4455,151,'Yagudo_Templar',1440,0,2768,0,0,72,74,0);
-INSERT INTO `mob_groups` VALUES (37,4408,151,'Yagudo_Avatar',0,128,2696,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (37,4408,151,'Yagudo_Avatar',600,0,2696,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (38,4453,151,'Yagudos_Avatar',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (39,4072,151,'Tzee_Xicu_the_Manifest',0,128,2511,45000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (40,2016,151,'Huu_Xalmo_the_Savage',0,128,1341,30000,0,63,63,0);
