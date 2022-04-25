@@ -13,6 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 20)
+    mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMod(tpz.mod.UDMGMAGIC, 50)
     mob:setMod(tpz.mod.SDT_WATER, 150)
     mob:setMod(tpz.mod.SDT_LIGHT, 100)
@@ -24,6 +25,13 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_ICE, 50)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMobMod(tpz.mobMod.SKILL_LIST, 6024)
+    mob:setModelId(4) -- Normal orcish form
+end
+
+function onMobRoam(mob)
+    mob:setMod(tpz.mod.REGAIN, 0)
+    mob:setMobMod(tpz.mobMod.SKILL_LIST, 6024)
     mob:setModelId(4) -- Normal orcish form
 end
 

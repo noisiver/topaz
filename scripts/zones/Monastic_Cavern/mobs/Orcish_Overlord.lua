@@ -43,7 +43,7 @@ function onMobDespawn(mob)
             GetMobByID(hqId):setRespawnTime(math.random(36000, 43200)) -- 21 to 23 hrs
         else
             UpdateNMSpawnPoint(nqId)
-            mob:setRespawnTime(math.random(36000, 43200)) -- 21 to 23 hrs
+            mob:setRespawnTime(600) -- 10 minutes
             SetServerVariable("[PH]Overlord_Bakgodek", kills + 1)
         end
     end
