@@ -100,9 +100,9 @@ HEALING_TP_CHANGE       = -100 -- Change in TP for each healing tick. Default is
 
 -- SE implemented coffer/chest illusion time in order to prevent coffer farming. No-one in the same area can open a chest or coffer for loot (gil, gems & items)
 -- till a random time between MIN_ILLSION_TIME and MAX_ILLUSION_TIME. During this time players can loot keyitem and item related to quests (AF, maps... etc.)
-COFFER_MAX_ILLUSION_TIME = 3600  -- 1 hour
+COFFER_MAX_ILLUSION_TIME = 1801  -- 1 hour default changed to 30m01s
 COFFER_MIN_ILLUSION_TIME = 1800  -- 30 minutes
-CHEST_MAX_ILLUSION_TIME  = 3600  -- 1 hour
+CHEST_MAX_ILLUSION_TIME  = 1801  -- 1 hour default changed to 30m01s
 CHEST_MIN_ILLUSION_TIME  = 1800  -- 30 minutes
 
 -- Sets spawn type for: Behemoth, Fafnir, Adamantoise, King Behemoth, Nidhog, Aspidochelone.
