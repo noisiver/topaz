@@ -14,6 +14,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, -95)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobInitialize(mob)
