@@ -75,6 +75,7 @@
 #include "../ai/states/magic_state.h"
 #include "../utils/petutils.h"
 #include "zoneutils.h"
+#include "../packets/chat_message.h"
 
 
 
@@ -4119,11 +4120,18 @@ namespace battleutils
                     meritBonus = PChar->PMeritPoints->GetMeritValue(MERIT_NINJA_TOOL_EXPERTISE, (CCharEntity*)PChar);
 
                 uint16 chance = (PChar->getMod(Mod::NINJA_TOOL) + meritBonus);
-
-                if (ConsumeTool && tpzrand::GetRandomNumber(100) > chance)
+                printf("NTE chance %u \n", chance);
+                if (ConsumeTool)
                 {
-                    charutils::UpdateItem(PChar, LOC_INVENTORY, SlotID, -1);
-                    PChar->pushPacket(new CInventoryFinishPacket());
+                    if (tpzrand::GetRandomNumber(100) > chance)
+                    {
+                        charutils::UpdateItem(PChar, LOC_INVENTORY, SlotID, -1);
+                        PChar->pushPacket(new CInventoryFinishPacket());
+                    }
+                    else
+                    {
+                        PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Your expertise saved you a ninja tool!"));
+                    }
                 }
             }
         }
