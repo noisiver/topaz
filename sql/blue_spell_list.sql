@@ -78,7 +78,7 @@ INSERT INTO `blue_spell_list` VALUES ('579','1707','4','14','3','0','0'); -- Vor
 INSERT INTO `blue_spell_list` VALUES ('581','287','4','2','1','0','0'); -- Healing Breeze
 INSERT INTO `blue_spell_list` VALUES ('582','653','2','17','1','0','0'); -- Chaotic Eye
 INSERT INTO `blue_spell_list` VALUES ('584','264','2','2','1','0','0'); -- Sheep Song
-INSERT INTO `blue_spell_list` VALUES ('585','266','4','3','1','12','0'); -- Ram Charge
+INSERT INTO `blue_spell_list` VALUES ('585','266','4','3','1','11','0'); -- Ram Charge
 INSERT INTO `blue_spell_list` VALUES ('587','273','2','3','1','4','0'); -- Claw Cyclone
 INSERT INTO `blue_spell_list` VALUES ('588','497','2','4','1','0','0'); -- Lowing
 INSERT INTO `blue_spell_list` VALUES ('589','255','5','16','1','1','8'); -- Dimensional Death
@@ -129,11 +129,11 @@ INSERT INTO `blue_spell_list` VALUES ('645','1955','4','5','1','0','0'); -- Exuv
 INSERT INTO `blue_spell_list` VALUES ('646','1958','4','6','1','0','0'); -- Magic Hammer
 INSERT INTO `blue_spell_list` VALUES ('647','1722','2','17','1','0','0'); -- Zephyr Mantle
 INSERT INTO `blue_spell_list` VALUES ('648','2153','1','19','1','0','0'); -- Regurgitation
-INSERT INTO `blue_spell_list` VALUES ('650','2163','2','1','1','0','0'); -- Seedspray
+INSERT INTO `blue_spell_list` VALUES ('650','2163','2','1','1','7','6'); -- Seedspray
 INSERT INTO `blue_spell_list` VALUES ('651','2185','4','4','1','0','0'); -- Corrosive Ooze
-INSERT INTO `blue_spell_list` VALUES ('652','2181','3','12','1','0','0'); -- Spiral Spin
-INSERT INTO `blue_spell_list` VALUES ('653','2176','2','21','1','0','0'); -- Asuran Claws
-INSERT INTO `blue_spell_list` VALUES ('654','2436','4','22','1','0','0'); -- Sub-Zero Smash
+INSERT INTO `blue_spell_list` VALUES ('652','2181','3','12','1','1','0'); -- Spiral Spin
+INSERT INTO `blue_spell_list` VALUES ('653','2176','2','21','1','3','8'); -- Asuran Claws
+INSERT INTO `blue_spell_list` VALUES ('654','2436','4','22','1','12','0'); -- Sub-Zero Smash
 INSERT INTO `blue_spell_list` VALUES ('655','2423','3','0','1','0','0'); -- Triumphant Roar
 INSERT INTO `blue_spell_list` VALUES ('656','2562','3','24','1','0','0'); -- Acrid Stream
 INSERT INTO `blue_spell_list` VALUES ('657','2564','3','25','1','0','0'); -- Blazing Bound
