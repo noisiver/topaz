@@ -10416,7 +10416,7 @@ INSERT INTO `mob_droplist` VALUES (1930,0,0,1000,12954,30);
 INSERT INTO `mob_droplist` VALUES (1931,2,0,1000,750,0);
 --INSERT INTO `mob_droplist` VALUES (1931,0,0,1000,1532,80);	-- garrison
 INSERT INTO `mob_droplist` VALUES (1932,2,0,1000,751,0);  -- (Orcish Overlord)
-INSERT INTO `mob_droplist` VALUES (1932,0,0,1000,554,1000); -- Gold Orcmask
+INSERT INTO `mob_droplist` VALUES (1932,0,0,1000,554,240); -- Gold Orcmask
 INSERT INTO `mob_droplist` VALUES (1932,0,0,1000,751,1000); -- Platinum Beastcoin
 INSERT INTO `mob_droplist` VALUES (1932,0,0,1000,1432,1000); -- Paladin's Testimony
 INSERT INTO `mob_droplist` VALUES (1932,0,0,1000,16938,100);	-- Glorious Sword
