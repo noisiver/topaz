@@ -363,19 +363,6 @@ namespace battleutils
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
         //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
-        // Add +skill from gear
-        if (skill == SKILL_ENHANCING_MAGIC)
-        {
-            magicacc += static_cast<float>(PAttacker->getMod(Mod::ENHANCE));
-        }
-        else if (skill == SKILL_DIVINE_MAGIC)
-        {
-            magicacc += static_cast<float>(PAttacker->getMod(Mod::DIVINE));
-        }
-        else if (skill == SKILL_DARK_MAGIC)
-        {
-            magicacc += static_cast<float>(PAttacker->getMod(Mod::DARK));
-        }
         // Spikes are PDefender for Macc
         if (PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLAZE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SHOCK_SPIKES) ||
             PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ICE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DREAD_SPIKES) ||
@@ -387,26 +374,20 @@ namespace battleutils
             meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
             //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
-            if (skill == SKILL_ENHANCING_MAGIC)
+            // Blue Magic spike spells use Blue Magic Skll
+            if (PDefender->GetMJob() == JOB_BLU)
             {
-                magicacc += static_cast<float>(PDefender->getMod(Mod::ENHANCE));
-            }
-            else if (skill == SKILL_DIVINE_MAGIC)
-            {
-                magicacc += static_cast<float>(PDefender->getMod(Mod::DIVINE));
-            }
-            else if (skill == SKILL_DARK_MAGIC)
-            {
-                magicacc += static_cast<float>(PDefender->getMod(Mod::DARK));
+                magicacc += static_cast<float>(PDefender->GetSkill(SKILL_BLUE_MAGIC) + PDefender->getMod(Mod::MACC));
+                magicacc -= static_cast<float>(PDefender->GetSkill(SKILL_ENHANCING_MAGIC));
             }
         }
         //printf("Macc after gear mod = %f \nmeva after = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
-         //printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
+        //printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
         magicacc = magicacc + levelcorrectionpenalty;
-         //printf("\nmagicacc after correction penalty = %f \n", magicacc);
+        //printf("\nmagicacc after correction penalty = %f \n", magicacc);
         DMacc = (float)(magicacc - meva);
-         //printf("\nDMacc after = %f \n", DMacc);
+        //printf("\nDMacc after = %f \n", DMacc);
         if (DMacc < 0)
         {
             p = floor(50 + DMacc / 2);
