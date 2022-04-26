@@ -4120,7 +4120,7 @@ namespace battleutils
                     meritBonus = PChar->PMeritPoints->GetMeritValue(MERIT_NINJA_TOOL_EXPERTISE, (CCharEntity*)PChar);
 
                 uint16 chance = (PChar->getMod(Mod::NINJA_TOOL) + meritBonus);
-                printf("NTE chance %u \n", chance);
+                //printf("NTE chance %u \n", chance);
                 if (ConsumeTool)
                 {
                     if (tpzrand::GetRandomNumber(100) > chance)
