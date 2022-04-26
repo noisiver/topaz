@@ -34,9 +34,9 @@ function onMobWeaponSkill(target, mob, skill)
         mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     end
 
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.FIRE, 850)
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
+    local dmgmod = 850
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
 
-    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.FIRE)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
     return dmg
 end

@@ -17009,6 +17009,7 @@ INSERT INTO `mob_droplist` VALUES (6009,0,0,1000,637,150); -- Slime Oil
 INSERT INTO `mob_droplist` VALUES (6009,0,0,1000,637,100); -- Slime Oil
 INSERT INTO `mob_droplist` VALUES (6009,4,0,1000,637,0); -- Slime Oil(Despoil)
 INSERT INTO `mob_droplist` VALUES (6010,0,0,1000,1057,50); -- (Stygian Pugil - Toraimarai Canal) Toraimarai Coffer Key
+INSERT INTO `mob_droplist` VALUES (6010,0,0,1000,868,50); -- Handful Of Pugil Scales
 INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,922,240); -- (Dire Bat - Ifrit's Cauldron) Bat Wing
 INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,891,150); -- Bat Fang
 INSERT INTO `mob_droplist` VALUES (6011,0,0,1000,924,100); -- Fiend Blood

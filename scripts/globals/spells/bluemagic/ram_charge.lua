@@ -9,7 +9,7 @@
 -- Level: 73
 -- Casting Time: 0.5 seconds
 -- Recast Time: 34.75 seconds
--- Skillchain Element(s): Fragmentation (can open/close Light with Fusion WSs and spells)
+-- Skillchain Element(s): Fusion (Changed from Fragmentation)
 -- Combos: Lizard Killer
 -----------------------------------------
 require("scripts/globals/bluemagic")

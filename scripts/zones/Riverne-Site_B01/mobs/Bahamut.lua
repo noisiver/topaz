@@ -5,6 +5,7 @@
 local ID = require("scripts/zones/Riverne-Site_B01/IDs")
 require("scripts/globals/quests")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -14,6 +15,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UFASTCAST, 50) 
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 25)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 25)
 end
 
 

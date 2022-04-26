@@ -10,6 +10,8 @@ require("scripts/globals/magic")
 
 function onMobInitialize(mob)
     mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setHP(10000)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)
@@ -24,6 +26,10 @@ function onMobFight(mob, target)
 	elseif EaldThree:isSpawned() then
 		mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17518605)
 	end
+end
+
+function onMobRoam(mob)
+    mob:setHP(10000)
 end
 
 function onMobDeath(mob, player, isKiller)

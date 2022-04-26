@@ -14,10 +14,11 @@ function onMobInitialize(mob)
     mob:addMod(tpz.mod.UDMGPHYS, -75)
     mob:addMod(tpz.mod.UDMGRANGE, -75)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GA_CHANCE, 25)
@@ -33,6 +34,9 @@ function onMobFight(mob, target)
     if WarpTime == 0 then
         mob:setLocalVar("WarpTime", math.random(15, 20))
 	elseif battletime >= WarpTime then
+        -- Keep TP when warping out
+    	local CurrentTP = mob:getTP()
+	    mob:setLocalVar("TP", CurrentTP)
 		mob:useMobAbility(989) -- Warp out
 		mob:setLocalVar("WarpTime", battletime + math.random(15, 20))
 	end

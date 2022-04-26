@@ -9,6 +9,7 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobSpawn(mob)

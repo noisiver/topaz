@@ -37,9 +37,9 @@ function onMobWeaponSkill(target, mob, skill)
     end
         Taken from Megaflare fix later]]
 
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.FIRE, 1800)
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
+    local dmgmod = 1800
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
 
-    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.FIRE)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
     return dmg
 end

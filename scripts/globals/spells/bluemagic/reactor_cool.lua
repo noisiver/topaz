@@ -56,10 +56,10 @@ function onSpellCast(caster, target, spell)
         returnEffect = typeEffectTwo
     else
         target:addStatusEffect(typeEffectOne, powerOne, 0, duration)
-		typeEffectOne:unsetFlag(tpz.effectFlag.DISPELABLE)
+		target:getStatusEffect(typeEffectOne):unsetFlag(tpz.effectFlag.DISPELABLE)
         target:addStatusEffect(typeEffectTwo, powerTwo, 0, duration)
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     end
 
-    	return returnEffect
+    return returnEffect
 end

@@ -76,7 +76,7 @@ function onMobWeaponSkill(target, mob, skill)
 
         if wsCount < wsMax then
             mob:setLocalVar("wsCount", wsCount + 1)
-            mob:setTP(1000)
+            mob:setTP(3000)
         else
             mob:setLocalVar("wsCount", 0)
         end
