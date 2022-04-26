@@ -2,7 +2,7 @@
 -- Blast Shot
 -- Marksmanship weapon skill
 -- Skill Level: 200
--- Delivers a melee-distance ranged attack. params.accuracy varies with TP.
+-- Delivers a melee-distance ranged attack. Defense ignore varies with TP.
 -- Aligned with the Snow Gorget & Light Gorget.
 -- Aligned with the Snow Belt & Light Belt.
 -- Element: None
