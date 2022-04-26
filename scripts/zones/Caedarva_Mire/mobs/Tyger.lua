@@ -17,7 +17,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setDamage(90)
+	mob:setDamage(140) -- Hits buffed pld/NIN for 400+
     mob:setMod(tpz.mod.ATT, 450)
     mob:setMod(tpz.mod.DEF, 570)
     mob:setMod(tpz.mod.EVA, 358)
