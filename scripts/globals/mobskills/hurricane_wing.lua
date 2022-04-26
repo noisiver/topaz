@@ -23,7 +23,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 2
+    local dmgmod = 1
     if (mob:getPool() == 883) then -- Cynoprosopi
         dmgmod = 0.5
     end
