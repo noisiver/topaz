@@ -663,8 +663,8 @@ INSERT INTO `mob_groups` VALUES (23,4527,16,'Livid_Seether',960,0,2192,0,0,36,38
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,4382,17,'Wreaker',0,128,0,3800,0,37,38,0);
-INSERT INTO `mob_groups` VALUES (2,760,17,'Cogitator',0,128,4000,0,0,37,39,0);
-INSERT INTO `mob_groups` VALUES (3,4317,17,'Weeper',0,128,0,0,0,34,36,0);
+INSERT INTO `mob_groups` VALUES (2,760,17,'Cogitator',0,128,0,3500,0,37,39,0);
+INSERT INTO `mob_groups` VALUES (3,4317,17,'Weeper',0,128,0,0,0,31,32,0);
 
 -- ------------------------------------------------------------
 -- Promyvion-Dem (Zone 18)
@@ -699,12 +699,12 @@ INSERT INTO `mob_groups` VALUES (23,4527,18,'Livid_Seether',960,0,2193,0,0,36,38
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,3204,19,'Progenerator',0,128,0,3700,0,37,38,0);
-INSERT INTO `mob_groups` VALUES (2,2947,19,'Offspring',0,0,0,0,0,31,32,0);
+INSERT INTO `mob_groups` VALUES (2,2947,19,'Offspring',0,128,0,0,0,31,32,0);
 INSERT INTO `mob_groups` VALUES (3,2080,19,'Ingester',0,128,0,4000,0,37,39,0);
-INSERT INTO `mob_groups` VALUES (4,2825,19,'Neoingester',0,128,0,0,0,34,36,0);
-INSERT INTO `mob_groups` VALUES (5,2824,19,'Neogorger',0,128,0,0,0,34,36,0);
-INSERT INTO `mob_groups` VALUES (6,2827,19,'Neosatiator',0,128,0,0,0,34,36,0);
-INSERT INTO `mob_groups` VALUES (7,4283,19,'Wanderer',0,128,0,0,0,34,36,0);
+INSERT INTO `mob_groups` VALUES (4,2825,19,'Neoingester',0,128,0,0,0,31,32,0);
+INSERT INTO `mob_groups` VALUES (5,2824,19,'Neogorger',0,128,0,0,0,31,32,0);
+INSERT INTO `mob_groups` VALUES (6,2827,19,'Neosatiator',0,128,0,0,0,31,32,0);
+INSERT INTO `mob_groups` VALUES (7,4283,19,'Wanderer',0,128,0,0,0,31,32,0);
 
 -- ------------------------------------------------------------
 -- Promyvion-Mea (Zone 20)
@@ -739,7 +739,7 @@ INSERT INTO `mob_groups` VALUES (23,4527,20,'Livid_Seether',960,0,2194,0,0,36,38
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,966,21,'Delver',0,128,0,3600,0,37,38,0);
-INSERT INTO `mob_groups` VALUES (2,1237,21,'Envier',0,128,4000,0,0,37,39,0);
+INSERT INTO `mob_groups` VALUES (2,1237,21,'Envier',0,128,0,4000,0,37,39,0);
 INSERT INTO `mob_groups` VALUES (3,3539,21,'Seether',0,128,0,0,0,34,36,0);
 
 -- ------------------------------------------------------------
@@ -793,14 +793,14 @@ INSERT INTO `mob_groups` VALUES (1,63,23,'Agonizer',0,128,0,5000,0,53,54,0);
 INSERT INTO `mob_groups` VALUES (2,3202,23,'Procreator',0,128,0,5000,0,53,54,0);
 INSERT INTO `mob_groups` VALUES (3,2947,23,'Offspring',0,128,0,0,0,51,52,0);
 INSERT INTO `mob_groups` VALUES (4,861,23,'Cumulator',0,128,0,5000,0,53,54,0);
-INSERT INTO `mob_groups` VALUES (5,782,23,'Contemplator',0,128,0,0,0,54,56,0);
-INSERT INTO `mob_groups` VALUES (6,2081,23,'Ingurgitator',0,128,0,0,0,54,56,0);
-INSERT INTO `mob_groups` VALUES (7,3351,23,'Repiner',0,128,0,0,0,54,56,0);
-INSERT INTO `mob_groups` VALUES (8,2826,23,'Neoingurgitator',0,128,0,0,0,51,53,0);
-INSERT INTO `mob_groups` VALUES (9,6647,23,'Memory_Receptacle_Red',0,128,5500,0,0,57,59,0); -- Red
-INSERT INTO `mob_groups` VALUES (10,6646,23,'Memory_Receptacle_Blue',0,128,3500,0,0,57,59,0); -- Blue
-INSERT INTO `mob_groups` VALUES (11,6645,23,'Memory_Receptacle_Green',0,128,3500,0,0,57,59,0); -- Green
-INSERT INTO `mob_groups` VALUES (12,2614,23,'Memory_Receptacle_Teal',0,128,3500,0,0,57,59,0); -- Teal/Aqua
+INSERT INTO `mob_groups` VALUES (5,782,23,'Contemplator',0,128,0,0,0,51,52,0);
+INSERT INTO `mob_groups` VALUES (6,2081,23,'Ingurgitator',0,128,0,0,0,51,52,0);
+INSERT INTO `mob_groups` VALUES (7,3351,23,'Repiner',0,128,0,0,0,51,52,0);
+INSERT INTO `mob_groups` VALUES (8,2826,23,'Neoingurgitator',0,128,0,0,0,51,52,0);
+INSERT INTO `mob_groups` VALUES (9,6647,23,'Memory_Receptacle_Red',0,128,0,5500,0,57,59,0); -- Red
+INSERT INTO `mob_groups` VALUES (10,6646,23,'Memory_Receptacle_Blue',0,128,0,3500,0,57,59,0); -- Blue
+INSERT INTO `mob_groups` VALUES (11,6645,23,'Memory_Receptacle_Green',0,128,0,3500,0,57,59,0); -- Green
+INSERT INTO `mob_groups` VALUES (12,2614,23,'Memory_Receptacle_Teal',0,128,0,3500,0,57,59,0); -- Teal/Aqua
 
 -- ------------------------------------------------------------
 -- Lufaise_Meadows (Zone 24)

@@ -10,14 +10,17 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 20) 
-     mob:addMod(tpz.mod.ATTP, 10)
-     mob:setMod(tpz.mod.REGAIN, 250)
-     mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
-     mob:addStatusEffect(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
-     mob:addStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
-     printf("Add Status");
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:setMod(tpz.mod.REGAIN, 250)
+    mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 0, 0, 3600)
+    mob:addStatusEffect(tpz.effect.ARROW_SHIELD, 0, 0, 3600)
+    mob:addStatusEffect(tpz.effect.MAGIC_SHIELD, 0, 0, 3600)
+    mob:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):unsetFlag(tpz.effectFlag.DISPELABLE)
+    mob:getStatusEffect(tpz.effect.ARROW_SHIELD):unsetFlag(tpz.effectFlag.DISPELABLE)
+    mob:getStatusEffect(tpz.effect.MAGIC_SHIELD):unsetFlag(tpz.effectFlag.DISPELABLE)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    --printf("Add Status");
 end
 
 function onMobInitialize(mob)
@@ -41,14 +44,23 @@ function onMobFight(mob, target)
 
     if drawinTime == 0 then
         mob:setLocalVar("Drawin", 20)
-        printf("Set Draw in time");
+        --printf("Set Draw in time");
         return
     elseif mob:getBattleTime() >= drawinTime then
         mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
         mob:setLocalVar("Drawin", mob:getBattleTime() + 20)
-        printf("Drawing in");
+        --printf("Drawing in");
     else
         mob:setMobMod(tpz.mobMod.DRAW_IN, 0)
+    end
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    -- All Memory Receptacles use Empty Seed at the same time
+    if skill:getID() == 542 then
+         for v = 16871447, 16871449 do
+            GetMobByID(v):useMobAbility(542)
+         end
     end
 end
 
@@ -56,12 +68,7 @@ end
 
 
 function onMobDeath(mob, player, isKiller)
-    DespawnMob(mob:getID()+1)
-    DespawnMob(mob:getID()+2)
-    DespawnMob(mob:getID()+3)
-    DespawnMob(mob:getID()+4)
-    DespawnMob(mob:getID()+5)
-    DespawnMob(mob:getID()+6)
-    DespawnMob(mob:getID()+7)
-    DespawnMob(mob:getID()+8)
+    for v = 16871447, 16871454 do
+        DespawnMob(v)
+    end
 end

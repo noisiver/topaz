@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
         local baby = GetMobByID(babyID)
         if not baby:isSpawned() then
             SpawnMob(babyID):updateEnmity(mob:getTarget())
-            baby:setPos(pos.x, pos.y, pos.z)
+            baby:setPos(pos.x + math.random(1, 3), pos.y, pos.z + math.random(1, 3))
             break
         end
     end

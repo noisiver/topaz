@@ -5,7 +5,6 @@ require("scripts/globals/pathfind")
 require("scripts/globals/promyvion")
 require("scripts/globals/status")
 require("scripts/globals/mobs")
-mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -19,7 +18,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobEngaged(mob, target)

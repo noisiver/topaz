@@ -5,7 +5,6 @@ require("scripts/globals/pathfind")
 require("scripts/globals/promyvion")
 require("scripts/globals/status")
 require("scripts/globals/mobs")
-mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -60,7 +59,6 @@ function onMobRoam(mob)
 		local point = {math.random(-249,-230),60.85,math.random(-8,10)}
 		mob:pathThrough(point, tpz.path.flag.RUN)
 	end
-	
 end
 
 function onMobFight(mob, target)

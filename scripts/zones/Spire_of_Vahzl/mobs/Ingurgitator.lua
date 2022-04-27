@@ -8,7 +8,6 @@ require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/promyvion")
-mixins = {require("scripts/mixins/families/empty")}
 -----------------------------------
 
 function onMobSpawn(mob)
