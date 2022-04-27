@@ -89,8 +89,9 @@ zones[tpz.zone.QUICKSAND_CAVES] =
         ANCIENT_VESSEL        = 17629642,
         TRIBUNUS_VII_I        = 17629643,
         GIRTABLULU            = 17629645,
-        ANTICAN_CONSUL        = 17629641,
         ANTICAN_PRAETOR       = 17629639,
+        ANTICAN_LEGATUS       = 17629640,
+        ANTICAN_CONSUL        = 17629641,
     },
     npc =
     {

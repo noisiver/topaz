@@ -7,12 +7,14 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.DEFP, 50) 
     mob:addMod(tpz.mod.ACC, 50) 
-    mob:addMod(tpz.mod.EVA, 50)
+    mob:addMod(tpz.mod.EVA, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -95)
     mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobInitialize(mob)
@@ -26,13 +28,12 @@ function onMobFight(mob, target)
     if WarpTime == 0 then
         mob:setLocalVar("WarpTime", math.random(15, 20))
 	elseif battletime >= WarpTime then
+        -- Keep TP when warping out
+    	local CurrentTP = mob:getTP()
+	    mob:setLocalVar("TP", CurrentTP)
 		mob:useMobAbility(989) -- Warp out
 		mob:setLocalVar("WarpTime", battletime + math.random(15, 20))
 	end
-end
-
-function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REFRESH, 400)
 end
 
 function onMobDeath(mob, player, isKiller)

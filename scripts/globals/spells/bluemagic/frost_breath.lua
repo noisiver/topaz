@@ -26,29 +26,29 @@ function onSpellCast(caster, target, spell)
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
       multi = multi + 0.50
     end
+    local damage = (caster:getHP() / 2) 
     local params = {}
-    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-    params.attribute = tpz.mod.INT
-    params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.attackType = tpz.attackType.BREATH
     params.damageType = tpz.damageType.ICE
-    params.multiplier = multi
-    params.tMultiplier = 1.5
-    params.duppercap = 69
+	params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+	params.attribute = tpz.mod.INT
+	params.skillType = tpz.skill.BLUE_MAGIC
+	params.bonus = 0
+    params.effect = tpz.effect.PARALYSIS
+    params.multiplier = caster:hasStatusEffect(tpz.effect.AZURE_LORE) and 1.25 or 1
+    params.tMultiplier = 1
+    params.D = damage
+    params.duppercap = 9999
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
     params.int_wsc = 0.0
-    params.mnd_wsc = 0.3
+    params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    local HP = caster:getHP()
-    local LVL = caster:getMainLvl()
-    local damage = (HP / 2) 
+    local resist = applyResistance(caster, target, spell, params)
+    local damage = BlueMagicalSpell(caster, target, spell, params, nil)
+
 	local vermin = (target:getSystem() == 20)
 	local beast = (target:getSystem() == 6)
 

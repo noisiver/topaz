@@ -14,5 +14,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.AZURE_LORE, 1, 0, 30)
+    player:addStatusEffect(tpz.effect.AZURE_LORE, 1, 0, 60)
 end

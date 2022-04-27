@@ -20,7 +20,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 	local typeEffect = tpz.effect.SLEEP_I
-	MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
+	MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
 
 	return typeEffect
 end

@@ -8,7 +8,6 @@ require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/promyvion")
-mixins = {require("scripts/mixins/families/empty")}
 ---------------------------------------
 
 function onMobSpawn(mob)
@@ -23,7 +22,8 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.REFRESH, 40)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobInitialize(mob)
@@ -83,8 +83,11 @@ function onMobFight(mob, target)
 		local point = {math.random(-249,-230),60.85,math.random(-8,10)}
 		mob:pathThrough(point, tpz.path.flag.RUN)
 	end
-	
-end
+
+    if mob:getHPP() <= 25  then
+        mob:setMod(tpz.mod.REGAIN, 500)
+    end
+	end
 
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.MP_DRAIN, {chance = 50, power = math.random(20, 40)})

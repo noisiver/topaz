@@ -245,7 +245,7 @@ void CItemState::InterruptItem(action_t& action)
         actionTarget.param = 0;
         actionTarget.messageID = 0;
         actionTarget.knockback = 0;
-
+        m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CMessageBasicPacket(m_PEntity, m_PEntity, m_PItem->getID(), 0, MSGBASIC_ITEM_FAILS_TO_ACTIVATE));
         m_PEntity->pushPacket(m_errorMsg.release());
     }
 }

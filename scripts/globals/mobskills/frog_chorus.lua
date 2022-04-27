@@ -15,6 +15,9 @@ require("scripts/globals/msg")
 
 function onMobSkillCheck(target, mob, skill)
     if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+        if mob:getHPP() > 20 then
+            return 1
+        end
         return 0
     end
     return 1
@@ -22,7 +25,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    MobCharmMove(mob, target, skill, 2239, 60)
+    MobCharmMove(mob, target, skill, 2239, 120)
 
     return tpz.effect.CHARM_I
 end

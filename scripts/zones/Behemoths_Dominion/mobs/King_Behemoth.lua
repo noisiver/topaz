@@ -24,6 +24,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.MP, 5000)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 20000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
 	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     if LandKingSystem_NQ > 0 or LandKingSystem_HQ > 0 then
         GetNPCByID(ID.npc.BEHEMOTH_QM):setStatus(tpz.status.DISAPPEAR)

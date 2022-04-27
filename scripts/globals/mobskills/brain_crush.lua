@@ -21,7 +21,7 @@ function onMobWeaponSkill(target, mob, skill)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 
     if dmg > 0 then
-        MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SILENCE, 1, 0, 60)
+        MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SILENCE, 1, 0, 300)
 		target:tryInterruptSpell(mob, info.hitslanded)
     end
 

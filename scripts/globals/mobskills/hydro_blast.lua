@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.MAGIC_SHIELD
     
 	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
-    MobBuffMove(mob, typeEffect, 1, 0, 60)
+    MobBuffMove(mob, typeEffect, 1, 0, 300)
 
     return dmg
 end

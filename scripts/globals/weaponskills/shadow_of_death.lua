@@ -25,6 +25,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.skill = tpz.skill.SCYTHE
     params.includemab = true
 	params.enmityMult = 0.5
+	params.bonusmacc = 50
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.str_wsc = 0.4 params.int_wsc = 0.4

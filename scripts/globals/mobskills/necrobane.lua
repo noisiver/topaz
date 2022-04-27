@@ -32,7 +32,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 50, 0, 60)
-    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.CURSE_I, 33, 0, 60))
+    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 50, 0, 300)
+    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.CURSE_I, 33, 0, 300))
     return dmg
 end

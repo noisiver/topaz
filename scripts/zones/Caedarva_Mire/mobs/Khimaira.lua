@@ -5,6 +5,7 @@
 require("scripts/globals/titles")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+mixins = {require("scripts/mixins/families/imp")} -- Used for wings breaking / regenerating
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(140)
@@ -17,17 +18,11 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 50)
     mob:AnimationSub(0)
     mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
+    mob:setLocalVar("HornBreakChance", 1) -- Wings break chance
 end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
-end
-
-function onCriticalHit(mob)
-    local rand = math.random(100)
-    if rand <= 1 then
-        mob:AnimationSub(1)
-    end
 end
 
 function onMobDeath(mob, player, isKiller)

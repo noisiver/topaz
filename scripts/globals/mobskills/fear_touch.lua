@@ -21,7 +21,7 @@ function onMobWeaponSkill(target, mob, skill)
     if (mob:getPool() == 9004) then -- The Big One
         dmgmod = 3
 		local typeEffect = tpz.effect.AMNESIA
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 60)
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 300)
     end
     local typeEffect = tpz.effect.SLOW
 

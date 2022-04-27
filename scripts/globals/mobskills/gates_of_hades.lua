@@ -15,7 +15,10 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-  if(mob:getFamily() == 316) then
+    if mob:getPool() == 5890 then -- Custom Marquis Naberius Castle Baileys
+        return 1
+    end
+    if(mob:getFamily() == 316) then
     local mobSkin = mob:getModelId()
 
     if (mobSkin == 1793) then
@@ -23,10 +26,12 @@ function onMobSkillCheck(target, mob, skill)
     else
         return 1
     end
-  end
+    end
     local result = 1
     local mobhp = mob:getHPP()
-
+    if (family == 315 and mobhp < 50) then -- Tyger < 50%
+        result = 0
+    end
     if (mobhp <= 25) then
         result = 0
     end
@@ -36,9 +41,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BURN
-    local power = 21
+    local power = 40
 
-    MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
+    MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
 
     local dmgmod = 2
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*6, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)

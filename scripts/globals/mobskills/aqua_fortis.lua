@@ -25,6 +25,6 @@ function onMobWeaponSkill(target, mob, skill)
     local power = math.ceil(mob:getMainLvl() / 3) + 5   
 	
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
- 	MobStatusEffectMove(mob, target, typeEffect, power, 3, 60)
+ 	MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
     return dmg
 end

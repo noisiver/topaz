@@ -47,8 +47,13 @@ zones[tpz.zone.ATTOHWA_CHASM] =
     },
     npc =
     {
-        MIASMA_OFFSET   = 16806304, -- _071 in npc_list
-        GASPONIA_OFFSET = 16806327, -- _07n in npc_list
+        MIASMA_START_FIRST       = 16806304, -- _071 in npc_list
+        MIASMA_END_FIRST         = 16806311, --
+        MIASMA_START_SECOND      = 16806312, -- 
+        MIASMA_END_SECOND        = 16806319, -- _07g in npc_list
+        MIASMA_PARRADAMO_START   = 16806320, -- _07h in npc_list
+        MIASMA_PARRADAMO_END     = 16806324, -- _07h in npc_list
+        GASPONIA_OFFSET          = 16806327, -- _07l in npc_list
         EXCAVATION =
         {
             16806369,

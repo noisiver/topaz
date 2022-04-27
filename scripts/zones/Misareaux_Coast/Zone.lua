@@ -41,7 +41,7 @@ function onGameHour(zone)
     if vHour >= 22 or vHour <= 7 then
         MISAREAUX_COAST.ziphiusHandleQM()
     end
-    if vHour >= 2 or vHour <= 8 and zone:getWeather() ~= GLOOM and zone:getWeather() ~= THUNDER and zone:getWeather() ~= WIND then
+    if vHour >= 2 and vHour <= 8 and zone:getWeather() ~= GLOOM and zone:getWeather() ~= THUNDER and zone:getWeather() ~= WIND then
         -- Atomic Clusters
         if not ClusterOne:isSpawned() then
             SpawnMob(16879777)
@@ -52,15 +52,9 @@ function onGameHour(zone)
         if not ClusterThree:isSpawned() then
             SpawnMob(16879722)
         end
-    if not Odqan:isSpawned() and Time >= SpawnTimer then
-        SpawnMob(Odqan)
-        Odqan:setLocalVar("SpawnTimer", Time + 3200)
+        if not Odqan:isSpawned() and Time >= SpawnTimer then
+            SpawnMob(Odqan)
         end
-    else
-        DespawnMob(16879777)
-        DespawnMob(16879833)
-        DespawnMob(16879722)
-        DespawnMob(Odqan)
     end
 end
 

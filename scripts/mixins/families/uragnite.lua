@@ -35,11 +35,13 @@ g_mixins.families = g_mixins.families or {}
 local function enterShell(mob)
     mob:AnimationSub(mob:AnimationSub() + 1)
     mob:SetAutoAttackEnabled(false)
+    mob:addTP(3000) -- Always immediately uses Venom Shell 
     mob:addMod(tpz.mod.UDMGPHYS, -75)
     mob:addMod(tpz.mod.UDMGRANGE, -75)
     mob:addMod(tpz.mod.UDMGMAGIC, -75)
     mob:addMod(tpz.mod.UDMGBREATH, -75)
     mob:addMod(tpz.mod.REGEN, mob:getLocalVar("[uragnite]inShellRegen"))
+    mob:setMod(tpz.mod.REGAIN, 250) -- Gains TP fast inside hell
     mob:setMobMod(tpz.mobMod.SKILL_LIST, mob:getLocalVar("[uragnite]inShellSkillList"))
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
@@ -52,6 +54,7 @@ local function exitShell(mob)
     mob:delMod(tpz.mod.UDMGMAGIC, -75)
     mob:delMod(tpz.mod.UDMGBREATH, -75)
     mob:delMod(tpz.mod.REGEN, mob:getLocalVar("[uragnite]inShellRegen"))
+    mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, mob:getLocalVar("[uragnite]noShellSkillList"))
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
 end

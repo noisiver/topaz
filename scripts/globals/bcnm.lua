@@ -20,10 +20,10 @@ local battlefields = {
     [tpz.zone.BEARCLAW_PINNACLE] =
     {
         { 0,  640,    0},   -- Flames of the Dead (PM5-3 U3)
-     -- { 1,  641,    0},   -- Follow the White Rabbit (ENM)
-     -- { 2,  642,    0},   -- When Hell Freezes Over (ENM)
-     -- { 3,  643,    0},   -- Brothers (ENM) -- TODO: Chthonian Ray mobskill
-     -- { 4,  644,    0},   -- Holy Cow (ENM)
+        { 1,  641,    0},   -- Follow the White Rabbit (ENM)
+        { 2,  642,    0},   -- When Hell Freezes Over (ENM)
+        { 3,  643,    0},   -- Brothers (ENM) 
+        { 4,  644,    0},   -- Holy Cow (ENM)
      -- { 5,    ?, 3454},   -- Taurassic Park (HKC30)
     },
 
@@ -33,9 +33,9 @@ local battlefields = {
      -- { 1,  673,    0},   -- Like the Wind (ENM) -- TODO: mob constantly runs during battle
         { 2,  674,    0},   -- Sheep in Antlion's Clothing (ENM)
      -- { 3,  675,    0},   -- Shell We Dance? (ENM) -- TODO: Needs testing, cleanup, and mixin work
-     -- { 4,  676,    0},   -- Totentanz (ENM)
-     -- { 5,  677,    0},   -- Tango with a Tracker (Quest)
-     -- { 6,  678,    0},   -- Requiem of Sin (Quest)
+        { 4,  676,    0},   -- Totentanz (ENM)
+        { 5,  677,    0},   -- Tango with a Tracker (Quest)
+        { 6,  678,    0},   -- Requiem of Sin (Quest)
      -- { 7,  679, 3454},   -- Antagonistic Ambuscade (HKC30)
      -- { 8,    ?,    0},   -- *Head Wind (HTMBF)
     },

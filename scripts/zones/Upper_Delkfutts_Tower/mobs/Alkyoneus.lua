@@ -7,6 +7,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(75)
     mob:setModelId(643) -- Black
     mob:addMod(tpz.mod.ATTP, 50)
     mob:addMod(tpz.mod.DEFP, 50) 
@@ -27,22 +28,37 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
+function onMobEngaged(mob, target)
+    -- Despawn all Gigas on the Tweltch Floor and disable them respawning
+    for v = 17424452, 17424478, 1 do
+        DespawnMob(v)
+        DisallowRespawn(v, true)
+    end
+    for v = 17424483, 17424508, 1 do
+        DespawnMob(v)
+        DisallowRespawn(v, true)
+    end
+end
+
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
     if mob:getHPP() <= 75 and hitTrigger == 0 then
+        mob:setDamage(145)
         mob:useMobAbility(688) -- Mighty Strikes        
         mob:setModelId(640) -- Gaxe
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6003)
         mob:setLocalVar("TriggerHit", 1)
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 then
+        mob:setDamage(145)
         mob:useMobAbility(690)  -- Hundred Fists
         mob:setModelId(642) -- H2H
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6004)
         mob:setLocalVar("TriggerHit", 2)
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 then
+        mob:setDamage(145)
         mob:useMobAbility(739) -- EES
         mob:setModelId(711) --  Ranger
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6005)
@@ -66,4 +82,11 @@ function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)
+    -- Allow Gigas on the Tweltch Floor to respawn
+    for v = 17424452, 17424478, 1 do
+        DisallowRespawn(v, false)
+    end
+    for v = 17424483, 17424508, 1 do
+        DisallowRespawn(v, false)
+    end
 end

@@ -3,15 +3,17 @@
 --  Mob: Mamool Ja Speerkampfer
 -- Job: DRG
 -----------------------------------
+require("scripts/globals/status")
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(75)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -25)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-	mob:setLocalVar("TwoHourUsed", 0)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    mob:setLocalVar("CallWyvernUsed", 0)
+    mob:setLocalVar("SpiritSurgeUsed", 0)
     --mob:AnimationSub(0)
 end
 
@@ -30,17 +32,35 @@ end
 function onMobFight(mob, target)
     local instance = mob:getInstance()
 	local Pet = GetMobByID(mob:getID(instance)+1, instance)
-	local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
-	if mob:getHPP() <= 25 and TwoHourUsed == 0 then
+	local CallWyvernUsed = mob:getLocalVar("CallWyvernUsed")
+	local SpiritSurgeUsed = mob:getLocalVar("SpiritSurgeUsed")
+	if mob:getHPP() <= 50 and CallWyvernUsed == 0 then
         mob:useMobAbility(732) -- Call Wyvern
         Pet:spawn()
-        mob:setLocalVar("TwoHourUsed", 1)
+        mob:setLocalVar("CallWyvernUsed", 1)
 	end
+    if mob:getHPP() <= 25 and SpiritSurgeUsed == 0 and mob:actionQueueEmpty() then
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("The Speerkampfer sacrifices his wyvern to gain it's strength!",0,"Speerkampfer")
+        end
+        DespawnMob(mob:getID(instance) +1, instance)
+        mob:useMobAbility(1893) -- Spirit Surge
+        mob:setMod(tpz.mod.REGAIN, 500)
+        mob:setMod(tpz.mod.HTHRES, 500)
+        mob:setMod(tpz.mod.SLASHRES, 500)
+        mob:setMod(tpz.mod.PIERCERES, 500)
+        mob:setMod(tpz.mod.IMPACTRES, 500)
+        mob:setMod(tpz.mod.UDMGMAGIC, -50)
+        mob:setMod(tpz.mod.UDMGBREATH, -50)
+        mob:setLocalVar("SpiritSurgeUsed", 1)
+    end 
     if Pet:isSpawned() then
 	    Pet:updateEnmity(target)
     end
 	if mob:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) == false then
 		mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 6, 0, 3600)
+        mob:getStatusEffect(tpz.effect.PHYSICAL_SHIELD):unsetFlag(tpz.effectFlag.DISPELABLE)
 	end
 end
 
@@ -49,6 +69,10 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    -- Uses Jump after every WS
+    if skill:getID() > 0 and skill:getID() ~= 1064 then 
+         mob:useMobAbility(1064) 
+    end
 end
 
 function onMobDeath(mob, player, isKiller)

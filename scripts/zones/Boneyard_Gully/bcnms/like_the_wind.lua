@@ -3,6 +3,7 @@
 -- Boneyard Gully ENM, Miasma Filter
 -- !addkeyitem MIASMA_FILTER
 -----------------------------------
+local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/keyitems")
 -----------------------------------

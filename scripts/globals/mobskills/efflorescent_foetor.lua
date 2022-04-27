@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
     local currentMsg = tpz.msg.basic.NONE
     local msg = tpz.msg.basic.NONE
 
-    msg = MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 60)
+    msg = MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 300)
 
     if (msg == tpz.msg.basic.SKILL_ENFEEB_IS) then
         typeEffect = tpz.effect.SILENCE

@@ -18,6 +18,6 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.UFASTCAST
     local power = 75
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 60)) 
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 300)) 
     return typeEffect
 end

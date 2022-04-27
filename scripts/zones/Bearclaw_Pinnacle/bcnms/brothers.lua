@@ -3,6 +3,7 @@
 -- Bearclaw Pinnacle ENM, Zephyr Fan
 -- !addkeyitem ZEPHYR_FAN
 -----------------------------------
+local ID = require("scripts/zones/Bearclaw_Pinnacle/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/keyitems")
 -----------------------------------
@@ -21,6 +22,7 @@ end
 function onBattlefieldEnter(player, battlefield)
     if player:hasKeyItem(tpz.ki.ZEPHYR_FAN) then
         player:delKeyItem(tpz.ki.ZEPHYR_FAN)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.ZEPHYR_FAN)
     end
 end
 

@@ -5,16 +5,36 @@ g_mixins.families = g_mixins.families or {}
 
 g_mixins.families.imp = function(mob)
 
-    -- 20% chance to break horn on critical hit
+    -- set default 10% chance to break horn on critical hit taken
+    -- this can be overridden in onMobSpawn
+
+    mob:addListener("SPAWN", "IMP_SPAWN", function(mob)
+        mob:setLocalVar("HornBreakChance", 10)
+    end)
+
+    mob:addListener("COMBAT_TICK", "IMP_COMBAT_TICK", function(mob)
+        local ReobtainHornTime = mob:getLocalVar("ReobtainHornTime")
+
+        if ReobtainHornTime > 0 and os.time() > ReobtainHornTime then
+            local AnimationSub = mob:AnimationSub()
+
+            if AnimationSub == 1 then
+                mob:AnimationSub(0)
+                mob:setLocalVar("ReobtainHornTime", os.time() + 60)
+            end
+        end
+    end)
+
+    -- 10% chance to break horn on critical hit
     mob:addListener("CRITICAL_TAKE", "IMP_CRITICAL_TAKE", function(mob)
-        if math.random(100) <= 20 and mob:AnimationSub() == 0 then
+        if math.random(100) <= mob:getLocalVar("HornBreakChance") and mob:AnimationSub() == 0 then
             mob:AnimationSub(1)
-			mob:setLocalVar("Weapon", 1)
+            mob:setLocalVar("ReobtainHornTime", os.time() + 60)
         end
     end)
 	
 	-- chance to break when hit by an offensive JA(like box step)
-	mob:addListener("ABILITY_TAKE", "BREAK_CRITICAL_TAKE", function(mob, user, ability, action)
+	mob:addListener("ABILITY_TAKE", "IMP_ABILITY_TAKE", function(mob, user, ability, action)
         local abilityID = ability:getID()
         if abilityID == 150      -- tomahawk
         or abilityID == 46       -- shield bash
@@ -28,9 +48,9 @@ g_mixins.families.imp = function(mob)
         or abilityID == 205      -- desperate flourish
         or abilityID == 207      -- violent flourish
         or abilityID == 170 then -- angon
-			if math.random(100) <= 10 and mob:AnimationSub() == 0 then
+			if math.random(100) <= mob:getLocalVar("HornBreakChance") and mob:AnimationSub() == 0 then
 				mob:AnimationSub(1)
-				mob:setLocalVar("Weapon", 1)
+                mob:setLocalVar("ReobtainHornTime", os.time() + 60)
 			end
 		end
 	end)

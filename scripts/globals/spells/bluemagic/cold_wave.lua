@@ -40,7 +40,7 @@ function onSpellCast(caster, target, spell)
             target:delStatusEffectSilent(tpz.effect.CHOKE)
         end
         local sINT = caster:getStat(tpz.mod.INT)
-		local DOT = (caster:getMainLvl()  / 5)
+        local DOT = getElementalDebuffDOT(150) -- 39 agi dowm
 		local DMG = (caster:getMainLvl()  / 5) +3
         local effect = target:getStatusEffect(typeEffect)
         local noeffect = false
@@ -56,7 +56,7 @@ function onSpellCast(caster, target, spell)
                 target:delStatusEffectSilent(typeEffect)
             end
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-            target:addStatusEffect(typeEffect, DOT, DMG, getBlueEffectDuration(caster, resist, typeEffect, true))
+            target:addStatusEffect(typeEffect, DOT, 3, getBlueEffectDuration(caster, resist, typeEffect, true))
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)

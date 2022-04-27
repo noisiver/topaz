@@ -15,7 +15,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
     local power = 3000
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, 90))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, 300))
 
     return typeEffect
 end

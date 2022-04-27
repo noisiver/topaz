@@ -205,7 +205,7 @@ enum class Mod
     CRITHITRATE               = 165, // Raises chance to crit
     CRIT_DMG_INCREASE         = 421, // Raises the damage of critical hit by percent %
     RANGED_CRIT_DMG_INCREASE  = 1013, // Increases ranged critical damage by a percent
-    ENEMYCRITRATE             = 166, // Raises chance enemy will crit
+    ENEMYCRITRATE             = 1256,            // Raises chance enemy will crit
     CRIT_DEF_BONUS            = 908, // Reduces crit hit damage
     MAGIC_CRITHITRATE         = 562, // Raises chance to magic crit
     MAGIC_CRIT_DMG_INCREASE   = 563, // Raises damage done when criting with magic
@@ -376,7 +376,7 @@ enum class Mod
     ABSORB_PHYSDMG_TO_MP      = 426, // Absorbs a percentage of physical damage taken to MP.
     SHIELD_MASTERY_TP         = 485, // Shield mastery TP bonus when blocking with a shield
     SENTINEL_EFFECT           = 837, // Sentinel effect in percents
-    SHIELD_DEF_BONUS          = 905, // Shield Defense Bonus
+    SHIELD_DEF_BONUS          = 905, // Shield Defense Bonus (Block Amount)
     COVER_TO_MP               = 1014, // Converts a successful cover's phsyical damage to MP
     COVER_MAGIC_AND_RANGED    = 1015, // Redirects ranged and single target magic attacks to the cover ability user
     COVER_DURATION            = 1016, // Increases Cover Duration
@@ -813,9 +813,9 @@ enum class Mod
     SYNTH_FAIL_RATE_COOK      = 932, // Amount synthesis failure rate is reduced when doing cooking
 
     //Fishing
-    PENGUIN_RING_EFFECT = 1000,   // +2 on fishing arrow delay / fish movement for mini - game
-    ALBATROSS_RING_EFFECT = 1001, // adds 30 seconds to mini - game time
-    PELICAN_RING_EFFECT = 1002,    // adds extra skillup roll for fishing
+    PENGUIN_RING_EFFECT = 1190,   // +2 on fishing arrow delay / fish movement for mini - game
+    ALBATROSS_RING_EFFECT = 1191, // adds 30 seconds to mini - game time
+    PELICAN_RING_EFFECT = 1192,   // adds extra skillup roll for fishing
 
     // Weaponskill %damage modifiers
     // The following modifier should not ever be set, but %damage modifiers to weaponskills use the next 255 IDs (this modifier + the WSID)
@@ -881,7 +881,7 @@ enum class Mod
     FRONTAL_PDT = 1188,
     BEHIND_PDT = 1189,
 
-     VERMIN_CIRCLE = 1224,
+    VERMIN_CIRCLE = 1224,
     BIRD_CIRCLE = 1225,
     AMORPH_CIRCLE = 1226,
     LIZARD_CIRCLE = 1227,

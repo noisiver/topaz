@@ -6,8 +6,20 @@
 local ID = require("scripts/zones/Ship_bound_for_Selbina/IDs")
 require("scripts/globals/keyitems")
 -----------------------------------
+local mobList = {
+    17678342,
+    17678343,
+    17678344,
+    17678345,
+    17678346,
+    17678350,
+}
 
 function onInitialize(zone)
+    -- 5% Chance to spawn a random mob from table when boat trip begins
+	if math.random(1,100) <= 5 then 
+        GetMobByID(mobList[math.random(#mobList)]):spawn()
+    end
 end
 
 function onZoneIn(player, prevZone)
@@ -29,6 +41,19 @@ end
 
 function onTransportEvent(player, transport)
     player:startEvent(255)
+    -- Despawn previous boat rides mobs
+    for v = 17678342, 17678351, 1 do
+        DespawnMob(v)
+    end
+end
+
+function onGameHour(zone)
+    -- 5% Chance to spawn a random mob from table every hour
+    if VanadielHour() % 1 == 0 then
+		if math.random(1,100) <= 5 then 
+            GetMobByID(mobList[math.random(#mobList)]):spawn()
+        end
+    end
 end
 
 function onEventUpdate(player, csid, option)

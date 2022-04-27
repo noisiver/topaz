@@ -14,10 +14,18 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 end
 
+function onMobRoam(mob)
+    local vHour = VanadielHour()
+    if vHour > 8 then -- Despawn after 8 AM
+        DespawnMob(mob:getID())
+    end
+end
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
 end
 
 function onMobDeath(mob, player, isKiller)
+    local Time = os.time()
+    mob:setLocalVar("SpawnTimer", Time + 3200)
     tpz.hunts.checkHunt(mob, player, 443)
 end

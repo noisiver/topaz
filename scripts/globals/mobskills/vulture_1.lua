@@ -1,6 +1,7 @@
 ---------------------------------------------
 -- (Vulture 1)
 -- Dummy ability used for 2hr animation.
+-- (Wind / Green)
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")

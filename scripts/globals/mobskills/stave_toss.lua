@@ -8,6 +8,11 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    -- Gotoh Zha the Redolent throws his staff then swaps to WHM
+    if mob:getPool() == 1773 then
+        return 0
+    end
+
     -- If animationSub is 1, mob has already lost the staff. If zero, still has staff.
     if mob:AnimationSub() == 1 then
         return 1

@@ -175,6 +175,23 @@ function onGameIn(player, firstLogin, zoning)
         player:addHP(50000)
         player:setMP(50000)
     end
+
+    -- soft god mode
+    if player:getCharVar("SoftGodMode") == 1 then
+        -- Add bonus effects to the player..
+        player:addStatusEffect(tpz.effect.HUNDRED_FISTS, 1, 0, 0)
+        player:addStatusEffect(tpz.effect.MAX_HP_BOOST,200,0,0)
+        player:addStatusEffect(tpz.effect.REGAIN,50,0,0)
+        player:addStatusEffect(tpz.effect.REFRESH,999,0,0)
+        player:addStatusEffect(tpz.effect.REGEN,999,0,0)
+        player:addStatusEffect(tpz.effect.CHAINSPELL, 1, 0, 0)
+        player:addStatusEffect(tpz.effect.MANAFONT, 1, 0, 0)
+
+
+        -- Heal the player from the new buffs..
+        player:addHP( 50000 )
+        player:setMP( 50000 )
+    end
     
     -- !immortal
     if player:getCharVar("Immortal") == 1 then

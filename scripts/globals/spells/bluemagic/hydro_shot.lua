@@ -45,7 +45,7 @@ function onSpellCast(caster, target, spell)
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    -- Missing ENIMITY DOWN
+    target:lowerEnmity(caster, 25)
 
     return damage
 end

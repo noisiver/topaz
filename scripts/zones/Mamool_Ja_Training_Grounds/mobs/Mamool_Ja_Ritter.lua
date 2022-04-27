@@ -6,14 +6,13 @@
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(75)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -25)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 20)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
-    --mob:AnimationSub(0)
+    mob:setLocalVar("AngonTime", 30)
 end
 
 function onMobRoam(mob)
@@ -30,17 +29,30 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+	local AngonTime = mob:getLocalVar("AngonTime")
+    local BattleTime = mob:getBattleTime()
     local instance = mob:getInstance()
 	local Dragoon = GetMobByID(mob:getID(instance) +1, instance)
     local zonePlayers = mob:getZone():getPlayers()
 	if mob:getHPP() <= 50 then
-    for _, zonePlayer in pairs(zonePlayers) do
-        zonePlayer:PrintToPlayer("The Wivre wails in pain as it falls over dead!",0,"???")
-    end
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("The Wivre wails in pain as it falls over dead!",0,"???")
+        end
         DespawnMob(mob:getID(instance), instance)
         Dragoon:spawn()
         Dragoon:updateEnmity(target)
 	end
+
+    -- Uses Blazing Angon every 30 seconds
+    if AngonTime > 0 and BattleTime >= AngonTime and mob:actionQueueEmpty() then
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("The Ritter adds fire to his angons!",0,"Ritter")
+        end
+        mob:useMobAbility(2098) -- Blazing Angon
+        mob:setLocalVar("AngonTime", 0)
+        mob:setLocalVar("AngonTime", BattleTime + 30)
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)

@@ -83,6 +83,7 @@ INSERT INTO `fishing_area` VALUES (65,1,'Pond',1,20,60,'',-103.000,11.000,-65.00
 INSERT INTO `fishing_area` VALUES (65,2,'Other Waterside',0,0,0,NULL,0.000,0.000,0.000);
 INSERT INTO `fishing_area` VALUES (68,1,'Whole Zone',0,0,0,NULL,0.000,0.000,0.000);
 INSERT INTO `fishing_area` VALUES (79,1,'Whole Zone',0,0,0,NULL,0.000,0.000,0.000);
+INSERT INTO `fishing_area` VALUES (83,1,'Whole Zone',0,0,0,NULL,0.000,0.000,0.000);
 INSERT INTO `fishing_area` VALUES (100,1,'Knightwell',0,0,0,'',0.000,0.000,0.000);
 INSERT INTO `fishing_area` VALUES (101,1,'Whole Zone',0,0,0,NULL,0.000,0.000,0.000);
 INSERT INTO `fishing_area` VALUES (102,1,'Whole Zone',0,0,0,NULL,0.000,0.000,0.000);

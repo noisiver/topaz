@@ -1,7 +1,9 @@
 -----------------------------------
 --
---  tpz.effect.CRITICAL_HIT_EVASION_DOWN
+--  tpz.effect.CRIT_HIT_EVASION_DOWN
 --
+-----------------------------------
+require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)

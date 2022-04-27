@@ -99,7 +99,7 @@ bool CRangeState::Update(time_point tick)
         CanFinishRangedAttack(PTarget);
         float xDiff = m_startPos.x - m_PEntity->loc.p.x;
         float yDiff = m_startPos.z - m_PEntity->loc.p.z;
-        float realDist = sqrt(pow(xDiff, 2) + pow(yDiff, 2));
+        float realDist = (float)sqrt(pow(xDiff, 2) + pow(yDiff, 2));
         if (realDist > 0.6f)
 		{
 		m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_MOVE_AND_INTERRUPT);
@@ -107,6 +107,7 @@ bool CRangeState::Update(time_point tick)
         else if (battleutils::IsParalyzed(m_PEntity))
         {
             m_errorMsg = std::make_unique<CMessageBasicPacket>(m_PEntity, m_PEntity, 0, 0, MSGBASIC_IS_PARALYZED);
+            m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE, new CMessageBasicPacket(m_PEntity, m_PEntity, 0, 0, MSGBASIC_IS_PARALYZED));
         }
 
         action_t action;

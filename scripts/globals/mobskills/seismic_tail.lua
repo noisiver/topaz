@@ -17,6 +17,10 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
 	local CurrentTP = mob:getTP()
 	mob:setLocalVar("TP", CurrentTP)
+    local AIMode = mob:getLocalVar("AIMode")
+    if mob:getPool() == 2920 and AIMode == 1 then -- Nuhn
+        return 1
+    end
     return 0
 end
 

@@ -18,7 +18,7 @@ end
 function onUseAbility(player, target, ability, action)
     local params = {}
     params.numHits = 1
-    local ftp = 1 + (player:getStat(tpz.mod.VIT) / 256)
+    local ftp = math.floor(1 + (player:getStat(tpz.mod.VIT) / 256) / 2)
     params.ftp100 = ftp params.ftp200 = ftp params.ftp300 = ftp
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
@@ -34,13 +34,18 @@ function onUseAbility(player, target, ability, action)
 
     local taChar = player:getTrickAttackChar(target)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, 0, params, 0, action, true, taChar)
-
+    local level = player:getMainLvl()
+    local power = math.floor(level / 10)
     if (tpHits + extraHits > 0) then
         -- Under Spirit Surge, Jump also decreases target defense by 20% for 60 seconds
         if (player:hasStatusEffect(tpz.effect.SPIRIT_SURGE) == true) then
             if (target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) then
                 target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 20, 0, 60)
             end
+        end
+        -- Add critical evasion down for DRG main only
+        if player:getMainJob() == tpz.job.DRG then
+                target:addStatusEffect(tpz.effect.CRIT_HIT_EVASION_DOWN, power, 0, 60)
         end
         if (criticalHit) then
             action:speceffect(target:getID(), 38)

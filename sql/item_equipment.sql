@@ -8121,8 +8121,8 @@ INSERT INTO `item_equipment` VALUES (18391,'sacred_mace',43,0,1048645,107,0,0,3,
 INSERT INTO `item_equipment` VALUES (18392,'sacred_maul',38,0,1048580,116,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (18393,'sacred_wand',67,0,1622044,228,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (18394,'pilgrims_wand',10,0,1622044,242,0,0,3,0);
-INSERT INTO `item_equipment` VALUES (18395,'seawolf_cudgel',68,0,4,100,0,0,3,0);
-INSERT INTO `item_equipment` VALUES (18396,'sea_rob._cudgel',68,0,4,101,0,0,3,0);
+INSERT INTO `item_equipment` VALUES (18395,'seawolf_cudgel',68,0,1622044,100,0,0,3,0);
+INSERT INTO `item_equipment` VALUES (18396,'sea_rob._cudgel',68,0,1622044,101,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (18397,'prudence_rod',73,0,1048588,336,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (18398,'raphaels_rod',75,0,4194303,240,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (18399,'charm_wand',1,0,4194303,373,0,0,3,0);

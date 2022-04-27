@@ -12,6 +12,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if (target:isInfront(mob, 90) == false) then
+        return 1
+    end
   if (mob:getFamily() == 316) then
     local mobSkin = mob:getModelId()
 
@@ -28,7 +31,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
     local power = 1
 
-    local duration = 60
+    local duration = 300
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, duration))
 

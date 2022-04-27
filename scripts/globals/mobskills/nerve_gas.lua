@@ -1,7 +1,7 @@
 ---------------------------------------------
 -- Nerve Gas
 --
--- Description: Inflicts curse and powerful poison tpz.effect.
+-- Description: Inflicts 50% curse and powerful poison.
 -- Type: Magical
 -- Wipes Shadows
 -- Range: 10' Radial
@@ -12,7 +12,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-
+    if (mob:getFamily() == 313) then -- Tinnin only uses after Polar/Pyric Bulwark
+        return 1
+    end
     if (mob:getFamily() == 316) then -- PW
         local mobSkin = mob:getModelId()
         if (mobSkin == 1796) then
@@ -20,8 +22,6 @@ function onMobSkillCheck(target, mob, skill)
         else
             return 1
         end
-    elseif (mob:getFamily() == 313) then -- Tinnin can use at will
-        return 0
     end
     
    if mob:getPool() == 2018 and mob:AnimationSub() < 2 then -- Hydra HNM
@@ -34,7 +34,13 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.CURSE_I, 50, 0, 420))
-    MobStatusEffectMove(mob, target, tpz.effect.POISON, 50, 3, 60)
-    return tpz.effect.CURSE_I
+    local dmgmod = 1
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, tpz.magic.ele.WATER, dmgmod, TP_MAB_BONUS, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_WIPE_SHADOWS)
+
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
+
+    MobStatusEffectMove(mob, target, tpz.effect.CURSE_I, 50, 0, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.POISON, 20, 3, 300)
+    return dmg
 end

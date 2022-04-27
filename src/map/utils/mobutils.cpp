@@ -627,10 +627,9 @@ void SetupJob(CMobEntity* PMob)
             break;
         case JOB_DRK:
             if ((PMob->m_Family >= 255 && PMob->m_Family <= 256) || (PMob->m_Family >= 319 && PMob->m_Family <= 325) ||
-                (PMob->m_Family >= 203 && PMob->m_Family <= 205) ||
-                (PMob->m_Family >= 88 && PMob->m_Family <= 89) || PMob->m_Family == 227 || PMob->m_Family == 72 || PMob->m_Family == 217 ||
-                PMob->m_Family == 74 || PMob->m_Family == 81|| PMob->m_Family == 378)
-            // Promy mobs, Avatars, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite, Diabolos
+                (PMob->m_Family >= 203 && PMob->m_Family <= 205) || (PMob->m_Family >= 88 && PMob->m_Family <= 89) || PMob->m_Family == 227 ||
+                PMob->m_Family == 72 || PMob->m_Family == 217 || PMob->m_Family == 74 || PMob->m_Family == 81 || PMob->m_Family == 252 || PMob->m_Family == 378)
+            // Promy mobs, Avatars, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite, Vampyr, Diabolos
             {
                 PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
             }
@@ -638,11 +637,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_WHM:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_BRD:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 25);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 60);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
@@ -651,7 +650,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             break;
         case JOB_RDM:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 15);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
@@ -665,8 +664,8 @@ void SetupJob(CMobEntity* PMob)
             break;
         case JOB_NIN:
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
-            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 20);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
+            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 75);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         default:
@@ -1003,9 +1002,9 @@ void SetupBattlefieldMob(CMobEntity* PMob)
     // do not roam around
     PMob->m_roamFlags |= ROAMFLAG_EVENT;
     PMob->m_maxRoamDistance = 0.5f;
-    if ((PMob->m_bcnmID != 864) && (PMob->m_bcnmID != 704) && (PMob->m_bcnmID != 706))
+    if ((PMob->m_bcnmID != 864) && (PMob->m_bcnmID != 704) && (PMob->m_bcnmID != 706) && (PMob->m_bcnmID != 641))
     {
-        // bcnmID 864 (desires of emptiness), 704 (darkness named), and 706 (waking dreams) don't superlink
+        // bcnmID 864 (desires of emptiness), 704 (darkness named), 641 (Follow The White RAbbit), and 706 (waking dreams) don't superlink
         // force all mobs in same instance to superlink
         // plus one in case id is zero
         PMob->setMobMod(MOBMOD_SUPERLINK, PMob->m_battlefieldID);

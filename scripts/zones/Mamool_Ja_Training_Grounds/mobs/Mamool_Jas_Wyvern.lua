@@ -3,14 +3,15 @@
 --  Mob: Mamool Ja Medic
 -- Job: Pet
 -----------------------------------
+require("scripts/globals/status")
 local ID = require("scripts/zones/Mamool_Ja_Training_Grounds/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(50)
     mob:setMod(tpz.mod.MDEF, 0)
     mob:setMod(tpz.mod.UDMGMAGIC, 0)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+    mob:addImmunity(tpz.immunity.SLEEP)
     mob:SetMobAbilityEnabled(false)
     --mob:AnimationSub(0)
 end

@@ -12,11 +12,12 @@ function onMobInitialize(mob)
     --50% fast cast, no standback
     mob:addMod(tpz.mod.UFASTCAST, 50)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50) 
-    mob:addMod(tpz.mod.ATTP, 50)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 30) 
     mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 400)
@@ -25,6 +26,7 @@ function onMobSpawn(mob)
     mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 0)
     mob:addStatusEffectEx(tpz.effect.ARROW_SHIELD, 0, 1, 0, 0)
     mob:addStatusEffectEx(tpz.effect.MAGIC_SHIELD, 0, 1, 0, 0)
+    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17518596)
 end
 
 function onMobEngaged(mob, target)
@@ -36,7 +38,7 @@ function onMobFight(mob, target)
 	local orbitalOne = GetMobByID(mob:getID()+3)
 	local orbitalTwo = GetMobByID(mob:getID()+4)
 	
-	 if orbitalOne:isSpawned() then
+	if orbitalOne:isSpawned() then
 		orbitalOne:updateEnmity(target)
 	end
 	if  orbitalTwo:isSpawned() then

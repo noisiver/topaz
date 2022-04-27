@@ -2,7 +2,7 @@
 -- Arching Arrow
 -- Archery weapon skill
 -- Skill level: 225
--- Delivers a single-hit attack. Chance of params.critical varies with TP.
+-- Deals fire damage.
 -- Aligned with the Flame Gorget & Light Gorget.
 -- Aligned with the Flame Belt & Light Belt.
 -- Element: None

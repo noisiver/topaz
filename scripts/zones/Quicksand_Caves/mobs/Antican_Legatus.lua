@@ -7,6 +7,7 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
+    mob:setDamage(145)
     mob:addMod(tpz.mod.DEFP, 50) 
     mob:setMod(tpz.mod.UFASTCAST, 50)
     mob:setMod(tpz.mod.REFRESH, 400)
@@ -21,59 +22,94 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 90)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 60)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setLocalVar("Guards", 0)
+end
+
+function onMobEngaged(mob, target)
+    -- Despawn all Anticans in his room disable them respawning
+    for v = 17629632, 17629638, 1 do
+        DespawnMob(v)
+        DisallowRespawn(v, true)
+    end
 end
 
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
     local Guard = GetMobByID(mob:getID()-1)
     local GuardTwo = GetMobByID(mob:getID()+1)
-    local Shell = mob:getLocalVar("Shell")
-    local GuardsDead = GetMobByID(ID.mob.ANTICAN_CONSUL):isDead() and GetMobByID(ID.mob.ANTICAN_PRAETOR):isDead()
+    local Guards = mob:getLocalVar("Guards")
 
-    if mob:getHPP() <= 75 and hitTrigger == 0 and Shell == 0   then
-        target:PrintToPlayer("I have no more time for your games.",0,"Legatus")
+    if mob:getHPP() <= 75 and hitTrigger == 0 then
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("I have no more time for your games.",0,"Legatus")
+        end
         mob:useMobAbility(624) -- 2 hour "cloud" animation
+        Guard:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
         Guard:spawn()
         Guard:updateEnmity(target)
+        GuardTwo:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
         GuardTwo:spawn()
         GuardTwo:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 1)
-        mob:setLocalVar("Shell", 1)
-        printf("Spawning Guards 75%");
+        mob:setLocalVar("Guards", 1)
+        --printf("Spawning Guards 75");
     end
-    if mob:getHPP() <= 50 and hitTrigger == 1 and Shell == 0  then
-        target:PrintToPlayer("I have no more time for your games.",0,"Legatus")
+    if mob:getHPP() <= 50 and hitTrigger == 1 then
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("I have no more time for your games.",0,"Legatus")
+        end
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:addMod(tpz.mod.ATTP, 25)
         mob:addMod(tpz.mod.ACC, 50)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 20)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 1500)
+        Guard:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
         Guard:spawn()
         Guard:updateEnmity(target)
+        GuardTwo:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
         GuardTwo:spawn()
         GuardTwo:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 2)
-        mob:setLocalVar("Shell", 1)
-        printf("Spawning Guards 50%");
+        mob:setLocalVar("Guards", 1)
+        --printf("Spawning Guards 50");
     end
-    if mob:getHPP() <= 25 and hitTrigger == 2 and Shell == 0  then
-        target:PrintToPlayer("I have no more time for your games.",0,"Legatus")
+    if mob:getHPP() <= 25 and hitTrigger == 2 then
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("I have no more time for your games.",0,"Legatus")
+        end
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         mob:addMod(tpz.mod.ATTP, 25)
         mob:addMod(tpz.mod.ACC, 50)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 20)
         mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 2500)
+        Guard:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
         Guard:spawn()
         Guard:updateEnmity(target)
+        GuardTwo:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
         GuardTwo:spawn()
         GuardTwo:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 3)
-        mob:setLocalVar("Shell", 1)
-        printf("Spawning Guards 25%");
+        mob:setLocalVar("Guards", 1)
+        --printf("Spawning Guards 25");
     end
 
-    if Shell == 1  then
-        printf("Protective Shell");
+    if Guards == 0 then
+        --printf("Protective shell removed");
+        mob:setMod(tpz.mod.REGEN, 0)
+        mob:setMod(tpz.mod.UDMGPHYS, 0)
+        mob:setMod(tpz.mod.UDMGRANGE, 0)
+        mob:setMod(tpz.mod.UDMGMAGIC, 0)
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+        mob:SetAutoAttackEnabled(true)
+        mob:SetMobAbilityEnabled(true)
+        mob:SetMagicCastingEnabled(true)
+    end
+
+    if Guards == 1  then
+        --printf("Protective Shell");
         mob:setMod(tpz.mod.REGEN, 300)
         mob:setMod(tpz.mod.UDMGPHYS, -100)
         mob:setMod(tpz.mod.UDMGRANGE, -100)
@@ -83,19 +119,11 @@ function onMobFight(mob, target)
         mob:SetMobAbilityEnabled(false)
         mob:SetMagicCastingEnabled(false)
     end
-    if GuardsDead then
-        printf("Protective shell removed");
-        mob:setMod(tpz.mod.REGEN, 0)
-        mob:setMod(tpz.mod.UDMGPHYS, 0)
-        mob:setMod(tpz.mod.UDMGRANGE, 0)
-        mob:setMod(tpz.mod.UDMGMAGIC, 0)
-        mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
-        mob:SetAutoAttackEnabled(true)
-        mob:SetMobAbilityEnabled(true)
-        mob:SetMagicCastingEnabled(true)
-        mob:setLocalVar("Shell", 0)
-    end
 end
 
 function onMobDeath(mob, player, isKiller)
+    -- Allow Anticans in his room to respawn
+    for v = 17629632, 17629638, 1 do
+        DisallowRespawn(v, false)
+    end
 end

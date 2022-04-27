@@ -2873,6 +2873,36 @@ namespace luautils
         return 0;
     }
 
+    int32 OnFrontalCriticalHit(CBattleEntity* PMob, CBattleEntity* PAttacker)
+    {
+        TPZ_DEBUG_BREAK_IF(PMob == nullptr || PMob->objtype != TYPE_MOB)
+
+        CLuaBaseEntity LuaMobEntity(PMob);
+        CLuaBaseEntity LuaKillerEntity(PAttacker);
+
+        lua_prepscript("scripts/zones/%s/mobs/%s.lua", PMob->loc.zone->GetName(), PMob->GetName());
+
+        if (prepFile(File, "OnFrontalCriticalHit"))
+        {
+            return -1;
+        }
+
+        Lunar<CLuaBaseEntity>::push(LuaHandle, &LuaMobEntity);
+        if (PAttacker)
+            Lunar<CLuaBaseEntity>::push(LuaHandle, &LuaKillerEntity);
+        else
+            lua_pushnil(LuaHandle);
+
+        if (lua_pcall(LuaHandle, 2, 0, 0))
+        {
+            ShowError("luautils::OnFrontalCriticalHit: %s\n", lua_tostring(LuaHandle, -1));
+            lua_pop(LuaHandle, 1);
+            return -1;
+        }
+
+        return 0;
+    }
+
     int32 OnSkillchain(CBattleEntity* PMob, CBattleEntity* PAttacker)
     {
         TPZ_DEBUG_BREAK_IF(PMob == nullptr || PMob->objtype != TYPE_MOB)

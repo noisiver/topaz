@@ -28,6 +28,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.hybridWS = true
     params.ele = tpz.magic.ele.WIND
     params.skill = tpz.skill.GREAT_KATANA
+	params.bonusmacc = 50
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.ftp100 = 0.5 params.ftp200 = 0.75 params.ftp300 = 1
@@ -38,11 +39,12 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     local IgnisRunes = player:getLocalVar("IgnisRunes")
+    local RuneDuration = player:getMainLvl() + 15
     if damage > 0 and IgnisRunes <=2 then
         for v = 524,530,1 do
             player:delStatusEffectSilent(v)
         end
-        player:addStatusEffect(tpz.effect.IGNIS, 1, 0, 300)
+        player:addStatusEffect(tpz.effect.IGNIS, 1, 0, RuneDuration)
     end
     return tpHits, extraHits, criticalHit, damage
 

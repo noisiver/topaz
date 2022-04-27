@@ -54,7 +54,7 @@ function onSpellCast(caster, target, spell)
 
     params.skillType = tpz.skill.DIVINE_MAGIC
 
-    params.bonus =  150
+    params.bonus =  200
 
     params.effect = nil
 
@@ -62,7 +62,7 @@ function onSpellCast(caster, target, spell)
     local duration = 12 * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BLIND, target))
 
-    if (resist > 0.0625) then
+    if (resist >= 0.0625) then
         if (target:addStatusEffect(tpz.effect.FLASH, 300, 3, duration)) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else

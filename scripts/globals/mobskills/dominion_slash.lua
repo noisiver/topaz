@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
 
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SILENCE, 1, 0, 60)
+	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SILENCE, 1, 0, 300)
 	if (dmg > 0) then
 		target:dispelStatusEffect()
 	end

@@ -10,6 +10,10 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    -- Gotoh Zha the Redolents warm up enables the use of Groundburst
+    if mob:getPool() == 1773 then
+        return 0
+    end
 	if mob:hasStatusEffect(tpz.effect.EVASION_BOOST) then
 		return 1
 	end

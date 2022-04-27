@@ -1,6 +1,6 @@
 ---------------------------------------------------
--- Sheep Charge Autoattack
--- Deals damage to a single target. Additional effect: Knockback
+-- Salvation Scythe Autoattack
+-- Used by Marquis Allocen
 ---------------------------------------------------
 
 require("scripts/globals/settings")
@@ -30,10 +30,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 	
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.PARALYSIS, 15, 0, 30)
-	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SLOW, 1250, 0, 30)
-	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.WEIGHT, 25, 0, 30)
-	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BLINDNESS, 25, 0, 30)
+	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.STUN, 1, 0, 4)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

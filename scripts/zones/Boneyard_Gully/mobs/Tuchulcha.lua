@@ -7,8 +7,18 @@ mixins = {require("scripts/mixins/families/antlion_ambush")}
 local ID = require("scripts/zones/Boneyard_Gully/IDs")
 require("scripts/globals/status")
 -----------------------------------
-
 function onMobSpawn(mob)
+    mob:setDamage(120)
+    mob:setMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.DEFP, 25)
+    mob:addMod(tpz.mod.EVA, 10)
+    mob:setMod(tpz.mod.REFRESH, 300)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    mob:addImmunity(tpz.immunity.GRAVITY)
+    mob:addImmunity(tpz.immunity.PARALYZE)
+    mob:addImmunity(tpz.immunity.BIND)
+    mob:addImmunity(tpz.immunity.STUN)
     -- Aggros via ambush, not superlinking
     mob:setMobMod(tpz.mobMod.SUPERLINK, 0)
 
@@ -18,9 +28,23 @@ end
 
 -- Reset restHP when re-engaging after a sandpit
 function onMobEngaged(mob, target)
+    mob:hideName(false)
+    mob:untargetable(false)
+    mob:AnimationSub(1)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     if mob:getMobMod(tpz.mobMod.NO_REST) == 1 then
         mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
         mob:setMobMod(tpz.mobMod.NO_REST, 0)
+    end
+    if (mob:getLocalVar('Sandpits') == 0) then
+        for _, char in pairs(mob:getBattlefield():getPlayers()) do
+            char:messageSpecial(ID.text.GIANT_ANTLION)
+        end
+    end
+    if (mob:getLocalVar('Sandpits') > 0) then
+        for _, char in pairs(mob:getBattlefield():getPlayers()) do
+            char:messageSpecial(ID.text.ANTLION_ESCAPED)
+        end
     end
 end
 
@@ -40,7 +64,7 @@ function onMobFight(mob, target)
             local coords = ID.sheepInAntlionsClothing[tuchulcha:getBattlefield():getArea()].ant_positions[pos_index]
             tuchulcha:setPos(coords)
             for _, char in pairs(tuchulcha:getBattlefield():getPlayers()) do
-                char:messageSpecial(ID.text.TUCHULCHA_SANDPIT)
+                char:messageSpecial(ID.text.RETREATS_SOIL)
                 char:disengage()
                 if char:hasPet() then
                     char:petRetreat()
@@ -55,6 +79,10 @@ function onMobDeath(mob, player, isKiller)
     -- Despawn the hunters
     if isKiller then
         local bfID = mob:getBattlefield():getArea()
+            for _, char in pairs(mob:getBattlefield():getPlayers()) do
+                char:messageSpecial(ID.text.TUCHULCHA_DEATH)
+            end
+        GetNPCByID(16810005):setPos(mob:getXPos(), mob:getYPos(), mob:getZPos())
         DespawnMob(ID.sheepInAntlionsClothing[bfID].SWIFT_HUNTER_ID)
         DespawnMob(ID.sheepInAntlionsClothing[bfID].SHREWD_HUNTER_ID)
         DespawnMob(ID.sheepInAntlionsClothing[bfID].ARMORED_HUNTER_ID)

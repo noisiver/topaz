@@ -29,6 +29,13 @@ function onMobFight(mob, target)
 	else
 		mob:setMod(tpz.mod.REGEN, 0)
 	end
+    -- "Stick" to target
+    if mob:checkDistance(target) > 1 then
+        local targetPos = target:getPos()
+        local radians = (256 - targetPos.rot) * (math.pi / 128)
+        mob:pathTo(targetPos.x + math.cos(radians), targetPos.y, targetPos.z + math.sin(radians))
+    end
+    -- Debuff nearby targets
     local nearbyPlayers = mob:getPlayersInRange(8)
     if nearbyPlayers == nil then return end
     for _,v in ipairs(nearbyPlayers) do
@@ -37,7 +44,6 @@ function onMobFight(mob, target)
         v:delStatusEffectSilent(tpz.effect.MUTE)
         v:addStatusEffectEx(tpz.effect.MUTE, tpz.effect.MUTE, 1, 0, 5)
     end
-
 end
 
 function onAdditionalEffect(mob, target, damage)

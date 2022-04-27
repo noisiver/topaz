@@ -70,7 +70,7 @@ function onUseAbility(player, target, ability)
     end
 
     -- Contradance check
-    if (player:hasStatusEffect(tpz.effect.DIVINE_SEAL) == true) then
+    if (player:hasStatusEffect(tpz.effect.CONTRADANCE) == true) then
         cure = cure * 2
     end
 
@@ -80,7 +80,6 @@ function onUseAbility(player, target, ability)
     target:restoreHP(cure)
     target:wakeUp()
     player:updateEnmityFromCure(target, cure)
-    player:delStatusEffectSilent(tpz.effect.DIVINE_SEAL)
 
     return cure
 end

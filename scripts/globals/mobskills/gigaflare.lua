@@ -15,7 +15,7 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
     local mobhp = mob:getHPP()
 
-    if (mobhp <= 10) then -- set up Gigaflare for being called by the script again.
+    if (mobhp < 10) then -- set up Gigaflare for being called by the script again.
         mob:setLocalVar("GigaFlare", 0)
         mob:SetMobAbilityEnabled(false) -- disable mobskills/spells until Gigaflare is used successfully (don't want to delay it/queue Megaflare)
         mob:SetMagicCastingEnabled(false)
@@ -33,9 +33,9 @@ function onMobWeaponSkill(target, mob, skill)
         mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     end
 
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.FIRE, 1200)
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
+    local dmgmod = 1200
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
 
-    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.FIRE)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
     return dmg
 end

@@ -27,7 +27,7 @@ function onMobSkillCheck(target, mob, skill)
 
     if (family == 168 and mobhp <= 37) then -- Khimaira < 35%
         result = 0
-    elseif (family == 315 and mobhp <= 50) then -- Tyger < 50%
+    elseif (family == 315 and mobhp < 50) then -- Tyger < 50%
         result = 0
     end
 
@@ -38,12 +38,12 @@ function onMobWeaponSkill(target, mob, skill)
 
 -- TODO: Hits all players near Khimaira, not just alliance.
 
-    local dmgmod = 2
+    local dmgmod = 3
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, tpz.magic.ele.THUNDER, dmgmod, TP_MAB_BONUS, 1)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING, MOBPARAM_WIPE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
-    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 65, 0, 60)
+    MobStatusEffectMove(mob, target, tpz.effect.PARALYSIS, 65, 0, 300)
     MobStatusEffectMove(mob, target, tpz.effect.STUN, 1, 0, 4)
     return dmg
 end

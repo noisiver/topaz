@@ -9,6 +9,9 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 1272 then -- Experimental Lamia
+        return 0
+    end
     if mob:getMainJob() == tpz.job.COR then
         return 0
     else

@@ -26,10 +26,17 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffectOne = tpz.effect.ICE_SPIKES
     local typeEffectTwo = tpz.effect.DEFENSE_BOOST
-    local powerOne = 18
     local powerTwo = 50
-    local duration = 180
+    local duration = 300
     local returnEffect = typeEffectOne
+
+    local INT = caster:getStat(tpz.mod.INT)
+    local MAB = caster:getMod(tpz.mod.MATT)
+    local powerOne = math.floor((INT + 50) / 20) * (1 + MAB / 100)
+
+	if powerOne > 15 then
+		powerOne = 15
+	end
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
@@ -49,10 +56,10 @@ function onSpellCast(caster, target, spell)
         returnEffect = typeEffectTwo
     else
         target:addStatusEffect(typeEffectOne, powerOne, 0, duration)
-		typeEffectOne:unsetFlag(tpz.effectFlag.DISPELABLE)
+		target:getStatusEffect(typeEffectOne):unsetFlag(tpz.effectFlag.DISPELABLE)
         target:addStatusEffect(typeEffectTwo, powerTwo, 0, duration)
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     end
 
-    	return returnEffect
+    return returnEffect
 end

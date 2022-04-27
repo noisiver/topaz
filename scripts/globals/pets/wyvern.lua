@@ -120,7 +120,7 @@ function onMobSpawn(mob)
 	    mob:addMod(tpz.mod.ACC, 10)
 	end
 	 
-	 if mob:getMainLvl() >= 70 then
+	if mob:getMainLvl() >= 70 then
 		mob:addMod(tpz.mod.MACC, 48)
 	elseif mob:getMainLvl() >= 50 then
 	    mob:addMod(tpz.mod.MACC, 35)
@@ -264,6 +264,41 @@ function onMobSpawn(mob)
             pet:setLocalVar("level_Ups", pet:getLocalVar("level_Ups") + diff)
         end
     end)
+end
+
+function onMobFight(mob, target)
+    local master = mob:getMaster()
+    -- Add item mods
+    local Learring = master:getEquipID(tpz.slot.EAR1)
+    local Rearring = master:getEquipID(tpz.slot.EAR2)
+    if Learring == 16000 or Rearring == 16000 then -- Dragoon's Earring
+	    if mob:getMainLvl() >= 70 then
+		    mob:setMod(tpz.mod.MACC, 68)
+	    elseif mob:getMainLvl() >= 50 then
+	        mob:setMod(tpz.mod.MACC, 55)
+	    elseif mob:getMainLvl() >= 30 then
+	        mob:setMod(tpz.mod.MACC, 42)
+	    elseif mob:getMainLvl() >= 10 then
+	        mob:setMod(tpz.mod.MACC, 20)
+	    end
+    else
+ 	    if mob:getMainLvl() >= 70 then
+		    mob:setMod(tpz.mod.MACC, 48)
+	    elseif mob:getMainLvl() >= 50 then
+	        mob:setMod(tpz.mod.MACC, 35)
+	    elseif mob:getMainLvl() >= 30 then
+	        mob:setMod(tpz.mod.MACC, 22)
+	    elseif mob:getMainLvl() >= 10 then
+	        mob:setMod(tpz.mod.MACC, 10)
+	    end       
+    end
+    -- Spirit power logic(Spirit Surge)
+    local SpiritPower = master:getLocalVar("SpiritPower")
+    if SpiritPower > 0 then
+        mob:setMod(tpz.mod.ATTP, SpiritPower * 15)
+    else
+        mob:setMod(tpz.mod.ATTP, 0)
+    end
 end
 
 function onMobDeath(mob, player)

@@ -49,7 +49,7 @@ function onSpellCast(caster, target, spell)
     params.diff = nil
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.DARK_MAGIC
-    params.bonus = 150
+    params.bonus = 200
     params.effect = tpz.effect.STUN
     local resist = applyResistanceEffect(caster, target, spell, params)
     duration = math.ceil(duration * resist * tryBuildResistance(tpz.magic.buildcat.STUN, target))
@@ -59,7 +59,7 @@ function onSpellCast(caster, target, spell)
         return 0
     end
    
-   if (resist > 0.0625) then
+   if (resist >= 0.0625) then
 		if (target:hasStatusEffect(tpz.effect.STUN)) then
 			-- no effect
 			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

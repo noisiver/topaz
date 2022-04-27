@@ -15,6 +15,7 @@ function onEffectGain(target, effect)
 	target:addMod(tpz.mod.ACC, 100) 
 	target:addMod(tpz.mod.RACC, 100) 
 	target:addMod(tpz.mod.MACC, 100)
+	target:addMod(tpz.mod.CURE_POTENCY_II, 30)
 	target:addMod(tpz.mod.NO_SPELL_MP_DEPLETION, 100)
 end
 
@@ -32,5 +33,6 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.ACC, 100) 
     target:delMod(tpz.mod.RACC, 100) 
     target:delMod(tpz.mod.MACC, 100)
+    target:delMod(tpz.mod.CURE_POTENCY_II, 30)
 	target:delMod(tpz.mod.NO_SPELL_MP_DEPLETION, 100)
 end

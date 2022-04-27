@@ -12,11 +12,13 @@ end
 function onMobSpawn(mob)
 	mob:setDamage(90)
     mob:setMod(tpz.mod.DEF, 450)
-    mob:setMod(tpz.mod.EVA, 380) 
+    mob:setMod(tpz.mod.EVA, 380)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 3000) -- 5k Gil
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 5000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:addMod((tpz.mod.FIRE_ABSORB + VanadielDayElement() - 1), 100)
     mob:addMod(tpz.mod.WIND_ABSORB, 100)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setLocalVar("HPP", 90)
 end
 
@@ -38,5 +40,15 @@ end
 function onMobWeaponSkill(target, mob, skill)
 end
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, player, isKiller)
+    player:addCurrency("zeni_point", 100)
+	if isKiller  then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 24 then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
+	if isKiller and math.random(1,100) <= 15 then 
+		player:addTreasure(5735, mob)--Cotton Coin Purse
+	end
 end

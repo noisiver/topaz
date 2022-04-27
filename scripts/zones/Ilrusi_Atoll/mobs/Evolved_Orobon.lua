@@ -17,7 +17,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:AnimationSub(0)
 	mob:setLocalVar("Message", 0)
-    mob:setLocalVar("BreakChance", 5)
+    mob:setLocalVar("FeelersBreakChance", 5)
 end
 
 function onMobRoam(mob)
@@ -56,7 +56,7 @@ function onMobFight(mob, target)
             end
 		    mob:setLocalVar("Message", 1)
 		    mob:setLocalVar("MessageTwo", 0)
-            mob:setLocalVar("FrenzyTime", BattleTime + 10)
+            mob:setLocalVar("FrenzyTime", BattleTime + 90)
         end
     end
     if BattleTime >= FrenzyTime and Message == 1 then

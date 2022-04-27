@@ -24,10 +24,10 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 20 + (enhskill / 30)
 
     -- Todo: check message behavior, this double setMsg() looks wrong
-    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 60))
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 300))
     local effect1 = mob:getStatusEffect(tpz.effect.ICE_SPIKES)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
-    skill:setMsg(MobBuffMove(mob, typeEffect2, 50, 0, 60))
+    skill:setMsg(MobBuffMove(mob, typeEffect2, 50, 0, 300))
     local effect2 = mob:getStatusEffect(tpz.effect.DEFENSE_BOOST)
 
     return typeEffect

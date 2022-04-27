@@ -64,7 +64,7 @@ function onRegionEnter(player, region)
             gate:setLocalVar("isOpen", 1)
 
             -- I think different gates might have different durations.
-            local time = 60
+            local time = 45
             local zonePlayers = player:getZone():getPlayers()
             for _, zonePlayer in pairs(zonePlayers) do
                 -- send gate opening text to each player in zone

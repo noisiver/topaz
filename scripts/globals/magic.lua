@@ -1005,6 +1005,30 @@ end
         dmg = math.floor(dmg * circlemult / 100)
     end
 
+    -- Handle Positional MDT
+    if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+    if caster:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+
     dmg = target:magicDmgTaken(dmg)
 
     if (dmg > 0) then
@@ -1111,15 +1135,15 @@ function calculateMagicBurst(caster, spell, target, params)
 
     if (skillchainTier > 0) then
         if (skillchainCount == 1) then -- two weaponskills
-            skillchainburst = 2.0 -- was 1.35
+            skillchainburst = 1.5 -- was 1.35
         elseif (skillchainCount == 2) then -- three weaponskills
-            skillchainburst = 2.15 -- was 1.45
+            skillchainburst = 1.6 -- was 1.45
         elseif (skillchainCount == 3) then -- four weaponskills
-             skillchainburst = 2.25 -- was 1.55
+             skillchainburst = 1.7 -- was 1.55
         elseif (skillchainCount == 4) then -- five weaponskills
-            skillchainburst = 2.35 -- was 1.65
+            skillchainburst = 1.8 -- was 1.65
         elseif (skillchainCount == 5) then -- six weaponskills
-            skillchainburst = 2.45 -- was 1.75
+            skillchainburst = 2.0 -- was 1.75
         else
             -- Something strange is going on if this occurs.
             skillchainburst = 1.0
@@ -1380,7 +1404,10 @@ end
 
 function getElementalDebuffStatDownFromDOT(dot)
     local stat_down = 0
-    stat_down = (dot-4)* 0.5 +5 
+    stat_down = (dot-4)* 0.5 +5
+    if dot > 30 then
+        stat_down = 39 -- BLU"s cold wave is -39 stat down
+    end
     return stat_down
 end
 
@@ -1595,8 +1622,11 @@ function getElementalSDT(element, target) -- takes into account if magic burst w
             SDT = SDT + 10
         end
     end
-    
-    local SDTcoe = (1 - target:getMod(tpz.mod.SPDEF_DOWN)/100) -- warrior's tomahawk, or whm's banish against undead
+
+    local SPDefDown = target:getMod(tpz.mod.SPDEF_DOWN)/100
+    if SPDefDown >= 100 then SPDefDown = 99 end -- Breaks if it goes to 100
+    local SDTcoe = (1 - SPDefDown/100) -- warrior's tomahawk, or whm's banish against undead
+    -- Never make SPDEF down 100 or this breaks
     if SDTcoe < 0.03 then
         SDTcoe = 0.03
     elseif SDTcoe > 1 then

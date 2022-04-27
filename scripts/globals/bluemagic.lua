@@ -95,13 +95,18 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     -- If under CA, replace multiplier with fTP(multiplier, tp150, tp300)
     local chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
-    if chainAffinity ~= nil then
+    local azureLore = caster:getStatusEffect(tpz.effect.AZURE_LORE)
+    if chainAffinity ~= nil or azureLore ~= nil then
         -- Calculate the total TP available for the fTP multiplier.
         local tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
         if tp > 3000 then
             tp = 3000
         end
-
+        -- Azure Lore treats all spells like they're 3k TP'
+        if azureLore ~= nil then
+            tp = 3000
+        end
+        --printf("%u", tp)
         multiplier = BluefTP(tp, multiplier, params.tp150, params.tp300)
         bonusWSC = bonusWSC + 1 -- Chain Affinity Doubles the Base WSC.
     end
@@ -175,7 +180,22 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 		BluAttkModifier = 1
 	end
 
-	local bluphysattk = (((caster:getSkillLevel(tpz.skill.BLUE_MAGIC) + 8 + (caster:getStat(tpz.mod.STR) * 0.75) + caster:getMod(tpz.mod.ATT)) * ((caster:getMod(tpz.mod.ATTP) / 100) + 1)) * BluAttkModifier) 
+	local bluphysattk = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
+    --printf("Attack after Skill - > %u", bluphysattk)
+    -- Add attack from food/gear/JA's
+    bluphysattk = bluphysattk + caster:getStat(tpz.mod.ATT)
+    --printf("Attack after food/gear/jas - > %u", bluphysattk)
+    -- Remove skill from weapon(sword/club/etc)
+    if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.SWORD) then
+        bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.SWORD) + caster:getMod(tpz.mod.SKILL_SWORD))
+    end
+    if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.CLUB) then
+        bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.CLUB) + caster:getMod(tpz.mod.CLUB))
+    end
+    --printf("Attack after weapon skill removed - > %u", bluphysattk)
+    -- Add attack from TP bonus and attack bonus on specific BLU spells
+    bluphysattk = bluphysattk * BluAttkModifier
+    --printf("Attack after TP bonus - > %u", bluphysattk)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
@@ -314,6 +334,8 @@ end
 function BlueMagicalSpell(caster, target, spell, params, statMod)
     local D = caster:getMainLvl() + 2
 
+    if params.D ~= nil then D = params.D end -- breath attacks calculate their own D.
+
     if (D > params.duppercap) then
         D = params.duppercap
     end
@@ -359,6 +381,31 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 		dmg = dmg * ConvergenceBonus
 		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
 	end
+
+    -- Handle Positional MDT
+    if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+    if caster:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+
     --handling rampart stoneskin
     local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
     if ramSS > 0 then

@@ -19,9 +19,9 @@ function onMobWeaponSkill(target, mob, skill)
     local silenced = false
     local blinded = false
 
-    silenced = MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 60)
+    silenced = MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 300)
 
-    blinded = MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 100, 0, 60)
+    blinded = MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 100, 0, 300)
 
     skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
 

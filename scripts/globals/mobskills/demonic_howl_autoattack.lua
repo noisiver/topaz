@@ -11,7 +11,9 @@ require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    return 0
+	local CurrentTP = mob:getTP()
+	mob:setLocalVar("TP", CurrentTP)
+		return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -26,9 +28,11 @@ function onMobWeaponSkill(target, mob, skill)
         dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.WIND, 600)
     end
 
-    if (dmg > 0) then
+	local CurrentTP = mob:getLocalVar("TP")
+	local AddTP = CurrentTP + 200
+    if (MobPhysicalHit(skill)) then
        target:addTP(20)
-       mob:addTP(80)
+       mob:addTP(AddTP)
     end
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WIND)

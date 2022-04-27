@@ -12,6 +12,8 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	local CurrentHP = mob:getHPP()
+	mob:setLocalVar("HP", CurrentHP)
     return 0
 end
 
@@ -19,7 +21,14 @@ function onMobWeaponSkill(target, mob, skill)
 
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.5
+    local dmgmod = 3
+    local CurrentHP = mob:getLocalVar("HP")
+    if CurrentHP <= 50 and CurrentHP > 25 then
+        dmgmod = 3.5
+    end
+    if CurrentHP <= 25 then
+        dmgmod = 5
+    end
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded*math.random(2, 3))
 

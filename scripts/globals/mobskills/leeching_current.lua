@@ -8,6 +8,12 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local AIMode = mob:getLocalVar("AIMode")
+    if mob:getPool() == 2920 then -- Nuhn
+        if AIMode == 1 or mob:getHPP() > 50 then
+            return 1
+        end
+    end
     return 0
 end
 

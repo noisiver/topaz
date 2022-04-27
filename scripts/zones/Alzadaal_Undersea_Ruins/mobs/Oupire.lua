@@ -24,6 +24,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
 	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
 	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
+    mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
 end
 
 function onMobFight(mob, target)

@@ -13,6 +13,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 12)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 local skillToAbsorb =
@@ -76,7 +77,7 @@ function onMobWeaponSkill(target, mob, skill)
 
         if wsCount < wsMax then
             mob:setLocalVar("wsCount", wsCount + 1)
-            mob:setTP(1000)
+            mob:setTP(3000)
         else
             mob:setLocalVar("wsCount", 0)
         end

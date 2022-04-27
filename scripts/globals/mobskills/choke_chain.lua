@@ -19,6 +19,6 @@ function onMobWeaponSkill(target, mob, skill)
 
     MobStatusEffectMove(mob, target, tpz.effect.BIND, 1, 0, 30)
     MobStatusEffectMove(mob, target, tpz.effect.AMNESIA, 1, 0, 30)
-    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 60))
+    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 300))
     return dmg
 end

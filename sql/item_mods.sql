@@ -7993,8 +7993,9 @@ INSERT INTO `item_mods` VALUES (12360,234,2);
 INSERT INTO `item_mods` VALUES (12361,1,20); -- Sipar
 INSERT INTO `item_mods` VALUES (12361,55,-20);
 INSERT INTO `item_mods` VALUES (12361,518,98); -- 98% Block Rate
-INSERT INTO `item_mods` VALUES (12362,1,23);
-INSERT INTO `item_mods` VALUES (12362,385,15);
+INSERT INTO `item_mods` VALUES (12362,1,23); -- Highlander's Targe
+INSERT INTO `item_mods` VALUES (12362,385,15); -- +15 Shield bash
+INSERT INTO `item_mods` VALUES (12362,905,25); -- + 25% dmg blocked
 INSERT INTO `item_mods` VALUES (12363,1,5);
 INSERT INTO `item_mods` VALUES (12363,4,30);
 INSERT INTO `item_mods` VALUES (12364,1,2);
@@ -14292,12 +14293,12 @@ INSERT INTO `item_mods` VALUES (14529,2,-25);
 INSERT INTO `item_mods` VALUES (14529,23,6);
 INSERT INTO `item_mods` VALUES (14529,25,6);
 INSERT INTO `item_mods` VALUES (14529,26,6);
-INSERT INTO `item_mods` VALUES (14530,1,42);
+INSERT INTO `item_mods` VALUES (14530,1,42); -- (Pahluwan Khazagand)
 INSERT INTO `item_mods` VALUES (14530,2,20);
 INSERT INTO `item_mods` VALUES (14530,25,10);
 INSERT INTO `item_mods` VALUES (14530,26,10);
 INSERT INTO `item_mods` VALUES (14530,72,2);
-INSERT INTO `item_mods` VALUES (14530,165,1);
+INSERT INTO `item_mods` VALUES (14530,165,3); -- 3% crit
 INSERT INTO `item_mods` VALUES (14531,1,21);
 INSERT INTO `item_mods` VALUES (14532,1,1);
 INSERT INTO `item_mods` VALUES (14533,1,1);
@@ -17420,10 +17421,10 @@ INSERT INTO `item_mods` VALUES (15464,68,7);
 INSERT INTO `item_mods` VALUES (15465,1,7);
 INSERT INTO `item_mods` VALUES (15465,27,4);
 INSERT INTO `item_mods` VALUES (15465,68,9);
-INSERT INTO `item_mods` VALUES (15466,1,7);
+INSERT INTO `item_mods` VALUES (15466,1,7); -- Birdman Cape
 INSERT INTO `item_mods` VALUES (15466,5,30);
 INSERT INTO `item_mods` VALUES (15466,14,9);
-INSERT INTO `item_mods` VALUES (15466,1242,2);
+INSERT INTO `item_mods` VALUES (15466,1242,20); -- PARALYZERESTRAIT
 INSERT INTO `item_mods` VALUES (15467,1,5);
 INSERT INTO `item_mods` VALUES (15467,2,7);
 INSERT INTO `item_mods` VALUES (15467,5,7);
@@ -18505,22 +18506,22 @@ INSERT INTO `item_mods` VALUES (15773,25,-10); -- (Imperial Ring) -10 Acc
 INSERT INTO `item_mods` VALUES (15773,26,-10); -- (Imperial Ring) -10 RAcc
 INSERT INTO `item_mods` VALUES (15774,25,10); -- (Storm Ring) +10 Acc
 INSERT INTO `item_mods` VALUES (15774,160,5); -- (Storm Ring) Damage Taken +5%
-INSERT INTO `item_mods` VALUES (15775,1,5);
+INSERT INTO `item_mods` VALUES (15775,1,5); -- (Unfettered Ring )
 INSERT INTO `item_mods` VALUES (15775,29,2);
-INSERT INTO `item_mods` VALUES (15775,246,2);
-INSERT INTO `item_mods` VALUES (15776,2,15);
+INSERT INTO `item_mods` VALUES (15775,1246,10); -- PETRIFYRESTRAIT
+INSERT INTO `item_mods` VALUES (15776,2,15); -- (Ebullient Ring )
 INSERT INTO `item_mods` VALUES (15776,5,15);
-INSERT INTO `item_mods` VALUES (15776,1242,2);
-INSERT INTO `item_mods` VALUES (15777,12,3);
+INSERT INTO `item_mods` VALUES (15776,1242,10); -- PARALYZERESTRAIT
+INSERT INTO `item_mods` VALUES (15777,12,3); -- (Hale Ring)
 INSERT INTO `item_mods` VALUES (15777,13,3);
-INSERT INTO `item_mods` VALUES (15777,245,2);
-INSERT INTO `item_mods` VALUES (15778,1,7);
+INSERT INTO `item_mods` VALUES (15777,1245,10); -- VIRUSRESTRAIT
+INSERT INTO `item_mods` VALUES (15778,1,7); -- (Unyielding  Ring)
 INSERT INTO `item_mods` VALUES (15778,9,3);
 INSERT INTO `item_mods` VALUES (15778,10,3);
-INSERT INTO `item_mods` VALUES (15778,252,2);
-INSERT INTO `item_mods` VALUES (15779,8,3);
+INSERT INTO `item_mods` VALUES (15778,1252,10); -- CHARMRESTRAIT
+INSERT INTO `item_mods` VALUES (15779,8,3); -- (Garrulous Ring)
 INSERT INTO `item_mods` VALUES (15779,11,3);
-INSERT INTO `item_mods` VALUES (15779,244,2);
+INSERT INTO `item_mods` VALUES (15779,1244,10); -- SILENCERESTRAIT
 INSERT INTO `item_mods` VALUES (15780,1,3);
 INSERT INTO `item_mods` VALUES (15780,23,3);
 INSERT INTO `item_mods` VALUES (15780,24,4);
@@ -18605,14 +18606,14 @@ INSERT INTO `item_mods` VALUES (15823,148,1);
 INSERT INTO `item_mods` VALUES (15824,149,1);
 INSERT INTO `item_mods` VALUES (15825,150,1);
 INSERT INTO `item_mods` VALUES (15826,151,1);
-INSERT INTO `item_mods` VALUES (15827,30,2);
-INSERT INTO `item_mods` VALUES (15827,241,2);
-INSERT INTO `item_mods` VALUES (15827,244,2);
-INSERT INTO `item_mods` VALUES (15827,245,2);
-INSERT INTO `item_mods` VALUES (15828,25,5);
-INSERT INTO `item_mods` VALUES (15828,1242,2);
-INSERT INTO `item_mods` VALUES (15828,243,2);
-INSERT INTO `item_mods` VALUES (15828,248,2);
+INSERT INTO `item_mods` VALUES (15827,30,2); -- (Insect Ring)
+INSERT INTO `item_mods` VALUES (15827,1241,10); -- POISONRESTRAIT
+INSERT INTO `item_mods` VALUES (15827,1244,10); -- SILENCERESTRAIT
+INSERT INTO `item_mods` VALUES (15827,1245,10); -- VIRUSRESTRAIT
+INSERT INTO `item_mods` VALUES (15828,25,5); -- (BLood Ring)
+INSERT INTO `item_mods` VALUES (15828,1242,10); -- PARALYZERESTRAIT
+INSERT INTO `item_mods` VALUES (15828,1243,10); -- BLINDRESTRAIT
+INSERT INTO `item_mods` VALUES (15828,1248,10); -- CURSERESTRAIT
 INSERT INTO `item_mods` VALUES (15829,3,1);
 INSERT INTO `item_mods` VALUES (15830,6,1);
 INSERT INTO `item_mods` VALUES (15831,385,50); -- Fenian Ring Shield Bash +50
@@ -18948,24 +18949,25 @@ INSERT INTO `item_mods` VALUES (15965,516,3);     -- Converts 3% of damage taken
 INSERT INTO `item_mods` VALUES (15966,24,2);
 INSERT INTO `item_mods` VALUES (15967,46,1);
 INSERT INTO `item_mods` VALUES (15968,23,10); -- (Storm Loop) +10 Attack
-INSERT INTO `item_mods` VALUES (15970,2,20);
+INSERT INTO `item_mods` VALUES (15970,2,20); -- (Stoic Earring)
 INSERT INTO `item_mods` VALUES (15970,72,1);
-INSERT INTO `item_mods` VALUES (15970,251,2);
-INSERT INTO `item_mods` VALUES (15971,5,15);
+INSERT INTO `item_mods` VALUES (15970,1251,10); -- STUNRESTRAIT
+INSERT INTO `item_mods` VALUES (15971,5,15); -- (Antivenom Earring)
 INSERT INTO `item_mods` VALUES (15971,71,1);
-INSERT INTO `item_mods` VALUES (15971,241,2);
-INSERT INTO `item_mods` VALUES (15972,2,15);
+INSERT INTO `item_mods` VALUES (15971,1241,10); -- POISONRESTRAIT
+INSERT INTO `item_mods` VALUES (15972,2,15); -- (Insomnia Earring)
 INSERT INTO `item_mods` VALUES (15972,5,15);
-INSERT INTO `item_mods` VALUES (15972,240,2);
-INSERT INTO `item_mods` VALUES (15973,26,2);
-INSERT INTO `item_mods` VALUES (15973,243,2);
-INSERT INTO `item_mods` VALUES (15974,68,4);
-INSERT INTO `item_mods` VALUES (15974,250,2);
+INSERT INTO `item_mods` VALUES (15972,1240,10); -- SLEEPRESTRAIT
+INSERT INTO `item_mods` VALUES (15973,26,2); -- (Vision Earring)
+INSERT INTO `item_mods` VALUES (15973,1243,10); -- BLINDRESTRAIT
+INSERT INTO `item_mods` VALUES (15974,68,4); -- (Velocity Earring)
+INSERT INTO `item_mods` VALUES (15974,1250,10); -- SLOWRESTRAIT
 INSERT INTO `item_mods` VALUES (15978,5,10);
 INSERT INTO `item_mods` VALUES (15978,71,1);
-INSERT INTO `item_mods` VALUES (15979,8,1);
+INSERT INTO `item_mods` VALUES (15979,8,1); -- (Fowling Earring)
 INSERT INTO `item_mods` VALUES (15979,25,3);
-INSERT INTO `item_mods` VALUES (15979,225,2);
+INSERT INTO `item_mods` VALUES (15979,225,5); -- Bird Killer 5% intimidate
+INSERT INTO `item_mods` VALUES (15979,1225,5); -- Bird Circle 5% damage increase vs birds
 INSERT INTO `item_mods` VALUES (15980,26,1);
 INSERT INTO `item_mods` VALUES (15980,71,1);
 INSERT INTO `item_mods` VALUES (15980,72,1);
@@ -21429,10 +21431,11 @@ INSERT INTO `item_mods` VALUES (17648,13,1);
 INSERT INTO `item_mods` VALUES (17650,59,3);
 INSERT INTO `item_mods` VALUES (17650,431,1);
 INSERT INTO `item_mods` VALUES (17652,61,14);
-INSERT INTO `item_mods` VALUES (17653,54,15);
+INSERT INTO `item_mods` VALUES (17653,54,15); -- (Hrotti)
 INSERT INTO `item_mods` VALUES (17653,59,-15);
 INSERT INTO `item_mods` VALUES (17653,162,-10);
-INSERT INTO `item_mods` VALUES (17653,233,2);
+INSERT INTO `item_mods` VALUES (17653,233,8); -- DRAGON_KILLER 8% Intimidate
+INSERT INTO `item_mods` VALUES (17653,1233,8); -- DRAGON_CIRCLE 8% damage increased vs Dragons
 INSERT INTO `item_mods` VALUES (17654,2,20);
 INSERT INTO `item_mods` VALUES (17654,54,10);
 INSERT INTO `item_mods` VALUES (17654,56,10);
@@ -21445,9 +21448,10 @@ INSERT INTO `item_mods` VALUES (17657,10,3);
 INSERT INTO `item_mods` VALUES (17658,1,14);
 INSERT INTO `item_mods` VALUES (17658,2,30);
 INSERT INTO `item_mods` VALUES (17658,23,-10);
-INSERT INTO `item_mods` VALUES (17659,59,10);
+INSERT INTO `item_mods` VALUES (17659,59,10); -- (Seiryu's Sword)
 INSERT INTO `item_mods` VALUES (17659,68,5);
-INSERT INTO `item_mods` VALUES (17659,229,4);
+INSERT INTO `item_mods` VALUES (17659,229,5); -- PLANTOID_KILLER 5% Intimidate
+INSERT INTO `item_mods` VALUES (17659,1229,5); -- PLANTOID_CIRCLE 5% damage increase vs plantoids
 INSERT INTO `item_mods` VALUES (17660,5,15);
 INSERT INTO `item_mods` VALUES (17663,5,20);
 INSERT INTO `item_mods` VALUES (17664,8,3);
@@ -21884,9 +21888,10 @@ INSERT INTO `item_mods` VALUES (18039,10,-1);
 INSERT INTO `item_mods` VALUES (18040,250,2);
 INSERT INTO `item_mods` VALUES (18042,54,8);
 INSERT INTO `item_mods` VALUES (18042,60,8);
-INSERT INTO `item_mods` VALUES (18043,25,5);
+INSERT INTO `item_mods` VALUES (18043,25,5); -- (Suzaku's Scythe)
 INSERT INTO `item_mods` VALUES (18043,54,10);
-INSERT INTO `item_mods` VALUES (18043,225,2);
+INSERT INTO `item_mods` VALUES (18043,225,5); -- BIRD_KILLER 5% Intimidate
+INSERT INTO `item_mods` VALUES (18043,1225,5); -- BIRD_CIRCLE 5% damage increase vs birds
 INSERT INTO `item_mods` VALUES (18044,288,1);
 INSERT INTO `item_mods` VALUES (18046,25,3);
 INSERT INTO `item_mods` VALUES (18047,8,2);
@@ -22086,9 +22091,10 @@ INSERT INTO `item_mods` VALUES (18196,243,2);
 INSERT INTO `item_mods` VALUES (18197,2,11);
 INSERT INTO `item_mods` VALUES (18197,9,3);
 INSERT INTO `item_mods` VALUES (18197,10,3);
-INSERT INTO `item_mods` VALUES (18198,23,5);
+INSERT INTO `item_mods` VALUES (18198,23,5); -- (Byakko's Axe)
 INSERT INTO `item_mods` VALUES (18198,56,10);
-INSERT INTO `item_mods` VALUES (18198,230,2);
+INSERT INTO `item_mods` VALUES (18198,230,5); -- BEAST_KILLER 5% Intimidate
+INSERT INTO `item_mods` VALUES (18198,1230,5); -- BEAST_CIRCLE 5% damage increase to beasts
 INSERT INTO `item_mods` VALUES (18199,73,1);
 INSERT INTO `item_mods` VALUES (18211,8,1);
 INSERT INTO `item_mods` VALUES (18211,10,5);
@@ -22132,9 +22138,10 @@ INSERT INTO `item_mods` VALUES (18254,68,-4);
 INSERT INTO `item_mods` VALUES (18255,24,20);
 INSERT INTO `item_mods` VALUES (18255,26,-15);
 INSERT INTO `item_mods` VALUES (18256,119,1);
-INSERT INTO `item_mods` VALUES (18257,10,4);
+INSERT INTO `item_mods` VALUES (18257,10,4); -- Bibiki Seashell
 INSERT INTO `item_mods` VALUES (18257,59,3);
-INSERT INTO `item_mods` VALUES (18257,228,2);
+INSERT INTO `item_mods` VALUES (18257,228,5); -- AQUAN_KILLER 5% Intimidate
+INSERT INTO `item_mods` VALUES (18257,1228,5); -- AQUAN_CIRCLE 5% damage increase vs Aquans
 INSERT INTO `item_mods` VALUES (18263,256,1); -- Stage 4 Spharai - Aftermath
 INSERT INTO `item_mods` VALUES (18263,356,10); -- Final Heaven
 INSERT INTO `item_mods` VALUES (18264,23,20); -- Spharai LV75 - ATT +20

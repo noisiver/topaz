@@ -22,13 +22,13 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.FROST
 
     MobStatusEffectMove(mob, target, tpz.effect.FROST, 15, 3, 300)
-    MobStatusEffectMove(mob, target, tpz.effect.STR_DOWN, 20, 3, 60)
-    MobStatusEffectMove(mob, target, tpz.effect.VIT_DOWN, 20, 3, 60)
-    MobStatusEffectMove(mob, target, tpz.effect.DEX_DOWN, 20, 3, 60)
-    MobStatusEffectMove(mob, target, tpz.effect.AGI_DOWN, 20, 3, 60)
-    MobStatusEffectMove(mob, target, tpz.effect.MND_DOWN, 20, 3, 60)
-    MobStatusEffectMove(mob, target, tpz.effect.INT_DOWN, 20, 3, 60)
-    MobStatusEffectMove(mob, target, tpz.effect.CHR_DOWN, 20, 3, 60)
+    MobStatusEffectMove(mob, target, tpz.effect.STR_DOWN, 20, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.VIT_DOWN, 20, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.DEX_DOWN, 20, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.AGI_DOWN, 20, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.MND_DOWN, 20, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.INT_DOWN, 20, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.CHR_DOWN, 20, 3, 300)
 
     local dmgmod = 1.5
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.ICE, dmgmod, TP_NO_EFFECT)

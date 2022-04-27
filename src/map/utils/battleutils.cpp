@@ -75,6 +75,7 @@
 #include "../ai/states/magic_state.h"
 #include "../utils/petutils.h"
 #include "zoneutils.h"
+#include "../packets/chat_message.h"
 
 
 
@@ -361,20 +362,32 @@ namespace battleutils
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
-        if (PAttacker->objtype == TYPE_MOB || PAttacker->objtype == TYPE_PC)
+        //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
+        // Spikes are PDefender for Macc
+        if (PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLAZE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SHOCK_SPIKES) ||
+            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ICE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DREAD_SPIKES) ||
+            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_DELUGE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_GALE_SPIKES) ||
+            PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_CLOD_SPIKES))
         {
             casterLvl = PDefender->GetMLevel();
             targetLvl = PAttacker->GetMLevel();
             meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
+            //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
+            // Blue Magic spike spells use Blue Magic Skll
+            if (PDefender->GetMJob() == JOB_BLU)
+            {
+                magicacc += static_cast<float>(PDefender->GetSkill(SKILL_BLUE_MAGIC) + PDefender->getMod(Mod::MACC));
+                magicacc -= static_cast<float>(PDefender->GetSkill(SKILL_ENHANCING_MAGIC));
+            }
         }
-         //printf("Macc before = %f \nmeva before = %f \n", magicacc, meva);
+        //printf("Macc after gear mod = %f \nmeva after = %f \n", magicacc, meva);
         levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
-         //printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
+        //printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
         magicacc = magicacc + levelcorrectionpenalty;
-         //printf("\nmagicacc after correction penalty = %f \n", magicacc);
+        //printf("\nmagicacc after correction penalty = %f \n", magicacc);
         DMacc = (float)(magicacc - meva);
-         //printf("\nDMacc after = %f \n", DMacc);
+        //printf("\nDMacc after = %f \n", DMacc);
         if (DMacc < 0)
         {
             p = floor(50 + DMacc / 2);
@@ -395,6 +408,7 @@ namespace battleutils
         p = std::clamp(p, 5.0f, 95.0f);
          //printf("p after clamping to 5,95 = %f \n", p);
          //printf("SDT element %i \n", element);
+        // Add SDT
         p = p * getElementalSDTDivisor(PAttacker, element);
         if (p < 5)
         {
@@ -413,6 +427,7 @@ namespace battleutils
          //printf("p trying to remove decimals = %f \n", p);
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
          //printf("p after resist rolls = %f \n", p);
+        // Apply "special" gear resist bonus for players
         if (PDefender->getMod(resistarray[element]) < 0 && resvar < 0.5)
         {
             return 0.5f;
@@ -1156,12 +1171,12 @@ namespace battleutils
 
         EFFECT previous_daze = EFFECT_NONE;
         uint16 previous_daze_power = 0;
-        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_SAMBA) && (PDefender->m_EcoSystem != SYSTEM_UNDEAD))
+        if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_DRAIN_SAMBA))
         {
             previous_daze = EFFECT_DRAIN_DAZE;
             previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_DRAIN_SAMBA)->GetPower();
         }
-        else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_SAMBA) && (PDefender->m_EcoSystem != SYSTEM_UNDEAD))
+        else if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_ASPIR_SAMBA))
         {
             previous_daze = EFFECT_ASPIR_DAZE;
             previous_daze_power = PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_ASPIR_SAMBA)->GetPower();
@@ -1188,7 +1203,7 @@ namespace battleutils
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_HASTE_DAZE, PAttacker->id);
                 PDefender->StatusEffectContainer->DelStatusEffect(EFFECT_ASPIR_DAZE, PAttacker->id);
             }
-            if (getElementalSDTDivisor(PDefender, 8) == 1 || (previous_daze == EFFECT_HASTE_DAZE))
+            if ((PDefender->m_EcoSystem != SYSTEM_UNDEAD) || (previous_daze == EFFECT_HASTE_DAZE))
             {
                 PDefender->StatusEffectContainer->AddStatusEffect(new CStatusEffect(previous_daze, 0, previous_daze_power, 0, 10, PAttacker->id), true);
             }
@@ -4086,11 +4101,18 @@ namespace battleutils
                     meritBonus = PChar->PMeritPoints->GetMeritValue(MERIT_NINJA_TOOL_EXPERTISE, (CCharEntity*)PChar);
 
                 uint16 chance = (PChar->getMod(Mod::NINJA_TOOL) + meritBonus);
-
-                if (ConsumeTool && tpzrand::GetRandomNumber(100) > chance)
+                //printf("NTE chance %u \n", chance);
+                if (ConsumeTool)
                 {
-                    charutils::UpdateItem(PChar, LOC_INVENTORY, SlotID, -1);
-                    PChar->pushPacket(new CInventoryFinishPacket());
+                    if (tpzrand::GetRandomNumber(100) > chance)
+                    {
+                        charutils::UpdateItem(PChar, LOC_INVENTORY, SlotID, -1);
+                        PChar->pushPacket(new CInventoryFinishPacket());
+                    }
+                    else
+                    {
+                        PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Your expertise saved you a ninja tool!"));
+                    }
                 }
             }
         }

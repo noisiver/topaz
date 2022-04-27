@@ -24,6 +24,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.ele = tpz.magic.ele.WIND
     params.skill = tpz.skill.DAGGER
     params.includemab = true
+	params.bonusmacc = 100
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.ftp100 = 2 params.ftp200 = 3 params.ftp300 = 4.5 -- https://www.bg-wiki.com/bg/Aeolian_Edge

@@ -96,26 +96,39 @@ INSERT INTO `item_latents` VALUES(11355, 27, -1, 0, 75);    -- Enmity-1 when HP 
 -- -------------------------------------------------------
 -- Nobushi Kyahan
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(11367, 1, 30, 49, 4277);  -- def+30 Tonosama Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 1, 30, 49, 4278);  -- def+30 Shogun Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 1, 40, 49, 4590);  -- def+40 Salmon Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 1, 40, 49, 4605);  -- def+40 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 1, 40, 49, 5928);  -- def+40 Hinesama Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 1, 40, 49, 5929);  -- def+40 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 1, 80, 49, 4277);  -- def+80 Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 1, 80, 49, 4278);  -- def+80 Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 1, 60, 49, 4590);  -- def+60 Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 1, 60, 49, 4605);  -- def+60 Naval Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 1, 80, 49, 5928);  -- def+80 Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 1, 80, 49, 5929);  -- def+80 Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(11367, 1, 50, 49, 4405);  -- def+50 Rice Ball
 INSERT INTO `item_latents` VALUES(11367, 1, 50, 49, 4604);  -- def+50 Rogue Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 23, 40, 49, 4590); -- atk+40 Salmon Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 23, 40, 49, 4605); -- atk+40 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 23, 50, 49, 4277); -- atk+50 Tonosama Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 23, 50, 49, 4278); -- atk+50 Shogun Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 23, 60, 49, 5928); -- atk+60 Hinesama Rice Ball
-INSERT INTO `item_latents` VALUES(11367, 23, 60, 49, 5929); -- atk+60 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 23, 40, 49, 4405);  -- atk+40 Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 23, 40, 49, 4604);  -- atk+40 Rogue Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 23, 50, 49, 4590); -- atk+50 Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 23, 50, 49, 4605); -- atk+50 Naval Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 25, 20, 49, 4277); -- acc+20 Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(11367, 25, 20, 49, 4278); -- acc+20 Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(11367, 23, 70, 49, 5928); -- atk+70 Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 23, 70, 49, 5929); -- atk+70 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 508, 10, 49, 4590); -- +10% TE Counter Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 508, 10, 49, 4605); -- +10% TE Counter  Naval Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 508, 15, 49, 4277); -- +15% TE Counter Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(11367, 508, 15, 49, 4278); -- +15% TE Counter Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(11367, 508, 15, 49, 5928); -- +15% TE Counter Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 508, 15, 49, 5929); -- +15% TE Counter Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(11367, 230, 5, 49, 4604); -- beast killer 5% (guesstimated) Rogue Rice Ball
 INSERT INTO `item_latents` VALUES(11367, 232, 5, 49, 4604); -- arcana killer 5% (guesstimated) Naval Rice Ball
 INSERT INTO `item_latents` VALUES(11367, 288, 1, 49, 4277); -- double attack 1% Tonosama Rice Ball
 INSERT INTO `item_latents` VALUES(11367, 288, 5, 49, 4278); -- double attack 5% Shogun Rice Ball
 INSERT INTO `item_latents` VALUES(11367, 302, 1, 49, 5928); -- triple attack 1% Hinesama Rice Ball
 INSERT INTO `item_latents` VALUES(11367, 302, 2, 49, 5929); -- triple attack 2% Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 384, 300, 49, 4277);  -- Gear Haste +3% Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 384, 300, 49, 4278);  -- Gear Haste +3% Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 384, 300, 49, 5928);  -- Gear Haste +3% Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(11367, 384, 300, 49, 5929);  -- Gear Haste +3% Ojo Rice Ball
+
 
 -- -------------------------------------------------------
 -- Louhi's Mask
@@ -815,26 +828,38 @@ INSERT INTO `item_latents` VALUES(13906, 13, 4, 53, 0);     -- MND +4 in areas i
 -- -------------------------------------------------------
 -- Roshi Jinpachi
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13910, 1, 30, 49, 4277);  -- def+30 Tonosama Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 1, 30, 49, 4278);  -- def+30 Shogun Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 1, 40, 49, 4590);  -- def+40 Salmon Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 1, 40, 49, 4605);  -- def+40 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 1, 40, 49, 5928);  -- def+40 Hinesama Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 1, 40, 49, 5929);  -- def+40 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 1, 80, 49, 4277);  -- def+80 Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 1, 80, 49, 4278);  -- def+80 Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 1, 60, 49, 4590);  -- def+60 Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 1, 60, 49, 4605);  -- def+60 Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 1, 80, 49, 5928);  -- def+80 Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 1, 80, 49, 5929);  -- def+80 Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(13910, 1, 50, 49, 4405);  -- def+50 Rice Ball
 INSERT INTO `item_latents` VALUES(13910, 1, 50, 49, 4604);  -- def+50 Rogue Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 23, 40, 49, 4590); -- atk+40 Salmon Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 23, 40, 49, 4605); -- atk+40 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 23, 50, 49, 4277); -- atk+50 Tonosama Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 23, 50, 49, 4278); -- atk+50 Shogun Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 23, 60, 49, 5928); -- atk+60 Hinesama Rice Ball
-INSERT INTO `item_latents` VALUES(13910, 23, 60, 49, 5929); -- atk+60 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 23, 40, 49, 4405);  -- atk+40 Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 23, 40, 49, 4604);  -- atk+40 Rogue Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 23, 50, 49, 4590); -- atk+50 Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 23, 50, 49, 4605); -- atk+50 Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 25, 20, 49, 4277); -- acc+20 Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(13910, 25, 20, 49, 4278); -- acc+20 Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(13910, 23, 70, 49, 5928); -- atk+70 Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 23, 70, 49, 5929); -- atk+70 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 508, 10, 49, 4590); -- +10% TE Counter Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 508, 10, 49, 4605); -- +10% TE Counter  Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 508, 15, 49, 4277); -- +15% TE Counter Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(13910, 508, 15, 49, 4278); -- +15% TE Counter Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(13910, 508, 15, 49, 5928); -- +15% TE Counter Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 508, 15, 49, 5929); -- +15% TE Counter Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(13910, 230, 5, 49, 4604); -- beast killer 5% (guesstimated) Rogue Rice Ball
 INSERT INTO `item_latents` VALUES(13910, 232, 5, 49, 4604); -- arcana killer 5% (guesstimated) Naval Rice Ball
 INSERT INTO `item_latents` VALUES(13910, 288, 1, 49, 4277); -- double attack 1% Tonosama Rice Ball
 INSERT INTO `item_latents` VALUES(13910, 288, 5, 49, 4278); -- double attack 5% Shogun Rice Ball
 INSERT INTO `item_latents` VALUES(13910, 302, 1, 49, 5928); -- triple attack 1% Hinesama Rice Ball
 INSERT INTO `item_latents` VALUES(13910, 302, 2, 49, 5929); -- triple attack 2% Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 384, 400, 49, 4277);  -- Gear Haste +4% Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 384, 400, 49, 4278);  -- Gear Haste +4% Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 384, 400, 49, 5928);  -- Gear Haste +4% Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13910, 384, 400, 49, 5929);  -- Gear Haste +4% Ojo Rice Ball
 
 -- -------------------------------------------------------
 -- Mushroom Helm
@@ -886,8 +911,8 @@ INSERT INTO `item_latents` VALUES(13972, 23, 40, 49, 4405);  -- atk+40 Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 23, 40, 49, 4604);  -- atk+40 Rogue Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 23, 50, 49, 4590); -- atk+50 Salmon Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 23, 50, 49, 4605); -- atk+50 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(13972, 25, 60, 49, 4277); -- acc+60 Tonosama Rice Ball 
-INSERT INTO `item_latents` VALUES(13972, 25, 60, 49, 4278); -- acc+60 Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(13972, 25, 20, 49, 4277); -- acc+20 Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(13972, 25, 20, 49, 4278); -- acc+20 Shogun Rice Ball 
 INSERT INTO `item_latents` VALUES(13972, 23, 70, 49, 5928); -- atk+70 Hinesama Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 23, 70, 49, 5929); -- atk+70 Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 508, 10, 49, 4590); -- +10% TE Counter Salmon Rice Ball
@@ -902,6 +927,10 @@ INSERT INTO `item_latents` VALUES(13972, 288, 1, 49, 4277); -- double attack 1% 
 INSERT INTO `item_latents` VALUES(13972, 288, 5, 49, 4278); -- double attack 5% Shogun Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 302, 1, 49, 5928); -- triple attack 1% Hinesama Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 302, 2, 49, 5929); -- triple attack 2% Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 384, 400, 49, 4277);  -- Gear Haste +4% Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 384, 400, 49, 4278);  -- Gear Haste +4% Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 384, 400, 49, 5928);  -- Gear Haste +4% Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 384, 400, 49, 5929);  -- Gear Haste +4% Ojo Rice Ball
 
 INSERT INTO `item_latents` VALUES(14005, 25, 8, 52, 6);     -- Tekko: Accuracy +8 in Water weather
 
@@ -1353,26 +1382,38 @@ INSERT INTO `item_latents` VALUES(14885, 30, 1, 35, 0);
 -- -------------------------------------------------------
 -- Myochin Kote +1
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(14901, 1, 30, 49, 4277);  -- def+30 Tonosama Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 1, 30, 49, 4278);  -- def+30 Shogun Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 1, 40, 49, 4590);  -- def+40 Salmon Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 1, 40, 49, 4605);  -- def+40 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 1, 40, 49, 5928);  -- def+40 Hinesama Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 1, 40, 49, 5929);  -- def+40 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 1, 80, 49, 4277);  -- def+80 Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 1, 80, 49, 4278);  -- def+80 Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 1, 60, 49, 4590);  -- def+60 Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 1, 60, 49, 4605);  -- def+60 Naval Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 1, 80, 49, 5928);  -- def+80 Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 1, 80, 49, 5929);  -- def+80 Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(14901, 1, 50, 49, 4405);  -- def+50 Rice Ball
 INSERT INTO `item_latents` VALUES(14901, 1, 50, 49, 4604);  -- def+50 Rogue Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 23, 40, 49, 4590); -- atk+40 Salmon Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 23, 40, 49, 4605); -- atk+40 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 23, 50, 49, 4277); -- atk+50 Tonosama Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 23, 50, 49, 4278); -- atk+50 Shogun Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 23, 60, 49, 5928); -- atk+60 Hinesama Rice Ball
-INSERT INTO `item_latents` VALUES(14901, 23, 60, 49, 5929); -- atk+60 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 23, 40, 49, 4405);  -- atk+40 Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 23, 40, 49, 4604);  -- atk+40 Rogue Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 23, 50, 49, 4590); -- atk+50 Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 23, 50, 49, 4605); -- atk+50 Naval Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 25, 20, 49, 4277); -- acc+20 Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(14901, 25, 20, 49, 4278); -- acc+20 Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(14901, 23, 70, 49, 5928); -- atk+70 Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 23, 70, 49, 5929); -- atk+70 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 508, 10, 49, 4590); -- +10% TE Counter Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 508, 10, 49, 4605); -- +10% TE Counter  Naval Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 508, 15, 49, 4277); -- +15% TE Counter Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(14901, 508, 15, 49, 4278); -- +15% TE Counter Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(14901, 508, 15, 49, 5928); -- +15% TE Counter Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 508, 15, 49, 5929); -- +15% TE Counter Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(14901, 230, 5, 49, 4604); -- beast killer 5% (guesstimated) Rogue Rice Ball
 INSERT INTO `item_latents` VALUES(14901, 232, 5, 49, 4604); -- arcana killer 5% (guesstimated) Naval Rice Ball
 INSERT INTO `item_latents` VALUES(14901, 288, 1, 49, 4277); -- double attack 1% Tonosama Rice Ball
 INSERT INTO `item_latents` VALUES(14901, 288, 5, 49, 4278); -- double attack 5% Shogun Rice Ball
 INSERT INTO `item_latents` VALUES(14901, 302, 1, 49, 5928); -- triple attack 1% Hinesama Rice Ball
 INSERT INTO `item_latents` VALUES(14901, 302, 2, 49, 5929); -- triple attack 2% Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 384, 400, 49, 4277);  -- Gear Haste +4% Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 384, 400, 49, 4278);  -- Gear Haste +4% Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 384, 400, 49, 5928);  -- Gear Haste +4% Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(14901, 384, 400, 49, 5929);  -- Gear Haste +4% Ojo Rice Ball
 
 -- -------------------------------------------------------
 -- Koga Tekko +1
@@ -1659,18 +1700,18 @@ INSERT INTO `item_latents` VALUES(15530, 370, -50, 10, 0);
 -- -------------------------------------------------------
 -- Shark Necklace
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15532, 369, -3, 56, 2);   -- Has a hidden effect of draining 3 MP/tick while weapon is drawn.
-INSERT INTO `item_latents` VALUES(15532, 370, 1, 56, 2);    -- Latent Effect is triggered when the player's weapon is drawn and has more than 2 MP.
+--INSERT INTO `item_latents` VALUES(15532, 369, -3, 56, 2);   -- Has a hidden effect of 2/tick regen when weapon ISN'T drawn
+INSERT INTO `item_latents` VALUES(15532, 370, 2, 11, 0);    -- 2 HP/tick Latent Effect is triggered when the player's weapon ISN'T drawn
 
 -- -------------------------------------------------------
 -- Rajas Ring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 45);     -- INT+1 above level 45
-INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 60);     -- INT+1 above level 60
-INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 75);     -- INT+1 above level 75
-INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 45);     -- MND+1 above level 45
-INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 60);     -- MND+1 above level 60
-INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 75);     -- MND+1 above level 75
+INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 45);     -- STR+1 above level 45
+INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 60);     -- STR+1 above level 60
+INSERT INTO `item_latents` VALUES(15543, 8, 1, 51, 75);     -- STR+1 above level 75
+INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 45);     -- DEX+1 above level 45
+INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 60);     -- DEX+1 above level 60
+INSERT INTO `item_latents` VALUES(15543, 9, 1, 51, 75);     -- DEX+1 above level 75
 
 -- -------------------------------------------------------
 -- Tamas Ring

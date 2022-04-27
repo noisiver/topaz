@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
 
 
     MobStatusEffectMove(mob, target, typeEffectTwo, 1, 0, 10)
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 20, 0, 60))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 20, 0, 300))
 
     mob:resetEnmity(target)
     return typeEffect

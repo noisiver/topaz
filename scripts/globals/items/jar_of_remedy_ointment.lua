@@ -2,7 +2,7 @@
 -- ID: 5356
 -- Item: Remedy Ointment
 -- Item Effect: This potion remedies status ailments.
--- Works on paralysis, silence, blindness, poison, and plague.
+-- Removes a random amount of erase only status effects
 -----------------------------------------
 require("scripts/globals/status")
 -----------------------------------------
@@ -12,27 +12,67 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    if (target:hasStatusEffect(tpz.effect.SILENCE) or target:hasStatusEffect(tpz.effect.BLINDNESS) or target:hasStatusEffect(tpz.effect.POISON) or target:hasStatusEffect(tpz.effect.PARALYSIS)) then
-        local effectRemoved = 0
-        while effectRemoved == 0 do
-            num = math.random(1, 4)
-            if (num == 1 and target:hasStatusEffect(tpz.effect.SILENCE)) then
-                effectRemoved = effectRemoved + 1
-                target:delStatusEffectSilent(tpz.effect.SILENCE)
+local removablesMajor =
+{
+    tpz.effect.SLOW,
+    tpz.effect.BIND,
+    tpz.effect.WEIGHT,
+    tpz.effect.ADDLE,
+    tpz.effect.BURN,
+    tpz.effect.FROST,
+    tpz.effect.CHOKE,
+    tpz.effect.RASP,
+    tpz.effect.SHOCK,
+    tpz.effect.DROWN,
+    tpz.effect.DIA,
+    tpz.effect.BIO,
+    tpz.effect.REQUIEM,
+    tpz.effect.ELEGY,
+}
 
-            elseif (num == 2 and target:hasStatusEffect(tpz.effect.BLINDNESS)) then
-                effectRemoved = effectRemoved + 1
-                target:delStatusEffectSilent(tpz.effect.BLINDNESS)
+local removablesMinor =
+{
+    tpz.effect.STR_DOWN,
+    tpz.effect.DEX_DOWN,
+    tpz.effect.VIT_DOWN,
+    tpz.effect.AGI_DOWN,
+    tpz.effect.INT_DOWN,
+    tpz.effect.MND_DOWN,
+    tpz.effect.CHR_DOWN,
+    tpz.effect.MAX_HP_DOWN,
+    tpz.effect.MAX_MP_DOWN,
+    tpz.effect.ATTACK_DOWN,
+    tpz.effect.EVASION_DOWN,
+    tpz.effect.DEFENSE_DOWN,
+    tpz.effect.MAGIC_DEF_DOWN,
+    tpz.effect.INHIBIT_TP,
+    tpz.effect.MAGIC_ACC_DOWN,
+    tpz.effect.MAGIC_ATK_DOWN,
+    tpz.effect.FLASH,
+}
+    local activeMajor = {};
+    local activeMinor = {};
 
-            elseif (num == 3 and target:hasStatusEffect(tpz.effect.POISON)) then
-                effectRemoved = effectRemoved + 1
-                target:delStatusEffectSilent(tpz.effect.POISON)
-
-            elseif (num == 4 and target:hasStatusEffect(tpz.effect.PARALYSIS)) then
-                effectRemoved = effectRemoved + 1
-                target:delStatusEffectSilent(tpz.effect.PARALYSIS)
-            end
+    for k,v in pairs(removablesMajor) do
+        if target:hasStatusEffect(v) then
+            activeMajor[#activeMajor + 1] = v;
         end
+    end
+
+    for k,v in pairs(removablesMinor) do
+        if target:hasStatusEffect(v) then
+            activeMinor[#activeMinor + 1] = v;
+        end
+    end
+
+    if (#activeMajor > 0) then
+        local effect = activeMajor[math.random(#activeMajor)];
+        target:delStatusEffectSilent(effect);
+    end
+
+    if (#activeMinor > 0) then
+        local effect = activeMinor[math.random(#activeMinor)];
+        target:delStatusEffectSilent(effect);
     end
 end
 

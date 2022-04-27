@@ -5,7 +5,12 @@
 local ID = require("scripts/zones/Riverne-Site_B01/IDs")
 require("scripts/globals/quests")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
+function onMobInitialise(mob)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+end
+
 
 function onMobSpawn(mob)
 	mob:setDamage(125)
@@ -14,14 +19,10 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UFASTCAST, 50) 
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-end
-
-
-function onMobInitialise(mob)
+    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 25)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 25)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-end
-
-function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:addStatusEffect(tpz.effect.PHALANX, 35, 0, 180)
     mob:addStatusEffect(tpz.effect.STONESKIN, 350, 0, 300)
     mob:addStatusEffect(tpz.effect.PROTECT, 175, 0, 1800)

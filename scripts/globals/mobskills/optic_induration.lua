@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
 	
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
     mob:lowerEnmity(target, 75)
 	return dmg
 end

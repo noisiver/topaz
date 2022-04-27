@@ -14,7 +14,7 @@ function onMobSkillCheck(target, mob, skill)
 	if mob:getPool() == 3069 then -- Oupire
 		return 1
 	end
-    if (mobhp <= 25) then
+    if (mobhp < 25) then
         result = 0
     end
 

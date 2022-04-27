@@ -660,6 +660,29 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         dmg = adjustForTarget(target, dmg, wsParams.ele)
 
         dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
+    -- Handle Positional MDT
+    if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+    if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
         --handling rampart stoneskin
         local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
         if ramSS > 0 then
@@ -1404,6 +1427,7 @@ function handleWSGorgetBelt(attacker)
                 then
                     accBonus = accBonus + 10
                     ftpBonus = ftpBonus + 0.1
+                    attacker:PrintToPlayer("Your elemental gorget was active for this weapon skill!")
                 end
 
                 break

@@ -24,6 +24,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local baseHeal = 500
+    if mob:isNM() then
+        baseHeal = 5150
+    end
     local statusHeal = 300
     local effectCount = 0
     local dispel = mob:eraseStatusEffect()

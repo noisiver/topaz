@@ -9,7 +9,7 @@
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
-
+require("scripts/globals/utils")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
     if(mob:getFamily() == 316) then
@@ -31,10 +31,12 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.FIRE, 700)
+    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.FIRE, 1000)
+    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.50)
+
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 
-    MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 5, 3, 60)
+    MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 5, 3, 300)
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.FIRE)
 

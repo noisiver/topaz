@@ -245,7 +245,7 @@ function onPath(mob)
     end
 end
 
-function onMobDeath(mob, killer)
+function onMobDeath(mob, player, isKiller)
     mob:setStatus(tpz.status.INVISIBLE)
 end
 

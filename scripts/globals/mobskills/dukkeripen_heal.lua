@@ -9,6 +9,9 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 1272 then -- Experimental Lamia
+        return 0
+    end
     if mob:getMainJob() == tpz.job.COR then
         return 0
     else
@@ -20,5 +23,5 @@ function onMobWeaponSkill(target, mob, skill)
 
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
-    return MobHealMove(mob, math.random(500, 700))
+    return MobHealMove(mob, math.random(400, 700))
 end

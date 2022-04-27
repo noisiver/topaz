@@ -30,7 +30,7 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.MP, 20)
     target:addMod(tpz.mod.AGI, -1)
     target:addMod(tpz.mod.INT, 2)
-    target:addMod(tpz.mod.MAG_BURST_BONUS, 20)
+    target:addMod(tpz.mod.MAG_BURST_BONUS, 4)
     target:addMod(tpz.mod.MPHEAL, 1)
 end
 
@@ -38,6 +38,6 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.MP, 20)
     target:delMod(tpz.mod.AGI, -1)
     target:delMod(tpz.mod.INT, 2)
-    target:delMod(tpz.mod.MAG_BURST_BONUS, 20)
+    target:delMod(tpz.mod.MAG_BURST_BONUS, 4)
     target:delMod(tpz.mod.MPHEAL, 1)
 end

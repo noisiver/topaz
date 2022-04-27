@@ -10,13 +10,11 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-
     if (player:hasKeyItem(tpz.ki.SICKLEMOON_SALT)) then
         player:startEvent(514)
-    else
-        player:startEvent(516)
     end
 
+    return 1
 end
 
 function onEventUpdate(player, csid, option)
@@ -26,6 +24,6 @@ function onEventFinish(player, csid, option)
 
     if (csid == 514 and option == 1) then
         player:delKeyItem(tpz.ki.SICKLEMOON_SALT)
+        player:setPos(234, -7, -639, 50) 
     end
-
 end

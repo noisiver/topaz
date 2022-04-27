@@ -20,7 +20,7 @@ function onTrigger(player, npc)
         4148,  290, 3,    -- Antidote
         17320,   7, 3,    -- Iron Arrow
         17336,   5, 3,    -- Crossbow Bolt
-        19783, 100, 3,    -- Iga Shuriken
+        6303, 10000, 3,  -- Iga Shuriken Pouch
     }
 
     player:showText(npc, ID.text.GALVIN_SHOP_DIALOG)

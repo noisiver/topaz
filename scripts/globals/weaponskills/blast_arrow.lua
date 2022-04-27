@@ -2,7 +2,7 @@
 -- Blast Arrow
 -- Archery weapon skill
 -- Skill level: 200
--- Delivers a melee-distance ranged attack. params.accuracy varies with TP.
+-- Deals thunder damage.
 -- Aligned with the Snow Gorget & Light Gorget.
 -- Aligned with the Snow Belt & Light Belt.
 -- Element: None

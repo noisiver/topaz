@@ -15,11 +15,15 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 2223 and mob:getHPP() < 20 then -- Khromasoul Bhurborlor
+        return 0
+    end
     if (mob:AnimationSub() == 4 and mob:getFamily() == 246) then -- Troll
         return 1
     else
         return 0
     end
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)

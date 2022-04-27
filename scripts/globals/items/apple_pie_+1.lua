@@ -28,12 +28,12 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.MP, 30)
     target:addMod(tpz.mod.INT, 4)
     target:addMod(tpz.mod.MPHEAL, 2)
-    target:addMod(tpz.mod.MATT, 20)
+    target:addMod(tpz.mod.MATT, 6)
 end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.MP, 30)
     target:delMod(tpz.mod.INT, 4)
     target:delMod(tpz.mod.MPHEAL, 2)
-    target:delMod(tpz.mod.MATT, 20)
+    target:delMod(tpz.mod.MATT, 6)
 end

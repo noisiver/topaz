@@ -5,39 +5,56 @@ mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
+    mob:setDamage(50)
     mob:setMod(tpz.mod.UDMGPHYS, 200)
-    mob:setMod(tpz.mod.UDMGMAGIC, 200)
     mob:setMod(tpz.mod.UDMGRANGE, 200)
+    mob:setMod(tpz.mod.UDMGMAGIC, 200)
+    mob:setMod(tpz.mod.DMGBREATH, 200)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    mob:addImmunity(tpz.immunity.GRAVITY)
+    mob:addImmunity(tpz.immunity.BIND)
+    mob:addImmunity(tpz.immunity.SILENCE)
 end
 
 function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
 
     if mob:getHPP() <= 10 and hitTrigger == 0 then
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.BLOOD_WEAPON, cooldown = math.random(60, 90), hpp = 90},
-        },
-    })
-        target:PrintToPlayer("Witness my true form!",0,"Haborym")
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("I'm done playing games with you.",0,"Haborym")
+        end
         mob:useMobAbility(2110) -- Wings Of Gehenna
         mob:setHP(30000)
         mob:setModelId(1845) -- Vampyr
+        mob:setDamage(50)
+        mob:setMod(tpz.mod.ATT, 522)
+        mob:setMod(tpz.mod.DEF, 555)
+        mob:setMod(tpz.mod.EVA, 360)
+        mob:setMod(tpz.mod.MDEF, 20)
         mob:setMod(tpz.mod.UDMGPHYS, -50)
-        mob:setMod(tpz.mod.UDMGMAGIC, -25)
         mob:setMod(tpz.mod.UDMGRANGE, 0)
-        mob:setMod(tpz.mod.SDT_FIRE, 100)
-        mob:setMod(tpz.mod.SDT_ICE, 100)
-        mob:setMod(tpz.mod.SDT_WIND, 100)
-        mob:setMod(tpz.mod.SDT_EARTH, 100)
-        mob:setMod(tpz.mod.SDT_THUNDER, 100)
-        mob:setMod(tpz.mod.SDT_WATER, 150)
-        mob:setMod(tpz.mod.SDT_LIGHT, 150)
-        mob:setMod(tpz.mod.SDT_DARK, 50)
+        mob:setMod(tpz.mod.UDMGMAGIC, -38)
+        mob:setMod(tpz.mod.DMGBREATH, -50)
+        mob:setMod(tpz.mod.SDT_FIRE, 85)
+        mob:setMod(tpz.mod.SDT_ICE, 50)
+        mob:setMod(tpz.mod.SDT_WIND, 60)
+        mob:setMod(tpz.mod.SDT_EARTH, 60)
+        mob:setMod(tpz.mod.SDT_THUNDER, 85)
+        mob:setMod(tpz.mod.SDT_WATER, 85)
+        mob:setMod(tpz.mod.SDT_LIGHT, 115)
+        mob:setMod(tpz.mod.SDT_DARK, 5)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6027)
         mob:setLocalVar("TriggerHit", 1)
+    end
+    if hitTrigger == 1 then
+        tpz.mix.jobSpecial.config(mob, {
+            specials =
+            {
+                {id = tpz.jsa.BLOOD_WEAPON, cooldown = math.random(60, 90), hpp = 90},
+            },
+        })
     end
 end
 

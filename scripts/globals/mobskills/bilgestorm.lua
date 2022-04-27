@@ -28,9 +28,9 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local power = 50
 
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.ACCURACY_DOWN, power, 0, 60)
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.ATTACK_DOWN, power, 0, 60)
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.DEFENSE_DOWN, power, 0, 60)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.ACCURACY_DOWN, power, 0, 300)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.ATTACK_DOWN, power, 0, 300)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.DEFENSE_DOWN, power, 0, 300)
 
     local numhits = 1
     local accmod = 1

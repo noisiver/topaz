@@ -18,9 +18,9 @@ zones[tpz.zone.SHIP_BOUND_FOR_MHAURA_PIRATES] =
         LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The [/January/February/March/April/May/June/July/August/September/October/November/December] <number> Login Campaign is currently underway!<space>
         LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
         FISHING_MESSAGE_OFFSET  = 7230, -- You can't fish here.
-        ON_WAY_TO_MHAURA        = 7331, -- We're on our way to Mhaura. We should be there in [less than an hour/about 1 hour/about 2 hours/about 3 hours/about 4 hours/about 5 hours/about 6 hours/about 7 hours] (<number> [minute/minutes] in Earth time).
-        DOCKING_IN_MHAURA    = 7333, -- We are now docking in Mhaura.
-        NEARING_MHAURA       = 7334, -- We are nearing Mhaura.
+        ON_WAY_TO_MHAURA        = 7331, -- We're on our way to Mhaura. We should be there in [less than an hour/about 1 hour/about 2 hours/about 3 hours/about 4 hours/about 5 hours/about 6 hours/about 7 hours] (# [minute/minutes] in Earth time).
+        DOCKING_IN_MHAURA       = 7332, -- We are now docking in Mhaura.
+        NEARING_MHAURA          = 7333, -- We are nearing Mhaura.
         LOKHONG_SHOP_DIALOG     = 7336, -- There's nothing like fishing to pass the time!
         CHHAYA_SHOP_DIALOG      = 7337, -- May I offer you items to help you on your journey?
         ARRIVING_SOON_MHAURA    = 7338, -- We are on our way to Mhaura. We will be arriving soon.
@@ -31,9 +31,14 @@ zones[tpz.zone.SHIP_BOUND_FOR_MHAURA_PIRATES] =
         SILVERHOOK = 17711121,
         SEA_MONK   = 17682442,
         SEA_HORROR = 17682446,
+        SILVERHOOK_PH =
+        {
+            [17711120] = 17711121,
+        },
     },
     npc =
     {
+        PIRATE_SHIP = 17711139,
     },
 }
 

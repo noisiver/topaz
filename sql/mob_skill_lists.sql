@@ -238,6 +238,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,494);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,495);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,496);
 INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,497);
+INSERT INTO `mob_skill_lists` VALUES ('Buffalo',57,1364); -- Mighty Snort
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,382);
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,383);
 INSERT INTO `mob_skill_lists` VALUES ('Bugard',58,384);
@@ -670,11 +671,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',149,1395);
 INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',149,1397);
 -- INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',149,1398);
 INSERT INTO `mob_skill_lists` VALUES ('Humanoid-Hume',149,1399);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2043);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2044);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2045);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2052);
-INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2053);
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2043); -- artificial_gravity_3
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2044); -- antigravity_3
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2045); -- rail_cannon_3
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2052); -- restoral
+INSERT INTO `mob_skill_lists` VALUES ('Gears3',150,2053); -- heavy_armature
 INSERT INTO `mob_skill_lists` VALUES ('Gears2',151,2046);
 INSERT INTO `mob_skill_lists` VALUES ('Gears2',151,2047);
 INSERT INTO `mob_skill_lists` VALUES ('Gears2',151,2048);
@@ -758,6 +759,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1752); -- gusting_gouge
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1753); -- hysteric_barrage
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1754); -- dukkeripen_heal
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1755); -- dukkeripen_shadow
+INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1756); -- dukkeripen_para
 -- INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1756); -- dukkeripen
 -- INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1757); -- dukkeripen
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1758); -- tail_slap
@@ -768,7 +770,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1761); -- arrow_deluge
 -- INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1812); -- pw_pinning_shot
 -- INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1813); -- pw_calcifying_deluge
 -- INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1814); -- pw_gorgon_dance
-INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1950); -- belly_dance
+INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1762); -- belly_dance
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1929); -- pole_swing
 INSERT INTO `mob_skill_lists` VALUES ('Lamiae',171,1930); -- tidal_slash
 INSERT INTO `mob_skill_lists` VALUES ('Leech',172,414);
@@ -1379,31 +1381,34 @@ INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,479); -- Horror Cloud
 INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,484); -- Black Cloud
 INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,485); -- Blood Saber
 INSERT INTO `mob_skill_lists` VALUES ('Velionis',292,1795); -- Malediction
--- 293: Chigre
-INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1713);
-INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1714);
-INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1715);
-INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1716);
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshah',293,316); -- impale
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshah',293,317); -- vampiric_lash
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshah',293,319); -- bad_breath
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshah',293,320); -- sweet_breath
+INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1714); -- wing_slap
+INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1715); -- beak_lunge
+INSERT INTO `mob_skill_lists` VALUES ('LilApkallu',294,1716); -- frigid_shuffle
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1703);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1704);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1705);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1706);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1707);
 INSERT INTO `mob_skill_lists` VALUES ('IrizIma',295,1708);
-INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,316);
-INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,317);
--- INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,318);
-INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,319);
-INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,320);
--- INSERT INTO `mob_skill_lists` VALUES ('LividrootAmoo',296,1332);
-INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1958);
-INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1959);
-INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1960);
-INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1962);
-INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,644);
-INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,645);
-INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,646);
--- INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,256);
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,316); -- impale
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,317); -- vampiric_lash
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,319); -- bad_breath
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,320); -- sweet_breath
+INSERT INTO `mob_skill_lists` VALUES ('LividrootAmooshahFourth',296,1332); -- extremely_bad_breath
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1958); -- magic_hammer
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1959); -- water_bomb
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1960); -- frog_cheer
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1961); -- providence
+INSERT INTO `mob_skill_lists` VALUES ('IririSamariri',297,1962); -- frog_chorus
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,647); -- Chaos_Blade
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,649); -- Voidsong
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,650); -- Thornsong
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga',298,651); -- Lodesong
+INSERT INTO `mob_skill_lists` VALUES ('Anantaboga ',298,1792); -- Nullsong
 INSERT INTO `mob_skill_lists` VALUES ('Dextrose',299,1821);
 INSERT INTO `mob_skill_lists` VALUES ('Dextrose',299,1822);
 -- INSERT INTO `mob_skill_lists` VALUES ('Dextrose',299,1823);
@@ -1414,33 +1419,30 @@ INSERT INTO `mob_skill_lists` VALUES ('Reacton',300,511);
 INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1709);
 INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1710);
 INSERT INTO `mob_skill_lists` VALUES ('Verdelet',301,1711);
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2070);
 INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2071); -- dire_straight
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2072); -- earth_shatter
 INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2073); -- sinker_drill
-INSERT INTO `mob_skill_lists` VALUES ('Wulgaru',302,2074);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1778);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1779);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1780);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1781);
 INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1782);
-INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1783);
-INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1784);
+INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJu',303,1783); -- fortifying_wail
 INSERT INTO `mob_skill_lists` VALUES ('Big_Bang',304,2218); -- penumbral_impact
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1920);
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1921);
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1922);
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1923);
 INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1924);
--- INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1925);
--- INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,1926);
-INSERT INTO `mob_skill_lists` VALUES ('Gotoh_Zha_the_Redolent',305,2361);
--- 306: Dea
+INSERT INTO `mob_skill_lists` VALUES ('Dea',306,2101);
+INSERT INTO `mob_skill_lists` VALUES ('Dea',306,2102);
+INSERT INTO `mob_skill_lists` VALUES ('Dea',306,2103);
 -- 307: Kalos_Eunomia
-INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1743);
-INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1744);
-INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1745);
-INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1746);
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1894); -- potent_lunge
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1896); -- rock_smash
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1897); -- diamondhide
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1898); -- enervation
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1899); -- quake_stomp
+INSERT INTO `mob_skill_lists` VALUES ('Khromasoul',308,1900); -- healing_stomp
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2106);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2107);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2108);
@@ -1448,9 +1450,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2109);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2110);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2111);
 INSERT INTO `mob_skill_lists` VALUES ('Nosferatu',309,2112);
-INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1753);
-INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1758);
--- 311: free
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1753); -- hysteric_barrage
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1754); -- dukkeripen_heal
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1755); -- dukkeripen_shadow
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1756); -- dukkeripen_para
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1758); -- tail_slap
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1759); -- hypnotic_sway
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1762); -- belly_dance
+INSERT INTO `mob_skill_lists` VALUES ('ExperimentalLa',310,1929); -- pole_swing
+INSERT INTO `mob_skill_lists` VALUES ('ZareehklTheJuAutoattack',311,1777); -- Only use with Sword out
 INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1977); -- deathgnash
 INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1978); -- abominable_belch
 INSERT INTO `mob_skill_lists` VALUES ('Nuhn',312,1693); -- gnash
@@ -1497,7 +1505,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,498); -- triclip
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,499); -- back_swish
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,500); -- mow
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,501); -- frightful_roar
-INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,502); -- mortal_ray (TODO: change to Chthonian Ray when it is coded)
+INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,1359); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Mindertaur',318,503); -- unblessed_armor
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,881);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Shiva',319,882);
@@ -4052,6 +4060,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Duke_Haborym_Vampyr',6027,2112); -- noctu
 -- Marquis Allocen
 -- Autos
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen_Autos',6028,3264); -- salvation_scythe
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen_Autos',6028,564); -- condemnation_autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen_Autos',6028,1147); -- demonic_howl_autoattack
 -- TP Moves
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,510); -- Berserk
 INSERT INTO `mob_skill_lists` VALUES ('Marquis_Allocen',6029,569); -- Refueling
@@ -4236,7 +4246,7 @@ INSERT INTO `mob_skill_lists` VALUES ('FirespitOnly',6076,1733); -- Firespit
 INSERT INTO `mob_skill_lists` VALUES ('NimbleSnapOnly',6077,1597); -- nimble_snap
 INSERT INTO `mob_skill_lists` VALUES ('PainfulWhipOnly',6078,1574); -- Painful_Whip
 
-INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan_AutoAttack',6079,1364); -- Snort_Autoattack
+INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan_AutoAttack',6079,4232); -- Snort_Autoattack
 INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,496); -- Rabid_Dance
 INSERT INTO `mob_skill_lists` VALUES ('Geush_Urvan',6080,1331); -- Counterstance
 
@@ -4350,6 +4360,16 @@ INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2081); -- hammer-go
 INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2082); -- hammerblow
 INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2083); -- drop_hammer
 INSERT INTO `mob_skill_lists` VALUES ('Troll_Destroyer',6112,2084); -- seismohammer
+INSERT INTO `mob_skill_lists` VALUES ('UnblestJambiyaOnly',6113,1784); -- unblest_jambiya
+INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1963); -- Mind Blast
+INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1964); -- Immortal Mind
+INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1967); -- Tribulation
+INSERT INTO `mob_skill_lists` VALUES ('Mahjlaef_the_Paintorn',6114,1968); -- Immortal Anathema
+
+INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,257); -- Follow The White Rabbit ENM
+INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,259);
+INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,1570); -- wild_carrot_ENM
+INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,661);
 
 --6066 unused
 

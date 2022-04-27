@@ -20,7 +20,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.numHits = 7
-    params.ftp100 = 0.88 params.ftp200 = 0.88 params.ftp300 = 0.88
+    params.ftp100 = 1 params.ftp200 = 1 params.ftp300 = 1
     params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.85 + (player:getMerit(tpz.merit.REALMRAZER) / 100) params.chr_wsc = 0.0
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false

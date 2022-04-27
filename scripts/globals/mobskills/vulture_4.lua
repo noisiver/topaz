@@ -1,6 +1,7 @@
 ---------------------------------------------
 -- (Vulture 4)
 -- Dummy ability used for 2hr animation.
+-- 2 hr cloud (Thunder / Yellow)
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")

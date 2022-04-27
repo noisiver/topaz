@@ -39,6 +39,11 @@ function onMobRoam(mob)
         mob:SetMobAbilityEnabled(true)
 	    mob:setLocalVar("RunAway", 3)
     end
+    -- Make sure he doesn't roam with shiled up somehow
+    mob:setMod(tpz.mod.RAMPART_STONESKIN, 0)
+    if (mob:getMod(tpz.mod.RAMPART_STONESKIN) == 0) then
+        mob:AnimationSub(0)
+    end
     mob:setMod(tpz.mod.REGEN, 0)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
@@ -50,6 +55,10 @@ function onMobEngaged(mob)
     end
 	if RunAwayPath == 1 then
         mob:setHP(63000)
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("The Enhanced Soulflayer attempts to call for help!",0,"???")
+        end
     end
     if RunAwayPath == 2 then
         mob:setHP(56000)

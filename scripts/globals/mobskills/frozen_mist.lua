@@ -29,7 +29,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.TERROR
     -- addEx to pervent dispel
-    mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 60)
+    mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 1, 0, 300)
     skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
 	MobStatusEffectMove(mob, target, typeEffect, 1, 0, 10)
 	MobEncumberMove(target, math.random(1, 3), 60)

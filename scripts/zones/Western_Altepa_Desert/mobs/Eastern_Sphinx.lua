@@ -16,6 +16,7 @@ function onMobFight(mob, target)
     local BroDead = GetMobByID(ID.mob.WESTERN_SPHINX):isDead()
     if BroDead and Bro == 0 then
         mob:useMobAbility(689) -- Benediction
+        mob:setDamage(125)
         mob:addMod(tpz.mod.DEFP, 50) 
         mob:addMod(tpz.mod.ATTP, 50)
         mob:addMod(tpz.mod.ACC, 100) 
