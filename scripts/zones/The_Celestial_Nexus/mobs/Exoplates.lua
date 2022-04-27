@@ -27,6 +27,8 @@ function onMobFight(mob, target)
 	mob:setMod(tpz.mod.REGAIN, 50)
     local shifts = mob:getLocalVar("shifts")
     local shiftTime = mob:getLocalVar("shiftTime")
+    -- Make sure you can tank Eald by hitting the Exoplates
+	GetMobByID(17518595):updateEnmity(target)
 
     if (mob:AnimationSub() == 0 and shifts == 0 and mob:getHPP() <= 67) then
         mob:useMobAbility(993)
