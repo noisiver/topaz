@@ -510,8 +510,8 @@ INSERT INTO `mob_skills` VALUES (568,867,'formation_attack',0,7.0,2000,1500,4,0,
 INSERT INTO `mob_skills` VALUES (569,868,'refueling',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (570,869,'circle_of_flames',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (571,870,'self-destruct_3',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 3 clusters
-INSERT INTO `mob_skills` VALUES (572,871,'self-destruct_2',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 2 clusters
-INSERT INTO `mob_skills` VALUES (573,872,'self-destruct_1',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 1 cluster
+INSERT INTO `mob_skills` VALUES (572,872,'self-destruct_1',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 1 clusters
+INSERT INTO `mob_skills` VALUES (573,872,'self-destruct_2',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 2 cluster
 -- INSERT INTO `mob_skills` VALUES (574,318,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (575,319,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (576,910,'back_heel',0,7,2000,1500,4,0,0,2,0,0,0);

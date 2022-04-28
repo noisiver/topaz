@@ -10,11 +10,11 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 20) 
      mob:addMod(tpz.mod.ATTP, 10)
+     mob:addMod(tpz.mod.DEFP, 20) 
      mob:addMod(tpz.mod.ACC, 15) 
      mob:addMod(tpz.mod.EVA, 15)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)
@@ -25,19 +25,19 @@ function onMobFight(mob, target)
         Guard:spawn()
         Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 1)
-        printf("Spawning Guard Hippo #1");
+        --printf("Spawning Guard Hippo #1");
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 and not Guard:isSpawned() then 
         Guard:spawn()
         Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 2)
-        printf("Spawning Guard Hippo #2");
+        --printf("Spawning Guard Hippo #2");
     end
     if mob:getHPP() <= 25 and hitTrigger == 2 and not Guard:isSpawned() then 
         Guard:spawn()
         Guard:updateEnmity(target)
         mob:setLocalVar("TriggerHit", 3)
-        printf("Spawning Guard Hippo #3");
+        --printf("Spawning Guard Hippo #3");
     end
 end
 
@@ -47,7 +47,7 @@ function onMobInitialize(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN, {chance = 20, duration = 5})
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN, {chance = 25, duration = 5})
 end
 
 function onMobDeath(mob, player, isKiller)
