@@ -86,6 +86,7 @@ function onEventFinish(player, csid, option)
                 player:setCharVar("PromathiaStatus", 0)
                 player:completeMission(ZILART, tpz.mission.id.cop.AWAKENING)
                 player:addMission(ZILART, tpz.mission.id.zilart.THE_LAST_VERSE)
+                player:addTitle(422) -- Breaker of the Chains
                 player:setCharVar("ZilartStatus", 0)
             end
         end
