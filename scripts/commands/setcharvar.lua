@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
--- func: setplayervar
+-- func: setcharvar
 -- desc: Sets a variable on the target player.
 ---------------------------------------------------------------------------------------------------
 
@@ -11,7 +11,7 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!setplayervar <player> <variable> <value>")
+    player:PrintToPlayer("!setcharvar <player> <variable> <value>")
 end
 
 function onTrigger(player, target, variable, value)
