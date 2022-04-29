@@ -30,19 +30,11 @@ function onMobRoam(mob)
 end
 
 function onMobEngaged(mob)
-    local GorynichKillCounter = GetServerVariable("GorynichKillCounter")
-    if mob:getHP() > 10000 then
-	    mob:setHP(15000 - (GorynichKillCounter * 10))
-	mob:setDamage(500 - GorynichKillCounter)
-    end
+
 end
 
 function onMobFight(mob, target)
-    local GorynichKillCounter = GetServerVariable("GorynichKillCounter")
-    if mob:getHP() > 10000 then
-	    mob:setHP(15000 - (GorynichKillCounter * 10))
-	mob:setDamage(500 - GorynichKillCounter)
-    end
+
 end
 
 
