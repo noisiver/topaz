@@ -61,7 +61,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
     local battlefield = mob:getBattlefield()
     local GorynichKillCounter = battlefield:getLocalVar("GorynichKillCounter")
     -- Killing Gorynich reduce Cynoprosopi's Maximum HP, Attack, Accuracy and Attack Speed.
-    battlefield:setLocalVar("GorynichKillCounter", GorynichKillCounter + 112)
+    battlefield:setLocalVar("GorynichKillCounter", GorynichKillCounter + 100)
     Cynoprosopi:addMod(tpz.mod.ACC, -25)
     Cynoprosopi:addMod(tpz.mod.HASTE_MAGIC, -1000)
     Cynoprosopi:setHP(15000 - GorynichKillCounter * 10)
