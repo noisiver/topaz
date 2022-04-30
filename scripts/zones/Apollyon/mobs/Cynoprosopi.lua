@@ -13,7 +13,7 @@ local path =
     {-543.441,0.000,523.866}
 }
 function onMobSpawn(mob)
-    mob:setDamage(500)
+    mob:setDamage(100)
     mob:setMod(tpz.mod.DEF, 4000)
     mob:setMod(tpz.mod.REGEN, 0)
     mob:setMobMod(tpz.mobMod.NO_REST, 1)
