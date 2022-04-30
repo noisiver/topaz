@@ -26,10 +26,50 @@ function onTrigger(player, npc)
 
     if (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.PFC_WILDCAT_BADGE) == false and player:getCharVar("PromotionPFC") == 0) then
         player:startEvent(5000, 0, 0, 0, 0, 0, 0, 0, 0, 0) -- PFC rank is available
-    elseif (player:getCharVar("PromotionSP") == 1 and player:hasKeyItem(tpz.ki.DARK_RIDER_HOOFPRINT) == true) then
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.PFC_WILDCAT_BADGE) and player:hasKeyItem(tpz.ki.SP_WILDCAT_BADGE) == false) then
         player:startEvent(5022, 0, 0, 0, 0, 0, 0, 0, 0, 0) -- Superior Private rank complete
-    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.SP_WILDCAT_BADGE) == false and player:getCharVar("PromotionSP") == 0) then
-        player:startEvent(5020, 0, 0, 0, 0, 0, 0, 0, 0, 0) -- Superior Private rank is available
+    -- All below need proper CS ID
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.LC_WILDCAT_BADGE) == false) then
+        player:PrintToPlayer("Nice job, now get back to work!",0,"Naja Salaheem")
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.LC_WILDCAT_BADGE)
+        player:addKeyItem(tpz.ki.LC_WILDCAT_BADGE)
+        player:setCharVar("AssaultPromotion", 0)
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.C_WILDCAT_BADGE) == false) then
+        player:PrintToPlayer("Nice job, now get back to work!",0,"Naja Salaheem")
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.C_WILDCAT_BADGE)
+        player:addKeyItem(tpz.ki.C_WILDCAT_BADGE)
+        player:setCharVar("AssaultPromotion", 0)
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.S_WILDCAT_BADGE) == false) then
+        player:PrintToPlayer("Nice job, now get back to work!",0,"Naja Salaheem")
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.S_WILDCAT_BADGE)
+        player:addKeyItem(tpz.ki.S_WILDCAT_BADGE)
+        player:setCharVar("AssaultPromotion", 0)
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.SM_WILDCAT_BADGE) == false) then
+        player:PrintToPlayer("Nice job, now get back to work!",0,"Naja Salaheem")
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SM_WILDCAT_BADGE)
+        player:addKeyItem(tpz.ki.SM_WILDCAT_BADGE)
+        player:setCharVar("AssaultPromotion", 0)
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.CS_WILDCAT_BADGE) == false) then
+        player:PrintToPlayer("Nice job, now get back to work!",0,"Naja Salaheem")
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CS_WILDCAT_BADGE)
+        player:addKeyItem(tpz.ki.CS_WILDCAT_BADGE)
+        player:setCharVar("AssaultPromotion", 0)
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.SL_WILDCAT_BADGE) == false) then
+        player:PrintToPlayer("Nice job, now get back to work!",0,"Naja Salaheem")
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SL_WILDCAT_BADGE)
+        player:addKeyItem(tpz.ki.SL_WILDCAT_BADGE)
+        player:setCharVar("AssaultPromotion", 0)
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.FL_WILDCAT_BADGE) == false) then
+        player:PrintToPlayer("Nice job, now get back to work!",0,"Naja Salaheem")
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.FL_WILDCAT_BADGE)
+        player:addKeyItem(tpz.ki.FL_WILDCAT_BADGE)
+        player:setCharVar("AssaultPromotion", 0)
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.CAPTAIN_WILDCAT_BADGE) == false) then
+        player:PrintToPlayer("Wow, you've come a long way.",0,"Naja Salaheem")
+        player:PrintToPlayer("This doesn't mean you don't need to get back to work. Now go!",0,"Naja Salaheem")
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CAPTAIN_WILDCAT_BADGE)
+        player:addKeyItem(tpz.ki.CAPTAIN_WILDCAT_BADGE)
+        player:setCharVar("AssaultPromotion", 0)
     elseif (player:getCurrentMission(TOAU) == tpz.mission.id.toau.IMMORTAL_SENTRIES and player:getCharVar("AhtUrganStatus") == 1) then
         player:startEvent(3002, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     elseif (player:getCurrentMission(TOAU) == tpz.mission.id.toau.PRESIDENT_SALAHEEM and player:getCharVar("AhtUrganStatus") == 1) then
@@ -201,5 +241,46 @@ function onEventFinish(player, csid, option)
         player:addKeyItem(tpz.ki.SP_WILDCAT_BADGE)
         player:setCharVar("PromotionSP", 0)
         player:setCharVar("AssaultPromotion", 0)
+    -- Below need proper CSID. They currently do not work.
+    -- elseif csid == 5022 then
+    --     player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.LC_WILDCAT_BADGE)
+    --     player:addKeyItem(tpz.ki.LC_WILDCAT_BADGE)
+    --     player:setCharVar("PromotionSP", 0)
+    --     player:setCharVar("AssaultPromotion", 0)
+    -- elseif csid == 5022 then
+    --     player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.C_WILDCAT_BADGE)
+    --     player:addKeyItem(tpz.ki.C_WILDCAT_BADGE)
+    --     player:setCharVar("PromotionSP", 0)
+    --     player:setCharVar("AssaultPromotion", 0)
+    -- elseif csid == 5022 then
+    --     player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.S_WILDCAT_BADGE)
+    --     player:addKeyItem(tpz.ki.S_WILDCAT_BADGE)
+    --     player:setCharVar("PromotionSP", 0)
+    --     player:setCharVar("AssaultPromotion", 0)
+    -- elseif csid == 5022 then
+    --     player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SM_WILDCAT_BADGE)
+    --     player:addKeyItem(tpz.ki.SM_WILDCAT_BADGE)
+    --     player:setCharVar("PromotionSP", 0)
+    --     player:setCharVar("AssaultPromotion", 0)
+    -- elseif csid == 5022 then
+    --     player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CS_WILDCAT_BADGE)
+    --     player:addKeyItem(tpz.ki.CS_WILDCAT_BADGE)
+    --     player:setCharVar("PromotionSP", 0)
+    --     player:setCharVar("AssaultPromotion", 0)
+    -- elseif csid == 5022 then
+    --     player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SL_WILDCAT_BADGE)
+    --     player:addKeyItem(tpz.ki.SL_WILDCAT_BADGE)
+    --     player:setCharVar("PromotionSP", 0)
+    --     player:setCharVar("AssaultPromotion", 0)
+    -- elseif csid == 5022 then
+    --     player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.FL_WILDCAT_BADGE)
+    --     player:addKeyItem(tpz.ki.FL_WILDCAT_BADGE)
+    --     player:setCharVar("PromotionSP", 0)
+    --     player:setCharVar("AssaultPromotion", 0)
+    -- elseif csid == 5022 then
+    --     player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CAPTAIN_WILDCAT_BADGE)
+    --     player:addKeyItem(tpz.ki.CAPTAIN_WILDCAT_BADGE)
+    --     player:setCharVar("PromotionSP", 0)
+    --     player:setCharVar("AssaultPromotion", 0)
     end
 end
