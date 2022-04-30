@@ -8,28 +8,17 @@ require("scripts/globals/quests")
 
 local loot =
 {
-    -- ENM: Fire in the Sky
-    [962] =
+    -- ENM: Test Your Mite
+    [705] =
     {
         {
             {itemid =     0, droprate =  950}, -- nothing
             {itemid =  1842, droprate =  050}, -- Cloud Evoker
         },
         {
-            {itemid =     0, droprate =  400}, -- nothing
-            {itemid = 17215, droprate =  240}, -- Thug's Zamburak
-            {itemid = 16708, droprate =  240}, -- Horror Voulge 
-            {itemid = 13550, droprate =  200}, -- Crossbowman's Ring
-            {itemid = 14675, droprate =  150}, -- Woodsman Ring 
-            {itemid = 13549, droprate =  300}, -- Ether Ring
-        },
-        {
-            {itemid =     0, droprate =  400}, -- nothing
-            {itemid = 17215, droprate =  240}, -- Thug's Zamburak
-            {itemid = 16708, droprate =  240}, -- Horror Voulge 
-            {itemid = 13550, droprate =  200}, -- Crossbowman's Ring
-            {itemid = 14675, droprate =  150}, -- Woodsman Ring 
-            {itemid = 13549, droprate =  300}, -- Ether Ring
+            {itemid = 14675, droprate =  100}, -- Woodsman Ring
+            {itemid = 15432, droprate =  100}, -- Quick Belt 
+            {itemid = 14766, droprate =  100}, -- Geist Earring
         },
     },
 }

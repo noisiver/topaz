@@ -15,6 +15,7 @@ require("scripts/globals/shop")
 -----------------------------------
 
 function onTrade(player, npc, trade)
+    local AstralCovenantTimer = player:getCharVar("[ENM]AstralCovenantTimer")
     if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.TENSHODO_MEMBERSHIP) ~= QUEST_COMPLETED and npcUtil.tradeHas(trade, 548) then
         -- Finish Quest: Tenshodo Membership (Invitation)
         player:startEvent(108)
@@ -29,6 +30,21 @@ function onTrade(player, npc, trade)
         )
     then
         player:startEvent(52, 500 * GIL_RATE)
+    end
+    if npcUtil.tradeHas(trade, 1782) then -- Florid Stone for Test Your Mite ENM
+        if player:hasKeyItem(tpz.ki.ASTRAL_COVENANT) then
+            player:PrintToPlayer("You're already in the possession of an Astral Covenant.",0,"Ghebi Damomohe")
+        elseif VanadielTime() > AstralCovenantTimer and player:hasKeyItem(tpz.ki.ASTRAL_COVENANT) == false then
+            player:confirmTrade()
+            player:PrintToPlayer("This stone... there's something inside of it!",0,"Ghebi Damomohe")
+            player:addKeyItem(tpz.ki.ASTRAL_COVENANT)
+            player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.ASTRAL_COVENANT)
+            player:setCharVar("[ENM]AstralCovenantTimer", VanadielTime()+39600) -- Current time +11 hrs
+            player:PrintToPlayer("Take this down to the deepest scariest parts of Pso\'Xja.",0,"Ghebi Damomohe")
+            player:PrintToPlayer("Please come back safely...",0,"Ghebi Damomohe")
+        else
+            player:PrintToPlayer("You must wait until the next day for another Astral Covenant.",0,"Ghebi Damomohe")
+        end
     end
 end
 
@@ -46,6 +62,8 @@ function onTrigger(player, npc)
         player:startEvent(54)
     elseif (GetGems == 1) then
         player:startEvent(53)
+    elseif player:hasKeyItem(tpz.ki.ASTRAL_COVENANT) then
+        player:PrintToPlayer("What are you waiting for? Take that Astral Covenant to Pso\'Xja!",0,"Ghebi Damomohe")
     else
         player:startEvent(106, 4)
     end
@@ -55,6 +73,7 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
+    local AstralCovenantTimer = player:getCharVar("[ENM]AstralCovenantTimer")
     if csid == 106 and option == 0 then
         local stock =
         {

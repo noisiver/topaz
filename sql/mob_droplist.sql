@@ -16099,7 +16099,7 @@ INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1062,50); -- Oldton Chest Key
 INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1625,50); -- Moblin Helm
 INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1632,100); -- Moblin Mail
 INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1729,150); -- Moblin Hotrok
-INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1858,150); 
+INSERT INTO `mob_droplist` VALUES (3078,0,0,1000,1858,50);  -- Moblumin ingot
 INSERT INTO `mob_droplist` VALUES (3079,0,0,1000,16028,150); -- (Thunderclaw Thuban) Psyche Earring
 INSERT INTO `mob_droplist` VALUES (3080,0,0,1000,2846,240); -- (Legalox Heftyhind) Hefty Oak Lumber
 INSERT INTO `mob_droplist` VALUES (3081,0,0,1000,16187,150); -- (Shankha) Adoubeur's Pavise
