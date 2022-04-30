@@ -57,17 +57,16 @@ function onMobRoam(mob)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    local Cynoprosopi = GetMobByID(16932976)
-    local battlefield = mob:getBattlefield()
-    local GorynichKillCounter = battlefield:getLocalVar("GorynichKillCounter")
-    -- Killing Gorynich reduce Cynoprosopi's Maximum HP, Attack, Accuracy and Attack Speed.
-    battlefield:setLocalVar("GorynichKillCounter", GorynichKillCounter + 100)
-    Cynoprosopi:addMod(tpz.mod.ACC, -25)
-    Cynoprosopi:addMod(tpz.mod.HASTE_MAGIC, -1000)
-    Cynoprosopi:setHP(15000 - GorynichKillCounter * 10)
-	Cynoprosopi:setDamage(500 - GorynichKillCounter)
-
     if isKiller or noKiller then
+        local Cynoprosopi = GetMobByID(16932976)
+        local battlefield = mob:getBattlefield()
+        local GorynichKillCounter = battlefield:getLocalVar("GorynichKillCounter")
+        -- Killing Gorynich reduce Cynoprosopi's Maximum HP, Attack, Accuracy and Attack Speed.
+        battlefield:setLocalVar("GorynichKillCounter", GorynichKillCounter + 100)
+        Cynoprosopi:addMod(tpz.mod.ACC, -25)
+        Cynoprosopi:addMod(tpz.mod.HASTE_MAGIC, -1000)
+        Cynoprosopi:setHP(15000 - GorynichKillCounter * 10)
+	    Cynoprosopi:setDamage(500 - GorynichKillCounter)
         local mobID = mob:getID()
         local battlefield = mob:getBattlefield()
         local randomF4 = battlefield:getLocalVar("randomF4")
