@@ -10,13 +10,22 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	local CurrentTP = mob:getTP()
+	mob:setLocalVar("TP", CurrentTP)
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 2
+    local dmgmod = 1
+    local CurrentTP = mob:getLocalVar("TP")
+    if CurrentTP == 2000 then
+        dmgmod = 2
+    end
+    if CurrentTP == 3000 then
+        dmgmod = 3
+    end
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, TP_CRIT_VARIES, 1.45, 1.55, 1.75)
 
