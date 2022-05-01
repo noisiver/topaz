@@ -7151,7 +7151,7 @@ INSERT INTO `mob_groups` VALUES (44,1636,102,'Goblin_Archaeologist',0,128,3104,1
 INSERT INTO `mob_groups` VALUES (45,2880,102,'Nihniknoovi',0,128,1809,715,0,14,14,0);
 INSERT INTO `mob_groups` VALUES (46,3148,102,'Pixie',330,128,2001,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (47,5167,102,'Stachysaurus',0,128,0,0,0,96,97,0);
-INSERT INTO `mob_groups` VALUES (48,3896,102,'Thickshell',128,0,0,0,0,12,14,0);
+INSERT INTO `mob_groups` VALUES (48,3896,102,'Thickshell',0,128,0,0,0,12,14,0);
 
 INSERT INTO `mob_groups` VALUES (5629,305,102,'Ayame',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (5649,2804,102,'Nanaa_Mihgo',0,0,0,0,0,0,0,0);
@@ -7232,8 +7232,8 @@ INSERT INTO `mob_groups` VALUES (65,3148,103,'Pixie',0,128,2001,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (66,479,103,'Blue_Bascinet',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (67,4693,103,'Ig-Alima',0,128,0,0,9999,115,115,0);
 INSERT INTO `mob_groups` VALUES (68,1642,103,'Goblin_Bounty_Hunter',0,0,1030,0,0,17,20,0);
-INSERT INTO `mob_groups` VALUES (69,5733,103,'Snipper',128,0,0,0,0,18,22,0);
-INSERT INTO `mob_groups` VALUES (70,380,103,'Beach_Pugil',128,0,0,0,0,23,26,0);
+INSERT INTO `mob_groups` VALUES (69,5733,103,'Snipper',0,128,0,0,0,18,22,0);
+INSERT INTO `mob_groups` VALUES (70,380,103,'Beach_Pugil',0,128,0,0,0,23,26,0);
 
 INSERT INTO `mob_groups` VALUES (5684,1027,103,'Diabolos',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (5722,2403,103,'Lewenhart',0,0,0,0,0,0,0,0);
@@ -7607,8 +7607,8 @@ INSERT INTO `mob_groups` VALUES (59,3745,109,'Sprite',0,128,0,0,0,61,63,0);
 INSERT INTO `mob_groups` VALUES (60,331,109,'Ballistosporer',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (61,5312,109,'Murk-veined_Baneberry',0,128,0,0,99999,92,94,0);
 INSERT INTO `mob_groups` VALUES (62,0,109,'Toxic_Tamlyn',0,128,3150,3500,0,44,44,0);
-INSERT INTO `mob_groups` VALUES (63,5133,109,'Thread_Leech',128,0,0,0,0,20,23,0);
-INSERT INTO `mob_groups` VALUES (64,5733,109,'Snipper',128,0,0,0,0,17,20,0);
+INSERT INTO `mob_groups` VALUES (63,5133,109,'Thread_Leech',0,128,0,0,0,20,23,0);
+INSERT INTO `mob_groups` VALUES (64,5733,109,'Snipper',0,128,0,0,0,17,20,0);
 
 INSERT INTO `mob_groups` VALUES (6001,305,109,'Ayame',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6013,896,109,'Dalzakk',0,0,0,0,0,0,0,0);
@@ -8111,8 +8111,8 @@ INSERT INTO `mob_groups` VALUES (52,2213,118,'Ketos',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (53,4734,118,'Botulus_Rex',0,128,0,0,9999,94,95,0);
 INSERT INTO `mob_groups` VALUES (54,1642,118,'Goblin_Bounty_Hunter',0,0,1030,0,0,17,20,0);
 INSERT INTO `mob_groups` VALUES (55,5344,118,'Backoo',0,128,3140,2700,0,37,37,0);
-INSERT INTO `mob_groups` VALUES (56,5733,118,'Snipper',128,0,0,0,0,20,23,0);
-INSERT INTO `mob_groups` VALUES (57,3608,118,'Shoal_Pugil',128,0,0,0,0,24,28,0);
+INSERT INTO `mob_groups` VALUES (56,5733,118,'Snipper',0,128,0,0,0,20,23,0);
+INSERT INTO `mob_groups` VALUES (57,3608,118,'Shoal_Pugil',0,128,0,0,0,24,28,0);
 
 INSERT INTO `mob_groups` VALUES (6435,1027,118,'Diabolos',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6437,1518,118,'Ghoul',0,0,960,0,0,0,0,0);
@@ -12364,7 +12364,7 @@ INSERT INTO `mob_groups` VALUES (9761,3992,195,'Treasure_Chest',0,0,0,0,0,0,0,0)
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,3138,196,'Pirate_Pugil',0,128,0,0,0,20,22,0);
-INSERT INTO `mob_groups` VALUES (2,1807,196,'Greater_Pugil',128,0,0,0,0,29,31,0);
+INSERT INTO `mob_groups` VALUES (2,1807,196,'Greater_Pugil',0,128,0,0,0,29,31,0);
 INSERT INTO `mob_groups` VALUES (3,2987,196,'Ooze',0,128,0,0,0,30,32,0);
 INSERT INTO `mob_groups` VALUES (4,2774,196,'Mush',0,128,15,0,0,35,37,0);
 INSERT INTO `mob_groups` VALUES (5,452,196,'Blind_Moby',0,128,295,3500,0,25,26,0);
