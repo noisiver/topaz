@@ -48,14 +48,16 @@ function onMobDeath(mob, player, isKiller)
     local battlefield = mob:getBattlefield()
     local SnowDevilWaves = battlefield:getLocalVar("SnowDevilWaves")
     -- Despawn mob holding chest closed until all waves are cleared
-    if SnowDevilWaves >= 4 and GetMobByID(16801818):isDead() and GetMobByID(16801819):isDead() and GetMobByID(16801820):isDead() and
-    GetMobByID(16801821):isDead() then
-        DespawnMob(16801826)
-    end
-    if mob:getID() == 16801818 then -- "Main" wave Snoll only increases wave counter
-        -- Increase wave counter
-        battlefield:setLocalVar("SnowDevilWaves", SnowDevilWaves + 1)
-        --printf("%u", SnowDevilWaves)
+    if isKiller or noKiller then
+        if SnowDevilWaves >= 4 and GetMobByID(16801818):isDead() and GetMobByID(16801819):isDead() and GetMobByID(16801820):isDead() and
+        GetMobByID(16801821):isDead() then
+            DespawnMob(16801826)
+        end
+        if mob:getID() == 16801818 then -- "Main" wave Snoll only increases wave counter
+            -- Increase wave counter
+            battlefield:setLocalVar("SnowDevilWaves", SnowDevilWaves + 1)
+            --printf("%u", SnowDevilWaves)
+        end
     end
 end
 
