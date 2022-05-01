@@ -7492,7 +7492,7 @@ INSERT INTO `mob_groups` VALUES (42,714,107,'Chigoe',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (43,3241,107,'Pyracmon',1,0,2047,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (44,4381,107,'Wraith_Bat',0,128,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (45,6543,107,'Enchanted_Bones',330,1,769,0,0,4,8,0);
-INSERT INTO `mob_groups` VALUES (46,2372,107,'Land_Crab',128,0,481,0,0,5,7,0);
+INSERT INTO `mob_groups` VALUES (46,2372,107,'Land_Crab',0,128,0,0,0,5,7,0);
 
 INSERT INTO `mob_groups` VALUES (5953,3199,107,'Prishe',0,0,0,0,0,0,0,0);
 
