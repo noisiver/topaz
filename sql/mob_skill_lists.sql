@@ -4371,6 +4371,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,259);
 INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,1570); -- wild_carrot_ENM
 INSERT INTO `mob_skill_lists` VALUES ('Bearclaw_Rabbit',6115,661);
 
+INSERT INTO `mob_skill_lists` VALUES ('Pasuk',6116,362); -- double_claw
+INSERT INTO `mob_skill_lists` VALUES ('Pasuk',6116,363); -- grapple
+INSERT INTO `mob_skill_lists` VALUES ('Pasuk',6116,365); -- spinning_top
+INSERT INTO `mob_skill_lists` VALUES ('Pasuk',6116,1361); --viscid_secretion
+
 --6066 unused
 
 

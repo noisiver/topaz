@@ -599,11 +599,17 @@ void SetupJob(CMobEntity* PMob)
         job = sJob;
     }
 
+    // WAR mobs have 25% DA
+    if (mJob == JOB_WAR && mLvl >= 25)
+    {
+        PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
+    }
+
     // This switch falls back to a subjob if a mainjob isn't matched, and is mainly magic stuff
     switch(job)
     {
         case JOB_WAR:
-            if (mLvl >= 25 || sLvl >= 25)
+            if (mLvl >= 25)
             {
                 PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
             }

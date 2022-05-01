@@ -33,23 +33,27 @@ function onMobSpawn(mob)
     end
 end
 
-function onMobRoam(mob)
-    local battlefield = mob:getBattlefield()
-    local SnowDevilWaves = battlefield:getLocalVar("SnowDevilWaves")
-    if SnowDevilWaves >= 4 then -- Don't keep spawning mobs after 4 waves
-        DespawnMob(mob:getID())
-    end
-end
-
 function onMobFight(mob, target)
-    local battlefield = mob:getBattlefield()
-    local SnowDevilWaves = battlefield:getLocalVar("SnowDevilWaves")
-    if SnowDevilWaves >= 4 then
-        DespawnMob(mob:getID()) -- Don't keep spawning mobs after 4 waves
-    end
 end
 
 function onMobDeath(mob, player, isKiller)
+    local battlefield = mob:getBattlefield()
+    local SnowDevilWaves = battlefield:getLocalVar("SnowDevilWaves")
+    -- Despawn mob holding chest closed until all waves are cleared
+    if isKiller or noKiller then
+        if SnowDevilWaves >= 4 and GetMobByID(16801834):isDead() and GetMobByID(16801835):isDead() and GetMobByID(16801836):isDead() and
+        GetMobByID(16801837):isDead() then
+            DespawnMob(16801826)
+        end
+        if mob:getID() == 16801834 then -- "Main" wave Snoll only increases wave counter
+            -- Increase wave counter
+            battlefield:setLocalVar("SnowDevilWaves", SnowDevilWaves + 1)
+            --printf("%u", SnowDevilWaves)
+        end
+    end
+end
+
+function onMobDespawn(mob)
     local battlefield = mob:getBattlefield()
     local SnowDevilWaves = battlefield:getLocalVar("SnowDevilWaves")
     -- Despawn mob holding chest closed until all waves are cleared
@@ -57,25 +61,14 @@ function onMobDeath(mob, player, isKiller)
     GetMobByID(16801837):isDead() then
         DespawnMob(16801826)
     end
-    if mob:getID() == 16801834 then -- "Main" wave Snoll only increases wave counter
-        -- Increase wave counter
-        battlefield:setLocalVar("SnowDevilWaves", SnowDevilWaves + 1)
-        --printf("%u", SnowDevilWaves)
-    end
-end
-
-function onMobDespawn(mob)
-    local battlefield = mob:getBattlefield()
-    local SnowDevilWaves = battlefield:getLocalVar("SnowDevilWaves")
-    if not GetMobByID(16801826):isDead() then  -- Don't spawn anymore mobs if chest "placeholder" mob is dead
-        -- Spawn next wave of snolls
-        if GetMobByID(16801834):isDead() and GetMobByID(16801835):isDead() and GetMobByID(16801836):isDead() and
-        GetMobByID(16801837):isDead() then
-            battlefield:setLocalVar("SnowDevilSpawns", math.random(0,3))
-            local SnowDevilSpawns = battlefield:getLocalVar("SnowDevilSpawns")
-            for v = 16801818, 16801818 + SnowDevilSpawns, 1 do
-                GetMobByID(v):spawn()
-            end
+    if SnowDevilWaves == 4 then return end -- Don't spawn anymore mobs after 4 waves
+    -- Spawn next wave of snolls
+    if GetMobByID(16801834):isDead() and GetMobByID(16801835):isDead() and GetMobByID(16801836):isDead() and
+    GetMobByID(16801837):isDead() then
+        battlefield:setLocalVar("SnowDevilSpawns", math.random(0,3))
+        local SnowDevilSpawns = battlefield:getLocalVar("SnowDevilSpawns")
+        for v = 16801818, 16801818 + SnowDevilSpawns, 1 do
+            GetMobByID(v):spawn()
         end
     end
 end

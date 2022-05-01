@@ -86,24 +86,33 @@ local loot =
             {itemid = 678, droprate = 1000},  -- Aluminum Ore
         },
         {
+            {itemid = 678, droprate = 1000},  -- Aluminum Ore
+        },
+        {
+            {itemid = 678, droprate = 1000},  -- Aluminum Ore
+        },
+        {
+            {itemid = 678, droprate = 1000},  -- Aluminum Ore
+        },
+        {
             {itemid =     0, droprate =  950}, -- nothing
             {itemid =  1842, droprate =  050}, -- Cloud Evoker
         },
         {
-            {itemid = 678,   droprate = 600}, -- Aluminum Ore 
+            {itemid =     0, droprate = 600}, -- nothing
             {itemid = 14682, droprate = 100}, -- Kshama Ring No. 2
             {itemid = 14683, droprate = 100}, -- Kshama Ring No. 4
             {itemid = 14685, droprate = 100},  -- Kshama Ring No. 5
             {itemid = 14686, droprate = 100},  -- Kshama Ring No. 9
         },
         {
-            {itemid = 678,   droprate = 700}, -- Aluminum Ore 
-            {itemid = 14684, droprate = 100}, -- Kshama Ring No. 3
-            {itemid = 14687, droprate = 100}, -- Kshama Ring No. 6
-            {itemid = 13551, droprate = 100},  -- Kshama Ring No. 8
+            {itemid =     0, droprate = 650}, -- nothing
+            {itemid = 14684, droprate = 150}, -- Kshama Ring No. 3
+            {itemid = 14687, droprate = 150}, -- Kshama Ring No. 6
+            {itemid = 13551, droprate = 150},  -- Kshama Ring No. 8
         },
         {
-            {itemid = 678,   droprate = 600}, -- Aluminum Ore 
+            {itemid =     0, droprate = 600}, -- nothing
             {itemid = 17133, droprate = 100}, -- Chanter's Staff 
             {itemid = 16965, droprate = 100}, -- Koryukagemitsu 
             {itemid = 18411, droprate = 100}, -- Buboso

@@ -23,11 +23,11 @@ function onMobSpawn(mob)
             {id = tpz.jsa.MIGHTY_STRIKES, hpp = 25},
         },
     })
-    mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ACC, 15) 
     mob:addMod(tpz.mod.EVA, 15)
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobEngaged(mob, target)
@@ -43,8 +43,8 @@ function onMobFight(mob, target)
     local hitTrigger = mob:getLocalVar("TriggerHit")
     local roll = mob:getLocalVar("roll")
 
-    if mob:getBattleTime() >= 60 and roll == 0  then
-        mob:setLocalVar("Immunity", math.random(1 , 2))
+    if mob:getBattleTime() >= 60 and roll == 0 then
+        mob:setLocalVar("Immunity", math.random(1 , 3))
         mob:setLocalVar("roll", 1)
         mob:useMobAbility(624) -- 2 hour "cloud" animation
     end
@@ -52,99 +52,47 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.UDMGPHYS, -100)
     elseif Immunity == 2 then
         mob:setMod(tpz.mod.UDMGMAGIC, -100)
+        mob:setMod(tpz.mod.UDMGBREATH, -100)
+    elseif Immunity == 3 then
+        mob:setMod(tpz.mod.UDMGRANGE, -100)
     end
 
-    if mob:getHPP() <= 75 and hitTrigger == 0 then
+    if mob:getHPP() < 75 and hitTrigger == 0 then
         mob:addMod(tpz.mod.ACC, 25)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 20)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 1500)
+        mob:addMod(tpz.mod.DOUBLE_ATTACK, 5)
+        mob:addMod(tpz.mod.HASTE_MAGIC, 1000)
         mob:setLocalVar("TriggerHit", 1)
     end
-    if mob:getHPP() <= 50 and hitTrigger == 1 then
+    if mob:getHPP() < 50 and hitTrigger == 1 then
         mob:addMod(tpz.mod.ACC, 25)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 30)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 2500)
+        mob:addMod(tpz.mod.DOUBLE_ATTACK, 5)
+        mob:addMod(tpz.mod.HASTE_MAGIC, 1000)
         mob:setLocalVar("TriggerHit", 2)
     end
-    if mob:getHPP() <= 25 and hitTrigger == 2 then
+    if mob:getHPP() < 25 and hitTrigger == 2 then
         mob:addMod(tpz.mod.ACC, 25)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
-        mob:setMod(tpz.mod.HASTE_MAGIC, mob:getMod(tpz.mod.HASTE_MAGIC) + 4000)
+        mob:addMod(tpz.mod.DOUBLE_ATTACK, 10)
+        mob:addMod(tpz.mod.HASTE_MAGIC, 1000)
         mob:setLocalVar("TriggerHit", 3)
     end
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 382 then
-        local tailroll = mob:getLocalVar("tailroll")
-
-        tailroll = tailroll +1
-        mob:setLocalVar("tailroll", tailroll)
-
-        if tailroll > 2 then
-            mob:setLocalVar("tailroll", 0)
-        else
-            mob:useMobAbility(382)
+    for v = 382,387,1 do -- TP move ID
+        if skill:getID() == 384 then -- Doesn't use scutum three times
+            return
         end
-    end
-    if skill:getID() == 383 then
-        local tusk = mob:getLocalVar("tusk")
+        if skill:getID() == v then -- If TP Move is part of for loop then...
+            local TPMove = mob:getLocalVar("TPMove")
 
-        tusk = tusk +1  
-        mob:setLocalVar("tusk", tusk)
+            TPMove = TPMove +1 -- Count number of times TP move was used
+            mob:setLocalVar("TPMove", TPMove)
 
-        if tusk > 2 then
-            mob:setLocalVar("tusk", 0)
-        else
-            mob:useMobAbility(383)
-        end
-    end
-    if skill:getID() == 384 then
-        local scutum = mob:getLocalVar("scutum")
-
-        scutum = scutum +1
-        mob:setLocalVar("scutum", scutum)
-
-        if scutum > 2 then
-            mob:setLocalVar("scutum", 0)
-        else
-            mob:useMobAbility(384)
-        end
-    end
-    if skill:getID() == 385 then
-        local bonecrunch = mob:getLocalVar("bonecrunch")
-
-        bonecrunch = bonecrunch +1
-        mob:setLocalVar("bonecrunch", bonecrunch)
-
-        if bonecrunch > 2 then
-            mob:setLocalVar("bonecrunch", 0)
-        else
-            mob:useMobAbility(385)
-        end
-    end
-    if skill:getID() == 386 then
-        local awfuleye = mob:getLocalVar("awfuleye")
-
-        awfuleye = awfuleye +1
-        mob:setLocalVar("awfuleye", awfuleye)
-
-        if awfuleye > 2 then
-            mob:setLocalVar("awfuleye", 0)
-        else
-            mob:useMobAbility(386)
-        end
-    end
-    if skill:getID() == 387 then
-        local heavybellow = mob:getLocalVar("heavybellow")
-
-        heavybellow = heavybellow +1
-        mob:setLocalVar("heavybellow", heavybellow)
-
-        if heavybellow > 2 then
-            mob:setLocalVar("heavybellow", 0)
-        else
-            mob:useMobAbility(387)
+            if TPMove > 2 then -- Only use up to twice in a row
+                mob:setLocalVar("TPMove", 0)
+            else
+                mob:useMobAbility(v) -- Re-use same TP move
+            end
         end
     end
 end
@@ -157,3 +105,5 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 
+function onMobDeath(mob, player, isKiller)
+end

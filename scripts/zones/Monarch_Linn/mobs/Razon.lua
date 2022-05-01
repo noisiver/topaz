@@ -2,22 +2,28 @@
 -- Area: Monarch Linn
 --  Mob: Razon
 -- Fire in the Sky
--- Key item ID: 674
+-- !addkeyitem monarch_Beard
 -----------------------------------
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 -----------------------------------
+local ThreeClusters = 571
+local TwoClusters = 573
+local OneCluster = 572
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 20) 
      mob:addMod(tpz.mod.ATTP, 10)
+     mob:addMod(tpz.mod.DEFP, 20) 
      mob:addMod(tpz.mod.ACC, 15) 
      mob:addMod(tpz.mod.EVA, 15)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+     mob:AnimationSub(0)
+     mob:setLocalVar("ElementSwapTime", 120)
 end
 
 function onMobEngaged(mob, target)
+    mob:AnimationSub(0)
 end
 
 
@@ -25,54 +31,72 @@ function onMobInitialize(mob)
 end
 
 function onMobFight(mob, target)
-    local boom = mob:getLocalVar("boom")
+    local SelfDestructCounter = mob:getLocalVar("SelfDestructCounter")
+    local ElementSwapTime = mob:getLocalVar("ElementSwapTime")
+    local BattleTime = mob:getBattleTime()
+    -- Self-Destructs at 2 minutes,4 minutes, then 5 minutes., if below the health threshold, it will deal 0 damage.
+    -- Final threshold is him being alive
+    if BattleTime >= 120 and SelfDestructCounter == 0 then
+        --printf("Boom 1");
+        mob:useMobAbility(ThreeClusters) -- 650 damage
+        mob:setLocalVar("SelfDestructCounter", 1)
+    end
+    if BattleTime >= 240 and SelfDestructCounter == 1  then
+        --printf("Boom 2");
+        mob:useMobAbility(TwoClusters) -- 750 damage
+        mob:setLocalVar("SelfDestructCounter", 2)
+    end
+    if BattleTime >= 300 and SelfDestructCounter == 2 then
+        --printf("Boom 3 - Fail");
+        mob:useMobAbility(OneCluster) -- 1500 damage
+        mob:setLocalVar("SelfDestructCounter", 3)
+    end
 
-    if mob:getBattleTime() >= 30 and boom == 0  then
-        printf("Boom 1");
-        mob:useMobAbility(571) -- 650 damage
-        mob:setLocalVar("boom", 1)
-    elseif mob:getBattleTime() >= 30 and boom == 0  then
-        printf("Boom 1 - 0 Dmg");
-        mob:useMobAbility(574) -- 0 damage
-        mob:setLocalVar("boom", 1)
-    elseif mob:getBattleTime() >= 60 and boom == 1  then
-        printf("Boom 2");
-        mob:useMobAbility(572) -- 750 damage
-        mob:setLocalVar("boom", 2)
-    elseif mob:getBattleTime() >= 60 and boom == 1  then
-        printf("Boom 2 - 0 DMG");
-        mob:useMobAbility(574) -- 0 damage
-        mob:setLocalVar("boom", 2)
-    elseif mob:getBattleTime() >= 90 and boom == 2  then
-        printf("Boom 3 - Fail");
-        mob:useMobAbility(573) -- 1500 damage
-        mob:setLocalVar("boom", 3)
+    -- Change Self-Destruct trigger element every 2 minutes
+    if BattleTime >= ElementSwapTime then
+         mob:setLocalVar("RNGelement", math.random(1,8))
+         --printf("Changing element")
+         mob:setLocalVar("ElementSwapTime", BattleTime + 120)
     end
 end
 
 function onMagicHit(caster, target, spell)
     local DAY = target:getLocalVar("RNGelement")
-    local ELEM = spell:getElement()
+    local ELEM = target:getLocalVar("RNGelement")
     local TP = target:getTP() -- maybe skill: gettp()?
-    local elementboom = target:getLocalVar("elementboom")
+    local SelfDestructCounter = target:getLocalVar("SelfDestructCounter")
+    local WeknessTriggered = target:getLocalVar("WeknessTriggered")
 
-    if DAY == 0 then
+    if ELEM == 0 then
          target:setLocalVar("RNGelement", math.random(1,8))
-    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 0 then
-        printf("2 Hour Cloud");
-        target:useMobAbility(624) -- 2 hour "cloud" animation
-        target:setLocalVar("elementboom", 1)
-    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 1 then
-        printf("Cast Boom 1");
-        target:useMobAbility(571)  -- 650 damage
-        target:setLocalVar("elementboom", 2)
-    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 2 then
-        printf("Cast Boom 2");
-        target:useMobAbility(572)  -- 750 damage
-        target:setLocalVar("elementboom", 3)
-    elseif (ELEM == tpz.magic.dayElement[DAY] and (caster:isPC() or caster:isPet())) and elementboom == 3 then
-        printf("Cast Boom 3");
-        target:useMobAbility(573)  -- 1500 damage
+         ELEM = target:getLocalVar("RNGelement")
+    end
+    -- First nuke reveals the element that will make him explode. Additional nukes of that element cause him to Self-Sestruct
+    -- This shares a counter with timer based Self-Destruct in onMobFight
+    if ((ELEM == spell:getElement()) and (caster:isPC() or caster:isPet())) and WeknessTriggered == 0 then
+        --printf("2 Hour Cloud");
+        target:weaknessTrigger(1) -- Yellow !!!
+        target:setLocalVar("WeknessTriggered", 1)
+    end
+    if WeknessTriggered == 1 then
+        if ((ELEM == spell:getElement()) and (caster:isPC() or caster:isPet())) and SelfDestructCounter == 0 then
+            --printf("Cast Boom 1");
+            target:weaknessTrigger(1) -- Yellow !!!
+            target:useMobAbility(ThreeClusters)  -- 650 damage
+            target:setLocalVar("SelfDestructCounter", 1)
+        elseif ((ELEM == spell:getElement()) and (caster:isPC() or caster:isPet())) and SelfDestructCounter == 1 then
+            --printf("Cast Boom 2");
+            target:weaknessTrigger(1) -- Yellow !!!
+            target:useMobAbility(TwoClusters)  -- 750 damage
+            target:setLocalVar("SelfDestructCounter", 2)
+        elseif ((ELEM == spell:getElement()) and (caster:isPC() or caster:isPet())) and SelfDestructCounter == 2 then
+            --printf("Cast Boom 3");
+            target:weaknessTrigger(1) -- Yellow !!!
+            target:useMobAbility(OneCluster)  -- 1500 damage
+        end
     end
     return 1
+end
+
+function onMobDeath(mob, player, isKiller)
 end

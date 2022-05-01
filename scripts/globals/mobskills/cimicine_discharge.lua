@@ -14,7 +14,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
-    local power = 1950
+    local power = 3000
     local duration = 300
 
     if not mob:hasStatusEffect(tpz.effect.HASTE) then

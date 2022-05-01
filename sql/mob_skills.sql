@@ -510,8 +510,8 @@ INSERT INTO `mob_skills` VALUES (568,867,'formation_attack',0,7.0,2000,1500,4,0,
 INSERT INTO `mob_skills` VALUES (569,868,'refueling',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (570,869,'circle_of_flames',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (571,870,'self-destruct_3',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 3 clusters
-INSERT INTO `mob_skills` VALUES (572,871,'self-destruct_2',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 2 clusters
-INSERT INTO `mob_skills` VALUES (573,872,'self-destruct_1',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 1 cluster
+INSERT INTO `mob_skills` VALUES (572,872,'self-destruct_1',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 1 clusters
+INSERT INTO `mob_skills` VALUES (573,872,'self-destruct_2',1,10.0,2000,1500,4,0,0,0,0,0,0); --  self destruct 2 cluster
 -- INSERT INTO `mob_skills` VALUES (574,318,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (575,319,'self-destruct',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (576,910,'back_heel',0,7,2000,1500,4,0,0,2,0,0,0);
@@ -657,7 +657,7 @@ INSERT INTO `mob_skills` VALUES (710,438,'charm',0,18.0,2000,0,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (716,460,'shadowbind',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (717,92,'venom_breath',4,20.0,2000,1500,4,0,0,0,0,0,0); -- hnm only
 -- INSERT INTO `mob_skills` VALUES (718,440,'jump',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (719,94,'critical_bite',0,7.0,2000,1500,4,0,0,0,0,0,0); -- hnm only
+INSERT INTO `mob_skills` VALUES (719,94,'critical_bite',0,7.0,2000,1500,4,0,0,4,0,0,0); -- hnm only
 INSERT INTO `mob_skills` VALUES (720,95,'venom_sting',0,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (721,97,'stasis',0,9.0,2000,1500,4,0,0,0,0,0,0); -- hnm only
 INSERT INTO `mob_skills` VALUES (722,98,'venom_storm',1,40.0,2000,1500,4,0,0,0,0,0,0); -- hnm only
@@ -1299,7 +1299,7 @@ INSERT INTO `mob_skills` VALUES (1357,1008,'tidal_dive',1,15.0,2000,1000,4,0,0,0
 INSERT INTO `mob_skills` VALUES (1358,1009,'plasma_charge',0,7.0,2000,1000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1359,855,'chthonian_ray',4,25.0,2000,2000,4,0,0,0,0,0,0); -- Brothers ENM
 INSERT INTO `mob_skills` VALUES (1360,855,'apocalyptic_ray',4,15.0,2000,2500,4,0,0,0,0,0,0); -- Brothers ENM
--- INSERT INTO `mob_skills` VALUES (1361,1105,'viscid_secretion',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1361,832,'viscid_secretion',4,10.0,2000,1500,4,0,0,0,0,0,0); -- Test Your Mite ENM
 -- INSERT INTO `mob_skills` VALUES (1362,1106,'wild_ginseng',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1363,822,'hungry_crunch',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1364,848,'mighty_snort',0,7.0,2000,1500,4,0,0,0,0,0,0);

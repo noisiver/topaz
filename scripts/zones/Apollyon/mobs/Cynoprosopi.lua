@@ -15,6 +15,8 @@ local path =
 function onMobSpawn(mob)
     mob:setDamage(500)
     mob:setMod(tpz.mod.DEF, 4000)
+    mob:setMod(tpz.mod.REGEN, 0)
+    mob:setMobMod(tpz.mobMod.NO_REST, 1)
 	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end
 
@@ -30,16 +32,13 @@ function onMobRoam(mob)
 end
 
 function onMobEngaged(mob)
-    local GorynichKillCounter = GetServerVariable("GorynichKillCounter")
-    if mob:getHPP() == 100 then
-	    mob:setHP(15000 - (GorynichKillCounter * 10))
-	mob:setDamage(500 - GorynichKillCounter)
-    end
+end
+
+function onMobFight(mob, target)
 end
 
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    SetServerVariable("GorynichKillCounter", 0)
     if isKiller or noKiller then
         local mobX = mob:getXPos()
         local mobY = mob:getYPos()
