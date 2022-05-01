@@ -42,6 +42,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
             end
             finaldmg = dmg * calcParams.pdif
 
+            --print("%u", finaldmg)
             -- Duplicate the first hit with an added magical component for hybrid WSes
             if calcParams.hybridHit then
                 -- Calculate magical bonuses and reductions
@@ -49,8 +50,22 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 magicdmg = magicdmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
                 magicdmg = target:magicDmgTaken(magicdmg)
                 magicdmg = adjustForTarget(target, magicdmg, wsParams.ele)
+                --print("%u", magicdmg)
+                --handling rampart stoneskin
+                local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
+                if ramSS > 0 then
+                    if dmg >= ramSS then
+                        target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
+                        magicdmg = magicdmg - ramSS
+                    else
+                        target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
+                        magicdmg = 0
+                    end
+                end
+                --print("%u", magicdmg)
 
                 finaldmg = finaldmg + magicdmg
+                --print("%u", finaldmg)
             end
 
             calcParams.hitsLanded = calcParams.hitsLanded + 1
