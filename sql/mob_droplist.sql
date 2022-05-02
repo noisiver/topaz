@@ -17087,6 +17087,7 @@ INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% An
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,100); -- (3 100% 1 10% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6052,0,0,1000,1064,240); -- (Mimic) Pso'Xja chest key
 
 
 

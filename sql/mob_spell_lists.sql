@@ -4946,6 +4946,9 @@ INSERT INTO `mob_spell_lists` VALUES('Silverhook', 2062, 252, 1, 255); -- stun
 INSERT INTO `mob_spell_lists` VALUES('Silverhook', 2062, 253, 1, 255); -- sleep
 INSERT INTO `mob_spell_lists` VALUES('Silverhook', 2062, 274, 1, 255); -- sleepga ii
 
+INSERT INTO `mob_spell_lists` VALUES ('ShockSpikesOnly',2063,251,1,255); -- Shock spikes
+INSERT INTO `mob_spell_lists` VALUES ('SilenceOnly',2064,59,15,255); -- Silence
+
 
 
 
