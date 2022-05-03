@@ -409,15 +409,16 @@ INSERT INTO `mob_groups` VALUES (54,1040,9,'Diremite',600,0,657,0,0,42,46,0);
 INSERT INTO `mob_groups` VALUES (55,3685,9,'Snowball',600,0,2286,0,0,43,46,0);
 INSERT INTO `mob_groups` VALUES (56,1861,9,'Gyre-Carlin',0,32,1260,4900,0,47,49,0);
 INSERT INTO `mob_groups` VALUES (57,2922,9,'Nunyunuwi',0,128,0,3500,0,56,58,0);
+-- High level
 INSERT INTO `mob_groups` VALUES (58,292,9,'Avalanche',600,0,30,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (59,3231,9,'Purgatory_Bat',600,0,234,0,0,72,76,0);
 INSERT INTO `mob_groups` VALUES (60,6389,9,'Million_Eyes',600,0,315,0,0,74,77,0);
 INSERT INTO `mob_groups` VALUES (61,975,9,'Demonic_Millstone',600,0,606,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (62,1432,9,'Frost_Lizard',600,0,913,0,0,73,77,0);
 INSERT INTO `mob_groups` VALUES (63,1042,9,'Diremite_Dominator',600,0,660,0,0,74,77,0);
-INSERT INTO `mob_groups` VALUES (64,217,9,'Archaic_Chest',0,128,153,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (64,217,9,'Archaic_Chest',1800,0,6052,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (65,1750,9,'Golden-Tongued_Culberry',0,128,1190,20000,30000,84,85,0);
-INSERT INTO `mob_groups` VALUES (66,913,9,'Dark_Elemental',600,4,568,0,0,63,65,0);
+INSERT INTO `mob_groups` VALUES (66,913,9,'Dark_Elemental',600,4,568,0,0,84,86w,0);
 INSERT INTO `mob_groups` VALUES (67,2043,9,'Ice_Elemental',600,4,1347,0,0,84,86,0);
 
 -- ------------------------------------------------------------
