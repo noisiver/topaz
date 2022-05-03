@@ -1701,7 +1701,7 @@ INSERT INTO `augments` VALUES (1409, 0, 0, 0, 0, 0); -- Enhances Empathy effect
 INSERT INTO `augments` VALUES (1410, 0, 0, 0, 0, 0); -- 1410 currently unused. Leave at zero. Edit+move or remove this note as new augments get discovered.
 INSERT INTO `augments` VALUES (1411, 0, 0, 0, 0, 0); -- 1411 currently unused. Leave at zero. Edit+move or remove this note as new augments get discovered.
 INSERT INTO `augments` VALUES (1412, 0, 0, 0, 0, 0); -- Reduces Sp Blood Pact MP cost
-INSERT INTO `augments` VALUES (1413, 0, 0, 0, 0, 0); -- Inc Sp Blood Pact magic burst dmg
+INSERT INTO `augments` VALUES (1413, 0, 1257, 0, 0, 0); -- Inc Sp Blood Pact magic burst dmg
 INSERT INTO `augments` VALUES (1414, 0, 0, 0, 0, 0); -- Increases Sp Blood Pact accuracy
 INSERT INTO `augments` VALUES (1415, 0, 0, 0, 0, 0); -- Inc. Sp. Blood Pact magic crit. dmg.
 INSERT INTO `augments` VALUES (1416, 0, 0, 0, 0, 0); -- 1416 currently unused. Leave at zero. Edit+move or remove this note as new augments get discovered.

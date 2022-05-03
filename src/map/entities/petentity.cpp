@@ -172,7 +172,7 @@ void CPetEntity::Spawn()
     if (PMaster && PMaster->objtype == TYPE_PC && m_EcoSystem == SYSTEM_ELEMENTAL)
     {
         this->defaultMobMod(MOBMOD_MAGIC_DELAY, 12);
-        this->defaultMobMod(MOBMOD_MAGIC_COOL, 48);
+        this->defaultMobMod(MOBMOD_MAGIC_COOL, 20);
         mobutils::GetAvailableSpells(this);
     }
 
