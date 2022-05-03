@@ -2903,7 +2903,7 @@ INSERT INTO `mob_droplist` VALUES (497,0,0,1000,19218,100);
 INSERT INTO `mob_droplist` VALUES (498,0,0,1000,2678,1000);
 INSERT INTO `mob_droplist` VALUES (498,0,0,1000,16277,100);
 INSERT INTO `mob_droplist` VALUES (498,0,0,1000,17757,100);
-INSERT INTO `mob_droplist` VALUES (499,0,0,1000,724,10); -- Piece Of Magnolia Lumbe
+INSERT INTO `mob_droplist` VALUES (499,0,0,1000,724,10); -- Piece Of Magnolia Lumbr
 INSERT INTO `mob_droplist` VALUES (499,0,0,1000,1536,40);
 INSERT INTO `mob_droplist` VALUES (500,2,0,1000,2150,0);
 INSERT INTO `mob_droplist` VALUES (500,0,0,1000,2150,240);
@@ -6189,9 +6189,9 @@ INSERT INTO `mob_droplist` VALUES (1186,0,0,1000,818,10);
 INSERT INTO `mob_droplist` VALUES (1186,0,0,1000,824,50);
 INSERT INTO `mob_droplist` VALUES (1186,0,0,1000,825,10);
 INSERT INTO `mob_droplist` VALUES (1186,0,0,1000,827,50);
-INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,510,00);		-- goblin weaver inner horutoto
-INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,511,00);
-INSERT INTO `mob_droplist` VALUES (1187,2,0,1000,817,35);
+INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,510,100);	-- (Goblin Weaver - Inner Horutoto)
+INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,511,100);
+INSERT INTO `mob_droplist` VALUES (1187,2,0,1000,817,50);
 INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,817,0);
 INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,818,19);
 INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,824,43);
@@ -6207,7 +6207,7 @@ INSERT INTO `mob_droplist` VALUES (1188,2,0,1000,656,0);
 INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,4509,100); -- Distilled water
 INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,4518,100); -- Strip Of Sheep Jerky
 INSERT INTO `mob_droplist` VALUES (1189,0,0,1000,15506,240); -- (Goblin Wolfman) Parade Gorget
-INSERT INTO `mob_droplist` VALUES (1190,0,0,1000,13145,1000);
+INSERT INTO `mob_droplist` VALUES (1190,0,0,1000,13145,240); -- Uggalepih Pendant
 INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,891,70);
 INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,922,660);
 INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,924,40);
@@ -17087,6 +17087,7 @@ INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% An
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,100); -- (3 100% 1 10% Ancient Beastcoin) 
+INSERT INTO `mob_droplist` VALUES (6052,0,0,1000,1064,240); -- (Mimic) Pso'Xja chest key
 
 
 

@@ -1025,6 +1025,7 @@ tpz.mod =
     CHAKRA_REMOVAL                  = 124, -- Extra statuses removed by Chakra
     SUPPRESS_OVERLOAD               = 125, -- Kenkonken "Suppresses Overload" mod. Unclear how this works exactly. Requires testing on retail.
     BP_DAMAGE                       = 126, -- Blood Pact: Rage Damage increase percentage
+    BP_BURST_DAMAGE                 = 1257, -- Blood Pact: Rage magic burst damage increase percentage.
     FISH                            = 127,
     WOOD                            = 128,
     SMITH                           = 129,

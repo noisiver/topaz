@@ -77,6 +77,20 @@ end
 function onRegionLeave(player, region)
 end
 
+function onGameHour(zone)
+    local hour = VanadielHour()
+    -- Open / Close randomly every hour
+    if VanadielHour() % 2 == 0 then 
+        for v = 16814489, 16814498, 1 do
+            GetNPCByID(v):setAnimation(tpz.anim.OPEN_DOOR)
+        end
+    elseif VanadielHour() % 2 == 1 then
+        for v = 16814489, 16814498, 1 do
+            GetNPCByID(v):setAnimation(tpz.anim.CLOSE_DOOR)
+        end
+    end
+end
+
 function onEventUpdate(player, csid, option)
 end
 

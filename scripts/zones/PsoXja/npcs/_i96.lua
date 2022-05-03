@@ -1,7 +1,7 @@
 -----------------------------------
 -- Area: Pso'Xja
 --  NPC: _i96 (Stone Gate)
--- Notes: Red Bracelet Door
+-- Notes: Green Bracelet Door
 -- !pos -310.000 -1.925 -238.399 9
 -----------------------------------
 local ID = require("scripts/zones/PsoXja/IDs")

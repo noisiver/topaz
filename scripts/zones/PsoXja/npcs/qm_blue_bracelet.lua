@@ -10,7 +10,20 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY)
+    if (player:getCharVar("AReputationInRuins") == 2) then
+        player:addKeyItem(tpz.ki.BLUE_BRACELET)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.BLUE_BRACELET)
+        player:setCharVar("AReputationInRuins", 3)
+    elseif (player:getCharVar("AReputationInRuins") == 1) then
+        local zonePlayers = npc:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:messageSpecial(ID.text.TRAP_ACTIVATED)
+        end
+        SpawnMob(ID.mob.GARGOYLE_IOTA):updateClaim(player)
+        SpawnMob(ID.mob.GARGOYLE_KAPPA):updateClaim(player)
+    else
+        player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY)
+    end
 end
 
 function onEventUpdate(player, csid, option)

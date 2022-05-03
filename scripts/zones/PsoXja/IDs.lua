@@ -28,6 +28,7 @@ zones[tpz.zone.PSOXJA] =
         DISCOVER_DISARM_FAIL    = 7242, -- <name> discovers a trap connected to the door, but fails to disarm it!
         DISCOVER_DISARM_SUCCESS = 7243, -- <name> discovers a trap connected to the door and succeeds in disarming it!
         TRAP_ACTIVATED          = 7245, -- <name> examines the stone compartment. A trap connected to it has been activated!
+        SHUT_TIGHTLY            = 7248, -- The door is shut tightly.
         CHEST_UNLOCKED          = 7463, -- You unlock the chest!
         BROKEN_KNIFE            = 7471, -- A broken knife blade can be seen among the rubble...
         HOMEPOINT_SET           = 7476, -- Home point set!
@@ -41,6 +42,10 @@ zones[tpz.zone.PSOXJA] =
         GARGOYLE_OFFSET         = 16814081,
         NUNYUNUWI               = 16814361,
         GOLDEN_TONGUED_CULBERRY = 16814432,
+        GARGOYLE_IOTA   = 16814231,
+        GARGOYLE_KAPPA  = 16814232,
+        GARGOYLE_LAMBDA = 16814233,
+        GARGOYLE_MU     = 16814234,
     },
     npc =
     {

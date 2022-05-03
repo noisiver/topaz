@@ -205,7 +205,7 @@ enum class Mod
     CRITHITRATE               = 165, // Raises chance to crit
     CRIT_DMG_INCREASE         = 421, // Raises the damage of critical hit by percent %
     RANGED_CRIT_DMG_INCREASE  = 1013, // Increases ranged critical damage by a percent
-    ENEMYCRITRATE             = 1256,            // Raises chance enemy will crit
+    ENEMYCRITRATE             = 1256, // Raises chance enemy will crit
     CRIT_DEF_BONUS            = 908, // Reduces crit hit damage
     MAGIC_CRITHITRATE         = 562, // Raises chance to magic crit
     MAGIC_CRIT_DMG_INCREASE   = 563, // Raises damage done when criting with magic
@@ -467,6 +467,7 @@ enum class Mod
     ENHANCES_ELEMENTAL_SIPHON = 540, // Bonus Base MP added to Elemental Siphon skill.
     BP_DELAY_II               = 541, // Blood Pact Delay Reduction II
     BP_DAMAGE                 = 126, // Blood Pact: Rage Damage increase percentage
+    BP_BURST_DAMAGE           = 1257, // Blood Pact: Rage magic burst damage increase percentage.
     BLOOD_BOON                = 913, // Occasionally cuts down MP cost of Blood Pact abilities. Does not affect abilities that require Astral Flow.
 
     // Blue Mage

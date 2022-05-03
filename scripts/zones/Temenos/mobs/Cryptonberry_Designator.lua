@@ -5,7 +5,11 @@
 require("scripts/globals/status")
 require("scripts/globals/limbus")
 require("scripts/globals/pathfind")
-mixins = {require("scripts/mixins/job_special")}
+mixins =
+{
+    require("scripts/mixins/job_special"),
+    require("scripts/mixins/families/tonberry")
+}
 local ID = require("scripts/zones/Temenos/IDs")
 local flags = tpz.path.flag.NONE
 local path =

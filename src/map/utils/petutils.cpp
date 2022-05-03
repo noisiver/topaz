@@ -244,14 +244,15 @@ namespace petutils
                 //Pet->waterres = (uint16)((Sql_GetFloatData(SqlHandle, 36) - 1) * -100);
                 //Pet->lightres = (uint16)((Sql_GetFloatData(SqlHandle, 37) - 1) * -100);
                 //Pet->darkres = (uint16)((Sql_GetFloatData(SqlHandle, 38) - 1) * -100);
-                Pet->fireresSDT = (uint16)((Sql_GetFloatData(SqlHandle, 31) - 1) * -100);
-                Pet->iceresSDT = (uint16)((Sql_GetFloatData(SqlHandle, 32) - 1) * -100);
-                Pet->windresSDT = (uint16)((Sql_GetFloatData(SqlHandle, 33) - 1) * -100);
-                Pet->earthresSDT = (uint16)((Sql_GetFloatData(SqlHandle, 34) - 1) * -100);
-                Pet->thunderresSDT = (uint16)((Sql_GetFloatData(SqlHandle, 35) - 1) * -100);
-                Pet->waterresSDT = (uint16)((Sql_GetFloatData(SqlHandle, 36) - 1) * -100);
-                Pet->lightresSDT = (uint16)((Sql_GetFloatData(SqlHandle, 37) - 1) * -100);
-                Pet->darkresSDT = (uint16)((Sql_GetFloatData(SqlHandle, 38) - 1) * -100);
+                Pet->fireresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 31) * 100);
+                Pet->iceresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 32) * 100);
+                Pet->windresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 33) * 100);
+                Pet->earthresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 34) * 100);
+                Pet->thunderresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 35) * 100);
+                Pet->waterresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 36) * 100);
+                Pet->lightresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 37) * 100);
+                Pet->darkresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 38) * 100);
+
 
                 Pet->cmbDelay = (uint16)Sql_GetIntData(SqlHandle, 39);
                 Pet->name_prefix = (uint8)Sql_GetUIntData(SqlHandle, 40);
@@ -1334,7 +1335,8 @@ namespace petutils
         PPet->m_name_prefix = PPetData->name_prefix;
         PPet->m_Family = PPetData->m_Family;
         PPet->m_MobSkillList = PPetData->m_MobSkillList;
-        PPet->SetMJob(PPetData->mJob);
+        PPet->SetMJob(JOB_DRK);
+        PPet->SetSJob(JOB_BLM);
         PPet->m_Element = PPetData->m_Element;
         PPet->m_PetID = PPetData->PetID;
 
@@ -1356,10 +1358,7 @@ namespace petutils
 
             PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(PPetData->spellList);
 
-            PPet->setModifier(Mod::DMGPHYS, -50); //-50% PDT
-
-            PPet->setModifier(Mod::CRIT_DMG_INCREASE, 8); //Avatars have Crit Att Bonus II for +8 crit dmg
-
+            // All pets have MAB equal to main job BLM
             if (PPet->GetMLevel() >= 70)
             {
                 PPet->setModifier(Mod::MATT, 32);
@@ -1376,30 +1375,171 @@ namespace petutils
             {
                 PPet->setModifier(Mod::MATT, 20);
             }
+
+            // -50% DR to all physical attacks
+            PPet->setModifier(Mod::SLASHRES, 500);
+            PPet->setModifier(Mod::PIERCERES, 500);
+            PPet->setModifier(Mod::IMPACTRES, 500);
+            PPet->setModifier(Mod::HTHRES, 500);
+
             ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (320.0f / 60.0f))));
 
-            if (PetID == PETID_FENRIR)
+            if (PetID == PETID_FENRIR || PetID == PETID_DIABOLOS)
             {
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (280.0f / 60.0f))));
             }
 
             // In a 2014 update SE updated Avatar base damage
             // Based on testing this value appears to be Level now instead of Level * 0.74f
-            uint16 weaponDamage = 1 + PPet->GetMLevel();
+            uint16 weaponDamage = static_cast<uint16>(floor(PPet->GetMLevel() * 0.5f) + 10.0f);
             if (PetID == PETID_CARBUNCLE || PetID == PETID_CAIT_SITH)
             {
-                weaponDamage = static_cast<uint16>(floor(PPet->GetMLevel() * 0.9f));
+                weaponDamage = static_cast<uint16>(floor(PPet->GetMLevel() * 0.5f) + 3.0f);
+            }
+
+            // Carbuncle and Cait Sith are a WHM
+            if (PetID == PETID_CARBUNCLE || PetID == PETID_CAIT_SITH)
+            {
+                PPet->SetMJob(JOB_WHM);
+            }
+
+            // Set generic SDT
+            PPet->setModifier(Mod::SDT_FIRE, 130);
+            PPet->setModifier(Mod::SDT_EARTH, 130);
+            PPet->setModifier(Mod::SDT_WATER, 130);
+            PPet->setModifier(Mod::SDT_WIND, 130);
+            PPet->setModifier(Mod::SDT_ICE, 130);
+            PPet->setModifier(Mod::SDT_THUNDER, 130);
+            PPet->setModifier(Mod::SDT_LIGHT, 130);
+            PPet->setModifier(Mod::SDT_DARK, 130);
+
+            // Set global avatar mods
+            PPet->addModifier(Mod::SUBTLE_BLOW, 25);
+            PPet->addModifier(Mod::STORETP, -50);
+
+            // Specific stats and SDT for each Avatar / Elemental
+            switch (PetID)
+            {
+                default: 
+                    PPet->setModifier(Mod::SDT_FIRE, 100);
+                    PPet->setModifier(Mod::SDT_EARTH, 100);
+                    PPet->setModifier(Mod::SDT_WATER, 100);
+                    PPet->setModifier(Mod::SDT_WIND, 100);
+                    PPet->setModifier(Mod::SDT_ICE, 100);
+                    PPet->setModifier(Mod::SDT_THUNDER, 100);
+                    PPet->setModifier(Mod::SDT_LIGHT, 100);
+                    PPet->setModifier(Mod::SDT_DARK, 100);
+                    break;
+                case PETID_FIRESPIRIT:
+                    PPet->setModifier(Mod::SDT_WATER, 150);
+                    PPet->setModifier(Mod::SDT_ICE, 20);
+                    PPet->setModifier(Mod::SDT_FIRE, 20);
+                    break;
+                case PETID_ICESPIRIT:
+                    PPet->setModifier(Mod::SDT_FIRE, 150);
+                    PPet->setModifier(Mod::SDT_ICE, 20);
+                    PPet->setModifier(Mod::SDT_WIND, 20);
+                    break;
+                case PETID_AIRSPIRIT:
+                    PPet->setModifier(Mod::SDT_ICE, 150);
+                    PPet->setModifier(Mod::SDT_WIND, 20);
+                    PPet->setModifier(Mod::SDT_EARTH, 20);
+                    break;
+                case PETID_EARTHSPIRIT:
+                    PPet->setModifier(Mod::SDT_WIND, 150);
+                    PPet->setModifier(Mod::SDT_EARTH, 20);
+                    PPet->setModifier(Mod::SDT_THUNDER, 20);
+                    break;
+                case PETID_THUNDERSPIRIT:
+                    PPet->setModifier(Mod::SDT_EARTH, 150);
+                    PPet->setModifier(Mod::SDT_THUNDER, 20);
+                    PPet->setModifier(Mod::SDT_WATER, 20);
+                    break;
+                case PETID_WATERSPIRIT:
+                    PPet->setModifier(Mod::SDT_THUNDER, 150);
+                    PPet->setModifier(Mod::SDT_WATER, 20);
+                    PPet->setModifier(Mod::SDT_FIRE, 20);
+                    break;
+                case PETID_LIGHTSPIRIT:
+                    PPet->setModifier(Mod::SDT_DARK, 150);
+                    PPet->setModifier(Mod::SDT_LIGHT, 20);
+                    break;
+                case PETID_DARKSPIRIT:
+                    PPet->setModifier(Mod::SDT_LIGHT, 150);
+                    PPet->setModifier(Mod::SDT_DARK, 20);
+                    break;
+                case PETID_CARBUNCLE:
+                    PPet->setModifier(Mod::REGEN, 5);
+                    PPet->setModifier(Mod::SDT_DARK, 150);
+                    PPet->setModifier(Mod::SDT_LIGHT, 20);
+                    break;
+                 case PETID_FENRIR:
+                    PPet->setModifier(Mod::ATTP, 30);
+                    PPet->setModifier(Mod::SDT_LIGHT, 150);
+                    PPet->setModifier(Mod::SDT_DARK, 20);
+                    break;
+                case PETID_IFRIT:
+                    PPet->addModifier(Mod::DOUBLE_ATTACK, 220);
+                    PPet->setModifier(Mod::ATTP, 50);
+                    PPet->setModifier(Mod::SDT_WATER, 150);
+                    PPet->setModifier(Mod::SDT_ICE, 20);
+                    PPet->setModifier(Mod::SDT_FIRE, 20);
+                    break;
+                case PETID_TITAN:
+                    PPet->setModifier(Mod::ENMITY, 30);
+                    PPet->setModifier(Mod::UDMGPHYS, 50);
+                    PPet->setModifier(Mod::SDT_WIND, 150);
+                    PPet->setModifier(Mod::SDT_EARTH, 20);
+                    PPet->setModifier(Mod::SDT_THUNDER, 20);
+                    break;
+                case PETID_LEVIATHAN:
+                    PPet->setModifier(Mod::ENMITY, 30);
+                    PPet->setModifier(Mod::UDMGMAGIC, 50);
+                    PPet->setModifier(Mod::SDT_THUNDER, 150);
+                    PPet->setModifier(Mod::SDT_WATER, 20);
+                    PPet->setModifier(Mod::SDT_FIRE, 20);
+                    break;
+                case PETID_GARUDA:
+                    PPet->addModifier(Mod::EVA, 50);
+                    PPet->setModifier(Mod::SDT_ICE, 150);
+                    PPet->setModifier(Mod::SDT_WIND, 20);
+                    PPet->setModifier(Mod::SDT_EARTH, 20);
+                    break;
+                case PETID_SHIVA:
+                    PPet->addModifier(Mod::MATT, 20);
+                    PPet->setModifier(Mod::SDT_FIRE, 150);
+                    PPet->setModifier(Mod::SDT_ICE, 20);
+                    PPet->setModifier(Mod::SDT_WIND, 20);
+                    break;
+                case PETID_RAMUH:
+                    PPet->addModifier(Mod::CRITHITRATE, 25); 
+                    PPet->setModifier(Mod::SDT_EARTH, 150);
+                    PPet->setModifier(Mod::SDT_THUNDER, 20);
+                    PPet->setModifier(Mod::SDT_WATER, 20);
+                    break;
+                case PETID_DIABOLOS:
+                    PPet->setModifier(Mod::MDEF, 24);
+                    PPet->setModifier(Mod::DEFP, 20);
+                    PPet->setModifier(Mod::SDT_LIGHT, 150);
+                    PPet->setModifier(Mod::SDT_DARK, 20);
+                    break;
+                case PETID_CAIT_SITH:
+                    PPet->setModifier(Mod::REGEN, 5);
+                    PPet->setModifier(Mod::SDT_DARK, 150);
+                    PPet->setModifier(Mod::SDT_LIGHT, 20);
+                    break;
             }
 
             ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDamage(weaponDamage);
 
             //Set B+ weapon skill (assumed capped for level derp)
             //attack is madly high for avatars (roughly x2)
+            //B attack, A+ acc
             PPet->setModifier(Mod::ATT, 2 * battleutils::GetMaxSkill(SKILL_CLUB, JOB_WHM, PPet->GetMLevel()));
-            PPet->setModifier(Mod::ACC, battleutils::GetMaxSkill(SKILL_CLUB, JOB_WHM, PPet->GetMLevel()));
-            //Set E evasion and def
-            PPet->setModifier(Mod::EVA, battleutils::GetMaxSkill(SKILL_THROWING, JOB_WHM, PPet->GetMLevel()));
-            PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(SKILL_THROWING, JOB_WHM, PPet->GetMLevel()));
+            PPet->setModifier(Mod::ACC, battleutils::GetMaxSkill(SKILL_HEALING_MAGIC, JOB_WHM, PPet->GetMLevel()));
+            //Set C evasion and def
+            PPet->setModifier(Mod::EVA, battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_WHM, PPet->GetMLevel()));
+            PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_WHM, PPet->GetMLevel()));
             // cap all magic skills so they play nice with spell scripts
             for (int i = SKILL_DIVINE_MAGIC; i <= SKILL_BLUE_MAGIC; i++)
             {
@@ -1420,14 +1560,77 @@ namespace petutils
                 }
             }
 
-
+            // Stats from "masters" gear/merits
             if (PMaster->objtype == TYPE_PC)
             {
                 CCharEntity* PChar = (CCharEntity*)PMaster;
-                PPet->addModifier(Mod::MATT, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ATTACK, PChar));
+                // Gear
+                PPet->addModifier(Mod::DEF, PChar->getMod(Mod::DEF));
+                PPet->addModifier(Mod::ATT, PChar->getMod(Mod::ATT));
+                PPet->addModifier(Mod::RATT, PChar->getMod(Mod::RATT));
+                PPet->addModifier(Mod::ACC, PChar->getMod(Mod::ACC));
+                PPet->addModifier(Mod::RACC, PChar->getMod(Mod::RACC));
+                PPet->addModifier(Mod::MACC, PChar->getMod(Mod::MACC));
+                PPet->addModifier(Mod::MATT, PChar->getMod(Mod::MATT));
+                PPet->addModifier(Mod::STR, PChar->getMod(Mod::STR));
+                PPet->addModifier(Mod::DEX, PChar->getMod(Mod::DEX));
+                PPet->addModifier(Mod::VIT, PChar->getMod(Mod::VIT));
+                PPet->addModifier(Mod::AGI, PChar->getMod(Mod::AGI));
+                PPet->addModifier(Mod::INT, PChar->getMod(Mod::INT));
+                PPet->addModifier(Mod::MND, PChar->getMod(Mod::MND));
+                PPet->addModifier(Mod::CHR, PChar->getMod(Mod::CHR));
+                PPet->addModifier(Mod::ENMITY, PChar->getMod(Mod::ENMITY));
+                PPet->addModifier(Mod::MDEF, PChar->getMod(Mod::MDEF));
+                PPet->addModifier(Mod::ATTP, PChar->getMod(Mod::ATTP));
+                PPet->addModifier(Mod::DEFP, PChar->getMod(Mod::DEFP));
+                PPet->addModifier(Mod::EVA, PChar->getMod(Mod::EVA));
+                PPet->addModifier(Mod::STORETP, PChar->getMod(Mod::STORETP));
+                PPet->addModifier(Mod::DMG, PChar->getMod(Mod::DMG));
+                PPet->addModifier(Mod::DMGPHYS, PChar->getMod(Mod::DMGPHYS));
+                PPet->addModifier(Mod::DMGPHYS_II, PChar->getMod(Mod::DMGPHYS_II));
+                PPet->addModifier(Mod::DMGBREATH, PChar->getMod(Mod::DMGBREATH));
+                PPet->addModifier(Mod::DMGMAGIC, PChar->getMod(Mod::DMGMAGIC));
+                PPet->addModifier(Mod::DMGMAGIC_II, PChar->getMod(Mod::DMGMAGIC_II));
+                PPet->addModifier(Mod::DMGRANGE, PChar->getMod(Mod::DMGRANGE));
+                PPet->addModifier(Mod::UDMGPHYS, PChar->getMod(Mod::UDMGPHYS));
+                PPet->addModifier(Mod::UDMGBREATH, PChar->getMod(Mod::UDMGBREATH));
+                PPet->addModifier(Mod::DMGMAGIC, PChar->getMod(Mod::DMGMAGIC));
+                PPet->addModifier(Mod::UDMGRANGE, PChar->getMod(Mod::UDMGRANGE));
+                PPet->addModifier(Mod::CRITHITRATE, PChar->getMod(Mod::CRITHITRATE));
+                PPet->addModifier(Mod::CRIT_DMG_INCREASE, PChar->getMod(Mod::CRIT_DMG_INCREASE));
+                PPet->addModifier(Mod::ENEMYCRITRATE, PChar->getMod(Mod::ENEMYCRITRATE));
+                PPet->addModifier(Mod::CRIT_DEF_BONUS, PChar->getMod(Mod::CRIT_DEF_BONUS));
+                PPet->addModifier(Mod::FENCER_TP_BONUS, PChar->getMod(Mod::FENCER_TP_BONUS));
+                PPet->addModifier(Mod::FENCER_CRITHITRATE, PChar->getMod(Mod::FENCER_CRITHITRATE));
+                PPet->addModifier(Mod::FENCER_JA_HASTE, PChar->getMod(Mod::FENCER_JA_HASTE));
+                PPet->addModifier(Mod::HASTE_MAGIC, PChar->getMod(Mod::HASTE_MAGIC));
+                PPet->addModifier(Mod::HASTE_ABILITY, PChar->getMod(Mod::HASTE_ABILITY));
+                PPet->addModifier(Mod::HASTE_GEAR, PChar->getMod(Mod::HASTE_GEAR));
+                PPet->addModifier(Mod::FASTCAST, PChar->getMod(Mod::FASTCAST));
+                PPet->addModifier(Mod::UFASTCAST, PChar->getMod(Mod::UFASTCAST));
+                PPet->addModifier(Mod::SKILLCHAINBONUS, PChar->getMod(Mod::SKILLCHAINBONUS));
+                PPet->addModifier(Mod::SKILLCHAINDMG, PChar->getMod(Mod::SKILLCHAINDMG));
+                PPet->addModifier(Mod::DOUBLE_ATTACK, PChar->getMod(Mod::DOUBLE_ATTACK));
+                PPet->addModifier(Mod::TRIPLE_ATTACK, PChar->getMod(Mod::TRIPLE_ATTACK));
+                PPet->addModifier(Mod::QUAD_ATTACK, PChar->getMod(Mod::QUAD_ATTACK));
+                PPet->addModifier(Mod::REGAIN, PChar->getMod(Mod::REGAIN));
+                PPet->addModifier(Mod::REGEN, PChar->getMod(Mod::REGEN));
+                PPet->addModifier(Mod::CURE_POTENCY, PChar->getMod(Mod::CURE_POTENCY));
+                PPet->addModifier(Mod::CURE_POTENCY_II, PChar->getMod(Mod::CURE_POTENCY_II));
+                PPet->addModifier(Mod::CURE_POTENCY_RCVD, PChar->getMod(Mod::CURE_POTENCY_RCVD));
+                PPet->addModifier(Mod::MAGIC_ABSORB, PChar->getMod(Mod::MAGIC_ABSORB));
+                PPet->addModifier(Mod::MAGIC_NULL, PChar->getMod(Mod::MAGIC_NULL));
+                PPet->addModifier(Mod::PHYS_ABSORB, PChar->getMod(Mod::PHYS_ABSORB));
+
+                // Merits
                 PPet->addModifier(Mod::ATT, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_PHYSICAL_ATTACK, PChar));
-                PPet->addModifier(Mod::MACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ACCURACY, PChar));
                 PPet->addModifier(Mod::ACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_PHYSICAL_ACCURACY, PChar));
+                PPet->addModifier(Mod::MATT, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ATTACK, PChar));
+                PPet->addModifier(Mod::MACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ACCURACY, PChar));
+                PPet->addModifier(Mod::ENMITY, PChar->PMeritPoints->GetMeritValue(MERIT_ENMITY_INCREASE, PChar));
+                //PPet->addModifier(Mod::ENMITY, PChar->PMeritPoints->GetMeritValue(MERIT_ENMITY_DECREASE, PChar)); Not sure how to add
+                PPet->addModifier(Mod::CRITHITRATE, PChar->PMeritPoints->GetMeritValue(MERIT_CRIT_HIT_RATE, PChar));
+                PPet->addModifier(Mod::ENEMYCRITRATE, PChar->PMeritPoints->GetMeritValue(MERIT_ENEMY_CRIT_RATE, PChar));
             }
 
             PMaster->addModifier(Mod::AVATAR_PERPETUATION, PerpetuationCost(PetID, PPet->GetMLevel()));
