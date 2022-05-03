@@ -418,7 +418,7 @@ INSERT INTO `mob_groups` VALUES (62,1432,9,'Frost_Lizard',600,0,913,0,0,73,77,0)
 INSERT INTO `mob_groups` VALUES (63,1042,9,'Diremite_Dominator',600,0,660,0,0,74,77,0);
 INSERT INTO `mob_groups` VALUES (64,217,9,'Archaic_Chest',1800,0,6052,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (65,1750,9,'Golden-Tongued_Culberry',0,128,1190,20000,30000,84,85,0);
-INSERT INTO `mob_groups` VALUES (66,913,9,'Dark_Elemental',600,4,568,0,0,84,86w,0);
+INSERT INTO `mob_groups` VALUES (66,913,9,'Dark_Elemental',600,4,568,0,0,84,86,0);
 INSERT INTO `mob_groups` VALUES (67,2043,9,'Ice_Elemental',600,4,1347,0,0,84,86,0);
 
 -- ------------------------------------------------------------
