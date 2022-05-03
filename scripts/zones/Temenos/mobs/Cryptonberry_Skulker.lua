@@ -2,7 +2,11 @@
 -- Area: Temenos N T
 --  Mob: Cryptonberry Skulker
 -----------------------------------
-mixins = {require("scripts/mixins/job_special")}
+mixins =
+{
+    require("scripts/mixins/job_special"),
+    require("scripts/mixins/families/tonberry")
+}
 local ID = require("scripts/zones/Temenos/IDs")
 
 function onMobDeath(mob, player, isKiller, noKiller)
