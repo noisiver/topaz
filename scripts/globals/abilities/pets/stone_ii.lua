@@ -9,21 +9,27 @@ require("scripts/globals/magic")
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill)
-    local dINT = math.floor(pet:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
-    local tp = skill:getTP()
+    local params = {}
+    params.multiplier = 1.5
+    params.tp150 = 2.75
+    params.tp300 = 3.125
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.3
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
 
-    local damage = math.floor(45 + 0.025*(tp))
-    damage = damage + (dINT * 1.5)
-    damage = MobMagicalMove(pet, target, skill, damage, tpz.magic.ele.EARTH, 1, TP_NO_EFFECT, 0)
-    damage = mobAddBonuses(pet, nil, target, damage.dmg, tpz.magic.ele.EARTH)
-    damage = AvatarFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, 1)
+    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.EARTH, params, INT_BASED, 0)
+    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.EARTH, params)
 
-    target:takeDamage(damage, pet, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
-    target:updateEnmityFromDamage(pet, damage)
-
-    return damage
+    return dmg
 end

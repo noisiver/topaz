@@ -8,6 +8,9 @@ require("scripts/globals/utils")
 ---------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
     return 0, 0
 end
 
