@@ -83,7 +83,11 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     end
 
     --apply WSC
-    local base = mob:getWeaponDmg() + dstr --todo: change to include WSC
+    local WSC = getMobWSC(mob, tpeffect)
+    local withoutws = mob:getWeaponDmg() + dstr
+    printf("dmg without wsc %u", withoutws)
+    local base = mob:getWeaponDmg() + WSC + dstr
+    printf("dmg WITH wsc %u", base)
     if (base < 1) then
         base = 1
     end
@@ -164,6 +168,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local hitchance = math.random()
     local finaldmg = 0
     local hitsdone = 1
+    local bonusHits = 0
+    local quadRate = 0
+    local tripleRate = 0
     local hitslanded = 0
 
     local chance = math.random()
@@ -201,6 +208,22 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         finaldmg = finaldmg + hitdamage * pdif
         hitslanded = hitslanded + 1
     end
+    -- Check multihit(qa/ta/da)
+    local quadRate = mob:getMod(tpz.mod.QUAD_ATTACK) / 100
+    local tripleRate = mob:getMod(tpz.mod.TRIPLE_ATTACK) / 100
+    local doubleRate = mob:getMod(tpz.mod.DOUBLE_ATTACK) / 100
+
+    if math.random() < quadRate then
+        bonusHits = bonusHits + 3
+    elseif math.random() < tripleRate then
+        bonusHits = bonusHits + 2
+    elseif math.random() < doubleRate then
+        bonusHits = bonusHits + 1
+    end
+    -- Add multi-hit procs
+    numberofhits = numberofhits + bonusHits
+    -- Cap at 8 hits
+    if numberofhits > 8 then numberofhits = 8 end
     while (hitsdone < numberofhits) do
         chance = math.random()
         if ((chance*100)<=hitrate) then --it hit
@@ -969,4 +992,17 @@ function fTP(tp, ftp1, ftp2, ftp3)
         return ftp2 + ( ((ftp3-ftp2)/1500) * (tp-1500))
     end
     return 1 -- no ftp mod
+end
+
+function getMobWSC(mob, tpeffect)
+    --[[
+    TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
+    wsc = (mob:getStat(tpz.mod.STR) * params.str_wsc + mob:getStat(tpz.mod.DEX) * params.dex_wsc +
+         mob:getStat(tpz.mod.VIT) * params.vit_wsc + mob:getStat(tpz.mod.AGI) * params.agi_wsc +
+         mob:getStat(tpz.mod.INT) * params.int_wsc + mob:getStat(tpz.mod.MND) * params.mnd_wsc +
+         mob:getStat(tpz.mod.CHR) * params.chr_wsc)
+         ]]
+        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC until I'm no longer lazy
+        printf("wsc: %u", wsc)
+    return wsc
 end
