@@ -119,6 +119,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         hitdamage = 1
     end
 
+    local multiHitDmg = hitdamage * 1
+
     hitdamage = hitdamage * dmgmod
 
     if (tpeffect == TP_DMG_VARIES) then
@@ -224,6 +226,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     numberofhits = numberofhits + bonusHits
     -- Cap at 8 hits
     if numberofhits > 8 then numberofhits = 8 end
+
     while (hitsdone < numberofhits) do
         chance = math.random()
         if ((chance*100)<=hitrate) then --it hit
@@ -245,7 +248,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
                 --target:PrintToPlayer("Successfully blocked a TP move swing!")
                 hitdamage = target:getBlockedDamage(hitdamage)
             end
-            finaldmg = finaldmg + hitdamage * pdif
+            finaldmg = finaldmg + multiHitDmg * pdif
             hitslanded = hitslanded + 1
         end
         hitsdone = hitsdone + 1
