@@ -16327,6 +16327,7 @@ INSERT INTO `item_mods` VALUES (15131,1,29);      -- Summoner's Spats: DEF 29
 INSERT INTO `item_mods` VALUES (15131,5,20);      -- MP +20
 INSERT INTO `item_mods` VALUES (15131,13,3);      -- MND +3
 INSERT INTO `item_mods` VALUES (15131,357,2);     -- Blood Pact ability delay -2
+INSERT INTO `item_mods` VALUES (15131,1264,5);    -- Elemental Magic Cool -5
 INSERT INTO `item_mods` VALUES (15132,1,19);
 INSERT INTO `item_mods` VALUES (15132,2,10);
 INSERT INTO `item_mods` VALUES (15132,11,5);
@@ -17815,6 +17816,7 @@ INSERT INTO `item_mods` VALUES (15593,363,10);
 INSERT INTO `item_mods` VALUES (15594,1,30);      -- Summoner's Spats +1: DEF 30
 INSERT INTO `item_mods` VALUES (15594,5,25);      -- MP +25
 INSERT INTO `item_mods` VALUES (15594,357,2);     -- Blood Pact ability delay -2
+INSERT INTO `item_mods` VALUES (15594,1264,7);    -- Elemental Magic Cool -7
 INSERT INTO `item_mods` VALUES (15595,1,32);
 INSERT INTO `item_mods` VALUES (15595,25,10);
 INSERT INTO `item_mods` VALUES (15595,27,-6);

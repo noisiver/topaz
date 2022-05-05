@@ -6,6 +6,22 @@ require("scripts/globals/msg")
 require("scripts/globals/pets")
 ------------------------------------
 
+-- tpeffects
+--TP_DMG_BONUS
+--TP_ACC_BONUS
+--TP_CRIT_VARIES
+
+-- params
+-- phys only
+--params.multiHitFtp
+--params.hybrid
+-- magic only
+--params.NO_TP_CONSUMPTION
+-- phys or magic
+--params.IGNORES_SHADOWS
+--params.AVATAR_WIPE_SHADOWS
+--params.DOT
+
 function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, tpeffect, params)
     local returninfo = {}
 
@@ -100,19 +116,25 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
     local tripleRate = avatar:getMod(tpz.mod.TRIPLE_ATTACK) / 100
     local doubleRate = avatar:getMod(tpz.mod.DOUBLE_ATTACK) / 100
 
-    if math.random() < quadRate then
-        bonusHits = bonusHits + 3
-    elseif math.random() < tripleRate then
-        bonusHits = bonusHits + 2
-    elseif math.random() < doubleRate then
-        bonusHits = bonusHits + 1
+    -- Ranged attacks can't multihit from qa/ta/da procs
+
+    if attackType ~= tpz.attackType.RANGED then
+        if math.random() < quadRate then
+            bonusHits = bonusHits + 3
+        elseif math.random() < tripleRate then
+            bonusHits = bonusHits + 2
+        elseif math.random() < doubleRate then
+            bonusHits = bonusHits + 1
+        end
+        if bonusHits ~= nil then
+
+        end
+        -- Add multi-hit procs
+        numberofhits = numberofhits + bonusHits
+
+        -- Cap at 8 hits
+        if numberofhits > 8 then numberofhits = 8 end
     end
-
-    -- Add multi-hit procs
-    numberofhits = numberofhits + bonusHits
-
-    -- Cap at 8 hits
-    if numberofhits > 8 then numberofhits = 8 end
 
     while numHitsProcessed < numberofhits do
         if math.random() < hitrateSubsequent then
@@ -377,8 +399,10 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     end
 
     -- handle elemental resistence
-    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH  and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
-        return 0
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
+        if target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
+            return 0
+        end
     end
 
     -- handling phalanx
@@ -388,9 +412,10 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     end
 
     -- handle invincible
-    if target:hasStatusEffect(tpz.effect.INVINCIBLE) and attackType == tpz.attackType.PHYSICAL or
-        target:hasStatusEffect(tpz.effect.INVINCIBLE) and attackType == tpz.attackType.RANGED  then
-        return 0
+    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+        if target:hasStatusEffect(tpz.effect.INVINCIBLE) then
+            return 0
+        end
     end
     -- handle pd
     if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) and attackType ==
@@ -427,7 +452,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     -- Calculate Blood Pact Damage before stoneskin
     dmg = dmg + dmg * avatar:getMod(tpz.mod.BP_DAMAGE) / 100
 
-    -- handling rampart stoneskin + normal stoneskin
+    -- handling normal stoneskin
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
     dmg = utils.stoneskin(target, dmg)
 
@@ -442,7 +467,6 @@ end
 function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, element, params)
 
     -- Check for shadows
-    --TODO: Test params.IGNORES_SHADOWS working with merit BPs in getAvatarShadowAbsorb function
     dmg = getAvatarShadowAbsorb(dmg, 1, target, skill, params)
     if dmg == 0 then return 0 end
 
@@ -495,7 +519,11 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
             -- Reduce duration by resist percentage
             local totalDuration = duration * resist
             printf("totalDuration %i", totalDuration)
-            target:addStatusEffect(effect, power, 0, totalDuration)
+            if params.DOT then -- Used for Nightmarely only atm
+                target:addStatusEffect(effect, power, 3, totalDuration)
+            else
+                target:addStatusEffect(effect, power, 0, totalDuration)
+            end
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
@@ -995,6 +1023,8 @@ function getAvatarDStat(statmod, avatar, target)
         dStat = avatar:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
     elseif (statmod == MND_BASED) then -- Stat mod is MND
         dStat = avatar:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    elseif (statmod == NONE) then -- Stat mod doesn't exist!
+        return 0
     end
 
     if dSTat > 0 then
@@ -1028,7 +1058,7 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         return 1/8
     end
 
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(avatar, target, effect) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
@@ -1132,7 +1162,7 @@ function getSummoningSkillOverCap(avatar)
     return math.max(summoningSkill - maxSkill, 0)
 end
 
-function checkForAvatarResistBonus(player)
+function checkForAvatarResistBonus(player, item)
     local pets = {
         { tpz.pet.id.FIRESPIRIT, tpz.mod.FIRERES },       
         { tpz.pet.id.ICESPIRIT, tpz.mod.ICERES },        
@@ -1154,54 +1184,115 @@ function checkForAvatarResistBonus(player)
         { tpz.pet.id.ATOMOS, tpz.mod.DARKRES },      
         { tpz.pet.id.CAIT_SITH, tpz.mod.LIGHTRES },         
     }
+    local nq = false
+    local hq = false
 
-    -- Check if Evoker's Doublet / Evoker's Doublet +1 is equipped, if it is then add the correct resist for avatar currently out
-    local body = player:getEquipID(tpz.slot.BODY)
-    local resist = 0
-    for i, element in pairs(pets) do
-        if player:getPetID() == element[1] then
-            resist = element[2]
-            if body == 12650 then -- Evoker's Doublet
+    if item == nq then nq = true end
+    if item == hq then hq = true end
+    -- Evokers Doublet NQ - > add the correct resist for avatar currently out
+    if nq then -- Evoker's Doublet
+        for v = tpz.mod.FIRERES, tpz.mod.DARKRES, 1 do
+            if player:getLocalVar("Element" .. v) > 0 then
+                player:addMod(v, -20)
+                player:setLocalVar("Element" .. v, 0)
+
+                 return 0 -- So it's reset to +0 resist after unequipping the body
+            end
+        end
+        local resist = 0
+        for i, element in pairs(pets) do
+            if player:getPetID() == element[1] and player:getPetID() ~= nil then
+                resist = element[2]
                 player:addMod(resist, 20)
-            elseif body == 14487 then -- Evoker's Doublet +1
+                player:setLocalVar("Element" .. resist, 20)
+            end
+        end
+    end
+    -- Evokers Doublet +1 - > add the correct resist for avatar currently out
+    if hq then -- Evoker's Doublet +1
+        for v = tpz.mod.FIRERES, tpz.mod.DARKRES, 1 do
+            if player:getLocalVar("Element" .. v) > 0 then
+                player:addMod(v, -25)
+                player:setLocalVar("Element" .. v, 0)
+
+                return 0 -- So it's reset to +0 resist after unequipping the body
+            end
+        end
+        local resist = 0
+        for i, element in pairs(pets) do
+            if player:getPetID() == element[1] and player:getPetID() ~= nil then
+                resist = element[2]
                 player:addMod(resist, 25)
+                player:setLocalVar("Element" .. resist, 25)
             end
         end
     end
 end
 
-function checkforAvatarElementAbsorbBonus(player)
+function checkforAvatarElementAbsorbBonus(player, item)
     local pets = {
-        { tpz.pet.id.FIRESPIRIT, tpz.mod.FIRE_ABSORB },       
-        { tpz.pet.id.ICESPIRIT, tpz.mod.ICE_ABSORB },        
-        { tpz.pet.id.AIRSPIRIT, tpz.mod.WIND_ABSORB },          
-        { tpz.pet.id.EARTHSPIRIT, tpz.mod.EARTH_ABSORB },        
-        { tpz.pet.id.THUNDERSPIRIT, tpz.mod.LTNG_ABSORB },      
-        { tpz.pet.id.WATERSPIRIT, tpz.mod.WATER_ABSORB },        
-        { tpz.pet.id.LIGHTSPIRIT, tpz.mod.LIGHT_ABSORB },        
-        { tpz.pet.id.DARKSPIRIT, tpz.mod.DARK_ABSORB },         
-        { tpz.pet.id.CARBUNCLE, tpz.mod.LIGHT_ABSORB },          
-        { tpz.pet.id.FENRIR, tpz.mod.DARK_ABSORB },           
-        { tpz.pet.id.IFRIT, tpz.mod.FIRE_ABSORB },            
-        { tpz.pet.id.TITAN, tpz.mod.EARTH_ABSORB },       
-        { tpz.pet.id.LEVIATHAN, tpz.mod.WATER_ABSORB },          
-        { tpz.pet.id.GARUDA, tpz.mod.WIND_ABSORB },            
-        { tpz.pet.id.SHIVA, tpz.mod.ICE_ABSORB },           
-        { tpz.pet.id.RAMUH, tpz.mod.LTNG_ABSORB },         
-        { tpz.pet.id.DIABOLOS, tpz.mod.DARK_ABSORB },           
-        { tpz.pet.id.ATOMOS, tpz.mod.DARK_ABSORB },      
-        { tpz.pet.id.CAIT_SITH, tpz.mod.LIGHT_ABSORB },         
+        { tpz.pet.id.FIRESPIRIT, tpz.mod.FIRE_ABSORB_TO_MP },       
+        { tpz.pet.id.ICESPIRIT, tpz.mod.ICE_ABSORB_TO_MP },        
+        { tpz.pet.id.AIRSPIRIT, tpz.mod.WIND_ABSORB_TO_MP },          
+        { tpz.pet.id.EARTHSPIRIT, tpz.mod.EARTH_ABSORB_TO_MP },        
+        { tpz.pet.id.THUNDERSPIRIT, tpz.mod.THUNDER_ABSORB_TO_MP },      
+        { tpz.pet.id.WATERSPIRIT, tpz.mod.WATER_ABSORB_TO_MP },        
+        { tpz.pet.id.LIGHTSPIRIT, tpz.mod.LIGHT_ABSORB_TO_MP },        
+        { tpz.pet.id.DARKSPIRIT, tpz.mod.DARK_ABSORB_TO_MP },         
+        { tpz.pet.id.CARBUNCLE, tpz.mod.LIGHT_ABSORB_TO_MP },          
+        { tpz.pet.id.FENRIR, tpz.mod.DARK_ABSORB_TO_MP },           
+        { tpz.pet.id.IFRIT, tpz.mod.FIRE_ABSORB_TO_MP },            
+        { tpz.pet.id.TITAN, tpz.mod.EARTH_ABSORB_TO_MP },       
+        { tpz.pet.id.LEVIATHAN, tpz.mod.WATER_ABSORB_TO_MP },          
+        { tpz.pet.id.GARUDA, tpz.mod.WIND_ABSORB_TO_MP },            
+        { tpz.pet.id.SHIVA, tpz.mod.ICE_ABSORB_TO_MP },           
+        { tpz.pet.id.RAMUH, tpz.mod.THUNDER_ABSORB_TO_MP },         
+        { tpz.pet.id.DIABOLOS, tpz.mod.DARK_ABSORB_TO_MP },           
+        { tpz.pet.id.ATOMOS, tpz.mod.DARK_ABSORB_TO_MP },      
+        { tpz.pet.id.CAIT_SITH, tpz.mod.LIGHT_ABSORB_TO_MP },         
     }
 
-    -- Check if Evoker's Bracers / Evoker's Bracers +1 is equipped, if it is then add the correct absorb for avatar currently out
-    local body = player:getEquipID(tpz.slot.HANDS)
-        local absorb = 0
-    for i,element in pairs(pets) do
-        absorb = element[2]
-        if body == 13975 then -- Evoker's Bracers
-            player:addMod(absorb, 25)
-        elseif body == 14904 then -- Evoker's Bracers +1
-            player:addMod(absorb, 25)
+    local nq = false
+    local hq = false
+
+    if item == nq then nq = true end
+    if item == hq then hq = true end
+    -- Evokers Bracers NQ - > add the correct element absorb to MP for avatar currently out
+    if nq then -- Evoker's Bracers
+        for v = tpz.mod.FIRERES, tpz.mod.DARKRES, 1 do
+            if player:getLocalVar("Element" .. v) > 0 then
+                player:addMod(v, -25)
+                player:setLocalVar("Element" .. v, 0)
+
+                return 0 -- So it's reset to +0 resist after unequipping the bracers
+            end
+        end
+        local resist = 0
+        for i, element in pairs(pets) do
+            if player:getPetID() == element[1] and player:getPetID() ~= nil then
+                resist = element[2]
+                player:addMod(resist, 25)
+                player:setLocalVar("Element" .. resist, 25)
+            end
+        end
+    end
+    -- Evokers Bracers +1 - > add the correct element absorb for avatar currently out
+    if hq then -- Evoker's Bracers +1
+        for v = tpz.mod.FIRERES, tpz.mod.DARKRES, 1 do
+            if player:getLocalVar("Element" .. v) > 0 then
+                player:addMod(v, -30)
+                player:setLocalVar("Element" .. v, 0)
+
+                return 0 -- So it's reset to +0 resist after unequipping the bracers
+            end
+        end
+        local resist = 0
+        for i, element in pairs(pets) do
+            if player:getPetID() == element[1] and player:getPetID() ~= nil then
+                resist = element[2]
+                player:addMod(resist, 30)
+                player:setLocalVar("Element" .. resist, 30)
+            end
         end
     end
 end

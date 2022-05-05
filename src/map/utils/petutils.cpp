@@ -1526,7 +1526,7 @@ namespace petutils
                     break;
                 case PETID_DIABOLOS:
                     PPet->addModifier(Mod::MDEF, 24);
-                    PPet->setModifier(Mod::DEFP, 20);
+                    PPet->setModifier(Mod::DEFP, 30);
                     PPet->setModifier(Mod::SDT_LIGHT, 150);
                     PPet->setModifier(Mod::SDT_DARK, 20);
                     break;
@@ -1606,10 +1606,10 @@ namespace petutils
                 PPet->addModifier(Mod::DMGMAGIC, PChar->getMod(Mod::DMGMAGIC));
                 PPet->addModifier(Mod::DMGMAGIC_II, PChar->getMod(Mod::DMGMAGIC_II));
                 PPet->addModifier(Mod::DMGRANGE, PChar->getMod(Mod::DMGRANGE));
-                PPet->addModifier(Mod::UDMGPHYS, PChar->getMod(Mod::UDMGPHYS));
-                PPet->addModifier(Mod::UDMGBREATH, PChar->getMod(Mod::UDMGBREATH));
-                PPet->addModifier(Mod::DMGMAGIC, PChar->getMod(Mod::DMGMAGIC));
-                PPet->addModifier(Mod::UDMGRANGE, PChar->getMod(Mod::UDMGRANGE));
+                //PPet->addModifier(Mod::UDMGPHYS, PChar->getMod(Mod::UDMGPHYS));
+                //PPet->addModifier(Mod::UDMGBREATH, PChar->getMod(Mod::UDMGBREATH));
+                //PPet->addModifier(Mod::UDMGMAGIC, PChar->getMod(Mod::UDMGMAGIC));
+                //PPet->addModifier(Mod::UDMGRANGE, PChar->getMod(Mod::UDMGRANGE));
                 PPet->addModifier(Mod::CRITHITRATE, PChar->getMod(Mod::CRITHITRATE));
                 PPet->addModifier(Mod::CRIT_DMG_INCREASE, PChar->getMod(Mod::CRIT_DMG_INCREASE));
                 PPet->addModifier(Mod::ENEMYCRITRATE, PChar->getMod(Mod::ENEMYCRITRATE));

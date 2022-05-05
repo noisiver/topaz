@@ -10,32 +10,34 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill)
-    local numhits = 1
-    local accmod = 1
-    local dmgmod = 2
-    local dmgmodsubsequent = 1 -- ??
+    local params = {}
+    params.multiplier = 2.5
+    params.tp150 = 3
+    params.tp300 = 3.24609375
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.3
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    params.AVATAR_WIPE_SHADOWS = true
 
-    local totaldamage = 0
-    local damage = AvatarPhysicalMove(pet, target, skill, numhits, accmod, dmgmod, dmgmodsubsequent, TP_NO_EFFECT, 1, 2, 3)
-    --get resist multiplier (1x if no resist)
-    local resist = applyPlayerResistance(pet, -1, target, pet:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), tpz.skill.ELEMENTAL_MAGIC, tpz.magic.ele.THUNDER)
-    --get the resisted damage
-    damage.dmg = damage.dmg*resist
-    --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
-    damage.dmg = mobAddBonuses(pet, spell, target, damage.dmg, 1)
-    local tp = skill:getTP()
-    if tp < 1000 then
-        tp = 1000
-    end
-    damage.dmg = damage.dmg * tp / 1000
-    totaldamage = AvatarFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING, numhits)
-    target:addStatusEffect(tpz.effect.PARALYSIS, 15, 0, 60)
-    target:takeDamage(totaldamage, pet, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
-    target:updateEnmityFromDamage(pet, totaldamage)
+    local effect = tpz.effect.PARALYSIS
+    local power = 25
+    local duration = 60
+    local bonus = 0
 
-    return totaldamage
+    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.THUNDER, params, INT_BASED, 0)
+    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.THUNDER, params)
+    AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus)
+
+    return dmg
 end

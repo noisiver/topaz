@@ -32,10 +32,10 @@ function onPetAbility(target, pet, skill)
     local power = 1
     local duration = 2
     local bonus = 250
-    --TODO:: Test stun and msg not overwriting dmg msg
+
     local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.EARTH, params, INT_BASED, 0)
     dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.EARTH, params)
-    AvatarStatusEffectBP(avatar, target, effect, power, duration, params, bonus)
+    AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus)
 
     return dmg
 end

@@ -1,5 +1,5 @@
 ---------------------------------------------------
--- Rush M=5, 2
+-- Rush - Custom non-ele magic dmg
 ---------------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -13,16 +13,21 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onPetAbility(target, pet, skill)
-    local numhits = 5
-    local accmod = 1
-    local dmgmod = 5
-    local dmgmodsubsequent = 2
+    local params = {}
+    params.multiplier = 8
+    params.tp150 = 8
+    params.tp300 = 8
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.3
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    params.NO_TP_CONSUMPTION = true
 
-    local totaldamage = 0
-    local damage = AvatarPhysicalMove(pet, target, skill, numhits, accmod, dmgmod, dmgmodsubsequent, TP_NO_EFFECT, 1, 2, 3)
-    totaldamage = AvatarFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, numhits)
-    target:takeDamage(totaldamage, pet, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-    target:updateEnmityFromDamage(pet, totaldamage)
+    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.NONE, params, INT_BASED, 0)
+    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.NONE, params)
 
-    return totaldamage
+    return dmg
 end

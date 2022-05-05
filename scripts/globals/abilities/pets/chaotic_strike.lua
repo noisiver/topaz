@@ -13,14 +13,24 @@ end
 
 function onPetAbility(target, pet, skill)
     local numhits = 3
-    local accmod = 1
-    local dmgmod = 9
-    local dmgmodsubsequent = 2
-    local totaldamage = 0
-    local damage = AvatarPhysicalMove(pet, target, skill, numhits, accmod, dmgmod, dmgmodsubsequent, TP_NO_EFFECT, 1, 2, 3)
-    totaldamage = AvatarFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, numhits)
-    target:addStatusEffect(tpz.effect.STUN, 1, 0, 2)
-    target:takeDamage(totaldamage, pet, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-    target:updateEnmityFromDamage(pet, totaldamage)
-    return totaldamage
+    local ftp = 4
+    local params = {}
+    params.str_wsc = 0.2
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.2
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+
+    local effect = tpz.effect.STUN
+    local power = 1
+    local duration = 12
+    local bonus = 0
+
+    local damage = AvatarPhysicalBP(pet, target, skill, tpz.attackType.PHYSICAL, numhits, ftp, TP_CRIT_VARIES, params)
+    dmg = AvatarPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, damage.hitslanded, params)
+    AvatarPhysicalStatusEffectBP(pet, target, skill, effect, power, duration, params, bonus)
+
+    return dmg
 end

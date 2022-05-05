@@ -9,7 +9,6 @@ require("scripts/globals/magic")
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)
-function onAbilityCheck(player, target, ability)
     local Avatar = player:getPet()
 	local CurrentTP = Avatar:getTP()
 	Avatar:setLocalVar("TP", CurrentTP)

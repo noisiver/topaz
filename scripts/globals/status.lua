@@ -1033,6 +1033,12 @@ tpz.mod =
     AVATAR_CRIT                     = 1262, -- Avatar Critical Strike Chance increase.
     AVATAR_PLAYER_RES               = 1263, -- Gives +20 resistance to matching Avatar(Fenrir gives dark resist, ifrit gives fire).
     ELEMENTAL_MAGIC_COOL            = 1264, -- Reduces Elemental pets magic cooldown(Time between spells)
+    AVATAR_MATT                     = 1265, -- Avatar Magic Attack Bonus
+    AVATAR_MACC                     = 1266, -- Avatar Magical Accuracy
+    AVATAR_DEF                      = 1267, -- Avatar Defense
+    SHIVA_MACC                      = 1268, -- Shiva Magical Accuracy
+    GARUDA_ATT                      = 1269, -- Garuda Attack
+    GARUDA_DEF                      = 1270, -- Garuda Defense
     -- Absorb dmg to MP (Evoker's Bracers only)
     FIRE_ABSORB_TO_MP                = 1459,  -- Occasionally absorbs fire elemental damage to MP, in percents
     ICE_ABSORB_TO_MP                 = 1460,   -- Occasionally absorbs ice elemental damage to MP, in percents
