@@ -1003,6 +1003,6 @@ function getMobWSC(mob, tpeffect)
          mob:getStat(tpz.mod.CHR) * params.chr_wsc)
          ]]
         wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC until I'm no longer lazy
-        printf("wsc: %u", wsc)
+        --printf("wsc: %u", wsc)
     return wsc
 end
