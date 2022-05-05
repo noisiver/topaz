@@ -85,9 +85,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     --apply WSC
     local WSC = getMobWSC(mob, tpeffect)
     local withoutws = mob:getWeaponDmg() + dstr
-    printf("dmg without wsc %u", withoutws)
+    --printf("dmg without wsc %u", withoutws)
     local base = mob:getWeaponDmg() + WSC + dstr
-    printf("dmg WITH wsc %u", base)
+    --printf("dmg WITH wsc %u", base)
     if (base < 1) then
         base = 1
     end
