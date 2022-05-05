@@ -11,28 +11,25 @@ require("scripts/globals/summon")
 function onAbilityCheck(player, target, ability)
     return 0, 0
 end
-
 function onPetAbility(target, pet, skill)
     local numhits = 1
-    local accmod = 1
-    local dmgmod = 5
+    local ftp = 2
+    local params = {}
+    params.str_wsc = 0.2
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.2
+    params.chr_wsc = 0.0
+    local effect = tpz.effect.DEFENSE_DOWN
+    local power = 13
+    local duration = 180
+    local bonus = 0
 
-    local totaldamage = 0
-    local damage = AvatarPhysicalMove(pet, target, skill, numhits, accmod, dmgmod, 0, TP_NO_EFFECT, 1, 2, 3)
-    totaldamage = AvatarFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, numhits)
+    local damage = AvatarPhysicalBP(pet, target, skill, numhits, ftp, TP_DMG_BONUS, params)
+    dmg = AvatarPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, damage.hitslanded, params)
+    AvatarPhysicalStatusEffectBP(pet, target, skill, effect, power, duration, params, bonus)
 
-    local duration = 120
-    local resm = applyPlayerResistance(pet, -1, target, pet:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), tpz.skill.ELEMENTAL_MAGIC, 5)
-    if resm < 0.25 then
-        resm = 0
-    end
-    duration = duration * resm
-
-    if (duration > 0 and AvatarPhysicalHit(skill, totaldamage) and target:hasStatusEffect(tpz.effect.WEIGHT) == false) then
-        target:addStatusEffect(tpz.effect.WEIGHT, 50, 0, duration)
-    end
-    target:takeDamage(totaldamage, pet, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
-    target:updateEnmityFromDamage(pet, totaldamage)
-
-    return totaldamage
+    return dmg
 end

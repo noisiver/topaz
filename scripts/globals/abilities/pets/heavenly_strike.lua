@@ -9,33 +9,28 @@ require("scripts/globals/magic")
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill)
+    local params = {}
+    params.multiplier = 5.3515625
+    params.tp150 = 8.203125
+    params.tp300 = 10.703125
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.3
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    params.IGNORES_SHADOWS = true
 
-    local dINT = math.floor(pet:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
-    local tp = skill:getTP() / 10
-    local master = pet:getMaster()
-    local merits = 0
-    if (master ~= nil and master:isPC()) then
-        merits = master:getMerit(tpz.merit.HEAVENLY_STRIKE)
-    end
+    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.ICE, params, INT_BASED, 0)
+    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.ICE, params)
 
-    tp = tp + (merits - 40)
-    if (tp > 300) then
-        tp = 300
-    end
-
-    --note: this formula is only accurate for level 75 - 76+ may have a different intercept and/or slope
-    local damage = math.floor(512 + 1.72*(tp+1))
-    damage = damage + (dINT * 1.5)
-    damage = MobMagicalMove(pet, target, skill, damage, tpz.magic.ele.ICE, 1, TP_NO_EFFECT, 0)
-    damage = mobAddBonuses(pet, nil, target, damage.dmg, tpz.magic.ele.ICE)
-    damage = AvatarFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ICE, 1)
-
-    target:takeDamage(damage, pet, tpz.attackType.MAGICAL, tpz.damageType.ICE)
-    target:updateEnmityFromDamage(pet, damage)
-
-    return damage
+    return dmg
 end

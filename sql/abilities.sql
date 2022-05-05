@@ -264,7 +264,7 @@ INSERT INTO `abilities` VALUES (210,'tabula_rasa',20,0,1,7200,0,0,0,190,2000,0,6
 INSERT INTO `abilities` VALUES (211,'light_arts',20,10,1,60,228,0,0,171,2000,0,6,20.0,0,1,80,1600,0,'WOTG');
 INSERT INTO `abilities` VALUES (212,'dark_arts',20,10,1,60,232,0,0,176,2000,0,6,20.0,0,1,80,1600,0,'WOTG');
 INSERT INTO `abilities` VALUES (213,'flourishes_ii',19,40,1,0,222,0,0,0,2000,0,6,20.0,0,0,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (214,'modus_veritas',20,65,4,180,230,0,0,188,2000,0,6,20.0,0,1,80,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (214,'modus_veritas',20,65,4,600,230,0,0,188,2000,0,6,20.0,0,1,80,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (215,'penury',20,10,1,1,231,0,0,172,2000,0,6,20.0,0,1,80,0,16,'WOTG');
 INSERT INTO `abilities` VALUES (216,'celerity',20,25,1,1,231,0,0,173,2000,0,6,20.0,0,1,80,0,16,'WOTG');
 INSERT INTO `abilities` VALUES (217,'rapture',20,55,1,1,231,0,0,174,2000,0,6,20.0,0,1,80,0,16,'WOTG');
@@ -296,7 +296,7 @@ INSERT INTO `abilities` VALUES (240,'altruism',20,75,1,1,231,0,0,210,2000,0,6,20
 INSERT INTO `abilities` VALUES (241,'focalization',20,75,1,1,231,0,0,212,2000,0,6,20.0,0,1,80,3266,33,'WOTG');
 INSERT INTO `abilities` VALUES (242,'tranquility',20,75,1,1,231,0,0,211,2000,0,6,20.0,0,1,80,3268,17,'WOTG');
 INSERT INTO `abilities` VALUES (243,'equanimity',20,75,1,1,231,0,0,213,2000,0,6,20.0,0,1,80,3270,33,'WOTG');
-INSERT INTO `abilities` VALUES (244,'enlightenment',20,75,1,300,235,0,0,214,2000,0,6,20.0,0,1,80,3272,1,'WOTG');
+INSERT INTO `abilities` VALUES (244,'enlightenment',20,75,1,600,235,0,0,214,2000,0,6,20.0,0,1,80,3272,1,'WOTG');
 INSERT INTO `abilities` VALUES (245,'afflatus_solace',3,76,1,60,29,0,0,216,2000,0,6,20.0,0,1,80,0,4,'WOTG');		-- changed to 76
 INSERT INTO `abilities` VALUES (246,'afflatus_misery',3,76,1,60,30,0,0,217,2000,0,6,20.0,0,1,80,0,4,'WOTG');		-- changed to 76
 INSERT INTO `abilities` VALUES (247,'composure',5,75,1,300,50,0,0,215,2000,0,6,20.0,0,1,80,0,0,'WOTG');		-- changed from 40
@@ -554,7 +554,7 @@ INSERT INTO `abilities` VALUES (660,'noctoshield',15,49,1,60,174,0,0,92,2000,0,6
 INSERT INTO `abilities` VALUES (661,'dream_shroud',15,56,1,60,174,0,0,121,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (662,'nether_blast',15,65,4,60,173,0,0,109,2000,0,6,18.0,0,1,60,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (663,'cacodemonia',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL);
--- INSERT INTO `abilities` VALUES (664,'ruinous_omen',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL);
+INSERT INTO `abilities` VALUES (664,'ruinous_omen',22,1,1,0,300,0,0,109,2000,0,6,20.0,0,450,900,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (665,'night_terror',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (666,'pavor_nocturnus',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (667,'blindside',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL);

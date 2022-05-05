@@ -5128,6 +5128,7 @@ namespace battleutils
     int32 MagicDmgTaken(CBattleEntity* PDefender, int32 damage, ELEMENT element)
     {
         Mod absorb[8] = { Mod::FIRE_ABSORB, Mod::ICE_ABSORB, Mod::WIND_ABSORB, Mod::EARTH_ABSORB, Mod::LTNG_ABSORB, Mod::WATER_ABSORB, Mod::LIGHT_ABSORB, Mod::DARK_ABSORB };
+        Mod absorbtoMP[8] = { Mod::FIRE_ABSORB_TO_MP, Mod::ICE_ABSORB_TO_MP, Mod::WIND_ABSORB_TO_MP, Mod::EARTH_ABSORB_TO_MP, Mod::LTNG_ABSORB_TO_MP, Mod::WATER_ABSORB_TO_MP, Mod::LIGHT_ABSORB_TO_MP, Mod::DARK_ABSORB_TO_MP };
         Mod nullarray[8] = { Mod::FIRE_NULL, Mod::ICE_NULL, Mod::WIND_NULL, Mod::EARTH_NULL, Mod::LTNG_NULL, Mod::WATER_NULL, Mod::LIGHT_NULL, Mod::DARK_NULL };
 
         float resist = 1.f + PDefender->getMod(Mod::UDMGMAGIC) / 100.f;
@@ -5157,6 +5158,8 @@ namespace battleutils
         else if ((element && tpzrand::GetRandomNumber(100) < PDefender->getMod(nullarray[element - 1])) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_NULL))
             damage = 0;
+        else if (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorbtoMP[element - 1]))
+            PDefender->addMP(damage);
         else
         {
             damage = HandleSevereDamage(PDefender, damage, false);

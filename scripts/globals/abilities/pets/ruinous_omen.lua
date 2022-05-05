@@ -1,5 +1,5 @@
 ---------------------------------------------------
--- Searing Light
+-- Ruinous Omen
 ---------------------------------------------------
 require("/scripts/globals/settings")
 require("/scripts/globals/status")
@@ -30,8 +30,8 @@ function onPetAbility(target, pet, skill, master)
     params.NO_TP_CONSUMPTION = true
 
 
-    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.LIGHT, params, INT_BASED, 0)
-    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.LIGHT, params)
+    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.DARK, params, INT_BASED, 0)
+    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.DARK, params)
     master:setMP(0)
 
     return dmg
