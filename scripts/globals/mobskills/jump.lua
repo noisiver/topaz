@@ -23,6 +23,10 @@ function onMobWeaponSkill(target, mob, skill)
         dmgmod = 3
     end
 
+    if mob:getPool() == 9064 then -- Imperial Agent Rescue(Assault)
+        dmgmod = 2
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
