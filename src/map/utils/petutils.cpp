@@ -888,12 +888,6 @@ namespace petutils
         PPet->allegiance = PMaster->allegiance;
         PMaster->StatusEffectContainer->CopyConfrontationEffect(PPet);
 
-        if (PPet->m_EcoSystem == SYSTEM_AVATAR || PPet->m_EcoSystem == SYSTEM_ELEMENTAL)
-        {
-            // assuming elemental spawn
-            PPet->setModifier(Mod::DMGPHYS, -50); //-50% PDT
-        }
-
         PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(petData->spellList);
 
         PPet->setModifier(Mod::SLASHRES, petData->slashres);
@@ -926,6 +920,15 @@ namespace petutils
         PPet->setModifier(Mod::SDT_WATER, petData->waterresSDT);
         PPet->setModifier(Mod::SDT_LIGHT, petData->lightresSDT);
         PPet->setModifier(Mod::SDT_DARK, petData->darkresSDT);
+
+        if (PPet->m_EcoSystem == SYSTEM_AVATAR || PPet->m_EcoSystem == SYSTEM_ELEMENTAL)
+        {
+            // assuming elemental spawn
+            PPet->setModifier(Mod::SLASHRES, 500);
+            PPet->setModifier(Mod::PIERCERES, 500);
+            PPet->setModifier(Mod::IMPACTRES, 500);
+            PPet->setModifier(Mod::HTHRES, 500);
+        }
     }
 
     void DetachPet(CBattleEntity* PMaster)
@@ -1032,6 +1035,7 @@ namespace petutils
     int16 PerpetuationCost(uint32 id, uint8 level)
     {
         int16 cost = 0;
+        // Elementals
         if (id >= 0 && id <= 7)
         {
             if (level < 19)
@@ -1039,9 +1043,9 @@ namespace petutils
             else if (level < 38)
                 cost = 2;
             else if (level < 57)
-                cost = 3;
+                cost = 2;
             else if (level < 75)
-                cost = 4;
+                cost = 2;
             else if (level < 81)
                 cost = 5;
             else if (level < 91)
@@ -1049,6 +1053,7 @@ namespace petutils
             else
                 cost = 7;
         }
+        // Carbuncle
         else if (id == 8)
         {
             if (level < 10)
@@ -1074,6 +1079,7 @@ namespace petutils
             else
                 cost = 11;
         }
+        // Fenrir
         else if (id == 9)
         {
             if (level < 8)
@@ -1103,22 +1109,23 @@ namespace petutils
             else
                 cost = 13;
         }
+        // Celestials
         else if (id <= 16)
         {
             if (level < 10)
-                cost = 3;
+                cost = 1;
             else if (level < 19)
-                cost = 4;
+                cost = 2;
             else if (level < 28)
-                cost = 5;
+                cost = 3;
             else if (level < 38)
-                cost = 6;
+                cost = 4;
             else if (level < 47)
-                cost = 7;
+                cost = 5;
             else if (level < 56)
-                cost = 8;
+                cost = 6;
             else if (level < 65)
-                cost = 9;
+                cost = 8;
             else if (level < 68)
                 cost = 10;
             else if (level < 71)
@@ -1418,7 +1425,6 @@ namespace petutils
 
             // Set global avatar mods
             PPet->addModifier(Mod::SUBTLE_BLOW, 25);
-            PPet->addModifier(Mod::STORETP, -50);
 
             uint16 petRegen = PPet->GetMLevel() / 3;
             uint16 petCrit = PPet->GetMLevel() / 3;
