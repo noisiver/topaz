@@ -770,6 +770,8 @@ function MobDrainAttribute(mob, target, typeEffect, power, tick, duration)
 end
 
 function DrainMultipleAttributes(mob, target, power, tick, count, duration)
+    -- return a variable equal to drain count in the skill file
+    -- if draining 1-7 random attributes, local count = math.random(1,7) then return count 
     local attributes = {};
     local currIndex = 1;
     while (currIndex <= count) do

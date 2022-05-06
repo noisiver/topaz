@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Frost Armor
+-- Ultimate Terror
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -13,12 +13,9 @@ function onAbilityCheck(player, target, ability)
     return 0, 0
 end
 
-function onPetAbility(target, pet, skill, summoner)
-    local effect = tpz.effect.AQUAVEIL
-    local power = 4
-    local duration = 900
-    local bonus = 0
-
-    AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
-    return effect
+function onPetAbility(target, pet, skill)
+    local params = {}
+    local numberdrained = math.random(1, 7)
+    skill:setMsg(AvatarDrainMultipleAttributes(pet, target, 21, numberdrained, 90, params, 0))
+    return numberdrained
 end

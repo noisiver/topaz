@@ -519,7 +519,7 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
             -- Reduce duration by resist percentage
             local totalDuration = duration * resist
             printf("totalDuration %i", totalDuration)
-            if params.DOT then -- Used for Nightmarely only atm
+            if params.DOT then -- Used for Nightmare / Shining Ruby
                 target:addStatusEffect(effect, power, 3, totalDuration)
             else
                 target:addStatusEffect(effect, power, 0, totalDuration)
@@ -540,6 +540,72 @@ function AvatarPhysicalStatusEffectBP(avatar, target, skill, effect, power, dura
     end
 
     return tpz.msg.basic.SKILL_MISS
+end
+
+function AvatarDrainAttribute(avatar, target, effect, power, duration, params, bonus)
+    local positive = nil
+    if (effect == tpz.effect.STR_DOWN) then
+        positive = tpz.effect.STR_BOOST
+    elseif (effect == tpz.effect.DEX_DOWN) then
+        positive = tpz.effect.DEX_BOOST
+    elseif (effect == tpz.effect.AGI_DOWN) then
+        positive = tpz.effect.AGI_BOOST
+    elseif (effect == tpz.effect.VIT_DOWN) then
+        positive = tpz.effect.VIT_BOOST
+    elseif (effect == tpz.effect.MND_DOWN) then
+        positive = tpz.effect.MND_BOOST
+    elseif (effect == tpz.effect.INT_DOWN) then
+        positive = tpz.effect.INT_BOOST
+    elseif (effect == tpz.effect.CHR_DOWN) then
+        positive = tpz.effect.CHR_BOOST
+    end
+
+    if (positive ~= nil) then
+        local results = AvatarStatusEffectBP(avatar, target, effect, power, duration, params, bonus)
+
+        if (results == tpz.msg.basic.SKILL_ENFEEB_IS) then
+            avatar:addStatusEffect(positive, power, 15, duration)
+
+            return tpz.msg.basic.ATTR_DRAINED
+        end
+
+        return tpz.msg.basic.SKILL_MISS
+    end
+
+    return tpz.msg.basic.SKILL_NO_EFFECT
+end
+
+function AvatarDrainMultipleAttributes(avatar, target, power, count, duration, params, bonus)
+    local attributes = {};
+    local currIndex = 1;
+    while (currIndex <= count) do
+      local newAttr = math.random(136, 142);
+      for _, attr in pairs(attributes) do
+        if (attr == newAttr) then
+          newAttr = -1;
+        end
+      end
+      if (newAttr ~= -1) then
+        attributes[currIndex] = newAttr;
+        currIndex = currIndex + 1;
+      end
+    end
+
+    local msg = tpz.msg.basic.SKILL_MISS;
+    
+    for i = 1,count,1 do
+      local newMsg = AvatarDrainAttribute(avatar, target, attributes[i], power, duration, params, bonus)
+      if (newMsg == tpz.msg.basic.ATTR_DRAINED) then
+        msg = newMsg;
+      elseif (msg == tpz.msg.basic.SKILL_MISS) then
+        msg = newMsg;
+      end
+    end
+
+    local tp = avatar:getLocalVar("TP")
+    avatar:setTP(tp)
+
+    return msg;
 end
 
 function AvatarBuffBP(avatar, target, skill, effect, power, tick, duration, params, bonus)
@@ -599,6 +665,12 @@ end
 function AvatarPhysicalHit(skill)
     -- if message is not the default. Then there was a miss, shadow taken etc
     return skill:hasMissMsg() == false
+end
+
+function getAvatarTP(player)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
 end
 
 function AvatarDmgTPModifier(tp)

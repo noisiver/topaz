@@ -7,24 +7,25 @@ require("scripts/globals/msg")
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)
-    local Avatar = player:getPet()
-	local CurrentTP = Avatar:getTP()
-	Avatar:setLocalVar("TP", CurrentTP)
+    getAvatarTP(player)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill)
     local params = {}
+    params.DOT = true
     local effect = tpz.effect.SLEEP_I
     local power = 1
     local duration = 90
     local bonus = 0
     local effect2 = tpz.effect.BIO
-    local power2 = 100
+    local power2 = 2
+    local tp = pet:getLocalVar("TP")
 
     target:addStatusEffectEx(tpz.effect.DEEPSLEEP,0,1,3,90)
     AvatarStatusEffectBP(pet, target, effect2, power2, duration, params, bonus)
     skill:setMsg(AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus))
+    pet:setTP(tp)
 
     return effect
 end

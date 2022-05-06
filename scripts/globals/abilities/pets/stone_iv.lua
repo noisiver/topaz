@@ -9,12 +9,9 @@ require("scripts/globals/magic")
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)
-    local Avatar = player:getPet()
-	local CurrentTP = Avatar:getTP()
-	Avatar:setLocalVar("TP", CurrentTP)
+    getAvatarTP(player)
     return 0, 0
 end
-
 function onPetAbility(target, pet, skill)
     local params = {}
     params.multiplier = 3.625

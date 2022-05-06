@@ -9,15 +9,16 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    getAvatarTP(player)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill, summoner)
-    local bonusTime = utils.clamp(summoner:getSkillLevel(tpz.skill.SUMMONING_MAGIC) - 300, 0, 200)
-    local duration = 180 + bonusTime
-    -- Garuda's Hastega is a weird exception and uses 153/1024 instead of 150/1024 like Haste spell
-    -- That's why it overwrites some things regular haste won't.
-    target:addStatusEffect(tpz.effect.HASTE, 1494, 0, duration) -- 153/1024 ~14.94%
-    skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
-    return tpz.effect.HASTE
+    local effect = tpz.effect.HASTE
+    local power = 1530
+    local duration = 180
+    local bonus = 0
+
+    AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
+    return effect
 end

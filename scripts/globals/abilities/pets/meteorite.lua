@@ -8,9 +8,7 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)
-    local Avatar = player:getPet()
-	local CurrentTP = Avatar:getTP()
-	Avatar:setLocalVar("TP", CurrentTP)
+    getAvatarTP(player)
     return 0, 0
 end
 

@@ -8,12 +8,21 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    getAvatarTP(player)
     return 0, 0
 end
 
-function onPetAbility(target, pet, skill)
-    target:delStatusEffectSilent(tpz.effect.BLINK)
-    target:addStatusEffect(tpz.effect.BLINK, 3, 0, 900)
-    skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
-    return tpz.effect.BLINK
+function onPetAbility(target, pet, skill, summoner)
+    local params = {}
+    local effect = tpz.effect.BLINK
+    local power = 4
+    local duration = 900
+    local effect2 = tpz.effect.PAX
+    local power2 = 15
+    local duration2 = 180
+    local bonus = 0
+
+    AvatarBuffBP(pet, target, skill, effect2, power2, tick, duration2, params, bonus)
+    AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
+    return effect
 end

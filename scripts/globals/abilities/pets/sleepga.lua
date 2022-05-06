@@ -10,27 +10,20 @@ require("scripts/globals/summon")
 -----------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    getAvatarTP(player)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill)
+    local params = {}
+    local effect = tpz.effect.SLEEP_I
+    local power = 1
     local duration = 90
-    local dINT = pet:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-    local bonus = getSummoningSkillOverCap(pet)
-    local resm = applyPlayerResistance(pet, -1, target, dINT, bonus, tpz.magic.element.ICE)
-    if (resm < 0.5) then
-        skill:setMsg(tpz.msg.basic.JA_MISS_2) -- resist message
-        return tpz.effect.SLEEP_I
-    end
-    duration = duration * resm
-    if (target:hasImmunity(1) or hasSleepEffects(target)) then
-        --No effect
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-    else
-        skill:setMsg(tpz.msg.basic.SKILL_ENFEEB)
+    local bonus = 0
+    local tp = pet:getLocalVar("TP")
 
-        target:addStatusEffect(tpz.effect.SLEEP_I, 1, 0, duration)
-    end
 
-    return tpz.effect.SLEEP_I
+    skill:setMsg(AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus))
+    pet:setTP(tp)
+    return effect
 end

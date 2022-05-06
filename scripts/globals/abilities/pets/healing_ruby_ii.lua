@@ -8,16 +8,10 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    getAvatarTP(player)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill)
-    local base = 28 + pet:getMainLvl()*4
-
-    if (target:getHP()+base > target:getMaxHP()) then
-        base = target:getMaxHP() - target:getHP() --cap it
-    end
-    skill:setMsg(tpz.msg.basic.SELF_HEAL)
-    target:addHP(base)
-    return base
+    return AvatarHealBP(pet, target, skill, 0.20, false)
 end

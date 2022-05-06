@@ -9,19 +9,19 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    getAvatarTP(player)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill, summoner)
-    local bonusTime = utils.clamp(summoner:getSkillLevel(tpz.skill.SUMMONING_MAGIC) - 300, 0, 200)
-    local duration = 180 + bonusTime
-    local hour = VanadielHour()
-    local buffvalue = 0
-    buffvalue = math.abs(12 - hour) + 1
-    target:delStatusEffectSilent(tpz.effect.MAGIC_ATK_BOOST)
-    target:delStatusEffectSilent(tpz.effect.MAGIC_DEF_BOOST)
-    target:addStatusEffect(tpz.effect.MAGIC_ATK_BOOST, buffvalue, 0, duration)
-    target:addStatusEffect(tpz.effect.MAGIC_DEF_BOOST, 14 - buffvalue, 0, duration)
-    skill:setMsg(tpz.msg.basic.NONE)
-    return 0
+    local effect = tpz.effect.MAGIC_ATK_BOOST
+    local power = 10
+    local duration = 180
+    local effect2 = tpz.effect.MAGIC_DEF_BOOST
+    local power2 = 10
+    local bonus = 0
+
+    AvatarBuffBP(pet, target, skill, effect2, power2, tick, duration, params, bonus)
+    AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
+    return effect
 end

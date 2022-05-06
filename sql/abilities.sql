@@ -439,8 +439,8 @@ INSERT INTO `abilities` VALUES (393,'spirit_bond',14,65,1,60,149,100,0,86,2000,0
 INSERT INTO `abilities` VALUES (394,'majesty',7,76,1,60,150,100,0,338,2000,0,6,0.0,1,0,340,0,0,NULL);
 INSERT INTO `abilities` VALUES (512,'healing_ruby',15,1,3,60,174,0,0,6,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (513,'poison_nails',15,5,4,60,173,0,0,11,2000,0,6,18.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (514,'shining_ruby',15,24,1,60,174,0,0,44,2000,0,6,18.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (515,'glittering_ruby',15,44,1,60,174,0,0,62,2000,0,6,18.0,0,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (514,'shining_ruby',15,24,4,60,174,0,0,44,2000,0,6,18.0,1,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (515,'glittering_ruby',15,44,1,60,174,0,0,62,2000,0,6,18.0,1,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (516,'meteorite',15,55,4,60,173,0,0,108,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (517,'healing_ruby_ii',15,65,1,60,174,0,0,124,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (518,'searing_light',15,1,4,60,173,0,0,0,2000,0,6,18.0,1,1,60,0,2,NULL);
@@ -457,7 +457,7 @@ INSERT INTO `abilities` VALUES (528,'moonlit_charge',15,5,4,60,173,0,0,17,2000,0
 INSERT INTO `abilities` VALUES (529,'crescent_fang',15,10,4,60,173,0,0,19,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (530,'lunar_cry',15,21,4,60,174,0,0,41,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (531,'lunar_roar',15,32,4,60,174,0,0,27,2000,0,6,18.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (532,'ecliptic_growl',15,43,1,60,174,0,0,46,2000,0,6,18.0,0,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (532,'ecliptic_growl',15,43,4,60,174,0,0,46,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (533,'ecliptic_howl',15,54,1,60,174,0,0,57,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (534,'eclipse_bite',15,65,4,60,173,0,0,109,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (536,'howling_moon',15,1,4,60,173,0,0,0,2000,0,6,18.0,1,1,60,0,2,NULL);
@@ -550,8 +550,8 @@ INSERT INTO `abilities` VALUES (656,'camisado',15,1,4,60,173,0,0,20,2000,0,6,18.
 INSERT INTO `abilities` VALUES (657,'somnolence',15,20,4,60,174,0,0,30,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (658,'nightmare',15,29,4,60,174,0,0,42,2000,0,6,18.0,0,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (659,'ultimate_terror',15,37,4,60,174,0,0,27,2000,0,6,18.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (660,'noctoshield',15,49,1,60,174,0,0,92,2000,0,6,18.0,0,1,60,0,0,NULL);
-INSERT INTO `abilities` VALUES (661,'dream_shroud',15,56,1,60,174,0,0,121,2000,0,6,18.0,0,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (660,'noctoshield',15,49,1,60,174,0,0,92,2000,0,6,18.0,1,1,60,0,0,NULL);
+INSERT INTO `abilities` VALUES (661,'dream_shroud',15,56,1,60,174,0,0,121,2000,0,6,18.0,1,1,60,0,0,NULL);
 INSERT INTO `abilities` VALUES (662,'nether_blast',15,65,4,60,173,0,0,109,2000,0,6,18.0,0,1,60,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (663,'cacodemonia',22,1,1,0,300,0,0,???,2000,0,6,20.0,0,450,900,0,0,NULL);
 INSERT INTO `abilities` VALUES (664,'ruinous_omen',15,1,4,60,173,0,0,0,2000,0,6,18.0,1,1,60,0,2,NULL);
