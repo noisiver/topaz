@@ -11,7 +11,7 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(140)
+    mob:setDamage(120)
     mob:setMod(tpz.mod.ATT, 522)
     mob:setMod(tpz.mod.DEF, 522)
     mob:setMod(tpz.mod.EVA, 314) 

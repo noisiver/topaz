@@ -13,6 +13,9 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.UFASTCAST, 25)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.REFRESH, 50) 
 end
 
 function onMobDeath(mob, player, isKiller)
