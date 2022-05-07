@@ -20,12 +20,11 @@ function onPetAbility(target, pet, skill)
     local bonus = 0
     local effect2 = tpz.effect.BIO
     local power2 = 2
-    local tp = pet:getLocalVar("TP")
 
     target:addStatusEffectEx(tpz.effect.DEEPSLEEP,0,1,3,90)
     AvatarStatusEffectBP(pet, target, effect2, power2, duration, params, bonus)
     skill:setMsg(AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus))
-    pet:setTP(tp)
+    giveAvatarTP(pet)
 
     return effect
 end

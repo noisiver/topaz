@@ -1611,6 +1611,7 @@ tpz.mod =
     GUARD_PERCENT                   = 976, -- Guard Percent
     FENCER_TP_BONUS                 = 903, -- TP Bonus to weapon skills from Fencer Trait
     FENCER_CRITHITRATE              = 904, -- Increased Crit chance from Fencer Trait
+    FENCER_JA_HASTE                 = 986, -- Increased JA Haste chance from Fencer Trait
     SHIELD_DEF_BONUS                = 905, -- Shield Defense Bonus
     SNEAK_DURATION                  = 946, -- Additional duration in seconds
     INVISIBLE_DURATION              = 947, -- Additional duration in seconds

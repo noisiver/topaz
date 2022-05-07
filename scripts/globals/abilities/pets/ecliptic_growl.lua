@@ -13,16 +13,12 @@ function onAbilityCheck(player, target, ability)
     return 0, 0
 end
 
-function onPetAbility(target, pet, skill)
-    local params = {}
-    local effect = tpz.effect.TERROR
-    local power = 1
-    local duration = 6
+function onPetAbility(target, pet, skill, summoner)
+    local count = 7
+    local power = 5
+    local duration = 180
     local bonus = 0
-    local tp = pet:getLocalVar("TP")
 
-
-    AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus)
-    pet:setTP(tp)
-    return effect
+    AvatarBuffMultipleEffects(pet, target, skill, power, count, tick, duration, params, bonus)
+    return tpz.effect.STR_BOOST
 end

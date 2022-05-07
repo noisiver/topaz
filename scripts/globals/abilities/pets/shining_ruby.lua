@@ -13,17 +13,12 @@ function onAbilityCheck(player, target, ability)
     return 0, 0
 end
 
-function onPetAbility(target, pet, skill)
-    local params = {}
-    params.DOT = true
-    local effect = tpz.effect.FLASH
-    local power = 300
-    local duration = 12
-    local bonus = 200
-    local tp = pet:getLocalVar("TP")
+function onPetAbility(target, pet, skill, summoner)
+    local effect = tpz.effect.SHINING_RUBY
+    local power = math.floor(pet:getMainLvl() / 5)
+    local duration = 180
+    local bonus = 0
 
-
-    AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus)
-    pet:setTP(tp)
+    AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
     return effect
 end

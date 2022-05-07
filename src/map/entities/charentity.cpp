@@ -1047,7 +1047,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             }
             else
             {
-                action.recast = 30;
+                action.recast = 45;
                 action.recast -= std::min<int16>(getMod(Mod::BP_DELAY), 15);
                 action.recast -= std::min<int16>(getMod(Mod::BP_DELAY_II), 15);
             }

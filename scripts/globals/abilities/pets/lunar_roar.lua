@@ -27,8 +27,7 @@ function onPetAbility(target, pet, skill)
     else
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
     end
-    local tp = pet:getLocalVar("TP")
-    pet:setTP(tp)
+    giveAvatarTP(pet)
 
     return 0
 end

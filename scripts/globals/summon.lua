@@ -242,11 +242,11 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 -- Calculate magical bonuses and reductions (Only Ifrit and thus fire damage is needed here)
                 local paramshybrid = {}
                 paramshybrid.includemab = true
-                -- Bonus Macc else avatars struggle to land nukes on anything(No Ele staves)
-                local bonusMacc = 50
+                -- Bonus Macc or else avatars struggle to land nukes on anything(No Ele staves)
+                local bonusMacc = 0
                 local magicdmg = addBonusesAbility(avatar, tpz.magic.ele.FIRE, target, finaldmg, paramshybrid)
                 local resist = getAvatarResist(avatar, effect, target, avatar:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonusMacc, tpz.magic.ele.FIRE)
-                --printf("resist %u", resist)
+                printf("resist %u", resist * 100)
                 --printf("magicdmg before resist %u", magicdmg)
                 magicdmg = magicdmg * resist
                 -- Hybrid hits are only HALF a physical hits damage
@@ -260,7 +260,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 magicdmg = utils.rampartstoneskin(target, magicdmg) 
                 --printf("%i", magicdmg)
 
-                finaldmg = finaldmg + magicdmg
+                finaldmg = finaldmg + magicdmg / 2
                 --printf("%i", finaldmg)
             end
             numHitsProcessed = 1
@@ -494,8 +494,7 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
     target:handleAfflatusMiseryDamage(dmg)
     avatar:setTP(0)
     if params.NO_TP_CONSUMPTION == true then
-        local tp = avatar:getLocalVar("TP")
-        avatar:setTP(tp)
+        giveAvatarTP(avatar)
     end
     return dmg
 end
@@ -525,11 +524,14 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
                 target:addStatusEffect(effect, power, 0, totalDuration)
             end
 
+            giveAvatarTP(avatar)
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
+        giveAvatarTP(avatar)
         return tpz.msg.basic.SKILL_MISS -- resist !
     end
+    giveAvatarTP(avatar)
     return tpz.msg.basic.SKILL_NO_EFFECT -- no effect
 end
 
@@ -566,12 +568,15 @@ function AvatarDrainAttribute(avatar, target, effect, power, duration, params, b
         if (results == tpz.msg.basic.SKILL_ENFEEB_IS) then
             avatar:addStatusEffect(positive, power, 15, duration)
 
+            giveAvatarTP(avatar)
             return tpz.msg.basic.ATTR_DRAINED
         end
 
+        giveAvatarTP(avatar)
         return tpz.msg.basic.SKILL_MISS
     end
 
+    giveAvatarTP(avatar)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
@@ -579,7 +584,7 @@ function AvatarDrainMultipleAttributes(avatar, target, power, count, duration, p
     local attributes = {};
     local currIndex = 1;
     while (currIndex <= count) do
-      local newAttr = math.random(136, 142);
+      local newAttr = math.random(136, 142)  -- STR down to CHR down
       for _, attr in pairs(attributes) do
         if (attr == newAttr) then
           newAttr = -1;
@@ -602,8 +607,7 @@ function AvatarDrainMultipleAttributes(avatar, target, power, count, duration, p
       end
     end
 
-    local tp = avatar:getLocalVar("TP")
-    avatar:setTP(tp)
+    giveAvatarTP(avatar)
 
     return msg;
 end
@@ -616,13 +620,36 @@ function AvatarBuffBP(avatar, target, skill, effect, power, tick, duration, para
 
     duration = duration + bonus
 
-    local tp = avatar:getLocalVar("TP")
-    avatar:setTP(tp)
+    giveAvatarTP(avatar)
     target:delStatusEffectSilent(effect)
     target:addStatusEffect(effect, power, tick, duration)
     skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
 
     return effect
+end
+
+function AvatarBuffMultipleEffects(avatar, target, skill, power, count, tick, duration, params, bonus)
+    local buffs = {};
+    local currIndex = 1;
+    while (currIndex <= count) do
+      local newbuff = math.random(80, 86)  -- STR boost to CHR boost
+      for _, buff in pairs(buffs) do
+        if (buff == newbuff) then
+          newbuff = -1;
+        end
+      end
+      if (newbuff ~= -1) then
+        buffs[currIndex] = newbuff;
+        currIndex = currIndex + 1;
+      end
+    end
+
+    for i = 1,count,1 do
+        AvatarBuffBP(avatar, target, skill, buffs[i], power, tick, duration, params, bonus)
+    end
+    
+
+    giveAvatarTP(avatar)
 end
 
 function AvatarHealBP(avatar, target, skill, healmodifier, statuscure)
@@ -651,8 +678,7 @@ function AvatarHealBP(avatar, target, skill, healmodifier, statuscure)
         end
     end
 
-    local tp = avatar:getLocalVar("TP")
-    avatar:setTP(tp)
+    giveAvatarTP(avatar)
     target:wakeUp()
     target:addHP(heal)
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
@@ -665,12 +691,6 @@ end
 function AvatarPhysicalHit(skill)
     -- if message is not the default. Then there was a miss, shadow taken etc
     return skill:hasMissMsg() == false
-end
-
-function getAvatarTP(player)
-    local Avatar = player:getPet()
-	local CurrentTP = Avatar:getTP()
-	Avatar:setLocalVar("TP", CurrentTP)
 end
 
 function AvatarDmgTPModifier(tp)
@@ -1232,6 +1252,19 @@ function getSummoningSkillOverCap(avatar)
     local maxSkill = summoner:getMaxSkillLevel(avatar:getMainLvl(), tpz.job.SMN, tpz.skill.SUMMONING_MAGIC)
 
     return math.max(summoningSkill - maxSkill, 0)
+end
+
+function getAvatarTP(player)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
+end
+
+function giveAvatarTP(avatar)
+    --TODO: Test this
+    local tp = avatar:getLocalVar("TP")
+    avatar:setTP(tp)
+    avatar:setLocalVar("TP", 0)
 end
 
 function checkForAvatarResistBonus(player, item)

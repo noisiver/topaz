@@ -20,11 +20,10 @@ function onPetAbility(target, pet, skill)
     local bonus = 0
     local effect2 = tpz.effect.ACCURACY_DOWN
     local power2 = 10
-    local tp = pet:getLocalVar("TP")
 
 
     AvatarStatusEffectBP(pet, target, effect2, power2, duration, params, bonus)
     skill:setMsg(AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus))
-    pet:setTP(tp)
+    giveAvatarTP(pet)
     return effect
 end

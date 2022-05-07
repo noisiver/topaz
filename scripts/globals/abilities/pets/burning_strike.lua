@@ -14,7 +14,7 @@ function onAbilityCheck(player, target, ability)
 end
 function onPetAbility(target, pet, skill)
     local numhits = 1
-    local ftp = 2.75
+    local ftp = 2.75 
     local params = {}
     params.str_wsc = 0.2
     params.dex_wsc = 0.0

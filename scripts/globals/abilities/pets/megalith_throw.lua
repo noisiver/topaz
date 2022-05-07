@@ -13,7 +13,7 @@ end
 
 function onPetAbility(target, pet, skill)
     local numhits = 1
-    local ftp = 2.375
+    local ftp = 3.5 -- 2.375 in retail but it sucks!
     local params = {}
     params.str_wsc = 0.2
     params.dex_wsc = 0.0

@@ -20,10 +20,9 @@ function onPetAbility(target, pet, skill)
     local power = 3000
     local duration = 180
     local bonus = 0
-    local tp = pet:getLocalVar("TP")
 
 
     skill:setMsg(AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus))
-    pet:setTP(tp)
+    giveAvatarTP(pet)
     return effect
 end
