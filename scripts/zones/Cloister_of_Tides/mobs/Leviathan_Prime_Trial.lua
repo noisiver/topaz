@@ -18,6 +18,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UFASTCAST, 25)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 50) 
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     tpz.mix.jobSpecial.config(mob, {
         specials =
