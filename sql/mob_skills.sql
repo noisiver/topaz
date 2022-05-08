@@ -520,7 +520,7 @@ INSERT INTO `mob_skills` VALUES (578,912,'nihility_song',1,12.5,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (579,913,'choke_breath',4,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (580,914,'fantod',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (581,325,'blow',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (582,326,'cacodemonia',0,7.0,2000,1500,4,0,0,0,0,0,0);
+--INSERT INTO `mob_skills` VALUES (582,326,'cacodemonia',0,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (583,327,'beatdown',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (584,328,'uppercut',0,7.0,2000,1500,4,0,0,2,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (585,329,'hekaton_punch',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1847,8 +1847,8 @@ INSERT INTO `mob_skills` VALUES (1905,916,'noctoshield',1,10.0,644,1500,1,0,0,0,
 INSERT INTO `mob_skills` VALUES (1906,144,'ultimate_terror',1,10.0,643,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1907,145,'dream_shroud',1,10.0,645,3000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1908,146,'nightmare',1,10.0,2000,2000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1909,1653,'cacodemonia',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1910,148,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1909,1653,'cacodemonia',1,10.0,2000,1500,4,0,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (1910,1654,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1911,1125,'ruinous_omen',1,30,2000,3000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1912,1656,'hypnogenesis',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1913,1657,'stunbolt',0,7.0,2000,1500,4,0,0,0,0,0,0);

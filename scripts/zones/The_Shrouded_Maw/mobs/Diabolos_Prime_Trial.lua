@@ -2,6 +2,7 @@
 -- Area: The Shrouded Maw
 --  Mob: Diabolos Prime
 -- Involved in Quest: Waking Dreams
+-- !addkeyitem vial_of_dream_incense
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/settings")
@@ -9,6 +10,7 @@ require("scripts/globals/hunts")
 require("scripts/globals/titles")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+local ID = require("scripts/zones/The_Shrouded_Maw/IDs")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setDamage(120)
@@ -30,13 +32,13 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob)
-    for _,player in ipairs(mob:getBattlefield():getPlayers()) do
-        mob:drawIn(player)
-    end
+   -- for _,player in ipairs(mob:getBattlefield():getPlayers()) do
+     --    mob:drawIn(player)
+    --end
 end
 
 function onMobFight(mob,target)
-    local mobOffset = mob:getID() - ID.mob.DIABOLOS_OFFSET;
+    local mobOffset = mob:getID() - ID.mob.DIABOLOS_PRIME_OFFSET;
     if (mobOffset >= 0 and mobOffset <= 14) then
         local inst = math.floor(mobOffset/7);
 
@@ -78,7 +80,6 @@ function onMobDeath(mob, player, isKiller)
 	DespawnMob(mob:getID()+5)
 	DespawnMob(mob:getID()+6)
 end
-
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)

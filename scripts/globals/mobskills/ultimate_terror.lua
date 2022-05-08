@@ -14,8 +14,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local count = math.random(1, 7)
     if (MobPhysicalHit(skill)) then
-		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 3, math.random(1, 7), 300))
+		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 3, count, 300))
 	end
-	return 1
+    mob:setTP(0)
+	return count
 end
