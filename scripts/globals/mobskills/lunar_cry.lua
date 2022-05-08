@@ -34,6 +34,7 @@ function onMobWeaponSkill(target, mob, skill)
     target:addStatusEffect(tpz.effect.ACCURACY_DOWN, buffvalue, 0, 300)
     target:addStatusEffect(tpz.effect.EVASION_DOWN, 32-buffvalue, 0, 300)
     skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_2)
-    return 0
+    mob:setTP(0)
 
+    return 0
 end
