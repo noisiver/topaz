@@ -3,6 +3,7 @@
 --  Mob: Fenrir
 -- Avatar Prime fight
 -----------------------------------
+mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
 local ID = require("scripts/zones/Full_Moon_Fountain/IDs")
 ------------------------------
