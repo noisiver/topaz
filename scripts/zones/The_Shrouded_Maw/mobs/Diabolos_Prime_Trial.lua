@@ -32,9 +32,9 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob)
-   -- for _,player in ipairs(mob:getBattlefield():getPlayers()) do
-     --    mob:drawIn(player)
-    --end
+    for _,player in ipairs(mob:getBattlefield():getPlayers()) do
+        mob:drawIn(player)
+    end
 end
 
 function onMobFight(mob,target)
