@@ -8083,16 +8083,18 @@ INSERT INTO `item_mods` VALUES (12385,109,10);
 INSERT INTO `item_mods` VALUES (12386,1,28);
 INSERT INTO `item_mods` VALUES (12386,55,-11);
 INSERT INTO `item_mods` VALUES (12386,109,11);
-INSERT INTO `item_mods` VALUES (12387,1,22);
+INSERT INTO `item_mods` VALUES (12387,1,22); -- Koenig Shield
 INSERT INTO `item_mods` VALUES (12387,10,5);
 INSERT INTO `item_mods` VALUES (12387,14,5);
 INSERT INTO `item_mods` VALUES (12387,27,3);
-INSERT INTO `item_mods` VALUES (12387,230,2);
-INSERT INTO `item_mods` VALUES (12388,1,23);
+INSERT INTO `item_mods` VALUES (12387,230,8); -- BEAST_KILLER 8% Intimidation Chance vs beasts
+INSERT INTO `item_mods` VALUES (12387,1230,8); -- BEAST_CIRCLE 8% Increased damage to Beasts
+INSERT INTO `item_mods` VALUES (12388,1,23); -- Kaiser Shield
 INSERT INTO `item_mods` VALUES (12388,10,6);
 INSERT INTO `item_mods` VALUES (12388,14,6);
 INSERT INTO `item_mods` VALUES (12388,27,4);
-INSERT INTO `item_mods` VALUES (12388,230,2);
+INSERT INTO `item_mods` VALUES (12388,230,10); -- BEAST_KILLER 10% Intimidation Chance  vs beasts
+INSERT INTO `item_mods` VALUES (12388,1230,10); -- BEAST_CIRCLE 10% Increased damage to Beasts
 INSERT INTO `item_mods` VALUES (12389,1,6);
 INSERT INTO `item_mods` VALUES (12390,1,4);
 INSERT INTO `item_mods` VALUES (12391,1,2);

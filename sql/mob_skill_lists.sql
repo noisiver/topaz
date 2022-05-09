@@ -118,13 +118,13 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,544); -- (Shrouded Ma
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,546); --noctoshield
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,547); --ultimate_terror
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,558);  --nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,831);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,832);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,833);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,834);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,835);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,836);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,837);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,838);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,867);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,868);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',37,869);
