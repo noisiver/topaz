@@ -1876,7 +1876,7 @@ INSERT INTO `item_mods` VALUES (10683,384,300);
 INSERT INTO `item_mods` VALUES (10683,974,1);     -- Add subjob traits to wyvern
 INSERT INTO `item_mods` VALUES (10684,1,49);      -- Summoner's Doublet +2: DEF 49
 INSERT INTO `item_mods` VALUES (10684,5,28);      -- MP +28
-INSERT INTO `item_mods` VALUES (10684,165,6);     -- Crit Hit Rate+6
+INSERT INTO `item_mods` VALUES (10684,1262,6);     -- Avatar Crit Hit Rate +6
 INSERT INTO `item_mods` VALUES (10684,346,3);     -- Avatar perpetuation cost -3
 INSERT INTO `item_mods` VALUES (10684,357,6);     -- Blood Pact ability delay -6
 INSERT INTO `item_mods` VALUES (10685,1,59);
@@ -2109,6 +2109,7 @@ INSERT INTO `item_mods` VALUES (10723,363,25);    -- High Jump Enmity Reduction+
 INSERT INTO `item_mods` VALUES (10724,1,38);      -- Summoner's Spats +2: DEF 38
 INSERT INTO `item_mods` VALUES (10724,5,35);      -- MP +35
 INSERT INTO `item_mods` VALUES (10724,357,4);     -- Blood Pact ability delay -4
+INSERT INTO `item_mods` VALUES (10724,1264,10);   -- Elemental Magic Cool -10
 INSERT INTO `item_mods` VALUES (10725,1,40);
 INSERT INTO `item_mods` VALUES (10725,2,21);
 INSERT INTO `item_mods` VALUES (10725,5,21);
@@ -2221,6 +2222,7 @@ INSERT INTO `item_mods` VALUES (10743,10,7);
 INSERT INTO `item_mods` VALUES (10743,23,7);
 INSERT INTO `item_mods` VALUES (10744,1,18);      -- Summoner's Pigaches +2: DEF 18
 INSERT INTO `item_mods` VALUES (10744,5,35);      -- MP +35
+INSERT INTO `item_mods` VALUES (10744,1258,20);     -- Avatar Attack +20
 INSERT INTO `item_mods` VALUES (10744,357,4);     -- Blood Pact ability delay -4
 INSERT INTO `item_mods` VALUES (10745,1,21);
 INSERT INTO `item_mods` VALUES (10745,5,21);
@@ -8445,10 +8447,11 @@ INSERT INTO `item_mods` VALUES (12519,2,12);        -- Drachen Armet HP: 12
 INSERT INTO `item_mods` VALUES (12519,13,5);        -- Drachen Armet MND: 5
 INSERT INTO `item_mods` VALUES (12519,58,10);       -- Drachen Armet Thun-res: 10
 INSERT INTO `item_mods` VALUES (12519,829,1);       -- Drachen Armet Wyvern Breath Targets Weakness: Active
-INSERT INTO `item_mods` VALUES (12520,1,15);
+INSERT INTO `item_mods` VALUES (12520,1,15); -- evokers_horn
 INSERT INTO `item_mods` VALUES (12520,5,20);
 INSERT INTO `item_mods` VALUES (12520,12,3);
 INSERT INTO `item_mods` VALUES (12520,117,5);
+INSERT INTO `item_mods` VALUES (12520,1261,-2); -- Avatar Enmity -2
 INSERT INTO `item_mods` VALUES (12521,54,6);
 INSERT INTO `item_mods` VALUES (12521,55,6);
 INSERT INTO `item_mods` VALUES (12521,56,6);
@@ -12694,9 +12697,11 @@ INSERT INTO `item_mods` VALUES (14102,2,12);
 INSERT INTO `item_mods` VALUES (14102,11,3);
 INSERT INTO `item_mods` VALUES (14102,108,5);
 INSERT INTO `item_mods` VALUES (14102,362,10);
-INSERT INTO `item_mods` VALUES (14103,1,10);
+INSERT INTO `item_mods` VALUES (14103,1,10); -- evokers_pigaches
 INSERT INTO `item_mods` VALUES (14103,5,15);
 INSERT INTO `item_mods` VALUES (14103,11,5);
+INSERT INTO `item_mods` VALUES (14103,1260,20); -- Avatar Evasion +20
+INSERT INTO `item_mods` VALUES (14103,1261,-2); -- Avatar Enmity -2
 INSERT INTO `item_mods` VALUES (14104,1,12);
 INSERT INTO `item_mods` VALUES (14104,68,3);
 INSERT INTO `item_mods` VALUES (14105,1,16);
@@ -13176,6 +13181,7 @@ INSERT INTO `item_mods` VALUES (14228,1,25); -- Evoker's Spats
 INSERT INTO `item_mods` VALUES (14228,5,15);
 INSERT INTO `item_mods` VALUES (14228,108,10);
 INSERT INTO `item_mods` VALUES (14228,1259,10); -- Avatar Accuracy +10
+INSERT INTO `item_mods` VALUES (14228,1261,-2); -- Avatar Enmity -2
 INSERT INTO `item_mods` VALUES (14229,1,36);
 INSERT INTO `item_mods` VALUES (14229,5,10);
 INSERT INTO `item_mods` VALUES (14229,11,4);
@@ -14240,6 +14246,7 @@ INSERT INTO `item_mods` VALUES (14513,384,200);
 INSERT INTO `item_mods` VALUES (14513,974,1);     -- Add subjob traits to wyvern
 INSERT INTO `item_mods` VALUES (14514,1,39);      -- Summoner's Doublet +1: DEF 39
 INSERT INTO `item_mods` VALUES (14514,5,20);      -- MP +20
+INSERT INTO `item_mods` VALUES (14514,1262,4);     -- Avatar Crit Hit Rate +4
 INSERT INTO `item_mods` VALUES (14514,357,4);     -- Blood Pact ability delay -4
 INSERT INTO `item_mods` VALUES (14514,373,3);     -- Depending on day: Avatar perpetuation cost -3
 INSERT INTO `item_mods` VALUES (14515,1,43);
@@ -15402,9 +15409,10 @@ INSERT INTO `item_mods` VALUES (14903,2,11);
 INSERT INTO `item_mods` VALUES (14903,8,5);
 INSERT INTO `item_mods` VALUES (14903,9,5);
 INSERT INTO `item_mods` VALUES (14903,110,12);
-INSERT INTO `item_mods` VALUES (14904,1,11);
+INSERT INTO `item_mods` VALUES (14904,1,11); -- evokers_bracers_+1
 INSERT INTO `item_mods` VALUES (14904,5,19);
 INSERT INTO `item_mods` VALUES (14904,357,1);
+INSERT INTO `item_mods` VALUES (14904,1261,-2); -- Avatar enmity -2
 INSERT INTO `item_mods` VALUES (14905,1,20);
 INSERT INTO `item_mods` VALUES (14905,2,20);
 INSERT INTO `item_mods` VALUES (14905,5,20);
@@ -16190,6 +16198,7 @@ INSERT INTO `item_mods` VALUES (15100,243,2);
 INSERT INTO `item_mods` VALUES (15100,974,1);     -- Add subjob traits to wyvern
 INSERT INTO `item_mods` VALUES (15101,1,38);      -- Summoner's Doublet: DEF 38
 INSERT INTO `item_mods` VALUES (15101,5,20);      -- MP +20
+INSERT INTO `item_mods` VALUES (15101,1262,3);     -- Avatar Crit Hit Rate +3
 INSERT INTO `item_mods` VALUES (15101,357,3);     -- Blood Pact ability delay -3
 INSERT INTO `item_mods` VALUES (15101,373,3);     -- Depending on day: Avatar perpetuation cost -3
 INSERT INTO `item_mods` VALUES (15102,1,22);
@@ -16398,6 +16407,7 @@ INSERT INTO `item_mods` VALUES (15146,1,14);      -- Summoner's Pigaches: DEF 14
 INSERT INTO `item_mods` VALUES (15146,5,20);      -- MP +20
 INSERT INTO `item_mods` VALUES (15146,10,3);      -- VIT +3
 INSERT INTO `item_mods` VALUES (15146,357,2);     -- Blood Pact ability delay -2
+INSERT INTO `item_mods` VALUES (15146,1258,15);     -- Avatar Attack +15
 INSERT INTO `item_mods` VALUES (15147,1,5);
 INSERT INTO `item_mods` VALUES (15147,13,1);
 INSERT INTO `item_mods` VALUES (15147,14,1);
@@ -16756,11 +16766,12 @@ INSERT INTO `item_mods` VALUES (15238,2,12);
 INSERT INTO `item_mods` VALUES (15238,10,8);
 INSERT INTO `item_mods` VALUES (15238,13,8);
 INSERT INTO `item_mods` VALUES (15238,829,1);
-INSERT INTO `item_mods` VALUES (15239,1,15);
+INSERT INTO `item_mods` VALUES (15239,1,15); -- evokers_horn_+1
 INSERT INTO `item_mods` VALUES (15239,5,25);
 INSERT INTO `item_mods` VALUES (15239,12,6);
 INSERT INTO `item_mods` VALUES (15239,13,6);
 INSERT INTO `item_mods` VALUES (15239,117,5);
+INSERT INTO `item_mods` VALUES (15239,1261,-3); -- Avatar enmity -3
 INSERT INTO `item_mods` VALUES (15240,1,26);
 INSERT INTO `item_mods` VALUES (15240,2,22);
 INSERT INTO `item_mods` VALUES (15240,5,22);
@@ -17192,9 +17203,11 @@ INSERT INTO `item_mods` VALUES (15365,9,5);
 INSERT INTO `item_mods` VALUES (15365,11,5);
 INSERT INTO `item_mods` VALUES (15365,108,10);
 INSERT INTO `item_mods` VALUES (15365,362,10);
-INSERT INTO `item_mods` VALUES (15366,1,10);
+INSERT INTO `item_mods` VALUES (15366,1,10); -- evokers_pigaches_ +1
 INSERT INTO `item_mods` VALUES (15366,5,25);
 INSERT INTO `item_mods` VALUES (15366,346,1);
+INSERT INTO `item_mods` VALUES (15366,1260,25); -- Avatar Evasion +25
+INSERT INTO `item_mods` VALUES (15366,1261,-4); -- Avatar Enmity -4
 INSERT INTO `item_mods` VALUES (15367,1,27);
 INSERT INTO `item_mods` VALUES (15368,1,20);
 INSERT INTO `item_mods` VALUES (15368,23,2);
@@ -17735,6 +17748,7 @@ INSERT INTO `item_mods` VALUES (15575,1,25); -- Evoker's Spats +1
 INSERT INTO `item_mods` VALUES (15575,5,22);
 INSERT INTO `item_mods` VALUES (15575,27,-3);
 INSERT INTO `item_mods` VALUES (15575,1259,12); -- Avatar Accuracy +12
+INSERT INTO `item_mods` VALUES (15575,1261,-2); -- Avatar Enmity +2
 INSERT INTO `item_mods` VALUES (15576,1,35);      -- Homam Cosciales: DEF 35
 INSERT INTO `item_mods` VALUES (15576,2,26);      -- HP +26
 INSERT INTO `item_mods` VALUES (15576,5,26);      -- MP +26
@@ -17819,6 +17833,7 @@ INSERT INTO `item_mods` VALUES (15594,1,30);      -- Summoner's Spats +1: DEF 30
 INSERT INTO `item_mods` VALUES (15594,5,25);      -- MP +25
 INSERT INTO `item_mods` VALUES (15594,357,2);     -- Blood Pact ability delay -2
 INSERT INTO `item_mods` VALUES (15594,1264,7);    -- Elemental Magic Cool -7
+INSERT INTO `item_mods` VALUES (15594,1261,2); -- Avatar Enmity +2
 INSERT INTO `item_mods` VALUES (15595,1,32);
 INSERT INTO `item_mods` VALUES (15595,25,10);
 INSERT INTO `item_mods` VALUES (15595,27,-6);
@@ -18166,7 +18181,9 @@ INSERT INTO `item_mods` VALUES (15678,10,5);
 INSERT INTO `item_mods` VALUES (15678,55,10);
 INSERT INTO `item_mods` VALUES (15679,1,15);      -- Summoner's Pigaches +1: DEF 15
 INSERT INTO `item_mods` VALUES (15679,5,25);      -- MP +25
+INSERT INTO `item_mods` VALUES (15679,1258,17);   -- Avatar Attack +17
 INSERT INTO `item_mods` VALUES (15679,357,2);     -- Blood Pact ability delay -2
+INSERT INTO `item_mods` VALUES (15679,1261,2);    -- Avatar Enmity +2
 INSERT INTO `item_mods` VALUES (15680,1,14);
 INSERT INTO `item_mods` VALUES (15680,25,6);
 INSERT INTO `item_mods` VALUES (15680,27,-5);
@@ -21122,7 +21139,7 @@ INSERT INTO `item_mods` VALUES (17543,23,10);
 INSERT INTO `item_mods` VALUES (17543,25,3);
 INSERT INTO `item_mods` VALUES (17544,23,12);
 INSERT INTO `item_mods` VALUES (17544,25,4);
-INSERT INTO `item_mods` VALUES (17545,8,4);
+INSERT INTO `item_mods` VALUES (17545,8,4); -- Fire Staff
 INSERT INTO `item_mods` VALUES (17545,23,10);
 INSERT INTO `item_mods` VALUES (17545,24,10);
 INSERT INTO `item_mods` VALUES (17545,55,15);
@@ -21130,9 +21147,9 @@ INSERT INTO `item_mods` VALUES (17545,347,2);
 INSERT INTO `item_mods` VALUES (17545,348,-2);
 INSERT INTO `item_mods` VALUES (17545,544,2);
 INSERT INTO `item_mods` VALUES (17545,545,-2);
-INSERT INTO `item_mods` VALUES (17545,553,2);
-INSERT INTO `item_mods` VALUES (17545,554,-2);
-INSERT INTO `item_mods` VALUES (17546,8,5);
+INSERT INTO `item_mods` VALUES (17545,553,-2); -- FIRE_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17545,554,2); -- ICE_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17546,8,5); -- Vulcan's Staff
 INSERT INTO `item_mods` VALUES (17546,23,10);
 INSERT INTO `item_mods` VALUES (17546,24,10);
 INSERT INTO `item_mods` VALUES (17546,55,20);
@@ -21140,44 +21157,44 @@ INSERT INTO `item_mods` VALUES (17546,347,3);
 INSERT INTO `item_mods` VALUES (17546,348,-3);
 INSERT INTO `item_mods` VALUES (17546,544,3);
 INSERT INTO `item_mods` VALUES (17546,545,-3);
-INSERT INTO `item_mods` VALUES (17546,553,3);
-INSERT INTO `item_mods` VALUES (17546,554,-3);
-INSERT INTO `item_mods` VALUES (17547,12,4);
+INSERT INTO `item_mods` VALUES (17546,553,-3); -- FIRE_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17546,554,3); -- ICE_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17547,12,4); -- Ice Staff
 INSERT INTO `item_mods` VALUES (17547,56,15);
 INSERT INTO `item_mods` VALUES (17547,115,10);
 INSERT INTO `item_mods` VALUES (17547,348,2);
 INSERT INTO `item_mods` VALUES (17547,349,-2);
 INSERT INTO `item_mods` VALUES (17547,545,2);
 INSERT INTO `item_mods` VALUES (17547,546,-2);
-INSERT INTO `item_mods` VALUES (17547,554,2);
-INSERT INTO `item_mods` VALUES (17547,555,-2);
-INSERT INTO `item_mods` VALUES (17548,12,5);
+INSERT INTO `item_mods` VALUES (17547,554,-2); -- ICE_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17547,555,2); -- WIND_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17548,12,5); -- Aquillo's Staff
 INSERT INTO `item_mods` VALUES (17548,56,20);
 INSERT INTO `item_mods` VALUES (17548,115,10);
 INSERT INTO `item_mods` VALUES (17548,348,3);
 INSERT INTO `item_mods` VALUES (17548,349,-3);
 INSERT INTO `item_mods` VALUES (17548,545,3);
 INSERT INTO `item_mods` VALUES (17548,546,-3);
-INSERT INTO `item_mods` VALUES (17548,554,3);
-INSERT INTO `item_mods` VALUES (17548,555,-3);
-INSERT INTO `item_mods` VALUES (17549,11,4);
+INSERT INTO `item_mods` VALUES (17548,554,-3); -- ICE_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17548,555,3); -- WIND_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17549,11,4); -- Wind STaff
 INSERT INTO `item_mods` VALUES (17549,57,15);
 INSERT INTO `item_mods` VALUES (17549,68,10);
 INSERT INTO `item_mods` VALUES (17549,350,-2);
 INSERT INTO `item_mods` VALUES (17549,349,2);
 INSERT INTO `item_mods` VALUES (17549,547,-2);
 INSERT INTO `item_mods` VALUES (17549,546,2);
-INSERT INTO `item_mods` VALUES (17549,556,-2);
-INSERT INTO `item_mods` VALUES (17549,555,2);
-INSERT INTO `item_mods` VALUES (17550,11,5);
+INSERT INTO `item_mods` VALUES (17549,556,2); -- EARTH_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17549,555,-2); -- WIND_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17550,11,5); -- Auster's Staff
 INSERT INTO `item_mods` VALUES (17550,57,20);
 INSERT INTO `item_mods` VALUES (17550,68,10);
 INSERT INTO `item_mods` VALUES (17550,350,-3);
 INSERT INTO `item_mods` VALUES (17550,349,3);
 INSERT INTO `item_mods` VALUES (17550,547,-3);
 INSERT INTO `item_mods` VALUES (17550,546,3);
-INSERT INTO `item_mods` VALUES (17550,556,-3);
-INSERT INTO `item_mods` VALUES (17550,555,3);
+INSERT INTO `item_mods` VALUES (17550,556,3); -- EARTH_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17550,555,-3); -- WIND_AFFINITY_PERP
 INSERT INTO `item_mods` VALUES (17551,10,4); -- Earth staff
 INSERT INTO `item_mods` VALUES (17551,58,15);
 INSERT INTO `item_mods` VALUES (17551,161,-20); -- -20% PDT
@@ -21185,8 +21202,8 @@ INSERT INTO `item_mods` VALUES (17551,350,2);
 INSERT INTO `item_mods` VALUES (17551,351,-2);
 INSERT INTO `item_mods` VALUES (17551,547,2);
 INSERT INTO `item_mods` VALUES (17551,548,-2);
-INSERT INTO `item_mods` VALUES (17551,556,2);
-INSERT INTO `item_mods` VALUES (17551,557,-2);
+INSERT INTO `item_mods` VALUES (17551,556,-2); -- EARTH_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17551,557,2); -- THUNDER_AFFINITY_PERP
 INSERT INTO `item_mods` VALUES (17552,10,5); -- Terra's Staff
 INSERT INTO `item_mods` VALUES (17552,58,20);
 INSERT INTO `item_mods` VALUES (17552,161,-20); -- 20% PDT
@@ -21194,45 +21211,45 @@ INSERT INTO `item_mods` VALUES (17552,350,3);
 INSERT INTO `item_mods` VALUES (17552,351,-3);
 INSERT INTO `item_mods` VALUES (17552,547,3);
 INSERT INTO `item_mods` VALUES (17552,548,-3);
-INSERT INTO `item_mods` VALUES (17552,556,3);
-INSERT INTO `item_mods` VALUES (17552,557,-3);
-INSERT INTO `item_mods` VALUES (17553,9,4);
+INSERT INTO `item_mods` VALUES (17552,556,-3); -- EARTH_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17552,557,3); -- THUNDER_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17553,9,4); -- Thunder Staff
 INSERT INTO `item_mods` VALUES (17553,59,15);
 INSERT INTO `item_mods` VALUES (17553,165,15);
 INSERT INTO `item_mods` VALUES (17553,352,-2);
 INSERT INTO `item_mods` VALUES (17553,351,2);
 INSERT INTO `item_mods` VALUES (17553,549,-2);
 INSERT INTO `item_mods` VALUES (17553,548,2);
-INSERT INTO `item_mods` VALUES (17553,558,-2);
-INSERT INTO `item_mods` VALUES (17553,557,2);
-INSERT INTO `item_mods` VALUES (17554,9,5);
+INSERT INTO `item_mods` VALUES (17553,558,2); -- WATER_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17553,557,-2); -- THUNDER_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17554,9,5); -- Jupiter's Staff
 INSERT INTO `item_mods` VALUES (17554,59,20);
 INSERT INTO `item_mods` VALUES (17554,165,15);
 INSERT INTO `item_mods` VALUES (17554,352,-3);
 INSERT INTO `item_mods` VALUES (17554,351,3);
 INSERT INTO `item_mods` VALUES (17554,549,-3);
 INSERT INTO `item_mods` VALUES (17554,548,3);
-INSERT INTO `item_mods` VALUES (17554,558,-3);
-INSERT INTO `item_mods` VALUES (17554,557,3);
-INSERT INTO `item_mods` VALUES (17555,13,4);
+INSERT INTO `item_mods` VALUES (17554,558,3); -- WATER_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17554,557,-3); -- THUNDER_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17555,13,4); -- Water Staff
 INSERT INTO `item_mods` VALUES (17555,54,15);
 INSERT INTO `item_mods` VALUES (17555,111,10);
 INSERT INTO `item_mods` VALUES (17555,347,-2);
 INSERT INTO `item_mods` VALUES (17555,352,2);
 INSERT INTO `item_mods` VALUES (17555,544,-2);
 INSERT INTO `item_mods` VALUES (17555,549,2);
-INSERT INTO `item_mods` VALUES (17555,553,-2);
-INSERT INTO `item_mods` VALUES (17555,558,2);
-INSERT INTO `item_mods` VALUES (17556,13,5);
+INSERT INTO `item_mods` VALUES (17555,553,2); -- FIRE_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17555,558,-2); -- WATER_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17556,13,5); -- Neptune's Staff
 INSERT INTO `item_mods` VALUES (17556,54,20);
 INSERT INTO `item_mods` VALUES (17556,111,10);
 INSERT INTO `item_mods` VALUES (17556,347,-3);
 INSERT INTO `item_mods` VALUES (17556,352,3);
 INSERT INTO `item_mods` VALUES (17556,544,-3);
 INSERT INTO `item_mods` VALUES (17556,549,3);
-INSERT INTO `item_mods` VALUES (17556,553,-3);
-INSERT INTO `item_mods` VALUES (17556,558,3);
-INSERT INTO `item_mods` VALUES (17557,8,1);
+INSERT INTO `item_mods` VALUES (17556,553,3); -- FIRE_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17556,558,-3); -- WATER_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17557,8,1); -- Light Staff
 INSERT INTO `item_mods` VALUES (17557,9,1);
 INSERT INTO `item_mods` VALUES (17557,10,1);
 INSERT INTO `item_mods` VALUES (17557,11,1);
@@ -21244,11 +21261,11 @@ INSERT INTO `item_mods` VALUES (17557,353,2);
 INSERT INTO `item_mods` VALUES (17557,354,-2);
 INSERT INTO `item_mods` VALUES (17557,550,2);
 INSERT INTO `item_mods` VALUES (17557,551,-2);
-INSERT INTO `item_mods` VALUES (17557,559,2);
-INSERT INTO `item_mods` VALUES (17557,560,-2);
+INSERT INTO `item_mods` VALUES (17557,559,-2); -- LIGHT_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17557,560,2); -- DARK_AFFINITY_PERP
 INSERT INTO `item_mods` VALUES (17557,374,10);
 INSERT INTO `item_mods` VALUES (17557,391,10);
-INSERT INTO `item_mods` VALUES (17558,8,2);
+INSERT INTO `item_mods` VALUES (17558,8,2); -- Apollo's Staff
 INSERT INTO `item_mods` VALUES (17558,9,2);
 INSERT INTO `item_mods` VALUES (17558,10,2);
 INSERT INTO `item_mods` VALUES (17558,11,2);
@@ -21260,11 +21277,11 @@ INSERT INTO `item_mods` VALUES (17558,353,3);
 INSERT INTO `item_mods` VALUES (17558,354,-3);
 INSERT INTO `item_mods` VALUES (17558,550,3);
 INSERT INTO `item_mods` VALUES (17558,551,-3);
-INSERT INTO `item_mods` VALUES (17558,559,3);
-INSERT INTO `item_mods` VALUES (17558,560,-3);
+INSERT INTO `item_mods` VALUES (17558,559,-3); -- LIGHT_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17558,560,3); -- DARK_AFFINITY_PERP
 INSERT INTO `item_mods` VALUES (17558,374,10);
 INSERT INTO `item_mods` VALUES (17558,391,15);
-INSERT INTO `item_mods` VALUES (17559,8,1);
+INSERT INTO `item_mods` VALUES (17559,8,1); -- Dark Staff
 INSERT INTO `item_mods` VALUES (17559,9,1);
 INSERT INTO `item_mods` VALUES (17559,10,1);
 INSERT INTO `item_mods` VALUES (17559,11,1);
@@ -21277,9 +21294,9 @@ INSERT INTO `item_mods` VALUES (17559,353,-2);
 INSERT INTO `item_mods` VALUES (17559,354,2);
 INSERT INTO `item_mods` VALUES (17559,550,-2);
 INSERT INTO `item_mods` VALUES (17559,551,2);
-INSERT INTO `item_mods` VALUES (17559,559,-2);
-INSERT INTO `item_mods` VALUES (17559,560,2);
-INSERT INTO `item_mods` VALUES (17560,8,2);
+INSERT INTO `item_mods` VALUES (17559,559,2); -- LIGHT_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17559,560,-2); -- DARK_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17560,8,2); -- Pluto's Staff
 INSERT INTO `item_mods` VALUES (17560,9,2);
 INSERT INTO `item_mods` VALUES (17560,10,2);
 INSERT INTO `item_mods` VALUES (17560,11,2);
@@ -21292,8 +21309,8 @@ INSERT INTO `item_mods` VALUES (17560,353,-3);
 INSERT INTO `item_mods` VALUES (17560,354,3);
 INSERT INTO `item_mods` VALUES (17560,550,-3);
 INSERT INTO `item_mods` VALUES (17560,551,3);
-INSERT INTO `item_mods` VALUES (17560,559,-3);
-INSERT INTO `item_mods` VALUES (17560,560,3);
+INSERT INTO `item_mods` VALUES (17560,559,3); -- LIGHT_AFFINITY_PERP
+INSERT INTO `item_mods` VALUES (17560,560,-3); -- DARK_AFFINITY_PERP
 INSERT INTO `item_mods` VALUES (17561,2,9);
 INSERT INTO `item_mods` VALUES (17561,5,9);
 INSERT INTO `item_mods` VALUES (17562,2,10);
@@ -22774,14 +22791,14 @@ INSERT INTO `item_mods` VALUES (18632,548,2);     -- Thunder affinity accuracy +
 INSERT INTO `item_mods` VALUES (18632,546,2);     -- Wind affinity accuracy +20
 INSERT INTO `item_mods` VALUES (18632,550,2);     -- Light affinity accuracy +20
 INSERT INTO `item_mods` VALUES (18632,551,2);     -- Dark affinity accuracy +20
-INSERT INTO `item_mods` VALUES (18632,553,2);     -- Fire affinity perpetuation cost -2
-INSERT INTO `item_mods` VALUES (18632,556,2);     -- Earth affinity perpetuation cost -2
-INSERT INTO `item_mods` VALUES (18632,558,2);     -- Water affinity perpetuation cost -2
-INSERT INTO `item_mods` VALUES (18632,554,2);     -- Ice affinity perpetuation cost -2
-INSERT INTO `item_mods` VALUES (18632,557,2);     -- Thunder affinity perpetuation cost -2
-INSERT INTO `item_mods` VALUES (18632,555,2);     -- Wind affinity perpetuation cost -2
-INSERT INTO `item_mods` VALUES (18632,559,2);     -- Light affinity perpetuation cost -2
-INSERT INTO `item_mods` VALUES (18632,560,2);     -- Dark affinity perpetuation cost -2
+INSERT INTO `item_mods` VALUES (18632,553,-2);     -- Fire affinity perpetuation cost -2
+INSERT INTO `item_mods` VALUES (18632,556,-2);     -- Earth affinity perpetuation cost -2
+INSERT INTO `item_mods` VALUES (18632,558,-2);     -- Water affinity perpetuation cost -2
+INSERT INTO `item_mods` VALUES (18632,554,-2);     -- Ice affinity perpetuation cost -2
+INSERT INTO `item_mods` VALUES (18632,557,-2);     -- Thunder affinity perpetuation cost -2
+INSERT INTO `item_mods` VALUES (18632,555,-2);     -- Wind affinity perpetuation cost -2
+INSERT INTO `item_mods` VALUES (18632,559,-2);     -- Light affinity perpetuation cost -2
+INSERT INTO `item_mods` VALUES (18632,560,-2);     -- Dark affinity perpetuation cost -2
 INSERT INTO `item_mods` VALUES (18632,566,1);     -- Iridescence
 INSERT INTO `item_mods` VALUES (18633,8,5);       -- Chatoyant Staff: STR +5
 INSERT INTO `item_mods` VALUES (18633,9,5);       -- DEX +5
@@ -22816,14 +22833,14 @@ INSERT INTO `item_mods` VALUES (18633,548,3);     -- Thunder affinity accuracy +
 INSERT INTO `item_mods` VALUES (18633,546,3);     -- Wind affinity accuracy +30
 INSERT INTO `item_mods` VALUES (18633,550,3);     -- Light affinity accuracy +30
 INSERT INTO `item_mods` VALUES (18633,551,3);     -- Dark affinity accuracy +30
-INSERT INTO `item_mods` VALUES (18633,553,3);     -- Fire affinity perpetuation cost -3
-INSERT INTO `item_mods` VALUES (18633,556,3);     -- Earth affinity perpetuation cost -3
-INSERT INTO `item_mods` VALUES (18633,558,3);     -- Water affinity perpetuation cost -3
-INSERT INTO `item_mods` VALUES (18633,554,3);     -- Ice affinity perpetuation cost -3
-INSERT INTO `item_mods` VALUES (18633,557,3);     -- Thunder affinity perpetuation cost -3
-INSERT INTO `item_mods` VALUES (18633,555,3);     -- Wind affinity perpetuation cost -3
-INSERT INTO `item_mods` VALUES (18633,559,3);     -- Light affinity perpetuation cost -3
-INSERT INTO `item_mods` VALUES (18633,560,3);     -- Dark affinity perpetuation cost -3
+INSERT INTO `item_mods` VALUES (18633,553,-3);     -- Fire affinity perpetuation cost -3
+INSERT INTO `item_mods` VALUES (18633,556,-3);     -- Earth affinity perpetuation cost -3
+INSERT INTO `item_mods` VALUES (18633,558,-3);     -- Water affinity perpetuation cost -3
+INSERT INTO `item_mods` VALUES (18633,554,-3);     -- Ice affinity perpetuation cost -3
+INSERT INTO `item_mods` VALUES (18633,557,-3);     -- Thunder affinity perpetuation cost -3
+INSERT INTO `item_mods` VALUES (18633,555,-3);     -- Wind affinity perpetuation cost -3
+INSERT INTO `item_mods` VALUES (18633,559,-3);     -- Light affinity perpetuation cost -3
+INSERT INTO `item_mods` VALUES (18633,560,-3);     -- Dark affinity perpetuation cost -3
 INSERT INTO `item_mods` VALUES (18633,566,1);     -- Iridescence
 INSERT INTO `item_mods` VALUES (18634,32,25); -- fire macc
 INSERT INTO `item_mods` VALUES (18634,34,25); -- wind macc

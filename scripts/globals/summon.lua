@@ -28,6 +28,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
     -- I have never read a limit on accuracy bonus from summoning skill which can currently go far past 200 over cap
     -- current retail is over +250 skill so I am removing the cap, my SMN is at 695 total skill
     local tp = avatar:getTP()
+    local summoner = avatar:getMaster()
     --printf("tp %i", tp)
     local acc = 0
     local TPAccBonus = 0
@@ -37,11 +38,11 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
     end
     -- Ranged attack BPs use Racc
     if attackType == tpz.attackType.PHYSICAL then
-        acc = avatar:getACC() + getSummoningSkillOverCap(avatar)
+        acc = avatar:getACC() + getSummoningSkillOverCap(avatar) + summoner:getMod(tpz.mod.AVATAR_ACC)
     end
 
     if attackType == tpz.attackType.RANGED then
-        acc = avatar:getRACC() + getSummoningSkillOverCap(avatar)
+        acc = avatar:getRACC() + getSummoningSkillOverCap(avatar) + summoner:getMod(tpz.mod.AVATAR_ACC)
     end
     --print("%i", acc)
     acc = acc + TPAccBonus
@@ -151,7 +152,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         -- https://www.bg-wiki.com/bg/Critical_Hit_Rate
         -- Crit rate has a base of 5% and no cap, 0-100% are valid
         -- Dex contribution to crit rate is capped and works in tiers
-        local baseCritRate = 5
+        local baseCritRate = 5 + summoner:getMod(tpz.mod.AVATAR_CRIT)
         local maxCritRate = 1 -- 100%
         local minCritRate = 0 -- 0%
 
@@ -181,11 +182,11 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         local ratio = 0
         -- Ranged attack BPs use Rattack
         if attackType == tpz.attackType.PHYSICAL then
-            ratio = avatar:getStat(tpz.mod.ATT) / target:getStat(tpz.mod.DEF)
+            ratio = (avatar:getStat(tpz.mod.ATT) + summoner:getMod(tpz.mod.AVATAR_ACC)) / target:getStat(tpz.mod.DEF)
         end
 
         if attackType == tpz.attackType.RANGED then
-            ratio = avatar:getRATT() / target:getStat(tpz.mod.DEF)
+            ratio = (avatar:getRATT() + summoner:getMod(tpz.mod.AVATAR_ACC)) / target:getStat(tpz.mod.DEF)
         end
         local cRatio = ratio
 
@@ -246,14 +247,19 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 local bonusMacc = 0
                 local magicdmg = addBonusesAbility(avatar, tpz.magic.ele.FIRE, target, finaldmg, paramshybrid)
                 local resist = getAvatarResist(avatar, effect, target, avatar:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonusMacc, tpz.magic.ele.FIRE)
-                printf("resist %u", resist * 100)
+                --printf("resist %u", resist * 100)
                 --printf("magicdmg before resist %u", magicdmg)
                 magicdmg = magicdmg * resist
                 -- Hybrid hits are only HALF a physical hits damage
                 magicdmg = magicdmg / 2
                 --printf("magicdmg after resist %u", magicdmg)
                 magicdmg = target:magicDmgTaken(magicdmg)
+                -- Handle absorb
                 magicdmg = adjustForTarget(target, magicdmg, tpz.magic.ele.FIRE)
+                -- Add HP if absorbed
+                if (magicdmg < 0) then
+                    magicdmg = (target:addHP(-magicdmg))
+                end
 
                 --printf("%i", magicdmg)
                 --handling rampart stoneskin
@@ -298,7 +304,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         end
     end
 
-    printf("finaldmg %i", finaldmg)
+    --printf("finaldmg %i", finaldmg)
     returninfo.dmg = finaldmg
     returninfo.hitslanded = numHitsLanded
 
@@ -309,9 +315,10 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     -- Formula is ((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x day / weather bonus x  MAB/MDB x mdt
     -- MDT is handled in AvatarMagicalFinalAdjustments
 
+    local resist = 1
     if bonus == nil then bonus = 0 end -- bonus macc
     -- Bonus macc on all nukes or else avatars struggle to land nukes on anything(No Ele staves)
-    local maccBonus = 50 + bonus
+    local maccBonus = 25 + bonus
     maccBonus = maccBonus + getAvatarBonusMacc(avatar, target, element, params)
 
     local avatarLevel = avatar:getMainLvl()
@@ -327,7 +334,11 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     local dStat = getAvatarDStat(statmod, avatar, target)
     local magicBurstBonus = getAvatarMagicBurstBonus(avatar, target, skill, element)
     -- get resist
-    local resist = getAvatarResist(avatar, effect, target, avatar:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), maccBonus, element)
+    if params.NO_RESIST ~= nil then -- Only used for Netherblast currently
+         resist = 1
+    else
+         resist = getAvatarResist(avatar, effect, target, avatar:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), maccBonus, element)
+    end
     -- get weather
     local weatherBonus = getAvatarWeatherBonus(avatar, element)
     -- get magic attack bonus
@@ -336,18 +347,18 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     local finaldmg = getAvatarMagicalDamage(avatarLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
 
     --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
-    printf("mutiplier %i", multiplier * 100)
-    printf("tp %i", tp)
-    printf("wsc %i", WSC)
-    printf("tp150 %i", params.tp150 * 100)
-    printf("tp300 %i", params.tp300 * 100)
-    printf("ftp %i", ftp * 100)
-    printf("bonus magic burst macc %i", bonus)
-    printf("magicBurstBonus %i", magicBurstBonus)
-    printf("dStat %i", dStat)
-    printf("resist %i", resist * 100)
-    printf("weatherbonus %i", weatherBonus * 100)
-    printf("finaldmg %i", finaldmg)
+    --printf("mutiplier %i", multiplier * 100)
+    --printf("tp %i", tp)
+    --printf("wsc %i", WSC)
+    --printf("tp150 %i", params.tp150 * 100)
+    --printf("tp300 %i", params.tp300 * 100)
+    --printf("ftp %i", ftp * 100)
+    --printf("bonus magic burst macc %i", bonus)
+    --printf("magicBurstBonus %i", magicBurstBonus)
+    --printf("dStat %i", dStat)
+    --printf("resist %i", resist * 100)
+    --printf("weatherbonus %i", weatherBonus * 100)
+    --printf("finaldmg %i", finaldmg)
 
     return finaldmg
 end
@@ -455,8 +466,19 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     -- handling normal stoneskin
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
     dmg = utils.stoneskin(target, dmg)
+    -- Handle absorb
+    dmg = adjustForTarget(target, dmg, element)
+    --printf("dmg %d", dmg)
+    dmg = utils.clamp(dmg, -99999, 99999)
 
-	target:takeDamage(dmg, avatar, attackType, damageType)
+    -- Add HP if absorbed
+    if (dmg < 0) then
+        dmg = (target:addHP(-dmg))
+        skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+    else
+	    target:takeDamage(dmg, avatar, attackType, damageType)
+    end
+
     target:updateEnmityFromDamage(avatar, dmg)
     target:handleAfflatusMiseryDamage(dmg)
     avatar:delStatusEffectSilent(tpz.effect.BOOST)
@@ -484,12 +506,23 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
         dmg = target:breathDmgTaken(dmg)
     end
 
-
     -- Handling rampart stoneskin + normal stoneskin
     dmg = utils.rampartstoneskin(target, dmg)
     dmg = utils.stoneskin(target, dmg)
 
-	target:takeDamage(dmg, avatar, attackType, element)
+    -- Handle absorb
+    dmg = adjustForTarget(target, dmg, element)
+    --printf("dmg %d", dmg)
+    dmg = utils.clamp(dmg, -99999, 99999)
+
+    -- Add HP if absorbed
+    if (dmg < 0) then
+        dmg = (target:addHP(-dmg))
+        --printf("dmg %d", dmg)
+        skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+    else
+	    target:takeDamage(dmg, avatar, attackType, element)
+    end
     target:updateEnmityFromDamage(avatar, dmg)
     target:handleAfflatusMiseryDamage(dmg)
     avatar:setTP(0)
@@ -506,18 +539,18 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
     end
 
     -- Bonus macc on all status effects or else avatars struggle to land enfeebles on anything(No Ele staves)
-    local maccBonus = 50 + bonus
+    local maccBonus = 25 + bonus
 
     if (target:canGainStatusEffect(effect, power)) then
         local statmod = tpz.mod.INT
         local element = avatar:getStatusEffectElement(effect)
 
         local resist = getAvatarResist(avatar, effect, target, 0, maccBonus, element)
-        printf("resist %i", resist * 100)
+        --printf("resist %i", resist * 100)
         if (resist >= 0.50) then
             -- Reduce duration by resist percentage
             local totalDuration = duration * resist
-            printf("totalDuration %i", totalDuration)
+            --printf("totalDuration %i", totalDuration)
             if params.DOT then -- Used for Nightmare / Shining Ruby
                 target:addStatusEffect(effect, power, 3, totalDuration)
             else
@@ -1131,13 +1164,13 @@ end
 function getAvatarMAB(avatar, target)
     -- Get magic attack bonus
     local mab = 100 + avatar:getMod(tpz.mod.MATT)
-    printf("mab %i", mab)
+    --printf("mab %i", mab)
     -- Get targets mdef
     local mdef = 100 + target:getMod(tpz.mod.MDEF)
-    printf("mdef %i", mdef)
+    --printf("mdef %i", mdef)
     -- Get dmg bonus from MAB / MDB
     local magicAttkBonus = mab / mdef
-    printf("magicAttkBonus %i", magicAttkBonus * 100)
+    --printf("magicAttkBonus %i", magicAttkBonus * 100)
 
     return magicAttkBonus
 end
@@ -1161,8 +1194,12 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         magicaccbonus = magicaccbonus + diff
     end
 
+    -- Add macc from summoning skill over cap
+
+    magicaccbonus = magicaccbonus + getSummoningSkillOverCap(avatar)
+
     if (bonus ~= nil) then
-        magicaccbonus = magicaccbonus + getSummoningSkillOverCap(avatar) + bonus
+        magicaccbonus = magicaccbonus + bonus
     end
 
     if (effect ~= nil) then

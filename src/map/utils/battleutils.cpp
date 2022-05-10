@@ -2425,6 +2425,11 @@ namespace battleutils
                     ratio = 2.0f;
 
                 baseTp = CalculateBaseTP((int16)(delay * 60.0f / 1000.0f / ratio));
+
+                if (PAttacker->objtype == TYPE_PET) // Pets gain 84 tp per hit
+                {
+                    baseTp = (baseTp / 4) + 5;
+                }
             }
 
 
@@ -2446,9 +2451,13 @@ namespace battleutils
                 float sBlowMult = ((100.0f - std::clamp((float)(sBlow1 + sBlow2), -75.0f, 75.0f)) / 100.0f);
 
                 //mobs hit get basetp+30 whereas pcs hit get basetp/3
-                if (PDefender->objtype == TYPE_PC || (PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC))
+                if (PDefender->objtype == TYPE_PC)
                 {
                     PDefender->addTP((int16)(tpMultiplier * ((baseTp / 3) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker))))))); //yup store tp counts on hits taken too!
+                }
+                else if (PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC)
+                {
+                    PDefender->addTP((int16)(tpMultiplier * ((baseTp / 7) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker)))))));
                 }
                 else
                     PDefender->addTP((uint16)(tpMultiplier * ((baseTp + 30) * sBlowMult * (1.0f + 0.01f * (float)PDefender->getMod(Mod::STORETP))))); //subtle blow also reduces the "+30" on mob tp gain
@@ -5127,8 +5136,8 @@ namespace battleutils
 
     int32 MagicDmgTaken(CBattleEntity* PDefender, int32 damage, ELEMENT element)
     {
-        Mod absorb[8] = { Mod::FIRE_ABSORB, Mod::ICE_ABSORB, Mod::WIND_ABSORB, Mod::EARTH_ABSORB, Mod::LTNG_ABSORB, Mod::WATER_ABSORB, Mod::LIGHT_ABSORB, Mod::DARK_ABSORB };
-        Mod absorbtoMP[8] = { Mod::FIRE_ABSORB_TO_MP, Mod::ICE_ABSORB_TO_MP, Mod::WIND_ABSORB_TO_MP, Mod::EARTH_ABSORB_TO_MP, Mod::LTNG_ABSORB_TO_MP, Mod::WATER_ABSORB_TO_MP, Mod::LIGHT_ABSORB_TO_MP, Mod::DARK_ABSORB_TO_MP };
+        Mod absorb[8] = { Mod::FIRE_ABSORB, Mod::ICE_ABSORB,   Mod::WIND_ABSORB,  Mod::EARTH_ABSORB,
+                          Mod::LTNG_ABSORB, Mod::WATER_ABSORB, Mod::LIGHT_ABSORB, Mod::DARK_ABSORB };
         Mod nullarray[8] = { Mod::FIRE_NULL, Mod::ICE_NULL, Mod::WIND_NULL, Mod::EARTH_NULL, Mod::LTNG_NULL, Mod::WATER_NULL, Mod::LIGHT_NULL, Mod::DARK_NULL };
 
         float resist = 1.f + PDefender->getMod(Mod::UDMGMAGIC) / 100.f;
@@ -5156,10 +5165,8 @@ namespace battleutils
                 damage = -damage;
             }
         else if ((element && tpzrand::GetRandomNumber(100) < PDefender->getMod(nullarray[element - 1])) ||
-            tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_NULL))
+                 tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_NULL))
             damage = 0;
-        else if (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorbtoMP[element - 1]))
-            PDefender->addMP(damage);
         else
         {
             damage = HandleSevereDamage(PDefender, damage, false);
@@ -5168,7 +5175,7 @@ namespace battleutils
                 PDefender->addMP(absorbedMP);
         }
 
-        //ShowDebug(CL_CYAN"MagicDmgTaken: Element = %d\n" CL_RESET, element);
+        // ShowDebug(CL_CYAN"MagicDmgTaken: Element = %d\n" CL_RESET, element);
         return damage;
     }
 

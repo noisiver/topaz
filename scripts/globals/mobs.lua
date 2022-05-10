@@ -589,6 +589,7 @@ tpz.mob.onAddEffect = function(mob, target, damage, effect, params)
                 local message = ae.msg
                 if power < 0 then
                     if ae.negMsg then
+                        power = (target:addHP(-power))
                         message = ae.negMsg
                     else
                         power = 0

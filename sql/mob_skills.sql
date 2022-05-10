@@ -1848,7 +1848,8 @@ INSERT INTO `mob_skills` VALUES (1906,144,'ultimate_terror',1,10.0,643,3000,4,0,
 INSERT INTO `mob_skills` VALUES (1907,145,'dream_shroud',1,10.0,645,3000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1908,146,'nightmare',1,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1909,1653,'cacodemonia',1,10.0,2000,1500,4,0,0,0,0,0,0); 
-INSERT INTO `mob_skills` VALUES (1910,1654,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1910,148,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0); -- Summoner pet uses this wtf...
+--INSERT INTO `mob_skills` VALUES (1910,1654,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0); -- Once above fixed, use this for the aniimation
 INSERT INTO `mob_skills` VALUES (1911,1125,'ruinous_omen',1,30,2000,3000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1912,1656,'hypnogenesis',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1913,1657,'stunbolt',0,7.0,2000,1500,4,0,0,0,0,0,0);
