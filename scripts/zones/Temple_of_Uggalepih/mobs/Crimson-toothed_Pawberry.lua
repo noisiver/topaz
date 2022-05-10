@@ -17,8 +17,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UFASTCAST, 25)
 	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 3000)
-    mob:setMobMod(tpz.mobMod.GIL_MAX, 3000) 
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 18000) 
     mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
 end
 
