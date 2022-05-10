@@ -2410,7 +2410,7 @@ INSERT INTO `item_equipment` VALUES (12646,'beast_jackcoat',58,0,256,80,0,0,32,0
 INSERT INTO `item_equipment` VALUES (12647,'choral_jstcorps',58,0,512,82,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (12648,'hunters_jerkin',58,0,1024,84,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (12649,'drachen_mail',58,0,8192,90,0,0,32,0);
-INSERT INTO `item_equipment` VALUES (12650,'evokers_doublet',58,0,16384,92,0,0,32,0);
+INSERT INTO `item_equipment` VALUES (12650,'evokers_doublet',58,0,16384,92,0,1,32,0);
 INSERT INTO `item_equipment` VALUES (12651,'white_cloak_+1',50,0,3851870,11,0,0,32,16);
 INSERT INTO `item_equipment` VALUES (12652,'silk_coat_+1',53,0,4179646,19,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (12653,'mercenarys_gi',20,0,6146,17,0,0,32,0);
@@ -3732,7 +3732,7 @@ INSERT INTO `item_equipment` VALUES (13971,'hunters_bracers',52,0,1024,84,0,0,64
 INSERT INTO `item_equipment` VALUES (13972,'myochin_kote',56,0,2048,86,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (13973,'ninja_tekko',60,0,4096,88,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (13974,'drachen_fng._gnt.',56,0,8192,90,0,0,64,0);
-INSERT INTO `item_equipment` VALUES (13975,'evokers_bracers',54,0,16384,92,0,0,64,0);
+INSERT INTO `item_equipment` VALUES (13975,'evokers_bracers',54,0,16384,92,0,1,64,0);
 INSERT INTO `item_equipment` VALUES (13976,'dst._mufflers_+1',59,0,6593,58,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (13977,'light_gauntlets',57,0,1753628,2,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (13978,'aiming_bracelets',51,0,4179646,0,0,0,64,0);
@@ -4244,7 +4244,7 @@ INSERT INTO `item_equipment` VALUES (14483,'htr._jerkin_+1',74,0,1024,84,0,0,32,
 INSERT INTO `item_equipment` VALUES (14484,'myn._domaru_+1',74,0,2048,86,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14485,'nin._chainmail_+1',74,0,4096,88,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14486,'drn._mail_+1',74,0,8192,90,0,0,32,0);
-INSERT INTO `item_equipment` VALUES (14487,'evk._doublet_+1',74,0,16384,92,0,0,32,0);
+INSERT INTO `item_equipment` VALUES (14487,'evk._doublet_+1',74,0,16384,92,0,1,32,0);
 INSERT INTO `item_equipment` VALUES (14488,'homam_corazza',75,0,41184,159,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14489,'nashira_manteel',75,0,49180,160,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14490,'mana_tunic',8,0,3851870,3,0,0,32,16);
@@ -4661,7 +4661,7 @@ INSERT INTO `item_equipment` VALUES (14900,'htr._bracers_+1',74,0,1024,84,0,0,64
 INSERT INTO `item_equipment` VALUES (14901,'myn._kote_+1',74,0,2048,86,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (14902,'nin._tekko_+1',74,0,4096,88,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (14903,'drn._fng._gnt._+1',74,0,8192,90,0,0,64,0);
-INSERT INTO `item_equipment` VALUES (14904,'evk._bracers_+1',74,0,16384,92,0,0,64,0);
+INSERT INTO `item_equipment` VALUES (14904,'evk._bracers_+1',74,0,16384,92,0,1,64,0);
 INSERT INTO `item_equipment` VALUES (14905,'homam_manopolas',75,0,41184,159,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (14906,'nashira_gages',75,0,49180,160,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (14907,'crow_bracers',50,0,3662710,162,0,0,64,0);

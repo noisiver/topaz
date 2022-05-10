@@ -13,14 +13,18 @@ end
 
 function onPetAbility(target, pet, skill)
     local numhits = 1
-    local accmod = 1
-    local dmgmod = 3.5
+    local ftp = 2
+    local params = {}
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.3
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
 
-    local totaldamage = 0
-    local damage = AvatarPhysicalMove(pet, target, skill, numhits, accmod, dmgmod, 0, TP_NO_EFFECT, 1, 2, 3)
-    totaldamage = AvatarFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, numhits)
-    target:takeDamage(totaldamage, pet, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
-    target:updateEnmityFromDamage(pet, totaldamage)
+    local damage = AvatarPhysicalBP(pet, target, skill, tpz.attackType.PHYSICAL, numhits, ftp, TP_CRIT_VARIES, params)
+    dmg = AvatarPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, damage.hitslanded, params)
 
-    return totaldamage
+    return dmg
 end

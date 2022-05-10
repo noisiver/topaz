@@ -2,6 +2,7 @@
 -- Area: The Shrouded Maw
 --  Mob: Diabolos Prime
 -- Involved in Quest: Waking Dreams
+-- !addkeyitem vial_of_dream_incense
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/settings")
@@ -9,15 +10,17 @@ require("scripts/globals/hunts")
 require("scripts/globals/titles")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+local ID = require("scripts/zones/The_Shrouded_Maw/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(140)
+    mob:setDamage(120)
     mob:setMod(tpz.mod.ATT, 522)
     mob:setMod(tpz.mod.DEF, 522)
     mob:setMod(tpz.mod.EVA, 314) 
     mob:setMod(tpz.mod.UFASTCAST, 25)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-    mob:setMod(tpz.mod.REFRESH, 50) 
+    mob:setMod(tpz.mod.REFRESH, 50)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
     tpz.mix.jobSpecial.config(mob, {
@@ -35,7 +38,7 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob,target)
-    local mobOffset = mob:getID() - ID.mob.DIABOLOS_OFFSET;
+    local mobOffset = mob:getID() - ID.mob.DIABOLOS_PRIME_OFFSET;
     if (mobOffset >= 0 and mobOffset <= 14) then
         local inst = math.floor(mobOffset/7);
 
@@ -77,7 +80,6 @@ function onMobDeath(mob, player, isKiller)
 	DespawnMob(mob:getID()+5)
 	DespawnMob(mob:getID()+6)
 end
-
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)

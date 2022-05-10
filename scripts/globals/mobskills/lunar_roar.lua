@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
     if (num == 0) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     end
+    mob:setTP(0)
 
     return num
-
 end

@@ -9,14 +9,17 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    getAvatarTP(player)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill, summoner)
-    local bonusTime = utils.clamp(summoner:getSkillLevel(tpz.skill.SUMMONING_MAGIC) - 300, 0, 200)
-    local duration = 60 + bonusTime
+    local bonus = 0
+    local effect = tpz.effect.ATTACK_BOOST
+    local power = 50
+    local duration = 180
 
-    target:addStatusEffect(tpz.effect.WARCRY, 9, 0, duration)
-    skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
-    return tpz.effect.WARCRY
+    AvatarBuffBP(pet, pet, skill, effect, power, tick, duration, params, bonus)
+
+    return effect
 end

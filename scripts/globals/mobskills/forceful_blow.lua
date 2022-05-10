@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmgmod = 2
 
     if mob:getPool() == 9059 then -- Imperial Agent Rescue(Assault)
-        dmgmod = 6
+        dmgmod = 5
     end
 
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)

@@ -4949,6 +4949,13 @@ INSERT INTO `mob_spell_lists` VALUES('Silverhook', 2062, 274, 1, 255); -- sleepg
 INSERT INTO `mob_spell_lists` VALUES ('ShockSpikesOnly',2063,251,1,255); -- Shock spikes
 INSERT INTO `mob_spell_lists` VALUES ('SilenceOnly',2064,59,15,255); -- Silence
 
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 245, 1, 255);  -- Drain
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 247, 1, 255); -- Aspir
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 274, 1, 255); -- Sleepga II
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 360, 1, 255); -- Dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 361, 1, 255); -- Blindga
+INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 232, 1, 255); -- Bio III
+
 
 
 

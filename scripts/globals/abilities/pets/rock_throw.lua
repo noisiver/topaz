@@ -13,15 +13,24 @@ end
 
 function onPetAbility(target, pet, skill)
     local numhits = 1
-    local accmod = 1
-    local dmgmod = 3.5
+    local ftp = 1
+    local params = {}
+    params.str_wsc = 0.2
+    params.dex_wsc = 0.2
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
 
-    local totaldamage = 0
-    local damage = AvatarPhysicalMove(pet, target, skill, numhits, accmod, dmgmod, 0, TP_NO_EFFECT, 1, 2, 3)
+    local effect = tpz.effect.SLOW
+    local power = 3000
+    local duration = 120
+    local bonus = 0
 
-    totaldamage = AvatarFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, numhits)
-    target:takeDamage(totaldamage, pet, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-    target:updateEnmityFromDamage(pet, totaldamage)
+    local damage = AvatarPhysicalBP(pet, target, skill, tpz.attackType.RANGED, numhits, ftp, TP_ACC_BONUS, params)
+    dmg = AvatarPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, damage.hitslanded, params)
+    AvatarPhysicalStatusEffectBP(pet, target, skill, effect, power, duration, params, bonus)
 
-    return totaldamage
+    return dmg
 end

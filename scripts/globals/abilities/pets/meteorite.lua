@@ -8,13 +8,25 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    getAvatarTP(player)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill)
-    local dint = pet:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-    local dmg = 500 + dint*1.5 + skill:getTP()/20
-    target:updateEnmityFromDamage(pet, dmg)
-    target:takeDamage(dmg, pet, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
+    local params = {}
+    params.multiplier = 3.5
+    params.tp150 = 4
+    params.tp300 = 4.25
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.3
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+
+    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.LIGHT, params, INT_BASED, 0)
+    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.LIGHT, params)
+
     return dmg
 end

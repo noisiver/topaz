@@ -460,6 +460,19 @@ enum class Mod
 
     // Summoner
     AVATAR_PERPETUATION       = 371, // stores base cost of current avatar
+    AVATAR_ATT                = 1258, // Avatar Attack and Ranged Attack.
+    AVATAR_ACC                = 1259, // Avatar Acc and Ranged Accuracy.
+    AVATAR_EVASION            = 1260, // Avatar Evasion.
+    AVATAR_ENMITY             = 1261, // Avatar Enmity.
+    AVATAR_CRIT               = 1262, // Avatar Critical Strike Chance increase.
+    AVATAR_PLAYER_RES         = 1263, // Gives +20 resistance to matching Avatar(Fenrir gives dark resist, ifrit gives fire).
+    ELEMENTAL_MAGIC_COOL      = 1264, // Reduces Elemental pets magic cooldown(Time between spells)
+    AVATAR_MATT               = 1265, // Avatar Magic Attack Bonus
+    AVATAR_MACC               = 1266, // Avatar Magical Accuracy
+    AVATAR_DEF                = 1267, // Avatar Defense
+    SHIVA_MACC                = 1268, // Shiva Magical Accuracy
+    GARUDA_ATT                = 1269, // Garuda Attack
+    GARUDA_DEF                = 1270, // Garuda Defense
     WEATHER_REDUCTION         = 372, // stores perpetuation reduction depending on weather
     DAY_REDUCTION             = 373, // stores perpetuation reduction depending on day
     PERPETUATION_REDUCTION    = 346, // stores the MP/tick reduction from gear
@@ -469,6 +482,15 @@ enum class Mod
     BP_DAMAGE                 = 126, // Blood Pact: Rage Damage increase percentage
     BP_BURST_DAMAGE           = 1257, // Blood Pact: Rage magic burst damage increase percentage.
     BLOOD_BOON                = 913, // Occasionally cuts down MP cost of Blood Pact abilities. Does not affect abilities that require Astral Flow.
+    // Absorb dmg to MP (Evoker's Bracers only)
+    FIRE_ABSORB_TO_MP          = 1459,  // Occasionally absorbs fire elemental damage to MP, in percents
+    ICE_ABSORB_TO_MP           = 1460,   // Occasionally absorbs ice elemental damage to MP, in percents
+    WIND_ABSORB_TO_MP          = 1461,  // Occasionally absorbs wind elemental damage to MP, in percents
+    EARTH_ABSORB_TO_MP         = 1462, // Occasionally absorbs earth elemental damage to MP, in percents
+    LTNG_ABSORB_TO_MP          = 1463,  // Occasionally absorbs thunder elemental damage to MP, in percents
+    WATER_ABSORB_TO_MP         = 1464, // Occasionally absorbs water elemental damage to MP, in percents
+    LIGHT_ABSORB_TO_MP         = 1465, // Occasionally absorbs light elemental damage to MP, in percents
+    DARK_ABSORB_TO_MP          = 1466,  // Occasionally absorbs dark elemental damage to MP, in percents
 
     // Blue Mage
     BLUE_POINTS               = 309, // Tracks extra blue points

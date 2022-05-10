@@ -1996,6 +1996,7 @@ INSERT INTO `item_mods` VALUES (10704,1,20);      -- Summoner's Bracers +2: DEF 
 INSERT INTO `item_mods` VALUES (10704,5,42);      -- MP +42
 INSERT INTO `item_mods` VALUES (10704,117,15);    -- Summoning magic skill +15
 INSERT INTO `item_mods` VALUES (10704,357,4);     -- Blood Pact ability delay -4
+INSERT INTO `item_mods` VALUES (10704,1259,15);   -- Avatar Accuracy +15
 INSERT INTO `item_mods` VALUES (10705,1,22);
 INSERT INTO `item_mods` VALUES (10705,2,17);
 INSERT INTO `item_mods` VALUES (10705,5,17);
@@ -8082,16 +8083,18 @@ INSERT INTO `item_mods` VALUES (12385,109,10);
 INSERT INTO `item_mods` VALUES (12386,1,28);
 INSERT INTO `item_mods` VALUES (12386,55,-11);
 INSERT INTO `item_mods` VALUES (12386,109,11);
-INSERT INTO `item_mods` VALUES (12387,1,22);
+INSERT INTO `item_mods` VALUES (12387,1,22); -- Koenig Shield
 INSERT INTO `item_mods` VALUES (12387,10,5);
 INSERT INTO `item_mods` VALUES (12387,14,5);
 INSERT INTO `item_mods` VALUES (12387,27,3);
-INSERT INTO `item_mods` VALUES (12387,230,2);
-INSERT INTO `item_mods` VALUES (12388,1,23);
+INSERT INTO `item_mods` VALUES (12387,230,8); -- BEAST_KILLER 8% Intimidation Chance vs beasts
+INSERT INTO `item_mods` VALUES (12387,1230,8); -- BEAST_CIRCLE 8% Increased damage to Beasts
+INSERT INTO `item_mods` VALUES (12388,1,23); -- Kaiser Shield
 INSERT INTO `item_mods` VALUES (12388,10,6);
 INSERT INTO `item_mods` VALUES (12388,14,6);
 INSERT INTO `item_mods` VALUES (12388,27,4);
-INSERT INTO `item_mods` VALUES (12388,230,2);
+INSERT INTO `item_mods` VALUES (12388,230,10); -- BEAST_KILLER 10% Intimidation Chance  vs beasts
+INSERT INTO `item_mods` VALUES (12388,1230,10); -- BEAST_CIRCLE 10% Increased damage to Beasts
 INSERT INTO `item_mods` VALUES (12389,1,6);
 INSERT INTO `item_mods` VALUES (12390,1,4);
 INSERT INTO `item_mods` VALUES (12391,1,2);
@@ -8797,9 +8800,10 @@ INSERT INTO `item_mods` VALUES (12649,1,38);
 INSERT INTO `item_mods` VALUES (12649,2,15);
 INSERT INTO `item_mods` VALUES (12649,10,4);
 INSERT INTO `item_mods` VALUES (12649,55,10);
-INSERT INTO `item_mods` VALUES (12650,1,35);
+INSERT INTO `item_mods` VALUES (12650,1,35); -- Evoker's doublet
 INSERT INTO `item_mods` VALUES (12650,5,15);
 INSERT INTO `item_mods` VALUES (12650,13,3);
+INSERT INTO `item_mods` VALUES (12650,1261,-2); -- Avatar Enmity -2
 INSERT INTO `item_mods` VALUES (12651,1,40);
 INSERT INTO `item_mods` VALUES (12651,13,3);
 INSERT INTO `item_mods` VALUES (12651,60,5);
@@ -13167,10 +13171,11 @@ INSERT INTO `item_mods` VALUES (14226,26,10);
 INSERT INTO `item_mods` VALUES (14227,1,27);
 INSERT INTO `item_mods` VALUES (14227,2,15);
 INSERT INTO `item_mods` VALUES (14227,57,10);
-INSERT INTO `item_mods` VALUES (14227,859,90);    -- Ancient Circle duration +90 seconds
-INSERT INTO `item_mods` VALUES (14228,1,25);
+INSERT INTO `item_mods` VALUES (14227,859,90);  -- Ancient Circle duration +90 seconds
+INSERT INTO `item_mods` VALUES (14228,1,25); -- Evoker's Spats
 INSERT INTO `item_mods` VALUES (14228,5,15);
 INSERT INTO `item_mods` VALUES (14228,108,10);
+INSERT INTO `item_mods` VALUES (14228,1259,10); -- Avatar Accuracy +10
 INSERT INTO `item_mods` VALUES (14229,1,36);
 INSERT INTO `item_mods` VALUES (14229,5,10);
 INSERT INTO `item_mods` VALUES (14229,11,4);
@@ -14117,10 +14122,11 @@ INSERT INTO `item_mods` VALUES (14486,2,15);    -- HP +15
 INSERT INTO `item_mods` VALUES (14486,8,6);     -- STR +6
 INSERT INTO `item_mods` VALUES (14486,10,6);    -- VIT +6
 INSERT INTO `item_mods` VALUES (14486,23,7);    -- Attack + 7
-INSERT INTO `item_mods` VALUES (14487,1,35);
+INSERT INTO `item_mods` VALUES (14487,1,35); -- Evoker's Doublet +1
 INSERT INTO `item_mods` VALUES (14487,5,45);
 INSERT INTO `item_mods` VALUES (14487,71,5);
 INSERT INTO `item_mods` VALUES (14487,357,4);
+INSERT INTO `item_mods` VALUES (14487,1261,-4); -- Avatar Enmity -2
 INSERT INTO `item_mods` VALUES (14488,1,49);
 INSERT INTO `item_mods` VALUES (14488,2,28);
 INSERT INTO `item_mods` VALUES (14488,5,28);
@@ -15488,6 +15494,7 @@ INSERT INTO `item_mods` VALUES (14923,1,16);      -- Summoner's Bracers +1: DEF 
 INSERT INTO `item_mods` VALUES (14923,5,30);      -- MP +30
 INSERT INTO `item_mods` VALUES (14923,117,12);    -- Summoning magic skill +12
 INSERT INTO `item_mods` VALUES (14923,357,2);     -- Blood Pact ability delay -2
+INSERT INTO `item_mods` VALUES (14923,1259,12);   -- Avatar Accuracy +12
 INSERT INTO `item_mods` VALUES (14924,1,16);
 INSERT INTO `item_mods` VALUES (14924,25,6);
 INSERT INTO `item_mods` VALUES (14924,27,-5);
@@ -16255,6 +16262,7 @@ INSERT INTO `item_mods` VALUES (15116,1,15);      -- Summoner's Bracers: DEF 15
 INSERT INTO `item_mods` VALUES (15116,5,25);      -- MP +25
 INSERT INTO `item_mods` VALUES (15116,117,10);    -- Summoning magic skill +10
 INSERT INTO `item_mods` VALUES (15116,357,2);     -- Blood Pact ability delay -2
+INSERT INTO `item_mods` VALUES (15116,1259,10);   -- Avatar Accuracy +10
 INSERT INTO `item_mods` VALUES (15117,1,39);
 INSERT INTO `item_mods` VALUES (15117,8,5);
 INSERT INTO `item_mods` VALUES (15117,27,3);
@@ -16321,6 +16329,7 @@ INSERT INTO `item_mods` VALUES (15131,1,29);      -- Summoner's Spats: DEF 29
 INSERT INTO `item_mods` VALUES (15131,5,20);      -- MP +20
 INSERT INTO `item_mods` VALUES (15131,13,3);      -- MND +3
 INSERT INTO `item_mods` VALUES (15131,357,2);     -- Blood Pact ability delay -2
+INSERT INTO `item_mods` VALUES (15131,1264,5);    -- Elemental Magic Cool -5
 INSERT INTO `item_mods` VALUES (15132,1,19);
 INSERT INTO `item_mods` VALUES (15132,2,10);
 INSERT INTO `item_mods` VALUES (15132,11,5);
@@ -17722,9 +17731,10 @@ INSERT INTO `item_mods` VALUES (15574,1,32);
 INSERT INTO `item_mods` VALUES (15574,2,15);
 INSERT INTO `item_mods` VALUES (15574,25,9);
 INSERT INTO `item_mods` VALUES (15574,859,90);    -- Ancient Circle duration +90 seconds
-INSERT INTO `item_mods` VALUES (15575,1,25);
+INSERT INTO `item_mods` VALUES (15575,1,25); -- Evoker's Spats +1
 INSERT INTO `item_mods` VALUES (15575,5,22);
 INSERT INTO `item_mods` VALUES (15575,27,-3);
+INSERT INTO `item_mods` VALUES (15575,1259,12); -- Avatar Accuracy +12
 INSERT INTO `item_mods` VALUES (15576,1,35);      -- Homam Cosciales: DEF 35
 INSERT INTO `item_mods` VALUES (15576,2,26);      -- HP +26
 INSERT INTO `item_mods` VALUES (15576,5,26);      -- MP +26
@@ -17808,6 +17818,7 @@ INSERT INTO `item_mods` VALUES (15593,363,10);
 INSERT INTO `item_mods` VALUES (15594,1,30);      -- Summoner's Spats +1: DEF 30
 INSERT INTO `item_mods` VALUES (15594,5,25);      -- MP +25
 INSERT INTO `item_mods` VALUES (15594,357,2);     -- Blood Pact ability delay -2
+INSERT INTO `item_mods` VALUES (15594,1264,7);    -- Elemental Magic Cool -7
 INSERT INTO `item_mods` VALUES (15595,1,32);
 INSERT INTO `item_mods` VALUES (15595,25,10);
 INSERT INTO `item_mods` VALUES (15595,27,-6);

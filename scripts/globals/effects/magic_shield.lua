@@ -9,6 +9,7 @@
 -- If power is 3, 100% MDT in FRONT
 -- If power is 2, 100% magic absorb
 -- If power is < 2, 100% MDT
+-- if power is > 100, adds a "Magic Stoneskin" effect.
 -----------------------------------
 
 require("scripts/globals/status")
@@ -22,6 +23,8 @@ function onEffectGain(target, effect)
         end
     elseif effect:getPower() == 2 then
         target:addMod(tpz.mod.MAGIC_ABSORB, 100)
+    elseif effect:getPower() > 100 then
+        target:setMod(tpz.mod.RAMPART_STONESKIN, effect:getPower())
     end
 end
 
@@ -34,5 +37,7 @@ function onEffectLose(target, effect)
         end
     elseif effect:getPower() == 2 then
         target:delMod(tpz.mod.MAGIC_ABSORB, 100)
+    elseif effect:getPower() > 100 then
+        target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
     end
 end

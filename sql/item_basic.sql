@@ -567,7 +567,7 @@ INSERT INTO `item_basic` VALUES (654,0,'darksteel_ingot','darksteel_ingot',12,4,
 INSERT INTO `item_basic` VALUES (655,0,'adaman_ingot','adaman_ingot',12,4,38,0,3625);
 INSERT INTO `item_basic` VALUES (656,0,'beastcoin','beastcoin',12,4,50,0,10);
 INSERT INTO `item_basic` VALUES (657,0,'lump_of_tama-hagane','tama-hagane',12,4,38,0,904);
-INSERT INTO `item_basic` VALUES (658,0,'damascus_ingot','damascus_ingot',12,4,38,0,10000);
+INSERT INTO `item_basic` VALUES (658,0,'damascus_ingot','damascus_ingot',1,4,38,0,10000);
 INSERT INTO `item_basic` VALUES (659,0,'tin_ingot','tin_ingot',12,4,38,0,45);
 INSERT INTO `item_basic` VALUES (660,0,'bronze_sheet','bronze_sheet',12,4,38,0,23);
 INSERT INTO `item_basic` VALUES (661,0,'brass_sheet','brass_sheet',12,4,39,0,60);
@@ -1300,7 +1300,7 @@ INSERT INTO `item_basic` VALUES (1410,0,'sweet_william','sweet_william',12,4,44,
 INSERT INTO `item_basic` VALUES (1411,0,'phalaenopsis','phalaenopsis',12,4,44,0,763);
 INSERT INTO `item_basic` VALUES (1412,0,'olive_flower','olive_flower',12,4,44,0,306);
 INSERT INTO `item_basic` VALUES (1413,0,'cattleya','cattleya',12,4,44,0,300);
-INSERT INTO `item_basic` VALUES (1414,0,'piece_of_wisteria_lumber','wisteria_lumber',12,4,43,0,6625);
+INSERT INTO `item_basic` VALUES (1414,0,'piece_of_wisteria_lumber','wisteria_lumber',12,4,43,0,1521);
 INSERT INTO `item_basic` VALUES (1415,0,'pot_of_urushi','urushi',12,4,43,0,4085);
 INSERT INTO `item_basic` VALUES (1416,0,'handful_of_karimata_arrowheads','kari._arrowhd.',99,4,43,0,171);
 INSERT INTO `item_basic` VALUES (1417,0,'bag_of_giant_bird_fletchings','g._bird_fltchg.',99,4,43,0,170);
@@ -1566,7 +1566,7 @@ INSERT INTO `item_basic` VALUES (1676,0,'frigid_orichalcum_ingot','frgd._orichal
 INSERT INTO `item_basic` VALUES (1677,0,'aqueous_orichalcum_ingot','aqueous_ocl.',12,4,39,0,1463);
 INSERT INTO `item_basic` VALUES (1678,0,'rogues_silver_ingot','rogues_silver',12,4,39,0,3870);
 INSERT INTO `item_basic` VALUES (1679,0,'bewitched_gold_ingot','bewitched_gold',12,4,39,0,2136);
-INSERT INTO `item_basic` VALUES (1680,0,'high-quality_bugard_skin','h.q._bugard_skin',12,4,41,0,1500); -- was 412
+INSERT INTO `item_basic` VALUES (1680,0,'high-quality_bugard_skin','h.q._bugard_skin',1,4,41,0,1500); -- was 412 gil
 INSERT INTO `item_basic` VALUES (1681,0,'light_steel_ingot','light_steel',12,4,38,0,766);
 INSERT INTO `item_basic` VALUES (1682,0,'ingot_of_royal_treasury_gold','treasury_gold',1,57428,0,0,1000);
 INSERT INTO `item_basic` VALUES (1683,0,'piece_of_attohwa_ginseng','attohwa_ginseng',1,57428,0,0,750);
@@ -2220,7 +2220,7 @@ INSERT INTO `item_basic` VALUES (2330,0,'yoichis_sash','yoichis_sash',12,4,40,0,
 INSERT INTO `item_basic` VALUES (2331,0,'blue_mages_testimony','blue_m._testimony',1,61504,0,1,0);
 INSERT INTO `item_basic` VALUES (2332,0,'corsairs_testimony','cor._testimony',1,61504,0,1,0);
 INSERT INTO `item_basic` VALUES (2333,0,'puppetmasters_testimony','pup._testimony',1,61504,0,1,0);
-INSERT INTO `item_basic` VALUES (2334,0,'poroggo_hat','poroggo_hat',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (2334,0,'poroggo_hat','poroggo_hat',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2335,0,'soulflayer_tentacle','soulfl._tentacle',12,4,44,0,933);
 INSERT INTO `item_basic` VALUES (2336,0,'soulflayer_staff','soulflayer_staff',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2337,0,'clump_of_wamoura_hair','wamoura_hair',12,4,40,0,150);

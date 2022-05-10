@@ -3,20 +3,46 @@ require("scripts/globals/magic")
 require("scripts/globals/utils")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/pets")
+------------------------------------
 
-function AvatarPhysicalBP(avatar, target, skill, numberofhits, ftp, tpeffect, params)
+-- tpeffects
+--TP_DMG_BONUS
+--TP_ACC_BONUS
+--TP_CRIT_VARIES
+
+-- params
+-- phys only
+--params.multiHitFtp
+--params.hybrid
+-- magic only
+--params.NO_TP_CONSUMPTION
+-- phys or magic
+--params.IGNORES_SHADOWS
+--params.AVATAR_WIPE_SHADOWS
+--params.DOT
+
+function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, tpeffect, params)
     local returninfo = {}
 
     -- I have never read a limit on accuracy bonus from summoning skill which can currently go far past 200 over cap
     -- current retail is over +250 skill so I am removing the cap, my SMN is at 695 total skill
     local tp = avatar:getTP()
     --printf("tp %i", tp)
+    local acc = 0
     local TPAccBonus = 0
     if tpeffect == TP_ACC_BONUS then
         TPAccBonus = AvatarAccTPModifier(tp)
-        --print("%i", TPAccBonus)
+        --printf("%i", TPAccBonus)
     end
-    local acc = avatar:getACC() + getSummoningSkillOverCap(avatar)
+    -- Ranged attack BPs use Racc
+    if attackType == tpz.attackType.PHYSICAL then
+        acc = avatar:getACC() + getSummoningSkillOverCap(avatar)
+    end
+
+    if attackType == tpz.attackType.RANGED then
+        acc = avatar:getRACC() + getSummoningSkillOverCap(avatar)
+    end
     --print("%i", acc)
     acc = acc + TPAccBonus
     local eva = target:getEVA()
@@ -90,19 +116,25 @@ function AvatarPhysicalBP(avatar, target, skill, numberofhits, ftp, tpeffect, pa
     local tripleRate = avatar:getMod(tpz.mod.TRIPLE_ATTACK) / 100
     local doubleRate = avatar:getMod(tpz.mod.DOUBLE_ATTACK) / 100
 
-    if math.random() < quadRate then
-        bonusHits = bonusHits + 3
-    elseif math.random() < tripleRate then
-        bonusHits = bonusHits + 2
-    elseif math.random() < doubleRate then
-        bonusHits = bonusHits + 1
+    -- Ranged attacks can't multihit from qa/ta/da procs
+
+    if attackType ~= tpz.attackType.RANGED then
+        if math.random() < quadRate then
+            bonusHits = bonusHits + 3
+        elseif math.random() < tripleRate then
+            bonusHits = bonusHits + 2
+        elseif math.random() < doubleRate then
+            bonusHits = bonusHits + 1
+        end
+        if bonusHits ~= nil then
+
+        end
+        -- Add multi-hit procs
+        numberofhits = numberofhits + bonusHits
+
+        -- Cap at 8 hits
+        if numberofhits > 8 then numberofhits = 8 end
     end
-
-    -- Add multi-hit procs
-    numberofhits = numberofhits + bonusHits
-
-    -- Cap at 8 hits
-    if numberofhits > 8 then numberofhits = 8 end
 
     while numHitsProcessed < numberofhits do
         if math.random() < hitrateSubsequent then
@@ -146,7 +178,15 @@ function AvatarPhysicalBP(avatar, target, skill, numberofhits, ftp, tpeffect, pa
 
         -- https://www.bg-wiki.com/bg/PDIF
         -- https://www.bluegartr.com/threads/127523-pDIF-Changes-(Feb.-10th-2016)
-        local ratio = avatar:getStat(tpz.mod.ATT) / target:getStat(tpz.mod.DEF)
+        local ratio = 0
+        -- Ranged attack BPs use Rattack
+        if attackType == tpz.attackType.PHYSICAL then
+            ratio = avatar:getStat(tpz.mod.ATT) / target:getStat(tpz.mod.DEF)
+        end
+
+        if attackType == tpz.attackType.RANGED then
+            ratio = avatar:getRATT() / target:getStat(tpz.mod.DEF)
+        end
         local cRatio = ratio
 
         if shouldApplyLevelCorrection then
@@ -158,8 +198,14 @@ function AvatarPhysicalBP(avatar, target, skill, numberofhits, ftp, tpeffect, pa
             end
         end
 
-        --PDif caps at 2.0 for non-crits
-        if cRatio > 2 then cRatio = 2 end
+        -- PDif caps at 2.0 for non-crits on melee, 3.0 for ranged
+        if attackType == tpz.attackType.PHYSICAL then
+            if cRatio > 2 then cRatio = 2 end
+        end
+
+        if attackType == tpz.attackType.RANGED then
+            if cRatio > 3 then cRatio = 3 end
+        end
 
         --Everything past this point is randomly computed per hit
 
@@ -171,7 +217,12 @@ function AvatarPhysicalBP(avatar, target, skill, numberofhits, ftp, tpeffect, pa
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             if isCrit then
-                wRatio = wRatio + 1
+                -- Ranged crits are pdif * 1.25
+                if attackType == tpz.attackType.RANGED then
+                    wRatio = wRatio * 1.25
+                else
+                   wRatio = wRatio + 1
+                end
             end
             -- get a random ratio from min and max
             local qRatio = getRandRatio(wRatio)
@@ -191,11 +242,11 @@ function AvatarPhysicalBP(avatar, target, skill, numberofhits, ftp, tpeffect, pa
                 -- Calculate magical bonuses and reductions (Only Ifrit and thus fire damage is needed here)
                 local paramshybrid = {}
                 paramshybrid.includemab = true
-                -- Bonus Macc else avatars struggle to land nukes on anything(No Ele staves)
-                local bonusMacc = 50
+                -- Bonus Macc or else avatars struggle to land nukes on anything(No Ele staves)
+                local bonusMacc = 0
                 local magicdmg = addBonusesAbility(avatar, tpz.magic.ele.FIRE, target, finaldmg, paramshybrid)
                 local resist = getAvatarResist(avatar, effect, target, avatar:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonusMacc, tpz.magic.ele.FIRE)
-                --printf("resist %u", resist)
+                printf("resist %u", resist * 100)
                 --printf("magicdmg before resist %u", magicdmg)
                 magicdmg = magicdmg * resist
                 -- Hybrid hits are only HALF a physical hits damage
@@ -209,7 +260,7 @@ function AvatarPhysicalBP(avatar, target, skill, numberofhits, ftp, tpeffect, pa
                 magicdmg = utils.rampartstoneskin(target, magicdmg) 
                 --printf("%i", magicdmg)
 
-                finaldmg = finaldmg + magicdmg
+                finaldmg = finaldmg + magicdmg / 2
                 --printf("%i", finaldmg)
             end
             numHitsProcessed = 1
@@ -247,6 +298,7 @@ function AvatarPhysicalBP(avatar, target, skill, numberofhits, ftp, tpeffect, pa
         end
     end
 
+    printf("finaldmg %i", finaldmg)
     returninfo.dmg = finaldmg
     returninfo.hitslanded = numHitsLanded
 
@@ -300,7 +352,7 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     return finaldmg
 end
 
-function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, skilltype, element, numberofhits, params)
+function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, element, numberofhits, params)
 
     -- physical attack missed, skip rest
     if (skill:hasMissMsg()) then 
@@ -310,13 +362,12 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, skilltype, e
     -- set message to damage
     -- this is for AoE because its only set once
     skill:setMsg(tpz.msg.basic.DAMAGE)
-
     -- Shadows logic
     --printf("numhits %u", numberofhits)
     dmg = getAvatarShadowAbsorb(dmg, numberofhits, target, skill, params)
     -- handle Third Eye using shadowbehav as a guide
     local teye = target:getStatusEffect(tpz.effect.THIRD_EYE)
-    if teye ~= nil and skilltype == tpz.attackType.PHYSICAL then -- T.Eye only procs when active with PHYSICAL stuff
+    if teye ~= nil and attackType == tpz.attackType.PHYSICAL then -- T.Eye only procs when active with PHYSICAL stuff
         if shadowbehav == MOBPARAM_WIPE_SHADOWS then -- e.g. aoe moves
             target:delStatusEffect(tpz.effect.THIRD_EYE)
         elseif shadowbehav ~= MOBPARAM_IGNORE_SHADOWS then -- it can be absorbed by shadows
@@ -339,18 +390,19 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, skilltype, e
         end
     end
 
-    -- TODO: Handle anything else (e.g. if you have Magic Shield and its a Magic skill, then do 0 damage.
-    if skilltype == tpz.attackType.PHYSICAL and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
+    if attackType == tpz.attackType.PHYSICAL and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
         return 0
     end
 
-    if skilltype == tpz.attackType.RANGED and target:hasStatusEffect(tpz.effect.ARROW_SHIELD) then
+    if attackType == tpz.attackType.RANGED and target:hasStatusEffect(tpz.effect.ARROW_SHIELD) then
         return 0
     end
 
     -- handle elemental resistence
-    if skilltype == tpz.attackType.MAGICAL or skilltype == tpz.attackType.BREATH  and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
-        return 0
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
+        if target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
+            return 0
+        end
     end
 
     -- handling phalanx
@@ -360,56 +412,59 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, skilltype, e
     end
 
     -- handle invincible
-    if target:hasStatusEffect(tpz.effect.INVINCIBLE) and skilltype == tpz.attackType.PHYSICAL or skilltype == tpz.attackType.RANGED  then
-        return 0
+    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+        if target:hasStatusEffect(tpz.effect.INVINCIBLE) then
+            return 0
+        end
     end
     -- handle pd
-    if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) and skilltype ==
+    if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) and attackType ==
         tpz.attackType.PHYSICAL then
         return 0
     end
 
     -- Check for MDT/PDT/RDT/BDT/MDB
-    if skilltype == tpz.attackType.MAGICAL or skilltype == tpz.attackType.SPECIAL then
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
         dmg = target:magicDmgTaken(dmg)
-    elseif skilltype == tpz.attackType.BREATH then
+    elseif attackType == tpz.attackType.BREATH then
         dmg = target:breathDmgTaken(dmg)
-    elseif skilltype == tpz.attackType.RANGED then
+    elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
-    elseif skilltype == tpz.attackType.PHYSICAL then
+    elseif attackType == tpz.attackType.PHYSICAL then
         dmg = target:physicalDmgTaken(dmg, damageType)
     end
 
-    if skilltype == tpz.attackType.PHYSICAL or skilltype == tpz.attackType.RANGED then
+    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
         dmg = dmg * HandleWeaponResist(target, damageType)
     end
     --printf("dmg before circle %u", dmg)
     dmg = dmg * HandleCircleEffects(avatar, target)
     --printf("dmg after circle %u", dmg)
     -- Handle positional PDT
-    if skilltype == tpz.attackType.PHYSICAL or skilltype == tpz.attackType.RANGED then
+    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
         dmg = dmg * HandlePositionalPDT(avatar, target)
     end
     -- Handle positional MDT
-    if skilltype == tpz.attackType.MAGICAL or skilltype == tpz.attackType.SPECIAL or skilltype == tpz.attackType.BREATH then
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
         dmg = dmg * HandlePositionalMDT(avatar, target)
     end
 
     -- Calculate Blood Pact Damage before stoneskin
     dmg = dmg + dmg * avatar:getMod(tpz.mod.BP_DAMAGE) / 100
 
-    -- handling rampart stoneskin + normal stoneskin
+    -- handling normal stoneskin
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
     dmg = utils.stoneskin(target, dmg)
 
-	target:takeDamage(dmg, avatar, skilltype, damageType)
+	target:takeDamage(dmg, avatar, attackType, damageType)
     target:updateEnmityFromDamage(avatar, dmg)
     target:handleAfflatusMiseryDamage(dmg)
+    avatar:delStatusEffectSilent(tpz.effect.BOOST)
     avatar:setTP(0)
     return dmg
 end
 
-function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, skilltype, element, params)
+function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, element, params)
 
     -- Check for shadows
     dmg = getAvatarShadowAbsorb(dmg, 1, target, skill, params)
@@ -423,9 +478,9 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, skilltype, el
     -- Calculate Blood Pact Damage before stoneskin
     dmg = dmg + dmg * avatar:getMod(tpz.mod.BP_DAMAGE) / 100
 
-    if skilltype == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
         dmg = target:magicDmgTaken(dmg)
-    elseif skilltype == tpz.attackType.BREATH then
+    elseif attackType == tpz.attackType.BREATH then
         dmg = target:breathDmgTaken(dmg)
     end
 
@@ -434,10 +489,13 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, skilltype, el
     dmg = utils.rampartstoneskin(target, dmg)
     dmg = utils.stoneskin(target, dmg)
 
-	target:takeDamage(dmg, avatar, skilltype, element)
+	target:takeDamage(dmg, avatar, attackType, element)
     target:updateEnmityFromDamage(avatar, dmg)
     target:handleAfflatusMiseryDamage(dmg)
     avatar:setTP(0)
+    if params.NO_TP_CONSUMPTION == true then
+        giveAvatarTP(avatar)
+    end
     return dmg
 end
 
@@ -460,13 +518,20 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
             -- Reduce duration by resist percentage
             local totalDuration = duration * resist
             printf("totalDuration %i", totalDuration)
-            target:addStatusEffect(effect, power, 0, totalDuration)
+            if params.DOT then -- Used for Nightmare / Shining Ruby
+                target:addStatusEffect(effect, power, 3, totalDuration)
+            else
+                target:addStatusEffect(effect, power, 0, totalDuration)
+            end
 
+            giveAvatarTP(avatar)
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
+        giveAvatarTP(avatar)
         return tpz.msg.basic.SKILL_MISS -- resist !
     end
+    giveAvatarTP(avatar)
     return tpz.msg.basic.SKILL_NO_EFFECT -- no effect
 end
 
@@ -479,6 +544,74 @@ function AvatarPhysicalStatusEffectBP(avatar, target, skill, effect, power, dura
     return tpz.msg.basic.SKILL_MISS
 end
 
+function AvatarDrainAttribute(avatar, target, effect, power, duration, params, bonus)
+    local positive = nil
+    if (effect == tpz.effect.STR_DOWN) then
+        positive = tpz.effect.STR_BOOST
+    elseif (effect == tpz.effect.DEX_DOWN) then
+        positive = tpz.effect.DEX_BOOST
+    elseif (effect == tpz.effect.AGI_DOWN) then
+        positive = tpz.effect.AGI_BOOST
+    elseif (effect == tpz.effect.VIT_DOWN) then
+        positive = tpz.effect.VIT_BOOST
+    elseif (effect == tpz.effect.MND_DOWN) then
+        positive = tpz.effect.MND_BOOST
+    elseif (effect == tpz.effect.INT_DOWN) then
+        positive = tpz.effect.INT_BOOST
+    elseif (effect == tpz.effect.CHR_DOWN) then
+        positive = tpz.effect.CHR_BOOST
+    end
+
+    if (positive ~= nil) then
+        local results = AvatarStatusEffectBP(avatar, target, effect, power, duration, params, bonus)
+
+        if (results == tpz.msg.basic.SKILL_ENFEEB_IS) then
+            avatar:addStatusEffect(positive, power, 15, duration)
+
+            giveAvatarTP(avatar)
+            return tpz.msg.basic.ATTR_DRAINED
+        end
+
+        giveAvatarTP(avatar)
+        return tpz.msg.basic.SKILL_MISS
+    end
+
+    giveAvatarTP(avatar)
+    return tpz.msg.basic.SKILL_NO_EFFECT
+end
+
+function AvatarDrainMultipleAttributes(avatar, target, power, count, duration, params, bonus)
+    local attributes = {};
+    local currIndex = 1;
+    while (currIndex <= count) do
+      local newAttr = math.random(136, 142)  -- STR down to CHR down
+      for _, attr in pairs(attributes) do
+        if (attr == newAttr) then
+          newAttr = -1;
+        end
+      end
+      if (newAttr ~= -1) then
+        attributes[currIndex] = newAttr;
+        currIndex = currIndex + 1;
+      end
+    end
+
+    local msg = tpz.msg.basic.SKILL_MISS;
+    
+    for i = 1,count,1 do
+      local newMsg = AvatarDrainAttribute(avatar, target, attributes[i], power, duration, params, bonus)
+      if (newMsg == tpz.msg.basic.ATTR_DRAINED) then
+        msg = newMsg;
+      elseif (msg == tpz.msg.basic.SKILL_MISS) then
+        msg = newMsg;
+      end
+    end
+
+    giveAvatarTP(avatar)
+
+    return msg;
+end
+
 function AvatarBuffBP(avatar, target, skill, effect, power, tick, duration, params, bonus)
     -- Only increase duration of buff moves longer than 90s via summoning magic skill
     if duration > 129 then
@@ -487,11 +620,36 @@ function AvatarBuffBP(avatar, target, skill, effect, power, tick, duration, para
 
     duration = duration + bonus
 
+    giveAvatarTP(avatar)
     target:delStatusEffectSilent(effect)
     target:addStatusEffect(effect, power, tick, duration)
     skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
 
     return effect
+end
+
+function AvatarBuffMultipleEffects(avatar, target, skill, power, count, tick, duration, params, bonus)
+    local buffs = {};
+    local currIndex = 1;
+    while (currIndex <= count) do
+      local newbuff = math.random(80, 86)  -- STR boost to CHR boost
+      for _, buff in pairs(buffs) do
+        if (buff == newbuff) then
+          newbuff = -1;
+        end
+      end
+      if (newbuff ~= -1) then
+        buffs[currIndex] = newbuff;
+        currIndex = currIndex + 1;
+      end
+    end
+
+    for i = 1,count,1 do
+        AvatarBuffBP(avatar, target, skill, buffs[i], power, tick, duration, params, bonus)
+    end
+    
+
+    giveAvatarTP(avatar)
 end
 
 function AvatarHealBP(avatar, target, skill, healmodifier, statuscure)
@@ -520,6 +678,7 @@ function AvatarHealBP(avatar, target, skill, healmodifier, statuscure)
         end
     end
 
+    giveAvatarTP(avatar)
     target:wakeUp()
     target:addHP(heal)
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
@@ -582,14 +741,6 @@ function getAvatarWSC(avatar, params)
          avatar:getStat(tpz.mod.INT) * params.int_wsc + avatar:getStat(tpz.mod.MND) * params.mnd_wsc +
          avatar:getStat(tpz.mod.CHR) * params.chr_wsc) * getAvatarAlpha(avatar:getMainLvl())
     return wsc
-end
-
-function getSummoningSkillOverCap(avatar)
-    local summoner = avatar:getMaster()
-    local summoningSkill = summoner:getSkillLevel(tpz.skill.SUMMONING_MAGIC)
-    local maxSkill = summoner:getMaxSkillLevel(avatar:getMainLvl(), tpz.job.SMN, tpz.skill.SUMMONING_MAGIC)
-
-    return math.max(summoningSkill - maxSkill, 0)
 end
 
 function getDexCritRate(source, target)
@@ -866,7 +1017,7 @@ function HandlePositionalMDT(avatar, target)
 end
 
 function getAvatarShadowAbsorb(dmg, numberofhits, target, skill, params)
-    -- Handle shadows depending on shadow behaviour / skilltype
+    -- Handle shadows depending on shadow behaviour / attackType
     if numberofhits < 5 and not params.IGNORES_SHADOWS then -- remove 'shadowbehav' shadows.
         local targShadows = target:getMod(tpz.mod.UTSUSEMI)
         local shadowType = tpz.mod.UTSUSEMI
@@ -964,6 +1115,8 @@ function getAvatarDStat(statmod, avatar, target)
         dStat = avatar:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
     elseif (statmod == MND_BASED) then -- Stat mod is MND
         dStat = avatar:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    elseif (statmod == NONE) then -- Stat mod doesn't exist!
+        return 0
     end
 
     if dSTat > 0 then
@@ -997,7 +1150,7 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         return 1/8
     end
 
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(avatar, target, effect) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
@@ -1093,3 +1246,158 @@ function getAvatarMagicalDamage(avatarLevel, WSC, ftp, dStat, magicBurstBonus, r
     return math.floor(((avatarLevel+2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
 end
 
+function getSummoningSkillOverCap(avatar)
+    local summoner = avatar:getMaster()
+    local summoningSkill = summoner:getSkillLevel(tpz.skill.SUMMONING_MAGIC)
+    local maxSkill = summoner:getMaxSkillLevel(avatar:getMainLvl(), tpz.job.SMN, tpz.skill.SUMMONING_MAGIC)
+
+    return math.max(summoningSkill - maxSkill, 0)
+end
+
+function getAvatarTP(player)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
+end
+
+function giveAvatarTP(avatar)
+    --TODO: Test this
+    local tp = avatar:getLocalVar("TP")
+    avatar:setTP(tp)
+    avatar:setLocalVar("TP", 0)
+end
+
+function checkForAvatarResistBonus(player, item)
+    local pets = {
+        { tpz.pet.id.FIRESPIRIT, tpz.mod.FIRERES },       
+        { tpz.pet.id.ICESPIRIT, tpz.mod.ICERES },        
+        { tpz.pet.id.AIRSPIRIT, tpz.mod.WINDRES },          
+        { tpz.pet.id.EARTHSPIRIT, tpz.mod.EARTHRES },        
+        { tpz.pet.id.THUNDERSPIRIT, tpz.mod.THUNDERRES },      
+        { tpz.pet.id.WATERSPIRIT, tpz.mod.WATERRES },        
+        { tpz.pet.id.LIGHTSPIRIT, tpz.mod.LIGHTRES },        
+        { tpz.pet.id.DARKSPIRIT, tpz.mod.DARKRES },         
+        { tpz.pet.id.CARBUNCLE, tpz.mod.LIGHTRES },          
+        { tpz.pet.id.FENRIR, tpz.mod.DARKRES },           
+        { tpz.pet.id.IFRIT, tpz.mod.FIRERES },            
+        { tpz.pet.id.TITAN, tpz.mod.EARTHRES },       
+        { tpz.pet.id.LEVIATHAN, tpz.mod.WATERRES },          
+        { tpz.pet.id.GARUDA, tpz.mod.WINDRES },            
+        { tpz.pet.id.SHIVA, tpz.mod.ICERES },           
+        { tpz.pet.id.RAMUH, tpz.mod.THUNDERRES },         
+        { tpz.pet.id.DIABOLOS, tpz.mod.DARKRES },           
+        { tpz.pet.id.ATOMOS, tpz.mod.DARKRES },      
+        { tpz.pet.id.CAIT_SITH, tpz.mod.LIGHTRES },         
+    }
+    local nq = false
+    local hq = false
+
+    if item == nq then nq = true end
+    if item == hq then hq = true end
+    -- Evokers Doublet NQ - > add the correct resist for avatar currently out
+    if nq then -- Evoker's Doublet
+        for v = tpz.mod.FIRERES, tpz.mod.DARKRES, 1 do
+            if player:getLocalVar("Element" .. v) > 0 then
+                player:addMod(v, -20)
+                player:setLocalVar("Element" .. v, 0)
+
+                 return 0 -- So it's reset to +0 resist after unequipping the body
+            end
+        end
+        local resist = 0
+        for i, element in pairs(pets) do
+            if player:getPetID() == element[1] and player:getPetID() ~= nil then
+                resist = element[2]
+                player:addMod(resist, 20)
+                player:setLocalVar("Element" .. resist, 20)
+            end
+        end
+    end
+    -- Evokers Doublet +1 - > add the correct resist for avatar currently out
+    if hq then -- Evoker's Doublet +1
+        for v = tpz.mod.FIRERES, tpz.mod.DARKRES, 1 do
+            if player:getLocalVar("Element" .. v) > 0 then
+                player:addMod(v, -25)
+                player:setLocalVar("Element" .. v, 0)
+
+                return 0 -- So it's reset to +0 resist after unequipping the body
+            end
+        end
+        local resist = 0
+        for i, element in pairs(pets) do
+            if player:getPetID() == element[1] and player:getPetID() ~= nil then
+                resist = element[2]
+                player:addMod(resist, 25)
+                player:setLocalVar("Element" .. resist, 25)
+            end
+        end
+    end
+end
+
+function checkforAvatarElementAbsorbBonus(player, item)
+    local pets = {
+        { tpz.pet.id.FIRESPIRIT, tpz.mod.FIRE_ABSORB_TO_MP },       
+        { tpz.pet.id.ICESPIRIT, tpz.mod.ICE_ABSORB_TO_MP },        
+        { tpz.pet.id.AIRSPIRIT, tpz.mod.WIND_ABSORB_TO_MP },          
+        { tpz.pet.id.EARTHSPIRIT, tpz.mod.EARTH_ABSORB_TO_MP },        
+        { tpz.pet.id.THUNDERSPIRIT, tpz.mod.THUNDER_ABSORB_TO_MP },      
+        { tpz.pet.id.WATERSPIRIT, tpz.mod.WATER_ABSORB_TO_MP },        
+        { tpz.pet.id.LIGHTSPIRIT, tpz.mod.LIGHT_ABSORB_TO_MP },        
+        { tpz.pet.id.DARKSPIRIT, tpz.mod.DARK_ABSORB_TO_MP },         
+        { tpz.pet.id.CARBUNCLE, tpz.mod.LIGHT_ABSORB_TO_MP },          
+        { tpz.pet.id.FENRIR, tpz.mod.DARK_ABSORB_TO_MP },           
+        { tpz.pet.id.IFRIT, tpz.mod.FIRE_ABSORB_TO_MP },            
+        { tpz.pet.id.TITAN, tpz.mod.EARTH_ABSORB_TO_MP },       
+        { tpz.pet.id.LEVIATHAN, tpz.mod.WATER_ABSORB_TO_MP },          
+        { tpz.pet.id.GARUDA, tpz.mod.WIND_ABSORB_TO_MP },            
+        { tpz.pet.id.SHIVA, tpz.mod.ICE_ABSORB_TO_MP },           
+        { tpz.pet.id.RAMUH, tpz.mod.THUNDER_ABSORB_TO_MP },         
+        { tpz.pet.id.DIABOLOS, tpz.mod.DARK_ABSORB_TO_MP },           
+        { tpz.pet.id.ATOMOS, tpz.mod.DARK_ABSORB_TO_MP },      
+        { tpz.pet.id.CAIT_SITH, tpz.mod.LIGHT_ABSORB_TO_MP },         
+    }
+
+    local nq = false
+    local hq = false
+
+    if item == nq then nq = true end
+    if item == hq then hq = true end
+    -- Evokers Bracers NQ - > add the correct element absorb to MP for avatar currently out
+    if nq then -- Evoker's Bracers
+        for v = tpz.mod.FIRERES, tpz.mod.DARKRES, 1 do
+            if player:getLocalVar("Element" .. v) > 0 then
+                player:addMod(v, -25)
+                player:setLocalVar("Element" .. v, 0)
+
+                return 0 -- So it's reset to +0 resist after unequipping the bracers
+            end
+        end
+        local resist = 0
+        for i, element in pairs(pets) do
+            if player:getPetID() == element[1] and player:getPetID() ~= nil then
+                resist = element[2]
+                player:addMod(resist, 25)
+                player:setLocalVar("Element" .. resist, 25)
+            end
+        end
+    end
+    -- Evokers Bracers +1 - > add the correct element absorb for avatar currently out
+    if hq then -- Evoker's Bracers +1
+        for v = tpz.mod.FIRERES, tpz.mod.DARKRES, 1 do
+            if player:getLocalVar("Element" .. v) > 0 then
+                player:addMod(v, -30)
+                player:setLocalVar("Element" .. v, 0)
+
+                return 0 -- So it's reset to +0 resist after unequipping the bracers
+            end
+        end
+        local resist = 0
+        for i, element in pairs(pets) do
+            if player:getPetID() == element[1] and player:getPetID() ~= nil then
+                resist = element[2]
+                player:addMod(resist, 30)
+                player:setLocalVar("Element" .. resist, 30)
+            end
+        end
+    end
+end

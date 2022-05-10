@@ -22,6 +22,7 @@ zones[tpz.zone.THE_SHROUDED_MAW] =
     mob =
     {
         DIABOLOS_OFFSET = 16818177,
+        DIABOLOS_PRIME_OFFSET = 16818204,
     },
     npc =
     {

@@ -12,19 +12,28 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onInitialize(zone)
-    -- Gravity / Zikko  Marsh
-    zone:registerRegion(1, 134, -6, -184, 149, -6, 178) -- Lamian Fang Key Marsh
+    -- Lamian Fang Key Marsh
+    zone:registerRegion(1, 134, 6, -184, 0, 0, 0)
+    zone:registerRegion(2, 149, 6, -180, 0, 0, 0)
+    zone:registerRegion(3, 140, 6, -170, 0, 0, 0)
+    zone:registerRegion(4, 145, 6, -180, 0, 0, 0) 
     -- Karakul Marsh 
-    zone:registerRegion(2, 307, -14, -333, 297, -14, -347)
-    zone:registerRegion(3, 301, -14, -365, 310, -14, -387)
-    zone:registerRegion(4, 290, -14, -379, 0, 0, 0)
+    zone:registerRegion(5, 307, 14, -333, 0, 0, 0)
+    zone:registerRegion(6, 297, 14, -347, 0, 0, 0)
+    zone:registerRegion(7, 301, 14, -365, 0, 0, 0)
+    zone:registerRegion(8, 310, 14, -387, 0, 0, 0)
+    zone:registerRegion(9, 313, 14, -380, 0, 0, 0)
+    zone:registerRegion(10, 290, 14, -379, 0, 0, 0)
     --Jnun/Imp/Fly Marsh 
-    zone:registerRegion(5, 447, -6, -288, 0, 0, 0)
-    zone:registerRegion(6, 451, -6, -298, 0, 0, 0)
-    zone:registerRegion(7, 458, -6, -310, 0, 0, 0)
-    zone:registerRegion(8, 469, -6, -301, 0, 0, 0)
-    zone:registerRegion(9, 457, -6, -328, 0, 0, 0)
-    zone:registerRegion(10, 458, -6, -341, 0, 0, 0)
+    zone:registerRegion(11, 447, 6, -288, 0, 0, 0)
+    zone:registerRegion(12, 451, 6, -298, 0, 0, 0)
+    zone:registerRegion(13, 458, 6, -310, 0, 0, 0)
+    zone:registerRegion(14, 469, 6, -301, 0, 0, 0)
+    zone:registerRegion(15, 457, 6, -328, 0, 0, 0)
+    zone:registerRegion(16, 458, 6, -341, 0, 0, 0)
+    zone:registerRegion(17, 466, 6, -329, 0, 0, 0)
+    zone:registerRegion(18, 465, 6, -311, 0, 0, 0)
+    zone:registerRegion(19, 460, 6, -294, 0, 0, 0)
 
     UpdateNMSpawnPoint(ID.mob.AYNU_KAYSEY)
 
@@ -69,22 +78,34 @@ function onRegionEnter(player, region)
     local Zikko = GetMobByID(17101144)
     local Respawn = GetServerVariable("Zikko_Respawn")
     local RNG = math.random(100)
+    local BuffRoll = math.random(100)
     local RegionID = region:GetRegionID()
     
-    if (RegionID <= 10) then
-        printf("Entered Region")
-        if RNG <= 50 then
-            printf("Apply Weight")
+    if (RegionID <= 19) then
+        --printf("Entered Region")
+        if RNG < 50 then
+            --printf("%u", RNG)
+            --printf("Apply Weight")
             player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
-        elseif RNG <= 25 then
-            printf("Apply Random Status from Table")
-            player:addStatusEffect(stauseffects[math.random(#stauseffects)])
-        elseif RNG <= 5 and Respawn <= os.time() then
-            printf("Spawn Zikko")
+        elseif RNG < 75 then
+            --printf("Apply Random Status from Table")
+            if BuffRoll < 20 then
+                player:addStatusEffect(tpz.effect.QUICKENING, 25, 0, 30)
+            elseif BuffRoll < 40 then
+                player:addStatusEffect(tpz.effect.FLEE, 100, 0, 30)
+            elseif BuffRoll < 60 then
+                player:addStatusEffect(tpz.effect.STONESKIN, 350, 0, 180)
+            elseif BuffRoll < 80 then
+                player:addStatusEffect(tpz.effect.HASTE, 1465, 0, 180)
+            elseif BuffRoll < 90 then
+                player:addStatusEffect(tpz.effect.SLOW, 2550, 0, 180)
+            end
+        elseif RNG < 95 and Respawn <= os.time() then
+            --printf("Spawn Zikko")
             player:addStatusEffect(tpz.effect.WEIGHT, 50, 0, 180)
-            Zikko:setPos(player:getPos())
+            Zikko:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
             SpawnMob(ID.mob.ZIKKO):updateClaim(player)
-            SetServerVariable("Zikko_Respawn", os.time() + 120)
+            SetServerVariable("Zikko_Respawn", os.time() + 7200)
         end
     end
 end

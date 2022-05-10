@@ -524,7 +524,7 @@ tpz.mob.onAddEffect = function(mob, target, damage, effect, params)
 
         -- target:PrintToPlayer(string.format("Chance: %i", chance)) -- DEBUG
 
-        if math.random(100) <= chance then
+        if math.random(100) <= chance and math.random()*100 > target:getBlockRate(mob) then -- Blocks stop additonal effects
 
             -- STATUS EFFECT
             if ae.applyEffect then

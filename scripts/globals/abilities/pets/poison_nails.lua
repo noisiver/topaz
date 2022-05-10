@@ -13,20 +13,24 @@ end
 
 function onPetAbility(target, pet, skill)
     local numhits = 1
-    local accmod = 1
-    local dmgmod = 2.5
+    local ftp = 2
+    local params = {}
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.3
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
 
-    local totaldamage = 0
-    local damage = AvatarPhysicalMove(pet, target, skill, numhits, accmod, dmgmod, 0, TP_NO_EFFECT, 1, 2, 3)
+    local effect = tpz.effect.POISON
+    local power = 1
+    local duration = 90
+    local bonus = 0
 
-    totaldamage = AvatarFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, numhits)
+    local damage = AvatarPhysicalBP(pet, target, skill, tpz.attackType.PHYSICAL, numhits, ftp, TP_ACC_BONUS, params)
+    dmg = AvatarPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, damage.hitslanded, params)
+    AvatarPhysicalStatusEffectBP(pet, target, skill, effect, power, duration, params, bonus)
 
-    target:takeDamage(totaldamage, pet, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
-    target:updateEnmityFromDamage(pet, totaldamage)
-
-    if (AvatarPhysicalHit(skill, totalDamage) and target:hasStatusEffect(tpz.effect.POISON) == false) then
-        target:addStatusEffect(tpz.effect.POISON, 1, 3, 60)
-    end
-
-    return totaldamage
+    return dmg
 end

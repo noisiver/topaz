@@ -10,8 +10,11 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 ---------------------------------------------
 
-function onMobSkillCheck(target, mob, skill)
-    return 0
+function onAbilityCheck(player, target, ability)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
+    return 0, 0
 end
 
 function onMobWeaponSkill(target, mob, skill)

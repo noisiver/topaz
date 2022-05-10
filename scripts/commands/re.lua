@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------
--- func: Raises party, removes weakness, and resets JA's.
+-- func: Raises party, removes weakness, resets JA's without an exp loss.
 -- desc: Sends raise menu to GM or target player.
 -----------------------------------------------------------------------
 

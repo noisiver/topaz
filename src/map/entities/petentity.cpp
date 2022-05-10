@@ -168,11 +168,12 @@ void CPetEntity::Die()
 void CPetEntity::Spawn()
 {
     //we need to skip CMobEntity's spawn because it calculates stats (and our stats are already calculated)
+    uint16 elementalRecast = 30 - PMaster->getMod(Mod::ELEMENTAL_MAGIC_COOL);
 
     if (PMaster && PMaster->objtype == TYPE_PC && m_EcoSystem == SYSTEM_ELEMENTAL)
     {
-        this->defaultMobMod(MOBMOD_MAGIC_DELAY, 12);
-        this->defaultMobMod(MOBMOD_MAGIC_COOL, 20);
+        this->defaultMobMod(MOBMOD_MAGIC_DELAY, 0);
+        this->defaultMobMod(MOBMOD_MAGIC_COOL, elementalRecast);
         mobutils::GetAvailableSpells(this);
     }
 

@@ -9,15 +9,16 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    getAvatarTP(player)
     return 0, 0
 end
 
 function onPetAbility(target, pet, skill, summoner)
-    local bonusTime = utils.clamp(summoner:getSkillLevel(tpz.skill.SUMMONING_MAGIC) - 300, 0, 200)
-    local duration = 180 + bonusTime
+    local effect = tpz.effect.AQUAVEIL
+    local power = 4
+    local duration = 900
+    local bonus = 0
 
-    target:delStatusEffectSilent(tpz.effect.ICE_SPIKES)
-    target:addStatusEffect(tpz.effect.ICE_SPIKES, 15, 0, duration)
-    skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
-    return tpz.effect.ICE_SPIKES
+    AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
+    return effect
 end

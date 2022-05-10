@@ -16148,9 +16148,7 @@ INSERT INTO `mob_droplist` VALUES (3100,0,0,1000,5703,150); -- (King Buffalo) Ju
 INSERT INTO `mob_droplist` VALUES (3100,0,0,1000,5703,100); -- (King Buffalo) Jug of Uleguerand milk
 INSERT INTO `mob_droplist` VALUES (3100,0,0,1000,5152,240); -- (King Buffalo) Slice of buffalo meat
 INSERT INTO `mob_droplist` VALUES (3100,0,0,1000,5152,150); -- (King Buffalo) Slice of buffalo meat
-INSERT INTO `mob_droplist` VALUES (3100,0,0,1000,5152,100); -- (King Buffalo) Slice of buffalo meat
 INSERT INTO `mob_droplist` VALUES (3100,0,0,1000,1628,150); -- (King Buffalo) Buffalo hide
-INSERT INTO `mob_droplist` VALUES (3100,0,0,1000,1628,100); -- (King Buffalo) Buffalo hide
 INSERT INTO `mob_droplist` VALUES (3100,0,0,1000,1615,50); -- (King Buffalo) Buffalo horn
 INSERT INTO `mob_droplist` VALUES (3101,0,0,1000,928,1000); -- (Will-O'-The-Wykes) Pinch of bomb ash
 INSERT INTO `mob_droplist` VALUES (3101,0,0,1000,17316,240); -- (Will-O'-The-Wykes) Bomb arm

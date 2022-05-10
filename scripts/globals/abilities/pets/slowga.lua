@@ -8,19 +8,21 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onAbilityCheck(player, target, ability)
+    local Avatar = player:getPet()
+	local CurrentTP = Avatar:getTP()
+	Avatar:setLocalVar("TP", CurrentTP)
     return 0, 0
 end
 
-function onPetAbility(target, pet, skill, summoner)
-    local duration = 180 + summoner:getMod(tpz.mod.SUMMONING)
-    if duration > 350 then
-        duration = 350
-    end
+function onPetAbility(target, pet, skill)
+    local params = {}
+    local effect = tpz.effect.SLOW
+    local power = 3000
+    local duration = 180
+    local bonus = 0
 
-    if target:addStatusEffect(tpz.effect.SLOW, 3000, 0, duration) then
-        skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
-    else
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-    end
-    return tpz.effect.SLOW
+
+    skill:setMsg(AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus))
+    giveAvatarTP(pet)
+    return effect
 end
