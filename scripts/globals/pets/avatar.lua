@@ -82,6 +82,7 @@ function onMobSpawn(mob)
     local Eva = mob:setLocalVar("Eva", mob:getMod(tpz.mod.EVA))
     local Enmity = mob:setLocalVar("Enmity", mob:getMod(tpz.mod.ENMITY))
     local Crit = mob:setLocalVar("Crit", mob:getMod(tpz.mod.CRITHITRATE))
+    local BurstDamage = mob:setLocalVar("BurstDamage", mob:getMod(tpz.mod.BP_BURST_DAMAGE))
 
     -- Check for Evokers Doublet resist mod
     -- Check if Evoker's Doublet is equipped, if it is then add the correct resist for avatar currently out
@@ -195,6 +196,7 @@ function onMobFight(mob, target)
     local Eva = mob:getLocalVar("Eva", mob:getMod(tpz.mod.EVA))
     local Enmity = mob:getLocalVar("Enmity", mob:getMod(tpz.mod.ENMITY))
     local Crit = mob:getLocalVar("Crit", mob:getMod(tpz.mod.CRITHITRATE))
+    local BurstDamage = mob:getLocalVar("BurstDamage", mob:getMod(tpz.mod.BP_BURST_DAMAGE))
     local head = master:getEquipID(tpz.slot.HEAD)
     local body = master:getEquipID(tpz.slot.BODY)
     local hands = master:getEquipID(tpz.slot.HANDS)
@@ -215,14 +217,18 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.ATT, Att)
         mob:setMod(tpz.mod.DEF, Def)
     end
+    -- Evokers Gages Attack bonuses
+    if hands == 14960 and master:getPetID() == tpz.pet.id.LEVIATHAN then 
+        mob:setMod(tpz.mod.ATT, Att + 15)
+    else
+        mob:setMod(tpz.mod.ATT, Att)
+    end
     -- Morana Pigaches Macc Bonus
     if feet == 11408 and master:getPetID() == tpz.pet.id.SHIVA then 
         mob:setMod(tpz.mod.MACC, Macc + 15)
     else
         mob:setMod(tpz.mod.MACC, Macc)
     end
-
-
 end
 
 function onMobDeath(mob, player)

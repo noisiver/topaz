@@ -1,5 +1,5 @@
 ---------------------------------------------------
--- Geocrush
+-- Meteor Strike
 ---------------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -27,8 +27,14 @@ function onPetAbility(target, pet, skill)
     params.chr_wsc = 0.0
     params.IGNORES_SHADOWS = true
 
+    local effect = tpz.effect.ATTACK_DOWN
+    local power = 15
+    local duration = 60
+    local bonus = 0
+
     local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.FIRE, params, INT_BASED, 0)
     dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.FIRE, params)
+    AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus)
 
     return dmg
 end

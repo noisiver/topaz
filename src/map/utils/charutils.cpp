@@ -4694,12 +4694,68 @@ namespace charutils
             reduction = reduction + PChar->getMod(Mod::DAY_REDUCTION);
         }
 
+        uint16 day = battleutils::GetDayElement();
+
+        // Dark and I assume Water day won't work due to Water and Dark avatars elements being messed up
+        if (element == 6 && day == 8)
+        {
+            reduction = reduction + PChar->getMod(Mod::DAY_REDUCTION);
+        }
+
+        if (element == 0 && day == 3)
+        {
+            reduction = reduction + PChar->getMod(Mod::DAY_REDUCTION);
+        }
+
         WEATHER weather = battleutils::GetWeather(PChar, false);
 
-        if (weather == weatherStrong[element] || weather == weatherStrong[element] + 1)
+
+        // Water
+        if (element == 0 && weather == 6 || element == 0 && weather == 7)
         {
             reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
         }
+        // Fire
+        if (element == 1 && weather == 4 || element == 1 && weather == 5)
+        {
+        reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
+        }
+        // Ice
+        if (element == 2 && weather == 12 || element == 2 && weather == 13)
+        {
+            reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
+        }
+        // Wind
+        if (element == 3 && weather == 10 || element == 3 && weather == 11)
+        {
+            reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
+        }
+        // Earth
+        if (element == 4 && weather == 8 || element == 4 && weather == 9)
+        {
+            reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
+        }
+        // Thunder
+        if (element == 5 && weather == 14 || element == 5 && weather == 15)
+        {
+            reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
+        }
+        // Dark
+        if (element == 6 && weather == 18 || element == 6 && weather == 19)
+        {
+            reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
+        }
+        // Light
+        if (element == 7 && weather == 16 || element == 7 && weather == 17)
+        {
+            reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
+        }
+
+        // Doesn't work for some odd reason
+        //if (weather == weatherStrong[element] || weather == weatherStrong[element] +1)
+        //{
+        //    reduction = reduction + PChar->getMod(Mod::WEATHER_REDUCTION);
+        //}
 
         return reduction;
     }

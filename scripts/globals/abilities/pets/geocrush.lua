@@ -26,6 +26,7 @@ function onPetAbility(target, pet, skill)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     params.IGNORES_SHADOWS = true
+
     local effect = tpz.effect.STUN
     local power = 1
     local duration = 2

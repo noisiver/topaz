@@ -38,11 +38,11 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
     end
     -- Ranged attack BPs use Racc
     if attackType == tpz.attackType.PHYSICAL then
-        acc = avatar:getACC() + getSummoningSkillOverCap(avatar) + summoner:getMod(tpz.mod.AVATAR_ACC)
+        acc = avatar:getACC() + getSummoningSkillOverCap(avatar) 
     end
 
     if attackType == tpz.attackType.RANGED then
-        acc = avatar:getRACC() + getSummoningSkillOverCap(avatar) + summoner:getMod(tpz.mod.AVATAR_ACC)
+        acc = avatar:getRACC() + getSummoningSkillOverCap(avatar)
     end
     --print("%i", acc)
     acc = acc + TPAccBonus
@@ -152,7 +152,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         -- https://www.bg-wiki.com/bg/Critical_Hit_Rate
         -- Crit rate has a base of 5% and no cap, 0-100% are valid
         -- Dex contribution to crit rate is capped and works in tiers
-        local baseCritRate = 5 + summoner:getMod(tpz.mod.AVATAR_CRIT)
+        local baseCritRate = 5
         local maxCritRate = 1 -- 100%
         local minCritRate = 0 -- 0%
 
@@ -182,11 +182,11 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         local ratio = 0
         -- Ranged attack BPs use Rattack
         if attackType == tpz.attackType.PHYSICAL then
-            ratio = (avatar:getStat(tpz.mod.ATT) + summoner:getMod(tpz.mod.AVATAR_ACC)) / target:getStat(tpz.mod.DEF)
+            ratio = avatar:getStat(tpz.mod.ATT) / target:getStat(tpz.mod.DEF)
         end
 
         if attackType == tpz.attackType.RANGED then
-            ratio = (avatar:getRATT() + summoner:getMod(tpz.mod.AVATAR_ACC)) / target:getStat(tpz.mod.DEF)
+            ratio = avatar:getRATT() / target:getStat(tpz.mod.DEF)
         end
         local cRatio = ratio
 
@@ -545,7 +545,7 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
         local statmod = tpz.mod.INT
         local element = avatar:getStatusEffectElement(effect)
 
-        local resist = getAvatarResist(avatar, effect, target, 0, maccBonus, element)
+        local resist = getAvatarResist(avatar, effect, target, statmod, maccBonus, element)
         --printf("resist %i", resist * 100)
         if (resist >= 0.50) then
             -- Reduce duration by resist percentage
@@ -1187,7 +1187,6 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
-
     if (diff > 10) then
         magicaccbonus = magicaccbonus + 10 + (diff - 10)/2
     else
@@ -1239,7 +1238,7 @@ function getAvatarMagicBurstBonus(avatar, target, skill, element)
     local modburst = 1.0
 
     -- Obtain first multiplier from gear, atma and job traits
-    modburst = modburst + (summoner:getMod(tpz.mod.BP_BURST_DAMAGE) + summoner:getMod(tpz.mod.MAG_BURST_BONUS)) / 100
+    modburst = modburst + (avatar:getMod(tpz.mod.MAG_BURST_BONUS)) / 100
 
     -- Cap bonuses from first multiplier at 40% or 1.4
     if (modburst > 1.4) then
@@ -1270,7 +1269,8 @@ function getAvatarMagicBurstBonus(avatar, target, skill, element)
     -- Multiply
     if (skillchainburst > 1) then
         burst = burst * modburst * skillchainburst
-        --skill:setMsg(skill:getMagicBurstMessage()) TODO: NYI?
+        local spell = getSpell(147)
+        skill:setMsg(spell:getMagicBurstMessage())
     end
 
 
