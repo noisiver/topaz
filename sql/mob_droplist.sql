@@ -14020,7 +14020,7 @@ INSERT INTO `mob_droplist` VALUES (2584,0,0,1000,15136,10);
 INSERT INTO `mob_droplist` VALUES (2584,0,0,1000,15145,10);
 INSERT INTO `mob_droplist` VALUES (2584,0,0,1000,15146,10);
 INSERT INTO `mob_droplist` VALUES (2584,0,0,1000,16349,10);
-INSERT INTO `mob_droplist` VALUES (2585,2,0,1000,749,0); -- (Volcanic Bomb)
+INSERT INTO `mob_droplist` VALUES (2585,2,0,1000,17316,0); -- (Volcanic Bomb) - Steal Bomb arm
 INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,928,1000); -- Pinch of bomb ash
 INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,928,240); -- Pinch of bomb ash
 INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,1186,50); -- Bomb queen core

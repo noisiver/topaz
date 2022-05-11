@@ -12,7 +12,11 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 100)
     mob:addMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 50)
+    mob:setMod(tpz.mod.ENHANCE, 396)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 15000)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 15000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
+	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end
 
 function onMobDeath(mob, player, isKiller)
@@ -21,5 +25,5 @@ end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(259200, 432000)) -- 3 to 5 days
+    mob:setRespawnTime(39600) -- 11 hours
 end
