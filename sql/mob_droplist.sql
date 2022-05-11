@@ -7609,9 +7609,9 @@ INSERT INTO `mob_droplist` VALUES (1444,0,0,1000,902,100);
 INSERT INTO `mob_droplist` VALUES (1444,0,0,1000,3493,240); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (1444,0,0,1000,3493,150); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (1444,0,0,1000,3493,100); -- Forgotten Thought
-INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,886,30);   -- (Kindred_Summoner, Uleguerand) demon_skull
+INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,886,50);   -- (Kindred_Summoner, Uleguerand) demon_skull
 INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,902,100);   -- demon_horn
-INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,4903,17);  -- dark_spirit_pact
+INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,4903,10);  -- dark_spirit_pact
 INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,3493,240); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,3493,150); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,3493,100); -- Forgotten Thought
