@@ -10666,6 +10666,7 @@ INSERT INTO `mob_groups` VALUES (42,4239,162,'Viscount_Morax',0,32,2582,12000,0,
 INSERT INTO `mob_groups` VALUES (43,993,162,'Demons_Avatar',0,128,0,0,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (44,346,162,'Baronet_Romwe',0,32,229,12000,0,68,68,0);
 INSERT INTO `mob_groups` VALUES (45,932,162,'Deadly_Iris',600,0,579,0,0,55,56,0);
+INSERT INTO `mob_groups` VALUES (46,994,162,'Demons_Elemental',0,128,0,0,0,65,65,0);
 
 INSERT INTO `mob_groups` VALUES (8575,3992,162,'Treasure_Chest',0,0,0,0,0,0,0,0);
 
