@@ -652,12 +652,12 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     --handling magic stoneskin / stoneskin
-    printf("dmg before %u",dmg)
+    --printf("dmg before %u",dmg)
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         dmg = utils.rampartstoneskin(target, dmg)
     end
     dmg = utils.stoneskin(target, dmg)
-    printf("dmg after %u",dmg)
+    --printf("dmg after %u",dmg)
     if (dmg > 0) then
         target:updateEnmityFromDamage(mob, dmg)
         target:handleAfflatusMiseryDamage(dmg)
