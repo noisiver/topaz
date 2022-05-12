@@ -44,7 +44,7 @@ zones[tpz.zone.DEN_OF_RANCOR] =
         },
         CARMINE_TAILED_JANBERRY_PH =
         {
-            [17432661] = 17432659,
+            --[17432661] = 17432659,
             [17432662] = 17432659,
         },
         TAWNY_FINGERED_MUGBERRY_PH =
@@ -64,7 +64,7 @@ zones[tpz.zone.DEN_OF_RANCOR] =
         {
             [17432972] = 17432974,
             [17432978] = 17432974,
-            [17432979] = 17432974,
+            --[17432979] = 17432974,
         },
         MIMIC       = 17432583,
         HAKUTAKU    = 17433005,
