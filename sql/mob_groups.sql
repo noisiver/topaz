@@ -10554,6 +10554,7 @@ INSERT INTO `mob_groups` VALUES (34,3972,160,'Tonberry_Tracker',1560,0,2449,1000
 INSERT INTO `mob_groups` VALUES (35,3964,160,'Tonberry_Pontifex',36000,0,2443,9000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (36,1877,160,'Hakutaku',0,128,1270,50000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (37,2718,160,'Mokumokuren',0,128,0,18000,0,82,82,0);
+INSERT INTO `mob_groups` VALUES (38,3971,160,'CArmine-tailed_Elemental',0,128,0,0,0,79,79,0);
 
 -- ------------------------------------------------------------
 -- Castle_Zvahl_Baileys (Zone 161)
