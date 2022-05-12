@@ -1,7 +1,10 @@
 -----------------------------------
 --  PET: Avatars / Elementals
 -----------------------------------
+require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/magic")
+require("scripts/globals/utils")
 require("scripts/globals/ability")
 require("scripts/globals/msg")
 require("scripts/globals/pets")
@@ -140,16 +143,14 @@ function onMobFight(mob, target)
     local party = master:getParty()
     local castTimer = mob:getLocalVar("castTimer")
     local cureCastTimer = mob:getLocalVar("cureCastTimer")
-    local eleMagicCoolBonus = master:getMod(tpz.mod.ELEMENTAL_MAGIC_COOL)
+    local spellCooldown = getSpellCooldown(mob, master)
     local battleTime = mob:getBattleTime()
+    --printf("spell cooldown %u", spellCooldown)
     --printf("castTimer %u", castTimer)
     --printf("cureCastTimer %u", cureCastTimer)
     --printf("battleTime %u", battleTime)
     --print(earthSpells[1][math.random(#earthSpells)])
-    -- Elementals AI
-    --if tpz.pet.id.EARTH_SPIRIT then 
-      --  mob:castSpell(spells[4][math.random(#spells)])
-    --end
+
     if os.time() <= castFinished then
         return
     end
@@ -172,7 +173,7 @@ function onMobFight(mob, target)
     -- Elemental offensive casting AI. 
     -- Don't cast if casttimer isn't up yet!
     if battleTime >= castTimer then
-        mob:setLocalVar("castTimer", battleTime + (30 - eleMagicCoolBonus)) 
+        mob:setLocalVar("castTimer", battleTime + (spellCooldown)) 
         for v = tpz.pet.id.FIRE_SPIRIT, tpz.pet.id.DARK_SPIRIT do
             if master:getPetID() == v then
                 local currentSpells = spells[v + 1]
@@ -274,32 +275,91 @@ function UseHighestCure(mob, target)
     local master = mob:getMaster()
     local eleMagicCoolBonus = master:getMod(tpz.mod.ELEMENTAL_MAGIC_COOL)
     local level = mob:getMainLvl()
+    local spellCooldown = getSpellCooldown(mob, master)
     -- Cure LVL1, Cure II LVL11, Cure III LVL 21, Cure IV LVL 41, Cure V LVL 61
     if level >= 61 then
         mob:castSpell(5,target)
         castFinished = os.time() + 4
-        mob:setLocalVar("cureCastTimer", os.time() + (30 - eleMagicCoolBonus)) 
+        mob:setLocalVar("cureCastTimer", os.time() + (spellCooldown)) 
         return true
     elseif level >= 41 then
         mob:castSpell(4,target)
         castFinished = os.time() + 4
-        mob:setLocalVar("cureCastTimer", os.time() + (30 - eleMagicCoolBonus)) 
+        mob:setLocalVar("cureCastTimer", os.time() + (spellCooldown)) 
         return true
     elseif level >= 21 then
         mob:castSpell(3,target)
         castFinished = os.time() + 4
-        mob:setLocalVar("cureCastTimer", os.time() + (30 - eleMagicCoolBonus)) 
+        mob:setLocalVar("cureCastTimer", os.time() + (spellCooldown)) 
         return true
     elseif level >= 11 then
         mob:castSpell(2,target)
         castFinished = os.time() + 4
-        mob:setLocalVar("cureCastTimer", os.time() + (30 - eleMagicCoolBonus)) 
+        mob:setLocalVar("cureCastTimer", os.time() + (spellCooldown)) 
         return true
     elseif level >= 1 then
         mob:castSpell(1,target)
         castFinished = os.time() + 4
-        mob:setLocalVar("cureCastTimer", os.time() + (30 - eleMagicCoolBonus)) 
+        mob:setLocalVar("cureCastTimer", os.time() + (spellCooldown)) 
         return true
     end
     return false
+end
+
+function getDayWeatherEffect(mob, master)
+    -- Day / Weather bonus and penalty
+    local spiritEle = master:getPetID() +1 -- get the spirit's ID, it is already aligned in proper element order
+    -- element order: fire, ice, wind, earth, thunder, water, light, dark
+    local weatherDayBonus = 0
+    local day = VanadielDayElement()
+    local dayElement = 0
+    local weather = master:getWeather()
+    if day == 1 then dayElement = 0
+    elseif day == 2 then dayElement = 1
+    elseif day == 3 then dayElement = 2
+    elseif day == 4 then dayElement = 3
+    elseif day == 5 then dayElement = 4
+    elseif day == 6 then dayElement = 5
+    elseif day == 7 then dayElement = 6
+    elseif day == 8 then dayElement = 7
+    end
+    --printf("ele element %u", spiritEle)
+    --printf(" dayStrong table %u", tpz.magic.dayStrong[spiritEle]) 
+    -- Day bonus/penalty
+    --printf("dayelement %u", dayElement.FIRE)
+    if (dayElement == tpz.magic.dayStrong[spiritEle]) then
+        weatherDayBonus = weatherDayBonus - 3
+    elseif (dayElement == tpz.magic.dayWeak[spiritEle]) then
+        weatherDayBonus = weatherDayBonus + 3
+    end
+    --printf("weatherDayBonus %d", weatherDayBonus)
+    -- Weather bonus/penalty
+    if (weather == tpz.magic.singleWeatherStrong[spiritEle]) then
+        weatherDayBonus = weatherDayBonus - 2
+    elseif (weather == tpz.magic.singleWeatherWeak[spiritEle]) then
+        weatherDayBonus = weatherDayBonus + 2
+    elseif (weather == tpz.magic.doubleWeatherStrong[spiritEle]) then
+        weatherDayBonus = weatherDayBonus - 2
+    elseif (weather == tpz.magic.doubleWeatherWeak[spiritEle]) then
+        weatherDayBonus = weatherDayBonus + 2
+    end
+    --printf("weatherDayBonus %d", weatherDayBonus)
+
+    return weatherDayBonus
+end
+
+function getSpellCooldown(mob, master)
+    -- Get cooldown bwteeen spell casts
+    local spellCooldown = 30
+    local eleMagicCoolBonus = master:getMod(tpz.mod.ELEMENTAL_MAGIC_COOL)
+    -- Add relic pants gear mod
+    spellCooldown = spellCooldown - eleMagicCoolBonus
+    -- Add day/weather bonuses
+    spellCooldown = spellCooldown + getDayWeatherEffect(mob, master)
+    -- Add Astral Flow bonus
+    if master:hasStatusEffect(tpz.effect.ASTRAL_FLOW) then
+        spellCooldown = spellCooldown - 5
+    end
+
+    return spellCooldown
 end
