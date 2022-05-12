@@ -1038,16 +1038,7 @@ end
     end
     
     --handling rampart stoneskin
-    local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-    if ramSS > 0 then
-        if dmg >= ramSS then
-            target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-            dmg = dmg - ramSS
-        else
-            target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-            dmg = 0
-        end
-    end
+    dmg = utils.rampartstoneskin(target, dmg)
     
     --handling stoneskin
     dmg = utils.stoneskin(target, dmg)

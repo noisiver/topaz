@@ -87,6 +87,9 @@ function utils.rampartstoneskin(target, dmg)
     if ramSS > 0 then
         if dmg >= ramSS then
             target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
+            if target:isPC() then -- Remove Magic Shield off players
+                target:delStatusEffectSilent(tpz.effect.MAGIC_SHIELD)
+            end
             dmg = dmg - ramSS
         else
             target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
