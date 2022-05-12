@@ -1,9 +1,11 @@
 -----------------------------------
 -- Wings of Fury
 -- Ghelsba Outpost BCNM20, Cloudy Orb
--- !additem 1551
+-- !additem cloudy_orb
+-- !pos -165.357 -11.672 77.771 140
 -----------------------------------
 require("scripts/globals/battlefield")
+local ID = require("scripts/zones/Ghelsba_Outpost/IDs")
 -----------------------------------
 
 function onBattlefieldInitialise(battlefield)
@@ -18,6 +20,8 @@ function onBattlefieldRegister(player, battlefield)
 end
 
 function onBattlefieldEnter(player, battlefield)
+    local cloudyOrb = 1551
+    player:delItem(cloudyOrb, 1)
 end
 
 function onBattlefieldLeave(player, battlefield, leavecode)

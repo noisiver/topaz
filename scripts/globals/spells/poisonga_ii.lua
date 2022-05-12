@@ -18,6 +18,9 @@ function onSpellCast(caster, target, spell)
     if skill > 400 then
         power = math.floor(skill * 49 / 183 - 55) -- No cap can be reached yet
     end
+    if caster:isMob() then -- Don't let this scale out of control from mobs
+        power = math.floor(power * 0.5)
+    end
     power = calculatePotency(power, spell:getSkillType(), caster, target)
 
     local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
