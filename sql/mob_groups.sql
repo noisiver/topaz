@@ -8585,9 +8585,9 @@ INSERT INTO `mob_groups` VALUES (7,2585,127,'Master_Coeurl',330,0,1638,0,0,45,50
 INSERT INTO `mob_groups` VALUES (8,407,127,'Bhuta',330,1,264,0,0,46,48,0);
 INSERT INTO `mob_groups` VALUES (9,387,127,'Behemoth',0,128,251,70000,0,80,82,0);
 INSERT INTO `mob_groups` VALUES (10,2255,127,'King_Behemoth',0,128,1450,75000,0,85,88,0);
-INSERT INTO `mob_groups` VALUES (11,3135,127,'Picklix_Longindex',0,128,0,6000,0,61,61,0);
-INSERT INTO `mob_groups` VALUES (12,2767,127,'Moxnix_Nightgoggle',0,128,0,6000,0,61,61,0);
-INSERT INTO `mob_groups` VALUES (13,1074,127,'Doglix_Muttsnout',0,128,0,6000,0,61,61,0);
+INSERT INTO `mob_groups` VALUES (11,3135,127,'Picklix_Longindex',0,128,0,6300,0,61,61,0);
+INSERT INTO `mob_groups` VALUES (12,2767,127,'Moxnix_Nightgoggle',0,128,0,6300,0,61,61,0);
+INSERT INTO `mob_groups` VALUES (13,1074,127,'Doglix_Muttsnout',0,128,0,6300,0,61,61,0);
 INSERT INTO `mob_groups` VALUES (14,130,127,'Ancient_Weapon',0,128,0,17500,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (15,2387,127,'Legendary_Weapon',0,128,0,17500,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (16,1836,127,'Gudanna',0,128,0,0,0,55,60,0);
@@ -9753,7 +9753,7 @@ INSERT INTO `mob_groups` VALUES (21,791,143,'Copper_Quadav',600,0,514,0,0,21,23,
 INSERT INTO `mob_groups` VALUES (22,5774,143,'BeHya_Hundredwall',0,32,3058,775,0,24,24,0);
 INSERT INTO `mob_groups` VALUES (23,525,143,'Brass_Quadav',600,0,352,0,0,21,23,0);
 INSERT INTO `mob_groups` VALUES (24,2916,143,'NoMho_Crimsonarmor',43200,0,2839,782,0,22,23,0);
-INSERT INTO `mob_groups` VALUES (25,2897,143,'NiGhu_Nestfender',0,128,2825,0,0,58,58,0);
+INSERT INTO `mob_groups` VALUES (25,2897,143,'NiGhu_Nestfender',0,128,2825,10000,0,58,58,0);
 
 INSERT INTO `mob_groups` VALUES (7820,3992,143,'Treasure_Chest',0,0,0,0,0,0,0,0);
 
@@ -10012,8 +10012,8 @@ INSERT INTO `mob_groups` VALUES (39,925,149,'Davoi_Mush',600,0,15,0,0,33,36,0);
 INSERT INTO `mob_groups` VALUES (40,475,149,'Blubbery_Bulge',0,32,15,3000,0,45,47,0);
 INSERT INTO `mob_groups` VALUES (41,3006,149,'Orcish_Dragoon',600,0,1891,0,0,65,69,0);
 INSERT INTO `mob_groups` VALUES (42,1046,149,'Dirtyhanded_Gochakzuk',300,0,666,4500,0,71,71,0);
-INSERT INTO `mob_groups` VALUES (43,1478,149,'Gavotvut',0,128,307,3500,0,45,45,0);
-INSERT INTO `mob_groups` VALUES (44,340,149,'Barakbok',0,128,0,3500,0,43,43,0);
+INSERT INTO `mob_groups` VALUES (43,1478,149,'Gavotvut',0,128,307,3500,0,48,48,0);
+INSERT INTO `mob_groups` VALUES (44,340,149,'Barakbok',0,128,0,3500,0,48,48,0);
 INSERT INTO `mob_groups` VALUES (45,419,149,'Bilopdop',0,128,0,4200,0,55,55,0);
 INSERT INTO `mob_groups` VALUES (46,964,149,'Deloknok',0,128,0,4500,0,53,53,0);
 INSERT INTO `mob_groups` VALUES (47,3233,149,'Purpleflash_Brukdok',600,0,2044,8500,0,50,50,0);
@@ -12593,8 +12593,8 @@ INSERT INTO `mob_groups` VALUES (4,71,201,'Air_Elemental',0,128,0,0,0,75,75,0);
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,4643,202,'Ramuh_Prime',0,128,3171,17000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (2,2410,202,'Lightning_Gremlin',0,128,0,6300,0,65,65,0);
-INSERT INTO `mob_groups` VALUES (3,3914,202,'Thunder_Gremlin',0,128,0,2525,0,62,62,0);
+INSERT INTO `mob_groups` VALUES (2,2410,202,'Lightning_Gremlin',0,128,0,7000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (3,3914,202,'Thunder_Gremlin',0,128,0,3000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (4,3317,202,'Ramuh_Prime',0,128,0,700,0,20,20,0);
 INSERT INTO `mob_groups` VALUES (5,3912,202,'Thunder_Elemental',0,128,0,0,0,75,75,0);
 
@@ -12603,7 +12603,7 @@ INSERT INTO `mob_groups` VALUES (5,3912,202,'Thunder_Elemental',0,128,0,0,0,75,7
 -- ------------------------------------------------------------
 
 INSERT INTO `mob_groups` VALUES (1,4642,203,'Shiva_Prime',0,128,3170,17000,0,85,87,0);
-INSERT INTO `mob_groups` VALUES (2,1126,203,'Dryad',0,128,0,1960,0,50,50,0);
+INSERT INTO `mob_groups` VALUES (2,1126,203,'Dryad',0,128,0,2000,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (3,3607,203,'Shiva_Prime',0,128,0,700,0,20,20,0);
 INSERT INTO `mob_groups` VALUES (4,2043,203,'Ice_Elemental',0,128,0,0,0,75,75,0);
 

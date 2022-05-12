@@ -14855,7 +14855,7 @@ INSERT INTO `mob_droplist` VALUES (2736,0,0,1000,12858,50);
 INSERT INTO `mob_droplist` VALUES (2737,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2737,0,0,1000,4898,50);
 INSERT INTO `mob_droplist` VALUES (2738,0,0,1000,924,100);
-INSERT INTO `mob_droplist` VALUES (2738,0,0,1000,1099,240);
+INSERT INTO `mob_droplist` VALUES (2738,0,0,1000,1099,150); -- (Yagudo Parasite) Parasite Skin(WAR AF2)
 INSERT INTO `mob_droplist` VALUES (2739,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2739,0,0,1000,841,370);
 INSERT INTO `mob_droplist` VALUES (2739,0,0,1000,841,190);
@@ -15369,7 +15369,7 @@ INSERT INTO `mob_droplist` VALUES (2824,4,0,1000,644,0); -- Chunk Of Mythril Ore
 INSERT INTO `mob_droplist` VALUES (2824,0,0,1000,955,100); -- Golem Shard
 INSERT INTO `mob_droplist` VALUES (2824,0,0,1000,1132,10); -- Square Of Raxa
 INSERT INTO `mob_droplist` VALUES (2824,0,0,1000,2388,10); -- Chunk Of Diorite
-INSERT INTO `mob_droplist` VALUES (2825,0,0,1000,1101,1000);
+INSERT INTO `mob_droplist` VALUES (2825,0,0,1000,1101,1000); -- (NiGhu_Nestfender - WAR AF2) Mottled Quadav Egg
 INSERT INTO `mob_droplist` VALUES (2826,0,0,1000,1435,160);
 INSERT INTO `mob_droplist` VALUES (2826,0,0,1000,4981,60);
 INSERT INTO `mob_droplist` VALUES (2826,0,0,1000,5000,10);

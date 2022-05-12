@@ -5022,6 +5022,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,79,1,255); -- Slow
 INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,80,1,255); -- Paralyze II
 INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,276,1,255); -- Blind II
 
+INSERT INTO `mob_spell_lists` VALUES ('Ogmios',2067,359,1,255); -- Silencega
+INSERT INTO `mob_spell_lists` VALUES ('Ogmios',2067,360,1,255); -- Dispelga
+
 
 
 
