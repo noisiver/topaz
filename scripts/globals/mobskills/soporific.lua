@@ -16,5 +16,5 @@ function onMobWeaponSkill(target, mob, skill)
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 90)) -- changed to 90
 
-    return typeEffect
+    return tpz.effect.SLEEP_I
 end

@@ -20,7 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
     local accmod = 5
     local dmgmod = 2
     if mob:getFamily() == 178 then -- Mandragora, monks so -50% damage and need doubled dmgmod
-        4
+        dmgmod = 4
     end
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, 1, 2, 3)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
