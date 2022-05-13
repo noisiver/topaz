@@ -189,10 +189,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,854);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,855);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Titan',45,856);
 INSERT INTO `mob_skill_lists` VALUES ('Bat',46,1401); -- soul_accretion
-INSERT INTO `mob_skill_lists` VALUES ('Bat',46,392);
-INSERT INTO `mob_skill_lists` VALUES ('Bat',46,394);
-INSERT INTO `mob_skill_lists` VALUES ('Bat',46,1155);
-INSERT INTO `mob_skill_lists` VALUES ('Bat',46,1156);
+INSERT INTO `mob_skill_lists` VALUES ('Bat',46,392); -- ultrasonics
+INSERT INTO `mob_skill_lists` VALUES ('Bat',46,394); -- blood_drain
+INSERT INTO `mob_skill_lists` VALUES ('Bat',46,1155); -- subsonics
+INSERT INTO `mob_skill_lists` VALUES ('Bat',46,1156); -- marrow_drain
 INSERT INTO `mob_skill_lists` VALUES ('Bats',47,393);
 INSERT INTO `mob_skill_lists` VALUES ('Bats',47,395);
 INSERT INTO `mob_skill_lists` VALUES ('Bee',48,334);
@@ -1527,10 +1527,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Leviathan',323,865);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',324,872);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',324,873);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Garuda',324,874);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,831);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,832);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,833);
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,834);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,835);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,836);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',325,838);
 INSERT INTO `mob_skill_lists` VALUES ('TrollGurfurlur',326,1802);
 INSERT INTO `mob_skill_lists` VALUES ('TrollGurfurlur',326,1803);
 INSERT INTO `mob_skill_lists` VALUES ('TrollGurfurlur',326,1804);
@@ -4375,6 +4377,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Pasuk',6116,362); -- double_claw
 INSERT INTO `mob_skill_lists` VALUES ('Pasuk',6116,363); -- grapple
 INSERT INTO `mob_skill_lists` VALUES ('Pasuk',6116,365); -- spinning_top
 INSERT INTO `mob_skill_lists` VALUES ('Pasuk',6116,1361); --viscid_secretion
+
+INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,393); -- sonic_boom
+INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,395); -- jet_stream
+INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,1157); -- slipstream
+INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,1158); -- turbulence
 
 --6066 unused
 

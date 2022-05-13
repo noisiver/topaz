@@ -37,7 +37,7 @@ function onEffectLose(target, effect)
         end
     elseif effect:getPower() == 2 then
         target:delMod(tpz.mod.MAGIC_ABSORB, 100)
-    elseif effect:getPower() > 100 then
+    elseif effect:getPower() == 100 then
         target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
     end
 end

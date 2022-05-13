@@ -2,6 +2,7 @@
 -- Area: Ghelsba_Outpost
 -- NPC:  Armoury Crate
 -- Ghelsba_Outpost Armoury_Crate
+-- !additem cloudy_orb
 -------------------------------------
 
 require("scripts/globals/bcnm")
@@ -16,38 +17,48 @@ local loot =
             {itemid = 891, droprate = 1000}, -- Bat Fang
         },
         {
-            {itemid = 4900, droprate = 306}, -- Thunder Spirit Pact
-            {itemid = 4744, droprate = 319}, -- Scroll Of Invisible
-            {itemid = 4745, droprate = 125}, -- Scroll Of Sneak
-            {itemid = 4746, droprate = 222}, -- Scroll Of Deodorize
+            {itemid = 4900, droprate = 250}, -- Thunder Spirit Pact
+            {itemid = 4744, droprate = 250}, -- Scroll Of Invisible
+            {itemid = 4745, droprate = 250}, -- Scroll Of Sneak
+            {itemid = 4746, droprate = 250}, -- Scroll Of Deodorize
         },
         {
-            {itemid = 17786, droprate = 153}, -- Ganko
-            {itemid = 18170, droprate = 139}, -- Platoon Edge
-            {itemid = 16687, droprate = 83}, -- Platoon Axe
-            {itemid = 17571, droprate = 97}, -- Platoon Pole
-            {itemid = 17993, droprate = 125}, -- Platoon Dagger
-            {itemid = 749, droprate = 444},  -- Mythril Beastcoin
-            {itemid = 773, droprate = 56},   -- Translucent Rock
+            {itemid = 4900, droprate = 250}, -- Thunder Spirit Pact
+            {itemid = 4744, droprate = 250}, -- Scroll Of Invisible
+            {itemid = 4745, droprate = 250}, -- Scroll Of Sneak
+            {itemid = 4746, droprate = 250}, -- Scroll Of Deodorize
         },
         {
-            {itemid = 17820, droprate = 111}, -- Gunromaru
-            {itemid = 17993, droprate = 139}, -- Platoon Dagger
-            {itemid = 18170, droprate = 139}, -- Platoon Edge
-            {itemid = 18085, droprate = 42}, -- Platoon Lance
-            {itemid = 16959, droprate = 181}, -- Platoon Sword
-            {itemid = 774, droprate = 97},   -- Purple Rock
-            {itemid = 769, droprate = 69},   -- Red Rock
-            {itemid = 776, droprate = 14},   -- White Rock
-            {itemid = 775, droprate = 28},   -- Black Rock
-            {itemid = 772, droprate = 28},   -- Green Rock
-            {itemid = 771, droprate = 14},   -- Yellow Rock
-            {itemid = 770, droprate = 69},   -- Blue Rock
+            {itemid = 17786, droprate = 100}, -- Ganko
+            {itemid = 18170, droprate = 100}, -- Platoon Edge
+            {itemid = 16687, droprate = 100}, -- Platoon Axe
+            {itemid = 17571, droprate = 100}, -- Platoon Pole
+            {itemid = 17993, droprate = 100}, -- Platoon Dagger
+            {itemid = 749, droprate = 250},  -- Mythril Beastcoin
+            {itemid = 773, droprate = 250},   -- Translucent Rock
         },
         {
-            {itemid =     0, droprate = 389}, -- nothing
-            {itemid = 13548, droprate = 167}, -- astral_ring
-            {itemid =   922, droprate = 444}, -- bat_wing
+            {itemid = 17786, droprate = 100}, -- Ganko
+            {itemid = 18170, droprate = 100}, -- Platoon Edge
+            {itemid = 16687, droprate = 100}, -- Platoon Axe
+            {itemid = 17571, droprate = 100}, -- Platoon Pole
+            {itemid = 17993, droprate = 100}, -- Platoon Dagger
+            {itemid = 749, droprate = 250},  -- Mythril Beastcoin
+            {itemid = 773, droprate = 250},   -- Translucent Rock
+        },
+        {
+            {itemid = 17820, droprate = 60}, -- Gunromaru
+            {itemid = 17993, droprate = 60}, -- Platoon Dagger
+            {itemid = 18170, droprate = 60}, -- Platoon Edge
+            {itemid = 18085, droprate = 60}, -- Platoon Lance
+            {itemid = 16959, droprate = 60}, -- Platoon Sword
+            {itemid = 774, droprate = 100},   -- Purple Rock
+            {itemid = 769, droprate = 100},   -- Red Rock
+            {itemid = 776, droprate = 100},   -- White Rock
+            {itemid = 775, droprate = 100},   -- Black Rock
+            {itemid = 772, droprate = 100},   -- Green Rock
+            {itemid = 771, droprate = 100},   -- Yellow Rock
+            {itemid = 770, droprate = 100},   -- Blue Rock
         },
     },
 

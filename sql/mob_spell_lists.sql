@@ -4956,6 +4956,76 @@ INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 360, 1, 255); -- D
 INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 361, 1, 255); -- Blindga
 INSERT INTO `mob_spell_lists` VALUES ('Diabolos_Prime', 2065, 232, 1, 255); -- Bio III
 
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,1,3,13);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,2,14,25);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,3,26,48);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,4,48,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,23,1,30);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,24,31,77);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,25,78,255); -- Dia III
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,33,15,54);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,34,55,77);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,35,78,255); -- Diaga III
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,43,7,26);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,44,27,46);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,45,47,62);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,46,63,76);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,47,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,48,17,36);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,49,37,56);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,50,57,67);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,51,68,86);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,52,87,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,53,23,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,54,34,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,55,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,56,13,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,57,48,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,58,6,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,59,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,104,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,105,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,108,21,75);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,110,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,144,19,49);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,145,50,70);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,146,71,85);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,147,86,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,149,24,54);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,150,55,72);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,151,73,88);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,152,89,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,154,14,44);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,155,45,68);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,156,69,82);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,157,83,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,159,4,34);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,160,35,64);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,161,65,76);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,162,77,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,164,29,59);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,165,60,74);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,166,75,91);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,167,89,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,169,9,39);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,170,40,66);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,171,67,88);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,172,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,216,21,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,230,10,35);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,231,36,77);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,232,78,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,253,25,45);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,259,46,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,260,32,255);
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,79,1,255); -- Slow II
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,80,1,255); -- Paralyze II
+INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,276,1,255); -- Blind II
+
+INSERT INTO `mob_spell_lists` VALUES ('Ogmios',2067,359,1,255); -- Silencega
+INSERT INTO `mob_spell_lists` VALUES ('Ogmios',2067,360,1,255); -- Dispelga
+
+
 
 
 

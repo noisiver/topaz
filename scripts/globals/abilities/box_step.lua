@@ -38,7 +38,7 @@ function onUseAbility(player, target, ability, action)
     if math.random() <= getHitRate(player, target, true, 10 + player:getMod(tpz.mod.STEP_ACCURACY)) then
         hit = 6
         local mjob = player:getMainJob()
-        local daze = 1
+        local daze = 2 -- Dazes should always give at least 2 FM
 
         if (mjob == 19) then
             if (target:hasStatusEffect(tpz.effect.SLUGGISH_DAZE_1)) then
@@ -99,7 +99,11 @@ function onUseAbility(player, target, ability, action)
                 local duration = target:getStatusEffect(tpz.effect.SLUGGISH_DAZE_5):getDuration()
                 target:delStatusEffectSilent(tpz.effect.SLUGGISH_DAZE_5)
                 target:addStatusEffect(tpz.effect.SLUGGISH_DAZE_5, 1, 0, duration+30)
-                daze = 1
+                if (player:hasStatusEffect(tpz.effect.PRESTO)) then
+                    daze = 3 -- Dazes should always give 3 FM with Presto
+                else
+                    daze = 2 -- Dazes should always give at least 2 FM
+                end
                 effect = 5
 				player:delStatusEffectSilent(tpz.effect.PRESTO)
 

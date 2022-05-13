@@ -54,9 +54,9 @@ INSERT INTO `item_mods_pet` VALUES (10664,28,4,1);      -- Smn. Horn +2 Avatar: 
 INSERT INTO `item_mods_pet` VALUES (10664,346,3,1);     -- Avatar: Perpetuation cost -3
 INSERT INTO `item_mods_pet` VALUES (10684,165,6,1);     -- Smn. Doublet +2 Avatar Critical hit rate +6%
 INSERT INTO `item_mods_pet` VALUES (10684,346,3,1);     -- Avatar: Perpetuation cost -3
--- INSERT INTO `item_mods_pet` VALUES (10704,unimplemented,1,1); -- Smn. Bracers +2 Avatar: Enhances accuracy
+INSERT INTO `item_mods_pet` VALUES (10704,25,15,1);      -- Smn. Bracers +2 Avatar: Enhances accuracy +15
 INSERT INTO `item_mods_pet` VALUES (10724,30,5,1);      -- Smn. Spats +2 Avatar: Enhances magic accuracy
--- INSERT INTO `item_mods_pet` VALUES (10744,unimplemented,1,1); -- Smn. Pigaches +2 Avatar: Enhances attack
+INSERT INTO `item_mods_pet` VALUES (10744,23,20,1);     -- Smn. Pigaches +2 Avatar: Enhances attack +20
 INSERT INTO `item_mods_pet` VALUES (10744,562,5,1);     -- Avatar: Magic critical hit rate +5%
 INSERT INTO `item_mods_pet` VALUES (10817,384,500,0);    -- Moepapa Stone Pet: Haste+5%
 INSERT INTO `item_mods_pet` VALUES (10914,27,-2,0);     -- Muzzling Collar Pet: Enmity-2
@@ -112,7 +112,7 @@ INSERT INTO `item_mods_pet` VALUES (12650,27,-2,1);     -- Evoker's Doublet Avat
 INSERT INTO `item_mods_pet` VALUES (13974,25,5,2);      -- Drachen Fng. Gnt. Enhances wyvern's accuracy+5 (?)
 INSERT INTO `item_mods_pet` VALUES (13975,27,-2,1);     -- Evoker's Bracers Avatar: Enmity -2
 INSERT INTO `item_mods_pet` VALUES (14103,27,-2,1);     -- Evoker's Pigaches Avatar: Enmity -2
-INSERT INTO `item_mods_pet` VALUES (14103,68,5,1);      -- Avatar: Enhances evasion +5 (?)
+INSERT INTO `item_mods_pet` VALUES (14103,68,20,1);      -- Avatar: Enhances evasion +20
 INSERT INTO `item_mods_pet` VALUES (14227,3,10,2);      -- Drachen Brais Wyvern: HP+10%
 INSERT INTO `item_mods_pet` VALUES (14228,25,10,1);     -- Evoker's Spats Avatar: Enhances accuracy +10
 INSERT INTO `item_mods_pet` VALUES (14228,27,-2,1);     -- Avatar: Enmity -2
@@ -130,23 +130,23 @@ INSERT INTO `item_mods_pet` VALUES (14523,5,24,7);      -- Stormwaker Automaton:
 INSERT INTO `item_mods_pet` VALUES (14872,2,10,2);      -- Ostreger Mitts Wyvern: HP +10
 INSERT INTO `item_mods_pet` VALUES (14903,25,5,2);      -- Drn. Fng. Gnt. +1 Wyvern: Increases Accuracy +5 (?)
 INSERT INTO `item_mods_pet` VALUES (14904,27,-2,1);     -- Evk. Bracers +1 Avatar: Enmity -2
-INSERT INTO `item_mods_pet` VALUES (14923,25,14,1);     -- Smn. Bracers +1 Avatar: Enhances accuracy +14 (?)
+INSERT INTO `item_mods_pet` VALUES (14923,25,12,1);     -- Smn. Bracers +1 Avatar: Enhances accuracy +12 
 INSERT INTO `item_mods_pet` VALUES (14958,63,5,0);      -- Beast Bazubands Pet: Defense Bonus 5% (?)
 INSERT INTO `item_mods_pet` VALUES (15031,384,300,3);    -- Pantin Dastanas Automaton: Haste +3%
 INSERT INTO `item_mods_pet` VALUES (15032,384,300,3);    -- Pantin Dastanas +1 Automaton: Haste +3%
 INSERT INTO `item_mods_pet` VALUES (15101,165,3,1);     -- Summoner's Dblt. Avatar: Critical Hit Rate +3%
-INSERT INTO `item_mods_pet` VALUES (15116,25,7,1);      -- Summoner's Brcr. Avatar: Enhances accuracy +7
+INSERT INTO `item_mods_pet` VALUES (15116,25,10,1);      -- Summoner's Brcr. Avatar: Enhances accuracy +10
 -- INSERT INTO `item_mods_pet` VALUES (15131,unimplemented,1,1); -- Summoner's Spats Avatar: Shortens magic recast time for spirits
-INSERT INTO `item_mods_pet` VALUES (15146,23,7,1);      -- Summoner's Pgch. Avatar: Enhances attack +7
+INSERT INTO `item_mods_pet` VALUES (15146,23,15,1);      -- Summoner's Pgch. Avatar: Enhances attack +15
 INSERT INTO `item_mods_pet` VALUES (15146,357,-2,1);    -- "Blood Pact" ability delay -2
 INSERT INTO `item_mods_pet` VALUES (15239,27,-3,1);     -- Evk. Horn +1 Avatar: Enmity -3
 INSERT INTO `item_mods_pet` VALUES (15267,72,3,3);      -- Pup. Taj Automaton: HP recovered while healing +3
 INSERT INTO `item_mods_pet` VALUES (15267,71,3,3);      -- Automaton: MP recovered while healing +3
 INSERT INTO `item_mods_pet` VALUES (15366,27,-4,1);     -- Evk. Pigaches +1 Avatar: Enmity -4
-INSERT INTO `item_mods_pet` VALUES (15366,68,5,1);      -- Avatar: Enhances evasion +5 (?)
+INSERT INTO `item_mods_pet` VALUES (15366,68,25,1);      -- Avatar: Enhances evasion +25
 INSERT INTO `item_mods_pet` VALUES (15367,2,30,2);      -- Falconer's Hose Wyvern: HP+30
 INSERT INTO `item_mods_pet` VALUES (15574,3,15,2);      -- Drn. Brais +1Wyvern: HP+15%
-INSERT INTO `item_mods_pet` VALUES (15575,25,14,1);     -- Evk. Spats +1 Avatar: Enhances accuracy +14 (?)
+INSERT INTO `item_mods_pet` VALUES (15575,25,12,1);     -- Evk. Spats +1 Avatar: Enhances accuracy +12
 INSERT INTO `item_mods_pet` VALUES (15575,27,-2,1);     -- Avatar: Enmity -2
 INSERT INTO `item_mods_pet` VALUES (15594,27,2,1);      -- Smn. Spats +1 Avatar: Enmity +2
 INSERT INTO `item_mods_pet` VALUES (15602,374,5,3);     -- Pup. Churidars Automaton: Enhances "Cure" potency +5% (?)
@@ -154,7 +154,7 @@ INSERT INTO `item_mods_pet` VALUES (15602,168,10,3);    -- Automaton: Spell inte
 INSERT INTO `item_mods_pet` VALUES (15647,1,10,0);      -- Askar Dirs Pet: DEF +10
 INSERT INTO `item_mods_pet` VALUES (15649,1,10,0);      -- Goliard Trews Pet: DEF +10
 INSERT INTO `item_mods_pet` VALUES (15661,2,50,2);      -- Homam Gambieras Wyvern: HP+50
-INSERT INTO `item_mods_pet` VALUES (15679,23,10,1);     -- Smn. Pigaches +1 Avatar: Enhances attack +10 (?)
+INSERT INTO `item_mods_pet` VALUES (15679,23,17,1);     -- Smn. Pigaches +1 Avatar: Enhances attack +17 
 INSERT INTO `item_mods_pet` VALUES (15679,27,2,1);      -- Avatar: Enmity +2
 INSERT INTO `item_mods_pet` VALUES (15679,357,-2,1);    -- "Blood Pact" ability delay -2
 INSERT INTO `item_mods_pet` VALUES (15910,1,5,0);       -- Primal Belt Pet: DEF+5

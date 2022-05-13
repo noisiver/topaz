@@ -1,5 +1,5 @@
 ---------------------------------------------------
--- Geocrush
+-- Thunderstorm
 ---------------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -27,8 +27,14 @@ function onPetAbility(target, pet, skill)
     params.chr_wsc = 0.0
     params.IGNORES_SHADOWS = true
 
+    local effect = tpz.effect.CRIT_HIT_EVASION_DOWN
+    local power = 5
+    local duration = 60
+    local bonus = 0
+
     local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.THUNDER, params, INT_BASED, 0)
     dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.THUNDER, params)
+    AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus)
 
     return dmg
 end

@@ -32,8 +32,18 @@ function onUseAbility(player,target,ability)
         basePower = 0
     end
     local weatherDayBonus = 1
-    local dayElement = VanadielDayElement()
+    local day = VanadielDayElement()
+    local dayElement = 0
     local weather = player:getWeather()
+    if day == 1 then dayElement = 0
+    elseif day == 2 then dayElement = 1
+    elseif day == 3 then dayElement = 2
+    elseif day == 4 then dayElement = 3
+    elseif day == 5 then dayElement = 4
+    elseif day == 6 then dayElement = 5
+    elseif day == 7 then dayElement = 6
+    elseif day == 8 then dayElement = 7
+    end
 
     -- Day bonus/penalty
     if (dayElement == tpz.magic.dayStrong[spiritEle]) then
@@ -53,6 +63,7 @@ function onUseAbility(player,target,ability)
     end
 
     local power = math.floor(basePower * weatherDayBonus)
+    --printf("power  %u", power)
     local spirit = player:getPet()
     power = utils.clamp(power, 0, spirit:getMP()) -- cap MP drained at spirit's MP
     power = utils.clamp(power, 0, player:getMaxMP() - player:getMP()) -- cap MP drained at the max MP - current MP

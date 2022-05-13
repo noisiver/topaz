@@ -18,11 +18,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    local numhits = 2
+    local numhits = 1
     local accmod = 1
-    local dmgmod = 0.75
+    local dmgmod = 3.0
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded*2)
 
     local typeEffect = tpz.effect.POISON
     local power = (mob:getMainLvl()/5)  -- buffed from 10

@@ -1982,7 +1982,6 @@ INSERT INTO `item_latents` VALUES(16124, 68, 2, 23, 65);
 INSERT INTO `item_latents` VALUES(16132, 25, -20, 26, 1);   -- Nighttime: ACC -20
 INSERT INTO `item_latents` VALUES(16133, 25, -30, 26, 1);   -- Nighttime: ACC -30
 
-INSERT INTO `item_latents` VALUES(16154, 346, 2, 9, 13);
 INSERT INTO `item_latents` VALUES(16165, 109, 5, 58, 0);    -- storm shield shiel skill +5
 INSERT INTO `item_latents` VALUES(16217, 240, 5, 8, 16);
 INSERT INTO `item_latents` VALUES(16218, 242, 5, 8, 17);
@@ -3714,4 +3713,10 @@ INSERT INTO `item_latents` VALUES(18422,62,2,13,66); 		-- +2% Attack 1 Shadow
 INSERT INTO `item_latents` VALUES(18422,62,4,13,444); 	-- +4% Attack 2 Shadows
 INSERT INTO `item_latents` VALUES(18422,62,6,13,445); 	-- +6% Attack 3 Shadows
 INSERT INTO `item_latents` VALUES(18422,62,10,13,446);	-- +10% Attack 4+ Shadows
+
+-- -------------------------------------------------------
+-- Avatar Perpetuation Reduction
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(16154, 346, 2, 9, 13); -- Karura Hachigane Garuda Perp Cost  -2
+INSERT INTO `item_latents` VALUES(14960, 346, 2, 9, 12); -- Evokers Gages Leviathan Perp Cost  -2
 

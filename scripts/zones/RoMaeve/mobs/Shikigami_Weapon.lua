@@ -43,10 +43,20 @@ local path =
 }
 
 function onMobInitialize(mob)
-    mob:setMod(tpz.mod.REGEN, 5) -- "Has a minor Auto Regen effect"
 end
 
 function onMobSpawn(mob)
+    mob:setDamage(120)
+    mob:setMod(tpz.mod.ATT, 522)
+    mob:setMod(tpz.mod.DEF, 522)
+    mob:setMod(tpz.mod.EVA, 314) 
+    mob:setMod(tpz.mod.UFASTCAST, 25)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMod(tpz.mod.REFRESH, 50)
+    mob:setMod(tpz.mod.REGEN, 10) 
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:addImmunity(tpz.immunity.SILENCE)
     mob:setStatus(tpz.status.INVISIBLE)
     onMobRoam(mob)
 end

@@ -13,7 +13,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local dmgmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 2, tpz.magic.ele.DARK, dmgmod, TP_MAB_BONUS, 1)
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() * 3, tpz.magic.ele.DARK, dmgmod, TP_MAB_BONUS, 1)
     local shadow = MOBPARAM_1_SHADOW
 
     -- Asanbosam (pool id 256) uses a modified blood drain that ignores shadows

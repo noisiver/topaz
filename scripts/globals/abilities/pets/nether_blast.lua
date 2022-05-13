@@ -25,6 +25,7 @@ function onPetAbility(target, pet, skill)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.NO_RESIST = true
     params.NO_TP_CONSUMPTION = true
 
     local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.DARK, params, NONE, 0)

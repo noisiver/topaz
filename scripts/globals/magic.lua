@@ -92,6 +92,7 @@ local strongAffinityAcc       = {tpz.mod.FIRE_AFFINITY_ACC,     tpz.mod.ICE_AFFI
 tpz.magic.resistMod           = {tpz.mod.FIRERES,               tpz.mod.ICERES,               tpz.mod.WINDRES,                tpz.mod.EARTHRES,               tpz.mod.THUNDERRES,                 tpz.mod.WATERRES,                tpz.mod.LIGHTRES,            tpz.mod.DARKRES}
 tpz.magic.defenseMod          = {tpz.mod.FIREDEF,               tpz.mod.ICEDEF,               tpz.mod.WINDDEF,                tpz.mod.EARTHDEF,               tpz.mod.THUNDERDEF,                 tpz.mod.WATERDEF,                tpz.mod.LIGHTDEF,            tpz.mod.DARKDEF}
 tpz.magic.absorbMod           = {tpz.mod.FIRE_ABSORB,           tpz.mod.ICE_ABSORB,           tpz.mod.WIND_ABSORB,            tpz.mod.EARTH_ABSORB,           tpz.mod.LTNG_ABSORB,                tpz.mod.WATER_ABSORB,            tpz.mod.LIGHT_ABSORB,        tpz.mod.DARK_ABSORB}
+tpz.magic.absorbModToMP       = {tpz.mod.FIRE_ABSORB_TO_MP,           tpz.mod.ICE_ABSORB_TO_MP,           tpz.mod.WIND_ABSORB_TO_MP,            tpz.mod.EARTH_ABSORB_TO_MP,           tpz.mod.LTNG_ABSORB_TO_MP,                tpz.mod.WATER_ABSORB_TO_MP,            tpz.mod.LIGHT_ABSORB_TO_MP,        tpz.mod.DARK_ABSORB_TO_MP}
 local nullMod                 = {tpz.mod.FIRE_NULL,             tpz.mod.ICE_NULL,             tpz.mod.WIND_NULL,              tpz.mod.EARTH_NULL,             tpz.mod.LTNG_NULL,                  tpz.mod.WATER_NULL,              tpz.mod.LIGHT_NULL,          tpz.mod.DARK_NULL}
 local blmMerit                = {tpz.merit.FIRE_MAGIC_POTENCY,  tpz.merit.ICE_MAGIC_POTENCY,  tpz.merit.WIND_MAGIC_POTENCY,   tpz.merit.EARTH_MAGIC_POTENCY,  tpz.merit.LIGHTNING_MAGIC_POTENCY,  tpz.merit.WATER_MAGIC_POTENCY}
 local rdmMerit                = {tpz.merit.FIRE_MAGIC_ACCURACY, tpz.merit.ICE_MAGIC_ACCURACY, tpz.merit.WIND_MAGIC_ACCURACY,  tpz.merit.EARTH_MAGIC_ACCURACY, tpz.merit.LIGHTNING_MAGIC_ACCURACY, tpz.merit.WATER_MAGIC_ACCURACY}
@@ -1037,16 +1038,7 @@ end
     end
     
     --handling rampart stoneskin
-    local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-    if ramSS > 0 then
-        if dmg >= ramSS then
-            target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-            dmg = dmg - ramSS
-        else
-            target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-            dmg = 0
-        end
-    end
+    dmg = utils.rampartstoneskin(target, dmg)
     
     --handling stoneskin
     dmg = utils.stoneskin(target, dmg)
@@ -1096,11 +1088,18 @@ function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
 end
 
 function adjustForTarget(target, dmg, ele)
+    -- Check for absorb. Converts damage to HP.
     if (dmg > 0 and math.random(0, 99) < target:getMod(tpz.magic.absorbMod[ele])) then
         return -dmg
     end
+    -- Check for null
     if (math.random(0, 99) < target:getMod(nullMod[ele])) then
         return 0
+    end
+    -- Evokers Bracers / +1 Mod 
+    -- Procs after absorb or null checks. Converts dmg to MP
+    if (dmg > 0 and math.random(0, 99) < target:getMod(tpz.magic.absorbModToMP[ele])) then
+        target:addMP(dmg)
     end
     --Moved non element specific absorb and null mod checks to core
     --TODO: update all lua calls to magicDmgTaken with appropriate element and remove this function

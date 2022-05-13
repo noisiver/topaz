@@ -304,6 +304,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 10)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 18000) 
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
     onPath(mob)
 end
 

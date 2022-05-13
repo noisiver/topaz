@@ -1038,20 +1038,32 @@ namespace petutils
         // Elementals
         if (id >= 0 && id <= 7)
         {
-            if (level < 19)
+            if (level < 10)
                 cost = 1;
+            else if (level < 19)
+                cost = 2;
+            else if (level < 28)
+                cost = 3;
             else if (level < 38)
-                cost = 2;
-            else if (level < 57)
-                cost = 2;
-            else if (level < 75)
-                cost = 2;
-            else if (level < 81)
+                cost = 4;
+            else if (level < 47)
                 cost = 5;
-            else if (level < 91)
+            else if (level < 56)
                 cost = 6;
+            else if (level < 65)
+                cost = 8;
+            else if (level < 68)
+                cost = 10;
+            else if (level < 71)
+                cost = 11;
+            else if (level < 74)
+                cost = 12;
+            else if (level < 81)
+                cost = 13;
+            else if (level < 91)
+                cost = 14;
             else
-                cost = 7;
+                cost = 15;
         }
         // Carbuncle
         else if (id == 8)
@@ -1413,6 +1425,15 @@ namespace petutils
                 PPet->SetMJob(JOB_WHM);
             }
 
+            // Elemetal Spirits are BLM/RDM Light is WHM/RDM and Dark is DRK/RDM 
+            if (PetID >= PETID_FIRESPIRIT && PetID < PETID_LIGHTSPIRIT)
+            {
+                PPet->SetMJob(JOB_BLM);
+                PPet->SetSJob(JOB_RDM);
+                //No elemental staff. Need bonus Macc or they struggle to land spells.
+                PPet->addModifier(Mod::MACC, 30);
+            }
+
             // Set generic SDT
             PPet->setModifier(Mod::SDT_FIRE, 130);
             PPet->setModifier(Mod::SDT_EARTH, 130);
@@ -1473,14 +1494,20 @@ namespace petutils
                     PPet->setModifier(Mod::SDT_THUNDER, 150);
                     PPet->setModifier(Mod::SDT_WATER, 20);
                     PPet->setModifier(Mod::SDT_FIRE, 20);
+                    PPet->m_Element = 0; // Water ie 0 ElementID for some reason
                     break;
                 case PETID_LIGHTSPIRIT:
                     PPet->setModifier(Mod::SDT_DARK, 150);
                     PPet->setModifier(Mod::SDT_LIGHT, 20);
+                    PPet->SetMJob(JOB_WHM);
+                    PPet->SetSJob(JOB_RDM);
                     break;
                 case PETID_DARKSPIRIT:
                     PPet->setModifier(Mod::SDT_LIGHT, 150);
                     PPet->setModifier(Mod::SDT_DARK, 20);
+                    PPet->SetMJob(JOB_DRK);
+                    PPet->SetSJob(JOB_RDM);
+                    PPet->m_Element = 6; // Dark is 6 ElementID for some reason
                     break;
                 case PETID_CARBUNCLE:
                     PPet->addModifier(Mod::REGEN, petRegen);
@@ -1491,6 +1518,7 @@ namespace petutils
                     PPet->addModifier(Mod::ATTP, 30);
                     PPet->setModifier(Mod::SDT_LIGHT, 150);
                     PPet->setModifier(Mod::SDT_DARK, 20);
+                    PPet->m_Element = 6; // Dark is 6 ElementID for some reason
                     break;
                 case PETID_IFRIT:
                     PPet->addModifier(Mod::DOUBLE_ATTACK, petDA);
@@ -1511,6 +1539,7 @@ namespace petutils
                     PPet->setModifier(Mod::SDT_THUNDER, 150);
                     PPet->setModifier(Mod::SDT_WATER, 20);
                     PPet->setModifier(Mod::SDT_FIRE, 20);
+                    PPet->m_Element = 0; // Water ie 0 ElementID for some reason
                     break;
                 case PETID_GARUDA:
                     PPet->addModifier(Mod::EVA, 50);
@@ -1526,7 +1555,6 @@ namespace petutils
                     break;
                 case PETID_RAMUH:
                     PPet->addModifier(Mod::ACC, 50);
-                    PPet->addModifier(Mod::CRITHITRATE, petCrit); 
                     PPet->setModifier(Mod::SDT_EARTH, 150);
                     PPet->setModifier(Mod::SDT_THUNDER, 20);
                     PPet->setModifier(Mod::SDT_WATER, 20);
@@ -1536,6 +1564,7 @@ namespace petutils
                     PPet->setModifier(Mod::DEFP, 30);
                     PPet->setModifier(Mod::SDT_LIGHT, 150);
                     PPet->setModifier(Mod::SDT_DARK, 20);
+                    PPet->m_Element = 6; // Dark is 6 ElementID for some reason
                     break;
                 case PETID_CAIT_SITH:
                     PPet->addModifier(Mod::REGEN, petRegen);
@@ -1580,16 +1609,20 @@ namespace petutils
             if (PMaster->objtype == TYPE_PC)
             {
                 CCharEntity* PChar = (CCharEntity*)PMaster;
+                // Avatar only stats
+                //PPet->addModifier(Mod::ATT, PChar->getMod(Mod::AVATAR_ATT));
+                //PPet->addModifier(Mod::ACC, PChar->getMod(Mod::AVATAR_ACC));
+                //PPet->addModifier(Mod::RATT, PChar->getMod(Mod::AVATAR_ATT));
+                //PPet->addModifier(Mod::RACC, PChar->getMod(Mod::AVATAR_ACC));
+                //PPet->addModifier(Mod::EVA, PChar->getMod(Mod::AVATAR_EVASION));
+                //PPet->addModifier(Mod::CRITHITRATE, PChar->getMod(Mod::AVATAR_CRIT));
+                //PPet->addModifier(Mod::AVATAR_ENMITY, PChar->getMod(Mod::AVATAR_ENMITY));
                 // Gear
                 //PPet->addModifier(Mod::DEF, PChar->getMod(Mod::DEF));
                 //PPet->addModifier(Mod::ATT, PChar->getMod(Mod::ATT));
-                //PPet->addModifier(Mod::ATT, PChar->getMod(Mod::AVATAR_ATT));
                 //PPet->addModifier(Mod::RATT, PChar->getMod(Mod::RATT));
-                //PPet->addModifier(Mod::RATT, PChar->getMod(Mod::AVATAR_ATT));
                 //PPet->addModifier(Mod::ACC, PChar->getMod(Mod::ACC));
-                //PPet->addModifier(Mod::ACC, PChar->getMod(Mod::AVATAR_ACC));
                 //PPet->addModifier(Mod::RACC, PChar->getMod(Mod::RACC));
-                //PPet->addModifier(Mod::RACC, PChar->getMod(Mod::AVATAR_ACC));
                 //PPet->addModifier(Mod::MACC, PChar->getMod(Mod::MACC));
                 //PPet->addModifier(Mod::MATT, PChar->getMod(Mod::MATT));
                 //PPet->addModifier(Mod::STR, PChar->getMod(Mod::STR));
@@ -1600,7 +1633,6 @@ namespace petutils
                 //PPet->addModifier(Mod::MND, PChar->getMod(Mod::MND));
                 //PPet->addModifier(Mod::CHR, PChar->getMod(Mod::CHR));
                 //PPet->addModifier(Mod::ENMITY, PChar->getMod(Mod::ENMITY));
-                //PPet->addModifier(Mod::AVATAR_ENMITY, PChar->getMod(Mod::AVATAR_ENMITY));
                 //PPet->addModifier(Mod::MDEF, PChar->getMod(Mod::MDEF));
                 //PPet->addModifier(Mod::ATTP, PChar->getMod(Mod::ATTP));
                 //PPet->addModifier(Mod::DEFP, PChar->getMod(Mod::DEFP));

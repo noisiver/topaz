@@ -7609,9 +7609,9 @@ INSERT INTO `mob_droplist` VALUES (1444,0,0,1000,902,100);
 INSERT INTO `mob_droplist` VALUES (1444,0,0,1000,3493,240); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (1444,0,0,1000,3493,150); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (1444,0,0,1000,3493,100); -- Forgotten Thought
-INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,886,30);   -- (Kindred_Summoner, Uleguerand) demon_skull
+INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,886,50);   -- (Kindred_Summoner, Uleguerand) demon_skull
 INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,902,100);   -- demon_horn
-INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,4903,17);  -- dark_spirit_pact
+INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,4903,10);  -- dark_spirit_pact
 INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,3493,240); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,3493,150); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (1445,0,0,1000,3493,100); -- Forgotten Thought
@@ -11766,7 +11766,7 @@ INSERT INTO `mob_droplist` VALUES (2236,0,0,1000,858,1000); -- (Shii)
 INSERT INTO `mob_droplist` VALUES (2236,0,0,1000,940,240);
 INSERT INTO `mob_droplist` VALUES (2236,0,0,1000,16980,1000); -- Sukesada
 INSERT INTO `mob_droplist` VALUES (2237,0,0,1000,14468,240); -- (Shikigami Weapon) Yinyang Robe
-INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,646,980);
+INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,646,100);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,654,100);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,679,100);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,745,80);
@@ -11777,7 +11777,7 @@ INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,805,30);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,808,100);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,821,100);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,902,100);
-INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,1124,330);
+INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,1124,240);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,1465,80);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,1592,80);
 INSERT INTO `mob_droplist` VALUES (2238,0,0,1000,1616,100);
@@ -14020,7 +14020,7 @@ INSERT INTO `mob_droplist` VALUES (2584,0,0,1000,15136,10);
 INSERT INTO `mob_droplist` VALUES (2584,0,0,1000,15145,10);
 INSERT INTO `mob_droplist` VALUES (2584,0,0,1000,15146,10);
 INSERT INTO `mob_droplist` VALUES (2584,0,0,1000,16349,10);
-INSERT INTO `mob_droplist` VALUES (2585,2,0,1000,749,0); -- (Volcanic Bomb)
+INSERT INTO `mob_droplist` VALUES (2585,2,0,1000,17316,0); -- (Volcanic Bomb) - Steal Bomb arm
 INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,928,1000); -- Pinch of bomb ash
 INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,928,240); -- Pinch of bomb ash
 INSERT INTO `mob_droplist` VALUES (2585,0,0,1000,1186,50); -- Bomb queen core
@@ -14855,7 +14855,7 @@ INSERT INTO `mob_droplist` VALUES (2736,0,0,1000,12858,50);
 INSERT INTO `mob_droplist` VALUES (2737,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2737,0,0,1000,4898,50);
 INSERT INTO `mob_droplist` VALUES (2738,0,0,1000,924,100);
-INSERT INTO `mob_droplist` VALUES (2738,0,0,1000,1099,240);
+INSERT INTO `mob_droplist` VALUES (2738,0,0,1000,1099,150); -- (Yagudo Parasite) Parasite Skin(WAR AF2)
 INSERT INTO `mob_droplist` VALUES (2739,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2739,0,0,1000,841,370);
 INSERT INTO `mob_droplist` VALUES (2739,0,0,1000,841,190);
@@ -15369,7 +15369,7 @@ INSERT INTO `mob_droplist` VALUES (2824,4,0,1000,644,0); -- Chunk Of Mythril Ore
 INSERT INTO `mob_droplist` VALUES (2824,0,0,1000,955,100); -- Golem Shard
 INSERT INTO `mob_droplist` VALUES (2824,0,0,1000,1132,10); -- Square Of Raxa
 INSERT INTO `mob_droplist` VALUES (2824,0,0,1000,2388,10); -- Chunk Of Diorite
-INSERT INTO `mob_droplist` VALUES (2825,0,0,1000,1101,1000);
+INSERT INTO `mob_droplist` VALUES (2825,0,0,1000,1101,1000); -- (NiGhu_Nestfender - WAR AF2) Mottled Quadav Egg
 INSERT INTO `mob_droplist` VALUES (2826,0,0,1000,1435,160);
 INSERT INTO `mob_droplist` VALUES (2826,0,0,1000,4981,60);
 INSERT INTO `mob_droplist` VALUES (2826,0,0,1000,5000,10);
