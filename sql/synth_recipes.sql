@@ -2698,7 +2698,7 @@ INSERT INTO `synth_recipes` VALUES (39944,1,0,0,0,0,87,0,0,0,0,4100,4242,12605,0
 -- INSERT INTO `synth_recipes` VALUES (39948,1,0,0,0,0,255,0,0,0,0,4100,4242,13910,0,0,0,0,0,0,0,816,1228,1228,1228,4,12,12,12,'Roshi Jinpachi (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (39949,1,0,0,0,0,255,0,0,0,0,4100,4242,12867,0,0,0,0,0,0,0,820,820,820,820,3,3,3,3,'White Slacks (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (39950,1,0,0,0,0,255,0,0,0,0,4100,4242,13795,0,0,0,0,0,0,0,816,652,821,821,3,2,4,4,'Arhat\'s Gi (desynth)');
--- INSERT INTO `synth_recipes` VALUES (39951,0,0,0,0,0,255,0,0,0,0,4099,4241,2296,2296,2296,0,0,0,0,0,2274,2274,2274,2274,1,1,1,1,'Mohbwa Cloth'); -- Not a desynth, incorrect ID?
+INSERT INTO `synth_recipes` VALUES (39951,0,0,0,0,0,42,0,0,0,0,4099,4241,2296,2296,2296,0,0,0,0,0,2274,2274,2274,2274,1,1,1,1,'Mohbwa Cloth'); -- Not a desynth, incorrect ID?
 INSERT INTO `synth_recipes` VALUES (39952,1,0,0,0,0,15,0,0,0,0,4100,4242,2227,0,0,0,0,0,0,0,2304,2304,2304,2304,1,2,3,4,'Mamool Ja Collar (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (39953,1,0,0,0,0,255,0,0,0,0,4100,4242,1631,0,0,0,0,0,0,0,818,818,818,818,8,8,8,8,'Moblin Armor (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (39954,1,0,0,0,0,255,0,0,0,0,4100,4242,12476,0,0,0,0,0,0,0,822,816,816,816,1,6,6,6,'Silk Hat (desynth)');
