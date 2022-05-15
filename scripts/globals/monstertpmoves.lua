@@ -131,6 +131,28 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local maxRatio = 1
     local minRatio = 0
 
+    -- https://www.bg-wiki.com/bg/Critical_Hit_Rate
+    -- Crit rate has a base of 5% and no cap, 0-100% are valid
+    -- Dex contribution to crit rate is capped and works in tiers
+    local baseCritRate = 5
+    local maxCritRate = 1 -- 100%
+    local minCritRate = 0 -- 0%
+
+    local critRate = baseCritRate + getMobDexCritRate(mob, target) + mob:getMod(tpz.mod.CRITHITRATE) + target:getMod(tpz.mod.ENEMYCRITRATE)
+    --printf("ddex critRate %u", critRate)
+    --printf("critRate before param %i", critRate)
+    if tpeffect == TP_CRIT_VARIES then
+        critRate = critRate + 25
+
+        --printf("critRate after param %i", critRate)
+
+        critRate = critRate / 100
+        --printf("final crit %d", critRate * 100)
+        critRate = utils.clamp(critRate, minCritRate, maxCritRate)
+    else
+        critRate = 0  -- Cannot crit unless TP_CRIT_VARIES
+    end
+    --printf("critRate with mod %u", critRate * 100)
     if (ratio < 0.5) then
         maxRatio = ratio + 0.5
     elseif ((0.5 <= ratio) and (ratio <= 0.7)) then
@@ -186,10 +208,25 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     --firstHitChance = utils.clamp(firstHitChance, 35, 95)
     firstHitChance = utils.clamp(firstHitChance, 20, 100)
+    local critAttackBonus = 1 + ((mob:getMod(tpz.mod.CRIT_DMG_INCREASE) - target:getMod(tpz.mod.CRIT_DEF_BONUS)) / 100)
 
     if ((chance*100) <= firstHitChance) then
+        local isCrit = math.random() < critRate
+
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
+        if isCrit then
+            -- Ranged crits are pdif * 1.25
+            if attackType == tpz.attackType.RANGED then
+                pdif = pdif * 1.25
+                pdif = pdif * critAttackBonus
+            else
+                pdif = pdif + 1
+                pdif = pdif * critAttackBonus
+            end
+            -- Pdif cannot go past 2.0 for mobs
+            if pdif > 2.0 then pdif = 2.0 end
+        end
         if math.random()*100 < target:getGuardRate(mob) then -- Try to guard
             target:trySkillUp(mob, tpz.skill.GUARD, 1)
             --target:PrintToPlayer("Successfully guarded first hit TP move swing!")
@@ -207,6 +244,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             hitdamage = target:getBlockedDamage(hitdamage)
             --printf("Potency : %u", potency)
         end
+        --printf("pdif first hit %u", pdif * 100)
         finaldmg = finaldmg + hitdamage * pdif
         hitslanded = hitslanded + 1
     end
@@ -229,9 +267,23 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     while (hitsdone < numberofhits) do
         chance = math.random()
+        local isCrit = math.random() < critRate
+
         if ((chance*100)<=hitrate) then --it hit
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
+            if isCrit then
+                -- Ranged crits are pdif * 1.25
+                if attackType == tpz.attackType.RANGED then
+                    pdif = pdif * 1.25
+                    pdif = pdif * critAttackBonus
+                else
+                    pdif = pdif + 1
+                    pdif = pdif * critAttackBonus
+                end
+                -- Pdif cannot go past 2.0 for mobs
+                if pdif > 2.0 then pdif = 2.0 end
+            end
             if math.random()*100 < target:getGuardRate(mob) then -- Try to guard
                 target:trySkillUp(mob, tpz.skill.GUARD, 1)
                 --target:PrintToPlayer("Successfully guarded a TP move swing!")
@@ -248,6 +300,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
                 --target:PrintToPlayer("Successfully blocked a TP move swing!")
                 hitdamage = target:getBlockedDamage(hitdamage)
             end
+            printf("pdif multihits %u", pdif * 100)
             finaldmg = finaldmg + multiHitDmg * pdif
             hitslanded = hitslanded + 1
         end
@@ -273,7 +326,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     returninfo.hitslanded = hitslanded
 
     return returninfo
-
 end
 
 -- MAGICAL MOVE
@@ -1002,6 +1054,40 @@ function fTP(tp, ftp1, ftp2, ftp3)
         return ftp2 + ( ((ftp3-ftp2)/1500) * (tp-1500))
     end
     return 1 -- no ftp mod
+end
+
+function getMobDexCritRate(mob, target)
+    -- https://www.bg-wiki.com/bg/Critical_Hit_Rate
+    local dDex = mob:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.AGI)
+    local dDexAbs = math.abs(dDex)
+
+    local sign = 1
+    if dDex < 0 then
+        -- target has higher AGI so this will be a decrease to crit rate
+        sign = -1
+    end
+
+    -- default to +0 crit rate for a delta of 0-6
+    local critRate = 0
+    if dDexAbs > 39 then
+        -- 40-50: (dDEX-35)
+        critRate = dDexAbs - 35
+    elseif dDexAbs > 29 then
+        -- 30-39: +4
+        critRate = 4
+    elseif dDexAbs > 19 then
+        -- 20-29: +3
+        critRate = 3
+    elseif dDexAbs > 13 then
+        -- 14-19: +2
+        critRate = 2
+    elseif dDexAbs > 6 then
+        -- 7-13: +1
+        critRate = 1
+    end
+
+    -- Crit rate from stats caps at +-15
+    return math.min(critRate, 15) * sign
 end
 
 function getMobWSC(mob, tpeffect)
