@@ -234,7 +234,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             if isCrit then
                 pDif = pDif * critAttackBonus
             end
-
+            --printf("pdif first hit %u", pDif * 100)
             finaldmg = avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp
             --printf("%i", finaldmg)
 
@@ -276,7 +276,12 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             if isCrit then
-                wRatio = wRatio + 1
+                -- Ranged crits are pdif * 1.25
+                if attackType == tpz.attackType.RANGED then
+                    wRatio = wRatio * 1.25
+                else
+                   wRatio = wRatio + 1
+                end
             end
             -- get a random ratio from min and max
             local qRatio = getRandRatio(wRatio)
@@ -289,7 +294,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             if isCrit then
                 pDif = pDif * critAttackBonus
             end
-
+            --printf("pdif multihits %u", pDif * 100)
             if params.multiHitFtp == nil then ftp = 1 end -- Not fTP transfer
 
             finaldmg = finaldmg + (avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp)
