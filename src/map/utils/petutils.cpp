@@ -1528,14 +1528,14 @@ namespace petutils
                     break;
                 case PETID_TITAN:
                     PPet->addModifier(Mod::ENMITY, 30);
-                    PPet->addModifier(Mod::UDMGPHYS, 50);
+                    PPet->addModifier(Mod::UDMGPHYS, -50);
                     PPet->setModifier(Mod::SDT_WIND, 150);
                     PPet->setModifier(Mod::SDT_EARTH, 20);
                     PPet->setModifier(Mod::SDT_THUNDER, 20);
                     break;
                 case PETID_LEVIATHAN:
                     PPet->addModifier(Mod::ENMITY, 30);
-                    PPet->addModifier(Mod::UDMGMAGIC, 50);
+                    PPet->addModifier(Mod::UDMGMAGIC, -50);
                     PPet->setModifier(Mod::SDT_THUNDER, 150);
                     PPet->setModifier(Mod::SDT_WATER, 20);
                     PPet->setModifier(Mod::SDT_FIRE, 20);

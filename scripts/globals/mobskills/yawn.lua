@@ -18,5 +18,5 @@ function onMobWeaponSkill(target, mob, skill)
     skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 300))
     skill:setMsg(tpz.msg.basic.SKILL_ENFEEB)
 
-    return typeEffect
+    return tpz.effect.SLEEP_I
 end
