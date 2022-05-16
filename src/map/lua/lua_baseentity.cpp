@@ -8062,10 +8062,13 @@ inline int32 CLuaBaseEntity::addHP(lua_State *L)
 
     int32 result = PBattle->addHP((int32)lua_tointeger(L, 1));
 
-    // will always remove sleep effect
-    PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_SLEEP);
-    PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_SLEEP_II);
-    PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_LULLABY);
+    // will always remove sleep effect unless /healing
+    if (!PBattle->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
+    {
+        PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_SLEEP);
+        PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_SLEEP_II);
+        PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_LULLABY);
+    }
 
     lua_pushinteger(L, result);
     return 1;
