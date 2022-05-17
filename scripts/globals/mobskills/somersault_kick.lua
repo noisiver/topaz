@@ -23,7 +23,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 2.5
+    local dmgmod = 1.7
 
     if mob:getPool() == 9059 then -- Imperial Agent Rescue(Assault)
         dmgmod = 5
