@@ -869,9 +869,9 @@ function getAvatarFSTR(weaponDmg, avatarStr, targetVit)
     elseif dSTR >= -15 then
         fSTR = (dSTR + 10) / 4
     elseif dSTR >= -21 then
-        fSTR = (dif + 12) / 4
+        fSTR = (dSTR + 12) / 4
     else
-        fSTR = (dif + 13) / 4
+        fSTR = (dSTR + 13) / 4
     end
 
     local min = math.floor(weaponDmg/9)
