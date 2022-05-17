@@ -40,6 +40,13 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
             else
                 calcParams.pdif = generatePdif (calcParams.cratio[1], calcParams.cratio[2], true)
             end
+            -- Check if mob guards us
+            if math.random()*100 < target:getGuardRate(attacker) then
+                calcParams.pdif = calcParams.pdif -1
+                if calcParams.pdif < 0.25 then -- Guard reduction caps at 0.25
+                    calcParams.pdif = 0.25
+                end
+            end
             finaldmg = dmg * calcParams.pdif
 
             --print("%u", finaldmg)

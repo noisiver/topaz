@@ -14663,7 +14663,7 @@ inline int32 CLuaBaseEntity::getGuardRate(lua_State* L)
     CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
     CBattleEntity* PAttacker = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
 
-    if (PDefender->objtype != TYPE_PC)
+    if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB)
     {
         lua_pushinteger(L, 0);
         return 1;
@@ -14723,6 +14723,7 @@ inline int32 CLuaBaseEntity::getBlockRate(lua_State* L)
     CBattleEntity* PAttacker = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
 
     if (PDefender->objtype != TYPE_PC)
+    //if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB) This allows you to get mob block rate, possibly. Worked for guard
     {
         lua_pushinteger(L, 0);
         return 1;
