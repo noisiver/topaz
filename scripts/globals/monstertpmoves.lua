@@ -1146,14 +1146,16 @@ end
 
 function getMobWSC(mob, tpeffect)
     --TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
+    if params == nil then
+        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC until I'm no longer lazy
+        return wsc
+    end
     if params.str_wsc ~= nil and params.dex_wsc ~= nil and params.vit_wsc ~= nil and params.agi_wsc ~= nil and
-    params.int_wsc ~= nil and params.mnd_wsc ~= nil and params.chr_wsc ~= nil then
+        params.int_wsc ~= nil and params.mnd_wsc ~= nil and params.chr_wsc ~= nil then
         wsc = (mob:getStat(tpz.mod.STR) * params.str_wsc + mob:getStat(tpz.mod.DEX) * params.dex_wsc +
              mob:getStat(tpz.mod.VIT) * params.vit_wsc + mob:getStat(tpz.mod.AGI) * params.agi_wsc +
              mob:getStat(tpz.mod.INT) * params.int_wsc + mob:getStat(tpz.mod.MND) * params.mnd_wsc +
              mob:getStat(tpz.mod.CHR) * params.chr_wsc)
-    else
-        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC until I'm no longer lazy
     end
         --printf("wsc: %u", wsc)
     return wsc
