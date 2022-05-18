@@ -1852,7 +1852,7 @@ INSERT INTO `mob_skills` VALUES (1906,917,'ultimate_terror',1,10.0,2000,3000,4,0
 INSERT INTO `mob_skills` VALUES (1907,1127,'dream_shroud',1,10.0,2000,3000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1908,918,'nightmare',1,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1909,1653,'cacodemonia',1,10.0,2000,1500,4,0,0,0,0,0,0); 
-INSERT INTO `mob_skills` VALUES (1910,1654,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (1910,1126,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0); 
 
 -- Don't use!
 -- INSERT INTO `mob_skills` VALUES (544,915,'camisado',0,7.0,2000,1500,4,0,0,4,0,0,0);

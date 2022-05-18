@@ -22,27 +22,28 @@ function onMobWeaponSkill(target, mob, skill)
     local dmgmod = 0
 	local GameTime = VanadielHour()
 	if GameTime <= 3 then
-		dmgmod = 1.7
+		dmgmod = 11
 	elseif GameTime <= 6 then
-		dmgmod = 1.4
+		dmgmod = 9
 	elseif GameTime <= 9 then
-		dmgmod = 1.2
+		dmgmod = 8
 	elseif GameTime <= 12 then
-		dmgmod = 1
+		dmgmod = 7
 	elseif GameTime > 12 then
-		dmgmod = 1.1
+		dmgmod = 8
 	elseif GameTime >= 15 then
-		dmgmod = 1.5
+		dmgmod = 9
 	elseif GameTime >= 18 then
-		dmgmod = 1.7
+		dmgmod = 10
 	elseif GameTime >= 21 then
-		dmgmod = 1.8
+		dmgmod = 11
 	elseif GameTime == 0 then
-		dmgmod = 2
+		dmgmod = 12
 	end
 	
-
     local BOMB_TOSS_HPP = skill:getMobHPP() / 100
+    dmgmod = math.floor(dmgmod * BOMB_TOSS_HPP)
+    if dmgmod < 1 then dmgmod = 1 end
 
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*12*BOMB_TOSS_HPP, tpz.magic.ele.DARK, dmgmod, TP_MAB_BONUS, 1)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)

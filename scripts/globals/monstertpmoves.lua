@@ -61,7 +61,7 @@ end
 -- if TP_ATK_VARIES -> three values are attack multiplier (1.5x 0.5x etc)
 -- if TP_DMG_VARIES -> three values are
 
-function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, mtp000, mtp150, mtp300, offcratiomod)
+function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, params_phys, mtp150, mtp300, offcratiomod)
     local returninfo = {}
 
     --get fSTR
@@ -77,7 +77,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     end
 
     --apply WSC
-    local WSC = getMobWSC(mob, tpeffect)
+    local WSC = getMobWSC(mob, params_phys)
+    --printf("WSC %u", WSC)
     local withoutws = mob:getWeaponDmg() + fSTR
     --printf("dmg without wsc %u", withoutws)
     local base = mob:getWeaponDmg() + WSC + fSTR
@@ -176,7 +177,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     --apply ftp (assumes 1~3 scalar linear mod)
     if (tpeffect==TP_DMG_BONUS) then
-        hitdamage = hitdamage * fTP(skill:getTP(), mtp000, mtp150, mtp300)
+        hitdamage = hitdamage * fTP(skill:getTP(), 1, 1.5, 2)
     end
 
     --Applying pDIF
@@ -349,52 +350,69 @@ end
 
 function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, tpvalue)
     returninfo = {}
-    --get all the stuff we need
+    -- Below NYI
+    local params = {}
+    params.multiplier = dmgmod
+    params.tp150 = 1
+    params.tp300 = 1
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.3
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    local statmod = INT_BASED
+    -- Above NYI
     local resist = 1
-
-    local mdefBarBonus = 0
-    if
-        element >= tpz.magic.element.FIRE and
-        element <= tpz.magic.element.WATER and
-        target:hasStatusEffect(tpz.magic.barSpell[element])
-    then -- bar- spell magic defense bonus
-        mdefBarBonus = target:getStatusEffect(tpz.magic.barSpell[element]):getSubPower()
-    end
-    -- plus 100 forces it to be a number
-    mab = (100 + mob:getMod(tpz.mod.MATT)) / (100 + target:getMod(tpz.mod.MDEF) + mdefBarBonus)
-
-    if (mab > 1.3) then
-        mab = 1.3
-    end
-
-    if (mab < 0.7) then
-        mab = 0.7
-    end
-
-    if (tpeffect==TP_DMG_BONUS) then
-        damage = damage * (((skill:getTP() / 10)*tpvalue)/100)
-    end
-
-    -- printf("power: %f, bonus: %f", damage, mab)
-    -- resistence is added last
-    finaldmg = damage * mab * dmgmod
-
-    -- get resistence
-    local avatarAccBonus = 0
-    if (mob:isPet() and mob:getMaster() ~= nil) then
-        local master = mob:getMaster()
-        if (master:getPetID() >= 0 and master:getPetID() <= 20) then -- check to ensure pet is avatar
-            avatarAccBonus = utils.clamp(master:getSkillLevel(tpz.skill.SUMMONING_MAGIC) - master:getMaxSkillLevel(mob:getMainLvl(), tpz.job.SMN, tpz.skill.SUMMONING_MAGIC), 0, 200)
-        end
-    end
-    resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), avatarAccBonus, element)
+    if bonus == nil then bonus = 0 end -- bonus macc
+    local maccBonus = bonus
+    maccBonus = maccBonus + getMobBonusMacc(mob, target, element, params)
+    -- damage = mob:getMainLvl()
+    -- local mobLevel = damage
+    -- Maybe?
+    local mobLevel = mob:getMainLvl()
+    -- get WSC
+    local WSC = getMobWSC(mob, params)
+    -- get ftp
+    -- local tp = mob:getLocalVar("TP") NYI needs to be added to every mob TP move onskillcheck like summoner
+    local tp = 1000
+    local multiplier = params.multiplier
+    local tp150 = params.tp150
+    local tp300 = params.tp300
+    local ftp = MobMagicfTPModifier(tp, multiplier, tp150, tp300)
+    -- get dStat
+    local dStat = getMobDStat(statmod, mob, target)
+    local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
+    -- get resist
+    if params.NO_RESIST ~= nil then -- Only used for Netherblast currently
+         resist = 1
+    else
+        resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), mobAccBonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+    end
+    -- get weather
+    local weatherBonus = getMobWeatherBonus(mob, element)
+    -- get magic attack bonus
+    local magicAttkBonus = getMobMAB(mob, target)
+    -- Do the formula!
+    local finaldmg = getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
 
-    local magicDefense = getElementalDamageReduction(target, element)
-
-    finaldmg = finaldmg * resist * magicDefense
+    --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
+    --printf("mutiplier %i", multiplier * 100)
+    --printf("tp %i", tp)
+    --printf("wsc %i", WSC)
+    --printf("tp150 %i", params.tp150 * 100)
+    --printf("tp300 %i", params.tp300 * 100)
+    --printf("ftp %i", ftp * 100)
+    --printf("bonus magic burst macc %i", bonus)
+    --printf("magicBurstBonus %i", magicBurstBonus)
+    --printf("dStat %i", dStat)
+    --printf("resist %i", resist * 100)
+    --printf("weatherbonus %i", weatherBonus * 100)
+    --printf("finaldmg %i", finaldmg)
 
     returninfo.dmg = finaldmg
 
@@ -1040,6 +1058,18 @@ function MobTPMod(tp)
     return 1
 end
 
+function MobMagicfTPModifier(tp, ftp1, ftp2, ftp3)
+    if tp >= 0 and tp < 1500 then
+        return ftp1 + ((ftp2-ftp1) /1500) * tp
+    elseif tp >= 1500 and tp <= 3000 then
+        -- generate a straight line between ftp2 and ftp3 and find point @ tp
+        return ftp2 + ((ftp3-ftp2) / 1500) * (tp-1500)
+    else
+        printf("mob fTP error: TP value is not between 0-3000!")
+    end
+    return 1 -- no ftp mod
+end
+
 function fTP(tp, ftp1, ftp2, ftp3)
     if (tp < 1000) then
         tp = 1000
@@ -1115,14 +1145,16 @@ function getMobFSTR(weaponDmg, mobStr, targetVit)
 end
 
 function getMobWSC(mob, tpeffect)
-    --[[
-    TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
-    wsc = (mob:getStat(tpz.mod.STR) * params.str_wsc + mob:getStat(tpz.mod.DEX) * params.dex_wsc +
-         mob:getStat(tpz.mod.VIT) * params.vit_wsc + mob:getStat(tpz.mod.AGI) * params.agi_wsc +
-         mob:getStat(tpz.mod.INT) * params.int_wsc + mob:getStat(tpz.mod.MND) * params.mnd_wsc +
-         mob:getStat(tpz.mod.CHR) * params.chr_wsc)
-         ]]
+    --TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
+    if params.str_wsc ~= nil and params.dex_wsc ~= nil and params.vit_wsc ~= nil and params.agi_wsc ~= nil and
+    params.int_wsc ~= nil and params.mnd_wsc ~= nil and params.chr_wsc ~= nil then
+        wsc = (mob:getStat(tpz.mod.STR) * params.str_wsc + mob:getStat(tpz.mod.DEX) * params.dex_wsc +
+             mob:getStat(tpz.mod.VIT) * params.vit_wsc + mob:getStat(tpz.mod.AGI) * params.agi_wsc +
+             mob:getStat(tpz.mod.INT) * params.int_wsc + mob:getStat(tpz.mod.MND) * params.mnd_wsc +
+             mob:getStat(tpz.mod.CHR) * params.chr_wsc)
+    else
         wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC until I'm no longer lazy
+    end
         --printf("wsc: %u", wsc)
     return wsc
 end
@@ -1259,6 +1291,7 @@ function getMobMagicBurstBonus(mob, target, skill, element)
 end
 
 function getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
-    -- Formula is ((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
-    return math.floor(((mobLevel+2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
+    -- Formula is ((Lvl*2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
+    -- Avatars Formula is ((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
+    return math.floor(((mobLevel*2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
 end

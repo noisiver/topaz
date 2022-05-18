@@ -19,7 +19,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_IGNORE_SHADOWS)
 
     if (MobPhysicalHit(skill)) then
-		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 3, math.random(1, 7), 300))
+		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 60, math.random(1, 7), 300))
 	end
 
     return dmg
