@@ -1166,7 +1166,7 @@ end
 
 function getMobMagicWSC(mob, tpeffect)
     if  params == nil then
-        wsc = mob:getStat(tpz.mod.INT) * 0.2 -- Place holder WSC for magic
+        wsc = mob:getStat(tpz.mod.INT) * 0.3 -- Place holder WSC for magic
         --printf("wsc: %u", wsc)
         return wsc
     end
