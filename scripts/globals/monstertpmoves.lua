@@ -1148,7 +1148,7 @@ function getMobWSC(mob, tpeffect)
     --TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
     if params_phys == nil then
         wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC for phys until I'm no longer lazy
-        printf("wsc: %u", wsc)
+        --printf("wsc: %u", wsc)
         return wsc
     end
 
@@ -1167,7 +1167,7 @@ end
 function getMobMagicWSC(mob, tpeffect)
     if  params == nil then
         wsc = mob:getStat(tpz.mod.INT) * 0.2 -- Place holder WSC for magic
-        printf("wsc: %u", wsc)
+        --printf("wsc: %u", wsc)
         return wsc
     end
     
