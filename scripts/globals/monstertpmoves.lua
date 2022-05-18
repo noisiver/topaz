@@ -1146,16 +1146,23 @@ end
 
 function getMobWSC(mob, tpeffect)
     --TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
-    if params == nil then
-        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC until I'm no longer lazy
+    if params_phys == nil and params == nil then
+        wsc = mob:getStat(tpz.mod.INT) * 0.2 -- Place holder WSC for magic
         return wsc
     end
-    if params.str_wsc ~= nil and params.dex_wsc ~= nil and params.vit_wsc ~= nil and params.agi_wsc ~= nil and
-        params.int_wsc ~= nil and params.mnd_wsc ~= nil and params.chr_wsc ~= nil then
-        wsc = (mob:getStat(tpz.mod.STR) * params.str_wsc + mob:getStat(tpz.mod.DEX) * params.dex_wsc +
-             mob:getStat(tpz.mod.VIT) * params.vit_wsc + mob:getStat(tpz.mod.AGI) * params.agi_wsc +
-             mob:getStat(tpz.mod.INT) * params.int_wsc + mob:getStat(tpz.mod.MND) * params.mnd_wsc +
-             mob:getStat(tpz.mod.CHR) * params.chr_wsc)
+
+    if params == nil then
+        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC for phys until I'm no longer lazy
+        return wsc
+    end
+
+    if params_phys.str_wsc ~= nil and params_phys.dex_wsc ~= nil and params_phys.vit_wsc ~= nil and params_phys.agi_wsc ~= nil and
+        params_phys.int_wsc ~= nil and params_phys.mnd_wsc ~= nil and params_phys.chr_wsc ~= nil then
+        wsc = (mob:getStat(tpz.mod.STR) * params_phys.str_wsc + mob:getStat(tpz.mod.DEX) * params_phys.dex_wsc +
+            mob:getStat(tpz.mod.VIT) * params_phys.vit_wsc + mob:getStat(tpz.mod.AGI) * params_phys.agi_wsc +
+            mob:getStat(tpz.mod.INT) * params_phys.int_wsc + mob:getStat(tpz.mod.MND) * params_phys.mnd_wsc +
+            mob:getStat(tpz.mod.CHR) * params_phys.chr_wsc)
+        return wsc
     end
         --printf("wsc: %u", wsc)
     return wsc
