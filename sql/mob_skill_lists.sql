@@ -1856,7 +1856,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1906);
 INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1907);
 INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1908);
 INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1909);
-INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,610);
+INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1910);
 --INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1911); -- ruinous_omen
 INSERT INTO `mob_skill_lists` VALUES ('Pet-Carbuncle',379,906);
 INSERT INTO `mob_skill_lists` VALUES ('Pet-Carbuncle',379,907);

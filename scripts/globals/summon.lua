@@ -327,6 +327,15 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     maccBonus = maccBonus + getAvatarBonusMacc(avatar, target, element, params)
 
     local avatarLevel = avatar:getMainLvl()
+    if params.TARGET_HP_BASED ~= nil then -- Based on targets current HP. Only used for Ruinous Omen atm.
+        local hp = target:getHP()
+        local nm = target:isNM()
+        if nm then -- Potency caps at around 10% HP against NMs https://www.bg-wiki.com/ffxi/Ruinous_Omen
+            avatarLevel = math.floor((hp * math.random(5, 10)) / 100)
+        else
+            avatarLevel = math.floor((hp * math.random(25, 75)) / 100)
+        end
+    end
     -- get WSC
     local WSC = getAvatarWSC(avatar, params)
     -- get ftp
@@ -352,6 +361,7 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     local finaldmg = getAvatarMagicalDamage(avatarLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
 
     --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
+    --printf("avatarLevel %i", avatarLevel)
     --printf("mutiplier %i", multiplier * 100)
     --printf("tp %i", tp)
     --printf("wsc %i", WSC)
@@ -368,7 +378,7 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     return finaldmg
 end
 
-function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, element, numberofhits, params)
+function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, damageType, numberofhits, params)
 
     -- physical attack missed, skip rest
     if (skill:hasMissMsg()) then 
@@ -472,7 +482,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
     dmg = utils.stoneskin(target, dmg)
     -- Handle absorb
-    dmg = adjustForTarget(target, dmg, element)
+    dmg = adjustForTarget(target, dmg, damageType)
     --printf("dmg %d", dmg)
     dmg = utils.clamp(dmg, -99999, 99999)
 
@@ -484,7 +494,9 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
 	    target:takeDamage(dmg, avatar, attackType, damageType)
     end
 
-    target:updateEnmityFromDamage(avatar, dmg)
+    if params.NO_ENMITY == nil then -- Ruinous Omen generates no enmity
+        target:updateEnmityFromDamage(avatar, dmg)
+    end
     target:handleAfflatusMiseryDamage(dmg)
     avatar:delStatusEffectSilent(tpz.effect.BOOST)
     avatar:setTP(0)
