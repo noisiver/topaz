@@ -427,6 +427,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     -- handle elemental resistence
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         if target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
+        -- target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0) maybe or else postional mdt won't work properly
             return 0
         end
     end
