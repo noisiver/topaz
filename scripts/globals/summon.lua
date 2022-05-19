@@ -705,10 +705,11 @@ end
 function AvatarHealBP(avatar, target, skill, healmodifier, statuscure)
 
     local avatarLevel = avatar:getMainLvl()
+    local avatarHP = avatar:getMaxHP()
     local targetHP = target:getHP()
     local targetMaxHP = target:getMaxHP()
 
-    heal = targetMaxHP * healmodifier
+    heal = avatarHP * healmodifier
 
     if (targetHP+heal > targetMaxHP) then
         heal = targetMaxHP - targetHP
