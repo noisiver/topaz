@@ -27,21 +27,6 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.0
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
-    if mob:isInDynamis() or mob:isNM() then  
-        dmgmod = 1.75
-        local params_phys = {}
-        params_phys.multiplier = dmgmod
-        params_phys.tp150 = 1
-        params_phys.tp300 = 1
-        params_phys.str_wsc = 0.0
-        params_phys.dex_wsc = 0.0
-        params_phys.vit_wsc = 0.3
-        params_phys.agi_wsc = 0.0
-        params_phys.int_wsc = 0.0
-        params_phys.mnd_wsc = 0.0
-        params_phys.chr_wsc = 0.0
-    end
-
     if mob:getPool() == 9064 then -- Imperial Agent Rescue(Assault)
         dmgmod = 1
         local params_phys = {}

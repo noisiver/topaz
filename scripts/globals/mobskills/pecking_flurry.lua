@@ -8,7 +8,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 4
+    local numhits = 3
     local accmod = 1
     local dmgmod = 1
     local params_phys = {}
@@ -16,7 +16,7 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.tp150 = 1
     params_phys.tp300 = 1
     params_phys.str_wsc = 0.0
-    params_phys.dex_wsc = 0.2
+    params_phys.dex_wsc = 0.3
     params_phys.vit_wsc = 0.0
     params_phys.agi_wsc = 0.0
     params_phys.int_wsc = 0.0

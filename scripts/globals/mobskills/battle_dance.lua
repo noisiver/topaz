@@ -37,10 +37,6 @@ function onMobWeaponSkill(target, mob, skill)
     local tick = 60
     local power = (target:getStat(tpz.mod.DEX) * 0.2) + 5
 
-    if mob:isInDynamis() or mob:isNM() then  
-        dmgmod = 2.5
-    end
-
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, tick, 300)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
