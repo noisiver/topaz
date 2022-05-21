@@ -7242,8 +7242,8 @@ INSERT INTO `mob_groups` VALUES (71,899,103,'Damselfly',330,0,562,0,0,22,23,0);
 INSERT INTO `mob_groups` VALUES (72,1690,103,'Goblin_Mugger',330,0,1117,0,0,24,25,0);
 INSERT INTO `mob_groups` VALUES (73,1683,103,'Goblin_Leecher',330,0,1098,0,0,24,25,0);
 INSERT INTO `mob_groups` VALUES (74,1666,103,'Goblin_Gambler',330,0,1074,0,0,24,25,0);
-INSERT INTO `mob_groups` VALUES (75,5733,103,'Snipper',0,128,0,0,0,21,22,0);
-INSERT INTO `mob_groups` VALUES (76,380,103,'Beach_Pugil',0,128,0,0,0,25,26,0);
+INSERT INTO `mob_groups` VALUES (75,5733,103,'Snipper',330,0,2281,0,0,21,22,0);
+INSERT INTO `mob_groups` VALUES (76,380,103,'Beach_Pugil',330,0,248,0,0,25,26,0);
 INSERT INTO `mob_groups` VALUES (77,3901,103,'Thread_Leech',330,0,2404,0,0,24,25,0);
 INSERT INTO `mob_groups` VALUES (78,1517,103,'Ghoul',330,1,960,0,0,21,22,0);
 
