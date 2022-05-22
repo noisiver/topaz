@@ -16,7 +16,7 @@ function onPetAbility(target, pet, skill)
     local params = {}
     local effect = tpz.effect.EVASION_DOWN
     local power = 10
-    local duration = 60
+    local duration = 180
     local bonus = 0
     local effect2 = tpz.effect.ACCURACY_DOWN
     local power2 = 10
