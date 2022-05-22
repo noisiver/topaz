@@ -18,7 +18,7 @@ function onPetAbility(target, pet, skill, summoner)
     local duration = 900
     local effect2 = tpz.effect.DEFENSE_BOOST
     local power2 = 25
-    local duration2 = 300
+    local duration2 = 180
     local bonus = 0
 
     AvatarBuffBP(pet, target, skill, effect2, power2, tick, duration2, params, bonus)
