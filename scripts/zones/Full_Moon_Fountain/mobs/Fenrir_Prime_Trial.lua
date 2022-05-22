@@ -21,7 +21,7 @@ function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
-            {id = 838, hpp = math.random(30,55)}, -- uses Howling Moon once while near 50% HPP.
+            {id = 839, hpp = math.random(30,55)}, -- uses Howling Moon once while near 50% HPP.
         },
     })
 end

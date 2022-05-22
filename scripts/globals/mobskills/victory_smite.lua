@@ -1,6 +1,6 @@
 ---------------------------------------------
 -- Victory Smite
--- Description: Delivers a fourfold attack. Chance of params.critical hit varies with TP.
+-- Description: Delivers a fourfold attack. Chance of params_phys.critical hit varies with TP.
 -- Type: Physical
 ---------------------------------------------
 require("scripts/globals/settings")

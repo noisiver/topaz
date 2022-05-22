@@ -61,18 +61,12 @@ end
 -- if TP_ATK_VARIES -> three values are attack multiplier (1.5x 0.5x etc)
 -- if TP_DMG_VARIES -> three values are
 
-function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, mtp000, mtp150, mtp300, offcratiomod)
+function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, params_phys, mtp150, mtp300, offcratiomod)
     local returninfo = {}
 
-    --get dstr (bias to monsters, so no fSTR)
-    local dstr = mob:getStat(tpz.mod.STR) - target:getStat(tpz.mod.VIT)
-    if (dstr < -10) then
-        dstr = -10
-    end
-
-    if (dstr > 10) then
-        dstr = 10
-    end
+    --get fSTR
+    local weaponDmg = mob:getWeaponDmg()
+    local fSTR = getMobFSTR(weaponDmg, mob:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT))
 
     local lvluser = mob:getMainLvl()
     local lvltarget = target:getMainLvl()
@@ -83,10 +77,11 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     end
 
     --apply WSC
-    local WSC = getMobWSC(mob, tpeffect)
-    local withoutws = mob:getWeaponDmg() + dstr
+    local WSC = getMobWSC(mob, params_phys)
+    --printf("WSC %u", WSC)
+    local withoutws = mob:getWeaponDmg() + fSTR
     --printf("dmg without wsc %u", withoutws)
-    local base = mob:getWeaponDmg() + WSC + dstr
+    local base = mob:getWeaponDmg() + WSC + fSTR
     --printf("dmg WITH wsc %u", base)
     if (base < 1) then
         base = 1
@@ -131,6 +126,28 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local maxRatio = 1
     local minRatio = 0
 
+    -- https://www.bg-wiki.com/bg/Critical_Hit_Rate
+    -- Crit rate has a base of 5% and no cap, 0-100% are valid
+    -- Dex contribution to crit rate is capped and works in tiers
+    local baseCritRate = 5
+    local maxCritRate = 1 -- 100%
+    local minCritRate = 0 -- 0%
+
+    local critRate = baseCritRate + getMobDexCritRate(mob, target) + mob:getMod(tpz.mod.CRITHITRATE) + target:getMod(tpz.mod.ENEMYCRITRATE)
+    --printf("ddex critRate %u", critRate)
+    --printf("critRate before param %i", critRate)
+    if tpeffect == TP_CRIT_VARIES then
+        critRate = critRate + 25
+
+        --printf("critRate after param %i", critRate)
+
+        critRate = critRate / 100
+        --printf("final crit %d", critRate * 100)
+        critRate = utils.clamp(critRate, minCritRate, maxCritRate)
+    else
+        critRate = 0  -- Cannot crit unless TP_CRIT_VARIES
+    end
+    --printf("critRate with mod %u", critRate * 100)
     if (ratio < 0.5) then
         maxRatio = ratio + 0.5
     elseif ((0.5 <= ratio) and (ratio <= 0.7)) then
@@ -160,7 +177,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     --apply ftp (assumes 1~3 scalar linear mod)
     if (tpeffect==TP_DMG_BONUS) then
-        hitdamage = hitdamage * fTP(skill:getTP(), mtp000, mtp150, mtp300)
+        hitdamage = hitdamage * fTP(skill:getTP(), 1, 1.5, 2)
     end
 
     --Applying pDIF
@@ -186,10 +203,25 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     --firstHitChance = utils.clamp(firstHitChance, 35, 95)
     firstHitChance = utils.clamp(firstHitChance, 20, 100)
+    local critAttackBonus = 1 + ((mob:getMod(tpz.mod.CRIT_DMG_INCREASE) - target:getMod(tpz.mod.CRIT_DEF_BONUS)) / 100)
 
     if ((chance*100) <= firstHitChance) then
+        local isCrit = math.random() < critRate
+
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
+        if isCrit then
+            -- Ranged crits are pdif * 1.25
+            if attackType == tpz.attackType.RANGED then
+                pdif = pdif * 1.25
+                pdif = pdif * critAttackBonus
+            else
+                pdif = pdif + 1
+                pdif = pdif * critAttackBonus
+            end
+            -- Pdif cannot go past 2.0 for mobs
+            if pdif > 2.0 then pdif = 2.0 end
+        end
         if math.random()*100 < target:getGuardRate(mob) then -- Try to guard
             target:trySkillUp(mob, tpz.skill.GUARD, 1)
             --target:PrintToPlayer("Successfully guarded first hit TP move swing!")
@@ -207,6 +239,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             hitdamage = target:getBlockedDamage(hitdamage)
             --printf("Potency : %u", potency)
         end
+        --printf("pdif first hit %u", pdif * 100)
         finaldmg = finaldmg + hitdamage * pdif
         hitslanded = hitslanded + 1
     end
@@ -229,9 +262,23 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     while (hitsdone < numberofhits) do
         chance = math.random()
+        local isCrit = math.random() < critRate
+
         if ((chance*100)<=hitrate) then --it hit
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
+            if isCrit then
+                -- Ranged crits are pdif * 1.25
+                if attackType == tpz.attackType.RANGED then
+                    pdif = pdif * 1.25
+                    pdif = pdif * critAttackBonus
+                else
+                    pdif = pdif + 1
+                    pdif = pdif * critAttackBonus
+                end
+                -- Pdif cannot go past 2.0 for mobs
+                if pdif > 2.0 then pdif = 2.0 end
+            end
             if math.random()*100 < target:getGuardRate(mob) then -- Try to guard
                 target:trySkillUp(mob, tpz.skill.GUARD, 1)
                 --target:PrintToPlayer("Successfully guarded a TP move swing!")
@@ -248,6 +295,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
                 --target:PrintToPlayer("Successfully blocked a TP move swing!")
                 hitdamage = target:getBlockedDamage(hitdamage)
             end
+            --printf("pdif multihits %u", pdif * 100)
             finaldmg = finaldmg + multiHitDmg * pdif
             hitslanded = hitslanded + 1
         end
@@ -257,6 +305,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     -- printf("final: %f, hits: %f, acc: %f", finaldmg, hitslanded, hitrate)
     -- printf("ratio: %f, min: %f, max: %f, pdif, %f hitdmg: %f", ratio, minRatio, maxRatio, pdif, hitdamage)
 
+    -- Reduce the damage by half on 5+ hit TP moves or else they become out of control
+    if hitslanded >= 5 then
+        finaldmg = finaldmg / 2
+    end
     -- Fully parried the attack(Displays miss)
     if (hitslanded >= 1 and finaldmg < 1) then
         skill:setMsg(tpz.msg.basic.SKILL_MISS)
@@ -273,7 +325,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     returninfo.hitslanded = hitslanded
 
     return returninfo
-
 end
 
 -- MAGICAL MOVE
@@ -299,57 +350,73 @@ end
 
 function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, tpvalue)
     returninfo = {}
-    --get all the stuff we need
+    -- Below NYI
+    local params = {}
+    params.multiplier = dmgmod
+    params.tp150 = 1
+    params.tp300 = 1
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.3
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    local statmod = INT_BASED
+    -- Above NYI
     local resist = 1
-
-    local mdefBarBonus = 0
-    if
-        element >= tpz.magic.element.FIRE and
-        element <= tpz.magic.element.WATER and
-        target:hasStatusEffect(tpz.magic.barSpell[element])
-    then -- bar- spell magic defense bonus
-        mdefBarBonus = target:getStatusEffect(tpz.magic.barSpell[element]):getSubPower()
-    end
-    -- plus 100 forces it to be a number
-    mab = (100 + mob:getMod(tpz.mod.MATT)) / (100 + target:getMod(tpz.mod.MDEF) + mdefBarBonus)
-
-    if (mab > 1.3) then
-        mab = 1.3
-    end
-
-    if (mab < 0.7) then
-        mab = 0.7
-    end
-
-    if (tpeffect==TP_DMG_BONUS) then
-        damage = damage * (((skill:getTP() / 10)*tpvalue)/100)
-    end
-
-    -- printf("power: %f, bonus: %f", damage, mab)
-    -- resistence is added last
-    finaldmg = damage * mab * dmgmod
-
-    -- get resistence
-    local avatarAccBonus = 0
-    if (mob:isPet() and mob:getMaster() ~= nil) then
-        local master = mob:getMaster()
-        if (master:getPetID() >= 0 and master:getPetID() <= 20) then -- check to ensure pet is avatar
-            avatarAccBonus = utils.clamp(master:getSkillLevel(tpz.skill.SUMMONING_MAGIC) - master:getMaxSkillLevel(mob:getMainLvl(), tpz.job.SMN, tpz.skill.SUMMONING_MAGIC), 0, 200)
-        end
-    end
-    resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), avatarAccBonus, element)
+    if bonus == nil then bonus = 0 end -- bonus macc
+    local maccBonus = bonus
+    maccBonus = maccBonus + getMobBonusMacc(mob, target, element, params)
+    -- damage = mob:getMainLvl()
+    -- local mobLevel = damage
+    -- Maybe?
+    local mobLevel = mob:getMainLvl()
+    -- get WSC
+    local WSC = getMobMagicWSC(mob, params)
+    -- get ftp
+    -- local tp = mob:getLocalVar("TP") NYI needs to be added to every mob TP move onskillcheck like summoner
+    local tp = 1000
+    local multiplier = params.multiplier
+    local tp150 = params.tp150
+    local tp300 = params.tp300
+    local ftp = MobMagicfTPModifier(tp, multiplier, tp150, tp300)
+    -- get dStat
+    local dStat = getMobDStat(statmod, mob, target)
+    local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
+    -- get resist
+    if params.NO_RESIST ~= nil then -- Only used for Netherblast currently
+         resist = 1
+    else
+        resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), mobAccBonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+    end
+    -- get weather
+    local weatherBonus = getMobWeatherBonus(mob, element)
+    -- get magic attack bonus
+    local magicAttkBonus = getMobMAB(mob, target)
+    -- Do the formula!
+    local finaldmg = getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
 
-    local magicDefense = getElementalDamageReduction(target, element)
-
-    finaldmg = finaldmg * resist * magicDefense
+    --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
+    --printf("mutiplier %i", multiplier * 100)
+    --printf("tp %i", tp)
+    --printf("wsc %i", WSC)
+    --printf("tp150 %i", params.tp150 * 100)
+    --printf("tp300 %i", params.tp300 * 100)
+    --printf("ftp %i", ftp * 100)
+    --printf("bonus magic burst macc %i", bonus)
+    --printf("magicBurstBonus %i", magicBurstBonus)
+    --printf("dStat %i", dStat)
+    --printf("resist %i", resist * 100)
+    --printf("weatherbonus %i", weatherBonus * 100)
+    --printf("finaldmg %i", finaldmg)
 
     returninfo.dmg = finaldmg
 
     return returninfo
-
 end
 
 -- mob version
@@ -991,6 +1058,18 @@ function MobTPMod(tp)
     return 1
 end
 
+function MobMagicfTPModifier(tp, ftp1, ftp2, ftp3)
+    if tp >= 0 and tp < 1500 then
+        return ftp1 + ((ftp2-ftp1) /1500) * tp
+    elseif tp >= 1500 and tp <= 3000 then
+        -- generate a straight line between ftp2 and ftp3 and find point @ tp
+        return ftp2 + ((ftp3-ftp2) / 1500) * (tp-1500)
+    else
+        printf("mob fTP error: TP value is not between 0-3000!")
+    end
+    return 1 -- no ftp mod
+end
+
 function fTP(tp, ftp1, ftp2, ftp3)
     if (tp < 1000) then
         tp = 1000
@@ -1004,15 +1083,230 @@ function fTP(tp, ftp1, ftp2, ftp3)
     return 1 -- no ftp mod
 end
 
+function getMobDexCritRate(mob, target)
+    -- https://www.bg-wiki.com/bg/Critical_Hit_Rate
+    local dDex = mob:getStat(tpz.mod.DEX) - target:getStat(tpz.mod.AGI)
+    local dDexAbs = math.abs(dDex)
+
+    local sign = 1
+    if dDex < 0 then
+        -- target has higher AGI so this will be a decrease to crit rate
+        sign = -1
+    end
+
+    -- default to +0 crit rate for a delta of 0-6
+    local critRate = 0
+    if dDexAbs > 39 then
+        -- 40-50: (dDEX-35)
+        critRate = dDexAbs - 35
+    elseif dDexAbs > 29 then
+        -- 30-39: +4
+        critRate = 4
+    elseif dDexAbs > 19 then
+        -- 20-29: +3
+        critRate = 3
+    elseif dDexAbs > 13 then
+        -- 14-19: +2
+        critRate = 2
+    elseif dDexAbs > 6 then
+        -- 7-13: +1
+        critRate = 1
+    end
+
+    -- Crit rate from stats caps at +-15
+    return math.min(critRate, 15) * sign
+end
+
+function getMobFSTR(weaponDmg, mobStr, targetVit)
+    -- https://www.bluegartr.com/threads/114636-Monster-Avatar-Pet-damage
+    -- fSTR for mobs has no cap and a lower bound of floor(weaponDmg/9)
+    local dSTR = mobStr - targetVit
+    local fSTR = dSTR
+    if fSTR >= 12 then
+        fSTR = (dSTR + 4) / 4
+    elseif fSTR >= 6 then
+        fSTR = (dSTR + 6) / 4
+    elseif fSTR >= 1 then
+        fSTR = (dSTR + 7) / 4
+    elseif fSTR >= -2 then
+        fSTR = (dSTR + 8) / 4
+    elseif fSTR >= -7 then
+        fSTR = (dSTR + 9) / 4
+    elseif fSTR >= -15 then
+        fSTR = (dSTR + 10) / 4
+    elseif fSTR >= -21 then
+        fSTR = (dSTR + 12) / 4
+    else
+        fSTR = (dSTR + 13) / 4
+    end
+
+    local min = math.floor(weaponDmg/9)
+    return math.max(-min, fSTR)
+end
+
 function getMobWSC(mob, tpeffect)
-    --[[
-    TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
-    wsc = (mob:getStat(tpz.mod.STR) * params.str_wsc + mob:getStat(tpz.mod.DEX) * params.dex_wsc +
-         mob:getStat(tpz.mod.VIT) * params.vit_wsc + mob:getStat(tpz.mod.AGI) * params.agi_wsc +
-         mob:getStat(tpz.mod.INT) * params.int_wsc + mob:getStat(tpz.mod.MND) * params.mnd_wsc +
-         mob:getStat(tpz.mod.CHR) * params.chr_wsc)
-         ]]
-        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC until I'm no longer lazy
+    --TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
+    if params_phys == nil then
+        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC for phys until I'm no longer lazy
+        --printf("wsc: %u", wsc)
+        return wsc
+    end
+
+    if params_phys.str_wsc ~= nil and params_phys.dex_wsc ~= nil and params_phys.vit_wsc ~= nil and params_phys.agi_wsc ~= nil and
+        params_phys.int_wsc ~= nil and params_phys.mnd_wsc ~= nil and params_phys.chr_wsc ~= nil then
+        wsc = (mob:getStat(tpz.mod.STR) * params_phys.str_wsc + mob:getStat(tpz.mod.DEX) * params_phys.dex_wsc +
+            mob:getStat(tpz.mod.VIT) * params_phys.vit_wsc + mob:getStat(tpz.mod.AGI) * params_phys.agi_wsc +
+            mob:getStat(tpz.mod.INT) * params_phys.int_wsc + mob:getStat(tpz.mod.MND) * params_phys.mnd_wsc +
+            mob:getStat(tpz.mod.CHR) * params_phys.chr_wsc)
+        return wsc
+    end
         --printf("wsc: %u", wsc)
     return wsc
+end
+
+function getMobMagicWSC(mob, tpeffect)
+    if  params == nil then
+        wsc = mob:getStat(tpz.mod.INT) * 0.3 -- Place holder WSC for magic
+        --printf("wsc: %u", wsc)
+        return wsc
+    end
+    
+    return wsc
+end
+
+function getMobWeatherBonus(mob, element)
+    dayWeatherBonus = 1.00
+
+    if mob:getWeather() == tpz.magic.singleWeatherStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.10
+        end
+    elseif mob:getWeather() == tpz.magic.singleWeatherWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.10
+        end
+    elseif mob:getWeather() == tpz.magic.doubleWeatherStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.25
+        end
+    elseif mob:getWeather() == tpz.magic.doubleWeatherWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.25
+        end
+    end
+
+    if VanadielDayElement() == tpz.magic.dayStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.10
+        end
+    elseif VanadielDayElement() == tpz.magic.dayWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.10
+        end
+    end
+
+    if dayWeatherBonus > 1.35 then
+        dayWeatherBonus = 1.35
+    end
+
+    return dayWeatherBonus
+end
+
+--  The stat difference is multiplied by 1.5 when it is positive and multiplied by 1 when it is negative.
+function getMobDStat(statmod, mob, target)
+    local dSTat = 0
+    if (statmod == INT_BASED) then -- Stat mod is INT
+        dStat = mob:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    elseif (statmod == CHR_BASED) then -- Stat mod is CHR
+        dStat = mob:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
+    elseif (statmod == MND_BASED) then -- Stat mod is MND
+        dStat = mob:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    elseif (statmod == NONE) then -- Stat mod doesn't exist!
+        return 0
+    end
+
+    if dSTat > 0 then
+        dStat = math.floor(dStat * 1.5)
+    else
+        dSTat = math.floor(dStat * 1)
+    end
+
+    return dSTat
+end
+
+function getMobMAB(mob, target)
+    -- Get magic attack bonus
+    local mab = 100 + mob:getMod(tpz.mod.MATT)
+    --printf("mab %i", mab)
+    -- Get targets mdef
+    local mdef = 100 + target:getMod(tpz.mod.MDEF)
+    --printf("mdef %i", mdef)
+    -- Get dmg bonus from MAB / MDB
+    local magicAttkBonus = mab / mdef
+    --printf("magicAttkBonus %i", magicAttkBonus * 100)
+
+    return magicAttkBonus
+end
+
+function getMobBonusMacc(mob, target, element, params)
+    local magicAccBonus = 0
+    local skillchainTier, skillchainCount = FormMagicBurst(element, target)
+
+    --add macc for skillchains
+    if (skillchainTier > 0) then
+        magicAccBonus = magicAccBonus + 50 -- 30 in retail
+    end
+
+    return magicAccBonus
+end
+
+function getMobMagicBurstBonus(mob, target, skill, element)
+    local burst = 1.0
+    local skillchainburst = 1.0
+    local modburst = 1.0
+
+    -- Obtain first multiplier from gear, atma and job traits
+    modburst = modburst + (mob:getMod(tpz.mod.MAG_BURST_BONUS)) / 100
+
+    -- Cap bonuses from first multiplier at 40% or 1.4
+    if (modburst > 1.4) then
+        modburst = 1.4
+    end
+
+    -- Obtain second multiplier from skillchain
+    -- Starts at 35% damage bonus, increases by 10% for every additional weaponskill in the chain
+    local skillchainTier, skillchainCount = FormMagicBurst(element, target)
+
+    if (skillchainTier > 0) then
+        if (skillchainCount == 1) then -- two weaponskills
+            skillchainburst = 1.5 -- was 1.35
+        elseif (skillchainCount == 2) then -- three weaponskills
+            skillchainburst = 1.6 -- was 1.45
+        elseif (skillchainCount == 3) then -- four weaponskills
+             skillchainburst = 1.7 -- was 1.55
+        elseif (skillchainCount == 4) then -- five weaponskills
+            skillchainburst = 1.8 -- was 1.65
+        elseif (skillchainCount == 5) then -- six weaponskills
+            skillchainburst = 2.0 -- was 1.75
+        else
+            -- Something strange is going on if this occurs.
+            skillchainburst = 1.0
+        end
+    end
+
+    -- Multiply
+    if (skillchainburst > 1) then
+        burst = burst * modburst * skillchainburst
+        local spell = getSpell(147)
+        skill:setMsg(spell:getMagicBurstMessage())
+    end
+
+
+    return burst
+end
+
+function getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
+    -- Formula is ((Lvl*2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
+    -- Avatars Formula is ((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
+    return math.floor(((mobLevel*2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
 end

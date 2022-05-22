@@ -3247,10 +3247,13 @@ INSERT INTO `item_latents` VALUES(19158, 165, 7, 59, 14);   -- Scheherazade - Vs
 -- -------------------------------------------------------
 -- Lyft Claymore
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(19161, 345, 250, 15, 3);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19161, 345, 500, 15, 4);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19161, 345, 750, 15, 5);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(19161, 345, 1000, 15, 6);     -- TP Bonus +250~1000, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(19161, 163, -15, 10, 1);     -- MDT -15% when weapon is drawn
+
+-- -------------------------------------------------------
+-- Arondight   
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(16945, 1, 100, 10, 1);     -- DEF +100 when weapon is drawn
+INSERT INTO `item_latents` VALUES(16945, 1012, 15, 10, 1);   -- Inquartata +10 when weapon is drawn
 
 -- -------------------------------------------------------
 -- Wurger
@@ -3715,8 +3718,34 @@ INSERT INTO `item_latents` VALUES(18422,62,6,13,445); 	-- +6% Attack 3 Shadows
 INSERT INTO `item_latents` VALUES(18422,62,10,13,446);	-- +10% Attack 4+ Shadows
 
 -- -------------------------------------------------------
+-- Sacrifice Torque
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 0);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 1);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 2);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 3);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 4);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 5);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 6);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 7);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 8);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 9);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 10);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 11);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 12);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 13);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 14);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 15);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 16);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 17);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 18);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 19);    -- Drains 8 HP/tic when a SMN pet is out
+INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 20);    -- Drains 8 HP/tic when a SMN pet is out
+
+-- -------------------------------------------------------
 -- Avatar Perpetuation Reduction
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(16154, 346, 2, 9, 13); -- Karura Hachigane Garuda Perp Cost  -2
 INSERT INTO `item_latents` VALUES(14960, 346, 2, 9, 12); -- Evokers Gages Leviathan Perp Cost  -2
+INSERT INTO `item_latents` VALUES(14946, 346, 1, 9, 16); -- Nightmare Gloves Diabolos Perp Cost -1
 

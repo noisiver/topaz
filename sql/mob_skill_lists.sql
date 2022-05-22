@@ -114,10 +114,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Avatar-Carbuncle',34,907);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Carbuncle',34,910);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Carbuncle',34,911);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Carbuncle',34,912);
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,544); -- (Shrouded Maw COP Fight) camisado
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,546); --noctoshield
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,547); --ultimate_terror
-INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,558);  --nightmare
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,1903); -- (Shrouded Maw COP Fight) camisado
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,1905); --noctoshield
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,1906); --ultimate_terror
+INSERT INTO `mob_skill_lists` VALUES ('Avatar-Diabolos',35,1908);  --nightmare
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,831);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,832);
 INSERT INTO `mob_skill_lists` VALUES ('Avatar-Fenrir',36,833);
@@ -1849,12 +1849,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Raptor',377,374);
 INSERT INTO `mob_skill_lists` VALUES ('Raptor',377,377);
 INSERT INTO `mob_skill_lists` VALUES ('Raptor',377,379);
 INSERT INTO `mob_skill_lists` VALUES ('Raptor',377,380);
-INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,544);
-INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,545);
-INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,546);
-INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,547);
-INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,556);
-INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,558);
+INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1903);
+INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1904);
+INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1905);
+INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1906);
+INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1907);
+INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1908);
 INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1909);
 INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1910);
 --INSERT INTO `mob_skill_lists` VALUES ('Prime-Diabolos',378,1911); -- ruinous_omen

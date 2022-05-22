@@ -73,9 +73,15 @@ function onUseAbility(player, target, ability)
     local petTP = pet:getTP()
     local regenAmount = player:getMainLvl()/3 -- level/3 tic regen
 
+    -- Reduce by 1/5th to reflect the custom CD reduction of 5m - > 1m
+    regenAmount = math.floor(regenAmount / 5)
+
     if (player:getEquipID(tpz.slot.HEAD)==15238) then
         healPet = healPet + 15
     end
+
+    -- Reduce by 1/5th to reflect the custom CD reduction of 5m - > 1m
+    healPet = math.floor(healPet / 5)
 
     pet:delStatusEffectSilent(tpz.effect.POISON)
     pet:delStatusEffectSilent(tpz.effect.BLINDNESS)
@@ -122,7 +128,7 @@ function onUseAbility(player, target, ability)
     end
 
     pet:addHP(healPet) --add the hp to pet
-    pet:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 90, 0, 0, 0) -- 90 seconds of regen
+    pet:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 18, 0, 0, 0) -- Was 90 seconds of regen. Changed to 15s due to being reduced in CD
     player:addTP(petTP/2) --add half pet tp to you
     pet:delTP(petTP/2) -- remove half tp from pet
 end

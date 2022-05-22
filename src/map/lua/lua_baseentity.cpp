@@ -8062,10 +8062,13 @@ inline int32 CLuaBaseEntity::addHP(lua_State *L)
 
     int32 result = PBattle->addHP((int32)lua_tointeger(L, 1));
 
-    // will always remove sleep effect
-    PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_SLEEP);
-    PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_SLEEP_II);
-    PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_LULLABY);
+    // will always remove sleep effect unless /healing
+    if (!PBattle->StatusEffectContainer->HasStatusEffect(EFFECT_HEALING))
+    {
+        PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_SLEEP);
+        PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_SLEEP_II);
+        PBattle->StatusEffectContainer->DelStatusEffect(EFFECT_LULLABY);
+    }
 
     lua_pushinteger(L, result);
     return 1;
@@ -14660,7 +14663,7 @@ inline int32 CLuaBaseEntity::getGuardRate(lua_State* L)
     CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
     CBattleEntity* PAttacker = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
 
-    if (PDefender->objtype != TYPE_PC)
+    if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB)
     {
         lua_pushinteger(L, 0);
         return 1;
@@ -14720,6 +14723,7 @@ inline int32 CLuaBaseEntity::getBlockRate(lua_State* L)
     CBattleEntity* PAttacker = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
 
     if (PDefender->objtype != TYPE_PC)
+    //if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB) This allows you to get mob block rate, possibly. Worked for guard
     {
         lua_pushinteger(L, 0);
         return 1;

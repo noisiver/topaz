@@ -34,6 +34,7 @@ function onUseAbility(player, target, ability, action)
 
     local taChar = player:getTrickAttackChar(target)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, 0, params, 0, action, true, taChar)
+    damage = damage / 2
     local level = player:getMainLvl()
     local power = math.floor(level / 10)
     if (tpHits + extraHits > 0) then

@@ -12,10 +12,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- str down - chr down
-    local effectType = math.random(136, 142)
-
-    skill:setMsg(MobDrainAttribute(mob, target, effectType, 10, 3, 300))
-
+    skill:setMsg(DrainMultipleAttributes(mob, target, 10, 60, 1, 300))
     return 1
 end

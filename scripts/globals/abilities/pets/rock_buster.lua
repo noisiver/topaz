@@ -23,9 +23,9 @@ function onPetAbility(target, pet, skill)
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
 
-    local effect = tpz.effect.BIND
-    local power = 1
-    local duration = 45
+    local effect = tpz.effect.ATTACK_DOWN
+    local power = 10
+    local duration = 180
     local bonus = 0
 
     local damage = AvatarPhysicalBP(pet, target, skill, tpz.attackType.PHYSICAL, numhits, ftp, TP_DMG_BONUS, params)
