@@ -106,7 +106,7 @@ end
 function checkThfAfQuest(player, target)
     local targid = target:getID()
 
-    if (player:getCharVar("theTenshodoShowdownCS") == 3) then
+    if (player:getCharVar("theTenshodoShowdownCS") == 2) or (player:getCharVar("theTenshodoShowdownCS") == 3) then
         for key, value in pairs(validThfQuestMobs) do
             if value == targid then
                 return true
