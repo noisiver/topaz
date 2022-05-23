@@ -217,6 +217,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         if firstHitLanded then
             local wRatio = cRatio
             local isCrit = math.random() < critRate
+            local isGuarded = math.random()*100 < target:getGuardRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -224,6 +225,9 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 else
                    wRatio = wRatio + 1
                 end
+            end
+            if avatar:isInfront(target, 90) and isGuarded then
+                wRatio = wRatio - 1
             end
             -- get a random ratio from min and max
             local qRatio = getRandRatio(wRatio)
@@ -275,6 +279,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         while numHitsProcessed < numHitsLanded do
             local wRatio = cRatio
             local isCrit = math.random() < critRate
+            local isGuarded = math.random()*100 < target:getGuardRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -282,6 +287,9 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 else
                    wRatio = wRatio + 1
                 end
+            end
+            if avatar:isInfront(target, 90) and isGuarded then
+                wRatio = wRatio - 1
             end
             -- get a random ratio from min and max
             local qRatio = getRandRatio(wRatio)
@@ -833,8 +841,8 @@ function getRandRatio(wRatio)
     local qRatio = wRatio
     local upperLimit = 0
     local lowerLimit = 0
-    -- 4.25 for Avatars, they count as 1H but same as mobs don't have a non-crit cap
-    local maxRatio = 4.25
+    -- 3.75 for Avatars
+    local maxRatio = 3.75
 
     if wRatio < 0.5 then
         upperLimit = math.max(wRatio + 0.5, 0.5)
