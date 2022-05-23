@@ -18,7 +18,7 @@ function onMobSkillCheck(target, mob, skill)
 			return 0
 		end
 	end
-    return 1
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -45,4 +45,5 @@ function onMobWeaponSkill(target, mob, skill)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
 	utils.mobSelfErase(mob)
 	mob:delHP(selfdmg)
+    return dmg
 end
