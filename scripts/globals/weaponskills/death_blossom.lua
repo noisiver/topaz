@@ -53,7 +53,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		local power = 25
 		local subPower = 10
 		
-		target:addStatusEffect(tpz.effect.PLAGUE, 25, 3, duration * resist)
+		target:addStatusEffect(tpz.effect.PLAGUE, 2, 3, duration * resist)
 		target:addStatusEffect(tpz.effect.ADDLE, power, 0, duration * resist, 0, subPower)
 	end
 
