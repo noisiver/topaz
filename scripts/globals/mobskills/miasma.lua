@@ -25,7 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
     MobStatusEffectMove(mob, target, tpz.effect.POISON, mob:getMainLvl()/3, 3, 300)
-    MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 5, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 3, 3, 300)
     MobStatusEffectMove(mob, target, tpz.effect.SLOW, 2550, 0, 300)
     return dmg
 end

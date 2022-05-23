@@ -17,6 +17,6 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PLAGUE
 	
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
-    MobStatusEffectMove(mob, target, typeEffect, 10, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffect, 3, 3, 300)
     return dmg
 end

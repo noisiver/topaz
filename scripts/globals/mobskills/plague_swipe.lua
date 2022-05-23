@@ -39,7 +39,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BIO, 25, 3, 120)
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.PLAGUE, 50, 3, 300)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.PLAGUE, 3, 3, 300)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
