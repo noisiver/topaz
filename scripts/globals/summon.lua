@@ -1320,7 +1320,6 @@ function giveAvatarTP(avatar)
     --TODO: Test this
     local tp = avatar:getLocalVar("TP")
     avatar:setTP(tp)
-    avatar:setLocalVar("TP", 0)
 end
 
 function checkForAvatarResistBonus(player, item)
