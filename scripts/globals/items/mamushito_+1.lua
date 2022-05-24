@@ -9,14 +9,11 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = 10
-    local SDT = target:getMod(tpz.mod.SDT_THUNDER)
-   
-   if SDT <= 5 then
-        chance = 0
-    end
+    local chance = 7
+    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.STUN, tpz.magic.ele.THUNDER, 0)
+    local duration = math.floor(3 * resist)
 
-    if (math.random(0, 99) >= chance or applyResistanceAddEffect(player, target, tpz.magic.ele.THUNDER, 0) < 0.5) then
+    if math.random(0, 99) >= chance or resist < 0.5 then
         return 0, 0, 0
     else
         target:addStatusEffect(tpz.effect.STUN, 1, 0, 3)

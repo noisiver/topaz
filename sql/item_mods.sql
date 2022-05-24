@@ -5579,7 +5579,7 @@ INSERT INTO `item_mods` VALUES (11695,73,2);
 INSERT INTO `item_mods` VALUES (11696,8,2);
 INSERT INTO `item_mods` VALUES (11696,10,2);
 INSERT INTO `item_mods` VALUES (11696,25,4);
-INSERT INTO `item_mods` VALUES (11698,28,6);
+INSERT INTO `item_mods` VALUES (11698,28,6); 
 INSERT INTO `item_mods` VALUES (11698,562,3);
 INSERT INTO `item_mods` VALUES (11699,24,4);
 INSERT INTO `item_mods` VALUES (11699,26,4);
@@ -20499,7 +20499,8 @@ INSERT INTO `item_mods` VALUES (16908,951,149);        -- chance on hit: Weakens
 INSERT INTO `item_mods` VALUES (16908,501,15);        -- proc chance: 15%
 INSERT INTO `item_mods` VALUES (16908,952,10);        -- -10% defense
 INSERT INTO `item_mods` VALUES (16908,953,60);        -- duration: 60 seconds
-INSERT INTO `item_mods` VALUES (16910,431,1);
+INSERT INTO `item_mods` VALUES (16909,431,1); -- Kororito
+INSERT INTO `item_mods` VALUES (16910,431,1); -- Mamushito
 INSERT INTO `item_mods` VALUES (16911,25,-1);
 INSERT INTO `item_mods` VALUES (16913,9,3);
 INSERT INTO `item_mods` VALUES (16924,135,3);
@@ -21641,7 +21642,8 @@ INSERT INTO `item_mods` VALUES (17760,11,2);
 INSERT INTO `item_mods` VALUES (17760,68,2);
 INSERT INTO `item_mods` VALUES (17762,366,4);
 INSERT INTO `item_mods` VALUES (17763,366,6);
-INSERT INTO `item_mods` VALUES (17768,431,1);
+INSERT INTO `item_mods` VALUES (17768,431,1); -- Yoto +1
+INSERT INTO `item_mods` VALUES (17769,431,1); -- Kororito +1
 INSERT INTO `item_mods` VALUES (17770,431,1);
 INSERT INTO `item_mods` VALUES (17771,8,-1);
 INSERT INTO `item_mods` VALUES (17771,9,2);
@@ -23917,6 +23919,7 @@ INSERT INTO `item_mods` VALUES (19158,110,5); -- Scheherazade
 INSERT INTO `item_mods` VALUES (19158,227,10); -- Lizard Killer(Intimidate)
 INSERT INTO `item_mods` VALUES (19158,1227,10); -- Lizard Circle(% DMG)
 INSERT INTO `item_mods` VALUES (19160,431,1);
+INSERT INTO `item_mods` VALUES (19161,431,1); -- Lyft Claymore
 INSERT INTO `item_mods` VALUES (19163,368,10);    -- Nightfall: Regain +10
 INSERT INTO `item_mods` VALUES (19165,10,3);
 INSERT INTO `item_mods` VALUES (19165,11,3);

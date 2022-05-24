@@ -1,8 +1,7 @@
 -----------------------------------------
--- ID: 18153
--- Item: Fire Arrow
--- Additional Effect: Fire Damage
--- Bolt dmg is affected by fire/water staves and Chatoyant
+-- ID: 19161
+-- Item: Lyft Claymore
+-- Additional Effect: Light Damage
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -10,7 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local dmg = doAdditionalEffectDamage(player, target, 95, 20, tpz.mod.INT, true, 0, tpz.magic.ele.FIRE, 0)
+    local dmg = doAdditionalEffectDamage(player, target, 95, 75, nil, false, 0, tpz.magic.ele.LIGHT, 0)
 
     if dmg == 0 then
         return 0, 0, 0
@@ -22,5 +21,6 @@ function onAdditionalEffect(player, target, damage)
         dmg = target:addHP(-dmg)
     end
 
-    return tpz.subEffect.FIRE_DAMAGE, message, dmg
+    return tpz.subEffect.LIGHT_DAMAGE, message, dmg
 end
+
