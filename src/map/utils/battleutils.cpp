@@ -2120,14 +2120,14 @@ namespace battleutils
                 {
                     uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
                     uint16 swordplayBonus = floor((blockskill / 60) * 5);
-                    ShowDebug(CL_CYAN "GetParryRate: Swordplay Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate + swordplayBonus));
+                    //ShowDebug(CL_CYAN "GetParryRate: Swordplay Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate + swordplayBonus));
                     parryRate = parryRate + swordplayBonus;
                 }
 
                 // Inquartata grants a flat parry rate bonus.
                 int16 inquartataBonus = PDefender->getMod(Mod::INQUARTATA);
                 parryRate += inquartataBonus;
-                printf("Your parryrtate is... %i \n", parryRate);
+                //printf("Your parryrtate is... %i \n", parryRate);
                 return parryRate;
             }
         }
