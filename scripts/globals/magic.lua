@@ -654,6 +654,10 @@ function applyResistanceAbility(player, target, element, skill, bonus)
     local p = getMagicHitRate(player, target, skill, element, 0, bonus)
     local res = getMagicResist(p)
 
+    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+        return 1/8
+    end
+
     if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
@@ -670,6 +674,11 @@ function applyResistanceAddEffect(player, target, element, bonus)
 
     local p = getMagicHitRate(player, target, 0, element, 0, bonus)
 	local res = getMagicResist(p)
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+        return 1/8
+    end
+
     --printf("res before SDT %d", res * 100)
     if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
@@ -1932,19 +1941,18 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     }
     local resist = applyResistanceAddEffect(player, target, element, bonus)
 
-        -- Get what reward should be given according to traded item
+    --Check for resistance traits 
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(player, target, effect) then
+        return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
+    end
+
+    -- Check for immunity
     for i,statusEffect in pairs(immunities) do
         local immunity = 0
         if effect == statusEffect[1] then
             immunity = statusEffect[2]
         end
         if target:hasImmunity(immunity) then
-            resist = 0
-        end
-    end
-
-    for _,v in pairs(immunities) do
-        if target:hasImmunity(effect) then
             resist = 0
         end
     end
