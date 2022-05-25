@@ -482,14 +482,14 @@ enum class Mod
     BP_DAMAGE                 = 126, // Blood Pact: Rage Damage increase percentage
     BP_BURST_DAMAGE           = 1257, // Blood Pact: Rage magic burst damage increase percentage.
     BLOOD_BOON                = 913, // Occasionally cuts down MP cost of Blood Pact abilities. Does not affect abilities that require Astral Flow.
-    // Absorb dmg to MP (Evoker's Bracers only)
+    // Absorb dmg to MP (Evoker's Bracers, Lyft Claymore, etc)
     FIRE_ABSORB_TO_MP          = 1459,  // Occasionally absorbs fire elemental damage to MP, in percents
-    ICE_ABSORB_TO_MP           = 1460,   // Occasionally absorbs ice elemental damage to MP, in percents
+    ICE_ABSORB_TO_MP           = 1460,  // Occasionally absorbs ice elemental damage to MP, in percents
     WIND_ABSORB_TO_MP          = 1461,  // Occasionally absorbs wind elemental damage to MP, in percents
-    EARTH_ABSORB_TO_MP         = 1462, // Occasionally absorbs earth elemental damage to MP, in percents
+    EARTH_ABSORB_TO_MP         = 1462,  // Occasionally absorbs earth elemental damage to MP, in percents
     LTNG_ABSORB_TO_MP          = 1463,  // Occasionally absorbs thunder elemental damage to MP, in percents
-    WATER_ABSORB_TO_MP         = 1464, // Occasionally absorbs water elemental damage to MP, in percents
-    LIGHT_ABSORB_TO_MP         = 1465, // Occasionally absorbs light elemental damage to MP, in percents
+    WATER_ABSORB_TO_MP         = 1464,  // Occasionally absorbs water elemental damage to MP, in percents
+    LIGHT_ABSORB_TO_MP         = 1465,  // Occasionally absorbs light elemental damage to MP, in percents
     DARK_ABSORB_TO_MP          = 1466,  // Occasionally absorbs dark elemental damage to MP, in percents
 
     // Blue Mage

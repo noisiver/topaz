@@ -629,24 +629,24 @@ namespace battleutils
             dBonus += tpzrand::GetRandomNumber(100) / 1000.0f;
         }
        // if (WeekDay == strongDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        if (WeekDay == strongDay[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (WeekDay == strongDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.1f;
         //else if (WeekDay == weakDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (WeekDay == weakDay[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (WeekDay == weakDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.1f;
        //if (weather == strongWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        if (weather == strongWeatherSingle[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (weather == strongWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.1f;
        // else if (weather == strongWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == strongWeatherDouble[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == strongWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.25f;
        // else if (weather == weakWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == weakWeatherSingle[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.1f;
         //else if (weather == weakWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == weakWeatherDouble[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.25f;
-
+        // printf("\nDayWeather Bonus %f\n", dBonus);
         damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element +1, +30));
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
@@ -2009,7 +2009,8 @@ namespace battleutils
         uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
 
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) ||
-            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
+            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE) ||
+            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_SWORDPLAY))
         {
             return 0;
         }
@@ -2114,11 +2115,19 @@ namespace battleutils
                     //ShowDebug(CL_CYAN"GetParryRate: Issekigan Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate+issekiganBonus));
                     parryRate = parryRate + issekiganBonus;
                 }
+                // Swordplay grants 5% parry per 60 shield skill that stacks with Inquartata
+                if (PDefender->objtype == TYPE_PC && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_SWORDPLAY))
+                {
+                    uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
+                    uint16 swordplayBonus = floor((blockskill / 60) * 5);
+                    ShowDebug(CL_CYAN "GetParryRate: Swordplay Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate + swordplayBonus));
+                    parryRate = parryRate + swordplayBonus;
+                }
 
                 // Inquartata grants a flat parry rate bonus.
                 int16 inquartataBonus = PDefender->getMod(Mod::INQUARTATA);
                 parryRate += inquartataBonus;
-                //printf("Your parryrtate is... %i \n", parryRate);
+                printf("Your parryrtate is... %i \n", parryRate);
                 return parryRate;
             }
         }

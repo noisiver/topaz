@@ -2452,25 +2452,15 @@ INSERT INTO `item_latents` VALUES(17759, 165, 7, 59, 20);   -- Koggelmander - Vs
 -- -------------------------------------------------------
 -- Lyft Scimitar
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(17766, 10, 2, 15, 3);     -- VIT +1~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 10, 2, 15, 4);     -- VIT +1~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 10, 2, 15, 5);     -- VIT +1~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 10, 2, 15, 6);     -- VIT +1~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 165, 4, 15, 3);     -- Crit Chance +4~16, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 165, 4, 15, 4);     -- Crit Chance +4~16, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 165, 4, 15, 5);     -- Crit Chance +4~16, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 165, 4, 15, 6);     -- Crit Chance +4~16, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(17766, 27, 1, 15, 3);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 27, 1, 15, 4);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 27, 1, 15, 5);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 27, 1, 15, 6);     -- Enmity +1~4, party size 3+. Effect strengthens with more members
-
-INSERT INTO `item_latents` VALUES(17766, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-
-INSERT INTO `item_latents` VALUES(17766, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 421, 4, 15, 3);     -- Critical Damage +4~16%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 421, 4, 15, 4);     -- Critical Damage +4~16%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 421, 4, 15, 5);     -- Critical Damage +4~16%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 421, 4, 15, 6);     -- Critical Damage +4~16%, party size 3+. Effect strengthens with more members
 
 -- Kodachi Of Trials
 INSERT INTO `item_latents` VALUES(17773, 2, -20, 47, 0);
@@ -3247,13 +3237,21 @@ INSERT INTO `item_latents` VALUES(19158, 165, 7, 59, 14);   -- Scheherazade - Vs
 -- -------------------------------------------------------
 -- Lyft Claymore
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(19161, 163, -15, 10, 1);     -- MDT -15% when weapon is drawn
+INSERT INTO `item_latents` VALUES(19161, 1459, 10, 10, 1);  -- 10% chance to absorb magic damage to MP when engaged
+INSERT INTO `item_latents` VALUES(19161, 1460, 10, 10, 1);  -- 10% chance to absorb magic damage to MP when engaged
+INSERT INTO `item_latents` VALUES(19161, 1461, 10, 10, 1);  -- 10% chance to absorb magic damage to MP when engaged
+INSERT INTO `item_latents` VALUES(19161, 1462, 10, 10, 1);  -- 10% chance to absorb magic damage to MP when engaged
+INSERT INTO `item_latents` VALUES(19161, 1463, 10, 10, 1);  -- 10% chance to absorb magic damage to MP when engaged
+INSERT INTO `item_latents` VALUES(19161, 1464, 10, 10, 1);  -- 10% chance to absorb magic damage to MP when engaged
+INSERT INTO `item_latents` VALUES(19161, 1465, 10, 10, 1);  -- 10% chance to absorb magic damage to MP when engaged
+INSERT INTO `item_latents` VALUES(19161, 1466, 10, 10, 1);  -- 10% chance to absorb magic damage to MP when engaged
+
 
 -- -------------------------------------------------------
 -- Arondight   
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(16945, 1, 100, 10, 1);     -- DEF +100 when weapon is drawn
-INSERT INTO `item_latents` VALUES(16945, 1012, 15, 10, 1);   -- Inquartata +10 when weapon is drawn
+INSERT INTO `item_latents` VALUES(16945, 1, 15, 10, 1);      -- VIT +15 when weapon is drawn
+INSERT INTO `item_latents` VALUES(16945, 161, -15, 10, 1);   -- PDT -15% when weapon is drawn
 
 -- -------------------------------------------------------
 -- Wurger

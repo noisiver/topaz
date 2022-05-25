@@ -1,7 +1,8 @@
 -----------------------------------
 -- Ability: Issekigan
 -- Increases Chance of parrying and gives an enmity bonus upon a successful parry attempt.
--- Obtained: Ninja Level 95
+-- Adds 50% to your parry rate.
+-- Obtained: Ninja Level 50
 -- Recast Time: 5:00
 -- Duration: 1:00
 -----------------------------------

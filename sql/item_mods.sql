@@ -23919,7 +23919,7 @@ INSERT INTO `item_mods` VALUES (19158,110,5); -- Scheherazade
 INSERT INTO `item_mods` VALUES (19158,227,10); -- Lizard Killer(Intimidate)
 INSERT INTO `item_mods` VALUES (19158,1227,10); -- Lizard Circle(% DMG)
 INSERT INTO `item_mods` VALUES (19160,431,1);
-INSERT INTO `item_mods` VALUES (19161,431,1); -- Lyft Claymore
+INSERT INTO `item_mods` VALUES (19161,431,1);     -- (Lyft Claymore) Additional Effect: Light damage +75
 INSERT INTO `item_mods` VALUES (19163,368,10);    -- Nightfall: Regain +10
 INSERT INTO `item_mods` VALUES (19165,10,3);
 INSERT INTO `item_mods` VALUES (19165,11,3);
