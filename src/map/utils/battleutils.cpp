@@ -361,7 +361,7 @@ namespace battleutils
         float targetLvl = PDefender->GetMLevel();
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-        float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
+        float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element -1]));
         //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
         // Spikes are PDefender for Macc
         if (PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLAZE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SHOCK_SPIKES) ||
@@ -371,7 +371,7 @@ namespace battleutils
         {
             casterLvl = PDefender->GetMLevel();
             targetLvl = PAttacker->GetMLevel();
-            meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
+            meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element -1]));
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
             //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
             // Blue Magic spike spells use Blue Magic Skll
@@ -428,11 +428,11 @@ namespace battleutils
         float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
          //printf("p after resist rolls = %f \n", p);
         // Apply "special" gear resist bonus for players
-        if (PDefender->getMod(resistarray[element]) < 0 && resvar < 0.5)
+        if (PDefender->getMod(resistarray[element -1]) < 0 && resvar < 0.5)
         {
             return 0.5f;
         }
-        else if (PDefender->getMod(resistarray[element]) < 1 && resvar < 0.25)
+        else if (PDefender->getMod(resistarray[element -1]) < 1 && resvar < 0.25)
         {
             return 0.25f;
         }
@@ -618,7 +618,7 @@ namespace battleutils
         {
             CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
            // if (waist && waist->getID() == obi[element])
-            if (waist && waist->getID() == obi[element + 1])
+            if (waist && waist->getID() == obi[element])
             {
                 obiBonus = true;
             }
@@ -647,7 +647,8 @@ namespace battleutils
         else if (weather == weakWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.25f;
         // printf("\nDayWeather Bonus %f\n", dBonus);
-        damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element +1, +30));
+        uint32 enspellMaccBonus = PAttacker->getMod(Mod::ENSPELL_MACC);
+        damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element + 1, enspellMaccBonus));
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
