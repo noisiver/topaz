@@ -797,19 +797,16 @@ INSERT INTO `mob_skill_lists` VALUES ('MagicPot',175,522);
 INSERT INTO `mob_skill_lists` VALUES ('MagicPot',175,523);
 INSERT INTO `mob_skill_lists` VALUES ('MagicPot',175,524);
 INSERT INTO `mob_skill_lists` VALUES ('MagicPot',175,525);
-INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1731);
-INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1732);
-INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1733);
-INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1734);
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1731); -- forceful_blow
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1732); -- somersault_kick(melee)
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1733); -- firespit(physical)
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1734); -- warm up
 -- INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1735);
 -- INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1736);
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1737); -- Vorpal Blade | BLU
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1738); -- Groundburst(NM only)
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1839); -- rushing_slash | slashing weapons
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1840); -- rushing_stab | Piercing weapons
-INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1920); -- rushing_drub | staff
-INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1922); -- somersault_kick(mage)
-INSERT INTO `mob_skill_lists` VALUES ('MamoolJa',176,1923); -- Firespit(Magic)
 INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2094); -- fire_angon
 INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2095); -- batterhorn
 INSERT INTO `mob_skill_lists` VALUES ('Mamool_Ja_Knight',177,2096); -- clobber
@@ -4382,6 +4379,10 @@ INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,393); -- sonic_boom
 INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,395); -- jet_stream
 INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,1157); -- slipstream
 INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,1158); -- turbulence
+
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJaMage',6118,1920); -- rushing_drub | staff
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJaMage',6118,1922); -- somersault_kick(mage)
+INSERT INTO `mob_skill_lists` VALUES ('MamoolJaMage',6118,1923); -- Firespit(Magic)
 
 --6066 unused
 

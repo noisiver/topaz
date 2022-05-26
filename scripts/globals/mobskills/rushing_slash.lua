@@ -18,9 +18,10 @@ function onMobSkillCheck(target, mob, skill)
     if mob:getPool() == 1846 then -- Gulool Ja Ja
         return 0
     end
-    if mob:getMainJob() == tpz.job.BST or mob:getMainJob() == tpz.job.THF and mob:AnimationSub() == 0 or mob:AnimationSub() > 1 then
+    if mob:getMainJob() == tpz.job.BST or mob:getMainJob() == tpz.job.THF and mob:AnimationSub() == 0 or
+    mob:getMainJob() == tpz.job.BST or mob:getMainJob() == tpz.job.THF and mob:AnimationSub() > 1 then
         -- If animationSub is 1, the mob has already lost his weapeon and cant do this TP attack.
-            return 0
+        return 0
 	end
 
     return 1

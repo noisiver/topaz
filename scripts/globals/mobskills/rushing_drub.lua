@@ -12,7 +12,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.WHM and mob:AnimationSub() == 0 or mob:AnimationSub() > 1 then
+    -- Only BLM and WHM Mamools can use this
+	if mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.WHM and mob:AnimationSub() == 0 or
+    mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.WHM and mob:AnimationSub() > 1 then
 		return 0
 	end
     
