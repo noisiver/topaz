@@ -974,6 +974,9 @@ bool CLatentEffectContainer::ProcessLatentEffect(CLatentEffect& latentEffect)
                 CVanaTime::getInstance()->SyncTime() == TIME_NIGHT;
         }
         break;
+    case LATENT_MAINJOB:
+        expression = m_POwner->GetMJob() == latentEffect.GetConditionsValue();
+        break;
     case LATENT_WEAPON_DRAWN_HP_UNDER:
         expression = m_POwner->health.hp < latentEffect.GetConditionsValue() && m_POwner->animation == ANIMATION_ATTACK;
         break;

@@ -132,6 +132,14 @@ bool CMagicState::Update(time_point tick)
     }
     else if (IsCompleted() && tick > GetEntryTime() + m_castTime + std::chrono::milliseconds(m_PSpell->getAnimationTime()))
     {
+        // Add TP from Occult Acumen to non-damaging spells
+        if (m_PSpell->getSkillType() == SKILLTYPE::SKILL_ENFEEBLING_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_ENHANCING_MAGIC ||
+            m_PSpell->getSkillType() == SKILLTYPE::SKILL_HEALING_MAGIC || m_PSpell->getSkillType() == SKILLTYPE::SKILL_DIVINE_MAGIC)
+        {
+            int16 tp = static_cast<int16>(m_PSpell->getMPCost() * m_PEntity->getMod(Mod::OCCULT_ACUMEN) / 100.f * (1 + (m_PEntity->getMod(Mod::STORETP) / 100.f)));
+            m_PEntity->addTP(tp);
+        }
+
         m_PEntity->PAI->EventHandler.triggerListener("MAGIC_STATE_EXIT", m_PEntity, m_PSpell.get());
         return true;
     }

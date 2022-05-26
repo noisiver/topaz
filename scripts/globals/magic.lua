@@ -408,6 +408,12 @@ function doEnspell(caster, target, spell, effect)
 		potency = 3 + math.floor(level / 10)
 	end
 
+    -- Composure doubles Enspell damage and increases Enspell duration to 1 hour
+    if caster:hasStatusEffect(tpz.effect.COMPOSURE) then
+        potency = potency * 2
+        duration = 3600
+    end
+
     if target:addStatusEffect(effect, potency, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else

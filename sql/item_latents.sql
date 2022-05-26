@@ -2452,15 +2452,10 @@ INSERT INTO `item_latents` VALUES(17759, 165, 7, 59, 20);   -- Koggelmander - Vs
 -- -------------------------------------------------------
 -- Lyft Scimitar
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(17766, 165, 4, 15, 3);     -- Crit Chance +4~16, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 165, 4, 15, 4);     -- Crit Chance +4~16, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 165, 4, 15, 5);     -- Crit Chance +4~16, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 165, 4, 15, 6);     -- Crit Chance +4~16, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(17766, 73, 25, 40, 1);     -- Store TP +25 if MainJob is not BLU
+INSERT INTO `item_latents` VALUES(17766, 73, 25, 40, 7);     -- Store TP +25 if MainJob is not BLU
+INSERT INTO `item_latents` VALUES(17766, 73, 25, 40, 8);     -- Store TP +25 if MainJob is not BLU
 
-INSERT INTO `item_latents` VALUES(17766, 421, 4, 15, 3);     -- Critical Damage +4~16%, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 421, 4, 15, 4);     -- Critical Damage +4~16%, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 421, 4, 15, 5);     -- Critical Damage +4~16%, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(17766, 421, 4, 15, 6);     -- Critical Damage +4~16%, party size 3+. Effect strengthens with more members
 
 -- Kodachi Of Trials
 INSERT INTO `item_latents` VALUES(17773, 2, -20, 47, 0);

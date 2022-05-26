@@ -604,6 +604,7 @@ enum class Mod
     ENSPELL_DMG               = 343, // stores the base damage of the enspell before reductions
     ENSPELL_DMG_BONUS         = 432, //
     ENSPELL_CHANCE            = 856, // Chance of enspell activating (0 = 100%, 10 = 10%, 30 = 30%, ...)
+    ENSPELL_MACC              = 1271,// Increases Enspell magical accuracy
     SPIKES                    = 342, // store the type of spike spell active (0 if nothing)
     SPIKES_DMG                = 344, // stores the base damage of the spikes before reductions
 
@@ -848,6 +849,7 @@ enum class Mod
     ALL_WSDMG_ALL_HITS        = 840, // Generic (all Weaponskills) damage, on all hits.
     // Per https://www.bg-wiki.com/bg/Weapon_Skill_Damage we need all 3..
     ALL_WSDMG_FIRST_HIT       = 841, // Generic (all Weaponskills) damage, first hit only.
+    ELEMENTAL_WSDMG           = 1272, // Increases elemental WS dmg(sanguiine blade, red lotus blade, etc)
     WS_NO_DEPLETE             = 949, // % chance a Weaponskill depletes no TP.
     WS_STR_BONUS              = 980, // % bonus to str_wsc.
     WS_DEX_BONUS              = 957, // % bonus to dex_wsc.

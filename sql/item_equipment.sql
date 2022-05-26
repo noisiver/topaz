@@ -7426,7 +7426,7 @@ INSERT INTO `item_equipment` VALUES (17694,'guespiere',73,0,16,186,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17695,'bayards_sword',73,0,64,273,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17696,'buzzard_tuck',40,0,16,184,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17697,'mighty_talwar',72,0,2195665,257,0,0,3,0);
-INSERT INTO `item_equipment` VALUES (17698,'princely_sword',72,0,64,278,0,1,3,0);
+INSERT INTO `item_equipment` VALUES (17698,'princely_sword',72,0,64,278,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17699,'dissector',72,0,2143985,285,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17700,'durandal',71,0,64,277,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17701,'shotel',42,0,43233,358,0,0,3,0);

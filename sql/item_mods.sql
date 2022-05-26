@@ -21458,6 +21458,7 @@ INSERT INTO `item_mods` VALUES (17645,23,7);
 INSERT INTO `item_mods` VALUES (17647,25,3);
 INSERT INTO `item_mods` VALUES (17647,110,5);
 INSERT INTO `item_mods` VALUES (17648,13,1);
+INSERT INTO `item_mods` VALUES (17649,431,1); -- Nightmare Sword
 INSERT INTO `item_mods` VALUES (17650,59,3);
 INSERT INTO `item_mods` VALUES (17650,431,1);
 INSERT INTO `item_mods` VALUES (17652,61,14);
@@ -21518,10 +21519,12 @@ INSERT INTO `item_mods` VALUES (17695,431,1);
 INSERT INTO `item_mods` VALUES (17696,9,1);
 INSERT INTO `item_mods` VALUES (17696,432,3);    -- Sword enhancement spell damage +3
 INSERT INTO `item_mods` VALUES (17697,9,2);
-INSERT INTO `item_mods` VALUES (17698,8,4);
+INSERT INTO `item_mods` VALUES (17698,8,4); -- (Princely Sword)
 INSERT INTO `item_mods` VALUES (17698,10,-6);
 INSERT INTO `item_mods` VALUES (17698,14,-6);
 INSERT INTO `item_mods` VALUES (17698,27,-6);
+INSERT INTO `item_mods` VALUES (17698,62,25); -- +25% Attack
+INSERT INTO `item_mods` VALUES (17698,63,-25); -- -25% Defense
 INSERT INTO `item_mods` VALUES (17699,377,13);
 INSERT INTO `item_mods` VALUES (17700,10,7);
 INSERT INTO `item_mods` VALUES (17700,27,1);
@@ -21642,6 +21645,7 @@ INSERT INTO `item_mods` VALUES (17760,11,2);
 INSERT INTO `item_mods` VALUES (17760,68,2);
 INSERT INTO `item_mods` VALUES (17762,366,4);
 INSERT INTO `item_mods` VALUES (17763,366,6);
+INSERT INTO `item_mods` VALUES (17766,610,25); -- (Lyft Scimitar) +25% Vorpal Blade Damage
 INSERT INTO `item_mods` VALUES (17768,431,1); -- Yoto +1
 INSERT INTO `item_mods` VALUES (17769,431,1); -- Kororito +1
 INSERT INTO `item_mods` VALUES (17770,431,1);
