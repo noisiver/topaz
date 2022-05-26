@@ -573,6 +573,7 @@ void SmallPacket0x015(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         if (moved)
         {
             PChar->updatemask |= UPDATE_POS;
+            PChar->loc.zone->SpawnPCs(PChar);
         }
 
         if (isUpdate)
@@ -717,6 +718,7 @@ void SmallPacket0x01A(map_session_data_t* PSession, CCharEntity* PChar, CBasicPa
         {
             auto spellID = static_cast<SpellID>(data.ref<uint16>(0x0C));
             PChar->PAI->Cast(TargID, spellID);
+            PChar->loc.zone->SpawnPCs(PChar);
         }
         break;
         case 0x04: // disengage
