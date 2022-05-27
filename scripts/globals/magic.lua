@@ -1423,20 +1423,20 @@ function getElementalDebuffDOT(INT)
     if (INT<= 39) then
         DOT = 5
     elseif (INT <= 69) then
-        DOT = 20
+        DOT = 7
     elseif (INT <= 99) then
-        DOT = 25
+        DOT = 9
     elseif (INT <= 149) then
-        DOT = 30
+        DOT = 11
     else
-        DOT = 35
+        DOT = 13
     end
     return DOT
 end
 
 function getElementalDebuffStatDownFromDOT(dot)
     local stat_down = 0
-    stat_down = (dot-4)* 0.5 +5
+    stat_down = dot + 10
     if dot > 30 then
         stat_down = 39 -- BLU"s cold wave is -39 stat down
     end
