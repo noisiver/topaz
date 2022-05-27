@@ -54,24 +54,28 @@ function onRegionEnter(player, region)
         [1] = function (x)  --
         ---------------------------------
             player:startEvent(3) -- ports player to NW room of map 3
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [2] = function (x)  --
         ---------------------------------
             player:startEvent(2) -- ports player to SW room of map 3
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [3] = function (x)  --
         ---------------------------------
             player:startEvent(1) -- ports player to SE room of map 3
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [4] = function (x)  --
         ---------------------------------
             player:startEvent(0) -- ports player to NE room of map 3
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         default = function (x)

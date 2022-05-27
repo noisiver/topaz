@@ -40,42 +40,49 @@ function onRegionEnter(player, region)
         [1] = function (x)  --
         ---------------------------------
             player:startEvent(0) -- ports player to far NE corner
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [2] = function (x)  --
         ---------------------------------
             player:startEvent(2) -- ports player to
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [3] = function (x)  --
         ---------------------------------
             player:startEvent(1) -- ports player to far SE corner
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [4] = function (x)  --
         ---------------------------------
             player:startEvent(1) -- ports player to far SE corner
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [5] = function (x)  --
         ---------------------------------
             player:startEvent(5) -- ports player to H-7 on map 4 (south or north part, randomly)
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [6] = function (x)  --
         ---------------------------------
             player:startEvent(6) -- ports player to position "A" on map 2
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         ---------------------------------
         [7] = function (x)  --
         ---------------------------------
             player:startEvent(7) -- ports player to position G-8 on map 2
+            player:delStatusEffect(tpz.effect.INVISIBLE)
         end,
 
         default = function (x)
