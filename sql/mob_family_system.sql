@@ -579,10 +579,11 @@ INSERT INTO `mob_family_system` VALUES (545,'MagicPot_SightAggro',3,'Arcana',2,4
 INSERT INTO `mob_family_system` VALUES (546,'Crab',2,'Aquan',0,40,100,240,2,2,1,5,4,5,2,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,1,0.05,0.7,0.7,6,2,1); -- King Arthro past
 INSERT INTO `mob_family_system` VALUES (547,'Serket-Past',20,'Vermin',3,40,100,240,1,1,3,3,2,4,4,1,3,1,3,1,1,1,1,0.7,1,0.7,0.7,0.7,0.05,0.7,0.7,4,258,0);
 INSERT INTO `mob_family_system` VALUES (548,'GuivreWyvern-Past',10,'Dragon',1,60,115,240,1,1,3,4,4,3,3,1,3,1,3,1,1,1,1,0.05,0.4,0.7,0.7,0.7,1,0.5,0.5,7,3,0);
+INSERT INTO `mob_family_system` VALUES (549,'Imp_Exp_Camp',9,'Demon',0,60,100,140,5,5,4,3,3,5,5,1,3,1,5,1,1,1,1,1.15,1.15,0.7,1,1.15,1.15,1.15,0.3,8,1,0); -- Azouph Isle Caedarva Mire Exp camp (70-75)
 
 
 
--- Custom Content
+
 INSERT INTO `mob_family_system` VALUES (900,'AnimatedWeapon-Archery',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (901,'AnimatedWeapon-Axe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (902,'AnimatedWeapon-Club',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
@@ -608,6 +609,7 @@ INSERT INTO `mob_family_system` VALUES (921,'Iron_Eater',13,'Humanoid',0,40,100,
 INSERT INTO `mob_family_system` VALUES (922,'Goblin_ExcavationDuty',7,'Beastmen',0,60,100,120,2,2,4,2,3,3,3,1,1,1,1,1,1,1,1,1.3,1.3,1.3,1.3,1.3,1.3,1.5,1.0,1,2,0); -- Assault
 INSERT INTO `mob_family_system` VALUES (923,'Troll_ExcavationDuty',7,'Beastmen',1,60,125,120,1,5,1,5,1,2,2,1,1,1,1,1,1,1,1,0.4,0.7,1,1,0.7,1.15,0.85,0.85,1,2,0); -- Assault
 INSERT INTO `mob_family_system` VALUES (924,'Dahak',10,'Dragon',3,60,125,90,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.5,0.7,0.7,0.7,0.7,0.85,0.7,0.7,8,2,0);
+
 -- 10,22,50,96,111,317-318,405,411-434,439-443 available for use
 
 /*!40000 ALTER TABLE `mob_family_system` ENABLE KEYS */;

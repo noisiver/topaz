@@ -4080,7 +4080,7 @@ INSERT INTO `mob_groups` VALUES (68,6554,79,'Guard_Skeleton',330,1,1247,0,0,79,8
 INSERT INTO `mob_groups` VALUES (69,6747,79,'Vidhuwa_The_Wrathborn',7200,0,6020,35000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (70,714,79,'Chigoe_Karakul',0,128,466,0,0,76,79,0);
 INSERT INTO `mob_groups` VALUES (71,6483,79,'Jnun_Exp_Camp',330,0,1408,0,0,75,77,0);
-INSERT INTO `mob_groups` VALUES (72,6636,79,'Heraldic_Imp_Exp_Camp',330,0,1302,0,0,80,81,0);
+INSERT INTO `mob_groups` VALUES (72,6764,79,'Heraldic_Imp_Exp_Camp',330,0,1302,0,0,80,81,0);
 
 INSERT INTO `mob_groups` VALUES (2811,2810,79,'Nareema',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (2812,2941,79,'Odin',0,128,0,0,0,0,0,0);
@@ -6716,6 +6716,10 @@ INSERT INTO `mob_groups` VALUES (37,2307,98,'Laa_Heha_the_Falconer',0,0,0,0,0,0,
 INSERT INTO `mob_groups` VALUES (38,727,98,'Cinderwing',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (39,1764,98,'Gorebeak',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (40,5150,98,'Gugalanna',0,128,0,0,0,92,94,0);
+INSERT INTO `mob_groups` VALUES (41,1740,98,'Goblin_Toxophilite_Beetle_Camp',330,0,1178,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (42,1688,98,'Goblin_Mine_Exp_Camp',0,128,0,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (43,1660,98,'Goblin_Flagman_Beetle_Camp',330,0,1056,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (44,1669,98,'Goblin_Grenadier_Beetle_Camp',330,0,1086,0,0,82,83,0);
 
 INSERT INTO `mob_groups` VALUES (5227,18,98,'Abenzio',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (5228,37,98,'Achtelle',1,0,0,0,0,1,1,0);

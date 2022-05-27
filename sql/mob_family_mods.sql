@@ -996,6 +996,7 @@ INSERT INTO `mob_family_mods` VALUES (112,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (233,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (165,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (166,56,-1,1);
+INSERT INTO `mob_family_mods` VALUES (549,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (32,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (33,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (34,56,-1,1);
