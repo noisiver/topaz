@@ -774,7 +774,7 @@ INSERT INTO `mob_skills` VALUES (831,513,'moonlit_charge',0,10.0,512,3000,4,4,0,
 INSERT INTO `mob_skills` VALUES (832,514,'crescent_fang',0,10.0,513,3000,4,4,0,0,1,0,0); -- Transfixion (1)
 INSERT INTO `mob_skills` VALUES (833,515,'lunar_cry',0,10.0,514,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (834,516,'ecliptic_growl',1,10.0,516,3000,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (835,517,'lunar_roar',1,40.0,515,3000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (835,517,'lunar_roar',1,10.0,515,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (836,518,'eclipse_bite',0,10.0,518,3000,4,4,0,0,9,4,0); -- Gravitation (9) / Scission (4)
 INSERT INTO `mob_skills` VALUES (837,519,'ecliptic_howl',1,10.0,517,3000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (838,521,'howling_moon',1,10.0,520,0,4,0,0,0,0,0,0);

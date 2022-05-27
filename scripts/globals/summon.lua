@@ -487,8 +487,8 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     -- Calculate Blood Pact Damage before stoneskin
     dmg = dmg + dmg * avatar:getMod(tpz.mod.BP_DAMAGE) / 100
 
-    -- handling normal stoneskin
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
+    -- handling normal stoneskin
     dmg = utils.stoneskin(target, dmg)
     -- Handle absorb
     dmg = adjustForTarget(target, dmg, damageType)
@@ -497,7 +497,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
 
     -- Add HP if absorbed
     if (dmg < 0) then
-        dmg = (target:addHP(-dmg))
+        dmg = target:addHP(-dmg)
         skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
     else
 	    target:takeDamage(dmg, avatar, attackType, damageType)
@@ -508,6 +508,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     end
     target:handleAfflatusMiseryDamage(dmg)
     avatar:delStatusEffectSilent(tpz.effect.BOOST)
+    avatar:setLocalVar("TP", 0)
     avatar:setTP(0)
     return dmg
 end
@@ -555,6 +556,7 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
     if params.NO_TP_CONSUMPTION == true then
         giveAvatarTP(avatar)
     end
+    avatar:setLocalVar("TP", 0)
     return dmg
 end
 
@@ -1325,7 +1327,6 @@ function getAvatarTP(player)
 end
 
 function giveAvatarTP(avatar)
-    --TODO: Test this
     local tp = avatar:getLocalVar("TP")
     avatar:setTP(tp)
 end
