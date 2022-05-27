@@ -166,6 +166,7 @@ function onEventFinish(player, csid, option)
             player:delKeyItem(tpz.ki.ULBRECHTS_MORTARBOARD)
             player:completeQuest(CRYSTAL_WAR, tpz.quest.id.crystalWar.DOWNWARD_HELIX)
             player:addItem(15004) -- Schlar's Bracers
+            player:addTitle(tpz.title.SUMMA_CUM_LAUDE)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 15004)
             player:setCharVar("DownwardHelix", 0)
             player:setCharVar("Erlene_DownwardHelix_Timer", VanadielDayOfTheYear())
