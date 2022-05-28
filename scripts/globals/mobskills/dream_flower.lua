@@ -15,7 +15,6 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.LULLABY
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 90))
-    skill:setMsg(tpz.msg.basic.SKILL_ENFEEB)
 
     return tpz.effect.SLEEP_I
 end
