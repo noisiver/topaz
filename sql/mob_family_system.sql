@@ -313,7 +313,7 @@ INSERT INTO `mob_family_system` VALUES (248,'Turret-Orc',18,'Unclassified',4,40,
 INSERT INTO `mob_family_system` VALUES (249,'Turret-Quadav',18,'Unclassified',4,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (250,'Turret-Yagudo',18,'Unclassified',4,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0);
 INSERT INTO `mob_family_system` VALUES (251,'Uragnite',2,'Aquan',1,40,100,90,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,0.6,1.15,1.15,1.15,1.5,0.6,1.15,1.15,6,2,1);
-INSERT INTO `mob_family_system` VALUES (252,'Vampyr',19,'Undead',1,60,125,120,1,2,1,4,2,5,1,1,1,1,1,1,1,1,1,0.85,0.5,0.6,0.6,0.85,0.85,1.15,0.05,8,6,0); -- Normal Vampyr
+INSERT INTO `mob_family_system` VALUES (252,'Vampyr',19,'Undead',0,60,125,120,1,2,1,4,2,5,1,1,1,1,1,1,1,1,1,0.85,0.5,0.6,0.6,0.85,0.85,1.15,0.05,8,6,0); -- Normal Vampyr
 INSERT INTO `mob_family_system` VALUES (253,'Wamoura',20,'Vermin',1,60,125,90,3,1,4,1,4,1,1,1,1,1,1,1,0.875,1,1,0.05,0.6,0.5,0.7,0.6,1,1,1,1,35,0);
 INSERT INTO `mob_family_system` VALUES (254,'Wamouracampa',20,'Vermin',1,60,125,90,1,3,1,5,5,4,4,1,1,1,1,1,0.875,1,1,0.7,0.6,1,0.7,0.6,1.15,1,1,1,2,0);
 INSERT INTO `mob_family_system` VALUES (255,'Wanderer',12,'Empty',0,40,100,90,3,3,5,5,4,4,4,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
@@ -370,7 +370,7 @@ INSERT INTO `mob_family_system` VALUES (305,'GotohZhaTheRe',7,'Beastmen',2,40,12
 INSERT INTO `mob_family_system` VALUES (306,'Dea',14,'Lizard',4,40,125,90,1,5,1,6,6,5,5,1,1,1,1,1,1,1,1,0.7,0.6,1.3,0.6,0.85,1.15,1.15,1.15,4,259,0);
 INSERT INTO `mob_family_system` VALUES (307,'Achamoth',20,'Vermin',2,40,125,90,3,1,4,1,4,1,1,1,1,1,1,1,0.875,1,1,0.05,0.6,0.5,0.7,0.6,1,1,1,1,35,0);
 INSERT INTO `mob_family_system` VALUES (308,'Khromasoul',7,'Beastmen',2,40,125,120,1,5,1,5,1,2,2,1,1,1,1,1,1,1,1,0.4,0.7,1,1,0.7,1.15,0.85,0.85,1,1,0);
-INSERT INTO `mob_family_system` VALUES (309,'Nosferatu',19,'Undead',2,40,125,120,1,2,1,4,2,5,1,1,1,1,1,1,1,1,1,0.85,0.5,0.6,0.6,0.85,0.85,1.15,0.05,8,6,0); 
+INSERT INTO `mob_family_system` VALUES (309,'Nosferatu',19,'Undead',1,40,125,120,1,2,1,4,2,5,1,1,1,1,1,1,1,1,1,0.85,0.5,0.6,0.6,0.85,0.85,1.15,0.05,8,6,0); 
 INSERT INTO `mob_family_system` VALUES (310,'ExperimentalLa',7,'Beastmen',1,40,125,140,3,3,2,2,4,4,1,1,1,1,1,1,1,1,1,0.85,0.85,1,1.15,0.7,0.6,1.3,0.7,8,1,0);
 INSERT INTO `mob_family_system` VALUES (311,'MahjlaefThePai',9,'Demon',1,40,125,140,5,5,1,5,1,1,1,1,1,1,1,1,1,1,1,0.7,0.5,0.7,0.7,0.7,0.1,0.85,0.05,6,418,0);
 INSERT INTO `mob_family_system` VALUES (312,'Nuhn',2,'Aquan',1,40,125,90,1,1,3,5,4,4,1,1,1,1,1,1,1,1,1,1,0.7,1,1.15,0.7,0.3,1.15,0.6,6,2,0);
