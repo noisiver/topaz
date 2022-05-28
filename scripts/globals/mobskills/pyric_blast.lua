@@ -36,7 +36,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 
-    MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 5, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 3, 3, 300)
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.FIRE)
 

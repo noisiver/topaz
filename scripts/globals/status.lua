@@ -1244,6 +1244,7 @@ tpz.mod =
     SPIKES                          = 342,
     ENSPELL_DMG                     = 343,
     ENSPELL_CHANCE                  = 856,
+    ENSPELL_MACC                    = 1271, -- Increases Enspell magical accuracy
     SPIKES_DMG                      = 344,
     TP_BONUS                        = 345,
     PERPETUATION_REDUCTION          = 346,
@@ -1586,6 +1587,7 @@ tpz.mod =
     ALL_WSDMG_ALL_HITS              = 840, -- Generic (all Weaponskills) damage, on all hits.
     -- Per https://www.bg-wiki.com/bg/Weapon_Skill_Damage we need all 3..
     ALL_WSDMG_FIRST_HIT             = 841, -- Generic (all Weaponskills) damage, first hit only.
+    ELEMENTAL_WSDMG                 = 1272,-- Increases elemental WS dmg(sanguiine blade, red lotus blade, etc)
     WS_NO_DEPLETE                   = 949, -- % chance a Weaponskill depletes no TP.
     WS_STR_BONUS                    = 980, -- % bonus to str_wsc.
     WS_DEX_BONUS                    = 957, -- % bonus to dex_wsc.

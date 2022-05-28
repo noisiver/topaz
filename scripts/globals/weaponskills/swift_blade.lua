@@ -36,12 +36,12 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
-
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.STR_DOWN) == false) then
-        local duration = (60 + (tp/1000 * 60)) * applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
-        target:addStatusEffect(tpz.effect.STR_DOWN, 8, 0, duration)
+    -- Sanguine Sword Hidden Effect
+    local sword = player:getEquipID(tpz.slot.MAIN)
+	if sword == 17721 and not target:isUndead()  then -- Sanguine Sword
+        local drain = math.floor(damage * (math.random(30, 70) / 100))
+        player:addHP(drain)
     end
 
     return tpHits, extraHits, criticalHit, damage
-
 end

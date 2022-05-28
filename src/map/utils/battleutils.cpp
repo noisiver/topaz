@@ -342,7 +342,7 @@ namespace battleutils
         if (res == 0)
             return 1;
         if (res <= 5.0f)
-            return 0.5f;
+            return 0.05f;
         if (res >= 150.0f)
             return 1.5f;
         res = res / 100;
@@ -354,14 +354,14 @@ namespace battleutils
 
     float getMagicResist(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skill, uint8 element, uint8 bonus)
     {
-        float p = 0;
-        float DMacc = 0;
-        float levelcorrectionpenalty = 0;
+        float p = 0.0f;
+        float DMacc = 0.0f;
+        float levelcorrectionpenalty = 0.0f;
         float casterLvl = PAttacker->GetMLevel();
         float targetLvl = PDefender->GetMLevel();
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-        float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element]));
+        float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element -1]));
         //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
         // Spikes are PDefender for Macc
         if (PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLAZE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SHOCK_SPIKES) ||
@@ -371,7 +371,7 @@ namespace battleutils
         {
             casterLvl = PDefender->GetMLevel();
             targetLvl = PAttacker->GetMLevel();
-            meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element]));
+            meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element -1]));
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
             //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
             // Blue Magic spike spells use Blue Magic Skll
@@ -388,20 +388,20 @@ namespace battleutils
         //printf("\nmagicacc after correction penalty = %f \n", magicacc);
         DMacc = (float)(magicacc - meva);
         //printf("\nDMacc after = %f \n", DMacc);
-        if (DMacc < 0)
+        if (DMacc < 0.0f)
         {
-            p = floor(50 + DMacc / 2);
+            p = floor(50.0f + DMacc / 2.0f);
         }
         else
         {
-            p = floor(50 + DMacc); 
+            p = floor(50.0f + DMacc); 
         }
          //printf("p DMacc after %f \n", p);
-        if (p < 5)
+        if (p < 5.0f)
         {
             p = 5.0f;
         }
-        else if (p > 95)
+        else if (p > 95.0f)
         {
             p = 95.0f;
         }
@@ -409,34 +409,46 @@ namespace battleutils
          //printf("p after clamping to 5,95 = %f \n", p);
          //printf("SDT element %i \n", element);
         // Add SDT
-        p = p * getElementalSDTDivisor(PAttacker, element);
-        if (p < 5)
+        auto SDT = getElementalSDTDivisor(PAttacker, element);
+        p = p * SDT;
+        if (p < 5.0f)
         {
             p = 5.0f;
         }
-        else if (p > 95)
+        else if (p > 95.0f)
         {
             p = 95.0f;
         }
-        p = p / 100;
+        p = p / 100.0f;
          //printf("p after sdt = %f \n", p);
-        float half = (1 - p);
-        float quart = static_cast<float>(pow(half, 2));
-        float eighth = static_cast<float>(pow(half, 3));
-        p = floor(p * 100) / 100;
+        float half = (1.0f - p);
+        float quart = static_cast<float>(pow(half, 2.0f));
+        float eighth = static_cast<float>(pow(half, 3.0f));
+        p = floor(p * 100.0f) / 100.0f;
          //printf("p trying to remove decimals = %f \n", p);
-        float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.));
-         //printf("p after resist rolls = %f \n", p);
+        float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.0f));
+        //printf("resist roll %f \n", resvar);
         // Apply "special" gear resist bonus for players
-        if (PDefender->getMod(resistarray[element]) < 0 && resvar < 0.5)
+        if (PDefender->getMod(resistarray[element -1]) < 0 && resvar < 0.5)
         {
             return 0.5f;
         }
-        else if (PDefender->getMod(resistarray[element]) < 1 && resvar < 0.25)
+        else if (PDefender->getMod(resistarray[element -1]) < 1 && resvar < 0.25)
         {
             return 0.25f;
         }
 
+        // 0.05 SDT makes you lose ALL coin flips(cannot do more than 1/8th damage)
+        if (SDT <= 0.05f)
+        {
+            return 0.125f;
+        }
+        // 0.5 SDT drops a resist tier(cannot do more than half damage)
+        else if (SDT <= 0.5f)
+        {
+            (resvar = resvar / 2.0f);
+        }
+        //printf("final resist after SDT %f \n", resvar);
         // Determine resist based on which thresholds have been crossed.
         if (resvar <= eighth)
             return 0.125f;
@@ -618,7 +630,7 @@ namespace battleutils
         {
             CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
            // if (waist && waist->getID() == obi[element])
-            if (waist && waist->getID() == obi[element + 1])
+            if (waist && waist->getID() == obi[element])
             {
                 obiBonus = true;
             }
@@ -629,25 +641,26 @@ namespace battleutils
             dBonus += tpzrand::GetRandomNumber(100) / 1000.0f;
         }
        // if (WeekDay == strongDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        if (WeekDay == strongDay[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (WeekDay == strongDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.1f;
         //else if (WeekDay == weakDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (WeekDay == weakDay[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (WeekDay == weakDay[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.1f;
        //if (weather == strongWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        if (weather == strongWeatherSingle[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (weather == strongWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.1f;
        // else if (weather == strongWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == strongWeatherDouble[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == strongWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus += 0.25f;
        // else if (weather == weakWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == weakWeatherSingle[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherSingle[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.1f;
         //else if (weather == weakWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
-        else if (weather == weakWeatherDouble[element + 1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.25f;
-
-        damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element +1, +30));
+        // printf("\nDayWeather Bonus %f\n", dBonus);
+        uint32 enspellMaccBonus = PAttacker->getMod(Mod::ENSPELL_MACC);
+        damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element + 1, enspellMaccBonus));
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
@@ -2009,7 +2022,8 @@ namespace battleutils
         uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
 
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) ||
-            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
+            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE) ||
+            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_SWORDPLAY))
         {
             return 0;
         }
@@ -2113,6 +2127,14 @@ namespace battleutils
                     int16 issekiganBonus = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ISSEKIGAN)->GetPower();
                     //ShowDebug(CL_CYAN"GetParryRate: Issekigan Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate+issekiganBonus));
                     parryRate = parryRate + issekiganBonus;
+                }
+                // Swordplay grants 5% parry per 60 shield skill that stacks with Inquartata
+                if (PDefender->objtype == TYPE_PC && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_SWORDPLAY))
+                {
+                    uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
+                    uint16 swordplayBonus = (uint16)floor((blockskill / 60) * 5);
+                    //ShowDebug(CL_CYAN "GetParryRate: Swordplay Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate + swordplayBonus));
+                    parryRate = parryRate + swordplayBonus;
                 }
 
                 // Inquartata grants a flat parry rate bonus.

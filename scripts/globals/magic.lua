@@ -408,6 +408,12 @@ function doEnspell(caster, target, spell, effect)
 		potency = 3 + math.floor(level / 10)
 	end
 
+    -- Composure doubles Enspell damage and increases Enspell duration to 1 hour
+    if caster:hasStatusEffect(tpz.effect.COMPOSURE) then
+        potency = potency * 2
+        duration = 3600
+    end
+
     if target:addStatusEffect(effect, potency, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
@@ -625,7 +631,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     
 	if getElementalSDT(element, target) == 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
 		res = 1/4
-    elseif getElementalSDT(element, target) == 5 then -- jimmayus: SDT tier .05 makes you lose ALL coin flips
+    elseif getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
     
@@ -650,9 +656,23 @@ end
 
 -- Applies resistance for things that may not be spells - ie. Quick Draw
 function applyResistanceAbility(player, target, element, skill, bonus)
-    local p = getMagicHitRate(player, target, skill, element, 0, bonus)
 
-    return getMagicResist(p)
+    local p = getMagicHitRate(player, target, skill, element, 0, bonus)
+    local res = getMagicResist(p)
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+        return 1/8
+    end
+
+    if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
+        res = 1/8
+    end
+
+    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
+        res = res / 2
+    end
+    
+    return res
 end
 
 -- Applies resistance for additional effects
@@ -660,6 +680,19 @@ function applyResistanceAddEffect(player, target, element, bonus)
 
     local p = getMagicHitRate(player, target, 0, element, 0, bonus)
 	local res = getMagicResist(p)
+
+    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+        return 1/8
+    end
+
+    --printf("res before SDT %d", res * 100)
+    if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
+        res = 1/8
+    end
+
+    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
+        res = res / 2
+    end
     
     if target:isPC() and element ~= nil and element > 0 and element < 9 then
         -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
@@ -667,7 +700,7 @@ function applyResistanceAddEffect(player, target, element, bonus)
         if     eleres < 0  and res < 0.5  then res = 0.5
         elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
-    
+    --printf("res after SDT %d", res * 100)
     return res
 end
 
@@ -1390,20 +1423,20 @@ function getElementalDebuffDOT(INT)
     if (INT<= 39) then
         DOT = 5
     elseif (INT <= 69) then
-        DOT = 20
+        DOT = 7
     elseif (INT <= 99) then
-        DOT = 25
+        DOT = 9
     elseif (INT <= 149) then
-        DOT = 30
+        DOT = 11
     else
-        DOT = 35
+        DOT = 13
     end
     return DOT
 end
 
 function getElementalDebuffStatDownFromDOT(dot)
     local stat_down = 0
-    stat_down = (dot-4)* 0.5 +5
+    stat_down = dot + 10
     if dot > 30 then
         stat_down = 39 -- BLU"s cold wave is -39 stat down
     end
@@ -1866,6 +1899,71 @@ function doDivineBanishNuke(caster, target, spell, params)
     --add in final adjustments
     dmg = finalMagicAdjustments(caster, target, spell, dmg)
     return dmg
+end
+
+function doAdditionalEffectDamage(player, target, chance, dmg, dStat, incudeMAB, bonusMAB, element, maccBonus)
+    local resist = applyResistanceAddEffect(player, target, element, maccBonus)
+    local params = {}
+    params.bonusmab = bonusMAB
+    params.includemab = incudeMAB
+    if math.random(100) <= chance then
+        if dStat ~= nil then
+            dmg = dmg + (player:getStat(dStat) - target:getStat(dStat))
+        end
+        dmg = addBonusesAbility(player, element, target, dmg, params)
+        dmg = math.floor(dmg * resist)
+        dmg = adjustForTarget(target, dmg, element)
+        dmg = finalMagicNonSpellAdjustments(player, target, element, dmg)
+    else
+         return 0
+    end
+    --printf("chance %i", chance)
+    --printf("resist %i", resist * 100)
+    --printf("bonusMAB %i", bonusMAB)
+    --printf("element %i", element)
+    --printf("maccBonus %i", maccBonus)
+    --printf("dmg %i", dmg)
+    return dmg
+end
+
+function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
+    local immunities = {
+        { tpz.effect.SLEEP_I, 1},
+        { tpz.effect.SLEEP_II, 1},
+        { tpz.effect.SLEEP_I, 4096},
+        { tpz.effect.SLEEP_II, 4096},
+        { tpz.effect.POISON, 256},
+        { tpz.effect.PARALYSIS, 32},
+        { tpz.effect.BLINDNESS, 64},
+        { tpz.effect.SILENCE, 16},
+        { tpz.effect.STUN, 8},
+        { tpz.effect.BIND, 4},
+        { tpz.effect.WEIGHT, 2},
+        { tpz.effect.SLOW, 128},
+        { tpz.effect.ELEGY, 512},
+        { tpz.effect.REQUIEM, 1024},
+        { tpz.effect.LULLABY, 2048},
+        { tpz.effect.LULLABY, 1},
+    }
+    local resist = applyResistanceAddEffect(player, target, element, bonus)
+
+    --Check for resistance traits 
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(player, target, effect) then
+        return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
+    end
+
+    -- Check for immunity
+    for i,statusEffect in pairs(immunities) do
+        local immunity = 0
+        if effect == statusEffect[1] then
+            immunity = statusEffect[2]
+        end
+        if target:hasImmunity(immunity) then
+            resist = 0
+        end
+    end
+
+    return resist
 end
 
 function calculateDurationForLvl(duration, spellLvl, targetLvl)

@@ -482,14 +482,14 @@ enum class Mod
     BP_DAMAGE                 = 126, // Blood Pact: Rage Damage increase percentage
     BP_BURST_DAMAGE           = 1257, // Blood Pact: Rage magic burst damage increase percentage.
     BLOOD_BOON                = 913, // Occasionally cuts down MP cost of Blood Pact abilities. Does not affect abilities that require Astral Flow.
-    // Absorb dmg to MP (Evoker's Bracers only)
+    // Absorb dmg to MP (Evoker's Bracers, Lyft Claymore, etc)
     FIRE_ABSORB_TO_MP          = 1459,  // Occasionally absorbs fire elemental damage to MP, in percents
-    ICE_ABSORB_TO_MP           = 1460,   // Occasionally absorbs ice elemental damage to MP, in percents
+    ICE_ABSORB_TO_MP           = 1460,  // Occasionally absorbs ice elemental damage to MP, in percents
     WIND_ABSORB_TO_MP          = 1461,  // Occasionally absorbs wind elemental damage to MP, in percents
-    EARTH_ABSORB_TO_MP         = 1462, // Occasionally absorbs earth elemental damage to MP, in percents
+    EARTH_ABSORB_TO_MP         = 1462,  // Occasionally absorbs earth elemental damage to MP, in percents
     LTNG_ABSORB_TO_MP          = 1463,  // Occasionally absorbs thunder elemental damage to MP, in percents
-    WATER_ABSORB_TO_MP         = 1464, // Occasionally absorbs water elemental damage to MP, in percents
-    LIGHT_ABSORB_TO_MP         = 1465, // Occasionally absorbs light elemental damage to MP, in percents
+    WATER_ABSORB_TO_MP         = 1464,  // Occasionally absorbs water elemental damage to MP, in percents
+    LIGHT_ABSORB_TO_MP         = 1465,  // Occasionally absorbs light elemental damage to MP, in percents
     DARK_ABSORB_TO_MP          = 1466,  // Occasionally absorbs dark elemental damage to MP, in percents
 
     // Blue Mage
@@ -604,6 +604,7 @@ enum class Mod
     ENSPELL_DMG               = 343, // stores the base damage of the enspell before reductions
     ENSPELL_DMG_BONUS         = 432, //
     ENSPELL_CHANCE            = 856, // Chance of enspell activating (0 = 100%, 10 = 10%, 30 = 30%, ...)
+    ENSPELL_MACC              = 1271,// Increases Enspell magical accuracy
     SPIKES                    = 342, // store the type of spike spell active (0 if nothing)
     SPIKES_DMG                = 344, // stores the base damage of the spikes before reductions
 
@@ -848,6 +849,7 @@ enum class Mod
     ALL_WSDMG_ALL_HITS        = 840, // Generic (all Weaponskills) damage, on all hits.
     // Per https://www.bg-wiki.com/bg/Weapon_Skill_Damage we need all 3..
     ALL_WSDMG_FIRST_HIT       = 841, // Generic (all Weaponskills) damage, first hit only.
+    ELEMENTAL_WSDMG           = 1272, // Increases elemental WS dmg(sanguiine blade, red lotus blade, etc)
     WS_NO_DEPLETE             = 949, // % chance a Weaponskill depletes no TP.
     WS_STR_BONUS              = 980, // % bonus to str_wsc.
     WS_DEX_BONUS              = 957, // % bonus to dex_wsc.

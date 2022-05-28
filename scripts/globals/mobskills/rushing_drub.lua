@@ -12,7 +12,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.WHM and mob:AnimationSub() == 0 or mob:AnimationSub() > 1 then
+    -- Only BLM and WHM Mamools can use this
+	if mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.WHM and mob:AnimationSub() == 0 or
+    mob:getMainJob() == tpz.job.BLM or mob:getMainJob() == tpz.job.WHM and mob:AnimationSub() > 1 then
 		return 0
 	end
     
@@ -23,6 +25,7 @@ function onMobWeaponSkill(target, mob, skill)
     local numhits = 3
     local accmod = 1
     local dmgmod = 1
+    local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
     params_phys.tp300 = 1

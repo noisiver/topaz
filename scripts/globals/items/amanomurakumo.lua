@@ -9,18 +9,12 @@ require("scripts/globals/status")
 
 function onAdditionalEffect(player, target, damage)
     local chance = 10
+    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.ATTACK_DOWN, tpz.magic.ele.WATER, 0)
+    local duration = math.floor(60 * resist)
 
-    local SDT = target:getMod(tpz.mod.WATER)
-    if SDT <= 5 then
-        chance = 0
-    else 
-        chance = chance * (SDT / 100)
-        chance = utils.clamp(chance, 5, 95)
-    end
-
-    if math.random(100) <= chance and applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0) > 0.5 then
+    if math.random(0, 95) <= chance or resist > 0.5 then
         target:delStatusEffectSilent(tpz.effect.ATTACK_BOOST)
-        target:addStatusEffect(tpz.effect.ATTACK_DOWN, 20, 0, 60) -- Power needs verification/correction
+        target:addStatusEffect(tpz.effect.ATTACK_DOWN, 20, 0, duration) 
         return tpz.subEffect.ATTACK_DOWN, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.ATTACK_DOWN
     end
 

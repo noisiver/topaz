@@ -3513,7 +3513,7 @@ INSERT INTO `mob_droplist` VALUES (636,0,0,1000,642,10);
 INSERT INTO `mob_droplist` VALUES (636,0,0,1000,643,800);
 INSERT INTO `mob_droplist` VALUES (636,2,0,1000,768,0);
 INSERT INTO `mob_droplist` VALUES (636,0,0,1000,768,240);
-INSERT INTO `mob_droplist` VALUES (637,0,0,1000,11531,164); -- (Desmodont) fidelity_mantle
+INSERT INTO `mob_droplist` VALUES (637,0,0,1000,11531,150); -- (Desmodont) fidelity_mantle
 INSERT INTO `mob_droplist` VALUES (638,0,0,1000,1422,1000); -- (Despot) gem_of_the_west
 INSERT INTO `mob_droplist` VALUES (638,0,0,1000,1422,240); -- (Despot) gem_of_the_west #2
 INSERT INTO `mob_droplist` VALUES (638,0,0,1000,1442,150); -- (Despot) obl._abjuration
@@ -3642,7 +3642,7 @@ INSERT INTO `mob_droplist` VALUES (668,0,0,1000,3192,100);
 INSERT INTO `mob_droplist` VALUES (668,0,0,1000,3206,100);
 INSERT INTO `mob_droplist` VALUES (668,0,0,1000,3208,100);
 INSERT INTO `mob_droplist` VALUES (668,0,0,1000,11434,100);
-INSERT INTO `mob_droplist` VALUES (669,0,0,1000,1449,90);
+INSERT INTO `mob_droplist` VALUES (669,0,0,1000,1449,100);
 INSERT INTO `mob_droplist` VALUES (670,0,0,1000,846,240);
 INSERT INTO `mob_droplist` VALUES (670,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (670,0,0,1000,894,150);
@@ -5445,10 +5445,9 @@ INSERT INTO `mob_droplist` VALUES (1055,0,0,1000,17388,50);
 INSERT INTO `mob_droplist` VALUES (1055,0,0,1000,17389,40);
 INSERT INTO `mob_droplist` VALUES (1055,0,0,1000,17390,70);
 INSERT INTO `mob_droplist` VALUES (1055,2,0,1000,17391,0);
-INSERT INTO `mob_droplist` VALUES (1056,0,0,1000,510,50);
+INSERT INTO `mob_droplist` VALUES (1056,0,0,1000,510,50); -- (Goblin Flagman)
 INSERT INTO `mob_droplist` VALUES (1056,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (1056,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (1056,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (1057,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (1057,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (1057,2,0,1000,748,0);
@@ -5603,7 +5602,7 @@ INSERT INTO `mob_droplist` VALUES (1085,0,0,1000,1456,10);
 INSERT INTO `mob_droplist` VALUES (1085,0,0,1000,1474,80);
 INSERT INTO `mob_droplist` VALUES (1085,0,0,1000,3419,10);
 INSERT INTO `mob_droplist` VALUES (1086,0,0,1000,507,50);
-INSERT INTO `mob_droplist` VALUES (1086,0,0,1000,508,50);
+INSERT INTO `mob_droplist` VALUES (1086,0,0,1000,508,50); -- (Goblin Grenadier)
 INSERT INTO `mob_droplist` VALUES (1086,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1086,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (1087,0,0,1000,1027,50);
@@ -6128,10 +6127,9 @@ INSERT INTO `mob_droplist` VALUES (1177,0,0,1000,511,100);
 INSERT INTO `mob_droplist` VALUES (1177,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (1177,0,0,1000,1062,50);
 INSERT INTO `mob_droplist` VALUES (1177,0,0,1000,1696,100);
-INSERT INTO `mob_droplist` VALUES (1178,2,0,1000,748,0);
-INSERT INTO `mob_droplist` VALUES (1178,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (1178,0,0,1000,2542,100);
-INSERT INTO `mob_droplist` VALUES (1178,0,0,1000,2543,100);
+INSERT INTO `mob_droplist` VALUES (1178,2,0,1000,748,0); -- (Goblin Toxophilite)
+INSERT INTO `mob_droplist` VALUES (1178,0,0,1000,2542,100); -- Goblin mess tin
+INSERT INTO `mob_droplist` VALUES (1178,0,0,1000,2543,100); -- Goblin weel
 INSERT INTO `mob_droplist` VALUES (1179,0,0,1000,510,50);
 INSERT INTO `mob_droplist` VALUES (1179,0,0,1000,511,50);
 INSERT INTO `mob_droplist` VALUES (1179,2,0,1000,749,0);
@@ -6203,15 +6201,15 @@ INSERT INTO `mob_droplist` VALUES (1187,0,0,1000,12984,10);
 INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,510,50); -- (Goblin Welldigger - Western Altepa) Goblin Armor
 INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,511,50); -- Goblin Mask
 INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,605,150); -- Pickaxe
-INSERT INTO `mob_droplist` VALUES (1188,2,0,1000,656,0);
+INSERT INTO `mob_droplist` VALUES (1188,2,0,1000,749,0); -- Mythril Beastcoin(Steal)
 INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,4509,100); -- Distilled water
 INSERT INTO `mob_droplist` VALUES (1188,0,0,1000,4518,100); -- Strip Of Sheep Jerky
 INSERT INTO `mob_droplist` VALUES (1189,0,0,1000,15506,240); -- (Goblin Wolfman) Parade Gorget
 INSERT INTO `mob_droplist` VALUES (1190,0,0,1000,13145,240); -- Uggalepih Pendant
-INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,891,70);
-INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,922,660);
-INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,924,40);
-INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,13576,183);	-- (Golden Bat) Night Cape
+INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,891,100);
+INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,922,240);
+INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,924,50);
+INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,13576,150);	-- (Golden Bat) Night Cape
 INSERT INTO `mob_droplist` VALUES (1192,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (1192,0,0,1000,2531,100);
 INSERT INTO `mob_droplist` VALUES (1192,0,0,1000,2977,100);
@@ -6219,8 +6217,8 @@ INSERT INTO `mob_droplist` VALUES (1193,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (1193,0,0,1000,2531,100);
 INSERT INTO `mob_droplist` VALUES (1193,0,0,1000,2977,100);
 INSERT INTO `mob_droplist` VALUES (1194,2,0,1000,749,0);
-INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,644,360);
-INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,955,120);
+INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,644,240);
+INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,955,100);
 INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,1465,1000);	-- (Goliath) Granite
 INSERT INTO `mob_droplist` VALUES (1196,0,0,1000,846,240);
 INSERT INTO `mob_droplist` VALUES (1196,0,0,1000,889,100);
@@ -6234,11 +6232,11 @@ INSERT INTO `mob_droplist` VALUES (1198,0,0,1000,919,240);	-- (Goobbue - Passhow
 INSERT INTO `mob_droplist` VALUES (1198,0,0,1000,953,240);	-- Treant Bulb
 INSERT INTO `mob_droplist` VALUES (1198,0,0,1000,959,150);	-- Dahlia
 INSERT INTO `mob_droplist` VALUES (1198,0,0,1000,1237,50);	-- Tree Cuttings
-INSERT INTO `mob_droplist` VALUES (1199,0,0,1000,959,60);
+INSERT INTO `mob_droplist` VALUES (1199,0,0,1000,959,50);
 INSERT INTO `mob_droplist` VALUES (1199,0,0,1000,1237,10);
-INSERT INTO `mob_droplist` VALUES (1200,0,0,1000,953,52);	-- (Goobbue Farmer) Treant Bult
-INSERT INTO `mob_droplist` VALUES (1200,0,0,1000,959,48);	-- Dahlia
-INSERT INTO `mob_droplist` VALUES (1200,0,0,1000,1237,55);	-- Tree Cuttings
+INSERT INTO `mob_droplist` VALUES (1200,0,0,1000,953,50);	-- (Goobbue Farmer) Treant Bult
+INSERT INTO `mob_droplist` VALUES (1200,0,0,1000,959,50);	-- Dahlia
+INSERT INTO `mob_droplist` VALUES (1200,0,0,1000,1237,50);	-- Tree Cuttings
 INSERT INTO `mob_droplist` VALUES (1201,0,0,1000,919,240);	-- (Goobbue Gardener)	Clump of Boyahda moss
 INSERT INTO `mob_droplist` VALUES (1201,0,0,1000,1237,100);	-- Bag of tree cuttings
 INSERT INTO `mob_droplist` VALUES (1201,4,0,1000,919,0); -- Clump of Boyahda moss(Despoil)

@@ -23,7 +23,8 @@ end
 
 function onUseAbility(player, target, ability)
     -- Plus 5 percent mp recovers per extra devotion merit
-    local meritBonus = player:getMerit(tpz.merit.DEVOTION) - 5
+    --local meritBonus = player:getMerit(tpz.merit.DEVOTION) - 5
+    local meritBonus = 0 -- OOE so removed
     -- printf("Devotion Merit Bonus: %d", meritBonus)
 
     local mpPercent = (25 + meritBonus) / 100

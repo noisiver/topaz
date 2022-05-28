@@ -117,8 +117,8 @@ function utils.mobSelfErase(target)
     }
 
     for i, effect in ipairs(removables) do
-        if (target:hasStatusEffect(effect)) then
-            target:delStatusEffect(effect)
+        if (target:delStatusEffectSilent(effect)) then
+            target:delStatusEffectSilent(effect)
         end
     end
 end

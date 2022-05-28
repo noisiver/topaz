@@ -11,6 +11,13 @@
 -- 100%TP     200%TP      300%TP
 --  4              4           4        new
 -- 1.125      1.125      1.125        old
+
+-- Changed to non-elemental magic damage!
+-- 2.0 / 2.5 / 3.0 ftp
+-- 100% MND WSC
+-- MAB included
+-- 100 bonus macc
+-- -50% enmity
 -----------------------------------
 require("scripts/globals/aftermath")
 require("scripts/globals/settings")
@@ -19,19 +26,13 @@ require("scripts/globals/weaponskills")
 -----------------------------------
 function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local params = {}
-    params.numHits = 3
-    -- ftp damage mods (for Damage Varies with TP lines are calculated in the function
-    params.ftp100 = 2 params.ftp200 = 2 params.ftp300 = 2
-    -- wscs are in % so 0.2=20%
-    params.str_wsc = 0.3 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0
-    params.mnd_wsc = 0.5 params.chr_wsc = 0.0
-    -- critical mods, again in % (ONLY USE FOR critICAL HIT VARIES WITH TP)
-    params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
-    params.canCrit = false
-    -- accuracy mods (ONLY USE FOR accURACY VARIES WITH TP) , should be the acc at those %s NOT the penalty values. Leave 0 if acc doesnt vary with tp.
-    params.acc100 = 0.0 params.acc200 = 0.0 params.acc300 = 0.0
-    -- attack multiplier (only some WSes use this, this varies the actual ratio value, see Tachi: Kasha) 1 is default.
-    params.atk100 = 1; params.atk200 = 1; params.atk300 = 1
+    params.ftp100 = 2.0 params.ftp200 = 2.5 params.ftp300 = 3
+    params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 1.0 params.chr_wsc = 0.0
+    params.ele = tpz.magic.ele.NONE
+    params.skill = tpz.skill.SWORD
+    params.includemab = true
+	params.enmityMult = 0.5
+	params.bonusmacc = 100
 
     if USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.ftp100 = 4.0 params.ftp200 = 4.0 params.ftp300 = 4.0
@@ -40,22 +41,16 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     -- Apply aftermath
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.MYTHIC)
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-		if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
+	if damage > 0 then player:trySkillUp(target, tpz.skill.SWORD, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 0)
-    if damage > 0 and resist or resist >= 0.5 then
-		local duration = (30 + ((tp - 1000) * 0.015)) 
-        --local duration = (tp / 40 + 5) 
-        --local duration = (30 + ((tp - 1000) * mod)) * resist
-        --local durationTwo = (30 + ((tp - 1000) * mod)) * resist
-		local power = 25
-		local subPower = 10
-		
-		target:addStatusEffect(tpz.effect.PLAGUE, 25, 3, duration * resist)
-		target:addStatusEffect(tpz.effect.ADDLE, power, 0, duration * resist, 0, subPower)
-	end
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.THUNDER, 0)
+    if damage > 0 and resist >= 0.5 then
+		local duration = (60 + ((tp - 1000) * 0.015)) 
+		local power = 10
+        target:addStatusEffect(tpz.effect.MAGIC_EVASION_DOWN, 10, 0, duration * resist)
+    end
 
     return tpHits, extraHits, criticalHit, damage
 end

@@ -8,6 +8,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+	mob:setDamage(250) -- Pre-Berserk melee damage of 250-350 with critical hits of 500+ against level-75 DDs.
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 200)
     mob:addMod(tpz.mod.ACC, 30) 

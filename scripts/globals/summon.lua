@@ -217,6 +217,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         if firstHitLanded then
             local wRatio = cRatio
             local isCrit = math.random() < critRate
+            local isGuarded = math.random()*100 < target:getGuardRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -224,6 +225,9 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 else
                    wRatio = wRatio + 1
                 end
+            end
+            if avatar:isInfront(target, 90) and isGuarded then
+                wRatio = wRatio - 1
             end
             -- get a random ratio from min and max
             local qRatio = getRandRatio(wRatio)
@@ -275,6 +279,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         while numHitsProcessed < numHitsLanded do
             local wRatio = cRatio
             local isCrit = math.random() < critRate
+            local isGuarded = math.random()*100 < target:getGuardRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -282,6 +287,9 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 else
                    wRatio = wRatio + 1
                 end
+            end
+            if avatar:isInfront(target, 90) and isGuarded then
+                wRatio = wRatio - 1
             end
             -- get a random ratio from min and max
             local qRatio = getRandRatio(wRatio)
@@ -479,8 +487,8 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     -- Calculate Blood Pact Damage before stoneskin
     dmg = dmg + dmg * avatar:getMod(tpz.mod.BP_DAMAGE) / 100
 
-    -- handling normal stoneskin
     --dmg = utils.rampartstoneskin(target, dmg)  --Unneeded?
+    -- handling normal stoneskin
     dmg = utils.stoneskin(target, dmg)
     -- Handle absorb
     dmg = adjustForTarget(target, dmg, damageType)
@@ -489,7 +497,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
 
     -- Add HP if absorbed
     if (dmg < 0) then
-        dmg = (target:addHP(-dmg))
+        dmg = target:addHP(-dmg)
         skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
     else
 	    target:takeDamage(dmg, avatar, attackType, damageType)
@@ -500,6 +508,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     end
     target:handleAfflatusMiseryDamage(dmg)
     avatar:delStatusEffectSilent(tpz.effect.BOOST)
+    avatar:setLocalVar("TP", 0)
     avatar:setTP(0)
     return dmg
 end
@@ -547,6 +556,7 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
     if params.NO_TP_CONSUMPTION == true then
         giveAvatarTP(avatar)
     end
+    avatar:setLocalVar("TP", 0)
     return dmg
 end
 
@@ -833,8 +843,8 @@ function getRandRatio(wRatio)
     local qRatio = wRatio
     local upperLimit = 0
     local lowerLimit = 0
-    -- 4.25 for Avatars, they count as 1H but same as mobs don't have a non-crit cap
-    local maxRatio = 4.25
+    -- 3.75 for Avatars
+    local maxRatio = 3.75
 
     if wRatio < 0.5 then
         upperLimit = math.max(wRatio + 0.5, 0.5)
@@ -1317,10 +1327,8 @@ function getAvatarTP(player)
 end
 
 function giveAvatarTP(avatar)
-    --TODO: Test this
     local tp = avatar:getLocalVar("TP")
     avatar:setTP(tp)
-    avatar:setLocalVar("TP", 0)
 end
 
 function checkForAvatarResistBonus(player, item)
