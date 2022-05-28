@@ -782,7 +782,7 @@ INSERT INTO `mob_skills` VALUES (840,526,'punch',0,10.0,528,3000,4,4,0,0,3,0,0);
 INSERT INTO `mob_skills` VALUES (841,527,'fire_ii',0,10.0,529,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (842,528,'burning_strike',0,10.0,530,3000,4,4,0,0,8,0,0); -- Impaction (8)
 INSERT INTO `mob_skills` VALUES (843,529,'double_punch',0,10.0,531,3000,4,4,0,0,2,0,0); -- Compression (2)
-INSERT INTO `mob_skills` VALUES (844,530,'crimson_howl',1,10.0,532,3000,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (844,530,'crimson_howl',0,10.0,532,3000,1,0,0,0,0,0,0); -- Changed to not be AOE
 INSERT INTO `mob_skills` VALUES (845,531,'fire_iv',0,10.0,533,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (846,532,'flaming_crush',0,10.0,534,3000,4,4,0,0,11,5,0); -- Fusion (11) / Reverberation (5)
 INSERT INTO `mob_skills` VALUES (847,533,'meteor_strike',0,10.0,535,3000,4,0,0,0,0,0,0);
