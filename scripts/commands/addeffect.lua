@@ -15,38 +15,38 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!addeffect {player} <effect> {power} {duration} {subid} {subPower}")
+    player:PrintToPlayer("!addeffect {target} <effect> {power} {duration} {subid} {subPower}")
 end
 
 function onTrigger(player, arg1, arg2, arg3, arg4, arg5, arg6)
 
-    local targ
+    local targ = player:getCursorTarget()
     local id
     local power
     local duration
     local subId
     local subPower
 
+
     if (arg1 == nil) then
         error(player, "Invalid effect.")
         return
     else
-        targ = GetPlayerByName(arg1)
-        if (targ == nil) then
-            -- no valid target given. shift arguments by one.
+        if (targ:isMob() == false) and (targ ~= arg1) then
             targ = player
+            -- Target player
             id = arg1
             power = tonumber(arg2) or 1
             duration = tonumber(arg3) or 60
             subId = tonumber(arg4) or 0
             subPower = tonumber(arg5) or 0
         else
-            -- valid target found. assign arguments as usual
-            id = arg2
-            power = tonumber(arg3) or 1
-            duration = tonumber(arg4) or 60
-            subId = tonumber(arg5) or 0
-            subPower = tonumber(arg6) or 0
+            -- Target is cursor target
+            id = arg1
+            power = tonumber(arg2) or 1
+            duration = tonumber(arg3) or 60
+            subId = tonumber(arg4) or 0
+            subPower = tonumber(arg5) or 0
         end
     end
 
