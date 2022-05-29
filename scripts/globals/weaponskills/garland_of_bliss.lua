@@ -43,11 +43,10 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 		
 	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 50)
-    if damage > 0 and resist >= 0.5 then
-        if not target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) then
-            local duration = (30 + tp / 1000 * 30) 
-            target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 12.5, 0, duration * resist)
-        end
+    if (damage > 0 and target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5 then
+        local duration = (30 + tp / 1000 * 30)
+        target:delStatusEffect(tpz.effect.DEFENSE_BOOST)
+        target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 12.5, 0, duration * resist)
     end
 
     return tpHits, extraHits, criticalHit, damage
