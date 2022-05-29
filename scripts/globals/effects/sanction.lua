@@ -9,6 +9,12 @@ require("scripts/globals/status")
 function onEffectGain(target, effect)
     -- target:addLatent(tpz.latent.SANCTION_EXP, ?, tpz.mod.EXP_BONUS, ?)
     -- Possibly handle exp bonus in core instead
+    -- Gain +25% more EXP in all zones if above level 55 and below 75
+    local level = target:getMainLvl()
+
+    if (level > 54) and (level < 75) then
+        target:addMod(tpz.mod.EXP_BONUS, 25)
+    end
 
     local power = effect:getPower()
     if power == 1 then
@@ -24,6 +30,7 @@ function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
+    target:setMod(tpz.mod.EXP_BONUS, 0)
     -- target:delLatent(tpz.latent.SANCTION_EXP, ?, tpz.mod.EXP_BONUS, ?)
 
     local power = effect:getPower()

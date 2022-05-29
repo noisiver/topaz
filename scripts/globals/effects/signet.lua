@@ -14,6 +14,13 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
+    -- Gain +25% more EXP in all zones if above level 55 and below 75
+    local level = target:getMainLvl()
+
+    if (level > 54) and (level < 75) then
+        target:addMod(tpz.mod.EXP_BONUS, 25)
+    end
+
     target:addLatent(tpz.latent.SIGNET_BONUS, 0, tpz.mod.DEF, 0)
     target:addLatent(tpz.latent.SIGNET_BONUS, 0, tpz.mod.EVA, 0)
 end
@@ -22,6 +29,7 @@ function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
+    if target:setmod(tpz.mod.EXP_BONUS, 0)
     target:delLatent(tpz.latent.SIGNET_BONUS, 0, tpz.mod.DEF, 0)
     target:delLatent(tpz.latent.SIGNET_BONUS, 0, tpz.mod.EVA, 0)
 end
