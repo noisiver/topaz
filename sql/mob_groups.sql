@@ -7063,11 +7063,11 @@ INSERT INTO `mob_groups` VALUES (50,6543,100,'Enchanted_Bones',330,1,769,0,0,4,8
 -- East_Ronfaure (Zone 101)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,3221,101,'Pugil',330,0,2034,0,0,1,5,0);
-INSERT INTO `mob_groups` VALUES (2,711,101,'Cheval_Pugil',0,128,463,0,0,3,5,0);
-INSERT INTO `mob_groups` VALUES (3,2768,101,'Mud_Pugil',0,128,975,0,0,5,6,0);
-INSERT INTO `mob_groups` VALUES (4,3222,101,'Pug_Pugil',0,128,463,0,0,7,8,0);
-INSERT INTO `mob_groups` VALUES (5,1336,101,'Fighting_Pugil',0,128,279,0,0,9,10,0);
+INSERT INTO `mob_groups` VALUES (1,3221,101,'Pugil',0,128,0,0,0,3,5,0);
+INSERT INTO `mob_groups` VALUES (2,711,101,'Cheval_Pugil',0,128,0,0,0,3,5,0);
+INSERT INTO `mob_groups` VALUES (3,2768,101,'Mud_Pugil',0,128,0,0,0,5,6,0);
+INSERT INTO `mob_groups` VALUES (4,3222,101,'Pug_Pugil',0,128,0,0,0,7,8,0);
+INSERT INTO `mob_groups` VALUES (5,1336,101,'Fighting_Pugil',0,128,0,0,0,9,10,0);
 INSERT INTO `mob_groups` VALUES (6,4343,101,'Wild_Rabbit',330,0,2659,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (7,4053,101,'Tunnel_Worm',330,0,2498,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (8,1038,101,'Ding_Bats',330,2,82,0,0,1,5,0);
@@ -7106,6 +7106,7 @@ INSERT INTO `mob_groups` VALUES (40,714,101,'Chigoe',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (41,3241,101,'Pyracmon',1,0,2047,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (42,4381,101,'Wraith_Bat',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (43,6543,101,'Enchanted_Bones',330,1,769,0,0,4,8,0);
+INSERT INTO `mob_groups` VALUES (44,3221,101,'Pugil',330,0,2034,0,0,1,5,0);
 
 -- ------------------------------------------------------------
 -- La_Theine_Plateau (Zone 102)
