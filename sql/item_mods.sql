@@ -52273,6 +52273,22 @@ INSERT INTO `item_mods` VALUES (28671,8,7);       -- STR +7
 INSERT INTO `item_mods` VALUES (28671,10,7);      -- VIT +7
 INSERT INTO `item_mods` VALUES (28671,13,7);      -- MND +7
 INSERT INTO `item_mods` VALUES (28671,161,-4);    -- Physical damage taken -4%
+
+-- Assault Elemental Weapons
+INSERT INTO `item_mods` VALUES (18408,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (17715,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18583,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18025,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18685,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18113,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18388,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18435,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18065,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18365,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18417,1272,25);   -- +25% Elemental WS DMG
+INSERT INTO `item_mods` VALUES (18686,1272,25);   -- +25% Elemental WS DMG
+
+
 /*!40000 ALTER TABLE `item_mods` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
