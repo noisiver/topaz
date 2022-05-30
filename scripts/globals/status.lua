@@ -1748,11 +1748,11 @@ tpz.latent =
     MOON_PHASE               = 37, -- PARAM: 0: New Moon, 1: Waxing Crescent, 2: First Quarter, 3: Waxing Gibbous, 4: Full Moon, 5: Waning Gibbous, 6: Last Quarter, 7: Waning Crescent
     JOB_MULTIPLE             = 38, -- PARAM: 0: ODD, 2: EVEN, 3-99: DIVISOR
     JOB_MULTIPLE_AT_NIGHT    = 39, -- PARAM: 0: ODD, 2: EVEN, 3-99: DIVISOR
-    -- 40 free to use
-    -- 41 free to use
-    -- 42 free to use
+    LATENT_MAINJOB           = 40, --mainjob - PARAM: JOBTYPE
+    SIGNET_EXP_BONUS         = 41, -- While in conquest region and between levels 55 - 74
+    SANCTION_EXP_BONUS       = 42,-- While in besieged region and between levels 55 - 74
     WEAPON_DRAWN_HP_UNDER    = 43, -- PARAM: HP PERCENT
-    -- 44 free to use
+    SIGIL_EXP_BONUS          = 44, -- While in campaign region and between levels 55 - 74
     MP_UNDER_VISIBLE_GEAR    = 45, -- mp less than or equal to %, calculated using MP bonuses from visible gear only
     HP_OVER_VISIBLE_GEAR     = 46, -- hp more than or equal to %, calculated using HP bonuses from visible gear only
     WEAPON_BROKEN            = 47,
