@@ -29,7 +29,7 @@ function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    if target:setmod(tpz.mod.EXP_BONUS, 0)
+    target:setmod(tpz.mod.EXP_BONUS, 0)
     target:delLatent(tpz.latent.SIGNET_BONUS, 0, tpz.mod.DEF, 0)
     target:delLatent(tpz.latent.SIGNET_BONUS, 0, tpz.mod.EVA, 0)
 end
