@@ -7846,6 +7846,12 @@ INSERT INTO `mob_groups` VALUES (41,1640,113,'Goblin_Boss',0,128,0,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (42,2185,113,'Kaneakeluh',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (43,0,113,'Zmey_Gorynych',0,128,0,0,0,78,78,0);
 
+-- Twilight Beach
+INSERT INTO `mob_groups` VALUES (44,378,113,'Beach_Bunny',330,0,247,0,0,64,65,0);
+INSERT INTO `mob_groups` VALUES (45,3375,113,'Robber_Crab',330,0,2108,0,0,67,68,0);
+INSERT INTO `mob_groups` VALUES (46,4218,113,'Velociraptor',330,0,2572,0,0,68,69,0);
+INSERT INTO `mob_groups` VALUES (47,3882,113,'Terror_Pugil',330,0,1229,0,0,69,70,0);
+
 INSERT INTO `mob_groups` VALUES (6232,2226,113,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6234,2405,113,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6235,2904,113,'Noillurie',0,0,0,0,0,0,0,0);
