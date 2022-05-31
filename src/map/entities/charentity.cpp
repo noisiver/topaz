@@ -178,6 +178,7 @@ CCharEntity::CCharEntity()
     m_lastBcnmTimePrompt = 0;
     m_AHHistoryTimestamp = 0;
     m_DeathTimestamp = 0;
+    m_BPWait = server_clock::now();
 
     m_EquipFlag = 0;
     m_EquipBlock = 0;
@@ -1085,8 +1086,16 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         // #TODO: get rid of this to script, too
         if (PAbility->isPetAbility())
         {
-            if (PPet) //is a bp - don't display msg and notify pet
+            // Not enough time elapsed..
+            if (server_clock::now() < m_BPWait)
             {
+                pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_WAIT_LONGER));
+                return;
+            }
+            if (PPet) // is a bp - don't display msg and notify pet
+            {
+                m_BPWait = server_clock::now() + std::chrono::milliseconds(5000);
+
                 actionList_t& actionList = action.getNewActionList();
                 actionList.ActionTargetID = PTarget->id;
                 actionTarget_t& actionTarget = actionList.getNewActionTarget();
