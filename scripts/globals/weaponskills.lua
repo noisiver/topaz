@@ -97,7 +97,6 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- Recalculate accuracy if it varies with TP, applied to all hits
     if wsParams.acc100 ~= 0 then
         calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
-		calcParams.slugwinder = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
     end
 
     -- Calculate alpha, WSC, and our modifiers for our base per-hit damage
@@ -511,7 +510,7 @@ end
         fencerBonus = fencerBonus(attacker),
         bonusTP = wsParams.bonusTP or 0,
         bonusfTP = gorgetBeltFTP or 0,
-		bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC) + 100,
+		bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
         bonusWSmods = wsParams.bonusWSmods or 0
     }
 
@@ -543,6 +542,7 @@ end
 
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
     calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, true)
+    --printf("final ranged hit rate %i", calcParams.hitRate*100)
     local finaldmg = calcParams.finalDmg
 
     -- Calculate reductions
@@ -953,8 +953,8 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
         firsthit = hitrate + math.floor((firstacc - eva) / 2)
 		slugwinder = hitrate + math.floor(((acc - eva) / 2)/ 2) 
     else 
-        hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl())) + 50
-        firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl())) + 50
+        hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
+        firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
 		slugwinder = hitrate + math.floor(((acc - eva) / 2) - (2 * (target:getMainLvl() - attacker:getMainLvl())))
     end
 
