@@ -35,15 +35,16 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local power = 25
+    local bonus = 0
     -- Imperial Bhuj Hidden Effect
     local gaxe = player:getEquipID(tpz.slot.MAIN)
 	if gaxe == 18485 then -- Imperial Bhuj
-        params.bonusmacc = 50
         power = 30
+        bonus = 50
     end
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, bonus)
     if (damage > 0 and target:hasStatusEffect(tpz.effect.ATTACK_DOWN) == false) and resist >= 0.5  then
         local duration = (120 + (tp/1000 * 60))
         target:delStatusEffect(tpz.effect.ATTACK_BOOST)

@@ -34,31 +34,33 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local power1 = 13
     local power2 = 20
+    local bonus = 0
     -- Imperial Bhuj Hidden Effect
     local gaxe = player:getEquipID(tpz.slot.MAIN)
 	if gaxe == 18485 then -- Imperial Bhuj
         power1 = 18
         power2 = 25
+        bonus = 50
     end
 
     if (damage > 0) then
         local duration = (tp/1000 * 30) + 60
-        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, bonus)
         if (target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.DEFENSE_BOOST)
             target:addStatusEffect(tpz.effect.DEFENSE_DOWN, power1, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, bonus)
         if (target:hasStatusEffect(tpz.effect.ATTACK_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.ATTACK_BOOST)
             target:addStatusEffect(tpz.effect.ATTACK_DOWN, power1, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, bonus)
         if (target:hasStatusEffect(tpz.effect.EVASION_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.EVASION_BOOST)
             target:addStatusEffect(tpz.effect.EVASION_DOWN, power2, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, 0)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, bonus)
         if (target:hasStatusEffect(tpz.effect.ACCURACY_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.ACCURACY_BOOST)
             target:addStatusEffect(tpz.effect.ACCURACY_DOWN, power2, 0, duration * resist)
