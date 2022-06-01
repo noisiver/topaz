@@ -7,6 +7,12 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
+    -- Gain +25% more EXP in all zones if above level 55 and below 75
+    local level = target:getMainLvl()
+
+    if (level > 54) and (level < 75) then
+        target:addMod(tpz.mod.EXP_BONUS, 25)
+    end
 
     local power = effect:getPower() -- Tracks which bonus effects are in use.
     if (power == 1 or power == 3 or power == 5 or power == 7 or power == 9 or power == 11 or power == 13 or power == 15) then
@@ -30,14 +36,13 @@ function onEffectGain(target, effect)
         -- target:addLatent(LATENT_SIGIL_EXPLOSS, ?, MOD_EXPLOSS_REDUCTION, ?)
         -- exp loss reduction not implemented.
     end
-    -- Gain +25% more EXP in campaign regions if above level 55 and below 75
-    target:addLatent(tpz.latent.SIGIL_EXP_BONUS, 1, tpz.mod.EXP_BONUS, 25)
 end
 
 function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
+    target:setMod(tpz.mod.EXP_BONUS, 0)
     local power = effect:getPower() -- Tracks which bonus effects are in use.
     local subPower = effect:getSubPower() -- subPower sets % required to trigger regen/refresh.
 
@@ -61,5 +66,4 @@ function onEffectLose(target, effect)
         -- target:delMod(tpz.mod.EXPLOSS_REDUCTION), ???)
         -- exp loss reduction not implemented.
     end
-    target:delLatent(tpz.latent.SIGIL_EXP_BONUS, 1, tpz.mod.EXP_BONUS, 25)
 end
