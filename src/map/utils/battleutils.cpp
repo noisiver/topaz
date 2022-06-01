@@ -362,6 +362,10 @@ namespace battleutils
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element -1]));
+        if (PAttacker->objtype == TYPE_MOB)
+        {
+            magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
+        }
         //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
         // Spikes are PDefender for Macc
         if (PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLAZE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SHOCK_SPIKES) ||
@@ -373,6 +377,10 @@ namespace battleutils
             targetLvl = PAttacker->GetMLevel();
             meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element -1]));
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
+            if (PDefender->objtype == TYPE_MOB)
+            {
+                magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PDefender->GetMLevel()));
+            }
             //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
             // Blue Magic spike spells use Blue Magic Skll
             if (PDefender->GetMJob() == JOB_BLU)
@@ -766,7 +774,11 @@ namespace battleutils
             {
                 gallantsRoll = (uint8)(PEffect->GetPower());
                 Action->spikesEffect = SUBEFFECT_FIRE_DAMAGE; // looks like blaze spikes
-                Action->spikesParam = damage * gallantsRoll / 100;
+                Action->spikesParam = damage * gallantsRoll / 10;
+                if  (Action->spikesParam < 1)
+                {
+                    Action->spikesParam = 1;
+                }
             }
         }
 
