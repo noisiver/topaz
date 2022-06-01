@@ -866,6 +866,8 @@ INSERT INTO `item_latents` VALUES(13910, 384, 400, 49, 5929);  -- Gear Haste +4%
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(13913, 370, 1, 30, 0);    -- Regen 1/tick on Watersdays
 INSERT INTO `item_latents` VALUES(13913, 370, 1, 32, 0);    -- Regen 1/tick on Darksdays
+INSERT INTO `item_latents` VALUES(13913, 370, 1, 52, 6);    -- Regen 1/tick in Water Weather
+INSERT INTO `item_latents` VALUES(13913, 370, 1, 52, 8);    -- Regen 1/tick in Dark Weather
 
 -- -------------------------------------------------------
 -- Rasetsu Jinpachi
@@ -1106,10 +1108,10 @@ INSERT INTO `item_latents` VALUES(14158, 12, 4, 53, 0);     -- INT +4 in areas i
 -- -------------------------------------------------------
 -- Inferno Sabots (+1)
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(14164, 12, 1, 37, 0);     -- New moon INT+1
-INSERT INTO `item_latents` VALUES(14164, 116, 3, 37, 0);    -- New moon Dark Magic skill +3
-INSERT INTO `item_latents` VALUES(14165, 12, 2, 37, 0);     -- New moon INT+2
-INSERT INTO `item_latents` VALUES(14165, 116, 5, 37, 0);    -- New moon Dark Magic skill +5
+-- INSERT INTO `item_latents` VALUES(14164, 12, 1, 37, 0);     -- New moon INT+1
+-- INSERT INTO `item_latents` VALUES(14164, 116, 3, 37, 0);    -- New moon Dark Magic skill +3
+-- INSERT INTO `item_latents` VALUES(14165, 12, 2, 37, 0);     -- New moon INT+2
+-- INSERT INTO `item_latents` VALUES(14165, 116, 5, 37, 0);    -- New moon Dark Magic skill +5
 
 -- -------------------------------------------------------
 -- Desert Boots
@@ -1168,9 +1170,9 @@ INSERT INTO `item_latents` VALUES(14278, 13, 4, 53, 0);     -- MND +4 in areas i
 -- -------------------------------------------------------
 -- Luna Subligar
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(14287, 9, 2, 37, 4);      -- Full moon DEX+2
-INSERT INTO `item_latents` VALUES(14287, 11, 2, 37, 4);     -- Full moon AGI+2
-INSERT INTO `item_latents` VALUES(14287, 14, 4, 37, 4);     -- Full moon CHR +4 (total +7)
+-- INSERT INTO `item_latents` VALUES(14287, 9, 2, 37, 4);      -- Full moon DEX+2
+-- INSERT INTO `item_latents` VALUES(14287, 11, 2, 37, 4);     -- Full moon AGI+2
+-- INSERT INTO `item_latents` VALUES(14287, 14, 4, 37, 4);     -- Full moon CHR +4 (total +7)
 
 -- -------------------------------------------------------
 -- Clowns Subligar / Clowns Subligar +1

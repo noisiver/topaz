@@ -12896,10 +12896,14 @@ INSERT INTO `item_mods` VALUES (14163,9,-6);
 INSERT INTO `item_mods` VALUES (14163,10,11);
 INSERT INTO `item_mods` VALUES (14163,14,11);
 INSERT INTO `item_mods` VALUES (14163,1242,2);
-INSERT INTO `item_mods` VALUES (14164,1,7);
+INSERT INTO `item_mods` VALUES (14164,1,7);    -- Inferno Sabots
 INSERT INTO `item_mods` VALUES (14164,5,10);
-INSERT INTO `item_mods` VALUES (14165,1,8);
+INSERT INTO `item_mods` VALUES (14164,12,1);   -- Int +1
+INSERT INTO `item_mods` VALUES (14164,116,3);  -- Dark Magic skill +3
+INSERT INTO `item_mods` VALUES (14165,1,8);   -- Inferno Sabots +1
 INSERT INTO `item_mods` VALUES (14165,5,13);
+INSERT INTO `item_mods` VALUES (14164,12,2);   -- Int +2
+INSERT INTO `item_mods` VALUES (14164,116,5);  -- Dark Magic skill +5
 INSERT INTO `item_mods` VALUES (14166,1,11);
 INSERT INTO `item_mods` VALUES (14166,2,10);
 INSERT INTO `item_mods` VALUES (14166,11,1);
@@ -13381,8 +13385,10 @@ INSERT INTO `item_mods` VALUES (14286,1,19);
 INSERT INTO `item_mods` VALUES (14286,2,-5);
 INSERT INTO `item_mods` VALUES (14286,5,20);
 INSERT INTO `item_mods` VALUES (14286,59,7);
-INSERT INTO `item_mods` VALUES (14287,1,28);
-INSERT INTO `item_mods` VALUES (14287,14,3);
+INSERT INTO `item_mods` VALUES (14287,1,28); -- Luna Subligar
+INSERT INTO `item_mods` VALUES (14287,9,2);  -- DEX +2
+INSERT INTO `item_mods` VALUES (14287,11,2); -- AGI +2
+INSERT INTO `item_mods` VALUES (14287,14,7); -- CHR +7
 INSERT INTO `item_mods` VALUES (14288,1,29);
 INSERT INTO `item_mods` VALUES (14288,14,4);
 INSERT INTO `item_mods` VALUES (14289,1,30);
