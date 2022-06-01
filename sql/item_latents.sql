@@ -2471,6 +2471,7 @@ INSERT INTO `item_latents` VALUES(17788, 8, 4, 32, 0);      -- Sairen STR +4 on 
 INSERT INTO `item_latents` VALUES(17788, 27, 1, 32, 0);     -- Enmity +1
 INSERT INTO `item_latents` VALUES(17791, 54, 15, 28, 0);    -- [Element: Fire]+15
 INSERT INTO `item_latents` VALUES(17791, 366, 7, 28, 0);    -- Rai Kunimitsu DMG+7 on Firesday
+INSERT INTO `item_latents` VALUES(17791, 366, 7, 52, 1);    -- Rai Kunimitsu DMG+7 in Fire Weather
 INSERT INTO `item_latents` VALUES(17793, 165, 6, 47, 0);
 INSERT INTO `item_latents` VALUES(17793, 366, 13, 47, 0);
 INSERT INTO `item_latents` VALUES(17804, 25, 7, 59, 6);     -- Ushikirimaru - Vs. beasts: Accuracy+7
@@ -2490,6 +2491,7 @@ INSERT INTO `item_latents` VALUES(17815, 55, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(17815, 61, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(17824, 54, 15, 28, 0);    -- [Element: Fire]+15
 INSERT INTO `item_latents` VALUES(17824, 366, 10, 28, 0);   -- Nukemaru DMG+10 on Firesday
+INSERT INTO `item_latents` VALUES(17824, 366, 10, 52, 1);   -- Nukemaru DMG+10 in Fire Weather
 INSERT INTO `item_latents` VALUES(17827, 165, 6, 47, 0);
 INSERT INTO `item_latents` VALUES(17827, 366, 13, 47, 0);
 INSERT INTO `item_latents` VALUES(17831, 369, 1, 13, 2);
