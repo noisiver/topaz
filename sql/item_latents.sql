@@ -3757,5 +3757,5 @@ INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 20);    -- Drains 8 HP/tic 
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(16154, 346, 2, 9, 13); -- Karura Hachigane Garuda Perp Cost  -2
 INSERT INTO `item_latents` VALUES(14960, 346, 2, 9, 12); -- Evokers Gages Leviathan Perp Cost  -2
-INSERT INTO `item_latents` VALUES(14946, 346, 1, 9, 16); -- Nightmare Gloves Diabolos Perp Cost -1
+INSERT INTO `item_latents` VALUES(14946, 346, 2, 9, 16); -- Nightmare Gloves Diabolos Perp Cost -2
 
