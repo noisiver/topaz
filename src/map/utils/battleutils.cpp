@@ -2070,21 +2070,23 @@ namespace battleutils
 
         switch (shieldSize)
         {
-            case 1: // buckler
+            case 1: // Buckler
                 base = 55;
                 break;
-            case 2: // round
-            case 5: // aegis
+            case 2: // Round
                 base = 40;
                 break;
-            case 3: // kite
+            case 3: // Kite
                 base = 45;
                 break;
-            case 4: // tower
+            case 4: // Tower
                 base = 30;
                 break;
-            case 6: // ochain
-                base = 110;
+            case 5: // Aegis and Srivatsa
+                base = 50;
+                break;
+            case 6: // Ochain
+                base = 108;
                 break;
             default:
                 return 0;

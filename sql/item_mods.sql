@@ -7996,9 +7996,9 @@ INSERT INTO `item_mods` VALUES (12360,234,2);
 INSERT INTO `item_mods` VALUES (12361,1,20); -- Sipar
 INSERT INTO `item_mods` VALUES (12361,55,-20);
 INSERT INTO `item_mods` VALUES (12361,518,98); -- 98% Block Rate
+INSERT INTO `item_mods` VALUES (12361,905,-10); -- -10% dmg blocked
 INSERT INTO `item_mods` VALUES (12362,1,23); -- Highlander's Targe
 INSERT INTO `item_mods` VALUES (12362,385,15); -- +15 Shield bash
-INSERT INTO `item_mods` VALUES (12362,905,25); -- + 25% dmg blocked
 INSERT INTO `item_mods` VALUES (12363,1,5);
 INSERT INTO `item_mods` VALUES (12363,4,30);
 INSERT INTO `item_mods` VALUES (12364,1,2);
@@ -12902,8 +12902,8 @@ INSERT INTO `item_mods` VALUES (14164,12,1);   -- Int +1
 INSERT INTO `item_mods` VALUES (14164,116,3);  -- Dark Magic skill +3
 INSERT INTO `item_mods` VALUES (14165,1,8);   -- Inferno Sabots +1
 INSERT INTO `item_mods` VALUES (14165,5,13);
-INSERT INTO `item_mods` VALUES (14164,12,2);   -- Int +2
-INSERT INTO `item_mods` VALUES (14164,116,5);  -- Dark Magic skill +5
+INSERT INTO `item_mods` VALUES (14165,12,2);   -- Int +2
+INSERT INTO `item_mods` VALUES (14165,116,5);  -- Dark Magic skill +5
 INSERT INTO `item_mods` VALUES (14166,1,11);
 INSERT INTO `item_mods` VALUES (14166,2,10);
 INSERT INTO `item_mods` VALUES (14166,11,1);

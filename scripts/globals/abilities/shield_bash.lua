@@ -45,6 +45,14 @@ function onUseAbility(player, target, ability)
 
     -- Calculate stun proc chance
     if (math.random()*100 < 99) then
+        -- Highlander's Targe Hidden Effect
+        local shield = player:getEquipID(tpz.slot.SUB)
+	    if shield == 12362 then -- Highlander's Targe
+            local power = (target:getStat(tpz.mod.STR) * 0.2)
+            target:delStatusEffect(tpz.effect.ATTACK_BOOST)
+            target:addStatusEffect(tpz.effect.ATTACK_DOWN, 10, 0, 60)
+            target:addStatusEffect(tpz.effect.STR_DOWN, power, 6, 60)
+        end
         target:addStatusEffect(tpz.effect.STUN, 1, 0, 4)
     end
 
