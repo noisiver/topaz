@@ -1086,10 +1086,18 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         // #TODO: get rid of this to script, too
         if (PAbility->isPetAbility())
         {
-            // Not enough time elapsed..
+            // Not enough time since last blood pact was used
             if (server_clock::now() < m_BPWait)
             {
                 pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_WAIT_LONGER));
+                return;
+            }
+            // Pet is unable to use Blood Pacts due to Amnesia or hard CC
+            if (PPet->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
+                PPet->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
+                PPet->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
+            {
+                pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
                 return;
             }
             if (PPet) // is a bp - don't display msg and notify pet
