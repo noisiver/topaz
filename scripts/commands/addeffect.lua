@@ -32,7 +32,7 @@ function onTrigger(player, arg1, arg2, arg3, arg4, arg5, arg6)
         error(player, "Invalid effect.")
         return
     else
-        if (targ:isMob() == false) and (targ ~= arg1) then
+        if (targ:isMob() == false) and (targ:isPet() == false) and (targ ~= arg1) then
             targ = player
             -- Target player
             id = arg1
