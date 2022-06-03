@@ -706,7 +706,7 @@ end
 
 function getMagicHitRate(caster, target, skillType, element, percentBonus, bonusAcc)
     -- resist everything if magic shield is active
-    if (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
+    if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
         return 0
     end
 
