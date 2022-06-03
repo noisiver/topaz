@@ -5,6 +5,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 require("scripts/globals/npc_util")
+require("scripts/globals/quests")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -30,7 +31,7 @@ function onEventFinish(player, csid, option)
     if (csid == 1) and not GetMobByID(ID.mob.PLAGUE_CHIGOE):isSpawned() then
         npcUtil.popFromQM(player, npc, ID.mob.PLAGUE_CHIGOE, {claim = true, hide = 330})
     elseif (csid == 2) then
-        npcUtil.completeQuest(player, AHT_URHGAN, THE_PRANKSTER, {
+        npcUtil.completeQuest(player, AHT_URHGAN, tpz.quest.id.ahtUrhgan.THE_PRANKSTER, {
             ki = tpz.ki.MAP_OF_CAEDARVA_MIRE,  
             var = "ThePrankster", 
         })
