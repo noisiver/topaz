@@ -22,7 +22,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     local finaldmg = 0
 
     local missChance = math.random()
-
+    --printf("hit rate %i", calcParams.hitRate*100)
     if ((missChance <= calcParams.hitRate) -- See if we hit the target
     or calcParams.guaranteedHit
     or (calcParams.melee and math.random() < attacker:getMod(tpz.mod.ZANSHIN)/100))
@@ -203,7 +203,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     local dmg = mainBase * ftp
     
     local currentHitRate = calcParams.hitRate
-    calcParams.hitRate = getHitRate(attacker, target, false, calcParams.bonusAcc + 100)
+    calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     calcParams.hitRate = currentHitRate
 
@@ -328,7 +328,7 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
     calcParams.bonusfTP = gorgetBeltFTP or 0
     calcParams.bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC)
     calcParams.bonusWSmods = wsParams.bonusWSmods or 0
-    calcParams.hitRate = getHitRate(attacker, target, false, calcParams.bonusAcc)
+    calcParams.hitRate = getHitRate(attacker, target, true, false, calcParams.bonusAcc)
 
     -- Send our wsParams off to calculate our raw WS damage, hits landed, and shadows absorbed
     calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, false)
@@ -517,13 +517,14 @@ end
     local hitrate, firsthit, slugwinder = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
     calcParams.firsthitRate = firsthit
     calcParams.multihitRate = hitrate
-	calcParams.slugwinder = slugwinder
+	calcParams.slugWinder = slugwinder
 
     if wsID == 196 or wsID == 212  then -- Slugwinder 
-        calcParams.hitRate = calcParams.slugwinder
+        calcParams.hitRate = calcParams.slugWinder
     else
 		calcParams.hitRate = calcParams.firsthitRate
     end
+    --printf("ranged hit rate %i", calcParams.hitRate*100)
     --[[
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
     calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams)
@@ -542,7 +543,6 @@ end
 
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
     calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, true)
-    --printf("final ranged hit rate %i", calcParams.hitRate*100)
     local finaldmg = calcParams.finalDmg
 
     -- Calculate reductions
@@ -872,7 +872,7 @@ function getMeleeDmg(attacker, weaponType, kick)
     return {mainhandDamage, offhandDamage}
 end
 
-function getHitRate(attacker, target, capHitRate, bonus)
+function getHitRate(attacker, target, capHitRate, firsthit, bonus)
     local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH)
     if flourisheffect ~= nil and flourisheffect:getPower() > 1 then
         attacker:addMod(tpz.mod.ACC, 20 + flourisheffect:getSubPower())
@@ -918,8 +918,18 @@ function getHitRate(attacker, target, capHitRate, bonus)
 
     -- Applying hitrate caps
     if (capHitRate) then -- this isn't capped for when acc varies with tp, as more penalties are due
-        if (hitrate>0.99) then
-            hitrate = 0.99
+        if (firsthit) then -- First hits cap at 99% hit rate
+            if (hitrate>0.99) then
+                hitrate = 0.99
+            end
+            if (hitrate<0.2) then
+                hitrate = 0.2
+            end
+
+            return hitrate
+        end
+        if (hitrate>0.95) then
+            hitrate = 0.95
         end
         if (hitrate<0.2) then
             hitrate = 0.2
@@ -962,8 +972,8 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
     firsthit = firsthit / 100
 	slugwinder = slugwinder / 100
     firsthit = utils.clamp(firsthit, 0.2, 0.99) 
-    hitrate = utils.clamp(hitrate, 0.2, 0.99)
-	slugwinder = utils.clamp(hitrate, 0.2, 0.99)
+    hitrate = utils.clamp(hitrate, 0.2, 0.95)
+	slugwinder = utils.clamp(hitrate, 0.2, 0.95) -- caps at 95%
 
     return hitrate, firsthit, slugwinder
 end
