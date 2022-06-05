@@ -17,7 +17,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.GALLANTS_ROLL
-    local power =  math.random(3,23)
+    local power =  1
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 300)) 
     return typeEffect
 end

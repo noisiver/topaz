@@ -18,7 +18,7 @@ function onMobWeaponSkill(target, mob, skill)
 	
 	if dmg > 300 then dmg = 300 end 
    
-   if (target:getTP() > dmg) then
+    if (target:getTP() > dmg) then
         mob:addTP(dmg)
         target:delTP(dmg)
     else
@@ -35,10 +35,9 @@ function onMobWeaponSkill(target, mob, skill)
         target:delMP(dmg)
     end
 		
-		MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_MP, dmg)
-        MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_TP, dmg)
-		skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
-
+	MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_MP, dmg)
+    MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_TP, dmg)
+	skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
 
     return dmg
 end

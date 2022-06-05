@@ -14,6 +14,7 @@ g_mixins.families.mine = function(mob)
         mob:setMobMod(tpz.mobMod.GIL_MAX, 0)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
         mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+        mob:setStatus(tpz.status.INVISIBLE)
         mob:SetAutoAttackEnabled(false)
         mob:hideName(true)
         mob:untargetable(true)
@@ -27,6 +28,7 @@ g_mixins.families.mine = function(mob)
         mob:setMobMod(tpz.mobMod.GIL_MAX, 0)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
         mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+        mob:setStatus(tpz.status.INVISIBLE)
         mob:SetAutoAttackEnabled(false)
         mob:hideName(true)
         mob:untargetable(true)
@@ -38,6 +40,7 @@ g_mixins.families.mine = function(mob)
         local nearbyPlayers = mob:getPlayersInRange(5)
         if nearbyPlayers == nil then return end
         if nearbyPlayers then
+            mob:setStatus(tpz.status.UPDATE)
 	        mob:useMobAbility(1838) -- mine_blast
         end
     end)

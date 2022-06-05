@@ -43,9 +43,8 @@ function onSpellCast(caster, target, spell)
         caster:delStatusEffectSilent(tpz.effect.DIFFUSION)
     end
 
-    if not target:addStatusEffect(typeEffect, power, 0, duration, 0, 0, 2) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-    end
+    target:delStatusEffectSilent(typeEffect)
+    target:addStatusEffect(typeEffect, power, 0, duration, 0, 0, 2)
 
     return typeEffect
 end

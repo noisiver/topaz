@@ -24,9 +24,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
+	mob:setDamage(140)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 25)
+	mob:setMod(tpz.mod.VIT, 68)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:addMod(tpz.mod.MOVE, 20)
     mob:addMod(tpz.mod.WIND_ABSORB, 100)
@@ -40,6 +42,7 @@ end
 function onMobRoam(mob)
     onPath(mob)
 end
+
 
 function onMobWeaponSkill(target, mob, skill)
 	local HP = mob:getHPP()

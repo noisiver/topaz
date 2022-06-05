@@ -14,6 +14,7 @@ require("scripts/globals/titles")
 
 function onInitialize(zone)
     zone:registerRegion(1, 378, -3, 338, 382, 3, 342)
+    zone:registerRegion(2, -389.242, 13, -445.296, -382.456, 15, -434.242) -- What Friends are For
 end
 
 function onZoneIn(player, prevZone)
@@ -35,6 +36,11 @@ function onRegionEnter(player, region)
         local StoneID = player:getCharVar("EmptyVesselStone")
         if player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.AN_EMPTY_VESSEL) == QUEST_ACCEPTED and player:getCharVar("AnEmptyVesselProgress") == 4 and player:hasItem(StoneID) then
             player:startEvent(3, StoneID)
+        end
+    elseif region:GetRegionID() == 2 then
+        if (player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.WHAT_FRIENDS_ARE_FOR) == QUEST_AVAILABLE) and (player:getCharVar("WhatFriendsAreFor") == 0) then
+            player:delStatusEffect(tpz.effect.INVISIBLE)
+            player:startEvent(7)
         end
     end
 end
@@ -74,6 +80,8 @@ function onEventFinish(player, csid, option)
         player:setCharVar("EmptyVesselStone", 0)
         player:delQuest(AHT_URHGAN, tpz.quest.id.ahtUrhgan.AN_EMPTY_VESSEL)
         player:setPos(148, -2, 0, 130, 50)
+    elseif csid == 7 then
+        player:setCharVar("WhatFriendsAreFor", 1)
     elseif csid == 10 then
         player:setCharVar("AhtUrganStatus", 1)
     end

@@ -609,6 +609,13 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         return 0
     end
 
+    -- MNK mobs have a -50% end multiplier for wep damage and need to do 2x for physical moves to do proper damage
+    if (mob:getMainJob() == tpz.job.MNK) then
+        if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+            dmg = dmg * 2
+        end
+    end
+
     -- set message to damage
     -- this is for AoE because its only set once
     skill:setMsg(tpz.msg.basic.DAMAGE)

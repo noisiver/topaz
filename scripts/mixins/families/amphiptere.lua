@@ -27,14 +27,14 @@ g_mixins.families.amphiptere = function(mob)
 			mob:setLocalVar("ReavingWindKnockback", 0)
 		end
 		
-	if animationSub == 2 then
-		if ReavingWindKnockback == 0 then
-			mob:setLocalVar("ReavingWindKnockback", BattleTime + 3)
-		elseif BattleTime > ReavingWindKnockback then 
-				mob:useMobAbility(2434) -- Knockback
-				mob:setLocalVar("ReavingWindKnockback", BattleTime + 3)
-			end
-		end
+	    if animationSub == 2 then
+		    if ReavingWindKnockback == 0 then
+			    mob:setLocalVar("ReavingWindKnockback", BattleTime + 3)
+		    elseif BattleTime > ReavingWindKnockback then 
+				    mob:useMobAbility(2434) -- Knockback
+				    mob:setLocalVar("ReavingWindKnockback", BattleTime + 3)
+		    end
+	    end
 	end)
     mob:addListener("ENGAGE", "AMPHIPTERE_ENGAGE", function(mob, target)
         mob:hideName(false)

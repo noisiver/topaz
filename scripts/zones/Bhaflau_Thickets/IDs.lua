@@ -54,6 +54,7 @@ zones[tpz.zone.BHAFLAU_THICKETS] =
         HARVESTMAN         = 16990252,
         LIVIDROOT_AMOOSHAH = 16990473,
         DEA                = 16990474,
+        PLAGUE_CHIGOE      = 16990417,
         GRAND_MARID1_PH =
         {
             [16990296] = 16990294, -- 215.000 -18.000 372.000

@@ -306,7 +306,7 @@ INSERT INTO `status_effects` VALUES (264,'pathos',8388608,0,0,0,0,0,0,0,1);
 INSERT INTO `status_effects` VALUES (265,'flurry',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (266,'concentration',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (267,'allied_tags',8912928,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (268,'sigil',16777216,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (268,'sigil',16777216,0,0,0,0,0,0,0,1000);
 INSERT INTO `status_effects` VALUES (269,'level_sync',8388608,0,0,0,0,0,0,0,2);
 INSERT INTO `status_effects` VALUES (270,'aftermath_lv1',288,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (271,'aftermath_lv2',288,0,0,0,0,0,0,0,0);

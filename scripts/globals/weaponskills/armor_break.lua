@@ -33,14 +33,25 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         params.str_wsc = 0.6 params.vit_wsc = 0.6
     end
 
-    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5 then
-        local duration = (120 + (tp/1000 * 60)) * resist
-        target:addStatusEffect(tpz.effect.DEFENSE_DOWN, 25, 0, duration)
+    local power = 25
+    local bonus = 0
+    -- Imperial Bhuj Hidden Effect
+    local gaxe = player:getEquipID(tpz.slot.MAIN)
+	if gaxe == 18485 then -- Imperial Bhuj
+        power = 30
+        bonus = 50
     end
-		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_AXE, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
+    local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
+
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, bonus)
+    if (damage > 0 and target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5 then
+        local duration = (120 + (tp/1000 * 60))
+        target:delStatusEffect(tpz.effect.DEFENSE_BOOST)
+        target:addStatusEffect(tpz.effect.DEFENSE_DOWN, power, 0, duration * resist)
+    end
+	if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_AXE, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
 
     return tpHits, extraHits, criticalHit, damage

@@ -782,7 +782,7 @@ INSERT INTO `mob_skills` VALUES (840,526,'punch',0,10.0,528,3000,4,4,0,0,3,0,0);
 INSERT INTO `mob_skills` VALUES (841,527,'fire_ii',0,10.0,529,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (842,528,'burning_strike',0,10.0,530,3000,4,4,0,0,8,0,0); -- Impaction (8)
 INSERT INTO `mob_skills` VALUES (843,529,'double_punch',0,10.0,531,3000,4,4,0,0,2,0,0); -- Compression (2)
-INSERT INTO `mob_skills` VALUES (844,530,'crimson_howl',1,10.0,532,3000,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (844,530,'crimson_howl',0,10.0,532,3000,1,0,0,0,0,0,0); -- Changed to not be AOE
 INSERT INTO `mob_skills` VALUES (845,531,'fire_iv',0,10.0,533,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (846,532,'flaming_crush',0,10.0,534,3000,4,4,0,0,11,5,0); -- Fusion (11) / Reverberation (5)
 INSERT INTO `mob_skills` VALUES (847,533,'meteor_strike',0,10.0,535,3000,4,0,0,0,0,0,0);
@@ -893,12 +893,12 @@ INSERT INTO `mob_skills` VALUES (947,649,'tachi_gekko',0,7,2000,0,4,0,0,0,10,5,0
 INSERT INTO `mob_skills` VALUES (948,650,'tachi_kasha',0,7,2000,0,4,0,0,0,11,2,0);
 -- INSERT INTO `mob_skills` VALUES (949,693,'flame_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (950,652,'flame_blast_alt',0,40.0,0,0,4,16,0,0,0,0,0); -- KS99_Wyrm regular airborne attack
-INSERT INTO `mob_skills` VALUES (951,653,'hurricane_wing',1,30.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (951,653,'hurricane_wing',1,40.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (952,654,'spike_flail',1,23.0,2000,2000,4,0,0,0,0,0,0); -- Alliance only targeting version of spike flail
 INSERT INTO `mob_skills` VALUES (953,655,'dragon_breath',4,18.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (954,656,'touchdown',1,30.0,2000,0,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (955,657,'flame_blast',1,30.0,2000,1500,4,0,0,0,0,0,0); -- KS99_Wyrm airborne fire AoE
-INSERT INTO `mob_skills` VALUES (956,658,'hurricane_wing_flying',1,30.0,2000,1500,4,0,0,0,0,0,0); -- KS99_Wyrm airborne Hurricane Wing
+INSERT INTO `mob_skills` VALUES (956,658,'hurricane_wing_flying',1,40.0,2000,1500,4,0,0,0,0,0,0); -- KS99_Wyrm airborne Hurricane Wing
 INSERT INTO `mob_skills` VALUES (957,659,'absolute_terror',0,18.0,4000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (958,660,'horrid_roar_1',0,18.0,4000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (959,703,'sickle_slash',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -981,7 +981,7 @@ INSERT INTO `mob_skills` VALUES (1035,419,'heavy_strike_ullikummi',0,7.0,2000,15
 INSERT INTO `mob_skills` VALUES (1036,737,'maats_bash',0,7.0,2000,0,4,4,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1037,781,'fireball_1',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1038,782,'fireball_2',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1039,653,'hurricane_wing',1,30.0,2000,1500,4,8,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1039,653,'hurricane_wing',1,40.0,2000,1500,4,8,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1040,654,'spike_flail',1,40.0,2000,2000,4,8,0,0,0,0,0); -- (nidhogg) outside alliance targeting version of spike flail
 INSERT INTO `mob_skills` VALUES (1041,655,'dragon_breath',4,18.0,2000,1500,4,8,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1042,786,'landing_to_the_surface',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1485,7 +1485,7 @@ INSERT INTO `mob_skills` VALUES (1539,1123,'rear_lasers',4,20.0,2000,1500,4,0,0,
 INSERT INTO `mob_skills` VALUES (1540,1081,'citadel_buster',2,20.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1541,1285,'blighted_gloom',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1542,1133,'trample',1,15.0,2000,1500,4,0,0,7,0,0,0);
-INSERT INTO `mob_skills` VALUES (1543,1134,'tempest_wing',1,15.0,2000,1500,4,0,0,7,0,0,0);
+INSERT INTO `mob_skills` VALUES (1543,1134,'tempest_wing',1,40.0,2000,1500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (1544,1139,'touchdown_bahamut',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1545,1135,'sweeping_flail',1,20.0,2000,1500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (1546,1140,'prodigious_spike',0,15.0,2000,1500,4,0,0,0,0,0,0);
@@ -3391,7 +3391,7 @@ INSERT INTO `mob_skills` VALUES (3435,386,'iainuki',0,7.0,2000,1500,4,0,0,0,0,0,
 INSERT INTO `mob_skills` VALUES (3436,383,'tachi_goten',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3437,384,'tachi_kasha',0,7.0,2000,1500,4,0,0,0,11,2,0);
 INSERT INTO `mob_skills` VALUES (3438,382,'dragon_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3439,381,'hurricane_wing',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3439,381,'hurricane_wing',1,40.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3440,269,'pocket_sand',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3441,268,'tripe_gripe',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3442,271,'sharp_eye',0,7.0,2000,1500,4,0,0,0,0,0,0);

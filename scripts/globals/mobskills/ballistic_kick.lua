@@ -1,7 +1,7 @@
 ---------------------------------------------------
 --  Ballistic Kick
 --
---  Description:  Conal MASSIVE damage + hate reset.
+--  Description:  Conal MASSIVE damage + hate reset + full encumberance.
 --  Type: Physical
 --
 ---------------------------------------------------
@@ -18,7 +18,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 4
+    local dmgmod = 2
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -34,9 +34,8 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg,mob,skill,target,tpz.attackType.PHYSICAL,tpz.damageType.H2H, MOBPARAM_IGNORE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.H2H)
+    MobEncumberMove(mob, target, 16, 60)
     mob:resetEnmity(target)
-        MobEncumberMove(mob, target, 16, 60)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
-
     return dmg
 end

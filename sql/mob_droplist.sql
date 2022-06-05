@@ -744,6 +744,7 @@ INSERT INTO `mob_droplist` VALUES (127,0,0,1000,4770,240); -- Stone IV
 INSERT INTO `mob_droplist` VALUES (128,0,0,1000,644,1000); -- (Antican Magister) Chunk of darksteel ore
 INSERT INTO `mob_droplist` VALUES (128,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (128,0,0,1000,1118,1000); -- Antican pauldron
+INSERT INTO `mob_droplist` VALUES (128,0,0,1000,18091,100); -- Mighty Lance
 INSERT INTO `mob_droplist` VALUES (128,0,0,1000,16686,50); -- Arcanabane
 INSERT INTO `mob_droplist` VALUES (129,0,0,1000,644,1000); -- Mythril Ore
 INSERT INTO `mob_droplist` VALUES (129,2,0,1000,748,0);
@@ -763,6 +764,7 @@ INSERT INTO `mob_droplist` VALUES (131,0,0,1000,16995,150);
 INSERT INTO `mob_droplist` VALUES (132,0,0,1000,644,1000); -- (Antican Proconsul) Chunk of mythril ore
 INSERT INTO `mob_droplist` VALUES (132,0,0,1000,4770,150); -- Scroll of Stone IV
 INSERT INTO `mob_droplist` VALUES (132,0,0,1000,4799,150); -- Scroll of Stonega III
+INSERT INTO `mob_droplist` VALUES (132,0,0,1000,18213,100); -- Mighty Axe
 INSERT INTO `mob_droplist` VALUES (133,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (133,0,0,1000,1121,100);
 INSERT INTO `mob_droplist` VALUES (133,0,0,1000,1429,120);
@@ -6217,9 +6219,10 @@ INSERT INTO `mob_droplist` VALUES (1193,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (1193,0,0,1000,2531,100);
 INSERT INTO `mob_droplist` VALUES (1193,0,0,1000,2977,100);
 INSERT INTO `mob_droplist` VALUES (1194,2,0,1000,749,0);
-INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,644,240);
+INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,644,240); -- (Goliath) 
+INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,17204,100); -- Mighty Bow
 INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,955,100);
-INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,1465,1000);	-- (Goliath) Granite
+INSERT INTO `mob_droplist` VALUES (1195,0,0,1000,1465,1000);	-- Granite
 INSERT INTO `mob_droplist` VALUES (1196,0,0,1000,846,240);
 INSERT INTO `mob_droplist` VALUES (1196,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (1196,0,0,1000,894,150);
@@ -9841,8 +9844,9 @@ INSERT INTO `mob_droplist` VALUES (1822,0,0,1000,3187,100);
 INSERT INTO `mob_droplist` VALUES (1822,0,0,1000,3187,50);
 INSERT INTO `mob_droplist` VALUES (1822,0,0,1000,3187,30);
 INSERT INTO `mob_droplist` VALUES (1822,0,0,1000,19055,100);
-INSERT INTO `mob_droplist` VALUES (1823,0,0,1000,940,1000);
-INSERT INTO `mob_droplist` VALUES (1823,0,0,1000,16723,240);	-- (Northern Shadow) Executioner
+INSERT INTO `mob_droplist` VALUES (1823,0,0,1000,940,1000); -- (Northern Shadow) 
+INSERT INTO `mob_droplist` VALUES (1823,0,0,1000,17941,100);	-- Mighty Pick
+INSERT INTO `mob_droplist` VALUES (1823,0,0,1000,16723,240);	-- Executioner
 INSERT INTO `mob_droplist` VALUES (1824,0,0,1000,2620,1000); -- (Nosferatu) Nosferatu's claw
 INSERT INTO `mob_droplist` VALUES (1824,1,1,1000,11378,333); -- Enkidu's leggings
 INSERT INTO `mob_droplist` VALUES (1824,1,1,1000,15021,333); -- Aurum gauntlets
@@ -10971,11 +10975,12 @@ INSERT INTO `mob_droplist` VALUES (2065,0,0,1000,997,50);
 INSERT INTO `mob_droplist` VALUES (2066,1,1,1000,1557,333); -- (Quiebitiel - Dynamis Beaucedine) Attestation of celerity
 INSERT INTO `mob_droplist` VALUES (2066,1,1,1000,1566,333); -- Attestation of sacrifice
 INSERT INTO `mob_droplist` VALUES (2066,1,1,1000,1569,334); -- Attestation of harmony
-INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,624,370);
-INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,4360,360);
-INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,4443,240);
-INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,4514,50);
-INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,17503,420);
+INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,624,1000); -- (Qull_the_Shellbuster) Clump of Pamtam kelp
+INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,4360,50); -- Bastore sardine
+INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,4443,50); -- Cobalt jellyfish
+INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,4514,50); -- Quus
+INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,17503,240); -- Exocets
+INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,18352,100); -- Mighty Patas
 INSERT INTO `mob_droplist` VALUES (2068,0,0,1000,5365,240);
 INSERT INTO `mob_droplist` VALUES (2068,0,0,1000,5366,190);
 INSERT INTO `mob_droplist` VALUES (2069,1,1,1000,13054,150);	-- (Quu Domi The Gallant) Fuma Kyahan
@@ -12038,8 +12043,9 @@ INSERT INTO `mob_droplist` VALUES (2295,0,0,1000,925,10);
 INSERT INTO `mob_droplist` VALUES (2295,0,0,1000,1040,50);
 INSERT INTO `mob_droplist` VALUES (2295,2,0,1000,4370,0);
 INSERT INTO `mob_droplist` VALUES (2295,0,0,1000,4370,50);
-INSERT INTO `mob_droplist` VALUES (2296,0,0,1000,940,1000);
-INSERT INTO `mob_droplist` VALUES (2296,0,0,1000,12344,240);	-- (Southern Shadow) Master Shield
+INSERT INTO `mob_droplist` VALUES (2296,0,0,1000,940,1000); -- (Southern Shadow) 
+INSERT INTO `mob_droplist` VALUES (2296,0,0,1000,17465,100);	-- Mighty Cudgel
+INSERT INTO `mob_droplist` VALUES (2296,0,0,1000,12344,240);	-- Master Shield
 INSERT INTO `mob_droplist` VALUES (2297,2,0,1000,748,0); -- (Sozu Bliberry)
 INSERT INTO `mob_droplist` VALUES (2297,0,0,1000,1119,1000); -- Tonberry coat
 INSERT INTO `mob_droplist` VALUES (2297,0,0,1000,1162,150); -- Tonberry lantern
@@ -14574,7 +14580,7 @@ INSERT INTO `mob_droplist` VALUES (2684,0,0,1000,16204,1000);
 INSERT INTO `mob_droplist` VALUES (2685,0,0,1000,4765,50);
 INSERT INTO `mob_droplist` VALUES (2685,0,0,1000,4816,30);
 INSERT INTO `mob_droplist` VALUES (2686,0,0,1000,13730,1000);	-- (Yaa Haqa The Profane) Frost robe
-INSERT INTO `mob_droplist` VALUES (2686,0,0,1000,13732,83);		-- Earth Doublet
+INSERT INTO `mob_droplist` VALUES (2686,0,0,1000,13732,100);		-- Earth Doublet
 INSERT INTO `mob_droplist` VALUES (2687,0,0,1000,3132,540);
 INSERT INTO `mob_droplist` VALUES (2687,0,0,1000,3132,270);
 INSERT INTO `mob_droplist` VALUES (2687,0,0,1000,3132,180);
@@ -16649,6 +16655,7 @@ INSERT INTO `mob_droplist` VALUES (3139,0,0,1000,1875,1000); -- (Apollyon Demon,
 INSERT INTO `mob_droplist` VALUES (3139,0,0,1000,1875,500);  -- (Apollyon Demon, Taurus, Ahriman) ancient_beastcoin x 1-2
 INSERT INTO `mob_droplist` VALUES (3140,0,0,1000,2826,300);	-- (Backoo) Mandragora Scale
 INSERT INTO `mob_droplist` VALUES (3141,0,0,1000,16990,100);  -- Ancient Goobbue; Daihannya
+INSERT INTO `mob_droplist` VALUES (3141,0,0,1000,17824,100);  -- Ancient Goobbue;Nukemaru
 INSERT INTO `mob_droplist` VALUES (3141,0,0,1000,919,1000);  -- Ancient Goobbue; Boyahda Moss
 INSERT INTO `mob_droplist` VALUES (3141,0,0,1000,1264,1000); -- Ancient Goobbue; Grt. Boyahda Moss
 INSERT INTO `mob_droplist` VALUES (3141,0,0,1000,1237,1000); -- Ancient Goobbue; Tree Cuttings

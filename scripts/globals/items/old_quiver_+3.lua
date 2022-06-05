@@ -16,4 +16,6 @@ end
 
 function onItemUse(target)
     target:addItem(18184, math.random(99))
+    local ID = zones[target:getZoneID()]
+    target:messageSpecial(ID.text.ITEM_OBTAINED, 18184)
 end

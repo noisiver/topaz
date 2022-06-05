@@ -19,6 +19,8 @@ function onInitialize(zone)
     zone:registerRegion(3, 14, -7, -65, 37, -2, -41) -- TOAU Mission 1 CS area
     zone:registerRegion(4, 75, -3, 25, 90, 1, 59)
     zone:registerRegion(5, 73, -7, -137, 95, -3, -115) -- entering Shaharat Teahouse
+    zone:registerRegion(6, 22, 1, -100, 24.5, 3, -98) -- The Prankster
+    zone:registerRegion(7, 25, -7, -127, 30, -5, -123) -- The Prankster
 end
 
 function onZoneIn(player, prevZone)
@@ -102,6 +104,16 @@ function onRegionEnter(player, region)
                 player:startEvent(797)
             end
         end,
+        [6] = function (x) -- The Prankster
+            if (player:getCharVar("ThePrankster") == 1) then
+                player:startEvent(2)
+            end
+        end,
+        [7] = function (x) -- The Prankster
+            if (player:getCharVar("ThePrankster") == 2) then
+                player:startEvent(3)
+            end
+        end,
     }
 end
 
@@ -135,8 +147,12 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    if (csid == 44) then
-        player:setCharVar("vanishingactCS", 4)
+    if (csid == 2) then
+        player:setCharVar("ThePrankster", 2)
+    elseif (csid == 3) then
+        player:setCharVar("ThePrankster", 3)
+    elseif (csid == 44) then
+        player:setCharVar("vanishingactCS", 3)
         player:setPos(-80, -6, 122, 5)
     elseif (csid == 200) then
         player:setPos(0, -2, 0, 0, 47)

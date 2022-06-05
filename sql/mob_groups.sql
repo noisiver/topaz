@@ -2551,7 +2551,7 @@ INSERT INTO `mob_groups` VALUES (42,2541,52,'Mamool_Jas_Wyvern',0,128,0,0,0,76,7
 INSERT INTO `mob_groups` VALUES (43,5140,52,'Nis_Puk',0,32,2894,13000,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (44,2523,52,'Mamool_Ja_Lurker',300,0,1593,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (45,2507,52,'Mamool_Ja_Blusterer',300,0,1586,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (46,3153,52,'Plague_Chigoe',0,128,0,0,0,75,76,0);
+INSERT INTO `mob_groups` VALUES (46,3153,52,'Plague_Chigoe',0,128,0,10000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (47,393,52,'Berried_Chigoe',0,128,255,0,0,75,76,0);
 INSERT INTO `mob_groups` VALUES (48,716,52,'Chigoes_Nit',0,128,0,0,0,75,76,0);
 INSERT INTO `mob_groups` VALUES (49,916,52,'Dark_Rider',0,128,0,0,0,95,95,0);
@@ -2921,7 +2921,7 @@ INSERT INTO `mob_groups` VALUES (9,5330,61,'Sulphuric_Jagil',330,0,463,0,0,81,83
 INSERT INTO `mob_groups` VALUES (10,3130,61,'Phasma',330,1,1996,0,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (11,1160,61,'Earth_Elemental',330,4,733,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (12,271,61,'Assassin_Fly',330,0,6013,0,0,71,73,0);
-INSERT INTO `mob_groups` VALUES (13,2485,61,'Magmatic_Eruca',330,0,1573,0,0,76,80,0);
+INSERT INTO `mob_groups` VALUES (13,2485,61,'Magmatic_Eruca',330,0,1573,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (14,1341,61,'Fire_Elemental',330,4,831,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (15,2758,61,'Mountain_Clot',330,0,9054,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (16,1954,61,'Hilltroll_Warrior',330,0,1313,0,0,81,83,0);
@@ -7063,11 +7063,11 @@ INSERT INTO `mob_groups` VALUES (50,6543,100,'Enchanted_Bones',330,1,769,0,0,4,8
 -- East_Ronfaure (Zone 101)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,3221,101,'Pugil',330,0,2034,0,0,1,5,0);
-INSERT INTO `mob_groups` VALUES (2,711,101,'Cheval_Pugil',0,128,463,0,0,3,5,0);
-INSERT INTO `mob_groups` VALUES (3,2768,101,'Mud_Pugil',0,128,975,0,0,5,6,0);
-INSERT INTO `mob_groups` VALUES (4,3222,101,'Pug_Pugil',0,128,463,0,0,7,8,0);
-INSERT INTO `mob_groups` VALUES (5,1336,101,'Fighting_Pugil',0,128,279,0,0,9,10,0);
+INSERT INTO `mob_groups` VALUES (1,3221,101,'Pugil',0,128,0,0,0,3,5,0);
+INSERT INTO `mob_groups` VALUES (2,711,101,'Cheval_Pugil',0,128,0,0,0,3,5,0);
+INSERT INTO `mob_groups` VALUES (3,2768,101,'Mud_Pugil',0,128,0,0,0,5,6,0);
+INSERT INTO `mob_groups` VALUES (4,3222,101,'Pug_Pugil',0,128,0,0,0,7,8,0);
+INSERT INTO `mob_groups` VALUES (5,1336,101,'Fighting_Pugil',0,128,0,0,0,9,10,0);
 INSERT INTO `mob_groups` VALUES (6,4343,101,'Wild_Rabbit',330,0,2659,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (7,4053,101,'Tunnel_Worm',330,0,2498,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (8,1038,101,'Ding_Bats',330,2,82,0,0,1,5,0);
@@ -7106,6 +7106,7 @@ INSERT INTO `mob_groups` VALUES (40,714,101,'Chigoe',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (41,3241,101,'Pyracmon',1,0,2047,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (42,4381,101,'Wraith_Bat',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (43,6543,101,'Enchanted_Bones',330,1,769,0,0,4,8,0);
+INSERT INTO `mob_groups` VALUES (44,3221,101,'Pugil',330,0,2034,0,0,1,5,0);
 
 -- ------------------------------------------------------------
 -- La_Theine_Plateau (Zone 102)
@@ -7844,6 +7845,12 @@ INSERT INTO `mob_groups` VALUES (40,1704,113,'Goblin_Professor',0,128,0,0,0,75,8
 INSERT INTO `mob_groups` VALUES (41,1640,113,'Goblin_Boss',0,128,0,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (42,2185,113,'Kaneakeluh',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (43,0,113,'Zmey_Gorynych',0,128,0,0,0,78,78,0);
+
+-- Twilight Beach
+INSERT INTO `mob_groups` VALUES (44,378,113,'Beach_Bunny',330,0,247,0,0,64,65,0);
+INSERT INTO `mob_groups` VALUES (45,3375,113,'Robber_Crab',330,0,2108,0,0,67,68,0);
+INSERT INTO `mob_groups` VALUES (46,4218,113,'Velociraptor',330,0,2572,0,0,68,69,0);
+INSERT INTO `mob_groups` VALUES (47,3882,113,'Terror_Pugil',330,0,1229,0,0,69,70,0);
 
 INSERT INTO `mob_groups` VALUES (6232,2226,113,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6234,2405,113,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);

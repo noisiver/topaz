@@ -180,18 +180,22 @@ void CItemEquipment::addModifier(CModifier modifier)
         switch(m_shieldSize)
         {
             case 1: // Buckler
-                pdt += 22;
+                pdt += 20;
                 break;
             case 2: // Round
-            case 6: // Ochain
                 pdt += 40;
                 break;
             case 3: // Kite
                 pdt += 50;
                 break;
             case 4: // Tower
-            case 5: // Aegis
-                pdt += 55;
+                pdt += 65;
+                break;
+            case 5: // Aegis and Srivatsa
+                pdt += 75;
+                break;
+            case 6: // Ochain
+                pdt += 60;
                 break;
         }
         m_absorption = std::min<uint8>(pdt, 100);

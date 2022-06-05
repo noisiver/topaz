@@ -58,7 +58,18 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         end
     end
 
+
+    -- Apply WS gear mods
+    local bonusdmg = player:getMod(tpz.mod.ALL_WSDMG_ALL_HITS)
+    bonusdmg = bonusdmg + player:getMod(tpz.ALL_WSDMG_FIRST_HIT)
+    if player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 then
+        bonusdmg = bonusdmg * (100 + player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)) / 100
+    end
+
+    WSC = WSC * ((100 + bonusdmg)/100) -- Apply WS gear mods
+
     local damage = target:breathDmgTaken(WSC)
+
     if (damage > 0) then
         if (player:getOffhandDmg() > 0) then
             calcParams.tpHitsLanded = 2
@@ -66,9 +77,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             calcParams.tpHitsLanded = 1
         end
     end
-    if (player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then
-        damage = damage * (100 + player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID))/100
-    end
+
     damage = damage * WEAPON_SKILL_POWER
     calcParams.finalDmg = damage
 
@@ -78,5 +87,4 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
 
     return calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.criticalHit, damage
-
 end

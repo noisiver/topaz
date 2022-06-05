@@ -21,9 +21,6 @@ function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
     local dmgmod = 1.25
-    if mob:getMainJob() == tpz.job.MNK then -- Monk mobs have -50% dmg so need doubled dmgmod
-        dmgmod = 3
-    end
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

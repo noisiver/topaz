@@ -7,8 +7,8 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
-    local power = effect:getPower() -- Tracks which bonus effects are in use.
 
+    local power = effect:getPower() -- Tracks which bonus effects are in use.
     if (power == 1 or power == 3 or power == 5 or power == 7 or power == 9 or power == 11 or power == 13 or power == 15) then
         local percentage = 70 -- TODO: This should be based off of controlled areas in Campaign
         target:addLatent(tpz.latent.SIGIL_REGEN_BONUS, percentage, tpz.mod.REGEN, 1)
@@ -30,6 +30,8 @@ function onEffectGain(target, effect)
         -- target:addLatent(LATENT_SIGIL_EXPLOSS, ?, MOD_EXPLOSS_REDUCTION, ?)
         -- exp loss reduction not implemented.
     end
+    -- Gain +25% more EXP in campaign regions if above level 55 and below 75
+    target:addLatent(tpz.latent.SIGIL_EXP_BONUS, 1, tpz.mod.EXP_BONUS, 25)
 end
 
 function onEffectTick(target, effect)
@@ -59,4 +61,5 @@ function onEffectLose(target, effect)
         -- target:delMod(tpz.mod.EXPLOSS_REDUCTION), ???)
         -- exp loss reduction not implemented.
     end
+    target:delLatent(tpz.latent.SIGIL_EXP_BONUS, 1, tpz.mod.EXP_BONUS, 25)
 end
