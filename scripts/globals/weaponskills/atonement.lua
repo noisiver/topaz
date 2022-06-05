@@ -80,11 +80,16 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             dmg = math.floor(target:getCE(player) * ceMod) + math.floor(target:getVE(player) * veMod)
         end
 
+        -- Apply WS gear mods
+        local bonusdmg = player:getMod(tpz.mod.ALL_WSDMG_ALL_HITS)
+        bonusdmg = bonusdmg + player:getMod(tpz.mod.ALL_WSDMG_FIRST_HIT)
+        if player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 then
+            bonusdmg = bonusdmg * (100 + player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)) / 100
+        end
+
+        dmg = dmg * ((100 + bonusdmg)/100) -- Apply WS gear mods
         dmg = utils.clamp(dmg, 0, player:getMainLvl() * 10) -- Damage is capped to player's level * 10, before WS damage mods
         damage = target:breathDmgTaken(dmg)
-        if player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 then
-            damage = damage * (100 + player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)) / 100
-        end
         damage = damage * WEAPON_SKILL_POWER
         calcParams.finalDmg = damage
 
