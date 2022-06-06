@@ -4706,8 +4706,8 @@ INSERT INTO `synth_recipes` VALUES (75510,0,0,0,0,0,0,0,0,0,15,4098,4240,5452,0,
 INSERT INTO `synth_recipes` VALUES (75511,1,0,0,0,100,0,0,0,0,0,4100,4242,2357,0,0,0,0,0,0,0,686,686,686,686,1,1,2,2,'Medusa\'s Armlet (desynth)');
 INSERT INTO `synth_recipes` VALUES (75512,1,0,0,100,0,0,0,0,0,0,4100,4242,2355,0,0,0,0,0,0,0,686,686,686,686,1,1,2,2,'Ja Ja\'s Chestplate (desynth)');
 INSERT INTO `synth_recipes` VALUES (75513,1,0,0,0,0,0,100,0,0,0,4100,4242,2356,0,0,0,0,0,0,0,686,686,686,686,1,1,2,2,'Gurfurlur\'s Helmet (desynth)');
-INSERT INTO `synth_recipes` VALUES (75514,1,0,0,21,0,0,0,0,0,0,4100,4242,507,0,0,0,0,0,0,0,652,654,654,654,1,1,1,1,'Goblin Mess Tin (desynth)');
-INSERT INTO `synth_recipes` VALUES (75515,1,0,21,0,0,0,0,0,0,0,4100,4242,507,0,0,0,0,0,0,0,712,4401,4379,5474,1,4,1,4,'Goblin Weel (desynth)');
+INSERT INTO `synth_recipes` VALUES (75514,1,0,0,21,0,0,0,0,0,0,4100,4242,2542,0,0,0,0,0,0,0,652,654,654,654,1,1,1,1,'Goblin Mess Tin (desynth)');
+INSERT INTO `synth_recipes` VALUES (75515,1,0,21,0,0,0,0,0,0,0,4100,4242,2543,0,0,0,0,0,0,0,712,4401,4379,5474,1,4,1,4,'Goblin Weel (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (ID,Desynth,KeyItem,WD,SM,GO,CL,LE,BO,AL,CK,Crystal,HQCrystal,I1,I2,I3,I4,I5,I6,I7,I8,R1,R2,R3,R4,Q1,Q2,Q3,Q4,ResultName); --  template
 
 -- -----------
