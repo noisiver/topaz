@@ -52,6 +52,7 @@ function onMobEngaged(mob, target)
             end
         end
     end
+    mob:setMod(tpz.mod.MOVE, 0) -- Remove movement speed so they aren't impossible to pull
 end
 
 function onMobFight(mob, target)
