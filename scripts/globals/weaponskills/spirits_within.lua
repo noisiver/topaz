@@ -66,7 +66,33 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         bonusdmg = bonusdmg * (100 + player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)) / 100
     end
 
-    WSC = WSC * ((100 + bonusdmg)/100) -- Apply WS gear mods
+    WSC = math.floor(WSC * ((100 + bonusdmg)/100)) -- Apply WS gear mods
+
+    -- Apply Circle Effects
+    local eco = target:getSystem()
+    local circlemult = 100
+    local mod = 0
+        
+    if     eco == 1  then mod = 1226
+    elseif eco == 2  then mod = 1228
+    elseif eco == 3  then mod = 1232
+    elseif eco == 6  then mod = 1230
+    elseif eco == 8  then mod = 1225
+    elseif eco == 9  then mod = 1234
+    elseif eco == 10 then mod = 1233
+    elseif eco == 14 then mod = 1227
+    elseif eco == 16 then mod = 1238
+    elseif eco == 15 then mod = 1237
+    elseif eco == 17 then mod = 1229
+    elseif eco == 19 then mod = 1231
+    elseif eco == 20 then mod = 1224
+    end
+        
+    if mod > 0 then
+        circlemult = 100 + player:getMod(mod)
+    end
+
+    WSC = math.floor(WSC * circlemult / 100) -- Apply circle effect mod
 
     local damage = target:breathDmgTaken(WSC)
 
