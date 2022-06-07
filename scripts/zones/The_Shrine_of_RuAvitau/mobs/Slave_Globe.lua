@@ -19,7 +19,7 @@ function onMobSpawn(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
-    return 0
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN)
 end
 
 function onPath(mob)
