@@ -3,7 +3,6 @@
 --  Mob: Morion Worm
 -----------------------------------
 require("scripts/globals/status")
-mixins = {require("scripts/mixins/families/worm")}
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -23,5 +22,4 @@ function onMobSpawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
-    GetNPCByID(ID.npc.MORION_WORM_QM):updateNPCHideTime(900)
 end
