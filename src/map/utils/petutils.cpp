@@ -1449,7 +1449,7 @@ namespace petutils
 
             uint16 petRegen = PPet->GetMLevel() / 3;
             uint16 petCrit = PPet->GetMLevel() / 3;
-            uint16 petDA = PPet->GetMLevel() / 3;
+            uint16 petDA = PPet->GetMLevel() / 7;
             uint16 petMAB = PPet->GetMLevel() / 7;
 
             // Specific stats and SDT for each Avatar / Elemental
