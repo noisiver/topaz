@@ -146,4 +146,9 @@ function onEventFinish(player, csid, option)
         player:addMission(ZILART, tpz.mission.id.zilart.THE_CELESTIAL_NEXUS)
         player:setCharVar("ZilartStatus", 0)
     end
+
+    -- Remove invisible after using teleporters
+    if (csid >= 1 and csid <= 17) then
+        player:delStatusEffect(tpz.effect.INVISIBLE)
+    end
 end
