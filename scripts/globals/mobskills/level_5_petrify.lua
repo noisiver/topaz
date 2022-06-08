@@ -22,9 +22,9 @@ function onMobWeaponSkill(target, mob, skill)
     if (target:getMainLvl()%5 == 0) then
 
 
-        local power = 30
+        local duration = 45
 
-        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, power))
+        skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 45))
 
     else
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
