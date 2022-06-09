@@ -6,6 +6,7 @@
 local ID = require("scripts/zones/Kuftal_Tunnel/IDs")
 require("scripts/globals/regimes")
 require("scripts/globals/mobs")
+mixins = {require("scripts/mixins/families/worm")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
