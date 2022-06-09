@@ -1850,7 +1850,7 @@ INSERT INTO `mob_skills` VALUES (1904,1126,'somnolence',4,15.0,2000,3000,4,0,0,0
 INSERT INTO `mob_skills` VALUES (1905,916,'noctoshield',1,10.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1906,917,'ultimate_terror',1,10.0,2000,3000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1907,1127,'dream_shroud',1,10.0,2000,3000,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1908,918,'nightmare',1,10.0,2000,2000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1908,918,'nightmare',1,10.0,2000,2500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1909,1653,'cacodemonia',1,10.0,2000,1500,4,0,0,0,0,0,0); 
 INSERT INTO `mob_skills` VALUES (1910,1126,'nether_blast',4,15.0,646,3000,4,0,0,0,0,0,0); 
 
@@ -2324,7 +2324,7 @@ INSERT INTO `mob_skills` VALUES (2361,1269,'stave_toss',0,7.0,2000,1500,4,0,0,0,
 INSERT INTO `mob_skills` VALUES (2369,1652,'scintillant_lance',4,10.0,2000,1000,4,0,0,0,0,0,0); -- correct animation
 -- INSERT INTO `mob_skills` VALUES (2370,2114,'grace_of_hera',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2371,2115,'noxious_spray',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2372,307,'hellborn_yawp',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2372,307,'hellborn_yawp',1,10.0,2000,2500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2373,379,'veil_of_chaos',1,30.0,2000,3500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (2374,742,'torment_of_gudha',1,15.0,2000,1500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (2375,285,'vorticose_sands',1,30.0,2000,3500,4,0,0,0,0,0,0);

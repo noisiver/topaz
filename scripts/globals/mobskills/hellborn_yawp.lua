@@ -46,8 +46,7 @@ function onMobWeaponSkill(target, mob, skill)
         end
     end
 	if (mob:getPool() == 6742) then -- Prince Orobas
-		target:dispelStatusEffect()
-		mob:eraseStatusEffect()
+        target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD))
 	end
 	if (mob:getPool() == 6737) then --Count Bifrons 
 		mob:addStatusEffectEx(tpz.effect.PHYSICAL_SHIELD, 0, 3, 0, 30)
