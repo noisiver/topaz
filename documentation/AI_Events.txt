@@ -14,6 +14,7 @@ MAGIC_MID - Entity, Target, Spell
 MAGIC_USE - Entity, Target, Spell, action
 MAGIC_STATE_EXIT - Entity, Spell
 MAGIC_TAKE - Target, Entity, Spell, action
+MAGIC_HIT - caster, target, spell
 
 SPAWN - Entity
 DESPAWN - Entity

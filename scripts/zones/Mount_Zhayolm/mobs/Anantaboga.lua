@@ -4,7 +4,11 @@
 -----------------------------------
 require("scripts/globals/mobs")
 require("scripts/globals/status")
-mixins = {require("scripts/mixins/rage")}
+mixins =
+{
+    require("scripts/mixins/rage"),
+    require("scripts/mixins/families/dahak")
+}
 -----------------------------------
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)

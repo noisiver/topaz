@@ -3,6 +3,7 @@
 --  Mob: Dahak
 -- Note: 
 -----------------------------------
+mixins = {require("scripts/mixins/families/dahak")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
