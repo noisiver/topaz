@@ -25,56 +25,56 @@ local loot =
             {itemid =  4174, droprate =  250}, -- vile_elixir
         },
         {
-            {itemid =     0, droprate =  200}, -- nothing
-            {itemid =  4858, droprate =  50}, -- scroll_of_ice_spikes
-            {itemid =  4874, droprate =  50}, -- scroll_of_absorb-str
-            {itemid = 13237, droprate =  240}, -- survival_belt
-            {itemid = 13127, droprate =  150}, -- guarding_gorget
+            {itemid =     0, droprate =  400}, -- nothing
+            {itemid =  4858, droprate =  100}, -- scroll_of_ice_spikes
+            {itemid =  4874, droprate =  100}, -- scroll_of_absorb-str
+            {itemid = 13237, droprate =  100}, -- survival_belt
+            {itemid = 13127, droprate =  100}, -- guarding_gorget
             {itemid = 13405, droprate =  100}, -- enhancing_earring
-            {itemid = 12349, droprate =  240}, -- balance_buckler
+            {itemid = 12349, droprate =  100}, -- balance_buckler
         },
         {
-            {itemid =  4751, droprate =  240}, -- scroll_of_erase
-            {itemid =  4717, droprate =  240}, -- scroll_of_refresh
-            {itemid =  4714, droprate =  240}, -- scroll_of_phalanx
-            {itemid =   776, droprate =  15}, -- white_rock
-            {itemid =   773, droprate =  15}, -- translucent_rock
-            {itemid =   774, droprate =  15}, -- purple_rock
-            {itemid =   769, droprate =  15}, -- red_rock
-            {itemid =   770, droprate =  15}, -- blue_rock
-            {itemid =   771, droprate =  15}, -- yellow_rock
-            {itemid =   772, droprate =  15}, -- green_rock
-            {itemid =   775, droprate =  15}, -- black_rock
-            {itemid =   808, droprate =  15}, -- goshenite
-            {itemid =   815, droprate =  15}, -- sphene
-            {itemid =   701, droprate =  15}, -- rosewood_log
+            {itemid =  4751, droprate =  200}, -- scroll_of_erase
+            {itemid =  4717, droprate =  200}, -- scroll_of_refresh
+            {itemid =  4714, droprate =  200}, -- scroll_of_phalanx
+            {itemid =   776, droprate =  40}, -- white_rock
+            {itemid =   773, droprate =  40}, -- translucent_rock
+            {itemid =   774, droprate =  40}, -- purple_rock
+            {itemid =   769, droprate =  40}, -- red_rock
+            {itemid =   770, droprate =  40}, -- blue_rock
+            {itemid =   771, droprate =  40}, -- yellow_rock
+            {itemid =   772, droprate =  40}, -- green_rock
+            {itemid =   775, droprate =  40}, -- black_rock
+            {itemid =   808, droprate =  40}, -- goshenite
+            {itemid =   815, droprate =  40}, -- sphene
         },
         {
-            {itemid =  4714, droprate =  240}, -- scroll_of_phalanx
-            {itemid =  4751, droprate =  240}, -- scroll_of_erase
-            {itemid =  4717, droprate =  240}, -- scroll_of_refresh
-            {itemid =  4947, droprate =  240}, -- scroll_of_utsusemi_ni
-            {itemid =   790, droprate =   15}, -- garnet
-            {itemid =   793, droprate =   15}, -- black_pearl
-            {itemid =   811, droprate =   15}, -- ametrine
-            {itemid =   797, droprate =   15}, -- painite
-            {itemid =   792, droprate =   15}, -- pearl
-            {itemid =   699, droprate =  15}, -- oak_log
-            {itemid =   808, droprate =  15}, -- goshenite
-            {itemid =   815, droprate =  15}, -- sphene
-            {itemid =   701, droprate =  15}, -- rosewood_log
+            {itemid =  4714, droprate =  200}, -- scroll_of_phalanx
+            {itemid =  4751, droprate =  200}, -- scroll_of_erase
+            {itemid =  4717, droprate =  200}, -- scroll_of_refresh
+            {itemid =  4947, droprate =  200}, -- scroll_of_utsusemi_ni
+            {itemid =   790, droprate =  20}, -- garnet
+            {itemid =   793, droprate =  20}, -- black_pearl
+            {itemid =   811, droprate =  20}, -- ametrine
+            {itemid =   797, droprate =  20}, -- painite
+            {itemid =   792, droprate =  20}, -- pearl
+            {itemid =   699, droprate =  20}, -- oak_log
+            {itemid =   808, droprate =  20}, -- goshenite
+            {itemid =   815, droprate =  20}, -- sphene
+            {itemid =   798, droprate =  20}, -- turquoise
+            {itemid =   701, droprate =  20}, -- rosewood_log
         },
         {
             {itemid =     0, droprate =  100}, -- nothing
-            {itemid =  4896, droprate =  125}, -- fire_spirit_pact
-            {itemid =  4858, droprate =  150}, -- scroll_of_ice_spikes
-            {itemid =  4874, droprate =  125}, -- scroll_of_absorb-str
-            {itemid =   793, droprate =   50}, -- black_pearl
-            {itemid =   811, droprate =   50}, -- ametrine
-            {itemid =   797, droprate =   50}, -- painite
+            {itemid =  4896, droprate =  100}, -- fire_spirit_pact
+            {itemid =  4858, droprate =  100}, -- scroll_of_ice_spikes
+            {itemid =  4874, droprate =  100}, -- scroll_of_absorb-str
+            {itemid =   793, droprate =  100}, -- black_pearl
+            {itemid =   811, droprate =  100}, -- ametrine
+            {itemid =   797, droprate =  100}, -- painite
             {itemid =   798, droprate =  100}, -- turquoise
             {itemid =   794, droprate =  100}, -- sapphire
-            {itemid =   788, droprate =  150}, -- peridot
+            {itemid =   788, droprate =  100}, -- peridot
         },
     },
     -- BCNM Divine Punishers
