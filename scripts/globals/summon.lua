@@ -507,6 +507,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         target:updateEnmityFromDamage(avatar, dmg)
     end
     target:handleAfflatusMiseryDamage(dmg)
+    target:tryInterruptSpell(avatar, numberofhits)
     avatar:delStatusEffectSilent(tpz.effect.BOOST)
     avatar:setLocalVar("TP", 0)
     avatar:setTP(0)
