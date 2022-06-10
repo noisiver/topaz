@@ -21899,7 +21899,8 @@ INSERT INTO `item_mods` VALUES (18023,2,20); -- Jambiya
 INSERT INTO `item_mods` VALUES (18023,1245,5); -- Resist Virus 5%
 INSERT INTO `item_mods` VALUES (18024,2,22); -- Jambiya +1
 INSERT INTO `item_mods` VALUES (18024,1245,7); -- Resist Virus 7%
-INSERT INTO `item_mods` VALUES (18026,68,-10);
+INSERT INTO `item_mods` VALUES (18026,68,-10);    -- Magnet Knife -10 Evasion
+INSERT INTO `item_mods` VALUES (18026,431,1);     -- Addtional effect: Gravity
 INSERT INTO `item_mods` VALUES (18027,24,5);
 INSERT INTO `item_mods` VALUES (18027,110,5);
 INSERT INTO `item_mods` VALUES (18027,291,1);
