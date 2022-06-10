@@ -16,11 +16,6 @@ function onBattlefieldEnter(player, battlefield)
 end
 
 function onBattlefieldEnter(player, battlefield)
-    local ID = zones[player:getZoneID()]
-    if player:hasKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER) then
-        player:delKeyItem(tpz.ki.SECRET_IMPERIAL_ORDER)
-        player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.SECRET_IMPERIAL_ORDER)
-    end
 end
 
 function onBattlefieldLeave(player, battlefield, leavecode)
