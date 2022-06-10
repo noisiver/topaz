@@ -11,6 +11,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobEngaged(mob, target)
