@@ -7,9 +7,10 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 50) 
-     mob:addMod(tpz.mod.ATTP, 35)
-     mob:addMod(tpz.mod.EVA, 20)
+    mob:setDamage(125)
+    mob:addMod(tpz.mod.ATTP, 35)
+    mob:addMod(tpz.mod.DEFP, 50) 
+    mob:addMod(tpz.mod.EVA, 20)
 end
 
 function onMobRoam(mob)
