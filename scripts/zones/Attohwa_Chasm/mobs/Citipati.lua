@@ -7,6 +7,7 @@ require("scripts/globals/world")
 local ID = require("scripts/zones/Attohwa_Chasm/IDs")
 
 function onMobSpawn(mob)
+	mob:setDamage(125)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 20)
     mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
