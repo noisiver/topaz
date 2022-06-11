@@ -18,6 +18,7 @@ function onMobRoam(mob)
 end
 
 function onMobDespawn(mob)
+    UpdateNMSpawnPoint(mob:getID())
 end
 
 function onMobDeath(mob, player, isKiller)
