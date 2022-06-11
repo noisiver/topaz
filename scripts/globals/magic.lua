@@ -643,9 +643,9 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         res = res / 2
     end
 
-	if getElementalSDT(element, target) == 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+	if getElementalSDT(element, target) <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
 		res = 1/4
-    elseif getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
+    elseif getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 	
@@ -676,7 +676,7 @@ function applyResistanceAbility(player, target, element, skill, bonus)
         res = res / 2
     end
 
-    if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 
@@ -698,7 +698,7 @@ function applyResistanceAddEffect(player, target, element, bonus)
         res = res / 2
     end
 
-    if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 
