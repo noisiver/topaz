@@ -45,6 +45,9 @@ function onTrigger(player, arg1)
     for v = 167,168,1 do
         targ:delStatusEffectSilent(v)
     end
+    for v = 174,175,1 do
+        targ:delStatusEffectSilent(v)
+    end
     for v = 192,194,1 do
         targ:delStatusEffectSilent(v)
     end

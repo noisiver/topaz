@@ -2427,8 +2427,8 @@ INSERT INTO `item_basic` VALUES (2538,0,'square_of_peiste_leather','peiste_leath
 INSERT INTO `item_basic` VALUES (2539,0,'tuft_of_dhalmel_hair','dhalmel_hair',12,4,40,0,639);
 INSERT INTO `item_basic` VALUES (2540,0,'magellan_card','magellan_card',1,12384,0,1,0);
 INSERT INTO `item_basic` VALUES (2541,0,'andromeda_card','andromeda_card',1,12352,0,1,0);
-INSERT INTO `item_basic` VALUES (2542,0,'goblin_mess_tin','goblin_mess_tin',12,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (2543,0,'goblin_weel','goblin_weel',12,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (2542,0,'goblin_mess_tin','goblin_mess_tin',1,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (2543,0,'goblin_weel','goblin_weel',1,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2544,0,'smilodon_collar','smilodon_collar',12,4096,50,1,0);
 INSERT INTO `item_basic` VALUES (2545,0,'lynx_collars','lynx_collar',12,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (2546,0,'handful_of_black_bolt_heads','blk._bolt_heads',99,4,43,0,47);

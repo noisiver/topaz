@@ -7,6 +7,7 @@ require("scripts/globals/regimes")
 
 function onMobSpawn(mob)
     mob:setLocalVar("petCount", 1)
+     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobFight(mob, target)

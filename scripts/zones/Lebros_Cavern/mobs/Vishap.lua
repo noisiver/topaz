@@ -4,6 +4,7 @@
 -- 
 -----------------------------------
 local ID = require("scripts/zones/Lebros_Cavern/IDs")
+mixins = {require("scripts/mixins/families/dahak")}
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.MDEF, 40)

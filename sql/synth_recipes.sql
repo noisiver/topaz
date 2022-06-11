@@ -3495,7 +3495,7 @@ INSERT INTO `synth_recipes` VALUES (54554,0,0,0,0,0,0,55,99,44,0,4099,4241,506,7
 -- INSERT INTO `synth_recipes` VALUES (54555,0,0,0,0,0,0,255,99,0,0,4099,4241,830,836,8708,8982,8983,0,0,0,27226,27227,27227,27227,1,1,1,1,'Sombra Tights');
 INSERT INTO `synth_recipes` VALUES (54556,0,0,0,47,0,0,52,99,0,0,4099,4241,664,823,855,862,1841,0,0,0,15209,15210,15210,15210,1,1,1,1,'Unicorn Cap');
 INSERT INTO `synth_recipes` VALUES (54557,0,0,0,0,0,0,0,99,0,0,4099,4241,850,851,851,1473,1473,1473,1473,0,12621,12589,12589,12589,1,1,1,1,'Scorpion Breastplate');
--- INSERT INTO `synth_recipes` VALUES (54558,0,0,0,0,0,0,255,99,0,0,4103,4245,850,855,909,913,0,0,0,0,13920,13921,13921,13921,1,1,1,1,'Wyvern Helm');
+INSERT INTO `synth_recipes` VALUES (54558,0,0,0,0,0,0,41,99,0,0,4103,4245,850,855,909,913,0,0,0,0,13920,13921,13921,13921,1,1,1,1,'Wyvern Helm');
 -- INSERT INTO `synth_recipes` VALUES (54559,0,0,0,0,0,0,255,99,0,0,4099,4241,821,1586,2172,12952,0,0,0,0,15703,15704,15704,15704,1,1,1,1,'Hydra Greaves');
 INSERT INTO `synth_recipes` VALUES (54560,0,0,0,39,40,0,0,99,0,0,4096,4238,652,745,914,2359,2371,0,0,0,18030,18031,18031,18031,1,1,1,1,'Khimaira Jambiya');
 INSERT INTO `synth_recipes` VALUES (54561,0,0,0,0,0,0,41,99,0,0,4103,4245,850,855,905,913,0,0,0,0,13920,13921,13921,13921,1,1,1,1,'Wyvern Helm');
@@ -4706,12 +4706,14 @@ INSERT INTO `synth_recipes` VALUES (75510,0,0,0,0,0,0,0,0,0,15,4098,4240,5452,0,
 INSERT INTO `synth_recipes` VALUES (75511,1,0,0,0,100,0,0,0,0,0,4100,4242,2357,0,0,0,0,0,0,0,686,686,686,686,1,1,2,2,'Medusa\'s Armlet (desynth)');
 INSERT INTO `synth_recipes` VALUES (75512,1,0,0,100,0,0,0,0,0,0,4100,4242,2355,0,0,0,0,0,0,0,686,686,686,686,1,1,2,2,'Ja Ja\'s Chestplate (desynth)');
 INSERT INTO `synth_recipes` VALUES (75513,1,0,0,0,0,0,100,0,0,0,4100,4242,2356,0,0,0,0,0,0,0,686,686,686,686,1,1,2,2,'Gurfurlur\'s Helmet (desynth)');
-
+INSERT INTO `synth_recipes` VALUES (75514,1,0,0,21,0,0,0,0,0,0,4100,4242,2542,0,0,0,0,0,0,0,652,654,654,654,1,1,1,1,'Goblin Mess Tin (desynth)');
+INSERT INTO `synth_recipes` VALUES (75515,1,0,21,0,0,0,0,0,0,0,4100,4242,2543,0,0,0,0,0,0,0,712,4401,4379,5474,1,4,1,4,'Goblin Weel (desynth)');
+-- INSERT INTO `synth_recipes` VALUES (ID,Desynth,KeyItem,WD,SM,GO,CL,LE,BO,AL,CK,Crystal,HQCrystal,itemid,I2,I3,I4,I5,I6,I7,I8,R1,R2,R3,R4,Q1,Q2,Q3,Q4,ResultName); --  template
 
 -- -----------
 -- RECIPES END
 
--- INSERT INTO `synth_recipes` VALUES (ID,Desynth,KeyItem,WD,SM,GO,CL,LE,BO,AL,CK,Crystal,HQCrystal,I1,I2,I3,I4,I5,I6,I7,I8,R1,R2,R3,R4,Q1,Q2,Q3,Q4,ResultName); --  template
+-- INSERT INTO `synth_recipes` VALUES (ID,Desynth,KeyItem,WD,SM,GO,CL,LE,BO,AL,CK,Crystal,HQCrystal,itemid,I2,I3,I4,I5,I6,I7,I8,R1,R2,R3,R4,Q1,Q2,Q3,Q4,ResultName); --  template
 -- crystals = fire(4096,4238) ice(4097,4239) wind(4098,4240) earth(4099,4241) lightning(4100,4242) water(4101,4243) light(4102,4244) dark(4103,4245)
 
 /*!40000 ALTER TABLE `synth_recipes` ENABLE KEYS */;

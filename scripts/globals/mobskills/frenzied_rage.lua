@@ -5,7 +5,7 @@
 -- Type: Enhancing
 -- Utsusemi/Blink absorb: N/A
 -- Range: Self
--- Notes: 20% Attack Boost.
+-- Notes: 100% Attack Boost.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local power = 20
+    local power = 100
     local duration = 300
 
     local typeEffect = tpz.effect.ATTACK_BOOST

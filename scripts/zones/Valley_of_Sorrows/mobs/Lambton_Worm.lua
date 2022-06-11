@@ -16,6 +16,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.PHYS_ABSORB, 0)
     mob:setMod(tpz.mod.MAGIC_ABSORB, 0)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 2064)
+	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 	mob:setLocalVar("AbsorbTime", 0)
 end
 

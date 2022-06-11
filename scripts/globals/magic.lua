@@ -585,13 +585,15 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
 
     local effect = params.effect
     if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
-        res = 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
-        --print("restrait proc!")
-        if spell ~= nil then
-			spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-            -- if spell:isAoe() == 1 then -- Errors
-				-- spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-            -- end
+        if (caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) == false) then -- Elemental Seal bypasses resist traits
+            if spell ~= nil then
+			    spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+                -- if spell:isAoe() == 1 then -- Errors
+				    -- spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+                -- end
+            end
+            return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
+            --print("restrait proc!")
         end
     end
     
@@ -628,17 +630,23 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
 
     local p = getMagicHitRate(caster, target, skill, element, percentBonus, magicaccbonus)
     local res = getMagicResist(p)
-    
-	if getElementalSDT(element, target) == 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		res = 1/4
-    elseif getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
-        res = 1/8
+
+    -- Elemental Seal forces zero resist before SDT is applied
+    if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+        res = 1.0
     end
-    
-	if getElementalSDT(element, target) <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
+
+
+   	if getElementalSDT(element, target) <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
 		res = 1.0
     elseif getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
+    end
+
+	if getElementalSDT(element, target) <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+		res = 1/4
+    elseif getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        res = 1/8
     end
 	
 
@@ -664,14 +672,14 @@ function applyResistanceAbility(player, target, element, skill, bonus)
         return 1/8
     end
 
-    if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
-        res = 1/8
-    end
-
     if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
-    
+
+    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        res = 1/8
+    end
+
     return res
 end
 
@@ -686,14 +694,14 @@ function applyResistanceAddEffect(player, target, element, bonus)
     end
 
     --printf("res before SDT %d", res * 100)
-    if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
-        res = 1/8
-    end
-
     if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
-    
+
+    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        res = 1/8
+    end
+
     if target:isPC() and element ~= nil and element > 0 and element < 9 then
         -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
         local eleres = target:getMod(element+53)

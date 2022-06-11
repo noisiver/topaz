@@ -15,14 +15,13 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 50)
+	mob:setDamage(140)
+    mob:addMod(tpz.mod.DEFP, 200)
     mob:addMod(tpz.mod.MDEF, 100) 
     mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.EVA, 50)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 30)
     mob:setMod(tpz.mod.REFRESH, 300)
-    mob:addMod(tpz.mod.REGEN, 10) 
-	mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
-	mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobDeath(mob, player, isKiller)

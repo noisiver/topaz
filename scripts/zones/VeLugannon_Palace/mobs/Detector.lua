@@ -262,6 +262,7 @@ DETECTOR_PATHS =
 }
 
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     onMobRoam(mob)
     mob:setLocalVar("petCount", 1)
 end

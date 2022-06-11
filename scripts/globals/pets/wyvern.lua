@@ -41,12 +41,12 @@ function doHealingBreath(player, threshold, breath)
         return player:getPet():getZoneID() == target:getZoneID() and player:getPet():checkDistance(target) <= breath_heal_range
     end
 
-    if player:getHPP() < threshold and inBreathRange(player) then
+    if player:getHPP() <= threshold and inBreathRange(player) then
         player:getPet():useJobAbility(breath, player)
     else
         local party = player:getParty()
         for _, member in ipairs(party) do
-            if member:getHPP() < threshold and inBreathRange(member) then
+            if member:getHPP() <= threshold and inBreathRange(member) then
                 player:getPet():useJobAbility(breath, member)
                 break
             end

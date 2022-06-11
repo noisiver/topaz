@@ -1463,6 +1463,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
 
         if (PTarget->objtype == TYPE_MOB && msg != MSGBASIC_SHADOW_ABSORB) // If message isn't the shadow loss message, because I had to move this outside of the above check for it.
         {
+            PTarget->PAI->EventHandler.triggerListener("MAGIC_HIT", this, PTarget, PSpell);
             luautils::OnMagicHit(this, PTarget, PSpell);
         }
     }

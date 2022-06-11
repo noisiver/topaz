@@ -507,6 +507,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         target:updateEnmityFromDamage(avatar, dmg)
     end
     target:handleAfflatusMiseryDamage(dmg)
+    target:tryInterruptSpell(avatar, numberofhits)
     avatar:delStatusEffectSilent(tpz.effect.BOOST)
     avatar:setLocalVar("TP", 0)
     avatar:setTP(0)
@@ -1237,12 +1238,12 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
     local p = getMagicHitRate(avatar, target, 0, element, percentBonus, magicaccbonus)
     local resist = getMagicResist(p)
     
-    if getElementalSDT(element, target) == 5 then -- SDT tier .05 makes you lose ALL coin flips
-        resist = 1/8
-    end
-    
     if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         resist = resist / 2
+    end
+
+    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        resist = 1/8
     end
 
     return resist

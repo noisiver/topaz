@@ -62,7 +62,7 @@ function onMobWeaponSkill(target, mob, skill)
         if count == 0 then
             skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
         else
-            skill:setMsg(tpz.msg.basic.EFFECT_DRAINED)
+            skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
         end
 
         return count

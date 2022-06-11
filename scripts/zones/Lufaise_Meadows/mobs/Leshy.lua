@@ -10,7 +10,7 @@ function disturbMob(mob)
     if (offset >= 0 and offset <= 7) then
         local nm = GetMobByID(ID.mob.COLORFUL_LESHY)
         if (not nm:isSpawned() and not GetMobByID(ID.mob.COLORFUL_LESHY + 1):isSpawned()) then
-            nm:setLocalVar("timeToGrow", os.time() + math.random(36000, 43200)) -- Colorful in 11 to 12 hours
+            nm:setLocalVar("timeToGrow", os.time() + 3600) -- Colorful in 1 hr
         end
     end
 end

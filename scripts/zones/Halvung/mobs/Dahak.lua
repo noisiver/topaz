@@ -2,6 +2,7 @@
 -- Area: Halvung
 --  Mob: Dahak
 -----------------------------------
+mixins = {require("scripts/mixins/families/dahak")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)

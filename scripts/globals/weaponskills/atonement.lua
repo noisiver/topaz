@@ -89,6 +89,42 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
         dmg = dmg * ((100 + bonusdmg)/100) -- Apply WS gear mods
         dmg = utils.clamp(dmg, 0, player:getMainLvl() * 10) -- Damage is capped to player's level * 10, before WS damage mods
+
+        -- Apply WS gear mods
+        local bonusdmg = player:getMod(tpz.mod.ALL_WSDMG_ALL_HITS)
+        bonusdmg = bonusdmg + player:getMod(tpz.mod.ALL_WSDMG_FIRST_HIT)
+        if player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0 then
+            bonusdmg = bonusdmg * (100 + player:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)) / 100
+        end
+
+        dmg = math.floor(dmg * ((100 + bonusdmg)/100)) -- Apply WS gear mods
+
+        -- Apply Circle Effects
+        local eco = target:getSystem()
+        local circlemult = 100
+        local mod = 0
+        
+        if     eco == 1  then mod = 1226
+        elseif eco == 2  then mod = 1228
+        elseif eco == 3  then mod = 1232
+        elseif eco == 6  then mod = 1230
+        elseif eco == 8  then mod = 1225
+        elseif eco == 9  then mod = 1234
+        elseif eco == 10 then mod = 1233
+        elseif eco == 14 then mod = 1227
+        elseif eco == 16 then mod = 1238
+        elseif eco == 15 then mod = 1237
+        elseif eco == 17 then mod = 1229
+        elseif eco == 19 then mod = 1231
+        elseif eco == 20 then mod = 1224
+        end
+        
+        if mod > 0 then
+            circlemult = 100 + player:getMod(mod)
+        end
+
+        dmg = math.floor(dmg * circlemult / 100) -- Apply circle effect mod
+
         damage = target:breathDmgTaken(dmg)
         damage = damage * WEAPON_SKILL_POWER
         calcParams.finalDmg = damage

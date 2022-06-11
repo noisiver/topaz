@@ -12,7 +12,7 @@ local loot =
     [1152] =
     {
         {
-            {itemid = 65535, droprate = 1000, amount = 12000},  -- gil
+            {itemid = 65535, droprate = 1000, amount = 18000},  -- gil
 
         },
         {
@@ -109,16 +109,6 @@ local loot =
             { itemid = 1829, droprate = 25 },
             { itemid = 1415, droprate = 25 },
             { itemid = 2289, droprate = 25 },
-        },
-        {
-            { itemid = 4868, droprate = 125 },
-            { itemid = 4751, droprate = 125 },
-            { itemid = 4654, droprate = 125 },
-            { itemid = 4736, droprate = 125 },
-            { itemid = 4818, droprate = 125 },
-            { itemid = 4750, droprate = 125 },
-            { itemid = 4780, droprate = 125 },
-            { itemid = 4760, droprate = 125 },
         },
         {
             { itemid = 4207, droprate = 250 },

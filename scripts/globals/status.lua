@@ -124,6 +124,7 @@ tpz.subEffect =
     DEFENSE_DOWN        = 18,  -- 1-01001      37
     EVASION_DOWN        = 18,  -- Same subeffect as DEFENSE_DOWN
     ATTACK_DOWN         = 18,  -- Same subeffect as DEFENSE_DOWN
+    GRAVITY             = 18,  -- Same subeffect as DEFENSE_DOWN
     DEATH               = 19,
     SHIELD              = 20,
     HP_DRAIN            = 21,  -- 1-10101      43

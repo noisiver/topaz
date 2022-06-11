@@ -8,7 +8,8 @@
 require("scripts/globals/wsquest")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 30)
+	mob:setDamage(140)
+    mob:addMod(tpz.mod.DEFP, 200)
     mob:addMod(tpz.mod.MDEF, 100) 
     mob:addMod(tpz.mod.ATTP, 50)
     mob:addMod(tpz.mod.ACC, 50) 

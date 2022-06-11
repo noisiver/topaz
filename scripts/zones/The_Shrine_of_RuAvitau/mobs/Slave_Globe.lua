@@ -15,6 +15,7 @@ end
 function onMobSpawn(mob)
 	mob:setHP(600)
     mob:addMod(tpz.mod.MOVE, 45)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     onPath(mob)
 end
 
@@ -52,6 +53,7 @@ function onMobEngaged(mob, target)
             end
         end
     end
+    mob:setMod(tpz.mod.MOVE, 0) -- Remove movement speed so they aren't impossible to pull
 end
 
 function onMobFight(mob, target)
