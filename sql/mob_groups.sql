@@ -6371,6 +6371,7 @@ INSERT INTO `mob_groups` VALUES (144,0,95,'Kaiser_Behemoth',0,128,0,0,0,70,70,0)
 INSERT INTO `mob_groups` VALUES (145,0,95,'Ferreous_Coffin',0,128,0,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (146,0,95,'Lewenhart',0,128,0,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (147,0,95,'Auroral_Alicorn',0,128,0,0,0,70,70,0);
+INSERT INTO `mob_groups` VALUES (148,9079,95,'Nimble_Nelson',3600,0,6065,35000,0,90,90,0);
 
 -- ------------------------------------------------------------
 -- Fort_Karugo-Narugo_[S] (Zone 96)
@@ -6733,6 +6734,7 @@ INSERT INTO `mob_groups` VALUES (41,1740,98,'Goblin_Toxophilite_Beetle_Camp',330
 INSERT INTO `mob_groups` VALUES (42,1688,98,'Goblin_Mine_Exp_Camp',0,128,0,0,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (43,1660,98,'Goblin_Flagman_Beetle_Camp',330,0,1056,0,0,82,83,0);
 INSERT INTO `mob_groups` VALUES (44,1669,98,'Goblin_Grenadier_Beetle_Camp',330,0,1086,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (45,9078,98,'Blooddrinker',3600,0,6064,35000,0,90,90,0);
 
 INSERT INTO `mob_groups` VALUES (5227,18,98,'Abenzio',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (5228,37,98,'Achtelle',1,0,0,0,0,1,1,0);
@@ -9648,12 +9650,12 @@ INSERT INTO `mob_groups` VALUES (19,804,139,'Cottontail',0,128,0,2400,0,38,39,0)
 INSERT INTO `mob_groups` VALUES (20,3693,139,'Sobbing_Eyes',0,128,0,2300,0,45,45,0);
 INSERT INTO `mob_groups` VALUES (21,773,139,'Compound_Eyes',0,128,0,1350,0,45,45,0);
 INSERT INTO `mob_groups` VALUES (22,1337,139,'Fighting_Sheep',0,128,0,5000,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (23,249,139,'Armsmaster_Dekbuk',0,128,0,3300,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (24,2436,139,'Longarmed_Gottditt',0,128,0,3600,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (25,2202,139,'Keeneyed_Aufwuf',0,128,0,3100,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (26,2086,139,'Invulnerable_Mazzgozz',0,128,0,3300,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (27,4097,139,'Undefeatable_Sappdapp',0,128,0,3300,0,63,63,0);
-INSERT INTO `mob_groups` VALUES (28,2670,139,'Mind_s-eyed_Klugwug',0,128,0,3100,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (23,249,139,'Armsmaster_Dekbuk',0,128,0,1650,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (24,2436,139,'Longarmed_Gottditt',0,128,0,1800,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (25,2202,139,'Keeneyed_Aufwuf',0,128,0,1550,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (26,2086,139,'Invulnerable_Mazzgozz',0,128,0,1650,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (27,4097,139,'Undefeatable_Sappdapp',0,128,0,1650,0,63,63,0);
+INSERT INTO `mob_groups` VALUES (28,2670,139,'Mind_s-eyed_Klugwug',0,128,0,1550,0,63,63,0);
 INSERT INTO `mob_groups` VALUES (29,723,139,'Chlevnik',0,128,0,45000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (30,1500,139,'Gerjis',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (31,3026,139,'Orcish_Onager',0,128,0,0,0,60,60,0);
