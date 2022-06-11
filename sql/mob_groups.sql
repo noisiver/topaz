@@ -888,7 +888,7 @@ INSERT INTO `mob_groups` VALUES (78,3912,24,'Thunder_Elemental',330,4,2410,0,0,6
 INSERT INTO `mob_groups` VALUES (79,6749,24,'Sengann',2000,1,6041,6500,0,58,60,0);
 INSERT INTO `mob_groups` VALUES (80,0,24,'Immanibugard',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (81,0,24,'Vermillion_Fishfly',0,128,0,0,0,0,0,0);
-INSERT INTO `mob_groups` VALUES (82,6750,24,'Yal-un_Eke',330,8,6042,5500,0,52,54,0);
+INSERT INTO `mob_groups` VALUES (82,6750,24,'Yal-un_Eke',3600,8,6042,5500,0,52,54,0);
 
 -- ------------------------------------------------------------
 -- Misareaux_Coast (Zone 25)
