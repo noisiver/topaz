@@ -10197,7 +10197,7 @@ INSERT INTO `mob_groups` VALUES (28,123,153,'Ancient_Goobbue',43200,0,3141,22000
 INSERT INTO `mob_groups` VALUES (29,515,153,'Boyahda_Sapling',600,0,345,0,0,74,77,0);
 INSERT INTO `mob_groups` VALUES (30,344,153,'Bark_Tarantula',600,0,228,0,0,75,79,0);
 INSERT INTO `mob_groups` VALUES (31,978,153,'Demonic_Rose',600,0,609,0,0,75,78,0);
-INSERT INTO `mob_groups` VALUES (32,2393,153,'Leshonki',0,32,3039,0,0,79,81,0);
+INSERT INTO `mob_groups` VALUES (32,2393,153,'Leshonki',0,32,3039,10000,0,80,81,0);
 INSERT INTO `mob_groups` VALUES (33,4253,153,'Voluptuous_Vivian',0,32,2831,16000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (34,2664,153,'Mimic',0,128,1680,0,0,62,66,0);
 INSERT INTO `mob_groups` VALUES (35,60,153,'Agas',0,128,0,30000,10000,85,87,0);
