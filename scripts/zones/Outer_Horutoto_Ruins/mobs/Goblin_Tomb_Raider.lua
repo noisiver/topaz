@@ -57,7 +57,7 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 591 then
+    if skill:getID() == 590 then
         local BombTossCounter = mob:getLocalVar("BombTossCounter")
         local BombTossMax = mob:getLocalVar("BombTossMax")
 
