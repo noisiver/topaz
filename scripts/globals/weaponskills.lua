@@ -235,6 +235,10 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- Reset fTP if it's not supposed to carry over across all hits for this WS
     if not wsParams.multiHitfTP then ftp = 1 end -- We'll recalculate our mainhand damage after doing offhand
 
+    -- Target is dead, don't do anymore hits
+    if (target:getHP() < finaldmg) then
+        extraOffhandHit = false
+    end
     -- Do the extra hit for our offhand if applicable
     if calcParams.extraOffhandHit then
         local offhandDmg = (calcParams.weaponDamage[2] + wsMods) * ftp
@@ -252,6 +256,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     local numHits = getMultiAttacks(attacker, target, wsParams.numHits)
     while (hitsDone < numHits) do -- numHits is hits in the base WS _and_ DA/TA/QA procs during those hits
         hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
+        if (target:getHP() < finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
         finaldmg = finaldmg + hitdmg
         hitsDone = hitsDone + 1
     end
