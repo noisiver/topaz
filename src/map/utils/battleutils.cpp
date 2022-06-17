@@ -2806,15 +2806,21 @@ namespace battleutils
             // As far as I can tell kick attacks fall under Hand-to-Hand so ignoring them and letting them go to 99
             bool isOffhand = attackNumber == 1;
             bool isTwoHanded = targ_weapon && targ_weapon->isTwoHanded();
+            bool isHandTwoHand = targ_weapon && targ_weapon->isHandToHand();
 
             if (isTwoHanded)
             {
-                maxHitRate = 99;    // changed to 99%
+                maxHitRate = 95;    
             }
           
 		    if (isOffhand)
             {
                 maxHitRate = 95;    
+            }
+
+            if (isHandTwoHand)
+            {
+                maxHitRate = 95;
             }
 
             hitrate = std::clamp(hitrate, 20, maxHitRate);
