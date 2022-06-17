@@ -6856,7 +6856,7 @@ INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,507,50);
 INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,508,100);
 INSERT INTO `mob_droplist` VALUES (1324,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1324,0,0,1000,17384,50);
-INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,510,50); -- (Hobgoblin BLagger)
+INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,510,50); -- (Hobgoblin Blagger)
 INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,511,100);
 INSERT INTO `mob_droplist` VALUES (1325,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (1325,0,0,1000,1878,100); -- (Air Tank)
@@ -14550,10 +14550,10 @@ INSERT INTO `mob_droplist` VALUES (2679,4,0,1000,866,0);
 INSERT INTO `mob_droplist` VALUES (2679,0,0,1000,866,70);
 INSERT INTO `mob_droplist` VALUES (2679,0,0,1000,1122,270);
 INSERT INTO `mob_droplist` VALUES (2679,0,0,1000,1124,330);
-INSERT INTO `mob_droplist` VALUES (2680,0,0,1000,510,50);
-INSERT INTO `mob_droplist` VALUES (2680,0,0,1000,511,1000);
-INSERT INTO `mob_droplist` VALUES (2680,0,0,1000,748,1000);
-INSERT INTO `mob_droplist` VALUES (2680,0,0,1000,17244,390);
+INSERT INTO `mob_droplist` VALUES (2680,0,0,1000,510,1000); -- (Wyvernpoacher Drachlox) Goblin ARmor
+INSERT INTO `mob_droplist` VALUES (2680,0,0,1000,511,1000); -- Goblin Mask
+INSERT INTO `mob_droplist` VALUES (2680,0,0,1000,748,1000); -- Gold Beastcoin
+INSERT INTO `mob_droplist` VALUES (2680,0,0,1000,17244,240); -- Othinus' Bow
 INSERT INTO `mob_droplist` VALUES (2681,0,0,1000,2315,100);
 INSERT INTO `mob_droplist` VALUES (2681,0,0,1000,4272,30);
 INSERT INTO `mob_droplist` VALUES (2681,0,0,1000,4377,240);
@@ -17091,6 +17091,23 @@ INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% An
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,100); -- (3 100% 1 10% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (6052,0,0,1000,1064,240); -- (Mimic) Pso'Xja chest key
+-- Moblin Maze Mongers
+INSERT INTO `mob_droplist` VALUES (6053,0,0,1000,16250,50); -- (Kendi) Mamool Ja Mantle
+INSERT INTO `mob_droplist` VALUES (6054,0,0,1000,16012,50); -- (Rahu) Mamool Ja Earring
+INSERT INTO `mob_droplist` VALUES (6055,0,0,1000,17759,50); -- (Tatzelwurm) Koggelmander
+INSERT INTO `mob_droplist` VALUES (6056,0,0,1000,18865,50); -- (Tanihwa) Zonure 
+INSERT INTO `mob_droplist` VALUES (6057,0,0,1000,16011,50); -- (Kerwan) Lycopodium Earring 
+INSERT INTO `mob_droplist` VALUES (6058,0,0,1000,15928,50); -- (Artemisia) Lycopodium Sash 
+INSERT INTO `mob_droplist` VALUES (6059,0,0,1000,19273,50); -- (Dzoavits) Onishibari
+INSERT INTO `mob_droplist` VALUES (6060,0,0,1000,18131,50); -- (Tipua) Zaide
+INSERT INTO `mob_droplist` VALUES (6061,0,0,1000,11484,50); -- (Terror Fly) Antica Band
+INSERT INTO `mob_droplist` VALUES (6062,0,0,1000,15839,50); -- (Coccinellidae) Antica Ring
+INSERT INTO `mob_droplist` VALUES (6063,0,0,1000,18504,50); -- (Dicey Dorcus) Eventreuse 
+INSERT INTO `mob_droplist` VALUES (6064,0,0,1000,17964,50); -- (Blooddrinker) Barkborer 
+INSERT INTO `mob_droplist` VALUES (6065,0,0,1000,16283,50); -- (Nimble Nelson) Gnole Torque
+INSERT INTO `mob_droplist` VALUES (6066,0,0,1000,11483,50); -- (Gorib) Gnole Crown
+INSERT INTO `mob_droplist` VALUES (6067,0,0,1000,19158,50); -- (Seua Peek) Scheherazade  
+INSERT INTO `mob_droplist` VALUES (6068,0,0,1000,19113,50); -- (Purushamriga) Ermine's Tail
 
 
 
