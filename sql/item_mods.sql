@@ -16684,8 +16684,8 @@ INSERT INTO `item_mods` VALUES (15221,8,2);
 INSERT INTO `item_mods` VALUES (15221,27,-5);
 INSERT INTO `item_mods` VALUES (15221,68,-5);
 INSERT INTO `item_mods` VALUES (15221,384,200);
-INSERT INTO `item_mods` VALUES (15221,232,5); -- Arcana Killer
-INSERT INTO `item_mods` VALUES (15221,1232,5); -- Arcane_Circle(5% dmg to arcana)
+INSERT INTO `item_mods` VALUES (15221,232,10); -- Arcana Killer
+INSERT INTO `item_mods` VALUES (15221,1232,10); -- Arcane_Circle(5% dmg to arcana)
 INSERT INTO `item_mods` VALUES (15222,25,-10);
 INSERT INTO `item_mods` VALUES (15222,26,-10);
 INSERT INTO `item_mods` VALUES (15222,68,-10);
