@@ -42,9 +42,9 @@ TP_RANGED = 4
 
 BOMB_TOSS_HPP = 1
 
-function MobRangedMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect)
-    -- this will eventually contian ranged attack code
-    return MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, TP_RANGED)
+function MobRangedMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, params_phys)
+    isRanged = true
+    return MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, TP_RANGED, params_phys)
 end
 
 -- PHYSICAL MOVE FUNCTION
@@ -100,7 +100,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     end
 
     ratio = ratio + lvldiff * 0.05
-    ratio = utils.clamp(ratio, 0, 4)
+    ratio = utils.clamp(ratio, 0, 2)
 
     --work out hit rate for mobs (bias towards them)
     local hitrate = (acc*accmod) - eva + (lvldiff*2) + 75
@@ -156,8 +156,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         maxRatio = ratio + 0.3
     elseif ((1.2 < ratio) and (ratio <= 1.5)) then
         maxRatio = (ratio * 0.25) + ratio
-    elseif ((1.5 < ratio) and (ratio <= 2.0)) then
-        maxRatio = 2 -- https://forum.square-enix.com/ffxi/threads/31310-March-27-2013-%28JST%29-Version-Update 2.0 in era
+    elseif ((1.5 < ratio) and (ratio <= 2.625)) then
+        maxRatio = utils.clamp(ratio + 0.375, 0, 2)
+    elseif ((2.625 < ratio) and (ratio <= 3.25)) then
+        maxRatio = 2
     else
         maxRatio = ratio
     end
@@ -255,6 +257,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     elseif math.random() < doubleRate then
         bonusHits = bonusHits + 1
     end
+
+    -- Ranged attacks can't multihit
+    if isRanged then bonusHits = 0 end
+
     -- Add multi-hit procs
     numberofhits = numberofhits + bonusHits
     -- Cap at 8 hits
@@ -1131,6 +1137,42 @@ function getMobDexCritRate(mob, target)
 
     -- Crit rate from stats caps at +-15
     return math.min(critRate, 15) * sign
+end
+
+function getMobRandRatio(wRatio)
+    local qRatio = wRatio
+    local upperLimit = 0
+    local lowerLimit = 0
+    -- https://forum.square-enix.com/ffxi/threads/31310-March-27-2013-%28JST%29-Version-Update 2.0 in era
+    local maxRatio = 2.0
+
+    if wRatio < 0.5 then
+        upperLimit = math.max(wRatio + 0.5, 0.5)
+    elseif wRatio < 0.7 then
+        upperLimit = 1
+    elseif wRatio < 1.2 then
+        upperLimit = wRatio + 0.3
+    elseif wRatio < 1.5 then
+        upperLimit = wRatio * 1.25
+    else
+        upperLimit = math.min(wRatio + 0.375, maxRatio)
+    end
+
+    if wRatio < 0.38 then
+        lowerLimit = math.max(wRatio, 0.5)
+    elseif wRatio < 1.25 then
+        lowerLimit = (wRatio * (1176/1024)) - (448/1024)
+    elseif wRatio < 1.51 then
+        lowerLimit = 1
+    elseif wRatio < 2.44 then
+        lowerLimit = (wRatio * (1176/1024)) - (755/1024)
+    else
+        lowerLimit = math.min(wRatio - 0.375, maxRatio)
+    end
+    -- Randomly pick a value between lower and upper limits for qRatio
+    qRatio = lowerLimit + (math.random() * (upperLimit - lowerLimit))
+
+    return qRatio
 end
 
 function getMobFSTR(weaponDmg, mobStr, targetVit)
