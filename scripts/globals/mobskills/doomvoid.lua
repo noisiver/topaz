@@ -9,6 +9,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if (mob:getPool() ~= 3448) then -- Sandworm only
+        return 1
+    end
     return 0
 end
 

@@ -14,8 +14,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.EARTH, 2800)
-    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.75)
+    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.EARTH, 3000)
+    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.2)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.EARTH, MOBPARAM_IGNORE_SHADOWS)
     local typeEffectOne = tpz.effect.PLAGUE
