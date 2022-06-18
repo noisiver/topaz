@@ -44,6 +44,7 @@ BOMB_TOSS_HPP = 1
 
 function MobRangedMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, params_phys)
     -- All formula changes for being ranged are handled in MobPhysicalMove via the TP_RANGED param
+    -- A MOVE WILL NOT BE CONSIDERED RANGED I YOU DON'T SET THE tpeffect to TP_RANGED!
     return MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, TP_RANGED, params_phys)
 end
 
