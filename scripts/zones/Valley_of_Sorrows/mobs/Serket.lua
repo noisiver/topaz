@@ -38,8 +38,3 @@ end
 
 function onMobDeath(mob, player, isKiller)
 end
-
-function onMobWeaponSkillPrepare(mob, target)
-    --return 720 -- Venom sting
-    return 719 -- Critical Bite
-end
