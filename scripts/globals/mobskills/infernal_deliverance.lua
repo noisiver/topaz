@@ -17,7 +17,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
 	
 	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
-	MobStatusEffectMove(mob, target, tpz.effect.STUN, 0, 0, 10)
+	MobStatusEffectMove(mob, target, tpz.effect.STUN, 0, 0, 8)
 
     return dmg
 end

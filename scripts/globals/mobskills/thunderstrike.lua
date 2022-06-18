@@ -33,6 +33,6 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.STUN
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING)
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 5)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 8)
     return dmg
 end
