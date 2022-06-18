@@ -18,16 +18,16 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1
+    local dmgmod = 1.5
     local CurrentTP = mob:getLocalVar("TP")
     if CurrentTP == 3000 then
-        dmgmod = 3
+        dmgmod = 2.5
     end
     if CurrentTP >= 2000 then
         dmgmod = 2
     end
     if CurrentTP >= 1500 and CurrentTP < 2000 then
-        dmgmod = 1.5
+        dmgmod = 1.7
     end
     local params_phys = {}
     params_phys.multiplier = dmgmod
@@ -40,7 +40,7 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.0
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
-    local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_CRIT_VARIES, params_phys)
+    local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_RANGED, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, info.hitslanded)
 
     local typeEffect = tpz.effect.POISON

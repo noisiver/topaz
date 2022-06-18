@@ -43,7 +43,7 @@ TP_RANGED = 4
 BOMB_TOSS_HPP = 1
 
 function MobRangedMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, params_phys)
-    isRanged = true
+    -- All formula changes for being ranged are handled in MobPhysicalMove via the TP_RANGED param
     return MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, TP_RANGED, params_phys)
 end
 
@@ -214,7 +214,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         pdif = pdif/1000  --multiplier set.
         if isCrit then
             -- Ranged crits are pdif * 1.25
-            if attackType == tpz.attackType.RANGED then
+            if (tpeffect==TP_RANGED) then
                 pdif = pdif * 1.25
                 pdif = pdif * critAttackBonus
             else
@@ -259,7 +259,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     end
 
     -- Ranged attacks can't multihit
-    if isRanged then bonusHits = 0 end
+    if (tpeffect==TP_RANGED) then bonusHits = 0 end
 
     -- Add multi-hit procs
     numberofhits = numberofhits + bonusHits
@@ -275,7 +275,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             pdif = pdif/1000  --multiplier set.
             if isCrit then
                 -- Ranged crits are pdif * 1.25
-                if attackType == tpz.attackType.RANGED then
+                if (tpeffect==TP_RANGED) then
                     pdif = pdif * 1.25
                     pdif = pdif * critAttackBonus
                 else
