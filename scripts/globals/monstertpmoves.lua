@@ -985,7 +985,7 @@ end
 
 function MobEncumberMove(mob, target, maxSlots, duration)
     local statmod = tpz.mod.INT
-    local element = mob:getStatusEffectElement(tpz.effect.ENCUMBRANCE_I)
+    local element = tpz.magic.ele.WATER
 
     local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
     local eleres = target:getMod(element+53)
@@ -1041,7 +1041,7 @@ end
 function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
         local statmod = tpz.mod.CHR
-        local element = mob:getStatusEffectElement(tpz.effect.CHARM_I)
+        local element = tpz.magic.ele.LIGHT
 
         local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
         local eleres = target:getMod(element+53)
@@ -1049,7 +1049,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
-		skill:setMsg(tpz.msg.basic.SKILL_MISS)
+		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 	
 	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
@@ -1063,6 +1063,31 @@ function MobCharmMove(mob, target, skill, costume, duration)
         end
 	else
 	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	end
+end
+
+function MobDeathMove(mob, target, skill)
+        local statmod = tpz.mod.INT
+        local element = tpz.magic.ele.DARK
+
+        local resist = applyPlayerResistance(mob, tpz.effect.KO, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and resist < 0.5  then resist = 0.5
+        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+	if (not target:isPC()) then
+		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	end
+	
+	if resist >= 0.5 then
+		if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		else
+            target:setHP(0)
+            return skill:setMsg(tpz.msg.basic.FALL_TO_GROUND)
+        end
+	else
+	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
 end
 

@@ -867,6 +867,8 @@ function getEffectResistanceTraitChance(caster, target, effect)
         effectres = tpz.mod.CHARMRESTRAIT
     elseif (effect == tpz.effect.AMNESIA) then
         effectres = tpz.mod.AMNESIARESTRAIT
+    elseif (effect == tpz.effect.KO) then
+        effectres = tpz.mod.DEATHRESTRAIT
     end
     
     if (effectres ~= 0) then
@@ -916,6 +918,8 @@ function getEffectResistance(target, effect)
         effectres = tpz.mod.CHARMRES
     elseif (effect == tpz.effect.AMNESIA) then
         effectres = tpz.mod.AMNESIARES
+    elseif (effect == tpz.effect.KO) then
+        effectres = tpz.mod.DEATHRES
     end
 
     if (effectres ~= 0) then
