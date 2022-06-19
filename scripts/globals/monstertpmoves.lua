@@ -209,11 +209,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local critAttackBonus = 1 + ((mob:getMod(tpz.mod.CRIT_DMG_INCREASE) - target:getMod(tpz.mod.CRIT_DEF_BONUS)) / 100)
 
     if ((chance*100) <= firstHitChance) then
-        local isCrit = math.random() < critRate
 
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
-        if isCrit then
+        if IsCrit(mob, critRate) then
             -- Ranged crits are pdif * 1.25
             if (tpeffect==TP_RANGED) then
                 pdif = pdif * 1.25
@@ -269,12 +268,11 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     while (hitsdone < numberofhits) do
         chance = math.random()
-        local isCrit = math.random() < critRate
 
         if ((chance*100)<=hitrate) then --it hit
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
-            if isCrit then
+            if IsCrit(mob, critRate) then
                 -- Ranged crits are pdif * 1.25
                 if (tpeffect==TP_RANGED) then
                     pdif = pdif * 1.25
@@ -1226,6 +1224,16 @@ function getMobFSTR(weaponDmg, mobStr, targetVit)
 
     local min = math.floor(weaponDmg/9)
     return math.max(-min, fSTR)
+end
+
+function IsCrit(mob, critRate)
+    if math.random() < critRate then
+        return true
+    end
+    if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+        return true
+    end
+    return false
 end
 
 function getMobWSC(mob, tpeffect)
