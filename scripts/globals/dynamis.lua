@@ -523,7 +523,7 @@ dynamis.timeExtensionOnDeath = function(mob, player, isKiller)
                     DisallowRespawn(mobId, true)
                     DisallowRespawn(teId, false)
                 end
-                GetMobByID(teId):setRespawnTime(960)
+                GetMobByID(teId):setRespawnTime(1800) -- 30 minutes
             end
         else
             printf("[dynamis.timeExtensionOnDeath] called in zone %i on mob %s that does not appear in a time extension group.", zoneId, mob:getName())
@@ -619,7 +619,7 @@ dynamis.refillStatueOnDeath = function(mob, player, isKiller)
                     DisallowRespawn(mobId, true)
                     DisallowRespawn(nextId, false)
                 end
-                GetMobByID(nextId):setRespawnTime(300) -- 5 minutes
+                GetMobByID(nextId):setRespawnTime(1800) -- 30 minutes
             end
         else
             printf("[dynamis.refillStatueOnDeath] called in zone %i on mob %i that does not appear in a refill statue group.", zoneId, mobId)
