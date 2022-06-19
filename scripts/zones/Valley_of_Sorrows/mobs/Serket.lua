@@ -25,6 +25,11 @@ end
 function onMobFight(mob, target)
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+    return 353
+end
+
+
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
