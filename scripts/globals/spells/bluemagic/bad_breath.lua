@@ -68,6 +68,13 @@ function onSpellCast(caster, target, spell)
 	damage = damage * resist	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
+    -- Cap damage for BLU mobs
+    if caster:isMob() then
+        if damage > 300 then
+            damage = 300
+        end
+    end
+
     if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.PARALYSIS
         target:addStatusEffect(typeEffect, 20, 0, getBlueEffectDuration(caster, resist, typeEffect, false))

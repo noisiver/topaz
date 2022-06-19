@@ -72,5 +72,12 @@ function onSpellCast(caster, target, spell)
 	damage = damage * resist	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
+    -- Cap damage for BLU mobs
+    if caster:isMob() then
+        if damage > 600 then
+            damage = 600
+        end
+    end
+
     return damage
 end

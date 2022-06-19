@@ -74,6 +74,13 @@ function onSpellCast(caster, target, spell)
 	damage = damage * resist	   
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
+    -- Cap damage for BLU mobs
+    if caster:isMob() then
+        if damage > 300 then
+            damage = 300
+        end
+    end
+
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 0.50
     end
