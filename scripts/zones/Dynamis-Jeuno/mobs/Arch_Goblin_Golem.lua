@@ -2,11 +2,13 @@
 -- Area: Dynamis - Jeuno
 --  Mob: Arch GObin Golem
 -----------------------------------
-require("scripts/globals/status")
 mixins =
 {
     require("scripts/mixins/job_special")
 }
+local ID = require("scripts/zones/Dynamis-Jeuno/IDs")
+require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {

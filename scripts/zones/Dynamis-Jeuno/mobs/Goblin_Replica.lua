@@ -3,6 +3,8 @@
 --  Mob: Goblin Replica
 -----------------------------------
 require("scripts/globals/dynamis")
+local ID = require("scripts/zones/Dynamis-Jeuno/IDs")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
