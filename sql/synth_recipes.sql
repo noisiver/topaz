@@ -3187,7 +3187,7 @@ INSERT INTO `synth_recipes` VALUES (49938,1,0,0,0,0,0,41,0,0,0,4100,4242,13203,0
 -- INSERT INTO `synth_recipes` VALUES (49939,1,0,0,0,0,0,255,0,0,0,4100,4242,13705,0,0,0,0,0,0,0,850,506,1117,849,1,2,1,1,'Ogre Jerkin (desynth)');
 INSERT INTO `synth_recipes` VALUES (49940,1,0,0,0,0,0,62,0,0,0,4100,4242,13546,0,0,0,0,0,0,0,855,855,855,855,1,1,1,1,'Hard Leather Ring (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (49941,1,0,0,0,0,0,255,0,0,0,4100,4242,13591,0,0,0,0,0,0,0,820,820,820,820,1,1,1,1,'Behemoth Mantle (desynth)');
--- INSERT INTO `synth_recipes` VALUES (49942,1,0,0,0,0,0,255,0,0,0,4098,4240,1196,0,0,0,0,0,0,0,879,879,879,879,1,1,1,1,'Qiqirn Cape (desynth)');
+INSERT INTO `synth_recipes` VALUES (49942,1,0,0,0,0,0,12,0,0,0,4098,4240,1196,0,0,0,0,0,0,0,879,879,879,879,1,1,1,1,'Qiqirn Cape (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (49943,1,0,0,0,0,0,255,0,0,0,4100,4242,12441,0,0,0,0,0,0,0,850,852,852,852,2,2,2,2,'Lizard Helm (desynth)');
 INSERT INTO `synth_recipes` VALUES (49944,1,0,0,0,0,0,57,0,0,0,4100,4242,13703,0,0,0,0,0,0,0,850,852,851,851,1,3,1,1,'Brigandine (desynth)');
 INSERT INTO `synth_recipes` VALUES (49945,1,0,0,0,0,0,91,0,0,0,4100,4242,14182,0,0,0,0,0,0,0,816,851,849,821,1,2,1,1,'Errant Pigaches (desynth)');
