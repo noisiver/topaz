@@ -6372,6 +6372,7 @@ INSERT INTO `mob_groups` VALUES (145,0,95,'Ferreous_Coffin',0,128,0,0,0,70,70,0)
 INSERT INTO `mob_groups` VALUES (146,0,95,'Lewenhart',0,128,0,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (147,0,95,'Auroral_Alicorn',0,128,0,0,0,70,70,0);
 INSERT INTO `mob_groups` VALUES (148,9079,95,'Nimble_Nelson',3600,0,6065,35000,0,90,90,0);
+INSERT INTO `mob_groups` VALUES (149,9082,95,'Purushamriga',3600,0,6068,35000,0,90,90,0);
 
 -- ------------------------------------------------------------
 -- Fort_Karugo-Narugo_[S] (Zone 96)
@@ -7704,7 +7705,7 @@ INSERT INTO `mob_groups` VALUES (6091,2378,110,'Larzos',0,0,0,0,0,0,0,0);
 
 INSERT INTO `mob_groups` VALUES (1,5868,111,'Greater_Pugil_fished',0,128,0,0,0,32,34,0);
 INSERT INTO `mob_groups` VALUES (2,4220,111,'Vepar',0,128,0,0,0,32,34,0);
-INSERT INTO `mob_groups` VALUES (3,6029,111,'Kraken_fished',0,0,1464,0,0,38,40,0);
+INSERT INTO `mob_groups` VALUES (3,6029,111,'Kraken_fished',0,128,1464,0,0,38,40,0);
 INSERT INTO `mob_groups` VALUES (4,204,111,'Apsaras',0,128,0,0,0,41,42,0);
 INSERT INTO `mob_groups` VALUES (5,2746,111,'Morgawr',0,128,0,0,0,44,45,0);
 INSERT INTO `mob_groups` VALUES (6,4050,111,'Tundra_Tiger',330,0,2494,0,0,34,37,0);
@@ -9136,7 +9137,7 @@ INSERT INTO `mob_groups` VALUES (108,2244,135,'Kindreds_Avatar',0,128,0,0,0,71,7
 -- Beaucedine_Glacier_[S] (Zone 136)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,138,136,'Angler_Crab',1,0,93,0,0,1,1,0);
+INSERT INTO `mob_groups` VALUES (1,138,136,'Angler_Crab',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (2,3886,136,'Thawed_Bones',300,0,2125,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (3,1189,136,'Ekimmu',300,0,751,0,0,79,80,0);
 INSERT INTO `mob_groups` VALUES (4,3418,136,'Ruszor',300,0,2135,0,0,78,80,0);
@@ -9167,6 +9168,7 @@ INSERT INTO `mob_groups` VALUES (28,6737,136,'Scylla',43200,0,6038,50000,0,90,90
 INSERT INTO `mob_groups` VALUES (29,763,136,'Came-cruse',14400,0,0,12000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (30,6738,136,'RuszorBig',300,0,2135,0,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (31,6757,136,'Becut',0,32,987,0,0,85,87,0);
+INSERT INTO `mob_groups` VALUES (32,9081,136,'Seua_Peek',3600,0,6067,35000,0,90,90,0);
 
 INSERT INTO `mob_groups` VALUES (7241,2,136,'1st_Iron_Musketeer',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (7242,3,136,'1st_Legionnaire',1,0,0,0,0,1,1,0);
@@ -9323,6 +9325,7 @@ INSERT INTO `mob_groups` VALUES (33,3978,137,'Torvotaur',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (34,6566,137,'Snow_Wight',330,0,2125,0,0,80,81,0);
 INSERT INTO `mob_groups` VALUES (35,6742,137,'Prince_Orobas',0,32,6039,35000,0,88,90,0);
 INSERT INTO `mob_groups` VALUES (36,3487,137,'Savage_RuszorBig',330,0,2168,0,0,82,83,0);
+INSERT INTO `mob_groups` VALUES (37,9080,137,'Gorib',3600,0,6066,35000,0,90,90,0);
 
 INSERT INTO `mob_groups` VALUES (7380,2,137,'1st_Iron_Musketeer',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (7381,3,137,'1st_Legionnaire',1,0,0,0,0,1,1,0);
