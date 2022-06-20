@@ -1120,7 +1120,6 @@ INSERT INTO `mob_droplist` VALUES (183,0,0,1000,646,240); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,646,150); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,646,100); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (183,0,0,1000,908,240); -- Adamantoise shell
-INSERT INTO `mob_droplist` VALUES (183,0,0,1000,1335,130);
 INSERT INTO `mob_droplist` VALUES (184,0,0,1000,699,50);
 INSERT INTO `mob_droplist` VALUES (184,0,0,1000,727,100);
 INSERT INTO `mob_droplist` VALUES (184,0,0,1000,731,100);

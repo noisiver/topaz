@@ -4155,7 +4155,7 @@ namespace battleutils
                 //printf("NTE chance %u \n", chance);
                 if (ConsumeTool)
                 {
-                    if (tpzrand::GetRandomNumber(100) > chance)
+                    if (tpzrand::GetRandomNumber(100) > chance && PChar->GetMJob() == JOB_NIN)
                     {
                         charutils::UpdateItem(PChar, LOC_INVENTORY, SlotID, -1);
                         PChar->pushPacket(new CInventoryFinishPacket());
