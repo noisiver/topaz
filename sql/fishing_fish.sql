@@ -128,12 +128,12 @@ INSERT INTO `fishing_fish` VALUES (5450,'Lakerda',0,41,16,6,13,56,98,1,0,255,255
 INSERT INTO `fishing_fish` VALUES (2216,'Lamp Marimo',0,0,10,13,2,1,1,0,0,255,255,0,0,0,0,1,300,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5129,'Lik',90,140,48,2,14,185,465,1,0,255,255,0,1,8,0,1,300,1977,'',0);
 INSERT INTO `fishing_fish` VALUES (4315,'Lungfish',0,31,15,10,14,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5468,'Matsya',90,110,40,5,12,163,331,1,0,255,255,0,1,0,0,1,100,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5468,'Matsya',90,110,40,1,1,163,331,1,0,255,255,0,1,0,0,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5467,'Megalodon',0,87,34,10,11,446,625,1,0,255,255,0,0,0,0,1,350,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5454,'Mercanbaligi',0,86,31,5,6,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4401,'Moat Carp',0,11,16,10,9,1,1,0,0,255,255,0,0,0,0,1,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1638,'Moblin Mask',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,500,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5134,'Mola Mola',90,135,16,12,12,130,184,1,1,255,255,16,1,0,0,1,100,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5134,'Mola Mola',90,135,16,1,1,130,184,1,1,255,255,16,1,0,0,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4462,'Monke-Onke',0,51,17,11,9,49,115,1,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5121,'Moorish Idol',0,26,18,6,11,1,1,0,1,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5462,'Morinabaligi',0,94,36,4,13,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
@@ -152,7 +152,7 @@ INSERT INTO `fishing_fish` VALUES (5470,'Pirarucu',0,89,21,6,11,161,210,1,0,255,
 INSERT INTO `fishing_fish` VALUES (5133,'Pterygotus',0,99,33,8,7,24,264,1,0,255,255,0,0,0,0,1,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4514,'Quus',0,19,12,7,11,1,1,0,0,255,255,0,0,0,0,3,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4402,'Red Terrapin',0,53,28,8,5,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5135,'Rhinochimera',0,65,25,11,10,19,40,1,0,255,255,0,0,0,0,1,450,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5135,'Rhinochimera',0,65,25,4,4,19,40,1,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (90,'Rusty Bucket',0,1,19,13,2,1,1,0,0,255,255,9,0,0,1,1,650,0,'',0);
 INSERT INTO `fishing_fish` VALUES (12522,'Rusty Cap',0,30,38,13,2,1,1,0,0,255,255,9,0,0,1,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (16606,'Rusty Greatsword',0,7,15,13,2,1,1,0,0,255,255,8,0,0,1,1,400,0,'',0);
