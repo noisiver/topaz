@@ -13287,14 +13287,12 @@ INSERT INTO `mob_droplist` VALUES (2520,0,0,1000,891,1000);
 INSERT INTO `mob_droplist` VALUES (2520,0,0,1000,891,240);
 INSERT INTO `mob_droplist` VALUES (2520,0,0,1000,922,240);
 INSERT INTO `mob_droplist` VALUES (2520,0,0,1000,1037,50);
-INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,866,50);
-INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1122,240);
-INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1122,150);
-INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1122,100);
-INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1122,50);
-INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1124,240);
-INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1124,150);
-INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,18141,1000);
+INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,866,1000); -- Handful of wyvern scales (Ungur)
+INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1122,1000); -- Wyvern skin
+INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1122,1000); -- Wyvern skin
+INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1122,100); -- Wyvern skin
+INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,1124,1000); -- Wyvern wing
+INSERT INTO `mob_droplist` VALUES (2521,0,0,1000,18141,1000); -- Ungur boomerang
 INSERT INTO `mob_droplist` VALUES (2522,0,0,1000,3272,100);
 INSERT INTO `mob_droplist` VALUES (2523,0,0,1000,1630,240); -- (Unstable Cluster) Pinch of cluster ash
 INSERT INTO `mob_droplist` VALUES (2523,0,0,1000,1667,1000); -- Cluster core
@@ -14064,10 +14062,12 @@ INSERT INTO `mob_droplist` VALUES (2589,0,0,1000,4598,850); -- Wild pineapple
 INSERT INTO `mob_droplist` VALUES (2589,0,0,1000,15547,240); -- Vilma's ring
 INSERT INTO `mob_droplist` VALUES (2590,0,0,1000,542,50);
 INSERT INTO `mob_droplist` VALUES (2590,0,0,1000,4358,240);
-INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,866,70);
-INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,1122,270);
-INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,1124,330);
-INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,16885,1000);
+INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,866,1000); -- Handful of wyvern scales (Vouivre)
+INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,1122,1000); -- Wyvern Skin
+INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,1122,1000); -- Wyvern Skin
+INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,1124,1000); -- Wyvern wing
+INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,1124,240); -- Wyvern wing
+INSERT INTO `mob_droplist` VALUES (2591,0,0,1000,16885,1000); -- Gae Bolg
 INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1816,1000); -- (Vrtra) Wyrm horn
 INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,15175,240); -- Reviler's helm
 INSERT INTO `mob_droplist` VALUES (2592,0,0,1000,1712,1000); -- Clump of cashmere wool
