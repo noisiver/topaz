@@ -9,7 +9,7 @@ g_mixins.families.imp = function(mob)
     -- this can be overridden in onMobSpawn
 
     mob:addListener("SPAWN", "IMP_SPAWN", function(mob)
-        mob:setLocalVar("HornBreakChance", 10)
+        mob:setLocalVar("HornBreakChance", 5)
     end)
 
     mob:addListener("COMBAT_TICK", "IMP_COMBAT_TICK", function(mob)

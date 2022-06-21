@@ -7,10 +7,10 @@ g_mixins.families.marid = function(mob)
 
     -- 20% chance to break horn on critical hit
     mob:addListener("CRITICAL_TAKE", "MARID_CRITICAL_TAKE", function(mob)
-        if math.random(100) <= 20 and mob:AnimationSub() == 0 then
+        if math.random(100) <= 5 and mob:AnimationSub() == 0 then
             mob:AnimationSub(1)
 			mob:setLocalVar("Weapon", 1)
-		elseif math.random(100) <= 20 and mob:AnimationSub() == 1 then
+		elseif math.random(100) <= 5 and mob:AnimationSub() == 1 then
 			mob:AnimationSub(2)
 			mob:setLocalVar("Weapon", 2)
         end
@@ -31,10 +31,10 @@ g_mixins.families.marid = function(mob)
         or abilityID == 205      -- desperate flourish
         or abilityID == 207      -- violent flourish
         or abilityID == 170 then -- angon
-			if math.random(100) <= 10 and mob:AnimationSub() == 0 then
+			if math.random(100) <= 5 and mob:AnimationSub() == 0 then
 				mob:AnimationSub(1)
 				mob:setLocalVar("Weapon", 1)
-			elseif math.random(100) <= 10 and mob:AnimationSub() == 1 then
+			elseif math.random(100) <= 5 and mob:AnimationSub() == 1 then
 				mob:AnimationSub(2)
 				mob:setLocalVar("Weapon", 2)
 			end
