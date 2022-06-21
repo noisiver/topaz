@@ -921,6 +921,11 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
+        -- Doom can't have a lower duration from resisting!
+        if (resist < 1) and (typeEffect == tpz.effect.DOOM) then
+            return tpz.msg.basic.SKILL_MISS 
+        end
+
         if (resist >= 0.50) then
 
             -- Reduce duration by resist percentage
