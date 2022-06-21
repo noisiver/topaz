@@ -41,16 +41,18 @@ end
 
 function onMobDeath(mob, player, isKiller)
     player:addCurrency("zeni_point", 10)
-	if mob:AnimationSub() >= 1 then
-		if math.random(1,100) <= 5 then 
-			player:addTreasure(2147, mob) --Marid Tusk
-		end
-		if mob:AnimationSub() == 2 then
-			if math.random(1,100) <= 5 then 
-				player:addTreasure(2147, mob) --Marid Tusk
-			end
-		end
-	end
+    if isKiller then
+	    if mob:AnimationSub() >= 1 then
+		    if math.random(1,100) <= 5 then 
+			    player:addTreasure(2147, mob) --Marid Tusk
+		    end
+		    if mob:AnimationSub() == 2 then
+			    if math.random(1,100) <= 5 then 
+				    player:addTreasure(2147, mob) --Marid Tusk
+			    end
+		    end
+	    end
+    end
 
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(5735, mob)--Cotton Coin Purse
