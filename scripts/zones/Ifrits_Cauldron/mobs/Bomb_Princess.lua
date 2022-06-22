@@ -7,7 +7,9 @@ require("scripts/globals/status")
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
-    mob:setMobMod(tpz.mobMod.GIL_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, 0)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 0)
+    mob:setMobMod(tpz.mobMod.GIL_BONUS, 0)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setMod(tpz.mod.STUNRES, 50)
 end
