@@ -28,7 +28,6 @@ function onMobWeaponSkill(target, mob, skill)
 
     if dmg > 1250 then dmg = 1250 end -- Don't do silly damage if the mob has high HP
 
-    mob:setHP(0)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
     return dmg
 end
