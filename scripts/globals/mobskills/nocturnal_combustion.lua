@@ -19,26 +19,26 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 0
+    local dmgmod = 30
 	local GameTime = VanadielHour()
 	if GameTime <= 3 then
-		dmgmod = 11
+		dmgmod = 30
 	elseif GameTime <= 6 then
-		dmgmod = 9
+		dmgmod = 28
 	elseif GameTime <= 9 then
-		dmgmod = 8
+		dmgmod = 25
 	elseif GameTime <= 12 then
-		dmgmod = 7
+		dmgmod = 22
 	elseif GameTime > 12 then
-		dmgmod = 8
+		dmgmod = 20
 	elseif GameTime >= 15 then
-		dmgmod = 9
+		dmgmod = 18
 	elseif GameTime >= 18 then
-		dmgmod = 10
+		dmgmod = 25
 	elseif GameTime >= 21 then
-		dmgmod = 11
+		dmgmod = 28
 	elseif GameTime == 0 then
-		dmgmod = 12
+		dmgmod = 30
 	end
 	
     local BOMB_TOSS_HPP = skill:getMobHPP() / 100
