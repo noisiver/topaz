@@ -277,6 +277,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         end
 
         while numHitsProcessed < numHitsLanded do
+            if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)

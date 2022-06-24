@@ -213,6 +213,7 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     local finaldmg = 0
 
     while (hitsdone < params.numhits) do
+        if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
         local chance = math.random()
         if (chance <= hitrate) then -- it hit
             -- TODO: Check for shadow absorbs.
