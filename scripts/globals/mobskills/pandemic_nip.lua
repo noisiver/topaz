@@ -15,6 +15,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+        return 1
+    end
 	mob:setLocalVar("TransferredEffects", 0)
     return 0
 end
@@ -59,7 +62,7 @@ function onMobWeaponSkill(target, mob, skill)
 					target:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
 					TransferredEffects = TransferredEffects + 1
 					mob:setLocalVar("TransferredEffects", TransferredEffects)
-					mob:delStatusEffect(effect)
+					mob:delStatusEffectSilent(effect)
 				end
             end
         end

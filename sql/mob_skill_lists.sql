@@ -3491,7 +3491,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Teugghia',995,2197); -- Autumn_Breeze
 INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,318); -- somersault
 INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,659); -- cuirsed_sphere
 INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,660); -- venom
--- INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,1624); -- debilitating_drone
+INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,1624); -- debilitating_drone
 INSERT INTO `mob_skill_lists` VALUES ('Hovering_Hotpot',998,521); -- spinning attack
 INSERT INTO `mob_skill_lists` VALUES ('Suparna',999,923);
 INSERT INTO `mob_skill_lists` VALUES ('Suparna',999,924);
@@ -4383,6 +4383,76 @@ INSERT INTO `mob_skill_lists` VALUES ('Furies',6117,1158); -- turbulence
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJaMage',6118,1920); -- rushing_drub | staff
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJaMage',6118,1922); -- somersault_kick(mage)
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJaMage',6118,1923); -- Firespit(Magic)
+
+-- MMM Start
+INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,373); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,3851); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,3852); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,3853); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,3854); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,3855); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Rahu',6120,376); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Rahu',6120,377); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Rahu',6120,378); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Rahu',6120,3909); -- 
+ 
+INSERT INTO `mob_skill_lists` VALUES ('Tatzelwurm',6121,1594); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Tatzelwurm',6121,1595); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Tatzelwurm',6121,1596); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Tatzelwurm',6121,1597); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Tanihwa',6122,1858); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Tanihwa',6122,1859); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Tanihwa',6122,1860); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Tanihwa',6122,1861); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Tanihwa',6122,1862); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Tanihwa',6122,1863); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Artemisia',6123,2579); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Artemisia',6123,2599); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Artemisia',6123,2600); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Artemisia',6123,2601); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Artemisia',6123,3847); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Artemisia',6123,2387); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Dzoavits',6124,3355); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Dzoavits',6124,3356); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Dzoavits',6124,3357); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Dzoavits',6124,3358); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Dzoavits',6124,583); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Terror_Fly',6125,1622); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Terror_Fly',6125,1623); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Terror_Fly',6125,318); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Terror_Fly',6125,1324); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Dicey_Dorcus',6126,723); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Dicey_Dorcus',6126,724); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Dicey_Dorcus',6126,2221); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,323); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,661); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,3840); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,3841); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,3842); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,480); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,483); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,2760); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,2209); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,1680); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,1681); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,2207); -- 
+
+INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1561); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1562); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1563); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1564); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1565); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1566); -- 
+-- MMM End
 
 --6066 unused
 

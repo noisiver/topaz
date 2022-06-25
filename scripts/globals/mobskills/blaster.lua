@@ -5,7 +5,7 @@
 -- Type: Enfeebling
 -- Utsusemi/Blink absorb: Ignores shadows.
 -- Range: Melee?
--- Notes: Very potent paralysis tpz.effect. Is NOT a Gaze Attack, unlike Chaotic Eye.
+-- Notes: Very potent paralysis effect. Is NOT a Gaze Attack, unlike Chaotic Eye.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")

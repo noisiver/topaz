@@ -35,12 +35,12 @@ function onMobWeaponSkill(target, mob, skill)
     }
 
 
-    local dmg = utils.takeShadows(target, 1, 3) 
+    local dmg = utils.takeShadows(target, 1, math.random(2, 3)) 
         for i, effect in ipairs(removables) do
             if (mob:hasStatusEffect(effect)) then
                 local statusEffect = mob:getStatusEffect(effect)
                 target:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
-                mob:delStatusEffect(effect)
+                mob:delStatusEffectSilent(effect)
             end
         end
 

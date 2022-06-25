@@ -185,8 +185,8 @@ INSERT INTO `augments` VALUES (131, 0, 30, 1, 0, 0); -- Mag. Acc.+1 Mag.Atk.Bns+
 INSERT INTO `augments` VALUES (131, 0, 28, 1, 0, 0); -- Cont.
 INSERT INTO `augments` VALUES (132, 0, 288, 1, 0, 0); -- Dbl.Atk.+1 Crit.hit rate+1
 INSERT INTO `augments` VALUES (132, 0, 165, 1, 0, 0); -- Cont.
-INSERT INTO `augments` VALUES (133, 0, 28, 1, 0, 0); -- Mag.Atk.Bns.+1
-INSERT INTO `augments` VALUES (134, 0, 29, 1, 0, 0); -- Mag.Def.Bns.+1
+INSERT INTO `augments` VALUES (133, 0, 28, 1, 0, 0); -- Mag.Atk.Bns.+1 (Matt Magic Attack Bonus)
+INSERT INTO `augments` VALUES (134, 0, 29, 1, 0, 0); -- Mag.Def.Bns.+1 (MDEF Magic Defense Bonus MDB)
 INSERT INTO `augments` VALUES (135, 0, 0, 0, 0, 0); -- 135 doesnt seem to be a valid Augment, incomplete or garbled text displays
 INSERT INTO `augments` VALUES (136, 0, 0, 0, 0, 0); -- 136 doesnt seem to be a valid Augment, incomplete or garbled text displays
 INSERT INTO `augments` VALUES (137, 0, 370, 1, 0, 0); -- Regen+1
