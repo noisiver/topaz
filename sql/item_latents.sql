@@ -280,7 +280,7 @@ INSERT INTO `item_latents` VALUES(12717, 71, 5, 13, 6);
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(12742, 1, 42, 56, 0);     -- Rune Bangles +42 Def.
 INSERT INTO `item_latents` VALUES(12742, 68, 15, 56, 0);     -- Rune Bangles +15 Eva.
-INSERT INTO `item_latents` VALUES(12742, 369, -4, 56, 0);   -- Rune Bangles -4MP/tic
+INSERT INTO `item_latents` VALUES(12742, 369, -3, 56, 0);   -- Rune Bangles -3MP/tic
 INSERT INTO `item_latents` VALUES(12751, 71, 4, 13, 6);
 
 -- -------------------------------------------------------
@@ -2039,7 +2039,7 @@ INSERT INTO `item_latents` VALUES(16378, 27, -1, 0, 75);    -- Enmity-1 when HP 
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(16408, 8, 17, 56, 0);      -- Rune Baghnakhs +7 STR
 INSERT INTO `item_latents` VALUES(16408, 291, 11, 56, 0);    -- Rune Baghnakhs +1 Counter
-INSERT INTO `item_latents` VALUES(16408, 369, -4, 56, 0);   -- Rune Baghnakhs -4MP/tic
+INSERT INTO `item_latents` VALUES(16408, 369, -3, 56, 0);   -- Rune Baghnakhs -3MP/tic
 
 -- -------------------------------------------------------
 -- Avengers
@@ -2074,7 +2074,7 @@ INSERT INTO `item_latents` VALUES(16427,25,15,37,4);        -- Acc+15 Full Moon
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(16563, 9, 15, 56, 0);      -- Rune Blade +15 DEX
 INSERT INTO `item_latents` VALUES(16563, 366, 14, 56, 0);    -- Rune Blade DMG: 53
-INSERT INTO `item_latents` VALUES(16563, 369, -4, 56, 0);   -- Rune Blade -4MP/tic
+INSERT INTO `item_latents` VALUES(16563, 369, -3, 56, 0);   -- Rune Blade -3MP/tic
 
 -- -------------------------------------------------------
 -- Perdu Sword
@@ -2198,13 +2198,13 @@ INSERT INTO `item_latents` VALUES(17093, 12, 12, 56, 0);     -- Rune Staff +12 I
 INSERT INTO `item_latents` VALUES(17093, 13, 12, 56, 0);     -- Rune Staff +12 MND
 INSERT INTO `item_latents` VALUES(17093, 14, 12, 56, 0);     -- Rune Staff +12 CHR
 INSERT INTO `item_latents` VALUES(17093, 28, 20, 56, 0);     -- Rune Staff +20 MAB
-INSERT INTO `item_latents` VALUES(17093, 369, -4, 56, 0);   -- Rune Staff -4MP/tic
+INSERT INTO `item_latents` VALUES(17093, 369, -3, 56, 0);   -- Rune Staff -3MP/tic
 -- -------------------------------------------------------
 -- Rune Bow
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(17158, 26, 15, 56, 0);     -- Rune Bow +15 R. Acc.
 INSERT INTO `item_latents` VALUES(17158, 27, -12, 56, 0);    -- Rune Bow -12 Enmity
-INSERT INTO `item_latents` VALUES(17158, 369, -4, 56, 0);   -- Rune Bow -4MP/tic
+INSERT INTO `item_latents` VALUES(17158, 369, -3, 56, 0);   -- Rune Bow -3MP/tic
 
 -- -------------------------------------------------------
 -- Arco de Velocidad
@@ -2285,7 +2285,7 @@ INSERT INTO `item_latents` VALUES(17456, 59, -10, 47, 0);
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(17461, 23, 20, 56, 0);    -- Rune Rod +20 Atk.
 INSERT INTO `item_latents` VALUES(17461, 112, 16, 56, 0);    -- Rune Rod +16 Healing Magic Skill
-INSERT INTO `item_latents` VALUES(17461, 369, -4, 56, 0);   -- Rune Rod -4MP/tic
+INSERT INTO `item_latents` VALUES(17461, 369, -3, 56, 0);   -- Rune Rod -3MP/tic
 -- -------------------------------------------------------
 -- Mighty Cudgel
 -- -------------------------------------------------------
