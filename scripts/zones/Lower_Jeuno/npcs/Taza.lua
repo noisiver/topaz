@@ -10,24 +10,43 @@ require("scripts/globals/items")
 
 local trades =
 {
-    -- Base item, augment item, amount, gil, augmentID, amount
-    { tpz.items.TITANS_CUDGEL, tpz.items.TITATEAR, 1, 250000, 45, 14 },
+    {
+        items = {
+            { tpz.items.TITANS_CUDGEL, 1 },
+            { tpz.items.TITATEAR, 1 },
+            { 'gil', 250000 },
+        },
+        GiveAugment = function(player)
+            player:addItem(tpz.items.TITANS_CUDGEL, 1, 45, 14);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.TITANS_CUDGEL);
+        end
+    },
+    {
+        items = {
+            { tpz.items.TITANS_CUDGEL, 1 },
+            { tpz.items.SOIL_GEODE, 1 },
+            { 'gil', 200000 }, 
+        },
+        GiveAugment = function(player)
+            player:addItem(tpz.items.TITANS_CUDGEL, 1, 45, 14, 46, 12);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.TITANS_CUDGEL)
+        end
+    }
 }
 
 
 
 
 function onTrade(player, npc, trade)
-    for i,IDs in pairs(trades) do
-        print(trades[2])
-        if npcUtil.tradeHas(trade, {{IDs[1], 1}, {IDs[2], IDs[3]}, {"gil", IDs[4]}}) then
+    for _,option in pairs(trades) do
+        if npcUtil.tradeHas(trade, option.items) then
             player:confirmTrade()
-			player:delGil(IDs[4])
-            player:addItem(IDs[1], 1, IDs[5], IDs[6])
+            option.GiveAugment(player);
             player:PrintToPlayer("I have successfully augmented your item and the the magical properties have been revealed!",0,"Taza")
-            player:messageSpecial(ID.text.ITEM_OBTAINED, IDs[1])
+            return
         end
     end
+    player:PrintToPlayer("I can't do anything with those items",0,"Taza")
 end
 
 
