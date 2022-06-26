@@ -20,8 +20,8 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
     local duration = 300
 
-    MobStatusEffectMove(mob, target, typeEffect, 2500, 0, duration)
-    MobEncumberMove(mob, target, 5, 90)
+    MobStatusEffectMove(mob, target, typeEffect, 2550, 0, duration)
+    MobEncumberMove(mob, target, 16, 60)
 	
     return typeEffect
 end
