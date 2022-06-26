@@ -1003,9 +1003,13 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             }
         }
 
+        // Check for paraylze
         if (battleutils::IsParalyzed(this)) {
-            // display paralyzed
-            PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
+           // 2 hours can be paraylzed but it won't reset their timers
+            if (PAbility->getRecastId() != 0)
+            {
+                PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
+            }
             pushPacket(new CCharRecastPacket(this));
             loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_IS_PARALYZED));
             return;
@@ -2167,22 +2171,22 @@ void CCharEntity::SetMoghancement(uint16 moghancementID)
 
             // NOTE: Exact values for resistances is unknown
             case MOGLIFICATION_RESIST_POISON:
-                addModifier(Mod::POISONRES, 20);
+                addModifier(Mod::POISONRESTRAIT, 10);
                 break;
             case MOGLIFICATION_RESIST_PARALYSIS:
-                addModifier(Mod::SILENCERES, 20);
+                addModifier(Mod::PARALYZERESTRAIT, 10);
                 break;
             case MOGLIFICATION_RESIST_SILENCE:
-                addModifier(Mod::SILENCERES, 20);
+                addModifier(Mod::SILENCERESTRAIT, 10);
                 break;
             case MOGLIFICATION_RESIST_PETRIFICATION:
-                addModifier(Mod::PETRIFYRES, 20);
+                addModifier(Mod::PETRIFYRESTRAIT, 10);
                 break;
             case MOGLIFICATION_RESIST_VIRUS:
-                addModifier(Mod::VIRUSRES, 20);
+                addModifier(Mod::VIRUSRESTRAIT, 10);
                 break;
             case MOGLIFICATION_RESIST_CURSE:
-                addModifier(Mod::CURSERES, 20);
+                addModifier(Mod::CURSERESTRAIT, 10);
                 break;
             default:
                 break;
