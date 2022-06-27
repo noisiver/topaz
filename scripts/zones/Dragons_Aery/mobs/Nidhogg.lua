@@ -10,8 +10,8 @@ require("scripts/globals/titles")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 15)
-    mob:addMod(tpz.mod.EVA, 20)
+    mob:addMod(tpz.mod.ATTP, 17)
+    mob:addMod(tpz.mod.EVA, 4)
     mob:addMod(tpz.mod.ACC, 25)
 	mob:setDamage(140)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
@@ -37,7 +37,7 @@ function onMobFight(mob, target)
     elseif battletime >= twohourTime and wingsDown == 0 then
         printf("Wings Up");
         mob:addMod(tpz.mod.ATT, 400)
-        mob:addMod(tpz.mod.EVA, 370)
+        mob:addMod(tpz.mod.EVA, 378)
         mob:setMod(tpz.mod.UDMGPHYS, -50)
         mob:setMod(tpz.mod.UDMGMAGIC, -5)
         mob:SetMobAbilityEnabled(false)
@@ -52,7 +52,7 @@ function onMobFight(mob, target)
     if battletime >= wingsTime and wingsDown == 1 then
         printf("Wings Down");
         mob:addMod(tpz.mod.ATT, -400)
-        mob:addMod(tpz.mod.EVA, -370)
+        mob:addMod(tpz.mod.EVA, -378)
         mob:setMod(tpz.mod.UDMGPHYS, 0)
         mob:setMod(tpz.mod.UDMGMAGIC, 0)
         mob:SetMobAbilityEnabled(true)
