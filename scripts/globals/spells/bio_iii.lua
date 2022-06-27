@@ -51,9 +51,6 @@ function onSpellCast(caster, target, spell)
 		duration = 180
 	end
 
-    -- Check for Dia
-    local dia = target:getStatusEffect(tpz.effect.DIA)
-
     -- Calculate DoT effect
     -- http://wiki.ffo.jp/html/1954.html
     -- this is a tiered calculation that has at least three tiers,
@@ -80,6 +77,7 @@ function onSpellCast(caster, target, spell)
 
     -- Do it!
     target:delStatusEffectSilent(tpz.effect.DIA)
+    target:delStatusEffectSilent(tpz.effect.BIO)
     target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 15, 3)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 

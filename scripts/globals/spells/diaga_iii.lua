@@ -46,10 +46,10 @@ function onSpellCast(caster, target, spell)
     local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
     local dotBonus = caster:getMod(tpz.mod.DIA_DOT) -- Dia Wand
 
-    -- Check for Bio
-    local bio = target:getStatusEffect(tpz.effect.BIO)
 
     -- Do it!
+    target:delStatusEffectSilent(tpz.effect.BIO)
+    target:delStatusEffectSilent(tpz.effect.DIA)
     target:addStatusEffect(tpz.effect.DIA, 3 + dotBonus, 3, duration, 0, 15, 3)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 

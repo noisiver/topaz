@@ -45,18 +45,14 @@ function onSpellCast(caster, target, spell)
     -- Calculate duration
     local duration = 180
 
-    -- Check for Dia
-    local dia = target:getStatusEffect(tpz.effect.DIA)
-
     -- Calculate DoT effect (rough, though fairly accurate)
     local dotdmg = 100
 
     -- Do it!
+    target:delStatusEffectSilent(tpz.effect.BIO)
+    target:delStatusEffectSilent(tpz.effect.DIA)
     target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 20, 4)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
-
-    -- Try to kill same tier Dia (default behavior)
-    target:delStatusEffectSilent(tpz.effect.DIA)
 
     return final
 end

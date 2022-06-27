@@ -51,10 +51,8 @@ function onSpellCast(caster, target, spell)
 		duration = 180
 	end
 
-    -- Check for Bio
-    local bio = target:getStatusEffect(tpz.effect.BIO)
-
     -- Do it!
+    target:delStatusEffectSilent(tpz.effect.DIA)
     target:delStatusEffectSilent(tpz.effect.BIO)
     target:addStatusEffect(tpz.effect.DIA, 3 + dotBonus, 3, duration, 0, 15, 3)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
