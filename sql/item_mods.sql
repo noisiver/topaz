@@ -20969,7 +20969,8 @@ INSERT INTO `item_mods` VALUES (17437,11,-3);
 INSERT INTO `item_mods` VALUES (17437,12,5);
 INSERT INTO `item_mods` VALUES (17437,13,5);
 INSERT INTO `item_mods` VALUES (17437,14,5);
-INSERT INTO `item_mods` VALUES (17438,10,3);
+INSERT INTO `item_mods` VALUES (17438,10,3); -- Titans Cudgel
+INSERT INTO `item_mods` VALUES (17438,431,1); -- Additional Effect: Earth damage
 INSERT INTO `item_mods` VALUES (17439,13,3);
 INSERT INTO `item_mods` VALUES (17441,5,5);       -- Eremite's Wand: MP +5
 INSERT INTO `item_mods` VALUES (17441,12,2);      -- INT +2
