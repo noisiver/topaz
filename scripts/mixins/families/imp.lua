@@ -55,6 +55,14 @@ g_mixins.families.imp = function(mob)
 		end
 	end)
 
+    mob:addListener("DEATH", "IMP_DEATH", function(mob, killer)
+        if (mob:AnimationSub() >= 1) then
+            if killer and (math.random(1,100) <= 5) then 
+                killer:addTreasure(2157, mob) --Imp Horn
+            end
+        end
+    end)
+
 end
 
 return g_mixins.families.imp
