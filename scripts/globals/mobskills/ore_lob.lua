@@ -1,5 +1,5 @@
 ---------------------------------------------
---  Ore Toss
+--  Ore Lob
 --
 --  Description: Deals high damage in a ranged attack.
 --  Type: Ranged
