@@ -6,7 +6,7 @@
 cmdprops =
 {
     permission = 1,
-    parameters = "iiiiiiiiiii"
+    parameters = "iiiiiiiiiiii"
 }
 
 function error(player, msg)
@@ -14,7 +14,7 @@ function error(player, msg)
     player:PrintToPlayer("!additem <itemId> {quantity} {aug1} {v1} {aug2} {v2} {aug3} {v3} {aug4} {v4} {trial}")
 end
 
-function onTrigger(player, itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, trialId)
+function onTrigger(player, itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, trialId, aug4val)
     -- Load needed text ids for players current zone..
     local ID = zones[player:getZoneID()]
 
@@ -29,8 +29,7 @@ function onTrigger(player, itemId, quantity, aug0, aug0val, aug1, aug1val, aug2,
         player:messageSpecial( ID.text.ITEM_CANNOT_BE_OBTAINED, itemId )
         return
     end
-
     -- Give the GM the item...
-    player:addItem( itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, trialId )
+    player:addItem( itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, trialId, aug4val);
     player:messageSpecial( ID.text.ITEM_OBTAINED, itemId )
 end

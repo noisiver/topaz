@@ -236,17 +236,30 @@ void CItemEquipment::setTrialNumber(uint16 trial)
 {
     if (trial)
     {
+        ref<uint8>(m_extra, 0x01) &= ~0x20;
         ref<uint8>(m_extra, 0x01) |= 0x40;
         setSubType(ITEM_AUGMENTED);
         ref<uint8>(m_extra, 0x00) |= 0x02;
         ref<uint8>(m_extra, 0x01) |= 0x03;
+        packBitsBE(m_extra, trial, 0x0A, 0, 15);
+        packBitsBE(m_extra, 0, 0x0A, 15, 1);
     }
     else
+    {
         ref<uint8>(m_extra, 0x01) &= ~0x40;
-
-    trial &= 0x7FFF;                               // Trial is only 15 bits long
-    ref<uint16>(m_extra, 0x0A) &= ~0x7FFF;
-    ref<uint16>(m_extra, 0x0A) |= (uint16)trial;
+        if (getAugment(0))
+        {
+            setSubType(ITEM_AUGMENTED);
+            ref<uint8>(m_extra, 0x00) |= 0x02;
+            ref<uint8>(m_extra, 0x01) |= 0x03;
+        }
+        else
+        {
+            ref<uint8>(m_extra, 0x00) |= ~0x02;
+            ref<uint8>(m_extra, 0x01) |= ~0x03;
+            setSubType(ITEM_NORMAL);
+        }
+    }
 }
 
 uint16 CItemEquipment::getTrialNumber()
