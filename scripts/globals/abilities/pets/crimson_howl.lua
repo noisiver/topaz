@@ -1,5 +1,6 @@
 ---------------------------------------------
 -- Crimson Howl
+-- Attack Boost = floor( (Summoner Level ÷ 4) + 4.75 ) ÷ 256
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -16,10 +17,10 @@ end
 function onPetAbility(target, pet, skill, summoner)
     local bonus = 0
     local effect = tpz.effect.ATTACK_BOOST
-    local power = 50
+    local power = math.floor((summoner:getMainLvl() / 2) + 4.75 / 256)
     local duration = 180
 
-    AvatarBuffBP(pet, pet, skill, effect, power, tick, duration, params, bonus)
+    AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
 
     return effect
 end
