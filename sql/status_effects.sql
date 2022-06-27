@@ -513,7 +513,7 @@ INSERT INTO `status_effects` VALUES (474,'prowess',768,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (475,'voidwatcher',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (476,'ensphere',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (477,'sacrosanctity',32,0,0,0,0,0,0,0,0);
-INSERT INTO `status_effects` VALUES (478,'palisade',8421408,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (478,'palisade',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (479,'scarlet_delirium',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (480,'scarlet_delirium',32,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (482,'decoy_shot',32,0,0,0,0,0,0,0,0);

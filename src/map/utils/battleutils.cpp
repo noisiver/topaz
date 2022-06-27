@@ -1740,10 +1740,6 @@ namespace battleutils
         int acc = 0;
         int hitrate = 75;
 
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
-        {
-            return 100;
-        }
         if (PAttacker->objtype == TYPE_PC)
         {
             CCharEntity* PChar = (CCharEntity*)PAttacker;
@@ -2034,7 +2030,6 @@ namespace battleutils
         uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
 
         if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) ||
-            PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE) ||
             PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_SWORDPLAY))
         {
             return 0;
@@ -2112,8 +2107,7 @@ namespace battleutils
                 job == JOB_BLU || job == JOB_MNK || job == JOB_GEO ||
                 job == JOB_SCH)
             {
-                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) ||
-                    PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
+                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
                 {
                     return 0;
                 }
@@ -2177,8 +2171,7 @@ namespace battleutils
 
         if (validWeapon && hasGuardSkillRank && PDefender->PAI->IsEngaged())
         {
-            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) ||
-                PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
+            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
         {
             return 0;
         }
@@ -2695,10 +2688,6 @@ namespace battleutils
     {
         int32 hitrate = 75;
 
-        if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_PALISADE))
-        {
-                return 100;
-        }
         if (PAttacker->objtype == TYPE_PC && ((PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK_ATTACK) && (behind(PAttacker->loc.p, PDefender->loc.p, 64) || PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))) ||
             (charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_ASSASSIN) && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_TRICK_ATTACK) && battleutils::getAvailableTrickAttackChar(PAttacker, PDefender))))
         {
@@ -6702,74 +6691,9 @@ namespace battleutils
 
             if (PCoverAbilityUser != nullptr)
             {
-                float coverAbilityTargetX  = PCoverAbilityTarget->loc.p.x;
-                float coverAbilityTargetZ  = PCoverAbilityTarget->loc.p.z;
-                float mobX                 = PMob->loc.p.x;
-                float mobZ                 = PMob->loc.p.z;
-
-                float xdif      = coverAbilityTargetX - mobX;
-                float zdif      = coverAbilityTargetZ - mobZ;
-                float slope     = 0;
-                float maxSlope  = 0;
-                float minSlope  = 0;
-                bool zDependent = true; //using a slope where z is dependent var
-
-                if (abs(xdif) <= abs(zdif))
+                if (distance(PCoverAbilityUser->loc.p, PMob->loc.p) <= (float)PMob->GetMeleeRange()) // make sure cover user is within melee range
                 {
-                    slope = xdif / zdif;
-
-                    float angle = (float)atan((double)1) * 2 - atan(slope);
-
-                    float zoffset   = cos(angle) / 2;
-                    float xoffset   = sin(angle) / 2;
-                    float maxXpoint = mobX + xoffset;
-                    float maxZpoint = mobZ - zoffset;
-                    float minXpoint = mobX - xoffset;
-                    float minZpoint = mobZ + zoffset;
-
-                    maxSlope = ((maxXpoint - coverAbilityTargetX) / (maxZpoint - coverAbilityTargetZ));
-                    minSlope = ((minXpoint - coverAbilityTargetX) / (minZpoint - coverAbilityTargetZ));
-
-                    zDependent = false;
-                }
-                else
-                {
-                    slope = zdif / xdif;
-
-                    float angle = (float)atan((double)1) * 2 - atan(slope);
-
-                    float xoffset   = cos(angle) / 2;
-                    float zoffset   = sin(angle) / 2;
-                    float maxXpoint = mobX - xoffset;
-                    float maxZpoint = mobZ + zoffset;
-                    float minXpoint = mobX + xoffset;
-                    float minZpoint = mobZ - zoffset;
-
-                    maxSlope = (maxZpoint - coverAbilityTargetZ) / (maxXpoint - coverAbilityTargetX);
-                    minSlope = (minZpoint - coverAbilityTargetZ) / (minXpoint - coverAbilityTargetX);
-                }
-
-                if (distance(PCoverAbilityUser->loc.p, PMob->loc.p) <= (float)PMob->GetMeleeRange() &&                   //make sure cover user is within melee range
-                   distance(PCoverAbilityUser->loc.p, PMob->loc.p) <= distance(PCoverAbilityTarget->loc.p, PMob->loc.p)) //make sure cover user is closer to the mob than cover target
-                {
-                    float coverAbilityUserXdif = PCoverAbilityUser->loc.p.x - coverAbilityTargetX;
-                    float coverAbilityUserZdif = PCoverAbilityUser->loc.p.z - coverAbilityTargetZ;
-                    if (zDependent)
-                    {
-                        if ((coverAbilityUserZdif <= coverAbilityUserXdif * maxSlope) &&
-                            (coverAbilityUserZdif >= coverAbilityUserXdif * minSlope))
-                        {
-                            return PCoverAbilityUser;
-                        }
-                    }
-                    else
-                    {
-                        if ((coverAbilityUserXdif <= coverAbilityUserZdif * maxSlope) &&
-                            (coverAbilityUserXdif >= coverAbilityUserZdif * minSlope))
-                        {
-                            return PCoverAbilityUser;
-                        }
-                    }
+                    return PCoverAbilityUser;
                 }
             }
         }
