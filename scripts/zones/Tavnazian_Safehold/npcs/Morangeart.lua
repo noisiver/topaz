@@ -6,6 +6,7 @@
 --
 -----------------------------------
 require("scripts/globals/settings")
+require("scripts/globals/keyitems")
 local ID = require("scripts/zones/Tavnazian_Safehold/IDs")
 -----------------------------------
 
