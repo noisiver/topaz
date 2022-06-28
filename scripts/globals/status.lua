@@ -2561,7 +2561,8 @@ tpz.jobSpecialAbility =
     -- TRANCE               = 2710,
     -- ELEMENTAL_SFORZO     = 3265,
     -- ELEMENTAL_SFORZO     = 3479,
-     BOLSTER              = 3482,
+    BOLSTER              = 3482,
+    CHARM                = 710,
 }
 tpz.jsa = tpz.jobSpecialAbility
 

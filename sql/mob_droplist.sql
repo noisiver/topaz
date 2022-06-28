@@ -13806,7 +13806,7 @@ INSERT INTO `mob_droplist` VALUES (2558,1,1,50,18284,250); -- Relic Axe
 INSERT INTO `mob_droplist` VALUES (2558,1,1,50,18278,250); -- Relic Blade
 INSERT INTO `mob_droplist` VALUES (2558,1,1,50,18302,250); -- Relic Scythe
 INSERT INTO `mob_droplist` VALUES (2558,2,0,1000,1455,0); -- (Steal) One Byne Bill
-INSERT INTO `mob_droplist` VALUES (2558,1,2,100,1460,333); -- Chunk Of Wootz Ore
+INSERT INTO `mob_droplist` VALUES (2558,1,2,100,1469,333); -- Chunk Of Wootz Ore
 INSERT INTO `mob_droplist` VALUES (2558,1,2,100,1470,333); -- Sparkling Stone
 INSERT INTO `mob_droplist` VALUES (2558,1,2,100,1521,334); -- Vial Of Slime Juice
 INSERT INTO `mob_droplist` VALUES (2558,1,4,50,11385,250); -- Commodore Bottes
@@ -17119,7 +17119,7 @@ INSERT INTO `mob_droplist` VALUES (9000,1,1,50,18284,250); -- Relic Axe
 INSERT INTO `mob_droplist` VALUES (9000,1,1,50,18278,250); -- Relic Blade
 INSERT INTO `mob_droplist` VALUES (9000,1,1,50,18302,250); -- Relic Scythe
 INSERT INTO `mob_droplist` VALUES (9000,2,0,1000,1455,0); -- (Steal) One Byne Bill
-INSERT INTO `mob_droplist` VALUES (9000,1,2,100,1460,333); -- Chunk Of Wootz Ore
+INSERT INTO `mob_droplist` VALUES (9000,1,2,100,1469,333); -- Chunk Of Wootz Ore
 INSERT INTO `mob_droplist` VALUES (9000,1,2,100,1470,333); -- Sparkling Stone
 INSERT INTO `mob_droplist` VALUES (9000,1,2,100,1521,334); -- Vial Of Slime Juice
 INSERT INTO `mob_droplist` VALUES (9000,1,3,50,15078,90); -- Valor Coronet
@@ -17143,7 +17143,7 @@ INSERT INTO `mob_droplist` VALUES (9000,1,5,150,3385,250); -- Odious Backscale
 INSERT INTO `mob_droplist` VALUES (9000,1,5,150,3386,250); -- Odious Engraving
 INSERT INTO `mob_droplist` VALUES (9000,1,5,150,3387,250); -- Odious Letterbox
 -- Timed NMs
-INSERT INTO `mob_droplist` VALUES (9011,0,0,150,1456,333);  -- One Hundred Byne Bill
+INSERT INTO `mob_droplist` VALUES (9011,0,0,1000,1456,50);  -- One Hundred Byne Bill
 INSERT INTO `mob_droplist` VALUES (9011,0,0,1000,3354,240); -- Steelwall Bijou
 -- Force Pop NMs
 INSERT INTO `mob_droplist` VALUES (9012,0,0,1000,3409,1000); -- (Gu'dha Effigy) Fiendish Tome: Chapter 6
@@ -17217,7 +17217,7 @@ INSERT INTO `mob_droplist` VALUES (9001,1,5,150,3381,250); -- OOdious Leather
 INSERT INTO `mob_droplist` VALUES (9001,1,5,150,3382,250); -- Odious Cryptex
 INSERT INTO `mob_droplist` VALUES (9001,1,5,150,3383,250); -- Odious Strongbox 
 -- Timed NMs
-INSERT INTO `mob_droplist` VALUES (9018,0,0,150,1453,333);  -- Montiont Silverpiece
+INSERT INTO `mob_droplist` VALUES (9018,0,0,1000,1453,50);  -- Montiont Silverpiece
 INSERT INTO `mob_droplist` VALUES (9018,0,0,1000,3353,240); -- Barbaric Bijou 
 -- Force Pop NMs
 INSERT INTO `mob_droplist` VALUES (9019,0,0,1000,3404,1000); -- (Overlord's Tombstone) Fiendish Tome: Chapter 1
@@ -17291,7 +17291,7 @@ INSERT INTO `mob_droplist` VALUES (9002,1,5,1000,3389,150); -- Odious Feather
 INSERT INTO `mob_droplist` VALUES (9002,1,5,1000,3390,150); -- Odious Holy Water
 INSERT INTO `mob_droplist` VALUES (9002,1,5,1000,3391,150); -- Odious Quipu
 -- Timed NMs
-INSERT INTO `mob_droplist` VALUES (9025,0,0,1000,1450,10);  -- Lungo-Nango Jadeshell
+INSERT INTO `mob_droplist` VALUES (9025,0,0,1000,1450,50);  -- Lungo-Nango Jadeshell
 INSERT INTO `mob_droplist` VALUES (9025,0,0,1000,3355,240); -- Divine Bijou 
 -- Force Pop NMs
 INSERT INTO `mob_droplist` VALUES (9026,0,0,1000,3414,1000); -- (Tzee Xicu Idol) Fiendish Tome: Chapter 11

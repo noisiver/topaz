@@ -1063,8 +1063,8 @@ INSERT INTO `mob_skills` VALUES (1117,768,'lead_breath',4,15.0,2000,1500,4,0,0,0
 INSERT INTO `mob_skills` VALUES (1118,769,'lead_breath',4,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1119,335,'frag_bomb',1,15.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1120,69,'10000_needles',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1121,771,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- yagudo move
-INSERT INTO `mob_skills` VALUES (1122,770,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- quadav move
+INSERT INTO `mob_skills` VALUES (1121,770,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- yagudo move
+INSERT INTO `mob_skills` VALUES (1122,771,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- quadav move
 -- INSERT INTO `mob_skills` VALUES (1123,355,'ore_toss',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1124,772,'regain_hp',1,25.0,2000,0,4,0,0,0,0,0,0); -- Dyna Statues
 INSERT INTO `mob_skills` VALUES (1125,773,'regain_mp',1,25.0,2000,0,4,0,0,0,0,0,0); -- Dyna Statues
@@ -1708,7 +1708,7 @@ INSERT INTO `mob_skills` VALUES (1758,1190,'tail_slap',4,10.0,2000,1500,4,0,0,3,
 INSERT INTO `mob_skills` VALUES (1759,1191,'hypnotic_sway',4,10,2000,2000,4,0,0,0,0,0,0); -- Lamia
 -- INSERT INTO `mob_skills` VALUES (1760,1192,'swift_shot',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1761,1192,'arrow_deluge',4,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1762,1193,'belly_dance',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1762,1193,'belly_dance',1,10.0,2000,2500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1763,1507,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1764,1508,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1765,1252,'gusting_gouge',4,7.0,2000,1500,4,0,0,3,0,0,0);
@@ -1906,7 +1906,7 @@ INSERT INTO `mob_skills` VALUES (1946,435,'shock_absorber',0,7.0,2000,0,16,4,0,0
 INSERT INTO `mob_skills` VALUES (1947,438,'flashbulb',0,7.0,2000,0,4,4,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1948,439,'mana_converter',0,7.0,2000,0,16,4,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1949,16,'ranged_attack',0,25.0,2000,0,4,4,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1950,1694,'belly_dance',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1950,1694,'belly_dance',1,10.0,2000,2500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1951,1345,'magma_fan',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1952,1346,'erratic_flutter',1,15.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1953,1347,'proboscis',1,15.0,2000,1000,4,0,0,0,0,0,0);
