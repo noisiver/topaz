@@ -16,7 +16,7 @@ end
 
 function onPetAbility(target, pet, skill, summoner)
     local bonus = 0
-    local effect = tpz.effect.ATTACK_BOOST
+    local effect = tpz.effect.WARCRY
     local power = math.floor((summoner:getMainLvl() / 2) + 4.75 / 256)
     local duration = 180
 
