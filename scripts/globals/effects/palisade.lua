@@ -12,7 +12,7 @@ function onEffectGain(target, effect)
     local entities = target:getNearbyMobs(12)
     local mobNearby = false;
     for i, entity in pairs(entities) do
-        if entity:getAggressive() == 1 and target:getID() ~= entity:getID() and entity:isSpawned() then
+        if target:getID() ~= entity:getID() and entity:isSpawned() then
             mobNearby = true;
             entity:setMobMod(tpz.mobMod.NO_MOVE, 1)
 		end
@@ -29,7 +29,7 @@ function onEffectLose(target, effect)
     local entities = target:getNearbyMobs(12)
     local mobNearby = false;
     for i, entity in pairs(entities) do
-        if entity:getAggressive() == 1 and target:getID() ~= entity:getID() and entity:isSpawned() then
+        if target:getID() ~= entity:getID() and entity:isSpawned() then
             mobNearby = true;
             entity:setMobMod(tpz.mobMod.NO_MOVE, 0)
 		end
