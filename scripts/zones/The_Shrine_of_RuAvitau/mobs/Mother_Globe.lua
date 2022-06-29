@@ -178,20 +178,6 @@ function onMobFight(mob, target)
 		mob:addStatusEffect(tpz.effect.SHOCK_SPIKES, 65, 0, 3600)
 	end
 
-	local SlaveOne = GetMobByID(mob:getID()+1)
-	local SlaveTwo = GetMobByID(mob:getID()+2)
-	local SlaveThree = GetMobByID(mob:getID()+3)
-	local SlaveFour = GetMobByID(mob:getID()+4)
-	local SlaveFive = GetMobByID(mob:getID()+5)
-	local SlaveSix = GetMobByID(mob:getID()+6)
-	
-	SlaveOne:updateEnmity(target)
-	SlaveTwo:updateEnmity(target)
-	SlaveThree:updateEnmity(target)
-	SlaveFour:updateEnmity(target)
-	SlaveFive:updateEnmity(target)
-	SlaveSix:updateEnmity(target)
-	
     if slaves > 6 then
         mob:setLocalVar("SlavesSpawned", 0)
     end
