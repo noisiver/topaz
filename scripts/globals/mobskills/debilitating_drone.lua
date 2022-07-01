@@ -1,6 +1,8 @@
 ---------------------------------------------
 -- Debilitating Drone
--- (NMs Only) AoE Inflicts a random attribute reduction.
+-- (NMs Only)
+-- Drains all targets attributes for the duration.
+-- AOE 15'
 -- Ignores shadows.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -16,8 +18,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local count = 7
+    skill:setMsg(DrainMultipleAttributes(mob, target, 35, 60, count, 300))
 
-    skill:setMsg(DrainMultipleAttributes(mob, target, 10, 60, 1, 300))
-
-    return 1
+    return count
 end

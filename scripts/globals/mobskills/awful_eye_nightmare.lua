@@ -21,6 +21,9 @@ function onMobWeaponSkill(target, mob, skill)
 
     MobGazeMove(mob, target, typeEffectTwo, powerTwo, tickTwo, 300)
     skill:setMsg(MobGazeMove(mob, target, typeEffect, power, tick, 45))
+    if (target:isFacing(mob)) then
+        mob:resetEnmity(target)
+    end
 
     return typeEffect
 end
