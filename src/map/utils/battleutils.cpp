@@ -2689,7 +2689,8 @@ namespace battleutils
         int32 hitrate = 75;
 
         if (PAttacker->objtype == TYPE_PC && ((PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK_ATTACK) && (behind(PAttacker->loc.p, PDefender->loc.p, 64) || PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE))) ||
-            (charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_ASSASSIN) && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_TRICK_ATTACK) && battleutils::getAvailableTrickAttackChar(PAttacker, PDefender))))
+            (charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_ASSASSIN) && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_TRICK_ATTACK) && battleutils::getAvailableTrickAttackChar(PAttacker, PDefender))) ||
+            PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK_ATTACK) && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBT))
         {
             hitrate = 100; // Attack with SA active or TA/Assassin cannot miss
         }
@@ -2948,21 +2949,7 @@ namespace battleutils
         {
             return 100;
         }
-        else if (PAttacker->objtype == TYPE_PC && (!ignoreSneakTrickAttack) && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK_ATTACK))
-        {
-            if (behind(PAttacker->loc.p, PDefender->loc.p, 64) || PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_HIDE) ||
-                PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBT))
-            {
-                crithitrate = 100;
-            }
-        }
-        else if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_THF && charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_ASSASSIN) &&
-                 (!ignoreSneakTrickAttack) && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_TRICK_ATTACK))
-        {
-            CBattleEntity* taChar = battleutils::getAvailableTrickAttackChar(PAttacker, PDefender);
-            if (taChar != nullptr)
-                crithitrate = 100;
-        }
+
         else
         {
             // apply merit mods and traits
