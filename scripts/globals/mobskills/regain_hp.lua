@@ -14,10 +14,11 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local hp = target:getMaxHP() - target:getHP()
 
-    skill:setMsg(tpz.msg.basic.AOE_REGAIN_HP)
-
+    skill:setMsg(tpz.msg.basic.RECOVERS_HP)
     target:addHP(hp)
     target:wakeUp()
+    mob:setUnkillable(false)
+    mob:setHP(0)
 
     return hp
 end

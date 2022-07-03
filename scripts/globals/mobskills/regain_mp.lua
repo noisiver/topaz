@@ -14,9 +14,10 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local mp = target:getMaxMP() - target:getMP()
 
-    skill:setMsg(tpz.msg.basic.AOE_REGAIN_MP)
-
+    skill:setMsg(tpz.msg.basic.RECOVERS_MP)
     target:addMP(mp)
+    mob:setUnkillable(false)
+    mob:setHP(0)
 
     return mp
 end

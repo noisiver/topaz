@@ -12,6 +12,10 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 300)
 end
 
+function onMobFight(mob, target)
+    dynamis.refillStatueRestore(mob, player, isKiller)
+end
+
 
 function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.SMELTIX_THICKHIDE_PH, 50, 3600) -- 20 minutes
