@@ -1692,7 +1692,7 @@ INSERT INTO `mob_skills` VALUES (1742,1231,'overthrow',0,7.0,2000,1500,4,0,0,3,0
 INSERT INTO `mob_skills` VALUES (1743,1232,'rock_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1744,1233,'diamondhide',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1745,1234,'enervation',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1746,1235,'quake_stomp',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1746,1235,'quake_stomp',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES(1747, 1236, 'zarraqa', 0, 25.0, 2000, 1500, 4, 4, 0, 0, 0, 0, 0);
 INSERT INTO `mob_skills` VALUES (1748,1237,'zarbzan',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1749,1238,'healing_stomp',1,15.0,2000,1500,1,0,0,0,0,0,0);
@@ -1840,12 +1840,12 @@ INSERT INTO `mob_skills` VALUES (1863,824,'heavy_bellow_nightmare',1,15.0,2000,1
 -- INSERT INTO `mob_skills` VALUES (1891,1218,'provoke',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1892,1636,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1893,438,'spirit_surge',0,7.0,2000,0,1,2,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1894,1241,'potent_lunge',0,7.0,2000,1500,4,0,0,4,0,0,0);
-INSERT INTO `mob_skills` VALUES (1895,1242,'overthrow',0,7.0,2000,1500,4,0,0,3,0,0,0);
+INSERT INTO `mob_skills` VALUES (1894,1241,'potent_lunge',0,7.0,2000,1500,4,0,0,4,0,0,0); -- Armored Troll
+INSERT INTO `mob_skills` VALUES (1895,1242,'overthrow',0,7.0,2000,1500,4,0,0,3,0,0,0); 
 INSERT INTO `mob_skills` VALUES (1896,1243,'rock_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1897,1244,'diamondhide',1,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1897,1244,'diamondhide',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1898,1245,'enervation',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1899,1246,'quake_stomp',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1899,1246,'quake_stomp',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1900,1247,'healing_stomp',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1901,505,'activate',0,7.0,2000,0,1,4,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1902,1646,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2031,11 +2031,11 @@ INSERT INTO `mob_skills` VALUES (2071,1412,'dire_straight',0,7.0,2000,1000,4,0,0
 INSERT INTO `mob_skills` VALUES (2072,1413,'earth_shatter',1,10.0,2000,3500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2073,1414,'sinker_drill',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2074,1415,'detonating_grip',0,7.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2075,1819,'overthrow',0,7.0,2000,1500,4,0,0,3,0,0,0);
+INSERT INTO `mob_skills` VALUES (2075,1819,'overthrow',0,7.0,2000,1500,4,0,0,3,0,0,0); -- Destroyer Troll
 INSERT INTO `mob_skills` VALUES (2076,1820,'rock_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2077,1821,'diamondhide',1,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2077,1821,'diamondhide',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2078,1419,'enervation',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2079,1823,'quake_stomp',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2079,1823,'quake_stomp',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2080,1421,'potent_lunge',0,7.0,2000,1500,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (2081,1422,'hammer-go-round',1,10.0,2000,1500,4,0,0,3,0,0,0);
 INSERT INTO `mob_skills` VALUES (2082,1423,'hammerblow',0,7.0,2000,1500,4,0,0,0,0,0,0);

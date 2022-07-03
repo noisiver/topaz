@@ -1156,6 +1156,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Troll',246,1745);
 INSERT INTO `mob_skill_lists` VALUES ('Troll',246,1746);
 -- INSERT INTO `mob_skill_lists` VALUES ('Troll',246,1748);
 INSERT INTO `mob_skill_lists` VALUES ('Troll',246,1749);
+
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Armored',247,1894);
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Armored',247,1895);
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Armored',247,1896);
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Armored',247,1897);
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Armored',247,1898);
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Armored',247,1899);
+-- INSERT INTO `mob_skill_lists` VALUES ('Troll_Armored',247,1748);
+INSERT INTO `mob_skill_lists` VALUES ('Troll_Armored',247,1900);
 -- 247: Tube
 -- 248 to 249: free
 INSERT INTO `mob_skill_lists` VALUES ('Uragnite_shell',250,1571); -- gas_shell
