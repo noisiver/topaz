@@ -648,9 +648,9 @@ dynamis.refillStatueOnDeath = function(mob, player, isKiller)
                     for name, player in pairs(players) do
                         if mob:checkDistance(player) < 30 then
                             if eye == dynamis.eye.BLUE then
-                                mob:useMobAbility(1125) -- Heal MP
+                                mob:useMobAbility(1125) -- Uneeded?
                             else
-                                mob:useMobAbility(1124) -- Heal HP
+                                mob:useMobAbility(1124) -- Uneeded?
                             end
                         end
                     end
