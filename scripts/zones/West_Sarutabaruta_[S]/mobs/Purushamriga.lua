@@ -34,9 +34,9 @@ function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
-            {id = tpz.jsa.CHAINSPELL, hpp = 75},
-            {id = tpz.jsa.CHAINSPELL, hpp = 50},
-            {id = tpz.jsa.CHAINSPELL, hpp = 25},
+            {id = tpz.jsa.CHARM, hpp = 75},
+            {id = tpz.jsa.CHARM, hpp = 50},
+            {id = tpz.jsa.CHARM, hpp = 25},
         },
     })
 end

@@ -53,6 +53,12 @@ end
 function onMobFight(mob, target)
     local hp = mob:getHPP()
 
+    if mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) then
+        mob:SetMagicCastingEnabled(false)
+    else
+        mob:SetMagicCastingEnabled(true)
+    end
+
     if (hp < 20) then
         mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.GEO_DEFENSE_DOWN, 25, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
     end

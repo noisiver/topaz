@@ -5031,23 +5031,20 @@ INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 186, 1, 255); -- Aer
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 191, 1, 255); -- Stonega III
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 196, 1, 255); -- Thundaga III
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 201, 1, 255); -- Waterga III
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 209, 1, 255); -- Tornado II
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 215, 1, 255); -- Flood II
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 205, 1, 255); -- Flare II
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 211, 1, 255); -- Quake II
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 207, 1, 255); -- Freeze II
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 213, 1, 255); -- Burst II
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 148, 1, 255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 153, 1, 255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 158, 1, 255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 163, 1, 255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 168, 1, 255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 173, 1, 255); -- Water V
 
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,35,1,255); -- diaga_III
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,273,1,255); -- sleepga
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,274,1,255); -- sleepga_II
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,356,1,255); -- paralyga
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,357,1,255); -- slowga
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,359,1,255); -- silencega
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,360,1,255); -- dispelga
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,361,1,255); -- blindga
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,365,1,255); -- breakga
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,366,1,255); -- graviga
 
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Divine',2070,22,1,255); -- Holy II
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Divine',2070,31,1,255); -- Banish IV
@@ -5068,7 +5065,7 @@ INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 106, 1, 255); -- Phal
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 47, 1, 255);  -- Protect V
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 52, 1, 255);  -- Shell V
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 477, 1, 255);  -- Regen IV
-INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 57, 1, 255);  -- Haste
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 511, 1, 255);  -- Haste II
 
 
 
