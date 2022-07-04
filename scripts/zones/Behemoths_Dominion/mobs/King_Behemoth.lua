@@ -34,6 +34,18 @@ function onMobSpawn(mob)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
 
+function onMobFight(mob, target)
+	local MeteorTime = mob:getLocalVar("MeteorTime")
+	local BattleTime = mob:getBattleTime()
+
+	if (MeteorTime == 0) then
+		mob:setLocalVar("MeteorTime", BattleTime + 60)
+	elseif (BattleTime >= MeteorTime) then
+		mob:castSpell(218) -- Meteor
+		mob:setLocalVar("MeteorTime", BattleTime + 60)
+	end
+end
+
 function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.STUN, {chance = 20, duration = 5})
 end
