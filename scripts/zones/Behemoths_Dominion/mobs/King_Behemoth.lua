@@ -13,7 +13,6 @@ require("scripts/globals/mobs")
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 60)
 end
 
 function onMobSpawn(mob)
@@ -42,7 +41,7 @@ function onMobFight(mob, target)
 		mob:setLocalVar("MeteorTime", BattleTime + 60)
 	elseif (BattleTime >= MeteorTime) then
 		mob:castSpell(218) -- Meteor
-		mob:setLocalVar("MeteorTime", BattleTime + 60)
+		mob:setLocalVar("MeteorTime", BattleTime + 70)
 	end
 end
 

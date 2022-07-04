@@ -30,7 +30,7 @@ function onMobFight(mob, target)
 		mob:setLocalVar("MeteorTime", BattleTime + 60)
 	elseif (BattleTime >= MeteorTime) then
 		mob:castSpell(218) -- MEteor
-		mob:setLocalVar("MeteorTime", BattleTime + 60)
+		mob:setLocalVar("MeteorTime", BattleTime + 70)
 	end
 end
 
