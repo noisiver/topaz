@@ -42,7 +42,7 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
-    --mob:setPos(-160.5633,-1.10114,-448.1872,190)
+    mob:setPos(-160.5633,-1.10114,-448.1872,190)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 

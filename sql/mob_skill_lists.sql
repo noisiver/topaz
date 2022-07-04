@@ -4395,7 +4395,7 @@ INSERT INTO `mob_skill_lists` VALUES ('MamoolJaMage',6118,1922); -- somersault_k
 INSERT INTO `mob_skill_lists` VALUES ('MamoolJaMage',6118,1923); -- Firespit(Magic)
 
 -- MMM Start
-INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,373); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,371); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,3851); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,3852); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Kendi',6119,3853); -- 

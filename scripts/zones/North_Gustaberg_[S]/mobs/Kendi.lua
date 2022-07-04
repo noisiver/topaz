@@ -25,6 +25,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REGAIN, 150)
     mob:setMod(tpz.mod.MOVE, 20)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+    mob:setMobMod(tpz.mobMod.GA_CHANCE, 60)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
@@ -42,7 +43,7 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
-    --mob:setPos(-626.8600,41.4641,271.0131,240)
+    mob:setPos(-626.8600,41.4641,271.0131,240)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 

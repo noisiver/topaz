@@ -30,6 +30,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
     mob:setMobMod(tpz.mobMod.SOUND_RANGE, 30)
+    mob:SetMagicCastingEnabled(false)
     mob:setLocalVar("[rage]timer", 7200) -- 2 hrs
     tpz.mix.jobSpecial.config(mob, {
         specials =
@@ -42,8 +43,7 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
-    --mob:setPos(151.1632,-38.1876,-151.0652,140)
-    mob:SetMagicCastingEnabled(false)
+    mob:setPos(151.1632,-38.1876,-151.0652,140)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 

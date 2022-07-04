@@ -42,7 +42,7 @@ function onMobSpawn(mob)
 end
 
 function onMobRoam(mob)
-    --mob:setPos(-120.2638,9.7138,-497.8309,5)
+    mob:setPos(-120.2638,9.7138,-497.8309,5)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
 
@@ -51,19 +51,18 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
-    local hp = mob:getHPP()
-
-    if (hp < 20) then
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.GEO_PARALYSIS, 75, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
-    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 1795 then -- Malediction
-         mob:useMobAbility(478) -- Hell Slash
+    if skill:getID() == 685 then -- Sprout Spin
+        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.GEO_PARALYSIS, 75, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+    elseif skill:getID() == 686 then -- Slumber Powder
+        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.TERROR, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+    elseif skill:getID() == 687 then -- Sprout Smack
+        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.MUTE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
     end
 end
 
