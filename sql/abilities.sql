@@ -245,15 +245,15 @@ INSERT INTO `abilities` VALUES (191,'curing_waltz_ii',19,30,27,8,217,102,0,7,200
 INSERT INTO `abilities` VALUES (192,'curing_waltz_iii',19,45,27,10,217,102,0,8,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (193,'curing_waltz_iv',19,70,27,12,217,102,0,9,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (194,'healing_waltz',19,35,27,8,215,123,0,10,2000,0,14,20.0,0,1,300,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (195,'divine_waltz',19,25,27,13,225,102,0,11,2000,0,14,20.0,1,0,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (195,'divine_waltz',19,25,27,13,225,102,0,11,2000,0,14,10.0,1,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (196,'spectral_jig',19,25,1,600,218,532,0,12,2000,0,14,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (197,'chocobo_jig',19,55,1,60,218,126,0,13,2000,0,14,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (198,'jigs',19,25,1,0,218,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (199,'steps',19,20,1,0,220,0,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (200,'flourishes_i',19,20,1,0,0,221,0,0,2000,0,14,20.0,0,0,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (201,'quickstep',19,20,4,5,220,519,0,17,2000,0,14,4.5,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (202,'box_step',19,30,4,5,220,520,0,16,2000,0,14,4.5,0,1,0,0,0,'WOTG');
-INSERT INTO `abilities` VALUES (203,'stutter_step',19,40,4,5,220,521,0,16,2000,0,14,4.5,0,1,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (201,'quickstep',19,20,4,5,220,519,0,17,2000,0,14,5.4,0,1,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (202,'box_step',19,30,4,5,220,520,0,16,2000,0,14,5.4,0,1,0,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (203,'stutter_step',19,40,4,5,220,521,0,16,2000,0,14,5.4,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (204,'animated_flourish',19,20,4,30,221,119,0,181,2000,0,6,17.6,0,1,1000,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (205,'desperate_flourish',19,30,4,20,221,127,0,26,2000,0,14,4.4,0,1,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (206,'reverse_flourish',19,40,1,30,222,452,0,182,2000,0,6,20.0,0,1,0,0,0,'WOTG');
@@ -314,7 +314,7 @@ INSERT INTO `abilities` VALUES (258,'sengikori',12,25,1,90,141,100,0,226,2000,0,
 INSERT INTO `abilities` VALUES (259,'futae',13,50,1,60,148,0,0,227,2000,0,6,20.0,0,1,0,0,0,'ABYSSEA');		-- level 50, 60 second cooldown
 INSERT INTO `abilities` VALUES (260,'spirit_jump',14,77,4,60,166,100,0,228,2000,0,6,20.0,0,1,80,1218,0,NULL);
 INSERT INTO `abilities` VALUES (261,'presto',19,40,1,15,236,100,0,229,2000,0,6,20.0,0,1,80,0,0,NULL);
-INSERT INTO `abilities` VALUES (262,'divine_waltz_ii',19,55,27,20,225,102,0,34,2000,0,14,20.0,1,0,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (262,'divine_waltz_ii',19,55,27,20,225,102,0,34,2000,0,14,10.0,1,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (263,'flourishes_iii',19,80,1,0,226,0,0,0,2000,0,14,20.0,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (264,'climactic_flourish',19,80,1,90,226,529,0,222,2000,0,14,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (265,'libra',20,76,4,60,237,100,0,231,2000,0,6,11.2,0,0,0,0,0,NULL);
@@ -355,7 +355,7 @@ INSERT INTO `abilities` VALUES (305,'avengers_roll',17,97,1,60,193,420,0,266,200
 INSERT INTO `abilities` VALUES (309,'cooldown',18,95,1,300,114,0,0,232,2000,0,6,11.2,0,0,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (310,'deus_ex_automata',18,5,1,60,115,0,0,83,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
 INSERT INTO `abilities` VALUES (311,'curing_waltz_v',19,87,27,14,217,102,0,35,2000,0,14,20.0,0,0,0,0,0,'ABYSSEA');
-INSERT INTO `abilities` VALUES (312,'feather_step',19,83,4,5,220,591,0,17,2000,0,14,4.5,0,1,0,0,0,NULL);
+INSERT INTO `abilities` VALUES (312,'feather_step',19,83,4,5,220,591,0,17,2000,0,14,5.4,0,1,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (313,'striking_flourish',19,89,1,30,226,0,0,222,2000,0,14,20.0,0,1,80,0,0,NULL); -- check animation/message1
 INSERT INTO `abilities` VALUES (314,'ternary_flourish',19,93,1,30,226,0,0,222,2000,0,14,20.0,0,1,80,0,0,NULL); -- check animation/message1
 -- INSERT INTO `abilities` VALUES (316,'perpetuance',20,87,1,1,231,100,0,224,2000,0,6,0.0,0,1,80,0,0,NULL);
