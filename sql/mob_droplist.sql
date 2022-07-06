@@ -13696,7 +13696,7 @@ INSERT INTO `mob_droplist` VALUES (2553,1,1,50,18272,250); -- Relic Sword
 INSERT INTO `mob_droplist` VALUES (2553,1,2,100,1464,333); -- Lancewood Log 
 INSERT INTO `mob_droplist` VALUES (2553,1,2,100,1466,333); -- Pile Of Relic Iron
 INSERT INTO `mob_droplist` VALUES (2553,1,2,100,1518,334); -- Colossal Skull
-INSERT INTO `mob_droplist` VALUES (2553,1,4,50,11392,250); -- Mirage Charuqs
+INSERT INTO `mob_droplist` VALUES (2553,1,4,50,11382,250); -- Mirage Charuqs
 INSERT INTO `mob_droplist` VALUES (2553,1,4,50,11398,250); -- Argute Loafers
 INSERT INTO `mob_droplist` VALUES (2553,1,4,50,15031,250); -- Pantin Dastanas
 INSERT INTO `mob_droplist` VALUES (2553,1,4,50,15038,250); -- Etoile Bangles
@@ -17270,7 +17270,7 @@ INSERT INTO `mob_droplist` VALUES (9002,1,1,50,18272,250); -- Relic Sword
 INSERT INTO `mob_droplist` VALUES (9002,1,2,100,1464,333); -- Lancewood Log 
 INSERT INTO `mob_droplist` VALUES (9002,1,2,100,1466,333); -- Pile Of Relic Iron
 INSERT INTO `mob_droplist` VALUES (9002,1,2,100,1518,334); -- Colossal Skull
-INSERT INTO `mob_droplist` VALUES (9002,1,4,50,11392,250); -- Mirage Charuqs
+INSERT INTO `mob_droplist` VALUES (9002,1,4,50,11382,250); -- Mirage Charuqs
 INSERT INTO `mob_droplist` VALUES (9002,1,4,50,11398,250); -- Argute Loafers
 INSERT INTO `mob_droplist` VALUES (9002,1,4,50,15031,250); -- Pantin Dastanas
 INSERT INTO `mob_droplist` VALUES (9002,1,4,50,15038,250); -- Etoile Bangles

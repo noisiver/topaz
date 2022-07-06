@@ -39,8 +39,7 @@ function onMobWeaponSkill(target, mob, skill)
         power = 5
     end	
 	
-	MobBuffMove(mob, typeEffect, power, 0, 30)
-    mob:addStatusEffectEx(tpz.effect.HUMANOID_KILLER, 0, power, 0, 30)	
+	MobBuffMove(mob, typeEffect, power, 0, 60)
 	skill:setMsg(tpz.msg.basic.NONE)
     return typeEffect
 end
