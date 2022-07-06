@@ -12,6 +12,7 @@ https://ffxiclopedia.fandom.com/wiki/Chamrosh
 
 require("scripts/globals/mixins")
 require("scripts/globals/magic")
+require("scripts/globals/utils")
 
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
@@ -37,6 +38,13 @@ g_mixins.families.colibri_mimic = function(mob)
         local castWindow = mob:getLocalVar("[colibri]castWindow")
         local castTime = mob:getLocalVar("[colibri]castTime")
         local osTime = os.time()
+
+        -- Apply magic skill levels so they will land mimiced spells
+        -- Equal to A+ skill of their level
+        local skill = utils.getSkillLvl(1, mob:getMainLvl())
+        for v = 111, 122 do
+            mob:setMod(v, skill)
+        end
 
         if mob:AnimationSub() == 1 then
             if spellToMimic > 0 and osTime > castTime and castWindow > osTime and not mob:hasStatusEffect(tpz.effect.SILENCE) then
