@@ -1693,12 +1693,14 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
             if (!PMember->isDead() && distance(PTarget->loc.p, PMember->loc.p) <= 10)
             {
                 luautils::OnItemUse(PMember, PItem);
+                battleutils::GenerateInRangeEnmity(PTarget, 0, 640);
             }
         });
     }
     else
     {
         luautils::OnItemUse(PTarget, PItem);
+        battleutils::GenerateInRangeEnmity(PTarget, 0, 640);
     }
 
     action.id = this->id;
