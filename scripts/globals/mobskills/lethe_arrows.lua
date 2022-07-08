@@ -36,6 +36,6 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BIND, 1, 0, 45)
-    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.AMNESIA, 1, 0, 300)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.AMNESIA, 1, 0, 60)
     return dmg
 end
