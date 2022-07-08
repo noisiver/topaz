@@ -1274,7 +1274,7 @@ INSERT INTO `mob_skills` VALUES (1326,988,'final_retribution',1,10.0,2000,1500,4
 INSERT INTO `mob_skills` VALUES (1329,990,'gala_macabre',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1330,915,'hoof_volley',0,7.0,2000,1500,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (1331,1075,'counterstance',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1332,63,'extremely_bad_breath',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1332,63,'extremely_bad_breath',1,10.0,2000,2500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1333,152,'contagion_transfer',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1334,154,'contamination',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1335,151,'toxic_pick',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1554,7 +1554,7 @@ INSERT INTO `mob_skills` VALUES (1597,817,'nimble_snap_nightmare',0,7.0,2000,150
 -- INSERT INTO `mob_skills` VALUES (1607,1351,'fragrant_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1608,1352,'putrid_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1609,1353,'putrid_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1610,1354,'extremely_bad_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (1610,1354,'extremely_bad_breath',0,7.0,2000,2500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1611,1355,'vampiric_lash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1612,1356,'gouging_branch',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1613,1357,'gloeosuccus',0,7.0,2000,1500,4,0,0,0,0,0,0);
