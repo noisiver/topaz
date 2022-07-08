@@ -317,6 +317,36 @@ void CItemEquipment::SetAugmentMod(uint16 type, uint8 value)
         setSubType(ITEM_AUGMENTED);
         ref<uint8>(m_extra, 0x00) |= 0x02;
         ref<uint8>(m_extra, 0x01) |= 0x03;
+        if (type == 0x390)
+        {
+            if (value == 8)
+            {
+                // Add OAT mod..
+                addModifier(CModifier(Mod::MAX_SWINGS, 2));
+            }
+            else if (value == 11)
+            {
+                // Add OA2-3 mod..
+                addModifier(CModifier(Mod::MAX_SWINGS, 3));
+            }
+            else if (value == 12)
+            {
+                // Add OA2-4 mod..
+                addModifier(CModifier(Mod::MAX_SWINGS, 4));
+            }
+            else if (value == 13)
+            {
+                // Add occ. double damage mod
+                addModifier(CModifier(Mod::EXTRA_DMG_CHANCE, 200));
+                addModifier(CModifier(Mod::OCC_DO_EXTRA_DMG, 200));
+            }
+            else if (value == 18)
+            {
+                // Add movement speed +8% mod
+                addModifier(CModifier(Mod::MOVE, 8));
+            }
+            return;
+        }
     }
 
 
