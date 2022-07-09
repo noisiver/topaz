@@ -52,10 +52,6 @@ function onSpellCast(caster, target, spell)
         power = power * 1.5
     end
 
-    if caster:isMob() then -- Don't let this scale out of control from mobs
-        power = math.floor(power * 0.5)
-    end
-
     caster:delStatusEffectSilent(tpz.effect.MARCATO)
 
     duration = duration + ((iBoost * 6) + (caster:getMod(tpz.mod.SONG_DURATION_BONUS)/100) + 1)
