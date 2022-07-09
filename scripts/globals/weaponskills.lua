@@ -205,9 +205,9 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     local currentHitRate = calcParams.hitRate
     if isRanged then
        -- if (wsID == 196) or (wsID == 212) then -- Slugwinder
-            --calcParams.hitRate = getRangedHitRate(attacker, target, true, true, calcParams.bonusAcc)
+            --calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
        -- else
-            calcParams.hitRate = getRangedHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
+            calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc + 100)
        -- end
     else
         calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
