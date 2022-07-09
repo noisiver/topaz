@@ -203,7 +203,15 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     local dmg = mainBase * ftp
     
     local currentHitRate = calcParams.hitRate
-    calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
+    if isRanged then
+       -- if (wsID == 196) or (wsID == 212) then -- Slugwinder
+            --calcParams.hitRate = getRangedHitRate(attacker, target, true, true, calcParams.bonusAcc)
+       -- else
+            calcParams.hitRate = getRangedHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
+       -- end
+    else
+        calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
+    end
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     calcParams.hitRate = currentHitRate
 
@@ -968,8 +976,8 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
         firsthit = hitrate + math.floor((firstacc - eva) / 2)
 		slugwinder = hitrate + math.floor(((acc - eva) / 2)/ 2) 
     else 
-        hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl())) + 75
-        firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl())) + 75
+        hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
+        firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
 		slugwinder = hitrate + math.floor(((acc - eva) / 2) - (2 * (target:getMainLvl() - attacker:getMainLvl())))
     end
 
