@@ -30,5 +30,5 @@ function onMobWeaponSkill(target, mob, skill)
 	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
     skill:setMsg(msg)
 
-    return dmg
+    return dispel
 end
