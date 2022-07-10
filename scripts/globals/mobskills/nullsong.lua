@@ -26,8 +26,8 @@ function onMobWeaponSkill(target, mob, skill)
         msg = tpz.msg.basic.DISAPPEAR_NUM
 		amount = dispel * 110
     end
-    local dmg = MobFinalAdjustments(amount, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
-	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
+    local dmg = MobFinalAdjustments(amount, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.NONE, MOBPARAM_WIPE_SHADOWS)
+	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
     skill:setMsg(msg)
 
     return dispel

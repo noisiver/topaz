@@ -20,7 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 12
 
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*power*BOMB_TOSS_HPP, tpz.magic.ele.NONE, dmgmod, TP_MAB_BONUS, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL, MOBPARAM_IGNORE_SHADOWS)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.NONE, MOBPARAM_IGNORE_SHADOWS)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         dmg = math.floor(dmg / 16)
@@ -28,6 +28,6 @@ function onMobWeaponSkill(target, mob, skill)
 
     if dmg > 1250 then dmg = 1250 end -- Don't do silly damage if the mob has high HP
 
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
     return dmg
 end
