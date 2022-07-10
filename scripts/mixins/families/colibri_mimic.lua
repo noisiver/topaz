@@ -39,12 +39,9 @@ g_mixins.families.colibri_mimic = function(mob)
         local castTime = mob:getLocalVar("[colibri]castTime")
         local osTime = os.time()
 
-        -- Apply magic skill levels so they will land mimiced spells
-        -- Equal to A+ skill of their level
+        -- Apply MACC Equal to A+ skill of their level so they will land mimiced spells
         local skill = utils.getSkillLvl(1, mob:getMainLvl())
-        for v = 111, 122 do
-            mob:setMod(v, skill)
-        end
+        mob:setMod(tpz.mod.MACC, skill)
 
         if mob:AnimationSub() == 1 then
             if spellToMimic > 0 and osTime > castTime and castWindow > osTime and not mob:hasStatusEffect(tpz.effect.SILENCE) then
