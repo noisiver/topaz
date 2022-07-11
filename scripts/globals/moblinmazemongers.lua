@@ -9,7 +9,7 @@ local ore =
 {
     tpz.items.CHUNK_OF_COPPER_ORE, tpz.items.CHUNK_OF_TIN_ORE, tpz.items.CHUNK_OF_ZINC_ORE, tpz.items.CHUNK_OF_SILVER_ORE,
     tpz.items.CHUNK_OF_IRON_ORE, tpz.items.CHUNK_OF_MYTHRIL_ORE, tpz.items.CHUNK_OF_GOLD_ORE, tpz.items.CHUNK_OF_PLATINUM_ORE,
-    tpz.items.CHUNK_OF_DARKSTEEL_ORE,tpz.items.CHUNK_OF_ADAMAN_ORE
+    tpz.items.CHUNK_OF_DARKSTEEL_ORE, tpz.items.CHUNK_OF_ADAMAN_ORE
 }
 local log =
 {
