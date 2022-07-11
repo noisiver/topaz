@@ -407,7 +407,7 @@ INSERT INTO `augments` VALUES (323, 0, 519, 1, 0, 0); -- Cure spellcasting time 
 INSERT INTO `augments` VALUES (324, 0, 0, 0, 0, 0); -- Call Beast ability delay -1
 INSERT INTO `augments` VALUES (325, 0, 0, 0, 0, 0); -- Quick Draw ability delay -1
 INSERT INTO `augments` VALUES (326, 0, 48, 1, 0, 0); -- Weapon Skill Acc.+1
-INSERT INTO `augments` VALUES (327, 0, 0, 0, 0, 0); -- Weapon skill damage+1%
+INSERT INTO `augments` VALUES (327, 0, 841, 1, 0, 0); -- Weapon skill damage+1% First Hit Only
 INSERT INTO `augments` VALUES (328, 0, 421, 1, 0, 0); -- Crit. hit damage+1%
 INSERT INTO `augments` VALUES (329, 0, 374, 1, 0, 0); -- Cure potency+1%
 INSERT INTO `augments` VALUES (330, 0, 491, 1, 0, 0); -- Waltz potency+1%
@@ -1764,7 +1764,7 @@ INSERT INTO `augments` VALUES (1470, 0, 0, 0, 0, 0);
 INSERT INTO `augments` VALUES (1471, 0, 0, 0, 0, 0);
 -- End unused block
 
-INSERT INTO `augments` VALUES (1472, 0, 0, 0, 0, 0); -- Parrying rate +1% (not +skill)
+INSERT INTO `augments` VALUES (1472, 0, 1012, 1, 0, 0); -- Parrying rate +1% (not +skill) Inquartata
 
 -- 1473 to 1791 currently unused. Leave at zero. Edit+move or remove this note as new augments get discovered.
 INSERT INTO `augments` VALUES (1473, 0, 0, 0, 0, 0);

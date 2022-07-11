@@ -21,9 +21,13 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 30)
 	mob:setMod(tpz.mod.MOVE, 20)
 	mob:setMod(tpz.mod.UDMGMAGIC, 25)
+    mob:setLocalVar("AuraTick", 0)
 end
 
 function onMobFight(mob, target)
+	local AuraTick = mob:getLocalVar("AuraTick")
+	local BattleTime = mob:getBattleTime()
+
 	if mob:getWeather() == tpz.weather.RAIN or mob:getWeather() == tpz.weather.SQUALL then
 		mob:setMod(tpz.mod.REGEN, 100)
 	else
@@ -36,13 +40,16 @@ function onMobFight(mob, target)
         mob:pathTo(targetPos.x + math.cos(radians), targetPos.y, targetPos.z + math.sin(radians))
     end
     -- Debuff nearby targets
-    local nearbyPlayers = mob:getPlayersInRange(8)
-    if nearbyPlayers == nil then return end
-    for _,v in ipairs(nearbyPlayers) do
-        v:delStatusEffectSilent(tpz.effect.AMNESIA)
-        v:addStatusEffectEx(tpz.effect.AMNESIA, tpz.effect.AMNESIA, 1, 0, 5)
-        v:delStatusEffectSilent(tpz.effect.MUTE)
-        v:addStatusEffectEx(tpz.effect.MUTE, tpz.effect.MUTE, 1, 0, 5)
+    if BattleTime >= AuraTick then
+        mob:setLocalVar("AuraTick", BattleTime + 3)
+        local nearbyPlayers = mob:getPlayersInRange(8)
+        if nearbyPlayers == nil then return end
+        for _,v in ipairs(nearbyPlayers) do
+            v:delStatusEffectSilent(tpz.effect.AMNESIA)
+            v:addStatusEffectEx(tpz.effect.AMNESIA, tpz.effect.AMNESIA, 1, 0, 3)
+            v:delStatusEffectSilent(tpz.effect.MUTE)
+            v:addStatusEffectEx(tpz.effect.MUTE, tpz.effect.MUTE, 1, 0, 3)
+        end
     end
 end
 

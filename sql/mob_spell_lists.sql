@@ -4871,7 +4871,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,20,1,255);  -- Cursna
 INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,21,1,255);  -- Holy
 INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,39,1,255);  -- Banishga II
 INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,129,1,255);  -- Protectra V
-INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,134,1,255);  -- Shellra IV
+INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,134,1,255);  -- Shellra V
 INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,358,1,255);  -- Hastega
 
 
@@ -5066,6 +5066,37 @@ INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 47, 1, 255);  -- Prot
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 52, 1, 255);  -- Shell V
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 477, 1, 255);  -- Regen IV
 INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 511, 1, 255);  -- Haste II
+
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,5,1,255);   -- Cure V
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,10,1,255);  -- Curaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,14,1,255);  -- Poisona
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,15,1,255);  -- Paralyna
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,16,1,255);  -- Blindna
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,17,1,255);  -- Silena
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,18,1,255);  -- Stona
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,19,1,255);  -- Viruna
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,20,1,255);  -- Cursna
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,21,1,255);  -- Holy
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,34,1,255);  -- Diaga II
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,40,1,255);  -- Banishga III
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,53,1,255);  -- Blink
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,54,1,255);  -- Stoneskin
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,55,1,255);  -- Aquaveil
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,56,1,255);  -- Slow
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,57,1,255);  -- Haste
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,58,1,255);  -- Paralyze
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,59,1,255);  -- Silence
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,129,1,255);  -- Protectra V
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,134,1,255);  -- Shellra V
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,143,1,255);  -- Erase
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,367,1,255);  -- Death
+
+INSERT INTO `mob_spell_lists` VALUES ('Iqi-Balam',2074,167,1,255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Iqi-Balam',2074,212,1,255); -- Burst
+
+INSERT INTO `mob_spell_lists` VALUES ('Khadem_Quemquoma',2075,226,1,255); -- Poisonga II
+
+
 
 
 

@@ -1,6 +1,7 @@
 ---------------------------------------------
 -- Cacophony
--- The enemy gains Magic Attack Bonus + Magic Defense Bonus.
+-- The enemy gains Counterstance + Haste
+-- Notes: Removes slow
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -8,7 +9,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.MAGIC_ATK_BOOST) or mob:hasStatusEffect(tpz.effect.MAGIC_DEF_BOOST) then
+	if mob:hasStatusEffect(tpz.effect.HASTE) and mob:hasStatusEffect(tpz.effect.COUNTERSTANCE) then
 		return 1
 	end
     -- animsub 1= standing, animsub 0 = all fours
@@ -19,44 +20,38 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect1 = tpz.effect.MAGIC_ATK_BOOST
-    local typeEffect2 = tpz.effect.MAGIC_DEF_BOOST
-    local mabTotal = mob:getStatusEffect(tpz.effect.MAGIC_ATK_BOOST)
-    local mdbTotal = mob:getStatusEffect(tpz.effect.MAGIC_DEF_BOOST)
-	
-    local moon = VanadielMoonPhase()
-    local buffvalue = 0
+    local typeEffect1 = tpz.effect.COUNTERSTANCE
+    local typeEffect2 = tpz.effect.HASTE
+
+	local moon = VanadielMoonPhase()
+    local cstancePower = 25
+    local hastePower = 3550
     if moon > 90 then -- Full Moon
-        buffvalue = 50
+        cstancePower = 50
+        hastePower = 5000
     elseif moon > 75 then
-        buffvalue = 45
+        cstancePower = 45
+        hastePower = 4550
     elseif moon > 60 then
-        buffvalue = 35
+        cstancePower = 35
+        hastePower = 3550
     elseif moon > 40 then
-        buffvalue = 25
+        cstancePower = 25
+        hastePower = 2550
     elseif moon > 25 then
-        buffvalue = 15
+        cstancePower = 15
+        hastePower = 1550
     elseif moon > 10 then
-        buffvalue = 10
+        cstancePower = 10
+        hastePower = 1050
     else
-        buffvalue = 5
+        cstancePower = 10
+        hastePower = 1050
     end
 
-    if (mob:getStatusEffect(tpz.effect.MAGIC_ATK_BOOST) ~= nil) then -- mag atk bonus stacking
-        mabTotal = mabTotal:getPower() + buffvalue
-    else
-        mabTotal = buffvalue
-    end
-    if (mob:getStatusEffect(tpz.effect.MAGIC_DEF_BOOST) ~= nil) then -- mag def bonus stacking
-        mdbTotal = mdbTotal:getPower() + buffvalue
-    else
-        mdbTotal = buffvalue
-    end
-    -- print(mabTotal)
-    -- print(mdbTotal)
-
-    skill:setMsg(MobBuffMove(mob, typeEffect1, mabTotal, 0, 300))
-    MobBuffMove(mob, typeEffect2, mdbTotal, 0, 300)
+    mob:delStatusEffectSilent(tpz.effect.SLOW)
+    skill:setMsg(MobBuffMove(mob, typeEffect1, cstancePower, 0, 300))
+    MobBuffMove(mob, typeEffect2, hastePower, 0, 300)
 
     return typeEffect1
 end

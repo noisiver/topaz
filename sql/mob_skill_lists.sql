@@ -353,6 +353,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Djinn',82,2216);
 INSERT INTO `mob_skill_lists` VALUES ('Djinn',82,2217);
 INSERT INTO `mob_skill_lists` VALUES ('Djinn',82,2218);
 INSERT INTO `mob_skill_lists` VALUES ('Djinn',82,2219);
+INSERT INTO `mob_skill_lists` VALUES ('Djinn',82,2220);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',83,534);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',83,535);
 INSERT INTO `mob_skill_lists` VALUES ('Doll',83,536);
@@ -500,6 +501,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Funguar',116,311);
 INSERT INTO `mob_skill_lists` VALUES ('Funguar',116,312);
 INSERT INTO `mob_skill_lists` VALUES ('Funguar',116,314);
 INSERT INTO `mob_skill_lists` VALUES ('Funguar',116,315);
+INSERT INTO `mob_skill_lists` VALUES ('Funguar',116,2208);
 -- 117: Gruesome Gargouille
 INSERT INTO `mob_skill_lists` VALUES ('Gargoyle',118,2421);
 INSERT INTO `mob_skill_lists` VALUES ('Gargoyle',118,2422);
@@ -4462,6 +4464,28 @@ INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1563); --
 INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1564); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1565); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1566); -- 
+-- MMM End
+
+-- ANNM Start
+INSERT INTO `mob_skill_lists` VALUES ('Aqua_Fortis_Autoattack',6131,2211); 
+
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,819); -- blizzard breath -- chance of ice spikes effect
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,820); -- thunder breath -- chance of shock spikes effect
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,822); -- chaos breath -- chance of dread spikes effect
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,2222); -- hurricane breath
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,813); -- Dispelling Wind
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,814); -- Deadly Drive
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,815); -- Wind Wall
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,816); -- Fang Rush
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,817); -- Dread Shriek
+INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,818); -- Tail Crush
+
+INSERT INTO `mob_skill_lists` VALUES ('Iqi-Balam',6133,652); -- blaster
+INSERT INTO `mob_skill_lists` VALUES ('Iqi-Balam',6133,653); -- chaotic_eye
+INSERT INTO `mob_skill_lists` VALUES ('Iqi-Balam',6133,2209); -- blink of peril
+
+INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,270); -- Roar
+-- ANNM End
 -- MMM End
 
 --6066 unused

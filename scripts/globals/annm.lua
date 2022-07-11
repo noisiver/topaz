@@ -332,16 +332,16 @@ tpz.annm.augment[tpz.items.KABUTOWARI] =
         maximum = 14
     },
     {
-        stat = tpz.augments.RACC,
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
         chance = 10,
-        minimum = 4,
-        maximum = 9
+        minimum = 3,
+        maximum = 7
     },
 }
 tpz.annm.augment[tpz.items.BATTLE_BOOTS] =
 {
     {
-        stat = tpz.augments.WEAPONSKILL_ACC, 
+        stat = tpz.augments.WSACC, 
         chance = 100, 
         minimum = 0,
         maximum = 4
@@ -392,7 +392,7 @@ tpz.annm.augment[tpz.items.BEAK_JERKIN] =
         maximum = 4
     },
     {
-        stat = tpz.augments.WEAPONSKILL_ACC, 
+        stat = tpz.augments.WSACC, 
         chance = 30,
         minimum = 10,
         maximum = 15
@@ -431,10 +431,10 @@ tpz.annm.augment[tpz.items.NAGAN] =
         maximum = 3
     },
     {
-        stat = tpz.augments.ATTK,
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
         chance = 10,
-        minimum = 7,
-        maximum = 14
+        minimum = 3,
+        maximum = 7
     },
     {
         stat = tpz.augments.PDT,
@@ -536,16 +536,16 @@ tpz.annm.augment[tpz.items.HEXAGUN] =
         maximum = 4
     },
     {
-        stat = tpz.augments.MACC,
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
         chance = 10,
-        minimum = 0,
-        maximum = 3
+        minimum = 3,
+        maximum = 7
     },
 }
 tpz.annm.augment[tpz.items.TIGER_MASK] =
 {
     {
-        stat = tpz.augments.WEAPONSKILL_ACC, 
+        stat = tpz.augments.WSACC, 
         chance = 100, 
         minimum = 4,
         maximum = 9
@@ -629,10 +629,10 @@ tpz.annm.augment[tpz.items.KAZARIDACHI] =
         maximum = 3
     },
     {
-        stat = tpz.augments.ZANSHIN,
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
         chance = 10,
-        minimum = 0,
-        maximum = 4
+        minimum = 7,
+        maximum = 14
     },
     {
         stat = tpz.augments.STORETP,
@@ -677,7 +677,7 @@ tpz.annm.augment[tpz.items.DARKSTEEL_HARNESS] =
 tpz.annm.augment[tpz.items.SILK_MITTS] =
 {
     {
-        stat = tpz.augments.WEAPONSKILL_ACC, 
+        stat = tpz.augments.WSACC, 
         chance = 100, 
         minimum = 0,
         maximum = 4
@@ -728,10 +728,10 @@ tpz.annm.augment[tpz.items.MANOPLES] =
         maximum = 3
     },
     {
-        stat = tpz.augments.ACC,
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
         chance = 10,
-        minimum = 0,
-        maximum = 4
+        minimum = 3,
+        maximum = 7
     },
     {
         stat = tpz.augments.COUNTER,
@@ -821,16 +821,16 @@ tpz.annm.augment[tpz.items.GULLY] =
         maximum = 8
     },
     {
-        stat = tpz.augments.DEX, 
-        chance = 30,
-        minimum = 0,
-        maximum = 3
-    },
-    {
         stat = tpz.augments.ATTK,
-        chance = 10,
+        chance = 30,
         minimum = 7,
         maximum = 14
+    },
+    {
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
+        chance = 10,
+        minimum = 3,
+        maximum = 7
     },
     {
         stat = tpz.augments.ACC,
@@ -926,10 +926,10 @@ tpz.annm.augment[tpz.items.GENDAWA] =
         maximum = 25
     },
     {
-        stat = tpz.augments.STR,
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
         chance = 10,
-        minimum = 0,
-        maximum = 4
+        minimum = 3,
+        maximum = 7
     },
     {
         stat = tpz.augments.SNAP_SHOT,
@@ -1025,10 +1025,10 @@ tpz.annm.augment[tpz.items.BHUJ] =
         maximum = 4
     },
     {
-        stat = tpz.augments.SUBTLE_BLOW,
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
         chance = 10,
-        minimum = 4,
-        maximum = 5
+        minimum = 3,
+        maximum = 7
     },
     {
         stat = tpz.augments.MAIN_DMG_RATING,
@@ -1223,10 +1223,10 @@ tpz.annm.augment[tpz.items.ANELACE] =
         maximum = 1
     },
     {
-        stat = tpz.augments.MP,
+        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
         chance = 10,
-        minimum = 4,
-        maximum = 10
+        minimum = 3,
+        maximum = 7
     },
     {
         stat = tpz.augments.FASTCAST,
@@ -1289,7 +1289,7 @@ tpz.annm.augment[tpz.items.ERRANT_PIGACHES] =
         maximum = 4
     },
     {
-        stat = tpz.augments.WEAPONSKILL_ACC,
+        stat = tpz.augments.WSACC,
         chance = 10,
         minimum = 0,
         maximum = 4
@@ -1394,7 +1394,7 @@ tpz.annm.augment[tpz.items.ERRANT_HOUPPELANDE] =
         maximum = 0
     },
     {
-        stat = tpz.augments.WEAPONSKILL_ACC,
+        stat = tpz.augments.WSACC,
         chance = 10,
         minimum = 14,
         maximum = 19
@@ -1454,7 +1454,7 @@ tpz.annm.augment[tpz.items.CLOWNS_SUBLIGAR] =
         maximum = 1
     },
     {
-        stat = tpz.augments.WEAPONSKILL_ACC,
+        stat = tpz.augments.WSACC,
         chance = 10,
         minimum = 4,
         maximum = 9
@@ -1779,11 +1779,26 @@ end
 
 tpz.annm.NMMods = function(mob)
 	mob:setDamage(140)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.REGAIN, 150)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
+    mob:setMod(tpz.mod.MOVE, 20)
+    mob:setMod(tpz.mod.REGEN, 50)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    mob:addImmunity(tpz.immunity.GRAVITY)
+    mob:addImmunity(tpz.immunity.BIND)
+    mob:addImmunity(tpz.immunity.SILENCE) 
+    mob:addImmunity(tpz.immunity.POISON)
+    mob:addImmunity(tpz.immunity.ELEGY)
     mob:setUnkillable(true)
 end
 
@@ -1793,6 +1808,7 @@ tpz.annm.PetMods = function(mob)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
 end
 
 function StartANNMFight(player, keyitem, mobIDstart, mobIDend)
@@ -1803,6 +1819,7 @@ function StartANNMFight(player, keyitem, mobIDstart, mobIDend)
             local mob = GetMobByID(i)
             mob:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
             mob:spawn()
+            mob:stun(500)
             mob:updateEnmity(player) 
         end
         player:delKeyItem(keyitem)
@@ -1816,7 +1833,7 @@ end
 tpz.annm.PetShield = function(mob, addsIDstart, addsIDend)
     for i = addsIDstart, addsIDend do
         if not GetMobByID(i):isDead() then
-            return;
+            return
         end
     end
     mob:setUnkillable(false)

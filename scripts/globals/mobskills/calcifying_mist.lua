@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.GRADUAL_PETRIFICATION
 
 	target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
-	MobStatusEffectMove(mob, target, typeEffect, 20, 3, 300)
+	MobStatusEffectMove(mob, target, typeEffect, 10, 3, 30)
 
     return dmg
 end

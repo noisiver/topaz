@@ -111,6 +111,7 @@ tpz.subEffect =
     LIGHT_DAMAGE        = 7,   -- 111100       15
     DARKNESS_DAMAGE     = 8,   -- 1-00010      17
     DISPEL              = 8,   -- Verified with video of Lockheart Greatsword proc.
+    DOOM                = 8,   -- Same subeffect as DARKNESS_DAMAGE
     SLEEP               = 9,   -- 110010       19
     POISON              = 10,  -- 1-01010      21
     PARALYSIS           = 11,

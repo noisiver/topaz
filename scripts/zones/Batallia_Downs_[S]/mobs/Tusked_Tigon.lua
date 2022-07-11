@@ -1,7 +1,7 @@
 -----------------------------------
--- Area: East Ronfaure [S]
+--   Area: Batallia Downs [S]
 --   ANNM
---   NM: Ancilla Beetle
+--   NM: Tusked Tigron
 --  !addkeyitem RED_LABELED_CRATE
 -----------------------------------
 require("scripts/globals/annm")

@@ -13,7 +13,17 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if mob:getPool() == 1847 then -- Gummy Guillaume
+        if mob:getHPP() > 50 then
+            return 1
+        else
+            return 0
+        end
+    end
+    if mob:isNM()
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -21,7 +31,6 @@ function onMobWeaponSkill(target, mob, skill)
     local duration = 300
 
     MobStatusEffectMove(mob, target, typeEffect, 2550, 0, duration)
-    MobEncumberMove(mob, target, 16, 60)
-	
-    return typeEffect
+    MobEncumberMove(mob, target, 16, 90)
+	return typeEffect
 end
