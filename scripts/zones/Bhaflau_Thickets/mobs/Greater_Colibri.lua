@@ -6,7 +6,6 @@ mixins = {require("scripts/mixins/families/colibri_mimic")}
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
 function onMobFight(mob, target)
-mob:setMod(tpz.mod.MACC, 400)
 end
 
 function onMobDeath(mob, player, isKiller)
