@@ -22,6 +22,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ACC, 50) 
      mob:addMod(tpz.mod.EVA, 30)
      mob:setMod(tpz.mod.REFRESH, 300)
+     mob:delImmunity(tpz.immunity.STUN)
 end
 
 function onMobFight(mob, target)
