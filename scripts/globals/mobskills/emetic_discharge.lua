@@ -35,16 +35,19 @@ function onMobWeaponSkill(target, mob, skill)
         tpz.effect.HELIX, tpz.effect.KAUSTRA, tpz.effect.SILENCE,
     }
 
-
+    local msg = tpz.effect.POISON
     local dmg = utils.takeShadows(target, 1, math.random(2, 3)) 
-        for i, effect in ipairs(removables) do
-            if (mob:hasStatusEffect(effect)) then
-                local statusEffect = mob:getStatusEffect(effect)
-                target:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
-                mob:delStatusEffectSilent(effect)
-            end
+    for i, effect in ipairs(removables) do
+        if (mob:hasStatusEffect(effect)) then
+            local statusEffect = mob:getStatusEffect(effect)
+            target:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
+            mob:delStatusEffectSilent(effect)
+            msg = effect
+            skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS) 
+        else
+            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
         end
+    end
 
-    skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
-    return 0
+    return msg
 end
