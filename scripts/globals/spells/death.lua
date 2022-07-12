@@ -15,7 +15,7 @@ end
 
 function onSpellCast(caster, target, spell)
     if target:isUndead() or target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) or target:hasStatusEffect(tpz.effect.FEALTY)
-    or (math.random() < getEffectResistanceTraitChance(mob, target, tpz.effect.KO)) then
+    or (math.random() < getEffectResistanceTraitChance(caster, target, tpz.effect.KO)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         return 0
     end
