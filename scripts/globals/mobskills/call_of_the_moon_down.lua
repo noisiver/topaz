@@ -16,13 +16,12 @@ function onMobSkillCheck(target, mob, skill)
 		return 1
 	end
     -- animsub 1= standing, animsub 0 = all fours
-    if (mob:AnimationSub() == 0) then
+    if (mob:AnimationSub() == 1) then
         return 1
     end
 
     return 0
 end
-
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PROWESS_KILLER
@@ -43,9 +42,10 @@ function onMobWeaponSkill(target, mob, skill)
         power = 10
     else
         power = 5
-    end	
+    end
+
 	
-	MobBuffMove(mob, typeEffect, power, 0, 60)
-	skill:setMsg(tpz.msg.basic.NONE)
+    MobBuffMove(mob, typeEffect, power, 0, 60)
+    skill:setMsg(tpz.msg.basic.NONE)
     return typeEffect
 end
