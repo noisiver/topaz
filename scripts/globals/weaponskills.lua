@@ -196,25 +196,29 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     -- Calculate the damage from the first hit
     local dmg = mainBase * ftp
-
-    local currentHitRate = calcParams.hitRate
-    if isRanged then
-       if (wsID == 196) or (wsID == 212) then -- Slugwinder
-            calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
-       else
-            calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc + 100)
-       end
-    else
-        calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
+    local bonusAcc = calcParams.bonusAcc
+    -- Apply Accuracy varies with TP accuracy bonus
+    if (wsParams.accuracyVariesWithTP ~= nil) then
+        if (wsParams.accPenalty ~= nil) then -- Used for Slugwinder and Truestrike
+            -- calcParams.bonusAcc = bonusAcc + (AccTPModifier(tp) - 40)
+            bonusAcc = calcParams.bonusAcc + (AccTPModifier(tp) - 40)
+        else
+            -- calcParams.bonusAcc = bonusAcc + AccTPModifier(tp)
+            bonusAcc = calcParams.bonusAcc + AccTPModifier(tp)
+        end
     end
 
-    -- Recalculate accuracy if it varies with TP, applied to all hits
-    if wsParams.acc100 ~= 0 then
-        if (wsID == 196) or (wsID == 212) then
-            calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300, 95)
-        else
-            calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300, 99)
+    if isRanged then
+       if (wsID == 196) or (wsID == 212) then -- Slugwinder
+            -- calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
+            calcParams.hitRate = getRangedHitRate(attacker, target, true, bonusAcc)
+       else
+            -- calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc + 100)
+            calcParams.hitRate = getRangedHitRate(attacker, target, false, bonusAcc + 100)
         end
+    else
+        -- calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
+        calcParams.hitRate =  getHitRate(attacker, target, true, true, bonusAcc + 100)
     end
 
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
@@ -247,16 +251,22 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- Reset fTP if it's not supposed to carry over across all hits for this WS
     if not wsParams.multiHitfTP then ftp = 1 end -- We'll recalculate our mainhand damage after doing offhand
 
-    -- Reset accuracy to normal(no +100 acc on offhand or multihit attacks)
-    if isRanged then
-        calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
-    else
-        calcParams.hitRate = getHitRate(attacker, target, true, false, calcParams.bonusAcc)
+    -- Recalculate accuracy if it varies with TP, applied to all hits
+    bonusAcc = calcParams.bonusAcc
+    -- Apply Accuracy varies with TP accuracy bonus
+    if (wsParams.accuracyVariesWithTP ~= nil) then
+        if (wsParams.accPenalty ~= nil) then -- Used for Slugwinder and Truestrike
+            bonusAcc = calcParams.bonusAcc + (AccTPModifier(tp) - 40)
+        else
+            bonusAcc = calcParams.bonusAcc + AccTPModifier(tp)
+        end
     end
 
-    -- Recalculate accuracy if it varies with TP, applied to all hits
-    if wsParams.acc100 ~= 0 then
-        calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300, 95)
+    -- Reset accuracy to normal(no +100 acc on offhand or multihit attacks)
+    if isRanged then
+        calcParams.hitRate = getRangedHitRate(attacker, target, false, bonusAcc)
+    else
+        calcParams.hitRate = getHitRate(attacker, target, true, false, bonusAcc)
     end
 
     -- Target is dead, don't do anymore hits
@@ -844,25 +854,6 @@ function consumeMPBonus(attacker, numhits)
     end
 end
 
-function accVariesWithTP(hitrate, acc, tp, a1, a2, a3, accCap)
-    -- sadly acc varies with tp ALL apply an acc PENALTY, the acc at various %s are given as a1 a2 a3
-    accpct = fTP(tp, a1, a2, a3)
-    acclost = acc - (acc*accpct)
-    hrate = hitrate - (0.005*acclost)
-    accCap = accCap / 100
-    -- cap it
-    if (hrate>accCap) then
-        hrate = accCap
-    end
-    if (hrate<0.2) then
-        hrate = 0.2
-    end
-    if (hrate>0.99) then
-        hrate = 0.99
-    end
-    return hrate
-end
-
 -- Helper function to get Main damage depending on weapon type
 function getMeleeDmg(attacker, weaponType, kick)
     local mainhandDamage = attacker:getWeaponDmg()
@@ -990,6 +981,10 @@ function fTP(tp, ftp1, ftp2, ftp3)
         print("fTP error: TP value is not between 1000-3000!")
     end
     return 1 -- no ftp mod
+end
+
+function AccTPModifier(tp)
+    return (20+ ((tp - 1000) * 0.010)) -- 20, 30, 40
 end
 
 function calculatedIgnoredDef(tp, def, ignore1, ignore2, ignore3)
