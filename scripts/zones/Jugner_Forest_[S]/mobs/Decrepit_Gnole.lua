@@ -5,9 +5,6 @@
 local ID = require("scripts/zones/Jugner_Forest_[S]/IDs")
 require("scripts/globals/mobs")
 -----------------------------------
-function onMobWeaponSkillPrepare(mob, target)
-    return 2172 -- Only uses Animating Wail
-end
 
 function onMobDeath(mob, player, isKiller)
 end
