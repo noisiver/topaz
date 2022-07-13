@@ -30,6 +30,9 @@ function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
     local dmgmod = (1 - (mob:getHP() / mob:getMaxHP())) * 3
+    if dmgmod < 1 then
+        dmgmod = 1
+    end
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
