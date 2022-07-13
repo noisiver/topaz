@@ -376,15 +376,9 @@ inline int32 CLuaBaseEntity::messageBasic(lua_State* L)
     if (!lua_isnil(L, 4) && lua_isuserdata(L, 4))
         PTarget = Lunar<CLuaBaseEntity>::check(L, 4)->m_PBaseEntity;
 
-    if (m_PBaseEntity->objtype == TYPE_PC)
-    {
-        ((CCharEntity*)m_PBaseEntity)->pushPacket(new CMessageBasicPacket(m_PBaseEntity, PTarget, param0, param1, messageID));
-    }
-    else
-    {//broadcast in range
-        m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CMessageBasicPacket(m_PBaseEntity, PTarget, param0, param1, messageID));
-    }
-    return 0;
+     m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE_SELF, new CMessageBasicPacket(m_PBaseEntity, PTarget, param0, param1, messageID));
+
+     return 0;
 }
 
 /************************************************************************
