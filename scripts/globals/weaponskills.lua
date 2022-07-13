@@ -22,7 +22,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     local finaldmg = 0
 
     local missChance = math.random()
-    --printf("hit rate %i", calcParams.hitRate*100)
+    -- printf("hit rate %i", calcParams.hitRate*100)
     if ((missChance <= calcParams.hitRate) -- See if we hit the target
     or calcParams.guaranteedHit
     or (calcParams.melee and math.random() < attacker:getMod(tpz.mod.ZANSHIN)/100))
@@ -93,11 +93,6 @@ end
 --
 -- See doPhysicalWeaponskill or doRangedWeaponskill for how calcParams are determined.
 function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, isRanged)
-
-    -- Recalculate accuracy if it varies with TP, applied to all hits
-    if wsParams.acc100 ~= 0 then
-        calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300)
-    end
 
     -- Calculate alpha, WSC, and our modifiers for our base per-hit damage
     if not calcParams.alpha then
@@ -201,19 +196,28 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     -- Calculate the damage from the first hit
     local dmg = mainBase * ftp
-    
+
     local currentHitRate = calcParams.hitRate
     if isRanged then
        if (wsID == 196) or (wsID == 212) then -- Slugwinder
             calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
        else
-            calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc + 100)
+            calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc + 100)
        end
     else
         calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
     end
+
+    -- Recalculate accuracy if it varies with TP, applied to all hits
+    if wsParams.acc100 ~= 0 then
+        if (wsID == 196) or (wsID == 212) then
+            calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300, 95)
+        else
+            calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300, 99)
+        end
+    end
+
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
-    calcParams.hitRate = currentHitRate
 
     finaldmg = finaldmg + hitdmg
 
@@ -242,6 +246,18 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     -- Reset fTP if it's not supposed to carry over across all hits for this WS
     if not wsParams.multiHitfTP then ftp = 1 end -- We'll recalculate our mainhand damage after doing offhand
+
+    -- Reset accuracy to normal(no +100 acc on offhand or multihit attacks)
+    if isRanged then
+        calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
+    else
+        calcParams.hitRate = getHitRate(attacker, target, true, false, calcParams.bonusAcc)
+    end
+
+    -- Recalculate accuracy if it varies with TP, applied to all hits
+    if wsParams.acc100 ~= 0 then
+        calcParams.hitRate = accVariesWithTP(calcParams.hitRate, calcParams.accStat, tp, wsParams.acc100, wsParams.acc200, wsParams.acc300, 95)
+    end
 
     -- Target is dead, don't do anymore hits
     if (target:getHP() <= finaldmg) then
@@ -526,34 +542,11 @@ end
 		bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
         bonusWSmods = wsParams.bonusWSmods or 0
     }
-
-    local hitrate, firsthit, slugwinder = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
-    calcParams.firsthitRate = firsthit
-    calcParams.multihitRate = hitrate
-	calcParams.slugWinder = slugwinder
-
-    if wsID == 196 or wsID == 212  then -- Slugwinder 
-        calcParams.hitRate = calcParams.slugWinder
-    else
-		calcParams.hitRate = calcParams.firsthitRate
-    end
-    --printf("ranged hit rate %i", calcParams.hitRate*100)
-    --[[
-    -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
-    calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams)
-    local finaldmg = calcParams.finalDmg
-
-    -- Calculate reductions
-    finaldmg = target:rangedDmgTaken(finaldmg)
-    finaldmg = finaldmg * target:getMod(tpz.mod.PIERCERES) / 1000
-
-    finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
-    calcParams.finalDmg = finaldmg
-    finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
-    return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
-end
---]]
-
+    if (wsID == 196) or (wsID == 212) then -- Slugwinder
+        calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
+   else
+        calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
+   end
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
     calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, true)
     local finaldmg = calcParams.finalDmg
@@ -851,17 +844,21 @@ function consumeMPBonus(attacker, numhits)
     end
 end
 
-function accVariesWithTP(hitrate, acc, tp, a1, a2, a3)
+function accVariesWithTP(hitrate, acc, tp, a1, a2, a3, accCap)
     -- sadly acc varies with tp ALL apply an acc PENALTY, the acc at various %s are given as a1 a2 a3
     accpct = fTP(tp, a1, a2, a3)
     acclost = acc - (acc*accpct)
     hrate = hitrate - (0.005*acclost)
+    accCap = accCap / 100
     -- cap it
-    if (hrate>0.99) then
-        hrate = 0.99
+    if (hrate>accCap) then
+        hrate = accCap
     end
     if (hrate<0.2) then
         hrate = 0.2
+    end
+    if (hrate>0.99) then
+        hrate = 0.99
     end
     return hrate
 end
@@ -951,7 +948,7 @@ function getHitRate(attacker, target, capHitRate, firsthit, bonus)
     return hitrate
 end
 
-function getRangedHitRate(attacker, target, capHitRate, bonus)
+function getRangedHitRate(attacker, target, slugwinder, bonus)
     local acc = attacker:getRACC()
     local eva = target:getEVA()
 
@@ -964,31 +961,23 @@ function getRangedHitRate(attacker, target, capHitRate, bonus)
 
     acc = acc + bonus
 
-    local firstacc = acc + 100
-    -- formula should be 75 + floor( (Accuracy - Evasion)/2 ) - 2*(dLVL)
-    local hitdiff = 0
     local hitrate = 75
-    local firsthit = 0
-	local slugwinder = 0
-    
+
     if attacker:getMainLvl() > target:getMainLvl() then
-        hitdiff = hitrate + math.floor((acc - eva) / 2) 
-        firsthit = hitrate + math.floor((firstacc - eva) / 2)
-		slugwinder = hitrate + math.floor(((acc - eva) / 2)/ 2) 
-    else 
-        hitdiff = hitrate + math.floor((((acc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
-        firsthit = hitrate + math.floor((((firstacc - eva)) / 2) - 2 * (target:getMainLvl() - attacker:getMainLvl()))
-		slugwinder = hitrate + math.floor(((acc - eva) / 2) - (2 * (target:getMainLvl() - attacker:getMainLvl())))
+        hitrate = hitrate + math.floor(((acc - eva) / 2)/ 2)
+    else
+        hitrate = hitrate + math.floor(((acc - eva) / 2) - (2 * (target:getMainLvl() - attacker:getMainLvl())))
+    end
+    hitrate = hitrate / 100
+
+    -- Slugwinder caps at 95% hit rate, rest cap at 99%
+    if slugwinder then
+        hitrate = utils.clamp(hitrate, 0.2, 0.95) -- caps at 95%
+    else
+        hitrate = utils.clamp(hitrate, 0.2, 0.99)
     end
 
-    hitrate = hitdiff / 100
-    firsthit = firsthit / 100
-	slugwinder = slugwinder / 100
-    firsthit = utils.clamp(firsthit, 0.2, 0.99) 
-    hitrate = utils.clamp(hitrate, 0.2, 0.95)
-	slugwinder = utils.clamp(hitrate, 0.2, 0.95) -- caps at 95%
-
-    return hitrate, firsthit, slugwinder
+    return hitrate
 end
 
 function fTP(tp, ftp1, ftp2, ftp3)
