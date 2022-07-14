@@ -681,6 +681,13 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         target:setLocalVar("analyzer_hits", analyzerHits)
     end
 
+    -- Handle Boost status effect
+    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+        if mob:hasStatusEffect(tpz.effect.BOOST) then
+            dmg = dmg * 2
+        end
+    end
+
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
 
         dmg = target:physicalDmgTaken(dmg, damageType)
@@ -751,6 +758,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         target:handleAfflatusMiseryDamage(dmg)
     end
 
+    mob:delStatusEffectSilent(tpz.effect.BOOST)
     return dmg
 end
 
