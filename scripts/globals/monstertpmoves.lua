@@ -688,55 +688,20 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         end
     end
 
+    -- Handle weapon resist on pets(like blunt damage)
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+        dmg = dmg * HandlePetWeaponResist(target, damageType)
+    end
 
+    -- Handle damage type resistances
+    if attackType == tpz.attackType.PHYSICAL then
         dmg = target:physicalDmgTaken(dmg, damageType)
-        if not target:isPC() then
-                local hthres = target:getMod(tpz.mod.HTHRES)
-                local pierceres = target:getMod(tpz.mod.PIERCERES)
-                local impactres = target:getMod(tpz.mod.IMPACTRES)
-                local slashres = target:getMod(tpz.mod.SLASHRES)
-                local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
-                
-                if damageType == tpz.damageType.HTH then
-                    if hthres < 1000 then
-                        dmg = dmg * (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
-                    else
-                        dmg = dmg * hthres / 1000
-                    end
-                elseif damageType == tpz.damageType.PIERCING then
-                    if pierceres < 1000 then
-                        dmg = dmg * (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
-                    else
-                        dmg = dmg * pierceres / 1000
-                    end
-                elseif damageType == tpz.damageType.BLUNT then
-                    if impactres < 1000 then
-                        dmg = dmg * (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
-                    else
-                        dmg = dmg * impactres / 1000
-                    end
-                else
-                    if slashres < 1000 then
-                        dmg = dmg * (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
-                    else
-                        dmg = dmg * slashres / 1000
-                    end
-                end
-        end
-
     elseif (attackType == tpz.attackType.MAGICAL) then
-
         dmg = target:magicDmgTaken(dmg)
-
     elseif (attackType == tpz.attackType.BREATH) then
-
         dmg = target:breathDmgTaken(dmg)
-
     elseif (attackType == tpz.attackType.RANGED) then
-
         dmg = target:rangedDmgTaken(dmg)
-
     end
 
     --handling phalanx
@@ -1414,4 +1379,44 @@ function getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist,
     -- Formula is ((Lvl*2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     -- Avatars Formula is ((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     return math.floor(((mobLevel*2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
+end
+
+function HandlePetWeaponResist(target, damageType)
+    local weaponResist = 1
+
+    if not target:isPC() then
+        local hthres = target:getMod(tpz.mod.HTHRES)
+        local pierceres = target:getMod(tpz.mod.PIERCERES)
+        local impactres = target:getMod(tpz.mod.IMPACTRES)
+        local slashres = target:getMod(tpz.mod.SLASHRES)
+        local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
+
+        if damageType == tpz.damageType.HTH then
+            if hthres < 1000 then
+                weaponResist = (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = hthres / 1000
+            end
+        elseif damageType == tpz.damageType.PIERCING then
+            if pierceres < 1000 then
+                weaponResist = (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = pierceres / 1000
+            end
+        elseif damageType == tpz.damageType.BLUNT then
+            if impactres < 1000 then
+                weaponResist = (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = impactres / 1000
+            end
+        elseif damageType == tpz.damageType.SLASHING then
+            if slashres < 1000 then
+                weaponResist = (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = slashres / 1000
+            end
+        end
+    end
+
+    return weaponResist
 end
