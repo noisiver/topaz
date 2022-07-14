@@ -102,6 +102,7 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_DIFFICULT_TO_CHARM		= 212, /* It would be difficult for the <player> to charm <target>. */
 	MSGBASIC_MIGHT_BE_ABLE_CHARM	= 213, /* The <player> might be able to charm <target>. */
 	MSGBASIC_SHOULD_BE_ABLE_CHARM	= 214, /* The <player> should be able to charm <target>. */
+    MSGBASIC_ABOUT_TO_WEAR_OFF      = 251,    /* he effect of ${status} is about to wear off. (Sneak etc) */
     /* Checkparam */
     MSGBASIC_CHECKPARAM_NAME        = 733,
     MSGBASIC_CHECKPARAM_ILVL        = 731,

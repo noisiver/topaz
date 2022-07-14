@@ -375,7 +375,11 @@ inline int32 CLuaBaseEntity::messageBasic(lua_State* L)
         param1 = (uint32)lua_tointeger(L, 3);
     if (!lua_isnil(L, 4) && lua_isuserdata(L, 4))
         PTarget = Lunar<CLuaBaseEntity>::check(L, 4)->m_PBaseEntity;
-
+    if (messageID == MSGBASIC_ABOUT_TO_WEAR_OFF) // Sneak Invisible and Deodorize
+    {
+        ((CCharEntity*)m_PBaseEntity)->pushPacket(new CMessageBasicPacket(m_PBaseEntity, PTarget, param0, param1, messageID));
+    }
+    else
      m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE_SELF, new CMessageBasicPacket(m_PBaseEntity, PTarget, param0, param1, messageID));
 
      return 0;
