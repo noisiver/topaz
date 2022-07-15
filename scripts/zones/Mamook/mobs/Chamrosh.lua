@@ -25,12 +25,9 @@ function onMobSpawn(mob)
     mob:setLocalVar("changeTime", 60)
     mob:setLocalVar("useWise", math.random(25, 50))
 
-    -- Apply magic skill levels so they will land mimiced spells
-    -- Equal to A+ skill of their level
-    local skill = utils.getSkillLvl(1, mob:getMainLvl())
-    for v = 111, 122 do
-        mob:setMod(v, skill)
-    end
+        -- Apply MACC Equal to A+ skill of their level so they will land mimiced spells
+        local skill = utils.getSkillLvl(1, mob:getMainLvl())
+        mob:setMod(tpz.mod.MACC, skill)
 end
 
 function onMobFight(mob, target)
