@@ -25,7 +25,7 @@ CREATE TABLE `item_usable` (
   `itemid` smallint(5) unsigned NOT NULL,
   `name` text NOT NULL,
   `validTargets` tinyint(2) unsigned NOT NULL DEFAULT '0',
-  `activation` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `activation` tinyint(3) unsigned NOT NULL DEFAULT '0', -- cast time
   `animation` smallint(4) unsigned NOT NULL DEFAULT '0',
   `animationTime` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `maxCharges` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -1631,8 +1631,8 @@ INSERT INTO `item_usable` VALUES (5828,'lucid_ether_ii',1,1,33,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5829,'lucid_ether_iii',1,1,33,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5830,'lucid_elixir_i',1,1,34,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5831,'lucid_elixir_ii',1,1,34,0,0,0,0,0);
-INSERT INTO `item_usable` VALUES (5832,'flask_of_healing_mist',1,4,30,0,0,0,0,1);
-INSERT INTO `item_usable` VALUES (5833,'flask_of_mana_mist',1,4,32,0,0,0,0,1);
+INSERT INTO `item_usable` VALUES (5832,'flask_of_healing_mist',1,1,30,0,0,0,0,1);
+INSERT INTO `item_usable` VALUES (5833,'flask_of_mana_mist',1,1,32,0,0,0,0,1);
 INSERT INTO `item_usable` VALUES (5834,'pair_of_lucid_wings_i',1,4,0,0,0,0,0,1);
 INSERT INTO `item_usable` VALUES (5835,'tube_of_healing_salve_i',1,1,0,0,0,0,0,0);
 INSERT INTO `item_usable` VALUES (5836,'tube_of_healing_salve_ii',1,1,0,0,0,0,0,0);
