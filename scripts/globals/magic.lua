@@ -579,7 +579,13 @@ params.effect = $5
 ]]
 function applyResistanceEffect(caster, target, spell, params) -- says "effect" but this is the global resistance fetching formula, even for damage spells
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+    if effect ~= nil then
+        if target:hasStatusEffect(tpz.effect.FEALTY) then -- Fealty forces full resist on enfeebles
+            return 1/8
+         end
+    end
+
+    if target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then -- Sforzo Forces full resist on enfeebles and nukes
         return 1/8
     end
 
