@@ -881,7 +881,7 @@ end
 -- Adds a status effect to a target
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
 	    return tpz.msg.basic.SKILL_NO_EFFECT
     end
 
@@ -968,7 +968,7 @@ function MobEncumberMove(mob, target, maxSlots, duration)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
 	    resist = 0.25
     end
 
@@ -1029,7 +1029,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
 	end
 	
 	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
-		if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
 		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
         	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)
@@ -1056,7 +1056,7 @@ function MobDeathMove(mob, target, skill)
 	end
 	
 	if resist >= 0.5 then
-		if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
 		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
             target:setHP(0)
