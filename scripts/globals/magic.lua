@@ -581,12 +581,8 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
 
     if effect ~= nil then
         if target:hasStatusEffect(tpz.effect.FEALTY) then -- Fealty forces full resist on enfeebles
-            return 1/8
+            return 1/16
          end
-    end
-
-    if target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then -- Sforzo Forces full resist on enfeebles and nukes
-        return 1/8
     end
 
     local effect = params.effect
@@ -674,8 +670,8 @@ function applyResistanceAbility(player, target, element, skill, bonus)
     local p = getMagicHitRate(player, target, skill, element, 0, bonus)
     local res = getMagicResist(p)
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
-        return 1/8
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+        return 1/16
     end
 
     if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
@@ -695,8 +691,8 @@ function applyResistanceAddEffect(player, target, element, bonus)
     local p = getMagicHitRate(player, target, 0, element, 0, bonus)
 	local res = getMagicResist(p)
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
-        return 1/8
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
+        return 1/16
     end
 
     --printf("res before SDT %d", res * 100)
