@@ -27,7 +27,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.POISON
     local power = 20
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
- 	MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
+ 	MobStatusEffectMove(mob, target, typeEffect, power, 3, 90)
 	local CurrentTP = mob:getLocalVar("TP")
 	local AddTP = CurrentTP + 200
     target:addTP(20)
