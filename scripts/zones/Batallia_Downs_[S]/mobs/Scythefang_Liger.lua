@@ -10,29 +10,31 @@ require("scripts/globals/status")
 local tpMoves = {271, 273, 1680, 1681, 2207}
 
 function onMobSpawn(mob)
+    mob:setLocalVar("roarTimer", os.time() + 45)
     tpz.annm.NMMods(mob) 
 end
 
 function onMobFight(mob, target)
+    local roarTimer = mob:getLocalVar("roarTimer")
+
+    -- Uses Roar 10 times in a row then a random TP move
+    if os.time() >= roarTimer then
+        mob:setLocalVar("roarTimer", os.time() + 90)
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(270) -- Reuse roar
+        mob:useMobAbility(tpMoves[math.random(#tpMoves)]) -- Use a random non-roar TP move
+    end
+
     tpz.annm.PetShield(mob, 17121699, 17121704)
 end
-
-function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 270 then -- Uses Roar 10 times in a row then a random TP move
-        local tpMove = mob:getLocalVar("tpMove")
-
-        tpMove = tpMove +1 -- Count number of times TP move was used
-        mob:setLocalVar("tpMove", tpMove)
-
-        if (tpMove > 9) then -- Number of times using Roar
-            mob:useMobAbility(tpMoves[math.random(#tpMoves)])
-            mob:setLocalVar("tpMove", 0)
-        else
-            mob:useMobAbility(270) -- Re-use same TP move
-        end
-    end
-end
-
 
 function onMobDeath(mob, player, isKiller)
     tpz.annm.SpawnChest(mob, player, isKiller)
