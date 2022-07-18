@@ -9,11 +9,16 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+	local CurrentTP = mob:getTP()
+	mob:setLocalVar("TP", CurrentTP)
+	return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
     target:addStatusEffectEx(tpz.effect.SUPER_BUFF, 0, 50, 0, 30)
+    -- Don't reset TP when using this ability
+	local CurrentTP = mob:getLocalVar("TP")
+    mob:addTP(CurrentTP)
     skill:setMsg(tpz.msg.basic.NONE)
     return 0
 end

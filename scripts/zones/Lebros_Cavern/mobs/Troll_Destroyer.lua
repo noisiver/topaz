@@ -35,7 +35,6 @@ function onMobFight(mob, target)
         mob:addStatusEffect(tpz.effect.HUNDRED_FISTS)
 	    local TwoHourUsed = mob:getLocalVar("TwoHourUsed")
 	    if TwoHourUsed == 0 then
-            mob:setDamage(50)
 		    mob:useMobAbility(690) -- Hundred Fists
 		    mob:AnimationSub(1)
 		    mob:setLocalVar("TwoHourUsed", 1)

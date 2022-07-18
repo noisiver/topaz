@@ -11,21 +11,21 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local enhskill = caster:getSkillLevel(tpz.skill.ENHANCING_MAGIC)
-    local final = 0
+    local enhskill = caster:getSkillLevel(tpz.skill.ENHANCING_MAGIC) + caster:getMod(tpz.mod.ENHANCE)
+    local power = 0
     local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
     duration = calculateDurationForLvl(duration, 33, target:getMainLvl())
 
     if enhskill <= 300 then
-        final = math.max(math.floor(enhskill / 10) - 2, 0) + caster:getMod(tpz.mod.PHALANX)
+        power = math.max(math.floor(enhskill / 10) - 2, 0) + caster:getMod(tpz.mod.PHALANX_POTENCY)
     else
-        final = math.floor((enhskill - 300.5) / 28.5) + 28 + caster:getMod(tpz.mod.PHALANX)
+        power = math.floor((enhskill - 300.5) / 28.5) + 28 + caster:getMod(tpz.mod.PHALANX_POTENCY)
     end
 
     -- Cap at 35
-    final = math.min(final, 35)
+    power = math.min(power, 35)
 
-    if target:addStatusEffect(tpz.effect.PHALANX, final, 0, duration) then
+    if target:addStatusEffect(tpz.effect.PHALANX, power, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

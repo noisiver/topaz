@@ -9,7 +9,7 @@ require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
-    if npcUtil.tradeHas(trade, {1186, {1187, 3}}) and npcUtil.popFromQM(player, npc, ID.mob.BOMB_QUEEN) then
+    if npcUtil.tradeHas(trade, {1186, {1187, 3}}) and npcUtil.popFromQM(player, npc, ID.mob.BOMB_QUEEN, {radius=1, hide=900}) then
         player:confirmTrade()
     end
 end

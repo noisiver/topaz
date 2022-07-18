@@ -312,6 +312,12 @@ dynamis.entryNpcOnTrigger = function(player, npc)
 
         if player:getMainLvl() < DYNA_LEVEL_MIN then
             player:messageSpecial(ID.text.PLAYERS_HAVE_NOT_REACHED_LEVEL, DYNA_LEVEL_MIN)
+        elseif (dynaWaitxDay + BETWEEN_2DYNA_WAIT_TIME * 60 * 60) < realDay then
+            -- params: bit, cutscene option, Prismatic Hourglass KI, sJob option, junk, Shrouded Sand KI, Timeless Hourglass item ID, Perpetual Hourglass item ID
+            player:startEvent(info.csDyna, info.csBit, arg3(player, info.csBit), tpz.ki.PRISMATIC_HOURGLASS, 1, 0, tpz.ki.VIAL_OF_SHROUDED_SAND, 4236, 4237)
+        else
+            local dayRemaining = math.floor(((dynaWaitxDay + BETWEEN_2DYNA_WAIT_TIME * 60 * 60) - realDay) / 3456)
+            player:messageSpecial(ID.text.YOU_CANNOT_ENTER_DYNAMIS, dayRemaining, info.csBit)
         end
 
     -- standard dialog
@@ -517,7 +523,7 @@ dynamis.timeExtensionOnDeath = function(mob, player, isKiller)
                     DisallowRespawn(mobId, true)
                     DisallowRespawn(teId, false)
                 end
-                GetMobByID(teId):setRespawnTime(960)
+                GetMobByID(teId):setRespawnTime(1800) -- 30 minutes
             end
         else
             printf("[dynamis.timeExtensionOnDeath] called in zone %i on mob %s that does not appear in a time extension group.", zoneId, mob:getName())
@@ -559,6 +565,54 @@ dynamis.refillStatueOnSpawn = function(mob)
     end
 end
 
+dynamis.refillStatueRestore = function(mob, target)
+    local mobId = mob:getID()
+    local zoneId = mob:getZoneID()
+    local ID = zones[zoneId]
+    local RF = ID.mob.REFILL_STATUE
+
+    if RF then
+        local found = false
+        local group = {}
+        local eye = nil
+
+        -- find this statue's group and eye color
+        for _, g in pairs(RF) do
+            group = {}
+            for _, m in pairs(g) do
+                table.insert(group, m.mob)
+                if m.mob == mobId then
+                    found = true
+                    eye = m.eye
+                end
+            end
+            if found then
+                break
+            end
+        end
+
+        if found then
+            -- MP or HP refill
+            if eye == dynamis.eye.BLUE or eye == dynamis.eye.GREEN then
+                local zone = mob:getZone()
+                local players = zone:getPlayers()
+                mob:setUnkillable(true) -- Removed after restoring players HP or MP
+                for name, player in pairs(players) do
+                    if mob:getHPP() < 2 then
+                        if mob:checkDistance(player) < 25 then
+                            if eye == dynamis.eye.BLUE then
+                                mob:useMobAbility(1125) -- Heal MP
+                            else
+                                mob:useMobAbility(1124) -- Heal HP
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
 dynamis.refillStatueOnDeath = function(mob, player, isKiller)
     local mobId = mob:getID()
     local zoneId = mob:getZoneID()
@@ -594,13 +648,9 @@ dynamis.refillStatueOnDeath = function(mob, player, isKiller)
                     for name, player in pairs(players) do
                         if mob:checkDistance(player) < 30 then
                             if eye == dynamis.eye.BLUE then
-                                local amt = player:getMaxMP() - player:getMP()
-                                player:restoreMP(amt)
-                                player:messageBasic(tpz.msg.basic.RECOVERS_MP, 0, amt)
+                                mob:useMobAbility(1125) -- Uneeded?
                             else
-                                local amt = player:getMaxHP() - player:getHP()
-                                player:restoreHP(amt)
-                                player:messageBasic(tpz.msg.basic.RECOVERS_HP, 0, amt)
+                                mob:useMobAbility(1124) -- Uneeded?
                             end
                         end
                     end
@@ -613,7 +663,7 @@ dynamis.refillStatueOnDeath = function(mob, player, isKiller)
                     DisallowRespawn(mobId, true)
                     DisallowRespawn(nextId, false)
                 end
-                GetMobByID(nextId):setRespawnTime(300) -- 5 minutes
+                GetMobByID(nextId):setRespawnTime(1800) -- 30 minutes
             end
         else
             printf("[dynamis.refillStatueOnDeath] called in zone %i on mob %i that does not appear in a refill statue group.", zoneId, mobId)

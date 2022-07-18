@@ -13,11 +13,14 @@ require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
- if VanadielHour() >= 6 and VanadielHour() <= 18 then
+    if (mob:getPool() ~= 9076) then -- Coccinellidae
+        return 0
+    end
+    if VanadielHour() >= 6 and VanadielHour() <= 18 then
 		if mob:isNM() then
 			return 0
 		end
-	end
+    end
     return 1
 end
 
@@ -37,13 +40,15 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_IGNORE_SHADOWS)
 	
 	local HP = mob:getHP()
 	local selfdmg = HP * 0.10
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
 	utils.mobSelfErase(mob)
-	mob:delHP(selfdmg)
+    if (mob:getPool() ~= 9076) and (mob:getPool() ~= 3280) then -- Coccinellidae doesn't deal self damage
+	    mob:delHP(selfdmg)
+    end
     return dmg
 end

@@ -15,6 +15,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
+        return 1
+    end
 	mob:setLocalVar("TransferredEffects", 0)
     return 0
 end
@@ -47,7 +50,8 @@ function onMobWeaponSkill(target, mob, skill)
         tpz.effect.MAGIC_DEF_DOWN, tpz.effect.CRIT_HIT_EVASION_DOWN, tpz.effect.MAX_TP_DOWN, tpz.effect.MAX_MP_DOWN, tpz.effect.MAX_HP_DOWN,
         tpz.effect.SLUGGISH_DAZE_1, tpz.effect.SLUGGISH_DAZE_2, tpz.effect.SLUGGISH_DAZE_3, tpz.effect.SLUGGISH_DAZE_4, tpz.effect.SLUGGISH_DAZE_5,
         tpz.effect.LETHARGIC_DAZE_1, tpz.effect.LETHARGIC_DAZE_2, tpz.effect.LETHARGIC_DAZE_3, tpz.effect.LETHARGIC_DAZE_4, tpz.effect.LETHARGIC_DAZE_5,
-        tpz.effect.WEAKENED_DAZE_1, tpz.effect.WEAKENED_DAZE_2, tpz.effect.WEAKENED_DAZE_3, tpz.effect.WEAKENED_DAZE_4, tpz.effect.WEAKENED_DAZE_5
+        tpz.effect.WEAKENED_DAZE_1, tpz.effect.WEAKENED_DAZE_2, tpz.effect.WEAKENED_DAZE_3, tpz.effect.WEAKENED_DAZE_4, tpz.effect.WEAKENED_DAZE_5,
+        tpz.effect.HELIX, tpz.effect.KAUSTRA, tpz.effect.SILENCE,
     }
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
@@ -59,7 +63,7 @@ function onMobWeaponSkill(target, mob, skill)
 					target:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
 					TransferredEffects = TransferredEffects + 1
 					mob:setLocalVar("TransferredEffects", TransferredEffects)
-					mob:delStatusEffect(effect)
+					mob:delStatusEffectSilent(effect)
 				end
             end
         end

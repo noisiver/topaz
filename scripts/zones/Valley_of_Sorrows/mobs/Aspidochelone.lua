@@ -78,7 +78,7 @@ function onMobFight(mob, target)
         -- Remove all enfeebles
         for i, effect in ipairs(removables) do
             if (mob:hasStatusEffect(effect)) then
-                mob:delStatusEffect(effect)
+                mob:delStatusEffectSilent(effect)
             end
         end
         mob:setMod(tpz.mod.REGEN, 300)

@@ -2,11 +2,13 @@
 -- Area: Dynamis - Jeuno
 --  Mob: Arch GObin Golem
 -----------------------------------
-require("scripts/globals/status")
 mixins =
 {
     require("scripts/mixins/job_special")
 }
+local ID = require("scripts/zones/Dynamis-Jeuno/IDs")
+require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
@@ -15,11 +17,14 @@ function onMobSpawn(mob)
             {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 60, hpp = 90},
         },
     })
-     mob:addMod(tpz.mod.DEFP, 30) 
-     mob:addMod(tpz.mod.ATTP, 20)
-     mob:addMod(tpz.mod.ACC, 50) 
-     mob:addMod(tpz.mod.EVA, 30)
-     mob:setMod(tpz.mod.REFRESH, 300)
+    mob:addMod(tpz.mod.DEFP, 30) 
+    mob:addMod(tpz.mod.ATTP, 20)
+    mob:addMod(tpz.mod.ACC, 50) 
+    mob:addMod(tpz.mod.EVA, 30)
+    mob:delImmunity(tpz.immunity.STUN)
+    mob:delImmunity(tpz.immunity.PARALYZE)
+    mob:delImmunity(tpz.immunity.BLIND)
+    mob:delImmunity(tpz.immunity.POISON)
 end
 
 function onMobFight(mob, target)

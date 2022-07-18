@@ -8,6 +8,7 @@ mixins =
     require("scripts/mixins/job_special"),
     require("scripts/mixins/remove_doom")
 }
+require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
      mob:addMod(tpz.mod.DEFP, 30) 
@@ -15,6 +16,7 @@ function onMobSpawn(mob)
      mob:addMod(tpz.mod.ACC, 50) 
      mob:addMod(tpz.mod.EVA, 30)
      mob:setMod(tpz.mod.REFRESH, 300)
+     mob:delImmunity(tpz.immunity.STUN)
 end
 
 function onMobFight(mob, target)

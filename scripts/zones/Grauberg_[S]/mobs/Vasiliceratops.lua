@@ -3,6 +3,7 @@
 --   NM: Vasiliceratops
 ------------------------------
 require("scripts/globals/hunts")
+require("scripts/globals/wotg")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 ------------------------------
@@ -20,12 +21,6 @@ function onMobSpawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
-    player:addCurrency("allied_notes", 200)
-	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(2968, mob)-- Daybreak Soul
-	end
-	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(2969, mob) -- Twilight Soul
-	end
+    tpz.wotg.MagianT1(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 505)
 end

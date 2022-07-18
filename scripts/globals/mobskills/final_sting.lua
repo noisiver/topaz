@@ -2,7 +2,7 @@
 --  Final Sting
 --
 --  Description: Deals damage proportional to HP. Reduces HP to 1 after use. Damage varies with TP.
---  Type: Physical (Slashing)
+--  Type: Breath
 --
 --
 ---------------------------------------------
@@ -19,33 +19,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 1
-    local accmod = 1
-    local dmgmod = 1
-    local params_phys = {}
-    params_phys.multiplier = dmgmod
-    params_phys.tp150 = 1
-    params_phys.tp300 = 1
-    params_phys.str_wsc = 0.0
-    params_phys.dex_wsc = 0.0
-    params_phys.vit_wsc = 0.1
-    params_phys.agi_wsc = 0.1
-    params_phys.int_wsc = 0.0
-    params_phys.mnd_wsc = 0.0
-    params_phys.chr_wsc = 0.0
+    local dmgmod = 30
+    local BOMB_TOSS_HPP = skill:getMobHPP() / 100
+    dmgmod = math.floor(dmgmod * BOMB_TOSS_HPP)
+    if dmgmod < 1 then dmgmod = 1 end
 
-    local mobHP = mob:getHP()
-    local hpMod = skill:getMobHPP() / 100
-    dmgmod = dmgmod + hpMod * 1 + 3
-
-    if (mob:isMobType(MOBTYPE_NOTORIOUS)) then
-        dmgmod = dmgmod * .5
-    end
-
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*12*BOMB_TOSS_HPP, tpz.magic.ele.NONE, dmgmod, TP_MAB_BONUS, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.NONE, MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.NONE)
     mob:setHP(0)
-
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL, MOBPARAM_IGNORE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
     return dmg
 end

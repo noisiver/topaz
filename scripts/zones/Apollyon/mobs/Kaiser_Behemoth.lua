@@ -22,6 +22,18 @@ function onMobSpawn(mob)
 	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end
 
+function onMobFight(mob, target)
+	local MeteorTime = mob:getLocalVar("MeteorTime")
+	local BattleTime = mob:getBattleTime()
+
+	if (MeteorTime == 0) then
+		mob:setLocalVar("MeteorTime", BattleTime + 60)
+	elseif (BattleTime >= MeteorTime) then
+		mob:castSpell(218) -- MEteor
+		mob:setLocalVar("MeteorTime", BattleTime + 70)
+	end
+end
+
 function onMobRoam(mob)
     if not mob:isFollowingPath() then
         local point = math.random(#path)
@@ -33,12 +45,8 @@ function onMobRoam(mob)
     end
 end
 
-function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 60)
-end
-
 function onSpellPrecast(mob, spell)
-    if spell:getID() == 218 then
+    if (spell:getID() == 218) then -- Meteor
         spell:setAoE(tpz.magic.aoe.RADIAL)
         spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
         spell:setRadius(30)

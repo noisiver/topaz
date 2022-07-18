@@ -1,6 +1,6 @@
 -----------------------------------
 --
--- tpz.effect.PARALISIS
+-- tpz.effect.PARALYSIS
 --
 -----------------------------------
 require("scripts/globals/status")

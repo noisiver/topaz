@@ -21,6 +21,7 @@ zones[tpz.zone.EAST_RONFAURE_S] =
         LOGGING_IS_POSSIBLE_HERE = 7146, -- Logging is possible here if you have <item>.
         FISHING_MESSAGE_OFFSET   = 7730, -- You can't fish here.
         COMMON_SENSE_SURVIVAL    = 8957, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        ANNM_TREASURE_APPEARED   = 8034, -- A treasure box has/Treasure boxes have appeared! The treasure will disappear after three minutes have elapsed or when the time limit for this battlefield expires, whichever comes first.
     },
     mob =
     {

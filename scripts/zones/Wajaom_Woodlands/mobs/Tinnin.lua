@@ -21,7 +21,7 @@ end
 function onMobSpawn(mob)
 	mob:setDamage(130)
     mob:setMod(tpz.mod.ATT, 975)
-    mob:setMod(tpz.mod.DEF, 630)
+    mob:setMod(tpz.mod.DEF, 300)
     mob:setMod(tpz.mod.EVA, 457) --Hydra family * 1.15
     mob:setMod(tpz.mod.MDEF, 20)
     mob:setMod(tpz.mod.UDMGMAGIC, 0)
@@ -37,6 +37,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 15)
     mob:setMod(tpz.mod.REGEN, 50)
     mob:setMod(tpz.mod.REGAIN, 50)
+    --ADD mod
+    mob:addMod(tpz.mod.ACC, 50)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 12000)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 14000)
     mob:setMobMod(tpz.mobMod.MUG_GIL, 8000)

@@ -8,6 +8,7 @@
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/utils")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -19,6 +20,12 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
+
+    -- Check for PD
+    if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) then
+        return ability:setMsg(tpz.msg.basic.JA_MISS)
+    end
+
     -- Applying Weapon Bash stun. Rate is said to be near 100%, so let's say 99%.
     if (math.random()*100 < 99) then
         target:addStatusEffect(tpz.effect.STUN, 1, 0, 4)
@@ -34,6 +41,29 @@ function onUseAbility(player, target, ability)
 
     -- Calculating and applying Weapon Bash damage
     local damage = math.floor(((darkKnightLvl + 11) / 4) + player:getMod(tpz.mod.WEAPON_BASH))
+
+    -- Randomize damage
+    local ratio = player:getStat(tpz.mod.ATT)/target:getStat(tpz.mod.DEF)
+
+    if ratio > 1.3 then
+        ratio = 1.3
+    end
+
+    if ratio < 0.2 then
+        ratio = 0.2
+    end
+
+    local pdif = math.random(ratio * 0.8 * 1000, ratio * 1.2 * 1000)
+
+    -- printf("damge %d, ratio: %f, pdif: %d\n", damage, ratio, pdif)
+    damage = damage * (pdif / 1000)
+
+    -- Check for Invincible
+    if target:hasStatusEffect(tpz.effect.INVINCIBLE) then
+        damage = 0
+    end
+
+    damage = utils.stoneskin(target, damage)
     target:takeDamage(damage, player, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
     target:updateEnmityFromDamage(player, damage)
 

@@ -9,38 +9,40 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.HUMANOID_KILLER) or mob:hasStatusEffect(tpz.effect.PROWESS_KILLER)  then
+	if mob:hasStatusEffect(tpz.effect.PROWESS_KILLER) then
 		return 1
 	end
+    -- animsub 1= standing, animsub 0 = all fours
+    if (mob:AnimationSub() == 0) then
+        return 1
+    end
+
     return 0
 end
 
+
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PROWESS_KILLER
- 
- local moon = VanadielMoonPhase()
-    local power = 0
-    if moon > 90 then -- Full Moon
-        power = 50
-    elseif moon > 75 then
-        power = 45
-    elseif moon > 60 then
-        power = 40
-    elseif moon > 40 then
-        power = 30
-    elseif moon > 25 then
-        power = 20
-    elseif moon > 10 then
-        power = 10
-    else
-        power = 5
-    end	
+    local moon = utils.getMoonPhase()
+    local moonpower = 5
+
+    if (moon == 'Full') then
+        moonpower = 40
+    elseif (moon == 'Gibbeus') then
+        moonpower = 25
+    elseif (moon == 'Quarter') then
+         moonpower = 15
+    elseif (moon == 'Cresecent') then
+         moonpower = 10
+    elseif (moon == 'New') then
+         moonpower = 5
+	end
 	
-	MobBuffMove(mob, typeEffect, power, 0, 30)
-    mob:addStatusEffectEx(tpz.effect.HUMANOID_KILLER, 0, power, 0, 30)	
+	MobBuffMove(mob, typeEffect, moonpower, 0, 60)
 	skill:setMsg(tpz.msg.basic.NONE)
     return typeEffect
 end

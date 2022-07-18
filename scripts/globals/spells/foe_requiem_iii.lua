@@ -13,7 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     local effect = tpz.effect.REQUIEM
     local duration = 95
-    local power = 6
+    local power = 4
 
     local pCHR = caster:getStat(tpz.mod.CHR)
     local mCHR = target:getStat(tpz.mod.CHR)
@@ -50,10 +50,6 @@ function onSpellCast(caster, target, spell)
         power = power * 2
     elseif (caster:hasStatusEffect(tpz.effect.MARCATO)) then
         power = power * 1.5
-    end
-
-    if caster:isMob() then -- Don't let this scale out of control from mobs
-        power = math.floor(power * 0.5)
     end
 
     caster:delStatusEffectSilent(tpz.effect.MARCATO)

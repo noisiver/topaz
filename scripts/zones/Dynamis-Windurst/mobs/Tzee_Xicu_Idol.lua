@@ -4,9 +4,11 @@
 -- Note: Mega Boss
 -----------------------------------
 require("scripts/globals/dynamis")
+require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
      mob:setMod(tpz.mod.REFRESH, 300)
+     mob:delImmunity(tpz.immunity.STUN)
 end
 
 function onMobEngaged(mob, target)

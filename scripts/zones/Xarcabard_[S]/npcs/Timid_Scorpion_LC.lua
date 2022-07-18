@@ -1,4 +1,3 @@
-
 -----------------------------------
 -- Area: Xarcabard [S]
 --  NPC: Timid Scorpion, L.C.

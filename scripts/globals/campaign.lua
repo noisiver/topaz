@@ -515,7 +515,7 @@ tpz.campaign.campaignArbiterOnEventFinish = function(player, csid, option, campa
 
     if csid == 454 and option == 1 then
         -- Sandorian Retrace NPC (TK/RK)
-        if doesNpcMatchAllegiance(player, campaignEvent) then
+        if (doesNpcMatchAllegiance(player, campaignEvent) == 1) then
             fee = 10
         else
             fee = 30
@@ -523,7 +523,7 @@ tpz.campaign.campaignArbiterOnEventFinish = function(player, csid, option, campa
         deductFeeAndRetrace(player, fee)
     elseif csid == 455 and option == 1 then
         -- Bastokan Retrace NPC (LC/IM)
-        if doesNpcMatchAllegiance(player, campaignEvent) then
+        if (doesNpcMatchAllegiance(player, campaignEvent) == 1) then
             fee = 10
         else
             fee = 30
@@ -531,7 +531,7 @@ tpz.campaign.campaignArbiterOnEventFinish = function(player, csid, option, campa
         deductFeeAndRetrace(player, fee)
     elseif csid == 456 and option == 1 then
         -- Windurstian Retrace NPC (CC/MC)
-        if doesNpcMatchAllegiance(player, campaignEvent) then
+        if (doesNpcMatchAllegiance(player, campaignEvent) == 1) then
             fee = 10
         else
             fee = 30

@@ -43,7 +43,7 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
 		local typeEffect = tpz.effect.AMNESIA
-		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 300)
+		MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 60)
     end
     local typeEffect = tpz.effect.SLOW
 

@@ -29,13 +29,13 @@ function onMobWeaponSkill(target, mob, skill)
     local currentHP = target:getHP()
     local damage = math.floor(currentHP * .90)
 
-    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.MAGICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
+    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
     -- Deals reduced damage at range
     local distance = mob:checkDistance(target)
     distance = utils.clamp(distance, 0, 50)
     dmg = dmg * ((50 - distance) / 50)
 
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.NONE)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 45)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end
     mob:resetEnmity(target)

@@ -17,7 +17,7 @@ function onMobWeaponSkill(target, mob, skill)
     local message = tpz.msg.basic.SKILL_MISS
     local typeEffect = tpz.effect.AMNESIA
     local power = 1
-    local duration = 300
+    local duration = 60
 
     skill:setMsg(MobGazeMove(mob, target, typeEffect, power, 0, duration))
     return typeEffect

@@ -24,6 +24,7 @@ zones[tpz.zone.THE_ELDIEME_NECROPOLIS_S] =
         YOU_LEARN_EMBRAVA_AND_KAUSTRA = 7896, -- <name> learns Embrava and Kaustra!
         ITEM_DELIVERY_DIALOG          = 7902, -- Have something to send?
         COMMON_SENSE_SURVIVAL         = 8929, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        ANNM_TREASURE_APPEARED        = 8023, -- A treasure box has/Treasure boxes have appeared! The treasure will disappear after three minutes have elapsed or when the time limit for this battlefield expires, whichever comes first.
     },
     mob =
     {

@@ -16,6 +16,7 @@ end
 function onTrigger(player, npc)
     player:leaveBattlefield(1)
     player:setPos(299, 0, -199, 67)
+    player:ChangeMusic(0, 0)
     player:setLocalVar("[battlefield]area", 0)
 end
 

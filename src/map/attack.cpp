@@ -846,6 +846,12 @@ void CAttack::ProcessDamage()
         m_damage = (uint16)(m_damage * (float)resist);
     }
 
+    // Handle "Boost" status effect on mobs
+    if (m_attacker->objtype == TYPE_MOB && m_attacker->StatusEffectContainer->HasStatusEffect(EFFECT_BOOST))
+    {
+        m_damage = m_damage * 2;
+    }
+
     // Try skill up.
     if (m_damage > 0)
     {

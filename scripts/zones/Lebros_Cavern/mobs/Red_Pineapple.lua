@@ -80,9 +80,11 @@ end
 
 function onMobDeath(mob, player, isKiller)
     local instance = mob:getInstance()
-    SpawnMob(17035613, instance)
-    local zonePlayers = mob:getZone():getPlayers()
-    for _, zonePlayer in pairs(zonePlayers) do
-        zonePlayer:PrintToPlayer("You hear a terrifying echoing through the cavern...",0,"???")
+    if isKiller or noKiller then
+        SpawnMob(17035613, instance)
+        local zonePlayers = mob:getZone():getPlayers()
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:PrintToPlayer("You hear a terrifying echo through the cavern...",0,"???")
+        end
     end
 end

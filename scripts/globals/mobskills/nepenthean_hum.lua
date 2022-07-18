@@ -10,6 +10,9 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if (mob:getPool() == 9076) then -- Coccinellidae MMM
+        return 0
+    end
     if VanadielHour() >= 6 and VanadielHour() <= 18 then
         return 0
     else
@@ -20,6 +23,6 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.AMNESIA
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 60))
     return typeEffect
 end

@@ -309,6 +309,7 @@ enum class Mod
     AMNESIARESTRAIT = 1253,
     LULLABYRESTRAIT = 1254,
     DEATHRESTRAIT = 1255,
+    STATUSRESTRAIT = 2000,
 
 
     PARALYZE                  = 257, // Paralyze -- percent chance to proc
@@ -353,6 +354,7 @@ enum class Mod
     BLINK                     = 299, // Tracks blink shadows
     STONESKIN                 = 300, // Tracks stoneskin HP pool
     PHALANX                   = 301, // Tracks direct damage reduction
+    PHALANX_POTENCY           = 1273,// Increases power of phalanx(Gear mod)
     ENF_MAG_POTENCY           = 290, // Increases Enfeebling magic potency %
     ENHANCES_SABOTEUR         = 297, // Increases Saboteur Potency %
 

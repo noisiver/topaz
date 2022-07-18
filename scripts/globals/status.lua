@@ -111,6 +111,7 @@ tpz.subEffect =
     LIGHT_DAMAGE        = 7,   -- 111100       15
     DARKNESS_DAMAGE     = 8,   -- 1-00010      17
     DISPEL              = 8,   -- Verified with video of Lockheart Greatsword proc.
+    DOOM                = 8,   -- Same subeffect as DARKNESS_DAMAGE
     SLEEP               = 9,   -- 110010       19
     POISON              = 10,  -- 1-01010      21
     PARALYSIS           = 11,
@@ -1169,6 +1170,7 @@ tpz.mod =
     AMNESIARESTRAIT                 = 1253,
     LULLABYRESTRAIT                 = 1254,
     DEATHRESTRAIT                   = 1255,
+    STATUSRESTRAIT                  = 2000,
 
     AFTERMATH                       = 256,
     PARALYZE                        = 257,
@@ -1191,6 +1193,7 @@ tpz.mod =
     BLINK                           = 299,
     STONESKIN                       = 300,
     PHALANX                         = 301,
+    PHALANX_POTENCY                 = 1273, -- Increases power of Phalanx(Gear mod)
     TRIPLE_ATTACK                   = 302,
     TREASURE_HUNTER                 = 303,
     TAME                            = 304,
@@ -2561,7 +2564,8 @@ tpz.jobSpecialAbility =
     -- TRANCE               = 2710,
     -- ELEMENTAL_SFORZO     = 3265,
     -- ELEMENTAL_SFORZO     = 3479,
-     BOLSTER              = 3482,
+    BOLSTER              = 3482,
+    CHARM                = 710,
 }
 tpz.jsa = tpz.jobSpecialAbility
 

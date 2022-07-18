@@ -14,6 +14,6 @@ end
 function onMobWeaponSkill(target, mob, skill)
 
     MobEncumberMove(mob, target, 16, 60)
-    skill:setMsg(tpz.msg.basic.NONE)
+    skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.AMNESIA, 1, 0, 60))
     return 0
 end

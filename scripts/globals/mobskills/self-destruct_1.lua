@@ -16,7 +16,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 12
+    local dmgmod = 30
     local BOMB_TOSS_HPP = skill:getMobHPP() / 100
     dmgmod = math.floor(dmgmod * BOMB_TOSS_HPP)
     if dmgmod < 1 then dmgmod = 1 end

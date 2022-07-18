@@ -4,16 +4,17 @@
 -- Type: Imperial Gate Guard
 -- !pos 0.011 -1 10.587 50
 -----------------------------------
+local ID = require("scripts/zones/Aht_Urhgan_Whitegate/IDs")
 require("scripts/globals/besieged")
 require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
     if npcUtil.tradeHas(trade, 2174, 1) then -- Archaic Mirror
-            player:confirmTrade()
-            player:addCurrency("imperial_standing", 1000)
-            player:PrintToPlayer("Great job out there. This will help us survive the next beastmen attack. Bring me as many of these as you can.",0,"Asrahd")
-            player:PrintToPlayer("You recieved imperial standing!",0,"Asrahd")
+        player:confirmTrade()
+        player:addCurrency("imperial_standing", 1000)
+        player:PrintToPlayer("Great job out there. This will help us survive the next beastmen attack. Bring me as many of these as you can.",0,"Asrahd")
+        player:messageSpecial( ID.text.IMPERIAL_STANDING_INCREASED)
     end
 end
 

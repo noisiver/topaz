@@ -7,6 +7,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if (mob:getPool() == 9076) then -- Coccinellidae MMM
+        return 0
+    end
     if VanadielHour() >= 6 and VanadielHour() <= 18 then
         return 0
     else

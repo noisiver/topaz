@@ -4468,4 +4468,75 @@ tpz.casket_loot.casketItems =
             { 340,  9068}, -- Barrier Module
         },
     },
+        [tpz.zone.MERIPHATAUD_MOUNTAINS_S] =
+    {
+        regionalItems = {15834}, -- Blind Ring
+        temps =
+        {
+        ----------------------------------
+        --| Weight | Item ID |   Name  |--
+        ----------------------------------
+            {1060, 4112}, -- Potion
+            { 790, 4113}, -- Potion +1
+            { 425, 4114}, -- Potion +2
+            {1040, 4128}, -- Ether
+            { 760, 4129}, -- Ether +1
+            { 420, 4130}, -- Ether +2
+            { 600, 4145}, -- Elixer
+            { 820, 4148}, -- Antidote
+            { 730, 4150}, -- Eye Drops
+            { 750, 4151}, -- Echo Drops
+            { 350, 4155}, -- Remedy
+            {1020, 4164}, -- Prism Powder
+            { 940, 4165}, -- Silent Oil
+            { 420, 4202}, -- Daedalus Wing
+            { 660, 4300}, -- Apple Au Lait
+            { 250, 4423}, -- Apple Juice
+        },
+        items =
+        {
+        ----------------------------------
+        --| Weight | Item ID |   Name  |--
+        ----------------------------------
+            {1700,   505}, -- Sheepskin
+            {4500,   640}, -- Copper Ore
+            {2500,   641}, -- Tin Ore
+            {3450,   642}, -- Zinc Ore
+            {2000,   688}, -- Arrowwood Log
+            {1020,   698}, -- Ash Log
+            {4200,   656}, -- Beastcoin
+            {5000,   768}, -- Flint Stone
+            {1250,   818}, -- Cotton Thread
+            {1300,   833}, -- Moko Grass
+            { 800,   840}, -- Chocobo Feather
+            {3600,   846}, -- Insect Wing
+            {3000,   912}, -- Beehive Chip
+            { 700,   943}, -- Poison Dust
+            {2400,  1214}, -- Handful of Stone Arrowheads x33
+            {4900,  4112}, -- Potion
+            {3590,  4148}, -- Antidote
+            {1150,  4150}, -- Eye Drops
+            {1360,  4151}, -- Echo Drops
+            {2900,  4370}, -- Honey
+            { 600, 12290}, -- Maple Shield
+            { 495, 12440}, -- Leather Bandana
+            { 450, 12449}, -- Brass Cap
+            { 190, 12456}, -- Hachimaki
+            { 530, 12608}, -- Tunic
+            { 460, 12696}, -- Leather Gloves
+            { 340, 12705}, -- Brass Mittens
+            { 168, 12712}, -- Tekko
+            { 310, 12736}, -- Mitts
+            { 475, 12824}, -- Leather Trousers
+            { 280, 12833}, -- Brass Subligar
+            { 235, 12840}, -- Sitabaki
+            { 422, 12864}, -- Slacks
+            { 250, 12961}, -- Brass Leggings
+            { 287, 12992}, -- Solea
+            { 500, 13081}, -- Leather Gorget
+            { 300, 16407}, -- Brass Baghnakhs
+            { 120, 16530}, -- Xiphos
+            { 320, 17050}, -- Willow Wand
+        }
+    },
 }

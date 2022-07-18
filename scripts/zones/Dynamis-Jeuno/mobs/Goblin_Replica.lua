@@ -3,11 +3,17 @@
 --  Mob: Goblin Replica
 -----------------------------------
 require("scripts/globals/dynamis")
+local ID = require("scripts/zones/Dynamis-Jeuno/IDs")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
     dynamis.refillStatueOnSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 300)
+end
+
+function onMobFight(mob, target)
+    dynamis.refillStatueRestore(mob, player, isKiller)
 end
 
 

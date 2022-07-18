@@ -100,7 +100,7 @@ function utils.rampartstoneskin(target, dmg)
     return dmg
 end
 
-function utils.mobSelfErase(target)
+function utils.FullSelfEraseNa(target)
     local removables =
     {
         tpz.effect.FLASH, tpz.effect.BLINDNESS, tpz.effect.ELEGY, tpz.effect.REQUIEM, tpz.effect.PARALYSIS, tpz.effect.POISON,
@@ -113,7 +113,7 @@ function utils.mobSelfErase(target)
         tpz.effect.SLUGGISH_DAZE_1, tpz.effect.SLUGGISH_DAZE_2, tpz.effect.SLUGGISH_DAZE_3, tpz.effect.SLUGGISH_DAZE_4, tpz.effect.SLUGGISH_DAZE_5,
         tpz.effect.LETHARGIC_DAZE_1, tpz.effect.LETHARGIC_DAZE_2, tpz.effect.LETHARGIC_DAZE_3, tpz.effect.LETHARGIC_DAZE_4, tpz.effect.LETHARGIC_DAZE_5,
         tpz.effect.WEAKENED_DAZE_1, tpz.effect.WEAKENED_DAZE_2, tpz.effect.WEAKENED_DAZE_3, tpz.effect.WEAKENED_DAZE_4, tpz.effect.WEAKENED_DAZE_5,
-        tpz.effect.HELIX, tpz.effect.KAUSTRA
+        tpz.effect.HELIX, tpz.effect.KAUSTRA, tpz.effect.SILENCE,
     }
 
     for i, effect in ipairs(removables) do
@@ -602,5 +602,20 @@ end
 function utils.randomEntry(t)
     local _, item = utils.randomEntryIdx(t)
     return item
+end
+
+function utils.getMoonPhase()
+    local moon = VanadielMoonPhase()
+	if moon > 90 then 
+        return 'Full'
+    elseif moon >= 60 and moon < 90 then 
+        return 'Gibbeus'
+    elseif moon >= 40 and moon < 60 then 
+        return 'Quarter'
+    elseif moon >= 10 and moon < 40 then 
+        return 'Cresecent'
+    elseif moon < 10 then 
+        return 'New'
+	end
 end
 

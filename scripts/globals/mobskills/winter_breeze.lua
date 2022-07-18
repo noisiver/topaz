@@ -16,7 +16,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local DISPEL = target:dispelStatusEffect()
 
-    MobStatusEffectMove(mob, target, tpz.effect.STUN, 1, 0, 2)
+    MobStatusEffectMove(mob, target, tpz.effect.STUN, 1, 0, 8)
 
     if (DISPEL == tpz.effect.NONE) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect

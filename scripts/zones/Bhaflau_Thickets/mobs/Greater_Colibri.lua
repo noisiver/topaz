@@ -5,6 +5,8 @@
 mixins = {require("scripts/mixins/families/colibri_mimic")}
 local ID = require("scripts/zones/Bhaflau_Thickets/IDs")
 -----------------------------------
+function onMobFight(mob, target)
+end
 
 function onMobDeath(mob, player, isKiller)
     player:addCurrency("zeni_point", 10)

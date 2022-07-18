@@ -1,7 +1,8 @@
 ---------------------------------------------
 -- Autumn Breeze
 --
--- Description: Recovers HP.
+-- Description: Recovers HP and gains regen.
+-- Regen cannot be dispelled.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -25,7 +26,12 @@ function onMobWeaponSkill(target, mob, skill)
     carabosse : 100-250 ish (lowest lv mob of the 3)
     ]]
     local heal = math.random(200, 400)
+    local typeEffect = tpz.effect.REGEN
+    local power = 10
 
+    MobBuffMove(mob, typeEffect, power, 3, 300)
+    local effect1 = mob:getStatusEffect(typeEffect)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
     return MobHealMove(mob, heal)

@@ -1,5 +1,6 @@
 -----------------------------------------
 -- Spell: Foe Requiem VII
+-- Notes: Doubled damage from retail for players ONLY
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -13,7 +14,7 @@ end
 function onSpellCast(caster, target, spell)
     local effect = tpz.effect.REQUIEM
     local duration = 160
-    local power = 50
+    local power = 16
 
     local pCHR = caster:getStat(tpz.mod.CHR)
     local mCHR = target:getStat(tpz.mod.CHR)

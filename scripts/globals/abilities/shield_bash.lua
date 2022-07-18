@@ -8,6 +8,7 @@
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/utils")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -19,6 +20,11 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
+
+    -- Check for PD
+    if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) then
+        return ability:setMsg(tpz.msg.basic.JA_MISS)
+    end
 
     local shieldSize = player:getShieldSize()
     local damage = 0
@@ -70,8 +76,13 @@ function onUseAbility(player, target, ability)
     local pdif = math.random(ratio * 0.8 * 1000, ratio * 1.2 * 1000)
 
     -- printf("damge %d, ratio: %f, pdif: %d\n", damage, ratio, pdif)
-
     damage = damage * (pdif / 1000)
+
+    -- Check for Invincible
+    if target:hasStatusEffect(tpz.effect.INVINCIBLE) then
+        damage = 0
+    end
+
     damage = utils.stoneskin(target, damage)
     target:takeDamage(damage, player, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
     target:updateEnmityFromDamage(player, damage)

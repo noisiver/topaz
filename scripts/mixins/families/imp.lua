@@ -9,7 +9,7 @@ g_mixins.families.imp = function(mob)
     -- this can be overridden in onMobSpawn
 
     mob:addListener("SPAWN", "IMP_SPAWN", function(mob)
-        mob:setLocalVar("HornBreakChance", 10)
+        mob:setLocalVar("HornBreakChance", 5)
     end)
 
     mob:addListener("COMBAT_TICK", "IMP_COMBAT_TICK", function(mob)
@@ -54,6 +54,14 @@ g_mixins.families.imp = function(mob)
 			end
 		end
 	end)
+
+    mob:addListener("DEATH", "IMP_DEATH", function(mob, killer)
+        if (mob:AnimationSub() >= 1) then
+            if killer and (math.random(1,100) <= 5) then 
+                killer:addTreasure(2157, mob) --Imp Horn
+            end
+        end
+    end)
 
 end
 

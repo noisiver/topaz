@@ -152,7 +152,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         -- https://www.bg-wiki.com/bg/Critical_Hit_Rate
         -- Crit rate has a base of 5% and no cap, 0-100% are valid
         -- Dex contribution to crit rate is capped and works in tiers
-        local baseCritRate = 5
+        local baseCritRate = 20
         local maxCritRate = 1 -- 100%
         local minCritRate = 0 -- 0%
 
@@ -277,6 +277,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
         end
 
         while numHitsProcessed < numHitsLanded do
+            if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)

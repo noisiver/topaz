@@ -140,7 +140,8 @@ tpz.mob.additionalEffect =
     WEIGHT     = 27,
     FLASH      = 28,
     RECOVER_MP = 29,
-    SLEEP      = 30
+    SLEEP      = 30,
+    DOOM       = 31
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -155,9 +156,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.BLINDNESS,
         power = 20,
-        duration = 180,
+        duration = 30,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
     },
     [tpz.mob.ae.CURSE] =
     {
@@ -168,9 +169,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.CURSE_I,
         power = 50,
-        duration = 1800,
+        duration = 30,
         minDuration = 1,
-        maxduration = 1800,
+        maxduration = 30,
     },
     [tpz.mob.ae.ENAERO] =
     {
@@ -253,9 +254,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.EVASION_DOWN,
         power = 25,
-        duration = 180,
+        duration = 30,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
     },
     [tpz.mob.ae.HP_DRAIN] =
     {
@@ -286,9 +287,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.PARALYSIS,
         power = 20,
-        duration = 180,
+        duration = 30,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
     },
     [tpz.mob.ae.PETRIFY] =
     {
@@ -301,7 +302,7 @@ local additionalEffects =
         power = 1,
         duration = 10,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
     },
     [tpz.mob.ae.PLAGUE] =
     {
@@ -314,7 +315,8 @@ local additionalEffects =
         power = 1,
         duration = 60,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
+        tick = 3,
     },
     [tpz.mob.ae.POISON] =
     {
@@ -324,10 +326,10 @@ local additionalEffects =
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.POISON,
-        power = 10,
-        duration = 180,
+        power = 3,
+        duration = 30,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
         tick = 3,
     },
     [tpz.mob.ae.SILENCE] =
@@ -339,9 +341,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.SILENCE,
         power = 1,
-        duration = 180,
+        duration = 30,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
     },
     [tpz.mob.ae.SLOW] =
     {
@@ -352,9 +354,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.SLOW,
         power = 2500,
-        duration = 180,
+        duration = 30,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
     },
     [tpz.mob.ae.STUN] =
     {
@@ -396,7 +398,7 @@ local additionalEffects =
         power = 20,
         duration = 60,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
     },
     [tpz.mob.ae.DISPEL] =
     {
@@ -418,7 +420,7 @@ local additionalEffects =
         power = 1,
         duration = 60,
         minDuration = 1,
-        maxDuration = 180,
+        maxDuration = 30,
     },
     [tpz.mob.ae.AMNESIA] =
     {
@@ -429,9 +431,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.AMNESIA,
         power = 1,
-        duration = 180,
+        duration = 15,
         minDuration = 1,
-        maxDuration = 60,
+        maxDuration = 15,
     },
     [tpz.mob.ae.BIND] =
     {
@@ -442,9 +444,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.BIND,
         power = 1,
-        duration = 180,
+        duration = 30,
         minDuration = 1,
-        maxDuration = 45,
+        maxDuration = 15,
     },
     [tpz.mob.ae.WEIGHT] =
     {
@@ -455,9 +457,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.WEIGHT,
         power = 25,
-        duration = 180,
+        duration = 30,
         minDuration = 1,
-        maxDuration = 60,
+        maxDuration = 30,
     },
     [tpz.mob.ae.FLASH] =
     {
@@ -470,14 +472,14 @@ local additionalEffects =
         power = 300,
         duration = 3,
         minDuration = 1,
-        maxduration = 180,
+        maxduration = 30,
     },
     [tpz.mob.ae.RECOVER_MP] =
         -- Used by Achamoth. Additional effect: Achamoth recovers 30 MP.
     {
         chance = 100,
         ele = tpz.magic.ele.DARK,
-        sub = tpz.subEffect.NONE,
+        sub = tpz.subEffect.MP_DRAIN,
         msg = tpz.msg.basic.ADD_EFFECT_MP_HEAL,
         power = 30,
         code = function(mob, target, power) mob:addMP(power) end,
@@ -490,11 +492,25 @@ local additionalEffects =
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.SLEEP,
-        power = 300,
-        duration = 60,
+        power = 1,
+        duration = 30,
         minDuration = 0,
-        maxduration = 60,
+        maxduration = 30,
         code = function(mob, target, power) mob:resetEnmity(target) end,
+    },
+    [tpz.mob.ae.DOOM] =
+    {
+        chance = 100,
+        ele = tpz.magic.ele.DARK,
+        sub = tpz.subEffect.DOOM,
+        msg = tpz.msg.basic.ADD_EFFECT_STATUS,
+        applyEffect = true,
+        eff = tpz.effect.DOOM,
+        power = 10,
+        duration = 30,
+        minDuration = 0,
+        maxduration = 30,
+        tick = 3,
     },
 }
 
@@ -515,16 +531,13 @@ tpz.mob.onAddEffect = function(mob, target, damage, effect, params)
 
     if ae then
         local chance = params.chance or ae.chance or 100
-        local dLevel = target:getMainLvl() - mob:getMainLvl()
 
-        if dLevel > 0 then
-            chance = chance - 5 * dLevel
-            chance = utils.clamp(chance, 5, 95)
-        end
 
         -- target:PrintToPlayer(string.format("Chance: %i", chance)) -- DEBUG
 
-        if math.random(100) <= chance and math.random()*100 > target:getBlockRate(mob) then -- Blocks stop additonal effects
+        -- Shield blocks and Fealty stop additonal effects
+        if math.random(100) <= chance and math.random()*100 > target:getBlockRate(mob) and
+        not target:hasStatusEffect(tpz.effect.FEALTY) then 
 
             -- STATUS EFFECT
             if ae.applyEffect then
@@ -535,12 +548,11 @@ tpz.mob.onAddEffect = function(mob, target, damage, effect, params)
 
                 if resist >= 0.5 and not target:hasStatusEffect(ae.eff) then
                     local power = params.power or ae.power or 0
+                    if (ae.eff == tpz.effect.POISON) then
+                        power = (mob:getMainLvl() / 4) + 3
+                    end
                     local tick = ae.tick or 0
                     local duration = params.duration or ae.duration
-
-                    if dLevel < 0 then
-                        duration = duration - dLevel
-                    end
 
                     if ae.minDuration and duration < ae.minDuration then
                         duration = ae.minDuration

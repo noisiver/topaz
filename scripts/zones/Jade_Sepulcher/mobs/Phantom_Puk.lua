@@ -22,7 +22,7 @@ function onMobFight(mob, target)
     local now = os.time()
     if mob:getLocalVar("boreas_mantle") <= now then
         mob:useMobAbility(1980)
-        mob:setLocalVar("boreas_mantle", now + 90)
+        mob:setLocalVar("boreas_mantle", now + 45)
     end
 end
 

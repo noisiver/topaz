@@ -14,7 +14,7 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
 	local CurrentTP = mob:getTP()
 	mob:setLocalVar("TP", CurrentTP)
-		return 0
+	return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)

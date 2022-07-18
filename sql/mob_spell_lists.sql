@@ -724,33 +724,33 @@ INSERT INTO `mob_spell_lists` VALUES ('Suzaku',27,235,1,255);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,144,13,20);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,145,38,45);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,146,62,72);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,147,73,85);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,148,86,255);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,147,73,94);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,148,95,255); -- Fire V
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,149,17,25);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,150,42,54);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,151,64,67);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,152,74,88);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,153,89,255);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,152,74,94);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,153,95,255); -- Blizzard V
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,154,9,15);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,155,34,41);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,156,59,63);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,157,72,82);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,158,83,255);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,157,72,94);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,158,95,255); -- Aero V
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,159,1,8);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,160,26,34);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,161,51,58);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,162,68,72);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,163,77,255);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,162,68,94);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,163,95,255); -- Stone V
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,164,21,30);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,165,46,54);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,166,66,69);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,167,75,92);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,168,92,255);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,167,75,94);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,168,95,255); -- Thunder V
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,169,5,29);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,170,30,37);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,171,55,61);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,172,70,79);
-INSERT INTO `mob_spell_lists` VALUES ('Undead',28,173,80,255);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,172,70,94);
+INSERT INTO `mob_spell_lists` VALUES ('Undead',28,173,95,255); -- Water V
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,174,28,35);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,175,53,60);
 INSERT INTO `mob_spell_lists` VALUES ('Undead',28,176,69,255);
@@ -4871,7 +4871,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,20,1,255);  -- Cursna
 INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,21,1,255);  -- Holy
 INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,39,1,255);  -- Banishga II
 INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,129,1,255);  -- Protectra V
-INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,134,1,255);  -- Shellra IV
+INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,134,1,255);  -- Shellra V
 INSERT INTO `mob_spell_lists` VALUES ('Achamoth',2056,358,1,255);  -- Hastega
 
 
@@ -5024,6 +5024,81 @@ INSERT INTO `mob_spell_lists` VALUES ('Shikigami_Weapon',2066,276,1,255); -- Bli
 
 INSERT INTO `mob_spell_lists` VALUES ('Ogmios',2067,359,1,255); -- Silencega
 INSERT INTO `mob_spell_lists` VALUES ('Ogmios',2067,360,1,255); -- Dispelga
+
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 181, 1, 255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 186, 1, 255); -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 191, 1, 255); -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 196, 1, 255); -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 201, 1, 255); -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 148, 1, 255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 153, 1, 255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 158, 1, 255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 163, 1, 255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 168, 1, 255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Elemental',2068, 173, 1, 255); -- Water V
+
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,35,1,255); -- diaga_III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,274,1,255); -- sleepga_II
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,356,1,255); -- paralyga
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,357,1,255); -- slowga
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,359,1,255); -- silencega
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,360,1,255); -- dispelga
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Enfeebling',2069,365,1,255); -- breakga
+
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Divine',2070,22,1,255); -- Holy II
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Divine',2070,31,1,255); -- Banish IV
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Divine',2070,40,1,255); -- Banishga III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Divine',2070,98,1,255); -- Repose
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Divine',2070,112,1,255); -- Flash
+
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Dark',2071,232,1,255); -- bio III
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Dark',2071,246,1,255); -- drain II
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Dark',2071,248,1,255); -- aspir II
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Dark',2071,252,1,255); -- stun
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Dark',2071,275,1,255); -- absorb-tp
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Dark',2071,277,1,255); -- dread_spikes
+
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 5, 1, 255);  -- Cure V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 10, 1, 255);  -- Curaga IV
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 106, 1, 255); -- Phalanx
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 47, 1, 255);  -- Protect V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 52, 1, 255);  -- Shell V
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 477, 1, 255);  -- Regen IV
+INSERT INTO `mob_spell_lists` VALUES ('MMM_Healing', 2072, 511, 1, 255);  -- Haste II
+
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,5,1,255);   -- Cure V
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,10,1,255);  -- Curaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,14,1,255);  -- Poisona
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,15,1,255);  -- Paralyna
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,16,1,255);  -- Blindna
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,17,1,255);  -- Silena
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,18,1,255);  -- Stona
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,19,1,255);  -- Viruna
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,20,1,255);  -- Cursna
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,21,1,255);  -- Holy
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,34,1,255);  -- Diaga II
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,40,1,255);  -- Banishga III
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,53,1,255);  -- Blink
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,54,1,255);  -- Stoneskin
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,55,1,255);  -- Aquaveil
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,56,1,255);  -- Slow
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,57,1,255);  -- Haste
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,58,1,255);  -- Paralyze
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,59,1,255);  -- Silence
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,129,1,255);  -- Protectra V
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,134,1,255);  -- Shellra V
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,143,1,255);  -- Erase
+INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,367,1,255);  -- Death
+
+INSERT INTO `mob_spell_lists` VALUES ('Iqi-Balam',2074,167,1,255); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Iqi-Balam',2074,212,1,255); -- Burst
+
+INSERT INTO `mob_spell_lists` VALUES ('Khadem_Quemquoma',2075,226,1,255); -- Poisonga II
+
+
+
+
 
 
 

@@ -42,9 +42,10 @@ TP_RANGED = 4
 
 BOMB_TOSS_HPP = 1
 
-function MobRangedMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect)
-    -- this will eventually contian ranged attack code
-    return MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, TP_RANGED)
+function MobRangedMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, params_phys)
+    -- All formula changes for being ranged are handled in MobPhysicalMove via the TP_RANGED param
+    -- A MOVE WILL NOT BE CONSIDERED RANGED I YOU DON'T SET THE tpeffect to TP_RANGED!
+    return MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, TP_RANGED, params_phys)
 end
 
 -- PHYSICAL MOVE FUNCTION
@@ -100,7 +101,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     end
 
     ratio = ratio + lvldiff * 0.05
-    ratio = utils.clamp(ratio, 0, 4)
+    ratio = utils.clamp(ratio, 0, 2)
 
     --work out hit rate for mobs (bias towards them)
     local hitrate = (acc*accmod) - eva + (lvldiff*2) + 75
@@ -156,8 +157,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         maxRatio = ratio + 0.3
     elseif ((1.2 < ratio) and (ratio <= 1.5)) then
         maxRatio = (ratio * 0.25) + ratio
-    elseif ((1.5 < ratio) and (ratio <= 2.0)) then
-        maxRatio = 2 -- https://forum.square-enix.com/ffxi/threads/31310-March-27-2013-%28JST%29-Version-Update 2.0 in era
+    elseif ((1.5 < ratio) and (ratio <= 2.625)) then
+        maxRatio = utils.clamp(ratio + 0.375, 0, 2)
+    elseif ((2.625 < ratio) and (ratio <= 3.25)) then
+        maxRatio = 2
     else
         maxRatio = ratio
     end
@@ -206,13 +209,12 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local critAttackBonus = 1 + ((mob:getMod(tpz.mod.CRIT_DMG_INCREASE) - target:getMod(tpz.mod.CRIT_DEF_BONUS)) / 100)
 
     if ((chance*100) <= firstHitChance) then
-        local isCrit = math.random() < critRate
 
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
-        if isCrit then
+        if IsCrit(mob, critRate) then
             -- Ranged crits are pdif * 1.25
-            if attackType == tpz.attackType.RANGED then
+            if (tpeffect==TP_RANGED) then
                 pdif = pdif * 1.25
                 pdif = pdif * critAttackBonus
             else
@@ -255,6 +257,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     elseif math.random() < doubleRate then
         bonusHits = bonusHits + 1
     end
+
+    -- Ranged attacks can't multihit
+    if (tpeffect==TP_RANGED) then bonusHits = 0 end
+
     -- Add multi-hit procs
     numberofhits = numberofhits + bonusHits
     -- Cap at 8 hits
@@ -262,14 +268,13 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     while (hitsdone < numberofhits) do
         chance = math.random()
-        local isCrit = math.random() < critRate
 
         if ((chance*100)<=hitrate) then --it hit
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
-            if isCrit then
+            if IsCrit(mob, critRate) then
                 -- Ranged crits are pdif * 1.25
-                if attackType == tpz.attackType.RANGED then
+                if (tpeffect==TP_RANGED) then
                     pdif = pdif * 1.25
                     pdif = pdif * critAttackBonus
                 else
@@ -447,8 +452,17 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     end
 
     local p = getMagicHitRate(mob, target, 0, element, percentBonus, magicaccbonus)
+    local resist = getMagicResist(p)
 
-    return getMagicResist(p)
+    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
+        resist = resist / 2
+    end
+
+    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        resist = 1/8
+    end
+
+    return resist
 end
 
 function mobAddBonuses(caster, spell, target, dmg, ele)
@@ -667,55 +681,27 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         target:setLocalVar("analyzer_hits", analyzerHits)
     end
 
+    -- Handle Boost status effect
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
-
-        dmg = target:physicalDmgTaken(dmg, damageType)
-        if not target:isPC() then
-                local hthres = target:getMod(tpz.mod.HTHRES)
-                local pierceres = target:getMod(tpz.mod.PIERCERES)
-                local impactres = target:getMod(tpz.mod.IMPACTRES)
-                local slashres = target:getMod(tpz.mod.SLASHRES)
-                local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
-                
-                if damageType == tpz.damageType.HTH then
-                    if hthres < 1000 then
-                        dmg = dmg * (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
-                    else
-                        dmg = dmg * hthres / 1000
-                    end
-                elseif damageType == tpz.damageType.PIERCING then
-                    if pierceres < 1000 then
-                        dmg = dmg * (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
-                    else
-                        dmg = dmg * pierceres / 1000
-                    end
-                elseif damageType == tpz.damageType.BLUNT then
-                    if impactres < 1000 then
-                        dmg = dmg * (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
-                    else
-                        dmg = dmg * impactres / 1000
-                    end
-                else
-                    if slashres < 1000 then
-                        dmg = dmg * (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
-                    else
-                        dmg = dmg * slashres / 1000
-                    end
-                end
+        if mob:hasStatusEffect(tpz.effect.BOOST) then
+            dmg = dmg * 2
         end
+    end
 
+    -- Handle weapon resist on pets(like blunt damage)
+    if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
+        dmg = dmg * HandlePetWeaponResist(target, damageType)
+    end
+
+    -- Handle damage type resistances
+    if attackType == tpz.attackType.PHYSICAL then
+        dmg = target:physicalDmgTaken(dmg, damageType)
     elseif (attackType == tpz.attackType.MAGICAL) then
-
         dmg = target:magicDmgTaken(dmg)
-
     elseif (attackType == tpz.attackType.BREATH) then
-
         dmg = target:breathDmgTaken(dmg)
-
     elseif (attackType == tpz.attackType.RANGED) then
-
         dmg = target:rangedDmgTaken(dmg)
-
     end
 
     --handling phalanx
@@ -737,6 +723,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         target:handleAfflatusMiseryDamage(dmg)
     end
 
+    mob:delStatusEffectSilent(tpz.effect.BOOST)
     return dmg
 end
 
@@ -894,7 +881,7 @@ end
 -- Adds a status effect to a target
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
 	    return tpz.msg.basic.SKILL_NO_EFFECT
     end
 
@@ -906,6 +893,11 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+        -- Doom can't have a lower duration from resisting!
+        if (resist < 1) and (typeEffect == tpz.effect.DOOM) then
+            return tpz.msg.basic.SKILL_MISS 
+        end
 
         if (resist >= 0.50) then
 
@@ -969,14 +961,14 @@ end
 
 function MobEncumberMove(mob, target, maxSlots, duration)
     local statmod = tpz.mod.INT
-    local element = mob:getStatusEffectElement(tpz.effect.ENCUMBRANCE_I)
+    local element = tpz.magic.ele.WATER
 
     local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+    if target:hasStatusEffect(tpz.effect.FEALTY) then
 	    resist = 0.25
     end
 
@@ -1025,7 +1017,7 @@ end
 function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
         local statmod = tpz.mod.CHR
-        local element = mob:getStatusEffectElement(tpz.effect.CHARM_I)
+        local element = tpz.magic.ele.LIGHT
 
         local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
         local eleres = target:getMod(element+53)
@@ -1033,11 +1025,11 @@ function MobCharmMove(mob, target, skill, costume, duration)
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
-		skill:setMsg(tpz.msg.basic.SKILL_MISS)
+		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
 	end
 	
 	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
-		if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
 		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
         	MobStatusEffectMove(mob, target, tpz.effect.CHARM_I, 0, 3, duration * resist)
@@ -1047,6 +1039,31 @@ function MobCharmMove(mob, target, skill, costume, duration)
         end
 	else
 	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	end
+end
+
+function MobDeathMove(mob, target, skill)
+        local statmod = tpz.mod.INT
+        local element = tpz.magic.ele.DARK
+
+        local resist = applyPlayerResistance(mob, tpz.effect.KO, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and resist < 0.5  then resist = 0.5
+        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+	if (not target:isPC()) then
+		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	end
+	
+	if resist >= 0.5 then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		else
+            target:setHP(0)
+            return skill:setMsg(tpz.msg.basic.FALL_TO_GROUND)
+        end
+	else
+	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
 end
 
@@ -1124,6 +1141,42 @@ function getMobDexCritRate(mob, target)
     return math.min(critRate, 15) * sign
 end
 
+function getMobRandRatio(wRatio)
+    local qRatio = wRatio
+    local upperLimit = 0
+    local lowerLimit = 0
+    -- https://forum.square-enix.com/ffxi/threads/31310-March-27-2013-%28JST%29-Version-Update 2.0 in era
+    local maxRatio = 2.0
+
+    if wRatio < 0.5 then
+        upperLimit = math.max(wRatio + 0.5, 0.5)
+    elseif wRatio < 0.7 then
+        upperLimit = 1
+    elseif wRatio < 1.2 then
+        upperLimit = wRatio + 0.3
+    elseif wRatio < 1.5 then
+        upperLimit = wRatio * 1.25
+    else
+        upperLimit = math.min(wRatio + 0.375, maxRatio)
+    end
+
+    if wRatio < 0.38 then
+        lowerLimit = math.max(wRatio, 0.5)
+    elseif wRatio < 1.25 then
+        lowerLimit = (wRatio * (1176/1024)) - (448/1024)
+    elseif wRatio < 1.51 then
+        lowerLimit = 1
+    elseif wRatio < 2.44 then
+        lowerLimit = (wRatio * (1176/1024)) - (755/1024)
+    else
+        lowerLimit = math.min(wRatio - 0.375, maxRatio)
+    end
+    -- Randomly pick a value between lower and upper limits for qRatio
+    qRatio = lowerLimit + (math.random() * (upperLimit - lowerLimit))
+
+    return qRatio
+end
+
 function getMobFSTR(weaponDmg, mobStr, targetVit)
     -- https://www.bluegartr.com/threads/114636-Monster-Avatar-Pet-damage
     -- fSTR for mobs has no cap and a lower bound of floor(weaponDmg/9)
@@ -1149,6 +1202,16 @@ function getMobFSTR(weaponDmg, mobStr, targetVit)
 
     local min = math.floor(weaponDmg/9)
     return math.max(-min, fSTR)
+end
+
+function IsCrit(mob, critRate)
+    if math.random() < critRate then
+        return true
+    end
+    if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+        return true
+    end
+    return false
 end
 
 function getMobWSC(mob, tpeffect)
@@ -1316,4 +1379,44 @@ function getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist,
     -- Formula is ((Lvl*2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     -- Avatars Formula is ((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     return math.floor(((mobLevel*2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
+end
+
+function HandlePetWeaponResist(target, damageType)
+    local weaponResist = 1
+
+    if not target:isPC() then
+        local hthres = target:getMod(tpz.mod.HTHRES)
+        local pierceres = target:getMod(tpz.mod.PIERCERES)
+        local impactres = target:getMod(tpz.mod.IMPACTRES)
+        local slashres = target:getMod(tpz.mod.SLASHRES)
+        local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
+
+        if damageType == tpz.damageType.HTH then
+            if hthres < 1000 then
+                weaponResist = (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = hthres / 1000
+            end
+        elseif damageType == tpz.damageType.PIERCING then
+            if pierceres < 1000 then
+                weaponResist = (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = pierceres / 1000
+            end
+        elseif damageType == tpz.damageType.BLUNT then
+            if impactres < 1000 then
+                weaponResist = (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = impactres / 1000
+            end
+        elseif damageType == tpz.damageType.SLASHING then
+            if slashres < 1000 then
+                weaponResist = (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = slashres / 1000
+            end
+        end
+    end
+
+    return weaponResist
 end

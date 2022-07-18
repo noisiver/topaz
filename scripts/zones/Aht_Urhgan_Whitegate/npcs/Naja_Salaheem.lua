@@ -29,7 +29,7 @@ function onTrigger(player, npc)
     elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.PFC_WILDCAT_BADGE) and player:hasKeyItem(tpz.ki.SP_WILDCAT_BADGE) == false) then
         player:startEvent(5022, 0, 0, 0, 0, 0, 0, 0, 0, 0) -- Superior Private rank complete
     -- All below need proper CS ID
-    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.LC_WILDCAT_BADGE) == false) then
+    elseif (player:getCharVar("AssaultPromotion") >= 25 and player:hasKeyItem(tpz.ki.PFC_WILDCAT_BADGE) and player:hasKeyItem(tpz.ki.LC_WILDCAT_BADGE) == false) then
         player:PrintToPlayer("Nice job, now get back to work!",0,"Naja Salaheem")
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.LC_WILDCAT_BADGE)
         player:addKeyItem(tpz.ki.LC_WILDCAT_BADGE)

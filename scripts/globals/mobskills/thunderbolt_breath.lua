@@ -19,15 +19,12 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.THUNDER, 700)
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.LIGHTNING, MOBPARAM_IGNORE_SHADOWS)
 
     local typeEffect = tpz.effect.STUN
 
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 7)
-
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.THUNDER, 300)
-
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.LIGHTNING, MOBPARAM_IGNORE_SHADOWS)
-
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.LIGHTNING)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 8)
     return dmg
 end

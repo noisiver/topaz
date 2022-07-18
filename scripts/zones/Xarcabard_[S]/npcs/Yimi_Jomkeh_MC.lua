@@ -1,4 +1,3 @@
-
 -----------------------------------
 -- Area: Xarcabard [S]
 --  NPC: Yimi Jomkeh, M.C.

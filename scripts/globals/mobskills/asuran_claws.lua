@@ -17,27 +17,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 8
+    local numhits = 6
     local accmod = 1
-    local dmgmod = 0
-
-    local moon = VanadielMoonPhase()
-    if moon > 90 then -- Full Moon
-        dmgmod = 1
-    elseif moon > 75 then
-        dmgmod = 0.95
-    elseif moon > 60 then
-        dmgmod = 0.9
-    elseif moon > 40 then
-        dmgmod = 0.85
-    elseif moon > 25 then
-        dmgmod = 0.75
-    elseif moon > 10 then
-        dmgmod = 0.65
-    else
-        dmgmod = 0.65
-    end
-
+    local dmgmod = 1
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

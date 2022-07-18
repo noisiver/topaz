@@ -17,16 +17,16 @@ function onMobWeaponSkill(target, mob, skill)
     
     -- TODO: Figure out a more efficient way to steal all positive and negative
     --       status effects from players.
-    local effect1 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect2 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect3 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect4 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect5 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect6 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect7 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect8 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect9 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
-    local effect10 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE)
+    local effect1 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect2 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect3 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect4 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect5 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect6 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect7 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect8 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect9 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
+    local effect10 = mob:stealStatusEffect(target, tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD)
     local dmg = 0
 
     if (effect1 ~= 0) then

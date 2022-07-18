@@ -28,7 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ICE)
 	MobStatusEffectMove(mob, target, typeEffect, 33, 0, 300)
 	MobStatusEffectMove(mob, target, typeEffectTwo, 20, 0, 300)
-	MobStatusEffectMove(mob, target, typeEffectThree, 1, 0, 30)
+	MobStatusEffectMove(mob, target, typeEffectThree, 1, 0, 60)
 
 	return dmg
 end

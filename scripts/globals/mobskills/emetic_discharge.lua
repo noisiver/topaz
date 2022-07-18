@@ -31,19 +31,23 @@ function onMobWeaponSkill(target, mob, skill)
         tpz.effect.MAGIC_DEF_DOWN, tpz.effect.CRIT_HIT_EVASION_DOWN, tpz.effect.MAX_TP_DOWN, tpz.effect.MAX_MP_DOWN, tpz.effect.MAX_HP_DOWN,
         tpz.effect.SLUGGISH_DAZE_1, tpz.effect.SLUGGISH_DAZE_2, tpz.effect.SLUGGISH_DAZE_3, tpz.effect.SLUGGISH_DAZE_4, tpz.effect.SLUGGISH_DAZE_5,
         tpz.effect.LETHARGIC_DAZE_1, tpz.effect.LETHARGIC_DAZE_2, tpz.effect.LETHARGIC_DAZE_3, tpz.effect.LETHARGIC_DAZE_4, tpz.effect.LETHARGIC_DAZE_5,
-        tpz.effect.WEAKENED_DAZE_1, tpz.effect.WEAKENED_DAZE_2, tpz.effect.WEAKENED_DAZE_3, tpz.effect.WEAKENED_DAZE_4, tpz.effect.WEAKENED_DAZE_5
+        tpz.effect.WEAKENED_DAZE_1, tpz.effect.WEAKENED_DAZE_2, tpz.effect.WEAKENED_DAZE_3, tpz.effect.WEAKENED_DAZE_4, tpz.effect.WEAKENED_DAZE_5,
+        tpz.effect.HELIX, tpz.effect.KAUSTRA, tpz.effect.SILENCE,
     }
 
-
-    local dmg = utils.takeShadows(target, 1, 3) 
-        for i, effect in ipairs(removables) do
-            if (mob:hasStatusEffect(effect)) then
-                local statusEffect = mob:getStatusEffect(effect)
-                target:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
-                mob:delStatusEffect(effect)
-            end
+    local msg = tpz.effect.POISON
+    local dmg = utils.takeShadows(target, 1, math.random(2, 3)) 
+    for i, effect in ipairs(removables) do
+        if (mob:hasStatusEffect(effect)) then
+            local statusEffect = mob:getStatusEffect(effect)
+            target:addStatusEffect(effect, statusEffect:getPower(), statusEffect:getTickCount(), statusEffect:getDuration())
+            mob:delStatusEffectSilent(effect)
+            msg = effect
+            skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS) 
+        else
+            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
         end
+    end
 
-    skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
-    return 0
+    return msg
 end

@@ -31,31 +31,6 @@ function onRegionEnter(player, region)
 end
 
 function onGameHour(zone)
-    local Odqan = GetMobByID(16879737)
-    local ClusterOne = GetMobByID(16879777)
-    local ClusterTwo = GetMobByID(16879833)
-    local ClusterThree = GetMobByID(16879722)
-    local SpawnTimer = Odqan:getLocalVar("SpawnTimer")
-    local Time = os.time()
-    local vHour = VanadielHour()
-    if vHour >= 22 or vHour <= 7 then
-        MISAREAUX_COAST.ziphiusHandleQM()
-    end
-    if vHour >= 2 and vHour <= 8 and zone:getWeather() ~= GLOOM and zone:getWeather() ~= THUNDER and zone:getWeather() ~= WIND then
-        -- Atomic Clusters
-        if not ClusterOne:isSpawned() then
-            SpawnMob(16879777)
-        end
-        if not ClusterTwo:isSpawned() then
-            SpawnMob(16879833)
-        end
-        if not ClusterThree:isSpawned() then
-            SpawnMob(16879722)
-        end
-        if not Odqan:isSpawned() and Time >= SpawnTimer then
-            SpawnMob(Odqan)
-        end
-    end
 end
 
 function onEventUpdate(player, csid, option)

@@ -19,14 +19,12 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    local typeEffect = tpz.effect.DISEASE
-    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
-
-    local dmgmod = MobBreathMove(mob, target, 0.20, 1, tpz.magic.ele.FIRE, 300)
-
+    local dmgmod = MobBreathMove(mob, target, 0.20, 1, tpz.magic.ele.FIRE, 700)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 
+    local typeEffect = tpz.effect.DISEASE
+
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.FIRE)
+    MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
     return dmg
 end

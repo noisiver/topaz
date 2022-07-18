@@ -1,4 +1,5 @@
 require("scripts/globals/mixins")
+require("scripts/globals/weaponskillids")
 
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
@@ -12,7 +13,6 @@ g_mixins.families.acrolith = function(mob)
         mob:setLocalVar("PartBreakChance", 1)
     end)
 
-    -- 20% chance to break horn on critical hit
     mob:addListener("CRITICAL_TAKE", "ACROLITH_CRITICAL_TAKE", function(mob)
         local AnimationSub = mob:AnimationSub()
         if math.random(100) <= mob:getLocalVar("PartBreakChance") and AnimationSub == 0 and mob:actionQueueEmpty() then
@@ -22,7 +22,23 @@ g_mixins.families.acrolith = function(mob)
             mob:useMobAbility(2074) -- Detonating Grip
         end
     end)
-	
+
+	mob:addListener("WEAPONSKILL_TAKE", "ACROLITH_WS_TAKE", function(target, user, wsid)
+        if wsid == tpz.weaponskill      
+        or wsid == tpz.weaponskill       
+        or wsid == tpz.weaponskill       
+        or wsid == tpz.weaponskill      
+        or wsid == tpz.weaponskill       
+        or wsid == tpz.weaponskill       
+        or wsid == tpz.weaponskill      
+        or wsid == tpz.weaponskill      
+        or wsid == tpz.weaponskill      
+        or wsid == tpz.weaponskill      
+        or wsid == tpz.weaponskill      
+        or wsid == tpz.weaponskill then 
+        end
+    end)
+
 	-- chance to break when hit by an offensive JA(like box step)
 	mob:addListener("ABILITY_TAKE", "BREAK_CRITICAL_TAKE", function(mob, user, ability, action)
         local abilityID = ability:getID()

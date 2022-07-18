@@ -37,7 +37,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.STUN
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 4)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 8)
 
     return dmg
 end

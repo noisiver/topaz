@@ -13,7 +13,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.SHELL) then
+	if mob:hasStatusEffect(tpz.effect.SHELL) and mob:hasStatusEffect(tpz.effect.PROTECT) then
 		return 1
 	end
     return 0

@@ -6,6 +6,7 @@
 -----------------------------------
 mixins = {require("scripts/mixins/rage")}
 require("scripts/globals/status")
+require("scripts/globals/utils")
 -----------------------------------
 -- todo: when mimics a spell will cast the next tier spell
 
@@ -23,6 +24,10 @@ function onMobSpawn(mob)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:setLocalVar("changeTime", 60)
     mob:setLocalVar("useWise", math.random(25, 50))
+
+        -- Apply MACC Equal to A+ skill of their level so they will land mimiced spells
+        local skill = utils.getSkillLvl(1, mob:getMainLvl())
+        mob:setMod(tpz.mod.MACC, skill)
 end
 
 function onMobFight(mob, target)

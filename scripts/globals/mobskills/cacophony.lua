@@ -1,14 +1,16 @@
 ---------------------------------------------
 -- Cacophony
--- The enemy gains Magic Attack Bonus + Magic Defense Bonus.
+-- The enemy gains Counterstance + Haste
+-- Notes: Removes slow
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if mob:hasStatusEffect(tpz.effect.MAGIC_ATK_BOOST) or mob:hasStatusEffect(tpz.effect.MAGIC_DEF_BOOST) then
+	if mob:hasStatusEffect(tpz.effect.HASTE) and mob:hasStatusEffect(tpz.effect.COUNTERSTANCE) then
 		return 1
 	end
     -- animsub 1= standing, animsub 0 = all fours
@@ -19,44 +21,30 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect1 = tpz.effect.MAGIC_ATK_BOOST
-    local typeEffect2 = tpz.effect.MAGIC_DEF_BOOST
-    local mabTotal = mob:getStatusEffect(tpz.effect.MAGIC_ATK_BOOST)
-    local mdbTotal = mob:getStatusEffect(tpz.effect.MAGIC_DEF_BOOST)
-	
-    local moon = VanadielMoonPhase()
-    local buffvalue = 0
-    if moon > 90 then -- Full Moon
-        buffvalue = 50
-    elseif moon > 75 then
-        buffvalue = 45
-    elseif moon > 60 then
-        buffvalue = 35
-    elseif moon > 40 then
-        buffvalue = 25
-    elseif moon > 25 then
-        buffvalue = 15
-    elseif moon > 10 then
-        buffvalue = 10
-    else
-        buffvalue = 5
-    end
+    local typeEffect1 = tpz.effect.COUNTERSTANCE
+    local typeEffect2 = tpz.effect.HASTE
+    local moon = utils.getMoonPhase()
+    local moonpower = 5
 
-    if (mob:getStatusEffect(tpz.effect.MAGIC_ATK_BOOST) ~= nil) then -- mag atk bonus stacking
-        mabTotal = mabTotal:getPower() + buffvalue
-    else
-        mabTotal = buffvalue
-    end
-    if (mob:getStatusEffect(tpz.effect.MAGIC_DEF_BOOST) ~= nil) then -- mag def bonus stacking
-        mdbTotal = mdbTotal:getPower() + buffvalue
-    else
-        mdbTotal = buffvalue
-    end
-    -- print(mabTotal)
-    -- print(mdbTotal)
+    if (moon == 'Full') then
+        moonpower = 40
+    elseif (moon == 'Gibbeus') then
+        moonpower = 25
+    elseif (moon == 'Quarter') then
+         moonpower = 15
+    elseif (moon == 'Cresecent') then
+         moonpower = 10
+    elseif (moon == 'New') then
+         moonpower = 5
+	end
 
-    skill:setMsg(MobBuffMove(mob, typeEffect1, mabTotal, 0, 300))
-    MobBuffMove(mob, typeEffect2, mdbTotal, 0, 300)
+    local haste = moonpower * 10
+
+    mob:delStatusEffectSilent(tpz.effect.SLOW)
+    skill:setMsg(MobBuffMove(mob, typeEffect1, moonpower, 0, 300))
+    local effect1 = mob:getStatusEffect(typeEffect1)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
+    MobBuffMove(mob, typeEffect2, hastePower, 0, 300)
 
     return typeEffect1
 end
