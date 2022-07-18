@@ -2167,7 +2167,7 @@ INSERT INTO `mob_skills` VALUES (2207,14,'disorienting_waul',1,15.0,2000,1500,4,
 INSERT INTO `mob_skills` VALUES (2208,1952,'microspores',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2209,397,'blink_of_peril',4,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2210,1603,'petal_pirouette',1,15.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2211,1543,'aqua_fortis_autoattack',1,15.0,0,0,4,0,0,3,0,0,0);
+INSERT INTO `mob_skills` VALUES (2211,1543,'aqua_fortis_autoattack',1,7.0,0,0,4,0,0,3,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2212,1956,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2213,1957,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2214,1958,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
