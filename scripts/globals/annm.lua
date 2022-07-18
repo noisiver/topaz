@@ -847,7 +847,7 @@ tpz.annm.augment[tpz.items.BARONE_MANOPOLAS] =
         stat = tpz.augments.STR, 
         chance = 30,
         minimum = 0,
-        maximum = 5
+        maximum = 4
     },
     {
         stat = tpz.augments.DEX, 
