@@ -11,7 +11,7 @@ end
 function onTrigger(player, npc)
     if (npc:getID() == 17171014) then
         tpz.moblinmazemongers.OpenChest(player, npc)
-    elseif (npc:getID() == 1717101) then
+    elseif (npc:getID() == 17171015) then
         local possibleItems = {
            tpz.items.KAZARIDACHI,
            tpz.items.DARKSTEEL_HARNESS,

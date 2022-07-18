@@ -3,7 +3,7 @@
 --  NPC: Shredded Label
 -- Simorg ANNM
 -- !addkeyitem BLUE_LABELED_CRATE
--- !pos -176.000 25.249 96.000 89
+-- !pos -518.7025 -176 276.38 89
 -----------------------------------
 require("scripts/globals/annm")
 -----------------------------------

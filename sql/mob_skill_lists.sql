@@ -576,9 +576,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Gnat',131,2161);
 INSERT INTO `mob_skill_lists` VALUES ('Gnat',131,2162); -- emetic_discharge
 INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2170); -- fevered_pitch
 INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2171); -- call_of_the_moon
---INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2172); -- call_of_the_moon_down 4 legs
+INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2172); -- call_of_the_moon_down 4 legs
 INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2173); -- plenilune_embrace
---INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2174); -- plenilune_embrace_down 4 legs
+INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2174); -- plenilune_embrace_down 4 legs
 INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2175); -- nox_blast
 INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2176); -- asuran_claws
 INSERT INTO `mob_skill_lists` VALUES ('Gnole',132,2177); -- cacophony

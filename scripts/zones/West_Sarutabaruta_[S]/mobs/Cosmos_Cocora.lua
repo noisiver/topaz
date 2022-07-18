@@ -9,37 +9,53 @@ require("scripts/globals/status")
 require("scripts/globals/pathfind")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setLocalVar("PetalTime", 45)
+	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 50)
+    mob:setLocalVar("HeadbuttCheck", 0)
+    mob:setLocalVar("PetalTime", os.time() + 45)
     tpz.annm.NMMods(mob) 
 end
 
 function onMobRoam(mob)
 	local RunAroundTime = mob:getLocalVar("RunAroundTime")
+    local HeadbuttCheck = mob:getLocalVar("HeadbuttCheck")
+
 	if RunAroundTime == 0 then
 		return
 	elseif RunAroundTime < os.time() then
-		mob:setLocalVar("RunAroundTime",0)
-		mob:delRoamFlag(512)
-		return
-	end
-    -- Ensure he stays tagged
-    local NearbyPlayers = mob:getPlayersInRange(50)
+        -- Ensure he stays tagged
+        local NearbyPlayers = mob:getPlayersInRange(50)
         if NearbyPlayers == nil then return end
         if NearbyPlayers then
             for _,v in ipairs(NearbyPlayers) do
                 mob:updateClaim(v)
+                mob:updateEnmity(v)
             end
         end
-	
+        mob:setLocalVar("PetalTime", os.time() + math.random(45, 60))
+		mob:setLocalVar("RunAroundTime",0)
+		mob:delRoamFlag(512)
+        tpz.annm.PetShield(mob, 17166732, 17166737)
+		return
+	end
+
 	-- scripted run around
 	mob:addRoamFlag(512) -- ignore attacking
 	if not mob:isFollowingPath() then
-        if mob:getHPP() >= 5 then
-		    mob:disengage()
-        end
-		local point = {math.random(485, 508),-2.742,math.random(173,182)}
+		mob:disengage()
+		local point = {math.random(-134,-107),-5.3588,math.random(-273,-232)}
 		mob:pathThrough(point, tpz.path.flag.RUN)
 	end
+
+    -- Runs around  Headbutting anyone in range
+    if os.time() >= HeadbuttCheck then
+        mob:setLocalVar("HeadbuttCheck", os.time() + 5)
+        local nearbyPlayers = mob:getPlayersInRange(8)
+        if nearbyPlayers == nil then return end
+        for _,v in ipairs(nearbyPlayers) do
+            mob:useMobAbility(300, v) -- Headbutt
+            break
+        end
+    end
 end
 
 function onMobFight(mob, target)
@@ -47,26 +63,14 @@ function onMobFight(mob, target)
 	local RunAroundTime = mob:getLocalVar("RunAroundTime")
 	local BattleTime = mob:getBattleTime()
 
-    -- Uses Petal Pirouette then runs around and headbutts anyone in range
+    mob:setDamage(70)
 
-    -- Petal Pirouette use timer
-    if (BattleTime >= PetalTime and WingWhirlTime == 0 and mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) == false
-    and mob:actionQueueEmpty()) then
+     -- Uses Petal Pirouette then runs around and headbutts anyone in range
+    if (os.time() >= PetalTime and mob:actionQueueEmpty()) then
 		mob:useMobAbility(2210) -- Petal Pirouette
-		mob:setLocalVar("PetalTime", BattleTime + math.random(90, 120))
+		mob:setLocalVar("HeadbuttCheck", os.time() + 8)
+        mob:setLocalVar("PetalTime", os.time() + 45)
 	end
-
-	local HeadbuttCheck = mob:getLocalVar("HeadbuttCheck")
-	local BattleTime = mob:getBattleTime()
-
-    if BattleTime >= HeadbuttCheck then
-        mob:setLocalVar("HeadbuttCheck", BattleTime + 3)
-        local nearbyPlayers = mob:getPlayersInRange(30)
-        if nearbyPlayers == nil then return end
-        for _,v in ipairs(nearbyPlayers) do
-            mob:useMobAbility(300, v) -- Headbutt
-        end
-    end
 
 	if RunAroundTime == 0 then
 		return
@@ -75,14 +79,20 @@ function onMobFight(mob, target)
 		mob:delRoamFlag(512)
 		return
 	end
-    -- Run around after using Yawn
+    -- Run around after using Headbutt
 	mob:addRoamFlag(512) -- ignore attacking
 	if not mob:isFollowingPath() then
 		mob:disengage()
-		local point = {math.random(485,508),-2.742,math.random(173,182)}
+		local point = {math.random(-134,-107),-5.3588,math.random(-273,-232)}
 		mob:pathThrough(point, tpz.path.flag.RUN)
 	end
-    tpz.annm.PetShield(mob, 17166732, 17166737)
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 2210 then -- Petal Pirouette
+        mob:setUnkillable(true) -- Can't die while running around to ensure chest pops
+        mob:setLocalVar("RunAroundTime", os.time() + math.random(30, 45))
+    end
 end
 
 function onMobDeath(mob, player, isKiller)

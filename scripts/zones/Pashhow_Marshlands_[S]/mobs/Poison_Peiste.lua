@@ -6,6 +6,7 @@
 -----------------------------------
 require("scripts/globals/annm")
 require("scripts/globals/status")
+mixins = {require("scripts/mixins/families/peiste")}
 -----------------------------------
 function onMobSpawn(mob)
     tpz.annm.PetMods(mob) 

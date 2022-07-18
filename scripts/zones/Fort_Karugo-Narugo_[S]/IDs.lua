@@ -22,6 +22,7 @@ zones[tpz.zone.FORT_KARUGO_NARUGO_S] =
         LOGGING_IS_POSSIBLE_HERE = 7671, -- Logging is possible here if you have <item>.
         ITEM_DELIVERY_DIALOG     = 8110, -- Deliveries! We're open for business!
         COMMON_SENSE_SURVIVAL    = 9189, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        ANNM_TREASURE_APPEARED   = 8240, -- A treasure box has/Treasure boxes have appeared! The treasure will disappear after three minutes have elapsed or when the time limit for this battlefield expires, whichever comes first.
     },
     mob =
     {

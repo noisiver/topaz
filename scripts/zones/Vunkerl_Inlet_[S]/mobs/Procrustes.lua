@@ -9,14 +9,14 @@ require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setLocalVar("drawInTick", 0)
-    mob:setLocalVar("comboTime", 0)
+    mob:setLocalVar("comboTime", 45)
     mob:setLocalVar("Drawin", 0)
     tpz.annm.NMMods(mob) 
 end
 
 function onMobFight(mob, target)
     local comboTime = mob:getLocalVar("comboTime")
-    local drawInTime = mob:getLocalVar("drawInTime")
+    local drawInTick = mob:getLocalVar("drawInTick")
     local BattleTime = mob:getBattleTime()
     -- Once adds are dead, draws in and Collosal slams every 90 seconds
     -- Continues to use it until it successfully gets it off
@@ -34,9 +34,10 @@ function onMobFight(mob, target)
             local mobZ = mob:getZPos()
             if BattleTime >= drawInTick then
                 mob:setLocalVar("drawInTick", BattleTime + 3)
-                local nearbyPlayers = mob:getPlayersInRange(8)
+                local nearbyPlayers = mob:getPlayersInRange(40)
                 if nearbyPlayers == nil then return end
                 zonePlayer:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                zonePlayer:addStatusEffect(tpz.effect.BIND, 1, 0, 5)
             end
         end
 		mob:useMobAbility(2578) -- Colossal Slam

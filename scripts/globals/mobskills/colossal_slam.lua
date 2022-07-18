@@ -18,7 +18,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.CURSE_II
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.5
+    local dmgmod = 1
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -34,7 +34,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
     if not target:hasStatusEffect(tpz.effect.FEALTY) then
-		MobPhysicalStatusEffectMove(mob, target, typeEffect, 1, 0, 20)
+        MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 20)
     end
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg

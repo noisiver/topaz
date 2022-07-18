@@ -8,11 +8,11 @@ require("scripts/globals/annm")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 1)
     tpz.annm.NMMods(mob) 
 end
 
 function onMobFight(mob, target)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
     tpz.annm.PetShield(mob, 17138052, 17138057)
 end
 

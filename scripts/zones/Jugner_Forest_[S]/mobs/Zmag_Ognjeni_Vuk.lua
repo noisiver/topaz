@@ -9,27 +9,32 @@ require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
     mob:AnimationSub(1)
-    mob:setLocalVar("DischargeTime", 45)
+    mob:setLocalVar("cacophonyTime", 45)
     tpz.annm.NMMods(mob) 
 end
 
 function onMobFight(mob, target)
-	local DischargeTime = mob:getLocalVar("DischargeTime")
+	local cacophonyTime = mob:getLocalVar("cacophonyTime")
 	local BattleTime = mob:getBattleTime()
+    mob:setDamage(70)
     -- Uses Cacophony and resummons all adds every 45s
-    if BattleTime >= DischargeTime then
+    if BattleTime >= cacophonyTime then
         mob:useMobAbility(2177) -- Cacophony
-        mob:setLocalVar("DischargeTime", BattleTime + 45)
+        mob:setLocalVar("cacophonyTime", BattleTime + 45)
 	end
     --tpz.annm.PetShield(mob, 17113470, 17113475)
     mob:setUnkillable(false)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- When he uses a TP move, all adds do as well
+    -- When he uses a TP move, wakes up nearby adds and forces to use a TP move as well
     if skill:getID() > 0 then 
         for i = 17113470, 17113475 do
-            GetMobByID(i):addTP(3000)
+            local gnole = GetMobByID(i)
+            if gnole:checkDistance(mob) <= 30 and gnole:isAlive() then
+                gnole:wakeUp()
+                GetMobByID(i):addTP(3000)
+            end
         end
     end
     -- Cacophony resummons all adds 

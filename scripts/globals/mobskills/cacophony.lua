@@ -6,6 +6,7 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -22,35 +23,27 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect1 = tpz.effect.COUNTERSTANCE
     local typeEffect2 = tpz.effect.HASTE
+    local moon = utils.getMoonPhase()
+    local moonpower = 5
 
-	local moon = VanadielMoonPhase()
-    local cstancePower = 25
-    local hastePower = 3550
-    if moon > 90 then -- Full Moon
-        cstancePower = 50
-        hastePower = 5000
-    elseif moon > 75 then
-        cstancePower = 45
-        hastePower = 4550
-    elseif moon > 60 then
-        cstancePower = 35
-        hastePower = 3550
-    elseif moon > 40 then
-        cstancePower = 25
-        hastePower = 2550
-    elseif moon > 25 then
-        cstancePower = 15
-        hastePower = 1550
-    elseif moon > 10 then
-        cstancePower = 10
-        hastePower = 1050
-    else
-        cstancePower = 10
-        hastePower = 1050
-    end
+    if (moon == 'Full') then
+        moonpower = 40
+    elseif (moon == 'Gibbeus') then
+        moonpower = 25
+    elseif (moon == 'Quarter') then
+         moonpower = 15
+    elseif (moon == 'Cresecent') then
+         moonpower = 10
+    elseif (moon == 'New') then
+         moonpower = 5
+	end
+
+    local haste = moonpower * 10
 
     mob:delStatusEffectSilent(tpz.effect.SLOW)
-    skill:setMsg(MobBuffMove(mob, typeEffect1, cstancePower, 0, 300))
+    skill:setMsg(MobBuffMove(mob, typeEffect1, moonpower, 0, 300))
+    local effect1 = mob:getStatusEffect(typeEffect1)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     MobBuffMove(mob, typeEffect2, hastePower, 0, 300)
 
     return typeEffect1

@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
         tpMove = tpMove +1 -- Count number of times TP move was used
         mob:setLocalVar("tpMove", tpMove)
 
-        if (tpMove > 8) then -- Number of times using Roar
+        if (tpMove > 9) then -- Number of times using Roar
             mob:useMobAbility(tpMoves[math.random(#tpMoves)])
             mob:setLocalVar("tpMove", 0)
         else

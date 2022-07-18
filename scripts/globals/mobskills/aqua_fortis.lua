@@ -17,12 +17,12 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1.5
+    local dmgmod = 7
     local accmod = 1
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WATER, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
     local typeEffect = tpz.effect.POISON
-    local power = math.ceil(mob:getMainLvl() / 3) + 5   
+    local power = 20 
 	
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
  	MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)

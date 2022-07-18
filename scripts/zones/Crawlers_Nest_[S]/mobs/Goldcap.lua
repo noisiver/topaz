@@ -39,11 +39,11 @@ function onAdditionalEffect(mob, target, damage)
         end
     end
 
-    if #possibleEffects == 0 then
-        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.CURSE_I, {chance = 100, power = 90})
+    if math.random(100) <= 10 and not target:hasStatusEffect(tpz.effect.CURSE_I) then
+        return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.CURSE, {chance = 100, power = 90})
+    else
+        return tpz.mob.onAddEffect(mob, target, damage, possibleEffects[math.random(#possibleEffects)])
     end
-
-    return tpz.mob.onAddEffect(mob, target, damage, possibleEffects[math.random(#possibleEffects)], {duration = 30})
 end
 
 function onMobDeath(mob, player, isKiller)

@@ -15,15 +15,22 @@ end
 function onMobFight(mob, target)
 	local DischargeTime = mob:getLocalVar("DischargeTime")
 	local BattleTime = mob:getBattleTime()
+
+    -- So he can transfer these debuffs back
+    mob:delImmunity(tpz.immunity.GRAVITY)
+    mob:delImmunity(tpz.immunity.SILENCE) 
+    mob:delImmunity(tpz.immunity.POISON)
+
     -- Applies status effects to itself and transfers to nearby targets every 45 seconds
     if BattleTime >= DischargeTime then
         mob:useMobAbility(626) -- 2 hr cloud (Light / White)
-        for i = tpz.effect.POISON, tpz.effect.SILENCE do
-            mob:addStatusEffect(i, 35, 3, 120)
-        end
+        mob:addStatusEffect(tpz.effect.POISON, 33, 3, 120)
+        mob:addStatusEffect(tpz.effect.PARALYSIS, 33, 0, 120)
+        mob:addStatusEffect(tpz.effect.BLINDNESS, 80, 0, 120)
+        mob:addStatusEffect(tpz.effect.SILENCE, 1, 0, 120)
         mob:addStatusEffect(tpz.effect.WEIGHT, 33, 0, 120)
         mob:addStatusEffect(tpz.effect.SLOW, 2550, 0, 120)
-        mob:addStatusEffect(tpz.effect.PLAGUE, 1, 3, 120)
+        mob:addStatusEffect(tpz.effect.PLAGUE, 3, 3, 120)
 		mob:useMobAbility(2162) -- Emetic Discharge
 		mob:setLocalVar("DischargeTime", BattleTime + 45)
 	end

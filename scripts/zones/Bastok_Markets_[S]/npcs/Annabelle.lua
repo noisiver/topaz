@@ -17,6 +17,10 @@ function onTrigger(player, npc)
     printf("rankUpPoints %s", rankUpPoints)
     if player:hasKeyItem(tpz.ki.MEDAL_OF_ALTANA) then -- Already max rank
         player:PrintToPlayer("You are a well decorated war general. Thank you for your service",0,"Annabelle")
+    elseif (rankUpPoints >= 50 and rankUpPoints < 100) then -- 50-99 rank points message
+        player:PrintToPlayer("Congratulations, you have ranked up!",0,"Annabelle")
+    elseif (rankUpPoints >= 100 and rankUpPoints < 150) then -- 100-149 rank pooints message
+        player:PrintToPlayer("Congratulations, you have ranked up!",0,"Annabelle")
     elseif (rankUpPoints >= 150 and player:hasKeyItem(tpz.ki.BRASS_RIBBON_OF_SERVICE) == false) then
         player:PrintToPlayer("Congratulations, you have ranked up!",0,"Annabelle")
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.BRASS_RIBBON_OF_SERVICE)

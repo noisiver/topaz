@@ -18,10 +18,11 @@ function onMobFight(mob, target)
     -- If a honey fly is in range, will attempt to charm every 2 minutes
     for i = 17170651, 17170656 do
         local fly = GetMobByID(i)
-        if fly:checkDistance(mob) <= 30 then
+        if fly:checkDistance(mob) <= 30 and fly:isAlive() then
             if BattleTime >= CharmTime then
 			    mob:useMobAbility(2169) -- Soothing Aroma
 			    mob:setLocalVar("CharmTime", BattleTime + 120)
+                break
 		    end
         end
     end

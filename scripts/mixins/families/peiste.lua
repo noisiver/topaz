@@ -22,12 +22,17 @@ g_mixins.peiste = function(mob)
 		if swapTimeGlower > 0 and os.time() > swapTimeGlower or swapTimeGlare > 0 and os.time() > swapTimeGlare  then -- Remove gaze eyes after 1m duration
 			mob:AnimationSub(0)
 		end
+        if target:hasStatusEffect(tpz.effect.FEALTY) then -- Fealty blocks all status effects
+		    return
+	    end
 		if animationSub == 1 then
 			if (target:isFacing(mob)) then
 				if target:hasStatusEffect(tpz.effect.BLINDNESS) then --Can't gaze debuff them if they can't see!
 					return
 				end
-				target:addStatusEffect(tpz.effect.PETRIFICATION, 1, 0, 5)
+                if not target:hasStatusEffect(tpz.effect.PETRIFICATION) then
+				    target:addStatusEffect(tpz.effect.PETRIFICATION, 1, 0, 5)
+                end
 			end
 		end
 		if animationSub == 2 then
@@ -35,11 +40,12 @@ g_mixins.peiste = function(mob)
 				if target:hasStatusEffect(tpz.effect.BLINDNESS) then --Can't gaze debuff them if they can't see!
 					return
 				end
-				target:addStatusEffect(tpz.effect.TERROR, 1, 0, 5)
-				if target:hasStatusEffect(tpz.effect.FEALTY) then --Fealty blocks zombie
-					return
-				end
-				target:addStatusEffect(tpz.effect.CURSE_II, 1, 0, 5) --Zombie
+                if not target:hasStatusEffect(tpz.effect.TERROR) then
+				    target:addStatusEffect(tpz.effect.TERROR, 1, 0, 5)
+                end
+                if not target:hasStatusEffect(tpz.effect.CURSE_II) then
+				    target:addStatusEffect(tpz.effect.CURSE_II, 1, 0, 5) --Zombie
+                end
 			end
 		end
     end)

@@ -2108,12 +2108,12 @@ INSERT INTO `mob_skills` VALUES (2147,1468,'divine_judgement',1,30.0,2000,1000,4
 -- INSERT INTO `mob_skills` VALUES (2149,1463,'chi_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2150,1894,'snatch_morsel',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2151,1895,'1000_needles',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2152,1543,'aqua_fortis',1,15,2000,2000,4,0,0,3,0,0,0);
+INSERT INTO `mob_skills` VALUES (2152,1543,'aqua_fortis',1,15,2000,2000,4,0,0,5,0,0,0);
 INSERT INTO `mob_skills` VALUES (2153,1544,'regurgitation',0,7.0,2000,1000,4,0,0,3,0,0,0);
 INSERT INTO `mob_skills` VALUES (2154,1545,'delta_thrust',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2155,1546,'torpefying_charge',1,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2156,1547,'grim_glower',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2157,1901,'calcifying_mist',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2157,1548,'calcifying_mist',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2158,1567,'insipid_nip',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2159,1568,'pandemic_nip',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2160,1569,'bombilation',1,15.0,2000,1500,4,0,0,0,0,0,0);
@@ -2125,7 +2125,7 @@ INSERT INTO `mob_skills` VALUES (2165,1909,'rotten_stench',1,10.0,2000,1500,4,0,
 INSERT INTO `mob_skills` VALUES (2166,1910,'floral_bouquet',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2167,1553,'bloody_caress',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2168,1912,'bloody_caress_kirtimukha',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2169,1913,'soothing_aroma',1,10.0,2000,5000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2169,1910,'soothing_aroma',1,10.0,2000,5000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2170,1589,'fevered_pitch',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2171,1590,'call_of_the_moon',0,7.0,2000,1500,1,0,0,0,0,0,0); -- standing up
 INSERT INTO `mob_skills` VALUES (2172,1591,'call_of_the_moon_down',0,7.0,2000,1500,1,0,0,0,0,0,0); -- On 4 legs
@@ -2150,9 +2150,9 @@ INSERT INTO `mob_skills` VALUES (2190,1540,'extreme_purgation',1,20.0,2000,1000,
 INSERT INTO `mob_skills` VALUES (2191,1541,'desiccation',0,10.0,2000,1000,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (2192,1542,'doomvoid',1,25.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2193,1581,'zephyr_arrow',0,15.0,2000,1500,4,0,0,3,0,0,0);
-INSERT INTO `mob_skills` VALUES (2194,1582,'lethe_arrows',0,15.0,2000,1500,4,0,0,3,0,0,0);
+INSERT INTO `mob_skills` VALUES (2194,1582,'lethe_arrows',4,15.0,2000,1500,4,0,0,3,0,0,0);
 INSERT INTO `mob_skills` VALUES (2195,1583,'spring_breeze',1,15.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2196,1584,'summer_breeze',1,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2196,1584,'summer_breeze',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2197,1585,'autumn_breeze',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2198,1586,'winter_breeze',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2199,1587,'cyclonic_turmoil',1,15.0,2000,1500,4,0,0,5,0,0,0);
@@ -2176,7 +2176,7 @@ INSERT INTO `mob_skills` VALUES (2216,1597,'nocturnal_combustion',1,20.0,2000,50
 INSERT INTO `mob_skills` VALUES (2217,1598,'berserk',0,7.0,2000,1000,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2218,1599,'penumbral_impact',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2219,1600,'dark_wave',1,10.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2220,1964,'tartarean_storm',1,15.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2220,1601,'tartarean_storm',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2221,1965,'hell_scissors',0,7.0,2000,2500,4,0,0,0,0,0,0); -- Prob animationID 97(death scissors)
 INSERT INTO `mob_skills` VALUES (2222,1602,'hurricane_breath',4,10.0,2000,1500,4,0,0,5,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2223,1557,'ore_toss',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2474,7 +2474,7 @@ INSERT INTO `mob_skills` VALUES (2512,98,'venom_shower',1,15.0,2000,1500,4,0,0,0
 INSERT INTO `mob_skills` VALUES (2515,2072,'phason_beam',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2516,2260,'gravitic_horn',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2517,2261,'quake_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2518,2262,'norn_arrows',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (2518,2262,'norn_arrows',2,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2519,1756,'dexter_wing',1,18.0,2000,1000,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (2520,1757,'sinister_wing',1,18.0,2000,1000,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (2521,1758,'chaos_blast',1,18.0,2000,1000,4,0,0,0,0,0,0);
@@ -2889,7 +2889,7 @@ INSERT INTO `mob_skills` VALUES (2929,40,'orogenic_storm',1,14.0,2000,1000,4,0,0
 INSERT INTO `mob_skills` VALUES (2930,41,'subduction',1,15.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2931,2675,'tectonic_shift',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2932,2676,'unrelenting_brand',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2933,2677,'searing_effulgence',1,15.0,2000,1500,4,0,0,3,0,0,0);
+INSERT INTO `mob_skills` VALUES (2933,1578,'searing_effulgence',1,15.0,2000,1500,4,0,0,3,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2934,2045,'blazing_shriek',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2935,31,'volcanic_wrath',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2936,2680,'tarichutoxin',0,7.0,2000,1500,4,0,0,0,0,0,0);

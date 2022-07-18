@@ -2,10 +2,6 @@
 --
 --  ANNM(Allied Notes Notorious Monster) utilities
 --
--- TODO: This system is used to rank up in campaign
--- TODO: finish loot tables(not weapons/gear) and give proper drop %'s on valuables and stuff
--- TODO: Finish NMMods
--- TODO: Finish PetMods
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/msg")
@@ -24,20 +20,24 @@ tpz.annm.augment = tpz.annm.augment or {}
 local ore =
 {
     tpz.items.CHUNK_OF_COPPER_ORE, tpz.items.CHUNK_OF_TIN_ORE, tpz.items.CHUNK_OF_ZINC_ORE, tpz.items.CHUNK_OF_SILVER_ORE,
-    tpz.items.CHUNK_OF_IRON_ORE, tpz.items.CHUNK_OF_MYTHRIL_ORE, tpz.items.CHUNK_OF_GOLD_ORE, tpz.items.CHUNK_OF_GOLD_ORE,
-    tpz.items.CHUNK_OF_DARKSTEEL_ORE,tpz.items.CHUNK_OF_ADAMAN_ORE
+    tpz.items.CHUNK_OF_IRON_ORE, tpz.items.CHUNK_OF_MYTHRIL_ORE, tpz.items.CHUNK_OF_GOLD_ORE, tpz.items.CHUNK_OF_PLATINUM_ORE,
+    tpz.items.CHUNK_OF_ORICHALCUM_ORE, tpz.items.CHUNK_OF_DARKSTEEL_ORE, tpz.items.CHUNK_OF_ADAMAN_ORE, tpz.items.CHUNK_OF_WOOTZ_ORE,
+    tpz.items.CHUNK_OF_KOPPARNICKEL_ORE, tpz.items.MYTHRIL_INGOT, tpz.items.DARKSTEEL_INGOT, tpz.items.ADAMAN_INGOT,
+    tpz.items.GOLD_INGOT, tpz.items.PLATINUM_INGOT, tpz.items.ORICHALCUM_INGOT, tpz.items.ELECTRUM_INGOT, tpz.items.PAKTONG_INGOT, 
 }
 local log =
 {
     tpz.items.ARROWWOOD_LOG, tpz.items.LAUAN_LOG, tpz.items.ELM_LOG, tpz.items.MAPLE_LOG, tpz.items.BEECH_LOG,
     tpz.items.WALNUT_LOG, tpz.items.CHESTNUT_LOG, tpz.items.WILLOW_LOG, tpz.items.YEW_LOG, tpz.items.HOLLY_LOG,
-    tpz.items.OAK_LOG, tpz.items.MAHOGANY_LOG, tpz.items.ROSEWOOD_LOG, tpz.items.EBONY_LOG, tpz.items.PETRIFIED_LOG
+    tpz.items.OAK_LOG, tpz.items.MAHOGANY_LOG, tpz.items.ROSEWOOD_LOG, tpz.items.EBONY_LOG, tpz.items.PETRIFIED_LOG,
+    tpz.items.BLOODWOOD_LOG, tpz.items.JACARANDA_LOG, tpz.items.PIECE_OF_JACARANDA_LUMBER
 }
 local thread =
 {
     tpz.items.SPOOL_OF_SILK_THREAD, tpz.items.SPOOL_OF_GRASS_THREAD, tpz.items.SPOOL_OF_COTTON_THREAD, tpz.items.SPOOL_OF_LINEN_THREAD,
     tpz.items.SPOOL_OF_WOOL_THREAD, tpz.items.SPOOL_OF_RAINBOW_THREAD, tpz.items.SPOOL_OF_SILVER_THREAD, tpz.items.SPOOL_OF_GOLD_THREAD,
-    tpz.items.YOICHIS_SASH
+    tpz.items.SPOOL_OF_RED_GRASS_THREAD, tpz.items.SQUARE_OF_LINEN_CLOTH, tpz.items.SQUARE_OF_WOOL_CLOTH, tpz.items.SQUARE_OF_VELVET_CLOTH,
+    tpz.items.SQUARE_OF_SILK_CLOTH, tpz.items.SQUARE_OF_RAINBOW_CLOTH, tpz.items.SQUARE_OF_RED_GRASS_CLOTH 
 }
 local leather =
 {
@@ -56,17 +56,26 @@ local gem =
 local food =
 {
     tpz.items.BOWL_OF_DRAGON_SOUP, tpz.items.DRAGON_STEAK, tpz.items.HELLSTEAK, tpz.items.DISH_OF_HYDRA_KOFTE,
-    tpz.items.SERVING_OF_RED_CURRY, tpz.items.SERVING_OF_CRIMSON_JELLY, tpz.items.GOBLIN_MUSHPOT
+    tpz.items.SERVING_OF_RED_CURRY, tpz.items.SERVING_OF_CRIMSON_JELLY, tpz.items.GOBLIN_MUSHPOT, tpz.items.CREAM_PUFF,
+    tpz.items.BOTTLE_OF_VAMPIRE_JUICE, tpz.items.TAVNAZIAN_SALAD, tpz.items.DISH_OF_SPAGHETTI_TONNO_ROSSO, tpz.items.CUP_OF_HEALING_TEA,
+    tpz.items.BOWL_OF_OCEAN_SOUP, tpz.items.BOWL_OF_SHARK_FIN_SOUP, tpz.items.PLATE_OF_COEURL_SAUTEE, tpz.items.PLATE_OF_BREAM_RISOTTO,
+    tpz.items.SERVING_OF_SHALLOPS_TROPICALE, tpz.items.SERVING_OF_ICECAP_ROLANBERRY, tpz.items.STEAMED_CATFISH, tpz.items.BOWL_OF_WILD_STEW,
+    tpz.items.BOWL_OF_SEAFOOD_STEW, tpz.items.SERVING_OF_SNOWY_ROLANBERRY, tpz.items.SEAFOOD_STEWPOT, tpz.items.CONE_OF_SNOLL_GELATO,
+    tpz.items.PLATE_OF_FISH_AND_CHIPS
 }
-local junk =
+local highQuality =
 {
     tpz.items.SLAB_OF_TUFA, tpz.items.PIECE_OF_OXBLOOD, tpz.items.PIECE_OF_ANGEL_SKIN, tpz.items.LOCK_OF_SIRENS_HAIR,
-    tpz.items.VIAL_OF_BLACK_BEETLE_BLOOD
-    --TODO: More useless items or rename to high quality and make low chance of giving one(~20%?)
+    tpz.items.VIAL_OF_BLACK_BEETLE_BLOOD, tpz.items.YOICHIS_SASH, tpz.items.RAXA, tpz.items.DIVINE_LOG, tpz.items.POT_OF_DIVINE_SAP,
+    tpz.items.BOTTLE_OF_ANTACID, tpz.items.FIRE_CLUSTER, tpz.items.ICE_CLUSTER, tpz.items.WIND_CLUSTER, tpz.items.EARTH_CLUSTER,
+    tpz.items.LIGHTNING_CLUSTER, tpz.items.WATER_CLUSTER, tpz.items.LIGHT_CLUSTER, tpz.items.DARK_CLUSTER, tpz.items.STRENGTH_POTION,
+    tpz.items.DEXTERITY_POTION, tpz.items.VITALITY_POTION, tpz.items.AGILITY_POTION, tpz.items.INTELLIGENCE_POTION, tpz.items.MIND_POTION,
+    tpz.items.CHARISMA_POTION, tpz.items.RERAISER, tpz.items.HI_RERAISER, tpz.items.MYTHRIL_BEASTCOIN, tpz.items.GOLD_BEASTCOIN,
+    tpz.items.PLATINUM_BEASTCOIN, tpz.items.DAMASCUS_INGOT
 }
 local valuable =
 {
-    tpz.items.IMPERIAL_WOOTZ_INGOT, tpz.items.DAMASCUS_INGOT, tpz.items.STAR_SAPPHIRE
+    tpz.items.IMPERIAL_WOOTZ_INGOT, tpz.items.STAR_SAPPHIRE
 }
 local chests =
 {
@@ -82,30 +91,30 @@ local chests =
     { tpz.zone.FORT_KARUGO_NARUGO_S, 17171015 },
     { tpz.zone.MERIPHATAUD_MOUNTAINS_S, 17175262 },
     { tpz.zone.SAUROMUGUE_CHAMPAIGN_S, 17179275 },
-    { tpz.zone.GARLAIGE_CITADEL_S, 17335171 }, 
-    { tpz.zone.CRAWLERS_NEST_S, 17339267 },
-    { tpz.zone.THE_ELDIEME_NECROPOLIS_S, 17339267 },
+    { tpz.zone.GARLAIGE_CITADEL_S, 17449381 }, 
+    { tpz.zone.CRAWLERS_NEST_S, 17478073 },
+    { tpz.zone.THE_ELDIEME_NECROPOLIS_S, 17494618 },
 }
--- New system for agumenting below
+
 tpz.annm.augment[tpz.items.HEAVY_CROSSBOW] =
 {
     {
         stat = tpz.augments.RACC, 
         chance = 100, 
         minimum = 0,
-        maximum = 9
+        maximum = 19
     },
     {
         stat = tpz.augments.STR, 
         chance = 30,
         minimum = 0,
-        maximum = 4
+        maximum = 2
     },
     {
         stat = tpz.augments.AGI, 
         chance = 30,
         minimum = 0,
-        maximum = 4
+        maximum = 2
     },
     {
         stat = tpz.augments.SNAP_SHOT,
@@ -117,7 +126,7 @@ tpz.annm.augment[tpz.items.HEAVY_CROSSBOW] =
         stat = tpz.augments.CRITHITRATE,
         chance = 10,
         minimum = 0,
-        maximum = 1
+        maximum = 0
     },
 }
 tpz.annm.augment[tpz.items.DARKSTEEL_MUFFLERS] =
@@ -150,10 +159,10 @@ tpz.annm.augment[tpz.items.DARKSTEEL_MUFFLERS] =
         stat = tpz.augments.DOUBLE_ATTACK,
         chance = 10,
         minimum = 0,
-        maximum = 2
+        maximum = 1
     },
     {
-        stat = tpz.augments.CRITHITRATE,
+        stat = tpz.augments.SKILLCHAINDMG,
         chance = 10,
         minimum = 0,
         maximum = 2
@@ -180,80 +189,73 @@ tpz.annm.augment[tpz.items.SCORPION_SUBLIGAR] =
         maximum = 4
     },
     {
-        stat = tpz.augments.SUBTLE_BLOW,
-        chance = 10,
-        minimum = 0,
-        maximum = 4
-    },
-    {
-        stat = tpz.augments.CRITHITRATE,
+        stat = tpz.augments.SKILLCHAINDMG,
         chance = 10,
         minimum = 0,
         maximum = 2
     },
+    {
+        stat = tpz.augments.DOUBLE_ATTACK,
+        chance = 10,
+        minimum = 0,
+        maximum = 1
+    },
 }
-
 tpz.annm.augment[tpz.items.EBONY_WAND] =
 {
     {
-        stat = tpz.augments.MP, 
-        chance = 100, 
+        stat = tpz.augments.PET_ACC_RACC,
+        chance = 100,
         minimum = 7,
         maximum = 14
     },
     {
-        stat = tpz.augments.INT, 
-        chance = 30,
-        minimum = 0,
-        maximum = 4
-    },
-    {
-        stat = tpz.augments.MND, 
-        chance = 30,
-        minimum = 0,
-        maximum = 4
-    },
-    {
-        stat = tpz.augments.REFRESH,
-        chance = 10,
-        minimum = 0,
-        maximum = 0
-    },
-    {
         stat = tpz.augments.PET_ATTK_RATTK,
+        chance = 30,
+        minimum = 7,
+        maximum = 14
+    },
+    {
+        stat = tpz.augments.MP, 
+        chance = 30,
+        minimum = 7,
+        maximum = 14
+    },
+    {
+        stat = tpz.augments.CONSERVE_MP, 
         chance = 10,
         minimum = 0,
-        maximum = 5
+        maximum = 4
+    },
+    {
+        stat = tpz.augments.FASTCAST, 
+        chance = 10, 
+        minimum = 0,
+        maximum = 2
     },
 }
 tpz.annm.augment[tpz.items.SILK_CLOAK] =
 {
     {
+        stat = tpz.augments.PET_ACC_RACC,
+        chance = 100,
+        minimum = 7,
+        maximum = 14
+    },
+    {
+        stat = tpz.augments.PET_ATTK_RATTK,
+        chance = 30,
+        minimum = 7,
+        maximum = 14
+    },
+    {
         stat = tpz.augments.MP,
-        chance = 100, 
+        chance = 30, 
         minimum = 15,
         maximum = 29
     },
     {
-        stat = tpz.augments.INT,
-        chance = 30,
-        minimum = 0,
-        maximum = 12
-    },
-    {
-        stat = tpz.augments.MND,
-        chance = 30,
-        minimum = 0,
-        maximum = 12
-    },
-    {
-        stat = tpz.augments.CHR,
-        chance = 30,
-        minimum = 0,
-        maximum = 12
-    },
-    {
-        stat = tpz.augments.MACC,
+        stat = tpz.augments.CONSERVE_MP,
         chance = 10,
         minimum = 0,
         maximum = 4
@@ -268,31 +270,25 @@ tpz.annm.augment[tpz.items.SILK_CLOAK] =
 tpz.annm.augment[tpz.items.CORAL_HAIRPIN] =
 {
     {
+        stat = tpz.augments.PET_ACC_RACC,
+        chance = 100,
+        minimum = 4,
+        maximum = 9
+    },
+    {
+        stat = tpz.augments.PET_ATTK_RATTK,
+        chance = 30,
+        minimum = 4,
+        maximum = 9
+    },
+    {
         stat = tpz.augments.MP,
-        chance = 100, 
+        chance = 30, 
         minimum = 7,
         maximum = 14
     },
     {
-        stat = tpz.augments.INT,
-        chance = 30,
-        minimum = 0,
-        maximum = 4
-    },
-    {
-        stat = tpz.augments.MND,
-        chance = 30,
-        minimum = 0,
-        maximum = 4
-    },
-    {
-        stat = tpz.augments.CHR,
-        chance = 30,
-        minimum = 0,
-        maximum = 4
-    },
-    {
-        stat = tpz.augments.MACC,
+        stat = tpz.augments.CONSERVE_MP,
         chance = 10,
         minimum = 0,
         maximum = 2
@@ -365,7 +361,7 @@ tpz.annm.augment[tpz.items.BATTLE_BOOTS] =
         maximum = 1
     },
     {
-        stat = tpz.augments.STORETP,
+        stat = tpz.augments.SKILLCHAINDMG,
         chance = 10,
         minimum = 0,
         maximum = 2
@@ -701,10 +697,10 @@ tpz.annm.augment[tpz.items.SILK_MITTS] =
         maximum = 4
     },
     {
-        stat = tpz.augments.CRITHITRATE,
+        stat = tpz.augments.SKILLCHAINDMG,
         chance = 10,
         minimum = 0,
-        maximum = 1
+        maximum = 2
     },
 }
 tpz.annm.augment[tpz.items.MANOPLES] = 
@@ -965,10 +961,10 @@ tpz.annm.augment[tpz.items.ADAMAN_CUIRASS] =
         maximum = 4
     },
     {
-        stat = tpz.augments.REGEN,
+        stat = tpz.augments.SKILLCHAINDMG,
         chance = 10,
         minimum = 0,
-        maximum = 0
+        maximum = 4
     },
 }
 tpz.annm.augment[tpz.items.PLATINUM_BANGLES] =
@@ -1118,10 +1114,10 @@ tpz.annm.augment[tpz.items.TABARZIN] =
         maximum = 3
     },
     {
-        stat = tpz.augments.STORETP, 
+        stat = tpz.augments.SKILLCHAINDMG, 
         chance = 30,
         minimum = 0,
-        maximum = 3
+        maximum = 4
     },
     {
         stat = tpz.augments.NTE,
@@ -1217,10 +1213,10 @@ tpz.annm.augment[tpz.items.ANELACE] =
         maximum = 2
     },
     {
-        stat = tpz.augments.MACC, 
+        stat = tpz.augments.SKILLCHAINDMG, 
         chance = 30,
         minimum = 0,
-        maximum = 1
+        maximum = 4
     },
     {
         stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
@@ -1388,10 +1384,10 @@ tpz.annm.augment[tpz.items.ERRANT_HOUPPELANDE] =
         maximum = 13
     },
     {
-        stat = tpz.augments.REGEN,
+        stat = tpz.augments.SKILLCHAINDMG,
         chance = 10,
         minimum = 0,
-        maximum = 0
+        maximum = 4
     },
     {
         stat = tpz.augments.WSACC,
@@ -1559,7 +1555,7 @@ tpz.annm.augment[tpz.items.ROSHI_JINPACHI] =
         maximum = 4
     },
     {
-        stat = tpz.augments.STORETP,
+        stat = tpz.augments.SKILLCHAINDMG,
         chance = 10,
         minimum = 0,
         maximum = 4
@@ -1600,6 +1596,7 @@ tpz.annm.augment[tpz.items.VENDORS_SLOPS] =
 }
 tpz.annm.OpenChest = function(player, npc, item)
     local ID = zones[player:getZoneID()]
+    local zonePlayers = player:getZone():getPlayers()
     local augmentOptions = tpz.annm.augment[item];
     local augmentIndex = 1;
     local augments = {};
@@ -1616,9 +1613,11 @@ tpz.annm.OpenChest = function(player, npc, item)
     local Message = npc:getLocalVar("Message")
     if (Message == 0) then
         ANNMAddChestLoot(player, npc)
-        player:addItem(item,1,augments[1],augments[2],augments[3],augments[4],augments[5],augments[6],augments[7],augments[8],augments[9],augments[10]);
-        player:messageSpecial( ID.text.ITEM_OBTAINED, item)
-        player:setCharVar("CampaignPromotion", player:getCharVar("CampaignPromotion") +1)
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:addItem(item,1,augments[1],augments[2],augments[3],augments[4],augments[5],augments[6],augments[7],augments[8],augments[9],augments[10]);
+            zonePlayer:messageSpecial( ID.text.ITEM_OBTAINED, item)
+            zonePlayer:setCharVar("CampaignPromotion", zonePlayer:getCharVar("CampaignPromotion") +1)
+        end
         npc:setLocalVar("Message", 1)
     end
     npc:entityAnimationPacket("open")
@@ -1787,12 +1786,13 @@ tpz.annm.NMMods = function(mob)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
     mob:setMod(tpz.mod.MOVE, 20)
-    mob:setMod(tpz.mod.REGEN, 50)
+    mob:setMod(tpz.mod.SKILLCHAINDMG, 50)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:addImmunity(tpz.immunity.SLEEP)
     mob:addImmunity(tpz.immunity.GRAVITY)
     mob:addImmunity(tpz.immunity.BIND)
@@ -1805,6 +1805,7 @@ end
 tpz.annm.PetMods = function(mob)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
@@ -1813,20 +1814,25 @@ end
 
 function StartANNMFight(player, keyitem, mobIDstart, mobIDend)
     local ID = zones[player:getZoneID()]
+    local zonePlayers = player:getZone():getPlayers()
 
     if player:hasKeyItem(keyitem) then
         for i = mobIDstart, mobIDend do
             local mob = GetMobByID(i)
             mob:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
             mob:spawn()
-            mob:stun(500)
+            mob:stun(5000)
             mob:updateEnmity(player) 
         end
+        local bossMob = GetMobByID(mobIDstart)
+        bossMob:updateClaim(player)
         player:delKeyItem(keyitem)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED +1, keyitem)
-        player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY +1)
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED +21) -- You are suddenly overcome with a sense of foreboding..
+        end
     else
-        player:messageSpecial(ID.text.NOTHING_OUT_OF_ORDINARY)
+        player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED +20) -- Nothing out of the orindary
     end
 end
 
@@ -1841,7 +1847,9 @@ end
 
 tpz.annm.SpawnChest = function(mob, player, isKiller)
     local zone = mob:getZoneID()
-    local chestID = GetChestID(zone)
+    local ID = zones[player:getZoneID()]
+    local zonePlayers = player:getZone():getPlayers()
+    local chestID = ANNMGetChestID(zone)
 
     if isKiller or noKiller then
         local mobX = mob:getXPos()
@@ -1850,11 +1858,13 @@ tpz.annm.SpawnChest = function(mob, player, isKiller)
         GetNPCByID(chestID):setPos(mobX, mobY, mobZ)
         GetNPCByID(chestID):setStatus(tpz.status.NORMAL)
         GetNPCByID(chestID):setLocalVar("Message", 0)GetNPCByID(chestID):setLocalVar("Message", 0)
+        for _, zonePlayer in pairs(zonePlayers) do
+            zonePlayer:messageSpecial(ID.text.ANNM_TREASURE_APPEARED)
+        end
     end
-    player:setCharVar("CampaignPromotion", player:getCharVar("CampaignPromotion") +1)
 end
 
-function GetChestID(zone)
+function ANNMGetChestID(zone)
     for i,chestIDs in pairs(chests) do
         if (zone == chestIDs[1]) then
             return chestIDs[2]
@@ -1874,7 +1884,7 @@ function ANNMAddChestLoot(player, npc)
     player:addTreasure(leather[math.random(#leather)], npc)
     player:addTreasure(gem[math.random(#gem)], npc)
     player:addTreasure(food[math.random(#food)], npc)
-    player:addTreasure(junk[math.random(#junk)], npc)
+    player:addTreasure(highQuality[math.random(#highQuality)], npc)
     if math.random(100) <= 5 then
         player:addTreasure(valuable[math.random(#valuable)], npc)
     end
