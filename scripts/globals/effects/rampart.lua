@@ -8,6 +8,7 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.UDMGBREATH, power)
     target:addMod(tpz.mod.UDMGMAGIC, power)
     target:addMod(tpz.mod.UDMGRANGE, power)
+    target:addMod(tpz.mod.SPELLINTERRUPT, effect:getSubPower())
 end
 
 function onEffectTick(target, effect)
@@ -19,4 +20,5 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.UDMGBREATH, power)
     target:delMod(tpz.mod.UDMGMAGIC, power)
     target:delMod(tpz.mod.UDMGRANGE, power)
+    target:delMod(tpz.mod.SPELLINTERRUPT, effect:getSubPower())
 end
