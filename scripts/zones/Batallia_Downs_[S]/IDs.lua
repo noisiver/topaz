@@ -20,7 +20,7 @@ zones[tpz.zone.BATALLIA_DOWNS_S] =
         LYCOPODIUM_ENTRANCED    = 7056, -- The lycopodium is entranced by a sparkling light...
         FISHING_MESSAGE_OFFSET  = 7069, -- You can't fish here.
         COMMON_SENSE_SURVIVAL   = 9583, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
-        ANNM_TREASURE_APPEARED  = 8297, -- A treasure box has/Treasure boxes have appeared! The treasure will disappear after three minutes have elapsed or when the time limit for this battlefield expires, whichever comes first.
+        ANNM_TREASURE_APPEARED  = 8592, -- A treasure box has/Treasure boxes have appeared! The treasure will disappear after three minutes have elapsed or when the time limit for this battlefield expires, whichever comes first.
     },
     mob =
     {
