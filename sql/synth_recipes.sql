@@ -1343,11 +1343,11 @@ INSERT INTO `synth_recipes` VALUES (19902,1,0,0,18,0,0,0,0,0,0,4100,4242,12299,0
 -- INSERT INTO `synth_recipes` VALUES (19946,1,0,0,255,0,0,0,0,0,0,4100,4242,16745,0,0,0,0,0,0,0,651,651,651,651,1,1,1,1,'Decurion\'s Dagger (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19947,1,0,0,255,0,0,0,0,0,0,4100,4242,12672,0,0,0,0,0,0,0,817,850,651,651,6,4,2,2,'Gauntlets (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19948,1,0,0,255,0,0,0,0,0,0,4100,4242,17818,0,0,0,0,0,0,0,652,715,852,657,1,1,1,1,'Kanesada +1 (desynth)');
--- INSERT INTO `synth_recipes` VALUES (19949,1,0,0,255,0,0,0,0,0,0,4098,4240,2160,0,0,0,0,0,0,0,660,2303,2303,2303,1,1,1,1,'Troll Pauldron (desynth)');
+-- INSERT INTO `synth_recipes` VALUES (19949,1,0,0,11,0,0,0,0,0,0,4098,4240,2160,0,0,0,0,0,0,0,649,2302,2302,2302,1,1,1,1,'Troll Pauldron (desynth)'); -- Doesn't exist
 -- INSERT INTO `synth_recipes` VALUES (19950,1,0,0,255,0,0,0,0,0,0,4100,4242,16533,0,0,0,0,0,0,0,649,893,797,797,2,1,1,1,'Ancient Sword (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19951,1,0,0,255,0,0,0,0,0,0,4100,4242,17061,0,0,0,0,0,0,0,652,1226,653,653,2,6,2,2,'Mythril Rod (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19952,1,0,0,255,0,0,0,0,0,0,4100,4242,16702,0,0,0,0,0,0,0,649,649,649,649,1,1,1,1,'Cougar Baghnakhs (desynth)');
--- INSERT INTO `synth_recipes` VALUES (19953,1,0,0,255,0,0,0,0,0,0,4100,4242,2160,0,0,0,0,0,0,0,649,649,649,649,1,1,1,1,'Troll Pauldron (desynth)');
+INSERT INTO `synth_recipes` VALUES (19953,1,0,0,11,0,0,0,0,0,0,4100,4242,2160,0,0,0,0,0,0,0,649,2302,2302,2302,1,1,1,1,'Troll Pauldron (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19954,1,0,0,255,0,0,0,0,0,0,4100,4242,12708,0,0,0,0,0,0,0,855,654,654,654,1,1,1,1,'Darksteel Mittens (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19955,1,0,0,255,0,0,0,0,0,0,4100,4242,16524,0,0,0,0,0,0,0,744,744,744,744,1,1,1,1,'Fleuret (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19956,1,0,0,255,0,0,0,0,0,0,4100,4242,566,0,0,0,0,0,0,0,649,649,649,649,1,1,1,1,'Goblin Cup (desynth)');
@@ -1357,7 +1357,7 @@ INSERT INTO `synth_recipes` VALUES (19957,1,0,0,61,0,0,0,0,0,0,4100,4242,16796,0
 -- INSERT INTO `synth_recipes` VALUES (19960,1,0,0,255,0,0,0,0,0,0,4100,4242,16783,0,0,0,0,0,0,0,817,651,715,715,3,1,1,1,'Plantreaper (desynth)');
 INSERT INTO `synth_recipes` VALUES (19961,1,0,0,59,0,0,0,0,0,0,4100,4242,14051,0,0,0,0,0,0,0,651,651,654,654,1,1,1,1,'Alumine Moufles (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19962,1,0,0,255,0,0,0,0,0,0,4100,4242,16433,0,0,0,0,0,0,0,649,649,649,649,1,1,1,1,'Lgn. Knuckles (desynth)');
-INSERT INTO `synth_recipes` VALUES (19963,1,0,0,79,0,0,0,0,0,0,4100,4242,2161,0,0,0,0,0,0,0,649,2302,2302,2302,1,1,2,2,'Troll Vambrace (desynth)');
+INSERT INTO `synth_recipes` VALUES (19963,1,0,0,11,0,0,0,0,0,0,4100,4242,2161,0,0,0,0,0,0,0,649,2302,2302,2302,2,1,2,2,'Troll Vambrace (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19964,1,0,0,255,0,0,0,0,0,0,4098,4240,1162,0,0,0,0,0,0,0,660,660,933,933,1,1,9,12,'Tonberry Lantern (desynth)'); -- BGWiki lists level s "37~"
 -- INSERT INTO `synth_recipes` VALUES (19965,1,0,0,255,0,0,0,0,0,0,4100,4242,16575,0,0,0,0,0,0,0,744,1226,1226,1226,1,6,6,6,'Curtana (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (19966,1,0,0,255,0,0,0,0,0,0,4100,4242,16452,0,0,0,0,0,0,0,654,654,654,654,1,1,1,1,'Misericorde (desynth)');
