@@ -8,7 +8,7 @@ local ID = require("scripts/zones/Apollyon/IDs")
 
 function onTrade(player, npc, trade)
     if player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.RED_CARD) then
-        player:setCharVar("ApollyonEntrance", 1)
+        player:setCharVar("ApollyonEntrance", 0)
         TradeBCNM(player, npc, trade)
     else
         player:messageSpecial(ID.text.NO_KEY)
@@ -17,7 +17,7 @@ end
 
 function onTrigger(player, npc)
     if player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.RED_CARD) then
-        player:setCharVar("ApollyonEntrance", 1)
+        player:setCharVar("ApollyonEntrance", 0)
         EventTriggerBCNM(player, npc)
     else
         player:messageSpecial(ID.text.NO_KEY)
