@@ -13801,7 +13801,7 @@ INSERT INTO `mob_droplist` VALUES (2557,1,3,50,11292,200); -- Mirage Jubbah
 INSERT INTO `mob_droplist` VALUES (2557,1,3,50,11295,200); -- Commodore Frac 
 INSERT INTO `mob_droplist` VALUES (2557,1,3,50,11298,200); -- Pantin Tobe
 INSERT INTO `mob_droplist` VALUES (2557,1,3,50,11307,200); -- Argute Gown
-INSERT INTO `mob_droplist` VALUES (2558,11,1,50,18314,250); -- (Dynamis Bastok Low Level Normal Enemies) Ito GKT
+INSERT INTO `mob_droplist` VALUES (2558,1,1,50,18314,250); -- (Dynamis Bastok Low Level Normal Enemies) Ito GKT
 INSERT INTO `mob_droplist` VALUES (2558,1,1,50,18284,250); -- Relic Axe
 INSERT INTO `mob_droplist` VALUES (2558,1,1,50,18278,250); -- Relic Blade
 INSERT INTO `mob_droplist` VALUES (2558,1,1,50,18302,250); -- Relic Scythe
