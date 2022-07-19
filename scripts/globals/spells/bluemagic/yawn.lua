@@ -43,6 +43,12 @@ function onSpellCast(caster, target, spell)
 	end
     local duration = 90 * resist
 
+    -- Can't overwrite any sleep
+    if hasSleepT1Effect(target) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
+    end
+
     if (resist >= 0.5) then -- Do it!
         if ((target:isFacing(caster))) then -- TODO: Apparently this check shouldn't exist for enemies using this spell? Need more info.
             if (target:addStatusEffect(typeEffect, 1, 0, duration)) then

@@ -49,6 +49,12 @@ function onSpellCast(caster, target, spell)
 		end
 	end
 
+    -- Can't overwrite any sleep
+    if hasSleepT1Effect(target) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
+    end
+
     if (resist >= 0.5) then -- Do it!
         if (target:addStatusEffect(typeEffect, 1, 0, duration)) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)

@@ -885,6 +885,10 @@ function removeSleepEffects(target)
     target:delStatusEffect(tpz.effect.LULLABY)
 end
 
+function hasSleepT1Effect(target)
+    return target:hasStatusEffect(tpz.effect.SLEEP_I) or target:hasStatusEffect(tpz.effect.LULLABY)
+end
+
 function hasSleepEffects(target)
     return target:hasStatusEffect(tpz.effect.SLEEP_I) or target:hasStatusEffect(tpz.effect.SLEEP_II) or target:hasStatusEffect(tpz.effect.LULLABY)
 end
