@@ -1,6 +1,6 @@
 -----------------------------------
 -- Ability: Chocobo jig ii
--- Increases Movement Speed to party members within the area of effect.
+-- Increases Grants Reraise II effect to the Dancer
 -- Obtained: Dancer Level 70
 -- TP Required: 0
 -- Recast Time: 1:00
@@ -14,9 +14,10 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local baseDuration = 120
-    local durationMultiplier = 1.0 + utils.clamp(player:getMod(tpz.mod.JIG_DURATION), 0, 50) / 100
-    local finalDuration = math.floor(baseDuration * durationMultiplier)
-
-    target:addStatusEffect(tpz.effect.QUICKENING, 20, 0, finalDuration)
+    local baseDuration = 1800 -- 30 minutes
+	local gear = player:getMod(tpz.mod.JIG_DURATION)
+	local gearBonus =  baseDuration * (gear / 100)
+    local finalDuration = baseDuration + gearBonus
+        printf("duration %s", finalDuration)
+    player:addStatusEffect(tpz.effect.RERAISE, 1, 0, 1800)
 end
