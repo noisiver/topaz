@@ -153,8 +153,8 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         critrate = fTP(tp, wsParams.crit100, wsParams.crit200, wsParams.crit300)
 
         if calcParams.flourishEffect then
-            if calcParams.flourishEffect:getPower() > 1 then
-                critrate = critrate + (10 + calcParams.flourishEffect:getSubPower()/2)/100
+            if calcParams.flourishEffect:getPower() > 2 then -- Building Flourish gives +25% crit at 3 Finishing Moves
+                critrate = critrate + (25 + calcParams.flourishEffect:getSubPower()/2)/100
             end
         end
 
@@ -307,7 +307,16 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     end
 
     -- Factor in "all hits" bonus damage mods
+    -- Check for Building Flourish WSD bonus
+    local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH)
+    if flourisheffect ~= nil and flourisheffect:getPower() > 2 then -- Building Flourish gives +25% WSD at 3+ FM"s"
+        attacker:addMod(tpz.mod.ALL_WSDMG_ALL_HITS, 25)
+    end
     local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
+    -- Remove Building Flourish WSD effect
+    if flourisheffect ~= nil and flourisheffect:getPower() > 2 then
+        attacker:delMod(tpz.mod.ALL_WSDMG_ALL_HITS, 25)
+    end
     if (attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then -- For specific WS
         bonusdmg = bonusdmg + attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)
         --printf("Specific WS dmg increase %u", bonusdmg)
@@ -875,13 +884,13 @@ end
 
 function getHitRate(attacker, target, capHitRate, firsthit, bonus)
     local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH)
-    if flourisheffect ~= nil and flourisheffect:getPower() > 1 then
-        attacker:addMod(tpz.mod.ACC, 20 + flourisheffect:getSubPower())
+    if flourisheffect ~= nil and flourisheffect:getPower() >= 1 then -- Building Flourish always gives +25 Acc
+        attacker:addMod(tpz.mod.ACC, 25 + flourisheffect:getSubPower())
     end
     local acc = attacker:getACC()
     local eva = target:getEVA()
-    if flourisheffect ~= nil and flourisheffect:getPower() > 1 then
-        attacker:delMod(tpz.mod.ACC, 20 + flourisheffect:getSubPower())
+    if flourisheffect ~= nil and flourisheffect:getPower() >= 1 then
+        attacker:delMod(tpz.mod.ACC, 25 + flourisheffect:getSubPower())
     end
     if (bonus == nil) then
         bonus = 0
@@ -999,7 +1008,7 @@ end
 -- Given the raw ratio value (atk/def) and levels, returns the cRatio (min then max)
 function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
 
-    local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH)
+    local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH) -- Building Flourish gives +25% Attack at 2+ Finishing Moves
     if flourisheffect ~= nil and flourisheffect:getPower() > 1 then
         attacker:addMod(tpz.mod.ATTP, 25 + flourisheffect:getSubPower() / 2)
     end
