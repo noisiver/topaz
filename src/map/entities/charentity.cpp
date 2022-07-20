@@ -1694,6 +1694,7 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
             {
                 luautils::OnItemUse(PMember, PItem);
                 battleutils::GenerateInRangeEnmity(PTarget, 0, 640);
+                PTarget->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
             }
         });
     }
@@ -1701,6 +1702,7 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
     {
         luautils::OnItemUse(PTarget, PItem);
         battleutils::GenerateInRangeEnmity(PTarget, 0, 640);
+        this->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
     }
 
     action.id = this->id;
