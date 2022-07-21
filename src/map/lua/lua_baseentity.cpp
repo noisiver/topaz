@@ -3748,6 +3748,7 @@ inline int32 CLuaBaseEntity::addItem(lua_State *L)
                         ((CItemEquipment*)PItem)->setAugment(3, augment3, augment3val);
                     if (augment4 != 0)
                         ((CItemEquipment*)PItem)->setAugment(4, augment4, augment4val);
+                    if (augment0 != 0)
                         ((CItemEquipment*)PItem)->setTrialNumber(trialNumber);
                 }
                 SlotID = charutils::AddItem(PChar, LOC_INVENTORY, PItem, silence);
