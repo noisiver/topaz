@@ -12,5 +12,7 @@ end
 
 function onEffectLose(target, effect)
     -- Set movement speed back if petrified mid gradual petrificatioin(Safety Check)
-    target:setMod(tpz.mod.MOVE, target:getLocalVar("movementSpeed"))
+    if target:getLocalVar("movementSpeed") > 0 then
+        target:setMod(tpz.mod.MOVE, target:getLocalVar("movementSpeed"))
+    end
 end

@@ -28,7 +28,7 @@ end
 function onEffectLose(target, effect)
     if (effect:getTimeRemaining() == 0) then
         -- Set movement speed back to what it was before applying this effect, then petrify
-        target:setMod(tpz.mod.MOVE, target:getLocalVar("movementSpeed"))
         target:addStatusEffect(tpz.effect.PETRIFICATION, 1, 0, 60)
     end
+    target:setMod(tpz.mod.MOVE, target:getLocalVar("movementSpeed"))
 end
