@@ -241,7 +241,8 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             --printf("pdif first hit %u", pDif * 100)
             finaldmg = avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp
             --printf("%i", finaldmg)
-
+            --handling phalanx
+            finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
             -- Duplicate the first hit with an added magical component for hybrid WSes
             if params.hybrid then
                 -- Calculate magical bonuses and reductions (Only Ifrit and thus fire damage is needed here)
@@ -264,7 +265,8 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 if (magicdmg < 0) then
                     magicdmg = (target:addHP(-magicdmg))
                 end
-
+                --handling phalanx
+                magicdmg = magicdmg - target:getMod(tpz.mod.PHALANX)
                 --printf("%i", magicdmg)
                 --handling rampart stoneskin
                 magicdmg = utils.rampartstoneskin(target, magicdmg) 
@@ -307,6 +309,8 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             if params.multiHitFtp == nil then ftp = 1 end -- Not fTP transfer
 
             finaldmg = finaldmg + (avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp)
+            --handling phalanx
+            finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
             numHitsProcessed = numHitsProcessed + 1
         end
         -- apply ftp bonus
@@ -368,6 +372,9 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     local magicAttkBonus = getAvatarMAB(avatar, target)
     -- Do the formula!
     local finaldmg = getAvatarMagicalDamage(avatarLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
+
+    --handling phalanx
+    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
     --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     --printf("avatarLevel %i", avatarLevel)
@@ -441,8 +448,6 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         end
     end
 
-    -- handling phalanx
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
     if dmg < 0 then
         return 0
     end

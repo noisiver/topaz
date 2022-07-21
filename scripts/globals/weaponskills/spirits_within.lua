@@ -94,6 +94,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     WSC = math.floor(WSC * circlemult / 100) -- Apply circle effect mod
 
+    --handling phalanx
+    WSC = WSC - target:getMod(tpz.mod.PHALANX)
+
     local damage = target:breathDmgTaken(WSC)
 
     if (damage > 0) then

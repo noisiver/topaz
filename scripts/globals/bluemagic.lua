@@ -229,6 +229,9 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
                 finaldmg = finaldmg + ((math.floor(D + fStr + WSC)) * pdif) -- same as finalD but without multiplier (it should be 1.0)
             end
 
+            --handling phalanx
+            finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
+
             hitslanded = hitslanded + 1
             -- increment target's TP (100TP per hit landed)
 			local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
@@ -407,6 +410,9 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
         end
     end
 
+    --handling phalanx
+    dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
     --handling rampart stoneskin
     local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
     if ramSS > 0 then
@@ -432,7 +438,6 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
 
     dmg = dmg * BLUE_POWER
 
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
     if (dmg < 0) then
         dmg = 0
     end
@@ -481,7 +486,6 @@ function BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params)
 
     dmg = dmg * BLUE_POWER
 
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
     if (dmg < 0) then
         dmg = 0
     end

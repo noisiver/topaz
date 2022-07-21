@@ -123,6 +123,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             circlemult = 100 + player:getMod(mod)
         end
 
+        --handling phalanx
+        dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
         dmg = math.floor(dmg * circlemult / 100) -- Apply circle effect mod
 
         damage = target:breathDmgTaken(dmg)

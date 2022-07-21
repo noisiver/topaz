@@ -243,6 +243,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         end
         --printf("pdif first hit %u", pdif * 100)
         finaldmg = finaldmg + hitdamage * pdif
+        --handling phalanx
+        finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
         hitslanded = hitslanded + 1
     end
     -- Check multihit(qa/ta/da)
@@ -302,6 +304,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             end
             --printf("pdif multihits %u", pdif * 100)
             finaldmg = finaldmg + multiHitDmg * pdif
+            --handling phalanx
+            finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
             hitslanded = hitslanded + 1
         end
         hitsdone = hitsdone + 1
@@ -404,6 +408,9 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
     local magicAttkBonus = getMobMAB(mob, target)
     -- Do the formula!
     local finaldmg = getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
+
+    --handling phalanx
+    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
     --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     --printf("mutiplier %i", multiplier * 100)
@@ -599,6 +606,9 @@ function MobBreathMove(mob, target, percent, base, element, cap)
         damage = damage * resist * defense
     end
 
+    --handling phalanx
+    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
+
     damage = utils.clamp(damage, 1, cap)
 
     return damage
@@ -703,9 +713,6 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     elseif (attackType == tpz.attackType.RANGED) then
         dmg = target:rangedDmgTaken(dmg)
     end
-
-    --handling phalanx
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
     if (dmg < 0) then
         return 0
