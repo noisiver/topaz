@@ -1805,6 +1805,7 @@ end
 tpz.annm.PetMods = function(mob)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
+    mob:setMod(tpz.mod.SDT_DARK, 130)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
