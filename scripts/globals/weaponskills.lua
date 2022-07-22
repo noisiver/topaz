@@ -200,25 +200,24 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- Apply Accuracy varies with TP accuracy bonus
     if (wsParams.accuracyVariesWithTP ~= nil) then
         if (wsParams.accPenalty ~= nil) then -- Used for Slugwinder and Truestrike
-            -- calcParams.bonusAcc = bonusAcc + (AccTPModifier(tp) - 40)
             bonusAcc = calcParams.bonusAcc + (AccTPModifier(tp) - 40)
         else
-            -- calcParams.bonusAcc = bonusAcc + AccTPModifier(tp)
             bonusAcc = calcParams.bonusAcc + AccTPModifier(tp)
         end
     end
 
     if isRanged then
        if (wsID == 196) or (wsID == 212) then -- Slugwinder
-            -- calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
             calcParams.hitRate = getRangedHitRate(attacker, target, true, bonusAcc)
        else
-            -- calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc + 100)
             calcParams.hitRate = getRangedHitRate(attacker, target, false, bonusAcc + 100)
         end
     else
-        -- calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
-        calcParams.hitRate =  getHitRate(attacker, target, true, true, bonusAcc + 100)
+        if (wsID == 0) then -- So jump won't get an accuracy bonus or have 99% acc
+            calcParams.hitRate =  getHitRate(attacker, target, true, false, 0)
+        else
+            calcParams.hitRate =  getHitRate(attacker, target, true, true, bonusAcc + 100)
+        end
     end
 
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
