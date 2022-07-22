@@ -10,7 +10,7 @@ function onEffectGain(target, effect)
     local IgnisRunes = target:getLocalVar("IgnisRunes")
     IgnisRunes = IgnisRunes + 1
     target:setLocalVar("IgnisRunes", IgnisRunes)
-    target:addMod(tpz.mod.ALL_WSDMG_ALL_HITS, 10)
+    target:addMod(tpz.mod.ALL_WSDMG_ALL_HITS, 16)
 end
 
 function onEffectTick(target, effect)
@@ -20,5 +20,5 @@ function onEffectLose(target, effect)
     local IgnisRunes = target:getLocalVar("IgnisRunes")
     IgnisRunes = IgnisRunes - 1
     target:setLocalVar("IgnisRunes", IgnisRunes)
-    target:delMod(tpz.mod.ALL_WSDMG_ALL_HITS, 10)
+    target:delMod(tpz.mod.ALL_WSDMG_ALL_HITS, 16)
 end
