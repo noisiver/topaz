@@ -7871,7 +7871,8 @@ INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,16344,240); -- Oily trousers
 INSERT INTO `mob_droplist` VALUES (1482,0,0,1000,17751,240); -- Fragarach
 INSERT INTO `mob_droplist` VALUES (1483,0,0,1000,836,70); -- 1483 Unused
 INSERT INTO `mob_droplist` VALUES (1484,0,0,1000,2926,100);
-INSERT INTO `mob_droplist` VALUES (1485,0,0,1000,1869,240); -- Lamia Skin
+INSERT INTO `mob_droplist` VALUES (1485,0,0,1000,1869,240); -- (Lamia Graverobber) Lamia Skin
+INSERT INTO `mob_droplist` VALUES (1485,2,0,1000,18688,0); -- Lamian Kaman -1 (Steal)
 INSERT INTO `mob_droplist` VALUES (1485,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (1486,0,0,1000,1869,240);
 INSERT INTO `mob_droplist` VALUES (1487,0,0,1000,1869,240);
@@ -7882,7 +7883,8 @@ INSERT INTO `mob_droplist` VALUES (1488,0,0,1000,5384,100);
 INSERT INTO `mob_droplist` VALUES (1489,0,0,1000,5365,100);
 INSERT INTO `mob_droplist` VALUES (1489,0,0,1000,5371,100);
 INSERT INTO `mob_droplist` VALUES (1489,0,0,1000,5374,100);
-INSERT INTO `mob_droplist` VALUES (1490,0,0,1000,2167,50);
+INSERT INTO `mob_droplist` VALUES (1490,0,0,1000,2167,50); -- (Lamia Fatedealer) Lamian ARmlet
+INSERT INTO `mob_droplist` VALUES (1490,2,0,1000,18688,0); -- Lamian Kaman -1 (Steal)
 INSERT INTO `mob_droplist` VALUES (1490,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (1490,0,0,1000,2332,150);
 INSERT INTO `mob_droplist` VALUES (1491,0,0,1000,5371,100);
@@ -8658,7 +8660,8 @@ INSERT INTO `mob_droplist` VALUES (1656,0,0,1000,5054,100);
 INSERT INTO `mob_droplist` VALUES (1656,0,0,1000,11708,100);
 INSERT INTO `mob_droplist` VALUES (1656,0,0,1000,18536,100);
 INSERT INTO `mob_droplist` VALUES (1657,0,0,1000,2146,150); -- Merrow Scale
-INSERT INTO `mob_droplist` VALUES (1658,0,0,1000,940,10);
+INSERT INTO `mob_droplist` VALUES (1658,0,0,1000,940,10); -- (Merrow Chantress)
+INSERT INTO `mob_droplist` VALUES (1658,4,0,1000,18688,0); -- Lamian Kaman -1 (Despoil)
 INSERT INTO `mob_droplist` VALUES (1658,0,0,1000,2146,150);
 INSERT INTO `mob_droplist` VALUES (1658,0,0,1000,2219,150);
 INSERT INTO `mob_droplist` VALUES (1659,0,0,1000,5371,100);
