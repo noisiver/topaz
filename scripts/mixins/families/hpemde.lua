@@ -73,7 +73,7 @@ g_mixins.families.hpemde = function(mob)
                 mob:SetAutoAttackEnabled(true)
                 mob:SetMobAbilityEnabled(true)
                 mob:setLocalVar("[hpemde]damaged", 1)
-                mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
+                mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + math.random(10,30))
             elseif disengageTime > 0 and mob:getBattleTime() > disengageTime then
                 mob:setLocalVar("[hpemde]disengageTime",  0)
                 mob:disengage()
