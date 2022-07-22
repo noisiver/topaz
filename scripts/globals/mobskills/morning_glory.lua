@@ -2,6 +2,7 @@
 -- Morning Glory
 -- Hits nearby targets with a petal bloom.
 -- 100% TP: ??? / 200% TP: ??? / 300% TP: ???
+-- Closed mouth only (Aimation Sub 4)
 ---------------------------------------------------
 
 require("scripts/globals/settings")
@@ -11,13 +12,16 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if mob:AnimationSub() == 4 then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1
+    local dmgmod = 1.25
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

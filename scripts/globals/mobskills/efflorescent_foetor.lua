@@ -2,7 +2,7 @@
 ---  Efflorescent Foetor
 ---
 ---  Description: Sprays toxic pollen in a fan-shaped area of effect, inflicting Blind & Silence.
----
+-- Open mouth only (Aimation Sub 6)
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -11,7 +11,10 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if mob:AnimationSub() == 6 then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
