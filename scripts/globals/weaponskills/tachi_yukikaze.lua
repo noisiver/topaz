@@ -38,7 +38,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     local UndaRunes = player:getLocalVar("UndaRunes")
-    local RuneDuration = player:getMainLvl() + 15
+    local RuneDuration = 7200
     if damage > 0 and UndaRunes <=2 then
         for v = 523,527,1 do
             player:delStatusEffectSilent(v)

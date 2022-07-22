@@ -43,7 +43,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     local LuxRunes = player:getLocalVar("LuxRunes")
-    local RuneDuration = player:getMainLvl() + 15
+    local RuneDuration = 7200
     -- Adds up to two runes
     if damage > 0 then
         if LuxRunes < 2 then -- Two runes if less than 2 runes currently on
