@@ -1094,7 +1094,7 @@ bool CLatentEffectContainer::ProcessLatentEffect(CLatentEffect& latentEffect)
         {
         case 0:
             //under own nation's control
-            expression = region < 28 && conquest::GetRegionOwner(region) == m_POwner->profile.nation && (hasSignet || hasSanction || hasSigil);
+            expression = region < 28 && (hasSignet || hasSanction || hasSigil);
             break;
         case 1:
             //outside of own nation's control
