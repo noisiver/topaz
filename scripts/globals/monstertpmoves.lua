@@ -607,7 +607,7 @@ function MobBreathMove(mob, target, percent, base, element, cap)
     end
 
     --handling phalanx
-    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
+    damage = damage - target:getMod(tpz.mod.PHALANX)
 
     damage = utils.clamp(damage, 1, cap)
 
