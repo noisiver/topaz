@@ -56,6 +56,10 @@ local path =
     },
 }
 
+function onMobSpawn(mob)
+    mob:setMod(tpz.mod.ACC, 1500) 
+end
+
 function onMobRoam(mob)
     local offset = mob:getID() - ID.mob.TEMENOS_W_MOB[2]
     local pause = mob:getLocalVar("pause")
