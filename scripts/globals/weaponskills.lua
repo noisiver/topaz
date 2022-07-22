@@ -154,7 +154,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
         if calcParams.flourishEffect then
             if calcParams.flourishEffect:getPower() > 2 then -- Building Flourish gives +25% crit at 3 Finishing Moves
-                critrate = critrate + (25 + calcParams.flourishEffect:getSubPower()/2)/100
+                critrate = critrate + (25 + calcParams.flourishEffect:getSubPower() / 2)/100
             end
         end
 
