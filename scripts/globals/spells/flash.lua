@@ -62,11 +62,15 @@ function onSpellCast(caster, target, spell)
     local duration = 12 * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BLIND, target))
 
+     -- Flash can't be applied if target is already flashed
+    if target:hasStatusEffect(tpz.effect.FLASH) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return tpz.effect.FLASH
+    end
+
     if (resist >= 0.0625) then
         if (target:addStatusEffect(tpz.effect.FLASH, 300, 3, duration)) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)

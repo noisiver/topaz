@@ -50,7 +50,7 @@ function onUseAbility(player, target, ability)
     end
 
     -- Calculate stun proc chance
-    if (math.random()*100 < 99) then
+    if (math.random()*100 < 99) and not target:hasStatusEffect(tpz.effect.STUN) then
         -- Highlander's Targe Hidden Effect
         local shield = player:getEquipID(tpz.slot.SUB)
 	    if shield == 12362 then -- Highlander's Targe

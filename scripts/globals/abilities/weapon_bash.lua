@@ -27,7 +27,7 @@ function onUseAbility(player, target, ability)
     end
 
     -- Applying Weapon Bash stun. Rate is said to be near 100%, so let's say 99%.
-    if (math.random()*100 < 99) then
+    if (math.random()*100 < 99) and not target:hasStatusEffect(tpz.effect.STUN) then
         target:addStatusEffect(tpz.effect.STUN, 1, 0, 4)
     end
 
