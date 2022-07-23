@@ -32,9 +32,11 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
             criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
             if criticalHit then
+                TryBreakMob(target)
                 calcParams.criticalHit = true
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
             elseif forcedCrit then
+                TryBreakMob(target)
                 calcParams.criticalHit = true
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
             else
@@ -1568,4 +1570,106 @@ function getDexCritBonus(dDEX)
         nativeCrit = 0.01
     end
     return nativeCrit
+end
+
+function TryBreakMob(target)
+    local animationSub = target:AnimationSub()
+    if (GetMobFamily(target) == 'Troll') or (GetMobFamily(target) == 'Mamool') or (GetMobFamily(target) == 'Lamiae') or (GetMobFamily(target) == 'Merrow') then
+        if math.random(100) <= target:getLocalVar("BreakChance") then
+            -- break weapon
+            if animationSub == 0 or animationSub > 1 then
+                target:AnimationSub(1)
+                -- Gotoh Zha the Redolent throws his staff when it breaks
+                if target:getPool() == 1773 then
+                    target:useMobAbility(2361) -- Stave Toss
+                end
+            end
+        end
+    elseif (GetMobFamily(target) == 'Qutrub') then
+        if math.random(100) <= target:getLocalVar("qutrubBreakChance") then
+            -- break first weapon
+            if animationSub == 0 then
+                target:AnimationSub(1)
+                target:setLocalVar("swapTime", os.time() + 60)
+            -- break second weapon
+            elseif animationSub == 2 then
+                target:AnimationSub(3)
+                target:setLocalVar("swapTime", 0)
+            end
+        end
+    elseif (GetMobFamily(target) == 'Orobon') then
+        if math.random(100) <= target:getLocalVar("FeelersBreakChance") and animationSub == 0 then
+            target:AnimationSub(1)
+        end
+    elseif (GetMobFamily(target) == 'Acrolith') then
+        if math.random(100) <= target:getLocalVar("PartBreakChance") and animationSub == 0 and target:actionQueueEmpty() then
+            target:useMobAbility(2074) -- Detonating Grip
+        end
+        if math.random(100) <= target:getLocalVar("PartBreakChance") and animationSub == 1 and target:actionQueueEmpty() then
+            target:useMobAbility(2074) -- Detonating Grip
+        end
+    elseif (GetMobFamily(target) == 'Imp') then
+        if math.random(100) <= target:getLocalVar("HornBreakChance") and animationSub == 0 then
+            target:AnimationSub(1)
+            target:setLocalVar("ReobtainHornTime", os.time() + 60)
+        end
+    elseif (GetMobFamily(target) == 'Marid') then
+        if math.random(100) <= target:getLocalVar("HornBreakChance") and animationSub == 0 then
+            target:AnimationSub(1)
+			target:setLocalVar("Weapon", 1)
+		elseif math.random(100) <= target:getLocalVar("HornBreakChance") and animationSub == 1 then
+			target:AnimationSub(2)
+			target:setLocalVar("Weapon", 2)
+        end
+    elseif (GetMobFamily(target) == 'Gears') then
+        local GearNumber = target:getLocalVar("GearNumber")
+        -- Can lose a gear from crits after restoring a gear only
+        if GearNumber > 0 then
+            if math.random(100) <= target:getLocalVar("BreakChance") then
+                -- Lose a gear
+                if animationSub == 0 then
+                    target:AnimationSub(1)
+                    target:setLocalVar("GearNumber", 2)
+                end
+                -- Lose a gear
+                if animationSub == 1 then
+                    target:AnimationSub(2)
+                    target:setLocalVar("GearNumber", 1)
+                end
+            end
+        end
+    elseif (GetMobFamily(target) == 'Khimaira') then
+        if math.random(100) <= target:getLocalVar("WingsBreakChance") and animationSub == 0 then
+            target:AnimationSub(1)
+        end
+    elseif (GetMobFamily(target) == 'Hydra') then
+    end
+end
+
+function GetMobFamily(target)
+    if (target:getFamily() == 246) or (target:getFamily() == 308) or (target:getFamily() == 923) then
+        return 'Troll'
+    elseif (target:getFamily() == 176) or (target:getFamily() == 305) then
+        return 'Mamool'
+    elseif (target:getFamily() == 171)  then
+        return 'Lamiae'
+    elseif (target:getFamily() == 182) then
+        return 'Merrow'
+    elseif (target:getFamily() == 203) or (target:getFamily() == 204) or (target:getFamily() == 205) then
+        return 'Qutrub'
+    elseif (target:getFamily() == 191) then 
+        return 'Orobon'
+    elseif (target:getFamily() == 1) or (target:getFamily() == 302) then 
+        return 'Acrolith'
+    elseif (target:getFamily() == 165) or (target:getFamily() == 166) or (target:getFamily() == 301) or (target:getFamily() == 549) then 
+        return 'Imp'
+    elseif (target:getFamily() == 180) or (target:getFamily() == 295) or (target:getFamily() == 371) then 
+        return 'Marid'
+    elseif (target:getFamily() == 119) or (target:getFamily() == 120) or (target:getFamily() == 304) then 
+        return 'Gears'
+    elseif (target:getFamily() == 168) or (target:getFamily() == 315) then 
+        return 'Khimaira'
+    elseif (target:getFamily() == 163) or (target:getFamily() == 164) or (target:getFamily() == 313)  then 
+        return 'Hydra'
+    end
 end

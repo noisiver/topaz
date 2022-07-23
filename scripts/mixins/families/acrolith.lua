@@ -1,5 +1,4 @@
 require("scripts/globals/mixins")
-require("scripts/globals/weaponskillids")
 
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
@@ -24,19 +23,6 @@ g_mixins.families.acrolith = function(mob)
     end)
 
 	mob:addListener("WEAPONSKILL_TAKE", "ACROLITH_WS_TAKE", function(target, user, wsid)
-        if wsid == tpz.weaponskill      
-        or wsid == tpz.weaponskill       
-        or wsid == tpz.weaponskill       
-        or wsid == tpz.weaponskill      
-        or wsid == tpz.weaponskill       
-        or wsid == tpz.weaponskill       
-        or wsid == tpz.weaponskill      
-        or wsid == tpz.weaponskill      
-        or wsid == tpz.weaponskill      
-        or wsid == tpz.weaponskill      
-        or wsid == tpz.weaponskill      
-        or wsid == tpz.weaponskill then 
-        end
     end)
 
 	-- chance to break when hit by an offensive JA(like box step)
