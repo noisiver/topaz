@@ -5,6 +5,7 @@
 -- Cast Time: Instant
 -- Recast Time: 3:00 minutes
 -----------------------------------
+require("scripts/globals/weaponskills")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -39,24 +40,19 @@ function onUseAbility(player, target, ability)
         darkKnightLvl = player:getSubLvl()    -- Use Subjob Lvl
     end
 
+    -- Get fSTR
+    local fstr = fSTR(player:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT), player:getWeaponDmgRank())
+    local params = {}
+    params.atk100 = 1 params.atk200 = 1 params.atk300 = 1
+    -- Get Weapon Damage
+    local weaponDamage = player:getWeaponDmg()
     -- Calculating and applying Weapon Bash damage
-    local damage = math.floor(((darkKnightLvl + 11) / 4) + player:getMod(tpz.mod.WEAPON_BASH))
+    local base = weaponDamage + fstr
+    local cratio, ccritratio = cMeleeRatio(player, target, params, 0, 0)
+    local pdif = generatePdif (cratio[1], cratio[2], true)
+    local gearMod = player:getMod(tpz.mod.WEAPON_BASH)
 
-    -- Randomize damage
-    local ratio = player:getStat(tpz.mod.ATT)/target:getStat(tpz.mod.DEF)
-
-    if ratio > 1.3 then
-        ratio = 1.3
-    end
-
-    if ratio < 0.2 then
-        ratio = 0.2
-    end
-
-    local pdif = math.random(ratio * 0.8 * 1000, ratio * 1.2 * 1000)
-
-    -- printf("damge %d, ratio: %f, pdif: %d\n", damage, ratio, pdif)
-    damage = damage * (pdif / 1000)
+    damage = (base + gearMod)  * pdif
 
     -- Check for Invincible
     if target:hasStatusEffect(tpz.effect.INVINCIBLE) then
