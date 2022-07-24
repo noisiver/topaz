@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Emetic Discharge
+-- Microspores
 -- Only used by Goldcap and Morille Mortelle.
 -- Description: Transfers all ailments to target
 -- Type: Enfeebling
@@ -12,7 +12,7 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if mob:getPool() == 1200 or mob:getPool() == 4698 then
+    if mob:getPool() == 1749 or mob:getPool() == 4698 then
         return 0
      end
     return 1
