@@ -39,7 +39,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.POISON
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, mob:getMainLvl()/2.5, 3, 30)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, mob:getMainLvl()/2.5, 3, 90)
 
     return dmg
 end

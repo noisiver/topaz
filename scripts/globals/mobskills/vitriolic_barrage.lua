@@ -18,11 +18,8 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local needles = 1000 / skill:getTotalTargets()
     local typeEffect = tpz.effect.POISON
-
-    MobStatusEffectMove(mob, target, typeEffect, 35, 3, 300)
-
     local dmg = MobFinalAdjustments(needles, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
-
+    MobStatusEffectMove(mob, target, typeEffect, 35, 3, 90)
     return dmg
 end
