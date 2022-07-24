@@ -19,7 +19,7 @@ function onSpellCast(caster, target, spell)
     local mINT = target:getStat(tpz.mod.INT)
 
     local dINT = (pINT - mINT)
-    local power = caster:getSkillLevel(tpz.skill.ENFEEBLING_MAGIC) / 7 + 1     -- changed from /10 to /7
+    local power = math.min(caster:getSkillLevel(tpz.skill.ENFEEBLING_MAGIC) / 15 + 1, 25)
     if power > 25 then
         power = 25
     end
@@ -37,7 +37,7 @@ function onSpellCast(caster, target, spell)
     params.effect = effect
 
     local resist = applyResistanceEffect(caster, target, spell, params)
-    if (resist == 1 or resist == 0.5) then -- effect taken
+    if (resist >= 0.5) then -- effect taken
         duration = duration * resist
 
         if (target:addStatusEffect(effect, power, 3, duration)) then
