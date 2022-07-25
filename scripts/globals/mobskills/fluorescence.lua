@@ -1,6 +1,7 @@
 ---------------------------------------------
 -- Fluorescence
 -- Boost Ability.
+-- Should be 4x damage on next physical attack.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
