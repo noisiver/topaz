@@ -76,8 +76,8 @@ local loot =
             {itemid = 1875, droprate = 1000}, -- Ancient Beastcoin
         },
         {
-            {itemid =    0, droprate = 1000}, -- Ancient Beastcoin
-            {itemid = 1875, droprate = 1000}, -- Ancient Beastcoin
+            {itemid =    0, droprate = 500}, -- Nothing
+            {itemid = 1875, droprate = 500}, -- Ancient Beastcoin
         },
     },
 }
