@@ -24,8 +24,8 @@ function onMobWeaponSkill(target, mob, skill)
     local currentHP = target:getHP()
     local damage = maxHP * .95
     local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
-    if dmg > maxHP then
-       dmg = maxHP * 0.95 -- Ensure it won't kill target
+    if dmg > currentHP then
+       dmg = currentHP * 0.95 -- Ensure it won't kill target
     end
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.NONE)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end

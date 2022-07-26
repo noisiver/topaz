@@ -39,8 +39,8 @@ function onMobWeaponSkill(target, mob, skill)
     local damage = maxHP * .90
     local typeEffect = tpz.effect.BIND
     local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
-    if dmg > maxHP then
-       dmg = maxHP * 0.90 -- Ensure it won't kill target
+    if dmg > currentHP then
+       dmg = currentHP * 0.90 -- Ensure it won't kill target
     end
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.NONE)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 45)
