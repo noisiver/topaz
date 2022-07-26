@@ -18,6 +18,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
     mob:setMobMod(tpz.mobMod.HP_HEAL_CHANCE, 80)
+    mob:setMobMod(tpz.mobMod.HEAL_CHANCE, 5)
 end
 
 function onMobInitialize(mob)
