@@ -14,7 +14,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.MDEF, 125) 
     mob:setMobMod(tpz.mobMod.GIL_MIN, 18000)
-    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 0)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
     mob:setMobMod(tpz.mobMod.HP_HEAL_CHANCE, 80)
 end
 
