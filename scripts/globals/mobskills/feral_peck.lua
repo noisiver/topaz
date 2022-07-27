@@ -25,13 +25,11 @@ end
 
 
 function onMobWeaponSkill(target, mob, skill)
-    local currentHP = target:getHP()
-    local damage = currentHP * 0.90
-    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
+    local hpp = 0.95
+    local dmg = MobThroatStabMove(mob, target, skill, hpp, tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.NONE)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end
     mob:resetEnmity(target)
-
     return dmg
 end
 

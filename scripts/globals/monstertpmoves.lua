@@ -243,8 +243,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         end
         --printf("pdif first hit %u", pdif * 100)
         finaldmg = finaldmg + hitdamage * pdif
-        --handling phalanx
-        finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
         hitslanded = hitslanded + 1
     end
     -- Check multihit(qa/ta/da)
@@ -408,9 +406,6 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
     local magicAttkBonus = getMobMAB(mob, target)
     -- Do the formula!
     local finaldmg = getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
-
-    --handling phalanx
-    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
     --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     --printf("mutiplier %i", multiplier * 100)
@@ -606,9 +601,6 @@ function MobBreathMove(mob, target, percent, base, element, cap)
         damage = damage * resist * defense
     end
 
-    --handling phalanx
-    damage = damage - target:getMod(tpz.mod.PHALANX)
-
     damage = utils.clamp(damage, 1, cap)
 
     return damage
@@ -634,7 +626,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     -- MNK mobs have a -50% end multiplier for wep damage and need to do 2x for physical moves to do proper damage
-    if (mob:getMainJob() == tpz.job.MNK) then
+    if (mob:getMainJob() == tpz.job.MNK) and (damageType ~= tpz.damageType.NONE) then -- Throat stab and special moves like Mijin Gakure
         if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
             dmg = dmg * 2
         end
@@ -717,6 +709,9 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     if (dmg < 0) then
         return 0
     end
+
+    --handling phalanx
+    dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
     --handling magic stoneskin / stoneskin
     --printf("dmg before %u",dmg)
@@ -1072,6 +1067,17 @@ function MobDeathMove(mob, target, skill)
 	else
 	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
+end
+
+function MobThroatStabMove(mob, target, skill, hpp, attackType, damageType, shadowbehav)
+    local maxHP = target:getMaxHP()
+    local currentHP = target:getHP()
+    local damage = maxHP * hpp
+    local dmg = MobFinalAdjustments(damage,mob,skill,target,attackType,damageType,MOBPARAM_IGNORE_SHADOWS)
+    if dmg > currentHP then
+       dmg = currentHP * hpp -- Ensure it won't kill target
+    end
+    return dmg
 end
 
 function MobTakeAoEShadow(mob, target, max)

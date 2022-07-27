@@ -19,13 +19,13 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local currentHP = target:getHP()
-    local damage = currentHP * 0.95
+    local hpp = 0.95
+    local dmg = MobThroatStabMove(mob, target, skill, hpp, tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
     if  not target:isFacing(mob) then
-        damage = 0
+        dmg = 0
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- TODO: Test
+        return 0
     end
-    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.NONE,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.NONE, tpz.damageType.NONE)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end
     mob:resetEnmity(target)
