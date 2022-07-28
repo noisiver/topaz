@@ -29,8 +29,13 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGBREATH, 0)
     mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
     mob:setMod(tpz.mod.MOVE, 25) -- "Moves at Flee Speed in Quadrupedal stance and in the Final Form"
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setLocalVar("form", 0)
     mob:setLocalVar("Gunpod", 0)
+end
+
+function onMobEngaged(mob, target)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
 end
 
 function onMobFight(mob, target)

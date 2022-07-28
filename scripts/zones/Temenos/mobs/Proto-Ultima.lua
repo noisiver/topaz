@@ -27,7 +27,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, -30)
 	mob:setMod(tpz.mod.REGEN, 0) 
 	mob:setMod(tpz.mod.REGAIN, 0) 
-	mob:setMod(tpz.mod.DOUBLE_ATTACK, 0) 
+	mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:SetMagicCastingEnabled(false)
     mob:SetAutoAttackEnabled(true)
     mob:SetMobAbilityEnabled(true)
@@ -35,6 +36,7 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     tpz.limbus.setupArmouryCrates(mob:getBattlefieldID(), true)
 end
 
