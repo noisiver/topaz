@@ -27,6 +27,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGRANGE, -90)
     mob:setMod(tpz.mod.UDMGMAGIC, 0)
     mob:setMod(tpz.mod.UDMGBREATH, 0)
+    mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
     mob:setMod(tpz.mod.MOVE, 25) -- "Moves at Flee Speed in Quadrupedal stance and in the Final Form"
     mob:setLocalVar("form", 0)
     mob:setLocalVar("Gunpod", 0)
@@ -163,6 +164,8 @@ function onMobFight(mob, target)
                         if Gunpod < 6 then
                             Gunpod = Gunpod +1
                             mob:setLocalVar("Gunpod", Gunpod)
+    	                    local CurrentTP = mob:getTP()
+	                        mob:setLocalVar("TP", CurrentTP)
                             mob:useMobAbility(1532)
                         end
                     end 
@@ -178,6 +181,8 @@ function onMobFight(mob, target)
                     if Gunpod < 6 then
                         Gunpod = Gunpod +1
                         mob:setLocalVar("Gunpod", Gunpod)
+    	                local CurrentTP = mob:getTP()
+	                    mob:setLocalVar("TP", CurrentTP)
                         mob:useMobAbility(1532)
                     end
                 end 
