@@ -31,7 +31,7 @@ function onMobWeaponSkill(target, mob, skill)
     -- Check for shadows
     local dmg = MobFinalAdjustments(1, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows)
     if (MobPhysicalHit(skill)) then
-		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 60, count, 300))
+		skill:setMsg(DrainMultipleAttributes(mob, target, 21, 60, count, 300))
         return count
 	end
     return shadows

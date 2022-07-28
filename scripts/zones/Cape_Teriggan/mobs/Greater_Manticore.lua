@@ -14,3 +14,8 @@ end
 function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.FROSTMANE_PH, 20, 3600) -- changed from 1 to 6 hours
 end
+
+-- For testing purposes only
+--function onMobWeaponSkillPrepare(mob, target)
+--    return 1560 
+--end

@@ -19,7 +19,12 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local count = 7
-    skill:setMsg(DrainMultipleAttributes(mob, target, 35, 60, count, 300))
-
-    return count
+    local shadows = math.random(2, 3)
+    -- Check for shadows
+    local dmg = MobFinalAdjustments(1, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows)
+    if (MobPhysicalHit(skill)) then
+		skill:setMsg(DrainMultipleAttributes(mob, target, 21, 60, count, 300))
+        return count
+	end
+    return shadows
 end
