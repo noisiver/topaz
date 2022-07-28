@@ -104,6 +104,7 @@ function onSpellCast(caster, target, spell)
 
             target:wakeUp()
             caster:updateEnmityFromCure(target, 65535)
+            -- 65535 means "use cure V enmity formula"
         end
     else
         if (target:isUndead()) then -- e.g. PCs healing skeles for damage (?)
