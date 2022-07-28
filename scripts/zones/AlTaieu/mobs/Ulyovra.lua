@@ -28,6 +28,14 @@ function onMobEngaged(mob, target)
     mob:wait(2000)
 end
 
+function onMobFight(mob, target)
+    if mob:hasStatusEffect(tpz.effect.BOOST) then
+        mob:setDamage(240)
+    else
+        mob:setDamage(120)
+    end
+end
+
 function onMobDisengage(mob)
     mob:hideName(true)
     mob:untargetable(true)

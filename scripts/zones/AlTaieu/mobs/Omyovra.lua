@@ -1,4 +1,5 @@
 -----------------------------------
+
 -- Area: Al'Taieu
 --  Mob: Om'yovra
 -----------------------------------
@@ -26,6 +27,14 @@ function onMobEngaged(mob, target)
     mob:untargetable(false)
     mob:AnimationSub(6)
     mob:wait(2000)
+end
+
+function onMobFight(mob, target)
+    if mob:hasStatusEffect(tpz.effect.BOOST) then
+        mob:setDamage(280)
+    else
+        mob:setDamage(140)
+    end
 end
 
 function onMobDisengage(mob)
