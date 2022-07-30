@@ -300,14 +300,13 @@ tpz.annm.augment[tpz.items.CORAL_HAIRPIN] =
         maximum = 2
     },
 }
-
 tpz.annm.augment[tpz.items.KABUTOWARI] =
 {
     {
-        stat = tpz.augments.MAIN_DMG_RATING, 
+        stat = tpz.augments.WSD_BLADE_KU, 
         chance = 100, 
-        minimum = 6,
-        maximum = 12
+        minimum = 0,
+        maximum = 5
     },
     {
         stat = tpz.augments.DELAYMINUS, 
@@ -409,10 +408,10 @@ tpz.annm.augment[tpz.items.BEAK_JERKIN] =
 tpz.annm.augment[tpz.items.NAGAN] =
 {
     {
-        stat = tpz.augments.MAIN_DMG_RATING, 
+        stat = tpz.augments.WSD_GROUND_STRIKE, 
         chance = 100, 
         minimum = 0,
-        maximum = 4
+        maximum = 5
     },
     {
         stat = tpz.augments.DELAYMINUS, 
@@ -427,10 +426,10 @@ tpz.annm.augment[tpz.items.NAGAN] =
         maximum = 3
     },
     {
-        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
+        stat = tpz.augments.MAIN_DMG_RATING,
         chance = 10,
-        minimum = 3,
-        maximum = 7
+        minimum = 0,
+        maximum = 3
     },
     {
         stat = tpz.augments.PDT,
@@ -508,10 +507,10 @@ tpz.annm.augment[tpz.items.SILK_SLACKS] =
 tpz.annm.augment[tpz.items.HEXAGUN] =
 {
     {
-        stat = tpz.augments.RANGED_DMG_RATING, 
+        stat = tpz.augments.WSD_HOT_SHOT, 
         chance = 100, 
-        minimum = 6,
-        maximum = 11
+        minimum = 7,
+        maximum = 14
     },
     {
         stat = tpz.augments.RANGED_DELAYMINUS, 
@@ -532,7 +531,7 @@ tpz.annm.augment[tpz.items.HEXAGUN] =
         maximum = 4
     },
     {
-        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
+        stat = tpz.augments.RACC,
         chance = 10,
         minimum = 3,
         maximum = 7
@@ -607,10 +606,10 @@ tpz.annm.augment[tpz.items.COEURL_LEDELSENS] =
 tpz.annm.augment[tpz.items.KAZARIDACHI] =
 {
     {
-        stat = tpz.augments.MAIN_DMG_RATING, 
+        stat = tpz.augments.WSD_TACH_JINPU, 
         chance = 100, 
-        minimum = 4,
-        maximum = 9
+        minimum = 0,
+        maximum = 5
     },
     {
         stat = tpz.augments.DELAYMINUS, 
@@ -625,10 +624,10 @@ tpz.annm.augment[tpz.items.KAZARIDACHI] =
         maximum = 3
     },
     {
-        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
+        stat = tpz.augments.ATTK,
         chance = 10,
-        minimum = 7,
-        maximum = 14
+        minimum = 4,
+        maximum = 9
     },
     {
         stat = tpz.augments.STORETP,
@@ -706,16 +705,16 @@ tpz.annm.augment[tpz.items.SILK_MITTS] =
 tpz.annm.augment[tpz.items.MANOPLES] = 
 {
     {
-        stat = tpz.augments.DELAYMINUS, 
+        stat = tpz.augments.WSD_HOWLING_FIST,
         chance = 100, 
-        minimum = 18,
-        maximum = 24
+        minimum = 0,
+        maximum = 5
     },
     {
-        stat = tpz.augments.MAIN_DMG_RATING,
+        stat = tpz.augments.DELAYMINUS,
         chance = 30, 
-        minimum = 0,
-        maximum = 1
+        minimum = 18,
+        maximum = 24
     },
     {
         stat = tpz.augments.STR, 
@@ -724,7 +723,7 @@ tpz.annm.augment[tpz.items.MANOPLES] =
         maximum = 3
     },
     {
-        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
+        stat = tpz.augments.ATTK,
         chance = 10,
         minimum = 3,
         maximum = 7
@@ -805,10 +804,10 @@ tpz.annm.augment[tpz.items.YASHA_SAMUE] =
 tpz.annm.augment[tpz.items.GULLY] =
 {
     {
-        stat = tpz.augments.MAIN_DMG_RATING, 
+        stat = tpz.augments.WSD_SHADOWSTITCH, 
         chance = 100, 
-        minimum = 4,
-        maximum = 7
+        minimum = 19,
+        maximum = 29
     },
     {
         stat = tpz.augments.DELAYMINUS, 
@@ -904,10 +903,10 @@ tpz.annm.augment[tpz.items.PANTHER_MASK] =
 tpz.annm.augment[tpz.items.GENDAWA] =
 {
     {
-        stat = tpz.augments.RANGED_DMG_RATING, 
+        stat = tpz.augments.WSD_ARCHING_ARROW, 
         chance = 100, 
-        minimum = 8,
-        maximum = 15
+        minimum = 0,
+        maximum = 5
     },
     {
         stat = tpz.augments.RANGED_DELAYMINUS, 
@@ -916,16 +915,16 @@ tpz.annm.augment[tpz.items.GENDAWA] =
         maximum = 7
     },
     {
-        stat = tpz.augments.RATTK, 
+        stat = tpz.augments.INT, 
         chance = 30,
-        minimum = 13,
-        maximum = 25
+        minimum = 0,
+        maximum = 4
     },
     {
-        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
+        stat = tpz.augments.MATT,
         chance = 10,
-        minimum = 3,
-        maximum = 7
+        minimum = 0,
+        maximum = 4
     },
     {
         stat = tpz.augments.SNAP_SHOT,
@@ -1003,10 +1002,10 @@ tpz.annm.augment[tpz.items.PLATINUM_BANGLES] =
 tpz.annm.augment[tpz.items.BHUJ] =
 {
     {
-        stat = tpz.augments.MDT, 
+        stat = tpz.augments.WSD_KEEN_EDGE, 
         chance = 100, 
-        minimum = 2,
-        maximum = 4
+        minimum = 4,
+        maximum = 9
     },
     {
         stat = tpz.augments.COUNTER, 
@@ -1021,7 +1020,7 @@ tpz.annm.augment[tpz.items.BHUJ] =
         maximum = 4
     },
     {
-        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
+        stat = tpz.augments.ATTK,
         chance = 10,
         minimum = 3,
         maximum = 7
@@ -1201,10 +1200,10 @@ tpz.annm.augment[tpz.items.DEMON_HELM] =
 tpz.annm.augment[tpz.items.ANELACE] =
 {
     {
-        stat = tpz.augments.MAIN_DMG_RATING, 
+        stat = tpz.augments.WSD_CIRCLE_BLADE, 
         chance = 100, 
-        minimum = 0,
-        maximum = 2
+        minimum = 19,
+        maximum = 29
     },
     {
         stat = tpz.augments.DELAYMINUS, 
@@ -1219,10 +1218,10 @@ tpz.annm.augment[tpz.items.ANELACE] =
         maximum = 4
     },
     {
-        stat = tpz.augments.ALL_WSDMG_FIRST_HIT,
+        stat = tpz.augments.STR,
         chance = 10,
-        minimum = 3,
-        maximum = 7
+        minimum = 0,
+        maximum = 4
     },
     {
         stat = tpz.augments.FASTCAST,
@@ -1399,19 +1398,19 @@ tpz.annm.augment[tpz.items.ERRANT_HOUPPELANDE] =
 tpz.annm.augment[tpz.items.ICE_LANCE] =
 {
     {
-        stat = tpz.augments.DT, 
+        stat = tpz.augments.WSD_IMPULSE_DRIVE, 
         chance = 100, 
-        minimum = 7,
-        maximum = 15
+        minimum = 0,
+        maximum = 5
     },
     {
-        stat = tpz.augments.ENMITYMINUS, 
+        stat = tpz.augments.ATTK, 
         chance = 30, 
-        minimum = 7,
-        maximum = 14
+        minimum = 0,
+        maximum = 5
     },
     {
-        stat = tpz.augments.MDEF, 
+        stat = tpz.augments.ACC, 
         chance = 30,
         minimum = 0,
         maximum = 5
@@ -1501,7 +1500,7 @@ tpz.annm.augment[tpz.items.DEATH_SCYTHE] =
         stat = tpz.augments.WSD_SPIRAL_HELL, 
         chance = 100, 
         minimum = 0,
-        maximum = 2
+        maximum = 5
     },
     {
         stat = tpz.augments.STR, 
@@ -1522,10 +1521,10 @@ tpz.annm.augment[tpz.items.DEATH_SCYTHE] =
         maximum = 4
     },
     {
-        stat = tpz.augments.REGAIN,
+        stat = tpz.augments.ATTK,
         chance = 10,
-        minimum = 0,
-        maximum = 0
+        minimum = 3,
+        maximum = 7
     },
 }
 tpz.annm.augment[tpz.items.ROSHI_JINPACHI] =

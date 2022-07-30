@@ -1292,6 +1292,7 @@ INSERT INTO `augments` VALUES (1023, 0, 0, 0, 0, 0);
 
 -- For 1024 to 1080 values, count by 5 each increase
 -- ModId = WEAPONSKILL_DAMAGE_BASE(570)+WsId
+-- These all cap at 29(150%)
 INSERT INTO `augments` VALUES (1024, 5, 574, 1, 0, 0); -- Backhand Blow:DMG+5% (increases by 5)
 INSERT INTO `augments` VALUES (1025, 5, 576, 1, 0, 0); -- Spinning Attack:DMG+5% (increases by 5)
 INSERT INTO `augments` VALUES (1026, 5, 577, 1, 0, 0); -- Howling Fist:DMG+5% (increases by 5)
