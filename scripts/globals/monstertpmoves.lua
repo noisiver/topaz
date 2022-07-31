@@ -587,6 +587,9 @@ function MobBreathMove(mob, target, percent, base, element, cap)
     local systemBonus = utils.getSystemStrengthBonus(mob, target)
     damage = damage + (damage * (systemBonus * 0.25))
 
+    -- Apply day/weather
+    local damage = damage * getMobWeatherBonus(mob, element)
+
     -- elemental resistence
     if (element ~= nil and element > 0) then
         -- no skill available, pass nil
@@ -595,10 +598,7 @@ function MobBreathMove(mob, target, percent, base, element, cap)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
-        -- get elemental damage reduction
-        local defense = getElementalDamageReduction(target, element)
-
-        damage = damage * resist * defense
+        damage = damage * resist
     end
 
     damage = utils.clamp(damage, 1, cap)
