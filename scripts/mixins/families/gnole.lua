@@ -26,7 +26,7 @@ g_mixins.families.gnole = function(mob)
         local moon = utils.getMoonPhase()
         local moonphase = 0
         if (moon == 'Full') then
-             mob:setMod(tpz.mod.MARTIAL_ARTS, 280)
+            mob:setMod(tpz.mod.MARTIAL_ARTS, 280)
             mob:addMod(tpz.mod.EVA, 60)
         elseif (moon == 'Gibbeus') then
             mob:setMod(tpz.mod.MARTIAL_ARTS, 200)
@@ -42,7 +42,6 @@ g_mixins.families.gnole = function(mob)
         end
         attemptTransform(mob, 60)
     end)
-
 end
 
 function attemptTransform(mob, timeThreshold)
