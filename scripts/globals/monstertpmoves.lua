@@ -583,10 +583,6 @@ function MobBreathMove(mob, target, percent, base, element, cap)
         cap = math.floor(mob:getHP()/5)
     end
 
-    -- Deal bonus damage vs mob ecosystem
-    local systemBonus = utils.getSystemStrengthBonus(mob, target)
-    damage = damage + (damage * (systemBonus * 0.25))
-
     -- Apply day/weather
     local damage = damage * getMobWeatherBonus(mob, element)
 
@@ -689,6 +685,10 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
             dmg = dmg * 2
         end
     end
+
+    -- Handle mob ecosystem bonus
+    local systemBonus = utils.getSystemStrengthBonus(mob, target)
+    dmg = dmg + (dmg * (systemBonus * 0.25))
 
     -- Handle weapon resist on pets(like blunt damage)
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
