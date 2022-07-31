@@ -1057,16 +1057,16 @@ INSERT INTO `mob_groups` VALUES (41,4531,28,'Aqueduct_Spider',330,0,0,0,0,84,86,
 -- Riverne-Site_B01 (Zone 29)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,2399,29,'Lesser_Roc',330,0,1514,2100,0,49,53,0);
-INSERT INTO `mob_groups` VALUES (2,3242,29,'Pyrodrake',330,0,2048,0,0,50,55,0);
-INSERT INTO `mob_groups` VALUES (3,2882,29,'Nimbus_Hippogryph',330,0,1810,0,0,49,52,0);
-INSERT INTO `mob_groups` VALUES (4,3912,29,'Thunder_Elemental',330,4,2410,0,0,57,64,0);
-INSERT INTO `mob_groups` VALUES (5,3783,29,'Strato_Hippogryph',330,0,488,0,0,54,57,0);
-INSERT INTO `mob_groups` VALUES (6,2452,29,'Lunantishee',330,0,1550,0,0,55,58,0);
-INSERT INTO `mob_groups` VALUES (7,2051,29,'Ignidrake',330,0,1352,0,0,58,60,0);
+INSERT INTO `mob_groups` VALUES (1,2399,29,'Lesser_Roc',960,0,1514,2100,0,49,53,0);
+INSERT INTO `mob_groups` VALUES (2,3242,29,'Pyrodrake',960,0,2048,0,0,50,55,0);
+INSERT INTO `mob_groups` VALUES (3,2882,29,'Nimbus_Hippogryph',960,0,1810,0,0,49,52,0);
+INSERT INTO `mob_groups` VALUES (4,3912,29,'Thunder_Elemental',960,4,2410,0,0,57,64,0);
+INSERT INTO `mob_groups` VALUES (5,3783,29,'Strato_Hippogryph',960,0,488,0,0,54,57,0);
+INSERT INTO `mob_groups` VALUES (6,2452,29,'Lunantishee',960,0,1550,0,0,55,58,0);
+INSERT INTO `mob_groups` VALUES (7,2051,29,'Ignidrake',960,0,1352,0,0,58,60,0);
 INSERT INTO `mob_groups` VALUES (8,2891,29,'Nitro_Cluster',960,0,1818,0,0,56,58,0);
-INSERT INTO `mob_groups` VALUES (9,4530,29,'Blazedrake',330,0,1352,0,0,58,60,0);
-INSERT INTO `mob_groups` VALUES (10,71,29,'Air_Elemental',330,4,38,0,0,57,64,0);
+INSERT INTO `mob_groups` VALUES (9,4530,29,'Blazedrake',960,0,1352,0,0,58,60,0);
+INSERT INTO `mob_groups` VALUES (10,71,29,'Air_Elemental',960,4,38,0,0,57,64,0);
 INSERT INTO `mob_groups` VALUES (11,2060,29,'Imdugud',0,32,1358,9000,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (12,513,29,'Boroka',43200,0,341,9000,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (13,3725,29,'Spell_Spitter_Spilospok',0,128,0,8500,0,55,57,0);
@@ -1089,19 +1089,19 @@ INSERT INTO `mob_groups` VALUES (27,70,29,'Airi',0,128,0,0,0,15,17,0);
 -- Riverne-Site_A01 (Zone 30)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1902,30,'Hawkertrap',330,0,852,0,0,38,41,0);
-INSERT INTO `mob_groups` VALUES (2,3370,30,'Riverne_Vulture',330,0,2100,0,0,39,42,0);
+INSERT INTO `mob_groups` VALUES (1,1902,30,'Hawkertrap',960,0,852,0,0,38,41,0);
+INSERT INTO `mob_groups` VALUES (2,3370,30,'Riverne_Vulture',960,0,2100,0,0,39,42,0);
 INSERT INTO `mob_groups` VALUES (3,1960,30,'Hippogryph',720,0,1319,0,0,40,42,0);
 INSERT INTO `mob_groups` VALUES (4,1918,30,'Heliodromos',7200,0,1291,2500,0,46,50,0);
-INSERT INTO `mob_groups` VALUES (5,71,30,'Air_Elemental',330,4,38,0,0,47,50,0);
-INSERT INTO `mob_groups` VALUES (6,1340,30,'Firedrake',330,0,830,0,0,41,43,0);
-INSERT INTO `mob_groups` VALUES (7,3912,30,'Thunder_Elemental',330,4,2410,0,0,47,50,0);
-INSERT INTO `mob_groups` VALUES (8,1901,30,'Hawker',330,0,142,0,0,45,48,0);
-INSERT INTO `mob_groups` VALUES (9,747,30,'Cloud_Hippogryph',330,0,488,0,0,45,47,0);
-INSERT INTO `mob_groups` VALUES (10,277,30,'Atomic_Cluster',330,0,188,0,0,45,48,0);
-INSERT INTO `mob_groups` VALUES (11,1355,30,'Flamedrake',330,0,841,0,0,47,49,0);
+INSERT INTO `mob_groups` VALUES (5,71,30,'Air_Elemental',960,4,38,0,0,47,50,0);
+INSERT INTO `mob_groups` VALUES (6,1340,30,'Firedrake',960,0,830,0,0,41,43,0);
+INSERT INTO `mob_groups` VALUES (7,3912,30,'Thunder_Elemental',960,4,2410,0,0,47,50,0);
+INSERT INTO `mob_groups` VALUES (8,1901,30,'Hawker',960,0,142,0,0,45,48,0);
+INSERT INTO `mob_groups` VALUES (9,747,30,'Cloud_Hippogryph',960,0,488,0,0,45,47,0);
+INSERT INTO `mob_groups` VALUES (10,277,30,'Atomic_Cluster',960,0,188,0,0,45,48,0);
+INSERT INTO `mob_groups` VALUES (11,1355,30,'Flamedrake',960,0,841,0,0,47,49,0);
 INSERT INTO `mob_groups` VALUES (12,641,30,'Carmine_Dobsonfly',43200,0,418,1800,0,44,46,0);
-INSERT INTO `mob_groups` VALUES (13,4532,30,'Darner',330,0,142,0,0,45,48,0);
+INSERT INTO `mob_groups` VALUES (13,4532,30,'Darner',960,0,142,0,0,45,48,0);
 INSERT INTO `mob_groups` VALUES (14,68,30,'Aiatar',0,32,35,6000,0,48,50,0);
 INSERT INTO `mob_groups` VALUES (15,4309,30,'Water_Elemental',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (16,1160,30,'Earth_Elemental',0,128,0,0,0,75,75,0);
