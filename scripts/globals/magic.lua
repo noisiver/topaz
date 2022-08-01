@@ -609,14 +609,11 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     
     local softcap = params.dStatAccSoftCap -- 10 is set on all nukes. everything else is nil
     if softcap == nil then
-        softcap = 15
+        softcap = 10
     end
 
-    if (diff > softcap) then -- past the soft cap (10 or 15) each dstat is half as effective
-        magicaccbonus = magicaccbonus + softcap + math.floor((diff - softcap)/2)
-    else
-        magicaccbonus = magicaccbonus + diff
-    end
+    -- Apply dStat Macc bonus
+    magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
     if (bonus ~= nil) then -- seems like this only exists if the spell is threnody. bonus macc when using right ele staff.
         magicaccbonus = magicaccbonus + bonus -- this now also exists for tier 3 "San" Ninjutsu with the appropriate merits
@@ -785,7 +782,8 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     
     magicacc = magicacc + (casterLvl - targetLvl)*4
     local dMAcc = magicacc - magiceva
-    --print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
+    -- FOR TESTING MACC AND MEVA!
+    print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva)) 
     if dMAcc < 0 then -- when penalty, half effective
         p = 50 + math.floor(dMAcc/2)
     else
@@ -1690,6 +1688,40 @@ function getElementalSDT(element, target) -- takes into account if magic burst w
     end
     --print(string.format(SDT))
     return SDT
+end
+
+function getDstatBonus(softcap, diff)
+    -- https://www.bluegartr.com/threads/108196-Random-Facts-Thread-Magic?p=6818652&viewfull=1#post6818652
+    -- +/- 10 dStat >>> 1 INT = 1 MACC
+    -- +/- 11 dStat to 30 INT >>> 2 INT = 1 MACC
+    -- +/- 31-70 dStat >>> 4 INT = 1 MACC
+    -- Caps at 70 dStat
+    local dstatMaccBonus = 0
+
+    if (diff - softcap) >= 0 or (diff - softcap) <= 0 then
+        dstatMaccBonus = diff
+    end
+
+    if diff >= 11 then
+        dstatMaccBonus = softcap + math.floor((diff - softcap)/2)
+    end
+
+    if diff <= -11 then
+        softcap = -10
+        dstatMaccBonus = softcap + math.ceil((diff - softcap)/2)
+    end
+
+    if diff >= 31 then
+        dstatMaccBonus = 20 + math.floor((diff - 30)/4)
+    end
+
+    if diff <= -31 then
+        dstatMaccBonus = -20 + math.ceil((diff - -30)/4)
+    end
+
+    dstatMaccBonus = utils.clamp(dstatMaccBonus, -70, 70)
+
+    return dstatMaccBonus
 end
 
 function doElementalNuke(caster, spell, target, spellParams)

@@ -580,7 +580,7 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
         local statmod = tpz.mod.INT
         local element = avatar:getStatusEffectElement(effect)
 
-        local resist = getAvatarResist(avatar, effect, target, statmod, maccBonus, element)
+        local resist = getAvatarResist(avatar, effect, target, avatar:getStat(statmod)-target:getStat(statmod), maccBonus, element)
         --printf("resist %i", resist * 100)
         if (resist >= 0.50) then
             -- Reduce duration by resist percentage
@@ -1214,6 +1214,7 @@ end
 function getAvatarResist(avatar, effect, target, diff, bonus, element)
     local percentBonus = 0
     local magicaccbonus = 0
+    local softcap = 10
 
     if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
         return 1/8
@@ -1223,14 +1224,10 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
-    if (diff > 10) then
-        magicaccbonus = magicaccbonus + 10 + (diff - 10)/2
-    else
-        magicaccbonus = magicaccbonus + diff
-    end
+    -- Apply dStat Macc bonus
+    magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
     -- Add macc from summoning skill over cap
-
     magicaccbonus = magicaccbonus + getSummoningSkillOverCap(avatar)
 
     if (bonus ~= nil) then
