@@ -11591,6 +11591,22 @@ inline int32 CLuaBaseEntity::eraseAllStatusEffect(lua_State *L)
 }
 
 /************************************************************************
+ *  Function: removeAllNegativeEffects()
+ *  Purpose : Removes an Erasable and na Status Effect from the Entity's Status Effect Container
+ *  Example : target:removeAllNegativeEffects() -- Benediction
+ *  Notes   : Can specify which type to remove, if Erasable
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::removeAllNegativeEffects(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
+
+    lua_pushinteger(L, ((CBattleEntity*)m_PBaseEntity)->StatusEffectContainer->RemoveAllNegativeEffects());
+    return 1;
+}
+
+/************************************************************************
 *  Function: dispelStatusEffect()
 *  Purpose : Removes a Dispelable Status Effect from the Entity's Status Effect Container
 *  Example : target:dispelStatusEffect()
@@ -16032,6 +16048,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,delStatusEffectSilent),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,eraseStatusEffect),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,eraseAllStatusEffect),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,removeAllNegativeEffects),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,dispelStatusEffect),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,dispelAllStatusEffect),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,stealStatusEffect),

@@ -1077,6 +1077,19 @@ function MobThroatStabMove(mob, target, skill, hpp, attackType, damageType, shad
     return dmg
 end
 
+function MobSelfDispelMove(mob, skill)
+    local dispel = mob:removeAllNegativeEffects()
+
+    if (dispel == tpz.effect.NONE) then
+        -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+    else
+        skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
+    end
+
+    return dispel
+end
+
 function MobTakeAoEShadow(mob, target, max)
 
     return max

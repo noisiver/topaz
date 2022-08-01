@@ -619,3 +619,54 @@ function utils.getMoonPhase()
 	end
 end
 
+function utils.hasDispellableEffect(target)
+    -- Negative status effects
+    for i = 1,31,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 128,142,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 144,149,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 167,168,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 174,175,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 192,194,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 386,400,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 448,452,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    if target:hasStatusEffect(tpz.effect.FLASH) then
+        return true
+    end
+    if target:hasStatusEffect(tpz.effect.MAX_TP_DOWN) then
+        return true
+    end
+    return false
+end
+

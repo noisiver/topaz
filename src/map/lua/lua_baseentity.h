@@ -539,6 +539,7 @@ public:
     int32 delStatusEffectSilent(lua_State*);   // Removes Status Effect, suppresses message
     int32 eraseStatusEffect(lua_State*);       // Used with "Erase" spell
     int32 eraseAllStatusEffect(lua_State*);    // Erases all effects and returns number erased
+    int32 removeAllNegativeEffects(lua_State*); // Removes all negative status effects and returns number erased
     int32 dispelStatusEffect(lua_State*);      // Used with "Dispel" spell
     int32 dispelAllStatusEffect(lua_State*);   // Dispels all effects and returns number erased
     int32 stealStatusEffect(lua_State*);       // Used in mob skills to steal effects
