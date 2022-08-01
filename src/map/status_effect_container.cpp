@@ -551,8 +551,7 @@ void CStatusEffectContainer::RemoveStatusEffect(CStatusEffect* PStatusEffect, bo
             {
                 if (!silent && (PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0)
                 {
-                    // Make this char in range and self for showing when people lose refresh/haste/etc
-                    PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, PStatusEffect->GetIcon(), 0, 206));
+                    m_POwner->loc.zone->PushPacket(m_POwner, CHAR_INRANGE_SELF, new CMessageBasicPacket(m_POwner, m_POwner, PStatusEffect->GetIcon(), 0, 206));
                 }
             }
         }
