@@ -25,8 +25,6 @@ function onMobWeaponSkill(target, mob, skill)
         pod:setPos(X,Y,Z)
         pod:updateEnmity(players[random])
     end
-	local CurrentTP = mob:getLocalVar("TP")
-    mob:addTP(CurrentTP)
     skill:setMsg(tpz.msg.basic.NONE)
     return 0
 end

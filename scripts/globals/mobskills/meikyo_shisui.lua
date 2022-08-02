@@ -12,11 +12,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     MobBuffMove(mob, tpz.effect.MEIKYO_SHISUI, 1, 0, 30)
-
     skill:setMsg(tpz.msg.basic.USES)
-
     mob:addTP(3000)
-    mob:addStatusEffect(tpz.effect.REGAIN, 3000, 3, 13)
-
     return tpz.effect.MEIKYO_SHISUI
 end

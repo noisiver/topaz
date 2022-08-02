@@ -169,8 +169,6 @@ function onMobFight(mob, target)
                         if Gunpod < 6 then
                             Gunpod = Gunpod +1
                             mob:setLocalVar("Gunpod", Gunpod)
-    	                    local CurrentTP = mob:getTP()
-	                        mob:setLocalVar("TP", CurrentTP)
                             mob:useMobAbility(1532)
                         end
                     end 
@@ -186,8 +184,6 @@ function onMobFight(mob, target)
                     if Gunpod < 6 then
                         Gunpod = Gunpod +1
                         mob:setLocalVar("Gunpod", Gunpod)
-    	                local CurrentTP = mob:getTP()
-	                    mob:setLocalVar("TP", CurrentTP)
                         mob:useMobAbility(1532)
                     end
                 end 

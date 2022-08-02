@@ -73,7 +73,6 @@ CMobSkillState::CMobSkillState(CMobEntity* PEntity, uint16 targid, uint16 wsid) 
         m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE, new CActionPacket(action));
     }
     m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_STATE_ENTER", m_PEntity, m_PSkill->getID());
-    SpendCost();
 }
 
 CMobSkill* CMobSkillState::GetSkill()
@@ -83,20 +82,45 @@ CMobSkill* CMobSkillState::GetSkill()
 
 void CMobSkillState::SpendCost()
 {
+    auto tp = 0;
     if (m_PSkill->isTpSkill())
     {
-        m_spentTP = m_PEntity->health.tp;
-        m_PEntity->health.tp = 0;
+        if (m_PEntity->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI))
+        {
+            tp = m_PEntity->addTP(-1000);
+        }
+        else
+        {
+            tp = m_PEntity->health.tp;
+
+            if (m_PEntity->getMod(Mod::WS_NO_DEPLETE) <= tpzrand::GetRandomNumber(100))
+            {
+                m_PEntity->health.tp = 0;
+            }
+        }
+
+        if (tpzrand::GetRandomNumber(100) < m_PEntity->getMod(Mod::CONSERVE_TP))
+        {
+            m_PEntity->addTP(tpzrand::GetRandomNumber(10, 200));
+        }
     }
+    m_spentTP = tp;
 }
 
 bool CMobSkillState::Update(time_point tick)
 {
     if (tick > GetEntryTime() + m_castTime && !IsCompleted())
     {
+        if (!m_PSkill->isTwoHour())
+        {
+            SpendCost();
+        }
         action_t action;
         m_PEntity->OnMobSkillFinished(*this, action);
         m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
+        auto PTarget{ GetTarget() };
+        m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_USE", m_PEntity, PTarget, m_PSkill->getID(), m_spentTP, &action);
+        PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, m_PEntity, m_PSkill->getID(), m_spentTP, &action);
         auto delay = std::chrono::milliseconds(m_PSkill->getAnimationTime());
         m_finishTime = tick + delay;
         Complete();
