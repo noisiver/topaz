@@ -1577,7 +1577,7 @@ void CStatusEffectContainer::CheckEffectsExpiry(time_point tick)
         if (PStatusEffect->GetDuration() != 0 &&
             std::chrono::milliseconds(PStatusEffect->GetDuration()) + PStatusEffect->GetStartTime() <= tick)
         {
-            RemoveStatusEffect(PStatusEffect, true);
+            RemoveStatusEffect(PStatusEffect);
         }
     }
     DeleteStatusEffects();
