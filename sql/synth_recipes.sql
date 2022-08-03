@@ -2063,7 +2063,7 @@ INSERT INTO `synth_recipes` VALUES (29937,1,0,0,0,25,0,0,0,0,0,4100,4242,13335,0
 -- INSERT INTO `synth_recipes` VALUES (29938,1,0,0,0,255,0,0,0,0,0,4100,4242,17516,0,0,0,0,0,0,0,893,932,881,653,1,1,1,1,'Hydro Patas (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29939,1,0,0,0,255,0,0,0,0,0,4100,4242,16421,0,0,0,0,0,0,0,649,745,745,745,2,1,1,1,'Gold Patas (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29940,1,0,0,0,255,0,0,0,0,0,4100,4242,17285,0,0,0,0,0,0,0,914,651,745,657,1,1,1,1,'Moonring Blade (desynth)');
-INSERT INTO `synth_recipes` VALUES (29941,1,0,0,0,22,0,0,0,0,0,4100,4242,13327,0,0,0,0,0,0,0,744,744,744,744,1,2,2,2,'Silver Earring (desynth)');
+INSERT INTO `synth_recipes` VALUES (29941,1,0,0,0,22,0,0,0,0,0,4100,4242,13327,0,0,0,0,0,0,0,744,744,744,744,1,1,2,2,'Silver Earring (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29942,1,0,0,0,255,0,0,0,0,0,4100,4242,16518,0,0,0,0,0,0,0,651,653,653,653,2,2,2,2,'Mythril Degen (desynth)');
 INSERT INTO `synth_recipes` VALUES (29943,1,0,0,0,17,0,0,0,0,0,4100,4242,12497,0,0,0,0,0,0,0,650,650,650,650,1,1,1,1,'Brass Hairpin (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29944,1,0,0,0,255,0,0,0,0,0,4100,4242,12433,0,0,0,0,0,0,0,650,650,650,650,1,1,1,1,'Brass Mask (desynth)');
