@@ -1698,7 +1698,11 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
             {
                 luautils::OnItemUse(PMember, PItem);
                 battleutils::GenerateInRangeEnmity(PTarget, 0, 640);
-                PTarget->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
+                // Prism and Rainbow powders
+                if (PItem->getID() != 4164 && PItem->getID() != 5362)
+                {
+                    PTarget->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
+                }
             }
         });
     }
@@ -1706,7 +1710,11 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
     {
         luautils::OnItemUse(PTarget, PItem);
         battleutils::GenerateInRangeEnmity(PTarget, 0, 640);
-        this->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
+        // Prism and Rainbow powders
+        if (PItem->getID() != 4164 && PItem->getID() != 5362)
+        {
+            this->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
+        }
     }
 
     action.id = this->id;
