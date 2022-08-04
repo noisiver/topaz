@@ -664,6 +664,9 @@ function utils.hasDispellableEffect(target)
     if target:hasStatusEffect(tpz.effect.FLASH) then
         return true
     end
+    if target:hasStatusEffect(tpz.effect.HELIX) then
+        return true
+    end
     if target:hasStatusEffect(tpz.effect.MAX_TP_DOWN) then
         return true
     end
