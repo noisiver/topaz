@@ -1577,13 +1577,19 @@ void CStatusEffectContainer::CheckEffectsExpiry(time_point tick)
         if (PStatusEffect->GetDuration() != 0 &&
             std::chrono::milliseconds(PStatusEffect->GetDuration()) + PStatusEffect->GetStartTime() <= tick)
         {
-            if (m_POwner->objtype == TYPE_MOB && m_POwner->PAI->IsEngaged())
+            // Mobs shouldn't display effects fading in chat when out of combat
+            if (m_POwner->objtype == TYPE_MOB && m_POwner->PAI->IsRoaming())
             {
-                RemoveStatusEffect(PStatusEffect);
+                RemoveStatusEffect(PStatusEffect, true);
+            }
+            // Two hours fading shouldn't display in log
+            else if (PStatusEffect->GetStatusID() > 43 && PStatusEffect->GetStatusID() < 56)
+            {
+                RemoveStatusEffect(PStatusEffect, true);
             }
             else
             {
-                RemoveStatusEffect(PStatusEffect, true);
+                RemoveStatusEffect(PStatusEffect);
             }
         }
     }
