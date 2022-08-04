@@ -962,7 +962,7 @@ function MobEncumberMove(mob, target, maxSlots, duration)
     local statmod = tpz.mod.INT
     local element = tpz.magic.ele.WATER
 
-    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_II, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -1009,7 +1009,7 @@ function MobEncumberMove(mob, target, maxSlots, duration)
       mask = mask + math.pow(2, encumberSlots[i]);
     end
     if resist >= 0.5 then
-        target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration * resist);
+        target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_II, tpz.effect.ENCUMBRANCE_II, mask, 0, duration * resist);
     end
 end
 
