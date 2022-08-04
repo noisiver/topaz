@@ -1577,7 +1577,14 @@ void CStatusEffectContainer::CheckEffectsExpiry(time_point tick)
         if (PStatusEffect->GetDuration() != 0 &&
             std::chrono::milliseconds(PStatusEffect->GetDuration()) + PStatusEffect->GetStartTime() <= tick)
         {
-            RemoveStatusEffect(PStatusEffect);
+            if (m_POwner->objtype == TYPE_MOB && m_POwner->PAI->IsEngaged())
+            {
+                RemoveStatusEffect(PStatusEffect);
+            }
+            else
+            {
+                RemoveStatusEffect(PStatusEffect, true);
+            }
         }
     }
     DeleteStatusEffects();
