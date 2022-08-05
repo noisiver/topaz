@@ -1,11 +1,13 @@
 -----------------------------------------
--- ID: 4198
+-- ID: 4248
 -- Item: Copy of "Ginuva's Battle Theory"
 -- Grants 50 - 200 EXP
 -- Does not grant Limit Points.
 --
 -----------------------------------------
 require("scripts/globals/status")
+require("scripts/globals/msg")
+require("scripts/globals/settings")
 -----------------------------------------
 
 function onItemCheck(target)
@@ -17,5 +19,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addExp(EXP_RATE * math.random(50, 200))
+    local exp = math.random(50, 200)
+    target:addExp(exp)
+    target:messageBasic(8, exp, 0)
 end
