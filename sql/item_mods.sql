@@ -14141,11 +14141,11 @@ INSERT INTO `item_mods` VALUES (14487,5,45);
 INSERT INTO `item_mods` VALUES (14487,71,5);
 INSERT INTO `item_mods` VALUES (14487,357,4);
 INSERT INTO `item_mods` VALUES (14487,1261,-4); -- Avatar Enmity -2
-INSERT INTO `item_mods` VALUES (14488,1,49);
+INSERT INTO `item_mods` VALUES (14488,1,49); -- homam_corazza
 INSERT INTO `item_mods` VALUES (14488,2,28);
 INSERT INTO `item_mods` VALUES (14488,5,28);
 INSERT INTO `item_mods` VALUES (14488,25,15);
-INSERT INTO `item_mods` VALUES (14488,302,1);
+INSERT INTO `item_mods` VALUES (14488,302,3); -- Triple Attack +3%
 INSERT INTO `item_mods` VALUES (14489,1,41);
 INSERT INTO `item_mods` VALUES (14489,30,5);
 INSERT INTO `item_mods` VALUES (14489,112,5);
