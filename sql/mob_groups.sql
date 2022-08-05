@@ -8963,7 +8963,7 @@ INSERT INTO `mob_groups` VALUES (136,2728,134,'Moltenox_Stubthumbs',0,32,9039,20
 INSERT INTO `mob_groups` VALUES (137,4179,134,'Vanguard_Ronin',900,0,2557,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (138,4155,134,'Vanguard_Hitman',900,0,2557,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (139,1125,134,'Droprix_Granitepalms',0,32,9039,20000,0,79,81,0); -- PH
-INSERT INTO `mob_groups` VALUES (140,4649,134,'Vanguard_Dragontamer',900,0,2539,0,0,72,74,0);
+INSERT INTO `mob_groups` VALUES (140,4649,134,'Vanguard_Dragontamer',900,0,2557,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (141,4133,134,'Vanguard_Alchemist',900,0,2557,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (142,529,134,'Brewnix_Bittypupils',0,32,9039,20000,0,79,81,0); -- PH
 INSERT INTO `mob_groups` VALUES (143,257,134,'Ascetox_Ratgums',0,32,9039,20000,0,79,81,0); -- PH
