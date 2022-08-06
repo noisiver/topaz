@@ -83,7 +83,10 @@ CMobSkill* CMobSkillState::GetSkill()
 void CMobSkillState::SpendCost()
 {
     auto tp = 0;
-    if (m_PSkill->isTpSkill())
+    if (m_PSkill->isTpSkill() && m_PSkill->getID() != 274 && m_PSkill->getID() != 564 && m_PSkill->getID() != 1147 && m_PSkill->getID() != 1777 &&
+        m_PSkill->getID() != 2211 && m_PSkill->getID() != 2328 && m_PSkill->getID() != 2329 && m_PSkill->getID() != 2330 && m_PSkill->getID() != 2331 &&
+        m_PSkill->getID() != 2332 && m_PSkill->getID() != 950 && m_PSkill->getID() != 1278 && m_PSkill->getID() != 1288 && m_PSkill->getID() != 1298 &&
+        m_PSkill->getID() != 3264 && m_PSkill->getID() != 4232)
     {
         if (m_PEntity->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI))
         {

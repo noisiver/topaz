@@ -10,8 +10,6 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	local CurrentTP = mob:getTP()
-	mob:setLocalVar("TP", CurrentTP)
     return 0
 end
 
@@ -19,16 +17,6 @@ function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
     local dmgmod = 1.5
-    local CurrentTP = mob:getLocalVar("TP")
-    if CurrentTP == 3000 then
-        dmgmod = 2.5
-    end
-    if CurrentTP >= 2000 then
-        dmgmod = 2
-    end
-    if CurrentTP >= 1500 and CurrentTP < 2000 then
-        dmgmod = 1.7
-    end
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

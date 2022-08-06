@@ -65,6 +65,9 @@ end
 function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, params_phys, mtp150, mtp300, offcratiomod)
     local returninfo = {}
 
+    -- get TP
+    local tp = mob:getLocalVar("tp")
+
     --get fSTR
     local weaponDmg = mob:getWeaponDmg()
     local fSTR = getMobFSTR(weaponDmg, mob:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT))
@@ -106,6 +109,11 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     --work out hit rate for mobs (bias towards them)
     local hitrate = (acc*accmod) - eva + (lvldiff*2) + 75
 
+    -- Add Acc varies with TP to 3+ hit TP moves
+    if (tpeffect ~= TP_CRIT_VARIES) and (numberofhits > 2) then
+    hitrate = hitrate + MobAccTPModifier(tp)
+    end
+
     -- printf("acc: %f, eva: %f, hitrate: %f", acc, eva, hitrate)
     hitrate = utils.clamp(hitrate, 20, 95)
 
@@ -118,10 +126,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local multiHitDmg = hitdamage * 1
 
     hitdamage = hitdamage * dmgmod
-
-    if (tpeffect == TP_DMG_VARIES) then
-        hitdamage = hitdamage * MobTPMod(skill:getTP() / 10)
-    end
 
     --work out min and max cRatio
     local maxRatio = 1
@@ -138,7 +142,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     --printf("ddex critRate %u", critRate)
     --printf("critRate before param %i", critRate)
     if tpeffect == TP_CRIT_VARIES then
-        critRate = critRate + 25
+
+        critRate = critRate + MobCritTPModifier(tp)
+
 
         --printf("critRate after param %i", critRate)
 
@@ -176,11 +182,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         minRatio = ratio * (1176 / 1024) - (775 / 1024)
     else
         minRatio = ratio - 0.375
-    end
-
-    --apply ftp (assumes 1~3 scalar linear mod)
-    if (tpeffect==TP_DMG_BONUS) then
-        hitdamage = hitdamage * fTP(skill:getTP(), 1, 1.5, 2)
     end
 
     --Applying pDIF
@@ -312,6 +313,12 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     -- printf("final: %f, hits: %f, acc: %f", finaldmg, hitslanded, hitrate)
     -- printf("ratio: %f, min: %f, max: %f, pdif, %f hitdmg: %f", ratio, minRatio, maxRatio, pdif, hitdamage)
 
+    -- Add TP scaling if not a crit TP move
+
+    if (tpeffect ~= TP_CRIT_VARIES) and (numberofhits <= 2) then
+        finaldmg = math.floor(finaldmg * MobDmgTPModifier(tp))
+    end
+
     -- Reduce the damage by half on 5+ hit TP moves or else they become out of control
     if hitslanded >= 5 then
         finaldmg = finaldmg / 2
@@ -406,6 +413,12 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
     local magicAttkBonus = getMobMAB(mob, target)
     -- Do the formula!
     local finaldmg = getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
+
+    -- Add TP scaling if not a high fTP skill(mainly 2 hours / Mijin Gakure / special attacks)
+    local tp = mob:getLocalVar("tp")
+    if (dmgmod <= 7) then
+        finaldmg = math.floor(finaldmg * MobDmgTPModifier(tp))
+    end
 
     --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     --printf("mutiplier %i", multiplier * 100)
@@ -718,6 +731,8 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     dmg = utils.stoneskin(target, dmg)
     --printf("dmg after %u",dmg)
     if (dmg > 0) then
+        local tpAdded = math.floor((25 * (100 + target:getMod(tpz.mod.STORETP))) / 100)
+        target:addTP(tpAdded)
         target:updateEnmityFromDamage(mob, dmg)
         target:handleAfflatusMiseryDamage(dmg)
     end
@@ -881,7 +896,7 @@ end
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT
+	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist !
     end
 
     if (target:canGainStatusEffect(typeEffect, power)) then
@@ -895,21 +910,26 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
         -- Doom can't have a lower duration from resisting!
         if (resist < 1) and (typeEffect == tpz.effect.DOOM) then
-            return tpz.msg.basic.SKILL_MISS 
+            return tpz.msg.basic.SKILL_NO_EFFECT -- resist !
         end
 
         if (resist >= 0.50) then
 
             -- Reduce duration by resist percentage
             local totalDuration = duration * resist
+
+            -- add TP scaling
+            local tp = mob:getLocalVar("tp")
+            totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
+
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_MISS -- resist !
+        return tpz.msg.basic.SKILL_NO_EFFECT -- resist !
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT -- no effect
+    return tpz.msg.basic.SKILL_NO_EFFECT -- resist !
 end
 
 -- similar to status effect move except, this will not land if the attack missed
@@ -936,7 +956,11 @@ end
 
 function MobBuffMove(mob, typeEffect, power, tick, duration)
 
-    if (mob:addStatusEffect(typeEffect, power, tick, duration)) then
+    -- Add TP scaling
+    local tp = mob:getLocalVar("tp")
+    local finalDuration = math.floor(duration * MobBuffDurationTPModifier(tp))
+
+    if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
     return tpz.msg.basic.SKILL_NO_EFFECT
@@ -1024,7 +1048,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
-		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
+		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
 	
 	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
@@ -1037,7 +1061,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
             return skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
         end
 	else
-	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
 end
 
@@ -1442,4 +1466,25 @@ function HandlePetWeaponResist(target, damageType)
     end
 
     return weaponResist
+end
+
+function MobDmgTPModifier(tp)
+    return (1 + ((tp - 1000) * 0.015) / 100) -- 0, 15, 30
+end
+
+function MobAccTPModifier(tp)
+    return (20+ ((tp - 1000) * 0.010)) -- 20, 30, 40
+end
+
+function MobCritTPModifier(tp)
+    return math.floor((15+ ((tp - 1000) * 0.015))) -- 15, 30, 45
+end
+
+function MobEnfeebleDurationTPModifier(effect, tp)
+    return (1 + ((tp - 1000) * 0.025) / 100) -- 0, 25, 50
+end
+
+
+function MobBuffDurationTPModifier(tp)
+    return (1 + ((tp - 1000) * 0.025) / 100) -- 0, 25, 50
 end

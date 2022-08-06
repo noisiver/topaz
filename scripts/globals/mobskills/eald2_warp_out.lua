@@ -13,10 +13,6 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- Don't lose TP on using this move
-	local CurrentTP = mob:getLocalVar("TP")
-	local AddTP = CurrentTP
-    mob:addTP(AddTP)
     -- Teleport
     local battletarget = mob:getTarget()
     local t = battletarget:getPos()

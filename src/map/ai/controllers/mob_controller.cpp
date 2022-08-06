@@ -312,6 +312,8 @@ bool CMobController::MobSkill(int wsList)
         {
             if (currentDistance <= PMobSkill->getDistance())
             {
+                int16 tp = PMob->health.tp;
+                PMob->SetLocalVar("tp", tp);
                 return MobSkill(PActionTarget->targid, PMobSkill->getID());
             }
         }

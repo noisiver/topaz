@@ -15,8 +15,6 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	local CurrentTP = mob:getTP()
-	mob:setLocalVar("TP", CurrentTP)
 	return 0
 end
 
@@ -28,10 +26,6 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 20
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
  	MobStatusEffectMove(mob, target, typeEffect, power, 3, 90)
-	local CurrentTP = mob:getLocalVar("TP")
-	local AddTP = CurrentTP + 200
-    target:addTP(20)
-    mob:addTP(AddTP)
 	return dmg
 end
 

@@ -16,7 +16,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1 -- changed from 1
+    local dmgmod = 1 
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -28,16 +28,8 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.0
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
-
     local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_RANGED, params_phys)
-
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, info.hitslanded)
-
-    if (dmg > 0) then
-       target:addTP(20)
-       mob:addTP(80)
-    end
-
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg

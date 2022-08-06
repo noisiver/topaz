@@ -15,8 +15,6 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	local CurrentTP = mob:getTP()
-	mob:setLocalVar("TP", CurrentTP)
     local AIMode = mob:getLocalVar("AIMode")
     if mob:getPool() == 2920 and AIMode == 1 then -- Nuhn
         return 1
@@ -27,18 +25,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1
-
-    local CurrentTP = mob:getLocalVar("TP")
-    if CurrentTP == 3000 then
-        dmgmod = 3
-    end
-    if CurrentTP >= 2000 then
-        dmgmod = 2
-    end
-    if CurrentTP >= 1500 and CurrentTP < 2000 then
-        dmgmod = 1.5
-    end
+    local dmgmod = 2
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

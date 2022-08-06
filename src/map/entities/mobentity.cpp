@@ -902,6 +902,15 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         else
         {
             target.reaction = REACTION_HIT;
+            // Don't add TP if the TP move is a two hour, buff, heal, or enfeeble.
+            if (msg != 101 && msg != 186 && msg != 238 && msg != 242)
+            {
+                int16 delay = this->GetWeaponDelay(true);
+                float ratio = 1.0f;
+                int16 baseTp = 0;
+                baseTp = battleutils::CalculateBaseTP((int16)(delay * 60.0f / 1000.0f / ratio));
+                this->addTP((int16)(1 * (baseTp * (1.0f + 0.01f * (float)((this->getMod(Mod::STORETP)))))));
+            }
         }
 
         if (target.speceffect & SPECEFFECT_HIT)
