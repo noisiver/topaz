@@ -604,14 +604,25 @@ void SetupJob(CMobEntity* PMob)
     {
         PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
     }
-
     // This switch falls back to a subjob if a mainjob isn't matched, and is mainly magic stuff
     switch(job)
     {
         case JOB_WAR:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::VIRUSRESTRAIT, 0);
+            }
             if (mLvl >= 25)
             {
                 PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
+            }
+            break;
+        case JOB_SAM:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BLINDRESTRAIT, 0);
             }
             break;
         case JOB_BLM:
@@ -621,10 +632,8 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 10);
             break;
         case JOB_PLD:
-            if ((PMob->m_Family >= 75 && PMob->m_Family <= 77) || (PMob->m_Family >= 137 && PMob->m_Family <= 138) || PMob->m_Family == 57 ||
-                PMob->m_Family == 241 || PMob->m_Family == 194 || PMob->m_Family == 272 || PMob->m_Family == 220 || PMob->m_Family == 78 ||
-                PMob->m_Family == 49 || PMob->m_Family == 2)
-                // Crabs, Beetles, promy mobs, Phuabo, Zdei, Buffalos, Adamantoise
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::SLEEPRESTRAIT, 0);  
             }
@@ -632,10 +641,8 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_DRK:
-            if ((PMob->m_Family >= 255 && PMob->m_Family <= 256) || (PMob->m_Family >= 319 && PMob->m_Family <= 325) ||
-                (PMob->m_Family >= 203 && PMob->m_Family <= 205) || (PMob->m_Family >= 88 && PMob->m_Family <= 89) || PMob->m_Family == 227 ||
-                PMob->m_Family == 72 || PMob->m_Family == 217 || PMob->m_Family == 74 || PMob->m_Family == 81 || PMob->m_Family == 252 || PMob->m_Family == 378)
-            // Promy mobs, Avatars, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite, Vampyr, Diabolos
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
             }
@@ -647,6 +654,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_BRD:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SILENCERESTRAIT, 0);
+            }
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 25);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 60);
@@ -656,12 +668,22 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             break;
         case JOB_RDM:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::PETRIFYRESTRAIT, 0);
+            }
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 15);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_SMN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SLOWRESTRAIT, 0);
+            }
 		 if (PMob->m_Family != 3)  // Exclude Aerns, should only summon in combat and hide their jobs
 		 {
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 180);
@@ -669,6 +691,11 @@ void SetupJob(CMobEntity* PMob)
 		 }
             break;
         case JOB_NIN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BINDRESTRAIT, 0);
+            }
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 75);
@@ -688,8 +715,18 @@ void SetupJob(CMobEntity* PMob)
                 // 50% bonus
                 PMob->defaultMobMod(MOBMOD_GIL_BONUS, 150);
             }
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::GRAVITYRESTRAIT, 0);
+            }
             break;
         case JOB_RNG:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::POISONRESTRAIT, 0);
+            }
             if ((PMob->m_Family >= 126 && PMob->m_Family <= 130) || PMob->m_Family == 328) // Gigas
             {
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 658); // catapult only used while at range
@@ -742,6 +779,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
             break;
         case JOB_BST:
+         if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+         // Only beastmen get resist job traits
+         {
+         PMob->setModifier(Mod::AMNESIARESTRAIT, 0);
+         }
 		 if (PMob->m_Family != 3)  // Exclude Aerns, should only summon in combat and hide their jobs
 		 {
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 180);
@@ -763,9 +805,84 @@ void SetupJob(CMobEntity* PMob)
     switch (sJob)
     {
         case JOB_WAR:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::VIRUSRESTRAIT, 0);
+            }
             if (sLvl >= 25)
             {
                 PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
+            }
+            break;
+        case JOB_RDM:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::PETRIFYRESTRAIT, 0);
+            }
+            break;
+        case JOB_THF:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::GRAVITYRESTRAIT, 0);
+            }
+            break;
+        case JOB_PLD:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SLEEPRESTRAIT, 0);
+            }
+            break;
+        case JOB_DRK:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
+            }
+            break;
+        case JOB_BRD:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SILENCERESTRAIT, 0);
+            }
+            break;
+        case JOB_BST:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::AMNESIARESTRAIT, 0);
+            }
+            break;
+        case JOB_RNG:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::POISONRESTRAIT, 0);
+            }
+            break;
+        case JOB_NIN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BINDRESTRAIT, 0);
+            }
+            break;
+        case JOB_SAM:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BLINDRESTRAIT, 0);
+            }
+            break;
+        case JOB_SMN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SLOWRESTRAIT, 0);
             }
             break;
         default:
