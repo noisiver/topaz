@@ -588,12 +588,6 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     local effect = params.effect
     if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
         if (caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) == false) then -- Elemental Seal bypasses resist traits
-            if spell ~= nil then
-			    spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-                -- if spell:isAoe() == 1 then -- Errors
-				    -- spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-                -- end
-            end
             return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
             --print("restrait proc!")
         end
@@ -2010,6 +2004,33 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     end
 
     return resist
+end
+
+function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold)
+    printf("power %s", power)
+    printf("tick %s", tick)
+    printf("duration %s", duration)
+    printf("resist %s", resist)
+    printf("resistthreshold %s", resistthreshold)
+    -- Check for resist trait proc
+    if (math.random() < getEffectResistanceTraitChance(caster, target, effect)) then
+        if not target:hasStatusEffect(effect) then
+            return spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2) -- Resist trait proc!
+        else
+            return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        end
+    end
+
+    -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
+    if (resist >= resistthreshold) then
+        if target:addStatusEffect(effect, power, tick, duration) then
+            return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+        else
+            return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        end
+    else
+        return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
 end
 
 function calculateDurationForLvl(duration, spellLvl, targetLvl)

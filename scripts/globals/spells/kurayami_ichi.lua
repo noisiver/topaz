@@ -11,26 +11,18 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    -- Base Stats
     local params = {}
     params.diff = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
     params.bonus = 0
+    params.effect = tpz.effect.BLINDNESS
     local resist = applyResistance(caster, target, spell, params)
+    --Jubaku base powers are not effected by resistances, Ichi:20, Ni:30, San:35.
+    local power = 20
+    local duration =  math.ceil(180 * resist)
 
-    local duration = math.ceil(180 * resist)
-    if (resist >= 0.5) then
-        --Kurayami base power is 20 and is not affected by resistaces.
-        local power = 20
-        if (target:addStatusEffect(tpz.effect.BLINDNESS, power, 0, duration)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
 
-    return tpz.effect.BLINDNESS
+    return params.effect
 end

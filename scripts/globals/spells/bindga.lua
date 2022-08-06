@@ -20,24 +20,14 @@ function onSpellCast(caster, target, spell)
 
     --Resist
     local params = {}
-    params.diff = nil
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = 35
     params.bonus = 0
     params.effect = tpz.effect.BIND
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if (resist >= 0.25) then --Do it!
-        --Try to erase a weaker bind.
-        if (target:addStatusEffect(tpz.effect.BIND, target:speed(), 0, duration*resist)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, target:speed(), 0, duration, resist, 0.5)
 
     return tpz.effect.BIND
-
 end

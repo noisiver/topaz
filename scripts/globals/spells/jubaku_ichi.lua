@@ -13,38 +13,18 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local effect = tpz.effect.PARALYSIS
-    -- Base Stats
-    --Duration Calculation
-    local duration = 180
     local params = {}
     params.diff = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
     params.bonus = 0
+    params.effect = tpz.effect.PARALYSIS
     local resist = applyResistance(caster, target, spell, params)
     --Jubaku base powers are not effected by resistances, Ichi:20, Ni:30, San:35.
     local power = 20
+    local duration =  math.ceil(180 * resist)
 
-    duration = math.ceil(duration * resist)
-    if (resist >= 0.5) then
-        -- Erases a weaker paralyze and applies the stronger one
-        local paralysis = target:getStatusEffect(effect)
-        if (paralysis ~= nil) then
-            if (paralysis:getPower() < power) then
-                target:delStatusEffectSilent(effect)
-                target:addStatusEffect(effect, power, 0, duration)
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-            else
-                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-            end
-        else
-            target:addStatusEffect(effect, power, 0, duration)
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
 
-    return effect
+    return params.effect
 end

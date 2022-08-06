@@ -21,7 +21,7 @@ function onSpellCast(caster, target, spell)
     power = calculatePotency(power, dMND, spell:getSkillType(), caster, target)
 
     --Duration, including resistance
-    local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
     local params = {}
     params.diff = dMND
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
@@ -29,16 +29,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.SLOW
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.5 then -- Do it!
-        target:delStatusEffectSilent(tpz.effect.HASTE)
-        if target:addStatusEffect(params.effect, power, 0, duration * resist, 0, 1) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
 
     return params.effect
 end

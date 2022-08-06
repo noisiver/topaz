@@ -37,36 +37,27 @@ function onSpellCast(caster, target, spell)
         end
     end
 
-    resm = applyResistanceEffect(caster, target, spell, params)
+    resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resm < 0.5 then
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
-    else
-        local iBoost = caster:getMod(tpz.mod.ELEGY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
-        power = power + iBoost * 100
+    local iBoost = caster:getMod(tpz.mod.ELEGY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
+    power = power + iBoost * 100
 
-        if caster:hasStatusEffect(tpz.effect.SOUL_VOICE) then
-            power = power * 2
-        elseif caster:hasStatusEffect(tpz.effect.MARCATO) then
-            power = power * 1.5
-        end
-        caster:delStatusEffectSilent(tpz.effect.MARCATO)
+    if caster:hasStatusEffect(tpz.effect.SOUL_VOICE) then
+        power = power * 2
+    elseif caster:hasStatusEffect(tpz.effect.MARCATO) then
+        power = power * 1.5
+    end
+    caster:delStatusEffectSilent(tpz.effect.MARCATO)
 
-        duration = duration + (iBoost * 12 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1)
-        duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.SLOW, target))
+    duration = duration + (iBoost * 12 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1)
+    duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.SLOW, target))
 
-        if (caster:hasStatusEffect(tpz.effect.TROUBADOUR)) then
-            duration = duration * 2
-        end
-
-        -- Try to overwrite weaker elegy
-        if target:addStatusEffect(tpz.effect.ELEGY, power, 0, duration) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
-        end
-
+    if (caster:hasStatusEffect(tpz.effect.TROUBADOUR)) then
+        duration = duration * 2
     end
 
-    return tpz.effect.ELEGY
+    TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
+
+
+    return params.effect
 end

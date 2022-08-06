@@ -24,15 +24,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.PETRIFICATION
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.5 then
-        if target:addStatusEffect(params.effect, 1, 0, duration * resist) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
 
     return params.effect
 end

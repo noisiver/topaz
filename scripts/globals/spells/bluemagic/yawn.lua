@@ -24,14 +24,13 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.LULLABY
     local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     local params = {}
-    params.diff = nil
+    params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.effect = typeEffect
+    params.effect = tpz.effect.LULLABY
     local resist = applyResistanceEffect(caster, target, spell, params)
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)
@@ -49,19 +48,10 @@ function onSpellCast(caster, target, spell)
         return typeEffect
     end
 
-    if (resist >= 0.5) then -- Do it!
-        if ((target:isFacing(caster))) then -- TODO: Apparently this check shouldn't exist for enemies using this spell? Need more info.
-            if (target:addStatusEffect(typeEffect, 1, 0, duration)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-            else
-                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-            end
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+
+    if ((target:isFacing(caster))) then
+        TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
     end
 
-    return typeEffect
+    return tpz.effect.SLEEP_I
 end

@@ -50,7 +50,7 @@ function onSpellCast(caster, target, spell)
     local mCHR = target:getStat(tpz.mod.CHR)
     local dCHR = pCHR - mCHR
     local params = {}
-    params.diff = nil
+    params.diff = caster:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
     params.attribute = tpz.mod.CHR
     params.skillType = tpz.skill.SINGING
     params.bonus = 0
@@ -69,32 +69,23 @@ function onSpellCast(caster, target, spell)
         end
     end
 
-    resm = applyResistanceEffect(caster, target, spell, params)
+    resist = applyResistanceEffect(caster, target, spell, params)
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.LULLABY, target))
 
     -- Can't overwrite any sleep
     if hasSleepT1Effect(target) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return tpz.effect.LULLABY
+        return params.effect
     end
 
-    if resm < 0.5 then
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
-    else
-        local iBoost = caster:getMod(tpz.mod.LULLABY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
+    local iBoost = caster:getMod(tpz.mod.LULLABY_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
+    local duration = math.ceil(duration + (iBoost * 3 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1))
 
-        duration = math.ceil(duration + (iBoost * 3 + caster:getMod(tpz.mod.SONG_DURATION_BONUS) / 100 + 1))
-
-        if caster:hasStatusEffect(tpz.effect.TROUBADOUR) then
-            duration = duration * 2
-        end
-
-        if target:addStatusEffect(tpz.effect.LULLABY, 1, 0, duration) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
+    if caster:hasStatusEffect(tpz.effect.TROUBADOUR) then
+        duration = duration * 2
     end
 
-    return tpz.effect.LULLABY
+    TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
+
+    return params.effect
 end

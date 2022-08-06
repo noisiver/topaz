@@ -56,16 +56,7 @@ function onSpellCast(caster, target, spell)
     duration = duration * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BIND, target))
 
-    if resist >= 0.5 then --Do it!
-        --Try to erase a weaker bind.
-        if target:addStatusEffect(params.effect, target:speed(), 0 , duration) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, target:speed(), 0, duration, resist, 0.5)
 
     return params.effect
 end
