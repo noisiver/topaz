@@ -14,8 +14,8 @@ end
 function onEffectTick(target, effect)
     local remainingTicks = 1 + (effect:getTimeRemaining() / 1000) / 3
 
-    if (effect:getPower() == 10) then -- 10 second timer counts down differently
-        remainingTicks = 1 + (effect:getTimeRemaining() / 1000)
+    if (effect:getDuration() == 10) then -- 10 second timer counts down differently
+        remainingTicks =  (effect:getTimeRemaining() / 1000) 
     end
     -- doom counter
     target:messagePublic(112, target, remainingTicks, remainingTicks)

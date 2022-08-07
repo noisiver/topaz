@@ -896,7 +896,13 @@ end
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist !
+	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+    end
+
+    -- Override durations with a single function to make it easier to update a million files durations at once when editing stuff
+    -- Don't override Doom, Gradual Petrification, or Encumbrance
+    if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) then
+        duration = MobGetStatusEffectDuration(typeEffect)
     end
 
     if (target:canGainStatusEffect(typeEffect, power)) then
@@ -908,9 +914,11 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
-        -- Doom can't have a lower duration from resisting!
-        if (resist < 1) and (typeEffect == tpz.effect.DOOM) then
-            return tpz.msg.basic.SKILL_NO_EFFECT -- resist !
+        -- Doom and Gradual Petrification can't have a lower duration from resisting
+        if (resist < 1) then
+            if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
+                return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+            end
         end
 
         if (resist >= 0.50) then
@@ -920,16 +928,19 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
             -- add TP scaling
             local tp = mob:getLocalVar("tp")
-            totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
+            -- Doom and Gradual Petrification duration shouldn't scale or it makes it weaker
+            if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) then
+                totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
+            end
 
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_NO_EFFECT -- resist !
+        return tpz.msg.basic.SKILL_NO_EFFECT -- resist
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT -- resist !
+    return tpz.msg.basic.SKILL_NO_EFFECT -- resist 
 end
 
 -- similar to status effect move except, this will not land if the attack missed
@@ -991,7 +1002,7 @@ function MobEncumberMove(mob, target, maxSlots, duration)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) then
+    if target:hasStatusEffect(tpz.effect.FEALTY) or not target:isPC() then
 	    resist = 0.25
     end
 
@@ -1027,26 +1038,26 @@ function MobEncumberMove(mob, target, maxSlots, duration)
 	  end
 	end
 
-    local mask = 0;
-    for i = 1,#encumberSlots,1 do
-      target:unequipItem(encumberSlots[i]);
-      mask = mask + math.pow(2, encumberSlots[i]);
-    end
-    if resist >= 0.5 then
+    if (resist >= 0.5) and not target:hasStatusEffect(tpz.effect.ENCUMBRANCE_II) then
+        local mask = 0;
+        for i = 1,#encumberSlots,1 do
+          target:unequipItem(encumberSlots[i]);
+          mask = mask + math.pow(2, encumberSlots[i]);
+        end
         target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_II, tpz.effect.ENCUMBRANCE_II, mask, 0, duration * resist);
     end
 end
 
 function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
-        local statmod = tpz.mod.CHR
-        local element = tpz.magic.ele.LIGHT
+    local statmod = tpz.mod.CHR
+    local element = tpz.magic.ele.LIGHT
 
-        local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
-        local eleres = target:getMod(element+53)
-        if     eleres < 0  and resist < 0.5  then resist = 0.5
-        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
-	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local eleres = target:getMod(element+53)
+    if     eleres < 0  and resist < 0.5  then resist = 0.5
+    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+	--GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
 		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
@@ -1468,6 +1479,42 @@ function HandlePetWeaponResist(target, damageType)
     return weaponResist
 end
 
+function MobGetStatusEffectDuration(effect)
+    local duration = 0
+
+    if (effect == tpz.effect.BIND) then
+        duration = 20
+    elseif (effect == tpz.effect.PETRIFICATION) or (effect == tpz.effect.TERROR) then
+        duration = 10 
+    elseif (effect == tpz.effect.STUN) then
+        duration = 5
+    elseif (effect == tpz.effect.AMNESIA) then
+        duration = 30
+    elseif (effect == tpz.effect.CHARM) then
+        duration = 90
+    elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.SLEEP_II) or (effect == tpz.effect.LULLABY) then
+        duration = 90 
+    elseif (effect == tpz.effect.WEIGHT) then
+        duration = 120 
+    elseif (effect == tpz.effect.PARALYSIS) then
+        duration = 120 
+    elseif (effect == tpz.effect.SLOW) or (effect == tpz.effect.ADDLE) then
+        duration = 180 
+    elseif (effect == tpz.effect.SILENCE) or (effect == tpz.effect.MUTE) then
+        duration = 120 
+    elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) then
+        duration = 90
+    elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
+        duration = 120
+    elseif (effect == tpz.effect.CURSE_II) then
+        duration = 45
+    else
+        duration = 300
+    end
+
+    return duration
+end
+
 function MobDmgTPModifier(tp)
     return (1 + ((tp - 1000) * 0.015) / 100) -- 0, 15, 30
 end
@@ -1481,10 +1528,10 @@ function MobCritTPModifier(tp)
 end
 
 function MobEnfeebleDurationTPModifier(effect, tp)
-    return (1 + ((tp - 1000) * 0.025) / 100) -- 0, 25, 50
+    return (1 + ((tp - 1000) * 0.050) / 100) -- 0, 50, 100
 end
 
 
 function MobBuffDurationTPModifier(tp)
-    return (1 + ((tp - 1000) * 0.025) / 100) -- 0, 25, 50
+    return (1 + ((tp - 1000) * 0.050) / 100) -- 0, 50, 100
 end
