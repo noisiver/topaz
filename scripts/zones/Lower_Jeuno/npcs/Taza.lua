@@ -13,7 +13,7 @@ require("scripts/globals/items")
 -- Forgotten items
 local forgotten =
 {
-helm = tpz.items.FORGOTTEN_THOUGHT, body = tpz.items.FORGOTTEN_HOPE,  hands = tpz.items.FORGOTTEN_TOUCH,
+head = tpz.items.FORGOTTEN_THOUGHT, body = tpz.items.FORGOTTEN_HOPE,  hands = tpz.items.FORGOTTEN_TOUCH,
 legs = tpz.items.FORGOTTEN_JOURNEY, feet = tpz.items.FORGOTTEN_STEP
 }
 -----------------------------------
@@ -155,7 +155,7 @@ local trades =
     {
         items = {
             { tpz.items.WARLOCKS_CHAPEAU, 1 },
-            { forgotten.helm, 100 },
+            { forgotten.head, 100 },
             { 'gil', 1000000 },
         },
         GiveAugment = function(player)
@@ -254,7 +254,7 @@ local trades =
     {
         items = {
             { tpz.items.NOBLES_CROWN, 1 },
-            { forgotten.helm, 100 },
+            { forgotten.head, 100 },
             { 'gil', 1000000 },
         },
         GiveAugment = function(player)
