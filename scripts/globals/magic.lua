@@ -588,7 +588,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     local effect = params.effect
     if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
         if (caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) == false) then -- Elemental Seal bypasses resist traits
-            return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
+            return 0 -- this will make any status effect fail. this takes into account trait+food+gear
             --print("restrait proc!")
         end
     end
@@ -874,7 +874,6 @@ function getEffectResistanceTraitChance(caster, target, effect)
     end
 
     return 0
-    
 end
 
 -- Returns the amount of resistance the
@@ -2008,7 +2007,7 @@ end
 
 function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold)
     -- Check for resist trait proc
-    if (math.random() < getEffectResistanceTraitChance(caster, target, effect)) then
+    if (resist == 0) then
         if not target:hasStatusEffect(effect) then
             return spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2) -- Resist trait proc!
         else
