@@ -44,11 +44,11 @@ end
 --]]
 function onSpellCast(caster, target, spell)
     -- Pull base stats.
-    local dINT = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
+    local dMND = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
 
     local params = {}
 
-    params.diff = nil
+    params.diff = dMND
 
     params.attribute = tpz.mod.MND
 
@@ -56,25 +56,25 @@ function onSpellCast(caster, target, spell)
 
     params.bonus =  200
 
-    params.effect = nil
+    params.effect = tpz.effect.FLASH
 
     local resist = applyResistance(caster, target, spell, params)
     local duration = 12 * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BLIND, target))
 
      -- Flash can't be applied if target is already flashed
-    if target:hasStatusEffect(tpz.effect.FLASH) then
+    if target:hasStatusEffect(params.effect) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return tpz.effect.FLASH
+        return params.effect
     end
 
     if (resist >= 0.0625) then
-        if (target:addStatusEffect(tpz.effect.FLASH, 300, 3, duration)) then
+        if (target:addStatusEffect(params.effect, 300, 3, duration)) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
-    return tpz.effect.FLASH
+    return params.effect
 end
