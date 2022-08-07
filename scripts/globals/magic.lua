@@ -2007,11 +2007,6 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
 end
 
 function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold)
-    printf("power %s", power)
-    printf("tick %s", tick)
-    printf("duration %s", duration)
-    printf("resist %s", resist)
-    printf("resistthreshold %s", resistthreshold)
     -- Check for resist trait proc
     if (math.random() < getEffectResistanceTraitChance(caster, target, effect)) then
         if not target:hasStatusEffect(effect) then
