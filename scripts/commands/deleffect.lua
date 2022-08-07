@@ -51,6 +51,7 @@ function onTrigger(player, arg1)
     for v = 192,194,1 do
         targ:delStatusEffectSilent(v)
     end
+    targ:delStatusEffectSilent(tpz.effect.ENCUMBRANCE_II)
     if (targ:getID() ~= player:getID()) then
         player:PrintToPlayer(string.format("Removed effect %i from %s.", id, targ:getName()))
     end
