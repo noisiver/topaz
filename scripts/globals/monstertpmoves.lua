@@ -1488,6 +1488,8 @@ function MobGetStatusEffectDuration(effect)
         duration = 10 
     elseif (effect == tpz.effect.STUN) then
         duration = 5
+    elseif (effect == tpz.effect.FLASH) then
+        duration = 12
     elseif (effect == tpz.effect.AMNESIA) then
         duration = 30
     elseif (effect == tpz.effect.CHARM) then
