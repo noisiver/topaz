@@ -1725,7 +1725,7 @@ INSERT INTO `mob_skills` VALUES (1775,1261,'rising_swell',1,30.0,2000,1500,4,0,0
 INSERT INTO `mob_skills` VALUES (1776,1253,'hysteric_barrage',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1777,1207,'Zareehkl_Jump_Autoattack',0,7.0,0,0,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1778,1205,'spinal_cleave',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1779,1206,'mangle',4,16.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1779,1206,'mangle',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1780,1207,'leaping_cleave',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1781,1208,'hex_palm',4,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1782,1209,'animating_wail',1,15.0,2000,1500,1,0,0,0,0,0,0);
@@ -2030,7 +2030,7 @@ INSERT INTO `mob_skills` VALUES (2070,1411,'dismemberment',1,20.0,2000,1000,4,0,
 INSERT INTO `mob_skills` VALUES (2071,1412,'dire_straight',0,7.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2072,1413,'earth_shatter',1,10.0,2000,3500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2073,1414,'sinker_drill',0,7.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2074,1415,'detonating_grip',0,7.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2074,1415,'detonating_grip',0,7.0,2000,1000,4,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2075,1819,'overthrow',0,7.0,2000,1500,4,0,0,3,0,0,0); -- Destroyer Troll
 INSERT INTO `mob_skills` VALUES (2076,1820,'rock_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2077,1821,'diamondhide',1,15.0,2000,1500,1,0,0,0,0,0,0);

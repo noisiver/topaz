@@ -57,6 +57,7 @@ end
 -- 1 TP_ATK_VARIES
 -- 2 TP_DMG_VARIES
 -- 3 TP_CRIT_VARIES
+-- 4 TP_AUTO_ATTACK -- Used for "auto-attack"" skills ONLY
 -- mtp100/200/300 are the three values for 100% TP, 200% TP, 300% TP just like weaponskills.lua
 -- if TP_ACC_VARIES -> three values are acc %s (1.0 is 100% acc, 0.8 is 80% acc, 1.2 is 120% acc)
 -- if TP_ATK_VARIES -> three values are attack multiplier (1.5x 0.5x etc)
@@ -315,7 +316,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     -- Add TP scaling if not a crit TP move
 
-    if (tpeffect ~= TP_CRIT_VARIES) and (numberofhits <= 2) then
+    if (tpeffect ~= TP_CRIT_VARIES) and (tpeffect ~= TP_AUTO_ATTACK) and (numberofhits <= 2) then
         finaldmg = math.floor(finaldmg * MobDmgTPModifier(tp))
     end
 
@@ -416,7 +417,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
 
     -- Add TP scaling if not a high fTP skill(mainly 2 hours / Mijin Gakure / special attacks)
     local tp = mob:getLocalVar("tp")
-    if (dmgmod <= 7) then
+    if (tpeffect ~= TP_AUTO_ATTACK) and (dmgmod <= 7) then
         finaldmg = math.floor(finaldmg * MobDmgTPModifier(tp))
     end
 
