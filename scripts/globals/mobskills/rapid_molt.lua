@@ -10,24 +10,19 @@
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-
-    local dispel = target:eraseStatusEffect()
-
-    if (dispel ~= tpz.effect.NONE) then
+    if utils.hasDispellableEffect(target) then
         return 0
     end
-
     return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    mob:eraseAllStatusEffect()
     local typeEffect = tpz.effect.REGEN
 
-    skill:setMsg(MobBuffMove(mob, typeEffect, 24, 3, 300))
-    return typeEffect
+    MobBuffMove(mob, typeEffect, 24, 3, 300)
+    return MobSelfDispelMove(mob, skill)
 end

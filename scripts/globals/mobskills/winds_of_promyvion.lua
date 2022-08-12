@@ -1,5 +1,5 @@
 ---------------------------------------------
---  Geist Wall
+--  Winds of Promyvion
 --
 --  Description: Party memory erase.
 --  Type: Enfeebling
