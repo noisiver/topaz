@@ -628,7 +628,7 @@ namespace battleutils
         DAYTYPE weakDay[8] = { WATERSDAY, FIRESDAY, ICEDAY, WINDSDAY, EARTHSDAY, LIGHTNINGDAY, DARKSDAY, LIGHTSDAY };
         WEATHER strongWeatherSingle[8] = { WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_RAIN, WEATHER_AURORAS, WEATHER_GLOOM };
         WEATHER strongWeatherDouble[8] = { WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_SQUALL, WEATHER_STELLAR_GLARE, WEATHER_DARKNESS };
-        WEATHER weakWeatherSingle[8] = { WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_RAIN, WEATHER_GLOOM, WEATHER_AURORAS };
+        WEATHER weakWeatherSingle[8] = { WEATHER_RAIN, WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_GLOOM, WEATHER_AURORAS };
         WEATHER weakWeatherDouble[8] = { WEATHER_SQUALL, WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_DARKNESS, WEATHER_STELLAR_GLARE };
         uint32 obi[8] = { 15435, 15436, 15437, 15438, 15439, 15440, 15441, 15442 };
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
@@ -3932,14 +3932,59 @@ namespace battleutils
         uint16 chainCount = PEffect->GetSubPower();
         ELEMENT appliedEle = ELEMENT_NONE;
         int16 resistance = GetSkillchainMinimumResistance(skillchain, PDefender, &appliedEle);
+        //matching day 10% bonus, matching weather 10% or 25% for double weather
+        float dBonus = 1.0;
+        float resist = 1.0;
+        uint32 WeekDay = CVanaTime::getInstance()->getWeekday();
+        WEATHER weather = GetWeather(PAttacker, false);
 
+        DAYTYPE strongDay[8] = { FIRESDAY, ICEDAY, WINDSDAY, EARTHSDAY, LIGHTNINGDAY, WATERSDAY, LIGHTSDAY, DARKSDAY };
+        DAYTYPE weakDay[8] = { WATERSDAY, FIRESDAY, ICEDAY, WINDSDAY, EARTHSDAY, LIGHTNINGDAY, DARKSDAY, LIGHTSDAY };
+        WEATHER strongWeatherSingle[8] = { WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_RAIN, WEATHER_AURORAS, WEATHER_GLOOM };
+        WEATHER strongWeatherDouble[8] = { WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_SQUALL, WEATHER_STELLAR_GLARE, WEATHER_DARKNESS };
+        WEATHER weakWeatherSingle[8] = { WEATHER_RAIN, WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_GLOOM, WEATHER_AURORAS };
+        WEATHER weakWeatherDouble[8] = { WEATHER_SQUALL, WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_DARKNESS, WEATHER_STELLAR_GLARE };
+        uint32 obi[8] = { 15435, 15436, 15437, 15438, 15439, 15440, 15441, 15442 };
+        Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
+        bool obiBonus = false;
+
+        if (PAttacker->objtype == TYPE_PC)
+        {
+            CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
+           // if (waist && waist->getID() == obi[element])
+            if (waist && waist->getID() == obi[appliedEle -1])
+            {
+                obiBonus = true;
+            }
+        }
+        else
+        {
+            // mobs random multiplier
+            dBonus += tpzrand::GetRandomNumber(100) / 1000.0f;
+        }
+       // if (WeekDay == strongDay[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (WeekDay == strongDay[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus += 0.1f;
+        //else if (WeekDay == weakDay[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (WeekDay == weakDay[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus -= 0.1f;
+       //if (weather == strongWeatherSingle[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (weather == strongWeatherSingle[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus += 0.1f;
+       // else if (weather == strongWeatherDouble[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == strongWeatherDouble[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus += 0.25f;
+       // else if (weather == weakWeatherSingle[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherSingle[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus -= 0.1f;
+
+        else if (weather == weakWeatherDouble[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus -= 0.25f;
+        // ShowDebug("dBonus: %f\n,", dBonus);
         TPZ_DEBUG_BREAK_IF(chainLevel <= 0 || chainLevel > 4 || chainCount <= 0 || chainCount > 6);
 
         // Skill chain damage = (Closing Damage)
         //                      × (Skill chain Level/Number from Table)
-        //            OOE       × (1 + Skill chain Bonus ÷ 100)
-        //            OOE       × (1 + Skill chain Damage + %/100)
-        //            TODO:     × (1 + Day/Weather bonuses)
         //            TODO:     × (1 + Staff Affinity)
 
         auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000 *
@@ -3951,12 +3996,30 @@ namespace battleutils
             damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));
         }
         damage = damage * std::clamp((int32)resistance, 10, 100) / 100;
-
         // ShowDebug("DamageAfterResist: %u\n, Resistance:%u\n,", damage, resistance);
+        // Add weather day bonus
+        damage = (int32)(damage * dBonus);
+         //ShowDebug("WeatherDayDamage: %u\n,", damage);
         damage = MagicDmgTaken(PDefender, damage, appliedEle);
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
+
+            int16 ramSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            if (ramSS)
+            {
+                if (damage >= ramSS)
+                {
+                    PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
+                    damage = damage - ramSS;
+                }
+                else
+                {
+                    PDefender->setModifier(Mod::RAMPART_STONESKIN, ramSS - damage);
+                    damage = 0;
+                }
+            }
+
             damage = HandleStoneskin(PDefender, damage);
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
