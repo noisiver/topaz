@@ -323,7 +323,7 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
         // TODO: Could be converted to value/1024 if the exact cap is ever determined.
         MinimumDelay -= (uint16)(MinimumDelay * 0.8);
         WeaponDelay = (WeaponDelay < MinimumDelay) ? MinimumDelay : WeaponDelay;
-        //printf("Your weapon delay is... %i \n", WeaponDelay);
+        //ShowDebug("Your weapon delay is... %i \n", WeaponDelay);
     }
     return WeaponDelay;
 }

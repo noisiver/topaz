@@ -14360,7 +14360,7 @@ inline int32 CLuaBaseEntity::setDelay(lua_State* L)
 
     TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    ((CItemWeapon*)((CMobEntity*)m_PBaseEntity)->m_Weapons[SLOT_MAIN])->setDelay((uint16)lua_tonumber(L, 1));
+    ((CItemWeapon*)((CMobEntity*)m_PBaseEntity)->m_Weapons[SLOT_MAIN])->setDelay((int16)lua_tonumber(L, 1));
     return 0;
 }
 
