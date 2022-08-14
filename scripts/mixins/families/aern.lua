@@ -58,6 +58,7 @@ g_mixins.families.aern = function(mob)
 		end
     end)
     mob:addListener("SPAWN", "AERN_SPAWN", function(mob)
+        mob:setDelay(4000)
 		mob:AnimationSub(1)
     end)
 
@@ -77,7 +78,7 @@ g_mixins.families.aern = function(mob)
 		if BraceletsTime == 0 then
 			mob:setLocalVar("BraceletsTime", os.time() + math.random(20, 45))
 		elseif os.time() >= BraceletsTime and Mode == 0 then
-			mob:setMod(tpz.mod.HASTE_MAGIC, 2500)
+			mob:setDelay(3000)
 			mob:setMod(tpz.mod.ATTP, 100)
 			mob:addMod(tpz.mod.MATT, 48)
 			mob:setMod(tpz.mod.UDMGPHYS, -60) 
@@ -88,7 +89,7 @@ g_mixins.families.aern = function(mob)
 			mob:setLocalVar("Mode", 1)
 		end
 		if BraceletsOff > 0 and os.time() >= BraceletsOff and Mode == 1 then
-			mob:setMod(tpz.mod.HASTE_MAGIC, 0)
+			mob:setDelay(4000)
 			mob:setMod(tpz.mod.ATTP, 0)
 			mob:delMod(tpz.mod.MATT, 48)
 			mob:setMod(tpz.mod.UDMGPHYS, 0) 

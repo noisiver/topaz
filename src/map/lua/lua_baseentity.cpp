@@ -14350,6 +14350,7 @@ inline int32 CLuaBaseEntity::untargetable(lua_State* L)
 *  Function: setDelay()
 *  Purpose : Override default delay settings for a Mob
 *  Example : mob:setDelay(2400)
+*  1000 = 1s. 4000 = default delay(for mobs)
 *  Notes   :
 ************************************************************************/
 

@@ -7,7 +7,7 @@ function close_form(mob)
     mob:setMobMod(tpz.mobMod.LINK_RADIUS, 11)
     mob:setMod(tpz.mod.DEFP, 100) 
     mob:setMod(tpz.mod.DMG, -25)
-    mob:setMod(tpz.mod.HASTE_ABILITY, 0)
+    mob:setDelay(4000)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     mob:addMobMod(tpz.mobMod.ROAM_DISTANCE, 5)
     mob:addMobMod(tpz.mobMod.ROAM_COOL, 30)
@@ -16,7 +16,7 @@ end
 
 function open_form(mob)
     mob:setMod(tpz.mod.DMG, 12.5)
-    mob:setMod(tpz.mod.HASTE_ABILITY, 2500) 
+    mob:setDelay(3000)
     mob:setMod(tpz.mod.DEFP, 0)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setMobMod(tpz.mobMod.LINK_RADIUS, 0)
@@ -52,6 +52,8 @@ g_mixins.families.euvhi = function(mob)
 
 
     mob:addListener("COMBAT_TICK", "EUVHI_CTICK", function(mob)
+        -- Ensure the Euvhi won't stop moving mid fight'
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
         local changeTime = mob:getLocalVar("changeTime")
         -- Open if time expired
         if os.time() >= changeTime then
