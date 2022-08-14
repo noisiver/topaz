@@ -638,7 +638,7 @@ namespace battleutils
         {
             CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
            // if (waist && waist->getID() == obi[element])
-            if (waist && waist->getID() == obi[element])
+            if (waist && waist->getID() == obi[element] || waist && waist->getID() == 28419)
             {
                 obiBonus = true;
             }
@@ -3952,7 +3952,7 @@ namespace battleutils
         {
             CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
            // if (waist && waist->getID() == obi[element])
-            if (waist && waist->getID() == obi[appliedEle -1])
+            if (waist && waist->getID() == obi[appliedEle - 1] || waist && waist->getID() == 28419)
             {
                 obiBonus = true;
             }
@@ -3980,7 +3980,7 @@ namespace battleutils
 
         else if (weather == weakWeatherDouble[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.25f;
-        // ShowDebug("dBonus: %f\n,", dBonus);
+        //ShowDebug("dBonus: %f\n,", dBonus);
         TPZ_DEBUG_BREAK_IF(chainLevel <= 0 || chainLevel > 4 || chainCount <= 0 || chainCount > 6);
 
         // Skill chain damage = (Closing Damage)
@@ -3989,17 +3989,17 @@ namespace battleutils
 
         auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000 *
                                    (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100 * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
-        // ShowDebug("RawDamage: %u\n,", damage);
+        //ShowDebug("RawDamage: %u\n,", damage);
         auto PChar = dynamic_cast<CCharEntity*>(PAttacker);
         if (PChar && PChar->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PChar->loc.p, PDefender->loc.p, 64))
         {
             damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));
         }
         damage = damage * std::clamp((int32)resistance, 10, 100) / 100;
-        // ShowDebug("DamageAfterResist: %u\n, Resistance:%u\n,", damage, resistance);
+        //ShowDebug("DamageAfterResist: %u\n,SDT:%u\n,", damage, resistance);
         // Add weather day bonus
         damage = (int32)(damage * dBonus);
-         //ShowDebug("WeatherDayDamage: %u\n,", damage);
+        //ShowDebug("WeatherDayDamage: %u\n,", damage);
         damage = MagicDmgTaken(PDefender, damage, appliedEle);
         if (damage > 0)
         {
