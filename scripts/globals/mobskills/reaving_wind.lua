@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 	mob:AnimationSub(2)
 	mob:setLocalVar("ReavingWindAura", os.time() + 60)
-	mob:setLocalVar("ReavingWindKnockback", os.time() + 3)
+	mob:setLocalVar("KnockBackTick", os.time() + 6)
 	
     return reset
 end

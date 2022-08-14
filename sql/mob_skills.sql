@@ -2387,10 +2387,10 @@ INSERT INTO `mob_skills` VALUES (2427,1705,'tail_lash',4,10.0,2000,1000,4,0,0,0,
 INSERT INTO `mob_skills` VALUES (2428,1706,'bloody_beak',4,5.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2429,1707,'feral_peck',4,5.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2430,2174,'warped_wail',1,20.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2431,1709,'reaving_wind',1,20.0,2000,1000,4,0,0,7,0,0,0);
+INSERT INTO `mob_skills` VALUES (2431,1711,'reaving_wind',1,20.0,2000,1000,4,0,0,7,0,0,0); -- 1709 animationID won't knockback?
 INSERT INTO `mob_skills` VALUES (2432,1710,'storm_wing',4,20.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2433,1711,'calamitous_wind',1,20.0,2000,1000,4,0,0,7,0,0,0);
-INSERT INTO `mob_skills` VALUES (2434,2178,'reaving_wind_knockback',1,25.0,2000,1000,4,0,0,7,0,0,0);
+INSERT INTO `mob_skills` VALUES (2434,1711,'reaving_wind_knockback',1,25.0,0,0,4,0,0,7,0,0,0); -- 2178 animationID won't knockback?
 INSERT INTO `mob_skills` VALUES (2435,1697,'severing_fang',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2436,1698,'sub-zero_smash',1,15.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2437,1699,'aqua_blast',4,10.0,2000,1000,4,0,0,4,0,0,0);

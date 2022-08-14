@@ -29,13 +29,6 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_WIPE_SHADOWS)
     local dispel =  target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE))
-	local msg = tpz.msg.basic.SKILL_NO_EFFECT
-
-    if dispel > 0 then
-        msg = tpz.msg.basic.DISAPPEAR_NUM
-    end
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
-    skill:setMsg(msg)
-
-    return dispel
+    return dmg
 end
