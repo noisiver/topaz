@@ -20,7 +20,9 @@ function onMobWeaponSkill(target, mob, skill)
     MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 80, 0, 300)
     MobStatusEffectMove(mob, target, tpz.effect.PLAGUE, 1, 0, 300)
     skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.AMNESIA, 1, 0, 30))
-    mob:resetEnmity(target)
+    if target:isInfront(mob, 90) then
+        mob:resetEnmity(target)
+    end
 
     return tpz.effect.AMNESIA
 end
