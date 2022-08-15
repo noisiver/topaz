@@ -107,13 +107,13 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     ratio = ratio + lvldiff * 0.05
     ratio = utils.clamp(ratio, 0, 2)
 
-    --work out hit rate for mobs (bias towards them)
-    local hitrate = (acc*accmod) - eva + (lvldiff*2) + 75
-
     -- Add Acc varies with TP to 3+ hit TP moves
     if (tpeffect ~= TP_CRIT_VARIES) and (numberofhits > 2) then
-    hitrate = hitrate + MobAccTPModifier(tp)
+        acc = acc + MobAccTPModifier(tp)
     end
+
+    --work out hit rate for mobs (bias towards them)
+    local hitrate = (acc*accmod) - eva + (lvldiff*2) + 75
 
     -- printf("acc: %f, eva: %f, hitrate: %f", acc, eva, hitrate)
     hitrate = utils.clamp(hitrate, 20, 95)
@@ -1527,7 +1527,7 @@ function MobDmgTPModifier(tp)
 end
 
 function MobAccTPModifier(tp)
-    return (20+ ((tp - 1000) * 0.010)) -- 20, 30, 40
+    return math.floor((20+ ((tp - 1000) * 0.010))) -- 20, 30, 40
 end
 
 function MobCritTPModifier(tp)
