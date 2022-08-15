@@ -2027,6 +2027,22 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     end
 end
 
+function getAbsorbSpellPower(caster)
+    -- https://www.bg-wiki.com/ffxi/Category:Absorb_Spell
+    local mJobLvl = caster:getMainLvl()
+    local basePower = math.floor(4 + (mJobLvl / 5))
+    local gearBonus = 1 + (caster:getMod(tpz.mod.AUGMENTS_ABSORB) / 100)
+    local liberatorBonus = 1 + (caster:getMod(tpz.mod.AUGMENTS_ABSORB_II) / 100)
+    local netherVoidBonus = 1
+
+    if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
+        netherVoidBonus = 1.5
+    end
+
+    local totalPower = math.floor(math.floor(basePower * (gearBonus) * liberatorBonus) * netherVoidBonus)
+    return totalPower
+end
+
 function calculateDurationForLvl(duration, spellLvl, targetLvl)
     if (targetLvl < spellLvl) then
         return duration * targetLvl / spellLvl

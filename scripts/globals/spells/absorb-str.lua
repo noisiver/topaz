@@ -14,32 +14,29 @@ end
 
 function onSpellCast(caster, target, spell)
 
-    if (target:hasStatusEffect(tpz.effect.STR_DOWN) or caster:hasStatusEffect(tpz.effect.STR_BOOST)) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
-    else
-        local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-        local params = {}
-        params.diff = nil
-        params.attribute = tpz.mod.INT
-        params.skillType = 37
-        params.bonus = 0
-        params.effect = nil
-        local resist = applyResistance(caster, target, spell, params)
-		local NetherVoidBonus = 1.5
-        if (resist < 0.5) then
-            spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_STR)
-			if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
-				caster:addStatusEffect(tpz.effect.STR_BOOST, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100) * NetherVoidBonus, ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK) -- caster gains STR
-				target:addStatusEffect(tpz.effect.STR_DOWN, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100) * NetherVoidBonus, ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK)    -- target loses STR
+    local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    local params = {}
+    params.diff = dINT
+    params.attribute = tpz.mod.INT
+    params.skillType = tpz.skill.DARK_MAGIC
+    params.bonus = 0
+    params.effect = nil
+    local power = getAbsorbSpellPower(caster)
+    local tick = 0
+    local duration = 90
+    local resist = applyResistance(caster, target, spell, params)
 
-			else
-				caster:addStatusEffect(tpz.effect.STR_BOOST, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100), ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK) -- caster gains STR
-				target:addStatusEffect(tpz.effect.STR_DOWN, ABSORB_SPELL_AMOUNT*resist*((100+(caster:getMod(tpz.mod.AUGMENTS_ABSORB)))/100), ABSORB_SPELL_TICK, ABSORB_SPELL_AMOUNT*ABSORB_SPELL_TICK)    -- target loses STR
-			end
-        end
+    duraion = duration * resist
+
+    if (resist >= 0.5) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_ACC)
+        caster:delStatusEffectSilent(tpz.effect.STR_BOOST)
+        target:delStatusEffectSilent(tpz.effect.STR_DOWN)
+	    caster:addStatusEffect(tpz.effect.STR_BOOST, power, tick, duration) -- caster gains ACC
+	    target:addStatusEffect(tpz.effect.STR_DOWN, power, tick, duration)   -- target loses ACC
+        caster:delStatusEffectSilent(tpz.effect.NETHER_VOID)
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
-	caster:delStatusEffectSilent(tpz.effect.NETHER_VOID)
-    return tpz.effect.STR_DOWN
+    return tpz.effect.STR_BOOST
 end

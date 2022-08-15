@@ -2995,7 +2995,7 @@ INSERT INTO `item_mods` VALUES (10993,54,30);     -- Fire resistance +30
 INSERT INTO `item_mods` VALUES (10993,459,3);     -- Occasionally absorbs fire elemental damage +3%
 INSERT INTO `item_mods` VALUES (10994,1,10);      -- Chuparrosa Mantle: DEF 10
 INSERT INTO `item_mods` VALUES (10994,30,5);      -- Magic Accuracy +5
-INSERT INTO `item_mods` VALUES (10994,521,10);    -- Absorb spell potency +10%
+INSERT INTO `item_mods` VALUES (10994,1274,10);    -- Absorb spell potency +10%
 -- INSERT INTO `item_mods` VALUES (10994,ENHANCE ABSORB EFFECTS,1);
 INSERT INTO `item_mods` VALUES (10995,1,9); -- ZAFFRE CAPE, DEF:9 STR+3 DEX+3 VIT+3 Blue magic skill +3
 INSERT INTO `item_mods` VALUES (10995,8,3); -- STR
@@ -6436,7 +6436,7 @@ INSERT INTO `item_mods` VALUES (11921,501,15);    -- Spikes chance +15%
 INSERT INTO `item_mods` VALUES (11922,1,33);      -- Pavor Gauntlets: DEF 33
 INSERT INTO `item_mods` VALUES (11922,5,33);      -- MP +33
 INSERT INTO `item_mods` VALUES (11922,116,10);    -- Dark magic skill +10
-INSERT INTO `item_mods` VALUES (11922,521,10);    -- Absorb spell potency +10%
+INSERT INTO `item_mods` VALUES (11922,1274,10);    -- Absorb spell potency +10%
 INSERT INTO `item_mods` VALUES (11923,1,30);
 INSERT INTO `item_mods` VALUES (11923,27,8);
 INSERT INTO `item_mods` VALUES (11923,163,-4);

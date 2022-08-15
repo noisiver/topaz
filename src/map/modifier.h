@@ -776,7 +776,8 @@ enum class Mod
     SHIELDBLOCKRATE           = 518, // Affects shield block rate, percent based
     DIA_DOT                   = 313, // Increases the DoT damage of Dia
     ENH_DRAIN_ASPIR           = 315, // % damage boost to Drain and Aspir
-    AUGMENTS_ABSORB           = 521, // Direct Absorb spell increase while Liberator is equipped (percentage based)
+    AUGMENTS_ABSORB           = 1274, // Direct Absorb spell increase (percentage based)
+    AUGMENTS_ABSORB_II        = 521, // Direct Absorb spell increase while Liberator is equipped (percentage based)
     AMMO_SWING                = 523, // Extra swing rate w/ ammo (ie. Jailer weapons). Use gearsets, and does nothing for non-players.
     AMMO_SWING_TYPE           = 826, // For the handedness of the weapon - 1h (1) vs. 2h/h2h (2). h2h can safely use the same function as 2h.
     AUGMENTS_CONVERT          = 525, // Convert HP to MP Ratio Multiplier. Value = MP multiplier rate.
@@ -927,6 +928,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
+    // 1275 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
