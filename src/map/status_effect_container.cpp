@@ -1716,7 +1716,7 @@ void CStatusEffectContainer::TickEffects(time_point tick)
         for (const auto& PStatusEffect : m_StatusEffectSet)
         {
             if (PStatusEffect->GetTickTime() != 0 &&
-                PStatusEffect->GetElapsedTickCount() <= std::chrono::duration_cast<std::chrono::milliseconds>(tick - PStatusEffect->GetStartTime()).count() / PStatusEffect->GetTickTime())
+                PStatusEffect->GetElapsedTickCount() < std::chrono::duration_cast<std::chrono::milliseconds>(tick - PStatusEffect->GetStartTime()).count() / PStatusEffect->GetTickTime())
             {
                 if (PStatusEffect->GetFlag() & EFFECTFLAG_AURA)
                 {

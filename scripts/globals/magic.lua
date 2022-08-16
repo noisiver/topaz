@@ -2030,7 +2030,7 @@ end
 function getAbsorbSpellPower(caster)
     -- https://www.bg-wiki.com/ffxi/Category:Absorb_Spell
     local mJobLvl = caster:getMainLvl()
-    local basePower = math.floor(4 + (mJobLvl / 5))
+    local basePower = math.floor(3 + (mJobLvl / 5))
     local gearBonus = 1 + (caster:getMod(tpz.mod.AUGMENTS_ABSORB) / 100)
     local liberatorBonus = 1 + (caster:getMod(tpz.mod.AUGMENTS_ABSORB_II) / 100)
     local netherVoidBonus = 1
