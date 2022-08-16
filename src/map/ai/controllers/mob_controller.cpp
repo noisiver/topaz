@@ -204,10 +204,23 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     bool hasInvisible = false;
     bool hasSneak = false;
 
-    if (!PMob->m_TrueDetection)
+    if (PMob->m_TrueDetection == 0) // No True Detection
     {
-        hasInvisible = PTarget->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE);
-        hasSneak = PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK);
+        hasSneak = PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK);                   // Does not ignore sneak.
+        hasInvisible = PTarget->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE); // Does not ignore invisible.
+    }
+    if (PMob->m_TrueDetection == 1) // True Sight and Hearing
+    {
+        // Ignores Invisible and Sneak
+    }
+    if (PMob->m_TrueDetection == 2) // True Sight
+    {
+        hasSneak = PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK); // Does not ignore sneak.
+    }
+    if (PMob->m_TrueDetection == 3) // True Hearing
+    {
+        hasInvisible = PTarget->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE); // Does not ignore invisible.
+
     }
 
     if (detectSight && !hasInvisible && currentDistance < PMob->getMobMod(MOBMOD_SIGHT_RANGE) && facing(PMob->loc.p, PTarget->loc.p, 64))
@@ -225,29 +238,33 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
         return CanSeePoint(PTarget->loc.p);
     }
 
-    // everything below require distance to be below 20
-    if (currentDistance > 20)
-    {
-        return false;
-    }
-
-    if ((detects & DETECT_LOWHP) && PTarget->GetHPP() < 75)
-    {
-        return CanSeePoint(PTarget->loc.p);
-    }
-
-    if ((detects & DETECT_MAGIC) && PTarget->PAI->IsCurrentState<CMagicState>() &&
+    if ((detects & DETECT_MAGIC) && currentDistance < PMob->getMobMod(MOBMOD_MAGIC_RANGE) && PTarget->PAI->IsCurrentState<CMagicState>() &&
         static_cast<CMagicState*>(PTarget->PAI->GetCurrentState())->GetSpell()->hasMPCost())
     {
         return CanSeePoint(PTarget->loc.p);
     }
 
-    if ((detects & DETECT_WEAPONSKILL) && PTarget->PAI->IsCurrentState<CWeaponSkillState>())
+    if ((detects & DETECT_WEAPONSKILL) && currentDistance < PMob->getMobMod(MOBMOD_WS_RANGE) && PTarget->PAI->IsCurrentState<CWeaponSkillState>())
     {
         return CanSeePoint(PTarget->loc.p);
     }
 
-    if ((detects & DETECT_JOBABILITY) && PTarget->PAI->IsCurrentState<CAbilityState>())
+    if ((detects & DETECT_JOBABILITY) && currentDistance < PMob->getMobMod(MOBMOD_JA_RANGE) && PTarget->PAI->IsCurrentState<CAbilityState>())
+    {
+        return CanSeePoint(PTarget->loc.p);
+    }
+
+    if ((detects & DETECT_LOWHP) && currentDistance < PMob->getMobMod(MOBMOD_HP_RANGE) && PTarget->GetHPP() < 25)
+    {
+        return CanSeePoint(PTarget->loc.p);
+    }
+
+    if ((detects & DETECT_LOWHP) && currentDistance < 15 && PTarget->GetHPP() < 50)
+    {
+        return CanSeePoint(PTarget->loc.p);
+    }
+
+    if ((detects & DETECT_LOWHP) && currentDistance < 10 && PTarget->GetHPP() < 75)
     {
         return CanSeePoint(PTarget->loc.p);
     }
