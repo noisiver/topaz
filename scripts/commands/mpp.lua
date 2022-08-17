@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
--- func: hp <amount> <player>
--- desc: Sets the GM or target players health.
+-- func: mp <amount> <player>
+-- desc: Sets the GM or target players mana percent.
 ---------------------------------------------------------------------------------------------------
 
 cmdprops =
@@ -11,10 +11,10 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!hp <amount> {player}")
+    player:PrintToPlayer("!mp <amount> {player}")
 end
 
-function onTrigger(player, hp, target)
+function onTrigger(player, mp, target)
     -- validate target
     local targ
     local cursor_target = player:getCursorTarget()
@@ -32,20 +32,25 @@ function onTrigger(player, hp, target)
     end
 
     -- validate amount
-    if hp == nil or tonumber(hp) == nil then
+    if mp == nil or tonumber(mp) == nil then
         error(player, "You must provide an amount.")
         return
-    elseif hp < 0 then
+    elseif mp < 0 then
         error(player, "Invalid amount.")
         return
     end
-    -- set hp
+
+    -- set mp
     if targ:isAlive() then
-        targ:setHP(hp)
+        -- convert to percentage
+        mp = mp / 100
+        mp = math.floor(targ:getMaxMP() * mp)
+        targ:setMP(mp)
         if targ:getID() ~= player:getID() then
-            player:PrintToPlayer(string.format("Set %s's HP to %i.", targ:getName(), targ:getHP()))
+            player:PrintToPlayer(string.format("Set %s's MP to %i.", targ:getName(), targ:getMP()))
         end
     else
         player:PrintToPlayer(string.format("%s is currently dead.", targ:getName()))
     end
+
 end
