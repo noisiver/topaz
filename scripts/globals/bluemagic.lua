@@ -1,5 +1,6 @@
 require("scripts/globals/status")
 require("scripts/globals/magic")
+require("scripts/globals/utils")
 
 -- The TP modifier
 TPMOD_NONE = 0
@@ -413,17 +414,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     --handling phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-    --handling rampart stoneskin
-    local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-    if ramSS > 0 then
-        if dmg >= ramSS then
-            target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-            dmg = dmg - ramSS
-        else
-            target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-            dmg = 0
-        end
-    end
 	local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
 	local TP =  100 * (1 - subtleblow)
 	target:addTP(TP)
@@ -455,58 +445,31 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
         dmg = target:physicalDmgTaken(dmg, damageType)
     end
 
-    --handling rampart stoneskin
-    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
-        local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-        if ramSS > 0 then
-            if dmg >= ramSS then
-                target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-                dmg = dmg - ramSS
-            else
-                target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-                dmg = 0
-            end
-        end
+    -- Handle Phalanx
+    dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
+    -- Handle Absorb
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH or attackType == tpz.attackType.SPECIAL then
+        local element = spell:getElement()
+        dmg = adjustForTarget(target, dmg, element)
     end
-    -- handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
-
-	target:takeDamage(dmg, caster, attackType, damageType)
-    target:updateEnmityFromDamage(caster, dmg)
-    target:handleAfflatusMiseryDamage(dmg)
-    -- TP has already been dealt with.
-    return dmg
-end
-
-function BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params) 
-	-- Regurgitation has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
+    dmg = utils.clamp(dmg, -99999, 99999)
+    -- Add HP if absorbed
     if (dmg < 0) then
-        dmg = 0
+        dmg = (target:addHP(-dmg))
+        spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
+    else
+        --handling rampart stoneskin
+        dmg = utils.rampartstoneskin(target, dmg)
+        -- handling stoneskin
+        dmg = utils.stoneskin(target, dmg)
+        target:takeDamage(dmg, caster, attackType, damageType)
     end
 
-    dmg = dmg * BLUE_POWER
-
-    if (dmg < 0) then
-        dmg = 0
+    if (params.NO_ENMITY == nil) then -- Only used for Regurg / Corrosive Ooze atm
+        target:updateEnmityFromDamage(caster, dmg)
     end
-
-    -- handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
-
-    local attackType = params.attackType or tpz.attackType.NONE
-    local damageType = params.damageType or tpz.damageType.NONE
-    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
-        dmg = target:magicDmgTaken(dmg)
-    elseif attackType == tpz.attackType.RANGED then
-        dmg = target:rangedDmgTaken(dmg)
-    elseif attackType == tpz.attackType.PHYSICAL then
-        dmg = target:physicalDmgTaken(dmg, damageType)
-    end
-
-	target:takeDamage(dmg, caster, attackType, damageType)
     target:handleAfflatusMiseryDamage(dmg)
-	caster:delStatusEffectSilent(tpz.effect.SNEAK_ATTACK)
-	--caster:delStatusEffectSilent(tpz.effect.TRICK_ATTACK) NYI
     -- TP has already been dealt with.
     return dmg
 end

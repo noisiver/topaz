@@ -540,10 +540,6 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
         dmg = target:breathDmgTaken(dmg)
     end
 
-    -- Handling rampart stoneskin + normal stoneskin
-    dmg = utils.rampartstoneskin(target, dmg)
-    dmg = utils.stoneskin(target, dmg)
-
     -- Handle absorb
     dmg = adjustForTarget(target, dmg, element)
     --printf("dmg %d", dmg)
@@ -555,6 +551,9 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
         --printf("dmg %d", dmg)
         skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
     else
+        -- Handling rampart stoneskin + normal stoneskin
+        dmg = utils.rampartstoneskin(target, dmg)
+        dmg = utils.stoneskin(target, dmg)
 	    target:takeDamage(dmg, avatar, attackType, element)
     end
     target:updateEnmityFromDamage(avatar, dmg)

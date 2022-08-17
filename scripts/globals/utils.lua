@@ -84,6 +84,10 @@ end
 function utils.rampartstoneskin(target, dmg)
     --handling rampart stoneskin
     local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
+    -- Handle absorbs
+    if dmg < 0 then
+        return dmg
+    end
     if ramSS > 0 then
         if dmg >= ramSS then
             target:setMod(tpz.mod.RAMPART_STONESKIN, 0)

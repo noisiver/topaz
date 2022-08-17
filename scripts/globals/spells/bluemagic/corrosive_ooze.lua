@@ -46,6 +46,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.NO_ENMITY = true
 	local bird = (target:getSystem() == 8)
 	local aquan = (target:getSystem() == 2)
     damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
@@ -57,7 +58,7 @@ function onSpellCast(caster, target, spell)
 		dmg = dmg * 0.75
 		params.bonus = -25
 	end
-    damage = BlueFinalAdjustmentsCustomEnmity(caster, target, spell, damage, params) -- Corrosive has static enmity https://www.bg-wiki.com/ffxi/Corrosive_Ooze
+    damage = BlueFinalAdjustments(caster, target, spell, damage, params) -- Corrosive has static enmity https://www.bg-wiki.com/ffxi/Corrosive_Ooze
 
     local typeEffectOne = tpz.effect.DEFENSE_DOWN
     local typeEffectTwo = tpz.effect.ATTACK_DOWN

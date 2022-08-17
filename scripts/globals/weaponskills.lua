@@ -59,19 +59,13 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 magicdmg = magicdmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
                 magicdmg = target:magicDmgTaken(magicdmg)
                 magicdmg = adjustForTarget(target, magicdmg, wsParams.ele)
-                --print("%u", magicdmg)
-                --handling rampart stoneskin
-                local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-                if ramSS > 0 then
-                    if dmg >= ramSS then
-                        target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-                        magicdmg = magicdmg - ramSS
-                    else
-                        target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-                        magicdmg = 0
-                    end
+                -- Add HP if absorbed
+                if (magicdmg < 0) then
+                    magicdmg = (target:addHP(-magicdmg))
+                else
+                    --handling rampart stoneskin
+                    magicdmg = utils.rampartstoneskin(target, magicdmg)
                 end
-                --print("%u", magicdmg)
 
                 finaldmg = finaldmg + magicdmg
                 --print("%u", finaldmg)
@@ -714,7 +708,6 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
         dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
         dmg = target:magicDmgTaken(dmg)
-        dmg = adjustForTarget(target, dmg, wsParams.ele)
 
         dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
         -- Handle Positional MDT
@@ -744,21 +737,22 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         --handling phalanx
         dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
-        --handling rampart stoneskin
-        local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-        if ramSS > 0 then
-            if dmg >= ramSS then
-                target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-                dmg = dmg - ramSS
-            else
-                target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-                dmg = 0
-            end
-        end
-    
-        --handling stoneskin
-        dmg = utils.stoneskin(target, dmg)
+        -- handling absorb
+        dmg = adjustForTarget(target, dmg, wsParams.ele)
         dmg = utils.clamp(dmg, -99999, 99999)
+
+        -- Add HP if absorbed
+        if (dmg < 0) then
+            dmg = (target:addHP(-dmg))
+            calcParams.finalDmg = -dmg
+            dmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
+            return dmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
+        else
+            --handling rampart stoneskin
+            dmg = utils.rampartstoneskin(target, dmg)
+            --handling stoneskin
+            dmg = utils.stoneskin(target, dmg)
+        end
     else
         calcParams.shadowsAbsorbed = 1
     end
@@ -772,6 +766,17 @@ end
 -- handles displaying the appropriate action/message, delivering the damage to the mob, and any enmity from it
 function takeWeaponskillDamage(defender, attacker, wsParams, primaryMsg, attack, wsResults, action)
     local finaldmg = wsResults.finalDmg
+    -- Magic absorb
+    if finaldmg < 0 then
+        action:messageID(defender:getID(), tpz.msg.basic.SKILL_RECOVERS_HP)
+        action:reaction(defender:getID(), tpz.reaction.HIT)
+        action:speceffect(defender:getID(), tpz.specEffect.RECOIL)
+        action:param(defender:getID(), -finaldmg)
+        local enmityMult = wsParams.enmityMult or 1
+        defender:updateEnmityFromDamage(attacker, finaldmg * enmityMult)
+        finaldmg = defender:takeWeaponskillDamage(attacker, finaldmg, attack.type, attack.damageType, attack.slot, primaryMsg, wsResults.tpHitsLanded, (wsResults.extraHitsLanded * 10) + wsResults.bonusTP, targetTPMult)
+        return finaldmg
+    end
     local targetTPMult = wsParams.targetTPMult or 1
     finaldmg = defender:takeWeaponskillDamage(attacker, finaldmg, attack.type, attack.damageType, attack.slot, primaryMsg, wsResults.tpHitsLanded, (wsResults.extraHitsLanded * 10) + wsResults.bonusTP, targetTPMult)
     if wsResults.tpHitsLanded + wsResults.extraHitsLanded > 0 then
@@ -812,7 +817,6 @@ function takeWeaponskillDamage(defender, attacker, wsParams, primaryMsg, attack,
         local enmityMult = wsParams.enmityMult or 1
         defender:updateEnmityFromDamage(enmityEntity, finaldmg * enmityMult)
     end
-
     return finaldmg
 end
 

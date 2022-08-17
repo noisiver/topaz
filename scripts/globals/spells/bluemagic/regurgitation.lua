@@ -45,6 +45,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
+    params.NO_ENMITY = true
     damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     if (caster:isBehind(target, 15)) then -- guesstimating the angle at 15 degrees here
         damage = math.floor(damage * 1.25)
@@ -61,7 +62,7 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
 	
-    damage = BlueFinalAdjustmentsCustomEnmity(caster, target, spell, damage, params) -- Regurgitation has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
+    damage = BlueFinalAdjustments(caster, target, spell, damage, params) -- Regurgitation has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
 	
 	if (damage > 0 and resist >= 0.5) then
         local typeEffect = tpz.effect.BIND
