@@ -701,8 +701,7 @@ function UseMultipleTPMoves(mob, uses, skillID)
 end
 
 function AddMobAura(mob, target, radius, effect, power, tick)
-    local auraName = tostring(effect)
-    local AuraTick = mob:getLocalVar("AuraTick" .. auraName)
+    local AuraTick = mob:getLocalVar("AuraTick")
     if os.time() >= AuraTick then
         mob:setLocalVar("AuraTick", os.time() + tick)
         local nearbyPlayers = mob:getPlayersInRange(radius)

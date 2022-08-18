@@ -48,7 +48,7 @@ function onMobFight(mob, target)
     end
     -- Gains an aura after using Hydro Wave and Frozen Mist
     if (os.time() < MuteAura) then
-        AddMobAura(mob, target, 10, tpz.effect.MUTE, 1, 3, 300)
+        AddMobAura(mob, target, 10, tpz.effect.MUTE, 1, 3)
     end
     if (os.time() < ParalysisAura) then
         AddMobAura(mob, target, 10, tpz.effect.GEO_PARALYSIS, 50, 3)
