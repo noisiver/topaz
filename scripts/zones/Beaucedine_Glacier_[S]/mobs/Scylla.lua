@@ -33,87 +33,34 @@ function onMobFight(mob, target)
 	local AquaCannonMax = mob:getLocalVar("AquaCannonMax")
 	local IceGuillotineMax = mob:getLocalVar("IceGuillotineMax")
 	local IceGuillotineTime = mob:getLocalVar("IceGuillotineTime")
+    local MuteAura = mob:getLocalVar("MuteAura")
+    local ParalysisAura = mob:getLocalVar("ParalysisAura")
+
     -- Use Aqua Cannon 4/6/8/10 times in a row after using Hydro Wave
     if (AquaCannonTime == 1) then
-	    if (AquaCannonMax == 10) then
-		    mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-	    elseif (AquaCannonMax == 8) then
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-	    elseif (AquaCannonMax == 6) then
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-	    elseif (AquaCannonMax == 4) then
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-            mob:useMobAbility(2441) -- Aqua Cannon
-	    end
+        UseMultipleTPMoves(mob, AquaCannonMax, 2441)
         mob:setLocalVar("AquaCannonTime", 0)
     end
     -- Use Ice Guillotine 4/6/8/10 times in a row after using Frozen mst
     if (IceGuillotineTime == 1) then
-	    if (IceGuillotineMax == 10) then
-		    mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-	    elseif (IceGuillotineMax == 8) then
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-	    elseif (IceGuillotineMax == 6) then
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-	    elseif (IceGuillotineMax == 4) then
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-            mob:useMobAbility(2440) -- Ice Guillotine
-	    end
+        UseMultipleTPMoves(mob, IceGuillotineMax, 2440)
         mob:setLocalVar("IceGuillotineTime", 0)
+    end
+    -- Gains an aura after using Hydro Wave and Frozen Mist
+    if (os.time() < MuteAura) then
+        AddMobAura(mob, target, 10, tpz.effect.MUTE, 1, 3, 300)
+    end
+    if (os.time() < ParalysisAura) then
+        AddMobAura(mob, target, 10, tpz.effect.GEO_PARALYSIS, 50, 3)
     end
 end
 
 function onMobWeaponSkill(target, mob, skill)
 	local Roll = math.random()
     if skill:getID() == 2439 then -- Hydro Wave
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 300, tpz.effect.MUTE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
-		if Roll < 0.2 then
+        mob:setLocalVar("MuteAura", os.time() + 300)
+        mob:setLocalVar("ParalysisAura", 0)
+        if Roll < 0.2 then
 			AquaCannonMax = 10
 		elseif Roll < 0.5 then
 			AquaCannonMax = 8
@@ -127,8 +74,9 @@ function onMobWeaponSkill(target, mob, skill)
 	end
 	
     if skill:getID() == 2438 then -- Frozen Mist
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 300, tpz.effect.GEO_PARALYSIS, 50, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
-		if Roll < 0.2 then
+        mob:setLocalVar("ParalysisAura", os.time() + 300)
+        mob:setLocalVar("MuteAura", 0)
+        if Roll < 0.2 then
 			IceGuillotineMax = 10
 		elseif Roll < 0.5 then
 			IceGuillotineMax = 8

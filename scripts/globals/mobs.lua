@@ -693,3 +693,26 @@ function TeleportMob(mob, hidden, callback)
         end)
     end)
 end
+
+function UseMultipleTPMoves(mob, uses, skillID)
+    for i = 1,uses do
+      mob:useMobAbility(skillID) 
+    end
+end
+
+function AddMobAura(mob, target, radius, effect, power, tick)
+    local auraName = tostring(effect)
+    local AuraTick = mob:getLocalVar("AuraTick" .. auraName)
+    if os.time() >= AuraTick then
+        mob:setLocalVar("AuraTick", os.time() + tick)
+        local nearbyPlayers = mob:getPlayersInRange(radius)
+        if nearbyPlayers ~= nil then 
+            for _,v in ipairs(nearbyPlayers) do
+                v:delStatusEffectSilent(effect)
+                v:addStatusEffectEx(effect, effect, power, tick, 3)
+                local buffEffect = v:getStatusEffect(effect)
+                buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
+            end
+        end
+    end
+end
