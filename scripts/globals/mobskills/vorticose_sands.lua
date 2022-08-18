@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
 
-	MobEncumberMove(target, 5, 60)
+	MobEncumberMove(mob, target, 5, 60)
     local dmgmod = 2
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*6, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_WIPE_SHADOWS)
