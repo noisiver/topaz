@@ -32,10 +32,16 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:addMod(tpz.mod.MOVE, 20)
     mob:addMod(tpz.mod.WIND_ABSORB, 100)
-	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
-	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
-	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
-	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
+    mob:addImmunity(tpz.immunity.SLEEP)
+    mob:addImmunity(tpz.immunity.GRAVITY)
+    mob:addImmunity(tpz.immunity.BIND)
+    mob:addImmunity(tpz.immunity.SILENCE)
+    mob:addImmunity(tpz.immunity.PARALYZE)
+    mob:addImmunity(tpz.immunity.BLIND)
+    mob:addImmunity(tpz.immunity.SLOW)
+    mob:addImmunity(tpz.immunity.ELEGY)
+    mob:addImmunity(tpz.immunity.REQUIEM)
+    mob:setLocalVar("ComboTime", 0)
     onPath(mob)
 end
 
@@ -43,43 +49,40 @@ function onMobRoam(mob)
     onPath(mob)
 end
 
+function onMobFight(mob, target)
+	local HP = mob:getHPP()
+	local ReavingWindTime = mob:getLocalVar("ReavingWindTime")
+	local ReavingWindMax = mob:getLocalVar("ReavingWindMax")
+	local CalamitousWindMax = mob:getLocalVar("CalamitousWindMax")
+	local CalamitousWindTime = mob:getLocalVar("CalamitousWindTime")
+    local ComboTime = mob:getLocalVar("ComboTime")
+    local BattleTime = mob:getBattleTime()
+
+    -- Use Reaving Wind 3-5 times in a row below 25% HP then uses Calamitous Wind that many times after
+    if (HP <= 25) and (BattleTime >= ComboTime) then
+        mob:setLocalVar("ReavingWindTime", 1)
+        mob:setLocalVar("ReavingWindMax", math.random(2, 5))
+        mob:setLocalVar("ComboTime", BattleTime + math.random(90, 120))
+    end
+    if (ReavingWindTime == 1) then
+        UseMultipleTPMoves(mob, ReavingWindMax, 2431)
+        mob:setLocalVar("ReavingWindTime", 0)
+        mob:setLocalVar("CalamitousWindMax", ReavingWindMax)
+        mob:setLocalVar("CalamitousWindTime", 1)
+    end
+    if (CalamitousWindTime == 1) then
+        UseMultipleTPMoves(mob, CalamitousWindMax, 2433)
+        mob:setLocalVar("CalamitousWindTime", 0)
+        mob:setLocalVar("ReavingWindMax", 0)
+        mob:setLocalVar("CalamitousWindMax", 0)
+    end
+end
 
 function onMobWeaponSkill(target, mob, skill)
-	local HP = mob:getHPP()
-    if skill:getID() == 2427 or skill:getID() == 2428 or skill:getID() == 2429 or skill:getID() == 2430 or skill:getID() == 2431  or skill:getID() == 2432 or skill:getID() == 2433  then
+    -- All TP moves reset hate
+    if skill:getID() > 0 then
         mob:resetEnmity(target)        
     end
-	
-	if HP <= 25 then
-		if skill:getID() == 2431 then -- Reaving Wind
-			local ReavingWindCounter = mob:getLocalVar("ReavingWindCounter")
-			local ReavingWindMax = mob:getLocalVar("ReavingWindMax")
-			local CalamitousWindCounter = mob:getLocalVar("CalamitousWindCounter")
-			local CalamitousWindMax = mob:getLocalVar("CalamitousWindMax")
-			
-			if ReavingWindCounter == 0 and ReavingWindMax == 0 then
-				ReavingWindMax = math.random(1, 3)
-				mob:setLocalVar("ReavingWindMax", ReavingWindMax)
-			end
-
-			ReavingWindCounter = ReavingWindCounter + 1
-			CalamitousWindCounter = CalamitousWindCounter + 1
-			mob:setLocalVar("ReavingWindCounter", ReavingWindCounter)
-			mob:setLocalVar("CalamitousWindCounter", CalamitousWindCounter)
-
-			if ReavingWindCounter > ReavingWindMax then
-				mob:setLocalVar("ReavingWindCounter", 0)
-				mob:setLocalVar("ReavingWindMax", 0)
-			else
-				mob:useMobAbility(2431) -- Reaving Wind
-			end
-		end
-		if ReavingWindCounter == 0 and CalamitousWindCounter > 0 then
-			mob:useMobAbility(2433) -- Calamitous Wind
-			CalamitousWindCounter = CalamitousWindCounter -1
-			mob:setLocalVar("CalamitousWindMax", CalamitousWindCounter)
-		end
-	end
 end
 
 function onMonsterMagicPrepare(mob, target)

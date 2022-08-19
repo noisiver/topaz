@@ -14,11 +14,10 @@ require("scripts/globals/magic")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
     local result = 1
-    local mobhp = mob:getHPP()
-    if mob:isMobType(MOBTYPE_NOTORIOUS) then
-		if (mobhp <= 50) then
-			result = 0
-		end
+    if (mob:getPool() == 5869) then -- Only used by certain NM's
+	    if target:isInfront(mob, 90) then
+            result = 0
+        end
     end
     return result
 end
