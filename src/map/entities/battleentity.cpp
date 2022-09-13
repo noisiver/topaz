@@ -41,6 +41,7 @@
 #include "../recast_container.h"
 #include "../roe.h"
 #include "../status_effect_container.h"
+#include "../enmity_container.h"
 #include "../utils/battleutils.h"
 #include "../utils/petutils.h"
 #include "../utils/puppetutils.h"
@@ -1814,6 +1815,11 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         if (actionTarget.reaction != REACTION_HIT && actionTarget.reaction != REACTION_BLOCK && actionTarget.reaction != REACTION_GUARD)
         {
             actionTarget.param = 0;
+            // add 1 ce for a missed attack for TH application
+            if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
+            {
+                ((CMobEntity*)PTarget)->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0);
+            }
         }
 
         if (actionTarget.reaction != REACTION_EVADE && actionTarget.reaction != REACTION_PARRY)
