@@ -10,7 +10,7 @@ function onMobSkillCheck(target, mob, skill)
     local result = 1
     local mobhp = mob:getHPP()
 	if mob:getPool() == 3069 then -- Oupire
-		return 1
+		return 0
 	end
 
     if (mobhp < 50) then
