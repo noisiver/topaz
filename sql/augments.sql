@@ -460,7 +460,7 @@ INSERT INTO `augments` VALUES (367, 0, 0, 0, 0, 0); -- 367 currently unused. Lea
 INSERT INTO `augments` VALUES (368, 0, 1273, 1, 0, 0); -- Phalanx+1
 INSERT INTO `augments` VALUES (369, 0, 0, 0, 0, 0); -- Blood Pact Dmg+1: Mod undefined as of yet so leaving blank.
 INSERT INTO `augments` VALUES (370, 0, 0, 0, 0, 0); -- Reverse Flourish+1: Mod undefined as of yet so leaving blank.
-INSERT INTO `augments` VALUES (371, 0, 0, 0, 0, 0); -- Regen Potency+1: Mod undefined as of yet so leaving blank.
+INSERT INTO `augments` VALUES (371, 0, 838, 1, 0, 0); -- Regen Potency+1: Multiplier to base regen rate (+10 is +10% cure potency)
 INSERT INTO `augments` VALUES (372, 0, 0, 0, 0, 0); -- Embolden+1: Mod undefined as of yet so leaving blank.
 
 -- 373 to 511 currently unused. Leave at zero. Edit+move or remove this note as new augments get discovered.

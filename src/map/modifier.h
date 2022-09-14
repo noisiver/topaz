@@ -334,8 +334,8 @@ enum class Mod
     PERFECT_COUNTER_ATT       = 428, // TODO: Raises weapon damage by 20 when countering while under the Perfect Counter effect. This also affects Weapon Rank (though not if fighting barehanded).
     FOOTWORK_ATT_BONUS        = 429, // Raises the attack bonus of Footwork. (Tantra Gaiters +2 raise 25/256 to 38/256)
     COUNTERSTANCE_EFFECT      = 543, // Counterstance effect in percents
-    DODGE_EFFECT              = 552, // Dodge effect in percents
-    FOCUS_EFFECT              = 561, // Focus effect in percents
+    DODGE_EFFECT              = 552, // Bonus Evasion during Dodge
+    FOCUS_EFFECT              = 561, // Bonus Accuracy during Focus
 
     // White Mage
     AFFLATUS_SOLACE           = 293, // Pool of HP accumulated during Afflatus Solace
