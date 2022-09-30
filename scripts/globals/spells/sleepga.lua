@@ -60,17 +60,6 @@ function onSpellCast(caster, target, spell)
     duration = duration * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.SLEEP, target))
 
-    if (caster:isMob()) then
-        if (caster:getPool() == 5310) then -- Amnaf (Flayer)
-            caster:resetEnmity(target)
-        end
-        -- Todo: get rid of this whole block by handling it in the mob script
-        -- this requires a multi target enmity without specifying a target (have to get hate list from mob)
-        -- OR by altering onSpellPrecast to have a target param..
-        -- onMonsterMagicPrepare is not a realistic option.
-        -- You'd have to script the use of every individual spell in Amnaf's list..
-    end
-    
    	if target:isMob() then
 		if target:isUndead() and target:getFamily() == 227 or target:getFamily() == 88 or target:getFamily() == 89 then -- skeletons
 			resist = 1/16
