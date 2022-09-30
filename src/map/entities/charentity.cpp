@@ -1129,7 +1129,6 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 
                     if (StatusEffectContainer->HasStatusEffect(EFFECT_APOGEE))
                     {
-                        mpCost *= 1.5f;
                         StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_BLOODPACT);
                     }
 

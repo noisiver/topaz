@@ -1,5 +1,8 @@
 ---------------------------------------------------
--- Eclipse Bite M=8 subsequent hits M=2
+-- Eclipse Bite
+-- Three-hit attack
+-- Additional Effect: 25/tick bleeding effect
+-- Dispels Regen off the target.
 ---------------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -22,9 +25,18 @@ function onPetAbility(target, pet, skill)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.DOT = true
+    params.ELEMENT_OVERRIDE = tpz.magic.ele.DARK
+
+    local effect = tpz.effect.REGEN
+    local power = -25
+    local duration = 120
+    local bonus = 0
 
     local damage = AvatarPhysicalBP(pet, target, skill, tpz.attackType.PHYSICAL, numhits, ftp, TP_DMG_BONUS, params)
     dmg = AvatarPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, damage.hitslanded, params)
+    target:delStatusEffectSilent(effect)
+    AvatarPhysicalStatusEffectBP(pet, target, skill, effect, power, duration, params, bonus)
 
     return dmg
 end

@@ -5,6 +5,8 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/pets")
 ------------------------------------
+-- Thanks to JP testing for all fTP values and damage formulas!
+-- https://w.atwiki.jp/bartlett3/pages/329.html 
 
 -- tpeffects
 --TP_DMG_BONUS
@@ -21,6 +23,7 @@ require("scripts/globals/pets")
 --params.IGNORES_SHADOWS
 --params.AVATAR_WIPE_SHADOWS
 --params.DOT
+--params.ELEMENT_OVERRIDE
 
 function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, tpeffect, params)
     local returninfo = {}
@@ -578,6 +581,10 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
     if (target:canGainStatusEffect(effect, power)) then
         local statmod = tpz.mod.INT
         local element = avatar:getStatusEffectElement(effect)
+
+        if params.ELEMENT_OVERRIDE ~= nil then
+            element = params.ELEMENT_OVERRIDE
+        end
 
         local resist = getAvatarResist(avatar, effect, target, avatar:getStat(statmod)-target:getStat(statmod), maccBonus, element)
         --printf("resist %i", resist * 100)

@@ -1,5 +1,7 @@
 ---------------------------------------------
 -- Frost Armor
+-- Grants allies in range Aquaveil(4 charges) and 3/tick Refresh
+-- Aquaveil duration 15 minutes, Refresh 3 minutes.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -18,7 +20,13 @@ function onPetAbility(target, pet, skill, summoner)
     local power = 4
     local duration = 900
     local bonus = 0
+    local effect2 = tpz.effect.REFRESH
+    local power2 = 3
+    local tick2 = 3
+    local duration2 = 180
+    local bonus = 0
 
     AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
+    AvatarBuffBP(pet, target, skill, effect2, power2, tick2, duration2, params, bonus)
     return effect
 end

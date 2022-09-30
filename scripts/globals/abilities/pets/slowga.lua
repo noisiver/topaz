@@ -1,5 +1,6 @@
 ---------------------------------------------
 -- Slowga
+-- Gradually petrifies enemies within range.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -16,11 +17,11 @@ end
 
 function onPetAbility(target, pet, skill)
     local params = {}
-    local effect = tpz.effect.SLOW
-    local power = 3000
-    local duration = 180
+    local effect = tpz.effect.GRADUAL_PETRIFICATION
+    local power = 10
+    local duration = 30
     local bonus = 0
-
+    params.DOT = true
 
     skill:setMsg(AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus))
     giveAvatarTP(pet)
