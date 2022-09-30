@@ -87,7 +87,7 @@ local afArmorPlusOne =
     [ 66] = {trade = {12519, 1956, 1957, 2012}, abc = 30, reward = {15238, 1, tpz.augments.HASTE, 4} }, -- drachen_armet_+1
     [ 67] = {trade = {12649, 1956, 1957, 2012}, abc = 40, reward = {14486, 1, tpz.augments.POLEARM, 14} }, -- drachen_mail_+1
     [ 68] = {trade = {13974, 1956, 1957,  851}, abc = 20, reward = {14903, 1, tpz.augments.CRITHITRATE, 1} }, -- drachen_finger_gauntlets_+1
-    [ 69] = {trade = {14227, 1956, 1957,  851}, abc = 25, reward = {15574, 1, tpz.augments.PETDT, 10} }, -- drachen_brais_+1
+    [ 69] = {trade = {14227, 1956, 1957,  851}, abc = 25, reward = {15574, 1, tpz.augments.PET_DT, 10} }, -- drachen_brais_+1
     [ 70] = {trade = {14102, 1956, 1957,  851}, abc = 20, reward = {15365, 1, tpz.augments.VIT, 5} }, -- drachen_greaves_+1
     [ 71] = {trade = {12520, 1958, 1959, 2009}, abc = 25, reward = {15239, 1, tpz.augments.PET_MATT, 4} }, -- evokers_horn_+1
     [ 72] = {trade = {12650, 1958, 1959, 2010}, abc = 35, reward = {14487, 1, tpz.augments.PET_MATT, 6} }, -- evokers_doublet_+1

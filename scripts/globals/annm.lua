@@ -492,7 +492,7 @@ tpz.annm.augment[tpz.items.SILK_SLACKS] =
         maximum = 2
     },
     {
-        stat = tpz.augments.ENMITYMINUS,
+        stat = tpz.augments.ENMITY_MINUS,
         chance = 10,
         minimum = 0,
         maximum = 4
