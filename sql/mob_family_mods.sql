@@ -271,6 +271,7 @@ INSERT INTO `mob_family_mods` VALUES (63,389,-13,0);	-- Chariot  -13%
 INSERT INTO `mob_family_mods` VALUES (209,389,-43,0);	-- Rampart  -43%
 INSERT INTO `mob_family_mods` VALUES (27,389,-25,0);	-- Apkallu  -25%
 INSERT INTO `mob_family_mods` VALUES (191,389,-13,0);	-- Orobon  -13%
+INSERT INTO `mob_family_mods` VALUES (551,389,-13,0);	-- "Blue" Sea Monk  -13%
 INSERT INTO `mob_family_mods` VALUES (233,389,-25,0);	-- Soulflayer  -25%
 INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);	-- Dvergr  -50%
 INSERT INTO `mob_family_mods` VALUES (117,389,-13,0);	-- Gargouille  -13%
