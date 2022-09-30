@@ -429,6 +429,7 @@ enum class Mod
     SNAP_SHOT                 = 365, // Percent reduction to range attack delay
     RAPID_SHOT                = 359, // Percent chance to proc rapid shot
     WIDESCAN                  = 340, //
+    BARRAGE_SHOT_COUNT        = 1275, // Number of shots fired by Barrage
     BARRAGE_ACC               = 420, // Barrage accuracy
     DOUBLE_SHOT_RATE          = 422, // The rate that double shot can proc. Without this, the default is 40%.
     VELOCITY_SNAPSHOT_BONUS   = 423, // Increases Snapshot whilst Velocity Shot is up.
@@ -928,7 +929,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1275 NEXT
+    // 1276 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

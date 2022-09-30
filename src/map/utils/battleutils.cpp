@@ -4606,6 +4606,8 @@ namespace battleutils
         else if (lvl < 99)  shotCount += 6;
         else if (lvl >= 99) shotCount += 7;
 
+        // Add + Barrage gear mod
+        shotCount += PChar->getMod(Mod::BARRAGE_SHOT_COUNT); 
 
         // make sure we have enough ammo for all these shots
         CItemWeapon* PAmmo = (CItemWeapon*)PChar->getEquip(SLOT_AMMO);
