@@ -13,14 +13,6 @@ function onEffectGain(target, effect)
         effect:setPower(target:speed())
         target:speed(0)
     end
-    local entities = target:getNearbyMobs(12)
-    local mobNearby = false;
-    for i, entity in pairs(entities) do
-        if target:getID() ~= entity:getID() and entity:isSpawned() then
-            mobNearby = true;
-            entity:setMobMod(tpz.mobMod.NO_MOVE, 1)
-		end
-	end
 end
 
 function onEffectTick(target, effect)
@@ -32,12 +24,4 @@ function onEffectLose(target, effect)
     if not target:hasStatusEffect(tpz.effect.BIND) then
         target:speed(effect:getPower())
     end
-    local entities = target:getNearbyMobs(12)
-    local mobNearby = false;
-    for i, entity in pairs(entities) do
-        if target:getID() ~= entity:getID() and entity:isSpawned() then
-            mobNearby = true;
-            entity:setMobMod(tpz.mobMod.NO_MOVE, 0)
-		end
-	end
 end
