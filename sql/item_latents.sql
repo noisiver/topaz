@@ -740,14 +740,14 @@ INSERT INTO `item_latents` VALUES(13693, 370, 1, 13, 19);
 -- -------------------------------------------------------
 -- Carapace Breastplate
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13789, 1, 44, 0, 25);     -- DEF:44 whem HP<=25%
-INSERT INTO `item_latents` VALUES(13789, 23, 12, 0, 25);    -- Attack+12 when HP <=25%
+INSERT INTO `item_latents` VALUES(13789, 1, 44, 13, 57);     -- DEF:44 when defender active
+INSERT INTO `item_latents` VALUES(13789, 23, 12, 13, 57);    -- Attack+12 when defender active
 
 -- -------------------------------------------------------
 -- Carapace Breastplate +1
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13790, 1, 45, 0, 25);     -- DEF:45 when HP <=25%
-INSERT INTO `item_latents` VALUES(13790, 23, 13, 0, 25);    -- Attack+13 when HP <=25%
+INSERT INTO `item_latents` VALUES(13790, 1, 45, 13, 57);     -- DEF:45 when defender active
+INSERT INTO `item_latents` VALUES(13790, 23, 13, 13, 57);    -- Attack+13 when defender active
 
 INSERT INTO `item_latents` VALUES(13846, 369, 1, 13, 4);
 
@@ -771,14 +771,14 @@ INSERT INTO `item_latents` VALUES(13875, 68, 8, 52, 6);     -- Jinpachi: Evasion
 -- -------------------------------------------------------
 -- Carapace Helm
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13878, 1, 23, 0, 50);     -- DEF:23 when HP <=50%
-INSERT INTO `item_latents` VALUES(13878, 23, 10, 0, 50);    -- Attack+10 when HP <=50%
+INSERT INTO `item_latents` VALUES(13878, 1, 23, 13, 57);     -- DEF:23 when defender active
+INSERT INTO `item_latents` VALUES(13878, 23, 10, 13, 57);    -- Attack+10 when defender active
 
 -- -------------------------------------------------------
 -- Carapace Helm +1
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13879, 1, 24, 0, 50);     -- DEF:24 when HP <=50%
-INSERT INTO `item_latents` VALUES(13879, 23, 11, 0, 50);    -- Attack+11 when HP <=50%
+INSERT INTO `item_latents` VALUES(13879, 1, 24, 13, 57);     -- DEF:24 when defender active
+INSERT INTO `item_latents` VALUES(13879, 23, 11, 13, 57);    -- Attack+11 when defender active
 
 -- -------------------------------------------------------
 -- Presidential Hairpin
@@ -939,14 +939,14 @@ INSERT INTO `item_latents` VALUES(14005, 25, 8, 52, 6);     -- Tekko: Accuracy +
 -- -------------------------------------------------------
 -- Carapace Gauntlets
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(14008, 1, 16, 0, 75);     -- DEF:16 whem HP <= 75%
-INSERT INTO `item_latents` VALUES(14008, 23, 8, 0, 75);     -- Attack+8 when HP <=75%
+INSERT INTO `item_latents` VALUES(14008, 1, 16, 13, 57);     -- DEF:16 when defender active
+INSERT INTO `item_latents` VALUES(14008, 23, 8, 13, 57);     -- Attack+8 when defender active
 
 -- -------------------------------------------------------
 -- Cpc. Gauntlets +1
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(14009, 1, 17, 0, 75);     -- DEF:17 whem HP <= 75%
-INSERT INTO `item_latents` VALUES(14009, 23, 9, 0, 75);     -- Attack+9 when HP <=75%
+INSERT INTO `item_latents` VALUES(14009, 1, 17, 13, 57);     -- DEF:17 when defender active
+INSERT INTO `item_latents` VALUES(14009, 23, 9, 13, 57);     -- Attack+9 when defender active
 
 -- -------------------------------------------------------
 -- Grand Temple Knight's Gauntlets
