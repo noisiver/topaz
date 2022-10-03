@@ -44,6 +44,13 @@ zones[tpz.zone.HALVUNG] =
         DEXTROSE               = 17031598,
         REACTON                = 17031599,
         ACHAMOTH               = 17031600,
+        EVOLVING_WAMOURA_PRINCES =
+        {
+            17031334, 
+            17031336,
+            17031338,
+            17031341,
+        },
     },
     npc =
     {

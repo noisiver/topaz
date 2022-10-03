@@ -2,6 +2,7 @@
 -- Area: Halvung
 --  Mob: Wamoura
 -----------------------------------
+mixins = {require("scripts/mixins/families/wamoura")}
 -----------------------------------
 
 function onMobDeath(mob, player, isKiller)
