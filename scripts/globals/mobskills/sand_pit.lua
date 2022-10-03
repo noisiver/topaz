@@ -51,7 +51,7 @@ function onMobWeaponSkill(target, mob, skill)
              mob:resetEnmity(target)
         end
         -- Removes all enfeebling effects
-        mob:delStatusEffectsByFlag(tpz.effectFlag.ERASABLE)
+        mob:delStatusEffectsByFlag(tpz.effectFlag.ERASABLE, true)
     end
 
     return typeEffect
