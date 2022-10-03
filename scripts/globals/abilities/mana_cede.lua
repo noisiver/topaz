@@ -12,8 +12,10 @@ require("scripts/globals/summon")
 function onAbilityCheck(player, target, ability)
     local playerHPP = player:getHPP()
     local healPower = math.floor(player:getMainLvl() / 3)
+    local pet = player:getPet()
+    local petHPP = pet:getHPP()
     -- Can only be used if the player has more than 25% of their max HP
-    if playerHPP > healPower then
+    if (playerHPP > healPower) and (petHPP < 100) then
         return 0, 0
     else
         return tpz.msg.basic.CANNOT_PERFORM_ACTION, 0

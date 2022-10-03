@@ -1129,7 +1129,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 
                     if (StatusEffectContainer->HasStatusEffect(EFFECT_APOGEE))
                     {
-                        StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_BLOODPACT);
+                        StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_BLOODPACT, true);
                     }
 
                     // Blood Boon (does not affect Astra Flow BPs)
