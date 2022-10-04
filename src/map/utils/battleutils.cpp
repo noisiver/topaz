@@ -2479,6 +2479,20 @@ namespace battleutils
                 float sBlow2 = std::clamp((float)PAttacker->getMod(Mod::SUBTLE_BLOW_II), -50.0f, 50.0f);
                 float sBlowMult = ((100.0f - std::clamp((float)(sBlow1 + sBlow2), -75.0f, 75.0f)) / 100.0f);
 
+                // Handle "TP Boost When Damaged" gear mod
+                int16 bonusTP = 0;
+                if (PDefender->objtype == TYPE_PC)
+                {
+                    if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::TP_BOOST_WHEN_DMGD))
+                    {
+                        // Occasionally boosts TP 10-30 points when damaged.
+                        bonusTP = tpzrand::GetRandomNumber(10, 30);
+                        // Multiply by 3 because the final result is divided by 3 when giving a player TP
+                        bonusTP *= 3;
+                        baseTp += bonusTP;
+                    }
+                }
+
                 //mobs hit get basetp+30 whereas pcs hit get basetp/3
                 if (PDefender->objtype == TYPE_PC)
                 {

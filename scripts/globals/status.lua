@@ -1247,6 +1247,7 @@ tpz.mod =
     WALTZ_DELAY                     = 497, -- Waltz Ability Delay modifier (-1 mod is -1 second)
     SAMBA_PDURATION                 = 498, -- Samba percent duration bonus
     WIDESCAN                        = 340,
+    BARRAGE_SHOT_COUNT              = 1275, -- Number of shots fired by Barrage
     BARRAGE_ACC                     = 420,
     ENSPELL                         = 341,
     SPIKES                          = 342,
@@ -1480,6 +1481,7 @@ tpz.mod =
     RETALIATION                     = 414, -- Increases damage of Retaliation hits
     THIRD_EYE_COUNTER_RATE          = 508, -- Adds counter to 3rd eye anticipates & if using Seigan counter rate is increased by 15%
     THIRD_EYE_ANTICIPATE_RATE       = 839, -- Adds anticipate rate in percents
+    TP_BOOST_WHEN_DMGD              = 1239,-- Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
 
     CLAMMING_IMPROVED_RESULTS       = 509, --
     CLAMMING_REDUCED_INCIDENTS      = 510, --

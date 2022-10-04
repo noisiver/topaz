@@ -11603,7 +11603,7 @@ INSERT INTO `item_mods` VALUES (13781,1,41);	-- Myochin Domaru
 INSERT INTO `item_mods` VALUES (13781,2,10);
 INSERT INTO `item_mods` VALUES (13781,10,3);
 INSERT INTO `item_mods` VALUES (13781,61,15);
-INSERT INTO `item_mods` VALUES (13781,73,3);	-- 3 Store TP
+INSERT INTO `item_mods` VALUES (13781,1239,50);	-- 50% chance to gain 10-30 TP when damaged
 INSERT INTO `item_mods` VALUES (13782,1,41);      -- Ninja Chainmail: DEF 41
 INSERT INTO `item_mods` VALUES (13782,2,15);      -- HP +15
 INSERT INTO `item_mods` VALUES (13782,10,3);      -- VIT +3
@@ -14118,11 +14118,12 @@ INSERT INTO `item_mods` VALUES (14483,10,4);
 INSERT INTO `item_mods` VALUES (14483,11,4);
 INSERT INTO `item_mods` VALUES (14483,26,10);
 INSERT INTO `item_mods` VALUES (14483,98,50);
-INSERT INTO `item_mods` VALUES (14484,1,50);
+INSERT INTO `item_mods` VALUES (14484,1,50);      -- Myochin Domaru +1
 INSERT INTO `item_mods` VALUES (14484,2,10);
 INSERT INTO `item_mods` VALUES (14484,8,6);
 INSERT INTO `item_mods` VALUES (14484,10,6);
 INSERT INTO `item_mods` VALUES (14484,25,12);
+INSERT INTO `item_mods` VALUES (14484,1239,100);	  -- 100% chance to gain 10-30 TP when damaged
 INSERT INTO `item_mods` VALUES (14485,1,46);      -- Ninja Chainmail +1: DEF 46
 INSERT INTO `item_mods` VALUES (14485,2,15);      -- HP +15
 INSERT INTO `item_mods` VALUES (14485,9,5);       -- DEX +5

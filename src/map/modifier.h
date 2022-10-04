@@ -872,7 +872,7 @@ enum class Mod
 
     SUBTLE_BLOW_II            = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
     GARDENING_WILT_BONUS      = 1011, // Increases the number of Vanadays a plant can survive before it wilts
-    TP_BOOST_WHEN_DMGD        = 1239,    // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
+    TP_BOOST_WHEN_DMGD        = 1239, // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
 
 
     SPDEF_DOWN = 958,
