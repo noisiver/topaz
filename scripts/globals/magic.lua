@@ -853,7 +853,7 @@ function getEffectResistanceTraitChance(caster, target, effect)
         effectres = tpz.mod.CURSERESTRAIT
     elseif (effect == tpz.effect.WEIGHT) then
         effectres = tpz.mod.GRAVITYRESTRAIT
-    elseif (effect == tpz.effect.SLOW or effect == tpz.effect.ELEGY) then
+    elseif (effect == tpz.effect.SLOW or effect == tpz.effect.ADDLE) then
         effectres = tpz.mod.SLOWRESTRAIT
     elseif (effect == tpz.effect.STUN) then
         effectres = tpz.mod.STUNRESTRAIT
