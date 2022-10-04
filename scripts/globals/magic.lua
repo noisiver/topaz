@@ -1187,9 +1187,15 @@ function calculateMagicBurst(caster, spell, target, params)
         end
     end
 
+    -- Apply DMGMB Mod
+    local burstdmgtaken = 1
+    local dmgmb = 1 + (utils.clamp(target:getMod(tpz.mod.DMGMB), 0, 100) / 100)
+
+    burstdmgtaken = burstdmgtaken * dmgmb
+
     -- Multiply
     if (skillchainburst > 1) then
-        burst = burst * modburst * skillchainburst
+        burst = burst * modburst * skillchainburst * burstdmgtaken
     end
 
     return burst

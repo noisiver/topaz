@@ -4003,18 +4003,25 @@ namespace battleutils
 
         auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000 *
                                    (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100 * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
-        //ShowDebug("RawDamage: %u\n,", damage);
+        ShowDebug("RawDamage: %u\n,", damage);
         auto PChar = dynamic_cast<CCharEntity*>(PAttacker);
         if (PChar && PChar->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PChar->loc.p, PDefender->loc.p, 64))
         {
             damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));
         }
-        damage = damage * std::clamp((int32)resistance, 10, 100) / 100;
-        //ShowDebug("DamageAfterResist: %u\n,SDT:%u\n,", damage, resistance);
+        // Add SKillchain Damage Taken mod
+        uint32 DMGSC = PDefender->getMod(Mod::DMGSC);
+
+        DMGSC = std::clamp((int32)DMGSC, 0, 100);
+
+        damage = (int32)(damage * (1.f + (DMGSC / 100.f)));
         // Add weather day bonus
         damage = (int32)(damage * dBonus);
         //ShowDebug("WeatherDayDamage: %u\n,", damage);
-        damage = MagicDmgTaken(PDefender, damage, appliedEle);
+        // Apply SDT
+        damage = damage * std::clamp((int32)resistance, 10, 100) / 100;
+        // ShowDebug("DamageAfterResist: %u\n,SDT:%u\n,", damage, resistance);
+        damage = MagicDmgTaken(PDefender, damage, appliedEle);  
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);

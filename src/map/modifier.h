@@ -202,6 +202,9 @@ enum class Mod
     UDMGMAGIC                 = 389, //
     UDMGRANGE                 = 390, //
 
+    DMGSC                     = 1276, // Skillchan Damage Taken %
+    DMGMB                     = 1277, // Magic Burst Damage Taken %
+
     CRITHITRATE               = 165, // Raises chance to crit
     CRIT_DMG_INCREASE         = 421, // Raises the damage of critical hit by percent %
     RANGED_CRIT_DMG_INCREASE  = 1013, // Increases ranged critical damage by a percent
@@ -929,7 +932,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1276 NEXT
+    // 1278 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
