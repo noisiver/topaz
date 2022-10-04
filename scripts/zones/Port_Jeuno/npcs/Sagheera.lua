@@ -20,43 +20,43 @@ require("scripts/globals/augments")
 local afArmorPlusOne =
 {
     [  1] = {trade = {12511, 1930, 1931, 1990}, abc = 20, reward = {15225, 1, tpz.augments.PDT, 1} }, -- fighters_mask_+1
-    [  2] = {trade = {12638, 1930, 1931, 1990}, abc = 35, reward = {14473, 1, tpz.augments.PDT, 3} }, -- fighters_lorica_+1
+    [  2] = {trade = {12638, 1930, 1931, 1990}, abc = 35, reward = {14473, 1, tpz.augments.PDT, 3, tpz.augments.FIRERES, 14} }, -- fighters_lorica_+1
     [  3] = {trade = {13961, 1930, 1931, 1990}, abc = 15, reward = {14890, 1, tpz.augments.PDT, 1} }, -- fighters_mufflers_+1
     [  4] = {trade = {14214, 1930, 1931, 1990}, abc = 15, reward = {15561, 1, tpz.augments.PDT,2} }, -- fighters_cuisses_+1
     [  5] = {trade = {14089, 1930, 1931, 1990}, abc = 25, reward = {15352, 1, tpz.augments.PDT, 1} }, -- fighters_calligae_+1
     [  6] = {trade = {12512, 1932, 1933, 1117}, abc = 25, reward = {15226, 1, 0, 0} }, -- temple_crown_+1
     [  7] = {trade = {12639, 1932, 1933, 1991}, abc = 40, reward = {14474, 1, 0, 0} }, -- temple_cyclas_+1
-    [  8] = {trade = {13962, 1932, 1933, 1117}, abc = 20, reward = {14891, 1, 0, 0} }, -- temple_gloves_+1
+    [  8] = {trade = {13962, 1932, 1933, 1117}, abc = 20, reward = {14891, 1, tpz.augments.DARKRES, 14} }, -- temple_gloves_+1
     [  9] = {trade = {14215, 1932, 1933, 1117}, abc = 25, reward = {15562, 1, tpz.augments.CURE_POTENCY_RCVD, 9} }, -- temple_hose_+1
-    [ 10] = {trade = {14090, 1932, 1933,  855}, abc = 20, reward = {15353, 1, 0, 0} }, -- temple_gaiters_+1
-    [ 11] = {trade = {13855, 1934, 1935, 1994}, abc = 30, reward = {15227, 1, 0, 0} }, -- healers_cap_+1
-    [ 12] = {trade = {12640, 1934, 1935, 1992}, abc = 40, reward = {14475, 1, 0, 0} }, -- healers_briault_+1
+    [ 10] = {trade = {14090, 1932, 1933,  855}, abc = 20, reward = {15353, 1, tpz.augments.LIGHTRES, 14} }, -- temple_gaiters_+1
+    [ 11] = {trade = {13855, 1934, 1935, 1994}, abc = 30, reward = {15227, 1, tpz.augments.DARKRES, 14} }, -- healers_cap_+1
+    [ 12] = {trade = {12640, 1934, 1935, 1992}, abc = 40, reward = {14475, 1, tpz.augments.WINDRES, 14} }, -- healers_briault_+1
     [ 13] = {trade = {13963, 1934, 1935, 1993}, abc = 20, reward = {14892, 1, 0, 0} }, -- healers_mitts_+1
     [ 14] = {trade = {14216, 1934, 1935, 1996}, abc = 25, reward = {15563, 1, tpz.augments.MACC, 4} }, -- healers_pantaloons_+1
     [ 15] = {trade = {14091, 1934, 1935, 1995}, abc = 20, reward = {15354, 1, tpz.augments.CONSERVE_MP, 4} }, -- healers_duckbills_+1
-    [ 16] = {trade = {13856, 1936, 1937, 1993}, abc = 25, reward = {15228, 1, 0, 0} }, -- wizards_petasos_+1
+    [ 16] = {trade = {13856, 1936, 1937, 1993}, abc = 25, reward = {15228, 1, tpz.augments.LIGHTNINGRES, 14} }, -- wizards_petasos_+1
     [ 17] = {trade = {12641, 1936, 1937, 1993}, abc = 25, reward = {14476, 1, 0, 0} }, -- wizards_coat_+1
     [ 18] = {trade = {13964, 1936, 1937, 1993}, abc = 15, reward = {14893, 1, 0, 0} }, -- wizards_gloves_+1
     [ 19] = {trade = {14217, 1936, 1937, 1994}, abc = 30, reward = {15564, 1, 0, 0} }, -- wizards_tonban_+1
     [ 20] = {trade = {14092, 1936, 1937, 1995}, abc = 20, reward = {15355, 1, tpz.augments.DARK, 4} }, -- wizards_sabots_+1
     [ 21] = {trade = {12513, 1938, 1939, 1996}, abc = 20, reward = {15229, 1, 0, 0} }, -- warlocks_chapeau_+1
     [ 22] = {trade = {12642, 1938, 1939, 1996}, abc = 30, reward = {14477, 1, 0, 0} }, -- warlocks_tabard_+1
-    [ 23] = {trade = {13965, 1938, 1939, 1996}, abc = 15, reward = {14894, 1, tpz.augments.HASTE, 3} }, -- warlocks_gloves_+1
+    [ 23] = {trade = {13965, 1938, 1939, 1996}, abc = 15, reward = {14894, 1, tpz.augments.HASTE, 3, tpz.augments.DARKRES, 14} }, -- warlocks_gloves_+1
     [ 24] = {trade = {14218, 1938, 1939, 1996}, abc = 20, reward = {15565, 1, 0, 0} }, -- warlocks_tights_+1
-    [ 25] = {trade = {14093, 1938, 1939,  855}, abc = 25, reward = {15356, 1, tpz.augments.PDT, 1} }, -- warlocks_boots_+1
+    [ 25] = {trade = {14093, 1938, 1939,  855}, abc = 25, reward = {15356, 1, tpz.augments.PDT, 1, tpz.augments.WATERRES, 14} }, -- warlocks_boots_+1
     [ 26] = {trade = {12514, 1940, 1941, 1997}, abc = 30, reward = {15230, 1, tpz.augments.ATTK, 9} }, -- rogues_bonnet_+1
-    [ 27] = {trade = {12643, 1940, 1941, 1997}, abc = 40, reward = {14478, 1, tpz.augments.ATTK, 9} }, -- rogues_vest_+1
-    [ 28] = {trade = {13966, 1940, 1941, 1998}, abc = 20, reward = {14895, 1, 0, 0} }, -- rogues_armlets_+1
+    [ 27] = {trade = {12643, 1940, 1941, 1997}, abc = 40, reward = {14478, 1, tpz.augments.ATTK, 9, tpz.augments.EARTHRES, 14} }, -- rogues_vest_+1
+    [ 28] = {trade = {13966, 1940, 1941, 1998}, abc = 20, reward = {14895, 1, 0, 0, tpz.augments.ICERES, 14} }, -- rogues_armlets_+1
     [ 29] = {trade = {14219, 1940, 1941, 1997}, abc = 30, reward = {15566, 1, tpz.augments.ATTK, 9} }, -- rogues_culottes_+1
     [ 30] = {trade = {14094, 1940, 1941, 1998}, abc = 20, reward = {15357, 1, tpz.augments.EVA, 9} }, -- rogues_poulaines_+1
     [ 31] = {trade = {12515, 1942, 1943,  745}, abc = 25, reward = {15231, 1, 0, 0} }, -- gallant_coronet_+1
     [ 32] = {trade = {12644, 1942, 1943, 1999}, abc = 30, reward = {14479, 1, tpz.augments.MATT, 9} }, -- gallant_surcoat_+1
-    [ 33] = {trade = {13967, 1942, 1943,  667}, abc = 20, reward = {14896, 1, tpz.augments.ATTK, 19} }, -- gallant_gauntlets_+1
+    [ 33] = {trade = {13967, 1942, 1943,  667}, abc = 20, reward = {14896, 1, tpz.augments.ATTK, 19, tpz.augments.LIGHTRES, 14} }, -- gallant_gauntlets_+1
     [ 34] = {trade = {14220, 1942, 1943,  667}, abc = 20, reward = {15567, 1, tpz.augments.PHALANX, 0} }, -- gallant_breeches_+1
     [ 35] = {trade = {14095, 1942, 1943,  667}, abc = 20, reward = {15358, 1, 0, 0} }, -- gallant_leggings_+1
     [ 36] = {trade = {12516, 1944, 1945,  664}, abc = 25, reward = {15232, 1, 0, 0} }, -- chaos_burgeonet_+1
     [ 37] = {trade = {12645, 1944, 1945, 2001}, abc = 30, reward = {14480, 1, tpz.augments.FASTCAST, 2} }, -- chaos_cuirass_+1
-    [ 38] = {trade = {13968, 1944, 1945,  664}, abc = 15, reward = {14897, 1, tpz.augments.CRITHITRATE, 1} }, -- chaos_gauntlets_+1
+    [ 38] = {trade = {13968, 1944, 1945,  664}, abc = 15, reward = {14897, 1, tpz.augments.CRITHITRATE, 1, tpz.augments.DARKRES, 14} }, -- chaos_gauntlets_+1
     [ 39] = {trade = {14221, 1944, 1945,  664}, abc = 20, reward = {15568, 1, tpz.augments.CRITHITRATE, 2} }, -- chaos_flanchard_+1
     [ 40] = {trade = {14096, 1944, 1945,  664}, abc = 20, reward = {15359, 1, tpz.augments.INT, 4} }, -- chaos_sollerets_+1
     [ 41] = {trade = {12517, 1946, 1947, 2002}, abc = 30, reward = {15233, 1, 0, 0} }, -- beast_helm_+1
@@ -68,26 +68,26 @@ local afArmorPlusOne =
     [ 47] = {trade = {12647, 1948, 1949, 1117}, abc = 40, reward = {14482, 1, tpz.augments.CURE_POTENCY, 9} }, -- choral_justaucorps_+1
     [ 48] = {trade = {13970, 1948, 1949, 1117}, abc = 25, reward = {14899, 1, 0, 0} }, -- choral_cuffs_+1
     [ 49] = {trade = {14223, 1948, 1949, 1117}, abc = 25, reward = {15570, 1, tpz.augments.CURE_POTENCY, 4} }, -- choral_cannions_+1
-    [ 50] = {trade = {14098, 1948, 1949, 1117}, abc = 25, reward = {15361, 1, tpz.augments.CURE_POTENCY, 4} }, -- choral_slippers_+1
+    [ 50] = {trade = {14098, 1948, 1949, 1117}, abc = 25, reward = {15361, 1, tpz.augments.CURE_POTENCY, 4, tpz.augments.WINDRES, 14} }, -- choral_slippers_+1
     [ 51] = {trade = {12518, 1950, 1951, 2005}, abc = 25, reward = {15235, 1, 0, 0} }, -- hunters_beret_+1
     [ 52] = {trade = {12648, 1950, 1951, 2005}, abc = 40, reward = {14483, 1, 0, 0} }, -- hunters_jerkin_+1
-    [ 53] = {trade = {13971, 1950, 1951,  506}, abc = 20, reward = {14900, 1, 0, 0} }, -- hunters_bracers_+1
+    [ 53] = {trade = {13971, 1950, 1951,  506}, abc = 20, reward = {14900, 1, 0, 0, tpz.augments.DARKRES, 14} }, -- hunters_bracers_+1
     [ 54] = {trade = {14224, 1950, 1951,  506}, abc = 25, reward = {15571, 1, 0, 0} }, -- hunters_braccae_+1
     [ 55] = {trade = {14099, 1950, 1951,  855}, abc = 25, reward = {15362, 1, tpz.augments.CRITHITDAMAGE, 2} }, -- hunters_socks_+1
     [ 56] = {trade = {13868, 1952, 1953,  752}, abc = 15, reward = {15236, 1, tpz.augments.RACC, 9} }, -- myochin_kabuto_+1
-    [ 57] = {trade = {13781, 1952, 1953, 2006}, abc = 25, reward = {14484, 1, tpz.augments.RACC, 11} }, -- myochin_domaru_+1
+    [ 57] = {trade = {13781, 1952, 1953, 2006}, abc = 25, reward = {14484, 1, tpz.augments.RACC, 11, tpz.augments.DARKRES, 19} }, -- myochin_domaru_+1
     [ 58] = {trade = {13972, 1952, 1953, 2007}, abc = 20, reward = {14901, 1, 0, 0} }, -- myochin_kote_+1
-    [ 59] = {trade = {14225, 1952, 1953, 2007}, abc = 30, reward = {15572, 1, tpz.augments.RACC, 6} }, -- myochin_haidate_+1
-    [ 60] = {trade = {14100, 1952, 1953, 2007}, abc = 20, reward = {15363, 1, tpz.augments.ZANSHIN, 9} }, -- myochin_sune-ate_+1
-    [ 61] = {trade = {13869, 1954, 1955, 2008}, abc = 20, reward = {15237, 1, tpz.augments.MACC, 3} }, -- ninja_hatsuburi_+1
+    [ 59] = {trade = {14225, 1952, 1953, 2007}, abc = 30, reward = {15572, 1, tpz.augments.RACC, 6, tpz.augments.EARTHRES, 14} }, -- myochin_haidate_+1
+    [ 60] = {trade = {14100, 1952, 1953, 2007}, abc = 20, reward = {15363, 1, tpz.augments.ZANSHIN, 9, tpz.augments.FIRERES, 14} }, -- myochin_sune-ate_+1
+    [ 61] = {trade = {13869, 1954, 1955, 2008}, abc = 20, reward = {15237, 1, tpz.augments.MACC, 3, tpz.augments.ICERES, 14} }, -- ninja_hatsuburi_+1
     [ 62] = {trade = {13782, 1954, 1955, 2008}, abc = 30, reward = {14485, 1, 0, 0} }, -- ninja_chainmail_+1
     [ 63] = {trade = {13973, 1954, 1955, 2008}, abc = 15, reward = {14902, 1, tpz.augments.HASTE, 3} }, -- ninja_tekko_+1
     [ 64] = {trade = {14226, 1954, 1955, 2007}, abc = 30, reward = {15573, 1, tpz.augments.PDT, 2} }, -- ninja_hakama_+1
     [ 65] = {trade = {14101, 1954, 1955, 2008}, abc = 15, reward = {15364, 1, tpz.augments.DARKRES, 49} }, -- ninja_kyahan_+1
-    [ 66] = {trade = {12519, 1956, 1957, 2012}, abc = 30, reward = {15238, 1, tpz.augments.HASTE, 4} }, -- drachen_armet_+1
-    [ 67] = {trade = {12649, 1956, 1957, 2012}, abc = 40, reward = {14486, 1, tpz.augments.POLEARM, 14} }, -- drachen_mail_+1
+    [ 66] = {trade = {12519, 1956, 1957, 2012}, abc = 30, reward = {15238, 1, tpz.augments.HASTE, 4, tpz.augments.THUNDERRES, 14} }, -- drachen_armet_+1
+    [ 67] = {trade = {12649, 1956, 1957, 2012}, abc = 40, reward = {14486, 1, tpz.augments.POLEARM, 14, tpz.augments.ICERES, 14} }, -- drachen_mail_+1
     [ 68] = {trade = {13974, 1956, 1957,  851}, abc = 20, reward = {14903, 1, tpz.augments.CRITHITRATE, 1} }, -- drachen_finger_gauntlets_+1
-    [ 69] = {trade = {14227, 1956, 1957,  851}, abc = 25, reward = {15574, 1, tpz.augments.PET_DT, 10} }, -- drachen_brais_+1
+    [ 69] = {trade = {14227, 1956, 1957,  851}, abc = 25, reward = {15574, 1, tpz.augments.PET_DT, 10, tpz.augments.EARTHRES, 14} }, -- drachen_brais_+1
     [ 70] = {trade = {14102, 1956, 1957,  851}, abc = 20, reward = {15365, 1, tpz.augments.VIT, 5} }, -- drachen_greaves_+1
     [ 71] = {trade = {12520, 1958, 1959, 2009}, abc = 25, reward = {15239, 1, tpz.augments.PET_MATT, 4} }, -- evokers_horn_+1
     [ 72] = {trade = {12650, 1958, 1959, 2010}, abc = 35, reward = {14487, 1, tpz.augments.PET_MATT, 6} }, -- evokers_doublet_+1
@@ -408,24 +408,24 @@ function onEventFinish(player, csid, option)
         if info == nil then
             info = relicArmorPlusOne[afUpgrade]
         end
-        local itemArg = info.reward
+        local arg = info.reward
 
         -- found a valid reward
-        if info and giveAFItem(player, itemArg[1], itemArg[2], itemArg[3], itemArg[4]) then
+        if info and giveAFItem(player, arg[1], arg[2], arg[3], arg[4], arg[5], arg[6], arg[7], arg[8], arg[9], arg[10], arg[11], arg[12]) then
             player:setCharVar("AFupgrade", 0)
             player:setCharVar("AFupgradeDay", 0)
         end
     end
 end
 
-function giveAFItem(player, arg1, arg2, arg3, arg4)
+function giveAFItem(player, itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, trialId, aug4val)
     -- Check if player has enough free space
     if player:getFreeSlotsCount() < 1 then
-        player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, arg1)
+        player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, itemId)
         return false
     end
 
-    player:addItem(arg1, arg2, arg3, arg4)
-    player:messageSpecial(ID.text.ITEM_OBTAINED, arg1)
+    player:addItem(itemId, quantity, aug0, aug0val, aug1, aug1val, aug2, aug2val, aug3, aug3val, trialId, aug4val)
+    player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
     return true
 end
