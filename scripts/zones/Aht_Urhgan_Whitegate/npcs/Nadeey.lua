@@ -38,8 +38,7 @@ local randomRareAugment =
 local randomPetAugment =
 {
     tpz.augments.PET_ACC_RACC, tpz.augments.PET_ATTK_RATTK, tpz.augments.PET_EVA, tpz.augments.PET_DEF, tpz.augments.PET_MACC,
-    tpz.augments.PET_MATT, tpz.augments.PET_STR, tpz.augments.PET_DEX, tpz.augments.PET_VIT, tpz.augments.PET_AGI,
-    tpz.augments.PET_INT, tpz.augments.PET_MND, tpz.augments.PET_CHR, tpz.augments.PET_STR_MINUS, tpz.augments.PET_DEX_MINUS,
+    tpz.augments.PET_MATT, tpz.augments.PET_STR_MINUS, tpz.augments.PET_DEX_MINUS,
     tpz.augments.PET_VIT_MINUS, tpz.augments.PET_AGI_MINUS, tpz.augments.PET_INT_MINUS, tpz.augments.PET_MND_MINUS,
     tpz.augments.PET_CHR_MINUS, tpz.augments.PET_ENMITY, tpz.augments.PET_ENMITY_MINUS, tpz.augments.PET_ENEMY_CRITHITRATE_MINUS,
     tpz.augments.BLOODPACT_ABILITY_DELAY_MINUS, tpz.augments.ENHANCES_ELEMENTAL_SIPHON, tpz.augments.BLOOD_BOON
@@ -103,6 +102,12 @@ function onTrigger(player, npc)
     --player:startEvent(251)
     player:PrintToPlayer("Greetings, " .. player:getName() .. ". With the power of the Astral Cadence I can add power magical properties to your weapons and armor.",0,"Nadeey")
     player:PrintToPlayer("Please consult my associates for what items I can imbue and what else is required for this task.",0,"Nadeey")
+    player:PrintToPlayer("Additionally, the item may be imbued with one of these rare properties at random.",0,"Nadeey")
+    player:PrintToPlayer("Regen, Magic Burst Damage, Breath Damage Taken, Damage Taken, Resist Charm, Fast Cast, Critical Hit Rate, Critical Hit Damage, Conserve MP...",0x1F,"Nadeey")
+    player:PrintToPlayer("Weapon Skill Damage, Song Casting Time, Cure Casting Time, Dual Wield, Counter, HP, MP, HMP, HHP.",0x1F,"Nadeey")
+    player:PrintToPlayer("Pet rare properties include...",0,"Nadeey")
+    player:PrintToPlayer("Crit Hit Rate, Regen, Haste, Damage Taken, Store TP, Double Attack, Avatar Perpetuation Cost",0x1C,"Nadeey")
+    player:PrintToPlayer("The process is unstable, and there may be unknown negative properties imbued as well.",0,"Nadeey")
 end
 
 function onEventUpdate(player, csid, option)

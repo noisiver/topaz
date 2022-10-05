@@ -3,6 +3,7 @@
 --  NPC: Kuhmden
 -- Standard Info NPC
 -- ToAU Augmenting NPC
+-- !pos 79 -0 54 50
 -----------------------------------
 
 function onTrade(player, npc, trade)
