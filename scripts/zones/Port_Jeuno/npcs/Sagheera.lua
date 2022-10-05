@@ -64,21 +64,21 @@ local afArmorPlusOne =
     [ 43] = {trade = {13969, 1946, 1947, 2003}, abc = 20, reward = {14898, 1, 0, 0} }, -- beast_gloves_+1
     [ 44] = {trade = {14222, 1946, 1947,  848}, abc = 30, reward = {15569, 1, 0, 0} }, -- beast_trousers_+1
     [ 45] = {trade = {14097, 1946, 1947,  848}, abc = 20, reward = {15360, 1, 0, 0} }, -- beast_gaiters_+1
-    [ 46] = {trade = {13857, 1948, 1949,  823}, abc = 15, reward = {15234, 1, tpz.augments.CURE_POTENCY, 4} }, -- choral_roundlet_+1
+    [ 46] = {trade = {13857, 1948, 1949,  823}, abc = 15, reward = {15234, 1, tpz.augments.SONG_SPELLCASTING_TIME_MINUS, 4} }, -- choral_roundlet_+1
     [ 47] = {trade = {12647, 1948, 1949, 1117}, abc = 40, reward = {14482, 1, tpz.augments.CURE_POTENCY, 9} }, -- choral_justaucorps_+1
-    [ 48] = {trade = {13970, 1948, 1949, 1117}, abc = 25, reward = {14899, 1, 0, 0} }, -- choral_cuffs_+1
-    [ 49] = {trade = {14223, 1948, 1949, 1117}, abc = 25, reward = {15570, 1, tpz.augments.CURE_POTENCY, 4} }, -- choral_cannions_+1
-    [ 50] = {trade = {14098, 1948, 1949, 1117}, abc = 25, reward = {15361, 1, tpz.augments.CURE_POTENCY, 4, tpz.augments.WINDRES, 14} }, -- choral_slippers_+1
+    [ 48] = {trade = {13970, 1948, 1949, 1117}, abc = 25, reward = {14899, 1, tpz.augments.SONG_SPELLCASTING_TIME_MINUS, 4} }, -- choral_cuffs_+1
+    [ 49] = {trade = {14223, 1948, 1949, 1117}, abc = 25, reward = {15570, 1, tpz.augments.SONG_SPELLCASTING_TIME_MINUS, 4} }, -- choral_cannions_+1
+    [ 50] = {trade = {14098, 1948, 1949, 1117}, abc = 25, reward = {15361, 1, tpz.augments.SONG_SPELLCASTING_TIME_MINUS, 4, tpz.augments.WINDRES, 14} }, -- choral_slippers_+1
     [ 51] = {trade = {12518, 1950, 1951, 2005}, abc = 25, reward = {15235, 1, 0, 0} }, -- hunters_beret_+1
     [ 52] = {trade = {12648, 1950, 1951, 2005}, abc = 40, reward = {14483, 1, 0, 0} }, -- hunters_jerkin_+1
     [ 53] = {trade = {13971, 1950, 1951,  506}, abc = 20, reward = {14900, 1, 0, 0, tpz.augments.DARKRES, 14} }, -- hunters_bracers_+1
     [ 54] = {trade = {14224, 1950, 1951,  506}, abc = 25, reward = {15571, 1, 0, 0} }, -- hunters_braccae_+1
     [ 55] = {trade = {14099, 1950, 1951,  855}, abc = 25, reward = {15362, 1, tpz.augments.CRITHITDAMAGE, 2} }, -- hunters_socks_+1
     [ 56] = {trade = {13868, 1952, 1953,  752}, abc = 15, reward = {15236, 1, tpz.augments.RACC, 9} }, -- myochin_kabuto_+1
-    [ 57] = {trade = {13781, 1952, 1953, 2006}, abc = 25, reward = {14484, 1, tpz.augments.RACC, 11, tpz.augments.DARKRES, 19} }, -- myochin_domaru_+1
-    [ 58] = {trade = {13972, 1952, 1953, 2007}, abc = 20, reward = {14901, 1, 0, 0} }, -- myochin_kote_+1
+    [ 57] = {trade = {13781, 1952, 1953, 2006}, abc = 25, reward = {14484, 1, tpz.augments.PDT, 8, tpz.augments.DARKRES, 19} }, -- myochin_domaru_+1
+    [ 58] = {trade = {13972, 1952, 1953, 2007}, abc = 20, reward = {14901, 1, tpz.augments.PDT, 1} }, -- myochin_kote_+1
     [ 59] = {trade = {14225, 1952, 1953, 2007}, abc = 30, reward = {15572, 1, tpz.augments.RACC, 6, tpz.augments.EARTHRES, 14} }, -- myochin_haidate_+1
-    [ 60] = {trade = {14100, 1952, 1953, 2007}, abc = 20, reward = {15363, 1, tpz.augments.ZANSHIN, 9, tpz.augments.FIRERES, 14} }, -- myochin_sune-ate_+1
+    [ 60] = {trade = {14100, 1952, 1953, 2007}, abc = 20, reward = {15363, 1, tpz.augments.PDT, 1, tpz.augments.FIRERES, 14} }, -- myochin_sune-ate_+1
     [ 61] = {trade = {13869, 1954, 1955, 2008}, abc = 20, reward = {15237, 1, tpz.augments.MACC, 3, tpz.augments.ICERES, 14} }, -- ninja_hatsuburi_+1
     [ 62] = {trade = {13782, 1954, 1955, 2008}, abc = 30, reward = {14485, 1, 0, 0} }, -- ninja_chainmail_+1
     [ 63] = {trade = {13973, 1954, 1955, 2008}, abc = 15, reward = {14902, 1, tpz.augments.HASTE, 3} }, -- ninja_tekko_+1
