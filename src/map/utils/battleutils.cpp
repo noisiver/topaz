@@ -4010,11 +4010,11 @@ namespace battleutils
             damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));
         }
         // Add SKillchain Damage Taken mod
-        uint32 DMGSC = PDefender->getMod(Mod::DMGSC);
+        int32 DMGSC = PDefender->getMod(Mod::DMGSC);
 
-        DMGSC = std::clamp((int32)DMGSC, 0, 100);
-
+        DMGSC = std::clamp((int32)DMGSC, -100, 100);
         damage = (int32)(damage * (1.f + (DMGSC / 100.f)));
+        //ShowDebug("DMGSC mod damage: %i\n,", damage);
         // Add weather day bonus
         damage = (int32)(damage * dBonus);
         //ShowDebug("WeatherDayDamage: %u\n,", damage);

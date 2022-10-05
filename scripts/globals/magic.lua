@@ -1189,7 +1189,7 @@ function calculateMagicBurst(caster, spell, target, params)
 
     -- Apply DMGMB Mod
     local burstdmgtaken = 1
-    local dmgmb = 1 + (utils.clamp(target:getMod(tpz.mod.DMGMB), 0, 100) / 100)
+    local dmgmb = 1 + (utils.clamp(target:getMod(tpz.mod.DMGMB), -100, 100) / 100)
 
     burstdmgtaken = burstdmgtaken * dmgmb
 
