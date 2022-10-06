@@ -4015,12 +4015,12 @@ namespace battleutils
         DMGSC = std::clamp((int32)DMGSC, -100, 100);
         damage = (int32)(damage * (1.f + (DMGSC / 100.f)));
         //ShowDebug("DMGSC mod damage: %i\n,", damage);
-        // Add weather day bonus
-        damage = (int32)(damage * dBonus);
-        //ShowDebug("WeatherDayDamage: %u\n,", damage);
         // Apply SDT
         damage = damage * std::clamp((int32)resistance, 10, 100) / 100;
         // ShowDebug("DamageAfterResist: %u\n,SDT:%u\n,", damage, resistance);
+        // Add weather day bonus
+        damage = (int32)(damage * dBonus);
+        // ShowDebug("WeatherDayDamage: %u\n,", damage);
         damage = MagicDmgTaken(PDefender, damage, appliedEle);  
         if (damage > 0)
         {
