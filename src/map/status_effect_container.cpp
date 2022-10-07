@@ -1589,9 +1589,8 @@ void CStatusEffectContainer::CheckEffectsExpiry(time_point tick)
             {
                 RemoveStatusEffect(PStatusEffect, true);
             }
-            // Status effects that shouldn't display in log(two hours, SA/TA etc)
-            else if (PStatusEffect->GetStatusID() > 43 && PStatusEffect->GetStatusID() < 56 && PStatusEffect->GetStatusID() != 87 &&
-                     PStatusEffect->GetStatusID() != 67 && PStatusEffect->GetStatusID() != 353 && PStatusEffect->GetStatusID() != 354)
+            // Status effects that have no loss flag
+            else if (PStatusEffect->GetIcon() != 0 && ((PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0))
             {
                 RemoveStatusEffect(PStatusEffect, true);
             }
