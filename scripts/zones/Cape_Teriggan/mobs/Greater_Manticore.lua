@@ -7,6 +7,9 @@ local ID = require("scripts/zones/Cape_Teriggan/IDs")
 require("scripts/globals/regimes")
 require("scripts/globals/mobs")
 
+function onMobSpawn(mob)
+end
+
 function onMobDeath(mob, player, isKiller)
     tpz.regime.checkRegime(player, mob, 108, 2, tpz.regime.type.FIELDS)
 end
