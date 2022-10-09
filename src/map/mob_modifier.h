@@ -101,10 +101,19 @@ enum MOBMODIFIER : int
     MOBMOD_NO_REST             = 70, // Mob cannot regain hp (e.g. re-burrowing antlions during ENM).
     MOBMOD_FAMILYLINK          = 74, // Mob will link with mobs of the same familly in the zone. Usefull to make a NM link if the family doesn't, like Cactrot Rapido.
     MOBMOD_FOMOR_HATE          = 85, // Mob aggros according to fomor hate
-    MOBMOD_MAGIC_RANGE         = 86, // magic aggro range
-    MOBMOD_WS_RANGE            = 87, // weapon skill aggro range
-    MOBMOD_JA_RANGE            = 88, // job ability aggro range
-    MOBMOD_HP_RANGE            = 89, // low hp aggro range
+    MOBMOD_AGGRO_SIGHT         = 86, // aggros sight 0 = false 1 = true
+    MOBMOD_AGGRO_SOUND         = 87, // aggros sound 0 = false 1 = true
+    MOBMOD_AGGRO_MAGIC         = 88, // aggros magic 0 = false 1 = true
+    MOBMOD_AGGRO_WS            = 90, // aggros WS 0 = false 1 = true
+    MOBMOD_AGGRO_JA            = 91, // aggros JA 0 = false 1 = true
+    MOBMOD_AGGRO_HP            = 92, // aggros HP 0 = false 1 = true
+    MOBMOD_TRUE_SIGHT          = 93, // true sight 0 = false 1 = true
+    MOBMOD_TRUE_SOUND          = 94, // true sound 0 = false 1 = true
+    MOBMOD_MAGIC_RANGE         = 95, // magic aggro range
+    MOBMOD_WS_RANGE            = 96, // weapon skill aggro range
+    MOBMOD_JA_RANGE            = 97, // job ability aggro range
+    MOBMOD_HP_RANGE            = 98, // low hp aggro range
+    MOBMOD_TRUE_SIGHT_SOUND    = 99, // true sight + sound aggro
 };
 
 #endif
