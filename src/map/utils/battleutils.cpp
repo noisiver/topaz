@@ -2231,7 +2231,7 @@ namespace battleutils
             damage = (int32)(damage * (1.f + (DMGSPIRITS / 100.f)));
             // TODO: chance to 'resist'
 
-            damage = MagicDmgTaken(PDefender, damage, ELEMENT_NONE);
+            damage = BreathDmgTaken(PDefender, damage);
         }
         else
         {
