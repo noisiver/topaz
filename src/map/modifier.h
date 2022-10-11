@@ -204,6 +204,7 @@ enum class Mod
 
     DMGSC                     = 1276, // Skillchan Damage Taken %
     DMGMB                     = 1277, // Magic Burst Damage Taken %
+    DMGSPIRITS                = 1278, // Spirits Damage Taken % (Spirits Within / Atonement / Formless Strikes
 
     CRITHITRATE               = 165, // Raises chance to crit
     CRIT_DMG_INCREASE         = 421, // Raises the damage of critical hit by percent %
@@ -932,7 +933,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1278 NEXT
+    // 1279 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

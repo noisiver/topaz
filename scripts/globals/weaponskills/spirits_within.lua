@@ -93,11 +93,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     WSC = math.floor(WSC * circlemult / 100) -- Apply circle effect mod
+    printf("dmg before mod %i", WSC)
+    --spirits DT mod
+    WSC = math.floor(WSC * (1 + utils.clamp(target:getMod(tpz.mod.DMGSPIRITS), -100, 100) / 100))
+    printf("dmg after mod %i", WSC)
+    local damage = target:breathDmgTaken(WSC)
 
     --handling phalanx
     WSC = WSC - target:getMod(tpz.mod.PHALANX)
-
-    local damage = target:breathDmgTaken(WSC)
 
     if (damage > 0) then
         if (player:getOffhandDmg() > 0) then

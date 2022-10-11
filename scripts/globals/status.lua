@@ -1087,6 +1087,7 @@ tpz.mod =
     UDMGRANGE                       = 390,
     DMGSC                           = 1276, -- Skillchan Damage Taken %
     DMGMB                           = 1277, -- Magic Burst Damage Taken %
+    DMGSPIRITS                      = 1278, -- Spirits Damage Taken % (Spirits Within / Atonement / Requiescat
     CRITHITRATE                     = 165,
     CRIT_DMG_INCREASE               = 421,
     RANGED_CRIT_DMG_INCREASE        = 964, -- Increases ranged critical damage by a percent

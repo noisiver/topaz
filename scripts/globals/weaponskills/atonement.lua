@@ -123,10 +123,13 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             circlemult = 100 + player:getMod(mod)
         end
 
+        dmg = math.floor(dmg * circlemult / 100) -- Apply circle effect mod
+        printf("dmg before mod %i", dmg)
+        --spirits DT mod
+        dmg = math.floor(dmg * (1 + utils.clamp(target:getMod(tpz.mod.DMGSPIRITS), -100, 100) / 100))
+        printf("dmg after mod %i", dmg)
         --handling phalanx
         dmg = dmg - target:getMod(tpz.mod.PHALANX)
-
-        dmg = math.floor(dmg * circlemult / 100) -- Apply circle effect mod
 
         damage = target:breathDmgTaken(dmg)
         damage = damage * WEAPON_SKILL_POWER

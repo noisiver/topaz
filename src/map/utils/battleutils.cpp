@@ -2224,7 +2224,11 @@ namespace battleutils
                 formlessMod += ((CCharEntity*)PAttacker)->PMeritPoints->GetMeritValue(MERIT_FORMLESS_STRIKES, (CCharEntity*)PAttacker);
 
             damage = damage * formlessMod / 100;
+            // Add Spirits Damage Taken mod
+            int32 DMGSPIRITS = PDefender->getMod(Mod::DMGSPIRITS);
 
+            DMGSPIRITS = std::clamp((int32)DMGSPIRITS, -100, 100);
+            damage = (int32)(damage * (1.f + (DMGSPIRITS / 100.f)));
             // TODO: chance to 'resist'
 
             damage = MagicDmgTaken(PDefender, damage, ELEMENT_NONE);
