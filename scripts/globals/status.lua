@@ -823,8 +823,9 @@ tpz.effect =
     MEDITATE                 = 801, -- Dummy effect for SAM Meditate JA
     ELEMENTALRES_DOWN        = 802, -- Elemental resistance down
     FULL_SPEED_AHEAD         = 803, -- Helper for quest: Full Speed Ahead!
-    -- PLACEHOLDER           = 804, -- Description
-    -- 804-1022
+    INCREASED_DAMAGE_TAKEN   = 804, -- Increased damage taken, in percents
+    -- PLACEHOLDER           = 805, -- Description
+    -- 805-1022
     DEEPSLEEP                = 901, -- For abilities like Nightmare
     -- PLACEHOLDER             = 1023 -- The client dat file seems to have only this many "slots", results of exceeding that are untested.
 }
