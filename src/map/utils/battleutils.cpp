@@ -3946,6 +3946,7 @@ namespace battleutils
 
         // Determine the skill chain level and elemental resistance.
         SKILLCHAIN_ELEMENT skillchain = (SKILLCHAIN_ELEMENT)PEffect->GetPower();
+        uint8 currentElement = skillchain;
         uint16 chainLevel = PEffect->GetTier();
         uint16 chainCount = PEffect->GetSubPower();
         ELEMENT appliedEle = ELEMENT_NONE;
@@ -4007,7 +4008,7 @@ namespace battleutils
 
         auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000 *
                                    (100 + PAttacker->getMod(Mod::SKILLCHAINBONUS)) / 100 * (100 + PAttacker->getMod(Mod::SKILLCHAINDMG)) / 100);
-        ShowDebug("RawDamage: %u\n,", damage);
+        // ShowDebug("RawDamage: %u\n,", damage);
         auto PChar = dynamic_cast<CCharEntity*>(PAttacker);
         if (PChar && PChar->StatusEffectContainer->HasStatusEffect(EFFECT_INNIN) && behind(PChar->loc.p, PDefender->loc.p, 64))
         {
@@ -4053,7 +4054,7 @@ namespace battleutils
         if (PDefender->objtype == TYPE_MOB)
         {
             // Listener (hook)
-            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker);
+            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker, currentElement);
 
             // Binding
             luautils::OnSkillchain(PDefender, PAttacker);
