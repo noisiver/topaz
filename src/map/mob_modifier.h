@@ -114,6 +114,7 @@ enum MOBMODIFIER : int
     MOBMOD_JA_RANGE            = 97, // job ability aggro range
     MOBMOD_HP_RANGE            = 98, // low hp aggro range
     MOBMOD_TRUE_SIGHT_SOUND    = 99, // true sight + sound aggro
+    MOBMOD_NO_ROAM             = 100, // disable roaming out of combat
 };
 
 #endif
