@@ -523,7 +523,7 @@ end
 
 -- Sets up the necessary calcParams for a ranged WS before passing it to calculateRawWSDmg. When the raw
 -- damage is returned, handles reductions based on target resistances and passes off to takeWeaponskillDamage.
- function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, primaryMsg)
+function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, primaryMsg)
 
     -- Determine cratio and ccritratio
     local ignoredDef = 0
@@ -560,26 +560,26 @@ end
         fencerBonus = fencerBonus(attacker),
         bonusTP = wsParams.bonusTP or 0,
         bonusfTP = gorgetBeltFTP or 0,
-		bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
+	    bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
         bonusWSmods = wsParams.bonusWSmods or 0
     }
     if (wsID == 196) or (wsID == 212) then -- Slugwinder
         calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
-   else
+    else
         calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
-   end
+    end
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
     calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, true)
     local finaldmg = calcParams.finalDmg
 
     -- Calculate reductions
     finaldmg = target:rangedDmgTaken(finaldmg)
-    local pierceres = target:getMod(tpz.mod.PIERCERES)
+    local rangedres = target:getMod(tpz.mod.RANGEDRES)
     local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
-    if pierceres < 1000 then
-        finaldmg = finaldmg * (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
+    if rangedres < 1000 then
+        finaldmg = finaldmg * (1 - ((1 - rangedres / 1000) * (1 - spdefdown/100)))
     else
-        finaldmg = finaldmg * pierceres / 1000
+        finaldmg = finaldmg * rangedres / 1000
     end
 
     -- Handle Positional PDT

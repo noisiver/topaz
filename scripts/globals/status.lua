@@ -141,12 +141,12 @@ tpz.subEffect =
     CURSE_SPIKES        = 4,   -- 01-0010      18
     SHOCK_SPIKES        = 5,   -- 01-1010      22
     REPRISAL            = 6,   -- 01-0110      26
-    GLINT_SPIKES        = 6,   --
-    GALE_SPIKES         = 7,   -- Used by enchantment "Cool Breeze" http://www.ffxiah.com/item/22018/
-    CLOD_SPIKES         = 8,   --
-    DELUGE_SPIKES       = 9,   --
+    GLINT_SPIKES        = 6,   -- 
+    GALE_SPIKES         = 7,   -- Wind damage + Silence.Used by enchantment "Cool Breeze" http://www.ffxiah.com/item/22018/
+    CLOD_SPIKES         = 8,   -- Earth damage + Slow.
+    DELUGE_SPIKES       = 9,   -- Water damage + Poison https://ffxiclopedia.fandom.com/wiki/Aqua_Spikes
     DEATH_SPIKES        = 10,  -- yes really: http://www.ffxiah.com/item/26944/
-    COUNTER             = 63,
+    COUNTER             = 63, -- Also used by Retaliation
     -- There are no spikes effect animations beyond 63. Some effects share subeffect/animations.
     -- "Damage Spikes" use the Blaze Spikes animation even though they are different status.
 
@@ -966,6 +966,7 @@ tpz.mod =
     PIERCERES                       = 50,
     IMPACTRES                       = 51,
     HTHRES                          = 52,
+    RANGEDRES                       = 1279, -- Ranged Resistance
     FIRERES                         = 54,
     ICERES                          = 55,
     WINDRES                         = 56,
@@ -2332,6 +2333,7 @@ tpz.damageType =
     WATER     = 11,
     LIGHT     = 12,
     DARK      = 13,
+    RANGED    = 14,
 }
 
 ----------------------------------

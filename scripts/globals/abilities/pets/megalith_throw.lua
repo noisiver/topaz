@@ -1,5 +1,6 @@
 ---------------------------------------------------
 -- Megalith Throw M=5.5 (guesstimated)
+-- Deals ranged damage to the target.
 ---------------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -29,7 +30,7 @@ function onPetAbility(target, pet, skill)
     local bonus = 0
 
     local damage = AvatarPhysicalBP(pet, target, skill, tpz.attackType.RANGED, numhits, ftp, TP_DMG_BONUS, params)
-    dmg = AvatarPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, damage.hitslanded, params)
+    dmg = AvatarPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, damage.hitslanded, params)
     AvatarPhysicalStatusEffectBP(pet, target, skill, effect, power, duration, params, bonus)
 
     return dmg

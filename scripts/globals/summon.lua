@@ -479,7 +479,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     end
 
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
-        dmg = dmg * HandleWeaponResist(target, damageType)
+        dmg = dmg * utils.HandleWeaponResist(target, damageType)
     end
     --printf("dmg before circle %u", dmg)
     dmg = dmg * HandleCircleEffects(avatar, target)
@@ -965,44 +965,6 @@ function getAvatarAlpha(level)
         alpha = 0.85
     end
     return alpha
-end
-
-function HandleWeaponResist(target, damageType)
-    local hthres = target:getMod(tpz.mod.HTHRES)
-    local pierceres = target:getMod(tpz.mod.PIERCERES)
-    local impactres = target:getMod(tpz.mod.IMPACTRES)
-    local slashres = target:getMod(tpz.mod.SLASHRES)
-    local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
-
-    local weaponResist = 1
-    
-    if damageType == tpz.damageType.HTH then
-        if hthres < 1000 then
-            weaponResist = (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
-        else
-            weaponResist = hthres / 1000
-        end
-    elseif damageType == tpz.damageType.PIERCING then
-        if pierceres < 1000 then
-            weaponResist = (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
-        else
-            weaponResist = pierceres / 1000
-        end
-    elseif damageType == tpz.damageType.BLUNT then
-        if impactres < 1000 then
-            weaponResist = (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
-        else
-            weaponResist = impactres / 1000
-        end
-    elseif damageType == tpz.damageType.SLASHING then
-        if slashres < 1000 then
-            weaponResist = (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
-        else
-            weaponResist = slashres / 1000
-        end
-    end
-
-    return weaponResist
 end
 
 function HandleCircleEffects(avatar, target)

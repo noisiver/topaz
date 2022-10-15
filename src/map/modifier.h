@@ -96,6 +96,7 @@ enum class Mod
     PIERCERES                 = 50, // Piercing Resistance
     IMPACTRES                 = 51, // Impact Resistance
     HTHRES                    = 52, // Hand-To-Hand Resistance
+    RANGEDRES                 = 1279, // Ranged Resistance
 
     // Damage Reduction to Elements
     // Value is stored as a percentage of damage reduction (to within 1000)
@@ -933,7 +934,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1279 NEXT
+    // 1280 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

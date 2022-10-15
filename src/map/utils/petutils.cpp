@@ -926,6 +926,7 @@ namespace petutils
             // assuming elemental spawn
             PPet->setModifier(Mod::SLASHRES, 500);
             PPet->setModifier(Mod::PIERCERES, 500);
+            PPet->setModifier(Mod::RANGEDRES, 500);
             PPet->setModifier(Mod::IMPACTRES, 500);
             PPet->setModifier(Mod::HTHRES, 500);
         }

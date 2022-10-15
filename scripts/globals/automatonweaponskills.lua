@@ -68,16 +68,7 @@ function doAutoPhysicalWeaponskill(attacker, target, wsID, tp, primaryMsg, actio
 
     -- Calculate reductions
     if not wsParams.formless then
-        --finaldmg = target:physicalDmgTaken(finaldmg, attack.damageType)
-        if (attack.weaponType == tpz.skill.HAND_TO_HAND) then
-            finaldmg = finaldmg * target:getMod(tpz.mod.HTHRES) / 1000
-        elseif (attack.weaponType == tpz.skill.DAGGER or attack.weaponType == tpz.skill.POLEARM) then
-            finaldmg = finaldmg * target:getMod(tpz.mod.PIERCERES) / 1000
-        elseif (attack.weaponType == tpz.skill.CLUB or attack.weaponType == tpz.skill.STAFF) then
-            finaldmg = finaldmg * target:getMod(tpz.mod.IMPACTRES) / 1000
-        else
-            finaldmg = finaldmg * target:getMod(tpz.mod.SLASHRES) / 1000
-        end
+        finaldmg = finaldmg * utils.HandleWeaponResist(target, attack.weaponType)
     end
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus

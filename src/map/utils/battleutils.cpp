@@ -2240,6 +2240,7 @@ namespace battleutils
             if (isRanged)
             {
                 attackType = ATTACK_RANGED;
+                damageType = DAMAGE_RANGED;
                 damage = RangedDmgTaken(PDefender, damage, damageType, isCovered);
             }
             else
@@ -2275,6 +2276,9 @@ namespace battleutils
                 {
                     case DAMAGE_PIERCING:
                         resmult = (float)(PDefender->getMod(Mod::PIERCERES)) / 1000.0f;
+                        break;
+                    case DAMAGE_RANGED:
+                        resmult = (float)(PDefender->getMod(Mod::RANGEDRES)) / 1000.0f;
                         break;
                     case DAMAGE_SLASHING:
                         resmult = (float)(PDefender->getMod(Mod::SLASHRES)) / 1000.0f;
