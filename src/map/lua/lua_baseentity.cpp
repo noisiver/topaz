@@ -285,7 +285,7 @@ inline int32 CLuaBaseEntity::messageText(lua_State* L)
 *  Purpose : Displays either standad messages to a PC or custom text
 *  Example : player:PrintToPlayer("Hello!", 0x1F)
 *          : p:P2P(string.format("Hello, %s!", player:getName()), 0x1F)
-*          : Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white - 0xD
+*          : Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
 *  Notes   : Available hex codes: 0x1C, 0xD, 0xF, 0x1F, ___, ___
 *          : Can modify the name shown through explicit declaration
 ************************************************************************/
