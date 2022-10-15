@@ -606,7 +606,7 @@ function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, prima
         end
     end
 	
-    finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.05 -- Add server bonus
+    finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.00 -- Add server bonus
     calcParams.finalDmg = finaldmg
     --handling stoneskin
     finaldmg = utils.stoneskin(target, finaldmg)
