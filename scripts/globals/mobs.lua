@@ -715,3 +715,76 @@ function AddMobAura(mob, target, radius, effect, power, tick)
         end
     end
 end
+
+function AddDamageAura(mob, target, radius, dmg, attackType, damageType, tick)
+    local DmgAuraTick = mob:getLocalVar("DmgAuraTick")
+    if os.time() >= DmgAuraTick then
+        mob:setLocalVar("DmgAuraTick", os.time() + tick)
+        local nearbyPlayers = mob:getPlayersInRange(radius)
+        if nearbyPlayers ~= nil then 
+            for _,v in ipairs(nearbyPlayers) do
+            if (attackType == tpz.attackType.MAGICAL) or (attackType == tpz.attackType.SPECIAL) then
+                dmg = v:magicDmgTaken(dmg)
+            elseif (attackType == tpz.attackType.BREATH) then
+                dmg = v:breathDmgTaken(dmg)
+            elseif (attackType == tpz.attackType.RANGED) then
+                dmg = v:rangedDmgTaken(dmg)
+            elseif (attackType == tpz.attackType.PHYSICAL) then
+                dmg = v:physicalDmgTaken(dmg, damageType)
+            end
+            v:takeDamage(dmg, mob, attackType, damageType)
+            end
+        end
+    end
+end
+
+function BreakMob(mob, target, power, duration, proc)
+    -- proc: 0 = blue 1 = yellow 2 = red 3 = white
+    -- power (used for increased damage taken mod)
+    -- 1 = All normal damage(not sc/mb/spirits)
+    -- 2 = Phys
+    -- 3 = Breath
+    -- 4 = Magic
+    -- 5 = Ranged
+    -- 6 = Skillchain
+    -- 7 = Magic Burst
+    -- 8 = Spirits
+
+    local BreakDuration = mob:getLocalVar("BreakDuration")
+    if os.time() >= BreakDuration then
+        mob:setLocalVar("BreakDuration", os.time() + duration)
+        if proc ~= nil then
+            mob:weaknessTrigger(proc)
+        end
+        mob:addStatusEffect(tpz.effect.TERROR, 0, 0, duration)
+        mob:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, power, 0, duration)
+    end
+end
+
+function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
+    local instance = target:getInstance()
+    local party = target:getParty()
+    local msgTimer = mob:getLocalVar("msgTimer")
+
+    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    if os.time() >= msgTimer then
+        mob:setLocalVar("msgTimer", os.time() + timer)
+        for _, players in pairs(party) do
+            players:PrintToPlayer(msg, textcolor, sender)
+        end
+    end
+end
+
+function PeriodicInstanceMessage(mob, target, msg, textcolor, sender, timer)
+    local instance = target:getInstance()
+    local chars = instance:getChars()
+    local msgTimer = mob:getLocalVar("msgTimer")
+
+    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    if os.time() >= msgTimer then
+        mob:setLocalVar("msgTimer", os.time() + timer)
+        for _, players in pairs(chars) do
+            players:PrintToPlayer(msg, textcolor, sender)
+        end
+    end
+end
