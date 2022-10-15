@@ -12,17 +12,19 @@
 -- 5 = Ranged
 -- 6 = Skillchain
 -- 7 = Magic Burst
+-- 8 = Spirits
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
 local power = {
-    { 1, tpz.mod.DMG, 50}, -- Impetuous Vision
-    { 2, tpz.mod.UDMGPHYS, 50}, -- Tenuous Vision
-    { 3, tpz.mod.UDMGBREATH, 50}, -- Snide Vision
-    { 4,  tpz.mod.UDMGMAGIC, 50}, -- Grave Image
-    { 5,  tpz.mod.UDMGRANGE, 50}, -- Beatific Image
-    { 6,  tpz.mod.DMGSC, 50}, -- Valorous Image
-    { 7,  tpz.mod.DMGMB, 50}, -- Ancient Image
+    { 1, tpz.mod.DMG, 50}, 
+    { 2, tpz.mod.UDMGPHYS, 50}, 
+    { 3, tpz.mod.UDMGBREATH, 50}, 
+    { 4,  tpz.mod.UDMGMAGIC, 50}, 
+    { 5,  tpz.mod.UDMGRANGE, 50}, 
+    { 6,  tpz.mod.DMGSC, 50}, 
+    { 7,  tpz.mod.DMGMB, 50}, 
+    { 8,  tpz.mod.DMGSPIRITS, 50}, 
 }
 
 
