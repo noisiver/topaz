@@ -65,6 +65,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.HTHRES, 1500)
     mob:setMod(tpz.mod.IMPACTRES, 1500)
     mob:setMod(tpz.mod.PIERCERES, 0)
+    mob:setMod(tpz.mod.RANGEDRES, 0)
+    mob:setMod(tpz.mod.RANGEDRES, 0)
 end
 
 function onMobEngaged(mob, target)

@@ -32,18 +32,21 @@ function onMobWeaponSkill(target, mob, skill)
         mob:setMod(tpz.mod.HTHRES, 0)
         mob:setMod(tpz.mod.SLASHRES, 1000)
         mob:setMod(tpz.mod.PIERCERES, 0)
+        mob:setMod(tpz.mod.RANGEDRES, 0)
         mob:setMod(tpz.mod.IMPACTRES, 0)
 	elseif ChangeResistance == 2 then
 		mob:AnimationSub(2) -- Piercing
         mob:setMod(tpz.mod.HTHRES, 0)
         mob:setMod(tpz.mod.SLASHRES, 0)
         mob:setMod(tpz.mod.PIERCERES, 1000)
+        mob:setMod(tpz.mod.RANGEDRES, 1000)
         mob:setMod(tpz.mod.IMPACTRES, 0)
 	elseif ChangeResistance == 2 then
 		mob:AnimationSub(3) -- Blunt+Impact
         mob:setMod(tpz.mod.HTHRES, 1000)
         mob:setMod(tpz.mod.SLASHRES, 0)
         mob:setMod(tpz.mod.PIERCERES, 0)
+        mob:setMod(tpz.mod.RANGEDRES, 0)
         mob:setMod(tpz.mod.IMPACTRES, 1000)
 	end
 end
