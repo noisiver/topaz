@@ -8,7 +8,7 @@ require("scripts/globals/status")
 cmdprops =
 {
     permission = 1,
-    parameters = "si"
+    parameters = "sis"
 }
 
 function error(player, msg)
@@ -16,20 +16,40 @@ function error(player, msg)
     player:PrintToPlayer("!deleffect {player} <effect>")
 end
 
-function onTrigger(player, arg1)
-    local targ
+function onTrigger(player, arg1, arg2)
+    local targ = player:getCursorTarget()
+    local id
 
     if (arg1 == nil) then
-        error(player, "You must provide an effect ID.")
+        error(player, "Invalid effect.")
         return
     else
-        targ = GetPlayerByName(arg1)
+        if (targ:isMob() == false) and (targ:isPet() == false) and (targ ~= arg1) then
+            targ = player
+            -- Target player
+            id = arg1
+        else
+            -- Target is cursor target
+            id = arg1
+        end
     end
 
     -- validate target
     if (targ == nil) then
         error(player, string.format("Player named '%s' not found!", arg1))
         return
+    end
+
+    -- validate effect
+    if (id == nil) then
+        error(player, "Invalid effect.")
+        return
+    else
+        id = tonumber(id) or tpz.effect[string.upper(id)]
+        if (id == nil) then
+            error(player, "Invalid player or effect.")
+            return
+        end
     end
 
     -- delete status effect
