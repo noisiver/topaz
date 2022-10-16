@@ -20,7 +20,11 @@ function onItemUse(target)
         target:delStatusEffectSilent(tpz.effect.BLINDNESS)
     end
     if (target:hasStatusEffect(tpz.effect.POISON) == true) then
-        target:delStatusEffectSilent(tpz.effect.POISON)
+        local effect = target:getStatusEffect(tpz.effect.POISON)
+        local effectFlags = effect:getFlag()
+        if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+            target:delStatusEffectSilent(tpz.effect.POISON)
+        end
     end
     if (target:hasStatusEffect(tpz.effect.PARALYSIS) == true) then
         target:delStatusEffectSilent(tpz.effect.PARALYSIS)

@@ -13,7 +13,13 @@ end
 function onItemUse(target)
 
     if (target:hasStatusEffect(tpz.effect.POISON) == true) then
-        target:delStatusEffectSilent(tpz.effect.POISON)
+        local effect = target:getStatusEffect(tpz.effect.POISON)
+        local effectFlags = effect:getFlag()
+        if (bit.band(effectFlags, tpz.effectFlag.WALTZABLE) ~= 0) then
+            target:delStatusEffectSilent(tpz.effect.POISON)
+        else
+            target:messageBasic(tpz.msg.basic.NO_EFFECT)
+        end
     end
 end
 
