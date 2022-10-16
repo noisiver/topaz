@@ -1642,7 +1642,7 @@ INSERT INTO `mob_skills` VALUES (1681,17,'crossthrash',4,10.0,2000,1500,4,0,0,5,
 INSERT INTO `mob_skills` VALUES (1693,1164,'gnash',0,12.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1694,1165,'vile_belch',1,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1695,1166,'hypnic_lamp',1,10.0,2000,1000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1696,1167,'seismic_tail',1,10.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1696,1167,'seismic_tail',1,10.0,2000,1000,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (1697,1168,'seaspray',4,12.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1698,1169,'leeching_current',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1699,1176,'pecking_flurry',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1658,7 +1658,7 @@ INSERT INTO `mob_skills` VALUES (1708,1175,'proboscis_shower',0,7.0,2000,1500,1,
 INSERT INTO `mob_skills` VALUES (1709,1181,'abrasive_tantara',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1710,1182,'deafening_tantara',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1711,1180,'frenetic_rip',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1712,1456,'bugle_call',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1712,1456,'bugle_call',0,7.0,2000,1500,1,0,0,0,0,0,0); -- Animation ID was 1456
 INSERT INTO `mob_skills` VALUES (1713,1159,'yawn',1,18.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1714,1160,'wing_slap',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1715,1161,'beak_lunge',0,7.0,2000,1500,4,0,0,5,0,0,0);
@@ -2469,7 +2469,7 @@ INSERT INTO `mob_skills` VALUES (2499,1737,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2510,2254,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2511,2255,'corpse_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2512,98,'venom_shower',1,15.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2513,1781,'mega_scissors',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2513,1781,'mega_scissors',4,10.0,2000,1500,4,0,0,0,0,0,0); -- Animatioin ID was 1781
 -- INSERT INTO `mob_skills` VALUES (2514,2258,'cytokinesis',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2515,2072,'phason_beam',1,18.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2516,2260,'gravitic_horn',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2844,7 +2844,7 @@ INSERT INTO `mob_skills` VALUES (2884,2020,'deracinator',1,18.0,2000,1000,4,0,0,
 INSERT INTO `mob_skills` VALUES (2885,2021,'beautiful_death',1,18.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2886,2630,'exorender',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2887,2631,'tropic_tenor',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2888,2632,'dark_recital',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2888,2632,'dark_recital',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Animation ID was 2632
 -- INSERT INTO `mob_skills` VALUES (2889,2633,'usurping_scepter',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2890,2634,'genei_ryodan',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2891,2029,'grapeshot',0,7.0,2000,0,4,0,0,0,3,2,0);

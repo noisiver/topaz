@@ -1,6 +1,7 @@
 ---------------------------------------------
 -- Hypnic Lamp
 -- 	Inflicts Sleep upon targets facing the user. Ignores shadows
+-- Damage does not wake target(like Nightmare)
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -21,9 +22,10 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local message = tpz.msg.basic.SKILL_MISS
-    local typeEffect = tpz.effect.LULLABY
+    local typeEffect = tpz.effect.SLEEP_I
 
-    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 300))
+    target:addStatusEffectEx(tpz.effect.DEEPSLEEP,0,1,3,90)
+    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 90))
 
     return typeEffect
 end
