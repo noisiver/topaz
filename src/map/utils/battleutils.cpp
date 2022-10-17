@@ -854,6 +854,23 @@ namespace battleutils
                     Action->spikesParam = 0;
                 }
             }
+            // Handle Deluge / Gale / Clod / Glint spikes
+            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DELUGE_SPIKES))
+            {
+                Action->spikesEffect = SUBEFFECT_DELUGE_SPIKES;
+            }
+            else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_GALE_SPIKES))
+            {
+                Action->spikesEffect = SUBEFFECT_GALE_SPIKES;
+            }
+            else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_CLOD_SPIKES))
+            {
+                Action->spikesEffect = SUBEFFECT_CLOD_SPIKES;
+            }
+            else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_GLINT_SPIKES))
+            {
+                Action->spikesEffect = SUBEFFECT_GLINT_SPIKES;
+            }
 
             // calculate damage
             Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
@@ -868,10 +885,24 @@ namespace battleutils
                 case SPIKE_ICE:
                     element = ELEMENT_ICE;
                     break;
+                case SPIKE_GALE:
+                    element = ELEMENT_WIND;
+                    break;
+                case SPIKE_CLOD:
+                    element = ELEMENT_EARTH;
+                    break;
                 case SPIKE_SHOCK:
                     element = ELEMENT_THUNDER;
                     break;
+                case SPIKE_DELUGE:
+                    element = ELEMENT_WATER;
+                    break;
+                case SPIKE_REPRISAL:
+                    element = ELEMENT_LIGHT;
+                    break;
+                case SPIKE_GLINT:
                 case SPIKE_DREAD:
+                case SPIKE_CURSE:
                     element = ELEMENT_DARK;
                     break;
                 default:
@@ -886,6 +917,10 @@ namespace battleutils
                 case SPIKE_BLAZE:
                 case SPIKE_ICE:
                 case SPIKE_SHOCK:
+                case SPIKE_GALE:
+                case SPIKE_CLOD:
+                case SPIKE_DELUGE:
+
                     PAttacker->takeDamage(Action->spikesParam,
                                           PDefender, ATTACK_MAGICAL,
                                           GetSpikesDamageType(Action->spikesEffect));
@@ -1092,7 +1127,8 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                // printf("Spikes resist after getMagicResist %f \n", resist);
             {
-                if (resist >= 0.5f  && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
+                    if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false &&
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::CURSERESTRAIT))
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, (uint32)(30 * (float)resist)));
                 }
@@ -1143,7 +1179,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, (uint32)(30 * (float)resist)));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 3500, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1155,7 +1191,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, (uint32)(30 * (float)resist)));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 20, 3, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1166,7 +1202,7 @@ namespace battleutils
             {
                     if (resist >= 0.5f && tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::DEATHRESTRAIT))
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_KO, EFFECT_KO, 1, 0, 0));
+                        PAttacker->addHP(-9999);
                 }
                 break;
             }
