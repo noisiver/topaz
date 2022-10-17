@@ -738,6 +738,8 @@ public:
     int32 trySkillUp(lua_State* L);
     int32 addRoamFlag(lua_State* L);
     int32 delRoamFlag(lua_State* L);
+    int32 deaggroPlayer(lua_State* L);
+    int32 deaggroAll(lua_State* L);
 };
 
 #endif

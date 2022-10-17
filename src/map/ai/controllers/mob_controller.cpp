@@ -38,7 +38,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
 CMobController::CMobController(CMobEntity* PEntity) :
     CController(PEntity),
-    PMob(PEntity)
+    PMob(PEntity),
+    m_forceDeaggroAll(false)
 {}
 
 void CMobController::Tick(time_point tick)
@@ -66,8 +67,30 @@ bool CMobController::TryDeaggro()
     TracyZoneScoped;
     if (PTarget == nullptr && (PMob->PEnmityContainer != nullptr && PMob->PEnmityContainer->GetHighestEnmity() == nullptr))
     {
+        m_forcedDeaggroEntities.clear();
+        m_forceDeaggroAll = false;
         return true;
+
     }
+
+    
+    bool isForcedDeaggro = (std::find(m_forcedDeaggroEntities.begin(), m_forcedDeaggroEntities.end(), PTarget) != m_forcedDeaggroEntities.end());
+    // target is no longer valid, so wipe them from our enmity list
+    if (!PTarget || PTarget->isDead() || PTarget->isMounted() || PTarget->loc.zone->GetID() != PMob->loc.zone->GetID() ||
+        PMob->StatusEffectContainer->GetConfrontationEffect() != PTarget->StatusEffectContainer->GetConfrontationEffect() ||
+        PMob->allegiance == PTarget->allegiance || CheckDetection(PTarget) || CheckHide(PTarget) || isForcedDeaggro || m_forceDeaggroAll)
+    {
+        if (PTarget)
+            PMob->PEnmityContainer->Clear(PTarget->id);
+        PTarget = PMob->PEnmityContainer->GetHighestEnmity();
+        PMob->SetBattleTargetID(PTarget ? PTarget->targid : 0);
+        return TryDeaggro();
+    }
+
+    m_forcedDeaggroEntities.clear();
+    m_forceDeaggroAll = false;
+    return false;
+
 
     // target is no longer valid, so wipe them from our enmity list
     if (!PTarget || PTarget->isDead() ||
@@ -1150,6 +1173,23 @@ void CMobController::TapDeclaimTime()
 {
     m_DeclaimTime = m_Tick;
 }
+
+bool CMobController::DeaggroEntity(CBattleEntity* PEntity)
+{
+    if (!PEntity)
+    {
+        return false;
+    }
+    m_forcedDeaggroEntities.push_back(PEntity);
+    return true;
+}
+
+bool CMobController::DeaggroAll()
+{
+    m_forceDeaggroAll = true;
+    return true;
+}
+
 
 bool CMobController::Cast(uint16 targid, SpellID spellid)
 {
