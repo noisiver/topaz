@@ -2263,6 +2263,11 @@ INSERT INTO `item_latents` VALUES(17333, 369, -1, 56, 0);   -- Rune Arrow -1MP/t
 INSERT INTO `item_latents` VALUES(17365, 8, 4, 25, 0);      -- Frenzy Fife, STR+4 song/roll active
 
 -- -------------------------------------------------------
+-- Frenzy Sallet
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(15174, 404, 100, 10, 0);
+
+-- -------------------------------------------------------
 -- Tactician Magician's Wand +1/+2
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(17446, 5, 18, 53, 0);     -- MP +18 in areas outside own nation's control
