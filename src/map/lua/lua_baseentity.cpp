@@ -14348,6 +14348,23 @@ inline int32 CLuaBaseEntity::untargetable(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: getDelay()
+ *  Purpose : Gets a mobs weapon delay
+ *  Example : mob:getDelay()
+ *  1000 = 1s. 4000 = default delay(for mobs)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::getDelay(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    lua_pushinteger(L, (int16)((CMobEntity*)m_PBaseEntity)->CBattleEntity::GetWeaponDelay(false));
+    return 1;
+}
+
+/************************************************************************
 *  Function: setDelay()
 *  Purpose : Override default delay settings for a Mob
 *  Example : mob:setDelay(2400)
@@ -16193,6 +16210,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setUnkillable),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,untargetable),
 
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getDelay),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setDelay),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setDamage),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasSpellList),
