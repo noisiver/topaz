@@ -34,7 +34,7 @@ function onTrigger(player)
         local spdefdown = targ:getMod(tpz.mod.SPDEF_DOWN)
        
         player:PrintToPlayer(string.format("%s Stats 0: MJOB: %i, SJOB: %i, HP: %i, MP: %i", targ:getName(), targ:getMainJob(), targ:getSubJob(), targ:getMaxHP(), targ:getMaxMP()))
-        player:PrintToPlayer(string.format("%s Stats 1: LVL: %i, SLVL: %i, ACC: %i, EVA: %i, ATT: %i, DEF: %i, MATT: %i, MACC: %i, MDEF: %i ", targ:getName(), targ:getMainLvl(), targ:getSubLvl(), acc,eva,att,def,matt,macc,mdef))
+        player:PrintToPlayer(string.format("%s Stats 1: LVL: %i, SLVL: %i, DELAY: %i, ACC: %i, EVA: %i, ATT: %i, DEF: %i, MATT: %i, MACC: %i, MDEF: %i ", targ:getName(), targ:getMainLvl(), targ:getSubLvl(), targ:getDelay(), acc,eva,att,def,matt,macc,mdef))
         player:PrintToPlayer(string.format("%s Stats 2: STR: %i, DEX: %i, VIT: %i, AGI: %i, INT: %i, MND: %i, CHR: %i", targ:getName(), str,dex,vit,agi,int,mnd,chr))
         player:PrintToPlayer(string.format("%s Stats 3: Fire: %i, Ice: %i, Wind: %i, Earth: %i, Water: %i, Thunder: %i, Dark: %i, Light: %i", targ:getName(), fire, ice, wind, earth, water, thunder, dark, light))
         player:PrintToPlayer(string.format("%s Stats 4: hthres: %i, pierceres: %i, rangedres: %i, impactres: %i, slashres: %i, spdefdown: %i", targ:getName(), hthres, pierceres, rangedres, impactres, slashres, spdefdown))
