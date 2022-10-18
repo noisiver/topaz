@@ -10697,7 +10697,7 @@ inline int32 CLuaBaseEntity::wakeUp(lua_State *L)
 
 /************************************************************************
 *  Function: recalculateStats()
-*  Purpose : Recalculate the total Stats for a PC (force update)
+*  Purpose : Recalculate the total Stats (force update)
 *  Example : target:recalculateStats()
 *  Notes   : See scripts/globals/effects/obliviscence.lua
 ************************************************************************/
@@ -10725,6 +10725,11 @@ int32 CLuaBaseEntity::recalculateStats(lua_State* L)
         PChar->pushPacket(new CCharUpdatePacket(PChar));
         PChar->pushPacket(new CMenuMeritPacket(PChar));
         PChar->pushPacket(new CCharSyncPacket(PChar));
+    }
+    else if (m_PBaseEntity->objtype == TYPE_MOB)
+    {
+        CMobEntity* PMob = static_cast<CMobEntity*>(m_PBaseEntity);
+        mobutils::CalculateStats(PMob);
     }
     return 0;
 }
