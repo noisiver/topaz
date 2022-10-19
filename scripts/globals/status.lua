@@ -2462,7 +2462,8 @@ tpz.mobMod =
     HP_RANGE            = 98, -- low hp aggro range
     TRUE_SIGHT_SOUND    = 99, -- true sight + sound aggro
     NO_ROAM             = 100,-- disable roaming out of combat
-    HP                  = 101,-- sets a mobs max HP
+    HP                  = 101,-- sets a mobs max HP (Only works on mob initialize)
+    RETURN_TO_SPAWN     = 102, -- Mob will return to it's spawn posituon on disengage
 }
 
 ------------------------------------
