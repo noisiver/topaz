@@ -18,7 +18,7 @@ function error(player, msg)
 end
 
 function onTrigger(player, arg1, arg2)
-    local targ = player:getCursorTarget()
+    local targ = player
     local id
 
     if (arg1 == nil) then
@@ -31,6 +31,7 @@ function onTrigger(player, arg1, arg2)
             id = arg1
         else
             -- Target is cursor target
+            targ = player:getCursorTarget()
             id = arg1
         end
     end
