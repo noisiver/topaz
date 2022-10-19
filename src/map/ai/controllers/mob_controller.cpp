@@ -855,7 +855,7 @@ void CMobController::DoRoamTick(time_point tick)
             }
 
             // if I just disengaged check if I should despawn
-            if (PMob->getMobMod(RETURN_TO_SPAWN) != 0)
+            if (PMob->getMobMod(MOBMOD_RETURN_TO_SPAWN) != 0)
             {
                 PMob->loc.p = PMob->m_SpawnPoint;
             }
