@@ -2732,6 +2732,9 @@ namespace battleutils
             PAttacker->addTP(tp);
         }
 
+        // Add listener
+        PDefender->PAI->EventHandler.triggerListener("SPELL_DMG_TAKEN", PDefender, PAttacker, PSpell, damage, PSpell->getMessage());
+
         return damage;
     }
 

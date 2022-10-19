@@ -14,7 +14,13 @@ MAGIC_MID - Entity, Target, Spell
 MAGIC_USE - Entity, Target, Spell, action
 MAGIC_STATE_EXIT - Entity, Spell
 MAGIC_TAKE - Target, Entity, Spell, action
+SPELL_DMG_TAKEN - Target, Entity, Spell, amount, message
 MAGIC_HIT - caster, target, spell
+EN_SPIKES_HIT - attacker, target, enspellID (enum ENSPELL in battleutils.h)
+MAGIC_INTERRUPTED - Entity, Target, Spell, action
+
+TAKE_DAMAGE - Entity, amount, attacker, attacktype, damagetype
+SKILLCHAIN_TAKE - Entity, target, element
 
 SPAWN - Entity
 DESPAWN - Entity
