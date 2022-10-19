@@ -1832,6 +1832,11 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         {
             battleutils::HandleEnspell(this, PTarget, &actionTarget, attack.IsFirstSwing(), (CItemWeapon*)this->m_Weapons[attack.GetWeaponSlot()], attack.GetDamage());
             battleutils::HandleSpikesDamage(this, PTarget, &actionTarget, attack.GetDamage());
+
+            uint8 enspell = (uint8)this->getMod(Mod::ENSPELL);
+
+            // Add listener
+            PTarget->PAI->EventHandler.triggerListener("EN_SPIKES_HIT", this, PTarget, enspell);
         }
 
         if (actionTarget.speceffect == SPECEFFECT_HIT && actionTarget.param > 0)
