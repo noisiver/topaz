@@ -565,7 +565,7 @@ void CMobController::DoCombatTick(time_point tick)
         }
     }
 
-        // i'm a worm pop back up
+    // i'm a worm pop back up
     if (PMob->m_roamFlags & ROAMFLAG_WORM)
     {
         PMob->animationsub = 0;
@@ -578,6 +578,13 @@ void CMobController::DoCombatTick(time_point tick)
     PTarget = static_cast<CBattleEntity*>(PMob->GetEntity(PMob->GetBattleTargetID()));
 
     if (TryDeaggro())
+    {
+        Disengage();
+        return;
+    }
+
+    // Deaggro players in cutscenes
+    if (PTarget->status == STATUS_CUTSCENE_ONLY)
     {
         Disengage();
         return;

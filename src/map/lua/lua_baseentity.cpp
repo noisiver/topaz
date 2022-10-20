@@ -1021,6 +1021,7 @@ inline int32 CLuaBaseEntity::startEvent(lua_State *L)
     }
 
     PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_IN_CS;
+    PChar->status = STATUS_CUTSCENE_ONLY;
 
     return 0;
 }
