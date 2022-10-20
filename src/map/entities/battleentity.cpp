@@ -1570,6 +1570,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 {
     auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
 
+    // Don't attack if currently synthing
+    if (this->animation == ANIMATION_SYNTH)
+    {
+        return false;
+    }
+
     if (PTarget->objtype == TYPE_PC)
     {
         // TODO: Should not be removed by AoE effects that don't target the player.

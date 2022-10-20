@@ -715,7 +715,7 @@ int32 startSynth(CCharEntity* PChar)
 
     PChar->CraftContainer->setType(element);
 
-    if (!isRightRecipe(PChar))
+    if (!isRightRecipe(PChar) || PChar->animation == ANIMATION_ATTACK)
     {
         return 0;
     }
