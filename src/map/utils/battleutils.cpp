@@ -2081,10 +2081,14 @@ namespace battleutils
             else
                 return 0;
         }
-        else if (PDefender->objtype == TYPE_MOB && PDefender->GetMJob() == JOB_PLD)
+        else if (PDefender->objtype == TYPE_MOB)
         {
             CMobEntity* PMob = (CMobEntity*)PDefender;
-            if (PMob->m_EcoSystem != SYSTEM_UNDEAD && PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (PMob->getMobMod(MOBMOD_BLOCK) > 0)
+            {
+                return base = PMob->getMobMod(MOBMOD_BLOCK);
+            }
+            else
                 return 0;
         }
         else if (PDefender->objtype == TYPE_PET && static_cast<CPetEntity*>(PDefender)->getPetType() == PETTYPE_AUTOMATON && PDefender->GetMJob() == JOB_PLD)
@@ -2347,7 +2351,7 @@ namespace battleutils
             if (isBlocked)
             {
                 uint8 absorb = 100;
-                if (PDefender->m_Weapons[SLOT_SUB]->IsShield())
+                if (PDefender->m_Weapons[SLOT_SUB]->IsShield() || ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
                 {
                     if (PDefender->objtype == TYPE_PC)
                     {
@@ -2368,6 +2372,24 @@ namespace battleutils
                         absorb = 50;
 
                         //Shield Mastery
+                        if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0) &&
+                            PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
+                        {
+                            // If the player blocked with a shield and has shield mastery, add shield mastery TP bonus
+                            // unblocked damage (before block but as if affected by stoneskin/phalanx) must be greater than zero
+                            PDefender->addTP(PDefender->getMod(Mod::SHIELD_MASTERY_TP));
+                        }
+                    }
+                    else if (PDefender->objtype == TYPE_MOB)
+                    {
+                        absorb = 50;
+                        int32 shieldDefBonus = PDefender->getMod(Mod::SHIELD_DEF_BONUS);
+
+                        shieldDefBonus = std::clamp((int32)shieldDefBonus, 0, 50);
+
+                        absorb -= shieldDefBonus; // Include Shield Defense Bonus in absorb amount
+
+                        // Shield Mastery
                         if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0) &&
                             PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
                         {

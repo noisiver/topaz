@@ -14780,12 +14780,20 @@ inline int32 CLuaBaseEntity::getBlockRate(lua_State* L)
     CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
     CBattleEntity* PAttacker = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
 
-    if (PDefender->objtype != TYPE_PC)
-    //if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB) This allows you to get mob block rate, possibly. Worked for guard
+    if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB) // This allows you to get mob block rate, possibly. Worked for guard
     {
         lua_pushinteger(L, 0);
         return 1;
     }
+    else if (PDefender->objtype == TYPE_MOB)
+    {
+        if (PDefender && PAttacker && !PDefender->StatusEffectContainer->HasPreventActionEffect() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+            lua_pushinteger(L, battleutils::GetBlockRate(PAttacker, PDefender));
+        else
+            lua_pushinteger(L, 0);
+        return 1;
+    }
+
     else
     {
         CCharEntity* PChar = (CCharEntity*)PDefender;
@@ -14823,6 +14831,28 @@ inline int32 CLuaBaseEntity::getBlockedDamage(lua_State* L)
 
     CBattleEntity* PDefender = (CBattleEntity*)m_PBaseEntity;
     int32 damage = (int32)lua_tointeger(L, 1);
+
+    if (PDefender && PDefender->objtype == TYPE_MOB && ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
+    {
+    uint8 absorb = 50;
+    int32 shieldDefBonus = PDefender->getMod(Mod::SHIELD_DEF_BONUS);
+
+    shieldDefBonus = std::clamp((int32)shieldDefBonus, 0, 50);
+
+    absorb += shieldDefBonus; // Include Shield Defense Bonus in absorb amount
+
+    // Shield Mastery
+    if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0) && PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
+    {
+        // If the player blocked with a shield and has shield mastery, add shield mastery TP bonus
+        // unblocked damage (before block but as if affected by stoneskin/phalanx) must be greater than zero
+        PDefender->addTP(PDefender->getMod(Mod::SHIELD_MASTERY_TP));
+    }
+
+    lua_pushinteger(L, damage * (100 - absorb) / 100);
+    return 1;
+    }
+
     if (!PDefender || PDefender->objtype != TYPE_PC || !PDefender->m_Weapons[SLOT_SUB] || !PDefender->m_Weapons[SLOT_SUB]->IsShield())
     {
         lua_pushinteger(L, damage);

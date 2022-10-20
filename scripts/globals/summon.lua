@@ -221,6 +221,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
+            local isBlocked =math.random()*100 < target:getBlockRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -278,6 +279,10 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 finaldmg = finaldmg + magicdmg / 2
                 --printf("%i", finaldmg)
             end
+            -- Check if mob blocked us
+            if avatar:isInfront(target, 90) and isBlocked then
+                finaldmg = target:getBlockedDamage(finaldmg)
+            end
             numHitsProcessed = 1
         end
 
@@ -286,6 +291,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
+            local isBlocked =math.random()*100 < target:getBlockRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -324,7 +330,10 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             --printf("%i", finaldmg)
         end
     end
-
+    -- Check if mob blocked us
+    if avatar:isInfront(target, 90) and isBlocked then
+        finaldmg = target:getBlockedDamage(finaldmg)
+    end
     --printf("finaldmg %i", finaldmg)
     returninfo.dmg = finaldmg
     returninfo.hitslanded = numHitsLanded

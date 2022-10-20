@@ -117,6 +117,7 @@ enum MOBMODIFIER : int
     MOBMOD_NO_ROAM             = 100, // disable roaming out of combat
     MOBMOD_HP                  = 101, // sets a mobs max HP (Only works on mob initialize)
     MOBMOD_RETURN_TO_SPAWN     = 102, // Mob will return to it's spawn posituon on disengage
+    MOBMOD_BLOCK               = 103, // Allows a mob to block, in percent(10 = 10% block chance).
 };
 
 #endif

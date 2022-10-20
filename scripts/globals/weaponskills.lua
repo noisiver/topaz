@@ -49,6 +49,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                     calcParams.pdif = 0.25
                 end
             end
+
             finaldmg = dmg * calcParams.pdif
 
             --print("%u", finaldmg)
@@ -75,6 +76,11 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
         else
             calcParams.shadowsAbsorbed = calcParams.shadowsAbsorbed + 1
         end
+    end
+
+    -- Check if mob blocks us
+    if attacker:isInfront(target, 90) and math.random()*100 < target:getBlockRate(attacker) then
+        finaldmg = target:getBlockedDamage(finaldmg)
     end
 
     return finaldmg, calcParams
