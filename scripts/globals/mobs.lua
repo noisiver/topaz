@@ -749,20 +749,31 @@ function BreakMob(mob, target, power, duration, proc)
     -- 6 = Skillchain
     -- 7 = Magic Burst
     -- 8 = Spirits
-
+    local party = target:getParty()
     local BreakDuration = mob:getLocalVar("BreakDuration")
+    local mobName = mob:getName()
+    mobName = string.gsub(mobName, '_', ' ');
+
     if os.time() >= BreakDuration then
         mob:setLocalVar("BreakDuration", os.time() + duration)
         if proc ~= nil then
             mob:weaknessTrigger(proc)
         end
-        mob:addStatusEffect(tpz.effect.TERROR, 0, 0, duration)
+        if (proc == 0) then -- Blue !!
+            mob:addStatusEffect(tpz.effect.AMNESIA, 0, 0, duration)
+        elseif (proc == 1) then -- Yellow !!
+            mob:addStatusEffect(tpz.effect.SILENCE, 0, 0, duration)
+        elseif (proc == 2) or (proc == 3)  then -- Red and White !!
+            mob:addStatusEffect(tpz.effect.TERROR, 0, 0, duration)
+        end
+        for _, players in pairs(party) do
+            players:PrintToPlayer("Your attack devastates the " .. mobName .. "!", 0xD, none)
+        end
         mob:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, power, 0, duration)
     end
 end
 
 function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
-    local instance = target:getInstance()
     local party = target:getParty()
     local msgTimer = mob:getLocalVar("msgTimer")
 
@@ -775,6 +786,26 @@ function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
     end
 end
 
+function SpawnInstancedMob(mob, player, mobId, aggro)
+    local instance = mob:getInstance()
+    local spawns = GetMobByID(mobId, instance)
+
+    if not spawns:isSpawned() then
+        spawns:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
+        spawns:spawn()
+        if aggro then
+            local NearbyPlayers = mob:getPlayersInRange(50)
+            if NearbyPlayers == nil then return end
+            if NearbyPlayers then
+                for _,v in ipairs(NearbyPlayers) do
+                    spawns:updateClaim(v)
+                end
+            end
+        end
+    end
+end
+
+--Uneeded?
 function PeriodicInstanceMessage(mob, target, msg, textcolor, sender, timer)
     local instance = target:getInstance()
     local chars = instance:getChars()

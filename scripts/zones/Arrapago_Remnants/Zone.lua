@@ -10,7 +10,7 @@ function onInitialize(zone)
     zone:registerRegion(1, 420, 5, -339, 0, 0, 0)
     zone:registerRegion(2, 420, 5, -499, 0, 0, 0)
     zone:registerRegion(3, 259, 5, -499, 0, 0, 0)
-    zone:registerRegion(4, 259, 5, -339, 0, 0, 0)
+    zone:registerRegion(4, 259, 5, -339, 0, 0, 0) -- G-7 Teleporter first floor
     zone:registerRegion(5, 340, 5, 100, 0, 0, 0)
     zone:registerRegion(6, 339, 5, 419, 0, 0, 0)
     zone:registerRegion(7, 339, 5, 500, 0, 0, 0)
@@ -18,6 +18,9 @@ function onInitialize(zone)
     zone:registerRegion(9, -300, 5, -461, 0, 0, 0)
     zone:registerRegion(10, -339, 5, -99, 0, 0, 0)
     zone:registerRegion(11, -339, 5, 300, 0, 0, 0)
+    zone:registerRegion(12, 319, 8, -378, 0, 0, 0) -- First "forced" teleport to Crab
+    zone:registerRegion(13, 280, 8, -380, 0, 0, 0) -- Second "forced" teleport to Leech
+    zone:registerRegion(14, 319, 8, -460, 0, 0, 0) -- Third "forced" teleport to Kraken
 end
 
 function onInstanceZoneIn(player, instance)

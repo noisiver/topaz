@@ -6,8 +6,17 @@
 local ID = require("scripts/zones/Cape_Teriggan/IDs")
 require("scripts/globals/regimes")
 require("scripts/globals/mobs")
+require("scripts/globals/status")
+require("scripts/globals/msg")
+require("scripts/globals/magic")
+-----------------------------------
+function onMobInitialize(mob)
+   end
 
 function onMobSpawn(mob)
+end
+
+function onMobFight(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller)

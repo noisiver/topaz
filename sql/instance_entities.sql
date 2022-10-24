@@ -643,8 +643,97 @@ INSERT INTO `instance_entities` VALUES (59,17093481);
 INSERT INTO `instance_entities` VALUES (59,17093482);
 
 -- Arrapago Remnants
+-- custom start
 -- npc
+INSERT INTO `instance_entities` VALUES (65,17080586);
+INSERT INTO `instance_entities` VALUES (65,17080593);
+INSERT INTO `instance_entities` VALUES (65,17080594);
+INSERT INTO `instance_entities` VALUES (65,17080595);
 INSERT INTO `instance_entities` VALUES (65,17080598);
+-- mobs
+INSERT INTO `instance_entities` VALUES (65,17080995);
+INSERT INTO `instance_entities` VALUES (65,17080996);
+INSERT INTO `instance_entities` VALUES (65,17080997);
+INSERT INTO `instance_entities` VALUES (65,17080998);
+INSERT INTO `instance_entities` VALUES (65,17080999);
+INSERT INTO `instance_entities` VALUES (65,17081000);
+INSERT INTO `instance_entities` VALUES (65,17081001);
+INSERT INTO `instance_entities` VALUES (65,17081002);
+INSERT INTO `instance_entities` VALUES (65,17081003);
+INSERT INTO `instance_entities` VALUES (65,17081004);
+INSERT INTO `instance_entities` VALUES (65,17081005);
+INSERT INTO `instance_entities` VALUES (65,17081006);
+INSERT INTO `instance_entities` VALUES (65,17081007);
+INSERT INTO `instance_entities` VALUES (65,17081008);
+INSERT INTO `instance_entities` VALUES (65,17081009);
+INSERT INTO `instance_entities` VALUES (65,17081010);
+INSERT INTO `instance_entities` VALUES (65,17081011);
+INSERT INTO `instance_entities` VALUES (65,17081012);
+INSERT INTO `instance_entities` VALUES (65,17081013);
+INSERT INTO `instance_entities` VALUES (65,17081014);
+INSERT INTO `instance_entities` VALUES (65,17081015);
+INSERT INTO `instance_entities` VALUES (65,17081016);
+INSERT INTO `instance_entities` VALUES (65,17081017);
+INSERT INTO `instance_entities` VALUES (65,17081018);
+INSERT INTO `instance_entities` VALUES (65,17081019);
+INSERT INTO `instance_entities` VALUES (65,17081020);
+INSERT INTO `instance_entities` VALUES (65,17081021);
+INSERT INTO `instance_entities` VALUES (65,17081022);
+INSERT INTO `instance_entities` VALUES (65,17081023);
+INSERT INTO `instance_entities` VALUES (65,17081024);
+INSERT INTO `instance_entities` VALUES (65,17081025);
+INSERT INTO `instance_entities` VALUES (65,17081026);
+INSERT INTO `instance_entities` VALUES (65,17081027);
+INSERT INTO `instance_entities` VALUES (65,17081028);
+INSERT INTO `instance_entities` VALUES (65,17081029);
+INSERT INTO `instance_entities` VALUES (65,17081030);
+INSERT INTO `instance_entities` VALUES (65,17081031);
+INSERT INTO `instance_entities` VALUES (65,17081032);
+INSERT INTO `instance_entities` VALUES (65,17081033);
+INSERT INTO `instance_entities` VALUES (65,17081034);
+INSERT INTO `instance_entities` VALUES (65,17081035);
+INSERT INTO `instance_entities` VALUES (65,17081036);
+INSERT INTO `instance_entities` VALUES (65,17081037);
+INSERT INTO `instance_entities` VALUES (65,17081038);
+INSERT INTO `instance_entities` VALUES (65,17081039);
+INSERT INTO `instance_entities` VALUES (65,17081040);
+INSERT INTO `instance_entities` VALUES (65,17081041);
+INSERT INTO `instance_entities` VALUES (65,17081042);
+INSERT INTO `instance_entities` VALUES (65,17081043);
+INSERT INTO `instance_entities` VALUES (65,17081044);
+INSERT INTO `instance_entities` VALUES (65,17081045);
+INSERT INTO `instance_entities` VALUES (65,17081046);
+INSERT INTO `instance_entities` VALUES (65,17081047);
+INSERT INTO `instance_entities` VALUES (65,17081048);
+INSERT INTO `instance_entities` VALUES (65,17081049);
+INSERT INTO `instance_entities` VALUES (65,17081050);
+INSERT INTO `instance_entities` VALUES (65,17081051);
+INSERT INTO `instance_entities` VALUES (65,17081052);
+INSERT INTO `instance_entities` VALUES (65,17081053);
+INSERT INTO `instance_entities` VALUES (65,17081054);
+INSERT INTO `instance_entities` VALUES (65,17081055);
+INSERT INTO `instance_entities` VALUES (65,17081056);
+INSERT INTO `instance_entities` VALUES (65,17081057);
+INSERT INTO `instance_entities` VALUES (65,17081058);
+INSERT INTO `instance_entities` VALUES (65,17081059);
+INSERT INTO `instance_entities` VALUES (65,17081060);
+INSERT INTO `instance_entities` VALUES (65,17081061);
+INSERT INTO `instance_entities` VALUES (65,17081062);
+INSERT INTO `instance_entities` VALUES (65,17081063);
+INSERT INTO `instance_entities` VALUES (65,17081064);
+INSERT INTO `instance_entities` VALUES (65,17081065);
+INSERT INTO `instance_entities` VALUES (65,17081066);
+INSERT INTO `instance_entities` VALUES (65,17081067);
+-- Mimics
+INSERT INTO `instance_entities` VALUES (65,17081068);
+INSERT INTO `instance_entities` VALUES (65,17081069);
+INSERT INTO `instance_entities` VALUES (65,17081070);
+INSERT INTO `instance_entities` VALUES (65,17081071);
+INSERT INTO `instance_entities` VALUES (65,17081072);
+
+-- custom end
+-- npc
+-- INSERT INTO `instance_entities` VALUES (65,17080598);
 INSERT INTO `instance_entities` VALUES (65,17080970);
 INSERT INTO `instance_entities` VALUES (65,17080971);
 INSERT INTO `instance_entities` VALUES (65,17080972);
@@ -932,7 +1021,7 @@ INSERT INTO `instance_entities` VALUES (65,17080580);
 INSERT INTO `instance_entities` VALUES (65,17080581);
 INSERT INTO `instance_entities` VALUES (65,17080582);
 INSERT INTO `instance_entities` VALUES (65,17080585);
-INSERT INTO `instance_entities` VALUES (65,17080586);
+-- INSERT INTO `instance_entities` VALUES (65,17080586);
 INSERT INTO `instance_entities` VALUES (65,17080596);
 INSERT INTO `instance_entities` VALUES (65,17080597);
 

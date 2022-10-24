@@ -218,8 +218,9 @@ void CalculateStats(CMobEntity * PMob)
     JOBTYPE sJob = PMob->GetSJob();
     uint8 mLvl = PMob->GetMLevel();
     ZONETYPE zoneType = PMob->loc.zone->GetType();
+    ZONEID zoneID = PMob->loc.zone->GetID();
 
-    if(PMob->HPmodifier == 0)
+    if (PMob->HPmodifier == 0 && PMob->getMobMod(MOBMOD_HP) == 0)
     {
         float hpScale = PMob->HPscale;
 
@@ -281,7 +282,14 @@ void CalculateStats(CMobEntity * PMob)
     }
     else
     {
-        PMob->health.maxhp = PMob->HPmodifier;
+        if (PMob->getMobMod(MOBMOD_HP) != 0)
+        {
+            PMob->health.maxhp = PMob->getMobMod(MOBMOD_HP);
+        }
+        else
+        {
+            PMob->health.maxhp = PMob->HPmodifier;
+        }
     }
 
     if(isNM)
@@ -543,7 +551,14 @@ void CalculateStats(CMobEntity * PMob)
     }
     else if (zoneType == ZONETYPE_DUNGEON_INSTANCED)
     {
-        SetupDungeonInstancedMob(PMob);
+        if (zoneID > ZONE_ALZADAAL_UNDERSEA_RUINS && zoneID < ZONE_NYZUL_ISLE)
+        {
+            SetupSalvageMob(PMob);
+        }
+        else
+        {
+            SetupDungeonInstancedMob(PMob);
+        }
     }
     else if (zoneType == ZONETYPE_STRONGHOLDS)
     {
@@ -749,8 +764,12 @@ void SetupJob(CMobEntity* PMob)
             }
             else
             {
-                // All other rangers
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
+                // Gear(s)
+                if (PMob->m_Family != 119 && PMob->m_Family != 120)
+                {
+                    // All other rangers
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
+                }
             }
 
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
@@ -922,7 +941,6 @@ void SetupRoaming(CMobEntity* PMob)
         PMob->setMobMod(MOBMOD_ROAM_DISTANCE, 5);
         PMob->setMobMod(MOBMOD_ROAM_TURNS, 1);
     }
-
 }
 
 void SetupPetSkills(CMobEntity* PMob)
@@ -1068,6 +1086,75 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     PMob->SetDespawnTime(0s);
 
     PMob->addModifier(Mod::REFRESH, 400);
+}
+
+void SetupSalvageMob(CMobEntity* PMob)
+{
+    uint8 mLvl = PMob->GetMLevel();
+    // Bonus stats for difficulty
+    if (mLvl >= 90)
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 25);
+        PMob->addModifier(Mod::DEFP, 25);
+        PMob->addModifier(Mod::ACC, 15);
+        PMob->addModifier(Mod::EVA, 15);
+        PMob->setMobMod(MOBMOD_NO_ROAM, 1);
+    }
+    else if (mLvl >= 85)
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 130);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 25);
+        PMob->addModifier(Mod::DEFP, 25);
+        PMob->addModifier(Mod::ACC, 15);
+        PMob->addModifier(Mod::EVA, 15);
+        PMob->setMobMod(MOBMOD_NO_ROAM, 1);
+    }
+    else
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 115);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 25);
+        PMob->addModifier(Mod::DEFP, 25);
+        PMob->addModifier(Mod::ACC, 15);
+        PMob->addModifier(Mod::EVA, 15);
+    }
+
+    // No gil drops or exp
+    PMob->setMobMod(MOBMOD_GIL_MAX, -1);
+    PMob->setMobMod(MOBMOD_MUG_GIL, -1);
+    PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
+    // set delay
+    ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDelay(2000);
+    // add true sight + sound
+    PMob->m_Aggro = 1;
+    PMob->setMobMod(MOBMOD_AGGRO_SIGHT, 1);
+    PMob->setMobMod(MOBMOD_AGGRO_SOUND, 1);
+    PMob->setMobMod(MOBMOD_TRUE_SIGHT, 1);
+    PMob->setMobMod(MOBMOD_TRUE_SOUND, 1);
+    // increase aggro ranges
+    PMob->setMobMod(MOBMOD_SIGHT_RANGE, 20);
+    PMob->setMobMod(MOBMOD_SOUND_RANGE, 15);
+    // add same family linking
+    PMob->setMobMod(MOBMOD_FAMILYLINK, 1); 
+    // reduce roam radius
+    PMob->m_maxRoamDistance = 5.0f;
+    // never despawn
+    PMob->SetDespawnTime(0s);
+    // return to spawn on disengage
+    PMob->setMobMod(MOBMOD_RETURN_TO_SPAWN, 1); 
+    // add global mods
+    PMob->addModifier(Mod::DMGSPIRITS, -100);
+    PMob->addModifier(Mod::REFRESH, 400);
+    PMob->setModifier(Mod::MOVE, 15);
 }
 
 void SetupStrongholdsMob(CMobEntity* PMob)
@@ -1567,6 +1654,7 @@ CMobEntity* InstantiateAlly(uint32 groupid, uint16 zoneID, CInstance* instance)
 
             PMob->setModifier(Mod::SLASHRES, (uint16)(Sql_GetFloatData(SqlHandle, 31) * 1000));
             PMob->setModifier(Mod::PIERCERES, (uint16)(Sql_GetFloatData(SqlHandle, 32) * 1000));
+            PMob->setModifier(Mod::RANGEDRES, (uint16)(Sql_GetFloatData(SqlHandle, 32) * 1000));
             PMob->setModifier(Mod::HTHRES, (uint16)(Sql_GetFloatData(SqlHandle, 33) * 1000));
             PMob->setModifier(Mod::IMPACTRES, (uint16)(Sql_GetFloatData(SqlHandle, 34) * 1000));
 

@@ -19,6 +19,9 @@ require("scripts/globals/status")
 require("scripts/globals/bluemagic")
 
 function onMagicCastingCheck(caster, target, spell)
+    if caster:isMob() then
+        return 1
+    end
     caster:setLocalVar("self-destruct_hp", caster:getHP())
     return 0
 end

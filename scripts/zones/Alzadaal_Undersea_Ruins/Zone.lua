@@ -191,10 +191,19 @@ function onEventFinish(player, csid, option)
         player:setTitle(tpz.title.PREVENTER_OF_RAGNAROK)
         player:setCharVar("AhtUrganStatus", 0)
         player:addMission(TOAU, tpz.mission.id.toau.RAGNAROK)
-    elseif csid == 116 and player:getLocalVar("SalvageArrapago") == 1 then -- enter Salvage Silver Sea zone
-        player:setPos(0, 0, 0, 0, 74)
-    elseif csid == 116 and player:getLocalVar("SalvageSilverSea") == 1 then -- enter Salvage Arrapago zone
-        player:setPos(0, 0, 0, 0, 76)
+    elseif csid == 411 then
+        local area = player:getLocalVar("Area")
+        if area == 5 then
+            player:setPos(0, 0, 0, 0, tpz.zone.NYZUL_ISLE)
+        elseif area == 7 then
+            player:setPos(0, 0, 0, 0, tpz.zone.ZHAYOLM_REMNANTS)
+        elseif area == 8 then
+            player:setPos(0, 0, 0, 0, tpz.zone.ARRAPAGO_REMNANTS)
+        elseif area == 9 then
+            player:setPos(0, 0, 0, 0, tpz.zone.BHAFLAU_REMNANTS)
+        elseif area == 10 then
+            player:setPos(0, 0, 0, 0, tpz.zone.SILVER_SEA_REMNANTS)
+        end
     elseif csid == 116 and player:getLocalVar("Nyzul") == 1 then -- enter instanced nyzul isle zone
         player:setPos(0, 0, 0, 0, 77)
     end

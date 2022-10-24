@@ -16910,6 +16910,9 @@ INSERT INTO `mob_droplist` VALUES (3198,1,0,50,17192,166); -- Ifrit's Bow 5%
 INSERT INTO `mob_droplist` VALUES (3198,1,0,50,18109,166); -- Leviathan's Couse 5%
 INSERT INTO `mob_droplist` VALUES (3198,1,0,50,18063,170); -- Garuda's Sickle 5%
 
+-- Salvage
+INSERT INTO `mob_droplist` VALUES (3199,0,0,1000,2376,1000); -- (Kanoloa) Arrapago Card
+
 
 
 

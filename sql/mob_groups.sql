@@ -3445,6 +3445,37 @@ INSERT INTO `mob_groups` VALUES (2410,4275,73,'Wajaom_Tiger',0,128,0,0,0,0,0,0);
 -- Arrapago_Remnants (Zone 74)
 -- ------------------------------------------------------------
 
+-- Custom Start
+-- INSERT INTO `mob_groups` VALUES (1,221,74,'Arrapago_Crab',0,128,161,0,0,85,85,0);
+-- INSERT INTO `mob_groups` VALUES (2,221,74,'Arrapago_Leech',0,128,161,0,0,85,85,0);
+-- INSERT INTO `mob_groups` VALUES (3,221,74,'Arrapago_Kraken',0,128,161,0,0,73,74,0);
+-- Fire Wind Water Earth. Ele Floor 1
+INSERT INTO `mob_groups` VALUES (101,6691,74,'Fire_Elemental',0,128,0,8000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (102,6688,74,'Wind_Elemental',0,128,0,8000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (103,6694,74,'Water_Elemental',0,128,0,8000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (104,6690,74,'Earth_Elemental',0,128,0,8000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (105,6692,74,'Ice_Elemental',0,128,0,8000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (106,6695,74,'Thunder_Elemental',0,128,0,8000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (107,6689,74,'Dark_Elemental',0,128,0,8000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (108,6693,74,'Light_Elemental',0,128,0,8000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (109,9083,74,'Macrocheira_Kaempferi',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (110,9084,74,'Waukesha_Leech',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (111,9085,74,'Kanaloa',0,128,3199,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (112,9086,74,'Alucard',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (113,218,74,'Archaic_Gear_random',0,128,0,0,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (114,2255,74,'King_Behemoth_random',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (115,268,74,'Aspidochelone_random',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (116,2840,74,'Nidhogg_random',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (117,2254,74,'King_Arthro_random',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (118,3630,74,'Simurgh_random',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (119,3376,74,'Roc_random',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (120,2664,74,'Mimic',0,128,0,30000,0,85,85,0);
+
+-- Kraken(Kanaloa), Leech(Waukesha Leech), Crab(Macrocheira Kaempferi), Bat(Alucard)
+-- Ice Thunder Dark Light. Ele Floor 2
+-- Clot, Doomed, Imp, Ghost (Bosses)
+-- Custom End
+
 INSERT INTO `mob_groups` VALUES (1,221,74,'Archaic_Rampart',0,128,161,0,0,73,74,0);
 INSERT INTO `mob_groups` VALUES (2,3431,74,'Sabotender_Maestro',0,128,2139,0,0,75,76,0);
 INSERT INTO `mob_groups` VALUES (3,3294,74,'Qutrub',0,128,2068,0,0,73,75,0); -- BLM
