@@ -4119,7 +4119,7 @@ namespace battleutils
         if (PDefender->objtype == TYPE_MOB)
         {
             // Listener (hook)
-            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker, currentElement);
+            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker, currentElement, damage);
 
             // Binding
             luautils::OnSkillchain(PDefender, PAttacker);
