@@ -1,4 +1,6 @@
 require("scripts/globals/status")
+require("scripts/globals/world")
+
 
 utils = {}
 
@@ -723,4 +725,25 @@ function utils.HandleWeaponResist(target, damageType)
     end
 
     return weaponResist
+end
+
+function utils.GetMatchingSCDayElement()
+    local elements =
+    {
+        [1] = {day = {tpz.day.FIRESDAY}, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [2] = {day = {tpz.day.EARTHSDAY}, sc = {tpz.skillchainEle.SCISSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [3] = {day = {tpz.day.WATERSDAY}, sc = {tpz.skillchainEle.REVERBERATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [4] = {day = {tpz.day.WINDSDAY}, sc = {tpz.skillchainEle.DETONATION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [5] = {day = {tpz.day.ICEDAY}, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [6] = {day = {tpz.day.LIGHTNINGDAY}, sc = {tpz.skillchainEle.IMPACTION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [7] = {day = {tpz.day.LIGHTSDAY}, sc = {tpz.skillchainEle.TRANSFIXION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [8] = {day = {tpz.day.DARKSDAY}, sc = {tpz.skillchainEle.COMPRESSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+    }
+
+    local dayElement = VanadielDayElement()
+    local currentDay = elements[dayElement +1].day[1]
+    local currentMatchingSkillchains = {}
+    currentMatchingSkillchains = elements[dayElement +1].sc
+
+    return currentMatchingSkillchains
 end
