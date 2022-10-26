@@ -5,7 +5,7 @@
 require("scripts/globals/titles")
 require("scripts/globals/status")
 require("scripts/globals/mobs")
-local ID = require("scripts/zones/Everbloom_Hollow/IDs")
+local ID = require("scripts/zones/Dragons_Aery/IDs")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(120)

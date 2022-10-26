@@ -12,46 +12,30 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    -- Pull base stats
+    local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    local MND = caster:getStat(tpz.mod.MND) 
 
-    if (target:hasStatusEffect(tpz.effect.PARALYSIS)) then --effect already on, do nothing
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-    else
-        -- Calculate duration.
-        local duration = 120
+    -- Base potency
+    local potency = utils.clamp(math.floor(2 * (MND+dMND)) / 10, 5, 25)
 
-        local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    potency = calculatePotency(potency, spell:getSkillType(), caster, target)
 
-        -- Calculate potency.
-        local potency = math.floor(dMND / 4) + 15
-        if (potency > 25) then
-            potency = 25
-        end
+    --print(string.format("step1: %u",potency))
+	--GetPlayerByID(6):PrintToPlayer(string.format("Paralyze chance: %u",potency))
+    --printf("Duration : %u", duration)
+    --printf("Potency : %u", potency)
+    local duration = calculateDuration(120, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local params = {}
+    params.diff = dMND
+    params.skillType = tpz.skill.ENFEEBLING_MAGIC
+    params.bonus = 0
+    params.effect = tpz.effect.PARALYSIS
+    local resist = applyResistanceEffect(caster, target, spell, params)
+    duration = duration * resist
+    duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.PARALYZE, target))
 
-        if (potency < 5) then
-            potency = 5
-        end
-        --printf("Duration : %u", duration)
-        --printf("Potency : %u", potency)
-        local params = {}
-        params.diff = nil
-        params.attribute = tpz.mod.MND
-        params.skillType = 35
-        params.bonus = 0
-        params.effect = tpz.effect.PARALYSIS
-        local resist = applyResistanceEffect(caster, target, spell, params)
+    TryApplyEffect(caster, target, spell, params.effect, potency, 0, duration, resist, 0.5)
 
-        if (resist >= 0.5) then --there are no quarter or less hits, if target resists more than .5 spell is resisted completely
-            if (target:addStatusEffect(tpz.effect.PARALYSIS, potency, 0, duration*resist)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-            else
-                -- no effect
-                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-            end
-        else
-            -- resist
-            spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-        end
-    end
-
-    return tpz.effect.PARALYSIS
+    return params.effect
 end

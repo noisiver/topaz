@@ -23,14 +23,13 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.LULLABY
-    local dINT = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
+    local dMND = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
     local params = {}
-    params.diff = nil
+    params.diff = dMND
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.effect = typeEffect
+    params.effect = tpz.effect.LULLABY
     local resist = applyResistanceEffect(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)
@@ -42,15 +41,13 @@ function onSpellCast(caster, target, spell)
 	end
     local duration = 60 * resist
 
-    if (resist >= 0.5) then -- Do it!
-        if (target:addStatusEffect(typeEffect, 1, 0, duration)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    -- Can't overwrite any sleep
+    if hasSleepT1Effect(target) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
     end
 
-    return typeEffect
+    TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
+
+    return tpz.effect.SLEEP_I
 end

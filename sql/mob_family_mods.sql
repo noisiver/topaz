@@ -205,6 +205,7 @@ INSERT INTO `mob_family_mods` VALUES (171,1,25,0);		-- Lamiae +25 Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (182,1,25,0);		-- Merrow +25 Defense Bonus
 
 -- Evasion Bonus
+INSERT INTO `mob_family_mods` VALUES (542,68,20,0);		-- Toad +20 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (196,68,10,0);		-- Poroggo +10 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (203,68,12,0);		-- Qutrub(Normal) +12 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (204,68,12,0);		-- Qutrub(Unused) +12 Evasion Racial
@@ -271,6 +272,7 @@ INSERT INTO `mob_family_mods` VALUES (63,389,-13,0);	-- Chariot  -13%
 INSERT INTO `mob_family_mods` VALUES (209,389,-43,0);	-- Rampart  -43%
 INSERT INTO `mob_family_mods` VALUES (27,389,-25,0);	-- Apkallu  -25%
 INSERT INTO `mob_family_mods` VALUES (191,389,-13,0);	-- Orobon  -13%
+INSERT INTO `mob_family_mods` VALUES (551,389,-13,0);	-- "Blue" Sea Monk  -13%
 INSERT INTO `mob_family_mods` VALUES (233,389,-25,0);	-- Soulflayer  -25%
 INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);	-- Dvergr  -50%
 INSERT INTO `mob_family_mods` VALUES (117,389,-13,0);	-- Gargouille  -13%
@@ -361,6 +363,18 @@ INSERT INTO `mob_family_mods` VALUES (231,464,100,0);	-- Slug - Water
 INSERT INTO `mob_family_mods` VALUES (324,461,100,0);	-- Garuda - Wind
 INSERT INTO `mob_family_mods` VALUES (198,461,100,0);	-- Puk - Wind
 INSERT INTO `mob_family_mods` VALUES (34,465,100,0);	-- Carbuncle - Light
+
+-- Magic Aggro range
+INSERT INTO `mob_family_mods` VALUES (34,86,40,1);	-- Carbuncle 
+INSERT INTO `mob_family_mods` VALUES (35,86,40,1);	-- Diabolos 
+INSERT INTO `mob_family_mods` VALUES (319,86,40,1);	-- Shiva
+INSERT INTO `mob_family_mods` VALUES (320,86,40,1);	-- Ramuh
+INSERT INTO `mob_family_mods` VALUES (321,86,40,1);	-- Titan
+INSERT INTO `mob_family_mods` VALUES (322,86,40,1);	-- Ifrit 
+INSERT INTO `mob_family_mods` VALUES (323,86,40,1);	-- Leviathan	
+INSERT INTO `mob_family_mods` VALUES (324,86,40,1);	-- Garuda 
+INSERT INTO `mob_family_mods` VALUES (325,86,40,1);	-- Fenrir 
+INSERT INTO `mob_family_mods` VALUES (378,86,40,1);	-- Diabolos 
 
 -- Yovra
 INSERT INTO `mob_family_mods` VALUES (271,68,50,0);		-- +50 Evasion Racial

@@ -22,6 +22,15 @@ function onSpellCast(caster, target, spell)
 		power = 15
 	end
 
+	-- Add Enhances effect of "Spikes" spells gear
+    -- https://www.bg-wiki.com/ffxi/Dls._Tights_%2B2
+	local legs = caster:getEquipID(tpz.slot.LEGS)
+	if legs == 15121 or legs == 15584 then -- Duelist's Tights / +1
+		power = power + math.floor(INT*(3/256))
+	elseif legs == 10714 then -- Duelist's Tights +2
+		power = power + math.floor(INT*(4/256))
+	end
+
     if target:addStatusEffect(typeEffect, power, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else

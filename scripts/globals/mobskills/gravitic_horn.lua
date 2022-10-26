@@ -20,25 +20,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local currentHP = target:getHP()
-    -- remove all by 5%
-    local damage = 0
-
-    -- estimation based on "Throat Stab-like damage"
-    if (currentHP / target:getMaxHP() > 0.2) then
-        baseDamage = currentHP * .95
-    else
-        baseDamage = currentHP
-    end
-
-    -- Because shell matters, but we don't want to calculate damage normally via MobMagicalMove since this is a % attack
-    local damage = baseDamage * getElementalDamageReduction(target, tpz.magic.ele.WIND)
-    -- we still need final adjustments to handle stoneskin etc though
-    damage = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WIND, MOBPARAM_WIPE_SHADOWS)
-
-    target:takeDamage(finalDamage, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
+    local hpp = 0.95
+    local dmg = MobThroatStabMove(mob, target, skill, hpp, tpz.attackType.MAGICAL,tpz.damageType.WIND,MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end
     mob:resetEnmity(target)
-
-    return finalDamage
+    return dmg
 end

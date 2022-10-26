@@ -17,5 +17,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addExp(EXP_RATE * math.random(150, 500))
+    local exp = math.random(150, 500)
+    target:addExp(exp)
+    target:messageBasic(8, exp, 0)
 end

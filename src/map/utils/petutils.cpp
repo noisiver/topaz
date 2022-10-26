@@ -926,6 +926,7 @@ namespace petutils
             // assuming elemental spawn
             PPet->setModifier(Mod::SLASHRES, 500);
             PPet->setModifier(Mod::PIERCERES, 500);
+            PPet->setModifier(Mod::RANGEDRES, 500);
             PPet->setModifier(Mod::IMPACTRES, 500);
             PPet->setModifier(Mod::HTHRES, 500);
         }
@@ -1451,6 +1452,7 @@ namespace petutils
             uint16 petCrit = PPet->GetMLevel() / 3;
             uint16 petDA = PPet->GetMLevel() / 7;
             uint16 petMAB = PPet->GetMLevel() / 7;
+            uint16 petEleRes = PPet->GetMLevel() / 1.5;
 
             // Specific stats and SDT for each Avatar / Elemental
             switch (PetID)
@@ -1515,6 +1517,14 @@ namespace petutils
                     PPet->setModifier(Mod::SDT_LIGHT, 20);
                     break;
                  case PETID_FENRIR:
+                    PPet->addModifier(Mod::FIRERES, petEleRes);
+                    PPet->addModifier(Mod::ICERES, petEleRes);
+                    PPet->addModifier(Mod::WINDRES, petEleRes);
+                    PPet->addModifier(Mod::EARTHRES, petEleRes);
+                    PPet->addModifier(Mod::THUNDERRES, petEleRes);
+                    PPet->addModifier(Mod::WATERRES, petEleRes);
+                    PPet->addModifier(Mod::LIGHTRES, petEleRes);
+                    PPet->addModifier(Mod::DARKRES, petEleRes);
                     PPet->addModifier(Mod::ATTP, 30);
                     PPet->setModifier(Mod::SDT_LIGHT, 150);
                     PPet->setModifier(Mod::SDT_DARK, 20);

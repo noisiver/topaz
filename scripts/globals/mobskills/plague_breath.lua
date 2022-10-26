@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
     MobStatusEffectMove(mob, target, typeEffect, power, 3, 90)
     if (mob:getPool() == 9067) then -- Kendi
         target:delStatusEffectSilent(tpz.effect.POISON)
-        MobStatusEffectMove(mob, target, tpz.effect.CURSE_II, 1, 0, 120)
+        MobStatusEffectMove(mob, target, tpz.effect.CURSE_II, 1, 0, 90)
         mob:resetEnmity(target)
     end
     return dmg

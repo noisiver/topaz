@@ -10,8 +10,6 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	local CurrentTP = mob:getTP()
-	mob:setLocalVar("TP", CurrentTP)
     return 0
 end
 
@@ -19,16 +17,6 @@ function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
     local dmgmod = 1.5
-    local CurrentTP = mob:getLocalVar("TP")
-    if CurrentTP == 3000 then
-        dmgmod = 2.5
-    end
-    if CurrentTP >= 2000 then
-        dmgmod = 2
-    end
-    if CurrentTP >= 1500 and CurrentTP < 2000 then
-        dmgmod = 1.7
-    end
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -41,11 +29,11 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
     local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_RANGED, params_phys)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, info.hitslanded)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, info.hitslanded)
 
     local typeEffect = tpz.effect.POISON
     local power = 100
-    target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
+    target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.RANGED)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 3, 90)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg

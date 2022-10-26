@@ -14,24 +14,21 @@ require("scripts/globals/magic")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
     local result = 1
-    local mobhp = mob:getHPP()
-    if mob:isMobType(MOBTYPE_NOTORIOUS) then
-		if (mobhp <= 50) then
-			result = 0
-		end
+    if (mob:getPool() == 5869) then -- Only used by certain NM's
+	    if target:isInfront(mob, 90) then
+            result = 0
+        end
     end
     return result
 end
 
 
 function onMobWeaponSkill(target, mob, skill)
-    local currentHP = target:getHP()
-    local damage = currentHP * 0.90
-    local dmg = MobFinalAdjustments(damage,mob,skill,target,tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
+    local hpp = 0.95
+    local dmg = MobThroatStabMove(mob, target, skill, hpp, tpz.attackType.PHYSICAL,tpz.damageType.NONE,MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.NONE)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end
     mob:resetEnmity(target)
-
     return dmg
 end
 

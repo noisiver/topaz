@@ -539,6 +539,7 @@ public:
     int32 delStatusEffectSilent(lua_State*);   // Removes Status Effect, suppresses message
     int32 eraseStatusEffect(lua_State*);       // Used with "Erase" spell
     int32 eraseAllStatusEffect(lua_State*);    // Erases all effects and returns number erased
+    int32 removeAllNegativeEffects(lua_State*); // Removes all negative status effects and returns number erased
     int32 dispelStatusEffect(lua_State*);      // Used with "Dispel" spell
     int32 dispelAllStatusEffect(lua_State*);   // Dispels all effects and returns number erased
     int32 stealStatusEffect(lua_State*);       // Used in mob skills to steal effects
@@ -678,6 +679,7 @@ public:
     int32 setUnkillable(lua_State* L);
     int32 untargetable(lua_State* L);
 
+    int32 getDelay(lua_State*);               // gets a mobs weapon delay
     int32 setDelay(lua_State*);               // sets a mobs weapon delay
     int32 setDamage(lua_State*);              // sets a mobs weapon damage
     int32 hasSpellList(lua_State*);
@@ -736,6 +738,8 @@ public:
     int32 trySkillUp(lua_State* L);
     int32 addRoamFlag(lua_State* L);
     int32 delRoamFlag(lua_State* L);
+    int32 deaggroPlayer(lua_State* L);
+    int32 deaggroAll(lua_State* L);
 };
 
 #endif

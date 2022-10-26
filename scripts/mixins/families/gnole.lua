@@ -23,49 +23,25 @@ g_mixins.families.gnole = function(mob)
     end)
 
     mob:addListener("COMBAT_TICK", "GNOLE_COMBAT", function(mob)
+        local moon = utils.getMoonPhase()
+        local moonphase = 0
+        if (moon == 'Full') then
+            mob:setMod(tpz.mod.MARTIAL_ARTS, 280)
+            mob:addMod(tpz.mod.EVA, 60)
+        elseif (moon == 'Gibbeus') then
+            mob:setMod(tpz.mod.MARTIAL_ARTS, 200)
+            mob:addMod(tpz.mod.EVA, 30)
+        elseif (moon == 'Quarter') then
+             mob:setMod(tpz.mod.MARTIAL_ARTS, 150)
+        elseif (moon == 'Cresecent') then
+            mob:setMod(tpz.mod.MARTIAL_ARTS, 70)
+            mob:addMod(tpz.mod.EVA, -30)
+        elseif (moon == 'New') then
+            mob:setMod(tpz.mod.MARTIAL_ARTS, 20)
+            mob:addMod(tpz.mod.EVA, -60)
+        end
         attemptTransform(mob, 60)
     end)
-
-mob:addListener("ENGAGE", "GNOLE_ENGAGE", function(mob, target)
-    local moon = utils.getMoonPhase()
-    local moonphase = 0
-    -- Set delay won't work and bugs them out with super increased attack speed
-    if (moon == 'Full') then
-        -- if (mob:AnimationSub() == 0) then
-        --     mob:setDelay(156)
-        -- elseif (mob:AnimationSub() == 1) then
-        --     mob:setDelay(250)
-        -- end
-        mob:addMod(tpz.mod.EVA, 60)
-    elseif (moon == 'Gibbeus') then
-        -- if (mob:AnimationSub() == 0) then
-        --     mob:setDelay(190)
-        -- elseif (mob:AnimationSub() == 1) then
-        --     mob:setDelay(300)
-        -- end
-        mob:addMod(tpz.mod.EVA, 30)
-    elseif (moon == 'Quarter') then
-        -- if (mob:AnimationSub() == 0) then
-        --     mob:setDelay(218)
-        -- elseif (mob:AnimationSub() == 1) then
-        --     mob:setDelay(350)
-        -- end
-    elseif (moon == 'Cresecent') then
-        -- if (mob:AnimationSub() == 0) then
-        --     mob:setDelay(256)
-        -- elseif (mob:AnimationSub() == 1) then
-        --     mob:setDelay(410)
-        -- end
-        mob:addMod(tpz.mod.EVA, -30)
-    elseif (moon == 'New') then
-        -- if (mob:AnimationSub() == 0) then
-        --     mob:setDelay(286)
-        -- elseif (mob:AnimationSub() == 1) then
-        --     mob:setDelay(460)
-        -- end
-        mob:addMod(tpz.mod.EVA, -60)
-    end
-end)
 end
 
 function attemptTransform(mob, timeThreshold)

@@ -57,6 +57,7 @@ end
 -- 1 TP_ATK_VARIES
 -- 2 TP_DMG_VARIES
 -- 3 TP_CRIT_VARIES
+-- 4 TP_AUTO_ATTACK -- Used for "auto-attack"" skills ONLY
 -- mtp100/200/300 are the three values for 100% TP, 200% TP, 300% TP just like weaponskills.lua
 -- if TP_ACC_VARIES -> three values are acc %s (1.0 is 100% acc, 0.8 is 80% acc, 1.2 is 120% acc)
 -- if TP_ATK_VARIES -> three values are attack multiplier (1.5x 0.5x etc)
@@ -64,6 +65,9 @@ end
 
 function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeffect, params_phys, mtp150, mtp300, offcratiomod)
     local returninfo = {}
+
+    -- get TP
+    local tp = mob:getLocalVar("tp")
 
     --get fSTR
     local weaponDmg = mob:getWeaponDmg()
@@ -103,6 +107,11 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     ratio = ratio + lvldiff * 0.05
     ratio = utils.clamp(ratio, 0, 2)
 
+    -- Add Acc varies with TP to 3+ hit TP moves
+    if (tpeffect ~= TP_CRIT_VARIES) and (numberofhits > 2) then
+        acc = acc + MobAccTPModifier(tp)
+    end
+
     --work out hit rate for mobs (bias towards them)
     local hitrate = (acc*accmod) - eva + (lvldiff*2) + 75
 
@@ -119,10 +128,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     hitdamage = hitdamage * dmgmod
 
-    if (tpeffect == TP_DMG_VARIES) then
-        hitdamage = hitdamage * MobTPMod(skill:getTP() / 10)
-    end
-
     --work out min and max cRatio
     local maxRatio = 1
     local minRatio = 0
@@ -138,7 +143,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     --printf("ddex critRate %u", critRate)
     --printf("critRate before param %i", critRate)
     if tpeffect == TP_CRIT_VARIES then
-        critRate = critRate + 25
+
+        critRate = critRate + MobCritTPModifier(tp)
+
 
         --printf("critRate after param %i", critRate)
 
@@ -176,11 +183,6 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         minRatio = ratio * (1176 / 1024) - (775 / 1024)
     else
         minRatio = ratio - 0.375
-    end
-
-    --apply ftp (assumes 1~3 scalar linear mod)
-    if (tpeffect==TP_DMG_BONUS) then
-        hitdamage = hitdamage * fTP(skill:getTP(), 1, 1.5, 2)
     end
 
     --Applying pDIF
@@ -302,6 +304,8 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             end
             --printf("pdif multihits %u", pdif * 100)
             finaldmg = finaldmg + multiHitDmg * pdif
+            --handling phalanx
+            finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
             hitslanded = hitslanded + 1
         end
         hitsdone = hitsdone + 1
@@ -309,6 +313,12 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     -- printf("final: %f, hits: %f, acc: %f", finaldmg, hitslanded, hitrate)
     -- printf("ratio: %f, min: %f, max: %f, pdif, %f hitdmg: %f", ratio, minRatio, maxRatio, pdif, hitdamage)
+
+    -- Add TP scaling if not a crit TP move
+
+    if (tpeffect ~= TP_CRIT_VARIES) and (tpeffect ~= TP_AUTO_ATTACK) and (numberofhits <= 2) then
+        finaldmg = math.floor(finaldmg * MobDmgTPModifier(tp))
+    end
 
     -- Reduce the damage by half on 5+ hit TP moves or else they become out of control
     if hitslanded >= 5 then
@@ -405,6 +415,12 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
     -- Do the formula!
     local finaldmg = getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
 
+    -- Add TP scaling if not a high fTP skill(mainly 2 hours / Mijin Gakure / special attacks)
+    local tp = mob:getLocalVar("tp")
+    if (tpeffect ~= TP_AUTO_ATTACK) and (dmgmod <= 7) then
+        finaldmg = math.floor(finaldmg * MobDmgTPModifier(tp))
+    end
+
     --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     --printf("mutiplier %i", multiplier * 100)
     --printf("tp %i", tp)
@@ -431,17 +447,14 @@ end
 function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     local percentBonus = 0
     local magicaccbonus = 0
+    local softcap = 10
 	
     if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
-
-    if (diff > 10) then
-        magicaccbonus = magicaccbonus + 10 + (diff - 10)/2
-    else
-        magicaccbonus = magicaccbonus + diff
-    end
+    -- Apply dStat Macc bonus
+    magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
     if (bonus ~= nil) then
         magicaccbonus = magicaccbonus + bonus
@@ -581,9 +594,8 @@ function MobBreathMove(mob, target, percent, base, element, cap)
         cap = math.floor(mob:getHP()/5)
     end
 
-    -- Deal bonus damage vs mob ecosystem
-    local systemBonus = utils.getSystemStrengthBonus(mob, target)
-    damage = damage + (damage * (systemBonus * 0.25))
+    -- Apply day/weather
+    local damage = damage * getMobWeatherBonus(mob, element)
 
     -- elemental resistence
     if (element ~= nil and element > 0) then
@@ -593,10 +605,7 @@ function MobBreathMove(mob, target, percent, base, element, cap)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
-        -- get elemental damage reduction
-        local defense = getElementalDamageReduction(target, element)
-
-        damage = damage * resist * defense
+        damage = damage * resist
     end
 
     damage = utils.clamp(damage, 1, cap)
@@ -624,7 +633,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     end
 
     -- MNK mobs have a -50% end multiplier for wep damage and need to do 2x for physical moves to do proper damage
-    if (mob:getMainJob() == tpz.job.MNK) then
+    if (mob:getMainJob() == tpz.job.MNK) and (damageType ~= tpz.damageType.NONE) then -- Throat stab and special moves like Mijin Gakure
         if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
             dmg = dmg * 2
         end
@@ -688,9 +697,13 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         end
     end
 
+    -- Handle mob ecosystem bonus
+    local systemBonus = utils.getSystemStrengthBonus(mob, target)
+    dmg = dmg + (dmg * (systemBonus * 0.25))
+
     -- Handle weapon resist on pets(like blunt damage)
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
-        dmg = dmg * HandlePetWeaponResist(target, damageType)
+        dmg = dmg * utils.HandleWeaponResist(target, damageType)
     end
 
     -- Handle damage type resistances
@@ -704,21 +717,41 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         dmg = target:rangedDmgTaken(dmg)
     end
 
-    --handling phalanx
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
-
     if (dmg < 0) then
         return 0
     end
 
-    --handling magic stoneskin / stoneskin
+    --handling phalanx
+    dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
     --printf("dmg before %u",dmg)
+    --handling absorb
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
+        local element = damageType - 5 -- This will match spell_data.lua's elements index
+        dmg = adjustForTarget(target, dmg, element)
+    end
+    dmg = utils.clamp(dmg, -99999, 99999)
+    -- Add HP if absorbed
+    if (dmg < 0) then
+        -- Multiply damage so it outheals the damage it does in the skills lua file
+        dmg = math.floor(dmg * 2)
+        -- Give target HP
+        dmg = (target:addHP(-dmg))
+        -- Halve the dmg so it outheals the damage it does in the skills lua file
+        dmg = math.floor(dmg * 0.5)
+        skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+        return dmg
+    end
+
+    --handling magic stoneskin / stoneskin
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         dmg = utils.rampartstoneskin(target, dmg)
     end
     dmg = utils.stoneskin(target, dmg)
     --printf("dmg after %u",dmg)
     if (dmg > 0) then
+        local tpAdded = math.floor((25 * (100 + target:getMod(tpz.mod.STORETP))) / 100)
+        target:addTP(tpAdded)
         target:updateEnmityFromDamage(mob, dmg)
         target:handleAfflatusMiseryDamage(dmg)
     end
@@ -882,7 +915,13 @@ end
 function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
-	    return tpz.msg.basic.SKILL_NO_EFFECT
+	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+    end
+
+    -- Override durations with a single function to make it easier to update a million files durations at once when editing stuff
+    -- Don't override Doom, Gradual Petrification, or Encumbrance
+    if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) then
+        duration = MobGetStatusEffectDuration(typeEffect)
     end
 
     if (target:canGainStatusEffect(typeEffect, power)) then
@@ -894,23 +933,33 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
-        -- Doom can't have a lower duration from resisting!
-        if (resist < 1) and (typeEffect == tpz.effect.DOOM) then
-            return tpz.msg.basic.SKILL_MISS 
+        -- Doom and Gradual Petrification can't have a lower duration from resisting
+        if (resist < 1) then
+            if (typeEffect == tpz.effect.DOOM) or (typeEffect == tpz.effect.GRADUAL_PETRIFICATION) then
+                return tpz.msg.basic.SKILL_NO_EFFECT -- resist
+            end
         end
 
         if (resist >= 0.50) then
 
             -- Reduce duration by resist percentage
             local totalDuration = duration * resist
+
+            -- add TP scaling
+            local tp = mob:getLocalVar("tp")
+            -- Doom and Gradual Petrification duration shouldn't scale or it makes it weaker
+            if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) then
+                totalDuration = math.floor(totalDuration * MobEnfeebleDurationTPModifier(typeEffect, tp))
+            end
+
             target:addStatusEffect(typeEffect, power, tick, totalDuration)
 
             return tpz.msg.basic.SKILL_ENFEEB_IS
         end
 
-        return tpz.msg.basic.SKILL_MISS -- resist !
+        return tpz.msg.basic.SKILL_NO_EFFECT -- resist
     end
-    return tpz.msg.basic.SKILL_NO_EFFECT -- no effect
+    return tpz.msg.basic.SKILL_NO_EFFECT -- resist 
 end
 
 -- similar to status effect move except, this will not land if the attack missed
@@ -937,7 +986,11 @@ end
 
 function MobBuffMove(mob, typeEffect, power, tick, duration)
 
-    if (mob:addStatusEffect(typeEffect, power, tick, duration)) then
+    -- Add TP scaling
+    local tp = mob:getLocalVar("tp")
+    local finalDuration = math.floor(duration * MobBuffDurationTPModifier(tp))
+
+    if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
     return tpz.msg.basic.SKILL_NO_EFFECT
@@ -963,12 +1016,12 @@ function MobEncumberMove(mob, target, maxSlots, duration)
     local statmod = tpz.mod.INT
     local element = tpz.magic.ele.WATER
 
-    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_II, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 
-    if target:hasStatusEffect(tpz.effect.FEALTY) then
+    if target:hasStatusEffect(tpz.effect.FEALTY) or not target:isPC() then
 	    resist = 0.25
     end
 
@@ -1004,28 +1057,28 @@ function MobEncumberMove(mob, target, maxSlots, duration)
 	  end
 	end
 
-    local mask = 0;
-    for i = 1,#encumberSlots,1 do
-      target:unequipItem(encumberSlots[i]);
-      mask = mask + math.pow(2, encumberSlots[i]);
-    end
-    if resist >= 0.5 then
-        target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, mask, 0, duration * resist);
+    if (resist >= 0.5) and not target:hasStatusEffect(tpz.effect.ENCUMBRANCE_II) then
+        local mask = 0;
+        for i = 1,#encumberSlots,1 do
+          target:unequipItem(encumberSlots[i]);
+          mask = mask + math.pow(2, encumberSlots[i]);
+        end
+        target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_II, tpz.effect.ENCUMBRANCE_II, mask, 0, duration * resist);
     end
 end
 
 function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
-        local statmod = tpz.mod.CHR
-        local element = tpz.magic.ele.LIGHT
+    local statmod = tpz.mod.CHR
+    local element = tpz.magic.ele.LIGHT
 
-        local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
-        local eleres = target:getMod(element+53)
-        if     eleres < 0  and resist < 0.5  then resist = 0.5
-        elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
-	    --GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local eleres = target:getMod(element+53)
+    if     eleres < 0  and resist < 0.5  then resist = 0.5
+    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+	--GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
 	if (not target:isPC()) then
-		return skill:setMsg(tpz.msg.basic.SKILL_MISS)
+		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
 	
 	if resist >= 0.5 and mob:getCharmChance(target, false) > 0 then
@@ -1038,7 +1091,7 @@ function MobCharmMove(mob, target, skill, costume, duration)
             return skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
         end
 	else
-	    return skill:setMsg(tpz.msg.basic.SKILL_MISS)
+	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
 end
 
@@ -1065,6 +1118,30 @@ function MobDeathMove(mob, target, skill)
 	else
 	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
+end
+
+function MobThroatStabMove(mob, target, skill, hpp, attackType, damageType, shadowbehav)
+    local maxHP = target:getMaxHP()
+    local currentHP = target:getHP()
+    local damage = maxHP * hpp
+    local dmg = MobFinalAdjustments(damage,mob,skill,target,attackType,damageType,MOBPARAM_IGNORE_SHADOWS)
+    if dmg > currentHP then
+       dmg = currentHP * hpp -- Ensure it won't kill target
+    end
+    return dmg
+end
+
+function MobSelfDispelMove(mob, skill)
+    local dispel = mob:removeAllNegativeEffects()
+
+    if (dispel == tpz.effect.NONE) then
+        -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+    else
+        skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
+    end
+
+    return dispel
 end
 
 function MobTakeAoEShadow(mob, target, max)
@@ -1381,42 +1458,65 @@ function getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist,
     return math.floor(((mobLevel*2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
 end
 
-function HandlePetWeaponResist(target, damageType)
-    local weaponResist = 1
+function MobGetStatusEffectDuration(effect)
+    local duration = 0
 
-    if not target:isPC() then
-        local hthres = target:getMod(tpz.mod.HTHRES)
-        local pierceres = target:getMod(tpz.mod.PIERCERES)
-        local impactres = target:getMod(tpz.mod.IMPACTRES)
-        local slashres = target:getMod(tpz.mod.SLASHRES)
-        local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
-
-        if damageType == tpz.damageType.HTH then
-            if hthres < 1000 then
-                weaponResist = (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
-            else
-                weaponResist = hthres / 1000
-            end
-        elseif damageType == tpz.damageType.PIERCING then
-            if pierceres < 1000 then
-                weaponResist = (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
-            else
-                weaponResist = pierceres / 1000
-            end
-        elseif damageType == tpz.damageType.BLUNT then
-            if impactres < 1000 then
-                weaponResist = (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
-            else
-                weaponResist = impactres / 1000
-            end
-        elseif damageType == tpz.damageType.SLASHING then
-            if slashres < 1000 then
-                weaponResist = (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
-            else
-                weaponResist = slashres / 1000
-            end
-        end
+    if (effect == tpz.effect.BIND) then
+        duration = 20
+    elseif (effect == tpz.effect.PETRIFICATION) then
+        duration = 10
+    elseif (effect == tpz.effect.TERROR) then
+        duration = 15
+    elseif (effect == tpz.effect.STUN) then
+        duration = 5
+    elseif (effect == tpz.effect.FLASH) then
+        duration = 10
+    elseif (effect == tpz.effect.AMNESIA) then
+        duration = 30
+    elseif (effect == tpz.effect.MUTE) then
+        duration = 20
+    elseif (effect == tpz.effect.CHARM) then
+        duration = 60
+    elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.SLEEP_II) or (effect == tpz.effect.LULLABY) then
+        duration = 90 
+    elseif (effect == tpz.effect.WEIGHT) then
+        duration = 120 
+    elseif (effect == tpz.effect.PARALYSIS) then
+        duration = 120 
+    elseif (effect == tpz.effect.SLOW) or (effect == tpz.effect.ADDLE) then
+        duration = 180 
+    elseif (effect == tpz.effect.SILENCE) then
+        duration = 120 
+    elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) then
+        duration = 90
+    elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
+        duration = 120
+    elseif (effect == tpz.effect.CURSE_II) then
+        duration = 45
+    else
+        duration = 300
     end
 
-    return weaponResist
+    return duration
+end
+
+function MobDmgTPModifier(tp)
+    return (1 + ((tp - 1000) * 0.015) / 100) -- 0, 15, 30
+end
+
+function MobAccTPModifier(tp)
+    return math.floor((20+ ((tp - 1000) * 0.010))) -- 20, 30, 40
+end
+
+function MobCritTPModifier(tp)
+    return math.floor((15+ ((tp - 1000) * 0.015))) -- 15, 30, 45
+end
+
+function MobEnfeebleDurationTPModifier(effect, tp)
+    return (1 + ((tp - 1000) * 0.050) / 100) -- 0, 50, 100
+end
+
+
+function MobBuffDurationTPModifier(tp)
+    return (1 + ((tp - 1000) * 0.050) / 100) -- 0, 50, 100
 end

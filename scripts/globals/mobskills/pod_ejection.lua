@@ -25,5 +25,6 @@ function onMobWeaponSkill(target, mob, skill)
         pod:setPos(X,Y,Z)
         pod:updateEnmity(players[random])
     end
+    skill:setMsg(tpz.msg.basic.NONE)
     return 0
 end

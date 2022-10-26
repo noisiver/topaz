@@ -1,5 +1,6 @@
 require("scripts/globals/status")
 require("scripts/globals/magic")
+require("scripts/globals/utils")
 
 -- The TP modifier
 TPMOD_NONE = 0
@@ -229,6 +230,9 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
                 finaldmg = finaldmg + ((math.floor(D + fStr + WSC)) * pdif) -- same as finalD but without multiplier (it should be 1.0)
             end
 
+            --handling phalanx
+            finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
+
             hitslanded = hitslanded + 1
             -- increment target's TP (100TP per hit landed)
 			local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
@@ -238,37 +242,9 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
         hitsdone = hitsdone + 1
     end
-    local hthres = target:getMod(tpz.mod.HTHRES)
-    local pierceres = target:getMod(tpz.mod.PIERCERES)
-    local impactres = target:getMod(tpz.mod.IMPACTRES)
-    local slashres = target:getMod(tpz.mod.SLASHRES)
-    local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
-    
-    if params.damageType == tpz.damageType.HTH then
-        if hthres < 1000 then
-            finaldmg = finaldmg * (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
-        else
-            finaldmg = finaldmg * hthres / 1000
-        end
-    elseif params.damageType == tpz.damageType.PIERCING then
-        if pierceres < 1000 then
-            finaldmg = finaldmg * (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
-        else
-            finaldmg = finaldmg * pierceres / 1000
-        end
-    elseif params.damageType == tpz.damageType.BLUNT then
-        if impactres < 1000 then
-            finaldmg = finaldmg * (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
-        else
-            finaldmg = finaldmg * impactres / 1000
-        end
-    elseif params.damageType == tpz.damageType.SLASHING then
-        if slashres < 1000 then
-            finaldmg = finaldmg * (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
-        else
-            finaldmg = finaldmg * slashres / 1000
-        end
-    end
+
+    -- Weapon resist
+    finaldmg = finaldmg * utils.HandleWeaponResist(target, params.damageType)
     
     -- Circle Effects
     if target:isMob() and finaldmg > 0 then
@@ -407,17 +383,9 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
         end
     end
 
-    --handling rampart stoneskin
-    local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-    if ramSS > 0 then
-        if dmg >= ramSS then
-            target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-            dmg = dmg - ramSS
-        else
-            target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-            dmg = 0
-        end
-    end
+    --handling phalanx
+    dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
 	local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
 	local TP =  100 * (1 - subtleblow)
 	target:addTP(TP)
@@ -432,7 +400,6 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
 
     dmg = dmg * BLUE_POWER
 
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
     if (dmg < 0) then
         dmg = 0
     end
@@ -450,59 +417,31 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
         dmg = target:physicalDmgTaken(dmg, damageType)
     end
 
-    --handling rampart stoneskin
-    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
-        local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-        if ramSS > 0 then
-            if dmg >= ramSS then
-                target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-                dmg = dmg - ramSS
-            else
-                target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-                dmg = 0
-            end
-        end
-    end
-    -- handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
-
-	target:takeDamage(dmg, caster, attackType, damageType)
-    target:updateEnmityFromDamage(caster, dmg)
-    target:handleAfflatusMiseryDamage(dmg)
-    -- TP has already been dealt with.
-    return dmg
-end
-
-function BlueFinalAdjustmentsCustomEnmity(caster, target, spell, dmg, params) 
-	-- Regurgitation has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
-    if (dmg < 0) then
-        dmg = 0
-    end
-
-    dmg = dmg * BLUE_POWER
-
+    -- Handle Phalanx
     dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
+    -- Handle Absorb
+    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH or attackType == tpz.attackType.SPECIAL then
+        local element = spell:getElement()
+        dmg = adjustForTarget(target, dmg, element)
+    end
+    dmg = utils.clamp(dmg, -99999, 99999)
+    -- Add HP if absorbed
     if (dmg < 0) then
-        dmg = 0
+        dmg = (target:addHP(-dmg))
+        spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
+    else
+        --handling rampart stoneskin
+        dmg = utils.rampartstoneskin(target, dmg)
+        -- handling stoneskin
+        dmg = utils.stoneskin(target, dmg)
+        target:takeDamage(dmg, caster, attackType, damageType)
     end
 
-    -- handling stoneskin
-    dmg = utils.stoneskin(target, dmg)
-
-    local attackType = params.attackType or tpz.attackType.NONE
-    local damageType = params.damageType or tpz.damageType.NONE
-    if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL or attackType == tpz.attackType.BREATH then
-        dmg = target:magicDmgTaken(dmg)
-    elseif attackType == tpz.attackType.RANGED then
-        dmg = target:rangedDmgTaken(dmg)
-    elseif attackType == tpz.attackType.PHYSICAL then
-        dmg = target:physicalDmgTaken(dmg, damageType)
+    if (params.NO_ENMITY == nil) then -- Only used for Regurg / Corrosive Ooze atm
+        target:updateEnmityFromDamage(caster, dmg)
     end
-
-	target:takeDamage(dmg, caster, attackType, damageType)
     target:handleAfflatusMiseryDamage(dmg)
-	caster:delStatusEffectSilent(tpz.effect.SNEAK_ATTACK)
-	--caster:delStatusEffectSilent(tpz.effect.TRICK_ATTACK) NYI
     -- TP has already been dealt with.
     return dmg
 end

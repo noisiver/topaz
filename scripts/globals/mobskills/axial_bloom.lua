@@ -5,7 +5,7 @@
 -- Type: Enfeebling
 -- Utsusemi/Blink absorb: Ignores shadows
 -- Range: Unknown radial
--- Notes:
+-- Closed mouth only (Aimation Sub 4)
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -13,11 +13,14 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if mob:AnimationSub() == 4 then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BIND
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 45))
     return typeEffect
 end

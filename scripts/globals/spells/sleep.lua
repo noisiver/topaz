@@ -55,15 +55,13 @@ function onSpellCast(caster, target, spell)
 		end
 	end
 
-    if resist >= 0.5 then
-        if target:addStatusEffect(params.effect, 1, 0, duration) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    -- Can't overwrite any sleep
+    if hasSleepT1Effect(target) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return params.effect
     end
+
+    TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
 
     return params.effect
 end

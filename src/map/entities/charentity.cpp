@@ -838,6 +838,10 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
     PLatentEffectContainer->CheckLatentsTP();
 
     SLOTTYPE damslot = SLOT_MAIN;
+    // Check if target is alive
+    if (PBattleTarget->GetHPP() < 1)
+        return;
+
     if (distance(loc.p, PBattleTarget->loc.p) - PBattleTarget->m_ModelSize <= PWeaponSkill->getRange())
     {
         if (PWeaponSkill->getID() >= 192 && PWeaponSkill->getID() <= 221)
@@ -1125,8 +1129,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 
                     if (StatusEffectContainer->HasStatusEffect(EFFECT_APOGEE))
                     {
-                        mpCost *= 1.5f;
-                        StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_BLOODPACT);
+                        StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_BLOODPACT, true);
                     }
 
                     // Blood Boon (does not affect Astra Flow BPs)
@@ -1322,6 +1325,8 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
                 {
                     actionTarget.speceffect = SPECEFFECT_CRITICAL_HIT;
                     actionTarget.messageID = 353;
+
+                    luautils::OnCriticalHit(PTarget, this);
                 }
 
                 // at least 1 hit occured
@@ -1523,6 +1528,11 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
         ((CMobEntity*)PTarget)->m_autoTargetKiller = this;
         ((CMobEntity*)PTarget)->DoAutoTarget();
     }
+    else if (hitOccured == false && PTarget->objtype == TYPE_MOB)
+    {
+        // 1 ce for a missed attack for TH application
+        ((CMobEntity*)PTarget)->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0);
+    }
 
 
     // Try to double shot
@@ -1694,6 +1704,11 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
             {
                 luautils::OnItemUse(PMember, PItem);
                 battleutils::GenerateInRangeEnmity(PTarget, 0, 640);
+                // Prism and Rainbow powders
+                if (PItem->getID() != 4164 && PItem->getID() != 5362)
+                {
+                    PTarget->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
+                }
             }
         });
     }
@@ -1701,6 +1716,11 @@ void CCharEntity::OnItemFinish(CItemState& state, action_t& action)
     {
         luautils::OnItemUse(PTarget, PItem);
         battleutils::GenerateInRangeEnmity(PTarget, 0, 640);
+        // Prism and Rainbow powders
+        if (PItem->getID() != 4164 && PItem->getID() != 5362)
+        {
+            this->StatusEffectContainer->DelStatusEffectSilent(EFFECT_INVISIBLE);
+        }
     }
 
     action.id = this->id;

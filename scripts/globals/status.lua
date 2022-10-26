@@ -141,12 +141,12 @@ tpz.subEffect =
     CURSE_SPIKES        = 4,   -- 01-0010      18
     SHOCK_SPIKES        = 5,   -- 01-1010      22
     REPRISAL            = 6,   -- 01-0110      26
-    GLINT_SPIKES        = 6,   --
-    GALE_SPIKES         = 7,   -- Used by enchantment "Cool Breeze" http://www.ffxiah.com/item/22018/
-    CLOD_SPIKES         = 8,   --
-    DELUGE_SPIKES       = 9,   --
+    GLINT_SPIKES        = 6,   -- 
+    GALE_SPIKES         = 7,   -- Wind damage + Silence.Used by enchantment "Cool Breeze" http://www.ffxiah.com/item/22018/
+    CLOD_SPIKES         = 8,   -- Earth damage + Slow.
+    DELUGE_SPIKES       = 9,   -- Water damage + Poison https://ffxiclopedia.fandom.com/wiki/Aqua_Spikes
     DEATH_SPIKES        = 10,  -- yes really: http://www.ffxiah.com/item/26944/
-    COUNTER             = 63,
+    COUNTER             = 63, -- Also used by Retaliation
     -- There are no spikes effect animations beyond 63. Some effects share subeffect/animations.
     -- "Damage Spikes" use the Blaze Spikes animation even though they are different status.
 
@@ -168,6 +168,29 @@ tpz.subEffect =
     IMPACTION           = 14,
 }
 
+tpz.skillchainEle =
+{
+    NONE = 0, -- Lv0 None
+
+    TRANSFIXION = 1, -- Lv1 Light
+    COMPRESSION = 2, -- Lv1 Dark
+    LIQUEFACTION = 3, -- Lv1 Fire
+    SCISSION = 4, -- Lv1 Earth
+    REVERBERATION = 5, -- Lv1 Water
+    DETONATION = 6, -- Lv1 Wind
+    INDURATION = 7, -- Lv1 Ice
+    IMPACTION = 8, -- Lv1 Thunder
+
+    GRAVITATION = 9, -- Lv2 Dark & Earth
+    DISTORTION = 10, -- Lv2 Water & Ice
+    FUSION = 11, -- Lv2 Fire & Light
+    FRAGMENTATION = 12, -- Lv2 Wind & Thunder
+
+    LIGHT = 13, -- Lv3 Fire, Light, Wind, Thunder
+    DARKNESS = 14, -- Lv3 Dark, Earth, Water, Ice
+    LIGHT_II = 15, -- Lv4 Light
+    DARKNESS_II = 16, -- Lv4 Darkness
+}
 ------------------------------------
 -- These codes represent the actual status effects.
 -- They are simply for convenience.
@@ -823,8 +846,9 @@ tpz.effect =
     MEDITATE                 = 801, -- Dummy effect for SAM Meditate JA
     ELEMENTALRES_DOWN        = 802, -- Elemental resistance down
     FULL_SPEED_AHEAD         = 803, -- Helper for quest: Full Speed Ahead!
-    -- PLACEHOLDER           = 804, -- Description
-    -- 804-1022
+    INCREASED_DAMAGE_TAKEN   = 804, -- Increased damage taken, in percents
+    -- PLACEHOLDER           = 805, -- Description
+    -- 805-1022
     DEEPSLEEP                = 901, -- For abilities like Nightmare
     -- PLACEHOLDER             = 1023 -- The client dat file seems to have only this many "slots", results of exceeding that are untested.
 }
@@ -883,6 +907,10 @@ function removeSleepEffects(target)
     target:delStatusEffect(tpz.effect.SLEEP_I)
     target:delStatusEffect(tpz.effect.SLEEP_II)
     target:delStatusEffect(tpz.effect.LULLABY)
+end
+
+function hasSleepT1Effect(target)
+    return target:hasStatusEffect(tpz.effect.SLEEP_I) or target:hasStatusEffect(tpz.effect.LULLABY)
 end
 
 function hasSleepEffects(target)
@@ -961,6 +989,7 @@ tpz.mod =
     PIERCERES                       = 50,
     IMPACTRES                       = 51,
     HTHRES                          = 52,
+    RANGEDRES                       = 1279, -- Ranged Resistance
     FIRERES                         = 54,
     ICERES                          = 55,
     WINDRES                         = 56,
@@ -1080,6 +1109,9 @@ tpz.mod =
     UDMGBREATH                      = 388,
     UDMGMAGIC                       = 389,
     UDMGRANGE                       = 390,
+    DMGSC                           = 1276, -- Skillchan Damage Taken %
+    DMGMB                           = 1277, -- Magic Burst Damage Taken %
+    DMGSPIRITS                      = 1278, -- Spirits Damage Taken % (Spirits Within / Atonement / Requiescat
     CRITHITRATE                     = 165,
     CRIT_DMG_INCREASE               = 421,
     RANGED_CRIT_DMG_INCREASE        = 964, -- Increases ranged critical damage by a percent
@@ -1243,6 +1275,7 @@ tpz.mod =
     WALTZ_DELAY                     = 497, -- Waltz Ability Delay modifier (-1 mod is -1 second)
     SAMBA_PDURATION                 = 498, -- Samba percent duration bonus
     WIDESCAN                        = 340,
+    BARRAGE_SHOT_COUNT              = 1275, -- Number of shots fired by Barrage
     BARRAGE_ACC                     = 420,
     ENSPELL                         = 341,
     SPIKES                          = 342,
@@ -1476,6 +1509,7 @@ tpz.mod =
     RETALIATION                     = 414, -- Increases damage of Retaliation hits
     THIRD_EYE_COUNTER_RATE          = 508, -- Adds counter to 3rd eye anticipates & if using Seigan counter rate is increased by 15%
     THIRD_EYE_ANTICIPATE_RATE       = 839, -- Adds anticipate rate in percents
+    TP_BOOST_WHEN_DMGD              = 1239,-- Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
 
     CLAMMING_IMPROVED_RESULTS       = 509, --
     CLAMMING_REDUCED_INCIDENTS      = 510, --
@@ -1489,6 +1523,7 @@ tpz.mod =
     SCAVENGE_EFFECT                 = 312, --
     DIA_DOT                         = 313, -- Increases the DoT damage of Dia
     SHARPSHOT                       = 314, -- Sharpshot accuracy bonus
+    AUGMENTS_ABSORB                 = 1274, -- Direct Absorb spell increase (percentage based)
     ENH_DRAIN_ASPIR                 = 315, -- % damage boost to Drain and Aspir
     SNEAK_ATK_DEX                   = 874, -- % DEX boost to Sneak Attack (if gear mod, needs to be equipped on hit)
     TRICK_ATK_AGI                   = 520, -- % AGI boost to Trick Attack (if gear mod, needs to be equipped on hit)
@@ -1550,7 +1585,7 @@ tpz.mod =
     AUTO_ANALYZER                   = 943, -- Causes the Automaton to mitigate damage from a special attack a number of times
 
     -- Mythic Weapon Mods
-    AUGMENTS_ABSORB                 = 521, -- Direct Absorb spell increase while Liberator is equipped (percentage based)
+    AUGMENTS_ABSORB_II              = 521, -- Direct Absorb spell increase while Liberator is equipped (percentage based)
     AOE_NA                          = 524, -- Set to 1 to make -na spells/erase always AoE w/ Divine Veil
     AUGMENTS_CONVERT                = 525, -- Convert HP to MP Ratio Multiplier. Value = MP multiplier rate.
     AUGMENTS_SA                     = 526, -- Adds Critical Attack Bonus to Sneak Attack, percentage based.
@@ -2321,6 +2356,7 @@ tpz.damageType =
     WATER     = 11,
     LIGHT     = 12,
     DARK      = 13,
+    RANGED    = 14,
 }
 
 ----------------------------------
@@ -2435,6 +2471,23 @@ tpz.mobMod =
     NO_LINK             = 69, -- If set, mob cannot link until unset.
     NO_REST             = 70, -- Mob cannot regain hp (e.g. re-burrowing antlions during ENM).
     FAMILYLINK          = 74,  -- Mob will link with mobs of the same familly in the zone. Usefull to make a NM link if the family doesn't, like Cactrot Rapido.
+    AGGRO_SIGHT         = 86, -- aggros sight 0 = false 1 = true
+    AGGRO_SOUND         = 87, -- aggros sound 0 = false 1 = true
+    AGGRO_MAGIC         = 88, -- aggros magic 0 = false 1 = true
+    AGGRO_WS            = 90, -- aggros WS 0 = false 1 = true
+    AGGRO_JA            = 91, -- aggros JA 0 = false 1 = true
+    AGGRO_HP            = 92, -- aggros HP 0 = false 1 = true
+    TRUE_SIGHT          = 93, -- true sight 0 = false 1 = true
+    TRUE_SOUND          = 94, -- true sound 0 = false 1 = true
+    MAGIC_RANGE         = 95, -- magic aggro range
+    WS_RANGE            = 96, -- weapon skill aggro range
+    JA_RANGE            = 97, -- job ability aggro range
+    HP_RANGE            = 98, -- low hp aggro range
+    TRUE_SIGHT_SOUND    = 99, -- true sight + sound aggro
+    NO_ROAM             = 100,-- disable roaming out of combat
+    HP                  = 101,-- sets a mobs max HP (Only works on mob initialize)
+    RETURN_TO_SPAWN     = 102, -- Mob will return to it's spawn posituon on disengage
+    BLOCK               = 103, -- Allows a mob to block, in percent(10 = 10% block chance).
 }
 
 ------------------------------------

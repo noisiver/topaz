@@ -32,9 +32,11 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
             criticalHit = (wsParams.canCrit and critChance <= calcParams.critRate)
             forcedCrit = calcParams.forcedFirstCrit or calcParams.mightyStrikesApplicable
             if criticalHit then
+                TryBreakMob(target)
                 calcParams.criticalHit = true
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
             elseif forcedCrit then
+                TryBreakMob(target)
                 calcParams.criticalHit = true
                 calcParams.pdif = generatePdif (calcParams.ccritratio[1], calcParams.ccritratio[2], true) +1 + ((attacker:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
             else
@@ -47,6 +49,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                     calcParams.pdif = 0.25
                 end
             end
+
             finaldmg = dmg * calcParams.pdif
 
             --print("%u", finaldmg)
@@ -57,19 +60,13 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 magicdmg = magicdmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
                 magicdmg = target:magicDmgTaken(magicdmg)
                 magicdmg = adjustForTarget(target, magicdmg, wsParams.ele)
-                --print("%u", magicdmg)
-                --handling rampart stoneskin
-                local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-                if ramSS > 0 then
-                    if dmg >= ramSS then
-                        target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-                        magicdmg = magicdmg - ramSS
-                    else
-                        target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
-                        magicdmg = 0
-                    end
+                -- Add HP if absorbed
+                if (magicdmg < 0) then
+                    magicdmg = (target:addHP(-magicdmg))
+                else
+                    --handling rampart stoneskin
+                    magicdmg = utils.rampartstoneskin(target, magicdmg)
                 end
-                --print("%u", magicdmg)
 
                 finaldmg = finaldmg + magicdmg
                 --print("%u", finaldmg)
@@ -79,6 +76,11 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
         else
             calcParams.shadowsAbsorbed = calcParams.shadowsAbsorbed + 1
         end
+    end
+
+    -- Check if mob blocks us
+    if attacker:isInfront(target, 90) and math.random()*100 < target:getBlockRate(attacker) then
+        finaldmg = target:getBlockedDamage(finaldmg)
     end
 
     return finaldmg, calcParams
@@ -153,8 +155,8 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         critrate = fTP(tp, wsParams.crit100, wsParams.crit200, wsParams.crit300)
 
         if calcParams.flourishEffect then
-            if calcParams.flourishEffect:getPower() > 1 then
-                critrate = critrate + (10 + calcParams.flourishEffect:getSubPower()/2)/100
+            if calcParams.flourishEffect:getPower() > 2 then -- Building Flourish gives +25% crit at 3 Finishing Moves
+                critrate = critrate + (25 + calcParams.flourishEffect:getSubPower() / 2)/100
             end
         end
 
@@ -200,25 +202,24 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     -- Apply Accuracy varies with TP accuracy bonus
     if (wsParams.accuracyVariesWithTP ~= nil) then
         if (wsParams.accPenalty ~= nil) then -- Used for Slugwinder and Truestrike
-            -- calcParams.bonusAcc = bonusAcc + (AccTPModifier(tp) - 40)
             bonusAcc = calcParams.bonusAcc + (AccTPModifier(tp) - 40)
         else
-            -- calcParams.bonusAcc = bonusAcc + AccTPModifier(tp)
             bonusAcc = calcParams.bonusAcc + AccTPModifier(tp)
         end
     end
 
     if isRanged then
        if (wsID == 196) or (wsID == 212) then -- Slugwinder
-            -- calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
             calcParams.hitRate = getRangedHitRate(attacker, target, true, bonusAcc)
        else
-            -- calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc + 100)
             calcParams.hitRate = getRangedHitRate(attacker, target, false, bonusAcc + 100)
         end
     else
-        -- calcParams.hitRate = getHitRate(attacker, target, true, true, calcParams.bonusAcc + 100)
-        calcParams.hitRate =  getHitRate(attacker, target, true, true, bonusAcc + 100)
+        if (wsID == 0) then -- So jump won't get an accuracy bonus or have 99% acc
+            calcParams.hitRate =  getHitRate(attacker, target, true, false, 0)
+        else
+            calcParams.hitRate =  getHitRate(attacker, target, true, true, bonusAcc + 100)
+        end
     end
 
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
@@ -239,6 +240,9 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
                         ((100+(attacker:getMod(tpz.mod.AUGMENTS_TA)))/100)
         end
     end
+
+    --handling phalanx
+    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
     -- We've now accounted for any crit from SA/TA, or damage bonus for a Hybrid WS, so nullify them
     calcParams.forcedFirstCrit = false
@@ -278,6 +282,8 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         local offhandDmg = (calcParams.weaponDamage[2] + wsMods) * ftp
         hitdmg, calcParams = getSingleHitDamage(attacker, target, offhandDmg, wsParams, calcParams)
         finaldmg = finaldmg + hitdmg
+        --handling phalanx
+        finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
     end
 
     calcParams.guaranteedHit = false -- Accuracy bonus from SA/TA applies only to first main and offhand hit
@@ -292,6 +298,8 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
         if (target:getHP() <= finaldmg) then break end -- Stop adding hits if target would die before calculating other hits
         finaldmg = finaldmg + hitdmg
+        --handling phalanx
+        finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
         hitsDone = hitsDone + 1
     end
     calcParams.extraHitsLanded = calcParams.hitsLanded
@@ -307,7 +315,16 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
     end
 
     -- Factor in "all hits" bonus damage mods
+    -- Check for Building Flourish WSD bonus
+    local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH)
+    if flourisheffect ~= nil and flourisheffect:getPower() > 2 then -- Building Flourish gives +25% WSD at 3+ FM"s"
+        attacker:addMod(tpz.mod.ALL_WSDMG_ALL_HITS, 25)
+    end
     local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
+    -- Remove Building Flourish WSD effect
+    if flourisheffect ~= nil and flourisheffect:getPower() > 2 then
+        attacker:delMod(tpz.mod.ALL_WSDMG_ALL_HITS, 25)
+    end
     if (attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then -- For specific WS
         bonusdmg = bonusdmg + attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)
         --printf("Specific WS dmg increase %u", bonusdmg)
@@ -512,7 +529,7 @@ end
 
 -- Sets up the necessary calcParams for a ranged WS before passing it to calculateRawWSDmg. When the raw
 -- damage is returned, handles reductions based on target resistances and passes off to takeWeaponskillDamage.
- function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, primaryMsg)
+function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, primaryMsg)
 
     -- Determine cratio and ccritratio
     local ignoredDef = 0
@@ -549,26 +566,26 @@ end
         fencerBonus = fencerBonus(attacker),
         bonusTP = wsParams.bonusTP or 0,
         bonusfTP = gorgetBeltFTP or 0,
-		bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
+	    bonusAcc = (gorgetBeltAcc or 0) + attacker:getMod(tpz.mod.WSACC),
         bonusWSmods = wsParams.bonusWSmods or 0
     }
     if (wsID == 196) or (wsID == 212) then -- Slugwinder
         calcParams.hitRate = getRangedHitRate(attacker, target, true, calcParams.bonusAcc)
-   else
+    else
         calcParams.hitRate = getRangedHitRate(attacker, target, false, calcParams.bonusAcc)
-   end
+    end
     -- Send our params off to calculate our raw WS damage, hits landed, and shadows absorbed
     calcParams = calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcParams, true)
     local finaldmg = calcParams.finalDmg
 
     -- Calculate reductions
     finaldmg = target:rangedDmgTaken(finaldmg)
-    local pierceres = target:getMod(tpz.mod.PIERCERES)
+    local rangedres = target:getMod(tpz.mod.RANGEDRES)
     local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
-    if pierceres < 1000 then
-        finaldmg = finaldmg * (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
+    if rangedres < 1000 then
+        finaldmg = finaldmg * (1 - ((1 - rangedres / 1000) * (1 - spdefdown/100)))
     else
-        finaldmg = finaldmg * pierceres / 1000
+        finaldmg = finaldmg * rangedres / 1000
     end
 
     -- Handle Positional PDT
@@ -595,7 +612,7 @@ end
         end
     end
 	
-    finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.05 -- Add server bonus
+    finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.00 -- Add server bonus
     calcParams.finalDmg = finaldmg
     --handling stoneskin
     finaldmg = utils.stoneskin(target, finaldmg)
@@ -697,47 +714,51 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
         dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
         dmg = target:magicDmgTaken(dmg)
-        dmg = adjustForTarget(target, dmg, wsParams.ele)
 
         dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
-    -- Handle Positional MDT
-    if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
-        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
-            dmg = 0
-        end
-        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
-            dmg = math.floor(dmg * 0.25) -- 75% DR
-        end
-        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
-            dmg = math.floor(dmg * 0.50) -- 50% DR
-        end
-    end
-    if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
-        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
-            dmg = 0
-        end
-        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
-            dmg = math.floor(dmg * 0.25) -- 75% DR
-        end
-        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
-            dmg = math.floor(dmg * 0.50) -- 50% DR
-        end
-    end
-        --handling rampart stoneskin
-        local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
-        if ramSS > 0 then
-            if dmg >= ramSS then
-                target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
-                dmg = dmg - ramSS
-            else
-                target:setMod(tpz.mod.RAMPART_STONESKIN, ramSS - dmg)
+        -- Handle Positional MDT
+        if attacker:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
+            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
                 dmg = 0
             end
+            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
+                dmg = math.floor(dmg * 0.25) -- 75% DR
+            end
+            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
+                dmg = math.floor(dmg * 0.50) -- 50% DR
+            end
         end
-    
-        --handling stoneskin
-        dmg = utils.stoneskin(target, dmg)
+        if attacker:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
+            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
+                dmg = 0
+            end
+            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
+                dmg = math.floor(dmg * 0.25) -- 75% DR
+            end
+            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
+                dmg = math.floor(dmg * 0.50) -- 50% DR
+            end
+        end
+
+        --handling phalanx
+        dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
+        -- handling absorb
+        dmg = adjustForTarget(target, dmg, wsParams.ele)
         dmg = utils.clamp(dmg, -99999, 99999)
+
+        -- Add HP if absorbed
+        if (dmg < 0) then
+            dmg = (target:addHP(-dmg))
+            calcParams.finalDmg = -dmg
+            dmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
+            return dmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
+        else
+            --handling rampart stoneskin
+            dmg = utils.rampartstoneskin(target, dmg)
+            --handling stoneskin
+            dmg = utils.stoneskin(target, dmg)
+        end
     else
         calcParams.shadowsAbsorbed = 1
     end
@@ -751,6 +772,17 @@ end
 -- handles displaying the appropriate action/message, delivering the damage to the mob, and any enmity from it
 function takeWeaponskillDamage(defender, attacker, wsParams, primaryMsg, attack, wsResults, action)
     local finaldmg = wsResults.finalDmg
+    -- Magic absorb
+    if finaldmg < 0 then
+        action:messageID(defender:getID(), tpz.msg.basic.SKILL_RECOVERS_HP)
+        action:reaction(defender:getID(), tpz.reaction.HIT)
+        action:speceffect(defender:getID(), tpz.specEffect.RECOIL)
+        action:param(defender:getID(), -finaldmg)
+        local enmityMult = wsParams.enmityMult or 1
+        defender:updateEnmityFromDamage(attacker, finaldmg * enmityMult)
+        finaldmg = defender:takeWeaponskillDamage(attacker, finaldmg, attack.type, attack.damageType, attack.slot, primaryMsg, wsResults.tpHitsLanded, (wsResults.extraHitsLanded * 10) + wsResults.bonusTP, targetTPMult)
+        return finaldmg
+    end
     local targetTPMult = wsParams.targetTPMult or 1
     finaldmg = defender:takeWeaponskillDamage(attacker, finaldmg, attack.type, attack.damageType, attack.slot, primaryMsg, wsResults.tpHitsLanded, (wsResults.extraHitsLanded * 10) + wsResults.bonusTP, targetTPMult)
     if wsResults.tpHitsLanded + wsResults.extraHitsLanded > 0 then
@@ -791,7 +823,6 @@ function takeWeaponskillDamage(defender, attacker, wsParams, primaryMsg, attack,
         local enmityMult = wsParams.enmityMult or 1
         defender:updateEnmityFromDamage(enmityEntity, finaldmg * enmityMult)
     end
-
     return finaldmg
 end
 
@@ -875,13 +906,13 @@ end
 
 function getHitRate(attacker, target, capHitRate, firsthit, bonus)
     local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH)
-    if flourisheffect ~= nil and flourisheffect:getPower() > 1 then
-        attacker:addMod(tpz.mod.ACC, 20 + flourisheffect:getSubPower())
+    if flourisheffect ~= nil and flourisheffect:getPower() >= 1 then -- Building Flourish always gives +25 Acc
+        attacker:addMod(tpz.mod.ACC, 25 + flourisheffect:getSubPower())
     end
     local acc = attacker:getACC()
     local eva = target:getEVA()
-    if flourisheffect ~= nil and flourisheffect:getPower() > 1 then
-        attacker:delMod(tpz.mod.ACC, 20 + flourisheffect:getSubPower())
+    if flourisheffect ~= nil and flourisheffect:getPower() >= 1 then
+        attacker:delMod(tpz.mod.ACC, 25 + flourisheffect:getSubPower())
     end
     if (bonus == nil) then
         bonus = 0
@@ -987,6 +1018,10 @@ function AccTPModifier(tp)
     return (20+ ((tp - 1000) * 0.010)) -- 20, 30, 40
 end
 
+function MaccTPModifier(tp)
+    return (10+ ((tp - 1000) * 0.010)) -- 10, 20, 30
+end
+
 function calculatedIgnoredDef(tp, def, ignore1, ignore2, ignore3)
     if (tp>=1000 and tp <2000) then
         return (ignore1 + ( ((ignore2-ignore1)/1000) * (tp-1000)))*def
@@ -999,7 +1034,7 @@ end
 -- Given the raw ratio value (atk/def) and levels, returns the cRatio (min then max)
 function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
 
-    local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH)
+    local flourisheffect = attacker:getStatusEffect(tpz.effect.BUILDING_FLOURISH) -- Building Flourish gives +25% Attack at 2+ Finishing Moves
     if flourisheffect ~= nil and flourisheffect:getPower() > 1 then
         attacker:addMod(tpz.mod.ATTP, 25 + flourisheffect:getSubPower() / 2)
     end
@@ -1545,4 +1580,106 @@ function getDexCritBonus(dDEX)
         nativeCrit = 0.01
     end
     return nativeCrit
+end
+
+function TryBreakMob(target)
+    local animationSub = target:AnimationSub()
+    if (GetMobFamily(target) == 'Troll') or (GetMobFamily(target) == 'Mamool') or (GetMobFamily(target) == 'Lamiae') or (GetMobFamily(target) == 'Merrow') then
+        if math.random(100) <= target:getLocalVar("BreakChance") then
+            -- break weapon
+            if animationSub == 0 or animationSub > 1 then
+                target:AnimationSub(1)
+                -- Gotoh Zha the Redolent throws his staff when it breaks
+                if target:getPool() == 1773 then
+                    target:useMobAbility(2361) -- Stave Toss
+                end
+            end
+        end
+    elseif (GetMobFamily(target) == 'Qutrub') then
+        if math.random(100) <= target:getLocalVar("qutrubBreakChance") then
+            -- break first weapon
+            if animationSub == 0 then
+                target:AnimationSub(1)
+                target:setLocalVar("swapTime", os.time() + 60)
+            -- break second weapon
+            elseif animationSub == 2 then
+                target:AnimationSub(3)
+                target:setLocalVar("swapTime", 0)
+            end
+        end
+    elseif (GetMobFamily(target) == 'Orobon') then
+        if math.random(100) <= target:getLocalVar("FeelersBreakChance") and animationSub == 0 then
+            target:AnimationSub(1)
+        end
+    elseif (GetMobFamily(target) == 'Acrolith') then
+        if math.random(100) <= target:getLocalVar("PartBreakChance") and animationSub == 0 and target:actionQueueEmpty() then
+            target:useMobAbility(2074) -- Detonating Grip
+        end
+        if math.random(100) <= target:getLocalVar("PartBreakChance") and animationSub == 1 and target:actionQueueEmpty() then
+            target:useMobAbility(2074) -- Detonating Grip
+        end
+    elseif (GetMobFamily(target) == 'Imp') then
+        if math.random(100) <= target:getLocalVar("HornBreakChance") and animationSub == 0 then
+            target:AnimationSub(1)
+            target:setLocalVar("ReobtainHornTime", os.time() + 60)
+        end
+    elseif (GetMobFamily(target) == 'Marid') then
+        if math.random(100) <= target:getLocalVar("HornBreakChance") and animationSub == 0 then
+            target:AnimationSub(1)
+			target:setLocalVar("Weapon", 1)
+		elseif math.random(100) <= target:getLocalVar("HornBreakChance") and animationSub == 1 then
+			target:AnimationSub(2)
+			target:setLocalVar("Weapon", 2)
+        end
+    elseif (GetMobFamily(target) == 'Gears') then
+        local GearNumber = target:getLocalVar("GearNumber")
+        -- Can lose a gear from crits after restoring a gear only
+        if GearNumber > 0 then
+            if math.random(100) <= target:getLocalVar("BreakChance") then
+                -- Lose a gear
+                if animationSub == 0 then
+                    target:AnimationSub(1)
+                    target:setLocalVar("GearNumber", 2)
+                end
+                -- Lose a gear
+                if animationSub == 1 then
+                    target:AnimationSub(2)
+                    target:setLocalVar("GearNumber", 1)
+                end
+            end
+        end
+    elseif (GetMobFamily(target) == 'Khimaira') then
+        if math.random(100) <= target:getLocalVar("WingsBreakChance") and animationSub == 0 then
+            target:AnimationSub(1)
+        end
+    elseif (GetMobFamily(target) == 'Hydra') then
+    end
+end
+
+function GetMobFamily(target)
+    if (target:getFamily() == 246) or (target:getFamily() == 308) or (target:getFamily() == 923) then
+        return 'Troll'
+    elseif (target:getFamily() == 176) or (target:getFamily() == 305) then
+        return 'Mamool'
+    elseif (target:getFamily() == 171)  then
+        return 'Lamiae'
+    elseif (target:getFamily() == 182) then
+        return 'Merrow'
+    elseif (target:getFamily() == 203) or (target:getFamily() == 204) or (target:getFamily() == 205) then
+        return 'Qutrub'
+    elseif (target:getFamily() == 191) then 
+        return 'Orobon'
+    elseif (target:getFamily() == 1) or (target:getFamily() == 302) then 
+        return 'Acrolith'
+    elseif (target:getFamily() == 165) or (target:getFamily() == 166) or (target:getFamily() == 301) or (target:getFamily() == 549) then 
+        return 'Imp'
+    elseif (target:getFamily() == 180) or (target:getFamily() == 295) or (target:getFamily() == 371) then 
+        return 'Marid'
+    elseif (target:getFamily() == 119) or (target:getFamily() == 120) or (target:getFamily() == 304) then 
+        return 'Gears'
+    elseif (target:getFamily() == 168) or (target:getFamily() == 315) then 
+        return 'Khimaira'
+    elseif (target:getFamily() == 163) or (target:getFamily() == 164) or (target:getFamily() == 313)  then 
+        return 'Hydra'
+    end
 end

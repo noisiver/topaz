@@ -1,36 +1,22 @@
 ---------------------------------------------
---  Geist Wall
+--  Depuration
 --
---  Description: Party memory erase.
---  Type: Enfeebling
---  Notes: Removes one detrimental magic effect for party members within area of effect.
+--  Description: Dispels all negative status effects off self.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-
-    local dispel = target:eraseStatusEffect()
-
-    if (dispel ~= tpz.effect.NONE) then
+    if utils.hasDispellableEffect(target) then
         return 0
     end
-
     return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dispel = target:eraseStatusEffect()
-
-    if (dispel == tpz.effect.NONE) then
-        -- no effect
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
-    else
-        skill:setMsg(tpz.msg.basic.SKILL_ERASE)
-    end
-
-    return dispel
+    return MobSelfDispelMove(mob, skill)
 end

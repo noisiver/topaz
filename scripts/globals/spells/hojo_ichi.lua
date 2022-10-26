@@ -19,22 +19,12 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
     params.bonus = 0
+    params.effect = tpz.effect.SLOW
+    local power = 1500
     local resist = applyResistance(caster, target, spell, params)
-    
     local duration =  math.ceil(180 * resist)
-    -- Spell succeeds if a 1 or 1/2 resist check is achieved
-    if resist >= 0.5 then
-        --Power for Hojo is a flat 14.6% reduction
-        local power = 1500
-        if target:addStatusEffect(tpz.effect.SLOW, power, 0, duration) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
 
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
 
-    return tpz.effect.SLOW
+    return params.effect
 end

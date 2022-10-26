@@ -34,9 +34,9 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.chr_wsc = 0.0
 
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_DMG_VARIES, params_phys, 2.75, 2.75)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, info.hitslanded)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, info.hitslanded)
 
-    target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
+    target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.RANGED)
     return dmg
 
 end

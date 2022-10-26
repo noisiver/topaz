@@ -82,6 +82,7 @@ tpz.msg.basic =
     MAGIC_GAIN_EFFECT      = 230, -- <caster> casts <spell>. <target> gains the effect of <status>.
     MAGIC_ENFEEB_IS        = 236, -- <caster> casts <spell>. <target> is <status>.
     MAGIC_ENFEEB           = 237, -- <caster> casts <spell>. <target> receives the effect of <status>.
+    MAGIC_BURST_BLACK      = 252, -- "Magic Burst!" Black Magic
     MAGIC_CASTS_ON         = 309, -- <caster> casts <spell> on <target>.
     MAGIC_ABSORB_STR       = 329, -- <caster> casts <spell>. <target>'s STR is drained.
     MAGIC_ABSORB_DEX       = 330, -- <caster> casts <spell>. <target>'s DEX is drained.

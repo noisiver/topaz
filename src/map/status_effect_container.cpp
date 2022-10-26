@@ -549,9 +549,9 @@ void CStatusEffectContainer::RemoveStatusEffect(CStatusEffect* PStatusEffect, bo
 
             if (PStatusEffect->GetIcon() != 0)
             {
-                if (!silent && (PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0)
+                if (!silent && (PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0 && !m_POwner->isDead())
                 {
-                    PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, PStatusEffect->GetIcon(), 0, 206));
+                    m_POwner->loc.zone->PushPacket(m_POwner, CHAR_INRANGE_SELF, new CMessageBasicPacket(m_POwner, m_POwner, PStatusEffect->GetIcon(), 0, 206));
                 }
             }
         }
@@ -771,7 +771,86 @@ uint8 CStatusEffectContainer::EraseAllStatusEffect()
             PStatusEffect->GetDuration() > 0 &&
             !PStatusEffect->deleted)
         {
-            RemoveStatusEffect(PStatusEffect);
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+    }
+    return count;
+}
+
+uint8 CStatusEffectContainer::RemoveAllNegativeEffects()
+{
+    uint8 count = 0;
+    for (CStatusEffect* PStatusEffect : m_StatusEffectSet)
+    {
+        if (PStatusEffect->GetFlag() & EFFECTFLAG_ERASABLE &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() >= 2 && PStatusEffect->GetStatusID() <= 31 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() >= 128 && PStatusEffect->GetStatusID() <= 142 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() >= 144 && PStatusEffect->GetStatusID() <= 149 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() >= 167 && PStatusEffect->GetStatusID() <= 168 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() >= 192 && PStatusEffect->GetStatusID() <= 194 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() >= 386 && PStatusEffect->GetStatusID() <= 400 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() == 156 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() == 186 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
+            count++;
+        }
+        if (PStatusEffect->GetStatusID() == 189 &&
+            PStatusEffect->GetDuration() > 0 &&
+            !PStatusEffect->deleted)
+        {
+            RemoveStatusEffect(PStatusEffect, true);
             count++;
         }
     }
@@ -1205,7 +1284,7 @@ CStatusEffect* CStatusEffectContainer::StealStatusEffect(EFFECTFLAG flag)
         //make a copy
         CStatusEffect* EffectCopy = new CStatusEffect(oldEffect->GetStatusID(), oldEffect->GetIcon(), oldEffect->GetPower(), oldEffect->GetTickTime() / 1000, oldEffect->GetDuration() / 1000);
 
-        RemoveStatusEffect(oldEffect);
+        RemoveStatusEffect(oldEffect, true);
 
         return EffectCopy;
     }
@@ -1505,7 +1584,20 @@ void CStatusEffectContainer::CheckEffectsExpiry(time_point tick)
         if (PStatusEffect->GetDuration() != 0 &&
             std::chrono::milliseconds(PStatusEffect->GetDuration()) + PStatusEffect->GetStartTime() <= tick)
         {
-            RemoveStatusEffect(PStatusEffect);
+            // Mobs shouldn't display effects fading in chat when out of combat
+            if (m_POwner->objtype == TYPE_MOB && m_POwner->PAI->IsRoaming())
+            {
+                RemoveStatusEffect(PStatusEffect, true);
+            }
+            // Status effects that have no loss flag
+            else if (PStatusEffect->GetIcon() != 0 && ((PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0))
+            {
+                RemoveStatusEffect(PStatusEffect, true);
+            }
+            else
+            {
+                RemoveStatusEffect(PStatusEffect);
+            }
         }
     }
     DeleteStatusEffects();
@@ -1623,7 +1715,7 @@ void CStatusEffectContainer::TickEffects(time_point tick)
         for (const auto& PStatusEffect : m_StatusEffectSet)
         {
             if (PStatusEffect->GetTickTime() != 0 &&
-                PStatusEffect->GetElapsedTickCount() <= std::chrono::duration_cast<std::chrono::milliseconds>(tick - PStatusEffect->GetStartTime()).count() / PStatusEffect->GetTickTime())
+                PStatusEffect->GetElapsedTickCount() < std::chrono::duration_cast<std::chrono::milliseconds>(tick - PStatusEffect->GetStartTime()).count() / PStatusEffect->GetTickTime())
             {
                 if (PStatusEffect->GetFlag() & EFFECTFLAG_AURA)
                 {

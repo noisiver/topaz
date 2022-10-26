@@ -35,7 +35,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     local UndaRunes = player:getLocalVar("UndaRunes")
-    local RuneDuration = player:getMainLvl() + 15
+    local RuneDuration = 7200
     if damage > 0 and UndaRunes <=2 then
         for v = 523,527,1 do
             player:delStatusEffectSilent(v)
@@ -46,12 +46,11 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         player:addStatusEffect(tpz.effect.UNDA, 1, 0, RuneDuration)
     end
 
-    local chance = (tp - 1000) * applyResistanceAddEffect(player, target, tpz.magic.ele.LIGHTNING, 0) > math.random() * 150
-    if (damage > 0 and chance) then
-        if (target:hasStatusEffect(tpz.effect.STUN) == false) then
-            target:addStatusEffect(tpz.effect.STUN, 1, 0, 4)
-        end
+    local maccBonus = math.floor(MaccTPModifier(tp))
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.THUNDER, maccBonus)
+    if (damage > 0) and not target:hasStatusEffect(tpz.effect.STUN) and (resist >= 0.0625) then
+        local duration = 12 * resist
+        target:addStatusEffect(tpz.effect.STUN, 1, 0, duration)
     end
     return tpHits, extraHits, criticalHit, damage
-
 end

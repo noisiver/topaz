@@ -24,14 +24,13 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.SLEEP_I
     local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     local params = {}
-    params.diff = nil
+    params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.effect = typeEffect
+    params.effect = tpz.effect.SLEEP_I
     local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 90 * resist
 	local beast = (target:getSystem() == 6)
@@ -49,15 +48,13 @@ function onSpellCast(caster, target, spell)
 		end
 	end
 
-    if (resist >= 0.5) then -- Do it!
-        if (target:addStatusEffect(typeEffect, 1, 0, duration)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    -- Can't overwrite any sleep
+    if hasSleepT1Effect(target) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
     end
 
-    return typeEffect
+    TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
+
+    return params.effect
 end

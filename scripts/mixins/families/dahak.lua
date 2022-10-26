@@ -26,6 +26,19 @@ g_mixins.families.dahak = function(mob)
         end
     end)
 
+        mob:addListener("EN_SPIKES_HIT", "DAHAK_EN_SPIKES_HIT", function(attacker, mob, element)
+        local fireEle = 1
+        local waterEle = 6
+
+        if (element == fireEle) then
+            printf("adding tp")
+            mob:addTP(400)
+        elseif (element == waterEle) then
+            printf("removing tp")
+            mob:delTP(400)
+        end
+    end)
+
 end
 
 return g_mixins.families.dahak

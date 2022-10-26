@@ -55,7 +55,7 @@ function onSpellCast(caster, target, spell)
     --local dotdmg = math.floor((skillLvl + 29) / 40)
     local dotdmg = math.floor((skillLvl + 29) / 5)
     if caster:isMob() then -- Don't let this scale out of control from mobs
-        dotdmg = math.floor(dotdmg * 0.5)
+        dotdmg = math.floor((skillLvl + 29) / 40)
     end
     dotdmg = utils.clamp(dotdmg, 3, 100)
 

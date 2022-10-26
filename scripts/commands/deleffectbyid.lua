@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
--- func: addeffect
+-- func: deleffectbyid
 -- desc: Removes the given effect from the given player.
 ---------------------------------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!deleffectid {player} <effect>")
+    player:PrintToPlayer("!deleffectbyid {player} <effect>")
 end
 
 function onTrigger(player, arg1, arg2)

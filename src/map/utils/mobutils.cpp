@@ -218,8 +218,9 @@ void CalculateStats(CMobEntity * PMob)
     JOBTYPE sJob = PMob->GetSJob();
     uint8 mLvl = PMob->GetMLevel();
     ZONETYPE zoneType = PMob->loc.zone->GetType();
+    ZONEID zoneID = PMob->loc.zone->GetID();
 
-    if(PMob->HPmodifier == 0)
+    if (PMob->HPmodifier == 0 && PMob->getMobMod(MOBMOD_HP) == 0)
     {
         float hpScale = PMob->HPscale;
 
@@ -281,7 +282,14 @@ void CalculateStats(CMobEntity * PMob)
     }
     else
     {
-        PMob->health.maxhp = PMob->HPmodifier;
+        if (PMob->getMobMod(MOBMOD_HP) != 0)
+        {
+            PMob->health.maxhp = PMob->getMobMod(MOBMOD_HP);
+        }
+        else
+        {
+            PMob->health.maxhp = PMob->HPmodifier;
+        }
     }
 
     if(isNM)
@@ -543,7 +551,14 @@ void CalculateStats(CMobEntity * PMob)
     }
     else if (zoneType == ZONETYPE_DUNGEON_INSTANCED)
     {
-        SetupDungeonInstancedMob(PMob);
+        if (zoneID > ZONE_ALZADAAL_UNDERSEA_RUINS && zoneID < ZONE_NYZUL_ISLE)
+        {
+            SetupSalvageMob(PMob);
+        }
+        else
+        {
+            SetupDungeonInstancedMob(PMob);
+        }
     }
     else if (zoneType == ZONETYPE_STRONGHOLDS)
     {
@@ -604,14 +619,25 @@ void SetupJob(CMobEntity* PMob)
     {
         PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
     }
-
     // This switch falls back to a subjob if a mainjob isn't matched, and is mainly magic stuff
     switch(job)
     {
         case JOB_WAR:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::VIRUSRESTRAIT, 0);
+            }
             if (mLvl >= 25)
             {
                 PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
+            }
+            break;
+        case JOB_SAM:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BLINDRESTRAIT, 0);
             }
             break;
         case JOB_BLM:
@@ -621,10 +647,8 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 10);
             break;
         case JOB_PLD:
-            if ((PMob->m_Family >= 75 && PMob->m_Family <= 77) || (PMob->m_Family >= 137 && PMob->m_Family <= 138) || PMob->m_Family == 57 ||
-                PMob->m_Family == 241 || PMob->m_Family == 194 || PMob->m_Family == 272 || PMob->m_Family == 220 || PMob->m_Family == 78 ||
-                PMob->m_Family == 49 || PMob->m_Family == 2)
-                // Crabs, Beetles, promy mobs, Phuabo, Zdei, Buffalos, Adamantoise
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::SLEEPRESTRAIT, 0);  
             }
@@ -632,10 +656,8 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_DRK:
-            if ((PMob->m_Family >= 255 && PMob->m_Family <= 256) || (PMob->m_Family >= 319 && PMob->m_Family <= 325) ||
-                (PMob->m_Family >= 203 && PMob->m_Family <= 205) || (PMob->m_Family >= 88 && PMob->m_Family <= 89) || PMob->m_Family == 227 ||
-                PMob->m_Family == 72 || PMob->m_Family == 217 || PMob->m_Family == 74 || PMob->m_Family == 81 || PMob->m_Family == 252 || PMob->m_Family == 378)
-            // Promy mobs, Avatars, Qutrubs, Draugar Skeletons, Scorpions, Colibri, Corse, Diremite, Vampyr, Diabolos
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
             }
@@ -647,6 +669,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_BRD:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SILENCERESTRAIT, 0);
+            }
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 25);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 60);
@@ -656,12 +683,22 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             break;
         case JOB_RDM:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::PETRIFYRESTRAIT, 0);
+            }
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 15);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_SMN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SLOWRESTRAIT, 0);
+            }
 		 if (PMob->m_Family != 3)  // Exclude Aerns, should only summon in combat and hide their jobs
 		 {
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 180);
@@ -669,6 +706,11 @@ void SetupJob(CMobEntity* PMob)
 		 }
             break;
         case JOB_NIN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BINDRESTRAIT, 0);
+            }
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 75);
@@ -688,8 +730,18 @@ void SetupJob(CMobEntity* PMob)
                 // 50% bonus
                 PMob->defaultMobMod(MOBMOD_GIL_BONUS, 150);
             }
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::GRAVITYRESTRAIT, 0);
+            }
             break;
         case JOB_RNG:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::POISONRESTRAIT, 0);
+            }
             if ((PMob->m_Family >= 126 && PMob->m_Family <= 130) || PMob->m_Family == 328) // Gigas
             {
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 658); // catapult only used while at range
@@ -712,8 +764,12 @@ void SetupJob(CMobEntity* PMob)
             }
             else
             {
-                // All other rangers
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
+                // Gear(s)
+                if (PMob->m_Family != 119 && PMob->m_Family != 120)
+                {
+                    // All other rangers
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
+                }
             }
 
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
@@ -742,6 +798,11 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
             break;
         case JOB_BST:
+         if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+         // Only beastmen get resist job traits
+         {
+         PMob->setModifier(Mod::AMNESIARESTRAIT, 0);
+         }
 		 if (PMob->m_Family != 3)  // Exclude Aerns, should only summon in combat and hide their jobs
 		 {
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 180);
@@ -763,9 +824,84 @@ void SetupJob(CMobEntity* PMob)
     switch (sJob)
     {
         case JOB_WAR:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::VIRUSRESTRAIT, 0);
+            }
             if (sLvl >= 25)
             {
                 PMob->setModifier(Mod::DOUBLE_ATTACK, 25);
+            }
+            break;
+        case JOB_RDM:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::PETRIFYRESTRAIT, 0);
+            }
+            break;
+        case JOB_THF:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::GRAVITYRESTRAIT, 0);
+            }
+            break;
+        case JOB_PLD:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SLEEPRESTRAIT, 0);
+            }
+            break;
+        case JOB_DRK:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
+            }
+            break;
+        case JOB_BRD:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SILENCERESTRAIT, 0);
+            }
+            break;
+        case JOB_BST:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::AMNESIARESTRAIT, 0);
+            }
+            break;
+        case JOB_RNG:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::POISONRESTRAIT, 0);
+            }
+            break;
+        case JOB_NIN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BINDRESTRAIT, 0);
+            }
+            break;
+        case JOB_SAM:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BLINDRESTRAIT, 0);
+            }
+            break;
+        case JOB_SMN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::SLOWRESTRAIT, 0);
             }
             break;
         default:
@@ -805,7 +941,6 @@ void SetupRoaming(CMobEntity* PMob)
         PMob->setMobMod(MOBMOD_ROAM_DISTANCE, 5);
         PMob->setMobMod(MOBMOD_ROAM_TURNS, 1);
     }
-
 }
 
 void SetupPetSkills(CMobEntity* PMob)
@@ -951,6 +1086,75 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
     PMob->SetDespawnTime(0s);
 
     PMob->addModifier(Mod::REFRESH, 400);
+}
+
+void SetupSalvageMob(CMobEntity* PMob)
+{
+    uint8 mLvl = PMob->GetMLevel();
+    // Bonus stats for difficulty
+    if (mLvl >= 90)
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 25);
+        PMob->addModifier(Mod::DEFP, 25);
+        PMob->addModifier(Mod::ACC, 15);
+        PMob->addModifier(Mod::EVA, 15);
+        PMob->setMobMod(MOBMOD_NO_ROAM, 1);
+    }
+    else if (mLvl >= 85)
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 130);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 25);
+        PMob->addModifier(Mod::DEFP, 25);
+        PMob->addModifier(Mod::ACC, 15);
+        PMob->addModifier(Mod::EVA, 15);
+        PMob->setMobMod(MOBMOD_NO_ROAM, 1);
+    }
+    else
+    {
+        // boost mobs weapon damage
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 115);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+
+        PMob->addModifier(Mod::ATTP, 25);
+        PMob->addModifier(Mod::DEFP, 25);
+        PMob->addModifier(Mod::ACC, 15);
+        PMob->addModifier(Mod::EVA, 15);
+    }
+
+    // No gil drops or exp
+    PMob->setMobMod(MOBMOD_GIL_MAX, -1);
+    PMob->setMobMod(MOBMOD_MUG_GIL, -1);
+    PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
+    // set delay
+    ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDelay(2000);
+    // add true sight + sound
+    PMob->m_Aggro = 1;
+    PMob->setMobMod(MOBMOD_AGGRO_SIGHT, 1);
+    PMob->setMobMod(MOBMOD_AGGRO_SOUND, 1);
+    PMob->setMobMod(MOBMOD_TRUE_SIGHT, 1);
+    PMob->setMobMod(MOBMOD_TRUE_SOUND, 1);
+    // increase aggro ranges
+    PMob->setMobMod(MOBMOD_SIGHT_RANGE, 20);
+    PMob->setMobMod(MOBMOD_SOUND_RANGE, 15);
+    // add same family linking
+    PMob->setMobMod(MOBMOD_FAMILYLINK, 1); 
+    // reduce roam radius
+    PMob->m_maxRoamDistance = 5.0f;
+    // never despawn
+    PMob->SetDespawnTime(0s);
+    // return to spawn on disengage
+    PMob->setMobMod(MOBMOD_RETURN_TO_SPAWN, 1); 
+    // add global mods
+    PMob->addModifier(Mod::DMGSPIRITS, -100);
+    PMob->addModifier(Mod::REFRESH, 400);
+    PMob->setModifier(Mod::MOVE, 15);
 }
 
 void SetupStrongholdsMob(CMobEntity* PMob)
@@ -1127,6 +1331,10 @@ void InitializeMob(CMobEntity* PMob, CZone* PZone)
     PMob->defaultMobMod(MOBMOD_TP_USE_CHANCE, 92); // 92 = 0.92% chance per 400ms tick (50% chance by 30 seconds) while mob HPP>25 and mob TP >=1000 but <3000
     PMob->defaultMobMod(MOBMOD_SIGHT_RANGE, (int16)CMobEntity::sight_range);
     PMob->defaultMobMod(MOBMOD_SOUND_RANGE, (int16)CMobEntity::sound_range);
+    PMob->defaultMobMod(MOBMOD_MAGIC_RANGE, (int16)CMobEntity::magic_range);
+    PMob->defaultMobMod(MOBMOD_WS_RANGE, (int16)CMobEntity::ws_range);
+    PMob->defaultMobMod(MOBMOD_JA_RANGE, (int16)CMobEntity::ja_range);
+    PMob->defaultMobMod(MOBMOD_HP_RANGE, (int16)CMobEntity::low_hp_range);
 
     // Killer Effect
     switch (PMob->m_EcoSystem)
@@ -1446,6 +1654,7 @@ CMobEntity* InstantiateAlly(uint32 groupid, uint16 zoneID, CInstance* instance)
 
             PMob->setModifier(Mod::SLASHRES, (uint16)(Sql_GetFloatData(SqlHandle, 31) * 1000));
             PMob->setModifier(Mod::PIERCERES, (uint16)(Sql_GetFloatData(SqlHandle, 32) * 1000));
+            PMob->setModifier(Mod::RANGEDRES, (uint16)(Sql_GetFloatData(SqlHandle, 32) * 1000));
             PMob->setModifier(Mod::HTHRES, (uint16)(Sql_GetFloatData(SqlHandle, 33) * 1000));
             PMob->setModifier(Mod::IMPACTRES, (uint16)(Sql_GetFloatData(SqlHandle, 34) * 1000));
 

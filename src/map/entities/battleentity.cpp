@@ -41,6 +41,7 @@
 #include "../recast_container.h"
 #include "../roe.h"
 #include "../status_effect_container.h"
+#include "../enmity_container.h"
 #include "../utils/battleutils.h"
 #include "../utils/petutils.h"
 #include "../utils/puppetutils.h"
@@ -186,7 +187,14 @@ void CBattleEntity::UpdateHealth()
 
 uint8 CBattleEntity::GetHPP()
 {
-    return (uint8)ceil(((float)health.hp / (float)GetMaxHP()) * 100);
+    uint8 hpp = (uint8)floor(((float)health.hp / (float)GetMaxHP()) * 100);
+    // handle the edge case where a floor would show a mob with 1/1000 hp as 0
+    if (hpp == 0 && health.hp > 0)
+    {
+        hpp = 1;
+    }
+
+    return hpp;
 }
 
 int32 CBattleEntity::GetMaxHP()
@@ -284,7 +292,7 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
         if (PMain && !PMain->isTwoHanded() && !PMain->isHandToHand() &&
                  (!PSub || PSub->getSkillType() == SKILL_NONE || m_Weapons[SLOT_SUB]->IsShield()))
         {
-            if (getMod(Mod::FENCER_JA_HASTE) > 0)
+            if (objtype == TYPE_PC && getMod(Mod::FENCER_JA_HASTE) > 0)
             {
                 WeaponDelay = (uint16)(WeaponDelay * ((100.0f - getMod(Mod::FENCER_JA_HASTE)) / 100.0f));
             }
@@ -316,7 +324,7 @@ int16 CBattleEntity::GetWeaponDelay(bool tp)
         // TODO: Could be converted to value/1024 if the exact cap is ever determined.
         MinimumDelay -= (uint16)(MinimumDelay * 0.8);
         WeaponDelay = (WeaponDelay < MinimumDelay) ? MinimumDelay : WeaponDelay;
-        //printf("Your weapon delay is... %i \n", WeaponDelay);
+        //ShowDebug("Your weapon delay is... %i \n", WeaponDelay);
     }
     return WeaponDelay;
 }
@@ -561,6 +569,12 @@ int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullp
         roeutils::event(ROE_EVENT::ROE_DMGTAKEN, static_cast<CCharEntity*>(this), RoeDatagram("dmg", amount));
     else if (PLastAttacker && PLastAttacker->objtype == TYPE_PC)
         roeutils::event(ROE_EVENT::ROE_DMGDEALT, static_cast<CCharEntity*>(attacker), RoeDatagram("dmg", amount));
+
+    // Damage always breaks petrify on mobs, but not players or NPCs(trusts, campaign helpers, etc)
+    if (this->objtype == TYPE_MOB)
+    {
+        this->StatusEffectContainer->DelStatusEffect(EFFECT_PETRIFICATION);
+    }
 
     return addHP(-amount);
 }
@@ -1556,6 +1570,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 {
     auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
 
+    // Don't attack if currently synthing
+    if (this->animation == ANIMATION_SYNTH)
+    {
+        return false;
+    }
+
     if (PTarget->objtype == TYPE_PC)
     {
         // TODO: Should not be removed by AoE effects that don't target the player.
@@ -1807,12 +1827,22 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         if (actionTarget.reaction != REACTION_HIT && actionTarget.reaction != REACTION_BLOCK && actionTarget.reaction != REACTION_GUARD)
         {
             actionTarget.param = 0;
+            // add 1 ce for a missed attack for TH application
+            if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
+            {
+                ((CMobEntity*)PTarget)->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0);
+            }
         }
 
         if (actionTarget.reaction != REACTION_EVADE && actionTarget.reaction != REACTION_PARRY)
         {
             battleutils::HandleEnspell(this, PTarget, &actionTarget, attack.IsFirstSwing(), (CItemWeapon*)this->m_Weapons[attack.GetWeaponSlot()], attack.GetDamage());
             battleutils::HandleSpikesDamage(this, PTarget, &actionTarget, attack.GetDamage());
+
+            uint8 enspell = (uint8)this->getMod(Mod::ENSPELL);
+
+            // Add listener
+            PTarget->PAI->EventHandler.triggerListener("EN_SPIKES_HIT", this, PTarget, enspell);
         }
 
         if (actionTarget.speceffect == SPECEFFECT_HIT && actionTarget.param > 0)

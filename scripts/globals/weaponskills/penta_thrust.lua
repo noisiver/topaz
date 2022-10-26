@@ -31,7 +31,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.POLEARM, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     local IgnisRunes = player:getLocalVar("IgnisRunes")
-    local RuneDuration = player:getMainLvl() + 15
+    local RuneDuration = 7200
     if player:getMainJob() == tpz.job.SAM then 
         if damage > 0 and IgnisRunes <=2 then
             for v = 524,530,1 do

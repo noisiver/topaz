@@ -33,6 +33,12 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.STUN
     local resist = applyResistanceEffect(caster, target, spell, params)
 
+    -- Stun can't be applied if target is already stunned
+    if target:hasStatusEffect(tpz.effect.STUN) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return damage
+    end
+
     if (resist >= 0.0625) then -- Do it!
         target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- https://www.bg-wiki.com/bg/Mind_Blast says 20%
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)

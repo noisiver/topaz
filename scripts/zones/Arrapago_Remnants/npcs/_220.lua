@@ -12,11 +12,7 @@ function onEventFinish(entity, eventid, result, door)
     if (eventid == 300 and result == 1) then
         door:setAnimation(8)
         local instance = door:getInstance()
-        -- spawn mobs, etc
-        for i, v in pairs(ID.npc[1][2]) do
-            local npc = GetNPCByID(v, instance)
-            npc:setStatus(tpz.status.NORMAL)
-        end
+        -- spawn mobs
         for id = ID.mob[1][2].mobs_start, ID.mob[1][2].mobs_end do
             SpawnMob(id, instance)
         end

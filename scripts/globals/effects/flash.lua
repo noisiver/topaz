@@ -11,8 +11,10 @@ function onEffectGain(target, effect)
 end
 
 function onEffectTick(target, effect)
-effect:setPower(effect:getPower()-50)
-target:delMod(tpz.mod.ACC, -50)
+    if target:getStatusEffect(tpz.effect.FLASH):getPower() > 50 then
+        effect:setPower(effect:getPower()-50)
+        target:delMod(tpz.mod.ACC, -50)
+    end
 end
 
 function onEffectLose(target, effect)

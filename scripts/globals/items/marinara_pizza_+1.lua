@@ -26,16 +26,20 @@ end
 
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.HP, 25)
-    target:addMod(tpz.mod.FOOD_ATTP, 16)
+    target:addMod(tpz.mod.FOOD_ATTP, 21)
     target:addMod(tpz.mod.FOOD_ATT_CAP, 55)
     target:addMod(tpz.mod.FOOD_ACCP, 11)
     target:addMod(tpz.mod.FOOD_ACC_CAP, 58)
+    target:addMod(tpz.mod.UNDEAD_KILLER, 5)
+    target:addMod(tpz.mod.UNDEAD_CIRCLE, 5)
 end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.HP, 25)
-    target:delMod(tpz.mod.FOOD_ATTP, 16)
+    target:delMod(tpz.mod.FOOD_ATTP, 21)
     target:delMod(tpz.mod.FOOD_ATT_CAP, 55)
     target:delMod(tpz.mod.FOOD_ACCP, 11)
     target:delMod(tpz.mod.FOOD_ACC_CAP, 58)
+    target:delMod(tpz.mod.UNDEAD_KILLER, 5)
+    target:delMod(tpz.mod.UNDEAD_CIRCLE, 5)
 end

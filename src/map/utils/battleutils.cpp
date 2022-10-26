@@ -628,7 +628,7 @@ namespace battleutils
         DAYTYPE weakDay[8] = { WATERSDAY, FIRESDAY, ICEDAY, WINDSDAY, EARTHSDAY, LIGHTNINGDAY, DARKSDAY, LIGHTSDAY };
         WEATHER strongWeatherSingle[8] = { WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_RAIN, WEATHER_AURORAS, WEATHER_GLOOM };
         WEATHER strongWeatherDouble[8] = { WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_SQUALL, WEATHER_STELLAR_GLARE, WEATHER_DARKNESS };
-        WEATHER weakWeatherSingle[8] = { WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_RAIN, WEATHER_GLOOM, WEATHER_AURORAS };
+        WEATHER weakWeatherSingle[8] = { WEATHER_RAIN, WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_GLOOM, WEATHER_AURORAS };
         WEATHER weakWeatherDouble[8] = { WEATHER_SQUALL, WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_DARKNESS, WEATHER_STELLAR_GLARE };
         uint32 obi[8] = { 15435, 15436, 15437, 15438, 15439, 15440, 15441, 15442 };
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
@@ -638,7 +638,7 @@ namespace battleutils
         {
             CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
            // if (waist && waist->getID() == obi[element])
-            if (waist && waist->getID() == obi[element])
+            if (waist && waist->getID() == obi[element] || waist && waist->getID() == 28419)
             {
                 obiBonus = true;
             }
@@ -854,6 +854,23 @@ namespace battleutils
                     Action->spikesParam = 0;
                 }
             }
+            // Handle Deluge / Gale / Clod / Glint spikes
+            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DELUGE_SPIKES))
+            {
+                Action->spikesEffect = SUBEFFECT_DELUGE_SPIKES;
+            }
+            else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_GALE_SPIKES))
+            {
+                Action->spikesEffect = SUBEFFECT_GALE_SPIKES;
+            }
+            else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_CLOD_SPIKES))
+            {
+                Action->spikesEffect = SUBEFFECT_CLOD_SPIKES;
+            }
+            else if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_GLINT_SPIKES))
+            {
+                Action->spikesEffect = SUBEFFECT_GLINT_SPIKES;
+            }
 
             // calculate damage
             Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
@@ -868,10 +885,24 @@ namespace battleutils
                 case SPIKE_ICE:
                     element = ELEMENT_ICE;
                     break;
+                case SPIKE_GALE:
+                    element = ELEMENT_WIND;
+                    break;
+                case SPIKE_CLOD:
+                    element = ELEMENT_EARTH;
+                    break;
                 case SPIKE_SHOCK:
                     element = ELEMENT_THUNDER;
                     break;
+                case SPIKE_DELUGE:
+                    element = ELEMENT_WATER;
+                    break;
+                case SPIKE_REPRISAL:
+                    element = ELEMENT_LIGHT;
+                    break;
+                case SPIKE_GLINT:
                 case SPIKE_DREAD:
+                case SPIKE_CURSE:
                     element = ELEMENT_DARK;
                     break;
                 default:
@@ -886,6 +917,10 @@ namespace battleutils
                 case SPIKE_BLAZE:
                 case SPIKE_ICE:
                 case SPIKE_SHOCK:
+                case SPIKE_GALE:
+                case SPIKE_CLOD:
+                case SPIKE_DELUGE:
+
                     PAttacker->takeDamage(Action->spikesParam,
                                           PDefender, ATTACK_MAGICAL,
                                           GetSpikesDamageType(Action->spikesEffect));
@@ -1092,7 +1127,8 @@ namespace battleutils
                 static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
                // printf("Spikes resist after getMagicResist %f \n", resist);
             {
-                if (resist >= 0.5f  && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false)
+                    if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false &&
+                    tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::CURSERESTRAIT))
                 {
                     PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_CURSE, EFFECT_CURSE, 25, 0, (uint32)(30 * (float)resist)));
                 }
@@ -1143,7 +1179,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::SLOWRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 20, 0, (uint32)(30 * (float)resist)));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_SLOW, EFFECT_SLOW, 3500, 0, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1155,7 +1191,7 @@ namespace battleutils
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::POISONRESTRAIT))
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 3500, 3, (uint32)(30 * (float)resist)));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_POISON, EFFECT_POISON, 20, 3, (uint32)(30 * (float)resist)));
                 }
                 break;
             }
@@ -1166,7 +1202,7 @@ namespace battleutils
             {
                     if (resist >= 0.5f && tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::DEATHRESTRAIT))
                 {
-                    PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_KO, EFFECT_KO, 1, 0, 0));
+                        PAttacker->addHP(-9999);
                 }
                 break;
             }
@@ -2045,10 +2081,14 @@ namespace battleutils
             else
                 return 0;
         }
-        else if (PDefender->objtype == TYPE_MOB && PDefender->GetMJob() == JOB_PLD)
+        else if (PDefender->objtype == TYPE_MOB)
         {
             CMobEntity* PMob = (CMobEntity*)PDefender;
-            if (PMob->m_EcoSystem != SYSTEM_UNDEAD && PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (PMob->getMobMod(MOBMOD_BLOCK) > 0)
+            {
+                return base = PMob->getMobMod(MOBMOD_BLOCK);
+            }
+            else
                 return 0;
         }
         else if (PDefender->objtype == TYPE_PET && static_cast<CPetEntity*>(PDefender)->getPetType() == PETTYPE_AUTOMATON && PDefender->GetMJob() == JOB_PLD)
@@ -2224,10 +2264,14 @@ namespace battleutils
                 formlessMod += ((CCharEntity*)PAttacker)->PMeritPoints->GetMeritValue(MERIT_FORMLESS_STRIKES, (CCharEntity*)PAttacker);
 
             damage = damage * formlessMod / 100;
+            // Add Spirits Damage Taken mod
+            int32 DMGSPIRITS = PDefender->getMod(Mod::DMGSPIRITS);
 
+            DMGSPIRITS = std::clamp((int32)DMGSPIRITS, -100, 100);
+            damage = (int32)(damage * (1.f + (DMGSPIRITS / 100.f)));
             // TODO: chance to 'resist'
 
-            damage = MagicDmgTaken(PDefender, damage, ELEMENT_NONE);
+            damage = BreathDmgTaken(PDefender, damage);
         }
         else
         {
@@ -2236,6 +2280,7 @@ namespace battleutils
             if (isRanged)
             {
                 attackType = ATTACK_RANGED;
+                damageType = DAMAGE_RANGED;
                 damage = RangedDmgTaken(PDefender, damage, damageType, isCovered);
             }
             else
@@ -2272,6 +2317,9 @@ namespace battleutils
                     case DAMAGE_PIERCING:
                         resmult = (float)(PDefender->getMod(Mod::PIERCERES)) / 1000.0f;
                         break;
+                    case DAMAGE_RANGED:
+                        resmult = (float)(PDefender->getMod(Mod::RANGEDRES)) / 1000.0f;
+                        break;
                     case DAMAGE_SLASHING:
                         resmult = (float)(PDefender->getMod(Mod::SLASHRES)) / 1000.0f;
                         break;
@@ -2303,7 +2351,7 @@ namespace battleutils
             if (isBlocked)
             {
                 uint8 absorb = 100;
-                if (PDefender->m_Weapons[SLOT_SUB]->IsShield())
+                if (PDefender->m_Weapons[SLOT_SUB]->IsShield() || ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
                 {
                     if (PDefender->objtype == TYPE_PC)
                     {
@@ -2312,7 +2360,7 @@ namespace battleutils
 
                         // Shield Mastery
                         if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0)
-                            && charutils::hasTrait((CCharEntity*)PDefender, TRAIT_SHIELD_MASTERY))
+                            && PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
                         {
                             // If the player blocked with a shield and has shield mastery, add shield mastery TP bonus
                             // unblocked damage (before block but as if affected by stoneskin/phalanx) must be greater than zero
@@ -2324,8 +2372,26 @@ namespace battleutils
                         absorb = 50;
 
                         //Shield Mastery
-                        if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0)
-                            && (PDefender->getMod(Mod::SHIELD_MASTERY_TP)))
+                        if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0) &&
+                            PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
+                        {
+                            // If the player blocked with a shield and has shield mastery, add shield mastery TP bonus
+                            // unblocked damage (before block but as if affected by stoneskin/phalanx) must be greater than zero
+                            PDefender->addTP(PDefender->getMod(Mod::SHIELD_MASTERY_TP));
+                        }
+                    }
+                    else if (PDefender->objtype == TYPE_MOB)
+                    {
+                        absorb = 50;
+                        int32 shieldDefBonus = PDefender->getMod(Mod::SHIELD_DEF_BONUS);
+
+                        shieldDefBonus = std::clamp((int32)shieldDefBonus, 0, 50);
+
+                        absorb -= shieldDefBonus; // Include Shield Defense Bonus in absorb amount
+
+                        // Shield Mastery
+                        if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0) &&
+                            PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
                         {
                             // If the player blocked with a shield and has shield mastery, add shield mastery TP bonus
                             // unblocked damage (before block but as if affected by stoneskin/phalanx) must be greater than zero
@@ -2422,7 +2488,7 @@ namespace battleutils
 
             // try to interrupt spell if not a ranged attack and not blocked by Shield Mastery
             if ((!isRanged)
-                && !((isBlocked) && (PDefender->objtype == TYPE_PC) && (charutils::hasTrait((CCharEntity*)PDefender, TRAIT_SHIELD_MASTERY))))
+                && !((isBlocked) && (PDefender->objtype == TYPE_PC) && PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0))
             {
                 PDefender->TryHitInterrupt(PAttacker);
             }
@@ -2478,6 +2544,20 @@ namespace battleutils
                 float sBlow1 = std::clamp((float)PAttacker->getMod(Mod::SUBTLE_BLOW), -50.0f, 50.0f);
                 float sBlow2 = std::clamp((float)PAttacker->getMod(Mod::SUBTLE_BLOW_II), -50.0f, 50.0f);
                 float sBlowMult = ((100.0f - std::clamp((float)(sBlow1 + sBlow2), -75.0f, 75.0f)) / 100.0f);
+
+                // Handle "TP Boost When Damaged" gear mod
+                int16 bonusTP = 0;
+                if (PDefender->objtype == TYPE_PC)
+                {
+                    if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::TP_BOOST_WHEN_DMGD))
+                    {
+                        // Occasionally boosts TP 10-30 points when damaged.
+                        bonusTP = tpzrand::GetRandomNumber(10, 30);
+                        // Multiply by 3 because the final result is divided by 3 when giving a player TP
+                        bonusTP *= 3;
+                        baseTp += bonusTP;
+                    }
+                }
 
                 //mobs hit get basetp+30 whereas pcs hit get basetp/3
                 if (PDefender->objtype == TYPE_PC)
@@ -2673,6 +2753,9 @@ namespace battleutils
             int16 tp = battleutils::CalculateSpellTP(PAttacker, PSpell);
             PAttacker->addTP(tp);
         }
+
+        // Add listener
+        PDefender->PAI->EventHandler.triggerListener("SPELL_DMG_TAKEN", PDefender, PAttacker, PSpell, damage, PSpell->getMessage());
 
         return damage;
     }
@@ -3928,18 +4011,64 @@ namespace battleutils
 
         // Determine the skill chain level and elemental resistance.
         SKILLCHAIN_ELEMENT skillchain = (SKILLCHAIN_ELEMENT)PEffect->GetPower();
+        uint8 currentElement = skillchain;
         uint16 chainLevel = PEffect->GetTier();
         uint16 chainCount = PEffect->GetSubPower();
         ELEMENT appliedEle = ELEMENT_NONE;
         int16 resistance = GetSkillchainMinimumResistance(skillchain, PDefender, &appliedEle);
+        //matching day 10% bonus, matching weather 10% or 25% for double weather
+        float dBonus = 1.0;
+        float resist = 1.0;
+        uint32 WeekDay = CVanaTime::getInstance()->getWeekday();
+        WEATHER weather = GetWeather(PAttacker, false);
 
+        DAYTYPE strongDay[8] = { FIRESDAY, ICEDAY, WINDSDAY, EARTHSDAY, LIGHTNINGDAY, WATERSDAY, LIGHTSDAY, DARKSDAY };
+        DAYTYPE weakDay[8] = { WATERSDAY, FIRESDAY, ICEDAY, WINDSDAY, EARTHSDAY, LIGHTNINGDAY, DARKSDAY, LIGHTSDAY };
+        WEATHER strongWeatherSingle[8] = { WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_RAIN, WEATHER_AURORAS, WEATHER_GLOOM };
+        WEATHER strongWeatherDouble[8] = { WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_SQUALL, WEATHER_STELLAR_GLARE, WEATHER_DARKNESS };
+        WEATHER weakWeatherSingle[8] = { WEATHER_RAIN, WEATHER_HOT_SPELL, WEATHER_SNOW, WEATHER_WIND, WEATHER_DUST_STORM, WEATHER_THUNDER, WEATHER_GLOOM, WEATHER_AURORAS };
+        WEATHER weakWeatherDouble[8] = { WEATHER_SQUALL, WEATHER_HEAT_WAVE, WEATHER_BLIZZARDS, WEATHER_GALES, WEATHER_SAND_STORM, WEATHER_THUNDERSTORMS, WEATHER_DARKNESS, WEATHER_STELLAR_GLARE };
+        uint32 obi[8] = { 15435, 15436, 15437, 15438, 15439, 15440, 15441, 15442 };
+        Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
+        bool obiBonus = false;
+
+        if (PAttacker->objtype == TYPE_PC)
+        {
+            CItemEquipment* waist = ((CCharEntity*)PAttacker)->getEquip(SLOT_WAIST);
+           // if (waist && waist->getID() == obi[element])
+            if (waist && waist->getID() == obi[appliedEle - 1] || waist && waist->getID() == 28419)
+            {
+                obiBonus = true;
+            }
+        }
+        else
+        {
+            // mobs random multiplier
+            dBonus += tpzrand::GetRandomNumber(100) / 1000.0f;
+        }
+       // if (WeekDay == strongDay[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (WeekDay == strongDay[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus += 0.1f;
+        //else if (WeekDay == weakDay[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (WeekDay == weakDay[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus -= 0.1f;
+       //if (weather == strongWeatherSingle[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        if (weather == strongWeatherSingle[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus += 0.1f;
+       // else if (weather == strongWeatherDouble[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == strongWeatherDouble[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus += 0.25f;
+       // else if (weather == weakWeatherSingle[appliedEle] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+        else if (weather == weakWeatherSingle[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus -= 0.1f;
+
+        else if (weather == weakWeatherDouble[appliedEle -1] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
+            dBonus -= 0.25f;
+        //ShowDebug("dBonus: %f\n,", dBonus);
         TPZ_DEBUG_BREAK_IF(chainLevel <= 0 || chainLevel > 4 || chainCount <= 0 || chainCount > 6);
 
         // Skill chain damage = (Closing Damage)
         //                      × (Skill chain Level/Number from Table)
-        //            OOE       × (1 + Skill chain Bonus ÷ 100)
-        //            OOE       × (1 + Skill chain Damage + %/100)
-        //            TODO:     × (1 + Day/Weather bonuses)
         //            TODO:     × (1 + Staff Affinity)
 
         auto damage = (int32)floor((double)(abs(lastSkillDamage)) * g_SkillChainDamageModifiers[chainLevel][chainCount] / 1000 *
@@ -3950,13 +4079,38 @@ namespace battleutils
         {
             damage = (int32)(damage * (1.f + PChar->PMeritPoints->GetMeritValue(MERIT_INNIN_EFFECT, PChar) / 100.f));
         }
-        damage = damage * std::clamp((int32)resistance, 10, 100) / 100;
+        // Add SKillchain Damage Taken mod
+        int32 DMGSC = PDefender->getMod(Mod::DMGSC);
 
-        // ShowDebug("DamageAfterResist: %u\n, Resistance:%u\n,", damage, resistance);
-        damage = MagicDmgTaken(PDefender, damage, appliedEle);
+        DMGSC = std::clamp((int32)DMGSC, -100, 100);
+        damage = (int32)(damage * (1.f + (DMGSC / 100.f)));
+        //ShowDebug("DMGSC mod damage: %i\n,", damage);
+        // Apply SDT
+        damage = damage * std::clamp((int32)resistance, 10, 100) / 100;
+        // ShowDebug("DamageAfterResist: %u\n,SDT:%u\n,", damage, resistance);
+        // Add weather day bonus
+        damage = (int32)(damage * dBonus);
+        // ShowDebug("WeatherDayDamage: %u\n,", damage);
+        damage = MagicDmgTaken(PDefender, damage, appliedEle);  
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
+
+            int16 ramSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            if (ramSS)
+            {
+                if (damage >= ramSS)
+                {
+                    PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
+                    damage = damage - ramSS;
+                }
+                else
+                {
+                    PDefender->setModifier(Mod::RAMPART_STONESKIN, ramSS - damage);
+                    damage = 0;
+                }
+            }
+
             damage = HandleStoneskin(PDefender, damage);
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
@@ -3965,7 +4119,7 @@ namespace battleutils
         if (PDefender->objtype == TYPE_MOB)
         {
             // Listener (hook)
-            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker);
+            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker, currentElement, damage);
 
             // Binding
             luautils::OnSkillchain(PDefender, PAttacker);
@@ -4543,6 +4697,8 @@ namespace battleutils
         else if (lvl < 99)  shotCount += 6;
         else if (lvl >= 99) shotCount += 7;
 
+        // Add + Barrage gear mod
+        shotCount += PChar->getMod(Mod::BARRAGE_SHOT_COUNT); 
 
         // make sure we have enough ammo for all these shots
         CItemWeapon* PAmmo = (CItemWeapon*)PChar->getEquip(SLOT_AMMO);

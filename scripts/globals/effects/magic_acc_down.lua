@@ -12,5 +12,5 @@ function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.MACC, effect:getPower())
+    target:delMod(tpz.mod.MACC, -effect:getPower())
 end

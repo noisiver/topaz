@@ -30,13 +30,16 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         DOOR_IS_SEALED             = 7461, -- The door is sealed...
         DOOR_IS_SEALED_MYSTERIOUS  = 7464, -- The door is sealed by some mysterious force...
         CELL_OFFSET                = 7212, -- Main Weapon/Sub-Weapon restriction removed.
+        OBTAINED_TEMP_ITEM         = 7233, -- Obtained temporary item:
+        ALREADY_HAVE_TEMP          = 7234, -- You already have that temporary item.
     },
     mob =
     {
         [1] = {
             [2] = {
-                mobs_start = 17080323,
-                mobs_end   = 17080395,
+                -- _220 door
+                mobs_start = 17080995,
+                mobs_end   = 17081058,
                 rampart    = 17080321,
                 sabotender = 17080322,
             }
@@ -150,6 +153,10 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
             chariot = 17080585,
             },
         },
+        random_trash_start = 17081059,
+        random_trash_end = 17081061,
+        random_bosses = {17081062, 17081063, 17081064, 17081065, 17081066, 17081067},
+        mimics = {17081068, 17081069, 17081070, 17081071, 17081072},
     },
     npc =
     {
@@ -161,10 +168,11 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
                 ARMORY_CRATE = 17080586,
             },
             [3] = {
-                DOOR1 = 17080975,
-                DOOR2 = 17080976,
-                DOOR3 = 17080977,
-                DOOR4 = 17080978,
+
+                DOOR1 = 17080978, 
+                DOOR2 = 17080977,
+                DOOR3 = 17080976, 
+                DOOR4 = 17080975, 
             },
         },
         [2] = {
@@ -201,6 +209,7 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
             DOOR = 17080989,
         },
     },
+    armoury_crates = {17080586, 17080593, 17080594, 17080595, 17080598},
     points =
     {
         [3] =

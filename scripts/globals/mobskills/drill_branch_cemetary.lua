@@ -38,8 +38,8 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffectTwo = tpz.effect.BIND
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-    MobStatusEffectMove(mob, target, typeEffect, 50, 3, 300)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 1, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffect, 50, 3, 90)
+    MobStatusEffectMove(mob, target, typeEffectTwo, 1, 0, 45)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     if (MobPhysicalHit(skill)) then
         mob:resetEnmity(target)

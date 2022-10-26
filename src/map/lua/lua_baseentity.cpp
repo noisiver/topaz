@@ -285,6 +285,7 @@ inline int32 CLuaBaseEntity::messageText(lua_State* L)
 *  Purpose : Displays either standad messages to a PC or custom text
 *  Example : player:PrintToPlayer("Hello!", 0x1F)
 *          : p:P2P(string.format("Hello, %s!", player:getName()), 0x1F)
+*          : Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
 *  Notes   : Available hex codes: 0x1C, 0xD, 0xF, 0x1F, ___, ___
 *          : Can modify the name shown through explicit declaration
 ************************************************************************/
@@ -1020,6 +1021,7 @@ inline int32 CLuaBaseEntity::startEvent(lua_State *L)
     }
 
     PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_IN_CS;
+    PChar->status = STATUS_CUTSCENE_ONLY;
 
     return 0;
 }
@@ -3748,6 +3750,7 @@ inline int32 CLuaBaseEntity::addItem(lua_State *L)
                         ((CItemEquipment*)PItem)->setAugment(3, augment3, augment3val);
                     if (augment4 != 0)
                         ((CItemEquipment*)PItem)->setAugment(4, augment4, augment4val);
+                    if (augment0 != 0)
                         ((CItemEquipment*)PItem)->setTrialNumber(trialNumber);
                 }
                 SlotID = charutils::AddItem(PChar, LOC_INVENTORY, PItem, silence);
@@ -10695,7 +10698,7 @@ inline int32 CLuaBaseEntity::wakeUp(lua_State *L)
 
 /************************************************************************
 *  Function: recalculateStats()
-*  Purpose : Recalculate the total Stats for a PC (force update)
+*  Purpose : Recalculate the total Stats (force update)
 *  Example : target:recalculateStats()
 *  Notes   : See scripts/globals/effects/obliviscence.lua
 ************************************************************************/
@@ -10723,6 +10726,11 @@ int32 CLuaBaseEntity::recalculateStats(lua_State* L)
         PChar->pushPacket(new CCharUpdatePacket(PChar));
         PChar->pushPacket(new CMenuMeritPacket(PChar));
         PChar->pushPacket(new CCharSyncPacket(PChar));
+    }
+    else if (m_PBaseEntity->objtype == TYPE_MOB)
+    {
+        CMobEntity* PMob = static_cast<CMobEntity*>(m_PBaseEntity);
+        mobutils::CalculateStats(PMob);
     }
     return 0;
 }
@@ -11586,6 +11594,22 @@ inline int32 CLuaBaseEntity::eraseAllStatusEffect(lua_State *L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
 
     lua_pushinteger(L, ((CBattleEntity*)m_PBaseEntity)->StatusEffectContainer->EraseAllStatusEffect());
+    return 1;
+}
+
+/************************************************************************
+ *  Function: removeAllNegativeEffects()
+ *  Purpose : Removes an Erasable and na Status Effect from the Entity's Status Effect Container
+ *  Example : target:removeAllNegativeEffects() -- Benediction
+ *  Notes   : Can specify which type to remove, if Erasable
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::removeAllNegativeEffects(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype == TYPE_NPC);
+
+    lua_pushinteger(L, ((CBattleEntity*)m_PBaseEntity)->StatusEffectContainer->RemoveAllNegativeEffects());
     return 1;
 }
 
@@ -14273,7 +14297,7 @@ inline int32 CLuaBaseEntity::getAggressive(lua_State* L)
 *  Function: setTrueDetection()
 *  Purpose : Toggle True Detection on or off for a Mob
 *  Example : mob:setTrueDetection(1)
-*  Notes   : Different integer values for True Hearing/Sight?
+ *  Notes   : 0 (No True Detection), 1 (True Sight and Hearing), 2 (True Sight), 3 (True Hearing)
 ************************************************************************/
 
 inline int32 CLuaBaseEntity::setTrueDetection(lua_State* L)
@@ -14330,9 +14354,27 @@ inline int32 CLuaBaseEntity::untargetable(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: getDelay()
+ *  Purpose : Gets a mobs weapon delay
+ *  Example : mob:getDelay()
+ *  1000 = 1s. 4000 = default delay(for mobs)
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::getDelay(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
+
+    lua_pushinteger(L, (int16)((CMobEntity*)m_PBaseEntity)->CBattleEntity::GetWeaponDelay(false));
+    return 1;
+}
+
+/************************************************************************
 *  Function: setDelay()
 *  Purpose : Override default delay settings for a Mob
 *  Example : mob:setDelay(2400)
+*  1000 = 1s. 4000 = default delay(for mobs)
 *  Notes   :
 ************************************************************************/
 
@@ -14343,7 +14385,7 @@ inline int32 CLuaBaseEntity::setDelay(lua_State* L)
 
     TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
-    ((CItemWeapon*)((CMobEntity*)m_PBaseEntity)->m_Weapons[SLOT_MAIN])->setDelay((uint16)lua_tonumber(L, 1));
+    ((CItemWeapon*)((CMobEntity*)m_PBaseEntity)->m_Weapons[SLOT_MAIN])->setDelay((int16)lua_tonumber(L, 1));
     return 0;
 }
 
@@ -14738,12 +14780,20 @@ inline int32 CLuaBaseEntity::getBlockRate(lua_State* L)
     CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
     CBattleEntity* PAttacker = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
 
-    if (PDefender->objtype != TYPE_PC)
-    //if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB) This allows you to get mob block rate, possibly. Worked for guard
+    if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB) // This allows you to get mob block rate, possibly. Worked for guard
     {
         lua_pushinteger(L, 0);
         return 1;
     }
+    else if (PDefender->objtype == TYPE_MOB)
+    {
+        if (PDefender && PAttacker && !PDefender->StatusEffectContainer->HasPreventActionEffect() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+            lua_pushinteger(L, battleutils::GetBlockRate(PAttacker, PDefender));
+        else
+            lua_pushinteger(L, 0);
+        return 1;
+    }
+
     else
     {
         CCharEntity* PChar = (CCharEntity*)PDefender;
@@ -14781,6 +14831,28 @@ inline int32 CLuaBaseEntity::getBlockedDamage(lua_State* L)
 
     CBattleEntity* PDefender = (CBattleEntity*)m_PBaseEntity;
     int32 damage = (int32)lua_tointeger(L, 1);
+
+    if (PDefender && PDefender->objtype == TYPE_MOB && ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
+    {
+    uint8 absorb = 50;
+    int32 shieldDefBonus = PDefender->getMod(Mod::SHIELD_DEF_BONUS);
+
+    shieldDefBonus = std::clamp((int32)shieldDefBonus, 0, 50);
+
+    absorb += shieldDefBonus; // Include Shield Defense Bonus in absorb amount
+
+    // Shield Mastery
+    if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0) && PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
+    {
+        // If the player blocked with a shield and has shield mastery, add shield mastery TP bonus
+        // unblocked damage (before block but as if affected by stoneskin/phalanx) must be greater than zero
+        PDefender->addTP(PDefender->getMod(Mod::SHIELD_MASTERY_TP));
+    }
+
+    lua_pushinteger(L, damage * (100 - absorb) / 100);
+    return 1;
+    }
+
     if (!PDefender || PDefender->objtype != TYPE_PC || !PDefender->m_Weapons[SLOT_SUB] || !PDefender->m_Weapons[SLOT_SUB]->IsShield())
     {
         lua_pushinteger(L, damage);
@@ -14791,7 +14863,7 @@ inline int32 CLuaBaseEntity::getBlockedDamage(lua_State* L)
         std::clamp<uint8>(PDefender->m_Weapons[SLOT_SUB]->getShieldAbsorption() + (uint8)(PDefender->getMod(Mod::SHIELD_DEF_BONUS)), (uint8)0, (uint8)100);
 
     // Shield Mastery
-    if (damage - PDefender->getMod(Mod::PHALANX) > 0 && charutils::hasTrait((CCharEntity*)PDefender, TRAIT_SHIELD_MASTERY))
+    if (damage - PDefender->getMod(Mod::PHALANX) > 0 && PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
     {
         // If the player blocked with a shield and has shield mastery, add shield mastery TP bonus
         PDefender->addTP(PDefender->getMod(Mod::SHIELD_MASTERY_TP));
@@ -14892,6 +14964,62 @@ int32 CLuaBaseEntity::delRoamFlag(lua_State* L)
 
     return 0;
 }
+
+/************************************************************************
+ *  Function: deaggroPlayer
+ *  Purpose : Removes enmity for a specific player
+ *  Example :
+ *  Notes   :
+ ************************************************************************/
+
+int32 CLuaBaseEntity::deaggroPlayer(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1));
+
+    if (m_PBaseEntity->objtype != TYPE_MOB)
+    {
+        lua_pushboolean(L, false);
+        return 1;
+    }
+    int8* charName = (int8*)lua_tolstring(L, 1, nullptr);
+    if (!charName)
+    {
+        lua_pushboolean(L, false);
+        return 1;
+    }
+    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
+    CCharEntity* PChar = zoneutils::GetCharByName(charName);
+    if (!PChar)
+    {
+        lua_pushboolean(L, false);
+        return 1;
+    }
+    lua_pushboolean(L, static_cast<CMobController*>(PMob->PAI->GetController())->DeaggroEntity(PChar));
+    return 1;
+}
+
+/************************************************************************
+ *  Function: deaggroAll
+ *  Purpose : Completely clears the mob's enmity list
+ *  Example :
+ *  Notes   :
+ ************************************************************************/
+
+int32 CLuaBaseEntity::deaggroAll(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+
+    if (m_PBaseEntity->objtype != TYPE_MOB)
+    {
+        lua_pushboolean(L, false);
+        return 1;
+    }
+    CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
+    lua_pushboolean(L, static_cast<CMobController*>(PMob->PAI->GetController())->DeaggroAll());
+    return 1;
+}
+
 
 
 /************************************************************************
@@ -16031,6 +16159,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,delStatusEffectSilent),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,eraseStatusEffect),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,eraseAllStatusEffect),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,removeAllNegativeEffects),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,dispelStatusEffect),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,dispelAllStatusEffect),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,stealStatusEffect),
@@ -16173,6 +16302,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setUnkillable),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,untargetable),
 
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,getDelay),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setDelay),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,setDamage),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,hasSpellList),
@@ -16197,6 +16327,8 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity, trySkillUp),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addRoamFlag),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,delRoamFlag),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity, deaggroPlayer),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity, deaggroAll),
 
 
 

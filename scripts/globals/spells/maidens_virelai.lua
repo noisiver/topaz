@@ -26,7 +26,7 @@ function onSpellCast(caster, target, spell)
     local dCHR = (caster:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR))
     local bonus = 0 -- No idea what value, but seems likely to need this edited later to get retail resist rates.
     local params = {}
-    params.diff = nil
+    params.diff = dCHR
     params.attribute = tpz.mod.CHR
     params.skillType = tpz.skill.SINGING
     params.bonus = bonus
@@ -45,11 +45,16 @@ function onSpellCast(caster, target, spell)
     end
 
     local resist = applyResistanceEffect(caster, target, spell, params)
-	--Fealty makes you immune to charm
+	-- Fealty makes you immune to charm
 	if target:hasStatusEffect(tpz.effect.FEALTY) then
 		spell:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		resist = 0
 	end
+    -- Resist trait proc
+    if (resist == 0.0625) then
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
+        return tpz.effect.CHARM_I
+    end
 	-- print(resist)
     if (resist >= 0.50) then
         spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)

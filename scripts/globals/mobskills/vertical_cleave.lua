@@ -3,8 +3,7 @@
 --
 --  Description: Damage varies with TP.
 --  Type: Physical (Slashing)
---
---
+-- Open mouth only (Aimation Sub 6)
 ---------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -12,13 +11,16 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if mob:AnimationSub() == 6 then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.7
+    local dmgmod = 2.0
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

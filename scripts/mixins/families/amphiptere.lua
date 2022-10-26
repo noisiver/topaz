@@ -20,21 +20,26 @@ g_mixins.families.amphiptere = function(mob)
     end)
 	mob:addListener("COMBAT_TICK", "AMPHIPTERE_CTICK", function(mob)
         local ReavingWindAura = mob:getLocalVar("ReavingWindAura")
-        local ReavingWindKnockback = mob:getLocalVar("ReavingWindKnockback")
+        local KnockBackTick = mob:getLocalVar("KnockBackTick")
 		local animationSub = mob:AnimationSub()
-		local BattleTime = mob:getBattleTime()
-		if ReavingWindAura > 0 and os.time() > ReavingWindAura then -- Remove knockback aura
+		if (ReavingWindAura > 0) and (KnockBackTick > 0) and os.time() > ReavingWindAura then -- Remove knockback aura
 			mob:AnimationSub(0)
-			mob:setLocalVar("ReavingWindKnockback", 0)
+			mob:setLocalVar("KnockBackTick", 0)
 		end
-		
-	    if animationSub == 2 then
-		    if ReavingWindKnockback == 0 then
-			    mob:setLocalVar("ReavingWindKnockback", BattleTime + 3)
-		    elseif BattleTime > ReavingWindKnockback then 
-				    mob:useMobAbility(2434) -- Knockback
-				    mob:setLocalVar("ReavingWindKnockback", BattleTime + 3)
+
+        -- Gains Regen + Regain while knockback aura is up
+	    if (animationSub == 2) then
+            mob:setMod(tpz.mod.REGEN, 50)
+            mob:setMod(tpz.mod.REGAIN, 50)
+		    if os.time() > KnockBackTick then
+                local nearbyPlayers = mob:getPlayersInRange(8)
+                if nearbyPlayers == nil then return end
+				mob:useMobAbility(2434) -- Knockback
+				mob:setLocalVar("KnockBackTick", os.time() + 6)
 		    end
+        else
+            mob:setMod(tpz.mod.REGEN, 0)
+            mob:setMod(tpz.mod.REGAIN, 0)
 	    end
 	end)
     mob:addListener("ENGAGE", "AMPHIPTERE_ENGAGE", function(mob, target)

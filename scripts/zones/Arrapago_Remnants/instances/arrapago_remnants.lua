@@ -5,24 +5,15 @@
 -----------------------------------
 local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
+require("scripts/globals/salvage")
 -----------------------------------
 
 function afterInstanceRegister(player)
-    local instance = player:getInstance()
-    player:messageSpecial(ID.text.TIME_TO_COMPLETE, instance:getTimeLimit())
-    player:messageSpecial(ID.text.SALVAGE_START, 1)
-    player:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0xFFFF, 0, 0)
-    player:addStatusEffectEx(tpz.effect.OBLIVISCENCE, tpz.effect.OBLIVISCENCE, 0, 0, 0)
-    player:addStatusEffectEx(tpz.effect.OMERTA, tpz.effect.OMERTA, 0, 0, 0)
-    player:addStatusEffectEx(tpz.effect.IMPAIRMENT, tpz.effect.IMPAIRMENT, 0, 0, 0)
-    player:addStatusEffectEx(tpz.effect.DEBILITATION, tpz.effect.DEBILITATION, 0x1FF, 0, 0)
-    for i = 0, 15 do
-        player:unequipItem(i)
-    end
+    salvageUtil.afterInstanceRegister(player, tpz.items.CAGE_OF_A_REMNANTS_FIREFLIES)
 end
 
 function onInstanceCreated(instance)
-
+    -- Mob / Other NPC spawns(chests etc) handled in door lua files such as _220
     for i, v in pairs(ID.npc[1][1]) do
         local npc = GetNPCByID(v, instance)
         npc:setStatus(tpz.status.NORMAL)
@@ -49,8 +40,34 @@ function onInstanceComplete(instance)
 end
 
 function onRegionEnter(player, region, instance)
-    if region:GetRegionID() <= 11 then
+    local instance = player:getInstance()
+    -- Teleporters
+    if region:GetRegionID() <= 4 and instance:getStage() > 1 then -- Alucard is dead, enble teleporters on Floor 1 
         player:startEvent(199 + region:GetRegionID())
+    else
+        player:PrintToPlayer("Nothing happens...", 0xD, none)
+    end
+
+    --if region:GetRegionID() <= 11 and instance:getStage() > 1 then -- Alucard is dead, enble teleporters on Floor 1 
+       --player:startEvent(199 + region:GetRegionID())
+    --end
+
+    local RegionID = region:GetRegionID()
+    local firstFloorTeleportTraps = player:getLocalVar("FirstFloorTeleportTrap")
+
+    -- First floor forced teleport to bosses
+    if (RegionID == 12 and firstFloorTeleportTraps == 0) then
+        salvageUtil.setGroupVar(player, "FirstFloorTeleportTrap", 1)
+        salvageUtil.teleportGroup(player, 247, -20, -340, 0, true, false, false)
+        salvageUtil.msgGroup(player, "A mysterious force pulls you towards it...", 0xD, none)
+    elseif (RegionID == 13 and firstFloorTeleportTraps == 1) then
+        salvageUtil.setGroupVar(player, "FirstFloorTeleportTrap", 2)
+        salvageUtil.teleportGroup(player, 259, -20, -512, 193, true, false, false)
+        salvageUtil.msgGroup(player, "A mysterious force pulls you towards it...", 0xD, none)
+    elseif (RegionID == 14 and firstFloorTeleportTraps == 2) then
+        salvageUtil.setGroupVar(player, "FirstFloorTeleportTrap", 3)
+        salvageUtil.teleportGroup(player, 429, -20, -499, 127, true, false, false)
+        salvageUtil.msgGroup(player, "A mysterious force pulls you towards it...", 0xD, none)
     end
 end
 

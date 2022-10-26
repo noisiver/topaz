@@ -98,7 +98,7 @@
 098 - You obtain <item> from <target>.
 099 - <player>><target>:
 100 - The <player> uses ..
-101 - The <player> uses ..
+101 - The <player> uses .. Mob 2 hour.
 102 - The <player> uses .. <target> recovers .. HP.
 103 - The <player> uses .. <target> recovers .. HP.
 104 - Unable to use item. You do not meet the level requirement.
@@ -182,11 +182,11 @@
 182 - <target>: MonNo(0)-Lev(..)
 183 - HIT-EVA(0) ATK-DEF(..)
 184 - <player>:ALLIANCE SUM=0/LEV=..
-185 - The <player> uses .. <target> takes .. points of damage.
-186 - The <player> uses .. <target> gains the effect of stun.
+185 - The <player> uses .. <target> takes .. points of damage. Mob DMG TP moves
+186 - The <player> uses .. <target> gains the effect of stun. Mob TP move Self buff.
 187 - The <player> uses .. .. HP drained from <target>.
-188 - The <player> uses .. but misses <target>.
-189 - The <player> uses .. No effect on <target>.
+188 - The <player> uses .. but misses <target>. Mob phys TP moves miss.
+189 - The <player> uses .. No effect on <target>. Mob enfeeble miss.
 190 - The <player> cannot use that weapon ability.
 191 - The <player> is unable to use weapon skills.
 192 - The <player> does not have enough TP.
@@ -235,11 +235,11 @@
 235 - That is someone's pet.
 236 - The <player> casts (NULL). <target> is stunned.
 237 - The <player> casts (NULL). <target> receives the effect of stun.
-238 - The <player> uses .. <target> recovers .. HP.
+238 - The <player> uses .. <target> recovers .. HP. Mob heal TP move.
 239 - Size:
 240 - The <player> tries to hide, but is spotted by <target>.
 241 - The <player> hides!
-242 - The <player> uses .. <target> is stunned.
+242 - The <player> uses .. <target> is stunned. Mob TP move enfeeble.
 243 - The <player> uses .. <target> receives the effect of stun.
 244 - The <player> fails to mug <target>.
 245 - The <player> uses Eagle Eye Shot, but misses <target>.

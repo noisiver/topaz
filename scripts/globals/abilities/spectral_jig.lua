@@ -17,12 +17,16 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local amount = 6
+    local duration = 30
+    local gearBonus = player:getMod(tpz.mod.JIG_DURATION)
     if (player:getMainJob() == tpz.job.DNC) then
-        amount = 12
+        duration = 60
     end
-	local gear = player:getMod(tpz.mod.JIG_DURATION)
-	local gearbonus =  15 * (gear / 100)
-    local duration = 15 + gearbonus
-    player:addStatusEffectEx(tpz.effect.MEDITATE, 0, amount, 3, duration)
+
+    duration = duration + gearBonus
+    printf("duration %s", duration)
+    player:delStatusEffect(tpz.effect.SNEAK)
+    player:delStatusEffect(tpz.effect.INVISIBLE)
+    player:addStatusEffect(tpz.effect.SNEAK, 0, 10, duration)
+    player:addStatusEffect(tpz.effect.INVISIBLE, 0, 10, duration)
 end

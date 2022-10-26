@@ -1,19 +1,20 @@
 -----------------------------------
 -- Area: Lower Jeuno
 --  NPC: Taza
--- Standard Merchant NPC
+-- Augmenting NPC
+-- !pos -29 5 -89 245
 -----------------------------------
 local ID = require("scripts/zones/Lower_Jeuno/IDs")
 require("scripts/globals/npc_util")
 require("scripts/globals/items")
---require("scripts/globals/augments")
+require("scripts/globals/augments")
 -----------------------------------
 
 -----------------------------------
 -- Forgotten items
 local forgotten =
 {
-helm = tpz.items.FORGOTTEN_THOUGHT, body = tpz.items.FORGOTTEN_HOPE,  hands = tpz.items.FORGOTTEN_TOUCH,
+head = tpz.items.FORGOTTEN_THOUGHT, body = tpz.items.FORGOTTEN_HOPE,  hands = tpz.items.FORGOTTEN_TOUCH,
 legs = tpz.items.FORGOTTEN_JOURNEY, feet = tpz.items.FORGOTTEN_STEP
 }
 -----------------------------------
@@ -155,7 +156,7 @@ local trades =
     {
         items = {
             { tpz.items.WARLOCKS_CHAPEAU, 1 },
-            { forgotten.helm, 100 },
+            { forgotten.head, 100 },
             { 'gil', 1000000 },
         },
         GiveAugment = function(player)
@@ -254,7 +255,7 @@ local trades =
     {
         items = {
             { tpz.items.NOBLES_CROWN, 1 },
-            { forgotten.helm, 100 },
+            { forgotten.head, 100 },
             { 'gil', 1000000 },
         },
         GiveAugment = function(player)
@@ -304,6 +305,51 @@ local trades =
         GiveAugment = function(player)
             player:addItem(tpz.items.BLESSED_BRIAULT, 1, 1248, 24);
             player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.BLESSED_BRIAULT);
+        end
+    },
+    {
+        items = {
+            { 15229, 1 }, -- WARLOCKS_CHAPEAU +1
+        },
+        GiveAugment = function(player)
+            player:addItem(15229, 1, 45, 14);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 15229);
+        end
+    },
+    {
+        items = {
+            { 14477, 1 }, -- WARLOCKS_TABARD +1
+        },
+        GiveAugment = function(player)
+            player:addItem(14477, 1, 45, 14);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 14477);
+        end
+    },
+    {
+        items = {
+            { 14894, 1 }, -- WARLOCKS_GLOVES +1
+        },
+        GiveAugment = function(player)
+            player:addItem(14894, 1, 138, 0, tpz.augments.HASTE, 3);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 14894);
+        end
+    },
+    {
+        items = {
+            { 15565, 1 }, -- WARLOCKS_TIGHTS +1
+        },
+        GiveAugment = function(player)
+            player:addItem(15565, 1, 1248, 24);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 15565);
+        end
+    },
+    {
+        items = {
+            { 15356, 1 }, -- WARLOCKS_BOOTS +1
+        },
+        GiveAugment = function(player)
+            player:addItem(15356, 1, 368, 1, tpz.augments.PDT, 1);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 15356);
         end
     },
 }

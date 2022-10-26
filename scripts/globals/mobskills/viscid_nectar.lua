@@ -6,6 +6,7 @@
 --  Utsusemi/Blink absorb: Ignores shadows
 --  Range: Unknown cone
 --  Notes: Slow is equivalent to Slow II.
+-- Closed mouth only (Aimation Sub 4)
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -13,12 +14,15 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if mob:AnimationSub() == 4 then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.SLOW
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 3500, 0, 300))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 10000, 0, 300))
 
     return typeEffect
 end

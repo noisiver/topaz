@@ -41,9 +41,6 @@ function onTrigger(player, hp, target)
     end
     -- set hp
     if targ:isAlive() then
-        -- convert to percentage
-        hp = hp / 100
-        hp = targ:getMaxHP() * hp
         targ:setHP(hp)
         if targ:getID() ~= player:getID() then
             player:PrintToPlayer(string.format("Set %s's HP to %i.", targ:getName(), targ:getHP()))

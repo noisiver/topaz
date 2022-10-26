@@ -1,5 +1,6 @@
 ---------------------------------------------
 -- Hastega
+-- Grants 15.30% haste and 25% quickening effect to allies in range.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -18,7 +19,10 @@ function onPetAbility(target, pet, skill, summoner)
     local power = 1530
     local duration = 180
     local bonus = 0
+    local effect2 = tpz.effect.QUICKENING
+    local power2 = 25
 
     AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
+    AvatarBuffBP(pet, target, skill, effect2, power2, tick, duration, params, bonus)
     return effect
 end

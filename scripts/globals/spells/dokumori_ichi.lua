@@ -20,29 +20,13 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
     params.bonus = 0
+    params.effect = tpz.effect.POISON
     duration = duration * applyResistance(caster, target, spell, params)
     --local power = 3
     --local power = (player:getmainlevel() * 0.5) + (caster:getStat(tpz.mod.INT) * 0.3) + 10
-     local power = 5
+    local power = 5
 
-    --Calculates resist chanve from Reist Blind
-    if (target:hasStatusEffect(effect)) then
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
-        return effect
-    end
+    TryApplyEffect(caster, target, spell, params.effect, power, 3, duration, resist, 0.5)
 
-    if (math.random(0, 100) >= target:getMod(tpz.mod.POISONRES)) then
-        if (duration >= 30) then
-            if (target:addStatusEffect(effect, dmg, power, duration)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-            else
-                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-            end
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-    end
-    return effect
+    return params.effect
 end

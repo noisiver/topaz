@@ -2932,6 +2932,7 @@ void SmallPacket0x05B(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             if (PChar->m_event.EventID == EventID)
             {
                 PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+                PChar->status = STATUS_NORMAL;
                 PChar->m_event.reset();
             }
         }
@@ -2971,6 +2972,7 @@ void SmallPacket0x05C(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             if (PChar->m_event.EventID == EventID)
             {
                 PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+                PChar->status = STATUS_NORMAL;
                 PChar->m_event.reset();
             }
         }

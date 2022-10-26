@@ -77,7 +77,8 @@ function onUseAbility(player, target, ability)
     --Do it
     target:restoreHP(cure)
     target:wakeUp()
-    player:updateEnmityFromCure(target, cure)
+    player:updateEnmityFromCure(target, 65535)
+    -- 65535 means "use cure V enmity formula"
 
     return cure
 end

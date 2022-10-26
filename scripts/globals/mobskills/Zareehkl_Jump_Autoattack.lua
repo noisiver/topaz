@@ -11,9 +11,7 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	local CurrentTP = mob:getTP()
-	mob:setLocalVar("TP", CurrentTP)
-		return 0
+	return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -31,18 +29,12 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.0
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
-    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
+    local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_AUTO_ATTACK, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
-	
-	local CurrentTP = mob:getLocalVar("TP")
-	local AddTP = CurrentTP + 200
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
     if (MobPhysicalHit(skill)) then
-       target:addTP(20)
-       mob:addTP(AddTP)
         mob:resetEnmity(target)
     end
-	
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.STUN, 1, 0, 8)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg

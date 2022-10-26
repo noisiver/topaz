@@ -49,6 +49,7 @@ namespace mobutils
         void  SetupDynamisMob(CMobEntity* PMob);
         void  SetupLimbusMob(CMobEntity* PMob);
         void  SetupDungeonInstancedMob(CMobEntity* PMob);
+        void  SetupSalvageMob(CMobEntity* PMob);
         void  SetupStrongholdsMob(CMobEntity* PMob);
         void  SetupBattlefieldMob(CMobEntity* PMob);
         void  SetupDungeonMob(CMobEntity* PMob);

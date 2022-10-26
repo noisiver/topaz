@@ -19,7 +19,10 @@ function onSpellCast(caster, target, spell)
         power = math.floor(skill * 49 / 183 - 55) -- No cap can be reached yet
     end
     if caster:isMob() then -- Don't let this scale out of control from mobs
-        power = math.floor(power * 0.5)
+        power = math.max(skill / 20, 4)
+        if skill > 400 then
+            power = math.floor(skill * 49 / 183 - 55) -- No cap can be reached yet
+        end
     end
     power = calculatePotency(power, spell:getSkillType(), caster, target)
 
@@ -32,15 +35,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.POISON
     local resist = applyResistanceEffect(caster, target, spell, params)
 
-    if resist >= 0.5 then -- effect taken
-        if target:addStatusEffect(params.effect, power, 3, duration * resist) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else -- resist entirely.
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
 
     return params.effect
 end

@@ -57,14 +57,14 @@ local absorbMod = {
 
 local spells =
 {
-    [1] = {235, 144, 145, 146, 147, 204},           -- Fire
-    [2] = {58, 149, 150, 151, 152, 206},            -- Ice
-    [3] = {59, 154, 155, 156, 157, 208},            -- Wind
-    [4] = {56, 159, 160, 161, 162, 210},            -- Earth
-    [5] = {239, 164, 165, 166, 167, 212},           -- Thunder
-    [6] = {221, 169, 170, 171, 172, 214},           -- Water
-    [7] = {112, 28, 29, 30, 21},                    -- Light
-    [8] = {252, 270, 271, 273, 274, 275},           -- Dark
+    [1] = {235,146, 147, 204},               -- Fire
+    [2] = {58, 151, 152, 206},               -- Ice
+    [3] = {59, 156, 157, 208},               -- Wind
+    [4] = {56, 161, 162, 210},               -- Earth
+    [5] = {239, 166, 167, 212},              -- Thunder
+    [6] = {221, 171, 172, 214},              -- Water
+    [7] = {112, 28, 29, 30, 21},             -- Light
+    [8] = {252, 270, 271, 273, 274, 275},    -- Dark
 }
 
 function onMobSpawn(mob)
@@ -350,7 +350,7 @@ end
 
 function getSpellCooldown(mob, master)
     -- Get cooldown bwteeen spell casts
-    local spellCooldown = 30
+    local spellCooldown = 20
     local eleMagicCoolBonus = master:getMod(tpz.mod.ELEMENTAL_MAGIC_COOL)
     -- Add relic pants gear mod
     spellCooldown = spellCooldown - eleMagicCoolBonus

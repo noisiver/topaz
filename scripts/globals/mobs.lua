@@ -693,3 +693,129 @@ function TeleportMob(mob, hidden, callback)
         end)
     end)
 end
+
+function UseMultipleTPMoves(mob, uses, skillID)
+    for i = 1,uses do
+      mob:useMobAbility(skillID) 
+    end
+end
+
+function AddMobAura(mob, target, radius, effect, power, tick)
+    local AuraTick = mob:getLocalVar("AuraTick")
+    if os.time() >= AuraTick then
+        mob:setLocalVar("AuraTick", os.time() + tick)
+        local nearbyPlayers = mob:getPlayersInRange(radius)
+        if nearbyPlayers ~= nil then 
+            for _,v in ipairs(nearbyPlayers) do
+                v:delStatusEffectSilent(effect)
+                v:addStatusEffectEx(effect, effect, power, tick, 3)
+                local buffEffect = v:getStatusEffect(effect)
+                buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
+            end
+        end
+    end
+end
+
+function AddDamageAura(mob, target, radius, dmg, attackType, damageType, tick)
+    local DmgAuraTick = mob:getLocalVar("DmgAuraTick")
+    if os.time() >= DmgAuraTick then
+        mob:setLocalVar("DmgAuraTick", os.time() + tick)
+        local nearbyPlayers = mob:getPlayersInRange(radius)
+        if nearbyPlayers ~= nil then 
+            for _,v in ipairs(nearbyPlayers) do
+            if (attackType == tpz.attackType.MAGICAL) or (attackType == tpz.attackType.SPECIAL) then
+                dmg = v:magicDmgTaken(dmg)
+            elseif (attackType == tpz.attackType.BREATH) then
+                dmg = v:breathDmgTaken(dmg)
+            elseif (attackType == tpz.attackType.RANGED) then
+                dmg = v:rangedDmgTaken(dmg)
+            elseif (attackType == tpz.attackType.PHYSICAL) then
+                dmg = v:physicalDmgTaken(dmg, damageType)
+            end
+            v:takeDamage(dmg, mob, attackType, damageType)
+            end
+        end
+    end
+end
+
+function BreakMob(mob, target, power, duration, proc)
+    -- proc: 0 = blue 1 = yellow 2 = red 3 = white
+    -- power (used for increased damage taken mod)
+    -- 1 = All normal damage(not sc/mb/spirits)
+    -- 2 = Phys
+    -- 3 = Breath
+    -- 4 = Magic
+    -- 5 = Ranged
+    -- 6 = Skillchain
+    -- 7 = Magic Burst
+    -- 8 = Spirits
+    local party = target:getParty()
+    local BreakDuration = mob:getLocalVar("BreakDuration")
+    local mobName = mob:getName()
+    mobName = string.gsub(mobName, '_', ' ');
+
+    if os.time() >= BreakDuration then
+        mob:setLocalVar("BreakDuration", os.time() + duration)
+        if proc ~= nil then
+            mob:weaknessTrigger(proc)
+        end
+        if (proc == 0) then -- Blue !!
+            mob:addStatusEffect(tpz.effect.AMNESIA, 0, 0, duration)
+        elseif (proc == 1) then -- Yellow !!
+            mob:addStatusEffect(tpz.effect.SILENCE, 0, 0, duration)
+        elseif (proc == 2) or (proc == 3)  then -- Red and White !!
+            mob:addStatusEffect(tpz.effect.TERROR, 0, 0, duration)
+        end
+        for _, players in pairs(party) do
+            players:PrintToPlayer("Your attack devastates the " .. mobName .. "!", 0xD, none)
+        end
+        mob:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, power, 0, duration)
+    end
+end
+
+function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
+    local party = target:getParty()
+    local msgTimer = mob:getLocalVar("msgTimer")
+
+    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    if os.time() >= msgTimer then
+        mob:setLocalVar("msgTimer", os.time() + timer)
+        for _, players in pairs(party) do
+            players:PrintToPlayer(msg, textcolor, sender)
+        end
+    end
+end
+
+function SpawnInstancedMob(mob, player, mobId, aggro)
+    local instance = mob:getInstance()
+    local spawns = GetMobByID(mobId, instance)
+
+    if not spawns:isSpawned() then
+        spawns:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
+        spawns:spawn()
+        if aggro then
+            local NearbyPlayers = mob:getPlayersInRange(50)
+            if NearbyPlayers == nil then return end
+            if NearbyPlayers then
+                for _,v in ipairs(NearbyPlayers) do
+                    spawns:updateClaim(v)
+                end
+            end
+        end
+    end
+end
+
+--Uneeded?
+function PeriodicInstanceMessage(mob, target, msg, textcolor, sender, timer)
+    local instance = target:getInstance()
+    local chars = instance:getChars()
+    local msgTimer = mob:getLocalVar("msgTimer")
+
+    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    if os.time() >= msgTimer then
+        mob:setLocalVar("msgTimer", os.time() + timer)
+        for _, players in pairs(chars) do
+            players:PrintToPlayer(msg, textcolor, sender)
+        end
+    end
+end

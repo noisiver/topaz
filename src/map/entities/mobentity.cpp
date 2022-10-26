@@ -107,7 +107,7 @@ CMobEntity::CMobEntity()
     m_giveExp = false;
     m_neutral = false;
     m_Aggro = false;
-    m_TrueDetection = false;
+    m_TrueDetection = 0;
     m_Detects = DETECT_NONE;
     m_Link = 0;
 
@@ -880,8 +880,6 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         else
         {
             target.param = luautils::OnMobWeaponSkill(PTarget, this, PSkill, &action);
-            this->PAI->EventHandler.triggerListener("WEAPONSKILL_USE", this, PTarget, PSkill->getID(), state.GetSpentTP(), &action);
-            PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, this, PSkill->getID(), state.GetSpentTP(), &action);
         }
         if (msg == 0)
         {
@@ -904,6 +902,15 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
         else
         {
             target.reaction = REACTION_HIT;
+            // Don't add TP if the TP move is a two hour, buff, heal, or enfeeble.
+            if (msg != 101 && msg != 186 && msg != 238 && msg != 242)
+            {
+                int16 delay = this->GetWeaponDelay(true);
+                float ratio = 1.0f;
+                int16 baseTp = 0;
+                baseTp = battleutils::CalculateBaseTP((int16)(delay * 60.0f / 1000.0f / ratio));
+                this->addTP((int16)(1 * (baseTp * (1.0f + 0.01f * (float)((this->getMod(Mod::STORETP)))))));
+            }
         }
 
         if (target.speceffect & SPECEFFECT_HIT)
@@ -1382,6 +1389,7 @@ void CMobEntity::OnDespawn(CDespawnState&)
     FadeOut();
     PAI->Internal_Respawn(std::chrono::milliseconds(m_RespawnTime));
     luautils::OnMobDespawn(this);
+    PAI->ClearActionQueue();
     //#event despawn
     PAI->EventHandler.triggerListener("DESPAWN", this);
 }
@@ -1408,6 +1416,7 @@ void CMobEntity::Die()
 
             DistributeRewards();
             m_OwnerID.clean();
+            PAI->ClearActionQueue();
         }
     }));
     if (PMaster && PMaster->PPet == this && PMaster->objtype == TYPE_PC)

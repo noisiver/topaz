@@ -51,14 +51,14 @@ public:
     uint8   getType();
     uint8   getCraftType();
     uint8   getItemsCount();
-    uint8   getSlotCount();                                 // количество занятых ячеек
+    uint8   getSlotCount();                                 // how many slots of a trade being used(ie: you trad 8 rusty buckets)
     uint32  getTotalQuantity();                             // общее количество предметов (gil считаются за 1)
     uint8   getGuildID(uint8 slotID);
     uint16  getGuildRank(uint8 slotID);
     CItem*  getItem(uint8 slotID);
     uint16  getItemID(uint8 slotID);
     uint8   getInvSlotID(uint8 slotID);
-    uint32  getQuantity(uint8 slotID);                      // количество предметов в ячейке
+    uint32  getQuantity(uint8 slotID);                      // number of items in a trade slot(ie: 99 arrows)
     uint32 getConfirmedStatus(uint8 slotID);
     uint32  getItemQuantity(uint16 itemID);                 // количество предметов одного типа
     uint8   getSize();

@@ -1,4 +1,7 @@
 require("scripts/globals/status")
+require("scripts/globals/spell_data")
+require("scripts/globals/world")
+
 
 utils = {}
 
@@ -84,6 +87,10 @@ end
 function utils.rampartstoneskin(target, dmg)
     --handling rampart stoneskin
     local ramSS = target:getMod(tpz.mod.RAMPART_STONESKIN)
+    -- Handle absorbs
+    if dmg < 0 then
+        return dmg
+    end
     if ramSS > 0 then
         if dmg >= ramSS then
             target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
@@ -619,3 +626,143 @@ function utils.getMoonPhase()
 	end
 end
 
+function utils.hasDispellableEffect(target)
+    -- Negative status effects
+    for i = 1,31,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 128,142,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 144,149,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 167,168,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 174,175,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 192,194,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 386,400,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    for i = 448,452,1 do
+        if target:hasStatusEffect(i) then
+            return true
+        end
+    end
+    if target:hasStatusEffect(tpz.effect.FLASH) then
+        return true
+    end
+    if target:hasStatusEffect(tpz.effect.HELIX) then
+        return true
+    end
+    if target:hasStatusEffect(tpz.effect.MAX_TP_DOWN) then
+        return true
+    end
+    return false
+end
+
+
+function utils.HandleWeaponResist(target, damageType)
+    local weaponResist = 1
+
+    if not target:isPC() then
+        local hthres = target:getMod(tpz.mod.HTHRES)
+        local pierceres = target:getMod(tpz.mod.PIERCERES)
+        local rangedres = target:getMod(tpz.mod.RANGEDRES)
+        local impactres = target:getMod(tpz.mod.IMPACTRES)
+        local slashres = target:getMod(tpz.mod.SLASHRES)
+        local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
+
+        if damageType == tpz.damageType.HTH then
+            if hthres < 1000 then
+                weaponResist = (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = hthres / 1000
+            end
+        elseif damageType == tpz.damageType.PIERCING then
+            if pierceres < 1000 then
+                weaponResist = (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = pierceres / 1000
+            end
+        elseif damageType == tpz.damageType.RANGED then
+            if rangedres < 1000 then
+                weaponResist = (1 - ((1 - rangedres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = rangedres / 1000
+            end
+        elseif damageType == tpz.damageType.BLUNT then
+            if impactres < 1000 then
+                weaponResist = (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = impactres / 1000
+            end
+        elseif damageType == tpz.damageType.SLASHING then
+            if slashres < 1000 then
+                weaponResist = (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
+            else
+                weaponResist = slashres / 1000
+            end
+        end
+    end
+
+    return weaponResist
+end
+
+function utils.GetSkillchainElement(element)
+     local elements =
+    {
+        [1] = {element = {tpz.magic.ele.FIRE}, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [2] = {element = {tpz.magic.ele.ICE}, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [3] = {element = {tpz.magic.ele.WIND}, sc = {tpz.skillchainEle.DETONATION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [4] = {element = {tpz.magic.ele.EARTH}, sc = {tpz.skillchainEle.SCISSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [5] = {element = {tpz.magic.ele.THUNDER}, sc = {tpz.skillchainEle.IMPACTION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [6] = {element = {tpz.magic.ele.WATER}, sc = {tpz.skillchainEle.REVERBERATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [7] = {element = {tpz.magic.ele.LIGHT}, sc = {tpz.skillchainEle.TRANSFIXION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [8] = {element = {tpz.magic.ele.DARK}, sc = {tpz.skillchainEle.COMPRESSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+    }
+    local currentElement = {}
+    currentElement = elements[element].sc
+
+    return currentElement
+end
+
+function utils.GetMatchingSCDayElement()
+    local elements =
+    {
+        [1] = {day = {tpz.day.FIRESDAY}, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [2] = {day = {tpz.day.EARTHSDAY}, sc = {tpz.skillchainEle.SCISSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [3] = {day = {tpz.day.WATERSDAY}, sc = {tpz.skillchainEle.REVERBERATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [4] = {day = {tpz.day.WINDSDAY}, sc = {tpz.skillchainEle.DETONATION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [5] = {day = {tpz.day.ICEDAY}, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [6] = {day = {tpz.day.LIGHTNINGDAY}, sc = {tpz.skillchainEle.IMPACTION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [7] = {day = {tpz.day.LIGHTSDAY}, sc = {tpz.skillchainEle.TRANSFIXION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [8] = {day = {tpz.day.DARKSDAY}, sc = {tpz.skillchainEle.COMPRESSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+    }
+
+    local dayElement = VanadielDayElement()
+    local currentDay = elements[dayElement +1].day[1]
+    local currentMatchingSkillchains = {}
+    currentMatchingSkillchains = elements[dayElement +1].sc
+
+    return currentMatchingSkillchains
+end

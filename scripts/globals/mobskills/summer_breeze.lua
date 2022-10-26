@@ -1,13 +1,14 @@
 ---------------------------------------------
 -- Summer Breeze
 --
--- Description: AoE Erase tpz.effect. (If nothing to Erase, it instead gains Regain.)
+-- Description: AoE full status effect removal. (If nothing to remove, it instead gains Regain.)
 -- Regain cannot be dispelled.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
@@ -15,12 +16,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local erase = mob:eraseStatusEffect()
     local typeEffect = tpz.effect.REGAIN
 
-    if (erase ~= tpz.effect.NONE) then
-        skill:setMsg(tpz.msg.basic.SKILL_ERASE)
-        return erase
+    if utils.hasDispellableEffect(target) then
+        return MobSelfDispelMove(mob, skill)
     else
         skill:setMsg(MobBuffMove(mob, tpz.effect.REGAIN, 10, 3, 300))
         local effect1 = mob:getStatusEffect(typeEffect)

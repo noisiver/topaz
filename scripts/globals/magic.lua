@@ -588,13 +588,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     local effect = params.effect
     if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
         if (caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) == false) then -- Elemental Seal bypasses resist traits
-            if spell ~= nil then
-			    spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-                -- if spell:isAoe() == 1 then -- Errors
-				    -- spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-                -- end
-            end
-            return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
+            return 0 -- this will make any status effect fail. this takes into account trait+food+gear
             --print("restrait proc!")
         end
     end
@@ -609,14 +603,11 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     
     local softcap = params.dStatAccSoftCap -- 10 is set on all nukes. everything else is nil
     if softcap == nil then
-        softcap = 15
+        softcap = 10
     end
 
-    if (diff > softcap) then -- past the soft cap (10 or 15) each dstat is half as effective
-        magicaccbonus = magicaccbonus + softcap + math.floor((diff - softcap)/2)
-    else
-        magicaccbonus = magicaccbonus + diff
-    end
+    -- Apply dStat Macc bonus
+    magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
     if (bonus ~= nil) then -- seems like this only exists if the spell is threnody. bonus macc when using right ele staff.
         magicaccbonus = magicaccbonus + bonus -- this now also exists for tier 3 "San" Ninjutsu with the appropriate merits
@@ -785,7 +776,8 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     
     magicacc = magicacc + (casterLvl - targetLvl)*4
     local dMAcc = magicacc - magiceva
-    --print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
+    -- FOR TESTING MACC AND MEVA!
+    -- print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva)) 
     if dMAcc < 0 then -- when penalty, half effective
         p = 50 + math.floor(dMAcc/2)
     else
@@ -861,7 +853,7 @@ function getEffectResistanceTraitChance(caster, target, effect)
         effectres = tpz.mod.CURSERESTRAIT
     elseif (effect == tpz.effect.WEIGHT) then
         effectres = tpz.mod.GRAVITYRESTRAIT
-    elseif (effect == tpz.effect.SLOW or effect == tpz.effect.ELEGY) then
+    elseif (effect == tpz.effect.SLOW or effect == tpz.effect.ADDLE) then
         effectres = tpz.mod.SLOWRESTRAIT
     elseif (effect == tpz.effect.STUN) then
         effectres = tpz.mod.STUNRESTRAIT
@@ -882,7 +874,6 @@ function getEffectResistanceTraitChance(caster, target, effect)
     end
 
     return 0
-    
 end
 
 -- Returns the amount of resistance the
@@ -1196,9 +1187,15 @@ function calculateMagicBurst(caster, spell, target, params)
         end
     end
 
+    -- Apply DMGMB Mod
+    local burstdmgtaken = 1
+    local dmgmb = 1 + (utils.clamp(target:getMod(tpz.mod.DMGMB), -100, 100) / 100)
+
+    burstdmgtaken = burstdmgtaken * dmgmb
+
     -- Multiply
     if (skillchainburst > 1) then
-        burst = burst * modburst * skillchainburst
+        burst = burst * modburst * skillchainburst * burstdmgtaken
     end
 
     return burst
@@ -1692,6 +1689,40 @@ function getElementalSDT(element, target) -- takes into account if magic burst w
     return SDT
 end
 
+function getDstatBonus(softcap, diff)
+    -- https://www.bluegartr.com/threads/108196-Random-Facts-Thread-Magic?p=6818652&viewfull=1#post6818652
+    -- +/- 10 dStat >>> 1 INT = 1 MACC
+    -- +/- 11 dStat to 30 INT >>> 2 INT = 1 MACC
+    -- +/- 31-70 dStat >>> 4 INT = 1 MACC
+    -- Caps at 70 dStat
+    local dstatMaccBonus = 0
+
+    if (diff - softcap) >= 0 or (diff - softcap) <= 0 then
+        dstatMaccBonus = diff
+    end
+
+    if diff >= 11 then
+        dstatMaccBonus = softcap + math.floor((diff - softcap)/2)
+    end
+
+    if diff <= -11 then
+        softcap = -10
+        dstatMaccBonus = softcap + math.ceil((diff - softcap)/2)
+    end
+
+    if diff >= 31 then
+        dstatMaccBonus = 20 + math.floor((diff - 30)/4)
+    end
+
+    if diff <= -31 then
+        dstatMaccBonus = -20 + math.ceil((diff - -30)/4)
+    end
+
+    dstatMaccBonus = utils.clamp(dstatMaccBonus, -70, 70)
+
+    return dstatMaccBonus
+end
+
 function doElementalNuke(caster, spell, target, spellParams)
     local DMG = 0
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
@@ -1978,6 +2009,44 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     end
 
     return resist
+end
+
+function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold)
+    -- Check for resist trait proc
+    if (resist == 0) then
+        if not target:hasStatusEffect(effect) then
+            return spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2) -- Resist trait proc!
+        else
+            return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        end
+    end
+
+    -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
+    if (resist >= resistthreshold) then
+        if target:addStatusEffect(effect, power, tick, duration) then
+            return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+        else
+            return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        end
+    else
+        return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+end
+
+function getAbsorbSpellPower(caster)
+    -- https://www.bg-wiki.com/ffxi/Category:Absorb_Spell
+    local mJobLvl = caster:getMainLvl()
+    local basePower = math.floor(3 + (mJobLvl / 5))
+    local gearBonus = 1 + (caster:getMod(tpz.mod.AUGMENTS_ABSORB) / 100)
+    local liberatorBonus = 1 + (caster:getMod(tpz.mod.AUGMENTS_ABSORB_II) / 100)
+    local netherVoidBonus = 1
+
+    if caster:hasStatusEffect(tpz.effect.NETHER_VOID) then
+        netherVoidBonus = 1.5
+    end
+
+    local totalPower = math.floor(math.floor(basePower * (gearBonus) * liberatorBonus) * netherVoidBonus)
+    return totalPower
 end
 
 function calculateDurationForLvl(duration, spellLvl, targetLvl)

@@ -5,6 +5,8 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/pets")
 ------------------------------------
+-- Thanks to JP testing for all fTP values and damage formulas!
+-- https://w.atwiki.jp/bartlett3/pages/329.html 
 
 -- tpeffects
 --TP_DMG_BONUS
@@ -21,6 +23,7 @@ require("scripts/globals/pets")
 --params.IGNORES_SHADOWS
 --params.AVATAR_WIPE_SHADOWS
 --params.DOT
+--params.ELEMENT_OVERRIDE
 
 function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, tpeffect, params)
     local returninfo = {}
@@ -218,6 +221,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
+            local isBlocked =math.random()*100 < target:getBlockRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -241,7 +245,8 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             --printf("pdif first hit %u", pDif * 100)
             finaldmg = avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp
             --printf("%i", finaldmg)
-
+            --handling phalanx
+            finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
             -- Duplicate the first hit with an added magical component for hybrid WSes
             if params.hybrid then
                 -- Calculate magical bonuses and reductions (Only Ifrit and thus fire damage is needed here)
@@ -264,7 +269,8 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 if (magicdmg < 0) then
                     magicdmg = (target:addHP(-magicdmg))
                 end
-
+                --handling phalanx
+                magicdmg = magicdmg - target:getMod(tpz.mod.PHALANX)
                 --printf("%i", magicdmg)
                 --handling rampart stoneskin
                 magicdmg = utils.rampartstoneskin(target, magicdmg) 
@@ -272,6 +278,10 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
 
                 finaldmg = finaldmg + magicdmg / 2
                 --printf("%i", finaldmg)
+            end
+            -- Check if mob blocked us
+            if avatar:isInfront(target, 90) and isBlocked then
+                finaldmg = target:getBlockedDamage(finaldmg)
             end
             numHitsProcessed = 1
         end
@@ -281,6 +291,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
+            local isBlocked =math.random()*100 < target:getBlockRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -307,6 +318,8 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             if params.multiHitFtp == nil then ftp = 1 end -- Not fTP transfer
 
             finaldmg = finaldmg + (avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp)
+            --handling phalanx
+            finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
             numHitsProcessed = numHitsProcessed + 1
         end
         -- apply ftp bonus
@@ -317,7 +330,10 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             --printf("%i", finaldmg)
         end
     end
-
+    -- Check if mob blocked us
+    if avatar:isInfront(target, 90) and isBlocked then
+        finaldmg = target:getBlockedDamage(finaldmg)
+    end
     --printf("finaldmg %i", finaldmg)
     returninfo.dmg = finaldmg
     returninfo.hitslanded = numHitsLanded
@@ -368,6 +384,9 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     local magicAttkBonus = getAvatarMAB(avatar, target)
     -- Do the formula!
     local finaldmg = getAvatarMagicalDamage(avatarLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
+
+    --handling phalanx
+    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
     --((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     --printf("avatarLevel %i", avatarLevel)
@@ -441,8 +460,6 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         end
     end
 
-    -- handling phalanx
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
     if dmg < 0 then
         return 0
     end
@@ -471,7 +488,7 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
     end
 
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
-        dmg = dmg * HandleWeaponResist(target, damageType)
+        dmg = dmg * utils.HandleWeaponResist(target, damageType)
     end
     --printf("dmg before circle %u", dmg)
     dmg = dmg * HandleCircleEffects(avatar, target)
@@ -535,10 +552,6 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
         dmg = target:breathDmgTaken(dmg)
     end
 
-    -- Handling rampart stoneskin + normal stoneskin
-    dmg = utils.rampartstoneskin(target, dmg)
-    dmg = utils.stoneskin(target, dmg)
-
     -- Handle absorb
     dmg = adjustForTarget(target, dmg, element)
     --printf("dmg %d", dmg)
@@ -550,6 +563,9 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
         --printf("dmg %d", dmg)
         skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
     else
+        -- Handling rampart stoneskin + normal stoneskin
+        dmg = utils.rampartstoneskin(target, dmg)
+        dmg = utils.stoneskin(target, dmg)
 	    target:takeDamage(dmg, avatar, attackType, element)
     end
     target:updateEnmityFromDamage(avatar, dmg)
@@ -575,7 +591,11 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
         local statmod = tpz.mod.INT
         local element = avatar:getStatusEffectElement(effect)
 
-        local resist = getAvatarResist(avatar, effect, target, statmod, maccBonus, element)
+        if params.ELEMENT_OVERRIDE ~= nil then
+            element = params.ELEMENT_OVERRIDE
+        end
+
+        local resist = getAvatarResist(avatar, effect, target, avatar:getStat(statmod)-target:getStat(statmod), maccBonus, element)
         --printf("resist %i", resist * 100)
         if (resist >= 0.50) then
             -- Reduce duration by resist percentage
@@ -956,44 +976,6 @@ function getAvatarAlpha(level)
     return alpha
 end
 
-function HandleWeaponResist(target, damageType)
-    local hthres = target:getMod(tpz.mod.HTHRES)
-    local pierceres = target:getMod(tpz.mod.PIERCERES)
-    local impactres = target:getMod(tpz.mod.IMPACTRES)
-    local slashres = target:getMod(tpz.mod.SLASHRES)
-    local spdefdown = target:getMod(tpz.mod.SPDEF_DOWN)
-
-    local weaponResist = 1
-    
-    if damageType == tpz.damageType.HTH then
-        if hthres < 1000 then
-            weaponResist = (1 - ((1 - hthres / 1000) * (1 - spdefdown/100)))
-        else
-            weaponResist = hthres / 1000
-        end
-    elseif damageType == tpz.damageType.PIERCING then
-        if pierceres < 1000 then
-            weaponResist = (1 - ((1 - pierceres / 1000) * (1 - spdefdown/100)))
-        else
-            weaponResist = pierceres / 1000
-        end
-    elseif damageType == tpz.damageType.BLUNT then
-        if impactres < 1000 then
-            weaponResist = (1 - ((1 - impactres / 1000) * (1 - spdefdown/100)))
-        else
-            weaponResist = impactres / 1000
-        end
-    elseif damageType == tpz.damageType.SLASHING then
-        if slashres < 1000 then
-            weaponResist = (1 - ((1 - slashres / 1000) * (1 - spdefdown/100)))
-        else
-            weaponResist = slashres / 1000
-        end
-    end
-
-    return weaponResist
-end
-
 function HandleCircleEffects(avatar, target)
     local ecoC = target:getSystem()
     local circlemult = 100
@@ -1209,6 +1191,7 @@ end
 function getAvatarResist(avatar, effect, target, diff, bonus, element)
     local percentBonus = 0
     local magicaccbonus = 0
+    local softcap = 10
 
     if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
         return 1/8
@@ -1218,14 +1201,10 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
-    if (diff > 10) then
-        magicaccbonus = magicaccbonus + 10 + (diff - 10)/2
-    else
-        magicaccbonus = magicaccbonus + diff
-    end
+    -- Apply dStat Macc bonus
+    magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
     -- Add macc from summoning skill over cap
-
     magicaccbonus = magicaccbonus + getSummoningSkillOverCap(avatar)
 
     if (bonus ~= nil) then

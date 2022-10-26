@@ -17,7 +17,8 @@ end
 
 function onUseAbility(player, target, ability)
     local duration = 30 + player:getMod(tpz.mod.RAMPART_DURATION)
-    target:addStatusEffect(tpz.effect.RAMPART, 25, 0, duration)
+    local ironWill = player:getMerit(tpz.merit.IRON_WILL)
+    target:addStatusEffect(tpz.effect.RAMPART, 25, 0, duration, 0, ironWill)
 
     return tpz.effect.DEFENSE_BOOST
 end

@@ -58,7 +58,10 @@ function onSpellCast(caster, target, spell)
     end
 
     if caster:isMob() then -- Don't let this scale out of control from mobs
-        dotdmg = math.floor(dotdmg * 0.5)
+        if     skillLvl > 80 then dotdmg = 3
+        elseif skillLvl > 40 then dotdmg = 2
+        else                      dotdmg = 1
+        end
     end
 
     -- Do it!

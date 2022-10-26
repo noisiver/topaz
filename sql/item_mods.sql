@@ -2995,7 +2995,7 @@ INSERT INTO `item_mods` VALUES (10993,54,30);     -- Fire resistance +30
 INSERT INTO `item_mods` VALUES (10993,459,3);     -- Occasionally absorbs fire elemental damage +3%
 INSERT INTO `item_mods` VALUES (10994,1,10);      -- Chuparrosa Mantle: DEF 10
 INSERT INTO `item_mods` VALUES (10994,30,5);      -- Magic Accuracy +5
-INSERT INTO `item_mods` VALUES (10994,521,10);    -- Absorb spell potency +10%
+INSERT INTO `item_mods` VALUES (10994,1274,10);    -- Absorb spell potency +10%
 -- INSERT INTO `item_mods` VALUES (10994,ENHANCE ABSORB EFFECTS,1);
 INSERT INTO `item_mods` VALUES (10995,1,9); -- ZAFFRE CAPE, DEF:9 STR+3 DEX+3 VIT+3 Blue magic skill +3
 INSERT INTO `item_mods` VALUES (10995,8,3); -- STR
@@ -4640,7 +4640,7 @@ INSERT INTO `item_mods` VALUES (11395,5,20);
 INSERT INTO `item_mods` VALUES (11395,11,3);
 INSERT INTO `item_mods` VALUES (11395,12,3);
 INSERT INTO `item_mods` VALUES (11395,27,-2);
-INSERT INTO `item_mods` VALUES (11395,489,-5);
+INSERT INTO `item_mods` VALUES (11395,489,-7); -- GRIMOIRE_SPELLCASTING -7%
 INSERT INTO `item_mods` VALUES (11396,1,16);
 INSERT INTO `item_mods` VALUES (11396,2,15);
 INSERT INTO `item_mods` VALUES (11396,9,4);
@@ -6436,7 +6436,7 @@ INSERT INTO `item_mods` VALUES (11921,501,15);    -- Spikes chance +15%
 INSERT INTO `item_mods` VALUES (11922,1,33);      -- Pavor Gauntlets: DEF 33
 INSERT INTO `item_mods` VALUES (11922,5,33);      -- MP +33
 INSERT INTO `item_mods` VALUES (11922,116,10);    -- Dark magic skill +10
-INSERT INTO `item_mods` VALUES (11922,521,10);    -- Absorb spell potency +10%
+INSERT INTO `item_mods` VALUES (11922,1274,10);    -- Absorb spell potency +10%
 INSERT INTO `item_mods` VALUES (11923,1,30);
 INSERT INTO `item_mods` VALUES (11923,27,8);
 INSERT INTO `item_mods` VALUES (11923,163,-4);
@@ -7872,7 +7872,7 @@ INSERT INTO `item_mods` VALUES (12316,55,2);
 INSERT INTO `item_mods` VALUES (12316,58,-4);
 INSERT INTO `item_mods` VALUES (12316,68,9); -- +9 evasion
 INSERT INTO `item_mods` VALUES (12317,1,12);      -- Flame Shield: DEF 12
-INSERT INTO `item_mods` VALUES (12317,54,20);     -- Fire resistance +20
+INSERT INTO `item_mods` VALUES (12317,54,30);     -- Fire resistance +30
 INSERT INTO `item_mods` VALUES (12317,499,1);     -- Blaze spikes
 INSERT INTO `item_mods` VALUES (12317,500,20);    -- Spikes damage +20
 INSERT INTO `item_mods` VALUES (12317,501,20);    -- Spikes chance +20%
@@ -11603,7 +11603,7 @@ INSERT INTO `item_mods` VALUES (13781,1,41);	-- Myochin Domaru
 INSERT INTO `item_mods` VALUES (13781,2,10);
 INSERT INTO `item_mods` VALUES (13781,10,3);
 INSERT INTO `item_mods` VALUES (13781,61,15);
-INSERT INTO `item_mods` VALUES (13781,73,3);	-- 3 Store TP
+INSERT INTO `item_mods` VALUES (13781,1239,50);	-- 50% chance to gain 10-30 TP when damaged
 INSERT INTO `item_mods` VALUES (13782,1,41);      -- Ninja Chainmail: DEF 41
 INSERT INTO `item_mods` VALUES (13782,2,15);      -- HP +15
 INSERT INTO `item_mods` VALUES (13782,10,3);      -- VIT +3
@@ -14068,7 +14068,7 @@ INSERT INTO `item_mods` VALUES (14474,2,20);
 INSERT INTO `item_mods` VALUES (14474,8,6);
 INSERT INTO `item_mods` VALUES (14474,10,6);
 INSERT INTO `item_mods` VALUES (14474,25,5);
-INSERT INTO `item_mods` VALUES (14474,123,10); -- Enhances Chakra Effect - Increases VIT mult by 1.0
+INSERT INTO `item_mods` VALUES (14474,123,15); -- Enhances Chakra Effect - Increases VIT mult by 1.5
 INSERT INTO `item_mods` VALUES (14474,124,1);  -- Chakra removes Paralysis
 INSERT INTO `item_mods` VALUES (14475,1,40);
 INSERT INTO `item_mods` VALUES (14475,5,35);
@@ -14118,11 +14118,12 @@ INSERT INTO `item_mods` VALUES (14483,10,4);
 INSERT INTO `item_mods` VALUES (14483,11,4);
 INSERT INTO `item_mods` VALUES (14483,26,10);
 INSERT INTO `item_mods` VALUES (14483,98,50);
-INSERT INTO `item_mods` VALUES (14484,1,50);
+INSERT INTO `item_mods` VALUES (14484,1,50);      -- Myochin Domaru +1
 INSERT INTO `item_mods` VALUES (14484,2,10);
 INSERT INTO `item_mods` VALUES (14484,8,6);
 INSERT INTO `item_mods` VALUES (14484,10,6);
 INSERT INTO `item_mods` VALUES (14484,25,12);
+INSERT INTO `item_mods` VALUES (14484,1239,100);	  -- 100% chance to gain 10-30 TP when damaged
 INSERT INTO `item_mods` VALUES (14485,1,46);      -- Ninja Chainmail +1: DEF 46
 INSERT INTO `item_mods` VALUES (14485,2,15);      -- HP +15
 INSERT INTO `item_mods` VALUES (14485,9,5);       -- DEX +5
@@ -14141,11 +14142,11 @@ INSERT INTO `item_mods` VALUES (14487,5,45);
 INSERT INTO `item_mods` VALUES (14487,71,5);
 INSERT INTO `item_mods` VALUES (14487,357,4);
 INSERT INTO `item_mods` VALUES (14487,1261,-4); -- Avatar Enmity -2
-INSERT INTO `item_mods` VALUES (14488,1,49);
+INSERT INTO `item_mods` VALUES (14488,1,49); -- homam_corazza
 INSERT INTO `item_mods` VALUES (14488,2,28);
 INSERT INTO `item_mods` VALUES (14488,5,28);
 INSERT INTO `item_mods` VALUES (14488,25,15);
-INSERT INTO `item_mods` VALUES (14488,302,1);
+INSERT INTO `item_mods` VALUES (14488,302,3); -- Triple Attack +3%
 INSERT INTO `item_mods` VALUES (14489,1,41);
 INSERT INTO `item_mods` VALUES (14489,30,5);
 INSERT INTO `item_mods` VALUES (14489,112,5);
@@ -15346,7 +15347,7 @@ INSERT INTO `item_mods` VALUES (14890,109,15);
 INSERT INTO `item_mods` VALUES (14891,1,15);
 INSERT INTO `item_mods` VALUES (14891,2,14);
 INSERT INTO `item_mods` VALUES (14891,8,6);
-INSERT INTO `item_mods` VALUES (14891,97,55);
+INSERT INTO `item_mods` VALUES (14891,97,60); -- BOOST_EFFECT
 INSERT INTO `item_mods` VALUES (14891,289,4);
 INSERT INTO `item_mods` VALUES (14892,1,14);
 INSERT INTO `item_mods` VALUES (14892,5,15);
@@ -15943,7 +15944,7 @@ INSERT INTO `item_mods` VALUES (15036,2,17);
 INSERT INTO `item_mods` VALUES (15036,9,4);
 INSERT INTO `item_mods` VALUES (15036,11,4);
 INSERT INTO `item_mods` VALUES (15036,23,5);
-INSERT INTO `item_mods` VALUES (15036,403,10);
+INSERT INTO `item_mods` VALUES (15036,403,15); -- STEP_ACCURACY +15
 INSERT INTO `item_mods` VALUES (15037,1,14);      -- Scholar's Bracers +1: DEF 14
 INSERT INTO `item_mods` VALUES (15037,5,20);      -- MP +20
 INSERT INTO `item_mods` VALUES (15037,13,5);      -- MND +5
@@ -16708,7 +16709,7 @@ INSERT INTO `item_mods` VALUES (15226,1,23);
 INSERT INTO `item_mods` VALUES (15226,2,16);
 INSERT INTO `item_mods` VALUES (15226,13,8);
 INSERT INTO `item_mods` VALUES (15226,72,1);
-INSERT INTO `item_mods` VALUES (15226,561,10);
+INSERT INTO `item_mods` VALUES (15226,561,15);
 INSERT INTO `item_mods` VALUES (15227,1,21);
 INSERT INTO `item_mods` VALUES (15227,5,28);
 INSERT INTO `item_mods` VALUES (15227,13,7);
@@ -16733,7 +16734,7 @@ INSERT INTO `item_mods` VALUES (15231,1,28);
 INSERT INTO `item_mods` VALUES (15231,2,12);
 INSERT INTO `item_mods` VALUES (15231,13,6);
 INSERT INTO `item_mods` VALUES (15231,27,3);
-INSERT INTO `item_mods` VALUES (15231,966,1);     -- Enhances Cover to redirect magic and ranged attacks to ability user
+INSERT INTO `item_mods` VALUES (15231,1015,1);     -- Enhances Cover to redirect magic and ranged attacks to ability user
 INSERT INTO `item_mods` VALUES (15232,1,27);
 INSERT INTO `item_mods` VALUES (15232,2,12);
 INSERT INTO `item_mods` VALUES (15232,5,12);
@@ -17168,7 +17169,7 @@ INSERT INTO `item_mods` VALUES (15353,2,12);
 INSERT INTO `item_mods` VALUES (15353,9,5);
 INSERT INTO `item_mods` VALUES (15353,13,5);
 INSERT INTO `item_mods` VALUES (15353,68,10);
-INSERT INTO `item_mods` VALUES (15353,552,10);
+INSERT INTO `item_mods` VALUES (15353,552,15); -- DODGE_EFFECT
 INSERT INTO `item_mods` VALUES (15354,1,12);      -- Healer's Duckbills +1: DEF 12
 INSERT INTO `item_mods` VALUES (15354,5,15);      -- MP +15
 INSERT INTO `item_mods` VALUES (15354,11,5);      -- AGI +5
@@ -43309,7 +43310,7 @@ INSERT INTO `item_mods` VALUES (27664,29,2);
 INSERT INTO `item_mods` VALUES (27664,31,29);
 INSERT INTO `item_mods` VALUES (27664,68,17);
 INSERT INTO `item_mods` VALUES (27664,384,700);
-INSERT INTO `item_mods` VALUES (27664,561,15);
+INSERT INTO `item_mods` VALUES (27664,561,15); -- FOCUS_EFFECT +15
 INSERT INTO `item_mods` VALUES (27665,1,68);      -- Theophany Cap: DEF 68
 INSERT INTO `item_mods` VALUES (27665,2,17);      -- HP +17
 INSERT INTO `item_mods` VALUES (27665,5,26);      -- MP +26

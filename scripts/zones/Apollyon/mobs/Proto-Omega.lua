@@ -11,13 +11,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-	mob:setDamage(140)
-    mob:setMod(tpz.mod.ATT, 535)
-    mob:setMod(tpz.mod.ATTP, 0)
-    mob:setMod(tpz.mod.DEF, 522)
-    mob:setMod(tpz.mod.DEFP, 0)
-    mob:setMod(tpz.mod.ACC, 300) 
-    mob:setMod(tpz.mod.EVA, 300)
+	mob:setDamage(120)
+    mob:setMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.DEFP, 25)
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:setMod(tpz.mod.EVA, 360)
     mob:setMod(tpz.mod.REFRESH, 50)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:addMod(tpz.mod.MDEF, 68)
@@ -29,9 +27,15 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGRANGE, -90)
     mob:setMod(tpz.mod.UDMGMAGIC, 0)
     mob:setMod(tpz.mod.UDMGBREATH, 0)
+    mob:setMod(tpz.mod.PARALYZERESTRAIT, 0)
     mob:setMod(tpz.mod.MOVE, 25) -- "Moves at Flee Speed in Quadrupedal stance and in the Final Form"
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setLocalVar("form", 0)
     mob:setLocalVar("Gunpod", 0)
+end
+
+function onMobEngaged(mob, target)
+    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
 end
 
 function onMobFight(mob, target)

@@ -96,6 +96,7 @@ enum class Mod
     PIERCERES                 = 50, // Piercing Resistance
     IMPACTRES                 = 51, // Impact Resistance
     HTHRES                    = 52, // Hand-To-Hand Resistance
+    RANGEDRES                 = 1279, // Ranged Resistance
 
     // Damage Reduction to Elements
     // Value is stored as a percentage of damage reduction (to within 1000)
@@ -201,6 +202,10 @@ enum class Mod
     UDMGBREATH                = 388, // Used in sentinal, invincible, physical shield etc
     UDMGMAGIC                 = 389, //
     UDMGRANGE                 = 390, //
+
+    DMGSC                     = 1276, // Skillchan Damage Taken %
+    DMGMB                     = 1277, // Magic Burst Damage Taken %
+    DMGSPIRITS                = 1278, // Spirits Damage Taken % (Spirits Within / Atonement / Formless Strikes
 
     CRITHITRATE               = 165, // Raises chance to crit
     CRIT_DMG_INCREASE         = 421, // Raises the damage of critical hit by percent %
@@ -334,8 +339,8 @@ enum class Mod
     PERFECT_COUNTER_ATT       = 428, // TODO: Raises weapon damage by 20 when countering while under the Perfect Counter effect. This also affects Weapon Rank (though not if fighting barehanded).
     FOOTWORK_ATT_BONUS        = 429, // Raises the attack bonus of Footwork. (Tantra Gaiters +2 raise 25/256 to 38/256)
     COUNTERSTANCE_EFFECT      = 543, // Counterstance effect in percents
-    DODGE_EFFECT              = 552, // Dodge effect in percents
-    FOCUS_EFFECT              = 561, // Focus effect in percents
+    DODGE_EFFECT              = 552, // Bonus Evasion during Dodge
+    FOCUS_EFFECT              = 561, // Bonus Accuracy during Focus
 
     // White Mage
     AFFLATUS_SOLACE           = 293, // Pool of HP accumulated during Afflatus Solace
@@ -429,6 +434,7 @@ enum class Mod
     SNAP_SHOT                 = 365, // Percent reduction to range attack delay
     RAPID_SHOT                = 359, // Percent chance to proc rapid shot
     WIDESCAN                  = 340, //
+    BARRAGE_SHOT_COUNT        = 1275, // Number of shots fired by Barrage
     BARRAGE_ACC               = 420, // Barrage accuracy
     DOUBLE_SHOT_RATE          = 422, // The rate that double shot can proc. Without this, the default is 40%.
     VELOCITY_SNAPSHOT_BONUS   = 423, // Increases Snapshot whilst Velocity Shot is up.
@@ -776,7 +782,8 @@ enum class Mod
     SHIELDBLOCKRATE           = 518, // Affects shield block rate, percent based
     DIA_DOT                   = 313, // Increases the DoT damage of Dia
     ENH_DRAIN_ASPIR           = 315, // % damage boost to Drain and Aspir
-    AUGMENTS_ABSORB           = 521, // Direct Absorb spell increase while Liberator is equipped (percentage based)
+    AUGMENTS_ABSORB           = 1274, // Direct Absorb spell increase (percentage based)
+    AUGMENTS_ABSORB_II        = 521, // Direct Absorb spell increase while Liberator is equipped (percentage based)
     AMMO_SWING                = 523, // Extra swing rate w/ ammo (ie. Jailer weapons). Use gearsets, and does nothing for non-players.
     AMMO_SWING_TYPE           = 826, // For the handedness of the weapon - 1h (1) vs. 2h/h2h (2). h2h can safely use the same function as 2h.
     AUGMENTS_CONVERT          = 525, // Convert HP to MP Ratio Multiplier. Value = MP multiplier rate.
@@ -870,7 +877,7 @@ enum class Mod
 
     SUBTLE_BLOW_II            = 1009, // Subtle Blow II Effect (Cap 50%) Total Effect (SB + SB_II cap 75%)
     GARDENING_WILT_BONUS      = 1011, // Increases the number of Vanadays a plant can survive before it wilts
-    TP_BOOST_WHEN_DMGD        = 1239,    // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
+    TP_BOOST_WHEN_DMGD        = 1239, // Bonus 30-100 TP gained when taking damage. Modifier = percent chance of proccing
 
 
     SPDEF_DOWN = 958,
@@ -927,6 +934,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
+    // 1280 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

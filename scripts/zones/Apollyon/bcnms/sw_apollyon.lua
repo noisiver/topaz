@@ -9,6 +9,8 @@ local ID = require("scripts/zones/Apollyon/IDs")
 
 function onBattlefieldInitialise(battlefield)
     battlefield:setLocalVar("loot", 1)
+	battlefield:setLocalVar("tick", 0)
+    battlefield:setLocalVar("race", 0)
     battlefield:setLocalVar("lootSpawned", 1)
     SetServerVariable("[SW_Apollyon]Time", battlefield:getTimeLimit()/60)
     tpz.limbus.handleDoors(battlefield)
@@ -21,9 +23,14 @@ end
 
 function onBattlefieldTick(battlefield, tick)
     if battlefield:getRemainingTime() % 60 == 0 then
-        SetServerVariable("[SW_Apollyon]Time", battlefield:getRemainingTime()/60)
+       SetServerVariable("[SW_Apollyon]Time", battlefield:getRemainingTime()/60)
     end
-    tpz.battlefield.onBattlefieldTick(battlefield, tick)
+
+	battlefield:setLocalVar("tick", battlefield:getLocalVar("tick") + 1)
+
+	if battlefield:getLocalVar("tick") >= 90 then
+		tpz.battlefield.onBattlefieldTick(battlefield, tick)
+	end
 end
 
 function onBattlefieldRegister(player, battlefield)
@@ -35,9 +42,7 @@ function onBattlefieldEnter(player, battlefield)
     player:delKeyItem(tpz.ki.RED_CARD)
     player:messageSpecial(ID.text.KEYITEM_OBTAINED + 1, tpz.ki.RED_CARD)
     player:setCharVar("Cosmo_Cleanse_TIME", os.time())
-    if battlefield:getLocalVar("raceF1") == 0 then
-        battlefield:setLocalVar("raceF1", player:getRace())
-    end
+    battlefield:setLocalVar("raceF1", 7)
 end
 
 function onBattlefieldDestroy(battlefield)

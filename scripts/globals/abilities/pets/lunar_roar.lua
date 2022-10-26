@@ -1,5 +1,7 @@
 ---------------------------------------------
--- Aerial Armor
+-- Lunar Roar
+-- Dispels two effects from target in AOE.
+-- Additional effect: MAB and MACC down.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -13,6 +15,12 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onPetAbility(target, pet, skill)
+    local params = {}
+    local effect = tpz.effect.MAGIC_ATK_DOWN
+    local power = 10
+    local duration = 180
+    local bonus = 0
+    local effect2 = tpz.effect.MAGIC_ACC_DOWN
     local dis1 = target:dispelStatusEffect()
     local dis2 = target:dispelStatusEffect()
 
@@ -25,9 +33,11 @@ function onPetAbility(target, pet, skill)
         skill:setMsg(tpz.msg.basic.DISAPPEAR_NUM)
         return 1
     else
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+        skill:setMsg(tpz.msg.basic.SKILL_ENFEEB) -- no effect
     end
+    AvatarStatusEffectBP(pet, target, effect, power, duration, params, bonus)
+    AvatarStatusEffectBP(pet, target, effect2, power, duration, params, bonus)
     giveAvatarTP(pet)
 
-    return 0
+    return effect
 end

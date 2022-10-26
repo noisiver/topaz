@@ -10,6 +10,10 @@ function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 2) 
 end
 
+function onMobEngaged(mob)
+    mob:setTP(3000)
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then
         if GetNPCByID(ID.npc.APOLLYON_SW_PORTAL[3]):getAnimation() ~= tpz.animation.OPEN_DOOR then

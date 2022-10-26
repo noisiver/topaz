@@ -21,6 +21,8 @@ function onMobRoam(mob)
     if mob:getTP() > 1000 then
         mob:setTP(1000)
     end
+    mob:AnimationSub(4)
+    mob:setLocalVar("TwoHourUsed", 0)
     --if mob:getID(instance) == 17002772 then
         --mob:setPos(558.6038,-15.6880,139.2372,160)
     --end

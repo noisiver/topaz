@@ -6,7 +6,11 @@
 require("scripts/globals/dynamis")
 -----------------------------------
 function onMobSpawn(mob)
-     mob:setMod(tpz.mod.REFRESH, 300)
+    mob:setMod(tpz.mod.REFRESH, 300)
+    mob:delImmunity(tpz.immunity.STUN)
+    mob:delImmunity(tpz.immunity.PARALYZE)
+    mob:delImmunity(tpz.immunity.BLIND)
+    mob:delImmunity(tpz.immunity.POISON)
 end
 
 function onMobEngaged(mob, target)

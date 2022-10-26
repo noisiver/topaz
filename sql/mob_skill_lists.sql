@@ -4484,9 +4484,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Iqi-Balam',6133,652); -- blaster
 INSERT INTO `mob_skill_lists` VALUES ('Iqi-Balam',6133,653); -- chaotic_eye
 INSERT INTO `mob_skill_lists` VALUES ('Iqi-Balam',6133,2209); -- blink of peril
 
-INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,270); -- Roar
+INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,271); -- Zilart + WotG TP moves without Roar
+INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,273); 
+INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1680); 
+INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1681); 
+INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,2207); 
 -- ANNM End
--- MMM End
 
 --6066 unused
 

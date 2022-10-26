@@ -38,7 +38,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
 CMobController::CMobController(CMobEntity* PEntity) :
     CController(PEntity),
-    PMob(PEntity)
+    PMob(PEntity),
+    m_forceDeaggroAll(false)
 {}
 
 void CMobController::Tick(time_point tick)
@@ -66,8 +67,30 @@ bool CMobController::TryDeaggro()
     TracyZoneScoped;
     if (PTarget == nullptr && (PMob->PEnmityContainer != nullptr && PMob->PEnmityContainer->GetHighestEnmity() == nullptr))
     {
+        m_forcedDeaggroEntities.clear();
+        m_forceDeaggroAll = false;
         return true;
+
     }
+
+    
+    bool isForcedDeaggro = (std::find(m_forcedDeaggroEntities.begin(), m_forcedDeaggroEntities.end(), PTarget) != m_forcedDeaggroEntities.end());
+    // target is no longer valid, so wipe them from our enmity list
+    if (!PTarget || PTarget->isDead() || PTarget->isMounted() || PTarget->loc.zone->GetID() != PMob->loc.zone->GetID() ||
+        PMob->StatusEffectContainer->GetConfrontationEffect() != PTarget->StatusEffectContainer->GetConfrontationEffect() ||
+        PMob->allegiance == PTarget->allegiance || CheckDetection(PTarget) || CheckHide(PTarget) || isForcedDeaggro || m_forceDeaggroAll)
+    {
+        if (PTarget)
+            PMob->PEnmityContainer->Clear(PTarget->id);
+        PTarget = PMob->PEnmityContainer->GetHighestEnmity();
+        PMob->SetBattleTargetID(PTarget ? PTarget->targid : 0);
+        return TryDeaggro();
+    }
+
+    m_forcedDeaggroEntities.clear();
+    m_forceDeaggroAll = false;
+    return false;
+
 
     // target is no longer valid, so wipe them from our enmity list
     if (!PTarget || PTarget->isDead() ||
@@ -192,7 +215,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 
     float verticalDistance = abs(PMob->loc.p.y - PTarget->loc.p.y);
 
-    if (verticalDistance > 8)
+    if (verticalDistance > 12)
     {
         return false;
     }
@@ -200,14 +223,33 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     auto detects = PMob->m_Detects;
     auto currentDistance = distance(PTarget->loc.p, PMob->loc.p) + PTarget->getMod(Mod::STEALTH);
 
-    bool detectSight = (detects & DETECT_SIGHT) || forceSight;
+    bool detectSight = (detects & DETECT_SIGHT) || forceSight || PMob->getMobMod(MOBMOD_AGGRO_SIGHT) > 0;
+    bool detectSound = detects & DETECT_HEARING || PMob->getMobMod(MOBMOD_AGGRO_SOUND) > 0;
+    bool detectMagic = detects & DETECT_MAGIC || PMob->getMobMod(MOBMOD_AGGRO_MAGIC) > 0;
+    bool detectWS = detects & DETECT_WEAPONSKILL || PMob->getMobMod(MOBMOD_AGGRO_WS) > 0;
+    bool detectJA = detects & DETECT_JOBABILITY || PMob->getMobMod(MOBMOD_AGGRO_JA) > 0;
+    bool detectHP = detects & DETECT_LOWHP || PMob->getMobMod(MOBMOD_AGGRO_HP) > 0;
     bool hasInvisible = false;
     bool hasSneak = false;
 
-    if (!PMob->m_TrueDetection)
+    if (PMob->m_TrueDetection == 0 && PMob->getMobMod(MOBMOD_TRUE_SIGHT_SOUND) == 0 && PMob->getMobMod(MOBMOD_TRUE_SIGHT) == 0 &&
+        PMob->getMobMod(MOBMOD_TRUE_SOUND) == 0) // No True Detection
     {
-        hasInvisible = PTarget->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE);
-        hasSneak = PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK);
+        hasSneak = PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK);                   // Does not ignore sneak.
+        hasInvisible = PTarget->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE); // Does not ignore invisible.
+    }
+    if (PMob->m_TrueDetection == 1 || PMob->getMobMod(MOBMOD_TRUE_SIGHT_SOUND) > 0) // True Sight and Hearing
+    {
+        // Ignores Invisible and Sneak
+    }
+    if (PMob->m_TrueDetection == 2 || PMob->getMobMod(MOBMOD_TRUE_SIGHT) > 0) // True Sight
+    {
+        hasSneak = PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_SNEAK); // Does not ignore sneak.
+    }
+    if (PMob->m_TrueDetection == 3 || PMob->getMobMod(MOBMOD_TRUE_SOUND) > 0) // True Hearing
+    {
+        hasInvisible = PTarget->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE); // Does not ignore invisible.
+
     }
 
     if (detectSight && !hasInvisible && currentDistance < PMob->getMobMod(MOBMOD_SIGHT_RANGE) && facing(PMob->loc.p, PTarget->loc.p, 64))
@@ -220,34 +262,38 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
         return true;
     }
 
-    if ((detects & DETECT_HEARING) && currentDistance < PMob->getMobMod(MOBMOD_SOUND_RANGE) && !hasSneak)
+    if ((detectSound) && currentDistance < PMob->getMobMod(MOBMOD_SOUND_RANGE) && !hasSneak)
     {
         return CanSeePoint(PTarget->loc.p);
     }
 
-    // everything below require distance to be below 20
-    if (currentDistance > 20)
-    {
-        return false;
-    }
-
-    if ((detects & DETECT_LOWHP) && PTarget->GetHPP() < 75)
-    {
-        return CanSeePoint(PTarget->loc.p);
-    }
-
-    if ((detects & DETECT_MAGIC) && PTarget->PAI->IsCurrentState<CMagicState>() &&
+    if ((detectMagic) && currentDistance < PMob->getMobMod(MOBMOD_MAGIC_RANGE) && PTarget->PAI->IsCurrentState<CMagicState>() &&
         static_cast<CMagicState*>(PTarget->PAI->GetCurrentState())->GetSpell()->hasMPCost())
     {
         return CanSeePoint(PTarget->loc.p);
     }
 
-    if ((detects & DETECT_WEAPONSKILL) && PTarget->PAI->IsCurrentState<CWeaponSkillState>())
+    if ((detectWS) && currentDistance < PMob->getMobMod(MOBMOD_WS_RANGE) && PTarget->PAI->IsCurrentState<CWeaponSkillState>())
     {
         return CanSeePoint(PTarget->loc.p);
     }
 
-    if ((detects & DETECT_JOBABILITY) && PTarget->PAI->IsCurrentState<CAbilityState>())
+    if ((detectJA) && currentDistance < PMob->getMobMod(MOBMOD_JA_RANGE) && PTarget->PAI->IsCurrentState<CAbilityState>())
+    {
+        return CanSeePoint(PTarget->loc.p);
+    }
+
+    if ((detectHP) && currentDistance < PMob->getMobMod(MOBMOD_HP_RANGE) && PTarget->GetHPP() < 25)
+    {
+        return CanSeePoint(PTarget->loc.p);
+    }
+
+    if ((detectHP) && currentDistance < 15 && PTarget->GetHPP() < 50)
+    {
+        return CanSeePoint(PTarget->loc.p);
+    }
+
+    if ((detectHP) && currentDistance < 10 && PTarget->GetHPP() < 75)
     {
         return CanSeePoint(PTarget->loc.p);
     }
@@ -312,6 +358,8 @@ bool CMobController::MobSkill(int wsList)
         {
             if (currentDistance <= PMobSkill->getDistance())
             {
+                int16 tp = PMob->health.tp;
+                PMob->SetLocalVar("tp", tp);
                 return MobSkill(PActionTarget->targid, PMobSkill->getID());
             }
         }
@@ -517,7 +565,7 @@ void CMobController::DoCombatTick(time_point tick)
         }
     }
 
-        // i'm a worm pop back up
+    // i'm a worm pop back up
     if (PMob->m_roamFlags & ROAMFLAG_WORM)
     {
         PMob->animationsub = 0;
@@ -530,6 +578,13 @@ void CMobController::DoCombatTick(time_point tick)
     PTarget = static_cast<CBattleEntity*>(PMob->GetEntity(PMob->GetBattleTargetID()));
 
     if (TryDeaggro())
+    {
+        Disengage();
+        return;
+    }
+
+    // Deaggro players in cutscenes
+    if (PTarget->status == STATUS_CUTSCENE_ONLY)
     {
         Disengage();
         return;
@@ -655,6 +710,11 @@ void CMobController::Move()
             }
             else if (CanMoveForward(currentDistance))
             {
+                // Do not move if current target has Palisade on and is < 12 yards away
+                if (PTarget->StatusEffectContainer->GetStatusEffect(EFFECT_PALISADE) && currentDistance <= 15)
+                {
+                    return;
+                }
                 if (!PMob->PAI->PathFind->IsFollowingPath() || distanceSquared(PMob->PAI->PathFind->GetDestination(), PTarget->loc.p) > 10)
                 {
                     // path to the target if we don't have a path already
@@ -802,6 +862,10 @@ void CMobController::DoRoamTick(time_point tick)
             }
 
             // if I just disengaged check if I should despawn
+            if (PMob->getMobMod(MOBMOD_RETURN_TO_SPAWN) != 0)
+            {
+                PMob->loc.p = PMob->m_SpawnPoint;
+            }
             if (PMob->IsFarFromHome())
             {
                 if (PMob->CanRoamHome() && PMob->PAI->PathFind->PathTo(PMob->m_SpawnPoint))
@@ -854,7 +918,9 @@ void CMobController::DoRoamTick(time_point tick)
                     luautils::OnMobRoamAction(PMob);
                     m_LastActionTime = m_Tick;
                 }
-                else if (PMob->CanRoam() && PMob->PAI->PathFind->RoamAround(PMob->m_SpawnPoint, PMob->GetRoamDistance(), (uint8)PMob->getMobMod(MOBMOD_ROAM_TURNS), PMob->m_roamFlags))
+                else if (PMob->getMobMod(MOBMOD_NO_ROAM) == 0 && PMob->CanRoam() &&
+                         PMob->PAI->PathFind->RoamAround(PMob->m_SpawnPoint, PMob->GetRoamDistance(), (uint8)PMob->getMobMod(MOBMOD_ROAM_TURNS),
+                                                         PMob->m_roamFlags))
                 {
                     //#TODO: #AIToScript (event probably)
                     if (PMob->m_roamFlags & ROAMFLAG_WORM)
@@ -980,7 +1046,6 @@ bool CMobController::MobSkill(uint16 targid, uint16 wsid)
     TracyZoneScoped;
     if (POwner)
     {
-        FaceTarget(targid);
         return POwner->PAI->Internal_MobSkill(targid, wsid);
     }
 
@@ -1120,6 +1185,23 @@ void CMobController::TapDeclaimTime()
     m_DeclaimTime = m_Tick;
 }
 
+bool CMobController::DeaggroEntity(CBattleEntity* PEntity)
+{
+    if (!PEntity)
+    {
+        return false;
+    }
+    m_forcedDeaggroEntities.push_back(PEntity);
+    return true;
+}
+
+bool CMobController::DeaggroAll()
+{
+    m_forceDeaggroAll = true;
+    return true;
+}
+
+
 bool CMobController::Cast(uint16 targid, SpellID spellid)
 {
     TracyZoneScoped;
@@ -1135,7 +1217,8 @@ bool CMobController::CanMoveForward(float currentDistance)
         return false;
     }
 
-    if(PMob->getMobMod(MOBMOD_NO_STANDBACK) == 0 && PMob->getMobMod(MOBMOD_HP_STANDBACK) > 0 && currentDistance < 20 && PMob->GetHPP() >= PMob->getMobMod(MOBMOD_HP_STANDBACK))
+    if(PMob->getMobMod(MOBMOD_NO_STANDBACK) == 0 && PMob->getMobMod(MOBMOD_HP_STANDBACK) > 0 && currentDistance < 20 && PMob->GetHPP() >= PMob->getMobMod(MOBMOD_HP_STANDBACK)
+        && currentDistance > PMob->GetMeleeRange() * 2)
     {
         // Excluding Nins, mobs should not standback if can't cast magic
         if (PMob->GetMJob() != JOB_NIN && PMob->SpellContainer->HasSpells() && !CanCastSpells())

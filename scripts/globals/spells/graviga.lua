@@ -14,27 +14,20 @@ function onSpellCast(caster, target, spell)
 
     -- Pull base stats.
     local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
-    local power = 25 -- 25% reduction
+    local power = 50 
 
     -- Duration, including resistance.  Unconfirmed.
     local duration = 120
     local params = {}
-    params.diff = nil
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = 35
     params.bonus = 0
     params.effect = tpz.effect.WEIGHT
-    duration = duration * applyResistanceEffect(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
+    duration = duration * resist
 
-    if (duration >= 30) then --Do it!
-        if (target:addStatusEffect(tpz.effect.WEIGHT, power, 0, duration)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-    end
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
 
     return tpz.effect.WEIGHT
 end

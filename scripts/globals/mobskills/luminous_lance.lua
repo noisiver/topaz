@@ -40,7 +40,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_RANGED,params_phys)
 
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.PIERCING, info.hitslanded)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, info.hitslanded)
 
     mob:entityAnimationPacket("ids0")
     mob:setLocalVar("lanceTime", mob:getBattleTime())
@@ -50,6 +50,6 @@ function onMobWeaponSkill(target, mob, skill)
     -- Cannot be resisted
     target:addStatusEffect(tpz.effect.TERROR, 0, 0, 20)
 
-    target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.PIERCING)
+    target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.RANGED)
     return dmg
 end

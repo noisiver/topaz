@@ -67,7 +67,7 @@ function onUseAbility(player, target, ability, action)
         isSneakValid = false
     end
     local pdif = generatePdif (cratio[1], cratio[2], true)
-    local hitrate = getHitRate(player, target, true)
+    local hitrate = getHitRate(player, target, true, true, 0)
 
     if (math.random() <= hitrate or isSneakValid) then
         hit = 3
@@ -86,6 +86,7 @@ function onUseAbility(player, target, ability, action)
             ability:setMsg(tpz.msg.basic.JA_DAMAGE)
         end
 
+        dmg = dmg - target:getMod(tpz.mod.PHALANX)
         dmg = utils.stoneskin(target, dmg)
         target:takeDamage(dmg, player, tpz.attackType.PHYSICAL, player:getWeaponDamageType(tpz.slot.MAIN))
         target:updateEnmityFromDamage(player, dmg)
