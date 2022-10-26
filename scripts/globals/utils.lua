@@ -1,4 +1,5 @@
 require("scripts/globals/status")
+require("scripts/globals/spell_data")
 require("scripts/globals/world")
 
 
@@ -725,6 +726,24 @@ function utils.HandleWeaponResist(target, damageType)
     end
 
     return weaponResist
+end
+
+function utils.GetSkillchainElement(element)
+     local elements =
+    {
+        [1] = {element = {tpz.magic.ele.FIRE}, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [2] = {element = {tpz.magic.ele.ICE}, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [3] = {element = {tpz.magic.ele.WIND}, sc = {tpz.skillchainEle.DETONATION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [4] = {element = {tpz.magic.ele.EARTH}, sc = {tpz.skillchainEle.SCISSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [5] = {element = {tpz.magic.ele.THUNDER}, sc = {tpz.skillchainEle.IMPACTION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [6] = {element = {tpz.magic.ele.WATER}, sc = {tpz.skillchainEle.REVERBERATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        [7] = {element = {tpz.magic.ele.LIGHT}, sc = {tpz.skillchainEle.TRANSFIXION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        [8] = {element = {tpz.magic.ele.DARK}, sc = {tpz.skillchainEle.COMPRESSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+    }
+    local currentElement = {}
+    currentElement = elements[element].sc
+
+    return currentElement
 end
 
 function utils.GetMatchingSCDayElement()
