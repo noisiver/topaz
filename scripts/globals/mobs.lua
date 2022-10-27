@@ -675,6 +675,7 @@ function TeleportMob(mob, hidden, callback)
         mob:SetMobSkillAttack(false)
         mob:hideName(true)
         mob:untargetable(true)
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
         mob:entityAnimationPacket("kesu")
         if callback then
             mob:timer(1500, callback)
@@ -686,6 +687,7 @@ function TeleportMob(mob, hidden, callback)
             mob:SetMobSkillAttack(true)
             mob:hideName(false)
             mob:untargetable(false)
+            mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
             if mob:isDead() then
                 return
             end
