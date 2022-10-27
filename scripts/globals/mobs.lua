@@ -810,6 +810,12 @@ function SpawnInstancedMob(mob, player, mobId, aggro)
     end
 end
 
+function ForceDrawIn(mob, playerId)
+    local player = GetPlayerByID(playerId)
+    player:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+    mob:messageBasic(tpz.msg.basic.DRAWN_IN, 0, 0, player)
+end
+
 --Uneeded?
 function PeriodicInstanceMessage(mob, target, msg, textcolor, sender, timer)
     local instance = target:getInstance()
