@@ -660,7 +660,7 @@ function DespawnWeatherMob(mobId, respawn)
 end
 
 -- Set mob
-function TeleportMob(mob, hidden, callback)
+function TeleportMob(mob, hidden, spell, callback)
     local hidetime = hidden or 5000
     if hidetime < 2000 then
         hidetime = 2000
@@ -687,6 +687,9 @@ function TeleportMob(mob, hidden, callback)
             mob:SetMobSkillAttack(true)
             mob:hideName(false)
             mob:untargetable(false)
+            if spell ~= nil then
+                mob:castSpell(spell)
+            end
             mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
             if mob:isDead() then
                 return
