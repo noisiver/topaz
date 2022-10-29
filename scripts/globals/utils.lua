@@ -760,9 +760,9 @@ function utils.GetMatchingSCDayElement()
     }
 
     local dayElement = VanadielDayElement()
-    local currentDay = elements[dayElement +1].day[1]
+    local currentDay = elements[dayElement].day[1]
     local currentMatchingSkillchains = {}
-    currentMatchingSkillchains = elements[dayElement +1].sc
+    currentMatchingSkillchains = elements[dayElement].sc
 
     return currentMatchingSkillchains
 end
