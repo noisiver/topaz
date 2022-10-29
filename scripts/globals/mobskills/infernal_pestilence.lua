@@ -1,11 +1,11 @@
 ---------------------------------------------
 --  Infernal Pestilence
 --
---  Description: Releases a horrible disease on targets in front. Additional effect: Zombie.
+--  Description: Releases a horrible disease on targets in front. Additional effect: Plague.
 --  Type: Magical
 --  Utsusemi/Blink absorb: Ignores shadows
 --  Range: Front arc
---  Notes: Only used by Chahnameed's Stomach.
+--  Notes: Only used by Chahnameed's Stomach and Verrottendes Fleisch(Custom - Arrapago Remnants Salvage)
 ---------------------------------------------
 
 require("scripts/globals/settings")
@@ -19,18 +19,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    local typeEffect = tpz.effect.CURSE_II
-
-    if target:hasStatusEffect(tpz.effect.FEALTY) then
-        skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-    else
-		MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
-    end
-
-    local dmgmod = 0.5
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*1, tpz.magic.ele.WATER, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
+    local typeEffect = tpz.effect.PLAGUE
+    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.DARK, 900)
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.DARK)
+    MobStatusEffectMove(mob, target, typeEffect, 3, 3, 180)
     return dmg
 end
