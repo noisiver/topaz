@@ -791,6 +791,12 @@ function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
     end
 end
 
+function MobName(mob)
+    local mobName = mob:getName()
+    mobName = string.gsub(mobName, '_', ' ');
+    return mobName
+end
+
 function SpawnInstancedMob(mob, player, mobId, aggro)
     local instance = mob:getInstance()
     local spawns = GetMobByID(mobId, instance)
