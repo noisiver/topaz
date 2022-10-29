@@ -35,6 +35,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = 35
     params.bonus = 0
     params.effect = tpz.effect.BLINDNESS
+    local resist = applyResistanceEffect(caster, target, spell, params)
     duration = duration * applyResistanceEffect(caster, target, spell, params)
     duration = duration * applyResistanceEffect(caster, target, spell, params)
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BLIND, target))
