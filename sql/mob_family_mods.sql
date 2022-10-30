@@ -346,6 +346,7 @@ INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (205,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (214,23,640,1); -- Sandworm slow and elegy Immunity
 INSERT INTO `mob_family_mods` VALUES (215,23,640,1); -- Sandworm slow and elegy Immunity
+INSERT INTO `mob_family_mods` VALUES (4,23,16,1); -- Ahriman silence Immunity
 
 -- Status resist trait
 INSERT INTO `mob_family_mods` VALUES (125,1254,100,0); -- Giant Bird 100% lullaby resist
