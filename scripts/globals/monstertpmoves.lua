@@ -362,8 +362,10 @@ end
 -- TP_DMG_BONUS and TP=200, tpvalue = 1, assume V=150  --> damage is now 150*(TP*1)/100 = 300
 -- TP_DMG_BONUS and TP=100, tpvalue = 2, assume V=150  --> damage is now 150*(TP*2)/100 = 300
 -- TP_DMG_BONUS and TP=200, tpvalue = 2, assume V=150  --> damage is now 150*(TP*2)/100 = 600
+-- ignoremacc is to have 100% land rate on spell and ignore resists
+-- 101 = true
 
-function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, tpvalue)
+function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, ignoremacc)
     returninfo = {}
     -- Below NYI
     local params = {}
@@ -400,7 +402,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
     local dStat = getMobDStat(statmod, mob, target)
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
     -- get resist
-    if params.NO_RESIST ~= nil then -- Only used for Netherblast currently
+    if ignoremacc ~= nil and ignoremacc == 101 then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
          resist = 1
     else
         resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), mobAccBonus, element)

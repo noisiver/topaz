@@ -3,6 +3,7 @@
 --  Deals dark damage to an enemy.
 --  Spell Type: Magical (Dark)
 --  Range: Casting range 13'
+-- Always hits, like Nether Blast
 ---------------------------------------------
 
 require("scripts/globals/settings")
@@ -16,14 +17,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = mob:getWeaponDmg() * 5
-
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL, MOBPARAM_IGNORE_SHADOWS)
-	if dmg > 600 then
-		dmg = 600
-	end
-
-    target:takeDamage(dmg, mob, tpz.attackType.SPECIAL, tpz.damageType.ELEMENTAL)
-
+    local dmgmod = 9
+    
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_NO_EFFECT, 101)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.DARK)
     return dmg
 end
