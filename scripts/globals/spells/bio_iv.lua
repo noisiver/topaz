@@ -14,7 +14,8 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local basedmg = caster:getSkillLevel(tpz.skill.DARK_MAGIC) / 4
+    local skillLvl = caster:getSkillLevel(tpz.skill.DARK_MAGIC)
+    local basedmg = skillLvl / 4
     local params = {}
     params.dmg = basedmg
     params.multiplier = 3
