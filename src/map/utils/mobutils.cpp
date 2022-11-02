@@ -742,39 +742,39 @@ void SetupJob(CMobEntity* PMob)
             {
                 PMob->setModifier(Mod::POISONRESTRAIT, 0);
             }
-            if ((PMob->m_Family >= 126 && PMob->m_Family <= 130) || PMob->m_Family == 328) // Gigas
+            // Exclude Gear(s), Fomors(ToAU Shades)
+            if (PMob->m_Family != 119 && PMob->m_Family != 120 && PMob->m_Family != 359)
             {
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 658); // catapult only used while at range
-            }
-            else if (PMob->m_Family == 246) 
-            {
-                // Trolls love cannons, but they take a second to shoot
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1747);
-                // so slow down the trolls a bit
-                PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
-            }
-            else if (PMob->m_Family == 358) // Dyna-Kindred
-            {
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1146);
-                PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
-            }
-            else if (PMob->m_Family == 3) // Aern
-            {
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1388);
-            }
-            else
-            {
-                // Gear(s)
-                if (PMob->m_Family != 119 && PMob->m_Family != 120)
+                if ((PMob->m_Family >= 126 && PMob->m_Family <= 130) || PMob->m_Family == 328) // Gigas
+                {
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 658); // catapult only used while at range
+                }
+                else if (PMob->m_Family == 246)
+                {
+                    // Trolls love cannons, but they take a second to shoot
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1747);
+                    // so slow down the trolls a bit
+                    PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
+                }
+                else if (PMob->m_Family == 358) // Dyna-Kindred
+                {
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1146);
+                    PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
+                }
+                else if (PMob->m_Family == 3) // Aern
+                {
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1388);
+                }
+                else
                 {
                     // All other rangers
                     PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
                 }
-            }
 
-            PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
-            PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+                PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
+                PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            }
             break;
         case JOB_NIN:
             if (PMob->m_Family == 3)
@@ -1091,6 +1091,7 @@ void SetupDungeonInstancedMob(CMobEntity* PMob)
 void SetupSalvageMob(CMobEntity* PMob)
 {
     uint8 mLvl = PMob->GetMLevel();
+    uint8 mJob = PMob->GetMJob();
     // Bonus stats for difficulty
     if (mLvl >= 90)
     {
@@ -1132,8 +1133,11 @@ void SetupSalvageMob(CMobEntity* PMob)
     PMob->setMobMod(MOBMOD_GIL_MAX, -1);
     PMob->setMobMod(MOBMOD_MUG_GIL, -1);
     PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
-    // set delay
-    ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDelay(2000);
+    // set delay for non-monks
+    if (mJob != JOB_MNK)
+    {
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDelay(2000);
+    }
     // add true sight + sound
     PMob->m_Aggro = 1;
     PMob->setMobMod(MOBMOD_AGGRO_SIGHT, 1);
