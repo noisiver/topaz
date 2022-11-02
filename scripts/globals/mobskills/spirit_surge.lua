@@ -11,7 +11,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    MobBuffMove(mob, tpz.effect.SPIRIT_SURGE, 10, 0, 30, 0, 30)
+    MobBuffMove(mob, tpz.effect.SPIRIT_SURGE, 3, 0, 60)
 
     skill:setMsg(tpz.msg.basic.USES)
 

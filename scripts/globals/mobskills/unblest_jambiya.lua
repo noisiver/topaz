@@ -14,6 +14,9 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 9093 then -- (Tutankhamun - Arrapago Remnants Salvage Custom)
+        return 0
+    end
     if mob:AnimationSub() == 2 then
         return 0
     else

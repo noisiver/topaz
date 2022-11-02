@@ -31,8 +31,3 @@ end
 
 function onMobDespawn(mob)
 end
-
--- For testing purposes only
---function onMobWeaponSkillPrepare(mob, target)
---    return 1560 
---end

@@ -49,8 +49,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
                 astrologer = 17080431,
             },
             [1] = {
-                mobs_start = 17080421,
-                mobs_end   = 17080430,
+                mobs_start = 17081073,
+                mobs_end   = 17081104,
             },
             [2] = {
                 mobs_start = 17080413,
@@ -69,8 +69,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         },
         [3] = {
             [1] = {
-                mobs_start = 17080432,
-                mobs_end   = 17080451,
+                mobs_start = 17081114,
+                mobs_end   = 17081147,
             },
             [2] = {
                 mobs_start = 17080454,

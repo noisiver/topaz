@@ -11,9 +11,9 @@ function onInitialize(zone)
     zone:registerRegion(2, 420, 5, -499, 0, 0, 0)
     zone:registerRegion(3, 259, 5, -499, 0, 0, 0)
     zone:registerRegion(4, 259, 5, -339, 0, 0, 0) -- G-7 Teleporter first floor
-    zone:registerRegion(5, 340, 5, 100, 0, 0, 0)
-    zone:registerRegion(6, 339, 5, 419, 0, 0, 0)
-    zone:registerRegion(7, 339, 5, 500, 0, 0, 0)
+    zone:registerRegion(5, 340, 5, 100, 0, 0, 0) -- H-8 2nd floor middle room teleporter
+    zone:registerRegion(6, 339, 5, 419, 0, 0, 0) -- H-9 3rd floor south teleporter
+    zone:registerRegion(7, 339, 5, 500, 0, 0, 0) -- H-8 3rd floor north teleporter
     zone:registerRegion(8, -379, 5, -620, 0, 0, 0)
     zone:registerRegion(9, -300, 5, -461, 0, 0, 0)
     zone:registerRegion(10, -339, 5, -99, 0, 0, 0)
@@ -31,8 +31,6 @@ function onInstanceZoneIn(player, instance)
         local entrypos = instance:getEntryPos()
         player:setPos(entrypos.x, entrypos.y, entrypos.z, entrypos.rot)
     end
-
-    player:addTempItem(5399)
 end
 
 function onRegionEnter(player, region)

@@ -5097,6 +5097,18 @@ INSERT INTO `mob_spell_lists` VALUES ('Iqi-Balam',2074,212,1,255); -- Burst
 INSERT INTO `mob_spell_lists` VALUES ('Khadem_Quemquoma',2075,226,1,255); -- Poisonga II
 
 
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 182, 1, 255); -- Blizzaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 153, 1, 255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 227, 1, 255); -- Poisonga III
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 246, 1, 255); -- Drain II
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 274, 1, 255); -- Sleepga II
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 277, 1, 255); -- Dread Spikes
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 356, 1, 255); -- Paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 360, 1, 255); -- Dispelga
+INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 361, 1, 255); -- Blindga
+
+
+
 
 
 

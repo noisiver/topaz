@@ -111,7 +111,8 @@ local job2hr = {
     [tpz.job.SMN] = tpz.jsa.ASTRAL_FLOW,
     [tpz.job.BLU] = tpz.jsa.AZURE_LORE,
     [tpz.job.COR] = tpz.jsa.WILD_CARD,
-    [1000]          = tpz.jsa.CHARM, -- Dynamis BST when pet is dead
+    [1000]        = tpz.jsa.CHARM, -- Dynamis BST when pet is dead
+    [1893]        = tpz.jsa.SPIRIT_SURGE 
 
 -- following abilities are not yet defined on tpz.jsa:
 --  [tpz.job.PUP] = tpz.jsa.OVERDRIVE,

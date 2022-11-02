@@ -13,11 +13,14 @@ function onTrigger(entity, npc)
 end
 
 function onTrade(player, npc, trade)
+    local instance = player:getInstance()
+
     if npcUtil.tradeHas(trade, tpz.items.ARRAPAGO_CARD, true) then
         npc:getEntity(bit.band(ID.npc[1][3].DOOR4, 0xFFF), tpz.objType.NPC):setAnimation(8)
         salvageUtil.msgGroup(player, "The door opens!", 0xD, none)
-        player:tradeComplete()
+        instance:setProgress(4) -- TODO: Test
         npc:untargetable(true)
+        player:tradeComplete()
     else
         player:PrintToPlayer("*Error* Invalid.",0xD, none)
     end
