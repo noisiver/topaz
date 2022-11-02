@@ -10,20 +10,11 @@ require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
-mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobInitialize(mob)
    end
 
 function onMobSpawn(mob)
-    tpz.mix.jobSpecial.config(mob, {
-        specials =
-        {
-            {id = tpz.jsa.PERFECT_DODGE, hpp = 80},
-            {id = tpz.jsa.MANAFONT, hpp = 70},
-            {id = tpz.jsa.SPIRIT_SURGE, hpp = 30},
-        },
-    })
 end
 
 function onMobFight(mob, target)
