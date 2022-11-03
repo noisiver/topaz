@@ -46,7 +46,7 @@ local randomPetAugment =
 local randomPetRareAugment =
 {
     tpz.augments.PET_CRIT_HIT_RATE, tpz.augments.PET_REGEN, tpz.augments.PET_HASTE, tpz.augments.PET_DT, tpz.augments.PET_STORE_TP,
-    tpz.augments.PET_DOUBLE_ATTACK, tpz.augments.AVATAR_PERPETUATION_COST_MINUS
+    tpz.augments.PET_DOUBLE_ATTACK
 }
 local helm = 
 {
@@ -59,6 +59,11 @@ local bodies =
 local legs = 
 {
     tpz.items.JARIDAH_SALVARS, tpz.items.SIPAHI_ZEREHS, tpz.items.TABIN_HOSE, tpz.items.SILKEN_SLOPS
+}
+local accessories  = 
+{
+    tpz.items.SPELLCASTERS_ECU, tpz.items.MANTRA_COIN, tpz.items.STAR_PENDANT, tpz.items.MOON_EARRING,
+    tpz.items.DEMONS_RING, tpz.items.BROCADE_OBI, tpz.items.GREEN_CAPE
 }
 local baseItem =
 {
@@ -101,13 +106,27 @@ end
 function onTrigger(player, npc)
     --player:startEvent(251)
     player:PrintToPlayer("Greetings, " .. player:getName() .. ". With the power of the Astral Cadence I can add power magical properties to your weapons and armor.",0,"Nadeey")
-    player:PrintToPlayer("Please consult my associates for what items I can imbue and what else is required for this task.",0,"Nadeey")
-    player:PrintToPlayer("Additionally, the item may be imbued with one of these rare properties at random.",0,"Nadeey")
-    player:PrintToPlayer("Regen, Magic Burst Damage, Breath Damage Taken, Damage Taken, Resist Charm, Fast Cast, Critical Hit Rate, Critical Hit Damage, Conserve MP...",0x1F,"Nadeey")
-    player:PrintToPlayer("Weapon Skill Damage, Song Casting Time, Cure Casting Time, Dual Wield, Counter, HP, MP, HMP, HHP.",0x1F,"Nadeey")
-    player:PrintToPlayer("Pet rare properties include...",0,"Nadeey")
-    player:PrintToPlayer("Crit Hit Rate, Regen, Haste, Damage Taken, Store TP, Double Attack, Avatar Perpetuation Cost",0x1C,"Nadeey")
-    player:PrintToPlayer("The process is unstable, and there may be unknown negative properties imbued as well.",0,"Nadeey")
+    player:timer(3000, function(player)
+        player:PrintToPlayer("Please consult my associates for what items I can imbue and what else is required for this task.",0,"Nadeey")
+    end)
+    player:timer(6000, function(player)
+        player:PrintToPlayer("Additionally, the item may be imbued with one of these rare properties at random:",0,"Nadeey")
+    end)
+    player:timer(11000, function(player)
+        player:PrintToPlayer("Regen, Magic Burst Damage, Breath Damage Taken, Damage Taken, Resist Charm, Fast Cast, Critical Hit Rate, Critical Hit Damage, Conserve MP...",0x1F,"Nadeey")
+    end)
+    player:timer(16000, function(player)
+        player:PrintToPlayer("Weapon Skill Damage, Song Casting Time, Cure Casting Time, Dual Wield, Counter, HP, MP, HMP, HHP.",0x1F,"Nadeey")
+    end)
+    player:timer(19000, function(player)
+        player:PrintToPlayer("Pet rare properties include:",0,"Nadeey")
+    end)
+    player:timer(24000, function(player)
+        player:PrintToPlayer("Crit Hit Rate, Regen, Haste, Damage Taken, Store TP, Double Attack",0x1C,"Nadeey")
+    end)
+    player:timer(29000, function(player)
+        player:PrintToPlayer("The process is unstable, and there may be unknown negative properties imbued as well.",0,"Nadeey")
+    end)
 end
 
 function onEventUpdate(player, csid, option)
@@ -189,17 +208,21 @@ function AddToAUAugmentedItem(player, trade, currentItem, currentAugment)
     player:tradeComplete()
     if (numberOfAugments == 1) then
         player:addItem(currentItem,1,firstAugment,firstAugmentPower)
+        ToAUAugmentSuccessMessage(player, "A magnificent item!")
     elseif (numberOfAugments == 2) then
         player:addItem(currentItem,1,firstAugment,firstAugmentPower, secondAugment, math.random(0, 4))
+        ToAUAugmentSuccessMessage(player, "A magnificent item!!")
     elseif (numberOfAugments == 3) then
         player:addItem(currentItem,1,firstAugment,firstAugmentPower, secondAugment, math.random(0, 4), thirdAugment, math.random(0, 4))
+        ToAUAugmentSuccessMessage(player, "A magnificent item!!!")
     elseif (numberOfAugments == 4) then
         player:addItem(currentItem,1,firstAugment,firstAugmentPower, secondAugment, math.random(0, 4), thirdAugment, math.random(0, 4), fourthAugment, math.random(0, 4))
+        ToAUAugmentSuccessMessage(player, "A magnificent item!!!!")
     elseif (numberOfAugments == 5) then
         player:addItem(currentItem,1,firstAugment,firstAugmentPower, secondAugment, math.random(0, 4), thirdAugment, math.random(0, 4), fourthAugment, math.random(0, 4), rareAugment, math.random(0, 1))
+        ToAUAugmentSuccessMessage(player, "A magnificent item!!!!!")
     end
-    player:messageSpecial( ID.text.ITEM_OBTAINED, currentItem)
-    player:PrintToPlayer("A magnificent item!",0,"Nadeey")
+    ToAUAugmentImbueProcess(player, currentItem)
 end
 
 function getToAUAugmentType(player, augment)
@@ -308,7 +331,7 @@ end
 
 function getToAUAugmentGearSlotMultiplier(trade)
     -- Stat weights based on armor type
-    -- Bodies get 2x, legs get 1.5x, helm gets 1.25x, rest get 1x
+    -- Bodies get 2x, legs get 1.5x, helm gets 1.25x, , accessories(neck/belt/ring/earring/ammo/shield) gets 0.5x rest get 1x
     for _,v in pairs(bodies) do
         if npcUtil.tradeHas(trade, v) then
             return 2.0
@@ -322,6 +345,11 @@ function getToAUAugmentGearSlotMultiplier(trade)
     for _,v in pairs(helm) do
         if npcUtil.tradeHas(trade, v) then
             return 1.25
+        end
+    end
+    for _,v in pairs(accessories ) do
+        if npcUtil.tradeHas(trade, v) then
+            return 0.5
         end
     end
     return 1
@@ -350,4 +378,18 @@ function getToAUAugmentAmount()
     else
         return 5
     end
+end
+
+function ToAUAugmentSuccessMessage(player, msg)
+    player:timer(3000, function(player)
+        player:PrintToPlayer("What have we here?! " .. msg ,0,"Nadeey")
+    end)
+end
+
+function ToAUAugmentImbueProcess(player, currentItem)
+    local ID = zones[player:getZoneID()]
+    player:PrintToPlayer("I will start the imbuing process on this item right away. Do not go anywhere!" ,0,"Nadeey")
+    player:timer(3000, function(player)
+        player:messageSpecial( ID.text.ITEM_OBTAINED, currentItem)
+    end)
 end

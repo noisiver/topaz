@@ -235,15 +235,15 @@ INSERT INTO `augments` VALUES (175, 0, 0, 0, 0, 0);
 INSERT INTO `augments` VALUES (176, 0, 1240, 1, 0, 0); -- Resist Sleep+1
 INSERT INTO `augments` VALUES (177, 0, 1241, 1, 0, 0); -- Resist Poison+1
 INSERT INTO `augments` VALUES (178, 0, 1242, 1, 0, 0); -- Resist Paralyze+1
-INSERT INTO `augments` VALUES (179, 0, 1243, 1, 0, 0); -- Resist Blind+1
+INSERT INTO `augments` VALUES (179, 0, 1247, 1, 0, 0); -- Resist Blind+1
 INSERT INTO `augments` VALUES (180, 0, 1244, 1, 0, 0); -- Resist Silence+1
-INSERT INTO `augments` VALUES (181, 0, 1245, 1, 0, 0); -- Resist Petrify+1
-INSERT INTO `augments` VALUES (182, 0, 1246, 1, 0, 0); -- Resist Virus+1
-INSERT INTO `augments` VALUES (183, 0, 1247, 1, 0, 0); -- Resist Curse+1
-INSERT INTO `augments` VALUES (184, 0, 1248, 1, 0, 0); -- Resist Stun+1
-INSERT INTO `augments` VALUES (185, 0, 1249, 1, 0, 0); -- Resist Bind+1
-INSERT INTO `augments` VALUES (186, 0, 1250, 1, 0, 0); -- Resist Gravity+1
-INSERT INTO `augments` VALUES (187, 0, 1251, 1, 0, 0); -- Resist Slow+1
+INSERT INTO `augments` VALUES (181, 0, 1246, 1, 0, 0); -- Resist Petrify+1
+INSERT INTO `augments` VALUES (182, 0, 1245, 1, 0, 0); -- Resist Virus+1
+INSERT INTO `augments` VALUES (183, 0, 1248, 1, 0, 0); -- Resist Curse+1
+INSERT INTO `augments` VALUES (184, 0, 1251, 1, 0, 0); -- Resist Stun+1
+INSERT INTO `augments` VALUES (185, 0, 1247, 1, 0, 0); -- Resist Bind+1
+INSERT INTO `augments` VALUES (186, 0, 1249, 1, 0, 0); -- Resist Gravity+1
+INSERT INTO `augments` VALUES (187, 0, 1250, 1, 0, 0); -- Resist Slow+1
 INSERT INTO `augments` VALUES (188, 0, 1252, 1, 0, 0); -- Resist Charm+1
 INSERT INTO `augments` VALUES (189, 0, 0, 0, 0, 0); -- 189 currently unused. Leave at zero. Edit+move or remove this note as new augments get discovered.
 INSERT INTO `augments` VALUES (190, 0, 0, 0, 0, 0); -- 190 currently unused. Leave at zero. Edit+move or remove this note as new augments get discovered.
