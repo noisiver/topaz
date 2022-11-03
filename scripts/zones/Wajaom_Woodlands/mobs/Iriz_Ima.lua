@@ -36,8 +36,6 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SDT_WATER, 50)
         mob:setMod(tpz.mod.SDT_LIGHT, 50)
         mob:setMod(tpz.mod.SDT_DARK, 50)
-        mob:setMod(tpz.mod.UDMGPHYS, -50)
-        mob:setMod(tpz.mod.UDMGRANGE, -50)
     else
         mob:setMod(tpz.mod.SDT_FIRE, 70)
         mob:setMod(tpz.mod.SDT_ICE, 50)
@@ -47,8 +45,6 @@ function onMobFight(mob, target)
         mob:setMod(tpz.mod.SDT_WATER, 70)
         mob:setMod(tpz.mod.SDT_LIGHT, 70)
         mob:setMod(tpz.mod.SDT_DARK, 70)
-        mob:setMod(tpz.mod.UDMGPHYS, 0)
-        mob:setMod(tpz.mod.UDMGRANGE, 0)
     end
 end
 
