@@ -13,10 +13,10 @@ g_mixins.families.marid = function(mob)
 
     mob:addListener("COMBAT_TICK", "MARID_COMBAT", function(mob)
         if mob:hasStatusEffect(tpz.effect.PHALANX) then
-            mob:setMod(tpz.mod.UDMGPHYS, 40)
-            mob:setMod(tpz.mod.UDMGBREATH, 40)
-            mob:setMod(tpz.mod.UDMGMAGIC, 40)
-            mob:setMod(tpz.mod.UDMGRANGE, 40)
+            mob:setMod(tpz.mod.UDMGPHYS, -40)
+            mob:setMod(tpz.mod.UDMGBREATH, -40)
+            mob:setMod(tpz.mod.UDMGMAGIC, -40)
+            mob:setMod(tpz.mod.UDMGRANGE, -40)
         else
             mob:setMod(tpz.mod.UDMGPHYS, 0)
             mob:setMod(tpz.mod.UDMGBREATH, 0)
