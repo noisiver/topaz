@@ -250,6 +250,9 @@ INSERT INTO `mob_family_mods` VALUES (205,388,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (62,388,25,0);		-- Cerberus +25%(Bonus)
 
 -- Ranged damage taken(RDT)
+INSERT INTO `mob_family_mods` VALUES (203,390,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,390,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,390,200,0);	-- Qutrub +200%(Bonus)
 
 -- Magic damage taken (MDT)
 INSERT INTO `mob_family_mods` VALUES (112,389,25,0); 	-- Flan +25%(Bonus)
