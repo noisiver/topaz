@@ -73,6 +73,7 @@ CCheckPacket::CCheckPacket(CCharEntity* PChar, CCharEntity* PTarget)
                 ref<uint16>(size * 2 + 0x08) = ((CItemEquipment*)PItem)->getAugment(1);
                 ref<uint16>(size * 2 + 0x0A) = ((CItemEquipment*)PItem)->getAugment(2);
                 ref<uint16>(size * 2 + 0x0C) = ((CItemEquipment*)PItem)->getAugment(3);
+                ref<uint16>(size * 2 + 0x0E) = ((CItemEquipment*)PItem)->getAugment(4);
             }
 
 			memcpy(data+(size*2+0x10), PItem->getSignature(), std::clamp<size_t>(strlen((const char*)PItem->getSignature()), 0, 12));
