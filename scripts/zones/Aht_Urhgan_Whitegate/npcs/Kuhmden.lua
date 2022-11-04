@@ -11,6 +11,7 @@ end
 
 function onTrigger(player, npc)
     --player:startEvent(252)
+    player:addStatusEffect(tpz.effect.STUN, 1, 0, 10)
     player:PrintToPlayer("Would you like to see the additional list of items required to imbue?",0,"Kuhmden")
     player:timer(3000, function(player)
         player:PrintToPlayer("Qutrub Bandage - HP",0x1F,"Kuhmden")
