@@ -105,6 +105,7 @@ end
 
 function onTrigger(player, npc)
     --player:startEvent(251)
+    player:addStatusEffect(tpz.effect.STUN, 1, 0, 300)
     player:PrintToPlayer("Greetings, " .. player:getName() .. ". With the power of the Astral Cadence I can add power magical properties to your weapons and armor.",0,"Nadeey")
     player:timer(3000, function(player)
         player:PrintToPlayer("Please consult my associates for what items I can imbue and what else is required for this task.",0,"Nadeey")
@@ -125,6 +126,7 @@ function onTrigger(player, npc)
         player:PrintToPlayer("Crit Hit Rate, Regen, Haste, Damage Taken, Store TP, Double Attack",0x1C,"Nadeey")
     end)
     player:timer(29000, function(player)
+        player:delStatusEffectSilent(tpz.effect.STUN)
         player:PrintToPlayer("The process is unstable, and there may be unknown negative properties imbued as well.",0,"Nadeey")
     end)
 end
