@@ -388,9 +388,10 @@ end
 
 function ToAUAugmentImbueProcess(player, currentItem)
     local ID = zones[player:getZoneID()]
-    player:addStatusEffect(tpz.effect.STUN, 1, 0, 3)
+    player:addStatusEffect(tpz.effect.STUN, 1, 0, 300)
     player:PrintToPlayer("I will start the imbuing process on this item right away. Do not go anywhere!" ,0,"Nadeey")
     player:timer(3000, function(player)
+        player:delStatusEffectSilent(tpz.effect.STUN)
         player:messageSpecial( ID.text.ITEM_OBTAINED, currentItem)
     end)
 end
