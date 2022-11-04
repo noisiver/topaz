@@ -1590,7 +1590,7 @@ void CStatusEffectContainer::CheckEffectsExpiry(time_point tick)
                 RemoveStatusEffect(PStatusEffect, true);
             }
             // Status effects that have no loss flag
-            else if (PStatusEffect->GetIcon() != 0 && ((PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0))
+            else if (PStatusEffect->GetIcon() != 0 && ((PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 1))
             {
                 RemoveStatusEffect(PStatusEffect, true);
             }
