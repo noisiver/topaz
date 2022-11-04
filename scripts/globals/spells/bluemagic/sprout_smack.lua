@@ -28,7 +28,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
+    params.bonus = 30
     params.effect = tpz.effect.SLOW
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
@@ -57,15 +57,15 @@ function onSpellCast(caster, target, spell)
 	
 	if beast then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+		params.bonus = 55 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	elseif vermin then
 		damage = damage * 0.75
-		params.bonus = -25
+		params.bonus = 5
 	end
 	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
     
-    if (damage > 0 and resist >= 0.5) then
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
 		local typeEffect = tpz.effect.SLOW
 		local power = 1500
         target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, true))

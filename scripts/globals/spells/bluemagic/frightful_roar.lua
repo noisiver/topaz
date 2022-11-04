@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     params.bonus = 25
     params.effect = tpz.effect.DEFENSE_DOWN
     local resist = applyResistance(caster, target, spell, params)
-    local power = 15
+    local power = 10
 	local dragon = (target:getSystem() == 10)
 	
 	if dragon then

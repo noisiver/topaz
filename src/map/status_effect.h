@@ -722,7 +722,8 @@ enum EFFECT
     EFFECT_MEDITATE                 = 801, // Dummy effect for SAM Meditate JA
     EFFECT_ELEMENTALRES_DOWN        = 802, // Elemental resistance down
     EFFECT_FULL_SPEED_AHEAD         = 803, // Used to track Full Speed Ahead quest minigame
-    INCREASED_DAMAGE_TAKEN          = 804,  // Increased damage taken, in percents
+    INCREASED_DAMAGE_TAKEN          = 804, // Increased damage taken, in percents
+    CRIT_HIT_RATE_DOWN              = 805, // Critical hit rate down
     // EFFECT_PLACEHOLDER           = 806,  // Description
     // 804-1022
     EFFECT_DEEPSLEEP                = 901,

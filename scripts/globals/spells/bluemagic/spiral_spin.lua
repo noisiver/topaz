@@ -1,9 +1,9 @@
 -----------------------------------------
 -- Spell: Spiral Spin
--- Chance of effect varies with TP. Additional Effect: Accuracy Down
+-- Damage varies with TP.. Additional Effect: Accuracy Down
 -- Spell cost: 39 MP
 -- Monster Type: Vermin
--- Spell Type: Physical (Slashing)
+-- Spell Type: Physical (Ranged)
 -- Blue Magic Points: 3
 -- Stat Bonus: STR+1 HP+5
 -- Level: 60
@@ -29,26 +29,25 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = tpz.effect.ACCURACY_DOWN
     local resist = applyResistance(caster, target, spell, params)
-    local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-    params.tpmod = TPMOD_CRITICAL
-    params.attackType = tpz.attackType.PHYSICAL
-    params.damageType = tpz.damageType.PIERCING
+    params.tpmod = TPMOD_DAMAGE
+    params.attackType = tpz.attackType.RANGED
+    params.damageType = tpz.damageType.RANGED
     params.scattr = SC_TRANSFIXION
     params.numhits = 1
     params.multiplier = 3.1
-    params.tp150 = 3.1
-    params.tp300 = 3.1
-    params.azuretp = 3.1
-    params.duppercap = 75
-    params.str_wsc = 0.0
+    params.tp150 = 3.75
+    params.tp300 = 4.25
+    params.azuretp = 4.25
+    params.duppercap = 74
+    params.str_wsc = 0.6
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
-    params.agi_wsc = 0.3
+    params.agi_wsc = 0.0
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    params.CritTPModifier = true
+	params.attkbonus = 1.25
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local plantoid = (target:getSystem() == 17)
 	local lizard = (target:getSystem() == 14)
@@ -62,10 +61,8 @@ function onSpellCast(caster, target, spell)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (damage > 0 and resist >= 0.5) then
-        local typeEffect = tpz.effect.ACCURACY_DOWN
-        target:addStatusEffect(typeEffect, 30, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
-    end
+    params.effect = tpz.effect.ACCURACY_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 20, 0, 180, params)
 
     return damage
 end

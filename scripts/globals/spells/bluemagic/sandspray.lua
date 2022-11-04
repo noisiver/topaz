@@ -23,26 +23,37 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.BLINDNESS
-    local dINT = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    local typeEffectOne = tpz.effect.BLINDNESS
+    local typeEffectTwo = tpz.effect.MAGIC_ACC_DOWN
+    local dINT = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)-- blind uses caster INT vs target MND
     local params = {}
     params.diff = nil
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.effect = typeEffect
-    local resist = applyResistanceEffect(caster, target, spell, params)
+    local returnEffect = typeEffectOne
+    -- Min cap: 15 at -80 dINT
+    -- Max cap: 45 
+    local blindPotency = utils.clamp(math.floor(dINT / 3 * 8 + 45), 15, 45)
 
-    if (resist >= 0.5) then -- Do it!
-        local typeEffect = tpz.effect.BLINDNESS
-        if (target:addStatusEffect(typeEffect, 30, 0, getBlueEffectDuration(caster, resist, typeEffect, false))) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
+    if (target:hasStatusEffect(typeEffectOne) and target:hasStatusEffect(typeEffectTwo)) then -- the def/mag def down does not overwrite the same debuff from any other source
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
+    elseif (target:hasStatusEffect(typeEffectOne)) then
+        params.effect = typeEffectTwo
+        BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 180, params)
+        returnEffect = typeEffectTwo
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+    elseif (target:hasStatusEffect(typeEffectTwo)) then
+        params.effect = typeEffectOne
+        BlueTryEnfeeble(caster, target, spell, damage, blindPotency, 0, 180, params)
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+        params.effect = typeEffectOne
+        BlueTryEnfeeble(caster, target, spell, damage, blindPotency, 0, 180, params)
+        params.effect = typeEffectTwo
+        BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 180, params)
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     end
 
-    return typeEffect
+    return returnEffect
 end

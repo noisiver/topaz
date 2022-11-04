@@ -58,7 +58,7 @@ function onSpellCast(caster, target, spell)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
     
-	if (damage > 0 and resist >= 0.5) then
+	if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
         local typeEffect = tpz.effect.POISON
         local power = (caster:getMainLvl()/3) + 5 
         target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect, true))

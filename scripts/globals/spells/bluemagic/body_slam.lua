@@ -62,7 +62,7 @@ function onSpellCast(caster, target, spell)
 		target:addStatusEffect(tpz.effect.ATTACK_DOWN, 20, 0, 180)
 	end
 	
-    if (damage > 0 and resist >= 0.5) then
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
 		local typeEffect = tpz.effect.SLOW
 		local power = 1500
         target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false))

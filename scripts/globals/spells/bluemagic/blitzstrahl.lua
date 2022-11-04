@@ -34,7 +34,7 @@ function onSpellCast(caster, target, spell)
 
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
-    local multi = 2.4
+    local multi = 2.5
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
@@ -42,8 +42,8 @@ function onSpellCast(caster, target, spell)
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.LIGHTNING
     params.multiplier = multi
-    params.tMultiplier = 1.0
-    params.duppercap = 75
+    params.tMultiplier = 2.0
+    params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -61,9 +61,8 @@ function onSpellCast(caster, target, spell)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
 
-    if (damage > 0 and resist >= 0.5) then
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
         local typeEffect = tpz.effect.STUN
-        target:delStatusEffectSilent(typeEffect) -- Wiki says it can overwrite itself or other binds
         target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
     end
 

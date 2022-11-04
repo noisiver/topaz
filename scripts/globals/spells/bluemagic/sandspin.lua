@@ -71,9 +71,11 @@ function onSpellCast(caster, target, spell)
     if (dmg > 0 and resist >= 0.5) then
         if (target:canGainStatusEffect(tpz.effect.ACCURACY_DOWN)) then
             local typeEffect = tpz.effect.ACCURACY_DOWN
-            target:addStatusEffect(typeEffect, 15, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
+            target:addStatusEffect(typeEffect, 25, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
         end
     end
+    params.effect = tpz.effect.PETRIFICATION
+    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 8, params)
 
     return dmg
 end

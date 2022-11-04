@@ -17,6 +17,7 @@ require("scripts/globals/bluemagic")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/utils")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
@@ -26,12 +27,8 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.STONESKIN
     local blueskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    local power = (blueskill * 0.375) + 12.5
+    local power = utils.clamp(((blueskill)/3) *2, 0, 250)
     local duration = 300
-
-    if (power > 200) then
-        power = 200
-    end
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)

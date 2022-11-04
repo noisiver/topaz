@@ -24,23 +24,24 @@ end
 function onSpellCast(caster, target, spell)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-    local multi = 2.0
+    local multi = 2.5
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.DARK
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.multiplier = multi
-    params.tMultiplier = 1.0
-    params.duppercap = 75
+    params.tMultiplier = 2.0
+    params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
-    params.int_wsc = 0.4
+    params.int_wsc = 0.0
     params.mnd_wsc = 0.0
-    params.chr_wsc = 0.0
-    damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+    params.chr_wsc = 0.4
+    damage = BlueMagicalSpell(caster, target, spell, params, CHR_BASED)
 	local bird = (target:getSystem() == 8)
 	local aquan = (target:getSystem() == 2)
 	if bird then

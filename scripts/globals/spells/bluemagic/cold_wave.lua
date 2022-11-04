@@ -26,11 +26,16 @@ function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.FROST
     local dINT = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     local params = {}
-    params.diff = nil
+    params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
-    params.effect = nil
+    params.bonus = 30
+    params.effect = tpz.effect.FROST
+
+    if (target:isUndead()) then
+        params.bonus = 55
+    end
+
     local resist = applyResistance(caster, target, spell, params)
 
     if (target:getStatusEffect(tpz.effect.BURN) ~= nil) then
@@ -40,7 +45,7 @@ function onSpellCast(caster, target, spell)
             target:delStatusEffectSilent(tpz.effect.CHOKE)
         end
         local sINT = caster:getStat(tpz.mod.INT)
-        local DOT = getElementalDebuffDOT(150) -- 39 agi dowm
+        local DOT = 39 -- 39 agi dowm
 		local DMG = (caster:getMainLvl()  / 5) +3
         local effect = target:getStatusEffect(typeEffect)
         local noeffect = false

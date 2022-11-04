@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Refueling
--- Increases attack speed
+-- Increases attack speed(10% magic haste) and grants refresh(2/tick)
 -- Spell cost: 29 MP
 -- Monster Type: Arcana
 -- Spell Type: Magical (Wind)
@@ -25,6 +25,9 @@ function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.HASTE
     local power = 1000 -- 10%
     local duration = 300
+    local typeEffect2 = tpz.effect.REFRESH
+    local power2 = 2 
+    local duration2 = 300
 
     if caster:hasStatusEffect(tpz.effect.DIFFUSION) then
         local diffMerit = caster:getMerit(tpz.merit.DIFFUSION)
@@ -39,6 +42,8 @@ function onSpellCast(caster, target, spell)
     if not target:addStatusEffect(typeEffect, power, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end
+
+    target:addStatusEffect(typeEffect2, power2, 3, duration2)
 
     return typeEffect
 end

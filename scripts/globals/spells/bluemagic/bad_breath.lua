@@ -22,7 +22,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local damage = (caster:getHP() / 2) 
+    local damage = caster:getHP()
     local params = {}
     params.attackType = tpz.attackType.BREATH
     params.damageType = tpz.damageType.EARTH
@@ -75,39 +75,26 @@ function onSpellCast(caster, target, spell)
         end
     end
 
-    if (damage > 0 and resist >= 0.5) then
-        local typeEffect = tpz.effect.PARALYSIS
-        target:addStatusEffect(typeEffect, 20, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.PARALYSIS
+    BlueTryEnfeeble(caster, target, spell, damage, 20, 0, 180, params)
 
-    if (damage > 0 and resist >= 0.5) then
-    local typeEffect = tpz.effect.WEIGHT
-        target:addStatusEffect(typeEffect, 50, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.WEIGHT
+    BlueTryEnfeeble(caster, target, spell, damage, 50, 0, 180, params)
 
-    if (damage > 0 and resist >= 0.5) then
-    local typeEffect = tpz.effect.POISON
-        target:addStatusEffect(typeEffect, 30, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.POISON
+    BlueTryEnfeeble(caster, target, spell, damage, 15, 3, 180, params)
 
-    if (damage > 0 and resist >= 0.5) then
-    local typeEffect = tpz.effect.SLOW
-        target:addStatusEffect(typeEffect, 2000, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.SLOW
+    BlueTryEnfeeble(caster, target, spell, damage, 2000, 0, 180, params)
 
-    if (damage > 0 and resist >= 0.5) then
-    local typeEffect = tpz.effect.SILENCE
-        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.SILENCE
+    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 180, params)
 
-    if (damage > 0 and resist >= 0.5) then
-    local typeEffect = tpz.effect.BIND
-        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
-    if (damage > 0 and resist >= 0.5) then
-    local typeEffect = tpz.effect.BLINDNESS
-        target:addStatusEffect(typeEffect, 30, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.BIND
+    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 45, params)
+
+    params.effect = tpz.effect.BLINDNESS
+    BlueTryEnfeeble(caster, target, spell, damage, 30, 0, 180, params)
 
     return damage
 end

@@ -69,3 +69,4 @@ INSERT INTO `blue_traits` VALUES (29, 4, 4, 1, 22); -- Defense Bonus II
 INSERT INTO `blue_traits` VALUES (30, 6, 4, 1, 35); -- Defense Bonus III
 INSERT INTO `blue_traits` VALUES (31, 4, 7, 2, 120); -- Max Hp Boost III
 INSERT INTO `blue_traits` VALUES (32, 4, 8, 5, 40); -- Max MP Boost III
+INSERT INTO `blue_traits` VALUES (33, 2, 98, 421, 11); -- 11% Crit damage increase(Crit. Atk. Bonus)

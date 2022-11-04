@@ -25,9 +25,10 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffectOne = tpz.effect.ICE_SPIKES
-    local typeEffectTwo = tpz.effect.DEFENSE_BOOST
-    local powerTwo = 50
     local duration = 300
+    local typeEffectTwo = tpz.effect.AQUAVEIL
+    local powerTwo = 3
+    local durationTwo = 900
     local returnEffect = typeEffectOne
 
     local INT = caster:getStat(tpz.mod.INT)
@@ -51,13 +52,13 @@ function onSpellCast(caster, target, spell)
     if (target:addStatusEffect(typeEffectOne, powerOne, 0, duration) == false and target:addStatusEffect(typeEffectTwo, powerTwo, 0, duration) == false) then -- both statuses fail to apply
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     elseif (target:addStatusEffect(typeEffectOne, powerOne, 0, duration) == false) then -- the first status fails to apply
-        target:addStatusEffect(typeEffectTwo, powerTwo, 0, duration)
+        target:addStatusEffect(typeEffectTwo, powerTwo, 0, durationTwo)
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
         returnEffect = typeEffectTwo
     else
         target:addStatusEffect(typeEffectOne, powerOne, 0, duration)
 		target:getStatusEffect(typeEffectOne):unsetFlag(tpz.effectFlag.DISPELABLE)
-        target:addStatusEffect(typeEffectTwo, powerTwo, 0, duration)
+        target:addStatusEffect(typeEffectTwo, powerTwo, 0, durationTwo)
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     end
 

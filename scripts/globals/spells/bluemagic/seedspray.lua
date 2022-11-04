@@ -1,9 +1,9 @@
 -----------------------------------------
 -- Spell: Seedspray
--- Delivers a threefold attack. Additional effect: Weakens defense. Chance of effect varies with TP
+-- Delivers a threefold attack. Additional effect: Weakens defense. Daamge varies with TP.
 -- Spell cost: 61 MP
 -- Monster Type: Plantoids
--- Spell Type: Physical (Slashing)
+-- Spell Type: Physical (Ranged)
 -- Blue Magic Points: 2
 -- Stat Bonus: VIT+1
 -- Level: 61
@@ -31,24 +31,24 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistance(caster, target, spell, params)
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-    params.tpmod = TPMOD_CRITICAL
-    params.attackType = tpz.attackType.PHYSICAL
-    params.damageType = tpz.damageType.PIERCING
+    params.tpmod = TPMOD_DAMAGE
+    params.attackType = tpz.attackType.RANGED
+    params.damageType = tpz.damageType.RANGED
     params.scattr = SC_GRAVITATION
     params.numhits = 3
-    params.multiplier = 1.1
-    params.tp150 = 1.1
-    params.tp300 = 1.1
-    params.azuretp = 1.1
-    params.duppercap = 75
-    params.str_wsc = 0.0
-    params.dex_wsc = 0.3
+    params.multiplier = 1.36
+    params.tp150 = 2.08
+    params.tp300 = 2.36
+    params.azuretp = 2.61
+    params.duppercap = 80 -- D upper >=69
+    params.str_wsc = 0.2
+    params.dex_wsc = 0.2
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    params.CritTPModifier = true
+	params.attkbonus = 1.25
     damage = BluePhysicalSpell(caster, target, spell, params)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 	local beast = (target:getSystem() == 6)
@@ -63,9 +63,9 @@ function onSpellCast(caster, target, spell)
 	end
 
 
-    if (damage > 0 and resist >= 0.5) then
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
         local typeEffect = tpz.effect.DEFENSE_DOWN
-        target:addStatusEffect(typeEffect, 12.5, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
+        target:addStatusEffect(typeEffect, 8, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
     end
 
     return damage

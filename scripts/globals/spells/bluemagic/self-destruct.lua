@@ -68,7 +68,7 @@ function onSpellCast(caster, target, spell)
     local playerHP = caster:getLocalVar("self-destruct_hp")
     local damage = ((playerHP - 1) * 2) * resist
 
-    if damage > 0 then
+    if spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL then
         target:takeSpellDamage(caster, spell, playerHP, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
         caster:setHP(1)
     end

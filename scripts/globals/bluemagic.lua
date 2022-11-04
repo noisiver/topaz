@@ -714,6 +714,16 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
     return hitrate
 end
 
+function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, params)
+    local resist = applyResistance(caster, target, spell, params)
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
+        duration = duration * resist
+        target:addStatusEffect(params.effect, power, tick, duration)
+        return true
+    end
+    return false
+end
+
 -- Function to stagger duration of effects by using the resistance to change the value
 function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     local duration = 0
@@ -737,6 +747,8 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
         duration = 120 * resist
     elseif (effect == tpz.effect.POISON) then
         duration = 180 * resist
+    elseif (effect == tpz.effect.PETRIFICATION) then
+        duration = 8 * resist
     else
         duration = 180 * resist
     end
