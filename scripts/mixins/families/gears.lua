@@ -42,18 +42,21 @@ g_mixins.gears = function(mob)
                 mob:setMod(tpz.mod.MDEF, -10)
                 mob:setMod(tpz.mod.DEFP, -20)
                 mob:AnimationSub(1) -- double gear
-                mob:setMobMod(tpz.mobMod.SKILL_LIST, 151)
             end
         elseif GearNumber == 3 then 
             if mob:AnimationSub() == 1 then -- Two Gears
                 mob:setMod(tpz.mod.MDEF, 0)
                 mob:setMod(tpz.mod.DEFP, 0)
-                mob:AnimationSub(0) -- tripple gear
-                mob:setMobMod(tpz.mobMod.SKILL_LIST, 150)
+                mob:AnimationSub(0) -- triple gear
             end
         end
-        -- Restoral gear number overrites gears being destroyed by losing HP
-        if GearNumber > 0 then return end
+        if mob:AnimationSub() == 0 then -- 3 gears
+            mob:setMobMod(tpz.mobMod.SKILL_LIST, 150)
+        elseif mob:AnimationSub() == 1 then -- 2 gears
+            mob:setMobMod(tpz.mobMod.SKILL_LIST, 151)
+        elseif mob:AnimationSub() == 2 then -- 1 gears
+            mob:setMobMod(tpz.mobMod.SKILL_LIST, 152)
+        end
         -- Lose a gear below HP threshold
         local mobHPP = mob:getHPP()
         if mob:getPool() ~= 243 then -- Armed Gears has their own logic in their lua file
@@ -75,7 +78,7 @@ g_mixins.gears = function(mob)
                 if mob:AnimationSub() ~= 0 then
                     mob:setMod(tpz.mod.MDEF, 0)
                     mob:setMod(tpz.mod.DEFP, 0)
-                    mob:AnimationSub(0) -- tripple gear
+                    mob:AnimationSub(0) -- triple gear
                     mob:setMobMod(tpz.mobMod.SKILL_LIST, 150)
                 end
             end
