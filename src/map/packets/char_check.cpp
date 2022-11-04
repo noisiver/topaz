@@ -68,6 +68,7 @@ CCheckPacket::CCheckPacket(CCharEntity* PChar, CCharEntity* PTarget)
             if (PItem->isSubType(ITEM_AUGMENTED))
             {
                 ref<uint8>(size * 2 + 0x04) = 0x02;
+                ref<uint8>(size * 2 + 0x05) = 0x03;
 
                 ref<uint16>(size * 2 + 0x06) = ((CItemEquipment*)PItem)->getAugment(0);
                 ref<uint16>(size * 2 + 0x08) = ((CItemEquipment*)PItem)->getAugment(1);
