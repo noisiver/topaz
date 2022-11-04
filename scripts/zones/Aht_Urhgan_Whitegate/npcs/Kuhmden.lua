@@ -11,7 +11,7 @@ end
 
 function onTrigger(player, npc)
     --player:startEvent(252)
-    if not player:hasStatusEffect(tpz.effect.STUN)
+    if not player:hasStatusEffect(tpz.effect.STUN) then
         player:addStatusEffect(tpz.effect.STUN, 1, 0, 300)
         player:PrintToPlayer("Would you like to see the additional list of items required to imbue?",0,"Kuhmden")
         player:timer(3000, function(player)

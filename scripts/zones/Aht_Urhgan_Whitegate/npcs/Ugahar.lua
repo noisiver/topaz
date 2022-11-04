@@ -10,7 +10,7 @@ function onTrade(player, npc, trade)
 end
 
 function onTrigger(player, npc)
-    if not player:hasStatusEffect(tpz.effect.STUN)
+    if not player:hasStatusEffect(tpz.effect.STUN) then
         player:addStatusEffect(tpz.effect.STUN, 1, 0, 300)
         player:PrintToPlayer("Let's see here, the weapons that can be imbued are...",0,"Ugahar")
         player:timer(3000, function(player)

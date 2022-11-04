@@ -105,7 +105,7 @@ end
 
 function onTrigger(player, npc)
     --player:startEvent(251)
-    if not player:hasStatusEffect(tpz.effect.STUN)
+    if not player:hasStatusEffect(tpz.effect.STUN) then
         player:addStatusEffect(tpz.effect.STUN, 1, 0, 300)
         player:PrintToPlayer("Greetings, " .. player:getName() .. ". With the power of the Astral Cadence I can add power magical properties to your weapons and armor.",0,"Nadeey")
         player:timer(3000, function(player)
