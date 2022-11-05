@@ -1785,6 +1785,7 @@ INSERT INTO `mob_spell_lists` VALUES ('Cuelebre',186,54,1,255);  -- Stoneskin
 INSERT INTO `mob_spell_lists` VALUES ('Glavoid',187,192,1,255); -- Stonega IV
 INSERT INTO `mob_spell_lists` VALUES ('Glavoid',187,211,1,255); -- Quake II
 INSERT INTO `mob_spell_lists` VALUES ('Glavoid',187,357,1,255); -- Slowga
+-- Useful for generic spells based on day / element
 INSERT INTO `mob_spell_lists` VALUES ('Lachrymater_Fireday',188,147,1,255); -- Fire IV
 INSERT INTO `mob_spell_lists` VALUES ('Lachrymater_Fireday',188,176,1,255); -- Firaga III
 INSERT INTO `mob_spell_lists` VALUES ('Lachrymater_Fireday',188,204,1,255); -- Flare

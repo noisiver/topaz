@@ -262,9 +262,9 @@ INSERT INTO `mob_family_mods` VALUES (205,389,200,0);	-- Qutrub +200%(+200% Bonu
 INSERT INTO `mob_family_mods` VALUES (61,389,-25,0); 	-- Cardian -25%
 INSERT INTO `mob_family_mods` VALUES (74,389,-25,0); 	-- Corse -25%
 INSERT INTO `mob_family_mods` VALUES (110,389,-13,0); 	-- EvilWeapon -13%
-INSERT INTO `mob_family_mods` VALUES (122,389,-13,0); 	-- Ghrah -13%
-INSERT INTO `mob_family_mods` VALUES (123,389,-13,0); 	-- Ghrah -13%
-INSERT INTO `mob_family_mods` VALUES (124,389,-13,0); 	-- Ghrah -13%
+INSERT INTO `mob_family_mods` VALUES (122,389,-13,0); 	-- Ghrah -25%
+INSERT INTO `mob_family_mods` VALUES (123,389,-13,0); 	-- Ghrah -25%
+INSERT INTO `mob_family_mods` VALUES (124,389,-13,0); 	-- Ghrah -25%
 INSERT INTO `mob_family_mods` VALUES (175,389,-50,0);	-- Magic Pot -50%
 INSERT INTO `mob_family_mods` VALUES (171,389,-13,0); 	-- Lamiae -13%
 INSERT INTO `mob_family_mods` VALUES (4,389,-25,0);		-- Ahriman -25%

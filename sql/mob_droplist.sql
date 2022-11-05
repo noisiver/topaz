@@ -1266,14 +1266,14 @@ INSERT INTO `mob_droplist` VALUES (199,0,0,1000,4111,5);
 INSERT INTO `mob_droplist` VALUES (200,4,0,1000,1819,0); -- (Aw'ghrah) Luminion chip - Despoil
 INSERT INTO `mob_droplist` VALUES (200,0,0,1000,1819,240); -- Luminion chip
 INSERT INTO `mob_droplist` VALUES (200,0,0,1000,1872,10); -- Ghrah M chip
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4104,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4105,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4106,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4107,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4108,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4109,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4110,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4111,5);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4104,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4105,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4106,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4107,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4108,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4109,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4110,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4111,0);
 INSERT INTO `mob_droplist` VALUES (201,2,0,1000,842,0);
 INSERT INTO `mob_droplist` VALUES (201,0,0,1000,842,100);
 INSERT INTO `mob_droplist` VALUES (201,0,0,1000,854,30);
@@ -4165,14 +4165,14 @@ INSERT INTO `mob_droplist` VALUES (776,0,0,1000,4111,5);
 INSERT INTO `mob_droplist` VALUES (777,4,0,1000,1819,0); -- (Eo'ghrah) Luminion chip - Despoil
 INSERT INTO `mob_droplist` VALUES (777,0,0,1000,1819,240); -- Luminion chip
 INSERT INTO `mob_droplist` VALUES (777,0,0,1000,1872,100); -- Ghrah M chip
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4104,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4105,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4106,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4107,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4108,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4109,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4110,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4111,5);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4104,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4105,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4106,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4107,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4108,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4109,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4110,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4111,0);
 INSERT INTO `mob_droplist` VALUES (778,0,0,1000,1819,150); -- Luminion chip
 INSERT INTO `mob_droplist` VALUES (779,0,0,1000,2641,100);
 INSERT INTO `mob_droplist` VALUES (780,0,0,1000,2641,100);

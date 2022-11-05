@@ -522,7 +522,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,475);
 INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,476);
 INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,477);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1441); -- actinic_burst
-INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1442);
+INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1442); -- Core Meltdown
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1443);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1444);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1445);
