@@ -13,9 +13,11 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.EVASION_BOOST) then
+		return 1
+	end
     return 0
 end
-
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.EVASION_BOOST
     local power = (mob:getEVA() * 0.5)
