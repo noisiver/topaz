@@ -677,23 +677,12 @@ namespace battleutils
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
-
-            int16 ramSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
-            if (ramSS)
+            damage = battleutils::HandleMagicStoneskin(PDefender, damage);
+            int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            if (!magicSS)
             {
-                if (damage >= ramSS)
-                {
-                    PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
-                    damage = damage - ramSS;
-                }
-                else
-                {
-                    PDefender->setModifier(Mod::RAMPART_STONESKIN, ramSS - damage);
-                    damage = 0;
-                }
+                damage = battleutils::HandleStoneskin(PDefender, damage);
             }
-
-            damage = HandleStoneskin(PDefender, damage);
         }
 
         damage = std::clamp(damage, -99999, 99999);
@@ -5566,6 +5555,27 @@ namespace battleutils
 
             PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_STONESKIN);
             return damage - skin;
+        }
+
+        return damage;
+    }
+
+    int32 HandleMagicStoneskin(CBattleEntity* PDefender, int32 damage)
+    {
+        int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+        if (magicSS)
+        {
+            if (damage >= magicSS)
+            {
+                PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
+                PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_MAGIC_SHIELD);
+                damage = damage - magicSS;
+            }
+            else
+            {
+                PDefender->setModifier(Mod::RAMPART_STONESKIN, magicSS - damage);
+                damage = 0;
+            }
         }
 
         return damage;
