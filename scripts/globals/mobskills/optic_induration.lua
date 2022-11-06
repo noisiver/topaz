@@ -20,14 +20,14 @@ function onMobSkillCheck(target,mob,skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 2
+    local dmgmod = 9
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg() *6, tpz.magic.ele.DARK, dmgmod, TP_NO_EFFECT, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
 	
     local typeEffect = tpz.effect.PETRIFICATION
 	
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
     MobStatusEffectMove(mob, target, typeEffect, 1, 0, 300)
-    mob:lowerEnmity(target, 75)
+    mob:resetEnmity(target)
 	return dmg
 end
