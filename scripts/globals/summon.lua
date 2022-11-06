@@ -596,6 +596,14 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
         end
 
         local resist = getAvatarResist(avatar, effect, target, avatar:getStat(statmod)-target:getStat(statmod), maccBonus, element)
+
+        -- Doom and Gradual Petrification can't have a lower duration from resisting
+        if (resist < 1) then
+            if (effect == tpz.effect.DOOM) or (effect == tpz.effect.GRADUAL_PETRIFICATION) then
+                giveAvatarTP(avatar)
+                return tpz.msg.basic.SKILL_MISS -- resist !
+            end
+        end
         --printf("resist %i", resist * 100)
         if (resist >= 0.50) then
             -- Reduce duration by resist percentage
