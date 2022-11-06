@@ -127,12 +127,12 @@ function SetClusterDrops(mob)
         for v = 4104, 4111 do
             SetDropRate(777, v, 0)
         end
-        SetDropRate(777, element_drop[mob:getLocalVar("element")], 1000)
+        SetDropRate(777, element_drop[mob:getLocalVar("element")], 50)
     elseif mob:getPool() == 300 then -- Aw'Ghrah
         for v = 4104, 4111 do
             SetDropRate(200, v, 0)
         end
-        SetDropRate(200, element_drop[mob:getLocalVar("element")], 1000)
+        SetDropRate(200, element_drop[mob:getLocalVar("element")], 50)
     end
 end
 
