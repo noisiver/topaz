@@ -40,7 +40,7 @@ function onMobFight(mob, target)
 			mob:setMod(tpz.mod.UDMGPHYS, -60) 
 			mob:setMod(tpz.mod.UDMGRANGE, -60)
 			mob:setMod(tpz.mod.UDMGMAGIC, -60)
-            mob:useMobAbility(3411) -- Hundred Fists
+            mob:useMobAbility(690) -- Hundred Fists
 		
 			-- Force minions to 2hour
             for i = 1, 2 do
