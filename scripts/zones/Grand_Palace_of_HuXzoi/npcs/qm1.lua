@@ -3,6 +3,7 @@
 --  NPC: ???
 -- Note: Spawns Ix'Aern (MNK)
 -- !pos 460 0 540
+-- !gotoid 16916819
 -----------------------------------
 local ID = require("scripts/zones/Grand_Palace_of_HuXzoi/IDs")
 require("scripts/globals/npc_util")
