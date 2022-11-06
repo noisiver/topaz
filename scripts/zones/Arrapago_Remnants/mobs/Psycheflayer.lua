@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Arrapago Remnants
---  Mob: Water Elemental
+--  Mob: Psycheflayer
 -----------------------------------
 local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
@@ -9,7 +9,6 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.NO_AGGRO, 1)
 end
 
 function onMobEngaged(mob, target)
@@ -28,7 +27,3 @@ end
 function onMobDespawn(mob)
 end
 
--- For testing purposes only
---function onMobWeaponSkillPrepare(mob, target)
---    return 1560 
---end

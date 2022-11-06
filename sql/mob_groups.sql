@@ -3481,6 +3481,17 @@ INSERT INTO `mob_groups` VALUES (131,5204,74,'Ephramadian_Shade',0,128,0,8000,20
 INSERT INTO `mob_groups` VALUES (132,5205,74,'Ephramadian_Shade',0,128,0,8000,2000,83,83,0); -- COR
 INSERT INTO `mob_groups` VALUES (133,9092,74,'Sahtra_Lihtenem',0,128,0,60000,0,87,87,0); 
 INSERT INTO `mob_groups` VALUES (134,9093,74,'Tutankhamun',0,128,0,600000,0,87,87,0); 
+
+INSERT INTO `mob_groups` VALUES (135,9094,74,'Barnacle_Crab',0,128,0,8000,2000,84,84,0); 
+INSERT INTO `mob_groups` VALUES (136,2318,74,'Lahama',0,128,0,8000,2000,84,84,0); 
+INSERT INTO `mob_groups` VALUES (137,6636,74,'Heraldic_Imp',0,128,0,8000,2000,84,84,0); 
+INSERT INTO `mob_groups` VALUES (138,3215,74,'Psycheflayer',0,128,0,8000,2000,84,84,0); 
+
+INSERT INTO `mob_groups` VALUES (139,9095,74,'Hatmehyt',0,128,0,80000,0,88,88,0); 
+INSERT INTO `mob_groups` VALUES (140,9096,74,'Medjed',0,128,0,40000,0,88,88,0); 
+
+--Hatmehyt - Orobon
+-- Medjed - Ghost
 -- Custom End
 
 INSERT INTO `mob_groups` VALUES (1,221,74,'Archaic_Rampart',0,128,0,0,0,81,81,0);

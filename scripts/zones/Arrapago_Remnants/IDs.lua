@@ -83,8 +83,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         },
         [4] = {
             [1] = {
-                mobs_start = 17080477,
-                mobs_end   = 17080489,
+                mobs_start = 17081150,
+                mobs_end   = 17081181,
                 rampart2   = 17080492,
             },
             [2] = {

@@ -28,40 +28,15 @@ end
 
 function onMobEngaged(mob, target)
     local instance = mob:getInstance()
-	local mobID = mob:getID(instance)
+    local mobId = mob:getID(instance)
 
-    for v = 17081131, 17081133 do
-        if mobID == v then
-            for v = 17081131, 17081133 do
-	            GetMobByID(v, instance):updateEnmity(target)
-            end
-        end
-    end
-    for v = 17081134, 17081136 do
-        if mobID == v then
-            for v = 17081134, 17081136 do
-	            GetMobByID(v, instance):updateEnmity(target)
-            end
-        end
-    end
-    for v = 17081137, 17081139 do
-        if mobID == v then
-            for v = 17081137, 17081139 do
-	            GetMobByID(v, instance):updateEnmity(target)
-            end
-        end
-    end
-    for v = 17081140, 17081143 do
-        if mobID == v then
-            for v = 17081140, 17081143 do
-	            GetMobByID(v, instance):updateEnmity(target)
-            end
-        end
-    end
-    for v = 17081144, 17081147 do
-        if mobID == v then
-            for v = 17081144, 17081147 do
-	            GetMobByID(v, instance):updateEnmity(target)
+    for _,party in ipairs(parties) do
+        for _,mob in ipairs(party) do
+            if mob == mobId then
+                for _,mob2 in ipairs(party) do
+                    GetMobByID(mob2, instance):updateEnmity(target)
+                end
+                break
             end
         end
     end

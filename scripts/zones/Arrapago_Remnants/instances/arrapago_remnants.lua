@@ -78,6 +78,11 @@ function onRegionEnter(player, region, instance)
         player:startEvent(199 + RegionID)
     elseif (RegionID >= 6 and RegionID <= 7 and stage == 3 and progress == 2) then -- F3
         player:startEvent(199 + RegionID)
+    elseif (RegionID == 8 and stage == 4 and progress == 1) then -- F4 1st
+        salvageUtil.teleportGroup(player, -339, -0, math.random(-503, -496), 0, true, false, false)
+        -- player:startEvent(199 + RegionID) Ports to H-9
+    elseif (RegionID == 9 and stage == 4 and progress == 2) then -- F4 2nd 
+        --player:startEvent(199 + RegionID) Ports to I-7
     else
         player:PrintToPlayer("Nothing happens...", 0xD, none)
     end
@@ -138,24 +143,20 @@ function onEventFinish(player, csid, option)
         SpawnMob(17080512, instance)
         salvageUtil.spawnMobGroup(instance, ID.mob[2][1].mobs_start, ID.mob[2][1].mobs_end) -- TODO: Test
         salvageUtil.teleportGroup(player, math.random(332, 348), -4, 86, 193, true, false, true)
-        salvageUtil.saveFloorProgress(player) -- TODO: Test
+        salvageUtil.saveFloorProgress(player)
     elseif csid == 204 and option == 1 then -- Port from 2nd floor to 3rd floor
         instance:setStage(3)
         instance:setProgress(0)
-        salvageUtil.spawnMobGroup(instance, ID.mob[3][1].mobs_start, ID.mob[3][1].mobs_end) -- TODO: Test
-        instance:setProgress(csid - 203)
+        salvageUtil.spawnMobGroup(instance, ID.mob[3][1].mobs_start, ID.mob[3][1].mobs_end) 
+        salvageUtil.saveFloorProgress(player)
     elseif csid == 205 or csid == 206 and option == 1 then -- Port from 3rd floor to 4th floor
         instance:setStage(4)
         instance:setProgress(0)
-        for id = ID.mob[4][csid - 204].mobs_start, ID.mob[4][csid - 204].mobs_end do
-            SpawnMob(id, instance)
-            SpawnMob(ID.mob[4][csid - 204].rampart2, instance)
-        end
-        instance:setProgress(csid - 204)
-        for id = ID.mob[3][1].mobs_start, ID.mob[3].qiqirn_mine_2 do
-            DespawnMob(id, instance)
-        end
-    elseif csid == 207 or csid == 208 and option == 1 then
+        alvageUtil.spawnMobGroup(instance, ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end) 
+        salvageUtil.saveFloorProgress(player) 
+    elseif csid == 207 or csid == 208 and option == 1 then -- Port from 4th floor to 5th floor
+        instance:setStage(5)
+        instance:setProgress(0)
         for i = 1, 3 do
             for id = ID.mob[5][csid - 206][i].mobs_start, ID.mob[5][csid - 206][i].mobs_end do
                 SpawnMob(id, instance)
@@ -164,10 +165,10 @@ function onEventFinish(player, csid, option)
         SpawnMob(ID.mob[5][csid - 206].rampart1, instance)
         SpawnMob(ID.mob[5][csid - 206].rampart2, instance)
         SpawnMob(ID.mob[5][csid - 206].rampart3, instance)
-        instance:setProgress(csid - 206)
         for id = ID.mob[4][1].mobs_start, ID.mob[4].qiqirn_mine_1 do
             DespawnMob(id, instance)
         end
+        salvageUtil.saveFloorProgress(player) -- TODO: Test
     elseif csid == 209 and option == 1 then
         for id = ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end do
             SpawnMob(id, instance)

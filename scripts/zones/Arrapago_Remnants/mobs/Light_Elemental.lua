@@ -10,6 +10,7 @@ require("scripts/globals/salvage")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.NO_AGGRO, 1)
 end
 
 function onMobEngaged(mob, target)

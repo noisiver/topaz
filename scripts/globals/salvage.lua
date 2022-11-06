@@ -46,7 +46,7 @@ end
 
 
 function salvageUtil.onSalvageTrigger(player, npc, CSID, indexID)
-    if player:hasKeyItem(tpz.ki.REMNANTS_PERMIT) or player:getGMLevel() > 0  or IsTestServer() then
+    if player:hasKeyItem(tpz.ki.REMNANTS_PERMIT) or player:getGMLevel() > 1  or IsTestServer() then
         local mask = -2
         if player:getMainLvl() >= 96 then
             mask = -14
@@ -928,9 +928,9 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
 floorTeleports =
 {
     [1] = {},
-    [2] = { math.random(332, 348), -4, 86, 193},
-    [3] = {},
-    [4] = {},
+    [2] = { math.random(332, 348), -4, 86, 193 },
+    [3] = { 339, -0, math.random(456, 464), 129 },
+    [4] = { math.random(-342, -335), -0, -580 },
     [5] = {},
     [6] = {},
     [7] = {},

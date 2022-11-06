@@ -2,6 +2,7 @@
 -- Area: Arrapago Remnants
 -- NPC: Runic Lamp (Arrapago)
 -- Used to port player(s) to their saved floor
+-- ID: 17080943
 -----------------------------------
 local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/status")
