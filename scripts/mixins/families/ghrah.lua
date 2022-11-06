@@ -20,14 +20,6 @@ g_mixins.families.ghrah = function(mob)
         local skin = math.random(1161, 1168)
         mob:setModelId(skin)
 
-        mob:setMod(tpz.mod.SDT_ICE, 0)
-        mob:setMod(tpz.mod.SDT_WATER, 0)
-        mob:setMod(tpz.mod.SDT_THUNDER, 0)
-        mob:setMod(tpz.mod.SDT_WIND, 0)
-        mob:setMod(tpz.mod.SDT_FIRE, 0)
-        mob:setMod(tpz.mod.SDT_EARTH, 0)
-        mob:setMod(tpz.mod.SDT_LIGHT, 0)
-        mob:setMod(tpz.mod.SDT_DARK, 0)
         if skin == 1161 then -- Fire
             mob:setMod(tpz.mod.SDT_ICE, 5)
             mob:setMod(tpz.mod.SDT_WATER, 150)
@@ -82,6 +74,8 @@ g_mixins.families.ghrah = function(mob)
             mob:setAggressive(0)
             mob:setLocalVar("roamTime", os.time())
         end
+        SetJob(mob)
+        SetSDT(mob)
         SetCasting(mob)
     end)
 
@@ -97,6 +91,8 @@ g_mixins.families.ghrah = function(mob)
             mob:setAggressive(0)
             mob:setLocalVar("changeTime", mob:getBattleTime())
         end
+        SetJob(mob)
+        SetSDT(mob)
         SetCasting(mob)
         SetClusterDrops(mob)
     end)
@@ -111,15 +107,68 @@ function SetCasting(mob)
     end
 end
 
+function SetJob(mob)
+    -- Humanoid does not cast
+    if mob:AnimationSub() == 0 then
+        mob:setMod(tpz.mod.DEFP, 0)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+    elseif mob:AnimationSub() == 1 then  -- human form gives defense bonus equal to paladin of that level AND 100% defense modifier
+        mob:setMod(tpz.mod.DEFP, 120)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+    elseif mob:AnimationSub() == 2 then  -- spider form gives defense bonus equal to warrior of that level
+        mob:setMod(tpz.mod.DEFP, 10)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+    elseif mob:AnimationSub() == 3 then  -- Bird form grants evasion and triple attack equal to appropriate level thief
+        mob:setMod(tpz.mod.DEFP, 0)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 15)
+        --TODO: Eva
+    end
+end
+
+function SetSDT(mob)
+    local element = mob:getLocalVar("element")
+    if element == 1 then -- Fire
+        mob:setMod(tpz.mod.SDT_FIRE, 5)
+        mob:setMod(tpz.mod.SDT_ICE, 5)
+        mob:setMod(tpz.mod.SDT_WATER, 150)
+    elseif element == 2 then --Ice
+        mob:setMod(tpz.mod.SDT_ICE, 5)
+        mob:setMod(tpz.mod.SDT_WIND, 5)
+        mob:setMod(tpz.mod.SDT_FIRE, 150)
+    elseif element == 3 then -- Wind
+        mob:setMod(tpz.mod.SDT_WIND, 5)
+        mob:setMod(tpz.mod.SDT_ICE, 150)
+        mob:setMod(tpz.mod.SDT_EARTH, 5)
+    elseif element == 4 then --Earth
+        mob:setMod(tpz.mod.SDT_EARTH, 5)
+        mob:setMod(tpz.mod.SDT_THUNDER, 5)
+        mob:setMod(tpz.mod.SDT_WIND, 150)
+    elseif element == 5 then --Lightning
+        mob:setMod(tpz.mod.SDT_THUNDER, 5)
+        mob:setMod(tpz.mod.SDT_WATER, 5)
+        mob:setMod(tpz.mod.SDT_EARTH, 150)
+    elseif element == 6 then -- Water
+        mob:setMod(tpz.mod.SDT_WATER, 5)
+        mob:setMod(tpz.mod.SDT_THUNDER, 150)
+        mob:setMod(tpz.mod.SDT_FIRE, 5)
+    elseif element == 7 then --Light
+        mob:setMod(tpz.mod.SDT_LIGHT, 5)
+        mob:setMod(tpz.mod.SDT_DARK, 150)
+    elseif element == 8 then --Dark
+        mob:setMod(tpz.mod.SDT_DARK, 5)
+        mob:setMod(tpz.mod.SDT_LIGHT, 150)
+    end
+end
+
 function SetClusterDrops(mob)
     local element_drop = 
     {
         [tpz.magic.ele.FIRE] = 4104,
-        [tpz.magic.ele.EARTH] = 4107,
-        [tpz.magic.ele.WATER] = 4109,
-        [tpz.magic.ele.WIND] = 4106,
         [tpz.magic.ele.ICE] = 4105,
+        [tpz.magic.ele.WIND] = 4106,
+        [tpz.magic.ele.EARTH] = 4107,
         [tpz.magic.ele.LIGHTNING] = 4108,
+        [tpz.magic.ele.WATER] = 4109,
         [tpz.magic.ele.LIGHT] = 4110,
         [tpz.magic.ele.DARK] = 4111,
     }
