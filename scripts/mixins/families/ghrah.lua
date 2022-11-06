@@ -33,7 +33,7 @@ g_mixins.families.ghrah = function(mob)
         elseif skin == 1162 then -- Water
             mob:setMod(tpz.mod.SDT_THUNDER, 150)
             mob:setMod(tpz.mod.SDT_FIRE, 5)
-            mob:setSpellList(191)
+            mob:setSpellList(192)
             mob:setLocalVar("element", tpz.magic.ele.WATER)
         elseif skin == 1163 then -- Wind
             mob:setMod(tpz.mod.SDT_ICE, 150)
