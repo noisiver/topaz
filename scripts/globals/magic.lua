@@ -2024,6 +2024,9 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
         if target:addStatusEffect(effect, power, tick, duration) then
+            if spell:getSkillType() == tpz.skill.SINGING then
+                return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
+            end
             return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
