@@ -471,9 +471,11 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         end
     end
     -- handle pd
-    if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) and attackType ==
-        tpz.attackType.PHYSICAL then
-        return 0
+    if attackType == tpz.attackType.PHYSICAL then
+        if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH)then
+            skill:setMsg(tpz.msg.basic.SKILL_MISS)
+            return 0
+        end
     end
 
     -- Check for MDT/PDT/RDT/BDT/MDB
