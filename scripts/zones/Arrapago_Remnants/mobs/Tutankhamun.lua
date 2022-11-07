@@ -55,12 +55,6 @@ function onMobFight(mob, target)
         mob:setLocalVar("modeChangeTimer", battletime + 120)
         mob:setLocalVar("mode", math.random(1,3))
     end
-
-    -- Logic during modes
-    if (mode == 1) then
-    elseif (mode == 2) then
-    elseif (mode == 3) then
-    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)

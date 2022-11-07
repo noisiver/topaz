@@ -48,6 +48,12 @@ function onInstanceTimeUpdate(instance, elapsed)
             salvageUtil.spawnMob(instance, 17080509)
             salvageUtil.spawnMob(instance, 17080512)
         end
+    elseif (stage == 3) then -- Floor 3
+        salvageUtil.raiseGroup(instance, 339, -0, math.random(456, 464), 129, 3) -- TODO: Test
+    elseif (stage == 4 and progress == 0) then -- Floor 4
+        salvageUtil.raiseGroup(instance, math.random(-342, -335), -0, -580, 0, 3) -- TODO: Test
+    elseif (stage == 4 and progress == 1) then -- Floor 4
+        salvageUtil.raiseGroup(instance, -339, -0, math.random(-503, -496), 0, 3) -- TODO: Test
     end
     updateInstanceTime(instance, elapsed, ID.text)
 end

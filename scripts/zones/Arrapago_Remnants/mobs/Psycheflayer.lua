@@ -25,5 +25,19 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
+    local instance = mob:getInstance()
+    for i = 17081167, 17081181 do
+        if not GetMobByID(i, instance):isDead() then
+            return
+        end
+    end
+    medjedshead = GetMobByID(17081183, instance)
+    medjedsbody = GetMobByID(17081184, instance)
+    medjedshead:setSpawn(mob:getXPos(), mob:getYPos(), mob:getZPos(), mob:getRotPos())
+    medjedsbody:setSpawn(mob:getXPos() +3, mob:getYPos(), mob:getZPos() +3, mob:getRotPos())
+    SpawnMob(17081183, instance)
+    SpawnMob(17081184, instance)
+    salvageUtil.msgGroup(mob, "Two ghosts appear!", 0xD, none)
 end
+
 

@@ -583,7 +583,8 @@ INSERT INTO `mob_family_system` VALUES (549,'Imp_Exp_Camp',9,'Demon',0,60,100,14
 INSERT INTO `mob_family_system` VALUES (550,'Millenary_Mossback',14,'Lizard',2,30,120,90,2,4,1,4,1,1,1,1,2,1,3,1,1,1,1,0.50,1.3,0.50,0.05,0.05,0.05,0.50,0.50,4,2,0);
 INSERT INTO `mob_family_system` VALUES (551,'SeaMonk-Blue',2,'Aquan',1,40,105,140,3,5,4,4,4,4,4,1,3,1,3,1,1,1,1,1.15,1.3,1.3,1.1,1.3,0.3,1.15,1.15,6,2,1);
 INSERT INTO `mob_family_system` VALUES (552,'Jnun',19,'Undead',2,40,100,120,4,4,3,4,3,4,4,1,3,1,3,1.125,1,0.85,0.85,0.85,0.3,0.7,0.7,0.7,0.5,0.85,0.2,8,6,0);
-INSERT INTO `mob_family_system` VALUES (553,'Crab_Barnacle',2,'Aquan',0,40,100,120,4,4,3,5,4,4,4,1,3,1,3,1,1,1,1,0.2,0.7,0.7,0.7,1,0.05,0.7,0.7,6,2,1); 	
+INSERT INTO `mob_family_system` VALUES (553,'Crab_Barnacle',2,'Aquan',0,40,100,120,4,4,3,5,4,4,4,1,3,1,3,1,1,1,1,0.2,0.7,0.7,0.7,1,0.05,0.7,0.7,6,2,1);
+INSERT INTO `mob_family_system` VALUES (554,'Orobon_Large',2,'Aquan',3,60,125,90,1,1,3,5,4,4,1,1,1,1,1,1,1,1,1,1,0.7,1,1.15,0.7,0.3,1.15,0.6,6,2,0); 	
 
 
 INSERT INTO `mob_family_system` VALUES (900,'AnimatedWeapon-Archery',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
