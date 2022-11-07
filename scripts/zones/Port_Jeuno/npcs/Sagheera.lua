@@ -348,7 +348,7 @@ function onTrigger(player, npc)
         -- if player is waiting for an upgraded af or relic
         if afUpgrade > 0 then
             arg3 = afUpgrade
-            if player:getCharVar("AFupgradeDay") > os.time() and player:getGMLevel() < 1 then
+            if player:getCharVar("AFupgradeDay") > os.time() and player:getGMLevel() < 2 then
                 arg4 = afUpgrade
             end
         end
