@@ -221,7 +221,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
-            local isBlocked =math.random()*100 < target:getBlockRate(avatar)
+            local isBlocked = math.random()*100 < target:getBlockRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -291,7 +291,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
-            local isBlocked =math.random()*100 < target:getBlockRate(avatar)
+            local isBlocked = math.random()*100 < target:getBlockRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
