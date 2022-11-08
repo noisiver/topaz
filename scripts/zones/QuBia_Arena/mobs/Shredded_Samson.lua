@@ -14,6 +14,7 @@ function onMobSpawn(mob)
 	mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 	mob:setMod(tpz.mod.SLASHRES, 1250)
 	mob:setMod(tpz.mod.PIERCERES, 1250)
+    mob:setMod(tpz.mod.RANGEDRES, 1250)
 	mob:setMod(tpz.mod.UDMGMAGIC, -75)
 end
 
