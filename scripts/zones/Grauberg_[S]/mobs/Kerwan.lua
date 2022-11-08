@@ -58,11 +58,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 685 then -- Sprout Spin
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.GEO_PARALYSIS, 75, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+        AddMobAura(mob, target, 10, tpz.effect.GEO_PARALYSIS, 75, 30)
     elseif skill:getID() == 686 then -- Slumber Powder
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.TERROR, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+        AddMobAura(mob, target, 10, tpz.effect.TERROR, 1, 30)
     elseif skill:getID() == 687 then -- Sprout Smack
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.MUTE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+        AddMobAura(mob, target, 10, tpz.effect.MUTE, 1, 30)
     end
 end
 
