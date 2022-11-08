@@ -5097,7 +5097,9 @@ INSERT INTO `mob_spell_lists` VALUES ('Iqi-Balam',2074,212,1,255); -- Burst
 
 INSERT INTO `mob_spell_lists` VALUES ('Khadem_Quemquoma',2075,226,1,255); -- Poisonga II
 
+-- Salvage
 
+--Arrapago Remnants
 INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 182, 1, 255); -- Blizzaga IV
 INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 153, 1, 255); -- Blizzard V
 INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 227, 1, 255); -- Poisonga III
@@ -5107,6 +5109,19 @@ INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 277, 1, 255); -- 
 INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 356, 1, 255); -- Paralyga
 INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 360, 1, 255); -- Dispelga
 INSERT INTO `mob_spell_lists` VALUES ('Sahtra_Lihtenem', 2076, 361, 1, 255); -- Blindga
+
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,176,1,255); -- Firga III
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,181,1,255); -- Blizzaga III
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,186,1,255); -- Aeroga III
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,191,1,255); -- Stonega III
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,196,1,255); -- Thundaga III
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,201,1,255); -- Waterga III
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,227,1,255); -- Poisonga III
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,356,1,255); -- Paralyga
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,362,1,255); -- Bindga
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,365,1,255); -- Breakga
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,366,1,255); -- Graviga
+INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,367,1,255); -- Death
 
 
 

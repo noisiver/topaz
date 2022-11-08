@@ -49,11 +49,13 @@ function onInstanceTimeUpdate(instance, elapsed)
             salvageUtil.spawnMob(instance, 17080512)
         end
     elseif (stage == 3) then -- Floor 3
-        salvageUtil.raiseGroup(instance, 339, -0, math.random(456, 464), 129, 3) -- TODO: Test
+        salvageUtil.raiseGroup(instance, 339, -0, math.random(456, 464), 129, 3) 
     elseif (stage == 4 and progress == 0) then -- Floor 4
-        salvageUtil.raiseGroup(instance, math.random(-342, -335), -0, -580, 0, 3) -- TODO: Test
+        salvageUtil.raiseGroup(instance, math.random(-342, -335), -0, -580, 0, 3) 
     elseif (stage == 4 and progress == 1) then -- Floor 4
-        salvageUtil.raiseGroup(instance, -339, -0, math.random(-503, -496), 0, 3) -- TODO: Test
+        salvageUtil.raiseGroup(instance, -339, -0, math.random(-503, -496), 0, 3)
+    elseif (stage == 5) then -- Floor 5
+        salvageUtil.raiseGroup(instance, math.random(-303, -298), -0, -19, 0, 3) 
     end
     updateInstanceTime(instance, elapsed, ID.text)
 end
@@ -88,7 +90,9 @@ function onRegionEnter(player, region, instance)
         salvageUtil.teleportGroup(player, -339, -0, math.random(-503, -496), 0, true, false, false)
         -- player:startEvent(199 + RegionID) Ports to H-9
     elseif (RegionID == 9 and stage == 4 and progress == 2) then -- F4 2nd 
-        --player:startEvent(199 + RegionID) Ports to I-7
+        player:startEvent(199 + RegionID)
+    elseif (RegionID == 10 and stage == 5 and progress == 1) then -- F5 
+        player:startEvent(199 + RegionID)
     else
         player:PrintToPlayer("Nothing happens...", 0xD, none)
     end

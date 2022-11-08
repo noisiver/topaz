@@ -29,6 +29,11 @@ end
 function onMobEngaged(mob, target)
     local instance = mob:getInstance()
     local head = GetMobByID(mob:getID(instance)-1, instance)
+    -- Respawn Head on engaging after a wipe
+    if head:isDead() then
+        head:setSpawn(mob:getXPos() +3, mob:getYPos(), mob:getZPos() +3, mob:getRotPos())
+        SpawnMob(mob:getID(instance)-1, instance)
+    end
     head:updateEnmity(target)
     mob:setLocalVar("msgTimer", os.time() + 45)
     mob:setLocalVar("phaseMsg", 0)
@@ -37,6 +42,7 @@ end
 function onMobFight(mob, target)
     local hpp = mob:getHPP()
     local instance = mob:getInstance()
+    local phaseMsg = mob:getLocalVar("phaseMsg")
     local head = GetMobByID(mob:getID(instance)-1, instance)
 
     --100% DT if near Head
@@ -48,13 +54,11 @@ function onMobFight(mob, target)
     end
 
     -- Start phase2 if Head is dead
-    if head:isDead() and (phaseMsg == 0) then
+    if (head:getHPP() == 0) and (phaseMsg == 0) then
         mob:setLocalVar("phaseMsg", 1)
-        salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. "s goes into a frenzy!", 0xD, none)
+        salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. " goes into a frenzy!", 0xD, none)
         mob:setHP(40000)
-        mob:setDamage(130)
         mob:setDelay(2000)
-        mob:setMod(tpz.mod.TRIPLE_ATTACK, 100)
         mob:setMod(tpz.mod.HTHRES, 500)
         mob:setMod(tpz.mod.SLASHRES, 500)
         mob:setMod(tpz.mod.PIERCERES, 500)
@@ -77,15 +81,18 @@ end
 function onMobDisengage(mob)
     -- Reset stats and respawn Head if it was killed after a wipe
     local instance = mob:getInstance()
-    SpawnMob(mob:getID(instance)-1, instance)
-    mob:setDamage(80)
+    local head = GetMobByID(mob:getID(instance)-1, instance)
+    if head:isDead() then
+        head:setSpawn(mob:getXPos() +3, mob:getYPos(), mob:getZPos() +3, mob:getRotPos())
+        SpawnMob(mob:getID(instance)-1, instance)
+    end
     mob:setDelay(4000)
-    mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
     mob:setMod(tpz.mod.HTHRES, 250)
     mob:setMod(tpz.mod.SLASHRES, 250)
     mob:setMod(tpz.mod.PIERCERES, 1000)
     mob:setMod(tpz.mod.RANGEDRES, 250)
     mob:setMod(tpz.mod.IMPACTRES, 250)
+    mob:setLocalVar("phaseMsg", 0)
 end
 
 
@@ -101,8 +108,8 @@ function onMobDeath(mob, player, isKiller)
             salvageUtil.teleportGroup(player, -339, -0, math.random(-503, -496), 0, true, false, false)
             salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
             -- Nearby door opens
-            mob:getEntity(bit.band(ID.npc[4][2].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
-            mob:getEntity(bit.band(ID.npc[4][2].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
+            mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
             salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
             instance:setProgress(2)
         end

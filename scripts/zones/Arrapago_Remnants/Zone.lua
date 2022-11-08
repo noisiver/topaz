@@ -16,7 +16,7 @@ function onInitialize(zone)
     zone:registerRegion(7, 339, 5, 500, 0, 0, 0) -- 3rd floor H-8 north teleporter
     zone:registerRegion(8, -379, 5, -620, 0, 0, 0) -- 4th Floor H-9 Teleporter
     zone:registerRegion(9, -300, 5, -461, 0, 0, 0) -- 4th Floor I-7 Teleporter
-    zone:registerRegion(10, -339, 5, -99, 0, 0, 0) 
+    zone:registerRegion(10, -339, 5, -99, 0, 0, 0)  -- 5th Floor H-8 Teleporter
     zone:registerRegion(11, -339, 5, 300, 0, 0, 0)
     zone:registerRegion(12, 319, 8, -378, 0, 0, 0) -- First "forced" teleport to Crab
     zone:registerRegion(13, 280, 8, -380, 0, 0, 0) -- Second "forced" teleport to Leech

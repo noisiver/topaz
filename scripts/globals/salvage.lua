@@ -901,7 +901,7 @@ function salvageUtil.resetTempBoxes(entity)
     end
 end
 
-function salvageUtil.saveFloorProgress(entity) -- TODO: Test / Implement / add port NPC
+function salvageUtil.saveFloorProgress(entity)
     local instance = entity:getInstance()
     local zone = entity:getZoneName()
     local floor = instance:getStage()
@@ -910,7 +910,7 @@ function salvageUtil.saveFloorProgress(entity) -- TODO: Test / Implement / add p
     for i, v in pairs(chars) do
         v:setCharVar(zone, floor)
     end
-    salvageUtil.msgGroup(entity, "You are now saved to Floor: " .. "[" .. floor .. "]", 0xD, none)
+    salvageUtil.msgGroup(entity, "You are now saved to Floor: " .. "[" .. floor .. "].", 0xD, none)
 end
 
 function salvageUtil.teleportLamponTrigger(entity)
@@ -918,23 +918,25 @@ function salvageUtil.teleportLamponTrigger(entity)
     local floor = entity:getCharVar(zone)
 
     if (floor > 0) then
-        entity:PrintToPlayer("Please trade me 1 gil to teleport to Floor " .. "[" .. floor .. "]",0xD, none)
+        entity:PrintToPlayer("Please trade me 1 gil to teleport to Floor " .. "[" .. floor .. "].",0xD, none)
     else
         entity:PrintToPlayer("A mysterious glowing lamp.",0xD, none)
     end
 end
 
 function salvageUtil.teleportToSavedFloor(entity, npc, trade)
-floorTeleports =
-{
-    [1] = {},
-    [2] = { math.random(332, 348), -4, 86, 193 },
-    [3] = { 339, -0, math.random(456, 464), 129 },
-    [4] = { math.random(-342, -335), -0, -580 },
-    [5] = {},
-    [6] = {},
-    [7] = {},
-}
+    -- Runic lamp IDs
+    -- Arrapago Remnants: 17080943
+    floorTeleports =
+    {
+        [1] = {},
+        [2] = { math.random(332, 348), -4, 86, 193 },
+        [3] = { 339, -0, math.random(456, 464), 129 },
+        [4] = { math.random(-342, -335), -0, -580 },
+        [5] = { math.random(-303, -298), -0, -19 },
+        [6] = {},
+        [7] = {},
+    }
     local instance = entity:getInstance()
     local zone = entity:getZoneName()
     local floor = entity:getCharVar(zone)
