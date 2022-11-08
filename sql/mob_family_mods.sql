@@ -159,6 +159,7 @@ INSERT INTO `mob_family_mods` VALUES (132,382,10,1);	-- Gnole +10% EXP
 -- Attack bonus
 INSERT INTO `mob_family_mods` VALUES (208,62,10,0);		-- Ram +10% Attack
 INSERT INTO `mob_family_mods` VALUES (242,62,10,0);		-- Tiger +10% Attack
+INSERT INTO `mob_family_mods` VALUES (555,62,10,0);		-- Smilodon +10% Attack
 INSERT INTO `mob_family_mods` VALUES (136,62,10,0);		-- Goobbue +10% Attack
 INSERT INTO `mob_family_mods` VALUES (179,62,10,0);		-- Manticore +10% Attack
 INSERT INTO `mob_family_mods` VALUES (246,62,20,0);		-- Troll +20% Attack 
