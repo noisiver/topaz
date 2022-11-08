@@ -730,7 +730,9 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     --handling absorb
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         local element = damageType - 5 -- This will match spell_data.lua's elements index
-        dmg = adjustForTarget(target, dmg, element)
+        if (damageType > 5) then -- Anything below 5 isn't an element and can't be absorbed
+            dmg = adjustForTarget(target, dmg, element)
+        end
     end
     dmg = utils.clamp(dmg, -99999, 99999)
     -- Add HP if absorbed
