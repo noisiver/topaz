@@ -16,6 +16,5 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-	skill:setMsg(tpz.msg.basic.NONE)
-    return MobHealMove(mob, math.floor(mob:getMaxHP() * 0.25))
+    return MobPercentHealMove(mob, skill, math.floor(mob:getMaxHP() * 0.25))
 end

@@ -1,8 +1,11 @@
 ---------------------------------------------
--- Curing Waltz IV
+-- Wild Carrot
+--
 -- Description: Restores HP.
+-- Long cast time. Only used by Nimble Nelson.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
+require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 ---------------------------------------------

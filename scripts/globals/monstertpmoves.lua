@@ -411,7 +411,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
     end
     -- get weather
-    local weatherBonus = getMobWeatherBonus(mob, element)
+    local weatherBonus = getMobWeatherDayBonus(mob, element)
     -- get magic attack bonus
     local magicAttkBonus = getMobMAB(mob, target)
     -- Do the formula!
@@ -597,7 +597,7 @@ function MobBreathMove(mob, target, percent, base, element, cap)
     end
 
     -- Apply day/weather
-    local damage = damage * getMobWeatherBonus(mob, element)
+    local damage = damage * getMobWeatherDayBonus(mob, element)
 
     -- elemental resistence
     if (element ~= nil and element > 0) then
@@ -1000,7 +1000,29 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
-function MobHealMove(target, heal)
+function MobHealMove(target, skill, multiplier)
+
+    local mobHP = target:getHP()
+    local mobMaxHP = target:getMaxHP()
+    local healAmount = math.floor(target:getMaxHP()/15)
+    local weather = getMobWeatherDayBonus(target, 7)
+    -- add multiplier
+    healAmount = healAmount * multiplier
+    -- check for weather procs
+    healAmount = healAmount * weather
+
+    if (mobHP+healAmount > mobMaxHP) then
+        healAmount = mobMaxHP - mobHP
+    end
+
+    target:wakeUp()
+    target:addHP(healAmount)
+    skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+
+    return healAmount
+end
+
+function MobPercentHealMove(target, skill, heal)
 
     local mobHP = target:getHP()
     local mobMaxHP = target:getMaxHP()
@@ -1010,8 +1032,8 @@ function MobHealMove(target, heal)
     end
 
     target:wakeUp()
-
     target:addHP(heal)
+    skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
 
     return heal
 end
@@ -1325,7 +1347,7 @@ function getMobMagicWSC(mob, tpeffect)
     return wsc
 end
 
-function getMobWeatherBonus(mob, element)
+function getMobWeatherDayBonus(mob, element)
     dayWeatherBonus = 1.00
 
     if mob:getWeather() == tpz.magic.singleWeatherStrong[element] then

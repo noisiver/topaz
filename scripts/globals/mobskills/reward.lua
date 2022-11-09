@@ -18,9 +18,8 @@ function onMobWeaponSkill(target, mob, skill)
     which does not seem to fit with retail in game observations on the mobskill version..
     So math.random() for now!
     ]]
-    local heal = math.random(2500, 3500)
 	local target = GetMobByID(16986197)
     skill:setMsg(tpz.msg.basic.SELF_HEAL_SECONDARY)
 
-    return MobHealMove(target, heal)
+    return MobHealMove(target, skill, 2)
 end

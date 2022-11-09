@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
             skill:setMsg(tpz.msg.basic.SELF_HEAL)
             mob:setLocalVar("GearNumber", 2)
         end
-        return MobHealMove(mob, math.floor(mob:getMaxHP()/26)) -- 1 Gears
+        return MobHealMove(target, skill, 0.75) -- 1 Gears
     end
     if AnimationSub == 1 then
         if (math.random(1,100) <= 10) then -- ~10% chance to restore a gear on use
@@ -37,9 +37,9 @@ function onMobWeaponSkill(target, mob, skill)
             skill:setMsg(tpz.msg.basic.SELF_HEAL)
             mob:setLocalVar("GearNumber", 3)
         end
-        return MobHealMove(mob, math.floor(mob:getMaxHP()/13)) -- 2 Gears
+        return MobHealMove(target, skill, 1)
     end
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
     mob:setLocalVar("GearNumber", 3)
-    return MobHealMove(mob, math.floor(mob:getMaxHP()/13)) -- Single Gear
+    return MobHealMove(target, skill, 1)
 end

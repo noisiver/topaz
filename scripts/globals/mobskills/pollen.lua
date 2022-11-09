@@ -15,19 +15,5 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local potency = skill:getParam()
-
-    if (potency == 0) then
-        potency = 12
-    end
-
-    potency = potency - math.random(0, potency/4)
-
-    if (mob:getPool() == 385) then -- Beelzebub
-        potency = 10
-	end
-
-    skill:setMsg(tpz.msg.basic.SELF_HEAL)
-
-    return MobHealMove(mob, mob:getMaxHP() * potency / 100)
+     return MobHealMove(target, skill, 1)
 end

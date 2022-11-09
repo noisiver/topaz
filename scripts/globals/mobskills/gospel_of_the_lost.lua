@@ -27,8 +27,5 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     mob:eraseStatusEffect()
-    -- Didn't see any msg for the erase in youtube vids.
-    skill:setMsg(tpz.msg.basic.SELF_HEAL)
-    -- Assuming its a 4-6% heal based on its max HP and numbers quoted on wiki.
-    return MobHealMove(mob, mob:getMaxHP() * (math.random(4, 6) * 0.01))
+     return MobHealMove(target, skill, 1)
 end
