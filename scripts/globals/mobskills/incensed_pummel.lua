@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_IGNORE_SHADOWS)
 
-    if (MobPhysicalHit(skill)) then
+    if (MobPhysicalHit(skill) and not isBlocked(mob, target)) then
 		skill:setMsg(DrainMultipleAttributes(mob, target, 10, 60, math.random(1, 7), 300))
 	end
 

@@ -214,7 +214,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
-        if IsCrit(mob, critRate) then
+        if isCrit(mob, critRate) then
             -- Ranged crits are pdif * 1.25
             if (tpeffect==TP_RANGED) then
                 pdif = pdif * 1.25
@@ -237,7 +237,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             --target:PrintToPlayer("Successfully parried first hit TP move swing!")
             hitdamage = 0
         end
-        if math.random()*100 < target:getBlockRate(mob) then -- Try To block
+        if isBlocked(mob, target) then -- Try To block
             target:trySkillUp(mob, tpz.skill.SHIELD, 1)
             --target:PrintToPlayer("Successfully blocked first hit TP move swing!")
             hitdamage = target:getBlockedDamage(hitdamage)
@@ -274,7 +274,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         if ((chance*100)<=hitrate) then --it hit
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
-            if IsCrit(mob, critRate) then
+            if isCrit(mob, critRate) then
                 -- Ranged crits are pdif * 1.25
                 if (tpeffect==TP_RANGED) then
                     pdif = pdif * 1.25
@@ -832,7 +832,7 @@ function MobDrainMove(mob, target, drainType, drain, attackType, damageType)
 end
 
 function MobPhysicalDrainMove(mob, target, skill, drainType, drain)
-    if (MobPhysicalHit(skill)) then
+    if (MobPhysicalHit(skill) and not isBlocked(mob, target)) then
         return MobDrainMove(mob, target, drainType, drain)
     end
 
@@ -904,6 +904,24 @@ function DrainMultipleAttributes(mob, target, power, tick, count, duration)
     return msg;
 end
 
+function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count, duration)
+    local shadows = math.random(2, 3)
+    -- Check for shadows
+    local dmg = MobFinalAdjustments(1, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows)
+
+    if (MobPhysicalHit(skill) and not isBlocked(mob, target)) then
+		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
+        return count
+	end
+    if not target:hasStatusEffect(tpz.effect.COPY_IMAGE) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_2)
+        and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3)  and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
+            skill:setMsg(tpz.msg.basic.SKILL_MISS)
+        return 0
+    else
+        return shadows
+    end
+end
+
 function MobDrainStatusEffectMove(mob, target)
     -- try to drain buff
     local effect = mob:stealStatusEffect(target)
@@ -969,7 +987,7 @@ end
 -- similar to status effect move except, this will not land if the attack missed
 function MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, tick, duration)
 
-    if (MobPhysicalHit(skill)) then
+    if (MobPhysicalHit(skill) and not isBlocked(mob, target)) then
         return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
     end
 
@@ -1307,11 +1325,18 @@ function getMobFSTR(weaponDmg, mobStr, targetVit)
     return math.max(-min, fSTR)
 end
 
-function IsCrit(mob, critRate)
+function isCrit(mob, critRate)
     if math.random() < critRate then
         return true
     end
     if mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then
+        return true
+    end
+    return false
+end
+
+function isBlocked(mob, target)
+    if math.random()*100 < target:getBlockRate(mob) then
         return true
     end
     return false
