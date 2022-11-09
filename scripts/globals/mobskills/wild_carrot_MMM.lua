@@ -11,6 +11,12 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local hp = mob:getHPP()
+    local nimbleNelson = mob:getPool() == 9079
+    if hp < 50 and nimbleNelson then
+        return 1
+    end
+
     return 0
 end
 

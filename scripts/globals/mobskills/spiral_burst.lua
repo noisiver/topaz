@@ -46,7 +46,7 @@ function onMobWeaponSkill(target, mob, skill)
 	local selfdmg = HP * 0.10
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
-	utils.mobSelfErase(mob)
+	utils.FullSelfEraseNa(mob)
     if (mob:getPool() ~= 9076) and (mob:getPool() ~= 3280) then -- Coccinellidae doesn't deal self damage
 	    mob:delHP(selfdmg)
     end

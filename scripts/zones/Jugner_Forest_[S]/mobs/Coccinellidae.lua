@@ -55,7 +55,7 @@ function onMobFight(mob, target)
     local hp = mob:getHPP()
 
     if (hp < 20) then
-        AddMobAura(mob, target, 10, tpz.effect.OBLIVISCENCE, 1, 3)
+        AddMobAura(mob, target, 10, tpz.effect.OBLIVISCENCE, 1, 30)
     end
 end
 

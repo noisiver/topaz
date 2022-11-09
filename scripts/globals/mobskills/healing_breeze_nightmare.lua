@@ -13,6 +13,12 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local hp = mob:getHPP()
+    local purushamriga = mob:getPool() == 9082
+    if hp < 50 and purushamriga then
+        return 1
+    end
+
     return 0
 end
 
