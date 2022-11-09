@@ -1317,22 +1317,11 @@ function IsCrit(mob, critRate)
     return false
 end
 
-function getMobWSC(mob, tpeffect)
-    --TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
-    if params_phys == nil then
-        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC for phys until I'm no longer lazy
-        --printf("wsc: %u", wsc)
-        return wsc
-    end
-
-    if params_phys.str_wsc ~= nil and params_phys.dex_wsc ~= nil and params_phys.vit_wsc ~= nil and params_phys.agi_wsc ~= nil and
-        params_phys.int_wsc ~= nil and params_phys.mnd_wsc ~= nil and params_phys.chr_wsc ~= nil then
-        wsc = (mob:getStat(tpz.mod.STR) * params_phys.str_wsc + mob:getStat(tpz.mod.DEX) * params_phys.dex_wsc +
-            mob:getStat(tpz.mod.VIT) * params_phys.vit_wsc + mob:getStat(tpz.mod.AGI) * params_phys.agi_wsc +
-            mob:getStat(tpz.mod.INT) * params_phys.int_wsc + mob:getStat(tpz.mod.MND) * params_phys.mnd_wsc +
-            mob:getStat(tpz.mod.CHR) * params_phys.chr_wsc)
-        return wsc
-    end
+function getMobWSC(mob, params_phys)
+    wsc = (mob:getStat(tpz.mod.STR) * params_phys.str_wsc + mob:getStat(tpz.mod.DEX) * params_phys.dex_wsc +
+        mob:getStat(tpz.mod.VIT) * params_phys.vit_wsc + mob:getStat(tpz.mod.AGI) * params_phys.agi_wsc +
+        mob:getStat(tpz.mod.INT) * params_phys.int_wsc + mob:getStat(tpz.mod.MND) * params_phys.mnd_wsc +
+        mob:getStat(tpz.mod.CHR) * params_phys.chr_wsc)
         --printf("wsc: %u", wsc)
     return wsc
 end
