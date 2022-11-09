@@ -37,7 +37,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 8)
-    if (MobPhysicalHit(skill) and not isBlocked(mob, target)) then
+    if (MobPhysicalHit(mob, skill)) then
         target:dispelStatusEffect()
         target:dispelStatusEffect()
         target:dispelStatusEffect()

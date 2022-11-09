@@ -210,6 +210,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     firstHitChance = utils.clamp(firstHitChance, 20, 100)
     local critAttackBonus = 1 + ((mob:getMod(tpz.mod.CRIT_DMG_INCREASE) - target:getMod(tpz.mod.CRIT_DEF_BONUS)) / 100)
 
+    -- Set block rate to 0 for now
+    mob:setLocalVar("isBlocked", 0) 
+
     if ((chance*100) <= firstHitChance) then
 
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
@@ -241,7 +244,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             target:trySkillUp(mob, tpz.skill.SHIELD, 1)
             --target:PrintToPlayer("Successfully blocked first hit TP move swing!")
             hitdamage = target:getBlockedDamage(hitdamage)
-            --printf("Potency : %u", potency)
+            mob:setLocalVar("isBlocked", 1) 
         end
         --printf("pdif first hit %u", pdif * 100)
         finaldmg = finaldmg + hitdamage * pdif
@@ -766,8 +769,11 @@ end
 
 -- returns true if mob attack hit
 -- used to stop tp move status effects
-function MobPhysicalHit(skill)
+function MobPhysicalHit(mob, skill)
     -- if message is not the default. Then there was a miss, shadow taken etc
+    if mob:getLocalVar("isBlocked") > 0 then -- First hit of the TP move was blocked, stop status effects from proccing
+        return skill:hasMissMsg() == true
+    end
     return skill:hasMissMsg() == false
 end
 
@@ -832,7 +838,7 @@ function MobDrainMove(mob, target, drainType, drain, attackType, damageType)
 end
 
 function MobPhysicalDrainMove(mob, target, skill, drainType, drain)
-    if (MobPhysicalHit(skill) and not isBlocked(mob, target)) then
+    if (MobPhysicalHit(mob, skill)) then
         return MobDrainMove(mob, target, drainType, drain)
     end
 
@@ -909,7 +915,7 @@ function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count,
     -- Check for shadows
     local dmg = MobFinalAdjustments(1, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows)
 
-    if (MobPhysicalHit(skill) and not isBlocked(mob, target)) then
+    if (MobPhysicalHit(mob, skill)) then
 		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
         return count
 	end
@@ -987,7 +993,7 @@ end
 -- similar to status effect move except, this will not land if the attack missed
 function MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, tick, duration)
 
-    if (MobPhysicalHit(skill) and not isBlocked(mob, target)) then
+    if (MobPhysicalHit(mob, skill)) then
         return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
     end
 
