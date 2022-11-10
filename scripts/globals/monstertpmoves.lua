@@ -915,7 +915,7 @@ function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count,
     -- Check for shadows
     local dmg = MobFinalAdjustments(1, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows)
 
-    if (MobPhysicalHit(mob, skill)) then
+    if not isBlocked(mob, target) then
 		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
         return count
 	end
@@ -1343,6 +1343,7 @@ end
 
 function isBlocked(mob, target)
     if math.random()*100 < target:getBlockRate(mob) then
+        --target:PrintToPlayer("Successfully blocked a mob TP move!")
         return true
     end
     return false
