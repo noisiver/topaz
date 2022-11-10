@@ -829,20 +829,6 @@ namespace battleutils
                 luautils::OnSpikesDamage(PDefender, PAttacker, Action, Action->spikesParam);
             }
 
-            int16 ramSS = PAttacker->getMod(Mod::RAMPART_STONESKIN);
-            if (ramSS)
-            {
-                if (Action->spikesParam >= ramSS)
-                {
-                    PAttacker->setModifier(Mod::RAMPART_STONESKIN, 0);
-                    Action->spikesParam = Action->spikesParam - ramSS;
-                }
-                else
-                {
-                    PAttacker->setModifier(Mod::RAMPART_STONESKIN, ramSS - Action->spikesParam);
-                    Action->spikesParam = 0;
-                }
-            }
             // Handle Deluge / Gale / Clod / Glint spikes
             if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DELUGE_SPIKES))
             {
@@ -861,8 +847,13 @@ namespace battleutils
                 Action->spikesEffect = SUBEFFECT_GLINT_SPIKES;
             }
 
-            // calculate damage
-            Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+            // Handle Stoneskin
+            Action->spikesParam = HandleMagicStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+            int16 magicSS = PAttacker->getMod(Mod::RAMPART_STONESKIN);
+            if (!magicSS)
+            {
+                Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+            }
 
             uint8 element = 1;
 
@@ -2340,7 +2331,7 @@ namespace battleutils
             if (isBlocked)
             {
                 uint8 absorb = 100;
-                if (PDefender->m_Weapons[SLOT_SUB]->IsShield() || ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
+                if (PDefender->m_Weapons[SLOT_SUB]->IsShield() || PDefender->objtype == TYPE_MOB)
                 {
                     if (PDefender->objtype == TYPE_PC)
                     {
@@ -2369,7 +2360,7 @@ namespace battleutils
                             PDefender->addTP(PDefender->getMod(Mod::SHIELD_MASTERY_TP));
                         }
                     }
-                    else if (PDefender->objtype == TYPE_MOB)
+                    else if (PDefender->objtype == TYPE_MOB && ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
                     {
                         absorb = 50;
                         int32 shieldDefBonus = PDefender->getMod(Mod::SHIELD_DEF_BONUS);
@@ -2416,7 +2407,6 @@ namespace battleutils
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
-
             damage = HandleStoneskin(PDefender, damage);
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
@@ -4100,7 +4090,12 @@ namespace battleutils
                 }
             }
 
-            damage = HandleStoneskin(PDefender, damage);
+            damage = battleutils::HandleMagicStoneskin(PDefender, damage);
+            int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            if (!magicSS)
+            {
+                damage = battleutils::HandleStoneskin(PDefender, damage);
+            }
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
         damage = std::clamp(damage, -99999, 99999);
