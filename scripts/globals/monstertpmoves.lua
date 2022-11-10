@@ -771,7 +771,7 @@ end
 -- used to stop tp move status effects
 function MobPhysicalHit(mob, skill)
     -- if message is not the default. Then there was a miss, shadow taken etc
-    if mob:getLocalVar("isBlocked") > 0 then -- First hit of the TP move was blocked, stop status effects from proccing
+    if mob:getLocalVar("isBlocked") > 0 and skill:hasMissMsg() == false then -- First hit of the TP move was blocked, stop status effects from proccing
         return skill:hasMissMsg() == true
     end
     return skill:hasMissMsg() == false
