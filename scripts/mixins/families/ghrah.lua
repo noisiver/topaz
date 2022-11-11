@@ -112,16 +112,33 @@ function SetJob(mob)
     if mob:AnimationSub() == 0 then
         mob:setMod(tpz.mod.DEFP, 0)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+        DelEvasionBonus(mob)
     elseif mob:AnimationSub() == 1 then  -- human form gives defense bonus equal to paladin of that level AND 100% defense modifier
         mob:setMod(tpz.mod.DEFP, 120)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+        DelEvasionBonus(mob)
     elseif mob:AnimationSub() == 2 then  -- spider form gives defense bonus equal to warrior of that level
         mob:setMod(tpz.mod.DEFP, 10)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+        DelEvasionBonus(mob)
     elseif mob:AnimationSub() == 3 then  -- Bird form grants evasion and triple attack equal to appropriate level thief
         mob:setMod(tpz.mod.DEFP, 0)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 15)
-        --TODO: Eva
+        AddEvasionBonus(mob)
+    end
+end
+
+function AddEvasionBonus(mob)
+    if mob:getLocalVar("evaBonus") == 0 then
+        mob:setLocalVar("evaBonus", 1)
+        mob:addMod(tpz.mod.EVA, 48)
+    end
+end
+
+function DelEvasionBonus(mob)
+    if mob:getLocalVar("evaBonus") == 1 then
+        mob:setLocalVar("evaBonus", 0)
+        mob:delMod(tpz.mod.EVA, 48)
     end
 end
 
