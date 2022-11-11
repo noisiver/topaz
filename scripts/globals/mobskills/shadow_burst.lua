@@ -13,6 +13,9 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 5761 then -- GrandGoule
+        return 1
+    end
     if mob:isNM() then
         return 0
     end
