@@ -15,12 +15,11 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 15)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 end
-
+h
 
 function onMobFight(mob)
     if mob:getBattleTime() > mob:getLocalVar("changeTime") + math.random(55,65) then
         changeStance(mob)
-        printf("Changing Stance!")
     end
     -- Fomor pet shouldn't respawn
     if GetMobByID(mob:getID()+1):isSpawned() then
