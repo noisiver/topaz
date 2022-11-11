@@ -766,3 +766,11 @@ function utils.GetMatchingSCDayElement()
 
     return currentMatchingSkillchains
 end
+
+function utils.CheckForZombie(player, target, ability)
+    if target:hasStatusEffect(tpz.effect.CURSE_II) then
+        ability:setMsg(tpz.msg.basic.JA_NO_EFFECT_2)
+        return true
+    end
+    return false
+end
