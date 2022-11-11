@@ -20,10 +20,6 @@ function onMobFight(mob)
     if mob:getBattleTime() > mob:getLocalVar("changeTime") + math.random(55,65) then
         changeStance(mob)
     end
-    -- Fomor pet shouldn't respawn
-    if GetMobByID(mob:getID()+1):isSpawned() then
-        DespawnMob(mob:getID()+1)
-    end
 end
 
 -- stance 1: (cluster form) delay(2400) damage(100) triple_att(0)
