@@ -165,11 +165,17 @@ int32 Sql_SetEncoding(Sql_t* self, const char* encoding)
 
 int32 Sql_Ping(Sql_t* self)
 {
-	if( self && mysql_ping(&self->handle) == 0 )
-	{
-		return SQL_SUCCESS;
-	}
-	return SQL_ERROR;
+        try
+        {
+            if (self && mysql_ping(&self->handle) == 0)
+            {
+                    return SQL_SUCCESS;
+            }
+        }
+        catch (...)
+        {
+            return SQL_ERROR;
+        }
 }
 
 /************************************************************************
