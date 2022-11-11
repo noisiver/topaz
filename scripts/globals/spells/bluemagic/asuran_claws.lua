@@ -3,7 +3,7 @@
 -- Delivers a sixfold attack. Accuracy varies with TP
 -- Spell cost: 81 MP
 -- Monster Type: Beasts
--- Spell Type: Physical (Blunt)
+-- Spell Type: Physical (Slashing)
 -- Blue Magic Points: 2
 -- Stat Bonus: AGI +3
 -- Level: 70
