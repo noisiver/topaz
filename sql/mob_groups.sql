@@ -3503,11 +3503,12 @@ INSERT INTO `mob_groups` VALUES (149,2363,74,'Lamie_Deathdancer',0,128,0,8000,20
 INSERT INTO `mob_groups` VALUES (150,2368,74,'Lamie_Toxophilite',0,128,0,8000,2000,85,85,0); -- RNG
 INSERT INTO `mob_groups` VALUES (151,2331,74,'Lamia_Exon_BLM',0,128,0,15000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (152,6754,74,'Lamia_Exon_COR',0,128,0,15000,2000,85,85,0);
-INSERT INTO `mob_groups` VALUES (153,2606,74,'Medusa',0,128,0,10000,0,89,89,0); 
+INSERT INTO `mob_groups` VALUES (153,2606,74,'Medusa',0,128,0,100000,0,89,89,0); 
 
 INSERT INTO `mob_groups` VALUES (154,721,74,'Chemical_Spill',0,128,0,8000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (155,39,74,'Abomination',0,128,0,8000,2000,85,85,0);
-INSERT INTO `mob_groups` VALUES (156,5404,74,'Professor_P',0,128,0,10000,0,89,89,0); 
+INSERT INTO `mob_groups` VALUES (156,5404,74,'Professor_P',0,128,0,100000,0,89,89,0); 
+INSERT INTO `mob_groups` VALUES (157,721,74,'Slime',0,128,0,10000,0,80,80,0); 
 -- Custom End
 
 INSERT INTO `mob_groups` VALUES (1,221,74,'Archaic_Rampart',0,128,0,0,0,81,81,0);
@@ -9222,7 +9223,7 @@ INSERT INTO `mob_groups` VALUES (15,1127,136,'Dryptotaur',300,0,713,0,0,79,81,0)
 INSERT INTO `mob_groups` VALUES (16,913,136,'Dark_Elemental',0,4,568,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (17,1462,136,'Gargouille',300,0,931,0,0,81,82,0);
 INSERT INTO `mob_groups` VALUES (18,1616,136,'Glacial_Imp',300,0,1002,0,0,78,80,0);
-INSERT INTO `mob_groups` VALUES (19,5761,136,'GrandGoule',0,32,3045,35000,0,99,90,0);
+INSERT INTO `mob_groups` VALUES (19,5761,136,'GrandGoule',0,32,3045,35000,0,90,90,0);
 INSERT INTO `mob_groups` VALUES (20,882,136,'Cyhiraeth',300,0,0,0,0,78,80,0);
 INSERT INTO `mob_groups` VALUES (21,815,136,'Count_Halphas',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (22,911,136,'Dark_Demon',1,0,0,0,0,1,1,0);
