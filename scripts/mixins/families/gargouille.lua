@@ -16,9 +16,16 @@ g_mixins.families.gargouille = function(mob)
 
     mob:addListener("TICK", "GARGOUILLES_TICK", function(mob)
         local swapTime = mob:getLocalVar("swapTime")
+        local animationSub = mob:AnimationSub()
+
+        -- Gains 60 Evasion while flying
+        if animationSub == 0 or animationSub == 4 then
+            DelEvasionBonus(mob)
+        elseif animationSub == 1 then
+            AddEvasionBonus(mob)
+        end
 
         if swapTime > 0 and os.time() > swapTime then
-            local animationSub = mob:AnimationSub()
 
             if animationSub == 0 or animationSub == 4 then
                 mob:AnimationSub(1)
@@ -31,6 +38,20 @@ g_mixins.families.gargouille = function(mob)
         end
     end)
 
+end
+
+function AddEvasionBonus(mob)
+    if mob:getLocalVar("evaMod") == 0 then
+        mob:addMod(tpz.mod.EVA, 60)
+        mob:setLocalVar("evaMod", 1)
+    end
+end
+
+function DelEvasionBonus(mob)
+    if mob:getLocalVar("evaMod") == 1 then
+        mob:delMod(tpz.mod.EVA, 60)
+        mob:setLocalVar("evaMod", 0)
+    end
 end
 
 return g_mixins.families.gargouille

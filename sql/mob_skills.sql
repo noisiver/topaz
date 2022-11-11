@@ -2377,7 +2377,7 @@ INSERT INTO `mob_skills` VALUES (2414,2414,'saucepan',4,7.0,2000,1500,4,0,0,0,0,
 -- INSERT INTO `mob_skills` VALUES (2418,2162,'seed_of_nihility',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2419,2163,'seed_of_judgment',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2420,2164,'shackling_clout',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2421,1682,'dark_orb',1,15.0,2000,1000,4,0,0,0,0,0,0); -- flying only.
+INSERT INTO `mob_skills` VALUES (2421,1682,'dark_orb',2,15.0,2000,1000,4,0,0,0,0,0,0); -- flying only.
 INSERT INTO `mob_skills` VALUES (2422,1678,'dark_mist',1,15.0,2000,1000,4,0,0,0,0,0,0); -- flying only.
 INSERT INTO `mob_skills` VALUES (2423,1680,'triumphant_roar',0,7.0,2000,1000,1,0,0,0,0,0,0); -- standing only.
 INSERT INTO `mob_skills` VALUES (2424,1681,'terror_eye',0,7.0,2000,2000,4,0,0,0,0,0,0); -- standing only.

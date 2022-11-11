@@ -277,6 +277,7 @@ INSERT INTO `mob_family_mods` VALUES (551,389,-13,0);	-- "Blue" Sea Monk  -13%
 INSERT INTO `mob_family_mods` VALUES (233,389,-25,0);	-- Soulflayer  -25%
 INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);	-- Dvergr  -50%
 INSERT INTO `mob_family_mods` VALUES (117,389,-13,0);	-- Gargouille  -13%
+INSERT INTO `mob_family_mods` VALUES (118,389,-13,0);	-- Gargoyle  -13%
 INSERT INTO `mob_family_mods` VALUES (6,389,-25,0);		-- Amphiptere  -25%
 INSERT INTO `mob_family_mods` VALUES (195,389,-25,0);	-- Pixie  -25%
 INSERT INTO `mob_family_mods` VALUES (62,389,-50,0);	-- Cerberus  -63%
