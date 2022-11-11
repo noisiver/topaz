@@ -1343,7 +1343,7 @@ end
 
 function isBlocked(mob, target)
     if math.random()*100 < target:getBlockRate(mob) then
-        --target:PrintToPlayer("Successfully blocked a mob TP move!")
+        target:PrintToPlayer("Successfully blocked a mob TP move!")
         return true
     end
     return false
