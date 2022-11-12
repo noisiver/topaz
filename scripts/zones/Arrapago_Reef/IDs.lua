@@ -38,6 +38,12 @@ zones[tpz.zone.ARRAPAGO_REEF] =
         SLIMY_TOUCH                 = 8908, -- The ground here is slimy to the touch...
         DRAWS_NEAR                  = 8910, -- Something draws near!
         COMMON_SENSE_SURVIVAL       = 9781, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        RED_BELL_SYMBOL             = 7476, -- Looking closely, you see a red bell-type symbol painted on the wood...
+        RING_RED_BELL               = 7477, -- You ring the red bell and hear the dull sound of something being unlocked...
+        TROLL_FIST_IMPRINT          = 7478, -- Looking closely at the surface of the gate, you can see what appears to be the imprints of a Troll's fist...
+        OPEN_TIDAL_GATE             = 7479, -- You rap on the gate using the same pattern you saw in the pictographs.You hear the creaking sound of a bar lifting on the other side of the gate.
+        SIGNING_VOICE               = 7480, -- Listening closely, you can faintly hear the melancholy singing voice of a woman...
+        MERROW_SINGING              = 7481, -- All of a sudden, the tiny Merrow begins to sing...I have longed to sing for you...the fleeting nature of life...The other side of the door grows silent, and then you hear a voice...Enter, foolish ones who fear us not..
     },
     mob =
     {

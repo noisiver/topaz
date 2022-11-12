@@ -7889,11 +7889,11 @@ INSERT INTO `mob_droplist` VALUES (1490,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (1490,0,0,1000,2332,150);
 INSERT INTO `mob_droplist` VALUES (1491,0,0,1000,5371,100);
 INSERT INTO `mob_droplist` VALUES (1491,0,0,1000,5374,100);
-INSERT INTO `mob_droplist` VALUES (1492,4,0,1000,2159,0);
+INSERT INTO `mob_droplist` VALUES (1492,4,0,1000,2159,0); -- Lamia Idolator(Arrapago Reef)
 INSERT INTO `mob_droplist` VALUES (1492,0,0,1000,2159,240); -- Qutrub bandage
 INSERT INTO `mob_droplist` VALUES (1492,0,0,1000,2165,50); -- Qutrub gorget
-INSERT INTO `mob_droplist` VALUES (1492,0,0,1000,2218,90);
-INSERT INTO `mob_droplist` VALUES (1492,0,0,1000,2220,100);
+INSERT INTO `mob_droplist` VALUES (1492,1,1,150,2218,500); -- Lamian Claw Key
+INSERT INTO `mob_droplist` VALUES (1492,1,1,150,2220,500); -- Lamian Bone Key
 INSERT INTO `mob_droplist` VALUES (1493,4,0,1000,2159,0);
 INSERT INTO `mob_droplist` VALUES (1493,0,0,1000,2159,240);
 INSERT INTO `mob_droplist` VALUES (1493,0,0,1000,2165,50);
@@ -15597,7 +15597,7 @@ INSERT INTO `mob_droplist` VALUES (2884,1,1,100,4876,333); -- scroll_of_absorb-v
 INSERT INTO `mob_droplist` VALUES (2884,1,1,100,4877,333); -- scroll_of_absorb-agi
 INSERT INTO `mob_droplist` VALUES (2884,1,1,100,4878,334); -- scroll_of_absorb-int
 INSERT INTO `mob_droplist` VALUES (2884,0,0,1000,940,10);
-INSERT INTO `mob_droplist` VALUES (2885,0,0,1000,2159,240);
+INSERT INTO `mob_droplist` VALUES (2885,0,0,1000,2159,240); -- Qutrub(Arrapago Reef)
 INSERT INTO `mob_droplist` VALUES (2885,0,0,1000,2165,50);
 INSERT INTO `mob_droplist` VALUES (2885,0,0,1000,2220,100); -- Lamian bone key
 INSERT INTO `mob_droplist` VALUES (2886,0,0,1000,17709,240); -- (Cwn Cyrff) Swan Bilbo
