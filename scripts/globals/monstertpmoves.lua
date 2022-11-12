@@ -300,7 +300,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
                 --target:PrintToPlayer("Successfully parried a TP move swing!")
                 hitdamage = 0
             end
-            if math.random()*100 < target:getBlockRate(mob) then  -- Try To block
+            if isBlocked(mob, target) then  -- Try To block
                 target:trySkillUp(mob, tpz.skill.SHIELD, 1)
                 --target:PrintToPlayer("Successfully blocked a TP move swing!")
                 hitdamage = target:getBlockedDamage(hitdamage)
@@ -733,7 +733,7 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     --handling absorb
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         local element = damageType - 5 -- This will match spell_data.lua's elements index
-        if (damageType > 5) then -- Anything below 5 isn't an element and can't be absorbed
+        if (damageType > 5 and damageType < 14) then -- Anything below 5 and above 13 isn't an element and can't be absorbed
             dmg = adjustForTarget(target, dmg, element)
         end
     end
