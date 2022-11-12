@@ -1307,6 +1307,7 @@ void CBattleEntity::Die()
     {
         PAI->EventHandler.triggerListener("DEATH", this);
     }
+    this->animationsub = 0;
     SetBattleTargetID(0);
 }
 
