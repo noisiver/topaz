@@ -10,6 +10,7 @@ require("scripts/globals/pathfind")
 
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+    ob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     onPath(mob)
 end
 
