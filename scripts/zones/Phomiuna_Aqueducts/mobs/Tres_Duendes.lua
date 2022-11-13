@@ -8,12 +8,11 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    DespawnMob(mob:getID()+1) -- Despawn Fomor BLM
-    DisallowRespawn(mob:getID()+1, true)
-    mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 15) 
+    DespawnMob(mob:getID()-1) -- Despawn Fomor BLM
+    DisallowRespawn(mob:getID()-1, true)
+    mob:addMod(tpz.mod.DEFP, 25)
+	mob:addMod(tpz.mod.ACC, 15)
     mob:addMod(tpz.mod.EVA, 15)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
 end
 
 function onMobFight(mob)
@@ -41,7 +40,7 @@ function changeStance(mob)
             mob:setDelay(4000)
             mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
         else
-            mob:setDamage(50)
+            mob:setDamage(33)
             mob:setDelay(2500)
             mob:setMod(tpz.mod.TRIPLE_ATTACK, 100)
         end
@@ -62,5 +61,5 @@ end
 function onMobDespawn(mob)
     mob:setRespawnTime(math.random(36000, 43200)) -- 11 to 12 hours
     mob:AnimationSub(1)
-    DisallowRespawn(mob:getID()+1, false)
+    DisallowRespawn(mob:getID()-1, false)
 end
