@@ -905,12 +905,13 @@ function salvageUtil.saveFloorProgress(entity)
     local instance = entity:getInstance()
     local zone = entity:getZoneName()
     local floor = instance:getStage()
-    printf("Zone: %s Floor: %s", zone, floor)
     local chars = instance:getChars()
+
     for i, v in pairs(chars) do
         v:setCharVar(zone, floor)
     end
-    salvageUtil.msgGroup(entity, "You are now saved to Floor: " .. "[" .. floor .. "].", 0xD, none)
+    salvageUtil.msgGroup(entity, "You are now saved to Floor: " .. "[" .. floor .. "]", 0xD, none)
+    --printf("Zone: %s Floor: %s", zone, floor)
 end
 
 function salvageUtil.teleportLamponTrigger(entity)

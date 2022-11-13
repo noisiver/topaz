@@ -3498,7 +3498,7 @@ INSERT INTO `mob_groups` VALUES (144,2893,74,'Nix_Bladedancer',0,128,0,8000,2000
 INSERT INTO `mob_groups` VALUES (145,2895,74,'Nix_Typhoondancer',0,128,0,8000,2000,85,85,0);-- SAM
 INSERT INTO `mob_groups` VALUES (146,2364,74,'Lamie_Necromancer',0,128,0,8000,2000,85,85,0); -- BLM
 INSERT INTO `mob_groups` VALUES (147,2362,74,'Lamie_Bellydancer',0,128,0,8000,2000,85,85,0); -- SMN
-INSERT INTO `mob_groups` VALUES (148,2359,74,'Lamias_Elemental',0,128,0,8000,2000,85,85,0);
+INSERT INTO `mob_groups` VALUES (148,6689,74,'Lamias_Elemental',0,128,0,8000,2000,80,80,0);
 INSERT INTO `mob_groups` VALUES (149,2363,74,'Lamie_Deathdancer',0,128,0,8000,2000,85,85,0); -- COR
 INSERT INTO `mob_groups` VALUES (150,2368,74,'Lamie_Toxophilite',0,128,0,8000,2000,85,85,0); -- RNG
 INSERT INTO `mob_groups` VALUES (151,2331,74,'Lamia_Exon_BLM',0,128,0,15000,2000,85,85,0);

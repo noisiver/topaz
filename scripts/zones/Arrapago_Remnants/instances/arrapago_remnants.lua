@@ -91,7 +91,7 @@ function onRegionEnter(player, region, instance)
         -- player:startEvent(199 + RegionID) Ports to H-9
     elseif (RegionID == 9 and stage == 4 and progress == 2) then -- F4 2nd 
         player:startEvent(199 + RegionID)
-    elseif (RegionID == 10 and stage == 5 and progress == 1) then -- F5 
+    elseif (RegionID == 10 and stage == 5 and progress == 2) then -- F5 
         player:startEvent(199 + RegionID)
     else
         player:PrintToPlayer("Nothing happens...", 0xD, none)
@@ -151,7 +151,7 @@ function onEventFinish(player, csid, option)
         SpawnMob(17080492, instance)
         SpawnMob(17080509, instance)
         SpawnMob(17080512, instance)
-        salvageUtil.spawnMobGroup(instance, ID.mob[2][1].mobs_start, ID.mob[2][1].mobs_end) -- TODO: Test
+        salvageUtil.spawnMobGroup(instance, ID.mob[2][1].mobs_start, ID.mob[2][1].mobs_end)
         salvageUtil.teleportGroup(player, math.random(332, 348), -4, 86, 193, true, false, true)
         salvageUtil.saveFloorProgress(player)
     elseif csid == 204 and option == 1 then -- Port from 2nd floor to 3rd floor
@@ -162,23 +162,13 @@ function onEventFinish(player, csid, option)
     elseif csid == 205 or csid == 206 and option == 1 then -- Port from 3rd floor to 4th floor
         instance:setStage(4)
         instance:setProgress(0)
-        alvageUtil.spawnMobGroup(instance, ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end) 
+        salvageUtil.spawnMobGroup(instance, ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end) 
         salvageUtil.saveFloorProgress(player) 
     elseif csid == 207 or csid == 208 and option == 1 then -- Port from 4th floor to 5th floor
         instance:setStage(5)
         instance:setProgress(0)
-        for i = 1, 3 do
-            for id = ID.mob[5][csid - 206][i].mobs_start, ID.mob[5][csid - 206][i].mobs_end do
-                SpawnMob(id, instance)
-            end
-        end
-        SpawnMob(ID.mob[5][csid - 206].rampart1, instance)
-        SpawnMob(ID.mob[5][csid - 206].rampart2, instance)
-        SpawnMob(ID.mob[5][csid - 206].rampart3, instance)
-        for id = ID.mob[4][1].mobs_start, ID.mob[4].qiqirn_mine_1 do
-            DespawnMob(id, instance)
-        end
-        salvageUtil.saveFloorProgress(player) -- TODO: Test
+        salvageUtil.spawnMobGroup(instance, ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end) 
+        salvageUtil.saveFloorProgress(player)
     elseif csid == 209 and option == 1 then
         for id = ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end do
             SpawnMob(id, instance)
