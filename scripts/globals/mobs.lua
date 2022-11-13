@@ -300,9 +300,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.PETRIFICATION,
         power = 1,
-        duration = 10,
+        duration = 3,
         minDuration = 1,
-        maxDuration = 30,
+        maxDuration = 3,
     },
     [tpz.mob.ae.PLAGUE] =
     {
@@ -744,7 +744,7 @@ function AddDamageAura(mob, target, radius, dmg, attackType, damageType, tick)
 end
 
 function BreakMob(mob, target, power, duration, proc)
-    -- proc: 0 = blue(amnesia) 1 = yellow(silence) 2 = red 3 = white(terror)
+    -- proc: 0 = blue(amnesia) 1 = yellow(silence) 2 = red(terror) 3 = white(terror)
     -- power (used for increased damage taken mod)
     -- 1 = All normal damage(not sc/mb/spirits)
     -- 2 = Phys
