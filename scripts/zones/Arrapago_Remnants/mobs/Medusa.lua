@@ -12,7 +12,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     -- Never melees, only shoots, and low bow delay.
-    -- 75% DT from all damage eexcept from the front
+    -- 75% DT from all damage except from the front
     mob:SetAutoAttackEnabled(false)
     mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 6)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
@@ -39,13 +39,11 @@ function onMobFight(mob, target)
 
     -- Uses EES on a random target at 88/77/66/55/44/33/22/11% HP
     if (hp < 99) then
-        if (hp % 11 == 0) then
-            if enmityList and #enmityList > 0 then
-                if CheckForEES(mob) then
-                    mob:setLocalVar("eesUses", eesUses +1)
-                    eesTarget = math.random(#enmityList)
-                    mob:useMobAbility(1932, GetPlayerByID(eesTarget)) -- Eagle Eye Shot
-                end
+        if enmityList and #enmityList > 0 then
+            if CheckForEES(mob) then
+                mob:setLocalVar("eesUses", eesUses +1)
+                eesTarget = math.random(#enmityList)
+                mob:useMobAbility(1932, GetPlayerByID(eesTarget)) -- Eagle Eye Shot
             end
         end
     end
@@ -93,24 +91,8 @@ end
 function CheckForEES(mob)
     local eesUses = mob:getLocalVar("eesUses")
     local hp = mob:getHPP()
-    if (eesUses == 0) and (hp > 77) and (hp <= 88) then
-        return true
-    elseif (eesUses == 1) and (hp > 66) and (hp <= 77) then
-        return true
-    elseif (eesUses == 2) and (hp > 55) and (hp <= 66) then
-        return true
-    elseif (eesUses == 3) and (hp > 44) and (hp <= 55) then
-        return true
-    elseif (eesUses == 4) and (hp > 33) and (hp <= 44) then
-        return true
-    elseif (eesUses == 5) and (hp > 22) and (hp <= 33) then
-        return true
-    elseif (eesUses == 6) and (hp > 11) and (hp <= 22) then
-        return true
-    elseif (eesUses == 7) and (hp > 1) and (hp <= 11) then
-        return true
-    end
-    return false
+    local thresholds = { 89, 79, 69, 59, 49, 39, 29, 19, 9 }
+    return (eesUses < #thresholds) and (hp <= thresholds[eesUses + 1])
 end
 
 function SetPositionalDT(mob)

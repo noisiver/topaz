@@ -14,6 +14,13 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
+    local instance = mob:getInstance()
+    local buddies = {
+      [17081209] = 17081210,
+      [17081210] = 17081209,
+    }
+    local buddy = GetMobByID(buddies[mob:getID()], instance)
+    buddy:updateEnmity(target)
 end
 
 function onMobFight(mob, target)
