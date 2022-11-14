@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.effect = tpz.effect.PLAGUE
     local resist = applyResistance(caster, target, spell, params)
-    local power = 50
+    local power = 3
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)
 	-- add correlation bonus

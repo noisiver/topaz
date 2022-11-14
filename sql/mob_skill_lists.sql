@@ -522,7 +522,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,475);
 INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,476);
 INSERT INTO `mob_skill_lists` VALUES ('Ghost',121,477);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1441); -- actinic_burst
-INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1442);
+INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1442); -- Core Meltdown
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1443);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1444);
 INSERT INTO `mob_skill_lists` VALUES ('Ghrah',122,1445);
@@ -4443,11 +4443,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Dicey_Dorcus',6126,723); --
 INSERT INTO `mob_skill_lists` VALUES ('Dicey_Dorcus',6126,724); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Dicey_Dorcus',6126,2221); -- 
 
-INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,323); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,661); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,3840); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,3841); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,3842); -- 
+INSERT INTO `mob_skill_lists` VALUES ('Nimble_Nelson',6127,2612); -- Wild Carrot MMM
 
 INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,480); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,483); -- 

@@ -24,9 +24,9 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local typeEffect = tpz.effect.INTENSION
-    local power = 50
-    local duration = 30
+    local typeEffect = tpz.effect.REGEN
+    local power = math.ceil(25 * (1 + 0.01 * caster:getMod(tpz.mod.REGEN_MULTIPLIER)))
+    local duration = 90
     local returnEffect = typeEffect
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then

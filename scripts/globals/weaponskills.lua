@@ -512,8 +512,6 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
-    --handling stoneskin
-    finaldmg = utils.stoneskin(target, finaldmg)
     finaldmg = utils.clamp(finaldmg, -99999, 99999)
     finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
     return finaldmg, calcParams.criticalHit, calcParams.tpHitsLanded, calcParams.extraHitsLanded, calcParams.shadowsAbsorbed
@@ -614,8 +612,6 @@ function doRangedWeaponskill(attacker, target, wsID, wsParams, tp, action, prima
 	
     finaldmg = finaldmg * WEAPON_SKILL_POWER * 1.00 -- Add server bonus
     calcParams.finalDmg = finaldmg
-    --handling stoneskin
-    finaldmg = utils.stoneskin(target, finaldmg)
     finaldmg = utils.clamp(finaldmg, -99999, 99999)
     finaldmg = takeWeaponskillDamage(target, attacker, wsParams, primaryMsg, attack, calcParams, action)
     attacker:delStatusEffectSilent(tpz.effect.FLASHY_SHOT)
@@ -756,8 +752,6 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         else
             --handling rampart stoneskin
             dmg = utils.rampartstoneskin(target, dmg)
-            --handling stoneskin
-            dmg = utils.stoneskin(target, dmg)
         end
     else
         calcParams.shadowsAbsorbed = 1

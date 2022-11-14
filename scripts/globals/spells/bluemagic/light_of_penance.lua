@@ -26,7 +26,7 @@ function onSpellCast(caster, target, spell)
 	local typeEffectOne = tpz.effect.BLINDNESS
     local typeEffectTwo = tpz.effect.BIND
     local params = {}
-    local multi = 2.7
+    local multi = 3.0
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
@@ -36,13 +36,9 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    local resist = applyResistance(caster, target, spell, params)
-    local duration = 12 * resist
-    local durationTwo = 30 * resist
-    local power = 100 * resist
     -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
     params.multiplier = multi
-    params.tMultiplier = 1.0
+    params.tMultiplier = 3.0
     params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
@@ -55,21 +51,12 @@ function onSpellCast(caster, target, spell)
     local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (damage > 0 and resist >= 0.5) then
-        if (target:isFacing(caster)) then
-            if (target:hasStatusEffect(typeEffectTwo) and target:getTP() == 0) then
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-            elseif  (target:hasStatusEffect(typeEffectTwo)) then
-                target:delTP(power)
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-            else
-                target:addStatusEffect(typeEffectOne, 300, 0, duration)
-                target:addStatusEffect(typeEffectTwo, 1, 0, durationTwo)
-                target:delTP(power)
-            end
-        end
-    end
-spell:setMsg(tpz.msg.basic.MAGIC_DMG)
+    params.effect = tpz.effect.BLINDNESS
+    BlueTryEnfeeble(caster, target, spell, damage, 100, 3, 12, params)
+    params.effect = tpz.effect.BIND
+    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 30, params)
+
+    spell:setMsg(tpz.msg.basic.MAGIC_DMG)
 	
 	return damage
 end

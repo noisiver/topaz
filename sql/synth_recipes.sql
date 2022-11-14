@@ -2098,7 +2098,7 @@ INSERT INTO `synth_recipes` VALUES (29971,1,0,0,0,31,0,0,0,0,0,4098,4240,1614,0,
 -- INSERT INTO `synth_recipes` VALUES (29973,1,0,0,0,255,0,0,0,0,0,4100,4242,17081,0,0,0,0,0,0,0,649,649,648,650,1,2,1,1,'Brass Rod (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29974,1,0,0,0,255,0,0,0,0,0,4100,4242,14864,0,0,0,0,0,0,0,744,744,744,744,3,3,3,3,'Palmer\'s Bangles (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29975,1,0,0,0,255,0,0,0,0,0,4100,4242,13082,0,0,0,0,0,0,0,744,744,744,744,5,5,5,5,'Chain Gorget (desynth)');
--- INSERT INTO `synth_recipes` VALUES (29976,1,0,0,0,255,0,0,0,0,0,4100,4242,2167,0,0,0,0,0,0,0,1225,2275,2275,2275,3,1,1,1,'Lamian Armlet (desynth)');
+INSERT INTO `synth_recipes` VALUES (29976,1,0,0,0,31,0,0,0,0,0,4100,4242,2167,0,0,0,0,0,0,0,1225,1225,1225,2275,2,3,4,1,'Lamian Armlet (desynth)');
 INSERT INTO `synth_recipes` VALUES (30001,0,0,0,0,0,1,1,0,0,1,4099,4241,917,4497,13568,0,0,0,0,0,5230,5231,5231,5231,1,1,1,1,'Love Chocolate');
 INSERT INTO `synth_recipes` VALUES (30002,0,0,0,0,0,1,0,0,0,0,4098,4240,498,0,0,0,0,0,0,0,817,817,817,817,3,6,9,12,'Yagudo Necklace (desynth)');
 INSERT INTO `synth_recipes` VALUES (30003,0,2011,0,0,0,2,0,0,0,0,4098,4240,840,840,840,840,840,840,2145,0,1221,1221,1221,1221,18,24,30,36,'Chocobo Fletchings');

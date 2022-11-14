@@ -85,7 +85,7 @@ function onSpellCast(caster, target, spell)
         multi = multi + 0.50
     end
 
-    if (damage > 0 and resist >= 0.5) then
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
         local typeEffect = tpz.effect.POISON
         target:addStatusEffect(typeEffect, 16, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- Buffed to 16
     end

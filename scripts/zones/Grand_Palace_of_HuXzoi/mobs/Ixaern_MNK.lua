@@ -14,7 +14,8 @@ function onMobSpawn(mob)
     SetDropRate(2845, 1851, chance * 10) -- Deed Of Placidity
     qm:setLocalVar("[SEA]IxAern_DropRate", 0)
 	
-	mob:setDamage(145)
+	mob:setDamage(70)
+    mob:setDelay(8000)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ATTP, 25)
     mob:setMod(tpz.mod.REFRESH, 50)
@@ -33,13 +34,13 @@ function onMobFight(mob, target)
             -- Go into bracer mode
             mob:setLocalVar("BracerMode", 1)
             mob:AnimationSub(2)
-			mob:addMod(tpz.mod.MAGIC_HASTE, 2500)
+			mob:setDelay(7000)
 			mob:setMod(tpz.mod.ATTP, 100)
-			mob:setMod(tpz.mod.MATT, 48)
-			mob:setMod(tpz.mod.UDMGPHYS, 60) 
-			mob:setMod(tpz.mod.UDMGRANGE, 60)
-			mob:setMod(tpz.mod.UDMGMAGIC, 60)
-            mob:useMobAbility(3411) -- Hundred Fists
+			mob:addMod(tpz.mod.MATT, 48)
+			mob:setMod(tpz.mod.UDMGPHYS, -60) 
+			mob:setMod(tpz.mod.UDMGRANGE, -60)
+			mob:setMod(tpz.mod.UDMGMAGIC, -60)
+            mob:useMobAbility(690) -- Hundred Fists
 		
 			-- Force minions to 2hour
             for i = 1, 2 do

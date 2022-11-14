@@ -159,6 +159,7 @@ INSERT INTO `mob_family_mods` VALUES (132,382,10,1);	-- Gnole +10% EXP
 -- Attack bonus
 INSERT INTO `mob_family_mods` VALUES (208,62,10,0);		-- Ram +10% Attack
 INSERT INTO `mob_family_mods` VALUES (242,62,10,0);		-- Tiger +10% Attack
+INSERT INTO `mob_family_mods` VALUES (555,62,10,0);		-- Smilodon +10% Attack
 INSERT INTO `mob_family_mods` VALUES (136,62,10,0);		-- Goobbue +10% Attack
 INSERT INTO `mob_family_mods` VALUES (179,62,10,0);		-- Manticore +10% Attack
 INSERT INTO `mob_family_mods` VALUES (246,62,20,0);		-- Troll +20% Attack 
@@ -178,9 +179,6 @@ INSERT INTO `mob_family_mods` VALUES (211,62,50,0);		-- Ruszor +50% Attack
 INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);		-- Sahagin -20 Attack
 
 -- Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (122,63,100,0);	-- Ghrah +100% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (123,63,100,0);	-- Ghrah +100% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (124,63,100,0);	-- Ghrah +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (272,63,20,0);		-- Zdei +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (233,63,20,0);		-- Soulflayer +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (74,63,20,0);		-- Corse +20% Defense Bonus
@@ -250,6 +248,9 @@ INSERT INTO `mob_family_mods` VALUES (205,388,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (62,388,25,0);		-- Cerberus +25%(Bonus)
 
 -- Ranged damage taken(RDT)
+INSERT INTO `mob_family_mods` VALUES (203,390,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (204,390,200,0);	-- Qutrub +200%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (205,390,200,0);	-- Qutrub +200%(Bonus)
 
 -- Magic damage taken (MDT)
 INSERT INTO `mob_family_mods` VALUES (112,389,25,0); 	-- Flan +25%(Bonus)
@@ -276,6 +277,7 @@ INSERT INTO `mob_family_mods` VALUES (551,389,-13,0);	-- "Blue" Sea Monk  -13%
 INSERT INTO `mob_family_mods` VALUES (233,389,-25,0);	-- Soulflayer  -25%
 INSERT INTO `mob_family_mods` VALUES (90,389,-50,0);	-- Dvergr  -50%
 INSERT INTO `mob_family_mods` VALUES (117,389,-13,0);	-- Gargouille  -13%
+INSERT INTO `mob_family_mods` VALUES (118,389,-13,0);	-- Gargoyle  -13%
 INSERT INTO `mob_family_mods` VALUES (6,389,-25,0);		-- Amphiptere  -25%
 INSERT INTO `mob_family_mods` VALUES (195,389,-25,0);	-- Pixie  -25%
 INSERT INTO `mob_family_mods` VALUES (62,389,-50,0);	-- Cerberus  -63%
@@ -346,6 +348,7 @@ INSERT INTO `mob_family_mods` VALUES (204,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (205,23,1,1); -- Qutrub sleep Immunity
 INSERT INTO `mob_family_mods` VALUES (214,23,640,1); -- Sandworm slow and elegy Immunity
 INSERT INTO `mob_family_mods` VALUES (215,23,640,1); -- Sandworm slow and elegy Immunity
+INSERT INTO `mob_family_mods` VALUES (4,23,16,1); -- Ahriman silence Immunity
 
 -- Status resist trait
 INSERT INTO `mob_family_mods` VALUES (125,1254,100,0); -- Giant Bird 100% lullaby resist
@@ -1025,11 +1028,16 @@ INSERT INTO `mob_family_mods` VALUES (42,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (43,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (44,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (45,56,-1,1);
+INSERT INTO `mob_family_mods` VALUES (52,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (495,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (92,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (93,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (94,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (95,56,-1,1);
+INSERT INTO `mob_family_mods` VALUES (121,56,-1,1);
+INSERT INTO `mob_family_mods` VALUES (122,56,-1,1);
+INSERT INTO `mob_family_mods` VALUES (123,56,-1,1);
+INSERT INTO `mob_family_mods` VALUES (124,56,-1,1);
 -- elementals don't standback
 INSERT INTO `mob_family_mods` VALUES (99,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (100,56,-1,1);

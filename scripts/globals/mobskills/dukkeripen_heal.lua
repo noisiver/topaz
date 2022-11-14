@@ -7,7 +7,6 @@ require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/msg")
 ---------------------------------------------
-
 function onMobSkillCheck(target, mob, skill)
     if mob:getPool() == 1272 then -- Experimental Lamia
         return 0
@@ -20,8 +19,5 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    skill:setMsg(tpz.msg.basic.SELF_HEAL)
-
-    return MobHealMove(mob, math.random(400, 700))
+     return MobHealMove(target, skill, 1)
 end

@@ -4,21 +4,15 @@
 -- !pos -140 0 166 27
 -----------------------------------
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
     DespawnMob(mob:getID()-1) -- Despawn Fomor BLM
     DisallowRespawn(mob:getID()-1, true)
-    mob:addMod(tpz.mod.DEFP, 25) 
-	mob:addMod(tpz.mod.ACC, 15) 
+    mob:addMod(tpz.mod.DEFP, 25)
+	mob:addMod(tpz.mod.ACC, 15)
     mob:addMod(tpz.mod.EVA, 15)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-end
-
-function onMobEngaged(mob)
-	mob:setMod(tpz.mod.HASTE_MAGIC, 0)
-    mob:setDamage(100)
-    mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
 end
 
 function onMobFight(mob)
@@ -34,20 +28,20 @@ end
 function changeStance(mob)
     if mob:AnimationSub() > 1 then
         mob:AnimationSub(1)
-		mob:setMod(tpz.mod.HASTE_MAGIC, 0)
         mob:setDamage(100)
+        mob:setDelay(2400)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
     else
         local stance = math.random(2,3)
         mob:AnimationSub(stance)
 
         if stance == 2 then
-			mob:setMod(tpz.mod.HASTE_MAGIC, -5000)
             mob:setDamage(100)
+            mob:setDelay(4000)
             mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
         else
-			mob:setMod(tpz.mod.HASTE_MAGIC, 0)
-            mob:setDamage(50)
+            mob:setDamage(33)
+            mob:setDelay(2500)
             mob:setMod(tpz.mod.TRIPLE_ATTACK, 100)
         end
     end
@@ -56,7 +50,7 @@ end
 
 function onMobEngaged(mob)
     mob:AnimationSub(1)
-	mob:setMod(tpz.mod.HASTE_MAGIC, 0)
+    mob:setDelay(4000)
     mob:setDamage(100)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
 end

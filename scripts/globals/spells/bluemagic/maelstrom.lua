@@ -27,7 +27,7 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    local multi = 3.2
+    local multi = 3
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
@@ -35,7 +35,7 @@ function onSpellCast(caster, target, spell)
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.WATER
     params.multiplier = multi
-    params.tMultiplier = 1.5
+    params.tMultiplier = 3.0
     params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
@@ -60,12 +60,8 @@ function onSpellCast(caster, target, spell)
 
     local resist = applyResistance(caster, target, spell, params)
 
-    if (damage > 0 and resist >= 0.5) then
-        if (target:canGainStatusEffect(tpz.effect.STR_DOWN)) then
-        local typeEffect = tpz.effect.STR_DOWN
-        target:addStatusEffect(typeEffect, 20, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- https://www.bg-wiki.com/bg/Mind_Blast says 20%
-        end
-    end
+    params.effect = tpz.effect.STR_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 20, 30, 180, params)
 
     return damage
 end

@@ -21681,7 +21681,6 @@ INSERT INTO `item_mods` VALUES (17760,11,2);
 INSERT INTO `item_mods` VALUES (17760,68,2);
 INSERT INTO `item_mods` VALUES (17762,366,4);
 INSERT INTO `item_mods` VALUES (17763,366,6);
-INSERT INTO `item_mods` VALUES (17766,610,25); -- (Lyft Scimitar) +25% Vorpal Blade Damage
 INSERT INTO `item_mods` VALUES (17768,431,1); -- Yoto +1
 INSERT INTO `item_mods` VALUES (17769,431,1); -- Kororito +1
 INSERT INTO `item_mods` VALUES (17770,431,1);

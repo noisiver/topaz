@@ -54,13 +54,7 @@ function onMobFight(mob, target)
     local hp = mob:getHPP()
 
     if (hp < 20) then
-        -- Apply Amnesia to nearby targets
-        local nearbyPlayers = mob:getPlayersInRange(10)
-        if nearbyPlayers == nil then return end
-        for _,v in ipairs(nearbyPlayers) do
-            v:delStatusEffectSilent(tpz.effect.AMNESIA)
-            v:addStatusEffectEx(tpz.effect.AMNESIA, tpz.effect.AMNESIA, 1, 0, 5)
-        end
+        AddMobAura(mob, target, 10, tpz.effect.AMNESIA, 1, 3)
     end
 end
 

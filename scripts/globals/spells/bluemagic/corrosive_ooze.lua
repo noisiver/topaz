@@ -27,8 +27,6 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     local multi = 2.125
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
@@ -59,15 +57,10 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params) -- Corrosive has static enmity https://www.bg-wiki.com/ffxi/Corrosive_Ooze
-
-    local typeEffectOne = tpz.effect.DEFENSE_DOWN
-    local typeEffectTwo = tpz.effect.ATTACK_DOWN
-    local duration = 180 * resist
-
-    if (damage > 0 and resist >= 0.5) then
-        target:addStatusEffect(typeEffectOne, 10, 0, duration)
-        target:addStatusEffect(typeEffectTwo, 10, 0, duration)
-    end
+    params.effect = tpz.effect.ATTACK_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 180, params)
+    params.effect = tpz.effect.DEFENSE_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 180, params)
 
     return damage
 end

@@ -847,6 +847,7 @@ tpz.effect =
     ELEMENTALRES_DOWN        = 802, -- Elemental resistance down
     FULL_SPEED_AHEAD         = 803, -- Helper for quest: Full Speed Ahead!
     INCREASED_DAMAGE_TAKEN   = 804, -- Increased damage taken, in percents
+    CRIT_HIT_RATE_DOWN       = 805, -- Critical hit rate down
     -- PLACEHOLDER           = 805, -- Description
     -- 805-1022
     DEEPSLEEP                = 901, -- For abilities like Nightmare
@@ -2598,7 +2599,7 @@ tpz.jobSpecialAbility =
     -- EES_?                = 2148,
     EES_TROLL            = 2252,
     -- EES_?                = 2941,
-    -- SPIRIT_SURGE         = 1893,
+    SPIRIT_SURGE         = 1893,
     -- SPIRIT_SURGE         = 2255,
     AZURE_LORE           = 1933,
     -- AZURE_LORE           = 2006,

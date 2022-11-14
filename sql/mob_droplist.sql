@@ -1266,14 +1266,14 @@ INSERT INTO `mob_droplist` VALUES (199,0,0,1000,4111,5);
 INSERT INTO `mob_droplist` VALUES (200,4,0,1000,1819,0); -- (Aw'ghrah) Luminion chip - Despoil
 INSERT INTO `mob_droplist` VALUES (200,0,0,1000,1819,240); -- Luminion chip
 INSERT INTO `mob_droplist` VALUES (200,0,0,1000,1872,10); -- Ghrah M chip
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4104,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4105,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4106,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4107,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4108,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4109,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4110,5);
-INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4111,5);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4104,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4105,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4106,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4107,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4108,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4109,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4110,0);
+INSERT INTO `mob_droplist` VALUES (200,0,0,1000,4111,0);
 INSERT INTO `mob_droplist` VALUES (201,2,0,1000,842,0);
 INSERT INTO `mob_droplist` VALUES (201,0,0,1000,842,100);
 INSERT INTO `mob_droplist` VALUES (201,0,0,1000,854,30);
@@ -3028,7 +3028,7 @@ INSERT INTO `mob_droplist` VALUES (532,0,0,1000,888,275);
 INSERT INTO `mob_droplist` VALUES (532,0,0,1000,1482,13);
 INSERT INTO `mob_droplist` VALUES (532,0,0,1000,4290,142);
 INSERT INTO `mob_droplist` VALUES (532,0,0,1000,4484,65);
-INSERT INTO `mob_droplist` VALUES (533,0,0,1000,2148,240);
+INSERT INTO `mob_droplist` VALUES (533,0,0,1000,2148,150);
 INSERT INTO `mob_droplist` VALUES (533,0,0,1000,2899,100);
 INSERT INTO `mob_droplist` VALUES (533,4,0,1000,5569,0);
 INSERT INTO `mob_droplist` VALUES (533,0,0,1000,5569,150);
@@ -3500,7 +3500,7 @@ INSERT INTO `mob_droplist` VALUES (632,0,0,1000,4359,150);
 INSERT INTO `mob_droplist` VALUES (633,0,0,1000,1116,100); -- (Desert Manticore - Western Altepa Desert) Manticore hide
 INSERT INTO `mob_droplist` VALUES (633,0,0,1000,1123,50); -- Manticore fang
 INSERT INTO `mob_droplist` VALUES (633,0,0,1000,1163,240); -- Lock of manticore hair
-INSERT INTO `mob_droplist` VALUES (634,0,0,1000,2148,240);
+INSERT INTO `mob_droplist` VALUES (634,0,0,1000,2148,150);
 INSERT INTO `mob_droplist` VALUES (634,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (634,0,0,1000,3239,100);
 INSERT INTO `mob_droplist` VALUES (634,0,0,1000,5569,150);
@@ -4165,14 +4165,14 @@ INSERT INTO `mob_droplist` VALUES (776,0,0,1000,4111,5);
 INSERT INTO `mob_droplist` VALUES (777,4,0,1000,1819,0); -- (Eo'ghrah) Luminion chip - Despoil
 INSERT INTO `mob_droplist` VALUES (777,0,0,1000,1819,240); -- Luminion chip
 INSERT INTO `mob_droplist` VALUES (777,0,0,1000,1872,100); -- Ghrah M chip
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4104,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4105,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4106,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4107,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4108,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4109,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4110,5);
-INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4111,5);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4104,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4105,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4106,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4107,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4108,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4109,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4110,0);
+INSERT INTO `mob_droplist` VALUES (777,0,0,1000,4111,0);
 INSERT INTO `mob_droplist` VALUES (778,0,0,1000,1819,150); -- Luminion chip
 INSERT INTO `mob_droplist` VALUES (779,0,0,1000,2641,100);
 INSERT INTO `mob_droplist` VALUES (780,0,0,1000,2641,100);
@@ -7256,7 +7256,7 @@ INSERT INTO `mob_droplist` VALUES (1385,0,0,1000,1009,50);
 INSERT INTO `mob_droplist` VALUES (1386,0,0,1000,970,50);
 INSERT INTO `mob_droplist` VALUES (1387,0,0,1000,996,50);
 INSERT INTO `mob_droplist` VALUES (1388,0,0,1000,731,100);
-INSERT INTO `mob_droplist` VALUES (1388,0,0,1000,2148,240);
+INSERT INTO `mob_droplist` VALUES (1388,0,0,1000,2148,150);
 INSERT INTO `mob_droplist` VALUES (1388,0,0,1000,2155,100);
 INSERT INTO `mob_droplist` VALUES (1388,0,0,1000,2156,100);
 INSERT INTO `mob_droplist` VALUES (1388,0,0,1000,3262,100);
@@ -7889,11 +7889,11 @@ INSERT INTO `mob_droplist` VALUES (1490,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (1490,0,0,1000,2332,150);
 INSERT INTO `mob_droplist` VALUES (1491,0,0,1000,5371,100);
 INSERT INTO `mob_droplist` VALUES (1491,0,0,1000,5374,100);
-INSERT INTO `mob_droplist` VALUES (1492,4,0,1000,2159,0);
+INSERT INTO `mob_droplist` VALUES (1492,4,0,1000,2159,0); -- Lamia Idolator(Arrapago Reef)
 INSERT INTO `mob_droplist` VALUES (1492,0,0,1000,2159,240); -- Qutrub bandage
 INSERT INTO `mob_droplist` VALUES (1492,0,0,1000,2165,50); -- Qutrub gorget
-INSERT INTO `mob_droplist` VALUES (1492,0,0,1000,2218,90);
-INSERT INTO `mob_droplist` VALUES (1492,0,0,1000,2220,100);
+INSERT INTO `mob_droplist` VALUES (1492,1,1,150,2218,500); -- Lamian Claw Key
+INSERT INTO `mob_droplist` VALUES (1492,1,1,150,2220,500); -- Lamian Bone Key
 INSERT INTO `mob_droplist` VALUES (1493,4,0,1000,2159,0);
 INSERT INTO `mob_droplist` VALUES (1493,0,0,1000,2159,240);
 INSERT INTO `mob_droplist` VALUES (1493,0,0,1000,2165,50);
@@ -10839,16 +10839,16 @@ INSERT INTO `mob_droplist` VALUES (2033,0,0,1000,868,100);
 INSERT INTO `mob_droplist` VALUES (2034,0,0,1000,868,100);
 INSERT INTO `mob_droplist` VALUES (2035,2,0,1000,2148,0);
 INSERT INTO `mob_droplist` VALUES (2035,4,0,1000,2148,0);
-INSERT INTO `mob_droplist` VALUES (2035,0,0,1000,2148,240); -- Puk Wing
+INSERT INTO `mob_droplist` VALUES (2035,0,0,1000,2148,150); -- Puk Wing
 INSERT INTO `mob_droplist` VALUES (2035,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (2035,4,0,1000,5569,0);
 INSERT INTO `mob_droplist` VALUES (2035,0,0,1000,5569,150); -- Puk Egg
 INSERT INTO `mob_droplist` VALUES (2036,2,0,1000,2148,0);
-INSERT INTO `mob_droplist` VALUES (2036,0,0,1000,2148,240);
+INSERT INTO `mob_droplist` VALUES (2036,0,0,1000,2148,150);
 INSERT INTO `mob_droplist` VALUES (2036,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (2036,0,0,1000,5569,150);
 INSERT INTO `mob_droplist` VALUES (2037,0,0,1000,5365,100);
-INSERT INTO `mob_droplist` VALUES (2038,0,0,1000,2148,240); -- (Sea Puk - Mamook)
+INSERT INTO `mob_droplist` VALUES (2038,0,0,1000,2148,150); -- (Sea Puk - Mamook)
 INSERT INTO `mob_droplist` VALUES (2038,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (2038,0,0,1000,5569,150);
 INSERT INTO `mob_droplist` VALUES (2038,0,0,1000,2580,10); -- Hellcage Butterfly(ZNM Vulpangue Pop)
@@ -11551,7 +11551,7 @@ INSERT INTO `mob_droplist` VALUES (2188,0,0,1000,888,340);
 INSERT INTO `mob_droplist` VALUES (2188,0,0,1000,4484,80);
 INSERT INTO `mob_droplist` VALUES (2188,0,0,1000,4484,80);
 INSERT INTO `mob_droplist` VALUES (2189,4,0,1000,2148,0);
-INSERT INTO `mob_droplist` VALUES (2189,0,0,1000,2148,240);
+INSERT INTO `mob_droplist` VALUES (2189,0,0,1000,2148,150);
 INSERT INTO `mob_droplist` VALUES (2189,0,0,1000,2229,100);
 INSERT INTO `mob_droplist` VALUES (2189,0,0,1000,5569,150);
 INSERT INTO `mob_droplist` VALUES (2189,2,0,1000,5569,0);
@@ -14273,7 +14273,7 @@ INSERT INTO `mob_droplist` VALUES (2632,2,0,1000,4370,0);
 INSERT INTO `mob_droplist` VALUES (2632,0,0,1000,4370,50);
 INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,1616,100);
 INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,1985,100);
-INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,2148,240);
+INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,2148,150);
 INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,5667,100);
 INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,11574,100);
 INSERT INTO `mob_droplist` VALUES (2633,0,0,1000,18898,100);
@@ -15597,7 +15597,7 @@ INSERT INTO `mob_droplist` VALUES (2884,1,1,100,4876,333); -- scroll_of_absorb-v
 INSERT INTO `mob_droplist` VALUES (2884,1,1,100,4877,333); -- scroll_of_absorb-agi
 INSERT INTO `mob_droplist` VALUES (2884,1,1,100,4878,334); -- scroll_of_absorb-int
 INSERT INTO `mob_droplist` VALUES (2884,0,0,1000,940,10);
-INSERT INTO `mob_droplist` VALUES (2885,0,0,1000,2159,240);
+INSERT INTO `mob_droplist` VALUES (2885,0,0,1000,2159,240); -- Qutrub(Arrapago Reef)
 INSERT INTO `mob_droplist` VALUES (2885,0,0,1000,2165,50);
 INSERT INTO `mob_droplist` VALUES (2885,0,0,1000,2220,100); -- Lamian bone key
 INSERT INTO `mob_droplist` VALUES (2886,0,0,1000,17709,240); -- (Cwn Cyrff) Swan Bilbo

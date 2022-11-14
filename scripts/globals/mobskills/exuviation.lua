@@ -19,9 +19,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local statusHeal = target:getMaxHP() * 0.05
     local effectCount = MobSelfDispelMove(mob, skill)
 
-    skill:setMsg(tpz.msg.basic.SELF_HEAL)
-    return MobHealMove(mob, statusHeal * effectCount)
+    return MobHealMove(target, skill, effectCount +1)
 end

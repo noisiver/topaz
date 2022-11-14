@@ -332,30 +332,28 @@ namespace battleutils
     {
         if (!element)
             return 1;
-        if (PTarget->objtype == TYPE_PC)
-        {
-            PTarget = PTarget->GetBattleTarget();
-        }
         Mod resistarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
-        float res = (float)(PTarget->getMod(resistarray[element -1]));
-        // printf("SDT res %f \n", res);
-        if (res == 0)
-            return 1;
+        float res = PTarget->getMod(resistarray[element -1]);
+        //printf("SDT res in function %f \n", res);
+        if (res == 0.0f)
+            return 1.0f;
         if (res <= 5.0f)
             return 0.05f;
         if (res >= 150.0f)
             return 1.5f;
-        res = res / 100;
+        res = res / 100.0f;
         // printf("SDT res after dividing %f \n", res);
         // todo -- magic burst
 
         return res;
     }
 
+
     float getMagicResist(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skill, uint8 element, uint8 bonus)
     {
         float p = 0.0f;
         float DMacc = 0.0f;
+        float SDT = 1.0f;
         float levelcorrectionpenalty = 0.0f;
         float casterLvl = PAttacker->GetMLevel();
         float targetLvl = PDefender->GetMLevel();
@@ -365,7 +363,10 @@ namespace battleutils
         if (PAttacker->objtype == TYPE_MOB)
         {
             magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
+            //printf("Mob base MACC from skill %f \n", magicacc);
         }
+        SDT = getElementalSDTDivisor(PDefender, element);
+        //printf("sdt for enspells = %f \n", SDT);
         //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
         // Spikes are PDefender for Macc
         if (PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_BLAZE_SPIKES) || PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_SHOCK_SPIKES) ||
@@ -388,9 +389,11 @@ namespace battleutils
                 magicacc += static_cast<float>(PDefender->GetSkill(SKILL_BLUE_MAGIC) + PDefender->getMod(Mod::MACC));
                 magicacc -= static_cast<float>(PDefender->GetSkill(SKILL_ENHANCING_MAGIC));
             }
+            SDT = getElementalSDTDivisor(PAttacker, element);
+            //printf("sdt for spikes = %f \n", SDT);
         }
         //printf("Macc after gear mod = %f \nmeva after = %f \n", magicacc, meva);
-        levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4);
+        levelcorrectionpenalty = (float)((casterLvl - targetLvl) * 4.0f);
         //printf("\nLevel Corretion Penalty after level correction = %f \n", levelcorrectionpenalty);
         magicacc = magicacc + levelcorrectionpenalty;
         //printf("\nmagicacc after correction penalty = %f \n", magicacc);
@@ -404,7 +407,7 @@ namespace battleutils
         {
             p = floor(50.0f + DMacc); 
         }
-         //printf("p DMacc after %f \n", p);
+        //printf("p DMacc after %f \n", p);
         if (p < 5.0f)
         {
             p = 5.0f;
@@ -414,10 +417,9 @@ namespace battleutils
             p = 95.0f;
         }
         p = std::clamp(p, 5.0f, 95.0f);
-         //printf("p after clamping to 5,95 = %f \n", p);
-         //printf("SDT element %i \n", element);
+        //printf("p after clamping to 5,95 = %f \n", p);
+        //printf("SDT element %i \n", element);
         // Add SDT
-        auto SDT = getElementalSDTDivisor(PAttacker, element);
         p = p * SDT;
         if (p < 5.0f)
         {
@@ -434,16 +436,19 @@ namespace battleutils
         float eighth = static_cast<float>(pow(half, 3.0f));
         p = floor(p * 100.0f) / 100.0f;
          //printf("p trying to remove decimals = %f \n", p);
-        float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.0f));
+        float resvar = static_cast<float>(tpzrand::GetRandomNumber(1.0));
         //printf("resist roll %f \n", resvar);
         // Apply "special" gear resist bonus for players
-        if (PDefender->getMod(resistarray[element -1]) < 0 && resvar < 0.5)
+        if (PDefender->objtype == TYPE_PC)
         {
-            return 0.5f;
-        }
-        else if (PDefender->getMod(resistarray[element -1]) < 1 && resvar < 0.25)
-        {
-            return 0.25f;
+            if (PDefender->getMod(resistarray[element - 1]) < 0 && resvar < 0.5f)
+            {
+                return 0.5f;
+            }
+            else if (PDefender->getMod(resistarray[element - 1]) < 1 && resvar < 0.25f)
+            {
+                return 0.25f;
+            }
         }
 
         // 0.05 SDT makes you lose ALL coin flips(cannot do more than 1/8th damage)
@@ -677,23 +682,12 @@ namespace battleutils
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
-
-            int16 ramSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
-            if (ramSS)
+            damage = battleutils::HandleMagicStoneskin(PDefender, damage);
+            int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            if (!magicSS)
             {
-                if (damage >= ramSS)
-                {
-                    PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
-                    damage = damage - ramSS;
-                }
-                else
-                {
-                    PDefender->setModifier(Mod::RAMPART_STONESKIN, ramSS - damage);
-                    damage = 0;
-                }
+                damage = battleutils::HandleStoneskin(PDefender, damage);
             }
-
-            damage = HandleStoneskin(PDefender, damage);
         }
 
         damage = std::clamp(damage, -99999, 99999);
@@ -840,20 +834,6 @@ namespace battleutils
                 luautils::OnSpikesDamage(PDefender, PAttacker, Action, Action->spikesParam);
             }
 
-            int16 ramSS = PAttacker->getMod(Mod::RAMPART_STONESKIN);
-            if (ramSS)
-            {
-                if (Action->spikesParam >= ramSS)
-                {
-                    PAttacker->setModifier(Mod::RAMPART_STONESKIN, 0);
-                    Action->spikesParam = Action->spikesParam - ramSS;
-                }
-                else
-                {
-                    PAttacker->setModifier(Mod::RAMPART_STONESKIN, ramSS - Action->spikesParam);
-                    Action->spikesParam = 0;
-                }
-            }
             // Handle Deluge / Gale / Clod / Glint spikes
             if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DELUGE_SPIKES))
             {
@@ -872,8 +852,13 @@ namespace battleutils
                 Action->spikesEffect = SUBEFFECT_GLINT_SPIKES;
             }
 
-            // calculate damage
-            Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+            // Handle Stoneskin
+            Action->spikesParam = HandleMagicStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+            int16 magicSS = PAttacker->getMod(Mod::RAMPART_STONESKIN);
+            if (!magicSS)
+            {
+                Action->spikesParam = HandleStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
+            }
 
             uint8 element = 1;
 
@@ -2351,7 +2336,7 @@ namespace battleutils
             if (isBlocked)
             {
                 uint8 absorb = 100;
-                if (PDefender->m_Weapons[SLOT_SUB]->IsShield() || ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
+                if (PDefender->m_Weapons[SLOT_SUB]->IsShield() || PDefender->objtype == TYPE_MOB)
                 {
                     if (PDefender->objtype == TYPE_PC)
                     {
@@ -2380,7 +2365,7 @@ namespace battleutils
                             PDefender->addTP(PDefender->getMod(Mod::SHIELD_MASTERY_TP));
                         }
                     }
-                    else if (PDefender->objtype == TYPE_MOB)
+                    else if (PDefender->objtype == TYPE_MOB && ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
                     {
                         absorb = 50;
                         int32 shieldDefBonus = PDefender->getMod(Mod::SHIELD_DEF_BONUS);
@@ -2427,7 +2412,6 @@ namespace battleutils
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
-
             damage = HandleStoneskin(PDefender, damage);
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
@@ -4096,22 +4080,12 @@ namespace battleutils
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
 
-            int16 ramSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
-            if (ramSS)
+            damage = battleutils::HandleMagicStoneskin(PDefender, damage);
+            int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+            if (!magicSS)
             {
-                if (damage >= ramSS)
-                {
-                    PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
-                    damage = damage - ramSS;
-                }
-                else
-                {
-                    PDefender->setModifier(Mod::RAMPART_STONESKIN, ramSS - damage);
-                    damage = 0;
-                }
+                damage = battleutils::HandleStoneskin(PDefender, damage);
             }
-
-            damage = HandleStoneskin(PDefender, damage);
             HandleAfflatusMiseryDamage(PDefender, damage);
         }
         damage = std::clamp(damage, -99999, 99999);
@@ -5566,6 +5540,27 @@ namespace battleutils
 
             PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_STONESKIN);
             return damage - skin;
+        }
+
+        return damage;
+    }
+
+    int32 HandleMagicStoneskin(CBattleEntity* PDefender, int32 damage)
+    {
+        int16 magicSS = PDefender->getMod(Mod::RAMPART_STONESKIN);
+        if (magicSS)
+        {
+            if (damage >= magicSS)
+            {
+                PDefender->setModifier(Mod::RAMPART_STONESKIN, 0);
+                PDefender->StatusEffectContainer->DelStatusEffectSilent(EFFECT_MAGIC_SHIELD);
+                damage = damage - magicSS;
+            }
+            else
+            {
+                PDefender->setModifier(Mod::RAMPART_STONESKIN, magicSS - damage);
+                damage = 0;
+            }
         }
 
         return damage;

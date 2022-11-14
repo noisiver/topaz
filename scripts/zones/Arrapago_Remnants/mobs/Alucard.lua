@@ -7,6 +7,7 @@ local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/salvage")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -42,7 +43,7 @@ function onMobFight(mob, target)
     mob:addListener("MAGIC_STATE_EXIT", "ALUCARD_MAGIC_STATE_EXIT", function(mob, spell)
         if spell:getID() == 261 then -- Warp
             DespawnMob(mob:getID(instance), instance)
-            instance:setStage(2)
+            instance:setProgress(5)
             PeriodicMessage(mob, mob:getTarget(), "You hear a mechanical-like whirring noise.", 0xD, none, 90)
         end
     end)
@@ -67,8 +68,3 @@ end
 
 function onMobDespawn(mob)
 end
-
--- For testing purposes only
---function onMobWeaponSkillPrepare(mob, target)
---    return 1560 
---end

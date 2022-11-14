@@ -34,7 +34,6 @@ function onSpellCast(caster, target, spell)
 	params.attribute = tpz.mod.INT
 	params.skillType = tpz.skill.BLUE_MAGIC
 	params.bonus = 0
-    params.effect = tpz.effect.PARALYSIS
     params.multiplier = caster:hasStatusEffect(tpz.effect.AZURE_LORE) and 1.25 or 1
     params.tMultiplier = 1
     params.D = damage
@@ -82,10 +81,8 @@ function onSpellCast(caster, target, spell)
     end
 
 
-    if (damage > 0 and resist >= 0.5) then
-        local typeEffect = tpz.effect.PARALYSIS
-        target:addStatusEffect(typeEffect, 12.5, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.PARALYSIS
+    BlueTryEnfeeble(caster, target, spell, damage, 13, 0, 180, params)
 
     return damage
 end

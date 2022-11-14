@@ -8,12 +8,16 @@ require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/salvage")
 require("scripts/globals/items")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.DMG, -50)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
     mob:delImmunity(tpz.immunity.SILENCE) 
+end
+function onMobEngaged(mob, target)
+    PeriodicInstanceMessage(mob, target, "A whirlpool rages around the " .. MobName(mob) .. ", damaging nearby players!", 0xD, none, 45)
 end
 
 function onMobFight(mob, target)
@@ -23,7 +27,9 @@ function onMobFight(mob, target)
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.SILENCE) then
-        PeriodicInstanceMessage(mob, target, "A whirlpool rages around the Kanoloa, damaging nearby players!", 0xD, none, 30)
+        if not mob:hasStatusEffect(tpz.effect.SILENCE) then
+            PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains.", 0xD, none, 30)
+        end
         AddDamageAura(mob, target, 12, 50, tpz.attackType.MAGICAL, tpz.damageType.WATER, 3)
     end
 end
@@ -44,8 +50,3 @@ end
 
 function onMobDespawn(mob)
 end
-
--- For testing purposes only
---function onMobWeaponSkillPrepare(mob, target)
---    return 1560 
---end

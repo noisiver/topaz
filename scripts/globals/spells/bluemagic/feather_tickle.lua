@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Feather Tickle
--- Reduces an enemy's TP
+-- Paralyzes an enemy(Para II scaling)
 -- Spell cost: 48 MP
 -- Monster Type: Birds
 -- Spell Type: Magical (Wind)
@@ -27,10 +27,13 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
+    params.effect = tpz.effect.PARALYSIS
     local resist = applyResistance(caster, target, spell, params)
 	local cap = target:getTP() * 0.4
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)
+    local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    local power = utils.clamp(math.floor(dMND / 4) + 20, 10, 30)
 	
 	if aquan then
 		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
@@ -38,34 +41,11 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
 	
-	local dmg = 1200 * resist
-	
-	if aquan then
-	 	dmg = dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-	elseif amorph then
-		dmg = dmg * 0.75
-	end
-	
 
-    if resist < 0.5 then
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-        dmg = 0
+    if BlueTryEnfeeble(caster, target, spell, 1, power, 0, 180, params) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
-	    if ((target:getTP()) < dmg) then
-            dmg = target:getTP()
-        end
-
-        if (dmg > cap) then
-            dmg = cap
-        end
-
-		if (target:getTP() == 0) then
-			spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-		else
-			target:delTP(dmg)
-			spell:setMsg(tpz.msg.basic.MAGIC_TP_REDUCE)
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
     end
-end
-
-    return tp
+	return params.effect 
 end

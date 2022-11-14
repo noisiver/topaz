@@ -40,7 +40,7 @@ function onItemCheck(target)
     end
     -- Check if Evoker's Bracers is equipped, if it is then add the correct absorb for avatar currently out
     local hands = target:getEquipID(tpz.slot.HANDS)
-    local absorb = 0
+    local absorb = ""
     for i, element in pairs(pets) do
         if target:getPetID() == element[1] and target:getPetID() ~= nil then
             absorb = element[2]

@@ -83,7 +83,13 @@ CMagicState::CMagicState(CBattleEntity* PEntity, uint16 targid, SpellID spellid,
     actionTarget.speceffect = SPECEFFECT_NONE;
     actionTarget.animation = 0;
     actionTarget.param = static_cast<uint16>(m_PSpell->getID());
-    actionTarget.messageID = 327; // starts casting
+    actionTarget.messageID = 327;
+    // Mobs shouldn't display casting spells in chat when out of combat
+    if (m_PEntity->objtype == TYPE_MOB && m_PEntity->PAI->IsRoaming())
+    {
+        actionTarget.messageID = 0;
+    }
+    // starts casting
     m_PEntity->PAI->EventHandler.triggerListener("MAGIC_START", m_PEntity, m_PSpell.get(), &action); //TODO: weaponskill lua object
 
     m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
@@ -117,6 +123,7 @@ bool CMagicState::Update(time_point tick)
         if (m_interrupted)
         {
             m_PEntity->OnCastInterrupted(*this, action, msg);
+            m_PEntity->PAI->EventHandler.triggerListener("MAGIC_INTERRUPTED", m_PEntity, PTarget, m_PSpell.get(), &action);
         }
         else
         {

@@ -221,7 +221,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
-            local isBlocked =math.random()*100 < target:getBlockRate(avatar)
+            local isBlocked = math.random()*100 < target:getBlockRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -291,7 +291,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local wRatio = cRatio
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
-            local isBlocked =math.random()*100 < target:getBlockRate(avatar)
+            local isBlocked = math.random()*100 < target:getBlockRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -471,9 +471,11 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         end
     end
     -- handle pd
-    if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH) and attackType ==
-        tpz.attackType.PHYSICAL then
-        return 0
+    if attackType == tpz.attackType.PHYSICAL then
+        if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH)then
+            skill:setMsg(tpz.msg.basic.SKILL_MISS)
+            return 0
+        end
     end
 
     -- Check for MDT/PDT/RDT/BDT/MDB
@@ -596,6 +598,14 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
         end
 
         local resist = getAvatarResist(avatar, effect, target, avatar:getStat(statmod)-target:getStat(statmod), maccBonus, element)
+
+        -- Doom and Gradual Petrification can't have a lower duration from resisting
+        if (resist < 1) then
+            if (effect == tpz.effect.DOOM) or (effect == tpz.effect.GRADUAL_PETRIFICATION) then
+                giveAvatarTP(avatar)
+                return tpz.msg.basic.SKILL_MISS -- resist !
+            end
+        end
         --printf("resist %i", resist * 100)
         if (resist >= 0.50) then
             -- Reduce duration by resist percentage

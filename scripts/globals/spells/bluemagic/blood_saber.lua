@@ -24,7 +24,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local dmg = 1 + (0.709 * caster:getSkillLevel(tpz.skill.BLUE_MAGIC))
+    local damage = math.floor((caster:getHP() * .33))
     local params = {}
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
@@ -37,12 +37,13 @@ function onSpellCast(caster, target, spell)
         multi = multi + 2.0
     end
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
-    params.attackType = tpz.attackType.MAGICAL
+    params.attackType = tpz.attackType.BREATH
     params.dmgType = tpz.damageType.DARK
     params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0
-    params.duppercap = 25
+    params.D = damage
+    params.duppercap = 9999
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -50,13 +51,13 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-    dmg = dmg*resist
-    dmg = addBonuses(caster, spell, target, dmg)
-    dmg = adjustForTarget(target, dmg, spell:getElement())
+    damage = BlueMagicalSpell(caster, target, spell, params, nil)
+    damage = damage*resist
+    damage = addBonuses(caster, spell, target, damage)
+    damage = adjustForTarget(target, damage, spell:getElement())
 
-    if (dmg < 0) then
-        dmg = 0
+    if (damage < 0) then
+        damage = 0
     end
 	local arcana = (target:getSystem() == 3)
 	if arcana then
@@ -65,15 +66,37 @@ function onSpellCast(caster, target, spell)
 	end
     if (target:isUndead()) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return dmg
+        return damage
     end
 
-    if (target:getHP() < dmg) then
-        dmg = target:getHP()
+	-- add convergence bonus
+	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
+		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
+		damage = damage * ConvergenceBonus
+		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
+	end
+	-- add breath damage gear
+	local head = caster:getEquipID(tpz.slot.HEAD)
+	if head == 16150 or head == 11465 then 
+		damage = damage *1.1 -- Saurian Helm and Mirage Keffiyeh
+	end 
+
+	damage = damage * resist
+    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+
+    -- Cap damage for BLU mobs
+    if caster:isMob() then
+        if damage > 500 then
+            damage = 500
+        end
     end
 
-    dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
-    caster:addHP(dmg)
+    if (target:getHP() < damage) then
+        damage = target:getHP()
+    end
 
-    return dmg
+    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+    caster:addHP(damage)
+
+    return damage
 end

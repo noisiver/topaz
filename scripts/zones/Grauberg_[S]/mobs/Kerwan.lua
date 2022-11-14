@@ -51,6 +51,14 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+local auraMode = mob:getLocalVar("auraMode")
+    if (auraMode == 1) then
+        AddMobAura(mob, target, 10, tpz.effect.GEO_PARALYSIS, 75, 3)
+    elseif (auraMode == 2) then
+        AddMobAura(mob, target, 10, tpz.effect.TERROR, 1, 3)
+    elseif (auraMode == 3) then
+        AddMobAura(mob, target, 10, tpz.effect.MUTE, 1, 3)
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -58,11 +66,11 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 685 then -- Sprout Spin
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.GEO_PARALYSIS, 75, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+        mob:setLocalVar("auraMode", 1)
     elseif skill:getID() == 686 then -- Slumber Powder
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.TERROR, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+        mob:setLocalVar("auraMode", 2)
     elseif skill:getID() == 687 then -- Sprout Smack
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.MUTE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+        mob:setLocalVar("auraMode", 3)
     end
 end
 

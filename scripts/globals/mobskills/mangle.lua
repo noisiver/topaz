@@ -15,6 +15,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 9093 then -- (Tutankhamun - Arrapago Remnants Salvage Custom)
+        return 0
+    end
     if (mob:AnimationSub() == 0 or mob:AnimationSub() == 2) then
         return 0
     else

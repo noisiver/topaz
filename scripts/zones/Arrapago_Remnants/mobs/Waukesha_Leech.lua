@@ -7,6 +7,7 @@ local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/salvage")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -16,7 +17,7 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    mob:setLocalVar("msgTimer", os.time() + 45)
+    PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " is regenerating.", 0xD, none, 30)
 end
 
 function onMobFight(mob, target)
@@ -27,7 +28,7 @@ function onMobFight(mob, target)
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.SILENCE) then
-        PeriodicInstanceMessage(mob, target, "The Wausha Leech is regenerating.", 0xD, none, 30)
+        PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains.", 0xD, none, 30)
         mob:setMod(tpz.mod.REGEN, 100)
     end
 end
@@ -48,8 +49,3 @@ end
 
 function onMobDespawn(mob)
 end
-
--- For testing purposes only
---function onMobWeaponSkillPrepare(mob, target)
---    return 1560 
---end

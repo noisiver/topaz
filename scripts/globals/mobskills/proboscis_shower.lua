@@ -13,6 +13,5 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
-    return MobHealMove(mob, math.floor(mob:getMaxHP()/30))
+     return MobHealMove(target, skill, 1)
 end

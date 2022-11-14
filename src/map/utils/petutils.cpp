@@ -892,6 +892,7 @@ namespace petutils
 
         PPet->setModifier(Mod::SLASHRES, petData->slashres);
         PPet->setModifier(Mod::PIERCERES, petData->pierceres);
+        PPet->setModifier(Mod::RANGEDRES, petData->pierceres);
         PPet->setModifier(Mod::HTHRES, petData->hthres);
         PPet->setModifier(Mod::IMPACTRES, petData->impactres);
 

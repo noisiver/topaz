@@ -39,7 +39,7 @@ function onItemCheck(target)
     end
     -- Check if Evoker's Doublet is equipped, if it is then add the correct resist for avatar currently out
     local body = target:getEquipID(tpz.slot.BODY)
-    local resist = 0
+    local resist = ""
     for i, element in pairs(pets) do
         if target:getPetID() == element[1] and target:getPetID() ~= nil then
             resist = element[2]

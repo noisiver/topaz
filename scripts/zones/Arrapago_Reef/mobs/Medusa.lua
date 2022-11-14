@@ -26,7 +26,7 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 60)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 
 function onMobEngaged(mob, target)
@@ -39,6 +39,14 @@ end
 function onMobFight(mob, target)
 	local AddsTime = mob:getLocalVar("AddsTime")
     local BattleTime = mob:getBattleTime()
+    local hp = mob:getHPP()
+
+    -- Only shoots until 59%
+    if (hp > 60) then
+        mob:SetAutoAttackEnabled(false)
+    else
+        mob:SetAutoAttackEnabled(true)
+    end
 
 	if BattleTime >= AddsTime then
         if (not GetMobByID(ID.mob.MEDUSA + 1):isSpawned()) then

@@ -55,13 +55,7 @@ function onMobFight(mob, target)
     local hp = mob:getHPP()
 
     if (hp < 20) then
-        -- Apply Obliviscence to nearby targets
-        local nearbyPlayers = mob:getPlayersInRange(10)
-        if nearbyPlayers == nil then return end
-        for _,v in ipairs(nearbyPlayers) do
-            v:delStatusEffectSilent(tpz.effect.OBLIVISCENCE)
-            v:addStatusEffectEx(tpz.effect.OBLIVISCENCE, tpz.effect.OBLIVISCENCE, 1, 0, 60)
-        end
+        AddMobAura(mob, target, 10, tpz.effect.OBLIVISCENCE, 1, 30)
     end
 end
 

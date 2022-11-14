@@ -57,6 +57,7 @@ MND_BASED = 3
 function BluePhysicalSpell(caster, target, spell, params, tp)
     -- store related values
     local magicskill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC) -- skill + merits + equip bonuses
+    local isRanged = params.attackType == tpz.attackType.RANGED
     -- TODO: Under Efflux?
     -- TODO: Under Azure Lore.
 
@@ -74,12 +75,21 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 
     -- print("D val is ".. D)
 
-    local fStr = BluefSTR(caster:getStat(tpz.mod.STR) - target:getStat(tpz.mod.VIT))
-    if (fStr > 22) then
-        fStr = 22 -- TODO: Smite of Rage doesn't have this cap applied.
+    -- Ranged fSTR caps at 44, melee at 22
+    local fStr = 0
+    if isRanged then
+        fStr = BluefSTR2(caster:getStat(tpz.mod.STR) - target:getStat(tpz.mod.VIT))
+        if (fStr > 44) then
+            fStr = 44
+        end
+    else
+        fStr = BluefSTR(caster:getStat(tpz.mod.STR) - target:getStat(tpz.mod.VIT))
+        if (fStr > 22) then
+            fStr = 22 -- TODO: Smite of Rage doesn't have this cap applied.
+        end
     end
 
-    -- print("fStr val is ".. fStr)
+    --printf("fStr val is %i", fStr)
 
     local WSC = BlueGetWsc(caster, params)
 
@@ -152,28 +162,54 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	local AttkTPBonus =  1
 	local AttkTPModifier = 0
 	local CritTPBonus =  0
-	local SpellCrit = 0
+	local SpellCritPdifModifier = 0
+
 	tp = caster:getTP() + caster:getMerit(tpz.merit.ENCHAINMENT)
 	chainAffinity = caster:getStatusEffect(tpz.effect.CHAIN_AFFINITY)
+
     if chainAffinity ~= nil then
 		if params.AttkTPModifier == true then --Check if "Attack varies with TP"
 			AttkTPModifier =  getAttkTPModifier(caster:getTP()) 
 		end
 		if params.CritTPModifier == true then --Check if "Chance of critical strike varies with TP"
-			CritTPBonus = getCritTPModifier(caster:getTP()) 
+            CritTPBonus = 0.05
+			CritTPBonus = CritTPBonus + getCritTPModifier(caster:getTP())
+            CritTPBonus = CritTPBonus + target:getMod(tpz.mod.ENEMYCRITRATE)/100
+            --caster:PrintToPlayer(string.format("native physical spell crit rate was %d", CritTPBonus*100))
 		end
 	end
 
-    if CritTPBonus > 1 then
-        if math.random(100) < CritTPBonus + target:getMod(tpz.mod.ENEMYCRITRATE) then
-            SpellCrit = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100)) -- It crit!
+    -- Ranged spells alawys have a chance to crit
+    if isRanged then -- Ranged uses dAGI
+        local nativecrit = 0.05
+        local dAGI = (caster:getStat(tpz.mod.AGI) - target:getStat(tpz.mod.AGI))
+        SpellCritPdifModifier = 1
+        if dAGI > 0 then
+            nativecrit = nativecrit + math.floor(dAGI/10)/100 -- no known cap
+        nativecrit = nativecrit + caster:getMod(tpz.mod.CRITHITRATE)/100 + caster:getMerit(tpz.merit.CRIT_HIT_RATE)/100
+                                + target:getMod(tpz.mod.ENEMYCRITRATE)/100  - target:getMerit(tpz.merit.ENEMY_CRIT_RATE)/100
+            --caster:PrintToPlayer(string.format("native ranged spell crit rate was %d", nativecrit*100))
+        end
+        -- Always minimum 5% native crit
+        if nativecrit < 0.05 then
+            nativecrit = 0.05
+        end
+        if math.random() < nativecrit then
+            SpellCritPdifModifier = 1.25 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100)) -- It crit!
+            --caster:PrintToPlayer(string.format("Your ramged spell Crit!"))
+        end
+        -- Non-ranged spells require CA and "Chance to crit varies with TP" mod to have a chance to crit.
+    elseif CritTPBonus > 0 then
+        if math.random() < CritTPBonus then
+            SpellCritPdifModifier = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100)) -- It crit!
+            --caster:PrintToPlayer(string.format("Your physical spell Crit!"))
         end
 	else
-		SpellCrit = 0 -- It didn't crit
+		SpellCritPdifModifier = 0 -- It didn't crit
     end
 	
 	if caster:hasStatusEffect(tpz.effect.SNEAK_ATTACK) and spell:isAoE() == 0 and params.attackType ~= tpz.attackType.RANGED and caster:isBehind(target) then -- Has sneak attack
-		SpellCrit = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
+		SpellCritPdifModifier = 1 + ((caster:getMod(tpz.mod.CRIT_DMG_INCREASE) / 100) - (target:getMod(tpz.mod.CRIT_DEF_BONUS) / 100))
 	end
 	
 	local BluAttkModifier = params.attkbonus + AttkTPModifier --End multiplier attack bonuses to bluphysattk
@@ -201,7 +237,8 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
         params.offcratiomod = bluphysattk
     end
     -- print(params.offcratiomod)
-    local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl()) 
+    local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
+    local rangedcratio = BluecRangedRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local hitrate = BlueGetHitRate(caster, target, true, params)
     -- print("Hit rate "..hitrate)
     -- print("pdifmin "..cratio[1].." pdifmax "..cratio[2])
@@ -220,8 +257,16 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
             -- TODO: Check for shadow absorbs.
 
             -- Generate a random pDIF between min and max
-            local pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
-            pdif = pdif/1000 + SpellCrit
+            local pdif = 1
+            if isRanged then
+                pdif = math.random((rangedcratio[1]*1000), (rangedcratio[2]*1000))
+                pdif = pdif/1000 * SpellCritPdifModifier
+                --printf("Ranged pdif: %s", pdif)
+            else
+                pdif = math.random((cratio[1]*1000), (cratio[2]*1000))
+                pdif = pdif/1000 + SpellCritPdifModifier
+                --printf("Melee pdif: %s", pdif)
+            end
 
             -- Apply it to our final D
             if (hitsdone == 0) then -- only the first hit benefits from multiplier
@@ -502,6 +547,51 @@ function BluecRatio(ratio, atk_lvl, def_lvl)
     return cratio
 end
 
+function BluecRangedRatio(ratio, atk_lvl, def_lvl)
+    -- Level penalty...
+    local levelcor = 0
+    if (atk_lvl < def_lvl) then
+        levelcor = 0.025 * (def_lvl - atk_lvl)
+    end
+    ratio = ratio - levelcor
+
+    if (ratio > 3 - levelcor) then
+        ratio = 3 - levelcor
+    end
+
+    if (ratio < 0) then
+        ratio = 0
+    end
+
+    -- min
+    local cratiomin = 0
+    if (ratio < 0.9) then
+        cratiomin = ratio
+    elseif (ratio < 1.1) then
+        cratiomin = 1
+    else
+        cratiomin = (ratio * (20/19))-(3/19)
+    end
+
+    -- max
+    local cratiomax = 0
+    if (ratio < 0.9) then
+        cratiomax = ratio * (10/9)
+    elseif (ratio < 1.1) then
+        cratiomax = 1
+    else
+        cratiomax = ratio
+    end
+
+    cratio = {}
+    if (cratiomin < 0) then
+        cratiomin = 0
+    end
+    cratio[1] = cratiomin
+    cratio[2] = cratiomax
+    return cratio
+end
+
 -- Gets the fTP multiplier by applying 2 straight lines between ftp1-ftp2 and ftp2-ftp3
 -- tp - The current TP
 -- ftp1 - The TP 0% value
@@ -528,7 +618,7 @@ function getAttkTPModifier(tp)
 end
 
 function getCritTPModifier(tp)
-  return (tp / 3000) * 100;
+  return ((tp / 3000) * 100) / 100
 end
 
 function getAccTPModifier(tp)
@@ -537,6 +627,29 @@ end
 
 
 function BluefSTR(dSTR)
+    local fSTR = 0
+    if (dSTR >= 12) then
+        fSTR = (dSTR + 4) / 4
+    elseif (dSTR >= 6) then
+        fSTR = (dSTR + 6) / 4
+    elseif (dSTR >= 1) then
+        fSTR = (dSTR + 7) / 4
+    elseif (dSTR >= -2) then
+        fSTR = (dSTR + 8) / 4
+    elseif (dSTR >= -7) then
+        fSTR = (dSTR + 9) / 4
+    elseif (dSTR >= -15) then
+        fSTR = (dSTR + 10) / 4
+    elseif (dSTR >= -21) then
+        fSTR = (dSTR + 12) / 4
+    else
+        fSTR = (dSTR + 13) / 4
+    end
+
+    return fSTR
+end
+
+function BluefSTR2(dSTR)
     local fSTR2 = nil
     if (dSTR >= 12) then
         fSTR2 = ((dSTR+4)/2)
@@ -601,6 +714,16 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
     return hitrate
 end
 
+function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, params)
+    local resist = applyResistance(caster, target, spell, params)
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
+        duration = duration * resist
+        target:addStatusEffect(params.effect, power, tick, duration)
+        return true
+    end
+    return false
+end
+
 -- Function to stagger duration of effects by using the resistance to change the value
 function getBlueEffectDuration(caster, resist, effect, varieswithtp)
     local duration = 0
@@ -624,6 +747,8 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
         duration = 120 * resist
     elseif (effect == tpz.effect.POISON) then
         duration = 180 * resist
+    elseif (effect == tpz.effect.PETRIFICATION) then
+        duration = 8 * resist
     else
         duration = 180 * resist
     end

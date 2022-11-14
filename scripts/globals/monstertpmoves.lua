@@ -210,11 +210,14 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     firstHitChance = utils.clamp(firstHitChance, 20, 100)
     local critAttackBonus = 1 + ((mob:getMod(tpz.mod.CRIT_DMG_INCREASE) - target:getMod(tpz.mod.CRIT_DEF_BONUS)) / 100)
 
+    -- Set block rate to 0 for now
+    mob:setLocalVar("isBlocked", 0) 
+
     if ((chance*100) <= firstHitChance) then
 
         pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
         pdif = pdif/1000  --multiplier set.
-        if IsCrit(mob, critRate) then
+        if isCrit(mob, critRate) then
             -- Ranged crits are pdif * 1.25
             if (tpeffect==TP_RANGED) then
                 pdif = pdif * 1.25
@@ -237,11 +240,11 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
             --target:PrintToPlayer("Successfully parried first hit TP move swing!")
             hitdamage = 0
         end
-        if math.random()*100 < target:getBlockRate(mob) then -- Try To block
+        if isBlocked(mob, target) then -- Try To block
             target:trySkillUp(mob, tpz.skill.SHIELD, 1)
             --target:PrintToPlayer("Successfully blocked first hit TP move swing!")
             hitdamage = target:getBlockedDamage(hitdamage)
-            --printf("Potency : %u", potency)
+            mob:setLocalVar("isBlocked", 1) 
         end
         --printf("pdif first hit %u", pdif * 100)
         finaldmg = finaldmg + hitdamage * pdif
@@ -274,7 +277,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         if ((chance*100)<=hitrate) then --it hit
             pdif = math.random((minRatio*1000), (maxRatio*1000)) --generate random PDIF
             pdif = pdif/1000  --multiplier set.
-            if IsCrit(mob, critRate) then
+            if isCrit(mob, critRate) then
                 -- Ranged crits are pdif * 1.25
                 if (tpeffect==TP_RANGED) then
                     pdif = pdif * 1.25
@@ -297,7 +300,7 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
                 --target:PrintToPlayer("Successfully parried a TP move swing!")
                 hitdamage = 0
             end
-            if math.random()*100 < target:getBlockRate(mob) then  -- Try To block
+            if isBlocked(mob, target) then  -- Try To block
                 target:trySkillUp(mob, tpz.skill.SHIELD, 1)
                 --target:PrintToPlayer("Successfully blocked a TP move swing!")
                 hitdamage = target:getBlockedDamage(hitdamage)
@@ -362,8 +365,10 @@ end
 -- TP_DMG_BONUS and TP=200, tpvalue = 1, assume V=150  --> damage is now 150*(TP*1)/100 = 300
 -- TP_DMG_BONUS and TP=100, tpvalue = 2, assume V=150  --> damage is now 150*(TP*2)/100 = 300
 -- TP_DMG_BONUS and TP=200, tpvalue = 2, assume V=150  --> damage is now 150*(TP*2)/100 = 600
+-- ignoremacc is to have 100% land rate on spell and ignore resists
+-- 101 = true
 
-function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, tpvalue)
+function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, ignoremacc)
     returninfo = {}
     -- Below NYI
     local params = {}
@@ -400,7 +405,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
     local dStat = getMobDStat(statmod, mob, target)
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
     -- get resist
-    if params.NO_RESIST ~= nil then -- Only used for Netherblast currently
+    if ignoremacc ~= nil and ignoremacc == 101 then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
          resist = 1
     else
         resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), mobAccBonus, element)
@@ -409,7 +414,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, t
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
     end
     -- get weather
-    local weatherBonus = getMobWeatherBonus(mob, element)
+    local weatherBonus = getMobWeatherDayBonus(mob, element)
     -- get magic attack bonus
     local magicAttkBonus = getMobMAB(mob, target)
     -- Do the formula!
@@ -595,7 +600,7 @@ function MobBreathMove(mob, target, percent, base, element, cap)
     end
 
     -- Apply day/weather
-    local damage = damage * getMobWeatherBonus(mob, element)
+    local damage = damage * getMobWeatherDayBonus(mob, element)
 
     -- elemental resistence
     if (element ~= nil and element > 0) then
@@ -728,7 +733,9 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
     --handling absorb
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         local element = damageType - 5 -- This will match spell_data.lua's elements index
-        dmg = adjustForTarget(target, dmg, element)
+        if (damageType > 5 and damageType < 14) then -- Anything below 5 and above 13 isn't an element and can't be absorbed
+            dmg = adjustForTarget(target, dmg, element)
+        end
     end
     dmg = utils.clamp(dmg, -99999, 99999)
     -- Add HP if absorbed
@@ -762,8 +769,11 @@ end
 
 -- returns true if mob attack hit
 -- used to stop tp move status effects
-function MobPhysicalHit(skill)
+function MobPhysicalHit(mob, skill)
     -- if message is not the default. Then there was a miss, shadow taken etc
+    if mob:getLocalVar("isBlocked") > 0 and skill:hasMissMsg() == false then -- First hit of the TP move was blocked, stop status effects from proccing
+        return skill:hasMissMsg() == true
+    end
     return skill:hasMissMsg() == false
 end
 
@@ -828,7 +838,7 @@ function MobDrainMove(mob, target, drainType, drain, attackType, damageType)
 end
 
 function MobPhysicalDrainMove(mob, target, skill, drainType, drain)
-    if (MobPhysicalHit(skill)) then
+    if (MobPhysicalHit(mob, skill)) then
         return MobDrainMove(mob, target, drainType, drain)
     end
 
@@ -900,6 +910,24 @@ function DrainMultipleAttributes(mob, target, power, tick, count, duration)
     return msg;
 end
 
+function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count, duration)
+    local shadows = math.random(2, 3)
+    -- Check for shadows
+    local dmg = MobFinalAdjustments(1, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows)
+
+    if not isBlocked(mob, target) then
+		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
+        return count
+	end
+    if not target:hasStatusEffect(tpz.effect.COPY_IMAGE) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_2)
+        and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3)  and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
+            skill:setMsg(tpz.msg.basic.SKILL_MISS)
+        return 0
+    else
+        return shadows
+    end
+end
+
 function MobDrainStatusEffectMove(mob, target)
     -- try to drain buff
     local effect = mob:stealStatusEffect(target)
@@ -965,7 +993,7 @@ end
 -- similar to status effect move except, this will not land if the attack missed
 function MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, tick, duration)
 
-    if (MobPhysicalHit(skill)) then
+    if (MobPhysicalHit(mob, skill)) then
         return MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
     end
 
@@ -996,7 +1024,29 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
-function MobHealMove(target, heal)
+function MobHealMove(target, skill, multiplier)
+
+    local mobHP = target:getHP()
+    local mobMaxHP = target:getMaxHP()
+    local healAmount = math.floor(target:getMaxHP()/15)
+    local weather = getMobWeatherDayBonus(target, 7)
+    -- add multiplier
+    healAmount = healAmount * multiplier
+    -- check for weather procs
+    healAmount = healAmount * weather
+
+    if (mobHP+healAmount > mobMaxHP) then
+        healAmount = mobMaxHP - mobHP
+    end
+
+    target:wakeUp()
+    target:addHP(healAmount)
+    skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+
+    return healAmount
+end
+
+function MobPercentHealMove(target, skill, heal)
 
     local mobHP = target:getHP()
     local mobMaxHP = target:getMaxHP()
@@ -1006,8 +1056,8 @@ function MobHealMove(target, heal)
     end
 
     target:wakeUp()
-
     target:addHP(heal)
+    skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
 
     return heal
 end
@@ -1281,7 +1331,7 @@ function getMobFSTR(weaponDmg, mobStr, targetVit)
     return math.max(-min, fSTR)
 end
 
-function IsCrit(mob, critRate)
+function isCrit(mob, critRate)
     if math.random() < critRate then
         return true
     end
@@ -1291,22 +1341,19 @@ function IsCrit(mob, critRate)
     return false
 end
 
-function getMobWSC(mob, tpeffect)
-    --TODO: add parms.str_wsc params.dex_wsc etc to every mob TP move file
-    if params_phys == nil then
-        wsc = mob:getStat(tpz.mod.STR) * 0.2 + mob:getStat(tpz.mod.DEX) * 0.2 -- Place holder WSC for phys until I'm no longer lazy
-        --printf("wsc: %u", wsc)
-        return wsc
+function isBlocked(mob, target)
+    if math.random()*100 < target:getBlockRate(mob) then
+        --target:PrintToPlayer("Successfully blocked a mob TP move!")
+        return true
     end
+    return false
+end
 
-    if params_phys.str_wsc ~= nil and params_phys.dex_wsc ~= nil and params_phys.vit_wsc ~= nil and params_phys.agi_wsc ~= nil and
-        params_phys.int_wsc ~= nil and params_phys.mnd_wsc ~= nil and params_phys.chr_wsc ~= nil then
-        wsc = (mob:getStat(tpz.mod.STR) * params_phys.str_wsc + mob:getStat(tpz.mod.DEX) * params_phys.dex_wsc +
-            mob:getStat(tpz.mod.VIT) * params_phys.vit_wsc + mob:getStat(tpz.mod.AGI) * params_phys.agi_wsc +
-            mob:getStat(tpz.mod.INT) * params_phys.int_wsc + mob:getStat(tpz.mod.MND) * params_phys.mnd_wsc +
-            mob:getStat(tpz.mod.CHR) * params_phys.chr_wsc)
-        return wsc
-    end
+function getMobWSC(mob, params_phys)
+    wsc = (mob:getStat(tpz.mod.STR) * params_phys.str_wsc + mob:getStat(tpz.mod.DEX) * params_phys.dex_wsc +
+        mob:getStat(tpz.mod.VIT) * params_phys.vit_wsc + mob:getStat(tpz.mod.AGI) * params_phys.agi_wsc +
+        mob:getStat(tpz.mod.INT) * params_phys.int_wsc + mob:getStat(tpz.mod.MND) * params_phys.mnd_wsc +
+        mob:getStat(tpz.mod.CHR) * params_phys.chr_wsc)
         --printf("wsc: %u", wsc)
     return wsc
 end
@@ -1321,7 +1368,7 @@ function getMobMagicWSC(mob, tpeffect)
     return wsc
 end
 
-function getMobWeatherBonus(mob, element)
+function getMobWeatherDayBonus(mob, element)
     dayWeatherBonus = 1.00
 
     if mob:getWeather() == tpz.magic.singleWeatherStrong[element] then
@@ -1470,7 +1517,7 @@ function MobGetStatusEffectDuration(effect)
     elseif (effect == tpz.effect.STUN) then
         duration = 5
     elseif (effect == tpz.effect.FLASH) then
-        duration = 10
+        duration = 6
     elseif (effect == tpz.effect.AMNESIA) then
         duration = 30
     elseif (effect == tpz.effect.MUTE) then

@@ -8,6 +8,7 @@ require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/salvage")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -18,7 +19,7 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    PeriodicMessage(mob, target, 'The Macrocheira Kaempferi raises it\'s claws to deflect your attacks!', 0xD, none, 45)
+    PeriodicMessage(mob, target, "The " .. MobName(mob) .. " raises it\'s claws to deflect your attacks!", 0xD, none, 45)
 end
 
 function onMobFight(mob, target)
@@ -26,12 +27,12 @@ function onMobFight(mob, target)
         local element = spell:getElement()
 
         if (element == tpz.magic.ele.ICE) and (amount >= 1000) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) then
-            BreakMob(mob, target, 1, 30, 2)
+            BreakMob(mob, caster, 1, 30, 2)
             mob:delStatusEffectSilent(tpz.effect.DELUGE_SPIKES)
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
-        PeriodicMessage(mob, target, 'The Macrocheira Kaempferi seems vulnerable to ice magic...', 0xD, none, 30)
+        PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to ice magic...", 0xD, none, 30)
         addSpikes(mob)
     end
 end
@@ -52,11 +53,6 @@ end
 
 function onMobDespawn(mob)
 end
-
--- For testing purposes only
---function onMobWeaponSkillPrepare(mob, target)
---    return 1560 
---end
 
 function addSpikes(mob)
 	if not mob:hasStatusEffect(tpz.effect.DELUGE_SPIKES)and not mob:hasStatusEffect(tpz.effect.TERROR) then

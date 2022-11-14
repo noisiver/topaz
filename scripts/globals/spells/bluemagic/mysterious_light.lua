@@ -35,7 +35,7 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
     params.multiplier = multi
-    params.tMultiplier = 1.0
+    params.tMultiplier = 2.0
     params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
@@ -53,7 +53,7 @@ function onSpellCast(caster, target, spell)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (damage > 0 and resist >= 0.5) then
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
         target:delStatusEffectSilent(tpz.effect.WEIGHT)
         target:addStatusEffect(tpz.effect.WEIGHT, 50, 0, getBlueEffectDuration(caster, resist, tpz.effect.WEIGHT))
     end

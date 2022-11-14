@@ -9,6 +9,7 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/magic")
+require("scripts/globals/utils")
 -----------------------------------
 function onMobInitialize(mob)
    end
@@ -19,6 +20,12 @@ end
 function onMobFight(mob, target)
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+end
+
+function onMobWeaponSkill(target, mob, skill)
+end
+
 function onMobDeath(mob, player, isKiller)
     tpz.regime.checkRegime(player, mob, 108, 2, tpz.regime.type.FIELDS)
 end
@@ -26,8 +33,3 @@ end
 function onMobDespawn(mob)
     tpz.mob.phOnDespawn(mob, ID.mob.FROSTMANE_PH, 20, 3600) -- changed from 1 to 6 hours
 end
-
--- For testing purposes only
---function onMobWeaponSkillPrepare(mob, target)
---    return 1560 
---end

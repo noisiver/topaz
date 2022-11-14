@@ -14,6 +14,12 @@ tpz.mix.ameretat.config(mob, {
     wakeHour = 5,
 })
 
+http://wiki.ffo.jp/html/2634.html
+Strong regen when near it's spawn
+Absorbs HP as an additional effect of normal attacks when out of range (100%, absorbs about 10 times)
+It will not move at night ( it will not sleep and deactivate like Elka or Karakul , if you approach without sneaking , it will attack and chase you)
+Vampiric route added to special skills
+
 --]]
 require("scripts/globals/mixins")
 require("scripts/globals/status")
@@ -26,13 +32,13 @@ tpz.mix.ameretat = tpz.mix.ameretat or {}
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
 
-local function bedTime(mob)
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
+local function nightTime(mob)
+    mob:setMobMod(tpz.mobMod.NO_ROAM , 1)
     mob:setLocalVar("ResleepTime", 0)
 end
 
-local function wakeUp(mob)
-    mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+local function dayTime(mob)
+    mob:setMobMod(tpz.mobMod.NO_ROAM , 0)
     mob:setLocalVar("ResleepTime", 0)
 end
 
@@ -50,7 +56,6 @@ g_mixins.families.ameretat = function(mob)
     mob:addListener("SPAWN", "AMERETAT_SPAWN", function(mob)
         mob:setLocalVar("[ameretat]sleepHour", 20)
         mob:setLocalVar("[ameretat]wakeHour", 5)
-        mob:setMod(tpz.mod.REGEN, 20)
     end)
 
     mob:addListener("ROAM_TICK", "AMERETAT_ROAM_TICK", function(mob)
@@ -64,16 +69,28 @@ g_mixins.families.ameretat = function(mob)
             if resleepTime ~= 0 and mob:checkDistance(mob:getSpawnPos()) > 25 then
                 mob:setLocalVar("ResleepTime", os.time() + 120) -- Reset sleep timer until crawler returns home
             elseif resleepTime <= os.time() then -- No timer was set (normal behavior) OR crawler has been back home for 2 minutes since disengaged
-                bedTime(mob)
+                nightTime(mob)
             end
         elseif currentHour < sleepHour and currentHour >= mob:getLocalVar("[ameretat]wakeHour") then
-            wakeUp(mob)
+            dayTime(mob)
         end
     end)
 
+
     mob:addListener("ENGAGE", "AMERETAT_ENGAGE", function(mob, target)
-        wakeUp(mob)
+        dayTime(mob)
      end)
+
+     mob:addListener("COMBAT_TICK", "AMERETAT_CTICK", function(mob)
+        -- Strong regen if near it's spawn point
+        if mob:checkDistance(mob:getSpawnPos()) < 30 then
+            mob:setMod(tpz.mod.REGEN, 100)
+            mob:setMobMod(tpz.mobMod.ADD_EFFECT, 0)
+        else
+            mob:setMod(tpz.mod.REGEN, 0)
+            mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
+        end
+    end)
 
     mob:addListener("DISENGAGE", "AMERETAT_DISENGAGE", function(mob)
         mob:setLocalVar("ResleepTime", os.time() + 120) -- Ameretat crawlers go back to sleep exactly 2 minutes after they were engaged.

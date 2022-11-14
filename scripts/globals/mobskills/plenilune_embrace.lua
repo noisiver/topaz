@@ -45,14 +45,13 @@ function onMobWeaponSkill(target, mob, skill)
 
     local typeEffect = tpz.effect.ATTACK_BOOST
     local typeEffectTwo = tpz.effect.MAGIC_ATK_BOOST
-    local heal = mob:getMaxHP() * (moonpower / 100)
+    local healMultiplier = 1 + (moonpower / 25)
     for i = 54, 61 do -- All res
         mob:setMod(i, moonpower)
     end
 
     MobBuffMove(mob, typeEffect, moonpower, 0, 300)
     MobBuffMove(mob, typeEffectTwo, moonpower, 0, 300)
-    skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
-	return MobHealMove(mob, heal)
+	return MobHealMove(target, skill, healMultiplier)
 end

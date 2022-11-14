@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_AUTO_ATTACK, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-    if (MobPhysicalHit(skill)) then
+    if (MobPhysicalHit(mob, skill)) then
         mob:resetEnmity(target)
     end
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.STUN, 1, 0, 8)

@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-    if (MobPhysicalHit(skill)) then
+    if (MobPhysicalHit(mob, skill)) then
         if (target:hasStatusEffect(tpz.effect.FOOD)) then
             target:delStatusEffectSilent(tpz.effect.FOOD)
         elseif (target:hasStatusEffect(tpz.effect.FIELD_SUPPORT_FOOD)) then

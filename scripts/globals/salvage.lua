@@ -3,6 +3,7 @@
 -- desc: Common functionality for Salvage
 -- Notes: needs correct csid for align to enter in scripts
 -----------------------------------
+require("scripts/globals/npc_util")
 require("scripts/globals/items")
 require("scripts/globals/keyitems")
 require("scripts/globals/status")
@@ -45,7 +46,7 @@ end
 
 
 function salvageUtil.onSalvageTrigger(player, npc, CSID, indexID)
-    if player:hasKeyItem(tpz.ki.REMNANTS_PERMIT) or player:getGMLevel() > 0  or IsTestServer() then
+    if player:hasKeyItem(tpz.ki.REMNANTS_PERMIT) or player:getGMLevel() > 1  or IsTestServer() then
         local mask = -2
         if player:getMainLvl() >= 96 then
             mask = -14
@@ -112,7 +113,7 @@ function salvageUtil.onInstanceCreated(player, target, instance, endID, destinat
                     players:setInstance(instance)
                     players:startEvent(endID, destinationID)
                     players:delKeyItem(tpz.ki.REMNANTS_PERMIT)
-                    player:messageSpecial(ID.text.KEYITEM_OBTAINED +1, tpz.ki.REMNANTS_PERMIT)
+                    players:messageSpecial(ID.text.KEYITEM_OBTAINED +1, tpz.ki.REMNANTS_PERMIT)
                 end
             end
         end
@@ -552,22 +553,22 @@ function salvageUtil.teleportGroup(entity, posx, posy, posz, posrot, self, cs, r
             if cs then -- TODO maybe need timer with it
                 players:startEvent(4)
                 players:timer(4000, function(entity)
-                    entity:setPos(posx + math.random(1, 5), posy, posz +math.random(1, 5), posrot)
+                    players:setPos(posx + math.random(1, 5), posy, posz +math.random(1, 5), posrot)
                 end)
             else
                 players:addStatusEffect(tpz.effect.STUN, 1, 0, 5)
-                entity:setPos(posx + math.random(1, 5), posy, posz +math.random(1, 5), posrot)
+                players:setPos(posx + math.random(1, 5), posy, posz +math.random(1, 5), posrot)
             end
         else
             if players:getID() ~= entity:getID() then
                 if cs then -- TODO maybe need timer with it
                     players:startEvent(4)
                     players:timer(4000, function(entity)
-                        entity:setPos(posx + math.random(1, 5), posy, posz +math.random(1, 5), posrot)
+                        players:setPos(posx + math.random(1, 5), posy, posz +math.random(1, 5), posrot)
                     end)
                 else
                     players:addStatusEffect(tpz.effect.STUN, 1, 0, 5)
-                    entity:setPos(posx + math.random(1, 5), posy, posz +math.random(1, 5), posrot)
+                    players:setPos(posx + math.random(1, 5), posy, posz +math.random(1, 5), posrot)
                 end
             end
         end
@@ -605,10 +606,48 @@ function salvageUtil.msgGroup(entity, msg, textcolor, sender)
     end
 end
 
--- TODO
+function salvageUtil.raiseGroup(instance, posx, posy, posz, posrot, raisetype)
+    local chars = instance:getChars()
+    local dead = true
+    for i, v in pairs(chars) do
+        if v:getHP() ~= 0 then
+            dead = false
+            break
+        end
+    end
+    if dead then
+        for i, v in pairs(chars) do
+            if v:getLocalVar("GMRaise") == 0 then
+                v:setPos(posx + math.random(1, 6), posy, posz + math.random(1, 6), posrot)
+                v:sendRaise(raisetype)
+                v:delStatusEffect(1)
+                v:setLocalVar("GMRaise", 1)
+                v:PrintToPlayer("You see pink feathers scatter around you...", 0xD, none)
+                return true
+            end
+        end
+    else
+        return false
+    end
+end
+
+function salvageUtil.spawnMob(instance, mobId)
+    if not GetMobByID(mobId, instance):isSpawned() then
+        SpawnMob(mobId, instance)
+    end
+end
+
+function salvageUtil.spawnMobGroup(instance, mobIdStart, mobIdEnd)
+    for i = mobIdStart, mobIdEnd do
+        if not GetMobByID(i, instance):isSpawned() then
+            SpawnMob(i, instance)
+        end
+    end
+end
+
+-- TODO Add more to this
 function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart, mobIdEnd)
     local ID = zones[player:getZoneID()]
-    local mobName = mob:getName()
     local instance = mob:getInstance()
     local mobX = mob:getXPos()
     local mobY = mob:getYPos()
@@ -628,7 +667,6 @@ function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart,
         --[9] = 230,
         --[10] = 254,
     }
-    mobName = string.gsub(mobName, '_', ' ');
 
     if math.random(100) <= chance then
         selectedEvent = event[math.random(#event)]
@@ -640,7 +678,7 @@ function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart,
             GetMobByID(v, instance):stun(5000)
         end
         salvageUtil.msgGroup(player, "A pack of enemies have appeared!", 0xD, none)
-    elseif (selectedEvent == 'boss') then
+    elseif (selectedEvent == 'boss') then 
         local boss = salvageUtil.getAvailableMob(mob, ID.mob.random_bosses)
 
         if boss == nil then
@@ -648,10 +686,10 @@ function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart,
         end
         SpawnInstancedMob(mob, player, boss, true)
         GetMobByID(boss, instance):stun(5000)
-        salvageUtil.msgGroup(player, "A ferocious foe has appeared!", 0xD, none)
+        salvageUtil.msgGroup(player, MobName(GetMobByID(boss, instance)) .. " has appeared!", 0xD, none)
     elseif (selectedEvent == 'chest') then
         salvageUtil.spawnArmouryCrateOnMobDeath(mob, mobX, mobY, mobZ, mobR)
-        salvageUtil.msgGroup(player, "The " .. mobName .. " dropped a chest!", 0xD, none)
+        salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " dropped a chest!", 0xD, none)
     elseif (selectedEvent == 'mimic') then
         local mimic = salvageUtil.getAvailableMob(mob, ID.mob.mimics)
 
@@ -659,7 +697,7 @@ function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart,
             return
         end
         SpawnInstancedMob(mob, player, mimic, false)
-        salvageUtil.msgGroup(player, "The " .. mobName .. " dropped a chest!", 0xD, none)
+        salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " dropped a chest!", 0xD, none)
     end
 end
 
@@ -672,7 +710,7 @@ function salvageUtil.getAvailableMob(mob, table)
     possibleBosses = table
 
     for _,v in pairs(possibleBosses) do
-        local mob = v
+        local mob = possibleBosses[math.random(#possibleBosses)]
         if (GetMobByID(mob, instance) ~= nil and not GetMobByID(mob, instance):isSpawned()) then
             
             selectedMob = mob
@@ -860,5 +898,59 @@ function salvageUtil.resetTempBoxes(entity)
             casket:resetLocalVars()
             casket:AnimationSub(8)
         end
+    end
+end
+
+function salvageUtil.saveFloorProgress(entity)
+    local instance = entity:getInstance()
+    local zone = entity:getZoneName()
+    local floor = instance:getStage()
+    local chars = instance:getChars()
+
+    for i, v in pairs(chars) do
+        v:setCharVar(zone, floor)
+    end
+    salvageUtil.msgGroup(entity, "You are now saved to Floor: " .. "[" .. floor .. "]", 0xD, none)
+    --printf("Zone: %s Floor: %s", zone, floor)
+end
+
+function salvageUtil.teleportLamponTrigger(entity)
+    local zone = entity:getZoneName()
+    local floor = entity:getCharVar(zone)
+
+    if (floor > 0) then
+        entity:PrintToPlayer("Please trade me 1 gil to teleport to Floor " .. "[" .. floor .. "].",0xD, none)
+    else
+        entity:PrintToPlayer("A mysterious glowing lamp.",0xD, none)
+    end
+end
+
+function salvageUtil.teleportToSavedFloor(entity, npc, trade)
+    -- Runic lamp IDs
+    -- Arrapago Remnants: 17080943
+    floorTeleports =
+    {
+        [1] = {},
+        [2] = { math.random(332, 348), -4, 86, 193 },
+        [3] = { 339, -0, math.random(456, 464), 129 },
+        [4] = { math.random(-342, -335), -0, -580 },
+        [5] = { math.random(-303, -298), -0, -19 },
+        [6] = {},
+        [7] = {},
+    }
+    local instance = entity:getInstance()
+    local zone = entity:getZoneName()
+    local floor = entity:getCharVar(zone)
+    local posx = floorTeleports[floor][1]
+    local posy = floorTeleports[floor][2]
+    local posz = floorTeleports[floor][3]
+    local rot = floorTeleports[floor][4]
+
+    if npcUtil.tradeHas(trade, tpz.items.GIL) and (floor > 0) then 
+        salvageUtil.teleportGroup(entity, posx, posy, posz, rot, true, false, false)
+        entity:PrintToPlayer("The device has been activatd!",0xD, none)
+        entity:tradeComplete()
+    else
+        entity:PrintToPlayer("*Error* Invalid.",0xD, none)
     end
 end

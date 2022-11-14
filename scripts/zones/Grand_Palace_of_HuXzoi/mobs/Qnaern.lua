@@ -9,6 +9,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:AnimationSub(1)
     local mJob = mob:getMainJob()

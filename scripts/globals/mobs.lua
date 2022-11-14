@@ -300,9 +300,9 @@ local additionalEffects =
         applyEffect = true,
         eff = tpz.effect.PETRIFICATION,
         power = 1,
-        duration = 10,
+        duration = 3,
         minDuration = 1,
-        maxDuration = 30,
+        maxDuration = 3,
     },
     [tpz.mob.ae.PLAGUE] =
     {
@@ -660,7 +660,7 @@ function DespawnWeatherMob(mobId, respawn)
 end
 
 -- Set mob
-function TeleportMob(mob, hidden, callback)
+function TeleportMob(mob, hidden, spell, callback)
     local hidetime = hidden or 5000
     if hidetime < 2000 then
         hidetime = 2000
@@ -675,6 +675,7 @@ function TeleportMob(mob, hidden, callback)
         mob:SetMobSkillAttack(false)
         mob:hideName(true)
         mob:untargetable(true)
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
         mob:entityAnimationPacket("kesu")
         if callback then
             mob:timer(1500, callback)
@@ -686,6 +687,10 @@ function TeleportMob(mob, hidden, callback)
             mob:SetMobSkillAttack(true)
             mob:hideName(false)
             mob:untargetable(false)
+            if spell ~= nil then
+                mob:castSpell(spell)
+            end
+            mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
             if mob:isDead() then
                 return
             end
@@ -700,15 +705,15 @@ function UseMultipleTPMoves(mob, uses, skillID)
     end
 end
 
-function AddMobAura(mob, target, radius, effect, power, tick)
-    local AuraTick = mob:getLocalVar("AuraTick")
-    if os.time() >= AuraTick then
-        mob:setLocalVar("AuraTick", os.time() + tick)
+function AddMobAura(mob, target, radius, effect, power, duration)
+    local auraDuration = mob:getLocalVar("auraDuration")
+    if os.time() >= auraDuration then
+        mob:setLocalVar("auraDuration", os.time() + duration)
         local nearbyPlayers = mob:getPlayersInRange(radius)
         if nearbyPlayers ~= nil then 
             for _,v in ipairs(nearbyPlayers) do
                 v:delStatusEffectSilent(effect)
-                v:addStatusEffectEx(effect, effect, power, tick, 3)
+                v:addStatusEffectEx(effect, effect, power, 3, duration)
                 local buffEffect = v:getStatusEffect(effect)
                 buffEffect:unsetFlag(tpz.effectFlag.DISPELABLE)
             end
@@ -739,7 +744,7 @@ function AddDamageAura(mob, target, radius, dmg, attackType, damageType, tick)
 end
 
 function BreakMob(mob, target, power, duration, proc)
-    -- proc: 0 = blue 1 = yellow 2 = red 3 = white
+    -- proc: 0 = blue(amnesia) 1 = yellow(silence) 2 = red(terror) 3 = white(terror)
     -- power (used for increased damage taken mod)
     -- 1 = All normal damage(not sc/mb/spirits)
     -- 2 = Phys
@@ -786,6 +791,12 @@ function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
     end
 end
 
+function MobName(mob)
+    local mobName = mob:getName()
+    mobName = string.gsub(mobName, '_', ' ');
+    return mobName
+end
+
 function SpawnInstancedMob(mob, player, mobId, aggro)
     local instance = mob:getInstance()
     local spawns = GetMobByID(mobId, instance)
@@ -803,6 +814,12 @@ function SpawnInstancedMob(mob, player, mobId, aggro)
             end
         end
     end
+end
+
+function ForceDrawIn(mob, playerId)
+    local player = GetPlayerByID(playerId)
+    player:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+    mob:messageBasic(tpz.msg.basic.DRAWN_IN, 0, 0, player)
 end
 
 --Uneeded?

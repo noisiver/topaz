@@ -27,9 +27,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
+    params.bonus = 30
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DURATION
     params.attackType = tpz.attackType.PHYSICAL
@@ -55,18 +53,19 @@ function onSpellCast(caster, target, spell)
 	
 	if beast then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+		params.bonus = 55 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	elseif vermin then
 		damage = damage * 0.75
-		params.bonus = -25
+		params.bonus = 5
 	end
 
 
-    if (damage > 0 and resist >= 0.5) then
-		local typeEffect = tpz.effect.VIT_DOWN
-		local power = 10
-        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, true))
+    params.effect = tpz.effect.VIT_DOWN
+    if not target:hasStatusEffect(tpz.effect.CHOKE) then -- Does not stack with Choke
+        BlueTryEnfeeble(caster, target, spell, damage, 17, 30, 180, params)
     end
+    params.effect = tpz.effect.ATTACK_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 8, 0, 180, params)
 
     return damage
 end

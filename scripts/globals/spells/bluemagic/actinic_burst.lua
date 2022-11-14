@@ -25,13 +25,13 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.FLASH
-    local dINT = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
+    local dMND = (caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND))
     local params = {}
-    params.diff = nil
+    params.diff = dMND
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus =  150
-    params.effect = nil
+    params.effect = tpz.effect.FLASH
     local resist = applyResistance(caster, target, spell, params)
     local duration = 12 * resist
     local power = 300

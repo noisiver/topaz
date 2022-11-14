@@ -66,7 +66,7 @@ function onSpellCast(caster,target,spell)
 
     -- After damage is applied (which would have woken the target up from a
     -- preexisting sleep, if necesesary), apply the sleep effect for this spell.
-    if (damage > 0 and resist >= 0.5) then
+    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
         target:addStatusEffect(typeEffect, 1, 0, duration)
     end
 

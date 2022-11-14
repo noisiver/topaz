@@ -49,8 +49,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
                 astrologer = 17080431,
             },
             [1] = {
-                mobs_start = 17080421,
-                mobs_end   = 17080430,
+                mobs_start = 17081073,
+                mobs_end   = 17081104,
             },
             [2] = {
                 mobs_start = 17080413,
@@ -69,8 +69,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         },
         [3] = {
             [1] = {
-                mobs_start = 17080432,
-                mobs_end   = 17080451,
+                mobs_start = 17081114,
+                mobs_end   = 17081147,
             },
             [2] = {
                 mobs_start = 17080454,
@@ -83,8 +83,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         },
         [4] = {
             [1] = {
-                mobs_start = 17080477,
-                mobs_end   = 17080489,
+                mobs_start = 17081150,
+                mobs_end   = 17081181,
                 rampart2   = 17080492,
             },
             [2] = {
@@ -100,12 +100,12 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         [5] = {
             [1] = {
                 [1] = {
-                mobs_start = 17080516,
-                mobs_end   = 17080519,
+                mobs_start = 17081212,
+                mobs_end   = 17081232,
                 },
                 [2] = {
-                mobs_start = 17080521,
-                mobs_end   = 17080522,
+                mobs_start = 17081185, 
+                mobs_end   = 17081208, 
                 },
                 [3] = {
                 mobs_start = 17080526,

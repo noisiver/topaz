@@ -11,6 +11,9 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    if mob:getPool() == 9089 then -- Disciple Of Mammon
+        return 0
+    end
     if mob:AnimationSub() == 0 then -- Imps with horn
         return 1
     else

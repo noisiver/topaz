@@ -12,6 +12,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.HTHRES, 750)
     mob:setMod(tpz.mod.SLASHRES, 750)
     mob:setMod(tpz.mod.PIERCERES, 750)
+    mob:setMod(tpz.mod.RANGEDRES, 750)
     mob:setMod(tpz.mod.IMPACTRES, 750)
 end
 

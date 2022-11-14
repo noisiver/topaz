@@ -26,10 +26,10 @@ function onSpellCast(caster, target, spell)
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 0.50
     end
-    local damage = (caster:getHP() / 3) 
+    local damage = (caster:getHP() / 2) 
     local params = {}
     params.attackType = tpz.attackType.BREATH
-    params.damageType = tpz.damageType.WIND
+    params.damageType = tpz.damageType.LIGHTNING
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC

@@ -25,7 +25,6 @@ function onMobWeaponSkill(target, mob, skill)
     skuld     : 250 ish
     carabosse : 100-250 ish (lowest lv mob of the 3)
     ]]
-    local heal = math.random(200, 400)
     local typeEffect = tpz.effect.REGEN
     local power = 10
 
@@ -34,5 +33,5 @@ function onMobWeaponSkill(target, mob, skill)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
-    return MobHealMove(mob, heal)
+     return MobHealMove(target, skill, 1)
 end

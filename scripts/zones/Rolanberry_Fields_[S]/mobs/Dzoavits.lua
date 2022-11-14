@@ -61,7 +61,7 @@ function onMobFight(mob, target)
     end
 
     if (hp < 20) then
-        mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 180, tpz.effect.GEO_DEFENSE_DOWN, 25, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+        AddMobAura(mob, target, 10, tpz.effect.GEO_DEFENSE_DOWN, 25, 3)
     end
 end
 

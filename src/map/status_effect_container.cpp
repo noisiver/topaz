@@ -1590,7 +1590,7 @@ void CStatusEffectContainer::CheckEffectsExpiry(time_point tick)
                 RemoveStatusEffect(PStatusEffect, true);
             }
             // Status effects that have no loss flag
-            else if (PStatusEffect->GetIcon() != 0 && ((PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 0))
+            else if (PStatusEffect->GetIcon() != 0 && ((PStatusEffect->GetFlag() & EFFECTFLAG_NO_LOSS_MESSAGE) == 1))
             {
                 RemoveStatusEffect(PStatusEffect, true);
             }
@@ -1757,7 +1757,12 @@ void CStatusEffectContainer::TickRegen(time_point tick)
 
         if (poison)
         {
-            int16 damage = battleutils::HandleStoneskin(m_POwner, poison);
+            int16 damage = battleutils::HandleMagicStoneskin(m_POwner, poison);
+            int16 magicSS = m_POwner->getMod(Mod::RAMPART_STONESKIN);
+            if (!magicSS)
+            {
+                damage = battleutils::HandleStoneskin(m_POwner, poison);
+            }
 
             if (damage > 0)
             {

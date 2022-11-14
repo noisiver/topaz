@@ -29,8 +29,8 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 50
 
-    local resist = applyResistance(caster, target, spell, params)
     local effect = tpz.effect.NONE
+    local resist = applyResistance(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)
 	-- add correlation bonus
@@ -41,13 +41,10 @@ function onSpellCast(caster, target, spell)
 	end
 
     if (resist >= 0.50) then
-        if (target:isFacing(caster)) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
-            effect = target:dispelStatusEffect()
-            if (effect == tpz.effect.NONE) then
-                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-            end
-        else
+        spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
+        effect = target:dispelStatusEffect()
+        if (effect == tpz.effect.NONE) then
+            -- no effect
             spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
     else

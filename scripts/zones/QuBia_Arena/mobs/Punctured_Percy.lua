@@ -13,6 +13,7 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
     mob:setMod(tpz.mod.PIERCERES, 1250)
+    mob:setMod(tpz.mod.RANGEDRES, 1250)
 end
 
 function onMobEngaged (mob, target)

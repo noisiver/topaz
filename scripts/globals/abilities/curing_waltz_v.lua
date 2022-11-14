@@ -8,6 +8,7 @@
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/utils")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
@@ -43,6 +44,11 @@ function onUseAbility(player, target, ability)
     -- Only remove TP if the player doesn't have Trance.
     if not player:hasStatusEffect(tpz.effect.TRANCE) then
         player:delTP(800)
+    end
+
+    -- Check for zombie status
+    if utils.CheckForZombie(player, target, ability) then
+        return 0
     end
 
     --Grabbing variables.

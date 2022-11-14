@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PARALYSIS
 
 
-    if (MobPhysicalHit(skill)) then
+    if (MobPhysicalHit(mob, skill)) then
         skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 66, 0, 300))
         mob:resetEnmity(target)
         return typeEffect

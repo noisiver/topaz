@@ -113,7 +113,7 @@ INSERT INTO `blue_spell_list` VALUES ('626','591','3','0','1','0','0'); -- Bomb 
 INSERT INTO `blue_spell_list` VALUES ('628','1081','3','15','3','8','0'); -- Frypan
 INSERT INTO `blue_spell_list` VALUES ('629','360','3','15','3','0','0'); -- Flying Hip Press
 INSERT INTO `blue_spell_list` VALUES ('631','777','3','25','1','5','0'); -- Hydro Shot DW +4
-INSERT INTO `blue_spell_list` VALUES ('632','1744','3','0','1','0','0'); -- Diamondhide
+INSERT INTO `blue_spell_list` VALUES ('632','1744','3','33','1','0','0'); -- Diamondhide
 INSERT INTO `blue_spell_list` VALUES ('633','1745','5','21','1','0','0'); -- Enervation
 INSERT INTO `blue_spell_list` VALUES ('634','785','5','14','2','0','0'); -- Light of Penance
 INSERT INTO `blue_spell_list` VALUES ('636','1734','4','4','1','0','0'); -- Warm-Up
@@ -134,7 +134,7 @@ INSERT INTO `blue_spell_list` VALUES ('651','2185','4','4','1','0','0'); -- Corr
 INSERT INTO `blue_spell_list` VALUES ('652','2181','3','12','1','1','0'); -- Spiral Spin
 INSERT INTO `blue_spell_list` VALUES ('653','2176','2','21','1','3','8'); -- Asuran Claws
 INSERT INTO `blue_spell_list` VALUES ('654','2436','4','22','1','12','0'); -- Sub-Zero Smash
-INSERT INTO `blue_spell_list` VALUES ('655','2423','3','0','1','0','0'); -- Triumphant Roar
+INSERT INTO `blue_spell_list` VALUES ('655','2423','3','33','1','0','0'); -- Triumphant Roar
 INSERT INTO `blue_spell_list` VALUES ('656','2562','3','24','1','0','0'); -- Acrid Stream
 INSERT INTO `blue_spell_list` VALUES ('657','2564','3','25','1','0','0'); -- Blazing Bound
 INSERT INTO `blue_spell_list` VALUES ('658','2173','4','0','1','0','0'); -- Plenilune Embrace

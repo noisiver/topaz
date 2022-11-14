@@ -18,8 +18,8 @@ function onSpellCast(caster, target, spell)
 
     -- Base power
     -- Min cap: 15 at -80 dINT
-    -- Max cap: 90 at 120 dINT
-    local basePotency = utils.clamp(math.floor(dINT / 3 * 8 + 45 + (meritBonus - 1)), 15, 90 + (meritBonus - 1))
+    -- Max cap: 45 + 4(Merits) 
+    local basePotency = utils.clamp(math.floor(dINT / 3 * 8 + 45 + (meritBonus - 1)), 15, 45 + (meritBonus - 1))
 
     local potency = calculatePotency(basePotency, spell:getSkillType(), caster, target)
 

@@ -1359,6 +1359,16 @@ INSERT INTO `mob_pets` VALUES (17326090, 2, 15); -- Dagourmarches_Avatar
 INSERT INTO `mob_pets` VALUES (16986197, 1, 9); -- Percipient_Zoraal_Ja
 
 -- ------------------------------------------------------------
+-- Arrapago Remnants (Zone 74)
+-- ------------------------------------------------------------
+-- Custom Start
+-- Can't have instance pets?
+--INSERT INTO `mob_pets` VALUES (17081190, 1, 15); -- Lamie Bellydancer SMN
+--INSERT INTO `mob_pets` VALUES (17081203, 1, 15); -- Lamie Bellydancer SMN
+
+-- Custom End
+
+-- ------------------------------------------------------------
 -- Escha_RuAun (Zone 289)
 -- ------------------------------------------------------------
 

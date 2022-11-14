@@ -29,8 +29,6 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.effect = typeEffect
-    local resist = applyResistanceEffect(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)
 	-- add correlation bonus
@@ -39,22 +37,17 @@ function onSpellCast(caster, target, spell)
 	elseif plantoid then
 		params.bonus = -25
 	end
-    local duration = 180 * resist
 
-
-    if (resist >= 0.5) then -- Do it!
-        if (target:isFacing(caster)) then
-            if (target:addStatusEffect(typeEffect, 1, 0, duration)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-            else
-                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-            end
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
+    if target:hasStatusEffect(tpz.effect.SILENCE) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return tpz.effect.SILENCE
+    end
+    params.effect = tpz.effect.SILENCE
+    if BlueTryEnfeeble(caster, target, spell, 0, 1, 0, 180, params) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
-    return typeEffect
+    return tpz.effect.SILENCE
 end

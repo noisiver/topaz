@@ -26,6 +26,11 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.PETRIFY)
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+   -- Only uses Terror Eye and Bloody Claw
+   return math.random(2424, 2425)
+end
+
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 538)
 end

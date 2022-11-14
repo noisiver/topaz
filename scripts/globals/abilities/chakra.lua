@@ -31,6 +31,11 @@ function onUseAbility(player, target, ability)
         end
     end
 
+    -- Check for zombie status
+    if utils.CheckForZombie(player, target, ability) then
+        return 0
+    end
+
     --local recover = player:getStat(tpz.mod.VIT) * (2 + player:getMod(tpz.mod.CHAKRA_MULT) / 10) -- TODO: Figure out "function of level" addition (August 2017 update)
     local recover = player:getStat(tpz.mod.VIT) * (2 + player:getMod(tpz.mod.CHAKRA_MULT) / 10) * 1.5 
 	if player:getMainJob() == tpz.job.MNK then  

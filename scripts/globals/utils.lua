@@ -760,9 +760,17 @@ function utils.GetMatchingSCDayElement()
     }
 
     local dayElement = VanadielDayElement()
-    local currentDay = elements[dayElement +1].day[1]
+    local currentDay = elements[dayElement].day[1]
     local currentMatchingSkillchains = {}
-    currentMatchingSkillchains = elements[dayElement +1].sc
+    currentMatchingSkillchains = elements[dayElement].sc
 
     return currentMatchingSkillchains
+end
+
+function utils.CheckForZombie(player, target, ability)
+    if target:hasStatusEffect(tpz.effect.CURSE_II) then
+        ability:setMsg(tpz.msg.basic.JA_NO_EFFECT_2)
+        return true
+    end
+    return false
 end

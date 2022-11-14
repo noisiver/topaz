@@ -9,6 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.NO_AGGRO, 1)
 end
 
 function onMobEngaged(mob, target)
