@@ -914,16 +914,23 @@ function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count,
     local shadows = math.random(2, 3)
     -- Check for shadows
     local dmg = MobFinalAdjustments(1, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows)
-
-    if not isBlocked(mob, target) then
+    -- Check for block
+    mob:setLocalVar("isBlocked", 0)
+    if isBlocked(mob, target) then -- Try To block
+        target:trySkillUp(mob, tpz.skill.SHIELD, 1)
+        mob:setLocalVar("isBlocked", 1) 
+    end
+    -- Check if the ttack wasn't blocked and didn't miss...
+    if (MobPhysicalHit(mob, skill)) then
 		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
         return count
 	end
+    -- If no shadows, then set msg to miss.
     if not target:hasStatusEffect(tpz.effect.COPY_IMAGE) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_2)
-        and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3)  and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
+        and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
             skill:setMsg(tpz.msg.basic.SKILL_MISS)
         return 0
-    else
+    else -- Return amount of shadows were consumed to block the attack
         return shadows
     end
 end
