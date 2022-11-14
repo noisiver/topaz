@@ -80,7 +80,7 @@ function onMobDeath(mob, player, isKiller)
     if isKiller or noKiller then
         -- Nearby door opens
         instance:setProgress(2)
-        salvageUtil.teleportGroup(player, math.random(-346, -335), 0, -86, 0, true, false, false)
+        salvageUtil.teleportGroup(player, math.random(-344, -333), 0, -87, 0, true, false, false)
         salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
     end
 end

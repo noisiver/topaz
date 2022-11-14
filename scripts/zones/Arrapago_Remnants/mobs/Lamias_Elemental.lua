@@ -6,6 +6,7 @@ local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/salvage")
 require("scripts/globals/pathfind")
 -----------------------------------
 

@@ -1156,7 +1156,7 @@ void SetupSalvageMob(CMobEntity* PMob)
     // return to spawn on disengage
     PMob->setMobMod(MOBMOD_RETURN_TO_SPAWN, 1); 
     // add global mods
-    PMob->addModifier(Mod::DMGSPIRITS, -100);
+    PMob->addModifier(Mod::DMGSPIRITS, -75);
     PMob->addModifier(Mod::REFRESH, 400);
     PMob->setModifier(Mod::MOVE, 15);
 }

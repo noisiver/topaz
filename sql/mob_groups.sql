@@ -3504,11 +3504,13 @@ INSERT INTO `mob_groups` VALUES (150,2368,74,'Lamie_Toxophilite',0,128,0,8000,20
 INSERT INTO `mob_groups` VALUES (151,2331,74,'Lamia_Exon_BLM',0,128,0,15000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (152,6754,74,'Lamia_Exon_COR',0,128,0,15000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (153,2606,74,'Medusa',0,128,0,100000,0,89,89,0); 
-
 INSERT INTO `mob_groups` VALUES (154,721,74,'Chemical_Spill',0,128,0,8000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (155,39,74,'Abomination',0,128,0,8000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (156,5404,74,'Professor_P',0,128,0,100000,0,89,89,0); 
-INSERT INTO `mob_groups` VALUES (157,721,74,'Slime',0,128,0,10000,0,80,80,0); 
+INSERT INTO `mob_groups` VALUES (157,721,74,'DQ_Slime',0,128,0,10000,0,80,80,0); 
+-- F6
+INSERT INTO `mob_groups` VALUES (158,9086,74,'Blooddrinker',0,128,0,8000,2000,85,85,0);
+INSERT INTO `mob_groups` VALUES (159,9098,74,'Alucard',0,128,0,125000,0,90,90,0); 
 -- Custom End
 
 INSERT INTO `mob_groups` VALUES (1,221,74,'Archaic_Rampart',0,128,0,0,0,81,81,0);

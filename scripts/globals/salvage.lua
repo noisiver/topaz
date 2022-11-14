@@ -928,6 +928,11 @@ end
 function salvageUtil.teleportToSavedFloor(entity, npc, trade)
     -- Runic lamp IDs
     -- Arrapago Remnants: 17080943
+    local ID = zones[entity:getZoneID()]
+    local instance = entity:getInstance()
+    local zone = entity:getZoneName()
+    local floor = entity:getCharVar(zone)
+
     floorTeleports =
     {
         [1] = {},
@@ -935,21 +940,32 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
         [3] = { 339, -0, math.random(456, 464), 129 },
         [4] = { math.random(-342, -335), -0, -580 },
         [5] = { math.random(-303, -298), -0, -19 },
-        [6] = {},
-        [7] = {},
+        [6] = { math.random(-343, -333), -0, 219 },
+        [7] = { math.random(-343, -333), -0, 619 },
     }
-    local instance = entity:getInstance()
-    local zone = entity:getZoneName()
-    local floor = entity:getCharVar(zone)
+    mobSpawns =
+    {
+        [1] = {},
+        [2] = { ID.mob[2][1].mobs_start, ID.mob[2][1].mobs_end  },
+        [3] = { ID.mob[3][1].mobs_start, ID.mob[3][1].mobs_end },
+        [4] = { ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end },
+        [5] = { ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end },
+        [6] = { ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end },
+        [7] = { ID.mob[7][1].chariot, ID.mob[7][1].chariot }, -- TODO: Test
+    }
+
     local posx = floorTeleports[floor][1]
     local posy = floorTeleports[floor][2]
     local posz = floorTeleports[floor][3]
     local rot = floorTeleports[floor][4]
 
-    if npcUtil.tradeHas(trade, tpz.items.GIL) and (floor > 0) then 
-        salvageUtil.teleportGroup(entity, posx, posy, posz, rot, true, false, false)
+    if npcUtil.tradeHas(trade, tpz.items.GIL) and (floor > 0) then
+        salvageUtil.spawnMobGroup(instance, mobSpawns[floor][1], mobSpawns[floor][2])
+        instance:setStage(floor)
+        instance:setProgress(0)
         entity:PrintToPlayer("The device has been activatd!",0xD, none)
         entity:tradeComplete()
+        salvageUtil.teleportGroup(entity, posx, posy, posz, rot, true, false, false)
     else
         entity:PrintToPlayer("*Error* Invalid.",0xD, none)
     end

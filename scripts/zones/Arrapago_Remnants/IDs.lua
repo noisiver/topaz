@@ -136,8 +136,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         },
         [6] = {
             [1] = {
-                mobs_start = 17080562,
-                mobs_end   = 17080569,
+                mobs_start = 17081236,
+                mobs_end   = 17081244,
             },
             rampart1 = 17080559,
             rampart2 = 17080570,
@@ -207,6 +207,9 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         },
         [6] = {
             DOOR = 17080989,
+        },
+        [7] = {
+            INNER_DOOR = 17080991,
         },
     },
     armoury_crates = {17080586, 17080593, 17080594, 17080595, 17080598},

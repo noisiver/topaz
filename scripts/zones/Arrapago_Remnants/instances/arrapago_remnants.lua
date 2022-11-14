@@ -26,12 +26,19 @@ function onInstanceCreated(instance)
     instance:setProgress(0)
 end
 
-function onInstanceTimeUpdate(instance, elapsed)
+function onInstanceTimeUpdate(instance, elapsed) -- Ticks constantly like battlefield tick
     local stage = instance:getStage()
     local progress = instance:getProgress()
 
+    -- Floor 6 mechanics
+    if (stage == 6 and progress == 9) then
+        -- Spawn Alucard(Vampyr)
+        salvageUtil.spawnMob(instance, 17081245)
+    end
+
     if (progress == 100) then return end -- Used for Sahtra Lihtenem boss fight
-        -- Check for wipe
+
+    -- Check for wipe
     if (stage == 1 and progress == 1) then -- Floor 1
         salvageUtil.raiseGroup(instance, 247, -20, -327, 0, 3)
     elseif (stage == 1 and progress == 2) then
@@ -55,7 +62,11 @@ function onInstanceTimeUpdate(instance, elapsed)
     elseif (stage == 4 and progress == 1) then -- Floor 4
         salvageUtil.raiseGroup(instance, -339, -0, math.random(-503, -496), 0, 3)
     elseif (stage == 5) then -- Floor 5
-        salvageUtil.raiseGroup(instance, math.random(-303, -298), -0, -19, 0, 3) 
+        salvageUtil.raiseGroup(instance, math.random(-303, -298), -0, -19, 0, 3)
+    elseif (stage == 6) then -- Floor 6
+        salvageUtil.raiseGroup(instance, math.random(-343, -333), -0, 219, 0, 3)
+    elseif (stage == 7) then -- Floor 7
+        salvageUtil.raiseGroup(instance, math.random(-343, -333), -0, 619, 0, 3) 
     end
     updateInstanceTime(instance, elapsed, ID.text)
 end
@@ -92,6 +103,8 @@ function onRegionEnter(player, region, instance)
     elseif (RegionID == 9 and stage == 4 and progress == 2) then -- F4 2nd 
         player:startEvent(199 + RegionID)
     elseif (RegionID == 10 and stage == 5 and progress == 2) then -- F5 
+        player:startEvent(199 + RegionID)
+    elseif (RegionID == 11 and stage == 6 and progress == 10) then -- F6 
         player:startEvent(199 + RegionID)
     else
         player:PrintToPlayer("Nothing happens...", 0xD, none)
@@ -169,21 +182,15 @@ function onEventFinish(player, csid, option)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end) 
         salvageUtil.saveFloorProgress(player)
-    elseif csid == 209 and option == 1 then
-        for id = ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end do
-            SpawnMob(id, instance)
-        end
-        SpawnMob(ID.mob[6].rampart1, instance)
-        SpawnMob(ID.mob[6].rampart2, instance)
-        instance:setProgress(csid - 208)
-        for id = ID.mob[5][1][1].mobs_start, ID.mob[5][2].chariot do
-            DespawnMob(id, instance)
-        end
+    elseif csid == 209 and option == 1 then -- Port from 5th floor to 6th floor
+        instance:setStage(6)
+        instance:setProgress(0)
+        salvageUtil.spawnMobGroup(instance, ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end) 
+        salvageUtil.saveFloorProgress(player)
     elseif csid == 210 and option == 1 then
+        instance:setStage(7)
+        instance:setProgress(0)
         SpawnMob(ID.mob[7][1].chariot, instance)
-        instance:setProgress(csid - 209)
-        for id = ID.mob[6].rampart1, ID.mob[6].rampart4 do
-            DespawnMob(id, instance)
-        end
+        salvageUtil.saveFloorProgress(player)
     end
 end
