@@ -48,5 +48,10 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BIND
 
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 30)
+    if mob:getID() == 17027183 then -- Fahrafahr the Bloodied
+        if (MobPhysicalHit(mob, skill)) then
+            mob:resetEnmity(target)
+        end
+    end
     return dmg
 end
