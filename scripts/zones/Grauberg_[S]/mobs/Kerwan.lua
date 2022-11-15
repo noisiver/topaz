@@ -51,7 +51,7 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
-local auraMode = mob:getLocalVar("auraMode")
+    local auraMode = mob:getLocalVar("auraMode")
     if (auraMode == 1) then
         AddMobAura(mob, target, 10, tpz.effect.GEO_PARALYSIS, 75, 3)
     elseif (auraMode == 2) then
