@@ -395,7 +395,15 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     rparams.skillType = tpz.skill.BLUE_MAGIC
     magicAttack = math.floor(magicAttack * applyResistance(caster, target, spell, rparams))
 
-    local dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
+    local dmg = 0
+
+    -- Use params.IGNORE_WSC and params.damage to set specific damage
+    -- Only used for Self-Destruct ATM
+    if (params.IGNORE_WSC ~= nil) then
+        dmg = params.damage * applyResistance(caster, target, spell, rparams)
+    else
+        dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
+    end
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then

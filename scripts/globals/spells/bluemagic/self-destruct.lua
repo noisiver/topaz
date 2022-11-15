@@ -27,18 +27,15 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    local playerHP = caster:getLocalVar("self-destruct_hp")
     local params = {}
 
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-
     params.attribute = tpz.mod.INT
-
     params.skillType = tpz.skill.BLUE_MAGIC
-
     params.bonus = 0
 
     local resist = applyResistance(caster, target, spell, params)
-    local params = {}
     local multi = 3.0
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
@@ -56,20 +53,17 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-	
+    params.IGNORE_WSC = true
+    params.damage = ((playerHP - 1) * 2) 
+    local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-	
 	if (target:isUndead()) then
 		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
 		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	end
 	
-    local playerHP = caster:getLocalVar("self-destruct_hp")
-    local damage = ((playerHP - 1) * 2) * resist
-
     if spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL then
-        target:takeSpellDamage(caster, spell, playerHP, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
         caster:setHP(1)
     end
 
