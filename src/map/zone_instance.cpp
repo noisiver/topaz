@@ -36,7 +36,6 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 CZoneInstance::CZoneInstance(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID)
     : CZone(ZoneID, RegionID, ContinentID)
 {
-    CZone::LoadZoneWeather();
 }
 
 CZoneInstance::~CZoneInstance()
