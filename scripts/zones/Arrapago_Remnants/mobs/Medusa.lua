@@ -37,7 +37,7 @@ function onMobFight(mob, target)
         target:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
     end
 
-    -- Uses EES on a random target at 88/77/66/55/44/33/22/11% HP
+    -- Uses EES on a random target at 89,79,69,59,49,39,29,19,9% HP
     if (hp < 99) then
         if enmityList and #enmityList > 0 then
             if CheckForEES(mob) then

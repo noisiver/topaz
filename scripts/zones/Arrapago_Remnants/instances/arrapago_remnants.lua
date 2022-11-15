@@ -5,6 +5,8 @@
 -----------------------------------
 local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
+require("scripts/globals/keyitems")
+require("scripts/globals/items")
 require("scripts/globals/salvage")
 -----------------------------------
 respawnPoints =
@@ -13,7 +15,7 @@ respawnPoints =
 }
 
 function afterInstanceRegister(player)
-    salvageUtil.afterInstanceRegister(player, tpz.items.CAGE_OF_A_REMNANTS_FIREFLIES)
+    salvageUtil.afterInstanceRegister(player, tpz.items.CAGE_OF_A_REMNANTS_FIREFLIES, tpz.keyItem.MAP_OF_ARRAPAGO_REMNANTS)
 end
 
 function onInstanceCreated(instance)
@@ -29,6 +31,10 @@ end
 function onInstanceTimeUpdate(instance, elapsed) -- Ticks constantly like battlefield tick
     local stage = instance:getStage()
     local progress = instance:getProgress()
+
+    if (instance:getStage() > 7) then
+        instance:complete()
+    end
 
     -- Floor 6 mechanics
     if (stage == 6 and progress == 9) then
@@ -78,10 +84,12 @@ function onInstanceFailure(instance)
     for i, v in pairs(chars) do
         v:messageSpecial(ID.text.MISSION_FAILED, 10, 10)
         v:startEvent(1)
+        v:delKeyItem(tpz.keyItem.MAP_OF_ARRAPAGO_REMNANTS)
     end
 end
 
 function onInstanceComplete(instance)
+    salvageUtil.onInstanceComplete(instance)
 end
 
 function onRegionEnter(player, region, instance)

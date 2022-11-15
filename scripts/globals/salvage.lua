@@ -8,6 +8,7 @@ require("scripts/globals/items")
 require("scripts/globals/keyitems")
 require("scripts/globals/status")
 require("scripts/globals/zone")
+require("scripts/globals/world")
 -----------------------------------
 salvageUtil = {}
 -----------------------------------
@@ -123,7 +124,7 @@ function salvageUtil.onInstanceCreated(player, target, instance, endID, destinat
     end
 end
 
-function salvageUtil.afterInstanceRegister(player, fireFlies)
+function salvageUtil.afterInstanceRegister(player, fireFlies, mapID)
     local instance = player:getInstance()
     local ID = zones[player:getZoneID()]
     -- Fireflies
@@ -141,6 +142,7 @@ function salvageUtil.afterInstanceRegister(player, fireFlies)
     --player:addStatusEffectEx(tpz.effect.DEBILITATION, tpz.effect.DEBILITATION, 0x1FF, 0, 6000)
     player:addTempItem(fireFlies)
     player:addTempItem(tpz.items.DUSTY_SCROLL_OF_RERAISE)
+    player:addKeyItem(mapID)
 
     --for i = tpz.slot.MAIN, tpz.slot.BACK do
       --  player:unequipItem(i)
@@ -660,8 +662,8 @@ function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart,
         [2] = 'boss',
         [3] = 'chest',
         [4] = 'mimic',
-        --[5] = 164,
-        --[6] = 169,
+        [5] = 'pixie',
+        --[6] = 'weather', -- TODO: Instanced cannot get weather...
         --[7] = 216,
         --[8] = 260,
         --[9] = 230,
@@ -698,6 +700,11 @@ function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart,
         end
         SpawnInstancedMob(mob, player, mimic, false)
         salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " dropped a chest!", 0xD, none)
+    elseif (selectedEvent == 'pixie') then
+        salvageUtil.msgGroup(player, "A Pixie has appeared!", 0xD, none)
+        SpawnInstancedMob(mob, player, 17081246, true)
+    --elseif (selectedEvent == 'weather') then
+        --player:setWeather(salvageUtil.getRandomWeather(), instance)
     end
 end
 
@@ -718,6 +725,15 @@ function salvageUtil.getAvailableMob(mob, table)
         end
     end
     return selectedMob
+end
+
+function salvageUtil.getRandomWeather()
+    local weather =
+    {
+        tpz.weather.HEAT_WAVE, tpz.weather.SQUALL, tpz.weather.SAND_STORM, tpz.weather.GALES, tpz.weather.BLIZZARDS,
+        tpz.weather.THUNDERSTORMS, tpz.weather.STELLAR_GLARE, tpz.weather.DARKNESS
+    }
+    return weather[math.random(#weather)]
 end
 
 
@@ -968,5 +984,20 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
         salvageUtil.teleportGroup(entity, posx, posy, posz, rot, true, false, false)
     else
         entity:PrintToPlayer("*Error* Invalid.",0xD, none)
+    end
+end
+
+function salvageUtil.onInstanceComplete(instance)
+    local floor = instance:getStage()
+    local chars = instance:getChars()
+
+    -- Reset floor teleport var to 0 for thezone
+    for i, v in pairs(chars) do
+        local zone = v:getZoneName()
+        v:setCharVar(zone, 0)
+        if v:getLocalVar("SalvageCompletedMessage") ~= 1 then
+            v:PrintToPlayer("You have completed the zone!",0xD, none)
+            v:setLocalVar("SalvageCompletedMessage", 1)
+        end
     end
 end

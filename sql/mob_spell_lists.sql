@@ -5123,6 +5123,19 @@ INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,365,1,255); -- Breakga
 INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,366,1,255); -- Graviga
 INSERT INTO `mob_spell_lists` VALUES ('Medjeds_Head',2077,367,1,255); -- Death
 
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,177,1,255); -- Firga IV
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,182,1,255); -- Blizzaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,187,1,255); -- Aeroga IV
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,192,1,255); -- Stonega IV
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,197,1,255); -- Thundaga IV
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,202,1,255); -- Waterga IV
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,148,24,255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,153,24,255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,158,24,255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,163,24,255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,168,24,255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,173,24,255); -- Water V
+
 
 
 

@@ -1029,13 +1029,15 @@ INSERT INTO `mob_droplist` VALUES (170,0,0,1000,3208,150);
 INSERT INTO `mob_droplist` VALUES (170,0,0,1000,3208,100);
 INSERT INTO `mob_droplist` VALUES (170,0,0,1000,3208,80);
 INSERT INTO `mob_droplist` VALUES (170,0,0,1000,18803,230);
-INSERT INTO `mob_droplist` VALUES (171,0,0,1000,5736,240);
-INSERT INTO `mob_droplist` VALUES (171,0,0,1000,14560,420);
-INSERT INTO `mob_droplist` VALUES (171,0,0,1000,14971,310);
-INSERT INTO `mob_droplist` VALUES (171,0,0,1000,15631,280);
-INSERT INTO `mob_droplist` VALUES (171,0,0,1000,15713,260);
-INSERT INTO `mob_droplist` VALUES (171,0,0,1000,15729,420);
-INSERT INTO `mob_droplist` VALUES (171,0,0,1000,16098,320);
+INSERT INTO `mob_droplist` VALUES (171,1,1,1000,16085,166); -- Enyo's Mask
+INSERT INTO `mob_droplist` VALUES (171,1,1,1000,16089,166); -- Njord's Mask
+INSERT INTO `mob_droplist` VALUES (171,1,1,1000,16093,166); -- Hoshikazu Hachimaki
+INSERT INTO `mob_droplist` VALUES (171,1,1,1000,16097,166); -- Anu's Tiara
+INSERT INTO `mob_droplist` VALUES (171,1,1,1000,16101,166); -- Nemain's Crown
+INSERT INTO `mob_droplist` VALUES (171,1,1,1000,14547,170); -- Eny's Breastplate
+INSERT INTO `mob_droplist` VALUES (171,0,0,1000,5736,1000); -- Linen Coin Purse
+INSERT INTO `mob_droplist` VALUES (171,0,0,1000,5736,1000); -- Linen Coin Purse
+INSERT INTO `mob_droplist` VALUES (171,0,0,1000,5736,1000); -- Linen Coin Purse
 --INSERT INTO `mob_droplist` VALUES (172,0,0,1000,18247,100);
 INSERT INTO `mob_droplist` VALUES (172,0,0,1000,18248,240);	-- (Aroma RSE Satchet NMS) Human Female satchet
 --INSERT INTO `mob_droplist` VALUES (172,0,0,1000,18249,100);
@@ -16912,6 +16914,15 @@ INSERT INTO `mob_droplist` VALUES (3198,1,0,50,18063,170); -- Garuda's Sickle 5%
 
 -- Salvage
 INSERT INTO `mob_droplist` VALUES (3199,0,0,1000,2376,1000); -- (Kanoloa) Arrapago Card
+INSERT INTO `mob_droplist` VALUES (3199,0,0,1000,5735,240); -- (Kanoloa) Cotton Coin Purse x1 24%
+INSERT INTO `mob_droplist` VALUES (3200,0,0,1000,5735,240); -- (Trash / F1 Boss) Cotton Coin Purse x1 24%
+INSERT INTO `mob_droplist` VALUES (3201,0,0,1000,5735,1000); -- (F2 Boss) Cotton Coin Purse x1 100% 
+INSERT INTO `mob_droplist` VALUES (3202,0,0,1000,5736,1000); -- (F3-F4 Boss) Linen Coin Purse x1 100%
+INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
+INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
+INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x3 100%
+INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x3 100%
+INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x3 100%
 
 
 
@@ -17671,8 +17682,8 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1618,240); -- (Harajnite) Uragn
 INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 
-
-
+-- NEXT: 
+-- NEXT: 6069
 
 
 

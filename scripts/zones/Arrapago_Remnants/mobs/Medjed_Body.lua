@@ -112,6 +112,7 @@ function onMobDeath(mob, player, isKiller)
             mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
             salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
             instance:setProgress(2)
+            player:addTreasure(5736, mob) --Linen Coin Purse
         end
     end
 end

@@ -190,8 +190,8 @@ INSERT INTO `mob_family_mods` VALUES (252,63,100,0);	-- Vampyr +100% Defense Bon
 INSERT INTO `mob_family_mods` VALUES (191,63,100,0);	-- Orobon +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (27,63,100,0);		-- Apkallu +100% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (246,63,100,0);	-- Troll +100% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (209,63,150,0);	-- Rampart +150% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (63,63,150,0);	 	-- Chariot +150% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (209,63,50,0);	    -- Rampart +50% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (63,63,50,0);	 	-- Chariot +50% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (180,63,150,0);	-- Marid +150% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (211,63,50,0);		-- Ruszor +50% Defense Bonus
 
@@ -246,6 +246,8 @@ INSERT INTO `mob_family_mods` VALUES (203,388,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (204,388,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (205,388,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (62,388,25,0);		-- Cerberus +25%(Bonus)
+INSERT INTO `mob_family_mods` VALUES (252,388,-13,0); 	-- Vampyr(NM) -13%
+INSERT INTO `mob_family_mods` VALUES (284,388,-13,0); 	-- Vampyr(NM) -13%
 
 -- Ranged damage taken(RDT)
 INSERT INTO `mob_family_mods` VALUES (203,390,200,0);	-- Qutrub +200%(Bonus)

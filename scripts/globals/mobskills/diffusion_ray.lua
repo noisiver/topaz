@@ -9,19 +9,16 @@ require("scripts/globals/settings")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    if target:isInfront(mob, 128) then
-        return 0
+    if target:isBehind(mob) then
+        return 1
     end
-    return 1
+    return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.LIGHT, 1000)
-    dmgmod = utils.conalDamageAdjustment(mob, target, skill, dmgmod, 0.50)
-
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.LIGHT, MOBPARAM_WIPE_SHADOWS)
-
-    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.LIGHT)
-	target:dispelStatusEffect()
+    local dmgmod = 9
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.LIGHT, dmgmod, TP_NO_EFFECT)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_WIPE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
     return dmg
 end
