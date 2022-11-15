@@ -25,22 +25,15 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
+    local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
     local params = {}
-    params.diff = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    params.diff = dMND
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.SLOW
     local resist = applyResistance(caster, target, spell, params)
     local typeEffect = tpz.effect.SLOW
-    local dINT = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
-    local params = {}
-    params.diff = nil
-    params.attribute = tpz.mod.INT
-    params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 0
-    params.effect = typeEffect
-    local dMND = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
     local power = utils.clamp(math.floor(dMND * 226 / 15) + 2380, 1250, 3510)
 
     if resist >= 0.5 then -- Do it!
