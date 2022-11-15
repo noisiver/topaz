@@ -50,7 +50,7 @@ end
 
 function onMobFight(mob, target)
     local hellSlashEnabled = mob:getLocalVar("hellSlashEnabled")
-    if hellSlashEnabled then
+    if hellSlashEnabled > 0 then
         mob:useMobAbility(478) -- Hell Slash
         mob:setLocalVar("hellSlashEnabled", 0)
     end

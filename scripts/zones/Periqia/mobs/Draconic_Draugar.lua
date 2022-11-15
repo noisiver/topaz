@@ -52,7 +52,7 @@ function onMobFight(mob, target)
 	local Pet = GetMobByID(mob:getID(instance)+1, instance)
     local hellSlashEnabled = mob:getLocalVar("hellSlashEnabled")
 	Pet:updateEnmity(target)
-    if hellSlashEnabled then
+    if hellSlashEnabled > 0 then
         mob:useMobAbility(478) -- Hell Slash
         mob:setLocalVar("hellSlashEnabled", 0)
     end
