@@ -50,7 +50,12 @@ end
 function onMobFight(mob, target)
     local instance = mob:getInstance()
 	local Pet = GetMobByID(mob:getID(instance)+1, instance)
+    local hellSlashEnabled = mob:getLocalVar("hellSlashEnabled")
 	Pet:updateEnmity(target)
+    if hellSlashEnabled then
+        mob:useMobAbility(478) -- Hell Slash
+        mob:setLocalVar("hellSlashEnabled", 0)
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -59,7 +64,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 1795 then -- Malediction
-         mob:useMobAbility(478) -- Hell Slash
+         mob:setLocalVar("hellSlashEnabled", 1)
     end
 end
 
