@@ -12,11 +12,12 @@
 -- Magic Bursts on: Liquefaction, Fusion, and Light
 -- Combos: Auto Refresh
 -----------------------------------------
-
 require("scripts/globals/settings")
 require("scripts/globals/magic")
 require("scripts/globals/status")
 require("scripts/globals/bluemagic")
+require("scripts/globals/msg")
+-----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
     if caster:isMob() then
