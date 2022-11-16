@@ -1046,7 +1046,6 @@ bool CMobController::MobSkill(uint16 targid, uint16 wsid)
     TracyZoneScoped;
     if (POwner)
     {
-        FaceTarget();
         return POwner->PAI->Internal_MobSkill(targid, wsid);
     }
 
