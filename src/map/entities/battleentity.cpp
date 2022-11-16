@@ -770,11 +770,11 @@ uint16 CBattleEntity::DEF()
     if (this->StatusEffectContainer->HasStatusEffect(EFFECT_COUNTERSTANCE, 0) && this->objtype == TYPE_PC)
     {
         DEF += (DEF * m_modStat[Mod::DEFP] / 100);
-        return DEF / 2;
+        return std::clamp(DEF / 2, 0, 9999);
     }
 
-    return DEF + (DEF * m_modStat[Mod::DEFP] / 100) +
-        std::min<int16>((DEF * m_modStat[Mod::FOOD_DEFP] / 100), m_modStat[Mod::FOOD_DEF_CAP]);
+    return std::clamp(DEF + (DEF * m_modStat[Mod::DEFP] / 100) +
+        std::min<int16>((DEF * m_modStat[Mod::FOOD_DEFP] / 100), m_modStat[Mod::FOOD_DEF_CAP]), 0, 9999);
 }
 
 uint16 CBattleEntity::EVA()
