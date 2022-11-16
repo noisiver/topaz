@@ -68,11 +68,9 @@ end
 
 
 function onMobWeaponSkillPrepare(mob, target)
-    -- Only Dissolve, Muxus Spread, and Epoxy Spread
-    return math.random(2550, 2552)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
 
     if isKiller or noKiller then

@@ -96,7 +96,7 @@ function onMobDisengage(mob)
 end
 
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     local progress = instance:getProgress()
     local head = GetMobByID(mob:getID(instance)-1, instance)

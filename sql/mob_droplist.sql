@@ -16916,7 +16916,7 @@ INSERT INTO `mob_droplist` VALUES (3198,1,0,50,18063,170); -- Garuda's Sickle 5%
 INSERT INTO `mob_droplist` VALUES (3199,0,0,1000,2376,1000); -- (Kanoloa) Arrapago Card
 INSERT INTO `mob_droplist` VALUES (3199,0,0,1000,5735,240); -- (Kanoloa) Cotton Coin Purse x1 24%
 INSERT INTO `mob_droplist` VALUES (3200,0,0,1000,5735,240); -- (Trash / F1 Boss) Cotton Coin Purse x1 24%
-INSERT INTO `mob_droplist` VALUES (3201,0,0,1000,5735,1000); -- (F2 Boss) Cotton Coin Purse x1 100% 
+INSERT INTO `mob_droplist` VALUES (3201,0,0,1000,5735,1000); -- (F2 Boss / Random HNM) Cotton Coin Purse x1 100% 
 INSERT INTO `mob_droplist` VALUES (3202,0,0,1000,5736,1000); -- (F3-F4 Boss) Linen Coin Purse x1 100%
 INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
 INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%

@@ -3,7 +3,7 @@
 --  Mob: Archaic Gear
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     if (instance:getStage() == 6 and instance:getProgress() >= 1) then
         if (isKiller) then

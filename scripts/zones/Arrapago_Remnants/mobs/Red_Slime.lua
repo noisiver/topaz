@@ -29,7 +29,7 @@ function onMobWeaponSkillPrepare(mob, target)
     return math.random(2183, 2185)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

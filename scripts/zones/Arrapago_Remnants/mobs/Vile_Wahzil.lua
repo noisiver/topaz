@@ -11,7 +11,7 @@ function onMobSpawn(mob)
     GetNPCByID(ID.npc[2][2].SOCKET, instance):setStatus(tpz.status.DISAPPEAR)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local CELL = mob:getLocalVar("Cell")
     local AMOUNT = mob:getLocalVar("Qnt") *2
 

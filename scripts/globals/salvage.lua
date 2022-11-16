@@ -648,7 +648,7 @@ function salvageUtil.spawnMobGroup(instance, mobIdStart, mobIdEnd)
 end
 
 -- TODO Add more to this
-function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart, mobIdEnd)
+function salvageUtil.spawnRandomEvent(mob, player, isKiller, noKiller, chance, mobIdStart, mobIdEnd)
     local ID = zones[player:getZoneID()]
     local instance = mob:getInstance()
     local mobX = mob:getXPos()
@@ -674,37 +674,40 @@ function salvageUtil.spawnRandomEvent(mob, player, isKiller, chance, mobIdStart,
         selectedEvent = event[math.random(#event)]
     end
 
-    if (selectedEvent == 'trash') then
-        for v = mobIdStart, mobIdEnd do
-            SpawnInstancedMob(mob, player, v, true)
-            GetMobByID(v, instance):stun(5000)
-        end
-        salvageUtil.msgGroup(player, "A pack of enemies have appeared!", 0xD, none)
-    elseif (selectedEvent == 'boss') then 
-        local boss = salvageUtil.getAvailableMob(mob, ID.mob.random_bosses)
+    if isKiller or nokiller then
+        if (selectedEvent == 'trash') then
+            for v = mobIdStart, mobIdEnd do
+                SpawnInstancedMob(mob, player, v, true)
+                GetMobByID(v, instance):stun(5000)
+            end
+            salvageUtil.msgGroup(player, "A pack of enemies have appeared!", 0xD, none)
+        elseif (selectedEvent == 'boss') then 
+            local boss = salvageUtil.getAvailableMob(mob, ID.mob.random_bosses)
 
-        if boss == nil then
-            return
-        end
-        SpawnInstancedMob(mob, player, boss, true)
-        GetMobByID(boss, instance):stun(5000)
-        salvageUtil.msgGroup(player, MobName(GetMobByID(boss, instance)) .. " has appeared!", 0xD, none)
-    elseif (selectedEvent == 'chest') then
-        salvageUtil.spawnArmouryCrateOnMobDeath(mob, mobX, mobY, mobZ, mobR)
-        salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " dropped a chest!", 0xD, none)
-    elseif (selectedEvent == 'mimic') then
-        local mimic = salvageUtil.getAvailableMob(mob, ID.mob.mimics)
+            if boss == nil then
+                return
+            end
+            SpawnInstancedMob(mob, player, boss, true)
+            GetMobByID(boss, instance):stun(5000)
+            salvageUtil.msgGroup(player, MobName(GetMobByID(boss, instance)) .. " has appeared!", 0xD, none)
+        elseif (selectedEvent == 'chest') then
+            salvageUtil.spawnArmouryCrateOnMobDeath(mob, mobX, mobY, mobZ, mobR)
+            salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " dropped a chest!", 0xD, none)
+        elseif (selectedEvent == 'mimic') then
+            local mimic = salvageUtil.getAvailableMob(mob, ID.mob.mimics)
 
-        if mimic == nil then
-            return
+            if mimic == nil then
+                return
+            end
+            SpawnInstancedMob(mob, player, mimic, false)
+            GetMobByID(mimic, instance):stun(10000)
+            salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " dropped a chest!", 0xD, none)
+        elseif (selectedEvent == 'pixie') then
+            salvageUtil.msgGroup(player, "A Pixie has appeared!", 0xD, none)
+            SpawnInstancedMob(mob, player, 17081246, true)
+        --elseif (selectedEvent == 'weather') then
+            --player:setWeather(salvageUtil.getRandomWeather(), instance)
         end
-        SpawnInstancedMob(mob, player, mimic, false)
-        salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " dropped a chest!", 0xD, none)
-    elseif (selectedEvent == 'pixie') then
-        salvageUtil.msgGroup(player, "A Pixie has appeared!", 0xD, none)
-        SpawnInstancedMob(mob, player, 17081246, true)
-    --elseif (selectedEvent == 'weather') then
-        --player:setWeather(salvageUtil.getRandomWeather(), instance)
     end
 end
 

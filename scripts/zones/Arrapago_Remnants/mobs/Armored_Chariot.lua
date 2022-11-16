@@ -16,7 +16,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.SUN_CHARIOTEER)
     local instance = mob:getInstance()
     instance:setStage(8)

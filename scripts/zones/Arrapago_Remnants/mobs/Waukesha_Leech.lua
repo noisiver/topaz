@@ -28,7 +28,7 @@ function onMobFight(mob, target)
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.SILENCE) then
-        PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains.", 0xD, none, 30)
+        PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains...", 0xD, none, 30)
         mob:setMod(tpz.mod.REGEN, 100)
     end
 end
@@ -38,7 +38,7 @@ function onMobWeaponSkillPrepare(mob, target)
     return math.random(325, 327)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then
         -- Nearby door opens
         mob:getEntity(bit.band(ID.npc[1][3].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)

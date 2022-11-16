@@ -3461,13 +3461,13 @@ INSERT INTO `mob_groups` VALUES (111,9085,74,'Kanaloa',0,128,3199,30000,0,85,85,
 INSERT INTO `mob_groups` VALUES (112,9086,74,'Alucard',0,128,3200,30000,0,85,85,0);
 -- F2
 INSERT INTO `mob_groups` VALUES (113,218,74,'Archaic_Gear_random',0,128,3200,0,0,81,81,0);
-INSERT INTO `mob_groups` VALUES (114,2255,74,'King_Behemoth_random',0,128,0,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (115,268,74,'Aspidochelone_random',0,128,0,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (116,2840,74,'Nidhogg_random',0,128,0,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (117,2254,74,'King_Arthro_random',0,128,0,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (118,3630,74,'Simurgh_random',0,128,0,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (119,3376,74,'Roc_random',0,128,0,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (120,2664,74,'Mimic',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (114,2255,74,'King_Behemoth_random',0,128,3201,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (115,268,74,'Aspidochelone_random',0,128,3201,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (116,2840,74,'Nidhogg_random',0,128,3201,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (117,2254,74,'King_Arthro_random',0,128,3201,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (118,3630,74,'Simurgh_random',0,128,3201,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (119,3376,74,'Roc_random',0,128,3201,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (120,2664,74,'Mimic',0,128,3201,30000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (121,9087,74,'Ruins_Oil',0,128,3201,33000,0,86,86,0);
 INSERT INTO `mob_groups` VALUES (122,9088,74,'Verrottendes_Fleisch',0,128,3201,35000,0,86,86,0);
 INSERT INTO `mob_groups` VALUES (123,9089,74,'Disciple_Of_Mammon',0,128,3201,20000,0,86,86,0);

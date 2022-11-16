@@ -67,7 +67,7 @@ end
 function onMobWeaponSkillPrepare(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     local chars = instance:getChars()
 

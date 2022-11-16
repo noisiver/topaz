@@ -129,7 +129,7 @@ function onRegionEnter(player, region, instance)
         salvageUtil.msgGroup(player, "A mysterious force pulls you towards it...", 0xD, none)
     elseif (RegionID == 13 and progress == 1) then
         instance:setProgress(2)
-        salvageUtil.teleportGroup(player, math.random(253, 267), -20, -515, 193, true, false, false)
+        salvageUtil.teleportGroup(player, math.random(255, 260), -20, -513, 193, true, false, false)
         salvageUtil.msgGroup(player, "A mysterious force pulls you towards it...", 0xD, none)
     elseif (RegionID == 14 and progress == 2) then
         instance:setProgress(3)
@@ -139,26 +139,6 @@ function onRegionEnter(player, region, instance)
 end
 
 function onInstanceProgressUpdate(instance, progress, elapsed)
-    if instance:getStage() == 2 and progress == 4 then -- All bosses on floor 2 are dead, enable teleporter
-        --SpawnMob(ID.mob[1][2].rampart, instance)
-    elseif instance:getStage() == 2 and progress == 2 then -- attempt to spawn slot
-        GetNPCByID(ID.npc[2][2].SLOT, instance):setStatus(tpz.status.NORMAL)
-    elseif instance:getStage() == 2 and progress == 3 then -- attempt to spawn socket
-        GetNPCByID(ID.npc[2][2].SOCKET, instance):setStatus(tpz.status.NORMAL)
-    elseif instance:getStage() == 3 and progress == 1 then
-        SpawnMob(ID.mob[2][0].astrologer, instance)
-    elseif instance:getStage() == 6 and progress == 1 then
-        GetNPCByID(ID.npc[6].DOOR, instance):setLocalVar("start", os.time())
-    elseif instance:getStage() == 7 and progress == 0 then
-        local door = GetNPCByID(ID.npc[6].DOOR, instance)
-        door:setLocalVar("current", os.time())
-        if (door:getLocalVar("current") - door:getLocalVar("start") <= 420) then
-            SpawnMob(ID.mob[6].treasure_hunter1, instance)
-            SpawnMob(ID.mob[6].treasure_hunter2, instance)
-            SpawnMob(ID.mob[6].qiqirn_mine_1, instance)
-            SpawnMob(ID.mob[6].qiqirn_mine_2, instance)
-        end
-    end
 end
 
 function onEventFinish(player, csid, option)
@@ -178,27 +158,32 @@ function onEventFinish(player, csid, option)
     elseif csid == 204 and option == 1 then -- Port from 2nd floor to 3rd floor
         instance:setStage(3)
         instance:setProgress(0)
-        salvageUtil.spawnMobGroup(instance, ID.mob[3][1].mobs_start, ID.mob[3][1].mobs_end) 
+        salvageUtil.spawnMobGroup(instance, ID.mob[3][1].mobs_start, ID.mob[3][1].mobs_end)
+        salvageUtil.teleportGroup(player, 339, -0, math.random(456, 464), 129, 0, false, false, false) -- TODO: Test
         salvageUtil.saveFloorProgress(player)
     elseif csid == 205 or csid == 206 and option == 1 then -- Port from 3rd floor to 4th floor
         instance:setStage(4)
         instance:setProgress(0)
-        salvageUtil.spawnMobGroup(instance, ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end) 
+        salvageUtil.spawnMobGroup(instance, ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end)
+        salvageUtil.teleportGroup(player, math.random(-342, -335), -0, -580, 0, false, false, false) -- TODO: Test
         salvageUtil.saveFloorProgress(player) 
     elseif csid == 207 or csid == 208 and option == 1 then -- Port from 4th floor to 5th floor
         instance:setStage(5)
         instance:setProgress(0)
-        salvageUtil.spawnMobGroup(instance, ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end) 
+        salvageUtil.spawnMobGroup(instance, ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end)
+        salvageUtil.teleportGroup(player, math.random(-303, -298), -0, -19, 0, false, false, false) -- TODO: Test
         salvageUtil.saveFloorProgress(player)
     elseif csid == 209 and option == 1 then -- Port from 5th floor to 6th floor
         instance:setStage(6)
         instance:setProgress(0)
-        salvageUtil.spawnMobGroup(instance, ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end) 
+        salvageUtil.spawnMobGroup(instance, ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end)
+        salvageUtil.teleportGroup(player, math.random(-343, -333), -0, 219, 0, false, false, false) -- TODO: Test
         salvageUtil.saveFloorProgress(player)
     elseif csid == 210 and option == 1 then
         instance:setStage(7)
         instance:setProgress(0)
         SpawnMob(ID.mob[7][1].chariot, instance)
+        salvageUtil.teleportGroup(player, math.random(-343, -333), -0, 619, 0, false, false, false) -- TODO: Test
         salvageUtil.saveFloorProgress(player)
     end
 end

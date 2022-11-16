@@ -62,7 +62,7 @@ function onMobWeaponSkillPrepare(mob, target)
     return math.random(2550, 2552)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
 
     if isKiller or noKiller then

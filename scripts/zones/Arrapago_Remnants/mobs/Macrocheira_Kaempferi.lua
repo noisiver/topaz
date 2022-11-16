@@ -42,7 +42,7 @@ function onMobWeaponSkillPrepare(mob, target)
     return math.random(2512, 2513)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then
         -- Nearby door opens
         mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)

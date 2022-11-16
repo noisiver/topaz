@@ -40,19 +40,19 @@ function onMobFight(mob, target)
             prisonTarget = math.random(#enmityList)
             mob:setLocalVar("prisonUses", 1)
             ForceDrawIn(mob, prisonTarget)
-            target:addStatusEffect(tpz.effect.BIND, 1, 0, 10)
+            GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
             mob:useMobAbility(486, GetPlayerByID(prisonTarget)) -- Whip Tongue
         elseif (hpp <= 39) and (prisonUses == 1) then
             prisonTarget = math.random(#enmityList)
             mob:setLocalVar("prisonUses", 2)
             ForceDrawIn(mob, prisonTarget)
-            target:addStatusEffect(tpz.effect.BIND, 1, 0, 10)
+            GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
             mob:useMobAbility(486, GetPlayerByID(prisonTarget)) -- Whip Tongue
         elseif (hpp <= 19) and (prisonUses == 2) then
             prisonTarget = math.random(#enmityList)
             mob:setLocalVar("prisonUses", 3)
             ForceDrawIn(mob, prisonTarget)
-            target:addStatusEffect(tpz.effect.BIND, 1, 0, 10)
+            GetPlayerByID(prisonTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
             mob:useMobAbility(486, GetPlayerByID(prisonTarget)) -- Whip Tongue
         end
     end
@@ -71,7 +71,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
 
     if isKiller or noKiller then

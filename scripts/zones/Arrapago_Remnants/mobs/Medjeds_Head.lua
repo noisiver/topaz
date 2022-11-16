@@ -85,7 +85,7 @@ function onMobDisengage(mob)
     mob:setLocalVar("phaseMsg", 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     local progress = instance:getProgress()
     local body = GetMobByID(mob:getID(instance)+1, instance)
