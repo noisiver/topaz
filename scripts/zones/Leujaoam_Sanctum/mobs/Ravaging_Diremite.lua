@@ -38,7 +38,7 @@ function onMobFight(mob, target)
 	local Message = mob:getLocalVar("Message")
 	local MessageWait = mob:getLocalVar("MessageWait")
 	local BattleTime = mob:getBattleTime()
-    mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 60, tpz.effect.GEO_SLOW, 3000, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+    AddMobAura(mob, target, 10, tpz.effect.GEO_SLOW, 3000, 3)
 
 	if mob:getHPP() <= 35 then
 		if SpinningTopTime == 0 then
