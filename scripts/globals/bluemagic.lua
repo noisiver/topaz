@@ -1,6 +1,7 @@
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
+require("scripts/globals/msg")
 
 -- The TP modifier
 TPMOD_NONE = 0
