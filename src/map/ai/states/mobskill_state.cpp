@@ -155,6 +155,11 @@ void CMobSkillState::Cleanup(time_point tick)
         actionTarget_t& actionTarget = actionList.getNewActionTarget();
         actionTarget.animation = m_PSkill->getID();
 
+        if (!m_PSkill->isTwoHour())
+        {
+            m_PEntity->addTP(-1250);
+        }
+        m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_STATE_INTERRUPTED", m_PEntity, m_PSkill->getID());
         m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE, new CActionPacket(action));
     }
 }
