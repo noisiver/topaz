@@ -777,7 +777,8 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     magicacc = magicacc + (casterLvl - targetLvl)*4
     local dMAcc = magicacc - magiceva
     -- FOR TESTING MACC AND MEVA!
-    -- print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva)) 
+    -- print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
+    --GetPlayerByID(2):PrintToPlayer(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
     if dMAcc < 0 then -- when penalty, half effective
         p = 50 + math.floor(dMAcc/2)
     else
