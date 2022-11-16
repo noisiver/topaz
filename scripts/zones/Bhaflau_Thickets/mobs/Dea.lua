@@ -27,7 +27,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 9000) 
     mob:setMobMod(tpz.mobMod.GIL_BONUS, 0) 
     mob:AnimationSub(0)
-	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     mob:setLocalVar("CripplingSlamEnabled", 0)
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
 end
