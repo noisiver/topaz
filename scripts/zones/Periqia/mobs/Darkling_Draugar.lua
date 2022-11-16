@@ -6,7 +6,7 @@
 local ID = require("scripts/zones/Periqia/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.TRIPLE_ATTACK, 15)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 15)
     mob:setMod(tpz.mod.CRITHITRATE, 100)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
