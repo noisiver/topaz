@@ -28,7 +28,12 @@ function onMobFight(mob, target)
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.SILENCE) then
-        PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains...", 0xD, none, 30)
+        local RNG = math.random(2)
+        if RNG == 1 then
+            PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains...", 0xD, none, 30)
+        else
+            PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " is regenerating.", 0xD, none, 30)
+        end
         mob:setMod(tpz.mod.REGEN, 100)
     end
 end
