@@ -444,10 +444,6 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         end
     end
 
-    if attackType == tpz.attackType.PHYSICAL and target:hasStatusEffect(tpz.effect.PHYSICAL_SHIELD) then
-        return 0
-    end
-
     if attackType == tpz.attackType.RANGED and target:hasStatusEffect(tpz.effect.ARROW_SHIELD) then
         return 0
     end
