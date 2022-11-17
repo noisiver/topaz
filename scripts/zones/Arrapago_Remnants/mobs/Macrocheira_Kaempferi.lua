@@ -27,7 +27,7 @@ function onMobFight(mob, target)
         local element = spell:getElement()
 
         if (element == tpz.magic.ele.ICE) and (amount >= 500) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) then
-            BreakMob(mob, caster, 1, 30, 2)
+            BreakMob(mob, caster, 1, 60, 2)
             mob:delStatusEffectSilent(tpz.effect.DELUGE_SPIKES)
         end
     end)
