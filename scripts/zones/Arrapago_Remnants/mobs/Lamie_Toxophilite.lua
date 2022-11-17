@@ -25,7 +25,7 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
-    salvageUtil.spawnRandomEvent(mob, player, isKiller, noKiller, 5, ID.mob.random_trash_start, ID.mob.random_trash_end)
+    salvageUtil.spawnRandomEvent(mob, player, isKiller, noKiller, 10, ID.mob.random_trash_start, ID.mob.random_trash_end)
 end
 
 function onMobDespawn(mob)
