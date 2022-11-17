@@ -19,7 +19,9 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGBREATH, -75)
     mob:setMod(tpz.mod.UDMGMAGIC, -75)
     mob:setMod(tpz.mod.UDMGRANGE, -75)
-    mob:setMod(tpz.mod.RANGEDRES, 1750)
+    mob:setMod(tpz.mod.RANGEDRES, 5000)
+    mob:setMod(tpz.mod.DEF, 0)
+    mob:setMod(tpz.mod.EVA, 0)
     mob:addImmunity(tpz.immunity.PARALYZE)
     mob:addImmunity(tpz.immunity.SLOW)
     mob:addImmunity(tpz.immunity.ELEGY)
@@ -47,6 +49,7 @@ function onMobFight(mob, target)
             PeriodicMessage(mob, mob:getTarget(), "You hear a mechanical-like whirring noise.", 0xD, none, 90)
         end
     end)
+    PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " is terrified of arrows...", 0xD, none, 30)
 end
 
 function onAdditionalEffect(mob, target, damage)

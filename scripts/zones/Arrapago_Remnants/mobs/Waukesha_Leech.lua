@@ -9,7 +9,11 @@ require("scripts/globals/status")
 require("scripts/globals/salvage")
 require("scripts/globals/mobs")
 -----------------------------------
-
+local msgs =
+{
+    [1] = "The " .. MobName(mob) .. " seems weak to skillchains...",
+    [2] = "The " .. MobName(mob) .. " is regenerating."
+}
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.DMG, -50)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
@@ -28,12 +32,7 @@ function onMobFight(mob, target)
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.SILENCE) then
-        local RNG = math.random(2)
-        if RNG == 1 then
-            PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains...", 0xD, none, 30)
-        else
-            PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " is regenerating.", 0xD, none, 30)
-        end
+        PeriodicInstanceMessage(mob, target, msgs[math.random(#msgs)], 0xD, none, 30)
         mob:setMod(tpz.mod.REGEN, 100)
     end
 end
