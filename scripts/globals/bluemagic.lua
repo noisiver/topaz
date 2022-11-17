@@ -485,11 +485,17 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
         dmg = (target:addHP(-dmg))
         spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
     else
+        if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         --handling rampart stoneskin
-        dmg = utils.rampartstoneskin(target, dmg)
-        -- handling stoneskin
-        dmg = utils.stoneskin(target, dmg)
-        target:takeDamage(dmg, caster, attackType, damageType)
+            dmg = utils.rampartstoneskin(target, dmg)
+            -- handling stoneskin
+            dmg = utils.stoneskin(target, dmg)
+            target:takeSpellDamage(caster, spell, dmg, attackType, damageType + spell:getElement())
+        else
+            -- handling stoneskin
+            dmg = utils.stoneskin(target, dmg)
+            target:takeDamage(dmg, caster, attackType, damageType)
+        end
     end
 
     if (params.NO_ENMITY == nil) then -- Only used for Regurg / Corrosive Ooze atm
@@ -498,6 +504,10 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
     return dmg
+end
+
+-- Blue Breath Type spells
+function BlueBreathSpell(caster, target, spell, params, hp)
 end
 
 ------------------------------
