@@ -6,9 +6,11 @@ local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/salvage")
 -----------------------------------
 
 function onMobSpawn(mob)
+    salvageUtil.setElementalMods(mob)
 end
 
 function onMobEngaged(mob, target)

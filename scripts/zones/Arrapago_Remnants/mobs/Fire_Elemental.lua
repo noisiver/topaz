@@ -10,6 +10,7 @@ require("scripts/globals/salvage")
 -----------------------------------
 
 function onMobSpawn(mob)
+    salvageUtil.setElementalMods(mob)
 end
 
 function onMobEngaged(mob, target)

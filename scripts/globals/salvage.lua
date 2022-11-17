@@ -920,6 +920,11 @@ function salvageUtil.resetTempBoxes(entity)
     end
 end
 
+function salvageUtil.setElementalMods(entity)
+    entity:setMod(tpz.mod.UDMGMAGIC, 100)
+    entity:setMod(tpz.mod.DMGMB, 100)
+end
+
 function salvageUtil.saveFloorProgress(entity)
     local instance = entity:getInstance()
     local zone = entity:getZoneName()

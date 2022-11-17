@@ -3447,72 +3447,72 @@ INSERT INTO `mob_groups` VALUES (2410,4275,73,'Wajaom_Tiger',0,128,0,0,0,0,0,0);
 
 -- Custom Start
 -- F1
-INSERT INTO `mob_groups` VALUES (101,6691,74,'Fire_Elemental',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (102,6688,74,'Wind_Elemental',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (103,6694,74,'Water_Elemental',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (104,6690,74,'Earth_Elemental',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (105,6692,74,'Ice_Elemental',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (106,6695,74,'Thunder_Elemental',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (107,6689,74,'Dark_Elemental',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (108,6693,74,'Light_Elemental',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (109,9083,74,'Macrocheira_Kaempferi',0,128,3200,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (110,9084,74,'Waukesha_Leech',0,128,3200,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (111,9085,74,'Kanaloa',0,128,3199,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (112,9086,74,'Alucard',0,128,3200,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (101,6691,74,'Fire_Elemental',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (102,6688,74,'Wind_Elemental',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (103,6694,74,'Water_Elemental',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (104,6690,74,'Earth_Elemental',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (105,6692,74,'Ice_Elemental',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (106,6695,74,'Thunder_Elemental',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (107,6689,74,'Dark_Elemental',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (108,6693,74,'Light_Elemental',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (109,9083,74,'Macrocheira_Kaempferi',0,128,3200,20000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (110,9084,74,'Waukesha_Leech',0,128,3200,20000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (111,9085,74,'Kanaloa',0,128,3199,20000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (112,9086,74,'Alucard',0,128,3200,20000,0,85,85,0);
 -- F2
 INSERT INTO `mob_groups` VALUES (113,218,74,'Archaic_Gear_random',0,128,3200,0,0,81,81,0);
-INSERT INTO `mob_groups` VALUES (114,2255,74,'King_Behemoth_random',0,128,3201,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (115,268,74,'Aspidochelone_random',0,128,3201,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (116,2840,74,'Nidhogg_random',0,128,3201,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (117,2254,74,'King_Arthro_random',0,128,3201,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (118,3630,74,'Simurgh_random',0,128,3201,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (119,3376,74,'Roc_random',0,128,3201,30000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (120,2664,74,'Mimic',0,128,3201,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (114,2255,74,'King_Behemoth_random',0,128,3201,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (115,268,74,'Aspidochelone_random',0,128,3201,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (116,2840,74,'Nidhogg_random',0,128,3201,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (117,2254,74,'King_Arthro_random',0,128,3201,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (118,3630,74,'Simurgh_random',0,128,3201,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (119,3376,74,'Roc_random',0,128,3201,10000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (120,2664,74,'Mimic',0,128,3201,3500,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (121,9087,74,'Ruins_Oil',0,128,3201,33000,0,86,86,0);
-INSERT INTO `mob_groups` VALUES (122,9088,74,'Verrottendes_Fleisch',0,128,3201,35000,0,86,86,0);
-INSERT INTO `mob_groups` VALUES (123,9089,74,'Disciple_Of_Mammon',0,128,3201,20000,0,86,86,0);
-INSERT INTO `mob_groups` VALUES (124,9090,74,'Mammon_Loyalist',0,128,3201,2500,0,76,76,0);
-INSERT INTO `mob_groups` VALUES (125,9091,74,'Student_Of_Erdhenne',0,128,3201,35000,0,86,86,0);
+INSERT INTO `mob_groups` VALUES (122,9088,74,'Verrottendes_Fleisch',0,128,3201,20000,0,86,86,0);
+INSERT INTO `mob_groups` VALUES (123,9089,74,'Disciple_Of_Mammon',0,128,3201,10000,0,86,86,0);
+INSERT INTO `mob_groups` VALUES (124,9090,74,'Mammon_Loyalist',0,128,3201,1500,0,76,76,0);
+INSERT INTO `mob_groups` VALUES (125,9091,74,'Student_Of_Erdhenne',0,128,3201,20000,0,86,86,0);
 -- F3
-INSERT INTO `mob_groups` VALUES (126,1285,74,'Fallen_Imperial_Trooper',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (127,1292,74,'Fallen_Volunteer',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (128,1286,74,'Fallen_Imperial_Wizard',0,128,3200,8000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (129,5202,74,'Ephramadian_Shade',0,128,3200,8000,2000,83,83,0); -- RDM
-INSERT INTO `mob_groups` VALUES (130,5203,74,'Ephramadian_Shade',0,128,3200,8000,2000,83,83,0); -- MNK
-INSERT INTO `mob_groups` VALUES (131,5204,74,'Ephramadian_Shade',0,128,3200,8000,2000,83,83,0); -- RNG
-INSERT INTO `mob_groups` VALUES (132,5205,74,'Ephramadian_Shade',0,128,3200,8000,2000,83,83,0); -- COR
-INSERT INTO `mob_groups` VALUES (133,9092,74,'Sahtra_Lihtenem',0,128,3202,60000,0,87,87,0); 
-INSERT INTO `mob_groups` VALUES (134,9093,74,'Tutankhamun',0,128,3202,600000,0,87,87,0); 
+INSERT INTO `mob_groups` VALUES (126,1285,74,'Fallen_Imperial_Trooper',0,128,3200,5000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (127,1292,74,'Fallen_Volunteer',0,128,3200,5000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (128,1286,74,'Fallen_Imperial_Wizard',0,128,3200,5000,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (129,5202,74,'Ephramadian_Shade',0,128,3200,5000,2000,83,83,0); -- RDM
+INSERT INTO `mob_groups` VALUES (130,5203,74,'Ephramadian_Shade',0,128,3200,5000,2000,83,83,0); -- MNK
+INSERT INTO `mob_groups` VALUES (131,5204,74,'Ephramadian_Shade',0,128,3200,5000,2000,83,83,0); -- RNG
+INSERT INTO `mob_groups` VALUES (132,5205,74,'Ephramadian_Shade',0,128,3200,5000,2000,83,83,0); -- COR
+INSERT INTO `mob_groups` VALUES (133,9092,74,'Sahtra_Lihtenem',0,128,3202,30000,0,87,87,0); 
+INSERT INTO `mob_groups` VALUES (134,9093,74,'Tutankhamun',0,128,3202,300000,0,87,87,0); 
 -- F4
-INSERT INTO `mob_groups` VALUES (135,9094,74,'Barnacle_Crab',0,128,3200,8000,2000,84,84,0); 
-INSERT INTO `mob_groups` VALUES (136,2318,74,'Lahama',0,128,3200,8000,2000,84,84,0); 
-INSERT INTO `mob_groups` VALUES (137,6636,74,'Heraldic_Imp',0,128,3200,8000,2000,84,84,0); 
-INSERT INTO `mob_groups` VALUES (138,3215,74,'Psycheflayer',0,128,3200,8000,2000,84,84,0); 
-INSERT INTO `mob_groups` VALUES (139,9095,74,'Hatmehyt',0,128,3202,80000,0,88,88,0); 
-INSERT INTO `mob_groups` VALUES (140,9096,74,'Medjeds_Head',0,128,0,40000,0,88,88,0); 
-INSERT INTO `mob_groups` VALUES (141,9097,74,'Medjeds_Body',0,128,0,40000,0,88,88,0); 
+INSERT INTO `mob_groups` VALUES (135,9094,74,'Barnacle_Crab',0,128,3200,5000,2000,84,84,0); 
+INSERT INTO `mob_groups` VALUES (136,2318,74,'Lahama',0,128,3200,5000,2000,84,84,0); 
+INSERT INTO `mob_groups` VALUES (137,6636,74,'Heraldic_Imp',0,128,3200,5000,2000,84,84,0); 
+INSERT INTO `mob_groups` VALUES (138,3215,74,'Psycheflayer',0,128,3200,5000,2000,84,84,0); 
+INSERT INTO `mob_groups` VALUES (139,9095,74,'Hatmehyt',0,128,3202,50000,0,88,88,0); 
+INSERT INTO `mob_groups` VALUES (140,9096,74,'Medjeds_Head',0,128,0,17000,0,88,88,0); 
+INSERT INTO `mob_groups` VALUES (141,9097,74,'Medjeds_Body',0,128,0,17000,0,88,88,0); 
 -- F5
-INSERT INTO `mob_groups` VALUES (142,2894,74,'Nix_Songstress',0,128,3200,8000,2000,85,85,0); -- BRD
-INSERT INTO `mob_groups` VALUES (143,2896,74,'Nix_Wavedancer',0,128,3200,8000,2000,85,85,0); -- COR
-INSERT INTO `mob_groups` VALUES (144,2893,74,'Nix_Bladedancer',0,128,3200,8000,2000,85,85,0); -- RDM
-INSERT INTO `mob_groups` VALUES (145,2895,74,'Nix_Typhoondancer',0,128,3200,8000,2000,85,85,0);-- SAM
-INSERT INTO `mob_groups` VALUES (146,2364,74,'Lamie_Necromancer',0,128,3200,8000,2000,85,85,0); -- BLM
-INSERT INTO `mob_groups` VALUES (147,2362,74,'Lamie_Bellydancer',0,128,3200,8000,2000,85,85,0); -- SMN
-INSERT INTO `mob_groups` VALUES (148,6689,74,'Lamias_Elemental',0,128,3200,8000,2000,80,80,0);
-INSERT INTO `mob_groups` VALUES (149,2363,74,'Lamie_Deathdancer',0,128,3200,8000,2000,85,85,0); -- COR
-INSERT INTO `mob_groups` VALUES (150,2368,74,'Lamie_Toxophilite',0,128,3200,8000,2000,85,85,0); -- RNG
+INSERT INTO `mob_groups` VALUES (142,2894,74,'Nix_Songstress',0,128,3200,5000,2000,85,85,0); -- BRD
+INSERT INTO `mob_groups` VALUES (143,2896,74,'Nix_Wavedancer',0,128,3200,5000,2000,85,85,0); -- COR
+INSERT INTO `mob_groups` VALUES (144,2893,74,'Nix_Bladedancer',0,128,3200,5000,2000,85,85,0); -- RDM
+INSERT INTO `mob_groups` VALUES (145,2895,74,'Nix_Typhoondancer',0,128,3200,5000,2000,85,85,0);-- SAM
+INSERT INTO `mob_groups` VALUES (146,2364,74,'Lamie_Necromancer',0,128,3200,5000,2000,85,85,0); -- BLM
+INSERT INTO `mob_groups` VALUES (147,2362,74,'Lamie_Bellydancer',0,128,3200,5000,2000,85,85,0); -- SMN
+INSERT INTO `mob_groups` VALUES (148,6689,74,'Lamias_Elemental',0,128,3200,5000,2000,80,80,0);
+INSERT INTO `mob_groups` VALUES (149,2363,74,'Lamie_Deathdancer',0,128,3200,5000,2000,85,85,0); -- COR
+INSERT INTO `mob_groups` VALUES (150,2368,74,'Lamie_Toxophilite',0,128,3200,5000,2000,85,85,0); -- RNG
 INSERT INTO `mob_groups` VALUES (151,2331,74,'Lamia_Exon_BLM',0,128,0,15000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (152,6754,74,'Lamia_Exon_COR',0,128,0,15000,2000,85,85,0);
-INSERT INTO `mob_groups` VALUES (153,2606,74,'Medusa',0,128,3203,100000,0,89,89,0); 
-INSERT INTO `mob_groups` VALUES (154,721,74,'Chemical_Spill',0,128,3200,8000,2000,85,85,0);
-INSERT INTO `mob_groups` VALUES (155,39,74,'Abomination',0,128,3200,8000,2000,85,85,0);
-INSERT INTO `mob_groups` VALUES (156,5404,74,'Professor_P',0,128,3203,100000,0,89,89,0); 
-INSERT INTO `mob_groups` VALUES (157,721,74,'DQ_Slime',0,128,0,10000,0,80,80,0); 
+INSERT INTO `mob_groups` VALUES (153,2606,74,'Medusa',0,128,3203,50000,0,89,89,0); 
+INSERT INTO `mob_groups` VALUES (154,721,74,'Chemical_Spill',0,128,3200,5000,2000,85,85,0);
+INSERT INTO `mob_groups` VALUES (155,39,74,'Abomination',0,128,3200,5000,2000,85,85,0);
+INSERT INTO `mob_groups` VALUES (156,5404,74,'Professor_P',0,128,3203,50000,0,89,89,0); 
+INSERT INTO `mob_groups` VALUES (157,721,74,'DQ_Slime',0,128,0,1500,0,80,80,0); 
 -- F6
-INSERT INTO `mob_groups` VALUES (158,9086,74,'Blooddrinker',0,128,0,8000,2000,85,85,0);
-INSERT INTO `mob_groups` VALUES (159,9098,74,'Alucard',0,128,3203,125000,0,90,90,0); 
+INSERT INTO `mob_groups` VALUES (158,9086,74,'Blooddrinker',0,128,0,5000,2000,85,85,0);
+INSERT INTO `mob_groups` VALUES (159,9098,74,'Alucard',0,128,3203,600000,0,90,90,0); 
 -- F7
-INSERT INTO `mob_groups` VALUES (41,246,74,'Armored_Chariot',0,128,171,150000,0,95,95,0);
+INSERT INTO `mob_groups` VALUES (41,246,74,'Armored_Chariot',0,128,171,600000,0,95,95,0);
 
 INSERT INTO `mob_groups` VALUES (160,3148,74,'Pixie',0,128,3204,0,0,75,75,0); 
 -- Custom End
