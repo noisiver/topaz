@@ -13,6 +13,8 @@ require("scripts/globals/salvage")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(50)
+    mob:setDelay(4000)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setModelId(2908)
 end

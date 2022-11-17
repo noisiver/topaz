@@ -56,8 +56,12 @@ function onMobDespawn(mob)
             return
         end
     end
-    SpawnMob(17081233, instance)
-    salvageUtil.msgGroup(mob, "Great news, everyone! I think I've perfected a plague that will destroy all life in Vana'diel.", 0, "Professor P")
+
+    professorP = GetMobByID(17081233, instance)
+    if not professorP:isSpawned() then
+        SpawnMob(17081233, instance)
+        salvageUtil.msgGroup(mob, "Great news, everyone! I think I've perfected a plague that will destroy all life in Vana'diel.", 0, "Professor P")
+    end
 end
 
 

@@ -9,6 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:delImmunity(tpz.immunity.SILENCE) 
 end
 
 function onMobEngaged(mob, target)
@@ -33,7 +34,9 @@ function onMobDespawn(mob)
     end
     hatmehyt = GetMobByID(17081182, instance)
     hatmehyt:setSpawn(mob:getXPos(), mob:getYPos(), mob:getZPos(), mob:getRotPos())
-    SpawnMob(17081182, instance)
-    salvageUtil.msgGroup(mob, "A big fish leaps towards you!", 0xD, none)
+    if not hatmehyt:isSpawned() then
+        SpawnMob(17081182, instance)
+        salvageUtil.msgGroup(mob, "A big fish leaps towards you!", 0xD, none)
+    end
 end
 

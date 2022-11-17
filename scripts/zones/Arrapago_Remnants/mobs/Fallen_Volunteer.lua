@@ -71,11 +71,16 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
+    local tutankhamun = GetMobByID(17081149, instance)
+
     for i = 17081114, 17081130 do
         if not GetMobByID(i, instance):isDead() then
             return
         end
     end
-    SpawnMob(17081149, instance)
-    salvageUtil.msgGroup(mob, "Bwixki amala zal qulllll...", 0, "Tutankhamun")
+
+    if not tutankhamun:isSpawned() then
+        SpawnMob(17081149, instance)
+        salvageUtil.msgGroup(mob, "Bwixki amala zal qulllll...", 0, "Tutankhamun")
+    end
 end

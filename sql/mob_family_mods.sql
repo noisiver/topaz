@@ -255,6 +255,8 @@ INSERT INTO `mob_family_mods` VALUES (204,390,200,0);	-- Qutrub +200%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (205,390,200,0);	-- Qutrub +200%(Bonus)
 
 -- Magic damage taken (MDT)
+INSERT INTO `mob_family_mods` VALUES (1,389,-13,0); 	-- Acrolith -13%
+INSERT INTO `mob_family_mods` VALUES (302,389,-13,0); 	-- Wulgaru(Acrolith) -13%
 INSERT INTO `mob_family_mods` VALUES (112,389,25,0); 	-- Flan +25%(Bonus)
 INSERT INTO `mob_family_mods` VALUES (203,389,200,0);	-- Qutrub +200%(+200% Bonus)
 INSERT INTO `mob_family_mods` VALUES (204,389,200,0);	-- Qutrub +200%(+200% Bonus)

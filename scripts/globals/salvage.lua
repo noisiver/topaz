@@ -141,7 +141,6 @@ function salvageUtil.afterInstanceRegister(player, fireFlies, mapID)
     --player:addStatusEffectEx(tpz.effect.IMPAIRMENT, tpz.effect.IMPAIRMENT, 3, 0, 6000)
     --player:addStatusEffectEx(tpz.effect.DEBILITATION, tpz.effect.DEBILITATION, 0x1FF, 0, 6000)
     player:addTempItem(fireFlies)
-    player:addTempItem(tpz.items.DUSTY_SCROLL_OF_RERAISE)
     player:addKeyItem(mapID)
 
     --for i = tpz.slot.MAIN, tpz.slot.BACK do
@@ -994,7 +993,7 @@ function salvageUtil.onInstanceComplete(instance)
     local floor = instance:getStage()
     local chars = instance:getChars()
 
-    -- Reset floor teleport var to 0 for thezone
+    -- Reset floor teleport var to 0 for the zone
     for i, v in pairs(chars) do
         local zone = v:getZoneName()
         v:setCharVar(zone, 0)

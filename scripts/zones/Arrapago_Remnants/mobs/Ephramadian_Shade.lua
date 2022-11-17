@@ -24,6 +24,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.RANGEDRES, 500)
     mob:setMod(tpz.mod.IMPACTRES, 750)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+    mob:delImmunity(tpz.immunity.SILENCE) 
 end
 
 function onMobEngaged(mob, target)
@@ -54,11 +55,15 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
+    local sahtraLihtenem = GetMobByID(17081148, instance)
     for i = 17081131, 17081147 do
         if not GetMobByID(i, instance):isDead() then
             return
         end
     end
-    SpawnMob(17081148, instance)
-    salvageUtil.msgGroup(mob, "Enruomtsorf hungers.", 0, "Sahtra Lihtenem")
+
+    if not sahtraLihtenem:isSpawned() then
+        SpawnMob(17081148, instance)
+        salvageUtil.msgGroup(mob, "Enruomtsorf hungers.", 0, "Sahtra Lihtenem")
+    end
 end

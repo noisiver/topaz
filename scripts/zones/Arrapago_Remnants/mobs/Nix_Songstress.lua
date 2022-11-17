@@ -13,6 +13,7 @@ mixins = {require("scripts/mixins/weapon_break")}
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 0)
+    mob:delImmunity(tpz.immunity.SILENCE) 
 end
 function onMobEngaged(mob, target)
 end
@@ -34,9 +35,13 @@ function onMobDespawn(mob)
             return
         end
     end
-    SpawnMob(17081209, instance)
-    SpawnMob(17081210, instance)
-    salvageUtil.msgGroup(mob, "Our queen will not be happy about this.", 0, "Lamia Exon")
+    exon1 = GetMobByID(17081209, instance)
+    exon2 = GetMobByID(17081210, instance)
+    if not exon1:isSpawned() and not exon2:isSpawned() then
+        SpawnMob(17081209, instance)
+        SpawnMob(17081210, instance)
+        salvageUtil.msgGroup(mob, "Our queen will not be happy about this.", 0, "Lamia Exon")
+    end
 end
 
 

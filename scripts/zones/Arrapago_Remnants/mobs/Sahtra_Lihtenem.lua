@@ -45,12 +45,12 @@ end
 function onMobEngaged(mob, target)
     local phase = mob:getLocalVar("phase")
     -- Reset vars, jo, model on engage unless in phase 4
-    ChangeJobTHF(mob)
     mob:setLocalVar("jumpTimer", os.time() + 30)
     if (phase < 4) then
         mob:setLocalVar("phase", 0)
         mob:setLocalVar("bioTimer", os.time() + 30)
         mob:setLocalVar("msgTimer", os.time() + 45)
+        ChangeJobTHF(mob)
     end
 end
 
@@ -80,7 +80,7 @@ function onMobFight(mob, target)
         elseif (hpp < 30) then 
             mob:setLocalVar("phase", 3)
             ChangeJobDRG(mob)
-            instance:setProgress(100)
+            instance:setProgress(instance:getProgress() + 100)
             KillAllPlayers(mob, instance)
         end
     end
@@ -130,7 +130,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
             instance:setProgress(1)
             salvageUtil.teleportGroup(player, 339, -0, math.random(456, 464), 129, true, false, false)
             salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
-        else
+        elseif (progress == 1) then
             -- Nearby door opens
             mob:getEntity(bit.band(ID.npc[3][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
             mob:getEntity(bit.band(ID.npc[3][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)

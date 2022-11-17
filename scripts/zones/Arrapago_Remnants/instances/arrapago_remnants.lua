@@ -33,7 +33,7 @@ function onInstanceTimeUpdate(instance, elapsed) -- Ticks constantly like battle
     local progress = instance:getProgress()
 
     if (instance:getStage() > 7) then
-        instance:complete()
+        salvageUtil.onInstanceComplete(instance) -- TODO: Test
     end
 
     -- Floor 6 mechanics
@@ -42,7 +42,7 @@ function onInstanceTimeUpdate(instance, elapsed) -- Ticks constantly like battle
         salvageUtil.spawnMob(instance, 17081245)
     end
 
-    if (progress == 100) then return end -- Used for Sahtra Lihtenem boss fight
+    if (progress >= 100) then return end -- Used for Sahtra Lihtenem boss fight
 
     -- Check for wipe
     if (stage == 1 and progress == 1) then -- Floor 1
@@ -89,7 +89,6 @@ function onInstanceFailure(instance)
 end
 
 function onInstanceComplete(instance)
-    salvageUtil.onInstanceComplete(instance)
 end
 
 function onRegionEnter(player, region, instance)
@@ -159,31 +158,31 @@ function onEventFinish(player, csid, option)
         instance:setStage(3)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[3][1].mobs_start, ID.mob[3][1].mobs_end)
-        salvageUtil.teleportGroup(player, 339, -0, math.random(456, 464), 129, 0, false, false, false) -- TODO: Test
+        salvageUtil.teleportGroup(player, 339, -0, math.random(456, 464), 129, 0, false, false, true) -- TODO: Test
         salvageUtil.saveFloorProgress(player)
     elseif csid == 205 or csid == 206 and option == 1 then -- Port from 3rd floor to 4th floor
         instance:setStage(4)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end)
-        salvageUtil.teleportGroup(player, math.random(-342, -335), -0, -580, 0, false, false, false) -- TODO: Test
+        salvageUtil.teleportGroup(player, math.random(-342, -335), -0, -580, 0, true, false, true) 
         salvageUtil.saveFloorProgress(player) 
     elseif csid == 207 or csid == 208 and option == 1 then -- Port from 4th floor to 5th floor
         instance:setStage(5)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end)
-        salvageUtil.teleportGroup(player, math.random(-303, -298), -0, -19, 0, false, false, false) -- TODO: Test
+        salvageUtil.teleportGroup(player, math.random(-303, -298), -0, -19, 0, false, false, true) 
         salvageUtil.saveFloorProgress(player)
     elseif csid == 209 and option == 1 then -- Port from 5th floor to 6th floor
         instance:setStage(6)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end)
-        salvageUtil.teleportGroup(player, math.random(-343, -333), -0, 219, 0, false, false, false) -- TODO: Test
+        salvageUtil.teleportGroup(player, math.random(-343, -333), -0, 219, 0, false, false, true) 
         salvageUtil.saveFloorProgress(player)
     elseif csid == 210 and option == 1 then
         instance:setStage(7)
         instance:setProgress(0)
         SpawnMob(ID.mob[7][1].chariot, instance)
-        salvageUtil.teleportGroup(player, math.random(-343, -333), -0, 619, 0, false, false, false) -- TODO: Test
+        salvageUtil.teleportGroup(player, math.random(-343, -333), -0, 619, 0, false, false, true) -- Double said saved to floor 7?
         salvageUtil.saveFloorProgress(player)
     end
 end

@@ -29,12 +29,21 @@ function onMobFight(mob, target)
     local enmityList = mob:getEnmityList()
     local eesTarget = nil
     local eesUses = mob:getLocalVar("eesUses")
+    local gazeTickCheck = mob:getLocalVar("gazeTickCheck")
 
     -- Gradually petrifies anyone facing her, facing away removes the gruadl petrificaiton effect
-    if target:isFacing(mob) and not target:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) and not target:hasStatusEffect(tpz.effect.PETRIFICATION) then
-        target:addStatusEffect(tpz.effect.GRADUAL_PETRIFICATION, 10, 3, 15)
-    elseif not target:isFacing(mob) and target:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
-        target:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
+    if os.time() >= gazeTickCheck then
+        mob:setLocalVar("gazeTickCheck", os.time() + 3)
+        local nearbyPlayers = mob:getPlayersInRange(10)
+        if nearbyPlayers ~= nil then
+            for _,v in ipairs(nearbyPlayers) do
+                if v:isFacing(mob) and not v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) and not v:hasStatusEffect(tpz.effect.PETRIFICATION) then
+                    v:addStatusEffect(tpz.effect.GRADUAL_PETRIFICATION, 10, 3, 15)
+                elseif not v:isFacing(mob) and v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
+                    v:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
+                end
+            end
+        end
     end
 
     -- Uses EES on a random target at 89,79,69,59,49,39,29,19,9% HP

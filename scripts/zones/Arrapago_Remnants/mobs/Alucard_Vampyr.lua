@@ -22,6 +22,17 @@ local auraList =
     [2111] = { tpz.effect.GEO_MAGIC_ACC_DOWN, 25 },
     [2534] = { tpz.effect.GEO_SLOW, 3500 }
 }
+local msgList =
+{
+    [2106] = { "Don't waste my time." },
+    [2107] = { "You fail to amuse me." },
+    [2108] = { "Pitiful." },
+    [2109] = { "What a foolish ploy." },
+    [2110] = { "Tremble before me!" },
+    [2111] = { "What trickery is this?" },
+    [2534] = { "This will please me.", }
+}
+
 function onMobSpawn(mob)
     local instance = mob:getInstance()
     local chars = instance:getChars()
@@ -29,7 +40,7 @@ function onMobSpawn(mob)
     for i, v in pairs(chars) do
         v:addStatusEffect(tpz.effect.TERROR, 1, 0, 5)
     end
-    salvageUtil.msgGroup(mob, "I come from the darkness of the pit.", 0, "Alucard")
+    salvageUtil.msgGroup(mob, "The night beckons!", 0, "Alucard")
     mob:setDelay(3500)
     mob:setDamage(40)
     mob:setMod(tpz.mod.DEFP, 0)
@@ -47,6 +58,7 @@ end
 function onMobFight(mob, target)
     local manafontUses = mob:getLocalVar("manafontUses")
     local aura = mob:getLocalVar("aura")
+    local msg = mob:getLocalVar("msg")
     local hp = mob:getHPP()
 
     -- Uses Manafont at 89,79,69,59,49,39,29,19,9% HP
@@ -71,6 +83,12 @@ function onMobFight(mob, target)
             AddMobAura(mob, target, 13, auraList[aura][1], auraList[aura][2], 3)
         end
     end
+
+    -- Display TP move message to players
+    if (msg > 0) then
+        salvageUtil.msgGroup(mob, msgList[msg][1], 0, "Alucard")
+        mob:setLocalVar("msg", 0)
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -81,23 +99,7 @@ function onMobWeaponSkill(target, mob, skill)
     -- Set aura for table on TP move, except for Manafont
     if skill:getID() ~= 691 then
         mob:setLocalVar("aura", skill:getID())
-    end
-
-    -- Display text on TP moves
-    if skill:getID() == 2106 then -- Bloodrake
-        salvageUtil.msgGroup(mob, "Don't waste my time.", 0, "Alucard")
-    elseif skill:getID() == 2107 then -- Decollation
-        salvageUtil.msgGroup(mob, "You fail to amuse me.", 0, "Alucard")
-    elseif skill:getID() == 2108 then -- Nosferatu's Kiss
-        salvageUtil.msgGroup(mob, "Pitiful.", 0, "Alucard")
-    elseif skill:getID() == 2109 then -- Heliovoid
-        salvageUtil.msgGroup(mob, "What a foolish ploy.", 0, "Alucard")
-    elseif skill:getID() == 2110 then -- Wings of Gehenna
-        salvageUtil.msgGroup(mob, "Tremble before me!", 0, "Alucard")
-    elseif skill:getID() == 2111 then -- Eternal Damnation
-        salvageUtil.msgGroup(mob, "What trickery is this?", 0, "Alucard")
-    elseif skill:getID() == 2534 then -- Minax Glare
-        salvageUtil.msgGroup(mob, "This will please me.", 0, "Alucard")
+        mob:setLocalVar("msg", skill:getID())
     end
 end
 

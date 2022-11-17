@@ -13,6 +13,7 @@ require("scripts/globals/pathfind")
 function onMobSpawn(mob)
     mob:setDamage(75)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+    mob:delImmunity(tpz.immunity.SILENCE) 
     onPath(mob)
 end
 

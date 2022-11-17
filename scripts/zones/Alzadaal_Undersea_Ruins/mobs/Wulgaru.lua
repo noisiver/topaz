@@ -19,7 +19,6 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.DEF, 350)
     mob:setMod(tpz.mod.EVA, 320)
     mob:setMod(tpz.mod.MDEF, 40)
-    mob:setMod(tpz.mod.UDMGMAGIC, 13)
     mob:setMod(tpz.mod.UDMGBREATH, 0) 
     mob:setMod(tpz.mod.REGAIN, 100)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 6500) -- 7k Gil

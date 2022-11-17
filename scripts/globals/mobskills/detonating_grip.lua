@@ -15,7 +15,7 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if  mob:AnimationSub() == 0 or mob:AnimationSub() == 1 then 
+	if  mob:AnimationSub() == 0 or mob:AnimationSub() == 1 and mob:getLocalVar("armLost") == 0 then 
 		return 0
 	else
 		return 1
@@ -37,10 +37,9 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.0
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
-	if  mob:AnimationSub() == 0 then 
+	if mob:AnimationSub() == 0 then 
 		mob:AnimationSub(1) 
-	elseif
-		mob:AnimationSub() == 1 then 
+	elseif mob:AnimationSub() == 1 then 
 		mob:AnimationSub(2) 
 	end
 		 

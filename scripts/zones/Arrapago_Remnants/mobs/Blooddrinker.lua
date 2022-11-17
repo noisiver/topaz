@@ -13,7 +13,9 @@ function onMobSpawn(mob)
 	mob:SetAutoAttackEnabled(false)
     mob:SetMagicCastingEnabled(false)
     mob:SetMobAbilityEnabled(false)
+    mob:setUnkillable(true)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+    mob:setMobMod(tpz.mobMod.NO_AGGRO, 1)
 end
 
 function onMobEngaged(mob, target)

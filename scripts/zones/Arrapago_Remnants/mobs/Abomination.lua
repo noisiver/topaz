@@ -22,6 +22,7 @@ parties =
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 0)
+    mob:AnimationSub(0) 
 end
 
 function onMobEngaged(mob, target)
@@ -57,8 +58,12 @@ function onMobDespawn(mob)
             return
         end
     end
-    SpawnMob(17081233, instance)
-    salvageUtil.msgGroup(mob, "Great news, everyone! I think I've perfected a plague that will destroy all life in Vana'diel.", 0, "Professor P")
+
+    professorP = GetMobByID(17081233, instance)
+    if not professorP:isSpawned() then
+        SpawnMob(17081233, instance)
+        salvageUtil.msgGroup(mob, "Great news, everyone! I think I've perfected a plague that will destroy all life in Vana'diel.", 0, "Professor P")
+    end
 end
 
 

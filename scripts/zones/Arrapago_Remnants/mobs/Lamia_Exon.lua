@@ -40,8 +40,11 @@ function onMobDespawn(mob)
             return
         end
     end
-    SpawnMob(17081211, instance)
-    salvageUtil.msgGroup(mob, "What have you done?!", 0, "Medusa")
+    medusa = GetMobByID(17081211, instance)
+    if not medusa:isSpawned() then
+        SpawnMob(17081211, instance)
+        salvageUtil.msgGroup(mob, "What have you done?!", 0, "Medusa")
+    end
 end
 
 

@@ -37,7 +37,11 @@ CREATE TABLE IF NOT EXISTS `mob_skill_lists` (
 -- Contenu de la table `mob_skill_lists`
 --
 
--- 1: Acrolith
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2070); -- dismemberment
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2071); -- dire_straight
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2072); -- earth_shatter
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2073); -- sinker_drill
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2074); -- detonating_grip
 INSERT INTO `mob_skill_lists` VALUES ('Adamantoise',2,804);
 INSERT INTO `mob_skill_lists` VALUES ('Adamantoise',2,805);
 INSERT INTO `mob_skill_lists` VALUES ('Adamantoise',2,806);
