@@ -61,7 +61,7 @@ function onMobFight(mob, target)
     mob:addListener("SPELL_DMG_TAKEN", "MEDUSA_SPELL_DMG_TAKEN", function(mob, caster, spell, amount, msg)
         local element = spell:getElement()
 
-        if (element == tpz.magic.ele.EARTH) and (amount >= 1000) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) then
+        if (element == tpz.magic.ele.EARTH) and (amount >= 500) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) then
             BreakMob(mob, caster, 1, 60, 2)
         end
     end)

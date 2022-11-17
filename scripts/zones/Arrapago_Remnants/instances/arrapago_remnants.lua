@@ -46,7 +46,7 @@ function onInstanceTimeUpdate(instance, elapsed) -- Ticks constantly like battle
 
     -- Check for wipe
     if (stage == 1 and progress == 1) then -- Floor 1
-        salvageUtil.raiseGroup(instance, 247, -20, -327, 0, 3)
+        salvageUtil.raiseGroup(instance, 254, -20, -328, 0, 3)
     elseif (stage == 1 and progress == 2) then
         salvageUtil.raiseGroup(instance, 259, -20, -512, 193, 3)
     elseif (stage == 1 and progress == 3) then
