@@ -384,7 +384,7 @@ namespace battleutils
             }
             //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
             // Blue Magic spike spells use Blue Magic Skll
-            if (PDefender->GetMJob() == JOB_BLU)
+            if (PDefender->GetMJob() == JOB_BLU && PDefender->objtype == TYPE_PC)
             {
                 magicacc += static_cast<float>(PDefender->GetSkill(SKILL_BLUE_MAGIC) + PDefender->getMod(Mod::MACC));
                 magicacc -= static_cast<float>(PDefender->GetSkill(SKILL_ENHANCING_MAGIC));
