@@ -622,6 +622,7 @@ function salvageUtil.raiseGroup(instance, posx, posy, posz, posrot, raisetype)
                 v:setPos(posx + math.random(1, 6), posy, posz + math.random(1, 6), posrot)
                 v:sendRaise(raisetype)
                 v:delStatusEffect(1)
+                v:setMP(3000)
                 v:setLocalVar("GMRaise", 1)
                 v:PrintToPlayer("You see pink feathers scatter around you...", 0xD, none)
                 return true
