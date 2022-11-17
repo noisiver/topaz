@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/families/dahak")}
 -----------------------------------
 
@@ -36,4 +37,5 @@ end
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 542)
+    tpz.wotg.MagianT1(mob, player, isKiller)
 end

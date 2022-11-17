@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/wotg")
 ------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(250) -- 350-450 on DD's
@@ -27,4 +28,5 @@ end
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 540)
+    tpz.wotg.MagianT1(mob, player, isKiller)
 end

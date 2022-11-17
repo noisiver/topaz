@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/wotg")
 ------------------------------
 
 function onMobSpawn(mob)
@@ -45,13 +46,5 @@ end
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 471)
-	if isKiller  then 
-		player:addTreasure(5736, mob)--Linen Coin Purse
-	end
-	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(5736, mob)--Linen Coin Purse
-	end
-	if isKiller and math.random(1,100) <= 15 then 
-		player:addTreasure(5736, mob)--Linen Coin Purse
-	end
+    tpz.wotg.MagianT1(mob, player, isKiller)
 end

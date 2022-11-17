@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/weapon_break")}
 ------------------------------
 function onMobSpawn(mob)
@@ -21,13 +22,5 @@ end
 
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 458)
-	if isKiller  then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
-	end
-	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
-	end
-	if isKiller and math.random(1,100) <= 15 then 
-		player:addTreasure(5735, mob)--Cotton Coin Purse
-	end
+    tpz.wotg.MagianT1(mob, player, isKiller)
 end

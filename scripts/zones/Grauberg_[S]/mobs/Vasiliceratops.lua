@@ -21,6 +21,6 @@ function onMobSpawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
-    tpz.wotg.MagianT1(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 505)
+    tpz.wotg.MagianT1(mob, player, isKiller)
 end
