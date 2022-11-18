@@ -986,6 +986,12 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
     local rot = floorTeleports[floor][4]
 
     if npcUtil.tradeHas(trade, tpz.items.GIL) and (floor > 0) then
+        if (floor == 2) -- Spawn Ramparts for Floor 2 TODO: Test
+            salvageUtil.spawnMob(instance, 17080489)
+            salvageUtil.spawnMob(instance, 17080492)
+            salvageUtil.spawnMob(instance, 17080509)
+            salvageUtil.spawnMob(instance, 17080512)
+        end
         salvageUtil.spawnMobGroup(instance, mobSpawns[floor][1], mobSpawns[floor][2])
         instance:setStage(floor)
         instance:setProgress(0)
