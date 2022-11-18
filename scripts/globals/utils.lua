@@ -749,30 +749,50 @@ end
 function utils.GetMatchingSCDayElement()
     local elements =
     {
-        [1] = {day = {tpz.day.FIRESDAY}, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
-        [2] = {day = {tpz.day.EARTHSDAY}, sc = {tpz.skillchainEle.SCISSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
-        [3] = {day = {tpz.day.WATERSDAY}, sc = {tpz.skillchainEle.REVERBERATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
-        [4] = {day = {tpz.day.WINDSDAY}, sc = {tpz.skillchainEle.DETONATION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
-        [5] = {day = {tpz.day.ICEDAY}, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
-        [6] = {day = {tpz.day.LIGHTNINGDAY}, sc = {tpz.skillchainEle.IMPACTION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
-        [7] = {day = {tpz.day.LIGHTSDAY}, sc = {tpz.skillchainEle.TRANSFIXION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
-        [8] = {day = {tpz.day.DARKSDAY}, sc = {tpz.skillchainEle.COMPRESSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        {day = tpz.day.FIRESDAY, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        {day = tpz.day.EARTHSDAY, sc = {tpz.skillchainEle.SCISSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        {day = tpz.day.WATERSDAY, sc = {tpz.skillchainEle.REVERBERATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        {day = tpz.day.WINDSDAY, sc = {tpz.skillchainEle.DETONATION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        {day = tpz.day.ICEDAY, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        {day = tpz.day.LIGHTNINGDAY, sc = {tpz.skillchainEle.IMPACTION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        {day = tpz.day.LIGHTSDAY, sc = {tpz.skillchainEle.TRANSFIXION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        {day = tpz.day.DARKSDAY, sc = {tpz.skillchainEle.COMPRESSION, tpz.skillchainEle.GRAVITATION,  tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
     }
-
-    local dayElement = VanadielDayElement()
-    dayElement = dayElement +1
-    local currentDay = elements[dayElement].day[1]
-    --printf("day element %s", dayElement)
-    --printf("current day %s", currentDay)
-    local currentMatchingSkillchains = {}
-    currentMatchingSkillchains = elements[dayElement].sc
-
-    return currentMatchingSkillchains
+    
+    local day = VanadielDayOfTheWeek()
+    for _,entry in ipairs(elements) do
+        if day == entry.day then
+            return entry.sc
+        end
+    end
+    
+    return nil
 end
 
 function utils.CheckForZombie(player, target, ability)
     if target:hasStatusEffect(tpz.effect.CURSE_II) then
         ability:setMsg(tpz.msg.basic.JA_NO_EFFECT_2)
+        return true
+    end
+    return false
+end
+
+function utils.IsElementalDOT(effect)
+    if (effect >= tpz.effect.BURN) and (effect <= tpz.effect.DROWN) then
+        return true
+    end
+    return false
+end
+
+function utils.IsDOT(effect)
+    if (effect >= tpz.effect.BURN) and (effect <= tpz.effect.BIO) then
+        return true
+    end
+    return false
+end
+
+function utils.IsStatDown(effect)
+    if (effect >= tpz.effect.STR_DOWN) and (effect <= tpz.effect.CHR_DOWN) then
         return true
     end
     return false
