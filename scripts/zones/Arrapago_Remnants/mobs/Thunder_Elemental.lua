@@ -7,6 +7,7 @@ require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/salvage")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -35,4 +36,8 @@ function onMobDespawn(mob)
         end
     end
     SpawnMob(17081106, instance)
+end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENTHUNDER, {chance = 100, power = math.random(200, 250)})
 end

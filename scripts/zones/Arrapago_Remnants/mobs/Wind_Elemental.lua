@@ -7,6 +7,7 @@ require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/salvage")
+require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
@@ -29,7 +30,6 @@ end
 function onMobDespawn(mob)
 end
 
--- For testing purposes only
---function onMobWeaponSkillPrepare(mob, target)
---    return 1560 
---end
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENAERO, {chance = 100, power = math.random(200, 250)})
+end

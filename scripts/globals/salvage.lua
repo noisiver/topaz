@@ -921,8 +921,10 @@ function salvageUtil.resetTempBoxes(entity)
 end
 
 function salvageUtil.setElementalMods(entity)
+    entity:setDamage(50)
     entity:setMod(tpz.mod.UDMGMAGIC, 100)
     entity:setMod(tpz.mod.DMGMB, 100)
+    entity:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
 function salvageUtil.saveFloorProgress(entity)
