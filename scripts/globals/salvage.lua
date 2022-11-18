@@ -977,7 +977,7 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
         [4] = { ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end },
         [5] = { ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end },
         [6] = { ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end },
-        [7] = { ID.mob[7][1].chariot, ID.mob[7][1].chariot }, -- TODO: Test
+        [7] = { ID.mob[7][1].chariot, ID.mob[7][1].chariot },
     }
 
     local posx = floorTeleports[floor][1]
@@ -986,7 +986,7 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
     local rot = floorTeleports[floor][4]
 
     if npcUtil.tradeHas(trade, tpz.items.GIL) and (floor > 0) then
-        if (floor == 2) -- Spawn Ramparts for Floor 2 TODO: Test
+        if (floor == 2) then -- Spawn Ramparts for Floor 2 TODO: Test
             salvageUtil.spawnMob(instance, 17080489)
             salvageUtil.spawnMob(instance, 17080492)
             salvageUtil.spawnMob(instance, 17080509)
