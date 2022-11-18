@@ -10,6 +10,8 @@ require("scripts/globals/salvage")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(80)
+    mob:setDelay(4000)
     mob:setMobMod(tpz.mobMod.AGGRO_SIGHT, 0)
     mob:setMobMod(tpz.mobMod.SOUND_RANGE, 5)
     mob:hideName(true)
