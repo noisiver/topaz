@@ -9,14 +9,10 @@ require("scripts/globals/status")
 require("scripts/globals/salvage")
 require("scripts/globals/mobs")
 -----------------------------------
-local msgs =
-{
-    [1] = "The " .. MobName(mob) .. " seems weak to skillchains...",
-    [2] = "The " .. MobName(mob) .. " is regenerating."
-}
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.DMG, -50)
     mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
     mob:delImmunity(tpz.immunity.SILENCE) 
 end
 
@@ -25,6 +21,12 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
+    local msgs =
+    {
+        [1] = "The " .. MobName(mob) .. " seems weak to skillchains...",
+        [2] = "The " .. MobName(mob) .. " is regenerating."
+    }
+
     mob:addListener("SKILLCHAIN_TAKE", "WL_SC_TAKE", function(mob, target, element)
         if element == 8 or element == 12 or element == 13 or element == 15 then -- Lightning damage skillchains
             BreakMob(mob, target, 1, 30, 1)
