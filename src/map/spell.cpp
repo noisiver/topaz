@@ -169,6 +169,14 @@ bool CSpell::isDebuff()
         m_spellFamily == SPELLFAMILY_ELE_DOT || m_spellFamily == SPELLFAMILY_BIO || m_ID == SpellID::Stun || m_ID == SpellID::Curse;
 }
 
+bool CSpell::isNonDamaging()
+{
+    return ((getValidTarget() & TARGET_ENEMY) && getSkillType() == SKILL_ENFEEBLING_MAGIC) || m_spellFamily == SPELLFAMILY_ELE_DOT ||
+           m_spellFamily == SPELLFAMILY_BIO || m_spellFamily == SPELLFAMILY_ABSORB || m_spellFamily == SPELLFAMILY_JUBAKU ||
+           m_spellFamily == SPELLFAMILY_HOJO || m_spellFamily == SPELLFAMILY_KURAYAMI || m_spellFamily == SPELLFAMILY_DOKUMORI ||
+           m_spellFamily == SPELLFAMILY_ASPIR || m_ID == SpellID::Stun || m_ID == SpellID::Curse || m_ID == SpellID::Flash;
+}
+
 bool CSpell::isNa()
 {
     return (static_cast<uint16>(m_ID) >= 14 && static_cast<uint16>(m_ID) <= 20) || m_ID == SpellID::Erase;

@@ -1423,8 +1423,17 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
             // take shadow
             msg = MSGBASIC_SHADOW_ABSORB;
             actionTarget.param = 1;
-            ve = 0;
-            ce = 0;
+
+            // Flash and Enfeebling spells should generate enmity even if they hit a shadow
+            if (PSpell->isNonDamaging())
+            {
+                state.ApplyEnmity(PTarget, ce, ve);
+            }
+            else
+            {
+                ve = 0;
+                ce = 0;
+            }
         }
         else
         {

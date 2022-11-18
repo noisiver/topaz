@@ -961,6 +961,7 @@ public:
     bool        isHeal(); // is a heal spell
     bool        isCure(); // is a Cure spell
     bool        isDebuff(); // is a debuff spell
+    bool        isNonDamaging(); // is a non-damaging spell (i.e. blind/flash) used for logic
     bool        isNa(); // is a -na spell
     bool        canHitShadow(); // check if spell ignores shadows
 
