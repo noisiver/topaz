@@ -1556,22 +1556,22 @@ function MobGetStatusEffectDuration(effect)
 end
 
 function MobDmgTPModifier(tp)
-    return (1 + ((tp - 1000) * 0.15) / 100) -- 0, 15, 30
+    return (1 + ((tp - 1000) * 0.015) / 100) -- 0, 15, 30
 end
 
 function MobAccTPModifier(tp)
-    return math.floor((20+ ((tp - 1000) * 0.10))) -- 20, 30, 40
+    return math.floor((20+ ((tp - 1000) * 0.010))) -- 20, 30, 40
 end
 
 function MobCritTPModifier(tp)
-    return math.floor((15+ ((tp - 1000) * 0.15))) -- 15, 30, 45
+    return math.floor((15+ ((tp - 1000) * 0.015))) -- 15, 30, 45
 end
 
 function MobEnfeebleDurationTPModifier(effect, tp)
-    return (1 + ((tp - 1000) * 0.50) / 100) -- 0, 50, 100
+    return (1 + ((tp - 1000) * 0.050) / 100) -- 0, 50, 100
 end
 
 
 function MobBuffDurationTPModifier(tp)
-    return (1 + ((tp - 1000) * 0.50) / 100) -- 0, 50, 100
+    return (1 + ((tp - 1000) * 0.050) / 100) -- 0, 50, 100
 end
