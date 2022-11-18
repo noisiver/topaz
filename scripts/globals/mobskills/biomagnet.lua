@@ -12,6 +12,10 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local zone = mob:getZoneID()
+    if (zone == 74) then -- Arrapago Remnants
+        return 1
+    end
     return 0
 end
 
