@@ -59,6 +59,8 @@ function onMobFight(mob, target)
             end
         end
     end
+
+    PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems terrified of sharp weapons...", 0xD, none, 45)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
