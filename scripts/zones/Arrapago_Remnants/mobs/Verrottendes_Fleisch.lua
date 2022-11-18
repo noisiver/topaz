@@ -10,16 +10,15 @@ require("scripts/globals/salvage")
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    -- Takes 75% reduced damage from all damage types except slashing, which it takes 100% from.
-    mob:setMod(tpz.mod.UDMGPHYS, -75)
+    -- Takes 75% reduced damage from all damage types except slashing, which it takes 175% from.
     mob:setMod(tpz.mod.UDMGBREATH, -75)
     mob:setMod(tpz.mod.UDMGMAGIC, -75)
     mob:setMod(tpz.mod.UDMGRANGE, -75)
-    mob:setMod(tpz.mod.HTHRES, 1000)
+    mob:setMod(tpz.mod.HTHRES, 250)
     mob:setMod(tpz.mod.SLASHRES, 1750)
-    mob:setMod(tpz.mod.PIERCERES, 1000)
-    mob:setMod(tpz.mod.RANGEDRES, 1000)
-    mob:setMod(tpz.mod.IMPACTRES, 1000)
+    mob:setMod(tpz.mod.PIERCERES, 250)
+    mob:setMod(tpz.mod.RANGEDRES, 250)
+    mob:setMod(tpz.mod.IMPACTRES, 250)
     mob:addImmunity(tpz.immunity.PARALYZE)
     mob:setLocalVar("prisonUses", 0)
 end
@@ -32,12 +31,13 @@ end
 function onMobFight(mob, target)
     local prisonUses = mob:getLocalVar("prisonUses")
     local hpp = mob:getHPP()
+    local tp = mob:getTP()
     local enmityList = mob:getEnmityList()
     local prisonTarget = nil
 
     if enmityList and #enmityList > 0 then
         if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
-            mob:actionQueueEmpty() then
+            mob:actionQueueEmpty() and (tp < 1000) then
             if (hpp <= 69) and (prisonUses == 0) then
                 prisonTarget = math.random(#enmityList)
                 mob:setLocalVar("prisonUses", 1)
@@ -78,6 +78,12 @@ end
 
 function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
+    local chars = instance:getChars()
+
+    -- Remove gradual petrification off players
+    for i, v in pairs(chars) do
+        v:delStatusEffectSilent(tpz.effect.TERROR)
+    end
 
     if isKiller or noKiller then
         -- Increase progress counter, at 4 turn teleporter back on

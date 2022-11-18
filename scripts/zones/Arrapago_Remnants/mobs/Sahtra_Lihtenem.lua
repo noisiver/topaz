@@ -144,6 +144,7 @@ function onMobDespawn(mob)
 end
 
 function ChangeJobTHF(mob)
+    mob:setDamage(80)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
     mob:setMod(tpz.mod.MATT, 0)
     mob:setMod(tpz.mod.ATT, 360) 
@@ -157,6 +158,7 @@ function ChangeJobTHF(mob)
 end
 
 function ChangeJobBLM(mob)
+    mob:setDamage(115)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
     mob:setMod(tpz.mod.MATT, 36)
     mob:setMod(tpz.mod.ATT, 360) 
@@ -170,6 +172,7 @@ function ChangeJobBLM(mob)
 end
 
 function ChangeJobDRG(mob)
+    mob:setDamage(115)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
     mob:setMod(tpz.mod.MATT, 0)
     mob:setMod(tpz.mod.ATT, 370) 

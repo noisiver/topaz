@@ -3474,13 +3474,13 @@ INSERT INTO `mob_groups` VALUES (123,9089,74,'Disciple_Of_Mammon',0,128,3201,100
 INSERT INTO `mob_groups` VALUES (124,9090,74,'Mammon_Loyalist',0,128,3201,1500,0,76,76,0);
 INSERT INTO `mob_groups` VALUES (125,9091,74,'Student_Of_Erdhenne',0,128,3201,20000,0,86,86,0);
 -- F3
-INSERT INTO `mob_groups` VALUES (126,1285,74,'Fallen_Imperial_Trooper',0,128,3200,5000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (127,1292,74,'Fallen_Volunteer',0,128,3200,5000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (128,1286,74,'Fallen_Imperial_Wizard',0,128,3200,5000,2000,83,83,0);
-INSERT INTO `mob_groups` VALUES (129,5202,74,'Ephramadian_Shade',0,128,3200,5000,2000,83,83,0); -- RDM
-INSERT INTO `mob_groups` VALUES (130,5203,74,'Ephramadian_Shade',0,128,3200,5000,2000,83,83,0); -- MNK
-INSERT INTO `mob_groups` VALUES (131,5204,74,'Ephramadian_Shade',0,128,3200,5000,2000,83,83,0); -- RNG
-INSERT INTO `mob_groups` VALUES (132,5205,74,'Ephramadian_Shade',0,128,3200,5000,2000,83,83,0); -- COR
+INSERT INTO `mob_groups` VALUES (126,1285,74,'Fallen_Imperial_Trooper',0,128,3200,3300,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (127,1292,74,'Fallen_Volunteer',0,128,3200,3300,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (128,1286,74,'Fallen_Imperial_Wizard',0,128,3200,2500,2000,83,83,0);
+INSERT INTO `mob_groups` VALUES (129,5202,74,'Ephramadian_Shade',0,128,3200,3300,2000,83,83,0); -- RDM
+INSERT INTO `mob_groups` VALUES (130,5203,74,'Ephramadian_Shade',0,128,3200,3500,2000,83,83,0); -- MNK
+INSERT INTO `mob_groups` VALUES (131,5204,74,'Ephramadian_Shade',0,128,3200,2500,2000,83,83,0); -- RNG
+INSERT INTO `mob_groups` VALUES (132,5205,74,'Ephramadian_Shade',0,128,3200,3000,2000,83,83,0); -- COR
 INSERT INTO `mob_groups` VALUES (133,9092,74,'Sahtra_Lihtenem',0,128,3202,30000,0,87,87,0); 
 INSERT INTO `mob_groups` VALUES (134,9093,74,'Tutankhamun',0,128,3202,300000,0,87,87,0); 
 -- F4

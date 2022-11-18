@@ -10,6 +10,7 @@ require("scripts/globals/salvage")
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
+    mob:setDamage(80)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:SetMagicCastingEnabled(false)
 end
@@ -38,6 +39,7 @@ function onMobFight(mob, target)
     if battletime >= modeChangeTimer and mode == 1 then
         mob:useMobAbility(307) -- Red 2hr cloud
         MeleeMode(mob)
+        mob:AnimationSub(0)
         mob:setLocalVar("modeChangeTimer", battletime + 120)
         mob:setLocalVar("mode", math.random(1,3))
     end
@@ -45,6 +47,7 @@ function onMobFight(mob, target)
     if battletime >= modeChangeTimer and mode == 2 then
         mob:useMobAbility(624) -- Green 2hr cloud
         RangedMode(mob)
+        mob:AnimationSub(2)
         mob:setLocalVar("modeChangeTimer", battletime + 120)
         mob:setLocalVar("mode", math.random(1,3))
     end
@@ -52,6 +55,7 @@ function onMobFight(mob, target)
     if battletime >= modeChangeTimer and mode == 3 then
         mob:useMobAbility(625) -- Blue 2hr cloud
         SpellMode(mob)
+        mob:AnimationSub(1)
         mob:setLocalVar("modeChangeTimer", battletime + 120)
         mob:setLocalVar("mode", math.random(1,3))
     end

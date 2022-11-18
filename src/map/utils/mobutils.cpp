@@ -1096,31 +1096,27 @@ void SetupSalvageMob(CMobEntity* PMob)
     if (mLvl >= 90)
     {
         // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 125);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
         PMob->addModifier(Mod::ATTP, 25);
-        PMob->addModifier(Mod::DEFP, 25);
         PMob->addModifier(Mod::ACC, 15);
-        PMob->addModifier(Mod::EVA, 15);
         PMob->setMobMod(MOBMOD_NO_ROAM, 1);
     }
     else if (mLvl >= 85)
     {
         // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 130);
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 115);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
         PMob->addModifier(Mod::ATTP, 25);
-        PMob->addModifier(Mod::DEFP, 25);
         PMob->addModifier(Mod::ACC, 15);
-        PMob->addModifier(Mod::EVA, 15);
         PMob->setMobMod(MOBMOD_NO_ROAM, 1);
     }
     else
     {
         // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 115);
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 100);
         ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
 
         PMob->addModifier(Mod::ATTP, 25);
