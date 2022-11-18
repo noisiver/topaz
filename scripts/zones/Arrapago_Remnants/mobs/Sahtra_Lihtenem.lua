@@ -188,6 +188,7 @@ function KillAllPlayers(mob, instance)
 
     for _, players in pairs(chars) do
         players:setHP(0)
+        players:delStatusEffectSilent(tpz.effect.RERAISE)
     end
 end
 
