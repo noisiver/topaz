@@ -57,10 +57,9 @@ function onSpellCast(caster, target, spell)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
 
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        local typeEffect = tpz.effect.PARALYSIS
-        target:addStatusEffect(typeEffect, 20, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) -- https://www.bg-wiki.com/bg/Mind_Blast says 20%
-    end
+    params.diff = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    params.effect = tpz.effect.PARALYSIS
+    BlueTryEnfeeble(caster, target, spell, damage, 20, 0, 180, params)
 
     return damage
 end

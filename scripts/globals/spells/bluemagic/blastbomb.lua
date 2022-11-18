@@ -46,11 +46,9 @@ function onSpellCast(caster, target, spell)
     params.bonus = 1.0
     local resist = applyResistance(caster, target, spell, params)
 
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        local typeEffect = tpz.effect.BIND
-        target:delStatusEffectSilent(typeEffect) -- Wiki says it can overwrite itself or other binds
-        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.effect = tpz.effect.BIND
+    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 45, params)
 
     return damage
 end

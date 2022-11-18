@@ -33,6 +33,28 @@ INT_BASED = 1
 CHR_BASED = 2
 MND_BASED = 3
 
+-- BLU ecosystem
+ECO_BEAST = 1
+ECO_LIZARD = 2
+ECO_VERMIN = 3
+ECO_PLANTOID = 4
+
+ECO_AQUAN = 5
+ECO_AMORPH = 6
+ECO_BIRD = 7
+
+ECO_UNDEAD = 8
+ECO_ARCANA = 9
+
+ECO_DRAGON = 10
+ECO_DEMON = 11
+
+ECO_LUMORIAN = 12
+ECO_LUMINION = 13
+
+ECO_NONE = 0 -- beastmen or other ecosystems that have no strength/weaknesses
+
+
 -- Get the damage for a blue magic physical spell.
 -- caster - The entity casting the spell.
 -- target - The target of the spell.
@@ -507,7 +529,92 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
 end
 
 -- Blue Breath Type spells
-function BlueBreathSpell(caster, target, spell, params, hp)
+function BlueBreathSpell(caster, target, spell, params, hppercent)
+
+    -- Get base damage
+    local dmg = math.floor((caster:getMaxHP() * hppercent))
+
+    -- Get resist
+    local resist = applyResistance(caster, target, spell, params)
+
+    -- Get ecosystem
+    local correlation = 0
+    if (params.eco) ~= nil and target:isMob() then
+        correlation = GetMonsterCorrelation(params.eco,GetTargetEcosystem(target))
+    end
+
+    -- Add correlation MACC bonus
+    if correlation > 0 then
+        params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    elseif correlation < 0 then
+        params.bonus = params.bonus - 25 
+    end
+
+      -- Apply resist
+    dmg = math.floor(dmg * resist)
+
+	-- Add convergence damage bonus
+	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
+		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
+		dmg = math.floor(dmg * ConvergenceBonus)
+		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
+	end
+
+	-- Add breath damage gear
+	local head = caster:getEquipID(tpz.slot.HEAD)
+    -- Saurian Helm and Mirage Keffiyeh(NQ/+1/+2)
+	if head == 16150 or head == 11465 or head == 11466 or head == 10665 then 
+		dmg = math.floor(dmg *1.1) 
+	end
+
+    -- Add correlation bonus
+    if correlation > 0 then
+        dmg = math.floor(dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100))
+    elseif correlation < 0 then
+        dmg = math.floor(dmg * 0.75)
+    end
+
+    -- Cap damage for BLU mobs
+    if caster:isMob() then
+        if dmg > 500 then
+            dmg = 500
+        end
+    end
+
+    -- Handle Positional MDT
+    if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+    if caster:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+
+    -- Handle Phalanx
+    dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
+	local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
+	local TP =  100 * (1 - subtleblow)
+	target:addTP(TP)
+    --printf("resist %i", resist*100)
+    --printf("Correlation bonus: %i", correlation)
+    --printf("final dmg %i", dmg)
+    return dmg
 end
 
 ------------------------------
@@ -778,6 +885,80 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
 
     return duration
 end
+
+function GetTargetEcosystem(target)
+	local sys = target:getSystem()
+
+    -- honestly just taking the topaz enum standard and converting it an easier enum standard
+    -- this makes it very easy to explain the strengths/weaknesses (in the next function)
+
+	if sys == 6 then return 1
+	elseif sys == 14 then return 2
+	elseif sys == 20 then return 3
+	elseif sys == 17 then return 4
+	elseif sys == 2 then return 5
+	elseif sys == 1 then return 6
+	elseif sys == 8 then return 7
+	elseif sys == 19 then return 8
+	elseif sys == 3 then return 9
+	elseif sys == 10 then return 10
+	elseif sys == 9 then return 11
+	elseif sys == 15 then return 12
+	elseif sys == 16 then return 13 end
+
+	return 0
+end
+
+-- Gets ectosystem bonus / penalty
+function GetMonsterCorrelation(eco,targeco)
+
+    -- see top of document for the five ecosystem groups
+    -- they work as a rotating rock-paper-scissors system for each group
+    -- 1 beats 2 beats 3 beats 4 beats 1
+    -- 5 beats 6 beats 7 beats 5
+    -- 8/9 beat each other. 10/11 beat each other. 12/13 beat each other.
+    -- https://ffxiclopedia.fandom.com/wiki/Category:Bestiary
+    -- return value ... -1 = negative correlation, 0 = neutral, 1 = positive correlation
+
+	if eco == 1 then
+		if targeco == 2 then return  1 end
+		if targeco == 4 then return -1 end
+	elseif eco == 2 then
+		if targeco == 3 then return  1 end
+		if targeco == 1 then return -1 end
+	elseif eco == 3 then
+		if targeco == 4 then return  1 end
+		if targeco == 2 then return -1 end
+	elseif eco == 4 then
+		if targeco == 1 then return  1 end
+		if targeco == 3 then return -1 end
+	elseif eco == 5 then
+		if targeco == 6 then return  1 end
+		if targeco == 7 then return -1 end
+	elseif eco == 6 then
+		if targeco == 7 then return  1 end
+		if targeco == 5 then return -1 end
+	elseif eco == 7 then
+		if targeco == 5 then return  1 end
+		if targeco == 6 then return -1 end
+	elseif eco == 8 and targeco == 9 then
+		return 1
+	elseif eco == 9 and targeco == 8 then
+		return 1
+	elseif eco == 10 and targeco == 11 then
+		return 1
+	elseif eco == 11 and targeco == 10 then
+		return 1
+	elseif eco == 12 and targeco == 13 then
+		return 1
+	elseif eco == 13 and targeco == 12 then
+		return 1
+	end
+
+	return 0
+end
+
+
 
 -- obtains alpha, used for working out WSC
 function BlueGetAlpha(level)

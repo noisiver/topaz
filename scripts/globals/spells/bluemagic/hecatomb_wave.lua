@@ -23,65 +23,20 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local multi = 2.08
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-      multi = multi + 0.50
-    end
-    local damage = (caster:getHP() / 2) 
     local params = {}
+    params.diff = 0
     params.attackType = tpz.attackType.BREATH
     params.damageType = tpz.damageType.WIND
-	params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-	params.attribute = tpz.mod.INT
-	params.skillType = tpz.skill.BLUE_MAGIC
-	params.bonus = 0
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.bonus = 0
+    params.eco = ECO_DEMON
+
+    local damage = BlueBreathSpell(caster, target, spell, params, 1)
+	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.MND)
     params.effect = tpz.effect.BLINDNESS
-    params.multiplier = caster:hasStatusEffect(tpz.effect.AZURE_LORE) and 1.25 or 1
-    params.tMultiplier = 1
-    params.D = damage
-    params.duppercap = 9999
-    params.str_wsc = 0.0
-    params.dex_wsc = 0.0
-    params.vit_wsc = 0.0
-    params.agi_wsc = 0.0
-    params.int_wsc = 0.0
-    params.mnd_wsc = 0.0
-    params.chr_wsc = 0.0
-    local resist = applyResistance(caster, target, spell, params)
-    local damage = BlueMagicalSpell(caster, target, spell, params, nil)
-	local dragon = (target:getSystem() == 10)
-	
-	if dragon then
-		damage = damage * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100)
-		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
-	end
-	-- add convergence bonus
-	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
-		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
-		damage = damage * ConvergenceBonus
-		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
-	end
-	-- add breath damage gear
-	local head = caster:getEquipID(tpz.slot.HEAD)
-	if head == 16150 or head == 11465 then 
-		damage = damage *1.1 -- Saurian Helm and Mirage Keffiyeh
-	end 
-
-	damage = damage * resist			
-    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
-
-    -- Cap damage for BLU mobs
-    if caster:isMob() then
-        if damage > 300 then
-            damage = 300
-        end
-    end
-
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        local typeEffect = tpz.effect.BLINDNESS
-        target:delStatusEffectSilent(typeEffect)
-        target:addStatusEffect(typeEffect, 20, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    BlueTryEnfeeble(caster, target, spell, damage, 20, 0, 180, params)
 
     return damage
 end
