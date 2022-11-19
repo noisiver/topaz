@@ -423,12 +423,13 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     -- Use params.IGNORE_WSC and params.damage to set specific damage
     -- Only used for Self-Destruct ATM
     if (params.IGNORE_WSC ~= nil) then
-        dmg = params.damage * applyResistance(caster, target, spell, rparams)
-    else
-        dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
+        magicAttack = params.damage * applyResistance(caster, target, spell, rparams)
     end
 
+    dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
+
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
+
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
 		dmg = dmg * ConvergenceBonus
@@ -530,18 +531,21 @@ end
 
 -- Blue Breath Type spells
 function BlueBreathSpell(caster, target, spell, params, hppercent)
-
+    -- Formula is HP x gear x correlation x Magic Burst bonus x resist x dayweather bonus x mdt
     -- Get base damage
     local dmg = math.floor((caster:getMaxHP() * hppercent))
 
-    -- Get resist
-    local resist = applyResistance(caster, target, spell, params)
+    -- Get element
+    local element = spell:getElement()
 
     -- Get ecosystem
     local correlation = 0
     if (params.eco) ~= nil and target:isMob() then
         correlation = GetMonsterCorrelation(params.eco,GetTargetEcosystem(target))
     end
+
+    -- Add bonus MACC(Mainly magic burst MACC)
+    params.bonus = params.bonus + BluGetBonusMacc(caster, target, element, params)
 
     -- Add correlation MACC bonus
     if correlation > 0 then
@@ -550,8 +554,9 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
         params.bonus = params.bonus - 25 
     end
 
-      -- Apply resist
-    dmg = math.floor(dmg * resist)
+    -- Get resist
+    local resist = applyResistance(caster, target, spell, params)
+
 
 	-- Add convergence damage bonus
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
@@ -573,6 +578,23 @@ function BlueBreathSpell(caster, target, spell, params, hppercent)
     elseif correlation < 0 then
         dmg = math.floor(dmg * 0.75)
     end
+
+    -- Add magic burst bonus
+    params.AMIIburstBonus = 0
+    local burst = calculateMagicBurst(caster, spell, target, params)
+
+    if (burst > 1.0) then
+        spell:setMsg(spell:getMagicBurstMessage()) -- "Magic Burst!"
+    end
+
+    dmg = math.floor(dmg * burst)
+
+    -- Apply resist
+    dmg = math.floor(dmg * resist)
+    -- Add weather
+    dmg = math.floor(dmg * BlueGetWeatherDayBonus(caster, element))
+
+    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
     -- Cap damage for BLU mobs
     if caster:isMob() then
@@ -956,6 +978,56 @@ function GetMonsterCorrelation(eco,targeco)
 	end
 
 	return 0
+end
+
+function BluGetBonusMacc(caster, target, element, params)
+    local magicAccBonus = 0
+    local skillchainTier, skillchainCount = FormMagicBurst(element, target)
+
+    --add macc for skillchains
+    if (skillchainTier > 0) then
+        magicAccBonus = magicAccBonus + 50 -- 30 in retail
+    end
+
+    return magicAccBonus
+end
+
+function BlueGetWeatherDayBonus(caster, element)
+    dayWeatherBonus = 1.00
+
+    if caster:getWeather() == tpz.magic.singleWeatherStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.10
+        end
+    elseif caster:getWeather() == tpz.magic.singleWeatherWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.10
+        end
+    elseif caster:getWeather() == tpz.magic.doubleWeatherStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.25
+        end
+    elseif caster:getWeather() == tpz.magic.doubleWeatherWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.25
+        end
+    end
+
+    if VanadielDayElement() == tpz.magic.dayStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.10
+        end
+    elseif VanadielDayElement() == tpz.magic.dayWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.10
+        end
+    end
+
+    if dayWeatherBonus > 1.35 then
+        dayWeatherBonus = 1.35
+    end
+
+    return dayWeatherBonus
 end
 
 
