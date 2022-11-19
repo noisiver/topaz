@@ -39,7 +39,7 @@ function onMobFight(mob, target)
             for _,v in ipairs(nearbyPlayers) do
                 if mob:isFacing(v) and not v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) and not v:hasStatusEffect(tpz.effect.PETRIFICATION) then
                     v:addStatusEffect(tpz.effect.GRADUAL_PETRIFICATION, 10, 3, 15)
-                elseif not mob:isFacing(v) and v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
+                elseif not v:isFacing(mob) and v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
                     v:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
                 end
             end
