@@ -37,9 +37,9 @@ function onMobFight(mob, target)
         local nearbyPlayers = mob:getPlayersInRange(10)
         if nearbyPlayers ~= nil then
             for _,v in ipairs(nearbyPlayers) do
-                if v:isFacing(mob) and not v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) and not v:hasStatusEffect(tpz.effect.PETRIFICATION) then
+                if mob:isFacing(v) and not v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) and not v:hasStatusEffect(tpz.effect.PETRIFICATION) then
                     v:addStatusEffect(tpz.effect.GRADUAL_PETRIFICATION, 10, 3, 15)
-                elseif not v:isFacing(mob) and v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
+                elseif not mob:isFacing(v) and v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
                     v:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
                 end
             end
@@ -68,7 +68,6 @@ function onMobFight(mob, target)
 
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
         PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to earth magic...", 0xD, none, 30)
-        addSpikes(mob)
     end
     SetPositionalDT(mob)
 end

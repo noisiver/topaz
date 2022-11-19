@@ -36,6 +36,19 @@ function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)
+    local instance = mob:getInstance()
+    for i = 17081185, 17081208 do
+        if not GetMobByID(i, instance):isDead() then
+            return
+        end
+    end
+    exon1 = GetMobByID(17081209, instance)
+    exon2 = GetMobByID(17081210, instance)
+    if not exon1:isSpawned() and not exon2:isSpawned() then
+        SpawnMob(17081209, instance)
+        SpawnMob(17081210, instance)
+        salvageUtil.msgGroup(mob, "Our queen will not be happy about this.", 0, "Lamia Exon")
+    end
 end
 
 
