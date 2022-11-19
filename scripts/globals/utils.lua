@@ -784,7 +784,7 @@ function utils.IsElementalDOT(effect)
     return false
 end
 
-function utils.IsDOT(effect)
+function utils.IsDOT(effect) -- TODO: Unfinished(?)
     if (effect >= tpz.effect.BURN) and (effect <= tpz.effect.BIO) then
         return true
     end
@@ -796,4 +796,19 @@ function utils.IsStatDown(effect)
         return true
     end
     return false
+end
+
+function utils.MessageParty(player, msg, textcolor, sender)
+    if player == nil then
+        return
+    end
+
+    local party = player:getParty()
+
+    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    if (party ~= nil) then
+        for _,v in ipairs(party) do
+            v:PrintToPlayer(msg, textcolor, sender)
+        end
+    end
 end
