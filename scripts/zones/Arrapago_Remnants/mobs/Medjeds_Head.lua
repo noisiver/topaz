@@ -50,6 +50,7 @@ function onMobFight(mob, target)
         DTEnabled(mob, true)
     else
         DTEnabled(mob, false)
+        PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems terrified of rough objects...", 0xD, none, 30)
     end
 
     -- Start phase 2 if Body is dead
@@ -64,8 +65,8 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-    local tpMoves = {472, 477, 1339}
-    -- Grave Wheel, Dark Sphere, Bane
+    local tpMoves = {477, 1339}
+    -- Dark Sphere, Bane
     return tpMoves[math.random(#tpMoves)]
 end
 

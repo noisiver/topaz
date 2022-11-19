@@ -169,14 +169,14 @@ INSERT INTO `mob_family_mods` VALUES (180,62,50,0);		-- Marid +50% Attack
 INSERT INTO `mob_family_mods` VALUES (89,62,50,0);		-- Draugar +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (252,62,50,0);		-- Vampyr +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (191,62,50,0);		-- Orobon +50% Attack 
-INSERT INTO `mob_family_mods` VALUES (1,62,100,0);		-- Acrolith +100% Attack 
+INSERT INTO `mob_family_mods` VALUES (1,62,25,0);		-- Acrolith +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (132,62,25,0);		-- Gnole +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (6,62,50,0);		-- Amphiptere +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (207,62,50,0);		-- Rafflesia +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (211,62,50,0);		-- Ruszor +50% Attack 
 
 -- Flat Attack Penalty
-INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);		-- Sahagin -20 Attack
+INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
 
 -- Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (272,63,20,0);		-- Zdei +20% Defense Bonus

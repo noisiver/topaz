@@ -57,6 +57,7 @@ function onMobFight(mob, target)
         mob:setDamage(120)
         mob:setDelay(3000)
         mob:setLocalVar("phase", 2)
+        salvageUtil.msgGroup(mob, MobName(mob) .. " drinks one of his elixirs!", 0xD, none)
         mob:useMobAbility(1398)
         mob:timer(3000, function(mob)
             mob:setModelId(2230) -- Ameretat
@@ -71,6 +72,7 @@ function onMobFight(mob, target)
         mob:useMobAbility(1398)
         mob:timer(3000, function(mob)
             mob:setModelId(1360) -- Red Tauri
+            salvageUtil.msgGroup(mob, MobName(mob) .. " drinks one of his elixirs!", 0xD, none)
             salvageUtil.msgGroup(mob, "Tastes like... Cherry! Oh! Excuse me!", 0, "Professor P")
         end)
     end

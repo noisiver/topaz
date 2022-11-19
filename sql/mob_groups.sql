@@ -3460,7 +3460,7 @@ INSERT INTO `mob_groups` VALUES (110,9084,74,'Waukesha_Leech',0,128,3200,20000,0
 INSERT INTO `mob_groups` VALUES (111,9085,74,'Kanaloa',0,128,3199,20000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (112,9086,74,'Alucard',0,128,3200,20000,0,85,85,0);
 -- F2
-INSERT INTO `mob_groups` VALUES (113,218,74,'Archaic_Gear_random',0,128,3200,0,0,81,81,0);
+INSERT INTO `mob_groups` VALUES (113,218,74,'Archaic_Gear_random',0,128,3200,1500,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (114,2255,74,'King_Behemoth_random',0,128,3201,10000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (115,268,74,'Aspidochelone_random',0,128,3201,10000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (116,2840,74,'Nidhogg_random',0,128,3201,10000,0,85,85,0);
@@ -3498,14 +3498,14 @@ INSERT INTO `mob_groups` VALUES (144,2893,74,'Nix_Bladedancer',0,128,3200,3000,2
 INSERT INTO `mob_groups` VALUES (145,2895,74,'Nix_Typhoondancer',0,128,3200,3200,2000,85,85,0);-- SAM
 INSERT INTO `mob_groups` VALUES (146,2364,74,'Lamie_Necromancer',0,128,3200,2500,2000,85,85,0); -- BLM
 INSERT INTO `mob_groups` VALUES (147,2362,74,'Lamie_Bellydancer',0,128,3200,2400,2000,85,85,0); -- SMN
-INSERT INTO `mob_groups` VALUES (148,6689,74,'Lamias_Elemental',0,128,3200,5000,2000,80,80,0);
+INSERT INTO `mob_groups` VALUES (148,6689,74,'Lamias_Elemental',0,128,0,1000,2000,80,80,0);
 INSERT INTO `mob_groups` VALUES (149,2363,74,'Lamie_Deathdancer',0,128,3200,3000,2000,85,85,0); -- COR
 INSERT INTO `mob_groups` VALUES (150,2368,74,'Lamie_Toxophilite',0,128,3200,2500,2000,85,85,0); -- RNG
 INSERT INTO `mob_groups` VALUES (151,2331,74,'Lamia_Exon_BLM',0,128,0,4500,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (152,6754,74,'Lamia_Exon_COR',0,128,0,6000,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (153,2606,74,'Medusa',0,128,3203,30000,0,89,89,0); 
-INSERT INTO `mob_groups` VALUES (154,721,74,'Chemical_Spill',0,128,3200,5000,2000,85,85,0);
-INSERT INTO `mob_groups` VALUES (155,39,74,'Abomination',0,128,3200,5000,2000,85,85,0);
+INSERT INTO `mob_groups` VALUES (154,721,74,'Chemical_Spill',0,128,3200,3000,2000,85,85,0);
+INSERT INTO `mob_groups` VALUES (155,39,74,'Abomination',0,128,3200,3500,2000,85,85,0);
 INSERT INTO `mob_groups` VALUES (156,5404,74,'Professor_P',0,128,3203,30000,0,89,89,0); 
 INSERT INTO `mob_groups` VALUES (157,721,74,'DQ_Slime',0,128,0,1500,0,80,80,0); 
 -- F6
