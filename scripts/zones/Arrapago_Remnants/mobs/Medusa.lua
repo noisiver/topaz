@@ -13,9 +13,11 @@ require("scripts/globals/mobs")
 function onMobSpawn(mob)
     -- Never melees, only shoots, and low bow delay.
     -- 75% DT from all damage except from the front
-    mob:SetAutoAttackEnabled(false)
+    mob:setDamage(100)
+    mob:setMod(tpz.mod.SDT_WIND, 130)
     mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 6)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+    mob:SetAutoAttackEnabled(false)
     SetPositionalDT(mob)
 end
 
@@ -61,13 +63,15 @@ function onMobFight(mob, target)
     mob:addListener("SPELL_DMG_TAKEN", "MEDUSA_SPELL_DMG_TAKEN", function(mob, caster, spell, amount, msg)
         local element = spell:getElement()
 
-        if (element == tpz.magic.ele.EARTH) and (amount >= 500) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) then
-            BreakMob(mob, caster, 1, 60, 2)
+        if (element == tpz.magic.ele.WIND) and (amount >= 500) then
+            if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
+                BreakMob(mob, caster, 1, 60, 2)
+            end
         end
     end)
 
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
-        PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to earth magic...", 0xD, none, 30)
+        PeriodicMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to wind magic...", 0xD, none, 30)
     end
     SetPositionalDT(mob)
 end

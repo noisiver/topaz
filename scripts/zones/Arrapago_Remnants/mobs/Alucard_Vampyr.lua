@@ -11,15 +11,15 @@ require("scripts/globals/items")
 require("scripts/globals/mobs")
 -----------------------------------
 local tpMoveList = {2106, 2107, 2108, 2109, 2110, 2111, 2534}
--- Bloodrake, Decollation, Nosferatu's Kiss, Nosferatu's Kiss, Wings of Gehenna, Eternal Damnation, Minax Glare
+-- Bloodrake, Decollation, Nosferatu's Kiss, Heliovoid, Wings of Gehenna, Eternal Damnation, Minax Glare
 local auraList =
 {
-    [2106] = { tpz.effect.GEO_ATTACK_DOWN, 25 },
-    [2107] = { tpz.effect.GEO_DEFENSE_DOWN, 25 },
-    [2108] = { tpz.effect.GEO_MAGIC_ATK_DOWN, 25 },
-    [2109] = { tpz.effect.GEO_MAGIC_DEF_DOWN, 10 },
-    [2110] = { tpz.effect.GEO_ACCURACY_DOWN, 25 },
-    [2111] = { tpz.effect.GEO_MAGIC_ACC_DOWN, 25 },
+    [2106] = { tpz.effect.GEO_ATTACK_DOWN, 50 },
+    [2107] = { tpz.effect.GEO_DEFENSE_DOWN, 50 },
+    [2108] = { tpz.effect.GEO_MAGIC_ATK_DOWN, 50 },
+    [2109] = { tpz.effect.GEO_MAGIC_DEF_DOWN, 50 },
+    [2110] = { tpz.effect.GEO_ACCURACY_DOWN, 50 },
+    [2111] = { tpz.effect.GEO_MAGIC_ACC_DOWN, 50 },
     [2534] = { tpz.effect.GEO_SLOW, 3500 }
 }
 local msgList =
@@ -42,13 +42,14 @@ function onMobSpawn(mob)
     end
     salvageUtil.msgGroup(mob, "The night beckons!", 0, "Alucard")
     mob:setDelay(3500)
-    mob:setDamage(40)
+    mob:setDamage(60)
     mob:setMod(tpz.mod.DEFP, 0)
     mob:setMod(tpz.mod.HTHRES, 1000)
     mob:setMod(tpz.mod.SLASHRES, 1250)
     mob:setMod(tpz.mod.PIERCERES, 750)
     mob:setMod(tpz.mod.RANGEDRES, 500)
     mob:setMod(tpz.mod.IMPACTRES, 1000)
+    mob:delImmunity(tpz.immunity.SILENCE) 
 end
 
 function onMobEngaged(mob, target)
@@ -61,23 +62,15 @@ function onMobFight(mob, target)
     local msg = mob:getLocalVar("msg")
     local hp = mob:getHPP()
 
-    -- Uses Manafont at 89,79,69,59,49,39,29,19,9% HP
-    if (hp < 99) then
-        if CheckForManafont(mob) then
-            mob:setLocalVar("manafontUses", manafontUses +1)
-            mob:useMobAbility(691) -- Manafont
-        end
-    end
-
-    -- Procced by Water skillchains(amnesia)
+    -- Procced by Water skillchains(silence)
     mob:addListener("SKILLCHAIN_TAKE", "ALUCARD_SC_TAKE", function(mob, target, element)
         if element == 5 or element == 10 or element == 14 or element == 16 then -- Water damage skillchains
-            BreakMob(mob, target, 1, 30, 0)
+            BreakMob(mob, target, 1, 30, 1)
         end
     end)
 
     -- Gains an aura after every TP move
-    if not mob:hasStatusEffect(tpz.effect.AMNESIA) then
+    if not mob:hasStatusEffect(tpz.effect.SILENCE) then
         PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains...", 0xD, none, 30)
         if (aura > 0) then
             AddMobAura(mob, target, 13, auraList[aura][1], auraList[aura][2], 3)
@@ -117,12 +110,4 @@ function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)
-end
-
-function CheckForManafont(mob)
-    local manafontUses = mob:getLocalVar("manafontUses")
-    local hp = mob:getHPP()
-    local thresholds = { 89, 79, 69, 59, 49, 39, 29, 19, 9 }
-
-    return (manafontUses < #thresholds) and (hp <= thresholds[manafontUses + 1])
 end
