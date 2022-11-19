@@ -16920,9 +16920,9 @@ INSERT INTO `mob_droplist` VALUES (3201,0,0,1000,5735,1000); -- (F2 Boss / Rando
 INSERT INTO `mob_droplist` VALUES (3202,0,0,1000,5736,1000); -- (F3-F4 Boss) Linen Coin Purse x1 100%
 INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
 INSERT INTO `mob_droplist` VALUES (3203,0,0,1000,5736,1000); -- (F5-F6 Boss) Linen Coin Purse x2 100%
-INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x3 100%
-INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x3 100%
-INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x3 100%
+INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,1000); -- (Pixie "Gift") Linen Coin Purse x1 100%
+INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,240); -- (Pixie "Gift") Linen Coin Purse x2 24%
+INSERT INTO `mob_droplist` VALUES (3204,0,0,1000,5736,150); -- (Pixie "Gift") Linen Coin Purse x3 15%
 
 
 
