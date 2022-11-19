@@ -6,6 +6,7 @@ local ID = require("scripts/zones/The_Shrine_of_RuAvitau/IDs")
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/titles")
 require("scripts/globals/mobs")
+require("scripts/globals/status")
 -----------------------------------
     local removables =
     {

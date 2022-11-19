@@ -47,11 +47,14 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-    -- Teleports away every 45s and casts a random spell from table if not terrored
-    if mob:getLocalVar("teleport") < os.time() and not mob:hasStatusEffect(tpz.effect.TERROR) then
+    -- Teleports away every 45s and casts a random spell from table if not terrored or mid spell cast
+    if mob:getLocalVar("teleport") < os.time() and not mob:hasStatusEffect(tpz.effect.TERROR) and
+    mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING then 
         mob:setLocalVar("teleport", os.time() + 45)
         TeleportMob(mob, 5000, spellList[math.random(#spellList)])
-		mob:setPos(mob:getXPos() + positions[math.random(#positions)][1], mob:getYPos(), mob:getZPos() + positions[math.random(#positions)][2])
+        mob:timer(2000, function(mob)
+		    mob:setPos(mob:getXPos() + positions[math.random(#positions)][1], mob:getYPos(), mob:getZPos() + positions[math.random(#positions)][2])
+        end)
     end
 
     mob:addListener("SPELL_DMG_TAKEN", "SoE_SPELL_DMG_TAKEN", function(mob, caster, spell, amount, msg)

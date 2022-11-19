@@ -37,7 +37,7 @@ function onMobFight(mob, target)
 
     if enmityList and #enmityList > 0 then
         if mob:getCurrentAction() ~= tpz.action.MOBABILITY_START and mob:getCurrentAction() ~= tpz.action.MOBABILITY_USING and
-            mob:actionQueueEmpty() and (tp < 1000) then
+            mob:actionQueueEmpty() and (tp < 1000) then 
             if (hpp <= 69) and (prisonUses == 0) then
                 prisonTarget = math.random(#enmityList)
                 mob:setLocalVar("prisonUses", 1)

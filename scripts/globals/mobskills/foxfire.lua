@@ -12,6 +12,10 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
     local job = mob:getMainJob()
+    -- Also used by DRK Fallen Volunteer Troopers because they are single wielding
+    if mob:getPool() == 1285 then
+        return 0
+    end
     if (job == tpz.job.RDM or job == tpz.job.THF or job == tpz.job.PLD or job == tpz.job.BST or job == tpz.job.RNG or job == tpz.job.BRD or job == tpz.job.NIN or job == tpz.job.COR) then
         return 0
     end

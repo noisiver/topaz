@@ -11,6 +11,7 @@ require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setDamage(80)
+    mob:setMod(tpz.mod.EVA, 300) 
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:SetMagicCastingEnabled(false)
 end
@@ -35,29 +36,29 @@ function onMobFight(mob, target)
         end
     end)
 
+    local modeSub = {0, 2, 1}
+    mob:AnimationSub(modeSub[mode])
     -- Mode change logic
     if battletime >= modeChangeTimer and mode == 1 then
         mob:useMobAbility(307) -- Red 2hr cloud
         MeleeMode(mob)
-        mob:AnimationSub(0)
         mob:setLocalVar("modeChangeTimer", battletime + 120)
-        mob:setLocalVar("mode", math.random(1,3))
+        mob:setLocalVar("mode", math.random(2,3))
     end
 
     if battletime >= modeChangeTimer and mode == 2 then
         mob:useMobAbility(624) -- Green 2hr cloud
         RangedMode(mob)
-        mob:AnimationSub(2)
         mob:setLocalVar("modeChangeTimer", battletime + 120)
-        mob:setLocalVar("mode", math.random(1,3))
+        local modes = {1, 3}
+        mob:setLocalVar("mode", modes[math.random(#modes)])
     end
 	
     if battletime >= modeChangeTimer and mode == 3 then
         mob:useMobAbility(625) -- Blue 2hr cloud
         SpellMode(mob)
-        mob:AnimationSub(1)
         mob:setLocalVar("modeChangeTimer", battletime + 120)
-        mob:setLocalVar("mode", math.random(1,3))
+        mob:setLocalVar("mode", math.random(1,2))
     end
 end
 
@@ -96,7 +97,6 @@ function MeleeMode(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, 0)
     mob:setMod(tpz.mod.UDMGRANGE, 0)
     mob:SetMagicCastingEnabled(false)
-    mob:AnimationSub(0)
 end
 
 function RangedMode(mob)
@@ -105,7 +105,6 @@ function RangedMode(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, 0)
     mob:setMod(tpz.mod.UDMGRANGE, 1000)
     mob:SetMagicCastingEnabled(false)
-    mob:AnimationSub(2)
 end
 
 function SpellMode(mob)
@@ -114,5 +113,4 @@ function SpellMode(mob)
     mob:setMod(tpz.mod.UDMGMAGIC, 1000)
     mob:setMod(tpz.mod.UDMGRANGE, 0)
     mob:SetMagicCastingEnabled(true)
-    mob:AnimationSub(1)
 end

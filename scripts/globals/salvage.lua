@@ -663,7 +663,7 @@ function salvageUtil.spawnRandomEvent(mob, player, isKiller, noKiller, chance, m
         [3] = 'chest',
         [4] = 'mimic',
         [5] = 'pixie',
-        --[6] = 'weather', -- TODO: Instanced cannot get weather...
+        --[6] = 'weather', -- TODO: Instanced cannot set weather...
         --[7] = 216,
         --[8] = 260,
         --[9] = 230,
@@ -986,7 +986,7 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
     local rot = floorTeleports[floor][4]
 
     if npcUtil.tradeHas(trade, tpz.items.GIL) and (floor > 0) then
-        if (floor == 2) then -- Spawn Ramparts for Floor 2 TODO: Test
+        if (floor == 2) then -- Spawn Ramparts for Floor 2
             salvageUtil.spawnMob(instance, 17080489)
             salvageUtil.spawnMob(instance, 17080492)
             salvageUtil.spawnMob(instance, 17080509)

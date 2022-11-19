@@ -238,6 +238,7 @@ function RaiseAllPlayers(instance)
     for i, v in pairs(chars) do
         v:sendRaise(3)
         v:delStatusEffect(1)
+        v:setMP(3000)
         v:setLocalVar("GMRaise", 1)
     end
 end

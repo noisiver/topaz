@@ -8,11 +8,12 @@ require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/salvage")
 require("scripts/globals/mobs")
-mixins = {require("scripts/mixins/families/orobon")}
------------------------------------
+-------------------------------------
+
 function onMobSpawn(mob)
+    mob:setDelay(4000)
     mob:setMod(tpz.mod.STORETP, 100)
-    mob:setLocalVar("FeelersBreakChance", 5)
+    mob:setLocalVar("FeelersBreakChance", 25)
 end
 
 function onMobEngaged(mob, target)
@@ -27,10 +28,14 @@ function onMobFight(mob, target)
     local phaseMsg = mob:getLocalVar("phaseMsg")
 
     -- Procced by feelers being broken from frontal crits
-    if (animationSub == 1) then -- Feelers broken
-        BreakMob(mob, target, 1, 60, 0)
-        mob:setMod(tpz.mod.REGEN, 0)
-    end
+
+    mob:addListener("FRONTAL_CRITICAL_TAKE", "HATMEHYT_FRONT_CRITICAL_TAKE", function(mob, target)
+        if math.random(100) <= mob:getLocalVar("FeelersBreakChance") and mob:AnimationSub() == 0 then
+            mob:AnimationSub(1)
+            BreakMob(mob, target, 1, 60, 0)
+            mob:setMod(tpz.mod.REGEN, 0)
+        end
+    end)
 
     if not mob:hasStatusEffect(tpz.effect.AMNESIA) then
         PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems vulnerable to critical strikes.", 0xD, none, 30)
@@ -46,11 +51,11 @@ end
 
 function onMobWeaponSkillPrepare(mob, target)
     local hpp = mob:getHPP()
-    local tpMoves = {1693, 1694, 1695, 1696, 1697}
+    local tpMoves = {1693, 1694, 1695, 1697}
     local tpMoves2 = {1696, 1698, 1977, 1978}
     -- 100 - 49% HP
     if (hpp > 49) then
-        -- Gnash, Vile Belch, Hypnic Lamp, Seismic Tail, Seaspray
+        -- Gnash, Vile Belch, Hypnic Lamp, Seaspray
         return tpMoves[math.random(#tpMoves)]
     else
         -- Seismic Tail, Leeching Current, Deathgnash, Abominable Belch

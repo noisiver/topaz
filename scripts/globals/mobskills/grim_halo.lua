@@ -10,8 +10,8 @@ require("scripts/globals/status")
 
 function onMobSkillCheck(target, mob, skill)
     local job = mob:getMainJob()
-    -- Not used by RDM Shades / DRK Fallen Volunteer Troopers because they are single wielding
-    if mob:getPool() == 5202 or mob:getPool() == 1285 then
+    -- Not used by DRK Fallen Volunteer Troopers because they are single wielding
+    if mob:getPool() == 1285 then
         return 1
     end
     if (job == tpz.job.WAR or job == tpz.job.BLM or job == tpz.job.DRK or job == tpz.job.SAM or job == tpz.job.DRG or job == tpz.job.SMN) then

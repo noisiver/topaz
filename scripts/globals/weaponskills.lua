@@ -1661,7 +1661,7 @@ function GetMobFamily(target)
         return 'Merrow'
     elseif (target:getFamily() == 203) or (target:getFamily() == 204) or (target:getFamily() == 205) then
         return 'Qutrub'
-    elseif (target:getFamily() == 191) then 
+    elseif (target:getFamily() == 191) or (target:getFamily() == 554) then 
         return 'Orobon'
     elseif (target:getFamily() == 1) or (target:getFamily() == 302) then 
         return 'Acrolith'

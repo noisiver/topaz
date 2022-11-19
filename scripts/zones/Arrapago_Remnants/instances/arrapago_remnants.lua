@@ -141,9 +141,12 @@ function onInstanceProgressUpdate(instance, progress, elapsed)
 end
 
 function onEventFinish(player, csid, option)
+    local ID = zones[player:getZoneID()]
     local instance = player:getInstance()
-
-    if csid >= 200 and csid <= 203 and option == 1 then -- Port from 1st floor to 2nd floor
+    local zone = player:getZoneName()
+    local floor = player:getCharVar(zone)
+    -- TODO: Test all
+    if csid >= 200 and csid <= 203 and option == 1 and floor < 2 then -- Port from 1st floor to 2nd floor
         instance:setStage(2)
         instance:setProgress(0)
         -- Spawn Ramparts
@@ -154,31 +157,31 @@ function onEventFinish(player, csid, option)
         salvageUtil.spawnMobGroup(instance, ID.mob[2][1].mobs_start, ID.mob[2][1].mobs_end)
         salvageUtil.teleportGroup(player, math.random(332, 348), -4, 86, 193, true, false, true)
         salvageUtil.saveFloorProgress(player)
-    elseif csid == 204 and option == 1 then -- Port from 2nd floor to 3rd floor
+    elseif csid == 204 and option == 1 and floor < 3 then -- Port from 2nd floor to 3rd floor
         instance:setStage(3)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[3][1].mobs_start, ID.mob[3][1].mobs_end)
         salvageUtil.teleportGroup(player, 339, -0, math.random(456, 464), 129, 0, false, false, true) -- TODO: Test
         salvageUtil.saveFloorProgress(player)
-    elseif csid == 205 or csid == 206 and option == 1 then -- Port from 3rd floor to 4th floor
+    elseif csid == 205 or csid == 206 and option == 1 and floor < 4 then -- Port from 3rd floor to 4th floor
         instance:setStage(4)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end)
         salvageUtil.teleportGroup(player, math.random(-342, -335), -0, -580, 0, true, false, true) 
         salvageUtil.saveFloorProgress(player) 
-    elseif csid == 207 or csid == 208 and option == 1 then -- Port from 4th floor to 5th floor
+    elseif csid == 207 or csid == 208 and option == 1 and floor < 5 then -- Port from 4th floor to 5th floor
         instance:setStage(5)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end)
         salvageUtil.teleportGroup(player, math.random(-303, -298), -0, -19, 0, false, false, true) 
         salvageUtil.saveFloorProgress(player)
-    elseif csid == 209 and option == 1 then -- Port from 5th floor to 6th floor
+    elseif csid == 209 and option == 1 and floor < 6 then -- Port from 5th floor to 6th floor
         instance:setStage(6)
         instance:setProgress(0)
         salvageUtil.spawnMobGroup(instance, ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end)
         salvageUtil.teleportGroup(player, math.random(-343, -333), -0, 219, 0, false, false, true) 
         salvageUtil.saveFloorProgress(player)
-    elseif csid == 210 and option == 1 then
+    elseif csid == 210 and option == 1 and floor < 7 then
         instance:setStage(7)
         instance:setProgress(0)
         SpawnMob(ID.mob[7][1].chariot, instance)
