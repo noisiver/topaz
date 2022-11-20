@@ -471,16 +471,6 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 end
 
 function BlueFinalAdjustments(caster, target, spell, dmg, params)
-    if (dmg < 0) then
-        dmg = 0
-    end
-
-    dmg = dmg * BLUE_POWER
-
-    if (dmg < 0) then
-        dmg = 0
-    end
-
     local attackType = params.attackType or tpz.attackType.NONE
     local damageType = params.damageType or tpz.damageType.NONE
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
@@ -493,9 +483,6 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     elseif attackType == tpz.attackType.PHYSICAL then
         dmg = target:physicalDmgTaken(dmg, damageType)
     end
-
-    -- Handle Phalanx
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
     -- Handle Absorb
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH or attackType == tpz.attackType.SPECIAL then
