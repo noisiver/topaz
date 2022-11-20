@@ -370,7 +370,7 @@ end
 
 function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, ignoremacc)
     returninfo = {}
-    -- Below NYI
+    -- Params NYI
     local params = {}
     params.multiplier = dmgmod
     params.tp150 = 1
@@ -383,7 +383,6 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     local statmod = INT_BASED
-    -- Above NYI
     local resist = 1
     if bonus == nil then bonus = 0 end -- bonus macc
     local maccBonus = bonus
@@ -392,19 +391,23 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     -- local mobLevel = damage
     -- Maybe?
     local mobLevel = mob:getMainLvl()
+
     -- get WSC
     local WSC = getMobMagicWSC(mob, params)
+
     -- get ftp
-    -- local tp = mob:getLocalVar("TP") NYI needs to be added to every mob TP move onskillcheck like summoner
     local tp = 1000
     local multiplier = params.multiplier
     local tp150 = params.tp150
     local tp300 = params.tp300
     local ftp = MobMagicfTPModifier(tp, multiplier, tp150, tp300)
+
     -- get dStat
     local dStat = getMobDStat(statmod, mob, target)
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
+
     -- get resist
+    -- Why isn't this a param?
     if ignoremacc ~= nil and ignoremacc == 101 then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
          resist = 1
     else
@@ -413,10 +416,13 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
     end
+
     -- get weather
     local weatherBonus = getMobWeatherDayBonus(mob, element)
+
     -- get magic attack bonus
     local magicAttkBonus = getMobMAB(mob, target)
+
     -- Do the formula!
     local finaldmg = getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
 
@@ -440,6 +446,34 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     --printf("weatherbonus %i", weatherBonus * 100)
     --printf("finaldmg %i", finaldmg)
 
+    returninfo.dmg = finaldmg
+
+    return returninfo
+end
+
+function MobNeedlesMagicalMove(mob, target, skill, damage, element, tpeffect)
+    returninfo = {}
+
+    local resist = 1
+    if bonus == nil then bonus = 0 end -- bonus macc
+    local maccBonus = bonus
+    maccBonus = maccBonus + getMobBonusMacc(mob, target, element, params)
+    local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
+
+    -- get resist
+    resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), mobAccBonus, element)
+    local eleres = target:getMod(element+53)
+    if     eleres < 0  and resist < 0.5  then resist = 0.5
+    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+    -- get weather
+    local weatherBonus = getMobWeatherDayBonus(mob, element)
+
+    -- get magic attack bonus
+    local magicAttkBonus = getMobMAB(mob, target)
+
+    -- Do the formula!
+    finaldmg = math.floor(damage * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
     returninfo.dmg = finaldmg
 
     return returninfo
