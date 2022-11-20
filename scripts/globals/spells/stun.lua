@@ -67,6 +67,10 @@ function onSpellCast(caster, target, spell)
 		else
 			if (target:addStatusEffect(tpz.effect.STUN, 1, 0, duration)) then
 				spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+                -- Check for magic burst
+                if GetEnfeebleMagicBurstMessage(caster, spell, target) then
+                    spell:setMsg(spell:getMagicBurstMessage()) 
+                end
 			else
 				spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
 			end

@@ -64,6 +64,10 @@ function onSpellCast(caster, target, spell)
     target:delStatusEffectSilent(tpz.effect.BIO)
     target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 10, 2)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
+    -- Check for magic burst
+    if GetEnfeebleMagicBurstMessage(caster, spell, target) then
+        spell:setMsg(spell:getMagicBurstMessage()) 
+    end
 
     return final
 end

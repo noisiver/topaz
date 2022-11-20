@@ -1530,6 +1530,11 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
         duration = duration * 2
     end
 
+    -- Check for magic burst
+    if GetEnfeebleMagicBurstMessage(caster, spell, target) then
+        spell:setMsg(spell:getMagicBurstMessage()) 
+    end
+
     -- Set spell message and apply status effect
     target:addStatusEffect(tpz.effect.THRENODY, -power, 0, duration, 0, modifier, 0)
 
@@ -2025,6 +2030,11 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
         if target:addStatusEffect(effect, power, tick, duration) then
+            -- Check for magic burst
+            if GetEnfeebleMagicBurstMessage(caster, spell, target) then
+                return spell:setMsg(spell:getMagicBurstMessage()) 
+            end
+            -- Check for songs enfeebles
             if spell:getSkillType() == tpz.skill.SINGING then
                 return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             end
@@ -2035,6 +2045,19 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     else
         return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
+end
+
+function GetEnfeebleMagicBurstMessage(caster, spell, target)
+    -- Check for magic burst message
+    local params = {}
+    params.AMIIburstBonus = 0
+    local burst = calculateMagicBurst(caster, spell, target, params)
+
+    if (burst > 1.0) then
+        return true
+    end
+
+    return false
 end
 
 function getAbsorbSpellPower(caster)

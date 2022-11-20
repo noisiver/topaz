@@ -18,7 +18,7 @@ function onSpellCast(caster, target, spell)
     local mCHR = target:getStat(tpz.mod.CHR)
     local dCHR = pCHR - mCHR
     local params = {}
-    params.diff = nil
+    params.diff = dCHR
     params.attribute = tpz.mod.CHR
     params.skillType = tpz.skill.SINGING
     params.bonus = 0
