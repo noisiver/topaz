@@ -24,10 +24,6 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
-    local multi = 2.5
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 2.0
-    end
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.WIND
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
@@ -35,6 +31,10 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     -- This data should match information on https://www.bg-wiki.com/bg/Calculating_Blue_Magic_Damage
+    local multi = 2.5
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi + 2.0
+    end
     params.multiplier = multi
     params.tMultiplier = 2.0
     params.duppercap = 80
@@ -54,10 +54,8 @@ function onSpellCast(caster, target, spell)
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        target:delStatusEffectSilent(tpz.effect.WEIGHT)
-        target:addStatusEffect(tpz.effect.WEIGHT, 50, 0, getBlueEffectDuration(caster, resist, tpz.effect.WEIGHT))
-    end
+    params.effect = tpz.effect.WEIGHT
+    BlueTryEnfeeble(caster, target, spell, damage, 50, 0, 180, params)
 
     return damage
 end

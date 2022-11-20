@@ -58,15 +58,11 @@ function onSpellCast(caster, target, spell)
 		params.bonus = 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
 	end
     
-	if (target:hasStatusEffect(tpz.effect.ATTACK_DOWN) == false) and resist >= 0.5  then
-		target:addStatusEffect(tpz.effect.ATTACK_DOWN, 20, 0, 180)
-	end
-	
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-		local typeEffect = tpz.effect.SLOW
-		local power = 1500
-        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.ATTACK_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 20, 0, 180, params)
 
+    params.effect = tpz.effect.SLOW
+    BlueTryEnfeeble(caster, target, spell, damage, 1500, 0, 180, params)
+	
     return damage
 end

@@ -27,14 +27,9 @@ function onSpellCast(caster, target, spell)
     local params = {}
 
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-
     params.attribute = tpz.mod.INT
-
     params.skillType = tpz.skill.BLUE_MAGIC
-
     params.bonus = 0
-
-    local resist = applyResistance(caster, target, spell, params)
     local multi = 3.0
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0

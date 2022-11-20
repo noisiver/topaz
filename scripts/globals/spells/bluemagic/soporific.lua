@@ -24,8 +24,8 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     local params = {}
+    local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC

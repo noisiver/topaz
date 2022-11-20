@@ -32,14 +32,6 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local multi = 1.0
-
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 2.0
-    end
-    -- also have small constant to account for 0 dark skill
-    local dmg = utils.clamp(20 + 0.5 * caster:getSkillLevel(tpz.skill.BLUE_MAGIC), 0, 100)
-    -- get resist multiplier (1x if no resist)
     local params = {}
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.DARK
@@ -47,9 +39,14 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
+    local multi = 1.0
+
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi + 2.0
+    end
     params.multiplier = multi
     params.tMultiplier = 1.0
-    params.duppercap = 35
+    params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -57,16 +54,11 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.3
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    local resist = applyResistance(caster, target, spell, params)
 	local bird = (target:getSystem() == 8)
 	local aquan = (target:getSystem() == 2)
-	
-     -- get the resisted damage
-    dmg = dmg*resist
-    -- add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
-    dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-	-- add dmg variance
-	dmg = (dmg * math.random(85, 115)) / 100
+
+    local dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+
 	-- add correlation bonus
 	if bird then
 	 	dmg = dmg * 1.25
@@ -75,18 +67,18 @@ function onSpellCast(caster, target, spell)
 		dmg = dmg * 0.75
 		params.bonus = -25
 	end
-	-- add SDT
-    local SDT = target:getMod(tpz.mod.SDT_DARK)
-	
-	dmg = dmg * (SDT / 100)
+
     -- add in final adjustments
     dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
 
+	-- add dmg variance
+	dmg = (dmg * math.random(85, 115)) / 100
 
-   if dmg > 0 and resist >= 0.5  then
-		dmg = dmg * BLUE_POWER
-		caster:addMP(dmg)
-	end
+
+    if dmg > 0 then
+        dmg = dmg * BLUE_POWER
+        caster:addMP(dmg)
+    end
 
     return dmg
 end

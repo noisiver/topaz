@@ -24,11 +24,11 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.TERROR
     params.bonus = 0
-    local resist = applyResistance(caster, target, spell, params)
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)
 	
@@ -37,25 +37,26 @@ function onSpellCast(caster, target, spell)
 	elseif amorph then
 		params.bonus = -25
 	end
-    local duration = 15 * resist
-	
+
+    local duration = 15
+
 	if target:isNM() then
 		duration = duration / 2
 	end
 
-    if (resist >= 0.5) then -- Do it!
-        if (target:isFacing(caster)) then
-            if (target:addStatusEffect(params.effect, 1, 0, duration)) then
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-            else
-                spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-            end
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
+    typeEffect = tpz.effect.TERROR
+
+    if target:hasStatusEffect(typeEffect) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
+    end
+
+    params.effect = typeEffect
+    if BlueTryEnfeeble(caster, target, spell, 1, power, 0, duration, params) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
-    return params.effect
+    return tpz.effect.TERROR
 end

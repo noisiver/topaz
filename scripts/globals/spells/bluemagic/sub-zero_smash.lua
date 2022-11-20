@@ -62,10 +62,8 @@ function onSpellCast(caster, target, spell)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
 
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        local typeEffect = tpz.effect.PARALYSIS
-        target:addStatusEffect(typeEffect, 10, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.PARALYSIS
+    BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 180, params)
 
     return damage
 end

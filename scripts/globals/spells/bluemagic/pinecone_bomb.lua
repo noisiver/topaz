@@ -22,15 +22,11 @@ function onMagicCastingCheck(caster,target,spell)
 end
 
 function onSpellCast(caster,target,spell)
-    local typeEffect = tpz.effect.SLEEP_I
     local params = {}
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.effect = typeEffect
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DURATION
     params.attackType = tpz.attackType.RANGED
@@ -61,15 +57,11 @@ function onSpellCast(caster,target,spell)
 		vermin = damage * 0.75
 		params.bonus = -25
 	end
-    local duration = 60 * resist
-	
-    damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    -- After damage is applied (which would have woken the target up from a
-    -- preexisting sleep, if necesesary), apply the sleep effect for this spell.
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        target:addStatusEffect(typeEffect, 1, 0, duration)
-    end
+	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
+
+    params.effect = tpz.effect.SLEEP_I
+    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 60, params)
 
     return damage
 end

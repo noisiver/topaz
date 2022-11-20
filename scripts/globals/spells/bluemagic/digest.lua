@@ -22,33 +22,24 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-
-    local dmg = 20 + caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    local multi = 1.5
-	
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 2.0
-    end
-    --get resist multiplier (1x if no resist)
     local params = {}
     params.diff = caster:getStat(tpz.mod.MND)-target:getStat(tpz.mod.MND)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
-    params.bonus = 1.0
-    params.multiplier = multi
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
+    params.bonus = 0
     local multi = 2.0
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
+    params.multiplier = multi
+    local resist = applyResistance(caster, target, spell, params)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
     params.attackType = tpz.attackType.MAGICAL
     params.dmgType = tpz.damageType.LIGHT
     params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0
-    params.duppercap = 35
+    params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -56,14 +47,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
-    dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
-    --get the resisted damage
-    dmg = dmg*resist
-    --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
-    dmg = addBonuses(caster, spell, target, dmg)
-    --add in target adjustment
-    dmg = adjustForTarget(target, dmg, spell:getElement())
-    --add in final adjustments
+    local dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
 
     if (dmg < 0) then
         dmg = 0
@@ -83,14 +67,14 @@ function onSpellCast(caster, target, spell)
 		dmg = dmg * 0.75
 		params.bonus = -25
 	end
-	-- add SDT
-    local SDT = target:getMod(tpz.mod.SDT_LIGHT)
-	
-	dmg = dmg * (SDT / 100)
+
 	-- add final adjustments
     dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
+
+	-- add dmg variance
+	dmg = (dmg * math.random(85, 115)) / 100
  
- if dmg > 0 and resist >= 0.5  then
+    if dmg > 0 then
 		dmg = dmg * BLUE_POWER
 		caster:addHP(dmg)
 	end

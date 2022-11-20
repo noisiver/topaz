@@ -23,14 +23,16 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.attribute = tpz.mod.INT
+    params.skillType = tpz.skill.BLUE_MAGIC
+    params.attackType = tpz.attackType.MAGICAL
+    params.dmgType = tpz.damageType.EARTH
+    params.bonus = 0
     local multi = 2.0
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_damage
-    params.attackType = tpz.attackType.MAGICAL
-    params.dmgType = tpz.damageType.EARTH
-    params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0
     params.duppercap = 19
@@ -41,20 +43,8 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+    local dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 
-    local params = {}
-
-    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-
-    params.attribute = tpz.mod.INT
-
-    params.skillType = tpz.skill.BLUE_MAGIC
-
-    params.bonus = 0
-	params.effect = tpz.effect.ACCURACY_DOWN
-
-    local resist = applyResistance(caster, target, spell, params)
 	local bird = (target:getSystem() == 8)
 	local aquan = (target:getSystem() == 2)
 	-- add correlation bonus
@@ -68,12 +58,9 @@ function onSpellCast(caster, target, spell)
 
     dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
 
-    if (dmg > 0 and resist >= 0.5) then
-        if (target:canGainStatusEffect(tpz.effect.ACCURACY_DOWN)) then
-            local typeEffect = tpz.effect.ACCURACY_DOWN
-            target:addStatusEffect(typeEffect, 25, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
-        end
-    end
+    params.effect = tpz.effect.ACCURACY_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 25, 0, 180, params)
+
     params.effect = tpz.effect.PETRIFICATION
     BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 8, params)
 

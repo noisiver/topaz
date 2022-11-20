@@ -37,14 +37,19 @@ function onSpellCast(caster, target, spell)
 	    params.bonus = 55 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
     end
 
-    params.effect = tpz.effect.CHOKE
-    if target:hasStatusEffect(tpz.effect.FROST) or target:hasStatusEffect(tpz.effect.VIT_DOWN) then -- Does not stack with VIT down
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) 
-    elseif BlueTryEnfeeble(caster, target, spell, 1, DOT, 3, 180, params) then
-        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+    -- Does not stack with VIT down, choke, or frost
+    if (target:getStatusEffect(tpz.effect.RASP) ~= nil) then
+        target:delStatusEffectSilent(tpz.effect.RASP)
     end
+
+    params.effect = typeEffect
+    if BlueTryEnfeeble(caster, target, spell, 1, DOT, 3, 180, params) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+    end
+
+
 
     return typeEffect
 end

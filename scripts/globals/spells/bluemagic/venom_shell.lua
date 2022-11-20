@@ -43,12 +43,14 @@ function onSpellCast(caster, target, spell)
 		 params.bonus = -25
 	end	
 
-    if (resist >= 0.5) then -- Do it!
-        if (target:addStatusEffect(typeEffect, power, 3, getBlueEffectDuration(caster, resist, typeEffect, false))) then
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        end
+    if target:hasStatusEffect(typeEffect) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
+    end
+
+    params.effect = typeEffect
+    if BlueTryEnfeeble(caster, target, spell, 1, power, 3, 180, params) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
