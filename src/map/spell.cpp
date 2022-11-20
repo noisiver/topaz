@@ -195,7 +195,7 @@ bool CSpell::canHitShadow()
 bool CSpell::dealsDamage()
 {
     //damage or drain hp
-    return m_message == 2 || m_message == 227 || m_message == 252 || m_message == 274;
+    return m_message == 2 || m_message == 227 || m_message == 252 || m_message == 265 || m_message == 274;
 }
 
 float CSpell::getRadius()
