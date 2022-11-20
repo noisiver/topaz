@@ -241,10 +241,10 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	end
 
 	local bluphysattk = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    --printf("Attack after Skill - > %u", bluphysattk)
+    --printf("Attack after Skill.. %u", bluphysattk)
     -- Add attack from food/gear/JA's
     bluphysattk = bluphysattk + caster:getStat(tpz.mod.ATT)
-    --printf("Attack after food/gear/jas - > %u", bluphysattk)
+    --printf("Attack after food/gear/jas.. %u", bluphysattk)
     -- Remove skill from weapon(sword/club/etc)
     if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.SWORD) then
         bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.SWORD) + caster:getMod(tpz.mod.SKILL_SWORD))
@@ -252,10 +252,13 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.CLUB) then
         bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.CLUB) + caster:getMod(tpz.mod.CLUB))
     end
-    --printf("Attack after weapon skill removed - > %u", bluphysattk)
+    --printf("Attack after weapon skill removed.. %u", bluphysattk)
+    -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
+    bluphysattk = bluphysattk * (1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
+    --printf("Attack after potency merits.. %u", bluphysattk)
     -- Add attack from TP bonus and attack bonus on specific BLU spells
     bluphysattk = bluphysattk * BluAttkModifier
-    --printf("Attack after TP bonus - > %u", bluphysattk)
+    --printf("Attack after TP bonus.. %u", bluphysattk)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
@@ -477,7 +480,6 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
         dmg = target:magicDmgTaken(dmg)
     elseif attackType == tpz.attackType.BREATH then
         dmg = target:breathDmgTaken(dmg)
-
     elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
     elseif attackType == tpz.attackType.PHYSICAL then
@@ -815,7 +817,7 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
 			AccTPBonus = getAccTPModifier(caster:getTP()) 
 		end
 	end
-    local acc = attacker:getACC() + 30 + AccTPBonus + attacker:getMerit(tpz.merit.PHYSICAL_POTENCY) --https://www.bluegartr.com/threads/37619-Blue-Mage-Best-thread-ever?p=2097460&viewfull=1#post2097460 
+    local acc = attacker:getACC() + 30 + AccTPBonus + attacker:getMerit(tpz.merit.PHYSICAL_POTENCY) -- https://www.bluegartr.com/threads/37619-Blue-Mage-Best-thread-ever?p=2097460&viewfull=1#post2097460 
     local eva = target:getEVA()
 
     if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
@@ -827,10 +829,10 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
     local hitdiff = 0
     local hitrate = 75
     if (acc>eva) then
-    hitdiff = (acc-eva)/2
+        hitdiff = (acc-eva)/2
     end
     if (eva>acc) then
-    hitdiff = ((-1)*(eva-acc))/2
+        hitdiff = ((-1)*(eva-acc))/2
     end
 
     hitrate = hitrate+hitdiff
