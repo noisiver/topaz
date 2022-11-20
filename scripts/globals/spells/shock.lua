@@ -47,6 +47,7 @@ function onSpellCast(caster, target, spell)
                     target:delStatusEffectSilent(tpz.effect.SHOCK)
                 end
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
+                CheckForMagicBurst(caster, spell, target)
                 local duration = math.floor(ELEMENTAL_DEBUFF_DURATION * resist)
                 duration = duration + caster:getMerit(tpz.merit.ELEMENTAL_DEBUFF_DURATION)
 

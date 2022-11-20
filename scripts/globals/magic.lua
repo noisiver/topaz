@@ -2060,6 +2060,13 @@ function GetEnfeebleMagicBurstMessage(caster, spell, target)
     return false
 end
 
+function CheckForMagicBurst(caster, spell, target)
+    -- Check for magic burst then set message if true
+    if GetEnfeebleMagicBurstMessage(caster, spell, target) then
+        spell:setMsg(spell:getMagicBurstMessage()) 
+    end
+end
+
 function getAbsorbSpellPower(caster)
     -- https://www.bg-wiki.com/ffxi/Category:Absorb_Spell
     local mJobLvl = caster:getMainLvl()

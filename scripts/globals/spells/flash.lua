@@ -71,10 +71,7 @@ function onSpellCast(caster, target, spell)
     if (resist >= 0.0625) then
         if (target:addStatusEffect(params.effect, 300, 3, duration)) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
-            -- Check for magic burst
-            if GetEnfeebleMagicBurstMessage(caster, spell, target) then
-                spell:setMsg(spell:getMagicBurstMessage()) 
-            end
+            CheckForMagicBurst(caster, spell, target)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
