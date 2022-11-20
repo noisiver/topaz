@@ -254,14 +254,15 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     end
     --printf("Attack after weapon skill removed.. %u", bluphysattk)
     -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
-    bluphysattk = bluphysattk * (1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
-    --printf("Attack after potency merits.. %u", bluphysattk)
     -- Add attack from TP bonus and attack bonus on specific BLU spells
-    bluphysattk = bluphysattk * BluAttkModifier
+    bluphysattk = math.floor(bluphysattk * BluAttkModifier)
     --printf("Attack after TP bonus.. %u", bluphysattk)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
+    local physPotency = 1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
+    bluphysattk = math.floor(bluphysattk * physPotency)
+    --printf("Attack after potency merits.. %u", bluphysattk)
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local rangedcratio = BluecRangedRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
