@@ -13,7 +13,7 @@ require("scripts/globals/mobs")
 function onMobSpawn(mob)
     -- Never melees, only shoots, and low bow delay.
     -- 75% DT from all damage except from the front
-    mob:setDamage(100)
+    mob:setDamage(90)
     mob:setMod(tpz.mod.SDT_WIND, 130)
     mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 6)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
@@ -34,15 +34,19 @@ function onMobFight(mob, target)
     local gazeTickCheck = mob:getLocalVar("gazeTickCheck")
 
     -- Gradually petrifies anyone facing her, facing away removes the gruadl petrificaiton effect
-    if os.time() >= gazeTickCheck then
-        mob:setLocalVar("gazeTickCheck", os.time() + 3)
-        local nearbyPlayers = mob:getPlayersInRange(10)
-        if nearbyPlayers ~= nil then
-            for _,v in ipairs(nearbyPlayers) do
-                if mob:isFacing(v) and not v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) and not v:hasStatusEffect(tpz.effect.PETRIFICATION) then
-                    v:addStatusEffect(tpz.effect.GRADUAL_PETRIFICATION, 10, 3, 15)
-                elseif not v:isFacing(mob) and v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
-                    v:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
+    if not mob:hasStatusEffect(tpz.effect.TERROR) then -- Gaze Aura goes away while procced.
+        if os.time() >= gazeTickCheck then
+            mob:setLocalVar("gazeTickCheck", os.time() + 3)
+            local nearbyPlayers = mob:getPlayersInRange(10)
+            if (nearbyPlayers ~= nil) then
+                for _,v in ipairs(nearbyPlayers) do
+                    if mob:isFacing(v) and v:isFacing(mob) and not v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) and not v:hasStatusEffect(tpz.effect.PETRIFICATION) then
+                        v:addStatusEffect(tpz.effect.GRADUAL_PETRIFICATION, 10, 3, 15)
+                    elseif not v:isFacing(mob) and v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
+                        v:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
+                    elseif not mob:isFacing(v) and v:hasStatusEffect(tpz.effect.GRADUAL_PETRIFICATION) then
+                        v:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
+                    end
                 end
             end
         end
@@ -63,7 +67,7 @@ function onMobFight(mob, target)
     mob:addListener("SPELL_DMG_TAKEN", "MEDUSA_SPELL_DMG_TAKEN", function(mob, caster, spell, amount, msg)
         local element = spell:getElement()
 
-        if (element == tpz.magic.ele.WIND) and (amount >= 500) then
+        if (element == tpz.magic.ele.WIND) and (amount >= 300) then
             if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
                 BreakMob(mob, caster, 1, 60, 2)
             end

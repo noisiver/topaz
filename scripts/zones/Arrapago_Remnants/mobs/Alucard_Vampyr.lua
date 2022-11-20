@@ -40,10 +40,11 @@ function onMobSpawn(mob)
     for i, v in pairs(chars) do
         v:addStatusEffect(tpz.effect.TERROR, 1, 0, 5)
     end
+
     salvageUtil.msgGroup(mob, "The night beckons!", 0, "Alucard")
     mob:setDelay(3500)
     mob:setDamage(60)
-    mob:setMod(tpz.mod.DEFP, 0)
+    mob:setMod(tpz.mod.DEFP, 25)
     mob:setMod(tpz.mod.HTHRES, 1000)
     mob:setMod(tpz.mod.SLASHRES, 1250)
     mob:setMod(tpz.mod.PIERCERES, 750)

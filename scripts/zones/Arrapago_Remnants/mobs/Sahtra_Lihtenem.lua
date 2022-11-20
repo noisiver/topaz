@@ -98,8 +98,10 @@ function onMobFight(mob, target)
         local element = spell:getElement()
         local phase = mob:getLocalVar("phase")
         -- Taking a 1k+ damage Fire MB
-        if (element == tpz.magic.ele.FIRE) and (amount >= 500) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) and (phase == 2) then
-            BreakMob(mob, caster, 1, 60, 1)
+        if (element == tpz.magic.ele.FIRE) and (amount >= 500) and (phase == 2) then
+            if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
+                BreakMob(mob, caster, 1, 60, 1)
+            end
         end
     end)
 

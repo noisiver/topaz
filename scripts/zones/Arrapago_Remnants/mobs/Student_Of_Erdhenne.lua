@@ -60,8 +60,10 @@ function onMobFight(mob, target)
     mob:addListener("SPELL_DMG_TAKEN", "SoE_SPELL_DMG_TAKEN", function(mob, caster, spell, amount, msg)
         local element = spell:getElement()
         -- Taking a 1k+ damage light MB
-        if (element == tpz.magic.ele.LIGHT) and (amount >= 500) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) then
-            BreakMob(mob, caster, 1, 60, 2)
+        if (element == tpz.magic.ele.LIGHT) and (amount >= 500) then
+            if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
+                BreakMob(mob, caster, 1, 60, 2)
+            end
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.TERROR) then

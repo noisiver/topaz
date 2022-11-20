@@ -1029,12 +1029,18 @@ INSERT INTO `mob_droplist` VALUES (170,0,0,1000,3208,150);
 INSERT INTO `mob_droplist` VALUES (170,0,0,1000,3208,100);
 INSERT INTO `mob_droplist` VALUES (170,0,0,1000,3208,80);
 INSERT INTO `mob_droplist` VALUES (170,0,0,1000,18803,230);
-INSERT INTO `mob_droplist` VALUES (171,1,1,50,16085,166); -- Enyo's Mask
-INSERT INTO `mob_droplist` VALUES (171,1,1,50,16089,166); -- Njord's Mask
-INSERT INTO `mob_droplist` VALUES (171,1,1,50,16093,166); -- Hoshikazu Hachimaki
-INSERT INTO `mob_droplist` VALUES (171,1,1,50,16097,166); -- Anu's Tiara
-INSERT INTO `mob_droplist` VALUES (171,1,1,50,16101,166); -- Nemain's Crown
-INSERT INTO `mob_droplist` VALUES (171,1,1,50,14547,170); -- Eny's Breastplate
+INSERT INTO `mob_droplist` VALUES (171,1,1,240,16085,166); -- (Armored Chariot - Arrapago Remnants) Enyo's Mask
+INSERT INTO `mob_droplist` VALUES (171,1,1,240,16089,166); -- Njord's Mask
+INSERT INTO `mob_droplist` VALUES (171,1,1,240,16093,166); -- Hoshikazu Hachimaki
+INSERT INTO `mob_droplist` VALUES (171,1,1,240,16097,166); -- Anu's Tiara
+INSERT INTO `mob_droplist` VALUES (171,1,1,240,16101,166); -- Nemain's Crown
+INSERT INTO `mob_droplist` VALUES (171,1,1,240,14547,170); -- Enyo's Breastplate
+INSERT INTO `mob_droplist` VALUES (171,1,2,150,16085,166); -- Enyo's Mask
+INSERT INTO `mob_droplist` VALUES (171,1,2,150,16089,166); -- Njord's Mask
+INSERT INTO `mob_droplist` VALUES (171,1,2,150,16093,166); -- Hoshikazu Hachimaki
+INSERT INTO `mob_droplist` VALUES (171,1,2,150,16097,166); -- Anu's Tiara
+INSERT INTO `mob_droplist` VALUES (171,1,2,150,16101,166); -- Nemain's Crown
+INSERT INTO `mob_droplist` VALUES (171,1,2,150,14547,170); -- Enyo's Breastplate
 INSERT INTO `mob_droplist` VALUES (171,0,0,1000,5736,1000); -- Linen Coin Purse
 INSERT INTO `mob_droplist` VALUES (171,0,0,1000,5736,1000); -- Linen Coin Purse
 INSERT INTO `mob_droplist` VALUES (171,0,0,1000,5736,1000); -- Linen Coin Purse
