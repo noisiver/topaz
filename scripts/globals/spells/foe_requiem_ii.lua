@@ -62,7 +62,7 @@ function onSpellCast(caster, target, spell)
 
     -- Try to overwrite weaker Requiem
     if (canOverwrite(target, effect, power)) then
-        TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
+        TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
     end
 
     return effect
