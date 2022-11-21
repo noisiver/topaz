@@ -8,7 +8,7 @@ require("scripts/globals/status")
 require("scripts/globals/wotg")
 ------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(250)
+	mob:setDamage(125)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
@@ -18,6 +18,10 @@ function onMobSpawn(mob)
 	mob:setMod(tpz.mod.BINDRESTRAIT, 100)
 	mob:setMod(tpz.mod.GRAVITYRESTRAIT, 100)
     mob:AnimationSub(1)
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+    return 2175 -- Only uses Nox Blast
 end
 
 function onMobDeath(mob, player, isKiller)
