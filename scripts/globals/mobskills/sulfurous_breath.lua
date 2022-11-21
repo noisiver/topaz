@@ -1,7 +1,7 @@
 ---------------------------------------------
 -- Sulfurous_Breath
 -- Deals Fire damage to enemies within a fan-shaped area.
--- Phyiscal damage(Can crit) Perhaps hybrid fire + Phys?
+-- Phyiscal damage(Can crit)
 ---------------------------------------------
 
 require("scripts/globals/settings")
