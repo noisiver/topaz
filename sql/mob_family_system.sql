@@ -272,7 +272,7 @@ INSERT INTO `mob_family_system` VALUES (207,'Rafflesia',17,'Plantoid',0,60,100,1
 INSERT INTO `mob_family_system` VALUES (208,'Ram',6,'Beast',3,40,110,100,3,4,3,4,4,4,4,1,3,1,3,1,1,1,1,1,0.7,1,0.7,1.15,1.15,1,1,4,257,0); 
 INSERT INTO `mob_family_system` VALUES (209,'Rampart',4,'ArchaicMachine',2,60,125,90,1,3,2,5,1,1,1,1,1,1,1,1.15,0.6,1,1,1.15,0.85,0.85,0.85,0.6,0.85,0.05,1.15,5,2,0);
 INSERT INTO `mob_family_system` VALUES (210,'Raptor',14,'Lizard',1,50,100,120,4,4,5,3,4,4,4,1,3,1,3,1,1,1,1,1,1,1.3,1.3,1.3,1.5,1.3,1.3,1,258,1); -- Normal Raptor
-INSERT INTO `mob_family_system` VALUES (211,'Ruszor',2,'Aquan',1,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1.15,0.5,0.85,1,1.15,0.4,1,0.85,1,0);
+INSERT INTO `mob_family_system` VALUES (211,'Ruszor',2,'Aquan',1,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1.15,0.5,0.85,1,1.15,0.4,1,0.85,2,1,0);
 INSERT INTO `mob_family_system` VALUES (212,'Sabotender',17,'Plantoid',0,40,100,90,3,5,5,3,5,5,3,1,3,1,3,1,1,1,1,1.3,1.5,1,1,1.3,0.5,0.5,1.5,6,2,1);
 INSERT INTO `mob_family_system` VALUES (213,'Sahagin',7,'Beastmen',0,40,100,110,2,2,5,2,2,5,4,1,3,1,3,1,1,1,1,1,1.3,1.15,1.15,1.5,0.5,1,1,6,2,0);
 INSERT INTO `mob_family_system` VALUES (214,'Sandworm',1,'Amorph',1,60,100,100,2,5,1,5,4,5,5,1,3,1,3,1,1,1,1,0.5,0.5,0.85,0.05,0.5,0.5,0.5,0.5,4,2,0); -- Lambton Worm
