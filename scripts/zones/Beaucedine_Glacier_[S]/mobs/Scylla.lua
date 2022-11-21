@@ -19,7 +19,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 25)
 	mob:setMod(tpz.mod.VIT, 69)
     mob:setMod(tpz.mod.REFRESH, 400)
-    mob:setMod(tpz.mod.REGAIN, 50)
     mob:setMod(tpz.mod.HUMANOID_KILLER, 25)
 	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
 	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
@@ -53,6 +52,7 @@ function onMobFight(mob, target)
     if (os.time() < ParalysisAura) then
         AddMobAura(mob, target, 10, tpz.effect.GEO_PARALYSIS, 50, 3)
     end
+    mob:setMod(tpz.mod.REGAIN, 50)
 end
 
 function onMobWeaponSkill(target, mob, skill)
