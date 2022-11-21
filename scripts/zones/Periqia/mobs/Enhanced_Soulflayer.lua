@@ -52,10 +52,7 @@ end
 
 function onMobEngaged(mob)
 	local RunAwayPath = mob:getLocalVar("RunAwayPath")
-    if RunAwayPath == 0 then
-	    mob:useMobAbility(1965) -- Immortal Shield
-    end
-	if RunAwayPath == 1 then
+    if RunAwayPath == 1 then
         mob:setHP(63000)
         salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. " calls for help!", 0xD, none)
     end
