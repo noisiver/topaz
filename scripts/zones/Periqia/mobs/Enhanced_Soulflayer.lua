@@ -57,10 +57,7 @@ function onMobEngaged(mob)
     end
 	if RunAwayPath == 1 then
         mob:setHP(63000)
-        local zonePlayers = mob:getZone():getPlayers()
-        for _, zonePlayer in pairs(zonePlayers) do
-            zonePlayer:PrintToPlayer("The Enhanced Soulflayer attempts to call for help!",0,"???")
-        end
+        salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. " calls for help!", 0xD, none)
     end
     if RunAwayPath == 2 then
         mob:setHP(56000)
@@ -77,7 +74,6 @@ function onMobFight(mob, target)
 	local ImmortalShieldTime = mob:getLocalVar("ImmortalShieldTime")
 	local RunAwayPath = mob:getLocalVar("RunAwayPath")
     local RunAway = mob:getLocalVar("RunAway")
-    local helpMsg = mob:getLocalVar("helpMsg")
     local AnimationSub = mob:AnimationSub()
 	local BattleTime = mob:getBattleTime()
 
@@ -122,10 +118,6 @@ function onMobFight(mob, target)
             [9] = GetMobByID(17006915, instance),
             [10] = GetMobByID(17006920, instance),
         }
-        if (helpMsg == 0) then
-            salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. " calls for help!", 0xD, none)
-            mob:setLocalVar("helpMsg", 1)
-        end
 
         for _,v in pairs(Mobs) do
             v:updateEnmity(target)
