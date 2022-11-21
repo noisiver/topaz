@@ -623,7 +623,7 @@ void SetupJob(CMobEntity* PMob)
     switch(job)
     {
         case JOB_WAR:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::VIRUSRESTRAIT, 0);
@@ -634,7 +634,7 @@ void SetupJob(CMobEntity* PMob)
             }
             break;
         case JOB_SAM:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::BLINDRESTRAIT, 0);
@@ -647,7 +647,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 10);
             break;
         case JOB_PLD:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::SLEEPRESTRAIT, 0);  
@@ -656,7 +656,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_DRK:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
@@ -669,7 +669,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_BRD:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::SILENCERESTRAIT, 0);
@@ -683,7 +683,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
             break;
         case JOB_RDM:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::PETRIFYRESTRAIT, 0);
@@ -694,7 +694,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_SMN:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::SLOWRESTRAIT, 0);
@@ -706,7 +706,7 @@ void SetupJob(CMobEntity* PMob)
 		 }
             break;
         case JOB_NIN:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::BINDRESTRAIT, 0);
@@ -730,14 +730,14 @@ void SetupJob(CMobEntity* PMob)
                 // 50% bonus
                 PMob->defaultMobMod(MOBMOD_GIL_BONUS, 150);
             }
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::GRAVITYRESTRAIT, 0);
             }
             break;
         case JOB_RNG:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::POISONRESTRAIT, 0);
@@ -777,6 +777,12 @@ void SetupJob(CMobEntity* PMob)
             }
             break;
         case JOB_NIN:
+            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN && PMob->m_Family != 3 && PMob->m_Family != 115 && PMob->m_Family != 359 && PMob->m_Family != 509 &&
+                PMob->m_Family != 221 && PMob->m_Family != 222 && PMob->m_Family != 223)
+            // Only beastmen get resist job traits
+            {
+                PMob->setModifier(Mod::BINDRESTRAIT, 0);
+            }
             if (PMob->m_Family == 3)
             {
                 // aern
@@ -798,7 +804,7 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
             break;
         case JOB_BST:
-         if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+         if (!PMob->CMobEntity::IsHumanoid())
          // Only beastmen get resist job traits
          {
          PMob->setModifier(Mod::AMNESIARESTRAIT, 0);
@@ -824,7 +830,7 @@ void SetupJob(CMobEntity* PMob)
     switch (sJob)
     {
         case JOB_WAR:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::VIRUSRESTRAIT, 0);
@@ -835,70 +841,70 @@ void SetupJob(CMobEntity* PMob)
             }
             break;
         case JOB_RDM:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::PETRIFYRESTRAIT, 0);
             }
             break;
         case JOB_THF:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::GRAVITYRESTRAIT, 0);
             }
             break;
         case JOB_PLD:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::SLEEPRESTRAIT, 0);
             }
             break;
         case JOB_DRK:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
             }
             break;
         case JOB_BRD:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::SILENCERESTRAIT, 0);
             }
             break;
         case JOB_BST:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::AMNESIARESTRAIT, 0);
             }
             break;
         case JOB_RNG:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::POISONRESTRAIT, 0);
             }
             break;
         case JOB_NIN:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::BINDRESTRAIT, 0);
             }
             break;
         case JOB_SAM:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::BLINDRESTRAIT, 0);
             }
             break;
         case JOB_SMN:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN)
+            if (!PMob->CMobEntity::IsHumanoid())
             // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::SLOWRESTRAIT, 0);

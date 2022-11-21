@@ -435,6 +435,13 @@ bool CMobEntity::IsHPHidden()
     return m_flags & FLAG_HIDE_HP;
 }
 
+bool CMobEntity::IsHumanoid()
+{
+    return this->m_EcoSystem == SYSTEM_BEASTMEN || this->m_Family == 3 || this->m_Family == 115 || this->m_Family == 359 || this->m_Family == 509 ||
+           this->m_Family == 221 || this->m_Family == 222 || this->m_Family == 223;
+}
+
+
 
 void CMobEntity::CallForHelp(bool call)
 {

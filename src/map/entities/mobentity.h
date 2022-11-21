@@ -149,6 +149,7 @@ public:
     bool      CalledForHelp();
     void      HideHP(bool hide);
     bool      IsHPHidden();
+    bool      IsHumanoid();
     void      Untargetable(bool untargetable);
     bool      IsUntargetable();
     void      DoAutoTarget();
