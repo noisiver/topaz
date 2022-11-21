@@ -53,7 +53,6 @@ function onMobFight(mob, target)
     if (os.time() < ParalysisAura) then
         AddMobAura(mob, target, 10, tpz.effect.GEO_PARALYSIS, 50, 3)
     end
-    mob:setMod(tpz.mod.REGAIN, 50)
 end
 
 function onMobWeaponSkill(target, mob, skill)
