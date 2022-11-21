@@ -6,6 +6,7 @@ require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 require("scripts/globals/titles")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/families/ruszor")}
 ------------------------------
 function onMobInitialize(mob)
@@ -94,4 +95,5 @@ end
 function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.SCYLLA_SKINNER)
     tpz.hunts.checkHunt(mob, player, 539)
+    tpz.wotg.MagianT4 = function(mob, player, isKiller)
 end

@@ -7,6 +7,7 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 require("scripts/globals/titles")
 require("scripts/globals/pathfind")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/families/amphiptere")}
 ------------------------------
 local path1 = {
@@ -100,6 +101,7 @@ end
 function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.ZIRNITRA_WINGCLIPPER)
     tpz.hunts.checkHunt(mob, player, 543)
+    tpz.wotg.MagianT4 = function(mob, player, isKiller)
 end
 
 
