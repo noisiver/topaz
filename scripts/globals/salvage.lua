@@ -647,7 +647,14 @@ function salvageUtil.spawnMobGroup(instance, mobIdStart, mobIdEnd)
     end
 end
 
--- TODO Add more to this
+function salvageUtil.spawnMobTable(instance, mobId, table)
+    for k, v in pairs(table) do
+        if not GetMobByID(v, instance):isSpawned() then
+            SpawnMob(v, instance)
+        end
+    end
+end
+
 function salvageUtil.spawnRandomEvent(mob, player, isKiller, noKiller, chance, mobIdStart, mobIdEnd)
     local ID = zones[player:getZoneID()]
     local instance = mob:getInstance()
