@@ -1009,9 +1009,6 @@ void SetupDynamisMob(CMobEntity* PMob)
         }
     }
 
-    // zonewide hate
-    PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
-
     PMob->addModifier(Mod::REFRESH, 400);
 }
 
