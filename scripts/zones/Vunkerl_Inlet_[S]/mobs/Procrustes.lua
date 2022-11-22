@@ -3,6 +3,7 @@
 --   ANNM
 --   NM: Procrustes
 --  !addkeyitem RED_LABELED_CRATE
+-- TODO: fix/test!
 -----------------------------------
 require("scripts/globals/annm")
 require("scripts/globals/status")
@@ -44,9 +45,9 @@ function onMobFight(mob, target)
         mob:setLocalVar("comboTime", BattleTime + 10)
 	end
 
-    mob:addListener("WEAPONSKILL_STATE_EXIT", "COLOSSAL_BLOW_FINISH", function(mob, skillID)
+    mob:addListener("WEAPONSKILL_STATE_EXIT", "COLOSSAL_BLOW_FINISH", function(mob, skillID) 
         if skillID == 2578 then -- Colossal Slam
-            mob:setLocalVar("comboTime", BattleTime + 90)
+            mob:setLocalVar("comboTime", BattleTime + 90) -- This won't work, needs to be converted to os.time()
         end
     end)
     tpz.annm.PetShield(mob, 17117554, 17117559)
