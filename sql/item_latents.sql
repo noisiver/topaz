@@ -3060,20 +3060,15 @@ INSERT INTO `item_latents` VALUES(18768, 23, 12, 9, 4);
 -- -------------------------------------------------------
 -- Lyft Sainti
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 3);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 4);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 5);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 6);     -- ATT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 578, 5, 15, 3);     -- Dragon Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 578, 5, 15, 4);     -- Dragon Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 578, 5, 15, 5);     -- Dragon Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 578, 5, 15, 6);     -- Dragon Kick Damage +5~20, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 583, 5, 15, 3);     -- Tornado Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 583, 5, 15, 4);     -- Tornado Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 583, 5, 15, 5);     -- Tornado Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 583, 5, 15, 6);     -- Tornado Kick Damage +5~20, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Perdu Wand
