@@ -872,7 +872,8 @@ function MobDrainMove(mob, target, drainType, drain, attackType, damageType)
 end
 
 function MobPhysicalDrainMove(mob, target, skill, drainType, drain)
-    if (MobPhysicalHit(mob, skill)) then
+    -- Check if the skill fully missed. Blocks should also drain and not display a miss!
+    if (MobPhysicalHit(mob, skill)) or mob:getLocalVar("isBlocked") > 0 then
         return MobDrainMove(mob, target, drainType, drain)
     end
 
@@ -954,7 +955,7 @@ function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count,
         target:trySkillUp(mob, tpz.skill.SHIELD, 1)
         mob:setLocalVar("isBlocked", 1) 
     end
-    -- Check if the ttack wasn't blocked and didn't miss...
+    -- Check if the attack wasn't blocked and didn't miss...
     if (MobPhysicalHit(mob, skill)) then
 		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
         return count
