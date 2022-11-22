@@ -8896,11 +8896,11 @@ INSERT INTO `mob_groups` VALUES (6994,3416,132,'Ruminator',0,0,2133,0,0,0,0,0);
 -- Dynamis-Beaucedine (Zone 134)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,141,134,'Angra_Mainyu',0,128,9040,30000,12500,82,83,0); -- Zone Boss
-INSERT INTO `mob_groups` VALUES (2,1344,134,'Fire_Pukis',0,128,0,10000,0,82,82,0);
-INSERT INTO `mob_groups` VALUES (3,3167,134,'Poison_Pukis',0,128,0,10000,0,82,82,0);
-INSERT INTO `mob_groups` VALUES (4,4351,134,'Wind_Pukis',0,128,0,10000,0,82,82,0);
-INSERT INTO `mob_groups` VALUES (5,3122,134,'Petro_Pukis',0,128,0,10000,0,82,82,0);
+INSERT INTO `mob_groups` VALUES (1,141,134,'Angra_Mainyu',0,128,9040,15000,12500,82,83,0); -- Zone Boss
+INSERT INTO `mob_groups` VALUES (2,1344,134,'Fire_Pukis',0,128,0,0,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (3,3167,134,'Poison_Pukis',0,128,0,0,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (4,4351,134,'Wind_Pukis',0,128,0,0,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (5,3122,134,'Petro_Pukis',0,128,0,0,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (6,1774,134,'Goublefaupe',0,128,1211,30000,0,81,83,0); -- Attestation
 INSERT INTO `mob_groups` VALUES (7,3289,134,'Quiebitiel',0,128,2066,15000,0,81,83,0); -- Attestation
 INSERT INTO `mob_groups` VALUES (8,2660,134,'Mildaunegeux',0,128,1672,30000,0,81,83,0); -- Attestation
