@@ -166,7 +166,7 @@ function onEventFinish(player, csid, option)
     elseif csid == 205 or csid == 206 and option == 1 and floor < 4 then -- Port from 3rd floor to 4th floor
         instance:setStage(4)
         instance:setProgress(0)
-        salvageUtil.spawnMobGroup(instance, ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end)
+        salvageUtil.spawnMobTable(instance, mobId, ID.f4)
         salvageUtil.teleportGroup(player, math.random(-342, -335), -0, -580, 0, true, false, true) 
         salvageUtil.saveFloorProgress(player) 
     elseif csid == 207 or csid == 208 and option == 1 and floor < 5 then -- Port from 4th floor to 5th floor
