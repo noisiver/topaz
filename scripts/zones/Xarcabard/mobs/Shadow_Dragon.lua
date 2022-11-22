@@ -2,6 +2,9 @@
 -- Area: Xarcabard
 --  Mob: Shadow Dragon
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+-----------------------------------
 
 function onMobDeath(mob, player, isKiller)
 end
@@ -13,6 +16,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 20)
     mob:addMod(tpz.mod.MDEF, 24) 
     mob:setMobMod(tpz.mobMod.GIL_MIN, 1076)
+    mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end
 
 function onMobDespawn(mob)
