@@ -143,7 +143,7 @@ end
 function onMobDeath(mob, player, isKiller)
     tpz.hunts.checkHunt(mob, player, 478)
     player:addTitle(tpz.title.OUPIRE_IMPALER)
-    tpz.wotg.MagianT4 = function(mob, player, isKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)

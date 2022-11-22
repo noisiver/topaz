@@ -95,5 +95,5 @@ end
 function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.SCYLLA_SKINNER)
     tpz.hunts.checkHunt(mob, player, 539)
-    tpz.wotg.MagianT4 = function(mob, player, isKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller)
 end
