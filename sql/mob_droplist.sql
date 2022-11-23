@@ -15470,10 +15470,10 @@ INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,4744,50);
 INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,4745,50);
 INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,13073,240);	-- (Ge'dha Evileye) Holy Phial
 INSERT INTO `mob_droplist` VALUES (2842,0,0,1000,13731,100);	-- Faerie Tunic
-INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1870,500); -- (Ix DRG) Deed Of Sensibility
-INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1903,500); -- Vice Of Aspersion
-INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1854,500); -- (Ix DRK) Deed Of Moderation
-INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1902,500); -- Vice Of Avarice
+INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1870,900); -- (Ix DRG) Deed Of Sensibility
+INSERT INTO `mob_droplist` VALUES (2843,1,1,1000,1903,100); -- Vice Of Aspersion
+INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1854,900); -- (Ix DRK) Deed Of Moderation
+INSERT INTO `mob_droplist` VALUES (2844,1,1,1000,1902,100); -- Vice Of Avarice
 INSERT INTO `mob_droplist` VALUES (2845,0,0,1000,1851,100); -- (Ixaern MNK) Deed of placidity
 INSERT INTO `mob_droplist` VALUES (2845,0,0,1000,1901,100); -- Vice of antipathy
 INSERT INTO `mob_droplist` VALUES (2846,0,0,1000,856,100);
