@@ -2083,7 +2083,7 @@ INSERT INTO `synth_recipes` VALUES (29956,1,0,0,0,7,0,0,0,0,0,4100,4242,12496,0,
 -- INSERT INTO `synth_recipes` VALUES (29958,1,0,0,0,255,0,0,0,0,0,4100,4242,13209,0,0,0,0,0,0,0,744,744,744,744,4,4,4,4,'Chain Belt (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29959,1,0,0,0,255,0,0,0,0,0,4100,4242,13144,0,0,0,0,0,0,0,653,653,653,653,3,3,3,3,'Wing Gorget (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29960,1,0,0,0,255,0,0,0,0,0,4100,4242,17036,0,0,0,0,0,0,0,1226,653,653,653,10,2,2,2,'Mythril Mace (desynth)');
--- INSERT INTO `synth_recipes` VALUES (29961,1,0,0,0,255,0,0,0,0,0,4100,4242,2165,0,0,0,0,0,0,0,1233,1225,790,786,1,1,1,1,'Qutrub Gorget (desynth)'); -- BGWiki reports level as "<60"
+INSERT INTO `synth_recipes` VALUES (29961,1,0,0,0,11,0,0,0,0,0,4100,4242,2165,0,0,0,0,0,0,0,1233,790,786,1225,1,1,1,1,'Qutrub Gorget (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29962,1,0,0,0,255,0,0,0,0,0,4100,4242,13485,0,0,0,0,0,0,0,745,745,745,745,1,1,1,1,'Sun Ring (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29963,1,0,0,0,255,0,0,0,0,0,4100,4242,12809,0,0,0,0,0,0,0,744,819,851,651,2,3,2,4,'Silver Hose (desynth)');
 -- INSERT INTO `synth_recipes` VALUES (29964,1,0,0,0,255,0,0,0,0,0,4100,4242,16962,0,0,0,0,0,0,0,852,657,823,745,1,1,1,1,'Ashura (desynth)');
