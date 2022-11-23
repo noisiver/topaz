@@ -1674,17 +1674,10 @@ function getElementalSDT(element, target) -- takes into account if magic burst w
         end
     end
 
-    local SDTResistanceReduction = 1 + (target:getMod(tpz.mod.SPDEF_DOWN) / 100)
+    -- Add banish on undead / tomahawk effect
+    local SDTResistanceReduction = target:getMod(tpz.mod.SPDEF_DOWN) / 100
+    SDT = utils.clamp(math.max(100 - SDT, 0) * (SDTResistanceReduction) + SDT, 5, 150)
 
-        if SDT < 100 then -- these SPDEF_DOWN effects don't mean anything if it's the mob's weakness already
-        SDT = utils.clamp(math.floor(SDT * SDTResistanceReduction), 5, 100)
-    end
-
-    if SDT < 5 then
-        SDT = 5
-    elseif SDT > 150 then
-        SDT = 150
-    end
     --print(string.format(SDT))
     return SDT
 end
