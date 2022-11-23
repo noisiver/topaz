@@ -462,6 +462,10 @@ function getCureFinal(caster, spell, basecure, minCure, isBlueMagic)
     end
 
     local rapture = 1
+    local dayWeatherBonus = 1
+    local ele = spell:getElement()
+
+    local castersWeather = caster:getWeather()
     --rapture doesn't affect BLU cures as they're not white magic
     -- weather also doesn't
     if (isBlueMagic == false) then 
@@ -469,11 +473,6 @@ function getCureFinal(caster, spell, basecure, minCure, isBlueMagic)
             rapture = 1.5 + caster:getMod(tpz.mod.RAPTURE_AMOUNT)/100
             caster:delStatusEffectSilent(tpz.effect.RAPTURE)
         end
-
-        local dayWeatherBonus = 1
-        local ele = spell:getElement()
-
-        local castersWeather = caster:getWeather()
 
         if (castersWeather == tpz.magic.singleWeatherStrong[ele]) then
             if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
