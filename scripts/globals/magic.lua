@@ -462,59 +462,61 @@ function getCureFinal(caster, spell, basecure, minCure, isBlueMagic)
     end
 
     local rapture = 1
-    if (isBlueMagic == false) then --rapture doesn't affect BLU cures as they're not white magic
+    --rapture doesn't affect BLU cures as they're not white magic
+    -- weather also doesn't
+    if (isBlueMagic == false) then 
         if (caster:hasStatusEffect(tpz.effect.RAPTURE)) then
             rapture = 1.5 + caster:getMod(tpz.mod.RAPTURE_AMOUNT)/100
             caster:delStatusEffectSilent(tpz.effect.RAPTURE)
         end
-    end
 
-    local dayWeatherBonus = 1
-    local ele = spell:getElement()
+        local dayWeatherBonus = 1
+        local ele = spell:getElement()
 
-    local castersWeather = caster:getWeather()
+        local castersWeather = caster:getWeather()
 
-    if (castersWeather == tpz.magic.singleWeatherStrong[ele]) then
-        if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+        if (castersWeather == tpz.magic.singleWeatherStrong[ele]) then
+            if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+                if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                    dayWeatherBonus = dayWeatherBonus + 0.10
+                end
+            end
             if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
                 dayWeatherBonus = dayWeatherBonus + 0.10
             end
+        elseif (castersWeather == tpz.magic.singleWeatherWeak[ele]) then
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                dayWeatherBonus = dayWeatherBonus - 0.10
+            end
+        elseif (castersWeather == tpz.magic.doubleWeatherStrong[ele]) then
+            if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+                if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                    dayWeatherBonus = dayWeatherBonus + 0.10
+                end
+            end
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                dayWeatherBonus = dayWeatherBonus + 0.25
+            end
+        elseif (castersWeather == tpz.magic.doubleWeatherWeak[ele]) then
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                dayWeatherBonus = dayWeatherBonus - 0.25
+            end
         end
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus + 0.10
-        end
-    elseif (castersWeather == tpz.magic.singleWeatherWeak[ele]) then
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus - 0.10
-        end
-    elseif (castersWeather == tpz.magic.doubleWeatherStrong[ele]) then
-        if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+
+        local dayElement = VanadielDayElement()
+        if (dayElement == ele) then
             if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
                 dayWeatherBonus = dayWeatherBonus + 0.10
             end
+        elseif (dayElement == tpz.magic.elementDescendant[ele]) then
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                dayWeatherBonus = dayWeatherBonus - 0.10
+            end
         end
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus + 0.25
-        end
-    elseif (castersWeather == tpz.magic.doubleWeatherWeak[ele]) then
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus - 0.25
-        end
-    end
 
-    local dayElement = VanadielDayElement()
-    if (dayElement == ele) then
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus + 0.10
+        if (dayWeatherBonus > 1.4) then
+            dayWeatherBonus = 1.4
         end
-    elseif (dayElement == tpz.magic.elementDescendant[ele]) then
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus - 0.10
-        end
-    end
-
-    if (dayWeatherBonus > 1.4) then
-        dayWeatherBonus = 1.4
     end
 
     local final = math.floor(math.floor(math.floor(math.floor(basecure) * potency) * dayWeatherBonus) * rapture) * dSeal
@@ -1672,20 +1674,12 @@ function getElementalSDT(element, target) -- takes into account if magic burst w
         end
     end
 
-    local SPDefDown = target:getMod(tpz.mod.SPDEF_DOWN)/100
-    if SPDefDown >= 100 then SPDefDown = 99 end -- Breaks if it goes to 100
-    local SDTcoe = (1 - SPDefDown/100) -- warrior's tomahawk, or whm's banish against undead
-    -- Never make SPDEF down 100 or this breaks
-    if SDTcoe < 0.03 then
-        SDTcoe = 0.03
-    elseif SDTcoe > 1 then
-        SDTcoe = 1
+    local SDTResistanceReduction = 1 + (target:getMod(tpz.mod.SPDEF_DOWN) / 100)
+
+        if SDT < 100 then -- these SPDEF_DOWN effects don't mean anything if it's the mob's weakness already
+        SDT = utils.clamp(math.floor(SDT * SDTResistanceReduction), 5, 100)
     end
-    
-    if SDT < 100 then -- these SPDEF_DOWN effects don't mean anything if it's the mob's weakness already
-        SDT = 100 - ((100 - SDT) * SDTcoe)
-    end
-    
+
     if SDT < 5 then
         SDT = 5
     elseif SDT > 150 then

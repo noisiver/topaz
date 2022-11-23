@@ -1183,7 +1183,6 @@ tpz.mod =
     AMNESIARES                      = 253,
     LULLABYRES                      = 254,
     DEATHRES                        = 255,
-    STATUSRES                       = 958, -- "Resistance to All Status Ailments"
     SPDEF_DOWN                      = 958, -- Specific Damage Taken (or Special Damage Taken) reduction as a percent
     RAMPART_STONESKIN               = 1181, -- Magic Stoneskin(Only absorbs magic damage)
 
@@ -1677,8 +1676,7 @@ tpz.mod =
     GARDENING_WILT_BONUS            = 1011, -- Increases the number of Vanadays a plant can survive before it wilts
     SUPER_JUMP                      = 988,
     
-    SPDEF_DOWN                      = 958, -- Specific Damage Taken (or Special Damage Taken) reduction as a percent
-    
+
     RESBUILD_SLEEP      = 959,
     RESBUILD_GRAVITY    = 960,
     RESBUILD_BIND       = 961,

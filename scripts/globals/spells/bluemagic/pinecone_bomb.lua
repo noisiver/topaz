@@ -60,8 +60,11 @@ function onSpellCast(caster,target,spell)
 
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    params.effect = tpz.effect.SLEEP_I
-    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 60, params)
+    -- Can't overwrite any sleep
+    if not hasSleepT1Effect(target) then
+        params.effect = tpz.effect.SLEEP_I
+        BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 60, params)
+    end
 
     return damage
 end
