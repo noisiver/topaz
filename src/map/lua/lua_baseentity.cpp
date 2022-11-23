@@ -1020,6 +1020,7 @@ inline int32 CLuaBaseEntity::startEvent(lua_State *L)
         PChar->m_event.Option = (int32)lua_tointeger(L, 10);
     }
 
+    PChar->StatusEffectContainer->DelStatusEffect(EFFECT_INVISIBLE);
     PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_IN_CS;
     PChar->status = STATUS_CUTSCENE_ONLY;
 
