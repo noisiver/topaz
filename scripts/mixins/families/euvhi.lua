@@ -2,21 +2,23 @@ require("scripts/globals/mixins")
 
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
+-- opens/closed based on animation sub
+-- 4 = closed(petal) 6 = open(bloomed)
 
 function CheckForm(mob)
     if mob:AnimationSub() == 4 then
-        BloomedMods(mob)
+        PetalMods(mob)
     elseif mob:AnimationSub() == 6 then
-         PetalMods(mob)
+        BloomedMods(mob)
     end
 end
 
-function close_form(mob)
+function petal_form(mob)
     PetalMods(mob)
     mob:AnimationSub(4)
 end
 
-function open_form(mob)
+function bloomed_form(mob)
     BloomedMods(mob)
     mob:AnimationSub(6)
 end
@@ -58,6 +60,10 @@ g_mixins.families.euvhi = function(mob)
         mob:setLocalVar("changeTime", os.time() + math.random(20, 30))
     end)
 
+    mob:addListener("COMBAT_TICK", "EUVHI_COMBAT_TICK", function(mob)
+        mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
+    end)
+
     mob:addListener("DISENGAGE", "EUVHI_DISENGAGE", function(mob)
         CheckForm(mob)
     end)
@@ -70,10 +76,10 @@ g_mixins.families.euvhi = function(mob)
         -- Open if time expired
         if os.time() >= changeTime then
             if mob:AnimationSub() == 4 then
-                open_form(mob)
+                 petal_form(mob)
                 mob:setLocalVar("changeTime", os.time() + math.random(30, 45))
             elseif mob:AnimationSub() == 6 then
-                close_form(mob) 
+                bloomed_form(mob)
                 mob:setLocalVar("changeTime", os.time() + math.random(30, 45))
             end
         end
