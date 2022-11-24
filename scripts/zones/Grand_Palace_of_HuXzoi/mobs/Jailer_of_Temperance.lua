@@ -2,6 +2,7 @@
 -- Area: Grand Palace of Hu'Xzoi
 --   NM: Jailer of Temperance
 -----------------------------------
+local ID = require("scripts/zones/Grand_Palace_of_HuXzoi/IDs")
 require("scripts/zones/Grand_Palace_of_HuXzoi/globals")
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
@@ -107,10 +108,11 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    local ph = mob:getLocalVar("ph")
     DisallowRespawn(mob:getID(), true)
-    DisallowRespawn(ph, false)
-    GetMobByID(ph):setRespawnTime(GetMobRespawnTime(ph))
+    for _, mobID in pairs(ID.mob.JAILER_OF_TEMPERANCE_PH) do
+        DisallowRespawn(mobID, false)
+    end
+
     mob:setLocalVar("pop", os.time() + 900) -- 15 mins
     GRAND_PALACE_OF_HUXZOI.pickTemperancePH()
 end
