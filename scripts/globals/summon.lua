@@ -1,4 +1,4 @@
-require("scripts/globals/common")
+﻿require("scripts/globals/common")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
 require("scripts/globals/status")
@@ -252,7 +252,6 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 -- Calculate magical bonuses and reductions (Only Ifrit and thus fire damage is needed here)
                 local paramshybrid = {}
                 paramshybrid.includemab = true
-                -- Bonus Macc or else avatars struggle to land nukes on anything(No Ele staves)
                 local bonusMacc = 0
                 local magicdmg = addBonusesAbility(avatar, tpz.magic.ele.FIRE, target, finaldmg, paramshybrid)
                 local resist = getAvatarResist(avatar, effect, target, avatar:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonusMacc, tpz.magic.ele.FIRE)
@@ -347,8 +346,8 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
 
     local resist = 1
     if bonus == nil then bonus = 0 end -- bonus macc
-    -- Bonus macc on all nukes or else avatars struggle to land nukes on anything(No Ele staves)
-    local maccBonus = 25 + bonus
+
+    local maccBonus = bonus
     maccBonus = maccBonus + getAvatarBonusMacc(avatar, target, element, params)
 
     local avatarLevel = avatar:getMainLvl()
@@ -582,8 +581,7 @@ function AvatarStatusEffectBP(avatar, target, effect, power, duration, params, b
 	    return tpz.msg.basic.SKILL_NO_EFFECT
     end
 
-    -- Bonus macc on all status effects or else avatars struggle to land enfeebles on anything(No Ele staves)
-    local maccBonus = 25 + bonus
+    local maccBonus = bonus
 
     if (target:canGainStatusEffect(effect, power)) then
         local statmod = tpz.mod.INT
@@ -626,7 +624,7 @@ end
 
 -- similar to status effect move except, this will not land if the attack missed
 function AvatarPhysicalStatusEffectBP(avatar, target, skill, effect, power, duration, params, bonus)
-    if (AvatarPhysicalHit(skill)) then
+    if (AvatarPhysicalHit(skill)) then -- TODO: Shield block like monstertpmoves.lua
         return AvatarStatusEffectBP(avatar, target, effect, power, duration, params, bonus)
     end
 
@@ -1221,8 +1219,8 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         percentBonus = percentBonus - getEffectResistance(target, effect)
     end
 
-    local p = getMagicHitRate(avatar, target, 0, element, percentBonus, magicaccbonus)
-    local resist = getMagicResist(p)
+    local p = getAvatarMagicHitRate(avatar, target, 0, element, percentBonus, magicaccbonus)
+    local resist = getAvatarMagicResist(p)
     
     if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         resist = resist / 2
@@ -1230,6 +1228,120 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
 
     if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         resist = 1/8
+    end
+
+    --printf("getAvatarMagicHitRate = %i", p)
+    --printf("getAvatarMagicResist = %i", resist*100)
+    return resist
+end
+
+function getAvatarMagicHitRate(avatar, target, skillType, element, percentBonus, bonusAcc)
+    -- resist everything if magic shield is active
+    if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
+        return 0
+    end
+
+    local magiceva = 0
+
+    if (bonusAcc == nil) then
+        bonusAcc = 0
+    end
+
+    local magicacc = avatar:getMod(tpz.mod.MACC) + avatar:getILvlMacc()
+	
+    -- Get the base acc (just skill + skill mod (79 + skillID = ModID) + magic acc mod)
+    if skillType ~= 0 then
+        local skillBonus = 0
+        local skillAmount = avatar:getSkillLevel(skillType)
+        
+        if skillAmount > 200 then
+            skillBonus = 200 + (skillAmount - 200)*0.9
+        else
+            skillBonus = skillAmount
+        end
+        
+        magicacc = magicacc + skillBonus
+    else
+        -- for mob skills / additional effects which don't have a skill
+        magicacc = magicacc + utils.getSkillLvl(1, avatar:getMainLvl())
+    end
+
+    -- Base magic evasion (base magic evasion plus resistances(players), plus elemental defense(mobs)
+    -- target:getMod(MEVA) is set to a capped skill of rank C when the mob spawns
+    local magiceva = target:getMod(tpz.mod.MEVA)
+
+    magicacc = magicacc + bonusAcc
+
+    -- Add macc% from food
+    local maccFood = magicacc * (avatar:getMod(tpz.mod.FOOD_MACCP)/100)
+    magicacc = magicacc + utils.clamp(maccFood, 0, avatar:getMod(tpz.mod.FOOD_MACC_CAP))
+    
+    local SDT = getElementalSDT(element, target)
+
+    return calculateAvatarMagicHitRate(magicacc, magiceva, percentBonus, SDT)
+end
+
+function calculateAvatarMagicHitRate(magicacc, magiceva, percentBonus, SDT)
+    local p = 0
+    
+    -- percentBonus is a bit deceiving of a name. it's either 0 or a negative number. its only application is specific effect resistance (i.e. +5 resist to paralyze = -5% hitrate on incoming paras)
+    -- note that this has nothing to do with the resist TRAIT which is handled BEFORE rate calculations. gear bonuses (i.e. "Enhances Resist Paralyze Effect") count as traits.
+    -- If dMAcc < 0, Magic Hit Rate = 55% + floor( dMAcc÷2 ) = magic hit rate
+    -- If dMAcc ≥ 0, Magic Hit Rate = 55% + dMAcc = magic hit rate
+    
+    magicacc = magicacc
+    local dMAcc = magicacc - magiceva
+    -- FOR TESTING MACC AND MEVA!
+    -- print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
+    --GetPlayerByID(1):PrintToPlayer(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
+    if dMAcc < 0 then -- when penalty, half effective
+        p = 50 + math.floor(dMAcc/2)
+    else
+        p = 50 + dMAcc
+    end
+    p = utils.clamp(p, 5, 95)
+    
+    p = p + percentBonus
+    p = utils.clamp(p, 5, 95)
+    --print(string.format("step1: %u",p))
+	--GetPlayerByID(1):PrintToPlayer(string.format("pre SDT: %u",p))
+    p = p * SDT/100
+	--print(string.format("step2: %u",p))
+	--GetPlayerByID(1):PrintToPlayer(string.format("post SDT: %u",p))
+    return utils.clamp(p, 5, 95)
+end
+
+-- Returns resistance value from given magic hit rate (p)
+function getAvatarMagicResist(magicHitRate)
+
+    local p = magicHitRate / 100
+    local resist = 1
+
+    -- Resistance thresholds based on p.  A higher p leads to lower resist rates, and a lower p leads to higher resist rates.
+    local half = (1 - p)
+    local quart = ((1 - p)^2)
+    local eighth = ((1 - p)^3)
+    -- local sixteenth = ((1 - p)^4)
+    -- print("HALF: "..half)
+    -- print("QUART: "..quart)
+    -- print("EIGHTH: "..eighth)
+    -- print("SIXTEENTH: "..sixteenth)
+
+    local resvar = math.random()
+
+    -- sixteenth section removed as it is not obtainable under normal circumstances... requires getting a 1/8th roll reduced by half via a 50% or lower SDT tier
+    if (resvar <= eighth) then
+        resist = 0.125
+        --printf("Spell resisted to 1/8!  Threshold = %u",eighth)
+    elseif (resvar <= quart) then
+        resist = 0.25
+        --printf("Spell resisted to 1/4.  Threshold = %u",quart)
+    elseif (resvar <= half) then
+        resist = 0.5
+        --printf("Spell resisted to 1/2.  Threshold = %u",half)
+    else
+        resist = 1.0
+        --printf("1.0")
     end
 
     return resist
