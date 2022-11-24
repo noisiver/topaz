@@ -737,6 +737,25 @@ function salvageUtil.getAvailableMob(mob, table)
     return selectedMob
 end
 
+function salvageUtil.getAliveMob(mob, table)
+    local instance = mob:getInstance()
+    local ID = zones[mob:getZoneID()]
+    local selectedMob = nil
+    local possibleBosses = {}
+
+    possibleBosses = table
+
+    for _,v in pairs(possibleBosses) do
+        local mob = possibleBosses[math.random(#possibleBosses)]
+        if (GetMobByID(mob, instance) ~= nil and GetMobByID(mob, instance):isSpawned()) then
+            
+            selectedMob = mob
+            break
+        end
+    end
+    return selectedMob
+end
+
 function salvageUtil.getRandomWeather()
     local weather =
     {

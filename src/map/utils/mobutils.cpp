@@ -1143,9 +1143,6 @@ void SetupSalvageMob(CMobEntity* PMob)
     PMob->setMobMod(MOBMOD_AGGRO_SOUND, 1);
     PMob->setMobMod(MOBMOD_TRUE_SIGHT, 1);
     PMob->setMobMod(MOBMOD_TRUE_SOUND, 1);
-    // increase aggro ranges
-    PMob->setMobMod(MOBMOD_SIGHT_RANGE, 20);
-    PMob->setMobMod(MOBMOD_SOUND_RANGE, 15);
     // add same family linking
     PMob->setMobMod(MOBMOD_FAMILYLINK, 1); 
     // reduce roam radius

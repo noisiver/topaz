@@ -9,9 +9,13 @@ require("scripts/globals/msg")
 require("scripts/globals/salvage")
 require("scripts/globals/mobs")
 -----------------------------------
-
+elementalIds =
+{
+    17081025, 17081026, 17081027, 17081028, 17081029, 17081030, 17081031, 17081032, 17081033, 17081034, 17081035, 17081036, 17081037
+}
 function onMobSpawn(mob)
     salvageUtil.setElementalMods(mob)
+    mob:setMobMod(tpz.mobMod.NO_ROAM, 1)
 end
 
 function onMobEngaged(mob, target)
@@ -24,6 +28,17 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
+    local instance = mob:getInstance()
+    local newElemental = salvageUtil.getAliveMob(mob, elementalIds)
+    print(newElemental)
+    if isKiller or noKiller then
+        if (newElemental ~= nil) then
+            GetMobByID(newElemental, instance):updateEnmity(player)
+            salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " calls for help!", 0xD, none)
+        else
+            salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " calls for help...but no one comes.", 0xD, none)
+        end
+    end
     salvageUtil.spawnRandomEvent(mob, player, isKiller, noKiller, 10, ID.mob.random_trash_start, ID.mob.random_trash_end)
 end
 
