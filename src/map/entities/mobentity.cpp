@@ -1406,6 +1406,7 @@ void CMobEntity::OnDespawn(CDespawnState&)
     PAI->GetController()->SetAutoAttackEnabled(true);
     PAI->GetController()->SetMagicCastingEnabled(true);
     PAI->GetController()->SetWeaponSkillEnabled(true);
+    animationsub = 0;
     //#event despawn
     PAI->EventHandler.triggerListener("DESPAWN", this);
 }
