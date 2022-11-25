@@ -322,7 +322,7 @@ function onTrade(player, npc, trade)
 
             player:confirmTrade()
             player:setCharVar("AFupgrade", tradedCombo)
-            player:setCharVar("AFupgradeDay", os.time() + (3600 - time.min * 60)) -- Current time + Remaining minutes in the hour in seconds (Day Change)
+            player:setCharVar("AFupgradeDay", VanadielDayOfTheYear()) -- Day change
             player:startEvent(312)
         end
     end
@@ -330,6 +330,10 @@ end
 
 function onTrigger(player, npc)
     local wildcatJeuno = player:getCharVar("WildcatJeuno")
+    local Gameday = VanadielDayOfTheYear()
+    local var = player:getCharVar("AFupgradeDay")
+    print(var)
+    print(Gameday)
 
     -- LURE OF THE WILDCAT
     if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and not utils.mask.getBit(wildcatJeuno, 19) then
@@ -348,7 +352,7 @@ function onTrigger(player, npc)
         -- if player is waiting for an upgraded af or relic
         if afUpgrade > 0 then
             arg3 = afUpgrade
-            if player:getCharVar("AFupgradeDay") > os.time() and player:getGMLevel() < 2 then
+            if player:getCharVar("AFupgradeDay") == Gameday then -- Not ready yet.
                 arg4 = afUpgrade
             end
         end
