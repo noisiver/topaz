@@ -10,7 +10,9 @@ mixins = {require("scripts/mixins/families/imp")}
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
+    mob:SetAutoAttackEnabled(false)
+    mob:setUnkillable(true)
     mob:delImmunity(tpz.immunity.SILENCE) 
 end
 
@@ -29,8 +31,10 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
-    for i = 17081167, 17081181 do
-        if not GetMobByID(i, instance):isDead() then
+    local soulflayers = {17081167, 17081171, 17081176, 17081180}
+
+    for _, mobId in pairs(soulflayers) do
+        if not GetMobByID(mobId, instance):isDead() then
             return
         end
     end

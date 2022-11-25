@@ -69,8 +69,10 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
-    for i = 17081150, 17081166 do
-        if not GetMobByID(i, instance):isDead() then
+    local krakens = {17081156, 17081157, 17081158, 17081159}
+
+    for _, mobId in pairs(krakens) do
+        if not GetMobByID(mobId, instance):isDead() then
             return
         end
     end

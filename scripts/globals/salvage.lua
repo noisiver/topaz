@@ -765,6 +765,24 @@ function salvageUtil.getRandomWeather()
     return weather[math.random(#weather)]
 end
 
+function salvageUtil.ForceLink(mob, target, table)
+    local instance = mob:getInstance()
+    local mobId = mob:getID(instance)
+
+    for _,party in ipairs(table) do
+        for _,mob1 in ipairs(party) do
+            if mob1 == mobId then
+                for _,mob2 in ipairs(party) do
+                    SpawnMob(mob2, instance)
+                    GetMobByID(mob2, instance):updateEnmity(target)
+                    GetMobByID(mob2, instance):setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                end
+                break
+            end
+        end
+    end
+end
+
 
 
 ------------------------------------------------------------------------------------------

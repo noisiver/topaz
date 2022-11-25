@@ -33,7 +33,7 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         OBTAINED_TEMP_ITEM         = 7233, -- Obtained temporary item:
         ALREADY_HAVE_TEMP          = 7234, -- You already have that temporary item.
     },
-    f4 = {17081156, 17081157, 17081158, 17081159},
+    f4 = {17081156, 17081157, 17081158, 17081159, 17081167, 17081171, 17081176, 17081180},
     mob =
     {
         [1] = {

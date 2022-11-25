@@ -20,21 +20,7 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    local instance = mob:getInstance()
-    local mobId = mob:getID(instance)
-
-    for _,party in ipairs(buddies) do
-        for _,mob1 in ipairs(party) do
-            if mob1 == mobId then
-                for _,mob2 in ipairs(party) do
-                    SpawnMob(mob2, instance)
-                    GetMobByID(mob2, instance):updateEnmity(target)
-                    GetMobByID(mob2, instance):setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
-                end
-                break
-            end
-        end
-    end
+    salvageUtil.ForceLink(mob, target, buddies)
     salvageUtil.msgGroup(mob, "The " ..  MobName(mob) .. " summons a helper!" , 0xD, none)
     mob:setLocalVar("maelstromTime", os.time() + math.random(30, 45))
 end
@@ -74,6 +60,9 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
+    local instance = mob:getInstance()
+    local mobId = mob:getID(instance)
+
     -- Despawn crab healer
     for _,party in ipairs(buddies) do
         for _,mob in ipairs(party) do
@@ -90,8 +79,10 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
-    for i = 17081150, 17081166 do
-        if not GetMobByID(i, instance):isDead() then
+    local krakens = {17081156, 17081157, 17081158, 17081159}
+
+    for _, mobId in pairs(krakens) do
+        if not GetMobByID(mobId, instance):isDead() then
             return
         end
     end
