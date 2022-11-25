@@ -756,6 +756,11 @@ void SetupJob(CMobEntity* PMob)
                     // so slow down the trolls a bit
                     PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
                 }
+                else if (PMob->m_Family == 337) // Dyna-Quadav
+                {
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1123);
+                    PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
+                }
                 else if (PMob->m_Family == 358) // Dyna-Kindred
                 {
                     PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1146);
@@ -788,6 +793,11 @@ void SetupJob(CMobEntity* PMob)
                 // aern
                 PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1388);
                 PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+            }
+            else if (PMob->m_Family == 337) // Dyna-Quadav
+            {
+                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1123);
+                PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
             }
             else if (PMob->m_Family == 358) // Dyna-Kindred
             {
