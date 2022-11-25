@@ -790,19 +790,31 @@ function dynamis.procMonster(mob, player)
                 mob:setLocalVar("dynamis_proc", 4)
                 mob:weaknessTrigger(3)
                 mob:addStatusEffect(tpz.effect.TERROR, 0, 0, 30)
+                dynamis.removeTwoHour(mob)
             elseif extensions == 5 then
                 mob:setLocalVar("dynamis_proc", 3)
                 mob:weaknessTrigger(2)
                 mob:addStatusEffect(tpz.effect.TERROR, 0, 0, 30)
+                dynamis.removeTwoHour(mob)
             elseif extensions == 4 then
                 mob:setLocalVar("dynamis_proc", 2)
                 mob:weaknessTrigger(1)
                 mob:addStatusEffect(tpz.effect.TERROR, 0, 0, 30)
+                dynamis.removeTwoHour(mob)
             elseif extensions == 3 then
                 mob:setLocalVar("dynamis_proc", 1)
                 mob:weaknessTrigger(0)
                 mob:addStatusEffect(tpz.effect.TERROR, 0, 0, 30)
+                dynamis.removeTwoHour(mob)
             end
+        end
+    end
+end
+
+function dynamis.removeTwoHour(mob)
+    for v = 44, 54 do
+        if mob:hasStatusEffect(v) then
+            mob:delStatusEffectSilent(v)
         end
     end
 end
