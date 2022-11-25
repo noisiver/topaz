@@ -13,6 +13,14 @@ function CheckForm(mob)
     end
 end
 
+function CheckFormRoaming(mob)
+    if mob:AnimationSub() == 4 then
+        PetalRoamMods(mob)
+    elseif mob:AnimationSub() == 6 then
+        BloomedRoamMods(mob)
+    end
+end
+
 function petal_form(mob)
     PetalMods(mob)
     mob:AnimationSub(4)
@@ -27,6 +35,15 @@ function PetalMods(mob)
     mob:setMod(tpz.mod.DEFP, 100) 
     mob:setMod(tpz.mod.DMG, -25)
     mob:setDelay(4000)
+end
+
+function BloomedMods(mob)
+    mob:setMod(tpz.mod.DMG, 13)
+    mob:setDelay(3000)
+    mob:setMod(tpz.mod.DEFP, 0)
+end
+
+function PetalRoamMods(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     mob:setMobMod(tpz.mobMod.LINK_RADIUS, 11)
     mob:addMobMod(tpz.mobMod.ROAM_DISTANCE, 3)
@@ -34,10 +51,7 @@ function PetalMods(mob)
     mob:setAggressive(0)
 end
 
-function BloomedMods(mob)
-    mob:setMod(tpz.mod.DMG, 12.5)
-    mob:setDelay(3000)
-    mob:setMod(tpz.mod.DEFP, 0)
+function BloomedRoamMods(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
     mob:setMobMod(tpz.mobMod.LINK_RADIUS, 0)
     mob:setMobMod(tpz.mobMod.SOUND_RANGE, 11)
@@ -51,17 +65,13 @@ g_mixins.families.euvhi = function(mob)
     end)
 
     mob:addListener("ROAM_TICK", "EUVHI_ROAM", function(mob)
-        CheckForm(mob)
+        CheckFormRoaming(mob)
     end)
 
     mob:addListener("ENGAGE", "EUVHI_ENGAGE", function(mob, target)
         CheckForm(mob)
         mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
         mob:setLocalVar("changeTime", os.time() + math.random(20, 30))
-    end)
-
-    mob:addListener("COMBAT_TICK", "EUVHI_COMBAT_TICK", function(mob)
-        mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     end)
 
     mob:addListener("DISENGAGE", "EUVHI_DISENGAGE", function(mob)
@@ -76,10 +86,10 @@ g_mixins.families.euvhi = function(mob)
         -- Open if time expired
         if os.time() >= changeTime then
             if mob:AnimationSub() == 4 then
-                 petal_form(mob)
+                bloomed_form(mob)
                 mob:setLocalVar("changeTime", os.time() + math.random(30, 45))
             elseif mob:AnimationSub() == 6 then
-                bloomed_form(mob)
+                petal_form(mob)
                 mob:setLocalVar("changeTime", os.time() + math.random(30, 45))
             end
         end
