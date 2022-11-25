@@ -11,7 +11,6 @@ require("scripts/globals/mobs")
 -------------------------------------
 
 function onMobSpawn(mob)
-    mob:setDelay(4000)
     mob:setMod(tpz.mod.STORETP, 100)
     mob:setLocalVar("FeelersBreakChance", 25)
 end
