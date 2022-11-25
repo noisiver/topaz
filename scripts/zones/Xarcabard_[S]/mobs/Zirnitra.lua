@@ -11,13 +11,10 @@ require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/families/amphiptere")}
 ------------------------------
 local path1 = {
-    92, -36, 150,
-    -1, -36, 159,
-    -3, -36, 65,
-    -78, -36, 62,
-    -113, -35, 64,
-    -120, -36, 123,
-	-134, -28, 85,
+    38, -36, 162,
+    308, -27, 195,
+    341, -28, 294,
+    284, -27, 153,
 }
 
 function onMobInitialize(mob)
