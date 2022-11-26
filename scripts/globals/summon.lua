@@ -550,7 +550,9 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
     end
 
     -- Handle absorb
-    dmg = adjustForTarget(target, dmg, element)
+    if (element ~= 0) then -- Non-elemental damage cannot be absorbed
+        dmg = adjustForTarget(target, dmg, element)
+    end
     --printf("dmg %d", dmg)
     dmg = utils.clamp(dmg, -99999, 99999)
 
