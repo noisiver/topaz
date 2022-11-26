@@ -145,7 +145,7 @@ INSERT INTO `fishing_fish` VALUES (4485,'Noble Lady',0,66,30,7,10,1,1,0,1,255,25
 INSERT INTO `fishing_fish` VALUES (1135,'Norg Shell',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4482,'Nosteau Herring',0,39,21,7,8,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4481,'Ogre Eel',0,35,29,13,11,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
-INSERT INTO `fishing_fish` VALUES (624,'Pamtam Kelp',0,5,24,13,2,1,1,0,0,255,255,0,0,0,1,1,250,0,'',0);
+INSERT INTO `fishing_fish` VALUES (624,'Pamtam Kelp',0,5,24,13,2,1,1,0,0,255,255,0,0,0,1,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5125,'Phanauet Newt',0,4,13,10,11,1,1,0,0,255,255,0,0,0,0,1,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4464,'Pipira',0,29,11,6,14,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5470,'Pirarucu',0,89,21,6,11,161,210,1,0,255,255,0,0,0,0,1,350,0,'',0);
