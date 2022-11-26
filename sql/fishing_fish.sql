@@ -89,7 +89,7 @@ INSERT INTO `fishing_fish` VALUES (4473,'Crescent Fish',0,69,28,7,8,1,1,0,0,255,
 INSERT INTO `fishing_fish` VALUES (4528,'Crystal Bass',0,35,31,7,12,1,1,0,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (1210,'Damp Scroll',0,7,15,13,2,1,1,0,0,255,255,0,0,0,1,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4428,'Dark Bass',0,33,23,7,8,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5447,'Denizanasi',0,5,28,13,0,1,1,0,0,255,255,0,0,0,0,1,250,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5447,'Denizanasi',0,5,28,13,0,1,1,0,0,255,255,0,0,0,1,1,750,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5457,'Dil',0,96,33,5,5,1,1,0,0,255,255,0,0,0,0,1,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4290,'Elshimo Frog',0,30,16,6,13,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4579,'Elshimo Newt',0,60,16,8,11,1,1,0,0,255,255,0,0,0,0,1,500,0,'',0);
