@@ -782,36 +782,40 @@ void SetupJob(CMobEntity* PMob)
             }
             break;
         case JOB_NIN:
-            if (PMob->m_EcoSystem != SYSTEM_BEASTMEN && PMob->m_Family != 3 && PMob->m_Family != 115 && PMob->m_Family != 359 && PMob->m_Family != 509 &&
-                PMob->m_Family != 221 && PMob->m_Family != 222 && PMob->m_Family != 223)
-            // Only beastmen get resist job traits
+            if (!PMob->CMobEntity::IsHumanoid())
+                // Only beastmen get resist job traits
             {
                 PMob->setModifier(Mod::BINDRESTRAIT, 0);
             }
-            if (PMob->m_Family == 3)
+            // Exclube Fomors, Animated Weapons and Mamools
+            if (PMob->m_Family != 176 && PMob->m_Family != 115 && PMob->m_Family != 359 && PMob->m_Family != 509 && PMob->m_Family != 17)
             {
-                // aern
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1388);
-                PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-            }
-            else if (PMob->m_Family == 337) // Dyna-Quadav
-            {
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1123);
+                if (PMob->m_Family == 3)
+                {
+                    // aern
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1388);
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+                }
+                else if (PMob->m_Family == 337) // Dyna-Quadav
+                {
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1123);
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+                }
+                else if (PMob->m_Family == 358) // Dyna-Kindred
+                {
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1146);
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+                }
+                // exclude NIN Maat
+                else if (PMob->m_Family != 335)
+                {
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
+                    PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
+                }
+
                 PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
+                PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
             }
-            else if (PMob->m_Family == 358) // Dyna-Kindred
-            {
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1146);
-                PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-            }
-            // exclude NIN Maat, fomors and Mamools
-            else if (PMob->m_Family != 335 && PMob->m_Family != 176 && PMob->m_Family != 115 && PMob->m_Family != 359 && PMob->m_Family != 509)
-            {
-                PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 272);
-                PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-            }
-            PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
-            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
             break;
         case JOB_BST:
          if (!PMob->CMobEntity::IsHumanoid())

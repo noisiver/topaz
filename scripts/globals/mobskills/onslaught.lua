@@ -20,7 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.5
+    local dmgmod = 2
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -40,10 +40,9 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.ACCURACY_DOWN
     local power = 30
 
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 0, duration)
-
     -- About 300-400 to a DD.
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 0, duration)
     return dmg
 
 end

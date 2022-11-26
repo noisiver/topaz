@@ -30,7 +30,7 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.mnd_wsc = 0.2
     params_phys.chr_wsc = 0.0
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING,MOBPARAM_WIPE_SHADOWS)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING,info.hitslanded*math.random(2,3))
   
     local typeEffect = tpz.effect.STUN
 

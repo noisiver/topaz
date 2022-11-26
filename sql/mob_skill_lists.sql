@@ -73,23 +73,35 @@ INSERT INTO `mob_skill_lists` VALUES ('Amphiptere',6,2431);
 INSERT INTO `mob_skill_lists` VALUES ('Amphiptere',6,2432);
 INSERT INTO `mob_skill_lists` VALUES ('Amphiptere',6,2433); -- calamitous_wind
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Archery',7,1200);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Axe',8,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Axe',8,1192);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Club',9,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Club',9,1198);
 INSERT INTO `mob_skill_lists` VALUES ('Prankster_Maverix',10,513);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Dagger',11,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Dagger',11,1189);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greataxe',12,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greataxe',12,1193);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greatkatana',13,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greatkatana',13,1197);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greatsword',14,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greatsword',14,1191);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Handtohand',15,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Handtohand',15,1188);
--- 16: Animated Horn
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Horn',16,405);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Katana',17,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Katana',17,1196);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Marksmanship',18,1201);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Polearm',19,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Polearm',19,1195);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Scythe',20,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Scythe',20,1194);
 INSERT INTO `mob_skill_lists` VALUES ('Demoiselle_Desolee',21,659);
 INSERT INTO `mob_skill_lists` VALUES ('Gwyllgi',22,466);
 INSERT INTO `mob_skill_lists` VALUES ('Gwyllgi',22,470);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Staff',23,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Staff',23,1199);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Sword',24,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Sword',24,1190);
 INSERT INTO `mob_skill_lists` VALUES ('Antica',25,791);
 INSERT INTO `mob_skill_lists` VALUES ('Antica',25,792);
@@ -1277,7 +1289,17 @@ INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,816);
 INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,817);
 INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,818);
 INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,821);
--- 268: Wyvern
+
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,813);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,814);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,815);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,816);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,817);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,818);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,819);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,820);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,821);
+
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1347); -- dual_strike
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1348);
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1349);
