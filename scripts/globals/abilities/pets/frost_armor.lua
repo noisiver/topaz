@@ -23,7 +23,7 @@ function onPetAbility(target, pet, skill, summoner)
     local effect2 = tpz.effect.REFRESH
     local power2 = 3
     local tick2 = 3
-    local duration2 = 180
+    local duration2 = 600
     local bonus = 0
 
     AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)

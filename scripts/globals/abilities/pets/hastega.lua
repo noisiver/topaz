@@ -17,7 +17,7 @@ end
 function onPetAbility(target, pet, skill, summoner)
     local effect = tpz.effect.HASTE
     local power = 1530
-    local duration = 180
+    local duration = 600
     local bonus = 0
     local effect2 = tpz.effect.QUICKENING
     local power2 = 25
