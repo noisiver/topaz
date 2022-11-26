@@ -294,8 +294,6 @@ end
 function unionRepresentativeTrade(player, npc, trade, csid, guildID)
     local gpItem, remainingPoints = player:getCurrentGPItem(guildID)
     local text = zones[player:getZoneID()].text
-    print(gpItem)
-    print(remainingPoints)
     if (player:getCharVar('[GUILD]currentGuild') - 1 == guildID) then
         if remainingPoints == 0 then
             player:messageText(npc, text.NO_MORE_GP_ELIGIBLE)
@@ -303,6 +301,8 @@ function unionRepresentativeTrade(player, npc, trade, csid, guildID)
             local totalPoints = 0
             for i = 0, 8 do
                 local items, points = player:addGuildPoints(guildID, i)
+                    print(items)
+                    print(points)
                 if items ~= 0 and points ~= 0 then
                     totalPoints = totalPoints + points
                     trade:confirmSlot(i, items)
