@@ -852,6 +852,8 @@ namespace battleutils
                 Action->spikesEffect = SUBEFFECT_GLINT_SPIKES;
             }
 
+            // Handle phalanx
+            Action->spikesParam = std::max(Action->spikesParam - PAttacker->getMod(Mod::PHALANX), 0);
             // Handle Stoneskin
             Action->spikesParam = HandleMagicStoneskin(PAttacker, CalculateSpikeDamage(PAttacker, PDefender, Action, (uint16)(abs(damage))));
             int16 magicSS = PAttacker->getMod(Mod::RAMPART_STONESKIN);
