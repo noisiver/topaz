@@ -13,6 +13,7 @@ mixins = {require("scripts/mixins/weapon_break")}
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 0)
+    mob:setMobMod(tpz.mobMod.RETURN_TO_SPAWN, 0)
 end
 
 function onMobEngaged(mob, target)
@@ -22,9 +23,23 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
+    local bellyDanceEnabled = mob:getLocalVar("bellyDanceEnabled")
+
+    -- Belly Dance is used immediately after Hypnotic Sway
+    if (bellyDanceEnabled == 1) then
+        mob:setLocalVar("bellyDanceEnabled", 0)
+        mob:useMobAbility(1762) -- Belly Dance
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
+    return 1759 -- Hypnotic Sway
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 1759 then -- Hypnotic Sway
+        mob:setLocalVar("bellyDanceEnabled", 1)
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

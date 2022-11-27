@@ -13,6 +13,7 @@ mixins = {require("scripts/mixins/weapon_break")}
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 0)
+    mob:setMobMod(tpz.mobMod.RETURN_TO_SPAWN, 0)
     mob:delImmunity(tpz.immunity.SILENCE) 
 end
 
@@ -23,6 +24,14 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
+    return 1929 -- Only uses Pole Swing
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 1929 then -- Pole Swing resets enmity on the mobs target, even if it doesn't connect
+        mob:setLocalVar("poleSwingCombo", 1)
+        mob:resetEnmity(target)
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

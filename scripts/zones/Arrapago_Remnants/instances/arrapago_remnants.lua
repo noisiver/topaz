@@ -37,8 +37,13 @@ function onInstanceTimeUpdate(instance, elapsed) -- Ticks constantly like battle
     end
 
     -- Floor 6 mechanics
-    if (stage == 6 and progress == 9) then
-        -- Spawn Alucard(Vampyr)
+    if (stage == 6 and progress == 9) then -- Allucard Phase 1 (100%)
+        salvageUtil.spawnMob(instance, 17081245)
+    elseif (stage == 6 and progress == 19) then -- Allucard Phase 2 (75%)
+        salvageUtil.spawnMob(instance, 17081245)
+    elseif (stage == 6 and progress == 29) then -- Allucard Phase 2 (50%)
+        salvageUtil.spawnMob(instance, 17081245)
+    elseif (stage == 6 and progress == 39) then -- Allucard Phase 2 (25%)
         salvageUtil.spawnMob(instance, 17081245)
     end
 
@@ -69,8 +74,12 @@ function onInstanceTimeUpdate(instance, elapsed) -- Ticks constantly like battle
         salvageUtil.raiseGroup(instance, -339, -0, math.random(-503, -496), 0, 3)
     elseif (stage == 5) then -- Floor 5
         salvageUtil.raiseGroup(instance, math.random(-303, -298), -0, -19, 0, 3)
-    elseif (stage == 6) then -- Floor 6
-        salvageUtil.raiseGroup(instance, math.random(-343, -333), -0, 219, 0, 3)
+    elseif (stage == 6) then -- Floor 6 
+        if salvageUtil.raiseGroup(instance, math.random(-343, -333), -0, 219, 0, 3) then -- Reset entire floor on wipe
+            instance:setProgress(0)
+            DespawnMob(17081245, instance)
+            salvageUtil.spawnMobGroup(instance, ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end)
+        end
     elseif (stage == 7) then -- Floor 7
         salvageUtil.raiseGroup(instance, math.random(-343, -333), -0, 619, 0, 3) 
     end
@@ -111,15 +120,11 @@ function onRegionEnter(player, region, instance)
         player:startEvent(199 + RegionID)
     elseif (RegionID == 10 and stage == 5 and progress == 2) then -- F5 
         player:startEvent(199 + RegionID)
-    elseif (RegionID == 11 and stage == 6 and progress == 10) then -- F6 
+    elseif (RegionID == 11 and stage == 6 and progress == 40) then -- F6 
         player:startEvent(199 + RegionID)
     else
         player:PrintToPlayer("Nothing happens...", 0xD, none)
     end
-
-    --if region:GetRegionID() <= 11 and instance:getStage() > 1 then -- Alucard is dead, enble teleporters on Floor 1 
-       --player:startEvent(199 + region:GetRegionID())
-    --end
 
     -- First floor forced teleport to bosses
     if (RegionID == 12 and progress == 0) then
@@ -166,13 +171,13 @@ function onEventFinish(player, csid, option)
     elseif csid == 205 or csid == 206 and option == 1 and floor < 4 then -- Port from 3rd floor to 4th floor
         instance:setStage(4)
         instance:setProgress(0)
-        salvageUtil.spawnMobTable(instance, mobId, ID.f4)
+        salvageUtil.spawnMobTable(instance, ID.f4)
         salvageUtil.teleportGroup(player, math.random(-342, -335), -0, -580, 0, true, false, true) 
         salvageUtil.saveFloorProgress(player) 
     elseif csid == 207 or csid == 208 and option == 1 and floor < 5 then -- Port from 4th floor to 5th floor
         instance:setStage(5)
         instance:setProgress(0)
-        salvageUtil.spawnMobTable(instance, mobId, ID.f5)
+        salvageUtil.spawnMobTable(instance, ID.f5)
         salvageUtil.teleportGroup(player, math.random(-303, -298), -0, -19, 0, false, false, true) 
         salvageUtil.saveFloorProgress(player)
     elseif csid == 209 and option == 1 and floor < 6 then -- Port from 5th floor to 6th floor

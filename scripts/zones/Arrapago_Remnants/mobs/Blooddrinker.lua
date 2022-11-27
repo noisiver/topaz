@@ -41,7 +41,7 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
-     -- Increase progress counter after each bat despawns
+    -- Increase progress counter after each bat despawns
     instance:setProgress(instance:getProgress() +1) 
 end
 

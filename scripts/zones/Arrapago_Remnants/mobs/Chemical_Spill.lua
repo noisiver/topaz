@@ -19,24 +19,13 @@ parties =
 }
 
 function onMobSpawn(mob)
+    mob:setMod(tpz.mod.UDMGMAGIC, 25)
+    mob:setMod(tpz.mod.DMGMB, 25)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 0)
 end
 
 function onMobEngaged(mob, target)
-    local instance = mob:getInstance()
-    local mobId = mob:getID(instance)
-
-    for _,party in ipairs(parties) do
-        for _,mob in ipairs(party) do
-            if mob == mobId then
-                for _,mob2 in ipairs(party) do
-                    GetMobByID(mob2, instance):updateEnmity(target)
-                end
-                break
-            end
-        end
-    end
 end
 
 function onMobFight(mob, target)
@@ -51,8 +40,10 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
-    for i = 17081212, 17081232 do
-        if not GetMobByID(i, instance):isDead() then
+    local acroliths = {17081215, 17081219, 17081220, 17081221, 17081225, 17081227, 17081229, 17081231}
+
+    for _, mobId in pairs(acroliths) do
+        if not GetMobByID(mobId, instance):isDead() then
             return
         end
     end

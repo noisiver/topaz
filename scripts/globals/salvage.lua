@@ -647,7 +647,7 @@ function salvageUtil.spawnMobGroup(instance, mobIdStart, mobIdEnd)
     end
 end
 
-function salvageUtil.spawnMobTable(instance, mobId, table)
+function salvageUtil.spawnMobTable(instance, table)
     for k, v in pairs(table) do
         if not GetMobByID(v, instance):isSpawned() then
             SpawnMob(v, instance)
@@ -1018,8 +1018,8 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
         [1] = {},
         [2] = { ID.mob[2][1].mobs_start, ID.mob[2][1].mobs_end  },
         [3] = { ID.mob[3][1].mobs_start, ID.mob[3][1].mobs_end },
-        [4] = { ID.mob[4][1].mobs_start, ID.mob[4][1].mobs_end },
-        [5] = { ID.mob[5][1][1].mobs_start, ID.mob[5][1][1].mobs_end },
+        [4] = { ID.f4 },
+        [5] = { ID.f5 },
         [6] = { ID.mob[6][1].mobs_start, ID.mob[6][1].mobs_end },
         [7] = { ID.mob[7][1].chariot, ID.mob[7][1].chariot },
     }
@@ -1036,7 +1036,14 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
             salvageUtil.spawnMob(instance, 17080509)
             salvageUtil.spawnMob(instance, 17080512)
         end
-        salvageUtil.spawnMobGroup(instance, mobSpawns[floor][1], mobSpawns[floor][2])
+        -- Spawn mobs for saved floor
+        -- spawnMobGroup() for a start/end table, spawnMobTable() for a single table of IDs
+        if (mobSpawns[floor][2] ~= nil) then
+            salvageUtil.spawnMobGroup(instance, mobSpawns[floor][1], mobSpawns[floor][2])
+        else
+            salvageUtil.spawnMobTable(instance, mobSpawns[floor][1])
+        end
+
         instance:setStage(floor)
         instance:setProgress(0)
         entity:PrintToPlayer("The device has been activatd!",0xD, none)

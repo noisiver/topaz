@@ -3492,10 +3492,10 @@ INSERT INTO `mob_groups` VALUES (139,9095,74,'Hatmehyt',0,128,3202,25000,0,88,88
 INSERT INTO `mob_groups` VALUES (140,9096,74,'Medjeds_Head',0,128,0,9000,0,88,88,0); 
 INSERT INTO `mob_groups` VALUES (141,9097,74,'Medjeds_Body',0,128,0,9000,0,88,88,0); 
 -- F5
-INSERT INTO `mob_groups` VALUES (142,2894,74,'Nix_Songstress',0,128,3200,3000,2000,85,85,0); -- BRD
-INSERT INTO `mob_groups` VALUES (143,2896,74,'Nix_Wavedancer',0,128,3200,3000,2000,85,85,0); -- COR
-INSERT INTO `mob_groups` VALUES (144,2893,74,'Nix_Bladedancer',0,128,3200,3000,2000,85,85,0); -- RDM
-INSERT INTO `mob_groups` VALUES (145,2895,74,'Nix_Typhoondancer',0,128,3200,3200,2000,85,85,0);-- SAM
+INSERT INTO `mob_groups` VALUES (142,2894,74,'Nix_Songstress',0,128,3200,6000,2000,85,85,0); -- BRD
+INSERT INTO `mob_groups` VALUES (143,2896,74,'Nix_Wavedancer',0,128,3200,6000,2000,85,85,0); -- COR
+INSERT INTO `mob_groups` VALUES (144,2893,74,'Nix_Bladedancer',0,128,3200,6000,2000,85,85,0); -- RDM
+INSERT INTO `mob_groups` VALUES (145,2895,74,'Nix_Typhoondancer',0,128,3200,6200,2000,85,85,0);-- SAM
 INSERT INTO `mob_groups` VALUES (146,2364,74,'Lamie_Necromancer',0,128,3200,2500,2000,85,85,0); -- BLM
 INSERT INTO `mob_groups` VALUES (147,2362,74,'Lamie_Bellydancer',0,128,3200,2400,2000,85,85,0); -- SMN
 INSERT INTO `mob_groups` VALUES (148,6689,74,'Lamias_Elemental',0,128,0,1000,2000,80,80,0);

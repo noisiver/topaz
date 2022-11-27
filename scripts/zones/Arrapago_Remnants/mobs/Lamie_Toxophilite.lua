@@ -13,15 +13,30 @@ mixins = {require("scripts/mixins/weapon_break")}
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 0)
+    mob:setMobMod(tpz.mobMod.RETURN_TO_SPAWN, 0)
 end
 
 function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
+    local arrowDelugeCombo = mob:getLocalVar("arrowDelugeCombo")
+
+    -- Uses Arrow Deluge 3 times in a row after Gusting Gouge
+    if (arrowDelugeCombo == 1) then
+        mob:setLocalVar("arrowDelugeCombo", 0)
+        UseMultipleTPMoves(mob, 3, 1761)
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
+    return 1752 -- Gusting Gouge
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if skill:getID() == 1752 then -- Gusting Gouge
+        mob:setLocalVar("arrowDelugeCombo", 1)
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

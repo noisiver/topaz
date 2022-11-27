@@ -7,12 +7,17 @@ require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
 require("scripts/globals/salvage")
-mixins = {require("scripts/mixins/weapon_break")}
+mixins =
+{
+    require("scripts/mixins/weapon_break"),
+    require("scripts/mixins/job_special")
+}
 -----------------------------------
 
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 0)
+    mob:setMobMod(tpz.mobMod.RETURN_TO_SPAWN, 0)
     mob:delImmunity(tpz.immunity.SILENCE) 
 end
 
