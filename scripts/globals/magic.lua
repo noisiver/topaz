@@ -707,9 +707,12 @@ function applyResistanceAddEffect(player, target, element, bonus)
 end
 
 function getMagicHitRate(caster, target, skillType, element, percentBonus, bonusAcc)
-    -- resist everything if magic shield is active
-    if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
-        return 0
+    -- Resist everything if magic shield is active
+    -- BLU spells ignore this
+    if (skillType ~= tpz.skill.BLUE_MAGIC) then
+        if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
+            return 0
+        end
     end
 
     local magiceva = 0
