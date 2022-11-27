@@ -4481,7 +4481,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,2760); --
 INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,2209); -- 
 
 INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,1680); -- 
-INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,1681); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,2207); -- 
 
 INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1561); -- 

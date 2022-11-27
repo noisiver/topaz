@@ -35,9 +35,9 @@ function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
-            {id = tpz.jsa.MANAFONT, hpp = 75},
-            {id = tpz.jsa.MANAFONT, hpp = 50},
-            {id = tpz.jsa.MANAFONT, hpp = 25},
+            {id = tpz.jsa.BLOOD_WEAPON, hpp = 75},
+            {id = tpz.jsa.BLOOD_WEAPON, hpp = 50},
+            {id = tpz.jsa.BLOOD_WEAPON, hpp = 25},
         },
     })
 end
@@ -61,7 +61,7 @@ function onMobFight(mob, target)
     end
 
     if (hp < 20) then
-        AddMobAura(mob, target, 10, tpz.effect.GEO_MAGIC_DEF_DOWN, 25, 3)
+        AddMobAura(mob, target, 10, tpz.effect.GEO_DEFENSE_DOWN, 50, 3)
     end
 end
 
@@ -69,8 +69,8 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    -- Uses Cross Thrash 3-5 times after every TP move except Manafont
-    if skill:getID() ~= 691 then 
+    -- Uses Cross Thrash 3-5 times after every TP move except Blood Weapon and Cross Thrash
+    if skill:getID() ~= 695 and skill:getID() ~= 1681 then 
          mob:setLocalVar("crossThrashEnabled", 1)
     end
 end
