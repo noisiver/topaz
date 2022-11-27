@@ -52,7 +52,13 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+    local crossThrashEnabled = mob:getLocalVar("crossThrashEnabled")
     local hp = mob:getHPP()
+
+    if (crossThrashEnabled > 0) then
+        mob:setLocalVar("crossThrashEnabled", 0)
+        UseMultipleTPMoves(mob, math.random(3,5), 1681)
+    end
 
     if (hp < 20) then
         AddMobAura(mob, target, 10, tpz.effect.GEO_MAGIC_DEF_DOWN, 25, 3)
@@ -63,8 +69,9 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 1795 then -- Malediction
-         mob:useMobAbility(478) -- Hell Slash
+    -- Uses Cross Thrash 3-5 times after every TP move except Manafont
+    if skill:getID() ~= 691 then 
+         mob:setLocalVar("crossThrashEnabled", 1)
     end
 end
 
