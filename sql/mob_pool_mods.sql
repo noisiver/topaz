@@ -41,6 +41,7 @@ LOCK TABLES `mob_pool_mods` WRITE;
 -- Dual Wield
 INSERT INTO `mob_pool_mods` VALUES (237,44,1,1); -- Ark Angel HM 
 INSERT INTO `mob_pool_mods` VALUES (3598,44,1,1); -- Shikaree X
+INSERT INTO `mob_pool_mods` VALUES (9007,44,1,1); -- Nagi(Custom)
 
 INSERT INTO `mob_pool_mods` VALUES (21,29,100,0); -- Absolute Virtue +100 MDEF
 INSERT INTO `mob_pool_mods` VALUES (60,370,20,0);
