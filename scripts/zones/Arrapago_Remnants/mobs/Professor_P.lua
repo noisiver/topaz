@@ -16,9 +16,6 @@ require("scripts/globals/salvage")
 require("scripts/globals/items")
 require("scripts/globals/mobs")
 -----------------------------------
--- TODO: TP moves by phase
--- TODO: Mob family / stats / SDT
--- TODO: 2nd 3rd phase transformation model
 -- TP moves
 tpMoveList1 = {1028, 1031, 1032, 1033, 1034}
 -- Tackle, Spinning Attack, Howling Fist, Dragon Kick, Asuran Fists
@@ -95,15 +92,19 @@ end
 function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     if isKiller or noKiller then
-        -- Nearby door opens
-        instance:setProgress(1)
-        mob:getEntity(bit.band(ID.npc[5][1].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[5][1].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
-        mob:getEntity(bit.band(ID.npc[5][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[5][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
-        salvageUtil.msgGroup(mob, "Bad news, everyone... I don't think I'm going to make it...", 0, "Professor P")
-        salvageUtil.spawnMobGroup(instance, ID.mob[5][1][2].mobs_start, ID.mob[5][1][2].mobs_end)
-        mob:setModelId(762)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081211) then
+        else
+            -- Nearby door opens
+            instance:setProgress(1)
+            mob:getEntity(bit.band(ID.npc[5][1].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[5][1].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
+            mob:getEntity(bit.band(ID.npc[5][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[5][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
+            salvageUtil.msgGroup(mob, "Bad news, everyone... I don't think I'm going to make it...", 0, "Professor P")
+            salvageUtil.spawnMobGroup(instance, ID.mob[5][1][2].mobs_start, ID.mob[5][1][2].mobs_end)
+            mob:setModelId(762)
+        end
     end
 end
 

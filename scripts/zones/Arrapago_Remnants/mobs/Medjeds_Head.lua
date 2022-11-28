@@ -94,15 +94,19 @@ function onMobDeath(mob, player, isKiller, noKiller)
     -- Make sure Body is dead
     if body:isDead() then
         if isKiller or noKiller then
-            -- Teleport players back to the last porter used
-            salvageUtil.teleportGroup(player, -339, -0, math.random(-503, -496), 0, true, false, false)
-            salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
-            -- Nearby door opens
-            mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
-            mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
-            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
-            instance:setProgress(2)
-            player:addTreasure(5736, mob) --Linen Coin Purse
+            -- If final boss, spawn next boss in line
+            if salvageUtil.TrySpawnChariotBoss(mob, player, 17081233) then
+            else
+                -- Teleport players back to the last porter used
+                salvageUtil.teleportGroup(player, -339, -0, math.random(-503, -496), 0, true, false, false)
+                salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
+                -- Nearby door opens
+                mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
+                mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
+                salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+                instance:setProgress(2)
+                player:addTreasure(5736, mob) --Linen Coin Purse
+            end
         end
     end
 end

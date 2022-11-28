@@ -53,8 +53,12 @@ function onMobDeath(mob, player, isKiller, noKiller)
     local mobid = mob:getID(instance)
 
     if isKiller or noKiller then
-        -- Increase progress counter, at 4 turn teleporter back on
-        instance:setProgress(instance:getProgress() +1) 
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081113) then
+        else
+            -- Increase progress counter, at 4 turn teleporter back on
+            instance:setProgress(instance:getProgress() +1)
+        end
     end
 
     -- Despawn summoned imps on death

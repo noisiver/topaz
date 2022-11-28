@@ -94,10 +94,14 @@ function onMobDeath(mob, player, isKiller, noKiller)
     end
 
     if isKiller or noKiller then
-        -- Nearby door opens
-        instance:setProgress(2)
-        salvageUtil.teleportGroup(player, math.random(-344, -333), 0, -87, 0, true, false, false)
-        salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081245) then
+        else
+            -- Nearby door opens
+            instance:setProgress(2)
+            salvageUtil.teleportGroup(player, math.random(-344, -333), 0, -87, 0, true, false, false)
+            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        end
     end
 end
 

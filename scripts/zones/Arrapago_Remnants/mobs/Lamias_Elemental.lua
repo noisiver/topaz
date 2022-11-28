@@ -37,7 +37,7 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
-    for i = 17081185, 17081208 do
+    for i = 17081189, 17081208 do
         if not GetMobByID(i, instance):isDead() then
             return
         end

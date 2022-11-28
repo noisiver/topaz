@@ -67,14 +67,22 @@ function onMobDeath(mob, player, isKiller, noKiller)
     local progress = instance:getProgress()
 
     if isKiller or noKiller then
-        -- Teleport players back to the start 
-        instance:setProgress(1)
-        salvageUtil.teleportGroup(player, math.random(-342, -335), -0, -580, 0, true, false, false)
-        salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
-        -- Nearby door opens
-        mob:getEntity(bit.band(ID.npc[4][1].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[4][1].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
-        salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081183) then
+            salvageUtil.spawnMob(instance, 17081184)
+            GetMobByID(17081184, instance):setPos(mob:getXPos(), mob:getYPos(), mob:getZPos(), mob:getRotPos())
+            GetMobByID(17081184, instance):updateEnmity(player)
+            GetMobByID(17081184, instance):setMobMod(tpz.mobMod.NO_DROPS, 1)
+        else
+            -- Teleport players back to the start 
+            instance:setProgress(1)
+            salvageUtil.teleportGroup(player, math.random(-342, -335), -0, -580, 0, true, false, false)
+            salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
+            -- Nearby door opens
+            mob:getEntity(bit.band(ID.npc[4][1].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[4][1].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
+            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        end
     end
 end
 

@@ -9,6 +9,7 @@ require("scripts/globals/status")
 require("scripts/globals/salvage")
 require("scripts/globals/items")
 require("scripts/globals/mobs")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 local tpMoveList = {2106, 2107, 2108, 2109, 2110, 2111, 2534}
 -- Bloodrake, Decollation, Nosferatu's Kiss, Heliovoid, Wings of Gehenna, Eternal Damnation, Minax Glare
@@ -50,15 +51,12 @@ function onMobSpawn(mob)
     elseif (progress == 19) then
         SetHPPercent(mob, 75)
         ForceAggro(mob)
-        mob:useMobAbility(695) -- Blood Weapon
     elseif (progress == 29) then
         SetHPPercent(mob, 50)
         ForceAggro(mob)
-        mob:useMobAbility(688) -- Mighty Strikes
     elseif (progress == 39) then
         SetHPPercent(mob, 25)
         ForceAggro(mob)
-        mob:useMobAbility(692) -- Chainspell
     end
 
     mob:setDelay(3500)
@@ -71,7 +69,15 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.IMPACTRES, 1000)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-    mob:delImmunity(tpz.immunity.SILENCE) 
+    mob:delImmunity(tpz.immunity.SILENCE)
+    tpz.mix.jobSpecial.config(mob, {
+        specials =
+        {
+            {id = tpz.jsa.BLOOD_WEAPON, hpp = 70},
+            {id = tpz.jsa.MIGHTY_STRIKES, hpp = 40},
+            {id = tpz.jsa.CHAINSPELL, hpp = 15},
+        },
+    })
 end
 
 function onMobEngaged(mob, target)
@@ -151,11 +157,15 @@ function onMobDeath(mob, player, isKiller, noKiller)
     local progress = instance:getProgress()
 
     if isKiller or noKiller and (progress == 39) then
-        -- Nearby door opens
-        instance:setProgress(40)
-        mob:getEntity(bit.band(ID.npc[6].DOOR, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[6].DOOR, 0xFFF), tpz.objType.NPC):untargetable(true)
-        salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17080585) then
+        else
+            -- Nearby door opens
+            instance:setProgress(40)
+            mob:getEntity(bit.band(ID.npc[6].DOOR, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[6].DOOR, 0xFFF), tpz.objType.NPC):untargetable(true)
+            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        end
     end
 end
 

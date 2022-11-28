@@ -12,8 +12,7 @@ mixins = {require("scripts/mixins/weapon_break")}
 
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
-    mob:setMobMod(tpz.mobMod.NO_ROAM, 0)
-    mob:setMobMod(tpz.mobMod.RETURN_TO_SPAWN, 0)
+    mob:setMobMod(tpz.mobMod.NO_ROAM, 1)
     mob:delImmunity(tpz.immunity.SILENCE) 
 end
 
@@ -40,7 +39,7 @@ end
 
 function onMobDespawn(mob)
     local instance = mob:getInstance()
-    for i = 17081185, 17081208 do
+    for i = 17081189, 17081208 do
         if not GetMobByID(i, instance):isDead() then
             return
         end

@@ -1054,6 +1054,21 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
     end
 end
 
+function salvageUtil.TrySpawnChariotBoss(mob, target, mobId)
+    local instance = mob:getInstance()
+    local stage = instance:getStage()
+
+    if (stage == 7) then
+        salvageUtil.spawnMob(instance, mobId)
+        GetMobByID(mobId, instance):setPos(mob:getXPos(), mob:getYPos(), mob:getZPos(), mob:getRotPos())
+        GetMobByID(mobId, instance):updateEnmity(target)
+        GetMobByID(mobId, instance):setMobMod(tpz.mobMod.NO_DROPS, 1)
+        instance:setProgress(instance:getProgress() +1)
+        return true
+    end
+    return false
+end
+
 function salvageUtil.onInstanceComplete(instance)
     local floor = instance:getStage()
     local chars = instance:getChars()

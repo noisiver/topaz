@@ -46,10 +46,14 @@ end
 
 function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then
-        -- Nearby door opens
-        mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
-        salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081056) then
+        else
+            -- Nearby door opens
+            mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
+            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        end
     end
 end
 

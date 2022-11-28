@@ -25,13 +25,17 @@ function onMobSpawn(mob)
     mob:addImmunity(tpz.immunity.PARALYZE)
     mob:addImmunity(tpz.immunity.SLOW)
     mob:addImmunity(tpz.immunity.ELEGY)
-    mob:setUnkillable(true)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setLocalVar("enageTPMoves", 0)
+    if (stage == 1) then
+        mob:setUnkillable(true)
+    end
 end
 
 function onMobFight(mob, target)
     local instance = mob:getInstance()
+    local stage = instance:getStage()
+
     -- Uses Slip Stream and Sonic Boom when engaged
     if mob:checkDistance(target) <= 7 and mob:getLocalVar("enageTPMoves") == 0 then
         mob:useMobAbility(1157) 
@@ -39,7 +43,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("enageTPMoves", 1)
     end
     -- Warps away when below 10% HP
-    if mob:getHPP() < 10 then
+    if mob:getHPP() < 10 and (stage == 1) then
         mob:castSpell(261, mob)
     end
     mob:addListener("MAGIC_STATE_EXIT", "ALUCARD_MAGIC_STATE_EXIT", function(mob, spell)
@@ -67,7 +71,8 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
+    salvageUtil.TrySpawnChariotBoss(mob, player, 17081105)
 end
 
 function onMobDespawn(mob)
-end
+    end
