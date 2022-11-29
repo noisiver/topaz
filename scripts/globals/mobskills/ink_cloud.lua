@@ -2,6 +2,7 @@
 -- Ink Cloud
 --
 -- Description: Blinds nearby targets with ink.
+-- Also increases Evasion.
 -- Type: Enfeebling
 -- Utsusemi/Blink absorb: Ignores shadows
 -- Range: Unknown radial
@@ -18,6 +19,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
+    local power = (mob:getEVA() * 0.5)
+
+    MobBuffMove(mob, tpz.effect.EVASION_BOOST, power, 0, 300)
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 100, 0, 300))
 
     return typeEffect
