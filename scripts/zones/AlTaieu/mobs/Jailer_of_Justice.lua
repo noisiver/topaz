@@ -22,7 +22,7 @@ end
 
 function onMobEngaged(mob)
     local now = os.time()
-    mob:setLocalVar("next", now + 30)
+    mob:setLocalVar("next", now + 45)
     mob:setLocalVar("charm", now + math.random(150, 210))
 end
 
@@ -46,12 +46,12 @@ function onMobFight(mob, target)
 
             if petid == offset + 6 then
                 mob:setLocalVar("spawn", 0)
-                mob:setLocalVar("next", now + 30)
+                mob:setLocalVar("next", now + 45)
             end
         end
 
         if mob:getLocalVar("spawn") > 0 then
-            mob:setLocalVar("next", now + 35) -- 5 seconds extra for summon time
+            mob:setLocalVar("next", now + 40) -- 5 seconds extra for summon time
 
             local pet = GetMobByID(petid)
             mob:entityAnimationPacket("casm")
