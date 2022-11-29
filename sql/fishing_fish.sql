@@ -57,7 +57,7 @@ LOCK TABLES `fishing_fish` WRITE;
 /*!40000 ALTER TABLE `fishing_fish` DISABLE KEYS */;
 INSERT INTO `fishing_fish` VALUES (5476,'Abaia',90,100,32,7,13,269,317,1,0,255,255,0,1,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5455,'Ahtapot',0,90,31,4,4,54,144,1,0,255,255,0,0,0,0,1,450,0,'',0);
-INSERT INTO `fishing_fish` VALUES (5461,'Alabaligi',0,37,16,5,11,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
+INSERT INTO `fishing_fish` VALUES (5461,'Alabaligi',0,37,16,3,3,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4316,'Armored Pisces',90,108,31,9,12,52,124,1,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (688,'Arrowwood Log',0,4,18,13,2,1,1,1,0,255,255,0,0,0,1,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4461,'Bastore Bream',0,86,31,4,3,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0); -- was 250
@@ -164,7 +164,7 @@ INSERT INTO `fishing_fish` VALUES (4291,'Sandfish',0,50,36,3,10,1,1,0,0,255,255,
 INSERT INTO `fishing_fish` VALUES (5459,'Sazanbaligi',0,56,18,10,14,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4475,'Sea Zombie',90,100,39,3,15,79,192,1,1,255,255,0,1,0,0,1,300,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4484,'Shall Shell',0,53,27,13,2,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0); -- was 650
-INSERT INTO `fishing_fish` VALUES (4354,'Shining Trout',0,37,16,5,11,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4354,'Shining Trout',0,37,16,3,3,1,1,0,0,255,255,0,0,0,0,1,550,0,'',0);
 INSERT INTO `fishing_fish` VALUES (13456,'Silver Ring',0,7,40,13,2,1,1,0,0,255,255,1,0,0,1,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4451,'Silver Shark',0,76,35,1,1,1,1,0,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4463,'Takitaro',90,101,18,3,14,59,127,1,0,255,255,16,1,0,0,1,400,0,'',0);
