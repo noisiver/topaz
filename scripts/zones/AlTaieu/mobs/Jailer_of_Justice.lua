@@ -23,7 +23,7 @@ end
 function onMobEngaged(mob)
     local now = os.time()
     mob:setLocalVar("next", now + 45)
-    mob:setLocalVar("charm", now + 120)
+    mob:setLocalVar("charm", now + math.random(120,150))
 end
 
 function onMobFight(mob, target)
@@ -33,7 +33,7 @@ function onMobFight(mob, target)
 
     if now > charm then
         mob:useMobAbility(710)
-        mob:setLocalVar("charm", now + 120)
+        mob:setLocalVar("charm", now + math.random(120,150))
     end
 
     if now > next then
