@@ -3332,20 +3332,20 @@ INSERT INTO `item_latents` VALUES(19279, 68, 1, 15, 6);     -- EVA +1~4, party s
 -- -------------------------------------------------------
 -- Unshomaru  (Lyft Great Katana)
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 73, 2, 15, 3);      -- Store TP +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 73, 2, 15, 4);      -- Store TP +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 73, 2, 15, 5);      -- Store TP +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 73, 2, 15, 6);      -- Store TP +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 161, -2, 15, 3);    -- PDT 2~8%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 161, -2, 15, 4);    -- PDT 2~8%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 161, -2, 15, 5);    -- PDT 2~8%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 161, -2, 15, 6);    -- PDT 2~8%, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 27, 2, 15, 3);     -- Enmity +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 27, 2, 15, 4);     -- Enmity +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 27, 2, 15, 5);     -- Enmity +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 27, 2, 15, 6);     -- Enmity +2~8, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Lyft Lance
