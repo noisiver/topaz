@@ -42,6 +42,9 @@ end
 
 function onMobFight(mob, target)
     local phase = mob:getLocalVar("battlePhase")
+    local holyEnabled = mob:getLocalVar("holyEnabled")
+    local enmityList = mob:getEnmityList()
+    local holyTarget = nil
 
     local First = mob:getLocalVar("First")
     local Second = mob:getLocalVar("Second")
@@ -141,6 +144,15 @@ function onMobFight(mob, target)
         mob:setLocalVar("nuclearWaste", 0)
     end
 
+    -- Holy IIs a random target after using certain TP moves in Phase 2
+    if mob:actionQueueEmpty() then
+        if enmityList and #enmityList > 0 and (holyEnabled > 0) then
+            mob:setLocalVar("holyEnabled", 0)
+            holyTarget = math.random(#enmityList)
+            mob:castSpell(22, GetPlayerByID(holyTarget)) -- Holy II
+        end
+    end
+
     if mob:actionQueueEmpty() then
         if mob:getHPP() < (80 - (phase * 20)) then
             mob:useMobAbility(1524) -- use Dissipation on phase change
@@ -161,23 +173,13 @@ function onMobWeaponSkill(target, mob, skill)
     mob:setLocalVar("HolyTarget", 0)
     if phase > 1 then
         for v = 1259,1267,1 do -- TP move ID
-            if skill:getID() == v and HolyTarget < 1 then -- If TP Move is part of for loop then...
-               --[[ local players = mob:getEnmityList()
-                local target = players[math.random(#players)]
-                mob:castSpell(22, target.entity) -- Holy II ]]
-                mob:castSpell(22, BattleTarget) -- Holy II
-                HolyTarget = HolyTarget +1
-                mob:setLocalVar("HolyTarget", HolyTarget)
+            if skill:getID() == v then
+                mob:setLocalVar("holyEnabled", 1)
             end
         end
         for _,v in pairs(SkillID) do
-            if skill:getID() == v and HolyTarget < 1 then -- Other TP moves
-               --[[ local players = mob:getEnmityList()
-                local target = players[math.random(#players)]
-                mob:castSpell(22, target.entity) -- Holy II ]]
-                mob:castSpell(22, BattleTarget) -- Holy II
-                HolyTarget = HolyTarget +1
-                mob:setLocalVar("HolyTarget", HolyTarget)
+            if skill:getID() == v then
+                mob:setLocalVar("holyEnabled", 1)
             end
         end
     end
