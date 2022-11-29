@@ -19,6 +19,7 @@ require("scripts/globals/msg")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
+    spell:setFlag(tpz.magic.spellFlag.IGNORE_SHADOWS)
     return 0
 end
 
