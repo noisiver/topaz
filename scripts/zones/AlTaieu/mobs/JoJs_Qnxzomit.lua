@@ -15,7 +15,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-    mob:setLocalVar("mijin", now + 35)
+    mob:setLocalVar("mijin", now + 40)
 end
 
 function onMobFight(mob, target)

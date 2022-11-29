@@ -51,7 +51,7 @@ function onMobFight(mob, target)
         end
 
         if mob:getLocalVar("spawn") > 0 then
-            mob:setLocalVar("next", now + 40) -- 5 seconds extra for summon time
+            mob:setLocalVar("next", now + 50) -- 5 seconds extra for summon time
 
             local pet = GetMobByID(petid)
             mob:entityAnimationPacket("casm")
@@ -68,8 +68,6 @@ function onMobFight(mob, target)
                 local targ = mob:getTarget()
                 if targ then
                     pet:updateEnmity(targ)
-                    -- at random reset JoJ hate on target when a pet is summoned
-                    if math.random(1, 3) == 1 then mob:resetEnmity(targ); end
                 end
             end)
         end
