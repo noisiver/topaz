@@ -43,6 +43,10 @@ zones[tpz.zone.MOUNT_ZHAYOLM] =
            -- [17027421] = 17027423, -- -567.6 -15.35 252.201
             [17027422] = 17027423, -- -544.3 -14.8 262.992
         },
+        FAHRAFAHR_THE_BLOODIED_PH  =
+        {
+            [17027180] = 17027183,
+        },
         EVOLVING_WAMOURA_PRINCES =
         {
             17027197, 

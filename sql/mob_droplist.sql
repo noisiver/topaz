@@ -2938,8 +2938,8 @@ INSERT INTO `mob_droplist` VALUES (506,0,0,1000,1452,10);
 INSERT INTO `mob_droplist` VALUES (506,0,0,1000,1453,10);
 INSERT INTO `mob_droplist` VALUES (506,0,0,1000,2521,50);
 INSERT INTO `mob_droplist` VALUES (506,4,0,1000,2521,0); -- Gnole claw(Despoil)
-INSERT INTO `mob_droplist` VALUES (507,0,0,1000,19233,150); -- Lyft crossbow
-INSERT INTO `mob_droplist` VALUES (508,0,0,1000,15504,321);	-- (Coo Keja The Unseen) Ajase Bead Necklace
+INSERT INTO `mob_droplist` VALUES (507,0,0,1000,19233,240); -- Lyft crossbow
+INSERT INTO `mob_droplist` VALUES (508,0,0,1000,15504,240);	-- (Coo Keja The Unseen) Ajase Bead Necklace
 INSERT INTO `mob_droplist` VALUES (509,2,0,1000,4373,0);
 INSERT INTO `mob_droplist` VALUES (509,0,0,1000,5680,10);
 INSERT INTO `mob_droplist` VALUES (510,0,0,1000,846,100);
@@ -17119,6 +17119,8 @@ INSERT INTO `mob_droplist` VALUES (6066,0,0,1000,11483,50); -- (Gorib) Gnole Cro
 INSERT INTO `mob_droplist` VALUES (6067,0,0,1000,19158,50); -- (Seua Peek) Scheherazade  
 INSERT INTO `mob_droplist` VALUES (6068,0,0,1000,19113,50); -- (Purushamriga) Ermine's Tail
 
+INSERT INTO `mob_droplist` VALUES (6069,0,0,1000,18872,240); -- (Fahrafahr the Bloodied) Lyft Ferule
+
 
 
 
@@ -17687,7 +17689,7 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 
 -- NEXT: 
--- NEXT: 6069
+-- NEXT: 6070
 
 
 

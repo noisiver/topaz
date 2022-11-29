@@ -3566,6 +3566,7 @@ INSERT INTO `nm_spawn_points` VALUES (17330451,0,-72.227,-24.311,-79.561); -- Ma
 INSERT INTO `nm_spawn_points` VALUES (17330481,0,-127.792,-23.643,-32.870); -- Marquis_Nebiros
 INSERT INTO `nm_spawn_points` VALUES (17334482,0,-242,-80.3,-127); -- Grand'Goule
 INSERT INTO `nm_spawn_points` VALUES (17338386,0,284.000,0.001,-253.000); -- Graoully
+INSERT INTO `nm_spawn_points` VALUES (17027183,0,38.491,-14.39,118.071); -- Fahrafahr_the_Bloodied
 INSERT INTO `nm_spawn_points` VALUES (17350826,0,123.357,-0.102,332.706);
 INSERT INTO `nm_spawn_points` VALUES (17350826,1,94.576,-1.274,333.168);
 INSERT INTO `nm_spawn_points` VALUES (17350826,2,98.658,-0.319,328.269);
