@@ -400,13 +400,17 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     local dStat = 0 -- Please make sure to add an additional stat check if there is to be a spell that uses neither INT, MND, or CHR. None currently exist.
     if (statMod == INT_BASED) then -- Stat mod is INT
         dStat = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-        statBonus = (dStat)* params.tMultiplier
     elseif (statMod == CHR_BASED) then -- Stat mod is CHR
         dStat = caster:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
-        statBonus = (dStat)* params.tMultiplier
     elseif (statMod == MND_BASED) then -- Stat mod is MND
         dStat = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    end
+
+    -- Only multiply positive dStat bonuses by the tMultiplier
+    if (dStat > 0) then
         statBonus = (dStat)* params.tMultiplier
+    else
+        statBonus = dStat
     end
 
     D =(((D + ST) * params.multiplier) + statBonus)
@@ -431,6 +435,10 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     end
 
     dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
+
+    if (dmg < 0) then
+        dmg = 0
+    end
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
 
