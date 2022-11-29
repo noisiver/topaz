@@ -812,3 +812,15 @@ function utils.MessageParty(player, msg, textcolor, sender)
         end
     end
 end
+
+-- add alliance enmity
+function utils.linkAlliance(mob, player)
+    local alliance = player:getAlliance()
+    if alliance ~= nil then
+        for _, member in pairs(alliance) do
+            if member:getZoneID() == zone and member:isAlive() then
+                mob:addEnmity(member, 1, 0) -- 1 CE
+            end
+        end
+    end
+end
