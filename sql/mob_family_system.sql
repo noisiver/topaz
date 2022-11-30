@@ -135,7 +135,7 @@ INSERT INTO `mob_family_system` VALUES (68,'Cluster',3,'Arcana',0,40,95,140,4,4,
 INSERT INTO `mob_family_system` VALUES (69,'Cluster',3,'Arcana',0,40,95,140,4,4,4,4,4,4,3,1,3,1,3,0.875,0.875,0.875,0.875,1.3,0.6,0.6,0.6,0.6,0.6,0.6,0.6,1,33,0);
 INSERT INTO `mob_family_system` VALUES (70,'Cockatrice',8,'Bird',1,40,100,140,4,5,3,4,4,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1.5,0.7,0.7,1.3,1.3,1.3,4,1,0);
 INSERT INTO `mob_family_system` VALUES (71,'Coeurl',6,'Beast',1,60,94,90,4,3,5,4,3,5,4,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.5,1,1.3,1.3,1.3,5,257,1);
-INSERT INTO `mob_family_system` VALUES (72,'Colibri',8,'Bird',0,60,125,140,3,3,5,1,3,3,3,1,1,1,1,1,1.25,1,1,1.15,1.3,0.3,1,1.15,1.15,1,1.3,3,1,1);
+INSERT INTO `mob_family_system` VALUES (72,'Colibri',8,'Bird',0,60,125,140,3,3,5,1,1,1,1,1,1,1,1,1,1.25,1,1,1.15,1.3,0.3,1,1.15,1.15,1,1.3,3,1,1);
 INSERT INTO `mob_family_system` VALUES (73,'Corpselights',19,'Undead',0,60,100,100,3,3,4,2,4,1,7,1,4,1,5,1,1,1,1,0.6,0.6,0.6,0.6,0.6,0.6,0.6,0.6,8,6,0);
 INSERT INTO `mob_family_system` VALUES (74,'Corse',19,'Undead',1,40,100,140,3,3,3,5,5,1,5,1,3,1,3,0.875,0.5,1.125,1.25,1.3,0.7,1.15,0.7,1.15,1.15,1.5,0.6,8,6,0);
 INSERT INTO `mob_family_system` VALUES (75,'Crab',2,'Aquan',0,40,100,120,4,4,3,5,4,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.5,0.7,1.3,1.3,6,2,1); 	
