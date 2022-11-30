@@ -17,7 +17,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 25
-    local duration = 300
+    local duration = 180
 
     local typeEffect = tpz.effect.WARCRY
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))

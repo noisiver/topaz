@@ -1,7 +1,7 @@
 ---------------------------------------------
 -- Berserker Dance
 -- Family: Orc(NM)
--- Description: Self haste.(30%)
+-- Description: Self haste.(55%) + Increased damage Taken + Magic Evasion Down
 -- Type: Enhancing
 -- Can be dispelled: Yes
 -- Utsusemi/Blink absorb: N/A
@@ -21,10 +21,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local power = 3000
+    local power = 5500 
     local duration = 300
     local typeEffect = tpz.effect.HASTE
+    local typeEffect2 = tpz.effect.MAGIC_EVASION_DOWN
+    local power2 = 50
 
+    MobBuffMove(mob, typeEffect2, 50, 0, duration)
+    mob:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, 1, 0, 180)
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))
     return typeEffect
 end
