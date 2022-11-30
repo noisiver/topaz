@@ -1824,7 +1824,10 @@ void CCharEntity::Die()
 
     //influence for conquest system
     conquest::LoseInfluencePoints(this);
-    petutils::DespawnPet(this);
+    if (this->PPet != nullptr)
+    {
+        petutils::DespawnPet(this);
+    }
 
     if (GetLocalVar("MijinGakure") == 0)
     {
