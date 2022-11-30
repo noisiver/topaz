@@ -1330,6 +1330,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
     if (PSpell->canTargetEnemy())
     {
         effectFlags |= EFFECTFLAG_DETECTABLE;
+        effectFlags |= EFFECTFLAG_DAMAGE;
     }
 
     StatusEffectContainer->DelStatusEffectsByFlag(effectFlags);

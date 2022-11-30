@@ -1065,7 +1065,9 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         // remove invisible if aggressive
 		if (PAbility->getID() != ABILITY_TAME && PAbility->getID() != ABILITY_FIGHT && PAbility->getID() != ABILITY_DEPLOY)
         {
-            if (PAbility->getValidTarget() & TARGET_ENEMY) {
+            if (PAbility->getValidTarget() & TARGET_ENEMY)
+            {
+                StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
                 // aggressive action
 				if (PAbility->getID() != ABILITY_ASSAULT)
                     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
