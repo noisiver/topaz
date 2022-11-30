@@ -53,11 +53,14 @@ CCharPacket::CCharPacket(CCharEntity * PChar, ENTITYUPDATE type, uint8 updatemas
     {
         case ENTITY_DESPAWN:
         {
-            ref<uint8>(0x0A) = 0x20;
+            ref<uint8>(0x0A) = UPDATE_DESPAWN;
         }
         break;
         case ENTITY_SPAWN:
-            updatemask = 0x1F;
+        {
+            updatemask = UPDATE_ALL_CHAR;
+        }
+            [[fallthrough]];
         case ENTITY_UPDATE:
         {
             ref<uint8>(0x0A) |= updatemask;
