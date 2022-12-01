@@ -189,7 +189,7 @@ INSERT INTO `mob_family_system` VALUES (124,'Ghrah',16,'Luminion',0,40,100,140,3
 INSERT INTO `mob_family_system` VALUES (125,'GiantBird',8,'Bird',1,40,130,120,3,3,3,3,3,3,3,1,2,1,3,0.75,1.25,1,0.75,0.85,1.5,0.5,0.85,0.85,0.85,0.85,0.85,7,1,0);
 INSERT INTO `mob_family_system` VALUES (126,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1,1,1,1.3,0.5,1,1,1,2,1,0); -- Jotunn / Qufim(Yellow and Black)
 INSERT INTO `mob_family_system` VALUES (127,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1.3,0.5,1,1,1,1,1,1,2,1,0); -- Ice Gigas(Xarca / Glacier present)
-INSERT INTO `mob_family_system` VALUES (128,'Gigas-WOTG',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,2,1,0); -- Past
+INSERT INTO `mob_family_system` VALUES (128,'Gigas-WOTG',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1,0.1,0.3,0.7,0.7,0.7,0.7,0.7,2,1,0); -- Past
 INSERT INTO `mob_family_system` VALUES (129,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1.3,0.5,1,1,1,1,1,1,2,1,0); 
 INSERT INTO `mob_family_system` VALUES (130,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1.3,0.5,1,1,1,1,1,1,2,1,0); 
 INSERT INTO `mob_family_system` VALUES (131,'Gnat',20,'Vermin',0,60,100,100,3,3,3,1,3,3,3,1,1,1,1,1,1,1,1,1.15,1,0.6,1,1,1,1.3,0.5,8,1,0);
@@ -639,7 +639,7 @@ INSERT INTO `mob_family_system` VALUES (942,'Quadav-WOTG',7,'Beastmen',1,40,100,
 INSERT INTO `mob_family_system` VALUES (943,'Yagudo-WOTG',7,'Beastmen',0,40,100,120,3,3,3,1,4,5,3,1,1,1,1,0.75,1.25,0.75,0.75,0.7,1,0.1,0.3,0.7,0.7,0.7,0.7,3,1,0);
 INSERT INTO `mob_family_system` VALUES (944,'Orc-WOTG',7,'Beastmen',1,40,105,100,1,3,4,4,7,4,3,1,1,1,1,1.25,0.75,0.75,0.75,0.1,0.3,0.7,0.7,0.7,1,0.7,0.7,1,257,0);
 INSERT INTO `mob_family_system` VALUES (945,'OrcishWarmachine-WOTG',7,'Beastmen',1,40,105,100,1,4,4,3,6,5,3,1,1,1,1,1,1,1,1,0.1,0.3,0.7,0.7,0.7,1,0.7,0.7,1,257,0);
-INSERT INTO `mob_family_system` VALUES (946,'Goblin-WOTG',7,'Beastmen',0,40,100,120,3,3,5,3,4,4,4,1,1,1,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,1,1,0); 
+INSERT INTO `mob_family_system` VALUES (946,'Goblin-WOTG',7,'Beastmen',0,40,100,120,3,3,5,3,4,4,4,1,1,1,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,1.3,0.1,1,1,0); 
 
 
 -- 10,22,50,96,111,317-318,405,411-434,439-443 available for use
