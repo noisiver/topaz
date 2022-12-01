@@ -189,7 +189,7 @@ INSERT INTO `mob_family_system` VALUES (124,'Ghrah',16,'Luminion',0,40,100,140,3
 INSERT INTO `mob_family_system` VALUES (125,'GiantBird',8,'Bird',1,40,130,120,3,3,3,3,3,3,3,1,2,1,3,0.75,1.25,1,0.75,0.85,1.5,0.5,0.85,0.85,0.85,0.85,0.85,7,1,0);
 INSERT INTO `mob_family_system` VALUES (126,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1,1,1,1.3,0.5,1,1,1,2,1,0); -- Jotunn / Qufim(Yellow and Black)
 INSERT INTO `mob_family_system` VALUES (127,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1.3,0.5,1,1,1,1,1,1,2,1,0); -- Ice Gigas(Xarca / Glacier present)
-INSERT INTO `mob_family_system` VALUES (128,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,2,1,0); -- Past
+INSERT INTO `mob_family_system` VALUES (128,'Gigas-WOTG',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,2,1,0); -- Past
 INSERT INTO `mob_family_system` VALUES (129,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1.3,0.5,1,1,1,1,1,1,2,1,0); 
 INSERT INTO `mob_family_system` VALUES (130,'Gigas',7,'Beastmen',1,40,105,100,1,2,1,5,6,4,3,1,3,1,3,1,1,1,1,1.3,0.5,1,1,1,1,1,1,2,1,0); 
 INSERT INTO `mob_family_system` VALUES (131,'Gnat',20,'Vermin',0,60,100,100,3,3,3,1,3,3,3,1,1,1,1,1,1,1,1,1.15,1,0.6,1,1,1,1.3,0.5,8,1,0);
@@ -587,6 +587,7 @@ INSERT INTO `mob_family_system` VALUES (553,'Crab_Barnacle',2,'Aquan',0,40,100,1
 INSERT INTO `mob_family_system` VALUES (554,'Orobon_Large',2,'Aquan',4,60,125,90,1,4,2,4,4,4,1,1,1,1,1,1,1,1,1,1,0.7,1,1.15,0.7,0.3,1.15,0.6,6,2,0); 	
 INSERT INTO `mob_family_system` VALUES (555,'Smilodon',6,'Beast',1,60,100,120,4,3,4,4,6,4,4,1,3,1,3,1,1,1,1,1.3,0.85,1,0.85,1.15,1.15,0.85,0.85,5,257,1);
 
+-- Mythic Weapon Fights (Custom)
 INSERT INTO `mob_family_system` VALUES (900,'AnimatedWeapon-Archery',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (901,'AnimatedWeapon-Axe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (902,'AnimatedWeapon-Club',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0);
@@ -608,12 +609,69 @@ INSERT INTO `mob_family_system` VALUES (917,'Lilisette',13,'Humanoid',0,40,100,1
 INSERT INTO `mob_family_system` VALUES (918,'Nagi',13,'Humanoid',0,40,100,110,4,2,6,2,2,5,5,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
 INSERT INTO `mob_family_system` VALUES (919,'Raubahn',13,'Humanoid',0,40,100,110,5,5,5,5,4,5,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
 INSERT INTO `mob_family_system` VALUES (920,'Zeid',13,'Humanoid',0,40,100,110,1,4,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,1.3,0.5,0,2,0);
+
+-- Assault (Custom)
 INSERT INTO `mob_family_system` VALUES (921,'Iron_Eater',13,'Humanoid',0,40,100,110,1,3,1,5,3,7,7,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
 INSERT INTO `mob_family_system` VALUES (922,'Goblin_ExcavationDuty',7,'Beastmen',0,60,100,120,2,2,4,2,3,3,3,1,1,1,1,1,1,1,1,1.3,1.3,1.3,1.3,1.3,1.3,1.5,1.0,1,2,0); -- Assault
 INSERT INTO `mob_family_system` VALUES (923,'Troll_ExcavationDuty',7,'Beastmen',1,60,125,120,1,5,1,5,1,2,2,1,1,1,1,1,1,1,1,0.4,0.7,1,1,0.7,1.15,0.85,0.85,1,2,0); -- Assault
 INSERT INTO `mob_family_system` VALUES (924,'Dahak',10,'Dragon',3,60,125,90,3,3,3,3,3,3,4,1,3,1,3,1,1,1,1,0.5,0.7,0.7,0.7,0.7,0.85,0.7,0.7,8,2,0);
 
+-- Salvage: Arrapago Remnants (Custom)
+INSERT INTO `mob_family_system` VALUES (925,'Alucard',8,'Bird',0,40,100,120,4,4,5,3,4,4,4,1,3,1,3,0.25,5.0,0.25,0.25,1.3,1.15,1.5,1.3,1.3,1.3,1.5,0.3,3,2,1);
+INSERT INTO `mob_family_system` VALUES (926,'Alucard_Vampyr',19,'Undead',0,60,125,120,1,2,2,4,2,5,7,1,1,1,1,1.25,0.75,1,1,0.85,0.5,0.6,0.6,0.85,0.85,1.15,0.05,8,6,0); -- Normal Vampyr
+INSERT INTO `mob_family_system` VALUES (927,'Fomor_Fallen',19,'Undead',0,40,105,90,2,5,4,4,4,4,3,1,3,1,3,0.75,0.75,0.5,0.75,1.3,0.5,0.85,1,1,1,1.3,0.5,8,6,0); -- Non-COP Fomor(TOAU)
+INSERT INTO `mob_family_system` VALUES (928,'Fomor_Ephramadian_Shade',19,'Undead',0,40,105,90,2,5,4,4,4,4,3,1,3,1,3,1.25,0.75,0.5,0.75,1.3,0.5,0.85,1,1,1,1.3,0.5,8,6,0); -- Non-COP Fomor(TOAU)
+INSERT INTO `mob_family_system` VALUES (929,'Medjeds_Head',19,'Undead',1,60,125,140,3,3,4,4,3,5,3,1,1,1,1,0.25,0.25,0.9,1,1.15,0.4,1,1,0.6,1,1.15,0.4,2,6,0);
+INSERT INTO `mob_family_system` VALUES (930,'Medjeds_Body',19,'Undead',1,60,125,140,3,3,4,4,3,5,3,1,1,1,1,0.25,1,0.25,0.25,1.15,0.4,1,1,0.6,1,1.15,0.4,2,6,0);
+INSERT INTO `mob_family_system` VALUES (931,'Medusa_Arrapago_Remnants',7,'Beastmen',0,60,125,140,3,3,2,2,4,4,1,1,3,1,3,1,1,1,1,0.5,0.5,1.3,0.05,0.3,0.5,0.5,0.5,8,1,0);
+INSERT INTO `mob_family_system` VALUES (932,'Ruins_Oil',1,'Amorph',1,40,100,120,4,4,4,5,4,3,4,1,3,1,3,1.5,1.5,0.5,0.5,1.15,1.15,1.3,1.15,1.15,1.15,0.85,0.85,6,258,1);
+INSERT INTO `mob_family_system` VALUES (933,'Verrottendes_Fleisch',19,'Undead',2,40,125,120,2,3,2,3,2,4,4,1,1,1,1,1.750,0.25,0.25,0.25,0.85,0.3,1,0.7,0.7,0.5,0.85,0.2,8,6,0);
+INSERT INTO `mob_family_system` VALUES (934,'Elemental-Wind',11,'Elemental',0,40,100,120,3,3,4,4,5,4,4,1,3,1,5,0.25,0.25,0.25,0.25,1,1.5,0.05,0.05,1,1,1,1,3,35,0); 
+INSERT INTO `mob_family_system` VALUES (935,'Elemental-Dark',11,'Elemental',0,40,100,120,3,3,4,4,5,4,4,1,3,1,5,0.25,0.25,0.25,0.25,1,1,1,1,1,1,1.5,0.05,8,35,0);	
+INSERT INTO `mob_family_system` VALUES (936,'Elemental-Earth',11,'Elemental',0,40,100,120,3,3,4,4,5,4,4,1,3,1,5,0.25,0.25,0.25,0.25,1,1,1.5,0.05,0.05,1,1,1,4,35,0);	
+INSERT INTO `mob_family_system` VALUES (937,'Elemental-Fire',11,'Elemental',0,40,100,120,3,3,4,4,5,4,4,1,3,1,5,0.25,0.25,0.25,0.25,0.05,0.05,1,1,1,1.5,1,1,1,34,0);	
+INSERT INTO `mob_family_system` VALUES (938,'Elemental-Ice',11,'Elemental',0,40,100,120,3,3,4,4,5,4,4,1,3,1,5,0.25,0.25,0.25,0.25,1.5,0.05,0.05,1,1,1,1,1,2,35,0);	
+INSERT INTO `mob_family_system` VALUES (939,'Elemental-Light',11,'Elemental',0,40,100,120,3,3,4,4,5,4,4,1,3,1,5,0.25,0.25,0.25,0.25,1,1,1,1,1,1,0.05,1.5,7,35,0);	
+INSERT INTO `mob_family_system` VALUES (940,'Elemental-Lightning',11,'Elemental',0,40,100,120,3,3,5,4,4,4,4,1,3,1,5,0.25,0.25,0.25,0.25,1,1,1,1.5,0.05,0.05,1,1,5,35,0);	
+INSERT INTO `mob_family_system` VALUES (941,'Elemental-Water',11,'Elemental',0,40,100,120,3,3,4,4,5,4,4,1,3,1,5,0.25,0.25,0.25,0.25,0.05,1,1,1,1.5,0.05,1,1,6,35,0);	
+
+
 -- 10,22,50,96,111,317-318,405,411-434,439-443 available for use
+
+  -- `familyid` smallint(4) unsigned NOT NULL,
+  -- `family` tinytext,
+  -- `systemid` tinyint(2) unsigned NOT NULL DEFAULT '0',
+  -- `ecosystem` tinytext,
+  -- `mobsize` tinyint(2) unsigned NOT NULL DEFAULT '0',
+  -- `speed` tinyint(3) unsigned NOT NULL DEFAULT '40',
+  -- `HP` tinyint(3) unsigned NOT NULL DEFAULT '100',
+  -- `MP` tinyint(3) unsigned NOT NULL DEFAULT '100',
+  -- `STR` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `DEX` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `VIT` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `AGI` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `INT` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `MND` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `CHR` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `ATT` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `DEF` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `ACC` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `EVA` smallint(4) unsigned NOT NULL DEFAULT '3',
+  -- `Slash` float NOT NULL DEFAULT '1',
+  -- `Pierce` float NOT NULL DEFAULT '1',
+  -- `H2H` float NOT NULL DEFAULT '1',
+  -- `Impact` float NOT NULL DEFAULT '1',
+  -- `Fire` float NOT NULL DEFAULT '1',
+  -- `Ice` float NOT NULL DEFAULT '1',
+  -- `Wind` float NOT NULL DEFAULT '1',
+  -- `Earth` float NOT NULL DEFAULT '1',
+  -- `Lightning` float NOT NULL DEFAULT '1',
+  -- `Water` float NOT NULL DEFAULT '1',
+  -- `Light` float NOT NULL DEFAULT '1',
+  -- `Dark` float NOT NULL DEFAULT '1',
+  -- `Element` float NOT NULL DEFAULT '0',
+  -- `detects` smallint(5) NOT NULL DEFAULT '0',
+  -- `charmable` tinyint(2) NOT NULL DEFAULT '0',
 
 /*!40000 ALTER TABLE `mob_family_system` ENABLE KEYS */;
 UNLOCK TABLES;

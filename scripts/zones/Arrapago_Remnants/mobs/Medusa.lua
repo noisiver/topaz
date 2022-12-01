@@ -13,7 +13,7 @@ require("scripts/globals/mobs")
 function onMobSpawn(mob)
     -- Never melees, only shoots, and low bow delay.
     -- 75% DT from all damage except from the front
-    mob:setDamage(90)
+    mob:setDamage(100)
     mob:setMod(tpz.mod.SDT_WIND, 130)
     mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 6)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
