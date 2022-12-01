@@ -3833,6 +3833,26 @@ INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,403); -- Stormwind
 INSERT INTO `mob_skill_lists` VALUES ('Dahu',1161,802); -- Great_Sandstorm
 INSERT INTO `mob_skill_lists` VALUES ('Picolaton',1162,926); -- Stormwind Macan Gadangan
 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2204); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2378); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2266); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2267); 
+
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,619); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2413); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2206); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2269); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2270); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,3257); 
+
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,609); 
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2201); 
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2202); 
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2263); 
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2264); 
+
+INSERT INTO `mob_skill_lists` VALUES ('OrcishWarmachine-WOTG',1166,926); 
+INSERT INTO `mob_skill_lists` VALUES ('Goblin-WOTG',1167,926); 
 
 -- Custom Content
 
@@ -4521,5 +4541,5 @@ INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,2207);
 
 
 
--- Next available ID: 1148
+-- Next available ID: 1168
 
