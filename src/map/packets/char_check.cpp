@@ -34,7 +34,7 @@
 CCheckPacket::CCheckPacket(CCharEntity* PChar, CCharEntity* PTarget)
 {
 	this->type = 0xC9;
-	this->size = 0x06;
+    this->size = 0x2A;
 
 	ref<uint32>(0x04) = PTarget->id;
 	ref<uint16>(0x08) = PTarget->targid;
@@ -116,16 +116,20 @@ CCheckPacket::CCheckPacket(CCharEntity* PChar, CCharEntity* PTarget)
 	{
         //ref<uint16>(0x0C) = PLinkshell->GetLSID();
         ref<uint16>(0x0E) = PLinkshell->getID();
-        ref<uint16>(0x10) = PLinkshell->GetLSRawColor();
+        memcpy(data + (0x10), PLinkshell->getSignature(), std::clamp<size_t>(strlen((const char*)PLinkshell->getSignature()), 0, 15));
+        // ref<uint16>(0x0C) = PLinkshell->GetLSID();
+        ref<uint16>(0x20) = PLinkshell->GetLSRawColor();
 
-        memcpy(data+(0x14), PLinkshell->getSignature(), std::clamp<size_t>(strlen((const char*)PLinkshell->getSignature()), 0, 15));
     }
 	if ((PChar->nameflags.flags & FLAG_GM) || !(PTarget->nameflags.flags & FLAG_ANON))
 	{
-		ref<uint8>(0x12) = PTarget->GetMJob();
-		ref<uint8>(0x13) = PTarget->GetSJob();
+        ref<uint8>(0x22) = PTarget->GetMJob();
+        ref<uint8>(0x23) = PTarget->GetSJob();
 		ref<uint8>(0x24) = PTarget->GetMLevel();
 		ref<uint8>(0x25) = PTarget->GetSLevel();
+        ref<uint8>(0x26) = PTarget->GetMJob();
+        // 0x27: master level
+        // 0x28: bitflags, bit 0 = master breaker
 	}
 
 	//Chevron 32 bit Big Endean, starting at 0x2B

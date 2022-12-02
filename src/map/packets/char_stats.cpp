@@ -34,7 +34,7 @@
 CCharStatsPacket::CCharStatsPacket(CCharEntity * PChar)
 {
 	this->type = 0x61;
-	this->size = 0x30;
+    this->size = 0x70;
 
     ref<uint32>(0x04) = PChar->GetMaxHP();
     ref<uint32>(0x08) = PChar->GetMaxMP();
@@ -80,4 +80,8 @@ CCharStatsPacket::CCharStatsPacket(CCharEntity * PChar)
     //0x54 = maximum item level
     //0x55 = itemlevel over 99
     //0x56 = main weapon item level
+    // 0x65: master level
+    // 0x66: bitflags, bit 0 = master breaker
+    // 0x68: current exemplar points
+    // 0x6C: required exemplar points
 }

@@ -517,7 +517,11 @@ namespace charutils
             "wardrobe,"     // 6
             "wardrobe2,"     // 7
             "wardrobe3,"     // 8
-            "wardrobe4 "     // 9
+            "wardrobe4," // 9
+            "wardrobe5," // 10
+            "wardrobe6," // 11
+            "wardrobe7," // 12
+            "wardrobe8 " // 13
             "FROM char_storage "
             "WHERE charid = %u;";
 
@@ -540,6 +544,11 @@ namespace charutils
             PChar->getStorage(LOC_WARDROBE2)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 7));
             PChar->getStorage(LOC_WARDROBE3)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 8));
             PChar->getStorage(LOC_WARDROBE4)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 9));
+
+            PChar->getStorage(LOC_WARDROBE5)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 10));
+            PChar->getStorage(LOC_WARDROBE6)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 11));
+            PChar->getStorage(LOC_WARDROBE7)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 12));
+            PChar->getStorage(LOC_WARDROBE8)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 13));
         }
 
         fmtQuery = "SELECT face, race, size, head, body, hands, legs, feet, main, sub, ranged "
@@ -955,7 +964,7 @@ namespace charutils
 
         // apply augments
         // loop over each container
-        for (uint8 i = 0; i < MAX_CONTAINER_ID; ++i)
+        for (uint8 i = 0; i < CONTAINER_ID::MAX_CONTAINER_ID; ++i)
         {
             CItemContainer* PItemContainer = PChar->getStorage(i);
 
@@ -1133,7 +1142,7 @@ namespace charutils
 
     /************************************************************************
     *                                                                       *
-    *  Отправляем персонажу весь его инвентарь                              *
+    *  We send the character all its inventory                              *
     *                                                                       *
     ************************************************************************/
 
@@ -1154,12 +1163,14 @@ namespace charutils
                     PChar->pushPacket(new CInventoryItemPacket(PItem, LocationID, slotID));
                 }
             }
+                PChar->pushPacket(new CInventoryFinishPacket(LocationID));
         };
 
         //Send important items first
         //Note: it's possible that non-essential inventory items are sent in response to another packet
-        for (auto&& containerID : {LOC_INVENTORY, LOC_TEMPITEMS, LOC_WARDROBE, LOC_WARDROBE2, LOC_WARDROBE3, LOC_WARDROBE4, LOC_MOGSAFE,
-            LOC_STORAGE, LOC_MOGLOCKER, LOC_MOGSATCHEL, LOC_MOGSACK, LOC_MOGCASE, LOC_MOGSAFE2})
+        for (auto&& containerID :
+             { LOC_INVENTORY, LOC_TEMPITEMS, LOC_WARDROBE, LOC_WARDROBE2, LOC_WARDROBE3, LOC_WARDROBE4, LOC_WARDROBE5, LOC_WARDROBE6, LOC_WARDROBE7,
+               LOC_WARDROBE8, LOC_MOGSAFE, LOC_STORAGE, LOC_MOGLOCKER, LOC_MOGSATCHEL, LOC_MOGSACK, LOC_MOGCASE, LOC_MOGSAFE2 })
         {
             pushContainer(containerID);
         }
@@ -1198,7 +1209,7 @@ namespace charutils
             PChar->pushPacket(new CInventoryAssignPacket(PItem, INV_LINKSHELL));
             PChar->pushPacket(new CLinkshellEquipPacket(PChar, 2));
         }
-        PChar->pushPacket(new CInventoryFinishPacket());
+        PChar->pushPacket(new CInventoryFinishPacket()); // "Finish" type
     }
 
     /************************************************************************
@@ -1315,7 +1326,7 @@ namespace charutils
 
     bool HasItem(CCharEntity* PChar, uint16 ItemID)
     {
-        for (uint8 LocID = 0; LocID < MAX_CONTAINER_ID; ++LocID)
+        for (uint8 LocID = 0; LocID < CONTAINER_ID::MAX_CONTAINER_ID; ++LocID)
         {
             if (PChar->getStorage(LocID)->SearchItem(ItemID) != ERROR_SLOTID)
             {
@@ -4094,7 +4105,11 @@ namespace charutils
             "wardrobe = %u, "
             "wardrobe2 = %u, "
             "wardrobe3 = %u, "
-            "wardrobe4 = %u "
+            "wardrobe4 = %u, "
+            "wardrobe5 = %u, "
+            "wardrobe6 = %u, "
+            "wardrobe7 = %u, "
+            "wardrobe8 = %u "
             "WHERE charid = %u";
 
         Sql_Query(SqlHandle, Query,
@@ -4108,6 +4123,10 @@ namespace charutils
             PChar->getStorage(LOC_WARDROBE2)->GetSize(),
             PChar->getStorage(LOC_WARDROBE3)->GetSize(),
             PChar->getStorage(LOC_WARDROBE4)->GetSize(),
+            PChar->getStorage(LOC_WARDROBE5)->GetSize(),
+            PChar->getStorage(LOC_WARDROBE6)->GetSize(),
+            PChar->getStorage(LOC_WARDROBE7)->GetSize(),
+            PChar->getStorage(LOC_WARDROBE8)->GetSize(),
             PChar->id);
     }
 

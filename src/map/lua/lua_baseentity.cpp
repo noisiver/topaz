@@ -3557,7 +3557,7 @@ inline int32 CLuaBaseEntity::hasItem(lua_State *L)
         uint8  locationID = LOC_INVENTORY;
 
         locationID = (uint8)lua_tointeger(L, 2);
-        locationID = (locationID < MAX_CONTAINER_ID ? locationID : LOC_INVENTORY);
+        locationID = (locationID < CONTAINER_ID::MAX_CONTAINER_ID ? locationID : LOC_INVENTORY);
 
         lua_pushboolean(L, PChar->getStorage(locationID)->SearchItem(ItemID) != ERROR_SLOTID);
         return 1;
@@ -3795,7 +3795,7 @@ int32 CLuaBaseEntity::delItem(lua_State* L)
 
     if (!lua_isnil(L, 3) && lua_isnumber(L, 3))
     {
-        if ((uint32)lua_tointeger(L, 3) < MAX_CONTAINER_ID)
+        if ((uint32)lua_tointeger(L, 3) < CONTAINER_ID::MAX_CONTAINER_ID)
         {
             location = (uint32)lua_tointeger(L, 3);
         }
@@ -4128,7 +4128,7 @@ inline int32 CLuaBaseEntity::changeContainerSize(lua_State *L)
     {
         uint8 LocationID = (uint8)lua_tointeger(L, 1);
 
-        if (LocationID < MAX_CONTAINER_ID)
+        if (LocationID < CONTAINER_ID::MAX_CONTAINER_ID)
         {
             CCharEntity* PChar = ((CCharEntity*)m_PBaseEntity);
 
@@ -10750,7 +10750,7 @@ int32 CLuaBaseEntity::checkImbuedItems(lua_State* L)
 
     auto PChar {static_cast<CCharEntity*>(m_PBaseEntity)};
 
-    for (uint8 LocID = 0; LocID < MAX_CONTAINER_ID; ++LocID)
+    for (uint8 LocID = 0; LocID < CONTAINER_ID::MAX_CONTAINER_ID; ++LocID)
     {
         bool found = false;
         PChar->getStorage(LocID)->ForEachItem([&found](CItem* PItem)

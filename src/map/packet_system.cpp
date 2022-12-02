@@ -1020,7 +1020,7 @@ void SmallPacket0x028(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8 container = data.ref<uint8>(0x08);
     uint8    slotID = data.ref<uint8>(0x09);
 
-    if (container >= MAX_CONTAINER_ID)
+   if (container >= CONTAINER_ID::MAX_CONTAINER_ID)
     {
         ShowExploit(CL_YELLOW "SmallPacket0x028: Invalid container ID passed to packet %u by %s\n" CL_RESET, container, PChar->GetName());
         return;
@@ -1072,8 +1072,7 @@ void SmallPacket0x029(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8  FromSlotID = data.ref<uint8>(0x0A);
     uint8  ToSlotID = data.ref<uint8>(0x0B);
 
-    if (ToLocationID >= MAX_CONTAINER_ID ||
-        FromLocationID >= MAX_CONTAINER_ID)
+    if (ToLocationID >= CONTAINER_ID::MAX_CONTAINER_ID || FromLocationID >= CONTAINER_ID::MAX_CONTAINER_ID)
         return;
 
     CItem* PItem = PChar->getStorage(FromLocationID)->GetItem(FromSlotID);
@@ -1489,7 +1488,7 @@ void SmallPacket0x037(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8  SlotID = data.ref<uint8>(0x0E);
     uint8  StorageID = data.ref<uint8>(0x10);
 
-    if (StorageID >= MAX_CONTAINER_ID)
+    if (StorageID >= CONTAINER_ID::MAX_CONTAINER_ID)
     {
         ShowExploit(CL_YELLOW "SmallPacket0x037: Invalid storage ID passed to packet %u by %s\n" CL_RESET, StorageID, PChar->GetName());
         return;
@@ -1516,7 +1515,7 @@ void SmallPacket0x03A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
     uint8 container = data.ref<uint8>(0x04);
 
-    if (container >= MAX_CONTAINER_ID)
+    if (container >= CONTAINER_ID::MAX_CONTAINER_ID)
     {
         ShowExploit(CL_YELLOW "SmallPacket0x03A: Invalid container ID passed to packet %u by %s\n" CL_RESET, container, PChar->GetName());
         return;
@@ -2600,7 +2599,7 @@ void SmallPacket0x04E(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             {
                 if (PItem->getFlag() & ITEM_FLAG_RARE)
                 {
-                    for (uint8 LocID = 0; LocID < MAX_CONTAINER_ID; ++LocID)
+                    for (uint8 LocID = 0; LocID < CONTAINER_ID::MAX_CONTAINER_ID; ++LocID)
                     {
                         if (PChar->getStorage(LocID)->SearchItem(itemid) != ERROR_SLOTID)
                         {
@@ -2708,7 +2707,8 @@ void SmallPacket0x050(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8 equipSlotID = data.ref<uint8>(0x05);        // charequip slot
     uint8 containerID = data.ref<uint8>(0x06);     // container id
 
-    if (containerID != LOC_INVENTORY && containerID != LOC_WARDROBE && containerID != LOC_WARDROBE2 && containerID != LOC_WARDROBE3 && containerID != LOC_WARDROBE4)
+    if (containerID != LOC_INVENTORY && containerID != LOC_WARDROBE && containerID != LOC_WARDROBE2 && containerID != LOC_WARDROBE3 && containerID == LOC_WARDROBE4 || containerID == LOC_WARDROBE5 || containerID == LOC_WARDROBE6 || containerID == LOC_WARDROBE7 ||
+            containerID == LOC_WARDROBE8)
     {
         if (equipSlotID != 16 && equipSlotID != 17)
             return;
@@ -2740,7 +2740,9 @@ void SmallPacket0x051(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         uint8 slotID = data.ref<uint8>(0x08 + (0x04 * i));        // inventory slot
         uint8 equipSlotID = data.ref<uint8>(0x09 + (0x04 * i));        // charequip slot
         uint8 containerID = data.ref<uint8>(0x0A + (0x04 * i));     // container id
-        if (containerID == LOC_INVENTORY || containerID == LOC_WARDROBE || containerID == LOC_WARDROBE2 || containerID == LOC_WARDROBE3 || containerID == LOC_WARDROBE4)
+        if (containerID == LOC_INVENTORY || containerID == LOC_WARDROBE || containerID == LOC_WARDROBE2 || containerID == LOC_WARDROBE3 ||
+            containerID == LOC_WARDROBE4 || containerID == LOC_WARDROBE5 || containerID == LOC_WARDROBE6 || containerID == LOC_WARDROBE7 ||
+            containerID == LOC_WARDROBE8)
         {
             charutils::EquipItem(PChar, slotID, equipSlotID, containerID);
         }
