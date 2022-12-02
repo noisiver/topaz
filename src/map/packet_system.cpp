@@ -2707,8 +2707,9 @@ void SmallPacket0x050(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8 equipSlotID = data.ref<uint8>(0x05);        // charequip slot
     uint8 containerID = data.ref<uint8>(0x06);     // container id
 
-    if (containerID != LOC_INVENTORY && containerID != LOC_WARDROBE && containerID != LOC_WARDROBE2 && containerID != LOC_WARDROBE3 && containerID == LOC_WARDROBE4 || containerID == LOC_WARDROBE5 || containerID == LOC_WARDROBE6 || containerID == LOC_WARDROBE7 ||
-            containerID == LOC_WARDROBE8)
+    if (containerID != LOC_INVENTORY && containerID != LOC_WARDROBE && containerID != LOC_WARDROBE2 && containerID != LOC_WARDROBE3 &&
+        containerID != LOC_WARDROBE4 && containerID != LOC_WARDROBE5 && containerID != LOC_WARDROBE6 && containerID != LOC_WARDROBE7 &&
+        containerID != LOC_WARDROBE8)
     {
         if (equipSlotID != 16 && equipSlotID != 17)
             return;
