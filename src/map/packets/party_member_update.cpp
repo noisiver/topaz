@@ -33,7 +33,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 CPartyMemberUpdatePacket::CPartyMemberUpdatePacket(CCharEntity* PChar, uint8 MemberNumber, uint16 memberflags, uint16 ZoneID)
 {
     this->type = 0xDD;
-    this->size = 0x21;
+    this->size = 0x40;
 
     TPZ_DEBUG_BREAK_IF(PChar == nullptr);
 
@@ -70,7 +70,7 @@ CPartyMemberUpdatePacket::CPartyMemberUpdatePacket(CCharEntity* PChar, uint8 Mem
 CPartyMemberUpdatePacket::CPartyMemberUpdatePacket(CTrustEntity* PTrust, uint8 MemberNumber)
 {
     this->type = 0xDD;
-    this->size = 0x21;
+    this->size = 0x40;
 
     TPZ_DEBUG_BREAK_IF(PTrust == nullptr);
 
@@ -97,7 +97,7 @@ CPartyMemberUpdatePacket::CPartyMemberUpdatePacket(uint32 id, const int8* name, 
 {
 
     this->type = 0xDD;
-    this->size = 0x21;
+    this->size = 0x40;
 
     ref<uint32>(0x04) = id;
 

@@ -34,7 +34,7 @@
 CCheckPacket::CCheckPacket(CCharEntity* PChar, CCharEntity* PTarget)
 {
 	this->type = 0xC9;
-    this->size = 0x2A;
+    this->size = 0x0C;
 
 	ref<uint32>(0x04) = PTarget->id;
 	ref<uint16>(0x08) = PTarget->targid;
