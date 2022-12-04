@@ -1,7 +1,7 @@
 -----------------------------------------
 -- Spell: Tonko: ni
 -- Lessens chance of being detected by sound
--- Duration is 5 minutes (non-random duration)
+-- Duration is 9 minutes (non-random duration)
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -13,7 +13,7 @@ end
 
 function onSpellCast(caster, target, spell)
     if (target:hasStatusEffect(tpz.effect.INVISIBLE) == false) then
-        target:addStatusEffect(tpz.effect.INVISIBLE, 0, 10, math.floor(180 * SNEAK_INVIS_DURATION_MULTIPLIER))
+        target:addStatusEffect(tpz.effect.INVISIBLE, 0, 10, math.floor(540 * SNEAK_INVIS_DURATION_MULTIPLIER))
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no tpz.effect.

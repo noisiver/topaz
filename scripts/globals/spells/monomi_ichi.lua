@@ -1,7 +1,7 @@
 -----------------------------------------
 -- Spell: Monomi: Ichi
 -- Lessens chance of being detected by sound
--- Duration is 3 minutes (non-random duration)
+-- Duration is 7 minutes (non-random duration)
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
