@@ -104,7 +104,7 @@ INSERT INTO `fishing_fish` VALUES (4469,'Giant Catfish',0,31,13,6,12,41,126,1,0,
 INSERT INTO `fishing_fish` VALUES (4308,'Giant Chirai',90,110,25,4,15,76,166,1,0,255,255,0,1,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4306,'Giant Donko',0,50,17,14,8,44,148,1,0,255,255,0,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5475,'Gigant Octopus',0,80,33,6,9,88,167,1,0,255,255,0,0,0,0,1,100,0,'',0);
-INSERT INTO `fishing_fish` VALUES (4474,'Gigant Squid',0,91,34,2,2,79,172,1,0,255,255,0,0,0,0,1,100,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4474,'Gigant Squid',0,91,34,2,5,79,172,1,0,255,255,0,0,0,0,1,100,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4427,'Gold Carp',0,56,18,10,14,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4383,'Gold Lobster',0,46,35,4,3,1,1,0,0,255,255,1,0,0,0,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4500,'Greedie',0,14,10,7,14,1,1,0,1,255,255,0,0,0,0,1,600,0,'',0);
