@@ -1,0 +1,6 @@
+-- WAR
+-- Immune to Paralyze, Sleep, Bind, Grabity, Break
+-- Headbutt replaces autoattacks
+-- Only TP move us Skull Smash
+-- Does NOT run away
+-- Used Mighty Strikes at 30%

@@ -1,6 +1,7 @@
 ---------------------------------------------------
 -- Daunting Hurl
 -- Throws a boulder that damages enemies around the impact radius. Additional effect: Terror
+-- If used by Agrios, resets enmity if it lands
 ---------------------------------------------------
 
 require("scripts/globals/settings")
@@ -35,6 +36,10 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.TERROR
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
+    local agrios = mob:getPool() == 64
+    if (MobPhysicalHit(mob, skill)) then
+        mob:resetEnmity(target)
+    end
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 8)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg

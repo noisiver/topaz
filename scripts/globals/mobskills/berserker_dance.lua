@@ -6,7 +6,7 @@
 -- Can be dispelled: Yes
 -- Utsusemi/Blink absorb: N/A
 -- Range: Self
--- Notes:
+-- Notes: Undispellable
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -30,5 +30,6 @@ function onMobWeaponSkill(target, mob, skill)
     MobBuffMove(mob, typeEffect2, 50, 0, duration)
     mob:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, 1, 0, 180)
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))
+    -- TODO: Undispellable
     return typeEffect
 end

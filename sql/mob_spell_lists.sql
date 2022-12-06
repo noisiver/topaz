@@ -5137,6 +5137,43 @@ INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,168,24,255); -- Thun
 INSERT INTO `mob_spell_lists` VALUES ('Alucard_Vampyr',2078,173,24,255); -- Water V
 
 
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,278,1,255); -- Geohelix
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,279,1,255); -- Hydroelix
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,280,1,255); -- Anemohelix
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,281,1,255); -- Pyrohelix
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,282,1,255); -- Cryohelix
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,283,1,255); -- Ionohelix
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,284,1,255); -- Noctohelix
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,285,1,255); -- Luminohelix
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,147,1,255); -- Fire 4
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,152,1,255); -- Blizzard 4
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,157,1,255); -- Aero 4
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,162,1,255); -- Stone 4
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,167,1,255); -- Thunder 4
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,172,1,255); -- Water 4
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,253,1,255); -- Sleep
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,259,1,255); -- Sleep II
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,4,1,255);   -- Cure IV
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,14,1,255);  -- Poisona
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,15,1,255);  -- Paralyna
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,16,1,255);  -- Blindna
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,17,1,255);  -- Silena
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,18,1,255);  -- Stona
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,19,1,255);  -- Viruna
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,20,1,255);  -- Cursna
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,46,1,255);  -- Protect IV
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,51,1,255);  -- Shell IV
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,57,1,255);  -- Haste
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,58,1,255);  -- Paralyze
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,59,1,255);  -- Silence
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,216,1,255);  -- Gravity
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,260,1,255);  -- Dispel
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,247,1,255);  -- Aspir
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,108,1,255);  -- Regen
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,110,1,255);  -- Regen II
+INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,143,1,255);  -- Erase
+
+
 
 
 

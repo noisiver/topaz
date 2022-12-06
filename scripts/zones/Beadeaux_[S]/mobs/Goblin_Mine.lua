@@ -1,0 +1,2 @@
+-- 250 fire damage
+-- 15 yard radius on explosion

@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: La Vaule [S]
 --   NM: Coinbiter Cjaknokk
+-- Immune to Silence Sleep Bind Gravity Paralyze
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------

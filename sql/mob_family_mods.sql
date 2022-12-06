@@ -174,6 +174,8 @@ INSERT INTO `mob_family_mods` VALUES (132,62,25,0);		-- Gnole +25% Attack
 INSERT INTO `mob_family_mods` VALUES (6,62,50,0);		-- Amphiptere +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (207,62,50,0);		-- Rafflesia +50% Attack 
 INSERT INTO `mob_family_mods` VALUES (211,62,50,0);		-- Ruszor +50% Attack 
+INSERT INTO `mob_family_mods` VALUES (944,62,50,0);		-- WotG Orc +50% Attack 
+INSERT INTO `mob_family_mods` VALUES (945,62,50,0);		-- WotG Orc War Machine +50% Attack 
 
 -- Flat Attack Penalty
 INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
@@ -194,6 +196,7 @@ INSERT INTO `mob_family_mods` VALUES (209,63,50,0);	    -- Rampart +50% Defense 
 INSERT INTO `mob_family_mods` VALUES (63,63,50,0);	 	-- Chariot +50% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (180,63,150,0);	-- Marid +150% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (211,63,50,0);		-- Ruszor +50% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (942,63,50,0);		-- WotG Quadav +50% Defense Bonus
 
 -- Defense Penalty
 INSERT INTO `mob_family_mods` VALUES (1,63,-25,0);		-- Acrolith -25% Defense Penalty
@@ -229,6 +232,7 @@ INSERT INTO `mob_family_mods` VALUES (192,68,25,0);		-- Peiste +25 Evasion Racia
 INSERT INTO `mob_family_mods` VALUES (195,68,25,0);		-- Pixie +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (231,68,25,0);		-- Slug +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (943,68,25,0);		-- WotG Yagudo +25 Evasion Racial
 
 -- Evasion Penalty
 INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	    -- Bugbear -10 Evasion

@@ -1,6 +1,8 @@
 -----------------------------------
 -- Area: La Vaule [S]
 --   NM: Draketrader Zlodgodd
+-- Spams jump every 3s
+-- Uses two Jumps. ID 733 and ID 1064
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------

@@ -17,4 +17,16 @@ tpz.wotg_strongholds.TrashMods = function(mob)
 end
 
 tpz.wotg_strongholds.NMMods = function(mob)
+	mob:setDamage(140)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMod(tpz.mod.REGAIN, 150)
+    mob:setMod(tpz.mod.MDEF, 70)
+    mob:setMod(tpz.mod.UDMGMAGIC, -13)
+    mob:setMod(tpz.mod.MOVE, 20)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 35)
+    mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 180)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end

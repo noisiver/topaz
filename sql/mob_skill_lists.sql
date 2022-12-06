@@ -3845,7 +3845,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2269);
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2270); 
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,3257); 
 
-INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,609); 
+--INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,609); -- Battle Dance
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,1061); -- Battle Dance
 INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2201); 
 INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2202); 
 INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2263); 

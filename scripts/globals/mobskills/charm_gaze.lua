@@ -1,0 +1,25 @@
+---------------------------------------------
+-- Charm
+-- Used by All-Seeing Onyx Eye
+-- Conal + Gaze
+---------------------------------------------
+require("scripts/globals/monstertpmoves")
+require("scripts/globals/settings")
+require("scripts/globals/status")
+require("scripts/globals/msg")
+---------------------------------------------
+
+function onMobSkillCheck(target, mob, skill)
+    return 0
+end
+
+function onMobWeaponSkill(target, mob, skill)
+    if (target:isFacing(mob)) then
+		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
+			return tpz.msg.basic.SKILL_NO_EFFECT
+		else
+			MobCharmMove(mob, target, skill, 0, 180)
+            return tpz.effect.CHARM_I
+		end
+    end
+end

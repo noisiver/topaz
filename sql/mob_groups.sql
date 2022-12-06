@@ -5001,7 +5001,7 @@ INSERT INTO `mob_groups` VALUES (3561,311,85,'Azima',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3562,312,85,'Azo',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3563,320,85,'Babban_Ny_Mheillea',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (3564,366,85,'Battlemaster_Vatgit',0,128,239,0,0,75,80,0);
-INSERT INTO `mob_groups` VALUES (3566,403,85,'Bhogbiggs_Vial',0,128,0,0,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (3566,403,85,'Bhogbiggs_Vial',0,128,0,110,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (3567,456,85,'Bloodcrown_Brradhod',0,128,0,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (3568,464,85,'Bloodwing_Impaler',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (3569,502,85,'Boodlix',0,128,0,0,0,75,80,0);

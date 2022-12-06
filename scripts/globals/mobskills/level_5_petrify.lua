@@ -5,7 +5,7 @@
 -- Type: Physical
 -- Utsusemi/Blink absorb: Ignore
 -- Range: 15' radial
--- Notes:
+-- Notes: If used by All-seeing Onyx Eye, enmity is reset.
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
 require("scripts/globals/settings")
@@ -18,6 +18,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local allSeeingOnyxEye = mob:getPool() == 88
     local typeEffect = tpz.effect.PETRIFICATION
     if (target:getMainLvl()%5 == 0) then
 
@@ -28,6 +29,10 @@ function onMobWeaponSkill(target, mob, skill)
 
     else
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT) -- no effect
+    end
+
+    if allSeeingOnyxEye then
+	    mob:resetEnmity(target)
     end
 
     return typeEffect

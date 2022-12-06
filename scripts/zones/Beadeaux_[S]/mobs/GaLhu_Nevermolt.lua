@@ -1,0 +1,8 @@
+-- PLD/PLD
+-- Immune to Paralyze, Silence, Sleep, Bind, Grabity, Break
+-- Casts: Flash, Banish II, Protect IV, Shell IV, Cure IV below 33%
+-- Diamond Shell has Reprisal effect
+-- Occasionally (every 30-45s?) turns and faces away putting his back to face you for ~10 seconds
+-- Uses Ore Toss, Ore Lob, Diamond Shell, Shell Bash, Shell Charge, Head Butt
+-- Uses Invincible around 5% and gains reprisal during it on all sides
+-- No damage cap on his reprisal

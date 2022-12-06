@@ -637,8 +637,8 @@ INSERT INTO `mob_family_system` VALUES (941,'Elemental-Water',11,'Elemental',0,4
 
 INSERT INTO `mob_family_system` VALUES (942,'Quadav-WOTG',7,'Beastmen',1,68,125,110,3,3,1,4,3,5,5,1,1,1,1,0.75,0.75,1.10,1.25,0.3,0.7,0.7,0.7,1,0.1,0.7,0.7,6,258,0);
 INSERT INTO `mob_family_system` VALUES (943,'Yagudo-WOTG',7,'Beastmen',0,68,125,120,3,3,3,1,4,5,3,1,1,1,1,0.75,1.25,0.75,0.75,0.7,1,0.1,0.3,0.7,0.7,0.7,0.7,3,1,0);
-INSERT INTO `mob_family_system` VALUES (944,'Orc-WOTG',7,'Beastmen',1,68,105,125,1,3,4,4,7,4,3,1,1,1,1,1.25,0.75,0.75,0.75,0.1,0.3,0.7,0.7,0.7,1,0.7,0.7,1,257,0);
-INSERT INTO `mob_family_system` VALUES (945,'OrcishWarmachine-WOTG',7,'Beastmen',1,68,125,100,1,4,4,3,6,5,3,1,1,1,1,1,1,1,1,0.1,0.3,0.7,0.7,0.7,1,0.7,0.7,1,257,0);
+INSERT INTO `mob_family_system` VALUES (944,'Orc-WOTG',7,'Beastmen',1,68,105,125,1,3,4,4,7,4,3,1,1,1,1,0.5,0.5,0.5,0.5,0.1,0.3,0.7,0.7,0.7,1,0.7,0.7,1,257,0);
+INSERT INTO `mob_family_system` VALUES (945,'OrcishWarmachine-WOTG',7,'Beastmen',1,68,125,100,1,4,4,3,6,5,3,1,1,1,1,1,1,1,1,0.5,0.7,1,1,1,1.15,1,1,1,257,0);
 INSERT INTO `mob_family_system` VALUES (946,'Goblin-WOTG',7,'Beastmen',0,68,125,120,3,3,5,3,4,4,4,1,1,1,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,1.3,0.1,1,1,0); 
 INSERT INTO `mob_family_system` VALUES (947,'Funguar-ElectrumCap',17,'Plantoid',0,68,125,110,3,4,4,4,5,4,4,1,1,1,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.1,1.3,0.1,8,2,1);
 

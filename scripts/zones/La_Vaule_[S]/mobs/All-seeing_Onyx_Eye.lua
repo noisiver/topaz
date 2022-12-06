@@ -2,10 +2,53 @@
 -- Area: La Vaule [S]
 --   NM: All-seeing Onyx Eye
 -----------------------------------
+require("scripts/globals/mobs")
+require("scripts/globals/wotg_strongholds")
+-----------------------------------
+
+function onMobSpawn(mob)
+    tpz.wotg_strongholds.NMMods(mob)
+    mob:addMobMod(tpz.mobMod.HP_HEAL_CHANCE, 33)
+end
+
+function onMobFight(mob, target)
+    local charmTimer = mob:getLocalVar("charmTimer")
+    local battleTime =  mob:getBattleTime()
+    local hp = mob:getHPP()
+
+    -- Uses Charm every 5ish seconds
+    if (battleTime >= charmTimer) then
+        mob:useMobAbility(2383)
+        mob:setLocalVar("charmTimer", 5)
+    end
+
+    -- Gains fast cast as his HP lowers
+    if (hp < 50) then
+        mob:addMod(tpz.mod.UFASTCAST, 50)
+    elseif (hp < 25) then
+        mob:addMod(tpz.mod.UFASTCAST, 25)
+    elseif (hp < 10) then
+        mob:addMod(tpz.mod.UFASTCAST, 10)
+    else
+        mob:addMod(tpz.mod.UFASTCAST, 0)
+    end
+end
+
+function onSpellPrecast(mob, spell)
+    local ancientMagic = {204, 206, 208, 210, 212, 214}
+
+    for _, spellID in pairs(ancientMagic) do
+        if spell:getID() == spellID then
+            spell:setAoE(tpz.magic.aoe.RADIAL)
+            spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
+            spell:setRadius(10)
+        end
+    end
+end
 
 function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+    mob:setRespawnTime(7200) -- 2 hours
 end

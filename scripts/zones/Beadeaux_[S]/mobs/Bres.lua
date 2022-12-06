@@ -1,0 +1,6 @@
+-- MNK/MNK
+-- Immune to Paralyze, Sleep, Bind, Grabity, Break
+-- Only kicks, always twice in a row, up to three times in a row
+-- Can Guard
+-- Uses Dragon Kick, Aegis schism, Barbed Crescent(all fomor moves?). Greatly favors Dragon Kick.
+-- Used 100 fists at 55% HP.

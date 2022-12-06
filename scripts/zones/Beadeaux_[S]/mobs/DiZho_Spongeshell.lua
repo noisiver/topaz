@@ -1,0 +1,9 @@
+-- DRK/DRK
+-- Immune to Paralyze, Silence, Sleep, Bind, Grabity, Break
+-- Casts Absorb Spells including Absorb-ACC
+-- Cast Timer: 31 - > 55 - > 21 - > 58 - > 32 - > 53 - > 17
+-- Two Hour animation whenever he changes "modes"
+-- Modes are Physical or Magical + Breath + Spirits absorb
+-- Mode Timer: 52 - > 32 - > 24 - > 40 - > (over 1 minute) 55 - > 50
+-- Absorbs double the dmg taken in mode.
+-- Uses Shell Bash, Ore Lob, Head Butt, Ore Toss, Wrath of Gudha
