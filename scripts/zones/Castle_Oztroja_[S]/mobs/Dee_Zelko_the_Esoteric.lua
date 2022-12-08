@@ -1,6 +1,19 @@
 -----------------------------------
 -- Area: Castle Oztroja [S]
 --   NM: Dee Zelko the Esoteric
+-- BLM/BLM
+-- Immune to Silence, Paralyze, Sleep, Bind, Gravity, Break
+-- 100% Fast Cast
+-- Cster Timer 8s
+-- Casts Aero spells, Sleepga II, Stun and Bio III
+-- Sleepga II and Stun never misses and always lands full duration.
+-- Tier-1 Aero and Aeroga, but gradually increases magic tier as its HP declines, until it starts spamming insta-cast Tornado II.
+-- Aero II at 84%
+-- Aero III and Aeroga II at 64%
+-- Aero IV at 44%
+-- Tornado and Aeroga III at 34%
+-- Tornado II and Aeroga III at 14%
+-- Uses Manafont below 50%
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------

@@ -1,6 +1,11 @@
 -----------------------------------
 -- Area: Castle Oztroja [S]
 --   NM: Duu Masa the Onecut
+-- SAM/SAM
+-- Immune to Paralyze, Sleep, Bind, Grabity, Break
+-- Always up, not lotto.
+-- Uses: Parry, Feathered Furore, Double Kick, Feather Storm
+-- Uses Meikyo Shisui
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------

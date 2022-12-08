@@ -1,9 +1,16 @@
 -----------------------------------
 -- Area: Castle Oztroja [S]
 --   NM: Suu Xicu the Cantabile
--- TODO:
---  Summoning of pets should be tied to Soul Voice usage.
---  Gains a hidden regen from Army's Paeon V. Even if it is dispelled, it will gain several HP%.
+-- BRD/BRD
+-- Immune to Silence, Paralyze, Sleep, Bind, Gravity, Break
+-- Army's Paeon gives hidden regen effect even if you dipel Paeon. Also gives to adds. Fades after ~1m?
+-- Casts: Victory March, Horde Lullaby, Carnage Elegy, Magic Finale, Dragonfoe Mambo, Valor Minuet IV, Army's Paeon V, Knight's Minne IV
+-- Cannot miss bard enfeebles (Capped MACC)
+-- Cast Timer: 14s
+-- Uses: Featherstorm, Sweep, Feathered Furore 
+-- Summons two Duu Nazo's' at 50% and 25% HP. 4 Max. (once, regenning hp back doesn't force more adds)
+-- Does not despawn adds on death.
+
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------

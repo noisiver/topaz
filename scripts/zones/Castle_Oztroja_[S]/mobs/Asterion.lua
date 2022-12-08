@@ -1,6 +1,14 @@
 -----------------------------------
 -- Area: Castle Oztroja [S]
 --   NM: Asterion
+-- MNK/MNK
+-- Immune to Sleep, Bind, Grabity, Break
+-- Counters, Guards, Kicks.
+-- 100-36% Uses Frightful Roar, Back Swish, Unblest Armor, Triclip
+-- 36%-0% uses Frightful Roar, Mow, Triclip, and Mortal Ray
+-- Gradually attack faster as he loses HP.
+-- Gains 100/tick regain below 25% HP. Uses a TP move every 30s
+-- Uses Hundred Fists randomly below 50%
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
@@ -11,13 +19,6 @@ function onMobFight(mob, target)
     -- As it gets low, its attack speed increases to near perma-hundred fists.
     -- hundred fists is 1700 delay. this formula will range between 4500 and 1700.
     mob:setDelay(1700 + hpp * 28)
-
-    -- Favors Back Swish when higher HP and at around 50% it starts using Mow and Mortal Ray.
-    if hpp < 50 then
-        mob:setMobMod(tpz.mobMod.SKILL_LIST, 156)
-    else
-        mob:setMobMod(tpz.mobMod.SKILL_LIST, 155)
-    end
 end
 
 function onMobDeath(mob, player, isKiller)

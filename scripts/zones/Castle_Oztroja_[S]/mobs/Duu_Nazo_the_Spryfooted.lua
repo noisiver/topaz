@@ -1,6 +1,12 @@
 -----------------------------------
 -- Area: Castle Oztroja [S]
 --   NM: Duu Nazo the Spryfooted
+-- Suu Xicu's pets
+-- MNK/MNK
+-- Gain hidden regen effect for ~1m from Paeon from Suu Xicu
+-- 521 dmg did 23% HP
+-- Immune to Sleep, Bind, Break
+-- Uses: Featherstorm, Sweep, Feathered Furore 
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------

@@ -1,22 +1,18 @@
 -----------------------------------
 -- Area: Castle Oztroja [S]
 --   NM: Loo Kutto the Pensive
+-- SAM/SAM
+-- Immune to Sleep, Bind, Grabity, Break
+-- TP Move Timer:  1:34 - > 1:41 - > 1:54 - > 02:05 - > 02:18 - > 02:30 - > 02:54 - > 02:59 - > 03:18 - > 03:27 - > 03:42
+-- TP Move timer reduces to 5s at 49% HP
+-- Uses Sweep, Feathered Furore, Double Kick, Feather Storm. Can use Meikyo Shisui starting at 49%
+-- Used Mekiyo Shisui at 55%
+-- Uses Dark Invocation x3 during Meikyio Shisui
 -----------------------------------
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobFight(mob, target)
-    --[[
-    "Possess high Regain and/or Store TP, which seems to increase further as its HP declines."
-
-    Using formula below, mob will have:
-    at 100% HP, 20 storeTP
-        75% HP, 80 storeTP
-        50% HP, 140 storeTP
-        25% HP, 200 storeTP (caps here - this is about 50% TP per greatsword swing)
-    --]]
-    local power = 20 + math.floor(utils.clamp(100 - mob:getHPP(), 0, 75) * 2.4)
-    mob:setMod(tpz.mod.STORETP, power)
 end
 
 function onMobDeath(mob, player, isKiller)
