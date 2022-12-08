@@ -26,7 +26,7 @@
 CInventoryFinishPacket::CInventoryFinishPacket()
 {
     this->type = 0x1D;
-    this->size = 0x0C;
+    this->size = 0x06;
 
     ref<uint8>(0x04) = 1; // "Finished" flag
     ref<uint8>(0x05) = CONTAINER_ID::MAX_CONTAINER_ID;
@@ -41,8 +41,14 @@ CInventoryFinishPacket::CInventoryFinishPacket()
 CInventoryFinishPacket::CInventoryFinishPacket(CONTAINER_ID id)
 {
     this->type = 0x1D;
-    this->size = 0x0C;
+    this->size = 0x06;
 
     ref<uint8>(0x04) = 0; // "Finished" flag
     ref<uint8>(0x05) = id;
+    ref<uint8>(0x06) = 0x00;
+    ref<uint8>(0x07) = 0x00;
+    ref<uint8>(0x08) = 0xFF;
+    ref<uint8>(0x09) = 0xFF;
+    ref<uint8>(0x0A) = 0x03;
+    ref<uint8>(0x0B) = 0x00;
 }
