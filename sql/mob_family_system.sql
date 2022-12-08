@@ -73,22 +73,22 @@ INSERT INTO `mob_family_system` VALUES (3,'Aern',15,'Luminian',0,40,100,140,2,2,
 INSERT INTO `mob_family_system` VALUES (4,'Ahriman',9,'Demon',0,40,100,140,3,3,4,4,5,5,3,1,3,1,3,1,1,1,1,1,1,1,1,1,1,1.3,0.3,8,3,0);
 INSERT INTO `mob_family_system` VALUES (5,'Amoeban',21,'Voragean',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,32,0);
 INSERT INTO `mob_family_system` VALUES (6,'Amphiptere',8,'Bird',4,30,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,0.7,0.85,0.2,1,0.7,0.7,0.7,0.5,0,3,0);
-INSERT INTO `mob_family_system` VALUES (7,'AnimatedWeapon-Archery',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (8,'AnimatedWeapon-Axe',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (9,'AnimatedWeapon-Club',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (11,'AnimatedWeapon-Dagger',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (12,'AnimatedWeapon-Greataxe',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (13,'AnimatedWeapon-Greatkatana',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (14,'AnimatedWeapon-Greatsword',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (15,'AnimatedWeapon-Handtohand',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (16,'AnimatedWeapon-Instrument',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (17,'AnimatedWeapon-Katana',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (18,'AnimatedWeapon-Marksmanship',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (19,'AnimatedWeapon-Polearm',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (20,'AnimatedWeapon-Scythe',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (21,'AnimatedWeapon-Shield',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (23,'AnimatedWeapon-Staff',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
-INSERT INTO `mob_family_system` VALUES (24,'AnimatedWeapon-Sword',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1,0.7,0.7,0.7,0.7,0.7,0.7,0.7,0,2,0);
+INSERT INTO `mob_family_system` VALUES (7,'AnimatedWeapon-Archery',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (8,'AnimatedWeapon-Axe',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (9,'AnimatedWeapon-Club',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (11,'AnimatedWeapon-Dagger',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (12,'AnimatedWeapon-Greataxe',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (13,'AnimatedWeapon-Greatkatana',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (14,'AnimatedWeapon-Greatsword',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (15,'AnimatedWeapon-Handtohand',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (16,'AnimatedWeapon-Instrument',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (17,'AnimatedWeapon-Katana',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (18,'AnimatedWeapon-Marksmanship',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (19,'AnimatedWeapon-Polearm',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (20,'AnimatedWeapon-Scythe',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (21,'AnimatedWeapon-Shield',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (23,'AnimatedWeapon-Staff',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
+INSERT INTO `mob_family_system` VALUES (24,'AnimatedWeapon-Sword',18,'Unclassified',0,60,100,120,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,1.3,1,1,1.3,0.7,1.15,1.15,1,0,2,0);
 INSERT INTO `mob_family_system` VALUES (25,'Antica',7,'Beastmen',0,40,100,140,1,3,5,4,6,2,1,1,3,1,3,1,1,1,1,1.15,1.3,1.5,0.5,1.15,1.15,1.3,0.5,8,258,0);
 INSERT INTO `mob_family_system` VALUES (26,'Antlion',20,'Vermin',1,40,110,125,4,4,4,4,4,4,4,1,3,1,3,1,1,1,1,1,1,1.3,0.6,1,1,1.5,0.6,8,2,1);
 INSERT INTO `mob_family_system` VALUES (27,'Apkallu',8,'Bird',0,60,125,90,1,3,1,3,4,4,4,1,1,1,1,1,1.25,1,1,0.6,0.6,0.85,0.85,1,0.4,1,1,6,3,0);
@@ -127,7 +127,7 @@ INSERT INTO `mob_family_system` VALUES (60,'CaitSith',18,'Humanoid',0,40,100,120
 INSERT INTO `mob_family_system` VALUES (61,'Cardian',3,'Arcana',0,40,100,140,3,3,4,5,4,4,3,1,3,1,5,1,1,1,1,0.75,0.75,0.75,0.75,0.75,0.75,0.875,0.75,6,34,0);
 INSERT INTO `mob_family_system` VALUES (62,'Cerberus',6,'Beast',3,60,125,90,1,1,3,1,1,1,2,1,3,1,3,1,1,1,1,0.5,0.5,1,0.7,0.7,1,1,1,1,2,0); -- WAR/WAR
 INSERT INTO `mob_family_system` VALUES (63,'Chariot',4,'ArchaicMachine',3,60,125,90,1,3,1,3,5,4,1,1,1,1,1,1,1,1,0.7,0.6,0.6,0.6,0.25,1.15,1,0.05,1.15,0,34,0);
-INSERT INTO `mob_family_system` VALUES (64,'Chigoe',20,'Vermin',0,60,50,90,3,1,3,1,3,3,3,1,1,1,1,1,1,1,1,1.3,0.85,0.85,0.7,0.85,1.15,0.85,0.85,4,3,0);
+INSERT INTO `mob_family_system` VALUES (64,'Chigoe',20,'Vermin',0,60,50,90,7,1,7,1,1,7,7,1,1,1,1,1,1,1,1,1.3,0.85,0.85,0.7,0.85,1.15,0.85,0.85,4,3,0);
 INSERT INTO `mob_family_system` VALUES (65,'Clionid',21,'Voragean',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,4,0);
 INSERT INTO `mob_family_system` VALUES (66,'Clot',1,'Amorph',1,40,100,120,4,4,4,5,4,3,4,1,3,1,3,0.5,0.5,0.25,0.25,1.15,1.15,1.3,1.15,1.15,1.15,0.85,0.85,6,258,1);
 INSERT INTO `mob_family_system` VALUES (67,'GlutinousClot',1,'Amorph',1,40,100,120,4,4,4,5,4,3,4,1,3,1,3,0.5,0.5,0.25,0.25,1.15,1.15,1.3,1.15,1.15,1.15,0.85,0.85,6,258,1); -- Fistule / Ruins Oil
@@ -579,7 +579,7 @@ INSERT INTO `mob_family_system` VALUES (545,'MagicPot_SightAggro',3,'Arcana',2,4
 INSERT INTO `mob_family_system` VALUES (546,'Crab',2,'Aquan',0,40,100,240,2,2,1,5,4,5,2,1,3,1,3,1,1,1,1,0.7,0.7,0.7,0.7,1,0.05,0.7,0.7,6,2,1); -- King Arthro past
 INSERT INTO `mob_family_system` VALUES (547,'Serket-Past',20,'Vermin',3,40,100,240,1,1,3,3,2,4,4,1,3,1,3,1,1,1,1,0.7,1,0.7,0.7,0.7,0.05,0.7,0.7,4,258,0);
 INSERT INTO `mob_family_system` VALUES (548,'GuivreWyvern-Past',10,'Dragon',1,60,115,240,1,1,2,3,1,4,4,1,3,1,3,1,1,1,1,0.05,0.4,0.7,0.7,0.7,1,0.5,0.5,7,3,0);
-INSERT INTO `mob_family_system` VALUES (549,'Imp_Exp_Camp',9,'Demon',0,60,100,140,5,5,4,3,3,7,3,1,3,1,5,1,1,1,1,1.15,1.15,0.3,1,1.15,1.15,1.15,0.3,8,1,0); -- Azouph Isle Caedarva Mire Exp camp (70-75)
+INSERT INTO `mob_family_system` VALUES (549,'Imp_Exp_Camp',9,'Demon',0,60,100,140,5,5,4,3,3,7,3,1,3,1,5,1,1,1,1,1.15,1.15,0.3,1,1.15,1.15,1.15,0.3,8,3,0); -- Azouph Isle Caedarva Mire Exp camp (70-75)
 INSERT INTO `mob_family_system` VALUES (550,'Millenary_Mossback',14,'Lizard',2,30,120,90,2,4,1,4,1,1,1,1,2,1,3,1,1,1,1,0.50,1.3,0.50,0.05,0.05,0.05,0.50,0.50,4,2,0);
 INSERT INTO `mob_family_system` VALUES (551,'SeaMonk-Blue',2,'Aquan',1,40,125,140,1,5,1,4,4,4,4,1,1,1,1,1,1,1,1,1.15,1.3,1.3,1.1,1.3,0.3,1.15,1.15,6,2,1);
 INSERT INTO `mob_family_system` VALUES (552,'Jnun',19,'Undead',2,40,125,120,2,3,2,3,2,4,4,1,1,1,1,1.125,1,0.85,0.85,0.85,0.3,0.7,0.7,0.7,0.5,0.85,0.2,8,6,0);

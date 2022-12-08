@@ -272,6 +272,24 @@ INSERT INTO `mob_family_mods` VALUES (122,389,-13,0); 	-- Ghrah -13%
 INSERT INTO `mob_family_mods` VALUES (123,389,-13,0); 	-- Ghrah -13%
 INSERT INTO `mob_family_mods` VALUES (124,389,-13,0); 	-- Ghrah -13%
 INSERT INTO `mob_family_mods` VALUES (175,389,-50,0);	-- Magic Pot -50%
+INSERT INTO `mob_family_mods` VALUES (7,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (8,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (9,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (10,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (11,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (12,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (13,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (14,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (15,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (16,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (17,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (18,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (19,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (20,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (21,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (22,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (23,389,-13,0); 	-- Animated Weapon -13%
+INSERT INTO `mob_family_mods` VALUES (24,389,-13,0); 	-- Animated Weapon -13%
 INSERT INTO `mob_family_mods` VALUES (171,389,-13,0); 	-- Lamiae -13%
 INSERT INTO `mob_family_mods` VALUES (4,389,-25,0);		-- Ahriman -25%
 INSERT INTO `mob_family_mods` VALUES (169,389,-25,0);	-- Kindred  -25%
@@ -307,10 +325,10 @@ INSERT INTO `mob_family_mods` VALUES (284,29,20,0); 	-- Vampyr(NM) +20 MDB
 INSERT INTO `mob_family_mods` VALUES (89,29,20,0);  	-- Draugar +20 MDB
 INSERT INTO `mob_family_mods` VALUES (52,29,20,0);  	-- Bhoot +20 MDB
 INSERT INTO `mob_family_mods` VALUES (233,29,20,0); 	-- Soulflayer +20 MDB
-INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	    -- Dvergr +40 MDB
-INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	    -- Amphiptere +20 MDB
+INSERT INTO `mob_family_mods` VALUES (90,29,40,0); 	  -- Dvergr +40 MDB
+INSERT INTO `mob_family_mods` VALUES (6,29,20,0); 	  -- Amphiptere +20 MDB
 INSERT INTO `mob_family_mods` VALUES (195,29,16,0); 	-- Pixie +16 MDB
-INSERT INTO `mob_family_mods` VALUES (39,29,40,0); 	    -- Dark Monoceros +40 MDB
+INSERT INTO `mob_family_mods` VALUES (39,29,40,0); 	  -- Dark Monoceros +40 MDB
 INSERT INTO `mob_family_mods` VALUES (109,29,20,0); 	-- Euvhi +20 MDB
 INSERT INTO `mob_family_mods` VALUES (122,29,20,0); 	-- Ghrah +20 MDB
 INSERT INTO `mob_family_mods` VALUES (123,29,20,0); 	-- Ghrah +20 MDB
@@ -319,6 +337,34 @@ INSERT INTO `mob_family_mods` VALUES (272,29,20,0); 	-- Zdei +20 MDB
 INSERT INTO `mob_family_mods` VALUES (449,29,62,0); 	-- Bahamut +62 MDB
 INSERT INTO `mob_family_mods` VALUES (163,29,29,0); 	-- Hydra +29 MDB
 INSERT INTO `mob_family_mods` VALUES (164,29,29,0); 	-- Hydra +29 MDB
+INSERT INTO `mob_family_mods` VALUES (16,29,250,0); 	-- Animated Weapon(Instrument) +250 MDB
+
+-- MEVA
+INSERT INTO `mob_family_mods` VALUES (99,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (100,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (101,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (102,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (103,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (104,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (105,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (106,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (155,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (156,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (157,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (158,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (159,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (160,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (161,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (162,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (934,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (935,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (936,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (937,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (938,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (939,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (940,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (941,31,30,0); 	-- Elemental +30 MEVA
+
 
 -- Move Speed
 INSERT INTO `mob_family_mods` VALUES (1,169,-15,0); 	-- Acrolith -15%
