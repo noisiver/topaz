@@ -241,9 +241,6 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         end
     end
 
-    --handling phalanx
-    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
-
     -- We've now accounted for any crit from SA/TA, or damage bonus for a Hybrid WS, so nullify them
     calcParams.forcedFirstCrit = false
     calcParams.hybridHit = false
@@ -735,9 +732,6 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
                 dmg = math.floor(dmg * 0.50) -- 50% DR
             end
         end
-
-        --handling phalanx
-        dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
         -- handling absorb
         dmg = adjustForTarget(target, dmg, wsParams.ele)

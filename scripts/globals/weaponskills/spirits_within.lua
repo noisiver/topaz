@@ -29,7 +29,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local calcParams =
     {
         criticalHit = false,
-        tpHitsLanded = 0,
+        tpHitsLanded = 1,
         extraHitsLanded = 0,
         shadowsAbsorbed = 0,
         bonusTP = 0
@@ -93,14 +93,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     WSC = math.floor(WSC * circlemult / 100) -- Apply circle effect mod
-    printf("dmg before mod %i", WSC)
+    --printf("dmg before mod %i", WSC)
     --spirits DT mod
     WSC = math.floor(WSC * (1 + utils.clamp(target:getMod(tpz.mod.DMGSPIRITS), -100, 100) / 100))
-    printf("dmg after mod %i", WSC)
+    --printf("dmg after mod %i", WSC)
     local damage = target:breathDmgTaken(WSC)
 
-    --handling phalanx
-    WSC = WSC - target:getMod(tpz.mod.PHALANX)
+    -- handling rampart(magic) stoneskin
+    damage = utils.rampartstoneskin(target, damage)
 
     if (damage > 0) then
         if (player:getOffhandDmg() > 0) then
