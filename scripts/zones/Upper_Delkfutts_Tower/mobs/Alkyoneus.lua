@@ -7,14 +7,14 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    -- Starts as a MNK
+    -- Starts jobless
     mob:setDamage(75)
+    mob:setDelay(4000)
     mob:setModelId(643) -- Black
     mob:setMod(tpz.mod.ATTP, 0)
     mob:setMod(tpz.mod.DEFP, 0) 
     mob:setMod(tpz.mod.ACC, 50) 
     mob:setMod(tpz.mod.EVA, 20)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
     mob:setMod(tpz.mod.UDMGPHYS, 100)
     mob:setMod(tpz.mod.UDMGMAGIC, 100)
     mob:setMod(tpz.mod.UDMGRANGE, 100)
@@ -57,19 +57,23 @@ function onMobFight(mob, target)
 
     if (hp <= 75) and (phase) == 0 then -- WAR
         mob:setDamage(145)
+        mob:setDelay(4000)
         mob:addMod(tpz.mod.ATTP, 50)
         mob:addMod(tpz.mod.DEFP, 50) 
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+        mob:setMod(tpz.mod.COUNTER, 0)
         mob:useMobAbility(688) -- Mighty Strikes        
         mob:setModelId(640) -- Gaxe
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6003)
         mob:setLocalVar("phase", 1)
     end
     if (hp <= 50) and (phase == 1) and not mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then -- MNK
-        mob:setDamage(145)
+        mob:setDamage(75)
+        mob:setDelay(2200)
         mob:delMod(tpz.mod.ATTP, 50)
         mob:delMod(tpz.mod.DEFP, 50) 
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
+        mob:setMod(tpz.mod.COUNTER, 10)
         mob:useMobAbility(690)  -- Hundred Fists
         mob:setModelId(642) -- H2H
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6004)
@@ -78,6 +82,7 @@ function onMobFight(mob, target)
     if (hp <= 25) and (phase == 2) and not mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) then -- RNG
         mob:setDamage(145)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
+        mob:setMod(tpz.mod.COUNTER, 0)
         mob:useMobAbility(739) -- EES
         mob:setModelId(711) --  Ranger
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6005)
@@ -94,9 +99,11 @@ function onMobFight(mob, target)
                 {id = tpz.jsa.EES_GIGA, cooldown = 0, hpp = 90},
             },
         })
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
+        mob:setDamage(145)
+        mob:setDelay(3000)
         mob:delMod(tpz.mod.ATTP, 50)
-        mob:delMod(tpz.mod.DEFP, 50) 
+        mob:delMod(tpz.mod.DEFP, 50)
+        mob:setMod(tpz.mod.COUNTER, 10)
         mob:useMobAbility(689) -- Benediction
         mob:setModelId(275) -- WOTG
         mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 658)
