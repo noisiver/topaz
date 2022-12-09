@@ -11,13 +11,10 @@ function onMobSpawn(mob)
     mob:setDamage(75)
     mob:setDelay(4000)
     mob:setModelId(643) -- Black
-    mob:setMod(tpz.mod.ATTP, 0)
-    mob:setMod(tpz.mod.DEFP, 0) 
+    mob:setMod(tpz.mod.ATTP, 25)
+    mob:setMod(tpz.mod.DEFP, 25) 
     mob:setMod(tpz.mod.ACC, 50) 
     mob:setMod(tpz.mod.EVA, 20)
-    mob:setMod(tpz.mod.UDMGPHYS, 100)
-    mob:setMod(tpz.mod.UDMGMAGIC, 100)
-    mob:setMod(tpz.mod.UDMGRANGE, 100)
     mob:setMod(tpz.mod.SDT_WATER, 100)
     mob:setMod(tpz.mod.SDT_LIGHT, 100)
     mob:setMod(tpz.mod.SDT_EARTH, 130)
@@ -37,6 +34,7 @@ function onMobSpawn(mob)
             {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 0, hpp = 5},
         },
     })
+    mob:setUnkillable(true)
 end
 
 function onMobEngaged(mob, target)
@@ -89,7 +87,8 @@ function onMobFight(mob, target)
         mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 658)
         mob:setLocalVar("phase", 3)
     end
-    if (hp <= 10) and (phase == 3) then -- WAR + MNK + RNG
+    if (hp <= 10) and (phase == 3) and not mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS)
+    and not mob:hasStatusEffect(tpz.effect.MIGHTY_STRIKES) then -- WAR + MNK + RNG
         tpz.mix.jobSpecial.config(mob, {
             between = 120,
             specials =
@@ -108,6 +107,7 @@ function onMobFight(mob, target)
         mob:setModelId(275) -- WOTG
         mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 658)
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6006)
+        mob:setUnkillable(false)
         mob:setLocalVar("phase", 4)
     end
 end
