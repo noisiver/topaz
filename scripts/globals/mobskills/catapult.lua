@@ -12,8 +12,9 @@ require("scripts/globals/monstertpmoves")
 
 function onMobSkillCheck(target, mob, skill)
     local agrios = mob:getPool() == 64
+    local alkyoneus = mob:getPool() == 87
 
-    if agrios then
+    if agrios or alkyoneus then
         return 0
     end
     -- Ranged attack only used when target is out of range
