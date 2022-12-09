@@ -52,6 +52,7 @@ function onMobFight(mob, target)
     end
     if mob:getHPP() <= 50 and hitTrigger == 1 then
         mob:setDamage(145)
+        mob:delStatusEffectSilent(tpz.effect.MIGHTY_STRIKES)
         mob:useMobAbility(690)  -- Hundred Fists
         mob:setModelId(642) -- H2H
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6004)
@@ -60,20 +61,22 @@ function onMobFight(mob, target)
     if mob:getHPP() <= 25 and hitTrigger == 2 then
         mob:setDamage(145)
         mob:useMobAbility(739) -- EES
+        mob:delStatusEffectSilent(tpz.effect.MIGHTY_STRIKES)
+        mob:delStatusEffectSilent(tpz.effect.HUNDRED_FISTS)
         mob:setModelId(711) --  Ranger
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6005)
         mob:setLocalVar("TriggerHit", 3)
     end
     if mob:getHPP() <= 10 and hitTrigger == 3 then
-    tpz.mix.jobSpecial.config(mob, {
-        between = 120,
-        specials =
-        {
-            {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 0, hpp = 90},
-            {id = tpz.jsa.HUNDRED_FISTS, cooldown = 0, hpp = 90},
-            {id = tpz.jsa.EES_GIGA, cooldown = 0, hpp = 90},
-        },
-    })
+        tpz.mix.jobSpecial.config(mob, {
+            between = 120,
+            specials =
+            {
+                {id = tpz.jsa.MIGHTY_STRIKES, cooldown = 0, hpp = 90},
+                {id = tpz.jsa.HUNDRED_FISTS, cooldown = 0, hpp = 90},
+                {id = tpz.jsa.EES_GIGA, cooldown = 0, hpp = 90},
+            },
+        })
         mob:useMobAbility(689) -- Benediction
         mob:setModelId(275) -- WOTG
         mob:setMobMod(tpz.mobMod.SKILL_LIST, 6006)
