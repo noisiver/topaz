@@ -41,7 +41,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     if not target:isUndead() then
         local drain = math.floor(damage * (math.random(30, 70) / 100))
-        player:addHP(drain)
+        if not player:hasStatusEffect(tpz.effect.CURSE_II) then
+            player:addHP(drain)
+        end
     end
 
     return tpHits, extraHits, criticalHit, damage

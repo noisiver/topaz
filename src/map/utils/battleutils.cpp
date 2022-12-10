@@ -941,6 +941,11 @@ namespace battleutils
                                     PEffect->SetSubPower(remainingDrain - Action->spikesParam);
                                 }
                             }
+                            // Zombie stops Dread Spikes healing (TODO: Retail Testing)
+                            if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+                            {
+                                Action->spikesParam = 0;
+                            }
                             PDefender->addHP(Action->spikesParam);
                         }
                             PAttacker->takeDamage(Action->spikesParam,

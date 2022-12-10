@@ -51,8 +51,13 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.30
     params.chr_wsc = 0.0
+    local dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
 
-	   	local dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+    -- Check for zombie
+    if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
+
 	dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
    	dmg = (dmg * math.random(85, 115)) / 100
 

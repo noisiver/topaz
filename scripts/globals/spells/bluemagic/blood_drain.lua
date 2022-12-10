@@ -49,6 +49,11 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     local dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 
+    -- Check for zombie
+    if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
+
     if (dmg < 0) then
         dmg = 0
     end
@@ -77,7 +82,7 @@ function onSpellCast(caster, target, spell)
 
     -- add dmg variance
 	dmg = (dmg * math.random(85, 115)) / 100
-  
+    
     if dmg > 0 then
 	    dmg = dmg * BLUE_POWER
 	    caster:addHP(damage)

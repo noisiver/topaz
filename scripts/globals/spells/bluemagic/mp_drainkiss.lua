@@ -59,6 +59,11 @@ function onSpellCast(caster, target, spell)
 
     local dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 
+    -- Check for zombie
+    if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
+
 	-- add correlation bonus
 	if bird then
 	 	dmg = dmg * 1.25

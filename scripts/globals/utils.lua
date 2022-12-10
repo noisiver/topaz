@@ -777,6 +777,14 @@ function utils.CheckForZombie(player, target, ability)
     return false
 end
 
+function utils.CheckForZombieSpell(caster, spell)
+    if caster:hasStatusEffect(tpz.effect.CURSE_II) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return true
+    end
+    return false
+end
+
 function utils.IsElementalDOT(effect)
     if (effect >= tpz.effect.BURN) and (effect <= tpz.effect.DROWN) then
         return true

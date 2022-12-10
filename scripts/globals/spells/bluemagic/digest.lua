@@ -49,6 +49,11 @@ function onSpellCast(caster, target, spell)
     params.chr_wsc = 0.0
     local dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
 
+    -- Check for zombie
+    if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
+
     if (dmg < 0) then
         dmg = 0
     end

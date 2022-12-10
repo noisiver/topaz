@@ -1753,7 +1753,13 @@ void CStatusEffectContainer::TickRegen(time_point tick)
         int16 poison = m_POwner->getMod(Mod::REGEN_DOWN);
         int16 refresh = m_POwner->getMod(Mod::REFRESH) - m_POwner->getMod(Mod::REFRESH_DOWN);
         int16 regain = m_POwner->getMod(Mod::REGAIN) - m_POwner->getMod(Mod::REGAIN_DOWN);
-        m_POwner->addHP(regen);
+
+        // Zombie stops regen (TODO: Retail Testing)
+        // https://ffxiclopedia.fandom.com/wiki/Curse_(Special)
+        if (!m_POwner->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+        {
+            m_POwner->addHP(regen);
+        }
 
         if (poison)
         {
@@ -1804,7 +1810,12 @@ void CStatusEffectContainer::TickRegen(time_point tick)
                 }
             }
 
-            m_POwner->addMP(refresh - perpetuation);
+            // Zombie stops Refresh (TODO: Retail Testing)
+            // https://ffxiclopedia.fandom.com/wiki/Curse_(Special)
+            if (!m_POwner->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+            {
+                m_POwner->addMP(refresh - perpetuation);
+            }
 
             if (m_POwner->health.mp == 0 && m_POwner->PPet != nullptr && m_POwner->PPet->objtype == TYPE_PET)
             {
@@ -1816,7 +1827,12 @@ void CStatusEffectContainer::TickRegen(time_point tick)
         }
         else
         {
-            m_POwner->addMP(refresh);
+            // Zombie stops Refresh (TODO: Retail Testing)
+            // https://ffxiclopedia.fandom.com/wiki/Curse_(Special)
+            if (!m_POwner->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+            {
+                m_POwner->addMP(refresh);
+            }
         }
 
         m_POwner->addTP(regain);

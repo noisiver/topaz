@@ -35,6 +35,11 @@ function onSpellCast(caster, target, spell)
     local damage = BlueBreathSpell(caster, target, spell, params, 0.25)
 	damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
+    -- Check for zombie
+    if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
+
     if (target:getHP() < damage) then
         damage = target:getHP()
     end

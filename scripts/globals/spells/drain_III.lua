@@ -29,6 +29,12 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.DARK_MAGIC
     params.bonus = 1.0
     local resist = applyResistance(caster, target, spell, params)
+
+    -- Check for zombie
+    if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
+
     --get the resisted damage
     dmg = dmg*resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
