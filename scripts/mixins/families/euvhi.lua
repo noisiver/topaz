@@ -32,15 +32,21 @@ function bloomed_form(mob)
 end
 
 function PetalMods(mob)
-    mob:setMod(tpz.mod.DEFP, 100) 
-    mob:setMod(tpz.mod.DMG, -25)
-    mob:setDelay(4000)
+    if mob:getLocalVar("petalMods") == 0 then
+        mob:setLocalVar("petalMods", 1)
+        mob:setLocalVar("bloomedMods", 0)
+        mob:addMod(tpz.mod.DEFP, 100) 
+        mob:setDelay(4000)
+    end
 end
 
 function BloomedMods(mob)
-    mob:setMod(tpz.mod.DMG, 13)
-    mob:setDelay(3000)
-    mob:setMod(tpz.mod.DEFP, 0)
+    if mob:getLocalVar("bloomedMods") == 0 then
+        mob:setLocalVar("petalMods", 0)
+        mob:setLocalVar("bloomedMods", 1)
+        mob:setDelay(3000)
+        mob:delMod(tpz.mod.DEFP, 100)
+    end
 end
 
 function PetalRoamMods(mob)
@@ -93,7 +99,6 @@ g_mixins.families.euvhi = function(mob)
                 mob:setLocalVar("changeTime", os.time() + math.random(30, 45))
             end
         end
-        CheckForm(mob)
     end)
 
 end
