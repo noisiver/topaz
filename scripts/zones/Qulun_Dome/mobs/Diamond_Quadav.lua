@@ -27,24 +27,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    local nqId = mob:getID()
-
-    -- the quest version of this NM doesn't respawn or count toward hq nm
-    if nqId == ID.mob.DIAMOND_QUADAV then
-        local hqId = mob:getID() + 1
-        local ToD = GetServerVariable("[POP]Za_Dha_Adamantking")
-        local kills = GetServerVariable("[PH]Za_Dha_Adamantking")
-        local popNow = (math.random(1, 3) == 3 or kills > 0)
-
-        if os.time() > ToD then
-            DisallowRespawn(nqId, true)
-            DisallowRespawn(hqId, false)
-            UpdateNMSpawnPoint(hqId)
-            GetMobByID(hqId):setRespawnTime(math.random(36000, 43200)) -- 21 to 23 hours
-        else
-            UpdateNMSpawnPoint(nqId)
-            mob:setRespawnTime(600) -- 10 minutes
-            SetServerVariable("[PH]Za_Dha_Adamantking", kills + 1)
-        end
-    end
+    SpawnMob(mob:getID() + 1)
 end
