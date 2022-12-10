@@ -26,6 +26,11 @@ zones[tpz.zone.BEADEAUX] =
         YOU_CAN_NOW_BECOME_A_DARK_KNIGHT = 7349, -- You can now become a dark knight!
         CHEST_UNLOCKED                   = 7360, -- You unlock the chest!
         COMMON_SENSE_SURVIVAL            = 7787, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        YOU_FEEL_COLD                    = 7334,
+        YOU_FEEL_EXTREMELY_NUMB          = 7335,
+        TOO_HEAVY_TO_MOVE                = 7336,
+        YOU_FEEL_A_LITTLE_LIGHT_HEADED   = 7337,
+        YOU_FEEL_NORMAL_AGAIN            = 7338,
     },
     mob =
     {
