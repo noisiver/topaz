@@ -1,7 +1,7 @@
 -----------------------------------
 -- Area: Castle Oztroja [S]
 --   NM: Vee Ladu the Titterer
--- NIN/NIN with dual wield?
+-- NIN/NIN with dual wield(100% DA)
 -- Immune to Silence, Paralyze, Sleep, Bind, Grabity, Break
 -- Cannot miss Ninja enfeebles(capped MACC)
 -- Double Attacks 100% of the time? Maybe triple too? Need to check..
