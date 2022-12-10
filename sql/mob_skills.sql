@@ -1090,7 +1090,7 @@ INSERT INTO `mob_skills` VALUES (1134,321,'tera_slash',4,10.0,2000,1500,4,0,0,0,
 -- INSERT INTO `mob_skills` VALUES (1145,889,'soul_drain',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES(1146, 304, 'hecatomb_wave_autoattack', 4, 25.0, 2000, 2000, 4, 10, 0, 0, 0, 0, 0);
 INSERT INTO `mob_skills` VALUES (1147,307,'demonic_howl_autoattack',1,5.0,0,0,4,0,0,4,0,0,0); -- Marquis Allocen Custom Auto
-INSERT INTO `mob_skills` VALUES (1148,311,'condemnation',4,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1148,311,'condemnation',4,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1149,313,'quadrastrike',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1150,894,'quadrastrike',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1151,314,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- kindred
@@ -2160,10 +2160,10 @@ INSERT INTO `mob_skills` VALUES (2199,1587,'cyclonic_turmoil',1,15.0,2000,1500,4
 INSERT INTO `mob_skills` VALUES (2200,1588,'cyclonic_torrent',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2201,1555,'orcish_counterstance',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2202,1556,'berserker_dance',0,7.0,2000,1500,1,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2203,1563,'diamond_shell',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2204,1948,'ore_lob',4,10.0,2000,2000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2205,1565,'feathered_furore',1,10.0,2000,1500,4,0,0,0,0,0,0); -- Animation ID was 1565
-INSERT INTO `mob_skills` VALUES (2206,1950,'dark_invocation',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (2203,1563,'diamond_shell',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2204,1609,'ore_lob',4,10.0,2000,2000,4,0,0,0,0,0,0); -- Animation ID was 1948
+INSERT INTO `mob_skills` VALUES (2205,1565,'feathered_furore',1,10.0,2000,1500,4,0,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (2206,1566,'dark_invocation',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2207,14,'disorienting_waul',1,15.0,2000,1500,4,0,0,0,0,0,0); -- animation ID is prob 14(Roar)
 INSERT INTO `mob_skills` VALUES (2208,53,'microspores',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2209,397,'blink_of_peril',4,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2185,13 +2185,13 @@ INSERT INTO `mob_skills` VALUES (2224,1558,'head_butt',0,7.0,2000,2500,4,0,0,0,0
 -- INSERT INTO `mob_skills` VALUES (2225,1559,'shell_bash',0,7.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2226,1560,'shell_guard',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2227,354,'howl',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2228,1972,'the_wrath_of_gu'dha',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2228,1562,'the_wrath_of_gudha',1,15.0,2000,2000,4,0,0,7,0,0,0); -- Di'Zho Spongeshell
 -- INSERT INTO `mob_skills` VALUES (2229,1973,'poison_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2230,1974,'poison_sting',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2231,1975,'venom',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2232,1976,'queasyshroom',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2233,1608,'diamond_shell',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2234,1978,'ore_lob',4,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2233,1608,'diamond_shell',0,7.0,2000,1500,1,0,0,0,0,0,0); -- Va'Gho Bloodbasked
+INSERT INTO `mob_skills` VALUES (2234,1609,'ore_lob',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2235,1610,'paralyzing_blast',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2236,1611,'silencing_blast',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2237,1612,'binding_blast',1,10.0,2000,1500,4,0,0,0,0,0,0);
@@ -2222,12 +2222,12 @@ INSERT INTO `mob_skills` VALUES (2257,432,'azure_lore',0,18.0,2000,0,1,2,30,0,0,
 -- INSERT INTO `mob_skills` VALUES (2262,1617,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2263,1626,'tornado_edge',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2264,1627,'shoulder_charge',4,10.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2265,2009,'skull_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2265,1618,'skull_smash',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Za'Dha Adamantking (The Buried God SCNM)
 INSERT INTO `mob_skills` VALUES (2266,357,'shell_charge',4,10.0,2000,2000,4,0,0,4,0,0,0);
-INSERT INTO `mob_skills` VALUES (2267,356,'skull_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2267,1620,'skull_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2268,2012,'shell_charge',4,10.0,3000,2000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2269,1300,'kamaitachi',1,10.0,2000,1500,4,0,0,0,0,0,0); -- need id verification & correct animation
-INSERT INTO `mob_skills` VALUES (2270,362,'shirahadori',1,10.0,2000,1500,4,0,0,4,0,0,0);
+INSERT INTO `mob_skills` VALUES (2269,1622,'kamaitachi',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2270,1623,'shirahadori',1,10.0,2000,1500,4,0,0,4,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2271,2015,'rising_dragon',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2272,2016,'bear_killer',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2273,2017,'uriel_blade',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2284,7 +2284,7 @@ INSERT INTO `mob_skills` VALUES (2320,2064,'curing_waltz_iv',0,7.0,2000,1500,1,0
 -- INSERT INTO `mob_skills` VALUES (2324,2068,'violent_flourish',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2325,2069,'wild_flourish',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2326,2070,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2327,1221,'mine_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (2327,1221,'mine_blast',1,20.0,2000,1500,4,0,0,0,0,0,0);
 -- Dark Ixion Autoattacks
 INSERT INTO `mob_skills` VALUES (2328,1634,'ixionauto_one',0,3.0,0,0,4,0,0,0,0,0,0); -- correct animation(horn)
 INSERT INTO `mob_skills` VALUES (2329,1633,'ixionauto_two',0,3.0,0,0,4,0,0,0,0,0,0); -- correct animation(horn)
@@ -2323,7 +2323,7 @@ INSERT INTO `mob_skills` VALUES (2361,1269,'stave_toss',0,7.0,2000,1500,4,0,0,0,
 -- INSERT INTO `mob_skills` VALUES (2363,2107,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2364,2108,'unblest_jambiya',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2365,2109,'goddesss_shield',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2366,1221,'mine_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2366,1221,'mine_blast',1,20.0,2000,1500,4,0,0,0,0,0,0); -- Blifnix Oilycheeks (Goblin Mine)
 INSERT INTO `mob_skills` VALUES (2367,2111,'moribund_hack',1,10.0,2000,2500,4,0,0,0,0,0,0); -- Animaiton ID was 2111
 -- INSERT INTO `mob_skills` VALUES (2368,2112,'damsel_memento',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2369,1652,'scintillant_lance',4,10.0,2000,1000,4,0,0,0,0,0,0); -- correct animation
@@ -2331,14 +2331,14 @@ INSERT INTO `mob_skills` VALUES (2369,1652,'scintillant_lance',4,10.0,2000,1000,
 INSERT INTO `mob_skills` VALUES (2371,1653,'noxious_spray',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2372,307,'hellborn_yawp',1,10.0,2000,2500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2373,379,'veil_of_chaos',1,30.0,2000,3500,4,0,0,7,0,0,0);
-INSERT INTO `mob_skills` VALUES (2374,742,'torment_of_gudha',1,15.0,2000,1500,4,0,0,7,0,0,0);
-INSERT INTO `mob_skills` VALUES (2375,285,'vorticose_sands',1,30.0,2000,3500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2374,1656,'torment_of_gudha',1,15.0,2000,1500,4,0,0,7,0,0,0);
+INSERT INTO `mob_skills` VALUES (2375,1654,'vorticose_sands',1,30.0,2000,3500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2376,2120,'paroxysm',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2377,2121,'reviviscence',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2378,358,'diamond_shell',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2378,1563,'diamond_shell',0,7.0,2000,1500,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2379,2123,'invincible',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2380,2124,'monocular_scowl',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2381,2125,'double_kick',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2381,362,'double_kick',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Tzee Xicu The Manifest
 -- INSERT INTO `mob_skills` VALUES (2382,2126,'mijin_gakure',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2383,294,'charm_gaze',4,10.0,2000,1500,4,2,0,0,0,0,0); -- Gaze Conal Charmed use by All-Seeing Onyx Eye
 -- INSERT INTO `mob_skills` VALUES (2384,2128,'orbital_earthrend',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2352,7 +2352,7 @@ INSERT INTO `mob_skills` VALUES (2389,1662,'lethal_triclip',1,15.0,2000,1500,4,0
 INSERT INTO `mob_skills` VALUES (2392,1665,'oppressive_glare',0,7.0,2000,1500,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2393,2137,'ritual_bind',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2394,2138,'moribund_hack',1,10.0,2000,2500,4,0,0,0,0,0,0); -- Animaiton ID was 2138
--- INSERT INTO `mob_skills` VALUES (2395,2139,'mine_blast',0,7.0,2000,1500,4,0,0,0,0,0,0);
+-- INSERT INTO `mob_skills` VALUES (2395,2139,'mine_blast',1,20.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2396,2140,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2397,2141,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2398,2142,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
