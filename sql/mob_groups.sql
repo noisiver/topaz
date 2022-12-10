@@ -6627,8 +6627,8 @@ INSERT INTO `mob_groups` VALUES (16,5641,97,'Hill_Lizard',330,0,1314,0,0,42,44,0
 INSERT INTO `mob_groups` VALUES (17,6529,97,'Scavenging_Hound',330,1,2179,0,0,49,49,0);
 INSERT INTO `mob_groups` VALUES (18,4285,97,'Wandering_Sapling',330,0,2618,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (19,2456,97,'Lycopodium',330,0,1554,0,0,31,34,0);
-INSERT INTO `mob_groups` VALUES (20,1693,97,'Goblin_Paratrooper',330,0,1124,0,0,71,73,0);
-INSERT INTO `mob_groups` VALUES (21,1639,97,'Goblin_Bombardier',330,0,1025,0,0,71,73,0);
+INSERT INTO `mob_groups` VALUES (20,1693,97,'Goblin_Paratrooper',330,0,1124,0,0,71,74,0);
+INSERT INTO `mob_groups` VALUES (21,1639,97,'Goblin_Bombardier',330,0,1025,0,0,71,74,0);
 INSERT INTO `mob_groups` VALUES (22,2458,97,'Lynx',330,0,1557,0,0,49,51,0);
 INSERT INTO `mob_groups` VALUES (23,1657,97,'Goblin_Field_Doctor',330,0,1025,0,0,71,74,0);
 INSERT INTO `mob_groups` VALUES (24,2167,97,'Jumbo_Rafflesia',330,0,313,0,0,68,72,0);
