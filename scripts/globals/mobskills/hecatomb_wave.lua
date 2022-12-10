@@ -22,5 +22,6 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WIND)
     MobStatusEffectMove(mob, target, typeEffect, 25, 0, 300)
+    mob:setTP(0)
     return dmg
 end
