@@ -4,7 +4,6 @@ require("scripts/globals/magic")
 require("scripts/globals/mixins")
 require("scripts/globals/utils")
 require("scripts/globals/status")
-	--TODO: Item drops
     -- 0:ball - 1:humanoid - 2:spider - 3:bird
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
@@ -65,36 +64,47 @@ g_mixins.families.ghrah = function(mob)
 
     mob:addListener("ROAM_TICK", "GHRAH_RTICK", function(mob)
         local roamTime = mob:getLocalVar("roamTime")
-        if (mob:AnimationSub() == 0 and os.time() - roamTime > 60) then
+        if (mob:AnimationSub() == 0 and os.time() - roamTime > 45) then
             mob:AnimationSub(mob:getLocalVar("form2"))
-            mob:setLocalVar("roamTime", os.time())
             mob:setAggressive(1)
-        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > 60) then
+            SetJob(mob)
+            SetSDT(mob)
+            SetCasting(mob)
+            mob:setLocalVar("roamTime", os.time())
+        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > 45) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
+            SetJob(mob)
+            SetSDT(mob)
+            SetCasting(mob)
             mob:setLocalVar("roamTime", os.time())
         end
-        SetJob(mob)
-        SetSDT(mob)
-        SetCasting(mob)
+    end)
+
+    mob:addListener("ENGAGE", "GHRAH_ENGAGE", function(mob, target)
+        mob:setLocalVar("changeTime", math.random(15, 45))
     end)
 
     mob:addListener("COMBAT_TICK", "GHRAH_CTICK", function(mob)
         local changeTime = mob:getLocalVar("changeTime")
 
-        if (mob:AnimationSub() == 0 and mob:getBattleTime() - changeTime > 60) then
+        if (mob:AnimationSub() == 0 and mob:getBattleTime() >= changeTime) then
             mob:AnimationSub(mob:getLocalVar("form2"))
             mob:setAggressive(1)
-            mob:setLocalVar("changeTime", mob:getBattleTime())
-        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and mob:getBattleTime() - changeTime > 60) then
+            SetJob(mob)
+            SetSDT(mob)
+            SetCasting(mob)
+            SetClusterDrops(mob)
+            mob:setLocalVar("changeTime", mob:getBattleTime() + math.random(15, 45))
+        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and mob:getBattleTime() >= changeTime) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
-            mob:setLocalVar("changeTime", mob:getBattleTime())
+            SetJob(mob)
+            SetSDT(mob)
+            SetCasting(mob)
+            SetClusterDrops(mob)
+            mob:setLocalVar("changeTime", mob:getBattleTime() + math.random(15, 45))
         end
-        SetJob(mob)
-        SetSDT(mob)
-        SetCasting(mob)
-        SetClusterDrops(mob)
     end)
 end
 
@@ -110,21 +120,37 @@ end
 function SetJob(mob)
     -- Humanoid does not cast
     if mob:AnimationSub() == 0 then
-        mob:setMod(tpz.mod.DEFP, 0)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+        DelDefenseBonus(mob)
         DelEvasionBonus(mob)
     elseif mob:AnimationSub() == 1 then  -- human form gives defense bonus equal to paladin of that level AND 100% defense modifier
-        mob:setMod(tpz.mod.DEFP, 120)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+        AddDefenseBonus(mob, 120)
         DelEvasionBonus(mob)
     elseif mob:AnimationSub() == 2 then  -- spider form gives defense bonus equal to warrior of that level
-        mob:setMod(tpz.mod.DEFP, 10)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
+        DelDefenseBonus(mob)
+        AddDefenseBonus(mob, 10)
         DelEvasionBonus(mob)
     elseif mob:AnimationSub() == 3 then  -- Bird form grants evasion and triple attack equal to appropriate level thief
-        mob:setMod(tpz.mod.DEFP, 0)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 15)
+        DelDefenseBonus(mob)
         AddEvasionBonus(mob)
+    end
+end
+
+function AddDefenseBonus(mob, amount)
+    if mob:getLocalVar("defBonus") == 0 then
+        mob:setLocalVar("defBonus", amount)
+        mob:addMod(tpz.mod.DEFP, amount)
+    end
+end
+
+function DelDefenseBonus(mob)
+    local defBonus = mob:getLocalVar("defBonus")
+    if mob:getLocalVar("defBonus") > 0 then
+        mob:delMod(tpz.mod.DEFP, defBonus)
+        mob:setLocalVar("defBonus", 0)
     end
 end
 

@@ -52,8 +52,8 @@ end
 function PetalRoamMods(mob)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
     mob:setMobMod(tpz.mobMod.LINK_RADIUS, 11)
-    mob:addMobMod(tpz.mobMod.ROAM_DISTANCE, 3)
-    mob:addMobMod(tpz.mobMod.ROAM_COOL, 30)
+    mob:setMobMod(tpz.mobMod.ROAM_DISTANCE, 3)
+    mob:setMobMod(tpz.mobMod.ROAM_COOL, 30)
     mob:setAggressive(0)
 end
 
