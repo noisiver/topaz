@@ -504,7 +504,7 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     end
 
     local p = getMagicHitRate(mob, target, 0, element, percentBonus, magicaccbonus)
-    local resist = getMagicResist(p)
+    local resist = getMagicResist(p, element)
 
     if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
         resist = resist / 2

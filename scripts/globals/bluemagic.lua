@@ -861,7 +861,7 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
 end
 
 function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, params)
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
         duration = duration * resist
         target:addStatusEffect(params.effect, power, tick, duration)

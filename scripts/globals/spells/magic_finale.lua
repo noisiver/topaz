@@ -21,7 +21,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.SINGING
     params.bonus = 50 + caster:getMod(tpz.mod.FINALE_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     params.effect = nil
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local effect = tpz.effect.NONE
 
     if (resist >= 0.50) then

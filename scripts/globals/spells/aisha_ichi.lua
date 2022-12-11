@@ -21,7 +21,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.NINJUTSU
     params.bonus = 0
     params.effect = nil
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     --Base power is 15 and is not affected by resistaces.
     local power = 15
 

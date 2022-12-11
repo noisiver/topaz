@@ -78,7 +78,7 @@ function onUseAbility(player, target, ability, action)
         params.diff = 0
         params.skillType = player:getWeaponSkillType(tpz.slot.MAIN)
         params.bonus = 0 - target:getMod(tpz.mod.STUNRES) + player:getMod(tpz.mod.VFLOURISH_MACC)
-        local resist = applyResistance(player, target, spell, params)
+        local resist = applyResistanceEffect(player, target, spell, params)
 
         if resist >= 0.25 then
             target:addStatusEffect(tpz.effect.STUN, 1, 0, 5 * resist)

@@ -24,7 +24,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = 37
     params.skillType = tpz.skill.ELEMENTAL_MAGIC
 
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 180 * resist -- BG wiki suggests only duration gets effected by resist, not stat amount.
 
     -- Todo: loop to avoid repeatedly doing same thing for each stat

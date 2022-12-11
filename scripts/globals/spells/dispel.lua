@@ -16,7 +16,7 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
     params.bonus = 50
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local effect = tpz.effect.NONE
 
     if (resist >= 0.50) then

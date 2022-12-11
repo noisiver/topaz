@@ -1729,6 +1729,22 @@ tpz.mod =
     HUMANOID_CIRCLE         = 1236,
     LUMORIAN_CIRCLE         = 1237,
     LUMINION_CIRCLE         = 1238,
+
+    EEM_AMNESIA             = 1280,
+    EEM_VIRUS               = 1281,
+    EEM_SILENCE             = 1282,
+    EEM_GRAVITY             = 1283,
+    EEM_STUN                = 1284,
+    EEM_LIGHT_SLEEP         = 1285,
+    EEM_CHARM               = 1286,
+    EEM_PARALYZE            = 1287,
+    EEM_BIND                = 1288,
+    EEM_SLOW                = 1289,
+    EEM_PETRIFY             = 1290,
+    EEM_TERROR              = 1291,
+    EEM_POISON              = 1292,
+    EEM_DARK_SLEEP          = 1293,
+    EEM_BLIND               = 1294,
     
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.

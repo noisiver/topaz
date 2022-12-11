@@ -2741,7 +2741,7 @@ namespace charutils
 
         PChar->delModifier(Mod::MEVA, PChar->m_magicEvasion);
 
-        PChar->m_magicEvasion = battleutils::GetMaxSkill(SKILL_ELEMENTAL_MAGIC, JOB_RDM, PChar->GetMLevel());
+        PChar->m_magicEvasion = battleutils::GetMaxSkill(SKILL_SHIELD, JOB_RDM, PChar->GetMLevel());
         PChar->addModifier(Mod::MEVA, PChar->m_magicEvasion);
     }
 

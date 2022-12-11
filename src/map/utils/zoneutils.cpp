@@ -356,7 +356,8 @@ void LoadMOBList()
             mob_pools.familyid, name_prefix, entityFlags, animationsub, \
             (mob_family_system.HP / 100), (mob_family_system.MP / 100), hasSpellScript, spellList, ATT, ACC, mob_groups.poolid, \
             allegiance, namevis, aggro, roamflag, mob_pools.skill_list_id, mob_pools.true_detection, mob_family_system.detects, \
-            mob_family_system.charmable \
+            mob_family_system.charmable, \
+            Amnesia, Virus, Silence, Gravity, Stun, LightSleep, Charm, Paralyze, Bind, Slow, Petrify, Terror, Poison, Darksleep, Blind \
             FROM mob_groups INNER JOIN mob_pools ON mob_groups.poolid = mob_pools.poolid \
             INNER JOIN mob_spawn_points ON mob_groups.groupid = mob_spawn_points.groupid \
             INNER JOIN mob_family_system ON mob_pools.familyid = mob_family_system.familyid \
@@ -509,6 +510,22 @@ void LoadMOBList()
                 PMob->m_Detects = Sql_GetUIntData(SqlHandle, 66);
 
                 PMob->setMobMod(MOBMOD_CHARMABLE, Sql_GetUIntData(SqlHandle, 67));
+
+                PMob->setModifier(Mod::EEM_AMNESIA, (int16)(Sql_GetFloatData(SqlHandle, 68) * 100)); // These are stored as floating percentages
+                PMob->setModifier(Mod::EEM_VIRUS, (int16)(Sql_GetFloatData(SqlHandle, 69) * 100));
+                PMob->setModifier(Mod::EEM_SILENCE, (int16)(Sql_GetFloatData(SqlHandle, 70) * 100));
+                PMob->setModifier(Mod::EEM_GRAVITY, (int16)(Sql_GetFloatData(SqlHandle, 71) * 100));
+                PMob->setModifier(Mod::EEM_STUN, (int16)(Sql_GetFloatData(SqlHandle, 72) * 100));
+                PMob->setModifier(Mod::EEM_LIGHT_SLEEP, (int16)(Sql_GetFloatData(SqlHandle, 73) * 100));
+                PMob->setModifier(Mod::EEM_CHARM, (int16)(Sql_GetFloatData(SqlHandle, 74) * 100));
+                PMob->setModifier(Mod::EEM_PARALYZE, (int16)(Sql_GetFloatData(SqlHandle, 75) * 100));
+                PMob->setModifier(Mod::EEM_BIND, (int16)(Sql_GetFloatData(SqlHandle, 76) * 100));
+                PMob->setModifier(Mod::EEM_SLOW, (int16)(Sql_GetFloatData(SqlHandle, 77) * 100));
+                PMob->setModifier(Mod::EEM_PETRIFY, (int16)(Sql_GetFloatData(SqlHandle, 78) * 100));
+                PMob->setModifier(Mod::EEM_TERROR, (int16)(Sql_GetFloatData(SqlHandle, 79) * 100));
+                PMob->setModifier(Mod::EEM_POISON, (int16)(Sql_GetFloatData(SqlHandle, 80) * 100));
+                PMob->setModifier(Mod::EEM_DARK_SLEEP, (int16)(Sql_GetFloatData(SqlHandle, 81) * 100));
+                PMob->setModifier(Mod::EEM_BLIND, (int16)(Sql_GetFloatData(SqlHandle, 82) * 100));
 
                 // Overwrite base family charmables depending on mob type. Disallowed mobs which should be charmable
                 // can be set in mob_spawn_mods or in their onInitialize
