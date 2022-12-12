@@ -1821,7 +1821,7 @@ function StartANNMFight(player, keyitem, mobIDstart, mobIDend)
             local mob = GetMobByID(i)
             mob:setSpawn(player:getXPos() + math.random(1, 3), player:getYPos(), player:getZPos() + math.random(1, 3))
             mob:spawn()
-            mob:stun(5000)
+            mob:addStatusEffect(tpz.effect.STUN, 1, 0, 5)
             mob:updateEnmity(player) 
         end
         local bossMob = GetMobByID(mobIDstart)
