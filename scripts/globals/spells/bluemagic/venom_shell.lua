@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = typeEffect
-    local resist = applyResistanceEffectEffect(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local skill = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
     local power = (skill / 6) 
 	local amorph = (target:getSystem() == 1)

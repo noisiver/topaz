@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.LULLABY
-    local resist = applyResistanceEffectEffect(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)
 	-- add correlation bonus

@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.LULLABY
-    local resist = applyResistanceEffectEffect(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)
 	

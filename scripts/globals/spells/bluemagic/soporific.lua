@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.SLEEP_I
-    local resist = applyResistanceEffectEffect(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 90 * resist
 	local beast = (target:getSystem() == 6)
 	local vermin = (target:getSystem() == 20)

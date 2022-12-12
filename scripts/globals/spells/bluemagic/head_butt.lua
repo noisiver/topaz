@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 150
     params.effect = tpz.effect.STUN
-    local resist = applyResistanceEffectEffect(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DAMAGE
     params.attackType = tpz.attackType.PHYSICAL
