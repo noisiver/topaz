@@ -12,6 +12,7 @@ function onMobSpawn(mob)
 	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 50)
     mob:setLocalVar("HeadbuttCheck", 0)
     mob:setLocalVar("PetalTime", os.time() + 45)
+    mob:delRoamFlag(512)
     tpz.annm.NMMods(mob) 
 end
 
@@ -56,6 +57,10 @@ function onMobRoam(mob)
             break
         end
     end
+end
+
+function onMobEngaged(mob, target)
+    mob:delRoamFlag(512)
 end
 
 function onMobFight(mob, target)
