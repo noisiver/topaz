@@ -12,7 +12,6 @@ function onMobSpawn(mob)
 	mob:setMobMod(tpz.mobMod.SOUND_RANGE, 50)
     mob:setLocalVar("HeadbuttCheck", 0)
     mob:setLocalVar("PetalTime", os.time() + 45)
-    mob:delRoamFlag(512)
     tpz.annm.NMMods(mob) 
 end
 
@@ -22,7 +21,7 @@ function onMobRoam(mob)
 
 	if RunAroundTime == 0 then
 		return
-	elseif RunAroundTime < os.time() then
+	elseif RunAroundTime <= os.time() then
         -- Ensure he stays tagged
         local NearbyPlayers = mob:getPlayersInRange(50)
         if NearbyPlayers == nil then return end
@@ -59,10 +58,6 @@ function onMobRoam(mob)
     end
 end
 
-function onMobEngaged(mob, target)
-    mob:delRoamFlag(512)
-end
-
 function onMobFight(mob, target)
 	local PetalTime = mob:getLocalVar("PetalTime")
 	local RunAroundTime = mob:getLocalVar("RunAroundTime")
@@ -79,7 +74,7 @@ function onMobFight(mob, target)
 
 	if RunAroundTime == 0 then
 		return
-	elseif RunAroundTime < os.time() then
+	elseif RunAroundTime <= os.time() then
 		mob:setLocalVar("RunAroundTime",0)
 		mob:delRoamFlag(512)
 		return
