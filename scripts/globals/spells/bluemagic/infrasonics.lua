@@ -28,7 +28,7 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.EVASION_DOWN
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local power = 20
 	local vermin = (target:getSystem() == 20)
 	local beast = (target:getSystem() == 6)

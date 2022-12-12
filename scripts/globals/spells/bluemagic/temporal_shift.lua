@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 200
     params.effect = tpz.effect.STUN
-    local resist = applyResistanceEffect(caster, target, spell, params)
+    local resist = applyResistanceEffectEffect(caster, target, spell, params)
 
     -- Stun can't be applied if target is already stunned
     if target:hasStatusEffect(tpz.effect.STUN) then

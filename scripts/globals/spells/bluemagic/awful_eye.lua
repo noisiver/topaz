@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
         params.skillType = tpz.skill.BLUE_MAGIC
         params.bonus = 30
         params.effect = nil
-        local resist = applyResistance(caster, target, spell, params)
+        local resist = applyResistanceEffect(caster, target, spell, params)
 		local level = (caster:getMainLvl()  / 5)
 		local power = level 
 		local family = target:getSystem()

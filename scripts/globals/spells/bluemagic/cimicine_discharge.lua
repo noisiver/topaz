@@ -33,7 +33,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = nil
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 
     if resist < 0.5 then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) --resist message

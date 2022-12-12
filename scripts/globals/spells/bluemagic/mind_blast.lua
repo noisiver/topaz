@@ -46,7 +46,7 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
 
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
 	local dragon = (target:getSystem() == 10)
 	

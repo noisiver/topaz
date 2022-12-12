@@ -58,7 +58,7 @@ function onSpellCast(caster, target, spell)
 	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 
     params.effect = tpz.effect.STR_DOWN
     BlueTryEnfeeble(caster, target, spell, damage, 20, 30, 180, params)

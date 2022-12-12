@@ -32,7 +32,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.SLOW
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local typeEffect = tpz.effect.SLOW
     local power = utils.clamp(math.floor(dMND * 226 / 15) + 2380, 1250, 3510)
 

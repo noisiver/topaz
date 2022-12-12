@@ -28,7 +28,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.PARALYSIS
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 	local cap = target:getTP() * 0.4
 	local aquan = (target:getSystem() == 2)
 	local amorph = (target:getSystem() == 1)

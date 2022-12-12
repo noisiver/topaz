@@ -474,10 +474,10 @@ void CalculateStats(CMobEntity * PMob)
         PMob->m_SpellListContainer = mobSpellList::GetMobSpellList(PMob->getMobMod(MOBMOD_SPELL_LIST));
     }
 
-    // cap all stats for mLvl / job
+    // cap all combat and magic skills for mobs
     for (int i=SKILL_DIVINE_MAGIC; i <=SKILL_BLUE_MAGIC; i++)
     {
-        uint16 maxSkill = battleutils::GetMaxSkill((SKILLTYPE)i,PMob->GetMJob(),mLvl > 99 ? 99 : mLvl);
+        uint16 maxSkill = battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PMob->GetMLevel());
         if (maxSkill != 0)
         {
             PMob->WorkingSkills.skill[i] = maxSkill;
@@ -485,7 +485,7 @@ void CalculateStats(CMobEntity * PMob)
         else //if the mob is WAR/BLM and can cast spell
         {
             // set skill as high as main level, so their spells won't get resisted
-            uint16 maxSubSkill = battleutils::GetMaxSkill((SKILLTYPE)i,PMob->GetSJob(),mLvl > 99 ? 99 : mLvl);
+            uint16 maxSubSkill = battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PMob->GetMLevel());
 
             if (maxSubSkill != 0)
             {
@@ -495,7 +495,7 @@ void CalculateStats(CMobEntity * PMob)
     }
     for (int i=SKILL_HAND_TO_HAND; i <=SKILL_STAFF; i++)
     {
-        uint16 maxSkill = battleutils::GetMaxSkill(3, mLvl > 99 ? 99 : mLvl);
+        uint16 maxSkill = battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PMob->GetMLevel());
         if (maxSkill != 0)
         {
             PMob->WorkingSkills.skill[i] = maxSkill;
@@ -641,7 +641,7 @@ void SetupJob(CMobEntity* PMob)
             }
             break;
         case JOB_BLM:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 35);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 25);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 40);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 5);
             PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 10);
@@ -652,7 +652,7 @@ void SetupJob(CMobEntity* PMob)
             {
                 PMob->setModifier(Mod::SLEEPRESTRAIT, 0);  
             }
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 30);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_DRK:
@@ -661,11 +661,11 @@ void SetupJob(CMobEntity* PMob)
             {
                 PMob->setModifier(Mod::PARALYZERESTRAIT, 0);
             }
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 30);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
         case JOB_WHM:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 25);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_BRD:
@@ -674,13 +674,13 @@ void SetupJob(CMobEntity* PMob)
             {
                 PMob->setModifier(Mod::SILENCERESTRAIT, 0);
             }
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 25);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 25);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 60);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
             break;
         case JOB_BLU:
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 70);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 25);
             break;
         case JOB_RDM:
             if (!PMob->CMobEntity::IsHumanoid())
@@ -688,7 +688,7 @@ void SetupJob(CMobEntity* PMob)
             {
                 PMob->setModifier(Mod::PETRIFYRESTRAIT, 0);
             }
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 25);
             PMob->defaultMobMod(MOBMOD_GA_CHANCE, 15);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 10);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 10);
@@ -701,7 +701,7 @@ void SetupJob(CMobEntity* PMob)
             }
 		 if (PMob->m_Family != 3)  // Exclude Aerns, should only summon in combat and hide their jobs
 		 {
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 180);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 30);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 100); // SMN only has "buffs"
 		 }
             break;
@@ -712,7 +712,7 @@ void SetupJob(CMobEntity* PMob)
                 PMob->setModifier(Mod::BINDRESTRAIT, 0);
             }
             PMob->defaultMobMod(MOBMOD_SPECIAL_COOL, 16);
-            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 50);
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 25);
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 75);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;

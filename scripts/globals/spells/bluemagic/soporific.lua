@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.SLEEP_I
-    local resist = applyResistanceEffect(caster, target, spell, params)
+    local resist = applyResistanceEffectEffect(caster, target, spell, params)
     local duration = 90 * resist
 	local beast = (target:getSystem() == 6)
 	local vermin = (target:getSystem() == 20)
@@ -42,12 +42,6 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
 	
-   	if target:isMob() then
-		if target:isUndead() and target:getFamily() == 227 or target:getFamily() == 88 or target:getFamily() == 89 then -- skeletons
-			resist = 1/16
-		end
-	end
-
     -- Can't overwrite any sleep
     if hasSleepT1Effect(target) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

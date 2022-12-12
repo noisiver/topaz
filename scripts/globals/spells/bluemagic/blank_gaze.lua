@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
     params.bonus = 50
 
     local effect = tpz.effect.NONE
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 	local lizard = (target:getSystem() == 14)
 	local plantoid = (target:getSystem() == 17)
 	-- add correlation bonus

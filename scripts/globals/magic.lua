@@ -571,6 +571,7 @@ function applyResistance(caster, target, spell, params)
     local bonus = params.bonus
 
     local element = spell:getElement()
+    local SDT = getElementalSDT(element, target)
     local percentBonus = 0
     local magicaccbonus = getSpellBonusAcc(caster, target, spell, params)
     
@@ -594,7 +595,7 @@ function applyResistance(caster, target, spell, params)
         magicaccbonus = magicaccbonus + params.skillBonus
     end
 
-    local p = getMagicHitRate(caster, target, skill, element, percentBonus, magicaccbonus)
+    local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus)
     local res = getMagicResist(p, element)
 
     -- Elemental Seal forces zero resist before SDT is applied
@@ -602,20 +603,20 @@ function applyResistance(caster, target, spell, params)
         res = 1.0
     end
 
-    if getElementalSDT(element, target) >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
+    if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
         res = utils.clamp(res, 0.5, 1.0)
     end
 	
 
-   	if getElementalSDT(element, target) <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+   	if SDT <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
 		res = 1.0
-    elseif getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
+    elseif SDT <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
 
-	if getElementalSDT(element, target) <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+	if SDT <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
 		res = 1/4
-    elseif getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    elseif SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 
@@ -626,7 +627,7 @@ function applyResistance(caster, target, spell, params)
         if     eleres < 0  and res < 0.5  then res = 0.5
         elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
-    --print(string.format("res was %f",res))
+    -- print(string.format("res was %f",res))
     
     return res
 end
@@ -651,7 +652,6 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         end
     end
 
-    -- TODO: Test
     if effect ~= nil then
         if target:hasStatusEffect(tpz.effect.FEALTY) then -- Fealty forces full resist on enfeebles
             return 1/16
@@ -663,6 +663,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     local bonus = params.bonus
 
     local element = spell:getElement()
+    local SDT = getEnfeeblelSDT(effect, element, target)
     local percentBonus = 0
     local magicaccbonus = getSpellBonusAcc(caster, target, spell, params)
     
@@ -686,7 +687,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         magicaccbonus = magicaccbonus + params.skillBonus
     end
 
-    local p = getMagicHitRate(caster, target, skill, element, percentBonus, magicaccbonus)
+    local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus)
     local res = getMagicResist(p, element)
 
     -- Elemental Seal forces zero resist before SDT is applied
@@ -695,20 +696,18 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     end
 
 
-   	if getEnfeeblelSDT(effect, element, target) <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+   	if SDT <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
 		res = 1.0
-    elseif getEnfeeblelSDT(effect, element, target) <= 50 then -- .5 or below SDT drops a resist tier
+    elseif SDT <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
 
-	if getEnfeeblelSDT(effect, element, target) <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+	if SDT <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
 		res = 1/4
-    elseif getEnfeeblelSDT(effect, element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    elseif SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 	
-
-    
     if target:isPC() and element ~= nil and element > 0 and element < 9 then
         -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
         local eleres = target:getMod(element+53)
@@ -716,7 +715,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
 
-    print(string.format("res was %f", res))
+    -- print(string.format("enfeeble res was %f", res))
     
     return res
 end
@@ -724,18 +723,19 @@ end
 -- Applies resistance for things that may not be spells - ie. Quick Draw
 function applyResistanceAbility(player, target, element, skill, bonus)
 
-    local p = getMagicHitRate(player, target, skill, element, 0, bonus)
+    local SDT = getElementalSDT(element, target)
+    local p = getMagicHitRate(player, target, skill, element, SDT, 0, bonus)
     local res = getMagicResist(p, element)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         return 1/16
     end
 
-    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
+    if SDT <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
 
-    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 
@@ -745,7 +745,9 @@ end
 -- Applies resistance for additional effects
 function applyResistanceAddEffect(player, target, element, bonus)
 
-    local p = getMagicHitRate(player, target, 0, element, 0, bonus)
+    local effect = params.effect
+    local SDT = getEnfeeblelSDT(effect, element, target)
+    local p = getMagicHitRate(player, target, 0, element, SDT, 0, bonus)
 	local res = getMagicResist(p, element)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
@@ -754,11 +756,11 @@ function applyResistanceAddEffect(player, target, element, bonus)
 
     if (effect ~= nil) then
         --printf("res before SDT %d", res * 100)
-        if getEnfeeblelSDT(effect, element, target) <= 50 then -- .5 or below SDT drops a resist tier
+        if SDT <= 50 then -- .5 or below SDT drops a resist tier
             res = res / 2
         end
 
-        if getEnfeeblelSDT(effect, element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
             res = 1/8
         end
     end
@@ -773,7 +775,7 @@ function applyResistanceAddEffect(player, target, element, bonus)
     return res
 end
 
-function getMagicHitRate(caster, target, skillType, element, percentBonus, bonusAcc)
+function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, bonusAcc) -- TODO: add SDT arg to calls
     -- Resist everything if magic shield is active
     -- BLU spells ignore this
     if (skillType ~= tpz.skill.BLUE_MAGIC) then
@@ -830,7 +832,6 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
     local magiceva = target:getMod(tpz.mod.MEVA)
     --printf("Base MEVA: %s", magiceva)
     -- apply SDT
-    local SDT = getElementalSDT(element, target)
     local tier = getSDTTier(SDT)
     local multiplier = getSDTMultiplier(tier)
     -- print(string.format('SDT: %s, Tier: %s, Multiplier: %s', SDT, tier, multiplier))
@@ -846,7 +847,6 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
     magicacc = magicacc + utils.clamp(maccFood, 0, caster:getMod(tpz.mod.FOOD_MACC_CAP))
     -- printf("MACC: %s", magicacc)
     
-
     return calculateMagicHitRate(magicacc, magiceva, element, percentBonus, caster:getMainLvl(), target:getMainLvl(), SDT)
 end
 
@@ -882,6 +882,7 @@ function calculateMagicHitRate(magicacc, magiceva, element, percentBonus, caster
     end
     p = utils.clamp(p, 5, 95)
     -- print(string.format("Magic Hit Rate(p): %u",p))
+
     return utils.clamp(p, 5, 95)
 end
 
@@ -918,6 +919,7 @@ function getMagicResist(magicHitRate)
         --printf("1.0")
     end
     -- printf("Resist: %s", resist)
+
     return resist
 end
 
@@ -1831,7 +1833,7 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
 
     local SDT = 100
     local SDTmod = 0
-    printf("status: %s", status)
+    -- printf("status: %s", status)
     if  status == tpz.effect.AMNESIA then
         SDTmod = tpz.mod.EEM_AMNESIA
         SDT = target:getMod(SDTmod)
@@ -1888,8 +1890,8 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
         SDT = SDTmod
     end
 
-    printf("SDTmod: %s", SDTmod)
-    printf("SDT %s", SDT)
+    -- printf("SDTmod: %s", SDTmod)
+    -- printf("SDT %s", SDT)
     
     if SDT == 0 or SDT == nil then -- invalid SDT, it was never set on this target... just default it.
         SDT = 100
@@ -1976,12 +1978,12 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
         end
     end
 
-    print(string.format("Enfeeble SDT: %s", SDT))
+    -- print(string.format("Enfeeble SDT: %s", SDT))
     return SDT
 end
 
 function getSDTTier(SDT)
-    local tier
+    local tier = 0
 
     if (SDT == 150) then
         tier = -3
@@ -2014,12 +2016,13 @@ function getSDTTier(SDT)
     elseif (SDT == 5) then -- 5% (t11) causes you to auto fail all the coin flips
         tier = 11
     end
+
     return tier
 end
 
 function getSDTMultiplier(tier)
 
-    local multiplier
+    local multiplier = 1
 
     if (tier == -3) then
         multiplier = 0.95
@@ -2048,9 +2051,9 @@ function getSDTMultiplier(tier)
     elseif (tier == 9) then
         multiplier = 2.65
     elseif (tier == 10) then
-        multiplier = 0
+        multiplier = 5
     elseif (tier == 11) then
-        multiplier = 0
+        multiplier = 10
     end
 
     return multiplier

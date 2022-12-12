@@ -1198,6 +1198,7 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
     local percentBonus = 0
     local magicaccbonus = 0
     local softcap = 10
+    local SDT = getElementalSDT(element, target)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) or target:hasStatusEffect(tpz.effect.ELEMENTAL_SFORZO) then
         return 1/8
@@ -1218,26 +1219,34 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
     end
 
     if (effect ~= nil) then
+        SDT = getEnfeeblelSDT(effect, element, target)
         percentBonus = percentBonus - getEffectResistance(target, effect)
     end
 
-    local p = getAvatarMagicHitRate(avatar, target, 0, element, percentBonus, magicaccbonus)
+    local p = getAvatarMagicHitRate(avatar, target, 0, element, SDT, percentBonus, magicaccbonus)
     local resist = getAvatarMagicResist(p)
+
+    if (effect == nil) then
+        if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
+            resist = utils.clamp(resist, 0.5, 1.0)
+        end
+    end
     
-    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
+    if SDT <= 50 then -- .5 or below SDT drops a resist tier
         resist = resist / 2
     end
 
-    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         resist = 1/8
     end
 
     --printf("getAvatarMagicHitRate = %i", p)
-    --printf("getAvatarMagicResist = %i", resist*100)
+    -- print(string.format("resist was %f", resist))
+
     return resist
 end
 
-function getAvatarMagicHitRate(avatar, target, skillType, element, percentBonus, bonusAcc)
+function getAvatarMagicHitRate(avatar, target, skillType, element, SDT, percentBonus, bonusAcc)
     -- resist everything if magic shield is active
     if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
         return 0
@@ -1271,14 +1280,19 @@ function getAvatarMagicHitRate(avatar, target, skillType, element, percentBonus,
     -- Base magic evasion (base magic evasion plus resistances(players), plus elemental defense(mobs)
     -- target:getMod(MEVA) is set to a capped skill of rank C when the mob spawns
     local magiceva = target:getMod(tpz.mod.MEVA)
-
+    -- printf("Base MEVA: %s", magiceva)
+    -- apply SDT
+    local tier = getSDTTier(SDT)
+    local multiplier = getSDTMultiplier(tier)
+    -- print(string.format('SDT: %s, Tier: %s, Multiplier: %s', SDT, tier, multiplier))
+    magiceva = math.floor(magiceva * multiplier)
+    -- printf("MEVA after multiplier: %s", magiceva)
     magicacc = magicacc + bonusAcc
 
     -- Add macc% from food
     local maccFood = magicacc * (avatar:getMod(tpz.mod.FOOD_MACCP)/100)
     magicacc = magicacc + utils.clamp(maccFood, 0, avatar:getMod(tpz.mod.FOOD_MACC_CAP))
-    
-    local SDT = getElementalSDT(element, target)
+    -- printf("MACC: %s", magicacc)
 
     return calculateAvatarMagicHitRate(magicacc, magiceva, percentBonus, SDT)
 end
@@ -1304,12 +1318,18 @@ function calculateAvatarMagicHitRate(magicacc, magiceva, percentBonus, SDT)
     p = utils.clamp(p, 5, 95)
     
     p = p + percentBonus
+
+    -- Check SDT tiers
+    local tier = getSDTTier(SDT)
+    -- print(string.format('calculateMagicHitRate SDT: %s, Tier: %s,', SDT, tier))
+    -- T10 sets your hit rate to 5% max
+    if (tier >= 10) then
+        p = 5
+    end
+
     p = utils.clamp(p, 5, 95)
-    --print(string.format("step1: %u",p))
-	--GetPlayerByID(1):PrintToPlayer(string.format("pre SDT: %u",p))
-    p = p * SDT/100
-	--print(string.format("step2: %u",p))
-	--GetPlayerByID(1):PrintToPlayer(string.format("post SDT: %u",p))
+    -- print(string.format("Magic Hit Rate(p): %u",p))
+
     return utils.clamp(p, 5, 95)
 end
 
@@ -1345,6 +1365,7 @@ function getAvatarMagicResist(magicHitRate)
         resist = 1.0
         --printf("1.0")
     end
+    -- printf("Resist: %s", resist)
 
     return resist
 end

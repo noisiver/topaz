@@ -484,9 +484,11 @@ end
 -- statmod = the stat to account for resist (INT, MND, etc) e.g. tpz.mod.INT
 -- This determines how much the monsters ability resists on the player.
 function applyPlayerResistance(mob, effect, target, diff, bonus, element)
+    -- TODO: This is very wrong now, needs to be changed to new magic hit rate formulas formulas
     local percentBonus = 0
     local magicaccbonus = 0
     local softcap = 10
+    local SDT = getElementalSDT(element, target)
 	
     if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
@@ -500,19 +502,28 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     end
 
     if (effect ~= nil) then
+        SDT = getEnfeeblelSDT(effect, element, target)
         percentBonus = percentBonus - getEffectResistance(target, effect)
     end
 
-    local p = getMagicHitRate(mob, target, 0, element, percentBonus, magicaccbonus)
+    local p = getMagicHitRate(mob, target, 0, element, SDT, percentBonus, magicaccbonus)
     local resist = getMagicResist(p, element)
 
-    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
+    if (effect == nil) then
+        if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
+            resist = utils.clamp(resist, 0.5, 1.0)
+        end
+    end
+
+    if SDT <= 50 then -- .5 or below SDT drops a resist tier
         resist = resist / 2
     end
 
-    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         resist = 1/8
     end
+
+    -- print(string.format("resist was %f",resist))
 
     return resist
 end

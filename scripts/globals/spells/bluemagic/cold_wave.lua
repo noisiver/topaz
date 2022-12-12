@@ -36,7 +36,7 @@ function onSpellCast(caster, target, spell)
         params.bonus = 55
     end
 
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 
     if (target:getStatusEffect(tpz.effect.BURN) ~= nil) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect

@@ -511,21 +511,21 @@ void LoadMOBList()
 
                 PMob->setMobMod(MOBMOD_CHARMABLE, Sql_GetUIntData(SqlHandle, 67));
 
-                PMob->setModifier(Mod::EEM_AMNESIA, (int16)(Sql_GetFloatData(SqlHandle, 68) * 100)); // These are stored as floating percentages
-                PMob->setModifier(Mod::EEM_VIRUS, (int16)(Sql_GetFloatData(SqlHandle, 69) * 100));
-                PMob->setModifier(Mod::EEM_SILENCE, (int16)(Sql_GetFloatData(SqlHandle, 70) * 100));
-                PMob->setModifier(Mod::EEM_GRAVITY, (int16)(Sql_GetFloatData(SqlHandle, 71) * 100));
-                PMob->setModifier(Mod::EEM_STUN, (int16)(Sql_GetFloatData(SqlHandle, 72) * 100));
-                PMob->setModifier(Mod::EEM_LIGHT_SLEEP, (int16)(Sql_GetFloatData(SqlHandle, 73) * 100));
-                PMob->setModifier(Mod::EEM_CHARM, (int16)(Sql_GetFloatData(SqlHandle, 74) * 100));
-                PMob->setModifier(Mod::EEM_PARALYZE, (int16)(Sql_GetFloatData(SqlHandle, 75) * 100));
-                PMob->setModifier(Mod::EEM_BIND, (int16)(Sql_GetFloatData(SqlHandle, 76) * 100));
-                PMob->setModifier(Mod::EEM_SLOW, (int16)(Sql_GetFloatData(SqlHandle, 77) * 100));
-                PMob->setModifier(Mod::EEM_PETRIFY, (int16)(Sql_GetFloatData(SqlHandle, 78) * 100));
-                PMob->setModifier(Mod::EEM_TERROR, (int16)(Sql_GetFloatData(SqlHandle, 79) * 100));
-                PMob->setModifier(Mod::EEM_POISON, (int16)(Sql_GetFloatData(SqlHandle, 80) * 100));
-                PMob->setModifier(Mod::EEM_DARK_SLEEP, (int16)(Sql_GetFloatData(SqlHandle, 81) * 100));
-                PMob->setModifier(Mod::EEM_BLIND, (int16)(Sql_GetFloatData(SqlHandle, 82) * 100));
+                PMob->setModifier(Mod::EEM_AMNESIA, (uint8)(Sql_GetUIntData(SqlHandle, 68))); // These are stored as floating percentages
+                PMob->setModifier(Mod::EEM_VIRUS, (uint8)(Sql_GetUIntData(SqlHandle, 69)));
+                PMob->setModifier(Mod::EEM_SILENCE, (uint8)(Sql_GetUIntData(SqlHandle, 70)));
+                PMob->setModifier(Mod::EEM_GRAVITY, (uint8)(Sql_GetUIntData(SqlHandle, 71)));
+                PMob->setModifier(Mod::EEM_STUN, (uint8)(Sql_GetUIntData(SqlHandle, 72)));
+                PMob->setModifier(Mod::EEM_LIGHT_SLEEP, (uint8)(Sql_GetUIntData(SqlHandle, 73)));
+                PMob->setModifier(Mod::EEM_CHARM, (uint8)(Sql_GetUIntData(SqlHandle, 74)));
+                PMob->setModifier(Mod::EEM_PARALYZE, (uint8)(Sql_GetUIntData(SqlHandle, 75)));
+                PMob->setModifier(Mod::EEM_BIND, (uint8)(Sql_GetUIntData(SqlHandle, 76)));
+                PMob->setModifier(Mod::EEM_SLOW, (uint8)(Sql_GetUIntData(SqlHandle, 77)));
+                PMob->setModifier(Mod::EEM_PETRIFY, (uint8)(Sql_GetUIntData(SqlHandle, 78)));
+                PMob->setModifier(Mod::EEM_TERROR, (uint8)(Sql_GetUIntData(SqlHandle, 79)));
+                PMob->setModifier(Mod::EEM_POISON, (uint8)(Sql_GetUIntData(SqlHandle, 80)));
+                PMob->setModifier(Mod::EEM_DARK_SLEEP, (uint8)(Sql_GetUIntData(SqlHandle, 81)));
+                PMob->setModifier(Mod::EEM_BLIND, (uint8)(Sql_GetUIntData(SqlHandle, 82)));
 
                 // Overwrite base family charmables depending on mob type. Disallowed mobs which should be charmable
                 // can be set in mob_spawn_mods or in their onInitialize

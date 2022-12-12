@@ -21,14 +21,6 @@ function onPetAbility(target, pet, skill)
     local duration = 90
     local bonus = 0
 
-    -- Skeletons are immune to sleep
-    if target:isMob() then
-		if target:isUndead() and target:getFamily() == 227 or target:getFamily() == 88 or target:getFamily() == 89 then -- skeletons
-            giveAvatarTP(pet)
-            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
-            return effect
-		end
-	end
      -- Can't overwrite any sleep
     if hasSleepT1Effect(target) then
         giveAvatarTP(pet)
