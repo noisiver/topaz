@@ -1804,8 +1804,9 @@ end
 tpz.annm.PetMods = function(mob)
     mob:setMod(tpz.mod.MDEF, 70)
     mob:setMod(tpz.mod.UDMGMAGIC, -13)
-    mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 150)
-    mob:setMod(tpz.mod.EEM_DARK_SLEEP, 150)
+    for v = 1280, 1294 do
+        mob:setMod(v, 150)
+    end
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
