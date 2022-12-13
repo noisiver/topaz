@@ -45,6 +45,7 @@ CPetEntity::CPetEntity(PETTYPE petType)
 	allegiance = ALLEGIANCE_PLAYER;
     m_MobSkillList = 0;
     m_HasSpellScript = 0;
+    namevis = 0; 
     PAI = std::make_unique<CAIContainer>(this, std::make_unique<CPathFind>(this), std::make_unique<CPetController>(this),
         std::make_unique<CTargetFind>(this));
 }

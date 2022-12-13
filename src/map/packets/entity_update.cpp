@@ -132,6 +132,10 @@ void CEntityUpdatePacket::updateWith(CBaseEntity* PEntity, ENTITYUPDATE type, ui
         break;
         case TYPE_MOB:
         case TYPE_PET:
+            if (updatemask & UPDATE_HP)
+            {
+                ref<uint8>(0x2B) = 1;
+            }
         case TYPE_TRUST:
         {
             CMobEntity* PMob = (CMobEntity*)PEntity;
