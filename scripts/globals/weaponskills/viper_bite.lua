@@ -39,7 +39,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
 
     if (damage > 0 and target:hasStatusEffect(tpz.effect.POISON) == false) then
-        local duration = (30 + (tp/1000 * 60)) * applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
+        local duration = (30 + (tp/1000 * 60)) * applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0, tpz.effect.POISON)
         target:addStatusEffect(tpz.effect.POISON, 3, 0, duration)
     end
     return tpHits, extraHits, criticalHit, damage

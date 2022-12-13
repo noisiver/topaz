@@ -35,7 +35,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
     local maccBonus = math.floor(MaccTPModifier(tp))
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.THUNDER, maccBonus)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.THUNDER, maccBonus, tpz.effect.STUN)
     if (damage > 0) and not target:hasStatusEffect(tpz.effect.STUN) and (resist >= 0.0625) then
         local duration = 12 * resist
         target:addStatusEffect(tpz.effect.STUN, 1, 0, duration)

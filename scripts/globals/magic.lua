@@ -598,25 +598,17 @@ function applyResistance(caster, target, spell, params)
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus)
     local res = getMagicResist(p, element)
 
-    -- Elemental Seal forces zero resist before SDT is applied
-    if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-        res = 1.0
-    end
 
     if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
         res = utils.clamp(res, 0.5, 1.0)
     end
 	
 
-   	if SDT <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-		res = 1.0
-    elseif SDT <= 50 then -- .5 or below SDT drops a resist tier
+    if SDT <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
 
-	if SDT <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-		res = 1/4
-    elseif SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 
@@ -690,21 +682,12 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus)
     local res = getMagicResist(p, element)
 
-    -- Elemental Seal forces zero resist before SDT is applied
-    if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-        res = 1.0
-    end
 
-
-   	if SDT <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-		res = 1.0
-    elseif SDT <= 50 then -- .5 or below SDT drops a resist tier
+    if SDT <= 50 then -- .5 or below SDT drops a resist tier
         res = res / 2
     end
 
-	if SDT <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-		res = 1/4
-    elseif SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 	
@@ -743,26 +726,34 @@ function applyResistanceAbility(player, target, element, skill, bonus)
 end
 
 -- Applies resistance for additional effects
-function applyResistanceAddEffect(player, target, element, bonus)
+function applyResistanceAddEffect(player, target, element, bonus, effect)
 
-    local effect = params.effect
-    local SDT = getEnfeeblelSDT(effect, element, target)
-    local p = getMagicHitRate(player, target, 0, element, SDT, 0, bonus)
-	local res = getMagicResist(p, element)
+    local SDT = getElementalSDT(element, target)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         return 1/16
     end
 
     if (effect ~= nil) then
-        --printf("res before SDT %d", res * 100)
-        if SDT <= 50 then -- .5 or below SDT drops a resist tier
-            res = res / 2
-        end
+        SDT = getEnfeeblelSDT(effect, element, target)
+    end
 
-        if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
-            res = 1/8
+    local p = getMagicHitRate(player, target, 0, element, SDT, 0, bonus)
+	local res = getMagicResist(p, element)
+
+    if (effect == nil) then
+        if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
+            res = utils.clamp(res, 0.5, 1.0)
         end
+    end
+
+    --printf("res before SDT %d", res * 100)
+    if SDT <= 50 then -- .5 or below SDT drops a resist tier
+        res = res / 2
+    end
+
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        res = 1/8
     end
 
     if target:isPC() and element ~= nil and element > 0 and element < 9 then
@@ -771,7 +762,7 @@ function applyResistanceAddEffect(player, target, element, bonus)
         if     eleres < 0  and res < 0.5  then res = 0.5
         elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
-    --printf("res after SDT %d", res * 100)
+    -- printf("res %f", res)
     return res
 end
 
@@ -829,22 +820,36 @@ function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, 
     -- formula = Rank C skill @ level * EEM tier multi
     -- where 100% is t = 0, 115% is t = -1, and 85% is t = 1
     -- 10% tier auto floors your hit rate, 5% auto fails
-    local magiceva = target:getMod(tpz.mod.MEVA)
-    --printf("Base MEVA: %s", magiceva)
+
+    -- Callculate base magic evasion. F for players C for everything else
+    local baseMagiceva
+
+    if target:isPC() then
+        baseMagiceva = math.floor(utils.getSkillLvl(12, target:getMainLvl())) -- 171 for a level 75 player
+    else
+        baseMagiceva = math.floor(utils.getMobSkillLvl(3, target:getMainLvl()))
+    end
+    -- printf("Base MEVA: %s", baseMagiceva)
+    -- get +MEVA mod
+    local mevaMod = target:getMod(tpz.mod.MEVA) - baseMagiceva
+    -- printf("mevaMod: %s", mevaMod)
     -- apply SDT
     local tier = getSDTTier(SDT)
     local multiplier = getSDTMultiplier(tier)
     -- print(string.format('SDT: %s, Tier: %s, Multiplier: %s', SDT, tier, multiplier))
-    magiceva = math.floor(magiceva * multiplier)
-    -- printf("MEVA after multiplier: %s", magiceva)
+    baseMagiceva = math.floor(baseMagiceva * multiplier)
+    -- printf("Base MEVA after multiplier: %s", baseMagiceva)
+    -- add +MEVA mod
+    local magiceva = baseMagiceva + mevaMod
+    -- printf("MEVA after +MEVA mod: %s", magiceva)
     -- add resist gear/mods(barspells etc)
     magiceva = magiceva + resMod
-    --printf("MEVA after gear/barspells: %s", magiceva)
-    magicacc = magicacc + bonusAcc
+    -- printf("MEVA after gear/barspells: %s", magiceva)
+    magicacc = math.floor(magicacc + bonusAcc)
 
     -- Add macc% from food
     local maccFood = magicacc * (caster:getMod(tpz.mod.FOOD_MACCP)/100)
-    magicacc = magicacc + utils.clamp(maccFood, 0, caster:getMod(tpz.mod.FOOD_MACC_CAP))
+    magicacc = math.floor(magicacc + utils.clamp(maccFood, 0, caster:getMod(tpz.mod.FOOD_MACC_CAP)))
     -- printf("MACC: %s", magicacc)
     
     return calculateMagicHitRate(magicacc, magiceva, element, percentBonus, caster:getMainLvl(), target:getMainLvl(), SDT)
@@ -2011,9 +2016,9 @@ function getSDTTier(SDT)
         tier = 8
     elseif (SDT == 15) then
         tier = 9
-    elseif (SDT == 10) then -- because 10% (t10) tier forcibly sets your hit rate to 5%
+    elseif (SDT == 10) then -- because 10% (T10) tier forcibly sets your hit rate to 5%
         tier = 10
-    elseif (SDT == 5) then -- 5% (t11) causes you to auto fail all the coin flips
+    elseif (SDT == 5) then -- 5% (T11) causes you to auto fail all the coin flips
         tier = 11
     end
 
@@ -2179,10 +2184,7 @@ function doElementalNuke(caster, spell, target, spellParams)
     
     local MTDR = 1.0
 	
-	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		resist = 1
-	end
-    
+
     if hasMultipleTargetReduction == true then
         MTDR = 0.90 - spell:getTotalTargets() * 0.05
         if MTDR == 0.85 then -- 1 target, stay at 1.0
@@ -2249,9 +2251,6 @@ function doNuke(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
 	
-	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		resist = 1
-	end
     --get the resisted damage
     dmg = dmg*resist
     if (spell:getSkillType() == tpz.skill.NINJUTSU) then
@@ -2298,9 +2297,6 @@ function doDivineBanishNuke(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
 	 
-	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		resist = 1
-	end
     --get the resisted damage
     dmg = dmg*resist
     
@@ -2317,7 +2313,7 @@ function doDivineBanishNuke(caster, target, spell, params)
 end
 
 function doAdditionalEffectDamage(player, target, chance, dmg, dStat, incudeMAB, bonusMAB, element, maccBonus)
-    local resist = applyResistanceAddEffect(player, target, element, maccBonus)
+    local resist = applyResistanceAddEffect(player, target, element, maccBonus, nil)
     local params = {}
     params.bonusmab = bonusMAB
     params.includemab = incudeMAB

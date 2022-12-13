@@ -347,9 +347,6 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     local resist = 1
     if bonus == nil then bonus = 0 end -- bonus macc
 
-    local maccBonus = bonus
-    maccBonus = maccBonus + getAvatarBonusMacc(avatar, target, element, params)
-
     local avatarLevel = avatar:getMainLvl()
     if params.TARGET_HP_BASED ~= nil then -- Based on targets current HP. Only used for Ruinous Omen atm.
         local hp = target:getHP()
@@ -375,7 +372,7 @@ function AvatarMagicalBP(avatar, target, skill, element, params, statmod, bonus)
     if params.NO_RESIST ~= nil then -- Only used for Netherblast currently
          resist = 1
     else
-         resist = getAvatarResist(avatar, effect, target, avatar:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), maccBonus, element)
+         resist = getAvatarResist(avatar, effect, target, avatar:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)
     end
     -- get weather
     local weatherBonus = getAvatarWeatherBonus(avatar, element)
@@ -1158,6 +1155,59 @@ function getAvatarWeatherBonus(avatar, element)
     return dayWeatherBonus
 end
 
+function getAvatarWeatherMaccBonus(avatar, element)
+    local dayWeatherBonus = 0
+    local weather = avatar:getWeather()
+
+    if (weather == tpz.magic.singleWeatherStrong[element]) then
+        if (avatar:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+            if math.random() < 0.33 then
+                dayWeatherBonus = dayWeatherBonus + 5
+            end
+        end
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 5
+        end
+    elseif (avatar:getWeather() == tpz.magic.singleWeatherWeak[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 5
+        end
+    elseif (weather == tpz.magic.doubleWeatherStrong[element]) then
+        if (avatar:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+            if math.random() < 0.33 then
+                dayWeatherBonus = dayWeatherBonus + 5
+            end
+        end
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 15
+        end
+    elseif (weather == tpz.magic.doubleWeatherWeak[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 15
+        end
+    end
+
+    local dayElement = VanadielDayElement()
+    if (dayElement == element) then
+        dayWeatherBonus = dayWeatherBonus + avatar:getMod(tpz.mod.DAY_NUKE_BONUS)/100 -- sorc. tonban(+1)/zodiac ring
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 5
+        end
+    elseif (dayElement == tpz.magic.elementDescendant[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 5
+        end
+    end
+
+    if dayWeatherBonus > 15 then
+        dayWeatherBonus = 15
+    end
+
+    -- printf("Macc Weather bonus: %s", dayWeatherBonus)
+
+    return dayWeatherBonus
+end
+
 --  The stat difference is multiplied by 1.5 when it is positive and multiplied by 1 when it is negative.
 function getAvatarDStat(statmod, avatar, target)
     local dSTat = 0
@@ -1214,6 +1264,9 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
     -- Add macc from summoning skill over cap
     magicaccbonus = magicaccbonus + getSummoningSkillOverCap(avatar)
 
+    -- Apply other Macc bonuses
+    magicaccbonus = magicaccbonus + getAvatarBonusMacc(avatar, target, element, params)
+
     if (bonus ~= nil) then
         magicaccbonus = magicaccbonus + bonus
     end
@@ -1240,8 +1293,8 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         resist = 1/8
     end
 
-    --printf("getAvatarMagicHitRate = %i", p)
-    -- print(string.format("resist was %f", resist))
+    -- printf("getAvatarMagicHitRate = %i", p)
+    --print(string.format("resist was %f", resist))
 
     return resist
 end
@@ -1277,21 +1330,40 @@ function getAvatarMagicHitRate(avatar, target, skillType, element, SDT, percentB
         magicacc = magicacc + utils.getSkillLvl(1, avatar:getMainLvl())
     end
 
-    -- Base magic evasion (base magic evasion plus resistances(players), plus elemental defense(mobs)
-    -- target:getMod(MEVA) is set to a capped skill of rank C when the mob spawns
-    local magiceva = target:getMod(tpz.mod.MEVA)
-    -- printf("Base MEVA: %s", magiceva)
+    local resMod = 0 -- Some spells may possibly be non elemental, but have status effects.
+    if (element ~= tpz.magic.ele.NONE) then
+        resMod = target:getMod(tpz.magic.resistMod[element])
+    end
+
+    -- Callculate base magic evasion. F for players C for everything else
+    local baseMagiceva
+
+    if target:isPC() then
+        baseMagiceva = math.floor(utils.getSkillLvl(12, target:getMainLvl())) -- 171 for a level 75 player
+    else
+        baseMagiceva = math.floor(utils.getMobSkillLvl(3, target:getMainLvl()))
+    end
+    -- printf("Base MEVA: %s", baseMagiceva)
+    -- get +MEVA mod
+    local mevaMod = target:getMod(tpz.mod.MEVA) - baseMagiceva
+    -- printf("mevaMod: %s", mevaMod)
     -- apply SDT
     local tier = getSDTTier(SDT)
     local multiplier = getSDTMultiplier(tier)
     -- print(string.format('SDT: %s, Tier: %s, Multiplier: %s', SDT, tier, multiplier))
-    magiceva = math.floor(magiceva * multiplier)
-    -- printf("MEVA after multiplier: %s", magiceva)
-    magicacc = magicacc + bonusAcc
+    baseMagiceva = math.floor(baseMagiceva * multiplier)
+    -- printf("Base MEVA after multiplier: %s", baseMagiceva)
+    -- add +MEVA mod
+    local magiceva = baseMagiceva + mevaMod
+    -- printf("MEVA after +MEVA mod: %s", magiceva)
+    -- add resist gear/mods(barspells etc)
+    magiceva = magiceva + resMod
+    -- printf("MEVA after gear/barspells: %s", magiceva)
+    magicacc = math.floor(magicacc + bonusAcc)
 
     -- Add macc% from food
     local maccFood = magicacc * (avatar:getMod(tpz.mod.FOOD_MACCP)/100)
-    magicacc = magicacc + utils.clamp(maccFood, 0, avatar:getMod(tpz.mod.FOOD_MACC_CAP))
+    magicacc = math.floor(magicacc + utils.clamp(maccFood, 0, avatar:getMod(tpz.mod.FOOD_MACC_CAP)))
     -- printf("MACC: %s", magicacc)
 
     return calculateAvatarMagicHitRate(magicacc, magiceva, percentBonus, SDT)
@@ -1378,6 +1450,9 @@ function getAvatarBonusMacc(avatar, target, element, params)
     if (skillchainTier > 0) then
         magicAccBonus = magicAccBonus + 50 -- 30 in retail
     end
+
+    -- Add weather bonus
+    magicAccBonus = magicAccBonus + getAvatarWeatherMaccBonus(avatar, element)
 
     return magicAccBonus
 end

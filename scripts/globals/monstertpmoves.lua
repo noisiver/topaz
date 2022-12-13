@@ -385,8 +385,6 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     local statmod = INT_BASED
     local resist = 1
     if bonus == nil then bonus = 0 end -- bonus macc
-    local maccBonus = bonus
-    maccBonus = maccBonus + getMobBonusMacc(mob, target, element, params)
     -- damage = mob:getMainLvl()
     -- local mobLevel = damage
     -- Maybe?
@@ -411,7 +409,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     if ignoremacc ~= nil and ignoremacc == 101 then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
          resist = 1
     else
-        resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), mobAccBonus, element)
+        resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -456,12 +454,10 @@ function MobNeedlesMagicalMove(mob, target, skill, damage, element, tpeffect)
 
     local resist = 1
     if bonus == nil then bonus = 0 end -- bonus macc
-    local maccBonus = bonus
-    maccBonus = maccBonus + getMobBonusMacc(mob, target, element, params)
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
 
     -- get resist
-    resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), mobAccBonus, element)
+    resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -497,6 +493,9 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     -- Apply dStat Macc bonus
     magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
+    -- Apply other Macc bonuses
+    magicaccbonus = magicaccbonus + getMobBonusMacc(mob, target, element, params)
+
     if (bonus ~= nil) then
         magicaccbonus = magicaccbonus + bonus
     end
@@ -530,6 +529,7 @@ end
 
 function mobAddBonuses(caster, spell, target, dmg, ele)
 
+    -- Unused? No longer needed? Check this
     local magicDefense = getElementalDamageReduction(target, ele)
     dmg = math.floor(dmg * magicDefense)
 
@@ -1459,6 +1459,58 @@ function getMobWeatherDayBonus(mob, element)
     return dayWeatherBonus
 end
 
+function getMobWeatherMaccBonus(mob, element)
+    local dayWeatherBonus = 0
+    local weather = mob:getWeather()
+
+    if (weather == tpz.magic.singleWeatherStrong[element]) then
+        if (mob:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+            if math.random() < 0.33 then
+                dayWeatherBonus = dayWeatherBonus + 5
+            end
+        end
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 5
+        end
+    elseif (mob:getWeather() == tpz.magic.singleWeatherWeak[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 5
+        end
+    elseif (weather == tpz.magic.doubleWeatherStrong[element]) then
+        if (mob:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+            if math.random() < 0.33 then
+                dayWeatherBonus = dayWeatherBonus + 5
+            end
+        end
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 15
+        end
+    elseif (weather == tpz.magic.doubleWeatherWeak[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 15
+        end
+    end
+
+    local dayElement = VanadielDayElement()
+    if (dayElement == element) then
+        dayWeatherBonus = dayWeatherBonus + mob:getMod(tpz.mod.DAY_NUKE_BONUS)/100 -- sorc. tonban(+1)/zodiac ring
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 5
+        end
+    elseif (dayElement == tpz.magic.elementDescendant[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 5
+        end
+    end
+
+    if dayWeatherBonus > 15 then
+        dayWeatherBonus = 15
+    end
+
+    -- printf("Macc Weather bonus: %s", dayWeatherBonus)
+    return dayWeatherBonus
+end
+
 --  The stat difference is multiplied by 1.5 when it is positive and multiplied by 1 when it is negative.
 function getMobDStat(statmod, mob, target)
     local dSTat = 0
@@ -1503,6 +1555,9 @@ function getMobBonusMacc(mob, target, element, params)
     if (skillchainTier > 0) then
         magicAccBonus = magicAccBonus + 50 -- 30 in retail
     end
+
+    -- Add weather bonus
+    magicAccBonus = magicAccBonus + getMobWeatherMaccBonus(mob, element)
 
     return magicAccBonus
 end
@@ -1554,7 +1609,6 @@ end
 
 function getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
     -- Formula is ((Lvl*2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
-    -- Avatars Formula is ((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     return math.floor(((mobLevel*2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
 end
 

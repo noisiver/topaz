@@ -58,43 +58,84 @@ local function selectRandomModel(models, mob)
         if model == 1 then
         element = 1 -- dark
         mob:setMod(tpz.mod.SDT_DARK, 5)
-        mob:setMod(tpz.mod.SDT_LIGHT, 0150)
+        mob:setMod(tpz.mod.EEM_DARK_SLEEP, 5)
+        mob:setMod(tpz.mod.EEM_BLIND, 5)
+        mob:setMod(tpz.mod.SDT_LIGHT, 150)
+        mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 150)
+        mob:setMod(tpz.mod.EEM_CHARM, 150)
         elseif model == 2 then
         element = 3 -- thunder
         mob:setMod(tpz.mod.SDT_THUNDER, 5)
+        mob:setMod(tpz.mod.EEM_STUN, 5)
         mob:setMod(tpz.mod.SDT_WATER, 5)
-        mob:setMod(tpz.mod.SDT_EARTH, 0150)
+        mob:setMod(tpz.mod.EEM_POISON, 5)
+        mob:setMod(tpz.mod.SDT_EARTH, 150)
+        mob:setMod(tpz.mod.EEM_SLOW, 150)
+        mob:setMod(tpz.mod.EEM_PETRIFY, 150)
+        mob:setMod(tpz.mod.EEM_TERROR, 150)
         elseif model == 3 then
         element = 5 -- light
         mob:setMod(tpz.mod.SDT_LIGHT, 5)
-        mob:setMod(tpz.mod.SDT_DARK, 0150)
+        mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 5)
+        mob:setMod(tpz.mod.EEM_CHARM, 5)
+        mob:setMod(tpz.mod.SDT_DARK, 150)
+        mob:setMod(tpz.mod.EEM_DARK_SLEEP, 150)
+        mob:setMod(tpz.mod.EEM_BLIND, 150)
         elseif model == 4 then
         element = 7 -- ice
         mob:setMod(tpz.mod.SDT_ICE, 5)
+        mob:setMod(tpz.mod.EEM_PARALYZE, 5)
+        mob:setMod(tpz.mod.EEM_BIND, 5)
         mob:setMod(tpz.mod.SDT_WIND, 5)
-        mob:setMod(tpz.mod.SDT_FIRE, 0150)
+        mob:setMod(tpz.mod.EEM_SILENCE, 5)
+        mob:setMod(tpz.mod.EEM_GRAVITY, 5)
+        mob:setMod(tpz.mod.SDT_FIRE, 150)
+        mob:setMod(tpz.mod.EEM_AMNESIA, 150)
+        mob:setMod(tpz.mod.EEM_VIRUS, 150)
         end
     else
         if model == 1 then
         element = 2 -- water
         mob:setMod(tpz.mod.SDT_WATER, 5)
+        mob:setMod(tpz.mod.EEM_POISON, 5)
         mob:setMod(tpz.mod.SDT_FIRE, 5)
-        mob:setMod(tpz.mod.SDT_THUNDER, 0150)
+        mob:setMod(tpz.mod.EEM_AMNESIA, 5)
+        mob:setMod(tpz.mod.EEM_VIRUS, 5)
+        mob:setMod(tpz.mod.SDT_THUNDER, 150)
+        mob:setMod(tpz.mod.EEM_STUN, 150)
         elseif model == 2 then
         element = 4 -- earth
         mob:setMod(tpz.mod.SDT_EARTH, 5)
+        mob:setMod(tpz.mod.EEM_SLOW, 5)
+        mob:setMod(tpz.mod.EEM_PETRIFY, 5)
+        mob:setMod(tpz.mod.EEM_TERROR, 5)
         mob:setMod(tpz.mod.SDT_THUNDER, 5)
-        mob:setMod(tpz.mod.SDT_WIND, 0150)
+        mob:setMod(tpz.mod.SDT_THUNDER, 5)
+        mob:setMod(tpz.mod.SDT_WIND, 150)
+        mob:setMod(tpz.mod.EEM_SILENCE, 150)
+        mob:setMod(tpz.mod.EEM_GRAVITY, 150)
         elseif model == 3 then
         element = 6 -- fire
         mob:setMod(tpz.mod.SDT_FIRE, 5)
+        mob:setMod(tpz.mod.EEM_AMNESIA, 5)
+        mob:setMod(tpz.mod.EEM_VIRUS, 5)
         mob:setMod(tpz.mod.SDT_ICE, 5)
-        mob:setMod(tpz.mod.SDT_WATER, 0150)
+        mob:setMod(tpz.mod.EEM_PARALYZE, 5)
+        mob:setMod(tpz.mod.EEM_BIND, 5)
+        mob:setMod(tpz.mod.SDT_WATER, 150)
+        mob:setMod(tpz.mod.EEM_POISON, 150)
         elseif model == 4 then
         element = 8 -- wind
         mob:setMod(tpz.mod.SDT_WIND, 5)
+        mob:setMod(tpz.mod.EEM_SILENCE, 5)
+        mob:setMod(tpz.mod.EEM_GRAVITY, 5)
         mob:setMod(tpz.mod.SDT_EARTH, 5)
-        mob:setMod(tpz.mod.SDT_ICE, 0150)
+        mob:setMod(tpz.mod.EEM_SLOW, 5)
+        mob:setMod(tpz.mod.EEM_PETRIFY, 5)
+        mob:setMod(tpz.mod.EEM_TERROR, 5)
+        mob:setMod(tpz.mod.SDT_ICE, 150)
+        mob:setMod(tpz.mod.EEM_PARALYZE, 150)
+        mob:setMod(tpz.mod.EEM_BIND, 150)
         end
     end
 

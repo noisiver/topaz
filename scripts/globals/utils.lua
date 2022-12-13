@@ -278,80 +278,39 @@ function utils.thirdeye(target)
 
     return false
 end
------------------------------------
---     SKILL LEVEL CALCULATOR
---     Returns a skill level based on level and rating.
---
---    See the translation of aushacho's work by Themanii:
---    http://home.comcast.net/~themanii/skill.html
---
---    The arguments are skill rank (numerical), and level.  1 is A+, 2 is A-, and so on.
------------------------------------
+-- skillLevelTable contains matched pairs based on rank; First value is multiplier, second is additive value.  Index is the subtracted
+-- baseInRange value (see below)
+-- Original formula: ((level - <baseInRange>) * <multiplier>) + <additive>; where level is a range defined in utils.getSkillLvl
+local skillLevelTable =
+{
+    --         A+             A-             B+             B              B-             C+             C              C-             D              E              F                  G
+    [1]  = { { 3.00,   6 }, { 3.00,   6 }, { 2.90,   5 }, { 2.90,   5 }, { 2.90,   5 }, { 2.80,   5 }, { 2.80,   5 }, { 2.80,   5 }, { 2.70,   4 }, { 2.50,   4 }, { 2.30,   4 }, { 2,   3 } }, -- Level <= 50
+    [50] = { { 5.00, 153 }, { 5.00, 153 }, { 4.90, 147 }, { 4.90, 147 }, { 4.90, 147 }, { 4.80, 142 }, { 4.80, 142 }, { 4.80, 142 }, { 4.70, 136 }, { 4.50, 126 }, { 4.30, 116 }, { 4, 101 } }, -- Level > 50 and Level <= 60
+    [60] = { { 4.85, 203 }, { 4.10, 203 }, { 3.70, 196 }, { 3.23, 196 }, { 2.70, 196 }, { 2.50, 190 }, { 2.25, 190 }, { 2.00, 190 }, { 1.85, 183 }, { 1.95, 171 }, { 2.05, 159 }, { 2.00, 141 } }, -- Level > 60 and Level <= 70
+    [70] = { { 5.00, 251 }, { 5.00, 244 }, { 3.70, 233 }, { 3.23, 228 }, { 2.70, 223 }, { 3.00, 215 }, { 2.60, 212 }, { 2.00, 210 }, { 1.85, 201 }, { 1.95, 190 }, { 2.00, 179 }, { 2.00, 161 } }, -- Level > 70
+}
 
-function utils.getSkillLvl(rank, level)
+-- Get the corresponding table entry to use in skillLevelTable based on level range
+-- TODO: Minval for ranges 2 and 3 in the conditional is probably not necessary
+local function getSkillLevelIndex(level)
+    local rangeId = nil
 
-    local skill = 0 --Failsafe
-
-    if (level <= 50) then --Levels 1-50
-        if (rank == 1 or rank == 2) then --A-Rated Skill
-            skill = (((level-1)*3)+6)
-        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
-            skill = (((level-1)*2.9)+5)
-        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
-            skill = (((level-1)*2.8)+5)
-        elseif (rank == 9) then --D-Rated Skill
-            skill = (((level-1)*2.7)+4)
-        elseif (rank == 10) then --E-Rated Skill
-            skill = (((level-1)*2.5)+4)
-        elseif (rank == 11) then --F-Rated Skill
-            skill = (((level-1)*2.3)+4)
-        end
-    elseif (level > 50 and level <= 60) then --Levels 51-60
-        if (rank == 1 or rank == 2) then --A-Rated Skill
-            skill = (((level-50)*5)+153)
-        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
-            skill = (((level-50)*4.9)+147)
-        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
-            skill = (((level-50)*4.8)+142)
-        elseif (rank == 9) then --D-Rated Skill
-            skill = (((level-50)*4.7)+136)
-        elseif (rank == 10) then --E-Rated Skill
-            skill = (((level-50)*4.5)+126)
-        elseif (rank == 11) then --F-Rated Skill
-            skill = (((level-50)*4.3)+116)
-        end
-    elseif (level > 60 and level <= 70) then --Levels 61-70
-        if (rank == 1 or rank == 2) then --A-Rated Skill
-            skill = (((level-50)*5)+153)
-        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
-            skill = (((level-50)*4.9)+147)
-        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
-            skill = (((level-50)*4.8)+142)
-        elseif (rank == 9) then --D-Rated Skill
-            skill = (((level-50)*4.7)+136)
-        elseif (rank == 10) then --E-Rated Skill
-            skill = (((level-50)*4.5)+126)
-        elseif (rank == 11) then --F-Rated Skill
-            skill = (((level-50)*4.3)+116)
-        end
-    else --Level 71 and above
-        if (rank == 1 or rank == 2) then --A-Rated Skill
-            skill = (((level-50)*5)+153)
-        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
-            skill = (((level-50)*4.9)+147)
-        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
-            skill = (((level-50)*4.8)+142)
-        elseif (rank == 9) then --D-Rated Skill
-            skill = (((level-50)*4.7)+136)
-        elseif (rank == 10) then --E-Rated Skill
-            skill = (((level-50)*4.5)+126)
-        elseif (rank == 11) then --F-Rated Skill
-            skill = (((level-50)*4.3)+116)
-        end
+    if level <= 50 then
+        rangeId = 1
+    elseif level > 50 and level <= 60 then
+        rangeId = 50
+    elseif level > 60 and level <= 70 then
+        rangeId = 60
+    else
+        rangeId = 70
     end
 
-    return skill
+    return rangeId
+end
 
+function utils.getSkillLvl(rank, level)
+    local levelTableIndex = getSkillLevelIndex(level)
+    return ((level - levelTableIndex) * skillLevelTable[levelTableIndex][rank][1]) + skillLevelTable[levelTableIndex][rank][2]
 end
 
 function utils.getMobSkillLvl(rank, level)

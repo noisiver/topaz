@@ -36,8 +36,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
     local effect = tpz.effect.POISON
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)
-    local power = math.floor(player:getMainLvl() * (tp / 2000) + 20)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0, tpz.effect.POISON)
+    local power = math.floor(player:getMainLvl() * (tp / 2000))
+    power = power / 2
 
     if damage > 0 and (canOverwrite(target, effect, power)) and resist >= 0.5 then
         --local duration = (0 + (tp/2000 * 30)) * applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, 0)

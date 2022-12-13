@@ -4388,6 +4388,13 @@ INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,515,1,255); -- maelstrom
 INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,534,1,255); -- mysterious_light
 INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,536,1,255); -- poison_breath
 INSERT INTO `mob_spell_lists` VALUES ('Raubahn',1014,560,1,255); -- frenetic_rip
+
+INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,21,1,255); -- Holy
+INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,24,1,255); -- Dia II
+INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,33,1,255); -- Diaga
+INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,30,1,255); -- Banish III
+INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,39,1,255); -- Banishga II
+INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,112,1,255); -- Flash
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5174,7 +5181,8 @@ INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,110,1,255);  --
 INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,143,1,255);  -- Erase
 
 
-
+-- NEXT 1016
+-- NEXT 2080(Custom)
 
 
 
