@@ -787,13 +787,7 @@ function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, 
     if skillType ~= 0 then
         local skillBonus = 0
         local skillAmount = caster:getSkillLevel(skillType)
-        
-        if skillAmount > 200 then
-            skillBonus = 200 + (skillAmount - 200)*0.9
-        else
-            skillBonus = skillAmount
-        end
-        
+        skillBonus = skillAmount
         magicacc = magicacc + skillBonus
     else
         -- for mob skills / additional effects which don't have a skill
