@@ -2378,6 +2378,37 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
 end
 
 function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold)
+    local immunities = {
+        { tpz.effect.SLEEP_I, 1},
+        { tpz.effect.SLEEP_II, 1},
+        { tpz.effect.SLEEP_I, 4096},
+        { tpz.effect.SLEEP_II, 4096},
+        { tpz.effect.POISON, 256},
+        { tpz.effect.PARALYSIS, 32},
+        { tpz.effect.BLINDNESS, 64},
+        { tpz.effect.SILENCE, 16},
+        { tpz.effect.STUN, 8},
+        { tpz.effect.BIND, 4},
+        { tpz.effect.WEIGHT, 2},
+        { tpz.effect.SLOW, 128},
+        { tpz.effect.ELEGY, 512},
+        { tpz.effect.REQUIEM, 1024},
+        { tpz.effect.LULLABY, 2048},
+        { tpz.effect.LULLABY, 1},
+    }
+    -- Check for immunity
+
+    -- Check for immunity
+    for i,statusEffect in pairs(immunities) do
+        local immunity = 0
+        if effect == statusEffect[1] then
+            immunity = statusEffect[2]
+        end
+        if target:hasImmunity(immunity) then
+            return spell:setMsg(tpz.msg.basic.MAGIC_IMMUNE)
+        end
+    end
+
     -- Check for resist trait proc
     if (resist == 0) then
         if not target:hasStatusEffect(effect) then
