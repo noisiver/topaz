@@ -734,7 +734,9 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         end
 
         -- handling absorb
-        dmg = adjustForTarget(target, dmg, wsParams.ele)
+        if (wsParams.ele ~= 0) then -- Non-elemental damage cannot be absorbed
+            dmg = adjustForTarget(target, dmg, wsParams.ele)
+        end
         dmg = utils.clamp(dmg, -99999, 99999)
 
         -- Add HP if absorbed
