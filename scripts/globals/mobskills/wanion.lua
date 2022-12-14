@@ -32,8 +32,8 @@ function onMobWeaponSkill(target, mob, skill)
         if mob:hasStatusEffect(effect) then
             local currentEffect = mob:getStatusEffect(effect)
             MobStatusEffectMove(mob, target, effect, currentEffect:getPower(), currentEffect:getTick(), currentEffect:getTimeRemaining() / 1000)
-            mob:delStatusEffect(effect)
         end
     end
+    mob:removeAllNegativeEffects()
     skill:setMsg(tpz.msg.basic.NONE)
 end
