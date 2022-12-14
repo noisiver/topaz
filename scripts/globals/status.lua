@@ -2530,7 +2530,7 @@ tpz.immunity =
     REQUIEM     = 1024,
     LIGHTSLEEP  = 2048,
     DARKSLEEP   = 4096,
-    ADDLE       = 8192,
+    PETRIFY     = 8192,
 }
 
 ------------------------------------

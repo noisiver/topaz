@@ -2349,7 +2349,9 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
         { tpz.effect.REQUIEM, 1024},
         { tpz.effect.LULLABY, 2048},
         { tpz.effect.LULLABY, 1},
+        { tpz.effect.PETRIFICATION, 8192},
     }
+
     local resist = applyResistanceAddEffect(player, target, element, bonus, effect)
 
     --Check for resistance traits 
@@ -2389,8 +2391,8 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
         { tpz.effect.REQUIEM, 1024},
         { tpz.effect.LULLABY, 2048},
         { tpz.effect.LULLABY, 1},
+        { tpz.effect.PETRIFICATION, 8192},
     }
-    -- Check for immunity
 
     -- Check for immunity
     for i,statusEffect in pairs(immunities) do

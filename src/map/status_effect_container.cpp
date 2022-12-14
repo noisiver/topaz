@@ -294,6 +294,10 @@ bool CStatusEffectContainer::CanGainStatusEffect(CStatusEffect* PStatusEffect)
         case EFFECT_REQUIEM:
             if (m_POwner->hasImmunity(IMMUNITY_REQUIEM)) return false;
             break;
+        case EFFECT_PETRIFICATION:
+            if (m_POwner->hasImmunity(IMMUNITY_PETRIFY))
+                return false;
+            break;
         default:
             break;
     }
