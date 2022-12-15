@@ -255,6 +255,10 @@ void CZoneEntities::FindPartyForMob(CBaseEntity* PEntity)
     {
         MakeMobLinkWithFamily(PMob, PMob->getMobMod(MOBMOD_FAMILYLINK));
     }
+    if (PMob->getMobMod(MOBMOD_ECOSYSTEMLINK))
+    {
+        MakeMobLinkWithEcoSystem(PMob, PMob->m_EcoSystem);
+    }
 }
 
 void CZoneEntities::MakeMobLinkWithFamily(CBaseEntity* PEntity, uint32 FamilyID)
@@ -266,6 +270,24 @@ void CZoneEntities::MakeMobLinkWithFamily(CBaseEntity* PEntity, uint32 FamilyID)
         CMobEntity* PCurrentMob = (CMobEntity*)it->second;
 
         if (PCurrentMob->m_Family != FamilyID)
+            continue;
+
+        if (PCurrentMob->PParty == nullptr)
+            PCurrentMob->PParty = new CParty(PCurrentMob);
+
+        PCurrentMob->PParty->AddMember(PMob);
+    }
+}
+
+void CZoneEntities::MakeMobLinkWithEcoSystem(CBaseEntity* PEntity, uint32 m_EcoSystem)
+{
+    CMobEntity* PMob = (CMobEntity*)PEntity;
+
+    for (EntityList_t::const_iterator it = m_mobList.begin(); it != m_mobList.end(); ++it)
+    {
+        CMobEntity* PCurrentMob = (CMobEntity*)it->second;
+
+        if (PCurrentMob->m_EcoSystem != m_EcoSystem)
             continue;
 
         if (PCurrentMob->PParty == nullptr)
