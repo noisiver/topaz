@@ -373,6 +373,7 @@ tpz.zone =
     OUTER_RAKAZNAR_U                = 275,
     RAKAZNAR_INNER_COURT            = 276,
     RAKAZNAR_TURRIS                 = 277,
+    GWORA_CORRIDOR                  = 278,
     WALK_OF_ECHOES_P2               = 279,
     MOG_GARDEN                      = 280,
     LEAFALLIA                       = 281,
