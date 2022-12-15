@@ -3015,7 +3015,23 @@ INSERT INTO `mob_droplist` VALUES (524,0,0,1000,846,240);	-- Insect Wing
 INSERT INTO `mob_droplist` VALUES (525,4,0,1000,2334,0);
 INSERT INTO `mob_droplist` VALUES (525,0,0,1000,2490,100);
 INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1722,50); -- (Craver - Mea) Indigo memosphere
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1606,50); -- Memories
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1607,50);  
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1608,50); 
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1609,50);  
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1610,50);  
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1611,50); 
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1612,50); 
+INSERT INTO `mob_droplist` VALUES (526,0,0,1000,1613,50); 
 INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1723,50); -- (Craver - Vahzl) White memosphere
+INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1606,50); -- Memories
+INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1607,50);  
+INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1608,50); 
+INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1609,50);  
+INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1610,50);  
+INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1611,50); 
+INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1612,50); 
+INSERT INTO `mob_droplist` VALUES (527,0,0,1000,1613,50); 
 INSERT INTO `mob_droplist` VALUES (528,0,0,1000,816,111);
 INSERT INTO `mob_droplist` VALUES (529,0,0,1000,582,60);
 INSERT INTO `mob_droplist` VALUES (529,0,0,1000,583,50);
@@ -6263,7 +6279,23 @@ INSERT INTO `mob_droplist` VALUES (1206,4,0,1000,902,0); -- Demon Horn(Despoil)
 INSERT INTO `mob_droplist` VALUES (1206,0,0,1000,1437,150);
 INSERT INTO `mob_droplist` VALUES (1206,0,0,1000,17293,100);
 INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1721,50); -- (Gorger - Dem) Beryl memosphere
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1606,50); -- Memories Start
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1607,50);  
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1608,50); 
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1609,50);  
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1610,50);  
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1611,50); 
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1612,50); 
+INSERT INTO `mob_droplist` VALUES (1207,0,0,1000,1613,50); -- Memories End
 INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1723,50); -- (Gorger - Vahzl) White memosphere
+INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1606,50); -- Memories Start
+INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1607,50);  
+INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1608,50); 
+INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1609,50);  
+INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1610,50);  
+INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1611,50); 
+INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1612,50); 
+INSERT INTO `mob_droplist` VALUES (1208,0,0,1000,1613,50); -- Memories End
 INSERT INTO `mob_droplist` VALUES (1209,2,0,1000,1449,0); -- (Gosspix_Blabberlips, Bu)
 INSERT INTO `mob_droplist` VALUES (1209,0,0,1000,1449,150);
 INSERT INTO `mob_droplist` VALUES (1209,0,0,1000,1449,150);
@@ -12528,7 +12560,23 @@ INSERT INTO `mob_droplist` VALUES (2397,2,0,1000,936,0);
 INSERT INTO `mob_droplist` VALUES (2397,0,0,1000,936,280);
 INSERT INTO `mob_droplist` VALUES (2397,0,0,1000,4400,70);
 INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1720,50);  -- (Thinker - Holla) Teal memosphere
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1606,50); -- Memories
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1607,50);  
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1608,50); 
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1609,50);  
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1610,50);  
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1611,50); 
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1612,50); 
+INSERT INTO `mob_droplist` VALUES (2398,0,0,1000,1613,50); 
 INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1723,50); -- (Thinker - Vahzl) White memosphere
+INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1606,50); -- Memories Start
+INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1607,50);  
+INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1608,50); 
+INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1609,50);  
+INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1610,50);  
+INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1611,50); 
+INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1612,50); 
+INSERT INTO `mob_droplist` VALUES (2399,0,0,1000,1613,50); -- Memories End
 INSERT INTO `mob_droplist` VALUES (2400,2,0,1000,656,0);
 INSERT INTO `mob_droplist` VALUES (2400,0,0,1000,13227,38);
 INSERT INTO `mob_droplist` VALUES (2400,0,0,1000,16856,1000);
