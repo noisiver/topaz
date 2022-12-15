@@ -165,17 +165,17 @@ INSERT INTO `mob_family_mods` VALUES (179,62,10,0);		-- Manticore +10% Attack
 INSERT INTO `mob_family_mods` VALUES (246,62,20,0);		-- Troll +20% Attack 
 INSERT INTO `mob_family_mods` VALUES (217,62,20,0);		-- Scorpion +20% Attack
 INSERT INTO `mob_family_mods` VALUES (62,62,20,0);		-- Cerberus +20% Attack
-INSERT INTO `mob_family_mods` VALUES (180,62,50,0);		-- Marid +50% Attack 
-INSERT INTO `mob_family_mods` VALUES (89,62,50,0);		-- Draugar +50% Attack 
-INSERT INTO `mob_family_mods` VALUES (252,62,50,0);		-- Vampyr +50% Attack 
-INSERT INTO `mob_family_mods` VALUES (191,62,50,0);		-- Orobon +50% Attack 
+INSERT INTO `mob_family_mods` VALUES (180,62,25,0);		-- Marid +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (89,62,25,0);		-- Draugar +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (252,62,25,0);		-- Vampyr +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (191,62,25,0);		-- Orobon +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (1,62,25,0);		-- Acrolith +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (132,62,25,0);		-- Gnole +25% Attack 
-INSERT INTO `mob_family_mods` VALUES (6,62,50,0);		-- Amphiptere +50% Attack 
-INSERT INTO `mob_family_mods` VALUES (207,62,50,0);		-- Rafflesia +50% Attack 
-INSERT INTO `mob_family_mods` VALUES (211,62,50,0);		-- Ruszor +50% Attack 
-INSERT INTO `mob_family_mods` VALUES (944,62,50,0);		-- WotG Orc +50% Attack 
-INSERT INTO `mob_family_mods` VALUES (945,62,50,0);		-- WotG Orc War Machine +50% Attack 
+INSERT INTO `mob_family_mods` VALUES (6,62,25,0);		-- Amphiptere +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (207,62,25,0);		-- Rafflesia +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (211,62,25,0);		-- Ruszor +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (944,62,25,0);		-- WotG Orc +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (945,62,25,0);		-- WotG Orc War Machine +25% Attack 
 
 -- Flat Attack Penalty
 INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
@@ -186,17 +186,17 @@ INSERT INTO `mob_family_mods` VALUES (233,63,20,0);		-- Soulflayer +20% Defense 
 INSERT INTO `mob_family_mods` VALUES (74,63,20,0);		-- Corse +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (2,63,20,0);		-- Adamantoise +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (275,63,20,0);		-- Mini-Adamantoise +20% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (253,63,100,0);	-- Wamoura +100% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (254,63,200,0);	-- Wamouracampa +200% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (252,63,100,0);	-- Vampyr +100% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (191,63,100,0);	-- Orobon +100% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (27,63,100,0);		-- Apkallu +100% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (246,63,100,0);	-- Troll +100% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (209,63,50,0);	    -- Rampart +50% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (63,63,50,0);	 	-- Chariot +50% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (180,63,150,0);	-- Marid +150% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (211,63,50,0);		-- Ruszor +50% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (942,63,50,0);		-- WotG Quadav +50% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (253,63,25,0);	    -- Wamoura +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (254,63,25,0);	    -- Wamouracampa +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (252,63,25,0);	    -- Vampyr +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (191,63,25,0);	    -- Orobon +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (27,63,25,0);		-- Apkallu +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (246,63,25,0);	    -- Troll +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (209,63,25,0);	    -- Rampart +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (63,63,25,0);	 	-- Chariot +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (180,63,25,0);	    -- Marid +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (211,63,25,0);		-- Ruszor +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (942,63,25,0);		-- WotG Quadav +25% Defense Bonus
 
 -- Defense Penalty
 INSERT INTO `mob_family_mods` VALUES (1,63,-25,0);		-- Acrolith -25% Defense Penalty
@@ -340,7 +340,7 @@ INSERT INTO `mob_family_mods` VALUES (164,29,29,0); 	-- Hydra +29 MDB
 INSERT INTO `mob_family_mods` VALUES (16,29,250,0); 	-- Animated Weapon(Instrument) +250 MDB
 
 -- MEVA
-INSERT INTO `mob_family_mods` VALUES (99,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (99,31,30,0); 	    -- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (100,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (101,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (102,31,30,0); 	-- Elemental +30 MEVA
@@ -364,6 +364,7 @@ INSERT INTO `mob_family_mods` VALUES (938,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (939,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (940,31,30,0); 	-- Elemental +30 MEVA
 INSERT INTO `mob_family_mods` VALUES (941,31,30,0); 	-- Elemental +30 MEVA
+INSERT INTO `mob_family_mods` VALUES (943,31,30,0);		-- WotG Yagudo +30 MEVA
 
 
 -- Move Speed

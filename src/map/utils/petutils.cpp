@@ -98,19 +98,19 @@ struct Pet_t
     uint16 spellList;
 
     // resists
-    int16 slashres;
-    int16 pierceres;
-    int16 hthres;
-    int16 impactres;
+    uint16 slashres;
+    uint16 pierceres;
+    uint16 hthres;
+    uint16 impactres;
 
-    int16 firedef;
-    int16 icedef;
-    int16 winddef;
-    int16 earthdef;
-    int16 thunderdef;
-    int16 waterdef;
-    int16 lightdef;
-    int16 darkdef;
+    uint16 firedef;
+    uint16 icedef;
+    uint16 winddef;
+    uint16 earthdef;
+    uint16 thunderdef;
+    uint16 waterdef;
+    uint16 lightdef;
+    uint16 darkdef;
 
     //int16 fireres;
     //int16 iceres;
@@ -121,14 +121,30 @@ struct Pet_t
     //int16 lightres;
     //int16 darkres;
 
-    int16 fireresSDT;
-    int16 iceresSDT;
-    int16 windresSDT;
-    int16 earthresSDT;
-    int16 thunderresSDT;
-    int16 waterresSDT;
-    int16 lightresSDT;
-    int16 darkresSDT;
+    uint16 fireresSDT;
+    uint16 iceresSDT;
+    uint16 windresSDT;
+    uint16 earthresSDT;
+    uint16 thunderresSDT;
+    uint16 waterresSDT;
+    uint16 lightresSDT;
+    uint16 darkresSDT;
+
+    uint16 eemamnesia;
+    uint16 eemvirus;
+    uint16 eemsilence;
+    uint16 eemgravity;
+    uint16 eemstun;
+    uint16 eemlightsleep;
+    uint16 eemcharm;
+    uint16 eemparalyze;
+    uint16 eembind;
+    uint16 eemslow;
+    uint16 eempetrify;
+    uint16 eemterror;
+    uint16 eempoison;
+    uint16 eemdarksleep;
+    uint16 eemblind;
 
 };
 
@@ -177,6 +193,7 @@ namespace petutils
                 hasSpellScript, spellList, \
                 Slash, Pierce, H2H, Impact, \
                 Fire, Ice, Wind, Earth, Lightning, Water, Light, Dark, \
+                Amnesia, Virus, Silence, Gravity, Stun, LightSleep, Charm, Paralyze, Bind, Slow, Petrify, Terror, Poison, Darksleep, Blind, \
                 cmbDelay, name_prefix, mob_pools.skill_list_id \
                 FROM pet_list, mob_pools, mob_family_system \
                 WHERE pet_list.poolid = mob_pools.poolid AND mob_pools.familyid = mob_family_system.familyid";
@@ -253,10 +270,26 @@ namespace petutils
                 Pet->lightresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 37) * 100);
                 Pet->darkresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 38) * 100);
 
+                Pet->eemamnesia =  (uint16)(Sql_GetUIntData(SqlHandle, 39)); 
+                Pet->eemvirus = (uint16)(Sql_GetUIntData(SqlHandle, 40));
+                Pet->eemsilence =  (uint16)(Sql_GetUIntData(SqlHandle, 41));
+                Pet->eemgravity = (uint16)(Sql_GetUIntData(SqlHandle, 42));
+                Pet->eemstun = (uint16)(Sql_GetUIntData(SqlHandle, 43));
+                Pet->eemlightsleep = (uint16)(Sql_GetUIntData(SqlHandle, 44));
+                Pet->eemcharm = (uint16)(Sql_GetUIntData(SqlHandle, 45));
+                Pet->eemparalyze = (uint16)(Sql_GetUIntData(SqlHandle, 46));
+                Pet->eembind = (uint16)(Sql_GetUIntData(SqlHandle, 47));
+                Pet->eemslow = (uint16)(Sql_GetUIntData(SqlHandle, 48));
+                Pet->eempetrify = (uint16)(Sql_GetUIntData(SqlHandle, 49));
+                Pet->eemterror = (uint16)(Sql_GetUIntData(SqlHandle, 50));
+                Pet->eempoison = (uint16)(Sql_GetUIntData(SqlHandle, 51));
+                Pet->eemdarksleep =  (uint16)(Sql_GetUIntData(SqlHandle, 52));
+                Pet->eemblind = (uint16)(Sql_GetUIntData(SqlHandle, 53));
 
-                Pet->cmbDelay = (uint16)Sql_GetIntData(SqlHandle, 39);
-                Pet->name_prefix = (uint8)Sql_GetUIntData(SqlHandle, 40);
-                Pet->m_MobSkillList = (uint16)Sql_GetUIntData(SqlHandle, 41);
+
+                Pet->cmbDelay = (uint16)Sql_GetIntData(SqlHandle, 54);
+                Pet->name_prefix = (uint8)Sql_GetUIntData(SqlHandle, 55);
+                Pet->m_MobSkillList = (uint16)Sql_GetUIntData(SqlHandle, 56);
 
                 g_PPetList.push_back(Pet);
             }
@@ -816,6 +849,48 @@ namespace petutils
         CPetEntity* PPet = (CPetEntity*)PMaster->PPet;
         if (PPet)
         {
+            Pet_t* petData = g_PPetList.at(PetID);
+
+            PPet->setModifier(Mod::SLASHRES, petData->slashres);
+            PPet->setModifier(Mod::PIERCERES, petData->pierceres);
+            PPet->setModifier(Mod::RANGEDRES, petData->pierceres);
+            PPet->setModifier(Mod::HTHRES, petData->hthres);
+            PPet->setModifier(Mod::IMPACTRES, petData->impactres);
+
+            PPet->setModifier(Mod::FIREDEF, petData->firedef);       // These are stored as floating percentages
+            PPet->setModifier(Mod::ICEDEF, petData->icedef);         // and need to be adjusted into modifier units.
+            PPet->setModifier(Mod::WINDDEF, petData->winddef);       // Higher DEF = lower damage.
+            PPet->setModifier(Mod::EARTHDEF, petData->earthdef);     // Negatives signify increased damage.
+            PPet->setModifier(Mod::THUNDERDEF, petData->thunderdef); // Positives signify reduced damage.
+            PPet->setModifier(Mod::WATERDEF, petData->waterdef);     // Ex: 125% damage would be 1.25, 50% damage would be 0.50
+            PPet->setModifier(Mod::LIGHTDEF, petData->lightdef);     // (1.25 - 1) * -1000 = -250 DEF
+            PPet->setModifier(Mod::DARKDEF, petData->darkdef);       // (0.50 - 1) * -1000 = 500 DEF
+
+            PPet->setModifier(Mod::SDT_FIRE, petData->fireresSDT);
+            PPet->setModifier(Mod::SDT_ICE, petData->iceresSDT);
+            PPet->setModifier(Mod::SDT_WIND, petData->windresSDT);
+            PPet->setModifier(Mod::SDT_EARTH, petData->earthresSDT);
+            PPet->setModifier(Mod::SDT_THUNDER, petData->thunderresSDT);
+            PPet->setModifier(Mod::SDT_WATER, petData->waterresSDT);
+            PPet->setModifier(Mod::SDT_LIGHT, petData->lightresSDT);
+            PPet->setModifier(Mod::SDT_DARK, petData->darkresSDT);
+
+            PPet->setModifier(Mod::EEM_AMNESIA, petData->eemamnesia);
+            PPet->setModifier(Mod::EEM_VIRUS, petData->eemvirus);
+            PPet->setModifier(Mod::EEM_SILENCE, petData->eemsilence);
+            PPet->setModifier(Mod::EEM_GRAVITY, petData->eemgravity);
+            PPet->setModifier(Mod::EEM_STUN, petData->eemstun);
+            PPet->setModifier(Mod::EEM_LIGHT_SLEEP, petData->eemlightsleep);
+            PPet->setModifier(Mod::EEM_CHARM, petData->eemcharm);
+            PPet->setModifier(Mod::EEM_PARALYZE, petData->eemparalyze);
+            PPet->setModifier(Mod::EEM_BIND, petData->eembind);
+            PPet->setModifier(Mod::EEM_SLOW, petData->eemslow);
+            PPet->setModifier(Mod::EEM_PETRIFY, petData->eempetrify);
+            PPet->setModifier(Mod::EEM_TERROR, petData->eemterror);
+            PPet->setModifier(Mod::EEM_POISON, petData->eempoison);
+            PPet->setModifier(Mod::EEM_DARK_SLEEP, petData->eemdarksleep);
+            PPet->setModifier(Mod::EEM_BLIND, petData->eemblind);
+
             PPet->allegiance = PMaster->allegiance;
             PMaster->StatusEffectContainer->CopyConfrontationEffect(PPet);
 
@@ -905,14 +980,6 @@ namespace petutils
         PPet->setModifier(Mod::LIGHTDEF, petData->lightdef); // (1.25 - 1) * -1000 = -250 DEF
         PPet->setModifier(Mod::DARKDEF, petData->darkdef); // (0.50 - 1) * -1000 = 500 DEF
 
-        //PPet->setModifier(Mod::FIRERES, petData->fireres); // These are stored as floating percentages
-        //PPet->setModifier(Mod::ICERES, petData->iceres); // and need to be adjusted into modifier units.
-        //PPet->setModifier(Mod::WINDRES, petData->windres); // Higher RES = lower damage.
-        //PPet->setModifier(Mod::EARTHRES, petData->earthres); // Negatives signify lower resist chance.
-        //PPet->setModifier(Mod::THUNDERRES, petData->thunderres); // Positives signify increased resist chance.
-        //PPet->setModifier(Mod::WATERRES, petData->waterres);
-        //PPet->setModifier(Mod::LIGHTRES, petData->lightres);
-        //PPet->setModifier(Mod::DARKRES, petData->darkres);
         PPet->setModifier(Mod::SDT_FIRE, petData->fireresSDT);
         PPet->setModifier(Mod::SDT_ICE, petData->iceresSDT);
         PPet->setModifier(Mod::SDT_WIND, petData->windresSDT);
@@ -1397,12 +1464,6 @@ namespace petutils
                 PPet->setModifier(Mod::MATT, 20);
             }
 
-            // -50% DR to all physical attacks
-            PPet->setModifier(Mod::SLASHRES, 500);
-            PPet->setModifier(Mod::PIERCERES, 500);
-            PPet->setModifier(Mod::IMPACTRES, 500);
-            PPet->setModifier(Mod::HTHRES, 500);
-
             // High refresh so Elementals don't oom
             PPet->setModifier(Mod::REFRESH, 500);
 
@@ -1436,14 +1497,6 @@ namespace petutils
                 PPet->addModifier(Mod::MACC, 30);
             }
 
-            // Set generic SDT
-            PPet->setModifier(Mod::SDT_FIRE, 130);
-            PPet->setModifier(Mod::SDT_EARTH, 130);
-            PPet->setModifier(Mod::SDT_WATER, 130);
-            PPet->setModifier(Mod::SDT_WIND, 130);
-            PPet->setModifier(Mod::SDT_ICE, 130);
-            PPet->setModifier(Mod::SDT_THUNDER, 130);
-            PPet->setModifier(Mod::SDT_LIGHT, 130);
             PPet->setModifier(Mod::SDT_DARK, 130);
 
             // Set global avatar mods
@@ -1459,55 +1512,25 @@ namespace petutils
             switch (PetID)
             {
                 default: 
-                    PPet->setModifier(Mod::SDT_FIRE, 100);
-                    PPet->setModifier(Mod::SDT_EARTH, 100);
-                    PPet->setModifier(Mod::SDT_WATER, 100);
-                    PPet->setModifier(Mod::SDT_WIND, 100);
-                    PPet->setModifier(Mod::SDT_ICE, 100);
-                    PPet->setModifier(Mod::SDT_THUNDER, 100);
-                    PPet->setModifier(Mod::SDT_LIGHT, 100);
-                    PPet->setModifier(Mod::SDT_DARK, 100);
                     break;
                 case PETID_FIRESPIRIT:
-                    PPet->setModifier(Mod::SDT_WATER, 150);
-                    PPet->setModifier(Mod::SDT_ICE, 20);
-                    PPet->setModifier(Mod::SDT_FIRE, 20);
                     break;
                 case PETID_ICESPIRIT:
-                    PPet->setModifier(Mod::SDT_FIRE, 150);
-                    PPet->setModifier(Mod::SDT_ICE, 20);
-                    PPet->setModifier(Mod::SDT_WIND, 20);
                     break;
                 case PETID_AIRSPIRIT:
-                    PPet->setModifier(Mod::SDT_ICE, 150);
-                    PPet->setModifier(Mod::SDT_WIND, 20);
-                    PPet->setModifier(Mod::SDT_EARTH, 20);
                     break;
                 case PETID_EARTHSPIRIT:
-                    PPet->setModifier(Mod::SDT_WIND, 150);
-                    PPet->setModifier(Mod::SDT_EARTH, 20);
-                    PPet->setModifier(Mod::SDT_THUNDER, 20);
                     break;
                 case PETID_THUNDERSPIRIT:
-                    PPet->setModifier(Mod::SDT_EARTH, 150);
-                    PPet->setModifier(Mod::SDT_THUNDER, 20);
-                    PPet->setModifier(Mod::SDT_WATER, 20);
                     break;
                 case PETID_WATERSPIRIT:
-                    PPet->setModifier(Mod::SDT_THUNDER, 150);
-                    PPet->setModifier(Mod::SDT_WATER, 20);
-                    PPet->setModifier(Mod::SDT_FIRE, 20);
                     PPet->m_Element = 0; // Water ie 0 ElementID for some reason
                     break;
                 case PETID_LIGHTSPIRIT:
-                    PPet->setModifier(Mod::SDT_DARK, 150);
-                    PPet->setModifier(Mod::SDT_LIGHT, 20);
                     PPet->SetMJob(JOB_WHM);
                     PPet->SetSJob(JOB_RDM);
                     break;
                 case PETID_DARKSPIRIT:
-                    PPet->setModifier(Mod::SDT_LIGHT, 150);
-                    PPet->setModifier(Mod::SDT_DARK, 20);
                     PPet->SetMJob(JOB_DRK);
                     PPet->SetSJob(JOB_RDM);
                     PPet->m_Element = 6; // Dark is 6 ElementID for some reason
@@ -1527,60 +1550,36 @@ namespace petutils
                     PPet->addModifier(Mod::LIGHTRES, petEleRes);
                     PPet->addModifier(Mod::DARKRES, petEleRes);
                     PPet->addModifier(Mod::ATTP, 30);
-                    PPet->setModifier(Mod::SDT_LIGHT, 150);
-                    PPet->setModifier(Mod::SDT_DARK, 20);
                     PPet->m_Element = 6; // Dark is 6 ElementID for some reason
                     break;
                 case PETID_IFRIT:
                     PPet->addModifier(Mod::DOUBLE_ATTACK, petDA);
-                    PPet->setModifier(Mod::SDT_WATER, 150);
-                    PPet->setModifier(Mod::SDT_ICE, 20);
-                    PPet->setModifier(Mod::SDT_FIRE, 20);
                     break;
                 case PETID_TITAN:
                     PPet->addModifier(Mod::ENMITY, 30);
                     PPet->addModifier(Mod::UDMGPHYS, -50);
-                    PPet->setModifier(Mod::SDT_WIND, 150);
-                    PPet->setModifier(Mod::SDT_EARTH, 20);
-                    PPet->setModifier(Mod::SDT_THUNDER, 20);
                     break;
                 case PETID_LEVIATHAN:
                     PPet->addModifier(Mod::ENMITY, 30);
                     PPet->addModifier(Mod::UDMGMAGIC, -50);
-                    PPet->setModifier(Mod::SDT_THUNDER, 150);
-                    PPet->setModifier(Mod::SDT_WATER, 20);
-                    PPet->setModifier(Mod::SDT_FIRE, 20);
                     PPet->m_Element = 0; // Water ie 0 ElementID for some reason
                     break;
                 case PETID_GARUDA:
                     PPet->addModifier(Mod::EVA, 50);
-                    PPet->setModifier(Mod::SDT_ICE, 150);
-                    PPet->setModifier(Mod::SDT_WIND, 20);
-                    PPet->setModifier(Mod::SDT_EARTH, 20);
                     break;
                 case PETID_SHIVA:
                     PPet->addModifier(Mod::MATT, petMAB);
-                    PPet->setModifier(Mod::SDT_FIRE, 150);
-                    PPet->setModifier(Mod::SDT_ICE, 20);
-                    PPet->setModifier(Mod::SDT_WIND, 20);
                     break;
                 case PETID_RAMUH:
                     PPet->addModifier(Mod::ACC, 50);
-                    PPet->setModifier(Mod::SDT_EARTH, 150);
-                    PPet->setModifier(Mod::SDT_THUNDER, 20);
-                    PPet->setModifier(Mod::SDT_WATER, 20);
                     break;
                 case PETID_DIABOLOS:
                     PPet->addModifier(Mod::MDEF, 24);
                     PPet->setModifier(Mod::DEFP, 30);
-                    PPet->setModifier(Mod::SDT_LIGHT, 150);
-                    PPet->setModifier(Mod::SDT_DARK, 20);
                     PPet->m_Element = 6; // Dark is 6 ElementID for some reason
                     break;
                 case PETID_CAIT_SITH:
                     PPet->addModifier(Mod::REGEN, petRegen);
-                    PPet->setModifier(Mod::SDT_DARK, 150);
-                    PPet->setModifier(Mod::SDT_LIGHT, 20);
                     break;
             }
 
