@@ -1376,6 +1376,11 @@ void InitializeMob(CMobEntity* PMob, CZone* PZone)
             ShowError("Mob %s level is 0! zoneid %d, poolid %d\n", PMob->GetName(), PMob->getZone(), PMob->m_Pool);
         }
     }
+
+    if (PMob->m_EcoSystem == SYSTEM_EMPTY)
+    {
+        PMob->setMobMod(MOBMOD_ECOSYSTEMLINK, 1);
+    }
 }
 
 /*
