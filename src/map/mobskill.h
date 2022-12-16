@@ -49,7 +49,7 @@ public:
     bool        isAoE() const;
     bool        isConal() const;
     bool        isSingle() const;
-    bool isJobAbility() const;
+    bool        isJobAbility() const;
     bool        isTwoHour() const;
     bool        isSpecial() const;
     bool        isAttackReplacement() const;
