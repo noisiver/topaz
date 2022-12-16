@@ -1,13 +1,14 @@
 -----------------------------------
 -- Area: La Vaule [S]
 --   NM: All-seeing Onyx Eye
------------------------------------
+require("scripts/globals/status")
 require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 require("scripts/globals/wotg_strongholds")
 -----------------------------------
 
 function onMobSpawn(mob)
-    tpz.wotg_strongholds.NMMods(mob)
+    tpz.wotg.NMMods(mob)
     mob:addMobMod(tpz.mobMod.HP_HEAL_CHANCE, 33)
 end
 
@@ -46,7 +47,8 @@ function onSpellPrecast(mob, spell)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

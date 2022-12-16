@@ -13,7 +13,16 @@ require("scripts/globals/items")
 tpz = tpz or {}
 tpz.wotg = tpz.wotg or {}
 
-tpz.wotg.MagianT1 = function(mob, player, isKiller)
+tpz.wotg.NMMods = function(mob)
+	mob:setDamage(140)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ACC, 25) 
+    mob:addMod(tpz.mod.EVA, 25)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
+end
+
+tpz.wotg.MagianT1 = function(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 200)
 	if isKiller and math.random(1,100) <= 24 then
         if math.random(2) == 2 then
@@ -24,7 +33,7 @@ tpz.wotg.MagianT1 = function(mob, player, isKiller)
 	end
 end
 
-tpz.wotg.MagianT2 = function(mob, player, isKiller)
+tpz.wotg.MagianT2 = function(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 300)
 	if isKiller and math.random(1,100) <= 24 then
         if math.random(2) == 2 then
@@ -35,14 +44,14 @@ tpz.wotg.MagianT2 = function(mob, player, isKiller)
 	end
 end
 
-tpz.wotg.MagianT3 = function(mob, player, isKiller)
+tpz.wotg.MagianT3 = function(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 500)
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(tpz.items.SILVER_MIRROR, mob)
 	end
 end
 
-tpz.wotg.MagianT4 = function(mob, player, isKiller)
+tpz.wotg.MagianT4 = function(mob, player, isKiller, noKiller)
     player:addCurrency("allied_notes", 1000)
 	if isKiller and math.random(1,100) <= 24 then 
 		player:addTreasure(tpz.items.CHUNK_OF_RIFTSAND, mob)

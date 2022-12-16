@@ -44,7 +44,7 @@ function onMobDespawn(mob)
     mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 471)
-    tpz.wotg.MagianT1(mob, player, isKiller)
 end

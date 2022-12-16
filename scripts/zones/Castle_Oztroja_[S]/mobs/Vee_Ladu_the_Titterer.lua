@@ -2,7 +2,7 @@
 -- Area: Castle Oztroja [S]
 --   NM: Vee Ladu the Titterer
 -- NIN/NIN with dual wield(100% DA)
--- Immune to Silence, Paralyze, Sleep, Bind, Grabity, Break
+-- Immune to Silence, Paralyze, Sleep, Bind, Gravity, Break
 -- Cannot miss Ninja enfeebles(capped MACC)
 -- Double Attacks 100% of the time? Maybe triple too? Need to check..
 -- Casts: Dokumori: Ni, Hojo: Ni, Kurayami: Ni, Jubaku: Ni, Utsusemi: Ni
@@ -18,10 +18,18 @@
 -- Used Mijin Gakure at 1%, died and dropped loot from it.
 -- Uses: Double Kick, Sweep, Feathered Furore
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+end
+
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

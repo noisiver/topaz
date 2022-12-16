@@ -55,13 +55,15 @@ function onRegionEnter(player, region)
     if region:GetRegionID() <= 6 then
         if not player:hasStatusEffect(tpz.effect.CURSE_I) and not player:hasStatusEffect(tpz.effect.SILENCE)
         and not player:hasStatusEffect(tpz.effect.MUTE)  then
-            player:addStatusEffect(tpz.effect.CURSE_I, 70, 0, 480)
+            player:addStatusEffect(tpz.effect.CURSE_I, 70, 0, math.random(240, 480))
             -- Display messages for being cursed
-            player:messageSpecial(math.random(7334, 7336))
+            player:messageSpecial(ID.text.YOU_FEEL_COLD)
+            player:messageSpecial(math.random(7335, 7336))
             if player:getQuestStatus(BASTOK, tpz.quest.id.bastok.THE_CURSE_COLLECTOR) == QUEST_ACCEPTED and player:getCharVar("cCollectCurse") == 0 then
                 player:setCharVar("cCollectCurse", 1)
             end
         else
+            player:messageSpecial(ID.text.YOU_FEEL_COLD)
             player:messageSpecial(ID.text.YOU_FEEL_A_LITTLE_LIGHT_HEADED)
         end
     end

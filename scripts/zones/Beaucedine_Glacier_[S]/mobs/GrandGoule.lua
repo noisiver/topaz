@@ -32,7 +32,7 @@ function onMobWeaponSkillPrepare(mob, target)
    return math.random(2424, 2425)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 538)
-    tpz.wotg.MagianT1(mob, player, isKiller)
 end

@@ -2,7 +2,7 @@
 -- Area: Castle Oztroja [S]
 --   NM: Fleshgnasher
 -- THF/THF
--- Immune to Sleep, Bind, Grabity, Break
+-- Immune to Sleep, Bind, Gravity, Break
 -- 150 Regain
 -- 2s delay(half normal mobs)
 -- 100% HP: :50 - > :25
@@ -10,10 +10,18 @@
 -- Uses(Below 33%): Emetic Discharge and the above.
 -- Uses Perfect Doege sometime below 50% HP
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+end
+
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

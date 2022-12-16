@@ -1,5 +1,5 @@
 -- THF/THF
--- Immune to Paralyze, Sleep, Bind, Grabity, Break
+-- Immune to Paralyze, Sleep, Bind, Gravity, Break
 -- Does not RA in melee range
 -- Runs away and stays at range using Ore Toss every 10 seconds
 -- Runs away to ~23.5 yalms then runs back to ~13.5 if you run to him, but if you chase again after he won't run away again for a while
@@ -11,3 +11,20 @@
 -- Summoner Timer (9% HP): 16:42 - > 16:53 -> 17:03 -> 17:13 - > 17:23 - > 17:33 - > 17:43 10s
 -- Uses Diamond Shell, Ore Lob, Head Butt, Shell Guard, HOwl
 -- Used Pefect Dodge at 70%ish
+-----------------------------------
+-- Area: Beadeaux [S]
+--   NM: Ba'Tho Mercifulheart
+-----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
+mixins = {require("scripts/mixins/job_special")}
+-----------------------------------
+
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+end
+
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
+end

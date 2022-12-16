@@ -2,7 +2,7 @@
 -- Area: Castle Oztroja [S]
 --   NM: Maa Illmu the Bestower
 -- WHM/WHM
--- Immune to Paralyze, Sleep, Bind, Grabity, Break
+-- Immune to Paralyze, Sleep, Bind, Gravity, Break
 -- Immune to spell interrupts
 -- Casts: Haste, Protect IV, Shell IV, Cure V. Will only spam Cure V if all buffs are on.
 -- Slow makes him cast haste even if it won't overwrite.
@@ -15,15 +15,18 @@
 --  Test what spells it casts at what HPP.
 --  Immune to spell interruption from melee attacks. Only stuns and silence will interrupt it.
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
-
-function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 6)
-    mob:setMod(tpz.mod.SILENCERES, 100)
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 12)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

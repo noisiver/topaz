@@ -20,7 +20,7 @@ function onMobSpawn(mob)
 	mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 505)
-    tpz.wotg.MagianT1(mob, player, isKiller)
 end

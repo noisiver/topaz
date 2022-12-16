@@ -8,10 +8,18 @@
 -- Vials stay alive spamming Noxious Spray (Poison for 30/tick). Can only have 1 vial active max.
 -- 9 dmg did 8% of a vials HP so ~110 HP
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+end
+
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

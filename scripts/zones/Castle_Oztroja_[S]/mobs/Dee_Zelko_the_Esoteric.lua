@@ -4,7 +4,7 @@
 -- BLM/BLM
 -- Immune to Silence, Paralyze, Sleep, Bind, Gravity, Break
 -- 100% Fast Cast
--- Cster Timer 8s
+-- Cast Timer 8s
 -- Casts Aero spells, Sleepga II, Stun and Bio III
 -- Sleepga II and Stun never misses and always lands full duration.
 -- Tier-1 Aero and Aeroga, but gradually increases magic tier as its HP declines, until it starts spamming insta-cast Tornado II.
@@ -15,12 +15,18 @@
 -- Tornado II and Aeroga III at 14%
 -- Uses Manafont below 50%
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 14)
-    mob:setMod(tpz.mod.UFASTCAST, 100)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 12)
+end
+
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
 end
 
 function onMobFight(mob, target)
@@ -43,7 +49,8 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

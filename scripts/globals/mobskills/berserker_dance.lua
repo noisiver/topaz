@@ -30,6 +30,11 @@ function onMobWeaponSkill(target, mob, skill)
     MobBuffMove(mob, typeEffect2, 50, 0, duration)
     mob:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, 1, 0, 180)
     skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, duration))
-    -- TODO: Undispellable
+
+    local effect1 = mob:getStatusEffect(typeEffect)
+    effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
+    local effect2 = mob:getStatusEffect(typeEffect2)
+    effect2:unsetFlag(tpz.effectFlag.DISPELABLE)
+
     return typeEffect
 end

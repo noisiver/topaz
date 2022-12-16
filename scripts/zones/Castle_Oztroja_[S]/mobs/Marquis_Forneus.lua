@@ -2,7 +2,7 @@
 -- Area: Castle Oztroja [S]
 --   NM: Marquis Forneus
 -- DRK/DRK
--- Immune to Silence, Paralyze, Sleep, Bind, Grabity, Break
+-- Immune to Silence, Paralyze, Sleep, Bind, Gravity, Break
 -- Extremely high weapon damage and attack. Hit me for 600 naked, and hit me for 250 with 462 defense
 -- High ACC
 -- En-absorb(No msg in chat log). Not 100% proc
@@ -15,10 +15,17 @@
 -- Uses: Soul Drain, Condemnation, Hecatomb Wave, Demonic Howl
 -- Uses Blood Weapon sometime below 50% HP
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

@@ -26,7 +26,7 @@ function onMobWeaponSkill(target, mob, skill)
 	end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 540)
-    tpz.wotg.MagianT1(mob, player, isKiller)
 end

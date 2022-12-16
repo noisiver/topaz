@@ -14,7 +14,9 @@
     IMMUNITY_DARK_SLEEP  = 0x1000, // 4096
     IMMUNITY_PETRIFY     = 0x2000, // 8192
 
+    Sleep, Bind, Gravity, Break = 8199
     Paralyze, Sleep, Bind, Gravity, Break = 8231
+    Silence, Paralyze, Sleep, Bind, Gravity, Break = 8247
     Sleep / Grav / Bind / Silence = 23
     All But Requiem/Light Sleep/Dark Sleep = 1023
     All but Light Sleep/Dark Sleep = 2047

@@ -2,7 +2,7 @@
 -- Area: Castle Oztroja [S]
 --   NM: Asterion
 -- MNK/MNK
--- Immune to Sleep, Bind, Grabity, Break
+-- Immune to Sleep, Bind, Gravity, Break
 -- Counters, Guards, Kicks.
 -- 100-36% Uses Frightful Roar, Back Swish, Unblest Armor, Triclip
 -- 36%-0% uses Frightful Roar, Mow, Triclip, and Mortal Ray
@@ -10,8 +10,14 @@
 -- Gains 100/tick regain below 25% HP. Uses a TP move every 30s
 -- Uses Hundred Fists randomly below 50%
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+end
 
 function onMobFight(mob, target)
     local hpp = mob:getHPP()
@@ -21,7 +27,8 @@ function onMobFight(mob, target)
     mob:setDelay(1700 + hpp * 28)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

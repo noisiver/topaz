@@ -24,7 +24,7 @@ function onMobWeaponSkillPrepare(mob, target)
     return 2175 -- Only uses Nox Blast
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 486)
-    tpz.wotg.MagianT1(mob, player, isKiller)
 end

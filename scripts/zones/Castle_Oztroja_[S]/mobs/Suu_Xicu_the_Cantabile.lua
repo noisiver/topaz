@@ -12,8 +12,16 @@
 -- Does not despawn adds on death.
 
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
+
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
+end
 
 function onMobRoam(mob, target)
     local mobId = mob:getID()
@@ -75,19 +83,12 @@ function onMobFight(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
+
 function onMobDespawn(mob)
-    local mobId = mob:getID()
-
-    for i = mobId + 5, mobId + 8 do
-        local pet = GetMobByID(i)
-        if pet:isSpawned() then
-            DespawnMob(i)
-        end
-    end
-
     UpdateNMSpawnPoint(mob:getID())
     mob:setRespawnTime(math.random(14400, 18000)) -- 4 to 5 hours
 end

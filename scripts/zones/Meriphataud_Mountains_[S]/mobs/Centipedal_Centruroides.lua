@@ -30,7 +30,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.POISON, {power = 30})
 end
 
-function onMobDeath(mob, player, isKiller)
-    tpz.wotg.MagianT1(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 528)
 end

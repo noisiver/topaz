@@ -12,6 +12,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
+	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)
 end
 
@@ -30,7 +31,6 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.SDT_WATER, 10)
     mob:setMod(tpz.mod.SDT_LIGHT, 85)
     mob:setMod(tpz.mod.SDT_DARK, 5)
-	mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 8000) -- 9k Gil
     mob:setMobMod(tpz.mobMod.GIL_MAX, 9000) 
