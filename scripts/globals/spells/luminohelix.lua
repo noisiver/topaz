@@ -50,8 +50,6 @@ function onSpellCast(caster, target, spell)
 
     local duration = getHelixDuration(caster) + caster:getMod(tpz.mod.HELIX_DURATION)
 
-    duration = duration * (resist/2)
-
     if (dot > 0) then
         target:addStatusEffect(tpz.effect.HELIX, dot, 3, duration)
     end
