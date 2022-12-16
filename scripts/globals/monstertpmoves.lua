@@ -512,10 +512,10 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
         if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
             resist = utils.clamp(resist, 0.5, 1.0)
         end
-    end
 
-    if SDT <= 50 then -- .5 or below SDT drops a resist tier
-        resist = resist / 2
+        if SDT <= 50 then -- .5 or below SDT drops a resist tier
+            resist = resist / 2
+        end
     end
 
     if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips

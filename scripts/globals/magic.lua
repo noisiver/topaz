@@ -682,15 +682,10 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus)
     local res = getMagicResist(p, element)
 
-
-    if SDT <= 50 then -- .5 or below SDT drops a resist tier
-        res = res / 2
-    end
-
     if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
-	
+
     if target:isPC() and element ~= nil and element > 0 and element < 9 then
         -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
         local eleres = target:getMod(element+53)
@@ -712,10 +707,6 @@ function applyResistanceAbility(player, target, element, skill, bonus)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         return 1/16
-    end
-
-    if SDT <= 50 then -- .5 or below SDT drops a resist tier
-        res = res / 2
     end
 
     if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
@@ -745,11 +736,11 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
         if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
             res = utils.clamp(res, 0.5, 1.0)
         end
-    end
 
-    --printf("res before SDT %d", res * 100)
-    if SDT <= 50 then -- .5 or below SDT drops a resist tier
-        res = res / 2
+        --printf("res before SDT %d", res * 100)
+        if SDT <= 50 then -- .5 or below SDT drops a resist tier
+            res = res / 2
+        end
     end
 
     if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
@@ -762,7 +753,7 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
         if     eleres < 0  and res < 0.5  then res = 0.5
         elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
-    -- printf("res %f", res)
+    -- printf("res was %f", res)
     return res
 end
 
