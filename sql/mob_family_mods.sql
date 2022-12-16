@@ -169,9 +169,9 @@ INSERT INTO `mob_family_mods` VALUES (180,62,25,0);		-- Marid +25% Attack
 INSERT INTO `mob_family_mods` VALUES (89,62,25,0);		-- Draugar +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (252,62,25,0);		-- Vampyr +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (191,62,25,0);		-- Orobon +25% Attack 
-INSERT INTO `mob_family_mods` VALUES (1,62,25,0);		-- Acrolith +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (1,62,25,0);		  -- Acrolith +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (132,62,25,0);		-- Gnole +25% Attack 
-INSERT INTO `mob_family_mods` VALUES (6,62,25,0);		-- Amphiptere +25% Attack 
+INSERT INTO `mob_family_mods` VALUES (6,62,25,0);		  -- Amphiptere +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (207,62,25,0);		-- Rafflesia +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (211,62,25,0);		-- Ruszor +25% Attack 
 INSERT INTO `mob_family_mods` VALUES (944,62,25,0);		-- WotG Orc +25% Attack 
@@ -184,17 +184,17 @@ INSERT INTO `mob_family_mods` VALUES (213,23,-20,0);	-- Sahagin -20 Attack
 INSERT INTO `mob_family_mods` VALUES (272,63,20,0);		-- Zdei +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (233,63,20,0);		-- Soulflayer +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (74,63,20,0);		-- Corse +20% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (2,63,20,0);		-- Adamantoise +20% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (2,63,20,0);		  -- Adamantoise +20% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (275,63,20,0);		-- Mini-Adamantoise +20% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (253,63,25,0);	    -- Wamoura +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (254,63,25,0);	    -- Wamouracampa +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (252,63,25,0);	    -- Vampyr +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (191,63,25,0);	    -- Orobon +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (253,63,25,0);	  -- Wamoura +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (254,63,25,0);	  -- Wamouracampa +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (252,63,25,0);	  -- Vampyr +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (191,63,25,0);	  -- Orobon +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (27,63,25,0);		-- Apkallu +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (246,63,25,0);	    -- Troll +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (209,63,25,0);	    -- Rampart +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (246,63,25,0);	  -- Troll +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (209,63,25,0);	  -- Rampart +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (63,63,25,0);	 	-- Chariot +25% Defense Bonus
-INSERT INTO `mob_family_mods` VALUES (180,63,25,0);	    -- Marid +25% Defense Bonus
+INSERT INTO `mob_family_mods` VALUES (180,63,25,0);	  -- Marid +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (211,63,25,0);		-- Ruszor +25% Defense Bonus
 INSERT INTO `mob_family_mods` VALUES (942,63,25,0);		-- WotG Quadav +25% Defense Bonus
 
