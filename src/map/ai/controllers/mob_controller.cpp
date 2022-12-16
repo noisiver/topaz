@@ -431,12 +431,13 @@ bool CMobController::TryCastSpell()
     }
 
     m_LastMagicTime = m_Tick - std::chrono::milliseconds(tpzrand::GetRandomNumber(PMob->getBigMobMod(MOBMOD_MAGIC_COOL) / 2));
+    float currentDistance = distance(PMob->loc.p, PTarget->loc.p);
 
     if (PMob->m_HasSpellScript)
     {
         // skip logic and follow script
         auto chosenSpellId = luautils::OnMonsterMagicPrepare(PMob, PTarget);
-        if (chosenSpellId)
+        if (chosenSpellId && currentDistance <= 20.4)
         {
             CastSpell(chosenSpellId.value());
             return true;
@@ -457,7 +458,7 @@ bool CMobController::TryCastSpell()
             chosenSpellId = PMob->SpellContainer->GetSpell();
         }
 
-        if (chosenSpellId)
+        if (chosenSpellId && currentDistance <= 20.4)
         {
             //#TODO: select target based on spell type
             CastSpell(chosenSpellId.value());
@@ -602,7 +603,7 @@ void CMobController::DoCombatTick(time_point tick)
     {
         return;
     }
-    else if (IsSpellReady(currentDistance) && TryCastSpell())
+    else if (IsSpellReady(currentDistance) && TryCastSpell() && currentDistance <= 20.4)
     {
         return;
     }
