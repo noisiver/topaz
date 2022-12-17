@@ -31,12 +31,12 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 *  																		*
 *																		*
 ************************************************************************/
-
+class CCharEntity;
 class CAddtoEquipSet : public CBasicPacket
 {
 public:
 
-    CAddtoEquipSet(uint8* data);
+    CAddtoEquipSet(CCharEntity* PChar, uint8* data);
 };
 
 #endif
