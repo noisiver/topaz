@@ -1013,48 +1013,58 @@ void SmallPacket0x01C(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 *                                                                       *
 ************************************************************************/
 
-void SmallPacket0x028(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x028(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
-    int32  quantity = data.ref<uint8>(0x04);
+    int32 quantity = data.ref<uint8>(0x04);
     uint8 container = data.ref<uint8>(0x08);
-    uint8    slotID = data.ref<uint8>(0x09);
-
-   if (container >= CONTAINER_ID::MAX_CONTAINER_ID)
-    {
-        ShowExploit(CL_YELLOW "SmallPacket0x028: Invalid container ID passed to packet %u by %s\n" CL_RESET, container, PChar->GetName());
-        return;
-    }
+    uint8 slotID = data.ref<uint8>(0x09);
 
     CItem* PItem = PChar->getStorage(container)->GetItem(slotID);
-
-    if (PItem != nullptr && !PItem->isSubType(ITEM_LOCKED))
+    if (PItem == nullptr)
     {
-        uint16 ItemID = PItem->getID();
-        // Break linkshell if the main shell was disposed of.
-        CItemLinkshell* ItemLinkshell = dynamic_cast<CItemLinkshell*>(PItem);
-        if (ItemLinkshell && ItemLinkshell->GetLSType() == LSTYPE_LINKSHELL)
-        {
-            uint32 lsid = ItemLinkshell->GetLSID();
-            CLinkshell* PLinkshell = linkshell::GetLinkshell(lsid);
-            if (!PLinkshell)
-            {
-                PLinkshell = linkshell::LoadLinkshell(lsid);
-            }
-            PLinkshell->BreakLinkshell((int8*)PLinkshell->getName(), false);
-            linkshell::UnloadLinkshell(lsid);
-        }
-
-        if (charutils::UpdateItem(PChar, container, slotID, -quantity) != 0)
-        {
-            // ShowNotice(CL_CYAN"Player %s DROPPING itemID %u (quantity: %u)\n" CL_RESET, PChar->GetName(), ItemID, quantity);
-            PChar->pushPacket(new CMessageStandardPacket(nullptr, ItemID, quantity, MsgStd::ThrowAway));
-            PChar->pushPacket(new CInventoryFinishPacket());
-        }
         return;
     }
-    ShowExploit(CL_YELLOW "SmallPacket0x028: Attempt of removal nullptr or LOCKED item from slot %u\n" CL_RESET, slotID);
-    return;
+
+    uint16 ItemID = PItem->getID();
+
+    if (container >= CONTAINER_ID::MAX_CONTAINER_ID)
+    {
+        ShowWarning("SmallPacket0x028: Invalid container ID passed to packet %u by %s", container, PChar->GetName());
+        return;
+    }
+
+    if (PItem->isSubType(ITEM_LOCKED))
+    {
+        ShowWarning("SmallPacket0x028: Attempt of removal of LOCKED item from slot %u", slotID);
+        return;
+    }
+
+    if (PItem->isStorageSlip())
+    {
+        int slipData = 0;
+        for (int i = 0; i < CItem::extra_size; i++)
+        {
+            slipData += PItem->m_extra[i];
+        }
+
+        if (slipData != 0)
+        {
+            PChar->pushPacket(new CMessageStandardPacket(MsgStd::CannotBeProcessed));
+            return;
+        }
+    }
+
+    // Linkshells (other than Linkpearls and Pearlsacks) and temporary items cannot be stored in the Recycle Bin.
+    // TODO: Are there any special messages here?
+    if (PItem->isType(ITEM_LINKSHELL) || container == CONTAINER_ID::LOC_TEMPITEMS)
+    {
+        charutils::DropItem(PChar, container, slotID, quantity, ItemID);
+        return;
+    }
+
+    // Otherwise, to the recycle bin!
+    charutils::AddItemToRecycleBin(PChar, container, slotID, quantity);
 }
 
 /************************************************************************

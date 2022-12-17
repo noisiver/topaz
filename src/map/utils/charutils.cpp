@@ -549,6 +549,9 @@ namespace charutils
             PChar->getStorage(LOC_WARDROBE6)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 11));
             PChar->getStorage(LOC_WARDROBE7)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 12));
             PChar->getStorage(LOC_WARDROBE8)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 13));
+
+            // NOTE: Not from the db, hard-coded to 10!
+            PChar->getStorage(LOC_RECYCLEBIN)->AddBuff(10);
         }
 
         fmtQuery = "SELECT face, race, size, head, body, hands, legs, feet, main, sub, ranged "
@@ -834,6 +837,7 @@ namespace charutils
         PChar->m_fomorHate = GetCharVar(PChar, "FOMOR_HATE");
 
         charutils::LoadEquip(PChar);
+        charutils::EmptyRecycleBin(PChar);
         PChar->health.hp = zoneutils::IsResidentialArea(PChar) ? PChar->GetMaxHP() : HP;
         PChar->health.mp = zoneutils::IsResidentialArea(PChar) ? PChar->GetMaxMP() : MP;
         PChar->UpdateHealth();
@@ -1502,6 +1506,17 @@ namespace charutils
             }
         }
         return ItemID;
+    }
+
+    // A wrapper around UpdateItem, with some packets
+    void DropItem(CCharEntity* PChar, uint8 container, uint8 slotID, int32 quantity, uint16 ItemID)
+    {
+        if (charutils::UpdateItem(PChar, container, slotID, -quantity) != 0)
+        {
+            ShowNotice("Player %s DROPPING itemID: %s (%u) quantity: %u", PChar->GetName(), itemutils::GetItem(ItemID)->getName(), ItemID, quantity);
+            PChar->pushPacket(new CMessageStandardPacket(nullptr, ItemID, quantity, MsgStd::ThrowAway));
+            PChar->pushPacket(new CInventoryFinishPacket());
+        }
     }
 
     /************************************************************************
@@ -2196,6 +2211,91 @@ namespace charutils
                 break;
         }
     }
+
+        void AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity)
+    {
+        CItem*      PItem          = PChar->getStorage(container)->GetItem(slotID);
+        const char* Query          = "UPDATE char_inventory SET location = %u, slot = %u WHERE charid = %u AND location = %u AND slot = %u;";
+        auto*       RecycleBin     = PChar->getStorage(LOC_RECYCLEBIN);
+        auto*       OtherContainer = PChar->getStorage(container);
+
+        if (PItem == nullptr)
+        {
+            return;
+        }
+
+        // Try and insert
+        uint8 NewSlotID = PChar->getStorage(LOC_RECYCLEBIN)->InsertItem(PItem);
+        if (NewSlotID != ERROR_SLOTID)
+        {
+            if (Sql_Query(SqlHandle, Query, LOC_RECYCLEBIN, NewSlotID, PChar->id, container, slotID) != SQL_ERROR && Sql_AffectedRows(SqlHandle) != 0)
+            {
+                // Move successful, delete original item
+                OtherContainer->InsertItem(nullptr, slotID);
+
+                // Send update packets
+                PChar->pushPacket(new CInventoryItemPacket(nullptr, container, slotID));
+                PChar->pushPacket(new CInventoryItemPacket(PItem, LOC_RECYCLEBIN, NewSlotID));
+                PChar->pushPacket(new CMessageStandardPacket(nullptr, PItem->getID(), quantity, MsgStd::ThrowAway));
+            }
+            else
+            {
+                // Move not successful, put things back how they were
+                RecycleBin->InsertItem(nullptr, NewSlotID);
+                OtherContainer->InsertItem(PItem, slotID);
+            }
+        }
+        else // Bin is full
+        {
+            // Evict recycle bin slot 1
+            RecycleBin->InsertItem(nullptr, 1);
+            Sql_Query(SqlHandle, "DELETE FROM char_inventory WHERE charid = %u AND location = %u AND slot = %u;",
+                       PChar->id, LOC_RECYCLEBIN, 1);
+
+            // Move everything around to accomodate
+            for (int i = 2; i <= 10; ++i)
+            {
+                // Update storage
+                CItem* PMovingItem = RecycleBin->GetItem(i);
+                RecycleBin->InsertItem(PMovingItem, i - 1);
+
+                // Update db
+                if (Sql_Query(SqlHandle, Query, LOC_RECYCLEBIN, i - 1, PChar->id, LOC_RECYCLEBIN, i) == SQL_ERROR || Sql_AffectedRows(SqlHandle) == 0)
+                {
+                    ShowError("Problem moving Recycle Bin items! (%s - %s)", PChar->GetName(), PItem->getName());
+                }
+            }
+
+            // Move item from original container to recycle bin
+            OtherContainer->InsertItem(nullptr, slotID);
+            RecycleBin->InsertItem(PItem, 10);
+            if (Sql_Query(SqlHandle, Query, LOC_RECYCLEBIN, 10, PChar->id, container, slotID) == SQL_ERROR || Sql_AffectedRows(SqlHandle) == 0)
+            {
+                ShowError("Problem moving Recycle Bin items! (%s - %s)", PChar->GetName(), PItem->getName());
+            }   
+
+            // Send update packets
+            PChar->pushPacket(new CInventoryItemPacket(nullptr, container, slotID));
+            for (int i = 1; i <= 10; ++i)
+            {
+                CItem* PUpdatedItem = RecycleBin->GetItem(i);
+                PChar->pushPacket(new CInventoryItemPacket(PUpdatedItem, LOC_RECYCLEBIN, i));
+            }
+            PChar->pushPacket(new CMessageStandardPacket(nullptr, PItem->getID(), quantity, MsgStd::ThrowAway));
+        }
+        PChar->pushPacket(new CInventoryFinishPacket());
+    }
+
+    void EmptyRecycleBin(CCharEntity* PChar)
+    {
+        CItemContainer* recycleBin = PChar->getStorage(LOC_RECYCLEBIN);
+        const char*     Query      = "DELETE FROM char_inventory WHERE charid = %u AND location = 17;";
+        if (Sql_Query(SqlHandle, Query, PChar->id) != SQL_ERROR)
+        {
+            recycleBin->Clear();
+        }
+    }
+
 
     /************************************************************************
     *                                                                       *
