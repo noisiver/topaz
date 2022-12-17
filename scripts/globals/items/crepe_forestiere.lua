@@ -25,17 +25,15 @@ function onItemUse(target)
 end
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.MND, 2)
-    target:addMod(tpz.mod.FOOD_MPP, 10)
-    target:addMod(tpz.mod.FOOD_MP_CAP, 35)
-    target:addMod(tpz.mod.MACC, 15)
-    target:addMod(tpz.mod.MDEF, 6)
+    target:addMod(tpz.mod.MND, 3)
+    target:addMod(tpz.mod.CURE_POTENCY, 7)
+    target:addMod(tpz.mod.ENMITY, -1)
+    target:addMod(tpz.mod.MPHEAL, 3)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.MND, 2)
-    target:delMod(tpz.mod.FOOD_MPP, 10)
-    target:delMod(tpz.mod.FOOD_MP_CAP, 35)
-    target:delMod(tpz.mod.MACC, 15)
-    target:delMod(tpz.mod.MDEF, 6)
+    target:delMod(tpz.mod.MND, 3)
+    target:delMod(tpz.mod.CURE_POTENCY, 7)
+    target:delMod(tpz.mod.ENMITY, -1)
+    target:delMod(tpz.mod.MPHEAL, 3)
 end
