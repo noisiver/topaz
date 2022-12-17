@@ -1135,7 +1135,7 @@ namespace battleutils
                     tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::PARALYZERESTRAIT))
                     //printf("Spikes resist inside ice spikes function %f \n", resist);
                 {
-                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, (uint32)(30 * (float)resist)));
+                        PAttacker->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_PARALYSIS, EFFECT_PARALYSIS, 20, 0, (uint32)(45 * (float)resist)));
                 }
                 break;
             }
