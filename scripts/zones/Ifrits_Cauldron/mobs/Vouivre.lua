@@ -23,7 +23,9 @@ function onMobFight(mob, target)
     -- Cannot be pulled out of his spawn area. He will despawn.
     if mob:checkDistance(mob:getSpawnPos()) > 30 then
         DespawnMob(mob:getID())
-        mob:setRespawnTime(30) 
+        mob:setRespawnTime(30)
+    else
+        DisallowRespawn(mob:getID(), true)
     end
 end
 
