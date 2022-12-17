@@ -41,6 +41,18 @@ function onMobEngaged(mob, target)
         DespawnMob(v)
         DisallowRespawn(v, true)
     end
+    -- Reset stats / variables on disengage
+    mob:setMod(tpz.mod.SDT_WATER, 50)
+    mob:setMod(tpz.mod.SDT_LIGHT, 50)
+    mob:setMod(tpz.mod.SDT_EARTH, 50)
+    mob:setMod(tpz.mod.SDT_WIND, 50)
+    mob:setMod(tpz.mod.SDT_THUNDER, 50)
+    mob:setMod(tpz.mod.SDT_DARK, 50)
+    mob:setMod(tpz.mod.SDT_FIRE, 50)
+    mob:setMod(tpz.mod.SDT_ICE, 50)
+    mob:setLocalVar("twohourTime", 0)
+    mob:setLocalVar("wingsTime", 0)
+    mob:setLocalVar("wingsDown", 0)
 end
 
 function onMobFight(mob, target)
@@ -51,10 +63,10 @@ function onMobFight(mob, target)
     local sdtRNG = mob:getLocalVar("sdtRNG")
 
     if twohourTime == 0 then
-        printf("Setting two hour time");
+        -- printf("Setting two hour time");
         mob:setLocalVar("twohourTime", math.random(30, 45))
     elseif battletime >= twohourTime and wingsDown == 0 then
-        printf("Wings Up");
+        -- printf("Wings Up");
         mob:useMobAbility(624) -- 2 hour "cloud" animation
         local zonePlayers = mob:getZone():getPlayers()
         for _, zonePlayer in pairs(zonePlayers) do
@@ -66,7 +78,7 @@ function onMobFight(mob, target)
     end
 
     if battletime >= wingsTime and wingsDown == 1 then
-        printf("Wings Down");
+        -- printf("Wings Down");
         mob:setLocalVar("twohourTime", battletime + math.random(90, 120))
         mob:setLocalVar("wingsTime", 0)
         mob:setLocalVar("wingsDown", 0)
