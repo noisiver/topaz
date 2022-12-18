@@ -45,9 +45,11 @@ function onMobSpawn(mob)
         mob:setMod(tpz.mod.SDT_DARK, 5)
         mob:setMod(tpz.mod.SDT_LIGHT, 0150)
     end
+    mob:setMod(tpz.mod.REFRESH, 50)
     mob:setMobMod(tpz.mobMod.NO_STANDBACK, 1)
     mob:setMobMod(tpz.mobMod.NO_AGGRO, 1)
-    mob:setMod(tpz.mod.REFRESH, 50) 
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobRoam(mob)
@@ -79,7 +81,7 @@ function onMobFight(mob, target)
 end
 
 function onMonsterMagicPrepare(mob,target)
-    if mob:AnimationSub() == 4 then
+    if mob:AnimationSub() == 0 or mob:AnimationSub() == 4 then
         if mob:getMainJob() == tpz.job.WHM then
             local spell = math.random(1, 3)
             if spell == 1 then
