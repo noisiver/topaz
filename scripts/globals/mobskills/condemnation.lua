@@ -12,6 +12,9 @@ function onMobSkillCheck(target, mob, skill)
     if (mob:isInDynamis() or zone == 5 or zone == 137 or zone == 138 or zone == 155) then
         return 0
     end
+    if mob:getPool() == 2574 then -- Marquis_Forneus
+        return 0
+    end
     return 1
 end
 

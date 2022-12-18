@@ -20,11 +20,30 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
-    local hpp = mob:getHPP()
+    local hp = mob:getHPP()
 
     -- As it gets low, its attack speed increases to near perma-hundred fists.
     -- hundred fists is 1700 delay. this formula will range between 4500 and 1700.
-    mob:setDelay(1700 + hpp * 28)
+    mob:setDelay(1700 + hp * 28)
+
+    -- Gains 100/tick regain below 25% HP. Uses a TP move every 30s
+    if (hp < 25) then
+        mob:setMod(tpz.mod.REGAIN, 100)
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = {498, 499, 501, 503}
+   --   Triclip, Back Swish, Frightful Roar, Unblessed Armor
+   local tpMoves2 = {498, 500, 501, 502}
+   --   Triclip, Mow, Frightful Roar, Mortal Ray
+   local hp = mob:getHPP()
+
+   if (hp > 36) then
+        return tpMoves[math.random(#tpMoves)]
+    else
+        return tpMoves2[math.random(#tpMoves2)]
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
@@ -33,5 +52,5 @@ end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+    mob:setRespawnTime(7200) -- 2 hours
 end

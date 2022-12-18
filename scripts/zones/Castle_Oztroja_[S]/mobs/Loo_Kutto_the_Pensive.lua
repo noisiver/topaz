@@ -19,11 +19,36 @@ function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
 end
 
+function onMobFight(mob, target)
+    local hp = mob:getHPP()
+
+    -- Uses TP moves every 10 seconds at 50-100% HP, then every 5 seconds below 50.
+    if (hp < 25) then
+        mob:setMod(tpz.mod.REGAIN, 200)
+    elseif (hp < 50) then
+        mob:setMod(tpz.mod.REGAIN, 600)
+    else
+        mob:setMod(tpz.mod.REGAIN, 300)
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = {617, 618, 620, 2205}
+   --  Feather Storm, Double Kick, Sweep, Feathered Furore
+
+   -- Uses Dark Invocation x3 during Meikyio Shisui
+   if mob:hasStatusEffect(tpz.effect.MEIKYO_SHISUI) then
+        return 2206
+   else
+      return tpMoves[math.random(#tpMoves)]
+   end
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+    mob:setRespawnTime(7200) -- 2 hours
 end

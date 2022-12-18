@@ -141,7 +141,8 @@ tpz.mob.additionalEffect =
     FLASH      = 28,
     RECOVER_MP = 29,
     SLEEP      = 30,
-    DOOM       = 31
+    DOOM       = 31,
+    BUFF_DRAIN = 32,
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -474,12 +475,12 @@ local additionalEffects =
         minDuration = 1,
         maxduration = 30,
     },
-    [tpz.mob.ae.RECOVER_MP] =
+    [tpz.mob.ae.RECOVER_MP] = -- TODO: Test
         -- Used by Achamoth. Additional effect: Achamoth recovers 30 MP.
     {
         chance = 100,
         ele = tpz.magic.ele.DARK,
-        sub = tpz.subEffect.MP_DRAIN,
+        sub = 0,
         msg = tpz.msg.basic.ADD_EFFECT_MP_HEAL,
         power = 30,
         code = function(mob, target, power) mob:addMP(power) end,
@@ -511,6 +512,15 @@ local additionalEffects =
         minDuration = 0,
         maxduration = 30,
         tick = 3,
+    },
+    [tpz.mob.ae.BUFF_DRAIN] = -- TODO: Test
+    {
+        chance = 20,
+        ele = tpz.magic.ele.DARK,
+        sub = 0,
+        mod = tpz.mod.INT,
+        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        code = function(mob, target, power) mob:stealStatusEffect(target) end,
     },
 }
 

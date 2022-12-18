@@ -22,11 +22,14 @@ mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobInitialize(mob)
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 12)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 8)
 end
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMod(tpz.mod.UFASTCAST, 100)
+    mob:setMod(tpz.mod.ENFEEBLE, 9999)
+    mob:setMod(tpz.mod.DARK, 9999)
 end
 
 function onMobFight(mob, target)
@@ -34,13 +37,13 @@ function onMobFight(mob, target)
     -- as its HP declines, until it starts spamming insta-cast Tornado II.
     local hpp = mob:getHPP()
 
-    if hpp < 25 then
+    if hpp < 15 then
         mob:setSpellList(244)
-    elseif hpp < 40 then
+    elseif hpp < 35 then
         mob:setSpellList(243)
-    elseif hpp < 55 then
+    elseif hpp < 45 then
         mob:setSpellList(242)
-    elseif hpp < 70 then
+    elseif hpp < 65 then
         mob:setSpellList(241)
     elseif hpp < 85 then
         mob:setSpellList(240)
@@ -55,5 +58,5 @@ end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+    mob:setRespawnTime(7200) -- 2 hours
 end

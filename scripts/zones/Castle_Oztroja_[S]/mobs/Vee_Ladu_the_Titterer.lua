@@ -4,7 +4,7 @@
 -- NIN/NIN with dual wield(100% DA)
 -- Immune to Silence, Paralyze, Sleep, Bind, Gravity, Break
 -- Cannot miss Ninja enfeebles(capped MACC)
--- Double Attacks 100% of the time? Maybe triple too? Need to check..
+-- Double Attacks 100% of the time
 -- Casts: Dokumori: Ni, Hojo: Ni, Kurayami: Ni, Jubaku: Ni, Utsusemi: Ni
 -- Cast Timer: 10s
 -- Ranged Attack Timer(In melee range also): 10s
@@ -14,18 +14,58 @@
 -- 60%-40%: 3 Clones
 -- 40- ???: 4 Clones
 -- Clones have exact same stats/immunities/spellcasting/ra AI etc as main boss except ~200 HP
--- Clones sit at 1 HP thend espawn after a few seconds
+-- Clones sit at 1 HP then despawn after a few seconds
 -- Used Mijin Gakure at 1%, died and dropped loot from it.
 -- Uses: Double Kick, Sweep, Feathered Furore
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 require("scripts/globals/wotg")
-mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
+
+function onMobInitialize(mob)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
+    mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 10)
+end
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
+    mob:setMod(tpz.mod.NINJUTSU, 9999)
+    mob:setUnkillable(true)
+end
+
+function onMobFight(mob, target)
+    local hp = mob:getHPP()
+
+    mob:addListener("MAGIC_STATE_EXIT", "Ladu_MAGIC_STATE_EXIT", function(mob, spell)
+        if spell:getID() == 339 and mob:getID() == 17183035 then -- Main NM only, Utsusemi: Ni
+            local clones = GetCloneIDs(mob)
+
+            for v = 1, clones do
+                local currentClone = GetMobByID(v)
+                if not currentClone:Spawned() then
+                    currentClone:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                    currentClone:spawn()
+                end
+            end
+        end
+    end)
+
+    -- Uses Mijin Gakure at 1% then falls to the ground
+    if (hp <= 1) then
+        if mob:getID() == 17183035 then -- Main NM
+            mob:useMobAbility(731)
+        else    -- Clones despawn at 1 hp instead
+            DespawnMob(mob:getID())
+        end
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = {618, 620, 2205}
+   --  Double Kick, Sweep, Feathered Furore
+   return tpMoves[math.random(#tpMoves)]
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
@@ -34,5 +74,22 @@ end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+    mob:setRespawnTime(7200) -- 2 hours
+end
+
+function GetCloneIDs(mob)
+    local hp = mob:getHPP()
+    local hpAmounts =
+    {
+        [1] = { 40, 17183042},
+        [2] = { 60, 17183041},
+        [3] = { 78, 17183040},
+    }
+    for _, v in ipairs(hpAmounts) do
+        if (hp) < v then
+            return hpAmounts[v][2]
+        else
+            return 17183039
+        end
+    end
 end

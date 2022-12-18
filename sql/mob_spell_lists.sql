@@ -4395,6 +4395,23 @@ INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,33,1,255); -- Diaga
 INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,30,1,255); -- Banish III
 INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,39,1,255); -- Banishga II
 INSERT INTO `mob_spell_lists` VALUES ('Ghrah_Light',1015,112,1,255); -- Flash
+
+INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,376,1,255);     -- Horde Lullaby
+INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,382,1,255);     -- armys_paeon_v
+INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,420,1,255);     -- victory_march
+INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,392,1,255);     -- knights_minne_iv
+INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,422,1,255);     -- Carnage Elegy
+INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,462,1,255);	    -- Magic Finale 
+INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,397,1,255);	    -- Valor Minuet IV 
+INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,404,1,255);	    -- Dragonfoe Mambo 
+
+
+INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,339,1,255);          -- Utsusemi: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,345,1,255);          -- Hojo: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,348,1,255);          -- Kurayami: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,342,1,255);          -- Jubaku: Ni
+INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,351,1,255);          -- Dokumori: Ni
+
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5181,7 +5198,7 @@ INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,110,1,255);  --
 INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,143,1,255);  -- Erase
 
 
--- NEXT 1016
+-- NEXT 1018
 -- NEXT 2080(Custom)
 
 

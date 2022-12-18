@@ -17,5 +17,11 @@ function onMobInitialize(mob)
     mob:setMod(tpz.mod.REGEN, 100)
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = {617, 620, 2205}
+   --  Feather Storm, Sweep, Feathered Furore
+   return tpMoves[math.random(#tpMoves)]
+end
+
 function onMobDeath(mob, player, isKiller)
 end

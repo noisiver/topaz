@@ -6958,11 +6958,11 @@ INSERT INTO `mob_groups` VALUES (11,474,99,'Blooming_Rafflesia',960,0,313,0,0,85
 INSERT INTO `mob_groups` VALUES (12,193,99,'Antlion_Fly',960,0,142,0,0,78,81,0);
 INSERT INTO `mob_groups` VALUES (13,1160,99,'Earth_Elemental',960,4,733,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (14,1341,99,'Fire_Elemental',960,4,831,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (15,1145,99,'Duu_Masa_the_Onecut',0,128,725,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (16,6687,99,'Zhuu_Buxu_the_Silent',0,32,3033,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (15,1145,99,'Duu_Masa_the_Onecut',7200,0,725,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (16,6687,99,'Zhuu_Buxu_the_Silent',7200,0,3033,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (17,5347,99,'War_Lynx',960,0,413,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (18,2062,99,'Immolatory_Pugil',960,0,1359,0,0,78,81,0);
-INSERT INTO `mob_groups` VALUES (19,17,99,'Aa_Xalmo_the_Savage',0,32,1,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (19,17,99,'Aa_Xalmo_the_Savage',7200,0,1,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (20,3541,99,'Seneschal_Imp',960,0,1002,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,4460,99,'Yagudo_Yojimbo',960,0,2777,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (22,4436,99,'Yagudo_Nokizaru',960,0,2735,0,0,81,83,0);
@@ -6982,8 +6982,8 @@ INSERT INTO `mob_groups` VALUES (35,4210,99,'Vee_Ladu_the_Titterer',0,128,2567,3
 INSERT INTO `mob_groups` VALUES (36,2465,99,'Maa_Illmu_the_Bestower',0,128,1561,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (37,274,99,'Asterion',0,128,185,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (38,3815,99,'Suu_Xicu_the_Cantabile',0,128,2361,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (39,4210,99,'Vee_Ladu_the_Titterer',0,128,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (40,1146,99,'Duu_Nazo_the_Spryfooted',0,128,0,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (39,4210,99,'Vee_Ladu_the_Titterer',0,128,0,200,0,85,85,0); -- Clones
+INSERT INTO `mob_groups` VALUES (40,1146,99,'Duu_Nazo_the_Spryfooted',0,128,0,2300,0,80,80,0);
 
 --Plucking Wings
 INSERT INTO `mob_groups` VALUES (41,3703,99,'Soo_Luma_the_Ascended',0,0,0,0,0,83,83,0);

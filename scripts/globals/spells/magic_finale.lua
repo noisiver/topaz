@@ -24,6 +24,12 @@ function onSpellCast(caster, target, spell)
     local resist = applyResistanceEffect(caster, target, spell, params)
     local effect = tpz.effect.NONE
 
+    local SuuXicutheCantabile = target:getPool() == 3815
+
+    if SuuXicutheCantabile then
+        resist = 1
+    end
+
     if (resist >= 0.50) then
         spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
         --TODOCheckForMagicBurst(caster, spell, target)

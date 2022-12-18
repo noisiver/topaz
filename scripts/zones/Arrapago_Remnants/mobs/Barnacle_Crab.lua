@@ -23,7 +23,6 @@ local spellList =
     [4] = 107, -- Phalanx II
     [5] = 6,   -- Cure VI
     [6] = 47, -- Protect V
-
 }
 
 function onMobSpawn(mob)

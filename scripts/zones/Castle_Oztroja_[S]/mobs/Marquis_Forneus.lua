@@ -14,6 +14,7 @@
 -- 25% - 0: 10s
 -- Uses: Soul Drain, Condemnation, Hecatomb Wave, Demonic Howl
 -- Uses Blood Weapon sometime below 50% HP
+-- TODO: Test status absorb
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
@@ -22,6 +23,29 @@ mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setDamage(250)
+    mob:setMod(tpz.mod.ATTP, 100)
+    mob:setMod(tpz.mod.ACC, 400)
+    mob:setMod(tpz.mod.DARK, 9999)
+end
+
+function onMobFight(mob, target)
+    local hp = mob:getHPP()
+
+    -- 30s between casts above 50% HP, 15s between casts between 26-50% HP and 10s below 25% HP
+    if (hp < 26) then
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
+    elseif (hp < 51) then
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
+    else
+        mob:setMobMod(tpz.mobMod.MAGIC_COOL, 30)
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = 559, 560, 563, 1148}
+   --  Soul Drain, Hecatomb Wave, Demonic Howl, Condemnation
+   return tpMoves[math.random(#tpMoves)]
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
