@@ -43,7 +43,7 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-   local tpMoves = 559, 560, 563, 1148}
+   local tpMoves = {559, 560, 563, 1148}
    --  Soul Drain, Hecatomb Wave, Demonic Howl, Condemnation
    return tpMoves[math.random(#tpMoves)]
 end
