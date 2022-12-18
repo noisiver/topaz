@@ -27,10 +27,10 @@ function onPetAbility(target, pet, skill)
     params.chr_wsc = 0.0
     params.IGNORES_SHADOWS = true
 
-    local effect = tpz.effect.STUN
-    local power = 1
-    local duration = 2
-    local bonus = 250
+    local effect = tpz.effect.CRIT_HIT_EVASION_DOWN
+    local power = 10
+    local duration = 60
+    local bonus = 0
 
     local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.EARTH, params, INT_BASED, 0)
     dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.EARTH, params)
