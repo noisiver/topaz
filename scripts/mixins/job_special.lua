@@ -263,7 +263,7 @@ end
 
 g_mixins.job_special = function(mob)
 
-    -- at spawn, give mob its default main job 2hr, which it'll use at 40-60% HP.
+    -- at spawn, give mob its default main job 2hr, which it'll use at 5-60% HP.
     -- these defaults can be overwritten by using tpz.mix.jobSpecial.config() in onMobSpawn.
     mob:addListener("SPAWN", "JOB_SPECIAL_SPAWN", function(mob)
         local ability = nil
@@ -280,7 +280,7 @@ g_mixins.job_special = function(mob)
         if ability then
             mob:setLocalVar("[jobSpecial]numAbilities", 1)
             mob:setLocalVar("[jobSpecial]ability_1", ability)
-            mob:setLocalVar("[jobSpecial]hpp_1", math.random(40, 60))
+            mob:setLocalVar("[jobSpecial]hpp_1", math.random(5, 50))
             mob:setLocalVar("[jobSpecial]between_1", 7200)
         end
 
