@@ -18,7 +18,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dispel =  target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE))
+    local dispel =  MobFullDispelMove(mob, target, skill, tpz.effectFlag.DISPELABLE)
     local msg = tpz.msg.basic.SKILL_NO_EFFECT
 	local amount = 0
 	

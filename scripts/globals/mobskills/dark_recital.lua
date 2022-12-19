@@ -21,6 +21,6 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
     MobStatusEffectMove(mob, target, typeEffect, 25, 0, 180)
-    target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE))
+    MobFullDispelMove(mob, target, skill, tpz.effectFlag.DISPELABLE)
     return dmg
 end

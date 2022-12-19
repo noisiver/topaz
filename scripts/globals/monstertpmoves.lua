@@ -1237,7 +1237,7 @@ function MobThroatStabMove(mob, target, skill, hpp, attackType, damageType, shad
     return dmg
 end
 
-function MobFullDispelMove(mob, target, skill, food)
+function MobFullDispelMove(mob, target, skill, param1, param2)
     local statmod = tpz.mod.INT
     local element = tpz.magic.ele.DARK
 
@@ -1248,16 +1248,16 @@ function MobFullDispelMove(mob, target, skill, food)
 
 	if resist >= 0.5 then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
-		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		    return 0
 		else
-            if food then
-                return target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD))
+            if (param2 ~= nil) then
+                return target:dispelAllStatusEffect(bit.bor(param1, param2))
             else
-                return target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE))
+                return target:dispelAllStatusEffect(bit.bor(param1))
             end
         end
 	else
-	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	    return 0
 	end
 end
 
