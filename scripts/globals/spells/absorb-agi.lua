@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     duraion = duration * resist
 
     if (resist >= 0.5) then
-        spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_ACC)
+        spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_AGI)
         caster:delStatusEffectSilent(tpz.effect.AGI_BOOST)
         target:delStatusEffectSilent(tpz.effect.AGI_DOWN)
 	    caster:addStatusEffect(tpz.effect.AGI_BOOST, power, tick, duration) -- caster gains ACC
