@@ -999,6 +999,9 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist
     end
 
+    if (typeEffect == nil) then
+        return 0
+    end
     -- Override durations with a single function to make it easier to update a million files durations at once when editing stuff
     -- Don't override Doom, Gradual Petrification, or Encumbrance
     if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) then
@@ -1690,41 +1693,43 @@ end
 
 function MobGetStatusEffectDuration(effect)
     local duration = 0
-
-    if (effect == tpz.effect.BIND) then
-        duration = 20
-    elseif (effect == tpz.effect.PETRIFICATION) then
-        duration = 10
-    elseif (effect == tpz.effect.TERROR) then
-        duration = 15
-    elseif (effect == tpz.effect.STUN) then
-        duration = 5
-    elseif (effect == tpz.effect.FLASH) then
-        duration = 6
-    elseif (effect == tpz.effect.AMNESIA) then
-        duration = 30
-    elseif (effect == tpz.effect.MUTE) then
-        duration = 20
-    elseif (effect == tpz.effect.CHARM_I) then
-        duration = 60
-    elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.SLEEP_II) or (effect == tpz.effect.LULLABY) then
-        duration = 90 
-    elseif (effect == tpz.effect.WEIGHT) then
-        duration = 60 
-    elseif (effect == tpz.effect.PARALYSIS) then
-        duration = 120 
-    elseif (effect == tpz.effect.SLOW) or (effect == tpz.effect.ADDLE) then
-        duration = 180 
-    elseif (effect == tpz.effect.SILENCE) then
-        duration = 120 
-    elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) then
-        duration = 90
-    elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
-        duration = 120
-    elseif (effect == tpz.effect.CURSE_II) then
-        duration = 20
-    else
-        duration = 300
+    if (effect ~= nil) then
+        if (effect == tpz.effect.BIND) then
+            duration = 20
+        elseif (effect == tpz.effect.PETRIFICATION) then
+            duration = 10
+        elseif (effect == tpz.effect.TERROR) then
+            duration = 15
+        elseif (effect == tpz.effect.STUN) then
+            duration = 5
+        elseif (effect == tpz.effect.FLASH) then
+            duration = 6
+        elseif (effect == tpz.effect.AMNESIA) then
+            duration = 30
+        elseif (effect == tpz.effect.MUTE) then
+            duration = 20
+        elseif (effect == tpz.effect.CHARM_I) then
+            duration = 60
+        elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.SLEEP_II) or (effect == tpz.effect.LULLABY) then
+            duration = 90 
+        elseif (effect == tpz.effect.WEIGHT) then
+            duration = 60 
+        elseif (effect == tpz.effect.PARALYSIS) then
+            duration = 120 
+        elseif (effect == tpz.effect.SLOW) or (effect == tpz.effect.ADDLE) then
+            duration = 180 
+        elseif (effect == tpz.effect.SILENCE) then
+            duration = 120 
+        elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) or
+        utils.IsElementalDOT(effect) then
+            duration = 90
+        elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
+            duration = 120
+        elseif (effect == tpz.effect.CURSE_II) then
+            duration = 20
+        else
+            duration = 300
+        end
     end
 
     return duration
