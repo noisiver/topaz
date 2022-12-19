@@ -69,7 +69,19 @@ uint16 GetWeaponDamage(CMobEntity* PMob)
         bonus = 1;
     }
 
-    uint16 damage = lvl + bonus;
+    uint16 damage;
+    // Some mobs can have H2H skill but not be a MNK (Like Vampyrs)
+    if (PMob->GetMJob() == JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+    {
+        uint16 h2hskill = battleutils::GetMaxSkill(SKILL_HAND_TO_HAND, JOB_MNK, PMob->GetMLevel());
+        // https://ffxiclopedia.fandom.com/wiki/Category:Hand-to-Hand
+        damage = 0.11f * h2hskill + 3 +
+                 18 * PMob->GetMLevel() / 75; // basic h2h weapon dmg + scaling "weapon" for mnk mobs based on h2h skill (destroyers 18 dmg at 75)
+    }
+    else
+    {
+        damage = PMob->GetMLevel();
+    }
 
     damage = (uint16)(damage * PMob->m_dmgMult / 100.0f);
 
