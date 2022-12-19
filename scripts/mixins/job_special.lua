@@ -280,7 +280,7 @@ g_mixins.job_special = function(mob)
         if ability then
             mob:setLocalVar("[jobSpecial]numAbilities", 1)
             mob:setLocalVar("[jobSpecial]ability_1", ability)
-            mob:setLocalVar("[jobSpecial]hpp_1", math.random(5, 50))
+            mob:setLocalVar("[jobSpecial]hpp_1", math.random(10, 50))
             mob:setLocalVar("[jobSpecial]between_1", 7200)
         end
 
