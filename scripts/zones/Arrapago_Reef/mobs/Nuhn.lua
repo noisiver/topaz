@@ -39,6 +39,7 @@ function onMobFight(mob, target)
 
     if AnimationSub == 0 then
         mob:setLocalVar("AIMode", 1)
+        mob:setMod(tpz.mod.REGAIN, 0)
     end
     -- Enrages if Feelers are broken
     if AnimationSub == 1 then
