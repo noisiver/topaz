@@ -1,5 +1,6 @@
 -----------------------------------------
 -- Spell: Aisha: Ichi
+-- 20 MEVA down
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -11,46 +12,17 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local effect = tpz.effect.ATTACK_DOWN
-    -- Base Stats
-    local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
-    --Duration Calculation
     local params = {}
-    params.diff = nil
+    params.diff = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
-    params.bonus = 0
-    params.effect = nil
+    params.bonus = 30
+    params.effect = tpz.effect.MAGIC_EVASION_DOWN
     local resist = applyResistanceEffect(caster, target, spell, params)
-    --Base power is 15 and is not affected by resistaces.
-    local power = 15
+    local power = 20
+    local duration =  math.ceil(180 * resist)
 
-    --Calculates Resist Chance
-    if (resist >= 0.125) then
-        local duration = 120 * resist
+    TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
 
-        if (duration >= 50) then
-            -- Erases a weaker attack down and applies the stronger one
-            local attackdown = target:getStatusEffect(effect)
-            if (attackdown ~= nil) then
-                if (attackdown:getPower() < power) then
-                    target:delStatusEffectSilent(effect)
-                    target:addStatusEffect(effect, power, 0, duration)
-                    spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-                else
-                    -- no effect
-                    spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-                end
-            else
-                target:addStatusEffect(effect, power, 0, duration)
-                spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-            end
-        else
-            spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
-        end
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST_2)
-    end
-
-    return effect
+    return params.effect
 end

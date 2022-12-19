@@ -1,6 +1,6 @@
 --------------------------------------
 -- Spell: Myoshu: Ichi
---     Grants Subtle Blow +10 for Caster
+-- Grants "Endark" effect
 --------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -12,7 +12,16 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local effect = tpz.effect.SUBTLE_BLOW_PLUS
-    caster:addStatusEffect(effect, 10, 0, 180)
+    local effect = tpz.effect.ENDARK
+    local magicskill = target:getSkillLevel(tpz.skill.NINJUTSU)
+    local potency = (magicskill / 8) + 12.5
+
+    if target:addStatusEffect(effect, potency, 0, 180) then
+        spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+    end
+
     return effect
 end
+

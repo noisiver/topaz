@@ -365,6 +365,12 @@ namespace battleutils
             magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
             //printf("Mob base MACC from skill %f \n", magicacc);
         }
+        // NIN Endark Myoshu: Ichi uses Ninjutsu skill
+        if (PAttacker->GetMJob() == JOB_NIN && PAttacker->objtype == TYPE_PC && PAttacker->StatusEffectContainer->GetStatusEffect(EFFECT_ENDARK))
+        {
+            magicacc += static_cast<float>(PDefender->GetSkill(SKILL_NINJUTSU) + PDefender->getMod(Mod::MACC));
+            magicacc -= static_cast<float>(PDefender->GetSkill(SKILL_ENHANCING_MAGIC));
+        }
         SDT = getElementalSDTDivisor(PDefender, element);
         //printf("sdt for enspells = %f \n", SDT);
         //printf("Non-spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
@@ -1268,7 +1274,7 @@ namespace battleutils
         {
             static SUBEFFECT enspell_subeffects[8] = {
                 SUBEFFECT_FIRE_DAMAGE,      SUBEFFECT_ICE_DAMAGE,   SUBEFFECT_WIND_DAMAGE,  SUBEFFECT_EARTH_DAMAGE,
-                SUBEFFECT_LIGHTNING_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE,
+                SUBEFFECT_LIGHTNING_DAMAGE, SUBEFFECT_WATER_DAMAGE, SUBEFFECT_LIGHT_DAMAGE, SUBEFFECT_DARKNESS_DAMAGE
             };
             uint8 enspell = (uint8)PAttacker->getMod(Mod::ENSPELL);
 
@@ -1349,10 +1355,10 @@ namespace battleutils
             }
             else if (enspell > 6 && enspell <= 8)
             {
-                Action->additionalEffect = enspell_subeffects[enspell - 7];
+                Action->additionalEffect = enspell_subeffects[enspell -1];
                 Action->addEffectMessage = 163;
                 Action->addEffectParam =
-                    CalculateEnspellDamage(PAttacker, PDefender, 3, enspell - 1);
+                    CalculateEnspellDamage(PAttacker, PDefender, 3, enspell -1);
 
                 if (Action->addEffectParam < 0)
                 {
