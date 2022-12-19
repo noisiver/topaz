@@ -4405,13 +4405,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,462,1,255);	
 INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,397,1,255);	    -- Valor Minuet IV 
 INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,404,1,255);	    -- Dragonfoe Mambo 
 
-
-INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,339,1,255);          -- Utsusemi: Ni
-INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,345,1,255);          -- Hojo: Ni
-INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,348,1,255);          -- Kurayami: Ni
-INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,342,1,255);          -- Jubaku: Ni
-INSERT INTO `mob_spell_lists` VALUES ('Vee_Ladu_the_Titterer',1017,351,1,255);          -- Dokumori: Ni
-
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5198,7 +5191,7 @@ INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,110,1,255);  --
 INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,143,1,255);  -- Erase
 
 
--- NEXT 1018
+-- NEXT 1017
 -- NEXT 2080(Custom)
 
 

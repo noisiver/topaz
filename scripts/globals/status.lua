@@ -1745,12 +1745,23 @@ tpz.mod =
     EEM_POISON              = 1292,
     EEM_DARK_SLEEP          = 1293,
     EEM_BLIND               = 1294,
+
+    -- Forced land rate, never resists. 1 = true 0 = false
+    DIVINE_NEVER_MISS       = 1295,   
+    ENFEEBLE_NEVER_MISS     = 1296, 
+    ELEM_NEVER_MISS         = 1297,     
+    DARK_NEVER_MISS         = 1298,     
+    SUMMONING_NEVER_MISS    = 1299, 
+    NINJUTSU_NEVER_MISS     = 1300,  
+    SINGING_NEVER_MISS      = 1301,   
+    BLUE_NEVER_MISS         = 1302,   
     
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
+    -- 1303 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

@@ -686,6 +686,12 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         res = 1/8
     end
 
+    -- Check for guaranteed landing mod (tpz.mod.DIVINE_NEVER_MISS etc)
+    if CheckForGuaranteedLandRate(caster, params) then
+        -- printf("Spell is guaranteed to land!")
+        res = 1
+    end
+
     if target:isPC() and element ~= nil and element > 0 and element < 9 then
         -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
         local eleres = target:getMod(element+53)
@@ -2443,6 +2449,31 @@ function CheckForMagicBurst(caster, spell, target)
     if GetEnfeebleMagicBurstMessage(caster, spell, target) then
         spell:setMsg(spell:getMagicBurstMessage()) 
     end
+end
+
+function CheckForGuaranteedLandRate(caster, params)
+    local skills =
+    {
+        { tpz.mod.DIVINE_NEVER_MISS, tpz.skill.DIVINE_MAGIC },
+        { tpz.mod.ENFEEBLE_NEVER_MISS, tpz.skill.ENFEEBLING_MAGIC },
+        { tpz.mod.ELEM_NEVER_MISS, tpz.skill.ELEMENTAL_MAGIC },
+        { tpz.mod.DARK_NEVER_MISS, tpz.skill.DARK_MAGIC },
+        { tpz.mod.SUMMONING_NEVER_MISS, tpz.skill.SUMMONING_MAGIC },
+        { tpz.mod.NINJUTSU_NEVER_MISS, tpz.skill.NINJUTSU },
+        { tpz.mod.SINGING_NEVER_MISS, tpz.skill.SINGING },
+        { tpz.mod.BLUE_NEVER_MISS, tpz.skill.BLUE_MAGIC },
+    }
+    for _, mod in pairs(skills) do
+        local skillType
+        if caster:getMod(mod[1]) > 0 then
+            skillType = mod[2]
+        end
+        if (skillType == params.skillType) then
+            return true
+        end
+    end
+
+    return false
 end
 
 function getAbsorbSpellPower(caster)
