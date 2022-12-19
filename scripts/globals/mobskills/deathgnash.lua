@@ -12,6 +12,7 @@ require("scripts/globals/monstertpmoves")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
 ---------------------------------------------
+
 function onMobSkillCheck(target, mob, skill)
     local AIMode = mob:getLocalVar("AIMode")
     if AIMode == 2 then
@@ -36,6 +37,7 @@ function onMobWeaponSkill(target, mob, skill)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, 45)
     if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, dmg) end
     mob:resetEnmity(target)
-    return dmg
+	skill:setMsg(tpz.msg.basic.NONE)
+    return 0
 end
 

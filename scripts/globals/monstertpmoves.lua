@@ -1234,6 +1234,30 @@ function MobThroatStabMove(mob, target, skill, hpp, attackType, damageType, shad
     return dmg
 end
 
+function MobFullDispelMove(mob, target, skill, food)
+    local statmod = tpz.mod.INT
+    local element = tpz.magic.ele.DARK
+
+    local resist = applyPlayerResistance(mob, tpz.effect.NONE, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local eleres = target:getMod(element+53)
+    if     eleres < 0  and resist < 0.5  then resist = 0.5
+    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+	if resist >= 0.5 then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+		    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+		else
+            if food then
+                return target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE, tpz.effectFlag.FOOD))
+            else
+                return target:dispelAllStatusEffect(bit.bor(tpz.effectFlag.DISPELABLE))
+            end
+        end
+	else
+	    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+	end
+end
+
 function MobSelfDispelMove(mob, skill)
     local dispel = mob:removeAllNegativeEffects()
 
@@ -1693,8 +1717,7 @@ function MobGetStatusEffectDuration(effect)
         duration = 180 
     elseif (effect == tpz.effect.SILENCE) then
         duration = 120 
-    elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) or
-    utils.IsElementalDOT(effect) then
+    elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) then
         duration = 90
     elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
         duration = 120
