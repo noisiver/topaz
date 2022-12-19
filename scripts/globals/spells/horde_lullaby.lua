@@ -86,12 +86,6 @@ function onSpellCast(caster, target, spell)
         duration = duration * 2
     end
 
-    local SuuXicutheCantabile = target:getPool() == 3815
-
-    if SuuXicutheCantabile then
-        resist = 1
-    end
-
     TryApplyEffect(caster, target, spell, params.effect, 1, 0, duration, resist, 0.5)
 
     return params.effect

@@ -18,20 +18,23 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
-    mob:setMod(tpz.mod.REGAIN, 150)
+end
+
+function onMobFight(mob, target)
+    --mob:setMod(tpz.mod.REGAIN, 150)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-   local tpMoves = {2158, 2159, 2160, 2161}
-   --   Insipid Nip, Pandemic Nip, Bombilation, Cimicine Discharge
-   local tpMoves2 = {2158, 2159, 2160, 2161,2162}
-   --   Insipid Nip, Pandemic Nip, Bombilation, Cimicine Discharge, Emetic Discharge
-   local hp = mob:getHPP()
+    local tpMoves = {2158, 2159, 2160, 2161}
+    --   Insipid Nip, Pandemic Nip, Bombilation, Cimicine Discharge
+    local tpMoves2 = {2158, 2159, 2160, 2161, 2162}
+    --   Insipid Nip, Pandemic Nip, Bombilation, Cimicine Discharge, Emetic Discharge
+    local hp = mob:getHPP()
 
-   if (hp > 32) then
-        return tpMoves[math.random(#tpMoves)]
-    else
+    if (hp < 33) then
         return tpMoves2[math.random(#tpMoves2)]
+    else
+        return tpMoves[math.random(#tpMoves)]
     end
 end
 

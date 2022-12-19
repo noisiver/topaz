@@ -6974,14 +6974,14 @@ INSERT INTO `mob_groups` VALUES (27,5488,99,'Yagudo_Conductor',960,0,1871,0,0,81
 INSERT INTO `mob_groups` VALUES (28,1628,99,'Gnat',960,0,1008,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (29,4452,99,'Yagudo_Superior',960,0,2767,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (30,4438,99,'Yagudo_Parasite',960,0,2738,0,0,78,81,0);
-INSERT INTO `mob_groups` VALUES (31,954,99,'Dee_Zelko_the_Esoteric',0,128,594,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (32,2574,99,'Marquis_Forneus',0,128,1627,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (33,2438,99,'Loo_Kutto_the_Pensive',0,128,1535,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (34,1368,99,'Fleshgnasher',0,128,847,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (35,4210,99,'Vee_Ladu_the_Titterer',0,128,2567,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (36,2465,99,'Maa_Illmu_the_Bestower',0,128,1561,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (37,274,99,'Asterion',0,128,185,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (38,3815,99,'Suu_Xicu_the_Cantabile',0,128,2361,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (31,954,99,'Dee_Zelko_the_Esoteric',7200,0,594,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (32,2574,99,'Marquis_Forneus',7200,0,1627,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (33,2438,99,'Loo_Kutto_the_Pensive',7200,0,1535,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (34,1368,99,'Fleshgnasher',7200,0,847,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (35,4210,99,'Vee_Ladu_the_Titterer',7200,0,2567,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (36,2465,99,'Maa_Illmu_the_Bestower',7200,0,1561,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (37,274,99,'Asterion',7200,0,185,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (38,3815,99,'Suu_Xicu_the_Cantabile',7200,0,2361,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (39,4210,99,'Vee_Ladu_the_Titterer',0,128,0,200,0,85,85,0); -- Clones
 INSERT INTO `mob_groups` VALUES (40,1146,99,'Duu_Nazo_the_Spryfooted',0,128,0,2300,0,80,80,0);
 

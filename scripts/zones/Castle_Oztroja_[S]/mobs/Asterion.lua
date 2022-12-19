@@ -17,14 +17,18 @@ mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMod(tpz.mod.MARTIAL_ARTS, 0)
 end
 
 function onMobFight(mob, target)
     local hp = mob:getHPP()
-
     -- As it gets low, its attack speed increases to near perma-hundred fists.
-    -- hundred fists is 1700 delay. this formula will range between 4500 and 1700.
-    mob:setDelay(1700 + hp * 28)
+    -- hundred fists is 1248 delay. this formula will range between 4500 and 1700.
+    if mob:hasStatusEffect(tpz.effect.HUNDRED_FISTS) then
+        mob:setDelay(4800)
+    else
+        mob:setDelay(1248 + hp * 35)
+    end
 
     -- Gains 100/tick regain below 25% HP. Uses a TP move every 30s
     if (hp < 25) then

@@ -42,7 +42,7 @@ function onMobFight(mob, target)
 end
 
 function onMonsterMagicPrepare(mob,target)
-    return GetBestSpell()
+    return GetBestSpell(mob)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -60,7 +60,7 @@ function onMobDespawn(mob)
     mob:setRespawnTime(7200) -- 2 hours
 end
 
-function GetBestSpell()
+function GetBestSpell(mob)
 
     -- Check for buffs
     if not mob:hasStatusEffect(tpz.effect.HASTE) then

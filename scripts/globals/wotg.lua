@@ -14,11 +14,16 @@ tpz = tpz or {}
 tpz.wotg = tpz.wotg or {}
 
 tpz.wotg.NMMods = function(mob)
-	mob:setDamage(140)
+    if mob:getMainJob() == tpz.job.MNK then
+        mob:setDamage(70)
+    else
+	    mob:setDamage(140)
+    end
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 25) 
     mob:addMod(tpz.mod.EVA, 25)
+    mob:setMobMod(tpz.mobMod.GA_CHANCE, 60)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
 end
 

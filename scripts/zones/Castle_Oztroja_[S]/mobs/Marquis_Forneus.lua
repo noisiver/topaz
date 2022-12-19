@@ -26,7 +26,7 @@ function onMobSpawn(mob)
     mob:setDamage(250)
     mob:setMod(tpz.mod.ATTP, 100)
     mob:setMod(tpz.mod.ACC, 400)
-    mob:setMod(tpz.mod.DARK, 9999)
+    mob:setMod(tpz.mod.DARK_NEVER_MISS, 1)
 end
 
 function onMobFight(mob, target)
@@ -54,5 +54,5 @@ end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(18000, 21600)) -- 5 to 6 hours
+    mob:setRespawnTime(7200) -- 2 hours
 end

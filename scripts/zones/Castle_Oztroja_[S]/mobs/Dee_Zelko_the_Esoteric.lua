@@ -28,8 +28,8 @@ end
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
     mob:setMod(tpz.mod.UFASTCAST, 100)
-    mob:setMod(tpz.mod.ENFEEBLE, 9999)
-    mob:setMod(tpz.mod.DARK, 9999)
+    mob:setMod(tpz.mod.ENFEEBLE_NEVER_MISS, 1)
+    mob:setMod(tpz.mod.DARK_NEVER_MISS, 1)
 end
 
 function onMobFight(mob, target)

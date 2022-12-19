@@ -20,34 +20,11 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMod(tpz.mod.SINGING_NEVER_MISS, 1)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
 end
 
 function onMobRoam(mob, target)
-    local mobId = mob:getID()
-    local hpp = mob:getHPP()
-
-    if hpp > 50 and mob:getLocalVar("petsOne") == 1 then
-        mob:setLocalVar("petsOne", 0)
-
-        for i = mobId + 5, mobId + 6 do
-            local pet = GetMobByID(i)
-            if pet:isSpawned() then
-                DespawnMob(i)
-            end
-        end
-    end
-
-    if hpp > 25 and mob:getLocalVar("petsTwo") == 1 then
-        mob:setLocalVar("petsTwo", 0)
-
-        for i = mobId + 7, mobId + 8 do
-            local pet = GetMobByID(i)
-            if pet:isSpawned() then
-                DespawnMob(i)
-            end
-        end
-    end
 end
 
 function onMobFight(mob, target)
@@ -58,7 +35,7 @@ function onMobFight(mob, target)
     local z = mob:getZPos()
     local r = mob:getRotPos()
 
-    if hpp < 50 and mob:getLocalVar("petsOne") == 0 then
+    if hpp < 51 and mob:getLocalVar("petsOne") == 0 then
         mob:setLocalVar("petsOne", 1)
 
         for i = mobId + 5, mobId + 6 do
@@ -66,11 +43,12 @@ function onMobFight(mob, target)
             if not pet:isSpawned() then
                 pet:setSpawn(x + math.random(-2, 2), y, z + math.random(-2, 2), r)
                 pet:spawn()
+                pet:updateEnmity(target)
             end
         end
     end
 
-    if hpp < 25 and mob:getLocalVar("petsTwo") == 0 then
+    if hpp < 26 and mob:getLocalVar("petsTwo") == 0 then
         mob:setLocalVar("petsTwo", 1)
 
         for i = mobId + 7, mobId + 8 do
@@ -78,9 +56,16 @@ function onMobFight(mob, target)
             if not pet:isSpawned() then
                 pet:setSpawn(x + math.random(-2, 2), y, z + math.random(-2, 2), r)
                 pet:spawn()
+                pet:updateEnmity(target)
             end
         end
     end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = {617, 620, 2205}
+   --  Feather Storm, Sweep, Feathered Furore
+   return tpMoves[math.random(#tpMoves)]
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
@@ -90,5 +75,5 @@ end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(14400, 18000)) -- 4 to 5 hours
+    mob:setRespawnTime(7200) -- 2 hours
 end

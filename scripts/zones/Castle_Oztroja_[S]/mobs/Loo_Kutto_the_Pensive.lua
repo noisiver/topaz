@@ -20,15 +20,22 @@ function onMobSpawn(mob)
 end
 
 function onMobFight(mob, target)
+    local meikyoUsed = mob:getLocalVar("meikyoUsed")
     local hp = mob:getHPP()
 
     -- Uses TP moves every 10 seconds at 50-100% HP, then every 5 seconds below 50.
     if (hp < 25) then
-        mob:setMod(tpz.mod.REGAIN, 200)
+        mob:setMod(tpz.mod.REGAIN, 500)
     elseif (hp < 50) then
-        mob:setMod(tpz.mod.REGAIN, 600)
+        mob:setMod(tpz.mod.REGAIN, 1500)
     else
-        mob:setMod(tpz.mod.REGAIN, 300)
+        mob:setMod(tpz.mod.REGAIN, 1000)
+    end
+
+   -- Uses Dark Invocation x3 during Meikyio Shisui
+   if mob:hasStatusEffect(tpz.effect.MEIKYO_SHISUI) and (meikyoUsed == 0) then
+        mob:setLocalVar("meikyoUsed", 1)
+        UseMultipleTPMoves(mob, 3, 2206)
     end
 end
 
@@ -36,12 +43,7 @@ function onMobWeaponSkillPrepare(mob, target)
    local tpMoves = {617, 618, 620, 2205}
    --  Feather Storm, Double Kick, Sweep, Feathered Furore
 
-   -- Uses Dark Invocation x3 during Meikyio Shisui
-   if mob:hasStatusEffect(tpz.effect.MEIKYO_SHISUI) then
-        return 2206
-   else
-      return tpMoves[math.random(#tpMoves)]
-   end
+   return tpMoves[math.random(#tpMoves)]
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

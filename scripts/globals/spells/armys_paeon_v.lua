@@ -51,7 +51,9 @@ function onSpellCast(caster, target, spell)
     local SuuXicutheCantabile = caster:getPool() == 3815
 
     if SuuXicutheCantabile then
-        target:addStatusEffect(tpz.effect.REGEN, 20, 0, 60) 
+        target:addStatusEffect(tpz.effect.REGEN, 20, 3, 60)
+        local effect1 = target:getStatusEffect(tpz.effect.REGEN)
+        effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     end
 
     return tpz.effect.PAEON
