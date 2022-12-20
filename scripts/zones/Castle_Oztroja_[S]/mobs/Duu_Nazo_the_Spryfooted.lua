@@ -22,5 +22,5 @@ function onMobWeaponSkillPrepare(mob, target)
    return tpMoves[math.random(#tpMoves)]
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end

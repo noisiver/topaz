@@ -21,15 +21,6 @@ zones[tpz.zone.CASTLE_OZTROJA_S] =
     },
     mob =
     {
-        AA_XALMO_THE_SAVAGE_PH =
-        {
-            [17182827] = 17182843,
-            [17182838] = 17182843,
-        },
-        ZHUU_BUXU_THE_SILENT_PH =
-        {
-            [17182813] = 17182813,
-        },
         DUU_MASA_THE_ONECUT    = 17182790,
         DEE_ZELKO_THE_ESOTERIC = 17183031,
         MARQUIS_FORNEUS        = 17183032,

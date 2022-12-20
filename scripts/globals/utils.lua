@@ -791,3 +791,140 @@ function utils.linkAlliance(mob, player)
         end
     end
 end
+
+function utils.getDropRate(mob, base)
+    local TH = mob:getTHlevel()
+    local dropRate = base
+    --TODO: Decimals for lower drop rates , Very Rare, Super Rare, Ultra Rare
+    if base == 24 then
+        if (TH == 1) then
+            dropRate = 48
+        elseif (TH == 2) then
+            dropRate = 56
+        elseif (TH == 3) then
+            dropRate = 60
+        elseif (TH == 4) then
+            dropRate = 64
+        elseif (TH == 5) then
+            dropRate = 66
+        elseif (TH == 6) then
+            dropRate = 68
+        elseif (TH == 7) then
+            dropRate = 69
+        elseif (TH == 8) then
+            dropRate = 70
+        elseif (TH == 9) then
+            dropRate = 72
+        elseif (TH == 10) then
+            dropRate = 73
+        elseif (TH == 11) then
+            dropRate = 74
+        elseif (TH == 12) then
+            dropRate = 76
+        elseif (TH == 13) then
+            dropRate = 78
+        elseif (TH == 14) then
+            dropRate = 80
+        end
+    end
+
+    if base == 15 then
+        if (TH == 1) then
+            dropRate = 30
+        elseif (TH == 2) then
+            dropRate = 40
+        elseif (TH == 3) then
+            dropRate = 42
+        elseif (TH == 4) then
+            dropRate = 45
+        elseif (TH == 5) then
+            dropRate = 47
+        elseif (TH == 6) then
+            dropRate = 50
+        elseif (TH == 7) then
+            dropRate = 52
+        elseif (TH == 8) then
+            dropRate = 55
+        elseif (TH == 9) then
+            dropRate = 57
+        elseif (TH == 10) then
+            dropRate = 60
+        elseif (TH == 11) then
+            dropRate = 62
+        elseif (TH == 12) then
+            dropRate = 65
+        elseif (TH == 13) then
+            dropRate = 67
+        elseif (TH == 14) then
+            dropRate = 70
+        end
+    end
+
+    if base == 10 then
+        if (TH == 1) then
+            dropRate = 12
+        elseif (TH == 2) then
+            dropRate = 15
+        elseif (TH == 3) then
+            dropRate = 16
+        elseif (TH == 4) then
+            dropRate = 18
+        elseif (TH == 5) then
+            dropRate = 19
+        elseif (TH == 6) then
+            dropRate = 20
+        elseif (TH == 7) then
+            dropRate = 21
+        elseif (TH == 8) then
+            dropRate = 22
+        elseif (TH == 9) then
+            dropRate = 24
+        elseif (TH == 10) then
+            dropRate = 26
+        elseif (TH == 11) then
+            dropRate = 28
+        elseif (TH == 12) then
+            dropRate = 29
+        elseif (TH == 13) then
+            dropRate = 31
+        elseif (TH == 14) then
+            dropRate = 32
+        end
+    end
+
+    if base == 5 then
+        if (TH == 1) then
+            dropRate = 6
+        elseif (TH == 2) then
+            dropRate = 7
+        elseif (TH == 3) then
+            dropRate = 7
+        elseif (TH == 4) then
+            dropRate = 8
+        elseif (TH == 5) then
+            dropRate = 8
+        elseif (TH == 6) then
+            dropRate = 9
+        elseif (TH == 7) then
+            dropRate = 9
+        elseif (TH == 8) then
+            dropRate = 10
+        elseif (TH == 9) then
+            dropRate = 11
+        elseif (TH == 10) then
+            dropRate = 12
+        elseif (TH == 11) then
+            dropRate = 13
+        elseif (TH == 12) then
+            dropRate = 15
+        elseif (TH == 13) then
+            dropRate = 17
+        elseif (TH == 14) then
+            dropRate = 20
+        end
+    end
+
+    -- printf("Base drop rate %s", base)
+    -- printf("Drop Rate: %s", dropRate)
+    return dropRate
+end

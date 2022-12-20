@@ -11,6 +11,3 @@ require("scripts/globals/wotg")
 function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wotg.YagudoTrashDrops(mob, player, isKiller, noKiller)
 end
-
-function onMobDespawn(mob)
-end

@@ -2458,7 +2458,10 @@ INSERT INTO `mob_droplist` VALUES (412,0,0,1000,5393,1000);
 INSERT INTO `mob_droplist` VALUES (412,0,0,1000,11512,1000);
 INSERT INTO `mob_droplist` VALUES (412,0,0,1000,15427,90);
 INSERT INTO `mob_droplist` VALUES (412,0,0,1000,16428,530);
-INSERT INTO `mob_droplist` VALUES (413,0,0,1000,2512,150);
+INSERT INTO `mob_droplist` VALUES (413,0,0,1000,2512,240); -- (War Lynx Castle Oztroja[S]) Lynx Hide
+INSERT INTO `mob_droplist` VALUES (413,0,0,1000,2512,150); 
+INSERT INTO `mob_droplist` VALUES (413,0,0,1000,5667,240); -- Lynx Meat
+INSERT INTO `mob_droplist` VALUES (413,0,0,1000,5667,150);
 INSERT INTO `mob_droplist` VALUES (413,0,0,1000,5667,100);
 INSERT INTO `mob_droplist` VALUES (414,0,0,1000,14931,100);
 INSERT INTO `mob_droplist` VALUES (414,0,0,1000,17192,100);
@@ -10180,9 +10183,10 @@ INSERT INTO `mob_droplist` VALUES (1869,4,0,1000,637,0); -- Slime Oil(Despoil)
 INSERT INTO `mob_droplist` VALUES (1869,0,0,1000,1055,50);
 INSERT INTO `mob_droplist` VALUES (1870,0,0,1000,3095,100);
 INSERT INTO `mob_droplist` VALUES (1870,0,0,1000,4368,60);
-INSERT INTO `mob_droplist` VALUES (1871,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (1871,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (1872,0,0,1000,12342,246);
+INSERT INTO `mob_droplist` VALUES (1871,2,0,1000,751,0); -- (Yagudo Conductor Castle Oztroja[S])
+INSERT INTO `mob_droplist` VALUES (1871,0,0,1000,2558,150);
+INSERT INTO `mob_droplist` VALUES (1872,1,1,240,5022,900);
+INSERT INTO `mob_droplist` VALUES (1872,1,1,240,5072,100);
 INSERT INTO `mob_droplist` VALUES (1873,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (1873,0,0,1000,1706,70);
 INSERT INTO `mob_droplist` VALUES (1873,1,1,100,4876,333); -- scroll_of_absorb-vit
@@ -14645,9 +14649,10 @@ INSERT INTO `mob_droplist` VALUES (2687,0,0,1000,3144,470);
 INSERT INTO `mob_droplist` VALUES (2687,0,0,1000,3144,240);
 INSERT INTO `mob_droplist` VALUES (2687,0,0,1000,3144,160);
 INSERT INTO `mob_droplist` VALUES (2687,0,0,1000,11899,270);
-INSERT INTO `mob_droplist` VALUES (2688,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2688,0,0,1000,841,50);
-INSERT INTO `mob_droplist` VALUES (2688,0,0,1000,2525,50);
+INSERT INTO `mob_droplist` VALUES (2688,2,0,1000,751,0); -- (Yagudo Abbot Castle Oztroja[S])
+INSERT INTO `mob_droplist` VALUES (2688,0,0,1000,841,240);
+INSERT INTO `mob_droplist` VALUES (2688,0,0,1000,841,150);
+INSERT INTO `mob_droplist` VALUES (2688,0,0,1000,841,100);
 INSERT INTO `mob_droplist` VALUES (2689,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (2689,0,0,1000,1097,150);
 --INSERT INTO `mob_droplist` VALUES (2689,0,0,1000,4704,140); auspice
@@ -14701,10 +14706,9 @@ INSERT INTO `mob_droplist` VALUES (2696,0,0,1000,4898,1000); -- Ice Spirit Pact
 INSERT INTO `mob_droplist` VALUES (2696,0,0,1000,17091,1000); -- Oak Staff
 INSERT INTO `mob_droplist` VALUES (2696,0,0,1000,17135,100); -- Walrus Staff
 INSERT INTO `mob_droplist` VALUES (2697,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2697,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (2697,0,0,1000,2558,150);
-INSERT INTO `mob_droplist` VALUES (2697,0,0,1000,5022,170);
-INSERT INTO `mob_droplist` VALUES (2697,0,0,1000,5072,120);
+INSERT INTO `mob_droplist` VALUES (2697,0,0,1000,2558,150); -- (Yagudo Chanter Castle Oztroja [S])
+INSERT INTO `mob_droplist` VALUES (2697,1,1,150,5022,900);
+INSERT INTO `mob_droplist` VALUES (2697,1,1,150,5072,100);
 INSERT INTO `mob_droplist` VALUES (2698,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (2698,0,0,1000,4980,100);
 INSERT INTO `mob_droplist` VALUES (2698,0,0,1000,5020,150);
@@ -14758,14 +14762,15 @@ INSERT INTO `mob_droplist` VALUES (2705,0,0,1000,5071,110);
 INSERT INTO `mob_droplist` VALUES (2706,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2706,0,0,1000,4984,100); -- Scroll of Horde Lullaby
 INSERT INTO `mob_droplist` VALUES (2706,0,0,1000,5070,100); -- Scroll of Magic Finale
-INSERT INTO `mob_droplist` VALUES (2707,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2707,0,0,1000,2520,50);
-INSERT INTO `mob_droplist` VALUES (2707,0,0,1000,2525,50);
+INSERT INTO `mob_droplist` VALUES (2707,2,0,1000,751,0); -- (Yagudo Eradicator / Knight Templar Castle Oztroja[S])
+INSERT INTO `mob_droplist` VALUES (2707,0,0,1000,2520,100); -- Yagudo Kote
 INSERT INTO `mob_droplist` VALUES (2707,0,0,1000,2567,150); -- Dorter key
-INSERT INTO `mob_droplist` VALUES (2708,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2708,0,0,1000,841,50);
-INSERT INTO `mob_droplist` VALUES (2708,0,0,1000,2520,50);
-INSERT INTO `mob_droplist` VALUES (2708,0,0,1000,2525,50);
+INSERT INTO `mob_droplist` VALUES (2708,2,0,1000,751,0); -- (Yagudo Flagellant Castle Oztroja [S])
+INSERT INTO `mob_droplist` VALUES (2708,0,0,1000,841,240); -- Yagudo Feather
+INSERT INTO `mob_droplist` VALUES (2708,0,0,1000,841,150);
+INSERT INTO `mob_droplist` VALUES (2708,0,0,1000,841,100);
+INSERT INTO `mob_droplist` VALUES (2708,0,0,1000,2520,100); -- Yagudo kote
+INSERT INTO `mob_droplist` VALUES (2708,0,0,1000,2519,10); -- Yagudo Osode
 INSERT INTO `mob_droplist` VALUES (2709,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2709,0,0,1000,841,160);
 INSERT INTO `mob_droplist` VALUES (2709,0,0,1000,1707,70);
@@ -14777,20 +14782,20 @@ INSERT INTO `mob_droplist` VALUES (2709,0,0,1000,17301,160);
 INSERT INTO `mob_droplist` VALUES (2709,0,0,1000,17302,50);
 INSERT INTO `mob_droplist` VALUES (2710,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2710,0,0,1000,17302,11);
-INSERT INTO `mob_droplist` VALUES (2711,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2711,0,0,1000,841,50);
-INSERT INTO `mob_droplist` VALUES (2711,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (2711,0,0,1000,4764,90);
-INSERT INTO `mob_droplist` VALUES (2711,0,0,1000,4765,50);
-INSERT INTO `mob_droplist` VALUES (2711,0,0,1000,4793,40);
-INSERT INTO `mob_droplist` VALUES (2711,0,0,1000,4794,30);
-INSERT INTO `mob_droplist` VALUES (2711,0,0,1000,4816,30);
+INSERT INTO `mob_droplist` VALUES (2711,2,0,1000,751,0); -- (Yagudo Hierogrammat Castle Oztroja[S])
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4764,225); -- Scroll of Aero III
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4765,225); -- Scroll of Aero IV
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4793,225); -- Scroll of Aeroga II
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4794,225); -- Scroll of Aeroga III
+INSERT INTO `mob_droplist` VALUES (2711,1,1,100,4816,100); -- Scroll of Tornado
 INSERT INTO `mob_droplist` VALUES (2712,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (2712,0,0,1000,841,50);
 INSERT INTO `mob_droplist` VALUES (2712,0,0,1000,2525,1000); -- Bottled pixie
-INSERT INTO `mob_droplist` VALUES (2712,4,0,1000,4537,0);
-INSERT INTO `mob_droplist` VALUES (2713,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2713,0,0,1000,841,50);
+INSERT INTO `mob_droplist` VALUES (2712,4,0,1000,4537,0); 
+INSERT INTO `mob_droplist` VALUES (2713,2,0,1000,751,0); -- (Yagudo High Priest Castle Oztroja [S])
+INSERT INTO `mob_droplist` VALUES (2713,0,0,1000,841,240);
+INSERT INTO `mob_droplist` VALUES (2713,0,0,1000,841,150);
+INSERT INTO `mob_droplist` VALUES (2713,0,0,1000,841,100);
 INSERT INTO `mob_droplist` VALUES (2713,0,0,1000,2525,1000);
 INSERT INTO `mob_droplist` VALUES (2714,2,0,1000,748,0); -- Yagudo High Priest
 INSERT INTO `mob_droplist` VALUES (2714,0,0,1000,1428,341);
@@ -14803,7 +14808,7 @@ INSERT INTO `mob_droplist` VALUES (2714,0,0,1000,4750,373);
 INSERT INTO `mob_droplist` VALUES (2715,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2715,0,0,1000,1981,100);
 INSERT INTO `mob_droplist` VALUES (2715,0,0,1000,1982,100);
-INSERT INTO `mob_droplist` VALUES (2715,0,0,1000,2520,60);
+INSERT INTO `mob_droplist` VALUES (2715,0,0,1000,2520,100);
 INSERT INTO `mob_droplist` VALUES (2715,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (2715,4,0,1000,4538,0);
 INSERT INTO `mob_droplist` VALUES (2716,2,0,1000,656,0);
@@ -14826,7 +14831,7 @@ INSERT INTO `mob_droplist` VALUES (2718,0,0,1000,12832,10);
 INSERT INTO `mob_droplist` VALUES (2718,0,0,1000,12960,10);
 INSERT INTO `mob_droplist` VALUES (2719,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (2719,0,0,1000,841,10);
-INSERT INTO `mob_droplist` VALUES (2719,0,0,1000,2520,50);
+INSERT INTO `mob_droplist` VALUES (2719,0,0,1000,2520,100);
 INSERT INTO `mob_droplist` VALUES (2719,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (2720,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (2721,2,0,1000,749,0);
@@ -14846,7 +14851,7 @@ INSERT INTO `mob_droplist` VALUES (2722,0,0,1000,12842,30);
 INSERT INTO `mob_droplist` VALUES (2722,0,0,1000,12970,30);
 INSERT INTO `mob_droplist` VALUES (2723,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2724,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2724,0,0,1000,2520,50);
+INSERT INTO `mob_droplist` VALUES (2724,0,0,1000,2520,100);
 INSERT INTO `mob_droplist` VALUES (2724,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (2724,0,0,1000,2567,150);
 INSERT INTO `mob_droplist` VALUES (2724,4,0,1000,4538,0);
@@ -14894,11 +14899,10 @@ INSERT INTO `mob_droplist` VALUES (2733,0,0,1000,12736,13);
 INSERT INTO `mob_droplist` VALUES (2733,0,0,1000,12864,13);
 INSERT INTO `mob_droplist` VALUES (2733,0,0,1000,12992,13);
 INSERT INTO `mob_droplist` VALUES (2734,0,0,1000,841,50);
-INSERT INTO `mob_droplist` VALUES (2735,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2519,80);
-INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2520,50);
-INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2566,210);
+INSERT INTO `mob_droplist` VALUES (2735,2,0,1000,751,0); -- (Yagudo Nokizaru - Castle Oztroja)
+INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2519,10); -- Yagudo Osode
+INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2520,100); -- Yagudo kote
+INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2566,150); -- Jar of Gnat pellets
 INSERT INTO `mob_droplist` VALUES (2736,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2736,0,0,1000,841,1200);
 INSERT INTO `mob_droplist` VALUES (2736,0,0,1000,4898,40);
@@ -15055,10 +15059,9 @@ INSERT INTO `mob_droplist` VALUES (2757,0,0,1000,4816,30);
 INSERT INTO `mob_droplist` VALUES (2758,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (2758,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (2758,0,0,1000,4898,40);
-INSERT INTO `mob_droplist` VALUES (2759,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2759,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (2759,0,0,1000,2567,150);
-INSERT INTO `mob_droplist` VALUES (2759,0,0,1000,4898,40);
+INSERT INTO `mob_droplist` VALUES (2759,2,0,1000,751,0); -- (Yagudo Prioress Castle Oztroja [S])
+INSERT INTO `mob_droplist` VALUES (2759,0,0,1000,2567,150); -- Dorter key
+INSERT INTO `mob_droplist` VALUES (2759,0,0,1000,4898,50); -- Air Spirit pact
 INSERT INTO `mob_droplist` VALUES (2760,2,0,1000,748,0);
 INSERT INTO `mob_droplist` VALUES (2760,0,0,1000,2525,40);
 INSERT INTO `mob_droplist` VALUES (2761,0,0,1000,498,240);
@@ -15092,13 +15095,13 @@ INSERT INTO `mob_droplist` VALUES (2766,0,0,1000,841,50);
 INSERT INTO `mob_droplist` VALUES (2766,0,0,1000,12699,11);
 INSERT INTO `mob_droplist` VALUES (2766,0,0,1000,12827,02);
 INSERT INTO `mob_droplist` VALUES (2766,0,0,1000,12955,11);
-INSERT INTO `mob_droplist` VALUES (2767,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2767,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (2767,0,0,1000,2566,220);
+INSERT INTO `mob_droplist` VALUES (2767,2,0,1000,751,0); -- (Yagudo Superior Castle Oztroja[S])
+INSERT INTO `mob_droplist` VALUES (2767,0,0,1000,2566,150); -- Gnat Pellets
+INSERT INTO `mob_droplist` VALUES (2767,0,0,1000,4898,50); -- Air Spirit Pact
 INSERT INTO `mob_droplist` VALUES (2768,2,0,1000,748,0); -- Yagudo Templar
 INSERT INTO `mob_droplist` VALUES (2768,0,0,1000,1437,240);
 INSERT INTO `mob_droplist` VALUES (2769,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2769,0,0,1000,2520,50);
+INSERT INTO `mob_droplist` VALUES (2769,0,0,1000,2520,100);
 INSERT INTO `mob_droplist` VALUES (2769,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (2770,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2770,0,0,1000,841,50);
@@ -15145,11 +15148,10 @@ INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,1026,65);
 --INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,1530,70); --grarison
 INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,1982,234);
 --INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,2759,100); --yagudo Caulk
-INSERT INTO `mob_droplist` VALUES (2777,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2777,0,0,1000,2519,80);
-INSERT INTO `mob_droplist` VALUES (2777,0,0,1000,2520,50);
-INSERT INTO `mob_droplist` VALUES (2777,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (2777,0,0,1000,2566,220);
+INSERT INTO `mob_droplist` VALUES (2777,2,0,1000,751,0); -- Yagudo Yojimbo(Castle Oztroja)
+INSERT INTO `mob_droplist` VALUES (2777,0,0,1000,2519,10); -- Yagudo Osode
+INSERT INTO `mob_droplist` VALUES (2777,0,0,1000,2520,100); -- Yagudo kote
+INSERT INTO `mob_droplist` VALUES (2777,0,0,1000,2566,150); -- Gnat Pellets
 INSERT INTO `mob_droplist` VALUES (2778,2,0,1000,749,0);
 INSERT INTO `mob_droplist` VALUES (2778,0,0,1000,1035,50);
 INSERT INTO `mob_droplist` VALUES (2779,0,0,1000,572,40);

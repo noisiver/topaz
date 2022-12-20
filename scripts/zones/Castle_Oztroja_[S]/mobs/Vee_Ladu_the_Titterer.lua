@@ -29,9 +29,13 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    tpz.wotg.NMMods(mob)
+    if mob:getID() == 17183035 then
+        tpz.wotg.NMMods(mob)
+    else
+        mob:setDamage(70)
+    end
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
-    mob:setMod(tpz.mod.NINJUTSU, 9999)
+    mob:setMod(tpz.mod.NINJUTSU_NEVER_MISS, 1)
     mob:setUnkillable(true)
 end
 
@@ -40,13 +44,49 @@ function onMobFight(mob, target)
 
     mob:addListener("MAGIC_STATE_EXIT", "Ladu_MAGIC_STATE_EXIT", function(mob, spell)
         if spell:getID() == 339 and mob:getID() == 17183035 then -- Main NM only, Utsusemi: Ni
-            local clones = GetCloneIDs(mob)
 
-            for v = 1, clones do
-                local currentClone = GetMobByID(v)
-                if not currentClone:Spawned() then
+            local hp = mob:getHPP()
+            local target = mob:getTarget()
+
+            -- Summons clones when using Utsusemi: Ni. 
+            -- 100-77%: 1 Clone
+            -- 77%-60%: 2 Clones
+            -- 60%-40%: 3 Clones
+            -- 40-1%:   4 Clones
+
+            if (hp < 41) then
+                for v = 17183039, 17183042 do
+                    local currentClone = GetMobByID(v)
+                    if not currentClone:isSpawned() then
+                        currentClone:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                        currentClone:spawn()
+                        currentClone:updateEnmity(target)
+                    end
+                end
+            elseif (hp < 61) then
+                for v = 17183039, 17183041 do
+                    local currentClone = GetMobByID(v)
+                    if not currentClone:isSpawned() then
+                        currentClone:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                        currentClone:spawn()
+                        currentClone:updateEnmity(target)
+                    end
+                end
+            elseif (hp < 78) then
+                for v = 17183039, 17183040 do
+                    local currentClone = GetMobByID(v)
+                    if not currentClone:isSpawned() then
+                        currentClone:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+                        currentClone:spawn()
+                        currentClone:updateEnmity(target)
+                    end
+                end
+            else
+                local currentClone = GetMobByID(17183039)
+                if not currentClone:isSpawned() then
                     currentClone:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
                     currentClone:spawn()
+                    currentClone:updateEnmity(target)
                 end
             end
         end
@@ -56,9 +96,26 @@ function onMobFight(mob, target)
     if (hp <= 1) then
         if mob:getID() == 17183035 then -- Main NM
             mob:useMobAbility(731)
-        else    -- Clones despawn at 1 hp instead
+        else -- Clones despawn at 1 hp instead
             DespawnMob(mob:getID())
         end
+    end
+end
+
+function onMonsterMagicPrepare(mob,target)
+local spellList =
+{
+    [1] = 345, -- Hojo: Ni
+    [2] = 342, -- Kurayami: Ni
+    [3] = 348,  -- Jubaku: Ni
+    [4] = 351, -- Dokumori: Ni
+}
+    -- Only casts Ususemi when no shadows are active
+
+    if GetShadowCount(mob) > 0 then
+        return spellList[math.random(#spellList)]
+    else
+        return 339 -- Utsusemi: Ni
     end
 end
 
@@ -73,23 +130,24 @@ function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)
-    UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(7200) -- 2 hours
+    if mob:getID() == 17183035 then
+        UpdateNMSpawnPoint(mob:getID())
+        mob:setRespawnTime(7200) -- 2 hours
+    end
 end
 
-function GetCloneIDs(mob)
-    local hp = mob:getHPP()
-    local hpAmounts =
-    {
-        [1] = { 40, 17183042},
-        [2] = { 60, 17183041},
-        [3] = { 78, 17183040},
+function GetShadowCount(mob)
+    local shadows = {
+    [66] = 1,
+    [444] = 2,
+    [445] = 3,
+    [446] = 4
     }
-    for _, v in ipairs(hpAmounts) do
-        if (hp) < v then
-            return hpAmounts[v][2]
-        else
-            return 17183039
+
+    for buffId,shadowCount in pairs(shadows) do
+        if mob:hasStatusEffect(buffId) then
+            return shadowCount
         end
     end
+  return 0
 end
