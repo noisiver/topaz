@@ -155,11 +155,10 @@ local GearSets =  {
              {id = 201, items = {27741, 27882, 28030, 28169, 28307},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.CRIT_DMG_INCREASE, 10, 0, 0}} }, -- Espial set (Crit damage +10%)
              {id = 202, items = {27742, 27883, 28031, 28170, 28308},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.REFRESH, 3, 0, 0}} },            -- Wayfarer set (Refresh+3)
              {id = 203, items = {18418, 18419},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.MATT, 30, 0, 0}, {tpz.mod.MACC, 15, 0, 0}} },         -- North/South Piranu Katanas Mag atk bonus+30 and Mag acc +15
-             -- TODO:
-             -- Zenith
-             -- Adaman Hauberk
-             -- Crimson Armor
-             -- Shura Togi 
+             {id = 205, items = {13787, 13788, 13876, 13877, 14006, 14007, 14123, 14124, 14247, 14248},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.CURE_POTENCY, 4, 2, 0}} },   --  Zenith +4-10% Cure Potency
+             {id = 206, items = {12429, 12557, 12685, 12813, 12941, 13924, 14175, 14296, 14371, 14816},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Adaman Hauberk +4-10% Weapon Skill Damage
+             {id = 207, items = {13908, 13909, 14058, 14059, 14160, 14161, 14280, 14281, 14367, 14368,},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 10, 5, 0}} },   -- Crimson Scale +10-25 Accuracy
+             {id = 208, items = {13934, 13935, 14184, 14185, 14303, 14304, 14387, 14388, 14821, 14822},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Shura Togi +4-10% Weapon Skill Damage
         }
 
              -- increment id by (number of mods in previous gearset - 1)

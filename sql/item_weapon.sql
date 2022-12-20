@@ -1290,7 +1290,7 @@ INSERT INTO `item_weapon` VALUES (17645,'espadon_+1',3,0,0,0,0,2,1,257,44,0);
 INSERT INTO `item_weapon` VALUES (17646,'carnage_sword',3,0,0,0,0,2,1,264,43,0);
 INSERT INTO `item_weapon` VALUES (17647,'aramiss_rapier',3,0,0,0,0,1,1,202,30,0);
 INSERT INTO `item_weapon` VALUES (17648,'dragvandil',3,0,0,0,0,2,1,264,40,0);
-INSERT INTO `item_weapon` VALUES (17649,'nightmare_sword',3,0,0,0,0,2,1,231,36,0);
+INSERT INTO `item_weapon` VALUES (17649,'nightmare_sword',3,0,0,0,0,2,1,180,31,0);
 INSERT INTO `item_weapon` VALUES (17650,'nadrs',3,0,0,0,0,2,1,236,18,0);
 INSERT INTO `item_weapon` VALUES (17651,'dainslaif',3,0,0,0,0,2,1,264,43,0);
 INSERT INTO `item_weapon` VALUES (17652,'joyeuse',3,0,0,0,0,1,2,224,35,0);

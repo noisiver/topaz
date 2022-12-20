@@ -215,9 +215,9 @@ enum class Mod
     MAGIC_CRITHITRATE         = 562, // Raises chance to magic crit
     MAGIC_CRIT_DMG_INCREASE   = 563, // Raises damage done when criting with magic
 
-    FENCER_TP_BONUS           = 903, // TP Bonus to weapon skills from Fencer Trait
-    FENCER_CRITHITRATE        = 904, // Increased Crit chance from Fencer Trait
-    FENCER_JA_HASTE           = 986, // Increased JA Haste chance from Fencer Trait
+    FENCER_TP_BONUS           = 903, // TP Bonus to weapon skills from Fencer Trait (+1 gear mod is +100 for +100 TP bonus)
+    FENCER_CRITHITRATE        = 904, // Increased Crit chance from Fencer Trait (+1 gear mod is +1 for 1% crit)
+    FENCER_JA_HASTE           = 986, // Increased JA Haste chance from Fencer Trait (+1 gear mod is +1 for 1% haste)
 
     SMITE                     = 898, // Raises attack when using H2H or 2H weapons (256 scale)
     TACTICAL_GUARD            = 899, // Tp increase when guarding
