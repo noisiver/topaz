@@ -114,10 +114,10 @@ local afArmorPlusOne =
     [ 93] = {trade = {15002, 2714, 2715,  745}, abc = 25, reward = {15035, 1, 0, 0} }, -- dancers_bangles_+1
     [ 94] = {trade = {15659, 2714, 2715, 2737}, abc = 25, reward = {16357, 1, tpz.augments.PDT, 2} }, -- dancers_tights_+1
     [ 95] = {trade = {15746, 2714, 2715, 2737}, abc = 20, reward = {11393, 1, 0, 0} }, -- dancers_toe_shoes_+1
-    [201] = {trade = {16139, 2714, 2715,  745}, abc = 30, reward = {11476, 1, 0, 0} }, -- dancers_tiara_+1
-    [202] = {trade = {14579, 2714, 2715, 1699}, abc = 35, reward = {11303, 1, 0, 0} }, -- dancers_casaque_+1
+    [201] = {trade = {16139, 2714, 2715,  745}, abc = 30, reward = {11476, 1, tpz.augments.ATTK, 9} }, -- dancers_tiara_+1
+    [202] = {trade = {14579, 2714, 2715, 1699}, abc = 35, reward = {11303, 1, tpz.augments.ATTK, 19} }, -- dancers_casaque_+1
     [203] = {trade = {15003, 2714, 2715,  745}, abc = 25, reward = {15036, 1, 0, 0} }, -- dancers_bangles_+1
-    [204] = {trade = {15660, 2714, 2715, 2737}, abc = 25, reward = {16358, 1, 0, 0} }, -- dancers_tights_+1
+    [204] = {trade = {15660, 2714, 2715, 2737}, abc = 25, reward = {16358, 1, tpz.augments.PDT,2} }, -- dancers_tights_+1
     [205] = {trade = {15747, 2714, 2715, 2737}, abc = 20, reward = {11394, 1, 0, 0} }, -- dancers_toe_shoes_+1
     [ 96] = {trade = {16140, 2716, 2717, 2536}, abc = 20, reward = {11477, 1, 0, 0} }, -- scholars_mortarboard_+1
     [ 97] = {trade = {14580, 2716, 2717, 2530}, abc = 40, reward = {11304, 1, 0, 0} }, -- scholars_gown_+1
