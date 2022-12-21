@@ -16,16 +16,11 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local power = 75
+    local power = 50
     local duration = 30
     local typeEffect = tpz.effect.COUNTERSTANCE
 
-    if (mob:getPool() == 3075) then -- Overlord Bakgodek
-        power = 40
-        duration = 30
-    end
-
-    skill:setMsg(MobBuffMove(mob, typeEffect, 75, 0, 30))
+    skill:setMsg(MobBuffMove(mob, typeEffect, power, 0, 30))
 
     return typeEffect
 end

@@ -17,8 +17,13 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
     local result = 1
     local mobhp = mob:getHPP()
+    local cogtoothSkagnogg = mob:getPool() == 761
 
     if (mobhp <= 50) then
+        result = 0
+    end
+
+    if cogtoothSkagnogg then
         result = 0
     end
 
@@ -26,15 +31,19 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.BURN
-    local power = 35
 
-    MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
-
-    local dmgmod = 2
+    local dmgmod = 5
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
     if dmg > 0 then target:setTP(0) end
+        if cogtoothSkagnogg then
+            MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 80, 0, 300)
+            MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 300)
+        else
+            local typeEffect = tpz.effect.BURN
+            local power = 35
+            MobStatusEffectMove(mob, target, typeEffect, power, 3, 300)
+        end
     return dmg
 end

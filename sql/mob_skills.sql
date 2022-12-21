@@ -1006,7 +1006,7 @@ INSERT INTO `mob_skills` VALUES (1056,740,'fanatic_dance',1,10.0,2000,4000,4,0,0
 INSERT INTO `mob_skills` VALUES (1061,353,'battle_dance',1,15.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1062,354,'howl',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1063,807,'bow',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1064,351,'jump',0,9.5,2000,0,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1064,351,'jump_long_cast',0,7.0,2000,3000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1065,21,'eagle_eye_shot',0,7.0,2000,1500,4,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1066,740,'fanatic_dance',1,10.0,2000,4000,4,0,0,0,0,0,0); -- Only nm's in dynamis and falsespinner bhudbrodd
 INSERT INTO `mob_skills` VALUES (1067,741,'doom',0,9.0,2000,2000,4,0,0,0,0,0,0);
@@ -2308,9 +2308,9 @@ INSERT INTO `mob_skills` VALUES (2338,1641,'rampant_stance',1,7.0,2000,2500,4,0,
 -- INSERT INTO `mob_skills` VALUES (2347,2091,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2348,2092,'glacial_bellow',4,10.0,2000,1500,4,0,0,0,0,0,0); -- Animation ID was 2092
 INSERT INTO `mob_skills` VALUES (2349,1636,'daunting_hurl',2,10.0,2000,1500,4,0,0,0,0,0,0); -- Animation ID was 2093
-INSERT INTO `mob_skills` VALUES (2350,1629,'scatter_shell',1,15.0,2000,3500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2351,1630,'tear_grenade',1,7.0,2000,3500,4,0,0,0,0,0,0); --animation ID was 2095
-INSERT INTO `mob_skills` VALUES (2352,1631,'sticky_grenade',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2350,1629,'scatter_shell',2,10.0,2000,3500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2351,1630,'tear_grenade',2,15.0,2000,3500,4,0,0,0,0,0,0); --animation ID was 2095
+INSERT INTO `mob_skills` VALUES (2352,1631,'sticky_grenade',2,15.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2353,2097,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2354,2098,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2355,2099,'.',0,7.0,2000,1500,4,0,0,0,0,0,0);

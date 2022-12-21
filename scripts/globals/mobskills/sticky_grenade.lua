@@ -1,8 +1,7 @@
 ---------------------------------------------
---  Scatter Shell
+--  Sticky Grenade
 --
---  Description: Shoots multiple needles at enemies within range.
--- 1000 dmg "needles"
+--  Description: Magical damage. Additional effect: Slow + Weight
 --  Type: Magical (Fire)
 --
 --
@@ -17,10 +16,13 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local needles = 1000 / skill:getTotalTargets()
-    local info = MobNeedlesMagicalMove(mob, target, skill, needles, tpz.magic.ele.FIRE, tpeffect)
+
+    local dmgmod = 5
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
-
+    if dmg > 0 then target:setTP(0) end
+    MobStatusEffectMove(mob, target, tpz.effect.SLOW, 5000, 0, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 25, 0, 300)
     return dmg
 end

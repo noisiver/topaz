@@ -3855,6 +3855,21 @@ INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2264);
 INSERT INTO `mob_skill_lists` VALUES ('OrcishWarmachine-WOTG',1166,926); 
 INSERT INTO `mob_skill_lists` VALUES ('Goblin-WOTG',1167,926); 
 
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,635);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,636);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,637);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,638);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,639);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,2350);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,2351);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,2352);
+
+INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Grenade',1169,2235);
+INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Grenade',1169,2236);
+INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Grenade',1169,2237);
+
+INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Vial',1170,2371);
+
 -- Custom Content
 
 -- Murgleis
@@ -4542,5 +4557,5 @@ INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,2207);
 
 
 
--- Next available ID: 1168
+-- Next available ID: 1171
 

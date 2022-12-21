@@ -928,3 +928,18 @@ function utils.getDropRate(mob, base)
     -- printf("Drop Rate: %s", dropRate)
     return dropRate
 end
+
+function utils.spawnPetInBattle(mob, pet)
+    mob:entityAnimationPacket("casm")
+    mob:SetAutoAttackEnabled(false)
+    mob:SetMagicCastingEnabled(false)
+    mob:SetMobAbilityEnabled(false)
+    mob:timer(3000, function(mob)
+        mob:entityAnimationPacket("shsm")
+        mob:SetAutoAttackEnabled(true)
+        mob:SetMagicCastingEnabled(true)
+        mob:SetMobAbilityEnabled(true)
+        pet:spawn()
+        pet:updateEnmity(mob:getTarget())
+    end)
+end

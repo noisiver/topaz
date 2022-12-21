@@ -10,6 +10,9 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMobMod(tpz.mobMod.GA_CHANCE, 70)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 14)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

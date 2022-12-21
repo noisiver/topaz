@@ -1,13 +1,13 @@
 -----------------------------------
 -- Area: La Vaule [S]
---   NM: Bhogbigg''s Vial
+--   NM: Bhogbigg''s Grenade
+-- Runs towards a random target and uses a TP move then despawns.
 -----------------------------------
 require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REGAIN, 1500)
-    mob:setMod(tpz.mod.UDMGMAGIC, -75)
+    mob:addTP(3000)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
@@ -17,6 +17,7 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    mob:setHP(0)
 end
 
 function onMobDeath(mob, player, isKiller)

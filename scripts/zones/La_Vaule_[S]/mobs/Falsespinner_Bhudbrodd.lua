@@ -1,8 +1,8 @@
 -----------------------------------
 -- Area: La Vaule [S]
 --   NM: Falsespinner Bhudbrodd
--- Beserker Dance is undispellable if used by him
--- Doesn't use Fanatics Dance until < 25%? maybe < 50%
+-- Beserker Dance is undispellable when used by any orc
+-- Doesn't use Fanatics Dance until < 50%
 -- Always uses Orcish Counterstance then Berserker Dance together
 -----------------------------------
 require("scripts/globals/status")
@@ -13,6 +13,32 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+end
+
+function onMobFight(mob, target)
+    local buffCombo = mob:getLocalVar("buffCombo")
+
+    -- Always uses Orcish Counterstance then Berserker Dance together
+    if not mob:hasStatusEffect(tpz.effect.COUNTERSTANCE) then
+        mob:setlocalvar("buffCombo", 0)
+        if (buffCombo == 0) then
+            mob:setlocalvar("buffCombo", 1)
+            mob:useMobAbility(2201)
+            mob:useMobAbility(2202)
+        end
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+    local hp = mob:getHPP()
+    -- Uses Battle Dance and Fanatics Dance
+    -- Doesn't start using Fanatics Dance until < 50%
+    if (hp < 50) then
+        local tpMoves = {1056, 1061}
+        return tpMoves[math.random(#tpMoves)]
+    else
+        return 1061
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

@@ -4945,12 +4945,12 @@ INSERT INTO `mob_groups` VALUES (11,4309,85,'Water_Elemental',330,0,0,0,0,81,83,
 INSERT INTO `mob_groups` VALUES (12,6289,85,'Orcish_Champion',330,0,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (13,3005,85,'Orcish_Dragonbrander',330,0,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (14,6274,85,'Orcish_Bowshooter',330,0,0,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (15,5557,85,'Hawkeyed_Dnatbat',0,32,3035,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (15,5557,85,'Hawkeyed_Dnatbat',7200,0,3035,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (16,3541,85,'Seneschal_Imp',330,0,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (17,1338,85,'Fighting_Smilodon',330,0,0,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (18,3912,85,'Thunder_Elemental',330,0,0,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (19,6679,85,'Orcish_Firebelcher',330,0,0,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (20,5554,85,'Ashmaker_Gotblut',0,32,177,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (20,5554,85,'Ashmaker_Gotblut',7200,0,177,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (21,5559,85,'Orcish_Warlord',330,0,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (22,3588,85,'Shatterskull_Mippdapp',330,0,0,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (23,6291,85,'Orcish_Protector',330,0,0,0,0,81,83,0);

@@ -7,11 +7,11 @@
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 require("scripts/globals/wotg")
-mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMod(tpz.mod.REGAIN, 3000)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

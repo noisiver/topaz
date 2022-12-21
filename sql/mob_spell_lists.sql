@@ -4405,6 +4405,12 @@ INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,462,1,255);	
 INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,397,1,255);	    -- Valor Minuet IV 
 INSERT INTO `mob_spell_lists` VALUES ('Suu_Xicu_the_Cantabile',1016,404,1,255);	    -- Dragonfoe Mambo 
 
+INSERT INTO `mob_spell_lists` VALUES ('Ashmaker_Gotblut_past', 1017, 249, 1, 255); -- Blaze Spikes
+INSERT INTO `mob_spell_lists` VALUES ('Ashmaker_Gotblut_past', 1017, 175, 1, 255); -- Firaga II
+INSERT INTO `mob_spell_lists` VALUES ('Ashmaker_Gotblut_past', 1017, 176, 1, 255); -- Firaga III
+INSERT INTO `mob_spell_lists` VALUES ('Ashmaker_Gotblut_past', 1017,147,24,255); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Ashmaker_Gotblut_past', 1017, 205, 1, 255); -- Flare II
+
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5191,7 +5197,7 @@ INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,110,1,255);  --
 INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,143,1,255);  -- Erase
 
 
--- NEXT 1017
+-- NEXT 1018
 -- NEXT 2080(Custom)
 
 
