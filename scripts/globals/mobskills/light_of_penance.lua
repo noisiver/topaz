@@ -18,9 +18,8 @@ function onMobWeaponSkill(target, mob, skill)
     local tpReduced = 0
     target:setTP(tpReduced)
 
-    MobGazeMove(mob, target, tpz.effect.BLINDNESS, 100, 0, 300)
-
     MobGazeMove(mob, target, tpz.effect.BIND, 1, 0, 30)
+    MobGazeMove(mob, target, tpz.effect.BLINDNESS, 100, 0, 300)
 
     skill:setMsg(tpz.msg.basic.TP_REDUCED)
 
