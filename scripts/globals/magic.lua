@@ -1162,10 +1162,12 @@ end
     dmg = target:magicDmgTaken(dmg)
 
     if (dmg > 0) then
-        dmg = dmg - target:getMod(tpz.mod.PHALANX)
+        if not (spell:getID() == 247) and not (spell:getID() == 248) then -- Aspir isn't reduced by Phalanx
+            dmg = dmg - target:getMod(tpz.mod.PHALANX)
+        end
         dmg = utils.clamp(dmg, 0, 99999)
     end
-    
+
     --handling rampart stoneskin
     dmg = utils.rampartstoneskin(target, dmg)
     
