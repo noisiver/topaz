@@ -17,6 +17,6 @@ end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.ACC, 15)
-    target:delMod(tpz.mod.ENSPELL_MACC, 200)
+    target:delMod(tpz.mod.ENSPELL_MACC, 30)
     target:delMod(tpz.mod.ELEMENTAL_WSDMG, 50)
 end
