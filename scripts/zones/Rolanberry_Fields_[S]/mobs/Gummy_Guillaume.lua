@@ -10,8 +10,10 @@ require("scripts/globals/status")
 function onMobSpawn(mob)
     mob:setLocalVar("AuraTick", 0)
     tpz.annm.NMMods(mob)
-    mob:setMod(tpz.mod.REGAIN, 250)
     mob:SetAutoAttackEnabled(false)
+    mob:setMod(tpz.mod.MDEF, 0)
+    mob:setMod(tpz.mod.UDMGMAGIC, 25)
+    mob:setMod(tpz.mod.REGAIN, 250)
     mob:setMod(tpz.mod.MOVE, -75)
 end
 
