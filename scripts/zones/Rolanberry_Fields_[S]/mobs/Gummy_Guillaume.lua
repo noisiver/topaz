@@ -8,10 +8,11 @@ require("scripts/globals/annm")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
+    mob:setLocalVar("AuraTick", 0)
+    tpz.annm.NMMods(mob)
     mob:setMod(tpz.mod.REGAIN, 250)
     mob:SetAutoAttackEnabled(false)
-    mob:setLocalVar("AuraTick", 0)
-    tpz.annm.NMMods(mob) 
+    mob:setMod(tpz.mod.MOVE, -25)
 end
 
 function onMobFight(mob, target)
