@@ -12,7 +12,7 @@ function onMobSpawn(mob)
     tpz.annm.NMMods(mob)
     mob:setMod(tpz.mod.REGAIN, 250)
     mob:SetAutoAttackEnabled(false)
-    mob:setMod(tpz.mod.MOVE, -25)
+    mob:setMod(tpz.mod.MOVE, -75)
 end
 
 function onMobEngaged(mob, target)
