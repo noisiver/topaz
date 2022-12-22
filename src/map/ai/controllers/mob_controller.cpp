@@ -215,7 +215,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
 
     float verticalDistance = abs(PMob->loc.p.y - PTarget->loc.p.y);
 
-    if (verticalDistance > 12)
+    if (verticalDistance > 12 && PMob->getMobMod(MOBMOD_VERTICAL_AGGRO) == 0)
     {
         return false;
     }
