@@ -14,6 +14,11 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local falsespinner = mob:getPool() == 1293
+
+    if falsespinner then
+        return 0
+    end
     if (mob:isInDynamis() and mob:isMobType(MOBTYPE_NOTORIOUS)) then
         return 0
     end

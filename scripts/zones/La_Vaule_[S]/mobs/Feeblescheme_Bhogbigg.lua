@@ -20,8 +20,8 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    mob:setLocalVar("grenadeTime", math.random(5, 60))
-    mob:setLocalVar("vialTime", math.random(5, 15))
+    mob:setLocalVar("grenadeTime", os.time() + math.random(5, 60))
+    mob:setLocalVar("vialTime", os.time() + math.random(5, 15))
 end
 
 function onMobFight(mob, target)
@@ -31,7 +31,7 @@ function onMobFight(mob, target)
     -- Grenade is summoned every 5-60s
     -- Grenades run towards a random target and uses one of their TP moves then depop after.
     if os.time() >= grenadeTime then
-        mob:setLocalVar("grenadeTime", math.random(5, 60))
+        mob:setLocalVar("grenadeTime", os.time() + math.random(5, 60))
         local grenade = GetMobByID(mob:getID() +1)
         if grenade:isSpawned() then grenade = GetMobByID(mob:getID() +2) end
         if grenade:isSpawned() then grenade = GetMobByID(mob:getID() +3) end
@@ -41,7 +41,7 @@ function onMobFight(mob, target)
         end
         return
     elseif os.time() >= vialTime then -- Vials stay alive spamming Noxious Spray (Poison for 30/tick). Can only have 1 vial active max.
-        mob:setLocalVar("vialTime", math.random(5, 15))
+        mob:setLocalVar("vialTime", os.time() + math.random(5, 15))
         local vial = GetMobByID(mob:getID() +4)
         if not vial:isSpawned() then
             vial:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))

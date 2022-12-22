@@ -4952,7 +4952,7 @@ INSERT INTO `mob_groups` VALUES (18,3912,85,'Thunder_Elemental',330,0,0,0,0,85,8
 INSERT INTO `mob_groups` VALUES (19,6679,85,'Orcish_Firebelcher',330,0,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,5554,85,'Ashmaker_Gotblut',7200,0,177,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (21,5559,85,'Orcish_Warlord',330,0,0,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (22,3588,85,'Shatterskull_Mippdapp',330,0,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (22,6769,85,'Shatterskull_Mippdapp',330,0,0,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (23,6291,85,'Orcish_Protector',330,0,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (24,5230,85,'Orcish_Dreadnought',330,0,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (25,3036,85,'Orcish_Strategist',330,0,0,0,0,81,83,0);
@@ -4982,6 +4982,7 @@ INSERT INTO `mob_groups` VALUES (46,3767,85,'Steelhide_Protector',0,128,0,0,0,83
 INSERT INTO `mob_groups` VALUES (47,2127,85,'Jagidbods_Warmachine',0,128,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (48,737,85,'Clan_Reaper_Grunt',0,128,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (49,1333,85,'Fiendish_Leechkeeper',0,128,0,0,0,83,83,0);
+INSERT INTO `mob_groups` VALUES (50,403,85,'Bhogbiggs_Vial',0,128,0,110,0,80,80,0);
 
 INSERT INTO `mob_groups` VALUES (3545,18,85,'Abenzio',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3546,37,85,'Achtelle',1,0,0,0,0,1,1,0);
@@ -5001,7 +5002,6 @@ INSERT INTO `mob_groups` VALUES (3561,311,85,'Azima',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3562,312,85,'Azo',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3563,320,85,'Babban_Ny_Mheillea',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (3564,366,85,'Battlemaster_Vatgit',0,128,239,0,0,75,80,0);
-INSERT INTO `mob_groups` VALUES (3566,403,85,'Bhogbiggs_Vial',0,128,0,110,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (3567,456,85,'Bloodcrown_Brradhod',0,128,0,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (3568,464,85,'Bloodwing_Impaler',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (3569,502,85,'Boodlix',0,128,0,0,0,75,80,0);

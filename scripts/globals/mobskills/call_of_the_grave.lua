@@ -13,6 +13,19 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local rugaroo = mob:getPool() == 3413
+
+    if rugaroo then
+        return 0
+    end
+	if mob:hasStatusEffect(tpz.effect.PROWESS_KILLER) then
+		return 1
+	end
+    -- animsub 1= standing, animsub 0 = all fours
+    if (mob:AnimationSub() == 1) then
+        return 1
+    end
+
     return 0
 end
 

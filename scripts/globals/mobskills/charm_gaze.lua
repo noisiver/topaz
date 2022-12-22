@@ -16,10 +16,11 @@ end
 function onMobWeaponSkill(target, mob, skill)
     if (target:isFacing(mob)) then
 		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
-			return tpz.msg.basic.SKILL_NO_EFFECT
+			return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 		else
 			MobCharmMove(mob, target, skill, 0, 180)
-            return tpz.effect.CHARM_I
+            return skill:setMsg(tpz.effect.CHARM_I)
 		end
     end
+    return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 end

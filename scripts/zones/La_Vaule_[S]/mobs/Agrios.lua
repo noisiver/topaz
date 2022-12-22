@@ -17,12 +17,6 @@ end
 
 
 function onMobFight(mob, target)
-    local repeatSkill = mob:getLocalVar("repeatTPMove")
-
-    if (repeatSkill > 0) then
-        mob:setLocalvar("repeatTPMove", 0)
-        UseMultipleTPMoves(mob, math.random(2), repeatSkill)
-    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -38,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     -- Has a chance to use all TP moves up to 3 times in a row
     if skill:getID() ~= 658 then
         if math.random(100) <= 20 then
-            mob:setLocalvar("repeatTPMove", skill:getID())
+            mob:useMobAbility(skill:getID()) 
         end
     end
 end

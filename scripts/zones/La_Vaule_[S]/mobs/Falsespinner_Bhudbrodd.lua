@@ -15,17 +15,18 @@ function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
 end
 
+function onMobEngaged(mob)
+    mob:setLocalVar("buffComboTimer", os.time())
+end
+
 function onMobFight(mob, target)
-    local buffCombo = mob:getLocalVar("buffCombo")
+    local buffComboTimer = mob:getLocalVar("buffComboTimer")
 
     -- Always uses Orcish Counterstance then Berserker Dance together
-    if not mob:hasStatusEffect(tpz.effect.COUNTERSTANCE) then
-        mob:setlocalvar("buffCombo", 0)
-        if (buffCombo == 0) then
-            mob:setlocalvar("buffCombo", 1)
-            mob:useMobAbility(2201)
-            mob:useMobAbility(2202)
-        end
+    if os.time() > buffComboTimer and not mob:hasStatusEffect(tpz.effect.COUNTERSTANCE) then
+        mob:setLocalVar("buffComboTimer", os.time() + 10)
+        mob:useMobAbility(2201)
+        mob:useMobAbility(2202)
     end
 end
 

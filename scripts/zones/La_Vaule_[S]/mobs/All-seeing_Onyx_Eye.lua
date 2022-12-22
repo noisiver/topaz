@@ -12,26 +12,30 @@ function onMobSpawn(mob)
     mob:addMobMod(tpz.mobMod.HP_HEAL_CHANCE, 33)
 end
 
+function onMobEngaged(mob)
+    mob:setLocalVar("charmTimer", os.time() + 12)
+end
+
 function onMobFight(mob, target)
     local charmTimer = mob:getLocalVar("charmTimer")
     local battleTime =  mob:getBattleTime()
     local hp = mob:getHPP()
 
     -- Uses Charm every 5ish seconds
-    if (battleTime >= charmTimer) then
+    if (os.time() >= charmTimer) then
         mob:useMobAbility(2383)
-        mob:setLocalVar("charmTimer", 5)
+        mob:setLocalVar("charmTimer", os.time() + 12)
     end
 
     -- Gains fast cast as his HP lowers
-    if (hp < 50) then
-        mob:addMod(tpz.mod.UFASTCAST, 50)
+    if (hp < 10) then
+        mob:setMod(tpz.mod.UFASTCAST, 75)
     elseif (hp < 25) then
-        mob:addMod(tpz.mod.UFASTCAST, 25)
-    elseif (hp < 10) then
-        mob:addMod(tpz.mod.UFASTCAST, 10)
+        mob:setMod(tpz.mod.UFASTCAST, 50)
+    elseif (hp < 50) then
+        mob:setMod(tpz.mod.UFASTCAST, 25)
     else
-        mob:addMod(tpz.mod.UFASTCAST, 0)
+        mob:setMod(tpz.mod.UFASTCAST, 0)
     end
 end
 
