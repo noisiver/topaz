@@ -728,6 +728,24 @@ void SetupJob(CMobEntity* PMob)
             PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 75);
             PMob->defaultMobMod(MOBMOD_MAGIC_DELAY, 7);
             break;
+        case JOB_SCH:
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 25);
+            PMob->defaultMobMod(MOBMOD_GA_CHANCE, 40);
+            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 5);
+            PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 10);
+            break;
+        case JOB_GEO:
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 25);
+            PMob->defaultMobMod(MOBMOD_GA_CHANCE, 40);
+            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 5);
+            PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 10);
+            break;
+        case JOB_RUN:
+            PMob->defaultMobMod(MOBMOD_MAGIC_COOL, 30);
+            PMob->defaultMobMod(MOBMOD_GA_CHANCE, 40);
+            PMob->defaultMobMod(MOBMOD_BUFF_CHANCE, 5);
+            PMob->defaultMobMod(MOBMOD_SEVERE_SPELL_CHANCE, 10);
+            break;
         default:
             break;
     }
@@ -849,6 +867,17 @@ void SetupJob(CMobEntity* PMob)
             // We don't want to do the mages stand-back part from subjob, so we have it here
             PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
             PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            break;
+        case JOB_SCH:
+            // We don't want to do the mages stand-back part from subjob, so we have it here
+            PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
+            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            break;
+        case JOB_GEO:
+            // We don't want to do the mages stand-back part from subjob, so we have it here
+            PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 13);
+            PMob->defaultMobMod(MOBMOD_HP_STANDBACK, 70);
+            break;
         default:
             break;
     }
