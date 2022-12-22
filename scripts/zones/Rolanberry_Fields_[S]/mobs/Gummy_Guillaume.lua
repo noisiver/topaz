@@ -24,7 +24,7 @@ function onMobFight(mob, target)
 	local BattleTime = mob:getBattleTime()
 
 	if mob:getWeather() == tpz.weather.RAIN or mob:getWeather() == tpz.weather.SQUALL then
-		mob:setMod(tpz.mod.REGEN, 100)
+		mob:setMod(tpz.mod.REGEN, 10)
 	else
 		mob:setMod(tpz.mod.REGEN, 0)
 	end
