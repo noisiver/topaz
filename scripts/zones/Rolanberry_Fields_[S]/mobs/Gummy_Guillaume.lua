@@ -15,6 +15,10 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.MOVE, -25)
 end
 
+function onMobEngaged(mob, target)
+    mob:setLocalVar("AuraTick", 15)
+end
+
 function onMobFight(mob, target)
 	local AuraTick = mob:getLocalVar("AuraTick")
 	local BattleTime = mob:getBattleTime()
