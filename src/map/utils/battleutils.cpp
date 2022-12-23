@@ -2126,6 +2126,8 @@ namespace battleutils
         }
 
         float skillmodifier = (blockskill - attackskill) * 0.2325f;
+        // int8 blockRate = (int8)std::clamp((int32)((base + (int32)skillmodifier) * blockRateMod), 5, (shieldSize == 6 ? 100 : std::max<int32>((int32)(65 * blockRateMod), 100)));
+        // ShowDebug(CL_CYAN "GetBlockRate: %i\n" CL_RESET, blockRate);
         return (int8)std::clamp((int32)((base + (int32)skillmodifier) * blockRateMod), 5, (shieldSize == 6 ? 100 : std::max<int32>((int32)(65 * blockRateMod), 100)));
     }
 
