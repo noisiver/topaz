@@ -2141,7 +2141,7 @@ INSERT INTO `item_equipment` VALUES (12377,'t.k._shield_+2',52,0,193,28,3,0,2,0)
 INSERT INTO `item_equipment` VALUES (12378,'hard_shield',48,0,2385,29,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12379,'holy_shield',50,0,4,29,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12380,'divine_shield',50,0,4,29,3,0,2,0);
-INSERT INTO `item_equipment` VALUES (12381,'charging_shield',63,0,193,26,3,0,2,0);
+INSERT INTO `item_equipment` VALUES (12381,'charging_shield',63,0,129,26,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12382,'astral_aspis',68,0,3719388,41,1,0,2,0);
 INSERT INTO `item_equipment` VALUES (12383,'generals_shield',69,0,193,47,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12384,'admirals_shield',69,0,193,47,3,0,2,0);
@@ -7770,7 +7770,7 @@ INSERT INTO `item_equipment` VALUES (18039,'republic_scythe',15,0,385,198,0,0,1,
 INSERT INTO `item_equipment` VALUES (18040,'webcutter',24,0,385,195,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18041,'a_loutrance',62,0,385,201,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18042,'ascention',67,0,385,322,0,0,1,0);
-INSERT INTO `item_equipment` VALUES (18043,'suzakus_scythe',74,0,385,197,0,0,1,0);
+INSERT INTO `item_equipment` VALUES (18043,'suzakus_scythe',74,0,257,197,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18044,'scarecrow_scythe',75,0,385,196,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18045,'platoon_zaghnal',20,0,2097537,197,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18046,'mutilator',40,0,128,196,0,0,1,0);

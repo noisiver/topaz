@@ -5001,13 +5001,13 @@ INSERT INTO `item_mods` VALUES (11481,115,7);
 INSERT INTO `item_mods` VALUES (11481,489,-5);
 INSERT INTO `item_mods` VALUES (11482,1,1);
 INSERT INTO `item_mods` VALUES (11482,14,1);
-INSERT INTO `item_mods` VALUES (11483,1,17);
-INSERT INTO `item_mods` VALUES (11483,68,10);
-INSERT INTO `item_mods` VALUES (11483,107,8);
-INSERT INTO `item_mods` VALUES (11483,110,8);
-INSERT INTO `item_mods` VALUES (11484,9,3);
+INSERT INTO `item_mods` VALUES (11483,1,17);    -- (Gnole Crown)
+INSERT INTO `item_mods` VALUES (11483,25,10);
+INSERT INTO `item_mods` VALUES (11483,291,5);
+INSERT INTO `item_mods` VALUES (11484,9,3);   -- (Antica Band)
 INSERT INTO `item_mods` VALUES (11484,11,3);
 INSERT INTO `item_mods` VALUES (11484,23,5);
+INSERT INTO `item_mods` VALUES (11484,421,3);
 INSERT INTO `item_mods` VALUES (11485,10,-1);
 INSERT INTO `item_mods` VALUES (11486,1,20);
 INSERT INTO `item_mods` VALUES (11486,30,4);
@@ -8060,11 +8060,15 @@ INSERT INTO `item_mods` VALUES (12380,1,14);
 INSERT INTO `item_mods` VALUES (12380,2,15);
 INSERT INTO `item_mods` VALUES (12380,5,15);
 INSERT INTO `item_mods` VALUES (12380,13,2);
-INSERT INTO `item_mods` VALUES (12381,1,16);
-INSERT INTO `item_mods` VALUES (12381,7,10);
-INSERT INTO `item_mods` VALUES (12381,8,1);
-INSERT INTO `item_mods` VALUES (12381,12,2);
-INSERT INTO `item_mods` VALUES (12381,116,5);
+INSERT INTO `item_mods` VALUES (12381,1,27);    -- (Charging Shield)
+INSERT INTO `item_mods` VALUES (12381,8,5);
+INSERT INTO `item_mods` VALUES (12381,12,5);
+INSERT INTO `item_mods` VALUES (12381,109,25);
+INSERT INTO `item_mods` VALUES (12381,116,15);
+INSERT INTO `item_mods` VALUES (12381,168,33);
+INSERT INTO `item_mods` VALUES (12381,903,100);
+INSERT INTO `item_mods` VALUES (12381,904,1);
+INSERT INTO `item_mods` VALUES (12381,986,1);
 INSERT INTO `item_mods` VALUES (12382,1,3);
 INSERT INTO `item_mods` VALUES (12382,7,25);
 INSERT INTO `item_mods` VALUES (12382,11,3);
@@ -8222,10 +8226,11 @@ INSERT INTO `item_mods` VALUES (12431,1,12);
 INSERT INTO `item_mods` VALUES (12431,11,1);
 INSERT INTO `item_mods` VALUES (12432,1,5);
 INSERT INTO `item_mods` VALUES (12433,1,11);
-INSERT INTO `item_mods` VALUES (12434,1,35);
+INSERT INTO `item_mods` VALUES (12434,1,35);    -- (Genbu's Kabuto)
 INSERT INTO `item_mods` VALUES (12434,2,50);
 INSERT INTO `item_mods` VALUES (12434,10,15);
 INSERT INTO `item_mods` VALUES (12434,59,50);
+INSERT INTO `item_mods` VALUES (12434,464,25);  -- Water Absorb +25
 INSERT INTO `item_mods` VALUES (12435,1,21);
 INSERT INTO `item_mods` VALUES (12435,58,-4);
 INSERT INTO `item_mods` VALUES (12435,59,4);
@@ -8549,7 +8554,8 @@ INSERT INTO `item_mods` VALUES (12559,1,31);
 INSERT INTO `item_mods` VALUES (12559,9,1);
 INSERT INTO `item_mods` VALUES (12560,1,11);
 INSERT INTO `item_mods` VALUES (12561,1,21);
-INSERT INTO `item_mods` VALUES (12562,1,52);
+INSERT INTO `item_mods` VALUES (12562,1,52); -- (Kirin's Osode)
+INSERT INTO `item_mods` VALUES (12562,2,30);
 INSERT INTO `item_mods` VALUES (12562,5,30);
 INSERT INTO `item_mods` VALUES (12562,8,10);
 INSERT INTO `item_mods` VALUES (12562,9,10);
@@ -8559,6 +8565,8 @@ INSERT INTO `item_mods` VALUES (12562,12,10);
 INSERT INTO `item_mods` VALUES (12562,13,10);
 INSERT INTO `item_mods` VALUES (12562,14,10);
 INSERT INTO `item_mods` VALUES (12562,60,50);
+INSERT INTO `item_mods` VALUES (12562,23,10);
+INSERT INTO `item_mods` VALUES (12562,25,10);
 INSERT INTO `item_mods` VALUES (12563,1,42);
 INSERT INTO `item_mods` VALUES (12563,58,-5);
 INSERT INTO `item_mods` VALUES (12563,59,5);
@@ -9492,6 +9500,7 @@ INSERT INTO `item_mods` VALUES (12945,1,6);
 INSERT INTO `item_mods` VALUES (12946,1,30);      -- Suzaku's Sune-Ate: DEF 30
 INSERT INTO `item_mods` VALUES (12946,13,15);     -- MND +15
 INSERT INTO `item_mods` VALUES (12946,54,50);     -- Fire resistance +50
+INSERT INTO `item_mods` VALUES (12946,459,10);     -- Fire Absorb +10
 INSERT INTO `item_mods` VALUES (12946,499,1);     -- Blaze spikes
 INSERT INTO `item_mods` VALUES (12946,500,20);    -- Spikes damage +20
 INSERT INTO `item_mods` VALUES (12946,501,20);    -- Spikes chance +20%13771
@@ -18700,8 +18709,8 @@ INSERT INTO `item_mods` VALUES (15836,11,1);
 INSERT INTO `item_mods` VALUES (15837,11,2);
 INSERT INTO `item_mods` VALUES (15837,25,1);
 INSERT INTO `item_mods` VALUES (15838,11,1);
-INSERT INTO `item_mods` VALUES (15839,118,2);
-INSERT INTO `item_mods` VALUES (15839,122,2);
+INSERT INTO `item_mods` VALUES (15839,118,5);   -- (Antica Ring)
+INSERT INTO `item_mods` VALUES (15839,122,5);
 INSERT INTO `item_mods` VALUES (15844,161,-2);
 INSERT INTO `item_mods` VALUES (15849,1,15);
 INSERT INTO `item_mods` VALUES (15850,54,5);
@@ -18943,7 +18952,8 @@ INSERT INTO `item_mods` VALUES (15925,29,2);
 INSERT INTO `item_mods` VALUES (15925,30,2);
 INSERT INTO `item_mods` VALUES (15926,26,1);
 INSERT INTO `item_mods` VALUES (15927,1,2);
-INSERT INTO `item_mods` VALUES (15928,25,9);
+INSERT INTO `item_mods` VALUES (15928,25,9);    -- (Lycopodium Sash)
+INSERT INTO `item_mods` VALUES (15928,890,10);
 INSERT INTO `item_mods` VALUES (15934,116,2);
 INSERT INTO `item_mods` VALUES (15935,519,1);     -- Capricornian Rope: Cure spellcasting time -1%
 INSERT INTO `item_mods` VALUES (15936,43,3);
@@ -19089,8 +19099,9 @@ INSERT INTO `item_mods` VALUES (16009,2,15);
 INSERT INTO `item_mods` VALUES (16009,11,2);
 INSERT INTO `item_mods` VALUES (16010,2,17);
 INSERT INTO `item_mods` VALUES (16010,11,3);
-INSERT INTO `item_mods` VALUES (16011,30,1);
-INSERT INTO `item_mods` VALUES (16011,432,2);    -- Sword enhancement spell damage +2
+INSERT INTO `item_mods` VALUES (16011,30,1);    -- (Lycopodium Earring)
+INSERT INTO `item_mods` VALUES (16011,432,15);    -- Sword enhancement spell damage +15
+INSERT INTO `item_mods` VALUES (16011,1271,15); 
 INSERT INTO `item_mods` VALUES (16012,13,3);
 INSERT INTO `item_mods` VALUES (16013,24,1);
 INSERT INTO `item_mods` VALUES (16013,106,1);
@@ -19721,8 +19732,9 @@ INSERT INTO `item_mods` VALUES (16248,9,5);
 INSERT INTO `item_mods` VALUES (16248,14,5);
 INSERT INTO `item_mods` VALUES (16248,25,5);
 INSERT INTO `item_mods` VALUES (16248,68,5);
-INSERT INTO `item_mods` VALUES (16250,1,6);
-INSERT INTO `item_mods` VALUES (16250,24,10);
+INSERT INTO `item_mods` VALUES (16250,1,6);   -- (Mamool Ja Mantle)
+INSERT INTO `item_mods` VALUES (16250,8,2);
+INSERT INTO `item_mods` VALUES (16250,24,15);
 INSERT INTO `item_mods` VALUES (16250,26,5);
 INSERT INTO `item_mods` VALUES (16251,1,6);
 INSERT INTO `item_mods` VALUES (16251,54,7);
@@ -19796,8 +19808,9 @@ INSERT INTO `item_mods` VALUES (16281,2,3);
 INSERT INTO `item_mods` VALUES (16281,505,5);
 INSERT INTO `item_mods` VALUES (16282,2,5);
 INSERT INTO `item_mods` VALUES (16282,505,5);
-INSERT INTO `item_mods` VALUES (16283,13,5);
+INSERT INTO `item_mods` VALUES (16283,13,5);    -- (Gnole Torque)
 INSERT INTO `item_mods` VALUES (16283,71,3);
+INSERT INTO `item_mods` VALUES (16283,30,2);
 INSERT INTO `item_mods` VALUES (16284,28,2);
 INSERT INTO `item_mods` VALUES (16284,54,5);
 INSERT INTO `item_mods` VALUES (16284,55,5);
@@ -21529,10 +21542,11 @@ INSERT INTO `item_mods` VALUES (17657,10,3);
 INSERT INTO `item_mods` VALUES (17658,1,14);
 INSERT INTO `item_mods` VALUES (17658,2,30);
 INSERT INTO `item_mods` VALUES (17658,23,-10);
-INSERT INTO `item_mods` VALUES (17659,59,10); -- (Seiryu's Sword)
-INSERT INTO `item_mods` VALUES (17659,68,5);
-INSERT INTO `item_mods` VALUES (17659,229,5); -- PLANTOID_KILLER 5% Intimidate
-INSERT INTO `item_mods` VALUES (17659,1229,5); -- PLANTOID_CIRCLE 5% damage increase vs plantoids
+INSERT INTO `item_mods` VALUES (17659,59,10);   -- (Seiryu's Sword) Water Resist +10
+INSERT INTO `item_mods` VALUES (17659,2,50);    -- HP +50
+INSERT INTO `item_mods` VALUES (17659,518,35);  -- Shield Block rate +35
+INSERT INTO `item_mods` VALUES (17659,161,-5);  -- Physical Damage Taken -5%
+INSERT INTO `item_mods` VALUES (17659,27,4);    -- Enmity +4
 INSERT INTO `item_mods` VALUES (17660,5,15);
 INSERT INTO `item_mods` VALUES (17663,5,20);
 INSERT INTO `item_mods` VALUES (17664,8,3);
@@ -21973,10 +21987,9 @@ INSERT INTO `item_mods` VALUES (18039,10,-1);
 INSERT INTO `item_mods` VALUES (18040,250,2);
 INSERT INTO `item_mods` VALUES (18042,54,8);
 INSERT INTO `item_mods` VALUES (18042,60,8);
-INSERT INTO `item_mods` VALUES (18043,25,5); -- (Suzaku's Scythe)
-INSERT INTO `item_mods` VALUES (18043,54,10);
-INSERT INTO `item_mods` VALUES (18043,225,5); -- BIRD_KILLER 5% Intimidate
-INSERT INTO `item_mods` VALUES (18043,1225,5); -- BIRD_CIRCLE 5% damage increase vs birds
+INSERT INTO `item_mods` VALUES (18043,25,15);   -- (Suzaku's Scythe) Accuracy +15
+INSERT INTO `item_mods` VALUES (18043,54,10);   -- Fire Resist +10
+INSERT INTO `item_mods` VALUES (18043,1232,25); -- Arcana Circle +25(+25% DMG)
 INSERT INTO `item_mods` VALUES (18044,288,1);
 INSERT INTO `item_mods` VALUES (18046,25,3);
 INSERT INTO `item_mods` VALUES (18047,8,2);

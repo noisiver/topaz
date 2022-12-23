@@ -610,7 +610,7 @@ enum class Mod
 
     ENSPELL                   = 341, // stores the type of enspell active (0 if nothing)
     ENSPELL_DMG               = 343, // stores the base damage of the enspell before reductions
-    ENSPELL_DMG_BONUS         = 432, //
+    ENSPELL_DMG_BONUS         = 432, // Bonus dmg to enspells used for gear etc
     ENSPELL_CHANCE            = 856, // Chance of enspell activating (0 = 100%, 10 = 10%, 30 = 30%, ...)
     ENSPELL_MACC              = 1271,// Increases Enspell magical accuracy
     SPIKES                    = 342, // store the type of spike spell active (0 if nothing)
