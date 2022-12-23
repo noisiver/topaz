@@ -1093,7 +1093,7 @@ INSERT INTO `mob_droplist` VALUES (176,0,0,1000,15123,10);
 INSERT INTO `mob_droplist` VALUES (176,0,0,1000,15140,10);
 INSERT INTO `mob_droplist` VALUES (176,0,0,1000,15142,10);
 INSERT INTO `mob_droplist` VALUES (176,0,0,50,16360,200);
-INSERT INTO `mob_droplist` VALUES (177,0,0,1000,15760,240); -- (Ashmaker Gotblut - La Valve [s]) Marabout Sandals
+INSERT INTO `mob_droplist` VALUES (177,0,0,1000,15760,150); -- (Ashmaker Gotblut - La Valve [s]) Marabout Sandals
 INSERT INTO `mob_droplist` VALUES (178,2,0,1000,656,0);		-- (Ashmaker Gotlut - yughott)
 INSERT INTO `mob_droplist` VALUES (178,1,1,1000,13729,100);	-- Priest's robe
 INSERT INTO `mob_droplist` VALUES (178,1,1,1000,17413,900);	-- Hermit's wand
@@ -16081,7 +16081,7 @@ INSERT INTO `mob_droplist` VALUES (3032,0,0,1000,15818,240); -- (Ea'Tho Cruelhea
 INSERT INTO `mob_droplist` VALUES (3033,0,0,1000,16319,150); -- (Zhuu Buxu the Silent) Sangoma Lappa
 INSERT INTO `mob_droplist` VALUES (3033,0,0,1000,2520,100); -- (Zhuu Buxu the Silent) Yagudo Kote
 INSERT INTO `mob_droplist` VALUES (3034,0,0,1000,2837,150); -- (Ratatoskr) Ratatoskr Pelt
-INSERT INTO `mob_droplist` VALUES (3035,0,0,1000,19208,240); -- (Hawkeyed Dnatbat) Grand Crossbow
+INSERT INTO `mob_droplist` VALUES (3035,0,0,1000,19208,150); -- (Hawkeyed Dnatbat) Grand Crossbow
 INSERT INTO `mob_droplist` VALUES (3036,0,0,1000,16030,100); -- (Agar Agar) Soarer Earring
 INSERT INTO `mob_droplist` VALUES (3037,0,0,1000,19306,240); -- (Nommo) Lyft Lance
 INSERT INTO `mob_droplist` VALUES (3038,0,0,1000,11406,100); -- (Delicieuse Delphine) Stimulus Sabbots
@@ -17198,7 +17198,31 @@ INSERT INTO `mob_droplist` VALUES (6079,0,0,1000,2521,150);   -- Gnole Claw
 INSERT INTO `mob_droplist` VALUES (6079,0,0,1000,2521,100);   -- Gnole Claw
 INSERT INTO `mob_droplist` VALUES (6079,4,0,1000,2521,0);     -- Gnole Claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (6080,0,0,1000,2565,100);   -- Jar of Gnole pellets
-
+INSERT INTO `mob_droplist` VALUES (6081,0,0,1000,16320,150);   -- (Shatterskull Mippdapp) Kensei Sitabaki 
+INSERT INTO `mob_droplist` VALUES (6082,0,0,1000,16320,1000);   -- (Coinbiter Cjaknokk) Maple strongbox
+INSERT INTO `mob_droplist` VALUES (6082,0,0,1000,17757,100);    -- Merveilleuse
+INSERT INTO `mob_droplist` VALUES (6082,0,0,1000,16277,100);    -- Bandolero Scarf
+INSERT INTO `mob_droplist` VALUES (6083,0,0,1000,2679,1000);   -- (Draketrader Zlodgodd) Magnolia strongbox
+INSERT INTO `mob_droplist` VALUES (6083,0,0,1000,18128,100);    -- Skystrider
+INSERT INTO `mob_droplist` VALUES (6083,0,0,1000,19039,100);    -- Orca Strap
+INSERT INTO `mob_droplist` VALUES (6084,0,0,1000,2680,1000);   -- (Feeblescheme Bhogbigg) Beech strongbox
+INSERT INTO `mob_droplist` VALUES (6084,0,0,1000,16246,100);    -- Viator Cape
+INSERT INTO `mob_droplist` VALUES (6084,0,0,1000,18597,100);    -- Catalyst
+INSERT INTO `mob_droplist` VALUES (6085,0,0,1000,2681,1000);   -- (All-Seeing Onyx Eye) Evergreen strongbox
+INSERT INTO `mob_droplist` VALUES (6085,0,0,1000,11473,100);    -- Mirror Tiara
+INSERT INTO `mob_droplist` VALUES (6085,0,0,1000,18449,100);    -- Namioyogi
+INSERT INTO `mob_droplist` VALUES (6086,0,0,1000,2682,1000);   -- (Cogtooth Skagnogg) Holly strongbox
+INSERT INTO `mob_droplist` VALUES (6086,0,0,1000,11390,100);    -- Llwyd's Clog
+INSERT INTO `mob_droplist` VALUES (6086,0,0,1000,19218,100);    -- Murderer
+INSERT INTO `mob_droplist` VALUES (6087,0,0,1000,2683,1000);   -- (Agrios) Oak strongbox
+INSERT INTO `mob_droplist` VALUES (6087,0,0,1000,19219,100);    -- Iwatsubute 
+INSERT INTO `mob_droplist` VALUES (6087,0,0,1000,18500,100);    -- Sparth 
+INSERT INTO `mob_droplist` VALUES (6088,0,0,1000,2684,1000);   -- (Falsespinner Bhudbrodd) Elm strongbox
+INSERT INTO `mob_droplist` VALUES (6088,0,0,1000,17963,100);    -- Rainmaker  
+INSERT INTO `mob_droplist` VALUES (6088,0,0,1000,18761,100);    -- Acantha Shaver 
+INSERT INTO `mob_droplist` VALUES (6089,0,0,1000,2685,1000);   -- (Rugaroo) Willow strongbox
+INSERT INTO `mob_droplist` VALUES (6089,0,0,1000,15033,100);    -- Danzo Tekko  
+INSERT INTO `mob_droplist` VALUES (6089,0,0,1000,18951,100);    -- Vendetta 
 
 ---------------------Dynamis---------------------
 
@@ -17765,7 +17789,7 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 
 -- NEXT: 
--- NEXT: 6081
+-- NEXT: 6090
 
 
 

@@ -4952,7 +4952,7 @@ INSERT INTO `mob_groups` VALUES (18,3912,85,'Thunder_Elemental',330,0,2410,0,0,8
 INSERT INTO `mob_groups` VALUES (19,6679,85,'Orcish_Firebelcher',330,0,0,6074,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,5554,85,'Ashmaker_Gotblut',7200,0,177,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (21,5559,85,'Orcish_Warlord',330,0,6075,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (22,6769,85,'Shatterskull_Mippdapp',330,0,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (22,6769,85,'Shatterskull_Mippdapp',330,0,6081,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (23,6291,85,'Orcish_Protector',330,0,6072,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (24,5230,85,'Orcish_Dreadnought',330,0,6076,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (25,3036,85,'Orcish_Strategist',330,0,6072,0,0,81,83,0);
@@ -4964,14 +4964,14 @@ INSERT INTO `mob_groups` VALUES (30,3045,85,'Orcish_Wyrmbrander',330,0,6075,0,0,
 INSERT INTO `mob_groups` VALUES (31,3030,85,'Orcish_Prophetess',330,0,6080,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (32,2741,85,'Morbol',960,0,92,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (33,2381,85,'La_Vaule_Pugil',330,0,1498,0,0,78,81,0);
-INSERT INTO `mob_groups` VALUES (34,762,85,'Coinbiter_Cjaknokk',7200,0,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (35,1108,85,'Draketrader_Zlodgodd',300,0,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (36,1317,85,'Feeblescheme_Bhogbigg',300,0,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (37,88,85,'All-Seeing_Onyx_Eye',7200,0,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (38,761,85,'Cogtooth_Skagnogg',7200,0,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (39,64,85,'Agrios',7200,0,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (40,1293,85,'Falsespinner_Bhudbrodd',7200,0,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (41,3413,85,'Rugaroo',14400,0,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (34,762,85,'Coinbiter_Cjaknokk',7200,0,6082,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (35,1108,85,'Draketrader_Zlodgodd',300,0,6083,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (36,1317,85,'Feeblescheme_Bhogbigg',300,0,6084,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (37,88,85,'All-Seeing_Onyx_Eye',7200,0,6085,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (38,761,85,'Cogtooth_Skagnogg',7200,0,6086,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (39,64,85,'Agrios',7200,0,6087,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (40,1293,85,'Falsespinner_Bhudbrodd',7200,0,6088,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (41,3413,85,'Rugaroo',14400,0,6089,35000,0,85,85,0);
 
 
 INSERT INTO `mob_groups` VALUES (42,1449,85,'Galarhigg',0,128,0,0,0,85,85,0);
