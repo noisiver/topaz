@@ -2621,7 +2621,7 @@ INSERT INTO `item_basic` VALUES (2732,0,'lycopodium_cap','lycopodium_cap',1,6152
 INSERT INTO `item_basic` VALUES (2733,0,'square_of_spirit_smilodon_leather','s._smil._leather',12,4,41,0,283);
 INSERT INTO `item_basic` VALUES (2734,0,'maze_monger_members_card','mmm_members_cd.',1,61536,0,1,0);
 INSERT INTO `item_basic` VALUES (2735,0,'dark_ixion_ferrule','dk._ixion_ferrule',12,4,42,0,1412);
-INSERT INTO `item_basic` VALUES (2736,0,'Condensed_empty.','Condensed_empty.',99,28736,0,1,0);
+INSERT INTO `item_basic` VALUES (2736,0,'Condensed_empty.','Condensed_empty.',99,28768,0,1,0);
 INSERT INTO `item_basic` VALUES (2737,0,'square_of_silky_suede','silky_suede',12,4,41,0,1956);
 INSERT INTO `item_basic` VALUES (2738,0,'cassiopeia_card','cassiopeia_card',1,12384,0,1,0);
 INSERT INTO `item_basic` VALUES (2739,0,'perseus_card','perseus_card',1,12384,0,1,0);
@@ -3845,7 +3845,7 @@ INSERT INTO `item_basic` VALUES (4085,0,'handful_of_beryllium_bolt_heads','ber._
 INSERT INTO `item_basic` VALUES (4086,0,'lustreless_scale','lustreless_scale',99,4,46,0,20);
 INSERT INTO `item_basic` VALUES (4087,0,'lustreless_hide','lustreless_hide',99,4,46,0,20);
 INSERT INTO `item_basic` VALUES (4088,0,'lustreless_wing','lustreless_wing',99,4,46,0,20);
-INSERT INTO `item_basic` VALUES (4089,0,'kuluu_sphere','kuluu_sphere',99,61536,0,1,0);
+INSERT INTO `item_basic` VALUES (4089,0,'kuluu_sphere','kuluu_sphere',99,28768,0,1,0);
 INSERT INTO `item_basic` VALUES (4090,0,'dream_flower_petal','dream_fl._petal',12,4,0,1,0);
 INSERT INTO `item_basic` VALUES (4094,0,'bowl_of_goblin_stew_880','goblin_stew_880',1,61520,0,0,0);
 INSERT INTO `item_basic` VALUES (4095,0,'bismuth_sheet','bismuth_sheet',12,4,38,0,810);
