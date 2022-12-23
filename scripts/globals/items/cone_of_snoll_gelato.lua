@@ -25,11 +25,11 @@ end
 function onEffectGain(target, effect)
     target:addMod(tpz.mod.FOOD_MPP, 16)
     target:addMod(tpz.mod.FOOD_MP_CAP, 75)
-    target:addMod(tpz.mod.MPHEAL, 1)
+    target:addMod(tpz.mod.ENH_MAGIC_DURATION, 10)
 end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.FOOD_MPP, 16)
     target:delMod(tpz.mod.FOOD_MP_CAP, 75)
-    target:delMod(tpz.mod.MPHEAL, 1)
+    target:delMod(tpz.mod.ENH_MAGIC_DURATION, 10)
 end
