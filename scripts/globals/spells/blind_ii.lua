@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.diff = dINT
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
-    params.bonus = 0 + ((meritBonus - 1) * 2)
+    params.bonus = meritBonus * 2
     params.effect = tpz.effect.BLINDNESS
     local resist = applyResistanceEffect(caster, target, spell, params)
     duration = duration * resist

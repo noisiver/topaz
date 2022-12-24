@@ -569,6 +569,7 @@ function applyResistance(caster, target, spell, params)
   	local diff = params.diff or (caster:getStat(params.attribute) - target:getStat(params.attribute))
     local skill = params.skillType
     local bonus = params.bonus
+    -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
 
     local element = spell:getElement()
     local SDT = getElementalSDT(element, target)
@@ -653,6 +654,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
 	local diff = params.diff or (caster:getStat(params.attribute) - target:getStat(params.attribute))
     local skill = params.skillType
     local bonus = params.bonus
+    -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
 
     local element = spell:getElement()
     local SDT = getEnfeeblelSDT(effect, element, target)
@@ -2097,6 +2099,8 @@ function doElementalNuke(caster, spell, target, spellParams)
     local V = 0
     local M = 0
     local hasMultipleTargetReduction = spellParams.hasMultipleTargetReduction
+    local resistBonus = spellParams.resistBonus
+    -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
 
     if USE_OLD_MAGIC_DAMAGE and spellParams.V ~= nil and spellParams.M ~= nil then
         V = spellParams.V -- Base value
@@ -2128,9 +2132,7 @@ function doElementalNuke(caster, spell, target, spellParams)
         end
 
     else
-        local resistBonus = spellParams.resistBonus
         local mDMG = caster:getMod(tpz.mod.MAGIC_DAMAGE)
-
         --[[
                 Calculate base damage:
                 D = mDMG + V + (dINT × M)
@@ -2168,7 +2170,7 @@ function doElementalNuke(caster, spell, target, spellParams)
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.ELEMENTAL_MAGIC
-    params.resistBonus = resistBonus
+    params.bonus = resistBonus
     params.dStatAccSoftCap = 10
 
     local resist = applyResistance(caster, target, spell, params)

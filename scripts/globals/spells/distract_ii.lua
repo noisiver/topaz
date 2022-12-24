@@ -29,7 +29,7 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.diff = dMND
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
-    params.bonus = 0
+    params.bonus = 150
     params.effect = tpz.effect.EVASION_DOWN
     local resist = applyResistanceEffect(caster, target, spell, params)
 

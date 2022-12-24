@@ -19,7 +19,7 @@ function onSpellCast(caster, target, spell)
     params.diff = dCHR
     params.attribute = tpz.mod.CHR
     params.skillType = tpz.skill.SINGING
-    params.bonus = 50 + caster:getMod(tpz.mod.FINALE_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
+    params.bonus = 175 + caster:getMod(tpz.mod.FINALE_EFFECT) + caster:getMod(tpz.mod.ALL_SONGS_EFFECT)
     params.effect = nil
     local resist = applyResistanceEffect(caster, target, spell, params)
     local effect = tpz.effect.NONE

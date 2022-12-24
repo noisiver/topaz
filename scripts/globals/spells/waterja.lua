@@ -14,7 +14,7 @@ end
 function onSpellCast(caster, target, spell)
     local spellParams = {}
     spellParams.hasMultipleTargetReduction = true
-    spellParams.resistBonus = 1.0
+    spellParams.resistBonus = 0
     spellParams.V0 = 800
     spellParams.V50 = 1080
     spellParams.V100 = 1317

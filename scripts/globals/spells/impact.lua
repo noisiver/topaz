@@ -14,7 +14,7 @@ end
 function onSpellCast(caster, target, spell)
     local params = {}
     params.attribute = tpz.mod.INT
-    params.bonus = 1.0
+    params.bonus = 0
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.dmg = 939
     params.effect = nil
