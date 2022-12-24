@@ -28,6 +28,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.includemab = true
 	params.enmityMult = 0.5
 	params.bonusmacc = 50
+    params.aoe = true
+
 
     if (USE_ADOULIN_WEAPON_SKILL_CHANGES == true) then
         params.dex_wsc = 0.4 params.int_wsc = 0.4

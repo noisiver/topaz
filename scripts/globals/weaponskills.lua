@@ -648,7 +648,12 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
     local dmg = 0
 
     -- Magic-based WSes never miss, so we don't need to worry about calculating a miss, only if a shadow absorbed it.
-    if not shadowAbsorb(target) then
+    -- Check for AOE magic WS 
+    if not shadowAbsorb(target) or (wsParams.aoe ~= nil) then
+
+        target:delStatusEffect(tpz.effect.COPY_IMAGE)
+        target:delStatusEffect(tpz.effect.BLINK)
+        target:delStatusEffect(tpz.effect.THIRD_EYE)
 
         -- Begin Checks for bonus wsc bonuses. See the following for details:
         -- https://www.bg-wiki.com/bg/Utu_Grip
