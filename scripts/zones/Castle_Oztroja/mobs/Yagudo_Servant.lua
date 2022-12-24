@@ -10,15 +10,14 @@ require("scripts/globals/magic")
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.SLEEPRESTRAIT, 100)
-     mob:addMod(tpz.mod.LULLABYRESTRAIT, 100)
-     mob:addMod(tpz.mod.GRAVITYRESTRAIT, 100)
-     mob:addMod(tpz.mod.BINDRESTRAIT, 100)
-     mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
-     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
-     mob:setMobMod(tpz.mobMod.GIL_MIN, 0)
-     mob:setMobMod(tpz.mobMod.GIL_MAX, 0)
-     mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17396137)
+    mob:addMod(tpz.mod.SLEEPRESTRAIT, 100)
+    mob:addMod(tpz.mod.LULLABYRESTRAIT, 100)
+    mob:addMod(tpz.mod.GRAVITYRESTRAIT, 100)
+    mob:addMod(tpz.mod.BINDRESTRAIT, 100)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.SHARE_TARGET, 17396137)
 end
 
 function onMobInitialize(mob)

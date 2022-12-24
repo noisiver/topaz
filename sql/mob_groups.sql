@@ -10220,7 +10220,7 @@ INSERT INTO `mob_groups` VALUES (34,4407,151,'Yagudo_Assassin',600,0,2695,0,0,64
 INSERT INTO `mob_groups` VALUES (35,4425,151,'Yagudo_High_Priest',1440,0,2714,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (36,4455,151,'Yagudo_Templar',1440,0,2768,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (37,4408,151,'Yagudo_Avatar',600,0,2696,0,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (38,4453,151,'Yagudos_Avatar',0,128,0,0,0,60,60,0);
+INSERT INTO `mob_groups` VALUES (38,4453,151,'Yagudos_Avatar',0,128,0,0,0,81,81,0);
 INSERT INTO `mob_groups` VALUES (39,4072,151,'Tzee_Xicu_the_Manifest',0,128,2511,45000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (40,2016,151,'Huu_Xalmo_the_Savage',0,128,1341,30000,0,63,63,0);
 INSERT INTO `mob_groups` VALUES (41,2944,151,'Odontotyrannus',0,128,1838,6000,0,52,52,0);
@@ -10231,6 +10231,7 @@ INSERT INTO `mob_groups` VALUES (45,5494,151,'Yagudo_Prelate',600,0,2748,0,0,70,
 INSERT INTO `mob_groups` VALUES (46,4412,151,'Yagudo_Conductor',600,0,2834,0,0,70,72,0);
 INSERT INTO `mob_groups` VALUES (47,4407,151,'Yagudo_Assassin',600,0,2695,0,0,70,72,0);
 INSERT INTO `mob_groups` VALUES (48,4418,151,'Yagudo_Servant',0,128,0,100,0,70,70,0);
+INSERT INTO `mob_groups` VALUES (49,4454,151,'Yagudos_Elemental',0,128,0,0,0,67,69,0);
 
 INSERT INTO `mob_groups` VALUES (8077,75,151,'Ajido-Marujido',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (8084,2226,151,'Kilhwch',0,0,0,0,0,0,0,0);

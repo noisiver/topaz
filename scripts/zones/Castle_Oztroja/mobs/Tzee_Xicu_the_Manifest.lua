@@ -24,6 +24,13 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
 end
 
+function onMobRoam(mob)
+    -- Despawn Servants
+    for v = 17396728, 17396735, 1 do
+        DespawnMob(v)
+    end
+end
+
 function onMobEngaged(mob, target)
     mob:showText(mob, ID.text.YAGUDO_KING_ENGAGE)
     -- Despawn all Yagudo in room and disable them respawning
