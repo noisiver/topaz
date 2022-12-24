@@ -10,6 +10,10 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setDamage(200)
+    mob:setMod(tpz.mod.ACC, 400)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 50)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

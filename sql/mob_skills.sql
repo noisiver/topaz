@@ -2182,7 +2182,7 @@ INSERT INTO `mob_skills` VALUES (2221,1965,'hell_scissors',0,7.0,2000,2500,4,0,0
 INSERT INTO `mob_skills` VALUES (2222,1602,'hurricane_breath',4,10.0,2000,1500,4,0,0,5,0,0,0);
 INSERT INTO `mob_skills` VALUES (2223,1557,'ore_toss',0,7.0,2000,3000,4,0,0,0,0,0,0); -- Di'zho Spongeshell
 INSERT INTO `mob_skills` VALUES (2224,1558,'head_butt',0,7.0,2000,2500,4,0,0,0,0,0,0); -- Di'zho Spongeshell
--- INSERT INTO `mob_skills` VALUES (2225,1559,'shell_bash',0,7.0,2000,1000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2225,1559,'shell_bash',0,7.0,2000,1000,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2226,1560,'shell_guard',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2227,354,'howl',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2228,1562,'the_wrath_of_gudha',1,15.0,2000,2000,4,0,0,7,0,0,0); -- Di'Zho Spongeshell

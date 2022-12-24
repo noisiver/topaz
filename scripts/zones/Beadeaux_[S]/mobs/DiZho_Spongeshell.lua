@@ -19,6 +19,31 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
+end
+
+function onMobEngaged(mob, target)
+    mob:setLocalVar("absorbChangeTimer", os.time() + math.random(15, 60))
+    mob:setLocalVar("mode", 0)
+end
+
+function onMobFight(mob, target)
+    local absorbChangeTimer = mob:getLocalVar("absorbChangeTimer")
+    local mode = mob:getLocalVar("mode")
+
+    if (os.time() >= absorbChangeTimer) then
+        mob:setLocalVar("absorbChangeTimer", os.time() + math.random(15, 60))
+        mob:setLocalVar("mode", math.random(2))
+        mob:useMobAbility(307) -- 2 hour "cloud" animation
+    end
+
+    if (mode == 1) then -- Physical  Absorb
+        mob:setMod(PHYS_ABSORB, 100)
+        mob:setMod(MAGIC_ABSORB, 0)
+    elseif (mode == 2) then -- Magical + Breath Absorb
+        mob:setMod(PHYS_ABSORB, 0)
+        mob:setMod(MAGIC_ABSORB, 100)
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

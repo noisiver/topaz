@@ -18,6 +18,15 @@ function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+    -- Uses Dragon Kick, Aegis schism, Barbed Crescent(all fomor moves?). Greatly favors Dragon Kick.
+    if math.random(100) <= 20 then
+        return math.random(249, 253)
+    else
+        return 8
+    end
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end

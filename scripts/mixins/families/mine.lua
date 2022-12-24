@@ -37,11 +37,15 @@ g_mixins.families.mine = function(mob)
 
 
     mob:addListener("COMBAT_TICK", "MINE_CTICK", function(mob)
-        local nearbyPlayers = mob:getPlayersInRange(5)
-        if nearbyPlayers == nil then return end
-        if nearbyPlayers then
-            mob:setStatus(tpz.status.UPDATE)
-	        mob:useMobAbility(1838) -- mine_blast
+        local nearbyplayerCheck = mob:getLocalVar("nearbyplayerCheck")
+        if os.time() >= nearbyplayerCheck then
+            mob:setLocalVar("nearbyplayerCheck", os.time() + 3)
+            local nearbyPlayers = mob:getPlayersInRange(5)
+            if nearbyPlayers == nil then return end
+            if nearbyPlayers then
+                mob:setStatus(tpz.status.UPDATE)
+	            mob:useMobAbility(1838) -- mine_blast
+            end
         end
     end)
 end
