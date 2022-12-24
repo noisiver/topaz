@@ -3,7 +3,7 @@
 --
 --  Description: Damages (Conal)
 --  Type: Physical (Blunt)
---
+-- Only used if in front of the mob.
 --
 ---------------------------------------------
 require("scripts/globals/settings")
@@ -11,7 +11,10 @@ require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    return 0
+    if target:isInfront(mob, 48) then
+        return 0
+    end
+    return 1
 end
 
 function onMobWeaponSkill(target, mob, skill)
