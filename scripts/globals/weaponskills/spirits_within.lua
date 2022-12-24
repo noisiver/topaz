@@ -38,6 +38,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local HP = player:getHP()
     local WSC = 0
     local tpHits = 0
+    local damage = 0
     -- Damage calculations based on https://www.bg-wiki.com/index.php?title=Spirits_Within&oldid=269806
     if (tp == 3000) then
         WSC = HP
@@ -97,10 +98,16 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     --spirits DT mod
     WSC = math.floor(WSC * (1 + utils.clamp(target:getMod(tpz.mod.DMGSPIRITS), -100, 100) / 100))
     --printf("dmg after mod %i", WSC)
-    local damage = target:breathDmgTaken(WSC)
+    -- Check for absorb. Converts damage to HP.
+    if (WSC > 0 and math.random(0, 99) < target:getMod(tpz.mod.MAGIC_ABSORB)) or
+    (WSC > 0 and math.random(0, 99) < target:getMod(tpz.mod.ABSORB_DMG_CHANCE)) then
+        damage = -WSC
+    else
+        damage = target:breathDmgTaken(WSC)
 
-    -- handling rampart(magic) stoneskin
-    damage = utils.rampartstoneskin(target, damage)
+        -- handling rampart(magic) stoneskin
+        damage = utils.rampartstoneskin(target, damage)
+    end
 
     if (damage > 0) then
         if (player:getOffhandDmg() > 0) then

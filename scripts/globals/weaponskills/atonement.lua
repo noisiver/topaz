@@ -130,10 +130,15 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         dmg = math.floor(dmg * (1 + utils.clamp(target:getMod(tpz.mod.DMGSPIRITS), -100, 100) / 100))
         --printf("dmg after mod %i", dmg)
 
-        -- handling rampart(magic) stoneskin
-        dmg = utils.rampartstoneskin(target, dmg)
-
-        damage = target:breathDmgTaken(dmg)
+        -- Check for absorb. Converts damage to HP.
+        if (dmg > 0 and math.random(0, 99) < target:getMod(tpz.mod.MAGIC_ABSORB)) or
+        (dmg > 0 and math.random(0, 99) < target:getMod(tpz.mod.ABSORB_DMG_CHANCE)) then
+            damage = -dmg
+        else
+            damage = target:breathDmgTaken(dmg)
+            -- handling rampart(magic) stoneskin
+            damage = utils.rampartstoneskin(target, dmg)
+        end
         damage = damage * WEAPON_SKILL_POWER
         calcParams.finalDmg = damage
 

@@ -5284,7 +5284,8 @@ namespace battleutils
         resist = std::clamp(resist, 0.5f, 1.5f); //assuming if its floored at .5f its capped at 1.5f but who's stacking +dmgtaken equip anyway???
         damage = (int32)(damage * resist);
 
-        if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE))
+        if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
+            tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
             damage = -damage;
         else
         {
