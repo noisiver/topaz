@@ -10161,10 +10161,10 @@ INSERT INTO `mob_groups` VALUES (5,3041,150,'Orcish_Veteran',600,0,1948,0,0,52,5
 INSERT INTO `mob_groups` VALUES (6,3029,150,'Orcish_Predator',600,0,1933,0,0,53,57,0);
 INSERT INTO `mob_groups` VALUES (7,3046,150,'Orcish_Zerker',600,0,1955,0,0,54,58,0);
 INSERT INTO `mob_groups` VALUES (8,3043,150,'Orcish_Warchief',600,0,1952,0,0,55,59,0);
-INSERT INTO `mob_groups` VALUES (9,3008,150,'Orcish_Farkiller',600,0,1897,0,0,62,72,0);
-INSERT INTO `mob_groups` VALUES (10,3007,150,'Orcish_Dreadnought',600,0,1894,0,0,63,72,0);
-INSERT INTO `mob_groups` VALUES (11,3000,150,'Orcish_Champion',600,0,1883,0,0,64,72,0);
-INSERT INTO `mob_groups` VALUES (12,3006,150,'Orcish_Dragoon',600,0,1892,0,0,65,72,0);
+INSERT INTO `mob_groups` VALUES (9,3008,150,'Orcish_Farkiller',600,0,1897,0,0,65,69,0);
+INSERT INTO `mob_groups` VALUES (10,3007,150,'Orcish_Dreadnought',600,0,1894,0,0,65,69,0);
+INSERT INTO `mob_groups` VALUES (11,3000,150,'Orcish_Champion',600,0,1883,0,0,65,69,0);
+INSERT INTO `mob_groups` VALUES (12,3006,150,'Orcish_Dragoon',600,0,1892,0,0,65,69,0);
 INSERT INTO `mob_groups` VALUES (13,3044,150,'Orcish_Warlord',1200,0,1953,5000,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (14,3031,150,'Orcish_Protector',600,0,1935,0,0,70,72,0);
 INSERT INTO `mob_groups` VALUES (15,3019,150,'Orcish_Hexspinner',1200,0,1920,5000,0,69,73,0);
@@ -10178,6 +10178,11 @@ INSERT INTO `mob_groups` VALUES (22,3618,150,'Siegebreaker_Wujroj',0,128,0,0,0,6
 INSERT INTO `mob_groups` VALUES (23,3588,150,'Shatterskull_Mippdapp',0,128,0,0,0,69,75,0);
 INSERT INTO `mob_groups` VALUES (24,1814,150,'Grimbolt_Onkzok',0,128,0,0,0,69,75,0);
 INSERT INTO `mob_groups` VALUES (25,3552,150,'Sevenskewer_Krugglug',0,128,0,0,0,69,75,0);
+
+INSERT INTO `mob_groups` VALUES (26,3008,150,'Orcish_Farkiller',600,0,1897,0,0,70,72,0);
+INSERT INTO `mob_groups` VALUES (27,3007,150,'Orcish_Dreadnought',600,0,1894,0,0,70,72,0);
+INSERT INTO `mob_groups` VALUES (28,3000,150,'Orcish_Champion',600,0,1883,0,0,70,72,0);
+INSERT INTO `mob_groups` VALUES (29,3006,150,'Orcish_Dragoon',600,0,1892,0,0,70,72,0);
 
 -- ------------------------------------------------------------
 -- Castle_Oztroja (Zone 151)
@@ -10213,10 +10218,10 @@ INSERT INTO `mob_groups` VALUES (27,4427,151,'Yagudo_Inquisitor',600,0,2720,0,0,
 INSERT INTO `mob_groups` VALUES (28,4402,151,'Yaa_Haqa_the_Profane',0,32,2686,3100,0,43,43,0);
 INSERT INTO `mob_groups` VALUES (29,2987,151,'Ooze',600,0,1868,0,0,38,40,0);
 INSERT INTO `mob_groups` VALUES (30,4438,151,'Yagudo_Parasite',600,0,2832,0,0,45,48,0);
-INSERT INTO `mob_groups` VALUES (31,4418,151,'Yagudo_Flagellant',600,0,2833,0,0,62,66,0);
+INSERT INTO `mob_groups` VALUES (31,4418,151,'Yagudo_Flagellant',600,0,2833,0,0,65,69,0);
 INSERT INTO `mob_groups` VALUES (32,5494,151,'Yagudo_Prelate',600,0,2748,0,0,65,69,0);
-INSERT INTO `mob_groups` VALUES (33,4412,151,'Yagudo_Conductor',600,0,2834,0,0,63,67,0);
-INSERT INTO `mob_groups` VALUES (34,4407,151,'Yagudo_Assassin',600,0,2695,0,0,64,69,0);
+INSERT INTO `mob_groups` VALUES (33,4412,151,'Yagudo_Conductor',600,0,2834,0,0,63,69,0);
+INSERT INTO `mob_groups` VALUES (34,4407,151,'Yagudo_Assassin',600,0,2695,0,0,65,69,0);
 INSERT INTO `mob_groups` VALUES (35,4425,151,'Yagudo_High_Priest',1440,0,2714,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (36,4455,151,'Yagudo_Templar',1440,0,2768,0,0,72,74,0);
 INSERT INTO `mob_groups` VALUES (37,4408,151,'Yagudo_Avatar',600,0,2696,0,0,75,75,0);
