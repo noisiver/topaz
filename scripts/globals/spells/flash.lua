@@ -58,7 +58,7 @@ function onSpellCast(caster, target, spell)
 
     params.effect = tpz.effect.FLASH
 
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 12 * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BLIND, target))
 
