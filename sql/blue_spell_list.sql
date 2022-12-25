@@ -149,7 +149,7 @@ INSERT INTO `blue_spell_list` VALUES ('665','336','1','26','1','0','0'); -- Fina
 INSERT INTO `blue_spell_list` VALUES ('666','590','3','23','1','0','0'); -- Goblin Rush
 INSERT INTO `blue_spell_list` VALUES ('667','388','2','16','1','0','0'); -- Vanity Dive
 INSERT INTO `blue_spell_list` VALUES ('668','555','3','10','1','0','0'); -- Magic Barrier
-INSERT INTO `blue_spell_list` VALUES ('669','514','2','26','1','0','0'); -- Whirl of Rage
+INSERT INTO `blue_spell_list` VALUES ('669','514','2','26','1','4','6'); -- Whirl of Rage
 INSERT INTO `blue_spell_list` VALUES ('670','2629','4','23','1','0','0'); -- Benthic Typhoon
 INSERT INTO `blue_spell_list` VALUES ('671','1220','4','22','1','0','0'); -- Auroral Drape
 INSERT INTO `blue_spell_list` VALUES ('672','2631','5','13','1','0','0'); -- Osmosis
