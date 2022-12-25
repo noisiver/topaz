@@ -12,6 +12,7 @@
 -- Magic Bursts on: Detonation, Fragmentation, and Light
 -- Combos: Conserve MP
 -----------------------------------------
+require("scripts/globals/bluemagic")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
