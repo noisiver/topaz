@@ -752,7 +752,10 @@ namespace spell
         if(spell->getSpellGroup() == SPELLGROUP_SONG && (spell->getValidTarget() & TARGET_SELF)){
             if(entity->objtype == TYPE_MOB || (entity->GetMJob() == JOB_BRD &&
                 entity->objtype == TYPE_PC && ((CCharEntity*)entity)->getEquip(SLOT_RANGED) &&
-                ((CItemWeapon*)((CCharEntity*)entity)->getEquip(SLOT_RANGED))->getSkillType() == SKILL_STRING_INSTRUMENT)){
+                ((CItemWeapon*)((CCharEntity*)entity)->getEquip(SLOT_RANGED))->getSkillType() == SKILL_STRING_INSTRUMENT))
+            {
+                // Horde Lullaby AOE is small
+                total = 5;
                 total += ((float)entity->GetSkill(SKILL_STRING_INSTRUMENT) / 276) * 10;
             }
 
