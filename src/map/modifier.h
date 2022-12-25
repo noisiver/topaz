@@ -67,6 +67,7 @@ enum class Mod
     MATT                      = 28, // Magic Attack
     MDEF                      = 29, // Magic Defense
     MACC                      = 30, // Magic Accuracy
+    STATUS_EFFECT_MACC        = 1303, // Status effect Magic Accuracy
     MEVA                      = 31, // Magic Evasion
 
     // Magic Accuracy and Elemental Attacks
@@ -961,7 +962,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1303 NEXT
+    // 1304 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

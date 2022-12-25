@@ -1754,14 +1754,15 @@ tpz.mod =
     SUMMONING_NEVER_MISS    = 1299, 
     NINJUTSU_NEVER_MISS     = 1300,  
     SINGING_NEVER_MISS      = 1301,   
-    BLUE_NEVER_MISS         = 1302,   
+    BLUE_NEVER_MISS         = 1302,
+    STATUS_EFFECT_MACC      = 1303, -- Status effect Magic Accuracy
     
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1303 NEXT
+    -- 1304 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

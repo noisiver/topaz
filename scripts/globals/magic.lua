@@ -681,6 +681,9 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         magicaccbonus = magicaccbonus + params.skillBonus
     end
 
+    -- Apply "Status EfFect" Magic Accuracy Mod
+    magicaccbonus = magicaccbonus + caster:getMod(tpz.mod.STATUS_EFFECT_MACC)
+
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus)
     local res = getMagicResist(p, element)
 
