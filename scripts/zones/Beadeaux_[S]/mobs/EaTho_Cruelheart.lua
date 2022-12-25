@@ -1,15 +1,18 @@
 -----------------------------------
--- Area: Beadeaux [S] (92)
---   NM: Da'Dha Hundredmask
--- !pos -89.901 .225 -159.694 92
+-- Area: Beadeaux [S]
+--   NM: Eatho Cruelheart
 -----------------------------------
-mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
+mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
+    mob:setDamage(200)
     mob:setMod(tpz.mod.ACC, 400)
-    mob:setMod(tpz.mod.TRIPLE_ATTACK, 50)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -19,5 +22,6 @@ function onMobWeaponSkillPrepare(mob, target)
    return tpMoves[math.random(#tpMoves)]
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end

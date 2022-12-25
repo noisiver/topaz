@@ -46,6 +46,13 @@ function onMobFight(mob, target)
     end
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = { 1076, 2223, 2225, 2228, 2234}
+   --  Head Butt, Ore Toss, Shell Bash, Wrath of Gudha, Ore Lob
+
+   return tpMoves[math.random(#tpMoves)]
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end

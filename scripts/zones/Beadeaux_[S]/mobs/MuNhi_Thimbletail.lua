@@ -9,22 +9,74 @@
 -- Summoner Timer (49% HP): 07:34 - > 08:08 - > 08:33 - > 08:54 - > 09:23 - > 09:46 - 10:12 30s?
 -- Summoner Timer (24% HP): 12:46 - > 12:58 - > 13:13 - > 13:26 - > 13:43 - > 13:57 - > 14:12 15s
 -- Summoner Timer (9% HP): 16:42 - > 16:53 -> 17:03 -> 17:13 - > 17:23 - > 17:33 - > 17:43 10s
--- Uses Diamond Shell, Ore Lob, Head Butt, Shell Guard, HOwl
+-- Uses Diamond Shell, Ore Lob, Head Butt, Shell Guard, Howl
 -- Used Pefect Dodge at 70%ish
 -----------------------------------
 -- Area: Beadeaux [S]
---   NM: Ba'Tho Mercifulheart
+--   NM: Mu'Nhi Thimbletail
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 require("scripts/globals/wotg")
+require("scripts/globals/utils")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 1123)
+    mob:setMobMod(tpz.mobMod.SPECIAL_COOL, -1) -- Test
+    mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 10)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
+end
+
+function onMobEngaged(mob, target)
+    mob:setLocalVar("vialTime", os.time() + 60)
+end
+
+function onMobFight(mob, target)
+    local runAwayTimer = mob:getLocalVar("runAwayTimer")
+    local vialTime = mob:getLocalVar("vialTime")
+
+    -- Runs away to ~23.5 yalms then runs back to ~13.5 if you run to him, but if you chase again after he won't run away again for a while
+    if mob:checkDistance(target) <= 5 and (os.time() >= runAwayTimer) then
+		mob:pathTo(target:getXPos() + 24, target:getYPos(), target:getZPos() +24)
+        mob:setLocalVar("runAwayTimer", os.time() + math.random(30, 45))
+	end
+
+    -- Summons a random tube that uses a random TP move then despawns.
+    if os.time() >= vialTime then 
+        mob:setLocalVar("vialTime", os.time() + getVialTimer(mob))
+        local vial = GetMobByID(mob:getID() + math.random(3))
+        if not vial:isSpawned() then
+            vial:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
+            utils.spawnPetInBattle(mob, vial)
+        end
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = { 612, 614, 762, 2233, 2234 }
+   --  Headbutt, Shell Guard, Howl, Diamond Shell, Ore Lob
+
+   return tpMoves[math.random(#tpMoves)]
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
+end
+
+function getVialTimer(mob)
+    local hp = mob:getHPP()
+    local timer = 60
+
+    if (hp < 10) then
+        timer = 10
+    elseif (hp < 25) then
+        timer = 15
+    elseif (hp < 50) then
+        timer = 30
+    end
+
+    return timer
 end

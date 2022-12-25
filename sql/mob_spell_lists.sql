@@ -4411,6 +4411,15 @@ INSERT INTO `mob_spell_lists` VALUES ('Ashmaker_Gotblut_past', 1017, 176, 1, 255
 INSERT INTO `mob_spell_lists` VALUES ('Ashmaker_Gotblut_past', 1017,147,24,255); -- Fire IV
 INSERT INTO `mob_spell_lists` VALUES ('Ashmaker_Gotblut_past', 1017, 205, 1, 255); -- Flare II
 
+INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,242,1,255); -- Absorb-acc
+INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,266,1,255); -- Absorb-str
+INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,267,1,255); -- Absorb-dex
+INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,268,1,255); -- Absorb-vit
+INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,269,1,255); -- Absorb-agi
+INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,270,1,255); -- Absorb-int
+INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,271,1,255); -- Absorb-mnd
+INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,275,1,255); -- Absorb-tp
+
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5197,7 +5206,7 @@ INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,110,1,255);  --
 INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,143,1,255);  -- Erase
 
 
--- NEXT 1018
+-- NEXT 1019
 -- NEXT 2080(Custom)
 
 

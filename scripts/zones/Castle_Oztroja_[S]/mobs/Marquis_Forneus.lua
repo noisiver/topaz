@@ -27,6 +27,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.ATTP, 100)
     mob:setMod(tpz.mod.ACC, 400)
     mob:setMod(tpz.mod.DARK_NEVER_MISS, 1)
+    mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
 end
 
 function onMobFight(mob, target)
@@ -46,6 +47,10 @@ function onMobWeaponSkillPrepare(mob, target)
    local tpMoves = {559, 560, 563, 1148}
    --  Soul Drain, Hecatomb Wave, Demonic Howl, Condemnation
    return tpMoves[math.random(#tpMoves)]
+end
+
+function onAdditionalEffect(mob, target, damage)
+    return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.BUFF_DRAIN, {chance = 20})
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

@@ -16,6 +16,13 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 50)
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = { 1076, 2223, 2225, 2234}
+   --  Head Butt, Ore Toss, Shell Bash, Ore Lob
+
+   return tpMoves[math.random(#tpMoves)]
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end

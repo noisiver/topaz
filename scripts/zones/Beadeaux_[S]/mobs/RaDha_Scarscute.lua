@@ -1,7 +1,7 @@
 -- WAR
 -- Immune to Paralyze, Sleep, Bind, Gravity, Break
 -- Headbutt replaces autoattacks
--- Only TP move us Skull Smash
+-- Only TP move is Skull Smash
 -- Does NOT run away
 -- Used Mighty Strikes at 30%
 -----------------------------------
@@ -16,6 +16,11 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:SetMobSkillAttack(3843)
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+    return 2267
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)

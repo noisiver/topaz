@@ -1065,7 +1065,7 @@ INSERT INTO `mob_skills` VALUES (1119,335,'frag_bomb',1,15.0,2000,2000,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (1120,69,'10000_needles',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1121,770,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- yagudo move
 INSERT INTO `mob_skills` VALUES (1122,771,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- quadav move
-INSERT INTO `mob_skills` VALUES (1123,355,'ore_toss_autoattack',1,25.0,0,0,4,0,0,4,0,0,0);
+INSERT INTO `mob_skills` VALUES (1123,355,'ore_toss_autoattack',1,13.5,0,0,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (1124,772,'regain_hp',1,30.0,2000,0,4,0,0,0,0,0,0); -- Dyna Statues
 INSERT INTO `mob_skills` VALUES (1125,773,'regain_mp',1,30.0,2000,0,4,0,0,0,0,0,0); -- Dyna Statues
 -- INSERT INTO `mob_skills` VALUES (1126,870,'#870',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -3803,6 +3803,7 @@ INSERT INTO `mob_skills` VALUES (3840,1,'foot_kick',4,10.0,2000,1500,4,0,0,0,0,0
 INSERT INTO `mob_skills` VALUES (3841,2,'dust_cloud',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3842,3,'whirl_claws',1,15.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3843,3587,'head_butt',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3843,1558,'head_butt_autoattack',0,7.0,0,0,4,0,0,4,0,0,0); -- Not accurate, using unused mandy headbutt
 -- INSERT INTO `mob_skills` VALUES (3844,3588,'dream_flower',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3845,3589,'wild_oats',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3846,3590,'leaf_dagger',0,7.0,2000,1500,4,0,0,0,0,0,0);
