@@ -1260,7 +1260,7 @@ INSERT INTO `item_weapon` VALUES (17615,'chicken_knife',2,0,0,0,0,1,1,176,21,0);
 INSERT INTO `item_weapon` VALUES (17616,'dagger_of_trials',2,0,0,0,0,1,1,200,27,300);
 INSERT INTO `item_weapon` VALUES (17617,'mst.cst._knife',2,0,0,0,0,1,1,176,24,0);
 INSERT INTO `item_weapon` VALUES (17618,'kidney_dagger',2,0,0,0,0,1,1,183,18,0);
-INSERT INTO `item_weapon` VALUES (17619,'daylight_dagger',2,0,0,0,0,1,1,183,28,0);
+INSERT INTO `item_weapon` VALUES (17619,'daylight_dagger',2,0,0,0,0,1,1,183,32,0);
 INSERT INTO `item_weapon` VALUES (17620,'misericorde_+1',2,0,0,0,0,1,1,178,28,0);
 INSERT INTO `item_weapon` VALUES (17621,'gully_+1',2,0,0,0,0,1,1,200,30,0);
 INSERT INTO `item_weapon` VALUES (17622,'buccaneers_knife',2,0,0,0,0,1,1,200,17,0);

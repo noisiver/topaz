@@ -21476,6 +21476,7 @@ INSERT INTO `item_mods` VALUES (17616,2,20);
 INSERT INTO `item_mods` VALUES (17616,55,10);
 INSERT INTO `item_mods` VALUES (17616,57,10);
 INSERT INTO `item_mods` VALUES (17618,165,5);
+INSERT INTO `item_mods` VALUES (17619,1303,20);   -- (Daylight Dagger) Status Effect Magic Accuracy +20
 INSERT INTO `item_mods` VALUES (17620,5,11);
 INSERT INTO `item_mods` VALUES (17620,9,3);
 INSERT INTO `item_mods` VALUES (17620,10,3);
