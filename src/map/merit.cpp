@@ -37,16 +37,16 @@
 
 static uint8 upgrade[10][16] =
 {
-    {1,2,3,4,5,5,5,5,5,7,7,7,9,9,9},             // HP-MP
-    {3,6,9,9,9,12,12,12,12,15,15,15,15,19,18},   // Attributes
+    {1,2,3,4,5,5,5,5},                           // HP-MP
+    {3,6,9,9,9},                                 // Attributes
     {1,2,3,3,3,3,3,3},                           // Combat Skills
-    {1,2,3,3,3,3,3,3},                           // Defensive Skills
+    {1,2,3,3},                                   // Defensive Skills
     {1,2,3,3,3,3,3,3},                           // Magic Skills
-    {1,2,3,4,5},                                 // Others
+    {1,2,3,4},                                   // Others
     {1,2,3,4,5},                                 // Job Group 1
     {3,4,5,5,5},                                 // Job Group 2
     {20,22,24,27,30},                            // Weapon Skills
-    {1,3,5,7,9,12,15,18,21,24,27,30,33,36,39}    // Max merits
+    {}    // Max merits
 };
 #define MAX_LIMIT_POINTS  10000         // количество опыта для получения одного merit
 
