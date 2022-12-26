@@ -2,7 +2,7 @@
 -- Seraph Strike
 -- Club weapon skill
 -- Skill level: 40
--- Deals light elemental damage to enemy. Damage varies with TP.
+-- Deals damage. Damage done heals allies and grants regeneratio.
 -- Aligned with the Thunder Gorget.
 -- Aligned with the Thunder Belt.
 -- Element: None
@@ -35,6 +35,17 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.CLUB, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
+    local party = player:getParty()
+    local healAmount = math.floor(damage / 2)
+    local regenAmount = math.floor(player:getMainLvl() / 8)
+
+    if party ~= nil then
+        for _,v in ipairs(party) do
+            v:addHP(healAmount)
+            v:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 30)
+        end
+    end
 
     return tpHits, extraHits, criticalHit, damage
 
