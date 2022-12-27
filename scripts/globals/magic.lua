@@ -1653,7 +1653,7 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
         end
     end
 
-    local resm = applyResistance(caster, target, spell, params)
+    local resm = applyResistanceEffect(caster, target, spell, params)
     -- print("rsem=" .. resm)
 
     if resm < 0.5 then
