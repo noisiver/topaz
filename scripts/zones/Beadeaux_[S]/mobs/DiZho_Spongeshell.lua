@@ -19,6 +19,7 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMod(tpz.mod.DARK_NEVER_MISS, 0)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
 end
 
@@ -33,22 +34,22 @@ function onMobFight(mob, target)
 
     if (os.time() >= absorbChangeTimer) then
         mob:setLocalVar("absorbChangeTimer", os.time() + math.random(15, 60))
-        mob:setLocalVar("mode", math.random(2))
+        mob:setLocalVar("mode", math.random(1, 2))
         mob:useMobAbility(307) -- 2 hour "cloud" animation
     end
 
     if (mode == 1) then -- Physical  Absorb
-        mob:setMod(PHYS_ABSORB, 100)
-        mob:setMod(MAGIC_ABSORB, 0)
+        mob:setMod(tpz.mod.PHYS_ABSORB, 200)
+        mob:setMod(tpz.mod.MAGIC_ABSORB, 0)
     elseif (mode == 2) then -- Magical + Breath Absorb
-        mob:setMod(PHYS_ABSORB, 0)
-        mob:setMod(MAGIC_ABSORB, 100)
+        mob:setMod(tpz.mod.PHYS_ABSORB, 0)
+        mob:setMod(tpz.mod.MAGIC_ABSORB, 200)
     end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-   local tpMoves = { 1076, 2223, 2225, 2228, 2234}
-   --  Head Butt, Ore Toss, Shell Bash, Wrath of Gudha, Ore Lob
+   local tpMoves = { 2204, 2223, 2224, 2225, 2228}
+   --  Ore Lob, Ore Toss, Head Butt, Shell Bash, Wrath of Gudha
 
    return tpMoves[math.random(#tpMoves)]
 end

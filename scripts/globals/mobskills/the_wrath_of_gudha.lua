@@ -15,6 +15,11 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
     local result = 1
     local mobhp = mob:getHPP()
+    local diZhoSpongeshell = mob:getPool() == 1069
+
+    if diZhoSpongeshell then
+        result = 0
+    end
 
     if (mobhp <= 50) then
         result = 0

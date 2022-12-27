@@ -1065,7 +1065,7 @@ INSERT INTO `mob_skills` VALUES (1119,335,'frag_bomb',1,15.0,2000,2000,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (1120,69,'10000_needles',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1121,770,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- yagudo move
 INSERT INTO `mob_skills` VALUES (1122,771,'eagle_eye_shot',0,25.0,2000,0,4,2,0,0,0,0,0); -- quadav move
-INSERT INTO `mob_skills` VALUES (1123,355,'ore_toss_autoattack',1,13.5,0,0,4,0,0,4,0,0,0);
+INSERT INTO `mob_skills` VALUES (1123,355,'ore_toss_autoattack',1,13.5,2000,0,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (1124,772,'regain_hp',1,30.0,2000,0,4,0,0,0,0,0,0); -- Dyna Statues
 INSERT INTO `mob_skills` VALUES (1125,773,'regain_mp',1,30.0,2000,0,4,0,0,0,0,0,0); -- Dyna Statues
 -- INSERT INTO `mob_skills` VALUES (1126,870,'#870',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2160,8 +2160,8 @@ INSERT INTO `mob_skills` VALUES (2199,1587,'cyclonic_turmoil',1,15.0,2000,1500,4
 INSERT INTO `mob_skills` VALUES (2200,1588,'cyclonic_torrent',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2201,1555,'orcish_counterstance',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2202,1556,'berserker_dance',0,7.0,2000,1500,1,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2203,1563,'diamond_shell',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2204,1609,'ore_lob',4,10.0,2000,2000,4,0,0,0,0,0,0); -- Animation ID was 1948
+INSERT INTO `mob_skills` VALUES (2203,1563,'diamond_shell',0,7.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2204,1564,'ore_lob',4,10.0,2000,2000,4,0,0,0,0,0,0); -- Animation ID was 1948
 INSERT INTO `mob_skills` VALUES (2205,1565,'feathered_furore',1,10.0,2000,1500,4,0,0,0,0,0,0); 
 INSERT INTO `mob_skills` VALUES (2206,1566,'dark_invocation',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2207,14,'disorienting_waul',1,15.0,2000,1500,4,0,0,0,0,0,0); -- animation ID is prob 14(Roar)
@@ -2183,8 +2183,8 @@ INSERT INTO `mob_skills` VALUES (2222,1602,'hurricane_breath',4,10.0,2000,1500,4
 INSERT INTO `mob_skills` VALUES (2223,1557,'ore_toss',0,7.0,2000,3000,4,0,0,0,0,0,0); -- Di'zho Spongeshell
 INSERT INTO `mob_skills` VALUES (2224,1558,'head_butt',0,7.0,2000,2500,4,0,0,0,0,0,0); -- Di'zho Spongeshell
 INSERT INTO `mob_skills` VALUES (2225,1559,'shell_bash',0,7.0,2000,1000,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2226,1560,'shell_guard',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2227,354,'howl',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2226,1560,'shell_guard',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2227,354,'howl',1,20.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2228,1562,'the_wrath_of_gudha',1,15.0,2000,2000,4,0,0,7,0,0,0); -- Di'Zho Spongeshell
 -- INSERT INTO `mob_skills` VALUES (2229,1973,'poison_breath',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2230,1974,'poison_sting',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2225,7 +2225,7 @@ INSERT INTO `mob_skills` VALUES (2264,1627,'shoulder_charge',4,10.0,2000,1500,4,
 INSERT INTO `mob_skills` VALUES (2265,1618,'skull_smash',0,7.0,2000,1500,4,0,0,0,0,0,0); -- Za'Dha Adamantking (The Buried God SCNM)
 INSERT INTO `mob_skills` VALUES (2266,357,'shell_charge',4,10.0,2000,2000,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (2267,1620,'skull_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2268,2012,'shell_charge',4,10.0,3000,2000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2268,1621,'shell_charge',4,10.0,3000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2269,1622,'kamaitachi',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2270,1623,'shirahadori',1,10.0,2000,1500,4,0,0,4,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2271,2015,'rising_dragon',0,7.0,2000,1500,4,0,0,0,0,0,0);

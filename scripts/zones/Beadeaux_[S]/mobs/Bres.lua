@@ -16,7 +16,13 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    AddKickMods(mob)
 end
+
+function onMobFight(mob, target)
+    AddKickMods(mob)
+end
+
 
 function onMobWeaponSkillPrepare(mob, target)
     -- Uses Dragon Kick, Aegis schism, Barbed Crescent(all fomor moves?). Greatly favors Dragon Kick.
@@ -29,4 +35,16 @@ end
 
 function onMobDeath(mob, player, isKiller, noKiller)
     tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
+end
+
+function AddKickMods(mob)
+    if not mob:hasStatusEffect(tpz.effect.FOOTWORK) then
+        mob:addStatusEffect(tpz.effect.FOOTWORK, 1, 0, 7200)
+    end
+    mob:setDamage(70)
+    mob:setDelay(5000)
+    mob:setMod(tpz.mod.MAIN_DMG_RATING, 0)
+    mob:setMod(tpz.mod.STORETP, 0)
+    mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 14)
 end

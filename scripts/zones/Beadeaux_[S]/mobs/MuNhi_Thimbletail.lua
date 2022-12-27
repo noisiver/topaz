@@ -21,13 +21,16 @@ require("scripts/globals/wotg")
 require("scripts/globals/utils")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
+function onMobInitialize(mob)
+end
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
     mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 1123)
-    mob:setMobMod(tpz.mobMod.SPECIAL_COOL, -1) -- Test
+    mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 5) -- Test
     mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 10)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
+    -- TODO: Make sure quadavs in dynamis still ore toss properly!
 end
 
 function onMobEngaged(mob, target)

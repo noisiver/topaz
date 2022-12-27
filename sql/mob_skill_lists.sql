@@ -3833,10 +3833,13 @@ INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,403); -- Stormwind
 INSERT INTO `mob_skill_lists` VALUES ('Dahu',1161,802); -- Great_Sandstorm
 INSERT INTO `mob_skill_lists` VALUES ('Picolaton',1162,926); -- Stormwind Macan Gadangan
 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2203); 
 INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2204); 
-INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2378); 
-INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2266); 
-INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2267); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2223); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2224); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2225); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2226);
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2227); 
 
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,619); 
 INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2413); 

@@ -24,20 +24,23 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.STORETP, 25)
     mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 5)
     mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 10)
+    mob:setMobMod(tpz.mobMod.HP_STANDBACK, 71)
 end
 
 function onMobFight(mob, target)
     local summonMines = mob:getLocalVar("summonMines")
+    local minesplaced = 0
 
     if (summonMines > 0) then
-        local minesplaced
         while minesplaced < summonMines do
             local currentMine = GetMobByID(mob:getID() + minesplaced)
             if not currentMine:isSpawned() then
                 currentMine:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
-                utils.spawnPetInBattle(mob, currentMine)
-                minesplaced = minesplaced +1
+                currentMine:spawn()
+                currentMine:addStatusEffect(tpz.effect.STUN, 1, 0, 10)
+                currentMine:updateEnmity(target)
             end
+            minesplaced = minesplaced +1
         end
         mob:setLocalVar("summonMines", 0)
     end

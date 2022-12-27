@@ -18,6 +18,8 @@ mixins = {require("scripts/mixins/job_special")}
 
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
+    mob:setMobMod(tpz.mobMod.BLOCK, 100) 
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.HP_HEAL_CHANCE, 33) 
     mob:addStatusEffect(tpz.effect.REPRISAL, 33, 0, 7200, 0, mob:getMaxHP())
 end
@@ -29,8 +31,8 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-   local tpMoves = { 1076, 2223, 2225, 2268, 2234, 2378}
-   --  Head Butt, Ore Toss, Shell Bash, Shell Charge, Ore Lob, Diamond Shell
+   local tpMoves = { 2204, 2223, 2224, 2225, 2268, 2378}
+   --  Ore Lob, Ore Toss, Head Butt, Shell Bash, Shell Charge, Diamond Shell
 
    return tpMoves[math.random(#tpMoves)]
 end

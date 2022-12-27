@@ -5287,8 +5287,14 @@ namespace battleutils
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
-            damage = -damage;
-        else
+            if (PDefender->getMod(Mod::MAGIC_ABSORB) > 100)
+            {
+                damage = -damage * (PDefender->getMod(Mod::MAGIC_ABSORB) / 100);
+            }
+            else
+            {
+                damage = -damage;
+            }
         {
             damage = HandleSevereDamage(PDefender, damage, false);
             int16 absorbedMP = (int16)(damage * PDefender->getMod(Mod::ABSORB_DMG_TO_MP) / 100);
@@ -5323,7 +5329,7 @@ namespace battleutils
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
             if (PDefender->getMod(Mod::MAGIC_ABSORB) > 100)
             {
-                damage = -damage * PDefender->getMod(Mod::MAGIC_ABSORB);
+                damage = -damage * (PDefender->getMod(Mod::MAGIC_ABSORB) / 100);
             }
             else
             {
@@ -5363,7 +5369,14 @@ namespace battleutils
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::PHYS_ABSORB))
-            damage = -damage;
+            if (PDefender->getMod(Mod::PHYS_ABSORB) > 100)
+            {
+                damage = -damage * (PDefender->getMod(Mod::PHYS_ABSORB) / 100);
+            }
+            else
+            {
+                damage = -damage;
+            }
         else if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::NULL_PHYSICAL_DAMAGE))
             damage = 0;
         else
@@ -5402,7 +5415,7 @@ namespace battleutils
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::PHYS_ABSORB))
             if (PDefender->getMod(Mod::PHYS_ABSORB) > 100)
             {
-                damage = -damage * PDefender->getMod(Mod::PHYS_ABSORB);
+                damage = -damage * (PDefender->getMod(Mod::PHYS_ABSORB) / 100);
             }
             else
             {

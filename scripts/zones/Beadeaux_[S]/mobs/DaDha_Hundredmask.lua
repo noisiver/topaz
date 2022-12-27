@@ -13,8 +13,8 @@ function onMobSpawn(mob)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-   local tpMoves = { 1076, 2223, 2225, 2234}
-   --  Head Butt, Ore Toss, Shell Bash, Ore Lob
+   local tpMoves = { 611, 612, 613, 614, 1079}
+   -- Ore Toss, Head Butt, Shell Bash, Shell Guard, Howl
 
    return tpMoves[math.random(#tpMoves)]
 end
