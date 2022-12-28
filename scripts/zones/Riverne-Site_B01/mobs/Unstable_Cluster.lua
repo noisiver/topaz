@@ -8,7 +8,6 @@ require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setDamage(70)
-	mob:addMod(tpz.mod.DEFP, 25) 
 	mob:addMod(tpz.mod.ACC, 25) 
 	mob:setMod(tpz.mod.DRAGON_KILLER, 25)
 	mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 15, 0, 7200)
@@ -18,11 +17,11 @@ end
 function onMobFight(mob)
     local animation = mob:AnimationSub()
     if animation == 0 then
-        mob:setMod(tpz.mod.TRIPLE_ATTACK, 100)
+        mob:setMod(tpz.mod.TRIPLE_ATTACK, 50)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
     elseif animation == 2 then
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
-        mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 50)
     else
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
