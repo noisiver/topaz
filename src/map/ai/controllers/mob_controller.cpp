@@ -587,7 +587,7 @@ void CMobController::DoCombatTick(time_point tick)
     // Deaggro players in cutscenes
     if (PTarget->status == STATUS_CUTSCENE_ONLY)
     {
-        Disengage();
+        DeaggroAll();
         return;
     }
 
