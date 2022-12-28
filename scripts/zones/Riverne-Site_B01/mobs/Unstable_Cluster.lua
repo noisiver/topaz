@@ -8,11 +8,11 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setMod(tpz.mod.MAIN_DMG_RATING, 25)
+    mob:setDamage(70)
 	mob:addMod(tpz.mod.DEFP, 25) 
 	mob:addMod(tpz.mod.ACC, 25) 
 	mob:setMod(tpz.mod.DRAGON_KILLER, 25)
-	mob:addStatusEffectEx(tpz.effect.BLAZE_SPIKES,0,25,0,0)
+	mob:addStatusEffectEx(tpz.effect.BLAZE_SPIKES,0,15,0,0)
 	mob:AnimationSub(0)
 end
 
