@@ -36,7 +36,7 @@ g_mixins.families.avatar = function(mob)
 
     mob:addListener("WEAPONSKILL_STATE_EXIT", "AVATAR_MOBSKILL_FINISHED", function(mob)
         mob:setUnkillable(false)
-        mob:setHP(0)
+        DespawnMob(mob:getID())
     end)
 end
 
