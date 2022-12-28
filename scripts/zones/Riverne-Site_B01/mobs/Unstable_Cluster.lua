@@ -12,7 +12,7 @@ function onMobSpawn(mob)
 	mob:addMod(tpz.mod.DEFP, 25) 
 	mob:addMod(tpz.mod.ACC, 25) 
 	mob:setMod(tpz.mod.DRAGON_KILLER, 25)
-	mob:addStatusEffectEx(tpz.effect.BLAZE_SPIKES,0,15,0,0)
+	mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 15, 0, 7200)
 	mob:AnimationSub(0)
 end
 
@@ -28,6 +28,10 @@ function onMobFight(mob)
         mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
         mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
     end
+
+	if not mob:hasStatusEffect(tpz.effect.BLAZE_SPIKES) then
+		mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 15, 0, 7200)
+	end
 end
 
 
