@@ -1218,7 +1218,7 @@ bool CMobController::CanMoveForward(float currentDistance)
         return false;
     }
 
-    if(PMob->getMobMod(MOBMOD_NO_STANDBACK) == 0 && PMob->getMobMod(MOBMOD_HP_STANDBACK) > 0 && currentDistance < 20 && PMob->GetHPP() >= PMob->getMobMod(MOBMOD_HP_STANDBACK)
+    if (PMob->getMobMod(MOBMOD_NO_STANDBACK) == 0 && PMob->getMobMod(MOBMOD_HP_STANDBACK) > 0 && currentDistance < 15 && PMob->GetHPP() >= PMob->getMobMod(MOBMOD_HP_STANDBACK)
         && currentDistance > PMob->GetMeleeRange() * 2)
     {
         // Excluding Nins, mobs should not standback if can't cast magic
