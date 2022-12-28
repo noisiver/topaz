@@ -14496,10 +14496,10 @@ inline int32 CLuaBaseEntity::SetMobAbilityEnabled(lua_State* L)
 }
 
 /************************************************************************
-*  Function: SetMobSkillAttack()
-*  Purpose : Used mainly so Mobs don't respawn in flight?
-*  Example : mob:SetMobSkillAttack(0)
-*  Notes   : Used in Ouryu, Jormungand, Tiamat, etc
+*  Function: SetMobSkillAttack(skillListID)
+*  Purpose : Sets a mobs auto-attacks to a skill list
+*  Example : mob:SetMobSkillAttack(1171)
+*  Notes   : Used in Ouryu, Jormungand, Tiamat, Groot Slang, Zareehlk, etc
 ************************************************************************/
 
 inline int32 CLuaBaseEntity::SetMobSkillAttack(lua_State* L)
