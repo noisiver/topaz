@@ -5,7 +5,6 @@
 -----------------------------------
 require("scripts/globals/mobs")
 require("scripts/globals/status")
-require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setDamage(70)
