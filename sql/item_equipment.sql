@@ -5939,7 +5939,7 @@ INSERT INTO `item_equipment` VALUES (16185,'pelte',8,0,3719388,36,2,0,2,0);
 INSERT INTO `item_equipment` VALUES (16186,'spellcasters_ecu',42,0,3719388,46,2,0,2,0);
 INSERT INTO `item_equipment` VALUES (16187,'adoubeurs_pavise',59,0,2385,42,1,0,2,0);
 INSERT INTO `item_equipment` VALUES (16188,'rusty_shield',60,0,193,30,3,0,2,0);
-INSERT INTO `item_equipment` VALUES (16189,'gleaming_shield',80,0,193,26,3,0,2,0);
+INSERT INTO `item_equipment` VALUES (16189,'gleaming_shield',75,0,129,26,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (16190,'bloom_buckler',83,0,2385,44,1,0,2,0);
 INSERT INTO `item_equipment` VALUES (16191,'utilis_shield',85,0,64,25,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (16192,'ochain',85,0,64,57,3,0,2,0);
