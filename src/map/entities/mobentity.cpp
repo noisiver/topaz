@@ -1314,7 +1314,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         });
         for (uint8 i = 0; i < crystalRolls; i++)
         {
-            if (tpzrand::GetRandomNumber(100) < 20 && AddItemToPool(4095 + m_Element, ++dropCount))
+            if (tpzrand::GetRandomNumber(100) < 20 && getMobMod(MOBMOD_NO_DROPS) == 0 && AddItemToPool(4095 + m_Element, ++dropCount))
             {
                 return;
             }
