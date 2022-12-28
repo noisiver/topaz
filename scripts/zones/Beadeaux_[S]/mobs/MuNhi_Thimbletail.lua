@@ -27,10 +27,9 @@ end
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
     mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 1123)
-    mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 5) -- Test
+    mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 18) -- Test
     mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 10)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
-    -- TODO: Make sure quadavs in dynamis still ore toss properly!
 end
 
 function onMobEngaged(mob, target)
@@ -41,10 +40,21 @@ function onMobFight(mob, target)
     local runAwayTimer = mob:getLocalVar("runAwayTimer")
     local vialTime = mob:getLocalVar("vialTime")
 
+    -- Does not Ore Toss in melee range
+    if mob:checkDistance(target) <= 5 then
+        mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 0)
+    else
+        mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 1123)
+    end
+
     -- Runs away to ~23.5 yalms then runs back to ~13.5 if you run to him, but if you chase again after he won't run away again for a while
     if mob:checkDistance(target) <= 5 and (os.time() >= runAwayTimer) then
+        mob:SetMobAbilityEnabled(false)
 		mob:pathTo(target:getXPos() + 24, target:getYPos(), target:getZPos() +24)
         mob:setLocalVar("runAwayTimer", os.time() + math.random(30, 45))
+        mob:timer(5000, function(mob)
+		    mob:SetMobAbilityEnabled(true)
+        end)
 	end
 
     -- Summons a random tube that uses a random TP move then despawns.
@@ -52,8 +62,12 @@ function onMobFight(mob, target)
         mob:setLocalVar("vialTime", os.time() + getVialTimer(mob))
         local vial = GetMobByID(mob:getID() + math.random(3))
         if not vial:isSpawned() then
-            vial:setSpawn(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
-            utils.spawnPetInBattle(mob, vial)
+            local enmityList = mob:getEnmityList()
+            if enmityList and #enmityList > 0 then
+                vialTarget = math.random(#enmityList)
+                vial:setSpawn(GetPlayerByID(vialTarget):getXPos(), GetPlayerByID(vialTarget):getYPos(), GetPlayerByID(vialTarget):getZPos())
+                utils.spawnPetInBattle(mob, vial)
+            end
         end
     end
 end

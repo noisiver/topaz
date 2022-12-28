@@ -3872,6 +3872,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Grenade',1169,2237);
 
 INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Vial',1170,2371);
 
+INSERT INTO `mob_skill_lists` VALUES ('Head_Butt_Autoattack',1171,3843); 
+INSERT INTO `mob_skill_lists` VALUES ('Skull_Smash_only',1172,2267); 
+
 -- Custom Content
 
 -- Murgleis
@@ -4559,5 +4562,5 @@ INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,2207);
 
 
 
--- Next available ID: 1171
+-- Next available ID: 1173
 

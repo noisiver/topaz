@@ -2,7 +2,7 @@
 -- Aggressive, True Sound
 -- Immune to Paralyze, Sleep, Bind, Gravity, Break
 -- Uses 2-4 T3 nukes or RDM enfeebles(including sleep II) in a row
--- Uses Head Butt, Shell Guard, Diamond Shell, Shell Bash, Ore Lob, Ore Toss, Howl
+-- Uses Head Butt, Shell Guard, Diamond Shell, Shell Bash, Ore Lob, Howl
 -- Uses 2 TP moves in a row(different moves) while silenced
 -- Used Chainspell at ~65%
 -- If silenced during Chainspell, gains a very very potent regain(Spams TP moves over and over) until Chainspell ends
@@ -16,8 +16,8 @@ require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
-   local tpMoves = { 611, 612, 613, 614, 762, 2223, 2234}
-   --  Ore Toss, Head Butt, Shell Bash, Shell Guard, Howl, Ore Toss, Ore Lob
+   local tpMoves = { 611, 612, 613, 614, 762, 2233, 2234}
+   --  Ore Toss, Head Butt, Shell Bash, Shell Guard, Howl, Diamond Shell, Ore Lob
 
    local spells = { 24, 33, 56, 58, 59, 146, 151, 156, 161, 166, 171, 216, 221, 231, 254, 259, 260}
    -- Slow, Para, Blind, Grvity, Blind, Dia II, Bio II, Diaga, Sleep II, Dispel, T3 nukes 
@@ -27,7 +27,7 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    mob:setLocalVar("castTimer", os.time() + 25)
+    mob:setLocalVar("castTimer", 0)
 end
 
 function onMobFight(mob, target)
@@ -67,7 +67,7 @@ function onMobWeaponSkill(target, mob, skill)
                 if TPMove > 1 then -- Only use up to twice in a row
                     mob:setLocalVar("TPMove", 0)
                 else
-                    mob:useMobAbility(skillID) -- Re-use same TP move
+                    mob:useMobAbility(tpMoves[math.random(#tpMoves)]) -- Re-use same TP move
                 end
             end
         end

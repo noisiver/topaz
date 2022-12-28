@@ -33,6 +33,14 @@ function onMobFight(mob, target)
             WSCounter(mob, target)
         end
     end
+
+    -- Make sure being WSed mid casting doesn't break him being able to Retaliate
+    mob:addListener("MAGIC_STATE_EXIT", "ZEKKA_MAGIC_STATE_EXIT", function(mob, spell)
+        mob:setLocalVar("retaliated", 0)
+    end)
+    mob:addListener("WEAPONSKILL_STATE_EXIT", "ZEKKA_STATE_EXIT", function(mob, skill)
+        mob:setLocalVar("retaliated", 0)
+    end)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -47,6 +55,10 @@ function onMobWeaponSkill(target, mob, skill)
         mob:setLocalVar("counterMode", 2)
         mob:setLocalVar("modeTimer", os.time() + 90)
     end
+
+    if skill:getID() == 1711 then -- Frenetic Rip
+        mob:setLocalVar("retaliated", 0)
+    end
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
@@ -54,7 +66,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function MagicCounter(mob, target)
-    local spellToMimic = target:setLocalVar("[zekka]spellToMimic")
+    local spellToMimic = mob:getLocalVar("[zekka]spellToMimic")
     mob:addListener("MAGIC_TAKE", "ZEKKA_MIMIC_MAGIC_TAKE", function(target, caster, spell)
         if
             spell:tookEffect() and
@@ -73,6 +85,7 @@ end
 
 function WSCounter(mob, target)
     mob:addListener("WEAPONSKILL_TAKE", "ZEKKA_WEAPONSKILL_TAKE", function(target, user, wsid)
+        target:setLocalVar("retaliated", 0)
         if target:checkDistance(user) <= 7 and target:getLocalVar("retaliated") == 0 and target:actionQueueEmpty() then
             target:setLocalVar("retaliated", 1)
             target:useMobAbility(1711, user) -- Frenetic Rip
