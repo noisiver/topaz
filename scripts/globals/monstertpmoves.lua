@@ -485,8 +485,9 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     local magicaccbonus = 0
     local softcap = 10
     local SDT = getElementalSDT(element, target)
-	
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
+
+
+	    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
@@ -505,7 +506,9 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
         percentBonus = percentBonus - getEffectResistance(target, effect)
     end
 
-    local p = getMagicHitRate(mob, target, 0, element, SDT, percentBonus, magicaccbonus)
+    local params = {}
+    params.effect = effect
+    local p = getMagicHitRate(mob, target, 0, element, SDT, percentBonus, magicaccbonus, params)
     local resist = getMagicResist(p, element)
 
     if (effect == nil) then

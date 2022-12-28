@@ -596,7 +596,7 @@ function applyResistance(caster, target, spell, params)
         magicaccbonus = magicaccbonus + params.skillBonus
     end
 
-    local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus)
+    local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
     local res = getMagicResist(p, element)
 
 
@@ -684,7 +684,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     -- Apply "Status EfFect" Magic Accuracy Mod
     magicaccbonus = magicaccbonus + caster:getMod(tpz.mod.STATUS_EFFECT_MACC)
 
-    local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus)
+    local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
     local res = getMagicResist(p, element)
 
     if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
@@ -712,8 +712,9 @@ end
 -- Applies resistance for things that may not be spells - ie. Quick Draw
 function applyResistanceAbility(player, target, element, skill, bonus)
 
+    local params = {}
     local SDT = getElementalSDT(element, target)
-    local p = getMagicHitRate(player, target, skill, element, SDT, 0, bonus)
+    local p = getMagicHitRate(player, target, skill, element, SDT, 0, bonus, params)
     local res = getMagicResist(p, element)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
@@ -740,7 +741,10 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
         SDT = getEnfeeblelSDT(effect, element, target)
     end
 
-    local p = getMagicHitRate(player, target, 0, element, SDT, 0, bonus)
+    local params = {}
+    params.effect = effect
+
+    local p = getMagicHitRate(player, target, 0, element, SDT, 0, bonus, params)
 	local res = getMagicResist(p, element)
 
     if (effect == nil) then
@@ -768,7 +772,8 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
     return res
 end
 
-function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, bonusAcc) -- TODO: add SDT arg to calls
+function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, bonusAcc, params) -- TODO: add SDT arg to calls
+
     -- Resist everything if magic shield is active
     -- BLU spells ignore this
     if (skillType ~= tpz.skill.BLUE_MAGIC) then
@@ -778,6 +783,7 @@ function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, 
     end
 
     local magiceva = 0
+    local effect = params.effect
 
     if (bonusAcc == nil) then
         bonusAcc = 0
@@ -797,14 +803,16 @@ function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, 
     end
 
     local resMod = 0 -- Some spells may possibly be non elemental, but have status effects.
-    if (element ~= tpz.magic.ele.NONE) then
-        resMod = target:getMod(tpz.magic.resistMod[element])
 
+    if (element > 0) and (effect == nil) then -- Element resist does not work on status effects with an EEM(Like para)
+        resMod = target:getMod(tpz.magic.resistMod[element])
         -- Add acc for elemental affinity accuracy and element specific accuracy
         local affinityBonus = AffinityBonusAcc(caster, element)
         local elementBonus = caster:getMod(spellAcc[element])
         -- print(elementBonus)
         bonusAcc = bonusAcc + affinityBonus + elementBonus
+        -- Apply resistance mods
+        bonusAcc = bonusAcc - resMod
     end
 
     magicacc = magicacc + caster:getMerit(tpz.merit.MAGIC_ACCURACY)
