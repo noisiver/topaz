@@ -1276,7 +1276,10 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
         percentBonus = percentBonus - getEffectResistance(target, effect)
     end
 
-    local p = getAvatarMagicHitRate(avatar, target, 0, element, SDT, percentBonus, magicaccbonus)
+    local params = {}
+    params.effect = effect
+
+    local p = getAvatarMagicHitRate(avatar, target, 0, element, SDT, percentBonus, magicaccbonus, params)
     local resist = getAvatarMagicResist(p)
 
     if (effect == nil) then
@@ -1299,13 +1302,14 @@ function getAvatarResist(avatar, effect, target, diff, bonus, element)
     return resist
 end
 
-function getAvatarMagicHitRate(avatar, target, skillType, element, SDT, percentBonus, bonusAcc)
+function getAvatarMagicHitRate(avatar, target, skillType, element, SDT, percentBonus, bonusAcc, params)
     -- resist everything if magic shield is active
     if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
         return 0
     end
 
     local magiceva = 0
+    local effect = params.effect
 
     if (bonusAcc == nil) then
         bonusAcc = 0
@@ -1331,8 +1335,11 @@ function getAvatarMagicHitRate(avatar, target, skillType, element, SDT, percentB
     end
 
     local resMod = 0 -- Some spells may possibly be non elemental, but have status effects.
-    if (element ~= tpz.magic.ele.NONE) then
+
+    if (element > 0) and (effect == nil) then -- Element resist does not work on status effects with an EEM(Like para)
         resMod = target:getMod(tpz.magic.resistMod[element])
+        -- Apply resistance mods
+        bonusAcc = bonusAcc - resMod
     end
 
     -- Callculate base magic evasion. F for players C for everything else
