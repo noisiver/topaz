@@ -1730,6 +1730,23 @@ void CStatusEffectContainer::TickEffects(time_point tick)
             }
         }
     }
+    if (!m_POwner->isDead())
+    {
+        for (const auto& PStatusEffect : m_StatusEffectSet)
+        {
+            if (PStatusEffect->GetTickTime() != 0 &&
+                PStatusEffect->GetElapsedTickCount() <=
+                    std::chrono::duration_cast<std::chrono::milliseconds>(tick - PStatusEffect->GetStartTime()).count() / PStatusEffect->GetTickTime())
+            {
+                if (PStatusEffect->GetFlag() & EFFECTFLAG_AURA)
+                {
+                    HandleAura(PStatusEffect);
+                    PStatusEffect->IncrementElapsedTickCount();
+                    luautils::OnEffectTick(m_POwner, PStatusEffect);
+                }
+            }
+        }
+    }
     DeleteStatusEffects();
     m_POwner->PAI->EventHandler.triggerListener("EFFECTS_TICK", m_POwner);
 }
