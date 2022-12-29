@@ -1418,7 +1418,7 @@ void InitializeMob(CMobEntity* PMob, CZone* PZone)
         }
     }
 
-    if (PMob->m_EcoSystem == SYSTEM_EMPTY)
+    if (PMob->m_EcoSystem == SYSTEM_EMPTY || PMob->m_EcoSystem == SYSTEM_DEMON)
     {
         PMob->setMobMod(MOBMOD_ECOSYSTEMLINK, 1);
     }
