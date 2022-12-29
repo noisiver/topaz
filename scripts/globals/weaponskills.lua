@@ -502,15 +502,6 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
 	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
 	finaldmg = math.floor(finaldmg * 0.5)
 	end
-    -- Handle Samurai main job damage reduction
-    if attacker:getMainJob() == tpz.job.SAM then
-        finaldmg = math.floor(finaldmg * 0.5)
-    end
-
-    -- Add missing 1% DMG from 3/3 Ignis(99% WSD)
-    if attacker:hasStatusEffect(tpz.effect.IGNIS) then
-        finaldmg = math.floor(finaldmg * 1.01)
-    end
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
