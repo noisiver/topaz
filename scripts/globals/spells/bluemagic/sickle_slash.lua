@@ -29,10 +29,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.HTH
     params.scattr = SC_COMPRESSION
     params.numhits = 1
-    params.multiplier = 2.5
-    params.tp150 = 2.5
-    params.tp300 = 2.5
-    params.azuretp = 2.5
+    params.multiplier = 2.0 -- 1.5 on retail but it sucked
+    params.tp150 = 2.0
+    params.tp300 = 2.0
+    params.azuretp = 2.0
     params.duppercap = 49
     params.str_wsc = 0.0
     params.dex_wsc = 0.5
@@ -41,7 +41,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-	params.attkbonus = 1.25
+	params.attkbonus = 1.5
     params.CritTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local plantoid = (target:getSystem() == 17)
