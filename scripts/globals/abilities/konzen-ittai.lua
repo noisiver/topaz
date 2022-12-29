@@ -20,11 +20,13 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability, action)
-    if (not target:hasStatusEffect(tpz.effect.CHAINBOUND, 0) and not target:hasStatusEffect(tpz.effect.SKILLCHAIN, 0)) then
-        target:addStatusEffectEx(tpz.effect.CHAINBOUND, 0, 2, 0, 5, 0, 1)
-    else
-        ability:setMsg(tpz.msg.basic.JA_NO_EFFECT)
+    if (target:hasStatusEffect(tpz.effect.CHAINBOUND, 0) or target:hasStatusEffect(tpz.effect.SKILLCHAIN, 0)) then
+        target:delStatusEffectSilent(tpz.effect.CHAINBOUND)
+        target:delStatusEffectSilent(tpz.effect.SKILLCHAIN)
     end
+
+    target:addStatusEffectEx(tpz.effect.CHAINBOUND, 0, 2, 0, 5, 0, 1)
+
     local skill = player:getWeaponSkillType(tpz.slot.MAIN)
     local anim = 36
     if skill <= 1 then
