@@ -444,3 +444,17 @@ INSERT INTO bcnm_treasure_chests VALUES (1305,5,16929004); -- Central Temenos - 
 INSERT INTO bcnm_treasure_chests VALUES (1306,4,16928965); -- Central Temenos - 4th Floor
 INSERT INTO bcnm_treasure_chests VALUES (1301,8,16929052); -- Central Temenos - Basement
 
+-- -------------------------------
+-- La Vaule [S]
+-- ------------------------------
+INSERT INTO bcnm_treasure_chests VALUES (1308,1,17125689); -- The Blood Bathed Crown
+-- -------------------------------
+-- Beadaux [S]
+-- ------------------------------
+INSERT INTO bcnm_treasure_chests VALUES (1309,1,17154392); -- The Buried God
+-- -------------------------------
+-- Castle Oztroja [S]
+-- ------------------------------
+INSERT INTO bcnm_treasure_chests VALUES (1310,1,17183067); -- A Malicious Manifest
+
+

@@ -17,7 +17,9 @@ zones[tpz.zone.BEADEAUX_S] =
         CARRIED_OVER_POINTS     = 6999, -- You have carried over <number> login point[/s].
         LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The [/January/February/March/April/May/June/July/August/September/October/November/December] <number> Login Campaign is currently underway!<space>
         LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
-        EMPTY_SOCKET            = 7994 -- You see an empty socket in the gate. There are scratches around the edges of the socket that appear to have been made by iron scraping against iron.
+        EARNED_ALLIED_NOTES     = 7115, -- You have earned x Allied Notes!
+        DOOR_LOCKED             = 7616, -- The door is locked
+        EMPTY_SOCKET            = 7994  -- You see an empty socket in the gate. There are scratches around the edges of the socket that appear to have been made by iron scraping against iron.
     },
     mob =
     {

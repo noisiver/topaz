@@ -2008,4 +2008,31 @@ INSERT INTO `bcnm_battlefield` VALUES (1301,8,16929086,3);-- Temenos Aern
 INSERT INTO `bcnm_battlefield` VALUES (1301,8,16929087,3);-- Temenos Aern
 INSERT INTO `bcnm_battlefield` VALUES (1301,8,16929088,2);-- Temenos Ghrah
 
+-- -------------------------------
+-- The Blood Bathed Crown
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125684,3);
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125685,3);
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125686,3);
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125687,3);
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125688,3);
+
+-- -------------------------------
+-- The Buried God
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154387,3);
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154388,3);
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154389,3);
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154390,3);
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154391,3);
+
+-- -------------------------------
+-- A Malicious Manifest
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183062,3);
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183063,3);
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183064,3);
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183065,3);
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183066,3);
+
 -- Dump completed on 2017-01-31 10:38:38

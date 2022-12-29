@@ -115,7 +115,7 @@ tpz.wotg.MagianT2 = function(mob, player, isKiller, noKiller)
 end
 
 tpz.wotg.MagianT3 = function(mob, player, isKiller, noKiller)
-    player:addCurrency("allied_notes", 500)
+    player:addCurrency("allied_notes", 400)
 	if isKiller or noKiller then 
         if math.random(1,100) <= utils.getDropRate(mob, 24) then 
 		    player:addTreasure(tpz.items.SILVER_MIRROR, mob)
@@ -124,7 +124,7 @@ tpz.wotg.MagianT3 = function(mob, player, isKiller, noKiller)
 end
 
 tpz.wotg.MagianT4 = function(mob, player, isKiller, noKiller)
-    player:addCurrency("allied_notes", 1000)
+    player:addCurrency("allied_notes", 500)
 	if isKiller or noKiller then
         if math.random(1,100) <= utils.getDropRate(mob, 24) then 
 		    player:addTreasure(tpz.items.CHUNK_OF_RIFTSAND, mob)

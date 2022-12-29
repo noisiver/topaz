@@ -292,9 +292,28 @@ INSERT INTO `bcnm_info` VALUES (1304,37,'central_temenos_2nd_floor','nobody',0,2
 INSERT INTO `bcnm_info` VALUES (1305,37,'central_temenos_3rd_floor','nobody',0,2700,2700,0,18,0,7,0);
 INSERT INTO `bcnm_info` VALUES (1306,37,'central_temenos_4th_floor','nobody',0,3600,3600,0,18,0,7,0);
 INSERT INTO `bcnm_info` VALUES (1307,37,'central_temenos_4th_floor_ii','nobody',0,3600,3600,0,18,0,7,0);
+INSERT INTO `bcnm_info` VALUES (1308,85,'the_blood_bathed_crown','nobody',0,1800,1800,0,18,1308,7,0);
+INSERT INTO `bcnm_info` VALUES (1309,92,'the_buried_god','nobody',0,1800,1800,0,18,1309,7,0);
+INSERT INTO `bcnm_info` VALUES (1310,99,'a_malicious_manifest','nobody',0,1800,1800,0,18,1310,7,0);
 /*!40000 ALTER TABLE `bcnm_info` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
+
+--CREATE TABLE `bcnm_info` (
+--  `bcnmId` smallint(5) unsigned NOT NULL,
+--  `zoneId` tinyint(3) unsigned NOT NULL DEFAULT '0',
+--  `name` varchar(30) NOT NULL,
+--  `fastestName` varchar(15) DEFAULT 'Not Set!',
+--  `fastestPartySize` tinyint(2) unsigned NOT NULL DEFAULT '0',
+--  `fastestTime` int(10) unsigned DEFAULT '1',
+--  `timeLimit` smallint(5) unsigned NOT NULL DEFAULT '1800',
+--  `levelCap` smallint(5) unsigned NOT NULL DEFAULT '75',
+--  `partySize` smallint(5) unsigned NOT NULL DEFAULT '6',
+--  `lootDropId` smallint(5) unsigned NOT NULL DEFAULT '0',
+-- `rules` smallint(5) unsigned NOT NULL DEFAULT '0',
+--  `isMission` tinyint(1) unsigned NOT NULL DEFAULT '0',
+--  PRIMARY KEY (`bcnmId`)
+--) ENGINE=MyISAM DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=56;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

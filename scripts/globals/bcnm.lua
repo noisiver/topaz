@@ -212,19 +212,19 @@ local battlefields = {
     {
      -- { 0,    ?,    0},   -- Splitting Heirs (S)
      -- { 1,    ?,    0},   -- Purple, The New Black
-     -- { 2,    ?,    0},   -- The Blood-bathed Crown
+     { 2,    1308,    0},   -- The Blood-bathed Crown
     },
 
     [tpz.zone.BEADEAUX_S] =
     {
      -- { 0,    ?,    0},   -- Cracking Shells (B)
-     -- { 1,    ?,    0},   -- The Buried God
+     { 1,    1309,    0},   -- The Buried God
     },
 
     [tpz.zone.CASTLE_OZTROJA_S] =
     {
      -- { 0,    ?,    0},   -- Plucking Wings (W)
-     -- { 1,    ?,    0},   -- A Malicious Manifest
+     { 1,    1310,    0},   -- A Malicious Manifest
      -- { 2,    ?,    0},   -- Manifest Destiny
      -- { 3,    ?,    0},   -- At Journey's End
     },

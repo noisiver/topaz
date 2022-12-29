@@ -1,12 +1,13 @@
 -----------------------------------
 -- Area: Beadeaux_[S]
+-- Quadav Charm gate
+-- !gotoid 17154804
 -----------------------------------
 local ID = require("scripts/zones/Beadeaux_[S]/IDs")
 require("scripts/globals/npc_util")
 require("scripts/globals/items")
 -----------------------------------
--- !gotoid 17154804
------------------------------------
+
 function onTrigger(player, npc)
     if player:getXPos() < 40 then
         player:messageSpecial(ID.text.EMPTY_SOCKET)
