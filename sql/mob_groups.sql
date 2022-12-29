@@ -5983,21 +5983,21 @@ INSERT INTO `mob_groups` VALUES (1,6233,92,'Ancient_Quadav',960,0,87,0,0,81,83,0
 INSERT INTO `mob_groups` VALUES (2,4120,92,'Vajra_Quadav',960,0,2535,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (3,3757,92,'Star_Ruby_Quadav',960,0,2005,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (4,1175,92,'Edible_Slug',960,0,2172,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (5,3140,92,'Pitchy_Pudding',960,0,0,0,0,83,83,0);
+INSERT INTO `mob_groups` VALUES (5,3140,92,'Pitchy_Pudding',960,0,6090,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (6,6254,92,'Magnes_Quadav',960,0,1574,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (7,1753,92,'Gold_Quadav',960,0,1193,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (8,6637,92,'Seneschal_Imp',960,0,1002,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (9,6247,92,'Iron_Quadav',960,0,87,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (10,5553,92,'Adaman_Quadav',960,0,22,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (9,6247,92,'Iron_Quadav',960,0,6091,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (10,5553,92,'Adaman_Quadav',960,0,6091,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (11,6068,92,'EaTho_Cruelheart',7200,0,3032,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (12,1195,92,'Electrumcap',960,0,756,0,0,78,81,0);
-INSERT INTO `mob_groups` VALUES (13,1094,92,'Doyen_Quadav',960,0,694,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (12,1195,92,'Electrumcap',960,0,6092,0,0,78,81,0);
+INSERT INTO `mob_groups` VALUES (13,1094,92,'Doyen_Quadav',960,0,6091,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (14,703,92,'Chatoyant_Quadav',960,0,459,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (15,2644,92,'Meteor_Quadav',960,0,1665,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (15,2644,92,'Meteor_Quadav',960,0,459,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (16,6234,92,'Platinum_Quadav',960,0,2005,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (17,6248,92,'Steel_Quadav',960,0,2331,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (18,1325,92,'Ferroalloy_Quadav',960,0,826,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (19,324,92,'Baetyl_Quadav',960,0,212,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (17,6248,92,'Steel_Quadav',960,0,6091,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (18,1325,92,'Ferroalloy_Quadav',960,0,6091,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (19,324,92,'Baetyl_Quadav',960,0,6093,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,377,92,'BaTho_Mercifulheart',7200,0,3030,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (21,928,92,'DaDha_Hundredmask',7200,0,3031,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (22,4238,92,'Virulent_Peiste',960,0,1621,0,0,85,85,0);
@@ -10179,10 +10179,10 @@ INSERT INTO `mob_groups` VALUES (23,3588,150,'Shatterskull_Mippdapp',0,128,0,0,0
 INSERT INTO `mob_groups` VALUES (24,1814,150,'Grimbolt_Onkzok',0,128,0,0,0,69,75,0);
 INSERT INTO `mob_groups` VALUES (25,3552,150,'Sevenskewer_Krugglug',0,128,0,0,0,69,75,0);
 
-INSERT INTO `mob_groups` VALUES (26,3008,150,'Orcish_Farkiller',600,0,1897,0,0,70,72,0);
-INSERT INTO `mob_groups` VALUES (27,3007,150,'Orcish_Dreadnought',600,0,1894,0,0,70,72,0);
-INSERT INTO `mob_groups` VALUES (28,3000,150,'Orcish_Champion',600,0,1883,0,0,70,72,0);
-INSERT INTO `mob_groups` VALUES (29,3006,150,'Orcish_Dragoon',600,0,1892,0,0,70,72,0);
+INSERT INTO `mob_groups` VALUES (26,3008,150,'Orcish_Farkiller',600,0,1897,0,0,62,72,0);
+INSERT INTO `mob_groups` VALUES (27,3007,150,'Orcish_Dreadnought',600,0,1894,0,0,63,72,0);
+INSERT INTO `mob_groups` VALUES (28,3000,150,'Orcish_Champion',600,0,1883,0,0,64,72,0);
+INSERT INTO `mob_groups` VALUES (29,3006,150,'Orcish_Dragoon',600,0,1892,0,0,65,72,0);
 
 -- ------------------------------------------------------------
 -- Castle_Oztroja (Zone 151)

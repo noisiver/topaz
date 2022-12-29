@@ -2404,12 +2404,12 @@ INSERT INTO `item_basic` VALUES (2514,0,'rafflesia_petal','rafflesia_petal',12,4
 INSERT INTO `item_basic` VALUES (2515,0,'sandworm_fang','sandworm_fang',12,0,42,0,178);
 INSERT INTO `item_basic` VALUES (2516,0,'sandworm_shell','sandworm_shell',12,0,42,0,178);
 INSERT INTO `item_basic` VALUES (2518,0,'smilodon_hide','smilodon_hide',1,4,41,0,480);		-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (2519,0,'yagudo_osode','yagudo_osode',12,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (2520,0,'yagudo_kote','yagudo_kote',12,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (2521,0,'gnole_claw','gnole_claw',12,4,42,0,520);
+INSERT INTO `item_basic` VALUES (2519,0,'yagudo_osode','yagudo_osode',1,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (2520,0,'yagudo_kote','yagudo_kote',1,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (2521,0,'gnole_claw','gnole_claw',1,4,42,0,520);
 INSERT INTO `item_basic` VALUES (2522,0,'gnat_wing','gnat_wing',12,4,40,0,74);
-INSERT INTO `item_basic` VALUES (2523,0,'peiste_skin','peiste_skin',12,4,41,0,512);
-INSERT INTO `item_basic` VALUES (2524,0,'peiste_stinger','peiste_stinger',12,4,44,0,384);
+INSERT INTO `item_basic` VALUES (2523,0,'peiste_skin','peiste_skin',1,4,41,0,512);
+INSERT INTO `item_basic` VALUES (2524,0,'peiste_stinger','peiste_stinger',1,4,44,0,384);
 INSERT INTO `item_basic` VALUES (2525,0,'bottled_pixie','bottled_pixie',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (2526,0,'broken_mmm_fishing_rod','bkn._mmm_rod',1,28752,0,1,0);
 INSERT INTO `item_basic` VALUES (2527,0,'red_oven_mitt','red_oven_mitt',1,61524,0,1,0);

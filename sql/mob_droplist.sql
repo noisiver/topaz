@@ -138,10 +138,7 @@ INSERT INTO `mob_droplist` VALUES (21,0,0,1000,646,150); -- Chunk of adaman ore
 INSERT INTO `mob_droplist` VALUES (21,0,0,1000,3344,240); -- Clump of red pondweed
 INSERT INTO `mob_droplist` VALUES (21,0,0,1000,12361,150); -- Sipar
 INSERT INTO `mob_droplist` VALUES (21,0,0,1000,13794,100); -- Heavy cuirass
-INSERT INTO `mob_droplist` VALUES (22,0,0,1000,2504,100);
-INSERT INTO `mob_droplist` VALUES (22,0,0,1000,2505,100);
-INSERT INTO `mob_droplist` VALUES (22,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (22,2,0,1000,2531,0);
+-- 22 unused
 INSERT INTO `mob_droplist` VALUES (23,2,0,1000,748,0); -- Adaman Quadav
 INSERT INTO `mob_droplist` VALUES (23,0,0,1000,748,100);
 INSERT INTO `mob_droplist` VALUES (23,0,0,1000,1433,240);	-- (Adaman Quadav) Dark knight's testimony
@@ -580,8 +577,9 @@ INSERT INTO `mob_droplist` VALUES (86,0,0,1000,2504,100);
 INSERT INTO `mob_droplist` VALUES (86,0,0,1000,2505,100);
 INSERT INTO `mob_droplist` VALUES (86,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (86,0,0,1000,2977,100);
-INSERT INTO `mob_droplist` VALUES (87,0,0,1000,2504,100);
-INSERT INTO `mob_droplist` VALUES (87,0,0,1000,2505,100);
+INSERT INTO `mob_droplist` VALUES (87,0,0,1000,2504,100); -- (Ancient Quadav - Beadeaux [S]) Heavy Quadav chestplate
+INSERT INTO `mob_droplist` VALUES (87,0,0,1000,2505,100); -- Heavy Quadav backplate
+INSERT INTO `mob_droplist` VALUES (87,0,0,1000,2977,100); -- Punch bug
 INSERT INTO `mob_droplist` VALUES (87,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (88,2,0,1000,748,0); -- Ancient Quadav
 INSERT INTO `mob_droplist` VALUES (88,0,0,1000,1043,50);
@@ -2703,8 +2701,9 @@ INSERT INTO `mob_droplist` VALUES (458,0,0,1000,863,100);
 INSERT INTO `mob_droplist` VALUES (458,0,0,1000,3081,240);
 INSERT INTO `mob_droplist` VALUES (458,0,0,1000,4377,240);
 INSERT INTO `mob_droplist` VALUES (458,0,0,1000,4377,150);
-INSERT INTO `mob_droplist` VALUES (459,0,0,1000,2531,240);
-INSERT INTO `mob_droplist` VALUES (459,0,0,1000,2564,10);
+INSERT INTO `mob_droplist` VALUES (459,0,0,1000,2531,100); -- (Chatoyant Quadav - Beadeaux [S])
+INSERT INTO `mob_droplist` VALUES (459,0,0,1000,2564,50); -- Jar of Peiste pellets
+INSERT INTO `mob_droplist` VALUES (459,2,0,1000,751,0); 
 INSERT INTO `mob_droplist` VALUES (460,0,0,1000,2618,1000); -- (Cheese Hoarder Gigiroon) Gigiroon's Cape
 INSERT INTO `mob_droplist` VALUES (460,0,0,1000,16340,150); -- Armadillo cuisses
 INSERT INTO `mob_droplist` VALUES (460,0,0,1000,17755,150); -- Beast slayer
@@ -3762,8 +3761,7 @@ INSERT INTO `mob_droplist` VALUES (691,0,0,1000,940,1000);
 INSERT INTO `mob_droplist` VALUES (691,0,0,1000,16863,270);
 INSERT INTO `mob_droplist` VALUES (692,0,0,1000,16222,240); -- Mercenary's Mantle
 INSERT INTO `mob_droplist` VALUES (693,0,0,1000,17814,100);
-INSERT INTO `mob_droplist` VALUES (694,0,0,1000,2505,100);
-INSERT INTO `mob_droplist` VALUES (694,2,0,1000,2531,0);
+-- 644 unused
 INSERT INTO `mob_droplist` VALUES (695,0,0,1000,645,50);
 INSERT INTO `mob_droplist` VALUES (695,0,0,1000,1446,50);
 INSERT INTO `mob_droplist` VALUES (695,0,0,1000,1633,50);
@@ -6236,7 +6234,7 @@ INSERT INTO `mob_droplist` VALUES (1191,0,0,1000,13576,150);	-- (Golden Bat) Nig
 INSERT INTO `mob_droplist` VALUES (1192,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (1192,0,0,1000,2531,100);
 INSERT INTO `mob_droplist` VALUES (1192,0,0,1000,2977,100);
-INSERT INTO `mob_droplist` VALUES (1193,2,0,1000,2531,0);
+INSERT INTO `mob_droplist` VALUES (1193,2,0,1000,2531,0); -- (Gold Quadav - Beadeaux [S}])
 INSERT INTO `mob_droplist` VALUES (1193,0,0,1000,2531,100);
 INSERT INTO `mob_droplist` VALUES (1193,0,0,1000,2977,100);
 INSERT INTO `mob_droplist` VALUES (1194,2,0,1000,749,0);
@@ -8308,9 +8306,10 @@ INSERT INTO `mob_droplist` VALUES (1572,0,0,1000,1160,1000);
 INSERT INTO `mob_droplist` VALUES (1573,0,0,1000,816,111);
 INSERT INTO `mob_droplist` VALUES (1573,0,0,1000,839,140);
 INSERT INTO `mob_droplist` VALUES (1573,0,0,1000,4357,340);
-INSERT INTO `mob_droplist` VALUES (1574,0,0,1000,2525,50); -- Bottled Pixie
-INSERT INTO `mob_droplist` VALUES (1574,0,0,1000,4862,50);
-INSERT INTO `mob_droplist` VALUES (1574,0,0,1000,4866,50);
+INSERT INTO `mob_droplist` VALUES (1574,0,0,1000,2525,50); -- (Magnes Quadav - Beadeaux [S}) Bottled Pixie
+INSERT INTO `mob_droplist` VALUES (1574,1,1,100,4862,500);
+INSERT INTO `mob_droplist` VALUES (1574,1,1,100,4866,500);
+INSERT INTO `mob_droplist` VALUES (1574,2,0,1000,751,0); 
 INSERT INTO `mob_droplist` VALUES (1575,0,0,1000,15219,240); -- (Mahisha) Sinister mask
 INSERT INTO `mob_droplist` VALUES (1576,0,0,1000,2630,1000); -- (Mahjlaef The Paintorn) Mahjlaef's staff
 INSERT INTO `mob_droplist` VALUES (1576,1,1,1000,15021,333); -- Aurum gauntlets
@@ -8722,8 +8721,7 @@ INSERT INTO `mob_droplist` VALUES (1663,0,0,1000,2428,50);
 INSERT INTO `mob_droplist` VALUES (1663,0,0,1000,2910,100);
 INSERT INTO `mob_droplist` VALUES (1664,2,0,1000,656,0);
 INSERT INTO `mob_droplist` VALUES (1664,0,0,1000,17947,370); -- (Meteormauler Zhagtegg) Garde Pick
-INSERT INTO `mob_droplist` VALUES (1665,0,0,1000,2531,100);
-INSERT INTO `mob_droplist` VALUES (1665,0,0,1000,2564,0);
+-- 1665 unused
 INSERT INTO `mob_droplist` VALUES (1666,0,0,1000,17843,240); -- (Meww The Turtlerider) Oliphant
 INSERT INTO `mob_droplist` VALUES (1667,4,0,1000,922,0);
 INSERT INTO `mob_droplist` VALUES (1667,0,0,1000,922,390);
@@ -10782,7 +10780,7 @@ INSERT INTO `mob_droplist` VALUES (2003,0,0,1000,2897,100);
 INSERT INTO `mob_droplist` VALUES (2004,0,0,1000,856,150);
 INSERT INTO `mob_droplist` VALUES (2004,0,0,1000,2490,100);
 INSERT INTO `mob_droplist` VALUES (2004,0,0,1000,4358,120);
-INSERT INTO `mob_droplist` VALUES (2005,2,0,1000,2531,0);
+INSERT INTO `mob_droplist` VALUES (2005,2,0,1000,2531,0); -- (Star Ruby / Platinum Quadav - Beadeaux [S])
 INSERT INTO `mob_droplist` VALUES (2005,0,0,1000,2531,100);
 INSERT INTO `mob_droplist` VALUES (2006,0,0,1000,656,240);
 INSERT INTO `mob_droplist` VALUES (2006,0,0,1000,748,50);
@@ -11526,7 +11524,9 @@ INSERT INTO `mob_droplist` VALUES (2170,0,0,1000,4358,240);
 INSERT INTO `mob_droplist` VALUES (2171,0,0,1000,585,150);
 INSERT INTO `mob_droplist` VALUES (2171,0,0,1000,856,150);
 INSERT INTO `mob_droplist` VALUES (2171,2,0,1000,4358,0);
-INSERT INTO `mob_droplist` VALUES (2172,0,0,1000,2509,10); -- Slug eye
+INSERT INTO `mob_droplist` VALUES (2172,0,0,1000,2509,240); -- (Edible Slug - Beadeaux [S}) Slug eye
+INSERT INTO `mob_droplist` VALUES (2172,0,0,1000,2509,150);
+INSERT INTO `mob_droplist` VALUES (2172,0,0,1000,2509,100);  
 INSERT INTO `mob_droplist` VALUES (2173,0,0,1000,846,240);
 INSERT INTO `mob_droplist` VALUES (2173,0,0,1000,894,150);
 INSERT INTO `mob_droplist` VALUES (2174,0,0,1000,846,100);
@@ -12237,8 +12237,7 @@ INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,881,150); -- Crab shell
 INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,1193,10); -- High-quality crab shell
 INSERT INTO `mob_droplist` VALUES (2330,4,0,1000,4400,0);
 INSERT INTO `mob_droplist` VALUES (2330,0,0,1000,4400,240); -- Slice of land crab meat
-INSERT INTO `mob_droplist` VALUES (2331,0,0,1000,2504,100);
-INSERT INTO `mob_droplist` VALUES (2331,0,0,1000,2505,100);
+-- 2331 unused
 INSERT INTO `mob_droplist` VALUES (2332,0,0,1000,1620,50); -- (Stegotaur - Phomiuna Aqueducts) Taurus horn
 INSERT INTO `mob_droplist` VALUES (2332,0,0,1000,1697,100); -- Piece of spruce lumber
 INSERT INTO `mob_droplist` VALUES (2332,0,0,1000,1877,50); -- Fomor codex
@@ -13401,11 +13400,10 @@ INSERT INTO `mob_droplist` VALUES (2534,2,0,1000,751,0);
 INSERT INTO `mob_droplist` VALUES (2534,0,0,1000,2525,50);
 INSERT INTO `mob_droplist` VALUES (2534,0,0,1000,2531,100); -- Obsidian
 INSERT INTO `mob_droplist` VALUES (2534,0,0,1000,2977,100); -- Punch Bug
-INSERT INTO `mob_droplist` VALUES (2535,2,0,1000,751,0);
-INSERT INTO `mob_droplist` VALUES (2535,0,0,1000,2525,50);
-INSERT INTO `mob_droplist` VALUES (2535,0,0,1000,2531,100);
-INSERT INTO `mob_droplist` VALUES (2535,0,0,1000,2977,100);
-INSERT INTO `mob_droplist` VALUES (2535,2,0,1000,4409,0);
+INSERT INTO `mob_droplist` VALUES (2535,2,0,1000,751,0); -- (Vajra Quadav Beadeaux [S}])
+INSERT INTO `mob_droplist` VALUES (2535,0,0,1000,2531,100); -- Obsidian
+INSERT INTO `mob_droplist` VALUES (2535,0,0,1000,2977,100); -- Punch Bug
+INSERT INTO `mob_droplist` VALUES (2535,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (2536,0,0,1000,846,1000);
 INSERT INTO `mob_droplist` VALUES (2536,0,0,1000,12486,240);	-- emperor hairpin
 INSERT INTO `mob_droplist` VALUES (2537,0,0,1000,1116,100);
@@ -17224,6 +17222,32 @@ INSERT INTO `mob_droplist` VALUES (6089,0,0,1000,2685,1000);   -- (Rugaroo) Will
 INSERT INTO `mob_droplist` VALUES (6089,0,0,1000,15033,100);    -- Danzo Tekko  
 INSERT INTO `mob_droplist` VALUES (6089,0,0,1000,18951,100);    -- Vendetta 
 
+INSERT INTO `mob_droplist` VALUES (6090,0,0,1000,2175,240); -- (Pitchy Pudding - Beadeaux [S]) Flan Meat
+INSERT INTO `mob_droplist` VALUES (6090,0,0,1000,2175,150); -- Flan Meat
+INSERT INTO `mob_droplist` VALUES (6090,0,0,1000,2175,100); -- Flan Meat
+INSERT INTO `mob_droplist` VALUES (6091,0,0,1000,2504,100); -- Heavy Quadav chestplate
+INSERT INTO `mob_droplist` VALUES (6091,0,0,1000,2505,100); -- Heavy Quadav backplate
+INSERT INTO `mob_droplist` VALUES (6091,2,0,1000,2531,0); -- Obsidian(Steal)
+
+INSERT INTO `mob_droplist` VALUES (6092,2,0,1000,4373,0); -- (Electrumcap - Beadeaux[S}])
+INSERT INTO `mob_droplist` VALUES (6092,0,0,1000,5680,240); -- Agaricus Mushroom
+INSERT INTO `mob_droplist` VALUES (6092,0,0,1000,5680,150); -- Agaricus Mushroom
+INSERT INTO `mob_droplist` VALUES (6092,0,0,1000,5680,100); -- Agaricus Mushroom
+
+INSERT INTO `mob_droplist` VALUES (6093,0,0,1000,2525,50); -- (Baetyl Quadav - Beadeaux [S]) Bottled Pixie
+INSERT INTO `mob_droplist` VALUES (6093,1,1,100,4779,200); -- Water III 
+INSERT INTO `mob_droplist` VALUES (6093,1,1,100,4780,200); -- Water IV 
+INSERT INTO `mob_droplist` VALUES (6093,1,1,100,4808,200); -- Waterga II 
+INSERT INTO `mob_droplist` VALUES (6093,1,1,100,4809,200); -- Waterga III 
+INSERT INTO `mob_droplist` VALUES (6093,1,1,100,4822,200); -- Flood 
+
+INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2523,240); -- (Virulent Peiste - Beadeaux [S]) Peiste skin
+INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2523,150); 
+INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2524,240); -- Peiste Stinger
+INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2524,150);
+INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2524,100);
+
+
 ---------------------Dynamis---------------------
 
 -- Bastok
@@ -17787,7 +17811,7 @@ INSERT INTO `mob_droplist` VALUES (9059,0,0,1000,18419,240); -- Kugui
 INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1618,240); -- (Harajnite) Uragnite Shell
 INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
-
+-- free 22, 644, 1665, 2331
 -- NEXT: 
 -- NEXT: 6090
 
