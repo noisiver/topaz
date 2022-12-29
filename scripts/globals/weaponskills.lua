@@ -507,6 +507,11 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
         finaldmg = math.floor(finaldmg * 0.5)
     end
 
+    -- Add missing 1% DMG from 3/3 Ignis(99% WSD)
+    if attacker:hasStatusEffect(tpz.effect.IGNIS) then
+        finaldmg = finaldmg * 1.01
+    end
+
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
     finaldmg = utils.clamp(finaldmg, -99999, 99999)
