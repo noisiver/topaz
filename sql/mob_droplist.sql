@@ -1861,9 +1861,9 @@ INSERT INTO `mob_droplist` VALUES (293,0,0,1000,3117,100);
 INSERT INTO `mob_droplist` VALUES (293,0,0,1000,3122,100);
 INSERT INTO `mob_droplist` VALUES (293,0,0,1000,3127,100);
 INSERT INTO `mob_droplist` VALUES (293,0,0,1000,18834,160);
-INSERT INTO `mob_droplist` VALUES (294,0,0,1000,2691,1000);
-INSERT INTO `mob_droplist` VALUES (294,0,0,1000,19215,100);
-INSERT INTO `mob_droplist` VALUES (294,0,0,1000,19220,100);
+INSERT INTO `mob_droplist` VALUES (294,0,0,1000,2691,1000); -- (Blifnix Oilycheeks) Iron letterbox
+INSERT INTO `mob_droplist` VALUES (294,0,0,1000,19215,100); -- Amanokakoyumi
+INSERT INTO `mob_droplist` VALUES (294,0,0,1000,19220,100); -- Goblin cracker
 INSERT INTO `mob_droplist` VALUES (295,0,0,1000,563,1000);
 INSERT INTO `mob_droplist` VALUES (295,0,0,1000,868,100);
 INSERT INTO `mob_droplist` VALUES (296,0,0,1000,725,50);
@@ -9984,9 +9984,9 @@ INSERT INTO `mob_droplist` VALUES (1832,0,0,1000,3312,100);
 INSERT INTO `mob_droplist` VALUES (1832,0,0,1000,3313,100);
 INSERT INTO `mob_droplist` VALUES (1832,0,0,1000,3314,100);
 INSERT INTO `mob_droplist` VALUES (1832,0,0,1000,15999,350);
-INSERT INTO `mob_droplist` VALUES (1833,0,0,1000,2689,1000);
-INSERT INTO `mob_droplist` VALUES (1833,0,0,1000,16278,50);
-INSERT INTO `mob_droplist` VALUES (1833,0,0,1000,18596,110);
+INSERT INTO `mob_droplist` VALUES (1833,0,0,1000,2689,1000); -- (Observant Zekka) Paktong letterbox
+INSERT INTO `mob_droplist` VALUES (1833,0,0,1000,18596,100); -- Kebbie
+INSERT INTO `mob_droplist` VALUES (1833,0,0,1000,16278,100); -- Piper's torque
 INSERT INTO `mob_droplist` VALUES (1834,0,0,1000,3090,240);
 INSERT INTO `mob_droplist` VALUES (1835,0,0,1000,580,980);
 INSERT INTO `mob_droplist` VALUES (1835,0,0,1000,881,10);
@@ -16073,9 +16073,12 @@ INSERT INTO `mob_droplist` VALUES (3028,0,0,1000,11529,240); -- (Kegpaunch Doshg
 INSERT INTO `mob_droplist` VALUES (3029,0,0,1000,2820,150); -- (Drumskull Zogdregg) Aptant: Geoc
 INSERT INTO `mob_droplist` VALUES (3029,0,0,1000,2822,240); -- (Drumskull Zogdregg) Aptant: Secan
 INSERT INTO `mob_droplist` VALUES (3030,0,0,1000,18947,150); -- (Ba'Tho Mercifulheart) Moliones's Sickle
-INSERT INTO `mob_droplist` VALUES (3030,0,0,1000,2504,240); -- (Ba'Tho Mercifulheart) Heavy Quadav Chestplate
-INSERT INTO `mob_droplist` VALUES (3031,0,0,1000,15014,240); -- (Da'Dha Hundredmask) Patrician's Cuffs
-INSERT INTO `mob_droplist` VALUES (3032,0,0,1000,15818,240); -- (Ea'Tho Cruelheart) Moliones's Ring
+INSERT INTO `mob_droplist` VALUES (3030,0,0,1000,2504,100); -- (Ba'Tho Mercifulheart) Heavy Quadav chestplate
+INSERT INTO `mob_droplist` VALUES (3030,0,0,1000,2505,100); -- (Ba'Tho Mercifulheart) Heavy Quadav Backplate
+INSERT INTO `mob_droplist` VALUES (3031,0,0,1000,15014,150); -- (Da'Dha Hundredmask) Patrician's Cuffs
+INSERT INTO `mob_droplist` VALUES (3032,0,0,1000,15818,150); -- (Ea'Tho Cruelheart) Moliones's Ring
+INSERT INTO `mob_droplist` VALUES (3032,0,0,1000,2504,100); -- (Ea'Tho Cruelheart) Heavy Quadav chestplate
+INSERT INTO `mob_droplist` VALUES (3032,0,0,1000,2505,100); -- (Ea'Tho Cruelheart) Heavy Quadav Backplate
 INSERT INTO `mob_droplist` VALUES (3033,0,0,1000,16319,150); -- (Zhuu Buxu the Silent) Sangoma Lappa
 INSERT INTO `mob_droplist` VALUES (3033,0,0,1000,2520,100); -- (Zhuu Buxu the Silent) Yagudo Kote
 INSERT INTO `mob_droplist` VALUES (3034,0,0,1000,2837,150); -- (Ratatoskr) Ratatoskr Pelt
@@ -17246,6 +17249,21 @@ INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2523,150);
 INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2524,240); -- Peiste Stinger
 INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2524,150);
 INSERT INTO `mob_droplist` VALUES (6094,0,0,1000,2524,100);
+INSERT INTO `mob_droplist` VALUES (6095,0,0,1000,2686,1000);   -- (Ga'lhu Nevermolt) Bronze letterbox
+INSERT INTO `mob_droplist` VALUES (6095,0,0,1000,17756,100);   -- Sinfender
+INSERT INTO `mob_droplist` VALUES (6095,0,0,1000,16181,100);   -- Terror shield
+INSERT INTO `mob_droplist` VALUES (6096,0,0,1000,2688,1000);   -- (Di'zho Spongeshell) Shakudo letterbox
+INSERT INTO `mob_droplist` VALUES (6096,0,0,1000,19156,100);   -- Balisarde
+INSERT INTO `mob_droplist` VALUES (6096,0,0,1000,15830,100);   -- Patriot's ring
+INSERT INTO `mob_droplist` VALUES (6097,0,0,1000,2690,1000);   -- (Mu'nhi Thimbletail) Pig iron letterbox
+INSERT INTO `mob_droplist` VALUES (6097,0,0,1000,19112,100);   -- Farseer
+INSERT INTO `mob_droplist` VALUES (6097,0,0,1000,15924,100);   -- Demagogue's sash
+INSERT INTO `mob_droplist` VALUES (6098,0,0,1000,2692,1000);   -- (Va'gho Bloodbasked) Cast iron letterbox
+INSERT INTO `mob_droplist` VALUES (6098,0,0,1000,19271,100);   -- Osoraku
+INSERT INTO `mob_droplist` VALUES (6098,0,0,1000,16354,100);   -- Malagigi's trousers
+INSERT INTO `mob_droplist` VALUES (6099,0,0,1000,2693,1000);   -- (Ra'dha Scarscute) Wrought iron letterbox
+INSERT INTO `mob_droplist` VALUES (6099,0,0,1000,17962,100);   -- Fleetwing
+INSERT INTO `mob_droplist` VALUES (6099,0,0,1000,11474,100);   -- Louhi's mask
 
 
 ---------------------Dynamis---------------------

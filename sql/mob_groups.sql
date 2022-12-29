@@ -6003,18 +6003,18 @@ INSERT INTO `mob_groups` VALUES (21,928,92,'DaDha_Hundredmask',7200,0,3031,35000
 INSERT INTO `mob_groups` VALUES (22,4238,92,'Virulent_Peiste',960,0,1621,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (23,3912,92,'Thunder_Elemental',960,4,2410,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (24,4309,92,'Water_Elemental',960,4,2629,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (25,1485,92,'GaLhu_Nevermolt',7200,0,0,0,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (25,1485,92,'GaLhu_Nevermolt',7200,0,6095,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (26,528,92,'Bres',7200,0,355,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (27,1069,92,'DiZho_Spongeshell',7200,0,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (27,1069,92,'DiZho_Spongeshell',7200,0,6096,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (28,2932,92,'Observant_Zekka',7200,0,1833,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (29,2779,92,'MuNhi_Thimbletail',7200,0,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (29,2779,92,'MuNhi_Thimbletail',7200,0,6097,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (30,6715,92,'Paralyzing_Tube',0,128,0,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (31,6716,92,'Silencing_Tube',0,128,0,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (32,6717,92,'Binding_Tube',0,128,0,0,0,80,80,0);
 INSERT INTO `mob_groups` VALUES (33,450,92,'Blifnix_Oilycheeks',7200,0,294,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (34,1688,92,'Goblin_Mine',0,128,0,0,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (35,4208,92,'VaGho_Bloodbasked',7200,0,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (36,3337,92,'RaDha_Scarscute',7200,0,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (35,4208,92,'VaGho_Bloodbasked',7200,0,6098,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (36,3337,92,'RaDha_Scarscute',7200,0,6099,35000,0,85,85,0);
 
 -- Cracking Shells
 INSERT INTO `mob_groups` VALUES (37,4494,92,'ZaDha_Adamantking',0,128,0,0,0,85,85,0); -- RNG
