@@ -25,12 +25,6 @@ function onTrigger(player, npc)
     end
 end
 
-function onTrade(player, npc, trade)
-    if npcUtil.tradeHasExactly(trade, tpz.items.QUADAV_CHARM, true) then
-        npc:openDoor()
-    end
-end
-
 function onEventUpdate(player, csid, option)
     -- printf("onUpdate CSID: %u", csid)
     -- printf("onUpdate RESULT: %u", option)

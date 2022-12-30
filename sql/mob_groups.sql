@@ -4984,6 +4984,11 @@ INSERT INTO `mob_groups` VALUES (48,737,85,'Clan_Reaper_Grunt',0,128,0,0,0,83,83
 INSERT INTO `mob_groups` VALUES (49,1333,85,'Fiendish_Leechkeeper',0,128,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (50,403,85,'Bhogbiggs_Vial',0,128,0,110,0,80,80,0);
 
+-- The Bloodbathed Crown
+INSERT INTO `mob_groups` VALUES (51,456,85,'Bloodcrown_Brradhod',0,128,0,35000,0,90,90,0); 
+INSERT INTO `mob_groups` VALUES (52,543,85,'Brradhods_Fletcher',0,128,0,0,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (53,542,85,'Brradhods_Donzel',0,128,0,0,0,77,77,0);
+
 INSERT INTO `mob_groups` VALUES (3545,18,85,'Abenzio',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3546,37,85,'Achtelle',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3547,64,85,'Agrios',18000,0,31,0,0,80,85,0);
@@ -5002,7 +5007,7 @@ INSERT INTO `mob_groups` VALUES (3561,311,85,'Azima',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3562,312,85,'Azo',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3563,320,85,'Babban_Ny_Mheillea',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (3564,366,85,'Battlemaster_Vatgit',0,128,239,0,0,75,80,0);
-INSERT INTO `mob_groups` VALUES (3567,456,85,'Bloodcrown_Brradhod',0,128,0,0,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (3567,456,85,'Bloodcrown_Brradhod',0,128,0,0,0,85,85,0); -- The Bloodbathed Crown
 INSERT INTO `mob_groups` VALUES (3568,464,85,'Bloodwing_Impaler',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (3569,502,85,'Boodlix',0,128,0,0,0,75,80,0);
 INSERT INTO `mob_groups` VALUES (3570,526,85,'Bravo',1,0,0,0,0,1,1,0);
@@ -6017,15 +6022,15 @@ INSERT INTO `mob_groups` VALUES (35,4208,92,'VaGho_Bloodbasked',7200,0,6098,3500
 INSERT INTO `mob_groups` VALUES (36,3337,92,'RaDha_Scarscute',7200,0,6099,35000,0,85,85,0);
 
 -- Cracking Shells
-INSERT INTO `mob_groups` VALUES (37,4494,92,'ZaDha_Adamantking',0,128,0,0,0,85,85,0); -- RNG
+INSERT INTO `mob_groups` VALUES (37,4494,92,'ZaDha_Adamantking',0,128,0,0,0,85,85,0); -- Needs new pool? This one is WAR/WAR
 INSERT INTO `mob_groups` VALUES (39,1068,92,'DiMho_Platekeeper',0,128,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (40,4510,92,'ZiBhe_Gauntletkeeper',0,128,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (41,4520,92,'ZoBha_Helmkeeper',0,128,0,0,0,83,83,0);
 
 -- The Buried God
--- Adamantking missing? WAR in this BCNM
-INSERT INTO `mob_groups` VALUES (42,4495,92,'ZaDhas_Biographer',0,128,0,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (43,4496,92,'ZaDhas_Minister',0,128,0,0,0,83,83,0);
+INSERT INTO `mob_groups` VALUES (146,4494,92,'ZaDha_Adamantking',0,128,0,35000,0,90,90,0); -- WAR/WAR
+INSERT INTO `mob_groups` VALUES (147,4495,92,'ZaDhas_Biographer',0,128,0,0,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (148,4496,92,'ZaDhas_Minister',0,128,0,0,0,77,77,0);
 
 -- Campaign
 INSERT INTO `mob_groups` VALUES (44,352,92,'Bartholomaus',1,0,0,0,0,70,70,0);
@@ -6990,8 +6995,10 @@ INSERT INTO `mob_groups` VALUES (41,3703,99,'Soo_Luma_the_Ascended',0,0,0,0,0,83
 INSERT INTO `mob_groups` VALUES (43,3392,99,'Roo_Beju_the_Eulogizer',0,0,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (44,4512,99,'Zjaa_Bao_the_Wrathherald',0,0,0,0,0,83,83,0);
 INSERT INTO `mob_groups` VALUES (45,2150,99,'Jii_Xai_the_Rimebladed',0,0,0,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (46,4072,99,'Tzee_Xicu_the_Manifest',0,0,0,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (47,4071,99,'Tzee_Xicus_Elemental',0,0,0,0,0,80,80,0);
+
+-- A Malcious Manifest
+INSERT INTO `mob_groups` VALUES (46,4072,99,'Tzee_Xicu_the_Manifest',0,128,0,35000,0,90,90,0);
+INSERT INTO `mob_groups` VALUES (47,4071,99,'Tzee_Xicus_Elemental',0,128,0,0,0,77,77,0);
 
 -- Campaign
 INSERT INTO `mob_groups` VALUES (48,2197,99,'Kayeel-Payeel',1,0,0,0,0,1,1,0);

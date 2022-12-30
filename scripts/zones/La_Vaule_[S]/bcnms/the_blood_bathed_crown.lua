@@ -3,6 +3,7 @@
 -- Orc SCNM
 -- !addkeyitem 1026 - !addkeyitem 1033
 -----------------------------------
+local ID = require("scripts/zones/La_Vaule_[S]/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/keyitems")
 -----------------------------------
