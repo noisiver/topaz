@@ -12318,14 +12318,20 @@ INSERT INTO `item_mods` VALUES (13977,10,3);
 INSERT INTO `item_mods` VALUES (13978,1,6);
 INSERT INTO `item_mods` VALUES (13978,23,-18);
 INSERT INTO `item_mods` VALUES (13978,25,6);
-INSERT INTO `item_mods` VALUES (13979,1,9);
-INSERT INTO `item_mods` VALUES (13980,1,10);
+INSERT INTO `item_mods` VALUES (13979,1,9); -- Silver Bangles
+INSERT INTO `item_mods` VALUES (13979,1272,15); -- Elemental WSD +15%
+INSERT INTO `item_mods` VALUES (13980,1,10); -- Silver Bangles +1
+INSERT INTO `item_mods` VALUES (13980,1272,17); -- Elemental WSD +15%
 INSERT INTO `item_mods` VALUES (13981,1,10);
 INSERT INTO `item_mods` VALUES (13982,1,11);
-INSERT INTO `item_mods` VALUES (13983,1,11);
-INSERT INTO `item_mods` VALUES (13984,1,12);
-INSERT INTO `item_mods` VALUES (13985,1,14);
-INSERT INTO `item_mods` VALUES (13986,1,15);
+INSERT INTO `item_mods` VALUES (13983,1,11); -- Gold Bangles
+INSERT INTO `item_mods` VALUES (13983,1272,20); -- Elemental WSD +20%
+INSERT INTO `item_mods` VALUES (13984,1,12); -- Gold Bangles +1
+INSERT INTO `item_mods` VALUES (13984,1272,22); -- Elemental WSD +22%
+INSERT INTO `item_mods` VALUES (13985,1,14); -- Platinum Bangles
+INSERT INTO `item_mods` VALUES (13985,1272,25); -- Elemental WSD +25%
+INSERT INTO `item_mods` VALUES (13986,1,15); -- Platinum Bangles +1
+INSERT INTO `item_mods` VALUES (13986,1272,27); -- Elemental WSD +27%
 INSERT INTO `item_mods` VALUES (13987,1,12);
 INSERT INTO `item_mods` VALUES (13987,163,-1);
 INSERT INTO `item_mods` VALUES (13988,1,13);
