@@ -12083,16 +12083,19 @@ INSERT INTO `item_mods` VALUES (13924,23,9);
 INSERT INTO `item_mods` VALUES (13924,25,6);
 INSERT INTO `item_mods` VALUES (13924,68,-9);
 INSERT INTO `item_mods` VALUES (13925,1,31);      -- Rasetsu Jinpachi: DEF 31
-INSERT INTO `item_mods` VALUES (13925,23,2);      -- Attack +2
-INSERT INTO `item_mods` VALUES (13925,499,1);     -- Blaze spikes
-INSERT INTO `item_mods` VALUES (13925,500,20);    -- Spikes damage +20
-INSERT INTO `item_mods` VALUES (13925,501,15);    -- Spikes chance +15%
+INSERT INTO `item_mods` VALUES (13925,54,10);
+INSERT INTO `item_mods` VALUES (13925,55,10);
+INSERT INTO `item_mods` VALUES (13925,56,10);
+INSERT INTO `item_mods` VALUES (13925,57,10);
+INSERT INTO `item_mods` VALUES (13925,58,10);
+INSERT INTO `item_mods` VALUES (13925,59,10);
 INSERT INTO `item_mods` VALUES (13926,1,32);      -- Rasetsu Jinpachi +1: DEF 32
-INSERT INTO `item_mods` VALUES (13926,23,3);      -- Attack +3
-INSERT INTO `item_mods` VALUES (13926,291,1);     -- Counter +1%
-INSERT INTO `item_mods` VALUES (13926,499,1);     -- Blaze spikes
-INSERT INTO `item_mods` VALUES (13926,500,25);    -- Spikes damage +25
-INSERT INTO `item_mods` VALUES (13926,501,20);    -- Spikes chance +20%
+INSERT INTO `item_mods` VALUES (13926,54,12);
+INSERT INTO `item_mods` VALUES (13926,55,12);
+INSERT INTO `item_mods` VALUES (13926,56,12);
+INSERT INTO `item_mods` VALUES (13926,57,12);
+INSERT INTO `item_mods` VALUES (13926,58,12);
+INSERT INTO `item_mods` VALUES (13926,59,12);
 INSERT INTO `item_mods` VALUES (13927,1,33);
 INSERT INTO `item_mods` VALUES (13927,2,12);
 INSERT INTO `item_mods` VALUES (13927,8,11);
@@ -12958,13 +12961,20 @@ INSERT INTO `item_mods` VALUES (14176,515,73);
 INSERT INTO `item_mods` VALUES (14177,1,3); -- Worker Boots
 INSERT INTO `item_mods` VALUES (14177,513,90);
 INSERT INTO `item_mods` VALUES (14177,515,90);
-INSERT INTO `item_mods` VALUES (14178,1,23);
-INSERT INTO `item_mods` VALUES (14178,23,5);
-INSERT INTO `item_mods` VALUES (14178,68,5);
-INSERT INTO `item_mods` VALUES (14179,1,24);
-INSERT INTO `item_mods` VALUES (14179,23,6);
-INSERT INTO `item_mods` VALUES (14179,68,6);
-INSERT INTO `item_mods` VALUES (14179,291,1);
+INSERT INTO `item_mods` VALUES (14178,1,23); -- rasetsu_sune
+INSERT INTO `item_mods` VALUES (14178,54,7);
+INSERT INTO `item_mods` VALUES (14178,55,7);
+INSERT INTO `item_mods` VALUES (14178,56,7);
+INSERT INTO `item_mods` VALUES (14178,57,7);
+INSERT INTO `item_mods` VALUES (14178,58,7);
+INSERT INTO `item_mods` VALUES (14178,59,7);
+INSERT INTO `item_mods` VALUES (14179,1,24); -- rasetsu_sune+1
+INSERT INTO `item_mods` VALUES (14179,54,8);
+INSERT INTO `item_mods` VALUES (14179,55,8);
+INSERT INTO `item_mods` VALUES (14179,56,8);
+INSERT INTO `item_mods` VALUES (14179,57,8);
+INSERT INTO `item_mods` VALUES (14179,58,8);
+INSERT INTO `item_mods` VALUES (14179,59,8);
 INSERT INTO `item_mods` VALUES (14180,1,22);
 INSERT INTO `item_mods` VALUES (14180,2,7);
 INSERT INTO `item_mods` VALUES (14180,8,6);
@@ -13443,16 +13453,19 @@ INSERT INTO `item_mods` VALUES (14298,1,8); -- Worker Hose
 INSERT INTO `item_mods` VALUES (14298,513,90);
 INSERT INTO `item_mods` VALUES (14298,514,90);
 INSERT INTO `item_mods` VALUES (14299,1,40);      -- Rasetsu Hakama: DEF 40
-INSERT INTO `item_mods` VALUES (14299,23,2);      -- Attack +2
-INSERT INTO `item_mods` VALUES (14299,499,2);     -- Ice spikes
-INSERT INTO `item_mods` VALUES (14299,500,15);    -- Spikes damage +15
-INSERT INTO `item_mods` VALUES (14299,501,20);    -- Spikes chance +20%
+INSERT INTO `item_mods` VALUES (14299,54,10);
+INSERT INTO `item_mods` VALUES (14299,55,10);
+INSERT INTO `item_mods` VALUES (14299,56,10);
+INSERT INTO `item_mods` VALUES (14299,57,10);
+INSERT INTO `item_mods` VALUES (14299,58,10);
+INSERT INTO `item_mods` VALUES (14299,59,10);
 INSERT INTO `item_mods` VALUES (14300,1,41);      -- Rasetsu Hakama +1: DEF 41
-INSERT INTO `item_mods` VALUES (14300,23,3);      -- Attack +3
-INSERT INTO `item_mods` VALUES (14300,291,1);     -- Counter +1%
-INSERT INTO `item_mods` VALUES (14300,499,2);     -- Ice spikes
-INSERT INTO `item_mods` VALUES (14300,500,20);    -- Spikes damage +20
-INSERT INTO `item_mods` VALUES (14300,501,25);    -- Spikes chance +25%
+INSERT INTO `item_mods` VALUES (14300,54,12);
+INSERT INTO `item_mods` VALUES (14300,55,12);
+INSERT INTO `item_mods` VALUES (14300,56,12);
+INSERT INTO `item_mods` VALUES (14300,57,12);
+INSERT INTO `item_mods` VALUES (14300,58,12);
+INSERT INTO `item_mods` VALUES (14300,59,12);
 INSERT INTO `item_mods` VALUES (14301,1,38);
 INSERT INTO `item_mods` VALUES (14301,8,-5);
 INSERT INTO `item_mods` VALUES (14301,9,-5);
@@ -13758,16 +13771,19 @@ INSERT INTO `item_mods` VALUES (14375,513,90);
 INSERT INTO `item_mods` VALUES (14375,514,90);
 INSERT INTO `item_mods` VALUES (14375,515,90);
 INSERT INTO `item_mods` VALUES (14376,1,50);      -- Rasetsu Samue: DEF 50
-INSERT INTO `item_mods` VALUES (14376,23,2);      -- Attack +2
-INSERT INTO `item_mods` VALUES (14376,499,5);     -- Shock spikes
-INSERT INTO `item_mods` VALUES (14376,500,15);    -- Spikes damage +15
-INSERT INTO `item_mods` VALUES (14376,501,25);    -- Spikes chance +25%
-INSERT INTO `item_mods` VALUES (14377,1,51);      -- Rasetsu Samue +1: DEF 51
-INSERT INTO `item_mods` VALUES (14377,23,3);      -- Attack +3
-INSERT INTO `item_mods` VALUES (14377,291,1);     -- Counter +1%
-INSERT INTO `item_mods` VALUES (14377,499,5);     -- Shock spikes
-INSERT INTO `item_mods` VALUES (14377,500,20);    -- Spikes damage +20
-INSERT INTO `item_mods` VALUES (14377,501,30);    -- Spikes chance +30%
+INSERT INTO `item_mods` VALUES (14376,54,15);
+INSERT INTO `item_mods` VALUES (14376,55,15);
+INSERT INTO `item_mods` VALUES (14376,56,15);
+INSERT INTO `item_mods` VALUES (14376,57,15);
+INSERT INTO `item_mods` VALUES (14376,58,15);
+INSERT INTO `item_mods` VALUES (14376,59,15);
+INSERT INTO `item_mods` VALUES (14377,1,51);      -- Rasetsu Samue: DEF 51
+INSERT INTO `item_mods` VALUES (14377,54,17);
+INSERT INTO `item_mods` VALUES (14377,55,17);
+INSERT INTO `item_mods` VALUES (14377,56,17);
+INSERT INTO `item_mods` VALUES (14377,57,17);
+INSERT INTO `item_mods` VALUES (14377,58,17);
+INSERT INTO `item_mods` VALUES (14377,59,17);
 INSERT INTO `item_mods` VALUES (14378,1,50);
 INSERT INTO `item_mods` VALUES (14378,2,16);
 INSERT INTO `item_mods` VALUES (14378,8,12);
@@ -14372,18 +14388,18 @@ INSERT INTO `item_mods` VALUES (14538,25,10);
 INSERT INTO `item_mods` VALUES (14538,68,10);
 INSERT INTO `item_mods` VALUES (14538,161,-4);
 INSERT INTO `item_mods` VALUES (14538,163,-4);
-INSERT INTO `item_mods` VALUES (14539,1,42);
-INSERT INTO `item_mods` VALUES (14539,24,7);
-INSERT INTO `item_mods` VALUES (14539,26,7);
-INSERT INTO `item_mods` VALUES (14539,68,7);
-INSERT INTO `item_mods` VALUES (14539,163,-2);
-INSERT INTO `item_mods` VALUES (14539,243,2);
-INSERT INTO `item_mods` VALUES (14540,1,43);
-INSERT INTO `item_mods` VALUES (14540,24,9);
-INSERT INTO `item_mods` VALUES (14540,26,9);
-INSERT INTO `item_mods` VALUES (14540,68,9);
-INSERT INTO `item_mods` VALUES (14540,163,-3);
-INSERT INTO `item_mods` VALUES (14540,243,3);
+INSERT INTO `item_mods` VALUES (14539,1,42); -- Kyudogi
+INSERT INTO `item_mods` VALUES (14539,24,20);
+INSERT INTO `item_mods` VALUES (14539,26,20);
+INSERT INTO `item_mods` VALUES (14539,31,15);
+INSERT INTO `item_mods` VALUES (14539,163,-5);
+INSERT INTO `item_mods` VALUES (14539,365,5);
+INSERT INTO `item_mods` VALUES (14540,1,43); -- Kyudogi +1
+INSERT INTO `item_mods` VALUES (14540,24,22);
+INSERT INTO `item_mods` VALUES (14540,26,22);
+INSERT INTO `item_mods` VALUES (14540,31,16);
+INSERT INTO `item_mods` VALUES (14540,163,-5);
+INSERT INTO `item_mods` VALUES (14540,365,5);
 INSERT INTO `item_mods` VALUES (14541,1,8);
 INSERT INTO `item_mods` VALUES (14542,1,33);
 INSERT INTO `item_mods` VALUES (14542,2,21);
@@ -15079,13 +15095,20 @@ INSERT INTO `item_mods` VALUES (14817,515,73);
 INSERT INTO `item_mods` VALUES (14818,1,3);	 -- Workers Gloves
 INSERT INTO `item_mods` VALUES (14818,514,90);
 INSERT INTO `item_mods` VALUES (14818,515,90);
-INSERT INTO `item_mods` VALUES (14819,1,24);
-INSERT INTO `item_mods` VALUES (14819,23,2);
-INSERT INTO `item_mods` VALUES (14819,68,10);
-INSERT INTO `item_mods` VALUES (14820,1,25);
-INSERT INTO `item_mods` VALUES (14820,23,3);
-INSERT INTO `item_mods` VALUES (14820,68,11);
-INSERT INTO `item_mods` VALUES (14820,291,1);
+INSERT INTO `item_mods` VALUES (14819,1,24); -- rasetsu_tekko 
+INSERT INTO `item_mods` VALUES (14819,54,7);
+INSERT INTO `item_mods` VALUES (14819,55,7);
+INSERT INTO `item_mods` VALUES (14819,56,7);
+INSERT INTO `item_mods` VALUES (14819,57,7);
+INSERT INTO `item_mods` VALUES (14819,58,7);
+INSERT INTO `item_mods` VALUES (14819,59,7);
+INSERT INTO `item_mods` VALUES (14820,1,25); -- -- rasetsu_tekko +1
+INSERT INTO `item_mods` VALUES (14820,54,8);
+INSERT INTO `item_mods` VALUES (14820,55,8);
+INSERT INTO `item_mods` VALUES (14820,56,8);
+INSERT INTO `item_mods` VALUES (14820,57,8);
+INSERT INTO `item_mods` VALUES (14820,58,8);
+INSERT INTO `item_mods` VALUES (14820,59,8);
 INSERT INTO `item_mods` VALUES (14821,1,16);
 INSERT INTO `item_mods` VALUES (14821,2,-20);
 INSERT INTO `item_mods` VALUES (14821,25,4);
@@ -19485,15 +19508,15 @@ INSERT INTO `item_mods` VALUES (16160,30,2);
 INSERT INTO `item_mods` VALUES (16161,1,21);
 INSERT INTO `item_mods` VALUES (16161,2,25);
 INSERT INTO `item_mods` VALUES (16161,246,2);
-INSERT INTO `item_mods` VALUES (16162,1,18);
-INSERT INTO `item_mods` VALUES (16162,25,4);
-INSERT INTO `item_mods` VALUES (16162,68,4);
+INSERT INTO `item_mods` VALUES (16162,1,18); -- tariqah
+INSERT INTO `item_mods` VALUES (16162,25,10);
+INSERT INTO `item_mods` VALUES (16162,68,15);
 INSERT INTO `item_mods` VALUES (16163,1,22);
 INSERT INTO `item_mods` VALUES (16163,2,30);
 INSERT INTO `item_mods` VALUES (16163,246,3);
-INSERT INTO `item_mods` VALUES (16164,1,19);
-INSERT INTO `item_mods` VALUES (16164,25,5);
-INSERT INTO `item_mods` VALUES (16164,68,5);
+INSERT INTO `item_mods` VALUES (16164,1,19); -- Tariqah =1
+INSERT INTO `item_mods` VALUES (16164,25,12);
+INSERT INTO `item_mods` VALUES (16164,68,17);
 INSERT INTO `item_mods` VALUES (16165,1,19);
 INSERT INTO `item_mods` VALUES (16166,1,1);
 INSERT INTO `item_mods` VALUES (16167,1,1);
@@ -23989,6 +24012,8 @@ INSERT INTO `item_mods` VALUES (19152,10,3);
 INSERT INTO `item_mods` VALUES (19153,23,20);
 INSERT INTO `item_mods` VALUES (19153,25,4);
 INSERT INTO `item_mods` VALUES (19153,30,3);
+INSERT INTO `item_mods` VALUES (19154,1,-40);  -- Ferrara
+INSERT INTO `item_mods` VALUES (19154,23,45);
 INSERT INTO `item_mods` VALUES (19154,25,4);
 INSERT INTO `item_mods` VALUES (19155,8,3);
 INSERT INTO `item_mods` VALUES (19156,2,10);
