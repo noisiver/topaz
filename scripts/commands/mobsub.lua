@@ -55,4 +55,5 @@ function onTrigger(player, arg1, arg2)
 
     -- set animation sub
     targ:AnimationSub( animationId )
+    player:PrintToPlayer(string.format("%s animationsub changed to %s", targ:getName(), animationId))
 end
