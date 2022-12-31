@@ -2226,7 +2226,7 @@ INSERT INTO `mob_skills` VALUES (2265,1618,'skull_smash',0,7.0,2000,1500,4,0,0,0
 INSERT INTO `mob_skills` VALUES (2266,357,'shell_charge',4,10.0,2000,2000,4,0,0,4,0,0,0);
 INSERT INTO `mob_skills` VALUES (2267,1620,'skull_smash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2268,1621,'shell_charge',4,10.0,3000,2000,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2269,1622,'kamaitachi',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2269,1622,'kamaitachi',1,10.0,2000,1500,4,0,0,5,0,0,0);
 INSERT INTO `mob_skills` VALUES (2270,1623,'shirahadori',1,10.0,2000,1500,4,0,0,4,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2271,2015,'rising_dragon',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2272,2016,'bear_killer',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2330,7 +2330,7 @@ INSERT INTO `mob_skills` VALUES (2369,1652,'scintillant_lance',4,10.0,2000,1000,
 -- INSERT INTO `mob_skills` VALUES (2370,2114,'grace_of_hera',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2371,1653,'noxious_spray',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2372,307,'hellborn_yawp',1,10.0,2000,2500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2373,379,'veil_of_chaos',1,30.0,2000,3500,4,0,0,7,0,0,0);
+INSERT INTO `mob_skills` VALUES (2373,1657,'veil_of_chaos',1,30.0,2000,3500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (2374,1656,'torment_of_gudha',1,15.0,2000,1500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (2375,1654,'vorticose_sands',1,30.0,2000,3500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2376,2120,'paroxysm',0,7.0,2000,1500,4,0,0,0,0,0,0);

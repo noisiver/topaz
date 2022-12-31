@@ -15,7 +15,6 @@ function onTrigger(player, npc)
     player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_III) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_IV) and
     player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_V) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VI) and
     player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VII) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VIII))
-    or player:getGMLevel() > 0
     then
         if EventTriggerBCNM(player, npc) then
             return 

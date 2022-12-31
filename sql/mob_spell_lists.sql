@@ -4420,6 +4420,12 @@ INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,270,1,255); -- Ab
 INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,271,1,255); -- Absorb-mnd
 INSERT INTO `mob_spell_lists` VALUES ('DiZho_Spongeshell',1018,275,1,255); -- Absorb-tp
 
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 185, 1, 255);    -- Aeroga II
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019,57,1,255);        -- Haste
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 209, 1, 255);    -- Tornado II
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 59, 1, 255);     -- Silence
+INSERT INTO `mob_spell_lists` VALUES ('Tzee_Xicus_Elemental',1019, 53, 1, 255);     -- Blink
+
 -- Bastok Missions
 
 INSERT INTO `mob_spell_lists` VALUES ('Western_Sphinx',2000,209,1,255); -- Tornado II
@@ -5206,7 +5212,7 @@ INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,110,1,255);  --
 INSERT INTO `mob_spell_lists` VALUES ('All-Seeing_Onyx_Eye',2079,143,1,255);  -- Erase
 
 
--- NEXT 1019
+-- NEXT 1020
 -- NEXT 2080(Custom)
 
 

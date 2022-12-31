@@ -1214,41 +1214,7 @@ void SetupSalvageMob(CMobEntity* PMob)
 
 void SetupStrongholdsMob(CMobEntity* PMob)
 {
-    // Bonus stats for difficulty
-    if (PMob->m_Type & MOBTYPE_NOTORIOUS)
-    {
-        // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 150);
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
-
-        PMob->addModifier(Mod::ATTP, 50);
-        PMob->addModifier(Mod::DEFP, 50);
-        PMob->addModifier(Mod::ACC, 50);
-        PMob->addModifier(Mod::EVA, 50);
-        PMob->addModifier(Mod::MDEF, 40);
-        PMob->addModifier(Mod::UDMGMAGIC, -13);
-        PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
-    }
-    else
-    {
-        // boost mobs weapon damage
-        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 120);
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
-
-        PMob->addModifier(Mod::ATTP, 25);
-        PMob->addModifier(Mod::DEFP, 25);
-        PMob->addModifier(Mod::ACC, 30);
-        PMob->addModifier(Mod::EVA, 30);
-        PMob->addModifier(Mod::MDEF, 15);
-        PMob->addModifier(Mod::REGEN, 30);
-        PMob->addModifier(Mod::REGAIN, 50);
-    }
-
-    // zonewide hate
-    PMob->setMobMod(MOBMOD_ALLI_HATE, 200);
-
-    PMob->addModifier(Mod::REFRESH, 400);
+    // Unused
 }
 
 void SetupBattlefieldMob(CMobEntity* PMob)

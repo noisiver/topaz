@@ -15,5 +15,12 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 1)
 end
 
+function onMobEngaged(mob, target)
+    -- Force adds to link when aggrod
+    for v = 17125684, 17125688 do
+        GetMobByID(v):updateEnmity(target)
+    end
+end
+
 function onMobDeath(mob, player, isKiller, noKiller)
 end

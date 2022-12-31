@@ -14,8 +14,13 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
     local result = 1
     local mobhp = mob:getHPP()
+    local adamantkingTheBuriedGod = mob:getPool() == 4494
 
     if (mobhp <= 25) then
+        result = 0
+    end
+
+    if adamantkingTheBuriedGod then
         result = 0
     end
 
@@ -44,6 +49,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
     MobStatusEffectMove(mob, target, typeEffect, 1, 0, 30)
+    mob:resetEnmity(target)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

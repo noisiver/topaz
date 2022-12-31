@@ -4296,7 +4296,11 @@ INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,83); -- Armor Break
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,88); -- Steel Cyclone
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,90); -- King's Justice
 
---6066 unused
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,609);
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,2202);
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,2263);
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,2264);
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,2373);
 
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1963); -- Mind Blast
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1965); -- Immortal Shield

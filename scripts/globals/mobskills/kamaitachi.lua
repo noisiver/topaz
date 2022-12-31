@@ -1,5 +1,5 @@
 ---------------------------------------------
---  Sweep
+--  Kamaitachi
 --
 --  Description: Damages enemies in an area of effect. Additional effect: Dispel
 --  Type: Physical
@@ -37,7 +37,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
     if (MobPhysicalHit(mob, skill)) then
-        target:dispelStatusEffect()
+        MobFullDispelMove(mob, target, skill, tpz.effectFlag.DISPELABLE)
 	end
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg

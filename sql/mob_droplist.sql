@@ -17831,7 +17831,7 @@ INSERT INTO `mob_droplist` VALUES (9060,0,0,1000,1719,50); -- Harajnite Shell
 
 -- free 22, 644, 1665, 2331
 -- NEXT: 
--- NEXT: 6090
+-- NEXT: 6100
 
 
 

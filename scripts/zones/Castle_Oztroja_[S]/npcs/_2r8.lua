@@ -15,7 +15,6 @@ function onTrigger(player, npc)
     player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_III) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_IV) and
     player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_V) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VI) and
     player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VII) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VIII))
-    or player:getGMLevel() > 0
     then
         if EventTriggerBCNM(player, npc) then
             return 

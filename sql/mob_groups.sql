@@ -6997,7 +6997,7 @@ INSERT INTO `mob_groups` VALUES (44,4512,99,'Zjaa_Bao_the_Wrathherald',0,0,0,0,0
 INSERT INTO `mob_groups` VALUES (45,2150,99,'Jii_Xai_the_Rimebladed',0,0,0,0,0,83,83,0);
 
 -- A Malcious Manifest
-INSERT INTO `mob_groups` VALUES (46,4072,99,'Tzee_Xicu_the_Manifest',0,128,0,35000,0,90,90,0);
+INSERT INTO `mob_groups` VALUES (46,6770,99,'Tzee_Xicu_the_Manifest',0,128,0,35000,0,90,90,0);
 INSERT INTO `mob_groups` VALUES (47,4071,99,'Tzee_Xicus_Elemental',0,128,0,0,0,77,77,0);
 
 -- Campaign

@@ -16,8 +16,13 @@ require("scripts/globals/monstertpmoves")
 function onMobSkillCheck(target, mob, skill)
     local result = 1
     local mobhp = mob:getHPP()
+    local brradhodTheBloodBathedCrown = mob:getPool() == 456
 
     if (mobhp <= 25) then
+        result = 0
+    end
+
+    if brradhodTheBloodBathedCrown then
         result = 0
     end
 

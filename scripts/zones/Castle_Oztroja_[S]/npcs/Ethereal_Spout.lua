@@ -16,7 +16,7 @@ end
 function onEventUpdate(player, csid, option)
 end
 
-function onEventFinish(player, eventid, result, door)
+function onEventFinish(player, csid, option)
     if EventFinishBCNM(player, csid, option) then
         return
     end

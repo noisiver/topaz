@@ -19,7 +19,8 @@ zones[tpz.zone.LA_VAULE_S] =
         LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
         FISHING_MESSAGE_OFFSET  = 7049, -- You can't fish here.
         EARNED_ALLIED_NOTES     = 7215, -- You have earned x Allied Notes!
-        DOOR_LOCKED             = 7716,  -- The door is locked.
+        DOOR_LOCKED             = 7716, -- The door is locked.
+        FEAST_ON_FEAR           = 8321, -- I shall feast on your fear!
     },
     mob =
     {
