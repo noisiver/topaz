@@ -7,9 +7,9 @@
 -- Aligned with the Aqua Gorget & Light Gorget.
 -- Aligned with the Aqua Belt & Light Belt.
 -- Element: None
--- Modifiers: STR:50%  AGI:50%
+-- Modifiers: STR:30%  DEX:30%
 -- 100%TP    200%TP    300%TP
--- 1.00      1.00      1.00
+-- 1.50      1.50      1.50
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/settings")
@@ -20,7 +20,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local params = {}
     params.numHits = 1
-    params.ftp100 = 2.5 params.ftp200 = 2.5 params.ftp300 = 2.5
+    params.ftp100 = 1.5 params.ftp200 = 1.5 params.ftp300 = 1.5
     params.str_wsc = 0.3 params.dex_wsc = 0.3 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
     params.crit100 = 0.75 params.crit200 = 0.85 params.crit300 = 1
     params.canCrit = true
@@ -34,6 +34,16 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.POLEARM, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    local LuxRunes = player:getLocalVar("LuxRunes")
+    local RuneDuration = 7200
+    if player:getMainJob() == tpz.job.SAM then 
+        if damage > 0 and LuxRunes <=2 then
+            for v = 523,528,1 do
+                player:delStatusEffectSilent(v)
+            end
+            player:addStatusEffect(tpz.effect.LUX, 1, 0, RuneDuration)
+        end
+    end
 
     return tpHits, extraHits, criticalHit, damage
 

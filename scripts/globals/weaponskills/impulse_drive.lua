@@ -36,7 +36,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.POLEARM, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
-    local IgnisRunes = player:getLocalVar("IgnisRunes")
+    local UndaRunes = player:getLocalVar("UndaRunes")
     local RuneDuration = 7200
     if player:getMainJob() == tpz.job.SAM then 
         if damage > 0 and UndaRunes <=2 then
