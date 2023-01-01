@@ -20,7 +20,7 @@ end
 
 function onUseAbility(player, target, ability)
     local Runes = player:getLocalVar("UndaRunes")
-    local power = Runes * 5
+    local power = 1 + (Runes * 3)
     local duration = Runes * 30
     player:delStatusEffectSilent(tpz.effect.UNDA)
     player:delStatusEffectSilent(tpz.effect.UNDA)
