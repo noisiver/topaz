@@ -20,9 +20,9 @@ end
 
 function onUseAbility(player, target, ability)
     local Runes = player:getLocalVar("LuxRunes")
-    local power = 1 + (Runes * 3)
+    local power = 2 + (Runes * 16)
     if player:getMainLvl() >= 60 and player:getMainLvl() < 75 then
-        power = utils.clamp(power * Runes, 50, 100)
+        power = utils.clamp(power * Runes, 1, 50)
     elseif player:getMainLvl() == 75 then
         power = power * Runes
     end
