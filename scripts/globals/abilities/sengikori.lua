@@ -26,6 +26,6 @@ function onUseAbility(player, target, ability)
     player:delStatusEffectSilent(tpz.effect.IGNIS)
     player:delStatusEffectSilent(tpz.effect.IGNIS)
     player:setLocalVar("IgnisRunes", 0)
-    player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.INTENSION, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
+    player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.POTENCY, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
     target:addStatusEffect(tpz.effect.SENGIKORI, 12, 0, 60)
 end
