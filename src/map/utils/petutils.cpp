@@ -1860,6 +1860,63 @@ namespace petutils
                     return true;
                 }
             }
+            if (petmod >= PetModType::Firespirit && petmod <= PetModType::Darkspirit && PPetEntity->m_PetID >= PETID_FIRESPIRIT &&
+                PPetEntity->m_PetID >= PETID_DARKSPIRIT) // Elementals
+            {
+                return true;
+            }
+            if (petmod == PetModType::Carbuncle && PPetEntity->m_PetID == PETID_CARBUNCLE)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Fenrir && PPetEntity->m_PetID == PETID_FENRIR)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Ifrit && PPetEntity->m_PetID == PETID_IFRIT)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Titan && PPetEntity->m_PetID == PETID_TITAN)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Leviathan && PPetEntity->m_PetID == PETID_LEVIATHAN)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Garuda && PPetEntity->m_PetID == PETID_GARUDA)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Shiva && PPetEntity->m_PetID == PETID_SHIVA)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Ramuh && PPetEntity->m_PetID == PETID_RAMUH)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Diabolos && PPetEntity->m_PetID == PETID_DIABOLOS)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Cait_sith && PPetEntity->m_PetID == PETID_CAIT_SITH)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Adventuring_fellow && PPetEntity->m_PetID == PETID_ADVENTURING_FELLOW)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Chocobo && PPetEntity->m_PetID == PETID_CHOCOBO)
+            {
+                return true;
+            }
+            if (petmod == PetModType::Luopan && PPetEntity->m_PetID == PETID_LUOPAN)
+            {
+                return true;
+            }
         }
         else
         {
