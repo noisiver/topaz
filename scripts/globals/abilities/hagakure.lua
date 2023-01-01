@@ -21,11 +21,6 @@ end
 function onUseAbility(player, target, ability)
     local Runes = player:getLocalVar("LuxRunes")
     local power = 1 + (Runes * 3)
-    if player:getMainLvl() >= 60 and player:getMainLvl() < 75 then
-        power = utils.clamp(power * Runes, 1, 50)
-    elseif player:getMainLvl() == 75 then
-        power = power * Runes
-    end
     local duration = Runes * 30
     player:delStatusEffectSilent(tpz.effect.LUX)
     player:delStatusEffectSilent(tpz.effect.LUX)
