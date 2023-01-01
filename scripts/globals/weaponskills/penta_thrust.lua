@@ -40,6 +40,6 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             player:addStatusEffect(tpz.effect.IGNIS, 1, 0, RuneDuration)
         end
     end
-    return tpHits, extraHits, criticalHit, damage
 
+    return tpHits, extraHits, criticalHit, damage
 end
