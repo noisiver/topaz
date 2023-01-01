@@ -37,6 +37,8 @@ zones[tpz.zone.WINDURST_WATERS_S] =
         MIKHE_ARYOHCHA_DIALOG      = 12466, -- Do you like the headpiece? I made it from my firrrst victim. I wear it to let everrryone know what happens when they cross Mikhe Aryohcha!
         LUTETE_DIALOG              = 12468, -- <Yaaawn>... Mastering these Near Eastern magics can be quite taxing. If I had a choice, I'd rather be back in bed, relaxing...
         ALLIED_SIGIL               = 12912, -- You have received the Allied Sigil!
+        SCNM_CONTRAINER_TRADE      = 13406, -- Just as we suspected. This contains a great deal of information that will prove vital to our cause.
+        PROSPERITY_RISEN           = 13408, -- The army of bastok prosperity has risen!
         RETRIEVE_DIALOG_ID         = 14979, -- You retrieve <item> from the porter moogle's care.
         COMMON_SENSE_SURVIVAL      = 15040, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
     },

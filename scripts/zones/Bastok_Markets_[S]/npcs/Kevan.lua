@@ -13,7 +13,13 @@ function onTrade(player, npc, trade)
     local trades =
     {
         { tpz.items.BRONZE_LETTERBOX, tpz.keyItem.THE_WORDS_OF_DONHU_I },
-        -- etc
+        { tpz.items.BRASS_LETTERBOX, tpz.keyItem.THE_WORDS_OF_DONHU_II },
+        { tpz.items.SHAKUDO_LETTERBOX, tpz.keyItem.THE_WORDS_OF_DONHU_III },
+        { tpz.items.PAKTONG_LETTERBOX, tpz.keyItem.THE_WORDS_OF_DONHU_IV },
+        { tpz.items.PIG_IRON_LETTERBOX, tpz.keyItem.THE_WORDS_OF_DONHU_V },
+        { tpz.items.IRON_LETTERBOX, tpz.keyItem.THE_WORDS_OF_DONHU_VI },
+        { tpz.items.CAST_IRON_LETTERBOX, tpz.keyItem.THE_WORDS_OF_DONHU_VII },
+        { tpz.items.WROUGHT_IRON_LETTERBOX, tpz.keyItem.THE_WORDS_OF_DONHU_VIII },
     }
     for _, letterboxes in pairs(trades) do
         if npcUtil.tradeHasExactly(trade,letterboxes[1], true) and not player:hasKeyItem(letterboxes[2]) then 
