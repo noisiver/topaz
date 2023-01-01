@@ -2139,7 +2139,7 @@ INSERT INTO `item_weapon` VALUES (18497,'foolkiller',6,0,0,0,0,2,1,489,90,0);
 INSERT INTO `item_weapon` VALUES (18498,'balestarius',6,0,0,0,0,2,1,504,88,0);
 INSERT INTO `item_weapon` VALUES (18499,'alastor',6,0,0,0,0,2,1,504,88,0);
 INSERT INTO `item_weapon` VALUES (18500,'sparth',6,0,0,0,0,2,1,504,89,0);
-INSERT INTO `item_weapon` VALUES (18501,'seismic_axe',6,0,0,0,0,2,1,504,92,0);
+INSERT INTO `item_weapon` VALUES (18501,'seismic_axe',6,0,0,0,0,2,4,504,20,0);
 INSERT INTO `item_weapon` VALUES (18502,'trainee_axe',6,0,0,0,0,2,1,504,1,0);
 INSERT INTO `item_weapon` VALUES (18503,'mammut',6,0,0,0,0,2,1,504,40,0);
 INSERT INTO `item_weapon` VALUES (18504,'eventreuse',6,0,0,0,0,2,1,504,90,0);

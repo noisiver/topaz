@@ -18601,8 +18601,8 @@ INSERT INTO `item_mods` VALUES (15759,28,2);
 INSERT INTO `item_mods` VALUES (15759,29,2);
 INSERT INTO `item_mods` VALUES (15759,169,-12);
 INSERT INTO `item_mods` VALUES (15759,384,-500);
-INSERT INTO `item_mods` VALUES (15760,1,12);
-INSERT INTO `item_mods` VALUES (15760,54,10);
+INSERT INTO `item_mods` VALUES (15760,1,12);    -- Marabout Sandals
+INSERT INTO `item_mods` VALUES (15760,347,2);  -- Fire Damage Affinity +10%
 INSERT INTO `item_mods` VALUES (15771,8,1);
 INSERT INTO `item_mods` VALUES (15771,9,1);
 INSERT INTO `item_mods` VALUES (15771,10,1);
@@ -18734,8 +18734,11 @@ INSERT INTO `item_mods` VALUES (15828,1243,10); -- BLINDRESTRAIT
 INSERT INTO `item_mods` VALUES (15828,1248,10); -- CURSERESTRAIT
 INSERT INTO `item_mods` VALUES (15829,3,1);
 INSERT INTO `item_mods` VALUES (15830,6,1);
-INSERT INTO `item_mods` VALUES (15831,385,50); -- Fenian Ring Shield Bash +50
-INSERT INTO `item_mods` VALUES (15832,85,3);
+INSERT INTO `item_mods` VALUES (15831,385,50);  -- Fenian Ring Shield Bash +50
+INSERT INTO `item_mods` VALUES (15831,231,5);   -- +5% Intimidate vs Undead
+INSERT INTO `item_mods` VALUES (15831,1231,5);  -- +5% DMG vs Undead
+INSERT INTO `item_mods` VALUES (15832,85,5);    -- Headsman Ring Great Axe Skill +5
+INSERT INTO `item_mods` VALUES (15832,84,5);    -- Axe Skill +5
 INSERT INTO `item_mods` VALUES (15833,5,15);
 INSERT INTO `item_mods` VALUES (15836,11,1);
 INSERT INTO `item_mods` VALUES (15837,11,2);
@@ -19819,8 +19822,8 @@ INSERT INTO `item_mods` VALUES (16270,25,2);
 INSERT INTO `item_mods` VALUES (16271,25,4);
 INSERT INTO `item_mods` VALUES (16271,27,-1);
 INSERT INTO `item_mods` VALUES (16271,30,2);
-INSERT INTO `item_mods` VALUES (16272,23,5);
-INSERT INTO `item_mods` VALUES (16272,24,5);
+INSERT INTO `item_mods` VALUES (16272,23,25);    -- Naraenten Beads Attack +25
+INSERT INTO `item_mods` VALUES (16272,24,25);    -- Ranged Attack +25
 INSERT INTO `item_mods` VALUES (16274,73,2);
 INSERT INTO `item_mods` VALUES (16274,289,2);
 INSERT INTO `item_mods` VALUES (16275,9,4);
@@ -19912,13 +19915,12 @@ INSERT INTO `item_mods` VALUES (16318,2,25);
 INSERT INTO `item_mods` VALUES (16318,5,25);
 INSERT INTO `item_mods` VALUES (16318,28,2);
 INSERT INTO `item_mods` VALUES (16318,296,2);
-INSERT INTO `item_mods` VALUES (16319,1,35);
-INSERT INTO `item_mods` VALUES (16319,5,12);
-INSERT INTO `item_mods` VALUES (16319,12,6);
-INSERT INTO `item_mods` VALUES (16319,68,3);
-INSERT INTO `item_mods` VALUES (16320,1,29);
-INSERT INTO `item_mods` VALUES (16320,9,5);
-INSERT INTO `item_mods` VALUES (16320,10,5);
+INSERT INTO `item_mods` VALUES (16319,1,35);    -- Sangoma Lappa
+INSERT INTO `item_mods` VALUES (16319,5,30);    -- MP +30
+INSERT INTO `item_mods` VALUES (16319,838,12);  -- Enhances Regen +1
+INSERT INTO `item_mods` VALUES (16320,1,29);    -- Kensei Sitabaki
+INSERT INTO `item_mods` VALUES (16320,10,15);     -- VIT +15
+INSERT INTO `item_mods` VALUES (16320,23,10);    -- Attack +10
 INSERT INTO `item_mods` VALUES (16321,1,1);
 INSERT INTO `item_mods` VALUES (16322,1,1);
 INSERT INTO `item_mods` VALUES (16323,1,1);
@@ -21732,10 +21734,24 @@ INSERT INTO `item_mods` VALUES (17755,230,5); -- Beast Killer
 INSERT INTO `item_mods` VALUES (17755,1230,5); -- Beast Killer Circle +5%
 INSERT INTO `item_mods` VALUES (17756,109,5);
 INSERT INTO `item_mods` VALUES (17757,28,2);
-INSERT INTO `item_mods` VALUES (17758,240,2);
-INSERT INTO `item_mods` VALUES (17758,244,2);
-INSERT INTO `item_mods` VALUES (17758,247,2);
-INSERT INTO `item_mods` VALUES (17758,249,2);
+INSERT INTO `item_mods` VALUES (17758,369,1);   -- Ruler - Refresh +1
+INSERT INTO `item_mods` VALUES (17758,1240,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1241,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1242,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1243,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1244,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1245,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1246,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1247,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1248,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1249,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1250,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1251,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1252,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1253,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1254,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,1255,10); -- Resistance traits
+INSERT INTO `item_mods` VALUES (17758,431,1);   -- Enflash
 INSERT INTO `item_mods` VALUES (17759,8,4); -- Koggelmander
 INSERT INTO `item_mods` VALUES (17759,9,4);
 INSERT INTO `item_mods` VALUES (17759,224,10); -- Vermn Killer(Intimidate)
@@ -22678,6 +22694,7 @@ INSERT INTO `item_mods` VALUES (18498,161,-8);
 INSERT INTO `item_mods` VALUES (18499,2,10);
 INSERT INTO `item_mods` VALUES (18499,5,10);
 INSERT INTO `item_mods` VALUES (18500,384,100);
+INSERT INTO `item_mods` VALUES (18501,431,1); -- Seismic Axe Additional Effect: Earth Damage
 INSERT INTO `item_mods` VALUES (18503,431,1);
 INSERT INTO `item_mods` VALUES (18504,11,4); -- Eventreuse 
 INSERT INTO `item_mods` VALUES (18504,229,10); -- Plantoid Killer(Intimidate)
@@ -22817,6 +22834,7 @@ INSERT INTO `item_mods` VALUES (18595,25,-4);
 INSERT INTO `item_mods` VALUES (18595,73,5);
 INSERT INTO `item_mods` VALUES (18596,29,5);
 INSERT INTO `item_mods` VALUES (18597,487,5);     -- Catalyst: Bonus damage added to magic burst
+INSERT INTO `item_mods` VALUES (18598,370,3);     -- Prester: Adds Regen +3
 INSERT INTO `item_mods` VALUES (18599,5,10);
 INSERT INTO `item_mods` VALUES (18599,431,1);
 INSERT INTO `item_mods` VALUES (18600,57,2);
@@ -23467,9 +23485,12 @@ INSERT INTO `item_mods` VALUES (18854,2,30);
 INSERT INTO `item_mods` VALUES (18854,5,30);
 INSERT INTO `item_mods` VALUES (18854,28,4);
 INSERT INTO `item_mods` VALUES (18854,296,4);
-INSERT INTO `item_mods` VALUES (18856,5,30);
+INSERT INTO `item_mods` VALUES (18856,5,30);      -- Deae Gratia
 INSERT INTO `item_mods` VALUES (18856,23,9);
 INSERT INTO `item_mods` VALUES (18856,25,9);
+INSERT INTO `item_mods` VALUES (18856,903,100);   -- Fencer +1
+INSERT INTO `item_mods` VALUES (18856,904,1);     -- Fencer +1
+INSERT INTO `item_mods` VALUES (18856,986,1);     -- Fencer +1
 INSERT INTO `item_mods` VALUES (18856,291,1);
 INSERT INTO `item_mods` VALUES (18857,2,-20);
 INSERT INTO `item_mods` VALUES (18857,5,20);
@@ -23603,7 +23624,6 @@ INSERT INTO `item_mods` VALUES (18916,14,10);     -- CHR+10
 INSERT INTO `item_mods` VALUES (18946,25,7);
 INSERT INTO `item_mods` VALUES (18946,1242,2);
 INSERT INTO `item_mods` VALUES (18947,8,3);
-INSERT INTO `item_mods` VALUES (18947,96,2);
 INSERT INTO `item_mods` VALUES (18948,8,3);
 INSERT INTO `item_mods` VALUES (18948,9,3);
 INSERT INTO `item_mods` VALUES (18948,68,-6);
@@ -24073,7 +24093,8 @@ INSERT INTO `item_mods` VALUES (19202,23,4); -- ATT +4
 INSERT INTO `item_mods` VALUES (19203,14,3);
 INSERT INTO `item_mods` VALUES (19206,26,6);
 INSERT INTO `item_mods` VALUES (19207,26,8);
-INSERT INTO `item_mods` VALUES (19208,26,10);
+INSERT INTO `item_mods` VALUES (19208,26,10);   -- Grand Crossbow Ranged Accuracy +10
+INSERT INTO `item_mods` VALUES (19208,30,15);   -- Magic Accuracy +15
 INSERT INTO `item_mods` VALUES (19209,11,25);     -- Molybdosis (iLvl 119): AGI +25
 INSERT INTO `item_mods` VALUES (19209,24,45);     -- Ranged Attack +45
 INSERT INTO `item_mods` VALUES (19209,28,30);     -- Magic Atk. Bonus +30
@@ -24167,7 +24188,8 @@ INSERT INTO `item_mods` VALUES (19269,68,-7);
 INSERT INTO `item_mods` VALUES (19270,5,5);
 INSERT INTO `item_mods` VALUES (19270,13,2);
 INSERT INTO `item_mods` VALUES (19271,1,10);
-INSERT INTO `item_mods` VALUES (19272,522,10);
+INSERT INTO `item_mods` VALUES (19272,522,10);    -- Yagentoshiro
+INSERT INTO `item_mods` VALUES (19272,259,3);     -- DW +3 
 INSERT INTO `item_mods` VALUES (19273,68,5); -- Onishibari
 INSERT INTO `item_mods` VALUES (19273,230,10); -- Beast Killer(Intimidate)
 INSERT INTO `item_mods` VALUES (19273,1230,10); -- Beast Circle(% DMG)

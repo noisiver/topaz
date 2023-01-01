@@ -1775,12 +1775,6 @@ INSERT INTO `item_latents` VALUES(15677, 9, 7, 26, 2);      -- Dusk - Dawn: DEX 
 
 INSERT INTO `item_latents` VALUES(15692, 169, 12, 58, 0);   -- storm crackows movement +12
 
--- -------------------------------------------------------
--- Marabout Sandals
--- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15760, 5, 15, 28, 0);     -- Firesday: MP +15
-INSERT INTO `item_latents` VALUES(15760, 28, 4, 28, 0);     -- Firesday: MATT +4
-
 INSERT INTO `item_latents` VALUES(15774, 25, 10, 58, 0);    -- Storm ring
 
 -- -------------------------------------------------------
@@ -3760,4 +3754,6 @@ INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 20);    -- Drains 8 HP/tic 
 INSERT INTO `item_latents` VALUES(16154, 346, 2, 9, 13); -- Karura Hachigane Garuda Perp Cost  -2
 INSERT INTO `item_latents` VALUES(14960, 346, 2, 9, 12); -- Evokers Gages Leviathan Perp Cost  -2
 INSERT INTO `item_latents` VALUES(14946, 346, 2, 9, 16); -- Nightmare Gloves Diabolos Perp Cost -2
+INSERT INTO `item_latents` VALUES(15833, 346, 2, 9, 10); -- Diverter's Ring Ifrit Perp Cost -2
+INSERT INTO `item_latents` VALUES(11392, 346, 3, 9, 15); -- Koschei Crackows Ramuh Perp Cost -3
 

@@ -73,12 +73,12 @@ local GearSets =  {
              {id = 42, items = {11069, 11089, 11109, 11129, 11149}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.TA_TRIPLE_DAMAGE, extraDamageChance, 0, 0}} },              --  Raider's Attire +2 Set. Set Bonus: Augments "Triple Attack". Occasionally causes the second and third hits of a Triple Attack to deal triple damage.Verification Needed Requires a minimum of two pieces.
              {id = 43, items = {11066, 11086, 11106, 11126, 11146}, matches = 5, matchType = matchtype.any, mods = {{tpz.mod.BAR_ELEMENT_NULL_CHANCE, nullDamageChance, 0, 0}} },        --  Orison Attire +2 Set. Set Bonus: Augments elemental resistance spells. Bar Elemental spells will occasionally nullify damage of the same element.
              {id = 44, items = {11083, 11103, 11123, 11143, 11163}, matches = 5, matchType = matchtype.any, mods = {{tpz.mod.GRIMOIRE_INSTANT_CAST, instantCastChance, 0, 0}} },          --  Savant's Attire +2 Set. Set Bonus: Augments Grimoire. Spells that match your current Arts will occasionally cast instantly, without recast.
-             {id = 45, items = {16005, 17756, 17962, 18596, 18760, 19112, 19215, 19271, 19156}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.HP, 30, 0, 0}, {tpz.mod.VIT, 6, 0, 0}, {tpz.mod.ACC, 6, 0, 0}, {tpz.mod.RACC, 6, 0, 0}} }, --  Paramount Earring Sets. Set Bonus: HP+30, VIT+6, Accuracy+6, Ranged Accuracy+6. Set Bonus is active with any 2 items(Earring+Weapon or Weapon+Weapon)
-             {id = 45, items = {17756, 17962, 18596, 18760, 19112, 19215, 19271, 19156}, matches = 2, matchType = matchtype.weapon_weapon, mods = {{tpz.mod.HP, 30, 0, 0}, {tpz.mod.VIT, 6, 0, 0}, {tpz.mod.ACC, 6, 0, 0}, {tpz.mod.RACC, 6, 0, 0}} }, --  Paramount Earring Sets. Set Bonus: HP+30, VIT+6, Accuracy+6, Ranged Accuracy+6. Set Bonus is active with any 2 items(Earring+Weapon or Weapon+Weapon)
+             {id = 45, items = {16005, 17756, 17962, 18596, 18760, 19112, 19215, 19271, 19156}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.HP, 100, 0, 0}, {tpz.mod.VIT, 10, 0, 0}, {tpz.mod.ACC, 10, 0, 0}, {tpz.mod.RACC, 10, 0, 0}} }, --  Paramount Earring Sets. Set Bonus: HP+100, VIT+10, Accuracy +10, Ranged Accuracy +10. Set Bonus is active with any 2 items(Earring+Weapon or Weapon+Weapon)
+             {id = 45, items = {17756, 17962, 18596, 18760, 19112, 19215, 19271, 19156}, matches = 2, matchType = matchtype.weapon_weapon, mods = {{tpz.mod.HP, 30, 0, 0}, {tpz.mod.VIT, 10, 0, 0}, {tpz.mod.ACC, 10, 0, 0}, {tpz.mod.RACC, 10, 0, 0}} }, --  Paramount Earring Sets. Set Bonus: HP+100, VIT+10, Accuracy +10, Ranged Accuracy +10. Set Bonus is active with any 2 items(Earring+Weapon or Weapon+Weapon)
 
-             {id = 49, items = {18761, 18597, 17757, 19218, 18128, 18500, 16004, 18951}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.STR, 6, 0, 0}, {tpz.mod.ATT, 4, 0, 0}, {tpz.mod.RATT, 4, 0, 0}, {tpz.mod.MATT, 2, 0, 0}} }, --  Supremacy Earring Sets. Set Bonus: STR+6, Attack+4, Ranged Attack+4, "Magic Atk. Bonus"+2. Active with any 2 items(Earring+Weapon)
+             {id = 49, items = {18761, 18597, 17757, 19218, 18128, 18500, 16004, 18951}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.STR, 6, 0, 0}, {tpz.mod.ATT, 10, 0, 0}, {tpz.mod.RATT, 10, 0, 0}, {tpz.mod.MATT, 5, 0, 0}} }, --  Supremacy Earring Sets. Set Bonus: STR +6, Attack +10, Ranged Attack +10, "Magic Atk. Bonus" +5. Active with any 2 items(Earring+Weapon)
 
-             {id = 53, items = {16006, 18450, 18499, 18861, 18862, 18952, 19111, 19217, 19272}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.EVA, 10, 0, 0}, {tpz.mod.HPHEAL, 10, 0, 0}, {tpz.mod.ENMITY, -5, 0, 0}} }, --  Brilliant Earring Set. Set Bonus: Evasion, HP Recovered while healing, Reduces Emnity. Active with any 2 items(Earring+Weapon)
+             {id = 53, items = {16006, 18450, 18499, 18861, 18862, 18952, 19111, 19217, 19272}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.AGI, 6, 0, 0}, {tpz.mod.EVA, 10, 0, 0}, {tpz.mod.ENMITY, -10, 0, 0}} }, --  Brilliant Earring Set. Set Bonus: AGI+6 Evasion+10 Enmity-10. Active with any 2 items(Earring+Weapon)
              {id = 56, items = {11798, 11362}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.RERAISE_III, 1, 0, 0}} },        -- Twilight Mail Set. Set Bonus: Auto-Reraise
              {id = 57, items = {18244, 17595}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.AMMO_SWING, 50, 0, 0}} },        -- Begin Jailer weapons: Set is weapon + Virtue stone, bonus 50% extra melee swing.
              {id = 58, items = {18244, 17710}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.AMMO_SWING, 50, 0, 0}} },
@@ -159,7 +159,9 @@ local GearSets =  {
              {id = 206, items = {12429, 12557, 12685, 12813, 12941, 13924, 14175, 14296, 14371, 14816},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Adaman Hauberk +4-10% Weapon Skill Damage
              {id = 207, items = {13908, 13909, 14058, 14059, 14160, 14161, 14280, 14281, 14367, 14368,},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 10, 5, 0}} },   -- Crimson Scale +10-25 Accuracy
              {id = 208, items = {13934, 13935, 14184, 14185, 14303, 14304, 14387, 14388, 14821, 14822},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Shura Togi +4-10% Weapon Skill Damage
-        }
+             {id = 209, items = {18947, 15818}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 5, 0, 0}, {tpz.mod.MACC, 5, 0, 0}, {tpz.mod.SOULEATER_EFFECT, 2, 0, 0},} },        -- Molione's Sickle set Acc +5 Macc +5 Souleater +%
+            -- 212 next
+            }
 
              -- increment id by (number of mods in previous gearset - 1)
 
@@ -361,17 +363,6 @@ function HandleHipsterSet(player, gearset, matches)
 end
 
 --[[    Unimplemented sets below
-
-=======
-Stronghold NM(WOTG)
-=======
-
--- Molione's Sickle Set
--------------
-18947 -- Molione's Sickle
-15818 -- Molione's Ring
--- Set Bonus: +5 Accuracy
--- Set Bonus: Enhances "Souleater" Effect
 
 =======
 Empyrean +2
