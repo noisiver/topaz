@@ -466,7 +466,7 @@ local additionalEffects =
     {
         chance = 100,
         ele = tpz.magic.ele.LIGHT,
-        sub = tpz.subEffect.FLASH,
+        sub = tpz.subEffect.LIGHT_DAMAGE,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.FLASH,
