@@ -17264,6 +17264,7 @@ INSERT INTO `mob_droplist` VALUES (6098,0,0,1000,16354,100);   -- Malagigi's tro
 INSERT INTO `mob_droplist` VALUES (6099,0,0,1000,2693,1000);   -- (Ra'dha Scarscute) Wrought iron letterbox
 INSERT INTO `mob_droplist` VALUES (6099,0,0,1000,17962,100);   -- Fleetwing
 INSERT INTO `mob_droplist` VALUES (6099,0,0,1000,11474,100);   -- Louhi's mask
+INSERT INTO `mob_droplist` VALUES (6100,0,0,1000,846,240); -- (Tsetse Fly) Insect Wing
 
 
 ---------------------Dynamis---------------------

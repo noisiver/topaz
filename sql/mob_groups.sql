@@ -4795,7 +4795,7 @@ INSERT INTO `mob_groups` VALUES (19,6445,84,'Ba',330,0,207,0,0,33,37,0);
 INSERT INTO `mob_groups` VALUES (20,5759,84,'Burlibix_Brawnback',0,32,3043,15000,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (21,6361,84,'Clipper',330,0,480,0,0,32,35,0);
 INSERT INTO `mob_groups` VALUES (22,2043,84,'Ice_Elemental',330,4,1347,0,0,75,75,0);
-INSERT INTO `mob_groups` VALUES (23,5338,84,'Tsetse_Fly',330,0,2143,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (23,5338,84,'Tsetse_Fly',330,0,6100,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (24,1402,84,'Forester_Beetle',330,0,169,0,0,47,50,0);
 INSERT INTO `mob_groups` VALUES (25,2382,84,'La_Velue',0,32,1503,0,0,62,67,0);
 INSERT INTO `mob_groups` VALUES (26,5760,84,'Habergoass',0,32,3044,6500,0,64,66,0);
