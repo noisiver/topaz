@@ -310,7 +310,7 @@ INSERT INTO `abilities` VALUES (254,'mana_wall',4,76,1,600,39,0,0,222,2000,0,6,2
 INSERT INTO `abilities` VALUES (255,'divine_emblem',7,75,1,180,80,100,0,222,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (256,'nether_void',8,60,1,180,91,100,0,224,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (257,'double_shot',11,79,1,180,126,0,0,225,2000,0,6,20.0,0,1,80,0,0,'ABYSSEA');
-INSERT INTO `abilities` VALUES (258,'sengikori',12,25,1,90,141,100,0,226,2000,0,6,30.0,1,1,80,0,0,NULL);
+INSERT INTO `abilities` VALUES (258,'sengikori',12,25,1,90,141,0,0,226,2000,0,6,30.0,1,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (259,'futae',13,50,1,60,148,0,0,227,2000,0,6,20.0,0,1,0,0,0,'ABYSSEA');		-- level 50, 60 second cooldown
 INSERT INTO `abilities` VALUES (260,'spirit_jump',14,77,4,60,166,100,0,228,2000,0,6,20.0,0,1,80,1218,0,NULL);
 INSERT INTO `abilities` VALUES (261,'presto',19,40,1,15,236,100,0,229,2000,0,6,20.0,0,1,80,0,0,NULL);
