@@ -2331,7 +2331,7 @@ INSERT INTO `mob_skills` VALUES (2369,1652,'scintillant_lance',4,10.0,2000,1000,
 INSERT INTO `mob_skills` VALUES (2371,1653,'noxious_spray',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2372,307,'hellborn_yawp',1,10.0,2000,2500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2373,1657,'veil_of_chaos',1,30.0,2000,3500,4,0,0,7,0,0,0);
-INSERT INTO `mob_skills` VALUES (2374,1656,'torment_of_gudha',1,15.0,2000,1500,4,0,0,7,0,0,0);
+INSERT INTO `mob_skills` VALUES (2374,1656,'torment_of_gudha',1,15.0,2000,3500,4,0,0,7,0,0,0);
 INSERT INTO `mob_skills` VALUES (2375,1654,'vorticose_sands',1,30.0,2000,3500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2376,2120,'paroxysm',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2377,2121,'reviviscence',0,7.0,2000,1500,4,0,0,0,0,0,0);
