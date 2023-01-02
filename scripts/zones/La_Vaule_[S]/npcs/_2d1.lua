@@ -14,7 +14,8 @@ function onTrigger(player, npc)
     (player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_I) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_II) and
     player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_III) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_IV) and
     player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_V) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VI) and
-    player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VII) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VIII))
+    player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VII) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VIII)) or
+    player:hasStatusEffect(tpz.effect.BATTLEFIELD)
     then
         if EventTriggerBCNM(player, npc) then
             return 

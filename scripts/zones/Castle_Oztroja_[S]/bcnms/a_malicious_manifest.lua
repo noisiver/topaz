@@ -20,9 +20,6 @@ function onBattlefieldRegister(player, battlefield)
 end
 
 function onBattlefieldEnter(player, battlefield)
-    for v = tpz.keyItem.HABALOS_ECLOGUE_VERSE_I, tpz.keyItem.HABALOS_ECLOGUE_VERSE_VIII do
-        player:delKeyItem(v)
-    end
 end
 
 function onBattlefieldLeave(player, battlefield, leavecode)
@@ -41,5 +38,8 @@ function onEventFinish(player, csid, option)
     if csid == 32001 then
         player:addCurrency("allied_notes", 2000)
         player:messageSpecial(ID.text.EARNED_ALLIED_NOTES, 2000)
+        for v = tpz.keyItem.HABALOS_ECLOGUE_VERSE_I, tpz.keyItem.HABALOS_ECLOGUE_VERSE_VIII do
+            player:delKeyItem(v)
+        end
     end
 end
