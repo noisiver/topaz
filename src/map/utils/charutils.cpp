@@ -1799,8 +1799,6 @@ namespace charutils
             {
                 CItemEquipment* PSubItem = PChar->getEquip(SLOT_SUB);
 
-                if (PSubItem != nullptr && PSubItem->isType(ITEM_EQUIPMENT) && (PSubItem->IsShield() != true))
-                    RemoveSub(PChar);
             }
         }
 
@@ -2315,7 +2313,6 @@ namespace charutils
             CItemEquipment* PMainItem = PChar->getEquip(SLOT_MAIN);
             if (!PMainItem || !((CItemWeapon*)PMainItem)->isTwoHanded())
             {
-                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 0x200));
                 return;
             }
         }
@@ -2326,7 +2323,7 @@ namespace charutils
 
             UnequipItem(PChar, equipSlotID);
 
-            if (equipSlotID == 0 && PSubItem && !PSubItem->IsShield())
+            if (equipSlotID == 0 && PSubItem)
                 RemoveSub(PChar);
 
             PChar->pushPacket(new CEquipPacket(slotID, equipSlotID, containerID));
@@ -2438,12 +2435,11 @@ namespace charutils
                 continue;
             }
 
-            if (slotID == SLOT_SUB && !PItem->IsShield())
+            if (slotID == SLOT_SUB)
             {
                 // Unequip if no main weapon or a non-grip subslot without DW
                 if (!PChar->getEquip(SLOT_MAIN) ||
-                    (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD) &&
-                     !((CItemWeapon*)PItem)->getSkillType() == SKILL_NONE))
+                    (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD)))
                 {
                     UnequipItem(PChar, SLOT_SUB);
                     continue;
@@ -2894,6 +2890,7 @@ namespace charutils
         if (PChar->GetMJob() == JOB_BLU || PChar->GetSJob() == JOB_BLU)
         {
             blueutils::CalculateTraits(PChar);
+            CheckValidEquipment(PChar);
         }
 
         PChar->delModifier(Mod::MEVA, PChar->m_magicEvasion);
