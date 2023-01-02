@@ -10643,7 +10643,7 @@ INSERT INTO `mob_groups` VALUES (43,1865,159,'Habetrot',0,128,1265,8000,0,57,59,
 INSERT INTO `mob_groups` VALUES (44,3415,159,'Rumble_Crawler',600,128,2131,0,0,53,56,0);
 INSERT INTO `mob_groups` VALUES (45,836,159,'Crimson-toothed_Pawberry',0,128,535,12000,0,71,71,0);
 INSERT INTO `mob_groups` VALUES (46,3434,159,'Sacrificial_Goblet',0,128,2142,9500,0,66,68,0);
-INSERT INTO `mob_groups` VALUES (47,4463,159,'Yallery_Brown',0,128,0,7200,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (47,4463,159,'Yallery_Brown',0,128,0,18000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (48,3971,159,'Pawberrys_Elemental',0,128,0,0,0,71,71,0);
 INSERT INTO `mob_groups` VALUES (49,3970,159,'Pawberrys_Avatar',0,128,0,0,0,71,71,0);
 
