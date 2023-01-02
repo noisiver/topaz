@@ -1,15 +1,15 @@
 -----------------------------------
--- Area: Castle Oztroja
---  NPC: _m72 (Torch Stand)
--- Notes: Opens door _477 when _m72 to _m75 are lit
+-- Area: Castle Oztroja [S]
+--  NPC: kr5 (Torch Stand)
+-- Notes: Opens door brass door when any torch is lit
 -- !pos -60 -72 -139 151
 -----------------------------------
-local ID = require("scripts/zones/Castle_Oztroja/IDs")
-require("scripts/globals/settings")
+local ID = require("scripts/zones/Castle_Oztroja_[S]/IDs")
+require("scripts/globals/status")
 -----------------------------------
 
 function onTrigger(player, npc)
-    local brassDoor = GetNPCByID(npc:getID() - 2)
+    local brassDoor = GetNPCByID(17183556)
 
     if npc:getAnimation() == tpz.anim.CLOSE_DOOR and brassDoor:getAnimation() == tpz.anim.CLOSE_DOOR then
         player:startEvent(10)
@@ -23,16 +23,16 @@ end
 
 function onEventFinish(player, csid, option)
     if option == 1 then
-        local brassDoor = GetNPCByID(ID.npc.BRASS_DOOR_FLOOR_4_H7)
+        local brassDoor = GetNPCByID(17183556)
         if brassDoor:getAnimation() == tpz.anim.CLOSE_DOOR then
             brassDoor:openDoor(33)
             for i = 2, 5 do
-                local torch = GetNPCByID(ID.npc.BRASS_DOOR_FLOOR_4_H7 + i)
+                local torch = GetNPCByID(17183556 + i)
                 torch:setAnimation(tpz.anim.CLOSE_DOOR)
                 torch:openDoor(33)
             end
         else
-            GetNPCByID(ID.npc.BRASS_DOOR_FLOOR_4_H7 + 2):openDoor()
+            GetNPCByID(17183556 + 2):openDoor()
         end
     end
 end

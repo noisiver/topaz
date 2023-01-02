@@ -1,16 +1,20 @@
 -----------------------------------
--- Area: Castle Oztroja
---  NPC: _47e (Handle)
--- Notes: Opens _470 (Brass Door) from behind
--- !pos 22.905 -1.087 -8.003 151
+-- Area: Castle Oztroja [S]
+--  NPC: _2rx (Handle)
+-- Notes: Opens Brass Door
+-- !gotoid 17183557
 -----------------------------------
+local ID = require("scripts/zones/Castle_Oztroja_[S]/IDs")
 require("scripts/globals/status")
 -----------------------------------
 
-function onTrigger(player, npc)
-    local brassDoor = GetNPCByID(npc:getID() - 4)
+function onTrade(player, npc, trade)
+end
 
-    if player:getZPos() > -11.9 and npc:getAnimation() == tpz.anim.CLOSE_DOOR and brassDoor:getAnimation() == tpz.anim.CLOSE_DOOR then
+function onTrigger(player, npc)
+    local brassDoor = GetNPCByID(npc:getID() - 1)
+
+    if player:getZPos() > -45 and npc:getAnimation() == tpz.anim.CLOSE_DOOR and brassDoor:getAnimation() == tpz.anim.CLOSE_DOOR then
         npc:openDoor(6.5)
         player:timer(2000, function(player)
             brassDoor:openDoor(4.5)

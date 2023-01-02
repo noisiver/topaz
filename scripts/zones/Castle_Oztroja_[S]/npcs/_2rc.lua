@@ -1,13 +1,15 @@
 -----------------------------------
--- Area: Castle Oztroja
---  NPC: _47c (Handle)
--- Notes: Opens Trap Door (_47a) or Brass Door (_470)
--- !pos 17.717 -1.087 -14.320 151
+-- Area: Castle Oztroja [S]
+--  NPC: _2rb (Handle)
+-- Notes: Opens Trap Brass Door on F1
+-- !gotoid 17183516
 -----------------------------------
-local ID = require("scripts/zones/Castle_Oztroja/IDs")
-require("scripts/globals/missions")
+local ID = require("scripts/zones/Castle_Oztroja_[S]/IDs")
 require("scripts/globals/status")
 -----------------------------------
+
+function onTrade(player, npc, trade)
+end
 
 function onTrigger(player, npc)
     local X = player:getXPos()
@@ -30,21 +32,14 @@ function onTrigger(player, npc)
                     trapDoor:openDoor(6)
                 end)
             end
-            if player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.TO_EACH_HIS_OWN_RIGHT and player:getCharVar("MissionStatus") == 3 then
-                player:startEvent(43)
-            end
         end
     else
         player:messageSpecial(ID.text.CANNOT_REACH_TARGET)
     end
-
 end
 
 function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    if csid == 43 then
-        player:setCharVar("MissionStatus", 4)
-    end
 end

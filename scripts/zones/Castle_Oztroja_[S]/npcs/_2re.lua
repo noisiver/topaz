@@ -1,9 +1,10 @@
 -----------------------------------
--- Area: Castle Oztroja
---  NPC: _47e (Handle)
--- Notes: Opens _470 (Brass Door) from behind
--- !pos 22.905 -1.087 -8.003 151
+-- Area: Castle Oztroja [S]
+--  NPC: _2re (Handle)
+-- Notes: Opens F1 trap door from behind
+-- !gotoid 17183517
 -----------------------------------
+local ID = require("scripts/zones/Castle_Oztroja_[S]/IDs")
 require("scripts/globals/status")
 -----------------------------------
 
