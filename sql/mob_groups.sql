@@ -4324,7 +4324,7 @@ INSERT INTO `mob_groups` VALUES (33,6265,81,'Orcish_Fodder',330,0,1902,0,0,62,64
 INSERT INTO `mob_groups` VALUES (34,6267,81,'Orcish_Neckchopper',330,0,1927,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (35,3148,81,'Pixie',330,0,2000,0,0,53,55,0);
 INSERT INTO `mob_groups` VALUES (36,3448,81,'Sandworm',36000,0,0,70000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (37,1696,81,'Goblin_Picaroon',330,0,1135,0,0,56,59,0);
+INSERT INTO `mob_groups` VALUES (37,1696,81,'Goblin_Picaroon',0,128,1135,0,0,56,59,0);
 INSERT INTO `mob_groups` VALUES (38,3038,81,'Orcish_Transporter',0,128,283,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (39,3018,81,'Orcish_Guard',0,128,1910,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (40,915,81,'Dark_Ixion',36000,0,1481,100000,0,95,95,0);
@@ -5337,7 +5337,7 @@ INSERT INTO `mob_groups` VALUES (43,5339,88,'Drachenlizard',330,0,3024,0,0,81,83
 INSERT INTO `mob_groups` VALUES (44,1688,88,'Goblin_Mine',0,128,0,0,0,51,51,0);
 INSERT INTO `mob_groups` VALUES (45,1713,88,'Goblin_Skirmisher',330,0,1158,0,0,56,59,0);
 INSERT INTO `mob_groups` VALUES (46,3448,88,'Sandworm',36000,0,0,70000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (47,1696,88,'Goblin_Picaroon',330,0,1135,0,0,71,73,0);
+INSERT INTO `mob_groups` VALUES (47,1696,88,'Goblin_Picaroon',0,128,1135,0,0,71,73,0);
 INSERT INTO `mob_groups` VALUES (48,3276,88,'Quadav_Transporter',0,128,2061,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (49,3274,88,'Quadav_Guard',0,128,2061,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (50,1319,88,'Feeorin',0,128,0,20000,0,85,85,0);
@@ -6348,7 +6348,7 @@ INSERT INTO `mob_groups` VALUES (32,3181,95,'Poroggo_Gent',330,8,2014,0,0,56,67,
 INSERT INTO `mob_groups` VALUES (33,3934,95,'Toad',330,0,0,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (34,4710,95,'Ramponneau',0,32,2987,5200,4500,52,54,0);
 INSERT INTO `mob_groups` VALUES (35,3448,95,'Sandworm',36000,0,0,70000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (36,1696,95,'Goblin_Picaroon',330,0,0,0,0,57,62,0);
+INSERT INTO `mob_groups` VALUES (36,1696,95,'Goblin_Picaroon',0,128,0,0,0,57,62,0);
 INSERT INTO `mob_groups` VALUES (37,4457,95,'Yagudo_Transporter',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (38,4421,95,'Yagudo_Guard',0,128,0,0,0,60,60,0);
 INSERT INTO `mob_groups` VALUES (39,915,95,'Dark_Ixion',36000,0,1481,100000,0,95,95,0);
