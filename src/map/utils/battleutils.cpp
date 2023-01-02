@@ -4091,7 +4091,7 @@ namespace battleutils
         // Add weather day bonus
         damage = (int32)(damage * dBonus);
         // ShowDebug("WeatherDayDamage: %u\n,", damage);
-        damage = MagicDmgTaken(PDefender, damage, appliedEle);  
+        damage = SkillchainDmgTaken(PDefender, damage, appliedEle);  
         if (damage > 0)
         {
             damage = std::max(damage - PDefender->getMod(Mod::PHALANX), 0);
@@ -5388,6 +5388,52 @@ namespace battleutils
             damage = HandleFanDance(PDefender, damage);
         }
 
+        return damage;
+    }
+
+    int32 SkillchainDmgTaken(CBattleEntity* PDefender, int32 damage, ELEMENT element)
+    {
+        Mod absorb[8] = { Mod::FIRE_ABSORB, Mod::ICE_ABSORB,   Mod::WIND_ABSORB,  Mod::EARTH_ABSORB,
+                          Mod::LTNG_ABSORB, Mod::WATER_ABSORB, Mod::LIGHT_ABSORB, Mod::DARK_ABSORB };
+        Mod nullarray[8] = { Mod::FIRE_NULL, Mod::ICE_NULL, Mod::WIND_NULL, Mod::EARTH_NULL, Mod::LTNG_NULL, Mod::WATER_NULL, Mod::LIGHT_NULL, Mod::DARK_NULL };
+
+        // Does not take bonus dmg from +MDT/DT+ like MagicDmgTaken does
+        float resist = 1.f + std::clamp<int16>(PDefender->getMod(Mod::UDMGMAGIC), -100, 0) / 100.f;
+        resist = std::max(resist, 0.f);
+        damage = (int32)(damage * resist);
+
+        resist = 1.f + std::clamp<int16>(PDefender->getMod(Mod::DMGMAGIC), -100, 0) / 100.f + PDefender->getMod(Mod::DMG) / 100.f;
+        resist = std::max(resist, 0.5f);
+        resist += std::clamp<int16>(PDefender->getMod(Mod::DMGMAGIC_II), -100, 0) / 100.f;
+        resist = std::max(resist, 0.125f); // Total cap with MDT-% II included is 87.5%
+        damage = (int32)(damage * resist);
+
+        if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 1)
+            damage = HandleSteamJacket(PDefender, damage, 5);
+
+        if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
+            (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
+            tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
+            if (PDefender->getMod(Mod::MAGIC_ABSORB) > 100)
+            {
+                damage = -damage * (PDefender->getMod(Mod::MAGIC_ABSORB) / 100);
+            }
+            else
+            {
+                damage = -damage;
+            }
+        else if ((element && tpzrand::GetRandomNumber(100) < PDefender->getMod(nullarray[element - 1])) ||
+                 tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_NULL))
+            damage = 0;
+        else
+        {
+            damage = HandleSevereDamage(PDefender, damage, false);
+            int16 absorbedMP = (int16)(damage * PDefender->getMod(Mod::ABSORB_DMG_TO_MP) / 100);
+            if (absorbedMP > 0)
+                PDefender->addMP(absorbedMP);
+        }
+
+        // ShowDebug(CL_CYAN"MagicDmgTaken: Element = %d\n" CL_RESET, element);
         return damage;
     }
 
