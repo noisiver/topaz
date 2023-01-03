@@ -2599,11 +2599,7 @@ namespace battleutils
             damage = HandleStoneskin(PDefender, damage);
         }
 
-        if (!isRanged)
-        {
-            damage = getOverWhelmDamageBonus(PAttacker, PDefender, damage);
-        }
-
+        damage = getOverWhelmDamageBonus(PAttacker, PDefender, damage);
         HandleAfflatusMiseryDamage(PDefender, damage);
         damage = std::clamp(damage, -99999, 99999);
 
