@@ -19822,8 +19822,7 @@ INSERT INTO `item_mods` VALUES (16270,25,2);
 INSERT INTO `item_mods` VALUES (16271,25,4);
 INSERT INTO `item_mods` VALUES (16271,27,-1);
 INSERT INTO `item_mods` VALUES (16271,30,2);
-INSERT INTO `item_mods` VALUES (16272,23,25);    -- Naraenten Beads Attack +25
-INSERT INTO `item_mods` VALUES (16272,24,25);    -- Ranged Attack +25
+INSERT INTO `item_mods` VALUES (16272,161,-2);    -- Naraenten Beads Attack -2% PDT
 INSERT INTO `item_mods` VALUES (16274,73,2);
 INSERT INTO `item_mods` VALUES (16274,289,2);
 INSERT INTO `item_mods` VALUES (16275,9,4);

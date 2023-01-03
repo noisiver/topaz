@@ -2621,7 +2621,7 @@ INSERT INTO `item_basic` VALUES (2732,0,'lycopodium_cap','lycopodium_cap',1,6152
 INSERT INTO `item_basic` VALUES (2733,0,'square_of_spirit_smilodon_leather','s._smil._leather',12,4,41,0,283);
 INSERT INTO `item_basic` VALUES (2734,0,'maze_monger_members_card','mmm_members_cd.',1,61536,0,1,0);
 INSERT INTO `item_basic` VALUES (2735,0,'dark_ixion_ferrule','dk._ixion_ferrule',12,4,42,0,1412);
-INSERT INTO `item_basic` VALUES (2736,0,'Condensed_empty.','Condensed_empty.',99,28768,0,1,0);
+INSERT INTO `item_basic` VALUES (2736,0,'condensed_emptyness','condensed_empty.',99,28768,0,1,0);
 INSERT INTO `item_basic` VALUES (2737,0,'square_of_silky_suede','silky_suede',12,4,41,0,1956);
 INSERT INTO `item_basic` VALUES (2738,0,'cassiopeia_card','cassiopeia_card',1,12384,0,1,0);
 INSERT INTO `item_basic` VALUES (2739,0,'perseus_card','perseus_card',1,12384,0,1,0);
@@ -6371,9 +6371,9 @@ INSERT INTO `item_basic` VALUES (8725,0,'exalted_log','exalted_log',1,4,43,0,295
 INSERT INTO `item_basic` VALUES (8726,0,'piece_of_exalted_lumber','exalted_lumber',12,4,43,0,0);
 INSERT INTO `item_basic` VALUES (8727,0,'sifs_lock','sifs_lock',12,4,40,0,6000);
 INSERT INTO `item_basic` VALUES (8728,0,'spool_of_sifs_macrame','sifs_macrame',12,4,40,0,14175);
-INSERT INTO `item_basic` VALUES (8729,0,'mog_kupon_i-af109','kupon_i-af109',99,28736,0,0,0);
-INSERT INTO `item_basic` VALUES (8730,0,'mog_kupon_w-ews','kupon_w-ews',99,28736,0,0,0);
-INSERT INTO `item_basic` VALUES (8731,0,'mog_kupon_aw-wk','kupon_aw-wk',99,28736,0,0,0);
+INSERT INTO `item_basic` VALUES (8729,0,'large_condensed_emptyness','l._condensed_Empty.',99,28736,0,0,0);
+INSERT INTO `item_basic` VALUES (8730,0,'large_zilartian_orb','l._zilartian_orb',99,28736,0,0,0);
+INSERT INTO `item_basic` VALUES (8731,0,'large_kuluu_sphere','l._kuluu_sphere',99,28736,0,0,0);
 INSERT INTO `item_basic` VALUES (8732,0,'mog_kupon_i-s3','kupon_i-s3',99,28736,0,0,0);
 INSERT INTO `item_basic` VALUES (8733,0,'mog_kupon_a-pk109','kupon_a-pk109',99,28736,0,0,0);
 INSERT INTO `item_basic` VALUES (8734,0,'mog_kupon_i-s1','kupon_i-s1',99,28736,0,0,0);
