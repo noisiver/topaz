@@ -15,5 +15,5 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    return DrainMultipleAttributesPhysical(mob, target, skill, 21, 60, 7, 300)
+    return DrainMultipleAttributesPhysical(mob, target, skill, 10, 60, 7, 300)
 end
