@@ -1053,6 +1053,10 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         {
             action.recast = PAbility->getRecastTime() - meritRecastReduction;
         }
+        if (PAbility->getID() == ABILITY_BULLY)
+        {
+            action.recast = PAbility->getRecastTime() - PMeritPoints->GetMeritValue((MERIT_TYPE)MERIT_SNEAK_ATTACK_RECAST, this);
+        }
 
         if (PAbility->getID() == ABILITY_LIGHT_ARTS || PAbility->getID() == ABILITY_DARK_ARTS || PAbility->getRecastId() == 231) //stratagems
         {
