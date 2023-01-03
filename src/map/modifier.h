@@ -329,6 +329,7 @@ enum class Mod
     BERSERK_DURATION          = 954, // Berserk Duration
     AGGRESSOR_DURATION        = 955, // Aggressor Duration
     DEFENDER_DURATION         = 956, // Defender Duration
+    DEFENDER_POTENCY          = 1304, // Increases defender defense bonus, in percents
 
     // Monk
     BOOST_EFFECT              = 97,  // Boost power in tenths
@@ -962,7 +963,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1304 NEXT
+    // 1305 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

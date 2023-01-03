@@ -697,6 +697,7 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
         if (attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then -- For specific WS
             bonusdmg = bonusdmg + attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)
+            --printf("Specific WS dmg increase %u", bonusdmg)
         end
 
         -- Add in bonusdmg

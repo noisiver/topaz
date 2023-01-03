@@ -1756,13 +1756,14 @@ tpz.mod =
     SINGING_NEVER_MISS      = 1301,   
     BLUE_NEVER_MISS         = 1302,
     STATUS_EFFECT_MACC      = 1303, -- Status effect Magic Accuracy
+    DEFENDER_POTENCY        = 1304, -- Increases defender defense bonus, in percents
     
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1304 NEXT
+    -- 1305 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
