@@ -2152,45 +2152,33 @@ namespace battleutils
                 {
                     return 0;
                 }
-                // http://wiki.ffxiclopedia.org/wiki/Talk:Parrying_Skill
-                // {(Parry Skill x .125) + ([Player Agi - Enemy Dex] x .125)} x Diff
+                auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
+                uint16 attackskill = static_cast<uint16>(PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0)));
+                uint16 skill = static_cast<uint16>((PDefender->GetSkill(SKILL_PARRY) + PDefender->getMod(Mod::PARRY) + PWeapon->getILvlParry()));
 
-                float skill = (float)(PDefender->GetSkill(SKILL_PARRY) + PDefender->getMod(Mod::PARRY) + PWeapon->getILvlParry());
-
-                float diff = 1.0f + (((float)PDefender->GetMLevel() - PAttacker->GetMLevel()) / 15.0f);
-
-                if (PWeapon->isTwoHanded())
-                {
-                    // two handed weapons get a bonus
-                    diff += 0.1f;
-                }
-
-                if (diff < 0.4f) diff = 0.4f;
-                if (diff > 1.4f) diff = 1.4f;
-
-
-                //auto parryRate = std::clamp<uint8>((uint8)((skill * 0.1f + (agi - dex) * 0.125f + 5.0f) * diff), 5, 20); // changed from 25 max, and from +10.0f
-                auto parryRate = std::clamp<uint8>((uint8)((skill * 0.15f * 0.15f + 5.0f) * diff), 5, 20);
+                // parry rate = clamp(15 + floor((parryskill - weaponskill)*.125f - (level correction?)),5,20)
+                // https://ffxilogdialy.hatenablog.com/entry/2018/08/10/113719 
+                auto parryRate = std::clamp<float>((float)((15 + floor(skill - attackskill) * 0.125f)), 5.0f, 20.0f);
                 // Issekigan grants parry rate bonus. From best available data, if you already capped out at 25% parry it grants another 25% bonus for ~50% parry rate
                 if (PDefender->objtype == TYPE_PC && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ISSEKIGAN)) {
-                    int16 issekiganBonus = PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ISSEKIGAN)->GetPower();
+                    int16 issekiganBonus = static_cast<int16>(PDefender->StatusEffectContainer->GetStatusEffect(EFFECT_ISSEKIGAN)->GetPower());
                     //ShowDebug(CL_CYAN"GetParryRate: Issekigan Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate+issekiganBonus));
                     parryRate = parryRate + issekiganBonus;
                 }
                 // Swordplay grants 5% parry per 60 shield skill that stacks with Inquartata
                 if (PDefender->objtype == TYPE_PC && PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_SWORDPLAY))
                 {
-                    uint16 blockskill = PDefender->GetSkill(SKILL_SHIELD);
-                    uint16 swordplayBonus = (uint16)floor((blockskill / 60) * 5);
+                    uint16 blockskill = static_cast<uint16>(PDefender->GetSkill(SKILL_SHIELD));
+                    uint16 swordplayBonus = static_cast<uint16>(floor((blockskill / 60.0f) * 50.f));
                     //ShowDebug(CL_CYAN "GetParryRate: Swordplay Active, Parry Rate %d -> %d...\n" CL_RESET, parryRate, (parryRate + swordplayBonus));
                     parryRate = parryRate + swordplayBonus;
                 }
 
                 // Inquartata grants a flat parry rate bonus.
-                int16 inquartataBonus = PDefender->getMod(Mod::INQUARTATA);
-                parryRate += inquartataBonus;
-                //printf("Your parryrtate is... %i \n", parryRate);
-                return parryRate;
+                int16 inquartataBonus = static_cast<int16>(PDefender->getMod(Mod::INQUARTATA));
+                parryRate += (uint8)inquartataBonus;
+                // printf("Your parryrtate is... %f \n", parryRate);
+                return static_cast<uint8>(parryRate);
             }
         }
 
