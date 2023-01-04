@@ -436,6 +436,11 @@ bool CStatusEffectContainer::AddStatusEffect(CStatusEffect* PStatusEffect, bool 
         m_StatusEffectSet.insert(PStatusEffect);
 
         luautils::OnEffectGain(m_POwner, PStatusEffect);
+        if (m_POwner->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = (CCharEntity*)m_POwner;
+            charutils::BuildingCharSkillsTable(PChar);
+        }
         m_POwner->PAI->EventHandler.triggerListener("EFFECT_GAIN", m_POwner, PStatusEffect);
 
         m_POwner->addModifiers(&PStatusEffect->modList);
@@ -544,6 +549,11 @@ void CStatusEffectContainer::RemoveStatusEffect(CStatusEffect* PStatusEffect, bo
         }
         PStatusEffect->deleted = true;
         luautils::OnEffectLose(m_POwner, PStatusEffect);
+        if (m_POwner->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = (CCharEntity*)m_POwner;
+            charutils::BuildingCharSkillsTable(PChar);
+        }
         m_POwner->PAI->EventHandler.triggerListener("EFFECT_LOSE", m_POwner, PStatusEffect);
 
         m_POwner->delModifiers(&PStatusEffect->modList);
