@@ -46,7 +46,7 @@ function onUseAbility(player, target, ability, action)
         target:delStatusEffectSilent(tpz.effect.SKILLCHAIN)
     end
 
-    target:addStatusEffectEx(tpz.effect.CHAINBOUND, 0, 1, 0, 6, 0, 1)
+    target:addStatusEffectEx(tpz.effect.CHAINBOUND, 0, 1, 0, 10, 0, 1)
 
     action:animation(target:getID(), getFlourishAnimation(player:getWeaponSkillType(tpz.slot.MAIN)))
     action:speceffect(target:getID(), 1)

@@ -25,7 +25,7 @@ function onUseAbility(player, target, ability, action)
         target:delStatusEffectSilent(tpz.effect.SKILLCHAIN)
     end
 
-    target:addStatusEffectEx(tpz.effect.CHAINBOUND, 0, 2, 0, 5, 0, 1)
+    target:addStatusEffectEx(tpz.effect.CHAINBOUND, 0, 2, 0, 10, 0, 1)
 
     local skill = player:getWeaponSkillType(tpz.slot.MAIN)
     local anim = 36
