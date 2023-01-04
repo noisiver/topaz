@@ -2810,6 +2810,7 @@ void SmallPacket0x053(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     else if (type == 2)
     {
         PChar->pushPacket(new CMessageStandardPacket(PChar->getStyleLocked() ? MsgStd::StyleLockIsOn : MsgStd::StyleLockIsOff));
+        PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE, new CCharPacket(PChar, ENTITY_UPDATE, UPDATE_LOOK));
     }
     else if (type == 3)
     {
@@ -2893,6 +2894,7 @@ void SmallPacket0x053(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     {
         PChar->pushPacket(new CCharAppearancePacket(PChar));
         PChar->pushPacket(new CCharSyncPacket(PChar));
+        PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE, new CCharPacket(PChar, ENTITY_UPDATE, UPDATE_LOOK));
     }
 
     return;
