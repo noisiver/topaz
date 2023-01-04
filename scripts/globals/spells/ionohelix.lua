@@ -52,6 +52,9 @@ function onSpellCast(caster, target, spell)
 
     if (dot > 0) then
         target:addStatusEffect(tpz.effect.HELIX, dot, 3, duration)
+        if caster:getMainJob() == tpz.job.SCH and caster:hasStatusEffect(tpz.effect.DARK_ARTS) then
+            target:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, 9, 0, duration)
+        end
     end
 
     return dmg
