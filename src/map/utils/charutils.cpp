@@ -37,6 +37,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../ai/states/attack_state.h"
 #include "../ai/states/item_state.h"
 
+#include "../packets/char.h"
 #include "../packets/char_abilities.h"
 #include "../packets/char_appearance.h"
 #include "../packets/char_equip.h"
@@ -1881,6 +1882,27 @@ namespace charutils
                                 if (((CItemWeapon*)PItem)->getSkillType() == SKILL_HAND_TO_HAND)
                                 {
                                     PChar->look.sub = PItem->getModelId() + 0x1000;
+                                }
+                            }
+                            break;
+                            case SKILL_DAGGER:
+                            case SKILL_SWORD:
+                            case SKILL_AXE:
+                            case SKILL_KATANA:
+                            case SKILL_CLUB:
+                            {
+                                // Unequip Grip items when equipping a 1-handed weapon
+                                CItemEquipment* armor = (CItemEquipment*)PChar->getEquip(SLOT_SUB);
+                                if ((armor != nullptr) && armor->isType(ITEM_EQUIPMENT))
+                                {
+                                    if (armor->isType(ITEM_WEAPON))
+                                    {
+                                        CItemWeapon* PWeapon = (CItemWeapon*)armor;
+                                        if (PWeapon->getSkillType() == SKILL_NONE)
+                                        {
+                                            UnequipItem(PChar, SLOT_SUB, false);
+                                        }
+                                    }
                                 }
                             }
                             break;
