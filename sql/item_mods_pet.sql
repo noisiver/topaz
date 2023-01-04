@@ -494,4 +494,7 @@ INSERT INTO `item_mods_pet` VALUES (15833,23,15,18);    -- Diverter's Ring Ifrit
 INSERT INTO `item_mods_pet` VALUES (15833,28,5,18);     -- Diverter's Ring Ifrit: MAB +5
 INSERT INTO `item_mods_pet` VALUES (11392,23,15,23);    -- Koschei Crackows Ramuh: Attack +15
 INSERT INTO `item_mods_pet` VALUES (11392,28,5,23);     -- Koschei Crackows Ramuh: MAB +5
+INSERT INTO `item_mods_pet` VALUES (17962,23,15,0);     -- Fleetwing: Attack +15
+INSERT INTO `item_mods_pet` VALUES (17962,25,15,0);     -- Fleetwing: Accuracy +15
+
 

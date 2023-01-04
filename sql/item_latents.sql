@@ -2209,6 +2209,11 @@ INSERT INTO `item_latents` VALUES(18142, 766, 25, 40, 12);      -- SAM: Sidewind
 INSERT INTO `item_latents` VALUES(18143, 26, 8, 40, 12);        -- SAM: Racc +8
 INSERT INTO `item_latents` VALUES(18143, 766, 27, 40, 12);      -- SAM: Sidewinder DMG +27%
 -- -------------------------------------------------------
+-- Amanokakoyumi
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(19215, 24, 15, 40, 12);        -- SAM: Ranged Attack +15
+INSERT INTO `item_latents` VALUES(19215, 26, 15, 40, 12);        -- SAM: Racc +15
+-- -------------------------------------------------------
 -- Arco de Velocidad
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(17165, 370, 1, 26, 0);    -- Daytime: Regen +1HP/tick
