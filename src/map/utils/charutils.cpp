@@ -1051,7 +1051,6 @@ namespace charutils
             if (!hasMainWeapon)
             {
                 CheckUnarmedWeapon(PChar);
-                RemoveSub(PChar);
             }
 
             if (PLinkshell1)
