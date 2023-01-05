@@ -1330,7 +1330,7 @@ INSERT INTO `item_basic` VALUES (1440,0,'summoners_testimony','smn._testimony',1
 INSERT INTO `item_basic` VALUES (1441,0,'libation_abjuration','lib._abjuration',1,28756,0,1,0);
 INSERT INTO `item_basic` VALUES (1442,0,'oblation_abjuration','obl._abjuration',1,28756,0,1,0);
 INSERT INTO `item_basic` VALUES (1443,0,'pinch_of_dried_mugwort','dried_mugwort',12,4,44,0,679);
-INSERT INTO `item_basic` VALUES (1444,0,'pot_of_divine_sap','divine_sap',12,4,43,0,1595);
+INSERT INTO `item_basic` VALUES (1444,0,'pot_of_divine_sap','divine_sap',1,4,43,0,1595);
 INSERT INTO `item_basic` VALUES (1445,0,'freyas_tear','freyas_tear',1,4,44,0,5375);
 INSERT INTO `item_basic` VALUES (1446,0,'lacquer_tree_log','lacquer_tree_log',1,4,43,0,3500);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (1447,0,'piece_of_lacquer_tree_lumber','lqr._tree_lbr.',12,4,43,0,1496);
