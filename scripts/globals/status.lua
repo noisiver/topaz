@@ -1320,6 +1320,7 @@ tpz.mod =
     CHARM_TIME                      = 360,
     JUMP_TP_BONUS                   = 361,
     JUMP_ATT_BONUS                  = 362,
+    JUMP_DMG_BONUS                  = 1306, -- +DMG for jumps(in percents)
     HIGH_JUMP_ENMITY_REDUCTION      = 363,
     REWARD_HP_BONUS                 = 364,
     SNAP_SHOT                       = 365,
@@ -1757,13 +1758,14 @@ tpz.mod =
     BLUE_NEVER_MISS         = 1302,
     STATUS_EFFECT_MACC      = 1303, -- Status effect Magic Accuracy
     DEFENDER_POTENCY        = 1304, -- Increases defender defense bonus, in percents
+    TP_GAIN_ON_EVADE        = 1305, -- Gain TP upon a successful evade
     
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1305 NEXT
+    -- 1307 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

@@ -378,6 +378,7 @@ enum class Mod
     ACC_COLLAB_EFFECT         = 884, // Increases amount of enmity transferred for Accomplice/Collaborator
     HIDE_DURATION             = 885, // Hide duration increase (percentage based)
     GILFINDER                 = 897, // Gilfinder, duh
+    TP_GAIN_ON_EVADE          = 1305, // Gain TP upon a successful evade
 
     // Paladin
     HOLY_CIRCLE_DURATION      = 857, // Holy Circle extended duration in seconds
@@ -463,6 +464,7 @@ enum class Mod
     ANCIENT_CIRCLE_DURATION   = 859, // Ancient Circle extended duration in seconds
     JUMP_TP_BONUS             = 361, // bonus tp player receives when using jump (must be divided by 10)
     JUMP_ATT_BONUS            = 362, // ATT% bonus for jump + high jump
+    JUMP_DMG_BONUS            = 1306, // +DMG for jumps(in percents)
     HIGH_JUMP_ENMITY_REDUCTION = 363, // for gear that reduces more enmity from high jump
     FORCE_JUMP_CRIT           = 828, // Critical hit rate bonus for jump and high jump
     WYVERN_EFFECTIVE_BREATH   = 829, // Increases the threshold for triggering healing breath/offensive breath more inclined to pick elemental weakness
@@ -963,7 +965,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1305 NEXT
+    // 1307 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

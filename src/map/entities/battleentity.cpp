@@ -1650,6 +1650,8 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         // Set the swing animation.
         actionTarget.animation = attack.GetAnimationID();
 
+        uint16 tponEvadeMod = PTarget->getMod(Mod::TP_GAIN_ON_EVADE);
+
         if (attack.CheckCover())
         {
             PTarget = attackRound.GetCoverAbilityUserEntity();
@@ -1661,6 +1663,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             actionTarget.messageID = 32;
             actionTarget.reaction = REACTION_EVADE;
             actionTarget.speceffect = SPECEFFECT_NONE;
+
+            // Check for TP gain on evade mod
+            if (tponEvadeMod > 0)
+            {
+                PTarget->addTP(tponEvadeMod);
+            }
         }
         else if ((tpzrand::GetRandomNumber(100) < attack.GetHitRate() || attackRound.GetSATAOccured()) &&
                  !PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_ALL_MISS))
@@ -1845,6 +1853,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             actionTarget.speceffect = SPECEFFECT_NONE;
             actionTarget.messageID = 15;
             attack.SetEvaded(true);
+
+            // Check for TP gain on evade mod
+            if (tponEvadeMod > 0)
+            {
+                PTarget->addTP(tponEvadeMod);
+            }
 
             // Check & Handle Afflatus Misery Accuracy Bonus
             battleutils::HandleAfflatusMiseryAccuracyBonus(this);
