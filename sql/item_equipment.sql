@@ -1239,7 +1239,7 @@ INSERT INTO `item_equipment` VALUES (11469,'comm._tricorne_+1',75,0,65536,168,0,
 INSERT INTO `item_equipment` VALUES (11470,'puppetry_taj_+1',74,0,131072,169,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (11471,'pantin_taj',75,0,131072,170,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (11472,'pantin_taj_+1',75,0,131072,170,0,0,16,0);
-INSERT INTO `item_equipment` VALUES (11473,'mirror_tiara',69,0,3662710,128,0,0,16,0);
+INSERT INTO `item_equipment` VALUES (11473,'mirror_tiara',69,0,4194303,128,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (11474,'louhis_mask',69,0,2141649,62,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (11475,'dancers_tiara_+1',74,0,262144,210,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (11476,'dancers_tiara_+1',74,0,262144,211,0,0,16,0);
@@ -8225,7 +8225,7 @@ INSERT INTO `item_equipment` VALUES (18496,'wootz_amood_+1',75,0,1,406,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18497,'foolkiller',72,0,1,434,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18498,'balestarius',74,0,1,448,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18499,'alastor',69,0,2097281,364,0,0,1,0);
-INSERT INTO `item_equipment` VALUES (18500,'sparth',69,0,2097281,448,0,0,1,0);
+INSERT INTO `item_equipment` VALUES (18500,'sparth',69,0,2097280,448,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18501,'seismic_axe',71,0,2097281,98,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18502,'trainee_axe',1,0,4194303,348,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18503,'mammut',21,0,2097281,98,0,0,1,0);
@@ -8647,7 +8647,7 @@ INSERT INTO `item_equipment` VALUES (18947,'molioness_sickle',70,0,128,366,0,0,1
 INSERT INTO `item_equipment` VALUES (18948,'enforcer',74,0,128,435,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18949,'zareehkl_scythe',71,0,128,372,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18950,'white_joker',74,0,393,366,0,0,1,0);
-INSERT INTO `item_equipment` VALUES (18951,'vendetta',69,0,128,194,0,0,1,0);
+INSERT INTO `item_equipment` VALUES (18951,'vendetta',69,0,257,194,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18952,'faucheuse',69,0,385,201,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18953,'beluga',40,0,393,366,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18954,'ogre_sickle',75,0,8,350,0,0,1,0);

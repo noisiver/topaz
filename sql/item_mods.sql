@@ -4611,9 +4611,8 @@ INSERT INTO `item_mods` VALUES (11389,2,22);
 INSERT INTO `item_mods` VALUES (11389,12,3);
 INSERT INTO `item_mods` VALUES (11389,13,3);
 INSERT INTO `item_mods` VALUES (11389,23,5);
-INSERT INTO `item_mods` VALUES (11390,1,15);
-INSERT INTO `item_mods` VALUES (11390,3,4);
-INSERT INTO `item_mods` VALUES (11390,6,4);
+INSERT INTO `item_mods` VALUES (11390,1,15);      -- Llwyd's Clogs
+INSERT INTO `item_mods` VALUES (11390,838,12);    -- Enhances Regen +1
 INSERT INTO `item_mods` VALUES (11391,1,18);      -- Emissary Boots
 INSERT INTO `item_mods` VALUES (11391,108,10);
 INSERT INTO `item_mods` VALUES (11391,110,25);
@@ -15977,8 +15976,10 @@ INSERT INTO `item_mods` VALUES (15032,2,25);
 INSERT INTO `item_mods` VALUES (15032,9,3);
 INSERT INTO `item_mods` VALUES (15032,14,3);
 INSERT INTO `item_mods` VALUES (15032,384,300);
-INSERT INTO `item_mods` VALUES (15033,1,21);
-INSERT INTO `item_mods` VALUES (15033,291,2);
+INSERT INTO `item_mods` VALUES (15033,1,21);      -- Danzo Tekko
+INSERT INTO `item_mods` VALUES (15033,173,3);     -- Martial Arts +3
+INSERT INTO `item_mods` VALUES (15033,259,5);     -- Dual Wield +5
+INSERT INTO `item_mods` VALUES (15033,306,10);    -- Zanshin +10
 INSERT INTO `item_mods` VALUES (15034,1,28);      -- Stone Mufflers: DEF 28
 INSERT INTO `item_mods` VALUES (15034,2,10);      -- HP +10
 INSERT INTO `item_mods` VALUES (15034,5,10);      -- MP +10
@@ -19758,9 +19759,8 @@ INSERT INTO `item_mods` VALUES (16244,30,3);
 INSERT INTO `item_mods` VALUES (16245,1,6);
 INSERT INTO `item_mods` VALUES (16245,9,5);
 INSERT INTO `item_mods` VALUES (16245,23,15);
-INSERT INTO `item_mods` VALUES (16246,1,9);
-INSERT INTO `item_mods` VALUES (16246,2,15);
-INSERT INTO `item_mods` VALUES (16246,5,15);
+INSERT INTO `item_mods` VALUES (16246,1,9);     -- Viator Cape
+INSERT INTO `item_mods` VALUES (16246,375,5);   -- Cure Potency Recieved +5%
 INSERT INTO `item_mods` VALUES (16247,1,6);     -- Caloyer Cape
 INSERT INTO `item_mods` VALUES (16247,5,10);
 INSERT INTO `item_mods` VALUES (16247,353,2);   -- Light Affinity DMG +10%
@@ -19832,8 +19832,8 @@ INSERT INTO `item_mods` VALUES (16275,25,9);
 INSERT INTO `item_mods` VALUES (16276,27,-2);
 INSERT INTO `item_mods` VALUES (16276,71,1);
 INSERT INTO `item_mods` VALUES (16276,72,1);
-INSERT INTO `item_mods` VALUES (16277,68,5);
-INSERT INTO `item_mods` VALUES (16277,897,95);   -- Bandolero Scarf Gilfinder+95
+INSERT INTO `item_mods` VALUES (16277,68,5);     -- Bandolero Scarf Evasion +5
+INSERT INTO `item_mods` VALUES (16277,1305,50);   -- On Evade: TP+50
 INSERT INTO `item_mods` VALUES (16278,14,5);
 INSERT INTO `item_mods` VALUES (16278,121,5);
 INSERT INTO `item_mods` VALUES (16279,2,3);
@@ -21738,8 +21738,9 @@ INSERT INTO `item_mods` VALUES (17755,230,5); -- Beast Killer
 INSERT INTO `item_mods` VALUES (17755,1230,5); -- Beast Killer Circle +5%
 INSERT INTO `item_mods` VALUES (17756,109,5);     -- (Sinfender)
 INSERT INTO `item_mods` VALUES (17756,610,25);    -- Vorpal Blade: DMG: +25%
-INSERT INTO `item_mods` VALUES (17757,28,2);
-INSERT INTO `item_mods` VALUES (17758,369,1);   -- Ruler - Refresh +1
+INSERT INTO `item_mods` VALUES (17757,28,10);    -- Merveilleuse: MAB +10
+INSERT INTO `item_mods` VALUES (17757,30,10);    -- MACC +10
+INSERT INTO `item_mods` VALUES (17758,369,1);   -- Ruler: Refresh +1
 INSERT INTO `item_mods` VALUES (17758,1240,10); -- Resistance traits
 INSERT INTO `item_mods` VALUES (17758,1241,10); -- Resistance traits
 INSERT INTO `item_mods` VALUES (17758,1242,10); -- Resistance traits
@@ -22147,7 +22148,8 @@ INSERT INTO `item_mods` VALUES (18126,25,5);
 INSERT INTO `item_mods` VALUES (18126,110,10);
 INSERT INTO `item_mods` VALUES (18126,289,5);
 INSERT INTO `item_mods` VALUES (18127,25,4);
-INSERT INTO `item_mods` VALUES (18128,361,50);
+INSERT INTO `item_mods` VALUES (18128,361,50);      -- Skystrider: Jump TP +50
+INSERT INTO `item_mods` VALUES (18128,1306,10);     -- Jump DMG: +10%
 INSERT INTO `item_mods` VALUES (18129,25,10);
 INSERT INTO `item_mods` VALUES (18129,68,10);
 INSERT INTO `item_mods` VALUES (18129,289,5);
@@ -22620,7 +22622,7 @@ INSERT INTO `item_mods` VALUES (18447,8,7);
 INSERT INTO `item_mods` VALUES (18447,9,7);
 INSERT INTO `item_mods` VALUES (18447,306,100);
 INSERT INTO `item_mods` VALUES (18448,25,4);
-INSERT INTO `item_mods` VALUES (18449,27,5);
+INSERT INTO `item_mods` VALUES (18449,73,15);     -- Namioyogi: Store TP +15
 INSERT INTO `item_mods` VALUES (18450,163,-5);   -- Mukademaru MDT -5%
 INSERT INTO `item_mods` VALUES (18451,431,1);
 INSERT INTO `item_mods` VALUES (18454,10,10);     -- Ishikirimaru: VIT+10
@@ -22699,7 +22701,7 @@ INSERT INTO `item_mods` VALUES (18498,161,-8);
 INSERT INTO `item_mods` VALUES (18499,2,10);      -- Alastor
 INSERT INTO `item_mods` VALUES (18499,5,10);
 INSERT INTO `item_mods` VALUES (18499,1304,25);      -- Defender Potency +25%
-INSERT INTO `item_mods` VALUES (18500,384,100);
+INSERT INTO `item_mods` VALUES (18500,355,86);       -- Sparth: Adds Raging Rush
 INSERT INTO `item_mods` VALUES (18501,431,1); -- Seismic Axe Additional Effect: Earth Damage
 INSERT INTO `item_mods` VALUES (18503,431,1);
 INSERT INTO `item_mods` VALUES (18504,11,4); -- Eventreuse 
@@ -23635,7 +23637,7 @@ INSERT INTO `item_mods` VALUES (18948,9,3);
 INSERT INTO `item_mods` VALUES (18948,68,-6);
 INSERT INTO `item_mods` VALUES (18950,12,4);
 INSERT INTO `item_mods` VALUES (18950,28,8);
-INSERT INTO `item_mods` VALUES (18951,230,2);
+INSERT INTO `item_mods` VALUES (18951,355,102);     -- Vendetta: Adds Guillotine
 INSERT INTO `item_mods` VALUES (18952,161,-5);
 INSERT INTO `item_mods` VALUES (18953,2,12);
 INSERT INTO `item_mods` VALUES (18953,5,12);
@@ -23784,7 +23786,7 @@ INSERT INTO `item_mods` VALUES (19037,7,20);
 INSERT INTO `item_mods` VALUES (19037,46,2);
 INSERT INTO `item_mods` VALUES (19038,7,20);
 INSERT INTO `item_mods` VALUES (19038,47,2);
-INSERT INTO `item_mods` VALUES (19039,23,3);
+INSERT INTO `item_mods` VALUES (19039,24,5);      -- Ocra Strap RATTK +5
 INSERT INTO `item_mods` VALUES (19040,2,10);
 INSERT INTO `item_mods` VALUES (19040,27,3);
 INSERT INTO `item_mods` VALUES (19041,73,4);
@@ -24122,9 +24124,9 @@ INSERT INTO `item_mods` VALUES (19216,27,-5);
 INSERT INTO `item_mods` VALUES (19216,289,5);
 INSERT INTO `item_mods` VALUES (19217,784,10);    -- Basilisk Heavy Shot DMG +10%
 INSERT INTO `item_mods` VALUES (19218,26,8);
-INSERT INTO `item_mods` VALUES (19219,2,10);
-INSERT INTO `item_mods` VALUES (19219,10,1);
-INSERT INTO `item_mods` VALUES (19220,841,2); -- Goblin Cracker +2% WSD
+INSERT INTO `item_mods` VALUES (19219,2,25);      -- Iwatsubute: HP +25
+INSERT INTO `item_mods` VALUES (19219,10,5);      -- VIT +5
+INSERT INTO `item_mods` VALUES (19220,841,2);     -- Goblin Cracker: +2% WSD
 INSERT INTO `item_mods` VALUES (19221,11,1);
 INSERT INTO `item_mods` VALUES (19222,26,3);
 INSERT INTO `item_mods` VALUES (19223,2,8);

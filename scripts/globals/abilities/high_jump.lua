@@ -59,5 +59,9 @@ function onUseAbility(player, target, ability, action)
         action:speceffect(target:getID(), 0)
     end
 
+    -- Add Jump damage mod
+    local dmgMod = player:getMod(tpz.mod.JUMP_DMG_BONUS)
+    damage = math.floor(damage * (1 + (dmgMod / 100)))
+
     return damage
 end

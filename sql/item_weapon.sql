@@ -2749,7 +2749,7 @@ INSERT INTO `item_weapon` VALUES (19214,'fullmetal_bullet',0,0,0,0,0,0,1,999,0,0
 INSERT INTO `item_weapon` VALUES (19215,'amanokakoyumi',25,0,0,0,0,1,1,524,69,0);
 INSERT INTO `item_weapon` VALUES (19216,'failnaught',25,0,0,0,0,1,1,582,72,0);
 INSERT INTO `item_weapon` VALUES (19217,'basilisk',26,1,0,0,0,1,1,582,39,0);
-INSERT INTO `item_weapon` VALUES (19218,'murderer',26,1,0,0,0,1,1,600,38,0);
+INSERT INTO `item_weapon` VALUES (19218,'murderer',26,1,0,0,0,1,1,640,44,0);
 INSERT INTO `item_weapon` VALUES (19219,'iwatsubute',0,0,0,0,0,0,1,999,0,0);
 INSERT INTO `item_weapon` VALUES (19220,'goblin_cracker',0,0,0,0,0,0,1,999,0,0);
 INSERT INTO `item_weapon` VALUES (19221,'firefly',26,1,0,0,0,1,1,600,11,0);
