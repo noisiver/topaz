@@ -55,6 +55,19 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "utils/synthutils.h"
 #include "battlefield.h"
 
+namespace
+{
+const float CHARACTER_SYNC_DISTANCE = 45.0f;
+const float CHARACTER_DESPAWN_DISTANCE = 50.0f;
+const int CHARACTER_SWAP_MAX = 5;
+const int CHARACTER_SYNC_LIMIT_MAX = 32;
+const int CHARACTER_SYNC_DISTANCE_SWAP_THRESHOLD = 30;
+const int CHARACTER_SYNC_PARTY_SIGNIFICANCE = 100000;
+const int CHARACTER_SYNC_ALLI_SIGNIFICANCE = 10000;
+const int PERSIST_CHECK_CHARACTERS = 20;
+} // namespace
+typedef std::pair<float, CCharEntity*> CharScorePair;
+
 CZoneEntities::CZoneEntities(CZone* zone)
 {
     m_zone = zone;
@@ -636,59 +649,197 @@ void CZoneEntities::SpawnTRUSTs(CCharEntity* PChar)
     }
 }
 
+float getSignificanceScore(CCharEntity* originChar, CCharEntity* targetChar)
+{
+    if (targetChar->m_GMlevel > 0 && !targetChar->m_isGMHidden)
+    {
+        return CHARACTER_SYNC_ALLI_SIGNIFICANCE;
+    }
+
+    if (originChar->PParty && targetChar->PParty)
+    {
+        if (originChar->PParty->GetPartyID() == targetChar->PParty->GetPartyID())
+        {
+            // Same party
+            return CHARACTER_SYNC_PARTY_SIGNIFICANCE;
+        }
+        else if (originChar->PParty->m_PAlliance && targetChar->PParty->m_PAlliance &&
+                 originChar->PParty->m_PAlliance->m_AllianceID == targetChar->PParty->m_PAlliance->m_AllianceID)
+        {
+            // Same alliance
+            return CHARACTER_SYNC_ALLI_SIGNIFICANCE;
+        }
+    }
+
+    return 0;
+}
+
 void CZoneEntities::SpawnPCs(CCharEntity* PChar)
 {
     TracyZoneScoped;
-    for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
+
+    // Provide bonus score to characters targeted by spawned mobs or other conflict players, if in conflict
+    std::unordered_map<uint32, float> scoreBonus = std::unordered_map<uint32, float>();
+
+    for (auto mobEntry : PChar->SpawnMOBList)
     {
-        CCharEntity* PCurrentChar = (CCharEntity*)it->second;
-        SpawnIDList_t::iterator PC = PChar->SpawnPCList.find(PCurrentChar->id);
-
-        if (PChar != PCurrentChar)
+        CState* state = mobEntry.second->PAI->GetCurrentState();
+        if (!state)
         {
-            if (distance(PChar->loc.p, PCurrentChar->loc.p) < 50 && PChar->m_moghouseID == PCurrentChar->m_moghouseID)
-            {
-                if (PC == PChar->SpawnPCList.end())
-                {
-                    if (PCurrentChar->m_isGMHidden == false)
-                    {
-                        PChar->SpawnPCList[PCurrentChar->id] = PCurrentChar;
-                        PChar->pushPacket(new CCharPacket(PCurrentChar, ENTITY_SPAWN, UPDATE_ALL_CHAR));
-                        PChar->pushPacket(new CCharSyncPacket(PCurrentChar));
-                    }
+            continue;
+        }
 
-                    if (PChar->m_isGMHidden == false)
-                    {
-                        PCurrentChar->SpawnPCList[PChar->id] = PChar;
-                        PCurrentChar->pushPacket(new CCharPacket(PChar, ENTITY_SPAWN, UPDATE_ALL_CHAR));
-                        PCurrentChar->pushPacket(new CCharSyncPacket(PChar));
-                    }
+        CBaseEntity* target = state->GetTarget();
+        if (target && target->objtype == TYPE_PC && target->id != PChar->id)
+        {
+            scoreBonus[target->id] += CHARACTER_SYNC_DISTANCE_SWAP_THRESHOLD;
+        }
+    }
+
+    // Loop through all chars in zone and find candidate characters to spawn, and scores of already spawned characters
+    MinHeap<CharScorePair> spawnedCharacters;
+    std::vector<CCharEntity*> toRemove;
+
+    for (auto iter : PChar->SpawnPCList)
+    {
+        CCharEntity* pc = (CCharEntity*)iter.second;
+
+        // Despawn character if it's a hidden GM, is in a different mog house, or if player is in a conflict while other is not, or too far up/down
+        if (pc->m_isGMHidden || PChar->m_moghouseID != pc->m_moghouseID)
+        {
+            toRemove.push_back(pc);
+            continue;
+        }
+
+        // Despawn character if it's currently spawned and is far away
+        float charDistance = distance(PChar->loc.p, pc->loc.p);
+        if (charDistance >= CHARACTER_DESPAWN_DISTANCE)
+        {
+            toRemove.push_back(pc);
+            continue;
+        }
+
+        // Total score is determined by the significance between the characters, adding any bonuses,
+        // and then subtracting the distance to make characters further away less important.
+        float significanceScore = getSignificanceScore(PChar, pc);
+        auto bonusIter = scoreBonus.find(iter.second->id);
+        auto bonus = bonusIter == scoreBonus.end() ? 0 : bonusIter->second;
+        float totalScore = significanceScore + bonus - charDistance + CHARACTER_SYNC_DISTANCE_SWAP_THRESHOLD;
+
+        if (significanceScore < CHARACTER_SYNC_ALLI_SIGNIFICANCE)
+        {
+            // Is spawned and should be considered for removal if necessary
+            if (spawnedCharacters.size() < CHARACTER_SYNC_LIMIT_MAX)
+            {
+                spawnedCharacters.emplace(std::make_pair(totalScore, pc));
+            }
+            else if (!spawnedCharacters.empty() && spawnedCharacters.top().first < totalScore)
+            {
+                spawnedCharacters.emplace(std::make_pair(totalScore, pc));
+                spawnedCharacters.pop();
+            }
+        }
+    }
+
+    for (auto removeChar : toRemove)
+    {
+        PChar->pushPacket(new CCharPacket(removeChar, ENTITY_DESPAWN, UPDATE_NONE));
+    }
+
+    // Find candidates to spawn
+    MinHeap<CharScorePair> candidateCharacters;
+
+    for (auto it : m_charList)
+    {
+        CCharEntity* PCurrentChar = (CCharEntity*)it.second;
+
+        if (PCurrentChar != nullptr && PChar != PCurrentChar && PChar->SpawnPCList.find(PCurrentChar->id) == PChar->SpawnPCList.end())
+        {
+            if (PCurrentChar->m_isGMHidden || PChar->m_moghouseID != PCurrentChar->m_moghouseID)
+            {
+                continue;
+            }
+
+            float charDistance = distance(PChar->loc.p, PCurrentChar->loc.p);
+            if (charDistance > CHARACTER_SYNC_DISTANCE)
+            {
+                continue;
+            }
+
+            float significanceScore = getSignificanceScore(PChar, PCurrentChar);
+
+            // Total score is determined by the significance between the characters, adding any bonuses,
+            // and then subtracting the distance to make characters further away less important.
+            auto bonusIter = scoreBonus.find(PCurrentChar->id);
+            auto bonus = bonusIter == scoreBonus.end() ? 0 : bonusIter->second;
+            float totalScore = significanceScore + bonus - charDistance;
+
+            if (PChar->SpawnPCList.size() < CHARACTER_SYNC_LIMIT_MAX || (!spawnedCharacters.empty() && totalScore > spawnedCharacters.top().first))
+            {
+                // Is nearby and should be considered as a candidate to be spawned
+                candidateCharacters.push(std::make_pair(totalScore, PCurrentChar));
+                if (candidateCharacters.size() > CHARACTER_SYNC_LIMIT_MAX)
+                {
+                    candidateCharacters.pop();
+                }
+            }
+        }
+    }
+
+    // Check if any of the candidates can/should be spawned
+    if (!candidateCharacters.empty())
+    {
+        std::vector<CharScorePair> candidates;
+        while (!candidateCharacters.empty())
+        {
+            candidates.push_back(candidateCharacters.top());
+            candidateCharacters.pop();
+        }
+        std::reverse(candidates.begin(), candidates.end());
+
+        // Track how many characters have been spawned/despawned this check and limit it to avoid flooding the client
+        uint8 swapCount = 0;
+
+        // Loop through candidates to be spawned from best to worst
+        for (auto candidatePair : candidates)
+        {
+            if (swapCount >= CHARACTER_SWAP_MAX)
+            {
+                break;
+            }
+
+            // If max amount of characters are currently spawned, we need to despawn one before we can spawn a new one
+            if (PChar->SpawnPCList.size() >= CHARACTER_SYNC_LIMIT_MAX)
+            {
+                if (spawnedCharacters.size() == 0)
+                {
+                    // No spawned characters left that we can swap with
+                    break;
+                }
+
+                // Check that the candidate score is better than the worst spawned score by a certain threshold,
+                // to avoid causing a lot of spawn/despawns all the time as people move around.
+                if (candidatePair.first > spawnedCharacters.top().first)
+                {
+                    CCharEntity* spawnedChar = spawnedCharacters.top().second;
+                    PChar->SpawnPCList.erase(spawnedChar->id);
+                    PChar->pushPacket(new CCharPacket(spawnedChar, ENTITY_DESPAWN, UPDATE_NONE));
+                    spawnedCharacters.pop();
+                    swapCount++;
                 }
                 else
                 {
-                    if (PCurrentChar->m_isGMHidden == true)
-                    {
-                        PChar->SpawnPCList.erase(PC);
-                    }
-                    // TODO: figure out a way to push these packets in response to 0x015s while preserving the mask
-                    //  every operation on the mask should persist for 400ms (0x015 frequency)
-                    /*else if (PChar->updatemask != 0)
-                    {
-                        PCurrentChar->pushPacket(new CCharPacket(PChar, ENTITY_UPDATE, PChar->updatemask));
-                    }*/
+                    // Best candidate score did not beat the worst spawned score, so we can break out of spawn loop,
+                    // since the rest won't improve on that difference.
+                    break;
                 }
             }
-            else
-            {
-                if (PC != PChar->SpawnPCList.end())
-                {
-                    PChar->SpawnPCList.erase(PC);
-                    PChar->pushPacket(new CCharPacket(PCurrentChar, ENTITY_DESPAWN, 0));
 
-                    PCurrentChar->SpawnPCList.erase(PChar->id);
-                    PCurrentChar->pushPacket(new CCharPacket(PChar, ENTITY_DESPAWN, 0));
-                }
-            }
+            // Spawn best candidate character
+            CCharEntity* candidateChar = candidatePair.second;
+            PChar->SpawnPCList[candidateChar->id] = candidateChar;
+            PChar->pushPacket(new CCharPacket(candidateChar, ENTITY_SPAWN, UPDATE_ALL_CHAR));
+            PChar->pushPacket(new CCharSyncPacket(candidateChar));
         }
     }
 }
