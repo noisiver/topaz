@@ -38,7 +38,6 @@
 #include "../items/item_weapon.h"
 #include "../lua/luautils.h"
 #include "../packets/action.h"
-#include "../packets/chat_message.h"
 #include "../recast_container.h"
 #include "../roe.h"
 #include "../status_effect_container.h"
@@ -1802,19 +1801,6 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 // Process damage.
                 attack.ProcessDamage();
 
-                // Display Treasure Hunter Message
-                if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
-                {
-                    CMobEntity* PMob = (CMobEntity*)PTarget;
-                    uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                    uint16 mobTHLvL = PMob->PEnmityContainer->GetHighestTH();
-
-                    if (playerTHLvl > mobTHLvL)
-                    {
-                        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
-                    }
-                }
-
                 // Try shield block
                 if (attack.IsBlocked())
                 {
@@ -1884,15 +1870,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             // add 1 ce for a missed attack for TH application
             if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
             {
-                CMobEntity* PMob = (CMobEntity*)PTarget;
-                uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                uint16 mobTHLvL = PMob->PEnmityContainer->GetHighestTH();
-
-                if (playerTHLvl > mobTHLvL)
-                {
-                    (PMob->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0));
-                    loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
-                }
+                ((CMobEntity*)PTarget)->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0);
             }
         }
 
