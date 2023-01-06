@@ -28,7 +28,7 @@ CREATE TABLE `item_equipment` (
   `level` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `ilevel` tinyint(3) NOT NULL DEFAULT '0',
   `jobs` int(10) unsigned NOT NULL DEFAULT '0',
-  `MId` smallint(3) unsigned NOT NULL DEFAULT '0',
+  `MId` smallint(3) unsigned NOT NULL DEFAULT '0', -- model ID
   `shieldSize` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `scriptType` smallint(5) unsigned NOT NULL DEFAULT '0',
   `slot` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -8217,7 +8217,7 @@ INSERT INTO `item_equipment` VALUES (18488,'assailants_axe',5,0,2097281,94,0,0,1
 INSERT INTO `item_equipment` VALUES (18489,'dark_amood',68,0,1,385,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18490,'dark_amood_+1',68,0,1,385,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18491,'perdu_voulge',73,0,2097281,365,0,0,1,0);
-INSERT INTO `item_equipment` VALUES (18492,'sturdy_axe',75,0,1,363,0,0,1,0);
+INSERT INTO `item_equipment` VALUES (18492,'sturdy_axe',75,0,1,364,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18493,'regiment_kheten',44,0,129,97,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18494,'fourth_toporok',71,0,2097281,92,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18495,'wootz_amood',75,0,1,406,0,0,1,0);
