@@ -93,6 +93,7 @@ function onEventFinish(player, csid, option)
             -- 15: Everything
                 cost = 200
             end
+            print("Power: %u", power)
 
             player:delStatusEffectsByFlag(tpz.effectFlag.INFLUENCE, true)
             player:addStatusEffect(tpz.effect.SIGIL, power, 0, duration, 0, subPower, 0)
