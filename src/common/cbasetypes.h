@@ -6,6 +6,7 @@
 #include <cctype>
 #include <cstddef>
 #include <algorithm>
+#include <set>
 
 // debug mode
 #if defined(_DEBUG) && !defined(DEBUG)

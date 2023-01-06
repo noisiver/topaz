@@ -573,12 +573,11 @@ void SmallPacket0x015(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         if (moved)
         {
             PChar->updatemask |= UPDATE_POS;
-            PChar->loc.zone->SpawnPCs(PChar);
         }
 
         if (isUpdate)
         {
-            PChar->loc.zone->SpawnPCs(PChar);
+            PChar->requestedInfoSync = true;
             PChar->loc.zone->SpawnNPCs(PChar);
         }
 
@@ -887,7 +886,7 @@ void SmallPacket0x01A(map_session_data_t* PSession, CCharEntity* PChar, CBasicPa
             }
             else
             {
-                PChar->loc.zone->SpawnPCs(PChar);
+                PChar->requestedInfoSync = true;
                 PChar->loc.zone->SpawnNPCs(PChar);
                 PChar->loc.zone->SpawnMOBs(PChar);
                 PChar->loc.zone->SpawnTRUSTs(PChar);

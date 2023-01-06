@@ -92,6 +92,8 @@ void CZoneEntities::HealAllMobs()
 
 void CZoneEntities::InsertPC(CCharEntity* PChar)
 {
+    TracyZoneScoped;
+    charTargIds.insert(PChar->targid);
     m_charList[PChar->targid] = PChar;
     ShowDebug(CL_CYAN"CZone:: %s IncreaseZoneCounter <%u> %s \n" CL_RESET, m_zone->GetName(), m_charList.size(), PChar->GetName());
 }
@@ -472,6 +474,7 @@ void CZoneEntities::DecreaseZoneCounter(CCharEntity* PChar)
     // TODO: могут возникать проблемы с переходом между одной и той же зоной (zone == prevzone)
 
     m_charList.erase(PChar->targid);
+    charTargIds.erase(PChar->targid);
 
     ShowDebug(CL_CYAN"CZone:: %s DecreaseZoneCounter <%u> %s\n" CL_RESET, m_zone->GetName(), m_charList.size(), PChar->GetName());
 }
@@ -479,9 +482,9 @@ void CZoneEntities::DecreaseZoneCounter(CCharEntity* PChar)
 uint16 CZoneEntities::GetNewTargID()
 {
     uint16 targid = 0x400;
-    for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
+    for (auto it : charTargIds)
     {
-        if (targid != it->first)
+        if (targid != it)
         {
             break;
         }
@@ -1365,6 +1368,39 @@ void CZoneEntities::ZoneServer(time_point tick, bool check_regions)
     if (tick > m_EffectCheckTime)
     {
         m_EffectCheckTime = m_EffectCheckTime + 3s > tick ? m_EffectCheckTime + 3s : tick + 3s;
+    }
+
+      if (tick > computeTime && !charTargIds.empty())
+    {
+        // Tick time is irregular to avoid consistently happening at the same time as char persistence
+        computeTime = tick + 567ms;
+
+        auto charTargIdIter = charTargIds.lower_bound(lastCharComputeTargId);
+        if (charTargIdIter == charTargIds.end())
+        {
+            charTargIdIter = charTargIds.begin();
+        }
+
+        std::size_t maxIterations = std::min<std::size_t>(charTargIds.size(), std::min<std::size_t>(10000U / charTargIds.size(), 20U));
+
+        for (std::size_t i = 0; i < maxIterations; i++)
+        {
+            CCharEntity* pc = static_cast<CCharEntity*>(m_charList[*charTargIdIter]);
+            charTargIdIter++;
+
+            if (charTargIdIter == charTargIds.end())
+            {
+                charTargIdIter = charTargIds.begin();
+            }
+
+             if (pc && pc->requestedInfoSync)
+            {
+                pc->requestedInfoSync = false;
+                SpawnPCs(pc);
+            }
+        }
+
+        lastCharComputeTargId = *charTargIdIter;
     }
 }
 
