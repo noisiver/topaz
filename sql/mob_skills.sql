@@ -2162,7 +2162,7 @@ INSERT INTO `mob_skills` VALUES (2201,1555,'orcish_counterstance',0,7.0,2000,150
 INSERT INTO `mob_skills` VALUES (2202,1556,'berserker_dance',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2203,1563,'diamond_shell',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2204,1564,'ore_lob',4,10.0,2000,2000,4,0,0,0,0,0,0); -- Animation ID was 1948
-INSERT INTO `mob_skills` VALUES (2205,1565,'feathered_furore',1,10.0,2000,1500,4,0,0,0,0,0,0); 
+INSERT INTO `mob_skills` VALUES (2205,1565,'feathered_furore',4,10.0,2000,1500,4,0,0,0,0,0,0); 
 INSERT INTO `mob_skills` VALUES (2206,1566,'dark_invocation',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2207,14,'disorienting_waul',1,15.0,2000,1500,4,0,0,0,0,0,0); -- animation ID is prob 14(Roar)
 INSERT INTO `mob_skills` VALUES (2208,53,'microspores',1,10.0,2000,1500,4,0,0,0,0,0,0);
