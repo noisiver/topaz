@@ -14,7 +14,6 @@
 -- 25% - 0: 10s
 -- Uses: Soul Drain, Condemnation, Hecatomb Wave, Demonic Howl
 -- Uses Blood Weapon sometime below 50% HP
--- TODO: Test status absorb
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
