@@ -2,6 +2,7 @@
 -- Area: Bastok Markets [S]
 --  NPC: Millard IM
 -- Type: Sigil NPC
+-- !gotoid 17134130
 -----------------------------------
 local ID = require("scripts/zones/Bastok_Markets_[S]/IDs")
 require("scripts/globals/campaign")
@@ -75,7 +76,7 @@ function onEventFinish(player, csid, option)
             local cost = 0
             local power = ( (option - 1) / 4096 )
             local duration = 10800+((15*medalRank)*60) -- 3hrs +15 min per medal (minimum 3hr 15 min with 1st medal)
-            local subPower = 35 -- Sets % trigger for regen/refresh. Static at minimum value (35%) for now.
+            local subPower = 85 -- Sets % trigger for regen/refresh. Static at maximum value (85%) for now.
 
             if (power == 1 or power == 2 or power == 4) then
             -- 1: Regen,  2: Refresh,  4: Meal Duration
@@ -93,7 +94,6 @@ function onEventFinish(player, csid, option)
             -- 15: Everything
                 cost = 200
             end
-            printf("Power: %u", power)
 
             player:delStatusEffectsByFlag(tpz.effectFlag.INFLUENCE, true)
             player:addStatusEffect(tpz.effect.SIGIL, power, 0, duration, 0, subPower, 0)

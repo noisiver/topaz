@@ -5,17 +5,17 @@
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
-
+-- TODO: if you get all buffs it breaks and doesn't give regen/refresh
 function onEffectGain(target, effect)
 
     local power = effect:getPower() -- Tracks which bonus effects are in use.
     if (power == 1 or power == 3 or power == 5 or power == 7 or power == 9 or power == 11 or power == 13 or power == 15) then
-        local percentage = 70 -- TODO: This should be based off of controlled areas in Campaign
+        local percentage = 95 
         target:addLatent(tpz.latent.SIGIL_REGEN_BONUS, percentage, tpz.mod.REGEN, 1)
     end
 
     if (power == 2 or power == 3 or power == 6 or power == 7 or power == 10 or power == 11 or power >= 14) then
-        local percentage = 60 -- TODO: This should be based off of controlled areas in Campaign
+        local percentage = 85 
         target:addLatent(tpz.latent.SIGIL_REFRESH_BONUS, percentage, tpz.mod.REFRESH, 1)
     end
 
@@ -42,12 +42,12 @@ function onEffectLose(target, effect)
     local subPower = effect:getSubPower() -- subPower sets % required to trigger regen/refresh.
 
     if (power == 1 or power == 3 or power == 5 or power == 7 or power == 9 or power == 11 or power == 13 or power == 15) then
-        local percentage = 70 -- TODO: This should be based off of controlled areas in Campaign
+        local percentage = 95 
         target:delLatent(tpz.latent.SIGIL_REGEN_BONUS, percentage, tpz.mod.REGEN, 1)
     end
 
     if (power == 2 or power == 3 or power == 6 or power == 7 or power == 10 or power == 11 or power >= 14) then
-        local percentage = 60 -- TODO: This should be based off of controlled areas in Campaign
+        local percentage = 85
         target:delLatent(tpz.latent.SIGIL_REFRESH_BONUS, percentage, tpz.mod.REFRESH, 1)
     end
 
