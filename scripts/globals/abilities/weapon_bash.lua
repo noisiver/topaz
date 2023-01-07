@@ -32,15 +32,8 @@ function onUseAbility(player, target, ability)
         target:addStatusEffect(tpz.effect.STUN, 1, 0, 4)
     end
 
-    -- Weapon Bash deals damage dependant of Dark Knight level
-    local darkKnightLvl = 0
-    if player:getMainJob() == tpz.job.DRK then
-        darkKnightLvl = player:getMainLvl()    -- Use Mainjob Lvl
-    elseif player:getSubJob() == tpz.job.DRK then
-        darkKnightLvl = player:getSubLvl()    -- Use Subjob Lvl
-    end
-
     -- Get fSTR
+    local damage = 0
     local fstr = fSTR(player:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT), player:getWeaponDmgRank())
     local params = {}
     params.atk100 = 1 params.atk200 = 1 params.atk300 = 1
@@ -59,7 +52,13 @@ function onUseAbility(player, target, ability)
         damage = 0
     end
 
-    damage = utils.stoneskin(target, damage)
+    -- Check for phalanx + stoneskin
+
+    if (damage > 0) then
+        damage = damage - target:getMod(tpz.mod.PHALANX)
+        damage = utils.stoneskin(target, damage)
+    end
+
     target:takeDamage(damage, player, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
     target:updateEnmityFromDamage(player, damage)
 
