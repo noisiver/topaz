@@ -35,6 +35,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "petentity.h"
 
 #include "../utils/fishingutils.h"
+#include "../packets/entity_update.h"
+#include "../packets/char.h"
 
 #define MAX_QUESTAREA	 11
 #define MAX_QUESTID     256
@@ -270,6 +272,8 @@ public:
     void              clearPacketList();            // отчистка PacketList
     void              pushPacket(CBasicPacket*);    // добавление копии пакета в PacketList
     void              pushPacket(std::unique_ptr<CBasicPacket>);    // push packet to packet list
+    void              updateCharPacket(CCharEntity* PChar, ENTITYUPDATE type, uint8 updatemask); // Push or update a char packet
+    void               updateEntityPacket(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask); // Push or update an entity update packet
     bool			  isPacketListEmpty();          // проверка размера PacketList
     CBasicPacket*	  popPacket();                  // получение первого пакета из PacketList
     PacketList_t      getPacketList();              // returns a COPY of packet list
@@ -370,6 +374,8 @@ public:
 
     CItemEquipment*	getEquip(SLOTTYPE slot);
 
+    CBasicPacket* PendingPositionPacket = nullptr;
+
     bool requestedInfoSync = false;
 
     void        ReloadPartyInc();
@@ -458,7 +464,9 @@ private:
     bool			m_reloadParty;
 
     PacketList_t      PacketList;					// the list of packets to be sent to the character during the next network cycle
-
+    std::unordered_map<uint32, CCharPacket*> PendingCharPackets; // Keep track of which char packets are queued up for this char, such that they can be updated
+    std::unordered_map<uint32, CEntityUpdatePacket*>
+        PendingEntityPackets; // Keep track of which entity update packets are queued up for this char, such that they can be 
     std::mutex      m_PacketListMutex;
 };
 

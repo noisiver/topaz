@@ -586,11 +586,18 @@ public:
     virtual void    TOTDChange(TIMETYPE TOTD);                                      // обработка реакции мира на смену времени суток
     virtual void    PushPacket(CBaseEntity*, GLOBAL_MESSAGE_TYPE, CBasicPacket*);   // отправляем глобальный пакет в пределах зоны
 
+    virtual void    UpdateCharPacket(CCharEntity* PChar, ENTITYUPDATE type, uint8 updatemask);
+    virtual void    UpdateEntityPacket(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask, bool alwaysInclude = false);
+
     time_point      m_RegionCheckTime;                                              // time of the last region check
     weatherVector_t m_WeatherVector;                                                // probability of occurrence of each type of weather
 
     virtual void    ZoneServer(time_point tick, bool check_regions);
     void            CheckRegions(CCharEntity* PChar);
+
+    void            ResetLocalVars();
+    uint32          GetLocalVar(const char* var);
+    void            SetLocalVar(const char* var, uint32 val);
 
     virtual void    ForEachChar(std::function<void(CCharEntity*)> func);
     virtual void    ForEachCharInstance(CBaseEntity* PEntity, std::function<void(CCharEntity*)> func);
@@ -606,6 +613,8 @@ public:
     CBattlefieldHandler* m_BattlefieldHandler;  // BCNM Instances in this zone
 
     CNavMesh*       m_navMesh;              // zones navmesh for finding paths
+
+     time_point m_LoadedAt; // time zone was loaded
 
 private:
 
@@ -644,6 +653,8 @@ protected:
     void createZoneTimer();
     void CharZoneIn(CCharEntity* PChar);
     void CharZoneOut(CCharEntity* PChar);
+
+     std::unordered_map<std::string, uint32> m_localVars;
 };
 
 #endif

@@ -203,10 +203,7 @@ inline int32 CLuaBaseEntity::showText(lua_State *L)
             PBaseEntity->m_TargID = m_PBaseEntity->targid;
             PBaseEntity->loc.p.rotation = worldAngle(PBaseEntity->loc.p, m_PBaseEntity->loc.p);
 
-            PBaseEntity->loc.zone->PushPacket(
-                PBaseEntity,
-                CHAR_INRANGE,
-                new CEntityUpdatePacket(PBaseEntity, ENTITY_UPDATE, UPDATE_POS));
+        PBaseEntity->loc.zone->UpdateEntityPacket(PBaseEntity, ENTITY_UPDATE, UPDATE_POS);
         }
 
         uint32 param0 = 0;
@@ -1729,7 +1726,7 @@ inline int32 CLuaBaseEntity::clearTargID(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
 
     m_PBaseEntity->m_TargID = 0;
-    m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_POS));
+    m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_POS);
     return 0;
 }
 
@@ -2002,12 +1999,12 @@ inline int32 CLuaBaseEntity::openDoor(lua_State *L)
         uint32 OpenTime = (!lua_isnil(L, 1) && lua_isnumber(L, 1)) ? (uint32)lua_tointeger(L, 1) * 1000 : 7000;
 
         m_PBaseEntity->animation = ANIMATION_OPEN_DOOR;
-        m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_COMBAT));
+        m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_COMBAT);
 
         m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(OpenTime), false, [](CBaseEntity* PNpc)
         {
             PNpc->animation = ANIMATION_CLOSE_DOOR;
-            PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+            PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
         }));
     }
     return 0;
@@ -2029,12 +2026,12 @@ inline int32 CLuaBaseEntity::closeDoor(lua_State *L)
     {
         uint32 CloseTime = (!lua_isnil(L, 1) && lua_isnumber(L, 1)) ? (uint32)lua_tointeger(L, 1) * 1000 : 7000;
         m_PBaseEntity->animation = ANIMATION_CLOSE_DOOR;
-        m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_COMBAT));
+        m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_COMBAT);
 
         m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(CloseTime), false, [](CBaseEntity* PNpc)
         {
             PNpc->animation = ANIMATION_OPEN_DOOR;
-            PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+            PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
         }));
     }
     return 0;
@@ -2171,12 +2168,12 @@ inline int32 CLuaBaseEntity::hideNPC(lua_State *L)
         uint32 OpenTime = (!lua_isnil(L, 1) && lua_isnumber(L, 1)) ? (uint32)lua_tointeger(L, 1) * 1000 : 15000;
 
         m_PBaseEntity->status = STATUS_DISAPPEAR;
-        m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_DESPAWN, UPDATE_NONE));
+        m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_DESPAWN, UPDATE_NONE);
 
         m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(OpenTime), false, [](CBaseEntity* PNpc)
         {
             PNpc->status = STATUS_NORMAL;
-            PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+            PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
         }));
     }
     return 0;
@@ -2201,7 +2198,7 @@ inline int32 CLuaBaseEntity::updateNPCHideTime(lua_State *L)
         m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(OpenTime), false, [](CBaseEntity* PNpc)
         {
             PNpc->status = STATUS_NORMAL;
-            PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+            PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
         }));
     }
     return 0;
@@ -2777,7 +2774,7 @@ inline int32 CLuaBaseEntity::updateToEntireZone(lua_State* L)
         PNpc->name[8] = 8;
     }
 
-    PNpc->loc.zone->PushPacket(nullptr, CHAR_INZONE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+    PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
     return 1;
 }
 /************************************************************************
@@ -5320,9 +5317,9 @@ inline int32 CLuaBaseEntity::setGMHidden(lua_State* L)
     if (PChar->loc.zone)
     {
         if (PChar->m_isGMHidden)
-            PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE, new CCharPacket(PChar, ENTITY_DESPAWN, 0));
+            PChar->loc.zone->UpdateCharPacket(PChar, ENTITY_DESPAWN, UPDATE_NONE);
         else
-            PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE, new CCharPacket(PChar, ENTITY_SPAWN, 0));
+            PChar->loc.zone->UpdateCharPacket(PChar, ENTITY_SPAWN, UPDATE_NONE);
     }
 
     return 0;
@@ -5402,7 +5399,7 @@ inline int32 CLuaBaseEntity::speed(lua_State *L)
             }
             else
             {
-                m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_POS));
+                m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_POS);
             }
         }
         return 0;

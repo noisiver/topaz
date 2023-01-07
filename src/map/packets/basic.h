@@ -101,6 +101,21 @@ public:
 
     /* Getters for the header */
 
+    uint16 getType()
+    {
+        return ref<uint16>(0) & 0x1FF;
+    }
+
+    std::size_t getSize()
+    {
+        return (size_t)2 * (ref<uint8>(1) & ~1);
+    }
+
+    unsigned short getSequence()
+    {
+        return ref<uint16>(2);
+    }
+
     uint16 id()
     {
         return ref<uint16>(0) & 0x1FF;

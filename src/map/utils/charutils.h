@@ -215,6 +215,8 @@ namespace charutils
     void   SendTimerPacket(CCharEntity* PChar, uint32 seconds);
     void   SendTimerPacket(CCharEntity* PChar, duration dur);
     void   SendClearTimerPacket(CCharEntity* PChar);
-};
+
+     bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity);
+    };
 
 #endif // _CHARUTILS_H

@@ -630,7 +630,7 @@ void CZone::IncreaseZoneCounter(CCharEntity* PChar)
     TPZ_DEBUG_BREAK_IF(PChar->loc.zone != nullptr);
     TPZ_DEBUG_BREAK_IF(PChar->PTreasurePool != nullptr);
 
-    PChar->targid = m_zoneEntities->GetNewTargID();
+    PChar->targid = m_zoneEntities->GetNewCharTargID();
 
     if (PChar->targid >= 0x700)
     {
@@ -780,6 +780,17 @@ CCharEntity* CZone::GetCharByID(uint32 id)
 void CZone::PushPacket(CBaseEntity* PEntity, GLOBAL_MESSAGE_TYPE message_type, CBasicPacket* packet)
 {
     m_zoneEntities->PushPacket(PEntity, message_type, packet);
+}
+
+void CZone::UpdateCharPacket(CCharEntity* PChar, ENTITYUPDATE type, uint8 updatemask)
+{
+    m_zoneEntities->UpdateCharPacket(PChar, type, updatemask);
+}
+
+void CZone::UpdateEntityPacket(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask, bool alwaysInclude)
+{
+    TracyZoneScoped
+    m_zoneEntities->UpdateEntityPacket(PEntity, type, updatemask, alwaysInclude);
 }
 
 /************************************************************************
@@ -1057,6 +1068,21 @@ void CZone::CheckRegions(CCharEntity* PChar)
         }
     }
     PChar->m_InsideRegionID = RegionID;
+}
+
+void CZone::ResetLocalVars()
+{
+    m_localVars.clear();
+}
+
+uint32 CZone::GetLocalVar(const char* var)
+{
+    return m_localVars[var];
+}
+
+void CZone::SetLocalVar(const char* var, uint32 val)
+{
+    m_localVars[var] = val;
 }
 
 //====================================1=======================

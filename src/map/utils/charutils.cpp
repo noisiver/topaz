@@ -5635,4 +5635,42 @@ namespace charutils
         auto timerPacket = new CTimerBarUtilPacket();
         PChar->pushPacket(timerPacket);
     }
-}; // namespace charutils
+
+        bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity)
+    {
+        SpawnIDList_t* spawnlist = nullptr;
+
+        if (!entity)
+        {
+            return false;
+        }
+
+        if (entity->objtype == TYPE_MOB)
+        {
+            spawnlist = &PChar->SpawnMOBList;
+        }
+        else if (entity->objtype == TYPE_NPC)
+        {
+            spawnlist = &PChar->SpawnNPCList;
+        }
+        else if (entity->objtype == TYPE_PC)
+        {
+            spawnlist = &PChar->SpawnPCList;
+        }
+        else if (entity->objtype == TYPE_PET)
+        {
+            spawnlist = &PChar->SpawnPETList;
+        }
+        else if (entity->objtype == TYPE_TRUST)
+        {
+            spawnlist = &PChar->SpawnTRUSTList;
+        }
+        else
+        {
+            return false;
+        }
+
+        return spawnlist->find(entity->id) != spawnlist->end();
+    }
+
+    }; // namespace charutils

@@ -301,10 +301,60 @@ void CCharEntity::pushPacket(std::unique_ptr<CBasicPacket> packet)
     pushPacket(packet.release());
 }
 
+void CCharEntity::updateCharPacket(CCharEntity* PChar, ENTITYUPDATE type, uint8 updatemask)
+{
+    auto existing = PendingCharPackets.find(PChar->id);
+    if (existing == PendingCharPackets.end())
+    {
+        // No existing packet update for the given char, so we push new packet
+        CCharPacket* packet = new CCharPacket(PChar, type, updatemask);
+        PacketList.push_back(packet);
+        PendingCharPackets.emplace(PChar->id, packet);
+    }
+    else
+    {
+        // Found existing packet update for the given char, so we update it instead of pushing new
+        existing->second->updateWith(PChar, type, updatemask);
+    }
+}
+
+void CCharEntity::updateEntityPacket(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask)
+{
+    auto existing = PendingEntityPackets.find(PEntity->id);
+    if (existing == PendingEntityPackets.end())
+    {
+        // No existing packet update for the given entity, so we push new packet
+        CEntityUpdatePacket* packet = new CEntityUpdatePacket(PEntity, type, updatemask);
+        PacketList.push_back(packet);
+        PendingEntityPackets.emplace(PEntity->id, packet);
+    }
+    else
+    {
+        // Found existing packet update for the given entity, so we update it instead of pushing new
+        existing->second->updateWith(PEntity, type, updatemask);
+    }
+}
+
 CBasicPacket* CCharEntity::popPacket()
 {
-    std::lock_guard<std::mutex> lk(m_PacketListMutex);
     CBasicPacket* PPacket = PacketList.front();
+
+    // Clean up pending maps
+    switch (PPacket->getType())
+    {
+        case 0x0D: // Char update
+            PendingCharPackets.erase(PPacket->ref<uint32>(0x04));
+            break;
+        case 0x0E: // Entity update
+            PendingEntityPackets.erase(PPacket->ref<uint32>(0x04));
+            break;
+        case 0x5B: // Position update
+            PendingPositionPacket = nullptr;
+            break;
+        default:
+            break;
+    }
+
     PacketList.pop_front();
     return PPacket;
 }
