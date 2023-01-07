@@ -2,7 +2,7 @@
 -- Area: The Eldieme Necropolis [S]
 --  NPC: Turbulent Storm
 -- Note: Starts Quest "The Fighting Fourth"
--- !pos 422.461 -48.000 175
+-- !gotoid 17494724
 -----------------------------------
 local ID = require("scripts/zones/The_Eldieme_Necropolis_[S]/IDs")
 require("scripts/globals/keyitems")
