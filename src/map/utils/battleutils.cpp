@@ -1792,8 +1792,12 @@ namespace battleutils
             }
 
             //Check For Ambush Merit - Ranged
-            if ((charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_AMBUSH)) && behind(PAttacker->loc.p, PDefender->loc.p, 64)) {
-                acc += ((CCharEntity*)PAttacker)->PMeritPoints->GetMeritValue(MERIT_AMBUSH, (CCharEntity*)PAttacker);
+            if ((charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_AMBUSH)))
+            {
+                if (behind(PAttacker->loc.p, PDefender->loc.p, 64) || PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBT))
+                {
+                    acc += ((CCharEntity*)PAttacker)->PMeritPoints->GetMeritValue(MERIT_AMBUSH, (CCharEntity*)PAttacker);
+                }
             }
 
         }
@@ -1820,6 +1824,8 @@ namespace battleutils
 
         int eva = PDefender->EVA();
         hitrate = hitrate + (acc - eva) / 2 + (PAttacker->GetMLevel() - PDefender->GetMLevel()) * 2;
+
+        // ShowDebug("Ranged accuracy: %d\n", acc);
 
         if (PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SHARPSHOT))
         {
@@ -2765,9 +2771,12 @@ namespace battleutils
         {
             // ShowDebug("Accuracy mod before direction checks: %d\n", offsetAccuracy);
             // Check For Ambush Merit - Melee
-            if (PAttacker->objtype == TYPE_PC && (charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_AMBUSH)) && behind(PAttacker->loc.p, PDefender->loc.p, 64))
+            if (PAttacker->objtype == TYPE_PC && (charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_AMBUSH)))
             {
-                offsetAccuracy += ((CCharEntity*)PAttacker)->PMeritPoints->GetMeritValue(MERIT_AMBUSH, (CCharEntity*)PAttacker);
+                if (behind(PAttacker->loc.p, PDefender->loc.p, 64) || PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBT))
+                {
+                    offsetAccuracy += ((CCharEntity*)PAttacker)->PMeritPoints->GetMeritValue(MERIT_AMBUSH, (CCharEntity*)PAttacker);
+                }
             }
             // Check for Closed Position merit on attacker for additional accuracy and that attacker and defender are facing each other
             if (PAttacker->objtype == TYPE_PC && (charutils::hasTrait((CCharEntity*)PAttacker, TRAIT_CLOSED_POSITION)) && (infront(PAttacker->loc.p, PDefender->loc.p, 64) && facing(PAttacker->loc.p, PDefender->loc.p, 64)))

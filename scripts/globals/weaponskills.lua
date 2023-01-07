@@ -915,8 +915,10 @@ function getHitRate(attacker, target, capHitRate, firsthit, bonus)
     if (target:hasStatusEffect(tpz.effect.YONIN) and attacker:isFacing(target, 90)) then -- Yonin evasion boost if attacker is facing target
         bonus = bonus - target:getStatusEffect(tpz.effect.YONIN):getPower()
     end
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then --TRAIT_AMBUSH
-        bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+    if attacker:hasTrait(76) then
+        if target:hasStatusEffect(tpz.effect.DOUBT) or attacker:isBehind(target, 90) then --TRAIT_AMBUSH
+            bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+        end
     end
 
     acc = acc + bonus
@@ -969,8 +971,10 @@ function getRangedHitRate(attacker, target, slugwinder, bonus)
     if (bonus == nil) then
         bonus = 0
     end
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then --TRAIT_AMBUSH
-        bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+    if attacker:hasTrait(76) then
+        if target:hasStatusEffect(tpz.effect.DOUBT) or attacker:isBehind(target, 90) then --TRAIT_AMBUSH
+            bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+        end
     end
 
     acc = acc + bonus
@@ -1305,8 +1309,10 @@ function getMultiAttacks(attacker, target, numHits)
     local oaTwiceRate = attacker:getMod(tpz.mod.MYTHIC_OCC_ATT_TWICE)/100
 
     -- Add Ambush Augments to Triple Attack
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then -- TRAIT_AMBUSH
-        tripleRate = tripleRate + attacker:getMerit(tpz.merit.AMBUSH) / 3 -- Value of Ambush is 3 per mert, augment gives +1 Triple Attack per merit
+    if attacker:hasTrait(76) then
+        if target:hasStatusEffect(tpz.effect.DOUBT) or attacker:isBehind(target, 90) then --TRAIT_AMBUSH
+            tripleRate = tripleRate + attacker:getMerit(tpz.merit.AMBUSH) / 3 -- Value of Ambush is 3 per mert, augment gives +1 Triple Attack per merit
+        end
     end
     --[[
     -- QA/TA/DA can only proc on the first hit of each weapon or each fist
