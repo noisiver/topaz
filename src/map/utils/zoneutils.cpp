@@ -1014,7 +1014,6 @@ REGIONTYPE GetCurrentRegion(uint16 ZoneID)
 
 CONTINENTTYPE GetCurrentContinent(uint16 ZoneID)
 {
-    return GetCurrentRegion(ZoneID) != REGION_UNKNOWN ? THE_MIDDLE_LANDS : OTHER_AREAS;
     CONTINENTTYPE continentID;
     switch (GetCurrentRegion(ZoneID))
     {
