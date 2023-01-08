@@ -56,6 +56,7 @@ protected:
 
     virtual void TryLink();
     bool CanDetectTarget(CBattleEntity* PTarget, bool forceSight = false);
+    int32 GetSightDetectionModifiers();
     int32 GetFomorHate(CBattleEntity* PTarget);
     bool CanPursueTarget(CBattleEntity* PTarget);
     bool CheckHide(CBattleEntity* PTarget);

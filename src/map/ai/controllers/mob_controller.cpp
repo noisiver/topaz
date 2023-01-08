@@ -251,8 +251,10 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
         hasInvisible = PTarget->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE); // Does not ignore invisible.
 
     }
-
-    if (detectSight && !hasInvisible && currentDistance < PMob->getMobMod(MOBMOD_SIGHT_RANGE) && facing(PMob->loc.p, PTarget->loc.p, 64))
+    // ShowDebug("Sight Range before %u \n", PMob->getMobMod(MOBMOD_SIGHT_RANGE));
+    uint32 sightRange = PMob->getMobMod(MOBMOD_SIGHT_RANGE) * GetSightDetectionModifiers() / 100;
+    // ShowDebug("Sight Range after %u \n", sightRange);
+    if (detectSight && !hasInvisible && currentDistance < sightRange && facing(PMob->loc.p, PTarget->loc.p, 64))
     {
         return CanSeePoint(PTarget->loc.p);
     }
@@ -299,6 +301,41 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     }
 
     return false;
+}
+
+int32 CMobController::GetSightDetectionModifiers()
+{
+    WEATHER weather = battleutils::GetWeather(PMob, false);
+    uint32 VanadielHour = CVanaTime::getInstance()->getHour();
+    ZONETYPE zoneType = PMob->loc.zone->GetType();
+
+    // Day Vision
+    // Fire And Water = Bonus vision range
+    // Wind and Thunder = No Bonus
+    // Rest = penalty
+    // Only active outdoors
+    if (zoneType != ZONETYPE_OUTDOORS || weather == WEATHER_NONE || weather == WEATHER_SUNSHINE || weather == WEATHER_CLOUDS)
+    {
+        return 100;
+    }
+    if (weather == WEATHER_HOT_SPELL || weather == WEATHER_HEAT_WAVE || weather == WEATHER_AURORAS || weather == WEATHER_STELLAR_GLARE)
+    {
+        return 150;
+    }
+    else if (weather == WEATHER_WIND || weather == WEATHER_GALES || weather == WEATHER_THUNDER || weather == WEATHER_THUNDERSTORMS)
+    {
+        return 100;
+    }
+    else
+    {
+        return 50;
+    }
+
+    // Neutral at day time, penalty at night
+    if (VanadielHour >= 20 || VanadielHour < 4)
+    {
+        return 50;
+    }
 }
 
 bool CMobController::CanSeePoint(position_t pos)
