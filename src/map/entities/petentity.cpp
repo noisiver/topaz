@@ -151,7 +151,7 @@ void CPetEntity::PostTick()
 void CPetEntity::FadeOut()
 {
     CMobEntity::FadeOut();
-    loc.zone->PushPacket(this, CHAR_INRANGE, new CEntityUpdatePacket(this, ENTITY_DESPAWN, UPDATE_NONE));
+    loc.zone->UpdateEntityPacket(this, ENTITY_DESPAWN, UPDATE_NONE);
 }
 
 void CPetEntity::Die()

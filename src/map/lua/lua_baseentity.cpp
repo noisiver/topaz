@@ -2145,7 +2145,7 @@ inline int32 CLuaBaseEntity::showNPC(lua_State *L)
     m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(OpenTime), false, [](CBaseEntity* PNpc)
     {
         PNpc->status = STATUS_DISAPPEAR;
-        PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_DESPAWN, UPDATE_NONE));
+        PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_DESPAWN, UPDATE_NONE);
     }));
 
     return 0;

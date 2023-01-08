@@ -73,7 +73,7 @@ void CTrustEntity::PostTick()
 void CTrustEntity::FadeOut()
 {
     CBaseEntity::FadeOut();
-    loc.zone->PushPacket(this, (loc.zone->m_BattlefieldHandler) ? CHAR_INZONE : CHAR_INRANGE, new CEntityUpdatePacket(this, ENTITY_DESPAWN, UPDATE_NONE));
+    loc.zone->UpdateEntityPacket(this, ENTITY_DESPAWN, UPDATE_NONE);
 }
 
 void CTrustEntity::Die()
