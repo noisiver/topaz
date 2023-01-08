@@ -41,6 +41,7 @@ When a status effect is gained twice on a player. It can do one or more of the f
 #include "ai/states/inactive_state.h"
 
 #include "packets/char_health.h"
+#include "packets/char_abilities.h"
 #include "packets/char_job_extra.h"
 #include "packets/char_update.h"
 #include "packets/message_basic.h"
@@ -440,6 +441,8 @@ bool CStatusEffectContainer::AddStatusEffect(CStatusEffect* PStatusEffect, bool 
         {
             CCharEntity* PChar = (CCharEntity*)m_POwner;
             charutils::BuildingCharSkillsTable(PChar);
+            charutils::BuildingCharWeaponSkills(PChar);
+            PChar->pushPacket(new CCharAbilitiesPacket(PChar));
         }
         m_POwner->PAI->EventHandler.triggerListener("EFFECT_GAIN", m_POwner, PStatusEffect);
 
@@ -553,6 +556,8 @@ void CStatusEffectContainer::RemoveStatusEffect(CStatusEffect* PStatusEffect, bo
         {
             CCharEntity* PChar = (CCharEntity*)m_POwner;
             charutils::BuildingCharSkillsTable(PChar);
+            charutils::BuildingCharWeaponSkills(PChar);
+            PChar->pushPacket(new CCharAbilitiesPacket(PChar));
         }
         m_POwner->PAI->EventHandler.triggerListener("EFFECT_LOSE", m_POwner, PStatusEffect);
 
