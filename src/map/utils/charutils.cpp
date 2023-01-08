@@ -2368,7 +2368,7 @@ namespace charutils
                         PItem->setAssignTime(CVanaTime::getInstance()->getVanaTime());
                         PChar->PRecastContainer->Add(RECAST_ITEM, slotID << 8 | containerID, PItem->getReuseTime() / 1000); // add recast timer to Recast List from any bag
 
-                        // не забываем обновить таймер при экипировке предмета
+                        // don't forget to update the timer when equipping an item
 
                         PChar->pushPacket(new CInventoryItemPacket(PItem, containerID, slotID));
                         PChar->pushPacket(new CInventoryFinishPacket());
