@@ -264,7 +264,23 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
         return true;
     }
 
-    if ((detectSound) && currentDistance < PMob->getMobMod(MOBMOD_SOUND_RANGE) && !hasSneak)
+    uint32 soundRange = PMob->getMobMod(MOBMOD_SOUND_RANGE);
+    uint32 soundMod = GetSoundDetectionModifiers();
+    // ShowDebug("Sound Range before %u \n", PMob->getMobMod(MOBMOD_SOUND_RANGE));
+    // ShowDebug("Sound Mod %u \n", soundMod);
+
+    // Undead sound range is 5, normal sound aggro mobs are 8
+    if (IsUndead())
+    {
+        soundRange = 5;
+    }
+    // ShowDebug("Sound Range after undead check %u \n", soundRange);
+    soundRange *= soundMod;
+
+    soundRange /= 100;
+    //ShowDebug("Sound Range after mod %u \n", soundRange);
+
+    if ((detectSound) && currentDistance < soundRange && !hasSneak)
     {
         return CanSeePoint(PTarget->loc.p);
     }
@@ -285,17 +301,10 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
         return CanSeePoint(PTarget->loc.p);
     }
 
-    if ((detectHP) && currentDistance < PMob->getMobMod(MOBMOD_HP_RANGE) && PTarget->GetHPP() < 25)
-    {
-        return CanSeePoint(PTarget->loc.p);
-    }
-
-    if ((detectHP) && currentDistance < 15 && PTarget->GetHPP() < 50)
-    {
-        return CanSeePoint(PTarget->loc.p);
-    }
-
-    if ((detectHP) && currentDistance < 10 && PTarget->GetHPP() < 75)
+    // ShowDebug("Blood Range before %u \n", PMob->getMobMod(MOBMOD_HP_RANGE));
+    uint32 bloodRange = (PMob->getMobMod(MOBMOD_HP_RANGE) * GetBloodDetectionModifiers()) / 100;
+    // ShowDebug("Blood Range after %u \n", bloodRange);
+    if ((detectHP) && currentDistance < bloodRange)
     {
         return CanSeePoint(PTarget->loc.p);
     }
@@ -303,26 +312,130 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     return false;
 }
 
-int32 CMobController::GetSightDetectionModifiers()
+uint32 CMobController::GetSightDetectionModifiers()
 {
     WEATHER weather = battleutils::GetWeather(PMob, false);
     uint32 VanadielHour = CVanaTime::getInstance()->getHour();
     ZONETYPE zoneType = PMob->loc.zone->GetType();
 
-    // Day Vision
-    // Fire And Water = Bonus vision range
-    // Wind and Thunder = No Bonus
-    // Rest = penalty
-    // Only active outdoors
-    if (zoneType != ZONETYPE_OUTDOORS || weather == WEATHER_NONE || weather == WEATHER_SUNSHINE || weather == WEATHER_CLOUDS)
+    if (IsDaySight())
+    {
+        // Day Vision
+        // Fire And Water = Bonus vision range
+        // Wind and Thunder = No Bonus
+        // Rest = penalty
+        // Only active outdoors
+        if (zoneType != ZONETYPE_OUTDOORS)
+        {
+            return 100;
+        }
+        if (weather == WEATHER_HOT_SPELL || weather == WEATHER_HEAT_WAVE || weather == WEATHER_AURORAS || weather == WEATHER_STELLAR_GLARE)
+        {
+            return 150;
+        }
+        else if (weather == WEATHER_WIND || weather == WEATHER_GALES || weather == WEATHER_THUNDER || weather == WEATHER_THUNDERSTORMS)
+        {
+            return 100;
+        }
+        else if (VanadielHour >= 20 || VanadielHour < 4) // Neutral at day time, penalty at night
+        {
+            return 50;
+        }
+        else if (weather == WEATHER_NONE || weather == WEATHER_SUNSHINE || weather == WEATHER_CLOUDS)
+        {
+            return 100;
+        }
+        else
+        {
+            return 50;
+        }
+    }
+    else
+    {
+        if (zoneType != ZONETYPE_OUTDOORS)
+        {
+            return 100;
+        }
+        if (weather == WEATHER_FOG || weather == WEATHER_RAIN || weather == WEATHER_SQUALL || weather == WEATHER_SNOW || weather == WEATHER_BLIZZARDS ||
+            weather == WEATHER_THUNDER || weather == WEATHER_THUNDERSTORMS || weather == WEATHER_GLOOM || weather == WEATHER_DARKNESS)
+        {
+            return 150;
+        }
+        else if (weather == WEATHER_DUST_STORM || weather == WEATHER_SAND_STORM)
+        {
+            return 100;
+        }
+        else if (VanadielHour >= 6 && VanadielHour < 18) // Neutral at night time, penalty during the day
+        {
+            return 50;
+        }
+        if (weather == WEATHER_NONE || weather == WEATHER_SUNSHINE || weather == WEATHER_CLOUDS)
+        {
+            return 100;
+        }
+        else
+        {
+            return 50;
+        }
+    }
+}
+
+bool CMobController::IsDaySight()
+{
+    // If Day sight, return true, otherwise return false
+    // Day Sight: Gigas, Orc War Machine, Cockatrice, Yagudo, Buffalo, Manticore, Ram, Bee, Cluster, Roc, Puk
+    // Blind day Pattern: Bombs / Snolls / Djinn
+    auto family = PMob->m_Family;
+
+    if (family >= 126 && family <= 130 || family == 328 || family == 190 || family == 945 || family == 70 || family == 531 || family == 270 || family == 360 ||
+        family == 943 || family == 57 || family == 179 || family == 208 || family == 48 || family == 68 || family == 69 || family == 125 || family == 198 ||
+        family == 526) 
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+uint32 CMobController::GetSoundDetectionModifiers()
+{
+    WEATHER weather = battleutils::GetWeather(PMob, false);
+    uint32 VanadielHour = CVanaTime::getInstance()->getHour();
+    ZONETYPE zoneType = PMob->loc.zone->GetType();
+
+    // Sound aggro
+    // 4 Sound range, game hours 4 - 18
+    // 8 Sound range, game hours 18 - 4
+    // Weather increases to 12
+    // Weather decreases to 4
+    // Static 8 in dungeons
+
+    // Undead + sound
+    // 2.5 Sound range, game hours 4 - 18
+    // 5 Sound range, game hours 18 - 4
+    // Weather decreases to 2.5
+    // Weather increases to 7.5
+    // Static 5 in dungeons
+    if (zoneType != ZONETYPE_OUTDOORS)
     {
         return 100;
     }
-    if (weather == WEATHER_HOT_SPELL || weather == WEATHER_HEAT_WAVE || weather == WEATHER_AURORAS || weather == WEATHER_STELLAR_GLARE)
+    if (weather == WEATHER_DUST_STORM || weather == WEATHER_SAND_STORM || weather == WEATHER_WIND || weather == WEATHER_GALES)
     {
         return 150;
     }
-    else if (weather == WEATHER_WIND || weather == WEATHER_GALES || weather == WEATHER_THUNDER || weather == WEATHER_THUNDERSTORMS)
+    else if (weather == WEATHER_SNOW || weather == WEATHER_BLIZZARDS || weather == WEATHER_AURORAS || weather == WEATHER_STELLAR_GLARE ||
+                weather == WEATHER_GLOOM || weather == WEATHER_DARKNESS)
+    {
+        return 100;
+    }
+    else if (VanadielHour >= 4 && VanadielHour < 18) // Neutral at night time, penalty during the day
+    {
+        return 50;
+    }
+    else if (weather == WEATHER_NONE || weather == WEATHER_SUNSHINE || weather == WEATHER_CLOUDS)
     {
         return 100;
     }
@@ -330,11 +443,53 @@ int32 CMobController::GetSightDetectionModifiers()
     {
         return 50;
     }
+}
 
-    // Neutral at day time, penalty at night
-    if (VanadielHour >= 20 || VanadielHour < 4)
+uint32 CMobController::GetBloodDetectionModifiers()
+{
+    WEATHER weather = battleutils::GetWeather(PMob, false);
+    uint32 VanadielHour = CVanaTime::getInstance()->getHour();
+    ZONETYPE zoneType = PMob->loc.zone->GetType();
+
+    // Blood aggro
+    // 20 during no weather
+    // 20 Static in dungeons
+    // 30 during dark weather and fog
+    // 10 during any other(than dark and fog) weathers
+    if (IsUndead())
     {
-        return 50;
+        if (zoneType != ZONETYPE_OUTDOORS)
+        {
+            return 100;
+        }
+        if (weather == WEATHER_FOG || weather == WEATHER_GLOOM || weather == WEATHER_DARKNESS)
+        {
+            return 150;
+        }
+        else if (weather == WEATHER_NONE || weather == WEATHER_SUNSHINE || weather == WEATHER_CLOUDS)
+        {
+            return 100;
+        }
+        else
+        {
+            return 50;
+        }
+    }
+    return 100;
+}
+
+bool CMobController::IsUndead()
+{
+    // Hounds, Skeletons, Ghosts, Doomed
+    auto family = PMob->m_Family;
+
+    if (family == 142 || family == 143 || family == 227 || family == 88 || family == 89 || family == 121 || family == 52 || family == 86 || family == 552)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }
 

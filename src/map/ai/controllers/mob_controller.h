@@ -56,7 +56,11 @@ protected:
 
     virtual void TryLink();
     bool CanDetectTarget(CBattleEntity* PTarget, bool forceSight = false);
-    int32 GetSightDetectionModifiers();
+    uint32 GetSightDetectionModifiers();
+    bool IsDaySight();
+    uint32 GetSoundDetectionModifiers();
+    uint32 GetBloodDetectionModifiers();
+    bool IsUndead();
     int32 GetFomorHate(CBattleEntity* PTarget);
     bool CanPursueTarget(CBattleEntity* PTarget);
     bool CheckHide(CBattleEntity* PTarget);
