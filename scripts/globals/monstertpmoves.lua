@@ -770,6 +770,11 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         dmg = target:rangedDmgTaken(dmg)
     end
 
+    -- Handle TP move DR mod
+    local dmgTPmod = 1 + (target:getMod(tpz.mod.DMGTP) / 100)
+
+    dmg = math.floor(dmg * dmgTPmod)
+
     if (dmg < 0) then
         return 0
     end

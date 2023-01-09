@@ -1113,6 +1113,7 @@ tpz.mod =
     DMGSC                           = 1276, -- Skillchan Damage Taken %
     DMGMB                           = 1277, -- Magic Burst Damage Taken %
     DMGSPIRITS                      = 1278, -- Spirits Damage Taken % (Spirits Within / Atonement / Requiescat
+    DMGTP                           = 1307, -- TP move Damge taken %
     CRITHITRATE                     = 165,
     CRIT_DMG_INCREASE               = 421,
     RANGED_CRIT_DMG_INCREASE        = 964, -- Increases ranged critical damage by a percent
@@ -1765,7 +1766,7 @@ tpz.mod =
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1307 NEXT
+    -- 1308 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

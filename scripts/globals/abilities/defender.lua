@@ -14,5 +14,14 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.DEFENDER, 1, 0, 300 + player:getMod(tpz.mod.DEFENDER_DURATION))
+    local defPower = 25
+    local dmgTPPower = 0
+    local duration = 300 + player:getMod(tpz.mod.DEFENDER_DURATION)
+    if player:getMainJob() == tpz.job.WAR then
+        defPower = 50
+        dmgTPPower = math.floor(33 * (1 + (player:getMod(tpz.mod.DEFENDER_POTENCY) / 100)))
+    end
+    defPower = math.floor(defPower * (1 + (player:getMod(tpz.mod.DEFENDER_POTENCY) / 100)))
+
+    player:addStatusEffect(tpz.effect.DEFENDER, defPower, 0, duration, 0, dmgTPPower)
 end
