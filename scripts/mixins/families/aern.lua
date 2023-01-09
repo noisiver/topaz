@@ -7,6 +7,7 @@
 -- TODO: Bracelets are not mdt/pdt unless AV
 
 require("scripts/globals/mixins")
+require("scripts/globals/status")
 
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
@@ -59,7 +60,11 @@ g_mixins.families.aern = function(mob)
 		end
     end)
     mob:addListener("SPAWN", "AERN_SPAWN", function(mob)
-        mob:setDelay(4000)
+        if mob:getMainJob() == tpz.job.MNK then
+            mob:setDelay(8000)
+        else
+			mob:setDelay(4000)
+        end
 		mob:AnimationSub(1)
     end)
 
@@ -79,7 +84,11 @@ g_mixins.families.aern = function(mob)
 		if BraceletsTime == 0 then
 			mob:setLocalVar("BraceletsTime", os.time() + math.random(15, 90))
 		elseif os.time() >= BraceletsTime and Mode == 0 then
-			mob:setDelay(3000)
+            if mob:getMainJob() == tpz.job.MNK then
+                mob:setDelay(6000)
+            else
+			    mob:setDelay(3000)
+            end
 			mob:addMod(tpz.mod.ATTP, 50)
             mob:addMod(tpz.mod.DEFP, 50)
 			mob:addMod(tpz.mod.MATT, 48)
@@ -88,7 +97,11 @@ g_mixins.families.aern = function(mob)
 			mob:setLocalVar("Mode", 1)
 		end
 		if BraceletsOff > 0 and os.time() >= BraceletsOff and Mode == 1 then
-			mob:setDelay(4000)
+            if mob:getMainJob() == tpz.job.MNK then
+                mob:setDelay(8000)
+            else
+			    mob:setDelay(4000)
+            end
 			mob:delMod(tpz.mod.ATTP, 50)
             mob:delMod(tpz.mod.DEFP, 50)
 			mob:delMod(tpz.mod.MATT, 48)
