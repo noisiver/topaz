@@ -3314,6 +3314,21 @@ namespace battleutils
         int32 rank = 0;
         int32 fstr = 0;
         float dif = (float)(PAttacker->STR() - PDefender->VIT());
+
+        // does mob FSTR2 for ranged attack apply here?
+        if (PAttacker->objtype == TYPE_MOB || PAttacker->objtype == TYPE_PET)
+        {
+            fstr = (PAttacker->STR() - PDefender->VIT() + 4) / 4;
+
+            // Level -1 mobs are coded as level 1, but they have an fSTR of 1 always
+            if (PAttacker->objtype == TYPE_MOB && PAttacker->GetMLevel() == 1)
+            {
+                return 1;
+            }
+
+            return std::clamp(fstr, -20, 24);
+        }
+
         if (dif >= 12) {
             fstr = static_cast<int32>((dif + 4) / 2);
         }
