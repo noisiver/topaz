@@ -17652,9 +17652,9 @@ INSERT INTO `item_mods` VALUES (15511,85,7);
 INSERT INTO `item_mods` VALUES (15512,13,5);
 INSERT INTO `item_mods` VALUES (15512,80,7);
 INSERT INTO `item_mods` VALUES (15512,105,7);
-INSERT INTO `item_mods` VALUES (15513,14,5);
-INSERT INTO `item_mods` VALUES (15513,84,7);
-INSERT INTO `item_mods` VALUES (15513,91,7);
+INSERT INTO `item_mods` VALUES (15513,14,5);        -- Temperance Torque: CHR+5
+INSERT INTO `item_mods` VALUES (15513,84,7);        -- Axe Skill +7
+INSERT INTO `item_mods` VALUES (15513,109,7);       -- Shield Skill +7
 INSERT INTO `item_mods` VALUES (15514,9,5);
 INSERT INTO `item_mods` VALUES (15514,81,7);
 INSERT INTO `item_mods` VALUES (15514,87,7);
