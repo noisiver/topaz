@@ -19,5 +19,5 @@ function onUseAbility(player, target, ability)
     local duration = 30
     duration = duration + player:getMod(tpz.mod.WARCRY_DURATION)
 
-    target:addStatusEffect(tpz.effect.BLOOD_RAGE, 25, 0, duration, 0, 30)
+    target:addStatusEffect(tpz.effect.BLOOD_RAGE, 50, 0, duration, 0, 30)
 end
