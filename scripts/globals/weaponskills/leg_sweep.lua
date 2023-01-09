@@ -34,6 +34,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
 	if damage > 0 then player:trySkillUp(target, tpz.skill.POLEARM, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    jobUtil.AddIgnisRune(player, damage)
 
     local maccBonus = math.floor(MaccTPModifier(tp))
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.THUNDER, maccBonus, tpz.effect.STUN)

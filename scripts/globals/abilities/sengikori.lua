@@ -19,15 +19,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local Runes = player:getLocalVar("IgnisRunes")
-    if (Runes > 0) then
-        local power = Runes
-        local duration = Runes * 30
-        player:delStatusEffectSilent(tpz.effect.IGNIS)
-        player:delStatusEffectSilent(tpz.effect.IGNIS)
-        player:delStatusEffectSilent(tpz.effect.IGNIS)
-        player:setLocalVar("IgnisRunes", 0)
-        player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.POTENCY, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
+    if jobUtil.ConsumeIgnisRune(player, tpz.effect.POTENCY, 1) then
+        target:addStatusEffect(tpz.effect.SENGIKORI, 12, 0, 60)
     end
-    target:addStatusEffect(tpz.effect.SENGIKORI, 12, 0, 60)
 end

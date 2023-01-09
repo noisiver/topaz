@@ -38,6 +38,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
-    return tpHits, extraHits, criticalHit, damage
+    jobUtil.AddIgnisRune(player, damage)
 
+    return tpHits, extraHits, criticalHit, damage
 end

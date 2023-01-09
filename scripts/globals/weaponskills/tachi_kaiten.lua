@@ -40,29 +40,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.RELIC)
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
-    local LuxRunes = player:getLocalVar("LuxRunes")
-    local RuneDuration = 7200
-    -- Adds up to two runes
-    if damage > 0 then
-        if LuxRunes < 2 then -- Two runes if less than 2 runes currently on
-        for v = 523,528,1 do
-            player:delStatusEffectSilent(v)
-        end
-        for v = 523,528,1 do
-            player:delStatusEffectSilent(v)
-        end
-            player:addStatusEffect(tpz.effect.LUX, 1, 0, RuneDuration)
-            player:addStatusEffect(tpz.effect.LUX, 1, 0, RuneDuration)
-        end
-        if LuxRunes == 2 then -- One rune if currently at 2 runes
-            for v = 524,530,1 do
-                player:delStatusEffectSilent(v)
-            end
-            player:addStatusEffect(tpz.effect.LUX, 1, 0, RuneDuration)
-        end
-    end
+	if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    jobUtil.AddIgnisRune(player, damage)
 
     return tpHits, extraHits, criticalHit, damage
 end

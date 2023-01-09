@@ -35,6 +35,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.RANGED, tpz.aftermath.type.RELIC)
 
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
+    jobUtil.AddIgnisRune(player, damage)
 
     return tpHits, extraHits, criticalHit, damage
 end

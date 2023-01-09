@@ -37,15 +37,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.EMPYREAN)
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
-    local IgnisRunes = player:getLocalVar("IgnisRunes")
-    if damage > 0 and IgnisRunes <=2 then
-        for v = 524,530,1 do
-            player:delStatusEffectSilent(v)
-        end
-        player:addStatusEffect(tpz.effect.IGNIS, 1, 0, 300)
-    end
+	if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    jobUtil.AddIgnisRune(player, damage)
 
     return tpHits, extraHits, criticalHit, damage
 end

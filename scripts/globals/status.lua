@@ -1,4 +1,5 @@
 require("scripts/globals/world")
+require("scripts/globals/job_util")
 
 ------------------------------------
 --

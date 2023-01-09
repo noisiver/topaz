@@ -10,7 +10,7 @@ require("scripts/globals/utils")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
-    local Runes = player:getLocalVar("LuxRunes")
+    local Runes = player:getLocalVar("IgnisRunes")
     if Runes == 0 then
         return tpz.msg.basic.CANNOT_PERFORM_ACTION, 0
     else
@@ -19,15 +19,9 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local Runes = player:getLocalVar("LuxRunes")
-    local power = 1 + (Runes * 3)
-    local duration = Runes * 30
-    player:delStatusEffectSilent(tpz.effect.LUX)
-    player:delStatusEffectSilent(tpz.effect.LUX)
-    player:delStatusEffectSilent(tpz.effect.LUX)
-    player:setLocalVar("LuxRunes", 0)
-    player:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, duration, tpz.effect.GEO_REGEN, power, tpz.auraTarget.ALLIES, tpz.effectFlag.AURA)
-    player:delStatusEffectSilent(tpz.effect.HAGAKURE)
-    player:addStatusEffect(tpz.effect.HAGAKURE, 1, 0, 60)
+    if jobUtil.ConsumeIgnisRune(player, tpz.effect.GEO_REGEN, 3) then
+        player:delStatusEffectSilent(tpz.effect.HAGAKURE)
+        player:addStatusEffect(tpz.effect.HAGAKURE, 1, 0, 60)
+    end
 end
 

@@ -13,6 +13,7 @@ require("scripts/globals/ability")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
+require("scripts/globals/job_util")
 require("scripts/globals/msg")
 
 -- Function to calculate if a hit in a WS misses, criticals, and the respective damage done
