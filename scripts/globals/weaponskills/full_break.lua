@@ -50,23 +50,25 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
             target:delStatusEffect(tpz.effect.DEFENSE_BOOST)
             target:addStatusEffect(tpz.effect.DEFENSE_DOWN, power1, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, bonus)
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, bonus)
         if (target:hasStatusEffect(tpz.effect.ATTACK_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.ATTACK_BOOST)
             target:addStatusEffect(tpz.effect.ATTACK_DOWN, power1, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, bonus)
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, bonus)
         if (target:hasStatusEffect(tpz.effect.EVASION_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.EVASION_BOOST)
             target:addStatusEffect(tpz.effect.EVASION_DOWN, power2, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, bonus)
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, bonus)
         if (target:hasStatusEffect(tpz.effect.ACCURACY_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.ACCURACY_BOOST)
             target:addStatusEffect(tpz.effect.ACCURACY_DOWN, power2, 0, duration * resist)
         end
     end
-		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_AXE, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
+	if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_AXE, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
     return tpHits, extraHits, criticalHit, damage
 end
