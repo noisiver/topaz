@@ -467,7 +467,7 @@ INSERT INTO `mob_skills` VALUES (525,269,'battery_charge',0,7.0,2000,1500,1,0,0,
 INSERT INTO `mob_skills` VALUES (530,900,'memento_mori',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (531,901,'silence_seal',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (532,902,'envoutement',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (533,903,'danse_macabre',0,10.0,2000,2000,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (533,903,'danse_macabre',0,10.0,2000,3500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (534,278,'kartstrahl',0,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (535,279,'blitzstrahl',0,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (536,280,'panzerfaust',0,15.0,2000,1500,4,0,0,2,0,0,0);
@@ -1271,7 +1271,7 @@ INSERT INTO `mob_skills` VALUES (1324,403,'debilitating_drone',1,15.0,2000,1500,
 INSERT INTO `mob_skills` VALUES (1326,988,'final_retribution',1,10.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1327,1071,'eagle_eye_shot',0,7.0,2000,1500,4,2,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1328,1072,'ink_jet',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1329,990,'gala_macabre',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1329,990,'gala_macabre',1,10.0,2000,3500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1330,915,'hoof_volley',0,7.0,2000,1500,4,0,0,2,0,0,0);
 INSERT INTO `mob_skills` VALUES (1331,1075,'counterstance',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1332,63,'extremely_bad_breath',1,10.0,2000,2500,4,0,0,0,0,0,0);
