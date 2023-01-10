@@ -479,6 +479,71 @@ local loot =
             {itemid = 15185, droprate =   55}, -- Walkure Mask
         },
     },
+    -- KSNM Copycat
+    [80] =
+    {
+        {
+            {itemid = 65535, droprate = 1000, amount = 24000},  -- gil
+        },
+        {
+            {itemid =  658, droprate = 1000}, -- Damascus Ingot
+        },
+        {
+            {itemid = 17275, droprate =  250}, -- Coffinmaker
+            {itemid = 17509, droprate =  250}, -- Destroyers
+            {itemid = 17207, droprate =  250}, -- Expunder
+            {itemid = 17944, droprate =  250}, -- Retributor
+        },
+        {
+            {itemid = 14762, droprate =  250}, -- Attilas Earring
+            {itemid = 17700, droprate =  250}, -- Durandal 
+            {itemid = 18006, droprate =  250}, -- Hoplites Harpe
+            {itemid = 17842, droprate =  250}, -- Sorrwful Harp
+        },
+        {
+            {itemid = 15327, droprate =  334}, -- Fuma Sune-Ate
+            {itemid = 655, droprate =  333}, -- Adaman Ingot 
+            {itemid = 747, droprate =  333}, -- Orichalcum Ingot
+        },
+        {
+            {itemid =     0, droprate =  250}, -- nothing
+            {itemid = 19027, droprate =   200}, -- Claymore Grip
+            {itemid =  19025, droprate =   200}, -- Pole Grip
+            {itemid =   19024, droprate =   200}, -- Sword Strap
+            {itemid =   19026, droprate =   200}, -- Spear STrap
+        },
+        {
+            {itemid = 1110, droprate = 148},  -- Vial Of Black Beetle Blood
+            {itemid = 658, droprate = 142},   -- Damascus Ingot
+            {itemid = 836, droprate = 142},   -- Square Of Damascene Cloth
+            {itemid = 942, droprate = 142},   -- Philosophers Stone
+            {itemid = 844, droprate = 142},   -- Phoenix Feather
+            {itemid = 1132, droprate = 142},  -- Square Of Raxa
+            {itemid = 837, droprate = 142},   -- Malboro Fiber
+        },
+        {
+            {itemid = 887, droprate = 50},   -- Coral Fragment
+            {itemid = 645, droprate = 50},   -- Chunk Of Darksteel Ore
+            {itemid = 902, droprate = 50},   -- Demon Horn
+            {itemid = 702, droprate = 50},   -- Ebony Log
+            {itemid = 737, droprate = 50},   -- Chunk Of Gold Ore
+            {itemid = 823, droprate = 50},   -- Spool Of Gold Thread
+            {itemid = 4173, droprate = 50},  -- Hi-reraiser
+            {itemid = 700, droprate = 50},   -- Mahogany Log
+            {itemid = 644, droprate = 50},   -- Chunk Of Mythril Ore
+            {itemid = 703, droprate = 50},   -- Petrified Log
+            {itemid = 844, droprate = 50},   -- Phoenix Feather
+            {itemid = 738, droprate = 50},   -- Chunk Of Platinum Ore
+            {itemid = 830, droprate = 50},   -- Square Of Rainbow Cloth
+            {itemid = 895, droprate = 50},   -- Ram Horn
+            {itemid = 4172, droprate = 50},  -- Reraiser
+            {itemid = 4174, droprate = 50},  -- Vile Elixir
+            {itemid = 4175, droprate = 50},  -- Vile Elixir +1
+            {itemid = 866, droprate = 50},   -- Handful Of Wyvern Scales
+            {itemid = 1132, droprate = 50},  -- Square Of Raxa
+            {itemid = 837, droprate = 50},   -- Spool Of Malboro Fiber
+        },
+    },
 
     -- KSNM Operation Desert Swarm
     [81] =

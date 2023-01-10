@@ -363,6 +363,11 @@ INSERT INTO `bcnm_battlefield` VALUES (78,3,17367240,3);
 INSERT INTO `bcnm_battlefield` VALUES (79,1,17367242,3); -- up_in_arms
 INSERT INTO `bcnm_battlefield` VALUES (79,2,17367244,3);
 INSERT INTO `bcnm_battlefield` VALUES (79,3,17367246,3);
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367248,3); -- copycat
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367250,0); 
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367251,0); 
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367252,0); 
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367253,0); 
 INSERT INTO `bcnm_battlefield` VALUES (81,1,17367266,3); -- operation_desert_swarm
 INSERT INTO `bcnm_battlefield` VALUES (81,1,17367267,3);
 INSERT INTO `bcnm_battlefield` VALUES (81,1,17367268,3);
