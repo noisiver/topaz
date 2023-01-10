@@ -16,6 +16,8 @@ function onSpellCast(caster, target, spell)
 
     if not target:addStatusEffect(tpz.effect.REGAIN, 1, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     end
 
     return tpz.effect.REGAIN
