@@ -62,6 +62,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 25) 
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setSpellList(2)
 end
 
 function onMobEngaged(mob, target)
