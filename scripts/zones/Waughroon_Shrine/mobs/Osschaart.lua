@@ -61,6 +61,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 25) 
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 25)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
 end
 
 function onMobEngaged(mob, target)
