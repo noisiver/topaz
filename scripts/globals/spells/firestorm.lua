@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
         power = merit + caster:getMod(tpz.mod.STORMSURGE_EFFECT) + 2
     end
 
-    target:addStatusEffect(tpz.effect.FIRESTORM, power, 0, 180)
+    target:addStatusEffect(tpz.effect.FIRESTORM, power, 0, duration)
 
     return tpz.effect.FIRESTORM
 end
