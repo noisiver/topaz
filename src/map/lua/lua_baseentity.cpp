@@ -5918,6 +5918,28 @@ int32 CLuaBaseEntity::addJobTraits(lua_State* L)
 }
 
 /************************************************************************
+ *  Function: delJobTraits
+ *  Purpose : Delete job traits
+ *  Example : player:delJobTraits(tpz.job.WHM, 75)
+ ************************************************************************/
+
+int32 CLuaBaseEntity::delJobTraits(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 2) || !lua_isnumber(L, 2));
+
+    CBattleEntity* PEntity = dynamic_cast<CBattleEntity*>(m_PBaseEntity);
+
+    if (PEntity != nullptr)
+    {
+        battleutils::DelTraits(PEntity, traits::GetTraits((uint8)lua_tointeger(L, 1)), (uint8)lua_tointeger(L, 2));
+    }
+
+    return 0;
+}
+
+/************************************************************************
 *  Function: getTitle()
 *  Purpose : Returns the integer value of the player's current title
 *  Example : if (player:getTitle()) == 123) then
@@ -15903,6 +15925,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,levelCap),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,levelRestriction),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addJobTraits),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,delJobTraits),
 
     // Player Titles and Fame
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getTitle),

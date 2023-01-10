@@ -6315,6 +6315,42 @@ namespace battleutils
         }
     }
 
+    void DelTraits(CBattleEntity* PEntity, TraitList_t* traitList, uint8 level)
+    {
+        CCharEntity* PChar = PEntity->objtype == TYPE_PC ? static_cast<CCharEntity*>(PEntity) : nullptr;
+
+        for (auto&& PTrait : *traitList)
+        {
+            if (level >= PTrait->getLevel() && PTrait->getLevel() > 0)
+            {
+                bool del = false;
+
+                for (uint8 j = 0; j < PEntity->TraitList.size(); ++j)
+                {
+                    CTrait* PExistingTrait = PEntity->TraitList.at(j);
+                    if (PExistingTrait->getID() == PTrait->getID())
+                    {
+                        if (PExistingTrait->getMod() == PTrait->getMod())
+                        {
+                            del = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (del)
+                {
+                    PEntity->delTrait(PTrait);
+                    if (PEntity->objtype == TYPE_MOB)
+                    {
+                        // Append this trait's modifier to the mob's saved mod state so it is included on respawn.
+                        PEntity->m_modStatSave[PTrait->getMod()] += PTrait->getValue();
+                    }
+                }
+            }   
+        }
+    }
+
     bool HasClaim(CBattleEntity* PEntity, CBattleEntity* PTarget)
     {
         TPZ_DEBUG_BREAK_IF(PTarget == nullptr);
