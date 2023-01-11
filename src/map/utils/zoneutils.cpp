@@ -1160,4 +1160,16 @@ bool IsResidentialArea(CCharEntity* PChar)
     return PChar->m_moghouseID != 0;
 }
 
+    void AfterZoneIn(CBaseEntity* PEntity)
+{
+    CCharEntity* PChar = dynamic_cast<CCharEntity*>(PEntity);
+    // TODO
+    //if (PChar != nullptr && (PChar->PBattlefield == nullptr || !PChar->PBattlefield->isEntered(PChar)))
+    //{
+    //    GetZone(PChar->getZone())->updateCharLevelRestriction(PChar);
+    //}
+
+    luautils::AfterZoneIn(PChar);
+}
+
 }; // namespace zoneutils

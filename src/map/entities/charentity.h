@@ -347,6 +347,8 @@ public:
     uint8			  m_GMlevel;                    // Level of the GM flag assigned to this character
     bool              m_isGMHidden;                 // GM Hidden flag to prevent player updates from being processed.
 
+    location_t m_previousLocation;
+
     bool              m_mentorUnlocked;
     uint32            m_moghouseID;
     uint16            m_moghancementID;

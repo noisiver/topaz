@@ -503,18 +503,18 @@ void SmallPacket0x00F(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 }
 
 /************************************************************************
-*                                                                       *
-*  Player Zone Transition Confirmation                                  *
-*  First packet sent after transitioning zones or entering the game.    *
-*  Client confirming the zoning was successful, equips gear.            *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Player Zone Transition Confirmation                                  *
+ *  First packet sent after transitioning zones or entering the game.    *
+ *  Client confirming the zoning was successful, equips gear.            *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x011(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x011(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
-    session->blowfish.status = BLOWFISH_ACCEPTED;
-
+    PSession->blowfish.status = BLOWFISH_ACCEPTED;
+    PChar->status = STATUS_NORMAL;
     PChar->health.tp = 0;
 
     for (uint8 i = 0; i < 16; ++i)
@@ -525,65 +525,80 @@ void SmallPacket0x011(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         }
     }
 
+    PChar->PAI->QueueAction(queueAction_t(4000ms, false, zoneutils::AfterZoneIn));
+
     // todo: kill player til theyre dead and bsod
     const char* fmtQuery = "SELECT version_mismatch FROM accounts_sessions WHERE charid = %u";
     int32 ret = Sql_Query(SqlHandle, fmtQuery, PChar->id);
-    if (ret != SQL_ERROR && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+    if (ret == SQL_ERROR || Sql_NumRows(SqlHandle) != 1 || Sql_NextRow(SqlHandle) != SQL_SUCCESS)
     {
         // On zone change, only sending a version message if mismatch
-        //if ((bool)Sql_GetUIntData(SqlHandle, 0))
-            //PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Server does not support this client version."));
+        // if ((bool)sql->GetUIntData(0))
+        // PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Server does not support this client version."));
     }
-    return;
 }
 
 /************************************************************************
-*                                                                       *
-*  Player Sync                                                          *
-*  Updates the players position and other important information.        *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Player Sync                                                          *
+ *  Updates the players position and other important information.        *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x015(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x015(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     TracyZoneCString("Player Sync");
 
-    if (PChar->status != STATUS_SHUTDOWN &&
-        PChar->status != STATUS_DISAPPEAR)
+    if (PChar->status != STATUS_SHUTDOWN && PChar->status != STATUS_SHUTDOWN)
     {
-        bool moved = ((PChar->loc.p.x != data.ref<float>(0x04)) ||
-            (PChar->loc.p.z != data.ref<float>(0x0C)) ||
-            (PChar->m_TargID != data.ref<uint16>(0x16)));
+        float newX = data.ref<float>(0x04);
+        float newY = data.ref<float>(0x08);
+        float newZ = data.ref<float>(0x0C);
+        uint16 newTargID = data.ref<uint16>(0x16);
+        uint8 newRotation = data.ref<uint8>(0x14);
 
-        bool isUpdate = moved || PChar->updatemask & UPDATE_POS;
+        // clang-format off
+        bool moved =
+            PChar->loc.p.x != newX ||
+            PChar->loc.p.y != newY ||
+            PChar->loc.p.z != newZ ||
+            PChar->m_TargID != newTargID ||
+            PChar->loc.p.rotation != newRotation;
+        // clang-format on
+
+        // Cache previous location
+        PChar->m_previousLocation = PChar->loc;
 
         if (!PChar->isCharmed)
         {
-            PChar->loc.p.x = data.ref<float>(0x04);
-            PChar->loc.p.y = data.ref<float>(0x08);
-            PChar->loc.p.z = data.ref<float>(0x0C);
+            PChar->loc.p.x = newX;
+            PChar->loc.p.y = newY;
+            PChar->loc.p.z = newZ;
 
             PChar->loc.p.moving = data.ref<uint16>(0x12);
-            PChar->loc.p.rotation = data.ref<uint8>(0x14);
+            PChar->loc.p.rotation = newRotation;
 
-            PChar->m_TargID = data.ref<uint16>(0x16);
+            PChar->m_TargID = newTargID;
         }
 
         if (moved)
         {
-            PChar->updatemask |= UPDATE_POS;
+            PChar->updatemask |= UPDATE_POS; // Indicate that we want to update this PChar's PChar->loc or targID
+
+            // Calculate rough amount of steps taken
+            if (PChar->m_previousLocation.zone->GetID() == PChar->loc.zone->GetID())
+            {
+                float distanceTravelled = distance(PChar->m_previousLocation.p, PChar->loc.p);
+            }
         }
 
-        if (isUpdate)
-        {
-            PChar->requestedInfoSync = true;
-            PChar->loc.zone->SpawnNPCs(PChar);
-        }
-
+        // Request updates for all entity types
+        PChar->loc.zone->SpawnNPCs(PChar); // Some NPCs can move, some rotate when other players talk to them, always request NPC updates.
         PChar->loc.zone->SpawnMOBs(PChar);
         PChar->loc.zone->SpawnPETs(PChar);
         PChar->loc.zone->SpawnTRUSTs(PChar);
+        PChar->requestedInfoSync = true; // Ask to update PCs during CZoneEntities::ZoneServer
 
         if (PChar->PWideScanTarget != nullptr)
         {
@@ -595,16 +610,15 @@ void SmallPacket0x015(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             }
         }
     }
-    return;
 }
 
 /************************************************************************
-*                                                                       *
-*  Entity Information Request (Event NPC Information Request)           *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Entity Information Request (Event NPC Information Request)           *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x016(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x016(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     uint16 targid = data.ref<uint16>(0x04);
@@ -627,28 +641,30 @@ void SmallPacket0x016(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             if (!PEntity)
             {
                 PEntity = zoneutils::GetTrigger(targid, PChar->getZone());
+
+                // PEntity->id will now be the full id of the entity we could not find
+                ShowWarning(fmt::format("Server missing npc_list.sql entry <{}> in zone <{} ({})>", PEntity->id,
+                                        zoneutils::GetZone(PChar->getZone())->GetName(), PChar->getZone()));
             }
             PChar->updateEntityPacket(PEntity, ENTITY_SPAWN, UPDATE_ALL_MOB);
         }
     }
-    return;
 }
 
 /************************************************************************
-*                                                                       *
-*  Invalid NPC Information Response                                     *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Invalid NPC Information Response                                     *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x017(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x017(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     uint16 targid = data.ref<uint16>(0x04);
     uint32 npcid = data.ref<uint32>(0x08);
-    uint8  type = data.ref<uint8>(0x12);
+    uint8 type = data.ref<uint8>(0x12);
 
-    ShowWarning(CL_YELLOW"SmallPacket0x17: Incorrect NPC(%u,%u) type(%u)\n" CL_RESET, targid, npcid, type);
-    return;
+    ShowWarning("SmallPacket0x17: Incorrect NPC(%u,%u) type(%u)", targid, npcid, type);
 }
 
 /************************************************************************

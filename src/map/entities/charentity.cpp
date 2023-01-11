@@ -227,6 +227,7 @@ CCharEntity::CCharEntity()
     m_LastYell = 0;
     m_moghouseID = 0;
     m_moghancementID = 0;
+    m_previousLocation = {}; 
 
     m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
 
