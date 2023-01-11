@@ -19,7 +19,7 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    mob:setLocalVar("KOTimer", os.time() + 30)
+    mob:setLocalVar("KOTimer", os.time() + 45)
 end
 
 function onMobFight(mob, target)
@@ -35,7 +35,7 @@ function onMobFight(mob, target)
             if (os.time() >= KOTimer) then
                 KOTarget = math.random(#enmityList)
                 if not GetPlayerByID(KOTarget):isDead() then
-                    mob:setLocalVar("KOTimer", os.time() + 30)
+                    mob:setLocalVar("KOTimer", os.time() + 60)
                     ForceDrawIn(mob, KOTarget)
                     GetPlayerByID(KOTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
                     mob:useMobAbility(3, GetPlayerByID(KOTarget)) -- One Inch Punch
@@ -48,7 +48,7 @@ function onMobFight(mob, target)
     -- Handle One Inch Punch being interrupted
     mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "RAOGRIMM_WS_INTERRUPTED", function(mob, skill)
         if skill == 3 then
-            mob:setLocalVar("KOTimer", 0)
+            mob:setLocalVar("KOTimer", 1)
         end
     end)
 end
