@@ -34,7 +34,7 @@ function onMobFight(mob, target)
             mob:actionQueueEmpty() and (tp < 1000) then 
             if (os.time() >= KOTimer) then
                 KOTarget = math.random(#enmityList)
-                if not KOTarget:isDead() then
+                if not GetPlayerByID(KOTarget):isDead() then
                     mob:setLocalVar("KOTimer", os.time() + 30)
                     ForceDrawIn(mob, KOTarget)
                     GetPlayerByID(KOTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
