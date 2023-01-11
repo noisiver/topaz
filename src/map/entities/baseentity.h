@@ -261,6 +261,8 @@ public:
     uint8           allegiance;         // what types of targets the entity can fight
     uint8           updatemask;         // what to update next server tick to players nearby
 
+    bool m_bReleaseTargIDOnDisappear = false;
+
     std::unique_ptr<CAIContainer> PAI;       // AI container
     CBattlefield* PBattlefield;            // pointer to battlefield (if in one)
     CInstance*		PInstance;

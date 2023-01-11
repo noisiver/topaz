@@ -1280,71 +1280,167 @@ void CZoneEntities::WideScan(CCharEntity* PChar, uint16 radius)
     PChar->pushPacket(new CWideScanPacket(WIDESCAN_END));
 }
 
-void CZoneEntities::ZoneServer(time_point tick, bool check_regions)
+void CZoneEntities::ZoneServer(time_point tick, bool check_trigger_areas)
 {
     TracyZoneScoped;
-    TracyZoneIString(m_zone->GetName());
+    TracyZoneString(m_zone->GetName());
 
-    for (EntityList_t::const_iterator it = m_mobList.begin(); it != m_mobList.end(); ++it)
+    // luautils::OnZoneTick(this->m_zone);
+    // Can't add :(
+
+    std::vector<CMobEntity*> aggroableMobs;
+    EntityList_t::iterator it = m_mobList.begin();
+    while (it != m_mobList.end())
     {
-        CMobEntity* PMob = (CMobEntity*)it->second;
+        CMobEntity* PMob = dynamic_cast<CMobEntity*>(it->second);
+        if (!PMob)
+        {
+            it++;
+            continue;
+        }
 
         if (PMob->PBattlefield && PMob->PBattlefield->CanCleanup())
         {
+            it++;
             continue;
         }
 
         PMob->PRecastContainer->Check();
         PMob->StatusEffectContainer->CheckEffectsExpiry(tick);
-        if(tick > m_EffectCheckTime)
+        if (tick > m_EffectCheckTime)
         {
             PMob->StatusEffectContainer->TickRegen(tick);
             PMob->StatusEffectContainer->TickEffects(tick);
         }
+
         PMob->PAI->Tick(tick);
-    }
 
-    for (EntityList_t::const_iterator it = m_npcList.begin(); it != m_npcList.end(); ++it)
-    {
-        CNpcEntity* PNpc = (CNpcEntity*)it->second;
-
-        PNpc->PAI->Tick(tick);
-    }
-
-    EntityList_t::const_iterator pit = m_petList.begin();
-    while (pit != m_petList.end())
-    {
-        CPetEntity* PPet = (CPetEntity*)pit->second;
-        PPet->PRecastContainer->Check();
-        PPet->StatusEffectContainer->CheckEffectsExpiry(tick);
-        if(tick > m_EffectCheckTime)
-        {
-            PPet->StatusEffectContainer->TickRegen(tick);
-            PPet->StatusEffectContainer->TickEffects(tick);
-        }
-        PPet->PAI->Tick(tick);
-        if (PPet->status == STATUS_DISAPPEAR)
+        if (PMob->status == STATUS_DISAPPEAR && PMob->m_bReleaseTargIDOnDisappear)
         {
             for (auto PMobIt : m_mobList)
             {
                 CMobEntity* PCurrentMob = (CMobEntity*)PMobIt.second;
-                PCurrentMob->PEnmityContainer->Clear(PPet->id);
+                PCurrentMob->PEnmityContainer->Clear(PMob->id);
             }
-            if (PPet->getPetType() != PETTYPE_AUTOMATON || !PPet->PMaster)
+
+            if (PMob->PParty)
             {
-                delete pit->second;
+                PMob->PParty->RemoveMember(PMob);
             }
-            m_petList.erase(pit++);
+
+            for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
+            {
+                CCharEntity* PChar = (CCharEntity*)it->second;
+                if (distance(PChar->loc.p, PMob->loc.p) < 50)
+                {
+                    PChar->SpawnMOBList.erase(PMob->id);
+                }
+            }
+
+            it->second = nullptr;
+            m_mobList.erase(it++);
+            dynamicTargIdsToDelete.push_back(std::make_pair(PMob->targid, server_clock::now()));
+            delete PMob;
+            continue;
         }
-        else {
-            ++pit;
+
+        if (PMob->allegiance == ALLEGIANCE_PLAYER && PMob->m_Aggro)
+        {
+            aggroableMobs.push_back(PMob);
+        }
+
+        it++;
+    }
+
+    // Check to see if any aggroable mobs should be aggroed by other mobs
+    for (CMobEntity* PMob : aggroableMobs)
+    {
+        for (auto PMobCurrentIter : m_mobList)
+        {
+            CMobEntity* PCurrentMob = dynamic_cast<CMobEntity*>(PMobCurrentIter.second);
+            if (PCurrentMob != nullptr && PCurrentMob->isAlive() && PMob->allegiance != PCurrentMob->allegiance &&
+                distance(PMob->loc.p, PCurrentMob->loc.p) <= 50)
+            {
+                CMobController* PController = static_cast<CMobController*>(PCurrentMob->PAI->GetController());
+                if (PController != nullptr && PController->CanAggroTarget(PMob))
+                {
+                    PCurrentMob->PEnmityContainer->AddBaseEnmity(PMob);
+                }
+            }
         }
     }
 
-    EntityList_t::const_iterator trustit = m_trustList.begin();
-    while (trustit != m_trustList.end())
+    it = m_npcList.begin();
+    while (it != m_npcList.end())
     {
-        if (CTrustEntity* PTrust = dynamic_cast<CTrustEntity*>(trustit->second))
+        CNpcEntity* PNpc = (CNpcEntity*)it->second;
+        PNpc->PAI->Tick(tick);
+
+        // This is only valid for dynamic entities
+        if (PNpc->status == STATUS_DISAPPEAR && PNpc->m_bReleaseTargIDOnDisappear)
+        {
+            for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
+            {
+                CCharEntity* PChar = (CCharEntity*)it->second;
+                if (distance(PChar->loc.p, PNpc->loc.p) < 50)
+                {
+                    PChar->SpawnNPCList.erase(PNpc->id);
+                }
+            }
+
+            delete it->second;
+            it->second = nullptr;
+            dynamicTargIdsToDelete.push_back({ it->first, server_clock::now() });
+
+            m_npcList.erase(it++);
+            continue;
+        }
+        it++;
+    }
+
+    it = m_petList.begin();
+    while (it != m_petList.end())
+    {
+        // TODO: This static cast includes Battlefield Allies. Allies shouldn't be handled here in
+        //     : this way, but we need to do this to keep allies working (for now).
+        if (auto* PPet = static_cast<CPetEntity*>(it->second))
+        {
+            PPet->PRecastContainer->Check();
+            PPet->StatusEffectContainer->CheckEffectsExpiry(tick);
+            if (tick > m_EffectCheckTime)
+            {
+                PPet->StatusEffectContainer->TickRegen(tick);
+                PPet->StatusEffectContainer->TickEffects(tick);
+            }
+            PPet->PAI->Tick(tick);
+
+            if (PPet->status == STATUS_DISAPPEAR)
+            {
+                for (auto PMobIt : m_mobList)
+                {
+                    CMobEntity* PCurrentMob = (CMobEntity*)PMobIt.second;
+                    PCurrentMob->PEnmityContainer->Clear(PPet->id);
+                }
+
+                if (PPet->getPetType() != PETTYPE_AUTOMATON || !PPet->PMaster)
+                {
+                    delete it->second;
+                    it->second = nullptr;
+                }
+
+                dynamicTargIdsToDelete.push_back(std::make_pair(it->first, server_clock::now()));
+
+                m_petList.erase(it++);
+                continue;
+            }
+        }
+        it++;
+    }
+
+    it = m_trustList.begin();
+    while (it != m_trustList.end())
+    {
+        if (CTrustEntity* PTrust = dynamic_cast<CTrustEntity*>(it->second))
         {
             PTrust->PRecastContainer->Check();
             PTrust->StatusEffectContainer->CheckEffectsExpiry(tick);
@@ -1354,12 +1450,16 @@ void CZoneEntities::ZoneServer(time_point tick, bool check_regions)
                 PTrust->StatusEffectContainer->TickEffects(tick);
             }
             PTrust->PAI->Tick(tick);
+
             if (PTrust->status == STATUS_DISAPPEAR)
             {
-                for (auto PMobIt : m_mobList)
+                for (auto& list : { m_mobList, m_trustList }) // Remove from Mobs and Trusts
                 {
-                    CMobEntity* PCurrentMob = (CMobEntity*)PMobIt.second;
-                    PCurrentMob->PEnmityContainer->Clear(PTrust->id);
+                    for (auto& itr : list)
+                    {
+                        CMobEntity* PCurrentMob = static_cast<CMobEntity*>(itr.second); // Force cast to CMobEntity*
+                        PCurrentMob->PEnmityContainer->Clear(PTrust->id);
+                    }
                 }
 
                 for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
@@ -1372,18 +1472,15 @@ void CZoneEntities::ZoneServer(time_point tick, bool check_regions)
                     }
                 }
 
-                delete trustit->second;
-                m_trustList.erase(trustit++);
-            }
-            else
-            {
-                ++trustit;
+                delete it->second;
+                it->second = nullptr;
+                dynamicTargIdsToDelete.push_back(std::make_pair(it->first, server_clock::now()));
+
+                m_trustList.erase(it++);
+                continue;
             }
         }
-        else
-        {
-            ++trustit;
-        }
+        it++;
     }
 
     for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
@@ -1401,7 +1498,7 @@ void CZoneEntities::ZoneServer(time_point tick, bool check_regions)
             }
             PChar->PAI->Tick(tick);
             PChar->PTreasurePool->CheckItems(tick);
-            if (check_regions)
+            if (check_trigger_areas)
             {
                 m_zone->CheckRegions(PChar);
             }
@@ -1413,7 +1510,37 @@ void CZoneEntities::ZoneServer(time_point tick, bool check_regions)
         m_EffectCheckTime = m_EffectCheckTime + 3s > tick ? m_EffectCheckTime + 3s : tick + 3s;
     }
 
-      if (tick > computeTime && !charTargIds.empty())
+    if (tick > charPersistTime && !charTargIds.empty())
+    {
+        charPersistTime = tick + 1s;
+
+        auto charTargIdIter = charTargIds.lower_bound(lastCharPersistTargId);
+        if (charTargIdIter == charTargIds.end())
+        {
+            charTargIdIter = charTargIds.begin();
+        }
+
+        size_t maxChecks = std::min<size_t>(charTargIds.size(), PERSIST_CHECK_CHARACTERS);
+
+        for (size_t i = 0; i < maxChecks; i++)
+        {
+            CCharEntity* pc = (CCharEntity*)m_charList[*charTargIdIter];
+            charTargIdIter++;
+            if (charTargIdIter == charTargIds.end())
+            {
+                charTargIdIter = charTargIds.begin();
+            }
+
+            if (pc && pc->PersistData(tick))
+            {
+                // We only want to persist at most 1 character per zone tick
+                break;
+            }
+        }
+        lastCharPersistTargId = *charTargIdIter;
+    }
+
+    if (tick > computeTime && !charTargIds.empty())
     {
         // Tick time is irregular to avoid consistently happening at the same time as char persistence
         computeTime = tick + 567ms;
@@ -1436,7 +1563,7 @@ void CZoneEntities::ZoneServer(time_point tick, bool check_regions)
                 charTargIdIter = charTargIds.begin();
             }
 
-             if (pc && pc->requestedInfoSync)
+            if (pc && pc->requestedInfoSync)
             {
                 pc->requestedInfoSync = false;
                 SpawnPCs(pc);
@@ -1445,6 +1572,9 @@ void CZoneEntities::ZoneServer(time_point tick, bool check_regions)
 
         lastCharComputeTargId = *charTargIdIter;
     }
+
+    // moduleutils::OnZoneTick(m_zone);
+    // can't add :(
 }
 
 CZone* CZoneEntities::GetZone()

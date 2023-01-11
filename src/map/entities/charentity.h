@@ -30,6 +30,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include <mutex>
 #include <bitset>
 #include <unordered_map>
+#include <unordered_set>
 
 #include "battleentity.h"
 #include "petentity.h"
@@ -42,6 +43,8 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #define MAX_QUESTID     256
 #define MAX_MISSIONAREA	 15
 #define MAX_MISSIONID    851
+
+#define TIME_BETWEEN_PERSIST 2min
 
 class CItemWeapon;
 class CTrustEntity;
@@ -151,6 +154,14 @@ enum CHAR_SUBSTATE
     SUBSTATE_NONE = 0,
     SUBSTATE_IN_CS,
     SUBSTATE_LAST,
+};
+
+enum CHAR_PERSIST : uint8
+{
+    EQUIP = 0x01,
+    POSITION = 0x02,
+    EFFECTS = 0x04,
+    LINKSHELL = 0x08,
 };
 
 /************************************************************************
@@ -384,6 +395,10 @@ public:
     void        ClearTrusts();
     void        RemoveTrust(CTrustEntity*);
 
+    void RequestPersist(CHAR_PERSIST toPersist);
+    bool PersistData();
+    bool PersistData(time_point tick);
+
     virtual void Tick(time_point) override;
     void        PostTick() override;
 
@@ -462,6 +477,12 @@ private:
     bool            m_isStyleLocked;
     bool            m_isBlockingAid;
     bool			m_reloadParty;
+
+    std::unordered_map<std::string, int32> charVarCache;
+    std::unordered_set<std::string> charVarChanges;
+
+    uint8 dataToPersist;
+    time_point nextDataPersistTime;
 
     PacketList_t      PacketList;					// the list of packets to be sent to the character during the next network cycle
     std::unordered_map<uint32, CCharPacket*> PendingCharPackets; // Keep track of which char packets are queued up for this char, such that they can be updated

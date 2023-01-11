@@ -613,6 +613,75 @@ void CCharEntity::ClearTrusts()
     ReloadPartyInc();
 }
 
+void CCharEntity::RequestPersist(CHAR_PERSIST toPersist)
+{
+    dataToPersist |= toPersist;
+}
+
+bool CCharEntity::PersistData()
+{
+    bool didPersist = false;
+
+    if (!charVarChanges.empty())
+    {
+        /* TODO
+        for (auto&& charVarName : charVarChanges)
+        {
+            charutils::PersistCharVar(this->id, charVarName.c_str(), charVarCache[charVarName]);
+        }
+        */
+
+        charVarChanges.clear();
+        didPersist = true;
+    }
+
+    if (!dataToPersist)
+    {
+        return didPersist;
+    }
+    else
+    {
+        didPersist = true;
+    }
+
+    if (dataToPersist & CHAR_PERSIST::EQUIP)
+    {
+        charutils::SaveCharEquip(this);
+        charutils::SaveCharLook(this);
+    }
+
+    if (dataToPersist & CHAR_PERSIST::POSITION)
+    {
+        charutils::SaveCharPosition(this);
+    }
+
+    if (dataToPersist & CHAR_PERSIST::EFFECTS)
+    {
+        StatusEffectContainer->SaveStatusEffects(true);
+    }
+
+    /* TODO
+    if (dataToPersist & CHAR_PERSIST::LINKSHELL)
+    {
+        charutils::SaveCharLinkshells(this);
+    }
+    */
+
+    dataToPersist = 0;
+    return didPersist;
+}
+
+bool CCharEntity::PersistData(time_point tick)
+{
+    if (tick < nextDataPersistTime || !PersistData())
+    {
+        return false;
+    }
+
+    nextDataPersistTime = tick + TIME_BETWEEN_PERSIST;
+    return true;
+}
+
 void CCharEntity::Tick(time_point tick)
 {
     TracyZoneScoped;
