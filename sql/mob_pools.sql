@@ -6927,7 +6927,7 @@ INSERT INTO `mob_pools` VALUES (9115,'Water_Elemental_ArrapagoRemnants','Water_E
 INSERT INTO `mob_pools` VALUES (9116,'Thunder_Elemental_ArrapagoRemnants','Thunder_Elemental',940,0x00000D0000000000000000000000000000000000,4,5,12,240,100,0,1,1,1,2,0,0,291,129,16,0,16,1,0,105);
 
 
--- NEXT 6771
+-- NEXT 6772
 -- NEXT CUSTOM 9117
 /*
   `poolid` int(10) unsigned NOT NULL,
