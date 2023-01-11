@@ -32,14 +32,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.atk100 = 1; params.atk200 = 1; params.atk300 = 1
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
 
-    local power1 = 13
-    local power2 = 20
+    local power1 = 25
+    local power2 = 40
     local bonus = 0
     -- Imperial Bhuj Hidden Effect
     local gaxe = player:getEquipID(tpz.slot.MAIN)
 	if gaxe == 18485 then -- Imperial Bhuj
-        power1 = 18
-        power2 = 25
+        power1 = 30
+        power2 = 50
         bonus = 50
     end
 
