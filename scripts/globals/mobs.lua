@@ -864,7 +864,7 @@ function SetGenericNMStats(mob)
     end
 
     if mob:getMainJob() == tpz.job.MNK then
-        wepDMG = wepDMG * 0.5
+        wepDMG = wepDMG * 0.4
     end
 
 	mob:setDamage(wepDMG)
