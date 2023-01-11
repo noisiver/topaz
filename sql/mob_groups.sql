@@ -6008,7 +6008,7 @@ INSERT INTO `mob_groups` VALUES (21,928,92,'DaDha_Hundredmask',7200,0,3031,35000
 INSERT INTO `mob_groups` VALUES (22,4238,92,'Virulent_Peiste',960,0,1621,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (23,3912,92,'Thunder_Elemental',960,4,2410,0,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (24,4309,92,'Water_Elemental',960,4,2629,0,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (25,1485,92,'GaLhu_Nevermolt',7200,0,6095,0,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (25,1485,92,'GaLhu_Nevermolt',7200,0,6095,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (26,528,92,'Bres',7200,0,355,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (27,1069,92,'DiZho_Spongeshell',7200,0,6096,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (28,2932,92,'Observant_Zekka',7200,0,1833,35000,0,85,85,0);

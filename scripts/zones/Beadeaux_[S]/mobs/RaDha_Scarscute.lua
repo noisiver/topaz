@@ -1,4 +1,4 @@
--- WAR
+-- WAR/WAR
 -- Immune to Paralyze, Sleep, Bind, Gravity, Break
 -- Headbutt replaces autoattacks
 -- Only TP move is Skull Smash
