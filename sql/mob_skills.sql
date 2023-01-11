@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `mob_skills` (
 
 INSERT INTO `mob_skills` VALUES (1,16,'combo',0,5.0,2000,0,4,0,0,0,8,0,0);
 INSERT INTO `mob_skills` VALUES (2,17,'shoulder_tackle',0,5.0,2000,0,4,0,0,0,5,8,0);
-INSERT INTO `mob_skills` VALUES (3,18,'one_inch_punch',0,7.0,2000,0,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3,18,'one_inch_punch',0,7.0,2000,0,4,2,0,0,0,0,0); -- Raogrimm (Consumes no TP)
 INSERT INTO `mob_skills` VALUES (4,19,'backhand_blow',0,7.0,2000,0,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (5,20,'raging_fists',0,7.0,2000,0,4,0,64,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (6,21,'spinning_attack',0,7.0,2000,0,4,0,0,0,0,0,0);
@@ -971,7 +971,7 @@ INSERT INTO `mob_skills` VALUES (1023,724,'astral_flow_pet',0,7.0,2000,0,1,2,0,0
 -- INSERT INTO `mob_skills` VALUES (1026,727,'arbor_storm',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1027,728,'combo',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1028,729,'tackle',0,7.0,2000,0,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (1029,730,'one-ilm_punch',0,7.0,2000,1500,4,0,0,0,0,0,0);
+--INSERT INTO `mob_skills` VALUES (1029,730,'one-ilm_punch',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1030,731,'backhand_blow',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1031,732,'spinning_attack',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1032,733,'howling_fist',0,7.0,2000,1500,4,0,0,0,0,0,0);

@@ -52,6 +52,7 @@ zones[tpz.zone.CRAWLERS_NEST] =
         DREADBUG            = 17584425,
         MIMIC               = 17584426,
         APPARATUS_ELEMENTAL = 17584427,
+        RAOGRIMM            = 17584514,
     },
     npc =
     {

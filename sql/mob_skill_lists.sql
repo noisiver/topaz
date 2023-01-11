@@ -4558,10 +4558,15 @@ INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,273);
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1680); 
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1681); 
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,2207); 
+
+-- Maybe needs skllID 1-9
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,1); -- combo
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,2); -- shoulder_attack
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,6); -- spinning attack
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,7); -- howling fists
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,8); -- dragon kick
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,9); -- asuran_fists
 -- ANNM End
-
---6066 unused
-
 
 
 
