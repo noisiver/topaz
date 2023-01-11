@@ -792,7 +792,7 @@ function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
     local party = target:getParty()
     local msgTimer = mob:getLocalVar("msgTimer")
 
-    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    --Text color: default(name shown) - 0, gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
     if os.time() >= msgTimer then
         mob:setLocalVar("msgTimer", os.time() + timer)
         for _, players in pairs(party) do
@@ -838,11 +838,37 @@ function PeriodicInstanceMessage(mob, target, msg, textcolor, sender, timer)
     local chars = instance:getChars()
     local msgTimer = mob:getLocalVar("msgTimer")
 
-    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    --Text color: default(name shown) - 0, gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
     if os.time() >= msgTimer then
         mob:setLocalVar("msgTimer", os.time() + timer)
         for _, players in pairs(chars) do
             players:PrintToPlayer(msg, textcolor, sender)
         end
     end
+end
+
+function SetGenericNMStats(mob)
+    local level = mob:getMainLvl()
+    local wepDMG
+
+    if (level < 30) then
+        wepDMG = 50
+    elseif (level < 50) then
+        wepDMG = 70
+    elseif (level < 60) then
+        wepDMG = 80
+    elseif (level < 70) then
+        wepDMG = 100
+    else
+        wepDMG = 125
+    end
+
+    if mob:getMainJob() == tpz.job.MNK then
+        wepDMG = wepDMG * 0.5
+    end
+
+	mob:setDamage(wepDMG)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ACC, 25) 
 end

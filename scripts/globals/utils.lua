@@ -772,10 +772,24 @@ function utils.MessageParty(player, msg, textcolor, sender)
 
     local party = player:getParty()
 
-    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    --Text color: default(name shown) - 0, gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
     if (party ~= nil) then
         for _,v in ipairs(party) do
             v:PrintToPlayer(msg, textcolor, sender)
+        end
+    end
+end
+function utils.ShowTextParty(player, textId)
+    if player == nil then
+        return
+    end
+
+    local party = player:getParty()
+
+    --Text color: default(name shown) - 0, gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    if (party ~= nil) then
+        for _,v in ipairs(party) do
+            v:showText(npc, textId)
         end
     end
 end
