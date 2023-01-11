@@ -44,7 +44,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     if (damage > 0) then
-        local duration = math.floor(tp/1000 * 180)
+        local duration = (tp/1000) * 180
         local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, bonus)
         if (target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.DEFENSE_BOOST)
