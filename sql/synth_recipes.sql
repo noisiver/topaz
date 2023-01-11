@@ -4714,6 +4714,8 @@ INSERT INTO `synth_recipes` VALUES (75518,0,0,0,0,35,0,0,0,0,0,4096,4238,745,787
 INSERT INTO `synth_recipes` VALUES (75519,0,0,0,0,33,52,0,0,0,0,4099,4241,785,822,822,828,828,829,829,0,13596,13596,13596,13596,1,1,1,1,'Green Cape'); 
 INSERT INTO `synth_recipes` VALUES (75520,1,0,0,0,0,0,29,0,0,0,4098,4240,2520,0,0,0,0,0,0,0,1629,2529,2529,2529,1,1,1,2,'Yagudo Kote (desynth)'); 
 INSERT INTO `synth_recipes` VALUES (75521,1,0,0,0,0,0,29,0,0,0,4098,4240,2519,0,0,0,0,0,0,0,1629,2529,664,664,1,1,1,2,'Yagudo Osode (desynth)'); 
+INSERT INTO `synth_recipes` VALUES (75522,1,0,0,29,0,0,0,0,0,0,4100,4242,2504,0,0,0,0,0,0,0,652,653,654,1711,1,1,1,1,'Heavy Quadav Chestplate(desynth)'); 
+INSERT INTO `synth_recipes` VALUES (75523,1,0,0,29,0,0,0,0,0,0,4100,4242,2505,0,0,0,0,0,0,0,659,652,653,654,2,2,2,2,'Heavy Quadav Backplate(desynth)'); 
 
 -- INSERT INTO `synth_recipes` VALUES (ID,Desynth,KeyItem,WD,SM,GO,CL,LE,BO,AL,CK,Crystal,HQCrystal,itemid,I2,I3,I4,I5,I6,I7,I8,R1,R2,R3,R4,Q1,Q2,Q3,Q4,ResultName); --  template
 
