@@ -4565,6 +4565,9 @@ INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,2); -- shoulder_attack
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,7); -- howling fists
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,8); -- dragon kick
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,9); -- asuran_fists
+
+INSERT INTO `mob_skill_lists` VALUES ('RaDha_Scarscute',6136,2267); -- Skull Smash
+
 -- ANNM End
 
 
