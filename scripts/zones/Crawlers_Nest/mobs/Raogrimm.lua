@@ -34,11 +34,13 @@ function onMobFight(mob, target)
             mob:actionQueueEmpty() and (tp < 1000) then 
             if (os.time() >= KOTimer) then
                 KOTarget = math.random(#enmityList)
-                mob:setLocalVar("KOTimer", os.time() + 30)
-                ForceDrawIn(mob, KOTarget)
-                GetPlayerByID(KOTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
-                mob:useMobAbility(3, GetPlayerByID(KOTarget)) -- One Inch Punch
-                utils.MessageParty(target, "You got knocked the $^(!@*^ out!", 0, "Raogrimm")
+                if not KOTarget:isDead() then
+                    mob:setLocalVar("KOTimer", os.time() + 30)
+                    ForceDrawIn(mob, KOTarget)
+                    GetPlayerByID(KOTarget):addStatusEffect(tpz.effect.BIND, 1, 0, 10)
+                    mob:useMobAbility(3, GetPlayerByID(KOTarget)) -- One Inch Punch
+                    utils.MessageParty(target, "You got knocked the $^(!@*^ out!", 0, "Raogrimm")
+                end
             end
         end
     end
