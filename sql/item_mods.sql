@@ -8239,10 +8239,11 @@ INSERT INTO `item_mods` VALUES (12436,2,10);
 INSERT INTO `item_mods` VALUES (12436,60,10);
 INSERT INTO `item_mods` VALUES (12436,61,10);
 INSERT INTO `item_mods` VALUES (12436,162,-4);
-INSERT INTO `item_mods` VALUES (12437,1,29);
+INSERT INTO `item_mods` VALUES (12437,1,29);      -- Gavial Mask
 INSERT INTO `item_mods` VALUES (12437,9,1);
 INSERT INTO `item_mods` VALUES (12437,11,2);
 INSERT INTO `item_mods` VALUES (12437,163,-2);
+INSERT INTO `item_mods` VALUES (12437,375,5);    -- Cure potency received +5%
 INSERT INTO `item_mods` VALUES (12438,1,12);
 INSERT INTO `item_mods` VALUES (12438,9,1);
 INSERT INTO `item_mods` VALUES (12439,1,24);
@@ -8581,11 +8582,12 @@ INSERT INTO `item_mods` VALUES (12564,59,10);
 INSERT INTO `item_mods` VALUES (12564,60,10);
 INSERT INTO `item_mods` VALUES (12564,61,10);
 INSERT INTO `item_mods` VALUES (12564,162,-9);
-INSERT INTO `item_mods` VALUES (12565,1,48);
+INSERT INTO `item_mods` VALUES (12565,1,48);      -- Gavial Mail
 INSERT INTO `item_mods` VALUES (12565,9,3);
 INSERT INTO `item_mods` VALUES (12565,11,3);
 INSERT INTO `item_mods` VALUES (12565,161,-3);
 INSERT INTO `item_mods` VALUES (12565,163,-3);
+INSERT INTO `item_mods` VALUES (12565,375,10);    -- Cure potency received +10%
 INSERT INTO `item_mods` VALUES (12566,1,23);
 INSERT INTO `item_mods` VALUES (12566,10,1);
 INSERT INTO `item_mods` VALUES (12567,1,23);
@@ -8927,10 +8929,11 @@ INSERT INTO `item_mods` VALUES (12692,2,8);
 INSERT INTO `item_mods` VALUES (12692,58,10);
 INSERT INTO `item_mods` VALUES (12692,59,10);
 INSERT INTO `item_mods` VALUES (12692,162,-4);
-INSERT INTO `item_mods` VALUES (12693,1,19);
+INSERT INTO `item_mods` VALUES (12693,1,19);      -- Gavial Finger Gauntlets
 INSERT INTO `item_mods` VALUES (12693,10,3);
 INSERT INTO `item_mods` VALUES (12693,23,3);
 INSERT INTO `item_mods` VALUES (12693,163,-2);
+INSERT INTO `item_mods` VALUES (12693,375,5);    -- Cure potency received +5%
 INSERT INTO `item_mods` VALUES (12694,1,8);
 INSERT INTO `item_mods` VALUES (12694,9,1);
 INSERT INTO `item_mods` VALUES (12695,1,2);
@@ -9222,10 +9225,11 @@ INSERT INTO `item_mods` VALUES (12820,2,11);
 INSERT INTO `item_mods` VALUES (12820,54,10);
 INSERT INTO `item_mods` VALUES (12820,55,10);
 INSERT INTO `item_mods` VALUES (12820,162,-4);
-INSERT INTO `item_mods` VALUES (12821,1,35);
+INSERT INTO `item_mods` VALUES (12821,1,35);      -- Gavial Cuisses
 INSERT INTO `item_mods` VALUES (12821,9,2);
 INSERT INTO `item_mods` VALUES (12821,10,2);
 INSERT INTO `item_mods` VALUES (12821,161,-3);
+INSERT INTO `item_mods` VALUES (12821,375,7);    -- Cure potency received +7%
 INSERT INTO `item_mods` VALUES (12822,1,16);
 INSERT INTO `item_mods` VALUES (12822,11,2);
 INSERT INTO `item_mods` VALUES (12823,1,4);
@@ -9511,11 +9515,12 @@ INSERT INTO `item_mods` VALUES (12948,2,9);
 INSERT INTO `item_mods` VALUES (12948,56,10);
 INSERT INTO `item_mods` VALUES (12948,57,10);
 INSERT INTO `item_mods` VALUES (12948,162,-4);
-INSERT INTO `item_mods` VALUES (12949,1,21);
+INSERT INTO `item_mods` VALUES (12949,1,21);      -- Gavial Greaves
 INSERT INTO `item_mods` VALUES (12949,10,2);
 INSERT INTO `item_mods` VALUES (12949,11,2);
 INSERT INTO `item_mods` VALUES (12949,23,2);
 INSERT INTO `item_mods` VALUES (12949,161,-2);
+INSERT INTO `item_mods` VALUES (12949,375,5);    -- Cure potency received +5%
 INSERT INTO `item_mods` VALUES (12950,1,7);
 INSERT INTO `item_mods` VALUES (12950,11,1);
 INSERT INTO `item_mods` VALUES (12951,1,2);
@@ -11387,11 +11392,12 @@ INSERT INTO `item_mods` VALUES (13746,5,10);
 INSERT INTO `item_mods` VALUES (13746,10,5);
 INSERT INTO `item_mods` VALUES (13746,13,5);
 INSERT INTO `item_mods` VALUES (13746,27,4);
-INSERT INTO `item_mods` VALUES (13747,1,49);
+INSERT INTO `item_mods` VALUES (13747,1,49);        -- Gavial Mail +1
 INSERT INTO `item_mods` VALUES (13747,9,4);
 INSERT INTO `item_mods` VALUES (13747,11,4);
 INSERT INTO `item_mods` VALUES (13747,161,-4);
 INSERT INTO `item_mods` VALUES (13747,163,-4);
+INSERT INTO `item_mods` VALUES (13747,375,12);    -- Cure potency received +12%
 INSERT INTO `item_mods` VALUES (13748,1,46);
 INSERT INTO `item_mods` VALUES (13748,5,10);
 INSERT INTO `item_mods` VALUES (13748,6,1);
@@ -12180,10 +12186,11 @@ INSERT INTO `item_mods` VALUES (13943,227,7);
 INSERT INTO `item_mods` VALUES (13943,1227,7);
 INSERT INTO `item_mods` VALUES (13943,1242,15);
 INSERT INTO `item_mods` VALUES (13943,384,300);
-INSERT INTO `item_mods` VALUES (13944,1,30);
+INSERT INTO `item_mods` VALUES (13944,1,30);      -- Gavial Mask +1
 INSERT INTO `item_mods` VALUES (13944,9,2);
 INSERT INTO `item_mods` VALUES (13944,11,3);
 INSERT INTO `item_mods` VALUES (13944,163,-3);
+INSERT INTO `item_mods` VALUES (13944,375,6);    -- Cure potency received +6%
 INSERT INTO `item_mods` VALUES (13945,1,1);
 INSERT INTO `item_mods` VALUES (13945,60,1);
 INSERT INTO `item_mods` VALUES (13945,130,1);
@@ -13042,11 +13049,12 @@ INSERT INTO `item_mods` VALUES (14193,2,17);
 INSERT INTO `item_mods` VALUES (14193,10,2);
 INSERT INTO `item_mods` VALUES (14193,11,-2);
 INSERT INTO `item_mods` VALUES (14193,27,2);
-INSERT INTO `item_mods` VALUES (14194,1,22);
+INSERT INTO `item_mods` VALUES (14194,1,22);      -- Gavial Greaves +1
 INSERT INTO `item_mods` VALUES (14194,10,3);
 INSERT INTO `item_mods` VALUES (14194,11,3);
 INSERT INTO `item_mods` VALUES (14194,23,3);
 INSERT INTO `item_mods` VALUES (14194,161,-3);
+INSERT INTO `item_mods` VALUES (14194,375,6);    -- Cure potency received +6%
 INSERT INTO `item_mods` VALUES (14195,1,2);
 INSERT INTO `item_mods` VALUES (14195,59,1);
 INSERT INTO `item_mods` VALUES (14195,127,2);
@@ -13533,10 +13541,11 @@ INSERT INTO `item_mods` VALUES (14312,10,4);
 INSERT INTO `item_mods` VALUES (14312,12,-4);
 INSERT INTO `item_mods` VALUES (14312,27,4);
 INSERT INTO `item_mods` VALUES (14312,68,-2);
-INSERT INTO `item_mods` VALUES (14313,1,36);
+INSERT INTO `item_mods` VALUES (14313,1,36);      -- Gavial Cuisses +1
 INSERT INTO `item_mods` VALUES (14313,9,3);
 INSERT INTO `item_mods` VALUES (14313,10,3);
 INSERT INTO `item_mods` VALUES (14313,161,-4);
+INSERT INTO `item_mods` VALUES (14313,375,8);    -- Cure potency received +8%
 INSERT INTO `item_mods` VALUES (14314,1,9);
 INSERT INTO `item_mods` VALUES (14314,8,1);
 INSERT INTO `item_mods` VALUES (14314,9,1);
@@ -15147,10 +15156,11 @@ INSERT INTO `item_mods` VALUES (14828,10,4);
 INSERT INTO `item_mods` VALUES (14828,11,-2);
 INSERT INTO `item_mods` VALUES (14828,12,-2);
 INSERT INTO `item_mods` VALUES (14828,27,3);
-INSERT INTO `item_mods` VALUES (14829,1,20);
+INSERT INTO `item_mods` VALUES (14829,1,20);      -- Gavial Finger Gauntlets +1
 INSERT INTO `item_mods` VALUES (14829,10,3);
 INSERT INTO `item_mods` VALUES (14829,23,4);
 INSERT INTO `item_mods` VALUES (14829,163,-4);
+INSERT INTO `item_mods` VALUES (14829,375,6);    -- Cure potency received +6%
 INSERT INTO `item_mods` VALUES (14830,1,2);
 INSERT INTO `item_mods` VALUES (14830,57,1);
 INSERT INTO `item_mods` VALUES (14830,128,1);
