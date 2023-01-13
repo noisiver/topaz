@@ -3273,7 +3273,7 @@ INSERT INTO `mob_groups` VALUES (14,71,68,'Air_Elemental',600,4,38,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (15,307,68,'Aydeewa_Diremite',330,0,204,0,0,67,70,0);
 INSERT INTO `mob_groups` VALUES (16,2782,68,'Mycohopper',600,0,1759,6018,0,68,71,0);
 INSERT INTO `mob_groups` VALUES (17,1809,68,'Great_Ameretat',600,0,1238,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (18,5333,68,'Deforester',600,0,598,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (18,5333,68,'Deforester',330,0,598,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (19,3245,68,'Qiqirn_Archaeologist',600,0,2050,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (20,3261,68,'Qiqirn_Mosstrooper',600,0,2056,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (21,2720,68,'Mold_Eater',300,0,1725,0,0,81,83,0);
