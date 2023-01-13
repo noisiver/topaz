@@ -2,9 +2,10 @@
 -- Spell: Kakka: Ichi
 --  Grants Aquaveil to the caster.
 --------------------------------------
+require("scripts/globals/magic")
+require("scripts/globals/msg")
 require("scripts/globals/settings")
 require("scripts/globals/status")
-require("scripts/globals/magic")
 --------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)

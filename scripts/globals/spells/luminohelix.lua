@@ -51,6 +51,7 @@ function onSpellCast(caster, target, spell)
     local duration = getHelixDuration(caster) + caster:getMod(tpz.mod.HELIX_DURATION)
 
     if (dot > 0) then
+        target:delStatusEffectSilent(tpz.effect.HELIX)
         target:addStatusEffect(tpz.effect.HELIX, dot, 3, duration)
         if caster:getMainJob() == tpz.job.SCH and caster:hasStatusEffect(tpz.effect.DARK_ARTS) then
             target:addStatusEffectEx(tpz.effect.INCREASED_DAMAGE_TAKEN, tpz.effect.INCREASED_DAMAGE_TAKEN, 9, 0, duration)
