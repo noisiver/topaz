@@ -57,11 +57,6 @@ function onMobRoam(mob)
             child:pathTo(mob:getXPos() + 3, mob:getYPos() + 5, mob:getZPos() + 0.15)
         end
     end
-
-    local totd = VanadielTOTD()
-    if totd ~= tpz.time.NIGHT and totd ~= tpz.time.MIDNIGHT then -- Despawn Xolotl if its day
-        DespawnMob(mob:getID())
-    end
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -82,7 +77,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    mob:setRespawnTime(900) -- 15m
 end
 
 
