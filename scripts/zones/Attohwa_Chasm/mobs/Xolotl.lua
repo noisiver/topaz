@@ -21,7 +21,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-    SetServerVariable("XolotlDead", 0)
 end
 
 function onMobFight(mob,target)
@@ -83,7 +82,7 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    mob:setRespawnTime(1800) -- 30m
+    mob:setRespawnTime(900) -- 15m
 end
 
 
