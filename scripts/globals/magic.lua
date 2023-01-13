@@ -778,7 +778,9 @@ function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, 
     -- BLU spells ignore this
     if (skillType ~= tpz.skill.BLUE_MAGIC) then
         if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
-            return 0
+            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() < 2 then
+                return 0
+            end
         end
     end
 
