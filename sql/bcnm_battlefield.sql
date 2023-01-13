@@ -2040,4 +2040,29 @@ INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183064,3);
 INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183065,3);
 INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183066,3);
 
+-- -------------------------------
+-- Splitting Heirs
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1311,1,17125666,3);
+INSERT INTO `bcnm_battlefield` VALUES (1311,1,17125668,0);
+INSERT INTO `bcnm_battlefield` VALUES (1311,1,17125669,0);
+INSERT INTO `bcnm_battlefield` VALUES (1311,1,17125670,0);
+
+-- -------------------------------
+-- Cracking Shells
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1312,1,17154372,3);
+INSERT INTO `bcnm_battlefield` VALUES (1312,1,17154374,0);
+INSERT INTO `bcnm_battlefield` VALUES (1312,1,17154375,0);
+INSERT INTO `bcnm_battlefield` VALUES (1312,1,17154376,0);
+
+-- -------------------------------
+-- Plucking Wings
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183047,3);
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183049,0);
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183050,0);
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183051,0);
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183066,0);
+
 -- Dump completed on 2017-01-31 10:38:38

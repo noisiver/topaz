@@ -47,7 +47,7 @@ local twoHourList = {
     {tpz.job.BLU, tpz.jsa.AZURE_LORE},
     {tpz.job.COR, tpz.jsa.MIGHTY_STRIKES},
     {tpz.job.DNC, tpz.jsa.MIGHTY_STRIKES},
-    {tpz.job.SCH, tpz.jsa.MIGHTY_STRIKES},
+    {tpz.job.SCH, tpz.jsa.TABULA_RASA},
     {tpz.job.GEO, tpz.jsa.MIGHTY_STRIKES},
     {tpz.job.RUN, tpz.jsa.MIGHTY_STRIKES},
 }

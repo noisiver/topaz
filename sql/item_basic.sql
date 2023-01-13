@@ -1182,7 +1182,7 @@ INSERT INTO `item_basic` VALUES (1292,0,'damp_hakutaku_eye','damp_hktk._eye',1,1
 INSERT INTO `item_basic` VALUES (1293,0,'narasimha_hide','narasimha_hide',1,4,41,0,1485);		-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (1294,0,'spool_of_arachne_thread','arachne_thread',12,4,40,0,1158);
 INSERT INTO `item_basic` VALUES (1295,0,'twincoon','twincoon',12,4,40,0,1165);
-INSERT INTO `item_basic` VALUES (1296,0,'yowie_skin','yowie_skin',12,4,41,0,1200);
+INSERT INTO `item_basic` VALUES (1296,0,'yowie_skin','yowie_skin',1,4,41,0,1200);
 INSERT INTO `item_basic` VALUES (1297,0,'square_of_narasimha_leather','narasimha_lth.',12,4,41,0,772);
 INSERT INTO `item_basic` VALUES (1298,0,'hakutaku_eye_cluster','hktk._eye_cluster',1,12356,0,1,0);
 INSERT INTO `item_basic` VALUES (1299,0,'fire_bead','fire_bead',1,4,39,0,3987);

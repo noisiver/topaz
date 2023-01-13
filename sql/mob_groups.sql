@@ -4989,6 +4989,12 @@ INSERT INTO `mob_groups` VALUES (51,456,85,'Bloodcrown_Brradhod',0,128,0,35000,0
 INSERT INTO `mob_groups` VALUES (52,543,85,'Brradhods_Fletcher',0,128,0,0,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (53,542,85,'Brradhods_Donzel',0,128,0,0,0,77,77,0);
 
+-- Splitting Heirs
+INSERT INTO `mob_groups` VALUES (54,904,85,'Darkheir_Grradhod',0,128,0,35000,0,90,90,0);
+INSERT INTO `mob_groups` VALUES (55,2497,85,'Malicearm_Razbhobb',0,128,0,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (56,3672,85,'Slitherword_Razghogg',0,128,0,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (57,1765,85,'Gorepledge_Rozzbrezz',0,128,0,0,0,80,80,0);
+
 INSERT INTO `mob_groups` VALUES (3545,18,85,'Abenzio',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3546,37,85,'Achtelle',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (3547,64,85,'Agrios',18000,0,31,0,0,80,85,0);
@@ -6022,10 +6028,10 @@ INSERT INTO `mob_groups` VALUES (35,4208,92,'VaGho_Bloodbasked',7200,0,6098,3500
 INSERT INTO `mob_groups` VALUES (36,3337,92,'RaDha_Scarscute',7200,0,6099,35000,0,85,85,0);
 
 -- Cracking Shells
-INSERT INTO `mob_groups` VALUES (37,4494,92,'ZaDha_Adamantking',0,128,0,0,0,85,85,0); -- Needs new pool? This one is WAR/WAR
-INSERT INTO `mob_groups` VALUES (39,1068,92,'DiMho_Platekeeper',0,128,0,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (40,4510,92,'ZiBhe_Gauntletkeeper',0,128,0,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (41,4520,92,'ZoBha_Helmkeeper',0,128,0,0,0,83,83,0);
+INSERT INTO `mob_groups` VALUES (37,6772,92,'ZaDha_Adamantking',0,128,0,35000,0,90,90,0); -- Needs new pool? This one is WAR/WAR
+INSERT INTO `mob_groups` VALUES (39,1068,92,'DiMho_Platekeeper',0,128,0,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (40,4510,92,'ZiBhe_Gauntletkeeper',0,128,0,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (41,4520,92,'ZoBha_Helmkeeper',0,128,0,0,0,80,80,0);
 
 -- The Buried God
 INSERT INTO `mob_groups` VALUES (146,4494,92,'ZaDha_Adamantking',0,128,0,35000,0,90,90,0); -- WAR/WAR
@@ -6991,10 +6997,10 @@ INSERT INTO `mob_groups` VALUES (39,4210,99,'Vee_Ladu_the_Titterer',0,128,0,200,
 INSERT INTO `mob_groups` VALUES (40,1146,99,'Duu_Nazo_the_Spryfooted',0,128,0,2300,0,80,80,0);
 
 --Plucking Wings
-INSERT INTO `mob_groups` VALUES (41,3703,99,'Soo_Luma_the_Ascended',0,0,0,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (43,3392,99,'Roo_Beju_the_Eulogizer',0,0,0,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (44,4512,99,'Zjaa_Bao_the_Wrathherald',0,0,0,0,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (45,2150,99,'Jii_Xai_the_Rimebladed',0,0,0,0,0,83,83,0);
+INSERT INTO `mob_groups` VALUES (41,3703,99,'Soo_Luma_the_Ascended',0,128,0,35000,0,90,90,0);
+INSERT INTO `mob_groups` VALUES (43,3392,99,'Roo_Beju_the_Eulogizer',0,128,0,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (44,4512,99,'Zjaa_Bao_the_Wrathherald',0,128,0,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (45,2150,99,'Jii_Xai_the_Rimebladed',0,128,0,0,0,80,80,0);
 
 -- A Malcious Manifest
 INSERT INTO `mob_groups` VALUES (46,6770,99,'Tzee_Xicu_the_Manifest',0,128,0,35000,0,90,90,0);

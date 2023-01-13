@@ -111,13 +111,13 @@ local job2hr = {
     [tpz.job.SMN] = tpz.jsa.ASTRAL_FLOW,
     [tpz.job.BLU] = tpz.jsa.AZURE_LORE,
     [tpz.job.COR] = tpz.jsa.WILD_CARD,
+    [tpz.job.SCH] = tpz.jsa.TABULA_RASA,
     [1000]        = tpz.jsa.CHARM, -- Dynamis BST when pet is dead
     [1893]        = tpz.jsa.SPIRIT_SURGE 
 
 -- following abilities are not yet defined on tpz.jsa:
 --  [tpz.job.PUP] = tpz.jsa.OVERDRIVE,
 --  [tpz.job.DNC] = tpz.jsa.TRANCE,
---  [tpz.job.SCH] = tpz.jsa.TABULA_RASA,
 --  [tpz.job.GEO] = tpz.jsa.BOLSTER,
 --  [tpz.job.RUN] = tpz.jsa.ELEMENTAL_SFORZO,
 }
@@ -169,11 +169,11 @@ local effectByAbility =
     [tpz.jsa.BLOOD_WEAPON]   = tpz.effect.BLOOD_WEAPON,
     [tpz.jsa.SOUL_VOICE]     = tpz.effect.SOUL_VOICE,
     [tpz.jsa.AZURE_LORE]     = tpz.effect.AZURE_LORE,
+    [tpz.jsa.TABULA_RASA]    = tpz.effect.TABULA_RASA,
 
 -- following abilities are not yet defined on tpz.jsa, and/or do not have effect luas:
 -- [tpz.jsa.OVERDRIVE]        = tpz.effect.OVERDRIVE,
 -- [tpz.jsa.TRANCE]           = tpz.effect.TRANCE,
--- [tpz.jsa.TABULA_RASA]      = tpz.effect.TABULA_RASA,
 -- [tpz.jsa.BOLSTER]          = tpz.effect.BOLSTER,
 -- [tpz.jsa.ELEMENTAL_SFORZO] = tpz.effect.ELEMENTAL_SFORZO,
 }

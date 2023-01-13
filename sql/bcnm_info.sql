@@ -295,6 +295,9 @@ INSERT INTO `bcnm_info` VALUES (1307,37,'central_temenos_4th_floor_ii','nobody',
 INSERT INTO `bcnm_info` VALUES (1308,85,'the_blood_bathed_crown','nobody',0,1800,1800,0,18,1308,7,0);
 INSERT INTO `bcnm_info` VALUES (1309,92,'the_buried_god','nobody',0,1800,1800,0,18,1309,7,0);
 INSERT INTO `bcnm_info` VALUES (1310,99,'a_malicious_manifest','nobody',0,1800,1800,0,18,1310,7,0);
+INSERT INTO `bcnm_info` VALUES (1311,85,'splitting_heirs','nobody',0,1800,1800,0,18,1311,7,0);
+INSERT INTO `bcnm_info` VALUES (1312,92,'cracking_shells','nobody',0,1800,1800,0,18,1312,7,0);
+INSERT INTO `bcnm_info` VALUES (1313,99,'plucking_wings','nobody',0,1800,1800,0,18,1313,7,0);
 /*!40000 ALTER TABLE `bcnm_info` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;

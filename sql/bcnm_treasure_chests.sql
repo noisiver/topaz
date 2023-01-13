@@ -448,13 +448,16 @@ INSERT INTO bcnm_treasure_chests VALUES (1301,8,16929052); -- Central Temenos - 
 -- La Vaule [S]
 -- ------------------------------
 INSERT INTO bcnm_treasure_chests VALUES (1308,1,17125689); -- The Blood Bathed Crown
+INSERT INTO bcnm_treasure_chests VALUES (1311,1,17125672); -- Splitting Heirs
 -- -------------------------------
 -- Beadaux [S]
 -- ------------------------------
 INSERT INTO bcnm_treasure_chests VALUES (1309,1,17154392); -- The Buried God
+INSERT INTO bcnm_treasure_chests VALUES (1312,1,17154373); -- Cracking Shells
 -- -------------------------------
 -- Castle Oztroja [S]
 -- ------------------------------
 INSERT INTO bcnm_treasure_chests VALUES (1310,1,17183067); -- A Malicious Manifest
+INSERT INTO bcnm_treasure_chests VALUES (1313,1,17183048); -- Plucking Wings
 
 

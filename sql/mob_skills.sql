@@ -2218,7 +2218,7 @@ INSERT INTO `mob_skills` VALUES (2257,432,'azure_lore',0,18.0,2000,0,1,2,30,0,0,
 -- INSERT INTO `mob_skills` VALUES (2258,2002,'wild_card',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2259,2003,'overdrive',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2260,2004,'trance',0,7.0,2000,1500,4,0,0,0,0,0,0);
--- INSERT INTO `mob_skills` VALUES (2261,2005,'tabula_rasa',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2261,437,'tabula_rasa',0,7.0,2000,0,1,2,0,0,0,0,0); -- TODO: Missing Animation
 -- INSERT INTO `mob_skills` VALUES (2262,1617,'',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2263,1626,'tornado_edge',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2264,1627,'shoulder_charge',4,10.0,2000,1500,4,0,0,0,0,0,0);
