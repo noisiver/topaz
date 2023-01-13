@@ -5849,6 +5849,13 @@ namespace battleutils
             else
                 return SPELLAOE_NONE;
         }
+        if (PSpell->getAOE() == SPELLAOE_TABULA)
+        {
+            if (PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_TABULA_RASA))
+                return SPELLAOE_RADIAL;
+            else
+                return SPELLAOE_NONE;
+        }
 
         return PSpell->getAOE();
     }

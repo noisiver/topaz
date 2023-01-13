@@ -312,7 +312,7 @@ INSERT INTO `mob_groups` VALUES (39,2407,7,'Lich',330,1,958,0,0,62,64,0);
 INSERT INTO `mob_groups` VALUES (40,801,7,'Corse',330,1,517,0,0,66,67,0);
 INSERT INTO `mob_groups` VALUES (41,733,7,'Citipati',0,32,475,12500,0,67,70,0);
 INSERT INTO `mob_groups` VALUES (42,4396,7,'Xolotl',1200,1,2683,25000,0,80,81,0);
-INSERT INTO `mob_groups` VALUES (43,4397,7,'Xolotls_Hound_Warrior',,128,0,0,0,72,72,0);
+INSERT INTO `mob_groups` VALUES (43,4397,7,'Xolotls_Hound_Warrior',0,128,0,0,0,72,72,0);
 INSERT INTO `mob_groups` VALUES (44,4398,7,'Xolotls_Sacrifice',0,128,0,0,0,72,72,0);
 INSERT INTO `mob_groups` VALUES (45,225,7,'Arch_Corse',330,1,162,0,0,75,81,0);
 INSERT INTO `mob_groups` VALUES (46,3916,7,'Tiamat',43200,0,2416,120000,0,95,95,0);
