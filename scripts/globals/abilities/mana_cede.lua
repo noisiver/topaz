@@ -1,6 +1,6 @@
 -----------------------------------
 -- Ability: Mana Cede
--- Description: Transfers some of your HP to your currently summoned pet.
+-- Description: Transfers some of your HP to your currently summoned pet and cures all of it's status effects.
 -- Obtained: SMN Level 50
 -- Recast Time: 00:03:00
 -----------------------------------
@@ -10,16 +10,7 @@ require("scripts/globals/summon")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
-    local playerHPP = player:getHPP()
-    local healPower = math.floor(player:getMainLvl() / 3)
-    local pet = player:getPet()
-    local petHPP = pet:getHPP()
-    -- Can only be used if the player has more than 25% of their max HP
-    if (playerHPP > healPower) and (petHPP < 100) then
-        return 0, 0
-    else
-        return tpz.msg.basic.CANNOT_PERFORM_ACTION, 0
-    end 
+    return 0, 0
 end
 
 function onUseAbility(player, target, ability)
@@ -46,4 +37,5 @@ function onUseAbility(player, target, ability)
 
     player:setHP(playerHPFinal)
     pet:setHP(petHPFinal)
+    pet:removeAllNegativeEffects()
 end
