@@ -318,6 +318,7 @@ public:
 
     void			  SetName(int8* name);			// устанавливаем имя персонажа (имя ограничивается 15-ю символами)
 
+    time_point        lastTradeInvite;
     EntityID_t        TradePending;                 // ID персонажа, предлагающего обмен
     EntityID_t        InvitePending;                // ID персонажа, отправившего приглашение в группу
     EntityID_t        BazaarID;                     // Pointer to the bazaar we are browsing.

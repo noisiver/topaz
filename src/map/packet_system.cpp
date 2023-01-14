@@ -1192,12 +1192,12 @@ void SmallPacket0x029(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 }
 
 /************************************************************************
-*                                                                       *
-*  Trade Request                                                        *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Trade Request                                                        *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x032(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x032(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     uint32 charid = data.ref<uint32>(0x04);
@@ -1207,54 +1207,100 @@ void SmallPacket0x032(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
     if ((PTarget != nullptr) && (PTarget->id == charid))
     {
-        ShowDebug(CL_CYAN"%s initiated trade request with %s\n" CL_RESET, PChar->GetName(), PTarget->GetName());
+        ShowDebug("%s initiated trade request with %s", PChar->GetName(), PTarget->GetName());
+
+        // If the player is the same as the target, don't allow the trade
+        if (PChar->id == PTarget->id)
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 155));
+            return;
+        }
+
+        // If either player is in prison don't allow the trade.
         if (jailutils::InPrison(PChar) || jailutils::InPrison(PTarget))
         {
-            // If either player is in prison don't allow the trade.
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 316));
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
+            return;
+        }
+
+        // If either player is crafting, don't allow the trade request
+        if (PChar->animation == ANIMATION_SYNTH || PTarget->animation == ANIMATION_SYNTH)
+        {
+            ShowDebug("%s trade request with %s was blocked.", PChar->GetName(), PTarget->GetName());
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
             return;
         }
 
         // check /blockaid
         if (charutils::IsAidBlocked(PChar, PTarget))
         {
-            ShowDebug(CL_CYAN"%s is blocking trades\n" CL_RESET, PTarget->GetName());
+            ShowDebug("%s is blocking trades", PTarget->GetName());
             // Target is blocking assistance
             PChar->pushPacket(new CMessageSystemPacket(0, 0, 225));
             // Interaction was blocked
             PTarget->pushPacket(new CMessageSystemPacket(0, 0, 226));
-            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x01));
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
             return;
         }
 
         if (PTarget->TradePending.id == PChar->id)
         {
-            ShowDebug(CL_CYAN"%s already sent a trade request to %s\n" CL_RESET, PChar->GetName(), PTarget->GetName());
+            ShowDebug("%s has already sent a trade request to %s", PChar->GetName(), PTarget->GetName());
             return;
         }
+
         if (!PTarget->UContainer->IsContainerEmpty())
         {
-            ShowDebug(CL_CYAN"%s UContainer is not empty. %s cannot trade with them at this time\n" CL_RESET, PTarget->GetName(), PChar->GetName());
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
+            ShowDebug("%s's UContainer is not empty. %s cannot trade with them at this time", PTarget->GetName(), PChar->GetName());
             return;
         }
+
+        auto lastTargetTradeTimeSeconds = std::chrono::duration_cast<std::chrono::seconds>(server_clock::now() - PTarget->lastTradeInvite).count();
+        if ((PTarget->TradePending.targid != 0 && lastTargetTradeTimeSeconds < 60) || PTarget->UContainer->GetType() == UCONTAINER_TRADE)
+        {
+            // Can't trade with someone who's already got a pending trade before timeout
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
+            return;
+        }
+
+        // This block usually doesn't trigger,
+        // The client is generally forced to send a trade cancel packet via a cancel yes/no menu,
+        // resulting in an outgoing 0x033 with 0x04 set to 0x01 for their old trade target, but sometimes the menu does not happen and a cancel is sent instead.
+        if (PChar->TradePending.id != 0)
+        {
+            // Tell previous trader we don't want their business
+            CCharEntity* POldTradeTarget = (CCharEntity*)PChar->GetEntity(PChar->TradePending.id, TYPE_PC);
+            if (POldTradeTarget && POldTradeTarget->id == PChar->TradePending.id)
+            {
+                POldTradeTarget->TradePending.clean();
+                PChar->TradePending.clean();
+
+                POldTradeTarget->pushPacket(new CTradeActionPacket(PChar, 0x07));
+                PChar->pushPacket(new CTradeActionPacket(POldTradeTarget, 0x07));
+                return;
+            }
+        }
+
+        PChar->lastTradeInvite = server_clock::now();
         PChar->TradePending.id = charid;
         PChar->TradePending.targid = targid;
 
+        PTarget->lastTradeInvite = server_clock::now();
         PTarget->TradePending.id = PChar->id;
         PTarget->TradePending.targid = PChar->targid;
         PTarget->pushPacket(new CTradeRequestPacket(PChar));
     }
-    return;
 }
 
 /************************************************************************
-*                                                                       *
-*  Trade Request Action                                                 *
-*  Trade Accept / Request Accept / Cancel                               *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Trade Request Action                                                 *
+ *  Trade Accept / Request Accept / Cancel                               *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x033(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x033(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     CCharEntity* PTarget = (CCharEntity*)PChar->GetEntity(PChar->TradePending.targid, TYPE_PC);
@@ -1265,90 +1311,88 @@ void SmallPacket0x033(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
         switch (action)
         {
-        case 0x00: // request accepted
-        {
-            ShowDebug(CL_CYAN"%s accepted trade request from %s\n" CL_RESET, PTarget->GetName(), PChar->GetName());
-            if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
+            case 0x00: // request accepted
             {
-                if (PChar->UContainer->IsContainerEmpty() && PTarget->UContainer->IsContainerEmpty())
+                ShowDebug("%s accepted trade request from %s", PTarget->GetName(), PChar->GetName());
+                if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
                 {
-                    if (distance(PChar->loc.p, PTarget->loc.p) < 6)
+                    if (PChar->UContainer->IsContainerEmpty() && PTarget->UContainer->IsContainerEmpty())
                     {
-                        PChar->UContainer->SetType(UCONTAINER_TRADE);
-                        PChar->pushPacket(new CTradeActionPacket(PTarget, action));
+                        if (distance(PChar->loc.p, PTarget->loc.p) < 6)
+                        {
+                            PChar->UContainer->SetType(UCONTAINER_TRADE);
+                            PChar->pushPacket(new CTradeActionPacket(PTarget, action));
 
-                        PTarget->UContainer->SetType(UCONTAINER_TRADE);
-                        PTarget->pushPacket(new CTradeActionPacket(PChar, action));
-                        return;
-                    }
-                }
-                PChar->TradePending.clean();
-                PTarget->TradePending.clean();
-
-                ShowDebug(CL_CYAN"Trade: UContainer is not empty\n" CL_RESET);
-            }
-        }
-        break;
-        case 0x01: // trade cancelled
-        {
-            ShowDebug(CL_CYAN"%s cancelled trade with %s\n" CL_RESET, PTarget->GetName(), PChar->GetName());
-            if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
-            {
-                if (PTarget->UContainer->GetType() == UCONTAINER_TRADE)
-                {
-                    PTarget->UContainer->Clean();
-
-                }
-            }
-            if (PChar->UContainer->GetType() == UCONTAINER_TRADE)
-            {
-                PChar->UContainer->Clean();
-            }
-
-            PTarget->TradePending.clean();
-            PTarget->pushPacket(new CTradeActionPacket(PChar, action));
-
-            PChar->TradePending.clean();
-        }
-        break;
-        case 0x02: // trade accepted
-        {
-            ShowDebug(CL_CYAN"%s accepted trade with %s\n" CL_RESET, PTarget->GetName(), PChar->GetName());
-            if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
-            {
-                PChar->UContainer->SetLock();
-                PTarget->pushPacket(new CTradeActionPacket(PChar, action));
-
-                if (PTarget->UContainer->IsLocked())
-                {
-                    if (charutils::CanTrade(PChar, PTarget) && charutils::CanTrade(PTarget, PChar))
-                    {
-                        charutils::DoTrade(PChar, PTarget);
-                        PTarget->pushPacket(new CTradeActionPacket(PTarget, 9));
-
-                        charutils::DoTrade(PTarget, PChar);
-                        PChar->pushPacket(new CTradeActionPacket(PChar, 9));
-                    }
-                    else
-                    {
-                        // Failed to trade..
-                        // Either players containers are full or illegal item trade attempted..
-                        ShowDebug(CL_CYAN"%s->%s trade failed (full inventory or illegal items)\n" CL_RESET, PChar->GetName(), PTarget->GetName());
-                        PChar->pushPacket(new CTradeActionPacket(PTarget, 1));
-                        PTarget->pushPacket(new CTradeActionPacket(PChar, 1));
+                            PTarget->UContainer->SetType(UCONTAINER_TRADE);
+                            PTarget->pushPacket(new CTradeActionPacket(PChar, action));
+                            return;
+                        }
                     }
                     PChar->TradePending.clean();
-                    PChar->UContainer->Clean();
-
                     PTarget->TradePending.clean();
-                    PTarget->UContainer->Clean();
+
+                    ShowDebug("Trade: UContainer is not empty");
                 }
             }
-        }
-        break;
+            break;
+            case 0x01: // trade cancelled
+            {
+                ShowDebug("%s cancelled trade with %s", PTarget->GetName(), PChar->GetName());
+                if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
+                {
+                    if (PTarget->UContainer->GetType() == UCONTAINER_TRADE)
+                    {
+                        PTarget->UContainer->Clean();
+                    }
+                }
+                if (PChar->UContainer->GetType() == UCONTAINER_TRADE)
+                {
+                    PChar->UContainer->Clean();
+                }
+
+                PTarget->TradePending.clean();
+                PTarget->pushPacket(new CTradeActionPacket(PChar, action));
+
+                PChar->TradePending.clean();
+            }
+            break;
+            case 0x02: // trade accepted
+            {
+                ShowDebug("%s accepted trade with %s", PTarget->GetName(), PChar->GetName());
+                if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
+                {
+                    PChar->UContainer->SetLock();
+                    PTarget->pushPacket(new CTradeActionPacket(PChar, action));
+
+                    if (PTarget->UContainer->IsLocked())
+                    {
+                        if (charutils::CanTrade(PChar, PTarget) && charutils::CanTrade(PTarget, PChar))
+                        {
+                            charutils::DoTrade(PChar, PTarget);
+                            PTarget->pushPacket(new CTradeActionPacket(PTarget, 9));
+
+                            charutils::DoTrade(PTarget, PChar);
+                            PChar->pushPacket(new CTradeActionPacket(PChar, 9));
+                        }
+                        else
+                        {
+                            // Failed to trade
+                            // Either players containers are full or illegal item trade attempted
+                            ShowDebug("%s->%s trade failed (full inventory or illegal items)", PChar->GetName(), PTarget->GetName());
+                            PChar->pushPacket(new CTradeActionPacket(PTarget, 1));
+                            PTarget->pushPacket(new CTradeActionPacket(PChar, 1));
+                        }
+                        PChar->TradePending.clean();
+                        PChar->UContainer->Clean();
+
+                        PTarget->TradePending.clean();
+                        PTarget->UContainer->Clean();
+                    }
+                }
+            }
+            break;
         }
     }
-    return;
 }
 
 /************************************************************************
