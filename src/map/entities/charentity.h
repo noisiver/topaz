@@ -344,6 +344,8 @@ public:
     CBattleEntity*   m_autoTargetOverride;           // When a party member auto-targets, this gets set to all of alliance to ensure everyone autotargets same mob 
     uint32            m_LastYell;
 
+    time_point m_LeaderCreatedPartyTime;            // Time that a party member joined and this player was leader.
+
     uint8			  m_GMlevel;                    // Level of the GM flag assigned to this character
     bool              m_isGMHidden;                 // GM Hidden flag to prevent player updates from being processed.
 

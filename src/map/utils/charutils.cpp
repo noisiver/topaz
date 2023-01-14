@@ -5198,15 +5198,18 @@ namespace charutils
 
     void ReloadParty(CCharEntity* PChar)
     {
+        TracyZoneScoped;
+
         int ret = Sql_Query(SqlHandle, "SELECT partyid, allianceid, partyflag & %d FROM accounts_sessions s JOIN accounts_parties p ON "
-            "s.charid = p.charid WHERE p.charid = %u;", (PARTY_SECOND | PARTY_THIRD), PChar->id);
+                             "s.charid = p.charid WHERE p.charid = %u;",
+                             (PARTY_SECOND | PARTY_THIRD), PChar->id);
         if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
         {
             uint32 partyid = Sql_GetUIntData(SqlHandle, 0);
             uint32 allianceid = Sql_GetUIntData(SqlHandle, 1);
             uint32 partynumber = Sql_GetUIntData(SqlHandle, 2);
 
-            //first, parties and alliances must be created or linked if the character's current party has changed
+            // first, parties and alliances must be created or linked if the character's current party has changed
             // for example, joining a party from another server
             if (PChar->PParty)
             {
@@ -5217,20 +5220,22 @@ namespace charutils
             }
             else
             {
-                //find if party exists on this server already
+                // find if party exists on this server already
                 CParty* PParty = nullptr;
-                zoneutils::ForEachZone([partyid, &PParty](CZone* PZone)
-                {
-                    PZone->ForEachChar([partyid, &PParty](CCharEntity* PChar)
+                zoneutils::ForEachZone(
+                    [partyid, &PParty](CZone* PZone)
                     {
-                        if (PChar->PParty && PChar->PParty->GetPartyID() == partyid)
-                        {
-                            PParty = PChar->PParty;
-                        }
+                        PZone->ForEachChar(
+                            [partyid, &PParty](CCharEntity* PChar)
+                            {
+                                if (PChar->PParty && PChar->PParty->GetPartyID() == partyid)
+                                {
+                                    PParty = PChar->PParty;
+                                }
+                            });
                     });
-                });
 
-                //create new party if it doesn't exist already
+                // create new party if it doesn't exist already
                 if (!PParty)
                 {
                     PParty = new CParty(partyid);
@@ -5240,18 +5245,12 @@ namespace charutils
             }
 
             CBattleEntity* PSyncTarget = PChar->PParty->GetSyncTarget();
-            if (PSyncTarget && PChar->getZone() == PSyncTarget->getZone()
-                && !(PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC))
-                && PSyncTarget->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC)
-                && PSyncTarget->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_SYNC)->GetDuration() == 0)
+            if (PSyncTarget && PChar->getZone() == PSyncTarget->getZone() && !(PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC)) &&
+                PSyncTarget->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC) &&
+                PSyncTarget->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_SYNC)->GetDuration() == 0)
             {
                 PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, PSyncTarget->GetMLevel(), 540));
-                PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(
-                    EFFECT_LEVEL_SYNC,
-                    EFFECT_LEVEL_SYNC,
-                    PSyncTarget->GetMLevel(),
-                    0,
-                    0), true);
+                PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_LEVEL_SYNC, EFFECT_LEVEL_SYNC, PSyncTarget->GetMLevel(), 0, 0), true);
                 PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE);
             }
 
@@ -5266,7 +5265,8 @@ namespace charutils
                 }
                 else
                 {
-                    //find if the alliance exists on this server already
+                    // find if the alliance exists on this server already
+                    // clang-format off
                     CAlliance* PAlliance = nullptr;
                     zoneutils::ForEachZone([allianceid, &PAlliance](CZone* PZone)
                     {
@@ -5278,8 +5278,9 @@ namespace charutils
                             }
                         });
                     });
+                    // clang-format on
 
-                    //create new alliance if it doesn't exist on this server already
+                    // create new alliance if it doesn't exist on this server already
                     if (!PAlliance)
                     {
                         PAlliance = new CAlliance(allianceid);
@@ -5293,10 +5294,10 @@ namespace charutils
                 PChar->PParty->m_PAlliance->delParty(PChar->PParty);
             }
 
-            //once parties and alliances have been reassembled, reload the party/parties
+            // once parties and alliances have been reassembled, reload the party/parties
             if (PChar->PParty->m_PAlliance)
             {
-                for (auto party : PChar->PParty->m_PAlliance->partyList)
+                for (auto* party : PChar->PParty->m_PAlliance->partyList)
                 {
                     party->ReloadParty();
                 }
@@ -5313,6 +5314,17 @@ namespace charutils
                 PChar->PParty->DelMember(PChar);
             }
             PChar->ReloadPartyDec();
+        }
+
+        // Attempt to disband party if the last trust was just released
+        // NOTE: Trusts are not counted as party members, so the current member count will be 1
+        if (PChar->PParty && PChar->PParty->HasOnlyOneMember() && PChar->PTrusts.empty())
+        {
+            // Looks good so far, check OTHER processes to see if we should disband
+            if (PChar->PParty->GetMemberCountAcrossAllProcesses() == 1)
+            {
+                PChar->PParty->DisbandParty();
+            }
         }
     }
 

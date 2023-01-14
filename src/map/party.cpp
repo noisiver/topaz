@@ -1186,9 +1186,49 @@ void CParty::SetPartyNumber(uint8 number)
     m_PartyNumber = number;
 }
 
+bool CParty::HasOnlyOneMember() const
+{
+    if (members.size() != 1)
+    {
+        return false;
+    }
+
+    // Load party size to make sure that there is only one member in the party across all servers
+    return LoadPartySize() == 1;
+}
+
+bool CParty::IsFull() const
+{
+    if (members.size() > 5)
+    {
+        return true;
+    }
+
+    // Load party size to make sure that that all members are accounted for across all servers
+    return LoadPartySize() > 5;
+}
+
+uint32 CParty::LoadPartySize() const
+{
+    int ret = Sql_Query(SqlHandle, "SELECT COUNT(*) FROM accounts_parties WHERE partyid = %d;", m_PartyID);
+    if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+    {
+        return Sql_GetUIntData(SqlHandle, 0);
+    }
+    return 0;
+}
+
 uint32 CParty::GetTimeLastMemberJoined()
 {
-    return (uint32)std::chrono::time_point_cast<std::chrono::seconds>(m_TimeLastMemberJoined).time_since_epoch().count();
+    auto* PLeader = dynamic_cast<CCharEntity*>(CParty::GetLeader());
+    auto LeaderMemberLastJoinedTime = server_clock::now();
+
+    if (PLeader)
+    {
+        LeaderMemberLastJoinedTime = PLeader->m_LeaderCreatedPartyTime;
+    }
+
+    return (uint32)std::chrono::time_point_cast<std::chrono::seconds>(LeaderMemberLastJoinedTime).time_since_epoch().count();
 }
 
 bool CParty::HasTrusts()
@@ -1278,4 +1318,12 @@ void CParty::RefreshFlags(std::vector<partyInfo_t>& info)
             }
         }
     }
+}
+
+std::size_t CParty::GetMemberCountAcrossAllProcesses()
+{
+    // TODO: We should detect whether or not we're a multi-process
+    // setup. So we can avoid asking the database for more information
+    // than we need to.
+    return GetPartyInfo().size();
 }
