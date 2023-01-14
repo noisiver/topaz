@@ -80,7 +80,7 @@ end
 function onGameHour(zone)
     local hour = VanadielHour()
 
-    if VanadielHour() % 1 == 0 then  -- Open / Close Miasma ALL opened at 0:00
+    if VanadielHour() % 1 == 0 then  -- Open or Close every hour
         for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
             GetNPCByID(i):setAnimation(math.random(8,9))
         end
