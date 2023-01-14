@@ -1496,9 +1496,7 @@ void SmallPacket0x036(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     // If PChar is invisible don't allow the trade, but you are able to initiate a trade TO an invisible player
     if (PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE))
     {
-        // 155 = "You cannot perform that action on the specified target."
-        // TODO: Correct message is "You cannot use that command while invisible."
-        PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 155));
+        PChar->pushPacket(new CMessageSystemPacket(0, 0, 172));
         return;
     }
 
