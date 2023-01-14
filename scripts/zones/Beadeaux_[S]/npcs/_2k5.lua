@@ -10,16 +10,8 @@ require("scripts/globals/bcnm")
 -----------------------------------
 
 function onTrigger(player, npc)
-    if
-    (player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_I) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_II) and
-    player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_III) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_IV) and
-    player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_V) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VI) and
-    player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VII) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VIII)) or
-    player:hasStatusEffect(tpz.effect.BATTLEFIELD)
-    then
-        if EventTriggerBCNM(player, npc) then
-            return 
-        end
+    if EventTriggerBCNM(player, npc) then
+        return 
     else
         player:messageSpecial(ID.text.DOOR_LOCKED)
     end

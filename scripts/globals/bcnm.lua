@@ -696,6 +696,24 @@ function checkReqs(player, npc, bfid, registrant)
         [1304] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                                                        ) end, -- Central Temenos 2nd Floor
         [1305] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                                                        ) end, -- Central Temenos 3rd Floor
         [1306] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                                                        ) end, -- Central Temenos 4th Floor
+        [1308] = function() return (
+        player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_I) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_II) and
+        player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_III) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_IV) and
+        player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_V) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VI) and
+        player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VII) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VIII)                        ) end, -- The Blood-bathed Crown
+        [1309] = function() return (
+        player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_I) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_II) and
+        player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_III) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_IV) and
+        player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_V) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VI) and
+        player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VII) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VIII)                                    ) end, -- The Buried God
+        [1310] = function() return (
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_I) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_II) and
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_III) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_IV) and
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_V) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VI) and
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VII) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VIII)                              ) end, -- A Malicious Manifest
+        [1311] = function() return ( player:hasKeyItem(tpz.ki.TIGRIS_STONE)                                                                                 ) end, -- Splitting Heirs
+        [1312] = function() return ( player:hasKeyItem(tpz.ki.DIAMOND_SEAL)                                                                                 ) end, -- Cracking Shells
+        [1313] = function() return ( player:hasKeyItem(tpz.ki.XICUS_ROSARY)                                                                                 ) end, -- Plucking Wings
     }
 
     -- requirements to enter a battlefield already registered by a party member
