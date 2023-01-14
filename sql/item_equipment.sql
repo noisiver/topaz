@@ -5924,7 +5924,7 @@ INSERT INTO `item_equipment` VALUES (16170,'wivre_shield',58,0,193,30,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (16171,'wivre_shield_+1',58,0,193,30,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (16172,'iron_ram_shield',60,0,193,27,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (16173,'pallass_shield',72,0,256,35,2,0,2,0);
-INSERT INTO `item_equipment` VALUES (16174,'riot_shield',74,0,193,26,3,0,2,0);
+INSERT INTO `item_equipment` VALUES (16174,'riot_shield',74,0,129,26,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (16175,'muse_tariqah',74,0,2421,53,2,0,2,0);
 INSERT INTO `item_equipment` VALUES (16176,'simba_buckler',75,0,449,44,1,0,2,0);
 INSERT INTO `item_equipment` VALUES (16177,'legion_scutum',71,0,4194303,33,4,0,2,0);

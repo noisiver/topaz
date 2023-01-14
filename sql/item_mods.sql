@@ -19555,7 +19555,8 @@ INSERT INTO `item_mods` VALUES (16172,23,3);
 INSERT INTO `item_mods` VALUES (16172,68,3);
 INSERT INTO `item_mods` VALUES (16173,1,20);
 INSERT INTO `item_mods` VALUES (16173,364,5);
-INSERT INTO `item_mods` VALUES (16174,1,21);
+INSERT INTO `item_mods` VALUES (16174,1,21);      -- Riot Shield
+INSERT INTO `item_mods` VALUES (16174,416,10);     -- Occasionally annuls physical damage taken +10%
 INSERT INTO `item_mods` VALUES (16175,1,15);      -- Muse Tariqah: DEF 15
 INSERT INTO `item_mods` VALUES (16175,13,7);      -- MND +7
 INSERT INTO `item_mods` VALUES (16175,14,7);      -- CHR +7
