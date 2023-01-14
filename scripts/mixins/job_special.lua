@@ -280,7 +280,12 @@ g_mixins.job_special = function(mob)
         if ability then
             mob:setLocalVar("[jobSpecial]numAbilities", 1)
             mob:setLocalVar("[jobSpecial]ability_1", ability)
-            mob:setLocalVar("[jobSpecial]hpp_1", math.random(10, 50))
+            -- Bene / Invincible / Perfect Dodge are sometimes used at very low HP values
+            if (ability == tpz.jsa.BENEDICTION) or (ability == tpz.jsa.INVINCIBLE) or (ability == tpz.jsa.PERFECT_DODGE) then
+                mob:setLocalVar("[jobSpecial]hpp_1", math.random(10, 50))
+            else
+                mob:setLocalVar("[jobSpecial]hpp_1", math.random(35, 50))
+            end
             mob:setLocalVar("[jobSpecial]between_1", 7200)
         end
 

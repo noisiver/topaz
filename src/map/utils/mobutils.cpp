@@ -786,7 +786,7 @@ void SetupJob(CMobEntity* PMob)
                     // so slow down the trolls a bit
                     PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);
                 }
-                else if (PMob->m_Family == 337) // Dyna-Quadav
+                else if (PMob->m_Family == 337 || PMob->m_Family == 954) // Quadav
                 {
                     PMob->defaultMobMod(MOBMOD_SPECIAL_SKILL, 1123);
                     PMob->defaultMobMod(MOBMOD_STANDBACK_COOL, 8);

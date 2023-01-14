@@ -957,3 +957,15 @@ function utils.spawnPetInBattle(mob, pet)
         pet:updateEnmity(mob:getTarget())
     end)
 end
+
+function utils.givePartyKeyItem(entity, keyitem)
+    local zonePlayers = entity:getZone():getPlayers()
+    local ID = zones[entity:getZoneID()]
+
+    for _, zonePlayer in pairs(zonePlayers) do
+        if not zonePlayer:hasKeyItem(keyitem) then
+	        zonePlayer:addKeyItem(keyitem)
+            zonePlayer:messageSpecial(ID.text.KEYITEM_OBTAINED, keyitem)
+        end
+    end
+end

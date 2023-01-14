@@ -38,5 +38,6 @@ function onEventFinish(player, csid, option)
     if csid == 32001 then
         player:addCurrency("allied_notes", 2000)
         player:messageSpecial(ID.text.EARNED_ALLIED_NOTES, 2000)
+        player:delKeyItem(tpz.ki.XICUS_ROSARY)
     end
 end

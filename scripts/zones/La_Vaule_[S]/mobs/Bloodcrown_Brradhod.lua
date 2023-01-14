@@ -65,6 +65,12 @@ function onMobFight(mob, target)
     end
 end
 
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = { 609, 2202, 2263, 2264, 2373}
+   --  Battle Dance, Berserker Dance, Tornado Dance, Shoulder Charge, Veil of Chaos
+   return tpMoves[math.random(#tpMoves)]
+end
+
 function onMobWeaponSkill(target, mob, skill)
     -- Says “I shall feast on your fear!” when he uses Veil of Chaos
     if skill:getID() == 2373 then

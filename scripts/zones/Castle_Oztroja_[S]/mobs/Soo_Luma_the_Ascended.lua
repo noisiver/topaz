@@ -30,9 +30,21 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
+    -- Spawn adds if they're dead'
+    for v = mob:getID() +2, mob:getID() +4 do
+        local adds = GetMobByID(v)
+        if not adds:isSpawned() then
+            adds:spawn()
+            adds:updateEnmity(target)
+        end
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
+   local hp = mob:getHPP()
+   local tpMoves = { 619, 620, 2206, 2381 }
+   --  Parry, Sweep, Dark Invocation, Double Kick
+   return tpMoves[math.random(#tpMoves)]
 end
 
 function onMobWeaponSkill(target, mob, skill)
