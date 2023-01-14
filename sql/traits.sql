@@ -223,7 +223,7 @@ INSERT INTO `traits` VALUES (15,'double attack',1,99,4,288,14,'ABYSSEA',0); -- l
 INSERT INTO `traits` VALUES (15,'double attack',1,99,5,288,16,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,99,6,288,18,'ROV',0);
 INSERT INTO `traits` VALUES (16,'triple attack',6,40,1,302,5,NULL,0);
-INSERT INTO `traits` VALUES (16,'triple attack',6,60,2,302,10,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (16,'triple attack',6,76,2,302,10,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (17,'counter',2,10,1,291,10,NULL,0);		-- changed from 8%
 INSERT INTO `traits` VALUES (17,'counter',2,81,2,291,12,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (18,'dual wield',6,10,1,259,10,'ABYSSEA',0);
