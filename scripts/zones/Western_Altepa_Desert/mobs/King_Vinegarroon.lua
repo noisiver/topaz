@@ -50,9 +50,6 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 function onMobDisengage(mob, weather)
-    if weather ~= tpz.weather.DUST_STORM and weather ~= tpz.weather.SAND_STORM then
-        DespawnMob(mob:getID())
-    end
 end
 
 function onMobDeath(mob, player, isKiller)
