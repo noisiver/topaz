@@ -58,6 +58,7 @@ function onUseAbility(player, target, ability, action)
     else
         action:animation(target:getID(), 182)
         ability:setMsg(tpz.msg.basic.STEAL_FAIL) -- Failed
+        return 0
     end
 
     return stolen
