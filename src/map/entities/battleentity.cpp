@@ -1720,7 +1720,17 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                         }
 
                         float DamageRatio = battleutils::GetDamageRatio(PTarget, this, attack.IsCritical(), 0.f);
-                        auto damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * DamageRatio);
+                        auto damage = 0;
+
+                        if (PTarget->objtype == TYPE_MOB)
+                        {
+                            int8 mobH2HDamage = PTarget->GetMLevel() + 2;
+                            damage = (int32)((std::floor((mobH2HDamage + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * 0.9f) / 2) * DamageRatio);
+                        }
+                        else
+                        {
+                            damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * DamageRatio);
+                        }
                         actionTarget.spikesParam = battleutils::TakePhysicalDamage(PTarget, this, attack.GetAttackType(), damage, false, SLOT_MAIN, 1, nullptr, true, false, true);
                         actionTarget.spikesMessage = 33;
                         if (PTarget->objtype == TYPE_PC)
