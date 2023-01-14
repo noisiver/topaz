@@ -13,8 +13,6 @@ public:
     {
         std::array<uint32_t, std::mt19937::state_size> seed_data;
         std::random_device rd;
-        std::generate(seed_data.begin(), seed_data.end(), std::ref(rd));
-        std::seed_seq seq(seed_data.begin(), seed_data.end());
 
         // Certain systems were noted to have bad seeding via only std::random_device,
         // the following indicated how we could mix in std::random_device with other seed sources
