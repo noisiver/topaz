@@ -80,94 +80,17 @@ end
 function onGameHour(zone)
     local hour = VanadielHour()
 
-    if hour == 0 then -- Open / Close Miasma ALL opened at 0:00
+    if VanadielHour() % 1 == 0 then  -- Open / Close Miasma ALL opened at 0:00
         for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
+            GetNPCByID(i):setAnimation(math.random(8,9))
         end
         for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
+            GetNPCByID(i):setAnimation(math.random(8,9))
         end
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
-    elseif hour == 3 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
-        end
-        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
-        end
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
-    elseif hour == 6 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
-        end
-        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
-        end
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-    elseif hour == 9 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
-        end
-        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
-        end
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
-    elseif hour == 12 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
-        end
-        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
-        end
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-    elseif hour == 15 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
-        end
-        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
-        end
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
-    elseif hour == 18 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.CLOSE_DOOR)
-        end
-        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
-        end
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-    elseif hour == 21 then -- Open / Close Miasma
-        for i = ID.npc.MIASMA_START_FIRST, ID.npc.MIASMA_END_FIRST, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
-        end
-        for i = ID.npc.MIASMA_START_SECOND, ID.npc.MIASMA_END_SECOND, 1 do
-            GetNPCByID(i):setAnimation(tpz.anim.OPEN_DOOR)
-        end
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.CLOSE_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(tpz.anim.OPEN_DOOR)
-        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(tpz.anim.OPEN_DOOR)
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START):setAnimation(math.random(8,9))
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(math.random(8,9))
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +1):setAnimation(math.random(8,9))
+        GetNPCByID(ID.npc.MIASMA_PARRADAMO_START +2):setAnimation(math.random(8,9))
     end
 end
 
