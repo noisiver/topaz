@@ -5,6 +5,7 @@
 require("scripts/globals/titles")
 require("scripts/globals/world")
 require("scripts/globals/mobs")
+-- !gotoid 17289575
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(140)
