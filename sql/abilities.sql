@@ -276,7 +276,7 @@ INSERT INTO `abilities` VALUES (222,'manifestation',20,40,1,1,231,0,0,180,2000,0
 INSERT INTO `abilities` VALUES (223,'stratagems',20,10,1,0,233,0,0,0,2000,0,6,20.0,0,0,0,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (224,'velocity_shot',11,45,1,60,129,0,0,186,2000,0,6,20.0,0,1,300,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (225,'snarl',9,45,257,30,107,0,0,87,2000,0,6,20.0,0,0,0,0,192,'WOTG');
-INSERT INTO `abilities` VALUES (226,'retaliation',1,60,1,300,8,0,0,185,2000,0,6,20.0,0,1,80,0,0,'WOTG');
+INSERT INTO `abilities` VALUES (226,'retaliation',1,60,1,300,8,0,0,193,2000,0,6,20.0,0,1,80,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (227,'footwork',2,65,1,300,21,0,0,197,2000,0,6,20.0,0,1,80,0,0,'WOTG');
 INSERT INTO `abilities` VALUES (228,'despoil',6,60,4,300,61,125,0,181,2000,0,3,5.4,0,1,300,0,0,'ABYSSEA');		-- changed from  300s cd level 77
 INSERT INTO `abilities` VALUES (229,'pianissimo',10,20,1,15,112,0,0,194,2000,0,6,20.0,0,1,60,0,0,'WOTG');
@@ -304,7 +304,7 @@ INSERT INTO `abilities` VALUES (248,'yonin',13,40,1,60,146,0,0,218,2000,0,6,20.0
 INSERT INTO `abilities` VALUES (249,'innin',13,15,1,60,147,0,0,219,2000,0,6,20.0,0,1,60,0,4,'WOTG');
 INSERT INTO `abilities` VALUES (250,'avatars_favor',15,60,1,300,176,0,0,94,2000,0,6,10.0,1,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (251,'ready',9,25,1,0,255,0,0,83,2000,0,6,18.0,0,0,0,902,64,NULL);
--- INSERT INTO `abilities` VALUES (252,'restraint',1,77,1,600,9,100,0,220,2000,0,6,20.0,0,450,900,0,0,NULL);
+INSERT INTO `abilities` VALUES (252,'restraint',1,77,1,600,9,100,0,220,2000,0,6,20.0,0,450,900,0,0,NULL);
 INSERT INTO `abilities` VALUES (253,'perfect_counter',2,30,1,30,22,100,0,221,2000,0,6,20.0,0,1,80,0,0,NULL);
 INSERT INTO `abilities` VALUES (254,'mana_wall',4,76,1,600,39,0,0,222,2000,0,6,20.0,0,1,0,0,0,NULL);
 INSERT INTO `abilities` VALUES (255,'divine_emblem',7,75,1,180,80,100,0,222,2000,0,6,20.0,0,1,80,0,0,NULL);
