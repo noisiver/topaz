@@ -1264,6 +1264,9 @@ void SmallPacket0x032(map_session_data_t* const PSession, CCharEntity* const PCh
             return;
         }
 
+        // Clean trade upon requesting so you're not stuck in a state of  trying to trade but can't
+        PChar->TradePending.clean();
+        PTarget->TradePending.clean();
         // This block usually doesn't trigger,
         // The client is generally forced to send a trade cancel packet via a cancel yes/no menu,
         // resulting in an outgoing 0x033 with 0x04 set to 0x01 for their old trade target, but sometimes the menu does not happen and a cancel is sent instead.
@@ -1318,15 +1321,12 @@ void SmallPacket0x033(map_session_data_t* const PSession, CCharEntity* const PCh
                 {
                     if (PChar->UContainer->IsContainerEmpty() && PTarget->UContainer->IsContainerEmpty())
                     {
-                        if (distance(PChar->loc.p, PTarget->loc.p) < 6)
-                        {
-                            PChar->UContainer->SetType(UCONTAINER_TRADE);
-                            PChar->pushPacket(new CTradeActionPacket(PTarget, action));
+                        PChar->UContainer->SetType(UCONTAINER_TRADE);
+                        PChar->pushPacket(new CTradeActionPacket(PTarget, action));
 
-                            PTarget->UContainer->SetType(UCONTAINER_TRADE);
-                            PTarget->pushPacket(new CTradeActionPacket(PChar, action));
-                            return;
-                        }
+                        PTarget->UContainer->SetType(UCONTAINER_TRADE);
+                        PTarget->pushPacket(new CTradeActionPacket(PChar, action));
+                        return;
                     }
                     PChar->TradePending.clean();
                     PTarget->TradePending.clean();
