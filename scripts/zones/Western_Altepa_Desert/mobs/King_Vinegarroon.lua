@@ -8,7 +8,7 @@ require("scripts/globals/mobs")
 -- !gotoid 17289575
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(140)
+	mob:setDamage(100)
 	mob:setMod(tpz.mod.ATTP, 50)
     mob:setMod(tpz.mod.DEF, 522)
     mob:setMod(tpz.mod.EVA, 335)
