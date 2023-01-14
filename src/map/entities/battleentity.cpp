@@ -694,7 +694,7 @@ uint16 CBattleEntity::RACC(uint8 skill, uint16 bonusSkill)
     return acc + std::min<int16>(((100 + getMod(Mod::FOOD_RACCP) * acc) / 100), getMod(Mod::FOOD_RACC_CAP));
 }
 
-uint16 CBattleEntity::ACC(uint8 attackNumber, uint8 offsetAccuracy)
+uint16 CBattleEntity::ACC(int8 attackNumber, int8 offsetAccuracy)
 {
     if (this->objtype & TYPE_PC) {
         uint8 skill = 0;
