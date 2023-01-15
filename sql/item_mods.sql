@@ -10830,7 +10830,7 @@ INSERT INTO `item_mods` VALUES (13562,1,2);
 INSERT INTO `item_mods` VALUES (13563,1,2);
 INSERT INTO `item_mods` VALUES (13564,1,2);
 INSERT INTO `item_mods` VALUES (13565,1,2);       -- Water Ring
-INSERT INTO `item_mods` VALUES (13565,519,15);    -- Cure spellcasting time -5%
+INSERT INTO `item_mods` VALUES (13565,519,5);    -- Cure spellcasting time -5%
 INSERT INTO `item_mods` VALUES (13566,160,-10);
 INSERT INTO `item_mods` VALUES (13567,2,75);
 INSERT INTO `item_mods` VALUES (13567,54,-75);
