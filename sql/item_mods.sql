@@ -10829,7 +10829,8 @@ INSERT INTO `item_mods` VALUES (13561,1,2);
 INSERT INTO `item_mods` VALUES (13562,1,2);
 INSERT INTO `item_mods` VALUES (13563,1,2);
 INSERT INTO `item_mods` VALUES (13564,1,2);
-INSERT INTO `item_mods` VALUES (13565,1,2);
+INSERT INTO `item_mods` VALUES (13565,1,2);       -- Water Ring
+INSERT INTO `item_mods` VALUES (13565,519,15);    -- Cure spellcasting time -5%
 INSERT INTO `item_mods` VALUES (13566,160,-10);
 INSERT INTO `item_mods` VALUES (13567,2,75);
 INSERT INTO `item_mods` VALUES (13567,54,-75);
@@ -21076,7 +21077,8 @@ INSERT INTO `item_mods` VALUES (17437,13,5);
 INSERT INTO `item_mods` VALUES (17437,14,5);
 INSERT INTO `item_mods` VALUES (17438,10,3); -- Titans Cudgel
 INSERT INTO `item_mods` VALUES (17438,431,1); -- Additional Effect: Earth damage
-INSERT INTO `item_mods` VALUES (17439,13,3);
+INSERT INTO `item_mods` VALUES (17439,13,3);      -- Leviathan's Rod
+INSERT INTO `item_mods` VALUES (17439,163,-10);   -- MDT -10%
 INSERT INTO `item_mods` VALUES (17441,5,5);       -- Eremite's Wand: MP +5
 INSERT INTO `item_mods` VALUES (17441,12,2);      -- INT +2
 INSERT INTO `item_mods` VALUES (17441,13,2);      -- MND +2
