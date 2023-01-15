@@ -1462,7 +1462,7 @@ bool CMobController::IsSpellReady(float currentDistance)
         bonusTime = PMob->getBigMobMod(MOBMOD_STANDBACK_COOL);
     }
 
-    if (PMob->StatusEffectContainer->HasStatusEffect({EFFECT_CHAINSPELL,EFFECT_MANAFONT}))
+    if (PMob->StatusEffectContainer->HasStatusEffect({EFFECT_CHAINSPELL,EFFECT_MANAFONT,EFFECT_TABULA_RASA}))
     {
         return true;
     }

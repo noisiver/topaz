@@ -51,4 +51,8 @@ function onMobWeaponSkill(target, mob, skill)
 end
 
 function onMobDeath(mob, player, isKiller, noKiller)
+    -- Despawn adds on death
+    for v = mob:getID() +2, mob:getID() +4 do
+        DespawnMob(v)
+    end
 end

@@ -3,7 +3,7 @@
 -- Quadav SCNM
 -- !addkeyitem 1034 - !addkeyitem 1041
 -----------------------------------
-local ID = require("scripts/zones/Beadeaux_[S]/IDs")
+local ID = require("scripts/zones/Castle_Oztroja_[S]/IDs")
 require("scripts/globals/battlefield")
 require("scripts/globals/keyitems")
 -----------------------------------

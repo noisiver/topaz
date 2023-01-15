@@ -5272,24 +5272,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,170,30,40);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,171,55,61);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,172,70,94); -- Water IV
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,173,95,255); -- Water V
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,174,28,35);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,175,53,60);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,176,69,90);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,179,32,39);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,180,57,62);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,181,71,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,184,23,31);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,185,48,56);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,186,67,71);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,189,15,22);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,190,40,47);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,191,63,67);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,194,36,43);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,195,61,65);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,196,73,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,199,19,27);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,200,44,52);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,201,65,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,204,60,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,206,50,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,208,52,255);
@@ -5298,24 +5280,11 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,212,56,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,214,58,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,220,3,17);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,221,43,64);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,225,24,71);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,226,72,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,230,10,34);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,231,35,84);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,232,85,255); -- Bio III
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,235,24,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,236,22,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,237,20,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,238,18,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,239,16,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,240,27,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,245,12,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,247,25,94);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,248,95,255); -- Aspir II
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,249,10,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,253,20,40);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,254,4,255);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,258,7,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,259,41,255);
 
 -- NEXT 1020
