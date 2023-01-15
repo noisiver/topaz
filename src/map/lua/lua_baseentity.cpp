@@ -8099,6 +8099,12 @@ inline int32 CLuaBaseEntity::addHP(lua_State *L)
 
     CBattleEntity* PBattle = (CBattleEntity*)m_PBaseEntity;
 
+    // Don't add HP if target has zombie(curse II)
+    if (PBattle->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+    {
+        return 1;
+    }
+
     int32 result = PBattle->addHP((int32)lua_tointeger(L, 1));
 
     // will always remove sleep effect unless /healing
