@@ -848,8 +848,8 @@ tpz.effect =
     FULL_SPEED_AHEAD         = 803, -- Helper for quest: Full Speed Ahead!
     INCREASED_DAMAGE_TAKEN   = 804, -- Increased damage taken, in percents
     CRIT_HIT_RATE_DOWN       = 805, -- Critical hit rate down
-    -- PLACEHOLDER           = 805, -- Description
-    -- 805-1022
+    ENHANCED_MANIFESTATION   = 806, -- Makes all spells AOE. Mobs only.
+    -- 807-1022
     DEEPSLEEP                = 901, -- For abilities like Nightmare
     -- PLACEHOLDER             = 1023 -- The client dat file seems to have only this many "slots", results of exceeding that are untested.
 }

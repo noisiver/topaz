@@ -682,8 +682,10 @@ INSERT INTO `status_effects` VALUES (802,'elemental_resistance_down',8389408,0,0
 INSERT INTO `status_effects` VALUES (803,'full_speed_ahead',768,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (804,'increased_damage_taken',544,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (805,'crit_hit_rate_down',544,0,0,0,0,0,0,0,0);
+INSERT INTO `status_effects` VALUES (806,'enhanced_manifestation',544,0,0,0,0,0,0,0,0);
 INSERT INTO `status_effects` VALUES (901,'deepsleep',8388656,0,0,0,0,2,0,0,0);
 
+-- NEXT 807
 /*!40000 ALTER TABLE `status_effects` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -5827,7 +5827,8 @@ namespace battleutils
         }
         if (PSpell->getAOE() == SPELLAOE_RADIAL_MANI)
         {
-            if (PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_MANIFESTATION))
+            if (PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_MANIFESTATION) ||
+                PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_ENHANCED_MANIFESTATION))
                 return SPELLAOE_RADIAL;
             else
                 return SPELLAOE_NONE;
@@ -5851,7 +5852,8 @@ namespace battleutils
         }
         if (PSpell->getAOE() == SPELLAOE_TABULA)
         {
-            if (PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_TABULA_RASA))
+            if (PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_TABULA_RASA) ||
+                PCaster->StatusEffectContainer->HasStatusEffect(EFFECT_ENHANCED_MANIFESTATION))
                 return SPELLAOE_RADIAL;
             else
                 return SPELLAOE_NONE;
