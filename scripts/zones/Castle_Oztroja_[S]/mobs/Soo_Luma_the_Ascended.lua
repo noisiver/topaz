@@ -3,6 +3,7 @@
 --   NM: Soo Luma The Ascended
 -- BCNM: Plucking Wings
 -- SCH/SCH
+-- ID: 17183047
 -----------------------------------
 local ID = require("scripts/zones/Castle_Oztroja_[S]/IDs")
 require("scripts/globals/status")
@@ -18,6 +19,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 1)
     mob:setMobMod(tpz.mobMod.SIGHT_RANGE , 20)
     mob:setMobMod(tpz.mobMod.SOUND_RANGE, 20)
+    mob:addStatusEffectEx(tpz.effect.ENHANCED_MANIFESTATION, tpz.effect.ENHANCED_MANIFESTATION, 1, 0, 3600)
 end
 
 function onMobEngaged(mob, target)
@@ -38,6 +40,10 @@ function onMobFight(mob, target)
             adds:updateEnmity(target)
         end
     end
+
+	if not mob:hasStatusEffect(tpz.effect.ENHANCED_MANIFESTATION) then
+        mob:addStatusEffectEx(tpz.effect.ENHANCED_MANIFESTATION, tpz.effect.ENHANCED_MANIFESTATION, 1, 0, 3600)
+	end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
