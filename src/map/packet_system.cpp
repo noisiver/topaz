@@ -1338,12 +1338,9 @@ void SmallPacket0x033(map_session_data_t* const PSession, CCharEntity* const PCh
             case 0x01: // trade cancelled
             {
                 ShowDebug("%s cancelled trade with %s", PTarget->GetName(), PChar->GetName());
-                if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
+                if (PTarget->UContainer->GetType() == UCONTAINER_TRADE)
                 {
-                    if (PTarget->UContainer->GetType() == UCONTAINER_TRADE)
-                    {
-                        PTarget->UContainer->Clean();
-                    }
+                    PTarget->UContainer->Clean();
                 }
                 if (PChar->UContainer->GetType() == UCONTAINER_TRADE)
                 {
