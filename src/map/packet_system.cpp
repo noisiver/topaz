@@ -1839,13 +1839,6 @@ void SmallPacket0x04D(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         return;
     }
 
-    if (!zoneutils::IsResidentialArea(PChar) && PChar->m_GMlevel == 0 && !PChar->loc.zone->CanUseMisc(MISC_AH) && !PChar->loc.zone->CanUseMisc(MISC_MOGMENU))
-    {
-        ShowDebug(CL_CYAN"%s is trying to use the delivery box in a disallowed zone [%s]\n" CL_RESET, PChar->GetName(), PChar->loc.zone->GetName());
-        return;
-    }
-
-
     // 0x01 - Send old items..
     // 0x02 - Add items to be sent..
     // 0x03 - Send confirmation..
@@ -6046,31 +6039,29 @@ void SmallPacket0x0FF(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 void SmallPacket0x100(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
 {
     TracyZoneScoped;
-    if (PChar->loc.zone->CanUseMisc(MISC_MOGMENU) || PChar->m_moghouseID)
+
+    uint8 mjob = data.ref<uint8>(0x04);
+    uint8 sjob = data.ref<uint8>(0x05);
+
+    if ((mjob > 0x00) && (mjob < MAX_JOBTYPE) && (PChar->jobs.unlocked & (1 << mjob)))
     {
-        uint8 mjob = data.ref<uint8>(0x04);
-        uint8 sjob = data.ref<uint8>(0x05);
+        JOBTYPE prevjob = PChar->GetMJob();
+        PChar->resetPetZoningInfo();
 
-        if ((mjob > 0x00) && (mjob < MAX_JOBTYPE) && (PChar->jobs.unlocked & (1 << mjob)))
+        charutils::RemoveAllEquipment(PChar);
+        PChar->SetMJob(mjob);
+        PChar->SetMLevel(PChar->jobs.job[PChar->GetMJob()]);
+        PChar->SetSLevel(PChar->jobs.job[PChar->GetSJob()]);
+
+        // If removing RemoveAllEquipment, please add a charutils::CheckUnarmedItem(PChar) if main hand is empty.
+        puppetutils::LoadAutomaton(PChar);
+        if (mjob == JOB_BLU)
         {
-            JOBTYPE prevjob = PChar->GetMJob();
-            PChar->resetPetZoningInfo();
-
-            charutils::RemoveAllEquipment(PChar);
-            PChar->SetMJob(mjob);
-            PChar->SetMLevel(PChar->jobs.job[PChar->GetMJob()]);
-            PChar->SetSLevel(PChar->jobs.job[PChar->GetSJob()]);
-
-            // If removing RemoveAllEquipment, please add a charutils::CheckUnarmedItem(PChar) if main hand is empty.
-            puppetutils::LoadAutomaton(PChar);
-            if (mjob == JOB_BLU)
-            {
-                blueutils::LoadSetSpells(PChar);
-            }
-            else if (prevjob == JOB_BLU)
-            {
-                blueutils::UnequipAllBlueSpells(PChar);
-            }
+            blueutils::LoadSetSpells(PChar);
+        }
+        else if (prevjob == JOB_BLU)
+        {
+            blueutils::UnequipAllBlueSpells(PChar);
         }
 
         if ((sjob > 0x00) && (sjob < MAX_JOBTYPE) && (PChar->jobs.unlocked & (1 << sjob)))
