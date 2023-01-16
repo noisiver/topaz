@@ -18,7 +18,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
-    params.bonus = 0
+    params.bonus = 30
     params.effect = tpz.effect.SLOW
     local power = 3000
     local resist = applyResistanceEffect(caster, target, spell, params)

@@ -17,7 +17,7 @@ function onSpellCast(caster, target, spell)
     params.diff = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.NINJUTSU
-    params.bonus = 0
+    params.bonus = 30
     params.effect = tpz.effect.PARALYSIS
     local resist = applyResistanceEffect(caster, target, spell, params)
     --Jubaku base powers are not effected by resistances, Ichi:20, Ni:30, San:35.
