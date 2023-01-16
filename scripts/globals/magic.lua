@@ -1265,13 +1265,14 @@ function calculateMagicBurst(caster, spell, target, params)
     -- Obtain first multiplier from gear, atma and job traits
     modburst = modburst + (caster:getMod(tpz.mod.MAG_BURST_BONUS) / 100) + params.AMIIburstBonus
 
-    if caster:isBehind(target) and caster:hasStatusEffect(tpz.effect.INNIN) then
-        modburst = modburst + (caster:getMerit(tpz.merit.INNIN_EFFECT)/100)
-    end
-
     -- Cap bonuses from first multiplier at 40% or 1.4
     if (modburst > 1.4) then
         modburst = 1.4
+    end
+
+    -- Innin adds +30 Magic Burst bonus that bypasses the 40 cap
+    if caster:isBehind(target) and caster:hasStatusEffect(tpz.effect.INNIN) then 
+        modburst = modburst + 0.30 + (caster:getMerit(tpz.merit.INNIN_EFFECT)/100)
     end
 
     -- Obtain second multiplier from skillchain

@@ -14902,6 +14902,8 @@ INSERT INTO `mob_droplist` VALUES (2735,2,0,1000,751,0); -- (Yagudo Nokizaru - C
 INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2519,10); -- Yagudo Osode
 INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2520,100); -- Yagudo kote
 INSERT INTO `mob_droplist` VALUES (2735,0,0,1000,2566,150); -- Jar of Gnat pellets
+INSERT INTO `mob_droplist` VALUES (2735,1,1,100,4950,500); -- Scroll of Jubaku: Ni
+INSERT INTO `mob_droplist` VALUES (2735,1,1,100,4954,500); -- Scroll of Hojo: San
 INSERT INTO `mob_droplist` VALUES (2736,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2736,0,0,1000,841,1200);
 INSERT INTO `mob_droplist` VALUES (2736,0,0,1000,4898,40);

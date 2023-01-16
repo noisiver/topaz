@@ -1,5 +1,5 @@
 -----------------------------------------
--- Spell: Hojo:Ichi
+-- Spell: Hojo:Ni
 -- Description: Inflicts Slow on target.
 -- Edited from slow.lua
 -----------------------------------------

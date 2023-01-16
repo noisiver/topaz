@@ -11,6 +11,7 @@ function onEffectGain(target, effect) --power=30 initially, subpower=20 for enmi
     target:addMod(tpz.mod.EVA, -effect:getPower())
     target:addMod(tpz.mod.ENMITY, -effect:getSubPower())
     --target:addmod(tpz.mod.ATT, effect:getPower())
+    target:addMod(tpz.mod.ENSPELL_MACC, 30)
 end
 
 --function onEffectTick(target, effect)
@@ -28,4 +29,5 @@ function onEffectLose(target, effect)
     target:delMod(tpz.mod.EVA, -effect:getPower())
     target:delMod(tpz.mod.ENMITY, -effect:getSubPower())
     --target:delmod(tpz.mod.ATT, effect:getPower())
+    target:delMod(tpz.mod.ENSPELL_MACC, 30)
 end
