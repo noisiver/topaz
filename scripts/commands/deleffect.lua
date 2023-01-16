@@ -39,26 +39,7 @@ function onTrigger(player, arg1, arg2)
     if (arg2 ~= nil) then
         targ = GetPlayerByName(arg1)
         if (arg2 == 'all') then
-            -- delete status effect
-            for v = 1,31,1 do
-                targ:delStatusEffectSilent(v)
-            end
-            for v = 128,142,1 do
-                targ:delStatusEffectSilent(v)
-            end
-            for v = 144,149,1 do
-                targ:delStatusEffectSilent(v)
-            end
-            for v = 167,168,1 do
-                targ:delStatusEffectSilent(v)
-            end
-            for v = 174,175,1 do
-                targ:delStatusEffectSilent(v)
-            end
-            for v = 192,194,1 do
-                targ:delStatusEffectSilent(v)
-            end
-            targ:delStatusEffectSilent(tpz.effect.ENCUMBRANCE_II)
+            targ:removeAllNegativeEffects()
             if (targ:getID() ~= player:getID()) then
                 return player:PrintToPlayer(string.format("Removed all status effects from %s.", targ:getName()))
             else
