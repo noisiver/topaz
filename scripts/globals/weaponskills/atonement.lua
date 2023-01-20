@@ -126,6 +126,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
         dmg = math.floor(dmg * circlemult / 100) -- Apply circle effect mod
         --printf("dmg before mod %i", dmg)
+        -- apply dmg taken mod
+        dmg = math.floor(dmg * (1 + target:getMod(tpz.mod.DMG) / 100))
         --spirits DT mod
         dmg = math.floor(dmg * (1 + utils.clamp(target:getMod(tpz.mod.DMGSPIRITS), -100, 100) / 100))
         --printf("dmg after mod %i", dmg)
