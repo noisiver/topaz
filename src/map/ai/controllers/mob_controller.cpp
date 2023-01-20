@@ -304,7 +304,7 @@ bool CMobController::CanDetectTarget(CBattleEntity* PTarget, bool forceSight)
     // ShowDebug("Blood Range before %u \n", PMob->getMobMod(MOBMOD_HP_RANGE));
     uint32 bloodRange = (PMob->getMobMod(MOBMOD_HP_RANGE) * GetBloodDetectionModifiers()) / 100;
     // ShowDebug("Blood Range after %u \n", bloodRange);
-    if ((detectHP) && currentDistance < bloodRange)
+    if ((detectHP) && currentDistance < bloodRange && PTarget->GetHPP() < 75)
     {
         return CanSeePoint(PTarget->loc.p);
     }
