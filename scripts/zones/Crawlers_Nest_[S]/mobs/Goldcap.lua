@@ -8,7 +8,6 @@ require("scripts/globals/annm")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ACC, 200)
     mob:addMod(tpz.mod.TRIPLE_ATTACK, 25)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     tpz.annm.NMMods(mob) 
