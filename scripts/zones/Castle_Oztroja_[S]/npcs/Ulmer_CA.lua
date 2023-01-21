@@ -24,6 +24,15 @@ function onTrade(player, npc, trade)
             end
         end
     end
+    if player:hasKeyItem(tpz.keyItem.XICUS_ROSARY) then
+        if npcUtil.tradeHas(trade, tpz.items.GIL) then
+            player:PrintToPlayer("Off you go!",0, "Ulmer, C.A.")
+            local zonePlayers = player:getZone():getPlayers()
+            for _, zonePlayer in pairs(zonePlayers) do
+                zonePlayer:setPos(-100.000,-72.627,-20.000, 0, 99)
+            end
+        end
+    end
 end
 
 function onTrigger(player, npc)
