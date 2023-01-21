@@ -15,7 +15,7 @@ function onTrade(player, npc, trade)
     if player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_I) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_II) and
         player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_III) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_IV) and
         player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_V) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VI) and
-        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VII) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VIII then
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VII) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VIII) then
         if npcUtil.tradeHas(trade, tpz.items.GIL) then
             player:PrintToPlayer("Off you go!",0, "Ulmer, C.A.")
             salvageUtil.teleportGroup(player, -100.000,-72.627,-20.000, 0, true, false, false)
