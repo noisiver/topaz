@@ -33,6 +33,11 @@ function onMobSpawn(mob)
         tpz.wotg.NMMods(mob)
     else
         mob:setDamage(70)
+        mob:setMod(tpz.mod.HTHRES, 1000)
+        mob:setMod(tpz.mod.SLASHRES, 1000)
+        mob:setMod(tpz.mod.PIERCERES, 1000)
+        mob:setMod(tpz.mod.RANGEDRES, 1000)
+        mob:setMod(tpz.mod.IMPACTRES, 1000)
     end
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
     mob:setMod(tpz.mod.NINJUTSU_NEVER_MISS, 1)
