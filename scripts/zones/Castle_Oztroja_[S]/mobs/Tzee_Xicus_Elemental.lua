@@ -7,7 +7,6 @@ require("scripts/globals/status")
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.UDMGMAGIC, -66)
     mob:addMod(tpz.mod.ENFEEBLE_NEVER_MISS, 1)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
