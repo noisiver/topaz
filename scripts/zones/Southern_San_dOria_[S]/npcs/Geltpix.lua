@@ -13,10 +13,10 @@ end
 function onTrigger(player, npc)
     local stock =
     {
-        4116,  4500,    -- Hi-Potion
-        4132, 28000,    -- Hi-Ether
-        605,    200,    -- Pickaxe
-        1020,   300     -- Sickle
+        4116,  4500,   -- Hi-Potion
+        4132, 28000,   -- Hi-Ether
+        1021,   500,   -- Hatchet
+        2554,   1000   -- Asphodel
         4153,  1000,    -- Antacid
     }
 
