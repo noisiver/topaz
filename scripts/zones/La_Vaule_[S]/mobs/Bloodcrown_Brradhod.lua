@@ -13,7 +13,7 @@
 -- Glows super Light/Rainbow/Paladinish  while Flash Aura is active. Flash aura is -104 ACC
 -- Aura removed @ 70%ish hp. Came back at 55%sh, never went away again. Must be on a very long timer?
 -- Uses invincible EXACTLY every 3 minutes
-
+--  Uses Battle Dance, Berserker Dance, Tornado Dance, Shoulder Charge, Veil of Chaos
 -----------------------------------
 local ID = require("scripts/zones/La_Vaule_[S]/IDs")
 require("scripts/globals/status")
@@ -32,6 +32,7 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 1)
     mob:setMobMod(tpz.mobMod.SIGHT_RANGE , 20)
     mob:setMobMod(tpz.mobMod.SOUND_RANGE, 20)
+    mob:setMobMod(tpz.mobMod.HP_HEAL_CHANCE , 33)
     mob:AnimationSub(1)
     tpz.mix.jobSpecial.config(mob, {
         between = 180,
