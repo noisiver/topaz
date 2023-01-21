@@ -16,7 +16,7 @@ function onTrigger(player, npc)
         4116,  4500,   -- Hi-Potion
         4132, 28000,   -- Hi-Ether
         1021,   500,   -- Hatchet
-        2554,   1000   -- Asphodel
+        2554,  1000   -- Asphodel
         4153,  1000,    -- Antacid
     }
 
