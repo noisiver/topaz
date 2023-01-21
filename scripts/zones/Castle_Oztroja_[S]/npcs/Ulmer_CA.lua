@@ -18,7 +18,10 @@ function onTrade(player, npc, trade)
         player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VII) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VIII) then
         if npcUtil.tradeHas(trade, tpz.items.GIL) then
             player:PrintToPlayer("Off you go!",0, "Ulmer, C.A.")
-            salvageUtil.teleportGroup(player, -100.000,-72.627,-20.000, 0, true, false, false)
+            local zonePlayers = player:getZone():getPlayers()
+            for _, zonePlayer in pairs(zonePlayers) do
+                zonePlayer:setPos(-100.000,-72.627,-20.000, 0, 99)
+            end
         end
     end
 end
