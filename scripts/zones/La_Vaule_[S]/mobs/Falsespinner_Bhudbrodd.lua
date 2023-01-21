@@ -24,7 +24,7 @@ function onMobFight(mob, target)
 
     -- Always uses Orcish Counterstance then Berserker Dance together
     if os.time() > buffComboTimer and not mob:hasStatusEffect(tpz.effect.COUNTERSTANCE) then
-        mob:setLocalVar("buffComboTimer", os.time() + 10)
+        mob:setLocalVar("buffComboTimer", os.time() + 30)
         mob:useMobAbility(2201)
         mob:useMobAbility(2202)
     end
