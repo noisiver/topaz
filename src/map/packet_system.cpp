@@ -550,7 +550,7 @@ void SmallPacket0x015(map_session_data_t* const PSession, CCharEntity* const PCh
     TracyZoneScoped;
     TracyZoneCString("Player Sync");
 
-    if (PChar->status != STATUS_SHUTDOWN && PChar->status != STATUS_SHUTDOWN)
+    if (PChar->status != STATUS_SHUTDOWN && PChar->status != STATUS_DISAPPEAR)
     {
         float newX = data.ref<float>(0x04);
         float newY = data.ref<float>(0x08);
