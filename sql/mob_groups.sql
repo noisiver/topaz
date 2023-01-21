@@ -6993,7 +6993,7 @@ INSERT INTO `mob_groups` VALUES (35,4210,99,'Vee_Ladu_the_Titterer',7200,0,2567,
 INSERT INTO `mob_groups` VALUES (36,2465,99,'Maa_Illmu_the_Bestower',7200,0,1561,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (37,274,99,'Asterion',7200,0,185,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (38,3815,99,'Suu_Xicu_the_Cantabile',7200,0,2361,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (39,4210,99,'Vee_Ladu_the_Titterer',0,128,0,200,0,85,85,0); -- Clones
+INSERT INTO `mob_groups` VALUES (39,4210,99,'Vee_Ladu_the_Titterer',0,128,0,20,0,80,80,0); -- Clones
 INSERT INTO `mob_groups` VALUES (40,1146,99,'Duu_Nazo_the_Spryfooted',0,128,0,2300,0,80,80,0);
 
 --Plucking Wings

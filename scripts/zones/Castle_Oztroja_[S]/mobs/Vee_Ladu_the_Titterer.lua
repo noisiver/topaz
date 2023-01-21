@@ -31,8 +31,8 @@ end
 function onMobSpawn(mob)
     if mob:getID() == 17183035 then
         tpz.wotg.NMMods(mob)
-    else
         mob:setDamage(70)
+    else
         mob:setMod(tpz.mod.HTHRES, 1000)
         mob:setMod(tpz.mod.SLASHRES, 1000)
         mob:setMod(tpz.mod.PIERCERES, 1000)
