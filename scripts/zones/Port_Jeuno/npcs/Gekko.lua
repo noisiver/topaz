@@ -21,6 +21,7 @@ function onTrigger(player, npc)
         189,  36000,    -- Autumn's End
         188,  31224,    -- Acolyte's Grief
         --5085, 50400,    -- Scroll of Regen IV
+        4153,  1000,    -- Antacid
     }
 
     player:showText(npc, ID.text.GEKKO_SHOP_DIALOG)

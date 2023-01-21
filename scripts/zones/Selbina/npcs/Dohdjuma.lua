@@ -24,6 +24,7 @@ function onTrigger(player, npc)
         4490,  432,    -- Pickled Herring
         4559, 4485,    -- Herb Quus
         2866, 9200,    -- Selbina Waystone
+        4153,  1000,   -- Antacid
     }
 
     player:showText(npc, ID.text.DOHDJUMA_SHOP_DIALOG)

@@ -122,6 +122,7 @@ tpz.shop =
             4128, 4832, -- Ether
             4150, 2595, -- Eye Drops
             4112,  910, -- Potion
+            4153,  1000,    -- Antacid
         }
         tpz.shop.general(player, stock)
     end,

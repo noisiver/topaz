@@ -27,6 +27,7 @@ function onTrigger(player, npc)
         4148,   290, 3,    -- Antidote
         4150,  2387, 3,    -- Eye Drops
         13469, 1150, 3,    -- Leather Ring
+        4153,  1000, 3,    -- Antacid
     }
 
     player:showText(npc, ID.text.COULLAVE_SHOP_DIALOG)
