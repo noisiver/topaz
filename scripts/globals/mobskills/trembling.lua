@@ -35,15 +35,13 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded*math.random(2, 3))
     local dispelled = math.random(2, 3)
 
-    if (info.hitslanded ~= 0) then
+    if (MobPhysicalHit(mob, skill)) then
         for i=1, dispelled do
             target:dispelStatusEffect()
         end
     end
 
-   -- TODO: Dispelled messages.  No examples of damage+dispel working to crib notes from.
-
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
+    if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end
