@@ -6,7 +6,6 @@
 -----------------------------------
 require("scripts/globals/campaign")
 require("scripts/globals/npc_util")
-require("scripts/globals/salvage")
 -----------------------------------
 
 local campaignEvent = 457
