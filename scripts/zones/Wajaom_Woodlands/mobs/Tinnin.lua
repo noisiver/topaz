@@ -145,10 +145,6 @@ function onMobFight(mob, target)
         mob:useMobAbility(1830) -- Polar Blast
         mob:useMobAbility(1832) -- Barofield
     end
-
-    if mob:getHPP() < 25 then -- Spams TP moves at low HP
-       mob:setMod(tpz.mod.REGAIN, 500)
-    end
 end
 
 function onCriticalHit(mob)
