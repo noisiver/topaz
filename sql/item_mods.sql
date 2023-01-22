@@ -23782,6 +23782,8 @@ INSERT INTO `item_mods` VALUES (19026,9,3);
 INSERT INTO `item_mods` VALUES (19027,165,3);
 INSERT INTO `item_mods` VALUES (19028,5,23);      -- Magic Strap: MP +23
 INSERT INTO `item_mods` VALUES (19028,168,5);     -- Spell interruption rate down 5%
+INSERT INTO `item_mods` VALUES (19029,421,3);     -- Brave Grip: +3% Critical hit damage
+INSERT INTO `item_mods` VALUES (19029,1013,3);     -- +3% ranged critical hit dam age  
 INSERT INTO `item_mods` VALUES (19030,562,3);
 INSERT INTO `item_mods` VALUES (19031,7,20);
 INSERT INTO `item_mods` VALUES (19031,40,2);
