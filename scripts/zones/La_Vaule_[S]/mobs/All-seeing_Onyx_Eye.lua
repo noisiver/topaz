@@ -1,6 +1,10 @@
 -----------------------------------
 -- Area: La Vaule [S]
 --   NM: All-seeing Onyx Eye
+-- Spams conal gaze charm every ~10s seconds.
+-- Casts SCH helixes spells
+-- Ancient Magic AOE's
+-- Casts faster as HP is lowered
 require("scripts/globals/status")
 require("scripts/globals/mobs")
 require("scripts/globals/wotg")

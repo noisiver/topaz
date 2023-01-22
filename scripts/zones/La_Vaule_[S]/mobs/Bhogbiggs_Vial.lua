@@ -12,7 +12,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:SetAutoAttackEnabled(false)
-    mob:setUnkillable(true)
 end
 
 function onMobFight(mob, target)

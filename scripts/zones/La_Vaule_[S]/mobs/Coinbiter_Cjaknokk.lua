@@ -1,6 +1,8 @@
 -----------------------------------
 -- Area: La Vaule [S]
 --   NM: Coinbiter Cjaknokk
+-- Perma dreadspikes
+-- Uses TP moves every 10s at high HP then 5s at low HP
 -- Immune to Silence Sleep Bind Gravity Paralyze
 -----------------------------------
 require("scripts/globals/status")

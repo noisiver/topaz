@@ -5280,7 +5280,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,212,56,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,214,58,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,220,3,17);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,221,43,64);
-INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,240,27,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,245,12,255);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,247,25,94);
 INSERT INTO `mob_spell_lists` VALUES ('Beastmen_SCH',2080,248,95,255); -- Aspir II

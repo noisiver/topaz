@@ -17202,7 +17202,7 @@ INSERT INTO `mob_droplist` VALUES (6079,0,0,1000,2521,100);   -- Gnole Claw
 INSERT INTO `mob_droplist` VALUES (6079,4,0,1000,2521,0);     -- Gnole Claw(Despoil)
 INSERT INTO `mob_droplist` VALUES (6080,0,0,1000,2565,100);   -- Jar of Gnole pellets
 INSERT INTO `mob_droplist` VALUES (6081,0,0,1000,16320,150);   -- (Shatterskull Mippdapp) Kensei Sitabaki 
-INSERT INTO `mob_droplist` VALUES (6082,0,0,1000,16320,1000);   -- (Coinbiter Cjaknokk) Maple strongbox
+INSERT INTO `mob_droplist` VALUES (6082,0,0,1000,2678,1000);   -- (Coinbiter Cjaknokk) Maple strongbox
 INSERT INTO `mob_droplist` VALUES (6082,0,0,1000,17757,100);    -- Merveilleuse
 INSERT INTO `mob_droplist` VALUES (6082,0,0,1000,16277,100);    -- Bandolero Scarf
 INSERT INTO `mob_droplist` VALUES (6083,0,0,1000,2679,1000);   -- (Draketrader Zlodgodd) Magnolia strongbox
