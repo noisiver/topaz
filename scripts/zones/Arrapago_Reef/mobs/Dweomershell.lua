@@ -4,17 +4,13 @@
 ------------------------------
 require("scripts/globals/status")
 require("scripts/globals/keyitems")
+require("scripts/globals/utils")
 local ID = require("scripts/zones/Arrapago_Reef/IDs")
 ------------------------------
-function onMobDeath(mob, player, isKiller)
-    if math.random(1,100) <= 5 then
-	    local zonePlayers = mob:getZone():getPlayers()
-	    for _, zonePlayer in pairs(zonePlayers) do
-		    zonePlayer:addKeyItem(tpz.ki.CYAN_DEEP_SALT) -- (ZNM - Tyger Island)
-	    end
-	    for _, zonePlayer in pairs(zonePlayers) do
-            player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CYAN_DEEP_SALT)
-            break
-	    end
+function onMobDeath(mob, player, isKiller, noKiller)
+    if isKiller or noKiller then
+        if math.random(1,100) <= 5 then
+            utils.givePartyKeyItem(player, tpz.ki.CYAN_DEEP_SALT)
+        end
     end
 end
