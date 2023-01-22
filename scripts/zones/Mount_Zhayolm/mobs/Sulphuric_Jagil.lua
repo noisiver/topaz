@@ -11,4 +11,14 @@ function onMobSpawn(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
+    if math.random(1,100) <= 5 then
+	    local zonePlayers = mob:getZone():getPlayers()
+	    for _, zonePlayer in pairs(zonePlayers) do
+		    zonePlayer:addKeyItem(tpz.ki.SICKLEMOON_SALT) -- (ZNM - Tinnin Island)
+	    end
+	    for _, zonePlayer in pairs(zonePlayers) do
+            player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SICKLEMOON_SALT)
+            break
+	    end
+    end
 end
