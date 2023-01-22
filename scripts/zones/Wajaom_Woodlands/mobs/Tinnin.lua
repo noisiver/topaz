@@ -43,7 +43,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 14000)
     mob:setMobMod(tpz.mobMod.MUG_GIL, 8000)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
-    mob:setMod(tpz.mod.UDMGBREATH, -100) -- immune to breath damage
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:setHP(mob:getMaxHP()/2)
     mob:setUnkillable(true)
