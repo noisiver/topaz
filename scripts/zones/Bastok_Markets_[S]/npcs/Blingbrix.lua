@@ -16,7 +16,7 @@ function onTrigger(player, npc)
         4116,  4500,    -- Hi-Potion
         4132, 28000,    -- Hi-Ether
         605,    200,    -- Pickaxe
-        1020,   300     -- Sickle
+        1020,   300,     -- Sickle
         4153,  1000,    -- Antacid
     }
 

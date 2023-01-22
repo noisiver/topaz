@@ -19,7 +19,7 @@ function onTrade(player, npc, trade)
             player:PrintToPlayer("Off you go!",0, "Ulmer, C.A.")
             local zonePlayers = player:getZone():getPlayers()
             for _, zonePlayer in pairs(zonePlayers) do
-                zonePlayer:setPos(-114.386,-3.599,-179.804,, 0, 85)
+                zonePlayer:setPos(-114.386,-3.599,-179.804, 0, 85)
             end
         end
     end
@@ -28,7 +28,7 @@ function onTrade(player, npc, trade)
             player:PrintToPlayer("Off you go!",0, "Ulmer, C.A.")
             local zonePlayers = player:getZone():getPlayers()
             for _, zonePlayer in pairs(zonePlayers) do
-                zonePlayer:setPos(-114.386,-3.599,-179.804,, 0, 85)
+                zonePlayer:setPos(-114.386,-3.599,-179.804, 0, 85)
             end
         end
     end
