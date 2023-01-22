@@ -2662,7 +2662,7 @@ INSERT INTO `mob_groups` VALUES (61,2894,54,'Nix_Songstress',600,0,1657,0,0,81,8
 INSERT INTO `mob_groups` VALUES (62,913,54,'Dark_Elemental',600,4,568,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (63,2367,54,'Lamie_No9',14400,0,3011,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (64,6753,54,'Lamias_Avatar_No9',14400,0,0,15000,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (65,5329,54,'Dweomershell',300,0,1817,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (65,5329,54,'Dweomershell',300,0,2107,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (66,2896,54,'Nix_Wavedancer',600,0,1657,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (67,2893,54,'Nix_Bladedancer',600,0,1820,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (68,2895,54,'Nix_Typhoondancer',600,0,1657,0,0,81,83,0);
