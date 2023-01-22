@@ -943,7 +943,7 @@ function utils.getDropRate(mob, base)
     return dropRate
 end
 
-function utils.spawnPetInBattle(mob, pet)
+function utils.spawnPetInBattle(mob, pet, aggro)
     mob:entityAnimationPacket("casm")
     mob:SetAutoAttackEnabled(false)
     mob:SetMagicCastingEnabled(false)
@@ -954,7 +954,9 @@ function utils.spawnPetInBattle(mob, pet)
         mob:SetMagicCastingEnabled(true)
         mob:SetMobAbilityEnabled(true)
         pet:spawn()
-        pet:updateEnmity(mob:getTarget())
+        if (aggro ~= nil) then
+            pet:updateEnmity(mob:getTarget())
+        end
     end)
 end
 

@@ -27,7 +27,7 @@ end
 function onMobSpawn(mob)
     tpz.wotg.NMMods(mob)
     mob:setMobMod(tpz.mobMod.SPECIAL_SKILL, 1123)
-    mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 18) -- Test
+    mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 18) 
     mob:setMobMod(tpz.mobMod.STANDBACK_COOL, 10)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, 1)
 end
