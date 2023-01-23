@@ -2409,6 +2409,10 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
         { tpz.effect.PETRIFICATION, 8192},
     }
 
+    if caster:hasStatusEffect(tpz.effect.STYMIE) then
+        duration = duration * 3
+    end
+
     -- Check for immunity
     for i,statusEffect in pairs(immunities) do
         local immunity = 0
