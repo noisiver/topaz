@@ -639,9 +639,9 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
 
     local effect = params.effect
     if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
-        if (caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) == false) then -- Elemental Seal bypasses resist traits
+        if not IgnoreResTraitCheck(caster) then -- Elemental Seal and Stymie bypasses resist traits
+            -- print("restrait proc!")
             return 0 -- this will make any status effect fail. this takes into account trait+food+gear
-            --print("restrait proc!")
         end
     end
 
@@ -691,8 +691,8 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         res = 1/8
     end
 
-    -- Check for guaranteed landing mod (tpz.mod.DIVINE_NEVER_MISS etc)
-    if CheckForGuaranteedLandRate(caster, params) then
+    -- Check for guaranteed landing mod (tpz.mod.DIVINE_NEVER_MISS etc) or Stymie
+    if CheckForGuaranteedLandRate(caster, params) or caster:hasStatusEffect(tpz.effect.STYMIE) then
         -- printf("Spell is guaranteed to land!")
         res = 1
     end
@@ -2440,6 +2440,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
             if spell:getSkillType() == tpz.skill.SINGING then
                 return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             end
+            caster:delStatusEffectSilent(tpz.effect.STYMIE)
             return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
@@ -2568,6 +2569,16 @@ function calculatePotency(basePotency, magicSkill, caster, target)
     end
 
     return math.floor(basePotency * (1 + caster:getMod(tpz.mod.ENF_MAG_POTENCY) / 100))
+end
+
+function IgnoreResTraitCheck(caster)
+    if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+        return true
+    end
+    if caster:hasStatusEffect(tpz.effect.STYMIE) then
+        return true
+    end
+    return false
 end
 
 -- Output magic hit rate for all levels
