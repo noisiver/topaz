@@ -1011,8 +1011,9 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         return 0
     end
     -- Override durations with a single function to make it easier to update a million files durations at once when editing stuff
-    -- Don't override Doom, Gradual Petrification, or Encumbrance
-    if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) then
+    -- Don't override Doom, Gradual Petrification, Encumbrance, or Terror
+    if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) and
+    (typeEffect ~= tpz.effect.TERROR) then
         duration = MobGetStatusEffectDuration(typeEffect)
     end
 
@@ -1706,8 +1707,6 @@ function MobGetStatusEffectDuration(effect)
             duration = 20
         elseif (effect == tpz.effect.PETRIFICATION) then
             duration = 10
-        elseif (effect == tpz.effect.TERROR) then
-            duration = 15
         elseif (effect == tpz.effect.STUN) then
             duration = 5
         elseif (effect == tpz.effect.FLASH) then
