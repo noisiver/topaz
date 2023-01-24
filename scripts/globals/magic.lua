@@ -692,7 +692,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     end
 
     -- Check for guaranteed landing mod (tpz.mod.DIVINE_NEVER_MISS etc) or Stymie
-    if CheckForGuaranteedLandRate(caster, params) or caster:hasStatusEffect(tpz.effect.STYMIE) then
+    if CheckForGuaranteedLandRate(caster, params) or caster:hasStatusEffect(tpz.effect.STYMIE) and (SDT > 10) then
         -- printf("Spell is guaranteed to land!")
         res = 1
     end
