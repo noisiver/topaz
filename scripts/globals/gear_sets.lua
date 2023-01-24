@@ -160,7 +160,8 @@ local GearSets =  {
              {id = 207, items = {13908, 13909, 14058, 14059, 14160, 14161, 14280, 14281, 14367, 14368,},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 10, 5, 0}} },   -- Crimson Scale +10-25 Accuracy
              {id = 208, items = {13934, 13935, 14184, 14185, 14303, 14304, 14387, 14388, 14821, 14822},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Shura Togi +4-10% Weapon Skill Damage
              {id = 209, items = {18947, 15818}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 5, 0, 0}, {tpz.mod.MACC, 5, 0, 0}, {tpz.mod.SOULEATER_EFFECT, 2, 0, 0},} },        -- Molione's Sickle set Acc +5 Macc +5 Souleater +%
-            -- 212 next
+             {id = 212, items = {15072, 15245, 10650, 15087, 14500, 10670, 15102, 14909, 10690, 15117, 15580, 10710, 15132, 15665, 10730},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Warrior's Lorica Set(Relic (Haste +4~10%)
+             -- NEXT: 213
             }
 
              -- increment id by (number of mods in previous gearset - 1)

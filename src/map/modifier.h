@@ -331,6 +331,8 @@ enum class Mod
     AGGRESSOR_DURATION        = 955, // Aggressor Duration
     DEFENDER_DURATION         = 956, // Defender Duration
     DEFENDER_POTENCY          = 1304, // Increases defender defense bonus, in percents
+    RETALIATION               = 414,  // Increases damage of Retaliation hits
+    BLOOD_RAGE_POTENCY        = 1308, // Increases Blood Rage healing received bonus, in percents
 
     // Monk
     BOOST_EFFECT              = 97,  // Boost power in tenths
@@ -771,8 +773,6 @@ enum class Mod
     ENHANCES_CURSNA           = 310, // Used by gear with the "Enhances Cursna" or "Cursna+" attribute
     ENHANCES_HOLYWATER        = 495, // Used by gear with the "Enhances Holy Water" or "Holy Water+" attribute
 
-    RETALIATION               = 414, // Increases damage of Retaliation hits
-
     CLAMMING_IMPROVED_RESULTS = 509, //
     CLAMMING_REDUCED_INCIDENTS= 510, //
 
@@ -966,7 +966,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1308 NEXT
+    // 1309 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

@@ -17,7 +17,9 @@ end
 function onUseAbility(player, target, ability)
 
     local duration = 30
+    local healingrcvd = math.floor(50 * (1 + (player:getMod(tpz.mod.BLOOD_RAGE_POTENCY) / 100)))
+    local enmity = 30
     duration = duration + player:getMod(tpz.mod.WARCRY_DURATION)
 
-    target:addStatusEffect(tpz.effect.BLOOD_RAGE, 50, 0, duration, 0, 30)
+    target:addStatusEffect(tpz.effect.BLOOD_RAGE, healingrcvd, 0, duration, 0, enmity)
 end

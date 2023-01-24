@@ -1760,13 +1760,14 @@ tpz.mod =
     STATUS_EFFECT_MACC      = 1303, -- Status effect Magic Accuracy
     DEFENDER_POTENCY        = 1304, -- Increases defender defense bonus, in percents
     TP_GAIN_ON_EVADE        = 1305, -- Gain TP upon a successful evade
+    BLOOD_RAGE_POTENCY      = 1308, -- Increases Blood Rage healing received bonus, in percents
     
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1308 NEXT
+    -- 1309 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

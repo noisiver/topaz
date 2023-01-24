@@ -17221,12 +17221,13 @@ INSERT INTO `item_mods` VALUES (15350,170,3);     -- Fast Cast +3%
 INSERT INTO `item_mods` VALUES (15351,1,3);
 INSERT INTO `item_mods` VALUES (15351,9,3);
 INSERT INTO `item_mods` VALUES (15351,11,3);
-INSERT INTO `item_mods` VALUES (15352,1,19);
+INSERT INTO `item_mods` VALUES (15352,1,19);      -- Fighter's Calligae +1
 INSERT INTO `item_mods` VALUES (15352,2,12);
 INSERT INTO `item_mods` VALUES (15352,10,3);
 INSERT INTO `item_mods` VALUES (15352,11,3);
 INSERT INTO `item_mods` VALUES (15352,27,1);
 INSERT INTO `item_mods` VALUES (15352,288,1);
+INSERT INTO `item_mods` VALUES (15352,259,3);     -- Dual Wield +3
 INSERT INTO `item_mods` VALUES (15353,1,15);
 INSERT INTO `item_mods` VALUES (15353,2,12);
 INSERT INTO `item_mods` VALUES (15353,9,5);
@@ -17760,12 +17761,15 @@ INSERT INTO `item_mods` VALUES (15559,9,1);
 INSERT INTO `item_mods` VALUES (15559,58,3);
 INSERT INTO `item_mods` VALUES (15560,1,1);
 INSERT INTO `item_mods` VALUES (15560,27,-4);
-INSERT INTO `item_mods` VALUES (15561,1,39);
+INSERT INTO `item_mods` VALUES (15561,1,39);        -- Fighter's Cuisses +1
 INSERT INTO `item_mods` VALUES (15561,2,15);
 INSERT INTO `item_mods` VALUES (15561,25,5);
 INSERT INTO `item_mods` VALUES (15561,27,3);
 INSERT INTO `item_mods` VALUES (15561,68,5);
 INSERT INTO `item_mods` VALUES (15561,72,2);
+INSERT INTO `item_mods` VALUES (15561,903,500);   -- Fencer +5
+INSERT INTO `item_mods` VALUES (15561,904,5);     -- Fencer +5
+INSERT INTO `item_mods` VALUES (15561,986,5);     -- Fencer +5
 INSERT INTO `item_mods` VALUES (15562,1,31);
 INSERT INTO `item_mods` VALUES (15562,2,18);
 INSERT INTO `item_mods` VALUES (15562,13,4);

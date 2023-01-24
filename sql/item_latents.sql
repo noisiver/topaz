@@ -3782,3 +3782,34 @@ INSERT INTO `item_latents` VALUES(14946, 346, 2, 9, 16); -- Nightmare Gloves Dia
 INSERT INTO `item_latents` VALUES(15833, 346, 2, 9, 10); -- Diverter's Ring Ifrit Perp Cost -2
 INSERT INTO `item_latents` VALUES(11392, 346, 3, 9, 15); -- Koschei Crackows Ramuh Perp Cost -3
 
+-- -------------------------------------------------------
+-- WAR Relic
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(15072, 25, 15, 13, 57); -- Warrior's Mask Defender: Accuracy +15
+INSERT INTO `item_latents` VALUES(15245, 25, 17, 13, 57); -- Warrior's Mask +1 Defender: Accuracy +17
+INSERT INTO `item_latents` VALUES(10650, 25, 20, 13, 57); -- Warrior's Mask +2 Defender: Accuracy +20
+
+INSERT INTO `item_latents` VALUES(15087, 25, 25, 13, 57); -- Warrior's Lorica Defender: Accuracy +25
+INSERT INTO `item_latents` VALUES(14500, 25, 27, 13, 57); -- Warrior's Lorica +1 Defender: Accuracy +27
+INSERT INTO `item_latents` VALUES(10670, 25, 30, 13, 57); -- Warrior's Lorica +2 Defender: Accuracy +30
+
+INSERT INTO `item_latents` VALUES(15102, 414, 10, 13, 57); -- Warrior's Mufflers Defender: Retaliation DMG +10%
+INSERT INTO `item_latents` VALUES(14909, 414, 12, 13, 57); -- Warrior's Mufflers +1 Defender: Retaliation DMG +12%
+INSERT INTO `item_latents` VALUES(10690, 414, 15, 13, 57); -- Warrior's Mufflers +2 Defender: Retaliation DMG +15%
+
+INSERT INTO `item_latents` VALUES(15117, 384, 300, 13, 57); -- Warrior's Cuisses Defender: Haste +3%
+INSERT INTO `item_latents` VALUES(15580, 384, 400, 13, 57); -- Warrior's Cuisses +1 Defender: Haste +4%
+INSERT INTO `item_latents` VALUES(10710, 384, 600, 13, 57); -- Warrior's Cuisses +2 Defender: Haste +6%
+
+INSERT INTO `item_latents` VALUES(15132, 1308, 10, 13, 57); -- Warrior's Calligae Defender: Blood Rage +10%
+INSERT INTO `item_latents` VALUES(15665, 1308, 12, 13, 57); -- Warrior's Calligae Defender: Blood Rage +12%
+INSERT INTO `item_latents` VALUES(10730, 1308, 15, 13, 57); -- Warrior's Calligae Defender: Blood Rage +15%
+
+
+--  `itemId` smallint(5) unsigned NOT NULL,
+--  `modId` smallint(5) unsigned NOT NULL,
+--  `value` smallint(5) NOT NULL DEFAULT '0',
+--  `latentId` smallint(5) NOT NULL,
+--  `latentParam` smallint(5) NOT NULL,
+--  PRIMARY KEY (`itemId`, `modId`, `value`, `latentId`, `latentParam`)
+
