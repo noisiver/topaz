@@ -23498,12 +23498,14 @@ INSERT INTO `item_mods` VALUES (18847,59,7);
 INSERT INTO `item_mods` VALUES (18847,60,7);
 INSERT INTO `item_mods` VALUES (18847,115,7);
 INSERT INTO `item_mods` VALUES (18847,296,7);
-INSERT INTO `item_mods` VALUES (18848,2,29);
+INSERT INTO `item_mods` VALUES (18848,2,29);      -- Brass Jadagna
 INSERT INTO `item_mods` VALUES (18848,5,-29);
 INSERT INTO `item_mods` VALUES (18848,10,5);
-INSERT INTO `item_mods` VALUES (18849,2,31);
-INSERT INTO `item_mods` VALUES (18849,5,-31);
+INSERT INTO `item_mods` VALUES (18848,29,15);      -- MDEF +15
+INSERT INTO `item_mods` VALUES (18849,2,31);      -- Brass Jadagna +1
+INSERT INTO `item_mods` VALUES (18849,5,-31);   
 INSERT INTO `item_mods` VALUES (18849,10,6);
+INSERT INTO `item_mods` VALUES (18849,29,16);      -- MDEF +16
 INSERT INTO `item_mods` VALUES (18851,8,8);
 INSERT INTO `item_mods` VALUES (18853,13,2);
 INSERT INTO `item_mods` VALUES (18853,61,3);
