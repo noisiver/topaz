@@ -3387,20 +3387,10 @@ INSERT INTO `item_latents` VALUES(19306, 25, 1, 15, 6);     -- ACC +1~4, party s
 -- -------------------------------------------------------
 -- Lyft Pole
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
-
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 163, -4, 15, 3);     -- Magic damage taken -4~16% party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 163, -4, 15, 4);      -- Magic damage taken -4~16% party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 163, -4, 15, 5);      -- Magic damage taken -4~16% party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 163, -4, 15, 6);      -- Magic damage taken -4~16% party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Conqueror 90
