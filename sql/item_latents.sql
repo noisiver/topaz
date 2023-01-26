@@ -936,7 +936,9 @@ INSERT INTO `item_latents` VALUES(13972, 508, 15, 49, 4278); -- +15% TE Counter 
 INSERT INTO `item_latents` VALUES(13972, 508, 15, 49, 5928); -- +15% TE Counter Hinesama Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 508, 15, 49, 5929); -- +15% TE Counter Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 230, 5, 49, 4604); -- beast killer 5% (guesstimated) Rogue Rice Ball
-INSERT INTO `item_latents` VALUES(13972, 232, 5, 49, 4604); -- arcana killer 5% (guesstimated) Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 1230, 5, 49, 4604); -- beast circle 5% (guesstimated) Rogue Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 228, 5, 49, 4604); -- aquan killer 5% (guesstimated) Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 1228, 5, 49, 4604); -- aquan circle 5% (guesstimated) Naval Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 288, 1, 49, 4277); -- double attack 1% Tonosama Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 288, 5, 49, 4278); -- double attack 5% Shogun Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 302, 1, 49, 5928); -- triple attack 1% Hinesama Rice Ball
