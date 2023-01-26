@@ -376,7 +376,7 @@ INSERT INTO `abilities` VALUES (330,'soul_enslavement',8,96,1,3600,254,100,0,278
 INSERT INTO `abilities` VALUES (331,'unleash',9,96,1,3600,254,100,0,279,2000,0,6,0.0,0,0,0,0,0,NULL); -- check animation
 INSERT INTO `abilities` VALUES (332,'clarion_call',10,96,1,3600,254,100,0,280,2000,0,6,0.0,0,0,0,0,0,NULL); -- check animation
 INSERT INTO `abilities` VALUES (333,'overkill',11,96,1,3600,254,100,0,281,2000,0,6,0.0,0,0,0,0,0,NULL);
-INSERT INTO `abilities` VALUES (334,'yaegasumi',12,96,1,3600,254,100,0,282,2000,0,6,0.0,0,0,0,0,0,NULL); -- check animation
+INSERT INTO `abilities` VALUES (334,'yaegasumi',12,75,1,90,254,100,0,282,2000,0,6,0.0,0,0,0,0,0,NULL); -- check animation
 INSERT INTO `abilities` VALUES (335,'mikage',13,96,1,3600,254,0,0,283,2000,0,6,0.0,0,1,80,0,0,'SOA');
 INSERT INTO `abilities` VALUES (336,'fly_high',14,96,1,3600,254,0,0,284,2000,0,6,0.0,0,0,0,0,0,NULL); -- check animation
 INSERT INTO `abilities` VALUES (337,'astral_conduit',15,96,1,3600,254,0,0,285,2000,0,6,0.0,0,0,0,0,0,NULL); -- check animation
