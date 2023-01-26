@@ -33,7 +33,7 @@ function onMobFight(mob, target)
         mob:addStatusEffect(tpz.effect.SLOW, 2550, 0, 120)
         mob:addStatusEffect(tpz.effect.PLAGUE, 3, 3, 120)
 		mob:useMobAbility(2162) -- Emetic Discharge
-		mob:setLocalVar("DischargeTime", BattleTime + 45)
+		mob:setLocalVar("DischargeTime", BattleTime + math.random(60,90))
 	end
 
     -- Handle Emetic Discharge being interrupted
