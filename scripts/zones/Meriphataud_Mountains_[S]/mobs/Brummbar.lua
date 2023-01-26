@@ -35,6 +35,14 @@ function onMobFight(mob, target)
 		mob:useMobAbility(2162) -- Emetic Discharge
 		mob:setLocalVar("DischargeTime", BattleTime + 45)
 	end
+
+    -- Handle Emetic Discharge being interrupted
+    mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "ES_WS_INTERRUPTED", function(mob, skill)
+        if skill == 2162 then
+            mob:setLocalVar("DischargeTime", 0)
+        end
+    end)
+
     tpz.annm.PetShield(mob, 17174894, 17174899)
 end
 
