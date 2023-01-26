@@ -2912,7 +2912,11 @@ namespace charutils
         if (PChar->GetMJob() == JOB_BLU || PChar->GetSJob() == JOB_BLU)
         {
             blueutils::CalculateTraits(PChar);
-            CheckValidEquipment(PChar);
+            // Check if the player has dual wield set trait or not, and if they don't then unequip their weapons
+            if (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD))
+            {
+                CheckValidEquipment(PChar);
+            }
         }
 
         PChar->delModifier(Mod::MEVA, PChar->m_magicEvasion);
