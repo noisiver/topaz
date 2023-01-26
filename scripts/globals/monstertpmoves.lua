@@ -1308,6 +1308,9 @@ function MobTransferEnfeeblesMove(mob, target, skill, range, isAOE)
                 if mob:hasStatusEffect(effect) then
                     for v = 1, #enmityList do
                         local currentEffect = mob:getStatusEffect(effect)
+                        printf("range %s", range)
+                        printf("v loop %s", v)
+                        printf("distance %s", GetPlayerByID(v):checkDistance(mob))
                         if GetPlayerByID(v):checkDistance(mob) <= range then
                             MobStatusEffectMove(mob, GetPlayerByID(v), effect, currentEffect:getPower(), currentEffect:getTick(), currentEffect:getTimeRemaining() / 1000)
                         end
