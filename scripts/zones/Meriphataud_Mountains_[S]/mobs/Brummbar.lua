@@ -9,7 +9,8 @@ require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setLocalVar("DischargeTime", 45)
-    tpz.annm.NMMods(mob) 
+    tpz.annm.NMMods(mob)
+    mob:setDamage(70)
 end
 
 function onMobFight(mob, target)
