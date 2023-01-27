@@ -5128,7 +5128,6 @@ INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,59,1,255);  -- Silence
 INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,129,1,255);  -- Protectra V
 INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,134,1,255);  -- Shellra V
 INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,143,1,255);  -- Erase
-INSERT INTO `mob_spell_lists` VALUES ('Feeorin',2073,367,1,255);  -- Death
 
 INSERT INTO `mob_spell_lists` VALUES ('Iqi-Balam',2074,167,1,255); -- Thunder IV
 INSERT INTO `mob_spell_lists` VALUES ('Iqi-Balam',2074,212,1,255); -- Burst
