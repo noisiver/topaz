@@ -4309,7 +4309,7 @@ INSERT INTO `item_basic` VALUES (4553,0,'serving_of_batagreen_saute','batagreen_
 INSERT INTO `item_basic` VALUES (4554,0,'serving_of_shallops_tropicale','shallops_tropicale',1,1580,53,0,1435);
 INSERT INTO `item_basic` VALUES (4555,0,'windurst_salad','windurst_salad',1,1580,54,0,372);
 INSERT INTO `item_basic` VALUES (4556,0,'serving_of_icecap_rolanberry','icecap_rolanberry',1,1580,57,0,505);
-INSERT INTO `item_basic` VALUES (4557,0,'steamed_catfish','steamed_catfish',1,1580,53,0,698);
+INSERT INTO `item_basic` VALUES (4557,0,'steamed_catfish','steamed_catfish',12,1580,53,0,698);
 INSERT INTO `item_basic` VALUES (4558,0,'bottle_of_yagudo_drink','yagudo_drink',1,1548,58,0,350);
 INSERT INTO `item_basic` VALUES (4559,0,'serving_of_herb_quus','herb_quus',1,1580,53,0,363);
 INSERT INTO `item_basic` VALUES (4560,0,'bowl_of_vegetable_soup','vegetable_soup',1,1580,55,0,256);
