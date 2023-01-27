@@ -4826,7 +4826,7 @@ INSERT INTO `item_basic` VALUES (5141,0,'veydal_wrasse','veydal_wrasse',1,1544,5
 INSERT INTO `item_basic` VALUES (5142,0,'serving_of_bison_steak','bison_steak',1,1580,52,0,425);
 INSERT INTO `item_basic` VALUES (5143,0,'serving_of_goblin_stir-fry','goblin_stir-fry',1,1580,54,0,523);
 INSERT INTO `item_basic` VALUES (5144,0,'serving_of_crimson_jelly','crimson_jelly',1,1580,57,0,578);
-INSERT INTO `item_basic` VALUES (5145,0,'plate_of_fish_and_chips','fish_&_chips',1,1580,53,0,648);
+INSERT INTO `item_basic` VALUES (5145,0,'plate_of_fish_and_chips','fish_&_chips',12,1580,53,0,648);
 INSERT INTO `item_basic` VALUES (5146,0,'hedgehog_pie','hedgehog_pie',1,1580,52,0,2040);
 INSERT INTO `item_basic` VALUES (5147,0,'cone_of_snoll_gelato','snoll_gelato',12,1548,57,0,382);
 INSERT INTO `item_basic` VALUES (5148,0,'plate_of_squid_sushi','squid_sushi',12,1548,53,0,301);
@@ -4840,7 +4840,7 @@ INSERT INTO `item_basic` VALUES (5155,0,'cone_of_sub-zero_gelato','sub-zero_gela
 INSERT INTO `item_basic` VALUES (5156,0,'porcupine_pie','porcupine_pie',1,1580,52,0,400);
 INSERT INTO `item_basic` VALUES (5157,0,'serving_of_marbled_steak','marbled_steak',1,1580,52,0,306);
 INSERT INTO `item_basic` VALUES (5158,0,'serving_of_vermillion_jelly','vermillion_jelly',1,1580,57,0,485);
-INSERT INTO `item_basic` VALUES (5159,0,'plate_of_friture_de_la_misareaux','friture_misareaux',1,1580,53,0,388);
+INSERT INTO `item_basic` VALUES (5159,0,'plate_of_friture_de_la_misareaux','friture_misareaux',12,1580,53,0,388);
 INSERT INTO `item_basic` VALUES (5160,0,'plate_of_urchin_sushi_+1','urchin_sushi_+1',12,1548,53,0,2040);
 INSERT INTO `item_basic` VALUES (5161,0,'serving_of_leadafry','leadafry',1,1580,54,0,475);
 INSERT INTO `item_basic` VALUES (5162,0,'plate_of_squid_sushi_+1','squid_sushi_+1',12,1548,53,0,322);
