@@ -12,9 +12,11 @@ require("scripts/globals/utils")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.REGAIN) then
+		return 1
+	end
     return 0
 end
-
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.REGAIN
 
