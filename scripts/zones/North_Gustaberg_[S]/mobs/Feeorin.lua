@@ -8,7 +8,8 @@ require("scripts/globals/annm")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-    tpz.annm.NMMods(mob) 
+    tpz.annm.NMMods(mob)
+    mob:setMod(tpz.mod.REGAIN, 0)
 end
 
 function onMobFight(mob, target)
