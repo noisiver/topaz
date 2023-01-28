@@ -809,19 +809,9 @@ void CZoneEntities::SpawnPCs(CCharEntity* PChar)
         // Loop through candidates to be spawned from best to worst
         for (auto candidatePair : candidates)
         {
-            if (swapCount >= CHARACTER_SWAP_MAX)
-            {
-                break;
-            }
-
             // If max amount of characters are currently spawned, we need to despawn one before we can spawn a new one
             if (PChar->SpawnPCList.size() >= CHARACTER_SYNC_LIMIT_MAX)
             {
-                if (spawnedCharacters.size() == 0)
-                {
-                    // No spawned characters left that we can swap with
-                    break;
-                }
 
                 // Check that the candidate score is better than the worst spawned score by a certain threshold,
                 // to avoid causing a lot of spawn/despawns all the time as people move around.
@@ -832,12 +822,6 @@ void CZoneEntities::SpawnPCs(CCharEntity* PChar)
                     PChar->updateCharPacket(spawnedChar, ENTITY_DESPAWN, UPDATE_NONE);
                     spawnedCharacters.pop();
                     swapCount++;
-                }
-                else
-                {
-                    // Best candidate score did not beat the worst spawned score, so we can break out of spawn loop,
-                    // since the rest won't improve on that difference.
-                    break;
                 }
             }
 
@@ -1529,12 +1513,6 @@ void CZoneEntities::ZoneServer(time_point tick, bool check_trigger_areas)
             if (charTargIdIter == charTargIds.end())
             {
                 charTargIdIter = charTargIds.begin();
-            }
-
-            if (pc && pc->PersistData(tick))
-            {
-                // We only want to persist at most 1 character per zone tick
-                break;
             }
         }
         lastCharPersistTargId = *charTargIdIter;
