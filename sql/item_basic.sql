@@ -4037,7 +4037,7 @@ INSERT INTO `item_basic` VALUES (4281,0,'red_hot_cracker','red_hot_cracker',99,1
 INSERT INTO `item_basic` VALUES (4282,0,'pipin_hot_popoto','pipin_popoto',12,1548,54,0,87);
 INSERT INTO `item_basic` VALUES (4283,0,'cup_of_choco-delight','choco-delight',1,1548,58,0,125);
 INSERT INTO `item_basic` VALUES (4284,0,'bowl_of_tender_navarin','tender_navarin',1,1580,52,0,525);
-INSERT INTO `item_basic` VALUES (4285,0,'bowl_of_ocean_soup','ocean_soup',1,1580,55,0,218);
+INSERT INTO `item_basic` VALUES (4285,0,'bowl_of_ocean_soup','ocean_soup',12,1580,55,0,218);
 INSERT INTO `item_basic` VALUES (4286,0,'cup_of_healing_tea','healing_tea',1,1548,58,0,614);
 INSERT INTO `item_basic` VALUES (4287,0,'opo-opo_tart','opo-opo_tart',12,1548,57,0,615);
 INSERT INTO `item_basic` VALUES (4288,0,'zebra_eel','zebra_eel',12,1548,51,0,385);
@@ -4204,7 +4204,7 @@ INSERT INTO `item_basic` VALUES (4448,0,'puffball','puffball',12,1548,59,0,302);
 INSERT INTO `item_basic` VALUES (4449,0,'reishi_mushroom','reishi_mushroom',12,1548,59,0,1250);
 INSERT INTO `item_basic` VALUES (4450,0,'coral_fungus','coral_fungus',12,1548,59,0,151);
 INSERT INTO `item_basic` VALUES (4451,0,'silver_shark','silver_shark',12,1548,51,0,500);
-INSERT INTO `item_basic` VALUES (4452,0,'bowl_of_shark_fin_soup','shark_fin_soup',1,1580,55,0,1150);
+INSERT INTO `item_basic` VALUES (4452,0,'bowl_of_shark_fin_soup','shark_fin_soup',12,1580,55,0,1150);
 INSERT INTO `item_basic` VALUES (4453,0,'bowl_of_eyeball_soup','eyeball_soup',1,1580,55,0,590);
 INSERT INTO `item_basic` VALUES (4454,0,'emperor_fish','emperor_fish',1,1544,51,0,615);
 INSERT INTO `item_basic` VALUES (4455,0,'bowl_of_pebble_soup','pebble_soup',1,1580,55,0,74);
@@ -4313,7 +4313,7 @@ INSERT INTO `item_basic` VALUES (4557,0,'steamed_catfish','steamed_catfish',12,1
 INSERT INTO `item_basic` VALUES (4558,0,'bottle_of_yagudo_drink','yagudo_drink',1,1548,58,0,350);
 INSERT INTO `item_basic` VALUES (4559,0,'serving_of_herb_quus','herb_quus',1,1580,53,0,363);
 INSERT INTO `item_basic` VALUES (4560,0,'bowl_of_vegetable_soup','vegetable_soup',1,1580,55,0,256);
-INSERT INTO `item_basic` VALUES (4561,0,'bowl_of_seafood_stew','seafood_stew',1,1580,55,0,1329);
+INSERT INTO `item_basic` VALUES (4561,0,'bowl_of_seafood_stew','seafood_stew',12,1580,55,0,1329);
 INSERT INTO `item_basic` VALUES (4562,0,'odontotyrannus','odontotyrannus',1,63064,0,1,0);
 INSERT INTO `item_basic` VALUES (4563,0,'pamama_tart','pamama_tart',12,1548,57,0,257);
 INSERT INTO `item_basic` VALUES (4564,0,'royal_omelette','royal_omelette',1,1580,52,0,1872);
