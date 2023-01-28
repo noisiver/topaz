@@ -14,8 +14,8 @@ require("scripts/globals/titles")
 local bosses =
 -- Medjed Head / Body 17081183 and 17081184
 {
-17081055, 17081056, 17081057, 17081058, 17081105, 17081106, 17081107, 17081113, 17081148, 17081149, 17081182, 17081183, 17081184, 17081211,
-17081233, 17081245
+    17081055, 17081056, 17081057, 17081058, 17081105, 17081106, 17081107, 17081113, 17081148, 17081149, 17081182, 17081183, 17081184, 17081211,
+    17081233, 17081245
 }
 function onMobFight(mob, target)
     local instance = mob:getInstance()
@@ -39,6 +39,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
     player:addTitle(tpz.title.SUN_CHARIOTEER)
     local instance = mob:getInstance()
     instance:setStage(8)
+    salvageUtil.clearSavedFloorProgress(player)
 end
 
 function onMobDespawn(mob)

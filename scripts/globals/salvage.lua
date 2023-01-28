@@ -47,18 +47,13 @@ end
 
 
 function salvageUtil.onSalvageTrigger(player, npc, CSID, indexID)
-    if player:hasKeyItem(tpz.ki.REMNANTS_PERMIT) or player:getGMLevel() > 1  or IsTestServer() then
-        local mask = -2
-        if player:getMainLvl() >= 96 then
-            mask = -14
-        elseif player:getMainLvl() >= 65 then
-            mask = -6
-        end
-
-        player:startEvent(CSID, 0, mask, 0, 0, indexID)
-    else
-        player:messageText(player, zones[player:getZoneID()].text.NOTHING_HAPPENS)
+    local mask = -2
+    if player:getMainLvl() >= 96 then
+        mask = -14
+    elseif player:getMainLvl() >= 65 then
+        mask = -6
     end
+    player:startEvent(CSID, 0, mask, 0, 0, indexID)
 end
 
 function salvageUtil.onSalvageUpdate(player, csid, option, target, shiftID, zoneID)
@@ -981,6 +976,22 @@ function salvageUtil.saveFloorProgress(entity)
         v:setCharVar(zone, floor)
     end
     salvageUtil.msgGroup(entity, "You are now saved to Floor: " .. "[" .. floor .. "]", 0xD, none)
+    --printf("Zone: %s Floor: %s", zone, floor)
+end
+
+function salvageUtil.clearSavedFloorProgress(entity)
+    local instance = entity:getInstance()
+    local zone = entity:getZoneName()
+    local floor = instance:getStage()
+    local chars = instance:getChars()
+
+    for i, v in pairs(chars) do
+        v:setCharVar(zone, 0)
+        if v:getLocalVar("ClearSavedFloorProgressMessage") ~= 1 then
+            v:PrintToPlayer("Your saved floor progress has been reset!",0xD, none)
+            v:setLocalVar("ClearSavedFloorProgressMessage", 1)
+        end
+    end
     --printf("Zone: %s Floor: %s", zone, floor)
 end
 

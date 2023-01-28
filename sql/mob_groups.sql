@@ -3458,7 +3458,7 @@ INSERT INTO `mob_groups` VALUES (107,9110,74,'Dark_Elemental',0,128,3200,2500,20
 INSERT INTO `mob_groups` VALUES (108,9114,74,'Light_Elemental',0,128,3200,2500,2000,83,83,0);
 INSERT INTO `mob_groups` VALUES (109,9083,74,'Macrocheira_Kaempferi',0,128,3200,20000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (110,9084,74,'Waukesha_Leech',0,128,3200,20000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (111,9085,74,'Kanaloa',0,128,3199,20000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (111,9085,74,'Kanaloa',0,128,3199,15000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (112,9086,74,'Alucard',0,128,3200,20000,0,85,85,0);
 -- F2
 INSERT INTO `mob_groups` VALUES (113,218,74,'Archaic_Gear_random',0,128,3200,1500,0,81,81,0);

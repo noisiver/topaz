@@ -33,6 +33,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
     print(newElemental)
     if isKiller or noKiller then
         if (newElemental ~= nil) then
+        GetMobByID(newElemental, instance):setPos(player:getXPos() + math.random(3,5), player:getYPos(), player:getZPos() + math.random(3,5))
             GetMobByID(newElemental, instance):updateEnmity(player)
             salvageUtil.msgGroup(player, "The " .. MobName(mob) .. " calls for help!", 0xD, none)
         else
