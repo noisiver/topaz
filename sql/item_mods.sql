@@ -18966,9 +18966,10 @@ INSERT INTO `item_mods` VALUES (15913,289,5);
 INSERT INTO `item_mods` VALUES (15914,1,5);
 INSERT INTO `item_mods` VALUES (15914,246,3);
 INSERT INTO `item_mods` VALUES (15914,289,10);
-INSERT INTO `item_mods` VALUES (15915,1,5);
+INSERT INTO `item_mods` VALUES (15915,1,5);       -- Sothic Rope
 INSERT INTO `item_mods` VALUES (15915,12,4);
 INSERT INTO `item_mods` VALUES (15915,13,4);
+INSERT INTO `item_mods` VALUES (15915,374,5);      -- Cure Potency +5%
 INSERT INTO `item_mods` VALUES (15916,1,4);
 INSERT INTO `item_mods` VALUES (15916,24,3);
 INSERT INTO `item_mods` VALUES (15916,26,3);

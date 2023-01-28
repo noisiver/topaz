@@ -1850,8 +1850,9 @@ INSERT INTO `item_latents` VALUES(15883, 14, 6, 58, 0);     -- chr +6
 -- Sothic Rope
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(15915, 5, 20, 37, 4);     -- Full Moon: MP+20
-INSERT INTO `item_latents` VALUES(15915, 12, 6, 37, 4);     -- Full Moon: INT+6
-INSERT INTO `item_latents` VALUES(15915, 13, 6, 37, 4);     -- Full Moon: MND+6
+INSERT INTO `item_latents` VALUES(15915, 12, 2, 37, 4);     -- Full Moon: INT+6
+INSERT INTO `item_latents` VALUES(15915, 13, 2, 37, 4);     -- Full Moon: MND+6
+INSERT INTO `item_latents` VALUES(15915, 374, 5, 37, 4);    -- Full Moon: Cure Potency +10%
 
 -- -------------------------------------------------------
 -- Lycopodium Sash
