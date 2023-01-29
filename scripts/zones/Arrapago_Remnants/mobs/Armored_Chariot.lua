@@ -28,12 +28,13 @@ function onMobFight(mob, target)
         salvageUtil.TrySpawnChariotBoss(mob, target, 17081055)
         instance:setProgress(1)
     end
-    mob:setDelay(4000)
+
+    -- Renable drops
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
 end
 
 function onMobSpawn(mob)
     mob:setDelay(4000)
-    mob:setMod(tpz.mod.DEFP, 25)
     mob:setMobMod(tpz.mobMod.NO_ROAM, 1)
 end
 
