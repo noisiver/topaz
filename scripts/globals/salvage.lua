@@ -94,8 +94,6 @@ function salvageUtil.onInstanceCreated(player, target, instance, endID, destinat
     if instance then
         player:setInstance(instance)
         player:instanceEntry(target, 4)
-        player:delKeyItem(tpz.ki.REMNANTS_PERMIT)
-        player:messageSpecial(ID.text.KEYITEM_OBTAINED +1, tpz.ki.REMNANTS_PERMIT)
         player:setLocalVar("Area", destinationID)
 
         local align = player:getAlliance()
@@ -108,8 +106,6 @@ function salvageUtil.onInstanceCreated(player, target, instance, endID, destinat
                     players:setLocalVar("Area", destinationID)
                     players:setInstance(instance)
                     players:startEvent(endID, destinationID)
-                    players:delKeyItem(tpz.ki.REMNANTS_PERMIT)
-                    players:messageSpecial(ID.text.KEYITEM_OBTAINED +1, tpz.ki.REMNANTS_PERMIT)
                 end
             end
         end
@@ -131,7 +127,7 @@ function salvageUtil.afterInstanceRegister(player, fireFlies, mapID)
     player:messageSpecial(ID.text.TIME_TO_COMPLETE, instance:getTimeLimit())
     player:messageSpecial(ID.text.SALVAGE_START, 1)
     --player:addStatusEffectEx(tpz.effect.ENCUMBRANCE_I, tpz.effect.ENCUMBRANCE_I, 0xFFFF, 0, 6000)
-    player:addStatusEffectEx(tpz.effect.OBLIVISCENCE, tpz.effect.OBLIVISCENCE, 1, 0, 6000)
+    player:addStatusEffectEx(tpz.effect.OBLIVISCENCE, tpz.effect.OBLIVISCENCE, 1, 0, 65535)
     --player:addStatusEffectEx(tpz.effect.OMERTA, tpz.effect.OMERTA, 0x3F, 0, 6000)
     --player:addStatusEffectEx(tpz.effect.IMPAIRMENT, tpz.effect.IMPAIRMENT, 3, 0, 6000)
     --player:addStatusEffectEx(tpz.effect.DEBILITATION, tpz.effect.DEBILITATION, 0x1FF, 0, 6000)
@@ -1057,7 +1053,8 @@ function salvageUtil.teleportToSavedFloor(entity, npc, trade)
 
         instance:setStage(floor)
         instance:setProgress(0)
-        entity:PrintToPlayer("The device has been activatd!",0xD, none)
+        entity:PrintToPlayer("The device has been activated!",0xD, none)
+        entity:PrintToPlayer("You have arrived at floor: " .. "[" .. floor .. "]",0xD, none)
         entity:tradeComplete()
         salvageUtil.teleportGroup(entity, posx, posy, posz, rot, true, false, false)
     else
@@ -1073,7 +1070,9 @@ function salvageUtil.TrySpawnChariotBoss(mob, target, mobId)
         salvageUtil.spawnMob(instance, mobId)
         GetMobByID(mobId, instance):setPos(mob:getXPos(), mob:getYPos(), mob:getZPos(), mob:getRotPos())
         GetMobByID(mobId, instance):updateEnmity(target)
+        GetMobByID(mobId, instance):addStatusEffect(tpz.effect.MAX_HP_DOWN, 50, 0, 65535)
         GetMobByID(mobId, instance):setMobMod(tpz.mobMod.NO_DROPS, 1)
+        GetMobByID(mobId, instance):setMobMod(tpz.mobMod.RETURN_TO_SPAWN, 0)
         instance:setProgress(instance:getProgress() +1)
         return true
     end
