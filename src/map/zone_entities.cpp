@@ -58,7 +58,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
 namespace
 {
-const float CHARACTER_SYNC_DISTANCE = 45.0f;
+const float CHARACTER_SYNC_DISTANCE = 50.0f;
 const float CHARACTER_DESPAWN_DISTANCE = 50.0f;
 const int CHARACTER_SWAP_MAX = 5;
 const int CHARACTER_SYNC_LIMIT_MAX = 32;
