@@ -12,7 +12,7 @@ require("scripts/globals/mobs")
 
 function onMobSpawn(mob)
     mob:setMod(tpz.mod.STORETP, 100)
-    mob:setLocalVar("FeelersBreakChance", 25)
+    mob:setLocalVar("FeelersBreakChance", 5)
 end
 
 function onMobEngaged(mob, target)
@@ -72,7 +72,9 @@ function onMobDeath(mob, player, isKiller, noKiller)
             salvageUtil.spawnMob(instance, 17081184)
             GetMobByID(17081184, instance):setPos(mob:getXPos(), mob:getYPos(), mob:getZPos(), mob:getRotPos())
             GetMobByID(17081184, instance):updateEnmity(player)
+            GetMobByID(17081184, instance):addStatusEffect(tpz.effect.MAX_HP_DOWN, 50, 0, 65535)
             GetMobByID(17081184, instance):setMobMod(tpz.mobMod.NO_DROPS, 1)
+            GetMobByID(17081184, instance):setMobMod(tpz.mobMod.RETURN_TO_SPAWN, 0)
         else
             -- Teleport players back to the start 
             instance:setProgress(1)

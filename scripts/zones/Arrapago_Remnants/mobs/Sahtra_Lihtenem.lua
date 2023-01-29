@@ -70,7 +70,7 @@ function onMobFight(mob, target)
         if (hpp > 70) then 
             mob:setLocalVar("phase", 1)
             if enmityList and #enmityList > 0 and os.time() >= bioTimer then
-                mob:setLocalVar("bioTimer", os.time() + 30)
+                mob:setLocalVar("bioTimer", os.time() + 5)
                 bioTarget = math.random(#enmityList)
                 mob:castSpell(233, GetPlayerByID(bioTarget)) -- Bio IV
             end
@@ -105,6 +105,20 @@ function onMobFight(mob, target)
             if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
                 BreakMob(mob, caster, 1, 60, 1)
             end
+        end
+    end)
+
+    -- Handle Bio IV being interrupted
+    mob:addListener("MAGIC_STATE_EXIT", "SL_MAGIC_EXIT", function(mob, spell)
+        if spell:getID() == 233 then
+          mob:setLocalVar("bioTimer", os.time() + 30)
+        end
+    end)
+
+    -- Handle Jump being interrupted
+    mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "SL_WS_INTERRUPTED", function(mob, skill)
+        if skill == 718 then
+            mob:setLocalVar("jumpTimer", 0)
         end
     end)
 
@@ -199,8 +213,9 @@ function KillAllPlayers(mob, instance)
     local chars = instance:getChars()
 
     for _, players in pairs(chars) do
-        players:setHP(0)
         players:delStatusEffectSilent(tpz.effect.RERAISE)
+        players:setHP(0)
+        mob:disengage()
     end
 end
 

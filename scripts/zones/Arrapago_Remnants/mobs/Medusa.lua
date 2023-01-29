@@ -13,7 +13,7 @@ require("scripts/globals/mobs")
 function onMobSpawn(mob)
     -- Never melees, only shoots, and low bow delay.
     -- 75% DT from all damage except from the front
-    mob:setDamage(100)
+    mob:setDamage(75)
     mob:setMod(tpz.mod.SDT_WIND, 130)
     mob:setMobMod(tpz.mobMod.SPECIAL_COOL, 6)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
@@ -70,6 +70,8 @@ function onMobFight(mob, target)
         if (element == tpz.magic.ele.WIND) and (amount >= 300) then
             if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
                 BreakMob(mob, caster, 1, 60, 2)
+                    -- Remove gradual petrification off players
+                    ClearGradualPetri(mob)
             end
         end
     end)
@@ -88,10 +90,7 @@ function onMobDeath(mob, player, isKiller, noKiller)
     local chars = instance:getChars()
 
     -- Remove gradual petrification off players
-    for i, v in pairs(chars) do
-        v:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
-        v:delStatusEffectSilent(tpz.effect.PETRIFICATION)
-    end
+    ClearGradualPetri(mob)
 
     if isKiller or noKiller then
         -- If final boss, spawn next boss in line
@@ -120,5 +119,16 @@ function SetPositionalDT(mob)
 	    mob:addStatusEffect(tpz.effect.PHYSICAL_SHIELD, 7, 0, 3600)
     elseif not mob:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then
 	    mob:addStatusEffect(tpz.effect.MAGIC_SHIELD, 7, 0, 3600)
+    end
+end
+
+function ClearGradualPetri(mob)
+    local instance = mob:getInstance()
+    local chars = instance:getChars()
+
+    -- Remove gradual petrification off players
+    for i, v in pairs(chars) do
+        v:delStatusEffectSilent(tpz.effect.GRADUAL_PETRIFICATION)
+        v:delStatusEffectSilent(tpz.effect.PETRIFICATION)
     end
 end

@@ -157,11 +157,12 @@ local GearSets =  {
              {id = 203, items = {18418, 18419},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.MATT, 30, 0, 0}, {tpz.mod.MACC, 15, 0, 0}} },         -- North/South Piranu Katanas Mag atk bonus+30 and Mag acc +15
              {id = 205, items = {13787, 13788, 13876, 13877, 14006, 14007, 14123, 14124, 14247, 14248},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.CURE_POTENCY, 4, 2, 0}} },   --  Zenith +4-10% Cure Potency
              {id = 206, items = {12429, 12557, 12685, 12813, 12941, 13924, 14175, 14296, 14371, 14816},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Adaman Hauberk +4-10% Weapon Skill Damage
-             {id = 207, items = {13908, 13909, 14058, 14059, 14160, 14161, 14280, 14281, 14367, 14368,},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 10, 5, 0}} },   -- Crimson Scale +10-25 Accuracy
+             {id = 207, items = {13908, 13909, 14058, 14059, 14160, 14161, 14280, 14281, 14367, 14368},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 10, 5, 0}} },   -- Crimson Scale +10-25 Accuracy
              {id = 208, items = {13934, 13935, 14184, 14185, 14303, 14304, 14387, 14388, 14821, 14822},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Shura Togi +4-10% Weapon Skill Damage
              {id = 209, items = {18947, 15818}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 5, 0, 0}, {tpz.mod.MACC, 5, 0, 0}, {tpz.mod.SOULEATER_EFFECT, 2, 0, 0},} },        -- Molione's Sickle set Acc +5 Macc +5 Souleater +%
-             {id = 212, items = {15072, 15245, 10650, 15087, 14500, 10670, 15102, 14909, 10690, 15117, 15580, 10710, 15132, 15665, 10730},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Warrior's Lorica Set(Relic (Haste +4~10%)
-             -- NEXT: 213
+             {id = 212, items = {15072, 15245, 10650, 15087, 14500, 10670, 15102, 14909, 10690, 15117, 15580, 10710, 15132, 15665, 10730},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Warrior's Lorica Set Relic (Haste +4~10%)
+             {id = 213, items = {16073, 16074, 14537, 14538, 14949, 14950, 15615, 15616, 15703, 15704},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Hydra Mail Set Crafted (Haste +4~10%)
+             -- NEXT: 214
             }
 
              -- increment id by (number of mods in previous gearset - 1)
