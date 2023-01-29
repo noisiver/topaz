@@ -41,7 +41,7 @@ function AddKickMods(mob)
     if not mob:hasStatusEffect(tpz.effect.FOOTWORK) then
         mob:addStatusEffect(tpz.effect.FOOTWORK, 1, 0, 7200)
     end
-    mob:setDamage(70)
+    mob:setDamage(40)
     mob:setDelay(5000)
     mob:setMod(tpz.mod.MAIN_DMG_RATING, 0)
     mob:setMod(tpz.mod.STORETP, 0)
