@@ -20,6 +20,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    if jobUtil.ConsumeIgnisRune(player, tpz.effect.YAEGASUMI, 5) then
+    if jobUtil.ConsumeIgnisRune(player, tpz.effect.GEO_DEFENSE_BOOST, 8) then
+        target:addStatusEffect(tpz.effect.YAEGASUMI, 25, 0, 60)
     end
 end
