@@ -17,8 +17,8 @@ function onMobSpawn(mob)
         mob:setMod(tpz.mod.UDMGMAGIC, -20)
         mob:setMod(tpz.mod.MDEF, 16)
     else
-        mob:setMod(tpz.mod.UDMGMAGIC, -25)
-        mob:setMod(tpz.mod.MDEF, 70)
+        mob:setMod(tpz.mod.UDMGMAGIC, 0)
+        mob:setMod(tpz.mod.MDEF, 0)
     end
 end
 

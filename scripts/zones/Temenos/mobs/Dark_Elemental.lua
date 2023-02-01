@@ -14,6 +14,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.PIERCERES, 750)
     mob:setMod(tpz.mod.RANGEDRES, 750)
     mob:setMod(tpz.mod.IMPACTRES, 750)
+    mob:setMod(tpz.mod.UDMGMAGIC, 0)
+    mob:setMod(tpz.mod.MDEF, 0)
 end
 
 function onMobInitialize(mob)
