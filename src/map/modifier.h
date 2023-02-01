@@ -69,6 +69,7 @@ enum class Mod
     MACC                      = 30, // Magic Accuracy
     STATUS_EFFECT_MACC        = 1303, // Status effect Magic Accuracy
     MEVA                      = 31, // Magic Evasion
+    TPEVA                     = 1309, // Evasion to Monster TP moves in percents(used mainly for foil)
 
     // Magic Accuracy and Elemental Attacks
     FIREATT                   = 32, // Fire Damage
@@ -966,7 +967,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1309 NEXT
+    // 1310 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

@@ -775,6 +775,12 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
 
     dmg = math.floor(dmg * dmgTPmod)
 
+    -- Handle TPEVA mod
+    if math.random(100) <= target:getMod(tpz.mod.TPEVA) then
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
+        return 0
+    end
+
     if (dmg < 0) then
         return 0
     end
@@ -983,7 +989,7 @@ function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count,
     if not target:hasStatusEffect(tpz.effect.COPY_IMAGE) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_2)
         and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
             skill:setMsg(tpz.msg.basic.SKILL_MISS)
-        return 0
+            return 0
     else -- Return amount of shadows were consumed to block the attack
         return shadows
     end
@@ -1760,7 +1766,6 @@ end
 function MobEnfeebleDurationTPModifier(effect, tp)
     return 1 + (math.max(tp - 1000, 0) * 0.0005) -- 0, 50, 100 
 end
-
 
 function MobBuffDurationTPModifier(tp)
     return 1 + (math.max(tp - 1000, 0) * 0.0005) -- 0, 50, 100
