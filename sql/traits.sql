@@ -254,6 +254,11 @@ INSERT INTO `traits` VALUES (23,'martial arts',18,50,2,173,100,'TOAU',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,75,3,173,120,'TOAU',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,87,4,173,140,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,97,5,173,160,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,25,1,173,80,'TOAU',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,50,2,173,100,'TOAU',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,75,3,173,120,'TOAU',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,87,4,173,140,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,97,5,173,160,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,20,1,71,3,NULL,0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,35,2,71,6,NULL,0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,50,3,71,9,NULL,0);
@@ -621,7 +626,7 @@ INSERT INTO `traits` VALUES (108,'conserve tp',14,81,2,944,18,'ABYSSEA',0); -- C
 INSERT INTO `traits` VALUES (108,'conserve tp',14,82,3,944,21,'ABYSSEA',0); -- Conserve TP III, DRG71, 21%
 INSERT INTO `traits` VALUES (108,'conserve tp',14,84,4,944,24,'ABYSSEA',0); -- Conserve TP IV, DRG84, 24%
 INSERT INTO `traits` VALUES (108,'conserve tp',14,97,5,944,26,'ABYSSEA',0); -- Conserve TP V, DRG97, 26%
-INSERT INTO `traits` VALUES (108,'conserve tp',19,77,1,944,15,'ABYSSEA',0); -- Conserve TP I, DNC77, 15%
+INSERT INTO `traits` VALUES (108,'conserve tp',19,30,1,944,15,'ABYSSEA',0); -- Conserve TP I, DNC77, 15%
 INSERT INTO `traits` VALUES (108,'conserve tp',19,45,2,944,18,'ABYSSEA',0); -- Conserve TP II, DNC87, 18%
 INSERT INTO `traits` VALUES (108,'conserve tp',19,60,3,944,21,'ABYSSEA',0); -- Conserve TP III, DNC97, 21%
 INSERT INTO `traits` VALUES (109,'occult acumen',4,85,1,902,25,'ABYSSEA',0);

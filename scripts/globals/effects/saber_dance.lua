@@ -18,6 +18,7 @@ function onEffectGain(target, effect)
         target:delMod(tpz.mod.DOUBLE_ATTACK, 10)
     end
     target:addMod(tpz.mod.DOUBLE_ATTACK, effect:getPower())
+    target:addMod(tpz.mod.KICK_DMG, effect:getPower())
 
     target:delStatusEffect(tpz.effect.FAN_DANCE)
 end
@@ -43,4 +44,5 @@ function onEffectLose(target, effect)
         target:addMod(tpz.mod.DOUBLE_ATTACK, 10)
     end
     target:delMod(tpz.mod.DOUBLE_ATTACK, effect:getPower())
+    target:delMod(tpz.mod.KICK_DMG, effect:getPower())
 end
