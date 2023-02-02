@@ -1067,7 +1067,7 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
     --elseif cratio < 2.625 then
        -- pdifmax = cratio + 0.375
     else
-        pdifmax = 2  -- changed to 2.0
+        pdifmax = GetMaxWeaponPdif(attacker)
     end
     -- min
 
@@ -1089,7 +1089,7 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
 
     local pdifcrit = {}
     cratio = cratio + 1
-    cratio = utils.clamp(cratio, 0, 2)  -- changed from 3 to 2
+    cratio = utils.clamp(cratio, 0, GetMaxWeaponPdif(attacker) +1) 
 
     -- printf("ratio: %f min: %f max %f\n", cratio, pdifmin, pdifmax)
 
@@ -1104,7 +1104,7 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
     --elseif cratio < 2.625 then
        -- pdifmax = cratio + 0.375
     else
-        pdifmax = 2  -- changed to 2.0
+        pdifmax = GetMaxWeaponPdif(attacker)
     end
     -- min
 
@@ -1681,4 +1681,21 @@ function GetMobFamily(target)
     elseif (target:getFamily() == 163) or (target:getFamily() == 164) or (target:getFamily() == 313)  then 
         return 'Hydra'
     end
+end
+
+function GetMaxWeaponPdif(attacker)
+    local weaponStyle = utils.getWeaponStyle(attacker)
+    local weaponType = utils.GetWeaponType(attacker)
+
+    if (weaponStyle == 'H2H') or (weaponType == 'GREAT KATANA') then
+        return 2.1
+    elseif (weaponStyle == 'DW' or weaponStyle == 'SHIELD') then
+        return 2.0
+    elseif (weaponType == 'SCYTHE') then
+        return 2.3
+    elseif (weaponStyle == '2H') then
+        return 2.2
+    end
+
+    return 2.0
 end

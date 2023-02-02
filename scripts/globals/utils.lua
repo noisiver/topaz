@@ -971,3 +971,73 @@ function utils.givePartyKeyItem(entity, keyitem)
         end
     end
 end
+
+function utils.getWeaponStyle(player)
+    local twoHandedSkills = { 4, 6, 7, 8, 10, 12 };
+    local oneHandedSkills = { 2, 3, 5, 9, 11 };
+    local main = player:getStorageItem(0, 0, tpz.slot.MAIN)
+    local sub = player:getStorageItem(0, 0, tpz.slot.SUB)
+    local mainHandSkill = 0
+
+    if main and main:getSkillType() then
+        mainHandSkill = main:getSkillType()
+    end
+
+
+    if mainHandSkill == 1 then
+        return 'H2H'
+    end
+
+    for _, combatSkills in pairs(twoHandedSkills) do
+        if mainHandSkill == combatSkills then
+            return '2H'
+        end
+    end
+
+    for _, combatSkills in pairs(oneHandedSkills) do
+        local offHandSkill = 0
+        if sub and sub:getSkillType() then
+            offHandSkill = sub:getSkillType()
+        end
+
+        for _, combatSkills in pairs(twoHandedSkills) do
+            if mainHandSkill == offHandSkill then
+                return 'DW'
+            elseif sub == nil or sub:getSkillType() == tpz.skill.NONE or sub:isShield() then
+                return 'SHIELD'
+            end
+        end
+    end
+
+    return 'Unknown'
+end
+
+function utils.GetWeaponType(player)
+    local main = player:getStorageItem(0, 0, tpz.slot.MAIN)
+    local mainHandSkill = 0
+
+    if main and main:getSkillType() then
+        mainHandSkill = main:getSkillType()
+    end
+
+    local skills =
+    {
+        {2, 'DAGGER'},
+        {3, 'SWORD'},
+        {4, 'GREAT SWORD'},
+        {5, 'AXE'},
+        {6, 'GREAT AXE'},
+        {7, 'SCYTHE'},
+        {8, 'POLEARM'},
+        {9, 'KATANA'},
+        {10, 'GREAT KATANA'},
+        {11, 'CLUB'},
+        {12, 'STAFF'},
+    }
+
+    for _, combatSkills in pairs (skills) do
+        if (mainHandSkill == combatSkills[1]) then
+            return combatSkills[2]
+        end
+    end
+end
