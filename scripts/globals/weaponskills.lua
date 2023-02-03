@@ -1124,10 +1124,7 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
     critbonus = utils.clamp(critbonus, 0, 100)
     pdifcrit[1] = pdifmin * (100 + critbonus) / 100
     pdifcrit[2] = pdifmax * (100 + critbonus) / 100
-    print(pdifmin)
-    print(pdifmax)
-    print(pdif)
-    print(cratio)
+
     return pdif, pdifcrit
 end
 
