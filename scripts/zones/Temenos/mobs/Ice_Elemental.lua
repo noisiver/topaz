@@ -45,6 +45,8 @@ function onMobSpawn(mob)
         mob:setMod(tpz.mod.UDMGMAGIC, 0)
         mob:setMod(tpz.mod.MDEF, 0)
     end
+    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 5)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 5)
 end
 
 function onMobInitialize(mob)
@@ -83,9 +85,9 @@ function onMobDeath(mob, player, isKiller, noKiller)
                 local mobX = mob:getXPos()
                 local mobY = mob:getYPos()
                 local mobZ = mob:getZPos()
-                local crateID = ID.npc.TEMENOS_E_CRATE[2] + (mobID - ID.mob.TEMENOS_E_MOB[2])
-                GetNPCByID(crateID):setPos(mobX, mobY, mobZ)
-                tpz.limbus.spawnRandomCrate(crateID, player, "crateMaskF2", battlefield:getLocalVar("crateMaskF2"), true)
+                local crateID = ID.npc.TEMENOS_E_CRATE[2] + (mobID - ID.mob.TEMENOS_E_MOB[2]) -- Bugged
+                GetNPCByID(crateID):setPos(mobX, mobY, mobZ) -- Bugged
+                tpz.limbus.spawnRandomCrate(crateID, player, "crateMaskF2", battlefield:getLocalVar("crateMaskF2"), true) -- Bugged
             end
         end
     end
