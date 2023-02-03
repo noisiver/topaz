@@ -1060,12 +1060,12 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
         pdifmax = cratio *  0.4 + 1.2  -- changed to * 0.4 + 1.2
     elseif cratio <= 0.5 then
         pdifmax = 1
-    --elseif cratio < 1.2 then
-     --   pdifmax = cratio + 0.3
-    --elseif cratio < 1.5 then
-      --  pdifmax = cratio * 0.25 + cratio
-    --elseif cratio < 2.625 then
-       -- pdifmax = cratio + 0.375
+    elseif cratio < 1.2 then
+        pdifmax = cratio + 0.3
+    elseif cratio < 1.5 then
+        pdifmax = cratio * 0.25 + cratio
+    elseif cratio < 2.625 then
+        pdifmax = cratio + 0.375
     else
         pdifmax = GetMaxWeaponPdif(attacker)
     end
@@ -1097,12 +1097,12 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
         pdifmax = cratio *  0.4 + 1.2  -- changed to * 0.4 + 1.2
     elseif cratio <= 0.5 then
         pdifmax = 1
-    --elseif cratio < 1.2 then
-     --   pdifmax = cratio + 0.3
-    --elseif cratio < 1.5 then
-      --  pdifmax = cratio * 0.25 + cratio
-    --elseif cratio < 2.625 then
-       -- pdifmax = cratio + 0.375
+    elseif cratio < 1.2 then
+        pdifmax = cratio + 0.3
+    elseif cratio < 1.5 then
+        pdifmax = cratio * 0.25 + cratio
+    elseif cratio < 2.625 then
+       pdifmax = cratio + 0.375
     else
         pdifmax = GetMaxWeaponPdif(attacker)
     end
