@@ -1089,7 +1089,7 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
 
     local pdifcrit = {}
     cratio = cratio + 1
-    cratio = utils.clamp(cratio, 0, GetMaxWeaponPdif(attacker) +1) 
+    cratio = utils.clamp(cratio, 0, GetMaxWeaponPdif(attacker)) 
 
     -- printf("ratio: %f min: %f max %f\n", cratio, pdifmin, pdifmax)
 
