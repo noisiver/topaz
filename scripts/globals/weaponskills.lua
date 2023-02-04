@@ -1142,8 +1142,8 @@ function cRangedRatio(attacker, defender, params, ignoredDef, tp)
 
     cratio = cratio * atkmulti
 
-    if (cratio > 3 - levelcor) then
-        cratio = 3 - levelcor
+    if (cratio > 2.5 - levelcor) then
+        cratio = 2.5 - levelcor
     end
 
     if (cratio < 0) then
