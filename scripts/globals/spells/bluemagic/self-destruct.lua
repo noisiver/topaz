@@ -35,23 +35,20 @@ function onSpellCast(caster, target, spell)
     params.bonus = 0
     params.attackType = tpz.attackType.MAGICAL
     params.damageType = tpz.damageType.FIRE
-    local multi = 3.0
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 2.0
-    end
-    params.multiplier = multi
-    params.tMultiplier = 1.0
-    params.duppercap = 200
+    local multi = 0
+    params.multiplier = 0
+    params.tMultiplier = 0
+    params.duppercap = 100
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
     params.agi_wsc = 0.0
-    params.int_wsc = 0.4
+    params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     params.IGNORE_WSC = true
     local playerHP = caster:getLocalVar("self-destruct_hp")
-    params.damage = ((playerHP - 1) * 2) 
+    params.damage = ((playerHP - 1) * 1.25) 
     local damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
 
 	if (target:isUndead()) then
