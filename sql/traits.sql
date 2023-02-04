@@ -676,6 +676,7 @@ INSERT INTO `traits` VALUES (113,'dead aim',11,70,3,964,9,'SOA',0);
 INSERT INTO `traits` VALUES (113,'dead aim',11,80,4,964,35,'SOA',0);
 INSERT INTO `traits` VALUES (113,'dead aim',11,90,5,964,40,'SOA',0);
 INSERT INTO `traits` VALUES (113,'dead aim',11,99,6,964,45,'SOA',0);
+--INSERT INTO `traits` VALUES (114,'tranquil heart',11,99,6,964,45,'SOA',0);
 INSERT INTO `traits` VALUES (115,'stalwart soul',8,45,1,907,15,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (115,'stalwart soul',8,60,2,907,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (115,'stalwart soul',8,75,3,907,40,'ABYSSEA',0);
@@ -774,6 +775,16 @@ INSERT INTO `traits` VALUES (134,'ws damage boost',14,65,3,840,13,'ROV',0);
 INSERT INTO `traits` VALUES (134,'ws damage boost',14,75,4,840,16,'ROV',0);
 INSERT INTO `traits` VALUES (134,'ws damage boost',14,85,5,840,19,'ROV',0);
 INSERT INTO `traits` VALUES (134,'ws damage boost',14,95,6,840,21,'ROV',0);
+
+INSERT INTO `traits` VALUES (136,'shield barrier',1,30,1,1310,10,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',1,45,2,1310,15,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',1,60,3,1310,20,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',1,75,4,1310,25,'ROV',0);
+
+INSERT INTO `traits` VALUES (136,'shield barrier',8,30,1,1310,10,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',8,45,2,1310,15,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',8,60,3,1310,20,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',8,75,4,1310,25,'ROV',0);
 
 /*!40000 ALTER TABLE `traits` ENABLE KEYS */;
 UNLOCK TABLES;

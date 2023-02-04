@@ -854,7 +854,7 @@ namespace charutils
         std::string enabledContent = "\"\"";
 
         // Compile a string of all enabled expansions
-        for (auto&& expan : {"COP", "TOAU", "WOTG", "ACP", "AMK", "ASA", "ABYSSEA", "SOA"})
+        for (auto&& expan : { "COP", "TOAU", "WOTG", "ACP", "AMK", "ASA", "ABYSSEA", "SOA", "ROV" })
         {
             if (luautils::IsContentEnabled(expan))
             {
@@ -1659,7 +1659,12 @@ namespace charutils
             }
             PItem->setSubType(ITEM_UNLOCKED);
 
-            if (equipSlotID == SLOT_SUB) {
+            if (equipSlotID == SLOT_SUB)
+            {
+                if (((CItemWeapon*)PItem)->IsShield() && charutils::hasTrait(PChar, TRAIT_SHIELD_BARRIER))
+                {
+                    PChar->delModifier(Mod::PHALANX, PChar->getMod(Mod::SHIELD_BARRIER));
+                }
                 // Removed sub item, if main hand is empty, then possibly eligible for H2H weapon
                 if (!PChar->getEquip(SLOT_MAIN) || !PChar->getEquip(SLOT_MAIN)->isType(ITEM_EQUIPMENT))
                 {
@@ -2337,6 +2342,12 @@ namespace charutils
             {
                 return;
             }
+        }
+
+        // Check for Shield Barrier
+        if (equipSlotID == SLOT_SUB && PItem && PItem->IsShield() && charutils::hasTrait(PChar, TRAIT_SHIELD_BARRIER))
+        {
+            PChar->addModifier(Mod::PHALANX, PChar->getMod(Mod::SHIELD_BARRIER));
         }
 
         if (slotID == 0)
@@ -3285,7 +3296,7 @@ namespace charutils
     *                                                                       *
     ************************************************************************/
 
-    int32 hasTrait(CCharEntity* PChar, uint8 TraitID)
+    int32 hasTrait(CCharEntity* PChar, uint16 TraitID)
     {
         if (PChar->objtype != TYPE_PC)
         {
@@ -3295,7 +3306,7 @@ namespace charutils
         return hasBit(TraitID, PChar->m_TraitList, sizeof(PChar->m_TraitList));
     }
 
-    int32 addTrait(CCharEntity* PChar, uint8 TraitID)
+    int32 addTrait(CCharEntity* PChar, uint16 TraitID)
     {
         if (PChar->objtype != TYPE_PC)
         {
@@ -3305,7 +3316,7 @@ namespace charutils
         return addBit(TraitID, PChar->m_TraitList, sizeof(PChar->m_TraitList));
     }
 
-    int32 delTrait(CCharEntity* PChar, uint8 TraitID)
+    int32 delTrait(CCharEntity* PChar, uint16 TraitID)
     {
         if (PChar->objtype != TYPE_PC)
         {

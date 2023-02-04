@@ -389,8 +389,10 @@ enum class Mod
     RAMPART_DURATION          = 92,  // Rampart duration in seconds
     ABSORB_PHYSDMG_TO_MP      = 426, // Absorbs a percentage of physical damage taken to MP.
     SHIELD_MASTERY_TP         = 485, // Shield mastery TP bonus when blocking with a shield
-    SENTINEL_EFFECT           = 837, // Sentinel effect in percents
     SHIELD_DEF_BONUS          = 905, // Shield Defense Bonus (Block Amount)
+    SHIELDBLOCKRATE           = 518, // Affects shield block rate, percent based
+    SHIELD_BARRIER            = 1310,// Phalanx effect while wielding a shield
+    SENTINEL_EFFECT           = 837, // Sentinel effect in percents
     COVER_TO_MP               = 1014, // Converts a successful cover's phsyical damage to MP
     COVER_MAGIC_AND_RANGED    = 1015, // Redirects ranged and single target magic attacks to the cover ability user
     COVER_DURATION            = 1016, // Increases Cover Duration
@@ -785,7 +787,6 @@ enum class Mod
 
     EGGHELM                   = 517,
 
-    SHIELDBLOCKRATE           = 518, // Affects shield block rate, percent based
     DIA_DOT                   = 313, // Increases the DoT damage of Dia
     ENH_DRAIN_ASPIR           = 315, // % damage boost to Drain and Aspir
     AUGMENTS_ABSORB           = 1274, // Direct Absorb spell increase (percentage based)
@@ -967,7 +968,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1310 NEXT
+    // 1311 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

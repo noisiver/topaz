@@ -14265,7 +14265,7 @@ inline int32 CLuaBaseEntity::hasTrait(lua_State *L)
         return 1;
     }
 
-    lua_pushboolean(L, charutils::hasTrait((CCharEntity*)m_PBaseEntity, (uint8)lua_tointeger(L, 1)));
+    lua_pushboolean(L, charutils::hasTrait((CCharEntity*)m_PBaseEntity, (uint16)lua_tointeger(L, 1)));
     return 1;
 }
 

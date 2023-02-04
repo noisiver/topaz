@@ -142,10 +142,12 @@ enum TRAITTYPE
     TRAIT_SUPERIOR            = 124,
     TRAIT_MAGIC_ACC_BONUS     = 125,
     TRAIT_MAGIC_EVA_BONUS     = 126,
-    TRAIT_SMITE               = 127
+    TRAIT_SMITE               = 127,
+    TRAIT_WS_DMG_BOOST        = 134,
+    TRAIT_SHIELD_BARRIER      = 136
   };
 
-#define MAX_TRAIT_ID    128
+#define MAX_TRAIT_ID    150
 
 /************************************************************************
 *                                                                       *
@@ -157,9 +159,9 @@ class CTrait
 {
 public:
 
-    CTrait(uint8 id);
+    CTrait(uint16 id);
 
-    uint8     getID()         const { return m_id; }
+    uint16    getID()         const { return m_id; }
     uint8     getJob()        const { return m_job; }
     uint8     getLevel()      const { return m_level; }
     Mod       getMod()        const { return m_mod; }
@@ -176,7 +178,7 @@ public:
 
 private:
 
-    uint8   m_id {0};
+    uint16  m_id {0};
     uint8   m_job {0};
     uint8   m_level {0};
     Mod     m_mod {Mod::NONE};
