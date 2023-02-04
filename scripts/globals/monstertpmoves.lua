@@ -1087,11 +1087,15 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
 
     -- Add TP scaling
     local tp = mob:getLocalVar("tp")
-    local finalDuration = math.floor(duration * MobBuffDurationTPModifier(tp))
+    local finalDuration = duration
+    if not IsNonScalingBuff(typeEffect) then
+        finalDuration =  math.floor(finalDuration * MobBuffDurationTPModifier(tp))
+    end
 
     if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
+
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
@@ -1749,6 +1753,24 @@ function MobGetStatusEffectDuration(effect)
     end
 
     return duration
+end
+
+function IsNonScalingBuff(typeEffect)
+    local buffs =
+    {
+        tpz.effect.MIGHTY_STRIKES, tpz.effect.HUNDRED_FISTS, tpz.effect.MANAFONT, tpz.effect.CHAINSPELL, tpz.effect.PERFECT_DODGE,
+        tpz.effect.INVINCIBLE, tpz.effect.BLOOD_WEAPON, tpz.effect.FAMILIAR, tpz.effect.SOUL_VOICE, tpz.effect.MEIKYO_SHISUI,
+        tpz.effect.ASTRAL_FLOW, tpz.effect.AZURE_LORE, tpz.effect.OVERDRIVE, tpz.effect.TRANCE, tpz.effect.TABULA_RASA,
+        tpz.effect.BOLSTER, tpz.effect.ELEMENTAL_SFORZO
+    }
+
+    for _, effects in pairs(buffs) do
+        if typeEffect == effects then
+            return true
+        end
+    end
+
+    return false
 end
 
 function MobDmgTPModifier(tp)
