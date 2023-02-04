@@ -3472,7 +3472,7 @@ INSERT INTO `mob_groups` VALUES (120,2664,74,'Mimic',0,128,3201,3500,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (121,9087,74,'Ruins_Oil',0,128,3201,33000,0,86,86,0);
 INSERT INTO `mob_groups` VALUES (122,9088,74,'Verrottendes_Fleisch',0,128,3201,20000,0,86,86,0);
 INSERT INTO `mob_groups` VALUES (123,9089,74,'Disciple_Of_Mammon',0,128,3201,10000,0,86,86,0);
-INSERT INTO `mob_groups` VALUES (124,9090,74,'Mammon_Loyalist',0,128,3201,1500,0,76,76,0);
+INSERT INTO `mob_groups` VALUES (124,9090,74,'Mammon_Loyalist',0,128,0,1,0,76,76,0);
 INSERT INTO `mob_groups` VALUES (125,9091,74,'Student_Of_Erdhenne',0,128,3201,20000,0,86,86,0);
 -- F3
 INSERT INTO `mob_groups` VALUES (126,9092,74,'Fallen_Imperial_Trooper',0,128,3200,3300,2000,83,83,0);
