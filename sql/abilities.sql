@@ -360,8 +360,8 @@ INSERT INTO `abilities` VALUES (313,'striking_flourish',19,89,1,30,226,0,0,222,2
 INSERT INTO `abilities` VALUES (314,'ternary_flourish',19,93,1,30,226,0,0,222,2000,0,14,20.0,0,1,80,0,0,NULL); -- check animation/message1
 -- INSERT INTO `abilities` VALUES (316,'perpetuance',20,87,1,1,231,100,0,224,2000,0,6,0.0,0,1,80,0,0,NULL);
 -- INSERT INTO `abilities` VALUES (317,'immanence',20,87,1,1,231,100,0,245,2000,0,6,0.0,0,1,80,0,0,NULL);
--- INSERT INTO `abilities` VALUES (318,'smiting_breath',14,90,4,60,238,100,0,135,2000,0,6,8.0,0,1,80,0,0,NULL); -- check animation
--- INSERT INTO `abilities` VALUES (319,'restoring_breath',14,90,1,60,239,100,0,130,2000,0,6,0.0,0,1,80,0,0,NULL); -- check animation
+INSERT INTO `abilities` VALUES (318,'smiting_breath',14,40,4,60,238,100,0,94,2000,0,6,8.0,0,1,80,0,0,NULL); -- check animation
+INSERT INTO `abilities` VALUES (319,'restoring_breath',14,30,1,60,239,100,0,94,2000,0,6,0.0,0,1,80,0,0,NULL); -- check animation
 INSERT INTO `abilities` VALUES (320,'konzen-ittai',12,55,4,180,132,529,0,39,2000,0,14,4.0,0,1,300,0,0,'ABYSSEA');	-- changed from level 65
 INSERT INTO `abilities` VALUES (321,'bully',6,40,4,60,240,127,0,248,2000,0,6,8.0,0,1,300,0,4,'ABYSSEA');	-- changed to level 40, 180s cd
 INSERT INTO `abilities` VALUES (322,'maintenance',18,30,1,90,214,0,0,83,2000,0,6,12.0,0,0,0,1474,0,'ABYSSEA'); -- ta257
