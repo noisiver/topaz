@@ -625,6 +625,7 @@ enum class Mod
     ENSPELL_MACC              = 1271,// Increases Enspell magical accuracy
     SPIKES                    = 342, // store the type of spike spell active (0 if nothing)
     SPIKES_DMG                = 344, // stores the base damage of the spikes before reductions
+    SPIKES_MACC               = 1311,// Increases Spikes magical accuracy
 
     TP_BONUS                  = 345, //
     SAVETP                    = 880, // SAVETP Effect for Miser's Roll / ATMA / Hagakure.
@@ -968,7 +969,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1311 NEXT
+    // 1312 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

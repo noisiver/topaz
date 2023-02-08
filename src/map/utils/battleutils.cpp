@@ -678,7 +678,7 @@ namespace battleutils
         else if (weather == weakWeatherDouble[element] && (obiBonus || tpzrand::GetRandomNumber(100) < 33))
             dBonus -= 0.25f;
         // printf("\nDayWeather Bonus %f\n", dBonus);
-        uint32 enspellMaccBonus = PAttacker->getMod(Mod::ENSPELL_MACC);
+        uint32 enspellMaccBonus = PAttacker->getMod(Mod::ENSPELL_MACC) + 30;
         damage = (int32)(damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element + 1, enspellMaccBonus));
         damage = (int32)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
@@ -711,6 +711,7 @@ namespace battleutils
     {
         uint8 element = 1;
         float damage = Action->spikesParam;
+        uint32 spikesMaccBonus = PAttacker->getMod(Mod::SPIKES_MACC) + 30;
         // int16 intStat = PDefender->INT();
         // int16 mattStat = PDefender->getMod(Mod::MATT);
 
@@ -718,38 +719,38 @@ namespace battleutils
         {
             case SPIKE_BLAZE:
                 element = ELEMENT_FIRE;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 break;
             case SPIKE_ICE:
                 element = ELEMENT_ICE;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 break;
             case SPIKE_GALE:
                 element = ELEMENT_WIND;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 break;
             case SPIKE_CLOD:
                 element = ELEMENT_EARTH;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 break;
             case SPIKE_SHOCK:
                 element = ELEMENT_THUNDER;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 break;
             case SPIKE_DELUGE:
                 element = ELEMENT_WATER;
-                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                damage = damage * getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 break;
             case SPIKE_REPRISAL:
                 element = ELEMENT_LIGHT;
-                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element, +30);
+                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DIVINE_MAGIC, element, spikesMaccBonus);
                 break;
             case SPIKE_GLINT:
             case SPIKE_DREAD:
             case SPIKE_CURSE:
                 element = ELEMENT_DARK;
                 // drain same as damage taken
-                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element, +30);
+                damage = damageTaken * getMagicResist(PAttacker, PDefender, SKILL_DARK_MAGIC, element, spikesMaccBonus);
                 break;
             default:
                 break;
@@ -1054,6 +1055,7 @@ namespace battleutils
 
         int resist = 1;
         uint8 element = 1;
+        uint32 spikesMaccBonus = PAttacker->getMod(Mod::SPIKES_MACC) + 30;
 
         switch (spikes)
         {
@@ -1086,7 +1088,7 @@ namespace battleutils
             default:
                 break;
         }
-        resist = static_cast<int32>(getMagicResist(PAttacker, PDefender, SKILL_EVASION, element, +30));
+        resist = static_cast<int32>(getMagicResist(PAttacker, PDefender, SKILL_EVASION, element, spikesMaccBonus));
         if (resist >= 0.5)
         {
             // spikes landed
@@ -1118,12 +1120,13 @@ namespace battleutils
     {
         float resist = 1.0f;
         uint8 element = 1;
+        uint32 spikesMaccBonus = PAttacker->getMod(Mod::SPIKES_MACC) + 30;
         //printf("Spikes resist before getMagicResist %f \n", resist);
         switch (Action->spikesEffect)
         {
             case SUBEFFECT_CURSE_SPIKES:
                 element = ELEMENT_DARK;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                // printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false &&
@@ -1135,7 +1138,7 @@ namespace battleutils
             }
             case SUBEFFECT_ICE_SPIKES:
                 element = ELEMENT_ICE;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false &&
@@ -1148,7 +1151,7 @@ namespace battleutils
             }
             case SUBEFFECT_SHOCK_SPIKES:
                 element = ELEMENT_THUNDER;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false &&
@@ -1160,7 +1163,7 @@ namespace battleutils
             }
             case SUBEFFECT_GALE_SPIKES:
                 element = ELEMENT_WIND;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false &&
@@ -1172,7 +1175,7 @@ namespace battleutils
             }
             case SUBEFFECT_CLOD_SPIKES:
                 element = ELEMENT_EARTH;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
@@ -1184,7 +1187,7 @@ namespace battleutils
             }
             case SUBEFFECT_DELUGE_SPIKES:
                 element = ELEMENT_WATER;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
@@ -1196,7 +1199,7 @@ namespace battleutils
             }
             case SUBEFFECT_GLINT_SPIKES:
                 element = ELEMENT_DARK;
-                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, +30);
+                static_cast<float>(resist) = getMagicResist(PAttacker, PDefender, SKILL_ENHANCING_MAGIC, element, spikesMaccBonus);
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::DEATHRESTRAIT))

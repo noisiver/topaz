@@ -1763,13 +1763,14 @@ tpz.mod =
     BLOOD_RAGE_POTENCY      = 1308, -- Increases Blood Rage healing received bonus, in percents
     TPEVA                   = 1309, -- Evasion to Monster TP moves in percents(used mainly for foil)
     SHIELD_BARRIER          = 1310, -- Phalanx effect while wielding a shield
+    SPIKES_MACC             = 1311, -- Increases Spikes magical accuracy
     
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1311 NEXT
+    -- 1312 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
