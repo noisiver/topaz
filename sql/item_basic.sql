@@ -13119,8 +13119,8 @@ INSERT INTO `item_basic` VALUES (15830,0,'patriots_ring','patriots_ring',1,38916
 INSERT INTO `item_basic` VALUES (15831,0,'fenian_ring','fenian_ring',1,63572,0,1,0);
 INSERT INTO `item_basic` VALUES (15832,0,'headsmans_ring','headsmans_ring',1,63572,0,1,0);
 INSERT INTO `item_basic` VALUES (15833,0,'diverters_ring','diverters_ring',1,63572,0,1,0);
-INSERT INTO `item_basic` VALUES (15834,0,'blind_ring','blind_ring',1,64596,0,1,0);
-INSERT INTO `item_basic` VALUES (15835,0,'desperado_ring','desperado_ring',1,63572,0,1,0);
+INSERT INTO `item_basic` VALUES (15834,0,'unnamed_ring','unnamed_ring',1,64596,0,1,0);
+INSERT INTO `item_basic` VALUES (15835,0,'unnamedtwo_ring','unnamedtwo_ring',1,63572,0,1,0);
 INSERT INTO `item_basic` VALUES (15836,0,'smilodon_ring','smilodon_ring',1,2084,25,0,634);
 INSERT INTO `item_basic` VALUES (15837,0,'smilodon_ring_+1','smilodon_ring_+1',1,2080,25,0,792);
 INSERT INTO `item_basic` VALUES (15838,0,'protect_ring','protect_ring',1,3108,25,0,703);

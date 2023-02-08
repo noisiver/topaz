@@ -7873,8 +7873,9 @@ INSERT INTO `item_mods` VALUES (12316,68,9); -- +9 evasion
 INSERT INTO `item_mods` VALUES (12317,1,12);      -- Flame Shield: DEF 12
 INSERT INTO `item_mods` VALUES (12317,54,30);     -- Fire resistance +30
 INSERT INTO `item_mods` VALUES (12317,499,1);     -- Blaze spikes
-INSERT INTO `item_mods` VALUES (12317,500,20);    -- Spikes damage +20
-INSERT INTO `item_mods` VALUES (12317,501,20);    -- Spikes chance +20%
+INSERT INTO `item_mods` VALUES (12317,500,50);    -- Spikes damage +50
+INSERT INTO `item_mods` VALUES (12317,501,100);    -- Spikes chance +100%
+INSERT INTO `item_mods` VALUES (12317,1312,100);   -- Spikes MACC +100
 INSERT INTO `item_mods` VALUES (12318,1,25);
 INSERT INTO `item_mods` VALUES (12318,54,25);
 INSERT INTO `item_mods` VALUES (12318,55,25);
@@ -18746,6 +18747,8 @@ INSERT INTO `item_mods` VALUES (15831,1231,5);    -- +5% DMG vs Undead
 INSERT INTO `item_mods` VALUES (15832,85,5);      -- Headsman Ring Great Axe Skill +5
 INSERT INTO `item_mods` VALUES (15832,84,5);      -- Axe Skill +5
 INSERT INTO `item_mods` VALUES (15833,5,15);
+INSERT INTO `item_mods` VALUES (15834,1,3);       -- Unnamed Ring
+INSERT INTO `item_mods` VALUES (15835,1,3);       -- Unnamedtwo Ring
 INSERT INTO `item_mods` VALUES (15836,11,1);
 INSERT INTO `item_mods` VALUES (15837,11,2);
 INSERT INTO `item_mods` VALUES (15837,25,1);

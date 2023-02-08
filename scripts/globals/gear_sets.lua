@@ -162,7 +162,8 @@ local GearSets =  {
              {id = 209, items = {18947, 15818}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 5, 0, 0}, {tpz.mod.MACC, 5, 0, 0}, {tpz.mod.SOULEATER_EFFECT, 2, 0, 0},} },        -- Molione's Sickle set Acc +5 Macc +5 Souleater +%
              {id = 212, items = {15072, 15245, 10650, 15087, 14500, 10670, 15102, 14909, 10690, 15117, 15580, 10710, 15132, 15665, 10730},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Warrior's Lorica Set Relic (Haste +4~10%)
              {id = 213, items = {16073, 16074, 14537, 14538, 14949, 14950, 15615, 15616, 15703, 15704},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Hydra Mail Set Crafted (Haste +4~10%)
-             -- NEXT: 214
+             {id = 214, items = {15834, 15835}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.STR, 15, 0, 0}, {tpz.mod.ACC, -10, 0, 0}} }, -- Unnamed Ring set: STR+26/ACC-10
+             --NEXT: 216
             }
 
              -- increment id by (number of mods in previous gearset - 1)
