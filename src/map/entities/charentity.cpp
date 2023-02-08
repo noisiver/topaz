@@ -736,6 +736,7 @@ void CCharEntity::PostTick()
         }
         if (isCharmed)
         {
+            StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
             pushPacket(new CCharPacket(this, ENTITY_UPDATE, updatemask));
         }
         if (updatemask & UPDATE_HP)
