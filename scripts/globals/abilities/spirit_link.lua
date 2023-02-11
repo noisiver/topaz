@@ -7,6 +7,7 @@
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/job_util")
 -----------------------------------
 
 function cutEmpathyEffectTable(validEffects, i, maxCount)
@@ -40,12 +41,8 @@ function onUseAbility(player, target, ability)
     if (player:getPet():getHP() == player:getPet():getMaxHP()) then
         drainamount = 0 -- Prevents player HP lose if wyvern is at full HP
     end
-    -- Add spirit power per use of spirit link
-    local SpiritPower = player:getLocalVar("SpiritPower")
-    if SpiritPower < 3 then
-        SpiritPower = SpiritPower + 1
-        player:setLocalVar("SpiritPower", SpiritPower)
-    end
+    -- Add Unda runes on each use, up to 3 total.
+    jobUtil.AddUndaRune(player)
 
     if (player:hasStatusEffect(tpz.effect.STONESKIN)) then
         local skin = player:getMod(tpz.mod.STONESKIN)
@@ -57,13 +54,11 @@ function onUseAbility(player, target, ability)
                 local effect = player:getStatusEffect(tpz.effect.STONESKIN)
                 effect:setPower(effect:getPower() - drainamount) -- fixes the status effeect so when it ends it uses the new power instead of old
                 player:delMod(tpz.mod.STONESKIN, drainamount) --removes the amount from the mod
-
             end
         else
             player:delStatusEffectSilent(tpz.effect.STONESKIN)
             player:takeDamage(drainamount - skin)
         end
-
     else
         player:takeDamage(drainamount)
     end

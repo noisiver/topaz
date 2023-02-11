@@ -13,7 +13,7 @@ function jobUtil.AddIgnisRune(player, damage)
     local IgnisRunes = player:getLocalVar("IgnisRunes")
     local RuneDuration = 7200
     if player:getMainJob() == tpz.job.SAM then 
-        if damage > 0 and IgnisRunes <=2 then
+        if damage > 0 and IgnisRunes <= 2 then
             for v = 524,530,1 do
                 player:delStatusEffectSilent(v)
             end
@@ -35,4 +35,31 @@ function jobUtil.ConsumeIgnisRune(player, effect, power)
         return true
     end
     return false
+end
+
+function jobUtil.AddUndaRune(player)
+    local UndaRunes = player:getLocalVar("UndaRunes")
+    local RuneDuration = 7200
+    if player:getMainJob() == tpz.job.DRG then 
+        if UndaRunes <= 2 then
+            player:addStatusEffect(tpz.effect.UNDA, 1, 0, RuneDuration)
+        end
+    end
+end
+
+function jobUtil.ConsumeUndaRune(player, target, effect, power)
+    local Runes = player:getLocalVar("UndaRunes")
+    local duration = 60
+    player:delStatusEffectSilent(tpz.effect.UNDA)
+    player:delStatusEffectSilent(tpz.effect.UNDA)
+    player:delStatusEffectSilent(tpz.effect.UNDA)
+    player:setLocalVar("UndaRunes", 0)
+    target:addStatusEffect(effect, power, 0, duration)
+end
+
+function jobUtil.CheckForFlyHigh(player, target, ability)
+    if player:hasStatusEffect(tpz.effect.FLY_HIGH) then
+        local recast = ability:getRecast()
+        ability:setRecast(utils.clamp(recast, 0, recast / 2))
+    end
 end

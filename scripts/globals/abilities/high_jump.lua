@@ -9,9 +9,11 @@ require("scripts/globals/weaponskills")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/job_util")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
+    jobUtil.CheckForFlyHigh(player, target, ability)
     return 0, 0
 end
 

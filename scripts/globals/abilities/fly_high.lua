@@ -1,8 +1,8 @@
 -----------------------------------
 -- Ability: Fly High
--- Description: Decreases the recast time of jumps.
--- Obtained: DRG Level 96
--- Recast Time: 01:00:00
+-- Description: Resets the cooldown and decreases the recast time of jumps.
+-- Obtained: DRG Level 1
+-- Recast Time: 02:00:00
 -- Duration: 00:00:30
 -----------------------------------
 require("scripts/globals/settings")
@@ -14,5 +14,10 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.FLY_HIGH, 14, 0, 30)
+    local jumps = { 158, 159, 160, 166, 167 } -- Needs to be recast ID like 167 etc
+    -- TODO:
+    for _, jumpIds in pairs(jumps) do
+        player:resetRecast(tpz.recast.ABILITY, jumpIds)
+    end
+    player:addStatusEffect(tpz.effect.FLY_HIGH, 14, 0, 60)
 end

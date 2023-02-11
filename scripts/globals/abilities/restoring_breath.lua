@@ -19,5 +19,10 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    doHealingBreath(player, 100, tpz.jobAbility.HEALING_BREATH)
+    local healingbreath = tpz.jobAbility.HEALING_BREATH
+    if player:getMainLvl() >= 80 then healingbreath = tpz.jobAbility.HEALING_BREATH_IV
+    elseif player:getMainLvl() >= 40 then healingbreath = tpz.jobAbility.HEALING_BREATH_III
+    elseif player:getMainLvl() >= 20 then healingbreath = tpz.jobAbility.HEALING_BREATH_II
+    end
+    doHealingBreath(player, 100, healingbreath)
 end
