@@ -311,7 +311,7 @@ function onMobDeath(mob, player)
     if numLvls ~= 0 then
         master:delMod(tpz.mod.ATTP, 4 * numLvls)
         master:delMod(tpz.mod.DEFP, 4 * numLvls)
-        master:delMod(tpz.mod.HASTE_ABILITY, 200 * numLvls)
+        -- master:delMod(tpz.mod.HASTE_ABILITY, 200 * numLvls)
     end
     master:removeListener("PET_WYVERN_WS")
     master:removeListener("PET_WYVERN_MAGIC")

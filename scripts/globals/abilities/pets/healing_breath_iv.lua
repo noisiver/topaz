@@ -28,7 +28,7 @@ function onUseAbility(pet, target, skill, action)
     local breathBase = 60
     local deepBreathing = 0
     if pet:hasStatusEffect(tpz.effect.MAGIC_ATK_BOOST) then
-        deepBreathing = 50 + (master:getMerit(tpz.merit.DEEP_BREATHING) - 1) * 5
+        deepBreathing = 100 + (master:getMerit(tpz.merit.DEEP_BREATHING) - 1) * 10
         pet:delStatusEffectSilent(tpz.effect.MAGIC_ATK_BOOST)
     end
     local breathMultiplier = 63 + gear + deepBreathing
