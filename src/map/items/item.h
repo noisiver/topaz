@@ -96,6 +96,7 @@ public:
     bool        isSent();
     bool        isType(ITEM_TYPE);
     bool        isSubType(ITEM_SUBTYPE);
+    bool        isStorageSlip() const;
 
     void        setID(uint16 );
     void        setSubID(uint16);
@@ -126,8 +127,8 @@ public:
     uint8 getAppraisalID();
     void setAppraisalID(uint8 appID);
 
-
-    uint8       m_extra[0x18];  // any extra data pertaining to item (augments, furniture location, etc)
+    static constexpr uint32_t extra_size = 0x18;
+    uint8 m_extra[extra_size]; // any extra data pertaining to item (augments, furniture location, etc)
 
 protected:
 

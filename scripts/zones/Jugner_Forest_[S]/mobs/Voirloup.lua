@@ -5,9 +5,10 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/wotg")
 ------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(250)
+	mob:setDamage(125)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 400)
@@ -19,6 +20,11 @@ function onMobSpawn(mob)
     mob:AnimationSub(1)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobWeaponSkillPrepare(mob, target)
+    return 2175 -- Only uses Nox Blast
+end
+
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 486)
 end

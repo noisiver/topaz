@@ -23,7 +23,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
-    player:addMP(damage)
+    if not player:hasStatusEffect(tpz.effect.CURSE_II) then
+        player:addMP(damage)
+    end
     damage = 0
     return tpHits, extraHits, criticalHit, damage
 end

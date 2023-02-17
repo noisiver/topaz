@@ -1,6 +1,7 @@
 ---------------------------------------------------
 -- Ranged Attack
 -- Deals a ranged attack to a single target.
+-- If used by Agrios, resets enmity if it lands
 ---------------------------------------------------
 
 require("scripts/globals/settings")
@@ -10,6 +11,12 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+    local agrios = mob:getPool() == 64
+    local alkyoneus = mob:getPool() == 87
+
+    if agrios or alkyoneus then
+        return 0
+    end
     -- Ranged attack only used when target is out of range
     if (mob:checkDistance(target) >= 4) then
         return 0
@@ -36,6 +43,10 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_RANGED, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, info.hitslanded)
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.RANGED)
+    local agrios = mob:getPool() == 64
+    if (MobPhysicalHit(mob, skill)) then
+        mob:resetEnmity(target)
+    end
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

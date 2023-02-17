@@ -35,6 +35,54 @@ local wyvernTypes =
     [tpz.job.RUN] = WYVERN_MULTI,
 }
 
+function doOffensiveBreath(player, target)
+    local weaknessTargetChance = 75
+    local breaths = {}
+    if player:getMod(tpz.mod.WYVERN_EFFECTIVE_BREATH) > 0 then
+        weaknessTargetChance = 100
+    end
+    if math.random(100) <= weaknessTargetChance then
+        local breathList =
+        {
+            tpz.jobAbility.FLAME_BREATH,
+            tpz.jobAbility.FROST_BREATH,
+            tpz.jobAbility.GUST_BREATH,
+            tpz.jobAbility.SAND_BREATH,
+            tpz.jobAbility.LIGHTNING_BREATH,
+            tpz.jobAbility.HYDRO_BREATH,
+        }
+        local resistances =
+        {
+            target:getMod(tpz.mod.SDT_FIRE),
+            target:getMod(tpz.mod.SDT_ICE),
+            target:getMod(tpz.mod.SDT_WIND),
+            target:getMod(tpz.mod.SDT_EARTH),
+            target:getMod(tpz.mod.SDT_THUNDER),
+            target:getMod(tpz.mod.SDT_WATER),
+        }
+        local lowest = resistances[1]
+        local breath = breathList[1]
+        for i, v in ipairs(breathList) do
+            if resistances[i] > lowest then
+                lowest = resistances[i]
+                breath = v
+            end
+        end
+        table.insert(breaths, breath)
+    else
+        breaths =
+        {
+            tpz.jobAbility.FLAME_BREATH,
+            tpz.jobAbility.FROST_BREATH,
+            tpz.jobAbility.GUST_BREATH,
+            tpz.jobAbility.SAND_BREATH,
+            tpz.jobAbility.LIGHTNING_BREATH,
+            tpz.jobAbility.HYDRO_BREATH,
+        }
+    end
+    player:getPet():useJobAbility(breaths[math.random(#breaths)], target)
+end
+
 function doHealingBreath(player, threshold, breath)
     local breath_heal_range = 13
     local function inBreathRange(target)
@@ -171,51 +219,7 @@ function onMobSpawn(mob)
         end
     elseif wyvernType == WYVERN_OFFENSIVE or wyvernType == WYVERN_MULTI then
         master:addListener("WEAPONSKILL_USE", "PET_WYVERN_WS", function(player, target, skillid)
-            local weaknessTargetChance = 75
-            local breaths = {}
-            if player:getMod(tpz.mod.WYVERN_EFFECTIVE_BREATH) > 0 then
-                weaknessTargetChance = 100
-            end
-            if math.random(100) <= weaknessTargetChance then
-                local breathList =
-                {
-                    tpz.jobAbility.FLAME_BREATH,
-                    tpz.jobAbility.FROST_BREATH,
-                    tpz.jobAbility.GUST_BREATH,
-                    tpz.jobAbility.SAND_BREATH,
-                    tpz.jobAbility.LIGHTNING_BREATH,
-                    tpz.jobAbility.HYDRO_BREATH,
-                }
-                local resistances =
-                {
-                    target:getMod(tpz.mod.SDT_FIRE),
-                    target:getMod(tpz.mod.SDT_ICE),
-                    target:getMod(tpz.mod.SDT_WIND),
-                    target:getMod(tpz.mod.SDT_EARTH),
-                    target:getMod(tpz.mod.SDT_THUNDER),
-                    target:getMod(tpz.mod.SDT_WATER),
-                }
-                local lowest = resistances[1]
-                local breath = breathList[1]
-                for i, v in ipairs(breathList) do
-                    if resistances[i] > lowest then
-                        lowest = resistances[i]
-                        breath = v
-                    end
-                end
-                table.insert(breaths, breath)
-            else
-                breaths =
-                {
-                    tpz.jobAbility.FLAME_BREATH,
-                    tpz.jobAbility.FROST_BREATH,
-                    tpz.jobAbility.GUST_BREATH,
-                    tpz.jobAbility.SAND_BREATH,
-                    tpz.jobAbility.LIGHTNING_BREATH,
-                    tpz.jobAbility.HYDRO_BREATH,
-                }
-            end
-            player:getPet():useJobAbility(breaths[math.random(#breaths)], target)
+            doOffensiveBreath(player, target)
         end)
     end
     if wyvernType == WYVERN_MULTI then
@@ -307,7 +311,7 @@ function onMobDeath(mob, player)
     if numLvls ~= 0 then
         master:delMod(tpz.mod.ATTP, 4 * numLvls)
         master:delMod(tpz.mod.DEFP, 4 * numLvls)
-        master:delMod(tpz.mod.HASTE_ABILITY, 200 * numLvls)
+        -- master:delMod(tpz.mod.HASTE_ABILITY, 200 * numLvls)
     end
     master:removeListener("PET_WYVERN_WS")
     master:removeListener("PET_WYVERN_MAGIC")

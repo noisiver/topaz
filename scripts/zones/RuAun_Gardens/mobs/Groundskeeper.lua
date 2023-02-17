@@ -7,6 +7,12 @@ local ID = require("scripts/zones/RuAun_Gardens/IDs")
 require("scripts/globals/regimes")
 require("scripts/globals/mobs")
 
+function onMobSpawn(mob)
+    if mob:getPool() == 5128 then -- Acloves
+        mob:setMobMod(tpz.mobMod.VERTICAL_AGGRO, 1)
+    end
+end
+
 function onMobDeath(mob, player, isKiller)
     tpz.regime.checkRegime(player, mob, 143, 2, tpz.regime.type.FIELDS)
     tpz.regime.checkRegime(player, mob, 144, 1, tpz.regime.type.FIELDS)

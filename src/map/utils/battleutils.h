@@ -211,6 +211,7 @@ namespace battleutils
 
     int32               BreathDmgTaken(CBattleEntity* PDefender, int32 damage);
     int32               MagicDmgTaken(CBattleEntity* PDefender, int32 damage, ELEMENT element);
+    int32               SkillchainDmgTaken(CBattleEntity* PDefender, int32 damage, ELEMENT element);
     int32               PhysicalDmgTaken(CBattleEntity* PDefender, int32 damage, int16 damageType, bool IsCovered = false);
     int32               RangedDmgTaken(CBattleEntity* PDefender, int32 damage, int16 damageType, bool IsCovered = false);
     int32               HandleSteamJacket(CBattleEntity* PDefender, int32 damage, int16 damageType);
@@ -248,6 +249,7 @@ namespace battleutils
     bool                DrawIn(CBattleEntity* PEntity, CMobEntity* PMob, float offset);
     void                DoWildCardToEntity(CCharEntity* PCaster, CCharEntity* PTarget, uint8 roll);
     void                AddTraits(CBattleEntity* PEntity, TraitList_t* TraitList, uint8 level);
+    void                DelTraits(CBattleEntity* PEntity, TraitList_t* TraitList, uint8 level);
     bool                HasClaim(CBattleEntity* PEntity, CBattleEntity* PTarget);
 
     uint32              CalculateSpellCastTime(CBattleEntity*, CMagicState*);

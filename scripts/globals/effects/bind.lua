@@ -7,17 +7,13 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEffectGain(target, effect)
-    if not target:hasStatusEffect(tpz.effect.PALISADE) then
-        effect:setPower(target:speed())
-        target:speed(0)
-    end
+    effect:setPower(target:speed())
+    target:speed(0)
 end
 
 function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    if not target:hasStatusEffect(tpz.effect.PALISADE) then
-        target:speed(effect:getPower())
-    end
+    target:speed(effect:getPower())
 end

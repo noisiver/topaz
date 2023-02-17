@@ -20,6 +20,7 @@ function onTrigger(player, npc)
         4112,  837, 2,    -- Potion
         4150, 2387, 3,    -- Eye Drops
         4148,  290, 3,    -- Antidote
+        4153, 1000, 3,    -- Antacid
     }
 
     player:showText(npc, ID.text.OLWYN_SHOP_DIALOG)

@@ -31,7 +31,7 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.diff = dINT
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
-    params.bonus = 0
+    params.bonus = 30
     params.effect = tpz.effect.POISON
     local resist = applyResistanceEffect(caster, target, spell, params)
 

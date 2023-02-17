@@ -33,6 +33,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         OBTAINED_TEMP_ITEM         = 7233, -- Obtained temporary item:
         ALREADY_HAVE_TEMP          = 7234, -- You already have that temporary item.
     },
+    f4 = {17081156, 17081157, 17081158, 17081159, 17081167, 17081171, 17081176, 17081180},
+    f5 = {17081215, 17081219, 17081220, 17081221, 17081225, 17081227, 17081229, 17081231},
     mob =
     {
         [1] = {
@@ -104,7 +106,7 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
                 mobs_end   = 17081232,
                 },
                 [2] = {
-                mobs_start = 17081185, 
+                mobs_start = 17081189, 
                 mobs_end   = 17081208, 
                 },
                 [3] = {
@@ -136,8 +138,8 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         },
         [6] = {
             [1] = {
-                mobs_start = 17080562,
-                mobs_end   = 17080569,
+                mobs_start = 17081236,
+                mobs_end   = 17081244,
             },
             rampart1 = 17080559,
             rampart2 = 17080570,
@@ -207,6 +209,9 @@ zones[tpz.zone.ARRAPAGO_REMNANTS] =
         },
         [6] = {
             DOOR = 17080989,
+        },
+        [7] = {
+            INNER_DOOR = 17080991,
         },
     },
     armoury_crates = {17080586, 17080593, 17080594, 17080595, 17080598},

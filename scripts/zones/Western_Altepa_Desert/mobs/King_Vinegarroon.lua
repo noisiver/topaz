@@ -5,9 +5,10 @@
 require("scripts/globals/titles")
 require("scripts/globals/world")
 require("scripts/globals/mobs")
+-- !gotoid 17289575
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(140)
+	mob:setDamage(100)
 	mob:setMod(tpz.mod.ATTP, 50)
     mob:setMod(tpz.mod.DEF, 522)
     mob:setMod(tpz.mod.EVA, 335)
@@ -50,9 +51,6 @@ function onAdditionalEffect(mob, target, damage)
 end
 
 function onMobDisengage(mob, weather)
-    if weather ~= tpz.weather.DUST_STORM and weather ~= tpz.weather.SAND_STORM then
-        DespawnMob(mob:getID())
-    end
 end
 
 function onMobDeath(mob, player, isKiller)

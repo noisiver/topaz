@@ -9,7 +9,7 @@ require("scripts/globals/status")
 function onMobSkillCheck(target, mob, skill)
     local result = 1
     local mobhp = mob:getHPP()
-	if mob:getPool() == 3069 then -- Oupire
+	if mob:getPool() == 3069 or mob:getPool() == 9098 then -- Oupire / Alucard(Vampyr)
 		return 0
 	end
 

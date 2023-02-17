@@ -16,9 +16,6 @@ require("scripts/globals/salvage")
 require("scripts/globals/items")
 require("scripts/globals/mobs")
 -----------------------------------
--- TODO: TP moves by phase
--- TODO: Mob family / stats / SDT
--- TODO: 2nd 3rd phase transformation model
 -- TP moves
 tpMoveList1 = {1028, 1031, 1032, 1033, 1034}
 -- Tackle, Spinning Attack, Howling Fist, Dragon Kick, Asuran Fists
@@ -28,8 +25,7 @@ tpMoveList3 = {500, 501, 502, 503, 1360, 2389, 2533}
 -- Mow, Fightful Roar, Mortal Ray, Unblessed Armor, Apocalyptic Ray, Lethal Triclip, Lithic Ray
     
 function onMobSpawn(mob)
-    mob:setDamage(100)
-    mob:setDelay(4000)
+    SetJob(mob)
 end
 
 function onMobEngaged(mob)
@@ -37,6 +33,7 @@ function onMobEngaged(mob)
     mob:setModelId(762)
     mob:setLocalVar("slimeTime", math.random(30, 45))
     mob:setLocalVar("phase", 1)
+    SetJob(mob)
 end
 
 function onMobFight(mob, target)
@@ -57,9 +54,12 @@ function onMobFight(mob, target)
         mob:setDamage(120)
         mob:setDelay(3000)
         mob:setLocalVar("phase", 2)
+        salvageUtil.msgGroup(mob, MobName(mob) .. " drinks one of his elixirs!", 0xD, none)
         mob:useMobAbility(1398)
-        mob:setModelId(2230) -- Ameretat
-        salvageUtil.msgGroup(mob, "Hmm, I don't feel a thing. Wha?! Where'd those come from?", 0, "Professor P")
+        mob:timer(3000, function(mob)
+            mob:setModelId(2230) -- Ameretat
+            salvageUtil.msgGroup(mob, "Hmm, I don't feel a thing. Wha?! Where'd those come from?", 0, "Professor P")
+        end)
     end
     -- Below 35% Drinks a potion and grows huge, becoming much stronger
     if (hp < 35) and (phase == 2) then
@@ -67,9 +67,13 @@ function onMobFight(mob, target)
         mob:setDelay(2000)
         mob:setLocalVar("phase", 3)
         mob:useMobAbility(1398)
-        mob:setModelId(1360) -- Red Tauri
-        salvageUtil.msgGroup(mob, "Tastes like... Cherry! Oh! Excuse me!", 0, "Professor P")
+        mob:timer(3000, function(mob)
+            mob:setModelId(1360) -- Red Tauri
+            salvageUtil.msgGroup(mob, MobName(mob) .. " drinks one of his elixirs!", 0xD, none)
+            salvageUtil.msgGroup(mob, "Tastes like... Cherry! Oh! Excuse me!", 0, "Professor P")
+        end)
     end
+    SetJob(mob)
 end
 
 
@@ -85,18 +89,22 @@ function onMobWeaponSkillPrepare(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     if isKiller or noKiller then
-        -- Nearby door opens
-        instance:setProgress(1)
-        mob:getEntity(bit.band(ID.npc[5][1].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[5][1].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
-        mob:getEntity(bit.band(ID.npc[5][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[5][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
-        salvageUtil.msgGroup(mob, "Bad news, everyone... I don't think I'm going to make it...", 0, "Professor P")
-        salvageUtil.spawnMobGroup(instance, ID.mob[5][1][2].mobs_start, ID.mob[5][1][2].mobs_end)
-        mob:setModelId(762)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081211) then
+        else
+            -- Nearby door opens
+            instance:setProgress(1)
+            mob:getEntity(bit.band(ID.npc[5][1].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[5][1].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
+            mob:getEntity(bit.band(ID.npc[5][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[5][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
+            salvageUtil.msgGroup(mob, "Bad news, everyone... I don't think I'm going to make it...", 0, "Professor P")
+            salvageUtil.spawnMobGroup(instance, ID.mob[5][1][2].mobs_start, ID.mob[5][1][2].mobs_end)
+            mob:setModelId(762)
+        end
     end
 end
 
@@ -115,15 +123,17 @@ function SpawnSlime(mob, target)
     metalSlime:updateEnmity(target)
 end
 
-function RemoveCostume(mob)
-    if mob == nil then
-        return
+function SetJob(mob)
+    local phase = mob:getLocalVar("phase")
+    if (phase < 3) then
+        mob:setDamage(100)
+        mob:setDelay(4000)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 0)
+        mob:setMod(tpz.mod.KICK_ATTACK_RATE, 0)
+    else
+        mob:setDamage(50)
+        mob:setDelay(3500)
+        mob:setMod(tpz.mod.DOUBLE_ATTACK, 100)
+        mob:setMod(tpz.mod.KICK_ATTACK_RATE, 14)
     end
-
-    local instance = mob:getInstance()
-    local chars = instance:getChars()
-
-    --for _, players in pairs(chars) do
-        --players:costume(0)
-    --end
 end

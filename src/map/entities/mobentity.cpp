@@ -435,6 +435,14 @@ bool CMobEntity::IsHPHidden()
     return m_flags & FLAG_HIDE_HP;
 }
 
+bool CMobEntity::IsHumanoid()
+{
+    return this->m_EcoSystem == SYSTEM_BEASTMEN || this->m_EcoSystem == SYSTEM_HUMANOID || this->m_Family == 3 || this->m_Family == 115 ||
+        this->m_Family == 359 || this->m_Family == 509 || this->m_Family == 221 || this->m_Family == 222 || this->m_Family == 223 || this->m_Family == 169 ||
+           this->m_Family == 358 || this->m_Family == 329 || this->m_Family == 927 || this->m_Family == 928;
+}
+
+
 
 void CMobEntity::CallForHelp(bool call)
 {
@@ -1176,7 +1184,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         >= 75 = Kindred Crests ID=2955
         >= 90 = High Kindred Crests ID=2956
         */
-        if (tpzrand::GetRandomNumber(100) < 90 && PChar->PTreasurePool->CanAddSeal() && !getMobMod(MOBMOD_NO_DROPS))
+        if (tpzrand::GetRandomNumber(100) < 90 && PChar->PTreasurePool->CanAddSeal() && getMobMod(MOBMOD_NO_DROPS) == 0)
         {
             //RULES: Only 1 kind may drop per mob
            // if (GetMLevel() >= 75 && luautils::IsContentEnabled("ABYSSEA")) //all 4 types
@@ -1306,7 +1314,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         });
         for (uint8 i = 0; i < crystalRolls; i++)
         {
-            if (tpzrand::GetRandomNumber(100) < 20 && AddItemToPool(4095 + m_Element, ++dropCount))
+            if (tpzrand::GetRandomNumber(100) < 20 && getMobMod(MOBMOD_NO_DROPS) == 0 && AddItemToPool(4095 + m_Element, ++dropCount))
             {
                 return;
             }
@@ -1394,6 +1402,11 @@ void CMobEntity::OnDespawn(CDespawnState&)
     PAI->Internal_Respawn(std::chrono::milliseconds(m_RespawnTime));
     luautils::OnMobDespawn(this);
     PAI->ClearActionQueue();
+    m_unkillable = false;
+    PAI->GetController()->SetAutoAttackEnabled(true);
+    PAI->GetController()->SetMagicCastingEnabled(true);
+    PAI->GetController()->SetWeaponSkillEnabled(true);
+    animationsub = 0;
     //#event despawn
     PAI->EventHandler.triggerListener("DESPAWN", this);
 }

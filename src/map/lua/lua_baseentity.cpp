@@ -203,10 +203,7 @@ inline int32 CLuaBaseEntity::showText(lua_State *L)
             PBaseEntity->m_TargID = m_PBaseEntity->targid;
             PBaseEntity->loc.p.rotation = worldAngle(PBaseEntity->loc.p, m_PBaseEntity->loc.p);
 
-            PBaseEntity->loc.zone->PushPacket(
-                PBaseEntity,
-                CHAR_INRANGE,
-                new CEntityUpdatePacket(PBaseEntity, ENTITY_UPDATE, UPDATE_POS));
+        PBaseEntity->loc.zone->UpdateEntityPacket(PBaseEntity, ENTITY_UPDATE, UPDATE_POS);
         }
 
         uint32 param0 = 0;
@@ -1020,6 +1017,7 @@ inline int32 CLuaBaseEntity::startEvent(lua_State *L)
         PChar->m_event.Option = (int32)lua_tointeger(L, 10);
     }
 
+    PChar->StatusEffectContainer->DelStatusEffect(EFFECT_INVISIBLE);
     PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_IN_CS;
     PChar->status = STATUS_CUTSCENE_ONLY;
 
@@ -1728,7 +1726,7 @@ inline int32 CLuaBaseEntity::clearTargID(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
 
     m_PBaseEntity->m_TargID = 0;
-    m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_POS));
+    m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_POS);
     return 0;
 }
 
@@ -2001,12 +1999,12 @@ inline int32 CLuaBaseEntity::openDoor(lua_State *L)
         uint32 OpenTime = (!lua_isnil(L, 1) && lua_isnumber(L, 1)) ? (uint32)lua_tointeger(L, 1) * 1000 : 7000;
 
         m_PBaseEntity->animation = ANIMATION_OPEN_DOOR;
-        m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_COMBAT));
+        m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_COMBAT);
 
         m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(OpenTime), false, [](CBaseEntity* PNpc)
         {
             PNpc->animation = ANIMATION_CLOSE_DOOR;
-            PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+            PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
         }));
     }
     return 0;
@@ -2028,12 +2026,12 @@ inline int32 CLuaBaseEntity::closeDoor(lua_State *L)
     {
         uint32 CloseTime = (!lua_isnil(L, 1) && lua_isnumber(L, 1)) ? (uint32)lua_tointeger(L, 1) * 1000 : 7000;
         m_PBaseEntity->animation = ANIMATION_CLOSE_DOOR;
-        m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_COMBAT));
+        m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_COMBAT);
 
         m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(CloseTime), false, [](CBaseEntity* PNpc)
         {
             PNpc->animation = ANIMATION_OPEN_DOOR;
-            PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+            PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
         }));
     }
     return 0;
@@ -2147,7 +2145,7 @@ inline int32 CLuaBaseEntity::showNPC(lua_State *L)
     m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(OpenTime), false, [](CBaseEntity* PNpc)
     {
         PNpc->status = STATUS_DISAPPEAR;
-        PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_DESPAWN, UPDATE_NONE));
+        PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_DESPAWN, UPDATE_NONE);
     }));
 
     return 0;
@@ -2170,12 +2168,12 @@ inline int32 CLuaBaseEntity::hideNPC(lua_State *L)
         uint32 OpenTime = (!lua_isnil(L, 1) && lua_isnumber(L, 1)) ? (uint32)lua_tointeger(L, 1) * 1000 : 15000;
 
         m_PBaseEntity->status = STATUS_DISAPPEAR;
-        m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_DESPAWN, UPDATE_NONE));
+        m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_DESPAWN, UPDATE_NONE);
 
         m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(OpenTime), false, [](CBaseEntity* PNpc)
         {
             PNpc->status = STATUS_NORMAL;
-            PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+            PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
         }));
     }
     return 0;
@@ -2200,7 +2198,7 @@ inline int32 CLuaBaseEntity::updateNPCHideTime(lua_State *L)
         m_PBaseEntity->PAI->QueueAction(queueAction_t(std::chrono::milliseconds(OpenTime), false, [](CBaseEntity* PNpc)
         {
             PNpc->status = STATUS_NORMAL;
-            PNpc->loc.zone->PushPacket(PNpc, CHAR_INRANGE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+            PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
         }));
     }
     return 0;
@@ -2776,7 +2774,7 @@ inline int32 CLuaBaseEntity::updateToEntireZone(lua_State* L)
         PNpc->name[8] = 8;
     }
 
-    PNpc->loc.zone->PushPacket(nullptr, CHAR_INZONE, new CEntityUpdatePacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT));
+    PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
     return 1;
 }
 /************************************************************************
@@ -3556,7 +3554,7 @@ inline int32 CLuaBaseEntity::hasItem(lua_State *L)
         uint8  locationID = LOC_INVENTORY;
 
         locationID = (uint8)lua_tointeger(L, 2);
-        locationID = (locationID < MAX_CONTAINER_ID ? locationID : LOC_INVENTORY);
+        locationID = (locationID < CONTAINER_ID::MAX_CONTAINER_ID ? locationID : LOC_INVENTORY);
 
         lua_pushboolean(L, PChar->getStorage(locationID)->SearchItem(ItemID) != ERROR_SLOTID);
         return 1;
@@ -3794,7 +3792,7 @@ int32 CLuaBaseEntity::delItem(lua_State* L)
 
     if (!lua_isnil(L, 3) && lua_isnumber(L, 3))
     {
-        if ((uint32)lua_tointeger(L, 3) < MAX_CONTAINER_ID)
+        if ((uint32)lua_tointeger(L, 3) < CONTAINER_ID::MAX_CONTAINER_ID)
         {
             location = (uint32)lua_tointeger(L, 3);
         }
@@ -4127,7 +4125,7 @@ inline int32 CLuaBaseEntity::changeContainerSize(lua_State *L)
     {
         uint8 LocationID = (uint8)lua_tointeger(L, 1);
 
-        if (LocationID < MAX_CONTAINER_ID)
+        if (LocationID < CONTAINER_ID::MAX_CONTAINER_ID)
         {
             CCharEntity* PChar = ((CCharEntity*)m_PBaseEntity);
 
@@ -5319,9 +5317,9 @@ inline int32 CLuaBaseEntity::setGMHidden(lua_State* L)
     if (PChar->loc.zone)
     {
         if (PChar->m_isGMHidden)
-            PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE, new CCharPacket(PChar, ENTITY_DESPAWN, 0));
+            PChar->loc.zone->UpdateCharPacket(PChar, ENTITY_DESPAWN, UPDATE_NONE);
         else
-            PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE, new CCharPacket(PChar, ENTITY_SPAWN, 0));
+            PChar->loc.zone->UpdateCharPacket(PChar, ENTITY_SPAWN, UPDATE_NONE);
     }
 
     return 0;
@@ -5401,7 +5399,7 @@ inline int32 CLuaBaseEntity::speed(lua_State *L)
             }
             else
             {
-                m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE, new CEntityUpdatePacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_POS));
+                m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_POS);
             }
         }
         return 0;
@@ -5914,6 +5912,28 @@ int32 CLuaBaseEntity::addJobTraits(lua_State* L)
     if (PEntity != nullptr)
     {
         battleutils::AddTraits(PEntity, traits::GetTraits((uint8)lua_tointeger(L, 1)), (uint8)lua_tointeger(L, 2));
+    }
+
+    return 0;
+}
+
+/************************************************************************
+ *  Function: delJobTraits
+ *  Purpose : Delete job traits
+ *  Example : player:delJobTraits(tpz.job.WHM, 75)
+ ************************************************************************/
+
+int32 CLuaBaseEntity::delJobTraits(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
+    TPZ_DEBUG_BREAK_IF(lua_isnil(L, 2) || !lua_isnumber(L, 2));
+
+    CBattleEntity* PEntity = dynamic_cast<CBattleEntity*>(m_PBaseEntity);
+
+    if (PEntity != nullptr)
+    {
+        battleutils::DelTraits(PEntity, traits::GetTraits((uint8)lua_tointeger(L, 1)), (uint8)lua_tointeger(L, 2));
     }
 
     return 0;
@@ -8078,6 +8098,12 @@ inline int32 CLuaBaseEntity::addHP(lua_State *L)
     TPZ_DEBUG_BREAK_IF(lua_isnil(L, 1) || !lua_isnumber(L, 1));
 
     CBattleEntity* PBattle = (CBattleEntity*)m_PBaseEntity;
+
+    // Don't add HP if target has zombie(curse II)
+    if (PBattle->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+    {
+        return 1;
+    }
 
     int32 result = PBattle->addHP((int32)lua_tointeger(L, 1));
 
@@ -10749,7 +10775,7 @@ int32 CLuaBaseEntity::checkImbuedItems(lua_State* L)
 
     auto PChar {static_cast<CCharEntity*>(m_PBaseEntity)};
 
-    for (uint8 LocID = 0; LocID < MAX_CONTAINER_ID; ++LocID)
+    for (uint8 LocID = 0; LocID < CONTAINER_ID::MAX_CONTAINER_ID; ++LocID)
     {
         bool found = false;
         PChar->getStorage(LocID)->ForEachItem([&found](CItem* PItem)
@@ -14239,7 +14265,7 @@ inline int32 CLuaBaseEntity::hasTrait(lua_State *L)
         return 1;
     }
 
-    lua_pushboolean(L, charutils::hasTrait((CCharEntity*)m_PBaseEntity, (uint8)lua_tointeger(L, 1)));
+    lua_pushboolean(L, charutils::hasTrait((CCharEntity*)m_PBaseEntity, (uint16)lua_tointeger(L, 1)));
     return 1;
 }
 
@@ -14495,10 +14521,10 @@ inline int32 CLuaBaseEntity::SetMobAbilityEnabled(lua_State* L)
 }
 
 /************************************************************************
-*  Function: SetMobSkillAttack()
-*  Purpose : Used mainly so Mobs don't respawn in flight?
-*  Example : mob:SetMobSkillAttack(0)
-*  Notes   : Used in Ouryu, Jormungand, Tiamat, etc
+*  Function: SetMobSkillAttack(skillListID)
+*  Purpose : Sets a mobs auto-attacks to a skill list
+*  Example : mob:SetMobSkillAttack(1171)
+*  Notes   : Used in Ouryu, Jormungand, Tiamat, Groot Slang, Zareehlk, etc
 ************************************************************************/
 
 inline int32 CLuaBaseEntity::SetMobSkillAttack(lua_State* L)
@@ -15905,6 +15931,7 @@ Lunar<CLuaBaseEntity>::Register_t CLuaBaseEntity::methods[] =
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,levelCap),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,levelRestriction),
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,addJobTraits),
+    LUNAR_DECLARE_METHOD(CLuaBaseEntity,delJobTraits),
 
     // Player Titles and Fame
     LUNAR_DECLARE_METHOD(CLuaBaseEntity,getTitle),

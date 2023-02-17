@@ -215,7 +215,7 @@ INSERT INTO `bcnm_info` VALUES (643,6,'brothers','nobody',0,1800,1800,75,18,643,
 INSERT INTO `bcnm_info` VALUES (644,6,'holy_cow','nobody',0,1800,1800,75,18,644,15,0);
 INSERT INTO `bcnm_info` VALUES (672,8,'head_wind','nobody',0,1800,1800,50,6,0,5,1);
 INSERT INTO `bcnm_info` VALUES (673,8,'like_the_wind','nobody',0,900,900,75,18,673,15,0);
-INSERT INTO `bcnm_info` VALUES (674,8,'sheep_in_antlions_clothing','nobody',0,1800,1800,75,18,674,15,0);
+INSERT INTO `bcnm_info` VALUES (674,8,'sheep_in_antlions_clothing','nobody',0,900,900,75,18,674,15,0);
 INSERT INTO `bcnm_info` VALUES (675,8,'shell_we_dance','nobody',0,1800,1800,75,18,675,15,0);
 INSERT INTO `bcnm_info` VALUES (676,8,'totentanz','nobody',0,1800,1800,75,18,676,15,0);
 INSERT INTO `bcnm_info` VALUES (677,8,'tango_with_a_tracker','nobody',0,1800,1800,0,6,0,7,0);
@@ -292,9 +292,31 @@ INSERT INTO `bcnm_info` VALUES (1304,37,'central_temenos_2nd_floor','nobody',0,2
 INSERT INTO `bcnm_info` VALUES (1305,37,'central_temenos_3rd_floor','nobody',0,2700,2700,0,18,0,7,0);
 INSERT INTO `bcnm_info` VALUES (1306,37,'central_temenos_4th_floor','nobody',0,3600,3600,0,18,0,7,0);
 INSERT INTO `bcnm_info` VALUES (1307,37,'central_temenos_4th_floor_ii','nobody',0,3600,3600,0,18,0,7,0);
+INSERT INTO `bcnm_info` VALUES (1308,85,'the_blood_bathed_crown','nobody',0,1800,1800,0,18,1308,7,0);
+INSERT INTO `bcnm_info` VALUES (1309,92,'the_buried_god','nobody',0,1800,1800,0,18,1309,7,0);
+INSERT INTO `bcnm_info` VALUES (1310,99,'a_malicious_manifest','nobody',0,1800,1800,0,18,1310,7,0);
+INSERT INTO `bcnm_info` VALUES (1311,85,'splitting_heirs','nobody',0,1800,1800,0,18,1311,7,0);
+INSERT INTO `bcnm_info` VALUES (1312,92,'cracking_shells','nobody',0,1800,1800,0,18,1312,7,0);
+INSERT INTO `bcnm_info` VALUES (1313,99,'plucking_wings','nobody',0,1800,1800,0,18,1313,7,0);
 /*!40000 ALTER TABLE `bcnm_info` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
+
+--CREATE TABLE `bcnm_info` (
+--  `bcnmId` smallint(5) unsigned NOT NULL,
+--  `zoneId` tinyint(3) unsigned NOT NULL DEFAULT '0',
+--  `name` varchar(30) NOT NULL,
+--  `fastestName` varchar(15) DEFAULT 'Not Set!',
+--  `fastestPartySize` tinyint(2) unsigned NOT NULL DEFAULT '0',
+--  `fastestTime` int(10) unsigned DEFAULT '1',
+--  `timeLimit` smallint(5) unsigned NOT NULL DEFAULT '1800',
+--  `levelCap` smallint(5) unsigned NOT NULL DEFAULT '75',
+--  `partySize` smallint(5) unsigned NOT NULL DEFAULT '6',
+--  `lootDropId` smallint(5) unsigned NOT NULL DEFAULT '0',
+-- `rules` smallint(5) unsigned NOT NULL DEFAULT '0',
+--  `isMission` tinyint(1) unsigned NOT NULL DEFAULT '0',
+--  PRIMARY KEY (`bcnmId`)
+--) ENGINE=MyISAM DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=56;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -1,6 +1,6 @@
 -----------------------------------------
 -- Spell: Spiral Spin
--- Damage varies with TP.. Additional Effect: Accuracy Down
+-- Chance of critical hit varies with TP. Additional Effect: Accuracy Down
 -- Spell cost: 39 MP
 -- Monster Type: Vermin
 -- Spell Type: Physical (Ranged)
@@ -18,6 +18,7 @@ require("scripts/globals/magic")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
+    spell:setFlag(tpz.magic.spellFlag.IGNORE_SHADOWS)
     return 0
 end
 
@@ -28,17 +29,17 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
     params.effect = tpz.effect.ACCURACY_DOWN
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
-    params.tpmod = TPMOD_DAMAGE
+    params.tpmod = TPMOD_CRITICAL
     params.attackType = tpz.attackType.RANGED
     params.damageType = tpz.damageType.RANGED
     params.scattr = SC_TRANSFIXION
     params.numhits = 1
-    params.multiplier = 3.1
-    params.tp150 = 3.75
-    params.tp300 = 4.25
-    params.azuretp = 4.25
+    params.multiplier = 2.25 -- 2.0 on retail but it sucked
+    params.tp150 = 2.25
+    params.tp300 = 2.25
+    params.azuretp = 2.25
     params.duppercap = 74
     params.str_wsc = 0.6
     params.dex_wsc = 0.0
@@ -47,7 +48,8 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-	params.attkbonus = 1.25
+	params.attkbonus = 1.5
+    params.CritTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local plantoid = (target:getSystem() == 17)
 	local lizard = (target:getSystem() == 14)

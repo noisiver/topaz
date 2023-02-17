@@ -503,18 +503,18 @@ void SmallPacket0x00F(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 }
 
 /************************************************************************
-*                                                                       *
-*  Player Zone Transition Confirmation                                  *
-*  First packet sent after transitioning zones or entering the game.    *
-*  Client confirming the zoning was successful, equips gear.            *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Player Zone Transition Confirmation                                  *
+ *  First packet sent after transitioning zones or entering the game.    *
+ *  Client confirming the zoning was successful, equips gear.            *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x011(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x011(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
-    session->blowfish.status = BLOWFISH_ACCEPTED;
-
+    PSession->blowfish.status = BLOWFISH_ACCEPTED;
+    PChar->status = STATUS_NORMAL;
     PChar->health.tp = 0;
 
     for (uint8 i = 0; i < 16; ++i)
@@ -525,66 +525,80 @@ void SmallPacket0x011(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         }
     }
 
+    PChar->PAI->QueueAction(queueAction_t(4000ms, false, zoneutils::AfterZoneIn));
+
     // todo: kill player til theyre dead and bsod
     const char* fmtQuery = "SELECT version_mismatch FROM accounts_sessions WHERE charid = %u";
     int32 ret = Sql_Query(SqlHandle, fmtQuery, PChar->id);
-    if (ret != SQL_ERROR && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
+    if (ret == SQL_ERROR || Sql_NumRows(SqlHandle) != 1 || Sql_NextRow(SqlHandle) != SQL_SUCCESS)
     {
         // On zone change, only sending a version message if mismatch
-        //if ((bool)Sql_GetUIntData(SqlHandle, 0))
-            //PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Server does not support this client version."));
+        // if ((bool)sql->GetUIntData(0))
+        // PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Server does not support this client version."));
     }
-    return;
 }
 
 /************************************************************************
-*                                                                       *
-*  Player Sync                                                          *
-*  Updates the players position and other important information.        *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Player Sync                                                          *
+ *  Updates the players position and other important information.        *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x015(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x015(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     TracyZoneCString("Player Sync");
 
-    if (PChar->status != STATUS_SHUTDOWN &&
-        PChar->status != STATUS_DISAPPEAR)
+    if (PChar->status != STATUS_SHUTDOWN && PChar->status != STATUS_DISAPPEAR)
     {
-        bool moved = ((PChar->loc.p.x != data.ref<float>(0x04)) ||
-            (PChar->loc.p.z != data.ref<float>(0x0C)) ||
-            (PChar->m_TargID != data.ref<uint16>(0x16)));
+        float newX = data.ref<float>(0x04);
+        float newY = data.ref<float>(0x08);
+        float newZ = data.ref<float>(0x0C);
+        uint16 newTargID = data.ref<uint16>(0x16);
+        uint8 newRotation = data.ref<uint8>(0x14);
 
-        bool isUpdate = moved || PChar->updatemask & UPDATE_POS;
+        // clang-format off
+        bool moved =
+            PChar->loc.p.x != newX ||
+            PChar->loc.p.y != newY ||
+            PChar->loc.p.z != newZ ||
+            PChar->m_TargID != newTargID ||
+            PChar->loc.p.rotation != newRotation;
+        // clang-format on
+
+        // Cache previous location
+        PChar->m_previousLocation = PChar->loc;
 
         if (!PChar->isCharmed)
         {
-            PChar->loc.p.x = data.ref<float>(0x04);
-            PChar->loc.p.y = data.ref<float>(0x08);
-            PChar->loc.p.z = data.ref<float>(0x0C);
+            PChar->loc.p.x = newX;
+            PChar->loc.p.y = newY;
+            PChar->loc.p.z = newZ;
 
             PChar->loc.p.moving = data.ref<uint16>(0x12);
-            PChar->loc.p.rotation = data.ref<uint8>(0x14);
+            PChar->loc.p.rotation = newRotation;
 
-            PChar->m_TargID = data.ref<uint16>(0x16);
+            PChar->m_TargID = newTargID;
         }
 
         if (moved)
         {
-            PChar->updatemask |= UPDATE_POS;
-            PChar->loc.zone->SpawnPCs(PChar);
+            PChar->updatemask |= UPDATE_POS; // Indicate that we want to update this PChar's PChar->loc or targID
+
+            // Calculate rough amount of steps taken
+            if (PChar->m_previousLocation.zone->GetID() == PChar->loc.zone->GetID())
+            {
+                float distanceTravelled = distance(PChar->m_previousLocation.p, PChar->loc.p);
+            }
         }
 
-        if (isUpdate)
-        {
-            PChar->loc.zone->SpawnPCs(PChar);
-            PChar->loc.zone->SpawnNPCs(PChar);
-        }
-
+        // Request updates for all entity types
+        PChar->loc.zone->SpawnNPCs(PChar); // Some NPCs can move, some rotate when other players talk to them, always request NPC updates.
         PChar->loc.zone->SpawnMOBs(PChar);
         PChar->loc.zone->SpawnPETs(PChar);
         PChar->loc.zone->SpawnTRUSTs(PChar);
+        PChar->requestedInfoSync = true; // Ask to update PCs during CZoneEntities::ZoneServer
 
         if (PChar->PWideScanTarget != nullptr)
         {
@@ -596,23 +610,22 @@ void SmallPacket0x015(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             }
         }
     }
-    return;
 }
 
 /************************************************************************
-*                                                                       *
-*  Entity Information Request (Event NPC Information Request)           *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Entity Information Request (Event NPC Information Request)           *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x016(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x016(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     uint16 targid = data.ref<uint16>(0x04);
 
     if (targid == PChar->targid)
     {
-        PChar->pushPacket(new CCharPacket(PChar, ENTITY_SPAWN, UPDATE_ALL_CHAR));
+        PChar->updateCharPacket(PChar, ENTITY_SPAWN, UPDATE_ALL_CHAR);
         PChar->pushPacket(new CCharUpdatePacket(PChar));
     }
     else
@@ -621,35 +634,37 @@ void SmallPacket0x016(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
         if (PEntity && PEntity->objtype == TYPE_PC)
         {
-            PChar->pushPacket(new CCharPacket((CCharEntity*)PEntity, ENTITY_SPAWN, UPDATE_ALL_CHAR));
+            PChar->updateCharPacket((CCharEntity*)PEntity, ENTITY_SPAWN, UPDATE_ALL_CHAR);
         }
         else
         {
             if (!PEntity)
             {
                 PEntity = zoneutils::GetTrigger(targid, PChar->getZone());
+
+                // PEntity->id will now be the full id of the entity we could not find
+                ShowWarning(fmt::format("Server missing npc_list.sql entry <{}> in zone <{} ({})>", PEntity->id,
+                                        zoneutils::GetZone(PChar->getZone())->GetName(), PChar->getZone()));
             }
-            PChar->pushPacket(new CEntityUpdatePacket(PEntity, ENTITY_SPAWN, UPDATE_ALL_MOB));
+            PChar->updateEntityPacket(PEntity, ENTITY_SPAWN, UPDATE_ALL_MOB);
         }
     }
-    return;
 }
 
 /************************************************************************
-*                                                                       *
-*  Invalid NPC Information Response                                     *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Invalid NPC Information Response                                     *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x017(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x017(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     uint16 targid = data.ref<uint16>(0x04);
     uint32 npcid = data.ref<uint32>(0x08);
-    uint8  type = data.ref<uint8>(0x12);
+    uint8 type = data.ref<uint8>(0x12);
 
-    ShowWarning(CL_YELLOW"SmallPacket0x17: Incorrect NPC(%u,%u) type(%u)\n" CL_RESET, targid, npcid, type);
-    return;
+    ShowWarning("SmallPacket0x17: Incorrect NPC(%u,%u) type(%u)", targid, npcid, type);
 }
 
 /************************************************************************
@@ -887,7 +902,7 @@ void SmallPacket0x01A(map_session_data_t* PSession, CCharEntity* PChar, CBasicPa
             }
             else
             {
-                PChar->loc.zone->SpawnPCs(PChar);
+                PChar->requestedInfoSync = true;
                 PChar->loc.zone->SpawnNPCs(PChar);
                 PChar->loc.zone->SpawnMOBs(PChar);
                 PChar->loc.zone->SpawnTRUSTs(PChar);
@@ -1013,48 +1028,58 @@ void SmallPacket0x01C(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 *                                                                       *
 ************************************************************************/
 
-void SmallPacket0x028(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x028(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
-    int32  quantity = data.ref<uint8>(0x04);
+    int32 quantity = data.ref<uint8>(0x04);
     uint8 container = data.ref<uint8>(0x08);
-    uint8    slotID = data.ref<uint8>(0x09);
-
-    if (container >= MAX_CONTAINER_ID)
-    {
-        ShowExploit(CL_YELLOW "SmallPacket0x028: Invalid container ID passed to packet %u by %s\n" CL_RESET, container, PChar->GetName());
-        return;
-    }
+    uint8 slotID = data.ref<uint8>(0x09);
 
     CItem* PItem = PChar->getStorage(container)->GetItem(slotID);
-
-    if (PItem != nullptr && !PItem->isSubType(ITEM_LOCKED))
+    if (PItem == nullptr)
     {
-        uint16 ItemID = PItem->getID();
-        // Break linkshell if the main shell was disposed of.
-        CItemLinkshell* ItemLinkshell = dynamic_cast<CItemLinkshell*>(PItem);
-        if (ItemLinkshell && ItemLinkshell->GetLSType() == LSTYPE_LINKSHELL)
-        {
-            uint32 lsid = ItemLinkshell->GetLSID();
-            CLinkshell* PLinkshell = linkshell::GetLinkshell(lsid);
-            if (!PLinkshell)
-            {
-                PLinkshell = linkshell::LoadLinkshell(lsid);
-            }
-            PLinkshell->BreakLinkshell((int8*)PLinkshell->getName(), false);
-            linkshell::UnloadLinkshell(lsid);
-        }
-
-        if (charutils::UpdateItem(PChar, container, slotID, -quantity) != 0)
-        {
-            // ShowNotice(CL_CYAN"Player %s DROPPING itemID %u (quantity: %u)\n" CL_RESET, PChar->GetName(), ItemID, quantity);
-            PChar->pushPacket(new CMessageStandardPacket(nullptr, ItemID, quantity, MsgStd::ThrowAway));
-            PChar->pushPacket(new CInventoryFinishPacket());
-        }
         return;
     }
-    ShowExploit(CL_YELLOW "SmallPacket0x028: Attempt of removal nullptr or LOCKED item from slot %u\n" CL_RESET, slotID);
-    return;
+
+    uint16 ItemID = PItem->getID();
+
+    if (container >= CONTAINER_ID::MAX_CONTAINER_ID)
+    {
+        ShowWarning("SmallPacket0x028: Invalid container ID passed to packet %u by %s", container, PChar->GetName());
+        return;
+    }
+
+    if (PItem->isSubType(ITEM_LOCKED))
+    {
+        ShowWarning("SmallPacket0x028: Attempt of removal of LOCKED item from slot %u", slotID);
+        return;
+    }
+
+    if (PItem->isStorageSlip())
+    {
+        int slipData = 0;
+        for (int i = 0; i < CItem::extra_size; i++)
+        {
+            slipData += PItem->m_extra[i];
+        }
+
+        if (slipData != 0)
+        {
+            PChar->pushPacket(new CMessageStandardPacket(MsgStd::CannotBeProcessed));
+            return;
+        }
+    }
+
+    // Linkshells (other than Linkpearls and Pearlsacks) and temporary items cannot be stored in the Recycle Bin.
+    // TODO: Are there any special messages here?
+    if (PItem->isType(ITEM_LINKSHELL) || container == CONTAINER_ID::LOC_TEMPITEMS)
+    {
+        charutils::DropItem(PChar, container, slotID, quantity, ItemID);
+        return;
+    }
+
+    // Otherwise, to the recycle bin!
+    charutils::AddItemToRecycleBin(PChar, container, slotID, quantity);
 }
 
 /************************************************************************
@@ -1072,8 +1097,7 @@ void SmallPacket0x029(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8  FromSlotID = data.ref<uint8>(0x0A);
     uint8  ToSlotID = data.ref<uint8>(0x0B);
 
-    if (ToLocationID >= MAX_CONTAINER_ID ||
-        FromLocationID >= MAX_CONTAINER_ID)
+    if (ToLocationID >= CONTAINER_ID::MAX_CONTAINER_ID || FromLocationID >= CONTAINER_ID::MAX_CONTAINER_ID)
         return;
 
     CItem* PItem = PChar->getStorage(FromLocationID)->GetItem(FromSlotID);
@@ -1168,12 +1192,12 @@ void SmallPacket0x029(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 }
 
 /************************************************************************
-*                                                                       *
-*  Trade Request                                                        *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Trade Request                                                        *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x032(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x032(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     uint32 charid = data.ref<uint32>(0x04);
@@ -1183,54 +1207,103 @@ void SmallPacket0x032(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
     if ((PTarget != nullptr) && (PTarget->id == charid))
     {
-        ShowDebug(CL_CYAN"%s initiated trade request with %s\n" CL_RESET, PChar->GetName(), PTarget->GetName());
+        ShowDebug("%s initiated trade request with %s", PChar->GetName(), PTarget->GetName());
+
+        // If the player is the same as the target, don't allow the trade
+        if (PChar->id == PTarget->id)
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 155));
+            return;
+        }
+
+        // If either player is in prison don't allow the trade.
         if (jailutils::InPrison(PChar) || jailutils::InPrison(PTarget))
         {
-            // If either player is in prison don't allow the trade.
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 316));
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
+            return;
+        }
+
+        // If either player is crafting, don't allow the trade request
+        if (PChar->animation == ANIMATION_SYNTH || PTarget->animation == ANIMATION_SYNTH)
+        {
+            ShowDebug("%s trade request with %s was blocked.", PChar->GetName(), PTarget->GetName());
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
             return;
         }
 
         // check /blockaid
         if (charutils::IsAidBlocked(PChar, PTarget))
         {
-            ShowDebug(CL_CYAN"%s is blocking trades\n" CL_RESET, PTarget->GetName());
+            ShowDebug("%s is blocking trades", PTarget->GetName());
             // Target is blocking assistance
             PChar->pushPacket(new CMessageSystemPacket(0, 0, 225));
             // Interaction was blocked
             PTarget->pushPacket(new CMessageSystemPacket(0, 0, 226));
-            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x01));
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
             return;
         }
 
         if (PTarget->TradePending.id == PChar->id)
         {
-            ShowDebug(CL_CYAN"%s already sent a trade request to %s\n" CL_RESET, PChar->GetName(), PTarget->GetName());
+            ShowDebug("%s has already sent a trade request to %s", PChar->GetName(), PTarget->GetName());
             return;
         }
+
         if (!PTarget->UContainer->IsContainerEmpty())
         {
-            ShowDebug(CL_CYAN"%s UContainer is not empty. %s cannot trade with them at this time\n" CL_RESET, PTarget->GetName(), PChar->GetName());
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
+            ShowDebug("%s's UContainer is not empty. %s cannot trade with them at this time", PTarget->GetName(), PChar->GetName());
             return;
         }
+
+        auto lastTargetTradeTimeSeconds = std::chrono::duration_cast<std::chrono::seconds>(server_clock::now() - PTarget->lastTradeInvite).count();
+        if ((PTarget->TradePending.targid != 0 && lastTargetTradeTimeSeconds < 60) || PTarget->UContainer->GetType() == UCONTAINER_TRADE)
+        {
+            // Can't trade with someone who's already got a pending trade before timeout
+            PChar->pushPacket(new CTradeActionPacket(PTarget, 0x07));
+            return;
+        }
+
+        // Clean trade upon requesting so you're not stuck in a state of  trying to trade but can't
+        PChar->TradePending.clean();
+        PTarget->TradePending.clean();
+        // This block usually doesn't trigger,
+        // The client is generally forced to send a trade cancel packet via a cancel yes/no menu,
+        // resulting in an outgoing 0x033 with 0x04 set to 0x01 for their old trade target, but sometimes the menu does not happen and a cancel is sent instead.
+        if (PChar->TradePending.id != 0)
+        {
+            // Tell previous trader we don't want their business
+            CCharEntity* POldTradeTarget = (CCharEntity*)PChar->GetEntity(PChar->TradePending.id, TYPE_PC);
+            if (POldTradeTarget && POldTradeTarget->id == PChar->TradePending.id)
+            {
+                POldTradeTarget->TradePending.clean();
+                PChar->TradePending.clean();
+
+                POldTradeTarget->pushPacket(new CTradeActionPacket(PChar, 0x07));
+                PChar->pushPacket(new CTradeActionPacket(POldTradeTarget, 0x07));
+                return;
+            }
+        }
+
+        PChar->lastTradeInvite = server_clock::now();
         PChar->TradePending.id = charid;
         PChar->TradePending.targid = targid;
 
+        PTarget->lastTradeInvite = server_clock::now();
         PTarget->TradePending.id = PChar->id;
         PTarget->TradePending.targid = PChar->targid;
         PTarget->pushPacket(new CTradeRequestPacket(PChar));
     }
-    return;
 }
 
 /************************************************************************
-*                                                                       *
-*  Trade Request Action                                                 *
-*  Trade Accept / Request Accept / Cancel                               *
-*                                                                       *
-************************************************************************/
+ *                                                                       *
+ *  Trade Request Action                                                 *
+ *  Trade Accept / Request Accept / Cancel                               *
+ *                                                                       *
+ ************************************************************************/
 
-void SmallPacket0x033(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x033(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     CCharEntity* PTarget = (CCharEntity*)PChar->GetEntity(PChar->TradePending.targid, TYPE_PC);
@@ -1241,14 +1314,12 @@ void SmallPacket0x033(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
         switch (action)
         {
-        case 0x00: // request accepted
-        {
-            ShowDebug(CL_CYAN"%s accepted trade request from %s\n" CL_RESET, PTarget->GetName(), PChar->GetName());
-            if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
+            case 0x00: // request accepted
             {
-                if (PChar->UContainer->IsContainerEmpty() && PTarget->UContainer->IsContainerEmpty())
+                ShowDebug("%s accepted trade request from %s", PTarget->GetName(), PChar->GetName());
+                if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
                 {
-                    if (distance(PChar->loc.p, PTarget->loc.p) < 6)
+                    if (PChar->UContainer->IsContainerEmpty() && PTarget->UContainer->IsContainerEmpty())
                     {
                         PChar->UContainer->SetType(UCONTAINER_TRADE);
                         PChar->pushPacket(new CTradeActionPacket(PTarget, action));
@@ -1257,74 +1328,68 @@ void SmallPacket0x033(map_session_data_t* session, CCharEntity* PChar, CBasicPac
                         PTarget->pushPacket(new CTradeActionPacket(PChar, action));
                         return;
                     }
-                }
-                PChar->TradePending.clean();
-                PTarget->TradePending.clean();
+                    PChar->TradePending.clean();
+                    PTarget->TradePending.clean();
 
-                ShowDebug(CL_CYAN"Trade: UContainer is not empty\n" CL_RESET);
+                    ShowDebug("Trade: UContainer is not empty");
+                }
             }
-        }
-        break;
-        case 0x01: // trade cancelled
-        {
-            ShowDebug(CL_CYAN"%s cancelled trade with %s\n" CL_RESET, PTarget->GetName(), PChar->GetName());
-            if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
+            break;
+            case 0x01: // trade cancelled
             {
+                ShowDebug("%s cancelled trade with %s", PTarget->GetName(), PChar->GetName());
                 if (PTarget->UContainer->GetType() == UCONTAINER_TRADE)
                 {
                     PTarget->UContainer->Clean();
-
                 }
-            }
-            if (PChar->UContainer->GetType() == UCONTAINER_TRADE)
-            {
-                PChar->UContainer->Clean();
-            }
+                if (PChar->UContainer->GetType() == UCONTAINER_TRADE)
+                {
+                    PChar->UContainer->Clean();
+                }
 
-            PTarget->TradePending.clean();
-            PTarget->pushPacket(new CTradeActionPacket(PChar, action));
-
-            PChar->TradePending.clean();
-        }
-        break;
-        case 0x02: // trade accepted
-        {
-            ShowDebug(CL_CYAN"%s accepted trade with %s\n" CL_RESET, PTarget->GetName(), PChar->GetName());
-            if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
-            {
-                PChar->UContainer->SetLock();
+                PTarget->TradePending.clean();
                 PTarget->pushPacket(new CTradeActionPacket(PChar, action));
 
-                if (PTarget->UContainer->IsLocked())
+                PChar->TradePending.clean();
+            }
+            break;
+            case 0x02: // trade accepted
+            {
+                ShowDebug("%s accepted trade with %s", PTarget->GetName(), PChar->GetName());
+                if (PChar->TradePending.id == PTarget->id && PTarget->TradePending.id == PChar->id)
                 {
-                    if (charutils::CanTrade(PChar, PTarget) && charutils::CanTrade(PTarget, PChar))
-                    {
-                        charutils::DoTrade(PChar, PTarget);
-                        PTarget->pushPacket(new CTradeActionPacket(PTarget, 9));
+                    PChar->UContainer->SetLock();
+                    PTarget->pushPacket(new CTradeActionPacket(PChar, action));
 
-                        charutils::DoTrade(PTarget, PChar);
-                        PChar->pushPacket(new CTradeActionPacket(PChar, 9));
-                    }
-                    else
+                    if (PTarget->UContainer->IsLocked())
                     {
-                        // Failed to trade..
-                        // Either players containers are full or illegal item trade attempted..
-                        ShowDebug(CL_CYAN"%s->%s trade failed (full inventory or illegal items)\n" CL_RESET, PChar->GetName(), PTarget->GetName());
-                        PChar->pushPacket(new CTradeActionPacket(PTarget, 1));
-                        PTarget->pushPacket(new CTradeActionPacket(PChar, 1));
-                    }
-                    PChar->TradePending.clean();
-                    PChar->UContainer->Clean();
+                        if (charutils::CanTrade(PChar, PTarget) && charutils::CanTrade(PTarget, PChar))
+                        {
+                            charutils::DoTrade(PChar, PTarget);
+                            PTarget->pushPacket(new CTradeActionPacket(PTarget, 9));
 
-                    PTarget->TradePending.clean();
-                    PTarget->UContainer->Clean();
+                            charutils::DoTrade(PTarget, PChar);
+                            PChar->pushPacket(new CTradeActionPacket(PChar, 9));
+                        }
+                        else
+                        {
+                            // Failed to trade
+                            // Either players containers are full or illegal item trade attempted
+                            ShowDebug("%s->%s trade failed (full inventory or illegal items)", PChar->GetName(), PTarget->GetName());
+                            PChar->pushPacket(new CTradeActionPacket(PTarget, 1));
+                            PTarget->pushPacket(new CTradeActionPacket(PChar, 1));
+                        }
+                        PChar->TradePending.clean();
+                        PChar->UContainer->Clean();
+
+                        PTarget->TradePending.clean();
+                        PTarget->UContainer->Clean();
+                    }
                 }
             }
-        }
-        break;
+            break;
         }
     }
-    return;
 }
 
 /************************************************************************
@@ -1428,9 +1493,7 @@ void SmallPacket0x036(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     // If PChar is invisible don't allow the trade, but you are able to initiate a trade TO an invisible player
     if (PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_INVISIBLE))
     {
-        // 155 = "You cannot perform that action on the specified target."
-        // TODO: Correct message is "You cannot use that command while invisible."
-        PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 155));
+        PChar->pushPacket(new CMessageSystemPacket(0, 0, 172));
         return;
     }
 
@@ -1489,7 +1552,7 @@ void SmallPacket0x037(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8  SlotID = data.ref<uint8>(0x0E);
     uint8  StorageID = data.ref<uint8>(0x10);
 
-    if (StorageID >= MAX_CONTAINER_ID)
+    if (StorageID >= CONTAINER_ID::MAX_CONTAINER_ID)
     {
         ShowExploit(CL_YELLOW "SmallPacket0x037: Invalid storage ID passed to packet %u by %s\n" CL_RESET, StorageID, PChar->GetName());
         return;
@@ -1516,7 +1579,7 @@ void SmallPacket0x03A(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
     uint8 container = data.ref<uint8>(0x04);
 
-    if (container >= MAX_CONTAINER_ID)
+    if (container >= CONTAINER_ID::MAX_CONTAINER_ID)
     {
         ShowExploit(CL_YELLOW "SmallPacket0x03A: Invalid container ID passed to packet %u by %s\n" CL_RESET, container, PChar->GetName());
         return;
@@ -2600,7 +2663,7 @@ void SmallPacket0x04E(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             {
                 if (PItem->getFlag() & ITEM_FLAG_RARE)
                 {
-                    for (uint8 LocID = 0; LocID < MAX_CONTAINER_ID; ++LocID)
+                    for (uint8 LocID = 0; LocID < CONTAINER_ID::MAX_CONTAINER_ID; ++LocID)
                     {
                         if (PChar->getStorage(LocID)->SearchItem(itemid) != ERROR_SLOTID)
                         {
@@ -2708,7 +2771,9 @@ void SmallPacket0x050(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     uint8 equipSlotID = data.ref<uint8>(0x05);        // charequip slot
     uint8 containerID = data.ref<uint8>(0x06);     // container id
 
-    if (containerID != LOC_INVENTORY && containerID != LOC_WARDROBE && containerID != LOC_WARDROBE2 && containerID != LOC_WARDROBE3 && containerID != LOC_WARDROBE4)
+    if (containerID != LOC_INVENTORY && containerID != LOC_WARDROBE && containerID != LOC_WARDROBE2 && containerID != LOC_WARDROBE3 &&
+        containerID != LOC_WARDROBE4 && containerID != LOC_WARDROBE5 && containerID != LOC_WARDROBE6 && containerID != LOC_WARDROBE7 &&
+        containerID != LOC_WARDROBE8)
     {
         if (equipSlotID != 16 && equipSlotID != 17)
             return;
@@ -2740,7 +2805,9 @@ void SmallPacket0x051(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         uint8 slotID = data.ref<uint8>(0x08 + (0x04 * i));        // inventory slot
         uint8 equipSlotID = data.ref<uint8>(0x09 + (0x04 * i));        // charequip slot
         uint8 containerID = data.ref<uint8>(0x0A + (0x04 * i));     // container id
-        if (containerID == LOC_INVENTORY || containerID == LOC_WARDROBE || containerID == LOC_WARDROBE2 || containerID == LOC_WARDROBE3 || containerID == LOC_WARDROBE4)
+        if (containerID == LOC_INVENTORY || containerID == LOC_WARDROBE || containerID == LOC_WARDROBE2 || containerID == LOC_WARDROBE3 ||
+            containerID == LOC_WARDROBE4 || containerID == LOC_WARDROBE5 || containerID == LOC_WARDROBE6 || containerID == LOC_WARDROBE7 ||
+            containerID == LOC_WARDROBE8)
         {
             charutils::EquipItem(PChar, slotID, equipSlotID, containerID);
         }
@@ -2769,7 +2836,7 @@ void SmallPacket0x052(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     //in this list the slot of whats being updated is old value, replace with new in 116
     //Should Push 0x116 (size 68) in responce
     //0x04 is start, contains 16 4 byte parts repersently each slot in order
-    PChar->pushPacket(new CAddtoEquipSet(data));
+    PChar->pushPacket(new CAddtoEquipSet(PChar, data));
     return;
 }
 
@@ -2797,41 +2864,75 @@ void SmallPacket0x053(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     else if (type == 2)
     {
         PChar->pushPacket(new CMessageStandardPacket(PChar->getStyleLocked() ? MsgStd::StyleLockIsOn : MsgStd::StyleLockIsOff));
+        PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE, new CCharPacket(PChar, ENTITY_UPDATE, UPDATE_LOOK));
     }
     else if (type == 3)
     {
         charutils::SetStyleLock(PChar, true);
 
-        for (int i = 0x08; i < 0x08 + (0x08 * count); i += 0x08) {
-            // uint8 slotId = data.ref<uint8>(i);
-            uint8 equipSlotId = data.ref<uint8>(i + 0x01);
-            // uint8 locationId = data.ref<uint8>(i + 0x02);
-            uint16 itemId = data.ref<uint16>(i + 0x04);
+        // Build new lockstyle
+        for (int i = 0; i < count; i++)
+        {
+            uint8 equipSlotId = data.ref<uint8>(0x09 + 0x08 * i);
+            uint16 itemId = data.ref<uint16>(0x0C + 0x08 * i);
 
-            if (equipSlotId > SLOT_BACK || equipSlotId == SLOT_AMMO)
-                continue;
+            // Skip non-visible items
+            if (equipSlotId > SLOT_FEET)
+            {
+            continue;
+            }
 
-            auto PItem = itemutils::GetItem(itemId);
+            CItemEquipment* PItem = dynamic_cast<CItemEquipment*>(itemutils::GetItemPointer(itemId));
             if (PItem == nullptr || !(PItem->isType(ITEM_WEAPON) || PItem->isType(ITEM_EQUIPMENT)))
-                itemId = 0;
-            else if (!(((CItemEquipment*)PItem)->getEquipSlotId() & (1 << equipSlotId)))
-                itemId = 0;
+            {
+            itemId = 0;
+            }
+            else if ((PItem->getEquipSlotId() & (1 << equipSlotId)) == 0) // item doesnt fit in slot
+            {
+            itemId = 0;
+            }
 
             PChar->styleItems[equipSlotId] = itemId;
+        }
 
-            switch (equipSlotId)
+        // Check if we need to remove conflicting slots. Essentially, packet injection shenanigan detector.
+        for (int i = 0; i < 10; i++)
+        {
+            CItemEquipment* PItemEquipment = dynamic_cast<CItemEquipment*>(itemutils::GetItemPointer(PChar->styleItems[i]));
+
+            if (PItemEquipment)
+            {
+            auto removeSlotID = PItemEquipment->getRemoveSlotId();
+
+            for (uint8 x = 0; x < sizeof(removeSlotID) * 8; ++x)
+            {
+                if (removeSlotID & (1 << x))
+                {
+                    PChar->styleItems[x] = 0;
+                }
+            }
+            }
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            // variable initialized here due to case/switch optimization throwing warnings inside the case
+            CItemEquipment* PItem = PChar->getEquip((SLOTTYPE)i);
+
+            switch (i)
             {
             case SLOT_MAIN:
             case SLOT_SUB:
             case SLOT_RANGED:
             case SLOT_AMMO:
-                charutils::UpdateWeaponStyle(PChar, equipSlotId, (CItemWeapon*)PChar->getEquip((SLOTTYPE)equipSlotId));
+                charutils::UpdateWeaponStyle(PChar, i, PItem);
+                break;
             case SLOT_HEAD:
             case SLOT_BODY:
             case SLOT_HANDS:
             case SLOT_LEGS:
             case SLOT_FEET:
-                charutils::UpdateArmorStyle(PChar, equipSlotId);
+                charutils::UpdateArmorStyle(PChar, i);
                 break;
             }
         }
@@ -2847,6 +2948,7 @@ void SmallPacket0x053(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     {
         PChar->pushPacket(new CCharAppearancePacket(PChar));
         PChar->pushPacket(new CCharSyncPacket(PChar));
+        PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE, new CCharPacket(PChar, ENTITY_UPDATE, UPDATE_LOOK));
     }
 
     return;

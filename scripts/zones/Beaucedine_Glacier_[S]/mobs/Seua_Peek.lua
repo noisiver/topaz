@@ -35,9 +35,9 @@ function onMobSpawn(mob)
     tpz.mix.jobSpecial.config(mob, {
         specials =
         {
-            {id = tpz.jsa.MANAFONT, hpp = 75},
-            {id = tpz.jsa.MANAFONT, hpp = 50},
-            {id = tpz.jsa.MANAFONT, hpp = 25},
+            {id = tpz.jsa.BLOOD_WEAPON, hpp = 75},
+            {id = tpz.jsa.BLOOD_WEAPON, hpp = 50},
+            {id = tpz.jsa.BLOOD_WEAPON, hpp = 25},
         },
     })
 end
@@ -52,10 +52,16 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+    local crossThrashEnabled = mob:getLocalVar("crossThrashEnabled")
     local hp = mob:getHPP()
 
+    if (crossThrashEnabled > 0) then
+        mob:setLocalVar("crossThrashEnabled", 0)
+        UseMultipleTPMoves(mob, math.random(3,5), 1681)
+    end
+
     if (hp < 20) then
-        AddMobAura(mob, target, 10, tpz.effect.AVOIDANCE_DOWN, 1, 3)
+        AddMobAura(mob, target, 10, tpz.effect.GEO_DEFENSE_DOWN, 50, 3)
     end
 end
 
@@ -63,8 +69,9 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 1795 then -- Malediction
-         mob:useMobAbility(478) -- Hell Slash
+    -- Uses Cross Thrash 3-5 times after every TP move except Blood Weapon and Cross Thrash
+    if skill:getID() ~= 695 and skill:getID() ~= 1681 then 
+         mob:setLocalVar("crossThrashEnabled", 1)
     end
 end
 

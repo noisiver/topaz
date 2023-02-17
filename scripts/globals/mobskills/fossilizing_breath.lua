@@ -31,7 +31,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
     local power = 1
 
-    local duration = 300
+    local duration = 30
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, duration))
 

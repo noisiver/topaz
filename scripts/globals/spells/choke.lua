@@ -19,12 +19,12 @@ function onSpellCast(caster, target, spell)
     else
         local dINT = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
         local params = {}
-        params.diff = nil
+        params.diff = dINT
         params.attribute = tpz.mod.INT
         params.skillType = 36
         params.bonus = 0
-        params.effect = nil
-        local resist = applyResistance(caster, target, spell, params)
+        params.effect = tpz.effect.CHOKE
+        local resist = applyResistanceEffect(caster, target, spell, params)
         if (resist <= 0.5) then
             spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
         else
@@ -47,6 +47,7 @@ function onSpellCast(caster, target, spell)
                     target:delStatusEffectSilent(tpz.effect.CHOKE)
                 end
                 spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
+                CheckForMagicBurst(caster, spell, target)
                 local duration = math.floor(ELEMENTAL_DEBUFF_DURATION * resist)
                 duration = duration + caster:getMerit(tpz.merit.ELEMENTAL_DEBUFF_DURATION)
 

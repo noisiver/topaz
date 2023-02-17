@@ -90,7 +90,31 @@ public:
     CBasicPacket& operator= (const CBasicPacket& other) = delete;
     CBasicPacket& operator= (CBasicPacket&& other) = delete;
 
+    /// <summary>
+    /// Copies the given packet data.
+    /// </summary>
+    /// <param name="other"></param>
+    void copy(CBasicPacket* other)
+    {
+        memcpy(data, other->data, PACKET_SIZE);
+    }
+
     /* Getters for the header */
+
+    uint16 getType()
+    {
+        return ref<uint16>(0) & 0x1FF;
+    }
+
+    std::size_t getSize()
+    {
+        return (size_t)2 * (ref<uint8>(1) & ~1);
+    }
+
+    unsigned short getSequence()
+    {
+        return ref<uint16>(2);
+    }
 
     uint16 id()
     {

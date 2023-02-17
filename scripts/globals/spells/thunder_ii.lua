@@ -13,7 +13,7 @@ end
 function onSpellCast(caster, target, spell)
     local spellParams = {}
     spellParams.hasMultipleTargetReduction = false
-    spellParams.resistBonus = 1.0
+    spellParams.resistBonus = 10
     spellParams.V = 178
     spellParams.V0 = 200
     spellParams.V50 = 300
@@ -25,6 +25,7 @@ function onSpellCast(caster, target, spell)
     spellParams.M100 = 1
     spellParams.M200 = 0
     spellParams.I = 210
+
 
     return doElementalNuke(caster, spell, target, spellParams)
 end

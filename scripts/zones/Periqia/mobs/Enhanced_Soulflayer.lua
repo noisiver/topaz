@@ -3,6 +3,8 @@
 --  Mob: Enhanced Soulflayer
 require("scripts/globals/status")
 require("scripts/globals/pathfind")
+require("scripts/globals/mobs")
+require("scripts/globals/salvage")
 -----------------------------------
 local ID = require("scripts/zones/Periqia/IDs")
 -----------------------------------
@@ -50,15 +52,9 @@ end
 
 function onMobEngaged(mob)
 	local RunAwayPath = mob:getLocalVar("RunAwayPath")
-    if RunAwayPath == 0 then
-	    mob:useMobAbility(1965) -- Immortal Shield
-    end
-	if RunAwayPath == 1 then
+    if RunAwayPath == 1 then
         mob:setHP(63000)
-        local zonePlayers = mob:getZone():getPlayers()
-        for _, zonePlayer in pairs(zonePlayers) do
-            zonePlayer:PrintToPlayer("The Enhanced Soulflayer attempts to call for help!",0,"???")
-        end
+        salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. " calls for help!", 0xD, none)
     end
     if RunAwayPath == 2 then
         mob:setHP(56000)
@@ -71,38 +67,38 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+    local firstFightShield = mob:getLocalVar("firstFightShield")
 	local ImmortalShieldTime = mob:getLocalVar("ImmortalShieldTime")
 	local RunAwayPath = mob:getLocalVar("RunAwayPath")
     local RunAway = mob:getLocalVar("RunAway")
     local AnimationSub = mob:AnimationSub()
 	local BattleTime = mob:getBattleTime()
+
+    -- Use Immortal Shield immediately in the first fight
+    if (RunAwayPath == 0 and firstFightShield == 0) then
+        mob:setLocalVar("firstFightShield", 1)
+        mob:useMobAbility(1965)
+    end
+
     -- Handle running away
     if mob:getHPP() <= 90 and mob:getHPP() > 80 and RunAway == 0 then
-        local zonePlayers = mob:getZone():getPlayers()
-        for _, zonePlayer in pairs(zonePlayers) do
-            zonePlayer:messageSpecial(ID.text.FADES_INTO_NOTHINGNESS, mob, mob, mob, mob, mob)
-        end
+        salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. " disappears!", 0xD, none)
 		mob:setLocalVar("RunAwayPath", 1)
         mob:disengage()
         mob:getEntity(bit.band(ID.npc._JK1, 0xFFF), tpz.objType.NPC):setAnimation(8)
     end
     if mob:getHPP() <= 80 and mob:getHPP() > 70 and RunAway == 1  then
-        local zonePlayers = mob:getZone():getPlayers()
-        for _, zonePlayer in pairs(zonePlayers) do
-            zonePlayer:messageSpecial(ID.text.FADES_INTO_NOTHINGNESS, mob, mob, mob, mob, mob)
-        end
+        salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. " disappears!", 0xD, none)
 		mob:setLocalVar("RunAwayPath", 2)
         mob:disengage()
         mob:getEntity(bit.band(ID.npc._1K6, 0xFFF), tpz.objType.NPC):setAnimation(8) -- Rock H-8
     end
     if mob:getHPP() <= 70 and RunAway == 2  then
-        local zonePlayers = mob:getZone():getPlayers()
-        for _, zonePlayer in pairs(zonePlayers) do
-            zonePlayer:messageSpecial(ID.text.FADES_INTO_NOTHINGNESS, mob, mob, mob, mob, mob)
-        end
+        salvageUtil.msgGroup(mob, "The " .. MobName(mob) .. " disappears!", 0xD, none)
 		mob:setLocalVar("RunAwayPath", 3)
         mob:disengage()
     end
+
     -- Handle calling adds
     if RunAway == 1 then
         local instance = mob:getInstance()
@@ -119,10 +115,12 @@ function onMobFight(mob, target)
             [9] = GetMobByID(17006915, instance),
             [10] = GetMobByID(17006920, instance),
         }
+
         for _,v in pairs(Mobs) do
             v:updateEnmity(target)
         end
     end
+
     -- Handle Final Fight
 	if mob:getHPP() <= 70 then
 		if ImmortalShieldTime == 0 then
@@ -133,6 +131,14 @@ function onMobFight(mob, target)
 		    mob:setLocalVar("ImmortalShieldTime", BattleTime + math.random(90, 120))
 		end
 	end
+
+    -- Handle Immortal Shield being interrupted
+    mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "ES_WS_INTERRUPTED", function(mob, skill)
+        if skill == 1965 then
+            mob:setLocalVar("firstFightShield", 0)
+            mob:setLocalVar("ImmortalShieldTime", 1)
+        end
+    end)
 
     if AnimationSub == 2 then
         mob:setMod(tpz.mod.UDMGPHYS, -100)

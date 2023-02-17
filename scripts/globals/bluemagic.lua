@@ -1,6 +1,7 @@
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
+require("scripts/globals/msg")
 
 -- The TP modifier
 TPMOD_NONE = 0
@@ -31,6 +32,28 @@ SC_LIGHT = 13
 INT_BASED = 1
 CHR_BASED = 2
 MND_BASED = 3
+
+-- BLU ecosystem
+ECO_BEAST = 1
+ECO_LIZARD = 2
+ECO_VERMIN = 3
+ECO_PLANTOID = 4
+
+ECO_AQUAN = 5
+ECO_AMORPH = 6
+ECO_BIRD = 7
+
+ECO_UNDEAD = 8
+ECO_ARCANA = 9
+
+ECO_DRAGON = 10
+ECO_DEMON = 11
+
+ECO_LUMORIAN = 12
+ECO_LUMINION = 13
+
+ECO_NONE = 0 -- beastmen or other ecosystems that have no strength/weaknesses
+
 
 -- Get the damage for a blue magic physical spell.
 -- caster - The entity casting the spell.
@@ -218,10 +241,10 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
 	end
 
 	local bluphysattk = caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    --printf("Attack after Skill - > %u", bluphysattk)
+    --printf("Attack after Skill.. %u", bluphysattk)
     -- Add attack from food/gear/JA's
     bluphysattk = bluphysattk + caster:getStat(tpz.mod.ATT)
-    --printf("Attack after food/gear/jas - > %u", bluphysattk)
+    --printf("Attack after food/gear/jas.. %u", bluphysattk)
     -- Remove skill from weapon(sword/club/etc)
     if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.SWORD) then
         bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.SWORD) + caster:getMod(tpz.mod.SKILL_SWORD))
@@ -229,13 +252,17 @@ function BluePhysicalSpell(caster, target, spell, params, tp)
     if (caster:getWeaponSkillType(tpz.slot.MAIN) == tpz.skill.CLUB) then
         bluphysattk = bluphysattk - (caster:getSkillLevel(tpz.skill.CLUB) + caster:getMod(tpz.mod.CLUB))
     end
-    --printf("Attack after weapon skill removed - > %u", bluphysattk)
+    --printf("Attack after weapon skill removed.. %u", bluphysattk)
+    -- Add Physical Potency merits https://www.bg-wiki.com/ffxi/Merit_Points#Blue_Mage
     -- Add attack from TP bonus and attack bonus on specific BLU spells
-    bluphysattk = bluphysattk * BluAttkModifier
-    --printf("Attack after TP bonus - > %u", bluphysattk)
+    bluphysattk = math.floor(bluphysattk * BluAttkModifier)
+    --printf("Attack after TP bonus.. %u", bluphysattk)
     if (params.offcratiomod == nil) then -- default to attack. Pretty much every physical spell will use this, Cannonball being the exception.
         params.offcratiomod = bluphysattk
     end
+    local physPotency = 1 + ((caster:getMerit(tpz.merit.PHYSICAL_POTENCY) / 100))
+    bluphysattk = math.floor(bluphysattk * physPotency)
+    --printf("Attack after potency merits.. %u", bluphysattk)
     -- print(params.offcratiomod)
     local cratio = BluecRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
     local rangedcratio = BluecRangedRatio(params.offcratiomod / target:getStat(tpz.mod.DEF), caster:getMainLvl(), target:getMainLvl())
@@ -373,13 +400,17 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     local dStat = 0 -- Please make sure to add an additional stat check if there is to be a spell that uses neither INT, MND, or CHR. None currently exist.
     if (statMod == INT_BASED) then -- Stat mod is INT
         dStat = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-        statBonus = (dStat)* params.tMultiplier
     elseif (statMod == CHR_BASED) then -- Stat mod is CHR
         dStat = caster:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
-        statBonus = (dStat)* params.tMultiplier
     elseif (statMod == MND_BASED) then -- Stat mod is MND
         dStat = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)
+    end
+
+    -- Only multiply positive dStat bonuses by the tMultiplier
+    if (dStat > 0) then
         statBonus = (dStat)* params.tMultiplier
+    else
+        statBonus = dStat
     end
 
     D =(((D + ST) * params.multiplier) + statBonus)
@@ -395,9 +426,22 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
     rparams.skillType = tpz.skill.BLUE_MAGIC
     magicAttack = math.floor(magicAttack * applyResistance(caster, target, spell, rparams))
 
-    local dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
+    local dmg = 0
+
+    -- Use params.IGNORE_WSC and params.damage to set specific damage
+    -- Only used for Self-Destruct ATM
+    if (params.IGNORE_WSC ~= nil) then
+        magicAttack = params.damage * applyResistance(caster, target, spell, rparams)
+    end
+
+    dmg = math.floor(addBonuses(caster, spell, target, magicAttack))
+
+    if (dmg < 0) then
+        dmg = 0
+    end
 
     caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
+
 	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
 		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
 		dmg = dmg * ConvergenceBonus
@@ -439,31 +483,17 @@ function BlueMagicalSpell(caster, target, spell, params, statMod)
 end
 
 function BlueFinalAdjustments(caster, target, spell, dmg, params)
-    if (dmg < 0) then
-        dmg = 0
-    end
-
-    dmg = dmg * BLUE_POWER
-
-    if (dmg < 0) then
-        dmg = 0
-    end
-
     local attackType = params.attackType or tpz.attackType.NONE
     local damageType = params.damageType or tpz.damageType.NONE
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
         dmg = target:magicDmgTaken(dmg)
     elseif attackType == tpz.attackType.BREATH then
         dmg = target:breathDmgTaken(dmg)
-
     elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
     elseif attackType == tpz.attackType.PHYSICAL then
         dmg = target:physicalDmgTaken(dmg, damageType)
     end
-
-    -- Handle Phalanx
-    dmg = dmg - target:getMod(tpz.mod.PHALANX)
 
     -- Handle Absorb
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH or attackType == tpz.attackType.SPECIAL then
@@ -476,11 +506,17 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
         dmg = (target:addHP(-dmg))
         spell:setMsg(tpz.msg.basic.MAGIC_RECOVERS_HP)
     else
+        if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         --handling rampart stoneskin
-        dmg = utils.rampartstoneskin(target, dmg)
-        -- handling stoneskin
-        dmg = utils.stoneskin(target, dmg)
-        target:takeDamage(dmg, caster, attackType, damageType)
+            dmg = utils.rampartstoneskin(target, dmg)
+            -- handling stoneskin
+            dmg = utils.stoneskin(target, dmg)
+            target:takeSpellDamage(caster, spell, dmg, attackType, damageType + spell:getElement())
+        else
+            -- handling stoneskin
+            dmg = utils.stoneskin(target, dmg)
+            target:takeDamage(dmg, caster, attackType, damageType)
+        end
     end
 
     if (params.NO_ENMITY == nil) then -- Only used for Regurg / Corrosive Ooze atm
@@ -488,6 +524,116 @@ function BlueFinalAdjustments(caster, target, spell, dmg, params)
     end
     target:handleAfflatusMiseryDamage(dmg)
     -- TP has already been dealt with.
+    return dmg
+end
+
+-- Blue Breath Type spells
+function BlueBreathSpell(caster, target, spell, params, hppercent)
+    -- Formula is HP x gear x correlation x Magic Burst bonus x resist x dayweather bonus x mdt
+    -- Get base damage
+    local dmg = math.floor((caster:getMaxHP() * hppercent))
+
+    -- Get element
+    local element = spell:getElement()
+
+    -- Get ecosystem
+    local correlation = 0
+    if (params.eco) ~= nil and target:isMob() then
+        correlation = GetMonsterCorrelation(params.eco,GetTargetEcosystem(target))
+    end
+
+    -- Add bonus MACC(Mainly magic burst MACC)
+    params.bonus = params.bonus + BluGetBonusMacc(caster, target, element, params)
+
+    -- Add correlation MACC bonus
+    if correlation > 0 then
+        params.bonus = params.bonus + 25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION) + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)
+    elseif correlation < 0 then
+        params.bonus = params.bonus - 25 
+    end
+
+    -- Get resist
+    local resist = applyResistance(caster, target, spell, params)
+
+
+	-- Add convergence damage bonus
+	if caster:hasStatusEffect(tpz.effect.CONVERGENCE) then
+		local ConvergenceBonus = (1 + caster:getMerit(tpz.merit.CONVERGENCE) / 100)
+		dmg = math.floor(dmg * ConvergenceBonus)
+		caster:delStatusEffectSilent(tpz.effect.CONVERGENCE)
+	end
+
+	-- Add breath damage gear
+	local head = caster:getEquipID(tpz.slot.HEAD)
+    -- Saurian Helm and Mirage Keffiyeh(NQ/+1/+2)
+	if head == 16150 or head == 11465 or head == 11466 or head == 10665 then 
+		dmg = math.floor(dmg *1.1) 
+	end
+
+    -- Add correlation bonus
+    if correlation > 0 then
+        dmg = math.floor(dmg * (1.25 + caster:getMerit(tpz.merit.MONSTER_CORRELATION)/100 + caster:getMod(tpz.mod.MONSTER_CORRELATION_BONUS)/100))
+    elseif correlation < 0 then
+        dmg = math.floor(dmg * 0.75)
+    end
+
+    -- Add magic burst bonus
+    params.AMIIburstBonus = 0
+    local burst = calculateMagicBurst(caster, spell, target, params)
+
+    if (burst > 1.0) then
+        spell:setMsg(spell:getMagicBurstMessage()) -- "Magic Burst!"
+    end
+
+    dmg = math.floor(dmg * burst)
+
+    -- Apply resist
+    dmg = math.floor(dmg * resist)
+    -- Add weather
+    dmg = math.floor(dmg * BlueGetWeatherDayBonus(caster, element))
+
+    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
+
+    -- Cap damage for BLU mobs
+    if caster:isMob() then
+        if dmg > 500 then
+            dmg = 500
+        end
+    end
+
+    -- Handle Positional MDT
+    if caster:isInfront(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Front
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 3 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 5 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 6 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+    if caster:isBehind(target, 90) and target:hasStatusEffect(tpz.effect.MAGIC_SHIELD) then -- Behind
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 4 then
+            dmg = 0
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 7 then
+            dmg = math.floor(dmg * 0.25) -- 75% DR
+        end
+        if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() == 8 then
+            dmg = math.floor(dmg * 0.50) -- 50% DR
+        end
+    end
+
+    -- Handle Phalanx
+    dmg = dmg - target:getMod(tpz.mod.PHALANX)
+
+	local subtleblow = (caster:getMod(tpz.mod.SUBTLE_BLOW) / 100)
+	local TP =  100 * (1 - subtleblow)
+	target:addTP(TP)
+    --printf("resist %i", resist*100)
+    --printf("Correlation bonus: %i", correlation)
+    --printf("final dmg %i", dmg)
     return dmg
 end
 
@@ -680,7 +826,7 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
 			AccTPBonus = getAccTPModifier(caster:getTP()) 
 		end
 	end
-    local acc = attacker:getACC() + 30 + AccTPBonus + attacker:getMerit(tpz.merit.PHYSICAL_POTENCY) --https://www.bluegartr.com/threads/37619-Blue-Mage-Best-thread-ever?p=2097460&viewfull=1#post2097460 
+    local acc = attacker:getACC() + 30 + AccTPBonus + attacker:getMerit(tpz.merit.PHYSICAL_POTENCY) -- https://www.bluegartr.com/threads/37619-Blue-Mage-Best-thread-ever?p=2097460&viewfull=1#post2097460 
     local eva = target:getEVA()
 
     if (attacker:getMainLvl() > target:getMainLvl()) then -- acc bonus!
@@ -692,10 +838,10 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
     local hitdiff = 0
     local hitrate = 75
     if (acc>eva) then
-    hitdiff = (acc-eva)/2
+        hitdiff = (acc-eva)/2
     end
     if (eva>acc) then
-    hitdiff = ((-1)*(eva-acc))/2
+        hitdiff = ((-1)*(eva-acc))/2
     end
 
     hitrate = hitrate+hitdiff
@@ -715,7 +861,44 @@ function BlueGetHitRate(attacker, target, capHitRate, params)
 end
 
 function BlueTryEnfeeble(caster, target, spell, damage, power, tick, duration, params)
-    local resist = applyResistance(caster, target, spell, params)
+    local immunities = {
+        { tpz.effect.SLEEP_I, 1},
+        { tpz.effect.SLEEP_II, 1},
+        { tpz.effect.SLEEP_I, 4096},
+        { tpz.effect.SLEEP_II, 4096},
+        { tpz.effect.POISON, 256},
+        { tpz.effect.PARALYSIS, 32},
+        { tpz.effect.BLINDNESS, 64},
+        { tpz.effect.SILENCE, 16},
+        { tpz.effect.STUN, 8},
+        { tpz.effect.BIND, 4},
+        { tpz.effect.WEIGHT, 2},
+        { tpz.effect.SLOW, 128},
+        { tpz.effect.ELEGY, 512},
+        { tpz.effect.REQUIEM, 1024},
+        { tpz.effect.LULLABY, 2048},
+        { tpz.effect.LULLABY, 1},
+        { tpz.effect.PETRIFICATION, 8192},
+    }
+
+    local effect = params.effect
+    -- Check for immunity
+    for i,statusEffect in pairs(immunities) do
+        local immunity = 0
+        if effect == statusEffect[1] then
+            immunity = statusEffect[2]
+        end
+        if target:hasImmunity(immunity) then
+            return false
+        end
+    end
+
+    local resist = applyResistanceEffect(caster, target, spell, params)
+    -- Check for resist trait proc
+    if (resist == 0) then
+        return false
+    end
+
     if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
         duration = duration * resist
         target:addStatusEffect(params.effect, power, tick, duration)
@@ -759,6 +942,130 @@ function getBlueEffectDuration(caster, resist, effect, varieswithtp)
 
     return duration
 end
+
+function GetTargetEcosystem(target)
+	local sys = target:getSystem()
+
+    -- honestly just taking the topaz enum standard and converting it an easier enum standard
+    -- this makes it very easy to explain the strengths/weaknesses (in the next function)
+
+	if sys == 6 then return 1
+	elseif sys == 14 then return 2
+	elseif sys == 20 then return 3
+	elseif sys == 17 then return 4
+	elseif sys == 2 then return 5
+	elseif sys == 1 then return 6
+	elseif sys == 8 then return 7
+	elseif sys == 19 then return 8
+	elseif sys == 3 then return 9
+	elseif sys == 10 then return 10
+	elseif sys == 9 then return 11
+	elseif sys == 15 then return 12
+	elseif sys == 16 then return 13 end
+
+	return 0
+end
+
+-- Gets ectosystem bonus / penalty
+function GetMonsterCorrelation(eco,targeco)
+
+    -- see top of document for the five ecosystem groups
+    -- they work as a rotating rock-paper-scissors system for each group
+    -- 1 beats 2 beats 3 beats 4 beats 1
+    -- 5 beats 6 beats 7 beats 5
+    -- 8/9 beat each other. 10/11 beat each other. 12/13 beat each other.
+    -- https://ffxiclopedia.fandom.com/wiki/Category:Bestiary
+    -- return value ... -1 = negative correlation, 0 = neutral, 1 = positive correlation
+
+	if eco == 1 then
+		if targeco == 2 then return  1 end
+		if targeco == 4 then return -1 end
+	elseif eco == 2 then
+		if targeco == 3 then return  1 end
+		if targeco == 1 then return -1 end
+	elseif eco == 3 then
+		if targeco == 4 then return  1 end
+		if targeco == 2 then return -1 end
+	elseif eco == 4 then
+		if targeco == 1 then return  1 end
+		if targeco == 3 then return -1 end
+	elseif eco == 5 then
+		if targeco == 6 then return  1 end
+		if targeco == 7 then return -1 end
+	elseif eco == 6 then
+		if targeco == 7 then return  1 end
+		if targeco == 5 then return -1 end
+	elseif eco == 7 then
+		if targeco == 5 then return  1 end
+		if targeco == 6 then return -1 end
+	elseif eco == 8 and targeco == 9 then
+		return 1
+	elseif eco == 9 and targeco == 8 then
+		return 1
+	elseif eco == 10 and targeco == 11 then
+		return 1
+	elseif eco == 11 and targeco == 10 then
+		return 1
+	elseif eco == 12 and targeco == 13 then
+		return 1
+	elseif eco == 13 and targeco == 12 then
+		return 1
+	end
+
+	return 0
+end
+
+function BluGetBonusMacc(caster, target, element, params)
+    local magicAccBonus = 0
+    local skillchainTier, skillchainCount = FormMagicBurst(element, target)
+
+    --add macc for skillchains
+    if (skillchainTier > 0) then
+        magicAccBonus = magicAccBonus + 50 -- 30 in retail
+    end
+
+    return magicAccBonus
+end
+
+function BlueGetWeatherDayBonus(caster, element)
+    dayWeatherBonus = 1.00
+
+    if caster:getWeather() == tpz.magic.singleWeatherStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.10
+        end
+    elseif caster:getWeather() == tpz.magic.singleWeatherWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.10
+        end
+    elseif caster:getWeather() == tpz.magic.doubleWeatherStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.25
+        end
+    elseif caster:getWeather() == tpz.magic.doubleWeatherWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.25
+        end
+    end
+
+    if VanadielDayElement() == tpz.magic.dayStrong[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 0.10
+        end
+    elseif VanadielDayElement() == tpz.magic.dayWeak[element] then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 0.10
+        end
+    end
+
+    if dayWeatherBonus > 1.35 then
+        dayWeatherBonus = 1.35
+    end
+
+    return dayWeatherBonus
+end
+
+
 
 -- obtains alpha, used for working out WSC
 function BlueGetAlpha(level)

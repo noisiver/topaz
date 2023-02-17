@@ -47,18 +47,23 @@ function onMobEngaged(mob, target)
 end
 
 function onMobFight(mob, target)
-    -- Teleports away every 45s and casts a random spell from table if not terrored
-    if mob:getLocalVar("teleport") < os.time() and not mob:hasStatusEffect(tpz.effect.TERROR) then
+    -- Teleports away every 45s and casts a random spell from table if not terrored or mid spell cast
+    if mob:getLocalVar("teleport") < os.time() and not mob:hasStatusEffect(tpz.effect.TERROR) and
+    mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING then 
         mob:setLocalVar("teleport", os.time() + 45)
         TeleportMob(mob, 5000, spellList[math.random(#spellList)])
-		mob:setPos(mob:getXPos() + positions[math.random(#positions)][1], mob:getYPos(), mob:getZPos() + positions[math.random(#positions)][2])
+        mob:timer(2000, function(mob)
+		    mob:setPos(mob:getXPos() + positions[math.random(#positions)][1], mob:getYPos(), mob:getZPos() + positions[math.random(#positions)][2])
+        end)
     end
 
     mob:addListener("SPELL_DMG_TAKEN", "SoE_SPELL_DMG_TAKEN", function(mob, caster, spell, amount, msg)
         local element = spell:getElement()
         -- Taking a 1k+ damage light MB
-        if (element == tpz.magic.ele.LIGHT) and (amount >= 1000) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) then
-            BreakMob(mob, caster, 1, 60, 2)
+        if (element == tpz.magic.ele.LIGHT) and (amount >= 500) then
+            if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
+                BreakMob(mob, caster, 1, 60, 2)
+            end
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
@@ -68,16 +73,18 @@ end
 
 
 function onMobWeaponSkillPrepare(mob, target)
-    -- Only Dissolve, Muxus Spread, and Epoxy Spread
-    return math.random(2550, 2552)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
 
     if isKiller or noKiller then
-        -- Increase progress counter, at 4 turn teleporter back on
-        instance:setProgress(instance:getProgress() +1) 
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081148) then
+        else
+            -- Increase progress counter, at 4 turn teleporter back on
+            instance:setProgress(instance:getProgress() +1)
+        end
     end
 end
 

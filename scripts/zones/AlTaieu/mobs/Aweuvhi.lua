@@ -8,6 +8,7 @@ require("scripts/globals/keyitems")
 -----------------------------------
 function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+    mob:AnimationSub(6)
 end
 
 function onMobDeath(mob, player, isKiller)

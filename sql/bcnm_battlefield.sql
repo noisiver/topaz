@@ -363,6 +363,11 @@ INSERT INTO `bcnm_battlefield` VALUES (78,3,17367240,3);
 INSERT INTO `bcnm_battlefield` VALUES (79,1,17367242,3); -- up_in_arms
 INSERT INTO `bcnm_battlefield` VALUES (79,2,17367244,3);
 INSERT INTO `bcnm_battlefield` VALUES (79,3,17367246,3);
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367248,3); -- copycat
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367250,0); 
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367251,0); 
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367252,0); 
+INSERT INTO `bcnm_battlefield` VALUES (80,1,17367253,0); 
 INSERT INTO `bcnm_battlefield` VALUES (81,1,17367266,3); -- operation_desert_swarm
 INSERT INTO `bcnm_battlefield` VALUES (81,1,17367267,3);
 INSERT INTO `bcnm_battlefield` VALUES (81,1,17367268,3);
@@ -2007,5 +2012,57 @@ INSERT INTO `bcnm_battlefield` VALUES (1301,8,16929085,3);-- Temenos Aern
 INSERT INTO `bcnm_battlefield` VALUES (1301,8,16929086,3);-- Temenos Aern
 INSERT INTO `bcnm_battlefield` VALUES (1301,8,16929087,3);-- Temenos Aern
 INSERT INTO `bcnm_battlefield` VALUES (1301,8,16929088,2);-- Temenos Ghrah
+
+-- -------------------------------
+-- The Blood Bathed Crown
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125684,3);
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125685,3);
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125686,3);
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125687,3);
+INSERT INTO `bcnm_battlefield` VALUES (1308,1,17125688,3);
+
+-- -------------------------------
+-- The Buried God
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154387,3);
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154388,3);
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154389,3);
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154390,3);
+INSERT INTO `bcnm_battlefield` VALUES (1309,1,17154391,3);
+
+-- -------------------------------
+-- A Malicious Manifest
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183062,3);
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183063,3);
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183064,3);
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183065,3);
+INSERT INTO `bcnm_battlefield` VALUES (1310,1,17183066,3);
+
+-- -------------------------------
+-- Splitting Heirs
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1311,1,17125666,3);
+INSERT INTO `bcnm_battlefield` VALUES (1311,1,17125668,0);
+INSERT INTO `bcnm_battlefield` VALUES (1311,1,17125669,0);
+INSERT INTO `bcnm_battlefield` VALUES (1311,1,17125670,0);
+
+-- -------------------------------
+-- Cracking Shells
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1312,1,17154372,3);
+INSERT INTO `bcnm_battlefield` VALUES (1312,1,17154374,0);
+INSERT INTO `bcnm_battlefield` VALUES (1312,1,17154375,0);
+INSERT INTO `bcnm_battlefield` VALUES (1312,1,17154376,0);
+
+-- -------------------------------
+-- Plucking Wings
+-- ------------------------------
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183047,3);
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183049,0);
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183050,0);
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183051,0);
+INSERT INTO `bcnm_battlefield` VALUES (1313,1,17183066,0);
 
 -- Dump completed on 2017-01-31 10:38:38

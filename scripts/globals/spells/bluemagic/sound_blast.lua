@@ -25,10 +25,11 @@ end
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.INT_DOWN
     local params = {}
+    params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.effect = tpz.effect.INT_DOWN
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 90 * resist
 	local level = (caster:getMainLvl()  / 5)
 	local power = level 
@@ -41,9 +42,16 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
 
-    if (resist >= 0.5) then -- Do it!
-        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
-            spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+    typeEffect = tpz.effect.INT_DOWN
+
+    if target:hasStatusEffect(typeEffect) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return typeEffect
+    end
+
+    params.effect = typeEffect
+    if BlueTryEnfeeble(caster, target, spell, 1, power, 3, 180, params) then
+        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end

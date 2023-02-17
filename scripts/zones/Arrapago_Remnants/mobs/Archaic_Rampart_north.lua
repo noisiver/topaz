@@ -46,11 +46,11 @@ function onMobWeaponSkill(target, mob, skill)
 
     if skill:getID() == 2036 then -- Astral Gate
         salvageUtil.teleportGroup(target, math.random(256, 262), -0, math.random(176, 183), 0, true, false, false)
-        salvageUtil.msgGroup(target, "The " .. MobName(mob) .. " sucks you in!", 0xD, none)
+        PeriodicMessage(mob, target, "The Archaic Rampart sucks you in!", 0xD, none, 15)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

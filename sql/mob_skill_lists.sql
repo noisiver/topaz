@@ -37,7 +37,11 @@ CREATE TABLE IF NOT EXISTS `mob_skill_lists` (
 -- Contenu de la table `mob_skill_lists`
 --
 
--- 1: Acrolith
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2070); -- dismemberment
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2071); -- dire_straight
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2072); -- earth_shatter
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2073); -- sinker_drill
+INSERT INTO `mob_skill_lists` VALUES ('Acrolith',1,2074); -- detonating_grip
 INSERT INTO `mob_skill_lists` VALUES ('Adamantoise',2,804);
 INSERT INTO `mob_skill_lists` VALUES ('Adamantoise',2,805);
 INSERT INTO `mob_skill_lists` VALUES ('Adamantoise',2,806);
@@ -69,23 +73,35 @@ INSERT INTO `mob_skill_lists` VALUES ('Amphiptere',6,2431);
 INSERT INTO `mob_skill_lists` VALUES ('Amphiptere',6,2432);
 INSERT INTO `mob_skill_lists` VALUES ('Amphiptere',6,2433); -- calamitous_wind
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Archery',7,1200);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Axe',8,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Axe',8,1192);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Club',9,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Club',9,1198);
 INSERT INTO `mob_skill_lists` VALUES ('Prankster_Maverix',10,513);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Dagger',11,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Dagger',11,1189);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greataxe',12,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greataxe',12,1193);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greatkatana',13,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greatkatana',13,1197);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greatsword',14,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Greatsword',14,1191);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Handtohand',15,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Handtohand',15,1188);
--- 16: Animated Horn
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Horn',16,405);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Katana',17,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Katana',17,1196);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Marksmanship',18,1201);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Polearm',19,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Polearm',19,1195);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Scythe',20,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Scythe',20,1194);
 INSERT INTO `mob_skill_lists` VALUES ('Demoiselle_Desolee',21,659);
 INSERT INTO `mob_skill_lists` VALUES ('Gwyllgi',22,466);
 INSERT INTO `mob_skill_lists` VALUES ('Gwyllgi',22,470);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Staff',23,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Staff',23,1199);
+INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Sword',24,405);
 INSERT INTO `mob_skill_lists` VALUES ('AnimatedWeapon-Sword',24,1190);
 INSERT INTO `mob_skill_lists` VALUES ('Antica',25,791);
 INSERT INTO `mob_skill_lists` VALUES ('Antica',25,792);
@@ -1273,7 +1289,17 @@ INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,816);
 INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,817);
 INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,818);
 INSERT INTO `mob_skill_lists` VALUES ('GuivreWyvern',267,821);
--- 268: Wyvern
+
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,813);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,814);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,815);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,816);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,817);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,818);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,819);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,820);
+INSERT INTO `mob_skill_lists` VALUES ('Kindreds_Vouivre',268,821);
+
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1347); -- dual_strike
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1348);
 INSERT INTO `mob_skill_lists` VALUES ('Xzomit',269,1349);
@@ -3503,7 +3529,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Teugghia',995,2197); -- Autumn_Breeze
 INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,318); -- somersault
 INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,659); -- cuirsed_sphere
 INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,660); -- venom
-INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,1624); -- debilitating_drone
+INSERT INTO `mob_skill_lists` VALUES ('Flame_Skimmer',997,1324); -- debilitating_drone
 INSERT INTO `mob_skill_lists` VALUES ('Hovering_Hotpot',998,521); -- spinning attack
 INSERT INTO `mob_skill_lists` VALUES ('Suparna',999,923);
 INSERT INTO `mob_skill_lists` VALUES ('Suparna',999,924);
@@ -3807,6 +3833,46 @@ INSERT INTO `mob_skill_lists` VALUES ('GiantBirdTwo',1160,403); -- Stormwind
 INSERT INTO `mob_skill_lists` VALUES ('Dahu',1161,802); -- Great_Sandstorm
 INSERT INTO `mob_skill_lists` VALUES ('Picolaton',1162,926); -- Stormwind Macan Gadangan
 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2203); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2204); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2223); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2224); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2225); 
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2226);
+INSERT INTO `mob_skill_lists` VALUES ('Quadav-WOTG',1163,2227); 
+
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,618); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,619); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,620); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2413); 
+INSERT INTO `mob_skill_lists` VALUES ('Yagudo-WOTG',1164,2206); 
+
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,1061); -- Battle Dance
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2201); 
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2202); 
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2263); 
+INSERT INTO `mob_skill_lists` VALUES ('Orc-WOTG',1165,2264); 
+
+INSERT INTO `mob_skill_lists` VALUES ('OrcishWarmachine-WOTG',1166,926); 
+INSERT INTO `mob_skill_lists` VALUES ('Goblin-WOTG',1167,926); 
+
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,635);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,636);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,637);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,638);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,639);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,2350);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,2351);
+INSERT INTO `mob_skill_lists` VALUES ('Cogtooth_Skagnogg',1168,2352);
+
+INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Grenade',1169,2235);
+INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Grenade',1169,2236);
+INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Grenade',1169,2237);
+
+INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Vial',1170,2371);
+
+INSERT INTO `mob_skill_lists` VALUES ('Head_Butt_Autoattack',1171,3843); 
+INSERT INTO `mob_skill_lists` VALUES ('Skull_Smash_only',1172,2267); 
 
 -- Custom Content
 
@@ -4229,7 +4295,11 @@ INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,83); -- Armor Break
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,88); -- Steel Cyclone
 INSERT INTO `mob_skill_lists` VALUES ('IronEaterMythic',6065,90); -- King's Justice
 
---6066 unused
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,609);
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,2202);
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,2263);
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,2264);
+INSERT INTO `mob_skill_lists` VALUES ('Bloodcrown_Brradhod',6066,2373);
 
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1963); -- Mind Blast
 INSERT INTO `mob_skill_lists` VALUES ('Vidhuwa_The_Wrathborn',6067,1965); -- Immortal Shield
@@ -4455,7 +4525,6 @@ INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,2760); --
 INSERT INTO `mob_skill_lists` VALUES ('Gorib',6128,2209); -- 
 
 INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,1680); -- 
-INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,1681); -- 
 INSERT INTO `mob_skill_lists` VALUES ('Seua_Peek',6129,2207); -- 
 
 INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1561); -- 
@@ -4489,12 +4558,19 @@ INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,273);
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1680); 
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1681); 
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,2207); 
+
+-- Maybe needs skllID 1-9
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,1); -- combo
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,2); -- shoulder_attack
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,7); -- howling fists
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,8); -- dragon kick
+INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,9); -- asuran_fists
+
+INSERT INTO `mob_skill_lists` VALUES ('RaDha_Scarscute',6136,2267); -- Skull Smash
+
 -- ANNM End
 
---6066 unused
 
 
-
-
--- Next available ID: 1148
+-- Next available ID: 1173
 

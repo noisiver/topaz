@@ -11,7 +11,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    MobGazeMove(mob, target, tpz.effect.DEFENSE_DOWN, 100, 0, 30)
+    MobGazeMove(mob, target, tpz.effect.DEFENSE_DOWN, 100, 0, 180)
     skill:setMsg(MobGazeMove(mob, target, tpz.effect.TERROR, 1, 0, 30))
 
     return tpz.effect.TERROR

@@ -58,7 +58,7 @@ function onSpellCast(caster, target, spell)
 
     params.effect = tpz.effect.FLASH
 
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local duration = 12 * resist
     duration = math.ceil(duration * tryBuildResistance(tpz.magic.buildcat.BLIND, target))
 
@@ -71,6 +71,7 @@ function onSpellCast(caster, target, spell)
     if (resist >= 0.0625) then
         if (target:addStatusEffect(params.effect, 300, 3, duration)) then
             spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
+            CheckForMagicBurst(caster, spell, target)
         end
     else
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST)

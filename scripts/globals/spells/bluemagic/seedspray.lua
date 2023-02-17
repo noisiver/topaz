@@ -15,6 +15,7 @@
 require("scripts/globals/bluemagic")
 require("scripts/globals/status")
 require("scripts/globals/magic")
+require("scripts/globals/msg")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
@@ -27,10 +28,6 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.effect = tpz.effect.DEFENSE_DOWN
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DAMAGE
     params.attackType = tpz.attackType.RANGED
     params.damageType = tpz.damageType.RANGED
@@ -63,10 +60,8 @@ function onSpellCast(caster, target, spell)
 	end
 
 
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        local typeEffect = tpz.effect.DEFENSE_DOWN
-        target:addStatusEffect(typeEffect, 8, 0, getBlueEffectDuration(caster, resist, typeEffect, false)) 
-    end
+    params.effect = tpz.effect.DEFENSE_DOWN
+    BlueTryEnfeeble(caster, target, spell, damage, 8, 0, 180, params)
 
     return damage
 end

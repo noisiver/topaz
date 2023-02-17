@@ -27,24 +27,5 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    local nqId = mob:getID()
-
-    -- the quest version of this NM doesn't respawn or count toward hq nm
-    if nqId == ID.mob.ORCISH_OVERLORD then
-        local hqId = mob:getID() + 1
-        local ToD = GetServerVariable("[POP]Overlord_Bakgodek")
-        local kills = GetServerVariable("[PH]Overlord_Bakgodek")
-        local popNow = (math.random(1, 5) == 3 or kills > 0)
-
-        if os.time() > ToD then
-            DisallowRespawn(nqId, true)
-            DisallowRespawn(hqId, false)
-            UpdateNMSpawnPoint(hqId)
-            GetMobByID(hqId):setRespawnTime(math.random(36000, 43200)) -- 21 to 23 hrs
-        else
-            UpdateNMSpawnPoint(nqId)
-            mob:setRespawnTime(600) -- 10 minutes
-            SetServerVariable("[PH]Overlord_Bakgodek", kills + 1)
-        end
-    end
+    SpawnMob(mob:getID() + 1)
 end

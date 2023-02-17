@@ -21,7 +21,7 @@ function onMobRoam(mob)
 
 	if RunAroundTime == 0 then
 		return
-	elseif RunAroundTime < os.time() then
+	elseif RunAroundTime <= os.time() then
         -- Ensure he stays tagged
         local NearbyPlayers = mob:getPlayersInRange(50)
         if NearbyPlayers == nil then return end
@@ -74,7 +74,7 @@ function onMobFight(mob, target)
 
 	if RunAroundTime == 0 then
 		return
-	elseif RunAroundTime < os.time() then
+	elseif RunAroundTime <= os.time() then
 		mob:setLocalVar("RunAroundTime",0)
 		mob:delRoamFlag(512)
 		return

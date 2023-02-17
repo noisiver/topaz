@@ -6,11 +6,14 @@ g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
 
 local function dive(mob)
-    mob:hideName(true)
-    mob:untargetable(true)
-    mob:SetAutoAttackEnabled(false)
-    mob:SetMobAbilityEnabled(false)
-    mob:AnimationSub(5)
+    -- Only dive while roaming if the variable "[hpemde]dive" is set to 1 or higher
+    if mob:getLocalVar("[hpemde]dive") > 0 then
+        mob:hideName(true)
+        mob:untargetable(true)
+        mob:SetAutoAttackEnabled(false)
+        mob:SetMobAbilityEnabled(false)
+        mob:AnimationSub(5)
+    end
 end
 
 local function surface(mob)

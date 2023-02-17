@@ -13,6 +13,7 @@ require("scripts/globals/ability")
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/utils")
+require("scripts/globals/job_util")
 require("scripts/globals/msg")
 
 -- Function to calculate if a hit in a WS misses, criticals, and the respective damage done
@@ -240,9 +241,6 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
                         ((100+(attacker:getMod(tpz.mod.AUGMENTS_TA)))/100)
         end
     end
-
-    --handling phalanx
-    finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
 
     -- We've now accounted for any crit from SA/TA, or damage bonus for a Hybrid WS, so nullify them
     calcParams.forcedFirstCrit = false
@@ -505,10 +503,6 @@ function doPhysicalWeaponskill(attacker, target, wsID, wsParams, tp, action, pri
 	if attacker:hasStatusEffect(tpz.effect.FOOTWORK) and wsID ~= 8 then
 	finaldmg = math.floor(finaldmg * 0.5)
 	end
-    -- Handle Samurai main job damage reduction
-    if attacker:getMainJob() == tpz.job.SAM then
-        finaldmg = math.floor(finaldmg * 0.5)
-    end
 
     finaldmg = finaldmg * WEAPON_SKILL_POWER -- Add server bonus
     calcParams.finalDmg = finaldmg
@@ -651,7 +645,12 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
     local dmg = 0
 
     -- Magic-based WSes never miss, so we don't need to worry about calculating a miss, only if a shadow absorbed it.
-    if not shadowAbsorb(target) then
+    -- Check for AOE magic WS 
+    if not shadowAbsorb(target) or (wsParams.aoe ~= nil) then
+
+        target:delStatusEffect(tpz.effect.COPY_IMAGE)
+        target:delStatusEffect(tpz.effect.BLINK)
+        target:delStatusEffect(tpz.effect.THIRD_EYE)
 
         -- Begin Checks for bonus wsc bonuses. See the following for details:
         -- https://www.bg-wiki.com/bg/Utu_Grip
@@ -699,6 +698,7 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         local bonusdmg = attacker:getMod(tpz.mod.ALL_WSDMG_ALL_HITS) -- For any WS
         if (attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID) > 0) then -- For specific WS
             bonusdmg = bonusdmg + attacker:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE + wsID)
+            --printf("Specific WS dmg increase %u", bonusdmg)
         end
 
         -- Add in bonusdmg
@@ -736,11 +736,10 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
             end
         end
 
-        --handling phalanx
-        dmg = dmg - target:getMod(tpz.mod.PHALANX)
-
         -- handling absorb
-        dmg = adjustForTarget(target, dmg, wsParams.ele)
+        if (wsParams.ele ~= 0) then -- Non-elemental damage cannot be absorbed
+            dmg = adjustForTarget(target, dmg, wsParams.ele)
+        end
         dmg = utils.clamp(dmg, -99999, 99999)
 
         -- Add HP if absorbed
@@ -917,8 +916,10 @@ function getHitRate(attacker, target, capHitRate, firsthit, bonus)
     if (target:hasStatusEffect(tpz.effect.YONIN) and attacker:isFacing(target, 90)) then -- Yonin evasion boost if attacker is facing target
         bonus = bonus - target:getStatusEffect(tpz.effect.YONIN):getPower()
     end
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then --TRAIT_AMBUSH
-        bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+    if attacker:hasTrait(76) then
+        if target:hasStatusEffect(tpz.effect.DOUBT) or attacker:isBehind(target, 90) then --TRAIT_AMBUSH
+            bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+        end
     end
 
     acc = acc + bonus
@@ -971,8 +972,10 @@ function getRangedHitRate(attacker, target, slugwinder, bonus)
     if (bonus == nil) then
         bonus = 0
     end
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then --TRAIT_AMBUSH
-        bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+    if attacker:hasTrait(76) then
+        if target:hasStatusEffect(tpz.effect.DOUBT) or attacker:isBehind(target, 90) then --TRAIT_AMBUSH
+            bonus = bonus + attacker:getMerit(tpz.merit.AMBUSH)
+        end
     end
 
     acc = acc + bonus
@@ -1057,14 +1060,14 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
         pdifmax = cratio *  0.4 + 1.2  -- changed to * 0.4 + 1.2
     elseif cratio <= 0.5 then
         pdifmax = 1
-    --elseif cratio < 1.2 then
-     --   pdifmax = cratio + 0.3
-    --elseif cratio < 1.5 then
-      --  pdifmax = cratio * 0.25 + cratio
-    --elseif cratio < 2.625 then
-       -- pdifmax = cratio + 0.375
+    elseif cratio < 1.2 then
+        pdifmax = cratio + 0.3
+    elseif cratio < 1.5 then
+        pdifmax = cratio * 0.25 + cratio
+    elseif cratio < 2.625 then
+        pdifmax = cratio + 0.375
     else
-        pdifmax = 2  -- changed to 2.0
+        pdifmax = GetMaxWeaponPdif(attacker)
     end
     -- min
 
@@ -1086,7 +1089,7 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
 
     local pdifcrit = {}
     cratio = cratio + 1
-    cratio = utils.clamp(cratio, 0, 2)  -- changed from 3 to 2
+    cratio = utils.clamp(cratio, 0, GetMaxWeaponPdif(attacker)) 
 
     -- printf("ratio: %f min: %f max %f\n", cratio, pdifmin, pdifmax)
 
@@ -1094,14 +1097,14 @@ function cMeleeRatio(attacker, defender, params, ignoredDef, tp)
         pdifmax = cratio *  0.4 + 1.2  -- changed to * 0.4 + 1.2
     elseif cratio <= 0.5 then
         pdifmax = 1
-    --elseif cratio < 1.2 then
-     --   pdifmax = cratio + 0.3
-    --elseif cratio < 1.5 then
-      --  pdifmax = cratio * 0.25 + cratio
-    --elseif cratio < 2.625 then
-       -- pdifmax = cratio + 0.375
+    elseif cratio < 1.2 then
+        pdifmax = cratio + 0.3
+    elseif cratio < 1.5 then
+        pdifmax = cratio * 0.25 + cratio
+    elseif cratio < 2.625 then
+       pdifmax = cratio + 0.375
     else
-        pdifmax = 2  -- changed to 2.0
+        pdifmax = GetMaxWeaponPdif(attacker)
     end
     -- min
 
@@ -1139,8 +1142,8 @@ function cRangedRatio(attacker, defender, params, ignoredDef, tp)
 
     cratio = cratio * atkmulti
 
-    if (cratio > 3 - levelcor) then
-        cratio = 3 - levelcor
+    if (cratio > 2.5 - levelcor) then
+        cratio = 2.5 - levelcor
     end
 
     if (cratio < 0) then
@@ -1307,8 +1310,10 @@ function getMultiAttacks(attacker, target, numHits)
     local oaTwiceRate = attacker:getMod(tpz.mod.MYTHIC_OCC_ATT_TWICE)/100
 
     -- Add Ambush Augments to Triple Attack
-    if (attacker:hasTrait(76) and attacker:isBehind(target, 90)) then -- TRAIT_AMBUSH
-        tripleRate = tripleRate + attacker:getMerit(tpz.merit.AMBUSH) / 3 -- Value of Ambush is 3 per mert, augment gives +1 Triple Attack per merit
+    if attacker:hasTrait(76) then
+        if target:hasStatusEffect(tpz.effect.DOUBT) or attacker:isBehind(target, 90) then --TRAIT_AMBUSH
+            tripleRate = tripleRate + attacker:getMerit(tpz.merit.AMBUSH) / 3 -- Value of Ambush is 3 per mert, augment gives +1 Triple Attack per merit
+        end
     end
     --[[
     -- QA/TA/DA can only proc on the first hit of each weapon or each fist
@@ -1661,7 +1666,7 @@ function GetMobFamily(target)
         return 'Merrow'
     elseif (target:getFamily() == 203) or (target:getFamily() == 204) or (target:getFamily() == 205) then
         return 'Qutrub'
-    elseif (target:getFamily() == 191) then 
+    elseif (target:getFamily() == 191) or (target:getFamily() == 554) then 
         return 'Orobon'
     elseif (target:getFamily() == 1) or (target:getFamily() == 302) then 
         return 'Acrolith'
@@ -1676,4 +1681,21 @@ function GetMobFamily(target)
     elseif (target:getFamily() == 163) or (target:getFamily() == 164) or (target:getFamily() == 313)  then 
         return 'Hydra'
     end
+end
+
+function GetMaxWeaponPdif(attacker)
+    local weaponStyle = utils.getWeaponStyle(attacker)
+    local weaponType = utils.GetWeaponType(attacker)
+
+    if (weaponStyle == 'H2H') or (weaponType == 'GREAT KATANA') then
+        return 2.1
+    elseif (weaponStyle == 'DW' or weaponStyle == 'SHIELD') then
+        return 2.0
+    elseif (weaponType == 'SCYTHE') then
+        return 2.3
+    elseif (weaponStyle == '2H') then
+        return 2.2
+    end
+
+    return 2.0
 end

@@ -57,8 +57,13 @@ g_mixins.dynamis_beastmen = function(mob)
     end)
 
     mob:addListener("ABILITY_TAKE", "DYNAMIS_ABILITY_PROC_CHECK", function(mob, user, ability, action)
-        if procjobs[mob:getMainJob()] == "ja" and math.random(0, 99) < 20 and mob:getLocalVar("dynamis_proc") == 0 then
-            dynamis.procMonster(mob, user)
+        local abilityID = ability:getID()
+
+        -- Pet assault JA's shouldn't proc
+        if (abilityID ~= 69 and abilityID ~= 72 and abilityID ~= 88 and abilityID ~= 138) then
+            if procjobs[mob:getMainJob()] == "ja" and math.random(0, 99) < 20 and mob:getLocalVar("dynamis_proc") == 0 then
+                dynamis.procMonster(mob, user)
+            end
         end
     end)
 

@@ -877,26 +877,38 @@ INSERT INTO `item_latents` VALUES(13925, 291, 1, 0, 25);    -- Counter+1 when HP
 -- -------------------------------------------------------
 -- Roshi Jinpachi +1
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13949, 1, 30, 49, 4277);  -- def+30 Tonosama Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 1, 30, 49, 4278);  -- def+30 Shogun Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 1, 40, 49, 4590);  -- def+40 Salmon Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 1, 40, 49, 4605);  -- def+40 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 1, 40, 49, 5928);  -- def+40 Hinesama Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 1, 40, 49, 5929);  -- def+40 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 1, 80, 49, 4277);  -- def+80 Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 1, 80, 49, 4278);  -- def+80 Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 1, 60, 49, 4590);  -- def+60 Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 1, 60, 49, 4605);  -- def+60 Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 1, 80, 49, 5928);  -- def+80 Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 1, 80, 49, 5929);  -- def+80 Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(13949, 1, 50, 49, 4405);  -- def+50 Rice Ball
 INSERT INTO `item_latents` VALUES(13949, 1, 50, 49, 4604);  -- def+50 Rogue Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 23, 40, 49, 4590); -- atk+40 Salmon Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 23, 40, 49, 4605); -- atk+40 Naval Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 23, 50, 49, 4277); -- atk+50 Tonosama Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 23, 50, 49, 4278); -- atk+50 Shogun Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 23, 60, 49, 5928); -- atk+60 Hinesama Rice Ball
-INSERT INTO `item_latents` VALUES(13949, 23, 60, 49, 5929); -- atk+60 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 23, 40, 49, 4405);  -- atk+40 Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 23, 40, 49, 4604);  -- atk+40 Rogue Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 23, 50, 49, 4590); -- atk+50 Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 23, 50, 49, 4605); -- atk+50 Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 25, 20, 49, 4277); -- acc+20 Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(13949, 25, 20, 49, 4278); -- acc+20 Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(13949, 23, 70, 49, 5928); -- atk+70 Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 23, 70, 49, 5929); -- atk+70 Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 508, 10, 49, 4590); -- +10% TE Counter Salmon Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 508, 10, 49, 4605); -- +10% TE Counter  Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 508, 15, 49, 4277); -- +15% TE Counter Tonosama Rice Ball 
+INSERT INTO `item_latents` VALUES(13949, 508, 15, 49, 4278); -- +15% TE Counter Shogun Rice Ball 
+INSERT INTO `item_latents` VALUES(13949, 508, 15, 49, 5928); -- +15% TE Counter Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 508, 15, 49, 5929); -- +15% TE Counter Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(13949, 230, 5, 49, 4604); -- beast killer 5% (guesstimated) Rogue Rice Ball
 INSERT INTO `item_latents` VALUES(13949, 232, 5, 49, 4604); -- arcana killer 5% (guesstimated) Naval Rice Ball
 INSERT INTO `item_latents` VALUES(13949, 288, 1, 49, 4277); -- double attack 1% Tonosama Rice Ball
 INSERT INTO `item_latents` VALUES(13949, 288, 5, 49, 4278); -- double attack 5% Shogun Rice Ball
 INSERT INTO `item_latents` VALUES(13949, 302, 1, 49, 5928); -- triple attack 1% Hinesama Rice Ball
 INSERT INTO `item_latents` VALUES(13949, 302, 2, 49, 5929); -- triple attack 2% Ojo Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 384, 400, 49, 4277);  -- Gear Haste +4% Tonosama Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 384, 400, 49, 4278);  -- Gear Haste +4% Shogun Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 384, 400, 49, 5928);  -- Gear Haste +4% Hinesama Rice Ball
+INSERT INTO `item_latents` VALUES(13949, 384, 400, 49, 5929);  -- Gear Haste +4% Ojo Rice Ball
 
 -- -------------------------------------------------------
 -- Myochin Kote
@@ -924,7 +936,9 @@ INSERT INTO `item_latents` VALUES(13972, 508, 15, 49, 4278); -- +15% TE Counter 
 INSERT INTO `item_latents` VALUES(13972, 508, 15, 49, 5928); -- +15% TE Counter Hinesama Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 508, 15, 49, 5929); -- +15% TE Counter Ojo Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 230, 5, 49, 4604); -- beast killer 5% (guesstimated) Rogue Rice Ball
-INSERT INTO `item_latents` VALUES(13972, 232, 5, 49, 4604); -- arcana killer 5% (guesstimated) Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 1230, 5, 49, 4604); -- beast circle 5% (guesstimated) Rogue Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 228, 5, 49, 4604); -- aquan killer 5% (guesstimated) Naval Rice Ball
+INSERT INTO `item_latents` VALUES(13972, 1228, 5, 49, 4604); -- aquan circle 5% (guesstimated) Naval Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 288, 1, 49, 4277); -- double attack 1% Tonosama Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 288, 5, 49, 4278); -- double attack 5% Shogun Rice Ball
 INSERT INTO `item_latents` VALUES(13972, 302, 1, 49, 5928); -- triple attack 1% Hinesama Rice Ball
@@ -1775,12 +1789,6 @@ INSERT INTO `item_latents` VALUES(15677, 9, 7, 26, 2);      -- Dusk - Dawn: DEX 
 
 INSERT INTO `item_latents` VALUES(15692, 169, 12, 58, 0);   -- storm crackows movement +12
 
--- -------------------------------------------------------
--- Marabout Sandals
--- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15760, 5, 15, 28, 0);     -- Firesday: MP +15
-INSERT INTO `item_latents` VALUES(15760, 28, 4, 28, 0);     -- Firesday: MATT +4
-
 INSERT INTO `item_latents` VALUES(15774, 25, 10, 58, 0);    -- Storm ring
 
 -- -------------------------------------------------------
@@ -1842,8 +1850,9 @@ INSERT INTO `item_latents` VALUES(15883, 14, 6, 58, 0);     -- chr +6
 -- Sothic Rope
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(15915, 5, 20, 37, 4);     -- Full Moon: MP+20
-INSERT INTO `item_latents` VALUES(15915, 12, 6, 37, 4);     -- Full Moon: INT+6
-INSERT INTO `item_latents` VALUES(15915, 13, 6, 37, 4);     -- Full Moon: MND+6
+INSERT INTO `item_latents` VALUES(15915, 12, 2, 37, 4);     -- Full Moon: INT+6
+INSERT INTO `item_latents` VALUES(15915, 13, 2, 37, 4);     -- Full Moon: MND+6
+INSERT INTO `item_latents` VALUES(15915, 374, 5, 37, 4);    -- Full Moon: Cure Potency +10%
 
 -- -------------------------------------------------------
 -- Lycopodium Sash
@@ -2206,6 +2215,19 @@ INSERT INTO `item_latents` VALUES(17158, 26, 15, 56, 0);     -- Rune Bow +15 R. 
 INSERT INTO `item_latents` VALUES(17158, 27, -12, 56, 0);    -- Rune Bow -12 Enmity
 INSERT INTO `item_latents` VALUES(17158, 369, -3, 56, 0);   -- Rune Bow -3MP/tic
 
+-- -------------------------------------------------------
+-- Shigeto Bow / +1
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(18142, 26, 7, 40, 12);        -- SAM: Racc +7
+INSERT INTO `item_latents` VALUES(18142, 766, 25, 40, 12);      -- SAM: Sidewinder DMG +25%
+
+INSERT INTO `item_latents` VALUES(18143, 26, 8, 40, 12);        -- SAM: Racc +8
+INSERT INTO `item_latents` VALUES(18143, 766, 27, 40, 12);      -- SAM: Sidewinder DMG +27%
+-- -------------------------------------------------------
+-- Amanokakoyumi
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(19215, 24, 15, 40, 12);        -- SAM: Ranged Attack +15
+INSERT INTO `item_latents` VALUES(19215, 26, 15, 40, 12);        -- SAM: Racc +15
 -- -------------------------------------------------------
 -- Arco de Velocidad
 -- -------------------------------------------------------
@@ -3060,20 +3082,15 @@ INSERT INTO `item_latents` VALUES(18768, 23, 12, 9, 4);
 -- -------------------------------------------------------
 -- Lyft Sainti
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 3);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 4);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 5);     -- ATT +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 1, 15, 6);     -- ATT +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 578, 5, 15, 3);     -- Dragon Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 578, 5, 15, 4);     -- Dragon Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 578, 5, 15, 5);     -- Dragon Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 578, 5, 15, 6);     -- Dragon Kick Damage +5~20, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18771, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 583, 5, 15, 3);     -- Tornado Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 583, 5, 15, 4);     -- Tornado Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 583, 5, 15, 5);     -- Tornado Kick Damage +5~20, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18771, 583, 5, 15, 6);     -- Tornado Kick Damage +5~20, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Perdu Wand
@@ -3337,20 +3354,20 @@ INSERT INTO `item_latents` VALUES(19279, 68, 1, 15, 6);     -- EVA +1~4, party s
 -- -------------------------------------------------------
 -- Unshomaru  (Lyft Great Katana)
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 8, 1, 15, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 73, 2, 15, 3);      -- Store TP +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 73, 2, 15, 4);      -- Store TP +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 73, 2, 15, 5);      -- Store TP +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 73, 2, 15, 6);      -- Store TP +2~8, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 161, -2, 15, 3);    -- PDT 2~8%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 161, -2, 15, 4);    -- PDT 2~8%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 161, -2, 15, 5);    -- PDT 2~8%, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 161, -2, 15, 6);    -- PDT 2~8%, party size 3+. Effect strengthens with more members
 
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18453, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 27, 2, 15, 3);     -- Enmity +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 27, 2, 15, 4);     -- Enmity +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 27, 2, 15, 5);     -- Enmity +2~8, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18453, 27, 2, 15, 6);     -- Enmity +2~8, party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Lyft Lance
@@ -3373,20 +3390,10 @@ INSERT INTO `item_latents` VALUES(19306, 25, 1, 15, 6);     -- ACC +1~4, party s
 -- -------------------------------------------------------
 -- Lyft Pole
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 3);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 4);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 5);      -- STR +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 8, 1, 15, 6);      -- STR +1~4, party size 3+. Effect strengthens with more members
-
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 3);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 4);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 5);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 23, 2, 15, 6);     -- ATK +2~8, party size 3+. Effect strengthens with more members
-
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 3);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 4);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 5);     -- ACC +1~4, party size 3+. Effect strengthens with more members
-INSERT INTO `item_latents` VALUES(18609, 25, 1, 15, 6);     -- ACC +1~4, party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 163, -4, 15, 3);     -- Magic damage taken -4~16% party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 163, -4, 15, 4);      -- Magic damage taken -4~16% party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 163, -4, 15, 5);      -- Magic damage taken -4~16% party size 3+. Effect strengthens with more members
+INSERT INTO `item_latents` VALUES(18609, 163, -4, 15, 6);      -- Magic damage taken -4~16% party size 3+. Effect strengthens with more members
 
 -- -------------------------------------------------------
 -- Conqueror 90
@@ -3765,4 +3772,37 @@ INSERT INTO `item_latents` VALUES(15528, 370, -8, 9, 20);    -- Drains 8 HP/tic 
 INSERT INTO `item_latents` VALUES(16154, 346, 2, 9, 13); -- Karura Hachigane Garuda Perp Cost  -2
 INSERT INTO `item_latents` VALUES(14960, 346, 2, 9, 12); -- Evokers Gages Leviathan Perp Cost  -2
 INSERT INTO `item_latents` VALUES(14946, 346, 2, 9, 16); -- Nightmare Gloves Diabolos Perp Cost -2
+INSERT INTO `item_latents` VALUES(15833, 346, 2, 9, 10); -- Diverter's Ring Ifrit Perp Cost -2
+INSERT INTO `item_latents` VALUES(11392, 346, 3, 9, 15); -- Koschei Crackows Ramuh Perp Cost -3
+
+-- -------------------------------------------------------
+-- WAR Relic
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(15072, 25, 15, 13, 57); -- Warrior's Mask Defender: Accuracy +15
+INSERT INTO `item_latents` VALUES(15245, 25, 17, 13, 57); -- Warrior's Mask +1 Defender: Accuracy +17
+INSERT INTO `item_latents` VALUES(10650, 25, 20, 13, 57); -- Warrior's Mask +2 Defender: Accuracy +20
+
+INSERT INTO `item_latents` VALUES(15087, 25, 25, 13, 57); -- Warrior's Lorica Defender: Accuracy +25
+INSERT INTO `item_latents` VALUES(14500, 25, 27, 13, 57); -- Warrior's Lorica +1 Defender: Accuracy +27
+INSERT INTO `item_latents` VALUES(10670, 25, 30, 13, 57); -- Warrior's Lorica +2 Defender: Accuracy +30
+
+INSERT INTO `item_latents` VALUES(15102, 414, 10, 13, 57); -- Warrior's Mufflers Defender: Retaliation DMG +10%
+INSERT INTO `item_latents` VALUES(14909, 414, 12, 13, 57); -- Warrior's Mufflers +1 Defender: Retaliation DMG +12%
+INSERT INTO `item_latents` VALUES(10690, 414, 15, 13, 57); -- Warrior's Mufflers +2 Defender: Retaliation DMG +15%
+
+INSERT INTO `item_latents` VALUES(15117, 384, 300, 13, 57); -- Warrior's Cuisses Defender: Haste +3%
+INSERT INTO `item_latents` VALUES(15580, 384, 400, 13, 57); -- Warrior's Cuisses +1 Defender: Haste +4%
+INSERT INTO `item_latents` VALUES(10710, 384, 600, 13, 57); -- Warrior's Cuisses +2 Defender: Haste +6%
+
+INSERT INTO `item_latents` VALUES(15132, 1308, 10, 13, 57); -- Warrior's Calligae Defender: Blood Rage +10%
+INSERT INTO `item_latents` VALUES(15665, 1308, 12, 13, 57); -- Warrior's Calligae Defender: Blood Rage +12%
+INSERT INTO `item_latents` VALUES(10730, 1308, 15, 13, 57); -- Warrior's Calligae Defender: Blood Rage +15%
+
+
+--  `itemId` smallint(5) unsigned NOT NULL,
+--  `modId` smallint(5) unsigned NOT NULL,
+--  `value` smallint(5) NOT NULL DEFAULT '0',
+--  `latentId` smallint(5) NOT NULL,
+--  `latentParam` smallint(5) NOT NULL,
+--  PRIMARY KEY (`itemId`, `modId`, `value`, `latentId`, `latentParam`)
 

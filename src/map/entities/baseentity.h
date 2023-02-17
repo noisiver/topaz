@@ -159,7 +159,8 @@ enum UPDATETYPE
     UPDATE_NAME     = 0x08,
     UPDATE_LOOK     = 0x10,
     UPDATE_ALL_MOB  = 0x0F,
-    UPDATE_ALL_CHAR = 0x1F
+    UPDATE_ALL_CHAR = 0x1F,
+    UPDATE_DESPAWN  = 0x20,
 };
 
 enum ENTITYFLAGS
@@ -259,6 +260,8 @@ public:
     uint8           namevis;
     uint8           allegiance;         // what types of targets the entity can fight
     uint8           updatemask;         // what to update next server tick to players nearby
+
+    bool m_bReleaseTargIDOnDisappear = false;
 
     std::unique_ptr<CAIContainer> PAI;       // AI container
     CBattlefield* PBattlefield;            // pointer to battlefield (if in one)

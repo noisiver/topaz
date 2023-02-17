@@ -722,10 +722,11 @@ enum EFFECT
     EFFECT_MEDITATE                 = 801, // Dummy effect for SAM Meditate JA
     EFFECT_ELEMENTALRES_DOWN        = 802, // Elemental resistance down
     EFFECT_FULL_SPEED_AHEAD         = 803, // Used to track Full Speed Ahead quest minigame
-    INCREASED_DAMAGE_TAKEN          = 804, // Increased damage taken, in percents
-    CRIT_HIT_RATE_DOWN              = 805, // Critical hit rate down
-    // EFFECT_PLACEHOLDER           = 806,  // Description
-    // 804-1022
+    EFFECT_INCREASED_DAMAGE_TAKEN   = 804, // Increased damage taken, in percents
+    EFFECT_CRIT_HIT_RATE_DOWN       = 805, // Critical hit rate down
+    EFFECT_ENHANCED_MANIFESTATION   = 806, // Makes all spells AOE. Mobs only.
+    // EFFECT_PLACEHOLDER           = 807,  // Description
+    // 807-1022
     EFFECT_DEEPSLEEP                = 901,
     // EFFECT_PLACEHOLDER           = 1023 // The client dat file seems to have only this many "slots", results of exceeding that are untested.
 };

@@ -210,21 +210,21 @@ local battlefields = {
 
     [tpz.zone.LA_VAULE_S] =
     {
-     -- { 0,    ?,    0},   -- Splitting Heirs (S)
+     { 0,    1311,    0},   -- Splitting Heirs (S)
      -- { 1,    ?,    0},   -- Purple, The New Black
-     -- { 2,    ?,    0},   -- The Blood-bathed Crown
+     { 2,    1308,    0},   -- The Blood-bathed Crown
     },
 
     [tpz.zone.BEADEAUX_S] =
     {
-     -- { 0,    ?,    0},   -- Cracking Shells (B)
-     -- { 1,    ?,    0},   -- The Buried God
+     { 0,    1312,    0},   -- Cracking Shells (B)
+     { 1,    1309,    0},   -- The Buried God
     },
 
     [tpz.zone.CASTLE_OZTROJA_S] =
     {
-     -- { 0,    ?,    0},   -- Plucking Wings (W)
-     -- { 1,    ?,    0},   -- A Malicious Manifest
+     { 0,    1313,    0},   -- Plucking Wings (W)
+     { 1,    1310,    0},   -- A Malicious Manifest
      -- { 2,    ?,    0},   -- Manifest Destiny
      -- { 3,    ?,    0},   -- At Journey's End
     },
@@ -289,7 +289,7 @@ local battlefields = {
      -- {13,   77, 1131},   -- Royal Jelly (BS40) -- TODO: all combat mechanics, loot
      -- {14,   78, 1177},   -- The Final Bout (BS50) -- TODO: mobskills Big Blow and Counterstance
         {15,   79, 1130},   -- Up in Arms (BS60)
-     -- {16,   80, 1175},   -- Copycat (KS30)
+        {16,   80, 1175},   -- Copycat (KS30)
 		{17,   81, 1178},   -- Operation Desert Swarm (KS30) 
      -- {18,   82, 1180},   -- Prehistoric Pigeons (KS30) -- TODO: Build resistance to sleep quickly. When one dies, remaining ones become more powerful.
      -- {19,   83, 3351},   -- The Palborough Project (KC30)
@@ -696,6 +696,24 @@ function checkReqs(player, npc, bfid, registrant)
         [1304] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                                                        ) end, -- Central Temenos 2nd Floor
         [1305] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                                                        ) end, -- Central Temenos 3rd Floor
         [1306] = function() return ( player:hasKeyItem(tpz.ki.COSMOCLEANSE) and player:hasKeyItem(tpz.ki.WHITE_CARD)                                                        ) end, -- Central Temenos 4th Floor
+        [1308] = function() return (
+        player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_I) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_II) and
+        player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_III) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_IV) and
+        player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_V) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VI) and
+        player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VII) and player:hasKeyItem(tpz.keyItem.IMPERIAL_LINEAGE_CHAPTER_VIII)                        ) end, -- The Blood-bathed Crown
+        [1309] = function() return (
+        player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_I) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_II) and
+        player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_III) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_IV) and
+        player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_V) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VI) and
+        player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VII) and player:hasKeyItem(tpz.keyItem.THE_WORDS_OF_DONHU_VIII)                                    ) end, -- The Buried God
+        [1310] = function() return (
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_I) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_II) and
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_III) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_IV) and
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_V) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VI) and
+        player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VII) and player:hasKeyItem(tpz.keyItem.HABALOS_ECLOGUE_VERSE_VIII)                              ) end, -- A Malicious Manifest
+        [1311] = function() return ( player:hasKeyItem(tpz.ki.TIGRIS_STONE)                                                                                 ) end, -- Splitting Heirs
+        [1312] = function() return ( player:hasKeyItem(tpz.ki.DIAMOND_SEAL)                                                                                 ) end, -- Cracking Shells
+        [1313] = function() return ( player:hasKeyItem(tpz.ki.XICUS_ROSARY)                                                                                 ) end, -- Plucking Wings
     }
 
     -- requirements to enter a battlefield already registered by a party member

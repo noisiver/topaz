@@ -26,7 +26,7 @@ function onSpellCast(caster, target, spell)
     local params = {}
     params.diff = dMND
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
-    params.bonus = 0 + ((meritBonus - 1) * 2)
+    params.bonus = caster:getMerit(tpz.merit.SLOW_II) * 2
     params.effect = tpz.effect.SLOW
     local resist = applyResistanceEffect(caster, target, spell, params)
     duration = duration * resist

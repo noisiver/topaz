@@ -22,8 +22,8 @@ end
 
 function onMobEngaged(mob)
     local now = os.time()
-    mob:setLocalVar("next", now + 30)
-    mob:setLocalVar("charm", now + math.random(150, 210))
+    mob:setLocalVar("next", now + 45)
+    mob:setLocalVar("charm", now + math.random(120,150))
 end
 
 function onMobFight(mob, target)
@@ -33,7 +33,7 @@ function onMobFight(mob, target)
 
     if now > charm then
         mob:useMobAbility(710)
-        mob:setLocalVar("charm", now + math.random(150, 210))
+        mob:setLocalVar("charm", now + math.random(120,150))
     end
 
     if now > next then
@@ -46,12 +46,12 @@ function onMobFight(mob, target)
 
             if petid == offset + 6 then
                 mob:setLocalVar("spawn", 0)
-                mob:setLocalVar("next", now + 30)
+                mob:setLocalVar("next", now + 45)
             end
         end
 
         if mob:getLocalVar("spawn") > 0 then
-            mob:setLocalVar("next", now + 35) -- 5 seconds extra for summon time
+            mob:setLocalVar("next", now + 50) -- 5 seconds extra for summon time
 
             local pet = GetMobByID(petid)
             mob:entityAnimationPacket("casm")
@@ -68,8 +68,6 @@ function onMobFight(mob, target)
                 local targ = mob:getTarget()
                 if targ then
                     pet:updateEnmity(targ)
-                    -- at random reset JoJ hate on target when a pet is summoned
-                    if math.random(1, 3) == 1 then mob:resetEnmity(targ); end
                 end
             end)
         end

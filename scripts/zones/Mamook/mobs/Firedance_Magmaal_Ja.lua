@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/wotg")
 -----------------------------------
 function onMobSpawn(mob)
 	mob:setDamage(250) -- 350-450 on DD's
@@ -21,15 +22,7 @@ function onMobDespawn(mob)
     mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 461)
-	if isKiller  then 
-		player:addTreasure(5736, mob)--Linen Coin Purse
-	end
-	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(5736, mob)--Linen Coin Purse
-	end
-	if isKiller and math.random(1,100) <= 15 then 
-		player:addTreasure(5736, mob)--Linen Coin Purse
-	end
 end

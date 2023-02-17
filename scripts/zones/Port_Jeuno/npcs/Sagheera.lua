@@ -114,10 +114,10 @@ local afArmorPlusOne =
     [ 93] = {trade = {15002, 2714, 2715,  745}, abc = 25, reward = {15035, 1, 0, 0} }, -- dancers_bangles_+1
     [ 94] = {trade = {15659, 2714, 2715, 2737}, abc = 25, reward = {16357, 1, tpz.augments.PDT, 2} }, -- dancers_tights_+1
     [ 95] = {trade = {15746, 2714, 2715, 2737}, abc = 20, reward = {11393, 1, 0, 0} }, -- dancers_toe_shoes_+1
-    [201] = {trade = {16139, 2714, 2715,  745}, abc = 30, reward = {11476, 1, 0, 0} }, -- dancers_tiara_+1
-    [202] = {trade = {14579, 2714, 2715, 1699}, abc = 35, reward = {11303, 1, 0, 0} }, -- dancers_casaque_+1
+    [201] = {trade = {16139, 2714, 2715,  745}, abc = 30, reward = {11476, 1, tpz.augments.ATTK, 9} }, -- dancers_tiara_+1
+    [202] = {trade = {14579, 2714, 2715, 1699}, abc = 35, reward = {11303, 1, tpz.augments.ATTK, 19} }, -- dancers_casaque_+1
     [203] = {trade = {15003, 2714, 2715,  745}, abc = 25, reward = {15036, 1, 0, 0} }, -- dancers_bangles_+1
-    [204] = {trade = {15660, 2714, 2715, 2737}, abc = 25, reward = {16358, 1, 0, 0} }, -- dancers_tights_+1
+    [204] = {trade = {15660, 2714, 2715, 2737}, abc = 25, reward = {16358, 1, tpz.augments.PDT,2} }, -- dancers_tights_+1
     [205] = {trade = {15747, 2714, 2715, 2737}, abc = 20, reward = {11394, 1, 0, 0} }, -- dancers_toe_shoes_+1
     [ 96] = {trade = {16140, 2716, 2717, 2536}, abc = 20, reward = {11477, 1, 0, 0} }, -- scholars_mortarboard_+1
     [ 97] = {trade = {14580, 2716, 2717, 2530}, abc = 40, reward = {11304, 1, 0, 0} }, -- scholars_gown_+1
@@ -322,7 +322,7 @@ function onTrade(player, npc, trade)
 
             player:confirmTrade()
             player:setCharVar("AFupgrade", tradedCombo)
-            player:setCharVar("AFupgradeDay", os.time() + (3600 - time.min * 60)) -- Current time + Remaining minutes in the hour in seconds (Day Change)
+            player:setCharVar("AFupgradeDay", VanadielDayOfTheYear()) -- Day change
             player:startEvent(312)
         end
     end
@@ -330,6 +330,10 @@ end
 
 function onTrigger(player, npc)
     local wildcatJeuno = player:getCharVar("WildcatJeuno")
+    local Gameday = VanadielDayOfTheYear()
+    local var = player:getCharVar("AFupgradeDay")
+    print(var)
+    print(Gameday)
 
     -- LURE OF THE WILDCAT
     if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.LURE_OF_THE_WILDCAT) == QUEST_ACCEPTED and not utils.mask.getBit(wildcatJeuno, 19) then
@@ -348,7 +352,7 @@ function onTrigger(player, npc)
         -- if player is waiting for an upgraded af or relic
         if afUpgrade > 0 then
             arg3 = afUpgrade
-            if player:getCharVar("AFupgradeDay") > os.time() and player:getGMLevel() < 2 then
+            if player:getCharVar("AFupgradeDay") == Gameday then -- Not ready yet.
                 arg4 = afUpgrade
             end
         end

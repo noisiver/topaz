@@ -370,7 +370,7 @@ end
 
 function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, ignoremacc)
     returninfo = {}
-    -- Below NYI
+    -- Params NYI
     local params = {}
     params.multiplier = dmgmod
     params.tp150 = 1
@@ -383,40 +383,44 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
     local statmod = INT_BASED
-    -- Above NYI
     local resist = 1
     if bonus == nil then bonus = 0 end -- bonus macc
-    local maccBonus = bonus
-    maccBonus = maccBonus + getMobBonusMacc(mob, target, element, params)
     -- damage = mob:getMainLvl()
     -- local mobLevel = damage
     -- Maybe?
     local mobLevel = mob:getMainLvl()
+
     -- get WSC
     local WSC = getMobMagicWSC(mob, params)
+
     -- get ftp
-    -- local tp = mob:getLocalVar("TP") NYI needs to be added to every mob TP move onskillcheck like summoner
     local tp = 1000
     local multiplier = params.multiplier
     local tp150 = params.tp150
     local tp300 = params.tp300
     local ftp = MobMagicfTPModifier(tp, multiplier, tp150, tp300)
+
     -- get dStat
     local dStat = getMobDStat(statmod, mob, target)
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
+
     -- get resist
+    -- Why isn't this a param?
     if ignoremacc ~= nil and ignoremacc == 101 then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
          resist = 1
     else
-        resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), mobAccBonus, element)
+        resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
     end
+
     -- get weather
     local weatherBonus = getMobWeatherDayBonus(mob, element)
+
     -- get magic attack bonus
     local magicAttkBonus = getMobMAB(mob, target)
+
     -- Do the formula!
     local finaldmg = getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
 
@@ -445,46 +449,90 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     return returninfo
 end
 
+function MobNeedlesMagicalMove(mob, target, skill, damage, element, tpeffect)
+    returninfo = {}
+
+    local resist = 1
+    if bonus == nil then bonus = 0 end -- bonus macc
+    local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
+
+    -- get resist
+    resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)
+    local eleres = target:getMod(element+53)
+    if     eleres < 0  and resist < 0.5  then resist = 0.5
+    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+    -- get weather
+    local weatherBonus = getMobWeatherDayBonus(mob, element)
+
+    -- get magic attack bonus
+    local magicAttkBonus = getMobMAB(mob, target)
+
+    -- Do the formula!
+    finaldmg = math.floor(damage * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
+    returninfo.dmg = finaldmg
+
+    return returninfo
+end
+
 -- mob version
 -- effect = tpz.effect.WHATEVER if enfeeble
 -- statmod = the stat to account for resist (INT, MND, etc) e.g. tpz.mod.INT
 -- This determines how much the monsters ability resists on the player.
 function applyPlayerResistance(mob, effect, target, diff, bonus, element)
+    -- TODO: This is very wrong now, needs to be changed to new magic hit rate formulas formulas
     local percentBonus = 0
     local magicaccbonus = 0
     local softcap = 10
-	
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
+    local SDT = getElementalSDT(element, target)
+
+
+	    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
     -- Apply dStat Macc bonus
     magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
+    -- Apply other Macc bonuses
+    magicaccbonus = magicaccbonus + getMobBonusMacc(mob, target, element, params)
+
     if (bonus ~= nil) then
         magicaccbonus = magicaccbonus + bonus
     end
 
     if (effect ~= nil) then
+        SDT = getEnfeeblelSDT(effect, element, target)
         percentBonus = percentBonus - getEffectResistance(target, effect)
     end
 
-    local p = getMagicHitRate(mob, target, 0, element, percentBonus, magicaccbonus)
-    local resist = getMagicResist(p)
+    local params = {}
+    params.effect = effect
+    local p = getMagicHitRate(mob, target, 0, element, SDT, percentBonus, magicaccbonus, params)
+    local resist = getMagicResist(p, element)
 
-    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
-        resist = resist / 2
+    if (effect == nil) then
+        if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
+            resist = utils.clamp(resist, 0.5, 1.0)
+        end
+
+        if SDT <= 50 then -- .5 or below SDT drops a resist tier
+            resist = resist / 2
+        end
     end
 
-    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         resist = 1/8
     end
+
+    -- print(string.format("resist was %f",resist))
 
     return resist
 end
 
 function mobAddBonuses(caster, spell, target, dmg, ele)
 
+    -- Unused? No longer needed? Check this
     local magicDefense = getElementalDamageReduction(target, ele)
     dmg = math.floor(dmg * magicDefense)
 
@@ -722,6 +770,17 @@ function MobFinalAdjustments(dmg, mob, skill, target, attackType, damageType, sh
         dmg = target:rangedDmgTaken(dmg)
     end
 
+    -- Handle TP move DR mod
+    local dmgTPmod = 1 + (target:getMod(tpz.mod.DMGTP) / 100)
+
+    dmg = math.floor(dmg * dmgTPmod)
+
+    -- Handle TPEVA mod
+    if math.random(100) <= target:getMod(tpz.mod.TPEVA) then
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
+        return 0
+    end
+
     if (dmg < 0) then
         return 0
     end
@@ -838,7 +897,8 @@ function MobDrainMove(mob, target, drainType, drain, attackType, damageType)
 end
 
 function MobPhysicalDrainMove(mob, target, skill, drainType, drain)
-    if (MobPhysicalHit(mob, skill)) then
+    -- Check if the skill fully missed. Blocks should also drain and not display a miss!
+    if (MobPhysicalHit(mob, skill)) or mob:getLocalVar("isBlocked") > 0 then
         return MobDrainMove(mob, target, drainType, drain)
     end
 
@@ -914,16 +974,23 @@ function DrainMultipleAttributesPhysical(mob, target, skill, power, tick, count,
     local shadows = math.random(2, 3)
     -- Check for shadows
     local dmg = MobFinalAdjustments(1, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, shadows)
-
-    if not isBlocked(mob, target) then
+    -- Check for block
+    mob:setLocalVar("isBlocked", 0)
+    if isBlocked(mob, target) then -- Try To block
+        target:trySkillUp(mob, tpz.skill.SHIELD, 1)
+        mob:setLocalVar("isBlocked", 1) 
+    end
+    -- Check if the attack wasn't blocked and didn't miss...
+    if (MobPhysicalHit(mob, skill)) then
 		skill:setMsg(DrainMultipleAttributes(mob, target, power, tick, count, duration))
         return count
 	end
+    -- If no shadows, then set msg to miss.
     if not target:hasStatusEffect(tpz.effect.COPY_IMAGE) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_2)
-        and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3)  and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
+        and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_3) and not target:hasStatusEffect(tpz.effect.COPY_IMAGE_4) then
             skill:setMsg(tpz.msg.basic.SKILL_MISS)
-        return 0
-    else
+            return 0
+    else -- Return amount of shadows were consumed to block the attack
         return shadows
     end
 end
@@ -946,9 +1013,13 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
 	    return tpz.msg.basic.SKILL_NO_EFFECT -- resist
     end
 
+    if (typeEffect == nil) then
+        return 0
+    end
     -- Override durations with a single function to make it easier to update a million files durations at once when editing stuff
-    -- Don't override Doom, Gradual Petrification, or Encumbrance
-    if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) then
+    -- Don't override Doom, Gradual Petrification, Encumbrance, or Terror
+    if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) and
+    (typeEffect ~= tpz.effect.TERROR) then
         duration = MobGetStatusEffectDuration(typeEffect)
     end
 
@@ -1016,11 +1087,15 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
 
     -- Add TP scaling
     local tp = mob:getLocalVar("tp")
-    local finalDuration = math.floor(duration * MobBuffDurationTPModifier(tp))
+    local finalDuration = duration
+    if not IsNonScalingBuff(typeEffect) then
+        finalDuration =  math.floor(finalDuration * MobBuffDurationTPModifier(tp))
+    end
 
     if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
+
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
@@ -1181,6 +1256,30 @@ function MobThroatStabMove(mob, target, skill, hpp, attackType, damageType, shad
     return dmg
 end
 
+function MobFullDispelMove(mob, target, skill, param1, param2)
+    local statmod = tpz.mod.INT
+    local element = tpz.magic.ele.DARK
+
+    local resist = applyPlayerResistance(mob, tpz.effect.NONE, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local eleres = target:getMod(element+53)
+    if     eleres < 0  and resist < 0.5  then resist = 0.5
+    elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+	if resist >= 0.5 then
+		if target:hasStatusEffect(tpz.effect.FEALTY) then
+		    return 0
+		else
+            if (param2 ~= nil) then
+                return target:dispelAllStatusEffect(bit.bor(param1, param2))
+            else
+                return target:dispelAllStatusEffect(bit.bor(param1))
+            end
+        end
+	else
+	    return 0
+	end
+end
+
 function MobSelfDispelMove(mob, skill)
     local dispel = mob:removeAllNegativeEffects()
 
@@ -1192,6 +1291,61 @@ function MobSelfDispelMove(mob, skill)
     end
 
     return dispel
+end
+
+function MobTransferEnfeeblesMove(mob, target, skill, range, isAOE)
+    -- list of effects to give in AoE
+    local effects =
+    {
+        tpz.effect.FLASH, tpz.effect.BLINDNESS, tpz.effect.ELEGY, tpz.effect.REQUIEM, tpz.effect.PARALYSIS, tpz.effect.POISON,
+        tpz.effect.CURSE_I, tpz.effect.CURSE_II, tpz.effect.DISEASE, tpz.effect.PLAGUE, tpz.effect.WEIGHT, tpz.effect.BIND,
+        tpz.effect.BIO, tpz.effect.DIA, tpz.effect.BURN, tpz.effect.FROST, tpz.effect.CHOKE, tpz.effect.RASP, tpz.effect.SHOCK, tpz.effect.DROWN,
+        tpz.effect.STR_DOWN, tpz.effect.DEX_DOWN, tpz.effect.VIT_DOWN, tpz.effect.AGI_DOWN, tpz.effect.INT_DOWN, tpz.effect.MND_DOWN,
+        tpz.effect.CHR_DOWN, tpz.effect.ADDLE, tpz.effect.SLOW, tpz.effect.HELIX, tpz.effect.ACCURACY_DOWN, tpz.effect.ATTACK_DOWN,
+        tpz.effect.EVASION_DOWN, tpz.effect.DEFENSE_DOWN, tpz.effect.MAGIC_ACC_DOWN, tpz.effect.MAGIC_ATK_DOWN, tpz.effect.MAGIC_EVASION_DOWN,
+        tpz.effect.MAGIC_DEF_DOWN, tpz.effect.CRIT_HIT_EVASION_DOWN, tpz.effect.MAX_TP_DOWN, tpz.effect.MAX_MP_DOWN, tpz.effect.MAX_HP_DOWN,
+        tpz.effect.SLUGGISH_DAZE_1, tpz.effect.SLUGGISH_DAZE_2, tpz.effect.SLUGGISH_DAZE_3, tpz.effect.SLUGGISH_DAZE_4, tpz.effect.SLUGGISH_DAZE_5,
+        tpz.effect.LETHARGIC_DAZE_1, tpz.effect.LETHARGIC_DAZE_2, tpz.effect.LETHARGIC_DAZE_3, tpz.effect.LETHARGIC_DAZE_4, tpz.effect.LETHARGIC_DAZE_5,
+        tpz.effect.WEAKENED_DAZE_1, tpz.effect.WEAKENED_DAZE_2, tpz.effect.WEAKENED_DAZE_3, tpz.effect.WEAKENED_DAZE_4, tpz.effect.WEAKENED_DAZE_5,
+        tpz.effect.HELIX, tpz.effect.KAUSTRA, tpz.effect.SILENCE,
+    }
+
+    local enmityList = mob:getEnmityList()
+
+    if isAOE then
+        for i, effect in ipairs(effects) do
+            if enmityList and #enmityList > 0 then
+                if mob:hasStatusEffect(effect) then
+                    for v = 1, #enmityList do
+                        local currentEffect = mob:getStatusEffect(effect)
+                        printf("range %s", range)
+                        printf("v loop %s", v)
+                        printf("distance %s", GetPlayerByID(v):checkDistance(mob))
+                        if GetPlayerByID(v):checkDistance(mob) <= range then
+                            MobStatusEffectMove(mob, GetPlayerByID(v), effect, currentEffect:getPower(), currentEffect:getTick(), currentEffect:getTimeRemaining() / 1000)
+                        end
+                    end
+                end
+            end
+        end
+    else
+        for i, effect in ipairs(effects) do
+            if mob:hasStatusEffect(effect) then
+                local currentEffect = mob:getStatusEffect(effect)
+                MobStatusEffectMove(mob, target, effect, currentEffect:getPower(), currentEffect:getTick(), currentEffect:getTimeRemaining() / 1000)
+            end
+        end
+    end
+
+    for i, effect in ipairs(effects) do
+        if mob:hasStatusEffect(effect) then
+            mob:removeAllNegativeEffects()
+            skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
+            return  1,  effect
+        end
+    end
+
+    return false, 0
 end
 
 function MobTakeAoEShadow(mob, target, max)
@@ -1406,6 +1560,58 @@ function getMobWeatherDayBonus(mob, element)
     return dayWeatherBonus
 end
 
+function getMobWeatherMaccBonus(mob, element)
+    local dayWeatherBonus = 0
+    local weather = mob:getWeather()
+
+    if (weather == tpz.magic.singleWeatherStrong[element]) then
+        if (mob:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+            if math.random() < 0.33 then
+                dayWeatherBonus = dayWeatherBonus + 5
+            end
+        end
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 5
+        end
+    elseif (mob:getWeather() == tpz.magic.singleWeatherWeak[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 5
+        end
+    elseif (weather == tpz.magic.doubleWeatherStrong[element]) then
+        if (mob:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+            if math.random() < 0.33 then
+                dayWeatherBonus = dayWeatherBonus + 5
+            end
+        end
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 15
+        end
+    elseif (weather == tpz.magic.doubleWeatherWeak[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 15
+        end
+    end
+
+    local dayElement = VanadielDayElement()
+    if (dayElement == element) then
+        dayWeatherBonus = dayWeatherBonus + mob:getMod(tpz.mod.DAY_NUKE_BONUS)/100 -- sorc. tonban(+1)/zodiac ring
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus + 5
+        end
+    elseif (dayElement == tpz.magic.elementDescendant[element]) then
+        if math.random() < 0.33 then
+            dayWeatherBonus = dayWeatherBonus - 5
+        end
+    end
+
+    if dayWeatherBonus > 15 then
+        dayWeatherBonus = 15
+    end
+
+    -- printf("Macc Weather bonus: %s", dayWeatherBonus)
+    return dayWeatherBonus
+end
+
 --  The stat difference is multiplied by 1.5 when it is positive and multiplied by 1 when it is negative.
 function getMobDStat(statmod, mob, target)
     local dSTat = 0
@@ -1450,6 +1656,9 @@ function getMobBonusMacc(mob, target, element, params)
     if (skillchainTier > 0) then
         magicAccBonus = magicAccBonus + 50 -- 30 in retail
     end
+
+    -- Add weather bonus
+    magicAccBonus = magicAccBonus + getMobWeatherMaccBonus(mob, element)
 
     return magicAccBonus
 end
@@ -1501,69 +1710,87 @@ end
 
 function getMobMagicalDamage(mobLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
     -- Formula is ((Lvl*2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
-    -- Avatars Formula is ((Lvl+2 + WSC) x fTP + dstat) x Magic Burst bonus x resist x dayweather bonus x  MAB/MDB x mdt
     return math.floor(((mobLevel*2 + WSC) * ftp + dStat) * magicBurstBonus * resist * weatherBonus * magicAttkBonus)
 end
 
 function MobGetStatusEffectDuration(effect)
     local duration = 0
-
-    if (effect == tpz.effect.BIND) then
-        duration = 20
-    elseif (effect == tpz.effect.PETRIFICATION) then
-        duration = 10
-    elseif (effect == tpz.effect.TERROR) then
-        duration = 15
-    elseif (effect == tpz.effect.STUN) then
-        duration = 5
-    elseif (effect == tpz.effect.FLASH) then
-        duration = 6
-    elseif (effect == tpz.effect.AMNESIA) then
-        duration = 30
-    elseif (effect == tpz.effect.MUTE) then
-        duration = 20
-    elseif (effect == tpz.effect.CHARM) then
-        duration = 60
-    elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.SLEEP_II) or (effect == tpz.effect.LULLABY) then
-        duration = 90 
-    elseif (effect == tpz.effect.WEIGHT) then
-        duration = 120 
-    elseif (effect == tpz.effect.PARALYSIS) then
-        duration = 120 
-    elseif (effect == tpz.effect.SLOW) or (effect == tpz.effect.ADDLE) then
-        duration = 180 
-    elseif (effect == tpz.effect.SILENCE) then
-        duration = 120 
-    elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) then
-        duration = 90
-    elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
-        duration = 120
-    elseif (effect == tpz.effect.CURSE_II) then
-        duration = 45
-    else
-        duration = 300
+    if (effect ~= nil) then
+        if (effect == tpz.effect.BIND) then
+            duration = 20
+        elseif (effect == tpz.effect.PETRIFICATION) then
+            duration = 10
+        elseif (effect == tpz.effect.STUN) then
+            duration = 5
+        elseif (effect == tpz.effect.FLASH) then
+            duration = 6
+        elseif (effect == tpz.effect.AMNESIA) then
+            duration = 30
+        elseif (effect == tpz.effect.MUTE) then
+            duration = 20
+        elseif (effect == tpz.effect.CHARM_I) then
+            duration = 60
+        elseif (effect == tpz.effect.SLEEP_I) or (effect == tpz.effect.SLEEP_II) or (effect == tpz.effect.LULLABY) then
+            duration = 90 
+        elseif (effect == tpz.effect.WEIGHT) then
+            duration = 60 
+        elseif (effect == tpz.effect.PARALYSIS) then
+            duration = 120 
+        elseif (effect == tpz.effect.SLOW) or (effect == tpz.effect.ADDLE) then
+            duration = 180 
+        elseif (effect == tpz.effect.SILENCE) then
+            duration = 120 
+        elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) or
+        utils.IsElementalDOT(effect) then
+            duration = 90
+        elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
+            duration = 120
+        elseif (effect == tpz.effect.CURSE_II) then
+            duration = 20
+        elseif (effect == tpz.effect.PHYSICAL_SHIELD) or (effect == tpz.effect.MAGIC_SHIELD) then
+            duration = 30
+        else
+            duration = 300
+        end
     end
 
     return duration
 end
 
+function IsNonScalingBuff(typeEffect)
+    local buffs =
+    {
+        tpz.effect.MIGHTY_STRIKES, tpz.effect.HUNDRED_FISTS, tpz.effect.MANAFONT, tpz.effect.CHAINSPELL, tpz.effect.PERFECT_DODGE,
+        tpz.effect.INVINCIBLE, tpz.effect.BLOOD_WEAPON, tpz.effect.FAMILIAR, tpz.effect.SOUL_VOICE, tpz.effect.MEIKYO_SHISUI,
+        tpz.effect.ASTRAL_FLOW, tpz.effect.AZURE_LORE, tpz.effect.OVERDRIVE, tpz.effect.TRANCE, tpz.effect.TABULA_RASA,
+        tpz.effect.BOLSTER, tpz.effect.ELEMENTAL_SFORZO
+    }
+
+    for _, effects in pairs(buffs) do
+        if typeEffect == effects then
+            return true
+        end
+    end
+
+    return false
+end
+
 function MobDmgTPModifier(tp)
-    return (1 + ((tp - 1000) * 0.015) / 100) -- 0, 15, 30
+    return 1 + (math.max(tp - 1000, 0) * 0.00015) -- 0, 15, 30
 end
 
 function MobAccTPModifier(tp)
-    return math.floor((20+ ((tp - 1000) * 0.010))) -- 20, 30, 40
+    return 20 + (math.max(tp - 1000, 0) * 0.010) -- 20, 30, 40
 end
 
 function MobCritTPModifier(tp)
-    return math.floor((15+ ((tp - 1000) * 0.015))) -- 15, 30, 45
+    return 15 + (math.max(tp - 1000, 0) * 0.015) -- 15, 30, 45
 end
 
 function MobEnfeebleDurationTPModifier(effect, tp)
-    return (1 + ((tp - 1000) * 0.050) / 100) -- 0, 50, 100
+    return 1 + (math.max(tp - 1000, 0) * 0.0005) -- 0, 50, 100 
 end
 
-
 function MobBuffDurationTPModifier(tp)
-    return (1 + ((tp - 1000) * 0.050) / 100) -- 0, 50, 100
+    return 1 + (math.max(tp - 1000, 0) * 0.0005) -- 0, 50, 100
 end

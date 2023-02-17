@@ -48,15 +48,14 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
 
+    spell:setMsg(tpz.msg.basic.MAGIC_DMG)
     local damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
     params.effect = tpz.effect.BLINDNESS
-    BlueTryEnfeeble(caster, target, spell, damage, 100, 3, 12, params)
+    BlueTryEnfeeble(caster, target, spell, damage, 100, 0, 12, params)
     params.effect = tpz.effect.BIND
     BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 30, params)
 
-    spell:setMsg(tpz.msg.basic.MAGIC_DMG)
-	
 	return damage
 end

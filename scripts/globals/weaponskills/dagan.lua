@@ -19,6 +19,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
     local ftphp = fTP(tp, 0.22, 0.33, 0.52)
     local ftpmp = fTP(tp, 0.15, 0.22, 0.35)
+    if player:hasStatusEffect(tpz.effect.CURSE_II) then
+        return 0
+    end
     player:addHP(ftphp * player:getMaxHP())
     return 0, 0, false, ftpmp * player:getMaxMP()
 end

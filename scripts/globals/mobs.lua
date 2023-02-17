@@ -141,7 +141,8 @@ tpz.mob.additionalEffect =
     FLASH      = 28,
     RECOVER_MP = 29,
     SLEEP      = 30,
-    DOOM       = 31
+    DOOM       = 31,
+    BUFF_DRAIN = 32,
 }
 tpz.mob.ae = tpz.mob.additionalEffect
 
@@ -465,7 +466,7 @@ local additionalEffects =
     {
         chance = 100,
         ele = tpz.magic.ele.LIGHT,
-        sub = tpz.subEffect.FLASH,
+        sub = tpz.subEffect.LIGHT_DAMAGE,
         msg = tpz.msg.basic.ADD_EFFECT_STATUS,
         applyEffect = true,
         eff = tpz.effect.FLASH,
@@ -474,12 +475,12 @@ local additionalEffects =
         minDuration = 1,
         maxduration = 30,
     },
-    [tpz.mob.ae.RECOVER_MP] =
+    [tpz.mob.ae.RECOVER_MP] = -- TODO: Test
         -- Used by Achamoth. Additional effect: Achamoth recovers 30 MP.
     {
         chance = 100,
         ele = tpz.magic.ele.DARK,
-        sub = tpz.subEffect.MP_DRAIN,
+        sub = 0,
         msg = tpz.msg.basic.ADD_EFFECT_MP_HEAL,
         power = 30,
         code = function(mob, target, power) mob:addMP(power) end,
@@ -511,6 +512,15 @@ local additionalEffects =
         minDuration = 0,
         maxduration = 30,
         tick = 3,
+    },
+    [tpz.mob.ae.BUFF_DRAIN] = -- TODO: Test
+    {
+        chance = 20,
+        ele = tpz.magic.ele.DARK,
+        sub = 0,
+        mod = tpz.mod.INT,
+        bonusAbilityParams = {bonusmab = 0, includemab = false},
+        code = function(mob, target, power) mob:stealStatusEffect(target) end,
     },
 }
 
@@ -782,7 +792,7 @@ function PeriodicMessage(mob, target, msg, textcolor, sender, timer)
     local party = target:getParty()
     local msgTimer = mob:getLocalVar("msgTimer")
 
-    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    --Text color: default(name shown) - 0, gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
     if os.time() >= msgTimer then
         mob:setLocalVar("msgTimer", os.time() + timer)
         for _, players in pairs(party) do
@@ -828,11 +838,37 @@ function PeriodicInstanceMessage(mob, target, msg, textcolor, sender, timer)
     local chars = instance:getChars()
     local msgTimer = mob:getLocalVar("msgTimer")
 
-    --Text color: gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    --Text color: default(name shown) - 0, gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
     if os.time() >= msgTimer then
         mob:setLocalVar("msgTimer", os.time() + timer)
         for _, players in pairs(chars) do
             players:PrintToPlayer(msg, textcolor, sender)
         end
     end
+end
+
+function SetGenericNMStats(mob)
+    local level = mob:getMainLvl()
+    local wepDMG
+
+    if (level < 30) then
+        wepDMG = 50
+    elseif (level < 50) then
+        wepDMG = 70
+    elseif (level < 60) then
+        wepDMG = 80
+    elseif (level < 70) then
+        wepDMG = 100
+    else
+        wepDMG = 125
+    end
+
+    if mob:getMainJob() == tpz.job.MNK then
+        wepDMG = wepDMG * 0.4
+    end
+
+	mob:setDamage(wepDMG)
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ACC, 25) 
 end

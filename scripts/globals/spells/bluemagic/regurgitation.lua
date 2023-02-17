@@ -15,6 +15,7 @@
 require("scripts/globals/bluemagic")
 require("scripts/globals/status")
 require("scripts/globals/magic")
+require("scripts/globals/msg")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
@@ -27,8 +28,7 @@ function onSpellCast(caster, target, spell)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local multi = 2.5
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi * 1.83
@@ -46,7 +46,7 @@ function onSpellCast(caster, target, spell)
     params.mnd_wsc = 0.4
     params.chr_wsc = 0.0
     params.NO_ENMITY = true
-    damage = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+    damage = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
     if (caster:isBehind(target, 15)) then -- guesstimating the angle at 15 degrees here
         damage = math.floor(damage * 1.25)
         -- printf("is behind mob")
@@ -64,11 +64,9 @@ function onSpellCast(caster, target, spell)
 	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params) -- Regurgitation has static enmity https://www.bg-wiki.com/ffxi/Regurgitation
 	
-	if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        local typeEffect = tpz.effect.BIND
-        target:delStatusEffectSilent(typeEffect) -- Wiki says it can overwrite itself or other binds
-        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
+    params.effect = tpz.effect.BIND
+    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 45, params)
 
     return damage
 end

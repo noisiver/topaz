@@ -51,6 +51,7 @@ g_mixins.weapon_break = function(mob)
         or abilityID == 203      -- stutter step
         or abilityID == 205      -- desperate flourish
         or abilityID == 207      -- violent flourish
+        or abilityID == 168      -- blade bash
         or abilityID == 170 then -- angon
 			if math.random(100) <= mob:getLocalVar("BreakChance") then
 				local animationSub = mob:AnimationSub()

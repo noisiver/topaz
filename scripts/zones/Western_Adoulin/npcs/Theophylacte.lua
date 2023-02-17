@@ -23,6 +23,7 @@ function onTrigger(player, npc)
         4148, 316,    -- Antidote
         4151, 800,    -- Echo Drops
         4155, 3360,   -- Remedy
+        4153,  1000,  -- Antacid
     }
     tpz.shop.general(player, stock)
 end

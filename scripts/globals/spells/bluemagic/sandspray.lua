@@ -27,7 +27,7 @@ function onSpellCast(caster, target, spell)
     local typeEffectTwo = tpz.effect.MAGIC_ACC_DOWN
     local dINT = caster:getStat(tpz.mod.MND) - target:getStat(tpz.mod.MND)-- blind uses caster INT vs target MND
     local params = {}
-    params.diff = nil
+    params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0

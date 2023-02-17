@@ -24,8 +24,8 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     local params = {}
+    local dINT = (caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT))
     params.diff = dINT
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
@@ -42,12 +42,6 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
 	
-   	if target:isMob() then
-		if target:isUndead() and target:getFamily() == 227 or target:getFamily() == 88 or target:getFamily() == 89 then -- skeletons
-			resist = 1/16
-		end
-	end
-
     -- Can't overwrite any sleep
     if hasSleepT1Effect(target) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)

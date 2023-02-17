@@ -28,6 +28,13 @@ function onMobWeaponSkill(target, mob, skill)
 
     if dmg > 1250 then dmg = 1250 end -- Don't do silly damage if the mob has high HP
 
+    local veeLadutheTitterer = mob:getID() == 17183035
+
+    if veeLadutheTitterer then
+        mob:setUnkillable(false)
+        mob:setHP(0)
+    end
+
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.NONE)
     return dmg
 end

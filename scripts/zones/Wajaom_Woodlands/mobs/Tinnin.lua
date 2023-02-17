@@ -26,6 +26,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.MDEF, 20)
     mob:setMod(tpz.mod.UDMGMAGIC, 0)
     mob:setMod(tpz.mod.UDMGBREATH, -100)
+    mob:setMod(tpz.mod.DMGSPIRITS, -100) 
     mob:setMod(tpz.mod.SDT_FIRE, 60)
     mob:setMod(tpz.mod.SDT_ICE, 60)
     mob:setMod(tpz.mod.SDT_WIND, 60)
@@ -43,7 +44,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.GIL_MAX, 14000)
     mob:setMobMod(tpz.mobMod.MUG_GIL, 8000)
     mob:setMobMod(tpz.mobMod.DRAW_IN, 1)
-    mob:setMod(tpz.mod.UDMGBREATH, -100) -- immune to breath damage
     mob:setLocalVar("[rage]timer", 3600) -- 60 minutes
     mob:setHP(mob:getMaxHP()/2)
     mob:setUnkillable(true)
@@ -145,10 +145,6 @@ function onMobFight(mob, target)
         mob:useMobAbility(1828) -- Pyric Blast
         mob:useMobAbility(1830) -- Polar Blast
         mob:useMobAbility(1832) -- Barofield
-    end
-
-    if mob:getHPP() < 25 then -- Spams TP moves at low HP
-       mob:setMod(tpz.mod.REGAIN, 500)
     end
 end
 

@@ -30,7 +30,7 @@ function onSpellCast(caster, target, spell)
     params.scattr = SC_LIQUEFACTION
     params.scattr2 = SC_IMPACTION
     params.numhits = 1
-    params.multiplier = 2.0
+    params.multiplier = 2.0 -- 1.5 on retail but it sucked
     params.tp150 = 2.0
     params.tp300 = 2.0
     params.azuretp = 2.0

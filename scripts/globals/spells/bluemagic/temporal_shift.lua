@@ -36,7 +36,7 @@ function onSpellCast(caster, target, spell)
     -- Stun can't be applied if target is already stunned
     if target:hasStatusEffect(tpz.effect.STUN) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
-        return damage
+        return 0
     end
 
     if (resist >= 0.0625) then -- Do it!

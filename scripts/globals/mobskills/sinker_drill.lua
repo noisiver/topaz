@@ -33,6 +33,9 @@ function onMobSkillCheck(target, mob, skill)
 			end
 		end
 	end
+    if AnimationSub == 2 then
+        return 1
+    end
     return 0
 end
 

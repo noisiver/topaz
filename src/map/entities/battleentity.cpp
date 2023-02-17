@@ -38,6 +38,7 @@
 #include "../items/item_weapon.h"
 #include "../lua/luautils.h"
 #include "../packets/action.h"
+#include "../packets/chat_message.h"
 #include "../recast_container.h"
 #include "../roe.h"
 #include "../status_effect_container.h"
@@ -693,7 +694,7 @@ uint16 CBattleEntity::RACC(uint8 skill, uint16 bonusSkill)
     return acc + std::min<int16>(((100 + getMod(Mod::FOOD_RACCP) * acc) / 100), getMod(Mod::FOOD_RACC_CAP));
 }
 
-uint16 CBattleEntity::ACC(uint8 attackNumber, uint8 offsetAccuracy)
+uint16 CBattleEntity::ACC(int8 attackNumber, int8 offsetAccuracy)
 {
     if (this->objtype & TYPE_PC) {
         uint8 skill = 0;
@@ -770,11 +771,11 @@ uint16 CBattleEntity::DEF()
     if (this->StatusEffectContainer->HasStatusEffect(EFFECT_COUNTERSTANCE, 0) && this->objtype == TYPE_PC)
     {
         DEF += (DEF * m_modStat[Mod::DEFP] / 100);
-        return DEF / 2;
+        return std::clamp(DEF / 2, 0, 9999);
     }
 
-    return DEF + (DEF * m_modStat[Mod::DEFP] / 100) +
-        std::min<int16>((DEF * m_modStat[Mod::FOOD_DEFP] / 100), m_modStat[Mod::FOOD_DEF_CAP]);
+    return std::clamp(DEF + (DEF * m_modStat[Mod::DEFP] / 100) +
+        std::min<int16>((DEF * m_modStat[Mod::FOOD_DEFP] / 100), m_modStat[Mod::FOOD_DEF_CAP]), 0, 9999);
 }
 
 uint16 CBattleEntity::EVA()
@@ -1307,7 +1308,6 @@ void CBattleEntity::Die()
     {
         PAI->EventHandler.triggerListener("DEATH", this);
     }
-    this->animationsub = 0;
     SetBattleTargetID(0);
 }
 
@@ -1331,6 +1331,7 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
     if (PSpell->canTargetEnemy())
     {
         effectFlags |= EFFECTFLAG_DETECTABLE;
+        effectFlags |= EFFECTFLAG_DAMAGE;
     }
 
     StatusEffectContainer->DelStatusEffectsByFlag(effectFlags);
@@ -1423,8 +1424,17 @@ void CBattleEntity::OnCastFinished(CMagicState& state, action_t& action)
             // take shadow
             msg = MSGBASIC_SHADOW_ABSORB;
             actionTarget.param = 1;
-            ve = 0;
-            ce = 0;
+
+            // Flash and Enfeebling spells should generate enmity even if they hit a shadow
+            if (PSpell->isNonDamaging())
+            {
+                state.ApplyEnmity(PTarget, ce, ve);
+            }
+            else
+            {
+                ve = 0;
+                ce = 0;
+            }
         }
         else
         {
@@ -1641,6 +1651,8 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         // Set the swing animation.
         actionTarget.animation = attack.GetAnimationID();
 
+        uint16 tponEvadeMod = PTarget->getMod(Mod::TP_GAIN_ON_EVADE);
+
         if (attack.CheckCover())
         {
             PTarget = attackRound.GetCoverAbilityUserEntity();
@@ -1652,6 +1664,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             actionTarget.messageID = 32;
             actionTarget.reaction = REACTION_EVADE;
             actionTarget.speceffect = SPECEFFECT_NONE;
+
+            // Check for TP gain on evade mod
+            if (tponEvadeMod > 0)
+            {
+                PTarget->addTP(tponEvadeMod);
+            }
         }
         else if ((tpzrand::GetRandomNumber(100) < attack.GetHitRate() || attackRound.GetSATAOccured()) &&
                  !PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_ALL_MISS))
@@ -1702,7 +1720,17 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                         }
 
                         float DamageRatio = battleutils::GetDamageRatio(PTarget, this, attack.IsCritical(), 0.f);
-                        auto damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * DamageRatio);
+                        auto damage = 0;
+
+                        if (PTarget->objtype == TYPE_MOB)
+                        {
+                            int8 mobH2HDamage = PTarget->GetMLevel() + 2;
+                            damage = (int32)((std::floor((mobH2HDamage + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * 0.9f) / 2) * DamageRatio);
+                        }
+                        else
+                        {
+                            damage = (int32)((PTarget->GetMainWeaponDmg() + naturalh2hDMG + battleutils::GetFSTR(PTarget, this, SLOT_MAIN)) * DamageRatio);
+                        }
                         actionTarget.spikesParam = battleutils::TakePhysicalDamage(PTarget, this, attack.GetAttackType(), damage, false, SLOT_MAIN, 1, nullptr, true, false, true);
                         actionTarget.spikesMessage = 33;
                         if (PTarget->objtype == TYPE_PC)
@@ -1784,6 +1812,19 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 // Process damage.
                 attack.ProcessDamage();
 
+                // Display Treasure Hunter Message
+                if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
+                {
+                    CMobEntity* PMob = (CMobEntity*)PTarget;
+                    uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
+                    uint16 mobTHLvL = PMob->PEnmityContainer->GetHighestTH();
+
+                    if (playerTHLvl > mobTHLvL)
+                    {
+                        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
+                    }
+                }
+
                 // Try shield block
                 if (attack.IsBlocked())
                 {
@@ -1837,6 +1878,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             actionTarget.messageID = 15;
             attack.SetEvaded(true);
 
+            // Check for TP gain on evade mod
+            if (tponEvadeMod > 0)
+            {
+                PTarget->addTP(tponEvadeMod);
+            }
+
             // Check & Handle Afflatus Misery Accuracy Bonus
             battleutils::HandleAfflatusMiseryAccuracyBonus(this);
         }
@@ -1847,7 +1894,15 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             // add 1 ce for a missed attack for TH application
             if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
             {
-                ((CMobEntity*)PTarget)->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0);
+                CMobEntity* PMob = (CMobEntity*)PTarget;
+                uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
+                uint16 mobTHLvL = PMob->PEnmityContainer->GetHighestTH();
+
+                if (playerTHLvl > mobTHLvL)
+                {
+                    (PMob->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0));
+                    loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
+                }
             }
         }
 

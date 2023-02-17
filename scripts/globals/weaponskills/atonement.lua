@@ -51,13 +51,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local calcParams =
     {
         criticalHit = false,
-        tpHitsLanded = 0,
+        tpHitsLanded = 1,
         extraHitsLanded = 0,
         shadowsAbsorbed = 0,
         bonusTP = 0
     }
 
     local damage = 0
+    action:messageID(target:getID(), tpz.msg.basic.DAMAGE)
 
     if target:getObjType() ~= tpz.objType.MOB then -- this isn't correct but might as well use what was originally here if someone uses this on a non-mob
         if USE_ADOULIN_WEAPON_SKILL_CHANGES then
@@ -124,14 +125,22 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         end
 
         dmg = math.floor(dmg * circlemult / 100) -- Apply circle effect mod
-        printf("dmg before mod %i", dmg)
+        --printf("dmg before mod %i", dmg)
+        -- apply dmg taken mod
+        dmg = math.floor(dmg * (1 + target:getMod(tpz.mod.DMG) / 100))
         --spirits DT mod
         dmg = math.floor(dmg * (1 + utils.clamp(target:getMod(tpz.mod.DMGSPIRITS), -100, 100) / 100))
-        printf("dmg after mod %i", dmg)
-        --handling phalanx
-        dmg = dmg - target:getMod(tpz.mod.PHALANX)
+        --printf("dmg after mod %i", dmg)
 
-        damage = target:breathDmgTaken(dmg)
+        -- Check for absorb. Converts damage to HP.
+        if (dmg > 0 and math.random(0, 99) < target:getMod(tpz.mod.MAGIC_ABSORB)) or
+        (dmg > 0 and math.random(0, 99) < target:getMod(tpz.mod.ABSORB_DMG_CHANCE)) then
+            damage = -dmg
+        else
+            damage = target:breathDmgTaken(dmg)
+            -- handling rampart(magic) stoneskin
+            damage = utils.rampartstoneskin(target, dmg)
+        end
         damage = damage * WEAPON_SKILL_POWER
         calcParams.finalDmg = damage
 

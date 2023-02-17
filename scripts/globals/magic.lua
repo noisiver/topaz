@@ -462,59 +462,60 @@ function getCureFinal(caster, spell, basecure, minCure, isBlueMagic)
     end
 
     local rapture = 1
-    if (isBlueMagic == false) then --rapture doesn't affect BLU cures as they're not white magic
-        if (caster:hasStatusEffect(tpz.effect.RAPTURE)) then
-            rapture = 1.5 + caster:getMod(tpz.mod.RAPTURE_AMOUNT)/100
-            caster:delStatusEffectSilent(tpz.effect.RAPTURE)
-        end
-    end
-
     local dayWeatherBonus = 1
     local ele = spell:getElement()
 
     local castersWeather = caster:getWeather()
+    --rapture doesn't affect BLU cures as they're not white magic
+    -- weather also doesn't
+    if (isBlueMagic == false) then 
+        if (caster:hasStatusEffect(tpz.effect.RAPTURE)) then
+            rapture = 1.5 + caster:getMod(tpz.mod.RAPTURE_AMOUNT)/100
+            caster:delStatusEffectSilent(tpz.effect.RAPTURE)
+        end
 
-    if (castersWeather == tpz.magic.singleWeatherStrong[ele]) then
-        if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+        if (castersWeather == tpz.magic.singleWeatherStrong[ele]) then
+            if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+                if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                    dayWeatherBonus = dayWeatherBonus + 0.10
+                end
+            end
             if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
                 dayWeatherBonus = dayWeatherBonus + 0.10
             end
+        elseif (castersWeather == tpz.magic.singleWeatherWeak[ele]) then
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                dayWeatherBonus = dayWeatherBonus - 0.10
+            end
+        elseif (castersWeather == tpz.magic.doubleWeatherStrong[ele]) then
+            if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+                if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                    dayWeatherBonus = dayWeatherBonus + 0.10
+                end
+            end
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                dayWeatherBonus = dayWeatherBonus + 0.25
+            end
+        elseif (castersWeather == tpz.magic.doubleWeatherWeak[ele]) then
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                dayWeatherBonus = dayWeatherBonus - 0.25
+            end
         end
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus + 0.10
-        end
-    elseif (castersWeather == tpz.magic.singleWeatherWeak[ele]) then
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus - 0.10
-        end
-    elseif (castersWeather == tpz.magic.doubleWeatherStrong[ele]) then
-        if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+
+        local dayElement = VanadielDayElement()
+        if (dayElement == ele) then
             if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
                 dayWeatherBonus = dayWeatherBonus + 0.10
             end
+        elseif (dayElement == tpz.magic.elementDescendant[ele]) then
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
+                dayWeatherBonus = dayWeatherBonus - 0.10
+            end
         end
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus + 0.25
-        end
-    elseif (castersWeather == tpz.magic.doubleWeatherWeak[ele]) then
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus - 0.25
-        end
-    end
 
-    local dayElement = VanadielDayElement()
-    if (dayElement == ele) then
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus + 0.10
+        if (dayWeatherBonus > 1.4) then
+            dayWeatherBonus = 1.4
         end
-    elseif (dayElement == tpz.magic.elementDescendant[ele]) then
-        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1) then
-            dayWeatherBonus = dayWeatherBonus - 0.10
-        end
-    end
-
-    if (dayWeatherBonus > 1.4) then
-        dayWeatherBonus = 1.4
     end
 
     local final = math.floor(math.floor(math.floor(math.floor(basecure) * potency) * dayWeatherBonus) * rapture) * dSeal
@@ -564,40 +565,14 @@ end
 -- The factor to multiply down damage (1/2 1/4 1/8 1/16) - In this format so this func can be used for enfeebs on duration.
 
 function applyResistance(caster, target, spell, params)
-    return applyResistanceEffect(caster, target, spell, params)
-end
 
--- USED FOR Status Effect Enfeebs (blind, slow, para, etc.)
--- Output:
--- The factor to multiply down duration (1/2 1/4 1/8 1/16)
---[[
-local params = {}
-params.attribute = $2
-params.skillType = $3
-params.bonus = $4
-params.effect = $5
-]]
-function applyResistanceEffect(caster, target, spell, params) -- says "effect" but this is the global resistance fetching formula, even for damage spells
-
-    if effect ~= nil then
-        if target:hasStatusEffect(tpz.effect.FEALTY) then -- Fealty forces full resist on enfeebles
-            return 1/16
-         end
-    end
-
-    local effect = params.effect
-    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
-        if (caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) == false) then -- Elemental Seal bypasses resist traits
-            return 0 -- this will make any status effect fail. this takes into account trait+food+gear
-            --print("restrait proc!")
-        end
-    end
-    
-	local diff = params.diff or (caster:getStat(params.attribute) - target:getStat(params.attribute))
+  	local diff = params.diff or (caster:getStat(params.attribute) - target:getStat(params.attribute))
     local skill = params.skillType
     local bonus = params.bonus
+    -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
 
     local element = spell:getElement()
+    local SDT = getElementalSDT(element, target)
     local percentBonus = 0
     local magicaccbonus = getSpellBonusAcc(caster, target, spell, params)
     
@@ -621,36 +596,115 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
         magicaccbonus = magicaccbonus + params.skillBonus
     end
 
-    local p = getMagicHitRate(caster, target, skill, element, percentBonus, magicaccbonus)
-    local res = getMagicResist(p)
-
-    -- Elemental Seal forces zero resist before SDT is applied
-    if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-        res = 1.0
-    end
+    local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
+    local res = getMagicResist(p, element)
 
 
-   	if getElementalSDT(element, target) <= 50 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-		res = 1.0
-    elseif getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
-        res = res / 2
-    end
-
-	if getElementalSDT(element, target) <= 5 and caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
-		res = 1/4
-    elseif getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
-        res = 1/8
+    if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
+        res = utils.clamp(res, 0.5, 1.0)
     end
 	
 
-    
+    if SDT <= 50 then -- .5 or below SDT drops a resist tier
+        res = res / 2
+    end
+
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        res = 1/8
+    end
+
+
     if target:isPC() and element ~= nil and element > 0 and element < 9 then
         -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and res < 0.5  then res = 0.5
         elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
-    --print(string.format("res was %f",res))
+    -- print(string.format("res was %f",res))
+    
+    return res
+end
+
+-- USED FOR Status Effect Enfeebs (blind, slow, para, etc.)
+-- Output:
+-- The factor to multiply down duration (1/2 1/4 1/8 1/16)
+--[[
+local params = {}
+params.attribute = $2
+params.skillType = $3
+params.bonus = $4
+params.effect = $5
+]]
+function applyResistanceEffect(caster, target, spell, params) -- says "effect" but this is the global resistance fetching formula, even for damage spells
+
+    local effect = params.effect
+    if effect ~= nil and math.random() < getEffectResistanceTraitChance(caster, target, effect) then
+        if not IgnoreResTraitCheck(caster) then -- Elemental Seal and Stymie bypasses resist traits
+            -- print("restrait proc!")
+            return 0 -- this will make any status effect fail. this takes into account trait+food+gear
+        end
+    end
+
+    if effect ~= nil then
+        if target:hasStatusEffect(tpz.effect.FEALTY) then -- Fealty forces full resist on enfeebles
+            return 1/16
+         end
+    end
+    
+	local diff = params.diff or (caster:getStat(params.attribute) - target:getStat(params.attribute))
+    local skill = params.skillType
+    local bonus = params.bonus
+    -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
+
+    local element = spell:getElement()
+    local SDT = getEnfeeblelSDT(effect, element, target)
+    local percentBonus = 0
+    local magicaccbonus = getSpellBonusAcc(caster, target, spell, params)
+    
+    local softcap = params.dStatAccSoftCap -- 10 is set on all nukes. everything else is nil
+    if softcap == nil then
+        softcap = 10
+    end
+
+    -- Apply dStat Macc bonus
+    magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
+
+    if (bonus ~= nil) then -- seems like this only exists if the spell is threnody. bonus macc when using right ele staff.
+        magicaccbonus = magicaccbonus + bonus -- this now also exists for tier 3 "San" Ninjutsu with the appropriate merits
+    end
+
+    if (effect ~= nil) then
+        percentBonus = percentBonus - getEffectResistance(target, effect) -- this is a HITRATE penalty not a MEVA BOOST (but they are the same thing if macc > meva)
+    end -- traits are handled later
+    
+    if params.skillBonus ~= nil then -- bard only it seems like. takes into account signing+instrument skill. i'll need to verify those formulas later
+        magicaccbonus = magicaccbonus + params.skillBonus
+    end
+
+    -- Apply "Status EfFect" Magic Accuracy Mod
+    magicaccbonus = magicaccbonus + caster:getMod(tpz.mod.STATUS_EFFECT_MACC)
+
+    local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
+    local res = getMagicResist(p, element)
+
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+        res = 1/8
+    end
+
+    -- Check for guaranteed landing mod (tpz.mod.DIVINE_NEVER_MISS etc) or Stymie
+    if CheckForGuaranteedLandRate(caster, params) or caster:hasStatusEffect(tpz.effect.STYMIE) and (SDT > 10) then
+        -- printf("Spell is guaranteed to land!")
+        res = 1
+    end
+
+    if target:isPC() and element ~= nil and element > 0 and element < 9 then
+        -- shiyo's research https://discord.com/channels/799050462539284533/799051759544434698/827052905151332354 (Project Wings Discord)
+        local eleres = target:getMod(element+53)
+        if     eleres < 0  and res < 0.5  then res = 0.5
+        elseif eleres < 1 and res < 0.25 then res = 0.25 end
+    end
+
+    -- print(string.format("enfeeble res was %f", res))
     
     return res
 end
@@ -658,18 +712,16 @@ end
 -- Applies resistance for things that may not be spells - ie. Quick Draw
 function applyResistanceAbility(player, target, element, skill, bonus)
 
-    local p = getMagicHitRate(player, target, skill, element, 0, bonus)
-    local res = getMagicResist(p)
+    local params = {}
+    local SDT = getElementalSDT(element, target)
+    local p = getMagicHitRate(player, target, skill, element, SDT, 0, bonus, params)
+    local res = getMagicResist(p, element)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         return 1/16
     end
 
-    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
-        res = res / 2
-    end
-
-    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 
@@ -677,21 +729,36 @@ function applyResistanceAbility(player, target, element, skill, bonus)
 end
 
 -- Applies resistance for additional effects
-function applyResistanceAddEffect(player, target, element, bonus)
+function applyResistanceAddEffect(player, target, element, bonus, effect)
 
-    local p = getMagicHitRate(player, target, 0, element, 0, bonus)
-	local res = getMagicResist(p)
+    local SDT = getElementalSDT(element, target)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         return 1/16
     end
 
-    --printf("res before SDT %d", res * 100)
-    if getElementalSDT(element, target) <= 50 then -- .5 or below SDT drops a resist tier
-        res = res / 2
+    if (effect ~= nil) then
+        SDT = getEnfeeblelSDT(effect, element, target)
     end
 
-    if getElementalSDT(element, target) <= 5 then -- SDT tier .05 makes you lose ALL coin flips
+    local params = {}
+    params.effect = effect
+
+    local p = getMagicHitRate(player, target, 0, element, SDT, 0, bonus, params)
+	local res = getMagicResist(p, element)
+
+    if (effect == nil) then
+        if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
+            res = utils.clamp(res, 0.5, 1.0)
+        end
+
+        --printf("res before SDT %d", res * 100)
+        if SDT <= 50 then -- .5 or below SDT drops a resist tier
+            res = res / 2
+        end
+    end
+
+    if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
     end
 
@@ -701,17 +768,24 @@ function applyResistanceAddEffect(player, target, element, bonus)
         if     eleres < 0  and res < 0.5  then res = 0.5
         elseif eleres < 1 and res < 0.25 then res = 0.25 end
     end
-    --printf("res after SDT %d", res * 100)
+    -- printf("res was %f", res)
     return res
 end
 
-function getMagicHitRate(caster, target, skillType, element, percentBonus, bonusAcc)
-    -- resist everything if magic shield is active
-    if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
-        return 0
+function getMagicHitRate(caster, target, skillType, element, SDT, percentBonus, bonusAcc, params) -- TODO: add SDT arg to calls
+
+    -- Resist everything if magic shield is active
+    -- BLU spells ignore this
+    if (skillType ~= tpz.skill.BLUE_MAGIC) then
+        if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
+            if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() < 2 then
+                return 0
+            end
+        end
     end
 
     local magiceva = 0
+    local effect = params.effect
 
     if (bonusAcc == nil) then
         bonusAcc = 0
@@ -723,13 +797,7 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
     if skillType ~= 0 then
         local skillBonus = 0
         local skillAmount = caster:getSkillLevel(skillType)
-        
-        if skillAmount > 200 then
-            skillBonus = 200 + (skillAmount - 200)*0.9
-        else
-            skillBonus = skillAmount
-        end
-        
+        skillBonus = skillAmount
         magicacc = magicacc + skillBonus
     else
         -- for mob skills / additional effects which don't have a skill
@@ -737,14 +805,16 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
     end
 
     local resMod = 0 -- Some spells may possibly be non elemental, but have status effects.
-    if (element ~= tpz.magic.ele.NONE) then
-        resMod = target:getMod(tpz.magic.resistMod[element])
 
+    if (element > 0) and (effect == nil) then -- Element resist does not work on status effects with an EEM(Like para)
+        resMod = target:getMod(tpz.magic.resistMod[element])
         -- Add acc for elemental affinity accuracy and element specific accuracy
         local affinityBonus = AffinityBonusAcc(caster, element)
         local elementBonus = caster:getMod(spellAcc[element])
         -- print(elementBonus)
         bonusAcc = bonusAcc + affinityBonus + elementBonus
+        -- Apply resistance mods
+        bonusAcc = bonusAcc - resMod
     end
 
     magicacc = magicacc + caster:getMerit(tpz.merit.MAGIC_ACCURACY)
@@ -753,20 +823,45 @@ function getMagicHitRate(caster, target, skillType, element, percentBonus, bonus
 
     -- Base magic evasion (base magic evasion plus resistances(players), plus elemental defense(mobs)
     -- target:getMod(MEVA) is set to a capped skill of rank C when the mob spawns
-    local magiceva = target:getMod(tpz.mod.MEVA) + resMod
+    -- formula = Rank C skill @ level * EEM tier multi
+    -- where 100% is t = 0, 115% is t = -1, and 85% is t = 1
+    -- 10% tier auto floors your hit rate, 5% auto fails
 
-    magicacc = magicacc + bonusAcc
+    -- Callculate base magic evasion. F for players C for everything else
+    local baseMagiceva
+
+    if target:isPC() then
+        baseMagiceva = math.floor(utils.getSkillLvl(12, target:getMainLvl())) -- 171 for a level 75 player
+    else
+        baseMagiceva = math.floor(utils.getMobSkillLvl(3, target:getMainLvl()))
+    end
+    -- printf("Base MEVA: %s", baseMagiceva)
+    -- get +MEVA mod
+    local mevaMod = target:getMod(tpz.mod.MEVA) - baseMagiceva
+    -- printf("mevaMod: %s", mevaMod)
+    -- apply SDT
+    local tier = getSDTTier(SDT)
+    local multiplier = getSDTMultiplier(tier)
+    -- print(string.format('SDT: %s, Tier: %s, Multiplier: %s', SDT, tier, multiplier))
+    baseMagiceva = math.floor(baseMagiceva * multiplier)
+    -- printf("Base MEVA after multiplier: %s", baseMagiceva)
+    -- add +MEVA mod
+    local magiceva = baseMagiceva + mevaMod
+    -- printf("MEVA after +MEVA mod: %s", magiceva)
+    -- add resist gear/mods(barspells etc)
+    magiceva = magiceva + resMod
+    -- printf("MEVA after gear/barspells: %s", magiceva)
+    magicacc = math.floor(magicacc + bonusAcc)
 
     -- Add macc% from food
     local maccFood = magicacc * (caster:getMod(tpz.mod.FOOD_MACCP)/100)
-    magicacc = magicacc + utils.clamp(maccFood, 0, caster:getMod(tpz.mod.FOOD_MACC_CAP))
+    magicacc = math.floor(magicacc + utils.clamp(maccFood, 0, caster:getMod(tpz.mod.FOOD_MACC_CAP)))
+    -- printf("MACC: %s", magicacc)
     
-    local SDT = getElementalSDT(element, target)
-
-    return calculateMagicHitRate(magicacc, magiceva, percentBonus, caster:getMainLvl(), target:getMainLvl(), SDT)
+    return calculateMagicHitRate(magicacc, magiceva, element, percentBonus, caster:getMainLvl(), target:getMainLvl(), SDT)
 end
 
-function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targetLvl, SDT)
+function calculateMagicHitRate(magicacc, magiceva, element, percentBonus, casterLvl, targetLvl, SDT)
     local p = 0
     
     -- percentBonus is a bit deceiving of a name. it's either 0 or a negative number. its only application is specific effect resistance (i.e. +5 resist to paralyze = -5% hitrate on incoming paras)
@@ -776,8 +871,10 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     
     magicacc = magicacc + (casterLvl - targetLvl)*4
     local dMAcc = magicacc - magiceva
+    -- printf("dMAcc %s", dMAcc)
     -- FOR TESTING MACC AND MEVA!
-    -- print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva)) 
+    -- print(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
+    --GetPlayerByID(2):PrintToPlayer(string.format("magicacc = %u, magiceva = %u",magicacc,magiceva))
     if dMAcc < 0 then -- when penalty, half effective
         p = 50 + math.floor(dMAcc/2)
     else
@@ -786,12 +883,17 @@ function calculateMagicHitRate(magicacc, magiceva, percentBonus, casterLvl, targ
     p = utils.clamp(p, 5, 95)
     
     p = p + percentBonus
+
+    -- Check SDT tiers
+    local tier = getSDTTier(SDT)
+    -- print(string.format('calculateMagicHitRate SDT: %s, Tier: %s,', SDT, tier))
+    -- T10 sets your hit rate to 5% max
+    if (tier >= 10) then
+        p = 5
+    end
     p = utils.clamp(p, 5, 95)
-    --print(string.format("step1: %u",p))
-	--GetPlayerByID(6):PrintToPlayer(string.format("pre SDT: %u",p))
-    p = p * SDT/100
-	--print(string.format("step2: %u",p))
-	--GetPlayerByID(6):PrintToPlayer(string.format("post SDT: %u",p))
+    -- print(string.format("Magic Hit Rate(p): %u",p))
+
     return utils.clamp(p, 5, 95)
 end
 
@@ -827,6 +929,7 @@ function getMagicResist(magicHitRate)
         resist = 1.0
         --printf("1.0")
     end
+    -- printf("Resist: %s", resist)
 
     return resist
 end
@@ -972,6 +1075,9 @@ function getSpellBonusAcc(caster, target, spell, params)
         magicAccBonus = magicAccBonus + caster:getMerit(tpz.merit.MAGICAL_ACCURACY)
     end
 
+    -- Add weather bonus
+    magicAccBonus = magicAccBonus + addWeatherMaccBonus(caster, spell, target, params)
+
     return magicAccBonus
 end
 
@@ -1071,10 +1177,12 @@ end
     dmg = target:magicDmgTaken(dmg)
 
     if (dmg > 0) then
-        dmg = dmg - target:getMod(tpz.mod.PHALANX)
+        if not (spell:getID() == 247) and not (spell:getID() == 248) then -- Aspir isn't reduced by Phalanx
+            dmg = dmg - target:getMod(tpz.mod.PHALANX)
+        end
         dmg = utils.clamp(dmg, 0, 99999)
     end
-    
+
     --handling rampart stoneskin
     dmg = utils.rampartstoneskin(target, dmg)
     
@@ -1157,13 +1265,14 @@ function calculateMagicBurst(caster, spell, target, params)
     -- Obtain first multiplier from gear, atma and job traits
     modburst = modburst + (caster:getMod(tpz.mod.MAG_BURST_BONUS) / 100) + params.AMIIburstBonus
 
-    if caster:isBehind(target) and caster:hasStatusEffect(tpz.effect.INNIN) then
-        modburst = modburst + (caster:getMerit(tpz.merit.INNIN_EFFECT)/100)
-    end
-
     -- Cap bonuses from first multiplier at 40% or 1.4
     if (modburst > 1.4) then
         modburst = 1.4
+    end
+
+    -- Innin adds +30 Magic Burst bonus that bypasses the 40 cap
+    if caster:isBehind(target) and caster:hasStatusEffect(tpz.effect.INNIN) then 
+        modburst = modburst + 0.30 + (caster:getMerit(tpz.merit.INNIN_EFFECT)/100)
     end
 
     -- Obtain second multiplier from skillchain
@@ -1322,6 +1431,58 @@ function addBonuses(caster, spell, target, dmg, params)
     -- print(magicDmgMod)
 
     return dmg
+end
+
+function addWeatherMaccBonus(caster, spell, target, params)
+    local ele = spell:getElement()
+    local dayWeatherBonus = 0
+    local weather = caster:getWeather()
+
+    if (weather == tpz.magic.singleWeatherStrong[ele]) then
+        if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1 or isHelixSpell(spell)) then
+                dayWeatherBonus = dayWeatherBonus + 5
+            end
+        end
+        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1 or isHelixSpell(spell)) then
+            dayWeatherBonus = dayWeatherBonus + 5
+        end
+    elseif (caster:getWeather() == tpz.magic.singleWeatherWeak[ele]) then
+        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1 or isHelixSpell(spell)) then
+            dayWeatherBonus = dayWeatherBonus - 5
+        end
+    elseif (weather == tpz.magic.doubleWeatherStrong[ele]) then
+        if (caster:getMod(tpz.mod.IRIDESCENCE) >= 1) then
+            if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1 or isHelixSpell(spell)) then
+                dayWeatherBonus = dayWeatherBonus + 5
+            end
+        end
+        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1 or isHelixSpell(spell)) then
+            dayWeatherBonus = dayWeatherBonus + 15
+        end
+    elseif (weather == tpz.magic.doubleWeatherWeak[ele]) then
+        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1 or isHelixSpell(spell)) then
+            dayWeatherBonus = dayWeatherBonus - 15
+        end
+    end
+
+    local dayElement = VanadielDayElement()
+    if (dayElement == ele) then
+        dayWeatherBonus = dayWeatherBonus + caster:getMod(tpz.mod.DAY_NUKE_BONUS)/100 -- sorc. tonban(+1)/zodiac ring
+        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1 or isHelixSpell(spell)) then
+            dayWeatherBonus = dayWeatherBonus + 5
+        end
+    elseif (dayElement == tpz.magic.elementDescendant[ele]) then
+        if (math.random() < 0.33 or caster:getMod(elementalObi[ele]) >= 1 or isHelixSpell(spell)) then
+            dayWeatherBonus = dayWeatherBonus - 5
+        end
+    end
+
+    if dayWeatherBonus > 15 then
+        dayWeatherBonus = 15
+    end
+
+    return dayWeatherBonus
 end
 
 function addBonusesAbility(caster, ele, target, dmg, params)
@@ -1503,7 +1664,7 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
         end
     end
 
-    local resm = applyResistance(caster, target, spell, params)
+    local resm = applyResistanceEffect(caster, target, spell, params)
     -- print("rsem=" .. resm)
 
     if resm < 0.5 then
@@ -1527,6 +1688,11 @@ function handleThrenody(caster, target, spell, basePower, baseDuration, modifier
 
     if caster:hasStatusEffect(tpz.effect.TROUBADOUR) then
         duration = duration * 2
+    end
+
+    -- Check for magic burst
+    if GetEnfeebleMagicBurstMessage(caster, spell, target) then
+        spell:setMsg(spell:getMagicBurstMessage()) 
     end
 
     -- Set spell message and apply status effect
@@ -1666,27 +1832,245 @@ function getElementalSDT(element, target) -- takes into account if magic burst w
         end
     end
 
-    local SPDefDown = target:getMod(tpz.mod.SPDEF_DOWN)/100
-    if SPDefDown >= 100 then SPDefDown = 99 end -- Breaks if it goes to 100
-    local SDTcoe = (1 - SPDefDown/100) -- warrior's tomahawk, or whm's banish against undead
-    -- Never make SPDEF down 100 or this breaks
-    if SDTcoe < 0.03 then
-        SDTcoe = 0.03
-    elseif SDTcoe > 1 then
-        SDTcoe = 1
-    end
-    
-    if SDT < 100 then -- these SPDEF_DOWN effects don't mean anything if it's the mob's weakness already
-        SDT = 100 - ((100 - SDT) * SDTcoe)
-    end
-    
-    if SDT < 5 then
-        SDT = 5
-    elseif SDT > 150 then
-        SDT = 150
-    end
+    -- Add banish on undead / tomahawk effect
+    local SDTResistanceReduction = target:getMod(tpz.mod.SPDEF_DOWN) / 100
+    SDT = utils.clamp(math.max(100 - SDT, 0) * (SDTResistanceReduction) + SDT, 5, 150)
+
     --print(string.format(SDT))
     return SDT
+end
+
+function getEnfeeblelSDT(status, element, target) -- takes into account if magic burst window is open -> increase tier by 1
+    if target:isPC() then
+        return 100
+    end
+
+    local SDT = 100
+    local SDTmod = 0
+    -- printf("status: %s", status)
+    if  status == tpz.effect.AMNESIA then
+        SDTmod = tpz.mod.EEM_AMNESIA
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.VIRUS then
+        SDTmod = tpz.mod.EEM_VIRUS
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.SILENCE then
+        SDTmod = tpz.mod.EEM_SILENCE
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.WEIGHT then
+        SDTmod = tpz.mod.EEM_GRAVITY
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.STUN then
+        SDTmod = tpz.mod.EEM_STUN
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.LULLABY then
+        SDTmod = tpz.mod.EEM_LIGHT_SLEEP
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.CHARM_I then
+        SDTmod = tpz.mod.EEM_CHARM
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.CHARM_II then
+        SDTmod = tpz.mod.EEM_CHARM
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.PARALYSIS then
+        SDTmod = tpz.mod.EEM_PARALYZE
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.BIND then
+        SDTmod = tpz.mod.EEM_BIND
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.SLOW then
+        SDTmod = tpz.mod.EEM_SLOW
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.PETRIFICATION then
+        SDTmod = tpz.mod.EEM_PETRIFY
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.TERROR then
+        SDTmod = tpz.mod.EEM_TERROR
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.POISON then
+        SDTmod = tpz.mod.EEM_POISON
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.SLEEP_I then
+        SDTmod = tpz.mod.EEM_DARK_SLEEP
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.SLEEP_II then
+        SDTmod = tpz.mod.EEM_DARK_SLEEP
+        SDT = target:getMod(SDTmod)
+    elseif status == tpz.effect.BLINDNESS then
+        SDTmod = tpz.mod.EEM_BLIND
+        SDT = target:getMod(SDTmod)
+    else -- No status effect mod exists, default to the element of it's status effect
+        SDTmod = getElementalSDT(element, target)
+        SDT = SDTmod
+    end
+
+    -- printf("SDTmod: %s", SDTmod)
+    -- printf("SDT %s", SDT)
+    
+    if SDT == 0 or SDT == nil then -- invalid SDT, it was never set on this target... just default it.
+        SDT = 100
+		--print("invalid SDT detected")
+    end
+
+    -- Handle Magic Bursts
+    local MB1 = 0
+    local MB2 = 0
+    MB1, MB2 = FormMagicBurst(element, target)
+    
+    if MB1 > 0 then -- window is open for this element
+        if SDT == 5 then
+            SDT = 10
+        elseif SDT == 10 then
+            SDT = 15
+        elseif SDT == 15 then
+            SDT = 20
+        elseif SDT == 20 then
+            SDT = 25
+        elseif SDT == 25 then
+            SDT = 30
+        elseif SDT == 30 then
+            SDT = 40
+        elseif SDT == 40 then
+            SDT = 50
+        elseif SDT == 50 then
+            SDT = 60
+        elseif SDT == 60 then
+            SDT = 70
+        elseif SDT == 70 then
+            SDT = 85
+        elseif SDT == 85 then
+            SDT = 100
+        elseif SDT == 100 then
+            SDT = 115
+        elseif SDT == 115 then
+            SDT = 130
+        elseif SDT == 130 then
+            SDT = 150
+        elseif SDT == 150 then
+            SDT = 150
+        else
+            print(string.format("non-standard SDT tier on target %u valve pls fix",target:getID()))
+            SDT = SDT + 10
+        end
+    end
+
+    -- Handle Sengikori
+    if target:isMob() and target:hasStatusEffect(tpz.effect.SENGIKORI) then
+        if SDT == 5 then
+            SDT = 10
+        elseif SDT == 10 then
+            SDT = 15
+        elseif SDT == 15 then
+            SDT = 20
+        elseif SDT == 20 then
+            SDT = 25
+        elseif SDT == 25 then
+            SDT = 30
+        elseif SDT == 30 then
+            SDT = 40
+        elseif SDT == 40 then
+            SDT = 50
+        elseif SDT == 50 then
+            SDT = 60
+        elseif SDT == 60 then
+            SDT = 70
+        elseif SDT == 70 then
+            SDT = 85
+        elseif SDT == 85 then
+            SDT = 100
+        elseif SDT == 100 then
+            SDT = 115
+        elseif SDT == 115 then
+            SDT = 130
+        elseif SDT == 130 then
+            SDT = 150
+        elseif SDT == 150 then
+            SDT = 150
+        else
+            print(string.format("non-standard SDT tier on target %u valve pls fix",target:getID()))
+            SDT = SDT + 10
+        end
+    end
+
+    -- print(string.format("Enfeeble SDT: %s", SDT))
+    return SDT
+end
+
+function getSDTTier(SDT)
+    local tier = 0
+
+    if (SDT == 150) then
+        tier = -3
+    elseif (SDT == 130) then
+        tier = -2
+    elseif (SDT == 115) then
+        tier = -1
+    elseif (SDT == 100) then
+        tier = 0
+    elseif (SDT == 85) then
+        tier = 1
+    elseif (SDT == 70) then
+        tier = 2
+    elseif (SDT == 60) then
+        tier = 3
+    elseif (SDT == 50) then
+        tier = 4
+    elseif (SDT == 40) then
+        tier = 5
+    elseif (SDT == 30) then
+        tier = 6
+    elseif (SDT == 25) then
+        tier = 7
+    elseif (SDT == 20) then
+        tier = 8
+    elseif (SDT == 15) then
+        tier = 9
+    elseif (SDT == 10) then -- because 10% (T10) tier forcibly sets your hit rate to 5%
+        tier = 10
+    elseif (SDT == 5) then -- 5% (T11) causes you to auto fail all the coin flips
+        tier = 11
+    end
+
+    return tier
+end
+
+function getSDTMultiplier(tier)
+
+    local multiplier = 1
+
+    if (tier == -3) then
+        multiplier = 0.95
+    elseif (tier == -2) then
+        multiplier = 0.96019
+    elseif (tier == -1) then
+        multiplier = 0.98
+    elseif (tier == 0) then
+        multiplier = 1
+    elseif (tier == 1) then
+        multiplier = 1.023 
+    elseif (tier == 2) then
+        multiplier = 1.049
+    elseif (tier == 3) then
+        multiplier = 1.0905
+    elseif (tier == 4) then
+        multiplier = 1.126
+    elseif (tier == 5) then
+        multiplier = 1.2075
+    elseif (tier == 6) then
+        multiplier = 1.3475
+    elseif (tier == 7) then
+        multiplier = 1.70065
+    elseif (tier == 8) then
+        multiplier = 2.141
+    elseif (tier == 9) then
+        multiplier = 2.65
+    elseif (tier == 10) then
+        multiplier = 5
+    elseif (tier == 11) then
+        multiplier = 10
+    end
+
+    return multiplier
 end
 
 function getDstatBonus(softcap, diff)
@@ -1729,6 +2113,8 @@ function doElementalNuke(caster, spell, target, spellParams)
     local V = 0
     local M = 0
     local hasMultipleTargetReduction = spellParams.hasMultipleTargetReduction
+    local resistBonus = spellParams.resistBonus
+    -- https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
 
     if USE_OLD_MAGIC_DAMAGE and spellParams.V ~= nil and spellParams.M ~= nil then
         V = spellParams.V -- Base value
@@ -1760,9 +2146,7 @@ function doElementalNuke(caster, spell, target, spellParams)
         end
 
     else
-        local resistBonus = spellParams.resistBonus
         local mDMG = caster:getMod(tpz.mod.MAGIC_DAMAGE)
-
         --[[
                 Calculate base damage:
                 D = mDMG + V + (dINT × M)
@@ -1800,7 +2184,7 @@ function doElementalNuke(caster, spell, target, spellParams)
     local params = {}
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.ELEMENTAL_MAGIC
-    params.resistBonus = resistBonus
+    params.bonus = resistBonus
     params.dStatAccSoftCap = 10
 
     local resist = applyResistance(caster, target, spell, params)
@@ -1809,10 +2193,7 @@ function doElementalNuke(caster, spell, target, spellParams)
     
     local MTDR = 1.0
 	
-	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		resist = 1
-	end
-    
+
     if hasMultipleTargetReduction == true then
         MTDR = 0.90 - spell:getTotalTargets() * 0.05
         if MTDR == 0.85 then -- 1 target, stay at 1.0
@@ -1879,9 +2260,6 @@ function doNuke(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
 	
-	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		resist = 1
-	end
     --get the resisted damage
     dmg = dmg*resist
     if (spell:getSkillType() == tpz.skill.NINJUTSU) then
@@ -1928,9 +2306,6 @@ function doDivineBanishNuke(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
 	 
-	if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL)  then
-		resist = 1
-	end
     --get the resisted damage
     dmg = dmg*resist
     
@@ -1947,7 +2322,7 @@ function doDivineBanishNuke(caster, target, spell, params)
 end
 
 function doAdditionalEffectDamage(player, target, chance, dmg, dStat, incudeMAB, bonusMAB, element, maccBonus)
-    local resist = applyResistanceAddEffect(player, target, element, maccBonus)
+    local resist = applyResistanceAddEffect(player, target, element, maccBonus, nil)
     local params = {}
     params.bonusmab = bonusMAB
     params.includemab = incudeMAB
@@ -1989,8 +2364,10 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
         { tpz.effect.REQUIEM, 1024},
         { tpz.effect.LULLABY, 2048},
         { tpz.effect.LULLABY, 1},
+        { tpz.effect.PETRIFICATION, 8192},
     }
-    local resist = applyResistanceAddEffect(player, target, element, bonus)
+
+    local resist = applyResistanceAddEffect(player, target, element, bonus, effect)
 
     --Check for resistance traits 
     if effect ~= nil and math.random() < getEffectResistanceTraitChance(player, target, effect) then
@@ -2012,6 +2389,41 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
 end
 
 function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold)
+    local immunities = {
+        { tpz.effect.SLEEP_I, 1},
+        { tpz.effect.SLEEP_II, 1},
+        { tpz.effect.SLEEP_I, 4096},
+        { tpz.effect.SLEEP_II, 4096},
+        { tpz.effect.POISON, 256},
+        { tpz.effect.PARALYSIS, 32},
+        { tpz.effect.BLINDNESS, 64},
+        { tpz.effect.SILENCE, 16},
+        { tpz.effect.STUN, 8},
+        { tpz.effect.BIND, 4},
+        { tpz.effect.WEIGHT, 2},
+        { tpz.effect.SLOW, 128},
+        { tpz.effect.ELEGY, 512},
+        { tpz.effect.REQUIEM, 1024},
+        { tpz.effect.LULLABY, 2048},
+        { tpz.effect.LULLABY, 1},
+        { tpz.effect.PETRIFICATION, 8192},
+    }
+
+    if caster:hasStatusEffect(tpz.effect.STYMIE) then
+        duration = duration * 3
+    end
+
+    -- Check for immunity
+    for i,statusEffect in pairs(immunities) do
+        local immunity = 0
+        if effect == statusEffect[1] then
+            immunity = statusEffect[2]
+        end
+        if target:hasImmunity(immunity) then
+            return spell:setMsg(tpz.msg.basic.MAGIC_IMMUNE)
+        end
+    end
+
     -- Check for resist trait proc
     if (resist == 0) then
         if not target:hasStatusEffect(effect) then
@@ -2024,9 +2436,15 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
         if target:addStatusEffect(effect, power, tick, duration) then
+            -- Check for magic burst
+            if GetEnfeebleMagicBurstMessage(caster, spell, target) then
+                return spell:setMsg(spell:getMagicBurstMessage()) 
+            end
+            -- Check for songs enfeebles
             if spell:getSkillType() == tpz.skill.SINGING then
                 return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
             end
+            caster:delStatusEffectSilent(tpz.effect.STYMIE)
             return spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB_IS)
         else
             return spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
@@ -2034,6 +2452,51 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     else
         return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
+end
+
+function GetEnfeebleMagicBurstMessage(caster, spell, target)
+    -- Check for magic burst message
+    local params = {}
+    params.AMIIburstBonus = 0
+    local burst = calculateMagicBurst(caster, spell, target, params)
+
+    if (burst > 1.0) then
+        return true
+    end
+
+    return false
+end
+
+function CheckForMagicBurst(caster, spell, target)
+    -- Check for magic burst then set message if true
+    if GetEnfeebleMagicBurstMessage(caster, spell, target) then
+        spell:setMsg(spell:getMagicBurstMessage()) 
+    end
+end
+
+function CheckForGuaranteedLandRate(caster, params)
+    local skills =
+    {
+        { tpz.mod.DIVINE_NEVER_MISS, tpz.skill.DIVINE_MAGIC },
+        { tpz.mod.ENFEEBLE_NEVER_MISS, tpz.skill.ENFEEBLING_MAGIC },
+        { tpz.mod.ELEM_NEVER_MISS, tpz.skill.ELEMENTAL_MAGIC },
+        { tpz.mod.DARK_NEVER_MISS, tpz.skill.DARK_MAGIC },
+        { tpz.mod.SUMMONING_NEVER_MISS, tpz.skill.SUMMONING_MAGIC },
+        { tpz.mod.NINJUTSU_NEVER_MISS, tpz.skill.NINJUTSU },
+        { tpz.mod.SINGING_NEVER_MISS, tpz.skill.SINGING },
+        { tpz.mod.BLUE_NEVER_MISS, tpz.skill.BLUE_MAGIC },
+    }
+    for _, mod in pairs(skills) do
+        local skillType
+        if caster:getMod(mod[1]) > 0 then
+            skillType = mod[2]
+        end
+        if (skillType == params.skillType) then
+            return true
+        end
+    end
+
+    return false
 end
 
 function getAbsorbSpellPower(caster)
@@ -2112,6 +2575,16 @@ function calculatePotency(basePotency, magicSkill, caster, target)
     return math.floor(basePotency * (1 + caster:getMod(tpz.mod.ENF_MAG_POTENCY) / 100))
 end
 
+function IgnoreResTraitCheck(caster)
+    if caster:hasStatusEffect(tpz.effect.ELEMENTAL_SEAL) then
+        return true
+    end
+    if caster:hasStatusEffect(tpz.effect.STYMIE) then
+        return true
+    end
+    return false
+end
+
 -- Output magic hit rate for all levels
 function outputMagicHitRateInfo()
     for casterLvl = 1, 75 do
@@ -2140,7 +2613,7 @@ function outputMagicHitRateInfo()
                     magicAcc = magicAcc + dINT
                 end
 
-                local magicHitRate = calculateMagicHitRate(magicAcc, magicEva, 0, casterLvl, targetLvl, 100)
+                local magicHitRate = calculateMagicHitRate(magicAcc, magicEva, element, 0, casterLvl, targetLvl, 100, SDT)
 
                 printf("Lvl: %d vs %d, %d%%, MA: %d, ME: %d", casterLvl, targetLvl, magicHitRate, magicAcc, magicEva)
             end

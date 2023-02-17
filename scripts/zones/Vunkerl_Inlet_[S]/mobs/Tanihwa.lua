@@ -53,8 +53,14 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+    local awfulEyeEnabled = mob:getLocalVar("awfulEyeEnabled")
     local hp = mob:getHPP()
 
+    -- Uses Awful Eye after Heavy Bellow
+    if (awfulEyeEnabled > 0) then
+        mob:setLocalVar("awfulEyeEnabled", 0)
+        mob:useMobAbility(1862) -- Awful Eye
+    end
     if (hp < 20) then
         AddMobAura(mob, target, 10, tpz.effect.INHIBIT_TP, 50, 3)
     end
@@ -64,17 +70,15 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    if skill:getID() == 1795 then -- Malediction
-         mob:useMobAbility(478) -- Hell Slash
+    if skill:getID() == 1863 then
+         mob:setLocalVar("awfulEyeEnabled", 1)
     end
 end
 
 function onSpellPrecast(mob, spell)
-    if spell:getID() == 252 then -- Stun
-        spell:setAoE(tpz.magic.aoe.RADIAL)
-        spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
-        spell:setRadius(15)
-	end
+    spell:setAoE(tpz.magic.aoe.RADIAL)
+    spell:setFlag(tpz.magic.spellFlag.HIT_ALL)
+    spell:setRadius(15)
 end
 
 function onMobDeath(mob, player, isKiller)

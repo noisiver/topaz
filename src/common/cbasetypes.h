@@ -6,6 +6,7 @@
 #include <cctype>
 #include <cstddef>
 #include <algorithm>
+#include <set>
 
 // debug mode
 #if defined(_DEBUG) && !defined(DEBUG)
@@ -47,6 +48,28 @@ using namespace std::literals::chrono_literals;
 using server_clock = std::chrono::system_clock;
 using time_point = server_clock::time_point;
 using duration = server_clock::duration;
+
+using hires_clock      = std::chrono::high_resolution_clock;
+using hires_time_point = server_clock::time_point;
+using hires_duration   = server_clock::duration;
+
+#include <queue>
+
+template <class T>
+using MinHeap = std::priority_queue<T, std::vector<T>, std::greater<T>>;
+
+template <typename T>
+struct PtrGreater
+{
+    bool operator()(const T left, const T right)
+    {
+        return *left > *right;
+    }
+};
+
+template <class T>
+using MinHeapPtr = std::priority_queue<T, std::vector<T>, PtrGreater<T>>;
+
 
 #include "tracy.h"
 

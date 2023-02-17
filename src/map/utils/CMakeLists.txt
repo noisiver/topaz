@@ -36,7 +36,7 @@ set(SOURCES
     zoneutils.cpp
     zoneutils.h)
 
-add_library(utils STATIC ${SOURCES})
+add_library(utils STATIC ${SOURCES}  )
 
 target_link_libraries(utils
     PUBLIC

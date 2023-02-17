@@ -839,23 +839,25 @@ namespace fishingutils
     void FishingSkillup(CCharEntity* PChar, uint8 catchLevel, uint8 successType)
     {
         if (successType == FISHINGSUCCESSTYPE_NONE)
-            return;
+        return;
 
-        uint8  skillRank = PChar->RealSkills.rank[SKILL_FISHING];
+        uint8 skillRank = PChar->RealSkills.rank[SKILL_FISHING];
         uint16 maxSkill = (skillRank + 1) * 100;
-        int32  charSkill = PChar->RealSkills.skill[SKILL_FISHING];
-        int32  charSkillLevel = (uint32)std::floor(PChar->RealSkills.skill[SKILL_FISHING] / 10);
+        int32 charSkill = PChar->RealSkills.skill[SKILL_FISHING];
+        int32 charSkillLevel = (uint32)std::floor(PChar->RealSkills.skill[SKILL_FISHING] / 10);
         uint8 levelDifference = 0;
         int maxSkillAmount = 1;
         CItemWeapon* Rod = (CItemWeapon*)PChar->getEquip(SLOT_RANGED);
 
-        if (catchLevel > charSkillLevel) {
-            levelDifference = catchLevel - charSkillLevel;
+        if (catchLevel > charSkillLevel)
+        {
+        levelDifference = catchLevel - charSkillLevel;
         }
 
         // No skillup if fish level not between char level and 50 levels higher
-        if (catchLevel <= charSkillLevel || (levelDifference > 50)) {
-            return;
+        if (catchLevel <= charSkillLevel || (levelDifference > 50))
+        {
+        return;
         }
 
         int skillRoll = 90;
@@ -864,18 +866,32 @@ namespace fishingutils
 
         // Lu shang rod under level 50 penalty
         if (Rod != nullptr && charSkillLevel < 50 && Rod->getID() == LU_SHANG_ROD_ID)
-            skillRoll += 20;
+        skillRoll += 20;
 
         // Generate a normal distribution favoring fish 10 levels higher in skill with 5 levels of deviation on either side
         double normDist = NormalDist(levelDifference, 11, 5);
 
-        int distMod = (int)std::floor(normDist*200);
+        int distMod = (int)std::floor(normDist * 200);
         int lowerLevelBonus = (int)std::floor((100 - charSkillLevel) / 10);
         int skillLevelPenalty = (int)std::floor(charSkillLevel / 10);
 
         // Minimum 4% chance
         maxChance = std::max(4, distMod + lowerLevelBonus - skillLevelPenalty);
 
+        // Grant a bonus for catching much higher level fish (50 levels or above never gives kill ups)
+        if (levelDifference >= 41)
+        {
+            maxChance = 20;
+        }
+        else if (levelDifference >= 31)
+        {
+            maxChance = 15;
+        }
+        else if (levelDifference >= 21)
+        {
+            maxChance = 10;
+        }
+        ShowDebug("maxChance: %i\n", maxChance);
         // Moon phase skillup modifiers
         uint8 phase = CVanaTime::getInstance()->getMoonPhase();
         uint8 moonDirection = CVanaTime::getInstance()->getMoonDirection();

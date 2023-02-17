@@ -20,11 +20,11 @@ function onSpellCast(caster, target, spell)
     local mCHR = target:getStat(tpz.mod.CHR)
     local dCHR = (pCHR - mCHR)
     local params = {}
-    params.diff = nil
+    params.diff = dCHR
     params.attribute = tpz.mod.CHR
     params.skillType = tpz.skill.SINGING
     params.bonus = 0
-    params.effect = nil
+    params.effect = effect
     if caster:isPC() then
         local sLvl = caster:getSkillLevel(tpz.skill.SINGING) -- Gets skill level of Singing
         local iLvl = caster:getWeaponSkillLevel(tpz.slot.RANGED)
@@ -38,7 +38,7 @@ function onSpellCast(caster, target, spell)
         end
     end
 
-    resm = applyResistance(caster, target, spell, params)
+    resm = applyResistanceEffect(caster, target, spell, params)
     if (resm < 0.5) then
         spell:setMsg(tpz.msg.basic.MAGIC_RESIST) -- resist message
         return 1
@@ -63,14 +63,10 @@ function onSpellCast(caster, target, spell)
     if (caster:hasStatusEffect(tpz.effect.TROUBADOUR)) then
         duration = duration * 2
     end
-    -- Try to overwrite weaker slow / haste
+
+    -- Try to overwrite weaker Requiem
     if (canOverwrite(target, effect, power)) then
-        -- overwrite them
-        target:delStatusEffectSilent(effect)
-        target:addStatusEffect(effect, power, 3, duration)
-        spell:setMsg(tpz.msg.basic.MAGIC_ENFEEB)
-    else
-        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT) -- no effect
+        TryApplyEffect(caster, target, spell, params.effect, power, 0, duration, resist, 0.5)
     end
 
     return effect

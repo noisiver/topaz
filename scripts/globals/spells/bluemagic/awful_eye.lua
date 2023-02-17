@@ -27,12 +27,12 @@ function onSpellCast(caster, target, spell)
         local typeEffectTwo = tpz.effect.ATTACK_DOWN
         local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
         local params = {}
-        params.diff = nil
+        params.diff = dINT
         params.attribute = tpz.mod.INT
         params.skillType = tpz.skill.BLUE_MAGIC
         params.bonus = 30
         params.effect = nil
-        local resist = applyResistance(caster, target, spell, params)
+        local resist = applyResistanceEffect(caster, target, spell, params)
 		local level = (caster:getMainLvl()  / 5)
 		local power = level 
 		local family = target:getSystem()

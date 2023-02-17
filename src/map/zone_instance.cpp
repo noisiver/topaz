@@ -199,7 +199,7 @@ void CZoneInstance::IncreaseZoneCounter(CCharEntity* PChar)
         {
             createZoneTimer();
         }
-        PChar->targid = PChar->PInstance->GetNewTargID();
+        PChar->targid = PChar->PInstance->GetNewCharTargID();
 
         if (PChar->targid >= 0x700)
         {
@@ -319,6 +319,42 @@ void CZoneInstance::PushPacket(CBaseEntity* PEntity, GLOBAL_MESSAGE_TYPE message
         for (const auto& instance : instanceList)
         {
             instance->PushPacket(PEntity, message_type, packet);
+        }
+    }
+}
+
+void CZoneInstance::UpdateCharPacket(CCharEntity* PChar, ENTITYUPDATE type, uint8 updatemask)
+{
+    if (PChar)
+    {
+        if (PChar->PInstance)
+        {
+            PChar->PInstance->UpdateCharPacket(PChar, type, updatemask);
+        }
+    }
+    else
+    {
+        for (auto const& instance : instanceList)
+        {
+            instance->UpdateCharPacket(PChar, type, updatemask);
+        }
+    }
+}
+
+void CZoneInstance::UpdateEntityPacket(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask, bool alwaysInclude)
+{
+    if (PEntity)
+    {
+        if (PEntity->PInstance)
+        {
+            PEntity->PInstance->UpdateEntityPacket(PEntity, type, updatemask, alwaysInclude);
+        }
+    }
+    else
+    {
+        for (auto const& instance : instanceList)
+        {
+            instance->UpdateEntityPacket(PEntity, type, updatemask, alwaysInclude);
         }
     }
 }

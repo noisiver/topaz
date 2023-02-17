@@ -42,9 +42,11 @@ function onMobSpawn(mob)
         mob:setMod(tpz.mod.UDMGMAGIC, -20)
         mob:setMod(tpz.mod.MDEF, 12)
     else
-        mob:setMod(tpz.mod.UDMGMAGIC, -25)
-        mob:setMod(tpz.mod.MDEF, 70)
+        mob:setMod(tpz.mod.UDMGMAGIC, 0)
+        mob:setMod(tpz.mod.MDEF, 0)
     end
+    mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 5)
+    mob:setMobMod(tpz.mobMod.SOUND_RANGE, 5)
 end
 
 function onMobInitialize(mob)

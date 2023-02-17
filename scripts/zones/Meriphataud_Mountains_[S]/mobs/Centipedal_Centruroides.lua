@@ -5,6 +5,7 @@
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
+require("scripts/globals/wotg")
 -----------------------------------
 
 function onMobInitialize(mob)
@@ -29,13 +30,7 @@ function onAdditionalEffect(mob, target, damage)
     return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.POISON, {power = 30})
 end
 
-function onMobDeath(mob, player, isKiller)
-    player:addCurrency("allied_notes", 200)
-	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(2968, mob)-- Daybreak Soul
-	end
-	if isKiller and math.random(1,100) <= 24 then 
-		player:addTreasure(2969, mob) -- Twilight Soul
-	end
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT1(mob, player, isKiller, noKiller)
     tpz.hunts.checkHunt(mob, player, 528)
 end

@@ -12,7 +12,7 @@ cmdprops =
 
 function error(player, msg)
     player:PrintToPlayer(msg)
-    player:PrintToPlayer("!getenmity")
+    player:PrintToPlayer("!getth")
 end
 
 function onTrigger(player)
@@ -22,6 +22,10 @@ function onTrigger(player)
     if targ == nil or targ:isMob() == false then
         error(player, "you must select a target monster with the cursor first")
     end
-    
-    player:PrintToPlayer(string.format("%s TH level is is ... %u", targ:getName(), targ:getTHlevel()))
+
+    local enmityList = targ:getEnmityList()
+
+    if enmityList and #enmityList > 0 then
+        player:PrintToPlayer(string.format("%s TH level is is ... %u", targ:getName(), targ:getTHlevel()))
     end
+end

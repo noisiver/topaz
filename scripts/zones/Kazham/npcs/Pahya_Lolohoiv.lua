@@ -20,6 +20,7 @@ function onTrigger(player, npc)
         4128, 4445,    -- Ether
         924,   556,    -- Fiend Blood
         943,   294,    -- Poison Dust
+        4153, 1000,    -- Antacid
     }
 
     player:showText(npc, ID.text.PAHYALOLOHOIV_SHOP_DIALOG)

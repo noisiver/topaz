@@ -17,6 +17,9 @@ function onMobInitialize(mob)
 function onMobSpawn(mob)
 end
 
+function onMobEngaged(mob, target)
+end
+
 function onMobFight(mob, target)
 end
 

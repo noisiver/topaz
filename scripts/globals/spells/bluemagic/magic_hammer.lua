@@ -30,13 +30,6 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local dmg = utils.clamp(20 + 0.8 * caster:getSkillLevel(tpz.skill.BLUE_MAGIC), 0, 500)
-    local multi = 1.5
-
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 2.0
-    end
-
     local params = {}
     -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.attackType = tpz.attackType.MAGICAL
@@ -44,9 +37,13 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.MND)-target:getStat(tpz.mod.MND)
     params.attribute = tpz.mod.MND
     params.skillType = tpz.skill.BLUE_MAGIC
+    local multi = 2.5
+    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
+        multi = multi * 1.83
+    end
     params.multiplier = multi
-    params.tMultiplier = 1.0
-    params.duppercap = 35
+    params.tMultiplier = 2.0
+    params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -54,26 +51,22 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.30
     params.chr_wsc = 0.0
-    local resist = applyResistance(caster, target, spell, params)
-	   
-	-- get the resisted damage
-    dmg = dmg*resist
-    -- add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
-	dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+    local dmg = BlueMagicalSpell(caster, target, spell, params, MND_BASED)
+
+    -- Check for zombie
+    if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
+
+	dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
+   	dmg = (dmg * math.random(85, 115)) / 100
+
 	-- add dmg variance 
 	dmg = (dmg * math.random(85, 115)) / 100
-	-- add SDT
-    local SDT = target:getMod(tpz.mod.SDT_LIGHT)
-	
-	dmg = dmg * (SDT / 100)
-	-- add final adjustments
-	dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
-   
-   if dmg > 0 and resist >= 0.5  then
-		dmg = dmg * BLUE_POWER
+
+   if (dmg > 0) then
 		caster:addMP(dmg)
-	end
+   end
 
-
-    return dmg
+   return dmg
 end

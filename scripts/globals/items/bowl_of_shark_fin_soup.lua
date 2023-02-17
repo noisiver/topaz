@@ -3,12 +3,12 @@
 -- Item: bowl_of_shark_fin_soup
 -- Food Effect: 3Hrs, All Races
 -----------------------------------------
--- HP % 5 (cap 150)
--- MP 5
--- Dexterity 4
--- HP Recovered While Healing 9
--- Attack % 14 (cap 85)
--- Ranged Attack % 14 (cap 85)
+-- Health 20
+-- Dexterity 3
+-- Vitality 5
+-- Defense % 25
+-- Defense Cap 120
+-- Conserve MP +10
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -23,29 +23,23 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addStatusEffect(tpz.effect.FOOD, 0, 0, 10800, 4452)
+    target:addStatusEffect(tpz.effect.FOOD, 0, 0, 1800, 4452)
 end
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.FOOD_HPP, 5)
-    target:addMod(tpz.mod.FOOD_HP_CAP, 150)
-    target:addMod(tpz.mod.DEX, 4)
-    target:addMod(tpz.mod.MP, 5)
-    target:addMod(tpz.mod.HPHEAL, 9)
-    target:addMod(tpz.mod.FOOD_ATTP, 14)
-    target:addMod(tpz.mod.FOOD_ATT_CAP, 85)
-    target:addMod(tpz.mod.FOOD_RATTP, 14)
-    target:addMod(tpz.mod.FOOD_RATT_CAP, 85)
+    target:addMod(tpz.mod.HP, 20)
+    target:addMod(tpz.mod.DEX, 3)
+    target:addMod(tpz.mod.VIT, 5)
+    target:addMod(tpz.mod.FOOD_DEFP, 25)
+    target:addMod(tpz.mod.FOOD_DEF_CAP, 170)
+    target:addMod(tpz.mod.CONSERVE_MP, 10)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.FOOD_HPP, 5)
-    target:delMod(tpz.mod.FOOD_HP_CAP, 150)
-    target:delMod(tpz.mod.DEX, 4)
-    target:delMod(tpz.mod.MP, 5)
-    target:delMod(tpz.mod.HPHEAL, 9)
-    target:delMod(tpz.mod.FOOD_ATTP, 14)
-    target:delMod(tpz.mod.FOOD_ATT_CAP, 85)
-    target:delMod(tpz.mod.FOOD_RATTP, 14)
-    target:delMod(tpz.mod.FOOD_RATT_CAP, 85)
+    target:delMod(tpz.mod.HP, 20)
+    target:delMod(tpz.mod.DEX, 3)
+    target:delMod(tpz.mod.VIT, 5)
+    target:delMod(tpz.mod.FOOD_DEFP, 25)
+    target:delMod(tpz.mod.FOOD_DEF_CAP, 170)
+    target:delMod(tpz.mod.CONSERVE_MP, 10)
 end

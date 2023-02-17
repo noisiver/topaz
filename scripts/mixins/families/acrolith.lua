@@ -39,6 +39,7 @@ g_mixins.families.acrolith = function(mob)
         or abilityID == 203      -- stutter step
         or abilityID == 205      -- desperate flourish
         or abilityID == 207      -- violent flourish
+        or abilityID == 168      -- blade bash
         or abilityID == 170 then -- angon
             local AnimationSub = mob:AnimationSub()
 			if math.random(100) <= mob:getLocalVar("PartBreakChance") and AnimationSub == 0 and mob:actionQueueEmpty() then

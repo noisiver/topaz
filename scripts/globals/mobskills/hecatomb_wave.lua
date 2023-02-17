@@ -16,16 +16,12 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
-    MobStatusEffectMove(mob, target, typeEffect, 50, 0, 300)
 
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.WIND, 400)
-
+    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.WIND, 600)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.WIND, MOBPARAM_IGNORE_SHADOWS)
 
-    if mob:isInDynamis() or mob:isNM() then  
-        dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.WIND, 600)
-    end
-
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WIND)
+    MobStatusEffectMove(mob, target, typeEffect, 25, 0, 300)
+    mob:setTP(0)
     return dmg
 end

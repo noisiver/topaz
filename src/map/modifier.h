@@ -67,7 +67,9 @@ enum class Mod
     MATT                      = 28, // Magic Attack
     MDEF                      = 29, // Magic Defense
     MACC                      = 30, // Magic Accuracy
+    STATUS_EFFECT_MACC        = 1303, // Status effect Magic Accuracy
     MEVA                      = 31, // Magic Evasion
+    TPEVA                     = 1309, // Evasion to Monster TP moves in percents(used mainly for foil)
 
     // Magic Accuracy and Elemental Attacks
     FIREATT                   = 32, // Fire Damage
@@ -206,6 +208,7 @@ enum class Mod
     DMGSC                     = 1276, // Skillchan Damage Taken %
     DMGMB                     = 1277, // Magic Burst Damage Taken %
     DMGSPIRITS                = 1278, // Spirits Damage Taken % (Spirits Within / Atonement / Formless Strikes
+    DMGTP                     = 1307, // TP move Damge taken %
 
     CRITHITRATE               = 165, // Raises chance to crit
     CRIT_DMG_INCREASE         = 421, // Raises the damage of critical hit by percent %
@@ -215,9 +218,9 @@ enum class Mod
     MAGIC_CRITHITRATE         = 562, // Raises chance to magic crit
     MAGIC_CRIT_DMG_INCREASE   = 563, // Raises damage done when criting with magic
 
-    FENCER_TP_BONUS           = 903, // TP Bonus to weapon skills from Fencer Trait
-    FENCER_CRITHITRATE        = 904, // Increased Crit chance from Fencer Trait
-    FENCER_JA_HASTE           = 986, // Increased JA Haste chance from Fencer Trait
+    FENCER_TP_BONUS           = 903, // TP Bonus to weapon skills from Fencer Trait (+1 gear mod is +100 for +100 TP bonus)
+    FENCER_CRITHITRATE        = 904, // Increased Crit chance from Fencer Trait (+1 gear mod is +1 for 1% crit)
+    FENCER_JA_HASTE           = 986, // Increased JA Haste chance from Fencer Trait (+1 gear mod is +1 for 1% haste)
 
     SMITE                     = 898, // Raises attack when using H2H or 2H weapons (256 scale)
     TACTICAL_GUARD            = 899, // Tp increase when guarding
@@ -328,6 +331,9 @@ enum class Mod
     BERSERK_DURATION          = 954, // Berserk Duration
     AGGRESSOR_DURATION        = 955, // Aggressor Duration
     DEFENDER_DURATION         = 956, // Defender Duration
+    DEFENDER_POTENCY          = 1304, // Increases defender defense bonus, in percents
+    RETALIATION               = 414,  // Increases damage of Retaliation hits
+    BLOOD_RAGE_POTENCY        = 1308, // Increases Blood Rage healing received bonus, in percents
 
     // Monk
     BOOST_EFFECT              = 97,  // Boost power in tenths
@@ -376,14 +382,17 @@ enum class Mod
     ACC_COLLAB_EFFECT         = 884, // Increases amount of enmity transferred for Accomplice/Collaborator
     HIDE_DURATION             = 885, // Hide duration increase (percentage based)
     GILFINDER                 = 897, // Gilfinder, duh
+    TP_GAIN_ON_EVADE          = 1305, // Gain TP upon a successful evade
 
     // Paladin
     HOLY_CIRCLE_DURATION      = 857, // Holy Circle extended duration in seconds
     RAMPART_DURATION          = 92,  // Rampart duration in seconds
     ABSORB_PHYSDMG_TO_MP      = 426, // Absorbs a percentage of physical damage taken to MP.
     SHIELD_MASTERY_TP         = 485, // Shield mastery TP bonus when blocking with a shield
-    SENTINEL_EFFECT           = 837, // Sentinel effect in percents
     SHIELD_DEF_BONUS          = 905, // Shield Defense Bonus (Block Amount)
+    SHIELDBLOCKRATE           = 518, // Affects shield block rate, percent based
+    SHIELD_BARRIER            = 1310,// Phalanx effect while wielding a shield
+    SENTINEL_EFFECT           = 837, // Sentinel effect in percents
     COVER_TO_MP               = 1014, // Converts a successful cover's phsyical damage to MP
     COVER_MAGIC_AND_RANGED    = 1015, // Redirects ranged and single target magic attacks to the cover ability user
     COVER_DURATION            = 1016, // Increases Cover Duration
@@ -461,6 +470,7 @@ enum class Mod
     ANCIENT_CIRCLE_DURATION   = 859, // Ancient Circle extended duration in seconds
     JUMP_TP_BONUS             = 361, // bonus tp player receives when using jump (must be divided by 10)
     JUMP_ATT_BONUS            = 362, // ATT% bonus for jump + high jump
+    JUMP_DMG_BONUS            = 1306, // +DMG for jumps(in percents)
     HIGH_JUMP_ENMITY_REDUCTION = 363, // for gear that reduces more enmity from high jump
     FORCE_JUMP_CRIT           = 828, // Critical hit rate bonus for jump and high jump
     WYVERN_EFFECTIVE_BREATH   = 829, // Increases the threshold for triggering healing breath/offensive breath more inclined to pick elemental weakness
@@ -610,11 +620,12 @@ enum class Mod
 
     ENSPELL                   = 341, // stores the type of enspell active (0 if nothing)
     ENSPELL_DMG               = 343, // stores the base damage of the enspell before reductions
-    ENSPELL_DMG_BONUS         = 432, //
+    ENSPELL_DMG_BONUS         = 432, // Bonus dmg to enspells used for gear etc
     ENSPELL_CHANCE            = 856, // Chance of enspell activating (0 = 100%, 10 = 10%, 30 = 30%, ...)
     ENSPELL_MACC              = 1271,// Increases Enspell magical accuracy
     SPIKES                    = 342, // store the type of spike spell active (0 if nothing)
     SPIKES_DMG                = 344, // stores the base damage of the spikes before reductions
+    SPIKES_MACC               = 1311,// Increases Spikes magical accuracy
 
     TP_BONUS                  = 345, //
     SAVETP                    = 880, // SAVETP Effect for Miser's Roll / ATMA / Hagakure.
@@ -766,8 +777,6 @@ enum class Mod
     ENHANCES_CURSNA           = 310, // Used by gear with the "Enhances Cursna" or "Cursna+" attribute
     ENHANCES_HOLYWATER        = 495, // Used by gear with the "Enhances Holy Water" or "Holy Water+" attribute
 
-    RETALIATION               = 414, // Increases damage of Retaliation hits
-
     CLAMMING_IMPROVED_RESULTS = 509, //
     CLAMMING_REDUCED_INCIDENTS= 510, //
 
@@ -779,7 +788,6 @@ enum class Mod
 
     EGGHELM                   = 517,
 
-    SHIELDBLOCKRATE           = 518, // Affects shield block rate, percent based
     DIA_DOT                   = 313, // Increases the DoT damage of Dia
     ENH_DRAIN_ASPIR           = 315, // % damage boost to Drain and Aspir
     AUGMENTS_ABSORB           = 1274, // Direct Absorb spell increase (percentage based)
@@ -929,12 +937,39 @@ enum class Mod
     EMPTY_CIRCLE = 1235,
     HUMANOID_CIRCLE = 1236,
     LUMORIAN_CIRCLE = 1237,
-    LUMINION_CIRCLE = 1238
+    LUMINION_CIRCLE = 1238,
+
+    EEM_AMNESIA = 1280,
+    EEM_VIRUS = 1281,
+    EEM_SILENCE = 1282,
+    EEM_GRAVITY = 1283,
+    EEM_STUN = 1284,
+    EEM_LIGHT_SLEEP = 1285,
+    EEM_CHARM = 1286,
+    EEM_PARALYZE = 1287,
+    EEM_BIND = 1288,
+    EEM_SLOW = 1289,
+    EEM_PETRIFY = 1290,
+    EEM_TERROR = 1291,
+    EEM_POISON = 1292,
+    EEM_DARK_SLEEP = 1293,
+    EEM_BLIND = 1294,
+
+    // Forced land rate, never resists. 1 = true 0 = false
+    DIVINE_NEVER_MISS = 1295,   
+    ENFEEBLE_NEVER_MISS = 1296, 
+    ELEM_NEVER_MISS = 1297,     
+    DARK_NEVER_MISS = 1298,     
+    SUMMONING_NEVER_MISS = 1299, 
+    NINJUTSU_NEVER_MISS = 1300,  
+    SINGING_NEVER_MISS = 1301,   
+    BLUE_NEVER_MISS = 1302,      
+
     // The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1280 NEXT
+    // 1312 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
@@ -977,7 +1012,31 @@ enum class PetModType
     Harlequin = 4,
     Valoredge = 5,
     Sharpshot = 6,
-    Stormwaker = 7
+    Stormwaker = 7,
+    Firespirit = 8,
+    Icespirit = 9,
+    Airspirit = 10,
+    Earthspirit = 11,
+    Thunderspirit = 12,
+    Waterspirit = 13,
+    Lightspirit = 14,
+    Darkspirit = 15,
+    Carbuncle = 16,
+    Fenrir = 17,
+    Ifrit = 18,
+    Titan = 19,
+    Leviathan = 20,
+    Garuda = 21,
+    Shiva = 22,
+    Ramuh = 23,
+    Diabolos = 24,
+    Alexander = 25,
+    Odin = 26,
+    Atomos = 27,
+    Cait_sith = 28,
+    Adventuring_fellow = 29,
+    Chocobo = 30,
+    Luopan = 31,
 };
 
 class CPetModifier : public CModifier

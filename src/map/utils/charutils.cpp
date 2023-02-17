@@ -37,6 +37,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../ai/states/attack_state.h"
 #include "../ai/states/item_state.h"
 
+#include "../packets/char.h"
 #include "../packets/char_abilities.h"
 #include "../packets/char_appearance.h"
 #include "../packets/char_equip.h"
@@ -517,7 +518,11 @@ namespace charutils
             "wardrobe,"     // 6
             "wardrobe2,"     // 7
             "wardrobe3,"     // 8
-            "wardrobe4 "     // 9
+            "wardrobe4," // 9
+            "wardrobe5," // 10
+            "wardrobe6," // 11
+            "wardrobe7," // 12
+            "wardrobe8 " // 13
             "FROM char_storage "
             "WHERE charid = %u;";
 
@@ -540,6 +545,14 @@ namespace charutils
             PChar->getStorage(LOC_WARDROBE2)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 7));
             PChar->getStorage(LOC_WARDROBE3)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 8));
             PChar->getStorage(LOC_WARDROBE4)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 9));
+
+            PChar->getStorage(LOC_WARDROBE5)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 10));
+            PChar->getStorage(LOC_WARDROBE6)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 11));
+            PChar->getStorage(LOC_WARDROBE7)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 12));
+            PChar->getStorage(LOC_WARDROBE8)->AddBuff((uint8)Sql_GetIntData(SqlHandle, 13));
+
+            // NOTE: Not from the db, hard-coded to 10!
+            PChar->getStorage(LOC_RECYCLEBIN)->AddBuff(10);
         }
 
         fmtQuery = "SELECT face, race, size, head, body, hands, legs, feet, main, sub, ranged "
@@ -825,6 +838,7 @@ namespace charutils
         PChar->m_fomorHate = GetCharVar(PChar, "FOMOR_HATE");
 
         charutils::LoadEquip(PChar);
+        charutils::EmptyRecycleBin(PChar);
         PChar->health.hp = zoneutils::IsResidentialArea(PChar) ? PChar->GetMaxHP() : HP;
         PChar->health.mp = zoneutils::IsResidentialArea(PChar) ? PChar->GetMaxMP() : MP;
         PChar->UpdateHealth();
@@ -840,7 +854,7 @@ namespace charutils
         std::string enabledContent = "\"\"";
 
         // Compile a string of all enabled expansions
-        for (auto&& expan : {"COP", "TOAU", "WOTG", "ACP", "AMK", "ASA", "ABYSSEA", "SOA"})
+        for (auto&& expan : { "COP", "TOAU", "WOTG", "ACP", "AMK", "ASA", "ABYSSEA", "SOA", "ROV" })
         {
             if (luautils::IsContentEnabled(expan))
             {
@@ -955,7 +969,7 @@ namespace charutils
 
         // apply augments
         // loop over each container
-        for (uint8 i = 0; i < MAX_CONTAINER_ID; ++i)
+        for (uint8 i = 0; i < CONTAINER_ID::MAX_CONTAINER_ID; ++i)
         {
             CItemContainer* PItemContainer = PChar->getStorage(i);
 
@@ -1133,7 +1147,7 @@ namespace charutils
 
     /************************************************************************
     *                                                                       *
-    *  Отправляем персонажу весь его инвентарь                              *
+    *  We send the character all its inventory                              *
     *                                                                       *
     ************************************************************************/
 
@@ -1154,12 +1168,14 @@ namespace charutils
                     PChar->pushPacket(new CInventoryItemPacket(PItem, LocationID, slotID));
                 }
             }
+                PChar->pushPacket(new CInventoryFinishPacket(LocationID));
         };
 
         //Send important items first
         //Note: it's possible that non-essential inventory items are sent in response to another packet
-        for (auto&& containerID : {LOC_INVENTORY, LOC_TEMPITEMS, LOC_WARDROBE, LOC_WARDROBE2, LOC_WARDROBE3, LOC_WARDROBE4, LOC_MOGSAFE,
-            LOC_STORAGE, LOC_MOGLOCKER, LOC_MOGSATCHEL, LOC_MOGSACK, LOC_MOGCASE, LOC_MOGSAFE2})
+        for (auto&& containerID :
+             { LOC_INVENTORY, LOC_TEMPITEMS, LOC_WARDROBE, LOC_WARDROBE2, LOC_WARDROBE3, LOC_WARDROBE4, LOC_WARDROBE5, LOC_WARDROBE6, LOC_WARDROBE7,
+               LOC_WARDROBE8, LOC_MOGSAFE, LOC_STORAGE, LOC_MOGLOCKER, LOC_MOGSATCHEL, LOC_MOGSACK, LOC_MOGCASE, LOC_MOGSAFE2 })
         {
             pushContainer(containerID);
         }
@@ -1198,7 +1214,7 @@ namespace charutils
             PChar->pushPacket(new CInventoryAssignPacket(PItem, INV_LINKSHELL));
             PChar->pushPacket(new CLinkshellEquipPacket(PChar, 2));
         }
-        PChar->pushPacket(new CInventoryFinishPacket());
+        PChar->pushPacket(new CInventoryFinishPacket()); // "Finish" type
     }
 
     /************************************************************************
@@ -1315,7 +1331,11 @@ namespace charutils
 
     bool HasItem(CCharEntity* PChar, uint16 ItemID)
     {
-        for (uint8 LocID = 0; LocID < MAX_CONTAINER_ID; ++LocID)
+        if (ItemID == 0)
+        {
+            return false;
+        }
+        for (uint8 LocID = 0; LocID < CONTAINER_ID::MAX_CONTAINER_ID; ++LocID)
         {
             if (PChar->getStorage(LocID)->SearchItem(ItemID) != ERROR_SLOTID)
             {
@@ -1489,6 +1509,17 @@ namespace charutils
         return ItemID;
     }
 
+    // A wrapper around UpdateItem, with some packets
+    void DropItem(CCharEntity* PChar, uint8 container, uint8 slotID, int32 quantity, uint16 ItemID)
+    {
+        if (charutils::UpdateItem(PChar, container, slotID, -quantity) != 0)
+        {
+            ShowNotice("Player %s DROPPING itemID: %s (%u) quantity: %u", PChar->GetName(), itemutils::GetItem(ItemID)->getName(), ItemID, quantity);
+            PChar->pushPacket(new CMessageStandardPacket(nullptr, ItemID, quantity, MsgStd::ThrowAway));
+            PChar->pushPacket(new CInventoryFinishPacket());
+        }
+    }
+
     /************************************************************************
     *                                                                       *
     *  Check the possibility of trade between the characters                *
@@ -1628,7 +1659,12 @@ namespace charutils
             }
             PItem->setSubType(ITEM_UNLOCKED);
 
-            if (equipSlotID == SLOT_SUB) {
+            if (equipSlotID == SLOT_SUB)
+            {
+                if (((CItemWeapon*)PItem)->IsShield() && charutils::hasTrait(PChar, TRAIT_SHIELD_BARRIER))
+                {
+                    PChar->delModifier(Mod::PHALANX, PChar->getMod(Mod::SHIELD_BARRIER));
+                }
                 // Removed sub item, if main hand is empty, then possibly eligible for H2H weapon
                 if (!PChar->getEquip(SLOT_MAIN) || !PChar->getEquip(SLOT_MAIN)->isType(ITEM_EQUIPMENT))
                 {
@@ -1769,8 +1805,6 @@ namespace charutils
             {
                 CItemEquipment* PSubItem = PChar->getEquip(SLOT_SUB);
 
-                if (PSubItem != nullptr && PSubItem->isType(ITEM_EQUIPMENT) && (PSubItem->IsShield() != true))
-                    RemoveSub(PChar);
             }
         }
 
@@ -1853,6 +1887,27 @@ namespace charutils
                                 if (((CItemWeapon*)PItem)->getSkillType() == SKILL_HAND_TO_HAND)
                                 {
                                     PChar->look.sub = PItem->getModelId() + 0x1000;
+                                }
+                            }
+                            break;
+                            case SKILL_DAGGER:
+                            case SKILL_SWORD:
+                            case SKILL_AXE:
+                            case SKILL_KATANA:
+                            case SKILL_CLUB:
+                            {
+                                // Unequip Grip items when equipping a 1-handed weapon
+                                CItemEquipment* armor = (CItemEquipment*)PChar->getEquip(SLOT_SUB);
+                                if ((armor != nullptr) && armor->isType(ITEM_EQUIPMENT))
+                                {
+                                    if (armor->isType(ITEM_WEAPON))
+                                    {
+                                        CItemWeapon* PWeapon = (CItemWeapon*)armor;
+                                        if (PWeapon->getSkillType() == SKILL_NONE)
+                                        {
+                                            UnequipItem(PChar, SLOT_SUB, false);
+                                        }
+                                    }
                                 }
                             }
                             break;
@@ -2016,13 +2071,25 @@ namespace charutils
                 return true;
         return false;
     }
-
     bool hasValidStyle(CCharEntity* PChar, CItemEquipment* PItem, CItemEquipment* AItem)
     {
-        return (PItem != nullptr && AItem != nullptr
-            && (((CItemWeapon*)AItem)->getSkillType() == ((CItemWeapon*)PItem)->getSkillType())
-            && HasItem(PChar, AItem->getID())
-            && canEquipItemOnAnyJob(PChar, AItem));
+        if (AItem && PItem)
+        {
+            // Shield special case
+            if (AItem->IsShield() && PItem->IsShield())
+            {
+                return HasItem(PChar, AItem->getID()) && canEquipItemOnAnyJob(PChar, AItem);
+            }
+
+            CItemWeapon* PWeapon = dynamic_cast<CItemWeapon*>(PItem);
+            CItemWeapon* AWeapon = dynamic_cast<CItemWeapon*>(AItem);
+
+            if (PWeapon && AWeapon && PWeapon->getSkillType() == AWeapon->getSkillType())
+            {
+                return HasItem(PChar, AItem->getID()) && canEquipItemOnAnyJob(PChar, AItem);
+            }
+        }
+        return false;
     }
 
     void SetStyleLock(CCharEntity* PChar, bool isStyleLocked)
@@ -2031,68 +2098,100 @@ namespace charutils
         {
             for (uint8 i = 0; i < SLOT_LINK1; i++)
             {
-                auto PItem = PChar->getEquip((SLOTTYPE)i);
+                auto* PItem = PChar->getEquip((SLOTTYPE)i);
                 PChar->styleItems[i] = (PItem == nullptr) ? 0 : PItem->getID();
             }
             memcpy(&PChar->mainlook, &PChar->look, sizeof(PChar->look));
         }
         else
-            for (uint8 i = 0; i < SLOT_LINK1; i++)
-                PChar->styleItems[i] = 0;
+        {
+            for (unsigned short& styleItem : PChar->styleItems)
+            {
+                styleItem = 0;
+            }
+        }
 
         if (PChar->getStyleLocked() != isStyleLocked)
+        {
             PChar->pushPacket(new CMessageStandardPacket(isStyleLocked ? MsgStd::StyleLockOn : MsgStd::StyleLockOff));
+        }
         PChar->setStyleLocked(isStyleLocked);
     }
 
-    void UpdateWeaponStyle(CCharEntity* PChar, uint8 equipSlotID, CItemWeapon* PItem)
+    void UpdateWeaponStyle(CCharEntity* PChar, uint8 equipSlotID, CItemEquipment* PItem)
     {
         if (!PChar->getStyleLocked())
+        {
             return;
+        }
 
-        auto appearance = (CItemEquipment*)itemutils::GetItem(PChar->styleItems[equipSlotID]);
-        auto appearanceModel = (appearance == nullptr) ? 0 : appearance->getModelId();
+        CItemEquipment* appearance = dynamic_cast<CItemEquipment*>(itemutils::GetItemPointer(PChar->styleItems[equipSlotID]));
+        uint16 appearanceModel = 0;
+        if (appearance)
+        {
+            appearanceModel = appearance->getModelId();
+        }
 
         switch (equipSlotID)
         {
             case SLOT_MAIN:
                 if (hasValidStyle(PChar, PItem, appearance))
+                {
                     PChar->mainlook.main = appearanceModel;
+                }
                 else
+                {
                     PChar->mainlook.main = PChar->look.main;
+                }
 
                 if (PItem == nullptr)
+                {
                     PChar->mainlook.sub = PChar->look.sub;
+                }
                 else
-                    switch (((CItemWeapon*)PItem)->getSkillType())
+                {
+                    CItemWeapon* PWeapon = dynamic_cast<CItemWeapon*>(PItem);
+                    if (PWeapon)
                     {
-                        case SKILL_HAND_TO_HAND:
-                            PChar->mainlook.sub = appearanceModel + 0x1000;
-                            break;
-                        case SKILL_GREAT_SWORD:
-                        case SKILL_GREAT_AXE:
-                        case SKILL_SCYTHE:
-                        case SKILL_POLEARM:
-                        case SKILL_GREAT_KATANA:
-                        case SKILL_STAFF:
-                            PChar->mainlook.sub = PChar->look.sub;
-                            break;
+                        switch (PWeapon->getSkillType())
+                        {
+                            case SKILL_HAND_TO_HAND:
+                                PChar->mainlook.sub = appearanceModel + 0x1000;
+                                break;
+                            case SKILL_GREAT_SWORD:
+                            case SKILL_GREAT_AXE:
+                            case SKILL_SCYTHE:
+                            case SKILL_POLEARM:
+                            case SKILL_GREAT_KATANA:
+                            case SKILL_STAFF:
+                                PChar->mainlook.sub = PChar->look.sub;
+                                break;
+                        }
                     }
+                }
                 break;
             case SLOT_SUB:
                 if (hasValidStyle(PChar, PItem, appearance))
+                {
                     PChar->mainlook.sub = appearanceModel;
+                }
                 else
+                {
                     PChar->mainlook.sub = PChar->look.sub;
+                }
                 break;
             case SLOT_RANGED:
-                 if (hasValidStyle(PChar, PItem, appearance))
+                if (hasValidStyle(PChar, PItem, appearance))
+                {
                     PChar->mainlook.ranged = appearanceModel;
+                }
                 else
+                {
                     PChar->mainlook.ranged = PChar->look.ranged;
+                }
+
                 break;
-            case SLOT_AMMO:
-                // Appears as though these aren't implemented by SE.
+            default:
                 break;
         }
     }
@@ -2100,14 +2199,23 @@ namespace charutils
     void UpdateArmorStyle(CCharEntity* PChar, uint8 equipSlotID)
     {
         if (!PChar->getStyleLocked())
+        {
             return;
+        }
 
-        auto itemID = PChar->styleItems[equipSlotID];
-        auto appearance = (CItemEquipment*)itemutils::GetItem(itemID);
-        auto appearanceModel = (appearance == nullptr || !HasItem(PChar, itemID)) ? 0 : appearance->getModelId();
+        uint16 itemID = PChar->styleItems[equipSlotID];
+        CItemEquipment* appearance = dynamic_cast<CItemEquipment*>(itemutils::GetItemPointer(itemID));
+        uint16 appearanceModel = 0;
+
+        if (appearance && HasItem(PChar, itemID))
+        {
+            appearanceModel = appearance->getModelId();
+        }
 
         if (!canEquipItemOnAnyJob(PChar, appearance))
+        {
             return;
+        }
 
         switch (equipSlotID)
         {
@@ -2129,6 +2237,91 @@ namespace charutils
         }
     }
 
+        void AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity)
+    {
+        CItem*      PItem          = PChar->getStorage(container)->GetItem(slotID);
+        const char* Query          = "UPDATE char_inventory SET location = %u, slot = %u WHERE charid = %u AND location = %u AND slot = %u;";
+        auto*       RecycleBin     = PChar->getStorage(LOC_RECYCLEBIN);
+        auto*       OtherContainer = PChar->getStorage(container);
+
+        if (PItem == nullptr)
+        {
+            return;
+        }
+
+        // Try and insert
+        uint8 NewSlotID = PChar->getStorage(LOC_RECYCLEBIN)->InsertItem(PItem);
+        if (NewSlotID != ERROR_SLOTID)
+        {
+            if (Sql_Query(SqlHandle, Query, LOC_RECYCLEBIN, NewSlotID, PChar->id, container, slotID) != SQL_ERROR && Sql_AffectedRows(SqlHandle) != 0)
+            {
+                // Move successful, delete original item
+                OtherContainer->InsertItem(nullptr, slotID);
+
+                // Send update packets
+                PChar->pushPacket(new CInventoryItemPacket(nullptr, container, slotID));
+                PChar->pushPacket(new CInventoryItemPacket(PItem, LOC_RECYCLEBIN, NewSlotID));
+                PChar->pushPacket(new CMessageStandardPacket(nullptr, PItem->getID(), quantity, MsgStd::ThrowAway));
+            }
+            else
+            {
+                // Move not successful, put things back how they were
+                RecycleBin->InsertItem(nullptr, NewSlotID);
+                OtherContainer->InsertItem(PItem, slotID);
+            }
+        }
+        else // Bin is full
+        {
+            // Evict recycle bin slot 1
+            RecycleBin->InsertItem(nullptr, 1);
+            Sql_Query(SqlHandle, "DELETE FROM char_inventory WHERE charid = %u AND location = %u AND slot = %u;",
+                       PChar->id, LOC_RECYCLEBIN, 1);
+
+            // Move everything around to accomodate
+            for (int i = 2; i <= 10; ++i)
+            {
+                // Update storage
+                CItem* PMovingItem = RecycleBin->GetItem(i);
+                RecycleBin->InsertItem(PMovingItem, i - 1);
+
+                // Update db
+                if (Sql_Query(SqlHandle, Query, LOC_RECYCLEBIN, i - 1, PChar->id, LOC_RECYCLEBIN, i) == SQL_ERROR || Sql_AffectedRows(SqlHandle) == 0)
+                {
+                    ShowError("Problem moving Recycle Bin items! (%s - %s)", PChar->GetName(), PItem->getName());
+                }
+            }
+
+            // Move item from original container to recycle bin
+            OtherContainer->InsertItem(nullptr, slotID);
+            RecycleBin->InsertItem(PItem, 10);
+            if (Sql_Query(SqlHandle, Query, LOC_RECYCLEBIN, 10, PChar->id, container, slotID) == SQL_ERROR || Sql_AffectedRows(SqlHandle) == 0)
+            {
+                ShowError("Problem moving Recycle Bin items! (%s - %s)", PChar->GetName(), PItem->getName());
+            }   
+
+            // Send update packets
+            PChar->pushPacket(new CInventoryItemPacket(nullptr, container, slotID));
+            for (int i = 1; i <= 10; ++i)
+            {
+                CItem* PUpdatedItem = RecycleBin->GetItem(i);
+                PChar->pushPacket(new CInventoryItemPacket(PUpdatedItem, LOC_RECYCLEBIN, i));
+            }
+            PChar->pushPacket(new CMessageStandardPacket(nullptr, PItem->getID(), quantity, MsgStd::ThrowAway));
+        }
+        PChar->pushPacket(new CInventoryFinishPacket());
+    }
+
+    void EmptyRecycleBin(CCharEntity* PChar)
+    {
+        CItemContainer* recycleBin = PChar->getStorage(LOC_RECYCLEBIN);
+        const char*     Query      = "DELETE FROM char_inventory WHERE charid = %u AND location = 17;";
+        if (Sql_Query(SqlHandle, Query, PChar->id) != SQL_ERROR)
+        {
+            recycleBin->Clear();
+        }
+    }
+
+
     /************************************************************************
     *                                                                       *
     *                                                                       *
@@ -2147,9 +2340,14 @@ namespace charutils
             CItemEquipment* PMainItem = PChar->getEquip(SLOT_MAIN);
             if (!PMainItem || !((CItemWeapon*)PMainItem)->isTwoHanded())
             {
-                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, 0x200));
                 return;
             }
+        }
+
+        // Check for Shield Barrier
+        if (equipSlotID == SLOT_SUB && PItem && PItem->IsShield() && charutils::hasTrait(PChar, TRAIT_SHIELD_BARRIER))
+        {
+            PChar->addModifier(Mod::PHALANX, PChar->getMod(Mod::SHIELD_BARRIER));
         }
 
         if (slotID == 0)
@@ -2158,7 +2356,7 @@ namespace charutils
 
             UnequipItem(PChar, equipSlotID);
 
-            if (equipSlotID == 0 && PSubItem && !PSubItem->IsShield())
+            if (equipSlotID == 0 && PSubItem)
                 RemoveSub(PChar);
 
             PChar->pushPacket(new CEquipPacket(slotID, equipSlotID, containerID));
@@ -2181,7 +2379,7 @@ namespace charutils
                         PItem->setAssignTime(CVanaTime::getInstance()->getVanaTime());
                         PChar->PRecastContainer->Add(RECAST_ITEM, slotID << 8 | containerID, PItem->getReuseTime() / 1000); // add recast timer to Recast List from any bag
 
-                        // не забываем обновить таймер при экипировке предмета
+                        // don't forget to update the timer when equipping an item
 
                         PChar->pushPacket(new CInventoryItemPacket(PItem, containerID, slotID));
                         PChar->pushPacket(new CInventoryFinishPacket());
@@ -2242,6 +2440,7 @@ namespace charutils
         PChar->UpdateHealth();
         PChar->m_EquipSwap = true;
         PChar->updatemask |= UPDATE_LOOK;
+        PChar->pushPacket(new CInventoryFinishPacket());
     }
 
     /************************************************************************
@@ -2269,12 +2468,11 @@ namespace charutils
                 continue;
             }
 
-            if (slotID == SLOT_SUB && !PItem->IsShield())
+            if (slotID == SLOT_SUB)
             {
                 // Unequip if no main weapon or a non-grip subslot without DW
                 if (!PChar->getEquip(SLOT_MAIN) ||
-                    (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD) &&
-                     !((CItemWeapon*)PItem)->getSkillType() == SKILL_NONE))
+                    (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD)))
                 {
                     UnequipItem(PChar, SLOT_SUB);
                     continue;
@@ -2725,11 +2923,39 @@ namespace charutils
         if (PChar->GetMJob() == JOB_BLU || PChar->GetSJob() == JOB_BLU)
         {
             blueutils::CalculateTraits(PChar);
+            // Check if the player has dual wield set trait or not, and if they don't then unequip their weapons
+            if (!charutils::hasTrait(PChar, TRAIT_DUAL_WIELD))
+            {
+                CheckValidEquipment(PChar);
+            }
         }
 
         PChar->delModifier(Mod::MEVA, PChar->m_magicEvasion);
 
-        PChar->m_magicEvasion = battleutils::GetMaxSkill(SKILL_ELEMENTAL_MAGIC, JOB_RDM, PChar->GetMLevel());
+        uint8 level = PChar->GetMLevel();
+        uint8 meva = 0;
+
+        // G Rank
+        // http://wiki.ffo.jp/html/2570.html
+
+        if (level <= 50)
+        {
+            meva = (level - 1) * 2 + 3;
+        }
+        else if (level > 50 && level <= 60)
+        {
+            meva = (level - 50) * 4 + 101;
+        }
+        else if (level > 60 && level <= 70)
+        {
+            meva = (level - 60) * 2 + 141;
+        }
+        else
+        {
+            meva = (level - 70) * 2 + 161;
+        }
+
+        PChar->m_magicEvasion = meva;
         PChar->addModifier(Mod::MEVA, PChar->m_magicEvasion);
     }
 
@@ -3070,7 +3296,7 @@ namespace charutils
     *                                                                       *
     ************************************************************************/
 
-    int32 hasTrait(CCharEntity* PChar, uint8 TraitID)
+    int32 hasTrait(CCharEntity* PChar, uint16 TraitID)
     {
         if (PChar->objtype != TYPE_PC)
         {
@@ -3080,7 +3306,7 @@ namespace charutils
         return hasBit(TraitID, PChar->m_TraitList, sizeof(PChar->m_TraitList));
     }
 
-    int32 addTrait(CCharEntity* PChar, uint8 TraitID)
+    int32 addTrait(CCharEntity* PChar, uint16 TraitID)
     {
         if (PChar->objtype != TYPE_PC)
         {
@@ -3090,7 +3316,7 @@ namespace charutils
         return addBit(TraitID, PChar->m_TraitList, sizeof(PChar->m_TraitList));
     }
 
-    int32 delTrait(CCharEntity* PChar, uint8 TraitID)
+    int32 delTrait(CCharEntity* PChar, uint16 TraitID)
     {
         if (PChar->objtype != TYPE_PC)
         {
@@ -4094,7 +4320,11 @@ namespace charutils
             "wardrobe = %u, "
             "wardrobe2 = %u, "
             "wardrobe3 = %u, "
-            "wardrobe4 = %u "
+            "wardrobe4 = %u, "
+            "wardrobe5 = %u, "
+            "wardrobe6 = %u, "
+            "wardrobe7 = %u, "
+            "wardrobe8 = %u "
             "WHERE charid = %u";
 
         Sql_Query(SqlHandle, Query,
@@ -4108,6 +4338,10 @@ namespace charutils
             PChar->getStorage(LOC_WARDROBE2)->GetSize(),
             PChar->getStorage(LOC_WARDROBE3)->GetSize(),
             PChar->getStorage(LOC_WARDROBE4)->GetSize(),
+            PChar->getStorage(LOC_WARDROBE5)->GetSize(),
+            PChar->getStorage(LOC_WARDROBE6)->GetSize(),
+            PChar->getStorage(LOC_WARDROBE7)->GetSize(),
+            PChar->getStorage(LOC_WARDROBE8)->GetSize(),
             PChar->id);
     }
 
@@ -4979,15 +5213,18 @@ namespace charutils
 
     void ReloadParty(CCharEntity* PChar)
     {
+        TracyZoneScoped;
+
         int ret = Sql_Query(SqlHandle, "SELECT partyid, allianceid, partyflag & %d FROM accounts_sessions s JOIN accounts_parties p ON "
-            "s.charid = p.charid WHERE p.charid = %u;", (PARTY_SECOND | PARTY_THIRD), PChar->id);
+                             "s.charid = p.charid WHERE p.charid = %u;",
+                             (PARTY_SECOND | PARTY_THIRD), PChar->id);
         if (ret != SQL_ERROR && Sql_NumRows(SqlHandle) != 0 && Sql_NextRow(SqlHandle) == SQL_SUCCESS)
         {
             uint32 partyid = Sql_GetUIntData(SqlHandle, 0);
             uint32 allianceid = Sql_GetUIntData(SqlHandle, 1);
             uint32 partynumber = Sql_GetUIntData(SqlHandle, 2);
 
-            //first, parties and alliances must be created or linked if the character's current party has changed
+            // first, parties and alliances must be created or linked if the character's current party has changed
             // for example, joining a party from another server
             if (PChar->PParty)
             {
@@ -4998,20 +5235,22 @@ namespace charutils
             }
             else
             {
-                //find if party exists on this server already
+                // find if party exists on this server already
                 CParty* PParty = nullptr;
-                zoneutils::ForEachZone([partyid, &PParty](CZone* PZone)
-                {
-                    PZone->ForEachChar([partyid, &PParty](CCharEntity* PChar)
+                zoneutils::ForEachZone(
+                    [partyid, &PParty](CZone* PZone)
                     {
-                        if (PChar->PParty && PChar->PParty->GetPartyID() == partyid)
-                        {
-                            PParty = PChar->PParty;
-                        }
+                        PZone->ForEachChar(
+                            [partyid, &PParty](CCharEntity* PChar)
+                            {
+                                if (PChar->PParty && PChar->PParty->GetPartyID() == partyid)
+                                {
+                                    PParty = PChar->PParty;
+                                }
+                            });
                     });
-                });
 
-                //create new party if it doesn't exist already
+                // create new party if it doesn't exist already
                 if (!PParty)
                 {
                     PParty = new CParty(partyid);
@@ -5021,18 +5260,12 @@ namespace charutils
             }
 
             CBattleEntity* PSyncTarget = PChar->PParty->GetSyncTarget();
-            if (PSyncTarget && PChar->getZone() == PSyncTarget->getZone()
-                && !(PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC))
-                && PSyncTarget->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC)
-                && PSyncTarget->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_SYNC)->GetDuration() == 0)
+            if (PSyncTarget && PChar->getZone() == PSyncTarget->getZone() && !(PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC)) &&
+                PSyncTarget->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_SYNC) &&
+                PSyncTarget->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_SYNC)->GetDuration() == 0)
             {
                 PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, PSyncTarget->GetMLevel(), 540));
-                PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(
-                    EFFECT_LEVEL_SYNC,
-                    EFFECT_LEVEL_SYNC,
-                    PSyncTarget->GetMLevel(),
-                    0,
-                    0), true);
+                PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_LEVEL_SYNC, EFFECT_LEVEL_SYNC, PSyncTarget->GetMLevel(), 0, 0), true);
                 PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE);
             }
 
@@ -5047,7 +5280,8 @@ namespace charutils
                 }
                 else
                 {
-                    //find if the alliance exists on this server already
+                    // find if the alliance exists on this server already
+                    // clang-format off
                     CAlliance* PAlliance = nullptr;
                     zoneutils::ForEachZone([allianceid, &PAlliance](CZone* PZone)
                     {
@@ -5059,8 +5293,9 @@ namespace charutils
                             }
                         });
                     });
+                    // clang-format on
 
-                    //create new alliance if it doesn't exist on this server already
+                    // create new alliance if it doesn't exist on this server already
                     if (!PAlliance)
                     {
                         PAlliance = new CAlliance(allianceid);
@@ -5074,10 +5309,10 @@ namespace charutils
                 PChar->PParty->m_PAlliance->delParty(PChar->PParty);
             }
 
-            //once parties and alliances have been reassembled, reload the party/parties
+            // once parties and alliances have been reassembled, reload the party/parties
             if (PChar->PParty->m_PAlliance)
             {
-                for (auto party : PChar->PParty->m_PAlliance->partyList)
+                for (auto* party : PChar->PParty->m_PAlliance->partyList)
                 {
                     party->ReloadParty();
                 }
@@ -5094,6 +5329,17 @@ namespace charutils
                 PChar->PParty->DelMember(PChar);
             }
             PChar->ReloadPartyDec();
+        }
+
+        // Attempt to disband party if the last trust was just released
+        // NOTE: Trusts are not counted as party members, so the current member count will be 1
+        if (PChar->PParty && PChar->PParty->HasOnlyOneMember() && PChar->PTrusts.empty())
+        {
+            // Looks good so far, check OTHER processes to see if we should disband
+            if (PChar->PParty->GetMemberCountAcrossAllProcesses() == 1)
+            {
+                PChar->PParty->DisbandParty();
+            }
         }
     }
 
@@ -5416,4 +5662,42 @@ namespace charutils
         auto timerPacket = new CTimerBarUtilPacket();
         PChar->pushPacket(timerPacket);
     }
-}; // namespace charutils
+
+        bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity)
+    {
+        SpawnIDList_t* spawnlist = nullptr;
+
+        if (!entity)
+        {
+            return false;
+        }
+
+        if (entity->objtype == TYPE_MOB)
+        {
+            spawnlist = &PChar->SpawnMOBList;
+        }
+        else if (entity->objtype == TYPE_NPC)
+        {
+            spawnlist = &PChar->SpawnNPCList;
+        }
+        else if (entity->objtype == TYPE_PC)
+        {
+            spawnlist = &PChar->SpawnPCList;
+        }
+        else if (entity->objtype == TYPE_PET)
+        {
+            spawnlist = &PChar->SpawnPETList;
+        }
+        else if (entity->objtype == TYPE_TRUST)
+        {
+            spawnlist = &PChar->SpawnTRUSTList;
+        }
+        else
+        {
+            return false;
+        }
+
+        return spawnlist->find(entity->id) != spawnlist->end();
+    }
+
+    }; // namespace charutils

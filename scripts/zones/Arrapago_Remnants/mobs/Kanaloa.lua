@@ -28,7 +28,7 @@ function onMobFight(mob, target)
     end)
     if not mob:hasStatusEffect(tpz.effect.SILENCE) then
         if not mob:hasStatusEffect(tpz.effect.SILENCE) then
-            PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains.", 0xD, none, 30)
+            PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems weak to skillchains...", 0xD, none, 30)
         end
         AddDamageAura(mob, target, 12, 50, tpz.attackType.MAGICAL, tpz.damageType.WATER, 3)
     end
@@ -39,12 +39,16 @@ function onMobWeaponSkillPrepare(mob, target)
     return math.random(462, 463)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then
-        -- Nearby door opens
-        mob:getEntity(bit.band(ID.npc[1][3].DOOR3, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[1][3].DOOR3, 0xFFF), tpz.objType.NPC):untargetable(true)
-        salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081058) then
+        else
+            -- Nearby door opens
+            mob:getEntity(bit.band(ID.npc[1][3].DOOR3, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[1][3].DOOR3, 0xFFF), tpz.objType.NPC):untargetable(true)
+            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        end
     end
 end
 

@@ -22,6 +22,8 @@ function onMobWeaponSkill(target, mob, skill)
     target:delStatusEffect(tpz.effect.POISON)
     MobStatusEffectMove(mob, target, typeEffect, 35, 3, 60)
     local effect1 = target:getStatusEffect(typeEffect)
-    effect1:unsetFlag(tpz.effectFlag.WALTZABLE)
+    if (effect1 ~= nil) then
+        effect1:unsetFlag(tpz.effectFlag.WALTZABLE)
+    end
     return dmg
 end

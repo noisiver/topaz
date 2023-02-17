@@ -6,7 +6,7 @@
 local ID = require("scripts/zones/Periqia/IDs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.TRIPLE_ATTACK, 15)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 15)
     mob:setMod(tpz.mod.CRITHITRATE, 100)
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
 end
@@ -49,6 +49,11 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+    local hellSlashEnabled = mob:getLocalVar("hellSlashEnabled")
+    if hellSlashEnabled > 0 then
+        mob:useMobAbility(478) -- Hell Slash
+        mob:setLocalVar("hellSlashEnabled", 0)
+    end
 end
 
 function onMobWeaponSkillPrepare(mob, target)
@@ -57,7 +62,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 1795 then -- Malediction
-         mob:useMobAbility(478) -- Hell Slash
+          mob:setLocalVar("hellSlashEnabled", 1)
     end
 end
 

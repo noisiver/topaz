@@ -13,18 +13,20 @@
 -- 6 = Skillchain
 -- 7 = Magic Burst
 -- 8 = Spirits
+-- 9 = Helixes(5% dmg)
 -----------------------------------
 require("scripts/globals/status")
 -----------------------------------
 local power = {
-    { 1, tpz.mod.DMG, 50}, 
-    { 2, tpz.mod.UDMGPHYS, 50}, 
-    { 3, tpz.mod.UDMGBREATH, 50}, 
+    { 1,  tpz.mod.DMG, 50}, 
+    { 2,  tpz.mod.UDMGPHYS, 50}, 
+    { 3,  tpz.mod.UDMGBREATH, 50}, 
     { 4,  tpz.mod.UDMGMAGIC, 50}, 
     { 5,  tpz.mod.UDMGRANGE, 50}, 
     { 6,  tpz.mod.DMGSC, 50}, 
     { 7,  tpz.mod.DMGMB, 50}, 
-    { 8,  tpz.mod.DMGSPIRITS, 50}, 
+    { 8,  tpz.mod.DMGSPIRITS, 50},
+    { 9,  tpz.mod.DMG, 5}, 
 }
 
 

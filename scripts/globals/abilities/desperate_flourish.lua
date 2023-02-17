@@ -77,7 +77,7 @@ function onUseAbility(player, target, ability, action)
         params.diff = 0
         params.skillType = player:getWeaponSkillType(tpz.slot.MAIN)
         params.bonus = 0 
-        local resist = applyResistance(player, target, spell, params)
+        local resist = applyResistanceEffect(player, target, spell, params)
 		
 
         if resist >= 0.5 then

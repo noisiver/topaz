@@ -45,18 +45,19 @@ end
 function onMobEngaged(mob, target)
     local phase = mob:getLocalVar("phase")
     -- Reset vars, jo, model on engage unless in phase 4
-    ChangeJobTHF(mob)
     mob:setLocalVar("jumpTimer", os.time() + 30)
     if (phase < 4) then
         mob:setLocalVar("phase", 0)
         mob:setLocalVar("bioTimer", os.time() + 30)
         mob:setLocalVar("msgTimer", os.time() + 45)
+        ChangeJobTHF(mob)
     end
 end
 
 function onMobFight(mob, target)
     local hpp = mob:getHPP()
     local instance = mob:getInstance()
+    local stage = instance:getStage()
     local phase = mob:getLocalVar("phase")
     local bioTimer = mob:getLocalVar("bioTimer")
     local jumpTimer = mob:getLocalVar("jumpTimer")
@@ -69,7 +70,7 @@ function onMobFight(mob, target)
         if (hpp > 70) then 
             mob:setLocalVar("phase", 1)
             if enmityList and #enmityList > 0 and os.time() >= bioTimer then
-                mob:setLocalVar("bioTimer", os.time() + 30)
+                mob:setLocalVar("bioTimer", os.time() + 5)
                 bioTarget = math.random(#enmityList)
                 mob:castSpell(233, GetPlayerByID(bioTarget)) -- Bio IV
             end
@@ -80,8 +81,10 @@ function onMobFight(mob, target)
         elseif (hpp < 30) then 
             mob:setLocalVar("phase", 3)
             ChangeJobDRG(mob)
-            instance:setProgress(100)
-            KillAllPlayers(mob, instance)
+            if (stage == 3) then -- Do not do the kill all phase in the final boss fight
+                instance:setProgress(instance:getProgress() + 100)
+                KillAllPlayers(mob, instance)
+            end
         end
     end
 
@@ -98,8 +101,24 @@ function onMobFight(mob, target)
         local element = spell:getElement()
         local phase = mob:getLocalVar("phase")
         -- Taking a 1k+ damage Fire MB
-        if (element == tpz.magic.ele.FIRE) and (amount >= 1000) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) and (phase == 2) then
-            BreakMob(mob, caster, 1, 60, 1)
+        if (element == tpz.magic.ele.FIRE) and (amount >= 500) and (phase == 2) then
+            if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
+                BreakMob(mob, caster, 1, 60, 1)
+            end
+        end
+    end)
+
+    -- Handle Bio IV being interrupted
+    mob:addListener("MAGIC_STATE_EXIT", "SL_MAGIC_EXIT", function(mob, spell)
+        if spell:getID() == 233 then
+          mob:setLocalVar("bioTimer", os.time() + 30)
+        end
+    end)
+
+    -- Handle Jump being interrupted
+    mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "SL_WS_INTERRUPTED", function(mob, skill)
+        if skill == 718 then
+            mob:setLocalVar("jumpTimer", 0)
         end
     end)
 
@@ -120,22 +139,26 @@ function onMobWeaponSkillPrepare(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     local progress = instance:getProgress()
 
     if isKiller or noKiller then
-        -- Teleport players back to the start if this is the first NM killed
-        if (progress == 0) then
-            instance:setProgress(1)
-            salvageUtil.teleportGroup(player, 339, -0, math.random(456, 464), 129, true, false, false)
-            salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081149) then
         else
-            -- Nearby door opens
-            mob:getEntity(bit.band(ID.npc[3][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
-            mob:getEntity(bit.band(ID.npc[3][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
-            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
-            instance:setProgress(2)
+            -- Teleport players back to the start if this is the first NM killed
+            if (progress == 0) then
+                instance:setProgress(1)
+                salvageUtil.teleportGroup(player, 339, -0, math.random(456, 464), 129, true, false, false)
+                salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
+            elseif (progress == 1) then
+                -- Nearby door opens
+                mob:getEntity(bit.band(ID.npc[3][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
+                mob:getEntity(bit.band(ID.npc[3][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
+                salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+                instance:setProgress(2)
+            end
         end
     end
 end
@@ -144,6 +167,7 @@ function onMobDespawn(mob)
 end
 
 function ChangeJobTHF(mob)
+    mob:setDamage(80)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
     mob:setMod(tpz.mod.MATT, 0)
     mob:setMod(tpz.mod.ATT, 360) 
@@ -157,6 +181,7 @@ function ChangeJobTHF(mob)
 end
 
 function ChangeJobBLM(mob)
+    mob:setDamage(115)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
     mob:setMod(tpz.mod.MATT, 36)
     mob:setMod(tpz.mod.ATT, 360) 
@@ -170,6 +195,7 @@ function ChangeJobBLM(mob)
 end
 
 function ChangeJobDRG(mob)
+    mob:setDamage(115)
     mob:setMod(tpz.mod.TRIPLE_ATTACK, 0)
     mob:setMod(tpz.mod.MATT, 0)
     mob:setMod(tpz.mod.ATT, 370) 
@@ -187,7 +213,9 @@ function KillAllPlayers(mob, instance)
     local chars = instance:getChars()
 
     for _, players in pairs(chars) do
+        players:delStatusEffectSilent(tpz.effect.RERAISE)
         players:setHP(0)
+        mob:disengage()
     end
 end
 
@@ -234,6 +262,7 @@ function RaiseAllPlayers(instance)
     for i, v in pairs(chars) do
         v:sendRaise(3)
         v:delStatusEffect(1)
+        v:setMP(3000)
         v:setLocalVar("GMRaise", 1)
     end
 end

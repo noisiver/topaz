@@ -11,6 +11,9 @@ require("scripts/globals/msg")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
+	if mob:hasStatusEffect(tpz.effect.REGEN) then
+		return 1
+	end
     return 0
 end
 
@@ -33,5 +36,5 @@ function onMobWeaponSkill(target, mob, skill)
     effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     skill:setMsg(tpz.msg.basic.SELF_HEAL)
 
-     return MobHealMove(target, skill, 1)
+    return MobHealMove(target, skill, 1)
 end

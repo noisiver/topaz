@@ -271,8 +271,9 @@ void CAttackRound::CreateAttacks(CItemWeapon* PWeapon, PHYSICAL_ATTACK_DIRECTION
         }
 
         // Ambush Augment adds +1% Triple Attack per merit (need to satisfy conditions for Ambush)
-        if (charutils::hasTrait(PChar, TRAIT_AMBUSH) && PChar->getMod(Mod::AUGMENTS_AMBUSH) > 0 && abs(m_defender->loc.p.rotation - m_attacker->loc.p.rotation) < 23)
+        if (charutils::hasTrait(PChar, TRAIT_AMBUSH) && PChar->getMod(Mod::AUGMENTS_AMBUSH) > 0)
         {
+            if (abs(m_defender->loc.p.rotation - m_attacker->loc.p.rotation) < 23 || m_defender->StatusEffectContainer->HasStatusEffect(EFFECT_DOUBT))
             tripleAttack += PChar->PMeritPoints->GetMerit(MERIT_AMBUSH)->count;
         }
 
@@ -285,6 +286,10 @@ void CAttackRound::CreateAttacks(CItemWeapon* PWeapon, PHYSICAL_ATTACK_DIRECTION
     quadAttack = std::clamp<int16>(quadAttack, 0, 100);
     doubleAttack = std::clamp<int16>(doubleAttack, 0, 100);
     tripleAttack = std::clamp<int16>(tripleAttack, 0, 100);
+
+    // ShowDebug("Quad attack rate: %d\n", quadAttack);
+    // ShowDebug("Double attack rate: %d\n", doubleAttack);
+    // ShowDebug("Triple attack rate: %d\n", tripleAttack);
 
     // Preference matters! The following are additional hits to the default hit that don't stack up
     // Mikage > Quad > Triple > Double > Mythic Aftermath > Occasionally Attacks > Dynamis [D] Follow-Up > Hasso + Zanshin

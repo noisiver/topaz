@@ -19,6 +19,11 @@ function onSpellCast(caster, target, spell)
     local duration = calculateDuration(75 + caster:getMod(tpz.mod.REGEN_DURATION), spell:getSkillType(), spell:getSpellGroup(), caster, target)
     duration = calculateDurationForLvl(duration, 21, target:getMainLvl())
 
+    -- SCH main while Light Arts being active tripled the duration
+    if caster:getMainJob() == tpz.job.SCH and caster:hasStatusEffect(tpz.effect.LIGHT_ARTS) then
+        duration = duration * 3
+    end
+
     if target:addStatusEffect(tpz.effect.REGEN, hp, 0, duration) then
         spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
     else

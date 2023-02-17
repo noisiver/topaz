@@ -20,7 +20,7 @@ function onSpellCast(caster, target, spell)
     target:delStatusEffectSilent(tpz.effect.AURORASTORM)
     target:delStatusEffectSilent(tpz.effect.VOIDSTORM)
 
-    local duration = calculateDuration(180, spell:getSkillType(), spell:getSpellGroup(), caster, target)
+    local duration = calculateDuration(1800, spell:getSkillType(), spell:getSpellGroup(), caster, target)
     duration = calculateDurationForLvl(duration, 46, target:getMainLvl())
 
     local merit = caster:getMerit(tpz.merit.STORMSURGE)

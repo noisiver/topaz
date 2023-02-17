@@ -1,6 +1,7 @@
 ------------------------------
 -- Area: Meriphataud Mountains [S]
 --   NM: Bloodlapper
+-- Immune to Break
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")
@@ -12,29 +13,25 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.ACC, 25) 
     mob:addMod(tpz.mod.EVA, 25)
-    mob:addMod(tpz.mod.QUAD_ATTACK, 50)
     mob:addMod(tpz.mod.DARK, 800) -- So it can  drain for 1k+
 	mob:setMod(tpz.mod.REFRESH, 400)
+    mob:setMod(tpz.mod.REGAIN, 12)
 	mob:setMod(tpz.mod.SILENCERESTRAIT, 100)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
 end
 
 function onMobFight(mob, target)
-    local battletime = mob:getBattleTime()
-    local EDTime = mob:getLocalVar("EDTime")
+end
 
-    if EDTime == 0 then
-        mob:setLocalVar("EDTime", math.random(30, 45))
-    elseif battletime >= EDTime then
-        mob:useMobAbility(2162) -- Emetic Discharge
-        mob:setLocalVar("EDTime", battletime + math.random(30,45))
-    end
+function onMobWeaponSkillPrepare(mob, target)
+    return 2162 -- Only uses Emetic Discharge
 end
 
 function onMonsterMagicPrepare(mob, target)
         local rnd = math.random()
         if (rnd < 0.5) then
             return 256 -- virus
-        elseif (rnd < 0.7) then
+        elseif (rnd < 0.8) then
             return 245 -- drain
         elseif (rnd < 0.9) then
             return 247 -- aspir

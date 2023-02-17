@@ -24,7 +24,8 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.MDEF, 40)
     mob:setMod(tpz.mod.MDEF, 0)
     mob:setMod(tpz.mod.UDMGMAGIC, -63)
-    mob:setMod(tpz.mod.UDMGBREATH, -50) 
+    mob:setMod(tpz.mod.UDMGBREATH, -50)
+    mob:setMod(tpz.mod.DMGSPIRITS, -50) 
     mob:setMod(tpz.mod.SDT_FIRE, 40)
     mob:setMod(tpz.mod.SDT_ICE, 80)
     mob:setMod(tpz.mod.SDT_WIND, 40)
@@ -77,6 +78,7 @@ function onMobFight(mob, target)
         or abilityID == 203      -- stutter step
         or abilityID == 205      -- desperate flourish
         or abilityID == 207      -- violent flourish
+        or abilityID == 168      -- blade bash
         or abilityID == 170 then -- angon
 			if math.random(100) <= mob:getLocalVar("WingsBreakChance") and mob:AnimationSub() == 0 then
 				mob:AnimationSub(1)

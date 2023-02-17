@@ -24,31 +24,22 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local dmg = 20 + caster:getSkillLevel(tpz.skill.BLUE_MAGIC)
-    local multi = 1.0
-	
-    if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
-        multi = multi + 2.0
-    end
     local params = {}
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 0
-    params.multiplier = multi
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
     local multi = 2.0
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
     end
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_dmg
+    params.multiplier = multi
     params.attackType = tpz.attackType.MAGICAL
     params.dmgType = tpz.damageType.DARK
     params.bonus = 0
     params.multiplier = multi
     params.tMultiplier = 1.0
-    params.duppercap = 30
+    params.duppercap = 80
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -56,9 +47,12 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.4
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
-    dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
-    dmg = dmg*resist
-    dmg = addBonuses(caster, spell, target, dmg)
+    local dmg = BlueMagicalSpell(caster, target, spell, params, INT_BASED)
+
+    -- Check for zombie
+    if utils.CheckForZombieSpell(caster, spell) then
+        return 0
+    end
 
     if (dmg < 0) then
         dmg = 0
@@ -85,12 +79,14 @@ function onSpellCast(caster, target, spell)
 	end
 
     dmg = BlueFinalAdjustments(caster, target, spell, dmg, params)
-    caster:delStatusEffectSilent(tpz.effect.BURST_AFFINITY)
-  
-  if dmg > 0 and resist >= 0.5  then
-		dmg = dmg * BLUE_POWER
-		caster:addHP(damage)
-	end
+
+    -- add dmg variance
+	dmg = (dmg * math.random(85, 115)) / 100
+    
+    if dmg > 0 then
+	    dmg = dmg * BLUE_POWER
+	    caster:addHP(damage)
+    end
 
     return dmg
 end

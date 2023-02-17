@@ -27,6 +27,12 @@ function onMobEngaged(mob)
 end
 
 function onMobFight(mob, target)
+    local auraMode = mob:getLocalVar("auraMode")
+    if (auraMode == 1) then
+        AddMobAura(mob, target, 10, tpz.effect.AMNESIA, 1, 3)
+    elseif (auraMode == 2) then
+        AddMobAura(mob, target, 10, tpz.effect.MUTE, 1, 3)
+    end
 	if mob:hasStatusEffect(tpz.effect.BLAZE_SPIKES) == false then
 		mob:addStatusEffect(tpz.effect.BLAZE_SPIKES, 25, 0, 3600)
 	end
@@ -34,10 +40,10 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     if skill:getID() == 1709 then -- Abrasive Tantra
-	    mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 60, tpz.effect.AMNESIA, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+	    mob:setLocalVar("auraMode", 1)
     end
     if skill:getID() == 1710 then -- Deafening Tantra
-	    mob:addStatusEffectEx(tpz.effect.COLURE_ACTIVE, tpz.effect.COLURE_ACTIVE, 13, 3, 60, tpz.effect.MUTE, 1, tpz.auraTarget.ENEMIES, tpz.effectFlag.AURA)
+	    mob:setLocalVar("auraMode", 2)
     end
 end
 

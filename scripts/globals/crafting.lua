@@ -305,6 +305,8 @@ function unionRepresentativeTrade(player, npc, trade, csid, guildID)
                 if items ~= 0 and points ~= 0 then
                     totalPoints = totalPoints + points
                     trade:confirmSlot(i, items)
+                else
+                    return player:PrintToArea("Invalid items or points for GP." , tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, "GM");
                 end
             end
             if (totalPoints > 0) then

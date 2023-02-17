@@ -33,37 +33,38 @@
 
 CCheckPacket::CCheckPacket(CCharEntity* PChar, CCharEntity* PTarget)
 {
-	this->type = 0xC9;
-	this->size = 0x06;
+    this->type = 0xC9;
+    this->size = 0x0C;
 
-	ref<uint32>(0x04) = PTarget->id;
-	ref<uint16>(0x08) = PTarget->targid;
+    ref<uint32>(0x04) = PTarget->id;
+    ref<uint16>(0x08) = PTarget->targid;
 
-	ref<uint8>(0x0A) = 0x03;
+    ref<uint8>(0x0A) = 0x03;
 
-	uint8 count = 0;
+    uint8 count = 0;
 
-	for (int32 i = 0; i < 16; ++i)
-	{
-		CItem* PItem = PTarget->getEquip((SLOTTYPE)i);
+    for (int32 i = 0; i < 16; ++i)
+    {
+        CItem* PItem = PTarget->getEquip((SLOTTYPE)i);
 
-		if (PItem != nullptr)
-		{
-			ref<uint16>(size * 2 + 0x00) = PItem->getID();
-			ref<uint8>(size * 2 + 0x02) = i;
+        if (PItem != nullptr)
+        {
+            auto size = this->size / 2; // TODO: Verify this, size used to use the old two-byte value
+            ref<uint16>(size * 2 + 0x00) = PItem->getID();
+            ref<uint8>(size * 2 + 0x02) = i;
 
-			if (PItem->isSubType(ITEM_CHARGED))
-			{
+            if (PItem->isSubType(ITEM_CHARGED))
+            {
                 uint32 currentTime = CVanaTime::getInstance()->getVanaTime();
-				uint32 nextUseTime = ((CItemUsable*)PItem)->getLastUseTime() + ((CItemUsable*)PItem)->getReuseDelay();
+                uint32 nextUseTime = ((CItemUsable*)PItem)->getLastUseTime() + ((CItemUsable*)PItem)->getReuseDelay();
 
-				ref<uint8>(size * 2 + 0x04) = 0x01;
-				ref<uint8>(size * 2 + 0x05) = ((CItemUsable*)PItem)->getCurrentCharges();
-				ref<uint8>(size * 2 + 0x07) = (nextUseTime > currentTime ? 0x90 : 0xD0);
+                ref<uint8>(size * 2 + 0x04) = 0x01;
+                ref<uint8>(size * 2 + 0x05) = ((CItemUsable*)PItem)->getCurrentCharges();
+                ref<uint8>(size * 2 + 0x07) = (nextUseTime > currentTime ? 0x90 : 0xD0);
 
-				ref<uint32>(size * 2 + 0x08) = nextUseTime;
-				ref<uint32>(size * 2 + 0x0C) = ((CItemUsable*)PItem)->getUseDelay() + currentTime;
-			}
+                ref<uint32>(size * 2 + 0x08) = nextUseTime;
+                ref<uint32>(size * 2 + 0x0C) = ((CItemUsable*)PItem)->getUseDelay() + currentTime;
+            }
 
             if (PItem->isSubType(ITEM_AUGMENTED))
             {
@@ -76,58 +77,61 @@ CCheckPacket::CCheckPacket(CCharEntity* PChar, CCharEntity* PTarget)
                 ref<uint16>(size * 2 + 0x0C) = ((CItemEquipment*)PItem)->getAugment(3);
                 ref<uint16>(size * 2 + 0x0E) = ((CItemEquipment*)PItem)->getAugment(4);
             }
+            // 12 characters? seems a bit short. // TODO: research.
+            // memcpy(data + (size * 2 + 0x10), PItem->getSignature().c_str(), std::clamp<size_t>(PItem->getSignature().size(), 0, 12));
 
-			memcpy(data+(size*2+0x10), PItem->getSignature(), std::clamp<size_t>(strlen((const char*)PItem->getSignature()), 0, 12));
+            this->size = size * 2 + 0x1C;
+            count++;
 
-			this->size += 0x0E;
-			count++;
+            if (count == 8)
+            {
+                ref<uint8>(0x0B) = count;
 
-			if (count == 8)
-			{
-				ref<uint8>(0x0B) = count;
+                PChar->pushPacket(new CBasicPacket(*this));
 
-				PChar->pushPacket(new CBasicPacket(*this));
+                this->size = 0x0C;
+                memset(data + (0x0B), 0, PACKET_SIZE - 11);
+            }
+        }
+    }
 
-				this->size = 0x06;
-				memset(data+(0x0B), 0, PACKET_SIZE - 11);
-			}
-		}
-	}
+    if (count == 0)
+    {
+        this->size = 0x28;
+        PChar->pushPacket(new CBasicPacket(*this));
+    }
+    else if (count != 8)
+    {
+        ref<uint8>(0x0B) = (count > 8 ? count - 8 : count);
+        PChar->pushPacket(new CBasicPacket(*this));
+    }
 
-	if (count == 0)
-	{
-		this->size = 0x14;
-		PChar->pushPacket(new CBasicPacket(*this));
-	}
-	else if (count != 8)
-	{
-		ref<uint8>(0x0B) = (count > 8 ? count - 8 : count);
-		PChar->pushPacket(new CBasicPacket(*this));
-	}
+    this->size = 0x54;
+    memset(data + (0x0B), 0, PACKET_SIZE - 11);
 
-	this->size = 0x28;
-	memset(data+(0x0B), 0, PACKET_SIZE - 11);
-
-	ref<uint8>(0x0A) = 0x01;
+    ref<uint8>(0x0A) = 0x01;
 
     CItemLinkshell* PLinkshell = (CItemLinkshell*)PTarget->getEquip(SLOT_LINK1);
 
     if ((PLinkshell != nullptr) && PLinkshell->isType(ITEM_LINKSHELL))
-	{
-        //ref<uint16>(0x0C) = PLinkshell->GetLSID();
+    {
         ref<uint16>(0x0E) = PLinkshell->getID();
-        ref<uint16>(0x10) = PLinkshell->GetLSRawColor();
-
-        memcpy(data+(0x14), PLinkshell->getSignature(), std::clamp<size_t>(strlen((const char*)PLinkshell->getSignature()), 0, 15));
+        // 15 characters? seems a bit short // TODO: research.
+        memcpy(data + (0x10), PLinkshell->getSignature(), std::clamp<size_t>(strlen((const char*)PLinkshell->getSignature()), 0, 15));
+        // ref<uint16>(0x0C) = PLinkshell->GetLSID();
+        ref<uint16>(0x20) = PLinkshell->GetLSRawColor();
     }
-	if ((PChar->nameflags.flags & FLAG_GM) || !(PTarget->nameflags.flags & FLAG_ANON))
-	{
-		ref<uint8>(0x12) = PTarget->GetMJob();
-		ref<uint8>(0x13) = PTarget->GetSJob();
-		ref<uint8>(0x24) = PTarget->GetMLevel();
-		ref<uint8>(0x25) = PTarget->GetSLevel();
-	}
+    if ((PChar->nameflags.flags & FLAG_GM) || !(PTarget->nameflags.flags & FLAG_ANON))
+    {
+        ref<uint8>(0x22) = PTarget->GetMJob();
+        ref<uint8>(0x23) = PTarget->GetSJob();
+        ref<uint8>(0x24) = PTarget->GetMLevel();
+        ref<uint8>(0x25) = PTarget->GetSLevel();
+        ref<uint8>(0x26) = PTarget->GetMJob();
+        ref<uint8>(0x27) = 0; // Master Level
+        ref<uint8>(0x28) = 0; // bitflags, bit 0 = Master Breaker
+    }
 
-	//Chevron 32 bit Big Endean, starting at 0x2B
-	//ref<uint8>(0x2C) = 0x00;	//Ballista Star next to Chevron count
+    // Chevron 32 bit Big Endean, starting at 0x2B
+    // ref<uint8>(0x2C) = 0x00; //Ballista Star next to Chevron count
 }

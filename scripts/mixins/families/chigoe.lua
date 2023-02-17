@@ -41,6 +41,7 @@ g_mixins.families.chigoe = function(mob)
         or abilityID == 203      -- stutter step
         or abilityID == 205      -- desperate flourish
         or abilityID == 207      -- violent flourish
+        or abilityID == 168      -- blade bash
         or abilityID == 170 then -- angon
 			if mob:getHP() > 0 and not mob:isNM()then
 				mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)

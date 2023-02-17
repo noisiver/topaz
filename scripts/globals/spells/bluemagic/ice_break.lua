@@ -15,6 +15,7 @@
 require("scripts/globals/bluemagic")
 require("scripts/globals/status")
 require("scripts/globals/magic")
+require("scripts/globals/msg")
 -----------------------------------------
 
 function onMagicCastingCheck(caster, target, spell)
@@ -26,14 +27,9 @@ function onSpellCast(caster, target, spell)
     local params = {}
 
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
-
     params.attribute = tpz.mod.INT
-
     params.skillType = tpz.skill.BLUE_MAGIC
-
     params.bonus = 0
-
-    local resist = applyResistance(caster, target, spell, params)
     local multi = 3.0
     if (caster:hasStatusEffect(tpz.effect.AZURE_LORE)) then
         multi = multi + 2.0
@@ -60,11 +56,8 @@ function onSpellCast(caster, target, spell)
 	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
 
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-        local typeEffect = tpz.effect.BIND
-        target:delStatusEffectSilent(typeEffect) -- Wiki says it can overwrite itself or other binds
-        target:addStatusEffect(typeEffect, 1, 0, getBlueEffectDuration(caster, resist, typeEffect, false))
-    end
+    params.effect = tpz.effect.BIND
+    BlueTryEnfeeble(caster, target, spell, damage, 1, 0, 45, params)
 
     return damage
 end

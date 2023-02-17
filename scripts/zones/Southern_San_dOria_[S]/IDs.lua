@@ -28,6 +28,8 @@ zones[tpz.zone.SOUTHERN_SAN_DORIA_S] =
         HOMEPOINT_SET           = 11114, -- Home point set!
         ITEM_DELIVERY_DIALOG    = 11215, -- If'n ye have goods tae deliver, then Nembet be yer man!
         ALLIED_SIGIL            = 12916, -- You have received the Allied Sigil!
+        SCNM_CONTRAINER_TRADE   = 13649, -- Just as we suspected. This contains a great deal of information that will prove vital to our cause.
+        PROSPERITY_RISEN        = 13651, -- The army of bastok prosperity has risen!
         RETRIEVE_DIALOG_ID      = 15579, -- You retrieve <item> from the porter moogle's care.
         COMMON_SENSE_SURVIVAL   = 15653, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
     },

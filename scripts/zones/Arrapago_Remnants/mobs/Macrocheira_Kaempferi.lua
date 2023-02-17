@@ -26,9 +26,11 @@ function onMobFight(mob, target)
     mob:addListener("SPELL_DMG_TAKEN", "MK_SPELL_DMG_TAKEN", function(mob, caster, spell, amount, msg)
         local element = spell:getElement()
 
-        if (element == tpz.magic.ele.ICE) and (amount >= 1000) and (msg == tpz.msg.basic.MAGIC_BURST_BLACK) then
-            BreakMob(mob, caster, 1, 30, 2)
-            mob:delStatusEffectSilent(tpz.effect.DELUGE_SPIKES)
+        if (element == tpz.magic.ele.ICE) and (amount >= 500) then
+            if (msg == tpz.msg.basic.MAGIC_BURST_BLACK) or (msg == tpz.msg.MAGIC_BURST_BREATH) then
+                BreakMob(mob, caster, 1, 60, 2)
+                mob:delStatusEffectSilent(tpz.effect.DELUGE_SPIKES)
+            end
         end
     end)
     if not mob:hasStatusEffect(tpz.effect.TERROR) then
@@ -42,12 +44,16 @@ function onMobWeaponSkillPrepare(mob, target)
     return math.random(2512, 2513)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     if isKiller or noKiller then
-        -- Nearby door opens
-        mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
-        mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
-        salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081056) then
+        else
+            -- Nearby door opens
+            mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):setAnimation(8)
+            mob:getEntity(bit.band(ID.npc[1][3].DOOR1, 0xFFF), tpz.objType.NPC):untargetable(true)
+            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+        end
     end
 end
 

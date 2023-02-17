@@ -1,28 +1,56 @@
 -----------------------------------
 -- Area: Castle Oztroja [S]
 --   NM: Loo Kutto the Pensive
+-- SAM/SAM
+-- Immune to Sleep, Bind, Gravity, Break
+-- TP Move Timer:  1:34 - > 1:41 - > 1:54 - > 02:05 - > 02:18 - > 02:30 - > 02:54 - > 02:59 - > 03:18 - > 03:27 - > 03:42
+-- TP Move timer reduces to 5s at 49% HP
+-- Uses Sweep, Feathered Furore, Double Kick, Feather Storm. Can use Meikyo Shisui starting at 49%
+-- Used Mekiyo Shisui at 55%
+-- Uses Dark Invocation x3 during Meikyio Shisui
 -----------------------------------
+require("scripts/globals/status")
+require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/job_special")}
 -----------------------------------
 
-function onMobFight(mob, target)
-    --[[
-    "Possess high Regain and/or Store TP, which seems to increase further as its HP declines."
-
-    Using formula below, mob will have:
-    at 100% HP, 20 storeTP
-        75% HP, 80 storeTP
-        50% HP, 140 storeTP
-        25% HP, 200 storeTP (caps here - this is about 50% TP per greatsword swing)
-    --]]
-    local power = 20 + math.floor(utils.clamp(100 - mob:getHPP(), 0, 75) * 2.4)
-    mob:setMod(tpz.mod.STORETP, power)
+function onMobSpawn(mob)
+    tpz.wotg.NMMods(mob)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobFight(mob, target)
+    local meikyoUsed = mob:getLocalVar("meikyoUsed")
+    local hp = mob:getHPP()
+
+    -- Uses TP moves every 10 seconds at 50-100% HP, then every 5 seconds below 50.
+    if (hp < 25) then
+        mob:setMod(tpz.mod.REGAIN, 500)
+    elseif (hp < 50) then
+        mob:setMod(tpz.mod.REGAIN, 1500)
+    else
+        mob:setMod(tpz.mod.REGAIN, 1000)
+    end
+
+   -- Uses Dark Invocation x3 during Meikyio Shisui
+   if mob:hasStatusEffect(tpz.effect.MEIKYO_SHISUI) and (meikyoUsed == 0) then
+        mob:setLocalVar("meikyoUsed", 1)
+        UseMultipleTPMoves(mob, 3, 2206)
+    end
+end
+
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = {617, 618, 620, 2205}
+   --  Feather Storm, Double Kick, Sweep, Feathered Furore
+
+   return tpMoves[math.random(#tpMoves)]
+end
+
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)
     UpdateNMSpawnPoint(mob:getID())
-    mob:setRespawnTime(math.random(7200, 14400)) -- 2 to 4 hours
+    mob:setRespawnTime(7200) -- 2 hours
 end

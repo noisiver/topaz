@@ -9,7 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setDamage(80)
+    mob:setDamage(120)
     mob:setDelay(4000)
 end
 
@@ -22,7 +22,7 @@ end
 function onMobWeaponSkillPrepare(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

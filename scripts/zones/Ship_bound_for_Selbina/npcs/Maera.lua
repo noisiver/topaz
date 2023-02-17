@@ -18,6 +18,7 @@ function onTrigger(player, npc)
         4148,  316,    -- Antidote
         4150, 2595,    -- Eye Drops
         4151,  800,    -- Echo Drops
+        4153,  1000,   -- Antacid
     }
 
     player:showText(npc, ID.text.MAERA_SHOP_DIALOG)

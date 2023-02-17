@@ -23,12 +23,9 @@ function onMobFight(mob, target)
     for i = mobId + 1, mobId + 3 do
         local wynav = GetMobByID(i)
         if not wynav:isSpawned() then
-            local repopWynavs = wynav:getLocalVar("repop") -- see Wynav script
-            if mob:getBattleTime() - repopWynavs > 10 then
-                wynav:setSpawn(x + math.random(1, 5), y, z + math.random(1, 5))
-                wynav:spawn()
-                wynav:updateEnmity(target)
-            end
+            wynav:setSpawn(x + math.random(1, 5), y, z + math.random(1, 5))
+            wynav:spawn()
+            wynav:updateEnmity(target)
         end
     end
 end

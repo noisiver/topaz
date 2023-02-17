@@ -79,6 +79,9 @@ INSERT INTO `traits` VALUES (2,'evasion bonus',6,50,3,68,35,NULL,0);
 INSERT INTO `traits` VALUES (2,'evasion bonus',6,70,4,68,48,NULL,0);
 INSERT INTO `traits` VALUES (2,'evasion bonus',6,98,5,68,60,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (2,'evasion bonus',6,99,6,68,72,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (2,'evasion bonus',14,20,1,68,10,'TOAU',0);
+INSERT INTO `traits` VALUES (2,'evasion bonus',14,40,2,68,22,'TOAU',0);
+INSERT INTO `traits` VALUES (2,'evasion bonus',14,60,3,68,35,'TOAU',0);
 INSERT INTO `traits` VALUES (2,'evasion bonus',18,20,1,68,10,'TOAU',0);
 INSERT INTO `traits` VALUES (2,'evasion bonus',18,40,2,68,22,'TOAU',0);
 INSERT INTO `traits` VALUES (2,'evasion bonus',18,60,3,68,35,'TOAU',0);
@@ -222,8 +225,8 @@ INSERT INTO `traits` VALUES (15,'double attack',1,99,3,288,12,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,99,4,288,14,'ABYSSEA',0); -- level 76 prior to ROV update (05/14/2015), set Abby tag so it's removed from 75-cap servers
 INSERT INTO `traits` VALUES (15,'double attack',1,99,5,288,16,'ROV',0);
 INSERT INTO `traits` VALUES (15,'double attack',1,99,6,288,18,'ROV',0);
-INSERT INTO `traits` VALUES (16,'triple attack',6,40,1,302,10,NULL,0);
-INSERT INTO `traits` VALUES (16,'triple attack',6,60,2,302,15,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (16,'triple attack',6,40,1,302,5,NULL,0);
+INSERT INTO `traits` VALUES (16,'triple attack',6,76,2,302,10,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (17,'counter',2,10,1,291,10,NULL,0);		-- changed from 8%
 INSERT INTO `traits` VALUES (17,'counter',2,81,2,291,12,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (18,'dual wield',6,10,1,259,10,'ABYSSEA',0);
@@ -254,6 +257,11 @@ INSERT INTO `traits` VALUES (23,'martial arts',18,50,2,173,100,'TOAU',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,75,3,173,120,'TOAU',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,87,4,173,140,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (23,'martial arts',18,97,5,173,160,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,25,1,173,80,'TOAU',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,50,2,173,100,'TOAU',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,75,3,173,120,'TOAU',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,87,4,173,140,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (23,'martial arts',19,97,5,173,160,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,20,1,71,3,NULL,0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,35,2,71,6,NULL,0);
 INSERT INTO `traits` VALUES (24,'clear mind',3,50,3,71,9,NULL,0);
@@ -621,7 +629,7 @@ INSERT INTO `traits` VALUES (108,'conserve tp',14,81,2,944,18,'ABYSSEA',0); -- C
 INSERT INTO `traits` VALUES (108,'conserve tp',14,82,3,944,21,'ABYSSEA',0); -- Conserve TP III, DRG71, 21%
 INSERT INTO `traits` VALUES (108,'conserve tp',14,84,4,944,24,'ABYSSEA',0); -- Conserve TP IV, DRG84, 24%
 INSERT INTO `traits` VALUES (108,'conserve tp',14,97,5,944,26,'ABYSSEA',0); -- Conserve TP V, DRG97, 26%
-INSERT INTO `traits` VALUES (108,'conserve tp',19,77,1,944,15,'ABYSSEA',0); -- Conserve TP I, DNC77, 15%
+INSERT INTO `traits` VALUES (108,'conserve tp',19,30,1,944,15,'ABYSSEA',0); -- Conserve TP I, DNC77, 15%
 INSERT INTO `traits` VALUES (108,'conserve tp',19,45,2,944,18,'ABYSSEA',0); -- Conserve TP II, DNC87, 18%
 INSERT INTO `traits` VALUES (108,'conserve tp',19,60,3,944,21,'ABYSSEA',0); -- Conserve TP III, DNC97, 21%
 INSERT INTO `traits` VALUES (109,'occult acumen',4,85,1,902,25,'ABYSSEA',0);
@@ -671,6 +679,7 @@ INSERT INTO `traits` VALUES (113,'dead aim',11,70,3,964,9,'SOA',0);
 INSERT INTO `traits` VALUES (113,'dead aim',11,80,4,964,35,'SOA',0);
 INSERT INTO `traits` VALUES (113,'dead aim',11,90,5,964,40,'SOA',0);
 INSERT INTO `traits` VALUES (113,'dead aim',11,99,6,964,45,'SOA',0);
+--INSERT INTO `traits` VALUES (114,'tranquil heart',11,99,6,964,45,'SOA',0);
 INSERT INTO `traits` VALUES (115,'stalwart soul',8,45,1,907,15,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (115,'stalwart soul',8,60,2,907,30,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (115,'stalwart soul',8,75,3,907,40,'ABYSSEA',0);
@@ -749,6 +758,9 @@ INSERT INTO `traits` VALUES (123,'daken',13,70,2,911,10,'SOA',0);
 INSERT INTO `traits` VALUES (123,'daken',13,80,3,911,13,'SOA',0);
 INSERT INTO `traits` VALUES (123,'daken',13,85,4,911,15,'SOA',0);
 INSERT INTO `traits` VALUES (123,'daken',13,95,5,911,17,'SOA',0);
+INSERT INTO `traits` VALUES (126,'magic eva. bonus',14,45,1,31,10,'SOA',0);
+INSERT INTO `traits` VALUES (126,'magic eva. bonus',14,60,1,31,22,'SOA',0);
+INSERT INTO `traits` VALUES (126,'magic eva. bonus',14,75,1,31,35,'SOA',0);
 INSERT INTO `traits` VALUES (127,'smite',1,97,1,898,25,'SOA',0);
 INSERT INTO `traits` VALUES (127,'smite',1,98,2,898,38,'SOA',0);
 INSERT INTO `traits` VALUES (127,'smite',1,99,3,898,51,'SOA',0);
@@ -762,6 +774,23 @@ INSERT INTO `traits` VALUES (127,'smite',8,99,5,898,76,'SOA',0);
 INSERT INTO `traits` VALUES (127,'smite',14,97,1,898,25,'SOA',0);
 INSERT INTO `traits` VALUES (127,'smite',14,98,2,898,38,'SOA',0);
 INSERT INTO `traits` VALUES (127,'smite',18,99,1,898,25,'SOA',0);
+
+INSERT INTO `traits` VALUES (134,'ws damage boost',14,45,1,840,7,'ROV',0);
+INSERT INTO `traits` VALUES (134,'ws damage boost',14,55,2,840,10,'ROV',0);
+INSERT INTO `traits` VALUES (134,'ws damage boost',14,65,3,840,13,'ROV',0);
+INSERT INTO `traits` VALUES (134,'ws damage boost',14,75,4,840,16,'ROV',0);
+INSERT INTO `traits` VALUES (134,'ws damage boost',14,85,5,840,19,'ROV',0);
+INSERT INTO `traits` VALUES (134,'ws damage boost',14,95,6,840,21,'ROV',0);
+
+INSERT INTO `traits` VALUES (136,'shield barrier',1,30,1,1310,10,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',1,45,2,1310,15,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',1,60,3,1310,20,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',1,75,4,1310,25,'ROV',0);
+
+INSERT INTO `traits` VALUES (136,'shield barrier',8,30,1,1310,10,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',8,45,2,1310,15,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',8,60,3,1310,20,'ROV',0);
+INSERT INTO `traits` VALUES (136,'shield barrier',8,75,4,1310,25,'ROV',0);
 
 /*!40000 ALTER TABLE `traits` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -4,6 +4,7 @@
 -- Iqi-Balam ANNM
 -- !addkeyitem GREEN_LABELED_CRATE
 -- !pos 642.782 23.999 81.119 98
+-- L-8
 -----------------------------------
 require("scripts/globals/annm")
 -----------------------------------

@@ -9,9 +9,12 @@ local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/salvage")
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(50)
+    mob:setDelay(4000)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
     mob:setModelId(2907)
 end
@@ -28,7 +31,7 @@ function onMobWeaponSkillPrepare(mob, target)
     return math.random(2183, 2185)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)

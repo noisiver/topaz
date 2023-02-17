@@ -313,7 +313,7 @@ tpz.effect =
     PHALANX                  = 116,
     WARDING_CIRCLE           = 117,
     ANCIENT_CIRCLE           = 118,
-    STR_BOOST_II             = 119,
+    STR_BOOST_II             = 119, -- RDM Gain spells(And whm?)
     DEX_BOOST_II             = 120,
     VIT_BOOST_II             = 121,
     AGI_BOOST_II             = 122,
@@ -848,8 +848,8 @@ tpz.effect =
     FULL_SPEED_AHEAD         = 803, -- Helper for quest: Full Speed Ahead!
     INCREASED_DAMAGE_TAKEN   = 804, -- Increased damage taken, in percents
     CRIT_HIT_RATE_DOWN       = 805, -- Critical hit rate down
-    -- PLACEHOLDER           = 805, -- Description
-    -- 805-1022
+    ENHANCED_MANIFESTATION   = 806, -- Makes all spells AOE. Mobs only.
+    -- 807-1022
     DEEPSLEEP                = 901, -- For abilities like Nightmare
     -- PLACEHOLDER             = 1023 -- The client dat file seems to have only this many "slots", results of exceeding that are untested.
 }
@@ -1113,6 +1113,7 @@ tpz.mod =
     DMGSC                           = 1276, -- Skillchan Damage Taken %
     DMGMB                           = 1277, -- Magic Burst Damage Taken %
     DMGSPIRITS                      = 1278, -- Spirits Damage Taken % (Spirits Within / Atonement / Requiescat
+    DMGTP                           = 1307, -- TP move Damge taken %
     CRITHITRATE                     = 165,
     CRIT_DMG_INCREASE               = 421,
     RANGED_CRIT_DMG_INCREASE        = 964, -- Increases ranged critical damage by a percent
@@ -1183,7 +1184,6 @@ tpz.mod =
     AMNESIARES                      = 253,
     LULLABYRES                      = 254,
     DEATHRES                        = 255,
-    STATUSRES                       = 958, -- "Resistance to All Status Ailments"
     SPDEF_DOWN                      = 958, -- Specific Damage Taken (or Special Damage Taken) reduction as a percent
     RAMPART_STONESKIN               = 1181, -- Magic Stoneskin(Only absorbs magic damage)
 
@@ -1321,6 +1321,7 @@ tpz.mod =
     CHARM_TIME                      = 360,
     JUMP_TP_BONUS                   = 361,
     JUMP_ATT_BONUS                  = 362,
+    JUMP_DMG_BONUS                  = 1306, -- +DMG for jumps(in percents)
     HIGH_JUMP_ENMITY_REDUCTION      = 363,
     REWARD_HP_BONUS                 = 364,
     SNAP_SHOT                       = 365,
@@ -1677,8 +1678,7 @@ tpz.mod =
     GARDENING_WILT_BONUS            = 1011, -- Increases the number of Vanadays a plant can survive before it wilts
     SUPER_JUMP                      = 988,
     
-    SPDEF_DOWN                      = 958, -- Specific Damage Taken (or Special Damage Taken) reduction as a percent
-    
+
     RESBUILD_SLEEP      = 959,
     RESBUILD_GRAVITY    = 960,
     RESBUILD_BIND       = 961,
@@ -1731,12 +1731,46 @@ tpz.mod =
     HUMANOID_CIRCLE         = 1236,
     LUMORIAN_CIRCLE         = 1237,
     LUMINION_CIRCLE         = 1238,
+
+    EEM_AMNESIA             = 1280,
+    EEM_VIRUS               = 1281,
+    EEM_SILENCE             = 1282,
+    EEM_GRAVITY             = 1283,
+    EEM_STUN                = 1284,
+    EEM_LIGHT_SLEEP         = 1285,
+    EEM_CHARM               = 1286,
+    EEM_PARALYZE            = 1287,
+    EEM_BIND                = 1288,
+    EEM_SLOW                = 1289,
+    EEM_PETRIFY             = 1290,
+    EEM_TERROR              = 1291,
+    EEM_POISON              = 1292,
+    EEM_DARK_SLEEP          = 1293,
+    EEM_BLIND               = 1294,
+
+    -- Forced land rate, never resists. 1 = true 0 = false
+    DIVINE_NEVER_MISS       = 1295,   
+    ENFEEBLE_NEVER_MISS     = 1296, 
+    ELEM_NEVER_MISS         = 1297,     
+    DARK_NEVER_MISS         = 1298,     
+    SUMMONING_NEVER_MISS    = 1299, 
+    NINJUTSU_NEVER_MISS     = 1300,  
+    SINGING_NEVER_MISS      = 1301,   
+    BLUE_NEVER_MISS         = 1302,
+    STATUS_EFFECT_MACC      = 1303, -- Status effect Magic Accuracy
+    DEFENDER_POTENCY        = 1304, -- Increases defender defense bonus, in percents
+    TP_GAIN_ON_EVADE        = 1305, -- Gain TP upon a successful evade
+    BLOOD_RAGE_POTENCY      = 1308, -- Increases Blood Rage healing received bonus, in percents
+    TPEVA                   = 1309, -- Evasion to Monster TP moves in percents(used mainly for foil)
+    SHIELD_BARRIER          = 1310, -- Phalanx effect while wielding a shield
+    SPIKES_MACC             = 1311, -- Increases Spikes magical accuracy
     
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
+    -- 1312 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
@@ -2267,19 +2301,25 @@ tpz.merit =
 
 tpz.inventoryLocation =
 {
-    INVENTORY       = 0,
-    MOGSAFE         = 1,
-    STORAGE         = 2,
-    TEMPITEMS       = 3,
-    MOGLOCKER       = 4,
-    MOGSATCHEL      = 5,
-    MOGSACK         = 6,
-    MOGCASE         = 7,
-    WARDROBE        = 8,
-    MOGSAFE2        = 9,
-    WARDROBE2       = 10,
-    WARDROBE3       = 11,
-    WARDROBE4       = 12,
+    INVENTORY        = 0,
+    MOGSAFE          = 1,
+    STORAGE          = 2,
+    TEMPITEMS        = 3,
+    MOGLOCKER        = 4,
+    MOGSATCHEL       = 5,
+    MOGSACK          = 6,
+    MOGCASE          = 7,
+    WARDROBE         = 8,
+    MOGSAFE2         = 9,
+    WARDROBE2        = 10,
+    WARDROBE3        = 11,
+    WARDROBE4        = 12,
+    WARDROBE5        = 13,
+    WARDROBE6        = 14,
+    WARDROBE7        = 15,
+    WARDROBE8        = 16,
+    RECYCLEBIN       = 17,
+    MAX_CONTAINER_ID = 18,
 }
 tpz.inv = tpz.inventoryLocation
 
@@ -2489,6 +2529,8 @@ tpz.mobMod =
     HP                  = 101,-- sets a mobs max HP (Only works on mob initialize)
     RETURN_TO_SPAWN     = 102, -- Mob will return to it's spawn posituon on disengage
     BLOCK               = 103, -- Allows a mob to block, in percent(10 = 10% block chance).
+    ECOSYSTEMLINK       = 104, -- Mob will link to the same echo system(i.e. Demon or Bird)
+    VERTICAL_AGGRO      = 105, -- Always aggro regardless of verrtical distance
 }
 
 ------------------------------------
@@ -2510,7 +2552,7 @@ tpz.immunity =
     REQUIEM     = 1024,
     LIGHTSLEEP  = 2048,
     DARKSLEEP   = 4096,
-    ADDLE       = 8192,
+    PETRIFY     = 8192,
 }
 
 ------------------------------------
@@ -2612,7 +2654,7 @@ tpz.jobSpecialAbility =
     -- OVERDRIVE            = 2008,
     -- OVERDRIVE            = 2259,
     -- TABULA_RASA          = 2358,
-    -- TABULA_RASA          = 2261,
+    TABULA_RASA          = 2261,
     -- TABULA_RASA          = 2358,
     -- TRANCE               = 2260,
     -- TRANCE               = 2710,

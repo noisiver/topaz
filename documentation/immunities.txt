@@ -12,7 +12,12 @@
     IMMUNITY_REQUIEM     = 0x400,  // 1024
     IMMUNITY_LIGHT_SLEEP = 0x800,  // 2048
     IMMUNITY_DARK_SLEEP  = 0x1000, // 4096
+    IMMUNITY_PETRIFY     = 0x2000, // 8192
 
+    Sleep, Bind, Gravity, Break = 8199
+    Gravity, Silence, Slow, Paralyze, Sleep, Break = 8371
+    Paralyze, Sleep, Bind, Gravity, Break = 8231
+    Silence, Paralyze, Sleep, Bind, Gravity, Break = 8247
     Sleep / Grav / Bind / Silence = 23
     All But Requiem/Light Sleep/Dark Sleep = 1023
     All but Light Sleep/Dark Sleep = 2047

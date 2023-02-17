@@ -5,11 +5,10 @@
 -----------------------------------
 local ID = require("scripts/zones/La_Vaule_[S]/IDs")
 require("scripts/globals/mobs")
+require("scripts/globals/wotg")
 -----------------------------------
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.OrcTrashDrops(mob, player, isKiller, noKiller)
 end
 
-function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.ASHMAKER_GOTBLUT_PH, 10, 3600) -- 1 hour
-end

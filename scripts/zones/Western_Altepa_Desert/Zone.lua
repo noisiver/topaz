@@ -60,9 +60,7 @@ end
 function onZoneWeatherChange(weather)
     local KV = GetMobByID(ID.mob.KING_VINEGARROON)
 
-    if KV:getCurrentAction() == tpz.act.DESPAWN and (weather == tpz.weather.DUST_STORM or weather == tpz.weather.SAND_STORM) then
+    if (weather == tpz.weather.DUST_STORM or weather == tpz.weather.SAND_STORM) then
         KV:spawn()
-    elseif KV:getCurrentAction() == tpz.act.ROAMING and weather ~= tpz.weather.DUST_STORM and weather ~= tpz.weather.SAND_STORM then
-        DespawnMob(ID.mob.KING_VINEGARROON)
     end
 end

@@ -19,6 +19,7 @@ function onTrigger(player, npc)
         4112,   837,    -- Potion
         4128,  4445,    -- Ether
         4155, 22400,    -- Remedy
+        4153,  1000,    -- Antacid
     }
 
     player:showText(npc, ID.text.LEILLAINE_SHOP_DIALOG)

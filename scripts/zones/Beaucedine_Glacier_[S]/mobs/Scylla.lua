@@ -6,6 +6,7 @@ require("scripts/globals/hunts")
 require("scripts/globals/mobs")
 require("scripts/globals/status")
 require("scripts/globals/titles")
+require("scripts/globals/wotg")
 mixins = {require("scripts/mixins/families/ruszor")}
 ------------------------------
 function onMobInitialize(mob)
@@ -19,7 +20,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 25)
 	mob:setMod(tpz.mod.VIT, 69)
     mob:setMod(tpz.mod.REFRESH, 400)
-    mob:setMod(tpz.mod.REGAIN, 50)
+    mob:setMod(tpz.mod.WATER_ABSORB, 100)
     mob:setMod(tpz.mod.HUMANOID_KILLER, 25)
 	mob:setMod(tpz.mod.SLEEPRESTRAIT, 100)
 	mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
@@ -94,4 +95,5 @@ end
 function onMobDeath(mob, player, isKiller)
     player:addTitle(tpz.title.SCYLLA_SKINNER)
     tpz.hunts.checkHunt(mob, player, 539)
+    tpz.wotg.MagianT4(mob, player, isKiller)
 end

@@ -17,6 +17,7 @@ function onTrigger(player, npc)
         4132, 28000, -- Hi-Ether
         1020, 300,   -- Sickle
         1021, 500,   -- Hatchet
+        4153,  1000,  -- Antacid
     }
 
     player:showText(npc, ID.text.PELFTRIX_SHOP_DIALOG)

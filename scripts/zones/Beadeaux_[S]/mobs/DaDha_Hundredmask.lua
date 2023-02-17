@@ -8,9 +8,17 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.TRIPLE_ATTACK, 25)
-    mob:addMod(tpz.mod.GRAVITYRES, 50)
+    mob:setMod(tpz.mod.ACC, 400)
+    mob:setMod(tpz.mod.TRIPLE_ATTACK, 50)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobWeaponSkillPrepare(mob, target)
+   local tpMoves = { 611, 612, 613, 614, 1079}
+   -- Ore Toss, Head Butt, Shell Bash, Shell Guard, Howl
+
+   return tpMoves[math.random(#tpMoves)]
+end
+
+function onMobDeath(mob, player, isKiller, noKiller)
+    tpz.wotg.MagianT4(mob, player, isKiller, noKiller)
 end

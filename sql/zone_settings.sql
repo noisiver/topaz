@@ -167,7 +167,7 @@ INSERT INTO `zone_settings` VALUES (118,2,'127.0.0.1',54230,'Buburimu_Peninsula'
 INSERT INTO `zone_settings` VALUES (119,2,'127.0.0.1',54230,'Meriphataud_Mountains',0,0,101,103,0,0.00,2204);
 INSERT INTO `zone_settings` VALUES (120,2,'127.0.0.1',54230,'Sauromugue_Champaign',158,158,101,103,0,0.00,2204);
 INSERT INTO `zone_settings` VALUES (121,2,'127.0.0.1',54230,'The_Sanctuary_of_ZiTah',190,190,101,191,0,0.00,2204);
-INSERT INTO `zone_settings` VALUES (122,2,'127.0.0.1',54230,'RoMaeve',211,211,101,191,0,0.00,2204);
+INSERT INTO `zone_settings` VALUES (122,2,'127.0.0.1',54230,'RoMaeve',211,211,101,191,0,0.00,2200);
 INSERT INTO `zone_settings` VALUES (123,2,'127.0.0.1',54230,'Yuhtunga_Jungle',134,134,101,191,0,0.00,2204);
 INSERT INTO `zone_settings` VALUES (124,2,'127.0.0.1',54230,'Yhoator_Jungle',134,134,101,191,0,0.00,2204);
 INSERT INTO `zone_settings` VALUES (125,2,'127.0.0.1',54230,'Western_Altepa_Desert',171,171,101,191,0,0.00,2204);
@@ -323,7 +323,7 @@ INSERT INTO `zone_settings` VALUES (274,3,'127.0.0.1',54230,'Outer_RaKaznar',73,
 INSERT INTO `zone_settings` VALUES (275,0,'127.0.0.1',54230,'Outer_RaKaznar_U',62,62,62,62,0,0.00,2202);
 INSERT INTO `zone_settings` VALUES (276,0,'127.0.0.1',54230,'RaKaznar_Inner_Court',73,73,57,57,0,0.00,2202);
 INSERT INTO `zone_settings` VALUES (277,0,'127.0.0.1',54230,'RaKaznar_Turris',0,0,0,0,0,0.00,0);
-INSERT INTO `zone_settings` VALUES (278,0,'127.0.0.1',0,'278',0,0,0,0,0,0.00,0);
+INSERT INTO `zone_settings` VALUES (278,0,'127.0.0.1',54230,'Gwora-Corridor',0,0,0,0,0,0.00,0);
 INSERT INTO `zone_settings` VALUES (279,0,'127.0.0.1',54230,'Walk_of_Echoes_[P2]',0,0,0,0,0,0.00,2048);
 INSERT INTO `zone_settings` VALUES (280,1,'127.0.0.1',54230,'Mog_Garden',67,67,67,67,0,0.00,32);
 INSERT INTO `zone_settings` VALUES (281,0,'127.0.0.1',54230,'Leafallia',0,0,0,0,0,0.00,0);

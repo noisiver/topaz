@@ -83,7 +83,13 @@ function onUseAbility(player, target, ability)
         damage = 0
     end
 
-    damage = utils.stoneskin(target, damage)
+    -- Check for phalanx + stoneskin
+
+    if (damage > 0) then
+        damage = damage - target:getMod(tpz.mod.PHALANX)
+        damage = utils.stoneskin(target, damage)
+    end
+
     target:takeDamage(damage, player, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
     target:updateEnmityFromDamage(player, damage)
     ability:setMsg(tpz.msg.basic.JA_DAMAGE)

@@ -2,6 +2,7 @@
 --  Scatter Shell
 --
 --  Description: Shoots multiple needles at enemies within range.
+-- 1000 dmg "needles"
 --  Type: Magical (Fire)
 --
 --
@@ -16,10 +17,9 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local needles = 6000 / skill:getTotalTargets()
-
-    local dmg = MobFinalAdjustments(needles, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
-
+    local needles = 1000 / skill:getTotalTargets()
+    local info = MobNeedlesMagicalMove(mob, target, skill, needles, tpz.magic.ele.FIRE, tpeffect)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
 
     return dmg

@@ -94,6 +94,7 @@ namespace charutils
     uint8	AddItem(CCharEntity* PChar, uint8 LocationID, uint16 itemID, uint32 quantity = 1, bool silence = false);
     uint8   MoveItem(CCharEntity* PChar, uint8 LocationID, uint8 SlotID, uint8 NewSlotID);
     uint32	UpdateItem(CCharEntity* PChar, uint8 LocationID, uint8 slotID, int32 quantity, bool force = false);
+    void    DropItem(CCharEntity* PChar, uint8 container, uint8 slotID, int32 quantity, uint16 ItemID);
     void	CheckValidEquipment(CCharEntity* PChar);
     void	CheckEquipLogic(CCharEntity* PChar, SCRIPTTYPE ScriptType, uint32 param);
     void	EquipItem(CCharEntity* PChar, uint8 slotID, uint8 equipSlotID, uint8 containerID);
@@ -102,8 +103,10 @@ namespace charutils
     bool    EquipArmor(CCharEntity* PChar, uint8 slotID, uint8 equipSlotID, uint8 containerID);
     void	CheckUnarmedWeapon(CCharEntity* PChar);
     void    SetStyleLock(CCharEntity* PChar, bool isStyleLocked);
-    void    UpdateWeaponStyle(CCharEntity* PChar, uint8 equipSlotID, CItemWeapon* PItem);
+    void    UpdateWeaponStyle(CCharEntity* PChar, uint8 equipSlotID, CItemEquipment* PItem);
     void    UpdateArmorStyle(CCharEntity* PChar, uint8 equipSlotID);
+    void AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity);
+    void EmptyRecycleBin(CCharEntity* PChar);
 
     bool	hasKeyItem(CCharEntity* PChar, uint16 KeyItemID);	        // проверяем наличие ключевого предмета
     bool	seenKeyItem(CCharEntity* PChar, uint16 KeyItemID);	        // проверяем, было ли описание ключевого предмета прочитано
@@ -136,9 +139,9 @@ namespace charutils
     int32	addPetAbility(CCharEntity* PChar, uint16 AbilityID);
     int32	delPetAbility(CCharEntity* PChar, uint16 AbilityID);
 
-    int32	hasTrait(CCharEntity* PChar, uint8 TraitID);	            // check if pchar has trait by traitid and jobid
-    int32	addTrait(CCharEntity* PChar, uint8 TraitID);	            // add trait by traitid and jobid
-    int32	delTrait(CCharEntity* PChar, uint8 TraitID);	            // delete trait by traitid and jobid
+    int32	hasTrait(CCharEntity* PChar, uint16 TraitID);	            // check if pchar has trait by traitid and jobid
+    int32	addTrait(CCharEntity* PChar, uint16 TraitID);	            // add trait by traitid and jobid
+    int32	delTrait(CCharEntity* PChar, uint16 TraitID);	            // delete trait by traitid and jobid
 
     int32	addWeaponSkill(CCharEntity* PChar, uint16 WeaponSkillID);   // declaration of function to add weapon skill
     int32	hasWeaponSkill(CCharEntity* PChar, uint16 WeaponSkillID);   // declaration of function to check for weapon skill
@@ -212,6 +215,8 @@ namespace charutils
     void   SendTimerPacket(CCharEntity* PChar, uint32 seconds);
     void   SendTimerPacket(CCharEntity* PChar, duration dur);
     void   SendClearTimerPacket(CCharEntity* PChar);
-};
+
+     bool hasEntitySpawned(CCharEntity* PChar, CBaseEntity* entity);
+    };
 
 #endif // _CHARUTILS_H

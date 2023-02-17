@@ -111,13 +111,13 @@ local job2hr = {
     [tpz.job.SMN] = tpz.jsa.ASTRAL_FLOW,
     [tpz.job.BLU] = tpz.jsa.AZURE_LORE,
     [tpz.job.COR] = tpz.jsa.WILD_CARD,
+    [tpz.job.SCH] = tpz.jsa.TABULA_RASA,
     [1000]        = tpz.jsa.CHARM, -- Dynamis BST when pet is dead
     [1893]        = tpz.jsa.SPIRIT_SURGE 
 
 -- following abilities are not yet defined on tpz.jsa:
 --  [tpz.job.PUP] = tpz.jsa.OVERDRIVE,
 --  [tpz.job.DNC] = tpz.jsa.TRANCE,
---  [tpz.job.SCH] = tpz.jsa.TABULA_RASA,
 --  [tpz.job.GEO] = tpz.jsa.BOLSTER,
 --  [tpz.job.RUN] = tpz.jsa.ELEMENTAL_SFORZO,
 }
@@ -134,19 +134,24 @@ local familyEES =
     [129] = tpz.jsa.EES_GIGA,    -- Gigas
     [130] = tpz.jsa.EES_GIGA,    -- Gigas
     [133] = tpz.jsa.EES_GOBLIN,  -- Goblin
+    [946] = tpz.jsa.EES_GOBLIN,  -- Goblin WOTG
     [169] = tpz.jsa.EES_KINDRED, -- Kindred
     [171] = tpz.jsa.EES_LAMIA,   -- Lamiae
     [182] = tpz.jsa.EES_MERROW,  -- Merrow
     [184] = tpz.jsa.EES_GOBLIN,  -- Moblin
     [189] = tpz.jsa.EES_ORC,     -- Orc
+    [944] = tpz.jsa.EES_ORC,     -- Orc WOTG
     [200] = tpz.jsa.EES_QUADAV,  -- Quadav
     [201] = tpz.jsa.EES_QUADAV,  -- Quadav
     [202] = tpz.jsa.EES_QUADAV,  -- Quadav
+    [942] = tpz.jsa.EES_QUADAV,  -- Quadav WOTG
+    [954] = tpz.jsa.EES_QUADAV,  -- Quadav Adamantking WOTG
     [221] = tpz.jsa.EES_SHADE,   -- Shadow
     [222] = tpz.jsa.EES_SHADE,   -- Shadow
     [223] = tpz.jsa.EES_SHADE,   -- Shadow
     [246] = tpz.jsa.EES_TROLL,   -- Troll
     [270] = tpz.jsa.EES_YAGUDO,  -- Yagudo
+    [943] = tpz.jsa.EES_YAGUDO,  -- Yagudo WOTG
     [327] = tpz.jsa.EES_GOBLIN,  -- Goblin
     [328] = tpz.jsa.EES_GIGA,    -- Gigas
     [334] = tpz.jsa.EES_ORC,     -- OrcNM
@@ -169,11 +174,11 @@ local effectByAbility =
     [tpz.jsa.BLOOD_WEAPON]   = tpz.effect.BLOOD_WEAPON,
     [tpz.jsa.SOUL_VOICE]     = tpz.effect.SOUL_VOICE,
     [tpz.jsa.AZURE_LORE]     = tpz.effect.AZURE_LORE,
+    [tpz.jsa.TABULA_RASA]    = tpz.effect.TABULA_RASA,
 
 -- following abilities are not yet defined on tpz.jsa, and/or do not have effect luas:
 -- [tpz.jsa.OVERDRIVE]        = tpz.effect.OVERDRIVE,
 -- [tpz.jsa.TRANCE]           = tpz.effect.TRANCE,
--- [tpz.jsa.TABULA_RASA]      = tpz.effect.TABULA_RASA,
 -- [tpz.jsa.BOLSTER]          = tpz.effect.BOLSTER,
 -- [tpz.jsa.ELEMENTAL_SFORZO] = tpz.effect.ELEMENTAL_SFORZO,
 }
@@ -263,7 +268,7 @@ end
 
 g_mixins.job_special = function(mob)
 
-    -- at spawn, give mob its default main job 2hr, which it'll use at 40-60% HP.
+    -- at spawn, give mob its default main job 2hr, which it'll use at 5-60% HP.
     -- these defaults can be overwritten by using tpz.mix.jobSpecial.config() in onMobSpawn.
     mob:addListener("SPAWN", "JOB_SPECIAL_SPAWN", function(mob)
         local ability = nil
@@ -280,7 +285,12 @@ g_mixins.job_special = function(mob)
         if ability then
             mob:setLocalVar("[jobSpecial]numAbilities", 1)
             mob:setLocalVar("[jobSpecial]ability_1", ability)
-            mob:setLocalVar("[jobSpecial]hpp_1", math.random(40, 60))
+            -- Bene / Invincible / Perfect Dodge are sometimes used at very low HP values
+            if (ability == tpz.jsa.BENEDICTION) or (ability == tpz.jsa.INVINCIBLE) or (ability == tpz.jsa.PERFECT_DODGE) then
+                mob:setLocalVar("[jobSpecial]hpp_1", math.random(10, 50))
+            else
+                mob:setLocalVar("[jobSpecial]hpp_1", math.random(35, 50))
+            end
             mob:setLocalVar("[jobSpecial]between_1", 7200)
         end
 

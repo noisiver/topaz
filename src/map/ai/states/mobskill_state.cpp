@@ -83,10 +83,11 @@ CMobSkill* CMobSkillState::GetSkill()
 void CMobSkillState::SpendCost()
 {
     auto tp = 0;
+    // Convert this mess to a mob_skill_flag or mob_skill_param
     if (m_PSkill->isTpSkill() && m_PSkill->getID() != 274 && m_PSkill->getID() != 564 && m_PSkill->getID() != 1147 && m_PSkill->getID() != 1777 &&
         m_PSkill->getID() != 2211 && m_PSkill->getID() != 2328 && m_PSkill->getID() != 2329 && m_PSkill->getID() != 2330 && m_PSkill->getID() != 2331 &&
         m_PSkill->getID() != 2332 && m_PSkill->getID() != 950 && m_PSkill->getID() != 1278 && m_PSkill->getID() != 1288 && m_PSkill->getID() != 1298 &&
-        m_PSkill->getID() != 3264 && m_PSkill->getID() != 4232)
+        m_PSkill->getID() != 3264 && m_PSkill->getID() != 4232 && m_PSkill->getID() != 1146 && m_PSkill->getID() != 1123 && m_PSkill->getID() != 3843)
     {
         if (m_PEntity->StatusEffectContainer->HasStatusEffect(EFFECT_MEIKYO_SHISUI))
         {
@@ -155,6 +156,11 @@ void CMobSkillState::Cleanup(time_point tick)
         actionTarget_t& actionTarget = actionList.getNewActionTarget();
         actionTarget.animation = m_PSkill->getID();
 
+        if (!m_PSkill->isTwoHour())
+        {
+            m_PEntity->addTP(-1250);
+        }
+        m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_STATE_INTERRUPTED", m_PEntity, m_PSkill->getID());
         m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE, new CActionPacket(action));
     }
 }

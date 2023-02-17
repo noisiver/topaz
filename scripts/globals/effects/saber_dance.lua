@@ -18,19 +18,12 @@ function onEffectGain(target, effect)
         target:delMod(tpz.mod.DOUBLE_ATTACK, 10)
     end
     target:addMod(tpz.mod.DOUBLE_ATTACK, effect:getPower())
+    target:addMod(tpz.mod.KICK_DMG, effect:getPower())
 
     target:delStatusEffect(tpz.effect.FAN_DANCE)
 end
 
 function onEffectTick(target, effect)
-   local power = effect:getPower()
-   local decayby = 0
-   -- Double attack rate decays until 20% then stays there
-   if (power > 20) then
-        decayby = 3
-        effect:setPower(power-decayby)
-        target:delMod(tpz.mod.DOUBLE_ATTACK, decayby)
-    end
 end
 
 function onEffectLose(target, effect)
@@ -43,4 +36,5 @@ function onEffectLose(target, effect)
         target:addMod(tpz.mod.DOUBLE_ATTACK, 10)
     end
     target:delMod(tpz.mod.DOUBLE_ATTACK, effect:getPower())
+    target:delMod(tpz.mod.KICK_DMG, effect:getPower())
 end

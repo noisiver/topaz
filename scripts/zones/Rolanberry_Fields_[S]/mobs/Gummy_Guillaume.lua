@@ -8,10 +8,17 @@ require("scripts/globals/annm")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.REGAIN, 250)
-    mob:SetAutoAttackEnabled(false)
     mob:setLocalVar("AuraTick", 0)
-    tpz.annm.NMMods(mob) 
+    tpz.annm.NMMods(mob)
+    mob:SetAutoAttackEnabled(false)
+    mob:setMod(tpz.mod.MDEF, 0)
+    mob:setMod(tpz.mod.UDMGMAGIC, 25)
+    mob:setMod(tpz.mod.REGAIN, 250)
+    mob:setMod(tpz.mod.MOVE, -75)
+end
+
+function onMobEngaged(mob, target)
+    mob:setLocalVar("AuraTick", 15)
 end
 
 function onMobFight(mob, target)
@@ -19,7 +26,7 @@ function onMobFight(mob, target)
 	local BattleTime = mob:getBattleTime()
 
 	if mob:getWeather() == tpz.weather.RAIN or mob:getWeather() == tpz.weather.SQUALL then
-		mob:setMod(tpz.mod.REGEN, 100)
+		mob:setMod(tpz.mod.REGEN, 10)
 	else
 		mob:setMod(tpz.mod.REGEN, 0)
 	end

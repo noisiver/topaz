@@ -30,7 +30,7 @@
 CCharHealthPacket::CCharHealthPacket(CCharEntity* PChar)
 {
 	this->type = 0xDF;
-	this->size = 0x12;
+    this->size = 0x28;
 
 	ref<uint32>(0x04) = PChar->id;
 
@@ -49,13 +49,15 @@ CCharHealthPacket::CCharHealthPacket(CCharEntity* PChar)
         ref<uint8>(0x21) = PChar->GetMLevel();
         ref<uint8>(0x22) = PChar->GetSJob();
         ref<uint8>(0x23) = PChar->GetSLevel();
+        // 0x24: master level
+        // 0x25: bitflags, bit 0 = master breaker
     }
 }
 
 CCharHealthPacket::CCharHealthPacket(CTrustEntity* PTrust)
 {
     this->type = 0xDF;
-    this->size = 0x12;
+    this->size = 0x24;
 
     ref<uint32>(0x04) = PTrust->id;
 

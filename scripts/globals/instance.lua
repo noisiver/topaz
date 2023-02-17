@@ -118,15 +118,15 @@ function updateInstanceTime(instance, elapsed, texttable)
         end
     end
 
-    if (lastTimeUpdate == 0 and remainingTimeLimit < 600) then
+    if (lastTimeUpdate == 0 and remainingTimeLimit <= 600) then
         message = 600
-    elseif (lastTimeUpdate == 600 and remainingTimeLimit < 300) then
+    elseif (lastTimeUpdate == 600 and remainingTimeLimit <= 300) then
         message = 300
-    elseif (lastTimeUpdate == 300 and remainingTimeLimit < 60) then
+    elseif (lastTimeUpdate == 300 and remainingTimeLimit <= 60) then
         message = 60
-    elseif (lastTimeUpdate == 60 and remainingTimeLimit < 30) then
+    elseif (lastTimeUpdate == 60 and remainingTimeLimit <= 30) then
         message = 30
-    elseif (lastTimeUpdate == 30 and remainingTimeLimit < 10) then
+    elseif (lastTimeUpdate == 30 and remainingTimeLimit <= 10) then
         message = 10
     end
 

@@ -12,14 +12,16 @@ end
 
 function onSpellCast(caster, target, spell)
     local params = {}
+    params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
-    params.bonus = 50
-    local resist = applyResistance(caster, target, spell, params)
+    params.bonus = 175
+    local resist = applyResistanceEffect(caster, target, spell, params)
     local effect = tpz.effect.NONE
 
     if (resist >= 0.50) then
         spell:setMsg(tpz.msg.basic.MAGIC_ERASE)
+        -- TODOCheckForMagicBurst(caster, spell, target)
         effect = target:dispelStatusEffect()
         if (effect == tpz.effect.NONE) then
             -- no effect

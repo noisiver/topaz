@@ -19,14 +19,16 @@ function onTrigger(player, npc)
         if VanadielDayOfTheYear() % 2 == 0 then
             if brassDoor:getAnimation() == tpz.anim.CLOSE_DOOR and npc:getAnimation() == tpz.anim.CLOSE_DOOR then
                 npc:openDoor(8)
-                -- wait 1 second delay goes here
-                brassDoor:openDoor(6)
+                player:timer(2000, function(player)
+                    brassDoor:openDoor(6)
+                end)
             end
         else
             if trapDoor:getAnimation() == tpz.anim.CLOSE_DOOR and npc:getAnimation() == tpz.anim.CLOSE_DOOR then
                 npc:openDoor(8)
-                -- wait 1 second delay goes here
-                trapDoor:openDoor(6)
+                player:timer(2000, function(player)
+                    trapDoor:openDoor(6)
+                end)
             end
             if player:getCurrentMission(WINDURST) == tpz.mission.id.windurst.TO_EACH_HIS_OWN_RIGHT and player:getCharVar("MissionStatus") == 3 then
                 player:startEvent(43)

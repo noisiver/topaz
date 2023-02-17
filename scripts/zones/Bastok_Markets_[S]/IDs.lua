@@ -31,6 +31,8 @@ zones[tpz.zone.BASTOK_MARKETS_S] =
         WELDON_DELIVERY_DIALOG   = 10867, -- Do you have something you wish to send?
         ALLIED_SIGIL             = 12355, -- You have received the Allied Sigil!
         SILKE_SHOP_DIALOG        = 12807, -- You wouldn't happen to be a fellow scholar, by any chance? The contents of these pages are beyond me, but perhaps you might glean something from them. They could be yours...for a nominal fee.
+        SCNM_CONTRAINER_TRADE    = 13554, -- Just as we suspected. This contains a great deal of information that will prove vital to our cause.
+        PROSPERITY_RISEN         = 13556, -- The army of bastok prosperity has risen!
         RETRIEVE_DIALOG_ID       = 14719, -- You retrieve <item> from the porter moogle's care.
         COMMON_SENSE_SURVIVAL    = 14788, -- It appears that you have arrived at a new survival guide provided by the Servicemen's Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
     },

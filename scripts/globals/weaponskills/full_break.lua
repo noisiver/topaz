@@ -32,41 +32,43 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.atk100 = 1; params.atk200 = 1; params.atk300 = 1
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
 
-    local power1 = 13
-    local power2 = 20
+    local power1 = 25
+    local power2 = 40
     local bonus = 0
     -- Imperial Bhuj Hidden Effect
     local gaxe = player:getEquipID(tpz.slot.MAIN)
 	if gaxe == 18485 then -- Imperial Bhuj
-        power1 = 18
-        power2 = 25
+        power1 = 30
+        power2 = 50
         bonus = 50
     end
 
     if (damage > 0) then
-        local duration = (tp/1000 * 30) + 60
+        local duration = (tp/1000) * 180
         local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, bonus)
         if (target:hasStatusEffect(tpz.effect.DEFENSE_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.DEFENSE_BOOST)
             target:addStatusEffect(tpz.effect.DEFENSE_DOWN, power1, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, bonus)
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WATER, bonus)
         if (target:hasStatusEffect(tpz.effect.ATTACK_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.ATTACK_BOOST)
             target:addStatusEffect(tpz.effect.ATTACK_DOWN, power1, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, bonus)
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, bonus)
         if (target:hasStatusEffect(tpz.effect.EVASION_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.EVASION_BOOST)
             target:addStatusEffect(tpz.effect.EVASION_DOWN, power2, 0, duration * resist)
         end
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, bonus)
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, bonus)
         if (target:hasStatusEffect(tpz.effect.ACCURACY_DOWN) == false) and resist >= 0.5  then
             target:delStatusEffect(tpz.effect.ACCURACY_BOOST)
             target:addStatusEffect(tpz.effect.ACCURACY_DOWN, power2, 0, duration * resist)
         end
     end
-		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_AXE, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
+	if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_AXE, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
     return tpHits, extraHits, criticalHit, damage
 end

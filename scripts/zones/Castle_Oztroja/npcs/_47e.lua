@@ -12,8 +12,9 @@ function onTrigger(player, npc)
 
     if player:getZPos() > -11.9 and npc:getAnimation() == tpz.anim.CLOSE_DOOR and brassDoor:getAnimation() == tpz.anim.CLOSE_DOOR then
         npc:openDoor(6.5)
-        -- Should be a ~1 second delay here before the door opens
-        brassDoor:openDoor(4.5)
+        player:timer(2000, function(player)
+            brassDoor:openDoor(4.5)
+        end)
     end
 end
 

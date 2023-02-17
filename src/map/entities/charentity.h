@@ -30,16 +30,21 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include <mutex>
 #include <bitset>
 #include <unordered_map>
+#include <unordered_set>
 
 #include "battleentity.h"
 #include "petentity.h"
 
 #include "../utils/fishingutils.h"
+#include "../packets/entity_update.h"
+#include "../packets/char.h"
 
 #define MAX_QUESTAREA	 11
 #define MAX_QUESTID     256
 #define MAX_MISSIONAREA	 15
 #define MAX_MISSIONID    851
+
+#define TIME_BETWEEN_PERSIST 2min
 
 class CItemWeapon;
 class CTrustEntity;
@@ -151,6 +156,14 @@ enum CHAR_SUBSTATE
     SUBSTATE_LAST,
 };
 
+enum CHAR_PERSIST : uint8
+{
+    EQUIP = 0x01,
+    POSITION = 0x02,
+    EFFECTS = 0x04,
+    LINKSHELL = 0x08,
+};
+
 /************************************************************************
 *                                                                       *
 *                                                                       *
@@ -207,7 +220,7 @@ public:
     uint8					m_Abilities[62];				// список текущих способностей
     uint8					m_LearnedAbilities[47];			// learnable abilities (corsair rolls)
     std::bitset<49>         m_LearnedWeaponskills;          // learnable weaponskills
-    uint8					m_TraitList[16];				// список постянно активных способностей в виде битовой маски
+    uint8					m_TraitList[18];				// ist of active job traits in the form of a bit mask
     uint8					m_PetCommands[32];				// список доступных команд питомцу
     uint8					m_WeaponSkills[32];
     questlog_t				m_questLog[MAX_QUESTAREA];		// список всех квестов
@@ -270,6 +283,8 @@ public:
     void              clearPacketList();            // отчистка PacketList
     void              pushPacket(CBasicPacket*);    // добавление копии пакета в PacketList
     void              pushPacket(std::unique_ptr<CBasicPacket>);    // push packet to packet list
+    void              updateCharPacket(CCharEntity* PChar, ENTITYUPDATE type, uint8 updatemask); // Push or update a char packet
+    void               updateEntityPacket(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask); // Push or update an entity update packet
     bool			  isPacketListEmpty();          // проверка размера PacketList
     CBasicPacket*	  popPacket();                  // получение первого пакета из PacketList
     PacketList_t      getPacketList();              // returns a COPY of packet list
@@ -303,6 +318,7 @@ public:
 
     void			  SetName(int8* name);			// устанавливаем имя персонажа (имя ограничивается 15-ю символами)
 
+    time_point        lastTradeInvite;
     EntityID_t        TradePending;                 // ID персонажа, предлагающего обмен
     EntityID_t        InvitePending;                // ID персонажа, отправившего приглашение в группу
     EntityID_t        BazaarID;                     // Pointer to the bazaar we are browsing.
@@ -329,8 +345,12 @@ public:
     CBattleEntity*   m_autoTargetOverride;           // When a party member auto-targets, this gets set to all of alliance to ensure everyone autotargets same mob 
     uint32            m_LastYell;
 
+    time_point m_LeaderCreatedPartyTime;            // Time that a party member joined and this player was leader.
+
     uint8			  m_GMlevel;                    // Level of the GM flag assigned to this character
     bool              m_isGMHidden;                 // GM Hidden flag to prevent player updates from being processed.
+
+    location_t m_previousLocation;
 
     bool              m_mentorUnlocked;
     uint32            m_moghouseID;
@@ -370,11 +390,19 @@ public:
 
     CItemEquipment*	getEquip(SLOTTYPE slot);
 
+    CBasicPacket* PendingPositionPacket = nullptr;
+
+    bool requestedInfoSync = false;
+
     void        ReloadPartyInc();
     void        ReloadPartyDec();
     bool        ReloadParty();
     void        ClearTrusts();
     void        RemoveTrust(CTrustEntity*);
+
+    void RequestPersist(CHAR_PERSIST toPersist);
+    bool PersistData();
+    bool PersistData(time_point tick);
 
     virtual void Tick(time_point) override;
     void        PostTick() override;
@@ -444,14 +472,27 @@ private:
     std::unique_ptr<CItemContainer>   m_Wardrobe2;
     std::unique_ptr<CItemContainer>   m_Wardrobe3;
     std::unique_ptr<CItemContainer>   m_Wardrobe4;
+    std::unique_ptr<CItemContainer>   m_Wardrobe5;
+    std::unique_ptr<CItemContainer>   m_Wardrobe6;
+    std::unique_ptr<CItemContainer>   m_Wardrobe7;
+    std::unique_ptr<CItemContainer>   m_Wardrobe8;
+    std::unique_ptr<CItemContainer>   m_RecycleBin;
 
     bool			m_isWeaponSkillKill;
     bool            m_isStyleLocked;
     bool            m_isBlockingAid;
     bool			m_reloadParty;
 
-    PacketList_t      PacketList;					// the list of packets to be sent to the character during the next network cycle
+    std::unordered_map<std::string, int32> charVarCache;
+    std::unordered_set<std::string> charVarChanges;
 
+    uint8 dataToPersist;
+    time_point nextDataPersistTime;
+
+    PacketList_t      PacketList;					// the list of packets to be sent to the character during the next network cycle
+    std::unordered_map<uint32, CCharPacket*> PendingCharPackets; // Keep track of which char packets are queued up for this char, such that they can be updated
+    std::unordered_map<uint32, CEntityUpdatePacket*>
+        PendingEntityPackets; // Keep track of which entity update packets are queued up for this char, such that they can be 
     std::mutex      m_PacketListMutex;
 };
 

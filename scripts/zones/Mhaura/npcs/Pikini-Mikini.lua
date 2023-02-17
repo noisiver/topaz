@@ -24,6 +24,7 @@ function onTrigger(player, npc)
         4376,  108,    -- Meat Jerky
         5299,  133,    -- Salsa
         2867, 9000,    -- Mhaura Waystone
+        4153,  1000,   -- Antacid
     }
 
     player:showText(npc, ID.text.PIKINIMIKINI_SHOP_DIALOG)

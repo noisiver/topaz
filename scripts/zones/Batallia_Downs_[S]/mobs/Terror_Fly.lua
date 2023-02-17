@@ -54,7 +54,7 @@ function onMobFight(mob, target)
     local hp = mob:getHPP()
 
     if (hp < 20) then
-        AddMobAura(mob, target, 10, tpz.effect.AMNESIA, 1, 3)
+        AddMobAura(mob, target, 10, tpz.effect.AVOIDANCE_DOWN, 1, 3)
     end
 end
 

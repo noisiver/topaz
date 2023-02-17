@@ -9,9 +9,11 @@ require("scripts/globals/weaponskills")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/job_util")
 -----------------------------------
 
 function onAbilityCheck(player, target, ability)
+    jobUtil.CheckForFlyHigh(player, target, ability)
     return 0, 0
 end
 
@@ -58,6 +60,10 @@ function onUseAbility(player, target, ability, action)
         action:messageID(target:getID(), tpz.msg.basic.JA_MISS_2)
         action:speceffect(target:getID(), 0)
     end
+
+    -- Add Jump damage mod
+    local dmgMod = player:getMod(tpz.mod.JUMP_DMG_BONUS)
+    damage = math.floor(damage * (1 + (dmgMod / 100)))
 
     return damage
 end

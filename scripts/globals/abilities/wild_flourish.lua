@@ -41,11 +41,13 @@ function onUseAbility(player, target, ability, action)
         player:addStatusEffect(tpz.effect.FINISHING_MOVE_3, 1, 0, 7200)
     end
 
-    if (not target:hasStatusEffect(tpz.effect.CHAINBOUND, 0) and not target:hasStatusEffect(tpz.effect.SKILLCHAIN, 0)) then
-        target:addStatusEffectEx(tpz.effect.CHAINBOUND, 0, 1, 0, 6, 0, 1)
-    else
-        ability:setMsg(tpz.msg.basic.JA_NO_EFFECT)
+    if (target:hasStatusEffect(tpz.effect.CHAINBOUND, 0) or target:hasStatusEffect(tpz.effect.SKILLCHAIN, 0)) then
+        target:delStatusEffectSilent(tpz.effect.CHAINBOUND)
+        target:delStatusEffectSilent(tpz.effect.SKILLCHAIN)
     end
+
+    target:addStatusEffectEx(tpz.effect.CHAINBOUND, 0, 1, 0, 10, 0, 1)
+
     action:animation(target:getID(), getFlourishAnimation(player:getWeaponSkillType(tpz.slot.MAIN)))
     action:speceffect(target:getID(), 1)
     return 0

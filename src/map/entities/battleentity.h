@@ -414,6 +414,7 @@ enum IMMUNITY : uint16
     IMMUNITY_REQUIEM = 0x400, // 1024
     IMMUNITY_LIGHT_SLEEP = 0x800, // 2048
     IMMUNITY_DARK_SLEEP = 0x1000, // 4096
+    IMMUNITY_PETRIFY = 0x2000, // 8192
 };
 
 struct apAction_t
@@ -497,7 +498,7 @@ public:
     uint16          CHR();
     uint16          DEF();
     uint16          ATT();
-    uint16			ACC(uint8 attackNumber, uint8 offsetAccuracy);
+    uint16			ACC(int8 attackNumber, int8 offsetAccuracy);
     uint16          EVA();
     uint16          RATT(uint8 skill, uint16 bonusSkill = 0);
     uint16          RACC(uint8 skill, uint16 bonusSkill = 0);

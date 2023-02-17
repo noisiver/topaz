@@ -3,6 +3,7 @@
 --   ANNM
 --   NM: Iqi-Balam
 --  !addkeyitem GREEN_LABELED_CRATE
+-- L-8
 -----------------------------------
 require("scripts/globals/annm")
 require("scripts/globals/status")
@@ -19,7 +20,7 @@ function onMobFight(mob, target)
     local recover = mob:getLocalVar("recover")
     local BattleTime = mob:getBattleTime()
 
-    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 60)
+    mob:setMobMod(tpz.mobMod.MAGIC_COOL, 20)
 
     -- Enable casting after 45s so it won't open with a spell immediately
     if (BattleTime > 20) then

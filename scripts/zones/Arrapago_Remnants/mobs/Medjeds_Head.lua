@@ -50,6 +50,7 @@ function onMobFight(mob, target)
         DTEnabled(mob, true)
     else
         DTEnabled(mob, false)
+        PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " seems terrified of rough objects...", 0xD, none, 30)
     end
 
     -- Start phase 2 if Body is dead
@@ -64,8 +65,8 @@ function onMobFight(mob, target)
 end
 
 function onMobWeaponSkillPrepare(mob, target)
-    local tpMoves = {472, 477, 1339}
-    -- Grave Wheel, Dark Sphere, Bane
+    local tpMoves = {477, 1339}
+    -- Dark Sphere, Bane
     return tpMoves[math.random(#tpMoves)]
 end
 
@@ -85,7 +86,7 @@ function onMobDisengage(mob)
     mob:setLocalVar("phaseMsg", 0)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
     local progress = instance:getProgress()
     local body = GetMobByID(mob:getID(instance)+1, instance)
@@ -93,14 +94,19 @@ function onMobDeath(mob, player, isKiller)
     -- Make sure Body is dead
     if body:isDead() then
         if isKiller or noKiller then
-            -- Teleport players back to the last porter used
-            salvageUtil.teleportGroup(player, -339, -0, math.random(-503, -496), 0, true, false, false)
-            salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
-            -- Nearby door opens
-            mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
-            mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
-            salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
-            instance:setProgress(2)
+            -- If final boss, spawn next boss in line
+            if salvageUtil.TrySpawnChariotBoss(mob, player, 17081233) then
+            else
+                -- Teleport players back to the last porter used
+                salvageUtil.teleportGroup(player, -339, -0, math.random(-503, -496), 0, true, false, false)
+                salvageUtil.msgGroup(player, "A strange force pulls you back to the last used teleporter.", 0xD, none)
+                -- Nearby door opens
+                mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):setAnimation(8)
+                mob:getEntity(bit.band(ID.npc[4][1].DOOR2, 0xFFF), tpz.objType.NPC):untargetable(true)
+                salvageUtil.msgGroup(player, "The way forward is now open.", 0xD, none)
+                instance:setProgress(2)
+                player:addTreasure(5736, mob) --Linen Coin Purse
+            end
         end
     end
 end

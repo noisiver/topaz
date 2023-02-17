@@ -6,12 +6,14 @@ local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/salvage")
 require("scripts/globals/pathfind")
 -----------------------------------
 
 function onMobSpawn(mob)
     mob:setDamage(75)
     mob:setMobMod(tpz.mobMod.CHECK_AS_NM, 1)
+    mob:delImmunity(tpz.immunity.SILENCE) 
     onPath(mob)
 end
 
@@ -30,10 +32,23 @@ end
 function onMobWeaponSkillPrepare(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)
+    local instance = mob:getInstance()
+    for i = 17081189, 17081208 do
+        if not GetMobByID(i, instance):isDead() then
+            return
+        end
+    end
+    exon1 = GetMobByID(17081209, instance)
+    exon2 = GetMobByID(17081210, instance)
+    if not exon1:isSpawned() and not exon2:isSpawned() then
+        SpawnMob(17081209, instance)
+        SpawnMob(17081210, instance)
+        salvageUtil.msgGroup(mob, "Our queen will not be happy about this.", 0, "Lamia Exon")
+    end
 end
 
 

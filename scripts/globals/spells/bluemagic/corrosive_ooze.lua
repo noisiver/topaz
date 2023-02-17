@@ -57,6 +57,7 @@ function onSpellCast(caster, target, spell)
 		params.bonus = -25
 	end
     damage = BlueFinalAdjustments(caster, target, spell, damage, params) -- Corrosive has static enmity https://www.bg-wiki.com/ffxi/Corrosive_Ooze
+
     params.effect = tpz.effect.ATTACK_DOWN
     BlueTryEnfeeble(caster, target, spell, damage, 10, 0, 180, params)
     params.effect = tpz.effect.DEFENSE_DOWN

@@ -278,80 +278,39 @@ function utils.thirdeye(target)
 
     return false
 end
------------------------------------
---     SKILL LEVEL CALCULATOR
---     Returns a skill level based on level and rating.
---
---    See the translation of aushacho's work by Themanii:
---    http://home.comcast.net/~themanii/skill.html
---
---    The arguments are skill rank (numerical), and level.  1 is A+, 2 is A-, and so on.
------------------------------------
+-- skillLevelTable contains matched pairs based on rank; First value is multiplier, second is additive value.  Index is the subtracted
+-- baseInRange value (see below)
+-- Original formula: ((level - <baseInRange>) * <multiplier>) + <additive>; where level is a range defined in utils.getSkillLvl
+local skillLevelTable =
+{
+    --         A+             A-             B+             B              B-             C+             C              C-             D              E              F                  G
+    [1]  = { { 3.00,   6 }, { 3.00,   6 }, { 2.90,   5 }, { 2.90,   5 }, { 2.90,   5 }, { 2.80,   5 }, { 2.80,   5 }, { 2.80,   5 }, { 2.70,   4 }, { 2.50,   4 }, { 2.30,   4 }, { 2,   3 } }, -- Level <= 50
+    [50] = { { 5.00, 153 }, { 5.00, 153 }, { 4.90, 147 }, { 4.90, 147 }, { 4.90, 147 }, { 4.80, 142 }, { 4.80, 142 }, { 4.80, 142 }, { 4.70, 136 }, { 4.50, 126 }, { 4.30, 116 }, { 4, 101 } }, -- Level > 50 and Level <= 60
+    [60] = { { 4.85, 203 }, { 4.10, 203 }, { 3.70, 196 }, { 3.23, 196 }, { 2.70, 196 }, { 2.50, 190 }, { 2.25, 190 }, { 2.00, 190 }, { 1.85, 183 }, { 1.95, 171 }, { 2.05, 159 }, { 2.00, 141 } }, -- Level > 60 and Level <= 70
+    [70] = { { 5.00, 251 }, { 5.00, 244 }, { 3.70, 233 }, { 3.23, 228 }, { 2.70, 223 }, { 3.00, 215 }, { 2.60, 212 }, { 2.00, 210 }, { 1.85, 201 }, { 1.95, 190 }, { 2.00, 179 }, { 2.00, 161 } }, -- Level > 70
+}
 
-function utils.getSkillLvl(rank, level)
+-- Get the corresponding table entry to use in skillLevelTable based on level range
+-- TODO: Minval for ranges 2 and 3 in the conditional is probably not necessary
+local function getSkillLevelIndex(level)
+    local rangeId = nil
 
-    local skill = 0 --Failsafe
-
-    if (level <= 50) then --Levels 1-50
-        if (rank == 1 or rank == 2) then --A-Rated Skill
-            skill = (((level-1)*3)+6)
-        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
-            skill = (((level-1)*2.9)+5)
-        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
-            skill = (((level-1)*2.8)+5)
-        elseif (rank == 9) then --D-Rated Skill
-            skill = (((level-1)*2.7)+4)
-        elseif (rank == 10) then --E-Rated Skill
-            skill = (((level-1)*2.5)+4)
-        elseif (rank == 11) then --F-Rated Skill
-            skill = (((level-1)*2.3)+4)
-        end
-    elseif (level > 50 and level <= 60) then --Levels 51-60
-        if (rank == 1 or rank == 2) then --A-Rated Skill
-            skill = (((level-50)*5)+153)
-        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
-            skill = (((level-50)*4.9)+147)
-        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
-            skill = (((level-50)*4.8)+142)
-        elseif (rank == 9) then --D-Rated Skill
-            skill = (((level-50)*4.7)+136)
-        elseif (rank == 10) then --E-Rated Skill
-            skill = (((level-50)*4.5)+126)
-        elseif (rank == 11) then --F-Rated Skill
-            skill = (((level-50)*4.3)+116)
-        end
-    elseif (level > 60 and level <= 70) then --Levels 61-70
-        if (rank == 1 or rank == 2) then --A-Rated Skill
-            skill = (((level-50)*5)+153)
-        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
-            skill = (((level-50)*4.9)+147)
-        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
-            skill = (((level-50)*4.8)+142)
-        elseif (rank == 9) then --D-Rated Skill
-            skill = (((level-50)*4.7)+136)
-        elseif (rank == 10) then --E-Rated Skill
-            skill = (((level-50)*4.5)+126)
-        elseif (rank == 11) then --F-Rated Skill
-            skill = (((level-50)*4.3)+116)
-        end
-    else --Level 71 and above
-        if (rank == 1 or rank == 2) then --A-Rated Skill
-            skill = (((level-50)*5)+153)
-        elseif (rank == 3 or rank == 4 or rank == 5) then --B-Rated Skill
-            skill = (((level-50)*4.9)+147)
-        elseif (rank == 6 or rank == 7 or rank == 8) then --C-Rated Skill
-            skill = (((level-50)*4.8)+142)
-        elseif (rank == 9) then --D-Rated Skill
-            skill = (((level-50)*4.7)+136)
-        elseif (rank == 10) then --E-Rated Skill
-            skill = (((level-50)*4.5)+126)
-        elseif (rank == 11) then --F-Rated Skill
-            skill = (((level-50)*4.3)+116)
-        end
+    if level <= 50 then
+        rangeId = 1
+    elseif level > 50 and level <= 60 then
+        rangeId = 50
+    elseif level > 60 and level <= 70 then
+        rangeId = 60
+    else
+        rangeId = 70
     end
 
-    return skill
+    return rangeId
+end
 
+function utils.getSkillLvl(rank, level)
+    local levelTableIndex = getSkillLevelIndex(level)
+    return ((level - levelTableIndex) * skillLevelTable[levelTableIndex][rank][1]) + skillLevelTable[levelTableIndex][rank][2]
 end
 
 function utils.getMobSkillLvl(rank, level)
@@ -749,22 +708,24 @@ end
 function utils.GetMatchingSCDayElement()
     local elements =
     {
-        [1] = {day = {tpz.day.FIRESDAY}, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
-        [2] = {day = {tpz.day.EARTHSDAY}, sc = {tpz.skillchainEle.SCISSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
-        [3] = {day = {tpz.day.WATERSDAY}, sc = {tpz.skillchainEle.REVERBERATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
-        [4] = {day = {tpz.day.WINDSDAY}, sc = {tpz.skillchainEle.DETONATION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
-        [5] = {day = {tpz.day.ICEDAY}, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
-        [6] = {day = {tpz.day.LIGHTNINGDAY}, sc = {tpz.skillchainEle.IMPACTION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
-        [7] = {day = {tpz.day.LIGHTSDAY}, sc = {tpz.skillchainEle.TRANSFIXION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
-        [8] = {day = {tpz.day.DARKSDAY}, sc = {tpz.skillchainEle.COMPRESSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        {day = tpz.day.FIRESDAY, sc = {tpz.skillchainEle.LIQUEFACTION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        {day = tpz.day.EARTHSDAY, sc = {tpz.skillchainEle.SCISSION, tpz.skillchainEle.GRAVITATION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        {day = tpz.day.WATERSDAY, sc = {tpz.skillchainEle.REVERBERATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        {day = tpz.day.WINDSDAY, sc = {tpz.skillchainEle.DETONATION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        {day = tpz.day.ICEDAY, sc = {tpz.skillchainEle.INDURATION, tpz.skillchainEle.DISTORTION, tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
+        {day = tpz.day.LIGHTNINGDAY, sc = {tpz.skillchainEle.IMPACTION, tpz.skillchainEle.FRAGMENTATION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        {day = tpz.day.LIGHTSDAY, sc = {tpz.skillchainEle.TRANSFIXION, tpz.skillchainEle.FUSION, tpz.skillchainEle.LIGHT, tpz.skillchainEle.LIGHT_II } },
+        {day = tpz.day.DARKSDAY, sc = {tpz.skillchainEle.COMPRESSION, tpz.skillchainEle.GRAVITATION,  tpz.skillchainEle.DARKNESS, tpz.skillchainEle.DARKNESS_II } },
     }
-
-    local dayElement = VanadielDayElement()
-    local currentDay = elements[dayElement].day[1]
-    local currentMatchingSkillchains = {}
-    currentMatchingSkillchains = elements[dayElement].sc
-
-    return currentMatchingSkillchains
+    
+    local day = VanadielDayOfTheWeek()
+    for _,entry in ipairs(elements) do
+        if day == entry.day then
+            return entry.sc
+        end
+    end
+    
+    return nil
 end
 
 function utils.CheckForZombie(player, target, ability)
@@ -773,4 +734,310 @@ function utils.CheckForZombie(player, target, ability)
         return true
     end
     return false
+end
+
+function utils.CheckForZombieSpell(caster, spell)
+    if caster:hasStatusEffect(tpz.effect.CURSE_II) then
+        spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+        return true
+    end
+    return false
+end
+
+function utils.IsElementalDOT(effect)
+    if (effect >= tpz.effect.BURN) and (effect <= tpz.effect.DROWN) then
+        return true
+    end
+    return false
+end
+
+function utils.IsDOT(effect) -- TODO: Unfinished(?)
+    if (effect >= tpz.effect.BURN) and (effect <= tpz.effect.BIO) then
+        return true
+    end
+    return false
+end
+
+function utils.IsStatDown(effect)
+    if (effect >= tpz.effect.STR_DOWN) and (effect <= tpz.effect.CHR_DOWN) then
+        return true
+    end
+    return false
+end
+
+function utils.MessageParty(player, msg, textcolor, sender)
+    if player == nil then
+        return
+    end
+
+    local party = player:getParty()
+
+    --Text color: default(name shown) - 0, gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    if (party ~= nil) then
+        for _,v in ipairs(party) do
+            v:PrintToPlayer(msg, textcolor, sender)
+        end
+    end
+end
+function utils.ShowTextParty(player, textId)
+    if player == nil then
+        return
+    end
+
+    local party = player:getParty()
+
+    --Text color: default(name shown) - 0, gold - 0x1F, green - 0x1C, blue - 0xF, white(no sender name) - 0xD
+    if (party ~= nil) then
+        for _,v in ipairs(party) do
+            v:showText(npc, textId)
+        end
+    end
+end
+
+-- add alliance enmity
+function utils.linkAlliance(mob, player)
+    local alliance = player:getAlliance()
+    if alliance ~= nil then
+        for _, member in pairs(alliance) do
+            if member:getZoneID() == zone and member:isAlive() then
+                mob:addEnmity(member, 1, 0) -- 1 CE
+            end
+        end
+    end
+end
+
+function utils.getDropRate(mob, base)
+    local TH = mob:getTHlevel()
+    local dropRate = base
+    --TODO: Decimals for lower drop rates , Very Rare, Super Rare, Ultra Rare
+    if base == 24 then
+        if (TH == 1) then
+            dropRate = 48
+        elseif (TH == 2) then
+            dropRate = 56
+        elseif (TH == 3) then
+            dropRate = 60
+        elseif (TH == 4) then
+            dropRate = 64
+        elseif (TH == 5) then
+            dropRate = 66
+        elseif (TH == 6) then
+            dropRate = 68
+        elseif (TH == 7) then
+            dropRate = 69
+        elseif (TH == 8) then
+            dropRate = 70
+        elseif (TH == 9) then
+            dropRate = 72
+        elseif (TH == 10) then
+            dropRate = 73
+        elseif (TH == 11) then
+            dropRate = 74
+        elseif (TH == 12) then
+            dropRate = 76
+        elseif (TH == 13) then
+            dropRate = 78
+        elseif (TH == 14) then
+            dropRate = 80
+        end
+    end
+
+    if base == 15 then
+        if (TH == 1) then
+            dropRate = 30
+        elseif (TH == 2) then
+            dropRate = 40
+        elseif (TH == 3) then
+            dropRate = 42
+        elseif (TH == 4) then
+            dropRate = 45
+        elseif (TH == 5) then
+            dropRate = 47
+        elseif (TH == 6) then
+            dropRate = 50
+        elseif (TH == 7) then
+            dropRate = 52
+        elseif (TH == 8) then
+            dropRate = 55
+        elseif (TH == 9) then
+            dropRate = 57
+        elseif (TH == 10) then
+            dropRate = 60
+        elseif (TH == 11) then
+            dropRate = 62
+        elseif (TH == 12) then
+            dropRate = 65
+        elseif (TH == 13) then
+            dropRate = 67
+        elseif (TH == 14) then
+            dropRate = 70
+        end
+    end
+
+    if base == 10 then
+        if (TH == 1) then
+            dropRate = 12
+        elseif (TH == 2) then
+            dropRate = 15
+        elseif (TH == 3) then
+            dropRate = 16
+        elseif (TH == 4) then
+            dropRate = 18
+        elseif (TH == 5) then
+            dropRate = 19
+        elseif (TH == 6) then
+            dropRate = 20
+        elseif (TH == 7) then
+            dropRate = 21
+        elseif (TH == 8) then
+            dropRate = 22
+        elseif (TH == 9) then
+            dropRate = 24
+        elseif (TH == 10) then
+            dropRate = 26
+        elseif (TH == 11) then
+            dropRate = 28
+        elseif (TH == 12) then
+            dropRate = 29
+        elseif (TH == 13) then
+            dropRate = 31
+        elseif (TH == 14) then
+            dropRate = 32
+        end
+    end
+
+    if base == 5 then
+        if (TH == 1) then
+            dropRate = 6
+        elseif (TH == 2) then
+            dropRate = 7
+        elseif (TH == 3) then
+            dropRate = 7
+        elseif (TH == 4) then
+            dropRate = 8
+        elseif (TH == 5) then
+            dropRate = 8
+        elseif (TH == 6) then
+            dropRate = 9
+        elseif (TH == 7) then
+            dropRate = 9
+        elseif (TH == 8) then
+            dropRate = 10
+        elseif (TH == 9) then
+            dropRate = 11
+        elseif (TH == 10) then
+            dropRate = 12
+        elseif (TH == 11) then
+            dropRate = 13
+        elseif (TH == 12) then
+            dropRate = 15
+        elseif (TH == 13) then
+            dropRate = 17
+        elseif (TH == 14) then
+            dropRate = 20
+        end
+    end
+
+    -- printf("Base drop rate %s", base)
+    -- printf("Drop Rate: %s", dropRate)
+    return dropRate
+end
+
+function utils.spawnPetInBattle(mob, pet, aggro)
+    mob:entityAnimationPacket("casm")
+    mob:SetAutoAttackEnabled(false)
+    mob:SetMagicCastingEnabled(false)
+    mob:SetMobAbilityEnabled(false)
+    mob:timer(3000, function(mob)
+        mob:entityAnimationPacket("shsm")
+        mob:SetAutoAttackEnabled(true)
+        mob:SetMagicCastingEnabled(true)
+        mob:SetMobAbilityEnabled(true)
+        pet:spawn()
+        if (aggro ~= nil) then
+            pet:updateEnmity(mob:getTarget())
+        end
+    end)
+end
+
+function utils.givePartyKeyItem(entity, keyitem)
+    local zonePlayers = entity:getZone():getPlayers()
+    local ID = zones[entity:getZoneID()]
+
+    for _, zonePlayer in pairs(zonePlayers) do
+        if not zonePlayer:hasKeyItem(keyitem) then
+	        zonePlayer:addKeyItem(keyitem)
+            zonePlayer:messageSpecial(ID.text.KEYITEM_OBTAINED, keyitem)
+        end
+    end
+end
+
+function utils.getWeaponStyle(player)
+    local twoHandedSkills = { 4, 6, 7, 8, 10, 12 };
+    local oneHandedSkills = { 2, 3, 5, 9, 11 };
+    local main = player:getStorageItem(0, 0, tpz.slot.MAIN)
+    local sub = player:getStorageItem(0, 0, tpz.slot.SUB)
+    local mainHandSkill = 0
+
+    if main and main:getSkillType() then
+        mainHandSkill = main:getSkillType()
+    end
+
+
+    if mainHandSkill == 1 then
+        return 'H2H'
+    end
+
+    for _, combatSkills in pairs(twoHandedSkills) do
+        if mainHandSkill == combatSkills then
+            return '2H'
+        end
+    end
+
+    for _, combatSkills in pairs(oneHandedSkills) do
+        local offHandSkill = 0
+        if sub and sub:getSkillType() then
+            offHandSkill = sub:getSkillType()
+        end
+
+        for _, combatSkills in pairs(twoHandedSkills) do
+            if mainHandSkill == offHandSkill then
+                return 'DW'
+            elseif sub == nil or sub:getSkillType() == tpz.skill.NONE or sub:isShield() then
+                return 'SHIELD'
+            end
+        end
+    end
+
+    return 'Unknown'
+end
+
+function utils.GetWeaponType(player)
+    local main = player:getStorageItem(0, 0, tpz.slot.MAIN)
+    local mainHandSkill = 0
+
+    if main and main:getSkillType() then
+        mainHandSkill = main:getSkillType()
+    end
+
+    local skills =
+    {
+        {2, 'DAGGER'},
+        {3, 'SWORD'},
+        {4, 'GREAT SWORD'},
+        {5, 'AXE'},
+        {6, 'GREAT AXE'},
+        {7, 'SCYTHE'},
+        {8, 'POLEARM'},
+        {9, 'KATANA'},
+        {10, 'GREAT KATANA'},
+        {11, 'CLUB'},
+        {12, 'STAFF'},
+    }
+
+    for _, combatSkills in pairs (skills) do
+        if (mainHandSkill == combatSkills[1]) then
+            return combatSkills[2]
+        end
+    end
 end

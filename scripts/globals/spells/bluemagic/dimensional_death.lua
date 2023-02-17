@@ -29,10 +29,10 @@ function onSpellCast(caster, target, spell)
     params.damageType = tpz.damageType.BLUNT
     params.scattr = SC_IMPACTION
     params.numhits = 1
-    params.multiplier = 3.1
-    params.tp150 = 3.1
-    params.tp300 = 3.1
-    params.azuretp = 3.1
+    params.multiplier = 2.25
+    params.tp150 = 2.25
+    params.tp300 = 2.25
+    params.azuretp = 2.25
     params.duppercap = 70 
     params.str_wsc = 0.5
     params.dex_wsc = 0.0
@@ -41,6 +41,7 @@ function onSpellCast(caster, target, spell)
     params.int_wsc = 0.0
     params.mnd_wsc = 0.0
     params.chr_wsc = 0.0
+    params.attkbonus = 1.5
     params.AttkTPModifier = true
     damage = BluePhysicalSpell(caster, target, spell, params)
 	local arcana = (target:getSystem() == 3)

@@ -25,7 +25,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.DARK_MAGIC
-    params.bonus = 1.0
+    params.bonus = 10
 
     -- Calculate raw damage
     local dmg = calculateMagicDamage(caster, target, spell, params)
@@ -69,6 +69,7 @@ function onSpellCast(caster, target, spell)
     target:delStatusEffectSilent(tpz.effect.BIO)
     target:addStatusEffect(tpz.effect.BIO, dotdmg, 3, duration, 0, 5, 1)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
+    CheckForMagicBurst(caster, spell, target)
 
     return final
 end

@@ -45,6 +45,7 @@ CPetEntity::CPetEntity(PETTYPE petType)
 	allegiance = ALLEGIANCE_PLAYER;
     m_MobSkillList = 0;
     m_HasSpellScript = 0;
+    namevis = 0; 
     PAI = std::make_unique<CAIContainer>(this, std::make_unique<CPathFind>(this), std::make_unique<CPetController>(this),
         std::make_unique<CTargetFind>(this));
 }
@@ -150,13 +151,17 @@ void CPetEntity::PostTick()
 void CPetEntity::FadeOut()
 {
     CMobEntity::FadeOut();
-    loc.zone->PushPacket(this, CHAR_INRANGE, new CEntityUpdatePacket(this, ENTITY_DESPAWN, UPDATE_NONE));
+    loc.zone->UpdateEntityPacket(this, ENTITY_DESPAWN, UPDATE_NONE);
 }
 
 void CPetEntity::Die()
 {
     PAI->ClearStateStack();
     PAI->Internal_Die(0s);
+    m_unkillable = false;
+    PAI->GetController()->SetAutoAttackEnabled(true);
+    PAI->GetController()->SetMagicCastingEnabled(true);
+    PAI->GetController()->SetWeaponSkillEnabled(true);
     luautils::OnMobDeath(this, nullptr);
     CBattleEntity::Die();
     if (PMaster && PMaster->PPet == this && PMaster->objtype == TYPE_PC)

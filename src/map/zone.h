@@ -550,7 +550,7 @@ public:
     // Gets an entity - ignores instances (use CBaseEntity->GetEntity if possible)
     virtual CBaseEntity*    GetEntity(uint16 targid, uint8 filter = -1);            // получаем указатель на любую сущность в зоне
 
-    bool            IsWeatherStatic();                                              // погода в зоне не требует изменения (никогда не меняется)
+    bool            IsWeatherStatic();                                              // the weather in the zone does not require changing (never changes)
     bool            CanUseMisc(uint16 misc);
     void            SetWeather(WEATHER weatherCondition);
     void            UpdateWeather();
@@ -581,15 +581,23 @@ public:
     virtual void    TransportDepart(uint16 boundary, uint16 zone);                  // транспотр отправляется, необходимо собрать пассажиров
 
     void            InsertRegion(CRegion* Region);                                  // добавляем в зону активную область
+    void            LoadZoneWeather();             // weather
 
     virtual void    TOTDChange(TIMETYPE TOTD);                                      // обработка реакции мира на смену времени суток
     virtual void    PushPacket(CBaseEntity*, GLOBAL_MESSAGE_TYPE, CBasicPacket*);   // отправляем глобальный пакет в пределах зоны
 
-    time_point      m_RegionCheckTime;                                              // время последней проверки регионов
-    weatherVector_t m_WeatherVector;                                                // вероятность появления каждого типа погоды
+    virtual void    UpdateCharPacket(CCharEntity* PChar, ENTITYUPDATE type, uint8 updatemask);
+    virtual void    UpdateEntityPacket(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask, bool alwaysInclude = false);
+
+    time_point      m_RegionCheckTime;                                              // time of the last region check
+    weatherVector_t m_WeatherVector;                                                // probability of occurrence of each type of weather
 
     virtual void    ZoneServer(time_point tick, bool check_regions);
     void            CheckRegions(CCharEntity* PChar);
+
+    void            ResetLocalVars();
+    uint32          GetLocalVar(const char* var);
+    void            SetLocalVar(const char* var, uint32 val);
 
     virtual void    ForEachChar(std::function<void(CCharEntity*)> func);
     virtual void    ForEachCharInstance(CBaseEntity* PEntity, std::function<void(CCharEntity*)> func);
@@ -606,6 +614,8 @@ public:
 
     CNavMesh*       m_navMesh;              // zones navmesh for finding paths
 
+     time_point m_LoadedAt; // time zone was loaded
+
 private:
 
     ZONEID          m_zoneID;               // ID зоны
@@ -617,8 +627,8 @@ private:
     uint32          m_zoneIP;               // IP зоны
     bool            m_useNavMesh;           // Use navmesh for roaming, chasing
 
-    WEATHER         m_Weather;              // текущая погода
-    uint32          m_WeatherChangeTime;    // время начала текущей погоды
+    WEATHER         m_Weather;              // Current Weather
+    uint32          m_WeatherChangeTime;    // current weather start time
     CZoneEntities*  m_zoneEntities;
 
     uint16          m_tax;                  // налог в bazaar
@@ -630,7 +640,6 @@ private:
     zoneLineList_t  m_zoneLineList;         // список всех доступных zonelines для зоны
 
     void    LoadZoneLines();                // список zonelines (можно было бы заменить этот метод методом InsertZoneLine)
-    void    LoadZoneWeather();              // погода
     void    LoadZoneSettings();             // настройки зоны
     void    LoadNavMesh();                  // Load the zones navmesh. Must exist in scripts/zones/:zone/NavMesh.nav
 
@@ -644,6 +653,8 @@ protected:
     void createZoneTimer();
     void CharZoneIn(CCharEntity* PChar);
     void CharZoneOut(CCharEntity* PChar);
+
+     std::unordered_map<std::string, uint32> m_localVars;
 };
 
 #endif

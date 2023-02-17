@@ -27,7 +27,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     params.crit100 = 0.0 params.crit200 = 0.0 params.crit300 = 0.0
     params.canCrit = false
     params.accuracyVariesWithTP = true
-    params.atk100 = 1; params.atk200 = 1; params.atk300 = 1
+    params.atk100 = 1.5; params.atk200 = 1.5; params.atk300 = 1.5
 
     if USE_ADOULIN_WEAPON_SKILL_CHANGES then
         params.str_wsc = 0.5
@@ -37,29 +37,10 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     tpz.aftermath.addStatusEffect(player, tp, tpz.slot.MAIN, tpz.aftermath.type.MYTHIC)
 
     local damage, criticalHit, tpHits, extraHits = doPhysicalWeaponskill(player, target, wsID, params, tp, action, primary, taChar)
-		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
-		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
-    local IgnisRunes = player:getLocalVar("IgnisRunes")
-    local RuneDuration = 7200
-    -- Adds up to two runes
-    if damage > 0 then
-        if IgnisRunes < 2 then -- Two runes if less than 2 runes currently on
-            for v = 524,530,1 do
-                player:delStatusEffectSilent(v)
-            end
-            for v = 524,530,1 do
-                player:delStatusEffectSilent(v)
-            end
-            player:addStatusEffect(tpz.effect.IGNIS, 1, 0, RuneDuration)
-            player:addStatusEffect(tpz.effect.IGNIS, 1, 0, RuneDuration)
-        end
-        if IgnisRunes == 2 then -- One rune if currently at 2 runes
-            for v = 524,530,1 do
-                player:delStatusEffectSilent(v)
-            end
-            player:addStatusEffect(tpz.effect.IGNIS, 1, 0, RuneDuration)
-        end
-    end
+	if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_KATANA, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+    jobUtil.AddIgnisRune(player, damage)
+    jobUtil.AddIgnisRune(player, damage)
 
     return tpHits, extraHits, criticalHit, damage
 end

@@ -22,6 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
     if (target:getMP() < dmg) then
         dmg = target:getMP()
     end
-	skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_MP, dmg))
+	skill:setMsg(MobDrainMove(mob, target, MOBDRAIN_MP, dmg, tpz.attackType.MAGICAL, tpz.damageType.DARK))
+
     return dmg
 end

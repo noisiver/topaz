@@ -16,6 +16,7 @@ function onTrigger(player, npc)
         17388,  1238, 3,    -- Fastwater F. Rod
         17382, 11845, 3,    -- S.H. Fishing Rod
         4148,    290, 3,    -- Antidote
+        4153, 1000, 3,      -- Antacid
     }
 
     player:showText(npc, ID.text.POHKA_SHOP_DIALOG)

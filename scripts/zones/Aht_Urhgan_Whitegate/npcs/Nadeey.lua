@@ -18,13 +18,13 @@ local randomAugment =
     tpz.augments.RESISTSTUN, tpz.augments.RESISTBIND, tpz.augments.RESISTGRAVITY, tpz.augments.RESISTSLOW, tpz.augments.RECYCLE,
     tpz.augments.NTE, tpz.augments.SUBTLE_BLOW, tpz.augments.ZANSHIN, tpz.augments.SNAP_SHOT, tpz.augments.RAPID_SHOT, tpz.augments.WSACC, 
     tpz.augments.ENH_DRAIN_ASPIR, tpz.augments.SPELLINTERRUPT, tpz.augments.SKILLCHAINDMG, tpz.augments.CONSERVE_TP,
-    tpz.augments.CURE_POTENCY, tpz.augments.REGENPOTENCY, tpz.augments.WSACC, tpz.augments.WALTZ_POTENTCY, tpz.augments.ENMITY,
+    tpz.augments.CURE_POTENCY, tpz.augments.REGENPOTENCY,tpz.augments.WALTZ_POTENTCY, tpz.augments.ENMITY,
     tpz.augments.ENMITY_MINUS, tpz.augments.HP_MINUS_33, tpz.augments.MP_MINUS_33, tpz.augments.ACC_MINUS, tpz.augments.ATTK_MINUS,
     tpz.augments.RACC, tpz.augments.RATTK, tpz.augments.RACC_MINUS, tpz.augments.RATTK_MINUS, tpz.augments.EVA_MINUS,
     tpz.augments.DEF_MINUS, tpz.augments.MACC_MINUS, tpz.augments.MDEF, tpz.augments.MDEF_MINUS, tpz.augments.STR_MINUS,
     tpz.augments.DEX_MINUS, tpz.augments.VIT_MINUS, tpz.augments.AGI_MINUS, tpz.augments.INT_MINUS, tpz.augments.MND_MINUS,
     tpz.augments.CHR_MINUS, tpz.augments.FIRERES,tpz.augments.ICERES, tpz.augments.WINDRES, tpz.augments.EARTHRES,
-    tpz.augments.LIGHTNINGRES, tpz.augments.WATERRES, tpz.augments.LIGHTRES, tpz.augments.DARKRES, tpz.augments.DEF_10, tpz.augments.EVA
+    tpz.augments.LIGHTNINGRES, tpz.augments.WATERRES, tpz.augments.LIGHTRES, tpz.augments.DARKRES, tpz.augments.DEF_10
 
 }
 local randomRareAugment =
@@ -38,15 +38,25 @@ local randomRareAugment =
 local randomPetAugment =
 {
     tpz.augments.PET_ACC_RACC, tpz.augments.PET_ATTK_RATTK, tpz.augments.PET_EVA, tpz.augments.PET_DEF, tpz.augments.PET_MACC,
-    tpz.augments.PET_MATT, tpz.augments.PET_STR_MINUS, tpz.augments.PET_DEX_MINUS,
+    tpz.augments.PET_MATT, tpz.augments.PET_STR_MINUS, tpz.augments.PET_DEX_MINUS, tpz.augments.RESISTPARALYZE,
     tpz.augments.PET_VIT_MINUS, tpz.augments.PET_AGI_MINUS, tpz.augments.PET_INT_MINUS, tpz.augments.PET_MND_MINUS,
     tpz.augments.PET_CHR_MINUS, tpz.augments.PET_ENMITY, tpz.augments.PET_ENMITY_MINUS, tpz.augments.PET_ENEMY_CRITHITRATE_MINUS,
-    tpz.augments.BLOODPACT_ABILITY_DELAY_MINUS, tpz.augments.ENHANCES_ELEMENTAL_SIPHON, tpz.augments.BLOOD_BOON
+    tpz.augments.BLOODPACT_ABILITY_DELAY_MINUS, tpz.augments.ENHANCES_ELEMENTAL_SIPHON, tpz.augments.BLOOD_BOON,
+    tpz.augments.DEF, tpz.augments.EVA, tpz.augments.VIT, tpz.augments.AGI, tpz.augments.RESISTSLEEP, tpz.augments.RESISTPOISON, 
+    tpz.augments.RESISTBLIND, tpz.augments.RESISTSILENCE, tpz.augments.RESISTPETRIFY, tpz.augments.RESISTVIRUS, tpz.augments.RESISTCURSE,
+    tpz.augments.RESISTSTUN, tpz.augments.RESISTBIND, tpz.augments.RESISTGRAVITY, tpz.augments.RESISTSLOW, tpz.augments.RECYCLE,
+    tpz.augments.NTE, tpz.augments.ENH_DRAIN_ASPIR, tpz.augments.SPELLINTERRUPT, tpz.augments.CONSERVE_TP,
+    tpz.augments.CURE_POTENCY, tpz.augments.REGENPOTENCY, tpz.augments.WALTZ_POTENTCY, tpz.augments.ENMITY, tpz.augments.EARTHRES,
+    tpz.augments.ENMITY_MINUS, tpz.augments.HP_MINUS_33, tpz.augments.MP_MINUS_33, tpz.augments.EVA_MINUS, tpz.augments.WINDRES, 
+    tpz.augments.DEF_MINUS, tpz.augments.MDEF, tpz.augments.MDEF_MINUS, tpz.augments.FIRERES,tpz.augments.ICERES, 
+    tpz.augments.LIGHTNINGRES, tpz.augments.WATERRES, tpz.augments.LIGHTRES, tpz.augments.DARKRES, tpz.augments.DEF_10
 }
 local randomPetRareAugment =
 {
     tpz.augments.PET_CRIT_HIT_RATE, tpz.augments.PET_REGEN, tpz.augments.PET_HASTE, tpz.augments.PET_DT, tpz.augments.PET_STORE_TP,
-    tpz.augments.PET_DOUBLE_ATTACK
+    tpz.augments.PET_DOUBLE_ATTACK, tpz.augments.CONSERVE_MP, tpz.augments.HP_33, tpz.augments.MP_33, tpz.augments.HHP, tpz.augments.HMP,
+    tpz.augments.REGEN, tpz.augments.BDT, tpz.augments.DT, tpz.augments.RESISTCHARM, tpz.augments.FASTCAST,
+    tpz.augments.SONG_SPELLCASTING_TIME_MINUS, tpz.augments.CURE_SPELLCASTING_TIME_MINUS, 
 }
 local helm = 
 {

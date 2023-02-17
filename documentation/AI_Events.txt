@@ -8,6 +8,7 @@ WEAPONSKILL_START - Entity, Skillid
 WEAPONSKILL_USE - Entity, Target, Skillid, TP, action (Also works for mobs)
 WEAPONSKILL_TAKE - Target, Entity, Skillid, TP, action (Also works for mobs)
 WEAPONSKILL_STATE_EXIT - Entity, Skillid  (Also works for mobs)
+WEAPONSKILL_STATE_INTERRUPTED - Entity, Skillid  (ONLY works for mobs)
 
 MAGIC_START - Entity, Spell, action
 MAGIC_MID - Entity, Target, Spell
@@ -17,7 +18,7 @@ MAGIC_TAKE - Target, Entity, Spell, action
 SPELL_DMG_TAKEN - Target, Entity, Spell, amount, message
 MAGIC_HIT - caster, target, spell
 EN_SPIKES_HIT - attacker, target, enspellID (enum ENSPELL in battleutils.h)
-MAGIC_INTERRUPTED - Entity, Target, Spell, action
+MAGIC_INTERRUPTED - Entity, Target, Spell, action **DOES NOT WORK**
 
 TAKE_DAMAGE - Entity, amount, attacker, attacktype, damagetype
 SKILLCHAIN_TAKE - Entity, target, element
@@ -31,7 +32,8 @@ DISENGAGE - Entity
 ATTACK - Attacker, defender, action
 ATTACKED - Defender, attacker, action
 
-FRONT_CRITICAL_TAKE - Entity
+FRONT_CRITICAL_TAKE - Entity, target
+FRONT_CRITICAL_TAKE - Entity, target
 
 ITEM_START - Entity, Item, action
 ITEM_USE - Entity, Item, action

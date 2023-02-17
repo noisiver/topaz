@@ -19,7 +19,6 @@ function onMobWeaponSkill(target, mob, skill)
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
     else
-		skill:setMsg(tpz.msg.basic.FALL_TO_GROUND)
 		target:setHP(0)
 	end
 

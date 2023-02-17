@@ -778,7 +778,9 @@ INSERT INTO `mob_pets` VALUES (17326305, 1, 14); -- Vanguard_s_Wyvern
 INSERT INTO `mob_pets` VALUES (17326307, 1, 14); -- Vanguard_s_Wyvern
 INSERT INTO `mob_pets` VALUES (17326331, 1, 14); -- Vanguard_s_Wyvern
 INSERT INTO `mob_pets` VALUES (17326383, 1, 14); -- Vanguard_s_Wyvern
+INSERT INTO `mob_pets` VALUES (17326419, 1, 14); -- Vanguard_s_Wyvern
 INSERT INTO `mob_pets` VALUES (17326421, 1, 14); -- Vanguard_s_Wyvern
+INSERT INTO `mob_pets` VALUES (17326454, 1, 14); -- Vanguard_s_Wyvern
 INSERT INTO `mob_pets` VALUES (17326492, 1, 14); -- Hydra_s_Wyvern
 INSERT INTO `mob_pets` VALUES (17326503, 1, 14); -- Hydra_s_Wyvern
 INSERT INTO `mob_pets` VALUES (17326531, 1, 14); -- Hydra_s_Wyvern
@@ -1015,7 +1017,7 @@ INSERT INTO `mob_pets` VALUES (16920783, 1, 14); -- Awaern DRG
 INSERT INTO `mob_pets` VALUES (16920787, 1, 15); -- Awaern SMN
 
 
--- INSERT INTO `mob_pets` VALUES (16797964, 1, 15);
+INSERT INTO `mob_pets` VALUES (16797964, 1, 15);
 -- INSERT INTO `mob_pets` VALUES (16887850, 1, 9);
 INSERT INTO `mob_pets` VALUES (16928790, 1, 14);
 INSERT INTO `mob_pets` VALUES (16928799, 1, 15);

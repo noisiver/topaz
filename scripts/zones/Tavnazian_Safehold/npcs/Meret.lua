@@ -3,6 +3,7 @@
 --  NPC: Meret
 -- !pos 83.166 -25.082 4.633 26
 -----------------------------------
+local ID = require("scripts/zones/Tavnazian_Safehold/IDs")
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/npc_util")
@@ -36,6 +37,13 @@ local trades =
 
 function onTrade(player, npc, trade)
     if player:getQuestStatus(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.IN_THE_NAME_OF_SCIENCE) == QUEST_COMPLETED then
+        -- Add trading a stack of Chips for a stack of Virtue Stones
+        if npcUtil.tradeHasExactly(trade, { {1819, 12} }, true) then
+            player:setLocalVar("chipStack", 1)
+            player:startEvent(586, 1819, 5410)
+            player:addItem(5410, 12)
+            player:confirmTrade()
+        end
         for k, v in pairs(trades) do
             if npcUtil.tradeHasExactly(trade, k) then
                 player:setLocalVar("meretReward", v)
@@ -72,5 +80,8 @@ function onEventFinish(player, csid, option)
         if npcUtil.giveItem(player, option) then
             player:confirmTrade()
         end
+    elseif csid == 586 and player:getLocalVar("chipStack") > 0 then
+        player:messageSpecial(ID.text.ITEM_OBTAINED, 5410)
+        player:setLocalVar("chipStack", 0)
     end
 end

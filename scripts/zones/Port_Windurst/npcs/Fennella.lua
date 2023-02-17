@@ -84,13 +84,13 @@ end
 
 function onEventUpdate(player, csid, option, target)
     if (csid == 10020) then
-        unionRepresentativeTriggerFinish(player, option, target, 0, "guild_Fishing", keyitems, items)
+        unionRepresentativeTriggerFinish(player, option, target, 0, "guild_fishing", keyitems, items)
     end
 end
 
 function onEventFinish(player, csid, option, target)
     if (csid == 10020) then
-        unionRepresentativeTriggerFinish(player, option, target, 0, "guild_Fishing", keyitems, items)
+        unionRepresentativeTriggerFinish(player, option, target, 0, "guild_fishing", keyitems, items)
     elseif (csid == 10021) then
         player:messageSpecial(ID.text.GP_OBTAINED, option)
     end

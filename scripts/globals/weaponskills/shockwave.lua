@@ -31,7 +31,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 		if damage > 0 then player:trySkillUp(target, tpz.skill.GREAT_SWORD, tpHits+extraHits) end
 		if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
 
-    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0)
+    local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.DARK, 0, tpz.effect.SLEEP_I)
     -- Silence duration changed from 60 to 45 as per bg-wiki: http://www.bg-wiki.com/bg/Tachi:_Gekko
     if (damage > 0 and target:hasStatusEffect(tpz.effect.SLEEP_I) == false) and resist >= 0.5 then
         local duration = (tp/1000 * 60) * resist

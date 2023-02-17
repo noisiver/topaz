@@ -20,16 +20,15 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.MDEF, 250)
     mob:setMod(tpz.mod.UDMGMAGIC, -25)
     mob:setMod(tpz.mod.UFASTCAST, 50)
-    mob:setMod(tpz.mod.SDT_WATER, 70)
-    mob:setMod(tpz.mod.SDT_LIGHT, 115)
-    mob:setMod(tpz.mod.SDT_EARTH, 70)
-    mob:setMod(tpz.mod.SDT_WIND, 50)
-    mob:setMod(tpz.mod.SDT_THUNDER, 50)
-    mob:setMod(tpz.mod.SDT_DARK, 70)
-    mob:setMod(tpz.mod.SDT_FIRE, 70)
-    mob:setMod(tpz.mod.SDT_ICE, 115)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+end
+
+function onMobRoam(mob)
+    -- Despawn Servants
+    for v = 17396728, 17396735, 1 do
+        DespawnMob(v)
+    end
 end
 
 function onMobEngaged(mob, target)

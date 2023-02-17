@@ -21,7 +21,6 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 10)
     mob:setMod(tpz.mod.REFRESH, 40)
     mob:setMobMod(tpz.mobMod.HP_STANDBACK, -1)
-    SetServerVariable("XolotlDead", 0)
 end
 
 function onMobFight(mob,target)
@@ -58,11 +57,6 @@ function onMobRoam(mob)
             child:pathTo(mob:getXPos() + 3, mob:getYPos() + 5, mob:getZPos() + 0.15)
         end
     end
-
-    local totd = VanadielTOTD()
-    if totd ~= tpz.time.NIGHT and totd ~= tpz.time.MIDNIGHT then -- Despawn Xolotl if its day
-        DespawnMob(mob:getID())
-    end
 end
 
 function onMobWeaponSkill(target, mob, skill)
@@ -83,7 +77,6 @@ function onMobDeath(mob, player, isKiller)
 end
 
 function onMobDespawn(mob)
-    mob:setRespawnTime(math.random(36000, 43200)) -- 11 to 123 hours
 end
 
 

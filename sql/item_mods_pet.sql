@@ -490,4 +490,16 @@ INSERT INTO `item_mods_pet` VALUES (28643,12,8,3);     -- Refraction Cape Automa
 INSERT INTO `item_mods_pet` VALUES (28643,13,8,3);      -- Automaton: MND+8
 INSERT INTO `item_mods_pet` VALUES (28643,30,3,3);      -- Automaton: Magic Accuracy+3
 INSERT INTO `item_mods_pet` VALUES (15528,23,17,1);     -- Sacrifice Torque Avatar: Enhances attack +15 
+INSERT INTO `item_mods_pet` VALUES (15833,23,15,18);    -- Diverter's Ring Ifrit: Attack +15
+INSERT INTO `item_mods_pet` VALUES (15833,28,5,18);     -- Diverter's Ring Ifrit: MAB +5
+INSERT INTO `item_mods_pet` VALUES (11392,23,15,23);    -- Koschei Crackows Ramuh: Attack +15
+INSERT INTO `item_mods_pet` VALUES (11392,28,5,23);     -- Koschei Crackows Ramuh: MAB +5
+INSERT INTO `item_mods_pet` VALUES (17962,23,15,0);     -- Fleetwing: Attack +15
+INSERT INTO `item_mods_pet` VALUES (17962,25,15,0);     -- Fleetwing: Accuracy +15
+INSERT INTO `item_mods_pet` VALUES (18597,1257,10,1);     -- Catalyst: Avatars: +10% Magic Burst Bonus
+INSERT INTO `item_mods_pet` VALUES (18761,28,5,0);     -- Acantha Shavers: MAB +5
+INSERT INTO `item_mods_pet` VALUES (18761,30,5,0);     -- Acantha Shavers: MACC +5
+INSERT INTO `item_mods_pet` VALUES (17963,368,50,0);     -- Rainmaker Regain +50
+INSERT INTO `item_mods_pet` VALUES (17963,370,3,0);      -- Rainmaker Regen +3
+
 

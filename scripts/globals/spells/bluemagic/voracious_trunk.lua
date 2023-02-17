@@ -21,7 +21,7 @@ function onMagicCastingCheck(caster, target, spell)
 end
 
 function onSpellCast(caster, target, spell)
-    local resist = applyResistanceAbility(caster, target, tpz.magic.ele.WIND, 0, 0)
+    local resist = applyResistanceEffectAbility(caster, target, tpz.magic.ele.WIND, 0, 0)
     local StealChance = math.random(1, 100)
     local stolen = 0
 

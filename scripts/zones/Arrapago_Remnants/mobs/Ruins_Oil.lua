@@ -10,12 +10,11 @@ require("scripts/globals/salvage")
 require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.DMG, -50)
     mob:setMod(tpz.mod.DMGSC, 100)
     mob:setMod(tpz.mod.HTHRES, 500)
-    mob:setMod(tpz.mod.SLASHRES, 1000)
-    mob:setMod(tpz.mod.PIERCERES, 1000)
-    mob:setMod(tpz.mod.RANGEDRES, 1000)
+    mob:setMod(tpz.mod.SLASHRES, 1500)
+    mob:setMod(tpz.mod.PIERCERES, 1500)
+    mob:setMod(tpz.mod.RANGEDRES, 1500)
     mob:setMod(tpz.mod.IMPACTRES, 500)
 end
 
@@ -62,12 +61,16 @@ function onMobWeaponSkillPrepare(mob, target)
     return math.random(2550, 2552)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
     local instance = mob:getInstance()
 
     if isKiller or noKiller then
-        -- Increase progress counter, at 4 turn teleporter back on
-        instance:setProgress(instance:getProgress() +1) 
+        -- If final boss, spawn next boss in line
+        if salvageUtil.TrySpawnChariotBoss(mob, player, 17081106) then
+        else
+            -- Increase progress counter, at 4 turn teleporter back on
+            instance:setProgress(instance:getProgress() +1)
+        end
     end
 end
 

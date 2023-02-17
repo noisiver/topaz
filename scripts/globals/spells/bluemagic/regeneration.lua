@@ -6,7 +6,7 @@
 -- Spell Type: Magical (Light)
 -- Blue Magic Points: 2
 -- Stat Bonus: MND+2
--- Level: 78
+-- Level: 61
 -- Casting Time: 2 Seconds
 -- Recast Time: 60 Seconds
 -- Spell Duration: 30 ticks, 90 Seconds
@@ -25,7 +25,7 @@ end
 
 function onSpellCast(caster, target, spell)
     local typeEffect = tpz.effect.REGEN
-    local power = 25
+    local power = math.ceil(25 * (1 + 0.01 * caster:getMod(tpz.mod.REGEN_MULTIPLIER)))
     local duration = 90
 
     if (caster:hasStatusEffect(tpz.effect.DIFFUSION)) then

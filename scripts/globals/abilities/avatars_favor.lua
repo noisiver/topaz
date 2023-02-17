@@ -21,6 +21,7 @@ end
 
 function onUseAbility(player, target, ability)
     local pet = player:getPet()
+    player:addStatusEffect(tpz.effect.AVATAR_S_FAVOR, 0, 0, 60)
     pet:addStatusEffect(tpz.effect.AVATAR_S_FAVOR, 0, 0, 60)
     return tpz.effect.AVATAR_S_FAVOR
 end

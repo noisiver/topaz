@@ -59,7 +59,7 @@ function onMobFight(mob, target)
     local hp = mob:getHPP()
 
     if (hp < 20) then
-        AddMobAura(mob, target, 10, tpz.effect.GEO_ATTACK_DOWN, 33, 3)
+        AddMobAura(mob, target, 10, tpz.effect.GEO_SLOW, 5000, 3)
     end
 end
 

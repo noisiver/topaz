@@ -16,7 +16,7 @@ function onSpellCast(caster, target, spell)
 
     local power = 12
 
-   -- if (sLvl+iLvl > 350) then
+    -- if (sLvl+iLvl > 350) then
     if (sLvl+iLvl > 424) then
         power = power + 2
     elseif (sLvl+iLvl > 449) then
@@ -46,6 +46,14 @@ function onSpellCast(caster, target, spell)
 
     if not (target:addBardSong(caster, tpz.effect.PAEON, power, 0, duration, caster:getID(), 0, 5)) then
         spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+    end
+
+    local SuuXicutheCantabile = caster:getPool() == 3815
+
+    if SuuXicutheCantabile then
+        target:addStatusEffect(tpz.effect.REGEN, 20, 3, 60)
+        local effect1 = target:getStatusEffect(tpz.effect.REGEN)
+        effect1:unsetFlag(tpz.effectFlag.DISPELABLE)
     end
 
     return tpz.effect.PAEON

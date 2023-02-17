@@ -83,6 +83,7 @@
 #include "../packets/char_job_extra.h"
 #include "../packets/status_effects.h"
 #include "../mobskill.h"
+#include "../utils/petutils.h"
 
 
 CCharEntity::CCharEntity()
@@ -115,6 +116,11 @@ CCharEntity::CCharEntity()
     m_Wardrobe2 = std::make_unique<CItemContainer>(LOC_WARDROBE2);
     m_Wardrobe3 = std::make_unique<CItemContainer>(LOC_WARDROBE3);
     m_Wardrobe4 = std::make_unique<CItemContainer>(LOC_WARDROBE4);
+    m_Wardrobe5 = std::make_unique<CItemContainer>(LOC_WARDROBE5);
+    m_Wardrobe6 = std::make_unique<CItemContainer>(LOC_WARDROBE6);
+    m_Wardrobe7 = std::make_unique<CItemContainer>(LOC_WARDROBE7);
+    m_Wardrobe8 = std::make_unique<CItemContainer>(LOC_WARDROBE8);
+    m_RecycleBin = std::make_unique<CItemContainer>(LOC_RECYCLEBIN);
 
     memset(&jobs, 0, sizeof(jobs));
     // TODO: -Wno-class-memaccess - clearing an object on non-trivial type use assignment or value-init
@@ -221,6 +227,7 @@ CCharEntity::CCharEntity()
     m_LastYell = 0;
     m_moghouseID = 0;
     m_moghancementID = 0;
+    m_previousLocation = {}; 
 
     m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
 
@@ -295,10 +302,60 @@ void CCharEntity::pushPacket(std::unique_ptr<CBasicPacket> packet)
     pushPacket(packet.release());
 }
 
+void CCharEntity::updateCharPacket(CCharEntity* PChar, ENTITYUPDATE type, uint8 updatemask)
+{
+    auto existing = PendingCharPackets.find(PChar->id);
+    if (existing == PendingCharPackets.end())
+    {
+        // No existing packet update for the given char, so we push new packet
+        CCharPacket* packet = new CCharPacket(PChar, type, updatemask);
+        PacketList.push_back(packet);
+        PendingCharPackets.emplace(PChar->id, packet);
+    }
+    else
+    {
+        // Found existing packet update for the given char, so we update it instead of pushing new
+        existing->second->updateWith(PChar, type, updatemask);
+    }
+}
+
+void CCharEntity::updateEntityPacket(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask)
+{
+    auto existing = PendingEntityPackets.find(PEntity->id);
+    if (existing == PendingEntityPackets.end())
+    {
+        // No existing packet update for the given entity, so we push new packet
+        CEntityUpdatePacket* packet = new CEntityUpdatePacket(PEntity, type, updatemask);
+        PacketList.push_back(packet);
+        PendingEntityPackets.emplace(PEntity->id, packet);
+    }
+    else
+    {
+        // Found existing packet update for the given entity, so we update it instead of pushing new
+        existing->second->updateWith(PEntity, type, updatemask);
+    }
+}
+
 CBasicPacket* CCharEntity::popPacket()
 {
-    std::lock_guard<std::mutex> lk(m_PacketListMutex);
     CBasicPacket* PPacket = PacketList.front();
+
+    // Clean up pending maps
+    switch (PPacket->getType())
+    {
+        case 0x0D: // Char update
+            PendingCharPackets.erase(PPacket->ref<uint32>(0x04));
+            break;
+        case 0x0E: // Entity update
+            PendingEntityPackets.erase(PPacket->ref<uint32>(0x04));
+            break;
+        case 0x5B: // Position update
+            PendingPositionPacket = nullptr;
+            break;
+        default:
+            break;
+    }
+
     PacketList.pop_front();
     return PPacket;
 }
@@ -359,11 +416,11 @@ void CCharEntity::resetPetZoningInfo()
 }
 /************************************************************************
 *																		*
-*  Возвращаем контейнер с указанным ID. Если ID выходит за рамки, то	*
-*  защищаем сервер от падения использованием контейнера временных		*
-*  предметов в качестве заглушки (из этого контейнера предметы нельзя	*
-*  перемещать, надевать, передавать, продавать и т.д.). Отображаем		*
-*  сообщение о фатальной ошибке.										*
+ * Return the container with the specified ID.If the ID goes beyond,then*
+ * We protect the server from falling the use of temporary container    *
+ * Items as a plug (from this container items can not                   *
+ * Move, wear, transmit, sell, etc.).Display                            *
+ * Fatal error message.*										        *
 *																		*
 ************************************************************************/
 
@@ -384,9 +441,20 @@ CItemContainer* CCharEntity::getStorage(uint8 LocationID)
         case LOC_WARDROBE2:  return m_Wardrobe2.get();
         case LOC_WARDROBE3:  return m_Wardrobe3.get();
         case LOC_WARDROBE4:  return m_Wardrobe4.get();
-    }
 
-    TPZ_DEBUG_BREAK_IF(LocationID >= MAX_CONTAINER_ID);	// неразрешенный ID хранилища
+    case LOC_WARDROBE5:
+        return m_Wardrobe5.get();
+    case LOC_WARDROBE6:
+        return m_Wardrobe6.get();
+    case LOC_WARDROBE7:
+        return m_Wardrobe7.get();
+    case LOC_WARDROBE8:
+        return m_Wardrobe8.get();
+    case LOC_RECYCLEBIN:
+        return m_RecycleBin.get();
+}
+
+    TPZ_DEBUG_BREAK_IF(LocationID >= CONTAINER_ID::MAX_CONTAINER_ID); // Unresolved storage ID
     return 0;
 }
 
@@ -546,6 +614,75 @@ void CCharEntity::ClearTrusts()
     ReloadPartyInc();
 }
 
+void CCharEntity::RequestPersist(CHAR_PERSIST toPersist)
+{
+    dataToPersist |= toPersist;
+}
+
+bool CCharEntity::PersistData()
+{
+    bool didPersist = false;
+
+    if (!charVarChanges.empty())
+    {
+        /* TODO
+        for (auto&& charVarName : charVarChanges)
+        {
+            charutils::PersistCharVar(this->id, charVarName.c_str(), charVarCache[charVarName]);
+        }
+        */
+
+        charVarChanges.clear();
+        didPersist = true;
+    }
+
+    if (!dataToPersist)
+    {
+        return didPersist;
+    }
+    else
+    {
+        didPersist = true;
+    }
+
+    if (dataToPersist & CHAR_PERSIST::EQUIP)
+    {
+        charutils::SaveCharEquip(this);
+        charutils::SaveCharLook(this);
+    }
+
+    if (dataToPersist & CHAR_PERSIST::POSITION)
+    {
+        charutils::SaveCharPosition(this);
+    }
+
+    if (dataToPersist & CHAR_PERSIST::EFFECTS)
+    {
+        StatusEffectContainer->SaveStatusEffects(true);
+    }
+
+    /* TODO
+    if (dataToPersist & CHAR_PERSIST::LINKSHELL)
+    {
+        charutils::SaveCharLinkshells(this);
+    }
+    */
+
+    dataToPersist = 0;
+    return didPersist;
+}
+
+bool CCharEntity::PersistData(time_point tick)
+{
+    if (tick < nextDataPersistTime || !PersistData())
+    {
+        return false;
+    }
+
+    nextDataPersistTime = tick + TIME_BETWEEN_PERSIST;
+    return true;
+}
+
 void CCharEntity::Tick(time_point tick)
 {
     TracyZoneScoped;
@@ -599,6 +736,7 @@ void CCharEntity::PostTick()
         }
         if (isCharmed)
         {
+            StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
             pushPacket(new CCharPacket(this, ENTITY_UPDATE, updatemask));
         }
         if (updatemask & UPDATE_HP)
@@ -1036,6 +1174,10 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         {
             action.recast = PAbility->getRecastTime() - meritRecastReduction;
         }
+        if (PAbility->getID() == ABILITY_BULLY)
+        {
+            action.recast = PAbility->getRecastTime() - PMeritPoints->GetMeritValue((MERIT_TYPE)MERIT_SNEAK_ATTACK_RECAST, this);
+        }
 
         if (PAbility->getID() == ABILITY_LIGHT_ARTS || PAbility->getID() == ABILITY_DARK_ARTS || PAbility->getRecastId() == 231) //stratagems
         {
@@ -1065,7 +1207,9 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         // remove invisible if aggressive
 		if (PAbility->getID() != ABILITY_TAME && PAbility->getID() != ABILITY_FIGHT && PAbility->getID() != ABILITY_DEPLOY)
         {
-            if (PAbility->getValidTarget() & TARGET_ENEMY) {
+            if (PAbility->getValidTarget() & TARGET_ENEMY)
+            {
+                StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
                 // aggressive action
 				if (PAbility->getID() != ABILITY_ASSAULT)
                     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
@@ -1821,6 +1965,10 @@ void CCharEntity::Die()
 
     //influence for conquest system
     conquest::LoseInfluencePoints(this);
+    if (this->PPet != nullptr)
+    {
+        petutils::DespawnPet(this);
+    }
 
     if (GetLocalVar("MijinGakure") == 0)
     {

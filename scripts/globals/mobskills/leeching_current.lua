@@ -19,9 +19,9 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local needles = 1000 / skill:getTotalTargets()
-    local dmg = MobFinalAdjustments(needles, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHTNING, MOBPARAM_WIPE_SHADOWS)
-
-    skill:setMsg(MobPhysicalDrainMove(mob, target, skill, MOBDRAIN_HP, dmg))
+    local info = MobNeedlesMagicalMove(mob, target, skill, needles, tpz.magic.ele.WATER, tpeffect)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_WIPE_SHADOWS)
+    skill:setMsg(MobDrainMove(mob, target, MOBDRAIN_HP, dmg, tpz.attackType.MAGICAL, tpz.damageType.WATER))
 
     return dmg
 end

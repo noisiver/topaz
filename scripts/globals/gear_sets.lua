@@ -29,7 +29,7 @@ local GearSets =  {
              {id = 3, items = {16084, 14546, 14961, 15625, 15711},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.DOUBLE_ATTACK, 5, 0, 0}} },  --  Ares's set (5% DA)
              {id = 4, items = {16107, 14569, 14984, 15648, 15734},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.ACC, 20, 0, 0}} },           --  Denali Jacket Set (Increases Accuracy +20)
              {id = 5, items = {16106, 14568, 14983, 15647, 15733},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.HPP, 10, 0, 0}} },           --  Askar Korazin Set (Max HP Boost %10)
-             {id = 6, items = {16069, 14530, 14940, 15609, 15695},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.SUBTLE_BLOW, 50, 0, 0}} },    --  Pahluwan Khazagand Set (+50 Subtle Blow)
+             {id = 6, items = {16069, 14530, 14940, 15609, 15695},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Pahluwan Khazagand Set (Haste +4~10%)
              {id = 7, items = {16100, 14562, 14977, 15641, 15727},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.MATT, 5, 0, 0}} },           --  Morrigan's Robe Set (+5 Magic. Atk Bonus)
              {id = 8, items = {16096, 14558, 14973, 15637, 15723},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.FASTCAST, 5, 0, 0}} },       --  Marduk's Jubbah Set (5% fastcast)
              {id = 9, items = {16108, 14570, 14985, 15649, 15735},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.MDEF, 10, 0, 0}} },          --  Goliard Saio Set - Total Set Bonus +10% Magic Def. Bonus
@@ -48,7 +48,7 @@ local GearSets =  {
              {id = 21, items = { 6141, 14581, 15005, 16312, 15749},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 1, 1, 0}, {tpz.mod.ATT, 1, 1, 0}} },       --  Iron Ram Chainmail Set. Double mod here! It is why it has 2 IDs.
              {id = 23, items = {16142, 14582, 15006, 16313, 15750} , matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HP, 10, 10, 0}} },        --  Fourth Division Cuirass Set
              {id = 24, items = {16143, 14583, 15007, 16314, 15751} , matches = 2, matchType = matchtype.any, mods = {{tpz.mod.MP, 10, 10, 0}} },        --  Cobra Unit Coat Set
-             {id = 25, items = {16062, 14525, 14933, 15604, 15688} , matches = 5, matchType = matchtype.any, mods = {{tpz.mod.DMGBREATH, -15, 0, 0}, {tpz.mod.DMGMAGIC, -15, 0, 0}} },       --  Amir Korazin Set - Double mod here! It is why it has 2 IDs. -15% BDT and -15% MDT
+             {id = 25, items = {16062, 14525, 14933, 15604, 15688} , matches = 2, matchType = matchtype.any, mods = {{tpz.mod.DMGBREATH, -6, -3, 0}, {tpz.mod.DMGMAGIC, -6,-3, 0}} },       --  Amir Korazin Set - Double mod here! It is why it has 2 IDs. -15% BDT and -15% MDT
 
              {id = 27, items = {11281, 15015, 16337, 11364}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.STORETP, 5, 5, 5}} },             --  Hachiryu Haramaki Set - Store tp
              {id = 28, items = {11064, 11084, 11104, 11124, 11144}, matches = 5, matchType = matchtype.any, mods = {{tpz.mod.DA_DOUBLE_DAMAGE, 5, 0, 0}} }, --  Ravager's Armor +2 Set - Double attack double damage chance
@@ -73,12 +73,12 @@ local GearSets =  {
              {id = 42, items = {11069, 11089, 11109, 11129, 11149}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.TA_TRIPLE_DAMAGE, extraDamageChance, 0, 0}} },              --  Raider's Attire +2 Set. Set Bonus: Augments "Triple Attack". Occasionally causes the second and third hits of a Triple Attack to deal triple damage.Verification Needed Requires a minimum of two pieces.
              {id = 43, items = {11066, 11086, 11106, 11126, 11146}, matches = 5, matchType = matchtype.any, mods = {{tpz.mod.BAR_ELEMENT_NULL_CHANCE, nullDamageChance, 0, 0}} },        --  Orison Attire +2 Set. Set Bonus: Augments elemental resistance spells. Bar Elemental spells will occasionally nullify damage of the same element.
              {id = 44, items = {11083, 11103, 11123, 11143, 11163}, matches = 5, matchType = matchtype.any, mods = {{tpz.mod.GRIMOIRE_INSTANT_CAST, instantCastChance, 0, 0}} },          --  Savant's Attire +2 Set. Set Bonus: Augments Grimoire. Spells that match your current Arts will occasionally cast instantly, without recast.
-             {id = 45, items = {16005, 17756, 17962, 18596, 18760, 19112, 19215, 19271, 19156}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.HP, 30, 0, 0}, {tpz.mod.VIT, 6, 0, 0}, {tpz.mod.ACC, 6, 0, 0}, {tpz.mod.RACC, 6, 0, 0}} }, --  Paramount Earring Sets. Set Bonus: HP+30, VIT+6, Accuracy+6, Ranged Accuracy+6. Set Bonus is active with any 2 items(Earring+Weapon or Weapon+Weapon)
-             {id = 45, items = {17756, 17962, 18596, 18760, 19112, 19215, 19271, 19156}, matches = 2, matchType = matchtype.weapon_weapon, mods = {{tpz.mod.HP, 30, 0, 0}, {tpz.mod.VIT, 6, 0, 0}, {tpz.mod.ACC, 6, 0, 0}, {tpz.mod.RACC, 6, 0, 0}} }, --  Paramount Earring Sets. Set Bonus: HP+30, VIT+6, Accuracy+6, Ranged Accuracy+6. Set Bonus is active with any 2 items(Earring+Weapon or Weapon+Weapon)
+             {id = 45, items = {16005, 17756, 17962, 18596, 18760, 19112, 19215, 19271, 19156}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.HP, 100, 0, 0}, {tpz.mod.VIT, 10, 0, 0}, {tpz.mod.ACC, 10, 0, 0}, {tpz.mod.RACC, 10, 0, 0}} }, --  Paramount Earring Sets. Set Bonus: HP+100, VIT+10, Accuracy +10, Ranged Accuracy +10. Set Bonus is active with any 2 items(Earring+Weapon or Weapon+Weapon)
+             {id = 45, items = {17756, 17962, 18596, 18760, 19112, 19215, 19271, 19156}, matches = 2, matchType = matchtype.weapon_weapon, mods = {{tpz.mod.HP, 30, 0, 0}, {tpz.mod.VIT, 10, 0, 0}, {tpz.mod.ACC, 10, 0, 0}, {tpz.mod.RACC, 10, 0, 0}} }, --  Paramount Earring Sets. Set Bonus: HP+100, VIT+10, Accuracy +10, Ranged Accuracy +10. Set Bonus is active with any 2 items(Earring+Weapon or Weapon+Weapon)
 
-             {id = 49, items = {18761, 18597, 17757, 19218, 18128, 18500, 16004, 18951}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.STR, 6, 0, 0}, {tpz.mod.ATT, 4, 0, 0}, {tpz.mod.RATT, 4, 0, 0}, {tpz.mod.MATT, 2, 0, 0}} }, --  Supremacy Earring Sets. Set Bonus: STR+6, Attack+4, Ranged Attack+4, "Magic Atk. Bonus"+2. Active with any 2 items(Earring+Weapon)
+             {id = 49, items = {18761, 18597, 17757, 19218, 18128, 18500, 16004, 18951}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.STR, 6, 0, 0}, {tpz.mod.ATT, 10, 0, 0}, {tpz.mod.RATT, 10, 0, 0}, {tpz.mod.MATT, 5, 0, 0}} }, --  Supremacy Earring Sets. Set Bonus: STR +6, Attack +10, Ranged Attack +10, "Magic Atk. Bonus" +5. Active with any 2 items(Earring+Weapon)
 
-             {id = 53, items = {16006, 18450, 18499, 18861, 18862, 18952, 19111, 19217, 19272}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.EVA, 10, 0, 0}, {tpz.mod.HPHEAL, 10, 0, 0}, {tpz.mod.ENMITY, -5, 0, 0}} }, --  Brilliant Earring Set. Set Bonus: Evasion, HP Recovered while healing, Reduces Emnity. Active with any 2 items(Earring+Weapon)
+             {id = 53, items = {16006, 18450, 18499, 18861, 18862, 18952, 19111, 19217, 19272}, matches = 2, matchType = matchtype.earring_weapon, mods = {{tpz.mod.AGI, 6, 0, 0}, {tpz.mod.EVA, 10, 0, 0}, {tpz.mod.ENMITY, -10, 0, 0}} }, --  Brilliant Earring Set. Set Bonus: AGI+6 Evasion+10 Enmity-10. Active with any 2 items(Earring+Weapon)
              {id = 56, items = {11798, 11362}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.RERAISE_III, 1, 0, 0}} },        -- Twilight Mail Set. Set Bonus: Auto-Reraise
              {id = 57, items = {18244, 17595}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.AMMO_SWING, 50, 0, 0}} },        -- Begin Jailer weapons: Set is weapon + Virtue stone, bonus 50% extra melee swing.
              {id = 58, items = {18244, 17710}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.AMMO_SWING, 50, 0, 0}} },
@@ -155,7 +155,16 @@ local GearSets =  {
              {id = 201, items = {27741, 27882, 28030, 28169, 28307},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.CRIT_DMG_INCREASE, 10, 0, 0}} }, -- Espial set (Crit damage +10%)
              {id = 202, items = {27742, 27883, 28031, 28170, 28308},  matches = 5, matchType = matchtype.any, mods = {{tpz.mod.REFRESH, 3, 0, 0}} },            -- Wayfarer set (Refresh+3)
              {id = 203, items = {18418, 18419},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.MATT, 30, 0, 0}, {tpz.mod.MACC, 15, 0, 0}} },         -- North/South Piranu Katanas Mag atk bonus+30 and Mag acc +15
-        }
+             {id = 205, items = {13787, 13788, 13876, 13877, 14006, 14007, 14123, 14124, 14247, 14248},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.CURE_POTENCY, 4, 2, 0}} },   --  Zenith +4-10% Cure Potency
+             {id = 206, items = {12429, 12557, 12685, 12813, 12941, 13924, 14175, 14296, 14371, 14816},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Adaman Hauberk +4-10% Weapon Skill Damage
+             {id = 207, items = {13908, 13909, 14058, 14059, 14160, 14161, 14280, 14281, 14367, 14368},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 10, 5, 0}} },   -- Crimson Scale +10-25 Accuracy
+             {id = 208, items = {13934, 13935, 14184, 14185, 14303, 14304, 14387, 14388, 14821, 14822},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ALL_WSDMG_FIRST_HIT, 4, 2, 0}} },   -- Shura Togi +4-10% Weapon Skill Damage
+             {id = 209, items = {18947, 15818}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ACC, 5, 0, 0}, {tpz.mod.MACC, 5, 0, 0}, {tpz.mod.SOULEATER_EFFECT, 2, 0, 0},} },        -- Molione's Sickle set Acc +5 Macc +5 Souleater +%
+             {id = 212, items = {15072, 15245, 10650, 15087, 14500, 10670, 15102, 14909, 10690, 15117, 15580, 10710, 15132, 15665, 10730},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Warrior's Lorica Set Relic (Haste +4~10%)
+             {id = 213, items = {16073, 16074, 14537, 14538, 14949, 14950, 15615, 15616, 15703, 15704},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 400, 200, 0}} },    --  Hydra Mail Set Crafted (Haste +4~10%)
+             {id = 214, items = {15834, 15835}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.STR, 15, 0, 0}, {tpz.mod.ACC, -10, 0, 0}} }, -- Unnamed Ring set: STR+26/ACC-10
+             --NEXT: 216
+            }
 
              -- increment id by (number of mods in previous gearset - 1)
 
@@ -357,17 +366,6 @@ function HandleHipsterSet(player, gearset, matches)
 end
 
 --[[    Unimplemented sets below
-
-=======
-Stronghold NM(WOTG)
-=======
-
--- Molione's Sickle Set
--------------
-18947 -- Molione's Sickle
-15818 -- Molione's Ring
--- Set Bonus: +5 Accuracy
--- Set Bonus: Enhances "Souleater" Effect
 
 =======
 Empyrean +2

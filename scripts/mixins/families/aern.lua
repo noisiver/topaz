@@ -4,8 +4,10 @@
 --   By default, this will be 1 40% of the time and 0 the rest (ie. default aern behaviour).
 --   For multiple reraises, this can be set on spawn for more reraises.
 --   To run a function when a reraise occurs, add a listener to AERN_RERAISE
+-- TODO: Bracelets are not mdt/pdt unless AV
 
 require("scripts/globals/mixins")
+require("scripts/globals/status")
 
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
@@ -58,7 +60,11 @@ g_mixins.families.aern = function(mob)
 		end
     end)
     mob:addListener("SPAWN", "AERN_SPAWN", function(mob)
-        mob:setDelay(4000)
+        if mob:getMainJob() == tpz.job.MNK then
+            mob:setDelay(8000)
+        else
+			mob:setDelay(4000)
+        end
 		mob:AnimationSub(1)
     end)
 
@@ -67,7 +73,7 @@ g_mixins.families.aern = function(mob)
     end)
 
     mob:addListener("ENGAGE", "AERN_ENGAGE", function(mob, target)
-        mob:setLocalVar("BraceletsTime", os.time() + math.random(5, 45))
+        mob:setLocalVar("BraceletsTime", os.time() + math.random(15, 90))
     end)
 
     mob:addListener("COMBAT_TICK", "AERN_COMBAT_TICK", function(mob)
@@ -76,27 +82,31 @@ g_mixins.families.aern = function(mob)
 	local Mode = mob:getLocalVar("Mode")
 
 		if BraceletsTime == 0 then
-			mob:setLocalVar("BraceletsTime", os.time() + math.random(20, 45))
+			mob:setLocalVar("BraceletsTime", os.time() + math.random(15, 90))
 		elseif os.time() >= BraceletsTime and Mode == 0 then
-			mob:setDelay(3000)
-			mob:setMod(tpz.mod.ATTP, 100)
+            if mob:getMainJob() == tpz.job.MNK then
+                mob:setDelay(6000)
+            else
+			    mob:setDelay(3000)
+            end
+			mob:addMod(tpz.mod.ATTP, 50)
+            mob:addMod(tpz.mod.DEFP, 50)
 			mob:addMod(tpz.mod.MATT, 48)
-			mob:setMod(tpz.mod.UDMGPHYS, -60) 
-			mob:setMod(tpz.mod.UDMGRANGE, -60)
-			mob:setMod(tpz.mod.UDMGMAGIC, -60)
 			mob:AnimationSub(2)
-			mob:setLocalVar("BraceletsOff", os.time() + math.random(20, 45))
+			mob:setLocalVar("BraceletsOff", os.time() + math.random(60, 90))
 			mob:setLocalVar("Mode", 1)
 		end
 		if BraceletsOff > 0 and os.time() >= BraceletsOff and Mode == 1 then
-			mob:setDelay(4000)
-			mob:setMod(tpz.mod.ATTP, 0)
+            if mob:getMainJob() == tpz.job.MNK then
+                mob:setDelay(8000)
+            else
+			    mob:setDelay(4000)
+            end
+			mob:delMod(tpz.mod.ATTP, 50)
+            mob:delMod(tpz.mod.DEFP, 50)
 			mob:delMod(tpz.mod.MATT, 48)
-			mob:setMod(tpz.mod.UDMGPHYS, 0) 
-			mob:setMod(tpz.mod.UDMGRANGE, 0)
-			mob:setMod(tpz.mod.UDMGMAGIC, 0)
 			mob:AnimationSub(1)
-			mob:setLocalVar("BraceletsTime", os.time() + math.random(20, 45))
+			mob:setLocalVar("BraceletsTime", os.time() + math.random(60, 90))
 			mob:setLocalVar("Mode", 0)
 		end
     end)

@@ -6,6 +6,7 @@ local ID = require("scripts/zones/Arrapago_Remnants/IDs")
 require("scripts/globals/instance")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/salvage")
 mixins = {require("scripts/mixins/weapon_break")}
 -----------------------------------
 
@@ -29,7 +30,7 @@ end
 function onMobWeaponSkillPrepare(mob, target)
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
 end
 
 function onMobDespawn(mob)
@@ -39,8 +40,11 @@ function onMobDespawn(mob)
             return
         end
     end
-    SpawnMob(17081211, instance)
-    salvageUtil.msgGroup(mob, "What have you done?!", 0, "Medusa")
+    medusa = GetMobByID(17081211, instance)
+    if not medusa:isSpawned() then
+        SpawnMob(17081211, instance)
+        salvageUtil.msgGroup(mob, "What have you done?!", 0, "Medusa")
+    end
 end
 
 

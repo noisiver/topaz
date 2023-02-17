@@ -24,12 +24,12 @@ function onSpellCast(caster, target, spell)
     local power = getAbsorbSpellPower(caster)
     local tick = 0
     local duration = 90
-    local resist = applyResistance(caster, target, spell, params)
+    local resist = applyResistanceEffect(caster, target, spell, params)
 
     duraion = duration * resist
 
     if (resist >= 0.5) then
-        spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_ACC)
+        spell:setMsg(tpz.msg.basic.MAGIC_ABSORB_CHR)
         caster:delStatusEffectSilent(tpz.effect.CHR_BOOST)
         target:delStatusEffectSilent(tpz.effect.CHR_DOWN)
 	    caster:addStatusEffect(tpz.effect.CHR_BOOST, power, tick, duration) -- caster gains ACC

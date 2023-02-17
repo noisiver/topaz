@@ -24,7 +24,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
-    params.bonus = 1.0
+    params.bonus = 0
 
     -- Calculate raw damage
     local dmg = calculateMagicDamage(caster, target, spell, params)
@@ -52,13 +52,7 @@ function onSpellCast(caster, target, spell)
     target:delStatusEffectSilent(tpz.effect.DIA)
     target:addStatusEffect(tpz.effect.DIA, 3 + dotBonus, 3, duration, 0, 15, 3)
     spell:setMsg(tpz.msg.basic.MAGIC_DMG)
-
-    -- Try to kill same tier Bio (non-default behavior)
-    if BIO_OVERWRITE == 1 and bio ~= nil then
-        if bio:getPower() <= 3 then
-            target:delStatusEffectSilent(tpz.effect.BIO)
-        end
-    end
+    CheckForMagicBurst(caster, spell, target)
 
     return final
 end

@@ -39,7 +39,7 @@ function onUseAbility(player, target, ability, action)
     local despoilChance = 50 + despoilMod * 2 + level - target:getMainLvl() -- Same math as Steal
 
     local stolen = target:getDespoilItem()
-    if target:isMob() and math.random(100) < despoilChance and stolen then
+    if target:isMob() and math.random(100) < despoilChance and (stolen > 0) then
         if player:getObjType() == tpz.objType.TRUST then
             player:getMaster():addItem(stolen)
         else
@@ -58,6 +58,7 @@ function onUseAbility(player, target, ability, action)
     else
         action:animation(target:getID(), 182)
         ability:setMsg(tpz.msg.basic.STEAL_FAIL) -- Failed
+        return 0
     end
 
     return stolen

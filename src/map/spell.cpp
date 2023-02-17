@@ -169,6 +169,14 @@ bool CSpell::isDebuff()
         m_spellFamily == SPELLFAMILY_ELE_DOT || m_spellFamily == SPELLFAMILY_BIO || m_ID == SpellID::Stun || m_ID == SpellID::Curse;
 }
 
+bool CSpell::isNonDamaging()
+{
+    return ((getValidTarget() & TARGET_ENEMY) && getSkillType() == SKILL_ENFEEBLING_MAGIC) || m_spellFamily == SPELLFAMILY_ELE_DOT ||
+           m_spellFamily == SPELLFAMILY_BIO || m_spellFamily == SPELLFAMILY_ABSORB || m_spellFamily == SPELLFAMILY_JUBAKU ||
+           m_spellFamily == SPELLFAMILY_HOJO || m_spellFamily == SPELLFAMILY_KURAYAMI || m_spellFamily == SPELLFAMILY_DOKUMORI ||
+           m_spellFamily == SPELLFAMILY_ASPIR || m_ID == SpellID::Stun || m_ID == SpellID::Curse || m_ID == SpellID::Flash;
+}
+
 bool CSpell::isNa()
 {
     return (static_cast<uint16>(m_ID) >= 14 && static_cast<uint16>(m_ID) <= 20) || m_ID == SpellID::Erase;
@@ -187,7 +195,7 @@ bool CSpell::canHitShadow()
 bool CSpell::dealsDamage()
 {
     //damage or drain hp
-    return m_message == 2 || m_message == 227 || m_message == 252 || m_message == 274;
+    return m_message == 2 || m_message == 227 || m_message == 252 || m_message == 265 || m_message == 274;
 }
 
 float CSpell::getRadius()
@@ -744,7 +752,10 @@ namespace spell
         if(spell->getSpellGroup() == SPELLGROUP_SONG && (spell->getValidTarget() & TARGET_SELF)){
             if(entity->objtype == TYPE_MOB || (entity->GetMJob() == JOB_BRD &&
                 entity->objtype == TYPE_PC && ((CCharEntity*)entity)->getEquip(SLOT_RANGED) &&
-                ((CItemWeapon*)((CCharEntity*)entity)->getEquip(SLOT_RANGED))->getSkillType() == SKILL_STRING_INSTRUMENT)){
+                ((CItemWeapon*)((CCharEntity*)entity)->getEquip(SLOT_RANGED))->getSkillType() == SKILL_STRING_INSTRUMENT))
+            {
+                // Horde Lullaby AOE is small
+                total = 5;
                 total += ((float)entity->GetSkill(SKILL_STRING_INSTRUMENT) / 276) * 10;
             }
 

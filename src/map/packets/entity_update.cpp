@@ -39,6 +39,31 @@ CEntityUpdatePacket::CEntityUpdatePacket(CBaseEntity* PEntity, ENTITYUPDATE type
     this->size = 0x1C;
 
     ref<uint32>(0x04) = PEntity->id;
+    updateWith(PEntity, type, updatemask);
+}
+
+uint32 getCurrentTimeMs()
+{
+#ifdef WIN32
+    SYSTEMTIME oSystemTime;
+    GetSystemTime(&oSystemTime);
+    return oSystemTime.wMilliseconds;
+#else
+    timeval tv;
+    gettimeofday(&tv, 0);
+    return tv.tv_usec;
+#endif
+}
+
+void CEntityUpdatePacket::updateWith(CBaseEntity* PEntity, ENTITYUPDATE type, uint8 updatemask)
+{
+    uint32 currentId = ref<uint32>(0x04);
+    if (currentId != PEntity->id)
+    {
+        // Should only be able to update packets about the same character.
+        ShowError("Unable to update entity update packet for %d with data from %d", currentId, PEntity->id);
+        return;
+    }
     ref<uint16>(0x08) = PEntity->targid;
     ref<uint8>(0x0A) = updatemask;
 
@@ -46,7 +71,8 @@ CEntityUpdatePacket::CEntityUpdatePacket(CBaseEntity* PEntity, ENTITYUPDATE type
     {
         case ENTITY_DESPAWN:
         {
-            ref<uint8>(0x0A) = 0x20;
+            ref<uint8>(0x1F) = 0x02; // despawn animation
+            ref<uint8>(0x0A) = 0x30;
             updatemask = UPDATE_ALL_MOB;
         }
         break;
@@ -57,17 +83,13 @@ CEntityUpdatePacket::CEntityUpdatePacket(CBaseEntity* PEntity, ENTITYUPDATE type
             {
                 ref<uint8>(0x28) = 0x04;
             }
-            if (PEntity->objtype == TYPE_TRUST)
-            {
-              //  ref<uint8>(0x28) = 0x45;
-            }
             if (PEntity->look.size == MODEL_EQUIPED || PEntity->look.size == MODEL_CHOCOBO)
             {
                 updatemask = 0x57;
             }
             if (PEntity->animationsub != 0)
                 ref<uint8>(0x2A) = 4;
-            ref<uint8>(0x0A) = updatemask;
+            ref<uint8>(0x0A) |= updatemask;
         }
         break;
         default:
@@ -110,6 +132,10 @@ CEntityUpdatePacket::CEntityUpdatePacket(CBaseEntity* PEntity, ENTITYUPDATE type
         break;
         case TYPE_MOB:
         case TYPE_PET:
+            if (updatemask & UPDATE_HP)
+            {
+                ref<uint8>(0x2B) = 1;
+            }
         case TYPE_TRUST:
         {
             CMobEntity* PMob = (CMobEntity*)PEntity;

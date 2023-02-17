@@ -19,17 +19,23 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.UDMGBREATH, -75)
     mob:setMod(tpz.mod.UDMGMAGIC, -75)
     mob:setMod(tpz.mod.UDMGRANGE, -75)
-    mob:setMod(tpz.mod.RANGEDRES, 1750)
+    mob:setMod(tpz.mod.RANGEDRES, 5000)
+    mob:setMod(tpz.mod.DEF, 0)
+    mob:setMod(tpz.mod.EVA, 0)
     mob:addImmunity(tpz.immunity.PARALYZE)
     mob:addImmunity(tpz.immunity.SLOW)
     mob:addImmunity(tpz.immunity.ELEGY)
-    mob:setUnkillable(true)
     mob:setMobMod(tpz.mobMod.ADD_EFFECT, 1)
     mob:setLocalVar("enageTPMoves", 0)
+    if (stage == 1) then
+        mob:setUnkillable(true)
+    end
 end
 
 function onMobFight(mob, target)
     local instance = mob:getInstance()
+    local stage = instance:getStage()
+
     -- Uses Slip Stream and Sonic Boom when engaged
     if mob:checkDistance(target) <= 7 and mob:getLocalVar("enageTPMoves") == 0 then
         mob:useMobAbility(1157) 
@@ -37,7 +43,7 @@ function onMobFight(mob, target)
         mob:setLocalVar("enageTPMoves", 1)
     end
     -- Warps away when below 10% HP
-    if mob:getHPP() < 10 then
+    if mob:getHPP() < 10 and (stage == 1) then
         mob:castSpell(261, mob)
     end
     mob:addListener("MAGIC_STATE_EXIT", "ALUCARD_MAGIC_STATE_EXIT", function(mob, spell)
@@ -47,6 +53,7 @@ function onMobFight(mob, target)
             PeriodicMessage(mob, mob:getTarget(), "You hear a mechanical-like whirring noise.", 0xD, none, 90)
         end
     end)
+    PeriodicInstanceMessage(mob, target, "The " .. MobName(mob) .. " is terrified of arrows...", 0xD, none, 30)
 end
 
 function onAdditionalEffect(mob, target, damage)
@@ -63,8 +70,9 @@ function onMobWeaponSkillPrepare(mob, target)
     end
 end
 
-function onMobDeath(mob, player, isKiller)
+function onMobDeath(mob, player, isKiller, noKiller)
+    salvageUtil.TrySpawnChariotBoss(mob, player, 17081105)
 end
 
 function onMobDespawn(mob)
-end
+    end

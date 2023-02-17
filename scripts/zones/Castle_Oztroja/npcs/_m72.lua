@@ -25,11 +25,11 @@ function onEventFinish(player, csid, option)
     if option == 1 then
         local brassDoor = GetNPCByID(ID.npc.BRASS_DOOR_FLOOR_4_H7)
         if brassDoor:getAnimation() == tpz.anim.CLOSE_DOOR then
-            brassDoor:openDoor(35)
+            brassDoor:openDoor(33)
             for i = 2, 5 do
                 local torch = GetNPCByID(ID.npc.BRASS_DOOR_FLOOR_4_H7 + i)
                 torch:setAnimation(tpz.anim.CLOSE_DOOR)
-                torch:openDoor(39)
+                torch:openDoor(33)
             end
         else
             GetNPCByID(ID.npc.BRASS_DOOR_FLOOR_4_H7 + 2):openDoor()

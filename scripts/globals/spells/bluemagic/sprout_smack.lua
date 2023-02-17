@@ -30,9 +30,6 @@ function onSpellCast(caster, target, spell)
     params.skillType = tpz.skill.BLUE_MAGIC
     params.bonus = 30
     params.effect = tpz.effect.SLOW
-    local resist = applyResistance(caster, target, spell, params)
-    local params = {}
-    -- This data should match information on http://wiki.ffxiclopedia.org/wiki/Calculating_Blue_Magic_Damage
     params.tpmod = TPMOD_DURATION
     params.attackType = tpz.attackType.PHYSICAL
     params.damageType = tpz.damageType.BLUNT
@@ -65,11 +62,8 @@ function onSpellCast(caster, target, spell)
 	
     damage = BlueFinalAdjustments(caster, target, spell, damage, params)
     
-    if (spell:getMsg() ~= tpz.msg.basic.MAGIC_FAIL and resist >= 0.5) then
-		local typeEffect = tpz.effect.SLOW
-		local power = 1500
-        target:addStatusEffect(typeEffect, power, 0, getBlueEffectDuration(caster, resist, typeEffect, true))
-    end
+    params.effect = tpz.effect.SLOW
+    BlueTryEnfeeble(caster, target, spell, damage, 1500, 0, 180, params)
 
     return damage
 end

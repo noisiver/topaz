@@ -41,6 +41,7 @@ When a status effect is gained twice on a player. It can do one or more of the f
 #include "ai/states/inactive_state.h"
 
 #include "packets/char_health.h"
+#include "packets/char_abilities.h"
 #include "packets/char_job_extra.h"
 #include "packets/char_update.h"
 #include "packets/message_basic.h"
@@ -294,6 +295,10 @@ bool CStatusEffectContainer::CanGainStatusEffect(CStatusEffect* PStatusEffect)
         case EFFECT_REQUIEM:
             if (m_POwner->hasImmunity(IMMUNITY_REQUIEM)) return false;
             break;
+        case EFFECT_PETRIFICATION:
+            if (m_POwner->hasImmunity(IMMUNITY_PETRIFY))
+                return false;
+            break;
         default:
             break;
     }
@@ -432,6 +437,13 @@ bool CStatusEffectContainer::AddStatusEffect(CStatusEffect* PStatusEffect, bool 
         m_StatusEffectSet.insert(PStatusEffect);
 
         luautils::OnEffectGain(m_POwner, PStatusEffect);
+        if (m_POwner->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = (CCharEntity*)m_POwner;
+            charutils::BuildingCharSkillsTable(PChar);
+            charutils::BuildingCharWeaponSkills(PChar);
+            PChar->pushPacket(new CCharAbilitiesPacket(PChar));
+        }
         m_POwner->PAI->EventHandler.triggerListener("EFFECT_GAIN", m_POwner, PStatusEffect);
 
         m_POwner->addModifiers(&PStatusEffect->modList);
@@ -540,6 +552,13 @@ void CStatusEffectContainer::RemoveStatusEffect(CStatusEffect* PStatusEffect, bo
         }
         PStatusEffect->deleted = true;
         luautils::OnEffectLose(m_POwner, PStatusEffect);
+        if (m_POwner->objtype == TYPE_PC)
+        {
+            CCharEntity* PChar = (CCharEntity*)m_POwner;
+            charutils::BuildingCharSkillsTable(PChar);
+            charutils::BuildingCharWeaponSkills(PChar);
+            PChar->pushPacket(new CCharAbilitiesPacket(PChar));
+        }
         m_POwner->PAI->EventHandler.triggerListener("EFFECT_LOSE", m_POwner, PStatusEffect);
 
         m_POwner->delModifiers(&PStatusEffect->modList);
@@ -1726,6 +1745,23 @@ void CStatusEffectContainer::TickEffects(time_point tick)
             }
         }
     }
+    if (!m_POwner->isDead())
+    {
+        for (const auto& PStatusEffect : m_StatusEffectSet)
+        {
+            if (PStatusEffect->GetTickTime() != 0 &&
+                PStatusEffect->GetElapsedTickCount() <=
+                    std::chrono::duration_cast<std::chrono::milliseconds>(tick - PStatusEffect->GetStartTime()).count() / PStatusEffect->GetTickTime())
+            {
+                if (PStatusEffect->GetFlag() & EFFECTFLAG_AURA)
+                {
+                    HandleAura(PStatusEffect);
+                    PStatusEffect->IncrementElapsedTickCount();
+                    luautils::OnEffectTick(m_POwner, PStatusEffect);
+                }
+            }
+        }
+    }
     DeleteStatusEffects();
     m_POwner->PAI->EventHandler.triggerListener("EFFECTS_TICK", m_POwner);
 }
@@ -1753,7 +1789,13 @@ void CStatusEffectContainer::TickRegen(time_point tick)
         int16 poison = m_POwner->getMod(Mod::REGEN_DOWN);
         int16 refresh = m_POwner->getMod(Mod::REFRESH) - m_POwner->getMod(Mod::REFRESH_DOWN);
         int16 regain = m_POwner->getMod(Mod::REGAIN) - m_POwner->getMod(Mod::REGAIN_DOWN);
-        m_POwner->addHP(regen);
+
+        // Zombie stops regen (TODO: Retail Testing)
+        // https://ffxiclopedia.fandom.com/wiki/Curse_(Special)
+        if (!m_POwner->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+        {
+            m_POwner->addHP(regen);
+        }
 
         if (poison)
         {
@@ -1804,7 +1846,12 @@ void CStatusEffectContainer::TickRegen(time_point tick)
                 }
             }
 
-            m_POwner->addMP(refresh - perpetuation);
+            // Zombie stops Refresh (TODO: Retail Testing)
+            // https://ffxiclopedia.fandom.com/wiki/Curse_(Special)
+            if (!m_POwner->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+            {
+                m_POwner->addMP(refresh - perpetuation);
+            }
 
             if (m_POwner->health.mp == 0 && m_POwner->PPet != nullptr && m_POwner->PPet->objtype == TYPE_PET)
             {
@@ -1816,7 +1863,12 @@ void CStatusEffectContainer::TickRegen(time_point tick)
         }
         else
         {
-            m_POwner->addMP(refresh);
+            // Zombie stops Refresh (TODO: Retail Testing)
+            // https://ffxiclopedia.fandom.com/wiki/Curse_(Special)
+            if (!m_POwner->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE_II))
+            {
+                m_POwner->addMP(refresh);
+            }
         }
 
         m_POwner->addTP(regain);
