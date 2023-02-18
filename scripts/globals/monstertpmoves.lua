@@ -384,7 +384,11 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     params.chr_wsc = 0.0
     local statmod = INT_BASED
     local resist = 1
-    if bonus == nil then bonus = 0 end -- bonus macc
+    local bonus = 0 -- bonus macc
+
+    if not mob:isPet() then
+        bonus = bonus + 50 -- Mob TP moves have issues landing with new MACC formula, probably have a bonus in retail
+    end
     -- damage = mob:getMainLvl()
     -- local mobLevel = damage
     -- Maybe?
@@ -487,7 +491,7 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
     local SDT = getElementalSDT(element, target)
 
 
-	    if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
+	if effect ~= nil and math.random() < getEffectResistanceTraitChance(mob, target, effect) then
         return 1/16 -- this will make any status effect fail. this takes into account trait+food+gear
     end
 
@@ -525,7 +529,7 @@ function applyPlayerResistance(mob, effect, target, diff, bonus, element)
         resist = 1/8
     end
 
-    -- print(string.format("resist was %f",resist))
+    --print(string.format("resist was %f",resist))
 
     return resist
 end
@@ -641,6 +645,11 @@ end
 -- cap is optional, defines a maximum damage
 function MobBreathMove(mob, target, percent, base, element, cap)
     local damage = (mob:getHP() * percent) + (mob:getMainLvl() / base)
+    local bonus = 0
+
+    if not mob:isPet() then
+        bonus = bonus + 50 -- Mob TP moves have issues landing with new MACC formula, probably have a bonus in retail
+    end
 
     if (cap == nil) then
         -- cap max damage
@@ -653,7 +662,7 @@ function MobBreathMove(mob, target, percent, base, element, cap)
     -- elemental resistence
     if (element ~= nil and element > 0) then
         -- no skill available, pass nil
-        local resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), 0, element)
+        local resist = applyPlayerResistance(mob, nil, target, 0, bonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
