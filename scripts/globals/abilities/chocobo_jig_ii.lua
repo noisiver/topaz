@@ -14,10 +14,12 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
+    local effect = tpz.effect.FOIL
     local baseDuration = 300 -- 5m
 	local gear = player:getMod(tpz.mod.JIG_DURATION)
 	local gearBonus =  baseDuration * (gear / 100)
     local finalDuration = baseDuration + gearBonus
 
-    player:addStatusEffect(tpz.effect.FOIL, 25, 0, 300)
+    player:addStatusEffect(effect, 25, 0, 300)
+    return effect
 end
