@@ -507,10 +507,10 @@ INSERT INTO `traits` VALUES (96,'closed position',19,75,1,0,0,'WOTG',3206);
 INSERT INTO `traits` VALUES (97,'stormsurge',20,75,1,0,0,'WOTG',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,78,1,421,5,'ABYSSEA',0); -- WAR
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',1,86,2,421,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,50,1,421,5,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,70,2,421,8,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,98,3,421,11,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,99,4,421,14,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,78,1,421,5,'ABYSSEA',0); --  THF
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,84,2,421,8,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,91,3,421,11,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (98,'crit. atk. bonus',6,97,4,421,14,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,85,1,421,5,'ABYSSEA',0); -- DRK
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',8,95,2,421,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (98,'crit. atk. bonus',19,97,1,421,5,'ABYSSEA',0);
@@ -575,7 +575,6 @@ INSERT INTO `traits` VALUES (105,'blood boon',15,75,4,913,25,'ABYSSEA',0);
 --INSERT INTO `traits` VALUES (105,'blood boon',15,90,4,913,29,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (106,'skillchain bonus',2,85,1,174,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (106,'skillchain bonus',2,95,2,174,12,'ABYSSEA',0);
-INSERT INTO `traits` VALUES (106,'skillchain bonus',6,40,1,174,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (106,'skillchain bonus',12,80,1,174,8,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (106,'skillchain bonus',12,88,2,174,12,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (106,'skillchain bonus',12,98,3,174,16,'ABYSSEA',0);
