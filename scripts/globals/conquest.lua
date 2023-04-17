@@ -1069,9 +1069,7 @@ tpz.conquest.overseerOnEventUpdate = function(player, csid, option, guardNation)
         end
 
         local rankCheck = true
-        if guardNation ~= tpz.nation.OTHER and guardNation ~= pNation and getNationRank(guardNation) <= pRank then -- buy from other nation, must be higher ranked
-            rankCheck = false
-        elseif guardNation ~= tpz.nation.OTHER and stock.place ~= nil and guardNation ~= pNation then -- buy from other nation, cannot buy items with nation rank requirement
+        if guardNation ~= tpz.nation.OTHER and guardNation ~= pNation and and stock.place ~= nil and pRank > stock.place then -- buy from other nation TODO: Test
             rankCheck = false
         elseif stock.place ~= nil and pRank > stock.place then -- buy from own nation, check nation rank
             rankCheck = false
