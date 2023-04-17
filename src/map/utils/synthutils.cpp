@@ -326,9 +326,12 @@ uint8 calcSynthResult(CCharEntity* PChar)
             default: chance = 0.000;    break;
         }
 
-        if (PChar->CraftContainer->getCraftType() ==  1) //if it's a desynth raise HQ chance
-            chance *= 1.5;
+        if (PChar->CraftContainer->getCraftType() ==  1) //if it's a desynth, HQ rate is set to 60%
 
+        {
+            chance = 0.60;
+        }
+        printf("Synthesis HQ chance %f \n", chance);
         int16 modSynthHqRate = PChar->getMod(Mod::SYNTH_HQ_RATE);
 
         // Using x/512 calculation for HQ success rate modifier
