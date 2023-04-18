@@ -337,8 +337,8 @@ uint8 calcSynthResult(CCharEntity* PChar)
         }
 
         int16 modSynthHqRate = PChar->getMod(Mod::SYNTH_HQ_RATE);
-        printf("Synthesis HQ chance %f \n", chance);
-        printf("Can HQ? %s \n", canHQ ? "True" : "False");
+        //printf("Synthesis HQ chance %f \n", chance);
+        //printf("Can HQ? %s \n", canHQ ? "True" : "False");
         // Using x/512 calculation for HQ success rate modifier
         // see: https://www.bluegartr.com/threads/130586-CraftyMath-v2-Post-September-2017-Update
         chance += (double)modSynthHqRate / 512.;

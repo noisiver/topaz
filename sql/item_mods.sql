@@ -20345,7 +20345,7 @@ INSERT INTO `item_mods` VALUES (16582,2,30);     -- vetala_sword HP+30
 INSERT INTO `item_mods` VALUES (16582,8,3);      -- STR+3
 INSERT INTO `item_mods` VALUES (16583,1012,1);   -- Claymore Inquartata +1
 INSERT INTO `item_mods` VALUES (16584,1012,3);   -- Mythril Claymore Inquartata +3
-INSERT INTO `item_mods` VALUES (16584,1012,5);   -- Darksteel Claymore Inquartata +5
+INSERT INTO `item_mods` VALUES (16585,1012,5);   -- Darksteel Claymore Inquartata +5
 INSERT INTO `item_mods` VALUES (16587,25,4);
 INSERT INTO `item_mods` VALUES (16588,1012,2);   -- Flame Claymore Inquartata +2
 INSERT INTO `item_mods` VALUES (16588,431,1);
