@@ -20304,10 +20304,22 @@ INSERT INTO `item_mods` VALUES (16547,10,2);
 INSERT INTO `item_mods` VALUES (16548,59,8);
 INSERT INTO `item_mods` VALUES (16549,431,1);
 INSERT INTO `item_mods` VALUES (16550,431,1);
-INSERT INTO `item_mods` VALUES (16557,23,6);
+INSERT INTO `item_mods` VALUES (16551,518,20); -- Sapara Shield Block Rate +20
+INSERT INTO `item_mods` VALUES (16552,518,20); -- Scimitar Shield Block Rate +20
+INSERT INTO `item_mods` VALUES (16553,518,20); -- Tulwar Shield Block Rate +20
+INSERT INTO `item_mods` VALUES (16554,518,25); -- Hanger Shield Block Rate +25
+INSERT INTO `item_mods` VALUES (16556,165,5); -- Bloody Blade Crit +5%
+INSERT INTO `item_mods` VALUES (16556,431,1);
+INSERT INTO `item_mods` VALUES (16557,518,20); -- Musketeer Commander's falchion Shield Block Rate +20
+INSERT INTO `item_mods` VALUES (16557,23,6); 
 INSERT INTO `item_mods` VALUES (16557,25,3);
+INSERT INTO `item_mods` VALUES (16558,165,5); -- Falchion Crit +5%
+INSERT INTO `item_mods` VALUES (16559,518,20); -- Darksteel Falchion Shield Block Rate +20
+INSERT INTO `item_mods` VALUES (16560,518,25); -- Cutlass Shield Block Rate +25
+INSERT INTO `item_mods` VALUES (16562,165,5); -- Platinum Cutlass Crit +5%
 INSERT INTO `item_mods` VALUES (16562,9,1);
 INSERT INTO `item_mods` VALUES (16575,14,7);
+INSERT INTO `item_mods` VALUES (16564,518,20); -- Flame Blade Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16564,431,1);
 INSERT INTO `item_mods` VALUES (16578,10,2);
 INSERT INTO `item_mods` VALUES (16578,13,2);
@@ -20325,8 +20337,16 @@ INSERT INTO `item_mods` VALUES (16580,14,-8);
 INSERT INTO `item_mods` VALUES (16581,431,1);
 INSERT INTO `item_mods` VALUES (16582,2,30);     -- vetala_sword HP+30
 INSERT INTO `item_mods` VALUES (16582,8,3);      -- STR+3
+INSERT INTO `item_mods` VALUES (16583,1012,1);   -- Claymore Inquartata +1
+INSERT INTO `item_mods` VALUES (16584,1012,3);   -- Mythril Claymore Inquartata +3
+INSERT INTO `item_mods` VALUES (16584,1012,5);   -- Darksteel Claymore Inquartata +5
 INSERT INTO `item_mods` VALUES (16587,25,4);
+INSERT INTO `item_mods` VALUES (16588,1012,2);   -- Flame Claymore Inquartata +2
 INSERT INTO `item_mods` VALUES (16588,431,1);
+INSERT INTO `item_mods` VALUES (16589,1012,2);   -- Two-handed Sword Inquartata +2
+INSERT INTO `item_mods` VALUES (16590,1012,3);   -- Greatsword Inquartata +3
+INSERT INTO `item_mods` VALUES (16591,1012,4);   -- Zweihander Inquartata +4
+INSERT INTO `item_mods` VALUES (16594,1012,3);   -- Inferno Sword Inquartata +3
 INSERT INTO `item_mods` VALUES (16594,431,1);
 INSERT INTO `item_mods` VALUES (16596,13,2);
 INSERT INTO `item_mods` VALUES (16596,23,5);
@@ -20338,19 +20358,27 @@ INSERT INTO `item_mods` VALUES (16598,25,4);
 INSERT INTO `item_mods` VALUES (16599,8,2);
 INSERT INTO `item_mods` VALUES (16599,13,3);
 INSERT INTO `item_mods` VALUES (16599,14,1);
+INSERT INTO `item_mods` VALUES (16601,1012,3);   -- Royal Swordsman's Blade Inquartata +3
+INSERT INTO `item_mods` VALUES (16603,1012,3);   -- Halo Claymore Inquartata +3
 INSERT INTO `item_mods` VALUES (16604,967,5);    -- Save the Queen - Cover Duration +5
 INSERT INTO `item_mods` VALUES (16605,432,5);
 INSERT INTO `item_mods` VALUES (16610,25,2);
 INSERT INTO `item_mods` VALUES (16611,25,2);
 INSERT INTO `item_mods` VALUES (16613,431,1);
+INSERT INTO `item_mods` VALUES (16615,165,5); -- Falchion +1 Crit +5%
+INSERT INTO `item_mods` VALUES (16616,1012,4);   -- Zweihander +1 Inquartata +4
 INSERT INTO `item_mods` VALUES (16619,25,3);
 INSERT INTO `item_mods` VALUES (16620,59,9);
 INSERT INTO `item_mods` VALUES (16621,431,1);
+INSERT INTO `item_mods` VALUES (16625,518,20); -- Scimitar +1 Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16629,9,2);
 INSERT INTO `item_mods` VALUES (16630,11,7);
 INSERT INTO `item_mods` VALUES (16633,432,2);	-- Degen +1 +2 Enspell dmg
+INSERT INTO `item_mods` VALUES (16636,518,20); -- Tulwar +1 Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16637,1,-6);
 INSERT INTO `item_mods` VALUES (16637,23,8);
+INSERT INTO `item_mods` VALUES (16638,1012,1);   -- Claymore +1 Inquartata +1
+INSERT INTO `item_mods` VALUES (16639,1012,3);   -- Fine Claymore Inquartata +3
 INSERT INTO `item_mods` VALUES (16653,2,10);
 INSERT INTO `item_mods` VALUES (16653,9,2);
 INSERT INTO `item_mods` VALUES (16653,10,2);
@@ -20490,26 +20518,32 @@ INSERT INTO `item_mods` VALUES (16793,60,10);
 INSERT INTO `item_mods` VALUES (16798,8,2);
 INSERT INTO `item_mods` VALUES (16798,12,2);
 INSERT INTO `item_mods` VALUES (16799,1242,2);
+INSERT INTO `item_mods` VALUES (16801,518,20); -- Sapara +1 Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16803,432,3);	-- Fleuret +1 +3 Enspell dmg
+INSERT INTO `item_mods` VALUES (16804,518,20); -- Flame Blade +1 Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16804,431,1);
 INSERT INTO `item_mods` VALUES (16805,25,6);
 INSERT INTO `item_mods` VALUES (16805,110,5);
 INSERT INTO `item_mods` VALUES (16806,23,4);
 INSERT INTO `item_mods` VALUES (16806,25,3);
+INSERT INTO `item_mods` VALUES (16807,518,20); -- Combat Caster's Scimitar +1 Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16807,23,5);
 INSERT INTO `item_mods` VALUES (16807,25,3);
 INSERT INTO `item_mods` VALUES (16808,1,3);
 INSERT INTO `item_mods` VALUES (16808,68,3);
 INSERT INTO `item_mods` VALUES (16809,23,14);
 INSERT INTO `item_mods` VALUES (16810,23,12);
+INSERT INTO `item_mods` VALUES (16814,518,20); -- Crescent Sword Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16816,431,1);
 INSERT INTO `item_mods` VALUES (16818,23,5);
+INSERT INTO `item_mods` VALUES (16819,518,20); -- Mithran Scimitar Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16819,9,3);
 INSERT INTO `item_mods` VALUES (16820,11,3);
 INSERT INTO `item_mods` VALUES (16821,110,10);
 INSERT INTO `item_mods` VALUES (16822,5,10);
 INSERT INTO `item_mods` VALUES (16822,12,5);
 INSERT INTO `item_mods` VALUES (16826,431,1);
+INSERT INTO `item_mods` VALUES (16827,165,5); -- Carnage Blade Crit +5%
 INSERT INTO `item_mods` VALUES (16829,5,10);	-- Fencing Degen (RDM AF1)
 INSERT INTO `item_mods` VALUES (16829,12,3);
 INSERT INTO `item_mods` VALUES (16829,13,3);
@@ -20521,6 +20555,7 @@ INSERT INTO `item_mods` VALUES (16830,11,-1);
 INSERT INTO `item_mods` VALUES (16830,12,-1);
 INSERT INTO `item_mods` VALUES (16830,13,-1);
 INSERT INTO `item_mods` VALUES (16830,14,-1);
+INSERT INTO `item_mods` VALUES (16831,165,5); -- Greed Scimitar Crit +5%
 INSERT INTO `item_mods` VALUES (16831,8,-1);
 INSERT INTO `item_mods` VALUES (16831,9,7);
 INSERT INTO `item_mods` VALUES (16831,10,-1);
@@ -20627,9 +20662,15 @@ INSERT INTO `item_mods` VALUES (16924,135,3);
 INSERT INTO `item_mods` VALUES (16925,431,1);
 INSERT INTO `item_mods` VALUES (16926,431,1);
 INSERT INTO `item_mods` VALUES (16927,431,1);
+INSERT INTO `item_mods` VALUES (16928,1012,3);   -- Hellfire Sword Inquartata +3
 INSERT INTO `item_mods` VALUES (16928,431,1);
+INSERT INTO `item_mods` VALUES (16929,1012,2);   -- Burning Claymore Inquartata +2
 INSERT INTO `item_mods` VALUES (16929,431,1);
+INSERT INTO `item_mods` VALUES (16930,1012,2);   -- Mercenary's Greatsword Inquartata +2
 INSERT INTO `item_mods` VALUES (16930,23,7);
+INSERT INTO `item_mods` VALUES (16931,1012,2);   -- Two-handed Sword +1 Inquartata +2
+INSERT INTO `item_mods` VALUES (16932,1012,3);   -- Greatsword +1 Inquartata +3
+INSERT INTO `item_mods` VALUES (16933,1012,3);   -- Darksteel Claymore +1 Inquartata +3
 INSERT INTO `item_mods` VALUES (16934,9,2);
 INSERT INTO `item_mods` VALUES (16934,25,5);
 INSERT INTO `item_mods` VALUES (16935,23,15);
@@ -20638,6 +20679,7 @@ INSERT INTO `item_mods` VALUES (16936,61,8);
 INSERT INTO `item_mods` VALUES (16936,431,1);
 INSERT INTO `item_mods` VALUES (16937,55,8);
 INSERT INTO `item_mods` VALUES (16937,431,1);
+INSERT INTO `item_mods` VALUES (16938,1012,3);   -- Glorious Sword Inquartata +3
 INSERT INTO `item_mods` VALUES (16938,60,12);
 INSERT INTO `item_mods` VALUES (16941,13,3);
 INSERT INTO `item_mods` VALUES (16941,23,7);
@@ -20649,14 +20691,19 @@ INSERT INTO `item_mods` VALUES (16943,10,3);
 INSERT INTO `item_mods` VALUES (16943,13,3);
 INSERT INTO `item_mods` VALUES (16945,54,7);
 INSERT INTO `item_mods` VALUES (16945,59,7);
+INSERT INTO `item_mods` VALUES (16946,1012,2);   -- Windurstian Sword Inquartata +2
 INSERT INTO `item_mods` VALUES (16946,5,6);
 INSERT INTO `item_mods` VALUES (16946,23,7);
+INSERT INTO `item_mods` VALUES (16947,1012,2);   -- Federation Sword Inquartata +2
 INSERT INTO `item_mods` VALUES (16947,5,8);
 INSERT INTO `item_mods` VALUES (16947,23,7);
+INSERT INTO `item_mods` VALUES (16948,1012,3);   -- Royal Swordsman's Blade +1 Inquartata +3
+INSERT INTO `item_mods` VALUES (16949,1012,3);   -- Royal Swordsman's Blade +2 Inquartata +3
 INSERT INTO `item_mods` VALUES (16952,2,20);
 INSERT INTO `item_mods` VALUES (16952,55,10);
 INSERT INTO `item_mods` VALUES (16952,57,10);
-INSERT INTO `item_mods` VALUES (16953,243,2);
+INSERT INTO `item_mods` VALUES (16953,1012,5);   -- Reserve Captain's Greatsword Inquartata +5
+INSERT INTO `item_mods` VALUES (16953,1243,10);
 INSERT INTO `item_mods` VALUES (16954,2,10);
 INSERT INTO `item_mods` VALUES (16954,9,2);
 INSERT INTO `item_mods` VALUES (16954,10,2);
@@ -20682,10 +20729,17 @@ INSERT INTO `item_mods` VALUES (16980,23,7);
 INSERT INTO `item_mods` VALUES (16980,288,1);
 INSERT INTO `item_mods` VALUES (16986,431,1);
 INSERT INTO `item_mods` VALUES (16990,8,3);
+INSERT INTO `item_mods` VALUES (17034,29,5);      -- Bronze Mace MDEF +5
+INSERT INTO `item_mods` VALUES (17035,29,7);      -- Mace MDEF +7
+INSERT INTO `item_mods` VALUES (17036,29,7);      -- Mythril Mace MDEF +7
+INSERT INTO `item_mods` VALUES (17037,29,10);      -- Darksteel Mace MDEF +10
+INSERT INTO `item_mods` VALUES (17038,29,20);      -- Buzdygan MDEF +20
+INSERT INTO `item_mods` VALUES (17039,29,12);      -- Platinum Mace MDEF +12
 INSERT INTO `item_mods` VALUES (17038,5,10);
 INSERT INTO `item_mods` VALUES (17038,9,2);
 INSERT INTO `item_mods` VALUES (17038,10,2);
 INSERT INTO `item_mods` VALUES (17039,10,1);
+INSERT INTO `item_mods` VALUES (17041,29,7);      -- Holy Mace MDEF +7
 INSERT INTO `item_mods` VALUES (17046,23,10);
 INSERT INTO `item_mods` VALUES (17047,25,7);      -- Magnus Hammer: Accuracy+7
 INSERT INTO `item_mods` VALUES (17049,12,1);
@@ -20747,6 +20801,7 @@ INSERT INTO `item_mods` VALUES (17082,5,5);
 INSERT INTO `item_mods` VALUES (17082,12,5);
 INSERT INTO `item_mods` VALUES (17082,13,5);
 INSERT INTO `item_mods` VALUES (17085,111,4);
+INSERT INTO `item_mods` VALUES (17086,29,5);      -- Bronze Mace +1 MDEF +5
 INSERT INTO `item_mods` VALUES (17087,12,2);
 INSERT INTO `item_mods` VALUES (17087,13,2);
 INSERT INTO `item_mods` VALUES (17088,2,2);
@@ -20829,9 +20884,12 @@ INSERT INTO `item_mods` VALUES (17141,12,5);
 INSERT INTO `item_mods` VALUES (17141,13,5);
 INSERT INTO `item_mods` VALUES (17143,12,6);
 INSERT INTO `item_mods` VALUES (17143,13,6);
+INSERT INTO `item_mods` VALUES (17145,29,7);      -- Mace +1 MDEF +7
 INSERT INTO `item_mods` VALUES (17146,2,7);
+INSERT INTO `item_mods` VALUES (17147,29,7);      -- Mythril Mace +1 MDEF +7
 INSERT INTO `item_mods` VALUES (17148,2,4);
 INSERT INTO `item_mods` VALUES (17148,12,1);
+INSERT INTO `item_mods` VALUES (17150,29,7);      -- Royal Squire's Mace MDEF +7
 INSERT INTO `item_mods` VALUES (17150,23,5);
 INSERT INTO `item_mods` VALUES (17151,2,19);
 INSERT INTO `item_mods` VALUES (17165,2,10);
@@ -21035,11 +21093,13 @@ INSERT INTO `item_mods` VALUES (17379,436,2);
 INSERT INTO `item_mods` VALUES (17409,2,10);
 INSERT INTO `item_mods` VALUES (17410,2,13);
 INSERT INTO `item_mods` VALUES (17410,61,3);
+INSERT INTO `item_mods` VALUES (17411,29,7);      -- Holy Mace +1 MDEF +7
 INSERT INTO `item_mods` VALUES (17412,2,20);
 INSERT INTO `item_mods` VALUES (17412,5,-20);
 INSERT INTO `item_mods` VALUES (17413,12,2);      -- Hermit's Wand: INT +2
 INSERT INTO `item_mods` VALUES (17413,13,2);      -- MND +2
 INSERT INTO `item_mods` VALUES (17413,168,25);    -- Spell interruption rate down 25%
+INSERT INTO `item_mods` VALUES (17414,29,5);      -- Pixie Mace MDEF +5
 INSERT INTO `item_mods` VALUES (17414,25,5);
 INSERT INTO `item_mods` VALUES (17414,60,3);
 INSERT INTO `item_mods` VALUES (17414,61,3);
@@ -21063,8 +21123,10 @@ INSERT INTO `item_mods` VALUES (17424,23,3);
 INSERT INTO `item_mods` VALUES (17425,23,5);
 INSERT INTO `item_mods` VALUES (17427,12,7);
 INSERT INTO `item_mods` VALUES (17427,13,7);
+INSERT INTO `item_mods` VALUES (17428,29,10);      -- Darksteel Mace +1 MDEF +10
 INSERT INTO `item_mods` VALUES (17429,13,7);
 INSERT INTO `item_mods` VALUES (17430,12,7);
+INSERT INTO `item_mods` VALUES (17431,29,13);      -- Platinum Mace +1 MDEF +13
 INSERT INTO `item_mods` VALUES (17431,10,2);
 INSERT INTO `item_mods` VALUES (17432,23,12);
 INSERT INTO `item_mods` VALUES (17433,12,9);
@@ -21105,7 +21167,9 @@ INSERT INTO `item_mods` VALUES (17446,13,5);
 INSERT INTO `item_mods` VALUES (17447,5,5);
 INSERT INTO `item_mods` VALUES (17447,12,5);
 INSERT INTO `item_mods` VALUES (17447,13,5);
+INSERT INTO `item_mods` VALUES (17448,29,7);      -- San d'Orian Mace MDEF +7
 INSERT INTO `item_mods` VALUES (17448,23,5);
+INSERT INTO `item_mods` VALUES (17449,29,7);      -- Kingdom Mace MDEF +7
 INSERT INTO `item_mods` VALUES (17449,23,5);
 INSERT INTO `item_mods` VALUES (17450,112,7);
 INSERT INTO `item_mods` VALUES (17452,25,2);
@@ -21128,6 +21192,7 @@ INSERT INTO `item_mods` VALUES (17458,25,6);
 INSERT INTO `item_mods` VALUES (17459,2,25);
 INSERT INTO `item_mods` VALUES (17459,9,3);
 INSERT INTO `item_mods` VALUES (17459,10,3);
+INSERT INTO `item_mods` VALUES (17460,29,21);      -- Buzdygan +1 MDEF +21
 INSERT INTO `item_mods` VALUES (17460,5,11);
 INSERT INTO `item_mods` VALUES (17460,9,3);
 INSERT INTO `item_mods` VALUES (17460,10,3);
@@ -21145,6 +21210,7 @@ INSERT INTO `item_mods` VALUES (17469,13,4);
 INSERT INTO `item_mods` VALUES (17470,5,10);
 INSERT INTO `item_mods` VALUES (17470,9,2);
 INSERT INTO `item_mods` VALUES (17470,10,2);
+INSERT INTO `item_mods` VALUES (17471,29,15);      -- Horrent Mace MDEF +15
 INSERT INTO `item_mods` VALUES (17472,25,3);
 INSERT INTO `item_mods` VALUES (17472,68,-10);
 INSERT INTO `item_mods` VALUES (17472,291,5);
@@ -21251,6 +21317,7 @@ INSERT INTO `item_mods` VALUES (17538,5,6);
 INSERT INTO `item_mods` VALUES (17538,23,3);
 INSERT INTO `item_mods` VALUES (17539,23,3);
 INSERT INTO `item_mods` VALUES (17539,25,3);
+INSERT INTO `item_mods` VALUES (17640,165,5); -- Platinum Cutlass +1 Crit +5%
 INSERT INTO `item_mods` VALUES (17540,23,3);
 INSERT INTO `item_mods` VALUES (17540,25,3);
 INSERT INTO `item_mods` VALUES (17541,2,6);
@@ -21575,7 +21642,9 @@ INSERT INTO `item_mods` VALUES (17636,11,3);
 INSERT INTO `item_mods` VALUES (17637,8,3);
 INSERT INTO `item_mods` VALUES (17637,10,3);
 INSERT INTO `item_mods` VALUES (17637,11,3);
+INSERT INTO `item_mods` VALUES (17639,518,25); -- Cutlass +1 Shield Block Rate +25
 INSERT INTO `item_mods` VALUES (17640,9,2);
+INSERT INTO `item_mods` VALUES (17642,518,25); -- Hanger +1 Shield Block Rate +25
 INSERT INTO `item_mods` VALUES (17643,10,2);
 INSERT INTO `item_mods` VALUES (17643,13,2);
 INSERT INTO `item_mods` VALUES (17645,10,3);
@@ -21585,6 +21654,7 @@ INSERT INTO `item_mods` VALUES (17647,25,3);
 INSERT INTO `item_mods` VALUES (17647,110,5);
 INSERT INTO `item_mods` VALUES (17648,13,1);
 INSERT INTO `item_mods` VALUES (17649,431,1); -- Nightmare Sword
+INSERT INTO `item_mods` VALUES (17650,518,20); -- Nadrs Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (17650,59,3);
 INSERT INTO `item_mods` VALUES (17650,431,1);
 INSERT INTO `item_mods` VALUES (17652,61,14);
@@ -21596,6 +21666,7 @@ INSERT INTO `item_mods` VALUES (17653,1233,8); -- DRAGON_CIRCLE 8% damage increa
 INSERT INTO `item_mods` VALUES (17654,2,20);
 INSERT INTO `item_mods` VALUES (17654,54,10);
 INSERT INTO `item_mods` VALUES (17654,56,10);
+INSERT INTO `item_mods` VALUES (17655,518,25); -- Senior Gold Musketeer's scimitar Shield Block Rate +25
 INSERT INTO `item_mods` VALUES (17655,241,2);
 INSERT INTO `item_mods` VALUES (17656,5,20);
 INSERT INTO `item_mods` VALUES (17656,110,8);
@@ -21611,6 +21682,7 @@ INSERT INTO `item_mods` VALUES (17659,518,35);  -- Shield Block rate +35
 INSERT INTO `item_mods` VALUES (17659,161,-5);  -- Physical Damage Taken -5%
 INSERT INTO `item_mods` VALUES (17659,27,4);    -- Enmity +4
 INSERT INTO `item_mods` VALUES (17660,5,15);
+INSERT INTO `item_mods` VALUES (17661,165,5); -- Storm Scimitar Crit +5%
 INSERT INTO `item_mods` VALUES (17663,5,20);
 INSERT INTO `item_mods` VALUES (17664,8,3);
 INSERT INTO `item_mods` VALUES (17664,10,3);
@@ -21626,8 +21698,10 @@ INSERT INTO `item_mods` VALUES (17672,23,4);
 INSERT INTO `item_mods` VALUES (17672,25,3);
 INSERT INTO `item_mods` VALUES (17673,23,4);
 INSERT INTO `item_mods` VALUES (17673,25,3);
+INSERT INTO `item_mods` VALUES (17674,518,20); -- Combat Caster's scimitar +1 Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (17674,23,5);
 INSERT INTO `item_mods` VALUES (17674,25,3);
+INSERT INTO `item_mods` VALUES (17675,518,20); -- Combat Caster's scimitar +2 Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (17675,23,5);
 INSERT INTO `item_mods` VALUES (17675,25,3);
 INSERT INTO `item_mods` VALUES (17676,23,12);
@@ -21685,6 +21759,7 @@ INSERT INTO `item_mods` VALUES (17716,25,-8);
 INSERT INTO `item_mods` VALUES (17717,5,10);
 INSERT INTO `item_mods` VALUES (17717,8,1);
 INSERT INTO `item_mods` VALUES (17717,12,1);
+INSERT INTO `item_mods` VALUES (17718,165,5); -- Leech Scimitar Crit +5%
 INSERT INTO `item_mods` VALUES (17718,5,12);
 INSERT INTO `item_mods` VALUES (17721,2,20);
 INSERT INTO `item_mods` VALUES (17721,5,20);
@@ -22563,6 +22638,7 @@ INSERT INTO `item_mods` VALUES (18373,12,2);
 INSERT INTO `item_mods` VALUES (18374,8,1);
 INSERT INTO `item_mods` VALUES (18374,9,1);
 INSERT INTO `item_mods` VALUES (18378,377,13);
+INSERT INTO `item_mods` VALUES (18379,1012,2);   -- Vulcan Claymore Inquartata +2
 INSERT INTO `item_mods` VALUES (18379,431,1);
 INSERT INTO `item_mods` VALUES (18380,345,1000);  -- Martial Sword: TP Bonus +1000
 INSERT INTO `item_mods` VALUES (18381,431,1);
@@ -22571,6 +22647,7 @@ INSERT INTO `item_mods` VALUES (18385,302,3);
 INSERT INTO `item_mods` VALUES (18386,28,2);
 INSERT INTO `item_mods` VALUES (18386,30,2);
 INSERT INTO `item_mods` VALUES (18389,392,15);    -- Crude Sword: "Weapon Bash"+15
+INSERT INTO `item_mods` VALUES (18391,29,7);      -- Sacred Mace MDEF +7
 INSERT INTO `item_mods` VALUES (18392,13,2);
 INSERT INTO `item_mods` VALUES (18392,61,3);
 INSERT INTO `item_mods` VALUES (18392,431,1);
@@ -22590,9 +22667,11 @@ INSERT INTO `item_mods` VALUES (18403,12,4);
 INSERT INTO `item_mods` VALUES (18403,13,4);
 INSERT INTO `item_mods` VALUES (18404,9,5);
 INSERT INTO `item_mods` VALUES (18404,23,5);
+INSERT INTO `item_mods` VALUES (18405,29,12);      -- Jadagna MDEF +12
 INSERT INTO `item_mods` VALUES (18405,2,29);
 INSERT INTO `item_mods` VALUES (18405,5,-29);
 INSERT INTO `item_mods` VALUES (18405,10,5);
+INSERT INTO `item_mods` VALUES (18406,29,13);      -- Jadagna +1 MDEF +13
 INSERT INTO `item_mods` VALUES (18406,2,31);
 INSERT INTO `item_mods` VALUES (18406,5,-31);
 INSERT INTO `item_mods` VALUES (18406,10,6);
@@ -23536,8 +23615,10 @@ INSERT INTO `item_mods` VALUES (18857,2,-20);
 INSERT INTO `item_mods` VALUES (18857,5,20);
 INSERT INTO `item_mods` VALUES (18857,28,10);
 INSERT INTO `item_mods` VALUES (18857,30,10);
+INSERT INTO `item_mods` VALUES (18858,29,15);      -- Flanged Mace MDEF +15
 INSERT INTO `item_mods` VALUES (18858,72,2);
 INSERT INTO `item_mods` VALUES (18858,370,1);
+INSERT INTO `item_mods` VALUES (18860,29,16);      -- Flanged Mace MDEF +16
 INSERT INTO `item_mods` VALUES (18860,72,3);
 INSERT INTO `item_mods` VALUES (18860,370,1);
 INSERT INTO `item_mods` VALUES (18861,890,10);    -- Grandeur Enhancing Magic Duration +10%
@@ -24063,11 +24144,14 @@ INSERT INTO `item_mods` VALUES (19144,9,15);
 INSERT INTO `item_mods` VALUES (19144,165,5);
 INSERT INTO `item_mods` VALUES (19145,60,20);
 INSERT INTO `item_mods` VALUES (19145,165,4);
+INSERT INTO `item_mods` VALUES (19150,1012,3);   -- Cobra Claymore Inquartata +3
 INSERT INTO `item_mods` VALUES (19150,5,8);
 INSERT INTO `item_mods` VALUES (19150,23,7);
+INSERT INTO `item_mods` VALUES (19151,1012,5);   -- Bahadur Inquartata +5
 INSERT INTO `item_mods` VALUES (19151,2,10);
 INSERT INTO `item_mods` VALUES (19151,9,2);
 INSERT INTO `item_mods` VALUES (19151,10,2);
+INSERT INTO `item_mods` VALUES (19152,1012,5);   -- Bahadur +1 Inquartata +5
 INSERT INTO `item_mods` VALUES (19152,2,12);
 INSERT INTO `item_mods` VALUES (19152,9,3);
 INSERT INTO `item_mods` VALUES (19152,10,3);
