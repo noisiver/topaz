@@ -133,6 +133,7 @@ tpz.subEffect =
     MP_DRAIN            = 22,  -- This is correct animation
     TP_DRAIN            = 22,  -- Verified this should look exactly like Aspir Samba.
     HASTE               = 23,
+    SLOW                = 23,
     -- There are no additional attack effect animations beyond 23. Some effects share subeffect/animations.
 
     -- SPIKES

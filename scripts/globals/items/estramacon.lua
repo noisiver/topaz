@@ -7,22 +7,19 @@ require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
-
 function onAdditionalEffect(player, target, damage)
-    local chance = 5
+    local dmg = doAdditionalEffectDamage(player, target, 30, 25, nil, false, 0, tpz.magic.ele.DARK, 0)
 
-    if (math.random(0, 99) >= chance) then
+    if dmg == 0 then
         return 0, 0, 0
-    else
-        local TpDrain = math.random(10, 30)
+    end
 
-        if (TpDrain > target:getTP()) then
-            TpDrain = target:getTP()
+        if (dmg > target:getTP()) then
+            dmg = target:getTP()
         end
 
-        target:addTP(-TpDrain)
-        player:addTP(TpDrain)
+        target:addTP(-dmg)
+        player:addTP(dmg)
 
-        return tpz.subEffect.TP_DRAIN, tpz.msg.basic.ADD_EFFECT_TP_DRAIN, TpDrain
-    end
+    return tpz.subEffect.TP_DRAIN, tpz.msg.basic.ADD_EFFECT_TP_DRAIN, dmg
 end

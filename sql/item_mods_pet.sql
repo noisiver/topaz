@@ -501,5 +501,6 @@ INSERT INTO `item_mods_pet` VALUES (18761,28,5,0);     -- Acantha Shavers: MAB +
 INSERT INTO `item_mods_pet` VALUES (18761,30,5,0);     -- Acantha Shavers: MACC +5
 INSERT INTO `item_mods_pet` VALUES (17963,368,50,0);     -- Rainmaker Regain +50
 INSERT INTO `item_mods_pet` VALUES (17963,370,3,0);      -- Rainmaker Regen +3
+INSERT INTO `item_mods_pet` VALUES (15218,23,15,0);     -- Entrancing Ribbon Pet: Attack +15
 
 

@@ -7913,10 +7913,11 @@ INSERT INTO `item_mods` VALUES (12337,1,6);
 INSERT INTO `item_mods` VALUES (12338,1,5);
 INSERT INTO `item_mods` VALUES (12338,55,3);
 INSERT INTO `item_mods` VALUES (12339,1,15);
-INSERT INTO `item_mods` VALUES (12340,1,1);
+INSERT INTO `item_mods` VALUES (12340,1,1);       -- marine Shield
 INSERT INTO `item_mods` VALUES (12340,10,1);
 INSERT INTO `item_mods` VALUES (12340,11,1);
 INSERT INTO `item_mods` VALUES (12340,59,1);
+INSERT INTO `item_mods` VALUES (12340,163,-5);
 INSERT INTO `item_mods` VALUES (12341,1,3);		--tropical shield
 INSERT INTO `item_mods` VALUES (12341,56,3);
 INSERT INTO `item_mods` VALUES (12341,57,3);
@@ -8034,8 +8035,9 @@ INSERT INTO `item_mods` VALUES (12370,1,10);
 INSERT INTO `item_mods` VALUES (12370,8,4);
 INSERT INTO `item_mods` VALUES (12370,9,-5);
 INSERT INTO `item_mods` VALUES (12370,11,-5);
-INSERT INTO `item_mods` VALUES (12371,1,5);
-INSERT INTO `item_mods` VALUES (12371,68,1);
+INSERT INTO `item_mods` VALUES (12371,1,5); -- Clipeus
+INSERT INTO `item_mods` VALUES (12371,10,1);
+INSERT INTO `item_mods` VALUES (12371,23,3);
 INSERT INTO `item_mods` VALUES (12372,1,7);
 INSERT INTO `item_mods` VALUES (12372,2,6);
 INSERT INTO `item_mods` VALUES (12373,1,8);
@@ -9744,7 +9746,7 @@ INSERT INTO `item_mods` VALUES (13049,59,-1);
 INSERT INTO `item_mods` VALUES (13050,1,9);
 INSERT INTO `item_mods` VALUES (13051,1,5);	-- corase leggings
 INSERT INTO `item_mods` VALUES (13051,68,-3);
-INSERT INTO `item_mods` VALUES (13051,10,1); --+1 Vit
+INSERT INTO `item_mods` VALUES (13051,10,3); --+3 Vit
 INSERT INTO `item_mods` VALUES (13052,1,4);
 INSERT INTO `item_mods` VALUES (13052,68,3);
 INSERT INTO `item_mods` VALUES (13053,1,22);      -- calm_pigaches DEF:+22
@@ -10121,6 +10123,7 @@ INSERT INTO `item_mods` VALUES (13225,10,2);
 INSERT INTO `item_mods` VALUES (13225,11,-1);
 INSERT INTO `item_mods` VALUES (13226,2,7);
 INSERT INTO `item_mods` VALUES (13227,1,2);	-- Plate belt
+INSERT INTO `item_mods` VALUES (13227,29,5);
 INSERT INTO `item_mods` VALUES (13228,1,2);
 INSERT INTO `item_mods` VALUES (13228,5,5);
 INSERT INTO `item_mods` VALUES (13228,12,1);
@@ -15057,8 +15060,8 @@ INSERT INTO `item_mods` VALUES (14800,10,2);
 INSERT INTO `item_mods` VALUES (14801,5,30);
 INSERT INTO `item_mods` VALUES (14802,5,10);
 INSERT INTO `item_mods` VALUES (14802,12,2);
-INSERT INTO `item_mods` VALUES (14803,1,1);
-INSERT INTO `item_mods` VALUES (14803,23,-2);
+INSERT INTO `item_mods` VALUES (14803,1,1); -- Optical Earring
+INSERT INTO `item_mods` VALUES (14803,10,1);
 INSERT INTO `item_mods` VALUES (14803,25,1);
 INSERT INTO `item_mods` VALUES (14804,9,1);
 INSERT INTO `item_mods` VALUES (14804,11,1);
@@ -19587,8 +19590,9 @@ INSERT INTO `item_mods` VALUES (16183,1,8);
 INSERT INTO `item_mods` VALUES (16184,12,1);
 INSERT INTO `item_mods` VALUES (16184,13,1);
 INSERT INTO `item_mods` VALUES (16184,71,2);
-INSERT INTO `item_mods` VALUES (16185,1,1);
+INSERT INTO `item_mods` VALUES (16185,1,1); -- Pelte
 INSERT INTO `item_mods` VALUES (16185,5,5);
+INSERT INTO `item_mods` VALUES (16185,71,1);
 INSERT INTO `item_mods` VALUES (16186,1,2);
 INSERT INTO `item_mods` VALUES (16186,7,15);
 INSERT INTO `item_mods` VALUES (16186,13,2);
@@ -19876,7 +19880,8 @@ INSERT INTO `item_mods` VALUES (16299,11,4);
 INSERT INTO `item_mods` VALUES (16299,24,4);
 INSERT INTO `item_mods` VALUES (16299,26,4);
 INSERT INTO `item_mods` VALUES (16300,12,4);
-INSERT INTO `item_mods` VALUES (16301,25,2);
+INSERT INTO `item_mods` VALUES (16301,25,2);      -- Focus Collar
+INSERT INTO `item_mods` VALUES (16301,30,2);  
 INSERT INTO `item_mods` VALUES (16302,2,60);
 INSERT INTO `item_mods` VALUES (16303,23,6);
 INSERT INTO `item_mods` VALUES (16303,25,4);
@@ -20240,6 +20245,7 @@ INSERT INTO `item_mods` VALUES (16484,13,-3);
 INSERT INTO `item_mods` VALUES (16484,431,1);
 INSERT INTO `item_mods` VALUES (16485,2,24);
 INSERT INTO `item_mods` VALUES (16485,68,6);
+INSERT INTO `item_mods` VALUES (16486,431,1); -- Beestinger
 INSERT INTO `item_mods` VALUES (16486,9,1);
 INSERT INTO `item_mods` VALUES (16486,11,1);
 INSERT INTO `item_mods` VALUES (16487,14,5);
@@ -23753,6 +23759,7 @@ INSERT INTO `item_mods` VALUES (18952,161,-5);
 INSERT INTO `item_mods` VALUES (18953,2,12);
 INSERT INTO `item_mods` VALUES (18953,5,12);
 INSERT INTO `item_mods` VALUES (18953,431,1);
+INSERT INTO `item_mods` VALUES (18956,25,7);     -- Serpette
 INSERT INTO `item_mods` VALUES (18957,392,8);     -- Smiting Scythe: "Weapon Bash"+8
 INSERT INTO `item_mods` VALUES (18960,392,10);    -- Smiting Scythe +1: "Weapon Bash"+10
 INSERT INTO `item_mods` VALUES (18964,9,3);
@@ -23904,7 +23911,8 @@ INSERT INTO `item_mods` VALUES (19040,2,10);
 INSERT INTO `item_mods` VALUES (19040,27,3);
 INSERT INTO `item_mods` VALUES (19041,73,4);
 INSERT INTO `item_mods` VALUES (19042,71,1);
-INSERT INTO `item_mods` VALUES (19043,23,1);
+INSERT INTO `item_mods` VALUES (19043,23,1);      -- Tenax Strap
+INSERT INTO `item_mods` VALUES (19043,1,25); 
 INSERT INTO `item_mods` VALUES (19044,25,1);
 INSERT INTO `item_mods` VALUES (19045,5,8);
 INSERT INTO `item_mods` VALUES (19046,5,10);
