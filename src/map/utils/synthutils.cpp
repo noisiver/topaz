@@ -131,11 +131,14 @@ bool isRightRecipe(CCharEntity* PChar)
                 #endif
                 if (currentSkill < (skillValue*10 - 110)) // Check player skill against recipe level. Range must be 14 or less. Changed from 150 to 110
                 {
-                    PChar->pushPacket(new CSynthMessagePacket(PChar, SYNTH_NOSKILL));
-                    #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
-                    ShowDebug(CL_CYAN"Not enough skill. Synth aborted.\n" CL_RESET);
-                    #endif
-                    return false;
+                    if (PChar->CraftContainer->getCraftType() != 1) // desynths have no level requirement
+                    {
+                        PChar->pushPacket(new CSynthMessagePacket(PChar, SYNTH_NOSKILL));
+                        #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
+                        ShowDebug(CL_CYAN"Not enough skill. Synth aborted.\n" CL_RESET);
+                        #endif
+                        return false;
+                    }
                 }
             }
             return true;
@@ -265,8 +268,8 @@ uint8 calcSynthResult(CCharEntity* PChar)
             }
             else
             {
-                if (PChar->CraftContainer->getCraftType() ==  1) //if it's a desynth lower success rate
-                    success = 0.60 - (synthDiff / 10);  // changed from 0.45
+                if (PChar->CraftContainer->getCraftType() == 1) // if it's a desynth lower success rate
+                    success = 0.60; // changed from 0.45
                 else
                     success = 0.95 - (synthDiff / 10);
 
@@ -330,10 +333,12 @@ uint8 calcSynthResult(CCharEntity* PChar)
 
         {
             chance = 0.60;
+            canHQ = true;
         }
-        printf("Synthesis HQ chance %f \n", chance);
-        int16 modSynthHqRate = PChar->getMod(Mod::SYNTH_HQ_RATE);
 
+        int16 modSynthHqRate = PChar->getMod(Mod::SYNTH_HQ_RATE);
+        printf("Synthesis HQ chance %f \n", chance);
+        printf("Can HQ? %s \n", canHQ ? "True" : "False");
         // Using x/512 calculation for HQ success rate modifier
         // see: https://www.bluegartr.com/threads/130586-CraftyMath-v2-Post-September-2017-Update
         chance += (double)modSynthHqRate / 512.;
