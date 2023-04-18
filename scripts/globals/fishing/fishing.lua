@@ -154,7 +154,7 @@ function calcRegen(catchType, catchLevel, fishingSkill, sizeType, legendaryRodTy
     end
 
     -- modify these based on specialty gear, etc
-    if catchType <= fishing.catchType.ITEM and ActualCatchLevel < ActualFishingSkill and (ActualFishingSkill - ActualCatchLevel) >= DrainLevel then
+    if catchType <= fishing.catchType.MOB and ActualCatchLevel < ActualFishingSkill and (ActualFishingSkill - ActualCatchLevel) >= DrainLevel then
         local divMod = 1.5
         if legendaryRodType == fishing.rodLegendType.LUSHANG then
             divMod = 1.3
@@ -171,9 +171,6 @@ function calcRegen(catchType, catchLevel, fishingSkill, sizeType, legendaryRodTy
     end
     if legendaryFish and legendaryRodType == fishing.rodLegendType.EBISU then -- ebisu
         Regen = Regen - 2
-    end
-    if catchType == fishing.catchType.MOB and legendaryRodType > fishing.rodLegendType.NONE then
-        Regen = Regen - 3
     end
     return math.max(0, Regen)
 end
