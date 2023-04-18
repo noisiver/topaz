@@ -6,7 +6,6 @@ require("scripts/globals/regimes")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.EVA, 24)
 end
 
 function onMobDeath(mob, player, isKiller)

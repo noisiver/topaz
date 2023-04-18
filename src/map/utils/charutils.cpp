@@ -2984,10 +2984,30 @@ namespace charutils
 
             double random = tpzrand::GetRandomNumber(1.);
 
-            if (SkillUpChance > 0.5)
+            // Ranaged has 50% max ,2h has 24% max, and 1h and spells have 10% max skill up chance
+            if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING)
             {
-                SkillUpChance = 0.5;
+                if (SkillUpChance > 0.24)
+                {
+                    SkillUpChance = 0.24;
+                }
             }
+            else if (SkillID == SKILL_GREAT_SWORD || SkillID == SKILL_GREAT_AXE || SkillID == SKILL_SCYTHE || SkillID == SKILL_POLEARM ||
+                     SkillID == SKILL_GREAT_KATANA || SkillID == SKILL_STAFF)
+            {
+                if (SkillUpChance > 0.5)
+                {
+                    SkillUpChance = 0.5;
+                }
+            }
+            else
+            {
+                if (SkillUpChance > 0.10)
+                {
+                    SkillUpChance = 0.10;
+                }
+            }
+
 
             // Check for skillup% bonus. https://www.bg-wiki.com/bg/Category:Skill_Up_Food
             // Assuming multiplicative even though rate is already a % because 0.5 + 0.8 would be > 1.
@@ -3000,7 +3020,7 @@ namespace charutils
             {
                 SkillUpChance *= ((100.f + PChar->getMod(Mod::MAGIC_SKILLUP_RATE)) / 100.f);
             }
-
+            // What is this doing?
             if (Diff > 0 && random < SkillUpChance)
             {
                 double chance = 0;
@@ -3014,19 +3034,19 @@ namespace charutils
                     switch (tier)
                     {
                         case 5:
-                            chance = 0.900;
+                            chance = 0.240;
                             break;
                         case 4:
-                            chance = 0.700;
+                            chance = 0.200;
                             break;
                         case 3:
-                            chance = 0.500;
+                            chance = 0.150;
                             break;
                         case 2:
-                            chance = 0.300;
+                            chance = 0.100;
                             break;
                         case 1:
-                            chance = 0.200;
+                            chance = 0.050;
                             break;
                         default:
                             chance = 0.000;

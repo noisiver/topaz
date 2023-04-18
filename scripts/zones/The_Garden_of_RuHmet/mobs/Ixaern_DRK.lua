@@ -56,8 +56,8 @@ end
 
 function onMobSpawn(mob)
 	mob:setDamage(145)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 15) 
+    mob:addMod(tpz.mod.ATTP, 15)
     mob:setMod(tpz.mod.REFRESH, 50)
     mob:AnimationSub(1)
 

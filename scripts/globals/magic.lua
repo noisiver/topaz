@@ -4,6 +4,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/utils")
 require("scripts/globals/msg")
+require("scripts/globals/items") -- might error
 ------------------------------------
 
 tpz = tpz or {}
@@ -969,10 +970,11 @@ function getEffectResistanceTraitChance(caster, target, effect)
     end
     
     if (effectres ~= 0) then
-        local ret = target:getMod(effectres)
+        local ret = target:getMod(effectres) + target:getMod(tpz.mod.STATUSRESTRAIT) -- TODO: Test
         if (not caster:isPC()) and caster:isNM() then
             ret = math.floor(ret/2)
         end
+
         return ret/100
     end
 
@@ -2260,8 +2262,6 @@ function doNuke(caster, target, spell, params)
     --get resist multiplier (1x if no resist)
     local resist = applyResistance(caster, target, spell, params)
 	
-    --get the resisted damage
-    dmg = dmg*resist
     if (spell:getSkillType() == tpz.skill.NINJUTSU) then
         if (caster:getMainJob() == tpz.job.NIN) then -- NIN main gets a bonus to their ninjutsu nukes
             local ninSkillBonus = 100
@@ -2282,7 +2282,14 @@ function doNuke(caster, target, spell, params)
         end
     end
     
+    -- add on ice maker bonus(if automaton)
+    if caster:isPet() then
+        local iceMakerBonus = 1 + (caster:getLocalVar("ice_maker_bonus") / 100)
+        dmg = math.floor(dmg * iceMakerBonus)
+    end
 
+    --get the resisted damage
+    dmg = dmg*resist
     --add on bonuses (staff/day/weather/jas/mab/etc all go in this function)
     dmg = addBonuses(caster, spell, target, dmg, params)
     --add in target adjustment
@@ -2344,6 +2351,22 @@ function doAdditionalEffectDamage(player, target, chance, dmg, dStat, incudeMAB,
     --printf("maccBonus %i", maccBonus)
     --printf("dmg %i", dmg)
     return dmg
+end
+
+function CheckAdditionalEffeectAmmo(player, requiredAmmo, chance)
+    local ammo = player:getEquipID(tpz.slot.AMMO)
+	if (ammo == requiredAmmo) then
+		chance = chance
+    else
+        chance = 0
+	end
+    return chance
+end
+
+function DeleteAmmoAdditionalEffect(player, dmg, ammo)
+    if (dmg > 0) then
+        player:delItem(ammo, 1)
+    end
 end
 
 function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
@@ -2452,6 +2475,15 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     else
         return spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
+end
+
+function CalculateAdditionalEffectChance(player, chance)
+    -- THF has double the chance to apply additional effects
+    if (player:getMainJob() == tpz.job.THF) then
+        chance = chance * 2
+    end
+
+    return chance
 end
 
 function GetEnfeebleMagicBurstMessage(caster, spell, target)

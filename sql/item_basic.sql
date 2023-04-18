@@ -13768,9 +13768,9 @@ INSERT INTO `item_basic` VALUES (16491,0,'bronze_knife_+1','bronze_knife_+1',1,2
 INSERT INTO `item_basic` VALUES (16492,0,'bronze_dagger_+1','bronze_dagger_+1',1,2080,2,0,48);
 INSERT INTO `item_basic` VALUES (16493,0,'blind_dagger_+1','blind_dagger_+1',1,2080,2,0,127);
 INSERT INTO `item_basic` VALUES (16494,0,'corrosive_kukri','corrosive_kukri',1,2080,2,0,3404);
-INSERT INTO `item_basic` VALUES (16495,0,'silence_dagger','silence_dagger',1,2084,2,0,414);
-INSERT INTO `item_basic` VALUES (16496,0,'poison_dagger','poison_dagger',1,2084,2,0,877);
-INSERT INTO `item_basic` VALUES (16497,0,'sleep_dagger','sleep_dagger',1,2052,2,0,1947);
+INSERT INTO `item_basic` VALUES (16495,0,'plague_dagger','plague_dagger',1,2084,2,0,414);
+INSERT INTO `item_basic` VALUES (16496,0,'debilitating_dagger','debilitating_dagger',1,2084,2,0,877);
+INSERT INTO `item_basic` VALUES (16497,0,'numbing_dagger','numbing_dagger',1,2052,2,0,1947);
 INSERT INTO `item_basic` VALUES (16498,0,'carabineers_dagger','carabineer_dagger',1,34820,2,0,6352);
 INSERT INTO `item_basic` VALUES (16499,0,'venom_kris','venom_kris',1,2084,2,0,3804);
 INSERT INTO `item_basic` VALUES (16500,0,'aluh_jambiya','aluh_jambiya',1,34820,2,0,0);
@@ -13778,12 +13778,12 @@ INSERT INTO `item_basic` VALUES (16501,0,'acid_knife','acid_knife',1,2084,2,0,25
 INSERT INTO `item_basic` VALUES (16502,0,'venom_knife','venom_knife',1,2084,2,0,3537);
 INSERT INTO `item_basic` VALUES (16503,0,'stun_knife','stun_knife',1,2084,2,0,8450);
 INSERT INTO `item_basic` VALUES (16504,0,'oynos_knife','oynos_knife',1,34820,2,0,0);
-INSERT INTO `item_basic` VALUES (16505,0,'venom_kukri','venom_kukri',1,2084,2,0,7290);
+INSERT INTO `item_basic` VALUES (16505,0,'debilitating_kukri','debilitating_kukri',1,2084,2,0,7290);
 INSERT INTO `item_basic` VALUES (16506,0,'stun_kukri','stun_kukri',1,2084,2,0,4605);
-INSERT INTO `item_basic` VALUES (16507,0,'venom_baselard','venom_baselard',1,2084,2,0,4204);
-INSERT INTO `item_basic` VALUES (16508,0,'silence_dagger_+1','silence_dagger_+1',1,2080,2,0,517);
+INSERT INTO `item_basic` VALUES (16507,0,'debilitating_baselard','debilitating_baselard',1,2084,2,0,4204);
+INSERT INTO `item_basic` VALUES (16508,0,'plague_dagger_+1','plague_dagger_+1',1,2080,2,0,517);
 INSERT INTO `item_basic` VALUES (16509,0,'aspir_knife','aspir_knife',1,30804,0,1,0);
-INSERT INTO `item_basic` VALUES (16510,0,'venom_baselard_+1','vnm._baselard_+1',1,2080,2,0,5255);
+INSERT INTO `item_basic` VALUES (16510,0,'debilitating_baselard_+1','deb._baselard_+1',1,2080,2,0,5255);
 INSERT INTO `item_basic` VALUES (16511,0,'burnite_shell_stone','burnite_shell',1,59476,0,0,894);
 INSERT INTO `item_basic` VALUES (16512,0,'bilbo','bilbo',1,2084,3,0,699);
 INSERT INTO `item_basic` VALUES (16513,0,'tuck','tuck',1,2084,3,0,2188);
@@ -14009,7 +14009,7 @@ INSERT INTO `item_basic` VALUES (16737,0,'baselard_+1','baselard_+1',1,2080,2,0,
 INSERT INTO `item_basic` VALUES (16738,0,'mythril_dagger_+1','mythril_dagger_+1',1,2080,2,0,1918);
 INSERT INTO `item_basic` VALUES (16739,0,'mythril_knife_+1','mythril_knife_+1',1,2080,2,0,2586);
 INSERT INTO `item_basic` VALUES (16740,0,'brass_dagger_+1','brass_dagger_+1',1,2080,2,0,232);
-INSERT INTO `item_basic` VALUES (16741,0,'poison_dagger_+1','poison_dagger_+1',1,2080,2,0,1170);
+INSERT INTO `item_basic` VALUES (16741,0,'debilitating_dagger_+1','debilitating_dagger_+1',1,2080,2,0,1170);
 INSERT INTO `item_basic` VALUES (16742,0,'poison_knife_+1','poison_knife_+1',1,2080,2,0,1500);
 INSERT INTO `item_basic` VALUES (16743,0,'python_baselard','python_baselard',1,2080,2,0,1334);
 INSERT INTO `item_basic` VALUES (16744,0,'royal_squires_dagger','ryl.sqr._dagger',1,2052,2,0,2387);
@@ -14865,7 +14865,7 @@ INSERT INTO `item_basic` VALUES (17600,0,'stun_knife_+1','stun_knife_+1',1,2080,
 INSERT INTO `item_basic` VALUES (17601,0,'demons_knife','demons_knife',1,2084,2,0,1871);
 INSERT INTO `item_basic` VALUES (17602,0,'demons_knife_+1','demons_knife_+1',1,2080,2,0,2338);
 INSERT INTO `item_basic` VALUES (17603,0,'cermet_kukri_+1','cermet_kukri_+1',1,2080,2,0,9256);
-INSERT INTO `item_basic` VALUES (17604,0,'venom_kukri_+1','venom_kukri_+1',1,2080,2,0,11570);
+INSERT INTO `item_basic` VALUES (17604,0,'debilitating_kukri_+1','debilitating_kukri_+1',1,2080,2,0,11570);
 INSERT INTO `item_basic` VALUES (17605,0,'acid_dagger','acid_dagger',1,2084,2,0,1535);
 INSERT INTO `item_basic` VALUES (17606,0,'corrosive_dagger','corrosive_dagger',1,2080,2,0,1535);
 INSERT INTO `item_basic` VALUES (17607,0,'corrosive_baselard','corrosive_baselard',1,2080,2,0,2669);

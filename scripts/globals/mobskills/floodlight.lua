@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.NONE, dmgmod, TP_MAB_BONUS, 1)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL, MOBPARAM_IGNORE_SHADOWS)
 
-    MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 80, 3, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 30, 3, 300)
     MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 300)
     MobStatusEffectMove(mob, target, tpz.effect.FLASH, 300, 3, 12)
 

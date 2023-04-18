@@ -16,8 +16,8 @@ function onMobSpawn(mob)
 	
 	mob:setDamage(70)
     mob:setDelay(8000)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.DEFP, 15) 
+    mob:addMod(tpz.mod.ATTP, 15)
     mob:setMod(tpz.mod.REFRESH, 50)
 	mob:AnimationSub(1) -- Reset the subanim - otherwise it will respawn with bracers on. Note that Aerns are never actually supposed to be in subanim 0.
 end

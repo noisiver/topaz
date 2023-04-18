@@ -102,6 +102,7 @@ tpz.subEffect =
 {
     -- ATTACKS
     FIRE_DAMAGE         = 1,   -- 110000        3
+    PLAGUE              = 1,   -- Same subeffect as FIRE_DAMAGE
     ICE_DAMAGE          = 2,   -- 1-01000       5
     WIND_DAMAGE         = 3,   -- 111000        7
     CHOKE               = 3,   -- Shares subeffect

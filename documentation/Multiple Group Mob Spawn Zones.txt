@@ -1,0 +1,40 @@
+Zones edited
+
+Fields:
+
+    N Gustaberg
+    S Gustaberg
+    W Saruta(Pending)
+    E Saruta(Pending)
+    W Ronfaure(Pending)
+    E Ronfaure(Pending)
+    La Theine Plateu (Check lvl gap)
+    Konschtat Highlands (Check lvl gap)
+    Tahrongi Canyon (Check lvl gap)
+    Passhow Marshlands
+    Jugner Forest
+    Meriphataud Mountains
+    Valkurm Dungeons
+    Buburimu Penisula
+    Carpenter's Landing
+    Bibiki Bay
+    W Saruta[S] (Added more Savanna_Dhalmel spawns)
+    Xarcabard(TODO: Adjust Biast spawn rate)
+
+Dungeons:
+
+    Zeruhn Mines
+    Dangruf Wadi
+    King Ramperre's Tomb
+    Giddeus
+    Palborough Mines
+    Ghelsba Outpost
+    Fort Ghelsba
+    Yughott Grotto
+    Korolokka Tunnel
+    Inner Horutoto Ruins
+    Outer Horutoto Ruins
+    Gusgen Mines (TODO: OOE Spawns)
+    Ordelle's Caves (TODO: OOE Spawns)
+    Feiyin (TODO: OOE Spawns)
+

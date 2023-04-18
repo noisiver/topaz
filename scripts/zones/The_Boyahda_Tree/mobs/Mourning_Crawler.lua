@@ -7,9 +7,6 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:setMod(tpz.mod.PIERCERES, 750)
-    mob:setMod(tpz.mod.SLASHRES, 1250)
-    mob:setMod(tpz.mod.RANGEDRES, 1250)
 end
 
 function onMobDeath(mob, player, isKiller)

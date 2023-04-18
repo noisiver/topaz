@@ -20208,6 +20208,7 @@ INSERT INTO `item_mods` VALUES (16461,5,10);
 INSERT INTO `item_mods` VALUES (16461,9,2);
 INSERT INTO `item_mods` VALUES (16461,10,2);
 INSERT INTO `item_mods` VALUES (16461,12,2);
+INSERT INTO `item_mods` VALUES (16469,431,1);
 INSERT INTO `item_mods` VALUES (16470,2,10);
 INSERT INTO `item_mods` VALUES (16470,9,2);
 INSERT INTO `item_mods` VALUES (16470,10,2);
@@ -20236,6 +20237,7 @@ INSERT INTO `item_mods` VALUES (16481,2,26);
 INSERT INTO `item_mods` VALUES (16481,68,7);
 INSERT INTO `item_mods` VALUES (16484,9,2);
 INSERT INTO `item_mods` VALUES (16484,13,-3);
+INSERT INTO `item_mods` VALUES (16484,431,1);
 INSERT INTO `item_mods` VALUES (16485,2,24);
 INSERT INTO `item_mods` VALUES (16485,68,6);
 INSERT INTO `item_mods` VALUES (16486,9,1);
@@ -20264,6 +20266,7 @@ INSERT INTO `item_mods` VALUES (16497,431,1);
 INSERT INTO `item_mods` VALUES (16498,8,5);
 INSERT INTO `item_mods` VALUES (16498,24,12);
 INSERT INTO `item_mods` VALUES (16498,27,4);
+INSERT INTO `item_mods` VALUES (16499,431,1);
 INSERT INTO `item_mods` VALUES (16500,8,10);     -- aluh_jambiya STR+10
 INSERT INTO `item_mods` VALUES (16500,10,-10);   -- VIT-10
 INSERT INTO `item_mods` VALUES (16500,23,15);    -- Attack+15
@@ -20274,10 +20277,15 @@ INSERT INTO `item_mods` VALUES (16501,951,149);        -- chance on hit: Weakens
 INSERT INTO `item_mods` VALUES (16501,501,15);        -- proc chance: 15%
 INSERT INTO `item_mods` VALUES (16501,952,10);        -- -10% defense
 INSERT INTO `item_mods` VALUES (16501,953,60);        -- duration: 60 seconds
+INSERT INTO `item_mods` VALUES (16502,431,1);
+INSERT INTO `item_mods` VALUES (16503,431,1);
 INSERT INTO `item_mods` VALUES (16504,250,2);
 INSERT INTO `item_mods` VALUES (16504,431,1);
+INSERT INTO `item_mods` VALUES (16505,431,1);
+INSERT INTO `item_mods` VALUES (16507,431,1);
 INSERT INTO `item_mods` VALUES (16508,431,1);
 INSERT INTO `item_mods` VALUES (16509,431,1);
+INSERT INTO `item_mods` VALUES (16510,431,1);
 INSERT INTO `item_mods` VALUES (16520,5,18);
 INSERT INTO `item_mods` VALUES (16520,110,7);
 INSERT INTO `item_mods` VALUES (16521,110,5);
@@ -20444,6 +20452,8 @@ INSERT INTO `item_mods` VALUES (16754,110,10);
 INSERT INTO `item_mods` VALUES (16755,11,1);
 INSERT INTO `item_mods` VALUES (16755,26,10);
 INSERT INTO `item_mods` VALUES (16757,23,10);
+INSERT INTO `item_mods` VALUES (16761,431,1);
+INSERT INTO `item_mods` VALUES (16762,431,1);
 INSERT INTO `item_mods` VALUES (16764,9,2);
 INSERT INTO `item_mods` VALUES (16764,11,2);
 INSERT INTO `item_mods` VALUES (16765,8,-1);
@@ -21501,6 +21511,8 @@ INSERT INTO `item_mods` VALUES (17597,346,1);
 INSERT INTO `item_mods` VALUES (17598,5,30);
 INSERT INTO `item_mods` VALUES (17598,117,5);
 INSERT INTO `item_mods` VALUES (17598,346,3);
+INSERT INTO `item_mods` VALUES (17600,431,1);
+INSERT INTO `item_mods` VALUES (17604,431,1);
 INSERT INTO `item_mods` VALUES (17605,431,1);		-- Acid Dagger
 INSERT INTO `item_mods` VALUES (17605,950,4);        -- Element: Wind
 INSERT INTO `item_mods` VALUES (17605,951,149);        -- chance on hit: Weakens Defense
@@ -21510,6 +21522,7 @@ INSERT INTO `item_mods` VALUES (17605,953,60);        -- duration: 60 seconds
 INSERT INTO `item_mods` VALUES (17606,431,1);
 INSERT INTO `item_mods` VALUES (17607,431,1);
 INSERT INTO `item_mods` VALUES (17608,431,1);
+INSERT INTO `item_mods` VALUES (17609,431,1);
 INSERT INTO `item_mods` VALUES (17610,23,3);
 INSERT INTO `item_mods` VALUES (17610,25,3);
 INSERT INTO `item_mods` VALUES (17610,60,-5);
@@ -21979,6 +21992,12 @@ INSERT INTO `item_mods` VALUES (17980,9,1);
 INSERT INTO `item_mods` VALUES (17980,11,1);
 INSERT INTO `item_mods` VALUES (17981,61,10);
 INSERT INTO `item_mods` VALUES (17982,14,5);
+INSERT INTO `item_mods` VALUES (17984,431,1);
+INSERT INTO `item_mods` VALUES (17985,431,1);
+INSERT INTO `item_mods` VALUES (17986,431,1);
+INSERT INTO `item_mods` VALUES (17987,431,1);
+INSERT INTO `item_mods` VALUES (17988,431,1);
+INSERT INTO `item_mods` VALUES (17989,431,1);
 INSERT INTO `item_mods` VALUES (17992,5,25);
 INSERT INTO `item_mods` VALUES (17992,12,2);
 INSERT INTO `item_mods` VALUES (17994,9,3);

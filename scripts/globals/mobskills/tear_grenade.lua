@@ -38,7 +38,7 @@ function onMobWeaponSkill(target, mob, skill)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
     if dmg > 0 then target:setTP(0) end
         if cogtoothSkagnogg then
-            MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 80, 0, 300)
+            MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 20, 0, 300)
             MobStatusEffectMove(mob, target, tpz.effect.SILENCE, 1, 0, 300)
         else
             local typeEffect = tpz.effect.BURN

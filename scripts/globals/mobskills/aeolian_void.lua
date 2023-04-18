@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
     MobStatusEffectMove(mob, target, typeEffectOne, 1, 0, 300)
-    MobStatusEffectMove(mob, target, typeEffectTwo, 100, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffectTwo, 20, 0, 300)
 
     return dmg
 end

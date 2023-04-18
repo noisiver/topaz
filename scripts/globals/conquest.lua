@@ -1069,7 +1069,7 @@ tpz.conquest.overseerOnEventUpdate = function(player, csid, option, guardNation)
         end
 
         local rankCheck = true
-        if guardNation ~= tpz.nation.OTHER and guardNation ~= pNation and and stock.place ~= nil and pRank > stock.place then -- buy from other nation TODO: Test
+        if guardNation ~= tpz.nation.OTHER and guardNation ~= pNation and stock.place ~= nil and pRank > stock.place then -- buy from other nation TODO: Test
             rankCheck = false
         elseif stock.place ~= nil and pRank > stock.place then -- buy from own nation, check nation rank
             rankCheck = false

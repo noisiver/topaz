@@ -16,7 +16,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
-    local power = 5 + (mob:getMainLvl() / 2)
+    local power = 30
 
     MobStatusEffectMove(mob, target, typeEffect, power, 0, 300)
 

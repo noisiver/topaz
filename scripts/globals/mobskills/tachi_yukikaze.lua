@@ -35,7 +35,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     -- Never actually got a good damage sample.  Putting it between Gekko and Kasha.
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BLINDNESS, 25, 0, 300)
+	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.BLINDNESS, 30, 0, 300)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

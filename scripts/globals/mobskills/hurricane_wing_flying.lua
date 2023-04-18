@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 60, 0, 30)
+    MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 20, 0, 30)
 
     local dmgmod = 1
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.WIND, dmgmod, TP_NO_EFFECT)

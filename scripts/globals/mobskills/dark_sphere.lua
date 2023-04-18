@@ -29,7 +29,7 @@ function onMobWeaponSkill(target, mob, skill)
     else
     local typeEffect = tpz.effect.BLINDNESS
 
-    MobStatusEffectMove(mob, target, typeEffect, 80, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffect, 20, 0, 300)
     end
 
     local dmgmod = 2
