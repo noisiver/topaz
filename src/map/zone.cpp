@@ -574,13 +574,17 @@ void CZone::UpdateWeather()
         Weather = weatherType.normal;
     }
 
-    // Fog in the morning between the hours of 2 and 7 if there is not a specific elemental weather to override it
-    if ((CurrentVanaDate >= StartFogVanaDate) && (CurrentVanaDate < EndFogVanaDate) && (Weather < WEATHER_HOT_SPELL) && (GetType() > ZONETYPE_CITY))
+    // Fog isn't guaranteed, roll for chance at fog
+    if (tpzrand::GetRandomNumber(100) < 20)
     {
-        Weather = WEATHER_FOG;
-        //Force the weather to change by 7 am
-        //  2.4 vanadiel minutes = 1 earth second
-        WeatherNextUpdate = (uint32)((EndFogVanaDate - CurrentVanaDate) * 2.4);
+        // Fog in the morning between the hours of 2 and 7 if there is not a specific elemental weather to override it
+        if ((CurrentVanaDate >= StartFogVanaDate) && (CurrentVanaDate < EndFogVanaDate) && (Weather < WEATHER_HOT_SPELL) && (GetType() > ZONETYPE_CITY))
+        {
+            Weather = WEATHER_FOG;
+            // Force the weather to change by 7 am
+            //   2.4 vanadiel minutes = 1 earth second
+            WeatherNextUpdate = (uint32)((EndFogVanaDate - CurrentVanaDate) * 2.4);
+        }
     }
 
     SetWeather((WEATHER)Weather);
