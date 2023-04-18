@@ -854,19 +854,9 @@ namespace fishingutils
         levelDifference = catchLevel - charSkillLevel;
         }
 
-        // No skillup if fish level not between char level and 50 levels higher
-        if (catchLevel <= charSkillLevel || (levelDifference > 50))
-        {
-        return;
-        }
-
         int skillRoll = 90;
         int maxChance = 0;
         int bonusChanceRoll = 8;
-
-        // Lu shang rod under level 50 penalty
-        if (Rod != nullptr && charSkillLevel < 50 && Rod->getID() == LU_SHANG_ROD_ID)
-        skillRoll += 20;
 
         // Generate a normal distribution favoring fish 10 levels higher in skill with 5 levels of deviation on either side
         double normDist = NormalDist(levelDifference, 11, 5);
