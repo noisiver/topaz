@@ -1,33 +1,35 @@
 -----------------------------------
 -- Attachment: Turbo Charger II
 -----------------------------------
+require("scripts/globals/automaton")
 require("scripts/globals/status")
 -----------------------------------
 
 function onEquip(pet)
-    pet:addMod(tpz.mod.HASTE_MAGIC, 700)
+    onUpdate(pet, 0)
 end
 
 function onUnequip(pet)
-    pet:delMod(tpz.mod.HASTE_MAGIC, 700)
+    updateModPerformance(pet, tpz.mod.HASTE_MAGIC, 'turbo_charger_haste_II', 0)
 end
 
 function onManeuverGain(pet, maneuvers)
-    if maneuvers == 1 then
-        pet:addMod(tpz.mod.HASTE_MAGIC, 1000)
-    elseif maneuvers == 2 then
-        pet:addMod(tpz.mod.HASTE_MAGIC, 1100)
-    elseif maneuvers == 3 then
-        pet:addMod(tpz.mod.HASTE_MAGIC, 1575)
-    end
+    onUpdate(pet, maneuvers)
 end
 
 function onManeuverLose(pet, maneuvers)
-    if maneuvers == 1 then
-        pet:delMod(tpz.mod.HASTE_MAGIC, 1000)
+    onUpdate(pet, maneuvers - 1)
+end
+
+function onUpdate(pet, maneuvers)
+    if maneuvers == 0 then
+        updateModPerformance(pet, tpz.mod.HASTE_MAGIC, 'turbo_charger_haste_II', 700)
+    elseif maneuvers == 1 then
+        updateModPerformance(pet, tpz.mod.HASTE_MAGIC, 'turbo_charger_haste_II', 1700)
     elseif maneuvers == 2 then
-        pet:delMod(tpz.mod.HASTE_MAGIC, 1100)
+        updateModPerformance(pet, tpz.mod.HASTE_MAGIC, 'turbo_charger_haste_II', 2800)
     elseif maneuvers == 3 then
-        pet:delMod(tpz.mod.HASTE_MAGIC, 1575)
+        updateModPerformance(pet, tpz.mod.HASTE_MAGIC, 'turbo_charger_haste_II', 4375)
     end
 end
+

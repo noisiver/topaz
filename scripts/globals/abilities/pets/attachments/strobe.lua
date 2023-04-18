@@ -33,12 +33,12 @@ end
 
 function onUpdate(pet, maneuvers)
     if maneuvers == 0 then
-        updateModPerformance(pet, tpz.mod.ENMITY, 'strobe_mod', 5)
-    elseif maneuvers == 1 then
         updateModPerformance(pet, tpz.mod.ENMITY, 'strobe_mod', 10)
+    elseif maneuvers == 1 then
+        updateModPerformance(pet, tpz.mod.ENMITY, 'strobe_mod', 25)
     elseif maneuvers == 2 then
-        updateModPerformance(pet, tpz.mod.ENMITY, 'strobe_mod', 15)
+        updateModPerformance(pet, tpz.mod.ENMITY, 'strobe_mod', 40)
     elseif maneuvers == 3 then
-        updateModPerformance(pet, tpz.mod.ENMITY, 'strobe_mod', 20)
+        updateModPerformance(pet, tpz.mod.ENMITY, 'strobe_mod', 60)
     end
 end

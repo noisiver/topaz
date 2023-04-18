@@ -317,7 +317,7 @@ enum class Mod
     AMNESIARESTRAIT = 1253,
     LULLABYRESTRAIT = 1254,
     DEATHRESTRAIT = 1255,
-    STATUSRESTRAIT = 2000,
+    STATUSRESTRAIT = 2000, // All res trait
 
 
     PARALYZE                  = 257, // Paralyze -- percent chance to proc

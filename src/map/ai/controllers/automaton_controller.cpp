@@ -137,6 +137,11 @@ void CAutomatonController::setMagicCooldowns()
     }
 }
 
+void CAutomatonController::ResetCastDelay()
+{
+    m_LastMagicTime = m_Tick - m_magicCooldown;
+}
+
 bool CAutomatonController::isRanged()
 {
     switch (PAutomaton->getHead())
@@ -543,7 +548,7 @@ bool CAutomatonController::TryElemental(const CurrentManeuvers& maneuvers)
     else if (hp <= 600 || selfmp < 156)
         tier = 3;
 
-    if (PAutomaton->getMod(Mod::AUTO_SCAN_RESISTS))
+    if (tpzrand::GetRandomNumber(100) < PAutomaton->getMod(Mod::AUTO_SCAN_RESISTS))
     {
         //std::vector<std::pair<SpellID, int16>> reslist{
         //    std::make_pair(SpellID::Fire, PTarget->getMod(Mod::FIRERES)),

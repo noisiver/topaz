@@ -7,52 +7,54 @@ require("scripts/globals/automatonweaponskills")
 
 ---------------------------------------------------
 
-function onMobSkillCheck(target, automaton, skill)
+function onMobSkillCheck(target, pet, skill)
     return 0
 end
 
-function onPetAbility(target, automaton, skill, master, action)
-    local chance = 90
-    local damage = (automaton:getSkillLevel(tpz.skill.AUTOMATON_MELEE)/2) + automaton:getMod(tpz.mod.SHIELD_BASH)
+function onPetAbility(target, pet, skill, master, action)
+    local numhits = 1
+    local params = {}
+    params.ftp100 = 1.0
+    params.ftp200 = 1.0
+    params.ftp300 = 1.0
+    params.str_wsc = 0.0
+    params.dex_wsc = 0.0
+    params.vit_wsc = 0.0
+    params.agi_wsc = 0.0
+    params.int_wsc = 0.0
+    params.mnd_wsc = 0.0
+    params.chr_wsc = 0.0
+    params.NO_TP_CONSUMPTION = true
 
-    damage = math.floor(damage)
+    local chance = 75
 
-    chance = chance + (automaton:getMainLvl() - target:getMainLvl()) * 5
+    if (pet:getMod(tpz.mod.SHIELD_BASH) > 0) then -- 100% chance to stun if Hammermill is equipped
+        chance = 100
+    end
 
-    if math.random() * 100 < chance then
+    if (math.random() * 100 <= chance) then
         target:addStatusEffect(tpz.effect.STUN, 1, 0, 6)
     end
 
-    local slowPower = automaton:getMod(tpz.mod.AUTO_SHIELD_BASH_SLOW)
+    local slowPower = pet:getMod(tpz.mod.AUTO_SHIELD_BASH_SLOW)
     if slowPower > 0 then
-        local duration = 20
+        local duration = 30
         if slowPower == 12 then
-            duration = math.random(20, 35)
+            duration = 30
         elseif slowPower == 19 then
-            duration = math.random(51, 57)
+            duration = 60
         elseif slowPower == 25 then
-            duration = math.random(70, 75)
+            duration = 90
         end
         target:addStatusEffect(tpz.effect.SLOW, slowPower * 100, 0, duration)
     end
 
-    -- randomize damage
-    local ratio = automaton:getStat(tpz.mod.ATT)/target:getStat(tpz.mod.DEF)
-    if ratio > 1.3 then
-        ratio = 1.3
-    end
-    if ratio < 0.2 then
-        ratio = 0.2
-    end
+    local damage = AutoPhysicalWeaponSkill(pet, target, skill, tpz.attackType.PHYSICAL, numhits, TP_NONE, params)
+    dmg = AutoPhysicalFinalAdjustments(damage.dmg, pet, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, damage.hitslanded, params)
+    target:addEnmity(pet, 450, 900)
 
-    local pdif = math.random(ratio*0.8*1000, ratio*1.2*1000)
+    -- Add Hammermill damage bonus
+    dmg = math.floor(dmg * 1 + (pet:getMod(tpz.mod.SHIELD_BASH) / 100))
 
-    damage = damage * (pdif / 1000)
-
-    damage = utils.stoneskin(target, damage)
-    target:takeDamage(damage, automaton, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-    target:updateEnmityFromDamage(automaton, damage)
-    target:addEnmity(automaton, 450, 900)
-
-    return damage
+    return dmg
 end

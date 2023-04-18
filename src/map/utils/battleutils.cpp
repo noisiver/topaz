@@ -72,6 +72,7 @@
 #include "../ai/controllers/pet_controller.h"
 #include "../ai/controllers/player_controller.h"
 #include "../ai/controllers/player_charm_controller.h"
+#include "../ai/controllers/automaton_controller.h"
 #include "../ai/states/magic_state.h"
 #include "../utils/petutils.h"
 #include "zoneutils.h"
@@ -2269,7 +2270,7 @@ namespace battleutils
             damage = (int32)(damage * (1.f + (DMGSPIRITS / 100.f)));
             // TODO: chance to 'resist'
 
-            damage = BreathDmgTaken(PDefender, damage);
+            damage = BreathDmgTaken(PDefender, damage, ELEMENT_NONE);
         }
         else
         {
@@ -3118,9 +3119,29 @@ namespace battleutils
             defense = 1;
         }
 
+        
+        ENTITYTYPE attackerType = PAttacker->objtype;
+
+        uint8 attackerLvl = PAttacker->GetMLevel();
+        uint8 defenderLvl = PDefender->GetMLevel();
+
+        uint16 ignoredDef = 0;
+        uint16 ignoredDefMod = 0;
+        // Check for Attuner (PUP)
+        // 15/30/45/60% ignored based on currently active manuevers
+        if (attackerType == TYPE_PET)
+        {
+            if (attackerLvl < defenderLvl && (int16)PDefender->GetLocalVar("attuner") > 0)
+            {
+                ignoredDef = (int16)PDefender->GetLocalVar("attunerBonus");
+                ignoredDef = (defense * ignoredDef) / 100;
+
+            }
+        }
+      
         // https://www.bg-wiki.com/bg/PDIF
         // https://www.bluegartr.com/threads/127523-pDIF-Changes-(Feb.-10th-2016)
-        float ratio = (static_cast<float>(attack)) / (static_cast<float>(defense));
+        float ratio = (static_cast<float>(attack)) / ((static_cast<float>(defense) - ignoredDef));
         float cRatio = ratio;
 
         // Level correction does not happen in Adoulin zones, Legion, or zones in Escha/Reisenjima
@@ -3139,10 +3160,6 @@ namespace battleutils
         // (Not a post Adoulin Zone) && (Not Legion_A)
         bool shouldApplyLevelCorrection = (zoneId < 256) && (zoneId != 183);
 
-        ENTITYTYPE attackerType = PAttacker->objtype;
-
-        uint8 attackerLvl = PAttacker->GetMLevel();
-        uint8 defenderLvl = PDefender->GetMLevel();
         uint8 dLvl = std::abs(attackerLvl - defenderLvl);
         float correction = static_cast<float>(dLvl) * 0.05f;
 
@@ -4120,11 +4137,22 @@ namespace battleutils
 
         if (PDefender->objtype == TYPE_MOB)
         {
-            // Listener (hook)
-            PDefender->PAI->EventHandler.triggerListener("SKILLCHAIN_TAKE", PDefender, PAttacker, currentElement, damage);
-
-            // Binding
-            luautils::OnSkillchain(PDefender, PAttacker);
+            auto enmityList = ((CMobEntity*)PDefender)->PEnmityContainer->GetEnmityList();
+            for (auto iter = enmityList->begin(); iter != enmityList->end(); iter++)
+            {
+                auto entity = iter->second.PEnmityOwner;
+                if (entity->objtype == TYPE_PET)
+                {
+                    if (((CPetEntity*)entity)->getPetType() == PETTYPE_AUTOMATON)
+                    {
+                        if (((int16)entity->GetLocalVar("amplifier_mburst") > 0) || ((int16)entity->GetLocalVar("amplifier_mburst_II") > 0))
+                        {
+                            auto controller = entity->PAI->GetController();
+                            ((CAutomatonController*)controller)->ResetCastDelay();
+                        }
+                    }
+                }
+            }
         }
 
         PDefender->takeDamage(damage, PAttacker, ATTACK_SPECIAL, appliedEle == ELEMENT_NONE ? DAMAGE_NONE : (DAMAGETYPE)(DAMAGE_ELEMENTAL + appliedEle));
@@ -5286,7 +5314,7 @@ namespace battleutils
         PChar->PClaimedMob = nullptr;
     }
 
-    int32 BreathDmgTaken(CBattleEntity* PDefender, int32 damage)
+    int32 BreathDmgTaken(CBattleEntity* PDefender, int32 damage, ELEMENT element)
     {
         float resist = 1.0f + floor( 256.0f * ( PDefender->getMod(Mod::UDMGBREATH) / 100.0f )  ) / 256.0f;
         resist = std::max<float>(resist, 0);
@@ -5296,6 +5324,9 @@ namespace battleutils
                       + ( floor( 256.0f * ( PDefender->getMod(Mod::DMG)       / 100.0f ) ) / 256.0f );
         resist = std::clamp(resist, 0.5f, 1.5f); //assuming if its floored at .5f its capped at 1.5f but who's stacking +dmgtaken equip anyway???
         damage = (int32)(damage * resist);
+
+        if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 1)
+            damage = HandleSteamJacket(PDefender, damage, element);
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
@@ -5334,7 +5365,7 @@ namespace battleutils
         damage = (int32)(damage * resist);
 
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 1)
-            damage = HandleSteamJacket(PDefender, damage, 5);
+            damage = HandleSteamJacket(PDefender, damage, element);
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
@@ -5372,9 +5403,6 @@ namespace battleutils
         resist = std::max(resist, 0.5f); // PDT caps at -50%
         resist += PDefender->getMod(Mod::DMGPHYS_II) / 100.f; // Add Burtgang reduction after 50% cap. Extends cap to -68%
         damage = (int32)(damage * resist);
-
-        if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 0)
-            damage = HandleSteamJacket(PDefender, damage, damageType);
 
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_EQUALIZER) > 0)
             damage -= (int32)(damage / float(PDefender->GetMaxHP()) * (PDefender->getMod(Mod::AUTO_EQUALIZER) / 100.0f));
@@ -5421,7 +5449,7 @@ namespace battleutils
         damage = (int32)(damage * resist);
 
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 1)
-            damage = HandleSteamJacket(PDefender, damage, 5);
+            damage = HandleSteamJacket(PDefender, damage, element);
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
@@ -5461,9 +5489,6 @@ namespace battleutils
         resist = std::max(resist, 0.5f);
         damage = (int32)(damage * resist);
 
-        if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_STEAM_JACKET) > 0)
-            damage = HandleSteamJacket(PDefender, damage, damageType);
-
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_EQUALIZER) > 0)
         {
             damage -= (int32)(damage / float(PDefender->GetMaxHP()) * (PDefender->getMod(Mod::AUTO_EQUALIZER) / 100.0f));
@@ -5493,14 +5518,14 @@ namespace battleutils
         return damage;
     }
 
-    int32 HandleSteamJacket(CBattleEntity* PDefender, int32 damage, int16 damageType)
+    int32 HandleSteamJacket(CBattleEntity* PDefender, int32 damage, ELEMENT element)
     {
         auto steamJacketType = (int16)PDefender->GetLocalVar("steam_jacket_type");
         int16 steamJacketHits = (int16)PDefender->GetLocalVar("steam_jacket_hits");
 
-        if (steamJacketType != damageType)
+        if (steamJacketType != element)
         {
-            PDefender->SetLocalVar("steam_jacket_type", damageType);
+            PDefender->SetLocalVar("steam_jacket_type", element);
             steamJacketHits = 0;
         }
 

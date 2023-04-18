@@ -12,10 +12,14 @@ function onMobSkillCheck(target, automaton, skill)
 end
 
 function onPetAbility(target, automaton, skill, master, action)
-    automaton:addRecast(tpz.recast.ABILITY, skill:getID(), 65)
-    local pMod = automaton:getSkillLevel(tpz.skill.AUTOMATON_MAGIC)
+
+    local skill = automaton:getSkillLevel(tpz.skill.AUTOMATON_MELEE)
+    local manueverBonus = (automaton:getLocalVar("heat_capacitor_manuevers") / 100)
+    local MAB = automaton:getMod(tpz.mod.MATT)
+	local power = math.floor((skill) / 12) * (1 + MAB / 100) * manueverBonus)
     local duration = 60
-    local power = math.floor((pMod/56)^3 / 8) + 4 -- No idea how the actual formula used Automaton skill level, so heres a placeholder (4 @ lvl 1, 10 @ lvl 61, 20 @ lvl 75, 62 @ lvl 99)
+
+    automaton:addRecast(tpz.recast.ABILITY, skill:getID(), 65)
 
     if target:addStatusEffect(tpz.effect.BLAZE_SPIKES, power, 0, duration) then
         skill:setMsg(tpz.msg.basic.SKILL_GAIN_EFFECT)
