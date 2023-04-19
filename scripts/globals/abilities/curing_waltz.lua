@@ -66,7 +66,7 @@ function onUseAbility(player, target, ability)
     end
 
     if sjob == tpz.job.DNC then
-        cure = 0
+        cure = (vit+chr)*0.125+60
     end
 
     -- apply waltz modifiers
