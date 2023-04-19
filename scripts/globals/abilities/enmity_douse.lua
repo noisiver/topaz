@@ -1,7 +1,7 @@
 -----------------------------------
 -- Ability: Enmity Douse
 -- Description: Reduces the target's enmity towards you.
--- Obtained: BLM Level 87
+-- Obtained: BLM Level 50
 -- Recast Time: 0:10:00
 -----------------------------------
 require("scripts/globals/settings")

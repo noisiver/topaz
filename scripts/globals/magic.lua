@@ -1205,6 +1205,7 @@ end
         end
     end
 	caster:delStatusEffectSilent(tpz.effect.DIVINE_EMBLEM)
+    caster:delStatusEffectSilent(tpz.effect.CASCADE)
     return dmg
  end
 
@@ -2111,6 +2112,7 @@ end
 
 function doElementalNuke(caster, spell, target, spellParams)
     local DMG = 0
+    local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
     local dINT = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     local V = 0
     local M = 0
@@ -2122,11 +2124,11 @@ function doElementalNuke(caster, spell, target, spellParams)
         V = spellParams.V -- Base value
         M = spellParams.M -- Tier multiplier
         local I = spellParams.I -- Inflection point
-        local cap = I * 2 + V -- Base damage soft cap
+        local cap = DMGMod + I * 2 + V -- Base damage soft cap
 
         if dINT < 0 then
             -- If dINT is a negative value the tier multiplier is always 1
-            DMG = V + dINT
+            DMG = DMGMod + V + dINT
 
             -- Check/ set lower limit of 0 damage for negative dINT
             if DMG <= 1 then
@@ -2135,11 +2137,12 @@ function doElementalNuke(caster, spell, target, spellParams)
 
         elseif dINT < I then
              -- If dINT > 0 but below inflection point I
-            DMG = V + dINT * M
+            DMG = DMGMod + V + dINT * M
 
         else
              -- Above inflection point I additional dINT is only half as effective
-            DMG = V + I + ((dINT - I) * (M / 2))
+            DMG = DMGMod + V + I + ((dINT - I) * (M / 2))
+
         end
 
         -- Check/ set damage soft cap

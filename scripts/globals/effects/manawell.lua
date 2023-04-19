@@ -4,12 +4,12 @@
 --
 -----------------------------------
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.NO_SPELL_MP_DEPLETION, 100)
+    target:addMod(tpz.mod.REFRESH, 400)
 end
 
 function onEffectTick(target, effect)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.NO_SPELL_MP_DEPLETION, 100)
+    target:delMod(tpz.mod.REFRESH, 400)
 end

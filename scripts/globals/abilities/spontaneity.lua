@@ -1,8 +1,8 @@
 -----------------------------------
 -- Ability: Spontaneity
 -- Reduces casting time for the next magic spell the target casts.
--- Obtained: Red Mage Level 95
--- Recast Time: 10:00
+-- Obtained: BLM Level 25
+-- Recast Time: 03:00
 -- Duration: 1:00
 -----------------------------------
 require("scripts/globals/status")

@@ -1,9 +1,9 @@
 -----------------------------------
 -- Ability: Manawell
--- Description: Eliminates the cost of the next magic spell the target casts.
--- Obtained: BLM Level 95
--- Recast Time: 00:10:00 or the next spell cast
--- Duration: 0:01:00
+-- Description: Restores your MP over 9 seconds. Cannot perform actions during the duration.
+-- Obtained: BLM Level 40
+-- Recast Time: 00:08:00 
+-- Duration: 0:00:08
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -14,5 +14,6 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    target:addStatusEffect(tpz.effect.MANAWELL, 4, 0, 60)
+    player:addStatusEffect(tpz.effect.STUN, 1, 0, 9)
+    target:addStatusEffect(tpz.effect.MANAWELL, 1, 0, 9)
 end

@@ -4,14 +4,12 @@
 --
 -----------------------------------
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.MACC, 100)
+    target:addMod(tpz.mod.MATT, 40)
 end
 
 function onEffectTick(target, effect)
-    target:addMod(tpz.mod.ENMITY, -20)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.MACC, 100)
-    target:delMod(tpz.mod.ENMITY)
+    target:delMod(tpz.mod.MATT, 40)
 end

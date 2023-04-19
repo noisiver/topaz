@@ -1,9 +1,9 @@
 -----------------------------------
 -- Ability: Sacrosanctity
--- Description: Enhances magic defense for party members within area of effect.
--- Obtained: WHM Level 95
--- Recast Time: 00:10:00
--- Duration: 0:01:00
+-- Description: Enhances your physical prowess, but lowers curing power.
+-- Obtained: WHM Level 5
+-- Recast Time: 00:00:30
+-- Duration: 0:05:00
 -----------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -14,5 +14,5 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    player:addStatusEffect(tpz.effect.SACROSANCTITY, 3, 0, 60)
+    player:addStatusEffect(tpz.effect.SACROSANCTITY, 1, 0, 300)
 end
