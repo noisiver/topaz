@@ -2987,9 +2987,9 @@ namespace charutils
             // Ranaged has 50% max ,2h has 24% max, and 1h and spells have 10% max skill up chance
             if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING)
             {
-                if (SkillUpChance > 0.24)
+                if (SkillUpChance > 0.5)
                 {
-                    SkillUpChance = 0.24;
+                    SkillUpChance = 0.5;
                 }
             }
             else if (SkillID == SKILL_GREAT_SWORD || SkillID == SKILL_GREAT_AXE || SkillID == SKILL_SCYTHE || SkillID == SKILL_POLEARM ||
@@ -3002,9 +3002,9 @@ namespace charutils
             }
             else
             {
-                if (SkillUpChance > 0.10)
+                if (SkillUpChance > 0.24)
                 {
-                    SkillUpChance = 0.10;
+                    SkillUpChance = 0.24;
                 }
             }
 
