@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 15170
 -- Item: Spartan Hoplon
--- Item Effect: Phalanx
+-- Item Effect: Phalanx(-20)
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/msg")
@@ -11,7 +11,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    if (target:addStatusEffect(tpz.effect.PHALANX, 10, 0, 180)) then -- Retail potency unknown, 10 is a guess. (someone 1000 needles test this thing!)
+    if (target:addStatusEffect(tpz.effect.PHALANX, 20, 0, 1800)) then
         target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.PHALANX)
     else
         target:messageBasic(tpz.msg.basic.NO_EFFECT)
