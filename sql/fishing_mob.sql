@@ -405,14 +405,14 @@ INSERT INTO `fishing_mob` VALUES (16965635,'Passage_Crab',46,1,1,11,15,255,255,0
 INSERT INTO `fishing_mob` VALUES (16965636,'Gugru_Jagil',46,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16965637,'Blanched_Kraken',46,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16965638,'Gugru_Orobon',46,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (16965639,'Northern_Piranu',46,1,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16965639,'Northern_Piranu',46,50,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
 
 -- Open Sea Route to Mhaura
 INSERT INTO `fishing_mob` VALUES (16969731,'Passage_Crab',47,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16969732,'Gugru_Jagil',47,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16969733,'Blanched_Kraken',47,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
 INSERT INTO `fishing_mob` VALUES (16969734,'Gugru_Orobon',47,1,1,10,15,255,255,0,0,1,1000,0,0,0,0);
-INSERT INTO `fishing_mob` VALUES (16969735,'Southern_Piranu',47,1,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
+INSERT INTO `fishing_mob` VALUES (16969735,'Southern_Piranu',47,50,1,10,15,255,255,0,0,1,1000,14400,0,0,0);
 
 -- Silver Sea Route to Nashmau
 INSERT INTO `fishing_mob` VALUES (17014785,'Cyan_Deep_Crab',58,1,1,11,15,255,255,0,0,1,1000,0,0,0,0);
