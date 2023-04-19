@@ -7919,7 +7919,6 @@ INSERT INTO `item_mods` VALUES (12334,1,5);         -- Strong Shield
 INSERT INTO `item_mods` VALUES (12334,68,21);	      -- +21 evasion
 INSERT INTO `item_mods` VALUES (12335,1,8);
 INSERT INTO `item_mods` VALUES (12336,1,7);         -- Royal Squire's Shield
-INSERT INTO `item_mods` VALUES (12336,68,3);
 INSERT INTO `item_mods` VALUES (12336,68,35);	      -- +35 evasion
 INSERT INTO `item_mods` VALUES (12337,1,6);
 INSERT INTO `item_mods` VALUES (12338,1,5);         -- Frost Shield
@@ -8040,10 +8039,8 @@ INSERT INTO `item_mods` VALUES (12365,60,4);
 INSERT INTO `item_mods` VALUES (12365,61,4);
 INSERT INTO `item_mods` VALUES (12365,30,5);        -- MACC +5
 INSERT INTO `item_mods` VALUES (12366,1,8);         -- Royal Squire's Shield +1
-INSERT INTO `item_mods` VALUES (12366,68,3);
 INSERT INTO `item_mods` VALUES (12366,68,35);	      -- +35 evasion
 INSERT INTO `item_mods` VALUES (12367,1,9);         -- Royal Squire's Shield +2
-INSERT INTO `item_mods` VALUES (12367,68,3);
 INSERT INTO `item_mods` VALUES (12367,68,36);	      -- +36 evasion
 INSERT INTO `item_mods` VALUES (12368,1,15);
 INSERT INTO `item_mods` VALUES (12368,8,2);
