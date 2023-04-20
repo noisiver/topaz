@@ -15690,7 +15690,12 @@ inline int32 CLuaBaseEntity::getTHlevel(lua_State* L)
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_MOB);
 
     CMobEntity* PMob = (CMobEntity*)m_PBaseEntity;
-    lua_pushinteger(L, PMob->isDead() ? PMob->m_THLvl : PMob->PEnmityContainer->GetHighestTH());
+    if (m_PBaseEntity->objtype == TYPE_MOB)
+    {
+        CMobEntity* PMob = static_cast<CMobEntity*>(m_PBaseEntity);
+        lua_pushinteger(L, PMob->m_THLvl);
+    }
+    
     return 1;
 }
 

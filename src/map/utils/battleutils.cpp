@@ -4564,7 +4564,7 @@ namespace battleutils
 
                 if (PCurrentMob->m_HiPCLvl > 0 && PCurrentMob->PEnmityContainer->HasID(PSource->id))
                 {
-                    PCurrentMob->PEnmityContainer->UpdateEnmity(PSource, CE, VE);
+                    PCurrentMob->PEnmityContainer->UpdateEnmity(PSource, CE, VE, false, false, false);
                 }
             }
         }
@@ -5541,7 +5541,7 @@ namespace battleutils
         if (PAttacker->objtype == TYPE_MOB &&
              PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_ISSEKIGAN)) {
             // Issekigan is Known to Grant 300 CE per parry, but unknown how it effects VE (per bgwiki). So VE is left alone for now.
-            static_cast<CMobEntity*>(PAttacker)->PEnmityContainer->UpdateEnmity(PDefender, 300, 0, false);
+            static_cast<CMobEntity*>(PAttacker)->PEnmityContainer->UpdateEnmity(PDefender, 300, 0, false, false);
         }
     }
 

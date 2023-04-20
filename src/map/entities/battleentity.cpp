@@ -1817,7 +1817,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 {
                     CMobEntity* PMob = (CMobEntity*)PTarget;
                     uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                    uint16 mobTHLvL = PMob->PEnmityContainer->GetHighestTH();
+                    uint16 mobTHLvL = PMob->m_THLvl;
 
                     if (playerTHLvl > mobTHLvL)
                     {
@@ -1896,7 +1896,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
             {
                 CMobEntity* PMob = (CMobEntity*)PTarget;
                 uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                uint16 mobTHLvL = PMob->PEnmityContainer->GetHighestTH();
+                uint16 mobTHLvL = PMob->m_THLvl;
 
                 if (playerTHLvl > mobTHLvL)
                 {
