@@ -20,8 +20,13 @@ end
 function onUseAbility(player, target, ability)
 
     -- Reduce 99% of total accumulated enmity
-    if (target:isMob()) then
-        target:lowerEnmity(player, 99)
+    -- http://wiki.ffo.jp/html/3367.html
+    for _, mob in pairs(player:getNotorietyList()) do
+        -- TODO: testing shows max range on this is >50' but stops somewhere above this. Need exact number.
+        if mob:isMob() and mob:checkDistance(player) <= 75.0 then
+            mob:setCE(player, 1)
+            mob:setVE(player, 0)
+        end
     end
 
     ability:setMsg(tpz.msg.basic.NONE)

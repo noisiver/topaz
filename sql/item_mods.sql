@@ -17329,7 +17329,7 @@ INSERT INTO `item_mods` VALUES (15365,2,12);
 INSERT INTO `item_mods` VALUES (15365,9,5);
 INSERT INTO `item_mods` VALUES (15365,11,5);
 INSERT INTO `item_mods` VALUES (15365,108,10);
-INSERT INTO `item_mods` VALUES (15365,362,10);
+INSERT INTO `item_mods` VALUES (15365,362,10); -- JUMP_ATT_BONUS: 15
 INSERT INTO `item_mods` VALUES (15366,1,10); -- evokers_pigaches_ +1
 INSERT INTO `item_mods` VALUES (15366,5,25);
 INSERT INTO `item_mods` VALUES (15366,346,1);
@@ -30046,7 +30046,7 @@ INSERT INTO `item_mods` VALUES (23321,25,36);     -- Accuracy+36
 INSERT INTO `item_mods` VALUES (23321,29,2);      -- Magic Defense Bonus+2
 INSERT INTO `item_mods` VALUES (23321,31,85);     -- Magic Evasion+85
 INSERT INTO `item_mods` VALUES (23321,68,72);     -- Evasion+72
-INSERT INTO `item_mods` VALUES (23321,361,24);    -- Jump TP+24
+INSERT INTO `item_mods` VALUES (23321,362,24);    -- -- JUMP_ATT_BONUS: 24
 INSERT INTO `item_mods` VALUES (23321,384,300);   -- Haste +30
 INSERT INTO `item_mods` VALUES (23322,1,72);      -- convo._pigaches_+2 DEF:72
 INSERT INTO `item_mods` VALUES (23322,2,13);      -- HP+13
@@ -32039,7 +32039,7 @@ INSERT INTO `item_mods` VALUES (23656,25,46);     -- Accuracy+46
 INSERT INTO `item_mods` VALUES (23656,29,3);      -- Magic Defense Bonus+3
 INSERT INTO `item_mods` VALUES (23656,31,95);     -- Magic Evasion+95
 INSERT INTO `item_mods` VALUES (23656,68,82);     -- Evasion+82
-INSERT INTO `item_mods` VALUES (23656,361,26);    -- Jump TP+26
+INSERT INTO `item_mods` VALUES (23656,362,26);    -- JUMP_ATT_BONUS: 26
 INSERT INTO `item_mods` VALUES (23656,384,300);   -- Haste +30
 INSERT INTO `item_mods` VALUES (23657,1,82);      -- convo._pigaches_+3 DEF:82
 INSERT INTO `item_mods` VALUES (23657,2,23);      -- HP+23
