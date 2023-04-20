@@ -127,6 +127,10 @@ bool CWeaponSkillState::Update(time_point tick)
             m_PEntity->loc.zone->PushPacket(m_PEntity, CHAR_INRANGE_SELF, new CActionPacket(action));
             auto PTarget{ GetTarget() };
             m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_USE", m_PEntity, PTarget, m_PSkill->getID(), m_spent, &action);
+            PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, m_PEntity, m_PSkill->getID(), m_spent, &action);
+            auto delay = m_PSkill->getAnimationTime();
+            m_finishTime = tick + delay;
+            Complete();
         }
         else // Mob is dead before we could finish WS, generate interrupt for WS
         {
@@ -137,11 +141,6 @@ bool CWeaponSkillState::Update(time_point tick)
             action.actiontype = ACTION_MAGIC_FINISH;
             action.actionid = 28787; // Some hardcoded magic for interrupts
             actionList_t& actionList = action.getNewActionList();
-            auto PTarget{ GetTarget() };
-            PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, m_PEntity, m_PSkill->getID(), m_spent, &action);
-            auto delay = m_PSkill->getAnimationTime();
-            m_finishTime = tick + delay;
-            Complete();
         }
     }
     else if (tick > m_finishTime)
