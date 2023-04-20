@@ -2774,7 +2774,7 @@ inline int32 CLuaBaseEntity::updateToEntireZone(lua_State* L)
         PNpc->name[8] = 8;
     }
 
-    PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT);
+    PNpc->loc.zone->UpdateEntityPacket(PNpc, ENTITY_UPDATE, UPDATE_COMBAT, true);
     return 1;
 }
 /************************************************************************
