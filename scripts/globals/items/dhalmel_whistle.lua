@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 15505
 -- Item: dhalmel_whistle
--- Item Effect: AGI +6
+-- Item Effect: Attack +10%
 -- Duration: 3 minutes
 -----------------------------------------
 require("scripts/globals/status")
@@ -20,9 +20,13 @@ function onItemUse(target)
 end
 
 function onEffectGain(target, effect)
-    target:addMod(tpz.mod.AGI, 6)
+    target:addMod(tpz.mod.ATTP, 10)
+    target:addMod(tpz.mod.RATTP, 10)
+    target:addMod(tpz.mod.DEFP, -10)
 end
 
 function onEffectLose(target, effect)
-    target:delMod(tpz.mod.AGI, 6)
+    target:delMod(tpz.mod.ATTP, 10)
+    target:delMod(tpz.mod.RATTP, 10)
+    target:delMod(tpz.mod.DEFP, -10)
 end

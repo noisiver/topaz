@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 15372
 -- Item: Magic Slacks
--- Item Effect: Restores 30-39 MP
+-- Item Effect: Restores 200-300 MP
 -----------------------------------------
 require("scripts/globals/msg")
 
@@ -13,7 +13,7 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    local mpHeal = math.random(30, 40)
+    local mpHeal = math.random(200, 300)
     local dif = target:getMaxMP() - target:getMP()
     if (mpHeal > dif) then
         mpHeal = dif
