@@ -46,7 +46,7 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_NOT_ENOUGH_MP			= 34, /* The <player> does not have enough MP to cast (nullptr). */
 	MSGBASIC_NO_NINJA_TOOLS			= 35, /* The <player> lacks the ninja tools to cast (nullptr). */
     MSGBASIC_CANNOT_CAST_SPELL      = 47, /* >player> cannot cast <spell>. */
-    MSGBASIC_CANNOT_USE_IN_AREA      = 40, /* cannot use in this area */
+    MSGBASIC_CANNOT_USE_IN_AREA     = 40, /* cannot use in this area */
 	MSGBASIC_UNABLE_TO_CAST_SPELLS  = 49, /* The <player> is unable to cast spells. */
     MSGBASIC_MAGIC_NO_EFFECT        = 75, /* <caster>'s <spell> has no effect on <target>. */
     MSGBASIC_MAGIC_TELEPORT         = 93, /* <caster> casts <spell>. <target> vanishes. */
@@ -55,9 +55,11 @@ enum MSGBASIC_ID : uint16
 	MSGBASIC_USES_JA				= 100, /* The <player> uses .. */
 	MSGBASIC_USES_JA2				= 101, /* The <player> uses .. */
 	MSGBASIC_USES_RECOVERS_HP		= 102, /* The <player> uses .. <target> recovers .. HP. */
+    MSGBASIC_SKILL_RECOVERS_HP      = 103, /* The <player> uses .. <target> recovers .. HP. */
+    MSGBASIC_TIME_LEFT              = 202, /* Time left: (h:mm:ss) */
 	MSGBASIC_USES_JA_TAKE_DAMAGE	= 317, /* The <player> uses .. <target> takes .. points of damage. */
 	MSGBASIC_IS_INTIMIDATED			= 106, /* The <player> is intimidated by <target>'s presence. */
-	MSGBASIC_CANNOT_PERFORM_ACTION	= 71, /* You cannot perform that action on the specified target. */
+	MSGBASIC_CANNOT_PERFORM_ACTION	= 71,  /* You cannot perform that action on the specified target. */
 	MSGBASIC_CANNOT_ON_THAT_TARG	= 155, /* You cannot perform that action on the specified target. */
 	MSGBASIC_OUT_OF_RANGE_UNABLE_CAST	= 313, /* Out of range unable to cast */
 	MSGBASIC_CANNOT_ATTACK_TARGET	= 446, /* You cannot attack that target */
