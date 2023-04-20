@@ -39,14 +39,13 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     local damage, criticalHit, tpHits, extraHits = doRangedWeaponskill(player, target, wsID, params, tp, action, primary)
     local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.FIRE, 0)
 
-    if (damage > 0 and target:hasStatusEffect(tpz.effect.BURN) == false and target:getStatusEffect(tpz.effect.DROWN) == nil and  resist >= 0.5) then
+    if (damage > 0 and not target:hasStatusEffect(tpz.effect.BURN) and not target:hasStatusEffect(tpz.effect.DROWN) and  resist >= 0.5) then
         local duration = 180 * resist
         local power = math.floor(player:getMainLvl() / 5) + 3
-        if (target:getStatusEffect(tpz.effect.FROST) ~= nil) then
+        if target:hasStatusEffect(tpz.effect.FROST) then
             target:delStatusEffectSilent(tpz.effect.FROST)
         end
         target:addStatusEffect(tpz.effect.BURN, power, 3, duration)
-        print(string.format("power: %u",power))
     end
 
 	if damage > 0 then player:trySkillUp(target, tpz.skill.ARCHERY, tpHits+extraHits) end

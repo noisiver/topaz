@@ -37,7 +37,6 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
         local duration = 180 * resist
         local power = 15
         target:addStatusEffect(tpz.effect.ADDLE, power, 0, duration)
-        print(string.format("power: %u",power))
     end
 
 	if damage > 0 then player:trySkillUp(target, tpz.skill.ARCHERY, tpHits+extraHits) end
