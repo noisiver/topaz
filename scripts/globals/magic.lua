@@ -2414,7 +2414,7 @@ function getAdditionalEffectStatusResist(player, target, effect, element, bonus)
     return resist
 end
 
-function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold)
+function TryApplyEffect(caster, target, spell, effect, power, tick, duration, resist, resistthreshold, subpower)
     local immunities = {
         { tpz.effect.SLEEP_I, 1},
         { tpz.effect.SLEEP_II, 1},
@@ -2435,8 +2435,14 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
         { tpz.effect.PETRIFICATION, 8192},
     }
 
+    -- Check for Stymie
     if caster:hasStatusEffect(tpz.effect.STYMIE) then
         duration = duration * 3
+    end
+
+    -- Check for subpower
+    if (subpower == nil) then
+        subpower = 0
     end
 
     -- Check for immunity
@@ -2461,7 +2467,7 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
 
     -- Check if resist is greater than the minimum resisit state(1/2, 1/4, etc)
     if (resist >= resistthreshold) then
-        if target:addStatusEffect(effect, power, tick, duration) then
+        if target:addStatusEffect(effect, power, tick, duration, 0, subpower) then
             -- Check for magic burst
             if GetEnfeebleMagicBurstMessage(caster, spell, target) then
                 return spell:setMsg(spell:getMagicBurstMessage()) 
