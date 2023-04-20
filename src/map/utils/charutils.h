@@ -105,8 +105,8 @@ namespace charutils
     void    SetStyleLock(CCharEntity* PChar, bool isStyleLocked);
     void    UpdateWeaponStyle(CCharEntity* PChar, uint8 equipSlotID, CItemEquipment* PItem);
     void    UpdateArmorStyle(CCharEntity* PChar, uint8 equipSlotID);
-    void AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity);
-    void EmptyRecycleBin(CCharEntity* PChar);
+    void    AddItemToRecycleBin(CCharEntity* PChar, uint32 container, uint8 slotID, uint8 quantity);
+    void    EmptyRecycleBin(CCharEntity* PChar);
 
     bool	hasKeyItem(CCharEntity* PChar, uint16 KeyItemID);	        // проверяем наличие ключевого предмета
     bool	seenKeyItem(CCharEntity* PChar, uint16 KeyItemID);	        // проверяем, было ли описание ключевого предмета прочитано

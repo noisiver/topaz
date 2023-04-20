@@ -1074,8 +1074,12 @@ void SmallPacket0x028(map_session_data_t* const PSession, CCharEntity* const PCh
     // TODO: Are there any special messages here?
     if (PItem->isType(ITEM_LINKSHELL) || container == CONTAINER_ID::LOC_TEMPITEMS)
     {
-        charutils::DropItem(PChar, container, slotID, quantity, ItemID);
-        return;
+        // Only drop items if level1 or below GM to help testing/GMing properly
+        if (PChar->m_GMlevel <= 1)
+        {
+            charutils::DropItem(PChar, container, slotID, quantity, ItemID);
+            return;
+        }
     }
 
     // Otherwise, to the recycle bin!
