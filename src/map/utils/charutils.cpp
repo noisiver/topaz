@@ -3034,19 +3034,19 @@ namespace charutils
                     switch (tier)
                     {
                         case 5:
-                            chance = 0.240;
+                            chance = 0.450;
                             break;
                         case 4:
-                            chance = 0.200;
+                            chance = 0.300;
                             break;
                         case 3:
-                            chance = 0.150;
+                            chance = 0.250;
                             break;
                         case 2:
-                            chance = 0.100;
+                            chance = 0.150;
                             break;
                         case 1:
-                            chance = 0.050;
+                            chance = 0.100;
                             break;
                         default:
                             chance = 0.000;
