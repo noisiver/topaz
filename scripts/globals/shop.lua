@@ -62,7 +62,7 @@ tpz.shop =
 
         player:createShop(#stock / 3, log)      -- changed from / 3
 
-        for i = 1, #stock, 3 do1
+        for i = 1, #stock, 3 do
             player:addShopItem(stock[i], stock[i+1], guildSkillId, stock[i+2])
         end
 
