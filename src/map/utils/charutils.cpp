@@ -2984,12 +2984,12 @@ namespace charutils
 
             double random = tpzrand::GetRandomNumber(1.);
 
-            // Ranaged has 50% max ,2h has 24% max, and 1h and spells have 10% max skill up chance
+            // Ranaged has 70% max ,2h has 50% max, and 1h and spells have 24% max skill up chance
             if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING)
             {
-                if (SkillUpChance > 0.5)
+                if (SkillUpChance > 0.70)
                 {
-                    SkillUpChance = 0.5;
+                    SkillUpChance = 0.70;
                 }
             }
             else if (SkillID == SKILL_GREAT_SWORD || SkillID == SKILL_GREAT_AXE || SkillID == SKILL_SCYTHE || SkillID == SKILL_POLEARM ||
