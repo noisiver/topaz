@@ -1807,11 +1807,11 @@ inline int32 CLuaBaseEntity::pathTo(lua_State* L)
 }
 
 /************************************************************************
-*  Function: pathThrough()
-*  Purpose : Makes an Entity follow a given set of points
-*  Example : mob:pathThrough(pathfind.first(path), PATHFLAG_RUN)
-*  Notes   : Ex: Gets Zipacna back on his specified path
-************************************************************************/
+ *  Function: pathThrough()
+ *  Purpose : Makes an Entity follow a given set of points
+ *  Example : mob:pathThrough(pathfind.first(path), PATHFLAG_RUN)
+ *  Notes   : Ex: Gets Zipacna back on his specified path
+ ************************************************************************/
 
 inline int32 CLuaBaseEntity::pathThrough(lua_State* L)
 {
@@ -1828,7 +1828,14 @@ inline int32 CLuaBaseEntity::pathThrough(lua_State* L)
         lua_rawgeti(L, 1, i + 1);
         lua_rawgeti(L, 1, i + 2);
 
-        points.push_back({ (float)lua_tointeger(L, -3), (float)lua_tointeger(L, -2), (float)lua_tointeger(L, -1), 0, 0 });
+        if (lua_isnil(L, -1) || lua_isnil(L, -2) || lua_isnil(L, -3))
+        {
+            // error exit
+            ShowError("Lua::pathThrough : Path value is nil.");
+            return 0;
+        }
+
+        points.push_back({ (float)lua_tonumber(L, -3), (float)lua_tonumber(L, -2), (float)lua_tonumber(L, -1), 0, 0 });
 
         lua_pop(L, 3);
     }
