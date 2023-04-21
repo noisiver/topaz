@@ -241,24 +241,28 @@ tpz.shop =
         [curio.medicine] =
         {
                 4112,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Potion
-                4116,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Hi-Potion
-                4120,    1200,      tpz.ki.RHAPSODY_IN_WHITE,   -- X-Potion
+                4116,     600,      tpz.ki.RHAPSODY_IN_UMBER,   -- Hi-Potion
+                4120,    1200,      tpz.ki.RHAPSODY_IN_AZURE,   -- X-Potion
+                4124,    5700,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Max-Potion
                 4128,     650,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ether
-                4132,    1300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Hi-Ether
-                4136,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Super Ether
-                4145,   15000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Elixir
+                4132,    1300,      tpz.ki.RHAPSODY_IN_UMBER,   -- Hi-Ether
+                4136,    3000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Super Ether
+                4140,    7000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Pro Ether
+                4145,   15000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Elixir
+                4144,   20000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Hi-Elixir
                 4148,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antidote
                 4150,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Eye Drops
                 4151,     700,      tpz.ki.RHAPSODY_IN_WHITE,   -- Echo Drops
                 4153,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antacid
                 4154,     700,      tpz.ki.RHAPSODY_IN_WHITE,   -- Holy Water
-                4155,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Remedy
-                4156,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Mulsum
+                4155,    3000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Remedy
+                4156,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mulsum
                 4164,    1500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Prism Powder
                 4165,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Silent Oil
                 4166,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Deodorizer
-                4172,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Reraiser
-                4173,    1500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Hi-Reraiser
+                4172,    1000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Reraiser
+                4173,    1500,      tpz.ki.RHAPSODY_IN_EMERALD, -- Hi-Reraiser
+                4213,   15000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Icarus Wing
         },
         [curio.ammunition] =
         {
@@ -270,34 +274,34 @@ tpz.shop =
                 4222,     650,      tpz.ki.RHAPSODY_IN_WHITE,   -- Horn Quiver
                 5333,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Quiver
                 4223,     700,      tpz.ki.RHAPSODY_IN_WHITE,   -- Scorpion Quiver
-                4224,    7000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Demon Quiver
-                5332,    8800,      tpz.ki.RHAPSODY_IN_WHITE,   -- Kabura Quiver
-                5819,    9900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antlion Quiver
+                4224,    7000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Demon Quiver
+                5332,    8800,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Kabura Quiver
+                -- 5819,    9900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antlion Quiver
                 4227,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bolt Quiver
                 5334,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Blind Bolt Quiver
                 5335,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acid Bolt Quiver
                 5337,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Bolt Quiver
                 5339,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bloody Bolt Quiver
                 5338,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Venom Bolt Quiver
-                5336,    600,       tpz.ki.RHAPSODY_IN_WHITE,   -- Holy Bolt Quiver
-                4228,    3500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Mythril Bolt Quiver
-                4229,    5580,      tpz.ki.RHAPSODY_IN_WHITE,   -- Darksteel Bolt Quiver
-                5820,    9460,      tpz.ki.RHAPSODY_IN_WHITE,   -- Darkling Bolt Quiver
-                5821,    9790,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fusion Bolt Quiver
+                5336,    600,       tpz.ki.RHAPSODY_IN_UMBER,   -- Holy Bolt Quiver
+                4228,    3500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mythril Bolt Quiver
+                4229,    5580,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Darksteel Bolt Quiver
+                -- 5820,    9460,      tpz.ki.RHAPSODY_IN_WHITE,   -- Darkling Bolt Quiver
+                -- 5821,    9790,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fusion Bolt Quiver
                 5359,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bullet Pouch
                 5363,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bullet Pouch
                 5341,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spartan Bullet Pouch
                 5353,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iron Bullet Pouch
-                5340,     700,      tpz.ki.RHAPSODY_IN_WHITE,   -- Silver Bullet Pouch
-                5342,    7100,      tpz.ki.RHAPSODY_IN_WHITE,   -- Corsair Bullet Pouch
-                5416,    7600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Steel Bullet Pouch
-                5822,    9680,      tpz.ki.RHAPSODY_IN_WHITE,   -- Dweomer Bullet Pouch
-                5823,    9900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oberon Bullet Pouch
+                5340,     700,      tpz.ki.RHAPSODY_IN_AZURE,   -- Silver Bullet Pouch
+                5342,    7100,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Corsair Bullet Pouch
+                5416,    7600,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Steel Bullet Pouch
+                -- 5822,    9680,      tpz.ki.RHAPSODY_IN_WHITE,   -- Dweomer Bullet Pouch
+                -- 5823,    9900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Oberon Bullet Pouch
                 6299,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Shuriken Pouch
                 6297,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Juji Shuriken Pouch
                 6298,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Manji Shuriken Pouch
-                6302,     700,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fuma Shuriken Pouch
-                6303,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iga Shuriken Pouch
+                6302,     700,      tpz.ki.RHAPSODY_IN_AZURE,   -- Fuma Shuriken Pouch
+                6303,    1000,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Iga Shuriken Pouch
         },
         [curio.ninjutsuTools] =
         {
@@ -315,38 +319,41 @@ tpz.shop =
                 5319,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Shinobi-Tabi)
                 5417,    3000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Sanjaku-Tenugui)
                 5734,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Toolbag (Soshi)
+                5867,    5000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Toolbag (inoshishinofuda)
+                5868,    5000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Toolbag (shikanofuda)
+                5869,    5000,      tpz.ki.RHAPSODY_IN_EMERALD,   -- Toolbag (chonofuda)
         },
         [curio.foodStuffs] =
         {
                 4378,      60,      tpz.ki.RHAPSODY_IN_WHITE,   -- Selbina Milk
                 4299,     100,      tpz.ki.RHAPSODY_IN_WHITE,   -- Orange au Lait
                 -- 5703,     100,      tpz.ki.RHAPSODY_IN_WHITE,   -- Uleguerand Milk
-                4300,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Apple au Lait
-                4301,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pear au Lait
+                4300,     300,      tpz.ki.RHAPSODY_IN_UMBER,   -- Apple au Lait
+                4301,     600,      tpz.ki.RHAPSODY_IN_AZURE,   -- Pear au Lait
                 4422,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Orange Juice
-                4424,    1100,      tpz.ki.RHAPSODY_IN_WHITE,   -- Melon Juice
-                4558,    2000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Yagudo Drink
+                4424,    1100,      tpz.ki.RHAPSODY_IN_UMBER,   -- Melon Juice
+                4558,    2000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Yagudo Drink
                 4405,     160,      tpz.ki.RHAPSODY_IN_WHITE,   -- Rice Ball
                 4376,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Jerky
                 4578,     140,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sausage
                 4371,     184,      tpz.ki.RHAPSODY_IN_WHITE,   -- Grilled Hare
-                4381,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Mithkabob
+                4381,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Meat Mithkabob
                 4456,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Boiled Crab
                 4398,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fish Mithkabob
-                5166,    1500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Coeurl Sub
-                4538,     900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Roast Pipira
-                6217,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Anchovy Slice
-                6215,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pepperoni Slice
-                5752,    3500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pot-auf-feu
+                5166,    1500,      tpz.ki.RHAPSODY_IN_EMERALD, -- Coeurl Sub
+                4538,     900,      tpz.ki.RHAPSODY_IN_UMBER,   -- Roast Pipira
+                6217,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Anchovy Slice
+                6215,     400,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pepperoni Slice
+                5752,    3500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pot-auf-feu
                 4488,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Jack-o'-Lantern
-                5176,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bream Sushi
-                5178,    4000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Dorado Sushi
-                5721,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Crab Sushi
+                5176,    5000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Bream Sushi
+                5178,    4000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Dorado Sushi
+                5721,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Crab Sushi
                 5775,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Chocolate Crepe
                 5766,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Butter Crepe
                 4413,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Apple Pie
-                4421,     800,      tpz.ki.RHAPSODY_IN_WHITE,   -- Melon Pie
-                4446,    1200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pumpkin Pie
+                4421,     800,      tpz.ki.RHAPSODY_IN_AZURE,   -- Melon Pie
+                4446,    1200,      tpz.ki.RHAPSODY_IN_UMBER,   -- Pumpkin Pie
                 4410,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Roast Mushroom
                 4510,      24,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acorn Cookie
                 4394,      12,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ginger Cookie
@@ -369,13 +376,13 @@ tpz.shop =
         },
         [curio.scrolls] =
         {
-                4181,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Warp
-                4182,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Reraise
-                5428,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Retrace
-                5988,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Protect
-                5989,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Shell
-                5990,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Stoneskin
-               15533,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Chocobo Whistle
+                4181,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Instant Warp
+                4182,     500,      tpz.ki.RHAPSODY_IN_UMBER,   -- Instant Reraise
+                5428,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Instant Retrace
+                5988,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Protect
+                5989,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Shell
+                5990,     500,      tpz.ki.RHAPSODY_IN_CRIMSON,   -- Instant Stoneskin
+               15533,    5000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Chocobo Whistle
         },
         [curio.keys] =
         {
