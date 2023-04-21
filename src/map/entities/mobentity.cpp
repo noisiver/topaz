@@ -1564,14 +1564,17 @@ void CMobEntity::OnDeathTimer()
 
 void CMobEntity::OnDespawn(CDespawnState&)
 {
+    if ((PAI != nullptr) && (PAI->GetController() != nullptr))
+    {
+        PAI->GetController()->SetAutoAttackEnabled(true);
+        PAI->GetController()->SetMagicCastingEnabled(true);
+        PAI->GetController()->SetWeaponSkillEnabled(true);
+    }
     FadeOut();
     PAI->Internal_Respawn(std::chrono::milliseconds(m_RespawnTime));
     luautils::OnMobDespawn(this);
     PAI->ClearActionQueue();
     m_unkillable = false;
-    PAI->GetController()->SetAutoAttackEnabled(true);
-    PAI->GetController()->SetMagicCastingEnabled(true);
-    PAI->GetController()->SetWeaponSkillEnabled(true);
     animationsub = 0;
     //#event despawn
     PAI->EventHandler.triggerListener("DESPAWN", this);
