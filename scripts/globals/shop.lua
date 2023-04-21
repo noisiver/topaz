@@ -62,11 +62,38 @@ tpz.shop =
 
         player:createShop(#stock / 3, log)      -- changed from / 3
 
-        for i = 1, #stock, 3 do
+        for i = 1, #stock, 3 do1
             player:addShopItem(stock[i], stock[i+1], guildSkillId, stock[i+2])
         end
 
         player:sendMenu(2)
+    end,
+
+     --[[ *******************************************************************************
+           On trigger to check nation rank
+    ******************************************************************************* --]]   
+    curioVendorMoogleOnTrigger = function(player)
+        local unlocks =
+        {
+            {   2, tpz.ki.RHAPSODY_IN_WHITE    },
+            {   4, tpz.ki.RHAPSODY_IN_UMBER    },
+            {   7, tpz.ki.RHAPSODY_IN_AZURE    },
+            {   8, tpz.ki.RHAPSODY_IN_CRIMSON  },
+            {   9, tpz.ki.RHAPSODY_IN_EMERALD  },
+            {  10, tpz.ki.RHAPSODY_IN_MAUVE    },
+        }
+        local playerRank = player:getRank()
+        local ID = zones[player:getZoneID()]
+
+        for _, rank in pairs(unlocks) do
+            if (rank[1] == playerRank) then
+                if not player:hasKeyItem(rank[2]) then
+                    player:addKeyItem(rank[2])
+                    player:messageSpecial(ID.text.KEYITEM_OBTAINED, rank[2])
+                    player:PrintToPlayer("Oooooh! You're already rank " .. playerRank .. "? I have a new gift for you then, adventurer!",0,"Curio Moogle")
+                end
+            end
+        end
     end,
 
     --[[ *******************************************************************************
@@ -348,6 +375,7 @@ tpz.shop =
                 5988,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Protect
                 5989,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Shell
                 5990,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Instant Stoneskin
+               15533,    5000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Chocobo Whistle
         },
         [curio.keys] =
         {
