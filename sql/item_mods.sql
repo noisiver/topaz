@@ -12430,7 +12430,8 @@ INSERT INTO `item_mods` VALUES (14001,1,9);
 INSERT INTO `item_mods` VALUES (14002,1,10);
 INSERT INTO `item_mods` VALUES (14003,1,12);
 INSERT INTO `item_mods` VALUES (14004,1,13);
-INSERT INTO `item_mods` VALUES (14005,1,10);
+INSERT INTO `item_mods` VALUES (14005,1,10);      -- Moonsoon Tekko
+INSERT INTO `item_mods` VALUES (14005,25,8);      -- Accuracy+8
 INSERT INTO `item_mods` VALUES (14006,1,23);
 INSERT INTO `item_mods` VALUES (14006,7,50);
 INSERT INTO `item_mods` VALUES (14006,28,5);
@@ -16776,16 +16777,17 @@ INSERT INTO `item_mods` VALUES (15219,8,2);
 INSERT INTO `item_mods` VALUES (15219,10,-2);
 INSERT INTO `item_mods` VALUES (15219,12,2);
 INSERT INTO `item_mods` VALUES (15219,13,-2);
-INSERT INTO `item_mods` VALUES (15220,5,20);
+INSERT INTO `item_mods` VALUES (15220,5,20);        -- Rain Hat
 INSERT INTO `item_mods` VALUES (15220,13,2);
 INSERT INTO `item_mods` VALUES (15220,14,2);
-INSERT INTO `item_mods` VALUES (15221,1,21); -- Patroclus's Helm
+INSERT INTO `item_mods` VALUES (15220,30,3);        -- MACC +3
+INSERT INTO `item_mods` VALUES (15221,1,21);        -- Patroclus's Helm
 INSERT INTO `item_mods` VALUES (15221,8,2);
 INSERT INTO `item_mods` VALUES (15221,27,-5);
 INSERT INTO `item_mods` VALUES (15221,68,-5);
 INSERT INTO `item_mods` VALUES (15221,384,200);
-INSERT INTO `item_mods` VALUES (15221,232,10); -- Arcana Killer
-INSERT INTO `item_mods` VALUES (15221,1232,10); -- Arcane_Circle(5% dmg to arcana)
+INSERT INTO `item_mods` VALUES (15221,232,10);      -- Arcana Killer
+INSERT INTO `item_mods` VALUES (15221,1232,10);     -- Arcane_Circle(5% dmg to arcana)
 INSERT INTO `item_mods` VALUES (15222,25,-10);
 INSERT INTO `item_mods` VALUES (15222,26,-10);
 INSERT INTO `item_mods` VALUES (15222,68,-10);
@@ -19783,8 +19785,9 @@ INSERT INTO `item_mods` VALUES (16236,1,9);
 INSERT INTO `item_mods` VALUES (16236,3,-1);
 INSERT INTO `item_mods` VALUES (16236,26,6);
 INSERT INTO `item_mods` VALUES (16236,68,6);
-INSERT INTO `item_mods` VALUES (16237,1,7);
+INSERT INTO `item_mods` VALUES (16237,1,7);       -- Thunderer's Mantle
 INSERT INTO `item_mods` VALUES (16237,3,-1);
+INSERT INTO `item_mods` VALUES (16237,25,4);      -- Accuracy +4
 INSERT INTO `item_mods` VALUES (16237,26,4);
 INSERT INTO `item_mods` VALUES (16237,68,4);
 INSERT INTO `item_mods` VALUES (16238,1,7);
@@ -20509,8 +20512,9 @@ INSERT INTO `item_mods` VALUES (16722,9,-3);
 INSERT INTO `item_mods` VALUES (16723,8,5);
 INSERT INTO `item_mods` VALUES (16723,10,-5);
 INSERT INTO `item_mods` VALUES (16726,8,1);
-INSERT INTO `item_mods` VALUES (16727,9,2);
+INSERT INTO `item_mods` VALUES (16727,9,2);       -- Eisentaenzer
 INSERT INTO `item_mods` VALUES (16727,14,2);
+INSERT INTO `item_mods` VALUES (16727,25,10);       -- Accuracy+10
 INSERT INTO `item_mods` VALUES (16728,60,-11);
 INSERT INTO `item_mods` VALUES (16728,61,11);
 INSERT INTO `item_mods` VALUES (16730,2,10);
@@ -21657,7 +21661,8 @@ INSERT INTO `item_mods` VALUES (17613,11,2);
 INSERT INTO `item_mods` VALUES (17616,2,20);
 INSERT INTO `item_mods` VALUES (17616,55,10);
 INSERT INTO `item_mods` VALUES (17616,57,10);
-INSERT INTO `item_mods` VALUES (17618,165,5);
+INSERT INTO `item_mods` VALUES (17618,165,5);     -- Kidney Dagger
+INSERT INTO `item_mods` VALUES (17618,421,5);     -- Critical hit damage +5%
 INSERT INTO `item_mods` VALUES (17619,1303,20);   -- (Daylight Dagger) Status Effect Magic Accuracy +20
 INSERT INTO `item_mods` VALUES (17620,5,11);
 INSERT INTO `item_mods` VALUES (17620,9,3);
