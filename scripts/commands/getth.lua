@@ -23,5 +23,5 @@ function onTrigger(player)
         error(player, "you must select a target monster with the cursor first")
     end
 
-        player:PrintToPlayer(string.format("%s TH level is is ... %u", targ:getName(), targ:getTHlevel()))
+    player:PrintToPlayer(string.format("%s TH level is is ... %u", targ:getName(), targ:getTHlevel()))
 end
