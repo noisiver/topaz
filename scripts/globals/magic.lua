@@ -2110,6 +2110,85 @@ function getDstatBonus(softcap, diff)
     return dstatMaccBonus
 end
 
+function GetCharmHitRate(player, target)
+    -- formula is 50% - family reduct - dLvl (3/lvl until 50, 5/lvl 51+, 10/lvl at some level)) * charm multiplier + dCHR + Light Staff bonus (10/15)
+    --dLVL can never go above 0, and dCHR goes below 0
+    local chance = 50
+    local familyReduction = GetCharmFamilyReduction(player, target)
+    local element = tpz.magic.ele.LIGHT
+    local diff = player:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
+    local dCHR = getDstatBonus(10, diff)
+    local dLvl = player:getMainLvl() - target:getMainLvl()
+    local SDT = getEnfeeblelSDT(tpz.effect.CHARM, element, target)
+    local charmMultiplier = GetCharmMultiplier(SDT)
+    local charmMod = (1 + player:getMod(tpz.mod.CHARM_CHANCE) / 100) -- Correct mod?
+    local affinityBonus = AffinityBonusAcc(player, element)
+
+    if (target:getMainLvl() > 70) then
+        dLvl = dLvl * 10
+    elseif (target:getMainLvl() > 50) then
+        dLvl = dLvl * 5
+    else
+        dLvl = dLvl * 3
+    end
+
+    -- dLvl = utils.clamp(dLvl, 0, 99999) No caps?
+
+    chance = chance - familyReduction
+    --print(string.format("chance - family reduction: %u", chance))
+    chance = chance + dLvl
+    --print(string.format("chance - dLvl reduction: %u", chance))
+    chance = chance * charmMultiplier
+    --print(string.format("chance * charm multiplier: %u", chance))
+    chance = chance + dCHR
+    --print(string.format("chance + dCHR: %u", chance))
+    chance = chance + affinityBonus
+    --print(string.format("chance + affinity bonus: %u", chance))
+
+    chance = utils.clamp(chance, 5, 95)
+
+    return chance
+end
+
+function GetCharmMultiplier(SDT)
+    -- Light SDT/EEM	Charm Multi
+    -- 150%	            1.5
+    -- 130%	            1.4
+    -- 115%         	1.2
+    -- 100%	            1
+    -- SUB 100%	        0.5
+    if (SDT >= 150) then
+        return 1.5
+    elseif (SDT >= 130) then
+        return 1.4
+    elseif (SDT >= 150) then
+        return 1.2
+    elseif (SDT >= 100) then
+        return 1
+    else
+        return 0.5
+    end
+
+    return 1
+end
+
+function GetCharmFamilyReduction(player, target)
+    -- Slime, Puk -35%
+    -- Old Opo-Opo -40%
+    -- Ifrit's Raptor -75%
+    local family = target:getFamily()
+
+    if (family == 198 or family == 526 or family == 228 or family == 229 or family == 230 or family == 66 or family == 67) then
+        return 35
+    elseif (family == 188) then -- Should be old Opo-opo only
+        return 40
+    elseif (family == 376 or family == 377 or family == 210) then -- Should be ifrits raptor only
+        return 75
+    end
+
+    return 0
+end
+
 function doElementalNuke(caster, spell, target, spellParams)
     local DMG = 0
     local DMGMod = caster:getMod(tpz.mod.MAGIC_DAMAGE)
