@@ -15,5 +15,13 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    target:addStatusEffect(tpz.effect.DECOY_SHOT, 11, 1, 30)
+    if target:hasStatusEffect(tpz.effect.THIRD_EYE) then
+        -- Third Eye and Utsusemi don't stack. Utsusemi removes Third Eye.
+        target:delStatusEffectSilent(tpz.effect.THIRD_EYE)
+    end
+
+    -- Delete old shadows before applying new
+    target:delStatusEffectSilent(tpz.effect.COPY_IMAGE)
+    target:addStatusEffectEx(tpz.effect.COPY_IMAGE, tpz.effect.COPY_IMAGE_4, 2, 0, 30, 0, 4)
+    spell:setMsg(tpz.msg.basic.MAGIC_GAIN_EFFECT)
 end
