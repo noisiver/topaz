@@ -4,6 +4,7 @@
 -- Type: Quest Giver
 -- !pos -241.293 -3 63.406 235
 -----------------------------------
+local ID = require("scripts/zones/Bastok_Markets/IDs")
 require("scripts/globals/keyitems")
 require("scripts/globals/npc_util")
 require("scripts/globals/quests")
@@ -61,7 +62,9 @@ function onEventFinish(player, csid, option)
     if csid == 251 then
         player:addQuest(BASTOK, tpz.quest.id.bastok.THE_CURSE_COLLECTOR)
         npcUtil.giveKeyItem(player, tpz.ki.CURSEPAPER)
-    elseif csid == 252 and npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.THE_CURSE_COLLECTOR, {item = 16387, var = {"cCollectSilence", "cCollectCurse"}}) then
+    elseif csid == 252 and npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.THE_CURSE_COLLECTOR, {fame = 500, xp = 7500, var = {"cCollectSilence", "cCollectCurse"}}) then
+        player:addItem(16387, 1, 23, 4, 25, 4) -- Attack+5 Accuracy+5
+        player:messageSpecial(ID.text.ITEM_OBTAINED, 16387) -- Poison Cesti
         player:delKeyItem(tpz.ki.CURSEPAPER)
     end
 end

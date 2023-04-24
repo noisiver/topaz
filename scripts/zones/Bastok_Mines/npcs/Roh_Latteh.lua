@@ -49,8 +49,9 @@ function onEventFinish(player, csid, option)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.THE_SIGNPOST_MARKS_THE_SPOT)
             player:delKeyItem(tpz.ki.PAINTING_OF_A_WINDMILL)
             player:addTitle(tpz.title.TREASURE_SCAVENGER)
-            player:addFame(BASTOK, 50)
-            player:addItem(12601)
+            player:addExp(4000 * EXP_RATE)
+            player:addFame(BASTOK, 200)
+            player:addItem(12601, 1, 25, 2) -- Attack +3
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12601) -- Linen Robe
         else
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 12601)

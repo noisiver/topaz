@@ -52,10 +52,11 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 12840)
         else
             player:addTitle(tpz.title.PURSUER_OF_THE_PAST)
-            player:addItem(12840)
+            player:addItem(12840, 1, 513, 0) -- DEX+1
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12840)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.HEARTS_OF_MYTHRIL)
-            player:addFame(BASTOK, 80)
+            player:addExp(2500 * EXP_RATE)
+            player:addFame(BASTOK, 150)
             player:setCharVar("HeartsOfMythril", 0)
             player:needToZone(true)
         end

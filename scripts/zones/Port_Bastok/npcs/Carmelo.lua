@@ -5,6 +5,8 @@
 -- Start Quest: Lovers in the Dusk
 -- Involved in Quest: The Siren's Tear
 -- !pos -146.476 -7.48 -10.889 236
+-- TODO: Custom item stats on Lamia Harp
+-- TODO: A Test of True Love custom reward(~lvl 50) Needs to be very good!
 -----------------------------------
 local ID = require("scripts/zones/Port_Bastok/IDs")
 require("scripts/globals/keyitems")
@@ -80,7 +82,8 @@ function onEventFinish(player, csid, option)
             player:addTitle(tpz.title.SORROW_DROWNER)
             player:addItem(17356)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 17356) -- Lamia Harp
-            player:addFame(BASTOK, 120)
+            player:addExp(9500 * EXP_RATE)
+            player:addFame(BASTOK, 300)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.LOVE_AND_ICE)
         end
     elseif (csid == 270) then
@@ -91,7 +94,8 @@ function onEventFinish(player, csid, option)
     elseif (csid == 274) then
         player:setCharVar("ATestOfTrueLoveProgress", 0)
         player:needToZone(true)
-        player:addFame(BASTOK, 120)
+        player:addExp(25000 * EXP_RATE)
+        player:addFame(BASTOK, 1000)
         player:completeQuest(BASTOK, tpz.quest.id.bastok.A_TEST_OF_TRUE_LOVE)
     elseif (csid == 275) then
         player:addQuest(BASTOK, tpz.quest.id.bastok.LOVERS_IN_THE_DUSK)

@@ -34,8 +34,9 @@ function onEventFinish(player, csid, option)
     if csid == 217 then
         player:addQuest(BASTOK, tpz.quest.id.bastok.A_FLASH_IN_THE_PAN)
     elseif csid == 219 then
-        local fame = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.A_FLASH_IN_THE_PAN) and 8 or 75
-        if npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.A_FLASH_IN_THE_PAN, {gil=100, fame=fame}) then
+        local fame = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.A_FLASH_IN_THE_PAN) and 10 or 75
+        local exp = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.A_FLASH_IN_THE_PAN) and 1500 or 150
+        if npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.A_FLASH_IN_THE_PAN, {gil=100, fame=fame, xp=exp}) then
             player:confirmTrade()
             GetNPCByID(ID.npc.AQUILLINA):setLocalVar("FlashInThePan", os.time() + 900)
         end

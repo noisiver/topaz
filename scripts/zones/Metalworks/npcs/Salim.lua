@@ -2,6 +2,7 @@
 -- Area: Metalworks
 --  NPC: Salim
 -- Standard Info NPC
+-- TODO: Code quest
 -----------------------------------
 
 function onTrade(player, npc, trade)

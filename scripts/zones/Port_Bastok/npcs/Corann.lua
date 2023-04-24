@@ -50,9 +50,10 @@ function onEventFinish(player, csid, option)
     elseif (csid == 81) then
         player:tradeComplete()
         player:completeQuest(BASTOK, tpz.quest.id.bastok.THE_QUADAV_S_CURSE)
+        player:addExp(2500 * EXP_RATE)
         player:addFame(BASTOK, 120)
-        player:addItem(12832)
-        player:messageSpecial(ID.text.ITEM_OBTAINED, 12832)
+        player:addItem(12832, 1, 513, 0) -- DEX+1
+        player:messageSpecial(ID.text.ITEM_OBTAINED, 12832) -- Bronze Subligar
     end
 
 end

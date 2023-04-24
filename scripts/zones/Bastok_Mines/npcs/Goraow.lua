@@ -52,9 +52,11 @@ function onEventFinish(player, csid, option)
         Vengeful = player:getQuestStatus(BASTOK, tpz.quest.id.bastok.VENGEFUL_WRATH)
         if (Vengeful == QUEST_ACCEPTED) then
             player:addTitle(tpz.title.AVENGER)
-            player:addFame(BASTOK, 120)
+            player:addFame(BASTOK, 150)
+            player:addExp(4000 * EXP_RATE)
         else
-            player:addFame(BASTOK, 8)
+            player:addFame(BASTOK, 50)
+            player:addExp(500 * EXP_RATE)
         end
         player:tradeComplete()
         player:addGil(GIL_RATE*900)

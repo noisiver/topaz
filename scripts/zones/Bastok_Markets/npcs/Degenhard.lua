@@ -44,7 +44,8 @@ function onEventFinish(player, csid, option)
     elseif csid == 256 then
         player:addQuest(BASTOK, tpz.quest.id.bastok.THE_BARE_BONES)
     elseif csid == 258 then
-        if (npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.THE_BARE_BONES, {ki = tpz.ki.MAP_OF_THE_DANGRUF_WADI, fame = 60})) then
+        if (npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.THE_BARE_BONES, {ki = tpz.ki.MAP_OF_THE_DANGRUF_WADI, fame = 250})) then
+            player:addExp(2000 * EXP_RATE)
             player:confirmTrade()
         end
     end

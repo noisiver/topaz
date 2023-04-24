@@ -227,9 +227,10 @@ function onEventFinish(player, csid, option)
         if (player:getFreeSlotsCount(0) >= 1) then
             player:delKeyItem(tpz.ki.UNFINISHED_LETTER)
             player:setCharVar("CidsSecret_Event", 0)
-            player:addItem(13570)
+            player:addItem(13570, 1, 512, 1) -- STR+2
             player:messageSpecial(ID.text.ITEM_OBTAINED, 13570) -- Ram Mantle
-            player:addFame(BASTOK, 30)
+            player:addExp(10000 * EXP_RATE)
+            player:addFame(BASTOK, 500)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.CID_S_SECRET)
         else
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13570)

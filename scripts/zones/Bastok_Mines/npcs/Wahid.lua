@@ -36,13 +36,16 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
+    local fame = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.THE_SIREN_S_TEAR) and 10 or 100
+    local exp = player:hasCompletedQuest(BASTOK, tpz.quest.id.bastok.THE_SIREN_S_TEAR) and 1500 or 150
 
     if (csid == 81) then
         player:addQuest(BASTOK, tpz.quest.id.bastok.THE_SIREN_S_TEAR)
     elseif (csid == 82) then
         player:tradeComplete()
         player:completeQuest(BASTOK, tpz.quest.id.bastok.THE_SIREN_S_TEAR)
-        player:addFame(BASTOK, 120)
+        player:addExp(exp * EXP_RATE)
+        player:addFame(BASTOK, fame)
         player:addGil(150*GIL_RATE)
         player:messageSpecial(ID.text.GIL_OBTAINED, 150*GIL_RATE)
         player:addTitle(tpz.title.TEARJERKER)

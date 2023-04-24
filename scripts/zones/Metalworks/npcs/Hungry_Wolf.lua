@@ -45,10 +45,12 @@ function onEventFinish(player, csid, option)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*300)
         player:addTitle(tpz.title.HOT_DOG)
         if (player:getQuestStatus(BASTOK, tpz.quest.id.bastok.SMOKE_ON_THE_MOUNTAIN) == QUEST_ACCEPTED) then
-            player:addFame(BASTOK, 30)
+            player:addExp(2500 * EXP_RATE)
+            player:addFame(BASTOK, 100)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.SMOKE_ON_THE_MOUNTAIN)
         else
-            player:addFame(BASTOK, 5)
+            player:addExp(200 * EXP_RATE)
+            player:addFame(BASTOK, 10)
         end
     end
 end

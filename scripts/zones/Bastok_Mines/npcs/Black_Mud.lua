@@ -2,6 +2,7 @@
 -- Area: Bastok Mines
 --  NPC: Black Mud
 -- Starts & Finishes Quest: Drachenfall
+-- TODO: Custom reward
 -----------------------------------
 require("scripts/globals/quests")
 require("scripts/globals/settings")
@@ -109,7 +110,8 @@ function onEventFinish(player, csid, option)
     elseif (csid == 103) then
         player:tradeComplete()
         player:completeQuest(BASTOK, tpz.quest.id.bastok.DRACHENFALL)
-        player:addFame(BASTOK, 120)
+        player:addExp(7500 * EXP_RATE)
+        player:addFame(BASTOK, 300)
         player:addTitle(tpz.title.DRACHENFALL_ASCETIC)
         player:addGil(GIL_RATE*2000)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*2000)

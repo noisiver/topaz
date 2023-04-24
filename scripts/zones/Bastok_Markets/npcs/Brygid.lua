@@ -128,9 +128,10 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 12720)
         else
             player:addTitle(tpz.title.BRYGIDAPPROVED)
-            player:addItem(12720)
+            player:addItem(12720, 1, 35, 1) -- +2 MACC
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12720)
-            player:addFame(BASTOK, 30)
+            player:addExp(2000 * EXP_RATE)
+            player:addFame(BASTOK, 150)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.BRYGID_THE_STYLIST)
         end
     elseif (csid == 380) then

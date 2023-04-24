@@ -59,10 +59,12 @@ function onEventFinish(player, csid, option)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*8000)
 
         if (TheDarksmith == QUEST_ACCEPTED) then
-            player:addFame(BASTOK, 30)
+            player:addExp(5000 * EXP_RATE)
+            player:addFame(BASTOK, 350)
             player:completeQuest(BASTOK, tpz.quest.id.bastok.THE_DARKSMITH)
         else
-            player:addFame(BASTOK, 5)
+            player:addExp(500 * EXP_RATE)
+            player:addFame(BASTOK, 50)
         end
     elseif (csid == 752) then
         player:setCharVar("darkLegacyCS", 2)

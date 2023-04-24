@@ -57,12 +57,14 @@ MineSweep = player:getQuestStatus(BASTOK, tpz.quest.id.bastok.MINESWEEPER)
     elseif (csid == 109) then
         if (MineSweep == 1) then
             player:completeQuest(BASTOK, tpz.quest.id.bastok.MINESWEEPER)
+            player:addExp(1000 * EXP_RATE)
             player:addFame(BASTOK, 75)
             player:addTitle(tpz.title.ZERUHN_SWEEPER)
         else
             player:addFame(BASTOK, 8)
         end
         player:addGil(GIL_RATE*150)
+        player:addExp(100 * EXP_RATE)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*150)
     end
 
