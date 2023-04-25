@@ -2186,7 +2186,7 @@ INSERT INTO `item_latents` VALUES(16952, 2, -20, 47, 0);
 INSERT INTO `item_latents` VALUES(16952, 55, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(16952, 57, -10, 47, 0);
 INSERT INTO `item_latents` VALUES(16968, 165, 7, 59, 3);    -- Kamewari - Vs. arcana: Critical hit rate +7%
-INSERT INTO `item_latents` VALUES(16969, 165, 5, 59, 9);    -- Onikiri - Vs. demons: Critical hit rate +5%
+INSERT INTO `item_latents` VALUES(16969, 165, 7, 59, 9);    -- Onikiri - Vs. demons: Critical hit rate +7%
 
 -- -------------------------------------------------------
 -- Onimaru

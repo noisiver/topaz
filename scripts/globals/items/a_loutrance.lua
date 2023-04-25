@@ -1,14 +1,15 @@
 -----------------------------------------
--- ID: 18151
--- Item: Bloody Bolt
--- Additional Effect: Drains HP
+-- ID: 18041
+-- Item: A l'Outrance 
+-- Additional Effect: HP Drain
 -----------------------------------------
 require("scripts/globals/status")
+require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local dmg = doAdditionalEffectDamage(player, target, 100, 50, nil, false, 0, tpz.magic.ele.DARK, 0)
+    local dmg = doAdditionalEffectDamage(player, target, 25, 50, nil, false, 0, tpz.magic.ele.DARK, 0)
 
     if dmg == 0 then
         return 0, 0, 0
@@ -22,3 +23,4 @@ function onAdditionalEffect(player, target, damage)
 
     return tpz.subEffect.HP_DRAIN, message, dmg
 end
+
