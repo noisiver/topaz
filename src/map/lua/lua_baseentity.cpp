@@ -6294,21 +6294,21 @@ inline int32 CLuaBaseEntity::getFameLevel(lua_State *L)
         uint16 fame = (uint16)lua_tointeger(L, -1);
         uint8  fameLevel = 1;
 
-        if (fame >= 613)
+        if (fame >= 8000)
             fameLevel = 9;
-        else if (fame >= 550)
+        else if (fame >= 7200)
             fameLevel = 8;
-        else if (fame >= 488)
+        else if (fame >= 6500)
             fameLevel = 7;
-        else if (fame >= 425)
+        else if (fame >= 5760)
             fameLevel = 6;
-        else if (fame >= 325)
+        else if (fame >= 4520)
             fameLevel = 5;
-        else if (fame >= 225)
+        else if (fame >= 3840)
             fameLevel = 4;
-        else if (fame >= 125)
+        else if (fame >= 1920)
             fameLevel = 3;
-        else if (fame >= 50)
+        else if (fame >= 900)
             fameLevel = 2;
 
         if ((fameArea >= 6) && (fameArea <= 14) && (fameLevel >= 6))
