@@ -1170,6 +1170,200 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             }
         }
     }
+    // Roll for base cloth materials
+    if (getMobMod(MOBMOD_NO_DROPS) == 0 && this->IsHumanoid())
+    {
+        if (GetMLevel() >= 11 && GetMLevel() <= 20) // 11-20 bracket cloth
+        {
+            AddItemToPool(834, ++dropCount); // Saruta Cotton
+            printf("11-20\n");
+        }
+        else if (GetMLevel() <= 30) // 21-30 bracket cloth
+        {
+            AddItemToPool(835, ++dropCount); // Flax Flower
+            printf("21-30\n");
+        }
+        else if (GetMLevel() <= 40) // 31-40 bracket cloth
+        {
+            AddItemToPool(832, ++dropCount); // Sheep Wool
+            printf("31-40\n");
+        }
+        else if (GetMLevel() <= 60) // 41-60 bracket cloth
+        {
+            AddItemToPool(839, ++dropCount); // Crawler Cocoon
+            printf("41-60\n");
+        }
+        else if (GetMLevel() <= 75) // 61-75 bracket cloth
+        {
+            AddItemToPool(838, ++dropCount); // Spider Web
+            printf("61-70\n");
+        }
+    }
+    // Roll for random rare items
+    if (tpzrand::GetRandomNumber(100) < 1 && getMobMod(MOBMOD_NO_DROPS) == 0)
+    {
+        if (GetMLevel() >= 11 && GetMLevel() <= 20) // 11-20 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(1126, ++dropCount)) // Desperado Ring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount)) // Pile Chain
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount)) // Rambler's Cloak
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(2956, ++dropCount)) // Bronze Bandolier
+                        return;
+                    break;
+            }
+        }
+        if (GetMLevel() <= 30) // 21-30 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(1126, ++dropCount)) // Mammut 100% proc
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount)) // Phlegethon's Trousers
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount)) // Herder's Subligar
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(2956, ++dropCount)) // Rambler's Gaiters
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() <= 40) // 31-40 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(1126, ++dropCount)) // Buccaneer's Scimitar
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount)) // Pestle Add Dmg and ACAC Affinity +1 (All)
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount)) // Mokusa 100% proc
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(2956, ++dropCount)) // Risky Patch
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() <= 50) // 41-50 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(1126, ++dropCount)) // Gothic Gauntlets
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount)) // Gothic Gauntlets
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount)) // Rossignol
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(2956, ++dropCount)) // Galkan Dagger 100% proc
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() <= 60) // 51-60 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(1126, ++dropCount)) // Rebel Earring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount)) // Prouesse Ring TODO: Code logic into TrySkillUP
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount)) // Grapevine Cape TODO: Make level 55
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(2956, ++dropCount)) // Bond Cape TODO: MACC based on party size and make Lvl 55
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() <= 70) // 61-70 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(1126, ++dropCount)) // Magnifying Earring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount)) // Sirocco Axe 100% proc
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount)) // Daedalus Hammer
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(2956, ++dropCount)) // Glassblower's Belt TODO: Code into Wyvern Breath LUA's or add mod
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() <= 75) // 71-75 bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(1126, ++dropCount)) // Divisor Ring
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(1127, ++dropCount)) // Caract Choker
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(2955, ++dropCount)) // Melaco Mittens TODO: Make level 75
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(2956, ++dropCount)) // Dagda's Shield TODO: Add BST and WHM, make level 71
+                        return;
+                    break;
+            }
+        }
+    }
     uint16 Pzone = PChar->getZone();
 
     bool validZone = ((Pzone > 0 && Pzone < 31) || (Pzone > 44 && Pzone < 55) || (Pzone > 56 && Pzone < 63) || (Pzone > 64 && Pzone < 66) || (Pzone > 66 && Pzone < 69) ||
@@ -1317,172 +1511,6 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             if (tpzrand::GetRandomNumber(100) < 20 && getMobMod(MOBMOD_NO_DROPS) == 0 && AddItemToPool(4095 + m_Element, ++dropCount))
             {
                 return;
-            }
-        }
-
-        // Roll for random rare items
-        if (tpzrand::GetRandomNumber(100) < 1 && getMobMod(MOBMOD_NO_DROPS) == 0)
-        {
-            if (GetMLevel() >= 11 && GetMLevel() <= 19) // 11-19 bracket rare drops
-            {
-                switch (tpzrand::GetRandomNumber(4))
-                {
-                    case 0:
-
-                        if (AddItemToPool(1126, ++dropCount)) // Desperado Ring
-                        return;
-                        break;
-                    case 1:
-                        if (AddItemToPool(1127, ++dropCount)) // Pile Chain
-                        return;
-                        break;
-                    case 2:
-                        if (AddItemToPool(2955, ++dropCount)) // Rambler's Cloak
-                        return;
-                        break;
-                    case 3:
-                        if (AddItemToPool(2956, ++dropCount)) // Bronze Bandolier
-                        return;
-                        break;
-                }
-            }
-            if (GetMLevel() >= 21 && GetMLevel() <= 29) // 21-29 bracket rare drops
-            {
-                switch (tpzrand::GetRandomNumber(4))
-                {
-                    case 0:
-
-                        if (AddItemToPool(1126, ++dropCount)) // Mammut 100% proc
-                            return;
-                        break;
-                    case 1:
-                        if (AddItemToPool(1127, ++dropCount)) // Phlegethon's Trousers 
-                            return;
-                        break;
-                    case 2:
-                        if (AddItemToPool(2955, ++dropCount)) // Herder's Subligar 
-                            return;
-                        break;
-                    case 3:
-                        if (AddItemToPool(2956, ++dropCount)) // Rambler's Gaiters
-                            return;
-                        break;
-                }
-            }
-            else if (GetMLevel() <= 39) // 31-39 bracket rare drops
-            {
-                switch (tpzrand::GetRandomNumber(4))
-                {
-                    case 0:
-
-                        if (AddItemToPool(1126, ++dropCount)) // Buccaneer's Scimitar
-                            return;
-                        break;
-                    case 1:
-                        if (AddItemToPool(1127, ++dropCount)) // Pestle Add Dmg and ACAC Affinity +1 (All)
-                            return;
-                        break;
-                    case 2:
-                        if (AddItemToPool(2955, ++dropCount)) // Mokusa 100% proc
-                            return;
-                        break;
-                    case 3:
-                        if (AddItemToPool(2956, ++dropCount)) // Risky Patch
-                            return;
-                        break;
-                }
-            }
-            else if (GetMLevel() <= 49) // 41-49 bracket rare drops
-            {
-                switch (tpzrand::GetRandomNumber(4))
-                {
-                    case 0:
-
-                        if (AddItemToPool(1126, ++dropCount)) // Gothic Gauntlets
-                            return;
-                        break;
-                    case 1:
-                        if (AddItemToPool(1127, ++dropCount)) // Gothic Gauntlets
-                            return;
-                        break;
-                    case 2:
-                        if (AddItemToPool(2955, ++dropCount)) // Rossignol
-                            return;
-                        break;
-                    case 3:
-                        if (AddItemToPool(2956, ++dropCount)) // Galkan Dagger 100% proc
-                            return;
-                        break;
-                }
-            }
-            else if (GetMLevel() <= 59) // 51-59 bracket rare drops
-            {
-                switch (tpzrand::GetRandomNumber(4))
-                {
-                    case 0:
-
-                        if (AddItemToPool(1126, ++dropCount)) // Rebel Earring
-                            return;
-                        break;
-                    case 1:
-                        if (AddItemToPool(1127, ++dropCount)) // Prouesse Ring TODO: Code logic into TrySkillUP
-                            return;
-                        break;
-                    case 2:
-                        if (AddItemToPool(2955, ++dropCount)) // Grapevine Cape TODO: Make level 55
-                            return;
-                        break;
-                    case 3:
-                        if (AddItemToPool(2956, ++dropCount)) // Bond Cape TODO: MACC based on party size and make Lvl 55
-                            return;
-                        break;
-                }
-            }
-            else if (GetMLevel() <= 69) // 61-69 bracket rare drops
-            {
-                switch (tpzrand::GetRandomNumber(4))
-                {
-                    case 0:
-
-                        if (AddItemToPool(1126, ++dropCount)) // Magnifying Earring
-                            return;
-                        break;
-                    case 1:
-                        if (AddItemToPool(1127, ++dropCount)) // Sirocco Axe 100% proc
-                            return;
-                        break;
-                    case 2:
-                        if (AddItemToPool(2955, ++dropCount)) // Daedalus Hammer
-                            return;
-                        break;
-                    case 3:
-                        if (AddItemToPool(2956, ++dropCount)) // Glassblower's Belt TODO: Code into Wyvern Breath LUA's or add mod
-                            return;
-                        break;
-                }
-            }
-            else if (GetMLevel() <= 75) // 71-75 bracket rare drops
-            {
-                switch (tpzrand::GetRandomNumber(4))
-                {
-                    case 0:
-
-                        if (AddItemToPool(1126, ++dropCount)) // Divisor Ring
-                            return;
-                        break;
-                    case 1:
-                        if (AddItemToPool(1127, ++dropCount)) // Caract Choker
-                            return;
-                        break;
-                    case 2:
-                        if (AddItemToPool(2955, ++dropCount)) // Melaco Mittens TODO: Make level 75
-                            return;
-                        break;
-                    case 3:
-                        if (AddItemToPool(2956, ++dropCount)) // Dagda's Shield TODO: Add BST and WHM, make level 71
-                            return;
-                        break;
-                }
             }
         }
     }
