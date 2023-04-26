@@ -4224,7 +4224,7 @@ INSERT INTO `item_equipment` VALUES (14463,'galka_gilet_+1',1,0,4194303,157,0,0,
 INSERT INTO `item_equipment` VALUES (14464,'trailers_tunica',16,0,1024,105,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14465,'nanban_kariginu',30,0,4096,102,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14466,'fomor_tunic',40,0,4179646,3,0,0,32,16);
-INSERT INTO `item_equipment` VALUES (14467,'archers_jupon',71,0,1024,24,0,0,32,0);
+INSERT INTO `item_equipment` VALUES (14467,'archers_jupon',71,0,66560,24,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14468,'yinyang_robe',71,0,16384,37,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14469,'reverend_mail',75,0,4,40,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (14470,'assault_brstplate',75,0,2497,32,0,0,32,0);
@@ -7233,7 +7233,7 @@ INSERT INTO `item_equipment` VALUES (17501,'t.m._hooks_+1',52,0,135427,139,0,0,1
 INSERT INTO `item_equipment` VALUES (17502,'t.m._hooks_+2',52,0,135427,139,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (17503,'exocets',46,0,397747,121,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (17504,'pagures',60,0,262643,133,0,0,1,0);
-INSERT INTO `item_equipment` VALUES (17505,'narasimhas_cesti',67,0,2,126,0,0,1,0);
+INSERT INTO `item_equipment` VALUES (17505,'narasimhas_cesti',67,0,131074,126,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (17506,'vishnus_cesti',67,0,2,126,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (17507,'knuckles_of_trials',71,0,131074,130,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (17508,'mst.cst.baghnakhs',71,0,135555,142,0,0,1,0);

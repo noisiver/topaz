@@ -1,7 +1,7 @@
 -----------------------------------------
--- ID: 16937
--- Icicle Sword
--- Additional Effect: Ice Damage
+-- ID: 18042
+-- Item: Ascention
+-- Additional Effect: Fire Damage
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -10,8 +10,8 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     local chance = 95
-    local power = math.random(25, 30)
-    local dmg = doAdditionalEffectDamage(player, target, chance, power, nil, false, 0, tpz.magic.ele.ICE, 0)
+    local power = math.random(45, 50)
+    local dmg = doAdditionalEffectDamage(player, target, chance, power, nil, false, 0, tpz.magic.ele.FIRE, 0)
 
     if dmg == 0 then
         return 0, 0, 0
@@ -23,6 +23,6 @@ function onAdditionalEffect(player, target, damage)
         dmg = target:addHP(-dmg)
     end
 
-    return tpz.subEffect.ICE_DAMAGE, message, dmg
+    return tpz.subEffect.FIRE_DAMAGE, message, dmg
 end
 

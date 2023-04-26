@@ -1184,9 +1184,9 @@ INSERT INTO `item_latents` VALUES(14278, 13, 4, 53, 0);     -- MND +4 in areas i
 -- -------------------------------------------------------
 -- Luna Subligar
 -- -------------------------------------------------------
--- INSERT INTO `item_latents` VALUES(14287, 9, 2, 37, 4);      -- Full moon DEX+2
--- INSERT INTO `item_latents` VALUES(14287, 11, 2, 37, 4);     -- Full moon AGI+2
--- INSERT INTO `item_latents` VALUES(14287, 14, 4, 37, 4);     -- Full moon CHR +4 (total +7)
+INSERT INTO `item_latents` VALUES(14287, 9, 2, 37, 4);      -- Full moon DEX+2
+INSERT INTO `item_latents` VALUES(14287, 11, 2, 37, 4);     -- Full moon AGI+2
+INSERT INTO `item_latents` VALUES(14287, 14, 4, 37, 4);     -- Full moon CHR +4 (total +7)
 
 -- -------------------------------------------------------
 -- Clowns Subligar / Clowns Subligar +1

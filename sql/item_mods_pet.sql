@@ -496,14 +496,33 @@ INSERT INTO `item_mods_pet` VALUES (11392,23,15,23);    -- Koschei Crackows Ramu
 INSERT INTO `item_mods_pet` VALUES (11392,28,5,23);     -- Koschei Crackows Ramuh: MAB +5
 INSERT INTO `item_mods_pet` VALUES (17962,23,15,0);     -- Fleetwing: Attack +15
 INSERT INTO `item_mods_pet` VALUES (17962,25,15,0);     -- Fleetwing: Accuracy +15
-INSERT INTO `item_mods_pet` VALUES (18597,1257,10,1);     -- Catalyst: Avatars: +10% Magic Burst Bonus
-INSERT INTO `item_mods_pet` VALUES (18761,28,5,0);     -- Acantha Shavers: MAB +5
-INSERT INTO `item_mods_pet` VALUES (18761,30,5,0);     -- Acantha Shavers: MACC +5
-INSERT INTO `item_mods_pet` VALUES (17963,368,50,0);     -- Rainmaker Regain +50
-INSERT INTO `item_mods_pet` VALUES (17963,370,3,0);      -- Rainmaker Regen +3
+INSERT INTO `item_mods_pet` VALUES (18597,1257,10,1);   -- Catalyst: Avatars: +10% Magic Burst Bonus
+INSERT INTO `item_mods_pet` VALUES (18761,28,5,0);      -- Acantha Shavers: MAB +5
+INSERT INTO `item_mods_pet` VALUES (18761,30,5,0);      -- Acantha Shavers: MACC +5
+INSERT INTO `item_mods_pet` VALUES (17963,368,50,0);    -- Rainmaker Regain +50
+INSERT INTO `item_mods_pet` VALUES (17963,370,3,0);     -- Rainmaker Regen +3
 INSERT INTO `item_mods_pet` VALUES (15218,23,15,0);     -- Entrancing Ribbon Pet: Attack +15
 INSERT INTO `item_mods_pet` VALUES (12404,23,25,0);     -- Elegant Shield Pet: Attack +25
 INSERT INTO `item_mods_pet` VALUES (13072,23,25,0);     -- Bird Whistle Pet: Attack +15
 INSERT INTO `item_mods_pet` VALUES (18040,384,500,0);   -- Webcutter Pet: Haste +5%
+INSERT INTO `item_mods_pet` VALUES (17191,25,10,0);     -- Pharaoh's Bow: Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (17927,23,10,0);     -- Lohar: Attack +10
+INSERT INTO `item_mods_pet` VALUES (17927,25,10,0);     -- Lohar: Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (13816,23,10,0);     -- Narasimha's Vest: Attack +10
+INSERT INTO `item_mods_pet` VALUES (13816,25,10,0);     -- Narasimha's Vest: Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (13817,23,11,0);     -- Vishnu's Vest: Attack +11
+INSERT INTO `item_mods_pet` VALUES (13817,25,11,0);     -- Vishnu's Vest: Accuracy+11
+INSERT INTO `item_mods_pet` VALUES (17505,25,10,0);     -- Narasimha's Cesti: Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (17505,26,10,0);     -- Narasimha's Cesti: Ranged Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (17505,30,5,0);      -- Narasimha's Cesti: MACC +5
+INSERT INTO `item_mods_pet` VALUES (17506,25,11,0);     -- Vishnu's Cesti: Accuracy+11
+INSERT INTO `item_mods_pet` VALUES (17506,26,11,0);     -- Vishnu's Cesti: Ranged Accuracy+11
+INSERT INTO `item_mods_pet` VALUES (17506,30,6,0);      -- Vishnu's Cesti: MACC +6
+INSERT INTO `item_mods_pet` VALUES (13616,68,10,0);     -- Dodge Cape: Evasion +10
+INSERT INTO `item_mods_pet` VALUES (16855,370,3,2);     -- Colossal Lance Adds "Regen" effect to wyvern
+INSERT INTO `item_mods_pet` VALUES (17200,23,10,0);     -- Rosenbogen: Attack +10
+INSERT INTO `item_mods_pet` VALUES (17200,25,10,0);     -- Rosenbogen: Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (17201,23,11,0);     -- Rosenbogen +1: Attack +11
+INSERT INTO `item_mods_pet` VALUES (17201,25,11,0);     -- Rosenbogen +1: Accuracy+11
 
 
