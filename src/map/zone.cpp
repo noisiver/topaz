@@ -342,17 +342,18 @@ void CZone::LoadZoneSettings()
 {
     static const char* Query =
         "SELECT "
-        "zone.name,"
-        "zone.zoneip,"
-        "zone.zoneport,"
-        "zone.music_day,"
-        "zone.music_night,"
-        "zone.battlesolo,"
-        "zone.battlemulti,"
-        "zone.tax,"
-        "zone.misc,"
-        "zone.zonetype,"
-        "bcnm.name "
+        "zone.name," // 0
+        "zone.zoneip,"// 1
+        "zone.zoneport," // 2
+        "zone.music_day," // 3
+        "zone.music_night," // 4
+        "zone.battlesolo," // 5
+        "zone.battlemulti," // 6
+        "zone.tax," // 7
+        "zone.misc," // 8
+        "zone.zonetype," // 9
+        "zone.fame_type," // 10
+        "bcnm.name " // 11
         "FROM zone_settings AS zone "
         "LEFT JOIN bcnm_info AS bcnm "
         "USING (zoneid) "
@@ -376,7 +377,9 @@ void CZone::LoadZoneSettings()
 
         m_zoneType = (ZONETYPE)Sql_GetUIntData(SqlHandle, 9);
 
-        if (Sql_GetData(SqlHandle, 10) != nullptr) // сейчас нельзя использовать bcnmid, т.к. они начинаются с нуля
+        m_fameType = (uint8)Sql_GetUIntData(SqlHandle, 10);
+
+        if (Sql_GetData(SqlHandle, 11) != nullptr) // сейчас нельзя использовать bcnmid, т.к. они начинаются с нуля
         {
             m_BattlefieldHandler = new CBattlefieldHandler(this);
         }

@@ -455,6 +455,26 @@ enum ZONEMISC
     MISC_TRUST      = 0x0800,   // Ability to summon Trust NPC
 };
 
+enum ZONEFAME
+{
+    FAME_SANDY = 0,
+    FAME_BASTOK = 1,
+    FAME_WINDURST = 2,
+    FAME_JEUNO = 3,
+    FAME_SELBINA_RABAO = 4,
+    FAME_NORG = 5,
+    FAME_ABYSSEA_KONSCHTAT = 6,
+    FAME_ABYSSEA_TAHRONGI = 7,
+    FAME_ABYSSEA_LATHEINE = 8,
+    FAME_ABYSSEA_MISAREAUX = 9,
+    FAME_ABYSSEA_VUNKERL = 10,
+    FAME_ABYSSEA_ATTOHWA = 11,
+    FAME_ABYSSEA_ALTEPA = 12,
+    FAME_ABYSSEA_GRAUBERG = 13,
+    FAME_ABYSSEA_ULEGUERAND = 14,
+    FAME_ADOULIN = 15
+};
+
 /************************************************************************
 *                                                                       *
 *                                                                       *
@@ -611,6 +631,8 @@ public:
     virtual ~CZone();
 
     CBattlefieldHandler* m_BattlefieldHandler;  // BCNM Instances in this zone
+
+    uint8 m_fameType; // the fame type applied the the entire area, used for item appraisal when selling items to an NPC in this zone
 
     CNavMesh*       m_navMesh;              // zones navmesh for finding paths
 

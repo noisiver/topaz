@@ -4132,28 +4132,75 @@ void SmallPacket0x083(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 *                                                                       *
 ************************************************************************/
 
-void SmallPacket0x084(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+void SmallPacket0x084(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     if (PChar->animation != ANIMATION_SYNTH)
     {
         uint32 quantity = data.ref<uint32>(0x04);
         uint16 itemID = data.ref<uint16>(0x08);
-        uint8  slotID = data.ref<uint8>(0x0A);
+        uint8 slotID = data.ref<uint8>(0x0A);
 
         CItem* PItem = PChar->getStorage(LOC_INVENTORY)->GetItem(slotID);
-        if ((PItem != nullptr) &&
-            (PItem->getID() == itemID) &&
-            !(PItem->getFlag() & ITEM_FLAG_NOSALE))
+        if ((PItem != nullptr) && (PItem->getID() == itemID) && !(PItem->getFlag() & ITEM_FLAG_NOSALE))
         {
             quantity = std::min(quantity, PItem->getQuantity());
             // Store item-to-sell in the last slot of the shop container
             PChar->Container->setItem(PChar->Container->getExSize(), itemID, slotID, quantity);
-            PChar->pushPacket(new CShopAppraisePacket(slotID, PItem->getBasePrice()));
+
+            uint32 basePrice = PItem->getBasePrice();
+            float mult = 0.8f;
+
+            // fame start
+
+            CZone* PZone = PChar->loc.zone;
+            uint16 fame = 0;
+            float fameMultiplier = map_config.fame_multiplier;
+
+
+        switch (PZone->m_fameType)
+            {
+                case FAME_SANDY:
+                case FAME_BASTOK:
+                case FAME_WINDURST:
+                    fame = (uint16)(PChar->profile.fame[PZone->m_fameType] * fameMultiplier);
+                    break;
+                case FAME_JEUNO:
+                    fame = (uint16)(PChar->profile.fame[4] + ((PChar->profile.fame[0] + PChar->profile.fame[1] + PChar->profile.fame[2]) * fameMultiplier / 3));
+                    break;
+                case FAME_SELBINA_RABAO:
+                    fame = (uint16)((PChar->profile.fame[0] + PChar->profile.fame[1]) * fameMultiplier / 2);
+                    break;
+                case FAME_NORG:
+                    fame = (uint16)(PChar->profile.fame[3] * fameMultiplier);
+                    break;
+                    // TODO: Abyssea and adoulin
+                default: // default to no fame for worst sale price
+                    fame = 0;
+                    break;
+            }
+
+            // Amalasanda
+            if (PZone->GetID() == ZONE_LOWER_JEUNO && PChar->loc.p.x > 23.0f && PChar->loc.p.x < 45.0f && PChar->loc.p.z > -62.0f && PChar->loc.p.z < -29.0f)
+                fame = (uint16)(PChar->profile.fame[3] * fameMultiplier); // use tenshodo fame
+
+            if (fame >= 613) // fame level 9
+                mult = 1.0f;
+            else
+                mult = 0.8f + 0.2f * (float)fame / 612.0f;
+
+            if (basePrice == 1)
+                mult = 1.0f; // dont round down to 0
+
+            // fame end
+
+            uint32 finalPrice = (uint32)((float)basePrice * mult);
+            PChar->pushPacket(new CShopAppraisePacket(slotID, finalPrice));
         }
         return;
     }
 }
+
 
 /************************************************************************
 *                                                                       *
@@ -4162,13 +4209,20 @@ void SmallPacket0x084(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 *                                                                       *
 ************************************************************************/
 
-void SmallPacket0x085(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
+/************************************************************************
+ *                                                                       *
+ *  Vender Item Sell                                                     *
+ *  Player selling an item to a vendor.                                  *
+ *                                                                       *
+ ************************************************************************/
+
+void SmallPacket0x085(map_session_data_t* const PSession, CCharEntity* const PChar, CBasicPacket data)
 {
     TracyZoneScoped;
     // Retrieve item-to-sell from last slot of the shop's container
     uint32 quantity = PChar->Container->getQuantity(PChar->Container->getExSize());
     uint16 itemID = PChar->Container->getItemID(PChar->Container->getExSize());
-    uint8  slotID = PChar->Container->getInvSlotID(PChar->Container->getExSize());
+    uint8 slotID = PChar->Container->getInvSlotID(PChar->Container->getExSize());
 
     CItem* gil = PChar->getStorage(LOC_INVENTORY)->GetItem(0);
     CItem* PItem = PChar->getStorage(LOC_INVENTORY)->GetItem(slotID);
@@ -4177,31 +4231,80 @@ void SmallPacket0x085(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     {
         if (quantity < 1 || quantity > PItem->getStackSize()) // Possible exploit
         {
-            ShowExploit(CL_RED"SmallPacket0x085: Player %s trying to sell invalid quantity %u of itemID %u [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity);
+            ShowExploit(CL_RED "SmallPacket0x085: Player %s trying to sell invalid quantity %u of itemID %u [to VENDOR] \n" CL_RESET, PChar->GetName(),
+                        quantity);
             return;
         }
 
         if (PItem->isSubType(ITEM_LOCKED)) // Possible exploit
         {
-            ShowExploit(CL_RED"SmallPacket0x085: Player %s trying to sell %u of a LOCKED item! ID %i [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity, PItem->getID());
+            ShowExploit(CL_RED "SmallPacket0x085: Player %s trying to sell %u of a LOCKED item! ID %i [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity,
+                        PItem->getID());
             return;
         }
 
         if (PItem->getReserve() > 0) // Usually caused by bug during synth, trade, etc. reserving the item. We don't want such items sold in this state.
         {
-            ShowError(CL_RED"SmallPacket0x085: Player %s trying to sell %u of a RESERVED(%u) item! ID %i [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity, PItem->getReserve(), PItem->getID());
+            ShowError(CL_RED "SmallPacket0x085: Player %s trying to sell %u of a RESERVED(%u) item! ID %i [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity,
+                      PItem->getReserve(), PItem->getID());
             return;
         }
 
-        charutils::UpdateItem(PChar, LOC_INVENTORY, 0, quantity * PItem->getBasePrice());
+        uint32 basePrice = PItem->getBasePrice();
+        float mult = 0.8f;
+
+        // fame start
+
+        CZone* PZone = PChar->loc.zone;
+        uint16 fame = 0;
+        float fameMultiplier = map_config.fame_multiplier;
+
+        switch (PZone->m_fameType)
+        {
+            case FAME_SANDY:
+            case FAME_BASTOK:
+            case FAME_WINDURST:
+                fame = (uint16)(PChar->profile.fame[PZone->m_fameType] * fameMultiplier);
+                break;
+            case FAME_JEUNO:
+                fame = (uint16)(PChar->profile.fame[4] + ((PChar->profile.fame[0] + PChar->profile.fame[1] + PChar->profile.fame[2]) * fameMultiplier / 3));
+                break;
+            case FAME_SELBINA_RABAO:
+                fame = (uint16)((PChar->profile.fame[0] + PChar->profile.fame[1]) * fameMultiplier / 2);
+                break;
+            case FAME_NORG:
+                fame = (uint16)(PChar->profile.fame[3] * fameMultiplier);
+                break;
+                // TODO: Abyssea and adoulin
+            default: // default to no fame for worst sale price
+                fame = 0;
+                break;
+        }
+
+        // Amalasanda
+        if (PZone->GetID() == ZONE_LOWER_JEUNO && PChar->loc.p.x > 23.0f && PChar->loc.p.x < 45.0f && PChar->loc.p.z > -62.0f && PChar->loc.p.z < -29.0f)
+            fame = (uint16)(PChar->profile.fame[3] * fameMultiplier); // use tenshodo fame
+
+        if (fame >= 613) // fame level 9
+            mult = 1.0f;
+        else
+            mult = 0.8f + 0.2f * (float)fame / 612.0f;
+
+        if (basePrice == 1)
+            mult = 1.0f; // dont round down to 0
+
+        // fame end
+
+        charutils::UpdateItem(PChar, LOC_INVENTORY, 0, quantity * (uint32)((float)basePrice * mult));
         charutils::UpdateItem(PChar, LOC_INVENTORY, slotID, -(int32)quantity);
-        ShowNotice(CL_CYAN"SmallPacket0x085: Player '%s' sold %u of itemID %u [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity, itemID);
+        ShowNotice(CL_CYAN "SmallPacket0x085: Player '%s' sold %u of itemID %u [to VENDOR] \n" CL_RESET, PChar->GetName(), quantity, itemID);
         PChar->pushPacket(new CMessageStandardPacket(0, itemID, quantity, MsgStd::Sell));
         PChar->pushPacket(new CInventoryFinishPacket());
         PChar->Container->setItem(PChar->Container->getSize() - 1, 0, -1, 0);
     }
     return;
 }
+
 
 /************************************************************************
 *                                                                       *
