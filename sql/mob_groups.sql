@@ -8246,7 +8246,7 @@ INSERT INTO `mob_groups` VALUES (6340,3584,115,'Shantotto',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (1,3088,116,'Palm_Crab',0,128,481,0,0,2,4,0);
 INSERT INTO `mob_groups` VALUES (2,3488,116,'Savanna_Crab',0,128,484,0,0,2,4,0);
 INSERT INTO `mob_groups` VALUES (3,2768,116,'Mud_Pugil',0,128,975,0,0,5,6,0);
-INSERT INTO `mob_groups` VALUES (4,3222,116,'Pug_Pugil',330,0,463,0,0,4,8,0);
+INSERT INTO `mob_groups` VALUES (4,3222,116,'Pug_Pugil',0,128,463,0,0,6,8,0);
 INSERT INTO `mob_groups` VALUES (5,1336,116,'Fighting_Pugil',0,128,279,0,0,9,10,0);
 INSERT INTO `mob_groups` VALUES (6,3924,116,'Tiny_Mandragora',330,0,2420,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (7,583,116,'Bumblebee',330,0,388,0,0,1,1,0);
@@ -8300,6 +8300,8 @@ INSERT INTO `mob_groups` VALUES (54,2546,116,'Mandragora',330,0,1607,0,0,5,6,0);
 INSERT INTO `mob_groups` VALUES (55,1524,116,'Giant_Bee',330,0,965,0,0,7,8,0); --  higher level group
 INSERT INTO `mob_groups` VALUES (56,332,116,'Balloon',330,8,216,0,0,8,10,0);
 INSERT INTO `mob_groups` VALUES (57,1659,116,'Goblin_Fisher',330,0,1054,0,0,7,8,0); --  higher level group
+INSERT INTO `mob_groups` VALUES (58,3222,116,'Pug_Pugil',330,0,463,0,0,4,5,0); -- added higher level group
+INSERT INTO `mob_groups` VALUES (59,3222,116,'Pug_Pugil',330,0,463,0,0,7,8,0); --  higher level group
 
 INSERT INTO `mob_groups` VALUES (6386,3584,116,'Shantotto',0,0,0,0,0,0,0,0);
 
