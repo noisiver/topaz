@@ -808,7 +808,7 @@ namespace charutils
             "SELECT "
             "gmlevel, "    // 0
             "mentor, "     // 1
-            "nnameflags "  // 2
+            "nnameflags, "  // 2
             "chatfilters " // 3
             "FROM chars "
             "WHERE charid = %u;";
