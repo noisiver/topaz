@@ -115,6 +115,7 @@ function onEventFinish(player, csid, option)
         player:tradeComplete()
     elseif (csid == 64) then
         player:additem(tpz.items.CHOCOBO_WHISTLE)
+        player:additem(tpz.items.PURPLE_RACING_SILKS)
         player:addKeyItem(tpz.ki.CHOCOBO_LICENSE)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.CHOCOBO_LICENSE)
         player:addTitle(tpz.title.CHOCOBO_TRAINER)

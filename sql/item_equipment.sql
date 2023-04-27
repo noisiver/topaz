@@ -1090,7 +1090,7 @@ INSERT INTO `item_equipment` VALUES (11319,'ominaeshi_yukata',1,0,4194303,244,0,
 INSERT INTO `item_equipment` VALUES (11320,'skeleton_robe',1,0,4194303,18,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (11321,'orange_race_silks',1,0,4194303,187,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (11322,'black_race_silks',1,0,4194303,188,0,0,32,0);
-INSERT INTO `item_equipment` VALUES (11323,'purple_race_silks',1,0,4194303,189,0,0,32,0);
+INSERT INTO `item_equipment` VALUES (11323,'purple_race_silks',20,0,4194303,189,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (11324,'s._blue_race_silks',1,0,4194303,190,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (11325,'blue_race_silks',1,0,4194303,191,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (11326,'red_race_silks',1,0,4194303,192,0,0,32,0);

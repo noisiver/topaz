@@ -4354,7 +4354,8 @@ INSERT INTO `item_mods` VALUES (11319,1,2);
 INSERT INTO `item_mods` VALUES (11321,1,2);       -- Orange Race Silks: DEF 2
 INSERT INTO `item_mods` VALUES (11321,511,10);    -- Chocobo riding time +10
 INSERT INTO `item_mods` VALUES (11322,1,2);
-INSERT INTO `item_mods` VALUES (11323,1,2);
+INSERT INTO `item_mods` VALUES (11323,1,2);       -- Purple Racing Silks
+INSERT INTO `item_mods` VALUES (11323,1017,60);   -- Mount movement speed +60%
 INSERT INTO `item_mods` VALUES (11324,1,2);
 INSERT INTO `item_mods` VALUES (11325,1,2);
 INSERT INTO `item_mods` VALUES (11326,1,2);
