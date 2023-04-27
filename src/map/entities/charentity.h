@@ -200,6 +200,7 @@ public:
 
     nameflags_t				nameflags;						// флаги перед именем персонажа
     nameflags_t             menuConfigFlags;                // These flags are used for MenuConfig packets. Some nameflags values are duplicated.
+    uint64                  chatFilterFlags;                // Chat Filters
     uint32                  lastOnline {0};                 // UTC Unix Timestamp of the last time char zoned or logged out
     bool                    isNewPlayer();                  // Checks if new player bit is unset.
 
@@ -375,6 +376,10 @@ public:
     time_point        m_LastRangedAttackTime;
 
     CHAR_SUBSTATE     m_Substate;
+
+    
+    bool isYellFiltered() const;                    // Does the user have all yell mesages filtered?
+    bool isYellSpamFiltered() const;                 // Does the user have "all yell/shout messages deemed spam" filtered?
 
     int16 addTP(int16 tp) override;
     int32 addHP(int32 hp) override;
