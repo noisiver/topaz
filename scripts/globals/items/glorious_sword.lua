@@ -16,7 +16,7 @@ function onAdditionalEffect(player, target, damage)
         return 0, 0, 0
     else
         target:delStatusEffectSilent(tpz.effect.EVASION_BOOST)
-        target:addStatusEffect(tpz.effect.FLASH, 80, 3, duration)
+        target:addStatusEffect(tpz.effect.FLASH, 200, 3, duration)
         return tpz.subEffect.FLASH, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.FLASH
     end
 end
