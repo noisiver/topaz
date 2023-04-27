@@ -92,7 +92,7 @@ function onTrigger(player, npc)
     local wsQuestEvent = tpz.wsquest.getTriggerEvent(wsQuest, player)
     local foiledAgain = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_1)
     local CFA2 = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_2)
-    local CFAtimer = player:getCharVar("CursesFoiledAgain")
+    local gameDay = VanadielDayOfTheYear()
     local FoiledAGolem = player:getQuestStatus(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_A_GOLEM)
     local golemdelivery = player:getCharVar("foiledagolemdeliverycomplete")
     local WildcatWindurst = player:getCharVar("WildcatWindurst")
@@ -119,21 +119,9 @@ function onTrigger(player, npc)
     elseif (foiledAgain == QUEST_ACCEPTED) then
         player:startEvent(172, 0, 0, 0, 0, 0, 0, 928, 880)
     elseif (foiledAgain == QUEST_COMPLETED and CFA2 == QUEST_AVAILABLE and CFAtimer == 0) then
-        local cDay = VanadielDayOfTheYear()
-        local cYear = VanadielYear()
-        local dFinished = player:getCharVar("CursesFoiledAgainDay")
-        local yFinished = player:getCharVar("CursesFoiledAgainYear")
-
-        -- player:PrintToPlayer("Vana Day and year:  "..cDay..", "..cYear)
-        -- player:PrintToPlayer("Database Day and year:  "..dFinished..", "..yFinished)
-
-        if (cDay == dFinished and cYear == yFinished) then
+        if player:getCharVar("DayWait[CFA1]") == gameDay then
             player:startEvent(174)
-       -- elseif (cDay == dFinished + 1 and cYear == yFinished) then
-         --   player:startEvent(178)
-        --elseif ((cDay >= dFinished + 2 and cYear == yFinished) or (cYear > yFinished)) then
-          --  player:startEvent(179)
-         elseif (cDay == dFinished + 1 and cYear == yFinished) then
+         else
             player:startEvent(179)
         end
 
@@ -184,9 +172,9 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 17081)
         else
             player:tradeComplete()
-            player:setCharVar("CursesFoiledAgainDay", VanadielDayOfTheYear())
-            player:setCharVar("CursesFoiledAgainYear", VanadielYear())
-            player:addFame(WINDURST, 80)
+            player:setCharVar("DayWait[CFA1]", VanadielDayOfTheYear())
+            player:addExp(2500 * EXP_RATE)
+            player:addFame(WINDURST, 200)
             player:addItem(17081)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 17081)
             player:completeQuest(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_1)
@@ -195,11 +183,7 @@ function onEventFinish(player, csid, option)
         player:addQuest(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_1)
 
     elseif (csid == 179) then
-        player:setCharVar("CursesFoiledAgainDayFinished", 0)
-        player:setCharVar("CursesFoiledAgainYearFinished", 0)
-        player:setCharVar("CursesFoiledAgainDay", 0)
-        player:setCharVar("CursesFoiledAgainYear", 0)
-        player:setCharVar("CursesFoiledAgain", 1) -- Used to acknowledge that the two days have passed, Use this to initiate next quest
+        player:setCharVar("DayWait[CFA1]", 0)
         player:needToZone(true)
 
     elseif (csid == 180 and option == 3) then
@@ -217,7 +201,8 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 17116)
             player:completeQuest(WINDURST, tpz.quest.id.windurst.CURSES_FOILED_AGAIN_2)
             player:needToZone(true)
-            player:addFame(WINDURST, 90)
+            player:addExp(3500 * EXP_RATE)
+            player:addFame(WINDURST, 150)
         end
 
     elseif (csid == 340) then
@@ -236,7 +221,8 @@ function onEventFinish(player, csid, option)
             player:addItem(4870)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 4870)
             player:setTitle(tpz.title.DOCTOR_SHANTOTTOS_FLAVOR_OF_THE_MONTH)
-            player:addFame(WINDURST, 120)
+            player:addExp(9500 * EXP_RATE)
+            player:addFame(WINDURST, 400)
         end
     elseif (csid == 409) then
         player:setCharVar("ClassReunionProgress", 4)

@@ -49,10 +49,11 @@ function onEventFinish(player, csid, option)
     elseif csid == 597 and
         npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.ONE_GOOD_DEED, {
             gil = 3200,
+            fame = 300,
+            xp = 15000,
             var = "OneGoodDeed",
         })
     then
-       player:addFame(WINDURST, 300)
        player:setCharVar("OneGoodDeed", 6)
     elseif (csid == 598) then
         player:setCharVar("OneGoodDeed", 7)
