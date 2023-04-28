@@ -7648,20 +7648,20 @@ INSERT INTO `mob_groups` VALUES (53,3241,106,'Pyracmon',1,0,2047,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (54,4381,106,'Wraith_Bat',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (55,6543,106,'Enchanted_Bones',330,1,769,0,0,7,8,0);
 INSERT INTO `mob_groups` VALUES (56,1038,106,'Ding_Bats',330,2,82,0,0,1,4,0);
-INSERT INTO `mob_groups` VALUES (57,2547,106,'Maneating_Hornet',330,0,1609,0,0,4,5,0);
-INSERT INTO `mob_groups` VALUES (58,3780,106,'Stone_Eater',330,0,2339,0,0,4,5,0); -- added loot table
-INSERT INTO `mob_groups` VALUES (59,3058,106,'Ornery_Sheep',330,0,1958,0,0,7,8,0);	-- added loot table
-INSERT INTO `mob_groups` VALUES (60,1737,106,'Goblin_Thug',330,0,1170,0,0,6,8,0);
-INSERT INTO `mob_groups` VALUES (61,441,106,'Black_Wolf',330,1,288,0,0,7,8,0);
-INSERT INTO `mob_groups` VALUES (62,1744,106,'Goblin_Weaver',330,0,1183,0,0,7,8,0);
-INSERT INTO `mob_groups` VALUES (63,3774,106,'Stinging_Sophie',3600,0,2336,545,0,9,10,0);
-INSERT INTO `mob_groups` VALUES (64,3371,106,'River_Crab',330,0,481,0,0,3,5,0);
-INSERT INTO `mob_groups` VALUES (65,3381,106,'Rock_Lizard',330,0,2120,0,0,7,8,0);
-INSERT INTO `mob_groups` VALUES (66,4277,106,'Walking_Sapling',330,0,2604,0,0,5,6,0); -- added loot table
-INSERT INTO `mob_groups` VALUES (67,4266,106,'Vulture',330,0,2595,0,0,5,6,0);	-- added loot table
-INSERT INTO `mob_groups` VALUES (68,4477,106,'Young_Quadav',330,0,2787,0,0,7,8,0);
-INSERT INTO `mob_groups` VALUES (69,103,106,'Amber_Quadav',330,0,58,0,0,7,8,0);
-INSERT INTO `mob_groups` VALUES (70,107,106,'Amethyst_Quadav',330,0,67,0,0,7,8,0);
+INSERT INTO `mob_groups` VALUES (57,2547,106,'Maneating_Hornet',330,0,1609,0,0,4,5,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (58,3780,106,'Stone_Eater',330,0,2339,0,0,4,5,0);   -- high level group
+INSERT INTO `mob_groups` VALUES (59,3058,106,'Ornery_Sheep',330,0,1958,0,0,7,8,0);	  -- high level group
+INSERT INTO `mob_groups` VALUES (60,1737,106,'Goblin_Thug',330,0,1170,0,0,6,8,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (61,441,106,'Black_Wolf',330,1,288,0,0,7,8,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (62,1744,106,'Goblin_Weaver',330,0,1183,0,0,7,8,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (63,3774,106,'Stinging_Sophie',3600,0,2336,545,0,9,10,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (64,3371,106,'River_Crab',330,0,481,0,0,4,5,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (65,3381,106,'Rock_Lizard',330,0,2120,0,0,7,8,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (66,4277,106,'Walking_Sapling',330,0,2604,0,0,5,6,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (67,4266,106,'Vulture',330,0,2595,0,0,5,6,0);	  -- high level group
+INSERT INTO `mob_groups` VALUES (68,4477,106,'Young_Quadav',330,0,2787,0,0,7,8,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (69,103,106,'Amber_Quadav',330,0,58,0,0,7,8,0);  -- high level group
+INSERT INTO `mob_groups` VALUES (70,107,106,'Amethyst_Quadav',330,0,67,0,0,7,8,0);  -- high level group
 
 INSERT INTO `mob_groups` VALUES (5895,2226,106,'Kilhwch',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (5898,2405,106,'Lhu_Mhakaracca',0,0,0,0,0,0,0,0);
@@ -7674,7 +7674,7 @@ INSERT INTO `mob_groups` VALUES (5902,2904,106,'Noillurie',0,0,0,0,0,0,0,0);
 
 INSERT INTO `mob_groups` VALUES (1,3779,107,'Stone_Crab',0,128,484,0,0,2,3,0);
 INSERT INTO `mob_groups` VALUES (2,3452,107,'Sand_Crab',0,128,481,0,0,3,4,0);
-INSERT INTO `mob_groups` VALUES (3,2372,107,'Land_Crab',330,0,481,0,0,5,7,0);
+INSERT INTO `mob_groups` VALUES (3,2372,107,'Land_Crab',0,128,481,0,0,5,7,0);
 INSERT INTO `mob_groups` VALUES (4,2722,107,'Mole_Crab',0,128,93,0,0,7,8,0);
 INSERT INTO `mob_groups` VALUES (5,3102,107,'Passage_Crab',0,128,93,0,0,9,10,0);
 INSERT INTO `mob_groups` VALUES (6,551,107,'Bubbly_Bernie',0,128,2848,0,0,9,10,0);
@@ -7716,9 +7716,9 @@ INSERT INTO `mob_groups` VALUES (41,613,107,'Calf_[Herd3]',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (42,714,107,'Chigoe',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (43,3241,107,'Pyracmon',1,0,2047,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (44,4381,107,'Wraith_Bat',0,128,0,0,0,1,1,0);
-INSERT INTO `mob_groups` VALUES (45,2372,107,'Land_Crab',0,128,0,0,0,5,7,0);
+INSERT INTO `mob_groups` VALUES (45,2372,107,'Land_Crab',0,128,0,0,0,7,7,0);
 INSERT INTO `mob_groups` VALUES (46,1038,107,'Ding_Bats',330,2,82,0,0,3,4,0); --  higher lvl group
-INSERT INTO `mob_groups` VALUES (47,2547,107,'Maneating_Hornet',330,0,1609,0,0,5,6,0); --  higher lvl group
+INSERT INTO `mob_groups` VALUES (47,2547,107,'Maneating_Hornet',330,0,1609,0,0,6,6,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (48,3780,107,'Stone_Eater',330,0,2339,0,0,4,5,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (49,3058,107,'Ornery_Sheep',330,0,1958,0,0,7,8,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (50,1737,107,'Goblin_Thug',330,0,1170,0,0,7,8,0); --  higher lvl group
