@@ -1424,6 +1424,27 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
 {
     auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
 
+    if (battleutils::IsParalyzed(this))
+    {
+        // setup new action packet to send paralyze message
+        action_t paralyze_action = {};
+        this->loc.zone->PushPacket(this, CHAR_INRANGE, new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_IS_PARALYZED));
+
+        // Set up /ra action to be interrupted
+        action.actiontype = ACTION_RANGED_INTERRUPT; // This handles some magic numbers in CActionPacket to cancel actions
+        action.id = id;
+
+        actionList_t& actionList = action.getNewActionList();
+        actionList.ActionTargetID = id;
+
+        actionTarget_t& actionTarget = actionList.getNewActionTarget();
+        actionTarget.animation = 0x1FC; // Seems hardcoded, two bits away from 0x1FF (0x1FC = 1 1111 1100)
+        actionTarget.speceffect = SPECEFFECT::SPECEFFECT_RECOIL;
+        actionTarget.reaction = REACTION::REACTION_NONE;
+
+        return;
+    }
+
     int32 damage = 0;
     int32 totalDamage = 0;
 
