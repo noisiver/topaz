@@ -4795,10 +4795,15 @@ void SmallPacket0x0BE(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 
             if (PChar->PMeritPoints->IsMeritExist(merit))
             {
+                const Merit_t* PMerit = PChar->PMeritPoints->GetMerit(merit);
                 switch (operation)
                 {
-                case 0: PChar->PMeritPoints->LowerMerit(merit); break;
-                case 1: PChar->PMeritPoints->RaiseMerit(merit); break;
+                case 0: PChar->PMeritPoints->LowerMerit(merit);
+                        PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, data.ref<uint16>(0x06), PMerit->count, MSGBASIC_MERIT_DECREASE));
+                    break;
+                case 1: PChar->PMeritPoints->RaiseMerit(merit);
+                        PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, data.ref<uint16>(0x06), PMerit->count, MSGBASIC_MERIT_INCREASE));
+                    break;
                 }
                 PChar->pushPacket(new CMenuMeritPacket(PChar));
                 PChar->pushPacket(new CMeritPointsCategoriesPacket(PChar, merit));
