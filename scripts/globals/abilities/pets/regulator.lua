@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Disruptor
+-- Regulator
 ---------------------------------------------
 require("scripts/globals/automatonweaponskills")
 require("scripts/globals/settings")
@@ -18,15 +18,18 @@ function onPetAbility(target, automaton, skill, master, action)
     local skillType = jobUtil.GetAutoMainSkill(pet)
     local bonus = 175
     local resist = applyResistanceAbility(player, target, element, skillType, bonus)
+    local stolen = 0
 
     if resist >= 0.5 then
-        local effect = target:dispelStatusEffect()
-        if effect ~= tpz.effect.NONE then
-            skill:setMsg(tpz.msg.basic.SKILL_ERASE)
+        stolen = caster:stealStatusEffect(target)
+        if stolen ~= 0 then
+            spell:setMsg(tpz.msg.basic.MAGIC_STEAL)
         else
-            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
+            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
         end
+    else
+        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
     end
 
-    return effect
+    return stolen
 end
