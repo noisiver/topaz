@@ -1732,18 +1732,55 @@ namespace petutils
             default: //case FRAME_HARLEQUIN:
                 PPet->SetMJob(JOB_WAR);
                 PPet->SetSJob(JOB_RDM);
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (320.0f / 60.0f))));
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
+                PPet->addModifier(Mod::ATTP, 10);
+                PPet->addModifier(Mod::ACC, 10);
+                PPet->addModifier(Mod::EVA, 10);
+                PPet->addModifier(Mod::DEFP, 30);
+                PPet->addModifier(Mod::DMG, -6);
                 break;
             case FRAME_VALOREDGE:
                 PPet->SetMJob(JOB_PLD);
                 PPet->SetSJob(JOB_WAR);
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (360.0f / 60.0f))));
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_SLASHING);
+                PPet->addModifier(Mod::HPP, 20);
+                PPet->addModifier(Mod::ATTP, 10);
+                PPet->addModifier(Mod::ACC, 10);
+                PPet->addModifier(Mod::EVA, 10);
+                PPet->addModifier(Mod::DEFP, 60);
+                PPet->addModifier(Mod::DMG, -13);
                 break;
             case FRAME_SHARPSHOT:
                 PPet->SetMJob(JOB_RNG);
                 PPet->SetSJob(JOB_PUP);
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setDelay((uint16)(floor(1000.0 * (360.0f / 60.0f))));
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setDmgType(DAMAGE_RANGED);
+                PPet->addModifier(Mod::HPP, -10);
+                PPet->addModifier(Mod::ATTP, 10);
+                PPet->addModifier(Mod::ACC, 10);
+                PPet->addModifier(Mod::RATTP, 10);
+                PPet->addModifier(Mod::RACC, 10);
+                PPet->addModifier(Mod::EVA, 10);
+                PPet->addModifier(Mod::DEFP, 20);
+                PPet->addModifier(Mod::DMG, -13);
                 break;
             case FRAME_STORMWAKER:
                 PPet->SetMJob(JOB_RDM);
                 PPet->SetSJob(JOB_WHM);
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
+                PPet->addModifier(Mod::HPP, -20);
+                PPet->addModifier(Mod::MPP, 20);
+                PPet->addModifier(Mod::ATTP, 10);
+                PPet->addModifier(Mod::ACC, 10);
+                PPet->addModifier(Mod::EVA, 10);
+                PPet->addModifier(Mod::DEFP, 10);
+                PPet->addModifier(Mod::DMGMAGIC, -25);
+                PPet->addModifier(Mod::DMGBREATH, -25);
                 break;
             }
             //TEMP: should be MLevel when unsummoned, and PUP level when summoned
