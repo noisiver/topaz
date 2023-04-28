@@ -8,6 +8,7 @@ require("scripts/globals/missions")
 require("scripts/globals/quests")
 require("scripts/globals/keyitems")
 require("scripts/globals/settings")
+require("scripts/globals/titles")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -104,6 +105,7 @@ function onEventFinish(player, csid, option)
                 end
                 player:setCharVar("DivineMight", 0)
                 player:setCharVar("DM_Earring", reward)
+                player:addTitle(tpz.title.PENTACIDE_PERPETRATOR)
             else
                 player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, reward)
             end
