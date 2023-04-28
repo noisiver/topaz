@@ -1674,21 +1674,22 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
         else if ((tpzrand::GetRandomNumber(100) < attack.GetHitRate() || attackRound.GetSATAOccured()) &&
                  !PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_ALL_MISS))
         {
-            // attack hit, try to be absorbed by shadow unless it is a SATA attack round
-            if (!(attackRound.GetSATAOccured()) && battleutils::IsAbsorbByShadow(PTarget))
-            {
-                actionTarget.messageID = 0;
-                actionTarget.reaction = REACTION_EVADE;
-                attack.SetEvaded(true);
-                PTarget->loc.zone->PushPacket(PTarget, CHAR_INRANGE_SELF, new CMessageBasicPacket(PTarget, PTarget, 0, 1, 31));
-            }
-            else if (attack.IsParried())
+            // Check parry.
+            if (attack.IsParried())
             {
                 actionTarget.messageID = 70;
                 actionTarget.reaction = REACTION_PARRY;
                 actionTarget.speceffect = SPECEFFECT_NONE;
                 battleutils::HandleTacticalParry(PTarget);
                 battleutils::HandleIssekiganEnmityBonus(PTarget, this);
+            }
+            // Try to be absorbed by shadow unless it is a SATA attack round.
+            else if (!(attackRound.GetSATAOccured()) && battleutils::IsAbsorbByShadow(PTarget))
+            {
+                actionTarget.messageID = MSGBASIC_SHADOW_ABSORB;
+                actionTarget.param = 1;
+                actionTarget.reaction = REACTION_EVADE;
+                attack.SetEvaded(true);
             }
             else if (attack.CheckAnticipated() || attack.CheckCounter())
             {
