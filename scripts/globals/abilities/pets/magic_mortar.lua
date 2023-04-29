@@ -9,6 +9,7 @@ require("scripts/globals/automatonweaponskills")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.LIGHT_MANEUVER)
 end
 --[[
@@ -36,8 +37,8 @@ function onPetAbility(target, pet, skill)
     params.IGNORES_SHADOWS = true
     params.MAGIC_MORTAR = true
 
-    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.NONE, params, INT_BASED, 0)
-    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.NONE, params)
+    local damage = AutoMagicalWeaponSkill(pet, target, skill, tpz.magic.ele.NONE, params, INT_BASED, 0)
+    dmg = AutoMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.NONE, params)
 
     return dmg
 end

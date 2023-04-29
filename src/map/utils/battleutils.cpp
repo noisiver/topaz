@@ -3131,9 +3131,9 @@ namespace battleutils
         // 15/30/45/60% ignored based on currently active manuevers
         if (attackerType == TYPE_PET)
         {
-            if (attackerLvl < defenderLvl && (int16)PDefender->GetLocalVar("attuner") > 0)
+            if (attackerLvl < defenderLvl && (int16)PAttacker->GetLocalVar("attuner") > 0)
             {
-                ignoredDef = (int16)PDefender->GetLocalVar("attunerBonus");
+                ignoredDef = (int16)PAttacker->GetLocalVar("attunerBonus");
                 ignoredDef = (defense * ignoredDef) / 100;
 
             }

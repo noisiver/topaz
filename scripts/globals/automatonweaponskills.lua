@@ -36,8 +36,12 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
 
     -- I have never read a limit on accuracy bonus from summoning skill which can currently go far past 200 over cap
     -- current retail is over +250 skill so I am removing the cap, my SMN is at 695 total skill
-    local tp = auto:getTP()
-    local summoner = auto:getMaster()
+    local master = auto:getMaster()
+    local tp = auto:getLocalVar("TP")
+    if skill:getID() == 1949 then
+        tp = 1000
+    end
+    -- printf("TP: %i", tp)
     --printf("tp %i", tp)
     local acc = 0
     local TPAccBonus = 0
@@ -57,7 +61,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
     if attackType == tpz.attackType.RANGED then
         acc = auto:getRACC()
     end
-    --print("%i", acc)
+    -- printf("Accuracy before level correction: %i", acc)
     acc = acc + TPAccBonus
 
     -- Apply level correction
@@ -68,7 +72,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
     end
 
     local eva = target:getEVA()
-    --print("%i", acc)
+    -- printf("Acc after level correction: %i", acc)
 
     -- Applying fTP multiplier
     local bonusfTP = 0
@@ -241,23 +245,31 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
             else
                 ignoredDef = ignoredDefMod
             end
-            ignoredDef = utils.clamp((target:getStat(tpz.mod.DEF) * ignoredDef), 0, 100) / 100
+            -- printf("Ignored def percent %i", ignoredDef)
+            ignoredDef = target:getStat(tpz.mod.DEF) * ignoredDef
+            utils.clamp(ignoredDef, 0, 100)
+            ignoredDef = ignoredDef / 100
+            -- printf("Ignored def total %i", ignoredDef)
         end
 
         if attackType == tpz.attackType.PHYSICAL then
             local attack = auto:getStat(tpz.mod.ATT) * attackMod
+            --printf("Phys Attack: %i", attack)
             ratio = (attack / (target:getStat(tpz.mod.DEF) - ignoredDef))
+            --printf("Ratio after ignored def %i", ratio*100)
         end
 
         -- Ranged attack WeaponSkills use Rattack
         if attackType == tpz.attackType.RANGED then
             local attack = auto:getRATT() * attackMod
             ratio = (attack / (target:getStat(tpz.mod.DEF) - ignoredDef))
+            --printf("Ranged Attack: %i", attack)
+            --printf("Ratio after ignored def %i", ratio*100)
         end
 
         local cRatio = ratio
         local levelcor = 0
-
+        --printf("CRatio before correction: %i", cRatio*100)
         -- Apply level correction
         if auto:getMainLvl() < target:getMainLvl() then
             levelcor = 0.05 * (target:getMainLvl() - auto:getMainLvl())
@@ -274,7 +286,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
         if attackType == tpz.attackType.RANGED then
             if cRatio > 3 then cRatio = 3 end
         end
-
+        --printf("CRatio after correction: %i", cRatio*100)
         --Everything past this point is randomly computed per hit
 
         numHitsProcessed = 0
@@ -778,7 +790,7 @@ end
 function AutoBuffWeaponSkill(auto, target, skill, effect, power, tick, duration, params, bonus)
     -- Only increase duration of buff moves longer than 90s via summoning magic skill
     if duration > 129 then
-        duration = duration + getSummoningSkillOverCap(auto)
+        duration = duration
     end
 
     duration = duration + bonus
@@ -1338,7 +1350,7 @@ function getAutoResist(auto, effect, target, diff, bonus, element)
     magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff)
 
     -- Add macc from summoning skill over cap
-    magicaccbonus = magicaccbonus + getSummoningSkillOverCap(auto)
+    magicaccbonus = magicaccbonus
 
     -- Apply other Macc bonuses
     magicaccbonus = magicaccbonus + getAutoBonusMacc(auto, target, element, params)

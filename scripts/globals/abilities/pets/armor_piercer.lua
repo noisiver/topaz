@@ -9,6 +9,7 @@ require("scripts/globals/automatonweaponskills")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.DARK_MANEUVER)
 end
 

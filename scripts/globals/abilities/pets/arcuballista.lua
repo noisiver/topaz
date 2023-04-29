@@ -9,15 +9,16 @@ require("scripts/globals/automatonweaponskills")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.FIRE_MANEUVER)
 end
 
 function onPetAbility(target, pet, skill)
     local numhits = 1
     local params = {}
-    params.ftp100 = 7.0
-    params.ftp200 = 10.0
-    params.ftp300 = 13.0
+    params.ftp100 = 3.0 -- 7.0
+    params.ftp200 = 3.5 -- 10.0
+    params.ftp300 = 4.0 -- 13.0
     params.str_wsc = 0.0
     params.dex_wsc = 0.6
     params.vit_wsc = 0.0

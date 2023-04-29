@@ -9,6 +9,7 @@ require("scripts/globals/msg")
 
 function onMobSkillCheck(target, automaton, skill)
     local master = automaton:getMaster()
+    getAutoTP(master)
     return master:countEffect(tpz.effect.DARK_MANEUVER)
 end
 
@@ -20,9 +21,9 @@ function onPetAbility(target, pet, skill)
     ( Melee combat skill 201 or higher)
     180 + int {( Melee combat skill - (147 + int ( Melee combat skill -201)/100) )/9}×11
     ]]
-    params.multiplier = 16.0
-    params.tp150 = 23.5
-    params.tp300 = 31.5
+    params.multiplier = 4.0 -- 16.0
+    params.tp150 = 4.5 -- 23.5
+    params.tp300 = 5.0 -- 31.5
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -33,8 +34,8 @@ function onPetAbility(target, pet, skill)
     params.IGNORES_SHADOWS = true
 
 
-    local damage = AvatarMagicalBP(pet, target, skill, tpz.magic.ele.DARK, params, MND_BASED, 0)
-    dmg = AvatarMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.DARK, params)
+    local damage = AutoMagicalWeaponSkill(pet, target, skill, tpz.magic.ele.DARK, params, MND_BASED, 0)
+    dmg = AutoMagicalFinalAdjustments(damage, pet, skill, target, tpz.attackType.MAGICAL, tpz.magic.ele.DARK, params)
     dmg = dmg * (target:getMod(tpz.mod.SLASHRES) / 1000)
 
     -- Does not drain HP from undead, but still deals damage.

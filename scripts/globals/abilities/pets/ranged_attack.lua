@@ -43,7 +43,7 @@ function onPetAbility(target, pet, skill)
             end
         end
     end
-
+    printf("Number of hits %i", numhits)
     dmg = dmg * numhits
 
     return dmg
