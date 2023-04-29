@@ -1428,7 +1428,7 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
     {
         // setup new action packet to send paralyze message
         action_t paralyze_action = {};
-        this->loc.zone->PushPacket(this, CHAR_INRANGE, new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_IS_PARALYZED));
+        this->loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_IS_PARALYZED));
 
         // Set up /ra action to be interrupted
         action.actiontype = ACTION_RANGED_INTERRUPT; // This handles some magic numbers in CActionPacket to cancel actions
