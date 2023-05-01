@@ -9126,7 +9126,7 @@ INSERT INTO `mob_groups` VALUES (6994,3416,132,'Ruminator',0,0,2133,0,0,0,0,0);
 -- Dynamis-Beaucedine (Zone 134)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,141,134,'Angra_Mainyu',0,128,9040,11000,12500,82,83,0); -- Zone Boss
+INSERT INTO `mob_groups` VALUES (1,141,134,'Angra_Mainyu',0,128,9040,11000,12500,77,77,0); -- Zone Boss
 INSERT INTO `mob_groups` VALUES (2,1344,134,'Fire_Pukis',0,128,0,0,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (3,3167,134,'Poison_Pukis',0,128,0,0,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (4,4351,134,'Wind_Pukis',0,128,0,0,0,77,77,0);
@@ -9328,7 +9328,7 @@ INSERT INTO `mob_groups` VALUES (197,6064,134,'Rearguard_Eye',0,128,0,8000,8000,
 -- Dynamis-Xarcabard (Zone 135)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1154,135,'Dynamis_Lord',0,128,9047,81000,0,90,91,0);
+INSERT INTO `mob_groups` VALUES (1,1154,135,'Dynamis_Lord',0,128,9047,81000,0,77,77,0);
 INSERT INTO `mob_groups` VALUES (2,4473,135,'Ying',0,128,0,17000,0,77,78,0);
 INSERT INTO `mob_groups` VALUES (3,4464,135,'Yang',0,128,0,17000,0,77,78,0);
 INSERT INTO `mob_groups` VALUES (4,6053,135,'Duke_Haures',0,128,9048,50000,5000,77,78,0); -- Odious Skull 
@@ -12125,7 +12125,7 @@ INSERT INTO `mob_groups` VALUES (9375,4498,184,'Zeid',0,0,0,0,0,0,0,0);
 -- Dynamis-San_dOria (Zone 185)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,3076,185,'Overlords_Tombstone',0,128,9019,30000,12500,82,83,0); -- Zone Boss
+INSERT INTO `mob_groups` VALUES (1,3076,185,'Overlords_Tombstone',0,128,9019,30000,12500,77,77,0); -- Zone Boss
 INSERT INTO `mob_groups` VALUES (2,363,185,'Battlechoir_Gitchfotch',0,128,0,0,0,72,73,0); -- Zone Boss Pet
 INSERT INTO `mob_groups` VALUES (3,3705,185,'Soulsender_Fugbrag',0,128,0,0,0,72,73,0); -- Zone Boss Pet
 INSERT INTO `mob_groups` VALUES (4,4150,185,'Vanguard_Footsoldier',1800,0,0,2564,0,65,67,0);
@@ -12183,7 +12183,7 @@ INSERT INTO `mob_groups` VALUES (53,4289,185,'Warchief_Tombstone',0,128,0,1000,1
 -- Dynamis-Bastok (Zone 186)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1855,186,'GuDha_Effigy',0,128,9012,30000,0,82,83,0); -- Zone Boss
+INSERT INTO `mob_groups` VALUES (1,1855,186,'GuDha_Effigy',0,128,9012,30000,0,77,77,0); -- Zone Boss
 INSERT INTO `mob_groups` VALUES (2,4197,186,'Vanguard_Vindicator',1800,0,2558,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (3,4163,186,'Vanguard_Militant',1800,0,2558,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (4,4139,186,'Vanguard_Beasttender',1800,0,2558,0,0,65,67,0);
@@ -12241,7 +12241,7 @@ INSERT INTO `mob_groups` VALUES (53,5111,186,'Adamantking_Image',0,128,0,0,1000,
 -- Dynamis-Windurst (Zone 187)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,4070,187,'Tzee_Xicu_Idol',0,128,9026,30000,12500,82,83,0); -- Zone Boss
+INSERT INTO `mob_groups` VALUES (1,4070,187,'Tzee_Xicu_Idol',0,128,9026,30000,12500,77,77,0); -- Zone Boss
 INSERT INTO `mob_groups` VALUES (2,2464,187,'Maa_Febi_the_Steadfast',0,128,1560,0,0,72,73,0); -- Zone Boss Pet
 INSERT INTO `mob_groups` VALUES (3,2777,187,'Muu_Febi_the_Steadfast',0,128,1560,0,0,72,73,0); -- Zone Boss Pet
 INSERT INTO `mob_groups` VALUES (4,4183,187,'Vanguard_Skirmisher',1800,0,2553,0,0,65,67,0);
@@ -12300,7 +12300,7 @@ INSERT INTO `mob_groups` VALUES (54,4185,187,'Vanguards_Avatar',0,128,0,2400,0,7
 -- Dynamis-Jeuno (Zone 188)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1668,188,'Goblin_Golem',0,128,9033,30000,12500,82,83,0); -- Zone Boss
+INSERT INTO `mob_groups` VALUES (1,1668,188,'Goblin_Golem',0,128,9033,30000,12500,77,77,0); -- Zone Boss
 INSERT INTO `mob_groups` VALUES (2,4184,188,'Vanguard_Smithy',1800,0,2543,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (3,4199,188,'Vanguard_Welldigger',1800,0,2543,0,0,65,67,0);
 INSERT INTO `mob_groups` VALUES (4,4170,188,'Vanguard_Pathfinder',1800,0,2543,0,0,65,67,0);

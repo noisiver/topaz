@@ -44,24 +44,10 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
-    local mobId = mob:getID()
-    for i = mobId + 1, mobId + 4 do
-        if not GetMobByID(i):isSpawned() then
-            SpawnMob(i)
-        end
-    end
     mob:setLocalVar("teleport", 0)
 end
 
 function onMobFight(mob, target)
-    local mobId = mob:getID()
-    for i = mobId + 1, mobId + 4 do
-        local pet = GetMobByID(i)
-        if pet:isSpawned() and pet:getCurrentAction() == tpz.act.ROAMING then
-            pet:updateEnmity(target)
-        end
-    end
-
     -- If gravity was just cast, teleport away
     if mob:getLocalVar("teleport") > 0 and mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING then 
         mob:setLocalVar("teleport", 0)
@@ -108,9 +94,4 @@ end
 
 function onMobDeath(mob, player, isKiller)
     dynamis.megaBossOnDeath(mob, player, isKiller)
-    -- Despawn pet dragons
-    local mobId = mob:getID()
-    for i = mobId + 1, mobId + 4 do
-        DespawnMob(i)
-    end
 end
