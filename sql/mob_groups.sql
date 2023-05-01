@@ -7747,13 +7747,13 @@ INSERT INTO `mob_groups` VALUES (6,1744,108,'Goblin_Weaver',330,0,1184,0,0,8,10,
 INSERT INTO `mob_groups` VALUES (7,1643,108,'Goblin_Butcher',330,0,1032,0,0,12,14,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (8,5544,108,'Ghillie_Dhu',3600,0,2954,663,250,16,18,0);
 INSERT INTO `mob_groups` VALUES (9,4477,108,'Young_Quadav',330,0,2789,0,0,8,10,0);
-INSERT INTO `mob_groups` VALUES (10,2986,108,'Onyx_Quadav',330,0,1863,0,0,10,16,0); -- Check lvl gap
+INSERT INTO `mob_groups` VALUES (10,2986,108,'Onyx_Quadav',330,0,1863,0,0,12,14,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (11,107,108,'Amethyst_Quadav',330,0,67,0,0,8,10,0);
 INSERT INTO `mob_groups` VALUES (12,103,108,'Amber_Quadav',330,0,60,0,0,8,10,0);
 INSERT INTO `mob_groups` VALUES (13,2003,108,'Huge_Wasp',330,0,1336,0,0,8,10,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (14,1514,108,'Ghost',330,1,956,0,0,15,17,0);
-INSERT INTO `mob_groups` VALUES (15,4226,108,'Veteran_Quadav',330,0,1863,0,0,10,16,0); -- Check lvl gap
-INSERT INTO `mob_groups` VALUES (16,1808,108,'Greater_Quadav',330,0,1234,0,0,10,16,0); -- Check lvl gap
+INSERT INTO `mob_groups` VALUES (15,4226,108,'Veteran_Quadav',330,0,1863,0,0,14,16,0);
+INSERT INTO `mob_groups` VALUES (16,1808,108,'Greater_Quadav',330,0,1234,0,0,14,16,0);
 INSERT INTO `mob_groups` VALUES (17,3647,108,'Skeleton_Warrior',330,1,2264,0,0,10,13,0);
 INSERT INTO `mob_groups` VALUES (18,3646,108,'Skeleton_Sorcerer',330,1,2264,0,0,10,13,0);
 INSERT INTO `mob_groups` VALUES (19,3912,108,'Thunder_Elemental',330,4,2410,0,0,18,20,0);
@@ -7784,6 +7784,7 @@ INSERT INTO `mob_groups` VALUES (43,1643,108,'Goblin_Butcher',330,0,1032,0,0,15,
 INSERT INTO `mob_groups` VALUES (44,2003,108,'Huge_Wasp',330,0,1336,0,0,11,12,0); 
 INSERT INTO `mob_groups` VALUES (45,2473,108,'Mad_Sheep',330,0,1563,0,0,13,14,0);
 INSERT INTO `mob_groups` VALUES (46,1738,108,'Goblin_Tinkerer',330,0,1032,0,0,15,16,0); --  higher lvl group
+INSERT INTO `mob_groups` VALUES (47,2986,108,'Onyx_Quadav',330,0,1863,0,0,15,16,0); -- higher lvl group
 
 INSERT INTO `mob_groups` VALUES (5967,305,108,'Ayame',0,0,0,0,0,0,0,0);
 
@@ -8309,10 +8310,10 @@ INSERT INTO `mob_groups` VALUES (6386,3584,116,'Shantotto',0,0,0,0,0,0,0,0);
 -- Tahrongi_Canyon (Zone 117)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,626,117,'Canyon_Rarab',330,0,407,0,0,7,10,0);
-INSERT INTO `mob_groups` VALUES (2,3240,117,'Pygmaioi',330,0,2046,0,0,7,11,0);
-INSERT INTO `mob_groups` VALUES (3,3792,117,'Strolling_Sapling',330,0,2347,0,0,7,10,0);
-INSERT INTO `mob_groups` VALUES (4,5079,117,'Akbaba',330,0,43,0,0,9,13,0);
+INSERT INTO `mob_groups` VALUES (1,626,117,'Canyon_Rarab',330,0,407,0,0,7,9,0);-- added higher lvl group
+INSERT INTO `mob_groups` VALUES (2,3240,117,'Pygmaioi',330,0,2046,0,0,7,9,0);-- added higher lvl group
+INSERT INTO `mob_groups` VALUES (3,3792,117,'Strolling_Sapling',330,0,2347,0,0,7,9,0); -- added higher lvl group
+INSERT INTO `mob_groups` VALUES (4,5079,117,'Akbaba',330,0,43,0,0,9,11,0);-- added higher lvl group
 INSERT INTO `mob_groups` VALUES (5,3647,117,'Skeleton_Warrior',330,1,2264,0,0,10,12,0);
 INSERT INTO `mob_groups` VALUES (6,3646,117,'Skeleton_Sorcerer',330,1,2264,0,0,11,13,0);
 INSERT INTO `mob_groups` VALUES (7,1514,117,'Ghost',330,1,956,0,0,15,17,0);
@@ -8329,12 +8330,12 @@ INSERT INTO `mob_groups` VALUES (17,4341,117,'Wild_Dhalmel',330,0,2655,0,0,14,16
 INSERT INTO `mob_groups` VALUES (18,342,117,'Barghest',330,1,226,0,0,8,10,0);
 INSERT INTO `mob_groups` VALUES (19,3550,117,'Serpopard_Ishtar',3600,0,2204,700,0,19,20,0);
 INSERT INTO `mob_groups` VALUES (20,4426,117,'Yagudo_Initiate',330,0,2717,0,0,8,10,0);
-INSERT INTO `mob_groups` VALUES (21,4432,117,'Yagudo_Mendicant',330,0,2731,0,0,12,16,0); -- check lvl gap
-INSERT INTO `mob_groups` VALUES (22,4454,117,'Yagudos_Elemental',0,128,0,0,0,8,9,0);
+INSERT INTO `mob_groups` VALUES (21,4432,117,'Yagudo_Mendicant',330,0,2731,0,0,12,14,0); -- added higher lvl group
+INSERT INTO `mob_groups` VALUES (22,4454,117,'Yagudos_Elemental',0,128,0,0,0,11,11,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (23,4405,117,'Yagudo_Acolyte',330,0,2693,0,0,8,10,0);
 INSERT INTO `mob_groups` VALUES (24,4448,117,'Yagudo_Scribe',330,0,2762,0,0,8,10,0);
-INSERT INTO `mob_groups` VALUES (25,4441,117,'Yagudo_Piper',330,0,2743,0,0,12,16,0); -- check lvl gap
-INSERT INTO `mob_groups` VALUES (26,4439,117,'Yagudo_Persecutor',330,0,2731,0,0,12,16,0); -- check lvl gap
+INSERT INTO `mob_groups` VALUES (25,4441,117,'Yagudo_Piper',330,0,2743,0,0,12,14,0); -- added higher lvl group
+INSERT INTO `mob_groups` VALUES (26,4439,117,'Yagudo_Persecutor',330,0,2731,0,0,12,14,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (27,1160,117,'Earth_Elemental',330,4,733,0,0,18,20,0);
 INSERT INTO `mob_groups` VALUES (28,1812,117,'Grenade',330,8,0,0,0,15,17,0);
 INSERT INTO `mob_groups` VALUES (29,3170,117,'Poltergeist',330,0,0,0,0,18,20,0);
@@ -8348,6 +8349,14 @@ INSERT INTO `mob_groups` VALUES (36,4735,117,'Smierc',0,128,0,0,9999,92,95,0);
 INSERT INTO `mob_groups` VALUES (37,1635,117,'Goblin_Ambusher',330,0,1017,0,0,15,16,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (38,1738,117,'Goblin_Tinkerer',330,0,1032,0,0,15,16,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (39,1643,117,'Goblin_Butcher',330,0,1032,0,0,15,16,0); --  higher lvl group
+INSERT INTO `mob_groups` VALUES (40,626,117,'Canyon_Rarab',330,0,407,0,0,9,10,0);-- higher lvl group
+INSERT INTO `mob_groups` VALUES (41,3240,117,'Pygmaioi',330,0,2046,0,0,10,11,0);-- higher lvl group
+INSERT INTO `mob_groups` VALUES (42,3792,117,'Strolling_Sapling',330,0,2347,0,0,8,10,0); -- higher lvl group
+INSERT INTO `mob_groups` VALUES (43,5079,117,'Akbaba',330,0,43,0,0,12,13,0);-- higher lvl group
+INSERT INTO `mob_groups` VALUES (44,4432,117,'Yagudo_Mendicant',330,0,2731,0,0,15,16,0); -- higher lvl group
+INSERT INTO `mob_groups` VALUES (45,4454,117,'Yagudos_Elemental',0,128,0,0,0,14,14,0); -- higher lvl group
+INSERT INTO `mob_groups` VALUES (46,4441,117,'Yagudo_Piper',330,0,2743,0,0,15,16,0); -- higher lvl group
+INSERT INTO `mob_groups` VALUES (47,4439,117,'Yagudo_Persecutor',330,0,2731,0,0,15,16,0); -- higher lvl group
 
 INSERT INTO `mob_groups` VALUES (6397,305,117,'Ayame',0,0,0,0,0,0,0,0);
 
