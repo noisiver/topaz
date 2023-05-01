@@ -1048,8 +1048,17 @@ void SetupDynamisMob(CMobEntity* PMob)
     PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
 
     // boost dynamis mobs weapon damage
-    PMob->setMobMod(MOBMOD_WEAPON_BONUS, 135);
-    ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+    // Halve weapon damage addition for MNK mobs
+    if (PMob->GetMJob() == JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
+    {
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 60);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+    }
+    else
+    {
+        PMob->setMobMod(MOBMOD_WEAPON_BONUS, 135);
+        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+    }
 
     // job resist traits are much more powerful in dynamis
     // according to wiki
