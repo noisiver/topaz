@@ -15,9 +15,9 @@ end
 function onPetAbility(target, pet, skill)
     local numhits = 1
     local params = {}
-    params.ftp100 = 1.0
-    params.ftp200 = 1.0
-    params.ftp300 = 1.0
+    params.ftp100 = 3.0
+    params.ftp200 = 3.0
+    params.ftp300 = 3.0
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.0
@@ -43,8 +43,9 @@ function onPetAbility(target, pet, skill)
             end
         end
     end
-    printf("Number of hits %i", numhits)
+    -- printf("Number of arrows: %i", numhits)
     dmg = dmg * numhits
+    pet:setLocalVar("turbine_barrage", 0)
 
     return dmg
 end

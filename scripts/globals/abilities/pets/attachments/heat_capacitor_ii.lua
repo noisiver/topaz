@@ -5,7 +5,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEquip(pet)
-    pet:setLocalVar("heat_capacitor", 600)
+    pet:setLocalVar("heat_capacitor", 2)
     pet:addListener("AUTOMATON_ATTACHMENT_CHECK", "ATTACHMENT_HEAT_CAPACITOR_II", function(automaton, target)
         local master = automaton:getMaster()
         if master and master:countEffect(tpz.effect.FIRE_MANEUVER) > 0 and automaton:getLocalVar("meditate") < VanadielTime() then
@@ -16,7 +16,7 @@ function onEquip(pet)
 end
 
 function onUnequip(pet)
-    pet:setLocalVar("heat_capacitor", -600)
+    pet:setLocalVar("heat_capacitor", 0)
     pet:removeListener("ATTACHMENT_HEAT_CAPACITOR_II")
     pet:setLocalVar("heat_capacitor_manuevers", 0)
 end

@@ -23,12 +23,12 @@ end
 
 function onUpdate(pet, maneuvers)
     if maneuvers == 0 then
-        updateModPerformance(pet, tpz.mod.AUTO_EQUALIZER, 'equalizer_mod', 10)
+        updateModPerformance(pet, tpz.mod.AUTO_EQUALIZER, 'equalizer_mod', 20)
     elseif maneuvers == 1 then
-        updateModPerformance(pet, tpz.mod.AUTO_EQUALIZER, 'equalizer_mod', 25)
-    elseif maneuvers == 2 then
         updateModPerformance(pet, tpz.mod.AUTO_EQUALIZER, 'equalizer_mod', 50)
+    elseif maneuvers == 2 then
+        updateModPerformance(pet, tpz.mod.AUTO_EQUALIZER, 'equalizer_mod', 100)
     elseif maneuvers == 3 then
-        updateModPerformance(pet, tpz.mod.AUTO_EQUALIZER, 'equalizer_mod', 75)
+        updateModPerformance(pet, tpz.mod.AUTO_EQUALIZER, 'equalizer_mod', 150)
     end
 end

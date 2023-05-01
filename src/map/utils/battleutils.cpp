@@ -361,7 +361,7 @@ namespace battleutils
         float magicacc = static_cast<float>(PAttacker->GetSkill(skill) + PAttacker->getMod(Mod::MACC) + bonus);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         float meva = (float)PDefender->getMod(Mod::MEVA) + (PDefender->getMod(resistarray[element -1]));
-        if (PAttacker->objtype == TYPE_MOB)
+        if (PAttacker->objtype == TYPE_MOB || PAttacker->objtype == TYPE_PET)
         {
             magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
             //printf("Mob base MACC from skill %f \n", magicacc);
@@ -385,7 +385,7 @@ namespace battleutils
             targetLvl = PAttacker->GetMLevel();
             meva = (float)PAttacker->getMod(Mod::MEVA) + (PAttacker->getMod(resistarray[element -1]));
             magicacc = static_cast<float>(PDefender->GetSkill(skill) + PDefender->getMod(Mod::MACC) + bonus);
-            if (PDefender->objtype == TYPE_MOB)
+            if (PDefender->objtype == TYPE_MOB || PDefender->objtype == TYPE_PET)
             {
                 magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PDefender->GetMLevel()));
             }
@@ -5405,7 +5405,7 @@ namespace battleutils
         damage = (int32)(damage * resist);
 
         if (damage > 0 && PDefender->objtype == TYPE_PET && PDefender->getMod(Mod::AUTO_EQUALIZER) > 0)
-            damage -= (int32)(damage / float(PDefender->GetMaxHP()) * (PDefender->getMod(Mod::AUTO_EQUALIZER) / 100.0f));
+            damage -= (int32)(damage / float(PDefender->GetMaxHP()) * (PDefender->getMod(Mod::AUTO_EQUALIZER) / 100.0f) * 100);
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::PHYS_ABSORB))

@@ -1176,6 +1176,12 @@ end
         end
     end
 
+    -- add on ice maker bonus(if automaton)
+    if caster:isPet() then
+        local iceMakerBonus = 1 + (caster:getLocalVar("ice_maker_bonus") / 100)
+        dmg = math.floor(dmg * iceMakerBonus)
+    end
+
     dmg = target:magicDmgTaken(dmg)
 
     if (dmg > 0) then
@@ -2362,12 +2368,6 @@ function doNuke(caster, target, spell, params)
             dmg = math.floor(dmg * 1.50)
             caster:delStatusEffectSilent(tpz.effect.FUTAE)
         end
-    end
-    
-    -- add on ice maker bonus(if automaton)
-    if caster:isPet() then
-        local iceMakerBonus = 1 + (caster:getLocalVar("ice_maker_bonus") / 100)
-        dmg = math.floor(dmg * iceMakerBonus)
     end
 
     --get the resisted damage

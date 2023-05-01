@@ -32,6 +32,8 @@ function onPetAbility(target, pet, skill)
     params.mnd_wsc = 1.0
     params.chr_wsc = 0.0
     params.IGNORES_SHADOWS = true
+    params.NO_RESIST = true
+    params.CANNIBAL_BLADE = true
 
 
     local damage = AutoMagicalWeaponSkill(pet, target, skill, tpz.magic.ele.DARK, params, MND_BASED, 0)

@@ -1901,12 +1901,12 @@ INSERT INTO `mob_skills` VALUES (1940,1304,'chimera_ripper',0,7.0,2000,1,4,0,0,0
 INSERT INTO `mob_skills` VALUES (1941,1305,'string_clipper',0,7.0,2000,1,4,0,0,0,4,0,0);
 INSERT INTO `mob_skills` VALUES (1942,1303,'arcuballista',0,15.0,2000,1,4,0,0,0,3,1,0);
 INSERT INTO `mob_skills` VALUES (1943,1306,'slapstick',0,7.0,2000,1,4,0,0,0,8,0,0);
-INSERT INTO `mob_skills` VALUES (1944,1307,'shield_bash',0,7.0,2000,0,4,4,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1945,1218,'provoke',0,7.0,2000,0,4,4,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1946,435,'shock_absorber',0,7.0,2000,0,16,4,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1947,438,'flashbulb',0,7.0,2000,0,4,4,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1948,439,'mana_converter',0,7.0,2000,0,16,4,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1949,16,'ranged_attack',0,25.0,2000,0,4,4,0,0,0,0,0); -- Automaton
+INSERT INTO `mob_skills` VALUES (1944,1307,'shield_bash',0,7.0,2000,0,4,2,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1945,1218,'provoke',0,7.0,2000,0,4,2,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1946,435,'shock_absorber',0,7.0,2000,0,16,2,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1947,438,'flashbulb',0,7.0,2000,0,4,2,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1948,439,'mana_converter',0,7.0,2000,0,16,2,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1949,16,'ranged_attack',0,25.0,2000,0,4,2,0,0,0,0,0); -- Automaton
 INSERT INTO `mob_skills` VALUES (1950,1694,'belly_dance',1,10.0,2000,2500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1951,1345,'magma_fan',4,10.0,2000,1000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1952,1346,'erratic_flutter',1,15.0,2000,1000,4,0,0,0,0,0,0);
@@ -2702,9 +2702,9 @@ INSERT INTO `mob_skills` VALUES (2741,2485,'entomb',1,10.0,2000,1500,4,0,0,0,0,0
 -- INSERT INTO `mob_skills` VALUES (2742,2486,'tenebral_crush',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (2743,1509,'string_shredder',0,7.0,2000,1,4,0,324,0,10,4,0);
 INSERT INTO `mob_skills` VALUES (2744,1510,'armor_shatterer',0,7.0,2000,1,4,0,324,0,11,8,0);
-INSERT INTO `mob_skills` VALUES (2745,433,'heat_capacitor',0,7.0,2000,0,16,4,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2746,434,'barrage_turbine',0,7.0,2000,0,16,4,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2747,439,'disruptor',0,7.0,2000,0,4,4,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2745,433,'heat_capacitor',0,7.0,2000,0,16,2,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2746,434,'barrage_turbine',0,7.0,2000,0,16,2,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2747,439,'disruptor',0,7.0,2000,0,4,2,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2748,1922,'mantid_melee_double',0,7.0,2000,0,4,16,0,0,0,0,0); -- kaggan melee specials
 -- INSERT INTO `mob_skills` VALUES (2749,1923,'mantid_melee_slice',0,7.0,2000,0,4,16,0,0,0,0,0);  -- kaggan melee specials
 -- INSERT INTO `mob_skills` VALUES (2750,1924,'mantid_melee_jump',1,7.0,2000,0,4,16,0,0,0,0,0);   -- kaggan melee specials
@@ -3442,7 +3442,7 @@ INSERT INTO `mob_skills` VALUES (3473,446,'stellar_burst',1,15.0,2000,1500,4,0,0
 -- INSERT INTO `mob_skills` VALUES (3482,3226,'bolster',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3483,189,'scissor_guard',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3484,3228,'hemorrhaze',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (3485,3229,'regulator',0,7.0,2000,0,4,4,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (3485,3229,'regulator',0,7.0,2000,0,4,2,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (3486,260,'tongue_lash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (3487,429,'sidewinder',0,16.0,2000,1500,4,0,0,0,0,0,0); -- Semih Lafihna, TODO: Cap'd correctly, animation broken when used
 -- INSERT INTO `mob_skills` VALUES (3488,428,'arching_arrow',0,16.0,2000,1500,4,0,0,0,0,0,0); -- TODO: Cap'd correctly, animation broken when used

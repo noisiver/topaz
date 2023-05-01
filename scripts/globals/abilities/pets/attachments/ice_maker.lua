@@ -6,7 +6,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEquip(pet)
-    et:setLocalVar("ice_maker_bonus", 0)
+    pet:setLocalVar("ice_maker_bonus", 0)
 end
 
 function onUnequip(pet)
@@ -14,25 +14,23 @@ function onUnequip(pet)
 end
 
 function onManeuverGain(pet, maneuvers)
-    if maneuvers == 0 then
-        pet:setLocalVar("ice_maker_bonus", 0)
-    elseif maneuvers == 1 then
-        pet:setLocalVar("ice_maker_bonus", 20)
+    local iceMakerBonus = pet:getLocalVar("ice_maker_bonus") 
+    if maneuvers == 1 then
+        pet:setLocalVar("ice_maker_bonus", iceMakerBonus + 20)
     elseif maneuvers == 2 then
-        pet:setLocalVar("ice_maker_bonus", 40)
+        pet:setLocalVar("ice_maker_bonus", iceMakerBonus + 20)
     elseif maneuvers == 3 then
-        pet:setLocalVar("ice_maker_bonus", 60)
+        pet:setLocalVar("ice_maker_bonus", iceMakerBonus + 20)
     end
 end
 
 function onManeuverLose(pet, maneuvers)
-    if maneuvers == 0 then
-        pet:setLocalVar("ice_maker_bonus", 0)
-    elseif maneuvers == 1 then
-        pet:setLocalVar("ice_maker_bonus", 20)
+    local iceMakerBonus = pet:getLocalVar("ice_maker_bonus") 
+    if maneuvers == 1 then
+        pet:setLocalVar("ice_maker_bonus", iceMakerBonus - 20)
     elseif maneuvers == 2 then
-        pet:setLocalVar("ice_maker_bonus", 40)
+        pet:setLocalVar("ice_maker_bonus", iceMakerBonus - 20)
     elseif maneuvers == 3 then
-        pet:setLocalVar("ice_maker_bonus", 60)
+        pet:setLocalVar("ice_maker_bonus", iceMakerBonus - 20)
     end
 end

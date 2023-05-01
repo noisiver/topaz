@@ -30,6 +30,7 @@ require("scripts/globals/pets")
 --params.ELEMENT_OVERRIDE
 --params.TARGET_HP_BASED
 --params.MAGIC_MORTAR
+--params.CANNIBAL_BLADE
 
 function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, tpEffect, params)
     local returninfo = {}
@@ -38,8 +39,13 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
     -- current retail is over +250 skill so I am removing the cap, my SMN is at 695 total skill
     local master = auto:getMaster()
     local tp = auto:getLocalVar("TP")
-    if skill:getID() == 1949 then
-        tp = 1000
+
+    local jas =
+    {1944, 1945, 1946, 1947, 1948, 1949, 3485, 2745, 2746, 2747}
+    for _, skillId in pairs(jas) do
+        if skill:getID() == skillId then
+            tp = 1000
+        end
     end
     -- printf("TP: %i", tp)
     --printf("tp %i", tp)
@@ -78,8 +84,10 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
     local bonusfTP = 0
 
     -- Add Flame Holder bonus
-    bonusfTP = bonusfTP + (auto:getMod(tpz.mod.WEAPONSKILL_DAMAGE_BASE) / 100)
-    local ftp = AutoPhysicalfTPModifier(tp, params.ftp100, params.ftp200, params.ftp300) + bonusfTP
+    bonusfTP = bonusfTP + (auto :getLocalVar("flameHolderBonus") / 100)
+    local ftp = AutoPhysicalfTPModifier(tp, params.ftp100, params.ftp200, params.ftp300)
+
+    ftp = ftp + bonusfTP
 
     -- Level correction does not happen in Adoulin zones, Legion, or zones in Escha/Reisenjima
     -- https://www.bg-wiki.com/bg/PDIF#Level_Correction_Function_.28cRatio.29
@@ -467,6 +475,8 @@ function AutoMagicalWeaponSkill(auto, target, skill, element, params, statmod, b
     local finaldmg = 0
     if (params.MAGIC_MORTAR ~= nil) then
         finaldmg = finaldmg + AutoMagicMortar(auto, WSC, ftp, dStat, resist, weatherBonus, magicAttkBonus)
+    elseif (params.CANNIBAL_BLADE ~= nil) then
+        finaldmg = finaldmg + AutoCannibalBlade(auto, WSC, ftp, dStat, resist, weatherBonus, magicAttkBonus)
     else
         finaldmg = finaldmg + getAutoMagicalDamage(autoLevel, WSC, ftp, dStat, magicBurstBonus, resist, weatherBonus, magicAttkBonus)
     end
@@ -1610,9 +1620,27 @@ function AutoMagicMortar(auto, WSC, ftp, dStat, resist, weatherBonus, magicAttkB
     local meleeSkill = auto:getSkillLevel(tpz.skill.AUTOMATON_MELEE)
     local mortarDmg = 0
 
-    mortarDmg = mortarDmg + math.floor(((hpMod * ftp) + meleeSkill) * resist * weatherBonus * magicAttkBonus)
+    mortarDmg = math.floor(((hpMod * ftp) + meleeSkill) * resist * weatherBonus * magicAttkBonus)
 
     return mortarDmg
+end
+
+function AutoCannibalBlade(auto, WSC, ftp, dStat, resist, weatherBonus, magicAttkBonus)
+    --[[1000 ( Melee combat skill less than 201)
+    180 + int {( Melee combat skill -146)/9} x 11
+    ( Melee combat skill 201 or higher)
+    180 + int {( Melee combat skill - (147 + int ( Melee combat skill -201)/100) )/9}×11
+    ]]
+    local meleeSkill = auto:getSkillLevel(tpz.skill.AUTOMATON_MELEE)
+    local cannibalDmg = 0
+
+    if (meleeSkill <= 200) then
+        cannibalDmg = math.floor(180 +((meleeSkill - 149) / 9) * 11 * resist * weatherBonus * magicAttkBonus)
+    else
+        cannibalDmg = math.floor(180 + ((meleeSkill - (147 + (meleeSkill -201) / 100)) /9) * 11 * resist * weatherBonus * magicAttkBonus)
+    end
+
+    return cannibalDmg
 end
 
 function getAutoTP(player)

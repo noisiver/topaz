@@ -5,6 +5,7 @@ require("scripts/globals/automatonweaponskills")
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/msg")
+require("scripts/globals/job_util")
 ---------------------------------------------
 
 function onMobSkillCheck(target, automaton, skill)
@@ -13,21 +14,13 @@ end
 
 function onPetAbility(target, automaton, skill, master, action)
     automaton:addRecast(tpz.recast.ABILITY, skill:getID(), 45)
-    local highest = automaton:getSkillLevel(tpz.skill.AUTOMATON_MELEE)
-    local highestskill = 22
-    if automaton:getSkillLevel(tpz.skill.AUTOMATON_RANGED) > highest then
-        highestskill = 23
-        highest = automaton:getSkillLevel(tpz.skill.AUTOMATON_RANGED)
-    end
-    if automaton:getSkillLevel(tpz.skill.AUTOMATON_MAGIC) > highest then
-        highestskill = 24
-    end
+    local skillType = jobUtil.GetAutoMainSkill(automaton)
 
-    local resist = applyResistanceAbility(automaton, target, 7, highestskill, 150)
+    local resist = applyResistanceAbility(automaton, target, 7, skillType, 200)
     local duration = 12 * resist
 
     if resist > 0.0625 then
-        if target:addStatusEffect(tpz.effect.FLASH, 200, 0, duration) then
+        if target:addStatusEffect(tpz.effect.FLASH, 300, 3, duration) then
             skill:setMsg(tpz.msg.basic.SKILL_ENFEEB)
         else
             skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)

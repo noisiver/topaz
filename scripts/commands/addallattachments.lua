@@ -10,6 +10,7 @@ cmdprops =
 }
 
 local ValidAttachments = {
+  2347, 2348, 2349, 2350, 2351, 2352, 2353, 2354,
   8193, 8194, 8195, 8196, 8197, 8198, 8224, 8225, 8226, 8227,
   8449, 8450, 8451, 8452, 8453, 8454, 8455, 8456, 8457, 8458,
   8481, 8482, 8483, 8484, 8485, 8486, 8487, 8488, 8489, 8490,
@@ -18,7 +19,8 @@ local ValidAttachments = {
   8554, 8577, 8578, 8579, 8580, 8581, 8582, 8583, 8584, 8585,
   8586, 8609, 8610, 8611, 8612, 8613, 8614, 8615, 8616, 8617,
   8618, 8641, 8642, 8643, 8644, 8645, 8646, 8648, 8649, 8650,
-  8673, 8674, 8675, 8676, 8677, 8678, 8680, 8681
+  8673, 8674, 8675, 8676, 8677, 8678, 8680, 8681, 8682, 8683,
+  8555
 }
 
 local function AddAllAttachments(player)
@@ -36,6 +38,7 @@ function onTrigger(player, target)
             player:PrintToPlayer(string.format( "Player named '%s' not found!", target ))
         else
             AddAllAttachments(targ)
+            player:PrintToPlayer(string.format( "All attachments were successfully added to %s", target ))
         end
     end
 end
