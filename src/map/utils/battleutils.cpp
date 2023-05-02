@@ -307,7 +307,18 @@ namespace battleutils
     /************************************************************************
     *   Return Max Skill by SkillType, JobType, and level                   *
     ************************************************************************/
-
+    // 1 = A+
+    // 2 = A-
+    // 3 = B+
+    // 4 = B
+    // 5 = B-
+    // 6 = C+
+    // 7 = C
+    // 8 = C-
+    // 9 = D
+    // 10 = E
+    // 11 = F
+    // 12 = G
     uint16 GetMaxSkill(SKILLTYPE SkillID, JOBTYPE JobID, uint8 level)
     {
         return g_SkillTable[level][g_SkillRanks[SkillID][JobID]];
