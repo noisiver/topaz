@@ -709,7 +709,8 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
             defaultPriority.push_back(SpellID::Poison);
         }
 
-        if (((CMobEntity*)PTarget)->IsHumanoid() && ((CMobEntity*)PTarget != nullptr))
+        CMobEntity* PTargetMob = dynamic_cast<CMobEntity*>(PTarget);
+        if ((PTargetMob != nullptr) && (PTargetMob->IsHumanoid()))
         {
             if (maneuvers.wind) // Wind -> Silence
                 castPriority.push_back(SpellID::Silence);
@@ -801,7 +802,8 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
                 defaultPriority.push_back(SpellID::Poison);
             }
 
-        if (((CMobEntity*)PTarget)->IsHumanoid() && ((CMobEntity*)PTarget != nullptr))
+            CMobEntity* PTargetMob = dynamic_cast<CMobEntity*>(PTarget);
+            if ((PTargetMob != nullptr) && (PTargetMob->IsHumanoid()))
             {
                 if (maneuvers.wind) // Wind -> Silence
                     castPriority.push_back(SpellID::Silence);
@@ -897,7 +899,8 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
             }
         }
 
-        if (((CMobEntity*)PTarget)->IsHumanoid() && ((CMobEntity*)PTarget != nullptr))
+        CMobEntity* PTargetMob = dynamic_cast<CMobEntity*>(PTarget);
+        if ((PTargetMob != nullptr) && (PTargetMob->IsHumanoid()))
         {
             if (maneuvers.wind) // Wind -> Silence
                 castPriority.push_back(SpellID::Silence);
