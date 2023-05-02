@@ -598,7 +598,7 @@ function applyResistance(caster, target, spell, params)
     end
 
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
-    local res = getMagicResist(p, element)
+    local res = getMagicResist(p)
 
 
     if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
@@ -686,7 +686,7 @@ function applyResistanceEffect(caster, target, spell, params) -- says "effect" b
     magicaccbonus = magicaccbonus + caster:getMod(tpz.mod.STATUS_EFFECT_MACC)
 
     local p = getMagicHitRate(caster, target, skill, element, SDT, percentBonus, magicaccbonus, params)
-    local res = getMagicResist(p, element)
+    local res = getMagicResist(p)
 
     if SDT <= 5 then -- SDT tier .05 makes you lose ALL coin flips
         res = 1/8
@@ -716,7 +716,7 @@ function applyResistanceAbility(player, target, element, skill, bonus)
     local params = {}
     local SDT = getElementalSDT(element, target)
     local p = getMagicHitRate(player, target, skill, element, SDT, 0, bonus, params)
-    local res = getMagicResist(p, element)
+    local res = getMagicResist(p)
 
     if target:hasStatusEffect(tpz.effect.FEALTY) then
         return 1/16
@@ -746,7 +746,7 @@ function applyResistanceAddEffect(player, target, element, bonus, effect)
     params.effect = effect
 
     local p = getMagicHitRate(player, target, 0, element, SDT, 0, bonus, params)
-	local res = getMagicResist(p, element)
+	local res = getMagicResist(p)
 
     if (effect == nil) then
         if SDT >= 150 then -- 1.5 guarantees at least half value, no quarter or full resists.
