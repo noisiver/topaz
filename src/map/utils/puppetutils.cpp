@@ -507,9 +507,20 @@ void TrySkillUP(CAutomatonEntity* PAutomaton, SKILLTYPE SkillID, uint8 lvl)
 
         double random = tpzrand::GetRandomNumber(1.);
 
-        if (SkillUpChance > 0.5)
+        // Ranged(Sharpshot) has 70% max, rest have 24% max skill up chance
+        if (SkillID == SKILL_AUTOMATON_RANGED)
         {
-            SkillUpChance = 0.5;
+            if (SkillUpChance > 0.70)
+            {
+                SkillUpChance = 0.70;
+            }
+        }
+        else
+        {
+            if (SkillUpChance > 0.24)
+            {
+                SkillUpChance = 0.24;
+            }
         }
 
         SkillUpChance *= ((100.f + PAutomaton->getMod(Mod::COMBAT_SKILLUP_RATE)) / 100.f);
@@ -526,11 +537,11 @@ void TrySkillUP(CAutomatonEntity* PAutomaton, SKILLTYPE SkillID, uint8 lvl)
 
                 switch (tier)
                 {
-                case 5:  chance = 0.900; break;
-                case 4:  chance = 0.700; break;
-                case 3:  chance = 0.500; break;
-                case 2:  chance = 0.300; break;
-                case 1:  chance = 0.200; break;
+                case 5:  chance = 0.450; break;
+                case 4:  chance = 0.300; break;
+                case 3:  chance = 0.250; break;
+                case 2:  chance = 0.150; break;
+                case 1:  chance = 0.100; break;
                 default: chance = 0.000; break;
                 }
 
