@@ -364,6 +364,7 @@ namespace battleutils
         if (PAttacker->objtype == TYPE_MOB || PAttacker->objtype == TYPE_PET)
         {
             magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
+            magicacc += 50; // 50 MACC Bonus
             //printf("Mob base MACC from skill %f \n", magicacc);
         }
         // NIN Endark Myoshu: Ichi uses Ninjutsu skill
@@ -388,6 +389,7 @@ namespace battleutils
             if (PDefender->objtype == TYPE_MOB || PDefender->objtype == TYPE_PET)
             {
                 magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PDefender->GetMLevel()));
+                magicacc += 50; // 50 MACC Bonus
             }
             //printf("Spikes Macc before gear mod = %f \nmeva before = %f \n", magicacc, meva);
             // Blue Magic spike spells use Blue Magic Skll
@@ -5345,6 +5347,7 @@ namespace battleutils
                 PDefender->addMP(absorbedMP);
         }
 
+        // ShowDebug(CL_CYAN"BreathDmgTaken: Element = %d\n" CL_RESET, element);
         return damage;
     }
 
@@ -5389,7 +5392,7 @@ namespace battleutils
                 PDefender->addMP(absorbedMP);
         }
 
-        // ShowDebug(CL_CYAN"MagicDmgTaken: Element = %d\n" CL_RESET, element);
+        //ShowDebug(CL_CYAN"MagicDmgTaken: Element = %d\n" CL_RESET, element);
         return damage;
     }
 
