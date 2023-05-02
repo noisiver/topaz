@@ -261,7 +261,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
                 -- Hybrid hits are only HALF a physical hits damage
                 magicdmg = magicdmg / 2
                 --printf("magicdmg after resist %u", magicdmg)
-                magicdmg = target:magicDmgTaken(magicdmg)
+                magicdmg = target:magicDmgTaken(magicdmg, tpz.magic.ele.FIRE) -- Only hybrid BP is fire for now
                 -- Handle absorb
                 magicdmg = adjustForTarget(target, magicdmg, tpz.magic.ele.FIRE)
                 -- Add HP if absorbed
@@ -471,11 +471,12 @@ function AvatarPhysicalFinalAdjustments(dmg, avatar, skill, target, attackType, 
         end
     end
 
+    local element = damageType - 5
     -- Check for MDT/PDT/RDT/BDT/MDB
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.BREATH then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
     elseif attackType == tpz.attackType.PHYSICAL then
@@ -542,9 +543,9 @@ function AvatarMagicalFinalAdjustments(dmg, avatar, skill, target, attackType, e
     dmg = dmg + dmg * avatar:getMod(tpz.mod.BP_DAMAGE) / 100
 
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.BREATH then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     end
 
     -- Handle absorb

@@ -1182,7 +1182,9 @@ end
         dmg = math.floor(dmg * iceMakerBonus)
     end
 
-    dmg = target:magicDmgTaken(dmg)
+    local element = spell:getElement()
+
+    dmg = target:magicDmgTaken(dmg, element)
 
     if (dmg > 0) then
         if not (spell:getID() == 247) and not (spell:getID() == 248) then -- Aspir isn't reduced by Phalanx
@@ -1218,7 +1220,7 @@ end
 function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
     --Handles target's HP adjustment and returns SIGNED dmg (negative values on absorb)
 
-    dmg = target:magicDmgTaken(dmg)
+    dmg = target:magicDmgTaken(dmg, ele)
 
     if (dmg > 0) then
         dmg = dmg - target:getMod(tpz.mod.PHALANX)

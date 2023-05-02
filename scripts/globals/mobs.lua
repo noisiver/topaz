@@ -733,15 +733,17 @@ end
 
 function AddDamageAura(mob, target, radius, dmg, attackType, damageType, tick)
     local DmgAuraTick = mob:getLocalVar("DmgAuraTick")
+    local element = damageType - 5
+
     if os.time() >= DmgAuraTick then
         mob:setLocalVar("DmgAuraTick", os.time() + tick)
         local nearbyPlayers = mob:getPlayersInRange(radius)
         if nearbyPlayers ~= nil then 
             for _,v in ipairs(nearbyPlayers) do
             if (attackType == tpz.attackType.MAGICAL) or (attackType == tpz.attackType.SPECIAL) then
-                dmg = v:magicDmgTaken(dmg)
+                dmg = v:magicDmgTaken(dmg, element)
             elseif (attackType == tpz.attackType.BREATH) then
-                dmg = v:breathDmgTaken(dmg)
+                dmg = v:breathDmgTaken(dmg, element)
             elseif (attackType == tpz.attackType.RANGED) then
                 dmg = v:rangedDmgTaken(dmg)
             elseif (attackType == tpz.attackType.PHYSICAL) then

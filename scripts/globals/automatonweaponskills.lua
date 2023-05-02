@@ -571,11 +571,12 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
         end
     end
 
+    local element = damageType - 5
     -- Check for MDT/PDT/RDT/BDT/MDB
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.BREATH then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
     elseif attackType == tpz.attackType.PHYSICAL then
@@ -636,9 +637,9 @@ function AutoMagicalFinalAdjustments(dmg, auto, skill, target, attackType, eleme
     dmg = dmg * HandlePositionalMDT(auto, target)
 
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.BREATH then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     end
 
     -- Handle absorb

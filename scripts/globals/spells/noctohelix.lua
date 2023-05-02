@@ -46,7 +46,7 @@ function onSpellCast(caster, target, spell)
     -- add in final adjustments
     dmg = finalMagicAdjustments(caster, target, spell, dmg)
     -- calculate Damage over time
-    dot = target:magicDmgTaken(dot)
+    dot = target:magicDmgTaken(dot, spell:getElement())
 
     local duration = getHelixDuration(caster) + caster:getMod(tpz.mod.HELIX_DURATION)
 

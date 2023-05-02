@@ -59,7 +59,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 -- Calculate magical bonuses and reductions
                 local magicdmg = addBonusesAbility(attacker, wsParams.ele, target, finaldmg, wsParams)
                 magicdmg = magicdmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
-                magicdmg = target:magicDmgTaken(magicdmg)
+                magicdmg = target:magicDmgTaken(magicdmg, wsParams.ele)
                 magicdmg = adjustForTarget(target, magicdmg, wsParams.ele)
                 -- Add HP if absorbed
                 if (magicdmg < 0) then
@@ -709,7 +709,7 @@ function doMagicWeaponskill(attacker, target, wsID, wsParams, tp, action, primar
         -- Calculate magical bonuses and reductions
         dmg = addBonusesAbility(attacker, wsParams.ele, target, dmg, wsParams)
         dmg = dmg * applyResistanceAbility(attacker, target, wsParams.ele, wsParams.skill, bonusacc)
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, wsParams.ele)
 
         dmg = dmg * WEAPON_SKILL_POWER -- Add server bonus
         -- Handle Positional MDT

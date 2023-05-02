@@ -485,10 +485,12 @@ end
 function BlueFinalAdjustments(caster, target, spell, dmg, params)
     local attackType = params.attackType or tpz.attackType.NONE
     local damageType = params.damageType or tpz.damageType.NONE
+    local element = damageType - 5
+
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
-        dmg = target:magicDmgTaken(dmg)
+        dmg = target:magicDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.BREATH then
-        dmg = target:breathDmgTaken(dmg)
+        dmg = target:breathDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
     elseif attackType == tpz.attackType.PHYSICAL then

@@ -45,7 +45,7 @@ function onMobFight(mob, target)
             v:delStatusEffectSilent(tpz.effect.BURN)
             v:addStatusEffectEx(tpz.effect.BURN, tpz.effect.BURN, 20, 3, 60)
             local dmg = 300
-            dmg = v:magicDmgTaken(dmg)
+            dmg = v:magicDmgTaken(dmg, tpz.magic.ele.FIRE)
             v:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)
             mob:useMobAbility(307) -- 2 hour "cloud" animation (Fire / Red)
             mob:setLocalVar("PulsingDmgAuraDelay", BattleTime + 60)
