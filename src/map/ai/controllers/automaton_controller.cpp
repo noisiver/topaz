@@ -709,10 +709,13 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
             defaultPriority.push_back(SpellID::Poison);
         }
 
-        if (maneuvers.wind) // Wind -> Silence
-            castPriority.push_back(SpellID::Silence);
-        else
-            defaultPriority.push_back(SpellID::Silence);
+        if (((CMobEntity*)PTarget)->IsHumanoid() && ((CMobEntity*)PTarget != nullptr))
+        {
+            if (maneuvers.wind) // Wind -> Silence
+                castPriority.push_back(SpellID::Silence);
+            else
+                defaultPriority.push_back(SpellID::Silence);
+        }
 
         if (maneuvers.earth) // Earth -> Slow
             castPriority.push_back(SpellID::Slow);
@@ -798,10 +801,13 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
                 defaultPriority.push_back(SpellID::Poison);
             }
 
-            if (maneuvers.wind >= 2) // 2 Wind -> Silence
-                castPriority.push_back(SpellID::Silence);
-            else
-                defaultPriority.push_back(SpellID::Silence);
+        if (((CMobEntity*)PTarget)->IsHumanoid() && ((CMobEntity*)PTarget != nullptr))
+            {
+                if (maneuvers.wind) // Wind -> Silence
+                    castPriority.push_back(SpellID::Silence);
+                else
+                    defaultPriority.push_back(SpellID::Silence);
+            }
 
             if (maneuvers.earth >= 2) // 2 Earth -> Slow
                 castPriority.push_back(SpellID::Slow);
@@ -891,10 +897,13 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
             }
         }
 
-        if (maneuvers.wind) // Wind -> Silence
-            castPriority.push_back(SpellID::Silence);
-        else
-            defaultPriority.push_back(SpellID::Silence);
+        if (((CMobEntity*)PTarget)->IsHumanoid() && ((CMobEntity*)PTarget != nullptr))
+        {
+            if (maneuvers.wind) // Wind -> Silence
+                castPriority.push_back(SpellID::Silence);
+            else
+                defaultPriority.push_back(SpellID::Silence);
+        }
 
         if (maneuvers.ice) // Ice -> Paralyze
             castPriority.push_back(SpellID::Paralyze);
