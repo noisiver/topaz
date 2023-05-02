@@ -1741,7 +1741,7 @@ namespace petutils
                 PPet->addModifier(Mod::DMG, -6);
                 break;
             case FRAME_VALOREDGE:
-                PPet->SetMJob(JOB_PLD);
+                PPet->SetMJob(JOB_WAR);
                 PPet->SetSJob(JOB_WAR);
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (360.0f / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_SLASHING);
@@ -1754,7 +1754,7 @@ namespace petutils
                 break;
             case FRAME_SHARPSHOT:
                 PPet->SetMJob(JOB_RNG);
-                PPet->SetSJob(JOB_PUP);
+                PPet->SetSJob(JOB_RNG);
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setDelay((uint16)(floor(1000.0 * (360.0f / 60.0f))));
@@ -1770,7 +1770,7 @@ namespace petutils
                 break;
             case FRAME_STORMWAKER:
                 PPet->SetMJob(JOB_RDM);
-                PPet->SetSJob(JOB_WHM);
+                PPet->SetSJob(JOB_RDM);
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
                 PPet->addModifier(Mod::HPP, -20);
