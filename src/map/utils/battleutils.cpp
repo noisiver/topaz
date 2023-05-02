@@ -5318,6 +5318,10 @@ namespace battleutils
 
     int32 BreathDmgTaken(CBattleEntity* PDefender, int32 damage, ELEMENT element)
     {
+        Mod absorb[8] = { Mod::FIRE_ABSORB, Mod::ICE_ABSORB,   Mod::WIND_ABSORB,  Mod::EARTH_ABSORB,
+                          Mod::LTNG_ABSORB, Mod::WATER_ABSORB, Mod::LIGHT_ABSORB, Mod::DARK_ABSORB };
+        Mod nullarray[8] = { Mod::FIRE_NULL, Mod::ICE_NULL, Mod::WIND_NULL, Mod::EARTH_NULL, Mod::LTNG_NULL, Mod::WATER_NULL, Mod::LIGHT_NULL, Mod::DARK_NULL };
+
         float resist = 1.0f + floor( 256.0f * ( PDefender->getMod(Mod::UDMGBREATH) / 100.0f )  ) / 256.0f;
         resist = std::max<float>(resist, 0);
         damage = (int32)(damage * resist);
@@ -5331,6 +5335,7 @@ namespace battleutils
             damage = HandleSteamJacket(PDefender, damage, element);
 
         if (tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::ABSORB_DMG_CHANCE) ||
+            (element && tpzrand::GetRandomNumber(100) < PDefender->getMod(absorb[element - 1])) ||
             tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_ABSORB))
             if (PDefender->getMod(Mod::MAGIC_ABSORB) > 100)
             {
@@ -5340,13 +5345,16 @@ namespace battleutils
             {
                 damage = -damage;
             }
+        else if ((element && tpzrand::GetRandomNumber(100) < PDefender->getMod(nullarray[element - 1])) ||
+                 tpzrand::GetRandomNumber(100) < PDefender->getMod(Mod::MAGIC_NULL))
+            damage = 0;
+        else
         {
             damage = HandleSevereDamage(PDefender, damage, false);
             int16 absorbedMP = (int16)(damage * PDefender->getMod(Mod::ABSORB_DMG_TO_MP) / 100);
             if (absorbedMP > 0)
                 PDefender->addMP(absorbedMP);
         }
-
         // ShowDebug(CL_CYAN"BreathDmgTaken: Element = %d\n" CL_RESET, element);
         return damage;
     }
