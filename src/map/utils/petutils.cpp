@@ -1769,8 +1769,8 @@ namespace petutils
                 PPet->addModifier(Mod::DMG, -13);
                 break;
             case FRAME_STORMWAKER:
-                PPet->SetMJob(JOB_RDM);
-                PPet->SetSJob(JOB_RDM);
+                PPet->SetMJob(JOB_BLM);
+                PPet->SetSJob(JOB_WHM);
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
                 PPet->addModifier(Mod::HPP, -20);
