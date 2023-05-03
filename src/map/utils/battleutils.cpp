@@ -506,7 +506,10 @@ int getSDTTier(int SDT)
         }
         //printf("element in getElementalSDT %u\n", element);
         // TODO: This array doesn't work...
-        Mod sdtarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
+        Mod sdtarray[9] = { Mod::NONE,        Mod::SDT_FIRE,  Mod::SDT_ICE,   Mod::SDT_WIND, Mod::SDT_EARTH,
+                            Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
+        float SDT = (PDefender->getMod(sdtarray[element])); // never works
+        printf("Element:%u Mod:%u Value:%f", element, sdtarray[element], SDT);
         float SDT = (PDefender->getMod(sdtarray[element]));
 
         if (SDT == 0) // invalid SDT, it was never set on this target... just default it.
