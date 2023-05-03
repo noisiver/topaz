@@ -152,7 +152,7 @@ function getAugmentAmount()
     end
 end
 
-tpz.moblinmazemongers.NMMods = function(mob)
+tpz.moblinmazemongers.MobMods = function(mob)
 	mob:setDamage(125)
 	mob:setMod(tpz.mod.VIT, 35)
     mob:setMod(tpz.mod.UDMGBREATH, -66)
