@@ -3,38 +3,28 @@
 --   ANNM
 --   NM: Procrustes
 --  !addkeyitem RED_LABELED_CRATE
--- TODO: fix/test!
 -----------------------------------
 require("scripts/globals/annm")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setLocalVar("drawInTick", 0)
-    mob:setLocalVar("comboTime", 45)
-    mob:setLocalVar("Drawin", 0)
+    mob:setLocalVar("colossalSlamTime", os.time() + math.random(45, 60))
     tpz.annm.NMMods(mob) 
 end
 
 function onMobFight(mob, target)
-    local comboTime = mob:getLocalVar("comboTime")
+    local colossalSlamTime = mob:getLocalVar("colossalSlamTime")
     local drawInTick = mob:getLocalVar("drawInTick")
-    local BattleTime = mob:getBattleTime()
-    -- Once adds are dead, draws in and Collosal slams every 90 seconds
-    -- Continues to use it until it successfully gets it off
-    for i = 17117554, 17117559 do
-        if not GetMobByID(i):isDead() then
-            return
-        end
-    end
 
-    if BattleTime >= comboTime then
+    -- Draws in players then uses Maelstrom every 90 seconds
+    if os.time() >= colossalSlamTime then
         local zonePlayers = mob:getZone():getPlayers()
         for _, zonePlayer in pairs(zonePlayers) do
             local mobX = mob:getXPos()
             local mobY = mob:getYPos()
             local mobZ = mob:getZPos()
-            if BattleTime >= drawInTick then
-                mob:setLocalVar("drawInTick", BattleTime + 3)
+            if os.time() >= drawInTick then
+                mob:setLocalVar("drawInTick", os.time() + 3)
                 local nearbyPlayers = mob:getPlayersInRange(40)
                 if nearbyPlayers == nil then return end
                 zonePlayer:setPos(mob:getXPos() + math.random(1, 3), mob:getYPos(), mob:getZPos() + math.random(1, 3))
@@ -42,12 +32,13 @@ function onMobFight(mob, target)
             end
         end
 		mob:useMobAbility(2578) -- Colossal Slam
-        mob:setLocalVar("comboTime", BattleTime + 10)
+        mob:setLocalVar("colossalSlamTime", os.time() + 90)
 	end
 
-    mob:addListener("WEAPONSKILL_STATE_EXIT", "COLOSSAL_BLOW_FINISH", function(mob, skillID) 
-        if skillID == 2578 then -- Colossal Slam
-            mob:setLocalVar("comboTime", BattleTime + 90) -- This won't work, needs to be converted to os.time()
+    -- Handle Maelstrom being interrupted
+    mob:addListener("WEAPONSKILL_STATE_INTERRUPTED", "PROCRUSTES_INTERRUPTED", function(mob, skill)
+        if skill == 2578 then
+            mob:setLocalVar("colossalSlamTime", os.time())
         end
     end)
     tpz.annm.PetShield(mob, 17117554, 17117559)
