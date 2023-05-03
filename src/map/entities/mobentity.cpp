@@ -1208,19 +1208,19 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             {
                 case 0:
 
-                    if (AddItemToPool(1126, ++dropCount)) // Desperado Ring
+                    if (AddItemToPool(15835, ++dropCount)) // Desperado Ring
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(1127, ++dropCount)) // Pile Chain
+                    if (AddItemToPool(16279, ++dropCount)) // Pile Chain
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(2955, ++dropCount)) // Rambler's Cloak
+                    if (AddItemToPool(11312, ++dropCount)) // Rambler's Cloak
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(2956, ++dropCount)) // Bronze Bandolier
+                    if (AddItemToPool(15926, ++dropCount)) // Bronze Bandolier
                         return;
                     break;
             }
@@ -1231,19 +1231,19 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             {
                 case 0:
 
-                    if (AddItemToPool(1126, ++dropCount)) // Mammut 100% proc
+                    if (AddItemToPool(18503, ++dropCount)) // Mammut 100% proc
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(1127, ++dropCount)) // Phlegethon's Trousers
+                    if (AddItemToPool(16367, ++dropCount)) // Phlegethon's Trousers
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(2955, ++dropCount)) // Herder's Subligar
+                    if (AddItemToPool(16368, ++dropCount)) // Herder's Subligar
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(2956, ++dropCount)) // Rambler's Gaiters
+                    if (AddItemToPool(11401, ++dropCount)) // Rambler's Gaiters
                         return;
                     break;
             }
@@ -1254,19 +1254,19 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             {
                 case 0:
 
-                    if (AddItemToPool(1126, ++dropCount)) // Buccaneer's Scimitar
+                    if (AddItemToPool(17760, ++dropCount)) // Buccaneer's Scimitar
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(1127, ++dropCount)) // Pestle Add Dmg and ACAC Affinity +1 (All)
+                    if (AddItemToPool(18599, ++dropCount)) //Magic Dmg and MACC Affinity +1 (All)
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(2955, ++dropCount)) // Mokusa 100% proc
+                    if (AddItemToPool(18451, ++dropCount)) // Mokusa 100% proc
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(2956, ++dropCount)) // Risky Patch
+                    if (AddItemToPool(11492, ++dropCount)) // Risky Patch
                         return;
                     break;
             }
@@ -1277,19 +1277,19 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             {
                 case 0:
 
-                    if (AddItemToPool(1126, ++dropCount)) // Gothic Gauntlets
+                    if (AddItemToPool(15042, ++dropCount)) // Gothic Gauntlets
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(1127, ++dropCount)) // Gothic Gauntlets
+                    if (AddItemToPool(11402, ++dropCount)) // Gothic Sabatons
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(2955, ++dropCount)) // Rossignol
+                    if (AddItemToPool(18075, ++dropCount)) // Rossignol
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(2956, ++dropCount)) // Galkan Dagger 100% proc
+                    if (AddItemToPool(19114, ++dropCount)) // Galkan Dagger 100% proc
                         return;
                     break;
             }
@@ -1300,19 +1300,19 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             {
                 case 0:
 
-                    if (AddItemToPool(1126, ++dropCount)) // Rebel Earring
+                    if (AddItemToPool(11042, ++dropCount)) // Rebel Earring
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(1127, ++dropCount)) // Prouesse Ring TODO: Code logic into TrySkillUP
+                    if (AddItemToPool(11677, ++dropCount)) // Prouesse Ring TODO
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(2955, ++dropCount)) // Grapevine Cape TODO: Make level 55
+                    if (AddItemToPool(11575, ++dropCount)) // Grapevine Cape
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(2956, ++dropCount)) // Bond Cape TODO: MACC based on party size and make Lvl 55
+                    if (AddItemToPool(11576, ++dropCount)) // Bond Cape
                         return;
                     break;
             }
@@ -1323,19 +1323,19 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             {
                 case 0:
 
-                    if (AddItemToPool(1126, ++dropCount)) // Magnifying Earring
+                    if (AddItemToPool(15980, ++dropCount)) // Magnifying Earring
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(1127, ++dropCount)) // Sirocco Axe 100% proc
+                    if (AddItemToPool(17965, ++dropCount)) // Sirocco Axe 100% proc
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(2955, ++dropCount)) // Daedalus Hammer
+                    if (AddItemToPool(18867, ++dropCount)) // Daedalus Hammer
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(2956, ++dropCount)) // Glassblower's Belt TODO: Code into Wyvern Breath LUA's or add mod
+                    if (AddItemToPool(10816, ++dropCount)) // Glassblower's Belt
                         return;
                     break;
             }
@@ -1346,19 +1346,19 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             {
                 case 0:
 
-                    if (AddItemToPool(1126, ++dropCount)) // Divisor Ring
+                    if (AddItemToPool(15786, ++dropCount)) // Divisor Ring
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(1127, ++dropCount)) // Caract Choker
+                    if (AddItemToPool(16284, ++dropCount)) // Caract Choker
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(2955, ++dropCount)) // Melaco Mittens TODO: Make level 75
+                    if (AddItemToPool(11920, ++dropCount)) // Melaco Mittens
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(2956, ++dropCount)) // Dagda's Shield TODO: Add BST and WHM, make level 71
+                    if (AddItemToPool(16202, ++dropCount)) // Dagda's Shield
                         return;
                     break;
             }

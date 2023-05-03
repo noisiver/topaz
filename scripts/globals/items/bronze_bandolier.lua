@@ -14,5 +14,5 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:addItem(17343, 99) -- bronze_bullet
+    target:addItem(17340, 99) -- bullet
 end

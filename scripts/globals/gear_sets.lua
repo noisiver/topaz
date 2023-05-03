@@ -107,7 +107,7 @@ local GearSets =  {
              {id = 90, items = {15850, 15851}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ATT, 6, 0, 0}, {tpz.mod.ACC, 12, 0, 0}, {tpz.mod.DEF, 6, 0, 0}} }, -- Lava's/Kusha's earring set: Atk+6/Acc+12
              {id = 93, items = {16146, 14588, 15009, 16315, 15755},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.FIRERES, 5, 5, 10}, {tpz.mod.ICERES, 5, 5, 10}, {tpz.mod.WINDRES, 5, 5, 10}, {tpz.mod.EARTHRES, 5, 5, 10}, {tpz.mod.THUNDERRES, 5, 5, 10}, {tpz.mod.WATERRES, 5, 5, 10}, {tpz.mod.LIGHTRES, 5, 5, 10}, {tpz.mod.DARKRES, 5, 5, 10}} }, --  Iron Ram Haubert Set
              {id = 101, items = {16035, 16036}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.AGI, 8, 0, 0}} }, -- Altdorf's/Wilhelm's earring: AGI+8
-             {id = 102, items = {15042, 11402}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ATT, 5, 0, 0}, {tpz.mod.RATT, 5, 0, 0}} }, -- Gothic Gauntlets/Sabatons: Atk/RAtk +5
+             {id = 102, items = {15042, 11402}, matches = 2, matchType = matchtype.any, mods = {{tpz.mod.ATT, 15, 0, 0}, {tpz.mod.RATT, 15, 0, 0}} }, -- Gothic Gauntlets/Sabatons: Atk/RAtk +15
              {id = 104, items = {26713, 27853, 27999, 28140, 28279},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.FASTCAST, 4, 2, 0}} }, -- Teal Set +1: Fast Cast +4-10%
              {id = 105, items = {26712, 27852, 27998, 28139, 28278},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.STORETP, 2, 2, 0}} }, -- Aurore Set +1: Sore TP +2-8%
              {id = 106, items = {26711, 27851, 27997, 28138, 28277},  matches = 2, matchType = matchtype.any, mods = {{tpz.mod.HASTE_GEAR, 200, 100, 0}} }, -- Perle Set +1: Haste +2-5%

@@ -2685,7 +2685,7 @@ INSERT INTO `item_latents` VALUES(18073, 23, 9, 53, 0);     -- ATT +9 in areas o
 -- -------------------------------------------------------
 -- Rossignol
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(18075, 8, 2, 26, 2);      -- Dusk - Dawn: STR +2
+INSERT INTO `item_latents` VALUES(18075, 8, 5, 26, 2);      -- Dusk - Dawn: STR +5
 
 -- -------------------------------------------------------
 -- Rune Halberd

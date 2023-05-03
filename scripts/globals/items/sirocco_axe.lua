@@ -1,7 +1,7 @@
 -----------------------------------------
--- ID: 18501
--- Item: Seismic Axe
--- Additional Effect: Earth Damage
+-- ID: 17965
+-- Item: Sirocco Axe
+-- Additional Effect: Wind Damage
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
@@ -10,8 +10,8 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     local chance = 95
-    local power = 20
-    local dmg = doAdditionalEffectDamage(player, target, chance, power, nil, false, 0, tpz.magic.ele.EARTH, 0)
+    local power = math.random(30, 35)
+    local dmg = doAdditionalEffectDamage(player, target, chance, power, nil, false, 0, tpz.magic.ele.WIND, 0)
 
     if dmg == 0 then
         return 0, 0, 0
@@ -23,5 +23,5 @@ function onAdditionalEffect(player, target, damage)
         dmg = target:addHP(-dmg)
     end
 
-    return tpz.subEffect.EARTH_DAMAGE, message, dmg
+	return tpz.subEffect.WIND_DAMAGE, message, dmg
 end

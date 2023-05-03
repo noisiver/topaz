@@ -1341,8 +1341,8 @@ INSERT INTO `item_equipment` VALUES (11571,'karagoz_mantle',80,0,131072,0,0,0,32
 INSERT INTO `item_equipment` VALUES (11572,'vita_cape',86,0,1753628,0,0,0,32768,0);
 INSERT INTO `item_equipment` VALUES (11573,'blur_mantle',86,0,2363424,0,0,0,32768,0);
 INSERT INTO `item_equipment` VALUES (11574,'potentia_cape',86,0,1753628,0,0,0,32768,0);
-INSERT INTO `item_equipment` VALUES (11575,'grapevine_cape',86,0,1753628,0,0,0,32768,0);
-INSERT INTO `item_equipment` VALUES (11576,'bond_cape',90,0,1753628,0,0,0,32768,0);
+INSERT INTO `item_equipment` VALUES (11575,'grapevine_cape',55,0,1753628,0,0,0,32768,0);
+INSERT INTO `item_equipment` VALUES (11576,'bond_cape',55,0,1753628,0,0,0,32768,0);
 INSERT INTO `item_equipment` VALUES (11578,'tiercel_necklace',74,0,2594082,0,0,0,512,0);
 INSERT INTO `item_equipment` VALUES (11579,'fylgja_torque',75,0,1720860,0,0,0,512,0);
 INSERT INTO `item_equipment` VALUES (11580,'fylgja_torque_+1',75,0,1720860,0,0,0,512,0);
@@ -1685,7 +1685,7 @@ INSERT INTO `item_equipment` VALUES (11916,'nebula_cuffs_+1',87,0,4179646,101,0,
 INSERT INTO `item_equipment` VALUES (11917,'carapacho_cuffs',87,0,1589788,20,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (11918,'khthonios_gloves',75,0,3265,21,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (11919,'avesta_bangles',75,0,4179646,0,0,0,64,0);
-INSERT INTO `item_equipment` VALUES (11920,'melaco_mittens',90,0,2472947,14,0,0,64,0);
+INSERT INTO `item_equipment` VALUES (11920,'melaco_mittens',71,0,2472947,14,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (11921,'magma_gauntlets',93,0,193,114,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (11922,'pavor_gauntlets',93,0,128,151,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (11923,'tjukurrpa_gauntlets',94,0,193,55,0,0,64,0);
@@ -5587,7 +5587,7 @@ INSERT INTO `item_equipment` VALUES (15831,'fenian_ring',71,0,4194303,0,0,0,2457
 INSERT INTO `item_equipment` VALUES (15832,'headsmans_ring',65,0,4194303,0,0,0,24576,0);
 INSERT INTO `item_equipment` VALUES (15833,'diverters_ring',71,0,4194303,0,0,0,24576,0);
 INSERT INTO `item_equipment` VALUES (15834,'unnamed_ring',5,0,4194303,0,0,0,24576,0);
-INSERT INTO `item_equipment` VALUES (15835,'unnamedtwo_ring',9,0,3719388,0,0,0,24576,0);
+INSERT INTO `item_equipment` VALUES (15835,'desperado_ring',9,0,3719388,0,0,0,24576,0);
 INSERT INTO `item_equipment` VALUES (15836,'smilodon_ring',32,0,4194303,0,0,0,24576,0);
 INSERT INTO `item_equipment` VALUES (15837,'smilodon_ring_+1',32,0,4194303,0,0,0,24576,0);
 INSERT INTO `item_equipment` VALUES (15838,'protect_ring',32,0,4194303,0,0,0,24576,0);
@@ -5952,7 +5952,7 @@ INSERT INTO `item_equipment` VALUES (16198,'aegis',95,0,64,51,5,0,2,0);
 INSERT INTO `item_equipment` VALUES (16199,'ochain',99,0,64,57,6,0,2,0);
 INSERT INTO `item_equipment` VALUES (16200,'aegis',99,0,64,59,5,0,2,0);
 INSERT INTO `item_equipment` VALUES (16201,'genesis_shield',88,0,2421,46,2,0,2,0);
-INSERT INTO `item_equipment` VALUES (16202,'dagdas_shield',90,0,193,26,3,0,2,0);
+INSERT INTO `item_equipment` VALUES (16202,'dagdas_shield',71,0,453,26,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (16203,'goetia_mantle',84,0,8,0,0,0,32768,0);
 INSERT INTO `item_equipment` VALUES (16204,'estoqueurs_cape',84,0,16,0,0,0,32768,0);
 INSERT INTO `item_equipment` VALUES (16205,'sylvan_chlamys',84,0,1024,0,0,0,32768,0);
