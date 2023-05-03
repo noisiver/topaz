@@ -500,21 +500,20 @@ int getSDTTier(int SDT)
 
     float getElementalSDT(uint8 element, CBattleEntity* PDefender)
     {
-         if (PDefender->objtype == TYPE_PC)
+        if (PDefender->objtype == TYPE_PC)
         {
-             return 100;
-         }
-
-        float SDT = 100;
-        float SDTmod = 0;
+             return 100.0f;
+        }
+        //printf("element in getElementalSDT %u\n", element);
+        // TODO: This array doesn't work...
         Mod sdtarray[8] = { Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH, Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
-        SDTmod = (PDefender->getMod(sdtarray[element - 1]));
+        float SDT = (PDefender->getMod(sdtarray[element]));
 
         if (SDT == 0) // invalid SDT, it was never set on this target... just default it.
         {
-            SDT = 100;
+            SDT = 100.0f;
         }
-        printf("SDT %f\n", SDT);
+        //printf("SDT %f\n", SDT);
         return SDT;
     }
 
@@ -585,7 +584,7 @@ int getSDTTier(int SDT)
         }
 
         p = std::clamp(p, 5.0f, 95.0f);
-        printf("calculateMagicHitRate: %f\n", p);
+        //printf("MagicHitRate: %f\n", p);
 
         return p;
     }
@@ -593,27 +592,36 @@ int getSDTTier(int SDT)
     float getMagicHitRate(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skillType, uint8 element, float SDT, float percentBonus,
                           float magicaccbonus)
     {
-        float DMacc = 0.0f;
         float casterLvl = PAttacker->GetMLevel();
+        //printf("casterLvl: %f\n", casterLvl);
         float targetLvl = PDefender->GetMLevel();
-        float magicacc = static_cast<float>(PAttacker->GetSkill(skillType) + PAttacker->getMod(Mod::MACC) + percentBonus);
+        //printf("casterLvl: %f\n", casterLvl);
+        float magicacc = static_cast<float>(PAttacker->GetSkill(skillType));
+        //printf("base MACC %f\n", magicacc);
+        magicacc += PAttacker->getMod(Mod::MACC);
+        //printf("MACC after MACC mod %f\n", magicacc);
+        magicacc += percentBonus;
+        //printf("MACC after percentBonus %f\n", magicacc);
+        magicacc += magicaccbonus;
+        //printf("MACC after MACC bonus %f\n", magicacc);
         float baseMeva = magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_EVASION, JOB_PLD, PDefender->GetMLevel()));
-        printf("baseMeva before SDT %f\n", baseMeva);
+       // printf("baseMeva before SDT %f\n", baseMeva);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         if (PDefender->objtype == TYPE_PC)
         {
             baseMeva = GetPlayerMeva(PDefender);
         }
-        // get + MEVA mod
-        float mevaMod = PDefender->getMod(Mod::MEVA) - baseMeva;
+        // Add + MEVA mod
+        float mevaMod = baseMeva - PDefender->getMod(Mod::MEVA);
+        //printf("mevaMod %f\n", mevaMod);
         baseMeva *= getSDTMultiplier(getSDTTier(SDT));
-        printf("getSDTMultiplier: %f\n", getSDTMultiplier(getSDTTier(SDT)));
-        printf("baseMeva after SDT %f\n", baseMeva);
-        baseMeva += PDefender->getMod(Mod::MEVA);
-        printf("baseMeva after MEVA mod %f\n", baseMeva);
+        //printf("getSDTMultiplier: %f\n", getSDTMultiplier(getSDTTier(SDT)));
+        //printf("baseMeva after SDT %f\n", baseMeva);
+        baseMeva += mevaMod;
+        //printf("baseMeva after MEVA mod %f\n", baseMeva);
         // Add resist gear/barspells etc
         baseMeva += PDefender->getMod(resistarray[element - 1]);
-        printf("baseMeva after resist mod %f\n", baseMeva);
+        //printf("baseMeva after resist mod %f\n", baseMeva);
         float magiceva = baseMeva + mevaMod;
 
         return calculateMagicHitRate(magicacc, magiceva, element, percentBonus, casterLvl, targetLvl, SDT);
@@ -622,23 +630,22 @@ int getSDTTier(int SDT)
     float applyResistance(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 element, uint8 skillType, float diff, float bonus)
 
     {
-        // auto diff = params.diff or (caster:getStat(params.attribute) - target : getStat(params.attribute))
         // https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
-
+        //printf("element for SDT %u\n", element);
         float SDT = getElementalSDT(element, PDefender);
         float percentBonus = 0.0f;
-        float magicaccbonus = 0.0f;
-
         float softcap = 10.0f; // 10 is set on all nukes.everything else is nil
 
         // Apply dStat Macc bonus
-        magicaccbonus = magicaccbonus + getDstatBonus(softcap, diff);
+        bonus += getDstatBonus(softcap, diff);
 
-        float p = getMagicHitRate(PAttacker, PDefender, skillType, element, SDT, percentBonus, magicaccbonus);
+        float p = getMagicHitRate(PAttacker, PDefender, skillType, element, SDT, percentBonus, bonus);
         float res = getMagicResist(p);
 
-        // if (SDT >= 150) // 1.5 guarantees at least half value, no quarter or full resists.
-        // std::clamp(res, 0.50f, 1.0f);
+        if (SDT >= 150) // 1.5 guarantees at least half value, no quarter or full resists.
+        {
+            std::clamp(res, 0.50f, 1.0f);
+        }
 
         if (SDT <= 50) // .5 or below SDT drops a resist tier
         {
@@ -664,7 +671,7 @@ int getSDTTier(int SDT)
             }
         }
 
-        printf("res: %f\n", res);
+        //printf("res: %f\n", res);
         return res;
     }
 
@@ -869,6 +876,7 @@ int getSDTTier(int SDT)
             dBonus -= 0.25f;
         // printf("\nDayWeather Bonus %f\n", dBonus);
         uint32 enspellMaccBonus = PAttacker->getMod(Mod::ENSPELL_MACC) + 30;
+        //printf("Element in enspell: %u\n", element);
         damage = (float)(damage * applyResistance(PAttacker, PDefender, element +1, SKILL_ENHANCING_MAGIC, 0, enspellMaccBonus));
         damage = (float)(damage * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
