@@ -1726,6 +1726,10 @@ namespace petutils
         }
         else if (PPet->getPetType() == PETTYPE_AUTOMATON && PMaster->objtype == TYPE_PC)
         {
+            // weapon damage = (floor(automaton ranged skill * 0.11) * 3)
+            auto meleeSkill = PPet->GetSkill(SKILL_AUTOMATON_MELEE);
+            auto rangedSkill = PPet->GetSkill(SKILL_AUTOMATON_RANGED);
+            static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_MAIN])->setDamage((uint16)(floor(meleeSkill * 0.11) * 3));
             CAutomatonEntity* PAutomaton = (CAutomatonEntity*)PPet;
             switch (PAutomaton->getFrame())
             {
@@ -1757,6 +1761,7 @@ namespace petutils
                 PPet->SetSJob(JOB_RNG);
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
+                static_cast<CItemWeapon*>(PPet->m_Weapons[SLOT_RANGED])->setDamage((uint16)(floor(rangedSkill * 0.11) * 3));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setDelay((uint16)(floor(1000.0 * (360.0f / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_RANGED])->setDmgType(DAMAGE_RANGED);
                 PPet->addModifier(Mod::HPP, -10);
