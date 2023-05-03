@@ -14,5 +14,9 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.EVA, 10)
 end
 
+function onMobDespawn(mob)
+    mob:setLocalVar("respawn", os.time() + 43200) -- 12 hour respawn
+end
+
 function onMobDeath(mob, player, isKiller)
 end
