@@ -901,11 +901,11 @@ enum class Mod
     RESBUILD_POISON = 967,
 
     SDT_FIRE = 968,
-    SDT_ICE = 969,
-    SDT_WIND = 970,
-    SDT_EARTH = 971,
-    SDT_THUNDER = 972,
-    SDT_WATER = 973,
+    SDT_EARTH = 969,
+    SDT_WATER = 970,
+    SDT_WIND = 971,
+    SDT_ICE = 972,
+    SDT_THUNDER = 973,
     SDT_LIGHT = 974,
     SDT_DARK = 975,
 
