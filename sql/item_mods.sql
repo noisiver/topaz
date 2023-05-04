@@ -8210,7 +8210,8 @@ INSERT INTO `item_mods` VALUES (12415,1,2);
 INSERT INTO `item_mods` VALUES (12415,10,1);
 INSERT INTO `item_mods` VALUES (12415,11,-2);
 INSERT INTO `item_mods` VALUES (12415,59,2);
-INSERT INTO `item_mods` VALUES (12416,1,16);
+INSERT INTO `item_mods` VALUES (12416,1,16);      -- Sallet
+INSERT INTO `item_mods` VALUES (12416,160,-1);    -- -1% DT
 INSERT INTO `item_mods` VALUES (12417,1,20);
 INSERT INTO `item_mods` VALUES (12418,1,22);
 INSERT INTO `item_mods` VALUES (12418,10,2);
@@ -8243,7 +8244,8 @@ INSERT INTO `item_mods` VALUES (12423,13,-1);
 INSERT INTO `item_mods` VALUES (12423,60,3);
 INSERT INTO `item_mods` VALUES (12423,61,3);
 INSERT INTO `item_mods` VALUES (12424,1,11);
-INSERT INTO `item_mods` VALUES (12425,1,14);
+INSERT INTO `item_mods` VALUES (12425,1,14);      -- Silver Mask
+INSERT INTO `item_mods` VALUES (12425,27,2);      -- Enmity+2
 INSERT INTO `item_mods` VALUES (12426,1,18);
 INSERT INTO `item_mods` VALUES (12427,1,23);
 INSERT INTO `item_mods` VALUES (12428,1,22);
@@ -8261,7 +8263,8 @@ INSERT INTO `item_mods` VALUES (12430,9,1);
 INSERT INTO `item_mods` VALUES (12431,1,12);
 INSERT INTO `item_mods` VALUES (12431,11,1);
 INSERT INTO `item_mods` VALUES (12432,1,5);
-INSERT INTO `item_mods` VALUES (12433,1,11);
+INSERT INTO `item_mods` VALUES (12433,1,11);    -- Brass Mask
+INSERT INTO `item_mods` VALUES (12433,23,3);    -- Attack +3
 INSERT INTO `item_mods` VALUES (12434,1,35);    -- (Genbu's Kabuto)
 INSERT INTO `item_mods` VALUES (12434,2,50);
 INSERT INTO `item_mods` VALUES (12434,10,15);
@@ -8286,8 +8289,11 @@ INSERT INTO `item_mods` VALUES (12438,9,1);
 INSERT INTO `item_mods` VALUES (12439,1,24);
 INSERT INTO `item_mods` VALUES (12440,1,3);
 INSERT INTO `item_mods` VALUES (12441,1,7);
-INSERT INTO `item_mods` VALUES (12442,1,11);
-INSERT INTO `item_mods` VALUES (12443,1,14);
+INSERT INTO `item_mods` VALUES (12442,1,11);        -- Studded Bandana
+INSERT INTO `item_mods` VALUES (12442,8,1);         -- STR+1
+INSERT INTO `item_mods` VALUES (12442,9,1);         -- DEX+1
+INSERT INTO `item_mods` VALUES (12443,1,14);        -- Cuir Bandana
+INSERT INTO `item_mods` VALUES (12443,289,3);        -- Subtle Blow +3
 INSERT INTO `item_mods` VALUES (12444,1,18);
 INSERT INTO `item_mods` VALUES (12444,54,2);
 INSERT INTO `item_mods` VALUES (12444,59,-1);
@@ -8370,7 +8376,8 @@ INSERT INTO `item_mods` VALUES (12477,14,1);
 INSERT INTO `item_mods` VALUES (12478,1,16);
 INSERT INTO `item_mods` VALUES (12479,1,10);
 INSERT INTO `item_mods` VALUES (12480,1,8);
-INSERT INTO `item_mods` VALUES (12481,1,15);
+INSERT INTO `item_mods` VALUES (12481,1,15);         -- Cuir Bandana +1
+INSERT INTO `item_mods` VALUES (12481,289,3);        -- Subtle Blow +3
 INSERT INTO `item_mods` VALUES (12482,1,21);
 INSERT INTO `item_mods` VALUES (12482,2,4);
 INSERT INTO `item_mods` VALUES (12482,55,-2);
@@ -8519,7 +8526,8 @@ INSERT INTO `item_mods` VALUES (12530,12,1);
 INSERT INTO `item_mods` VALUES (12531,2,-6);
 INSERT INTO `item_mods` VALUES (12531,5,16);
 INSERT INTO `item_mods` VALUES (12532,1,12);
-INSERT INTO `item_mods` VALUES (12533,1,15);
+INSERT INTO `item_mods` VALUES (12533,1,15);      -- Silver Mask +1
+INSERT INTO `item_mods` VALUES (12533,27,2);      -- Enmity+2
 INSERT INTO `item_mods` VALUES (12534,1,5);
 INSERT INTO `item_mods` VALUES (12535,1,10);
 INSERT INTO `item_mods` VALUES (12536,1,4);
@@ -8537,7 +8545,8 @@ INSERT INTO `item_mods` VALUES (12541,1,17);
 INSERT INTO `item_mods` VALUES (12542,1,4);
 INSERT INTO `item_mods` VALUES (12543,1,2);
 INSERT INTO `item_mods` VALUES (12543,56,1);
-INSERT INTO `item_mods` VALUES (12544,1,32);
+INSERT INTO `item_mods` VALUES (12544,1,32);      -- Brestplate
+INSERT INTO `item_mods` VALUES (12544,160,-2);    -- -2% DT
 INSERT INTO `item_mods` VALUES (12545,1,39);
 INSERT INTO `item_mods` VALUES (12546,1,44);
 INSERT INTO `item_mods` VALUES (12546,10,2);
@@ -8563,7 +8572,8 @@ INSERT INTO `item_mods` VALUES (12550,1,40);
 INSERT INTO `item_mods` VALUES (12550,10,1);
 INSERT INTO `item_mods` VALUES (12551,1,70);
 INSERT INTO `item_mods` VALUES (12552,1,21);
-INSERT INTO `item_mods` VALUES (12553,1,28);
+INSERT INTO `item_mods` VALUES (12553,1,28);      -- Silver Mail
+INSERT INTO `item_mods` VALUES (12553,27,4);      -- Enmity+4
 INSERT INTO `item_mods` VALUES (12554,1,36);
 INSERT INTO `item_mods` VALUES (12555,1,45);
 INSERT INTO `item_mods` VALUES (12555,8,5);
@@ -8591,8 +8601,9 @@ INSERT INTO `item_mods` VALUES (12558,23,3);
 INSERT INTO `item_mods` VALUES (12559,1,31);
 INSERT INTO `item_mods` VALUES (12559,9,1);
 INSERT INTO `item_mods` VALUES (12560,1,11);
-INSERT INTO `item_mods` VALUES (12561,1,21);
-INSERT INTO `item_mods` VALUES (12562,1,52); -- (Kirin's Osode)
+INSERT INTO `item_mods` VALUES (12561,1,21);      -- Brass Scale Mail
+INSERT INTO `item_mods` VALUES (12561,23,5);      -- Attack +5
+INSERT INTO `item_mods` VALUES (12562,1,52);      -- (Kirin's Osode)
 INSERT INTO `item_mods` VALUES (12562,2,30);
 INSERT INTO `item_mods` VALUES (12562,5,30);
 INSERT INTO `item_mods` VALUES (12562,8,10);
@@ -8635,8 +8646,10 @@ INSERT INTO `item_mods` VALUES (12567,59,3);
 INSERT INTO `item_mods` VALUES (12567,8,3);      -- STR+3
 INSERT INTO `item_mods` VALUES (12568,1,7);
 INSERT INTO `item_mods` VALUES (12569,1,15);
-INSERT INTO `item_mods` VALUES (12570,1,22);
-INSERT INTO `item_mods` VALUES (12571,1,28);
+INSERT INTO `item_mods` VALUES (12570,1,22);      -- Studded Vest
+INSERT INTO `item_mods` VALUES (12570,68,5);      -- EVA+5
+INSERT INTO `item_mods` VALUES (12571,1,28);      -- Cuir Bouilli
+INSERT INTO `item_mods` VALUES (12571,289,5);      -- Subtle Blow +5
 INSERT INTO `item_mods` VALUES (12572,1,35);
 INSERT INTO `item_mods` VALUES (12572,54,3);
 INSERT INTO `item_mods` VALUES (12572,59,-1);
@@ -8899,7 +8912,8 @@ INSERT INTO `item_mods` VALUES (12662,1,22);
 INSERT INTO `item_mods` VALUES (12663,1,25);
 INSERT INTO `item_mods` VALUES (12664,1,11);
 INSERT INTO `item_mods` VALUES (12665,1,22);
-INSERT INTO `item_mods` VALUES (12666,1,29);
+INSERT INTO `item_mods` VALUES (12666,1,29);      -- Silver Mail +1
+INSERT INTO `item_mods` VALUES (12666,27,4);      -- Enmity+4
 INSERT INTO `item_mods` VALUES (12667,1,37);
 INSERT INTO `item_mods` VALUES (12668,1,9);
 INSERT INTO `item_mods` VALUES (12668,9,1);
@@ -8908,7 +8922,8 @@ INSERT INTO `item_mods` VALUES (12670,1,28);
 INSERT INTO `item_mods` VALUES (12671,1,21);
 INSERT INTO `item_mods` VALUES (12671,57,2);
 INSERT INTO `item_mods` VALUES (12671,58,2);
-INSERT INTO `item_mods` VALUES (12672,1,11);
+INSERT INTO `item_mods` VALUES (12672,1,11);      -- Gauntlets
+INSERT INTO `item_mods` VALUES (12672,160,-1);    -- -1% DT
 INSERT INTO `item_mods` VALUES (12673,1,13);
 INSERT INTO `item_mods` VALUES (12674,1,15);
 INSERT INTO `item_mods` VALUES (12674,10,1);
@@ -8936,7 +8951,8 @@ INSERT INTO `item_mods` VALUES (12678,1,12);
 INSERT INTO `item_mods` VALUES (12678,26,5);
 INSERT INTO `item_mods` VALUES (12679,1,50);
 INSERT INTO `item_mods` VALUES (12680,1,7);
-INSERT INTO `item_mods` VALUES (12681,1,9);
+INSERT INTO `item_mods` VALUES (12681,1,9);       -- Silver Mittens
+INSERT INTO `item_mods` VALUES (12681,27,2);      -- Enmity+2
 INSERT INTO `item_mods` VALUES (12682,1,12);
 INSERT INTO `item_mods` VALUES (12683,1,16);
 INSERT INTO `item_mods` VALUES (12683,60,2);
@@ -8954,7 +8970,8 @@ INSERT INTO `item_mods` VALUES (12686,25,3);
 INSERT INTO `item_mods` VALUES (12687,1,8);
 INSERT INTO `item_mods` VALUES (12687,25,2);
 INSERT INTO `item_mods` VALUES (12688,1,3);
-INSERT INTO `item_mods` VALUES (12689,1,7);
+INSERT INTO `item_mods` VALUES (12689,1,7);     -- Brass Finger Gauntlets
+INSERT INTO `item_mods` VALUES (12689,8,2);     -- STR+2
 INSERT INTO `item_mods` VALUES (12690,1,26);
 INSERT INTO `item_mods` VALUES (12690,2,50);
 INSERT INTO `item_mods` VALUES (12690,11,15);
@@ -8978,8 +8995,10 @@ INSERT INTO `item_mods` VALUES (12694,9,1);
 INSERT INTO `item_mods` VALUES (12695,1,2);
 INSERT INTO `item_mods` VALUES (12696,1,2);
 INSERT INTO `item_mods` VALUES (12697,1,5);
-INSERT INTO `item_mods` VALUES (12698,1,7);
-INSERT INTO `item_mods` VALUES (12699,1,9);
+INSERT INTO `item_mods` VALUES (12698,1,7);       -- Studded Gloves
+INSERT INTO `item_mods` VALUES (12698,68,3);      -- EVA+3
+INSERT INTO `item_mods` VALUES (12699,1,9);       -- Cuir Gloves
+INSERT INTO `item_mods` VALUES (12699,9,2);       -- DEX+2  
 INSERT INTO `item_mods` VALUES (12700,1,12);
 INSERT INTO `item_mods` VALUES (12700,54,2);
 INSERT INTO `item_mods` VALUES (12700,59,-1);
@@ -9147,7 +9166,8 @@ INSERT INTO `item_mods` VALUES (12768,1,4);
 INSERT INTO `item_mods` VALUES (12769,1,8);	-- Chain Mittens +1
 INSERT INTO `item_mods` VALUES (12770,1,4);
 INSERT INTO `item_mods` VALUES (12771,1,8);
-INSERT INTO `item_mods` VALUES (12772,1,10);
+INSERT INTO `item_mods` VALUES (12772,1,10);      -- Silver Mittens +1
+INSERT INTO `item_mods` VALUES (12772,27,2);      -- Enmity+2
 INSERT INTO `item_mods` VALUES (12773,1,4);
 INSERT INTO `item_mods` VALUES (12774,1,3);
 INSERT INTO `item_mods` VALUES (12775,1,3);
@@ -9168,7 +9188,8 @@ INSERT INTO `item_mods` VALUES (12783,1,11);
 INSERT INTO `item_mods` VALUES (12784,1,3);
 INSERT INTO `item_mods` VALUES (12785,1,6);
 INSERT INTO `item_mods` VALUES (12786,1,8);
-INSERT INTO `item_mods` VALUES (12787,1,10);
+INSERT INTO `item_mods` VALUES (12787,1,10);      -- Cuir Gloves +1
+INSERT INTO `item_mods` VALUES (12787,9,2);       -- DEX+2  
 INSERT INTO `item_mods` VALUES (12788,1,5);
 INSERT INTO `item_mods` VALUES (12788,54,-3);
 INSERT INTO `item_mods` VALUES (12788,68,1);
@@ -9178,7 +9199,8 @@ INSERT INTO `item_mods` VALUES (12789,68,1);
 INSERT INTO `item_mods` VALUES (12790,1,11);
 INSERT INTO `item_mods` VALUES (12790,58,-3);
 INSERT INTO `item_mods` VALUES (12790,68,1);
-INSERT INTO `item_mods` VALUES (12791,1,12);
+INSERT INTO `item_mods` VALUES (12791,1,12);      -- Gauntlets +1
+INSERT INTO `item_mods` VALUES (12791,160,-1);    -- -1% DT
 INSERT INTO `item_mods` VALUES (12792,1,13);
 INSERT INTO `item_mods` VALUES (12793,1,9);
 INSERT INTO `item_mods` VALUES (12793,11,2);
@@ -9201,7 +9223,8 @@ INSERT INTO `item_mods` VALUES (12798,13,3);
 INSERT INTO `item_mods` VALUES (12799,1,4);
 INSERT INTO `item_mods` VALUES (12799,25,3);
 INSERT INTO `item_mods` VALUES (12799,68,3);
-INSERT INTO `item_mods` VALUES (12800,1,23);
+INSERT INTO `item_mods` VALUES (12800,1,23);      -- Cuisses
+INSERT INTO `item_mods` VALUES (12800,160,-1);    -- -1% DT
 INSERT INTO `item_mods` VALUES (12801,1,28);
 INSERT INTO `item_mods` VALUES (12802,1,31);
 INSERT INTO `item_mods` VALUES (12802,10,2);
@@ -9228,7 +9251,8 @@ INSERT INTO `item_mods` VALUES (12806,1,29);
 INSERT INTO `item_mods` VALUES (12806,11,2);
 INSERT INTO `item_mods` VALUES (12807,1,60);
 INSERT INTO `item_mods` VALUES (12808,1,16);
-INSERT INTO `item_mods` VALUES (12809,1,20);
+INSERT INTO `item_mods` VALUES (12809,1,20);      -- Silver Hose
+INSERT INTO `item_mods` VALUES (12809,27,3);      -- Enmity+3
 INSERT INTO `item_mods` VALUES (12810,1,25);
 INSERT INTO `item_mods` VALUES (12811,1,33);
 INSERT INTO `item_mods` VALUES (12811,60,2);
@@ -9249,8 +9273,9 @@ INSERT INTO `item_mods` VALUES (12814,23,3);
 INSERT INTO `item_mods` VALUES (12815,1,22);
 INSERT INTO `item_mods` VALUES (12815,9,1);
 INSERT INTO `item_mods` VALUES (12815,11,1);
-INSERT INTO `item_mods` VALUES (12816,1,7);		-- scale cuisses
-INSERT INTO `item_mods` VALUES (12817,1,15);
+INSERT INTO `item_mods` VALUES (12816,1,7);		    -- Scale Cuisses
+INSERT INTO `item_mods` VALUES (12817,1,15);      -- Brass Cuisses
+INSERT INTO `item_mods` VALUES (12817,8,2);       -- STR+2 
 INSERT INTO `item_mods` VALUES (12818,1,42);
 INSERT INTO `item_mods` VALUES (12818,9,15);
 INSERT INTO `item_mods` VALUES (12818,58,50);
@@ -9274,8 +9299,10 @@ INSERT INTO `item_mods` VALUES (12822,11,2);
 INSERT INTO `item_mods` VALUES (12823,1,4);
 INSERT INTO `item_mods` VALUES (12824,1,5);
 INSERT INTO `item_mods` VALUES (12825,1,10);
-INSERT INTO `item_mods` VALUES (12826,1,16);
-INSERT INTO `item_mods` VALUES (12827,1,20);
+INSERT INTO `item_mods` VALUES (12826,1,16);      -- Studded Trousers
+INSERT INTO `item_mods` VALUES (12826,68,4);      -- EVA+4  
+INSERT INTO `item_mods` VALUES (12827,1,20);      -- Cuir Trousers
+INSERT INTO `item_mods` VALUES (12827,9,3);       -- DEX+3  
 INSERT INTO `item_mods` VALUES (12828,1,25);
 INSERT INTO `item_mods` VALUES (12828,54,3);
 INSERT INTO `item_mods` VALUES (12828,59,-1);
@@ -9431,7 +9458,8 @@ INSERT INTO `item_mods` VALUES (12890,1,17);
 INSERT INTO `item_mods` VALUES (12891,1,18);
 INSERT INTO `item_mods` VALUES (12892,1,8);
 INSERT INTO `item_mods` VALUES (12893,1,16);
-INSERT INTO `item_mods` VALUES (12894,1,21);
+INSERT INTO `item_mods` VALUES (12894,1,21);      -- Silver Hose +1
+INSERT INTO `item_mods` VALUES (12894,27,3);      -- Enmity+3
 INSERT INTO `item_mods` VALUES (12895,1,26);
 INSERT INTO `item_mods` VALUES (12896,1,8);
 INSERT INTO `item_mods` VALUES (12897,1,3);
@@ -9450,7 +9478,8 @@ INSERT INTO `item_mods` VALUES (12907,1,23);
 INSERT INTO `item_mods` VALUES (12908,1,6);
 INSERT INTO `item_mods` VALUES (12909,1,11);
 INSERT INTO `item_mods` VALUES (12910,1,17);
-INSERT INTO `item_mods` VALUES (12911,1,21);
+INSERT INTO `item_mods` VALUES (12911,1,21);      -- Cuir Trousers +1
+INSERT INTO `item_mods` VALUES (12911,9,3);       -- DEX+3  
 INSERT INTO `item_mods` VALUES (12912,1,11);
 INSERT INTO `item_mods` VALUES (12912,54,-3);
 INSERT INTO `item_mods` VALUES (12912,68,1);
@@ -9461,7 +9490,8 @@ INSERT INTO `item_mods` VALUES (12914,1,23);
 INSERT INTO `item_mods` VALUES (12914,58,-3);
 INSERT INTO `item_mods` VALUES (12914,68,1);
 INSERT INTO `item_mods` VALUES (12915,1,3);
-INSERT INTO `item_mods` VALUES (12916,1,24);
+INSERT INTO `item_mods` VALUES (12916,1,24);      -- Cuisses +1
+INSERT INTO `item_mods` VALUES (12916,160,-1);    -- -1% DT
 INSERT INTO `item_mods` VALUES (12917,1,11);
 INSERT INTO `item_mods` VALUES (12917,12,1);
 INSERT INTO `item_mods` VALUES (12918,1,18);
@@ -9492,7 +9522,8 @@ INSERT INTO `item_mods` VALUES (12926,1,22);
 INSERT INTO `item_mods` VALUES (12926,13,1);
 INSERT INTO `item_mods` VALUES (12927,1,24);
 INSERT INTO `item_mods` VALUES (12927,60,2);
-INSERT INTO `item_mods` VALUES (12928,1,9);
+INSERT INTO `item_mods` VALUES (12928,1,9);       -- Plate Leggings
+INSERT INTO `item_mods` VALUES (12928,160,-1);    -- -1% DT
 INSERT INTO `item_mods` VALUES (12929,1,11);
 INSERT INTO `item_mods` VALUES (12930,1,12);
 INSERT INTO `item_mods` VALUES (12930,10,1);
@@ -9519,7 +9550,8 @@ INSERT INTO `item_mods` VALUES (12934,1,10);
 INSERT INTO `item_mods` VALUES (12934,26,5);
 INSERT INTO `item_mods` VALUES (12935,1,50);
 INSERT INTO `item_mods` VALUES (12936,1,6);
-INSERT INTO `item_mods` VALUES (12937,1,8);
+INSERT INTO `item_mods` VALUES (12937,1,8);     -- Silver Greaves
+INSERT INTO `item_mods` VALUES (12937,27,2);     -- Enmity+2
 INSERT INTO `item_mods` VALUES (12938,1,10);
 INSERT INTO `item_mods` VALUES (12939,1,14);
 INSERT INTO `item_mods` VALUES (12939,60,2);
@@ -9536,8 +9568,9 @@ INSERT INTO `item_mods` VALUES (12942,1,11);
 INSERT INTO `item_mods` VALUES (12942,11,2);
 INSERT INTO `item_mods` VALUES (12943,1,7);
 INSERT INTO `item_mods` VALUES (12943,11,1);
-INSERT INTO `item_mods` VALUES (12944,1,3);			-- scale greaves
-INSERT INTO `item_mods` VALUES (12945,1,6);
+INSERT INTO `item_mods` VALUES (12944,1,3);			  -- Scale Greaves
+INSERT INTO `item_mods` VALUES (12945,1,6);       -- Brass Greaves
+INSERT INTO `item_mods` VALUES (12945,23,3);      -- Attack +3
 INSERT INTO `item_mods` VALUES (12946,1,30);      -- Suzaku's Sune-Ate: DEF 30
 INSERT INTO `item_mods` VALUES (12946,13,15);     -- MND +15
 INSERT INTO `item_mods` VALUES (12946,54,50);     -- Fire resistance +50
@@ -9565,8 +9598,10 @@ INSERT INTO `item_mods` VALUES (12950,11,1);
 INSERT INTO `item_mods` VALUES (12951,1,2);
 INSERT INTO `item_mods` VALUES (12952,1,2);
 INSERT INTO `item_mods` VALUES (12953,1,4);
-INSERT INTO `item_mods` VALUES (12954,1,6);
-INSERT INTO `item_mods` VALUES (12955,1,8);
+INSERT INTO `item_mods` VALUES (12954,1,6);       -- Studded Boots
+INSERT INTO `item_mods` VALUES (12954,68,3);      -- EVA+3  
+INSERT INTO `item_mods` VALUES (12955,1,8);       -- Cuir Highboots
+INSERT INTO `item_mods` VALUES (12955,289,3);     -- Subtle Blow +3
 INSERT INTO `item_mods` VALUES (12956,1,10);
 INSERT INTO `item_mods` VALUES (12956,54,2);
 INSERT INTO `item_mods` VALUES (12956,59,-1);
@@ -9746,7 +9781,8 @@ INSERT INTO `item_mods` VALUES (13025,1,7);		-- Greaves +1
 INSERT INTO `item_mods` VALUES (13026,1,8);
 INSERT INTO `item_mods` VALUES (13027,1,4);
 INSERT INTO `item_mods` VALUES (13028,1,7);
-INSERT INTO `item_mods` VALUES (13029,1,9);
+INSERT INTO `item_mods` VALUES (13029,1,9);      -- Silver Greaves +1
+INSERT INTO `item_mods` VALUES (13029,27,2);     -- Enmity+2
 INSERT INTO `item_mods` VALUES (13030,1,4);
 INSERT INTO `item_mods` VALUES (13031,1,3);
 INSERT INTO `item_mods` VALUES (13032,1,6);
@@ -9760,7 +9796,8 @@ INSERT INTO `item_mods` VALUES (13037,1,3);
 INSERT INTO `item_mods` VALUES (13038,1,5);
 INSERT INTO `item_mods` VALUES (13039,1,7);
 INSERT INTO `item_mods` VALUES (13040,1,7);
-INSERT INTO `item_mods` VALUES (13041,1,9);
+INSERT INTO `item_mods` VALUES (13041,1,9);       -- Cuir Highboots +1
+INSERT INTO `item_mods` VALUES (13041,289,3);     -- Subtle Blow +3
 INSERT INTO `item_mods` VALUES (13042,1,5);
 INSERT INTO `item_mods` VALUES (13042,54,-3);
 INSERT INTO `item_mods` VALUES (13042,68,1);
@@ -9772,7 +9809,8 @@ INSERT INTO `item_mods` VALUES (13044,58,-3);
 INSERT INTO `item_mods` VALUES (13044,68,1);
 INSERT INTO `item_mods` VALUES (13045,1,5);
 INSERT INTO `item_mods` VALUES (13045,11,1);
-INSERT INTO `item_mods` VALUES (13046,1,10);
+INSERT INTO `item_mods` VALUES (13046,1,10);      -- Plate Leggings +1
+INSERT INTO `item_mods` VALUES (13046,160,-1);    -- -1% DT
 INSERT INTO `item_mods` VALUES (13047,1,11);
 INSERT INTO `item_mods` VALUES (13048,1,5);
 INSERT INTO `item_mods` VALUES (13048,5,3);
@@ -11266,7 +11304,8 @@ INSERT INTO `item_mods` VALUES (13708,5,13);
 INSERT INTO `item_mods` VALUES (13708,13,3);
 INSERT INTO `item_mods` VALUES (13708,23,10);
 INSERT INTO `item_mods` VALUES (13708,68,-5);
-INSERT INTO `item_mods` VALUES (13709,1,29);
+INSERT INTO `item_mods` VALUES (13709,1,29);      -- Cuir Bouilli +1
+INSERT INTO `item_mods` VALUES (13709,289,5);     -- Subtle Blow +5
 INSERT INTO `item_mods` VALUES (13710,1,33);
 INSERT INTO `item_mods` VALUES (13710,2,15);
 INSERT INTO `item_mods` VALUES (13710,8,1);
@@ -11306,7 +11345,8 @@ INSERT INTO `item_mods` VALUES (13722,68,5);
 INSERT INTO `item_mods` VALUES (13723,1,29);
 INSERT INTO `item_mods` VALUES (13723,5,8);
 INSERT INTO `item_mods` VALUES (13723,54,4);
-INSERT INTO `item_mods` VALUES (13724,1,33);
+INSERT INTO `item_mods` VALUES (13724,1,33);      -- Breastplate +1
+INSERT INTO `item_mods` VALUES (13724,160,-2);    -- -2% DT
 INSERT INTO `item_mods` VALUES (13725,1,19);
 INSERT INTO `item_mods` VALUES (13725,12,2);
 INSERT INTO `item_mods` VALUES (13725,61,3);
@@ -11755,8 +11795,10 @@ INSERT INTO `item_mods` VALUES (13810,1,2);       -- Chocobo Jack Coat: DEF 2
 INSERT INTO `item_mods` VALUES (13810,511,5);     -- Chocobo riding time +5
 INSERT INTO `item_mods` VALUES (13811,1,12);      -- Rider's Jack Coat: DEF 12
 INSERT INTO `item_mods` VALUES (13811,511,5);     -- Chocobo riding time +5
-INSERT INTO `item_mods` VALUES (13812,1,45);
-INSERT INTO `item_mods` VALUES (13813,1,50);
+INSERT INTO `item_mods` VALUES (13812,1,45);      -- Holy Breastplate
+INSERT INTO `item_mods` VALUES (13812,160,-10);   -- -10% DT
+INSERT INTO `item_mods` VALUES (13813,1,50);      -- Divine Breastplate
+INSERT INTO `item_mods` VALUES (13813,160,-10);   -- -10% DT
 INSERT INTO `item_mods` VALUES (13814,1,29);
 INSERT INTO `item_mods` VALUES (13814,14,-2);
 INSERT INTO `item_mods` VALUES (13814,346,1);
@@ -11808,7 +11850,8 @@ INSERT INTO `item_mods` VALUES (13829,68,1);
 INSERT INTO `item_mods` VALUES (13830,1,10);
 INSERT INTO `item_mods` VALUES (13830,56,4);
 INSERT INTO `item_mods` VALUES (13830,57,4);
-INSERT INTO `item_mods` VALUES (13831,1,17);
+INSERT INTO `item_mods` VALUES (13831,1,17);      -- Sallet +1
+INSERT INTO `item_mods` VALUES (13831,160,-1);    -- -1% DT
 INSERT INTO `item_mods` VALUES (13832,1,19);
 INSERT INTO `item_mods` VALUES (13833,14,3);
 INSERT INTO `item_mods` VALUES (13833,54,3);

@@ -524,5 +524,21 @@ INSERT INTO `item_mods_pet` VALUES (17200,23,10,0);     -- Rosenbogen: Attack +1
 INSERT INTO `item_mods_pet` VALUES (17200,25,10,0);     -- Rosenbogen: Accuracy+10
 INSERT INTO `item_mods_pet` VALUES (17201,23,11,0);     -- Rosenbogen +1: Attack +11
 INSERT INTO `item_mods_pet` VALUES (17201,25,11,0);     -- Rosenbogen +1: Accuracy+11
+INSERT INTO `item_mods_pet` VALUES (15164,346,1,1);     -- Garish Crown Avatar: Perpetuation cost -1
+INSERT INTO `item_mods_pet` VALUES (15168,346,1,1);     -- Rubious Crown Avatar: Perpetuation cost -1
+INSERT INTO `item_mods_pet` VALUES (14425,1,50,0);      -- Garish Tunic Pet: DEF +50
+INSERT INTO `item_mods_pet` VALUES (14432,1,55,0);      -- Rubious Tunic Pet: DEF +55
+INSERT INTO `item_mods_pet` VALUES (14857,30,3,0);      -- Garish Mitts: MACC +3
+INSERT INTO `item_mods_pet` VALUES (14861,30,4,0);      -- Rubious Mitts: MACC +4
+INSERT INTO `item_mods_pet` VALUES (14326,23,6,0);     -- Garish Slacks: Attack +6
+INSERT INTO `item_mods_pet` VALUES (14326,25,6,0);     -- Garish Slacks: Accuracy+6
+INSERT INTO `item_mods_pet` VALUES (14330,23,7,0);     -- Rubious Slacks: Attack +7
+INSERT INTO `item_mods_pet` VALUES (14330,25,7,0);     -- Rubious Slacks: Accuracy+7
+INSERT INTO `item_mods_pet` VALUES (15314,24,4,0);     -- Garish Pumps: Ranged Attack+4
+INSERT INTO `item_mods_pet` VALUES (15314,26,4,0);     -- Garish Pumps: Ranged Accuracy+4
+INSERT INTO `item_mods_pet` VALUES (15318,24,5,0);     -- Rubious Pumps: Ranged Attack+5
+INSERT INTO `item_mods_pet` VALUES (15318,26,5,0);     -- Rubious Pumps: Ranged Accuracy+5
+
+
 
 
