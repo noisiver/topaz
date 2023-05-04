@@ -14,7 +14,7 @@ function onEquip(pet)
         elseif maneuvers == 2 then
             mpthreshold = 60
         elseif maneuvers == 3 then
-            mpthreshold = 65
+            mpthreshold = 69
         end
         local mpp = (automaton:getMaxMP() > 0) and math.ceil(automaton:getMP()/automaton:getMaxMP() * 100) or 100
         if mpp < mpthreshold and automaton:getLocalVar("convert") < VanadielTime() then

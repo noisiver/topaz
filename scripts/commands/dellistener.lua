@@ -22,7 +22,7 @@ function onTrigger(player, listener)
         return
     end
     
-    if targ == nil or not targ:isMob() then
+    if targ == nil or (not targ:isMob() and not targ:isPet()) then
         error(player, "you must select a target monster with the cursor first")
     else
         targ:removeListener(listener)

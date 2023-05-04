@@ -13,22 +13,23 @@ function onMobSkillCheck(target, automaton, skill)
 end
 
 function onPetAbility(target, automaton, skill, master, action)
+printf("?")
     automaton:addRecast(tpz.recast.ABILITY, skill:getID(), 60)
     local element = tpz.magic.ele.DARK
-    local skillType = jobUtil.GetAutoMainSkill(pet)
+    local skillType = jobUtil.GetAutoMainSkill(automaton)
     local bonus = 175
-    local resist = applyResistanceAbility(player, target, element, skillType, bonus)
+    local resist = applyResistanceAbility(automaton, target, element, skillType, bonus)
     local stolen = 0
 
     if resist >= 0.5 then
-        stolen = caster:stealStatusEffect(target)
+        stolen = automaton:stealStatusEffect(target)
         if stolen ~= 0 then
-            spell:setMsg(tpz.msg.basic.MAGIC_STEAL)
+            skill:setMsg(tpz.msg.basic.SKILL_ERASE)
         else
-            spell:setMsg(tpz.msg.basic.MAGIC_NO_EFFECT)
+            skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
         end
     else
-        spell:setMsg(tpz.msg.basic.MAGIC_RESIST)
+        spell:setMsg(tpz.msg.basic.SKILL_MISS)
     end
 
     return stolen

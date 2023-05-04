@@ -6,33 +6,31 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onEquip(pet)
-    pet:setLocalVar("truesights", 33)
+    pet:setLocalVar("truesights_manuevers", 5)
 end
 
 function onUnequip(pet)
-    pet:setLocalVar("truesights", 0)
+    pet:setLocalVar("truesights_manuevers", 0)
 end
 
 function onManeuverGain(pet, maneuvers)
-    if maneuvers == 0 then
-        pet:setLocalVar("truesights", 5)
-    elseif maneuvers == 1 then
-        pet:setLocalVar("truesights", 15)
+    local truesightsBonus = pet:getLocalVar("truesights_manuevers")
+    if maneuvers == 1 then
+        pet:setLocalVar("truesights_manuevers", truesightsBonus + 10)
     elseif maneuvers == 2 then
-        pet:setLocalVar("truesights", 30)
+        pet:setLocalVar("truesights_manuevers", truesightsBonus + 15)
     elseif maneuvers == 3 then
-        pet:setLocalVar("truesights", 45)
+        pet:setLocalVar("truesights_manuevers", truesightsBonus + 15)
     end
 end
 
 function onManeuverLose(pet, maneuvers)
-    if maneuvers == 0 then
-        pet:setLocalVar("truesights", 5)
-    elseif maneuvers == 1 then
-        pet:setLocalVar("truesights", 15)
+    local truesightsBonus = pet:getLocalVar("truesights_manuevers")
+    if maneuvers == 1 then
+        pet:setLocalVar("truesights_manuevers", truesightsBonus - 10)
     elseif maneuvers == 2 then
-        pet:setLocalVar("truesights", 30)
+        pet:setLocalVar("truesights_manuevers", truesightsBonus - 15)
     elseif maneuvers == 3 then
-        pet:setLocalVar("truesights", 45)
+        pet:setLocalVar("truesights_manuevers", truesightsBonus - 15)
     end
 end

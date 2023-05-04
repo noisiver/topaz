@@ -41,7 +41,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
     local tp = auto:getLocalVar("TP")
 
     local jas =
-    {1944, 1945, 1946, 1947, 1948, 1949, 3485, 2745, 2746, 2747}
+    {1944, 1945, 1946, 1947, 1948, 1949, 2021, 2068, 2745, 2746, 2747, 3485}
     for _, skillId in pairs(jas) do
         if skill:getID() == skillId then
             tp = 1000
@@ -213,7 +213,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
 
         local weaponDmg = auto:getWeaponDmg()
         if attackType == tpz.attackType.RANGED then
-            weaponDmg = getRangedDmg()
+            weaponDmg = auto:getRangedDmg()
         end
 
         local fSTR = getAutoFSTR(weaponDmg, auto:getStat(tpz.mod.STR), target:getStat(tpz.mod.VIT))
@@ -411,7 +411,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
     end
 
     -- Handle Truesights bonus to ranged attacks
-    local truesightBonus = 1 + (auto:getLocalVar("truesights") / 100)
+    local truesightBonus = 1 + (auto:getLocalVar("truesights_manuevers") / 100)
 
     if attackType == tpz.attackType.RANGED then
         finaldmg = math.floor(finaldmg * truesightBonus)

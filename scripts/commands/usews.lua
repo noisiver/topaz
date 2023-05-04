@@ -18,7 +18,7 @@ function onTrigger(player, tpmove)
     
     local targ = player:getCursorTarget()
     
-    if targ == nil or targ:isMob() == false then
+    if targ == nil or (not targ:isMob() and not targ:isPet()) then
         error(player, "you must select a target monster with the cursor first")
     else
         targ:useMobAbility(tpmove)

@@ -459,12 +459,12 @@ bool CAutomatonController::TryHeal(const CurrentManeuvers& maneuvers)
     {
         if (PAutomaton->GetHPP() <= 50) // Automaton only heals itself when <= 50%
             PCastTarget = PAutomaton;
-        else if (PAutomaton->PMaster->GetHPP() <= threshold && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
+        else if (PAutomaton->PMaster->GetHPP() < threshold && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
             PCastTarget = PAutomaton->PMaster;
     }
     else
     {
-        if (PAutomaton->PMaster->GetHPP() <= threshold)
+        if (PAutomaton->PMaster->GetHPP() < threshold)
             PCastTarget = PAutomaton->PMaster;
         else if (PAutomaton->GetHPP() <= 50) // Automaton only heals itself when <= 50%
             PCastTarget = PAutomaton;
@@ -479,7 +479,7 @@ bool CAutomatonController::TryHeal(const CurrentManeuvers& maneuvers)
                 if (PMember->id != PAutomaton->PMaster->id)
                 {
                     auto enmity_obj = enmityList->find(PMember->id);
-                    if (enmity_obj != enmityList->end() && highestEnmity < enmity_obj->second.CE + enmity_obj->second.VE && PMember->GetHPP() <= threshold && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
+                    if (enmity_obj != enmityList->end() && highestEnmity < enmity_obj->second.CE + enmity_obj->second.VE && PMember->GetHPP() < threshold && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
                     {
                         highestEnmity = enmity_obj->second.CE + enmity_obj->second.VE;
                         PCastTarget = PMember;
@@ -492,7 +492,7 @@ bool CAutomatonController::TryHeal(const CurrentManeuvers& maneuvers)
             static_cast<CCharEntity*>(PAutomaton->PMaster)->ForPartyWithTrusts([&](CBattleEntity* PMember) {
                 if (PMember->id != PAutomaton->PMaster->id && distance(PAutomaton->loc.p, PAutomaton->PMaster->loc.p) < 20)
                 {
-                    if (PMember->GetHPP() <= threshold)
+                    if (PMember->GetHPP() < threshold)
                     {
                         PCastTarget = PMember;
                     }
