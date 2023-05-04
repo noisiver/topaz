@@ -8366,8 +8366,8 @@ INSERT INTO `mob_groups` VALUES (6397,305,117,'Ayame',0,0,0,0,0,0,0,0);
 
 INSERT INTO `mob_groups` VALUES (1,3753,118,'Stag_Crab',0,128,0,0,0,15,18,0);
 INSERT INTO `mob_groups` VALUES (2,3220,118,'Puffer_Pugil',0,128,0,0,0,15,18,0);
-INSERT INTO `mob_groups` VALUES (3,5733,118,'Snipper',330,0,957,0,0,20,23,0);
-INSERT INTO `mob_groups` VALUES (4,3608,118,'Shoal_Pugil',330,0,2240,0,0,24,28,0);
+INSERT INTO `mob_groups` VALUES (3,5733,118,'Snipper',0,128,957,0,0,20,23,0);
+INSERT INTO `mob_groups` VALUES (4,3608,118,'Shoal_Pugil',0,128,2240,0,0,24,28,0);
 INSERT INTO `mob_groups` VALUES (5,743,118,'Clipper',0,128,0,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (6,3830,118,'Sylvestre',330,0,2369,0,0,15,17,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (7,2652,118,'Mighty_Rarab',330,0,1670,0,0,15,17,0); -- added higher lvl group
@@ -8438,8 +8438,8 @@ INSERT INTO `mob_groups` VALUES (70,1683,118,'Goblin_Leecher',330,0,1103,0,0,24,
 INSERT INTO `mob_groups` VALUES (71,1666,118,'Goblin_Gambler',330,0,1078,0,0,24,25,0); --  higher lvl group unneeded
 INSERT INTO `mob_groups` VALUES (72,71,118,'Air_Elemental',330,4,38,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (73,3165,118,'Poison_Leech',330,0,2011,0,0,24,25,0); --  higher lvl group
-INSERT INTO `mob_groups` VALUES (74,5733,118,'Snipper',0,128,0,0,0,23,23,0); --  higher lvl group
-INSERT INTO `mob_groups` VALUES (75,3608,118,'Shoal_Pugil',0,128,0,0,0,28,28,0); --  higher lvl group
+INSERT INTO `mob_groups` VALUES (74,5733,118,'Snipper',330,0,0,0,0,23,23,0); --  higher lvl group
+INSERT INTO `mob_groups` VALUES (75,3608,118,'Shoal_Pugil',330,0,0,0,0,28,28,0); --  higher lvl group
 
 INSERT INTO `mob_groups` VALUES (6435,1027,118,'Diabolos',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6437,1518,118,'Ghoul',0,0,960,0,0,0,0,0);

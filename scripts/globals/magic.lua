@@ -1244,22 +1244,8 @@ function finalMagicNonSpellAdjustments(caster, target, ele, dmg)
     return dmg
 end
 
+-- No longer needed, added to core
 function adjustForTarget(target, dmg, ele)
-    -- Check for absorb. Converts damage to HP.
-    if (dmg > 0 and math.random(0, 99) < target:getMod(tpz.magic.absorbMod[ele])) then
-        return -dmg
-    end
-    -- Check for null
-    if (math.random(0, 99) < target:getMod(nullMod[ele])) then
-        return 0
-    end
-    -- Evokers Bracers / +1 Mod 
-    -- Procs after absorb or null checks. Converts dmg to MP
-    if (dmg > 0 and math.random(0, 99) < target:getMod(tpz.magic.absorbModToMP[ele])) then
-        target:addMP(dmg)
-    end
-    --Moved non element specific absorb and null mod checks to core
-    --TODO: update all lua calls to magicDmgTaken with appropriate element and remove this function
     return dmg
 end
 

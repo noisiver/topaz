@@ -597,7 +597,7 @@ int getSDTTier(int SDT)
         float targetLvl = PDefender->GetMLevel();
         // printf("casterLvl: %f\n", casterLvl);
         float magicacc = static_cast<float>(PAttacker->GetSkill(skillType));
-        printf("base MACC %f\n", magicacc);
+        //printf("base MACC %f\n", magicacc);
         if (PAttacker->objtype == TYPE_PET)
         {
             magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
@@ -611,9 +611,9 @@ int getSDTTier(int SDT)
         magicacc += percentBonus;
         //printf("MACC after percentBonus %f\n", magicacc);
         magicacc += magicaccbonus;
-        printf("MACC final %f\n", magicacc);
+        //printf("MACC final %f\n", magicacc);
         float baseMeva = magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_EVASION, JOB_PLD, PDefender->GetMLevel()));
-        printf("baseMeva before SDT %f\n", baseMeva);
+        //printf("baseMeva before SDT %f\n", baseMeva);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         if (PDefender->objtype == TYPE_PC)
         {
@@ -624,14 +624,14 @@ int getSDTTier(int SDT)
         //printf("mevaMod %f\n", mevaMod);
         baseMeva *= getSDTMultiplier(getSDTTier(SDT));
         //printf("getSDTMultiplier: %f\n", getSDTMultiplier(getSDTTier(SDT)));
-        printf("baseMeva after SDT %f\n", baseMeva);
+        //printf("baseMeva after SDT %f\n", baseMeva);
         baseMeva += mevaMod;
         //printf("baseMeva after MEVA mod %f\n", baseMeva);
         // Add resist gear/barspells etc
         baseMeva += PDefender->getMod(resistarray[element - 1]);
         //printf("baseMeva after resist mod %f\n", baseMeva);
         float magiceva = baseMeva + mevaMod;
-        printf("Meva final %f\n-----------------------------------------------------------------\n", magiceva);
+        //printf("Meva final %f\n-----------------------------------------------------------------\n", magiceva);
 
         return calculateMagicHitRate(magicacc, magiceva, element, percentBonus, casterLvl, targetLvl, SDT);
     }

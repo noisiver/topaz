@@ -1176,27 +1176,27 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         if (GetMLevel() >= 11 && GetMLevel() <= 20) // 11-20 bracket cloth
         {
             AddItemToPool(834, ++dropCount); // Saruta Cotton
-            printf("11-20\n");
+            //printf("11-20\n");
         }
-        else if (GetMLevel() <= 30) // 21-30 bracket cloth
+        else if (GetMLevel() >= 21 && GetMLevel() <= 30) // 21-30 bracket cloth
         {
             AddItemToPool(835, ++dropCount); // Flax Flower
-            printf("21-30\n");
+            //printf("21-30\n");
         }
-        else if (GetMLevel() <= 40) // 31-40 bracket cloth
+        else if (GetMLevel() >= 31 && GetMLevel() <= 40) // 31-40 bracket cloth
         {
             AddItemToPool(832, ++dropCount); // Sheep Wool
-            printf("31-40\n");
+            //printf("31-40\n");
         }
-        else if (GetMLevel() <= 60) // 41-60 bracket cloth
+        else if (GetMLevel() >= 41 && GetMLevel() <= 60) // 41-60 bracket cloth
         {
             AddItemToPool(839, ++dropCount); // Crawler Cocoon
-            printf("41-60\n");
+            //printf("41-60\n");
         }
-        else if (GetMLevel() <= 75) // 61-75 bracket cloth
+        else if (GetMLevel() >= 61) // 61+ bracket cloth
         {
             AddItemToPool(838, ++dropCount); // Spider Web
-            printf("61-70\n");
+            //printf("61+\n");
         }
     }
     // Roll for random rare items
@@ -1225,7 +1225,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
             }
         }
-        if (GetMLevel() <= 30) // 21-30 bracket rare drops
+        else if (GetMLevel() >= 21 && GetMLevel() <= 30) // 21-30 bracket rare drops
         {
             switch (tpzrand::GetRandomNumber(4))
             {
@@ -1248,7 +1248,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
             }
         }
-        else if (GetMLevel() <= 40) // 31-40 bracket rare drops
+        else if (GetMLevel() >= 31 && GetMLevel() <= 40) // 31-40 bracket rare drops
         {
             switch (tpzrand::GetRandomNumber(4))
             {
@@ -1271,7 +1271,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
             }
         }
-        else if (GetMLevel() <= 50) // 41-50 bracket rare drops
+        else if (GetMLevel() >= 41 && GetMLevel() <= 50) // 41-50 bracket rare drops
         {
             switch (tpzrand::GetRandomNumber(4))
             {
@@ -1294,7 +1294,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
             }
         }
-        else if (GetMLevel() <= 60) // 51-60 bracket rare drops
+        else if (GetMLevel() >= 51 && GetMLevel() <= 60) // 51-60 bracket rare drops
         {
             switch (tpzrand::GetRandomNumber(4))
             {
@@ -1304,7 +1304,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(11677, ++dropCount)) // Prouesse Ring TODO
+                    if (AddItemToPool(11677, ++dropCount)) // Prouesse Ring
                         return;
                     break;
                 case 2:
@@ -1317,7 +1317,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
             }
         }
-        else if (GetMLevel() <= 70) // 61-70 bracket rare drops
+        else if (GetMLevel() >= 61 && GetMLevel() <= 70) // 61-70 bracket rare drops
         {
             switch (tpzrand::GetRandomNumber(4))
             {
@@ -1340,7 +1340,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
             }
         }
-        else if (GetMLevel() <= 75) // 71-75 bracket rare drops
+        else if (GetMLevel() >= 71) // 71+ bracket rare drops
         {
             switch (tpzrand::GetRandomNumber(4))
             {
