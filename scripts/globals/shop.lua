@@ -263,6 +263,9 @@ tpz.shop =
                 4172,    1000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Reraiser
                 4173,    1500,      tpz.ki.RHAPSODY_IN_EMERALD, -- Hi-Reraiser
                 4213,   15000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Icarus Wing
+               18731,     50,       tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil
+               18732,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +1
+               18733,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +2
         },
         [curio.ammunition] =
         {
