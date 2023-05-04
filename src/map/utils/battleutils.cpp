@@ -507,7 +507,7 @@ int getSDTTier(int SDT)
         Mod sdtarray[9] = { Mod::NONE,        Mod::SDT_FIRE,  Mod::SDT_ICE,   Mod::SDT_WIND, Mod::SDT_EARTH,
                             Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
         float SDT = (PDefender->getMod(sdtarray[element])); // never works
-        printf("Element:%u\\nMod:%u\\nValue:%f\\n", element, sdtarray[element], SDT);
+        //printf("Element:%u\\nMod:%u\\nValue:%f\\n", element, sdtarray[element], SDT);
 
         if (SDT == 0) // invalid SDT, it was never set on this target... just default it.
         {
@@ -593,19 +593,27 @@ int getSDTTier(int SDT)
                           float magicaccbonus)
     {
         float casterLvl = PAttacker->GetMLevel();
-        //printf("casterLvl: %f\n", casterLvl);
+        // printf("casterLvl: %f\n", casterLvl);
         float targetLvl = PDefender->GetMLevel();
-        //printf("casterLvl: %f\n", casterLvl);
+        // printf("casterLvl: %f\n", casterLvl);
         float magicacc = static_cast<float>(PAttacker->GetSkill(skillType));
-        //printf("base MACC %f\n", magicacc);
+        printf("base MACC %f\n", magicacc);
+        if (PAttacker->objtype == TYPE_PET)
+        {
+            magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_ENFEEBLING_MAGIC, JOB_RDM, PAttacker->GetMLevel()));
+        }
+        if (PAttacker->objtype == TYPE_PC && PAttacker->GetMJob() == JOB_BLU && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SHOCK_SPIKES))
+        {
+            magicacc = static_cast<float>(PAttacker->GetSkill(SKILL_BLUE_MAGIC));
+        }
         magicacc += PAttacker->getMod(Mod::MACC);
         //printf("MACC after MACC mod %f\n", magicacc);
         magicacc += percentBonus;
         //printf("MACC after percentBonus %f\n", magicacc);
         magicacc += magicaccbonus;
-        //printf("MACC after MACC bonus %f\n", magicacc);
+        printf("MACC final %f\n", magicacc);
         float baseMeva = magicacc = static_cast<float>(battleutils::GetMaxSkill(SKILL_EVASION, JOB_PLD, PDefender->GetMLevel()));
-       // printf("baseMeva before SDT %f\n", baseMeva);
+        printf("baseMeva before SDT %f\n", baseMeva);
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
         if (PDefender->objtype == TYPE_PC)
         {
@@ -616,13 +624,14 @@ int getSDTTier(int SDT)
         //printf("mevaMod %f\n", mevaMod);
         baseMeva *= getSDTMultiplier(getSDTTier(SDT));
         //printf("getSDTMultiplier: %f\n", getSDTMultiplier(getSDTTier(SDT)));
-        //printf("baseMeva after SDT %f\n", baseMeva);
+        printf("baseMeva after SDT %f\n", baseMeva);
         baseMeva += mevaMod;
         //printf("baseMeva after MEVA mod %f\n", baseMeva);
         // Add resist gear/barspells etc
         baseMeva += PDefender->getMod(resistarray[element - 1]);
         //printf("baseMeva after resist mod %f\n", baseMeva);
         float magiceva = baseMeva + mevaMod;
+        printf("Meva final %f\n-----------------------------------------------------------------\n", magiceva);
 
         return calculateMagicHitRate(magicacc, magiceva, element, percentBonus, casterLvl, targetLvl, SDT);
     }
