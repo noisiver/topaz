@@ -12,10 +12,10 @@ end
 function onTrigger(player, npc)
     local stock =
     {
-        4862,  114, 1,    -- Blind
-        4828,   84, 2,    -- Poison
-        4838,  368, 2,    -- Bio
-        4861, 2300, 2,    -- Sleep
+        4862,  114, 3,    -- Blind
+        4828,   84, 3,    -- Poison
+        4838,  368, 3,    -- Bio
+        4861, 2300, 3,    -- Sleep
         4767,   62, 3,    -- Stone
         4777,  143, 3,    -- Water
         4762,  331, 3,    -- Aero
