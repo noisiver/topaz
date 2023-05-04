@@ -12,11 +12,11 @@ end
 function onTrigger(player, npc)
     local stock =
     {
-        17051,  1440, 1,    -- Yew Wand
-        17090,  3642, 1,    -- Elm Staff
-        17097, 18422, 1,    -- Elm Pole
-        17026,  4945, 2,    -- Bone Cudgel
-        17096,  4669, 2,    -- Holly Pole
+        17051,  1440, 3,    -- Yew Wand
+        17090,  3642, 3,    -- Elm Staff
+        17097, 18422, 3,    -- Elm Pole
+        17026,  4945, 3,    -- Bone Cudgel
+        17096,  4669, 3,    -- Holly Pole
         17049,    47, 3,    -- Maple Wand
         17050,   340, 3,    -- Willow Wand
         17059,    91, 3,    -- Bronze Rod

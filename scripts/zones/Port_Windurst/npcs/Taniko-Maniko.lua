@@ -12,7 +12,7 @@ end
 function onTrigger(player, npc)
     local stock = 
         {
-            16649, 5864, 2,    -- Bone Pick
+            16649, 5864, 3,    -- Bone Pick
             16405,  104, 3,    -- Cat Baghnakhs
             16385,  129, 3,    -- Cesti
             16391, 1521, 3,    -- Brass Knuckles
