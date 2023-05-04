@@ -47,9 +47,10 @@ function onEventFinish(player, csid, option)
         player:setCharVar("GiohAijhriSpokenTo", 0)
 
         if player:getQuestStatus(WINDURST, tpz.quest.id.windurst.TWINSTONE_BONDING) == QUEST_ACCEPTED then
-            npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.TWINSTONE_BONDING, {item=17154, fame=80, title=tpz.title.BOND_FIXER})
+            npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.TWINSTONE_BONDING, {item=17154, fame=300, xp=5500, title=tpz.title.BOND_FIXER})
         else
-            player:addFame(WINDURST, 10)
+            player:addExp(550 * EXP_RATE)
+            player:addFame(WINDURST, 50)
             player:addGil(GIL_RATE*900)
             player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*900)
         end
