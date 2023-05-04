@@ -715,7 +715,7 @@ INSERT INTO `item_weapon` VALUES (17064,'scepter',11,0,0,0,0,3,1,288,26,0);
 INSERT INTO `item_weapon` VALUES (17065,'platinum_rod',11,0,0,0,0,3,1,288,23,0);
 INSERT INTO `item_weapon` VALUES (17066,'molva_maul',11,0,0,0,0,3,1,308,65,0);
 INSERT INTO `item_weapon` VALUES (17067,'ryl._guards_rod',11,0,0,0,0,3,1,288,21,0);
-INSERT INTO `item_weapon` VALUES (17068,'onion_rod',11,0,0,0,0,3,1,288,3,0);
+INSERT INTO `item_weapon` VALUES (17068,'onion_hammer',11,0,0,0,0,3,1,324,6,0);
 INSERT INTO `item_weapon` VALUES (17069,'moepapa_mace',11,0,0,0,0,3,1,300,71,0);
 INSERT INTO `item_weapon` VALUES (17070,'living_rod',11,0,0,0,0,3,1,288,24,0);
 INSERT INTO `item_weapon` VALUES (17071,'heat_rod',11,0,0,0,0,3,1,288,12,0);

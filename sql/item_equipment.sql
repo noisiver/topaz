@@ -6802,7 +6802,7 @@ INSERT INTO `item_equipment` VALUES (17064,'scepter',72,0,1589260,218,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17065,'platinum_rod',70,0,1589260,221,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17066,'molva_maul',85,0,1572868,114,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17067,'ryl._guards_rod',55,0,1589260,221,0,0,3,0);
-INSERT INTO `item_equipment` VALUES (17068,'onion_rod',1,0,1589260,220,0,0,3,0);
+INSERT INTO `item_equipment` VALUES (17068,'onion_hammer',1,0,1589260,220,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17069,'moepapa_mace',94,0,1048645,107,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17070,'living_rod',67,0,1589260,221,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17071,'heat_rod',27,0,1589260,220,0,0,3,0);

@@ -14335,7 +14335,7 @@ INSERT INTO `item_basic` VALUES (17064,0,'scepter','scepter',1,2084,11,0,3256);
 INSERT INTO `item_basic` VALUES (17065,0,'platinum_rod','platinum_rod',1,2084,11,0,3166);
 INSERT INTO `item_basic` VALUES (17066,0,'molva_maul','molva_maul',1,63568,0,1,0);
 INSERT INTO `item_basic` VALUES (17067,0,'royal_guards_rod','ryl._guards_rod',1,2052,11,0,2487);
-INSERT INTO `item_basic` VALUES (17068,0,'onion_rod','onion_rod',1,6148,11,1,0);
+INSERT INTO `item_basic` VALUES (17068,0,'onion_hammer','onion_hammer',1,6148,11,1,0);
 INSERT INTO `item_basic` VALUES (17069,0,'moepapa_mace','moepapa_mace',1,34820,11,0,0);
 INSERT INTO `item_basic` VALUES (17070,0,'living_rod','living_rod',1,2052,11,0,2252);
 INSERT INTO `item_basic` VALUES (17071,0,'heat_rod','heat_rod',1,2052,11,0,532);
