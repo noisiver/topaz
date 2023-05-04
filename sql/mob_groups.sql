@@ -8379,17 +8379,17 @@ INSERT INTO `mob_groups` VALUES (12,4516,118,'Zombie',330,1,2809,0,0,18,20,0); -
 INSERT INTO `mob_groups` VALUES (13,1518,118,'Ghoul',330,1,960,0,0,18,20,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (14,4345,118,'Will-o-the-Wisp',330,8,0,0,0,25,27,0);
 INSERT INTO `mob_groups` VALUES (15,485,118,'Bogy',330,1,322,0,0,23,25,0);
-INSERT INTO `mob_groups` VALUES (16,578,118,'Bull_Dhalmel',330,0,385,0,0,20,22,0); -- added higher lvl group
-INSERT INTO `mob_groups` VALUES (17,1690,118,'Goblin_Mugger',330,0,1117,0,0,22,23,0); -- added higher lvl group
-INSERT INTO `mob_groups` VALUES (18,1683,118,'Goblin_Leecher',330,0,1103,0,0,22,23,0); -- added higher lvl group
-INSERT INTO `mob_groups` VALUES (19,1666,118,'Goblin_Gambler',330,0,1078,0,0,22,23,0); -- added higher lvl group
+INSERT INTO `mob_groups` VALUES (16,578,118,'Bull_Dhalmel',330,0,385,0,0,22,24,0); -- added higher lvl group unneeded
+INSERT INTO `mob_groups` VALUES (17,1690,118,'Goblin_Mugger',330,0,1117,0,0,23,25,0); -- added higher lvl group unneeded
+INSERT INTO `mob_groups` VALUES (18,1683,118,'Goblin_Leecher',330,0,1103,0,0,23,25,0); -- added higher lvl group unneeded
+INSERT INTO `mob_groups` VALUES (19,1666,118,'Goblin_Gambler',330,0,1078,0,0,23,25,0); -- added higher lvl group unneeded
 INSERT INTO `mob_groups` VALUES (20,71,118,'Air_Elemental',330,4,38,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (21,3165,118,'Poison_Leech',330,0,2011,0,0,21,23,0); -- added higher lvl group
-INSERT INTO `mob_groups` VALUES (22,5741,118,'Wake_Warder_Wanda',3600,0,3004,1500,0,22,23,0);
+INSERT INTO `mob_groups` VALUES (22,5741,118,'Wake_Warder_Wanda',3600,0,3004,2200,0,22,23,0);
 INSERT INTO `mob_groups` VALUES (23,4309,118,'Water_Elemental',960,4,2629,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (24,646,118,'Carnivorous_Crawler',330,0,422,0,0,20,22,0);
-INSERT INTO `mob_groups` VALUES (25,1919,118,'Helldiver',3600,0,1292,900,0,29,30,0);
-INSERT INTO `mob_groups` VALUES (26,552,118,'Buburimboo',3600,0,369,900,0,30,31,0);
+INSERT INTO `mob_groups` VALUES (25,1919,118,'Helldiver',3600,0,1292,2950,0,29,30,0);
+INSERT INTO `mob_groups` VALUES (26,552,118,'Buburimboo',3600,0,369,3100,0,30,31,0);
 INSERT INTO `mob_groups` VALUES (27,6658,118,'Goblin_Digger',330,0,1040,0,0,19,21,0);
 INSERT INTO `mob_groups` VALUES (28,1983,118,'Hobgoblin_Warrior',0,128,0,0,0,30,35,0);
 INSERT INTO `mob_groups` VALUES (29,1984,118,'Hobgoblin_White_Mage',0,128,0,0,0,30,35,0);
@@ -8418,12 +8418,12 @@ INSERT INTO `mob_groups` VALUES (51,3148,118,'Pixie',0,128,2001,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (52,2213,118,'Ketos',1,0,0,0,0,1,1,0);
 INSERT INTO `mob_groups` VALUES (53,4734,118,'Botulus_Rex',0,128,0,0,9999,94,95,0);
 INSERT INTO `mob_groups` VALUES (54,1642,118,'Goblin_Bounty_Hunter',0,0,1030,0,0,17,20,0);
-INSERT INTO `mob_groups` VALUES (55,5344,118,'Backoo',0,128,3140,2700,0,37,37,0);
+INSERT INTO `mob_groups` VALUES (55,5344,118,'Backoo',0,128,3140,4000,0,37,37,0);
 INSERT INTO `mob_groups` VALUES (56,5733,118,'Snipper',0,128,0,0,0,20,22,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (57,3608,118,'Shoal_Pugil',0,128,0,0,0,24,26,0); -- added higher lvl group
 -- Higher level groups
 INSERT INTO `mob_groups` VALUES (58,3830,118,'Sylvestre',330,0,2369,0,0,17,19,0); --  higher lvl group
-INSERT INTO `mob_groups` VALUES (59,2652,118,'Mighty_Rarab',330,0,1670,0,0,17,18,0); --  higher lvl group
+INSERT INTO `mob_groups` VALUES (59,2652,118,'Mighty_Rarab',330,0,1670,0,0,17,18,0); --  higher lvl group unneeded
 INSERT INTO `mob_groups` VALUES (60,4523,118,'Zu',330,0,2812,0,0,22,24,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (61,1635,118,'Goblin_Ambusher',330,0,1017,0,0,19,20,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (62,1738,118,'Goblin_Tinkerer',330,0,1032,0,0,19,20,0); --  higher lvl group
@@ -8432,10 +8432,10 @@ INSERT INTO `mob_groups` VALUES (64,4516,118,'Zombie',330,1,2809,0,0,22,22,0); -
 INSERT INTO `mob_groups` VALUES (65,1518,118,'Ghoul',330,1,960,0,0,22,24,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (66,4345,118,'Will-o-the-Wisp',330,8,0,0,0,25,27,0);
 INSERT INTO `mob_groups` VALUES (67,485,118,'Bogy',330,1,322,0,0,23,25,0);
-INSERT INTO `mob_groups` VALUES (68,578,118,'Bull_Dhalmel',330,0,385,0,0,23,24,0); --  higher lvl group
-INSERT INTO `mob_groups` VALUES (69,1690,118,'Goblin_Mugger',330,0,1117,0,0,24,25,0); --  higher lvl group
-INSERT INTO `mob_groups` VALUES (70,1683,118,'Goblin_Leecher',330,0,1103,0,0,24,25,0); --  higher lvl group
-INSERT INTO `mob_groups` VALUES (71,1666,118,'Goblin_Gambler',330,0,1078,0,0,24,25,0); --  higher lvl group
+INSERT INTO `mob_groups` VALUES (68,578,118,'Bull_Dhalmel',330,0,385,0,0,23,24,0); --  higher lvl group unneeded
+INSERT INTO `mob_groups` VALUES (69,1690,118,'Goblin_Mugger',330,0,1117,0,0,24,25,0); --  higher lvl group unneeded
+INSERT INTO `mob_groups` VALUES (70,1683,118,'Goblin_Leecher',330,0,1103,0,0,24,25,0); --  higher lvl group unneeded
+INSERT INTO `mob_groups` VALUES (71,1666,118,'Goblin_Gambler',330,0,1078,0,0,24,25,0); --  higher lvl group unneeded
 INSERT INTO `mob_groups` VALUES (72,71,118,'Air_Elemental',330,4,38,0,0,28,30,0);
 INSERT INTO `mob_groups` VALUES (73,3165,118,'Poison_Leech',330,0,2011,0,0,24,25,0); --  higher lvl group
 INSERT INTO `mob_groups` VALUES (74,5733,118,'Snipper',0,128,0,0,0,23,23,0); --  higher lvl group
