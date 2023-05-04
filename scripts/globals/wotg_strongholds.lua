@@ -17,7 +17,7 @@ tpz.wotg_strongholds.TrashMods = function(mob)
 end
 
 tpz.wotg_strongholds.NMMods = function(mob)
-	mob:setDamage(140)
+	mob:setDamage(120)
     mob:addMod(tpz.mod.ATTP, 25)
     mob:addMod(tpz.mod.DEFP, 25) 
     mob:addMod(tpz.mod.ACC, 25) 
