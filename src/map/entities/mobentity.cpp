@@ -1171,7 +1171,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         }
     }
     // Roll for base cloth materials
-    if (getMobMod(MOBMOD_NO_DROPS) == 0 && this->IsHumanoid())
+    if (getMobMod(MOBMOD_NO_DROPS) == 0 && this->IsHumanoid() && GetMLevel() >= 11)
     {
         if (GetMLevel() >= 11 && GetMLevel() <= 20) // 11-20 bracket cloth
         {
@@ -1200,7 +1200,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
         }
     }
     // Roll for random rare items
-    if (tpzrand::GetRandomNumber(100) < 1 && getMobMod(MOBMOD_NO_DROPS) == 0)
+    if (tpzrand::GetRandomNumber(100) < 1 && getMobMod(MOBMOD_NO_DROPS) == 0 && GetMLevel() >= 11)
     {
         if (GetMLevel() >= 11 && GetMLevel() <= 20) // 11-20 bracket rare drops
         {
