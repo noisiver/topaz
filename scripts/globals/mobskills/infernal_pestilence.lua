@@ -20,7 +20,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PLAGUE
-    local dmgmod = MobBreathMove(mob, target, 0.10, 1, tpz.magic.ele.DARK, 500)
+    local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.DARK, 500)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.DARK)
     MobStatusEffectMove(mob, target, typeEffect, 3, 3, 180)

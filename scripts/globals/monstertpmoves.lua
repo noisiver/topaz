@@ -643,7 +643,7 @@ end
 -- base is calculated from main level to create a minimum
 -- Equation: (HP * percent) + (LVL / base)
 -- cap is optional, defines a maximum damage
-function MobBreathMove(mob, target, percent, base, element, cap)
+function MobHPBasedMove(mob, target, percent, base, element, cap)
     local damage = (mob:getHP() * percent) + (mob:getMainLvl() / base)
     local bonus = 0
 

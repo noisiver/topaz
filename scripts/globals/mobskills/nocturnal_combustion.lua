@@ -45,7 +45,7 @@ function onMobWeaponSkill(target, mob, skill)
 		hpPercent = 0.20
 	end
 	
-    local damage = MobBreathMove(mob, target, hpPercent, 1, tpz.magic.ele.DARK, 1250)
+    local damage = MobHPBasedMove(mob, target, hpPercent, 1, tpz.magic.ele.DARK, 1250)
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_IGNORE_SHADOWS)
     mob:setHP(0)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)

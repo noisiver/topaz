@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local damage = MobBreathMove(mob, target, 0.20, 1, tpz.magic.ele.FIRE, 1250)
+    local damage = MobHPBasedMove(mob, target, 0.20, 1, tpz.magic.ele.FIRE, 1250)
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 
     mob:setHP(0)
