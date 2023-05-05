@@ -21,8 +21,8 @@ function onEffectGain(target, effect)
     elseif (effect:getPower() == 2) then
         target:addMod(tpz.mod.PHYS_ABSORB, 100)
     elseif (effect:getPower() > 19) then
-        target:addMod(tpz.mod.UDMGPHYS, effect:getPower())
-        target:addMod(tpz.mod.UDMGRANGE, effect:getPower())
+        target:addMod(tpz.mod.UDMGPHYS, -effect:getPower())
+        target:addMod(tpz.mod.UDMGRANGE, -effect:getPower())
     end
 end
 
@@ -36,7 +36,7 @@ function onEffectLose(target, effect)
      elseif (effect:getPower() == 2) then
         target:delMod(tpz.mod.PHYS_ABSORB, 100)
     elseif (effect:getPower() > 19) then
-        target:delMod(tpz.mod.UDMGPHYS, effect:getPower())
-        target:delMod(tpz.mod.UDMGRANGE, effect:getPower())
+        target:delMod(tpz.mod.UDMGPHYS, -effect:getPower())
+        target:delMod(tpz.mod.UDMGRANGE, -effect:getPower())
     end
 end

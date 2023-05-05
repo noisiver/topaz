@@ -24,7 +24,7 @@ function onEffectGain(target, effect)
     elseif effect:getPower() == 2 then
         target:addMod(tpz.mod.MAGIC_ABSORB, 100)
     elseif (effect:getPower() > 19 and effect:getPower() < 100) then
-        target:addMod(tpz.mod.UDMGMAGIC, effect:getPower())
+        target:addMod(tpz.mod.UDMGMAGIC, -effect:getPower())
     elseif effect:getPower() > 100 then
         target:setMod(tpz.mod.RAMPART_STONESKIN, effect:getPower())
     end
@@ -39,7 +39,7 @@ function onEffectLose(target, effect)
     elseif effect:getPower() == 2 then
         target:delMod(tpz.mod.MAGIC_ABSORB, 100)
     elseif (effect:getPower() > 19 and effect:getPower() < 100) then
-        target:delMod(tpz.mod.UDMGMAGIC, effect:getPower())
+        target:delMod(tpz.mod.UDMGMAGIC, -effect:getPower())
     elseif effect:getPower() == 100 then
         target:setMod(tpz.mod.RAMPART_STONESKIN, 0)
     end
