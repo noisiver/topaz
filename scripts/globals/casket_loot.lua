@@ -2677,11 +2677,11 @@ tpz.casket_loot.casketItems =
             { 205,  3312}, -- Percolator
             { 235,  3313}, -- Vivi-Valve
             { 155,  3314}, -- Disruptor
-            {1830,  3434}, -- Cobalt Cell
-            {1020,  3435}, -- Rubicund Cell
-            { 840,  3436}, -- Xanthous Cell
-            { 610,  3437}, -- Jade Cell
-            {1130,  3450}, -- Voiddust
+            
+            
+            
+            
+           
             {4830,  4117}, -- Hi-Potion +1
             {4690,  4118}, -- Hi-Potion +2
             {3650,  4119}, -- Hi-Potion +3
@@ -3000,11 +3000,11 @@ tpz.casket_loot.casketItems =
             { 205,  3312}, -- Percolator
             { 235,  3313}, -- Vivi-Valve
             { 155,  3314}, -- Disruptor
-            {1830,  3434}, -- Cobalt Cell
-            {1020,  3435}, -- Rubicund Cell
-            { 840,  3436}, -- Xanthous Cell
-            { 610,  3437}, -- Jade Cell
-            {1130,  3450}, -- Voiddust
+            
+            
+            
+            
+           
             {4830,  4117}, -- Hi-Potion +1
             {4690,  4118}, -- Hi-Potion +2
             {3650,  4119}, -- Hi-Potion +3
@@ -3258,11 +3258,11 @@ tpz.casket_loot.casketItems =
             {1060,  1225}, -- Gold Nugget
             {3610,  1845}, -- Red Moko Grass
             {1290,  1981}, -- Skull Locust
-            {1830,  3434}, -- Cobalt Cell
-            {1020,  3435}, -- Rubicund Cell
-            { 840,  3436}, -- Xanthous Cell
-            { 610,  3437}, -- Jade Cell
-            {1130,  3450}, -- Voiddust
+            
+            
+            
+            
+           
             {4830,  4117}, -- Hi-Potion +1
             {4690,  4118}, -- Hi-Potion +2
             {3650,  4119}, -- Hi-Potion +3
@@ -3447,11 +3447,11 @@ tpz.casket_loot.casketItems =
             {1060,  1225}, -- Gold Nugget
             {3610,  1845}, -- Red Moko Grass
             {1290,  1981}, -- Skull Locust
-            {1830,  3434}, -- Cobalt Cell
-            {1020,  3435}, -- Rubicund Cell
-            { 840,  3436}, -- Xanthous Cell
-            { 610,  3437}, -- Jade Cell
-            {1130,  3450}, -- Voiddust
+            
+            
+            
+            
+           
             {4830,  4117}, -- Hi-Potion +1
             {4690,  4118}, -- Hi-Potion +2
             {3650,  4119}, -- Hi-Potion +3
@@ -3704,11 +3704,11 @@ tpz.casket_loot.casketItems =
             { 205,  3312}, -- Percolator
             { 235,  3313}, -- Vivi-Valve
             { 155,  3314}, -- Disruptor
-            {1830,  3434}, -- Cobalt Cell
-            {1020,  3435}, -- Rubicund Cell
-            { 840,  3436}, -- Xanthous Cell
-            { 610,  3437}, -- Jade Cell
-            {1130,  3450}, -- Voiddust
+            
+            
+            
+            
+           
             {4830,  4117}, -- Hi-Potion +1
             {4690,  4118}, -- Hi-Potion +2
             {3650,  4119}, -- Hi-Potion +3
