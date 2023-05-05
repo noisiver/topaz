@@ -43,7 +43,9 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     if party ~= nil then
         for _,v in ipairs(party) do
             v:addHP(healAmount)
-            v:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 30)
+            if not v:hasStatusEffect(tpz.effect.REGEN) then
+                v:addStatusEffect(tpz.effect.REGEN, regenAmount, 3, 30)
+            end
         end
     end
 
