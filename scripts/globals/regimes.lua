@@ -1320,7 +1320,7 @@ tpz.regime.checkRegime = function(player, mob, regimeId, index, regimeType)
 
     -- increment number killed
     killed = killed + 1
-    player:messageBasic(tpz.msg.basic.FOV_DEFEATED_TARGET, killed, needed, 0, 0, false)
+    player:messageBasic(tpz.msg.basic.FOV_DEFEATED_TARGET, killed, needed, 0, false)
     player:setCharVar("[regime]killed" .. index, killed)
 
     -- this mob is not yet finished
