@@ -366,6 +366,7 @@ inline int32 CLuaBaseEntity::messageBasic(lua_State* L)
     uint32 param0 = 0;
     uint32 param1 = 0;
     auto PTarget = m_PBaseEntity;
+    bool messageAll = true; // boolean
 
     if (!lua_isnil(L, 2) && lua_isnumber(L, 2))
         param0 = (uint32)lua_tointeger(L, 2);
@@ -373,14 +374,19 @@ inline int32 CLuaBaseEntity::messageBasic(lua_State* L)
         param1 = (uint32)lua_tointeger(L, 3);
     if (!lua_isnil(L, 4) && lua_isuserdata(L, 4))
         PTarget = Lunar<CLuaBaseEntity>::check(L, 4)->m_PBaseEntity;
-    if (messageID == MSGBASIC_ABOUT_TO_WEAR_OFF) // Sneak Invisible and Deodorize
+    if (!lua_isnil(L, 5) && lua_isboolean(L, 5))
+        messageAll = (lua_toboolean(L, 5) == 0) ? false : true; // checking if arg5 is true or false. nil defaults to true
+
+    if (messageAll) // How do I get true in C++?
+    {
+        m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE_SELF, new CMessageBasicPacket(m_PBaseEntity, PTarget, param0, param1, messageID));
+    }
+    else
     {
         ((CCharEntity*)m_PBaseEntity)->pushPacket(new CMessageBasicPacket(m_PBaseEntity, PTarget, param0, param1, messageID));
     }
-    else
-     m_PBaseEntity->loc.zone->PushPacket(m_PBaseEntity, CHAR_INRANGE_SELF, new CMessageBasicPacket(m_PBaseEntity, PTarget, param0, param1, messageID));
-
-     return 0;
+     
+    return 0;
 }
 
 /************************************************************************
