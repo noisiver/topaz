@@ -269,8 +269,9 @@ tpz.shop =
         },
         [curio.ammunition] =
         {
-                4219,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Stone Quiver
-                4220,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bone Quiver
+                17296,      3,      tpz.ki.RHAPSODY_IN_WHITE,   -- Pebble
+                4219,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Stone Quiver
+                4220,     350,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bone Quiver
                 4225,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iron Quiver
                 4221,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Beetle Quiver
                 4226,     600,      tpz.ki.RHAPSODY_IN_WHITE,   -- Silver Quiver
@@ -280,7 +281,7 @@ tpz.shop =
                 4224,    7000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Demon Quiver
                 5332,    8800,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Kabura Quiver
                 -- 5819,    9900,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antlion Quiver
-                4227,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bolt Quiver
+                4227,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bolt Quiver
                 5334,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Blind Bolt Quiver
                 5335,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Acid Bolt Quiver
                 5337,    1250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sleep Bolt Quiver
@@ -292,8 +293,8 @@ tpz.shop =
                 -- 5820,    9460,      tpz.ki.RHAPSODY_IN_WHITE,   -- Darkling Bolt Quiver
                 -- 5821,    9790,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fusion Bolt Quiver
                 5359,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bullet Pouch
-                5363,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bullet Pouch
-                5341,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spartan Bullet Pouch
+                5363,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bullet Pouch
+                5341,     350,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spartan Bullet Pouch
                 5353,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iron Bullet Pouch
                 5340,     700,      tpz.ki.RHAPSODY_IN_AZURE,   -- Silver Bullet Pouch
                 5342,    7100,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Corsair Bullet Pouch
