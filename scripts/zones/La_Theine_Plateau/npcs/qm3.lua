@@ -15,8 +15,7 @@ require("scripts/globals/utils")
 function onTrade(player, npc, trade)
     if
         player:getQuestStatus(WINDURST, tpz.quest.id.windurst.I_CAN_HEAR_A_RAINBOW) == QUEST_ACCEPTED and
-        npcUtil.tradeHas(trade, 1125) and
-        utils.mask.isFull(player:getCharVar("I_CAN_HEAR_A_RAINBOW"), 7)
+        npcUtil.tradeHas(trade, 1125)
     then
         player:startEvent(124)
     end
@@ -36,7 +35,9 @@ function onEventFinish(player, csid, option)
         player:completeQuest(WINDURST, tpz.quest.id.windurst.I_CAN_HEAR_A_RAINBOW)
         player:addTitle(tpz.title.RAINBOW_WEAVER)
         player:unlockJob(tpz.job.SMN)
-        player:addSpell(296)
+        for v = 296,303,1 do
+            player:addSpell(v)
+        end
         player:messageSpecial(ID.text.UNLOCK_SUMMONER)
         player:messageSpecial(ID.text.UNLOCK_CARBUNCLE)
         player:setCharVar("I_CAN_HEAR_A_RAINBOW", 0)
