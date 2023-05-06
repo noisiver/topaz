@@ -337,6 +337,7 @@ tpz.shop =
                 4422,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Orange Juice
                 4424,    1100,      tpz.ki.RHAPSODY_IN_UMBER,   -- Melon Juice
                 4558,    2000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Yagudo Drink
+                5604,     154,      tpz.ki.RHAPSODY_IN_WHITE,   -- Elshimo Pachira Fruit
                 4405,     160,      tpz.ki.RHAPSODY_IN_WHITE,   -- Rice Ball
                 4376,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Jerky
                 4578,     140,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sausage
