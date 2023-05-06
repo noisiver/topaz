@@ -457,7 +457,7 @@ function MobNeedlesMagicalMove(mob, target, skill, damage, element, tpeffect)
     returninfo = {}
 
     local resist = 1
-    if bonus == nil then bonus = 0 end -- bonus macc
+    if bonus == nil then bonus = 50 end -- bonus macc
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
 
     -- get resist
@@ -1026,6 +1026,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
     if (typeEffect == nil) then
         return 0
     end
+
     -- Override durations with a single function to make it easier to update a million files durations at once when editing stuff
     -- Don't override Doom, Gradual Petrification, Encumbrance, or Terror
     if (typeEffect ~= tpz.effect.DOOM) and (typeEffect ~= tpz.effect.GRADUAL_PETRIFICATION) and (typeEffect ~= tpz.effect.ENCUMBRANCE_II) and
@@ -1036,8 +1037,9 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
     if (target:canGainStatusEffect(typeEffect, power)) then
         local statmod = tpz.mod.INT
         local element = mob:getStatusEffectElement(typeEffect)
+        local bonus = 50
 
-        local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -1150,8 +1152,9 @@ end
 function MobEncumberMove(mob, target, maxSlots, duration)
     local statmod = tpz.mod.INT
     local element = tpz.magic.ele.WATER
+    local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_II, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local resist = applyPlayerResistance(mob, tpz.effect.ENCUMBRANCE_II, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -1206,8 +1209,9 @@ function MobCharmMove(mob, target, skill, costume, duration)
 	-- 0 costume = none
     local statmod = tpz.mod.CHR
     local element = tpz.magic.ele.LIGHT
+    local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local resist = applyPlayerResistance(mob, tpz.effect.CHARM_I, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -1233,8 +1237,9 @@ end
 function MobDeathMove(mob, target, skill)
         local statmod = tpz.mod.INT
         local element = tpz.magic.ele.DARK
+        local bonus = 50
 
-        local resist = applyPlayerResistance(mob, tpz.effect.KO, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+        local resist = applyPlayerResistance(mob, tpz.effect.KO, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
@@ -1269,8 +1274,9 @@ end
 function MobFullDispelMove(mob, target, skill, param1, param2)
     local statmod = tpz.mod.INT
     local element = tpz.magic.ele.DARK
+    local bonus = 50
 
-    local resist = applyPlayerResistance(mob, tpz.effect.NONE, target, mob:getStat(statmod)-target:getStat(statmod), 0, element)
+    local resist = applyPlayerResistance(mob, tpz.effect.NONE, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
