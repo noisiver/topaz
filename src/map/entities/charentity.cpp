@@ -1134,7 +1134,13 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
     }
     else
     {
-        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_TOO_FAR_AWAY));
+        actionList_t& actionList = action.getNewActionList();
+        actionList.ActionTargetID = PBattleTarget->id;
+
+        actionTarget_t& actionTarget = actionList.getNewActionTarget();
+        actionTarget.animation = 508;
+        actionTarget.messageID = 78;
+        action.actionid = 0;
     }
 }
 
