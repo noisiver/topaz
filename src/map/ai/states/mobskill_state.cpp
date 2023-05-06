@@ -97,7 +97,7 @@ void CMobSkillState::SpendCost()
         {
             tp = m_PEntity->health.tp;
 
-            if (m_PEntity->getMod(Mod::WS_NO_DEPLETE) < tpzrand::GetRandomNumber(100))
+            if (m_PEntity->getMod(Mod::WS_NO_DEPLETE) <= tpzrand::GetRandomNumber(100))
             {
                 m_PEntity->health.tp = 0;
             }
