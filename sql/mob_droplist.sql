@@ -10797,7 +10797,7 @@ INSERT INTO `mob_droplist` VALUES (2009,0,0,1000,4374,240);
 INSERT INTO `mob_droplist` VALUES (2010,2,0,1000,4374,0);
 INSERT INTO `mob_droplist` VALUES (2010,0,0,1000,4374,640);
 INSERT INTO `mob_droplist` VALUES (2010,0,0,1000,4374,240);
-INSERT INTO `mob_droplist` VALUES (2011,0,0,1000,1125,10); -- (Poison Leech - Buburimu) Carbuncle's Ruby
+INSERT INTO `mob_droplist` VALUES (2011,0,0,1000,1125,100); -- (Poison Leech - Buburimu) Carbuncle's Ruby
 INSERT INTO `mob_droplist` VALUES (2011,0,0,1000,2014,1000); -- Bird Blood
 INSERT INTO `mob_droplist` VALUES (2011,0,0,1000,2014,240); -- Bird Blood
 INSERT INTO `mob_droplist` VALUES (2011,0,0,1000,2014,150); -- Bird Blood
@@ -11321,9 +11321,9 @@ INSERT INTO `mob_droplist` VALUES (2125,0,0,1000,880,50);
 INSERT INTO `mob_droplist` VALUES (2125,0,0,1000,940,10);
 INSERT INTO `mob_droplist` VALUES (2126,0,0,1000,924,100);
 INSERT INTO `mob_droplist` VALUES (2126,0,0,1000,930,10);
-INSERT INTO `mob_droplist` VALUES (2126,0,0,1000,1125,10);
+INSERT INTO `mob_droplist` VALUES (2126,0,0,1000,1125,100);
 INSERT INTO `mob_droplist` VALUES (2126,0,0,1000,1979,240);
-INSERT INTO `mob_droplist` VALUES (2127,0,0,1000,1125,10); --(Royal Leech - SSG) Carbuncle's ruby
+INSERT INTO `mob_droplist` VALUES (2127,0,0,1000,1125,100); --(Royal Leech - SSG) Carbuncle's ruby
 INSERT INTO `mob_droplist` VALUES (2127,0,0,1000,1979,1000); -- Cup of leech saliva
 INSERT INTO `mob_droplist` VALUES (2127,0,0,1000,1979,240); -- Cup of leech saliva
 INSERT INTO `mob_droplist` VALUES (2128,2,0,1000,751,0);
@@ -12596,7 +12596,7 @@ INSERT INTO `mob_droplist` VALUES (2403,0,0,1000,924,100);
 INSERT INTO `mob_droplist` VALUES (2403,0,0,1000,930,90);
 INSERT INTO `mob_droplist` VALUES (2403,0,0,1000,930,10);
 INSERT INTO `mob_droplist` VALUES (2404,0,0,1000,924,170);
-INSERT INTO `mob_droplist` VALUES (2404,0,0,1000,1125,10);
+INSERT INTO `mob_droplist` VALUES (2404,0,0,1000,1125,100);
 INSERT INTO `mob_droplist` VALUES (2405,0,0,1000,930,150);	-- (Thread Leech - Passhow) Beastman Blood
 INSERT INTO `mob_droplist` VALUES (2406,0,0,1000,975,50);
 INSERT INTO `mob_droplist` VALUES (2407,0,0,1000,1001,50);
@@ -14159,7 +14159,7 @@ INSERT INTO `mob_droplist` VALUES (2598,0,0,1000,938,50);
 INSERT INTO `mob_droplist` VALUES (2598,2,0,1000,4358,0);
 INSERT INTO `mob_droplist` VALUES (2598,0,0,1000,4358,370);
 INSERT INTO `mob_droplist` VALUES (2599,0,0,1000,924,70);
-INSERT INTO `mob_droplist` VALUES (2599,0,0,1000,1125,10);
+INSERT INTO `mob_droplist` VALUES (2599,0,0,1000,1125,100);
 INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1723,1000); -- (Wailer) White memosphere
 INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1723,240); -- White memosphere
 INSERT INTO `mob_droplist` VALUES (2600,0,0,1000,1723,150); -- White memosphere
