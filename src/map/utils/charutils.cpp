@@ -2986,8 +2986,8 @@ namespace charutils
 
             double random = tpzrand::GetRandomNumber(1.);
 
-            // Ranaged has 70% max ,2h has 50% max, and 1h and spells have 24% max skill up chance
-            if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING)
+            // Ranaged and Elemental Magic has 70% max ,2h has 50% max, and 1h and spells have 24% max skill up chance
+            if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING || SkillID == SKILL_ELEMENTAL_MAGIC)
             {
                 if (SkillUpChance > 0.70)
                 {
