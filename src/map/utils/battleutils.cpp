@@ -2718,7 +2718,9 @@ int getSDTTier(int SDT)
 
                 baseTp = CalculateBaseTP((int16)(delay * 60.0f / 1000.0f / ratio));
 
-                if (PAttacker->objtype == TYPE_PET) // Pets gain 84 tp per hit
+                auto PPet = dynamic_cast<CPetEntity*>(PAttacker);
+
+                if (PAttacker->objtype == TYPE_PET && PPet->getPetType() != PETTYPE_AUTOMATON) // Pets gain 84 tp per hit
                 {
                     baseTp = (baseTp / 4) + 5;
                 }
@@ -2756,12 +2758,14 @@ int getSDTTier(int SDT)
                     }
                 }
 
+                auto PPet = dynamic_cast<CPetEntity*>(PDefender);
                 //mobs hit get basetp+30 whereas pcs hit get basetp/3
                 if (PDefender->objtype == TYPE_PC)
                 {
                     PDefender->addTP((int16)(tpMultiplier * ((baseTp / 3) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker))))))); //yup store tp counts on hits taken too!
                 }
-                else if (PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC)
+                else if (PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC &&
+                         PPet->getPetType() != PETTYPE_AUTOMATON)
                 {
                     PDefender->addTP((int16)(tpMultiplier * ((baseTp / 7) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker)))))));
                 }
@@ -2885,12 +2889,6 @@ int getSDTTier(int SDT)
             float sBlow2 = std::clamp((float)PAttacker->getMod(Mod::SUBTLE_BLOW_II), -50.0f, 50.0f);
             float sBlowMult = ((100.0f - std::clamp((float)(sBlow1 + sBlow2), -75.0f, 75.0f)) / 100.0f);
 
-            //int16 bonusTP = 0;
-            //if (tpzrand::GetRandomNumber(100) < PAttacker->getMod(Mod::TP_BOOST_WHEN_DMGD))
-            //{
-            //    // Occasionally boosts TP 1-3 points when damaged.
-            //    bonusTP = tpzrand::GetRandomNumber(10, 30);
-            //} 
 
             //mobs hit get basetp+30 whereas pcs hit get basetp/3
             if (PDefender->objtype == TYPE_PC)
