@@ -5290,7 +5290,7 @@ INSERT INTO `item_equipment` VALUES (15529,'aces_locket',74,0,10368,0,0,0,512,0)
 INSERT INTO `item_equipment` VALUES (15530,'berserkers_torque',75,0,10433,0,0,0,512,0);
 INSERT INTO `item_equipment` VALUES (15531,'qiqirn_collar',74,0,2473969,0,0,0,512,0);
 INSERT INTO `item_equipment` VALUES (15532,'shark_necklace',71,0,3719388,0,0,0,512,0);
-INSERT INTO `item_equipment` VALUES (15533,'chocobo_whistle',20,0,4194303,0,0,0,512,0);
+INSERT INTO `item_equipment` VALUES (15533,'chocobo_whistle',10,0,4194303,0,0,0,512,0);
 INSERT INTO `item_equipment` VALUES (15534,'mu_necklace',75,0,4194303,0,0,0,512,0);
 INSERT INTO `item_equipment` VALUES (15535,'chi_necklace',75,0,4194303,0,0,0,512,0);
 INSERT INTO `item_equipment` VALUES (15536,'rho_necklace',75,0,4194303,0,0,0,512,0);
