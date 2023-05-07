@@ -198,12 +198,12 @@ function onTrigger(player, npc)
     local automatonName = player:getAutomatonName()
     local CreationStarted_Day = player:getCharVar("CreationStarted_Day")
     local currentDay = VanadielDayOfTheYear()
-    local CreationReady = ((CreationStarted_Day < currentDay) or (player:getCharVar("CreationStarted_Year") < VanadielYear()))
+    local CreationReady = true
     local attachments = player:getCharVar("PUP_Attachments")
     local attachmentStatus = player:getCharVar("PUP_AttachmentStatus")
     local unlockedAttachments = player:getCharVar("PUP_AttachmentUnlock")
     local attachmentTime = player:getCharVar("PUP_AttachmentReady")
-    local attachmentReady = (attachmentTime ~= 0 and attachmentTime < os.time())
+    local attachmentReady = true
     local attachmentWait = player:getCharVar("PUP_AttachmentWait")
     local playerLvl = player:getMainLvl()
 
