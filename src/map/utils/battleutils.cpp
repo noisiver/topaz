@@ -2720,7 +2720,7 @@ int getSDTTier(int SDT)
 
                 auto PPet = dynamic_cast<CPetEntity*>(PAttacker);
 
-                if (PAttacker->objtype == TYPE_PET && PPet->getPetType() != PETTYPE_AUTOMATON) // Pets gain 84 tp per hit
+                if (PAttacker->objtype == TYPE_PET && PPet->getPetType() != PETTYPE_AUTOMATON) // Pets gain ~84 tp per hit
                 {
                     baseTp = (baseTp / 4) + 5;
                 }
