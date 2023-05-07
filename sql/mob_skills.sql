@@ -1374,7 +1374,7 @@ INSERT INTO `mob_skills` VALUES (1401,1145,'soul_accretion',0,7.0,2000,1500,4,0,
 -- INSERT INTO `mob_skills` VALUES (1428,1172,'warcry',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1429,1173,'counterstance',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1430,1174,'steal',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1431,803,'shield_bash',0,7.0,2000,1500,4,4,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1431,803,'shield_bash',0,7.0,2000,1500,4,2,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1432,1176,'weapon_bash',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1433,1177,'sic',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1434,1178,'barrage',0,7.0,2000,1500,4,0,0,0,0,0,0);

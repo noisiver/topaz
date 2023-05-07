@@ -41,7 +41,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
     local tp = auto:getLocalVar("TP")
 
     local jas =
-    {1944, 1945, 1946, 1947, 1948, 1949, 2021, 2068, 2745, 2746, 2747, 3485}
+    { 1431, 1944, 1945, 1946, 1947, 1948, 1949, 2021, 2068, 2745, 2746, 2747, 3485}
     for _, skillId in pairs(jas) do
         if skill:getID() == skillId then
             tp = 1000
