@@ -578,12 +578,24 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
     -- Check for MDT/PDT/RDT/BDT/MDB
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.SPECIAL then
         dmg = target:magicDmgTaken(dmg, element)
+	    if (dmg > 0) then
+            auto:trySkillUp(target, tpz.skill.AUTOMATON_MELEE, numberofhits)
+        end
     elseif attackType == tpz.attackType.BREATH then
         dmg = target:breathDmgTaken(dmg, element)
+	    if (dmg > 0) then
+            auto:trySkillUp(target, tpz.skill.AUTOMATON_MELEE, numberofhits)
+        end
     elseif attackType == tpz.attackType.RANGED then
         dmg = target:rangedDmgTaken(dmg)
+	    if (dmg > 0) then
+            auto:trySkillUp(target, tpz.skill.AUTOMATON_RANGED, numberofhits)
+        end
     elseif attackType == tpz.attackType.PHYSICAL then
         dmg = target:physicalDmgTaken(dmg, damageType)
+	    if (dmg > 0) then
+            auto:trySkillUp(target, tpz.skill.AUTOMATON_MELEE, numberofhits)
+        end
     end
 
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
@@ -615,6 +627,7 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
         skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
     else
 	    target:takeDamage(dmg, auto, attackType, damageType)
+        target:tryInterruptSpell(auto, numberofhits)
     end
 
     if params.NO_ENMITY == nil then -- Ruinous Omen generates no enmity
@@ -643,6 +656,10 @@ function AutoMagicalFinalAdjustments(dmg, auto, skill, target, attackType, eleme
         dmg = target:magicDmgTaken(dmg, element)
     elseif attackType == tpz.attackType.BREATH then
         dmg = target:breathDmgTaken(dmg, element)
+    end
+
+	if (dmg > 0) then
+        auto:trySkillUp(target, tpz.skill.AUTOMATON_MELEE, 1)
     end
 
     -- Handle absorb
