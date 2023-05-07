@@ -41,9 +41,9 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
     local tp = auto:getLocalVar("TP")
 
     local jas =
-    { 1431, 1944, 1945, 1946, 1947, 1948, 1949, 2021, 2068, 2745, 2746, 2747, 3485}
+    {1944, 1945, 1946, 1947, 1948, 1949, 2021, 2068, 2745, 2746, 2747, 3485}
     for _, skillId in pairs(jas) do
-        if skill:getID() == skillId then
+        if (skill:getID() == skillId) then
             tp = 1000
         end
     end
@@ -636,8 +636,10 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
     target:handleAfflatusMiseryDamage(dmg)
     target:tryInterruptSpell(auto, numberofhits)
     auto:delStatusEffectSilent(tpz.effect.BOOST)
-    auto:setLocalVar("TP", 0)
-    auto:setTP(0)
+    if (skill:getID() ~= 1944) then -- Shield Bash
+        auto:setLocalVar("TP", 0)
+        auto:setTP(0)
+    end
     return dmg
 end
 
