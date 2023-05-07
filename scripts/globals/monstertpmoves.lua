@@ -1037,7 +1037,7 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
     if (target:canGainStatusEffect(typeEffect, power)) then
         local statmod = tpz.mod.INT
         local element = mob:getStatusEffectElement(typeEffect)
-        local bonus = 50
+        local bonus = math.floor(mob:getMainLvl() / 2)
 
         local resist = applyPlayerResistance(mob, typeEffect, target, mob:getStat(statmod)-target:getStat(statmod), bonus, element)
         local eleres = target:getMod(element+53)
