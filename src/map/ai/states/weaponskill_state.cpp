@@ -128,9 +128,6 @@ bool CWeaponSkillState::Update(time_point tick)
             auto PTarget{ GetTarget() };
             m_PEntity->PAI->EventHandler.triggerListener("WEAPONSKILL_USE", m_PEntity, PTarget, m_PSkill->getID(), m_spent, &action);
             PTarget->PAI->EventHandler.triggerListener("WEAPONSKILL_TAKE", PTarget, m_PEntity, m_PSkill->getID(), m_spent, &action);
-            auto delay = m_PSkill->getAnimationTime();
-            m_finishTime = tick + delay;
-            Complete();
         }
         else // Mob is dead before we could finish WS, generate interrupt for WS
         {
@@ -142,6 +139,9 @@ bool CWeaponSkillState::Update(time_point tick)
             action.actionid = 28787; // Some hardcoded magic for interrupts
             actionList_t& actionList = action.getNewActionList();
         }
+        auto delay = m_PSkill->getAnimationTime(); // TODO: Is delay time a fixed number if the weaponskill is used out of range?
+        m_finishTime = tick + delay;
+        Complete();
     }
     else if (tick > m_finishTime)
     {
