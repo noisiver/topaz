@@ -51,7 +51,7 @@ end
 function onTrigger(player, npc)
     local GetGems = player:getCharVar("PXPassGetGems")
 
-    if player:getFameLevel(JEUNO) >= 2 and player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.TENSHODO_MEMBERSHIP) == QUEST_AVAILABLE then
+    if player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.TENSHODO_MEMBERSHIP) == QUEST_AVAILABLE then
         -- Start Quest: Tenshodo Membership
         player:startEvent(106, 8)
     elseif player:hasKeyItem(tpz.ki.TENSHODO_APPLICATION_FORM) then
