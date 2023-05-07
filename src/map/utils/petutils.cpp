@@ -55,6 +55,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../packets/entity_update.h"
 #include "../packets/message_standard.h"
 #include "../packets/pet_sync.h"
+#include "mobutils.h"
 
 struct Pet_t
 {
@@ -1423,13 +1424,17 @@ namespace petutils
         PPet->m_name_prefix = PPetData->name_prefix;
         PPet->m_Family = PPetData->m_Family;
         PPet->m_MobSkillList = PPetData->m_MobSkillList;
-        PPet->SetMJob(JOB_DRK);
-        PPet->SetSJob(JOB_BLM);
         PPet->m_Element = PPetData->m_Element;
         PPet->m_PetID = PPetData->PetID;
+        // add special mob mods
+
+        // this only has to be added once
+        mobutils::AddCustomMods(PPet);
 
         if (PPet->getPetType() == PETTYPE_AVATAR)
         {
+            PPet->SetMJob(JOB_DRK);
+            PPet->SetSJob(JOB_BLM);
             if (PMaster->GetMJob() == JOB_SMN)
             {
                 PPet->SetMLevel(PMaster->GetMLevel());
@@ -1619,79 +1624,11 @@ namespace petutils
             if (PMaster->objtype == TYPE_PC)
             {
                 CCharEntity* PChar = (CCharEntity*)PMaster;
-                // Avatar only stats
-                //PPet->addModifier(Mod::ATT, PChar->getMod(Mod::AVATAR_ATT));
-                //PPet->addModifier(Mod::ACC, PChar->getMod(Mod::AVATAR_ACC));
-                //PPet->addModifier(Mod::RATT, PChar->getMod(Mod::AVATAR_ATT));
-                //PPet->addModifier(Mod::RACC, PChar->getMod(Mod::AVATAR_ACC));
-                //PPet->addModifier(Mod::EVA, PChar->getMod(Mod::AVATAR_EVASION));
-                //PPet->addModifier(Mod::CRITHITRATE, PChar->getMod(Mod::AVATAR_CRIT));
-                //PPet->addModifier(Mod::AVATAR_ENMITY, PChar->getMod(Mod::AVATAR_ENMITY));
-                // Gear
-                //PPet->addModifier(Mod::DEF, PChar->getMod(Mod::DEF));
-                //PPet->addModifier(Mod::ATT, PChar->getMod(Mod::ATT));
-                //PPet->addModifier(Mod::RATT, PChar->getMod(Mod::RATT));
-                //PPet->addModifier(Mod::ACC, PChar->getMod(Mod::ACC));
-                //PPet->addModifier(Mod::RACC, PChar->getMod(Mod::RACC));
-                //PPet->addModifier(Mod::MACC, PChar->getMod(Mod::MACC));
-                //PPet->addModifier(Mod::MATT, PChar->getMod(Mod::MATT));
-                //PPet->addModifier(Mod::STR, PChar->getMod(Mod::STR));
-                //PPet->addModifier(Mod::DEX, PChar->getMod(Mod::DEX));
-                //PPet->addModifier(Mod::VIT, PChar->getMod(Mod::VIT));
-                //PPet->addModifier(Mod::AGI, PChar->getMod(Mod::AGI));
-                //PPet->addModifier(Mod::INT, PChar->getMod(Mod::INT));
-                //PPet->addModifier(Mod::MND, PChar->getMod(Mod::MND));
-                //PPet->addModifier(Mod::CHR, PChar->getMod(Mod::CHR));
-                //PPet->addModifier(Mod::ENMITY, PChar->getMod(Mod::ENMITY));
-                //PPet->addModifier(Mod::MDEF, PChar->getMod(Mod::MDEF));
-                //PPet->addModifier(Mod::ATTP, PChar->getMod(Mod::ATTP));
-                //PPet->addModifier(Mod::DEFP, PChar->getMod(Mod::DEFP));
-                //PPet->addModifier(Mod::EVA, PChar->getMod(Mod::EVA));
-                //PPet->addModifier(Mod::STORETP, PChar->getMod(Mod::STORETP));
-                //PPet->addModifier(Mod::DMG, PChar->getMod(Mod::DMG));
-                //PPet->addModifier(Mod::DMGPHYS, PChar->getMod(Mod::DMGPHYS));
-                //PPet->addModifier(Mod::DMGPHYS_II, PChar->getMod(Mod::DMGPHYS_II));
-                //PPet->addModifier(Mod::DMGBREATH, PChar->getMod(Mod::DMGBREATH));
-                //PPet->addModifier(Mod::DMGMAGIC, PChar->getMod(Mod::DMGMAGIC));
-                //PPet->addModifier(Mod::DMGMAGIC_II, PChar->getMod(Mod::DMGMAGIC_II));
-                //PPet->addModifier(Mod::DMGRANGE, PChar->getMod(Mod::DMGRANGE));
-                //PPet->addModifier(Mod::UDMGPHYS, PChar->getMod(Mod::UDMGPHYS));
-                //PPet->addModifier(Mod::UDMGBREATH, PChar->getMod(Mod::UDMGBREATH));
-                //PPet->addModifier(Mod::UDMGMAGIC, PChar->getMod(Mod::UDMGMAGIC));
-                //PPet->addModifier(Mod::UDMGRANGE, PChar->getMod(Mod::UDMGRANGE));
-                //PPet->addModifier(Mod::CRITHITRATE, PChar->getMod(Mod::CRITHITRATE));
-                //PPet->addModifier(Mod::CRIT_DMG_INCREASE, PChar->getMod(Mod::CRIT_DMG_INCREASE));
-                //PPet->addModifier(Mod::ENEMYCRITRATE, PChar->getMod(Mod::ENEMYCRITRATE));
-                //PPet->addModifier(Mod::CRIT_DEF_BONUS, PChar->getMod(Mod::CRIT_DEF_BONUS));
-                //PPet->addModifier(Mod::FENCER_TP_BONUS, PChar->getMod(Mod::FENCER_TP_BONUS));
-                //PPet->addModifier(Mod::FENCER_CRITHITRATE, PChar->getMod(Mod::FENCER_CRITHITRATE));
-                //PPet->addModifier(Mod::FENCER_JA_HASTE, PChar->getMod(Mod::FENCER_JA_HASTE));
-                //PPet->addModifier(Mod::HASTE_MAGIC, PChar->getMod(Mod::HASTE_MAGIC));
-                //PPet->addModifier(Mod::HASTE_ABILITY, PChar->getMod(Mod::HASTE_ABILITY));
-                //PPet->addModifier(Mod::HASTE_GEAR, PChar->getMod(Mod::HASTE_GEAR));
-                //PPet->addModifier(Mod::FASTCAST, PChar->getMod(Mod::FASTCAST));
-                //PPet->addModifier(Mod::UFASTCAST, PChar->getMod(Mod::UFASTCAST));
-                //PPet->addModifier(Mod::SKILLCHAINBONUS, PChar->getMod(Mod::SKILLCHAINBONUS));
-                //PPet->addModifier(Mod::SKILLCHAINDMG, PChar->getMod(Mod::SKILLCHAINDMG));
-                //PPet->addModifier(Mod::DOUBLE_ATTACK, PChar->getMod(Mod::DOUBLE_ATTACK));
-                //PPet->addModifier(Mod::TRIPLE_ATTACK, PChar->getMod(Mod::TRIPLE_ATTACK));
-                //PPet->addModifier(Mod::QUAD_ATTACK, PChar->getMod(Mod::QUAD_ATTACK));
-                //PPet->addModifier(Mod::REGAIN, PChar->getMod(Mod::REGAIN));
-                //PPet->addModifier(Mod::REGEN, PChar->getMod(Mod::REGEN));
-                //PPet->addModifier(Mod::CURE_POTENCY, PChar->getMod(Mod::CURE_POTENCY));
-                //PPet->addModifier(Mod::CURE_POTENCY_II, PChar->getMod(Mod::CURE_POTENCY_II));
-                //PPet->addModifier(Mod::CURE_POTENCY_RCVD, PChar->getMod(Mod::CURE_POTENCY_RCVD));
-                //PPet->addModifier(Mod::MAGIC_ABSORB, PChar->getMod(Mod::MAGIC_ABSORB));
-                //PPet->addModifier(Mod::MAGIC_NULL, PChar->getMod(Mod::MAGIC_NULL));
-                //PPet->addModifier(Mod::PHYS_ABSORB, PChar->getMod(Mod::PHYS_ABSORB));
-
                 // Merits
                 PPet->addModifier(Mod::ATT, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_PHYSICAL_ATTACK, PChar));
                 PPet->addModifier(Mod::ACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_PHYSICAL_ACCURACY, PChar));
                 PPet->addModifier(Mod::MATT, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ATTACK, PChar));
                 PPet->addModifier(Mod::MACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ACCURACY, PChar));
-                //PPet->addModifier(Mod::CRITHITRATE, PChar->PMeritPoints->GetMeritValue(MERIT_CRIT_HIT_RATE, PChar));
-                //PPet->addModifier(Mod::ENEMYCRITRATE, PChar->PMeritPoints->GetMeritValue(MERIT_ENEMY_CRIT_RATE, PChar));
             }
 
             PMaster->addModifier(Mod::AVATAR_PERPETUATION, PerpetuationCost(PetID, PPet->GetMLevel()));
