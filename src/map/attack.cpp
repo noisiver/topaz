@@ -695,7 +695,7 @@ void CAttack::ProcessDamage()
     {
         if (auto weapon = dynamic_cast<CItemWeapon*>(m_attacker->m_Weapons[slot]))
         {
-            charutils::TrySkillUP((CCharEntity*)m_attacker, (SKILLTYPE)weapon->getSkillType(), m_victim->GetMLevel());
+            charutils::TrySkillUP((CCharEntity*)m_attacker, (SKILLTYPE)weapon->getSkillType(), m_victim->GetMLevel(), false);
         }
 
         if (m_attacker->objtype == TYPE_PET && m_attacker->PMaster && m_attacker->PMaster->objtype == TYPE_PC &&

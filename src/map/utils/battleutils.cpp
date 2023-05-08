@@ -1018,7 +1018,7 @@ int getSDTTier(int SDT)
                     {
                         skilltype = weapon->getSkillType();
                     }
-                    charutils::TrySkillUP((CCharEntity*)PDefender, (SKILLTYPE)skilltype, PAttacker->GetMLevel());
+                    charutils::TrySkillUP((CCharEntity*)PDefender, (SKILLTYPE)skilltype, PAttacker->GetMLevel(), false);
                 }
 
                 // Check if crit
@@ -5084,7 +5084,7 @@ int getSDTTier(int SDT)
 
         // try skill up (CharEntity only)
         if (PAttacker->objtype == TYPE_PC)
-            charutils::TrySkillUP((CCharEntity*)PAttacker, (SKILLTYPE)PWeapon->getSkillType(), PVictim->GetMLevel());
+            charutils::TrySkillUP((CCharEntity*)PAttacker, (SKILLTYPE)PWeapon->getSkillType(), PVictim->GetMLevel(), true);
 
         // jump + high jump doesn't give any tp to victim
         battleutils::TakePhysicalDamage(PAttacker, PVictim, PHYSICAL_ATTACK_TYPE::NORMAL, totalDamage, false, fstrslot, realHits, nullptr, false, true);

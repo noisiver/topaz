@@ -14961,7 +14961,7 @@ inline int32 CLuaBaseEntity::trySkillUp(lua_State* L)
     {
         while (tries)
         {
-            charutils::TrySkillUP((CCharEntity*)PChar, (SKILLTYPE)skill, PMob->GetMLevel());
+            charutils::TrySkillUP((CCharEntity*)PChar, (SKILLTYPE)skill, PMob->GetMLevel(), false);
             tries--;
         }
     }

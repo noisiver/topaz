@@ -2967,7 +2967,7 @@ namespace charutils
     *                                                                       *
     ************************************************************************/
 
-    void TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl)
+    void TrySkillUP(CCharEntity* PChar, SKILLTYPE SkillID, uint8 lvl, bool HighChance)
     {
         // This usually happens after a crash
         TPZ_DEBUG_BREAK_IF(SkillID >= MAX_SKILLTYPE); // выход за пределы допустимых умений
@@ -2986,8 +2986,8 @@ namespace charutils
 
             double random = tpzrand::GetRandomNumber(1.);
 
-            // Ranaged and Elemental Magic has 70% max ,2h has 50% max, and 1h and spells have 24% max skill up chance
-            if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING || SkillID == SKILL_ELEMENTAL_MAGIC)
+            // Ranaged and damage dealing magic and blood pacts have 70% max ,2h has 50% max, and 1h and spells have 24% max skill up chance
+            if (SkillID >= SKILL_ARCHERY && SkillID <= SKILL_THROWING || SkillID == SKILL_ELEMENTAL_MAGIC || HighChance)
             {
                 if (SkillUpChance > 0.70)
                 {

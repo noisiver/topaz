@@ -1738,7 +1738,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                         {
                             auto targ_weapon = dynamic_cast<CItemWeapon*>(PTarget->m_Weapons[SLOT_MAIN]);
                             uint8 skilltype = (targ_weapon == nullptr ? SKILL_HAND_TO_HAND : targ_weapon->getSkillType());
-                            charutils::TrySkillUP((CCharEntity*)PTarget, (SKILLTYPE)skilltype, GetMLevel());
+                            charutils::TrySkillUP((CCharEntity*)PTarget, (SKILLTYPE)skilltype, GetMLevel(), false);
                         } // In case the Automaton can counter
                         else if (PTarget->objtype == TYPE_PET && PTarget->PMaster && PTarget->PMaster->objtype == TYPE_PC &&
                             static_cast<CPetEntity*>(PTarget)->getPetType() == PETTYPE_AUTOMATON)
@@ -1846,7 +1846,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 {
                     if (battleutils::GetGuardRate(this, PTarget) > 0)
                     {
-                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_GUARD, GetMLevel());
+                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_GUARD, GetMLevel(), false);
                     }
                 }
 
@@ -1854,7 +1854,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 {
                     if (battleutils::GetBlockRate(this, PTarget) > 0)
                     {
-                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_SHIELD, GetMLevel());
+                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_SHIELD, GetMLevel(), false);
                     }
                 }
 
@@ -1862,12 +1862,12 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 {
                     if (battleutils::GetParryRate(this, PTarget) > 0)
                     {
-                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_PARRY, GetMLevel());
+                        charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_PARRY, GetMLevel(), false);
                     }
                 }
                 if (!attack.IsCountered() && !attack.IsParried())
                 {
-                    charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_EVASION, GetMLevel());
+                    charutils::TrySkillUP((CCharEntity*)PTarget, SKILL_EVASION, GetMLevel(), false);
                 }
             }
         }

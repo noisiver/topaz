@@ -954,7 +954,14 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
     charutils::RemoveStratagems(this, PSpell);
     if (PSpell->tookEffect())
     {
-        charutils::TrySkillUP(this, (SKILLTYPE)PSpell->getSkillType(), PTarget->GetMLevel());
+        if (PSpell->dealsDamage())
+        {
+            charutils::TrySkillUP(this, (SKILLTYPE)PSpell->getSkillType(), PTarget->GetMLevel(), true);
+        }
+        else
+        {
+            charutils::TrySkillUP(this, (SKILLTYPE)PSpell->getSkillType(), PTarget->GetMLevel(), false);
+        }
         if (PSpell->getSkillType() == SKILL_SINGING)
         {
             CItemWeapon* PItem = static_cast<CItemWeapon*>(getEquip(SLOT_RANGED));
@@ -963,7 +970,7 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
                 SKILLTYPE Skilltype = (SKILLTYPE)PItem->getSkillType();
                 if (Skilltype == SKILL_STRING_INSTRUMENT || Skilltype == SKILL_WIND_INSTRUMENT || Skilltype == SKILL_SINGING)
                 {
-                    charutils::TrySkillUP(this, Skilltype, PTarget->GetMLevel());
+                    charutils::TrySkillUP(this, Skilltype, PTarget->GetMLevel(), false);
                 }
             }
         }
@@ -1549,12 +1556,12 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
 
                     if (PItem != nullptr)
                     {
-                        charutils::TrySkillUP(this, (SKILLTYPE)PItem->getSkillType(), PTarget->GetMLevel());
+                        charutils::TrySkillUP(this, (SKILLTYPE)PItem->getSkillType(), PTarget->GetMLevel(), false);
                     }
                 }
                 else if (slot == SLOT_AMMO && PAmmo != nullptr)
                 {
-                    charutils::TrySkillUP(this, (SKILLTYPE)PAmmo->getSkillType(), PTarget->GetMLevel());
+                    charutils::TrySkillUP(this, (SKILLTYPE)PAmmo->getSkillType(), PTarget->GetMLevel(), false);
                 }
             }
         }
