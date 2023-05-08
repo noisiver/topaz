@@ -20,7 +20,7 @@ end
 
 function onUseAbility(player, target, ability)
 
-    local charmChance = player:getCharmChance(target, false)
+    local charmChance = GetCharmHitRate(player, target)
 
     if (charmChance >= 75) then
         ability:setMsg(tpz.msg.basic.SHOULD_BE_ABLE_CHARM)  -- The <player> should be able to charm <target>.
