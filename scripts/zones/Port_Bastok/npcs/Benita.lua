@@ -29,7 +29,7 @@ function onTrigger(player, npc)
 TheWisdom = player:getQuestStatus(BASTOK, tpz.quest.id.bastok.THE_WISDOM_OF_ELDERS)
 pLevel = player:getMainLvl()
 
-    if (TheWisdom == 0 and pLevel >= 6) then
+    if (TheWisdom == 0) then
         player:startEvent(174)
     else
     rand = math.random(1, 2)
