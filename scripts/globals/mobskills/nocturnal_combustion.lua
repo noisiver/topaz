@@ -23,26 +23,26 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     -- Deals 8-20% of mobs remaining HP based on time of day
-    local hpPercent = 0.20
+    local hpPercent = 0.30
 	local GameTime = VanadielHour()
 	if GameTime <= 3 then
-		hpPercent = 0.20
+		hpPercent = 0.30
 	elseif GameTime <= 6 then
-		hpPercent = 0.18
+		hpPercent = 0.28
 	elseif GameTime <= 9 then
-		hpPercent = 0.15
+		hpPercent = 0.25
 	elseif GameTime <= 12 then
-		hpPercent = 0.12
+		hpPercent = 0.22
 	elseif GameTime > 12 then
-		hpPercent = 0.10
-	elseif GameTime >= 15 then
-		hpPercent = 0.08
-	elseif GameTime >= 18 then
-		hpPercent = 0.15
-	elseif GameTime >= 21 then
-		hpPercent = 0.18
-	elseif GameTime == 0 then
 		hpPercent = 0.20
+	elseif GameTime >= 15 then
+		hpPercent = 0.18
+	elseif GameTime >= 18 then
+		hpPercent = 0.25
+	elseif GameTime >= 21 then
+		hpPercent = 0.28
+	elseif GameTime == 0 then
+		hpPercent = 0.30
 	end
 	
     local damage = MobHPBasedMove(mob, target, hpPercent, 1, tpz.magic.ele.DARK, 1250)
