@@ -221,7 +221,7 @@ INSERT INTO `mob_skills` VALUES (281,25,'stomping',0,7.0,2000,1500,4,0,0,0,0,0,0
 INSERT INTO `mob_skills` VALUES (284,28,'cold_stare',4,10.0,2000,2000,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (285,29,'whistle',1,20.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (286,30,'berserk',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (287,31,'healing_breeze',1,15.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (287,31,'healing_breeze',1,21.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (288,32,'vicious_claw',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (289,33,'stone_throw',0,25.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (290,34,'spinning_claw',1,15.0,2000,1500,4,0,0,0,0,0,0);
@@ -257,7 +257,7 @@ INSERT INTO `mob_skills` VALUES (319,63,'bad_breath',4,15.0,2000,1500,4,0,0,0,0,
 INSERT INTO `mob_skills` VALUES (320,64,'sweet_breath',4,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (321,65,'needleshot',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (322,66,'1000_needles',1,10.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (323,37,'wild_carrot',0,15.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (323,37,'wild_carrot',1,21.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (324,68,'photosynthesis',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (325,161,'random_kiss',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (326,164,'absorbing_kiss',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -1509,11 +1509,11 @@ INSERT INTO `mob_skills` VALUES (1562,25,'stomping_nightmare',4,10.0,2000,1500,4
 INSERT INTO `mob_skills` VALUES (1563,28,'cold_stare_nightmare',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1564,29,'whistle_nightmare',1,15.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1565,30,'berserk_nightmare',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1566,31,'healing_breeze_nightmare',1,15.0,2000,5000,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1566,31,'healing_breeze_nightmare',1,21.0,2000,5000,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1567,1311,'foot_kick',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1568,1312,'dust_cloud',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1569,1313,'whirl_claws',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1570,37,'wild_carrot_ENM',0,15.0,2000,1500,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1570,37,'wild_carrot_ENM',0,21.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1571,861,'gas_shell',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1572,862,'venom_shell',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1573,863,'palsynyxis',0,7.0,2000,1500,4,0,0,0,0,0,0);
@@ -2569,7 +2569,7 @@ INSERT INTO `mob_skills` VALUES (2602,2346,'mortal_blast',0,7.0,2000,1500,4,0,0,
 -- INSERT INTO `mob_skills` VALUES (2609,2353,'booming_bleat',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2610,2354,'vacant_gaze',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2611,2355,'blaster',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (2612,37,'wild_carrot_MMM',0,15.0,2000,5000,1,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (2612,37,'wild_carrot_MMM',1,21.0,2000,5000,1,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2613,2357,'spiral_spin',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2614,2358,'noisome_powder',0,7.0,2000,1500,4,0,0,0,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (2615,2359,'stag's_cry',0,7.0,2000,1500,4,0,0,0,0,0,0);
