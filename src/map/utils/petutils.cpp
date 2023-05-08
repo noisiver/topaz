@@ -73,6 +73,7 @@ struct Pet_t
     uint32      time;		// время существования (будет использоваться для задания длительности статус эффекта)
 
     uint8       mJob;
+    uint8       sJob;
     uint8       m_Element;
     float       HPscale;                             // HP boost percentage
     float       MPscale;                             // MP boost percentage
@@ -176,6 +177,7 @@ namespace petutils
                 systemid,\
                 mob_pools.familyid,\
                 mob_pools.mJob,\
+                mob_pools.sJob,\
                 pet_list.element,\
                 (mob_family_system.HP / 100),\
                 (mob_family_system.MP / 100),\
@@ -216,34 +218,35 @@ namespace petutils
                 Pet->EcoSystem = (ECOSYSTEM)Sql_GetIntData(SqlHandle, 7);
                 Pet->m_Family = (uint16)Sql_GetIntData(SqlHandle, 8);
                 Pet->mJob = (uint8)Sql_GetIntData(SqlHandle, 9);
-                Pet->m_Element = (uint8)Sql_GetIntData(SqlHandle, 10);
+                Pet->sJob = (uint8)Sql_GetIntData(SqlHandle, 10);
+                Pet->m_Element = (uint8)Sql_GetIntData(SqlHandle, 11);
 
-                Pet->HPscale = Sql_GetFloatData(SqlHandle, 11);
-                Pet->MPscale = Sql_GetFloatData(SqlHandle, 12);
+                Pet->HPscale = Sql_GetFloatData(SqlHandle, 12);
+                Pet->MPscale = Sql_GetFloatData(SqlHandle, 13);
 
-                Pet->speed = (uint8)Sql_GetIntData(SqlHandle, 13);
+                Pet->speed = (uint8)Sql_GetIntData(SqlHandle, 14);
 
-                Pet->strRank = (uint8)Sql_GetIntData(SqlHandle, 14);
-                Pet->dexRank = (uint8)Sql_GetIntData(SqlHandle, 15);
-                Pet->vitRank = (uint8)Sql_GetIntData(SqlHandle, 16);
-                Pet->agiRank = (uint8)Sql_GetIntData(SqlHandle, 17);
-                Pet->intRank = (uint8)Sql_GetIntData(SqlHandle, 18);
-                Pet->mndRank = (uint8)Sql_GetIntData(SqlHandle, 19);
-                Pet->chrRank = (uint8)Sql_GetIntData(SqlHandle, 20);
-                Pet->defRank = (uint8)Sql_GetIntData(SqlHandle, 21);
-                Pet->attRank = (uint8)Sql_GetIntData(SqlHandle, 22);
-                Pet->accRank = (uint8)Sql_GetIntData(SqlHandle, 23);
-                Pet->evaRank = (uint8)Sql_GetIntData(SqlHandle, 24);
+                Pet->strRank = (uint8)Sql_GetIntData(SqlHandle, 15);
+                Pet->dexRank = (uint8)Sql_GetIntData(SqlHandle, 16);
+                Pet->vitRank = (uint8)Sql_GetIntData(SqlHandle, 17);
+                Pet->agiRank = (uint8)Sql_GetIntData(SqlHandle, 18);
+                Pet->intRank = (uint8)Sql_GetIntData(SqlHandle, 19);
+                Pet->mndRank = (uint8)Sql_GetIntData(SqlHandle, 20);
+                Pet->chrRank = (uint8)Sql_GetIntData(SqlHandle, 21);
+                Pet->defRank = (uint8)Sql_GetIntData(SqlHandle, 22);
+                Pet->attRank = (uint8)Sql_GetIntData(SqlHandle, 23);
+                Pet->accRank = (uint8)Sql_GetIntData(SqlHandle, 24);
+                Pet->evaRank = (uint8)Sql_GetIntData(SqlHandle, 25);
 
-                Pet->hasSpellScript = (bool)Sql_GetIntData(SqlHandle, 25);
+                Pet->hasSpellScript = (bool)Sql_GetIntData(SqlHandle, 26);
 
-                Pet->spellList = (uint8)Sql_GetIntData(SqlHandle, 26);
+                Pet->spellList = (uint8)Sql_GetIntData(SqlHandle, 27);
 
                 // resistances
-                Pet->slashres = (uint16)(Sql_GetFloatData(SqlHandle, 27) * 1000);
-                Pet->pierceres = (uint16)(Sql_GetFloatData(SqlHandle, 28) * 1000);
-                Pet->hthres = (uint16)(Sql_GetFloatData(SqlHandle, 29) * 1000);
-                Pet->impactres = (uint16)(Sql_GetFloatData(SqlHandle, 30) * 1000);
+                Pet->slashres = (uint16)(Sql_GetFloatData(SqlHandle, 28) * 1000);
+                Pet->pierceres = (uint16)(Sql_GetFloatData(SqlHandle, 29) * 1000);
+                Pet->hthres = (uint16)(Sql_GetFloatData(SqlHandle, 30) * 1000);
+                Pet->impactres = (uint16)(Sql_GetFloatData(SqlHandle, 31) * 1000);
 
                 Pet->firedef = 0;
                 Pet->icedef = 0;
@@ -262,35 +265,35 @@ namespace petutils
                 //Pet->waterres = (uint16)((Sql_GetFloatData(SqlHandle, 36) - 1) * -100);
                 //Pet->lightres = (uint16)((Sql_GetFloatData(SqlHandle, 37) - 1) * -100);
                 //Pet->darkres = (uint16)((Sql_GetFloatData(SqlHandle, 38) - 1) * -100);
-                Pet->fireresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 31) * 100);
-                Pet->iceresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 32) * 100);
-                Pet->windresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 33) * 100);
-                Pet->earthresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 34) * 100);
-                Pet->thunderresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 35) * 100);
-                Pet->waterresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 36) * 100);
-                Pet->lightresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 37) * 100);
-                Pet->darkresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 38) * 100);
+                Pet->fireresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 32) * 100);
+                Pet->iceresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 33) * 100);
+                Pet->windresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 34) * 100);
+                Pet->earthresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 35) * 100);
+                Pet->thunderresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 36) * 100);
+                Pet->waterresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 37) * 100);
+                Pet->lightresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 38) * 100);
+                Pet->darkresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 39) * 100);
 
-                Pet->eemamnesia =  (uint16)(Sql_GetUIntData(SqlHandle, 39)); 
-                Pet->eemvirus = (uint16)(Sql_GetUIntData(SqlHandle, 40));
-                Pet->eemsilence =  (uint16)(Sql_GetUIntData(SqlHandle, 41));
-                Pet->eemgravity = (uint16)(Sql_GetUIntData(SqlHandle, 42));
-                Pet->eemstun = (uint16)(Sql_GetUIntData(SqlHandle, 43));
-                Pet->eemlightsleep = (uint16)(Sql_GetUIntData(SqlHandle, 44));
-                Pet->eemcharm = (uint16)(Sql_GetUIntData(SqlHandle, 45));
-                Pet->eemparalyze = (uint16)(Sql_GetUIntData(SqlHandle, 46));
-                Pet->eembind = (uint16)(Sql_GetUIntData(SqlHandle, 47));
-                Pet->eemslow = (uint16)(Sql_GetUIntData(SqlHandle, 48));
-                Pet->eempetrify = (uint16)(Sql_GetUIntData(SqlHandle, 49));
-                Pet->eemterror = (uint16)(Sql_GetUIntData(SqlHandle, 50));
-                Pet->eempoison = (uint16)(Sql_GetUIntData(SqlHandle, 51));
-                Pet->eemdarksleep =  (uint16)(Sql_GetUIntData(SqlHandle, 52));
-                Pet->eemblind = (uint16)(Sql_GetUIntData(SqlHandle, 53));
+                Pet->eemamnesia =  (uint16)(Sql_GetUIntData(SqlHandle, 40)); 
+                Pet->eemvirus = (uint16)(Sql_GetUIntData(SqlHandle, 41));
+                Pet->eemsilence =  (uint16)(Sql_GetUIntData(SqlHandle, 42));
+                Pet->eemgravity = (uint16)(Sql_GetUIntData(SqlHandle, 43));
+                Pet->eemstun = (uint16)(Sql_GetUIntData(SqlHandle, 44));
+                Pet->eemlightsleep = (uint16)(Sql_GetUIntData(SqlHandle, 45));
+                Pet->eemcharm = (uint16)(Sql_GetUIntData(SqlHandle, 46));
+                Pet->eemparalyze = (uint16)(Sql_GetUIntData(SqlHandle, 47));
+                Pet->eembind = (uint16)(Sql_GetUIntData(SqlHandle, 48));
+                Pet->eemslow = (uint16)(Sql_GetUIntData(SqlHandle, 49));
+                Pet->eempetrify = (uint16)(Sql_GetUIntData(SqlHandle, 50));
+                Pet->eemterror = (uint16)(Sql_GetUIntData(SqlHandle, 51));
+                Pet->eempoison = (uint16)(Sql_GetUIntData(SqlHandle, 52));
+                Pet->eemdarksleep =  (uint16)(Sql_GetUIntData(SqlHandle, 53));
+                Pet->eemblind = (uint16)(Sql_GetUIntData(SqlHandle, 54));
 
 
-                Pet->cmbDelay = (uint16)Sql_GetIntData(SqlHandle, 54);
-                Pet->name_prefix = (uint8)Sql_GetUIntData(SqlHandle, 55);
-                Pet->m_MobSkillList = (uint16)Sql_GetUIntData(SqlHandle, 56);
+                Pet->cmbDelay = (uint16)Sql_GetIntData(SqlHandle, 55);
+                Pet->name_prefix = (uint8)Sql_GetUIntData(SqlHandle, 56);
+                Pet->m_MobSkillList = (uint16)Sql_GetUIntData(SqlHandle, 57);
 
                 g_PPetList.push_back(Pet);
             }
@@ -851,6 +854,9 @@ namespace petutils
         if (PPet)
         {
             Pet_t* petData = g_PPetList.at(PetID);
+
+            PPet->SetMJob(petData->mJob);
+            PPet->SetSJob(petData->sJob);
 
             PPet->setModifier(Mod::SLASHRES, petData->slashres);
             PPet->setModifier(Mod::PIERCERES, petData->pierceres);
