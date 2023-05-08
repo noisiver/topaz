@@ -8336,7 +8336,7 @@ INSERT INTO `item_equipment` VALUES (18620,'magnus_pole',82,0,1589256,303,0,0,1,
 INSERT INTO `item_equipment` VALUES (18621,'warmages_pole',87,0,1589262,296,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18622,'warmages_pole_+1',87,0,1589262,296,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18623,'chtonic_staff',88,0,4194303,293,0,0,1,0);
-INSERT INTO `item_equipment` VALUES (18624,'numen_staff',79,0,1590047,291,0,0,1,0);
+INSERT INTO `item_equipment` VALUES (18624,'numen_staff',8,0,1590047,291,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18625,'gerras_staff',99,0,1589256,329,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18626,'plenitas_virga',99,0,1598031,583,0,0,1,0);
 INSERT INTO `item_equipment` VALUES (18627,'bryojas_staff',99,0,4194303,341,0,0,1,0);

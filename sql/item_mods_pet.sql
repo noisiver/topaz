@@ -538,7 +538,8 @@ INSERT INTO `item_mods_pet` VALUES (15314,24,4,0);     -- Garish Pumps: Ranged A
 INSERT INTO `item_mods_pet` VALUES (15314,26,4,0);     -- Garish Pumps: Ranged Accuracy+4
 INSERT INTO `item_mods_pet` VALUES (15318,24,5,0);     -- Rubious Pumps: Ranged Attack+5
 INSERT INTO `item_mods_pet` VALUES (15318,26,5,0);     -- Rubious Pumps: Ranged Accuracy+5
-
+INSERT INTO `item_mods_pet` VALUES (18624,23,10,0);    -- Numen Staff: Attack +10
+INSERT INTO `item_mods_pet` VALUES (18624,25,10,0);    -- Numen Staff: Accuracy+10
 
 
 
