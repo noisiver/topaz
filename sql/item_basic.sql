@@ -407,11 +407,11 @@ INSERT INTO `item_basic` VALUES (493,0,'brass_canteen','brass_canteen',1,37892,4
 INSERT INTO `item_basic` VALUES (494,0,'quadav_augury_shell','qdv._augury_shell',1,41028,0,0,79);
 INSERT INTO `item_basic` VALUES (495,0,'quadav_charm','quadav_charm',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (496,0,'quadav_chestplate','qdv._chestplate',1,4096,50,1,0);
-INSERT INTO `item_basic` VALUES (497,0,'gigas_socks','gigas_socks',1,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (498,0,'yagudo_bead_necklace','yagudo_necklace',1,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (499,0,'gigas_necklace','gigas_necklace',1,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (497,0,'gigas_socks','gigas_socks',99,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (498,0,'yagudo_bead_necklace','yagudo_necklace',99,4100,50,1,0);
+INSERT INTO `item_basic` VALUES (499,0,'gigas_necklace','gigas_necklace',99,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (500,0,'polar_fir_sapling','polar_fir_sapling',1,61520,0,1,0);
-INSERT INTO `item_basic` VALUES (501,0,'quadav_helm','quadav_helm',1,4,50,0,5);
+INSERT INTO `item_basic` VALUES (501,0,'quadav_helm','quadav_helm',99,4,50,0,5);
 INSERT INTO `item_basic` VALUES (502,0,'garlaige_key','garlaige_key',1,62548,0,1,0);
 INSERT INTO `item_basic` VALUES (503,0,'pinch_of_valkurm_sunsand','sunsand',99,4100,46,1,0);
 INSERT INTO `item_basic` VALUES (504,0,'rhinostery_canteen','rhinost._canteen',1,62528,0,1,0);
@@ -594,25 +594,25 @@ INSERT INTO `item_basic` VALUES (681,0,'mythril_chain','mythril_chain',99,4,39,0
 INSERT INTO `item_basic` VALUES (682,0,'darksteel_chain','darksteel_chain',99,4,38,0,3391);
 INSERT INTO `item_basic` VALUES (683,0,'adaman_chain','adaman_chain',99,4,38,0,7250);
 INSERT INTO `item_basic` VALUES (684,0,'aluminum_chain','aluminum_chain',99,4,39,0,953);
-INSERT INTO `item_basic` VALUES (685,0,'chunk_of_khroma_ore','khroma_ore',1,4,38,0,725);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (685,0,'chunk_of_khroma_ore','khroma_ore',99,4,38,0,725);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (686,0,'imperial_wootz_ingot','im._wootz_ingot',99,4,38,0,3770);
 INSERT INTO `item_basic` VALUES (687,0,'scarletite_ingot','scarletite_ingot',99,4,38,1,9360);
-INSERT INTO `item_basic` VALUES (688,0,'arrowwood_log','arrowwood_log',1,4,43,0,5);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (689,0,'lauan_log','lauan_log',1,4,43,0,9);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (690,0,'elm_log','elm_log',1,4,43,0,384);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (691,0,'maple_log','maple_log',1,4,43,0,15);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (692,0,'beech_log','beech_log',1,4,43,0,1595);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (693,0,'walnut_log','walnut_log',1,4,43,0,122);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (694,0,'chestnut_log','chestnut_log',1,4,43,0,471);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (695,0,'willow_log','willow_log',1,4,43,0,40);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (696,0,'yew_log','yew_log',1,4,43,0,89);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (697,0,'holly_log','holly_log',1,4,43,0,143);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (698,0,'ash_log','ash_log',1,4,43,0,24);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (699,0,'oak_log','oak_log',1,4,43,0,790);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (700,0,'mahogany_log','mahogany_log',1,4,43,0,1100);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (701,0,'rosewood_log','rosewood_log',1,4,43,0,920);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (702,0,'ebony_log','ebony_log',1,4,43,0,1280);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (703,0,'petrified_log','petrified_log',1,4,43,0,2150);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (688,0,'arrowwood_log','arrowwood_log',99,4,43,0,5);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (689,0,'lauan_log','lauan_log',99,4,43,0,9);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (690,0,'elm_log','elm_log',99,4,43,0,384);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (691,0,'maple_log','maple_log',99,4,43,0,15);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (692,0,'beech_log','beech_log',99,4,43,0,1595);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (693,0,'walnut_log','walnut_log',99,4,43,0,122);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (694,0,'chestnut_log','chestnut_log',99,4,43,0,471);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (695,0,'willow_log','willow_log',99,4,43,0,40);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (696,0,'yew_log','yew_log',99,4,43,0,89);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (697,0,'holly_log','holly_log',99,4,43,0,143);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (698,0,'ash_log','ash_log',99,4,43,0,24);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (699,0,'oak_log','oak_log',99,4,43,0,790);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (700,0,'mahogany_log','mahogany_log',99,4,43,0,1100);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (701,0,'rosewood_log','rosewood_log',99,4,43,0,920);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (702,0,'ebony_log','ebony_log',99,4,43,0,1280);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (703,0,'petrified_log','petrified_log',99,4,43,0,2150);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (704,0,'bamboo_stick','bamboo_stick',99,4,43,0,36);
 INSERT INTO `item_basic` VALUES (705,0,'piece_of_arrowwood_lumber','arrowwood_lbr.',99,4,43,0,1);
 INSERT INTO `item_basic` VALUES (706,0,'piece_of_lauan_lumber','lauan_lumber',99,4,43,0,8);
@@ -631,26 +631,26 @@ INSERT INTO `item_basic` VALUES (718,0,'piece_of_rosewood_lumber','rosewood_lbr.
 INSERT INTO `item_basic` VALUES (719,0,'piece_of_ebony_lumber','ebony_lumber',99,4,43,0,1280);
 INSERT INTO `item_basic` VALUES (720,0,'piece_of_ancient_lumber','ancient_lumber',99,4,43,0,2150);
 INSERT INTO `item_basic` VALUES (721,0,'piece_of_rattan_lumber','rattan_lumber',99,4,43,0,40);
-INSERT INTO `item_basic` VALUES (722,0,'divine_log','divine_log',1,4,43,0,1720);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (722,0,'divine_log','divine_log',99,4,43,0,1720);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (723,0,'piece_of_divine_lumber','divine_lumber',99,4,43,0,1512);
 INSERT INTO `item_basic` VALUES (724,0,'piece_of_magnolia_lumber','magnolia_lumber',99,12356,0,1,0);
 INSERT INTO `item_basic` VALUES (725,0,'piece_of_hickory_lumber','hickory_lumber',99,12356,0,1,0);
 INSERT INTO `item_basic` VALUES (726,0,'piece_of_steel_walnut_lumber','stl._wal._lumber',99,4,43,0,60);
-INSERT INTO `item_basic` VALUES (727,0,'dogwood_log','dogwood_log',1,4,43,0,5);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (727,0,'dogwood_log','dogwood_log',99,4,43,0,5);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (728,0,'piece_of_dogwood_lumber','dogwd._lumber',99,4,43,0,5);
-INSERT INTO `item_basic` VALUES (729,0,'bloodwood_log','bloodwood_log',1,4,43,0,1300);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (729,0,'bloodwood_log','bloodwood_log',99,4,43,0,1300);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (730,0,'piece_of_bloodwood_lumber','bldwd._lumber',99,4,43,0,1387);
-INSERT INTO `item_basic` VALUES (731,0,'aquilaria_log','aquilaria_log',1,4,43,0,0);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (732,0,'kapor_log','kapor_log',1,4,43,0,0);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (731,0,'aquilaria_log','aquilaria_log',99,4,43,0,0);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (732,0,'kapor_log','kapor_log',99,4,43,0,0);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (733,0,'piece_of_kapor_lumber','kapor_lumber',99,4,43,1,0);
-INSERT INTO `item_basic` VALUES (734,0,'chunk_of_thokcha_ore','thokcha_ore',1,4,38,1,0);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (734,0,'chunk_of_thokcha_ore','thokcha_ore',99,4,38,1,0);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (735,0,'thokcha_ingot','thokcha_ingot',99,4,38,1,2040);
 INSERT INTO `item_basic` VALUES (736,0,'chunk_of_silver_ore','silver_ore',99,4,39,0,70);	
 INSERT INTO `item_basic` VALUES (737,0,'chunk_of_gold_ore','gold_ore',99,4,39,0,420);	
 INSERT INTO `item_basic` VALUES (738,0,'chunk_of_platinum_ore','platinum_ore',99,4,39,0,780);	
-INSERT INTO `item_basic` VALUES (739,0,'chunk_of_orichalcum_ore','orichalcum_ore',1,4,39,0,850);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (740,0,'chunk_of_phrygian_ore','phrygian_ore',1,4,39,0,1080);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (741,0,'chunk_of_palladian_brass_ore','p._brass_ore',1,4,39,1,0);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (739,0,'chunk_of_orichalcum_ore','orichalcum_ore',99,4,39,0,850);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (740,0,'chunk_of_phrygian_ore','phrygian_ore',99,4,39,0,1080);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (741,0,'chunk_of_palladian_brass_ore','p._brass_ore',99,4,39,1,0);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (742,0,'palladian_brass_ingot','p._brass_ingot',99,4,39,1,2210);
 INSERT INTO `item_basic` VALUES (743,0,'phrygian_gold_ingot','ph._gold_ingot',99,4,39,0,0);
 INSERT INTO `item_basic` VALUES (744,0,'silver_ingot','silver_ingot',99,4,39,0,350);
@@ -665,7 +665,7 @@ INSERT INTO `item_basic` VALUES (752,0,'gold_sheet','gold_sheet',99,4,39,0,2065)
 INSERT INTO `item_basic` VALUES (753,0,'phrygian_gold_sheet','ph._gold_sheet',99,4,39,0,0);
 INSERT INTO `item_basic` VALUES (754,0,'platinum_sheet','platinum_sheet',99,4,39,0,3750);
 INSERT INTO `item_basic` VALUES (755,0,'palladian_brass_sheet','p._brass_sheet',99,4,39,1,0);
-INSERT INTO `item_basic` VALUES (756,0,'chunk_of_durium_ore','durium_ore',1,4,38,0,1225);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (756,0,'chunk_of_durium_ore','durium_ore',99,4,38,0,1225);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (757,0,'durium_ingot','durium_ingot',99,4,38,0,0);
 INSERT INTO `item_basic` VALUES (758,0,'durium_sheet','durium_sheet',99,4,38,0,1375);
 INSERT INTO `item_basic` VALUES (759,0,'durium_chain','durium_chain',99,4,38,0,0);
@@ -678,14 +678,14 @@ INSERT INTO `item_basic` VALUES (765,0,'palladian_brass_chain','p._brass_chain',
 INSERT INTO `item_basic` VALUES (766,0,'ormolu_ingot','ormolu_ingot',99,4,39,1,8385);
 INSERT INTO `item_basic` VALUES (767,0,'carnelian','carnelian',99,4,39,0,0);
 INSERT INTO `item_basic` VALUES (768,0,'flint_stone','flint_stone',99,4,39,0,5);
-INSERT INTO `item_basic` VALUES (769,0,'red_rock','red_rock',1,4,39,0,200);
-INSERT INTO `item_basic` VALUES (770,0,'blue_rock','blue_rock',1,4,39,0,204);
-INSERT INTO `item_basic` VALUES (771,0,'yellow_rock','yellow_rock',1,4,39,0,200);
-INSERT INTO `item_basic` VALUES (772,0,'green_rock','green_rock',1,4,39,0,205);
-INSERT INTO `item_basic` VALUES (773,0,'translucent_rock','translucent_rock',1,4,39,0,200);
-INSERT INTO `item_basic` VALUES (774,0,'purple_rock','purple_rock',1,4,39,0,201);
-INSERT INTO `item_basic` VALUES (775,0,'black_rock','black_rock',1,4,39,0,202);
-INSERT INTO `item_basic` VALUES (776,0,'white_rock','white_rock',1,4,39,0,200);
+INSERT INTO `item_basic` VALUES (769,0,'red_rock','red_rock',99,4,39,0,200);
+INSERT INTO `item_basic` VALUES (770,0,'blue_rock','blue_rock',99,4,39,0,204);
+INSERT INTO `item_basic` VALUES (771,0,'yellow_rock','yellow_rock',99,4,39,0,200);
+INSERT INTO `item_basic` VALUES (772,0,'green_rock','green_rock',99,4,39,0,205);
+INSERT INTO `item_basic` VALUES (773,0,'translucent_rock','translucent_rock',99,4,39,0,200);
+INSERT INTO `item_basic` VALUES (774,0,'purple_rock','purple_rock',99,4,39,0,201);
+INSERT INTO `item_basic` VALUES (775,0,'black_rock','black_rock',99,4,39,0,202);
+INSERT INTO `item_basic` VALUES (776,0,'white_rock','white_rock',99,4,39,0,200);
 INSERT INTO `item_basic` VALUES (777,0,'fulmenite','fulmenite',99,4,39,0,0);
 INSERT INTO `item_basic` VALUES (778,0,'heliodor','heliodor',99,4,39,0,3000);
 INSERT INTO `item_basic` VALUES (779,0,'aventurine','aventurine',99,4,39,0,0);
@@ -745,10 +745,10 @@ INSERT INTO `item_basic` VALUES (832,0,'clump_of_sheep_wool','sheep_wool',99,4,4
 INSERT INTO `item_basic` VALUES (833,0,'clump_of_moko_grass','moko_grass',99,4,40,0,5);
 INSERT INTO `item_basic` VALUES (834,0,'ball_of_saruta_cotton','saruta_cotton',99,4,40,0,10);
 INSERT INTO `item_basic` VALUES (835,0,'flax_flower','flax_flower',99,4,40,0,50);
-INSERT INTO `item_basic` VALUES (836,0,'square_of_damascene_cloth','damascene_cloth',1,4,40,0,5000);
-INSERT INTO `item_basic` VALUES (837,0,'spool_of_malboro_fiber','malboro_fiber',1,4,40,0,5000);
-INSERT INTO `item_basic` VALUES (838,0,'spider_web','spider_web',1,4,40,0,660);
-INSERT INTO `item_basic` VALUES (839,0,'piece_of_crawler_cocoon','crawler_cocoon',1,4,40,0,31);
+INSERT INTO `item_basic` VALUES (836,0,'square_of_damascene_cloth','damascene_cloth',99,4,40,0,5000);
+INSERT INTO `item_basic` VALUES (837,0,'spool_of_malboro_fiber','malboro_fiber',99,4,40,0,5000);
+INSERT INTO `item_basic` VALUES (838,0,'spider_web','spider_web',99,4,40,0,660);
+INSERT INTO `item_basic` VALUES (839,0,'piece_of_crawler_cocoon','crawler_cocoon',99,4,40,0,31);
 INSERT INTO `item_basic` VALUES (840,0,'chocobo_feather','chocobo_fthr.',99,4,40,0,2);
 INSERT INTO `item_basic` VALUES (841,0,'yagudo_feather','yagudo_feather',99,4,40,0,10);
 INSERT INTO `item_basic` VALUES (842,0,'giant_bird_feather','giant_bird_fthr.',99,4,40,0,153);
@@ -810,15 +810,15 @@ INSERT INTO `item_basic` VALUES (897,0,'scorpion_claw','scorpion_claw',99,4,42,0
 INSERT INTO `item_basic` VALUES (898,0,'chicken_bone','chicken_bone',99,4,42,0,10);
 INSERT INTO `item_basic` VALUES (899,0,'ifrit_horn','ifrit_horn',1,0,42,0,81);
 INSERT INTO `item_basic` VALUES (900,0,'set_of_fish_bones','fish_bones',99,4,42,0,194);
-INSERT INTO `item_basic` VALUES (901,0,'venomous_claw','venomous_claw',1,4,42,0,5000);
+INSERT INTO `item_basic` VALUES (901,0,'venomous_claw','venomous_claw',99,4,42,0,5000);
 INSERT INTO `item_basic` VALUES (902,0,'demon_horn','demon_horn',99,4,42,0,666);
 INSERT INTO `item_basic` VALUES (903,0,'dragon_talon','dragon_talon',99,4,42,0,1900);
 INSERT INTO `item_basic` VALUES (904,0,'set_of_giant_fish_bones','giant_fish_bones',1,57428,0,0,312);
 INSERT INTO `item_basic` VALUES (905,0,'wyvern_skull','wyvern_skull',99,4,42,0,731);
-INSERT INTO `item_basic` VALUES (906,0,'starmite_shell','starmite_shell',1,24660,0,0,489);
+INSERT INTO `item_basic` VALUES (906,0,'starmite_shell','starmite_shell',99,24660,0,0,489);
 INSERT INTO `item_basic` VALUES (907,0,'cold_bone','cold_bone',1,32772,42,0,724);
-INSERT INTO `item_basic` VALUES (908,0,'adamantoise_shell','adamantoise_shell',1,4,42,0,14790);
-INSERT INTO `item_basic` VALUES (909,0,'guivres_skull','guivres_skull',1,4,42,0,296);
+INSERT INTO `item_basic` VALUES (908,0,'adamantoise_shell','adamantoise_shell',99,4,42,0,14790);
+INSERT INTO `item_basic` VALUES (909,0,'guivres_skull','guivres_skull',99,4,42,0,296);
 INSERT INTO `item_basic` VALUES (910,0,'lumbering_horn','lumbering_horn',1,57428,0,0,768);
 INSERT INTO `item_basic` VALUES (911,0,'rampaging_horn','rampaging_horn',1,57428,0,0,750);
 INSERT INTO `item_basic` VALUES (912,0,'beehive_chip','beehive_chip',99,4,44,0,10);
