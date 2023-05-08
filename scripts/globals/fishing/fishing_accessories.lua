@@ -21,6 +21,8 @@ fishing.gear =
     FISHERMANS_BOOTS    = 14171,
     ANGLERS_BOOTS       = 14172,
     WADERS              = 14195,
+    -- Belt
+    FISHERS_ROPE        = 11768,
 }
 
 fishing.bait =

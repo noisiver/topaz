@@ -43,7 +43,8 @@ function getFishingGear(player)
     local feet = player:getEquipID(tpz.slot.FEET)
     local ring1 = player:getEquipID(tpz.slot.RING1)
     local ring2 = player:getEquipID(tpz.slot.RING2)
-    return head, neck, body, hands, legs, feet, ring1, ring2
+    local waist = player:getEquipID(tpz.slot.WAIST)
+    return head, neck, body, hands, legs, feet, ring1, ring2, waist
 end
 
 function getMoonModifier()
@@ -206,7 +207,7 @@ end
 -- one's rod, moglification, and equipment.
 function calcLuckyTiming(player, fishingSkill, fishLevel, fishSizeType, rodSizeType, legendaryFish, rodLegendaryType)
     local LuckyTiming = 10
-    local Head, Neck, Body, Hands, Legs, Feet, Ring1, Ring2 = getFishingGear(player)
+    local Head, Neck, Body, Hands, Legs, Feet, Ring1, Ring2, Waist = getFishingGear(player)
     local Hour = VanadielHour()
     local MoonModifier = getLuckyMoonModifier()
 
@@ -321,8 +322,9 @@ function calcChanceToHook(fishingSkill, fish, rod, moonModifier, hourModifier)
     return math.max(1, ChanceToHook)
 end
 
-function calcCriticalBiteChance(fishingSkill, fishSkill, moonModifier)
+function calcCriticalBiteChance(player, fishingSkill, fishSkill, moonModifier)
     local Chance = 0
+    local Head, Neck, Body, Hands, Legs, Feet, Ring1, Ring2, Waist = getFishingGear(player)
 
     -- can only get discernment on fish 4 levels above your fishing skill and below
     if fishSkill - 4 > fishingSkill then
@@ -330,9 +332,14 @@ function calcCriticalBiteChance(fishingSkill, fishSkill, moonModifier)
     end
 
     local FishSkillCheck = math.max(0, fishSkill - 4)
+    local anglerBonus = 0
+    if Waist == fishing.gear.FISHERS_ROPE then
+        anglerBonus = anglerBonus + 5
+    end
+    local baseChance = 5 + anglerBonus
 
     -- Base Chance
-    Chance = 5 + (math.max(fishingSkill - FishSkillCheck, 0) * 2) -- ex. 5 + ((10-5) * 2) = 15, OR 5 + ((50-25) * 2) = 55
+    Chance = baseChance + (math.max(fishingSkill - FishSkillCheck, 0) * 2) -- ex. 5 + ((10-5) * 2) = 15, OR 5 + ((50-25) * 2) = 55
 
     -- Moon Modifier
     Chance = Chance + (10 * (2 - moonModifier))        -- max bonus 10, so 55 + (10 * 0.5) = 60
@@ -879,7 +886,7 @@ function onFishingCheck(player, fishskilllevel, rod, fishlist, moblist, lure, ar
 
                 -- calculate anglers sense
                 if not EpicCatch then
-                    local CriticalBiteChance = calcCriticalBiteChance(FishingSkill, fishlist[CatchSelect].maxSkill, MoonModifier)
+                    local CriticalBiteChance = calcCriticalBiteChance(player, FishingSkill, fishlist[CatchSelect].maxSkill, MoonModifier)
                     if math.random(1, 100) < CriticalBiteChance then
                         CriticalBite = true
                     end
