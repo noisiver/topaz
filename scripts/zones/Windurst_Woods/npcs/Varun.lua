@@ -3,6 +3,7 @@
 --   NPC: Varun
 -- Type: Standard NPC
 -- !pos 7.800 -3.5 -10.064 241
+-- TODO: Custom reward for Rock Racketeer
 -----------------------------------
 require("scripts/globals/npc_util")
 require("scripts/globals/quests")
@@ -36,7 +37,7 @@ function onEventFinish(player, csid, option)
         player:setCharVar("rockracketeer_sold", 4)
     elseif csid == 101 then
         player:setCharVar("rockracketeer_sold", 5)
-    elseif csid == 102 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.ROCK_RACKETEER, {gil=2100, var="rockracketeer_sold"}) then
+    elseif csid == 102 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.ROCK_RACKETEER, {fame=450, gil=2100, xp = 6500, var="rockracketeer_sold"}) then
         player:confirmTrade()
     end
 end
