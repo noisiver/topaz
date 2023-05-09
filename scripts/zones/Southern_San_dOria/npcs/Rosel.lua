@@ -47,10 +47,18 @@ function onEventFinish(player, csid, option)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.RECEIPT_FOR_THE_PRINCE)
     -- Rosel the Armorer, finished quest, recieve 200gil
     elseif (csid == 527) then
-        npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.ROSEL_THE_ARMORER, {
-            title= tpz.title.ENTRANCE_DENIED,
-            gil= 200
-            })
+        if (player:getFreeSlotsCount(0) >= 1) then
+            npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.ROSEL_THE_ARMORER, {
+                title= tpz.title.ENTRANCE_DENIED,
+                fame = 300,
+                gil= 200,
+                xp = 2000
+                })
+            player:addItem(13336, 1, 517, 0, 518, 0) -- MND+1 CHR+1
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 13336) -- Onyx Earring
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13336) -- Onyx Earring
+        end
     end
 
 end

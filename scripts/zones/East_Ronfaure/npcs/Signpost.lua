@@ -21,6 +21,7 @@ function onTrigger(player, npc)
         if (player:hasKeyItem(tpz.ki.SCROLL_OF_TREASURE) == true) then
             player:startEvent(20)
             player:delKeyItem(tpz.ki.SCROLL_OF_TREASURE)
+            player:addExp(15000 * EXP_RATE)
             player:addGil(GIL_RATE*3000)
             player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*3000)
         else

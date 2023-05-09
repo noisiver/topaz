@@ -43,9 +43,10 @@ function onEventFinish(player, csid, option)
         else
             player:addTitle(tpz.title.ARMS_TRADER)
             player:delKeyItem(tpz.ki.WEAPONS_RECEIPT)
-            player:addItem(17090)
+            player:addItem(17090, 1, 100, 4, 101, 4) -- Pet: MACC+5 Pet: MATT+5
             player:messageSpecial(ID.text.ITEM_OBTAINED, 17090) -- Elm Staff
-            player:addFame(SANDORIA, 30)
+            player:addExp(5500 * EXP_RATE)
+            player:addFame(SANDORIA, 400)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.A_PURCHASE_OF_ARMS)
         end
     end

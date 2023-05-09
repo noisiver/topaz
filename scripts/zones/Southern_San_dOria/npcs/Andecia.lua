@@ -53,13 +53,20 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 567) -- Well Water
         end
     elseif (csid == 624) then
-        player:tradeComplete()
-        player:setCharVar("OfferingWaterOK", 0)
-        player:addTitle(tpz.title.ROYAL_GRAVE_KEEPER)
-        player:addGil(GIL_RATE*560)
-        player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*560)
-        player:addFame(SANDORIA, 30)
-        player:completeQuest(SANDORIA, tpz.quest.id.sandoria.GRAVE_CONCERNS)
+        if (player:getFreeSlotsCount(0) >= 1) then
+            player:tradeComplete()
+            player:setCharVar("OfferingWaterOK", 0)
+            player:addTitle(tpz.title.ROYAL_GRAVE_KEEPER)
+            player:addGil(GIL_RATE*560)
+            player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*560)
+            player:addExp(3500 * EXP_RATE)
+            player:addFame(SANDORIA, 300)
+            player:addItem(12592, 1, 23, 1) -- ACC+2
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 12592) -- Doublet
+            player:completeQuest(SANDORIA, tpz.quest.id.sandoria.GRAVE_CONCERNS)
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 12592) -- Doublet
+        end
     end
 
 end

@@ -43,7 +43,7 @@ function onEventFinish(player, csid, option)
         player:delKeyItem(tpz.ki.COUGH_MEDICINE)
         player:addKeyItem(tpz.ki.SCROLL_OF_TREASURE)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.SCROLL_OF_TREASURE)
-        player:addFame(SANDORIA, 30)
+        player:addFame(SANDORIA, 1000)
         player:completeQuest(SANDORIA, tpz.quest.id.sandoria.TO_CURE_A_COUGH)
     end
 

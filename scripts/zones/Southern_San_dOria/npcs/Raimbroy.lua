@@ -67,10 +67,12 @@ function onEventFinish(player, csid, option)
         player:addTitle(tpz.title.APIARIST)
         player:addGil(GIL_RATE*400)
         if (player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.THE_SWEETEST_THINGS) == QUEST_ACCEPTED) then
-            player:addFame(SANDORIA, 30)
+            player:addExp(3500 * EXP_RATE)
+            player:addFame(SANDORIA, 350)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_SWEETEST_THINGS)
         else
-            player:addFame(SANDORIA, 5)
+            player:addExp(150 * EXP_RATE)
+            player:addFame(SANDORIA, 30)
         end
     end
 

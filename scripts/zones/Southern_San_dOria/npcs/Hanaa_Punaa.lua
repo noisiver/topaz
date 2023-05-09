@@ -92,13 +92,14 @@ function onEventFinish(player, csid, option)
         else
             player:tradeComplete()
             player:addTitle(tpz.title.SILENCER_OF_THE_LAMBS)
-            player:addItem(12696)
+            player:addItem(12696, 1, 96, 2) -- Pet: ACC+3 Ranged Accuracy+3
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12696) -- Leather Gloves
             if (player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.THE_SEAMSTRESS) == QUEST_ACCEPTED) then
-                player:addFame(SANDORIA, 30)
+                player:addExp(2000 * EXP_RATE)
+                player:addFame(SANDORIA, 250)
                 player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_SEAMSTRESS)
             else
-                player:addFame(SANDORIA, 5)
+                player:addFame(SANDORIA, 20)
             end
         end
 
@@ -112,13 +113,15 @@ function onEventFinish(player, csid, option)
         else
             player:tradeComplete()
             player:addTitle(tpz.title.LIZARD_SKINNER)
-            player:addItem(12697)
+            player:addItem(12697, 1, 27, 2) -- RACC+3
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12697) -- Lizard Gloves
             if (player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.LIZARD_SKINS) == QUEST_ACCEPTED) then
-                player:addFame(SANDORIA, 30)
+                player:addExp(3500 * EXP_RATE)
+                player:addFame(SANDORIA, 300)
                 player:completeQuest(SANDORIA, tpz.quest.id.sandoria.LIZARD_SKINS)
             else
-                player:addFame(SANDORIA, 5)
+                player:addExp(150 * EXP_RATE)
+                player:addFame(SANDORIA, 50)
             end
         end
 
@@ -128,13 +131,14 @@ function onEventFinish(player, csid, option)
         player:setCharVar("blkTigerSkin", 0)
     elseif (csid == 577) then
         if (player:getFreeSlotsCount() == 0) then
-            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13119) -- Tyger Stole
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13119) -- Tiger Stole
         else
             player:tradeComplete()
             player:addTitle(tpz.title.CAT_SKINNER)
-            player:addItem(13119)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 13119) -- Tyger Stole
-            player:addFame(SANDORIA, 30)
+            player:addItem(13119, 1, 512, 2) -- STR+3
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 13119) -- Tiger Stole
+            player:addExp(5500 * EXP_RATE)
+            player:addFame(SANDORIA, 350)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.BLACK_TIGER_SKINS)
         end
     end
