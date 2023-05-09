@@ -407,6 +407,7 @@ enum class Mod
     TAME                      = 304, // Additional percent chance to charm
     CHARM_TIME                = 360, // extends the charm time only, no effect of charm chance
     REWARD_HP_BONUS           = 364, // Percent to add to reward HP healed. (364)
+    REWARD_RECAST             = 1313,// Reward recast reduction
     CHARM_CHANCE              = 391, // extra chance to charm (light+apollo staff ect)
     FERAL_HOWL_DURATION       = 503, // +20% duration per merit when wearing augmented Monster Jackcoat +2
     JUG_LEVEL_RANGE           = 564, // Decreases the level range of spawned jug pets. Maxes out at 2.
@@ -970,7 +971,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1313 NEXT
+    // 1314 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it
