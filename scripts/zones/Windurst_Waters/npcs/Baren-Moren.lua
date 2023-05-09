@@ -112,14 +112,14 @@ printf("RESULT: %u", option)
             player:addGil(GIL_RATE*500)
             player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*500)
             if (player:hasItem(12543) == false) then
-                player:addItem(12543, 1)
+                player:addItem(12543, 1, 516, 0) -- INT+1
                 player:messageSpecial(ID.text.ITEM_OBTAINED, 12543)
             end
         elseif (option == 4) then     -- 50 = HAT + GOOD REWARD  >= 6 NPCS - Option 4
             player:addGil(GIL_RATE*400)
             player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*400)
             if (player:hasItem(12543) == false) then
-                player:addItem(12543, 1)
+                player:addItem(12543, 1, 516, 0) -- INT+1
                 player:messageSpecial(ID.text.ITEM_OBTAINED, 12543)
             end
         elseif (option == 3) then     -- 30 = PARTIAL REWARD -   >= 4 NPCS - Option 3
@@ -131,9 +131,11 @@ printf("RESULT: %u", option)
 --        else (option == 1) then     -- 0/nill = NO REWARD      >= 0 NPCS - Option 1
         end
         if (hatstatus == 1) then
-            player:addFame(WINDURST, 75)
+            player:addExp(2500 * EXP_RATE)
+            player:addFame(WINDURST, 250)
         else
-            player:addFame(WINDURST, 8)
+            player:addExp(250 * EXP_RATE)
+            player:addFame(WINDURST, 25)
         end
         player:completeQuest(WINDURST, tpz.quest.id.windurst.HAT_IN_HAND)
         player:setCharVar("QuestHatInHand_count", 0)

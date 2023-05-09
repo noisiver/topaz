@@ -79,9 +79,10 @@ function onEventFinish(player, csid, option)
         else
             player:tradeComplete()
             player:addTitle(tpz.title.GREEN_GROCER)
-            player:addItem(12600)
+            player:addItem(12600, 1, 35, 1) -- MACC+2
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12600) -- Robe
-            player:addFame(SANDORIA, 30)
+            player:addExp(2500 * EXP_RATE)
+            player:addFame(SANDORIA, 300)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_TRADER_IN_THE_FOREST)
         end
     -- "The Medicine Woman" Quest
@@ -92,7 +93,8 @@ function onEventFinish(player, csid, option)
         player:delKeyItem(tpz.ki.COLD_MEDICINE)
         player:addGil(GIL_RATE*2100)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*2100)
-        player:addFame(SANDORIA, 30)
+        player:addExp(4000 * EXP_RATE)
+        player:addFame(SANDORIA, 350)
         player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_MEDICINE_WOMAN)
     end
 

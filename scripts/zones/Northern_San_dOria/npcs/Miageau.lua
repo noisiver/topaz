@@ -46,9 +46,10 @@ function onEventFinish(player, csid, option)
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13183)
         else
             player:tradeComplete()
-            player:addItem(13183)
+            player:addItem(13183, 1, 31, 2) -- EVA+3
             player:messageSpecial(ID.text.ITEM_OBTAINED, 13183)
-            player:addFame(SANDORIA, 30)
+            player:addExp(2000 * EXP_RATE)
+            player:addFame(SANDORIA, 300)
             player:addTitle(tpz.title.THE_PURE_ONE)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.WATER_OF_THE_CHEVAL)
         end

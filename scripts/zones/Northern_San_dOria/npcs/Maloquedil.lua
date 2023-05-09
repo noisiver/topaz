@@ -61,10 +61,12 @@ function onEventFinish(player, csid, option)
         player:addGil(GIL_RATE*900)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*900)
         if (player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.WARDING_VAMPIRES) == QUEST_ACCEPTED) then
-            player:addFame(SANDORIA, 30)
+            player:addExp(4500 * EXP_RATE)
+            player:addFame(SANDORIA, 350)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.WARDING_VAMPIRES)
         else
-            player:addFame(SANDORIA, 5)
+            player:addExp(450 * EXP_RATE)
+            player:addFame(SANDORIA, 50)
         end
     elseif (csid == 807) then
         player:setCharVar("WildcatSandy", utils.mask.setBit(player:getCharVar("WildcatSandy"), 7, true))
