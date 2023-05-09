@@ -70,7 +70,7 @@ function onEventFinish(player, csid, option, npc)
         npcUtil.giveItem(player, 600)
     elseif csid == 513 then
         if (player:getFreeSlotsCount(0) >= 1) then
-            npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.A_SENTRY_S_PERIL, { fame = 250, xp = 2500, title = tpz.title.RONFAURIAN_RESCUER, var = "SentrysPerilTraded"}) then
+            npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.A_SENTRY_S_PERIL, { fame = 250, xp = 2500, title = tpz.title.RONFAURIAN_RESCUER, var = "SentrysPerilTraded"})
             player:addItem(12832, 1, 98, 9) -- Pet: EVA+10
             player:messageSpecial(ID.text.ITEM_OBTAINED, 12832) -- Bronze Subligar
             player:confirmTrade()

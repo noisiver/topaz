@@ -80,7 +80,7 @@ function onEventFinish(player, csid, option)
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.TEA_WITH_A_TONBERRY)
     elseif csid == 740 then
         if (player:getFreeSlotsCount(0) >= 1) then
-            npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.TEA_WITH_A_TONBERRY, { fame = 1000, xp = 12500}) then
+            npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.TEA_WITH_A_TONBERRY, { fame = 1000, xp = 12500})
             player:setCharVar("TEA_WITH_A_TONBERRY_PROG", 0)
             player:addItem(13174, 1, 141, 9) -- Conserve MP +10
             player:messageSpecial(ID.text.ITEM_OBTAINED, 13174) -- Willpower Torque
