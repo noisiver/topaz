@@ -2442,7 +2442,6 @@ namespace charutils
         PChar->UpdateHealth();
         PChar->m_EquipSwap = true;
         PChar->updatemask |= UPDATE_LOOK;
-        PChar->pushPacket(new CInventoryFinishPacket());
     }
 
     /************************************************************************

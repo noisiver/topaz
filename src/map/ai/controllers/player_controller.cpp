@@ -28,6 +28,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../../items/item_weapon.h"
 #include "../../packets/char_update.h"
 #include "../../packets/lock_on.h"
+#include "../../packets/inventory_finish.h"
 #include "../../utils/battleutils.h"
 #include "../../utils/charutils.h"
 #include "../../recast_container.h"
@@ -42,7 +43,15 @@ CPlayerController::CPlayerController(CCharEntity* _PChar) :
 }
 
 void CPlayerController::Tick(time_point)
-{}
+{
+    auto PChar = static_cast<CCharEntity*>(POwner);
+    // Send inventory finish packet to check for temps
+    if (server_clock::now() < InventoryFinishPacket)
+    {
+        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(5000);
+        PChar->pushPacket(new CInventoryFinishPacket());
+    }
+}
 
 bool CPlayerController::Cast(uint16 targid, SpellID spellid)
 {
