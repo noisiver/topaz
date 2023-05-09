@@ -1532,9 +1532,9 @@ INSERT INTO `item_equipment` VALUES (11763,'beir_belt',89,0,4194303,0,0,0,1024,0
 INSERT INTO `item_equipment` VALUES (11764,'beir_belt_+1',89,0,4194303,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (11765,'sanctuary_obi',87,0,4194303,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (11766,'sanctuary_obi_+1',87,0,4194303,0,0,0,1024,0);
-INSERT INTO `item_equipment` VALUES (11767,'chocobo_rope',85,0,4194303,0,0,0,1024,0);
-INSERT INTO `item_equipment` VALUES (11768,'fishers_rope',85,0,4194303,0,0,0,1024,0);
-INSERT INTO `item_equipment` VALUES (11769,'field_rope',85,0,4194303,0,0,0,1024,0);
+INSERT INTO `item_equipment` VALUES (11767,'chocobo_rope',1,0,4194303,0,0,0,1024,0);
+INSERT INTO `item_equipment` VALUES (11768,'fishers_rope',1,0,4194303,0,0,0,1024,0);
+INSERT INTO `item_equipment` VALUES (11769,'field_rope',1,0,4194303,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (11770,'accursed_belt',86,0,212705,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (11771,'pipilaka_belt',87,0,4194303,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (11772,'oneiros_sash',75,0,1589276,0,0,0,1024,0);
