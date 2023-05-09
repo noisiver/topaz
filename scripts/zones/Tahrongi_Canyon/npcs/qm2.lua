@@ -14,15 +14,8 @@ function onTrade(player, npc, trade)
         if os.time() > npc:getLocalVar("tradeCooldown") then
             local trades = npc:getLocalVar("trades")
 
-            if trades >= 3 and math.random(100) <= 50 then
-                player:messageSpecial(ID.text.REPULSIVE_CREATURE_EMERGES)
-                SpawnMob(ID.mob.YARA_MA_YHA_WHO):updateClaim(player)
-                npc:setLocalVar("trades", 0)
-            else
-                player:messageSpecial(ID.text.SPROUT_LOOKING_BETTER)
-                npc:setLocalVar("trades", trades + 1)
-            end
-
+            player:messageSpecial(ID.text.REPULSIVE_CREATURE_EMERGES)
+            SpawnMob(ID.mob.YARA_MA_YHA_WHO):updateClaim(player)
             player:confirmTrade()
             npc:setLocalVar("tradeCooldown", os.time() + 3000) -- 50 minute until next trade
         else
