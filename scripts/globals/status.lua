@@ -121,6 +121,7 @@ tpz.subEffect =
     PARALYSIS           = 11,
     AMNESIA             = 11,  -- Verified uses same animation as para
     BLIND               = 12,  -- 1-00110      25
+    BLINDNESS           = 12,  -- 1-00110      25
     SILENCE             = 13,
     PETRIFY             = 14,
     PLAGUE              = 15,
