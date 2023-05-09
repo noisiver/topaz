@@ -17,7 +17,7 @@ function onAdditionalEffect(player, target, damage)
         return 0, 0, 0
     else
         target:addStatusEffect(tpz.effect.BLINDNESS, 8, 0, duration)
-        return tpz.subEffect.BLINDNESS, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.BLINDNESS
+        return tpz.subEffect.BLIND, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.BLINDNESS
     end
 end
 
