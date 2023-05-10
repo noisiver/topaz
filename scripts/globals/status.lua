@@ -1772,12 +1772,14 @@ tpz.mod =
     SPIKES_MACC             = 1311, -- Increases Spikes magical accuracy
     REFRESH_DURATION        = 1312, -- Increased refresh duration (in seconds)
     REWARD_RECAST           = 1313, -- Reward recast reduction
+    LOGGING_SKILL           = 1314, -- Adds Logging Skill
+    MINING_SKILL            = 1315, -- Adds Mining Skill
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1314 NEXT
+    -- 1316 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

@@ -1499,7 +1499,7 @@ end
 
 local function GetHELMGearBonus(player, helmType)
     local gearBonus = 0
-    -- TODO: Add gear mods to the game
+
     if (helmType == tpz.helm.type.MINING) then
         gearBonus = player:getMod(tpz.mod.MINING_SKILL)
     elseif (helmType == tpz.helm.type.LOGGING) then

@@ -8,6 +8,8 @@
 -- Auto-Script: Requires Verification (Verified by Brawndo)
 -----------------------------------
 require("scripts/globals/quests")
+require("scripts/globals/npc_util")
+require("scripts/globals/items")
 require("scripts/globals/settings")
 local ID = require("scripts/zones/Northern_San_dOria/IDs")
 -----------------------------------
@@ -22,44 +24,39 @@ function onTrade(player, npc, trade)
         end
     elseif (loggingQuestAccepted == 1) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.RONFAURE_CHESTNUT, 25}, {tpz.items.MAPLE_LOG, 25}, {tpz.items.CHESTNUT_LOG, 10} }) then
-        player:setCharVar("LoggingQuestsCompleted", 1)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.AMATEURS_HATCHET) then
+            player:setCharVar("LoggingQuestsCompleted", 1)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     elseif (loggingQuestAccepted == 2) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.ELM_LOG, 25}, {tpz.items.WALNUT_LOG, 25}, {tpz.items.HOLLY_LOG, 25} }) then
-        player:setCharVar("LoggingQuestsCompleted", 2)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.INITIATES_HATCHET) then
+            player:setCharVar("LoggingQuestsCompleted", 2)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     elseif (loggingQuestAccepted == 3) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.ROSEWOOD_LOG, 50}, {tpz.items.EBONY_LOG, 50}, {tpz.items.DRYAD_ROOT, 25} }) then
-        player:setCharVar("LoggingQuestsCompleted", 3)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.APPRENTICES_HATCHET) then
+            player:setCharVar("LoggingQuestsCompleted", 3)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     elseif (loggingQuestAccepted == 4) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.JACARANDA_LOG, 50}, {tpz.items.TEAK_LOG, 50}, {tpz.items.DRAGON_FRUIT, 50} }) then
-        player:setCharVar("LoggingQuestsCompleted", 4)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.VETERANS_HATCHET) then
+            player:setCharVar("LoggingQuestsCompleted", 4)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     elseif (loggingQuestAccepted == 5) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.BLOODWOOD_LOG, 50}, {tpz.items.DOGWOOD_LOG, 50}, {tpz.items.DATE, 50} }) then
-        player:setCharVar("LoggingQuestsCompleted", 5)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.ULLRS_HATCHET) then
+            player:setCharVar("LoggingQuestsCompleted", 5)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     end
 end
 

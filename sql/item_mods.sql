@@ -52718,6 +52718,20 @@ INSERT INTO `item_mods` VALUES (28671,10,7);      -- VIT +7
 INSERT INTO `item_mods` VALUES (28671,13,7);      -- MND +7
 INSERT INTO `item_mods` VALUES (28671,161,-4);    -- Physical damage taken -4%
 
+-- Pickaxes
+INSERT INTO `item_mods` VALUES (21925,1315,5);     -- Mining Skill +5
+INSERT INTO `item_mods` VALUES (21926,1315,10);    -- Mining Skill +10
+INSERT INTO `item_mods` VALUES (21927,1315,15);    -- Mining Skill +15
+INSERT INTO `item_mods` VALUES (21928,1315,20);    -- Mining Skill +20
+INSERT INTO `item_mods` VALUES (21929,1315,25);    -- Mining Skill +25
+
+-- Hatchets
+INSERT INTO `item_mods` VALUES (21930,1314,5);     -- Logging Skill +5
+INSERT INTO `item_mods` VALUES (21931,1314,10);    -- Logging Skill +10
+INSERT INTO `item_mods` VALUES (21932,1314,15);    -- Logging Skill +15
+INSERT INTO `item_mods` VALUES (21933,1314,20);    -- Logging Skill +20
+INSERT INTO `item_mods` VALUES (21934,1314,25);    -- Logging Skill +25
+
 -- Assault Elemental Weapons
 INSERT INTO `item_mods` VALUES (18408,1272,25);   -- +25% Elemental WS DMG
 INSERT INTO `item_mods` VALUES (17715,1272,25);   -- +25% Elemental WS DMG

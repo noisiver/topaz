@@ -4631,6 +4631,16 @@ INSERT INTO `item_weapon` VALUES (21921,'kaja_katana',9,0,242,242,242,0,1,227,14
 INSERT INTO `item_weapon` VALUES (21922,'gokotai',9,0,250,250,250,0,1,227,157,0);         -- DMG:157 Delay:227
 INSERT INTO `item_weapon` VALUES (21923,'debahocho',9,0,0,0,0,0,1,210,42,0);               -- DMG:1 Delay:227
 INSERT INTO `item_weapon` VALUES (21924,'debahocho_+1',9,0,0,0,0,0,1,222,2,0);            -- DMG:2 Delay:222
+INSERT INTO `item_weapon` VALUES (21925,'amateurs_pickaxe',9,0,0,0,0,0,1,999,1,0);            -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21926,'initiates_pickaxe',9,0,0,0,0,0,1,999,1,0);           -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21927,'apprentices_pickaxe',9,0,0,0,0,0,1,999,1,0);         -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21928,'veterans_pickaxe',9,0,0,0,0,0,1,999,1,0);            -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21929,'forsetis_pickaxe',9,0,0,0,0,0,1,999,1,0);            -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21930,'amateurs_hatchet',9,0,0,0,0,0,1,999,1,0);            -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21931,'initiates_hatchet',9,0,0,0,0,0,1,999,1,0);           -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21932,'apprentices_hatchet',9,0,0,0,0,0,1,999,1,0);         -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21933,'veterans_hatchet',9,0,0,0,0,0,1,999,1,0);            -- DMG:1 Delay:999
+INSERT INTO `item_weapon` VALUES (21934,'ullrs_hatchet',9,0,0,0,0,0,1,999,1,0);               -- DMG:1 Delay:999
 INSERT INTO `item_weapon` VALUES (21954,'amanomurakumo',10,0,269,269,228,2,1,437,308,0);
 INSERT INTO `item_weapon` VALUES (21955,'kogarasumaru',10,0,269,269,228,2,1,450,281,0);
 INSERT INTO `item_weapon` VALUES (21956,'masamune',10,0,269,269,228,2,1,437,308,0);

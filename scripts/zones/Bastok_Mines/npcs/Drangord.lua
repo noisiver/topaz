@@ -6,6 +6,7 @@
 require("scripts/globals/quests")
 require("scripts/globals/npc_util")
 require("scripts/globals/items")
+local ID = require("scripts/zones/Bastok_Mines/IDs")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -14,44 +15,39 @@ function onTrade(player, npc, trade)
 
     if (miningQuestAccepted == 1) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.CHUNK_OF_ZINC_ORE, 25}, {tpz.items.CHUNK_OF_MYTHRIL_ORE, 10}, {tpz.items.CHUNK_OF_DARKSTEEL_ORE, 3} }) then
-        player:setCharVar("MiningQuestsCompleted", 1)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.AMATEURS_PICKAXE) then
+            player:setCharVar("MiningQuestsCompleted", 1)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     elseif (miningQuestAccepted == 2) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.CHUNK_OF_SILVER_ORE, 25}, {tpz.items.CHUNK_OF_GOLD_ORE, 10}, {tpz.items.CHUNK_OF_PLATINUM_ORE, 3} }) then
-        player:setCharVar("MiningQuestsCompleted", 2)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.INITIATES_PICKAXE) then
+            player:setCharVar("MiningQuestsCompleted", 2)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     elseif (miningQuestAccepted == 3) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.IGNEOUS_ROCK, 99}, {tpz.items.GOBLIN_DIE, 99} }) then
-        player:setCharVar("MiningQuestsCompleted", 3)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.APPRENTICES_PICKAXE) then
+            player:setCharVar("MiningQuestsCompleted", 3)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     elseif (miningQuestAccepted == 4) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.CHUNK_OF_ALUMINUM_ORE, 50}, {tpz.items.HANDFUL_OF_IRON_SAND, 50}, {tpz.items.PINCH_OF_SULFUR, 50} }) then
-        player:setCharVar("MiningQuestsCompleted", 4)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.VETERANS_PICKAXE) then
+            player:setCharVar("MiningQuestsCompleted", 4)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     elseif (miningQuestAccepted == 5) and
     npcUtil.tradeHasExactly(trade, { {tpz.items.CHUNK_OF_LUMINIUM_ORE, 25}, {tpz.items.CHUNK_OF_ORICHALCUM_ORE, 25}, {tpz.items.CHUNK_OF_ADAMAN_ORE, 25} }) then
-        player:setCharVar("MiningQuestsCompleted", 5)
-        player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
-        -- TODO
-        --player:addItem(itemId)
-        --player:messageSpecial(ID.text.ITEM_OBTAINED, itemId)
-        player:tradeComplete()
+        if npcUtil.giveItem(player, tpz.items.FORSETIS_PICKAXE) then
+            player:setCharVar("MiningQuestsCompleted", 5)
+            player:PrintToPlayer("This should help you out nicely.",0,"Drangord")
+            player:tradeComplete()
+        end
     end
 end
 
