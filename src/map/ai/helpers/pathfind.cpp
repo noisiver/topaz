@@ -292,7 +292,8 @@ void CPathFind::StepTo(const position_t& pos, bool run)
     }
 
     float stepDistance = ((float)speed / 10) / 2;
-    float distanceTo = distance(m_PTarget->loc.p, pos);
+    float distanceTo =   distance(m_PTarget->loc.p, pos);
+    float diff_y =       pos.y - m_PTarget->loc.p.y;
 
     // face point mob is moving towards
     LookAt(pos);
@@ -312,8 +313,21 @@ void CPathFind::StepTo(const position_t& pos, bool run)
             float radians = (1 - (float)m_PTarget->loc.p.rotation / 256) * 2 * (float)M_PI;
 
             m_PTarget->loc.p.x += cosf(radians) * (distanceTo - m_distanceFromPoint);
-            m_PTarget->loc.p.y = pos.y;
             m_PTarget->loc.p.z += sinf(radians) * (distanceTo - m_distanceFromPoint);
+            if (abs(diff_y) > .5f)
+            {
+                // Don't step too far vertically by simply utilizing the slope
+                float new_y = m_PTarget->loc.p.y + stepDistance * (pos.y - m_PTarget->loc.p.y) / distance(m_PTarget->loc.p, pos, true);
+                float min_y = (pos.y + m_PTarget->loc.p.y - abs(pos.y - m_PTarget->loc.p.y)) / 2;
+                float max_y = (pos.y + m_PTarget->loc.p.y + abs(pos.y - m_PTarget->loc.p.y)) / 2;
+                // clamp new_y between start and end vertical position
+                new_y = new_y < min_y ? min_y : new_y;
+                m_PTarget->loc.p.y = new_y > max_y ? max_y : new_y;
+            }
+            else
+            {
+                m_PTarget->loc.p.y = pos.y;
+            }
         }
     }
     else
@@ -323,8 +337,21 @@ void CPathFind::StepTo(const position_t& pos, bool run)
         float radians = (1 - (float)m_PTarget->loc.p.rotation / 256) * 2 * (float)M_PI;
 
         m_PTarget->loc.p.x += cosf(radians) * stepDistance;
-        m_PTarget->loc.p.y = pos.y;
         m_PTarget->loc.p.z += sinf(radians) * stepDistance;
+        if (abs(diff_y) > .5f)
+        {
+            // Don't step too far vertically by simply utilizing the slope
+            float new_y = m_PTarget->loc.p.y + stepDistance * (pos.y - m_PTarget->loc.p.y) / distance(m_PTarget->loc.p, pos, true);
+            float min_y = (pos.y + m_PTarget->loc.p.y - abs(pos.y - m_PTarget->loc.p.y)) / 2;
+            float max_y = (pos.y + m_PTarget->loc.p.y + abs(pos.y - m_PTarget->loc.p.y)) / 2;
+            // clamp new_y between start and end vertical position
+            new_y = new_y < min_y ? min_y : new_y;
+            m_PTarget->loc.p.y = new_y > max_y ? max_y : new_y;
+        }
+        else
+        {
+            m_PTarget->loc.p.y = pos.y;
+        }
 
     }
 
@@ -405,8 +432,9 @@ bool CPathFind::FindClosestPath(const position_t& start, const position_t& end)
 
 void CPathFind::LookAt(const position_t& point)
 {
-    // don't look if i'm at that point
-    if (!AtPoint(point)) {
+    // Avoid unpredictable results if we're too close.
+    if (!distanceWithin(m_PTarget->loc.p, point, 0.1f, true))
+    {
         m_PTarget->loc.p.rotation = worldAngle(m_PTarget->loc.p, point);
         m_PTarget->updatemask |= UPDATE_POS;
     }
@@ -461,9 +489,9 @@ bool CPathFind::IsFollowingScriptedPath()
 bool CPathFind::AtPoint(const position_t& pos)
 {
     if (m_distanceFromPoint == 0)
-        return m_PTarget->loc.p.x == pos.x && m_PTarget->loc.p.z == pos.z;
+        return distanceWithin(m_PTarget->loc.p, pos, 0.1f);
     else
-        return distance(m_PTarget->loc.p, pos) <= (m_distanceFromPoint + .2f);
+        return distanceWithin(m_PTarget->loc.p, pos, m_distanceFromPoint + 0.2f);
 }
 
 bool CPathFind::InWater()

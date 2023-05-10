@@ -1714,9 +1714,12 @@ inline int32 CLuaBaseEntity::lookAt(lua_State* L)
     point.y = posY;
     point.z = posZ;
 
-    m_PBaseEntity->loc.p.rotation = worldAngle(m_PBaseEntity->loc.p, point);
-
-    m_PBaseEntity->updatemask |= UPDATE_POS;
+    // Avoid unpredictable results if we're too close.
+    if (!distanceWithin(m_PBaseEntity->loc.p, point, 0.1f, true))
+    {
+        m_PBaseEntity->loc.p.rotation = worldAngle(m_PBaseEntity->loc.p, point);
+        m_PBaseEntity->updatemask |= UPDATE_POS;
+    }
 
     return 0;
 }
@@ -1749,33 +1752,31 @@ inline int32 CLuaBaseEntity::atPoint(lua_State* L)
 {
     TPZ_DEBUG_BREAK_IF(m_PBaseEntity == nullptr);
 
-    float posX = 0;
-    float posY = 0;
-    float posZ = 0;
+    position_t pos;
 
     if (lua_isnumber(L, 1))
     {
-        posX = (float)lua_tonumber(L, 1);
-        posY = (float)lua_tonumber(L, 2);
-        posZ = (float)lua_tonumber(L, 3);
+        pos.x = (float)lua_tonumber(L, 1);
+        pos.y = (float)lua_tonumber(L, 2);
+        pos.z = (float)lua_tonumber(L, 3);
     }
     else
     {
         // It's a table
         lua_rawgeti(L, 1, 1);
-        posX = (float)lua_tonumber(L, -1);
+        pos.x = (float)lua_tonumber(L, -1);
         lua_pop(L, 1);
 
         lua_rawgeti(L, 1, 2);
-        posY = (float)lua_tonumber(L, -1);
+        pos.y = (float)lua_tonumber(L, -1);
         lua_pop(L, 1);
 
         lua_rawgeti(L, 1, 3);
-        posZ = (float)lua_tonumber(L, -1);
+        pos.z = (float)lua_tonumber(L, -1);
         lua_pop(L, 1);
     }
 
-    lua_pushboolean(L, m_PBaseEntity->loc.p.x == posX && m_PBaseEntity->loc.p.y == posY && m_PBaseEntity->loc.p.z == posZ);
+    lua_pushboolean(L, distanceWithin(m_PBaseEntity->loc.p, pos, 0.01f));
 
     return 1;
 }
@@ -2449,6 +2450,7 @@ inline int32 CLuaBaseEntity::sendEmote(lua_State* L)
 *  Example : player:worldAngle(target)
 *  Notes   : Target is... 0: east; 64: south; 128: west, 192: north
 *            Default angle is 255-based mob rotation value - NOT a 360 angle
+* CAREFUL! If the entities are too close, this can return unxpected results.
 ************************************************************************/
 
 inline int32 CLuaBaseEntity::getWorldAngle(lua_State *L)
