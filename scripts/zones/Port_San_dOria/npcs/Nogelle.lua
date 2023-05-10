@@ -15,7 +15,7 @@ function onTrade(player, npc, trade)
         local count = trade:getItemCount()
         LufetSalt = trade:hasItemQty(1019, 3)
         if (LufetSalt == true and count == 3) then
-            if npcUtil.giveItem(player, tpz.items.TURTLE_SHIELD)
+            if npcUtil.giveItem(player, tpz.items.TURTLE_SHIELD) then
                 player:tradeComplete()
                 player:addExp(3500 * EXP_RATE)
                 player:addFame(SANDORIA, 350)
