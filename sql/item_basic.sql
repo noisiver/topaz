@@ -550,13 +550,13 @@ INSERT INTO `item_basic` VALUES (637,0,'vial_of_slime_oil','slime_oil',99,4,44,0
 INSERT INTO `item_basic` VALUES (638,0,'sprig_of_sage','sage',99,4,59,0,37);
 INSERT INTO `item_basic` VALUES (639,0,'ronfaure_chestnut','chestnut',99,4,59,0,30);
 INSERT INTO `item_basic` VALUES (640,0,'chunk_of_copper_ore','copper_ore',99,4,38,0,3);	
-INSERT INTO `item_basic` VALUES (641,0,'chunk_of_tin_ore','tin_ore',1,4,38,0,10);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (642,0,'chunk_of_zinc_ore','zinc_ore',1,4,39,0,25);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (641,0,'chunk_of_tin_ore','tin_ore',99,4,38,0,10);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (642,0,'chunk_of_zinc_ore','zinc_ore',99,4,39,0,25);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (643,0,'chunk_of_iron_ore','iron_ore',99,4,38,0,150);	
 INSERT INTO `item_basic` VALUES (644,0,'chunk_of_mythril_ore','mythril_ore',99,4,39,0,250);	
 INSERT INTO `item_basic` VALUES (645,0,'chunk_of_darksteel_ore','darksteel_ore',99,4,38,0,475);	
-INSERT INTO `item_basic` VALUES (646,0,'chunk_of_adaman_ore','adaman_ore',1,4,38,0,725);	-- stack changed from 12 to 1
-INSERT INTO `item_basic` VALUES (647,0,'chunk_of_molybdenum_ore','molybdenum_ore',1,4,38,0,5000);
+INSERT INTO `item_basic` VALUES (646,0,'chunk_of_adaman_ore','adaman_ore',99,4,38,0,725);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (647,0,'chunk_of_molybdenum_ore','molybdenum_ore',99,4,38,0,5000);
 INSERT INTO `item_basic` VALUES (648,0,'copper_ingot','copper_ingot',99,4,38,0,30);
 INSERT INTO `item_basic` VALUES (649,0,'bronze_ingot','bronze_ingot',99,4,38,0,19);
 INSERT INTO `item_basic` VALUES (650,0,'brass_ingot','brass_ingot',99,4,39,0,48);
@@ -587,7 +587,7 @@ INSERT INTO `item_basic` VALUES (674,0,'handful_of_iron_scales','iron_scales',99
 INSERT INTO `item_basic` VALUES (675,0,'handful_of_adaman_scales','adaman_scales',99,4,38,0,1512);
 INSERT INTO `item_basic` VALUES (676,0,'handful_of_steel_scales','steel_scales',99,4,38,0,1400);
 INSERT INTO `item_basic` VALUES (677,0,'chunk_of_white_steel','white_steel',99,12356,0,1,0);
-INSERT INTO `item_basic` VALUES (678,0,'chunk_of_aluminum_ore','aluminum_ore',1,4,39,0,204);	-- stack changed from 12 to 1
+INSERT INTO `item_basic` VALUES (678,0,'chunk_of_aluminum_ore','aluminum_ore',99,4,39,0,204);	-- stack changed from 12 to 1
 INSERT INTO `item_basic` VALUES (679,0,'aluminum_ingot','aluminum_ingot',99,4,39,0,1000);
 INSERT INTO `item_basic` VALUES (680,0,'iron_chain','iron_chain',99,4,38,0,1050);
 INSERT INTO `item_basic` VALUES (681,0,'mythril_chain','mythril_chain',99,4,39,0,1750);
@@ -1141,17 +1141,17 @@ INSERT INTO `item_basic` VALUES (1251,0,'handful_of_demon_arrowheads','demon_arr
 INSERT INTO `item_basic` VALUES (1252,0,'handful_of_poison_arrowheads','poison_arrowhd.',99,4,43,0,45);
 INSERT INTO `item_basic` VALUES (1253,0,'handful_of_sleep_arrowheads','sleep_arrowhd.',99,4,43,0,52);
 INSERT INTO `item_basic` VALUES (1254,0,'bag_of_blk._chocobo_fletchings','blk._chc._fltchg.',99,4,43,0,20);
-INSERT INTO `item_basic` VALUES (1255,0,'chunk_of_fire_ore','fire_ore',1,4,39,0,3706);
-INSERT INTO `item_basic` VALUES (1256,0,'chunk_of_ice_ore','ice_ore',1,4,39,0,3706);
-INSERT INTO `item_basic` VALUES (1257,0,'chunk_of_wind_ore','wind_ore',1,4,39,0,3706);
-INSERT INTO `item_basic` VALUES (1258,0,'chunk_of_earth_ore','earth_ore',1,4,39,0,3706);
-INSERT INTO `item_basic` VALUES (1259,0,'chunk_of_lightning_ore','lightning_ore',1,4,39,0,3625);
-INSERT INTO `item_basic` VALUES (1260,0,'chunk_of_water_ore','water_ore',1,4,39,0,3706);
-INSERT INTO `item_basic` VALUES (1261,0,'chunk_of_light_ore','light_ore',1,4,39,0,3706);
-INSERT INTO `item_basic` VALUES (1262,0,'chunk_of_dark_ore','dark_ore',1,4,39,0,3706);
-INSERT INTO `item_basic` VALUES (1263,0,'leshonki_bulb','leshonki_bulb',1,4,46,0,3777);
+INSERT INTO `item_basic` VALUES (1255,0,'chunk_of_fire_ore','fire_ore',99,4,39,0,3706);
+INSERT INTO `item_basic` VALUES (1256,0,'chunk_of_ice_ore','ice_ore',99,4,39,0,3706);
+INSERT INTO `item_basic` VALUES (1257,0,'chunk_of_wind_ore','wind_ore',99,4,39,0,3706);
+INSERT INTO `item_basic` VALUES (1258,0,'chunk_of_earth_ore','earth_ore',99,4,39,0,3706);
+INSERT INTO `item_basic` VALUES (1259,0,'chunk_of_lightning_ore','lightning_ore',99,4,39,0,3625);
+INSERT INTO `item_basic` VALUES (1260,0,'chunk_of_water_ore','water_ore',99,4,39,0,3706);
+INSERT INTO `item_basic` VALUES (1261,0,'chunk_of_light_ore','light_ore',99,4,39,0,3706);
+INSERT INTO `item_basic` VALUES (1262,0,'chunk_of_dark_ore','dark_ore',99,4,39,0,3706);
+INSERT INTO `item_basic` VALUES (1263,0,'leshonki_bulb','leshonki_bulb',99,4,46,0,3777);
 INSERT INTO `item_basic` VALUES (1264,0,'clump_of_great_boyahda_moss','grt._boyahda_moss',99,4,44,0,4125);
-INSERT INTO `item_basic` VALUES (1265,0,'four-leaf_korrigan_bud','4lf._korrin_bud',1,4,44,0,2000);
+INSERT INTO `item_basic` VALUES (1265,0,'four-leaf_korrigan_bud','4lf._korrin_bud',99,4,44,0,2000);
 INSERT INTO `item_basic` VALUES (1266,0,'tonberry_rattle','tonberry_rattle',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (1267,0,'bag_of_bee_larvae','bee_larvae',1,61524,0,1,0);
 INSERT INTO `item_basic` VALUES (1268,0,'doll_gizmo','doll_gizmo',1,4,46,0,230);
