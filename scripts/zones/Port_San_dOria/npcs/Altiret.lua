@@ -41,7 +41,13 @@ function onEventFinish(player, csid, option)
     -- THE PICKPOCKET
     if csid == 547 and player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.THE_PICKPOCKET) == QUEST_AVAILABLE then
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.THE_PICKPOCKET)
-    elseif csid == 550 and npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.THE_PICKPOCKET, {item = 16667, title = tpz.title.PICKPOCKET_PINCHER, var = {"thePickpocket", "thePickpocketSkipNPC", "thePickpocketEagleButton"}}) then
-        player:confirmTrade()
+    elseif csid == 550 then
+        if (player:getFreeSlotsCount(0) >= 1) then
+            npcUtil.completeQuest(player, SANDORIA, tpz.quest.id.sandoria.THE_PICKPOCKET, {xp = 2000, fame = 250, title = tpz.title.PICKPOCKET_PINCHER, var = {"thePickpocket", "thePickpocketSkipNPC", "thePickpocketEagleButton"}})
+            player:addItem(16667, 1, 97, 9) -- Pet: Attack+10 Ranged Attack+10
+            player:confirmTrade()
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 16667) -- Light Axe
+        end
     end
 end

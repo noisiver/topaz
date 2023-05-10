@@ -8,6 +8,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Port_San_dOria/IDs")
 require("scripts/globals/keyitems")
+require("scripts/globals/npc_util")
 require("scripts/globals/settings")
 require("scripts/globals/quests")
 require("scripts/globals/titles")
@@ -43,12 +44,19 @@ function onEventFinish(player, csid, option)
         player:addQuest(SANDORIA, tpz.quest.id.sandoria.THE_DISMAYED_CUSTOMER)
         player:setCharVar("theDismayedCustomer", math.random(1, 3))
     elseif (csid == 607) then
-        player:delKeyItem(tpz.ki.GULEMONTS_DOCUMENT)
-        player:addFame(SANDORIA, 30)
-        player:addTitle(tpz.title.LOST_CHILD_OFFICER)
-        player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_DISMAYED_CUSTOMER)
-        player:addGil(560*GIL_RATE)
-        player:messageSpecial(ID.text.GIL_OBTAINED, 560*GIL_RATE)
+        if (player:getFreeSlotsCount(0) >= 1) then
+            player:delKeyItem(tpz.ki.GULEMONTS_DOCUMENT)
+            player:addExp(4500 * EXP_RATE)
+            player:addFame(SANDORIA, 300)
+            player:addTitle(tpz.title.LOST_CHILD_OFFICER)
+            player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_DISMAYED_CUSTOMER)
+            player:addGil(560*GIL_RATE)
+            player:messageSpecial(ID.text.GIL_OBTAINED, 560*GIL_RATE)
+            player:addItem(tpz.items.COTTON_GAITERS, 1, 99, 34) -- Pet: DEF+35
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.COTTON_GAITERS)
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.COTTON_GAITERS)
+        end
     end
 
 end

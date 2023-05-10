@@ -54,14 +54,21 @@ function onEventFinish(player, csid, option)
             player:addQuest(SANDORIA, tpz.quest.id.sandoria.FLYERS_FOR_REGINE)
         end
     elseif csid == 603 then
-        npcUtil.completeQuest(
-            player, SANDORIA, tpz.quest.id.sandoria.FLYERS_FOR_REGINE,
-            {
-                gil = 440,
-                title = tpz.title.ADVERTISING_EXECUTIVE,
-                var = '[ffr]deliveryMask',
-            }
-        )
+        if (player:getFreeSlotsCount(0) >= 1) then
+            npcUtil.completeQuest(
+                player, SANDORIA, tpz.quest.id.sandoria.FLYERS_FOR_REGINE,
+                {
+                    gil = 440,
+                    xp = 2500,
+                    title = tpz.title.ADVERTISING_EXECUTIVE,
+                    var = '[ffr]deliveryMask',
+                }
+            )
+            player:addItem(tpz.items.SHORTBOW, 1, 35, 0) -- MACC+1
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.SHORTBOW)
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, tpz.items.SHORTBOW)
+        end
 
     -- THE BRUGAIRE CONSORTIUM
     elseif (csid == 535) then

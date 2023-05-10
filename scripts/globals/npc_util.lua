@@ -14,6 +14,7 @@
 --]]
 require("scripts/globals/settings")
 require("scripts/globals/status")
+require("scripts/globals/items")
 require("scripts/globals/msg")
 
 npcUtil = {}
@@ -194,7 +195,7 @@ end
         { {640, 2} }         -- copper ore x2
         { {640, 2}, 641 }    -- copper ore x2, tin ore x1
 ******************************************************************************* --]]
-function npcUtil.giveItem(player, items)
+function npcUtil.giveItem(player, items) -- TODO: ability to give augmented items
     local ID = zones[player:getZoneID()]
 
     -- create table of items, with key/val of itemId/itemQty
