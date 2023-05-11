@@ -12749,7 +12749,7 @@ INSERT INTO `mob_groups` VALUES (10,4378,196,'Wounded_Wurfel',3600,128,2674,4500
 INSERT INTO `mob_groups` VALUES (11,267,196,'Asphyxiated_Amsel',3600,128,182,4500,0,36,43,0);
 INSERT INTO `mob_groups` VALUES (12,6565,196,'Skeleton_Warrior',330,0,2265,0,0,15,17,0);
 INSERT INTO `mob_groups` VALUES (13,1376,196,'Fly_Agaric',330,0,854,0,0,20,23,0);
-INSERT INTO `mob_groups` VALUES (14,6551,196,'Ghoul',330,0,962,0,0,20,23,0);
+INSERT INTO `mob_groups` VALUES (14,6551,196,'Ghoul_Melee_Low',330,0,962,0,0,20,23,0);
 INSERT INTO `mob_groups` VALUES (15,335,196,'Bandersnatch',330,0,219,0,0,21,24,0);
 INSERT INTO `mob_groups` VALUES (16,3050,196,'Ore_Eater',330,0,1725,0,0,23,26,0);
 INSERT INTO `mob_groups` VALUES (17,6590,196,'Spunkie',330,0,2315,0,0,28,30,0);
@@ -12779,10 +12779,12 @@ INSERT INTO `mob_groups` VALUES (40,3218,196,'Pudding',0,128,0,0,0,34,34,0);
 INSERT INTO `mob_groups` VALUES (41,5530,196,'Earth_Elemental',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (42,251,196,'Aroma_Fly',0,128,172,3500,0,38,40,0);
 INSERT INTO `mob_groups` VALUES (43,5311,196,'Lorbulcrud',0,128,0,0,99999,90,92,0);
-INSERT INTO `mob_groups` VALUES (44,6552,196,'Ghoul',330,0,962,0,0,26,27,0);
+INSERT INTO `mob_groups` VALUES (44,6552,196,'Ghoul_Caster_Low',330,0,962,0,0,20,23,0);
 INSERT INTO `mob_groups` VALUES (45,6570,196,'Wight',330,0,2653,0,0,30,33,0);
 INSERT INTO `mob_groups` VALUES (46,9007,196,'Nagi',0,128,3182,35000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (47,9007,196,'Nagi_Clone',0,128,0,100,0,75,75,0);
+INSERT INTO `mob_groups` VALUES (48,6551,196,'Ghoul_Melee_High',330,0,962,0,0,26,27,0);
+INSERT INTO `mob_groups` VALUES (49,6552,196,'Ghoul_Caster_High',330,0,962,0,0,26,27,0);
 
 INSERT INTO `mob_groups` VALUES (9799,3992,196,'Treasure_Chest',0,0,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (9805,4498,196,'Zeid',0,0,0,0,0,0,0,0);
