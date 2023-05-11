@@ -2106,16 +2106,24 @@ end
 
 function GetCharmHitRate(player, target)
     -- formula is 50% - family reduct - dLvl (3/lvl until 50, 5/lvl 51+, 10/lvl at some level)) * charm multiplier + dCHR + Light Staff bonus (10/15)
-    --dLVL can never go above 0, and dCHR goes below 0
+    -- dLVL can never go above 0, and dCHR goes below 0
     local chance = 50
     local familyReduction = GetCharmFamilyReduction(player, target)
     local element = tpz.magic.ele.LIGHT
     local diff = player:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR)
     local dCHR = getDstatBonus(10, diff)
-    local dLvl = player:getMainLvl() - target:getMainLvl()
+    local playerLvl = player:getMainLvl()
+    local bstMainLvl = player:getJobLevel(tpz.job.BST)
+    -- If BST main level is below current job level, use BST Level for player level in formula
+    if (playerLvl > bstMainLvl) then
+        playerLvl = bstMainLvl
+    end
+
+    local dLvl = playerLvl - target:getMainLvl()
     local SDT = getEnfeeblelSDT(tpz.effect.CHARM, element, target)
     local charmMultiplier = GetCharmMultiplier(SDT)
     local charmMod = (1 + player:getMod(tpz.mod.CHARM_CHANCE) / 100) -- Correct mod?
+    local maccMod = player:getMod(tpz.mod.MACC)
     local affinityBonus = AffinityBonusAcc(player, element)
 
     if (target:getMainLvl() > 70) then
@@ -2126,8 +2134,6 @@ function GetCharmHitRate(player, target)
         dLvl = dLvl * 3
     end
 
-    -- dLvl = utils.clamp(dLvl, 0, 99999) No caps?
-
     chance = chance - familyReduction
     --print(string.format("chance - family reduction: %u", chance))
     chance = chance + dLvl
@@ -2136,8 +2142,10 @@ function GetCharmHitRate(player, target)
     --print(string.format("chance * charm multiplier: %u", chance))
     chance = chance + dCHR
     --print(string.format("chance + dCHR: %u", chance))
+    chance = chance + maccMod
+    --print(string.format("chance + maccMod: %u", chance))
     chance = chance + affinityBonus
-    --print(string.format("chance + affinity bonus: %u", chance))
+    ---print(string.format("chance + affinity bonus: %u", chance))
 
     chance = utils.clamp(chance, 5, 95)
 
