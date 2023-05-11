@@ -125,7 +125,7 @@ end
 function GetNeck(player)
     local neck = tpz.items.FIGHTERS_TORQUE
 
-    for i _,job in pairs(necks) do
+    for _,job in pairs(necks) do
         if (player:getMainJob() == job[1]) then
             neck = job[2]
         end
@@ -138,9 +138,9 @@ function GetAugment()
     local stat
     local power
 
-    for i _,augmentData in pairs(augments) do
-        stat = augmentData[1][math.random(#augmentData)]
-        power = augmentData[2][math.random(#augmentData)]
+    for _,augmentData in pairs(augments) do
+        stat = augmentData[math.random(#augmentData)][1]
+        power = augmentData[math.random(#augmentData)][2]
     end
 
     return stat, power

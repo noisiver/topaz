@@ -2124,7 +2124,6 @@ function GetCharmHitRate(player, target)
     local SDT = getEnfeeblelSDT(tpz.effect.CHARM, element, target)
     local charmMultiplier = GetCharmMultiplier(SDT)
     local charmMod = (1 + player:getMod(tpz.mod.CHARM_CHANCE) / 100) -- Correct mod?
-    local maccMod = player:getMod(tpz.mod.MACC)
     local affinityBonus = AffinityBonusAcc(player, element)
 
     if (target:getMainLvl() > 70) then
@@ -2135,20 +2134,21 @@ function GetCharmHitRate(player, target)
         dLvl = dLvl * 3
     end
 
+    dLvl = utils.clamp(chance, -99999, 0)
+
     chance = chance - familyReduction
-    --print(string.format("chance - family reduction: %u", chance))
+    --print(string.format("chance - family reduction: %i", chance))
     chance = chance + dLvl
-    --print(string.format("chance - dLvl reduction: %u", chance))
+    --print(string.format("chance - dLvl reduction: %i", chance))
     chance = chance * charmMultiplier
-    --print(string.format("chance * charm multiplier: %u", chance))
+    --print(string.format("chance * charm multiplier: %i", chance))
     chance = chance + dCHR
-    --print(string.format("chance + dCHR: %u", chance))
-    chance = chance + maccMod
-    --print(string.format("chance + maccMod: %u", chance))
+    --print(string.format("chance + dCHR: %i", chance))
     chance = chance + affinityBonus
-    ---print(string.format("chance + affinity bonus: %u", chance))
+    --print(string.format("chance + affinity bonus: %i", chance))
 
     chance = utils.clamp(chance, 5, 95)
+    --print(string.format("chance final %i", chance))
 
     return chance
 end
