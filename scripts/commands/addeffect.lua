@@ -33,7 +33,7 @@ function onTrigger(player, arg1, arg2, arg3, arg4, arg5, arg6)
         return
     else
         if (targ:isMob() == false) and (targ:isPet() == false) and (targ ~= arg1) then
-            targ = player
+            targ = player:getCursorTarget()
             -- Target player
             id = arg1
             power = tonumber(arg2) or 1
@@ -41,7 +41,8 @@ function onTrigger(player, arg1, arg2, arg3, arg4, arg5, arg6)
             subId = tonumber(arg4) or 0
             subPower = tonumber(arg5) or 0
         else
-            -- Target is cursor target
+            -- Target is player
+            target = player
             id = arg1
             power = tonumber(arg2) or 1
             duration = tonumber(arg3) or 60
