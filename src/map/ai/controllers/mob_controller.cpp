@@ -150,7 +150,7 @@ bool CMobController::CheckDetection(CBattleEntity* PTarget)
 void CMobController::TryLink()
 {
     TracyZoneScoped;
-    if (PTarget == nullptr || PTarget->objtype == TYPE_PET) // Mobs shouldn't link to pets
+    if (PTarget == nullptr || PTarget->objtype == TYPE_PET || PTarget->isCharmed) // Mobs shouldn't link to pets
     {
         return;
     }
