@@ -77,7 +77,7 @@ void CPetController::DoRoamTick(time_point tick)
     if (currentDistance > PetRoamDistance)
         // Was 35.0f, but pets lag behind heavily due to bad pathing/navmesh so this should help
     {
-        if (currentDistance < 20.0f && PPet->PAI->PathFind->PathAround(PPet->PMaster->loc.p, 2.0f, PATHFLAG_RUN | PATHFLAG_WALLHACK))
+        if (currentDistance < 20.0f && PPet->PAI->PathFind->PathInRange(PPet->PMaster->loc.p, 2.0f, PATHFLAG_RUN | PATHFLAG_WALLHACK))
         {
             PPet->PAI->PathFind->FollowPath();
         }
