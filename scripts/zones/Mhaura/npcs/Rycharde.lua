@@ -199,7 +199,8 @@ function onEventFinish(player, csid, option)
         end
     elseif (csid == 74) then   -- end quest 1 RYCHARDE_THE_CHEF
         player:tradeComplete()
-        player:addFame(WINDURST, 120)
+        player:addExp(4500 * EXP_RATE)
+        player:addFame(WINDURST, 300)
         player:addTitle(tpz.title.PURVEYOR_IN_TRAINING)
         player:addGil(GIL_RATE*1500)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*1500)
@@ -215,7 +216,8 @@ function onEventFinish(player, csid, option)
         end
     elseif (csid == 80) then  --end quest 2 WAY_OF_THE_COOK
         player:tradeComplete()
-        player:addFame(WINDURST, 120)
+        player:addExp(4500 * EXP_RATE)
+        player:addFame(WINDURST, 300)
         player:addTitle(tpz.title.ONESTAR_PURVEYOR)
         player:addGil(GIL_RATE*1500)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*1500)
@@ -228,7 +230,8 @@ function onEventFinish(player, csid, option)
         player:completeQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.WAY_OF_THE_COOK)
     elseif (csid == 81) then  --end quest 2 WAY_OF_THE_COOK
         player:tradeComplete()
-        player:addFame(WINDURST, 120)
+        player:addExp(2000 * EXP_RATE)
+        player:addFame(WINDURST, 150)
         player:addTitle(tpz.title.PURVEYOR_IN_TRAINING)
         player:addGil(GIL_RATE*1000)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*1000)
@@ -250,7 +253,8 @@ function onEventFinish(player, csid, option)
         end
     elseif (csid == 83) then  -- end quest 3 UNENDING_CHASE
         player:tradeComplete()
-        player:addFame(WINDURST, 120)
+        player:addExp(4500 * EXP_RATE)
+        player:addFame(WINDURST, 300)
         player:addTitle(tpz.title.TWOSTAR_PURVEYOR)
         player:addGil(GIL_RATE*2100)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*2100)
@@ -268,7 +272,8 @@ function onEventFinish(player, csid, option)
             player:addQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.HIS_NAME_IS_VALGEIR)
         end
     elseif (csid == 88) then  -- end quest 4 his name is Valgeir
-        player:addFame(WINDURST, 120)
+        player:addExp(2000 * EXP_RATE)
+        player:addFame(WINDURST, 300)
         player:addKeyItem(tpz.ki.MAP_OF_THE_TORAIMARAI_CANAL) --reward Map of the Toraimarai Canal
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.MAP_OF_THE_TORAIMARAI_CANAL)
         player:setCharVar("QuestUnendingCCompDay_var", 0) -- completition day of unending chase delete
@@ -283,7 +288,8 @@ function onEventFinish(player, csid, option)
         end
     elseif (csid == 92) then   -- end quest THE CLUE
         player:tradeComplete()
-        player:addFame(WINDURST, 120)
+        player:addExp(4500 * EXP_RATE)
+        player:addFame(WINDURST, 350)
         player:addTitle(tpz.title.FOURSTAR_PURVEYOR)
         player:addGil(GIL_RATE*3000)
         player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE*3000)
@@ -302,7 +308,8 @@ function onEventFinish(player, csid, option)
         end
     elseif (csid == 96) then   -- end quest the basics
         player:tradeComplete()
-        player:addFame(WINDURST, 120)
+        player:addExp(4500 * EXP_RATE)
+        player:addFame(WINDURST, 350)
         player:addTitle(tpz.title.FIVESTAR_PURVEYOR)
         if (player:getFreeSlotsCount() <= 1) then
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 133)

@@ -70,7 +70,8 @@ function onEventFinish(player, csid, option)
     elseif (csid == 61) then  -- accept quest EXPERTICE
         player:addQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.EXPERTISE)
     elseif (csid == 62) then   -- end quest expertice
-        player:addFame(WINDURST, 120)
+        player:addExp(4500 * EXP_RATE)
+        player:addFame(WINDURST, 350)
         if (player:getFreeSlotsCount() < 1) then
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 132)
         else
