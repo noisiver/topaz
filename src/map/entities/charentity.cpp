@@ -722,6 +722,13 @@ void CCharEntity::Tick(time_point tick)
     {
         gardenutils::UpdateGardening(this, true);
     }
+
+    // Send inventory finish packet to check for temps
+    if (server_clock::now() < InventoryFinishPacket)
+    {
+        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(3000);
+        this->pushPacket(new CInventoryFinishPacket());
+    }
 }
 
 void CCharEntity::PostTick()

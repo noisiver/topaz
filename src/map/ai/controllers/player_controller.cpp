@@ -43,15 +43,7 @@ CPlayerController::CPlayerController(CCharEntity* _PChar) :
 }
 
 void CPlayerController::Tick(time_point)
-{
-    auto PChar = static_cast<CCharEntity*>(POwner);
-    // Send inventory finish packet to check for temps
-    if (server_clock::now() < InventoryFinishPacket)
-    {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(5000);
-        PChar->pushPacket(new CInventoryFinishPacket());
-    }
-}
+{}
 
 bool CPlayerController::Cast(uint16 targid, SpellID spellid)
 {
