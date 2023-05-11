@@ -298,7 +298,7 @@ INSERT INTO `abilities` VALUES (242,'tranquility',20,75,1,1,231,0,0,211,2000,0,6
 INSERT INTO `abilities` VALUES (243,'equanimity',20,75,1,1,231,0,0,213,2000,0,6,20.0,0,1,80,3270,33,'WOTG');
 INSERT INTO `abilities` VALUES (244,'enlightenment',20,75,1,600,235,0,0,214,2000,0,6,20.0,0,1,80,3272,1,'WOTG');
 INSERT INTO `abilities` VALUES (245,'afflatus_solace',3,40,1,60,29,0,0,216,2000,0,6,20.0,0,1,80,0,4,'WOTG');		-- changed to 76
-INSERT INTO `abilities` VALUES (246,'afflatus_misery',3,76,1,60,30,0,0,217,2000,0,6,20.0,0,1,80,0,4,'WOTG');		-- changed to 76
+INSERT INTO `abilities` VALUES (246,'afflatus_misery',3,40,1,60,30,0,0,217,2000,0,6,20.0,0,1,80,0,4,'WOTG');		-- changed to 76
 INSERT INTO `abilities` VALUES (247,'composure',5,15,1,300,50,0,0,215,2000,0,6,20.0,0,1,80,0,0,'WOTG');		-- changed from lvl 40
 INSERT INTO `abilities` VALUES (248,'yonin',13,40,1,60,146,0,0,218,2000,0,6,20.0,0,1,600,0,4,'WOTG');
 INSERT INTO `abilities` VALUES (249,'innin',13,15,1,60,147,0,0,219,2000,0,6,20.0,0,1,60,0,4,'WOTG');
