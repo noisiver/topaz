@@ -9,6 +9,7 @@
 -----------------------------------
 local ID = require("scripts/zones/Selbina/IDs")
 require("scripts/globals/keyitems")
+require("scripts/globals/items")
 require("scripts/globals/missions")
 require("scripts/globals/npc_util")
 require("scripts/globals/settings")
@@ -148,6 +149,10 @@ function onEventFinish(player, csid, option)
         for zone = 1, #ZoneID, 2 do
             if ZoneID[zone] == currtab then
                 player:confirmTrade()
+                player:addExp(7500 * EXP_RATE)
+                player:addFame(BASTOK, 200)
+                player:addFame(SANDORIA, 200)
+                player:addFame(JEUNO, 200)
                 player:addGil(GIL_RATE * ZoneID[zone+1])
                 player:messageSpecial(ID.text.GIL_OBTAINED, GIL_RATE * ZoneID[zone+1])
                 player:setCharVar("anExplorer-CurrentTablet", 0)
@@ -167,6 +172,10 @@ function onEventFinish(player, csid, option)
         end
 
         if (tablets % (2 * 0x7fff)) >= 0x7fff then
+            -- Add all town teleport earrings
+            for v = tpz.items.KINGDOM_EARRING, tpz.items.NASHMAU_EARRING, 1 do
+                npcUtil.giveItem(player, v)
+            end
             npcUtil.giveKeyItem(player, tpz.ki.MAP_OF_THE_CRAWLERS_NEST)
         end
 
