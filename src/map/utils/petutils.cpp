@@ -1022,9 +1022,18 @@ namespace petutils
 
             if (!PMob->isDead())
             {
+                PMob->PAI->Disengage();
 
                 // charm time is up, mob attacks player now
-                PMob->PEnmityContainer->UpdateEnmity(PChar, 0, 0);
+                if (PMob->PEnmityContainer->IsWithinEnmityRange(PMob->PMaster))
+                {
+                    PMob->PEnmityContainer->UpdateEnmity(PChar, 0, 0);
+                }
+                else
+                {
+                    PMob->m_OwnerID.clean();
+                    PMob->updatemask |= UPDATE_STATUS;
+                }
 
                 // dirty exp if not full
                 PMob->m_giveExp = PMob->GetHPP() == 100;
