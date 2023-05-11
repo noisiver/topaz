@@ -2114,6 +2114,7 @@ function GetCharmHitRate(player, target)
     local dCHR = getDstatBonus(10, diff)
     local playerLvl = player:getMainLvl()
     local bstMainLvl = player:getJobLevel(tpz.job.BST)
+
     -- If BST main level is below current job level, use BST Level for player level in formula
     if (playerLvl > bstMainLvl) then
         playerLvl = bstMainLvl

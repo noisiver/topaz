@@ -408,7 +408,7 @@ enum class Mod
     CHARM_TIME                = 360, // extends the charm time only, no effect of charm chance
     REWARD_HP_BONUS           = 364, // Percent to add to reward HP healed. (364)
     REWARD_RECAST             = 1313,// Reward recast reduction
-    CHARM_CHANCE              = 391, // extra chance to charm (light+apollo staff ect)
+    CHARM_CHANCE              = 391, // extra chance to charm, in percents(1%, 2%, 3%, etc)
     FERAL_HOWL_DURATION       = 503, // +20% duration per merit when wearing augmented Monster Jackcoat +2
     JUG_LEVEL_RANGE           = 564, // Decreases the level range of spawned jug pets. Maxes out at 2.
 
