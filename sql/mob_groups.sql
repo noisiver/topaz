@@ -12760,7 +12760,7 @@ INSERT INTO `mob_groups` VALUES (21,2146,196,'Jelly',330,0,15,0,0,27,29,0);
 INSERT INTO `mob_groups` VALUES (22,6572,196,'Wight',330,0,2653,0,0,31,34,0);
 INSERT INTO `mob_groups` VALUES (23,6532,196,'Accursed_Soldier',330,0,2653,0,0,75,77,0);
 INSERT INTO `mob_groups` VALUES (24,6537,196,'Accursed_Sorcerer',330,0,2653,0,0,75,77,0);
-INSERT INTO `mob_groups` VALUES (25,1099,196,'Madfly',330,0,2143,0,0,74,76,0);
+INSERT INTO `mob_groups` VALUES (25,6773,196,'Madfly',330,0,2143,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (26,6416,196,'Rockmill',330,0,1725,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (27,6528,196,'Mauthe_Doog',330,0,1643,0,0,28,31,0);
 INSERT INTO `mob_groups` VALUES (28,2783,196,'Myconid',330,0,1760,0,0,30,32,0);
