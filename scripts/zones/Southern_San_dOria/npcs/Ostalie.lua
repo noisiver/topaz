@@ -26,7 +26,7 @@ function onTrigger(player, npc)
         605,    208, 3,    -- Pickaxe
         12600,  249, 3,    -- Robe
         12856,  199, 3,    -- Slops
-        4153,  1000,       -- Antacid
+        4153,  1000, 3,    -- Antacid
     }
 
     local rank = getNationRank(tpz.nation.SANDORIA)
