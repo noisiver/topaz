@@ -975,6 +975,7 @@ namespace petutils
         PPet->look = petData->look;
         PPet->name = petData->name;
         PPet->SetMJob(petData->mJob);
+        PPet->SetSJob(petData->sJob);
         PPet->m_EcoSystem = petData->EcoSystem;
         PPet->m_Family = petData->m_Family;
         PPet->m_Element = petData->m_Element;
@@ -1010,6 +1011,22 @@ namespace petutils
         PPet->setModifier(Mod::SDT_WATER, petData->waterresSDT);
         PPet->setModifier(Mod::SDT_LIGHT, petData->lightresSDT);
         PPet->setModifier(Mod::SDT_DARK, petData->darkresSDT);
+
+        PPet->setModifier(Mod::EEM_AMNESIA, petData->eemamnesia);
+        PPet->setModifier(Mod::EEM_VIRUS, petData->eemvirus);
+        PPet->setModifier(Mod::EEM_SILENCE, petData->eemsilence);
+        PPet->setModifier(Mod::EEM_GRAVITY, petData->eemgravity);
+        PPet->setModifier(Mod::EEM_STUN, petData->eemstun);
+        PPet->setModifier(Mod::EEM_LIGHT_SLEEP, petData->eemlightsleep);
+        PPet->setModifier(Mod::EEM_CHARM, petData->eemcharm);
+        PPet->setModifier(Mod::EEM_PARALYZE, petData->eemparalyze);
+        PPet->setModifier(Mod::EEM_BIND, petData->eembind);
+        PPet->setModifier(Mod::EEM_SLOW, petData->eemslow);
+        PPet->setModifier(Mod::EEM_PETRIFY, petData->eempetrify);
+        PPet->setModifier(Mod::EEM_TERROR, petData->eemterror);
+        PPet->setModifier(Mod::EEM_POISON, petData->eempoison);
+        PPet->setModifier(Mod::EEM_DARK_SLEEP, petData->eemdarksleep);
+        PPet->setModifier(Mod::EEM_BLIND, petData->eemblind);
 
         if (PPet->m_EcoSystem == SYSTEM_AVATAR || PPet->m_EcoSystem == SYSTEM_ELEMENTAL)
         {
