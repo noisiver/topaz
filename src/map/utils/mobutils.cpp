@@ -1663,6 +1663,7 @@ CMobEntity* InstantiateAlly(uint32 groupid, uint16 zoneID, CInstance* instance)
             PMob->m_dmgMult = Sql_GetUIntData(SqlHandle, 13);
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDelay((Sql_GetIntData(SqlHandle, 14) * 1000) / 60);
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setBaseDelay((Sql_GetIntData(SqlHandle, 14) * 1000) / 60);
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_HTH);
 
             PMob->m_Behaviour = (uint16)Sql_GetIntData(SqlHandle, 15);
             PMob->m_Link = (uint8)Sql_GetIntData(SqlHandle, 16);

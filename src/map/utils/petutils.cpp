@@ -858,6 +858,8 @@ namespace petutils
             PPet->SetMJob(petData->mJob);
             PPet->SetSJob(petData->sJob);
 
+            ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_HTH);
+
             PPet->setModifier(Mod::SLASHRES, petData->slashres);
             PPet->setModifier(Mod::PIERCERES, petData->pierceres);
             PPet->setModifier(Mod::RANGEDRES, petData->pierceres);
