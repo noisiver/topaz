@@ -50,7 +50,7 @@ function onUseAbility(caster, target, ability, action)
 end
 
 function applyRoll(caster, target, ability, action, total)
-    local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
+    local duration = 60 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
     local effectpowers = {4, 5, 5, 14, 6, 7, 9, 2, 10, 11, 18, 6}
     local effectpower = effectpowers[total]
     if (caster:getLocalVar("corsairRollBonus") == 1 and total < 12) then

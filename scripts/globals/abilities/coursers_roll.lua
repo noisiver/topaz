@@ -51,7 +51,7 @@ function onUseAbility(caster, target, ability, action)
 end
 
 function applyRoll(caster, target, ability, action, total)
-    local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
+    local duration = 60 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
     local effectpowers = {2, 3, 11, 4, 5, 6, 7, 8, 1, 10, 12, -5}
     local effectpower = effectpowers[total]
 -- Apply Buffs from Courser's Roll Enhancing Gear if present

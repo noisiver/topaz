@@ -8917,7 +8917,7 @@ INSERT INTO `item_equipment` VALUES (19217,'basilisk',69,0,66560,58,0,0,4,0);
 INSERT INTO `item_equipment` VALUES (19218,'murderer',69,0,66560,57,0,0,4,0);
 INSERT INTO `item_equipment` VALUES (19219,'iwatsubute',69,0,4194303,0,0,0,8,0);
 INSERT INTO `item_equipment` VALUES (19220,'goblin_cracker',69,0,4194303,0,0,0,8,0);
-INSERT INTO `item_equipment` VALUES (19221,'firefly',5,0,70688,59,0,0,4,0);
+INSERT INTO `item_equipment` VALUES (19221,'firefly',1,0,65536,59,0,0,4,0);
 INSERT INTO `item_equipment` VALUES (19222,'wurger',21,0,3265,34,0,0,4,0);
 INSERT INTO `item_equipment` VALUES (19223,'attar_of_roses',11,0,4194303,0,0,0,8,4);
 INSERT INTO `item_equipment` VALUES (19224,'musketoon',6,0,70688,59,0,0,4,0);

@@ -703,7 +703,7 @@ function corsairSetup(caster, ability, action, effect, job)
                              tpz.effect.DOUBLE_UP_CHANCE,
                              roll,
                              0,
-                             45,
+                             60,
                              ability:getID(),
                              effect,
                              job,

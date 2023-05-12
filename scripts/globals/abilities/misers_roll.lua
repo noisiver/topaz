@@ -49,7 +49,7 @@ function onUseAbility(caster, target, ability, action)
 end
 
 function applyRoll(caster, target, ability, action, total)
-    local duration = 300 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
+    local duration = 60 + caster:getMerit(tpz.merit.WINNING_STREAK) + caster:getMod(tpz.mod.PHANTOM_DURATION)
     local effectpowers = {30, 50, 70, 90, 200, 110, 20, 130, 150, 170, 250, 0}
     local effectpower = effectpowers[total]
 -- Apply Additional Phantom Roll+ Buff
