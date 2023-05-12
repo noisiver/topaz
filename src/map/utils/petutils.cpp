@@ -898,6 +898,21 @@ namespace petutils
             PPet->setModifier(Mod::EEM_DARK_SLEEP, petData->eemdarksleep);
             PPet->setModifier(Mod::EEM_BLIND, petData->eemblind);
 
+            // add traits for sub and main if a jug pet
+            if (PPet->getPetType() == PETTYPE_JUG_PET)
+            {
+                battleutils::AddTraits(PPet, traits::GetTraits(petData->mJob), PPet->GetMLevel());
+                if (petData->mJob != petData->sJob)
+                {
+                    battleutils::AddTraits(PPet, traits::GetTraits(petData->sJob), PPet->GetSLevel());
+                }
+                // WAR pets have 25% DA
+                if (petData->mJob == JOB_WAR && PPet->GetMLevel() >= 25 || petData->sJob == JOB_WAR && PPet->GetSLevel() >= 25)
+                {
+                    PPet->setModifier(Mod::DOUBLE_ATTACK, 25);
+                }
+            }
+
             PPet->allegiance = PMaster->allegiance;
             PMaster->StatusEffectContainer->CopyConfrontationEffect(PPet);
 
