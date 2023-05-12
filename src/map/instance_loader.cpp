@@ -151,6 +151,7 @@ CInstance* CInstanceLoader::LoadInstance(CInstance* instance)
 
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setMaxHit(1);
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setSkillType(Sql_GetIntData(SqlInstanceHandle, 16));
+            ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_HTH);
             PMob->m_dmgMult = Sql_GetUIntData(SqlInstanceHandle, 17);
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDelay((Sql_GetIntData(SqlInstanceHandle, 18) * 1000) / 60);
             ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setBaseDelay((Sql_GetIntData(SqlInstanceHandle, 18) * 1000) / 60);

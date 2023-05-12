@@ -407,6 +407,7 @@ void LoadMOBList()
 
                 ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setMaxHit(1);
                 ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setSkillType(Sql_GetIntData(SqlHandle, 17));
+                ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_HTH);
                 PMob->m_dmgMult = Sql_GetUIntData(SqlHandle, 18);
                 ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDelay((Sql_GetIntData(SqlHandle, 19) * 1000) / 60);
                 ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setBaseDelay((Sql_GetIntData(SqlHandle, 19) * 1000) / 60);
