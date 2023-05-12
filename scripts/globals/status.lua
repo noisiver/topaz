@@ -1774,12 +1774,14 @@ tpz.mod =
     REWARD_RECAST           = 1313, -- Reward recast reduction
     LOGGING_SKILL           = 1314, -- Adds Logging Skill
     MINING_SKILL            = 1315, -- Adds Mining Skill
+    PROTECT_SHELL_EFFECT    = 1316,  -- Enhances the effect of "Protect" and "Shell". Target with mod only.
+
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1316 NEXT
+    -- 1317 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

@@ -356,7 +356,7 @@ enum class Mod
     REGEN_MULTIPLIER          = 838, // Multiplier to base regen rate
     CURE2MP_PERCENT           = 860, // Converts % of "Cure" amount to MP
     DIVINE_BENISON            = 910, // Adds fast cast and enmity reduction to -Na spells (includes Erase). Enmity reduction is half of the fast cast amount
-
+    PROTECT_SHELL_EFFECT      = 1316,// Enhances the effect of "Protect" and "Shell". Target with mod only.
     // Black Mage
     CLEAR_MIND                = 295, // Used in conjunction with HEALMP to increase amount between tics
     CONSERVE_MP               = 296, // Percent chance
@@ -973,7 +973,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1316 NEXT
+    // 1317 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

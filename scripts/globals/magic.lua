@@ -2562,6 +2562,18 @@ function TryApplyEffect(caster, target, spell, effect, power, tick, duration, re
     end
 end
 
+function ApplyProtectShell(caster, target, effect, power, duration)
+    local protShellMod = target:getMod(tpz.mod.PROTECT_SHELL_EFFECT)
+
+    if (effect == tpz.effect.PROTECT) then
+        power = power * (1 + (protShellMod / 10)) -- Percent
+    elseif (effect == tpz.effect.SHELL) then
+        power = power + protShellMod -- Flat
+    end
+
+    return target:addStatusEffect(effect, power, 0, duration) 
+end
+
 function CalculateAdditionalEffectChance(player, chance)
     -- THF has double the chance to apply additional effects
     if (player:getMainJob() == tpz.job.THF) then

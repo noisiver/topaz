@@ -3136,7 +3136,8 @@ INSERT INTO `item_mods` VALUES (11036,30,2);
 INSERT INTO `item_mods` VALUES (11037,57,10);     -- Earthcry Earring: Earth resistance +10
 INSERT INTO `item_mods` VALUES (11037,539,10);    -- Enhances Stoneskin effect +10
 INSERT INTO `item_mods` VALUES (11038,23,7);
-INSERT INTO `item_mods` VALUES (11039,5,20);
+INSERT INTO `item_mods` VALUES (11039,5,20);      -- Brachyura Earring MP +20
+INSERT INTO `item_mods` VALUES (11039,1316,1);   -- Protect / Shell Effect + 1 (+10% Protect Defense and +1% Shell MDT)
 INSERT INTO `item_mods` VALUES (11040,2,10);      -- terminus_earring HP+10
 INSERT INTO `item_mods` VALUES (11040,64,1);      -- combat skill +1
 INSERT INTO `item_mods` VALUES (11041,5,10);      -- liminus_earring MP+10

@@ -807,7 +807,7 @@ INSERT INTO `item_equipment` VALUES (11035,'strophadic_earring',95,0,4194303,0,0
 INSERT INTO `item_equipment` VALUES (11036,'enchntr._earring',94,0,4194303,0,0,0,6144,0);
 INSERT INTO `item_equipment` VALUES (11037,'earthcry_earring',93,0,4194303,0,0,0,6144,0);
 INSERT INTO `item_equipment` VALUES (11038,'dragonkin_earring',95,0,8641,0,0,0,6144,0);
-INSERT INTO `item_equipment` VALUES (11039,'brachyura_earring',91,0,4194303,0,0,0,6144,0);
+INSERT INTO `item_equipment` VALUES (11039,'brachyura_earring',30,0,4194303,0,0,0,6144,0);
 INSERT INTO `item_equipment` VALUES (11040,'terminus_earring',91,0,4194303,0,0,0,6144,0);
 INSERT INTO `item_equipment` VALUES (11041,'liminus_earring',91,0,4194303,0,0,0,6144,0);
 INSERT INTO `item_equipment` VALUES (11042,'rebel_earring',50,0,6593,0,0,0,6144,0);
