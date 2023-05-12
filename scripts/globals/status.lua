@@ -156,7 +156,7 @@ tpz.subEffect =
     -- There are no spikes effect animations beyond 63. Some effects share subeffect/animations.
     -- "Damage Spikes" use the Blaze Spikes animation even though they are different status.
 
-    -- SKILLCHAINS
+    -- SKILLCHAINS What is this for? Use tpz.skillchainEle to match the enum in C++ and IDs
     NONE                = 0,
     LIGHT               = 1,
     DARKNESS            = 2,
