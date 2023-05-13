@@ -23,7 +23,6 @@ Damage dealt = (Automaton Max HP - Automaton Current HP) × fTP + Automaton Melee
 
 function onPetAbility(target, pet, skill)
     local params = {}
-    -- TODO: fTP is probably completely overtuned
     params.multiplier = 1.5
     params.tp150 = 1.75
     params.tp300 = 2.5
