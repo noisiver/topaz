@@ -18,9 +18,13 @@ function onPetAbility(target, automaton, skill, master, action)
 
     local resist = applyResistanceAbility(automaton, target, 7, skillType, 200)
     local duration = 12 * resist
+    master:PrintToPlayer(string.format("Resist %i", resist*100))
+    master:PrintToPlayer(string.format("Targets accuracy %i", target:getACC()))
+    master:PrintToPlayer(string.format("CE: %i, VE: %i", target:getCE(automaton), target:getVE(automaton)))
 
     if resist > 0.0625 then
         if target:addStatusEffect(tpz.effect.FLASH, 300, 3, duration) then
+            master:PrintToPlayer(string.format("Targets accuracy lowered to... %i", target:getACC()))
             skill:setMsg(tpz.msg.basic.SKILL_ENFEEB)
         else
             skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
@@ -28,6 +32,9 @@ function onPetAbility(target, automaton, skill, master, action)
     else
         skill:setMsg(tpz.msg.basic.JA_MISS_2)
     end
+
+    target:addEnmity(automaton, 180, 1280)
+    master:PrintToPlayer(string.format("Enmity increased to... CE: %i, VE: %i", target:getCE(automaton), target:getVE(automaton)))
 
     return tpz.effect.FLASH
 end
