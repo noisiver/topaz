@@ -113,7 +113,6 @@ void CAutomatonEntity::burdenTick()
         if (burden > 0)
         {
             burden -= std::clamp<uint8>(1 + PMaster->getMod(Mod::BURDEN_DECAY) + this->getMod(Mod::BURDEN_DECAY), 1, burden);
-            printf("Your current burden is... %u\n", burden);
         }
     }
 }
