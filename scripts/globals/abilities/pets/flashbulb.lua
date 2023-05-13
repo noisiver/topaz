@@ -24,7 +24,7 @@ function onPetAbility(target, automaton, skill, master, action)
 
     if resist > 0.0625 then
         if target:addStatusEffect(tpz.effect.FLASH, 300, 3, duration) then
-            master:PrintToPlayer(string.format("Targets accuracy lowered to... %i", target:getACC()))
+            -- master:PrintToPlayer(string.format("Targets accuracy lowered to... %i", target:getACC()))
             skill:setMsg(tpz.msg.basic.SKILL_ENFEEB)
         else
             skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
