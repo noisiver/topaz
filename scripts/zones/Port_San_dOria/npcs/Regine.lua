@@ -15,15 +15,16 @@ function onTrade(player, npc, trade)
     local flyersForRegine = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.FLYERS_FOR_REGINE)
     local theBrugaireConsortium = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.THE_BRUGAIRE_CONSORTIUM)
 
+    -- THE BRUGAIRE CONSORTIUM
+    if (theBrugaireConsortium == QUEST_ACCEPTED and npcUtil.tradeHas(trade, 593)) then
+        player:startEvent(535)
+    end
+
     -- FLYERS FOR REGINE
     if (flyersForRegine == QUEST_ACCEPTED and npcUtil.tradeHas( trade, {{"gil", 10}} )) then
         if (npcUtil.giveItem(player, 532)) then
             player:confirmTrade()
         end
-
-    -- THE BRUGAIRE CONSORTIUM
-    elseif (theBrugaireConsortium == QUEST_ACCEPTED and npcUtil.tradeHas(trade, 593)) then
-        player:startEvent(535)
     end
 end
 
