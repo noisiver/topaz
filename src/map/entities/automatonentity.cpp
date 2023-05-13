@@ -130,7 +130,7 @@ uint8 CAutomatonEntity::addBurden(uint8 element, int8 burden)
         // TODO: Retail research, this is a best guess
         burden /= 3;
     }
-
+    printf("Element ID: %u Burden: %u\n", element, burden);
     m_Burden[element] = std::clamp(m_Burden[element] + burden, 0, 255);
 
     if (burden > 0)
