@@ -32,3 +32,4 @@ function onUseAbility(player, target, ability, action)
         pet:addStatusEffectEx(tpz.effect.HEALING, 0, 0, 10, 0)
         pet:setAnimation(0)
     end
+end
