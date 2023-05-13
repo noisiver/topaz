@@ -17,7 +17,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.POISON
-    local power = math.ceil(mob:getMainLvl() / 3) + 3      -- buffed from 5
+    local power = 3
 
 
     local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.WATER, 200)
