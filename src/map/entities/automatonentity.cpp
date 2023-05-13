@@ -113,6 +113,7 @@ void CAutomatonEntity::burdenTick()
         if (burden > 0)
         {
             burden -= std::clamp<uint8>(1 + PMaster->getMod(Mod::BURDEN_DECAY) + this->getMod(Mod::BURDEN_DECAY), 1, burden);
+            printf("Your current burden is... %u\n", burden);
         }
     }
 }
@@ -130,7 +131,7 @@ uint8 CAutomatonEntity::addBurden(uint8 element, int8 burden)
         // TODO: Retail research, this is a best guess
         burden /= 3;
     }
-    printf("Element ID: %u Burden: %u\n", element, burden);
+
     m_Burden[element] = std::clamp(m_Burden[element] + burden, 0, 255);
 
     if (burden > 0)
