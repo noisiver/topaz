@@ -286,7 +286,7 @@ tpz.shop =
                 4229,    5580,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Darksteel Bolt Quiver
                 -- 5820,    9460,      tpz.ki.RHAPSODY_IN_WHITE,   -- Darkling Bolt Quiver
                 -- 5821,    9790,      tpz.ki.RHAPSODY_IN_WHITE,   -- Fusion Bolt Quiver
-                5359,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bullet Pouch
+                5359,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bronze Bullet Pouch
                 5363,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Bullet Pouch
                 5341,     350,      tpz.ki.RHAPSODY_IN_WHITE,   -- Spartan Bullet Pouch
                 5353,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Iron Bullet Pouch
