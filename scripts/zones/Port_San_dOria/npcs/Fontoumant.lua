@@ -103,7 +103,7 @@ function onEventFinish(player, csid, option)
     elseif (csid == 515) then
         if (freeSlots ~= 0) then
             player:addItem(tpz.items.MAHOGANY_SHIELD)
-            player:messageSpecial(ID.text.ITEM_OBTAINED, 12289)
+            player:messageSpecial(ID.text.ITEM_OBTAINED, tpz.items.MAHOGANY_SHIELD)
             player:addTitle(tpz.title.COURIER_EXTRAORDINAIRE)
             player:completeQuest(SANDORIA, tpz.quest.id.sandoria.THE_BRUGAIRE_CONSORTIUM)
             player:addExp(2000 * EXP_RATE)

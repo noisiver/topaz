@@ -21,11 +21,11 @@ function onTrigger(player, npc)
     local exitTheGamblerStat = player:getCharVar("exitTheGamblerStat")
     local pickpocketMask = player:getCharVar("thePickpocketSkipNPC")
 
-    if player:getCharVar("thePickpocket") == 1 and not utils.mask.getBit(pickpocketMask, 2) then
+    if exitTheGambler < QUEST_COMPLETED and exitTheGamblerStat == 0 then
+        player:startEvent(521)
+    elseif player:getCharVar("thePickpocket") == 1 and not utils.mask.getBit(pickpocketMask, 2) then
         player:showText(npc, ID.text.PICKPOCKET_AUREGE)
         player:setCharVar("thePickpocketSkipNPC", utils.mask.setBit(pickpocketMask, 2, true))
-    elseif exitTheGambler < QUEST_COMPLETED and exitTheGamblerStat == 0 then
-        player:startEvent(521)
     elseif exitTheGambler == QUEST_ACCEPTED and exitTheGamblerStat == 1 then
         player:startEvent(516)
     else
