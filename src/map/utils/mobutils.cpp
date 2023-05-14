@@ -84,11 +84,11 @@ uint16 GetWeaponDamage(CMobEntity* PMob)
     }
 
     damage = (uint16)(damage * PMob->m_dmgMult / 100.0f);
-    // TODO: Seems to give mobs obscene damage...
-    //if (PMob->getMobMod(MOBMOD_WEAPON_BONUS) != 0)
-    //{
-    //    damage += (uint16)(PMob->getMobMod(MOBMOD_WEAPON_BONUS));
-    //}
+
+    if (PMob->getMobMod(MOBMOD_WEAPON_BONUS) != 0)
+    {
+        damage += (uint16)(PMob->getMobMod(MOBMOD_WEAPON_BONUS));
+    }
 
     return damage;
 }

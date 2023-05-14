@@ -1097,36 +1097,20 @@ INSERT INTO `mob_family_mods` VALUES (139,56,-1,1);
 INSERT INTO `mob_family_mods` VALUES (511,56,-1,1);
 
 -- Weapon bonus damage
-INSERT INTO `mob_family_mods` VALUES (57,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (58,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (59,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (79,59,110,1);
-INSERT INTO `mob_family_mods` VALUES (80,59,110,1);
-INSERT INTO `mob_family_mods` VALUES (81,59,115,1);
-INSERT INTO `mob_family_mods` VALUES (265,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (266,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (267,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (268,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (87,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (136,59,145,1);
-INSERT INTO `mob_family_mods` VALUES (179,59,125,1); -- Manticore +25 Weapon dmg
-INSERT INTO `mob_family_mods` VALUES (180,59,125,1); -- Marid +25 Weapon dmg
-INSERT INTO `mob_family_mods` VALUES (217,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (208,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (210,59,110,1);
-INSERT INTO `mob_family_mods` VALUES (242,59,110,1);
-INSERT INTO `mob_family_mods` VALUES (240,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (257,59,125,1); -- Wivre +25 Weapon dmg
-
-INSERT INTO `mob_family_mods` VALUES (259,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (260,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (261,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (262,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (263,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (264,59,125,1);
-INSERT INTO `mob_family_mods` VALUES (169,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (358,59,120,1);
-INSERT INTO `mob_family_mods` VALUES (371,59,125,1);
+INSERT INTO `mob_family_mods` VALUES (57,59,35,1);  -- Buffalo
+INSERT INTO `mob_family_mods` VALUES (58,59,25,1);  -- Bugard
+INSERT INTO `mob_family_mods` VALUES (80,59,20,1);  -- Dhalmel
+INSERT INTO `mob_family_mods` VALUES (266,59,25,1); -- Wyvern
+INSERT INTO `mob_family_mods` VALUES (87,59,35,1);  -- Dragon
+INSERT INTO `mob_family_mods` VALUES (136,59,35,1); -- Goobbue
+INSERT INTO `mob_family_mods` VALUES (179,59,25,1); -- Manticore +25 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (180,59,25,1); -- Marid +25 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (217,59,25,1); -- Scorpion
+INSERT INTO `mob_family_mods` VALUES (208,59,35,1); -- Ram
+INSERT INTO `mob_family_mods` VALUES (210,59,25,1); -- Raptor
+INSERT INTO `mob_family_mods` VALUES (242,59,25,1); -- Tiger
+INSERT INTO `mob_family_mods` VALUES (257,59,25,1); -- Wivre +25 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (371,59,25,1); -- Marid (NM? Family #2)
 
 
 /*!40000 ALTER TABLE `mob_family_mods` ENABLE KEYS */;
