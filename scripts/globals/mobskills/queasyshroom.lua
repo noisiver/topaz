@@ -24,7 +24,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.POISON
-    local power = mob:getMainLvl() / 4 + 1
+    local power = 1
     mob:setMobMod(tpz.mobMod.VAR, 1)
     local numhits = 1
     local accmod = 1
