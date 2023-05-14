@@ -4258,6 +4258,24 @@ INSERT INTO `mob_spell_lists` VALUES ('Scylla',508,225,1,255); -- poisonga
 INSERT INTO `mob_spell_lists` VALUES ('Scylla',508,356,1,255); -- paralyga
 INSERT INTO `mob_spell_lists` VALUES ('Scylla',508,362,1,255); -- bindga
 
+-- Casts Aeroga II, Stonega II, Choke, Drown, Freeze, Ice Spikes, Stone III, Sleep II, and Tornado.
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,190,1,255);   -- Stonega II
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,185,1,255);   -- Aeroga II
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,235,24,255);  -- Burn
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,236,22,255);  -- Frost
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,237,20,255);  -- Choke
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,238,18,255);  -- Rasp
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,239,16,255);  -- Shock
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,240,27,255);  -- Drown
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,161,1,255);   -- Stone III
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,259,1,255);   -- Sleep II
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,208,1,255);   -- Tornado
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,206,1,255);   -- Freeze
+INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,250,1,255);   -- Ice Spikes
+
+
+-- NEXT 510
+
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,58,4,255); -- Paralyze
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,105,1,255); -- enwater
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,151,24,255); -- Blizzard II

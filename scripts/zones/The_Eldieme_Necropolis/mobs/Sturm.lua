@@ -5,9 +5,15 @@
 -----------------------------------
 local ID = require("scripts/zones/The_Eldieme_Necropolis/IDs")
 require("scripts/globals/quests")
+require("scripts/globals/status")
 -----------------------------------
 
 function onMobInitialize(mob)
+    mob:addMobMod(tpz.mobMod.WEAPON_BONUS, 25)
+    mob:addMod(tpz.mod.DEFP, 25) 
+    mob:addMod(tpz.mod.ATTP, 25)
+    mob:addMod(tpz.mod.ACC, 10) 
+    mob:addMod(tpz.mod.EVA, 10)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 300)
 end
 

@@ -4536,6 +4536,7 @@ INSERT INTO `mob_skill_lists` VALUES ('Purushamriga',6130,1566); --
 -- MMM End
 
 -- ANNM Start
+
 INSERT INTO `mob_skill_lists` VALUES ('Aqua_Fortis_Autoattack',6131,2211); 
 
 INSERT INTO `mob_skill_lists` VALUES ('Simorg',6132,819); -- blizzard breath -- chance of ice spikes effect
@@ -4559,18 +4560,14 @@ INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1680);
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,1681); 
 INSERT INTO `mob_skill_lists` VALUES ('Scythefang_Liger',6134,2207); 
 
+-- ANNM End
+
 -- Maybe needs skllID 1-9
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,1); -- combo
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,2); -- shoulder_attack
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,7); -- howling fists
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,8); -- dragon kick
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,9); -- asuran_fists
-
-INSERT INTO `mob_skill_lists` VALUES ('RaDha_Scarscute',6136,2267); -- Skull Smash
-
--- ANNM End
-
-
 
 -- Next available ID: 1173
 
