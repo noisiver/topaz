@@ -122,7 +122,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             Recast_t* recast = PChar->PRecastContainer->GetRecast(RECAST_ABILITY, PAbility->getRecastId());
             // Set recast time in seconds to the normal recast time minus any charge time with the difference of the current time minus when the recast was set.
             // Abilities without a charge will have zero chargeTime
-            uint32 recastSeconds = recast->RecastTime - recast->chargeTime - ((uint32)time(nullptr) - recast->TimeStamp);
+            uint32 recastSeconds = std::clamp<uint32>(recast->RecastTime - recast->chargeTime - ((uint32)time(nullptr) - recast->TimeStamp), 1, 99999);
 
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, recastSeconds, 0, MSGBASIC_TIME_LEFT));
