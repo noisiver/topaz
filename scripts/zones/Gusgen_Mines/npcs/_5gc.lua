@@ -23,6 +23,7 @@ function onTrigger(player, npc)
             GetNPCByID(lever - 7):setAnimation(9) -- close door B
             GetNPCByID(lever - 6):setAnimation(8) -- open door A
         end
+    end)
 
 end
 
