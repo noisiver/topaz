@@ -4273,8 +4273,90 @@ INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,208,1,255);   -- Torna
 INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,206,1,255);   -- Freeze
 INSERT INTO `mob_spell_lists` VALUES ('Dabotzs_Ghost',509,250,1,255);   -- Ice Spikes
 
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Harlequin',510,23,1,255);   -- Dia
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,144,13,22);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,145,38,47);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,146,62,67);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,147,73,94); -- Fire IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,148,95,255); -- Fire V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,149,17,27);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,150,42,53);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,151,64,68);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,152,74,94); -- Blizzard IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,153,95,255); -- Blizzard V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,154,9,18);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,155,34,44);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,156,59,66);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,157,72,94); -- Aero IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,158,95,255); -- Aero V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,159,1,10);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,160,26,35);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,161,51,60);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,162,68,94); -- Stone IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,163,95,255); -- Stone V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,164,21,46);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,165,46,55);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,166,66,70);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,167,75,94); -- Thunder IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,168,95,255); -- Thunder V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,169,5,12);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,170,30,40);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,171,55,61);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,172,70,94); -- Water IV
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,173,95,255); -- Water V
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,174,28,35);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,175,53,60);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,176,69,90);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,179,32,39);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,180,57,62);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,181,71,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,184,23,31);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,185,48,56);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,186,67,71);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,189,15,22);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,190,40,47);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,191,63,67);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,194,36,43);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,195,61,65);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,196,73,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,199,19,27);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,200,44,52);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,201,65,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,204,60,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,206,50,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,208,52,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,210,54,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,212,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,214,58,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,220,3,17);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,221,43,64);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,225,24,71);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,226,72,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,230,10,34);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,231,35,84);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,232,85,255); -- Bio III
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,235,24,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,236,22,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,237,20,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,238,18,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,239,16,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,240,27,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,245,12,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,247,25,94);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,248,95,255); -- Aspir II
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,249,10,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,252,45,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,253,20,40);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,254,4,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,258,7,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,259,41,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,273,31,55);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,274,56,255);
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,56,1,255);  -- Slow
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,58,1,255);  -- Paralyze
+INSERT INTO `mob_spell_lists` VALUES ('Valkeng_Stormwaker',511,59,1,255);  -- Silence
 
--- NEXT 510
+-- NEXT 512
 
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,58,4,255); -- Paralyze
 INSERT INTO `mob_spell_lists` VALUES ('Maat_RDM',999,105,1,255); -- enwater

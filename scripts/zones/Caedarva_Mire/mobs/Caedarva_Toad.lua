@@ -5,6 +5,12 @@
 -----------------------------------
 require("scripts/globals/quests")
 
+function onMobSpawn(mob)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+end
+
 function onMobDeath(mob, player, isKiller)
 
     local TheWaywardAutomation = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.THE_WAYWARD_AUTOMATION)

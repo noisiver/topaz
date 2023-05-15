@@ -1458,6 +1458,7 @@ INSERT INTO `bcnm_battlefield` VALUES (1057,3,16924684,3);
 
 INSERT INTO `bcnm_battlefield` VALUES (1088,1,17010725,3); -- call_to_arms
 INSERT INTO `bcnm_battlefield` VALUES (1089,1,17010725,3); -- compliments_to_the_chef
+INSERT INTO `bcnm_battlefield` VALUES (1090,1,17010719,3); -- Puppetmaster Blues
 
 
 

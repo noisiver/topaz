@@ -1,4 +1,4 @@
------------------------------------
+﻿-----------------------------------
 -- Area: Mount_Zhayolm
 -----------------------------------
 require("scripts/globals/zone")
@@ -10,25 +10,29 @@ zones[tpz.zone.MOUNT_ZHAYOLM] =
 {
     text =
     {
-        NOTHING_HAPPENS         =  119, -- Nothing happens...
+        NOTHING_HAPPENS         = 119, -- Nothing happens...
         ITEM_CANNOT_BE_OBTAINED = 6382, -- You cannot obtain the <item>. Come back after sorting your inventory.
         ITEM_OBTAINED           = 6388, -- Obtained: <item>.
         GIL_OBTAINED            = 6389, -- Obtained <number> gil.
         KEYITEM_OBTAINED        = 6391, -- Obtained key item: <keyitem>.
         FELLOW_MESSAGE_OFFSET   = 6417, -- I'm ready. I suppose.
-        CARRIED_OVER_POINTS     = 6999, -- You have carried over <number> login point[/s].
-        LOGIN_CAMPAIGN_UNDERWAY = 7000, -- The [/January/February/March/April/May/June/July/August/September/October/November/December] <number> Login Campaign is currently underway!<space>
-        LOGIN_NUMBER            = 7001, -- In celebration of your most recent login (login no. <number>), we have provided you with <number> points! You currently have a total of <number> points.
         FISHING_MESSAGE_OFFSET  = 7049, -- You can't fish here.
+        STAGING_GATE_CLOSER     = 7309, -- You must move closer.
+        STAGING_GATE_INTERACT   = 7310, -- This gate guards an area under Imperial control.
+        STAGING_GATE_HALVUNG    = 7313, -- Halvung Staging Point.
+        CANNOT_LEAVE            = 7320, -- You cannot leave this area while in the possession of <keyitem>.
         RESPONSE                = 7329, -- There is no response...
+        NOTHING_OUT_OF_ORDINARY = 7365, -- There is nothing out of the ordinary here.
+        HALVUNG_GATE_NO_KI      = 7366, -- There is a large keyhole here.
+        HALVUNG_GATE_OBTAIN_KI  = 7367, -- Obtained key item: {Cast Metal Plate}.
+        HALVUNG_GATE_WITH_KI    = 7368, -- You insert the {Cast Metal Plate} into the keyhole.
         MINING_IS_POSSIBLE_HERE = 7418, -- Mining is possible here if you have <item>.
         CANNOT_ENTER            = 7477, -- You cannot enter at this time. Please wait a while before trying again.
         AREA_FULL               = 7478, -- This area is fully occupied. You were unable to enter.
         MEMBER_NO_REQS          = 7482, -- Not all of your party members meet the requirements for this objective. Unable to enter area.
+        PARTY_MIN_REQS          = 7485, -- Your party does not meet the minimum required number of ≺Numeric Parameter 0≻ members.
         MEMBER_TOO_FAR          = 7486, -- One or more party members are too far away from the entrance. Unable to enter area.
-        SHED_LEAVES             = 7548, -- The ground is strewn with shed leaves...
-        SICKLY_SWEET            = 7563, -- A sickly sweet fragrance pervades the air...
-        DRAWS_NEAR              = 7575, -- Something draws near!
+        DETACHED_PART           = 7533, -- There is a detached part here...
         HOMEPOINT_SET           = 8724, -- Home point set!
     },
     mob =

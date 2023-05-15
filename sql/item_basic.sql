@@ -14654,7 +14654,7 @@ INSERT INTO `item_basic` VALUES (17389,0,'bamboo_fishing_rod','bamboo_fish._rod'
 INSERT INTO `item_basic` VALUES (17390,0,'yew_fishing_rod','yew_fishing_rod',1,2084,47,0,59);
 INSERT INTO `item_basic` VALUES (17391,0,'willow_fishing_rod','willow_fish._rod',1,2084,47,0,18);
 INSERT INTO `item_basic` VALUES (17392,0,'slice_of_sardine','sliced_sardine',99,2052,47,0,54);
-INSERT INTO `item_basic` VALUES (17393,0,'slice_of_cod','sliced_cod',99,2052,47,0,57);
+INSERT INTO `item_basic` VALUES (17393,0,'slice_of_cod','sliced_cod',99,2052,47,0,28);
 INSERT INTO `item_basic` VALUES (17394,0,'peeled_lobster','peeled_lobster',99,2052,47,0,66);
 INSERT INTO `item_basic` VALUES (17395,0,'lugworm','lugworm',99,2052,47,0,1);
 INSERT INTO `item_basic` VALUES (17396,0,'little_worm','little_worm',99,2052,47,0,1);

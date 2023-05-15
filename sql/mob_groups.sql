@@ -2826,8 +2826,10 @@ INSERT INTO `mob_groups` VALUES (1970,4337,56,'Wight',0,128,0,0,0,0,0,0);
 -- Talacca_Cove (Zone 57)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,1506,57,'Gessho',0,128,0,0,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (2,1506,57,'Gessho',0,128,0,2000,0,70,70,0);
+INSERT INTO `mob_groups` VALUES (1,4123,57,'Valkeng',0,128,0,18000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (2,3292,57,'Qultada',0,128,0,18000,0,65,65,0);
+INSERT INTO `mob_groups` VALUES (3,1506,57,'Gessho',0,128,0,0,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (4,1506,57,'Gessho_Clone',0,128,0,2000,0,70,70,0);
 --Fishing Start
 INSERT INTO `mob_groups` VALUES (1971,139,57,'Angler_Orobon',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (1973,255,57,'Arrapago_Leech',0,128,0,0,0,73,74,0);

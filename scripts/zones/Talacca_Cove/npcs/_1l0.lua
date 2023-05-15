@@ -1,6 +1,6 @@
 -----------------------------------
 -- Area: Talacca_Cove
--- NPC:  rock slab (corsair job flag quest)
+-- NPC:  rock slab (corsair job flag quest and BCNM Entrance)
 -- !pos -99 -7 -91 57
 -----------------------------------
 local ID = require("scripts/zones/Talacca_Cove/IDs")

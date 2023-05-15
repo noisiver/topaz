@@ -32,8 +32,33 @@ function onTrigger(player, npc)
     local TheWaywardAutomationProgress = player:getCharVar("TheWaywardAutomationProgress")
     local OperationTeatime = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.OPERATION_TEATIME)
     local OperationTeatimeProgress = player:getCharVar("OperationTeatimeProgress")
+    local isCurrentlyPuppetmaster = player:getMainJob() == tpz.job.PUP
     local LvL = player:getMainLvl()
     local Job = player:getMainJob()
+
+    --Quest: PuppetMaster Blues
+    local PuppetmasterBlues = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES)
+    local OperationTeatime = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.OPERATION_TEATIME)
+
+    if OperationTeatime == QUEST_COMPLETED and not player:needToZone() then
+        if PuppetmasterBlues == QUEST_AVAILABLE and isCurrentlyPuppetmaster then
+            return player:startEvent(782)
+        elseif PuppetmasterBlues == QUEST_ACCEPTED then
+            local PuppetmasterBluesProgress = player:getCharVar("PuppetmasterBluesProgress")
+            if PuppetmasterBluesProgress <= 4 then
+                return player:startEvent(783)
+            elseif PuppetmasterBluesProgress == 5 then
+                return player:startEvent(784)
+            elseif PuppetmasterBluesProgress == 6 then
+                return player:startEvent(785)
+            elseif PuppetmasterBluesProgress == 7 then
+                return player:startEvent(786)
+            end
+        elseif PuppetmasterBlues == QUEST_COMPLETED then
+            return player:startEvent(787)
+        end
+        return player:startEvent(777)
+    end
 
     -- Quest: No Strings Attached
     if NoStringsAttached == QUEST_ACCEPTED and NoStringsAttachedProgress == 1 then
@@ -95,11 +120,19 @@ function onEventFinish(player, csid, option)
         player:addQuest(AHT_URHGAN, tpz.quest.id.ahtUrhgan.THE_WAYWARD_AUTOMATION)
     elseif csid == 776 then
         npcUtil.completeQuest(player, AHT_URHGAN, tpz.quest.id.ahtUrhgan.THE_WAYWARD_AUTOMATION, {item=17858, var="TheWaywardAutomationProgress"})
+        player:needToZone(true)
     elseif csid == 778 then
         player:setCharVar("OperationTeatimeProgress", 1)
         player:addQuest(AHT_URHGAN, tpz.quest.id.ahtUrhgan.OPERATION_TEATIME)
     elseif csid == 780 then
         player:setCharVar("OperationTeatimeProgress", 2)
         player:confirmTrade()
+    elseif csid == 782 then
+        player:addQuest(AHT_URHGAN, tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES)
+        player:setCharVar("PuppetmasterBluesProgress", 1)
+    elseif csid == 784 then
+        player:setCharVar("PuppetmasterBluesProgress", 6)
+    elseif csid == 786 then
+        npcUtil.completeQuest(player, AHT_URHGAN, PUPPETMASTER_BLUES, {item=15267, title=dsp.title.PARAGON_OF_PUPPETMASTER_EXCELLENCE, var="PuppetmasterBluesProgress"})
     end
 end

@@ -3874,6 +3874,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Bhogbiggs_Vial',1170,2371);
 INSERT INTO `mob_skill_lists` VALUES ('Head_Butt_Autoattack',1171,3843); 
 INSERT INTO `mob_skill_lists` VALUES ('Skull_Smash_only',1172,2267); 
 
+INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Slapstick',1173,1943);
+INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Valoredge',1174,1940);
+INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Valoredge',1174,1941);
+INSERT INTO `mob_skill_lists` VALUES ('Valkeng_Sharpshot',1175,1942);
+
 -- Custom Content
 
 -- Murgleis
@@ -4569,5 +4574,5 @@ INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,7); -- howling fists
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,8); -- dragon kick
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,9); -- asuran_fists
 
--- Next available ID: 1173
+-- Next available ID: 1176
 
