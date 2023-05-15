@@ -309,6 +309,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(auto)
             local isBlocked = math.random()*100 < target:getBlockRate(auto)
+            local isParried = math.random()*100 < target:getParryRate(auto)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -369,6 +370,10 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
             if auto:isInfront(target, 90) and isBlocked then
                 finaldmg = target:getBlockedDamage(finaldmg)
             end
+            -- Check if mob parried us
+            if auto:isInfront(target, 90) and isParried then
+                finaldmg = 0
+            end
             numHitsProcessed = 1
         end
 
@@ -378,6 +383,7 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(auto)
             local isBlocked = math.random()*100 < target:getBlockRate(auto)
+            local isParried = math.random()*100 < target:getParryRate(auto)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -406,6 +412,14 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
             finaldmg = finaldmg + (autoHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp)
             --handling phalanx
             finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
+            -- Check if mob blocked us
+            if auto:isInfront(target, 90) and isBlocked then
+                finaldmg = target:getBlockedDamage(finaldmg)
+            end
+            -- Check if mob parried us
+            if auto:isInfront(target, 90) and isParried then
+                finaldmg = 0
+            end
             numHitsProcessed = numHitsProcessed + 1
         end
     end
@@ -417,10 +431,10 @@ function AutoPhysicalWeaponSkill(auto, target, skill, attackType, numberofhits, 
         finaldmg = math.floor(finaldmg * truesightBonus)
     end
 
-    -- Check if mob blocked us
-    if auto:isInfront(target, 90) and isBlocked then
-        finaldmg = target:getBlockedDamage(finaldmg)
+    if (finaldmg == 0) then -- Full parries and full miss
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
     end
+
     --printf("finaldmg %i", finaldmg)
     returninfo.dmg = finaldmg
     returninfo.hitslanded = numHitsLanded

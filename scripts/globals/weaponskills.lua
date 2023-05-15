@@ -223,6 +223,14 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
         end
     end
 
+    -- Check for parry
+    local parryRate = target:getParryRate(attacker)
+    local isParried = attacker:isInfront(target, 90) and math.random()*100 < target:getParryRate(attacker)
+
+    if isParried then
+        calcParams.hitRate = 0
+    end
+
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
 
     finaldmg = finaldmg + hitdmg

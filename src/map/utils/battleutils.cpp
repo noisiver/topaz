@@ -2386,7 +2386,53 @@ int getSDTTier(int SDT)
                 // Inquartata grants a flat parry rate bonus.
                 int16 inquartataBonus = static_cast<int16>(PDefender->getMod(Mod::INQUARTATA));
                 parryRate += (uint8)inquartataBonus;
-                // printf("Your parryrtate is... %f \n", parryRate);
+
+                // Parry rate caps at 80% like Counter(unverified)
+                if (parryRate > 80.0f)
+                {
+                    parryRate = 80.0f;
+                }
+                // printf("Player parry rate is... %f \n", parryRate);
+                return static_cast<uint8>(parryRate);
+            }
+        }
+
+        return 0;
+    }
+
+    uint8 GetMobParryRate(CBattleEntity* PAttacker, CBattleEntity* PDefender)
+    {
+        CItemWeapon* PWeapon = GetEntityWeapon(PDefender, SLOT_MAIN);
+        if (PDefender->objtype == TYPE_MOB)
+        {
+            JOBTYPE job = PDefender->GetMJob();
+
+            if (job == JOB_NIN || job == JOB_SAM || job == JOB_THF || job == JOB_BST || job == JOB_DRG || job == JOB_PLD || job == JOB_WAR || job == JOB_BRD ||
+                job == JOB_DRK || job == JOB_RDM || job == JOB_COR || job == JOB_DNC || job == JOB_PUP || job == JOB_RUN || job == JOB_BLU || job == JOB_MNK ||
+                job == JOB_GEO || job == JOB_SCH)
+            {
+                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
+                {
+                    return 0;
+                }
+                auto weapon = dynamic_cast<CItemWeapon*>(PAttacker->m_Weapons[SLOT_MAIN]);
+                uint16 attackskill = static_cast<uint16>(PAttacker->GetSkill((SKILLTYPE)(weapon ? weapon->getSkillType() : 0)));
+                uint16 skill = static_cast<uint16>((PDefender->GetSkill(SKILL_PARRY) + PDefender->getMod(Mod::PARRY) + PWeapon->getILvlParry()));
+
+                // parry rate = clamp(15 + floor((parryskill - weaponskill)*.125f - (level correction?)),5,20)
+                // https://ffxilogdialy.hatenablog.com/entry/2018/08/10/113719
+                auto parryRate = std::clamp<float>((float)((15 + floor(skill - attackskill) * 0.125f)), 5.0f, 20.0f);
+
+                // Inquartata grants a flat parry rate bonus.
+                int16 inquartataBonus = static_cast<int16>(PDefender->getMod(Mod::INQUARTATA));
+                parryRate += (uint8)inquartataBonus;
+
+                //  Parry rate caps at 80% like Counter(unverified)
+                if (parryRate > 80.0f)
+                {
+                    parryRate = 80.0f;
+                }
+                // printf("Mobs parry rate is... %f \n", parryRate);
                 return static_cast<uint8>(parryRate);
             }
         }

@@ -14797,15 +14797,19 @@ inline int32 CLuaBaseEntity::getParryRate(lua_State* L)
     CLuaBaseEntity* PLuaBaseEntity = Lunar<CLuaBaseEntity>::check(L, 1);
     CBattleEntity* PAttacker = (CBattleEntity*)(PLuaBaseEntity->GetBaseEntity());
 
-    if (PDefender->objtype != TYPE_PC)
+    if (PDefender->objtype != TYPE_PC && PDefender->objtype != TYPE_MOB)
     {
         lua_pushinteger(L, 0);
         return 1;
     }
 
-    if (PDefender && PAttacker && !PDefender->StatusEffectContainer->HasPreventActionEffect() && PDefender->PAI && PDefender->PAI->IsEngaged() &&
+    if (PDefender && PAttacker && PDefender->objtype == TYPE_PC && !PDefender->StatusEffectContainer->HasPreventActionEffect() && PDefender->PAI &&
+        PDefender->PAI->IsEngaged() &&
         facing(PDefender->loc.p, PAttacker->loc.p, 64))
         lua_pushinteger(L, battleutils::GetParryRate(PAttacker, PDefender));
+    else if (PDefender && PAttacker && PDefender->objtype == TYPE_MOB && !PDefender->StatusEffectContainer->HasPreventActionEffect() && PDefender->PAI &&
+        PDefender->PAI->IsEngaged() && facing(PDefender->loc.p, PAttacker->loc.p, 64))
+        lua_pushinteger(L, battleutils::GetMobParryRate(PAttacker, PDefender));
     else
         lua_pushinteger(L, 0);
 

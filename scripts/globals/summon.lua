@@ -222,6 +222,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
             local isBlocked = math.random()*100 < target:getBlockRate(avatar)
+            local isParried = math.random()*100 < target:getParryRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -282,6 +283,10 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             if avatar:isInfront(target, 90) and isBlocked then
                 finaldmg = target:getBlockedDamage(finaldmg)
             end
+            -- Check if mob parried us
+            if avatar:isInfront(target, 90) and isParried then
+                finaldmg = 0
+            end
             numHitsProcessed = 1
         end
 
@@ -291,6 +296,7 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             local isCrit = math.random() < critRate
             local isGuarded = math.random()*100 < target:getGuardRate(avatar)
             local isBlocked = math.random()*100 < target:getBlockRate(avatar)
+            local isParried = math.random()*100 < target:getParryRate(avatar)
             if isCrit then
                 -- Ranged crits are pdif * 1.25
                 if attackType == tpz.attackType.RANGED then
@@ -319,6 +325,14 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             finaldmg = finaldmg + (avatarHitDmg(weaponDmg, fSTR, WSC, pDif) * ftp)
             --handling phalanx
             finaldmg = finaldmg - target:getMod(tpz.mod.PHALANX)
+            -- Check if mob blocked us
+            if avatar:isInfront(target, 90) and isBlocked then
+                finaldmg = target:getBlockedDamage(finaldmg)
+            end
+            -- Check if mob parried us
+            if avatar:isInfront(target, 90) and isParried then
+                finaldmg = 0
+            end
             numHitsProcessed = numHitsProcessed + 1
         end
         -- apply ftp bonus
@@ -329,10 +343,11 @@ function AvatarPhysicalBP(avatar, target, skill, attackType, numberofhits, ftp, 
             --printf("%i", finaldmg)
         end
     end
-    -- Check if mob blocked us
-    if avatar:isInfront(target, 90) and isBlocked then
-        finaldmg = target:getBlockedDamage(finaldmg)
+
+    if (finaldmg == 0) then -- Full parries and full miss
+        skill:setMsg(tpz.msg.basic.SKILL_MISS)
     end
+
     --printf("finaldmg %i", finaldmg)
     returninfo.dmg = finaldmg
     returninfo.hitslanded = numHitsLanded
