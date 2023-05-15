@@ -36,7 +36,7 @@ function onMobWeaponSkill(target, mob, skill)
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 20, 0, 90)
+    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 8, 0, 90)
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffectTwo, 1, 0, 8)
     if (MobPhysicalHit(mob, skill)) then
         mob:resetEnmity(target)

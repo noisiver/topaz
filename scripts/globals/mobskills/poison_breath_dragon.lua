@@ -23,7 +23,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
 
     local typeEffect = tpz.effect.POISON
-    local power = 25
+    local power = 15
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WATER)
