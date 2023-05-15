@@ -540,6 +540,12 @@ void CalculateStats(CMobEntity * PMob)
         battleutils::AddTraits(PMob, traits::GetTraits(sJob), PMob->GetSLevel());
     }
 
+    // Max [HP/MP] Boost traits
+    PMob->UpdateHealth();
+    PMob->health.tp = 0;
+    PMob->health.hp = PMob->GetMaxHP();
+    PMob->health.mp = PMob->GetMaxMP();
+
     SetupJob(PMob);
     SetupRoaming(PMob);
 
