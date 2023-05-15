@@ -4944,12 +4944,13 @@ INSERT INTO `item_mods` VALUES (11469,1,25);
 INSERT INTO `item_mods` VALUES (11469,2,12);
 INSERT INTO `item_mods` VALUES (11469,24,10);
 INSERT INTO `item_mods` VALUES (11469,542,33);
-INSERT INTO `item_mods` VALUES (11470,1,16);
+INSERT INTO `item_mods` VALUES (11470,1,16);      -- Puppetry Taj +1
 INSERT INTO `item_mods` VALUES (11470,2,15);
+INSERT INTO `item_mods` VALUES (11470,25,5);      -- Accuracy+5
 INSERT INTO `item_mods` VALUES (11470,9,5);
 INSERT INTO `item_mods` VALUES (11470,10,5);
 INSERT INTO `item_mods` VALUES (11470,13,5);
-INSERT INTO `item_mods` VALUES (11471,1,19);
+INSERT INTO `item_mods` VALUES (11471,1,19);      -- Pantin Taj
 INSERT INTO `item_mods` VALUES (11471,2,12);
 INSERT INTO `item_mods` VALUES (11471,8,3);
 INSERT INTO `item_mods` VALUES (11471,11,3);
@@ -8485,9 +8486,9 @@ INSERT INTO `item_mods` VALUES (12516,2,12);
 INSERT INTO `item_mods` VALUES (12516,8,4);
 INSERT INTO `item_mods` VALUES (12516,96,2);
 INSERT INTO `item_mods` VALUES (12516,116,5);
-INSERT INTO `item_mods` VALUES (12517,1,22);
+INSERT INTO `item_mods` VALUES (12517,1,22);      -- Beast Helm
 INSERT INTO `item_mods` VALUES (12517,2,15);
-INSERT INTO `item_mods` VALUES (12517,12,5);
+INSERT INTO `item_mods` VALUES (12517,8,3);       -- STR+3
 INSERT INTO `item_mods` VALUES (12517,360,4);
 INSERT INTO `item_mods` VALUES (12518,1,21);
 INSERT INTO `item_mods` VALUES (12518,2,13);
@@ -8499,11 +8500,11 @@ INSERT INTO `item_mods` VALUES (12519,2,12);        -- Drachen Armet HP: 12
 INSERT INTO `item_mods` VALUES (12519,13,5);        -- Drachen Armet MND: 5
 INSERT INTO `item_mods` VALUES (12519,58,10);       -- Drachen Armet Thun-res: 10
 INSERT INTO `item_mods` VALUES (12519,829,1);       -- Drachen Armet Wyvern Breath Targets Weakness: Active
-INSERT INTO `item_mods` VALUES (12520,1,15); -- evokers_horn
+INSERT INTO `item_mods` VALUES (12520,1,15);        -- evokers_horn
 INSERT INTO `item_mods` VALUES (12520,5,20);
 INSERT INTO `item_mods` VALUES (12520,12,3);
 INSERT INTO `item_mods` VALUES (12520,117,5);
-INSERT INTO `item_mods` VALUES (12520,1261,-2); -- Avatar Enmity -2
+INSERT INTO `item_mods` VALUES (12520,1261,-2);     -- Avatar Enmity -2
 INSERT INTO `item_mods` VALUES (12521,54,6);
 INSERT INTO `item_mods` VALUES (12521,55,6);
 INSERT INTO `item_mods` VALUES (12521,56,6);
@@ -12785,9 +12786,9 @@ INSERT INTO `item_mods` VALUES (14096,1,10);
 INSERT INTO `item_mods` VALUES (14096,2,15);
 INSERT INTO `item_mods` VALUES (14096,13,5);
 INSERT INTO `item_mods` VALUES (14096,858,90);    -- Arcane Circle duration +90 seconds
-INSERT INTO `item_mods` VALUES (14097,1,10);
+INSERT INTO `item_mods` VALUES (14097,1,10);      -- Beast Gaiters
 INSERT INTO `item_mods` VALUES (14097,2,11);
-INSERT INTO `item_mods` VALUES (14097,11,3);
+INSERT INTO `item_mods` VALUES (14097,9,3);      -- DEX+3
 INSERT INTO `item_mods` VALUES (14097,360,2);
 INSERT INTO `item_mods` VALUES (14097,364,10);
 INSERT INTO `item_mods` VALUES (14098,1,10);
@@ -13279,17 +13280,20 @@ INSERT INTO `item_mods` VALUES (14221,110,10);
 INSERT INTO `item_mods` VALUES (14222,1,30);
 INSERT INTO `item_mods` VALUES (14222,2,15);
 INSERT INTO `item_mods` VALUES (14222,14,4);
-INSERT INTO `item_mods` VALUES (14222,224,2);
-INSERT INTO `item_mods` VALUES (14222,225,2);
-INSERT INTO `item_mods` VALUES (14222,226,2);
-INSERT INTO `item_mods` VALUES (14222,227,2);
-INSERT INTO `item_mods` VALUES (14222,228,2);
-INSERT INTO `item_mods` VALUES (14222,229,2);
-INSERT INTO `item_mods` VALUES (14222,230,2);
-INSERT INTO `item_mods` VALUES (14222,231,2);
-INSERT INTO `item_mods` VALUES (14222,232,2);
-INSERT INTO `item_mods` VALUES (14222,233,2);
-INSERT INTO `item_mods` VALUES (14222,234,2);
+INSERT INTO `item_mods` VALUES (14222,224,5);
+INSERT INTO `item_mods` VALUES (14222,225,5);
+INSERT INTO `item_mods` VALUES (14222,226,5);
+INSERT INTO `item_mods` VALUES (14222,227,5);
+INSERT INTO `item_mods` VALUES (14222,228,5);
+INSERT INTO `item_mods` VALUES (14222,229,5);
+INSERT INTO `item_mods` VALUES (14222,230,5);
+INSERT INTO `item_mods` VALUES (14222,1224,5);
+INSERT INTO `item_mods` VALUES (14222,1225,5);
+INSERT INTO `item_mods` VALUES (14222,1226,5);
+INSERT INTO `item_mods` VALUES (14222,1227,5);
+INSERT INTO `item_mods` VALUES (14222,1228,5);
+INSERT INTO `item_mods` VALUES (14222,1229,5);
+INSERT INTO `item_mods` VALUES (14222,1230,5);
 INSERT INTO `item_mods` VALUES (14222,360,6);
 INSERT INTO `item_mods` VALUES (14223,1,27);
 INSERT INTO `item_mods` VALUES (14223,2,12);
@@ -16892,17 +16896,17 @@ INSERT INTO `item_mods` VALUES (15231,1,28);
 INSERT INTO `item_mods` VALUES (15231,2,12);
 INSERT INTO `item_mods` VALUES (15231,13,6);
 INSERT INTO `item_mods` VALUES (15231,27,3);
-INSERT INTO `item_mods` VALUES (15231,1015,1);     -- Enhances Cover to redirect magic and ranged attacks to ability user
+INSERT INTO `item_mods` VALUES (15231,1015,1);      -- Enhances Cover to redirect magic and ranged attacks to ability user
 INSERT INTO `item_mods` VALUES (15232,1,27);
 INSERT INTO `item_mods` VALUES (15232,2,12);
 INSERT INTO `item_mods` VALUES (15232,5,12);
 INSERT INTO `item_mods` VALUES (15232,8,7);
 INSERT INTO `item_mods` VALUES (15232,96,2);
 INSERT INTO `item_mods` VALUES (15232,116,5);
-INSERT INTO `item_mods` VALUES (15233,1,26);
+INSERT INTO `item_mods` VALUES (15233,1,26);        -- Beast Helm +1
 INSERT INTO `item_mods` VALUES (15233,2,15);
-INSERT INTO `item_mods` VALUES (15233,12,8);
-INSERT INTO `item_mods` VALUES (15233,13,8);
+INSERT INTO `item_mods` VALUES (15233,8,4);         -- STR+4
+INSERT INTO `item_mods` VALUES (15233,384,300);     -- Haste+3%
 INSERT INTO `item_mods` VALUES (15233,360,4);
 INSERT INTO `item_mods` VALUES (15234,1,19);
 INSERT INTO `item_mods` VALUES (15234,2,11);
@@ -17097,8 +17101,9 @@ INSERT INTO `item_mods` VALUES (15266,2,8);
 INSERT INTO `item_mods` VALUES (15266,8,2);
 INSERT INTO `item_mods` VALUES (15266,26,8);
 INSERT INTO `item_mods` VALUES (15266,411,5);
-INSERT INTO `item_mods` VALUES (15267,1,15);
+INSERT INTO `item_mods` VALUES (15267,1,15);      -- Puppetry taj
 INSERT INTO `item_mods` VALUES (15267,2,10);
+INSERT INTO `item_mods` VALUES (15267,25,3);      -- Accuracy+3
 INSERT INTO `item_mods` VALUES (15267,9,3);
 INSERT INTO `item_mods` VALUES (15267,13,3);
 INSERT INTO `item_mods` VALUES (15268,2,-1);
@@ -17365,9 +17370,9 @@ INSERT INTO `item_mods` VALUES (15359,5,15);
 INSERT INTO `item_mods` VALUES (15359,8,5);
 INSERT INTO `item_mods` VALUES (15359,13,5);
 INSERT INTO `item_mods` VALUES (15359,858,90);    -- Arcane Circle duration +90 seconds
-INSERT INTO `item_mods` VALUES (15360,1,14);
+INSERT INTO `item_mods` VALUES (15360,1,14);      -- Beast Gaiters +1
 INSERT INTO `item_mods` VALUES (15360,2,11);
-INSERT INTO `item_mods` VALUES (15360,11,5);
+INSERT INTO `item_mods` VALUES (15360,9,5);       -- DEX+5
 INSERT INTO `item_mods` VALUES (15360,14,5);
 INSERT INTO `item_mods` VALUES (15360,360,2);
 INSERT INTO `item_mods` VALUES (15360,364,11);
@@ -17908,17 +17913,20 @@ INSERT INTO `item_mods` VALUES (15569,1,34);
 INSERT INTO `item_mods` VALUES (15569,2,15);
 INSERT INTO `item_mods` VALUES (15569,8,6);
 INSERT INTO `item_mods` VALUES (15569,14,6);
-INSERT INTO `item_mods` VALUES (15569,224,2);
-INSERT INTO `item_mods` VALUES (15569,225,2);
-INSERT INTO `item_mods` VALUES (15569,226,2);
-INSERT INTO `item_mods` VALUES (15569,227,2);
-INSERT INTO `item_mods` VALUES (15569,228,2);
-INSERT INTO `item_mods` VALUES (15569,229,2);
-INSERT INTO `item_mods` VALUES (15569,230,2);
-INSERT INTO `item_mods` VALUES (15569,231,2);
-INSERT INTO `item_mods` VALUES (15569,232,2);
-INSERT INTO `item_mods` VALUES (15569,233,2);
-INSERT INTO `item_mods` VALUES (15569,234,2);
+INSERT INTO `item_mods` VALUES (15569,224,5);
+INSERT INTO `item_mods` VALUES (15569,225,5);
+INSERT INTO `item_mods` VALUES (15569,226,5);
+INSERT INTO `item_mods` VALUES (15569,227,5);
+INSERT INTO `item_mods` VALUES (15569,228,5);
+INSERT INTO `item_mods` VALUES (15569,229,5);
+INSERT INTO `item_mods` VALUES (15569,230,5);
+INSERT INTO `item_mods` VALUES (15569,1224,5);
+INSERT INTO `item_mods` VALUES (15569,1225,5);
+INSERT INTO `item_mods` VALUES (15569,1226,5);
+INSERT INTO `item_mods` VALUES (15569,1227,5);
+INSERT INTO `item_mods` VALUES (15569,1228,5);
+INSERT INTO `item_mods` VALUES (15569,1229,5);
+INSERT INTO `item_mods` VALUES (15569,1230,5);
 INSERT INTO `item_mods` VALUES (15569,360,6);
 INSERT INTO `item_mods` VALUES (15570,1,31);
 INSERT INTO `item_mods` VALUES (15570,2,12);

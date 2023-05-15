@@ -137,20 +137,23 @@ INSERT INTO `item_mods_pet` VALUES (15032,384,300,3);    -- Pantin Dastanas +1 A
 INSERT INTO `item_mods_pet` VALUES (15101,165,3,1);     -- Summoner's Dblt. Avatar: Critical Hit Rate +3%
 INSERT INTO `item_mods_pet` VALUES (15116,25,10,1);      -- Summoner's Brcr. Avatar: Enhances accuracy +10
 -- INSERT INTO `item_mods_pet` VALUES (15131,unimplemented,1,1); -- Summoner's Spats Avatar: Shortens magic recast time for spirits
-INSERT INTO `item_mods_pet` VALUES (15146,23,15,1);      -- Summoner's Pgch. Avatar: Enhances attack +15
+INSERT INTO `item_mods_pet` VALUES (15146,23,15,1);     -- Summoner's Pgch. Avatar: Enhances attack +15
 INSERT INTO `item_mods_pet` VALUES (15146,357,-2,1);    -- "Blood Pact" ability delay -2
 INSERT INTO `item_mods_pet` VALUES (15239,27,-3,1);     -- Evk. Horn +1 Avatar: Enmity -3
-INSERT INTO `item_mods_pet` VALUES (15267,72,3,3);      -- Pup. Taj Automaton: HP recovered while healing +3
-INSERT INTO `item_mods_pet` VALUES (15267,71,3,3);      -- Automaton: MP recovered while healing +3
+INSERT INTO `item_mods_pet` VALUES (15267,25,5,3);      -- Pup. Taj Automaton: Accuracy +5
+INSERT INTO `item_mods_pet` VALUES (15267,23,5,3);      -- Pup. Taj Automaton: Attack +5
+INSERT INTO `item_mods_pet` VALUES (11470,25,10,3);     -- Pup. Taj +1 Automaton: Accuracy +10
+INSERT INTO `item_mods_pet` VALUES (11470,23,10,3);     -- Pup. Taj +1 Automaton: Attack +10
 INSERT INTO `item_mods_pet` VALUES (15366,27,-4,1);     -- Evk. Pigaches +1 Avatar: Enmity -4
-INSERT INTO `item_mods_pet` VALUES (15366,68,25,1);      -- Avatar: Enhances evasion +25
+INSERT INTO `item_mods_pet` VALUES (15366,68,25,1);     -- Avatar: Enhances evasion +25
 INSERT INTO `item_mods_pet` VALUES (15367,2,30,2);      -- Falconer's Hose Wyvern: HP+30
 INSERT INTO `item_mods_pet` VALUES (15574,3,15,2);      -- Drn. Brais +1Wyvern: HP+15%
 INSERT INTO `item_mods_pet` VALUES (15575,25,12,1);     -- Evk. Spats +1 Avatar: Enhances accuracy +12
 INSERT INTO `item_mods_pet` VALUES (15575,27,-2,1);     -- Avatar: Enmity -2
 INSERT INTO `item_mods_pet` VALUES (15594,27,2,1);      -- Smn. Spats +1 Avatar: Enmity +2
-INSERT INTO `item_mods_pet` VALUES (15602,374,5,3);     -- Pup. Churidars Automaton: Enhances "Cure" potency +5% (?)
-INSERT INTO `item_mods_pet` VALUES (15602,168,10,3);    -- Automaton: Spell interruption rate down 10% (?)
+INSERT INTO `item_mods_pet` VALUES (15602,374,10,3);    -- Pup. Churidars Automaton: Enhances "Cure" potency +10%
+INSERT INTO `item_mods_pet` VALUES (15602,370,3,3);     -- Pup. Churidars Automaton: Regen+3
+INSERT INTO `item_mods_pet` VALUES (15602,168,20,3);    -- Automaton: Spell interruption rate down 20%
 INSERT INTO `item_mods_pet` VALUES (15647,1,10,0);      -- Askar Dirs Pet: DEF +10
 INSERT INTO `item_mods_pet` VALUES (15649,1,10,0);      -- Goliard Trews Pet: DEF +10
 INSERT INTO `item_mods_pet` VALUES (15661,2,50,2);      -- Homam Gambieras Wyvern: HP+50
@@ -164,8 +167,9 @@ INSERT INTO `item_mods_pet` VALUES (16173,1,10,0);      -- Pallas's Shield Pet: 
 INSERT INTO `item_mods_pet` VALUES (16245,23,15,3);     -- Pantin Cape Automaton: Attack +15
 INSERT INTO `item_mods_pet` VALUES (16270,2,50,2);      -- Chanoix's Gorget Wyvern: HP+50
 INSERT INTO `item_mods_pet` VALUES (16297,161,-2,0);    -- Shepherd's Chain Pet: Damage taken -2%
-INSERT INTO `item_mods_pet` VALUES (16351,374,5,3);     -- Pup. Churidars +1 Automaton: Enhances "Cure" potency +5% (?)
-INSERT INTO `item_mods_pet` VALUES (16351,168,10,3);    -- Automaton: Spell interruption rate down 10% (?)
+INSERT INTO `item_mods_pet` VALUES (16351,374,15,3);    -- Pup. Churidars +1 Automaton: Enhances "Cure" potency +15%
+INSERT INTO `item_mods_pet` VALUES (16351,370,4,3);     -- Pup. Churidars +1 Automaton: Regen+4
+INSERT INTO `item_mods_pet` VALUES (16351,168,30,3);    -- Automaton: Spell interruption rate down 30%
 INSERT INTO `item_mods_pet` VALUES (16352,30,5,3);      -- Pantin Churidars Automaton: Magic Accuracy +5
 INSERT INTO `item_mods_pet` VALUES (16353,30,7,3);      -- Ptn. Churidars +1 Automaton: Magic Accuracy +7
 INSERT INTO `item_mods_pet` VALUES (16368,25,10,0);     -- Herder's Subligar Enhances pet accuracy +10 (?)
@@ -540,6 +544,15 @@ INSERT INTO `item_mods_pet` VALUES (15318,24,5,0);     -- Rubious Pumps: Ranged 
 INSERT INTO `item_mods_pet` VALUES (15318,26,5,0);     -- Rubious Pumps: Ranged Accuracy+5
 INSERT INTO `item_mods_pet` VALUES (18624,23,10,0);    -- Numen Staff: Attack +10
 INSERT INTO `item_mods_pet` VALUES (18624,25,10,0);    -- Numen Staff: Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (12646,384,200,0);  -- Beast Jackcoat: Pet: Haste+2%
+INSERT INTO `item_mods_pet` VALUES (14481,384,300,0);  -- Beast Jackcoat +1: Pet: Haste+3%
+INSERT INTO `item_mods_pet` VALUES (12517,25,10,0);    -- Beast Helm: Pet: Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (15233,25,12,0);    -- Beast Helm +1: Pet: Accuracy+12
+INSERT INTO `item_mods_pet` VALUES (13969,73,5,0);     -- Beast Gloves: Pet: StoreTP+5
+INSERT INTO `item_mods_pet` VALUES (14898,73,5,0);     -- Beast Gloves +1: Pet: StoreTP+5
+INSERT INTO `item_mods_pet` VALUES (14898,288,5,0);    -- Beast Gloves +1: Pet: Double Attack +5%
+INSERT INTO `item_mods_pet` VALUES (14097,25,5,0);     -- Beast Gaiters: Pet: Accuracy+5
+INSERT INTO `item_mods_pet` VALUES (15360,25,10,0);    -- Beast Gaiters +1: Pet: Accuracy+10
 
 
 
