@@ -2125,6 +2125,11 @@ function GetCharmHitRate(player, target)
     local charmMultiplier = GetCharmMultiplier(SDT)
     local charmMod = (1 + player:getMod(tpz.mod.CHARM_CHANCE) / 100) -- Correct mod?
     local affinityBonus = AffinityBonusAcc(player, element)
+    local tameBonus = 0
+
+    if player:getLocalVar("Tamed_Mob") == target:getID() then
+        tameBonus = 10
+    end
 
     if (target:getMainLvl() > 70) then
         dLvl = dLvl * 10
@@ -2146,6 +2151,8 @@ function GetCharmHitRate(player, target)
     --print(string.format("chance + dCHR: %i", chance))
     chance = chance + affinityBonus
     --print(string.format("chance + affinity bonus: %i", chance))
+    chance = chance + tameBonus
+    --print(string.format("chance + tame bonus: %i", tameBonus))
 
     chance = utils.clamp(chance, 5, 95)
     --print(string.format("chance final %i", chance))
