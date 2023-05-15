@@ -14879,6 +14879,7 @@ inline int32 CLuaBaseEntity::getBlockedDamage(lua_State* L)
     CBattleEntity* PDefender = (CBattleEntity*)m_PBaseEntity;
     int32 damage = (int32)lua_tointeger(L, 1);
 
+    // Mob
     if (PDefender && PDefender->objtype == TYPE_MOB && ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
     {
     uint8 absorb = 50;
@@ -14900,6 +14901,29 @@ inline int32 CLuaBaseEntity::getBlockedDamage(lua_State* L)
     return 1;
     }
 
+    // Pet
+    if (PDefender && PDefender->objtype == TYPE_PET && ((CPetEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
+    {
+    uint8 absorb = 50;
+    int32 shieldDefBonus = PDefender->getMod(Mod::SHIELD_DEF_BONUS);
+
+    shieldDefBonus = std::clamp((int32)shieldDefBonus, 0, 50);
+
+    absorb += shieldDefBonus; // Include Shield Defense Bonus in absorb amount
+
+    // Shield Mastery
+    if ((std::max(damage - (PDefender->getMod(Mod::PHALANX) + PDefender->getMod(Mod::STONESKIN)), 0) > 0) && PDefender->getMod(Mod::SHIELD_MASTERY_TP) > 0)
+    {
+        // If the player blocked with a shield and has shield mastery, add shield mastery TP bonus
+        // unblocked damage (before block but as if affected by stoneskin/phalanx) must be greater than zero
+        PDefender->addTP(PDefender->getMod(Mod::SHIELD_MASTERY_TP));
+    }
+
+    lua_pushinteger(L, damage * (100 - absorb) / 100);
+    return 1;
+    }
+
+    // Player
     if (!PDefender || PDefender->objtype != TYPE_PC || !PDefender->m_Weapons[SLOT_SUB] || !PDefender->m_Weapons[SLOT_SUB]->IsShield())
     {
         lua_pushinteger(L, damage);
