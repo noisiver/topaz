@@ -20,36 +20,24 @@ function onUseAbility(player, target, ability)
         return 0
     end
     if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
-        ability:setMsg(tpz.msg.basic.JA_NO_EFFECT)
+        ability:setMsg(tpz.msg.basic.JA_NO_EFFECT) 
         target:addEnmity(player, 1, 0)
         return 0
     end
     local resist = applyResistanceAbility(player, target, tpz.magic.ele.NONE, tpz.skill.NONE, player:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR))
+
     if resist <= 0.25 then
         ability:setMsg(tpz.msg.basic.JA_MISS_2)
         target:addEnmity(player, 1, 0)
         return 0
     else
         if target:isEngaged() then
-            local enmitylist = target:getEnmityList()
-            for _, enmity in ipairs(enmitylist) do
-                if enmity.active and enmity.entity:getID() ~= player:getID() then
-                    ability:setMsg(tpz.msg.basic.JA_NO_EFFECT)
-                    target:addEnmity(player, 1, 0)
-                    return 0
-                elseif enmity.entity:getID() == player:getID() then
-                    if not enmity.tameable then
-                        ability:setMsg(tpz.msg.basic.JA_NO_EFFECT)
-                        target:addEnmity(player, 1, 0)
-                        return 0
-                    end
-                end
-            end
-            ability:setMsg(138) -- The x seems friendlier
+            ability:setMsg(tpz.msg.basic.SEEMS_FRIENDLIER) -- The x seems friendlier
             target:disengage()
+            target:deaggroAll()
         else
             player:setLocalVar("Tamed_Mob", target:getID())
-            ability:setMsg(138) -- The x seems friendlier
+            ability:setMsg(tpz.msg.basic.SEEMS_FRIENDLIER) -- The x seems friendlier
         end
     end
 end

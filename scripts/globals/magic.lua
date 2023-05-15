@@ -2152,7 +2152,7 @@ function GetCharmHitRate(player, target)
     chance = chance + affinityBonus
     --print(string.format("chance + affinity bonus: %i", chance))
     chance = chance + tameBonus
-    --print(string.format("chance + tame bonus: %i", tameBonus))
+    --print(string.format("chance + tame bonus: %i", chance))
 
     chance = utils.clamp(chance, 5, 95)
     --print(string.format("chance final %i", chance))
