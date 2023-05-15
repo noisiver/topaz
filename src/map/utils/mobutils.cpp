@@ -519,6 +519,17 @@ void CalculateStats(CMobEntity * PMob)
     PMob->addModifier(Mod::ATT, GetBase(PMob,PMob->attRank));
     PMob->addModifier(Mod::ACC, GetBase(PMob,PMob->accRank));
 
+        // Note: Known Base Parry for all mobs is Rank C
+    // MOBMOD_CAN_PARRY uses the mod value as the rank. It is unknown if mobs in current retail or somewhere else have a different parry rank
+    // Known mobs to have parry rating
+    // 1) Dynamis Mobs
+    // 2) ???
+    // 3) ???
+    if (PMob->getMobMod(MOBMOD_CAN_PARRY) > 0)
+    {
+        PMob->addModifier(Mod::PARRY, GetBase(PMob, PMob->getMobMod(MOBMOD_CAN_PARRY)));
+    }
+
     //natural magic evasion
     PMob->addModifier(Mod::MEVA, GetMagicEvasion(PMob));
 

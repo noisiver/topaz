@@ -2542,6 +2542,8 @@ tpz.mobMod =
     BLOCK               = 103, -- Allows a mob to block, in percent(10 = 10% block chance).
     ECOSYSTEMLINK       = 104, -- Mob will link to the same echo system(i.e. Demon or Bird)
     VERTICAL_AGGRO      = 105, -- Always aggro regardless of verrtical distance
+    CAN_PARRY           = 106, -- Check if a mob is allowed to have parry rank(Rank Value 1 - 5)
+
 }
 
 ------------------------------------
