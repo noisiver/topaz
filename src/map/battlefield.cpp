@@ -458,13 +458,28 @@ bool CBattlefield::RemoveEntity(CBaseEntity* PEntity, uint8 leavecode)
     }
     else
     {
-        auto check = [PEntity, &found](auto entity) { if (PEntity == entity) { found = true; return found; } return false; };
+        auto check = [PEntity, &found](auto entity)
+        {
+            if (PEntity == entity)
+            {
+                found = true;
+                return found;
+            }
+            return false;
+        };
 
         if (PEntity->objtype == TYPE_NPC)
         {
             PEntity->status = STATUS_DISAPPEAR;
             PEntity->loc.zone->UpdateEntityPacket(PEntity, ENTITY_DESPAWN, UPDATE_ALL_MOB);
-            m_NpcList.erase(std::remove_if(m_NpcList.begin(), m_NpcList.end(), check), m_NpcList.end());
+
+            if (auto* PNpcEntity = dynamic_cast<CNpcEntity*>(PEntity))
+            {
+                if (std::find(m_NpcList.begin(), m_NpcList.end(), PNpcEntity) != m_NpcList.end())
+                {
+                    m_NpcList.erase(std::remove_if(m_NpcList.begin(), m_NpcList.end(), check), m_NpcList.end());
+                }
+            }
         }
         else if (PEntity->objtype == TYPE_MOB || PEntity->objtype == TYPE_PET)
         {
@@ -472,15 +487,26 @@ bool CBattlefield::RemoveEntity(CBaseEntity* PEntity, uint8 leavecode)
             // allies targid >= 0x700
             if (PEntity->targid >= 0x700)
             {
-                if (static_cast<CPetEntity*>(PEntity)->isAlive() && PEntity->PAI->IsSpawned())
-                    static_cast<CPetEntity*>(PEntity)->Die();
-
-                if (m_AllyList.size() > 0)
+                // Disappear pets that do not belong to players
+                auto* PPetEntity = dynamic_cast<CPetEntity*>(PEntity);
+                if (PPetEntity && (!PPetEntity->PMaster || PPetEntity->PMaster->objtype != TYPE_PC))
                 {
-                    m_AllyList.erase(std::remove_if(m_AllyList.begin(), m_AllyList.end(), check), m_AllyList.end());
+                    PEntity->status = STATUS_DISAPPEAR;
                 }
-                PEntity->status = STATUS_DISAPPEAR;
-                return found;
+
+                if (auto* PMobEntity = dynamic_cast<CMobEntity*>(PEntity))
+                {
+                    if (std::find(m_AllyList.begin(), m_AllyList.end(), PMobEntity) != m_AllyList.end())
+                    {
+                        if (PMobEntity->isAlive() && PMobEntity->PAI->IsSpawned())
+                        {
+                            PEntity->status = STATUS_DISAPPEAR;
+                            PEntity->loc.zone->UpdateEntityPacket(PEntity, ENTITY_DESPAWN, UPDATE_NONE);
+                        }
+
+                        m_AllyList.erase(std::remove_if(m_AllyList.begin(), m_AllyList.end(), check), m_AllyList.end());
+                    }
+                }
             }
             else
             {
