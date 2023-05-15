@@ -466,15 +466,15 @@ int32 doSynthSkillUp(CCharEntity* PChar)
 
                     // Set satier initial rank
                     if((baseDiff >= 1) && (baseDiff < 3))
-                        satier = 0; // 10%
+                        satier = 1; // 10%
                     else if((baseDiff >= 3) && (baseDiff < 5))
-                        satier = 1; // 20%
+                        satier = 2; // 20%
                     else if((baseDiff >= 5) && (baseDiff < 8))
-                        satier = 2; // 30%
+                        satier = 3; // 30%
                     else if((baseDiff >= 8) && (baseDiff < 10))
-                        satier = 3; // 50%
+                        satier = 4; // 50%
                     else if (baseDiff >= 10)
-                        satier = 2; // 30%
+                        satier = 3; // 30%
 
                     for(uint8 i = 0; i < 4; i ++) // cicle up to 4 times until cap (0.5) or break. The lower the satier, the more likely it will break
                     {
@@ -484,12 +484,12 @@ int32 doSynthSkillUp(CCharEntity* PChar)
 
                         switch(satier)
                         {
-                            case 5:  chance = 0.900; break;
-                            case 4:  chance = 0.700; break;
-                            case 3:  chance = 0.500; break;
-                            case 2:  chance = 0.300; break;
-                            case 1:  chance = 0.200; break;
-                            default: chance = 0.100; break;
+                            case 5:  chance = 0.700; break;
+                            case 4:  chance = 0.500; break;
+                            case 3:  chance = 0.300; break;
+                            case 2:  chance = 0.200; break;
+                            case 1:  chance = 0.100; break;
+                            default: chance = 0.000; break;
                         }
 
                         if(chance < random)
