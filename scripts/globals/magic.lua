@@ -1848,10 +1848,10 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
     if  status == tpz.effect.AMNESIA then
         SDTmod = tpz.mod.EEM_AMNESIA
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.VIRUS then
+    elseif status == tpz.effect.BANE or status == tpz.effect.PLAGUE then
         SDTmod = tpz.mod.EEM_VIRUS
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.SILENCE then
+    elseif status == tpz.effect.SILENCE or tpz.effect.MUTE then
         SDTmod = tpz.mod.EEM_SILENCE
         SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.WEIGHT then
@@ -1863,10 +1863,7 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
     elseif status == tpz.effect.LULLABY then
         SDTmod = tpz.mod.EEM_LIGHT_SLEEP
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.CHARM_I then
-        SDTmod = tpz.mod.EEM_CHARM
-        SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.CHARM_II then
+    elseif status == tpz.effect.CHARM_I or status == tpz.effect.CHARM_II then
         SDTmod = tpz.mod.EEM_CHARM
         SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.PARALYSIS then
@@ -1887,10 +1884,7 @@ function getEnfeeblelSDT(status, element, target) -- takes into account if magic
     elseif status == tpz.effect.POISON then
         SDTmod = tpz.mod.EEM_POISON
         SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.SLEEP_I then
-        SDTmod = tpz.mod.EEM_DARK_SLEEP
-        SDT = target:getMod(SDTmod)
-    elseif status == tpz.effect.SLEEP_II then
+    elseif status == tpz.effect.SLEEP_I or status == tpz.effect.SLEEP_II then
         SDTmod = tpz.mod.EEM_DARK_SLEEP
         SDT = target:getMod(SDTmod)
     elseif status == tpz.effect.BLINDNESS then
