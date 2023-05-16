@@ -45,53 +45,39 @@ namespace mobutils
     ModsMap_t mobPoolModsList;
     ModsMap_t mobSpawnModsList;
 
-/************************************************************************
-*                                                                       *
-*  Расчет базовой величины оружия монстров                              *
-*                                                                       *
-************************************************************************/
+    /************************************************************************
+    *                                                                       *
+    *  Calculate mob base weapon damage                                     *
+    *                                                                       *
+    ************************************************************************/
 
-uint16 GetWeaponDamage(CMobEntity* PMob)
-{
-    uint16 lvl = PMob->GetMLevel();
-    uint8 bonus = 0;
+    uint16 GetWeaponDamage(CMobEntity* PMob, uint16 slot)
+    {
+        uint16 lvl = PMob->GetMLevel();
+        int8 bonus = 2;
+        uint16 damage = 0;
 
-    if (lvl >= 75)
-    {
-        bonus = 3;
-    }
-    else if (lvl >= 60)
-    {
-        bonus = 2;
-    }
-    else if (lvl >= 50)
-    {
-        bonus = 1;
-    }
+        if (slot == SLOT_RANGED)
+        {
+            bonus = 5;
+        }
 
-    uint16 damage;
-    // Some mobs can have H2H skill but not be a MNK (Like Vampyrs)
-    if (PMob->GetMJob() == JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
-    {
-        uint16 h2hskill = battleutils::GetMaxSkill(SKILL_HAND_TO_HAND, JOB_MNK, PMob->GetMLevel());
-        // https://ffxiclopedia.fandom.com/wiki/Category:Hand-to-Hand
-        damage = 0.11f * h2hskill + 3 +
-                 18 * PMob->GetMLevel() / 75; // basic h2h weapon dmg + scaling "weapon" for mnk mobs based on h2h skill (destroyers 18 dmg at 75)
-    }
-    else
-    {
-        damage = PMob->GetMLevel();
-    }
+        if (lvl == 1)
+        {
+            bonus = 0;
+        }
 
-    damage = (uint16)(damage * PMob->m_dmgMult / 100.0f);
+        damage = lvl + bonus;
 
-    if (PMob->getMobMod(MOBMOD_WEAPON_BONUS) != 0)
-    {
-        damage += (uint16)(PMob->getMobMod(MOBMOD_WEAPON_BONUS));
+        damage = (uint16)(damage * PMob->m_dmgMult / 100.0f);
+
+        if (PMob->getMobMod(MOBMOD_WEAPON_BONUS) != 0)
+        {
+            damage += (uint16)(PMob->getMobMod(MOBMOD_WEAPON_BONUS));
+        }
+
+        return damage;
     }
-
-    return damage;
-}
 
 uint16 GetMagicEvasion(CMobEntity* PMob)
 {
@@ -384,7 +370,8 @@ void CalculateStats(CMobEntity * PMob)
     PMob->health.hp = PMob->GetMaxHP();
     PMob->health.mp = PMob->GetMaxMP();
 
-    ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob));
+    ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob, SLOT_MAIN));
+    ((CItemWeapon*)PMob->m_Weapons[SLOT_RANGED])->setDamage(GetWeaponDamage(PMob, SLOT_RANGED));
 
     //reduce weapon delay of MNK
     if(PMob->GetMJob()==JOB_MNK){
@@ -1071,11 +1058,9 @@ void SetupDynamisMob(CMobEntity* PMob)
     PMob->setMobMod(MOBMOD_EXP_BONUS, -100);
 
     // boost dynamis mobs weapon damage
-    // Halve weapon damage addition for MNK mobs
-    if (PMob->GetMJob() != JOB_MNK || ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->getSkillType() == SKILL_HAND_TO_HAND)
-    {
-        ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(135);
-    }
+    PMob->setMobMod(MOBMOD_WEAPON_BONUS, 30); // Add approximately 30 flat damage until proven otherwise (In-line with the 35% added previously)
+    ((CItemWeapon*)PMob->m_Weapons[SLOT_MAIN])->setDamage(GetWeaponDamage(PMob, SLOT_MAIN));
+    ((CItemWeapon*)PMob->m_Weapons[SLOT_RANGED])->setDamage(GetWeaponDamage(PMob, SLOT_RANGED));
 
     // job resist traits are much more powerful in dynamis
     // according to wiki
