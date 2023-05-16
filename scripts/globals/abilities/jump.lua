@@ -58,5 +58,9 @@ function onUseAbility(player, target, ability, action)
     local dmgMod = player:getMod(tpz.mod.JUMP_DMG_BONUS)
     damage = math.floor(damage * (1 + (dmgMod / 100)))
 
+    local skill = player:getWeaponSkillType(tpz.slot.SLOT_MAIN) 
+	if damage > 0 then player:trySkillUp(target, skill, tpHits+extraHits) end
+	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
+
     return damage
 end
