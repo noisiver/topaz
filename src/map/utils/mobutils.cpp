@@ -79,124 +79,110 @@ namespace mobutils
         return damage;
     }
 
-uint16 GetMagicEvasion(CMobEntity* PMob)
-{
-    uint8 mEvaRank = 3;
-
-    return GetBase(PMob, mEvaRank);
-}
-
-uint16 GetEvasion(CMobEntity* PMob)
-{
-    uint8 evaRank = PMob->evaRank;
-
-    // Mob evasion is based on job
-    // but occasionally war mobs
-    // might have a different rank
-    switch (PMob->GetMJob())
+    // Gest base skill rankings for ACC/ATT/EVA/MEVA
+    uint16 GetBase(CMobEntity* PMob, uint8 rank)
     {
-        case JOB_THF:
-        case JOB_NIN:
-            evaRank = 1;
-        break;
-        case JOB_MNK:
-        case JOB_DNC:
-        case JOB_SAM:
-        case JOB_PUP:
-        case JOB_RUN:
-            evaRank = 2;
-        break;
-        case JOB_RDM:
-        case JOB_BRD:
-        case JOB_GEO:
-        case JOB_COR:
-            evaRank = 4;
-        break;
-        case JOB_WHM:
-        case JOB_SCH:
-        case JOB_RNG:
-        case JOB_SMN:
-        case JOB_BLM:
-            evaRank = 5;
-        break;
-        default:
-            break;
-    }
+        int8 mlvl = PMob->GetMLevel();
 
-    return GetBase(PMob, evaRank);
-}
-
-/************************************************************************
-*                                                                       *
-*  Базовое значение для расчера характеристик                           *
-*  (на название не хватило фантазии)                                    *
-*                                                                       *
-************************************************************************/
-
-uint16 GetBaseToRank(uint8 rank, uint16 lvl)
-{
-    switch (rank)
-    {
-        case 1: return (5+((lvl-1)*50)/100); // A
-        case 2: return (4+((lvl-1)*45)/100); // B
-        case 3: return (4+((lvl-1)*40)/100); // C
-        case 4: return (3+((lvl-1)*35)/100); // D
-        case 5: return (3+((lvl-1)*30)/100); // E
-        case 6: return (2+((lvl-1)*25)/100); // F
-        case 7: return (2+((lvl-1)*20)/100); // G
-    }
-    return 0;
-}
-
-/************************************************************************
-*                                                                       *
-*  Базовое значение для расчерта защиты и уклонения                     *
-*  (на название не хватило фантазии)                                    *
-*                                                                       *
-************************************************************************/
-
-uint16 GetBase(CMobEntity * PMob, uint8 rank)
- {
-    uint8 lvl = PMob->GetMLevel();
-    if(lvl > 50){
-        switch(rank){
-            case 1: // A
-                return (uint16)(153 + (lvl - 50) * 5.0f);
-            case 2: // B
-                return (uint16)(147 + (lvl - 50) * 4.9f);
-            case 3: // C
-                return (uint16)(136 + (lvl - 50) * 4.8f);
-            case 4: // D
-                return (uint16)(126 + (lvl - 50) * 4.7f);
-            case 5: // E
-                return (uint16)(116 + (lvl - 50) * 4.5f);
-            case 6: // F
-                return (uint16)(106 + (lvl - 50) * 4.4f);
-            case 7: // G
-                return (uint16)(96 + (lvl - 50) * 4.3f);
-        }
-    } else {
-        switch(rank){
+        switch (rank)
+        {
             case 1:
-                return (uint16)(6 + (lvl - 1) * 3.0f);
+                return battleutils::GetMaxSkill(SKILL_GREAT_AXE, JOB_WAR, mlvl); // A+ Skill (1)
             case 2:
-                return (uint16)(5 + (lvl - 1) * 2.9f);
+                return battleutils::GetMaxSkill(SKILL_STAFF, JOB_WAR, mlvl); // B Skill (2)
             case 3:
-                return (uint16)(5 + (lvl - 1) * 2.8f);
+                return battleutils::GetMaxSkill(SKILL_EVASION, JOB_WAR, mlvl); // C Skill (3)
             case 4:
-                return (uint16)(4 + (lvl - 1) * 2.7f);
+                return battleutils::GetMaxSkill(SKILL_ARCHERY, JOB_WAR, mlvl); // D Skill (4)
             case 5:
-                return (uint16)(4 + (lvl - 1) * 2.5f);
-            case 6:
-                return (uint16)(3 + (lvl - 1) * 2.4f);
-            case 7:
-                return (uint16)(3 + (lvl - 1) * 2.3f);
+                return battleutils::GetMaxSkill(SKILL_THROWING, JOB_MNK, mlvl); // E Skill (5)
         }
+
+        ShowError("Mobutils::GetBase rank (%d) is out of bounds for mob (%u) ", rank, PMob->id);
+        return 0;
     }
 
-        ShowError("Mobutils::GetBase rank (%d) is out of bounds for mob (%u) \n", rank, PMob->id);
-    return 0;
-}
+    uint16 GetMagicEvasion(CMobEntity* PMob)
+    {
+        uint8 mEvaRank = PMob->evaRank;
+        return GetBase(PMob, mEvaRank);
+    }
+
+    /************************************************************************
+     *                                                                       *
+     *  Base value for defense                       *
+     *                                                                       *
+     ************************************************************************/
+
+    uint16 GetDefense(CMobEntity* PMob, uint8 rank)
+    {
+        // family defense = [floor(defRank) + 8 + vit / 2 + job traits] * family multiplier
+        uint8 lvl = PMob->GetMLevel();
+
+        if (lvl > 50)
+        {
+            switch (rank)
+            {
+                case 1: // A
+                    return (uint16)std::floor(153 + (lvl - 50) * 5.0f);
+                case 2: // B
+                    return (uint16)std::floor(147 + (lvl - 50) * 4.9f);
+                case 3: // C
+                    return (uint16)std::floor(142 + (lvl - 50) * 4.8f);
+                case 4: // D
+                    return (uint16)std::floor(136 + (lvl - 50) * 4.7f);
+                case 5: // E
+                    return (uint16)std::floor(126 + (lvl - 50) * 4.5f);
+            }
+        }
+        else
+        {
+            switch (rank)
+            {
+                case 1: // A
+                    return (uint16)std::floor(6 + (lvl - 1) * 3.0f);
+                case 2: // B
+                    return (uint16)std::floor(5 + (lvl - 1) * 2.9f);
+                case 3: // C
+                    return (uint16)std::floor(5 + (lvl - 1) * 2.8f);
+                case 4: // D
+                    return (uint16)std::floor(4 + (lvl - 1) * 2.7f);
+                case 5: // E
+                    return (uint16)std::floor(4 + (lvl - 1) * 2.5f);
+            }
+        }
+
+        return 0;
+    }
+
+    /************************************************************************
+     *                                                                       *
+     *  Base value for stat calculations                                     *
+     *                                                                       *
+     ************************************************************************/
+
+    uint16 GetBaseToRank(uint8 rank, uint16 lvl)
+    {
+        switch (rank)
+        {
+            case 1:
+                return (5 + ((lvl - 1) * 50) / 100); // A
+            case 2:
+                return (4 + ((lvl - 1) * 45) / 100); // B
+            case 3:
+                return (4 + ((lvl - 1) * 40) / 100); // C
+            case 4:
+                return (3 + ((lvl - 1) * 35) / 100); // D
+            case 5:
+                return (3 + ((lvl - 1) * 30) / 100); // E
+            case 6:
+                return (2 + ((lvl - 1) * 25) / 100); // F
+            case 7:
+                return (2 + ((lvl - 1) * 20) / 100); // G
+        }
+
+        return 0;
+    }
 
     /************************************************************************
  *                                                                       *
@@ -541,8 +527,7 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
         }
     }
 
-    PMob->addModifier(Mod::DEF, GetBase(PMob,PMob->defRank));
-    // PMob->addModifier(Mod::DEF, GetDefense(PMob, PMob->defRank));
+    PMob->addModifier(Mod::DEF, GetDefense(PMob, PMob->defRank));
     PMob->addModifier(Mod::EVA, GetBase(PMob, PMob->evaRank));  // Base Evasion for all mobs
     PMob->addModifier(Mod::ATT, GetBase(PMob, PMob->attRank));  // Base Attack for all mobs is Rank A+ but pull from DB for specific cases
     PMob->addModifier(Mod::ACC, GetBase(PMob, PMob->accRank));  // Base Accuracy for all mobs is Rank A+ but pull from DB for specific cases
@@ -560,7 +545,7 @@ void CalculateMobStats(CMobEntity* PMob, bool recover)
         PMob->addModifier(Mod::PARRY, GetBase(PMob, PMob->getMobMod(MOBMOD_CAN_PARRY)));
     }
 
-    //natural magic evasion
+    // natural magic evasion
     PMob->addModifier(Mod::MEVA, GetMagicEvasion(PMob));
 
     // add traits for sub and main
