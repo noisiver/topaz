@@ -913,6 +913,11 @@ namespace petutils
                 {
                     PPet->setModifier(Mod::DOUBLE_ATTACK, 25);
                 }
+                // Pets shouldn't have Inquartata unless Rune Fencers(?)
+                if (petData->mJob != JOB_RUN)
+                {
+                    PPet->setModifier(Mod::INQUARTATA, 0);
+                }
             }
 
             PPet->allegiance = PMaster->allegiance;
