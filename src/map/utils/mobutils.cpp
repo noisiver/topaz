@@ -89,9 +89,9 @@ namespace mobutils
             case 1:
                 return battleutils::GetMaxSkill(SKILL_GREAT_AXE, JOB_WAR, mlvl); // A+ Skill (1)
             case 2:
-                return battleutils::GetMaxSkill(SKILL_STAFF, JOB_WAR, mlvl); // B Skill (2)
+                return battleutils::GetMaxSkill(SKILL_PARRY, JOB_DNC, mlvl); // B Skill (2)
             case 3:
-                return battleutils::GetMaxSkill(SKILL_EVASION, JOB_WAR, mlvl); // C Skill (3)
+                return battleutils::GetMaxSkill(SKILL_SINGING, JOB_BRD, mlvl); // C Skill (3)
             case 4:
                 return battleutils::GetMaxSkill(SKILL_ARCHERY, JOB_WAR, mlvl); // D Skill (4)
             case 5:
