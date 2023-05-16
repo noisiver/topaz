@@ -24111,7 +24111,7 @@ INSERT INTO `item_mods` VALUES (19040,27,3);
 INSERT INTO `item_mods` VALUES (19041,73,4);
 INSERT INTO `item_mods` VALUES (19042,71,1);
 INSERT INTO `item_mods` VALUES (19043,23,1);      -- Tenax Strap
-INSERT INTO `item_mods` VALUES (19043,1,25);      -- Defense +25
+INSERT INTO `item_mods` VALUES (19043,1,5);       -- Defense +5
 INSERT INTO `item_mods` VALUES (19044,25,5);      -- Disciple Grip Accuracy +5
 INSERT INTO `item_mods` VALUES (19045,5,25);      -- Succubus Grip MP +25
 INSERT INTO `item_mods` VALUES (19045,14,5);      -- CHR +5
