@@ -751,7 +751,7 @@ int getSDTTier(int SDT)
         return res;
     }
 
-    float applyResistanceEffect(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 element, uint8 skillType, float diff, uint8 status, float bonus)
+    float applyResistanceEffect(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 status, uint8 element, uint8 skillType, float diff, float bonus)
 
     {
         // Fealty forces a full resist on any enfeeble
