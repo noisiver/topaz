@@ -260,7 +260,7 @@ function onMobSpawn(mob)
                 pet:addMod(tpz.mod.HPP, 6 * diff)
                 pet:addMod(tpz.mod.ATTP, 5 * diff)
                 pet:setHP(pet:getMaxHP())
-                player:messageBasic(tpz.msg.basic.STATUS_INCREASED, 0, 0, pet)
+                player:messageBasic(tpz.msg.basic.STATUS_INCREASED, 0, 0, pet, false)
                 master:addMod(tpz.mod.ATTP, 4 * diff)
                 master:addMod(tpz.mod.DEFP, 4 * diff)
             end
