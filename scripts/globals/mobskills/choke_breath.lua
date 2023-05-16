@@ -33,8 +33,8 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.WIND, info.hitslanded*math.random(2, 3))
-    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.WIND)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, ttpz.damageType.SLASHING, info.hitslanded*math.random(2, 3))
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, ttpz.damageType.SLASHING)
     local typeEffect = tpz.effect.PARALYSIS
     local typeEffectTwo = tpz.effect.SILENCE
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 25, 0, 300)
