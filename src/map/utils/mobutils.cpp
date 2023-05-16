@@ -1313,8 +1313,15 @@ void SetupNMMob(CMobEntity* PMob)
     PMob->defaultMobMod(MOBMOD_HP_HEAL_CHANCE, 50);
     PMob->defaultMobMod(MOBMOD_HEAL_CHANCE, 40);
 
-    // give mug bonus
-    PMob->setMobMod(MOBMOD_MUG_GIL, 2500);
+    // give a gil bonus if accurate value was not set
+    if (PMob->getMobMod(MOBMOD_GIL_MAX) == 0 || PMob->getMobMod(MOBMOD_GIL_MIN) == 0)
+    {
+        if (mLvl <= 20)
+        {
+            PMob->defaultMobMod(MOBMOD_GIL_MIN, 500);
+            PMob->setMobMod(MOBMOD_MUG_GIL, 2500);
+        }
+    }
 
     if(mLvl >= 25)
     {
