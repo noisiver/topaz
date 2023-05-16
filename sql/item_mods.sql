@@ -7841,14 +7841,19 @@ INSERT INTO `item_mods` VALUES (12298,1,2);
 INSERT INTO `item_mods` VALUES (12298,55,4);
 INSERT INTO `item_mods` VALUES (12299,1,3);		      -- Aspis
 INSERT INTO `item_mods` VALUES (12299,161,-5);	    -- -5% PDT
-INSERT INTO `item_mods` VALUES (12300,1,7);
-INSERT INTO `item_mods` VALUES (12301,1,10);
-INSERT INTO `item_mods` VALUES (12302,1,14);
+INSERT INTO `item_mods` VALUES (12300,1,7);         -- Targe
+INSERT INTO `item_mods` VALUES (12300,161,-5);	    -- -5% PDT
+INSERT INTO `item_mods` VALUES (12301,1,10);        -- Buckler
+INSERT INTO `item_mods` VALUES (12301,161,-5);	    -- -5% PDT
+INSERT INTO `item_mods` VALUES (12302,1,14);        -- Darksteel Buckler
 INSERT INTO `item_mods` VALUES (12302,23,3);
-INSERT INTO `item_mods` VALUES (12303,1,15);
+INSERT INTO `item_mods` VALUES (12302,161,-5);	    -- -5% PDT
+INSERT INTO `item_mods` VALUES (12303,1,15);        -- Gold Buckler
 INSERT INTO `item_mods` VALUES (12303,61,3);
-INSERT INTO `item_mods` VALUES (12304,1,12);
+INSERT INTO `item_mods` VALUES (12303,161,-5);	    -- -5% PDT
+INSERT INTO `item_mods` VALUES (12304,1,12);        -- Musketeer Commander's Shield
 INSERT INTO `item_mods` VALUES (12304,11,3);
+INSERT INTO `item_mods` VALUES (12304,161,-5);	    -- -5% PDT
 INSERT INTO `item_mods` VALUES (12305,1,23);      -- Ice Shield: DEF 23
 INSERT INTO `item_mods` VALUES (12305,10,2);      -- VIT +2
 INSERT INTO `item_mods` VALUES (12305,55,20);     -- Ice resistance +20
@@ -7912,7 +7917,8 @@ INSERT INTO `item_mods` VALUES (12324,1,18);
 INSERT INTO `item_mods` VALUES (12325,1,4);         -- Aspis +1
 INSERT INTO `item_mods` VALUES (12325,161,-5);	    -- -5% PDT
 INSERT INTO `item_mods` VALUES (12326,1,9);
-INSERT INTO `item_mods` VALUES (12327,1,11);
+INSERT INTO `item_mods` VALUES (12327,1,11);        -- Bucker +1
+INSERT INTO `item_mods` VALUES (12327,161,-5);	    -- -5% PDT
 INSERT INTO `item_mods` VALUES (12328,1,13);
 INSERT INTO `item_mods` VALUES (12329,1,9);         -- Leather Shield +1
 INSERT INTO `item_mods` VALUES (12329,68,31);	      -- +31 evasion
@@ -7925,10 +7931,12 @@ INSERT INTO `item_mods` VALUES (12333,1,2);         -- Lauan Shield +1
 INSERT INTO `item_mods` VALUES (12333,68,11);	      -- +11 evasion
 INSERT INTO `item_mods` VALUES (12334,1,5);         -- Strong Shield
 INSERT INTO `item_mods` VALUES (12334,68,21);	      -- +21 evasion
-INSERT INTO `item_mods` VALUES (12335,1,8);
+INSERT INTO `item_mods` VALUES (12335,1,8);         -- Targe +1
+INSERT INTO `item_mods` VALUES (12335,161,-5);	    -- -5% PDT
 INSERT INTO `item_mods` VALUES (12336,1,7);         -- Royal Squire's Shield
 INSERT INTO `item_mods` VALUES (12336,68,35);	      -- +35 evasion
-INSERT INTO `item_mods` VALUES (12337,1,6);
+INSERT INTO `item_mods` VALUES (12337,1,6);         -- Decurion's Shield
+INSERT INTO `item_mods` VALUES (12337,161,-5);	    -- -5% PDT
 INSERT INTO `item_mods` VALUES (12338,1,5);         -- Frost Shield
 INSERT INTO `item_mods` VALUES (12338,55,3);
 INSERT INTO `item_mods` VALUES (12338,30,5);        -- MACC +5
@@ -7961,8 +7969,9 @@ INSERT INTO `item_mods` VALUES (12345,2,55);
 INSERT INTO `item_mods` VALUES (12346,1,17);
 INSERT INTO `item_mods` VALUES (12346,60,6);
 INSERT INTO `item_mods` VALUES (12346,61,6);
-INSERT INTO `item_mods` VALUES (12347,1,15);
+INSERT INTO `item_mods` VALUES (12347,1,15);        -- Spiked Buckler
 INSERT INTO `item_mods` VALUES (12347,23,5);
+INSERT INTO `item_mods` VALUES (12347,161,-5);	    -- -5% PDT
 INSERT INTO `item_mods` VALUES (12348,1,12);        -- Serket Shield
 INSERT INTO `item_mods` VALUES (12348,55,-5);
 INSERT INTO `item_mods` VALUES (12348,370,1);       -- Regen +1
@@ -7981,8 +7990,9 @@ INSERT INTO `item_mods` VALUES (12351,60,2);
 INSERT INTO `item_mods` VALUES (12351,61,2);
 INSERT INTO `item_mods` VALUES (12352,1,10);        -- Round Shield +1
 INSERT INTO `item_mods` VALUES (12352,68,36);	      -- +36 evasion
-INSERT INTO `item_mods` VALUES (12353,1,16);
+INSERT INTO `item_mods` VALUES (12353,1,16);        -- GIlt Buckler
 INSERT INTO `item_mods` VALUES (12353,61,4);
+INSERT INTO `item_mods` VALUES (12353,161,-5);	    -- -5% PDT
 INSERT INTO `item_mods` VALUES (12354,1,19);
 INSERT INTO `item_mods` VALUES (12355,1,19);
 INSERT INTO `item_mods` VALUES (12355,10,3);
@@ -8064,10 +8074,12 @@ INSERT INTO `item_mods` VALUES (12370,11,-5);
 INSERT INTO `item_mods` VALUES (12371,1,5);         -- Clipeus
 INSERT INTO `item_mods` VALUES (12371,10,1);
 INSERT INTO `item_mods` VALUES (12371,23,3);
-INSERT INTO `item_mods` VALUES (12372,1,7);
+INSERT INTO `item_mods` VALUES (12372,1,7);         -- Bastokan Targe
 INSERT INTO `item_mods` VALUES (12372,2,6);
-INSERT INTO `item_mods` VALUES (12373,1,8);
+INSERT INTO `item_mods` VALUES (12372,161,-5);	    -- -5% PDT
+INSERT INTO `item_mods` VALUES (12373,1,8);         -- Republic Targe
 INSERT INTO `item_mods` VALUES (12373,2,8);
+INSERT INTO `item_mods` VALUES (12373,161,-5);	    -- -5% PDT
 INSERT INTO `item_mods` VALUES (12374,12,1);
 INSERT INTO `item_mods` VALUES (12374,13,1);
 INSERT INTO `item_mods` VALUES (12375,1,6);
