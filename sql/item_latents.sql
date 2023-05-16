@@ -440,21 +440,20 @@ INSERT INTO `item_latents` VALUES(13293, 392, 10, 2, 75);   -- "Weapon Bash"+10 
 -- -------------------------------------------------------
 -- Tamer's Ring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13294, 224, 3, 2, 75);    -- Enhances "Vermin Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 225, 3, 2, 75);    -- Enhances "Bird Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 226, 3, 2, 75);    -- Enhances "Amorph Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 227, 3, 2, 75);    -- Enhances "Lizard Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 228, 3, 2, 75);    -- Enhances "Aquan Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 229, 3, 2, 75);    -- Enhances "Plantiod Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 230, 3, 2, 75);    -- Enhances "Beast Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 231, 3, 2, 75);    -- Enhances "Undead Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 232, 3, 2, 75);    -- Enhances "Arcana Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 233, 3, 2, 75);    -- Enhances "Dragon Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 234, 3, 2, 75);    -- Enhances "Demon Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 235, 3, 2, 75);    -- Enhances "Empty Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 236, 3, 2, 75);    -- Enhances "Humanoid Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 237, 3, 2, 75);    -- Enhances "Lumorian Killer" effect while HP <=75% and TP <=100%
-INSERT INTO `item_latents` VALUES(13294, 238, 3, 2, 75);    -- Enhances "Luminion Killer" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 224, 5, 2, 75);    -- Enhances "Vermin Killer" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 225, 5, 2, 75);    -- Enhances "Bird Killer" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 226, 5, 2, 75);    -- Enhances "Amorph Killer" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 227, 5, 2, 75);    -- Enhances "Lizard Killer" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 228, 5, 2, 75);    -- Enhances "Aquan Killer" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 229, 5, 2, 75);    -- Enhances "Plantiod Killer" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 230, 5, 2, 75);    -- Enhances "Beast Killer" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 1224, 5, 2, 75);   -- Enhances "Vermin Circle" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 1225, 5, 2, 75);   -- Enhances "Bird Circle" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 1226, 5, 2, 75);   -- Enhances "Amorph Circle" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 1227, 5, 2, 75);   -- Enhances "Lizard Circle" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 1228, 5, 2, 75);   -- Enhances "Aquan Circle" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 1229, 5, 2, 75);   -- Enhances "Plantiod Circle" effect while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES(13294, 1230, 5, 2, 75);   -- Enhances "Beast Circle" effect while HP <=75% and TP <=100%
 
 -- -------------------------------------------------------
 -- Minstrel's Ring
@@ -539,7 +538,7 @@ INSERT INTO `item_latents` VALUES(13426, 161, -20, 2, 25);  -- Physical damage t
 -- -------------------------------------------------------
 -- Tamer's Earring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13427, 304, 5, 2, 25);    -- "Tame" success rate  while HP <=25% and TP <=100%
+INSERT INTO `item_latents` VALUES(13427, 1182, 50, 2, 25);    -- "Tame" success rate  while HP <=25% and TP <=100%
 
 -- -------------------------------------------------------
 -- Minstrel's Earring

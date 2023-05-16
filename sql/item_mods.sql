@@ -8490,6 +8490,7 @@ INSERT INTO `item_mods` VALUES (12517,1,22);      -- Beast Helm
 INSERT INTO `item_mods` VALUES (12517,2,15);
 INSERT INTO `item_mods` VALUES (12517,8,3);       -- STR+3
 INSERT INTO `item_mods` VALUES (12517,360,4);
+INSERT INTO `item_mods` VALUES (12517,1182,10);     -- Tame Success Rate +10%
 INSERT INTO `item_mods` VALUES (12518,1,21);
 INSERT INTO `item_mods` VALUES (12518,2,13);
 INSERT INTO `item_mods` VALUES (12518,12,3);
@@ -13664,12 +13665,14 @@ INSERT INTO `item_mods` VALUES (14318,8,3);
 INSERT INTO `item_mods` VALUES (14318,23,7);
 INSERT INTO `item_mods` VALUES (14318,27,2);
 INSERT INTO `item_mods` VALUES (14318,361,25);
-INSERT INTO `item_mods` VALUES (14319,1,29);
+INSERT INTO `item_mods` VALUES (14319,1,29);      -- Bison Kecks
 INSERT INTO `item_mods` VALUES (14319,5,15);
 INSERT INTO `item_mods` VALUES (14319,27,-2);
-INSERT INTO `item_mods` VALUES (14320,1,30);
+INSERT INTO `item_mods` VALUES (14319,1182,10);     -- Tame Success Rate +10%
+INSERT INTO `item_mods` VALUES (14320,1,30);        -- Brave's Kecks
 INSERT INTO `item_mods` VALUES (14320,5,16);
 INSERT INTO `item_mods` VALUES (14320,27,-3);
+INSERT INTO `item_mods` VALUES (14320,1182,10);     -- Tame Success Rate +10%
 INSERT INTO `item_mods` VALUES (14321,1,30);      -- Igqira Lappas: DEF 30
 INSERT INTO `item_mods` VALUES (14321,68,10);     -- Evasion +10
 INSERT INTO `item_mods` VALUES (14321,114,10);    -- Enfeebling magic skill +10
@@ -16908,6 +16911,7 @@ INSERT INTO `item_mods` VALUES (15233,2,15);
 INSERT INTO `item_mods` VALUES (15233,8,4);         -- STR+4
 INSERT INTO `item_mods` VALUES (15233,384,300);     -- Haste+3%
 INSERT INTO `item_mods` VALUES (15233,360,4);
+INSERT INTO `item_mods` VALUES (15233,1182,15);     -- Tame Success Rate +15%
 INSERT INTO `item_mods` VALUES (15234,1,19);
 INSERT INTO `item_mods` VALUES (15234,2,11);
 INSERT INTO `item_mods` VALUES (15234,13,6);
@@ -18233,14 +18237,16 @@ INSERT INTO `item_mods` VALUES (15644,1,14);
 INSERT INTO `item_mods` VALUES (15644,5,1);
 INSERT INTO `item_mods` VALUES (15644,12,1);
 INSERT INTO `item_mods` VALUES (15644,13,1);
-INSERT INTO `item_mods` VALUES (15645,1,30);
+INSERT INTO `item_mods` VALUES (15645,1,30);        -- Khimaira Kecks
 INSERT INTO `item_mods` VALUES (15645,2,15);
 INSERT INTO `item_mods` VALUES (15645,5,15);
 INSERT INTO `item_mods` VALUES (15645,27,-4);
-INSERT INTO `item_mods` VALUES (15646,1,31);
+INSERT INTO `item_mods` VALUES (15645,1182,10);     -- Tame Success Rate +10%
+INSERT INTO `item_mods` VALUES (15646,1,31);        -- Stout Kecks
 INSERT INTO `item_mods` VALUES (15646,2,16);
 INSERT INTO `item_mods` VALUES (15646,5,16);
 INSERT INTO `item_mods` VALUES (15646,27,-5);
+INSERT INTO `item_mods` VALUES (15646,1182,10);     -- Tame Success Rate +10%
 INSERT INTO `item_mods` VALUES (15647,1,32);
 INSERT INTO `item_mods` VALUES (15647,2,15);
 INSERT INTO `item_mods` VALUES (15647,5,15);
@@ -25930,6 +25936,8 @@ INSERT INTO `item_mods` VALUES (20805,11,8);
 INSERT INTO `item_mods` VALUES (20805,24,15);
 INSERT INTO `item_mods` VALUES (20805,26,15);
 INSERT INTO `item_mods` VALUES (20805,73,4);
+INSERT INTO `item_mods` VALUES (20806,1182,10); -- TODO: Buramgh
+INSERT INTO `item_mods` VALUES (20807,1182,10); -- TODO: Buramgh +1
 INSERT INTO `item_mods` VALUES (20808,11,15); -- Tramontane Axe - AGI+15
 INSERT INTO `item_mods` VALUES (20808,25,15); -- Accuracy+15
 INSERT INTO `item_mods` VALUES (20808,288,2); -- "Double Attack"+2%

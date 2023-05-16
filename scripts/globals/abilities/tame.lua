@@ -24,9 +24,12 @@ function onUseAbility(player, target, ability)
         target:addEnmity(player, 1, 0)
         return 0
     end
-    local resist = applyResistanceAbility(player, target, tpz.magic.ele.NONE, tpz.skill.NONE, player:getStat(tpz.mod.CHR) - target:getStat(tpz.mod.CHR))
+    local skill = tpz.skill.AXE
+    local element = tpz.magic.ele.NONE
+    local bonus = player:getMod(tpz.mod.TAME_SUCCESS_RATE)
+    local resist = applyResistanceAbility(player, target, element, skill, bonus)
 
-    if resist <= 0.25 then
+    if resist < 1 then
         ability:setMsg(tpz.msg.basic.JA_MISS_2)
         target:addEnmity(player, 1, 0)
         return 0
