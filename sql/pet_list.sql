@@ -74,7 +74,7 @@ INSERT INTO `pet_list` VALUES (28, 'FlowerpotBill', 4602, 28, 40, 3600, 0);
 INSERT INTO `pet_list` VALUES (29, 'EftFamiliar', 4621, 33, 45, 3600, 0);
 INSERT INTO `pet_list` VALUES (30, 'LizardFamiliar', 4600, 33, 45, 3600, 0);
 INSERT INTO `pet_list` VALUES (31, 'MayflyFamiliar', 4596, 33, 45, 3600, 0);
-INSERT INTO `pet_list` VALUES (32, 'FunguarFamiliar', 4614, 33, 75, 3600, 0); -- No HQ jug
+INSERT INTO `pet_list` VALUES (32, 'FunguarFamiliar', 4614, 33, 65, 3600, 0);
 INSERT INTO `pet_list` VALUES (33, 'BeetleFamiliar', 4606, 38, 45, 3600, 0);
 INSERT INTO `pet_list` VALUES (34, 'AntlionFamiliar', 4625, 38, 50, 3600, 0);
 INSERT INTO `pet_list` VALUES (35, 'MiteFamiliar', 4623, 43, 55, 3600, 0);

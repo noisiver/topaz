@@ -10773,7 +10773,7 @@ int32 CLuaBaseEntity::recalculateStats(lua_State* L)
     else if (m_PBaseEntity->objtype == TYPE_MOB)
     {
         CMobEntity* PMob = static_cast<CMobEntity*>(m_PBaseEntity);
-        mobutils::CalculateStats(PMob);
+        mobutils::CalculateMobStats(PMob, false);
     }
     return 0;
 }
@@ -13217,6 +13217,7 @@ inline int32 CLuaBaseEntity::despawnPet(lua_State *L)
     if (((CBattleEntity*)m_PBaseEntity)->PPet != nullptr)
     {
         petutils::DespawnPet((CBattleEntity*)m_PBaseEntity);
+        m_PBaseEntity->loc.zone->UpdateEntityPacket(m_PBaseEntity, ENTITY_UPDATE, UPDATE_ALL_MOB);
     }
     return 0;
 }
@@ -13843,7 +13844,7 @@ inline int32 CLuaBaseEntity::setMobLevel(lua_State *L)
     if (auto PMob = dynamic_cast<CMobEntity*>(m_PBaseEntity))
     {
         PMob->SetMLevel((uint8)lua_tointeger(L, 1));
-        mobutils::CalculateStats(PMob);
+        mobutils::CalculateMobStats(PMob, true);
         mobutils::GetAvailableSpells(PMob);
     }
 

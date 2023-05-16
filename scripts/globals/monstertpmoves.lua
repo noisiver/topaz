@@ -442,7 +442,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     --printf("tp300 %i", params.tp300 * 100)
     --printf("ftp %i", ftp * 100)
     --printf("bonus magic burst macc %i", bonus)
-    --printf("magicBurstBonus %i", magicBurstBonus)
+    printf("magicBurstBonus %i", magicBurstBonus)
     --printf("dStat %i", dStat)
     --printf("resist %i", resist * 100)
     --printf("weatherbonus %i", weatherBonus * 100)
@@ -576,15 +576,6 @@ function mobAddBonuses(caster, spell, target, dmg, ele)
 
     dmg = math.floor(dmg * dayWeatherBonus)
 
-    burst = calculateMobMagicBurst(caster, ele, target)
-
-    -- not sure what to do for this yet
-    -- if (burst > 1.0) then
-        -- spell:setMsg(spell:getMagicBurstMessage()) -- "Magic Burst!"
-    -- end
-
-    dmg = math.floor(dmg * burst)
-
     local mdefBarBonus = 0
     if
         ele >= tpz.magic.element.FIRE and
@@ -609,32 +600,6 @@ function mobAddBonuses(caster, spell, target, dmg, ele)
     -- print(magicDmgMod)
 
     return dmg
-end
-
-function calculateMobMagicBurst(caster, ele, target)
-
-    local burst = 1.0
-
-    local skillchainTier, skillchainCount = MobFormMagicBurst(ele, target)
-
-    if (skillchainTier > 0) then
-        if (skillchainCount == 1) then
-            burst = 1.3
-        elseif (skillchainCount == 2) then
-            burst = 1.35
-        elseif (skillchainCount == 3) then
-             burst = 1.40
-        elseif (skillchainCount == 4) then
-            burst = 1.45
-        elseif (skillchainCount == 5) then
-            burst = 1.50
-        else
-            -- Something strange is going on if this occurs.
-            burst = 1.0
-        end
-    end
-
-    return burst
 end
 
 -- Calculates breath damage

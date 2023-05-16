@@ -17,9 +17,7 @@ end
 
 function onUseAbility(player, target, ability)
     local duration = 600
-    local pet = player:getPet()
 
 	target:addStatusEffect(tpz.effect.SPUR, 8, 0, duration)
-    pet:addStatusEffect(tpz.effect.SPUR, 8, 0, duration)
 end
 

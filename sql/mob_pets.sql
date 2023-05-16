@@ -1267,6 +1267,29 @@ INSERT INTO `mob_pets` VALUES (17145878, 1, 9); -- Goblin_s_Dragonfly
 INSERT INTO `mob_pets` VALUES (17145919, 1, 9); -- Goblin_s_Dragonfly
 INSERT INTO `mob_pets` VALUES (17174530, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17174537, 1, 15); -- Yagudo_s_Elemental
+-- Castle Oztroja[S]
+INSERT INTO `mob_pets` VALUES (17182733, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182747, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182795, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182799, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182819, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182839, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182862, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182870, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182907, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182909, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182913, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182915, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182932, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182935, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182938, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182962, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182972, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17182989, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17183008, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17183019, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17183021, 1, 15); -- Yagudo_s_Elemental
+
 INSERT INTO `mob_pets` VALUES (17178740, 1, 9); -- Goblin_s_Beetle
 INSERT INTO `mob_pets` VALUES (17178773, 1, 9); -- Goblin_s_Beetle
 INSERT INTO `mob_pets` VALUES (17178835, 1, 15); -- Yagudo_s_Elemental
@@ -1296,7 +1319,7 @@ INSERT INTO `mob_pets` VALUES (17338496, 1, 15); -- Demon_s_Elemental
 INSERT INTO `mob_pets` VALUES (17338500, 1, 15); -- Demon_s_Elemental
 INSERT INTO `mob_pets` VALUES (17338504, 1, 15); -- Demon_s_Elemental
 INSERT INTO `mob_pets` VALUES (17338512, 1, 15); -- Demon_s_Elemental
--- INSERT INTO `mob_pets` VALUES (17448977, 1, 15); -- Yagudo_s_Elemental
+INSERT INTO `mob_pets` VALUES (17448977, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17449003, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17449023, 1, 15); -- Yagudo_s_Elemental
 INSERT INTO `mob_pets` VALUES (17342473, 1, 15); -- Demon_s_Elemental
@@ -1333,27 +1356,7 @@ INSERT INTO `mob_pets` VALUES (17412267, 1, 15); -- Demon_s_Elemental
 INSERT INTO `mob_pets` VALUES (17412274, 1, 15); -- Demon_s_Elemental
 INSERT INTO `mob_pets` VALUES (17412277, 1, 15); -- Demon_s_Elemental
 INSERT INTO `mob_pets` VALUES (17412286, 1, 15); -- Demon_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182733, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182747, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182795, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182799, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182819, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182839, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182862, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182870, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182907, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182909, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182913, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182915, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182932, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182935, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182938, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182962, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182972, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17182989, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17183008, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17183019, 1, 15); -- Yagudo_s_Elemental
-INSERT INTO `mob_pets` VALUES (17183021, 1, 15); -- Yagudo_s_Elemental
+
 --NMs edited by Shiyo
 INSERT INTO `mob_pets` VALUES (17326093, 1, 14); -- Taquedes_Wyvern
 INSERT INTO `mob_pets` VALUES (17326090, 2, 15); -- Dagourmarches_Avatar

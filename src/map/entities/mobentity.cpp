@@ -738,7 +738,7 @@ void CMobEntity::Spawn()
     SetMLevel(level);
     SetSLevel(level);//calculated in function
 
-    mobutils::CalculateStats(this);
+    mobutils::CalculateMobStats(this, true);
     mobutils::GetAvailableSpells(this);
 
     // spawn somewhere around my point

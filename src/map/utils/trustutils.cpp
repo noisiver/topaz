@@ -313,7 +313,7 @@ CTrustEntity* LoadTrust(CCharEntity* PMaster, uint32 TrustID)
     LoadTrustStatsAndSkills(PTrust);
 
     // Use Mob formulas to work out base "weapon" damage, but scale down to reasonable values.
-    auto mobStyleDamage = static_cast<float>(mobutils::GetWeaponDamage(PTrust));
+    auto mobStyleDamage = static_cast<float>(mobutils::GetWeaponDamage(PTrust, SLOT_MAIN));
     auto baseDamage = mobStyleDamage * 0.5f;
     auto damageMultiplier = static_cast<float>(trustData->cmbDmgMult) / 100.0f;
     auto adjustedDamage = baseDamage * damageMultiplier;
@@ -553,7 +553,7 @@ void LoadTrustStatsAndSkills(CTrustEntity* PTrust)
     }
 
     PTrust->addModifier(Mod::DEF, mobutils::GetBase(PTrust, PTrust->defRank));
-    PTrust->addModifier(Mod::EVA, mobutils::GetEvasion(PTrust));
+    PTrust->addModifier(Mod::EVA, mobutils::GetBase(PTrust, PTrust->evaRank));
     PTrust->addModifier(Mod::ATT, mobutils::GetBase(PTrust, PTrust->attRank));
     PTrust->addModifier(Mod::ACC, mobutils::GetBase(PTrust, PTrust->accRank));
 
