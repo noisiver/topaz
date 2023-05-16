@@ -109,6 +109,7 @@ bool CPlayerController::Disengage()
 bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
 {
     auto PChar = static_cast<CCharEntity*>(POwner);
+    auto playerTP = ((CBattleEntity*)this)->health.tp;
     if (PChar->PAI->CanChangeState())
     {
         CAbility* PAbility = ability::GetAbility(abilityid);
@@ -117,6 +118,26 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA));
             return false;
         }
+
+        // Check for TP costing JA's
+        if (playerTP < PAbility->getTPCost())
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_NOT_ENOUGH_TP));
+            return false;
+        }
+
+        // Check for Finish Move costing JA's
+        if (PAbility->getID() >= ABILITY_ANIMATED_FLOURISH && PAbility->getID() <= ABILITY_WILD_FLOURISH || PAbility->getID() == ABILITY_CLIMACTIC_FLOURISH ||
+            PAbility->getID() == ABILITY_STRIKING_FLOURISH ||
+            PAbility->getID() == ABILITY_TERNARY_FLOURISH)
+        {
+            if (!PChar->StatusEffectContainer->HasStatusEffectByFlag(EFFECTFLAG_FINISHING_MOVE))
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_NO_FINISHINGMOVES));
+                return false;
+            }
+        }
+
         if (PChar->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
         {
             Recast_t* recast = PChar->PRecastContainer->GetRecast(RECAST_ABILITY, PAbility->getRecastId());
@@ -128,7 +149,7 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, recastSeconds, 0, MSGBASIC_TIME_LEFT));
             return false;
         }
-        return PChar->PAI->Internal_Ability(targid, abilityid);
+        return PChar->PAI->Internal_Ability(targid, abilityid); // Adds delay to next weapon swing timer
     }
     else
     {

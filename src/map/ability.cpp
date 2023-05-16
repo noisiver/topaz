@@ -165,6 +165,16 @@ ACTIONTYPE CAbility::getActionType()
     return m_actionType;
 }
 
+void CAbility::setTPCost(uint16 tpCost)
+{
+    m_tpCost = tpCost;
+}
+
+uint16 CAbility::getTPCost()
+{
+    return m_tpCost;
+}
+
 void CAbility::setValidTarget(uint16 validTarget)
 {
     m_validTarget = validTarget;
@@ -358,7 +368,8 @@ namespace ability
             "VE, "
             "meritModID, "
             "addType, "
-            "content_tag "
+            "content_tag, "
+            "tpCost "
             "FROM abilities LEFT JOIN (SELECT mob_skill_name, MIN(mob_skill_id) AS min_id "
             "FROM mob_skills GROUP BY mob_skill_name) mob_skills_1 ON "
             "abilities.name = mob_skills_1.mob_skill_name "
@@ -399,6 +410,7 @@ namespace ability
                 PAbility->setVE(Sql_GetIntData(SqlHandle, 17));
                 PAbility->setMeritModID(Sql_GetIntData(SqlHandle, 18));
                 PAbility->setAddType(Sql_GetUIntData(SqlHandle, 19));
+                PAbility->setTPCost(Sql_GetUIntData(SqlHandle, 20));
 
                 PAbilityList[PAbility->getID()] = PAbility;
                 PAbilitiesList[PAbility->getJob()].push_back(PAbility);

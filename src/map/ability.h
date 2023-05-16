@@ -721,6 +721,7 @@ public:
     uint16      getVE();
     uint16      getMeritModID();
     ACTIONTYPE  getActionType();
+    uint16      getTPCost();
 
     void        setID(uint16 id);
     void        setMobSkillID(uint16 id);
@@ -740,6 +741,7 @@ public:
     void        setVE(uint16 VE);
     void        setMeritModID(uint16 value);
     void        setActionType(ACTIONTYPE type);
+    void        setTPCost(uint16 tpCost);
 
     const int8* getName();
     void        setName(int8* name);
@@ -765,6 +767,7 @@ private:
     string_t    m_name;
     uint16      m_mobskillId;
     ACTIONTYPE  m_actionType;
+    uint16      m_tpCost;
 };
 
 /************************************************************************
