@@ -540,6 +540,12 @@ void CalculateStats(CMobEntity * PMob)
         battleutils::AddTraits(PMob, traits::GetTraits(sJob), PMob->GetSLevel());
     }
 
+    // Mobs shouldn't have Inquartata unless Rune Fencers(?)
+    if (PMob->GetMJob() != JOB_RUN)
+    {
+        PMob->setModifier(Mod::INQUARTATA, 0);
+    }
+
     // Max [HP/MP] Boost traits
     PMob->UpdateHealth();
     PMob->health.tp = 0;
