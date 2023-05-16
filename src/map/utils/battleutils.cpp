@@ -733,9 +733,9 @@ int getSDTTier(int SDT)
             res = 0.125f;
         }
 
-         // Apply "special" gear resist bonus for players
+        // Apply "special" gear resist bonus for players
         Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
-         if (PDefender->objtype == TYPE_PC)
+        if (PDefender->objtype == TYPE_PC)
         {
             if (PDefender->getMod(resistarray[element - 1]) < 0 && res < 0.5f)
             {
@@ -776,6 +776,20 @@ int getSDTTier(int SDT)
         if (SDT <= 5.0f) // SDT tier .05 makes you lose ALL coin flips
         {
             res = 0.125f;
+        }
+
+        // Apply "special" gear resist bonus for players
+        Mod resistarray[8] = { Mod::FIRERES, Mod::ICERES, Mod::WINDRES, Mod::EARTHRES, Mod::THUNDERRES, Mod::WATERRES, Mod::LIGHTRES, Mod::DARKRES };
+        if (PDefender->objtype == TYPE_PC)
+        {
+            if (PDefender->getMod(resistarray[element - 1]) < 0 && res < 0.5f)
+            {
+                return 0.5f;
+            }
+            else if (PDefender->getMod(resistarray[element - 1]) < 1 && res < 0.25f)
+            {
+                return 0.25f;
+            }
         }
 
         // printf("res: %f\n", res);
