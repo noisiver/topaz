@@ -77,12 +77,10 @@ function onEventUpdate(player, csid, option)
 end
 
 function onEventFinish(player, csid, option)
-    local fame = player:hasCompletedQuest(WINDURST, tpz.quest.id.windurst.THE_AMAZIN_SCORPIO) and 250 or 25
-    local exp = player:hasCompletedQuest(WINDURST, tpz.quest.id.windurst.THE_AMAZIN_SCORPIO) and 6500 or 650
 
     if csid == 481 then
         player:addQuest(WINDURST, tpz.quest.id.windurst.THE_AMAZIN_SCORPIO)
-    elseif csid == 484 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.THE_AMAZIN_SCORPIO, {fame=fame, xp=exp, title=tpz.title.GREAT_GRAPPLER_SCORPIO, gil=1500}) then
+    elseif csid == 484 and npcUtil.completeQuest(player, WINDURST, tpz.quest.id.windurst.THE_AMAZIN_SCORPIO, {fame=250, xp=6500, title=tpz.title.GREAT_GRAPPLER_SCORPIO, gil=1500}) then
         player:confirmTrade()
     elseif csid == 735 then
         player:setCharVar("WildcatWindurst", utils.mask.setBit(player:getCharVar("WildcatWindurst"), 0, true))
