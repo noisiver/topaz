@@ -136,6 +136,40 @@ std::array<std::array<float, 4>, 8> StatScale =
 }};
 
 /************************************************************************
+ *                                                                        *
+ *  Array with the levels of mob HP Scale per rank                        *
+ *                                                                        *
+ ************************************************************************/
+
+std::array<std::array<float, 3>, 8> MobHPScale = { {
+    // Base | Job/SJ Scale | ScaleX
+    { 0, 0, 0 },  // 0
+    { 36, 9, 1 }, // A
+    { 33, 8, 1 }, // B
+    { 32, 7, 1 }, // C
+    { 29, 6, 0 }, // D
+    { 27, 5, 0 }, // E
+    { 24, 4, 0 }, // F
+    { 22, 3, 0 }, // G
+} };
+
+/************************************************************************
+ *                                                                        *
+ *  Random Increment based on level                                       *
+ *                                                                        *
+ ************************************************************************/
+
+std::array<std::array<float, 2>, 6> MobRBI = { {
+    // RI | Scale
+    { 0, 0 },  // 0
+    { 1, 0 },  // 1
+    { 2, 0 },  // 2
+    { 3, 3 },  // 3
+    { 4, 7 },  // 4
+    { 5, 14 }, // 5
+} };
+
+/************************************************************************
 *																		*
 *																		*
 *																		*
@@ -197,6 +231,16 @@ namespace grade
     float GetStatScale(uint8 rank, uint8 scale)
     {
         return StatScale[rank][scale];
+    }
+
+    float GetMobHPScale(uint8 rank, uint8 scale)
+    {
+        return MobHPScale[rank][scale];
+    }
+
+    float GetMobRBI(uint8 rank, uint8 scale)
+    {
+        return MobRBI[rank][scale];
     }
 
 }; // namespace grade
