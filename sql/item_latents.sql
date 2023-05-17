@@ -458,7 +458,7 @@ INSERT INTO `item_latents` VALUES(13294, 1230, 5, 2, 75);   -- Enhances "Beast C
 -- -------------------------------------------------------
 -- Minstrel's Ring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13295, 455, -25, 2, 75);  -- "Shield Bash"+10 while HP <=75% and TP <=100%
+INSERT INTO `item_latents` VALUES (13295,455,25,2,75);  -- Song Spellcast -25% while HP <=75% and TP <=100%
 
 -- -------------------------------------------------------
 -- Tracker's Ring
