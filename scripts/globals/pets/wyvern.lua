@@ -126,9 +126,6 @@ end
 function onMobSpawn(mob)
     local master = mob:getMaster()
     
-	mob:addMod(tpz.mod.DMG, -40)
-    mob:addMod(tpz.mod.DEFP, 50)
-
 	if mob:getMainLvl() >= 70 then
 		mob:addMod(tpz.mod.HP, 74)
 	elseif mob:getMainLvl() >= 50 then

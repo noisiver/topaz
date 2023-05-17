@@ -5896,15 +5896,71 @@ inline int32 CLuaBaseEntity::levelRestriction(lua_State* L)
 
             if (PChar->PPet)
             {
-                CPetEntity* PPet = (CPetEntity*)PChar->PPet;
-                if (PPet->getPetType() == PETTYPE_WYVERN)
+                CPetEntity* PPet = static_cast<CPetEntity*>(PChar->PPet);
+
+                if (PPet->getPetType() == PETTYPE_CHARMED_MOB)
                 {
-                    petutils::LoadWyvernStatistics(PChar, PPet, true);
+                    // Charmed mobs only detach if they are above the level restriction
+                    if (PPet->GetMLevel() > NewMLevel)
+                    {
+                        petutils::DetachPet(PChar);
+                    }
+                    return PChar->m_LevelRestriction;
                 }
-                else
+
+                // Preserve pet's HP and MP
+                int32 hp = PPet->health.hp;
+                int32 mp = PPet->health.mp;
+
+                // Reset pet to a clean slate
+                PPet->StatusEffectContainer->KillAllStatusEffect();
+                PPet->restoreModifiers();
+                PPet->restoreMobModifiers();
+                PPet->TraitList.clear();
+
+                switch (PPet->getPetType())
                 {
-                    petutils::DespawnPet(PChar);
+                    case PETTYPE_AVATAR:
+                        petutils::CalculateAvatarStats(PChar, PPet);
+                        break;
+                    case PETTYPE_WYVERN:
+                        petutils::CalculateWyvernStats(PChar, PPet);
+                        break;
+                    case PETTYPE_JUG_PET: 
+                        petutils::CalculateJugPetStats(PChar, PPet);
+                        break;
+                    case PETTYPE_AUTOMATON:
+                        for (uint8 i = 0; i < 8; ++i)
+                        {
+                            if (PChar->PAutomaton->getElementCapacity(i) > PChar->PAutomaton->getElementMax(i))
+                            {
+                                // Reset Activate if Automaton is full HP
+                                CAbility* PAbility = ability::GetAbility(ABILITY_ACTIVATE);
+                                if (PAbility)
+                                    PChar->PRecastContainer->Del(RECAST_ABILITY, PAbility->getRecastId());
+
+                                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_AUTO_EXCEEDS_CAPACITY));
+                                petutils::DespawnPet(PChar);
+                                return PChar->m_LevelRestriction;
+                            }
+                        }
+                        petutils::CalculateAutomatonStats(PChar, PPet);
+                        break;
+                    case PETTYPE_LUOPAN:
+                        petutils::CalculateLoupanStats(PChar, PPet);
+                        break;
+                    default:
+                        petutils::DespawnPet(PChar);
+                        return PChar->m_LevelRestriction;
                 }
+
+                // Setup pet with master since traits, abilities and some status effects need to be reapplied
+                petutils::SetupPetWithMaster(PChar, PPet);
+
+                // Restore pet's HP and MP to what it was before the stat recalculation
+                PPet->health.hp = std::min(hp, PPet->GetMaxHP());
+                PPet->health.mp = std::min(mp, PPet->GetMaxMP());
+                PPet->updatemask |= UPDATE_HP;
             }
         }
     }
@@ -12135,6 +12191,36 @@ inline int32 CLuaBaseEntity::addBurden(lua_State* L)
     }
     return 1;
 }
+
+/************************************************************************
+ *  Function: isExceedingElementalCapacity()
+ *  Purpose : Checks if the automaton elemental capacity is being exceeded.
+ *  Example : if master:isExceedingElementalCapacity() then
+ *  Notes   :
+ ************************************************************************/
+
+inline int32 CLuaBaseEntity::isExceedingElementalCapacity(lua_State* L)
+{
+    TPZ_DEBUG_BREAK_IF(m_PBaseEntity->objtype != TYPE_PC);
+
+    auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
+
+    if (!PChar->PAutomaton)
+    {
+        lua_pushboolean(L, false);
+    }
+
+    for (uint8 i = 0; i < 8; ++i)
+    {
+        if (PChar->PAutomaton->getElementCapacity(i) > PChar->PAutomaton->getElementMax(i))
+        {
+            lua_pushboolean(L, true);
+        }
+    }
+
+    lua_pushboolean(L, false);
+}
+
 
 /************************************************************************
 *  Function: setStatDebilitation()

@@ -649,6 +649,7 @@ public:
     int32 removeOldestManeuver(lua_State*);
     int32 removeAllManeuvers(lua_State*);
     int32 updateAttachments(lua_State*);
+    int32 isExceedingElementalCapacity(lua_State*);
 
     // Mob Entity-Specific
     int32 setMobLevel(lua_State*);
