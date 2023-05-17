@@ -39,6 +39,8 @@ TP_MACC_BONUS = 1
 TP_MAB_BONUS = 2
 TP_DMG_BONUS = 3
 TP_RANGED = 4
+TP_AUTO_ATTACK = 5
+TP_IGNORE_DEFENSE = 6
 
 BOMB_TOSS_HPP = 1
 
@@ -57,7 +59,9 @@ end
 -- 1 TP_ATK_VARIES
 -- 2 TP_DMG_VARIES
 -- 3 TP_CRIT_VARIES
--- 4 TP_AUTO_ATTACK -- Used for "auto-attack"" skills ONLY
+-- 4 TP_RANGED Used for ranged attacks
+-- 5 TP_AUTO_ATTACK -- Used for "auto-attack"" skills ONLY
+-- 6 TP_IGNORE_DEFENSE
 -- mtp100/200/300 are the three values for 100% TP, 200% TP, 300% TP just like weaponskills.lua
 -- if TP_ACC_VARIES -> three values are acc %s (1.0 is 100% acc, 0.8 is 80% acc, 1.2 is 120% acc)
 -- if TP_ATK_VARIES -> three values are attack multiplier (1.5x 0.5x etc)
@@ -92,12 +96,27 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         base = 1
     end
 
+    local ignoredDef = 0
+    local ignoredDefMod = 0
+
+    if (tpeffect == TP_IGNORE_DEFENSE) then
+        ignoredDefMod = MobIgnoreDefenseModifier(tp)
+        printf("Ignore def modifier %u", ignoredDefMod*100)
+        ignoredDef = (1 + (ignoredDefMod / 100))
+        printf("Amount of defense ignored in percent %u", ignoredDef)
+        ignoredDef = target:getStat(tpz.mod.DEF) * ignoredDef
+        printf("Amount of defense ignored final %u", ignoredDef)
+    end
+
     --work out and cap ratio
     if (offcratiomod == nil) then -- default to attack. Pretty much every physical mobskill will use this, Cannonball being the exception.
         offcratiomod = mob:getStat(tpz.mod.ATT)
         -- print ("Nothing passed, defaulting to attack")
     end
     local ratio = offcratiomod/target:getStat(tpz.mod.DEF)
+    printf("Ratio before ignore defense applied %u", ratio)
+    ratio = (offcratiomod / (target:getStat(tpz.mod.DEF) - ignoredDef))
+    printf("Ratio after ignore defense applied %u", ratio)
 
     local lvldiff = lvluser - lvltarget
     if lvldiff < 0 then
@@ -1768,6 +1787,10 @@ end
 
 function MobCritTPModifier(tp)
     return 15 + (math.max(tp - 1000, 0) * 0.015) -- 15, 30, 45
+end
+
+function MobIgnoreDefenseModifier(tp)
+    return 30 + (math.max(tp - 1000, 0) * 0.010) -- 30, 40, 50
 end
 
 function MobEnfeebleDurationTPModifier(effect, tp)
