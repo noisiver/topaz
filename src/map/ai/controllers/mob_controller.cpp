@@ -150,25 +150,9 @@ bool CMobController::CheckDetection(CBattleEntity* PTarget)
 void CMobController::TryLink()
 {
     TracyZoneScoped;
-    if (PTarget == nullptr)
+    if (PTarget == nullptr || PTarget->objtype == TYPE_PET || PTarget->isCharmed) // Mobs shouldn't link to pets
     {
         return;
-    }
-
-    // Mobs shouldn't link to pets
-    if (PTarget->objtype == TYPE_PET || PTarget->isCharmed)
-    {
-        // Still link if other players are on enmity list
-        auto enmityList = PMob->PEnmityContainer->GetEnmityList();
-        for (auto iter = enmityList->begin(); iter != enmityList->end(); iter++)
-        {
-            auto entity = iter->second.PEnmityOwner;
-            if (entity->objtype != TYPE_PC)
-            // if (PMob->GetEntity(PTarget->PMaster->targid) == 0)
-            {
-                return;
-            }
-        }
     }
 
     //handle pet behaviour on the targets behalf (faster than in ai_pet_dummy)
