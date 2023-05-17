@@ -14264,8 +14264,8 @@ INSERT INTO `item_basic` VALUES (16992,0,'slice_of_bluetail','slice_of_bluetail'
 INSERT INTO `item_basic` VALUES (16993,0,'peeled_crayfish','peeled_crayfish',99,2052,47,0,10);
 INSERT INTO `item_basic` VALUES (16994,0,'slice_of_moat_carp','slice_of_carp',99,2052,47,0,10);
 INSERT INTO `item_basic` VALUES (16995,0,'piece_of_rotten_meat','rotten_meat',99,2052,47,0,10);
-INSERT INTO `item_basic` VALUES (16996,0,'ball_of_sardine_paste','sardine_ball',99,2052,47,0,10);
-INSERT INTO `item_basic` VALUES (16997,0,'ball_of_crayfish_paste','crayfish_ball',99,2052,47,0,10);
+INSERT INTO `item_basic` VALUES (16996,0,'ball_of_sardine_paste','sardine_ball',99,2052,47,0,3);
+INSERT INTO `item_basic` VALUES (16997,0,'ball_of_crayfish_paste','crayfish_ball',99,2052,47,0,3);
 INSERT INTO `item_basic` VALUES (16998,0,'ball_of_insect_paste','insect_ball',99,2052,47,0,5);
 INSERT INTO `item_basic` VALUES (16999,0,'ball_of_trout_paste','trout_ball',99,2052,47,0,11);
 INSERT INTO `item_basic` VALUES (17000,0,'meatball','meatball',99,2052,47,0,10);
