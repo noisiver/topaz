@@ -283,19 +283,21 @@ void CPathFind::StepTo(const position_t& pos, bool run)
     TracyZoneScoped;
     float speed = GetRealSpeed();
 
+    // TODO should this be /20 for everyone?
+    float stepDistance = speed / 24.5f; // 40 ms means 4 units per second, so 1.6 units per step (server tick rate is 2.5/sec)
+
     int8 mode = 2;
 
     if (!run)
     {
         mode = 1;
-        speed /= 2;
+        stepDistance /= 2;
     }
 
-    float stepDistance = ((float)speed / 10) / 2;
     float distanceTo =   distance(m_PTarget->loc.p, pos);
     float diff_y =       pos.y - m_PTarget->loc.p.y;
 
-    // face point mob is moving towards
+    // face point mob is movingB towards
     LookAt(pos);
 
     if (distanceTo <= m_distanceFromPoint + stepDistance)
