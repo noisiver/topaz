@@ -4184,15 +4184,16 @@ void SmallPacket0x084(map_session_data_t* const PSession, CCharEntity* const PCh
             if (PZone->GetID() == ZONE_LOWER_JEUNO && PChar->loc.p.x > 23.0f && PChar->loc.p.x < 45.0f && PChar->loc.p.z > -62.0f && PChar->loc.p.z < -29.0f)
                 fame = (uint16)(PChar->profile.fame[3] * fameMultiplier); // use tenshodo fame
 
-            if (fame >= 613) // fame level 9
-                mult = 1.0f;
-            else
-                mult = 0.8f + 0.2f * (float)fame / 612.0f;
+            mult = 1.0f + (((float)fame / 440.0f) / 100.0f);
 
             if (basePrice == 1)
                 mult = 1.0f; // dont round down to 0
 
-            // fame end
+            if (fame >= 8000) // rank9 fame
+            {
+                mult = 1.18f;
+            }
+
 
             uint32 finalPrice = (uint32)((float)basePrice * mult);
             PChar->pushPacket(new CShopAppraisePacket(slotID, finalPrice));
