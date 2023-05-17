@@ -496,7 +496,7 @@ bool CMobController::IsUndead()
 bool CMobController::CanSeePoint(position_t pos)
 {
     TracyZoneScoped;
-    if (PMob->PAI->PathFind)
+    if (PMob->PAI->PathFind && PMob->m_Family != 6) // Amphiptere paths don't match player's level very well, so pathfind checks mostly fail
     {
         return PMob->PAI->PathFind->CanSeePoint(pos);
     }
