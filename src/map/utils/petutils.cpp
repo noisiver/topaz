@@ -1461,6 +1461,7 @@ namespace petutils
                     PMob->PEnmityContainer->Clear();
                     PMob->m_OwnerID.clean();
                     PMob->updatemask |= UPDATE_STATUS;
+                    PMob->loc.zone->UpdateEntityPacket(PMob, ENTITY_UPDATE, UPDATE_ALL_MOB);
                 }
 
             }
@@ -1476,6 +1477,7 @@ namespace petutils
             PMob->PMaster = nullptr;
 
             PMob->PAI->SetController(std::make_unique<CMobController>(PMob));
+            PMob->loc.zone->UpdateEntityPacket(PMob, ENTITY_UPDATE, UPDATE_ALL_MOB);
         }
         else if (PPet->objtype == TYPE_PET)
         {
