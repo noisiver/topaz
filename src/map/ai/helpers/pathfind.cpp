@@ -356,7 +356,7 @@ void CPathFind::StepTo(const position_t& pos, bool run)
     }
 
 
-    m_PTarget->loc.p.moving += (uint16)((0x36 * ((float)m_PTarget->speed / 0x28)) - (0x14 * (mode - 1)));
+    m_PTarget->loc.p.moving += (uint16)((0x36 * ((float)speed / 0x28)) - (0x14 * (mode - 1)));
 
     if (m_PTarget->loc.p.moving > 0x2fff)
     {
