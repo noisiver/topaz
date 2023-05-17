@@ -1359,6 +1359,8 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                         }
                     }
                 }
+                int16 tp = PPet->health.tp;
+                PPet->SetLocalVar("tp", tp);
                 PPet->PAI->MobSkill(PPetTarget, PAbility->getMobSkillID());
             }
         }
