@@ -1196,7 +1196,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             CBattleEntity* PPet = ((CBattleEntity*)this)->PPet;
             if (!PPet->PAI->IsEngaged())
             {
-                pushPacket(new CMessageBasicPacket(this, PPet, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_CANNOT_PERFORM_ACTION));
                 return;
             }
         }
