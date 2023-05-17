@@ -67,6 +67,7 @@ void LoadAutomaton(CCharEntity* PChar)
         if (PChar->GetMJob() == JOB_PUP || PChar->GetSJob() == JOB_PUP)
         {
             PChar->PAutomaton = new CAutomatonEntity();
+            PChar->PAutomaton->saveModifiers();
             PChar->PAutomaton->name.insert(0, (const char*)Sql_GetData(SqlHandle, 1));
             automaton_equip_t tempEquip;
             attachments = nullptr;
