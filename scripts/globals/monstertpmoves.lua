@@ -100,12 +100,10 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
     local ignoredDefMod = 0
 
     if (tpeffect == TP_IGNORE_DEFENSE) then
-        ignoredDefMod = MobIgnoreDefenseModifier(tp)
-        printf("Ignore def modifier %u", ignoredDefMod*100)
-        ignoredDef = (1 + (ignoredDefMod / 100))
-        printf("Amount of defense ignored in percent %u", ignoredDef)
-        ignoredDef = target:getStat(tpz.mod.DEF) * ignoredDef
-        printf("Amount of defense ignored final %u", ignoredDef)
+        ignoredDefMod = MobIgnoreDefenseModifier(tp) / 100
+        --printf("Ignore def modifier %u", ignoredDefMod*100)
+        ignoredDef = target:getStat(tpz.mod.DEF) * ignoredDefMod
+        --printf("Amount of defense ignored final %u", ignoredDef)
     end
 
     --work out and cap ratio
@@ -114,9 +112,9 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
         -- print ("Nothing passed, defaulting to attack")
     end
     local ratio = offcratiomod/target:getStat(tpz.mod.DEF)
-    printf("Ratio before ignore defense applied %u", ratio)
-    ratio = (offcratiomod / (target:getStat(tpz.mod.DEF) - ignoredDef))
-    printf("Ratio after ignore defense applied %u", ratio)
+    --printf("Ratio before ignore defense applied %u", ratio*100)
+    ratio = (offcratiomod / utils.clamp((target:getStat(tpz.mod.DEF) - ignoredDef), 0, 9999))
+    --printf("Ratio after ignore defense applied %u", ratio*100)
 
     local lvldiff = lvluser - lvltarget
     if lvldiff < 0 then
