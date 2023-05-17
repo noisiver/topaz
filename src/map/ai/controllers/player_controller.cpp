@@ -109,7 +109,8 @@ bool CPlayerController::Disengage()
 bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
 {
     auto PChar = static_cast<CCharEntity*>(POwner);
-    auto playerTP = ((CBattleEntity*)this)->health.tp;
+    auto playerTP = PChar->health.tp;
+
     if (PChar->PAI->CanChangeState())
     {
         CAbility* PAbility = ability::GetAbility(abilityid);
