@@ -2524,7 +2524,7 @@ int getSDTTier(int SDT)
                 job == JOB_DRK || job == JOB_RDM || job == JOB_COR || job == JOB_DNC || job == JOB_PUP || job == JOB_RUN || job == JOB_BLU || job == JOB_MNK ||
                 job == JOB_GEO || job == JOB_SCH)
             {
-                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN))
+                if (PDefender->StatusEffectContainer->HasStatusEffect(EFFECT_AVOIDANCE_DOWN) || ((CMobEntity*)PDefender)->getMobMod(MOBMOD_CAN_PARRY) == 0)
                 {
                     return 0;
                 }
