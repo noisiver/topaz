@@ -17,7 +17,11 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.5
+    local dmgmod = 1.0
+    -- 2.0 fTP if rabbit is 50+
+    if mob:getMainLvl() >= 50 then
+        dmgmod = 2.0
+    end
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1

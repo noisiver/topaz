@@ -1,7 +1,7 @@
 ---------------------------------------------
 -- Typhoon Wing
 --
---  Description: Deals hurricane-force dark damage to enemies within a very wide area of effect. Additional effect: Blind
+--  Description: Deals hurricane-force EARTH damage to enemies within a very wide area of effect. Additional effect: Blind
 --  Type: Magical
 --  Utsusemi/Blink absorb: Wipes shadows
 --  Range: 30' radial.
@@ -23,13 +23,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local typeEffect = tpz.effect.BLINDNESS
-
-
     local dmgmod = 1 -- 430 dmg with shell
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_NO_EFFECT)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.DARK)
-    MobStatusEffectMove(mob, target, typeEffect, 20, 0, 30)
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.EARTH, dmgmod, TP_NO_EFFECT)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.EARTH, MOBPARAM_WIPE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.EARTH)
+    MobStatusEffectMove(mob, target, tpz.effect.SLOW, 9000, 0, 300)
     return dmg
 end

@@ -18,8 +18,12 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PARALYSIS
+    local power = 50
+    if mob:isNM() then
+        power = 75
+    end
 
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 300))
+    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, 300))
 
     return typeEffect
 end

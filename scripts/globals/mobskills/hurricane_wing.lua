@@ -33,6 +33,6 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BLINDNESS
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WIND)
-    MobStatusEffectMove(mob, target, typeEffect, 20, 0, 300)
+    MobStatusEffectMove(mob, target, typeEffect, 160, 0, 300)
     return dmg
 end

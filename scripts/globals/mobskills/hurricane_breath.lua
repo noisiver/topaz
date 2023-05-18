@@ -17,7 +17,11 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.WIND, 1400)
+    local dmgCap = 700
+    if mob:isNM() then
+        dmgcap = 1400
+    end
+    local dmgmod = MobHPBasedMove(mob, target, 0.125, 1, tpz.magic.ele.WIND, dmgcap)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.WIND, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WIND)
     MobEncumberMove(mob, target, 1, 90)

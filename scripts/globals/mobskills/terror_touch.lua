@@ -32,7 +32,7 @@ function onMobWeaponSkill(target, mob, skill)
     else
         local typeEffect = tpz.effect.ATTACK_DOWN
 
-        MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 75, 0, 30)
+        MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 70, 0, 30)
     end
     local params_phys = {}
     params_phys.multiplier = dmgmod
