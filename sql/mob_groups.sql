@@ -2710,12 +2710,12 @@ INSERT INTO `mob_groups` VALUES (1890,4493,54,'Zazarg',0,128,0,0,0,0,0,0);
 -- Ilrusi_Atoll (Zone 55)
 -- ------------------------------------------------------------
 --Custom Start
-INSERT INTO `mob_groups` VALUES (1,9034,55,'Lamia_Bersagliere',0,128,0,10000,0,80,80,0);-- RNG
-INSERT INTO `mob_groups` VALUES (2,9035,55,'Merrow_Balladeer',0,128,0,10000,0,80,80,0); -- BRD
-INSERT INTO `mob_groups` VALUES (3,9036,55,'Evolved_Qutrub',0,128,0,30000,0,80,80,0); -- BLM
-INSERT INTO `mob_groups` VALUES (4,9037,55,'Evolved_Apkallu',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (5,9038,55,'Evolved_Orobon',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (6,9039,55,'Lamia_No3',0,128,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (1,9034,55,'Lamia_Bersagliere',0,128,0,10000,0,74,74,0);-- RNG
+INSERT INTO `mob_groups` VALUES (2,9035,55,'Merrow_Balladeer',0,128,0,10000,0,74,74,0); -- BRD
+INSERT INTO `mob_groups` VALUES (3,9036,55,'Evolved_Qutrub',0,128,0,30000,0,74,74,0); -- BLM
+INSERT INTO `mob_groups` VALUES (4,9037,55,'Evolved_Apkallu',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (5,9038,55,'Evolved_Orobon',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (6,9039,55,'Lamia_No3',0,128,0,35000,0,80,80,0);
 
 --Custom End
 
@@ -2766,14 +2766,14 @@ INSERT INTO `mob_groups` VALUES (1924,3327,55,'Raubahn',0,128,0,0,0,0,0,0);
 -- ------------------------------------------------------------
 --Custom Start
 
-INSERT INTO `mob_groups` VALUES (5,360,56,'Batteilant_Bhoot',0,128,0,9000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (6,905,56,'Darkling_Draugar',0,128,0,10000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (7,1097,56,'Draconic_Draugar',0,128,0,10000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (8,1112,56,'Draugars_Wyvern',0,128,0,0,0,77,77,0);
-INSERT INTO `mob_groups` VALUES (9,9030,56,'Enhanced_Jnun',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (10,9031,56,'Enhanced_Imp',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (11,9032,56,'Enhanced_Soulflayer',0,128,0,70000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (12,9033,56,'Mimic',0,128,0,15000,0,81,82,0);
+INSERT INTO `mob_groups` VALUES (5,360,56,'Batteilant_Bhoot',0,128,0,9000,0,74,74,0);
+INSERT INTO `mob_groups` VALUES (6,905,56,'Darkling_Draugar',0,128,0,10000,0,74,74,0);
+INSERT INTO `mob_groups` VALUES (7,1097,56,'Draconic_Draugar',0,128,0,10000,0,74,74,0);
+INSERT INTO `mob_groups` VALUES (8,1112,56,'Draugars_Wyvern',0,128,0,0,0,72,72,0);
+INSERT INTO `mob_groups` VALUES (9,9030,56,'Enhanced_Jnun',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (10,9031,56,'Enhanced_Imp',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (11,9032,56,'Enhanced_Soulflayer',0,128,0,70000,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (12,9033,56,'Mimic',0,128,0,15000,0,77,77,0);
 
 -- Custom end
 
@@ -3042,19 +3042,19 @@ INSERT INTO `mob_groups` VALUES (2132,4493,62,'Zazarg',0,128,0,0,0,0,0,0);
 -- Lebros_Cavern (Zone 63)
 -- ------------------------------------------------------------
 --Custom Start
-INSERT INTO `mob_groups` VALUES (1,9046,63,'Goblin_Gladiator',0,128,0,2000,0,80,80,0); -- WAR
-INSERT INTO `mob_groups` VALUES (2,9047,63,'Moblin_Pickpocket',0,128,0,2000,0,80,80,0); -- THF
-INSERT INTO `mob_groups` VALUES (3,9048,63,'Goblin_Ronin',0,128,0,2000,0,80,80,0); -- SAM
-INSERT INTO `mob_groups` VALUES (4,9049,63,'Goblin_Lancelot',0,128,0,2000,0,80,80,0); -- DRK
-INSERT INTO `mob_groups` VALUES (5,9050,63,'Moblin_Engineer',0,128,0,4000,0,80,80,0); -- Muter(SCH)
-INSERT INTO `mob_groups` VALUES (6,9051,63,'Troll_Barbarian',0,128,0,2000,0,80,80,0);  -- WAR
-INSERT INTO `mob_groups` VALUES (7,9052,63,'Troll_Cleric',0,128,0,2000,0,80,80,0);  -- WHM
-INSERT INTO `mob_groups` VALUES (8,9053,63,'Troll_Cavalier',0,128,0,2000,0,80,80,0);  -- DRK
-INSERT INTO `mob_groups` VALUES (9,9054,63,'Troll_Templar',0,128,0,2000,0,80,80,0);  -- PLD
-INSERT INTO `mob_groups` VALUES (10,9055,63,'Troll_Engineer',0,128,0,4000,0,80,80,0);  -- Muter(SCH)
-INSERT INTO `mob_groups` VALUES (11,9056,63,'Vishap',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (12,9057,63,'Red_Pineapple',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (13,9058,63,'Troll_Destroyer',0,128,0,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (1,9046,63,'Goblin_Gladiator',0,128,0,2000,0,74,74,0); -- WAR
+INSERT INTO `mob_groups` VALUES (2,9047,63,'Moblin_Pickpocket',0,128,0,2000,0,74,74,0); -- THF
+INSERT INTO `mob_groups` VALUES (3,9048,63,'Goblin_Ronin',0,128,0,2000,0,74,74,0); -- SAM
+INSERT INTO `mob_groups` VALUES (4,9049,63,'Goblin_Lancelot',0,128,0,2000,0,74,74,0); -- DRK
+INSERT INTO `mob_groups` VALUES (5,9050,63,'Moblin_Engineer',0,128,0,4000,0,74,74,0); -- Muter(SCH)
+INSERT INTO `mob_groups` VALUES (6,9051,63,'Troll_Barbarian',0,128,0,2000,0,74,74,0);  -- WAR
+INSERT INTO `mob_groups` VALUES (7,9052,63,'Troll_Cleric',0,128,0,2000,0,74,74,0);  -- WHM
+INSERT INTO `mob_groups` VALUES (8,9053,63,'Troll_Cavalier',0,128,0,2000,0,74,74,0);  -- DRK
+INSERT INTO `mob_groups` VALUES (9,9054,63,'Troll_Templar',0,128,0,2000,0,74,74,0);  -- PLD
+INSERT INTO `mob_groups` VALUES (10,9055,63,'Troll_Engineer',0,128,0,4000,0,74,74,0);  -- Muter(SCH)
+INSERT INTO `mob_groups` VALUES (11,9056,63,'Vishap',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (12,9057,63,'Red_Pineapple',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (13,9058,63,'Troll_Destroyer',0,128,0,35000,0,80,80,0);
 
 --Custom end
 
@@ -3185,13 +3185,13 @@ INSERT INTO `mob_groups` VALUES (2227,4493,65,'Zazarg',0,128,0,0,0,0,0,0);
 -- ------------------------------------------------------------
 -- Custom Start
 
-INSERT INTO `mob_groups` VALUES (1,9059,66,'Mamool_Ja_Spezialagent',0,128,0,10000,0,80,80,0); -- NIN
-INSERT INTO `mob_groups` VALUES (2,9060,66,'Mamool_Ja_Medizin',0,128,0,8000,0,80,80,0); -- WHM
-INSERT INTO `mob_groups` VALUES (3,9061,66,'Poroggo_Shifu',0,128,0,20000,0,83,83,0); 
-INSERT INTO `mob_groups` VALUES (4,9062,66,'Trained_Wivre',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (5,9063,66,'Mamool_Ja_Ritter',0,128,0,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (6,9064,66,'Mamool_Ja_Speerkampfer',0,128,0,17500,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (7,9065,66,'Mamool_Jas_Wyvern',0,128,0,17500,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (1,9059,66,'Mamool_Ja_Spezialagent',0,128,0,10000,0,74,74,0); -- NIN
+INSERT INTO `mob_groups` VALUES (2,9060,66,'Mamool_Ja_Medizin',0,128,0,8000,0,74,74,0); -- WHM
+INSERT INTO `mob_groups` VALUES (3,9061,66,'Poroggo_Shifu',0,128,0,20000,0,77,77,0); 
+INSERT INTO `mob_groups` VALUES (4,9062,66,'Trained_Wivre',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (5,9063,66,'Mamool_Ja_Ritter',0,128,0,35000,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (6,9064,66,'Mamool_Ja_Speerkampfer',0,128,0,17500,0,80,80,0);
+INSERT INTO `mob_groups` VALUES (7,9065,66,'Mamool_Jas_Wyvern',0,128,0,17500,0,78,78,0);
 
 -- Custom End
 
@@ -3311,14 +3311,14 @@ INSERT INTO `mob_groups` VALUES (2310,4493,68,'Zazarg',0,128,0,0,0,0,0,0);
 -- Leujaoam_Sanctum (Zone 69)
 -- ------------------------------------------------------------
 --Custom Start
-INSERT INTO `mob_groups` VALUES (1,2401,69,'Leujaoam_Worm',0,128,0,8000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (2,9040,69,'Ruby_Eruca',0,128,0,10000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (3,9041,69,'Lost_Wamouracampa',0,128,0,10000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (4,714,69,'Chigoe',0,128,0,10000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (5,9042,69,'Bodacious_Elly',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (6,9043,69,'Ravaging_Diremite',0,128,0,20000,0,83,83,0);
-INSERT INTO `mob_groups` VALUES (7,9044,69,'Sleepy_Wamouracampa',0,128,0,10000,0,80,80,0);
-INSERT INTO `mob_groups` VALUES (8,9045,69,'Ferocious_Wamoura',0,128,0,30000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (1,2401,69,'Leujaoam_Worm',0,128,0,8000,0,74,74,0);
+INSERT INTO `mob_groups` VALUES (2,9040,69,'Ruby_Eruca',0,128,0,10000,0,74,74,0);
+INSERT INTO `mob_groups` VALUES (3,9041,69,'Lost_Wamouracampa',0,128,0,10000,0,74,74,0);
+INSERT INTO `mob_groups` VALUES (4,714,69,'Chigoe',0,128,0,10000,0,74,74,0);
+INSERT INTO `mob_groups` VALUES (5,9042,69,'Bodacious_Elly',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (6,9043,69,'Ravaging_Diremite',0,128,0,20000,0,77,77,0);
+INSERT INTO `mob_groups` VALUES (7,9044,69,'Sleepy_Wamouracampa',0,128,0,10000,0,74,74,0);
+INSERT INTO `mob_groups` VALUES (8,9045,69,'Ferocious_Wamoura',0,128,0,30000,0,80,80,0);
 
 
 --Custom end
