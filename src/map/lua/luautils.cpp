@@ -83,6 +83,7 @@
 #include "../battlefield.h"
 #include "../daily_system.h"
 #include "../packets/char_emotion.h"
+#include "../utils/guildutils.h"
 
 namespace luautils
 {
@@ -110,6 +111,7 @@ namespace luautils
         lua_register(LuaHandle, "GetNPCByID", luautils::GetNPCByID);
         lua_register(LuaHandle, "GetMobByID", luautils::GetMobByID);
         lua_register(LuaHandle, "WeekUpdateConquest", luautils::WeekUpdateConquest);
+        lua_register(LuaHandle, "UpdateGuildsStock", luautils::UpdateGuildsStock);
         lua_register(LuaHandle, "GetRegionOwner", luautils::GetRegionOwner);
         lua_register(LuaHandle, "GetRegionInfluence", luautils::GetRegionInfluence);
         lua_register(LuaHandle, "getNationRank", luautils::getNationRank);
@@ -463,6 +465,12 @@ namespace luautils
         }
         conquest::UpdateConquestGM(type);
 
+        return 0;
+    }
+
+    int32 UpdateGuildsStock(lua_State* L)
+    {
+        guildutils::UpdateGuildsStock();
         return 0;
     }
 
