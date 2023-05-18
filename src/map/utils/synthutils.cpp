@@ -488,7 +488,7 @@ int32 doSynthSkillUp(CCharEntity* PChar)
                             case 4:  chance = 0.500; break;
                             case 3:  chance = 0.300; break;
                             case 2:  chance = 0.200; break;
-                            case 1:  chance = 0.100; break;
+                            case 1:  chance = 0.150; break;
                             default: chance = 0.000; break;
                         }
 
@@ -504,9 +504,9 @@ int32 doSynthSkillUp(CCharEntity* PChar)
                 if (map_config.craft_amount_multiplier > 1)
                 {
                     skillUpAmount += (int32)(skillUpAmount * map_config.craft_amount_multiplier);
-                    if (skillUpAmount > 9)
+                    if (skillUpAmount > 3)
                     {
-                        skillUpAmount = 9;
+                        skillUpAmount = 3;
                     }
                 }
 
