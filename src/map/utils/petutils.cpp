@@ -454,6 +454,8 @@ namespace petutils
         case JOB_DRK:
         case JOB_BLU:
         case JOB_SCH:
+        case JOB_GEO:
+        case JOB_RUN:
             PMob->health.maxmp = (int16)(15.2 * pow(lvl, 1.1075) * petStats->MPscale);
             break;
         default:
@@ -840,6 +842,8 @@ namespace petutils
 
         PPet->SetMJob(JOB_DRK);
         PPet->SetSJob(JOB_BLM);
+        PPet->SetMLevel(PMaster->GetMLevel());
+        PPet->SetSLevel(PMaster->GetMLevel());
         if (PMaster->GetMJob() == JOB_SMN)
         {
             PPet->SetMLevel(PMaster->GetMLevel());
@@ -856,24 +860,6 @@ namespace petutils
         LoadAvatarStats(PPet); // follows PC calcs (w/o SJ)
 
         PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(PPetData->spellList);
-
-        // All pets have MAB equal to main job BLM
-        if (PPet->GetMLevel() >= 70)
-        {
-            PPet->setModifier(Mod::MATT, 32);
-        }
-        else if (PPet->GetMLevel() >= 50)
-        {
-            PPet->setModifier(Mod::MATT, 28);
-        }
-        else if (PPet->GetMLevel() >= 30)
-        {
-            PPet->setModifier(Mod::MATT, 24);
-        }
-        else if (PPet->GetMLevel() >= 10)
-        {
-            PPet->setModifier(Mod::MATT, 20);
-        }
 
         // High refresh so Elementals don't oom
         PPet->setModifier(Mod::REFRESH, 500);
@@ -900,15 +886,13 @@ namespace petutils
         }
 
         // Elemetal Spirits are BLM/RDM Light is WHM/RDM and Dark is DRK/RDM
-        if (PetID >= PETID_FIRESPIRIT && PetID < PETID_LIGHTSPIRIT)
+        if (PetID >= PETID_FIRESPIRIT && PetID <= PETID_DARKSPIRIT)
         {
             PPet->SetMJob(JOB_BLM);
             PPet->SetSJob(JOB_RDM);
             // No elemental staff. Need bonus Macc or they struggle to land spells.
-            PPet->addModifier(Mod::MACC, 30);
+            //PPet->addModifier(Mod::MACC, 30);
         }
-
-        PPet->setModifier(Mod::SDT_DARK, 130);
 
         // Set global avatar mods
         PPet->addModifier(Mod::SUBTLE_BLOW, 25);
@@ -948,8 +932,6 @@ namespace petutils
                 break;
             case PETID_CARBUNCLE:
                 PPet->addModifier(Mod::REGEN, petRegen);
-                PPet->setModifier(Mod::SDT_DARK, 150);
-                PPet->setModifier(Mod::SDT_LIGHT, 20);
                 break;
             case PETID_FENRIR:
                 PPet->addModifier(Mod::FIRERES, petEleRes);
@@ -1127,6 +1109,7 @@ namespace petutils
         highestLvl -= tpzrand::GetRandomNumber(3 - std::clamp<int16>(PChar->getMod(Mod::JUG_LEVEL_RANGE), 0, 2));
 
         PPet->SetMLevel(highestLvl);
+        PPet->SetSLevel(highestLvl);
         LoadJugStats(PPet, PPetData); // follow monster calcs (w/o SJ)
     }
     void CalculateAutomatonStats(CBattleEntity* PMaster, CPetEntity* PPet)
@@ -1305,7 +1288,7 @@ namespace petutils
             PPet->setModifier(Mod::EEM_BLIND, petData->eemblind);
 
             // add traits for sub and main if a jug pet
-            if (PPet->getPetType() == PETTYPE_JUG_PET)
+            if (PPet->getPetType() != PETTYPE_AUTOMATON)
             {
                 battleutils::AddTraits(PPet, traits::GetTraits(petData->mJob), PPet->GetMLevel());
                 if (petData->mJob != petData->sJob)
@@ -1918,26 +1901,6 @@ namespace petutils
 
     void SetupPetWithMaster(CBattleEntity* PMaster, CPetEntity* PPet)
     {
-        // add traits for sub and main if a jug pet
-        if (PPet->getPetType() != PETTYPE_JUG_PET)
-        {
-            battleutils::AddTraits(PPet, traits::GetTraits(PPet->GetMJob()), PPet->GetMLevel());
-            if (PPet->GetMJob() != PPet->GetMLevel())
-            {
-                battleutils::AddTraits(PPet, traits::GetTraits(PPet->GetMLevel()), PPet->GetSLevel());
-            }
-            // WAR pets have 25% DA
-            if (PPet->GetMJob() == JOB_WAR && PPet->GetMLevel() >= 25 || PPet->GetMLevel() == JOB_WAR && PPet->GetSLevel() >= 25)
-            {
-                PPet->setModifier(Mod::DOUBLE_ATTACK, 25);
-            }
-            // Pets shouldn't have Inquartata unless Rune Fencers(?)
-            if (PPet->GetMJob() != JOB_RUN)
-            {
-                PPet->setModifier(Mod::INQUARTATA, 0);
-            }
-        }
-
         charutils::BuildingCharAbilityTable(static_cast<CCharEntity*>(PMaster));
         charutils::BuildingCharPetAbilityTable(static_cast<CCharEntity*>(PMaster), PPet, PPet->m_PetID);
         static_cast<CCharEntity*>(PMaster)->pushPacket(new CCharUpdatePacket(static_cast<CCharEntity*>(PMaster)));

@@ -857,9 +857,10 @@ void CBattleEntity::SetMLevel(uint8 mlvl)
 
 void CBattleEntity::SetSLevel(uint8 slvl)
 {
-    if (!map_config.include_mob_sj && (this->objtype == TYPE_MOB && this->objtype != TYPE_PET))
+    if (!map_config.include_mob_sj && (this->objtype == TYPE_MOB && this->objtype != TYPE_PET ||
+        ((CPetEntity*)this)->getPetType() == PETTYPE_AVATAR))
     {
-        m_slvl = m_mlvl; // All mobs have a 1:1 ratio of MainJob/Subjob
+        m_slvl = m_mlvl; // All mobs and avatars have a 1:1 ratio of MainJob/Subjob
     }
     else
     {
