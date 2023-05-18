@@ -642,6 +642,7 @@ INSERT INTO `mob_family_system` VALUES (589,'LordOfOnzozo',2,'Aquan',1,40,105,14
 
 
 -- Mythic Weapon Fights (Custom)
+INSERT INTO `mob_family_system` VALUES (899,'Nashmeira',13,'Humanoid',0,40,100,120,7,7,7,7,7,7,7,3,3,3,3,1,3,1,3,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);
 INSERT INTO `mob_family_system` VALUES (900,'AnimatedWeapon-Archery',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);
 INSERT INTO `mob_family_system` VALUES (901,'AnimatedWeapon-Axe',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);
 INSERT INTO `mob_family_system` VALUES (902,'AnimatedWeapon-Club',18,'Unclassified',0,40,100,120,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,0,2,0,50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50);

@@ -18,6 +18,12 @@ function onTrade(player, npc, trade)
             utils.MessageParty(player, "Your kind will pay for your betrayal...", 0, "Raogrimm")
             player:confirmTrade()
         end
+    elseif npcUtil.tradeHasExactly(trade, tpz.items.PURPLE_CHIP) then
+        if npcUtil.popFromQM(player, npc, ID.mob.NASHMEIRA) then 
+            utils.ShowTextParty(player, ID.text.SYS_OVERLOAD)
+            utils.MessageParty(player, "Let's go Mnejing!", 0, "Nashmeira")
+            player:confirmTrade()
+        end
     end
 end
 

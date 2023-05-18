@@ -16933,8 +16933,8 @@ INSERT INTO `mob_droplist` VALUES (3185,0,0,1000,18206,240); -- Rune Chopper 24%
 INSERT INTO `mob_droplist` VALUES (3186,0,0,1000,18753,1000); -- Burning Fists 100%
 INSERT INTO `mob_droplist` VALUES (3186,0,0,1000,16408,240); -- Rune Baghnakhs 24% 
 
-INSERT INTO `mob_droplist` VALUES (3187,0,0,1000,17742,1000); -- Vorpal Sword 100%
-INSERT INTO `mob_droplist` VALUES (3187,0,0,1000,16563,240); -- Rune Blade 24% 
+INSERT INTO `mob_droplist` VALUES (3187,0,0,1000,18754,1000); -- Inferno Claws 100%
+INSERT INTO `mob_droplist` VALUES (3187,0,0,1000,16408,240); -- Rune Baghnakhs 24% 
 
 INSERT INTO `mob_droplist` VALUES (3188,0,0,1000,17742,1000); -- Vorpal Sword 100%
 INSERT INTO `mob_droplist` VALUES (3188,0,0,1000,16563,240); -- Rune Blade 24% 

@@ -4574,5 +4574,8 @@ INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,7); -- howling fists
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,8); -- dragon kick
 INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,9); -- asuran_fists
 
+INSERT INTO `mob_skill_lists` VALUES ('Nashmeira',6136,3243); -- Imperial Authority
+
 -- Next available ID: 1176
+-- Next custom ID: 6137
 
