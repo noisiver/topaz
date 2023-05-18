@@ -76,9 +76,11 @@ function onRegionEnter(player, region)
     local RNG = math.random(100)
     local BuffRoll = math.random(100)
     local RegionID = region:GetRegionID()
+    local tick = player:getLocalVar("Caedarva_Mire_Swamp_Tick")
     
-    if (RegionID <= 15) then
-        printf("Entered Region")
+    if (RegionID <= 15 and not player:hasStatusEffect(tpz.effect.MOUNTED) and os.time() <= tick then
+        --printf("Entered Region")
+        player:setLocalVar("Caedarva_Mire_Swamp_Tick", os.time() + 5)
         if RNG < 50 then
             --printf("%u", RNG)
             --printf("Apply Weight")
