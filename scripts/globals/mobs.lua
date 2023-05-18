@@ -865,7 +865,7 @@ function SetGenericNMStats(mob)
         wepDMG = 125
     end
 
-    if mob:getMainJob() == tpz.job.MNK then
+    if mob:getMainJob() == tpz.job.MNK or mob:getMainJob() == tpz.job.PUP then
         wepDMG = wepDMG * 0.4
     end
 
