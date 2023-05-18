@@ -20,8 +20,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 
 	local params = {}
     params.ftp100 = 2.0 params.ftp200 = 2.5 params.ftp300 = 3.0
-    params.str_wsc = 0.5 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
-    params.ele = tpz.magic.ele.ICE
+    params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 1.0
+    params.ele = tpz.magic.ele.EARTH
     params.skill = tpz.skill.AXE
     params.includemab = true
 	params.enmityMult = 0.5
@@ -33,6 +33,14 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local damage, criticalHit, tpHits, extraHits = doMagicWeaponskill(player, target, wsID, params, tp, action, primary)
+	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, 0)
+    if damage > 0 and resist >= 0.5 then
+        local duration = (tp/1000 * 30) + 60
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.EARTH, 50)
+        if not target:hasStatusEffect(tpz.effect.RASP) and not target:hasStatusEffect(tpz.effect.CHOKE) then
+            target:addStatusEffect(tpz.effect.RASP, 10, 3, duration * resist)
+        end
+	end
 	if damage > 0 then player:trySkillUp(target, tpz.skill.AXE, tpHits+extraHits) end
 	if damage > 0 then target:tryInterruptSpell(player, tpHits+extraHits) end
     return tpHits, extraHits, criticalHit, damage

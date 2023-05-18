@@ -20,7 +20,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
   
 	local params = {}
     params.ftp100 = 2.0 params.ftp200 = 2.5 params.ftp300 = 3.0
-    params.str_wsc = 0.5 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 0.0
+    params.str_wsc = 0.0 params.dex_wsc = 0.0 params.vit_wsc = 0.0 params.agi_wsc = 0.0 params.int_wsc = 0.0 params.mnd_wsc = 0.0 params.chr_wsc = 1.0
     params.ele = tpz.magic.ele.WIND
     params.skill = tpz.skill.AXE
     params.includemab = true
@@ -36,8 +36,8 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
 	local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
     if damage > 0 and resist >= 0.5 then
         local duration = (tp/1000 * 30) + 60
-        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 0)
-        if (target:hasStatusEffect(tpz.effect.CHOKE) == false)  then
+        local resist = applyResistanceAddEffect(player, target, tpz.magic.ele.WIND, 50)
+        if not target:hasStatusEffect(tpz.effect.CHOKE) and not target:hasStatusEffect(tpz.effect.FROST) then
             target:addStatusEffect(tpz.effect.CHOKE, 10, 3, duration * resist)
         end
 	end
