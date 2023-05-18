@@ -20,13 +20,15 @@ function onMobSpawn(mob)
 end
 
 function onMobEngaged(mob, target)
+    local pet = GetMobByID(mob:getID() +1)
     mob:setLocalVar("frame_change", os.time() + 45)
+    pet:updateEnmity(mob:getTarget())
 end
 
 function onMobFight(mob, target)
     local current_frame = mob:getLocalVar("frame")
     local chainspell = mob:getLocalVar("chainSpell")
-    local pet = mob:getID()+1
+    local pet = GetMobByID(mob:getID() +1)
     local now = os.time()
 
     if mob:getLocalVar("frame_change") <= now then

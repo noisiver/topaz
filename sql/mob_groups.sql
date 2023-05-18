@@ -12836,7 +12836,7 @@ INSERT INTO `mob_groups` VALUES (38,2664,197,'Mimic',0,128,1689,0,0,60,63,0);
 INSERT INTO `mob_groups` VALUES (39,5532,197,'Water_Elemental',0,128,0,0,0,75,75,0);
 INSERT INTO `mob_groups` VALUES (40,4704,197,'Mellonia',0,128,0,0,0,94,95,0);
 INSERT INTO `mob_groups` VALUES (41,9011,197,'Raogrimm',0,128,3186,35000,0,85,85,0);
-INSERT INTO `mob_groups` VALUES (42,9011,197,'Nashmeira',0,128,3187,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (42,9012,197,'Nashmeira',0,128,3187,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (43,4123,197,'Mnejing',0,128,0,35000,0,85,85,0);
 
 INSERT INTO `mob_groups` VALUES (9834,3992,197,'Treasure_Chest',0,0,0,0,0,0,0,0);

@@ -78,8 +78,8 @@ function onRegionEnter(player, region)
     local RegionID = region:GetRegionID()
     local tick = player:getLocalVar("Caedarva_Mire_Swamp_Tick")
     
-    if (RegionID <= 15 and not player:hasStatusEffect(tpz.effect.MOUNTED) and os.time() <= tick then
-        --printf("Entered Region")
+    if (RegionID <= 15 and not player:hasStatusEffect(tpz.effect.MOUNTED) and os.time() >= tick) then
+        printf("Entered Region")
         player:setLocalVar("Caedarva_Mire_Swamp_Tick", os.time() + 5)
         if RNG < 50 then
             --printf("%u", RNG)
@@ -96,7 +96,7 @@ function onRegionEnter(player, region)
             elseif BuffRoll < 80 then
                 player:addStatusEffect(tpz.effect.HASTE, 1465, 0, 180)
             elseif BuffRoll < 90 then
-                player:addStatusEffect(tpz.effect.SLOW, 2550, 0, 180)
+                player:addStatusEffect(tpz.effect.SLOW, 10000, 0, 180)
             end
         elseif RNG < 95 and Respawn <= os.time() then
             --printf("Spawn Zikko")

@@ -150,7 +150,7 @@ bool CMobController::CheckDetection(CBattleEntity* PTarget)
 void CMobController::TryLink()
 {
     TracyZoneScoped;
-    if (PTarget == nullptr) // Mobs shouldn't link to pets
+    if (PTarget == nullptr)
     {
         return;
     }
@@ -171,6 +171,12 @@ void CMobController::TryLink()
         ((CMobEntity*)PMob->PPet)->PEnmityContainer->AddBaseEnmity(PTarget);
     }
 
+    // Mobs shouldn't link to pets without master being engaged
+    if (PTarget->objtype == TYPE_PET && !PTarget->PMaster->PAI->IsEngaged())
+    {
+        return;
+    }
+
     // Handle monster linking if they are close enough
     if (PMob->PParty != nullptr)
     {
@@ -180,17 +186,6 @@ void CMobController::TryLink()
 
             if (PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
             {
-                // Don't link to pets
-                auto enmityList = PPartyMember->PEnmityContainer->GetEnmityList();
-                for (auto iter = enmityList->begin(); iter != enmityList->end(); iter++)
-                {
-                    auto entity = iter->second.PEnmityOwner;
-                    if (entity->objtype != TYPE_PC)
-                    // if (PMob->GetEntity(PTarget->PMaster->targid) == 0)
-                    {
-                        return;
-                    }
-                }
                 PPartyMember->PEnmityContainer->AddBaseEnmity(PTarget);
 
                 if (PPartyMember->m_roamFlags & ROAMFLAG_IGNORE)
