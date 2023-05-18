@@ -150,7 +150,7 @@ bool CMobController::CheckDetection(CBattleEntity* PTarget)
 void CMobController::TryLink()
 {
     TracyZoneScoped;
-    if (PTarget == nullptr || PTarget->objtype == TYPE_PET || PTarget->isCharmed) // Mobs shouldn't link to pets
+    if (PTarget == nullptr) // Mobs shouldn't link to pets
     {
         return;
     }
@@ -180,6 +180,17 @@ void CMobController::TryLink()
 
             if (PPartyMember->PAI->IsRoaming() && PPartyMember->CanLink(&PMob->loc.p, PMob->getMobMod(MOBMOD_SUPERLINK)))
             {
+                // Don't link to pets
+                auto enmityList = PPartyMember->PEnmityContainer->GetEnmityList();
+                for (auto iter = enmityList->begin(); iter != enmityList->end(); iter++)
+                {
+                    auto entity = iter->second.PEnmityOwner;
+                    if (entity->objtype != TYPE_PC)
+                    // if (PMob->GetEntity(PTarget->PMaster->targid) == 0)
+                    {
+                        return;
+                    }
+                }
                 PPartyMember->PEnmityContainer->AddBaseEnmity(PTarget);
 
                 if (PPartyMember->m_roamFlags & ROAMFLAG_IGNORE)
