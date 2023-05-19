@@ -174,7 +174,7 @@ function calcRegen(catchType, catchLevel, fishingSkill, sizeType, legendaryRodTy
         Regen = Regen - 2
     end
     if catchType == fishing.catchType.MOB then
-        Regen = 250
+        Regen = 150
     end
     return math.max(0, Regen)
 end
