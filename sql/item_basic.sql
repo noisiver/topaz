@@ -15975,9 +15975,9 @@ INSERT INTO `item_basic` VALUES (18727,0,'fourth_division_gun','fourth_gun',1,34
 INSERT INTO `item_basic` VALUES (18728,0,'cobra_unit_bow','cobra_bow',1,34820,13,0,7070);
 INSERT INTO `item_basic` VALUES (18729,0,'djinn_arm','djinn_arm',99,2052,15,0,459);
 INSERT INTO `item_basic` VALUES (18730,0,'obsidian_arrow','obsidian_arrow',99,2052,15,0,24);
-INSERT INTO `item_basic` VALUES (18731,0,'can_of_automaton_oil','automaton_oil',99,2052,61,0,25);
-INSERT INTO `item_basic` VALUES (18732,0,'can_of_automaton_oil_+1','automat._oil_+1',99,2052,61,0,62);
-INSERT INTO `item_basic` VALUES (18733,0,'can_of_automaton_oil_+2','automat._oil_+2',99,2052,61,0,125);
+INSERT INTO `item_basic` VALUES (18731,0,'can_of_automaton_oil','automaton_oil',12,2052,61,0,25);
+INSERT INTO `item_basic` VALUES (18732,0,'can_of_automaton_oil_+1','automat._oil_+1',12,2052,61,0,62);
+INSERT INTO `item_basic` VALUES (18733,0,'can_of_automaton_oil_+2','automat._oil_+2',12,2052,61,0,125);
 INSERT INTO `item_basic` VALUES (18734,0,'sturms_report','sturms_report',1,63568,0,1,0);
 INSERT INTO `item_basic` VALUES (18735,0,'sonias_plectrum','sonias_plectrum',1,63568,0,1,0);
 INSERT INTO `item_basic` VALUES (18736,0,'fay_gendawa','fay_gendawa',1,2052,13,0,4700);
@@ -16413,7 +16413,7 @@ INSERT INTO `item_basic` VALUES (19181,0,'moogles_largesse','moogles_largesse',1
 INSERT INTO `item_basic` VALUES (19182,0,'ruszor_arrow','ruszor_arrow',99,2052,15,0,34);
 INSERT INTO `item_basic` VALUES (19183,0,'dark_adaman_bolt','drk._adm._bolt',99,2052,15,0,30);
 INSERT INTO `item_basic` VALUES (19184,0,'dark_adaman_bullet','drk._adm._bullet',99,2052,15,0,50);
-INSERT INTO `item_basic` VALUES (19185,0,'can_of_automaton_oil_+3','automat._oil_+3',99,2052,61,0,0);
+INSERT INTO `item_basic` VALUES (19185,0,'can_of_automaton_oil_+3','automat._oil_+3',12,2052,61,0,0);
 INSERT INTO `item_basic` VALUES (19186,0,'tiny_tathlum','tiny_tathlum',1,34820,15,0,389);
 INSERT INTO `item_basic` VALUES (19187,0,'murti_bow','murti_bow',1,63568,0,1,0);
 INSERT INTO `item_basic` VALUES (19188,0,'killer_shortbow','killer_shortbow',1,34820,13,0,7625);
