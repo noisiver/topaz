@@ -959,11 +959,7 @@ function onFishingCheck(player, fishskilllevel, rod, fishlist, moblist, lure, ar
         end
 
         -- CATCH STAMINA
-        if HookType == fishing.hookType.MOB then
-            Stamina = 2000
-        else
-            Stamina = calcStamina(CatchLevel)
-        end
+        Stamina = calcStamina(CatchLevel)
 
         -- CATCH ATTACK
         AttackDmg = math.max(20, calcAttack(CatchSize, rod.fishattack, LegendaryFish, rod.lgdbonusatk) - AttackPenalty)
@@ -979,7 +975,14 @@ function onFishingCheck(player, fishskilllevel, rod, fishlist, moblist, lure, ar
 
         -- CATCH BREAK/LOSE CHANCE
         Sense, LoseChance, SnapChance, BreakChance = calcChanceToBreak(FishingSkill, CatchLevel, CatchSize, CatchType, CatchSizeType, CatchFlags, rod, lure, RodLegendaryType, LegendaryFish)
+        --printf(string.format("Stamina %i\n AttackDmg %i\n Heal %i\n Regen %i", Stamina, AttackDmg, Heal, Regen))
 
+        if HookType == fishing.hookType.MOB then
+            Stamina = 2500
+            AttackDmg = 300
+            Heal = 170
+            Regen = 127
+        end
 
         -- HANDLE CRITICAL BITE
         if CriticalBite then
