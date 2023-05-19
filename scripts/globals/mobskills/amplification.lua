@@ -18,14 +18,14 @@ function onMobWeaponSkill(target, mob, skill)
     local mdbTotal = mob:getStatusEffect(tpz.effect.MAGIC_DEF_BOOST)
 
     if (mob:getStatusEffect(tpz.effect.MAGIC_ATK_BOOST) ~= nil) then -- mag atk bonus stacking
-        mabTotal = mabTotal:getPower() + 50
+        mabTotal = mabTotal:getPower() + 30
     else
-        mabTotal = 50
+        mabTotal = 30
     end
     if (mob:getStatusEffect(tpz.effect.MAGIC_DEF_BOOST) ~= nil) then -- mag def bonus stacking
-        mdbTotal = mdbTotal:getPower() + 50
+        mdbTotal = mdbTotal:getPower() + 30
     else
-        mdbTotal = 50
+        mdbTotal = 30
     end
     -- print(mabTotal)
     -- print(mdbTotal)

@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Drainkiss
+-- TP Drainkiss
 -- Deals dark damage to a single target. Additional effect: TP Drain
 -- Type: Magical
 -- Utsusemi/Blink absorb: 1 shadow
@@ -15,9 +15,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.DARK, dmgmod, TP_MAB_BONUS, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_1_SHADOW)
+    local dmgmod = target:getTP() / 2
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_1_SHADOW)
     if (target:getTP() < dmg) then
         dmg = target:getTP()
     end

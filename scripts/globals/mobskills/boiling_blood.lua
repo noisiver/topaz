@@ -17,7 +17,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.BERSERK
     local typeEffectTwo = tpz.effect.HASTE
-    local power = 50
+    local power = 55
     local powerTwo = 2500
     if mob:getPool() == 930 then -- Dea
         power = 100
