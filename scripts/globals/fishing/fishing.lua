@@ -959,7 +959,11 @@ function onFishingCheck(player, fishskilllevel, rod, fishlist, moblist, lure, ar
         end
 
         -- CATCH STAMINA
-        Stamina = calcStamina(CatchLevel)
+        if HookType == fishing.hookType.MOB then
+            Stamina = 2000
+        else
+            Stamina = calcStamina(CatchLevel)
+        end
 
         -- CATCH ATTACK
         AttackDmg = math.max(20, calcAttack(CatchSize, rod.fishattack, LegendaryFish, rod.lgdbonusatk) - AttackPenalty)
