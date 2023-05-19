@@ -517,31 +517,31 @@ int getSDTTier(int SDT)
         return 1.0f;
     }
 
-    float getElementalSDT(uint8 element, CBattleEntity* PDefender)
+    int getElementalSDT(uint8 element, CBattleEntity* PDefender)
     {
         if (PDefender->objtype == TYPE_PC)
         {
-             return 100.0f;
+             return 100;
         }
         Mod sdtarray[9] = { Mod::NONE, Mod::SDT_FIRE, Mod::SDT_ICE, Mod::SDT_WIND, Mod::SDT_EARTH,
                             Mod::SDT_THUNDER, Mod::SDT_WATER, Mod::SDT_LIGHT, Mod::SDT_DARK };
-        float SDT = (PDefender->getMod(sdtarray[element]));
+        int SDT = (PDefender->getMod(sdtarray[element]));
         //printf("Element:%u\\nMod:%u\\nValue:%f\\n", element, sdtarray[element], SDT);
 
         if (SDT == 0) // invalid SDT, it was never set on this target... just default it.
         {
-            SDT = 100.0f;
+            SDT = 100;
         }
         //printf("SDT %f\n", SDT);
         return SDT;
     }
 
-    float getEnfeebleSDT(uint8 status, uint8 element, CBattleEntity* PDefender)
+    int getEnfeebleSDT(uint8 status, uint8 element, CBattleEntity* PDefender)
     {
-        float SDT = 100.0f;
+        int SDT = 100;
         if (PDefender->objtype == TYPE_PC)
         {
-            return 100.0f;
+            return 100;
         }
         if  (status == EFFECT_AMNESIA) 
             SDT = PDefender->getMod(Mod::EEM_AMNESIA);
@@ -578,7 +578,7 @@ int getSDTTier(int SDT)
 
         if (SDT == 0) // invalid SDT, it was never set on this target... just default it.
         {
-            SDT = 100.0f;
+            SDT = 100;
         }
         // printf("SDT %f\n", SDT);
         return SDT;
@@ -624,7 +624,7 @@ int getSDTTier(int SDT)
         return dstatMaccBonus;
     }
 
-    float calculateMagicHitRate(float magicacc, float magiceva, uint8 element, float percentBonus, float casterLvl, float targetLvl, float SDT)
+    float calculateMagicHitRate(float magicacc, float magiceva, uint8 element, float percentBonus, float casterLvl, float targetLvl, int SDT)
     {
         float p = 0;
         magicacc = magicacc + (casterLvl - targetLvl) * 4;
@@ -644,7 +644,7 @@ int getSDTTier(int SDT)
         // p += percentBonus +status resist mod, flat mevasion/hit rate to enfeebles
 
         // Check SDT tiers
-        int tier = getSDTTier(SDT);
+        int tier = static_cast<int>(getSDTTier(SDT));
         if (tier >= 10)
         {
             p = 5.0f;
@@ -656,7 +656,7 @@ int getSDTTier(int SDT)
         return p;
     }
 
-    float getMagicHitRate(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skillType, uint8 element, float SDT, float percentBonus,
+    float getMagicHitRate(CBattleEntity* PAttacker, CBattleEntity* PDefender, uint8 skillType, uint8 element, int SDT, float percentBonus,
                           float magicaccbonus)
     {
         float casterLvl = PAttacker->GetMLevel();
@@ -689,7 +689,7 @@ int getSDTTier(int SDT)
         // Add + MEVA mod
         float mevaMod = baseMeva - PDefender->getMod(Mod::MEVA);
         //printf("mevaMod %f\n", mevaMod);
-        baseMeva *= static_cast<float>(getSDTMultiplier(getSDTTier(SDT)));
+        baseMeva *= getSDTMultiplier(static_cast<float>(getSDTTier(static_cast<int>(SDT))));
         //printf("getSDTMultiplier: %f\n", getSDTMultiplier(getSDTTier(SDT)));
         //printf("baseMeva after SDT %f\n", baseMeva);
         baseMeva += mevaMod;
@@ -708,7 +708,7 @@ int getSDTTier(int SDT)
     {
         // https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
         //printf("element for SDT %u\n", element);
-        float SDT = getElementalSDT(element, PDefender);
+        int SDT = getElementalSDT(element, PDefender);
         float percentBonus = 0.0f;
         float softcap = 10.0f; // 10 is set on all nukes.everything else is nil
 
@@ -718,17 +718,17 @@ int getSDTTier(int SDT)
         float p = getMagicHitRate(PAttacker, PDefender, skillType, element, SDT, percentBonus, bonus);
         float res = getMagicResist(p);
 
-        if (SDT >= 150.0f) // 1.5 guarantees at least half value, no quarter or full resists.
+        if (SDT >= 150) // 1.5 guarantees at least half value, no quarter or full resists.
         {
             res = std::clamp<float>(res, 0.50f, 1.0f);
         }
 
-        if (SDT <= 50.0f) // .5 or below SDT drops a resist tier
+        if (SDT <= 50) // .5 or below SDT drops a resist tier
         {
             res = res / 2.0f;
         }
 
-        if (SDT <= 5.0f) // SDT tier .05 makes you lose ALL coin flips
+        if (SDT <= 5) // SDT tier .05 makes you lose ALL coin flips
         {
             res = 0.125f;
         }
@@ -762,7 +762,7 @@ int getSDTTier(int SDT)
 
         // https://www.bluegartr.com/threads/134257-Status-resistance-and-other-miscellaneous-JP-insights
         // printf("element for SDT %u\n", element);
-        float SDT = getEnfeebleSDT(status, element, PDefender);
+        int SDT = getEnfeebleSDT(status, element, PDefender);
         float percentBonus = 0.0f;
         float softcap = 10.0f; // 10 is set on all nukes.everything else is nil
 
@@ -773,7 +773,7 @@ int getSDTTier(int SDT)
         float res = getMagicResist(p);
 
 
-        if (SDT <= 5.0f) // SDT tier .05 makes you lose ALL coin flips
+        if (SDT <= 5) // SDT tier .05 makes you lose ALL coin flips
         {
             res = 0.125f;
         }
@@ -999,8 +999,8 @@ int getSDTTier(int SDT)
         // printf("\nDayWeather Bonus %f\n", dBonus);
         uint32 enspellMaccBonus = PAttacker->getMod(Mod::ENSPELL_MACC) + 30;
         //printf("Element in enspell: %u\n", element);
-        damage = static_cast<float>((damage * applyResistance(PAttacker, PDefender, element +1, SKILL_ENHANCING_MAGIC, 0, enspellMaccBonus)));
-        damage = static_cast<float>((damage * dBonus));
+        damage = static_cast<int32>(static_cast<float>(damage) * applyResistance(PAttacker, PDefender, element +1, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(enspellMaccBonus)));
+        damage = static_cast<int32>(static_cast<float>(damage) * dBonus);
         //damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element + 1));
         damage = MagicDmgTaken(PDefender, damage, (ELEMENT)(element +1));
         // printf("\nElement before enspell damage = %i \n", element);
@@ -1039,38 +1039,38 @@ int getSDTTier(int SDT)
         {
             case SPIKE_BLAZE:
                 element = ELEMENT_FIRE;
-                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus)));
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_ICE:
                 element = ELEMENT_ICE;
-                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus)));
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_GALE:
                 element = ELEMENT_WIND;
-                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus)));
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_CLOD:
                 element = ELEMENT_EARTH;
-                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus)));
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_SHOCK:
                 element = ELEMENT_THUNDER;
-                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus)));
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_DELUGE:
                 element = ELEMENT_WATER;
-                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus)));
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_REPRISAL:
                 element = ELEMENT_LIGHT;
-                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_DIVINE_MAGIC, 0, spikesMaccBonus)));
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_DIVINE_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             case SPIKE_GLINT:
             case SPIKE_DREAD:
             case SPIKE_CURSE:
                 element = ELEMENT_DARK;
                 // drain same as damage taken
-                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_DARK_MAGIC, 0, spikesMaccBonus)));
+                damage = static_cast<float>((damage * applyResistance(PDefender, PAttacker, element, SKILL_DARK_MAGIC, 0, static_cast<float>(spikesMaccBonus))));
                 break;
             default:
                 break;
@@ -1366,7 +1366,7 @@ int getSDTTier(int SDT)
     {
         uint8 spikes = (uint8)PAttacker->getMod(Mod::SPIKES);
 
-        int resist = 1;
+        float resist = 1.0f;
         uint8 element = 1;
         uint32 spikesMaccBonus = PAttacker->getMod(Mod::SPIKES_MACC) + 30;
 
@@ -1401,8 +1401,8 @@ int getSDTTier(int SDT)
             default:
                 break;
         }
-        resist = static_cast<float>(applyResistance(PDefender, PAttacker, element, SKILL_EVASION, 0, spikesMaccBonus));
-        if (resist >= 0.5)
+        resist = static_cast<float>(applyResistance(PDefender, PAttacker, element, SKILL_EVASION, 0, static_cast<float>(spikesMaccBonus)));
+        if (resist >= 0.5f)
         {
             // spikes landed
             if (spikesType == SUBEFFECT_CURSE_SPIKES)
@@ -1439,7 +1439,7 @@ int getSDTTier(int SDT)
         {
             case SUBEFFECT_CURSE_SPIKES:
                 element = ELEMENT_DARK;
-                resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_CURSE, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus));
+                resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_CURSE, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                // printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_CURSE) == false &&
@@ -1451,7 +1451,7 @@ int getSDTTier(int SDT)
             }
             case SUBEFFECT_ICE_SPIKES:
                 element = ELEMENT_ICE;
-            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_PARALYSIS, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus));
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_PARALYSIS, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_PARALYSIS) == false &&
@@ -1464,7 +1464,7 @@ int getSDTTier(int SDT)
             }
             case SUBEFFECT_SHOCK_SPIKES:
                 element = ELEMENT_THUNDER;
-            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_STUN, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus));
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_STUN, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 //printf("Spikes resist after getMagicResist %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) == false &&
@@ -1476,7 +1476,7 @@ int getSDTTier(int SDT)
             }
             case SUBEFFECT_GALE_SPIKES:
                 element = ELEMENT_WIND;
-            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_SILENCE, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus));
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_SILENCE, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SILENCE) == false &&
@@ -1488,7 +1488,7 @@ int getSDTTier(int SDT)
             }
             case SUBEFFECT_CLOD_SPIKES:
                 element = ELEMENT_EARTH;
-            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_SLOW, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus));
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_SLOW, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_SLOW) == false &&
@@ -1500,7 +1500,7 @@ int getSDTTier(int SDT)
             }
             case SUBEFFECT_DELUGE_SPIKES:
                 element = ELEMENT_WATER;
-            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_POISON, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus));
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_POISON, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && PAttacker->StatusEffectContainer->HasStatusEffect(EFFECT_POISON) == false &&
@@ -1512,7 +1512,7 @@ int getSDTTier(int SDT)
             }
             case SUBEFFECT_GLINT_SPIKES:
                 element = ELEMENT_DARK;
-            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_KO, element, SKILL_ENHANCING_MAGIC, 0, spikesMaccBonus));
+            resist = static_cast<float>(applyResistanceEffect(PDefender, PAttacker, EFFECT_KO, element, SKILL_ENHANCING_MAGIC, 0, static_cast<float>(spikesMaccBonus)));
                 // printf("Spikes status effect hit rate %f \n", resist);
             {
                     if (resist >= 0.5f && tpzrand::GetRandomNumber(100) > PAttacker->getMod(Mod::DEATHRESTRAIT))
