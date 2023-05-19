@@ -248,7 +248,7 @@ tpz.shop =
                 4150,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Eye Drops
                 4151,     700,      tpz.ki.RHAPSODY_IN_WHITE,   -- Echo Drops
                 4153,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Antacid
-                4154,     700,      tpz.ki.RHAPSODY_IN_WHITE,   -- Holy Water
+                4154,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Holy Water
                 4155,    3000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Remedy
                 4156,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mulsum
                 4164,    1500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Prism Powder
