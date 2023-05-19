@@ -17,11 +17,15 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    dsp.mix.jobSpecial.config(mob, {
+    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:addMod(tpz.mod.ATTP, 10)
+    mob:addMod(tpz.mod.ACC, 10) 
+    mob:addMod(tpz.mod.EVA, 10)
+    tpz.mix.jobSpecial.config(mob, {
         specials =
         {
             {
-                id = dsp.jsa.OVERDRIVE_SHAMARHAAN, hpp = 90,
+                id = tpz.jsa.OVERDRIVE_SHAMARHAAN, hpp = 90,
                 begCode = function(mob)
                     mob:messageText(mob, ID.text.SHAMARHAAN_FULL_STEAM)
                 end,

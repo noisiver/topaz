@@ -1494,8 +1494,9 @@ INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039390,2);
 INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039391,2);
 INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039392,2);
 INSERT INTO `bcnm_battlefield` VALUES (1122,3,17039393,2);
+INSERT INTO `bcnm_battlefield` VALUES (1123,1,17039394,3); -- Achieving True Power (PUP LB5)
+INSERT INTO `bcnm_battlefield` VALUES (1123,1,17039395,1); -- Achieving True Power (PUP LB5)
 INSERT INTO `bcnm_battlefield` VALUES (1124,1,17039400,3); -- shield_of_diplomacy
-
 INSERT INTO `bcnm_battlefield` VALUES (1152,1,17051649,3); -- making_a_mockery
 INSERT INTO `bcnm_battlefield` VALUES (1152,2,17051651,3); -- making_a_mockery
 INSERT INTO `bcnm_battlefield` VALUES (1152,3,17051653,3); -- making_a_mockery

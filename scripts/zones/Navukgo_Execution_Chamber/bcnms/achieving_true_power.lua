@@ -34,7 +34,7 @@ end
 
 function onEventFinish(player, csid, option)
     if csid == 32001 and player:getQuestStatus(BASTOK, tpz.quest.id.ACHIEVING_TRUE_POWER) == QUEST_ACCEPTED then
-        npcUtil.completeQuest(player, BASTOK, ACHIEVING_TRUE_POWER, {item=4181, title=tpz.title.MASTER_OF_MANIPULATION})
+        npcUtil.completeQuest(player, BASTOK, tpz.quest.id.bastok.ACHIEVING_TRUE_POWER, {item=4181, title=tpz.title.MASTER_OF_MANIPULATION})
         player:levelCap(75)
         player:messageSpecial(ID.text.LEVEL_LIMIT_75)
     end

@@ -61,7 +61,7 @@ function onEventFinish(player, csid, option)
     elseif csid == 439 then
         player:setCharVar("PuppetmasterBluesProgress", 5)
     elseif csid == 442 and player:getQuestStatus(BASTOK, tpz.quest.id.bastok.ACHIEVING_TRUE_POWER) == QUEST_AVAILABLE then
-        player:addQuest(BASTOK, ACHIEVING_TRUE_POWER)
+        player:addQuest(BASTOK, tpz.quest.id.bastok.ACHIEVING_TRUE_POWER)
     elseif csid == 443 then
         player:setPos(-660, -9.7, -196, 200, 64) -- Move player to Navukgo Execution Chamber
     end

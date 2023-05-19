@@ -704,7 +704,12 @@ INSERT INTO `mob_skill_lists` VALUES ('Gears1',152,2050);
 INSERT INTO `mob_skill_lists` VALUES ('Gears1',152,2051);
 INSERT INTO `mob_skill_lists` VALUES ('Gears1',152,2053);
 INSERT INTO `mob_skill_lists` VALUES ('Gears1',152,2062);
--- 153 to 154: taken by random mobs?
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,3);
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,4);
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,5);
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,6);
+INSERT INTO `mob_skill_lists` VALUES ('Shamarhaan',153,7);
+-- 154 random mobs?
 INSERT INTO `mob_skill_lists` VALUES ('Asterion_50',155,499); -- back_swish
 INSERT INTO `mob_skill_lists` VALUES ('Asterion_50',155,501); -- frightful_roar
 INSERT INTO `mob_skill_lists` VALUES ('Asterion_0',156,499); -- back_swish
