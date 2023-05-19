@@ -98,17 +98,24 @@ function MobPhysicalMove(mob, target, skill, numberofhits, accmod, dmgmod, tpeff
 
     local ignoredDef = 0
     local ignoredDefMod = 0
-
+    local attackBonus = 0
+    printf("Attack bonus before param: %i", attackBonus)
+    if (params_phys.attack_boost ~= nil) then
+        attackBonus = params_phys.attack_boost
+    end
+    printf("Attack bonus after param: %i", attackBonus)
     if (tpeffect == TP_IGNORE_DEFENSE) then
         ignoredDefMod = MobIgnoreDefenseModifier(tp) / 100
         --printf("Ignore def modifier %u", ignoredDefMod*100)
         ignoredDef = target:getStat(tpz.mod.DEF) * ignoredDefMod
         --printf("Amount of defense ignored final %u", ignoredDef)
     end
-
     --work out and cap ratio
     if (offcratiomod == nil) then -- default to attack. Pretty much every physical mobskill will use this, Cannonball being the exception.
-        offcratiomod = mob:getStat(tpz.mod.ATT)
+        local attk = mob:getStat(tpz.mod.ATT)
+        printf("Mob Attack before attack bonus: %i", attk)
+        offcratiomod = mob:getStat(tpz.mod.ATT) + (1 + (attackBonus / 100))
+        printf("Mob Attack before attack bonus: %i", offcratiomod)
         -- print ("Nothing passed, defaulting to attack")
     end
     local ratio = offcratiomod/target:getStat(tpz.mod.DEF)
