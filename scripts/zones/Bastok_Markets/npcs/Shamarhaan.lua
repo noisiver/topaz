@@ -37,7 +37,7 @@ function onTrigger(player, npc)
         elseif PuppetmasterBluesProgress == 5 then
             player:startEvent(440)
         end
-    elseif player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES) == QUEST_COMPLETED and LvL >= 66 and Job == tpz.job.PUP then
+    elseif player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES) == QUEST_COMPLETED and player:getMainLvl() >= 66 and player:getMainJob() == tpz.job.PUP then
         player:startEvent(442)
     elseif player:getMainLvl() >= AF1_QUEST_LEVEL and player:getMainJob() == tpz.job.PUP then
         player:startEvent(436)

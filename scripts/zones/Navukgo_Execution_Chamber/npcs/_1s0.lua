@@ -9,6 +9,7 @@ require("scripts/globals/bcnm")
 -----------------------------------
 
 function onTrade(player, npc, trade)
+    TradeBCNM(player, npc, trade)
 end
 
 function onTrigger(player, npc)
