@@ -960,7 +960,7 @@ function onFishingCheck(player, fishskilllevel, rod, fishlist, moblist, lure, ar
 
         -- CATCH STAMINA
         if HookType == fishing.hookType.MOB then
-            Stamina = 2000
+            Stamina = 100
         else
             Stamina = calcStamina(CatchLevel)
         end
