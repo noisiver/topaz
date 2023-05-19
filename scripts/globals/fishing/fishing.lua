@@ -173,6 +173,9 @@ function calcRegen(catchType, catchLevel, fishingSkill, sizeType, legendaryRodTy
     if legendaryFish and legendaryRodType == fishing.rodLegendType.EBISU then -- ebisu
         Regen = Regen - 2
     end
+    if catchType == fishing.catchType.MOB then
+        regen = 0
+    end
     return math.max(0, Regen)
 end
 
