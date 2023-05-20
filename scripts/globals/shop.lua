@@ -251,8 +251,8 @@ tpz.shop =
                 4154,     400,      tpz.ki.RHAPSODY_IN_WHITE,   -- Holy Water
                 4155,    3000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Remedy
                 4156,     500,      tpz.ki.RHAPSODY_IN_AZURE,   -- Mulsum
-                4164,    1500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Prism Powder
-                4165,    1000,      tpz.ki.RHAPSODY_IN_WHITE,   -- Silent Oil
+                4164,     800,      tpz.ki.RHAPSODY_IN_WHITE,   -- Prism Powder
+                4165,     800,      tpz.ki.RHAPSODY_IN_WHITE,   -- Silent Oil
                 4166,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Deodorizer
                 4172,    1000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Reraiser
                 4173,    1500,      tpz.ki.RHAPSODY_IN_EMERALD, -- Hi-Reraiser
