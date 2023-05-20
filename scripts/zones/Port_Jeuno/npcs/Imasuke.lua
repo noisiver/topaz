@@ -61,9 +61,8 @@ function onEventFinish(player, csid, option)
         player:addQuest(JEUNO, tpz.quest.id.jeuno.THE_ANTIQUE_COLLECTOR)
     elseif (csid == 15) then
         player:addTitle(tpz.title.TRADER_OF_ANTIQUITIES)
-        if (player:hasKeyItem(tpz.ki.MAP_OF_DELKFUTTS_TOWER) == false) then
-            player:addKeyItem(tpz.ki.MAP_OF_DELKFUTTS_TOWER)
-            player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.MAP_OF_DELKFUTTS_TOWER)
+        player:addKeyItem(tpz.ki.MAP_OF_DELKFUTTS_TOWER)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.MAP_OF_DELKFUTTS_TOWER)
         player:addGil(2000 * GIL_RATE)
         player:messageSpecial(ID.text.GIL_OBTAINED, 2000 * GIL_RATE)
         player:addExp(2000 * EXP_RATE)
