@@ -234,8 +234,8 @@ tpz.shop =
     {
         [curio.medicine] =
         {
-                4112,     300,      tpz.ki.RHAPSODY_IN_WHITE,   -- Potion
-                4116,     600,      tpz.ki.RHAPSODY_IN_UMBER,   -- Hi-Potion
+                4112,     150,      tpz.ki.RHAPSODY_IN_WHITE,   -- Potion
+                4116,     300,      tpz.ki.RHAPSODY_IN_UMBER,   -- Hi-Potion
                 4120,    1200,      tpz.ki.RHAPSODY_IN_AZURE,   -- X-Potion
                 4124,    5700,      tpz.ki.RHAPSODY_IN_MAUVE,   -- Max-Potion
                 4128,     650,      tpz.ki.RHAPSODY_IN_WHITE,   -- Ether

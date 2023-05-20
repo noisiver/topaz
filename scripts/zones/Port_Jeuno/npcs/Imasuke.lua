@@ -64,12 +64,10 @@ function onEventFinish(player, csid, option)
         if (player:hasKeyItem(tpz.ki.MAP_OF_DELKFUTTS_TOWER) == false) then
             player:addKeyItem(tpz.ki.MAP_OF_DELKFUTTS_TOWER)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.MAP_OF_DELKFUTTS_TOWER)
-        else
-            player:addGil(2000 * GIL_RATE)
-            player:messageSpecial(ID.text.GIL_OBTAINED, 2000 * GIL_RATE)
-            player:addExp(2000 * EXP_RATE)
-        end
-        player:addFame(JEUNO, 30)
+        player:addGil(2000 * GIL_RATE)
+        player:messageSpecial(ID.text.GIL_OBTAINED, 2000 * GIL_RATE)
+        player:addExp(2000 * EXP_RATE)
+        player:addFame(JEUNO, 200)
         player:tradeComplete(trade)
         player:completeQuest(JEUNO, tpz.quest.id.jeuno.THE_ANTIQUE_COLLECTOR)
 
