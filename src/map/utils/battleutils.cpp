@@ -2918,13 +2918,12 @@ int getSDTTier(int SDT)
                 }
 
                 auto PPet = dynamic_cast<CPetEntity*>(PDefender);
-                //mobs hit get basetp+30 whereas pcs hit get basetp/3
+                //mobs get basetp+30 whereas pcs get basetp/3 when hit
                 if (PDefender->objtype == TYPE_PC)
                 {
                     PDefender->addTP((int16)(tpMultiplier * ((baseTp / 3) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker))))))); //yup store tp counts on hits taken too!
                 }
-                else if (PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC &&
-                         PPet->getPetType() != PETTYPE_AUTOMATON)
+                else if (PDefender->objtype == TYPE_PET && PDefender->PMaster && PDefender->PMaster->objtype == TYPE_PC)
                 {
                     PDefender->addTP((int16)(tpMultiplier * ((baseTp / 7) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker)))))));
                 }
@@ -3049,7 +3048,7 @@ int getSDTTier(int SDT)
             float sBlowMult = ((100.0f - std::clamp((float)(sBlow1 + sBlow2), -75.0f, 75.0f)) / 100.0f);
 
 
-            //mobs hit get basetp+30 whereas pcs hit get basetp/3
+            //mobs get basetp+30 whereas pcs get basetp/3 on attack
             if (PDefender->objtype == TYPE_PC)
                 PDefender->addTP((int16)(tpMultiplier * targetTPMultiplier * ((baseTp / 3) * sBlowMult * (1.0f + 0.01f * (float)((PDefender->getMod(Mod::STORETP) + getStoreTPbonusFromMerit(PAttacker))))))); //yup store tp counts on hits taken too!
             else
