@@ -13283,11 +13283,11 @@ INSERT INTO `mob_groups` VALUES (6,758,213,'Cockatrice',330,0,495,0,0,50,53,0);
 INSERT INTO `mob_groups` VALUES (7,1741,213,'Goblin_Trader',330,0,1180,0,0,46,49,0);
 INSERT INTO `mob_groups` VALUES (8,1728,213,'Goblins_Leech',0,128,2914,0,0,33,35,0);
 INSERT INTO `mob_groups` VALUES (9,2775,213,'Mushussu',330,0,1757,0,0,51,57,0);
-INSERT INTO `mob_groups` VALUES (10,1689,213,'Goblin_Miner',330,0,1116,0,0,51,58,0);
-INSERT INTO `mob_groups` VALUES (11,1641,213,'Goblin_Bouncer',330,0,1029,0,0,51,58,0);
-INSERT INTO `mob_groups` VALUES (12,1677,213,'Goblin_Hunter',330,0,1095,0,0,51,58,0);
+INSERT INTO `mob_groups` VALUES (10,1689,213,'Goblin_Miner',330,0,1116,0,0,51,54,0);
+INSERT INTO `mob_groups` VALUES (11,1641,213,'Goblin_Bouncer',330,0,1029,0,0,51,54,0);
+INSERT INTO `mob_groups` VALUES (12,1677,213,'Goblin_Hunter',330,0,1095,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (13,2790,213,'Mysticmaker_Profblix',0,128,1763,4500,0,50,52,0);
-INSERT INTO `mob_groups` VALUES (14,1654,213,'Goblin_Enchanter',330,0,1049,0,0,51,58,0);
+INSERT INTO `mob_groups` VALUES (14,1654,213,'Goblin_Enchanter',330,0,1049,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (15,1373,213,'Flying_Manta',330,0,851,0,0,55,59,0);
 INSERT INTO `mob_groups` VALUES (16,2439,213,'Lord_of_Onzozo',3600,0,1536,13000,5000,75,77,0);
 INSERT INTO `mob_groups` VALUES (17,3113,213,'Peg_Powler',3600,0,1985,10000,0,61,63,0);
@@ -13308,6 +13308,10 @@ INSERT INTO `mob_groups` VALUES (31,6542,213,'Babaulas',330,0,0,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (32,6538,213,'Boribaba',330,0,0,0,0,66,69,0);
 INSERT INTO `mob_groups` VALUES (33,4074,213,'Ubume',0,128,0,9000,0,65,65,0);
 INSERT INTO `mob_groups` VALUES (34,2612,213,'Megapod_Megalops',0,128,0,18000,0,82,82,0);
+INSERT INTO `mob_groups` VALUES (35,1689,213,'Goblin_Miner',330,0,1116,0,0,55,58,0);
+INSERT INTO `mob_groups` VALUES (36,1641,213,'Goblin_Bouncer',330,0,1029,0,0,55,58,0);
+INSERT INTO `mob_groups` VALUES (37,1677,213,'Goblin_Hunter',330,0,1095,0,0,55,58,0);
+INSERT INTO `mob_groups` VALUES (38,1654,213,'Goblin_Enchanter',330,0,1049,0,0,55,58,0);
 
 INSERT INTO `mob_groups` VALUES (10168,3992,213,'Treasure_Chest',0,0,0,0,0,0,0,0);
 
