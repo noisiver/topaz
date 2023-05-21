@@ -2,6 +2,7 @@
 -- Area: Nashmau
 --  NPC: Sajhra
 -- Standard Info NPC
+-- !pos 14.830,0.000,-61.005 53
 -----------------------------------
 
 function onTrade(player,npc,trade)

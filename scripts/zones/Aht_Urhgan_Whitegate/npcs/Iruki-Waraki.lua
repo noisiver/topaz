@@ -133,6 +133,6 @@ function onEventFinish(player, csid, option)
     elseif csid == 784 then
         player:setCharVar("PuppetmasterBluesProgress", 6)
     elseif csid == 786 then
-        npcUtil.completeQuest(player, AHT_URHGAN, PUPPETMASTER_BLUES, {item=15267, title=dsp.title.PARAGON_OF_PUPPETMASTER_EXCELLENCE, var="PuppetmasterBluesProgress"})
+        npcUtil.completeQuest(player, AHT_URHGAN, tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES, {item=15267, title=tpz.title.PARAGON_OF_PUPPETMASTER_EXCELLENCE, var="PuppetmasterBluesProgress"})
     end
 end
