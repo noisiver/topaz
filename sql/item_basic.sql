@@ -785,7 +785,7 @@ INSERT INTO `item_basic` VALUES (872,0,'square_of_tough_dhalmel_leather','tgh._d
 INSERT INTO `item_basic` VALUES (873,0,'square_of_light_ram_leather','light_ram_lth.',99,4,41,0,592);
 INSERT INTO `item_basic` VALUES (874,0,'amaltheia_hide','amaltheia_hide',99,4,41,0,1325);
 INSERT INTO `item_basic` VALUES (875,0,'square_of_amaltheia_leather','amaltheia_lth.',99,4,41,0,2650);
-INSERT INTO `item_basic` VALUES (876,0,'manta_skin','manta_skin',99,4,41,0,1017);
+INSERT INTO `item_basic` VALUES (876,0,'manta_skin','manta_skin',99,4,41,0,250);
 INSERT INTO `item_basic` VALUES (877,0,'square_of_manta_leather','manta_leather',99,4,41,0,1101);
 INSERT INTO `item_basic` VALUES (878,0,'karakul_skin','karakul_skin',99,4,41,0,19);
 INSERT INTO `item_basic` VALUES (879,0,'square_of_karakul_leather','karakul_leather',99,4,41,0,197);
@@ -838,7 +838,7 @@ INSERT INTO `item_basic` VALUES (925,0,'giant_stinger','giant_stinger',99,4,44,0
 INSERT INTO `item_basic` VALUES (926,0,'lizard_tail','lizard_tail',99,4,44,0,28);
 INSERT INTO `item_basic` VALUES (927,0,'coeurl_whisker','coeurl_whisker',99,4,44,0,210);
 INSERT INTO `item_basic` VALUES (928,0,'pinch_of_bomb_ash','bomb_ash',99,4,44,0,103);
-INSERT INTO `item_basic` VALUES (929,0,'jar_of_black_ink','black_ink',99,4,44,0,120);	-- was 40
+INSERT INTO `item_basic` VALUES (929,0,'jar_of_black_ink','black_ink',99,4,44,0,40);
 INSERT INTO `item_basic` VALUES (930,0,'vial_of_beastman_blood','beastman_blood',99,4,50,0,383);
 INSERT INTO `item_basic` VALUES (931,0,'cermet_chunk','cermet_chunk',99,4,44,0,500);
 INSERT INTO `item_basic` VALUES (932,0,'loop_of_carbon_fiber','carbon_fiber',99,4,44,0,194);
@@ -1526,7 +1526,7 @@ INSERT INTO `item_basic` VALUES (1636,0,'square_of_moblinweave','moblinweave',99
 INSERT INTO `item_basic` VALUES (1637,0,'square_of_bugard_leather','bugard_leather',99,4,41,0,450);
 INSERT INTO `item_basic` VALUES (1638,0,'moblin_mask','moblin_mask',99,4100,50,1,0);
 INSERT INTO `item_basic` VALUES (1639,0,'corse_robe','corse_robe',99,4100,50,1,0);
-INSERT INTO `item_basic` VALUES (1640,0,'bugard_skin','bugard_skin',99,4,41,0,450);	-- was 210
+INSERT INTO `item_basic` VALUES (1640,0,'bugard_skin','bugard_skin',99,4,41,0,210);
 INSERT INTO `item_basic` VALUES (1641,0,'bottle_of_fire_anima','fire_anima',99,4100,44,1,0);
 INSERT INTO `item_basic` VALUES (1642,0,'bottle_of_ice_anima','ice_anima',99,4100,44,1,0);
 INSERT INTO `item_basic` VALUES (1643,0,'bottle_of_wind_anima','wind_anima',99,4100,44,1,0);
@@ -1566,7 +1566,7 @@ INSERT INTO `item_basic` VALUES (1676,0,'frigid_orichalcum_ingot','frgd._orichal
 INSERT INTO `item_basic` VALUES (1677,0,'aqueous_orichalcum_ingot','aqueous_ocl.',99,4,39,0,1463);
 INSERT INTO `item_basic` VALUES (1678,0,'rogues_silver_ingot','rogues_silver',99,4,39,0,3870);
 INSERT INTO `item_basic` VALUES (1679,0,'bewitched_gold_ingot','bewitched_gold',99,4,39,0,2136);
-INSERT INTO `item_basic` VALUES (1680,0,'high-quality_bugard_skin','h.q._bugard_skin',99,4,41,0,1500); -- was 412 gil
+INSERT INTO `item_basic` VALUES (1680,0,'high-quality_bugard_skin','h.q._bugard_skin',99,4,41,0,412);
 INSERT INTO `item_basic` VALUES (1681,0,'light_steel_ingot','light_steel',99,4,38,0,766);
 INSERT INTO `item_basic` VALUES (1682,0,'ingot_of_royal_treasury_gold','treasury_gold',1,57428,0,0,1000);
 INSERT INTO `item_basic` VALUES (1683,0,'piece_of_attohwa_ginseng','attohwa_ginseng',1,57428,0,0,750);
@@ -1865,7 +1865,7 @@ INSERT INTO `item_basic` VALUES (1975,0,'vivio_scorpion_claw','vi._scorpion_claw
 INSERT INTO `item_basic` VALUES (1976,0,'vivio_wyvern_scale','vi._wyv._scale',99,4,42,0,1200);
 INSERT INTO `item_basic` VALUES (1977,0,'square_of_vivio_sheep_leather','vi._sh._leather',99,4,41,0,32);
 INSERT INTO `item_basic` VALUES (1978,0,'square_of_bloody_ram_leather','bld._ram_lthr.',99,4,41,0,592);
-INSERT INTO `item_basic` VALUES (1979,0,'cup_of_leech_saliva','leech_saliva',99,4,44,0,340);	-- was 170
+INSERT INTO `item_basic` VALUES (1979,0,'cup_of_leech_saliva','leech_saliva',99,4,44,0,170);
 INSERT INTO `item_basic` VALUES (1980,0,'jar_of_antican_acid','antican_acid',99,4,50,0,700);
 INSERT INTO `item_basic` VALUES (1981,0,'skull_locust','skull_locust',99,4,59,0,10);
 INSERT INTO `item_basic` VALUES (1982,0,'king_locust','king_locust',99,4,59,0,205);
@@ -1900,8 +1900,8 @@ INSERT INTO `item_basic` VALUES (2010,0,'square_of_wolf_felt','wolf_felt',99,4,4
 INSERT INTO `item_basic` VALUES (2011,0,'clump_of_wolf_fur','wolf_fur',99,4,40,0,312);
 INSERT INTO `item_basic` VALUES (2012,0,'square_of_laminated_ram_leather','lm._rm._leather',99,4,41,0,587);
 INSERT INTO `item_basic` VALUES (2013,0,'vial_of_lizard_blood','lizard_blood',99,4,44,0,396);
-INSERT INTO `item_basic` VALUES (2014,0,'vial_of_bird_blood','bird_blood',99,4,44,0,342);	-- was 153
-INSERT INTO `item_basic` VALUES (2015,0,'vial_of_beast_blood','beast_blood',99,4,44,0,546);	-- was 262
+INSERT INTO `item_basic` VALUES (2014,0,'vial_of_bird_blood','bird_blood',99,4,44,0,153);
+INSERT INTO `item_basic` VALUES (2015,0,'vial_of_beast_blood','beast_blood',99,4,44,0,262);
 INSERT INTO `item_basic` VALUES (2016,0,'lump_of_loam','loam',99,4,46,0,386);
 INSERT INTO `item_basic` VALUES (2017,0,'amour_chocolate_left_piece','amour_choco._l.',1,61504,0,1,0);
 INSERT INTO `item_basic` VALUES (2018,0,'romance_chocolate_left_piece','roman._choco._l.',1,61504,0,1,0);
@@ -3867,38 +3867,38 @@ INSERT INTO `item_basic` VALUES (4110,0,'light_cluster','light_cluster',12,1548,
 INSERT INTO `item_basic` VALUES (4111,0,'dark_cluster','dark_cluster',12,1548,35,0,1000);
 INSERT INTO `item_basic` VALUES (4112,0,'potion','potion',1,1540,33,0,133);
 INSERT INTO `item_basic` VALUES (4113,0,'potion_+1','potion_+1',1,1540,33,0,156);
-INSERT INTO `item_basic` VALUES (4114,0,'potion_+2','potion_+2',1,1540,33,0,182);
-INSERT INTO `item_basic` VALUES (4115,0,'potion_+3','potion_+3',1,1540,33,0,437);
-INSERT INTO `item_basic` VALUES (4116,0,'hi-potion','hi-potion',1,1540,33,0,246);
-INSERT INTO `item_basic` VALUES (4117,0,'hi-potion_+1','hi-potion_+1',1,1540,33,0,300);
-INSERT INTO `item_basic` VALUES (4118,0,'hi-potion_+2','hi-potion_+2',1,1540,33,0,350);
-INSERT INTO `item_basic` VALUES (4119,0,'hi-potion_+3','hi-potion_+3',1,1540,33,0,400);
-INSERT INTO `item_basic` VALUES (4120,0,'x-potion','x-potion',1,1540,33,0,362);
-INSERT INTO `item_basic` VALUES (4121,0,'x-potion_+1','x-potion_+1',1,1540,33,0,435);
-INSERT INTO `item_basic` VALUES (4122,0,'x-potion_+2','x-potion_+2',1,1540,33,0,519);
-INSERT INTO `item_basic` VALUES (4123,0,'x-potion_+3','x-potion_+3',1,1540,33,0,648);
-INSERT INTO `item_basic` VALUES (4124,0,'max-potion','max-potion',1,1540,33,0,15069);
-INSERT INTO `item_basic` VALUES (4125,0,'max-potion_+1','max-potion_+1',1,1540,33,0,16069);
-INSERT INTO `item_basic` VALUES (4126,0,'max-potion_+2','max-potion_+2',1,1540,33,0,17069);
-INSERT INTO `item_basic` VALUES (4127,0,'max-potion_+3','max-potion_+3',1,1540,33,0,18069);
-INSERT INTO `item_basic` VALUES (4128,0,'ether','ether',1,1540,33,0,604);
-INSERT INTO `item_basic` VALUES (4129,0,'ether_+1','ether_+1',1,1540,33,0,771);
-INSERT INTO `item_basic` VALUES (4130,0,'ether_+2','ether_+2',1,1540,33,0,963);
-INSERT INTO `item_basic` VALUES (4131,0,'ether_+3','ether_+3',1,1540,33,0,1203);
-INSERT INTO `item_basic` VALUES (4132,0,'hi-ether','hi-ether',1,1540,33,0,985);
-INSERT INTO `item_basic` VALUES (4133,0,'hi-ether_+1','hi-ether_+1',1,1540,33,0,1050);
-INSERT INTO `item_basic` VALUES (4134,0,'hi-ether_+2','hi-ether_+2',1,1540,33,0,1538);
-INSERT INTO `item_basic` VALUES (4135,0,'hi-ether_+3','hi-ether_+3',1,1540,33,0,1150);
-INSERT INTO `item_basic` VALUES (4136,0,'super_ether','super_ether',1,1540,33,0,1325);
-INSERT INTO `item_basic` VALUES (4137,0,'super_ether_+1','super_ether_+1',1,1540,33,0,1457);
-INSERT INTO `item_basic` VALUES (4138,0,'super_ether_+2','super_ether_+2',1,1540,33,0,2007);
-INSERT INTO `item_basic` VALUES (4139,0,'super_ether_+3','super_ether_+3',1,1540,33,0,2508);
-INSERT INTO `item_basic` VALUES (4140,0,'pro-ether','pro-ether',1,1540,33,0,1450);
-INSERT INTO `item_basic` VALUES (4141,0,'pro-ether_+1','pro-ether_+1',1,1540,33,0,1812);
-INSERT INTO `item_basic` VALUES (4142,0,'pro-ether_+2','pro-ether_+2',1,1540,33,0,2265);
-INSERT INTO `item_basic` VALUES (4143,0,'pro-ether_+3','pro-ether_+3',1,1540,33,0,3625);
-INSERT INTO `item_basic` VALUES (4144,0,'hi-elixir','hi-elixir',1,1540,33,0,9500);
-INSERT INTO `item_basic` VALUES (4145,0,'elixir','elixir',1,1540,33,0,7000);
+INSERT INTO `item_basic` VALUES (4114,0,'potion_+2','potion_+2',1,1540,33,0,160);
+INSERT INTO `item_basic` VALUES (4115,0,'potion_+3','potion_+3',1,1540,33,0,170);
+INSERT INTO `item_basic` VALUES (4116,0,'hi-potion','hi-potion',1,1540,33,0,200);
+INSERT INTO `item_basic` VALUES (4117,0,'hi-potion_+1','hi-potion_+1',1,1540,33,0,210);
+INSERT INTO `item_basic` VALUES (4118,0,'hi-potion_+2','hi-potion_+2',1,1540,33,0,220);
+INSERT INTO `item_basic` VALUES (4119,0,'hi-potion_+3','hi-potion_+3',1,1540,33,0,230);
+INSERT INTO `item_basic` VALUES (4120,0,'x-potion','x-potion',1,1540,33,0,250);
+INSERT INTO `item_basic` VALUES (4121,0,'x-potion_+1','x-potion_+1',1,1540,33,0,260);
+INSERT INTO `item_basic` VALUES (4122,0,'x-potion_+2','x-potion_+2',1,1540,33,0,270);
+INSERT INTO `item_basic` VALUES (4123,0,'x-potion_+3','x-potion_+3',1,1540,33,0,280);
+INSERT INTO `item_basic` VALUES (4124,0,'max-potion','max-potion',1,1540,33,0,300);
+INSERT INTO `item_basic` VALUES (4125,0,'max-potion_+1','max-potion_+1',1,1540,33,0,310);
+INSERT INTO `item_basic` VALUES (4126,0,'max-potion_+2','max-potion_+2',1,1540,33,0,320);
+INSERT INTO `item_basic` VALUES (4127,0,'max-potion_+3','max-potion_+3',1,1540,33,0,330);
+INSERT INTO `item_basic` VALUES (4128,0,'ether','ether',1,1540,33,0,250);
+INSERT INTO `item_basic` VALUES (4129,0,'ether_+1','ether_+1',1,1540,33,0,260);
+INSERT INTO `item_basic` VALUES (4130,0,'ether_+2','ether_+2',1,1540,33,0,270);
+INSERT INTO `item_basic` VALUES (4131,0,'ether_+3','ether_+3',1,1540,33,0,280);
+INSERT INTO `item_basic` VALUES (4132,0,'hi-ether','hi-ether',1,1540,33,0,300);
+INSERT INTO `item_basic` VALUES (4133,0,'hi-ether_+1','hi-ether_+1',1,1540,33,0,310);
+INSERT INTO `item_basic` VALUES (4134,0,'hi-ether_+2','hi-ether_+2',1,1540,33,0,320);
+INSERT INTO `item_basic` VALUES (4135,0,'hi-ether_+3','hi-ether_+3',1,1540,33,0,330);
+INSERT INTO `item_basic` VALUES (4136,0,'super_ether','super_ether',1,1540,33,0,340);
+INSERT INTO `item_basic` VALUES (4137,0,'super_ether_+1','super_ether_+1',1,1540,33,0,400);
+INSERT INTO `item_basic` VALUES (4138,0,'super_ether_+2','super_ether_+2',1,1540,33,0,410);
+INSERT INTO `item_basic` VALUES (4139,0,'super_ether_+3','super_ether_+3',1,1540,33,0,420);
+INSERT INTO `item_basic` VALUES (4140,0,'pro-ether','pro-ether',1,1540,33,0,450);
+INSERT INTO `item_basic` VALUES (4141,0,'pro-ether_+1','pro-ether_+1',1,1540,33,0,460);
+INSERT INTO `item_basic` VALUES (4142,0,'pro-ether_+2','pro-ether_+2',1,1540,33,0,470);
+INSERT INTO `item_basic` VALUES (4143,0,'pro-ether_+3','pro-ether_+3',1,1540,33,0,480);
+INSERT INTO `item_basic` VALUES (4144,0,'hi-elixir','hi-elixir',1,1540,33,0,750);
+INSERT INTO `item_basic` VALUES (4145,0,'elixir','elixir',1,1540,33,0,7500);
 INSERT INTO `item_basic` VALUES (4146,0,'revitalizer','revitalizer',1,30272,0,1,0);
 INSERT INTO `item_basic` VALUES (4147,0,'bottle_of_body_boost','body_boost',1,30272,0,1,0);
 INSERT INTO `item_basic` VALUES (4148,0,'antidote','antidote',12,1540,33,0,79);
@@ -3906,8 +3906,8 @@ INSERT INTO `item_basic` VALUES (4149,0,'flask_of_panacea','panacea',12,1540,33,
 INSERT INTO `item_basic` VALUES (4150,0,'flask_of_eye_drops','eye_drops',12,1540,33,0,519);
 INSERT INTO `item_basic` VALUES (4151,0,'flask_of_echo_drops','echo_drops',12,1540,33,0,200);
 INSERT INTO `item_basic` VALUES (4153,0,'bottle_of_antacid','antacid',12,1540,33,0,355);
-INSERT INTO `item_basic` VALUES (4154,0,'flask_of_holy_water','holy_water',12,1540,33,0,357);	-- was 145
-INSERT INTO `item_basic` VALUES (4155,0,'remedy','remedy',12,1540,33,0,3200);	-- was 480
+INSERT INTO `item_basic` VALUES (4154,0,'flask_of_holy_water','holy_water',12,1540,33,0,145);
+INSERT INTO `item_basic` VALUES (4155,0,'remedy','remedy',12,1540,33,0,480);
 INSERT INTO `item_basic` VALUES (4156,0,'bottle_of_mulsum','mulsum',12,1540,33,0,200);
 INSERT INTO `item_basic` VALUES (4157,0,'flask_of_poison_potion','poison_potion',99,1540,33,0,100);
 INSERT INTO `item_basic` VALUES (4158,0,'flask_of_venom_potion','venom_potion',99,1540,33,0,519);
@@ -14135,7 +14135,7 @@ INSERT INTO `item_basic` VALUES (16863,0,'cruel_spear','cruel_spear',1,34820,8,0
 INSERT INTO `item_basic` VALUES (16864,0,'brass_spear_+1','brass_spear_+1',1,2080,8,0,410);
 INSERT INTO `item_basic` VALUES (16865,0,'spear_+1','spear_+1',1,2080,8,0,2827);
 INSERT INTO `item_basic` VALUES (16866,0,'halberd_+1','halberd_+1',1,2080,8,0,1400);
-INSERT INTO `item_basic` VALUES (16867,0,'orc_piercer','orc_piercer',1,2052,8,0,8370); -- was 275
+INSERT INTO `item_basic` VALUES (16867,0,'orc_piercer','orc_piercer',1,2052,8,0,275);
 INSERT INTO `item_basic` VALUES (16868,0,'heavy_halberd','heavy_halberd',1,2052,8,0,4431);
 INSERT INTO `item_basic` VALUES (16869,0,'thundercloud','thundercloud',1,2052,8,0,12487);
 INSERT INTO `item_basic` VALUES (16870,0,'envy_spear','envy_spear',1,34820,8,0,5562);
@@ -14554,7 +14554,7 @@ INSERT INTO `item_basic` VALUES (17289,0,'chakram_+1','chakram_+1',1,2080,13,0,1
 INSERT INTO `item_basic` VALUES (17290,0,'coarse_boomerang','coarse_boomerang',1,2052,13,0,120);
 INSERT INTO `item_basic` VALUES (17291,0,'flame_boomerang','flame_boomerang',1,2052,13,0,1152);
 INSERT INTO `item_basic` VALUES (17292,0,'long_boomerang','long_boomerang',1,2052,13,0,2948);
-INSERT INTO `item_basic` VALUES (17293,0,'yagudo_freezer','yagudo_freezer',1,2052,13,0,5192);	-- was 136
+INSERT INTO `item_basic` VALUES (17293,0,'yagudo_freezer','yagudo_freezer',1,2052,13,0,136);
 INSERT INTO `item_basic` VALUES (17294,0,'comet_tail','comet_tail',1,2052,13,0,9384);
 INSERT INTO `item_basic` VALUES (17295,0,'rising_sun_+1','rising_sun_+1',1,2080,13,0,4653);
 INSERT INTO `item_basic` VALUES (17296,0,'pebble','pebble',99,2052,15,0,1);
@@ -14676,7 +14676,7 @@ INSERT INTO `item_basic` VALUES (17411,0,'holy_mace_+1','holy_mace_+1',1,2080,11
 INSERT INTO `item_basic` VALUES (17412,0,'wild_cudgel','wild_cudgel',1,2052,11,0,302);
 INSERT INTO `item_basic` VALUES (17413,0,'hermits_wand','hermits_wand',1,2052,11,0,391);
 INSERT INTO `item_basic` VALUES (17414,0,'pixie_mace','pixie_mace',1,2052,11,0,2095);
-INSERT INTO `item_basic` VALUES (17415,0,'shellbuster','shellbuster',1,2052,11,0,3920);	-- was 98
+INSERT INTO `item_basic` VALUES (17415,0,'shellbuster','shellbuster',1,2052,11,0,98);
 INSERT INTO `item_basic` VALUES (17416,0,'arcana_breaker','arcana_breaker',1,2052,11,0,7790);
 INSERT INTO `item_basic` VALUES (17417,0,'rabbit_stick','rabbit_stick',1,34820,11,0,226);
 INSERT INTO `item_basic` VALUES (17418,0,'moonlight_wand','moonlight_wand',1,34820,11,0,678);
