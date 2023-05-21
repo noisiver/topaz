@@ -12,7 +12,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ATTP, 20)
     mob:setMod(tpz.mod.ACC, 50) 
     mob:addMod(tpz.mod.EVA, 50)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 9000)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 3000)
 end
 
 function onMobDeath(mob, player, isKiller)
