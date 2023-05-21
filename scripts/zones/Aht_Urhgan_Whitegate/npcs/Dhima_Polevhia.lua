@@ -2,6 +2,7 @@
 -- Area: Aht Urhgan Whitegate
 -- NPC: Dhima Polevhia
 -- Standard Info NPC
+-- !pos 67.802,-6.000,26.315, 50
 -----------------------------------
 require("scripts/globals/common")
 require("scripts/globals/settings")
@@ -10,7 +11,7 @@ local ID = require("scripts/zones/Aht_Urhgan_Whitegate/IDs")
 -----------------------------------
 
 function onTrade(player,npc,trade)
-    local PuppetmasterBlues = player:getQuestStatus(AHT_URHGAN, PUPPETMASTER_BLUES)
+    local PuppetmasterBlues = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES)
     local Count = trade:getItemCount()
     local Body = player:getCharVar("PuppetmasterBluesAFBody")
     local Gloves = player:getCharVar("PuppetmasterBluesAFGloves")
@@ -37,16 +38,17 @@ function onTrade(player,npc,trade)
 end
 
 function onTrigger(player,npc)
-    local PuppetmasterBlues = player:getQuestStatus(AHT_URHGAN,PUPPETMASTER_BLUES)
+    local PuppetmasterBlues = player:getQuestStatus(AHT_URHGAN,tpz.quest.id.ahtUrhgan.PUPPETMASTER_BLUES)
     if PuppetmasterBlues ~= QUEST_AVAILABLE then
         local previousDay = player:getCharVar("PuppetmasterBluesAFWait")
         local currentDay = VanadielDayOfTheYear()
+        print(currentDay)
         local PuppetmasterBluesGear = player:getCharVar("PuppetmasterBluesGear")
 
         -- One game day wait between AF pieces
-        if previousDay > 0 and previousDay <= currentDay then
+        if previousDay > 0 and previousDay < currentDay then
             player:startEvent(792)
-        elseif previousDay ~= currentDay then
+        elseif previousDay > 0 and previousDay >= currentDay then
             player:startEvent(796)
         elseif PuppetmasterBluesGear >= 3 then
             player:startEvent(793)
@@ -68,6 +70,7 @@ function onEventFinish(player,csid,option)
         local successVar = ""
         if player:getCharVar("PuppetmasterBluesAFBody") == 1 and npcUtil.giveItem(player, 14523) then
             successVar = "PuppetmasterBluesAFBody"
+
         elseif player:getCharVar("PuppetmasterBluesAFGloves") == 1 and npcUtil.giveItem(player, 14930) then
             successVar = "PuppetmasterBluesAFGloves"
         elseif player:getCharVar("PuppetmasterBluesAFBoots") == 1 and npcUtil.giveItem(player, 15686) then

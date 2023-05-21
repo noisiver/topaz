@@ -1291,6 +1291,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         if (PAbility->isPetAbility())
         {
             // Not enough time since last blood pact was used
+            // TODO: Remove checking for if it's a BP cause it should be all pet abilities and rename m_BPWait to m_PetAbilityWait
             if (server_clock::now() < m_BPWait && PAbility->getID() >= ABILITY_HEALING_RUBY && PAbility->getID() <= ABILITY_PERFECT_DEFENSE)
             {
                 pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_WAIT_LONGER));
