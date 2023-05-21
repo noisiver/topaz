@@ -1189,17 +1189,18 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                 return;
             }
         }
-
-        // Make sure pet is engaged when trying to use ready moves
-        if (PAbility->getID() >= ABILITY_FOOT_KICK && PAbility->getID() <= ABILITY_EXTIRPATING_SALVO)
-        {
-            CBattleEntity* PPet = ((CBattleEntity*)this)->PPet;
-            if (!PPet->PAI->IsEngaged())
-            {
-                pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_CANNOT_PERFORM_ACTION));
-                return;
-            }
-        }
+        // TODO: Crashes simple log
+        //// Make sure pet is engaged when trying to use ready moves
+        //if (PAbility->getID() >= ABILITY_FOOT_KICK && PAbility->getID() <= ABILITY_EXTIRPATING_SALVO)
+        //{
+        //    CBattleEntity* PPet = ((CBattleEntity*)this)->PPet;
+        //    if (!PPet->PAI->IsEngaged())
+        //    {
+        //        printf("line 1202\n");
+        //        pushPacket(new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+        //        return;
+        //    }
+        //}
 
         // Check for paraylze
         if (battleutils::IsParalyzed(this)) {
@@ -1290,7 +1291,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         if (PAbility->isPetAbility())
         {
             // Not enough time since last blood pact was used
-            if (server_clock::now() < m_BPWait)
+            if (server_clock::now() < m_BPWait && PAbility->getID() >= ABILITY_HEALING_RUBY && PAbility->getID() <= ABILITY_PERFECT_DEFENSE)
             {
                 pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_WAIT_LONGER));
                 return;
@@ -1359,9 +1360,12 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                         }
                     }
                 }
-                int16 tp = PPet->health.tp;
-                PPet->SetLocalVar("tp", tp);
-                PPet->PAI->MobSkill(PPetTarget, PAbility->getMobSkillID());
+                if (PPetTarget > 0 && PAbility->getMobSkillID() > 0)
+                {
+                    int16 tp = PPet->health.tp;
+                    PPet->SetLocalVar("tp", tp);
+                    PPet->PAI->MobSkill(PPetTarget, PAbility->getMobSkillID());
+                }
             }
         }
         else
