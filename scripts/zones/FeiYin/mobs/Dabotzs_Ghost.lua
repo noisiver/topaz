@@ -7,11 +7,7 @@ require("scripts/globals/status")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMobMod(tpz.mobMod.WEAPON_BONUS, 25)
-    mob:addMod(tpz.mod.DEFP, 25) 
-    mob:addMod(tpz.mod.ATTP, 25)
-    mob:addMod(tpz.mod.ACC, 10) 
-    mob:addMod(tpz.mod.EVA, 10)
+    SetGenericNMStats(mob)
 end
 
 function onMobDeath(mob, player, isKiller)
