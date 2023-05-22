@@ -4140,9 +4140,9 @@ INSERT INTO `item_basic` VALUES (4384,0,'black_sole','black_sole',12,1548,51,0,7
 INSERT INTO `item_basic` VALUES (4385,0,'zafmlug_bass','zafmlug_bass',12,1548,51,0,31);
 INSERT INTO `item_basic` VALUES (4386,0,'king_truffle','king_truffle',12,1548,59,0,1500);
 INSERT INTO `item_basic` VALUES (4387,0,'wild_onion','wild_onion',12,1548,59,0,78);
-INSERT INTO `item_basic` VALUES (4388,0,'eggplant','eggplant',12,1548,59,0,11);
-INSERT INTO `item_basic` VALUES (4389,0,'san_dorian_carrot','san_dor._carrot',12,1548,59,0,8);
-INSERT INTO `item_basic` VALUES (4390,0,'mithran_tomato','mithran_tomato',12,1548,59,0,6);
+INSERT INTO `item_basic` VALUES (4388,0,'eggplant','eggplant',99,1548,59,0,11);
+INSERT INTO `item_basic` VALUES (4389,0,'san_dorian_carrot','san_dor._carrot',99,1548,59,0,8);
+INSERT INTO `item_basic` VALUES (4390,0,'mithran_tomato','mithran_tomato',99,1548,59,0,6);
 INSERT INTO `item_basic` VALUES (4391,0,'bretzel','bretzel',12,1548,56,0,6);
 INSERT INTO `item_basic` VALUES (4392,0,'saruta_orange','saruta_orange',99,1548,59,0,8);
 INSERT INTO `item_basic` VALUES (4393,0,'orange_kuchen','orange_kuchen',1,1548,57,0,76);
