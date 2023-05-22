@@ -73,12 +73,7 @@ INSERT INTO `item_mods_pet` VALUES (11238,345,250,1);   -- Caller's Spats +1 Ava
 INSERT INTO `item_mods_pet` VALUES (11258,30,5,1);      -- Caller's Pgch. +1 Avatar: Enhances magic accuracy +5 (?)
 INSERT INTO `item_mods_pet` VALUES (11261,12,10,3);     -- Cirque Scarpe +1 Automaton: INT+10
 INSERT INTO `item_mods_pet` VALUES (11261,13,10,3);     -- Automaton: MND+10
-INSERT INTO `item_mods_pet` VALUES (11297,2,20,4);      -- Pup. Tobe +1 Harlequin Automaton: HP+20
-INSERT INTO `item_mods_pet` VALUES (11297,5,20,4);      -- Harlequin Automaton: MP+20
-INSERT INTO `item_mods_pet` VALUES (11297,2,24,5);      -- Valoredge Automaton: HP+24
-INSERT INTO `item_mods_pet` VALUES (11297,2,18,6);      -- Sharpshot Automaton: HP+18
-INSERT INTO `item_mods_pet` VALUES (11297,2,16,7);      -- Stormwaker Automaton: HP+16
-INSERT INTO `item_mods_pet` VALUES (11297,5,24,7);      -- Stormwaker Automaton: MP+24
+INSERT INTO `item_mods_pet` VALUES (11297,389,-7,4);    -- Pup. Tobe +1 Automaton: Magic damage taken -7%
 INSERT INTO `item_mods_pet` VALUES (11298,25,10,3);     -- Pantin Tobe Automaton: Accuracy +10
 INSERT INTO `item_mods_pet` VALUES (11299,25,10,3);     -- Pantin Tobe +1 Automaton: Accuracy +10
 INSERT INTO `item_mods_pet` VALUES (11338,25,3,0);      -- Aega's Doublet Pet: accuracy +3
@@ -121,12 +116,7 @@ INSERT INTO `item_mods_pet` VALUES (14405,72,65,2);     -- Wyvern: HP recovered 
 INSERT INTO `item_mods_pet` VALUES (14468,27,5,1);      -- Yinyang Robe Avatar: Pet: Enmity +5
 INSERT INTO `item_mods_pet` VALUES (14486,370,1,2);     -- Drachen Mail + 1 Adds "Regen" effect to wyvern
 INSERT INTO `item_mods_pet` VALUES (14514,165,4,1);     -- Smn. Doublet +1 Avatar: Critical Hit Rate +4%
-INSERT INTO `item_mods_pet` VALUES (14523,2,20,4);      -- Pup. Tobe  Harlequin Automaton: HP+20
-INSERT INTO `item_mods_pet` VALUES (14523,5,20,4);      -- Harlequin Automaton: MP+20
-INSERT INTO `item_mods_pet` VALUES (14523,2,24,5);      -- Valoredge Automaton: HP+24
-INSERT INTO `item_mods_pet` VALUES (14523,2,18,6);      -- Sharpshot Automaton: HP+18
-INSERT INTO `item_mods_pet` VALUES (14523,2,16,7);      -- Stormwaker Automaton: HP+16
-INSERT INTO `item_mods_pet` VALUES (14523,5,24,7);      -- Stormwaker Automaton: MP+24
+INSERT INTO `item_mods_pet` VALUES (14523,389,-5,4);    -- Pup. Tobe Automaton: Magic damage Taken -5%
 INSERT INTO `item_mods_pet` VALUES (14872,2,10,2);      -- Ostreger Mitts Wyvern: HP +10
 INSERT INTO `item_mods_pet` VALUES (14903,25,5,2);      -- Drn. Fng. Gnt. +1 Wyvern: Increases Accuracy +5 (?)
 INSERT INTO `item_mods_pet` VALUES (14904,27,-2,1);     -- Evk. Bracers +1 Avatar: Enmity -2
