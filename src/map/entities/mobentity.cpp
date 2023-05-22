@@ -1188,15 +1188,10 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             AddItemToPool(832, ++dropCount); // Sheep Wool
             //printf("31-40  Lv:%u\n", GetMLevel());
         }
-        else if (GetMLevel() >= 41 && GetMLevel() <= 60) // 41-60 bracket cloth
+        else if (GetMLevel() >= 41) // 41+ bracket cloth
         {
             AddItemToPool(839, ++dropCount); // Crawler Cocoon
             //printf("41-60  Lv:%u\n", GetMLevel());
-        }
-        else if (GetMLevel() >= 61) // 61+ bracket cloth
-        {
-            AddItemToPool(838, ++dropCount); // Spider Web
-            //printf("61+  Lv:%u\n", GetMLevel());
         }
     }
     // Roll for random rare items
