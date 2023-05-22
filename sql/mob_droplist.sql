@@ -565,7 +565,7 @@ INSERT INTO `mob_droplist` VALUES (81,0,0,1000,891,100);
 INSERT INTO `mob_droplist` VALUES (81,0,0,1000,922,150);
 INSERT INTO `mob_droplist` VALUES (81,0,0,1000,2777,100);
 INSERT INTO `mob_droplist` VALUES (82,0,0,1000,922,228); 
-INSERT INTO `mob_droplist` VALUES (83,0,0,1000,1062,240);
+INSERT INTO `mob_droplist` VALUES (83,0,0,1000,1062,50);
 INSERT INTO `mob_droplist` VALUES (83,0,0,1000,1669,1000);
 INSERT INTO `mob_droplist` VALUES (83,0,0,1000,1669,240);
 INSERT INTO `mob_droplist` VALUES (83,0,0,1000,1669,150);
@@ -5115,7 +5115,7 @@ INSERT INTO `mob_droplist` VALUES (979,0,0,1000,1640,150); -- Bugard Skin (33.0%
 INSERT INTO `mob_droplist` VALUES (979,0,0,1000,1680,50); -- High Quality Bugard Skin (11.7%)
 INSERT INTO `mob_droplist` VALUES (979,2,0,1000,4372,0); -- Giant Sheep Meat (Steal)
 
-INSERT INTO `mob_droplist` VALUES (980,0,0,1000,1036,40);
+INSERT INTO `mob_droplist` VALUES (980,0,0,1000,1036,50);
 INSERT INTO `mob_droplist` VALUES (981,0,0,1000,497,450);
 INSERT INTO `mob_droplist` VALUES (981,0,0,1000,499,320);
 INSERT INTO `mob_droplist` VALUES (981,0,0,1000,1666,80);
@@ -5141,7 +5141,7 @@ INSERT INTO `mob_droplist` VALUES (987,0,0,1000,2652,150);
 INSERT INTO `mob_droplist` VALUES (987,0,0,1000,2653,100);
 INSERT INTO `mob_droplist` VALUES (988,0,0,1000,497,150); -- -- Gigas Socks
 INSERT INTO `mob_droplist` VALUES (988,0,0,1000,499,10); -- -- Gigas Necklace
-INSERT INTO `mob_droplist` VALUES (989,0,0,1000,1036,60);
+INSERT INTO `mob_droplist` VALUES (989,0,0,1000,1036,50);
 INSERT INTO `mob_droplist` VALUES (990,4,0,1000,820,0);
 INSERT INTO `mob_droplist` VALUES (990,0,0,1000,2652,150);
 INSERT INTO `mob_droplist` VALUES (990,0,0,1000,2653,100);
@@ -5150,7 +5150,7 @@ INSERT INTO `mob_droplist` VALUES (991,0,0,1000,499,60);
 INSERT INTO `mob_droplist` VALUES (991,0,0,1000,12290,120);
 INSERT INTO `mob_droplist` VALUES (992,0,0,1000,1666,80);
 INSERT INTO `mob_droplist` VALUES (992,0,0,1000,12290,30);
-INSERT INTO `mob_droplist` VALUES (993,0,0,1000,1036,30);
+INSERT INTO `mob_droplist` VALUES (993,0,0,1000,1036,50);
 INSERT INTO `mob_droplist` VALUES (994,0,0,1000,497,150); -- (Korroloka Tunnel Gigas) Gigas Socks
 INSERT INTO `mob_droplist` VALUES (994,0,0,1000,499,10); -- Gigas Necklace
 INSERT INTO `mob_droplist` VALUES (994,0,0,1000,1836,5); -- Marble slab
@@ -15144,7 +15144,7 @@ INSERT INTO `mob_droplist` VALUES (2774,0,0,1000,12969,10);
 INSERT INTO `mob_droplist` VALUES (2774,0,0,1000,12977,50);
 INSERT INTO `mob_droplist` VALUES (2775,2,0,1000,750,0);
 INSERT INTO `mob_droplist` VALUES (2776,2,0,1000,750,0);
-INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,1026,65);
+INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,1026,50);
 --INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,1530,70); --grarison
 INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,1982,234);
 --INSERT INTO `mob_droplist` VALUES (2776,0,0,1000,2759,100); --yagudo Caulk
@@ -17153,7 +17153,7 @@ INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% An
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,1000); -- (3 100% 1 10% Ancient Beastcoin) 
 INSERT INTO `mob_droplist` VALUES (6051,0,0,1000,1875,100); -- (3 100% 1 10% Ancient Beastcoin) 
-INSERT INTO `mob_droplist` VALUES (6052,0,0,1000,1064,240); -- (Mimic) Pso'Xja chest key
+INSERT INTO `mob_droplist` VALUES (6052,0,0,1000,1064,1000); -- (Mimic) Pso'Xja chest key
 -- Moblin Maze Mongers
 INSERT INTO `mob_droplist` VALUES (6053,0,0,1000,16250,50); -- (Kendi) Mamool Ja Mantle
 INSERT INTO `mob_droplist` VALUES (6054,0,0,1000,16012,50); -- (Rahu) Mamool Ja Earring
