@@ -53,14 +53,8 @@ function onTrigger(player, npc)
         9072, 41496,    -- Arcanic Cell
         2269, 41496,    -- Mana Tank II
         9032, 53352,    -- Strobe II
-        9033, 65208,    -- Tension Spring III
-        9034, 65208,    -- Loudspeaker III
         9066, 65208,    -- Amplifier
-        9037, 65208,    -- Accelerator III
         9036, 65208,    -- Scope II
-        9039, 65208,    -- Armor Plate III
-        9040, 65208,    -- Stabilizer III
-        9042, 65208,    -- Mana Jammer III
         9065, 82992,    -- Inhibitor II
         9230, 82992,    -- Speedloader II
         9067, 82992,    -- Repeater
