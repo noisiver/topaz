@@ -37,7 +37,7 @@ function onMobWeaponSkill(target, mob, skill)
     end
         Taken from Megaflare fix later]]
 
-    local dmgmod = 1800
+    local dmgmod = math.floor(mob:getMainLvl() * 20) + math.floor(getMobDStat(INT_BASED, mob, target) * 1.5)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)

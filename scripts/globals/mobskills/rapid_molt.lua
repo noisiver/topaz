@@ -23,6 +23,6 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.REGEN
 
-    MobBuffMove(mob, typeEffect, 24, 3, 300)
+    MobBuffMove(mob, typeEffect, 40, 3, 30)
     return MobSelfDispelMove(mob, skill)
 end

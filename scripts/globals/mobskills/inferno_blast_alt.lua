@@ -1,7 +1,7 @@
 ---------------------------------------------
 -- Fiery Blast Alt
 --
--- Description: Deals fire damage to a single target
+-- Description: Deals fire damage to a single target (Autoattack)
 -- Type: Magical
 -- Utsusemi/Blink absorb: Wipes shadows
 -- Notes: Used only by Tiamat, Smok and Ildebrann while flying in place of standard attacks
@@ -17,7 +17,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1
+    local dmgmod = 4.0
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.FIRE, dmgmod, TP_AUTO_ATTACK)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)

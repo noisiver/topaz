@@ -34,7 +34,7 @@ function onMobWeaponSkill(target, mob, skill)
         mob:setBehaviour(bit.bor(mob:getBehaviour(), tpz.behavior.NO_TURN))
     end
 
-    local dmgmod = 850
+    local dmgmod = math.floor(mob:getMainLvl() * 10) + math.floor(getMobDStat(INT_BASED, mob, target) * 1.5)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_WIPE_SHADOWS)
 
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.FIRE)

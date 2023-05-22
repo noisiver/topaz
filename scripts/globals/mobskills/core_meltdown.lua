@@ -1,7 +1,7 @@
 ---------------------------------------------------
 -- Core Meltdown (Ghrah)
 -- Reactor core fails and self-destructs, damaging any nearby targets.
--- Note: Very rare, estimated 5% chance
+-- Note: Only used below 30% HP
 ---------------------------------------------------
 
 require("scripts/globals/settings")
@@ -15,13 +15,15 @@ function onMobSkillCheck(target, mob, skill)
         return 1
     elseif (mob:AnimationSub() ~=0) then -- form check
         return 1
+    elseif (mob:getHPP() > 30) then
+        return 1
     else
         return 0
     end
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local damage = MobHPBasedMove(mob, target, 0.30, 1, tpz.magic.ele.NONE, 1250)
+    local damage = MobHPBasedMove(mob, target, 0.50, 1, tpz.magic.ele.NONE, 1250)
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL, MOBPARAM_IGNORE_SHADOWS)
     mob:setHP(0)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)

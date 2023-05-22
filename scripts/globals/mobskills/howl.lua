@@ -19,8 +19,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local power = 50 + (mob:getMainLvl() * 2)
-    local duration = 300
+    local power = math.floor(target:getStat(tpz.mod.ATT) * 1.25)
+    local duration = 180
 
     local typeEffect = tpz.effect.WARCRY
     skill:setMsg(MobBuffMove(target, typeEffect, power, 0, duration))

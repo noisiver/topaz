@@ -41,6 +41,7 @@ TP_DMG_BONUS = 3
 TP_RANGED = 4
 TP_AUTO_ATTACK = 5
 TP_IGNORE_DEFENSE = 6
+TP_IGNORE_MACC = 7
 
 BOMB_TOSS_HPP = 1
 
@@ -431,8 +432,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     local magicBurstBonus = getMobMagicBurstBonus(mob, target, skill, element)
 
     -- get resist
-    -- Why isn't this a param?
-    if ignoremacc ~= nil and ignoremacc == 101 then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
+    if (tpeffect == TP_IGNORE_MACC) then -- Only used for Eyes On Me currently. Ignores Macc(100% land rate)
          resist = 1
     else
         resist = applyPlayerResistance(mob, nil, target, mob:getStat(tpz.mod.INT)-target:getStat(tpz.mod.INT), bonus, element)

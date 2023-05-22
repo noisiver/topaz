@@ -21,8 +21,8 @@ function onMobWeaponSkill(target, mob, skill)
     local blinded = false
     local bio = false
 
-    blinded = MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 30, 0, 300)
-    bio = MobStatusEffectMove(mob, target, tpz.effect.BIO, 39, 0, 120)
+    blinded = MobStatusEffectMove(mob, target, tpz.effect.BLINDNESS, 100, 0, 300)
+    bio = MobStatusEffectMove(mob, target, tpz.effect.BIO, 30, 0, 120)
 
     skill:setMsg(tpz.msg.basic.SKILL_ENFEEB_IS)
 

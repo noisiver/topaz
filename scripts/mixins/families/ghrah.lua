@@ -57,14 +57,14 @@ g_mixins.families.ghrah = function(mob)
 
     mob:addListener("ROAM_TICK", "GHRAH_RTICK", function(mob)
         local roamTime = mob:getLocalVar("roamTime")
-        if (mob:AnimationSub() == 0 and os.time() - roamTime > 45) then
+        if (mob:AnimationSub() == 0 and os.time() - roamTime > 60) then
             mob:AnimationSub(mob:getLocalVar("form2"))
             mob:setAggressive(1)
             SetJob(mob)
             SetSDT(mob)
             SetCasting(mob)
             mob:setLocalVar("roamTime", os.time())
-        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > 45) then
+        elseif (mob:AnimationSub() == mob:getLocalVar("form2") and os.time() - roamTime > 60) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
             SetJob(mob)
@@ -77,7 +77,7 @@ g_mixins.families.ghrah = function(mob)
     mob:addListener("ENGAGE", "GHRAH_ENGAGE", function(mob, target)
         SetJob(mob)
         SetSDT(mob)
-        mob:setLocalVar("changeTime", math.random(15, 45))
+        mob:setLocalVar("changeTime", 60)
     end)
 
     mob:addListener("COMBAT_TICK", "GHRAH_CTICK", function(mob)
@@ -90,7 +90,7 @@ g_mixins.families.ghrah = function(mob)
             SetSDT(mob)
             SetCasting(mob)
             SetClusterDrops(mob)
-            mob:setLocalVar("changeTime", mob:getBattleTime() + math.random(15, 45))
+            mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
         elseif (mob:AnimationSub() == mob:getLocalVar("form2") and mob:getBattleTime() >= changeTime) then
             mob:AnimationSub(0)
             mob:setAggressive(0)
@@ -98,7 +98,7 @@ g_mixins.families.ghrah = function(mob)
             SetSDT(mob)
             SetCasting(mob)
             SetClusterDrops(mob)
-            mob:setLocalVar("changeTime", mob:getBattleTime() + math.random(15, 45))
+            mob:setLocalVar("changeTime", mob:getBattleTime() + 60)
         end
     end)
 end

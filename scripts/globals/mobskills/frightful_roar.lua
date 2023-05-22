@@ -17,11 +17,11 @@ end
 function onMobWeaponSkill(target, mob, skill)
     if (mob:getPool() == 9005) then -- Kong
 		local typeEffect = tpz.effect.TERROR
-		MobStatusEffectMove(mob, target, tpz.effect.DEFENSE_DOWN, 50, 0, 300)
+		MobStatusEffectMove(mob, target, tpz.effect.DEFENSE_DOWN, 77, 0, 300)
 		skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, 10))
     else
 		local typeEffect = tpz.effect.DEFENSE_DOWN
-		skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 50, 0, 300))
+		skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 77, 0, 300))
    end
    
    return tpz.effect.DEFENSE_DOWN

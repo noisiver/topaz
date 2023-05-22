@@ -24,8 +24,8 @@ function onMobWeaponSkill(target, mob, skill)
             realDmg = realDmg * 10 -- sets the multiplier to 50 for NM's
         end
     end
-
-    target:takeDamage(realDmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
+    local dmg = MobFinalAdjustments(realDmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL, MOBPARAM_IGNORE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ELEMENTAL)
 
     return realDmg
 end
