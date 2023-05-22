@@ -241,7 +241,7 @@ INSERT INTO `mob_groups` VALUES (37,62,5,'Agloolik',330,0,30,0,0,77,80,0);
 INSERT INTO `mob_groups` VALUES (38,5325,5,'Scowlenkos',330,0,804,0,0,86,87,0);
 INSERT INTO `mob_groups` VALUES (39,5861,5,'Magnotaur',3600,0,3073,25000,0,83,85,0);
 INSERT INTO `mob_groups` VALUES (40,2156,5,'Jormungand',43200,0,1410,80000,0,95,95,0);
-INSERT INTO `mob_groups` VALUES (41,2256,5,'King_Buffalo',330,0,3100,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (41,2256,5,'King_Buffalo',330,0,3100,0,0,79,82,0);
 INSERT INTO `mob_groups` VALUES (42,2761,5,'Mountain_Worm',330,0,1744,0,0,66,70,0);
 INSERT INTO `mob_groups` VALUES (43,2669,5,'Mindgazer',330,0,315,0,0,69,72,0);
 INSERT INTO `mob_groups` VALUES (44,500,5,'Bonnacon',3600,0,336,12500,0,69,69,0);
