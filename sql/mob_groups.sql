@@ -217,7 +217,7 @@ INSERT INTO `mob_groups` VALUES (13,1525,5,'Giant_Buffalo',330,0,966,0,0,68,71,0
 INSERT INTO `mob_groups` VALUES (14,537,5,'Brontotaur',330,0,6015,0,0,68,71,0);
 INSERT INTO `mob_groups` VALUES (15,3690,5,'Snow_Maiden',0,128,820,15000,0,71,72,0);
 INSERT INTO `mob_groups` VALUES (16,1303,5,'Father_Frost',0,128,820,15000,0,74,75,0);
-INSERT INTO `mob_groups` VALUES (17,3130,5,'Phasma',330,1,1995,0,0,67,72,0);
+INSERT INTO `mob_groups` VALUES (17,3130,5,'Phasma',330,1,1995,0,0,70,72,0);
 INSERT INTO `mob_groups` VALUES (18,3806,5,'Succubus_Bats',330,0,234,0,0,65,68,0);
 INSERT INTO `mob_groups` VALUES (19,1085,5,'Doom_Soldier',330,0,683,0,0,66,70,0);
 INSERT INTO `mob_groups` VALUES (20,1278,5,'Fachan',330,0,6016,0,0,73,75,0);
@@ -13282,7 +13282,7 @@ INSERT INTO `mob_groups` VALUES (5,71,213,'Air_Elemental',330,4,38,0,0,60,62,0);
 INSERT INTO `mob_groups` VALUES (6,758,213,'Cockatrice',330,0,495,0,0,50,53,0);
 INSERT INTO `mob_groups` VALUES (7,1741,213,'Goblin_Trader',330,0,1180,0,0,46,49,0);
 INSERT INTO `mob_groups` VALUES (8,1728,213,'Goblins_Leech',0,128,2914,0,0,33,35,0);
-INSERT INTO `mob_groups` VALUES (9,2775,213,'Mushussu',330,0,1757,0,0,51,57,0);
+INSERT INTO `mob_groups` VALUES (9,2775,213,'Mushussu',330,0,1757,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (10,1689,213,'Goblin_Miner',330,0,1116,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (11,1641,213,'Goblin_Bouncer',330,0,1029,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (12,1677,213,'Goblin_Hunter',330,0,1095,0,0,51,54,0);
@@ -13312,6 +13312,7 @@ INSERT INTO `mob_groups` VALUES (35,1689,213,'Goblin_Miner',330,0,1116,0,0,55,58
 INSERT INTO `mob_groups` VALUES (36,1641,213,'Goblin_Bouncer',330,0,1029,0,0,55,58,0);
 INSERT INTO `mob_groups` VALUES (37,1677,213,'Goblin_Hunter',330,0,1095,0,0,55,58,0);
 INSERT INTO `mob_groups` VALUES (38,1654,213,'Goblin_Enchanter',330,0,1049,0,0,55,58,0);
+INSERT INTO `mob_groups` VALUES (39,2775,213,'Mushussu',330,0,1757,0,0,55,57,0); -- higher lvl group
 
 INSERT INTO `mob_groups` VALUES (10168,3992,213,'Treasure_Chest',0,0,0,0,0,0,0,0);
 
