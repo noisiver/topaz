@@ -143,6 +143,34 @@ bool CAbilityState::CanUseAbility()
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
             return false;
         }
+        if (PAbility->isPetAbility())
+        {
+            CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
+            // Not enough time since last pet ability was used
+            if (server_clock::now() < PChar->m_petAbilityWait)
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                return false;
+            }
+            // Pet is unable to use pet abilities due to Amnesia or hard CC
+            if (PPet->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
+                PPet->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
+                PPet->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                return false;
+            }
+            // Make sure pet is engaged when trying to use ready moves
+            if (PAbility->getID() >= ABILITY_FOOT_KICK && PAbility->getID() <= ABILITY_EXTIRPATING_SALVO)
+            {
+                CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
+                if (!PPet->PAI->IsEngaged())
+                {
+                    PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                    return false;
+                }
+            }
+        }
         std::unique_ptr<CBasicPacket> errMsg;
         auto PTarget = GetTarget();
         if (PChar->IsValidTarget(PTarget->targid, PAbility->getValidTarget(), errMsg))

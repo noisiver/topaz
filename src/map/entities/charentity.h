@@ -331,7 +331,7 @@ public:
     uint16			  m_Monstrosity;				// Monstrosity model ID
     uint32			  m_AHHistoryTimestamp;			// Timestamp when last asked to view history
     uint32            m_DeathTimestamp;             // Timestamp when death counter has been saved to database
-    time_point        m_BPWait;                     // BP lock out to stop from re-issueing BP's when pet is mid action
+    time_point        m_petAbilityWait;             // ability lock out to stop from re-issueing pet abilities when pet is mid action
     time_point        m_deathSyncTime;              // Timer used for sending an update packet at a regular interval while the character is dead
     time_point        InventoryFinishPacket{ server_clock::now() };
     uint8			  m_hasTractor;					// checks if player has tractor already

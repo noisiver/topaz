@@ -185,7 +185,7 @@ CCharEntity::CCharEntity()
     m_lastBcnmTimePrompt = 0;
     m_AHHistoryTimestamp = 0;
     m_DeathTimestamp = 0;
-    m_BPWait = server_clock::now();
+    m_petAbilityWait = server_clock::now();
 
     m_EquipFlag = 0;
     m_EquipBlock = 0;
@@ -1161,14 +1161,15 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
 void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 {
     auto PAbility = state.GetAbility();
+    auto success = true;
     if (this->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
     {
         pushPacket(new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_WAIT_LONGER));
-        return;
+        success = false;
     }
     if (this->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA)) {
         pushPacket(new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
-        return;
+        success = false;
     }
     auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
     std::unique_ptr<CBasicPacket> errMsg;
@@ -1177,7 +1178,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         if (this != PTarget && distance(this->loc.p, PTarget->loc.p) > PAbility->getRange())
         {
             pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY));
-            return;
+            success = false;
         }
 
         if (PAbility->getID() >= ABILITY_HEALING_RUBY && PAbility->getID() <= ABILITY_PERFECT_DEFENSE)
@@ -1186,21 +1187,9 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             if (this->health.mp < PAbility->getAnimationID())
             {
                 pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_UNABLE_TO_USE_JA));
-                return;
+                success = false;
             }
         }
-        // TODO: Crashes simple log
-        //// Make sure pet is engaged when trying to use ready moves
-        //if (PAbility->getID() >= ABILITY_FOOT_KICK && PAbility->getID() <= ABILITY_EXTIRPATING_SALVO)
-        //{
-        //    CBattleEntity* PPet = ((CBattleEntity*)this)->PPet;
-        //    if (!PPet->PAI->IsEngaged())
-        //    {
-        //        printf("line 1202\n");
-        //        pushPacket(new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
-        //        return;
-        //    }
-        //}
 
         // Check for paraylze
         if (battleutils::IsParalyzed(this)) {
@@ -1210,7 +1199,16 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
                 PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
             }
             pushPacket(new CCharRecastPacket(this));
-            loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_IS_PARALYZED));
+            // TODO: This msg is wrong? Doesn't crash it though...
+            pushPacket(new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_IS_PARALYZED));
+            actionList_t& actionList = action.getNewActionList();
+            actionList.ActionTargetID = this->id;
+
+            actionTarget_t& actionTarget = actionList.getNewActionTarget();
+            actionTarget.animation = 508;
+            actionTarget.messageID = 88;
+            action.actionid = 0;
+
             return;
         }
 
@@ -1290,24 +1288,9 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         // #TODO: get rid of this to script, too
         if (PAbility->isPetAbility())
         {
-            // Not enough time since last blood pact was used
-            // TODO: Remove checking for if it's a BP cause it should be all pet abilities and rename m_BPWait to m_PetAbilityWait
-            if (server_clock::now() < m_BPWait && PAbility->getID() >= ABILITY_HEALING_RUBY && PAbility->getID() <= ABILITY_PERFECT_DEFENSE)
-            {
-                pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_WAIT_LONGER));
-                return;
-            }
-            // Pet is unable to use Blood Pacts due to Amnesia or hard CC
-            if (PPet->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
-                PPet->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
-                PPet->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
-            {
-                pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
-                return;
-            }
             if (PPet) // is a bp - don't display msg and notify pet
             {
-                m_BPWait = server_clock::now() + std::chrono::milliseconds(5000);
+                m_petAbilityWait = server_clock::now() + std::chrono::milliseconds(5000);
 
                 actionList_t& actionList = action.getNewActionList();
                 actionList.ActionTargetID = PTarget->id;
@@ -1416,6 +1399,21 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             }
         }
 
+        // Interrupted
+        if (!success)
+        {
+            actionList_t& actionList = action.getNewActionList();
+            actionList.ActionTargetID = this->id;
+
+            actionTarget_t& actionTarget = actionList.getNewActionTarget();
+            actionTarget.animation = 508;
+            actionTarget.messageID = 88;
+            action.actionid = 0;
+            action.recast = 0;
+
+            return;
+        }
+
         // Remove Contradance after using a Waltz
         if (StatusEffectContainer->HasStatusEffect(EFFECT_CONTRADANCE) && PAbility->getID() > ABILITY_HASTE_SAMBA && PAbility->getID() < ABILITY_HEALING_WALTZ ||
             PAbility->getID() == ABILITY_DIVINE_WALTZ || PAbility->getID() == ABILITY_DIVINE_WALTZ_II)
@@ -1439,14 +1437,6 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             ((CMobEntity*)PTarget)->m_autoTargetKiller = this;
             ((CMobEntity*)PTarget)->DoAutoTarget();
         }
-
-
-        //#TODO: refactor
-        //if (this->getMijinGakure())
-        //{
-        //    m_ActionType = ACTION_FALL;
-        //    ActionFall();
-        //}
     }
     else if (errMsg)
     {
