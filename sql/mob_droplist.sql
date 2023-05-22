@@ -6830,24 +6830,24 @@ INSERT INTO `mob_droplist` VALUES (1310,0,0,1000,2161,50);
 INSERT INTO `mob_droplist` VALUES (1310,0,0,1000,2711,50);
 INSERT INTO `mob_droplist` VALUES (1310,0,0,1000,16166,90);
 INSERT INTO `mob_droplist` VALUES (1310,0,0,1000,18409,130);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2160,50);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2238,10);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2241,70);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2244,40);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2245,60);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2248,50);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2249,60);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2252,10);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2253,90);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2256,10);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2257,50);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2259,50);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2261,70);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2263,60);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2265,50);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2267,50);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2269,40);
-INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2711,50); -- Khroma nugget
+INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2160,50);      -- Hilltroll Puppetmaster (Troll Pauldron)
+INSERT INTO `mob_droplist` VALUES (1311,1,1,1000,2238,125);     -- Strobe
+INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2244,125);      -- Scanner
+INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2248,125);      -- Pattern Reader
+INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2252,125);      -- Analyzer
+INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2256,125);      -- Heat seeker
+INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2259,125);      -- Heatsink
+INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2263,125);      -- Flashbulb
+INSERT INTO `mob_droplist` VALUES (1311,1,1,100,2267,125);      -- Mana Converter
+INSERT INTO `mob_droplist` VALUES (1311,1,2,50,9033,125);       -- Tension Spring III
+INSERT INTO `mob_droplist` VALUES (1311,1,2,50,9034,125);       -- Loudspeaker III
+INSERT INTO `mob_droplist` VALUES (1311,1,2,50,9037,125);       -- Accelerator III
+INSERT INTO `mob_droplist` VALUES (1311,1,2,50,9039,125);       -- Armor Plate III
+INSERT INTO `mob_droplist` VALUES (1311,1,2,50,9040,125);       -- Stabalizer III
+INSERT INTO `mob_droplist` VALUES (1311,1,2,50,9042,125);       -- Mana Jammer III
+INSERT INTO `mob_droplist` VALUES (1311,1,2,50,9044,125);       -- Auto-Repair Kit III
+INSERT INTO `mob_droplist` VALUES (1311,1,2,50,9045,125);       -- Mana Tank III
+INSERT INTO `mob_droplist` VALUES (1311,0,0,1000,2711,50);      -- Khroma nugget
 INSERT INTO `mob_droplist` VALUES (1312,0,0,1000,2160,50);
 INSERT INTO `mob_droplist` VALUES (1312,0,0,1000,2711,50);
 INSERT INTO `mob_droplist` VALUES (1312,0,0,1000,2729,100); -- Hydrangea
