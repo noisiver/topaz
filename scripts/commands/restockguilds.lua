@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
--- func: updateguildstock
+-- func: !restockguilds
 -- desc: Restocks guilds(mimics day reset)
 ---------------------------------------------------------------------------------------------------
 
@@ -11,4 +11,5 @@ cmdprops =
 
 function onTrigger(player)
     UpdateGuildsStock()
+    player:PrintToPlayer("Guilds successfully restocked.")
 end
