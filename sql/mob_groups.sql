@@ -12890,6 +12890,8 @@ INSERT INTO `mob_groups` VALUES (42,4675,198,'Lost_Soul',0,128,0,3500,0,50,50,0)
 INSERT INTO `mob_groups` VALUES (43,5161,198,'Ogbunabali',0,128,0,0,0,94,95,0);
 INSERT INTO `mob_groups` VALUES (44,250,198,'Aroma_Crawler',0,128,172,3500,0,38,40,0);
 INSERT INTO `mob_groups` VALUES (45,6570,198,'Wight',330,0,2654,0,0,32,35,0);
+INSERT INTO `mob_groups` VALUES (46,6570,198,'Balpah',330,0,3188,35000,0,85,85,0);
+INSERT INTO `mob_groups` VALUES (47,6570,198,'Tebhi',330,0,0,0,10500,82,82,0);
 
 INSERT INTO `mob_groups` VALUES (9847,913,198,'Dark_Elemental',0,128,0,0,0,33,36,0);
 INSERT INTO `mob_groups` VALUES (9860,1720,198,'Goblins_Bat',0,128,0,0,0,24,26,0);

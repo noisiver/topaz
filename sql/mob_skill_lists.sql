@@ -4581,6 +4581,11 @@ INSERT INTO `mob_skill_lists` VALUES ('Raogrimm',6135,9); -- asuran_fists
 
 INSERT INTO `mob_skill_lists` VALUES ('Nashmeira',6136,3243); -- Imperial Authority
 
+INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,69); -- Rampage
+INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,71); -- Mistral Axe
+INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,72); -- Decimation
+INSERT INTO `mob_skill_lists` VALUES ('Balpah',6137,74); -- Primal Rend
+
 -- Next available ID: 1176
--- Next custom ID: 6137
+-- Next custom ID: 6138
 

@@ -4083,6 +4083,7 @@ INSERT INTO `mob_skills` VALUES (154,176,'tachi_rana',0,7.0,2000,0,4,0,0,0,1,8,0
 -- INSERT INTO `mob_skills` VALUES (129,152,'blade_retsu',1,10.0,2000,0,4,0,0,0,1,8,0);
 -- INSERT INTO `mob_skills` VALUES (132,155,'blade_chi',4,15.0,2000,0,4,0,0,0,1,8,0);
 INSERT INTO `mob_skills` VALUES (138,161,'blade_kamu',0,7.0,2000,0,4,0,0,0,1,8,0);
+INSERT INTO `mob_skills` VALUES (74,51,'primal_rend',0,7.0,2000,0,4,0,0,0,1,8,0);
 
 
 
