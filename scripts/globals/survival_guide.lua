@@ -158,8 +158,8 @@ tpz.survivalGuide.onEventFinish = function(player, eventId, option)
                 -- GIL: 1000 -> 200
                 -- TABS: 100 -> 10
                 if player:hasKeyItem(tpz.ki.RHAPSODY_IN_WHITE) then
-                    teleportCostGil = teleportCostGil * .2
-                    teleportCostTabs = teleportCostTabs * .2
+                    teleportCostGil = teleportCostGil / 10
+                    teleportCostTabs = teleportCostTabs / 5
                 end
 
                 local canTeleport = false
