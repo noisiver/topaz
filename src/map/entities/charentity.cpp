@@ -726,7 +726,7 @@ void CCharEntity::Tick(time_point tick)
     // Send inventory finish packet to check for temps
     if (server_clock::now() < InventoryFinishPacket)
     {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(1000);
+        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
         this->pushPacket(new CInventoryFinishPacket());
     }
 }
