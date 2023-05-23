@@ -2408,8 +2408,8 @@ int getSDTTier(int SDT)
             if (PMob->getMobMod(MOBMOD_BLOCK) > 0 || PMob->getMod(Mod::SHIELDBLOCKRATE) > 0)
             {
                 base = PMob->getMobMod(MOBMOD_BLOCK);
-                base += (PMob->getMod(Mod::SHIELDBLOCKRATE) / 100);
-                printf("Base mob block rate %i\n", base);
+                base += PMob->getMod(Mod::SHIELDBLOCKRATE);
+                base = std::clamp(base, 0, 100);
                 return base;
             }
             else
@@ -2418,7 +2418,7 @@ int getSDTTier(int SDT)
         else if (PDefender->objtype == TYPE_PET)
         {
             base = PDefender->getMod(Mod::SHIELDBLOCKRATE);
-            printf("Base Pet block rate %i\n", base);
+            base = std::clamp(base, 0, 100);
             return base;
         }
         else
