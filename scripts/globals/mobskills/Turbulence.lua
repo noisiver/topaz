@@ -15,7 +15,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1
+    local dmgmod = 1.0
 	
 	if (mob:getFamily() == 72) then 
 		dmgmod = 2

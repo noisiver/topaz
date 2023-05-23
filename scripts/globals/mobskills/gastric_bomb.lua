@@ -15,27 +15,12 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
-    local numhits = 1
-    local accmod = 1
-    local dmgmod = 2
-    local params_phys = {}
-    params_phys.multiplier = dmgmod
-    params_phys.tp150 = 1
-    params_phys.tp300 = 1
-    params_phys.str_wsc = 0.0
-    params_phys.dex_wsc = 0.0
-    params_phys.vit_wsc = 0.0
-    params_phys.agi_wsc = 0.3
-    params_phys.int_wsc = 0.0
-    params_phys.mnd_wsc = 0.0
-    params_phys.chr_wsc = 0.0
     local typeEffect = tpz.effect.ATTACK_DOWN
-
-    local info = MobRangedMove(mob, target, skill, numhits, accmod, dmgmod, TP_RANGED, params_phys, 2, 3)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, info.hitslanded)
-    target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.RANGED)
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 50, 0, 300)
+    local dmgmod = 2.0
+    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*2.5, tpz.magic.ele.WATER, dmgmod, TP_MAB_BONUS, 1)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.WATER, MOBPARAM_WIPE_SHADOWS)
+    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.WATER)
+    MobStatusEffectMove(mob, target, typeEffect, 50, 0, 300)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

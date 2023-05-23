@@ -20,7 +20,7 @@ function onMobWeaponSkill(target, mob, skill)
 
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.25
+    local dmgmod = 1.7
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -36,7 +36,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded*2)
 
     local typeEffect = tpz.effect.POISON
-    local power = (mob:getMainLvl()/5)  -- buffed from 10
+    local power = math.floor(mob:getMainLvl()/10) 
     if (power < 1 ) then
         power = 1
     end

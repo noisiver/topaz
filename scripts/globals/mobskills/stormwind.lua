@@ -17,14 +17,14 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1
+    local dmgmod = 3.0
 
     if (mob:getName() == "Kreutzet") then
         local stormwindDamage = mob:getLocalVar("stormwindDamage")
         if (stormwindDamage == 2) then
-            dmgmod = 2.25
+            dmgmod = 4.0
         elseif (stormwindDamage == 3) then
-            dmgmod = 2.6
+            dmgmod = 5.0
         end
     end
 

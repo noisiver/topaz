@@ -12,7 +12,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 4.5
+    local dmgmod = 3.0
     if mob:getPool() == 2087 then -- Iqi-Balam
         dmgmod = 18
     end

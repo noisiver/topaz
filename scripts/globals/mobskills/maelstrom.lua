@@ -14,7 +14,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1.5
+    local dmgmod = 2.5
 
     local typeEffect = tpz.effect.STR_DOWN
     local tick = 60

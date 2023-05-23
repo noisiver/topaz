@@ -24,7 +24,7 @@ function onMobWeaponSkill(target, mob, skill)
     mob:setMobMod(tpz.mobMod.VAR, 3)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.5
+    local dmgmod = 1.2
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
