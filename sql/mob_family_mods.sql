@@ -218,13 +218,13 @@ INSERT INTO `mob_family_mods` VALUES (198,68,25,0);		-- Puk +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (72,68,25,0);		-- Colibri +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (176,68,25,0);		-- Mamool ja +25 evasion
 INSERT INTO `mob_family_mods` VALUES (285,68,10,0);		-- Gulool_Ja_Ja +10 evasion
-INSERT INTO `mob_family_mods` VALUES (165,68,50,0);		-- Imp +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (119,68,50,0);		-- Gear +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (120,68,50,0);		-- Gears +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (166,68,50,0);		-- Jakko(Imp) +50 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (90,68,50,0);		-- Dvergr +50 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (165,68,25,0);		-- Imp +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (119,68,25,0);		-- Gear +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (120,68,25,0);		-- Gears +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (166,68,25,0);		-- Jakko(Imp) +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (90,68,25,0);		-- Dvergr +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (131,68,25,0);		-- Gnat +25 Evasion Racial
-INSERT INTO `mob_family_mods` VALUES (6,68,25,0);		-- Amphiptere +25 Evasion Racial
+INSERT INTO `mob_family_mods` VALUES (6,68,25,0);		  -- Amphiptere +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (117,68,25,0);		-- Gargouille +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (118,68,25,0);		-- Gargoyle +25 Evasion Racial
 INSERT INTO `mob_family_mods` VALUES (170,68,25,0);		-- Ladybug +25 Evasion Racial
@@ -235,7 +235,7 @@ INSERT INTO `mob_family_mods` VALUES (73,68,25,0);		-- Corpselights +25 Evasion 
 INSERT INTO `mob_family_mods` VALUES (943,68,25,0);		-- WotG Yagudo +25 Evasion Racial
 
 -- Evasion Penalty
-INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	    -- Bugbear -10 Evasion
+INSERT INTO `mob_family_mods` VALUES (59,68,-10,0);	  -- Bugbear -10 Evasion
 INSERT INTO `mob_family_mods` VALUES (180,68,-20,0);	-- Marid -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (371,68,-20,0);	-- Marid -20 Evasion
 INSERT INTO `mob_family_mods` VALUES (246,68,-20,0);	-- Troll -20 Evasion
