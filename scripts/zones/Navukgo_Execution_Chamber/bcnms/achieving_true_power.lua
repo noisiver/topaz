@@ -5,6 +5,7 @@
 require("scripts/globals/battlefield")
 require("scripts/globals/keyitems")
 local ID = require("scripts/zones/Navukgo_Execution_Chamber/IDs")
+require("scripts/globals/npc_util")
 ----------------------------------------
 
 function onBattlefieldTick(battlefield, tick)

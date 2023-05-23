@@ -9,7 +9,6 @@ require("scripts/globals/settings")
 require("scripts/globals/quests")
 local ID = require("scripts/zones/Bastok_Markets/IDs")
 require("scripts/globals/keyitems")
-require("scripts/globals/npc_util")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -22,7 +21,7 @@ end
 function onTrigger(player, npc)
     local NoStringsAttached = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.NO_STRINGS_ATTACHED)
     local NoStringsAttachedProgress = player:getCharVar("NoStringsAttachedProgress")
-    player:levelCap(75)
+
     if (player:getMainLvl() >= ADVANCED_JOB_LEVEL and NoStringsAttached == QUEST_AVAILABLE) then
         player:startEvent(434) -- initial cs to start the quest, go and see Iruki-Waraki at Whitegate
     elseif (NoStringsAttachedProgress == 1) then
