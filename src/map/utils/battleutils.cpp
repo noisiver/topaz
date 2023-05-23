@@ -2405,21 +2405,21 @@ int getSDTTier(int SDT)
         else if (PDefender->objtype == TYPE_MOB)
         {
             CMobEntity* PMob = (CMobEntity*)PDefender;
-            if (PMob->getMobMod(MOBMOD_BLOCK) > 0)
+            if (PMob->getMobMod(MOBMOD_BLOCK) > 0 || PMob->getMod(Mod::SHIELDBLOCKRATE) > 0)
             {
-                return base = PMob->getMobMod(MOBMOD_BLOCK);
+                base = PMob->getMobMod(MOBMOD_BLOCK);
+                base += (PMob->getMod(Mod::SHIELDBLOCKRATE) / 100);
+                printf("Base mob block rate %i\n", base);
+                return base;
             }
             else
                 return 0;
         }
-        else if (PDefender->objtype == TYPE_PET && static_cast<CPetEntity*>(PDefender)->getPetType() == PETTYPE_AUTOMATON && PDefender->GetMJob() == JOB_PLD)
+        else if (PDefender->objtype == TYPE_PET)
         {
-            float skillmodifier = (PDefender->GetSkill(SKILL_AUTOMATON_MELEE) - attackskill) * 0.2325f;
             base = PDefender->getMod(Mod::SHIELDBLOCKRATE);
-            if (base <= 0)
-                return 0;
-            else
-                return base + (int32)skillmodifier;
+            printf("Base Pet block rate %i\n", base);
+            return base;
         }
         else
             return 0;

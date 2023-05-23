@@ -14970,7 +14970,8 @@ inline int32 CLuaBaseEntity::getBlockedDamage(lua_State* L)
     int32 damage = (int32)lua_tointeger(L, 1);
 
     // Mob
-    if (PDefender && PDefender->objtype == TYPE_MOB && ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0)
+    if (PDefender && PDefender->objtype == TYPE_MOB && ((CMobEntity*)PDefender)->getMobMod(MOBMOD_BLOCK) > 0 ||
+        PDefender && PDefender->objtype == TYPE_MOB && ((CMobEntity*)PDefender)->getMod(Mod::SHIELDBLOCKRATE) > 0)
     {
     uint8 absorb = 50;
     int32 shieldDefBonus = PDefender->getMod(Mod::SHIELD_DEF_BONUS);

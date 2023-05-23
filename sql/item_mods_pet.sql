@@ -543,6 +543,7 @@ INSERT INTO `item_mods_pet` VALUES (14898,73,5,0);     -- Beast Gloves +1: Pet: 
 INSERT INTO `item_mods_pet` VALUES (14898,288,5,0);    -- Beast Gloves +1: Pet: Double Attack +5%
 INSERT INTO `item_mods_pet` VALUES (14097,25,5,0);     -- Beast Gaiters: Pet: Accuracy+5
 INSERT INTO `item_mods_pet` VALUES (15360,25,10,0);    -- Beast Gaiters +1: Pet: Accuracy+10
+INSERT INTO `item_mods_pet` VALUES (12382,518,20,0);    -- Necromancer's Gambit: Pet: Shield Block Rate +20
 
 
 

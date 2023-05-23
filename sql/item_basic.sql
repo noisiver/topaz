@@ -9675,7 +9675,7 @@ INSERT INTO `item_basic` VALUES (12378,0,'hard_shield','hard_shield',1,2052,16,0
 INSERT INTO `item_basic` VALUES (12379,0,'holy_shield','holy_shield',1,2084,16,0,700);
 INSERT INTO `item_basic` VALUES (12380,0,'divine_shield','divine_shield',1,2080,16,0,3642);
 INSERT INTO `item_basic` VALUES (12381,0,'charging_shield','charging_shield',1,63572,0,1,0);
-INSERT INTO `item_basic` VALUES (12382,0,'astral_aspis','astral_aspis',1,63572,0,1,0);
+INSERT INTO `item_basic` VALUES (12382,0,'necromancers_gambit','necromancers_gambit',1,63572,0,1,0);
 INSERT INTO `item_basic` VALUES (12383,0,'generals_shield','generals_shield',1,2084,16,0,5026);
 INSERT INTO `item_basic` VALUES (12384,0,'admirals_shield','admirals_shield',1,2080,16,0,5026);
 INSERT INTO `item_basic` VALUES (12385,0,'acheron_shield','acheron_shield',1,2084,16,0,27550);

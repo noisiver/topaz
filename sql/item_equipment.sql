@@ -2142,7 +2142,7 @@ INSERT INTO `item_equipment` VALUES (12378,'hard_shield',48,0,2385,29,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12379,'holy_shield',50,0,4,29,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12380,'divine_shield',50,0,4,29,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12381,'charging_shield',63,0,129,26,3,0,2,0);
-INSERT INTO `item_equipment` VALUES (12382,'astral_aspis',68,0,3719388,41,1,0,2,0);
+INSERT INTO `item_equipment` VALUES (12382,'necromancers_gambit',68,0,4194303,640,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12383,'generals_shield',69,0,193,47,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12384,'admirals_shield',69,0,193,47,3,0,2,0);
 INSERT INTO `item_equipment` VALUES (12385,'acheron_shield',75,0,33169,50,3,0,2,0);

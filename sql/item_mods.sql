@@ -8117,10 +8117,9 @@ INSERT INTO `item_mods` VALUES (12381,168,33);
 INSERT INTO `item_mods` VALUES (12381,903,100);
 INSERT INTO `item_mods` VALUES (12381,904,1);
 INSERT INTO `item_mods` VALUES (12381,986,1);
-INSERT INTO `item_mods` VALUES (12382,1,3);
+INSERT INTO `item_mods` VALUES (12382,1,3);         -- Necromancer's Gambit
 INSERT INTO `item_mods` VALUES (12382,7,25);
-INSERT INTO `item_mods` VALUES (12382,11,3);
-INSERT INTO `item_mods` VALUES (12382,12,3);
+INSERT INTO `item_mods` VALUES (12382,25,5);      -- Accuracy +5
 INSERT INTO `item_mods` VALUES (12382,56,-5);
 INSERT INTO `item_mods` VALUES (12382,57,5);
 INSERT INTO `item_mods` VALUES (12382,58,5);
