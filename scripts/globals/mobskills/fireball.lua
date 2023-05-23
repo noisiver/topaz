@@ -14,10 +14,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 1
+    local dmgmod = 2.5
 	
 	if (mob:getPool() == 3444) then -- Salamander for Bastok Rank8 Mission
-		dmgmod = 4
+		dmgmod = 5.0
 	end
 	
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.FIRE, dmgmod, TP_NO_EFFECT)
