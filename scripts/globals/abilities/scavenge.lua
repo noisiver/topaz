@@ -177,7 +177,7 @@ local items = {
         local arrowsToReturn = math.floor(math.floor(player:getLocalVar("ArrowsUsed")  % 10000) * (player:getMainLvl() / 200 + bonuses))
         local playerID = target:getID()
 
-        player:addItem(result)
+        player:addTempItem(result)
         action:messageID(playerID, 140) -- Player finds xxx item. xxx being returned itemID
         return result
     end
