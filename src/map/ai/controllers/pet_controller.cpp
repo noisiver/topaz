@@ -88,10 +88,6 @@ void CPetController::DoRoamTick(time_point tick)
             }
             PPet->PAI->PathFind->FollowPath();
         }
-        else if (PPet->GetSpeed() > 0)
-        {
-            PPet->PAI->PathFind->WarpTo(PPet->PMaster->loc.p, PetRoamDistance);
-        }
     }
 }
 
