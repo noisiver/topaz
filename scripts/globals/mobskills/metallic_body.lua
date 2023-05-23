@@ -14,7 +14,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local power = 25 -- ffxiclopedia claims its always 25 on the crabs page. Tested on wootzshell in mt zhayolm..
+    local power = 25 
 
     if (mob:isNM()) then
         power = (25 + (mob:getMainLvl() / 1)) * 2

@@ -18,7 +18,7 @@ function onMobWeaponSkill(target, mob, skill)
     local tick = 60
     local power = (target:getStat(tpz.mod.STR) * 0.2) +5
 
-    local dmgmod = MobHPBasedMove(mob, target, 0.10, 1, tpz.magic.ele.WATER, 200)
+    local dmgmod = MobHPBasedMove(mob, target, 0.0625, 1, tpz.magic.ele.WATER, 200)
 
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.WATER, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.WATER)
