@@ -2825,7 +2825,6 @@ tpz.casket_loot.casketItems =
         --| Weight | Item ID |   Name  |--
         ----------------------------------
             { 610,   657}, -- Tama-Hagane
-            { 590,   685}, -- Khroma Ore
             { 730,   876}, -- Manta Skin
             {1640,   919}, -- Boyahda Moss
             {1390,   838}, -- Spider Web
