@@ -782,6 +782,7 @@ enum class Mod
     CLAMMING_REDUCED_INCIDENTS= 510, //
 
     CHOCOBO_RIDING_TIME       = 511, // Increases chocobo riding time
+    DIGGING_SKILL_GAIN_RATE   = 1317,// Chocobo digging skill up gain increase
 
     HARVESTING_RESULT         = 513, // Improves harvesting results
     LOGGING_RESULT            = 514, // Improves logging results
@@ -973,7 +974,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1317 NEXT
+    // 1318 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

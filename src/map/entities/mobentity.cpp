@@ -1299,7 +1299,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(11677, ++dropCount)) // Prouesse Ring
+                    if (AddItemToPool(14954, ++dropCount)) // Sadhu Cuffs
                         return;
                     break;
                 case 2:
@@ -1307,7 +1307,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(11576, ++dropCount)) // Bond Cape
+                    if (AddItemToPool(14953, ++dropCount)) // Sadhu Bracelets
                         return;
                     break;
             }
@@ -1335,7 +1335,7 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                     break;
             }
         }
-        else if (GetMLevel() >= 71) // 71+ bracket rare drops
+        else if (GetMLevel() >= 71 && GetMLevel() <= 80) // 71-80+ bracket rare drops
         {
             switch (tpzrand::GetRandomNumber(4))
             {
@@ -1345,15 +1345,38 @@ void CMobEntity::DropItems(CCharEntity* PChar)
                         return;
                     break;
                 case 1:
-                    if (AddItemToPool(16284, ++dropCount)) // Caract Choker
+                    if (AddItemToPool(17721, ++dropCount)) // Sanguine Sword
                         return;
                     break;
                 case 2:
-                    if (AddItemToPool(11920, ++dropCount)) // Melaco Mittens
+                    if (AddItemToPool(18028, ++dropCount)) // Matron's Knife
                         return;
                     break;
                 case 3:
-                    if (AddItemToPool(16202, ++dropCount)) // Dagda's Shield
+                    if (AddItemToPool(15796, ++dropCount)) // Psi Ring
+                        return;
+                    break;
+            }
+        }
+        else if (GetMLevel() >= 81) // 81+ bracket rare drops
+        {
+            switch (tpzrand::GetRandomNumber(4))
+            {
+                case 0:
+
+                    if (AddItemToPool(15786, ++dropCount)) // TODO
+                        return;
+                    break;
+                case 1:
+                    if (AddItemToPool(16284, ++dropCount)) // TODO
+                        return;
+                    break;
+                case 2:
+                    if (AddItemToPool(11920, ++dropCount)) // TODO
+                        return;
+                    break;
+                case 3:
+                    if (AddItemToPool(16202, ++dropCount)) // TODO
                         return;
                     break;
             }

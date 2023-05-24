@@ -737,6 +737,11 @@ INSERT INTO `item_latents` VALUES(13693, 370, 1, 13, 2);
 INSERT INTO `item_latents` VALUES(13693, 370, 1, 13, 19);
 
 -- -------------------------------------------------------
+-- Ossa Grip
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(18812, 348, 1, 13, 35);     -- Ice Affinity +1 while Ice Spikes is on
+
+-- -------------------------------------------------------
 -- Carapace Breastplate
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(13789, 1, 44, 13, 57);     -- DEF:44 when defender active
@@ -1446,16 +1451,6 @@ INSERT INTO `item_latents` VALUES(14944, 26, 10, 13, 566);
 
 INSERT INTO `item_latents` VALUES(14946, 346, 1, 13, 2);
 INSERT INTO `item_latents` VALUES(14946, 346, 1, 13, 19);
-
--- -------------------------------------------------------
--- Sadhu Bracelets (Triggered when not under food effect.)
--- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(14953, 288, 2, 14, 0);    -- "Double Attack"+2%
-INSERT INTO `item_latents` VALUES(14953, 384, 100, 14, 0);  -- Haste+1%
-
-INSERT INTO `item_latents` VALUES(14954, 5, 35, 14, 0);
-INSERT INTO `item_latents` VALUES(14954, 71, 1, 14, 0);
-INSERT INTO `item_latents` VALUES(14954, 168, -5, 14, 0);
 
 -- -------------------------------------------------------
 -- Serpentes Cuffs

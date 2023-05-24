@@ -2371,7 +2371,7 @@ tpz.casket_loot.casketItems =
     },
     [tpz.zone.RANGUEMONT_PASS] =
     {
-        regionalItems = {11575}, -- Grapevine Cape
+        regionalItems = {11486}, -- Diana Corona Was Grapevine
         temps =
         {
         ----------------------------------

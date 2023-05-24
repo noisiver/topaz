@@ -119,6 +119,7 @@ tpz.subEffect =
     SLEEP               = 9,   -- 110010       19
     POISON              = 10,  -- 1-01010      21
     PARALYSIS           = 11,
+    PARALYZE            = 11,
     AMNESIA             = 11,  -- Verified uses same animation as para
     BLIND               = 12,  -- 1-00110      25
     BLINDNESS           = 12,  -- 1-00110      25
@@ -1774,14 +1775,15 @@ tpz.mod =
     REWARD_RECAST           = 1313, -- Reward recast reduction
     LOGGING_SKILL           = 1314, -- Adds Logging Skill
     MINING_SKILL            = 1315, -- Adds Mining Skill
-    PROTECT_SHELL_EFFECT    = 1316,  -- Enhances the effect of "Protect" and "Shell". Target with mod only.
+    PROTECT_SHELL_EFFECT    = 1316, -- Enhances the effect of "Protect" and "Shell". Target with mod only.
+    DIGGING_SKILL_GAIN_RATE = 1317,  -- Chocobo digging skill up gain increase
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1317 NEXT
+    -- 1318 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

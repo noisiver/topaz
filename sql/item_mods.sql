@@ -2799,7 +2799,7 @@ INSERT INTO `item_mods` VALUES (10919,1,6);
 INSERT INTO `item_mods` VALUES (10920,1,7);
 INSERT INTO `item_mods` VALUES (10921,1,8);
 INSERT INTO `item_mods` VALUES (10922,1,9);
-INSERT INTO `item_mods` VALUES (10924,511,4);     -- Chocobo Torque: Chocobo riding time +4
+INSERT INTO `item_mods` VALUES (10924,1017,10);     -- Chocobo Torque: Mounted movement speed +10%
 INSERT INTO `item_mods` VALUES (10925,127,2);
 INSERT INTO `item_mods` VALUES (10926,513,1); -- FIELD TORQUE,Improves mining, logging, and harvesting results
 INSERT INTO `item_mods` VALUES (10926,514,1); -- LOGGING
@@ -2984,8 +2984,10 @@ INSERT INTO `item_mods` VALUES (10989,374,4);
 INSERT INTO `item_mods` VALUES (10990,1,10);      -- Engulfer Cape: DEF 10
 INSERT INTO `item_mods` VALUES (10990,5,30);      -- MP +30
 INSERT INTO `item_mods` VALUES (10990,475,5);     -- Occasionally absorbs magic damage taken +5%
-INSERT INTO `item_mods` VALUES (10991,1,15);
-INSERT INTO `item_mods` VALUES (10991,23,17);
+INSERT INTO `item_mods` VALUES (10991,1,15);      -- Rancorous Mantle
+INSERT INTO `item_mods` VALUES (10991,23,17);     -- Attack+17
+INSERT INTO `item_mods` VALUES (10991,165,5);     -- Crit+5%
+INSERT INTO `item_mods` VALUES (10991,160,10);    -- Damage Taken +10%
 INSERT INTO `item_mods` VALUES (10992,1,17); -- VASSAL'S MANTLE, DEF:17 Attack+25 Evasion+5
 INSERT INTO `item_mods` VALUES (10992,23,25); -- ATT
 INSERT INTO `item_mods` VALUES (10992,68,5); -- EVA
@@ -3135,7 +3137,7 @@ INSERT INTO `item_mods` VALUES (11036,14,4);
 INSERT INTO `item_mods` VALUES (11036,30,2);
 INSERT INTO `item_mods` VALUES (11037,57,10);     -- Earthcry Earring: Earth resistance +10
 INSERT INTO `item_mods` VALUES (11037,539,10);    -- Enhances Stoneskin effect +10
-INSERT INTO `item_mods` VALUES (11038,23,7);
+INSERT INTO `item_mods` VALUES (11038,23,3);      -- Dragonkin Earring: Attack+3
 INSERT INTO `item_mods` VALUES (11039,5,20);      -- Brachyura Earring MP +20
 INSERT INTO `item_mods` VALUES (11039,1316,1);   -- Protect / Shell Effect + 1 (+10% Protect Defense and +1% Shell MDT)
 INSERT INTO `item_mods` VALUES (11040,2,10);      -- terminus_earring HP+10
@@ -5759,6 +5761,10 @@ INSERT INTO `item_mods` VALUES (11766,1,6);       -- Sanctuary Obi +1: DEF 6
 INSERT INTO `item_mods` VALUES (11766,12,6);      -- INT +6
 INSERT INTO `item_mods` VALUES (11766,27,-4);     -- Enmity -4
 INSERT INTO `item_mods` VALUES (11766,168,10);    -- Spell interruption rate down 10%
+INSERT INTO `item_mods` VALUES (11767,1317,1);    -- Chocobo Rope: Chocobo digging skill gain +1
+INSERT INTO `item_mods` VALUES (11769,513,1); -- FIELD Rope,Improves mining, logging, and harvesting results
+INSERT INTO `item_mods` VALUES (11769,514,1); -- LOGGING
+INSERT INTO `item_mods` VALUES (11769,515,1); -- HARVESTING
 INSERT INTO `item_mods` VALUES (11770,2,-10);
 INSERT INTO `item_mods` VALUES (11770,5,-10);
 INSERT INTO `item_mods` VALUES (11770,384,700);
@@ -5978,8 +5984,10 @@ INSERT INTO `item_mods` VALUES (11821,116,9);
 INSERT INTO `item_mods` VALUES (11822,2,-33);
 INSERT INTO `item_mods` VALUES (11822,5,99);
 INSERT INTO `item_mods` VALUES (11822,47,7);
-INSERT INTO `item_mods` VALUES (11823,1,40);
-INSERT INTO `item_mods` VALUES (11823,56,-10);
+INSERT INTO `item_mods` VALUES (11823,1,40);        -- Cocoon Band
+INSERT INTO `item_mods` VALUES (11823,160,-2);      -- DT-2%
+INSERT INTO `item_mods` VALUES (11823,384,-900);    -- Slow+9%
+INSERT INTO `item_mods` VALUES (11823,56,-10);      -- -10 Wind Res
 INSERT INTO `item_mods` VALUES (11824,1,39);
 INSERT INTO `item_mods` VALUES (11824,23,15);
 INSERT INTO `item_mods` VALUES (11824,85,6);
@@ -11887,7 +11895,8 @@ INSERT INTO `item_mods` VALUES (13837,1,7);
 INSERT INTO `item_mods` VALUES (13837,5,2);
 INSERT INTO `item_mods` VALUES (13838,1,5);
 INSERT INTO `item_mods` VALUES (13838,68,3);
-INSERT INTO `item_mods` VALUES (13839,1,11);
+INSERT INTO `item_mods` VALUES (13839,1,11);      -- Marine Hat
+INSERT INTO `item_mods` VALUES (13839,26,3);      -- RACC+3
 INSERT INTO `item_mods` VALUES (13839,54,7);
 INSERT INTO `item_mods` VALUES (13839,58,-7);
 INSERT INTO `item_mods` VALUES (13839,59,7);
@@ -12026,8 +12035,8 @@ INSERT INTO `item_mods` VALUES (13880,1,18);
 INSERT INTO `item_mods` VALUES (13881,1,19);
 INSERT INTO `item_mods` VALUES (13881,27,1);
 INSERT INTO `item_mods` VALUES (13881,161,-4);
-INSERT INTO `item_mods` VALUES (13882,1,14);
-INSERT INTO `item_mods` VALUES (13882,9,1);
+INSERT INTO `item_mods` VALUES (13882,1,14);        -- Corsair's Hat
+INSERT INTO `item_mods` VALUES (13882,11,5);        -- AGI+5
 INSERT INTO `item_mods` VALUES (13882,54,8);
 INSERT INTO `item_mods` VALUES (13882,58,-6);
 INSERT INTO `item_mods` VALUES (13882,59,8);
@@ -15795,8 +15804,13 @@ INSERT INTO `item_mods` VALUES (14952,71,1);      -- MP recovered while healing 
 INSERT INTO `item_mods` VALUES (14952,499,2);     -- Ice spikes
 INSERT INTO `item_mods` VALUES (14952,500,15);    -- Spikes damage +15
 INSERT INTO `item_mods` VALUES (14952,501,15);    -- Spikes chance +15%
-INSERT INTO `item_mods` VALUES (14953,1,16);
-INSERT INTO `item_mods` VALUES (14954,1,14);
+INSERT INTO `item_mods` VALUES (14953,1,16);      -- Sadhu Bracelets
+INSERT INTO `item_mods` VALUES (14953,288,2);      -- 
+INSERT INTO `item_mods` VALUES (14953,384,100);    -- 
+INSERT INTO `item_mods` VALUES (14954,1,14);      -- Sadhu Cuffs
+INSERT INTO `item_mods` VALUES (14954,5,35);      -- MP+35
+INSERT INTO `item_mods` VALUES (14954,71,1);      -- MP Recovered while healing+1
+INSERT INTO `item_mods` VALUES (14954,168,-5);    -- Spell Interruption Rate down 5%
 INSERT INTO `item_mods` VALUES (14955,1,11);
 INSERT INTO `item_mods` VALUES (14955,2,12);
 INSERT INTO `item_mods` VALUES (14955,5,12);
@@ -18810,7 +18824,7 @@ INSERT INTO `item_mods` VALUES (15791,29,3);
 INSERT INTO `item_mods` VALUES (15792,10,5);
 INSERT INTO `item_mods` VALUES (15794,8,5);
 INSERT INTO `item_mods` VALUES (15795,9,5);
-INSERT INTO `item_mods` VALUES (15796,11,5);
+INSERT INTO `item_mods` VALUES (15796,73,5);      -- Psi Ring: StoreTP+5
 INSERT INTO `item_mods` VALUES (15797,13,5);
 INSERT INTO `item_mods` VALUES (15798,12,5);
 INSERT INTO `item_mods` VALUES (15799,9,3);
@@ -23693,7 +23707,7 @@ INSERT INTO `item_mods` VALUES (18782,9,4);
 INSERT INTO `item_mods` VALUES (18782,68,4);
 INSERT INTO `item_mods` VALUES (18783,9,5);
 INSERT INTO `item_mods` VALUES (18783,68,5);
-INSERT INTO `item_mods` VALUES (18784,23,12);
+INSERT INTO `item_mods` VALUES (18784,23,12);     -- Metasoma Katars
 INSERT INTO `item_mods` VALUES (18784,431,1);
 INSERT INTO `item_mods` VALUES (18785,10,7);
 INSERT INTO `item_mods` VALUES (18785,431,1);
@@ -23742,8 +23756,7 @@ INSERT INTO `item_mods` VALUES (18812,55,10);
 INSERT INTO `item_mods` VALUES (18814,2,40);      -- Salubrious Grip: HP+40
 INSERT INTO `item_mods` VALUES (18815,289,-5);    -- Arbuda Grip: "Subtle Blow"-5
 INSERT INTO `item_mods` VALUES (18815,384,100);    -- Haste+1%
-INSERT INTO `item_mods` VALUES (18816,12,3);      -- Wizzan Grip: INT+3
-INSERT INTO `item_mods` VALUES (18816,296,1);     -- "Conserve MP"+1
+INSERT INTO `item_mods` VALUES (18816,296,1);     -- Wizzan Grip: "Conserve MP"+1
 INSERT INTO `item_mods` VALUES (18817,289,5);     -- Furtive Grip: "Subtle Blow"+5
 INSERT INTO `item_mods` VALUES (18818,2,30);      -- Dilettante's Grip: HP+30
 INSERT INTO `item_mods` VALUES (18818,23,5);      -- Attack+5
@@ -25074,10 +25087,10 @@ INSERT INTO `item_mods` VALUES (19777,12,4);
 INSERT INTO `item_mods` VALUES (19777,296,2);
 INSERT INTO `item_mods` VALUES (19778,73,-5);
 INSERT INTO `item_mods` VALUES (19778,384,100);
-INSERT INTO `item_mods` VALUES (19779,23,15);
-INSERT INTO `item_mods` VALUES (19780,5,20);
-INSERT INTO `item_mods` VALUES (19780,13,3);
-INSERT INTO `item_mods` VALUES (19780,71,2);
+INSERT INTO `item_mods` VALUES (19779,23,15);     -- Potestas Bomblet: ATT+15
+INSERT INTO `item_mods` VALUES (19780,5,20);      -- Mana Ampulla: MP+20
+INSERT INTO `item_mods` VALUES (19780,13,1);      -- MND+1
+INSERT INTO `item_mods` VALUES (19780,71,1);      -- MP Recovered while healing +1
 INSERT INTO `item_mods` VALUES (19790,23,40); -- Oneiros Lance -- 40 Att
 INSERT INTO `item_mods` VALUES (19790,27,8); -- Enmity +8
 INSERT INTO `item_mods` VALUES (19790,165,4); -- 4% Crit Rate

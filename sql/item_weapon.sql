@@ -2408,7 +2408,7 @@ INSERT INTO `item_weapon` VALUES (18780,'burattinaios',1,0,0,0,0,4,1,531,29,0);
 INSERT INTO `item_weapon` VALUES (18781,'furor_cesti',1,0,0,0,0,4,1,510,22,0);
 INSERT INTO `item_weapon` VALUES (18782,'eyra_baghnakhs',1,0,0,0,0,4,1,540,23,0);
 INSERT INTO `item_weapon` VALUES (18783,'eyra_baghnakhs_+1',1,0,0,0,0,4,1,537,24,0);
-INSERT INTO `item_weapon` VALUES (18784,'metasoma_katars',1,0,0,0,0,4,1,564,30,0);
+INSERT INTO `item_weapon` VALUES (18784,'metasoma_katars',1,0,0,0,0,4,1,564,18,0);
 INSERT INTO `item_weapon` VALUES (18785,'grotesque_cesti',1,0,0,0,0,4,1,480,20,0);
 INSERT INTO `item_weapon` VALUES (18786,'girru',1,0,0,0,0,4,1,531,35,0);
 INSERT INTO `item_weapon` VALUES (18787,'sharas_fists',1,0,0,0,0,4,1,540,34,0);
