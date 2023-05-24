@@ -1740,18 +1740,18 @@ function MobGetStatusEffectDuration(effect)
         elseif (effect == tpz.effect.WEIGHT) then
             duration = 60 
         elseif (effect == tpz.effect.PARALYSIS) then
-            duration = 120 
+            duration = 60 
         elseif (effect == tpz.effect.SLOW) or (effect == tpz.effect.ADDLE) then
-            duration = 180 
+            duration = 90 
         elseif (effect == tpz.effect.SILENCE) then
-            duration = 90
+            duration = 60
         elseif (effect == tpz.effect.BLINDNESS) then
             duration = 90 
         elseif (effect == tpz.effect.POISON) or (effect == tpz.effect.DIA) or (effect == tpz.effect.BIO) or
         utils.IsElementalDOT(effect) then
-            duration = 90
+            duration = 60
         elseif (effect == tpz.effect.CURSE) or (effect == tpz.effect.BANE) or (effect == tpz.effect.PLAGUE) then
-            duration = 120
+            duration = 60
         elseif (effect == tpz.effect.CURSE_II) then
             duration = 20
         elseif (effect == tpz.effect.PHYSICAL_SHIELD) or (effect == tpz.effect.MAGIC_SHIELD) then
