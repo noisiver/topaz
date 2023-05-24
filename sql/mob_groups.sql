@@ -12892,6 +12892,8 @@ INSERT INTO `mob_groups` VALUES (44,250,198,'Aroma_Crawler',0,128,172,3500,0,38,
 INSERT INTO `mob_groups` VALUES (45,6570,198,'Wight',330,0,2654,0,0,32,35,0);
 INSERT INTO `mob_groups` VALUES (46,9013,198,'Balpah',330,0,3188,35000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (47,9014,198,'Tebhi',330,0,0,0,10500,82,82,0);
+INSERT INTO `mob_groups` VALUES (48,71,198,'Air_Elemental',330,4,40,0,0,80,81,0);
+INSERT INTO `mob_groups` VALUES (49,1160,198,'Earth_Elemental',330,4,736,0,0,80,81,0);
 
 INSERT INTO `mob_groups` VALUES (9847,913,198,'Dark_Elemental',0,128,0,0,0,33,36,0);
 INSERT INTO `mob_groups` VALUES (9860,1720,198,'Goblins_Bat',0,128,0,0,0,24,26,0);
