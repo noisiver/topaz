@@ -712,7 +712,7 @@ void CMobController::CastSpell(SpellID spellid)
             PCastTarget = PMob;
 
             // only buff other targets if i'm roaming
-            if ((PSpell->getValidTarget() & TARGET_PLAYER_PARTY))
+            if ((PSpell->getValidTarget() & TARGET_PLAYER_PARTY) && !PMob->PAI->IsEngaged())
             {
                 // chance to target my master
                 if (PMob->PMaster != nullptr && tpzrand::GetRandomNumber(2) == 0)
