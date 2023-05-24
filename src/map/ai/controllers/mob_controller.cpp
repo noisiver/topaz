@@ -658,7 +658,6 @@ bool CMobController::TryCastSpell()
 
         if (chosenSpellId && currentDistance <= 20.4)
         {
-            //#TODO: select target based on spell type
             CastSpell(chosenSpellId.value());
             return true;
         }
@@ -706,6 +705,7 @@ void CMobController::CastSpell(SpellID spellid)
     else
     {
         CBattleEntity* PCastTarget = nullptr;
+        CBattleEntity* PCureTarget = nullptr;
         // check valid targets
         if (PSpell->getValidTarget() & TARGET_SELF)
         {
@@ -744,6 +744,22 @@ void CMobController::CastSpell(SpellID spellid)
         {
             PCastTarget = PTarget;
         }
+
+        // TODO: Cure other party members if they are low HP logic
+        //if (PSpell->getValidTarget() & TARGET_PLAYER_PARTY)
+        //{
+        //    PMob->PAI->TargetFind->reset();
+        //    PMob->PAI->TargetFind->findWithinArea(PMob, AOERADIUS_ATTACKER, PSpell->getRange());
+        //    if (!PMob->PAI->TargetFind->m_targets.empty())
+        //    {
+        //        PCureTarget = PMob->PAI->TargetFind->m_targets[tpzrand::GetRandomNumber(PMob->PAI->TargetFind->m_targets.size())];
+        //        PMob->PAI->TargetFind->findWithinArea(PMob, AOERADIUS_ATTACKER, PSpell->getRange());
+        //        if (PCureTarget->GetHPP() <= PMob->getMobMod(MOBMOD_HP_HEAL_CHANCE) && PCureTarget->GetHPP() >=d PMob->getMobMod(MOBMOD_HP_HEAL_CHANCE))
+        //        {
+        //            PCastTarget = PCureTarget;
+        //        }
+        //    }
+        //}
 
         if (PCastTarget)
         {
