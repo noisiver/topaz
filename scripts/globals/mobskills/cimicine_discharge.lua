@@ -18,7 +18,7 @@ function onMobWeaponSkill(target, mob, skill)
     local duration = 300
 
     if not mob:hasStatusEffect(tpz.effect.HASTE) then
-        mob:addStatusEffect(tpz.effect.HASTE, 2500, 0, duration)
+        mob:addStatusEffect(tpz.effect.HASTE, 6000, 0, 120)
     end
 
     skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, power, 0, duration))

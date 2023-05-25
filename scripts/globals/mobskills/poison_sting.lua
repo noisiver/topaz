@@ -16,7 +16,7 @@ end
 function onMobWeaponSkill(target, mob, skill)
     local numhits = 1
     local accmod = 1
-    local dmgmod = 1.5
+    local dmgmod = 1.0
     local params_phys = {}
     params_phys.multiplier = dmgmod
     params_phys.tp150 = 1
@@ -33,7 +33,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, info.hitslanded)
 
     local typeEffect = tpz.effect.POISON
-    local power = 3
+    local power = 1
     MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, power, 3, 90)
 
     target:takeDamage(dmg, mob, tpz.attackType.RANGED, tpz.damageType.RANGED)

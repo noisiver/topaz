@@ -16,7 +16,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local damage = MobHPBasedMove(mob, target, 0.30, 1, tpz.magic.ele.FIRE, 1250)
+    local damage = MobHPBasedMove(mob, target, 1.0, 1, tpz.magic.ele.FIRE, 1500)
     local dmg = MobFinalAdjustments(damage, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.FIRE, MOBPARAM_IGNORE_SHADOWS)
 	if (mob:getPool() == 3333) then-- Razon 
 		local amount = 1500 * skill:getTotalTargets()

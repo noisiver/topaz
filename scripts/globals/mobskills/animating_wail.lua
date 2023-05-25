@@ -22,7 +22,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local power = 3000
-    local duration = 300
+    local duration = 120
     local typeEffect = tpz.effect.HASTE
 
     skill:setMsg(MobBuffMove(target, typeEffect, power, 0, duration))

@@ -9,10 +9,6 @@ require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-    -- maat can only use this at 70
-    if (mob:getMainLvl() < 70) then
-        return 1
-    end
     return 0
 end
 

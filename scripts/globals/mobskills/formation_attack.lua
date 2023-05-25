@@ -13,18 +13,19 @@ require("scripts/globals/monstertpmoves")
 
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
+	if mob:AnimationSub() == 2 then
+		return 1
+	end
     return 0
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 0 -- should be number of bombs left
-		if mob:AnimationSub() == 0 then
-			numhits = 3
-		elseif mob:AnimationSub() == 1 then
-			numhits = 2
-		elseif mob:AnimationSub() == 2 then
-			numhits = 1
-		end
+    local numhits = 1 -- should be number of bombs left
+	if mob:AnimationSub() == 0 then
+		numhits = 3
+	elseif mob:AnimationSub() == 1 then
+		numhits = 2
+	end
     local accmod = 1
     local dmgmod = 1
     local params_phys = {}
