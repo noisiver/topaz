@@ -999,7 +999,7 @@ function MobDrainStatusEffectMove(mob, target)
     if (effect ~= 0) then
         return tpz.msg.basic.EFFECT_DRAINED
     end
-
+    target:addEnmity(mob, 1, 320)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
@@ -1030,6 +1030,8 @@ function MobStatusEffectMove(mob, target, typeEffect, power, tick, duration)
         local eleres = target:getMod(element+53)
         if     eleres < 0  and resist < 0.5  then resist = 0.5
         elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+        target:addEnmity(mob, 1, 320)
 
         -- Doom and Gradual Petrification can't have a lower duration from resisting
         if (resist < 1) then
@@ -1091,6 +1093,9 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
         finalDuration =  math.floor(finalDuration * MobBuffDurationTPModifier(tp))
     end
 
+    local target = mob:getTarget()
+    target:addEnmity(mob, 320, 320)
+
     if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
         return tpz.msg.basic.SKILL_GAIN_EFFECT
     end
@@ -1116,6 +1121,7 @@ function MobHealMove(target, skill, multiplier)
     target:wakeUp()
     target:addHP(healAmount)
     skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+    -- mob:updateEnmityFromCure(target, healAmount) TODO
 
     return healAmount
 end
@@ -1132,6 +1138,7 @@ function MobPercentHealMove(target, skill, heal)
     target:wakeUp()
     target:addHP(heal)
     skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+    -- mob:updateEnmityFromCure(target, heal) TODO
 
     return heal
 end
@@ -1188,6 +1195,7 @@ function MobEncumberMove(mob, target, maxSlots, duration)
           target:unequipItem(encumberSlots[i]);
           mask = mask + math.pow(2, encumberSlots[i]);
         end
+        target:addEnmity(mob, 1, 320)
         target:addStatusEffectEx(tpz.effect.ENCUMBRANCE_II, tpz.effect.ENCUMBRANCE_II, mask, 0, duration * resist);
     end
 end
@@ -1203,6 +1211,9 @@ function MobCharmMove(mob, target, skill, costume, duration)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
 	--GetPlayerByID(6):PrintToPlayer(string.format("Resist: %u",resist))
+
+    target:addEnmity(mob, 1, 320)
+
 	if (not target:isPC()) then
 		return skill:setMsg(tpz.msg.basic.SKILL_NO_EFFECT)
 	end
@@ -1267,6 +1278,8 @@ function MobFullDispelMove(mob, target, skill, param1, param2)
     local eleres = target:getMod(element+53)
     if     eleres < 0  and resist < 0.5  then resist = 0.5
     elseif eleres < 1 and resist < 0.25 then resist = 0.25 end
+
+    target:addEnmity(mob, 1, 320)
 
 	if resist >= 0.5 then
 		if target:hasStatusEffect(tpz.effect.FEALTY) then
