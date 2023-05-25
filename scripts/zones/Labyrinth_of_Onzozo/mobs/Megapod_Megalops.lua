@@ -15,7 +15,6 @@ function onMobSpawn(mob)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
-end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
