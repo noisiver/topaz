@@ -4,6 +4,10 @@ g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
 -- opens/closed based on animation sub
 -- 4 = closed(petal) 6 = open(bloomed)
+-- Closed Euvhi is predicted base damage, open Euvhi is Base damage * 1.5.
+
+-- will go into closed mode when it takes a hit of at least 350 damage,
+-- and will unclose after 80 seconds.					
 
 function CheckForm(mob)
     if mob:AnimationSub() == 4 then
