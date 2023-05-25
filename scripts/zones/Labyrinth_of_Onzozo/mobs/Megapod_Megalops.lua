@@ -9,13 +9,12 @@ require("scripts/globals/wsquest")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-	mob:setDamage(140)
-    mob:addMod(tpz.mod.DEFP, 200)
+    SetGenericNMStats(mob)
     mob:addMod(tpz.mod.MDEF, 100) 
-    mob:addMod(tpz.mod.ATTP, 50)
-    mob:addMod(tpz.mod.ACC, 50) 
-    mob:addMod(tpz.mod.EVA, 30)
-    mob:setMod(tpz.mod.REFRESH, 300)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+end
 end
 
 function onMobInitialize(mob)
