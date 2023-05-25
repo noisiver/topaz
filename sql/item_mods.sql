@@ -12036,12 +12036,12 @@ INSERT INTO `item_mods` VALUES (13881,1,19);
 INSERT INTO `item_mods` VALUES (13881,27,1);
 INSERT INTO `item_mods` VALUES (13881,161,-4);
 INSERT INTO `item_mods` VALUES (13882,1,14);        -- Corsair's Hat
-INSERT INTO `item_mods` VALUES (13882,11,5);        -- AGI+5
+INSERT INTO `item_mods` VALUES (13882,11,4);        -- AGI+4
 INSERT INTO `item_mods` VALUES (13882,54,8);
 INSERT INTO `item_mods` VALUES (13882,58,-6);
 INSERT INTO `item_mods` VALUES (13882,59,8);
-INSERT INTO `item_mods` VALUES (13883,1,15);
-INSERT INTO `item_mods` VALUES (13883,9,2);
+INSERT INTO `item_mods` VALUES (13883,1,15);      -- Corsair's Hat +1
+INSERT INTO `item_mods` VALUES (13883,11,5);      -- AGI +5
 INSERT INTO `item_mods` VALUES (13883,54,9);
 INSERT INTO `item_mods` VALUES (13883,58,-6);
 INSERT INTO `item_mods` VALUES (13883,59,9);
