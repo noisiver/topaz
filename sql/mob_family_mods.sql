@@ -1118,6 +1118,10 @@ INSERT INTO `mob_family_mods` VALUES (204,59,15,1); -- Qutrub +15 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (205,59,15,1); -- Qutrub +15 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (252,59,30,1); -- Vampyr +30 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (284,59,30,1); -- Vampyr +30 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (171,59,10,1); -- Lamia +10 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (182,59,10,1); -- Merrow +10 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (176,59,20,1); -- Mamool Ja +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (177,59,20,1); -- Mamool Ja +20 Weapon dmg
 
 
 /*!40000 ALTER TABLE `mob_family_mods` ENABLE KEYS */;
