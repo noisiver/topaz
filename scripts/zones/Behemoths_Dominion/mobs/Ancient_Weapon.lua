@@ -5,19 +5,18 @@
 local ID = require("scripts/zones/Behemoths_Dominion/IDs")
 mixins = {require("scripts/mixins/job_special")}
 require("scripts/globals/regimes")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 35) 
-    mob:addMod(tpz.mod.ACC, 30) 
-    mob:addMod(tpz.mod.EVA, 20)
+    SetGenericNMStats(mob)
     mob:addMod(tpz.mod.MDEF, 300)
     mob:setMod(tpz.mod.REFRESH, 400)
     mob:setMod(tpz.mod.UDMGMAGIC, -75)
     mob:setMod(tpz.mod.UDMGBREATH, -100)
-    mob:setMod(tpz.mod.LULLABYRESTRAIT, 100)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
     mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
     mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:addImmunity(tpz.immunity.LIGHTSLEEP)
 end
 
 function onMobFight(mob, target)

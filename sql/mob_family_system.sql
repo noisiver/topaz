@@ -639,6 +639,7 @@ INSERT INTO `mob_family_system` VALUES (587,'Jug-Colibri',8,'Bird',0,60,125,140,
 INSERT INTO `mob_family_system` VALUES (588,'Jug-Courier_Carrie',2,'Aquan',0,40,100,120,4,4,3,5,4,4,4,1,3,1,3,1,1,1,1,1.3,1.3,1.3,1.3,1.5,0.7,1.3,1.3,6,2,1,130,	130,	130,	130,	150,	130,	130,	150,	150,	130,	130,	130,	70,	130,	130); 	
 
 INSERT INTO `mob_family_system` VALUES (589,'LordOfOnzozo',2,'Aquan',1,40,105,140,3,5,4,4,4,4,4,1,3,1,3,1,1,1,1,1.3,1.5,1.3,1.3,1.5,0.5,1.3,1.3,6,2,1,130,	130,	130,	130,	150,	130,	130,	150,	150,	130,	130,	130,	50,	130,	130);
+INSERT INTO `mob_family_system` VALUES (590,'Exoplates',13,'Unclassified',0,40,100,100,3,3,3,3,3,3,3,1,3,1,3,1,1,1,1,0.85,0.85,0.85,0.85,0.85,0.85,0.85,0.85,0,3,0,85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85,	85);
 
 
 -- Mythic Weapon Fights (Custom)
@@ -711,6 +712,8 @@ INSERT INTO `mob_family_system` VALUES (957,'Orc-SH',7,'Beastmen',1,68,105,125,1
 INSERT INTO `mob_family_system` VALUES (958,'Ladybug',20,'Vermin',0,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1.25,1,1,1,1.3,0.3,0.7,1,1,1,1,3,257,1,100,	100,	30,	30,	100,	100,	100,	130,	130,	70,	70,	70,	100,	100,	100);	
 INSERT INTO `mob_family_system` VALUES (959,'Pixie',11,'Elemental',0,60,100,100,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,0.85,0.85,0.05,0.85,0.85,0.85,0.2,0.85,3,1,0,60,	60,	5,	5,	60,	15,	15,	60,	60,	60,	60,	60,	60,	60,	60);
 -- 10,22,50,96,111,317-318,405,411-434,439-443 available for use
+-- NEXT: 591
+-- NEXT Custom: 960
 
   -- `familyid` smallint(4) unsigned NOT NULL,
   -- `family` tinytext,

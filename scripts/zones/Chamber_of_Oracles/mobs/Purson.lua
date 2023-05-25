@@ -15,11 +15,10 @@ mixins =
 -----------------------------------
 
 function onMobSpawn(mob)
-     mob:addMod(tpz.mod.DEFP, 25) 
-     mob:addMod(tpz.mod.ATTP, 10)
-     mob:addMod(tpz.mod.ACC, 25) 
-     mob:addMod(tpz.mod.EVA, 25)
-     mob:addMod(tpz.mod.MDEF, 24) 
+    SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
      mob:setMod(tpz.mod.TRIPLE_ATTACK, 50)
      mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
      tpz.mix.jobSpecial.config(mob, {

@@ -10,10 +10,11 @@ function onMobInitialize(mob)
 end
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.DEFP, 10) 
-    mob:setMod(tpz.mod.MDEF, 12) 
+    SetGenericNMStats(mob)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
     mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMod(tpz.mod.MDEF, 12) 
     mob:setUnkillable(true)
     tpz.mix.jobSpecial.config(mob, {
         specials =
