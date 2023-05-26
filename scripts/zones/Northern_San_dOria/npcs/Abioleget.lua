@@ -24,7 +24,7 @@ end
 
 function onTrigger(player, npc)
     sermonQuest = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.THE_VICASQUE_S_SERMON)
-    player:addItem(13465, 1, 97, 9) -- Pet: Attack+10 Ranged Attack+10
+
     if (sermonQuest == QUEST_AVAILABLE) then
         player:startEvent(589)
     elseif (sermonQuest == QUEST_ACCEPTED) then
