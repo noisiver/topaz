@@ -10073,7 +10073,7 @@ INSERT INTO `mob_groups` VALUES (3,3023,142,'Orcish_Neckchopper',330,0,1929,0,0,
 INSERT INTO `mob_groups` VALUES (4,1825,142,'Grotto_Bats',330,2,1240,0,0,8,11,0);
 INSERT INTO `mob_groups` VALUES (5,3363,142,'Riding_Lizard',330,0,2095,0,0,12,15,0);
 INSERT INTO `mob_groups` VALUES (6,3761,142,'Stealth_Bat',330,0,19,0,0,15,18,0);
-INSERT INTO `mob_groups` VALUES (7,259,142,'Ashmaker_Gotblut',3600,0,178,550,0,17,18,0);
+INSERT INTO `mob_groups` VALUES (7,259,142,'Ashmaker_Gotblut',3600,0,178,1850,0,17,18,0);
 INSERT INTO `mob_groups` VALUES (8,3009,142,'Orcish_Fighter',330,0,1899,0,0,21,23,0);
 INSERT INTO `mob_groups` VALUES (9,3004,142,'Orcish_Cursemaker',330,0,1888,0,0,21,23,0);
 INSERT INTO `mob_groups` VALUES (10,3032,142,'Orcish_Serjeant',330,0,1937,0,0,21,23,0);
