@@ -22080,6 +22080,12 @@ INSERT INTO `item_mods` VALUES (17774,68,3);
 INSERT INTO `item_mods` VALUES (17774,431,1);
 INSERT INTO `item_mods` VALUES (17775,8,1);
 INSERT INTO `item_mods` VALUES (17775,11,1);
+INSERT INTO `item_mods` VALUES (17780,431,1);     -- Kyofu
+INSERT INTO `item_mods` VALUES (17781,431,1);     -- Kyofu +1
+INSERT INTO `item_mods` VALUES (17782,431,1);     -- Reppu
+INSERT INTO `item_mods` VALUES (17783,431,1);     -- Reppu +1
+INSERT INTO `item_mods` VALUES (17784,431,1);     -- Keppu
+INSERT INTO `item_mods` VALUES (17785,431,1);     -- Keppu +1
 INSERT INTO `item_mods` VALUES (17787,8,1);
 INSERT INTO `item_mods` VALUES (17787,9,1);
 INSERT INTO `item_mods` VALUES (17788,8,3);
