@@ -24,7 +24,7 @@ end
 
 function onTrigger(player, npc)
     sermonQuest = player:getQuestStatus(SANDORIA, tpz.quest.id.sandoria.THE_VICASQUE_S_SERMON)
-
+    player:addItem(13465, 1, 97, 9) -- Pet: Attack+10 Ranged Attack+10
     if (sermonQuest == QUEST_AVAILABLE) then
         player:startEvent(589)
     elseif (sermonQuest == QUEST_ACCEPTED) then
@@ -48,7 +48,7 @@ function onEventFinish(player, csid, option)
         if (player:getFreeSlotsCount() == 0) then
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 13465)
         else
-            player:addItem(13465, 97, 9) -- Pet: Attack+10 Ranged Attack+10
+            player:addItem(13465, 1, 97, 9) -- Pet: Attack+10 Ranged Attack+10
             player:messageSpecial(ID.text.ITEM_OBTAINED, 13465)
             player:addExp(3000 * EXP_RATE)
             player:addFame(SANDORIA, 300)
