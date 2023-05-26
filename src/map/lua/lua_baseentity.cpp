@@ -5546,6 +5546,15 @@ inline int32 CLuaBaseEntity::changeJob(lua_State *L)
         ((CCharEntity*)PMember)->PLatentEffectContainer->CheckLatentsPartyJobs();
     });
 
+    if (PChar->GetMLevel() == 75 && charutils::hasKeyItem(PChar, 606))
+    {
+        PChar->MeritMode = true;
+    }
+    else
+    {
+        PChar->MeritMode = false;
+    }
+
     PChar->UpdateHealth();
     PChar->health.hp = PChar->GetMaxHP();
     PChar->health.mp = PChar->GetMaxMP();
