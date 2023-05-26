@@ -49,6 +49,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
                 if calcParams.pdif < 0.25 then -- Guard reduction caps at 0.25
                     calcParams.pdif = 0.25
                 end
+                attacker:PrintToPlayer("The monster guarded your WS!")
             end
 
             finaldmg = dmg * calcParams.pdif
@@ -82,6 +83,7 @@ function getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
     -- Check if mob blocks us
     if attacker:isInfront(target, 90) and math.random()*100 < target:getBlockRate(attacker) then
         finaldmg = target:getBlockedDamage(finaldmg)
+        attacker:PrintToPlayer("The monster blocked your weapon skill!")
     end
 
     return finaldmg, calcParams
@@ -229,6 +231,7 @@ function calculateRawWSDmg(attacker, target, wsID, tp, action, wsParams, calcPar
 
     if isParried then
         calcParams.hitRate = 0
+        attacker:PrintToPlayer("The monster parried your WS!")
     end
 
     hitdmg, calcParams = getSingleHitDamage(attacker, target, dmg, wsParams, calcParams)
