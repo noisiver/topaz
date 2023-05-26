@@ -1769,6 +1769,8 @@ function MobGetStatusEffectDuration(effect)
             duration = 20
         elseif (effect == tpz.effect.PHYSICAL_SHIELD) or (effect == tpz.effect.MAGIC_SHIELD) then
             duration = 30
+        elseif (effect == tpz.effect.ATTACK_DOWN) then
+            duration = 240
         else
             duration = 120
         end
