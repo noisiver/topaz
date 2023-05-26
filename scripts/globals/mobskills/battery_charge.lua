@@ -9,7 +9,7 @@ require("scripts/globals/status")
 ---------------------------------------------
 
 function onMobSkillCheck(target, mob, skill)
-	if if mob:getMPP() == 100 then
+	if mob:getMPP() == 100 then
 		return 1
 	end
     return 0

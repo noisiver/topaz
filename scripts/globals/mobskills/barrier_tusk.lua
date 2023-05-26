@@ -20,7 +20,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
+    local typeEffect = tpz.effect.DEFENSE_BOOST
     skill:setMsg(MobBuffMove(mob, typeEffect, 50, 0, 120))
-    mob:getStatusEffect(tpz.effect.DEFENSE_BOOST):unsetFlag(tpz.effectFlag.DISPELABLE)
-    return tpz.effect.DEFENSE_BOOST
+    mob:getStatusEffect(typeEffect):unsetFlag(tpz.effectFlag.DISPELABLE)
+    return typeEffect
 end

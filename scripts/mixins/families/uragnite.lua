@@ -37,7 +37,7 @@ local function enterShell(mob)
     mob:addMod(tpz.mod.DEFP, 100)
     mob:addMod(tpz.mod.UDMGMAGIC, -75)
     mob:addMod(tpz.mod.UDMGBREATH, -75)
-    mob:addMod(tpz.mod.REGEN, mob:getLocalVar("[uragnite]inShellRegen"))
+    mob:addMod(tpz.mod.REGEN, mob:getMaxHP() * 0.02)
     mob:setMod(tpz.mod.REGAIN, 250) -- Gains TP fast inside hell
     mob:setMobMod(tpz.mobMod.SKILL_LIST, mob:getLocalVar("[uragnite]inShellSkillList"))
     mob:setMobMod(tpz.mobMod.NO_MOVE, 1)
@@ -51,7 +51,7 @@ local function exitShell(mob)
     mob:delMod(tpz.mod.DEFP, 100)
     mob:delMod(tpz.mod.UDMGMAGIC, -75)
     mob:delMod(tpz.mod.UDMGBREATH, -75)
-    mob:delMod(tpz.mod.REGEN, mob:getLocalVar("[uragnite]inShellRegen"))
+    mob:delMod(tpz.mod.REGEN, mob:getMaxHP() * 0.02)
     mob:setMod(tpz.mod.REGAIN, 0)
     mob:setMobMod(tpz.mobMod.SKILL_LIST, mob:getLocalVar("[uragnite]noShellSkillList"))
     mob:setMobMod(tpz.mobMod.NO_MOVE, 0)
@@ -84,7 +84,16 @@ g_mixins.families.uragnite = function(mob)
         mob:setLocalVar("[uragnite]noShellSkillList", 251)
         mob:setLocalVar("[uragnite]inShellSkillList", 250)
         mob:setLocalVar("[uragnite]timeInShell", 0)
-        mob:setLocalVar("[uragnite]inShellRegen", mob:getMaxHP() * 0.02) -- 2% HP per tick for 9 ticks
+    end)
+
+    mob:addListener("COMBAT_TICK", "URAGNITE_COMBAT_TICK", function(mob)
+        local timeInShell = mob:getLocalVar("[uragnite]timeInShell")
+        local animationSub = mob:AnimationSub()
+        -- Leaves shell after 27 seconds
+        if (animationSub == 1) and os.time() > timeInShell then
+            exitShell(mob)
+            --printf("exit shell timer")
+        end
     end)
 
     mob:addListener("TAKE_DAMAGE", "URAGNITE_TAKE_DAMAGE", function(mob, damage, attacker, attackType, damageType)
@@ -92,15 +101,12 @@ g_mixins.families.uragnite = function(mob)
         local timeInShell = mob:getLocalVar("[uragnite]timeInShell")
         local animationSub = mob:AnimationSub()
         mob:setLocalVar("damageTaken", mob:getLocalVar("damageTaken") + damage)
-
-        if (animationSub == 0) and (damageTaken > 125) then  -- Retreats into shell after taking 150 damage
+        if (animationSub ~= 1) and (damageTaken > 125) then  -- Retreats into shell after taking 150 damage
             enterShell(mob)
+            --printf("enterShell")
         elseif (animationSub == 1) and (damageTaken >= 150) then -- Leaves shell early after taking 150 damage
             exitShell(mob)
-        end
-        -- Leaves shell after 27 seconds
-        if (animationSub == 1) and os.time() > timeInShell then
-            exitShell(mob)
+            --printf("exit shell damage")
         end
     end)
 end

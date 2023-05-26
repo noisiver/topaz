@@ -26,9 +26,9 @@ function onMobWeaponSkill(target, mob, skill)
     local weather = getMobWeatherDayBonus(target, 7)
     local effectCount = MobSelfDispelMove(mob, skill)
     -- add number of effects removed
-    healAmount = healAmount * effectCount
+    healAmount = math.floor(healAmount * effectCount)
     -- check for weather procs
-    healAmount = healAmount * weather
+    healAmount = math.floor(healAmount * weather)
 
     if (mobHP+healAmount > mobMaxHP) then
         healAmount = mobMaxHP - mobHP
@@ -37,4 +37,6 @@ function onMobWeaponSkill(target, mob, skill)
     target:wakeUp()
     target:addHP(healAmount)
     skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
+
+    return healAmount
 end

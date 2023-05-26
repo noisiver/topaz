@@ -27,5 +27,5 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     mob:eraseStatusEffect()
-     return MobHealMove(target, skill, 1)
+     return MobHealMove(mob, target, skill, 1)
 end

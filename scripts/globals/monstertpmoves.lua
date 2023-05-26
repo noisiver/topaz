@@ -464,7 +464,7 @@ function MobMagicalMove(mob, target, skill, damage, element, dmgmod, tpeffect, i
     --printf("tp300 %i", params.tp300 * 100)
     --printf("ftp %i", ftp * 100)
     --printf("bonus magic burst macc %i", bonus)
-    printf("magicBurstBonus %i", magicBurstBonus)
+    --printf("magicBurstBonus %i", magicBurstBonus)
     --printf("dStat %i", dStat)
     --printf("resist %i", resist * 100)
     --printf("weatherbonus %i", weatherBonus * 100)
@@ -1103,7 +1103,7 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
-function MobHealMove(target, skill, multiplier)
+function MobHealMove(mob, target, skill, multiplier)
 
     local mobHP = target:getHP()
     local mobMaxHP = target:getMaxHP()
@@ -1121,12 +1121,12 @@ function MobHealMove(target, skill, multiplier)
     target:wakeUp()
     target:addHP(healAmount)
     skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
-    -- mob:updateEnmityFromCure(target, healAmount) TODO
+    mob:updateEnmityFromCure(target, healAmount)
 
     return healAmount
 end
 
-function MobPercentHealMove(target, skill, heal)
+function MobPercentHealMove(mob, target, skill, heal)
 
     local mobHP = target:getHP()
     local mobMaxHP = target:getMaxHP()
@@ -1138,7 +1138,7 @@ function MobPercentHealMove(target, skill, heal)
     target:wakeUp()
     target:addHP(heal)
     skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_HP)
-    -- mob:updateEnmityFromCure(target, heal) TODO
+    mob:updateEnmityFromCure(target, heal)
 
     return heal
 end

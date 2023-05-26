@@ -12,7 +12,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local dmgmod = math.floor(mob:getMainLvl() * 4)
-    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, MOBSKILL_MAGICAL, MOBPARAM_DARK, MOBPARAM_WIPE_SHADOWS)
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_WIPE_SHADOWS)
     skill:setMsg(MobDrainMove(mob, target, MOBDRAIN_HP, dmg, tpz.attackType.MAGICAL, tpz.damageType.DARK))
 
     return dmg
