@@ -5548,11 +5548,17 @@ inline int32 CLuaBaseEntity::changeJob(lua_State *L)
 
     if (PChar->GetMLevel() == 75 && charutils::hasKeyItem(PChar, 606))
     {
-        PChar->MeritMode = true;
+        if (Sql_Query(SqlHandle, "UPDATE char_exp SET mode = %u WHERE charid = %u", true, PChar->id) != SQL_ERROR)
+        {
+            PChar->MeritMode = true;
+        }
     }
     else
     {
-        PChar->MeritMode = false;
+        if (Sql_Query(SqlHandle, "UPDATE char_exp SET mode = %u WHERE charid = %u", false, PChar->id) != SQL_ERROR)
+        {
+            PChar->MeritMode = false;
+        }
     }
 
     PChar->UpdateHealth();
