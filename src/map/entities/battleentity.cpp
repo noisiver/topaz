@@ -1704,6 +1704,7 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 actionTarget.messageID = MSGBASIC_SHADOW_ABSORB;
                 actionTarget.param = 1;
                 actionTarget.reaction = REACTION_EVADE;
+                actionTarget.speceffect = SPECEFFECT_NONE;
                 attack.SetEvaded(true);
             }
             else if (attack.CheckAnticipated() || attack.CheckCounter())
@@ -1828,18 +1829,19 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                 // Process damage.
                 attack.ProcessDamage();
 
-                // Display Treasure Hunter Message
-                if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
-                {
-                    CMobEntity* PMob = (CMobEntity*)PTarget;
-                    uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                    uint16 mobTHLvL = PMob->m_THLvl;
+                // TODO: TH procs + message
+                //// Display Treasure Hunter Message
+                //if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
+                //{
+                //    CMobEntity* PMob = (CMobEntity*)PTarget;
+                //    uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
+                //    uint16 mobTHLvL = PMob->m_THLvl;
 
-                    if (playerTHLvl > mobTHLvL)
-                    {
-                        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
-                    }
-                }
+                //    if (playerTHLvl > mobTHLvL)
+                //    {
+                //        loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
+                //    }
+                //}
 
                 // Try shield block
                 if (attack.IsBlocked())
@@ -1847,11 +1849,16 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
                     actionTarget.reaction = REACTION_BLOCK;
                 }
 
-                actionTarget.param = battleutils::TakePhysicalDamage(this, PTarget, attack.GetAttackType(), attack.GetDamage(), attack.IsBlocked(), attack.GetWeaponSlot(), 1, attackRound.GetTAEntity(), true, true, attack.IsCountered(), attack.IsCovered(), POriginalTarget);
-                if (actionTarget.param < 0)
+                // Check damage if the attack actually hit and wasn't absorbed by shadows, countered, parried, etc
+                if (actionTarget.reaction == REACTION_HIT || actionTarget.reaction == REACTION_BLOCK || actionTarget.reaction == REACTION_GUARD)
                 {
-                    actionTarget.param = -(actionTarget.param);
-                    actionTarget.messageID = 373;
+                    actionTarget.param = battleutils::TakePhysicalDamage(this, PTarget, attack.GetAttackType(), attack.GetDamage(), attack.IsBlocked(), attack.GetWeaponSlot(), 1, attackRound.GetTAEntity(), true, true, attack.IsCountered(), attack.IsCovered(), POriginalTarget);
+
+                    if (actionTarget.param < 0)
+                    {
+                        actionTarget.param = -(actionTarget.param);
+                        actionTarget.messageID = 373;
+                    }
                 }
             }
 
@@ -1902,24 +1909,6 @@ bool CBattleEntity::OnAttack(CAttackState& state, action_t& action)
 
             // Check & Handle Afflatus Misery Accuracy Bonus
             battleutils::HandleAfflatusMiseryAccuracyBonus(this);
-        }
-
-        if (actionTarget.reaction != REACTION_HIT && actionTarget.reaction != REACTION_BLOCK && actionTarget.reaction != REACTION_GUARD)
-        {
-            actionTarget.param = 0;
-            // add 1 ce for a missed attack for TH application
-            if (PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PC)
-            {
-                CMobEntity* PMob = (CMobEntity*)PTarget;
-                uint16 playerTHLvl = this->getMod(Mod::TREASURE_HUNTER);
-                uint16 mobTHLvL = PMob->m_THLvl;
-
-                if (playerTHLvl > mobTHLvL)
-                {
-                    (PMob->PEnmityContainer->UpdateEnmity((CBattleEntity*)this, 1, 0));
-                    loc.zone->PushPacket(this, CHAR_INRANGE_SELF, new CMessageBasicPacket(this, PTarget, playerTHLvl, playerTHLvl, 603));
-                }
-            }
         }
 
         if (actionTarget.reaction != REACTION_EVADE && actionTarget.reaction != REACTION_PARRY)
