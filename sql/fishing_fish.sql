@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `fishing_fish`;
 CREATE TABLE `fishing_fish` (
   `fishid` int(10) unsigned NOT NULL,
   `name` varchar(64) NOT NULL,
-  `min_skill_level` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `skill_level` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `min_skill_level` tinyint(3) unsigned NOT NULL DEFAULT '0', -- skill level to catch
+  `skill_level` tinyint(3) unsigned NOT NULL DEFAULT '0', -- skill cap to skill up
   `size` tinyint(3) unsigned NOT NULL,
   `base_delay` tinyint(2) unsigned NOT NULL,
   `base_move` tinyint(2) unsigned NOT NULL,
@@ -61,7 +61,7 @@ INSERT INTO `fishing_fish` VALUES (5461,'Alabaligi',0,37,16,3,3,1,1,0,0,255,255,
 INSERT INTO `fishing_fish` VALUES (4316,'Armored Pisces',90,108,31,9,12,52,124,1,0,255,255,0,0,0,0,1,150,0,'',0);
 INSERT INTO `fishing_fish` VALUES (688,'Arrowwood Log',0,4,18,13,2,1,1,1,0,255,255,0,0,0,1,1,500,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4461,'Bastore Bream',0,86,31,4,3,1,1,0,0,255,255,0,0,0,0,1,450,0,'',0); -- was 250
-INSERT INTO `fishing_fish` VALUES (4360,'Bastore Sardine',0,9,21,11,6,1,1,0,0,255,255,1,0,0,0,3,600,0,'',0);
+INSERT INTO `fishing_fish` VALUES (4360,'Bastore Sardine',0,21,9,11,6,1,1,0,0,255,255,1,0,0,0,3,600,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5473,'Bastore Sweeper',0,9,27,10,9,1,1,0,0,255,255,0,0,0,0,1,300,0,'',0);
 INSERT INTO `fishing_fish` VALUES (5139,'Betta',0,68,15,10,10,1,1,0,0,255,255,0,0,0,0,1,400,0,'',0);
 INSERT INTO `fishing_fish` VALUES (4479,'Bhefhel Marlin',0,61,28,10,11,61,140,1,0,255,255,0,0,0,0,1,250,0,'',0);
