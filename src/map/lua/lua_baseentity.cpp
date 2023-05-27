@@ -1026,8 +1026,23 @@ inline int32 CLuaBaseEntity::startEvent(lua_State *L)
     }
 
     PChar->StatusEffectContainer->DelStatusEffect(EFFECT_INVISIBLE);
-    PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_IN_CS;
-    PChar->status = STATUS_CUTSCENE_ONLY;
+
+    // Treasure chests are 1001, 1004, 1007, 1010, 1011, 1013, 1016 for taking items (only ones recorded so far)
+    // for opening(and dropping?) 10512, 10518, 10520, 10522, 10524, 10528, 10532
+    // TODO: FoV Books
+    bool isInterruptableCS = false;
+
+    if (EventID >= 1001 && EventID <= 1016 || EventID >= 10512 && EventID <= 10532 || EventID == 17 ||
+        EventID == 8500 || EventID == 8700)
+    {
+        isInterruptableCS = true;
+    }
+
+    if (!isInterruptableCS)
+    {
+        PChar->m_Substate = CHAR_SUBSTATE::SUBSTATE_IN_CS;
+        PChar->status = STATUS_CUTSCENE_ONLY;
+    }
 
     return 0;
 }
