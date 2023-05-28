@@ -627,6 +627,8 @@ public:
     virtual void    ForEachTrustInstance(CBaseEntity* PEntity, std::function<void(CTrustEntity*)> func);
     virtual void    ForEachNpc(std::function<void(CNpcEntity*)> func);
 
+    bool HasReducedVerticalAggro();
+
     CZone(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID);
     virtual ~CZone();
 
@@ -668,6 +670,8 @@ private:
 
     CTreasurePool*  m_TreasurePool;         // глобальный TreasuerPool
     time_point m_timeZoneEmpty;    // The time_point when the last player left the zone
+
+    static const uint16 ReducedVerticalAggroZones[];
 
 protected:
 

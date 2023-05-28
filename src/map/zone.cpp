@@ -126,6 +126,45 @@ int32 zone_update_weather(time_point tick, CTaskMgr::CTask* PTask)
     return 0;
 }
 
+
+const uint16 CZone::ReducedVerticalAggroZones[] = {
+    ZONE_PHOMIUNA_AQUEDUCTS,
+    ZONE_PSOXJA,
+    ZONE_THE_GARDEN_OF_RUHMET,
+    ZONE_GRAND_PALACE_OF_HUXZOI,
+    ZONE_KING_RANPERRES_TOMB,
+    ZONE_PALBOROUGH_MINES,
+    ZONE_BEADEAUX,
+    ZONE_BEADEAUX_S,
+    ZONE_CASTLE_OZTROJA,
+    ZONE_CASTLE_OZTROJA_S,
+    ZONE_CASTLE_ZVAHL_BAILEYS,
+    ZONE_CASTLE_ZVAHL_BAILEYS_S,
+    ZONE_CASTLE_ZVAHL_KEEP,
+    ZONE_CASTLE_ZVAHL_KEEP_S,
+    ZONE_GUSGEN_MINES,
+    ZONE_SHIP_BOUND_FOR_MHAURA,
+    ZONE_SHIP_BOUND_FOR_MHAURA_PIRATES,
+    ZONE_SHIP_BOUND_FOR_SELBINA,
+    ZONE_SHIP_BOUND_FOR_SELBINA_PIRATES,
+    ZONE_SILVER_SEA_ROUTE_TO_AL_ZAHBI,
+    ZONE_SILVER_SEA_ROUTE_TO_NASHMAU,
+    ZONE_DYNAMIS_BASTOK,
+    ZONE_DYNAMIS_BASTOK_D,
+    ZONE_DYNAMIS_BEAUCEDINE,
+    ZONE_DYNAMIS_BUBURIMU,
+    ZONE_DYNAMIS_JEUNO,
+    ZONE_DYNAMIS_JEUNO_D,
+    ZONE_DYNAMIS_QUFIM,
+    ZONE_DYNAMIS_SAN_DORIA,
+    ZONE_DYNAMIS_SAN_DORIA_D,
+    ZONE_DYNAMIS_TAVNAZIA,
+    ZONE_DYNAMIS_VALKURM,
+    ZONE_DYNAMIS_WINDURST,
+    ZONE_DYNAMIS_WINDURST_D,
+    ZONE_DYNAMIS_XARCABARD
+};
+
 /************************************************************************
 *                                                                       *
 *  Класс CZone                                                          *
@@ -153,6 +192,11 @@ CZone::CZone(ZONEID ZoneID, REGIONTYPE RegionID, CONTINENTTYPE ContinentID)
     LoadZoneLines();
     LoadZoneWeather();
     LoadNavMesh();
+}
+
+bool CZone::HasReducedVerticalAggro()
+{
+    return std::find(std::begin(ReducedVerticalAggroZones), std::end(ReducedVerticalAggroZones), this->m_zoneID) != std::end(ReducedVerticalAggroZones);
 }
 
 CZone::~CZone()
