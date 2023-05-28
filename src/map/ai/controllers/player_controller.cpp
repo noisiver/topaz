@@ -120,29 +120,26 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA));
             return false;
         }
-
         if (PChar->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
         {
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_WAIT_LONGER));
+            Recast_t* recast = PChar->PRecastContainer->GetRecast(RECAST_ABILITY, PAbility->getRecastId());
+            // Set recast time in seconds to the normal recast time minus any charge time with the difference of the current time minus when the recast was set.
+            // Abilities without a charge will have zero chargeTime
+            uint32 recastSeconds = std::clamp<uint32>(recast->RecastTime - recast->chargeTime - ((uint32)time(nullptr) - recast->TimeStamp), 1, 99999);
+
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, recastSeconds, 0, MSGBASIC_TIME_LEFT));
             return false;
+        }
+        if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
         }
         if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) ||
             (!PAbility->isPetAbility() && !charutils::hasAbility(PChar, PAbility->getID())) ||
             (PAbility->isPetAbility() && !charutils::hasPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY)))
         {
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
-            return false;
-        }
-        // Check for paraylze
-        if (battleutils::IsParalyzed(PChar))
-        {
-            // 2 hours can be paraylzed but it won't reset their timers
-            if (PAbility->getRecastId() != 0)
-            {
-                PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
-            }
-            PChar->pushPacket(new CCharRecastPacket(PChar));
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_IS_PARALYZED));
             return false;
         }
         if (PAbility->isPetAbility())
@@ -202,15 +199,16 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             }
         }
 
-        if (PChar->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
+        // Check for paraylze
+        if (battleutils::IsParalyzed(PChar))
         {
-            Recast_t* recast = PChar->PRecastContainer->GetRecast(RECAST_ABILITY, PAbility->getRecastId());
-            // Set recast time in seconds to the normal recast time minus any charge time with the difference of the current time minus when the recast was set.
-            // Abilities without a charge will have zero chargeTime
-            uint32 recastSeconds = std::clamp<uint32>(recast->RecastTime - recast->chargeTime - ((uint32)time(nullptr) - recast->TimeStamp), 1, 99999);
-
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
-            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, recastSeconds, 0, MSGBASIC_TIME_LEFT));
+            // 2 hours can be paraylzed but it won't reset their timers
+            if (PAbility->getRecastId() != 0)
+            {
+                PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
+            }
+            PChar->pushPacket(new CCharRecastPacket(PChar));
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_IS_PARALYZED));
             return false;
         }
         return PChar->PAI->Internal_Ability(targid, abilityid); // Adds delay to next weapon swing timer

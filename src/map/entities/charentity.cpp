@@ -1162,15 +1162,6 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
 {
     auto PAbility = state.GetAbility();
     auto success = true;
-    if (this->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
-    {
-        pushPacket(new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_WAIT_LONGER));
-        success = false;
-    }
-    if (this->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA)) {
-        pushPacket(new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
-        success = false;
-    }
     auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
     std::unique_ptr<CBasicPacket> errMsg;
     if (IsValidTarget(PTarget->targid, PAbility->getValidTarget(), errMsg))
@@ -1179,16 +1170,6 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         {
             pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_TOO_FAR_AWAY));
             success = false;
-        }
-
-        if (PAbility->getID() >= ABILITY_HEALING_RUBY && PAbility->getID() <= ABILITY_PERFECT_DEFENSE)
-        {
-            // Blood pact MP costs are stored under animation ID
-            if (this->health.mp < PAbility->getAnimationID())
-            {
-                pushPacket(new CMessageBasicPacket(this, PTarget, 0, 0, MSGBASIC_UNABLE_TO_USE_JA));
-                success = false;
-            }
         }
 
         // get any available merit recast reduction
