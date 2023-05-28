@@ -257,6 +257,11 @@ tpz.shop =
                 4172,    1000,      tpz.ki.RHAPSODY_IN_AZURE,   -- Reraiser
                 4173,    1500,      tpz.ki.RHAPSODY_IN_EMERALD, -- Hi-Reraiser
                 4213,   15000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Icarus Wing
+                4157,    1000,      tpz.ki.RHAPSODY_IN_UMBER,   -- Poison Potion
+                4163,     666,      tpz.ki.RHAPSODY_IN_AZURE,   -- Blinding Potion
+                4161,    1083,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Sleeping Potion
+                4162,    1000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Silencing Potion
+                4159,    2000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Paralyze Potion
                18731,     50,       tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil
                18732,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +1
                18733,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +2
@@ -331,7 +336,6 @@ tpz.shop =
                 4422,     200,      tpz.ki.RHAPSODY_IN_WHITE,   -- Orange Juice
                 4424,    1100,      tpz.ki.RHAPSODY_IN_UMBER,   -- Melon Juice
                 4558,    2000,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Yagudo Drink
-                5604,     154,      tpz.ki.RHAPSODY_IN_WHITE,   -- Elshimo Pachira Fruit
                 4405,     160,      tpz.ki.RHAPSODY_IN_WHITE,   -- Rice Ball
                 4376,     120,      tpz.ki.RHAPSODY_IN_WHITE,   -- Meat Jerky
                 4578,     140,      tpz.ki.RHAPSODY_IN_WHITE,   -- Sausage
