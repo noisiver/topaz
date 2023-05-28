@@ -139,7 +139,6 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             // 2 hours can be paraylzed but it won't reset their timers
             if (PAbility->getRecastId() != 0)
             {
-                std::unique_ptr<CRecastContainer> PRecastContainer;
                 PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
             }
             PChar->pushPacket(new CCharRecastPacket(PChar));
