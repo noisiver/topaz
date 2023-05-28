@@ -120,6 +120,56 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             return false;
         }
 
+        if (PChar->PRecastContainer->HasRecast(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime()))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_WAIT_LONGER));
+            return false;
+        }
+        if (PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_AMNESIA, EFFECT_IMPAIRMENT }) ||
+            (!PAbility->isPetAbility() && !charutils::hasAbility(PChar, PAbility->getID())) ||
+            (PAbility->isPetAbility() && !charutils::hasPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY)))
+        {
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
+            return false;
+        }
+        if (PAbility->isPetAbility())
+        {
+            CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
+            // Not enough time since last pet ability was used
+            if (server_clock::now() < PChar->m_petAbilityWait)
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                return false;
+            }
+            // Pet is unable to use pet abilities due to Amnesia or hard CC
+            if (PPet->StatusEffectContainer->HasStatusEffect(EFFECT_SLEEP) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_LULLABY) ||
+                PPet->StatusEffectContainer->HasStatusEffect(EFFECT_TERROR) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_PETRIFICATION) ||
+                PPet->StatusEffectContainer->HasStatusEffect(EFFECT_STUN) || PPet->StatusEffectContainer->HasStatusEffect(EFFECT_AMNESIA))
+            {
+                PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                return false;
+            }
+            // Make sure pet is engaged when trying to use ready moves
+            if (PAbility->getID() >= ABILITY_FOOT_KICK && PAbility->getID() <= ABILITY_EXTIRPATING_SALVO)
+            {
+                CBattleEntity* PPet = ((CBattleEntity*)PChar)->PPet;
+                if (!PPet->PAI->IsEngaged())
+                {
+                    PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_PET_CANNOT_DO_ACTION));
+                    return false;
+                }
+            }
+            if (PAbility->getID() >= ABILITY_HEALING_RUBY)
+            {
+                // Blood pact MP costs are stored under animation ID
+                if (PChar->health.mp < PAbility->getAnimationID())
+                {
+                    PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA));
+                    return false;
+                }
+            }
+        }
+
         // Check for TP costing JA's
         if (playerTP < PAbility->getTPCost())
         {
