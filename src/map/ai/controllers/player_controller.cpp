@@ -143,7 +143,6 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
                 PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
             }
             PChar->pushPacket(new CCharRecastPacket(PChar));
-            // TODO: This msg is wrong? Doesn't crash it though...
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_IS_PARALYZED));
             return false;
         }
