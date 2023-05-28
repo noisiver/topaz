@@ -647,7 +647,6 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
         if (dispel)
             castPriority.push_back(SpellID::Dispel);
     }
-    break;
     default:
     {
         if (!PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_DIA))
