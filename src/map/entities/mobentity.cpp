@@ -1179,30 +1179,6 @@ void CMobEntity::DropItems(CCharEntity* PChar)
             }
         }
     }
-    // Roll for base cloth materials
-    if (getMobMod(MOBMOD_NO_DROPS) == 0 && this->IsHumanoid() && GetMLevel() >= 11)
-    {
-        if (GetMLevel() >= 11 && GetMLevel() <= 20) // 11-20 bracket cloth
-        {
-            AddItemToPool(834, ++dropCount); // Saruta Cotton
-            //printf("11-20  Lv:%u\n", GetMLevel());
-        }
-        else if (GetMLevel() >= 21 && GetMLevel() <= 30) // 21-30 bracket cloth
-        {
-            AddItemToPool(835, ++dropCount); // Flax Flower
-            //printf("21-30  Lv:%u\n", GetMLevel());
-        }
-        else if (GetMLevel() >= 31 && GetMLevel() <= 40) // 31-40 bracket cloth
-        {
-            AddItemToPool(832, ++dropCount); // Sheep Wool
-            //printf("31-40  Lv:%u\n", GetMLevel());
-        }
-        else if (GetMLevel() >= 41) // 41+ bracket cloth
-        {
-            AddItemToPool(839, ++dropCount); // Crawler Cocoon
-            //printf("41-60  Lv:%u\n", GetMLevel());
-        }
-    }
     // Roll for random rare items
     if (tpzrand::GetRandomNumber(500) < 1 && getMobMod(MOBMOD_NO_DROPS) == 0 && GetMLevel() >= 11)
     {
