@@ -262,9 +262,9 @@ tpz.shop =
                 4161,    1083,      tpz.ki.RHAPSODY_IN_CRIMSON, -- Sleeping Potion
                 4162,    1000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Silencing Potion
                 4159,    2000,      tpz.ki.RHAPSODY_IN_EMERALD, -- Paralyze Potion
-               18731,     50,       tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil
-               18732,     250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +1
-               18733,     500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +2
+                18731,    50,       tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil
+                18732,    250,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +1
+                18733,    500,      tpz.ki.RHAPSODY_IN_WHITE,   -- Automaton Oil +2
         },
         [curio.ammunition] =
         {
