@@ -523,7 +523,7 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
 
     -- physical attack missed, skip rest
     if (skill:hasMissMsg()) then 
-        return 0
+        dmg = 0
     end
 
     -- set message to damage
@@ -545,46 +545,42 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
                 -- 100% proc
                 teye:setPower(1)
                 skill:setMsg(tpz.msg.basic.ANTICIPATE)
-                return 0
+                dmg = 0
             end
             if math.random() * 10 < 8 - prevAnt then
                 -- anticipated!
                 teye:setPower(prevAnt + 1)
                 skill:setMsg(tpz.msg.basic.ANTICIPATE)
-                return 0
+                dmg = 0
             end
             target:delStatusEffect(tpz.effect.THIRD_EYE)
         end
     end
 
     if attackType == tpz.attackType.RANGED and target:hasStatusEffect(tpz.effect.ARROW_SHIELD) then
-        return 0
+        dmg = 0
     end
 
     -- handle elemental resistence
     if attackType == tpz.attackType.MAGICAL or attackType == tpz.attackType.BREATH then
         if target:isMob() and (target:hasStatusEffect(tpz.effect.MAGIC_SHIELD, 0)) then
             if target:getStatusEffect(tpz.effect.MAGIC_SHIELD):getPower() < 2 then
-                return 0
+                dmg = 0
             end
         end
-    end
-
-    if dmg < 0 then
-        return 0
     end
 
     -- handle invincible
     if attackType == tpz.attackType.PHYSICAL or attackType == tpz.attackType.RANGED then
         if target:hasStatusEffect(tpz.effect.INVINCIBLE) then
-            return 0
+            dmg = 0
         end
     end
     -- handle pd
     if attackType == tpz.attackType.PHYSICAL then
         if target:hasStatusEffect(tpz.effect.PERFECT_DODGE) or target:hasStatusEffect(tpz.effect.TOO_HIGH)then
             skill:setMsg(tpz.msg.basic.SKILL_MISS)
-            return 0
+            dmg = 0
         end
     end
 
