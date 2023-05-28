@@ -14,12 +14,10 @@ require("scripts/globals/utils")
 function onTrade(player, npc, trade)
 
     local Vengeful = player:getQuestStatus(BASTOK, tpz.quest.id.bastok.VENGEFUL_WRATH)
+    local QuadavHelm = trade:hasItemQty(501, 1)
 
-    if (Vengeful ~= QUEST_AVAILABLE) then
-        QuadavHelm = trade:hasItemQty(501, 1)
-        if (QuadavHelm == true and trade:getItemCount() == 1) then
-            player:startEvent(107)
-        end
+    if (QuadavHelm == true and trade:getItemCount() == 1) then
+        player:startEvent(107)
     end
 end
 
