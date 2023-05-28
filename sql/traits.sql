@@ -190,7 +190,7 @@ INSERT INTO `traits` VALUES (8,'max mp boost',21,30,1,5,10,'SOA',0);
 INSERT INTO `traits` VALUES (8,'max mp boost',21,60,2,5,20,'SOA',0);
 INSERT INTO `traits` VALUES (8,'max mp boost',21,90,3,5,40,'SOA',0);
 INSERT INTO `traits` VALUES (9,'auto regen',3,25,1,370,1,NULL,0);
-INSERT INTO `traits` VALUES (9,'auto regen',3,76,2,370,2,'ABYSSEA',0);
+INSERT INTO `traits` VALUES (9,'auto regen',3,50,2,370,2,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (9,'auto regen',22,35,1,370,1,'SOA',0);
 INSERT INTO `traits` VALUES (9,'auto regen',22,65,2,370,2,'SOA',0);
 INSERT INTO `traits` VALUES (9,'auto regen',22,95,3,370,3,'SOA',0);
