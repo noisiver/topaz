@@ -172,7 +172,7 @@ void CMobController::TryLink()
     }
 
     // Mobs shouldn't link to pets without master being engaged
-    if (PTarget->objtype == TYPE_PET && !PTarget->PMaster->PAI->IsEngaged())
+    if (PTarget->objtype == TYPE_PET && this->PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
     {
         return;
     }
