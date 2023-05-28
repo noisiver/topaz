@@ -1191,27 +1191,6 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             }
         }
 
-        // Check for paraylze
-        if (battleutils::IsParalyzed(this)) {
-           // 2 hours can be paraylzed but it won't reset their timers
-            if (PAbility->getRecastId() != 0)
-            {
-                PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
-            }
-            pushPacket(new CCharRecastPacket(this));
-            // TODO: This msg is wrong? Doesn't crash it though...
-            pushPacket(new CMessageBasicPacket(this, this, 0, 0, MSGBASIC_IS_PARALYZED));
-            actionList_t& actionList = action.getNewActionList();
-            actionList.ActionTargetID = this->id;
-
-            actionTarget_t& actionTarget = actionList.getNewActionTarget();
-            actionTarget.animation = 508;
-            actionTarget.messageID = 88;
-            action.actionid = 0;
-
-            return;
-        }
-
         // get any available merit recast reduction
         uint8 meritRecastReduction = 0;
 

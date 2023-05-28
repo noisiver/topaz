@@ -29,6 +29,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 #include "../../packets/char_update.h"
 #include "../../packets/lock_on.h"
 #include "../../packets/inventory_finish.h"
+#include "../../packets/char_recast.h"
 #include "../../utils/battleutils.h"
 #include "../../utils/charutils.h"
 #include "../../recast_container.h"
@@ -130,6 +131,20 @@ bool CPlayerController::Ability(uint16 targid, uint16 abilityid)
             (PAbility->isPetAbility() && !charutils::hasPetAbility(PChar, PAbility->getID() - ABILITY_HEALING_RUBY)))
         {
             PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_UNABLE_TO_USE_JA2));
+            return false;
+        }
+        // Check for paraylze
+        if (battleutils::IsParalyzed(PChar))
+        {
+            // 2 hours can be paraylzed but it won't reset their timers
+            if (PAbility->getRecastId() != 0)
+            {
+                std::unique_ptr<CRecastContainer> PRecastContainer;
+                PChar->PRecastContainer->Add(RECAST_ABILITY, PAbility->getRecastId(), PAbility->getRecastTime());
+            }
+            PChar->pushPacket(new CCharRecastPacket(PChar));
+            // TODO: This msg is wrong? Doesn't crash it though...
+            PChar->pushPacket(new CMessageBasicPacket(PChar, PChar, 0, 0, MSGBASIC_IS_PARALYZED));
             return false;
         }
         if (PAbility->isPetAbility())
