@@ -9841,9 +9841,9 @@ INSERT INTO `item_mods` VALUES (13049,1,11);
 INSERT INTO `item_mods` VALUES (13049,54,3);
 INSERT INTO `item_mods` VALUES (13049,59,-1);
 INSERT INTO `item_mods` VALUES (13050,1,9);
-INSERT INTO `item_mods` VALUES (13051,1,5);	-- corase leggings
+INSERT INTO `item_mods` VALUES (13051,1,5);	      -- Coarse leggings
 INSERT INTO `item_mods` VALUES (13051,68,-3);
-INSERT INTO `item_mods` VALUES (13051,10,3); --+3 Vit
+INSERT INTO `item_mods` VALUES (13051,10,1);      --+1 Vit
 INSERT INTO `item_mods` VALUES (13052,1,4);
 INSERT INTO `item_mods` VALUES (13052,68,3);
 INSERT INTO `item_mods` VALUES (13053,1,22);      -- calm_pigaches DEF:+22
@@ -10232,9 +10232,11 @@ INSERT INTO `item_mods` VALUES (13228,12,3);      -- INT+3
 INSERT INTO `item_mods` VALUES (13229,1,3);
 INSERT INTO `item_mods` VALUES (13229,5,7);
 INSERT INTO `item_mods` VALUES (13229,13,1);
-INSERT INTO `item_mods` VALUES (13230,1,3);
+INSERT INTO `item_mods` VALUES (13230,1,3);      -- Adept's Rope
 INSERT INTO `item_mods` VALUES (13230,2,8);
 INSERT INTO `item_mods` VALUES (13230,5,8);
+INSERT INTO `item_mods` VALUES (13230,13,3);      -- MND+3
+INSERT INTO `item_mods` VALUES (13230,374,2);     -- Cure potency +2%
 INSERT INTO `item_mods` VALUES (13231,25,10);
 INSERT INTO `item_mods` VALUES (13232,1,5);
 INSERT INTO `item_mods` VALUES (13232,23,12);
