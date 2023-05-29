@@ -23,7 +23,7 @@ function onAdditionalEffect(player, target, damage)
         dmg = target:addHP(-dmg)
     end
 
-    DeleteAmmoAdditionalEffect(player, dmg, tpz.items.WIND_FAN)
+    DeleteAmmoAdditionalEffect(player, dmg)
     return tpz.subEffect.WIND_DAMAGE, message, dmg
 end
 

@@ -23,7 +23,7 @@ function onAdditionalEffect(player, target, damage)
         dmg = target:addHP(-dmg)
     end
 
-    DeleteAmmoAdditionalEffect(player, dmg, tpz.items.BATTERY)
+    DeleteAmmoAdditionalEffect(player, dmg)
     return tpz.subEffect.LIGHTNING_DAMAGE, message, dmg
 end
 

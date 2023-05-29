@@ -12181,7 +12181,7 @@ INSERT INTO `mob_droplist` VALUES (2319,0,0,1000,894,150);
 INSERT INTO `mob_droplist` VALUES (2320,0,0,1000,846,240);
 INSERT INTO `mob_droplist` VALUES (2320,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (2320,0,0,1000,894,150);
-INSERT INTO `mob_droplist` VALUES (2321,0,0,1000,846,240);	-- jugner beetle, high drop rate on beetle jaw and can steal it
+INSERT INTO `mob_droplist` VALUES (2321,0,0,1000,846,240);	-- jugner beetle
 INSERT INTO `mob_droplist` VALUES (2321,0,0,1000,889,100);
 INSERT INTO `mob_droplist` VALUES (2321,0,0,1000,894,150);
 INSERT INTO `mob_droplist` VALUES (2321,2,0,1000,894,0);

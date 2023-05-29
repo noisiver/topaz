@@ -2445,7 +2445,7 @@ end
 
 function DeleteAmmoAdditionalEffect(player, dmg, ammo)
     if (dmg > 0) then
-        player:delItem(ammo, 1)
+        player:removeAmmo()
     end
 end
 
