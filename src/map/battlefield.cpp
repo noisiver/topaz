@@ -258,7 +258,6 @@ void CBattlefield::ApplyLevelRestrictions(CCharEntity* PChar) const
             cap = PChar->GetMLevel(); // Cap to current level to strip buffs - this is the retail diff between uncapped and capped to max lv.
         }
 
-        //PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DEATH, true);
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DISPELABLE);
         PChar->StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_ON_ZONE);
         PChar->StatusEffectContainer->AddStatusEffect(new CStatusEffect(EFFECT_LEVEL_RESTRICTION, EFFECT_LEVEL_RESTRICTION, cap, 0, 0));
@@ -443,6 +442,15 @@ bool CBattlefield::RemoveEntity(CBaseEntity* PEntity, uint8 leavecode)
         if (PChar->PPet && PChar->PPet->isCharmed)
         {
             petutils::DetachPet(PChar);
+        }
+
+        if (PChar->isDead())
+        {
+            auto state = dynamic_cast<CDeathState*>(PChar->PAI->GetCurrentState());
+            if (state)
+            {
+                state->allowSendRaise();
+            }
         }
 
         m_EnteredPlayers.erase(m_EnteredPlayers.find(PEntity->id));

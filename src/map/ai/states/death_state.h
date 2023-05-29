@@ -38,6 +38,8 @@ public:
     virtual bool CanFollowPath() override { return false; }
     virtual bool CanInterrupt() override { return false; }
 
+    void allowSendRaise();
+
 private:
     CBattleEntity* const m_PEntity;
     duration m_deathTime;
