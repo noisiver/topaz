@@ -651,7 +651,7 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
     {
         if (!PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_DIA))
         {
-            if (maneuvers.dark) // Dark -> Bio
+            if (maneuvers.dark && maneuvers.light < 2) // Dark -> Bio
             {
                 castPriority.push_back(SpellID::Bio_II);
             }
@@ -675,7 +675,7 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
 
         if (!PTarget->StatusEffectContainer->HasStatusEffect(EFFECT_DIA))
         {
-            if (maneuvers.dark) // Dark -> Bio
+            if (maneuvers.dark && maneuvers.light < 2) // Dark -> Bio
             {
                 castPriority.push_back(SpellID::Bio);
             }
