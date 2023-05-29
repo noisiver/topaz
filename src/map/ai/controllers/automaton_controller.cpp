@@ -25,6 +25,7 @@
 #include "../../entities/trustentity.h"
 #include "../../lua/luautils.h"
 #include "../../mobskill.h"
+#include "../../mob_spell_container.h"
 #include "../../recast_container.h"
 #include "../../status_effect_container.h"
 #include "../../utils/battleutils.h"
@@ -709,8 +710,7 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
             defaultPriority.push_back(SpellID::Poison);
         }
 
-        CMobEntity* PTargetMob = dynamic_cast<CMobEntity*>(PTarget);
-        if ((PTargetMob != nullptr && PTargetMob->m_SpellListContainer > 0))
+        if ((static_cast<CMobEntity*>(PTarget))->SpellContainer->HasSpells())
         {
             if (maneuvers.wind) // Wind -> Silence
                 castPriority.push_back(SpellID::Silence);
@@ -802,8 +802,7 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
                 defaultPriority.push_back(SpellID::Poison);
             }
 
-            CMobEntity* PTargetMob = dynamic_cast<CMobEntity*>(PTarget);
-            if ((PTargetMob != nullptr && PTargetMob->m_SpellListContainer > 0))
+            if ((static_cast<CMobEntity*>(PTarget))->SpellContainer->HasSpells())
             {
                 if (maneuvers.wind) // Wind -> Silence
                     castPriority.push_back(SpellID::Silence);
@@ -899,8 +898,7 @@ bool CAutomatonController::TryEnfeeble(const CurrentManeuvers& maneuvers)
             }
         }
 
-        CMobEntity* PTargetMob = dynamic_cast<CMobEntity*>(PTarget);
-        if ((PTargetMob != nullptr && PTargetMob->m_SpellListContainer > 0))
+        if ((static_cast<CMobEntity*>(PTarget))->SpellContainer->HasSpells())
         {
             if (maneuvers.wind) // Wind -> Silence
                 castPriority.push_back(SpellID::Silence);
