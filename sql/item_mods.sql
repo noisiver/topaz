@@ -20445,9 +20445,9 @@ INSERT INTO `item_mods` VALUES (16509,431,1);
 INSERT INTO `item_mods` VALUES (16510,431,1);
 INSERT INTO `item_mods` VALUES (16520,5,18);
 INSERT INTO `item_mods` VALUES (16520,110,7);
-INSERT INTO `item_mods` VALUES (16521,110,5);
-INSERT INTO `item_mods` VALUES (16524,432,3);	-- Fleuret +3 Enspell dmg
-INSERT INTO `item_mods` VALUES (16525,432,3);	-- Hornet Fleuret +3 Enspell dmg
+INSERT INTO `item_mods` VALUES (16521,1012,4);      -- Rapier: Inquartata +4
+INSERT INTO `item_mods` VALUES (16524,432,3);	      -- Fleuret +3 Enspell dmg
+INSERT INTO `item_mods` VALUES (16525,432,3);	      -- Hornet Fleuret +3 Enspell dmg
 INSERT INTO `item_mods` VALUES (16527,25,2);
 INSERT INTO `item_mods` VALUES (16540,5,25);     -- tyrfing MP+25
 INSERT INTO `item_mods` VALUES (16541,8,2);
@@ -20644,7 +20644,7 @@ INSERT INTO `item_mods` VALUES (16745,25,2);
 INSERT INTO `item_mods` VALUES (16746,25,2);
 INSERT INTO `item_mods` VALUES (16747,25,3);
 INSERT INTO `item_mods` VALUES (16753,5,10);
-INSERT INTO `item_mods` VALUES (16754,110,10);
+INSERT INTO `item_mods` VALUES (16754,1012,3);      -- Parrying Knife: Inquartata +3
 INSERT INTO `item_mods` VALUES (16755,11,1);
 INSERT INTO `item_mods` VALUES (16755,26,10);
 INSERT INTO `item_mods` VALUES (16757,23,10);
@@ -20713,11 +20713,16 @@ INSERT INTO `item_mods` VALUES (16818,23,5);
 INSERT INTO `item_mods` VALUES (16819,518,20); -- Mithran Scimitar Shield Block Rate +20
 INSERT INTO `item_mods` VALUES (16819,9,3);
 INSERT INTO `item_mods` VALUES (16820,11,3);
-INSERT INTO `item_mods` VALUES (16821,110,10);
+INSERT INTO `item_mods` VALUES (16821,1012,3);      -- Duel Rapier: Inquartata +3
 INSERT INTO `item_mods` VALUES (16822,5,10);
 INSERT INTO `item_mods` VALUES (16822,12,5);
+INSERT INTO `item_mods` VALUES (16824,431,1);       -- Carnage Rapier
+INSERT INTO `item_mods` VALUES (16824,1012,3);      -- Inquartata +3
 INSERT INTO `item_mods` VALUES (16826,431,1);
 INSERT INTO `item_mods` VALUES (16827,165,5); -- Carnage Blade Crit +5%
+INSERT INTO `item_mods` VALUES (16827,431,1);
+INSERT INTO `item_mods` VALUES (16528,431,1);     -- Bloody Rapier
+INSERT INTO `item_mods` VALUES (16528,1012,3);    -- Inquartata +3
 INSERT INTO `item_mods` VALUES (16829,5,10);	-- Fencing  (RDM AF1)
 INSERT INTO `item_mods` VALUES (16829,12,3);
 INSERT INTO `item_mods` VALUES (16829,13,3);
@@ -21838,7 +21843,7 @@ INSERT INTO `item_mods` VALUES (17630,26,11);
 INSERT INTO `item_mods` VALUES (17631,11,3);
 INSERT INTO `item_mods` VALUES (17631,14,3);
 INSERT INTO `item_mods` VALUES (17631,26,12);
-INSERT INTO `item_mods` VALUES (17633,110,6);
+INSERT INTO `item_mods` VALUES (17633,1012,4);      -- Rapier +1: Inquartata +4
 INSERT INTO `item_mods` VALUES (17634,432,3);	      -- Wasp Fleuret +3 Enspell dmg
 INSERT INTO `item_mods` VALUES (17636,8,3);
 INSERT INTO `item_mods` VALUES (17636,10,3);
@@ -21914,8 +21919,10 @@ INSERT INTO `item_mods` VALUES (17677,23,12);
 INSERT INTO `item_mods` VALUES (17678,2,4);
 INSERT INTO `item_mods` VALUES (17679,2,6);
 INSERT INTO `item_mods` VALUES (17682,431,1);
-INSERT INTO `item_mods` VALUES (17690,110,5);
-INSERT INTO `item_mods` VALUES (17691,110,6);
+INSERT INTO `item_mods` VALUES (17690,1012,3);      -- Spark Rapier: Inquartata +3
+INSERT INTO `item_mods` VALUES (17690,431,1); 
+INSERT INTO `item_mods` VALUES (17691,1012,3);      -- Spark Rapier +1: Inquartata +3
+INSERT INTO `item_mods` VALUES (17691,431,1); 
 INSERT INTO `item_mods` VALUES (17693,27,1);
 INSERT INTO `item_mods` VALUES (17694,8,1);
 INSERT INTO `item_mods` VALUES (17694,13,6);

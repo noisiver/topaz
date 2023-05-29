@@ -1,6 +1,6 @@
 -----------------------------------------
--- ID: 16777
--- Item: Death Scythe
+-- ID: 16556
+-- Item: Bloody Blade
 -- Additional Effect: Drains HP
 -----------------------------------------
 require("scripts/globals/status")
