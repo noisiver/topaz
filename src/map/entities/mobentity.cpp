@@ -32,6 +32,7 @@
 #include "../ai/states/attack_state.h"
 #include "../ai/states/weaponskill_state.h"
 #include "../ai/states/mobskill_state.h"
+#include "../ai/states/magic_state.h"
 #include "../entities/charentity.h"
 #include "../packets/action.h"
 #include "../packets/entity_update.h"
@@ -969,6 +970,11 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
             battleutils::ClaimMob(PTarget, this);
         }
         battleutils::DirtyExp(PTarget, this);
+        if (PTarget->isDead() && PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PET && this->PMaster->objtype == TYPE_PC)
+        {
+            ((CMobEntity*)PTarget)->m_autoTargetKiller = ((CCharEntity*)PMaster);
+            ((CMobEntity*)PTarget)->DoAutoTarget();
+        }
     }
     PTarget = static_cast<CBattleEntity*>(state.GetTarget());
     if (PTarget->objtype == TYPE_MOB && (PTarget->isDead() || (objtype == TYPE_PET && static_cast<CPetEntity*>(this)->getPetType() == PETTYPE_AVATAR)))
@@ -1666,11 +1672,25 @@ void CMobEntity::OnCastFinished(CMagicState& state, action_t& action)
     CBattleEntity::OnCastFinished(state, action);
 
     static_cast<CMobController*>(PAI->GetController())->TapDeaggroTime();
+
+    auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
+    if (PTarget->isDead() && PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PET && this->PMaster->objtype == TYPE_PC)
+    {
+        ((CMobEntity*)PTarget)->m_autoTargetKiller = ((CCharEntity*)PMaster);
+        ((CMobEntity*)PTarget)->DoAutoTarget();
+    }
 }
 
 bool CMobEntity::OnAttack(CAttackState& state, action_t& action)
 {
     static_cast<CMobController*>(PAI->GetController())->TapDeaggroTime();
+
+    auto PTarget = static_cast<CBattleEntity*>(state.GetTarget());
+    if (PTarget->isDead() && PTarget->objtype == TYPE_MOB && this->objtype == TYPE_PET && this->PMaster->objtype == TYPE_PC)
+    {
+        ((CMobEntity*)PTarget)->m_autoTargetKiller = ((CCharEntity*)PMaster);
+        ((CMobEntity*)PTarget)->DoAutoTarget();
+    }
 
     if (getMobMod(MOBMOD_ATTACK_SKILL_LIST))
     {
