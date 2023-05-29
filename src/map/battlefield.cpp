@@ -47,6 +47,7 @@ along with this program.  If not, see http://www.gnu.org/licenses/
 
 #include "utils/charutils.h"
 #include "utils/itemutils.h"
+#include "utils/petutils.h"
 #include "utils/zoneutils.h"
 #include "zone.h"
 #include <chrono>
@@ -437,6 +438,12 @@ bool CBattlefield::RemoveEntity(CBaseEntity* PEntity, uint8 leavecode)
             PChar->StatusEffectContainer->DelStatusEffect(EFFECT_SJ_RESTRICTION);
         if (m_LevelCap)
             PChar->StatusEffectContainer->DelStatusEffect(EFFECT_LEVEL_RESTRICTION);
+
+        // Release charmed pet when master leaves battlefield
+        if (PChar->PPet && PChar->PPet->isCharmed)
+        {
+            petutils::DetachPet(PChar);
+        }
 
         m_EnteredPlayers.erase(m_EnteredPlayers.find(PEntity->id));
 
