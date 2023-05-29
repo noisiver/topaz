@@ -737,10 +737,11 @@ void SmallPacket0x01A(map_session_data_t* PSession, CCharEntity* PChar, CBasicPa
         }
         break;
         case 0x04: // disengage
-        {
-            if (PChar->PAI->Disengage())
+            if (!PChar->StatusEffectContainer->HasStatusEffect({ EFFECT_CHARM, EFFECT_CHARM_II }))
+            {
+                PChar->PAI->Disengage();
                 PChar->m_LastEngagedTargID = 0;
-        }
+            }
         break;
         case 0x05: // call for help
         {
