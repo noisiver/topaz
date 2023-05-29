@@ -803,7 +803,7 @@ INSERT INTO `item_basic` VALUES (890,0,'old_tigers_fang','old_tigers_fang',1,574
 INSERT INTO `item_basic` VALUES (891,0,'bat_fang','bat_fang',99,4,42,0,8);
 INSERT INTO `item_basic` VALUES (892,0,'wyrm_skull','wyrm_skull',99,0,42,0,77);
 INSERT INTO `item_basic` VALUES (893,0,'giant_femur','giant_femur',12,4,42,0,203);
-INSERT INTO `item_basic` VALUES (894,0,'beetle_jaw','beetle_jaw',99,4,42,0,121);
+INSERT INTO `item_basic` VALUES (894,0,'beetle_jaw','beetle_jaw',12,4,42,0,121);
 INSERT INTO `item_basic` VALUES (895,0,'ram_horn','ram_horn',99,4,42,0,582);
 INSERT INTO `item_basic` VALUES (896,0,'scorpion_shell','scorpion_shell',99,4,42,0,413);
 INSERT INTO `item_basic` VALUES (897,0,'scorpion_claw','scorpion_claw',99,4,42,0,273);
