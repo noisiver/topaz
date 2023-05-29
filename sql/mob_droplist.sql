@@ -979,7 +979,7 @@ INSERT INTO `mob_droplist` VALUES (164,0,0,1000,19102,50);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,914,490);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,939,440);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,939,220);
-INSERT INTO `mob_droplist` VALUES (165,0,0,1000,13056,100);		--(Argus) Peacock Charm
+INSERT INTO `mob_droplist` VALUES (165,0,0,1000,15515,100);		--(Argus) Peacock Amulet
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,921,100);
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,935,100);
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,942,100);
@@ -7659,7 +7659,7 @@ INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,836,100); -- Square of damascen
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4172,1000); -- Reraiser
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,4174,1000); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,12924,1000); -- Magic cuisses
-INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,13189,50);	-- Speed Belt
+INSERT INTO `mob_droplist` VALUES (1449,0,0,1000,15899,50);	-- Velocious Belt
 INSERT INTO `mob_droplist` VALUES (1450,0,0,1000,831,240); -- (King Behemoth) Square of shining cloth
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13415,950); -- Pixie earring
 INSERT INTO `mob_droplist` VALUES (1450,1,1,1000,13566,50); -- Defending ring
@@ -7971,7 +7971,7 @@ INSERT INTO `mob_droplist` VALUES (1503,0,0,1000,18445,150); -- Amakura
 INSERT INTO `mob_droplist` VALUES (1504,0,0,1000,852,380);
 INSERT INTO `mob_droplist` VALUES (1504,0,0,1000,926,580);
 INSERT INTO `mob_droplist` VALUES (1504,2,0,1000,4362,0);
-INSERT INTO `mob_droplist` VALUES (1504,0,0,1000,13014,150); -- Leaping Boots
+INSERT INTO `mob_droplist` VALUES (1504,0,0,1000,15351,150); -- Bounding Boots
 INSERT INTO `mob_droplist` VALUES (1505,0,0,1000,924,150);
 INSERT INTO `mob_droplist` VALUES (1505,0,0,1000,1125,50);
 INSERT INTO `mob_droplist` VALUES (1505,0,0,1000,13359,240);	-- (Leech King) Bloodbead Earring
@@ -8088,7 +8088,7 @@ INSERT INTO `mob_droplist` VALUES (1535,0,0,1000,18450,100); -- (Loo Kutto the P
 INSERT INTO `mob_droplist` VALUES (1536,0,0,1000,4484,1000); -- (Lord of Onzozo) Shall shell
 INSERT INTO `mob_droplist` VALUES (1536,0,0,1000,4484,240); -- Shall shell
 INSERT INTO `mob_droplist` VALUES (1536,0,0,1000,4484,150); -- Shall shell
-INSERT INTO `mob_droplist` VALUES (1536,0,0,1000,17440,100); -- Kraken Club
+INSERT INTO `mob_droplist` VALUES (1536,0,0,1000,18852,100); -- Octave Club
 INSERT INTO `mob_droplist` VALUES (1537,0,0,1000,3193,470);
 INSERT INTO `mob_droplist` VALUES (1537,0,0,1000,3193,230);
 INSERT INTO `mob_droplist` VALUES (1537,0,0,1000,3193,160);
@@ -8660,7 +8660,7 @@ INSERT INTO `mob_droplist` VALUES (1651,1,1,240,837,100); -- Spool of malboro fi
 INSERT INTO `mob_droplist` VALUES (1651,1,2,240,5770,500); -- Super Reraiser
 INSERT INTO `mob_droplist` VALUES (1651,1,2,240,4173,500); -- Hi-Reraiser
 INSERT INTO `mob_droplist` VALUES (1652,2,0,1000,656,0);
-INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,13952,100);		-- (Mee Deggi The Punisher) Ochiudo's Kote
+INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,14986,100);		-- (Mee Deggi The Punisher) Ochimusha Kote
 INSERT INTO `mob_droplist` VALUES (1652,1,1,1000,16703,900);		
 INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,1640,150);		-- (Megalobugard)
 INSERT INTO `mob_droplist` VALUES (1653,0,0,1000,1718,50);		-- Megalobugard tusk
@@ -11009,7 +11009,7 @@ INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,17503,240); -- Exocets
 INSERT INTO `mob_droplist` VALUES (2067,0,0,1000,18352,100); -- Mighty Patas
 INSERT INTO `mob_droplist` VALUES (2068,0,0,1000,5365,240);
 INSERT INTO `mob_droplist` VALUES (2068,0,0,1000,5366,190);
-INSERT INTO `mob_droplist` VALUES (2069,1,1,1000,13054,150);	-- (Quu Domi The Gallant) Fuma Kyahan
+INSERT INTO `mob_droplist` VALUES (2069,1,1,1000,15737,150);	-- (Quu Domi The Gallant) Sarutobi Kyahan
 INSERT INTO `mob_droplist` VALUES (2069,1,1,1000,16820,850);	-- Strider sword
 INSERT INTO `mob_droplist` VALUES (2070,4,0,1000,2513,0);
 INSERT INTO `mob_droplist` VALUES (2070,0,0,1000,2513,50); -- Rafflesia vine
@@ -11895,7 +11895,7 @@ INSERT INTO `mob_droplist` VALUES (2254,0,0,1000,1533,70);
 INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,658,100); -- (Simurgh) Damascus ingot
 INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,4172,240); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,4174,240); -- Vile elixir
-INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,14080,50);	-- Strider Boots
+INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,15736,50);	-- Trotter Boots
 INSERT INTO `mob_droplist` VALUES (2255,0,0,1000,17416,1000); -- Arcana breaker
 INSERT INTO `mob_droplist` VALUES (2256,4,0,1000,954,0);
 INSERT INTO `mob_droplist` VALUES (2256,0,0,1000,914,150);
@@ -12329,7 +12329,7 @@ INSERT INTO `mob_droplist` VALUES (2349,0,0,1000,637,240); -- (Stroper Chyme)
 INSERT INTO `mob_droplist` VALUES (2349,0,0,1000,637,150);
 INSERT INTO `mob_droplist` VALUES (2349,4,0,1000,637,0); -- Slime Oil(Despoil)
 INSERT INTO `mob_droplist` VALUES (2349,0,0,1000,1030,50);
-INSERT INTO `mob_droplist` VALUES (2349,0,0,1000,13514,50); -- Archer's Ring
+INSERT INTO `mob_droplist` VALUES (2349,0,0,1000,15551,50); -- Shikaree Ring
 INSERT INTO `mob_droplist` VALUES (2350,0,0,1000,14667,210);
 INSERT INTO `mob_droplist` VALUES (2350,0,0,1000,15296,1000);
 INSERT INTO `mob_droplist` VALUES (2350,0,0,1000,15326,160);
@@ -13395,7 +13395,7 @@ INSERT INTO `mob_droplist` VALUES (2535,0,0,1000,2531,100); -- Obsidian
 INSERT INTO `mob_droplist` VALUES (2535,0,0,1000,2977,100); -- Punch Bug
 INSERT INTO `mob_droplist` VALUES (2535,2,0,1000,2531,0);
 INSERT INTO `mob_droplist` VALUES (2536,0,0,1000,846,1000);
-INSERT INTO `mob_droplist` VALUES (2536,0,0,1000,12486,240);	-- emperor hairpin
+INSERT INTO `mob_droplist` VALUES (2536,0,0,1000,15224,240);	-- Empress Hairpin
 INSERT INTO `mob_droplist` VALUES (2537,0,0,1000,1116,100);
 INSERT INTO `mob_droplist` VALUES (2537,0,0,1000,1123,50);
 INSERT INTO `mob_droplist` VALUES (2537,0,0,1000,1163,240);
