@@ -2169,6 +2169,7 @@ INSERT INTO `item_latents` VALUES(16911, 366, 1, 0, 82);
 INSERT INTO `item_latents` VALUES(16911, 366, 1, 0, 92);
 
 INSERT INTO `item_latents` VALUES(16912, 165, 5, 59, 17);   -- Kitsutsuki - Vs. plantoids: Critical hit rate +5%
+INSERT INTO `item_latents` VALUES(16720, 165, 5, 59, 17);   -- Plantbane - Vs. plantoids: Critical hit rate +5%
 
 -- -------------------------------------------------------
 -- Royal Swordsman's Blade +1/+2
