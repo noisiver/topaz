@@ -835,10 +835,14 @@ namespace petutils
 
     void CalculateAvatarStats(CBattleEntity* PMaster, CPetEntity* PPet)
     {
-        uint32 PetID = PPet->getPetType();
-        Pet_t* PPetData = new Pet_t();
+        uint32 petID = PPet->m_PetID;
 
-        PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [PetID](Pet_t* t) { return t->PetID == PetID; });
+        // clang-format off
+        Pet_t* PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [petID](Pet_t* t)
+        {
+            return t->PetID == petID;
+        });
+        // clang-format on
 
         PPet->SetMJob(JOB_DRK);
         PPet->SetSJob(JOB_BLM);
@@ -866,7 +870,7 @@ namespace petutils
 
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (320.0f / 60.0f))));
 
-        if (PetID == PETID_FENRIR || PetID == PETID_DIABOLOS)
+        if (petID == PETID_FENRIR || petID == PETID_DIABOLOS)
         {
             ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (280.0f / 60.0f))));
         }
@@ -874,24 +878,24 @@ namespace petutils
         // In a 2014 update SE updated Avatar base damage
         // Based on testing this value appears to be Level now instead of Level * 0.74f
         uint16 weaponDamage = static_cast<uint16>(floor(PPet->GetMLevel() * 0.5f) + 10.0f);
-        if (PetID == PETID_CARBUNCLE || PetID == PETID_CAIT_SITH)
+        if (petID == PETID_CARBUNCLE || petID == PETID_CAIT_SITH)
         {
             weaponDamage = static_cast<uint16>(floor(PPet->GetMLevel() * 0.5f) + 3.0f);
         }
 
         // Carbuncle and Cait Sith are a WHM
-        if (PetID == PETID_CARBUNCLE || PetID == PETID_CAIT_SITH)
+        if (petID == PETID_CARBUNCLE || petID == PETID_CAIT_SITH)
         {
             PPet->SetMJob(JOB_WHM);
         }
 
         // Elemetal Spirits are BLM/RDM Light is WHM/RDM and Dark is DRK/RDM
-        if (PetID >= PETID_FIRESPIRIT && PetID <= PETID_DARKSPIRIT)
+        if (petID >= PETID_FIRESPIRIT && petID <= PETID_DARKSPIRIT)
         {
             PPet->SetMJob(JOB_BLM);
             PPet->SetSJob(JOB_RDM);
             // No elemental staff. Need bonus Macc or they struggle to land spells.
-            //PPet->addModifier(Mod::MACC, 30);
+            PPet->addModifier(Mod::MACC, 30);
         }
 
         // Set global avatar mods
@@ -904,7 +908,7 @@ namespace petutils
         uint16 petEleRes = PPet->GetMLevel() / 1.5;
 
         // Specific stats and SDT for each Avatar / Elemental
-        switch (PetID)
+        switch (petID)
         {
             default:
                 break;
@@ -1019,15 +1023,20 @@ namespace petutils
             PPet->addModifier(Mod::MACC, PChar->PMeritPoints->GetMeritValue(MERIT_AVATAR_MAGICAL_ACCURACY, PChar));
         }
 
-        PMaster->addModifier(Mod::AVATAR_PERPETUATION, PerpetuationCost(PetID, PPet->GetMLevel()));
+        PMaster->addModifier(Mod::AVATAR_PERPETUATION, PerpetuationCost(petID, PPet->GetMLevel()));
     }
 
     void CalculateWyvernStats(CBattleEntity* PMaster, CPetEntity* PPet)
     {
-        uint32 PetID = PPet->getPetType();
-        Pet_t* PPetData = new Pet_t();
+        uint32 petID = PPet->m_PetID;
 
-        PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [PetID](Pet_t* t) { return t->PetID == PetID; });
+        // clang-format off
+        Pet_t* PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [petID](Pet_t* t)
+        {
+            return t->PetID == petID;
+        });
+        // clang-format on
+
         // set the wyvern job based on master's SJ
         if (PMaster->GetSJob() != JOB_NON)
         {
@@ -1085,10 +1094,15 @@ namespace petutils
 
     void CalculateJugPetStats(CBattleEntity* PMaster, CPetEntity* PPet)
     {
-        uint32 PetID = PPet->getPetType();
-        Pet_t* PPetData = new Pet_t();
+        uint32 petID = PPet->m_PetID;
 
-        PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [PetID](Pet_t* t) { return t->PetID == PetID; });
+        // clang-format off
+        Pet_t* PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [petID](Pet_t* t)
+        {
+            return t->PetID == petID;
+        });
+        // clang-format on
+
         ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0f * (240.0f / 60.0f))));
 
         // Get the Jug pet cap level
@@ -1097,13 +1111,13 @@ namespace petutils
         // Increase the pet's level cal by the bonus given by BEAST AFFINITY merits.
         CCharEntity* PChar = (CCharEntity*)PMaster;
         highestLvl += PChar->PMeritPoints->GetMeritValue(MERIT_BEAST_AFFINITY, PChar);
-
+        // TODO: Does not work properly
         // And cap it to the master's level or weapon ilvl, whichever is greater
-        auto capLevel = std::max(PMaster->GetMLevel(), PMaster->m_Weapons[SLOT_MAIN]->getILvl());
-        if (highestLvl > capLevel)
-        {
-            highestLvl = capLevel;
-        }
+        //auto capLevel = std::max(PMaster->GetMLevel(), PMaster->m_Weapons[SLOT_MAIN]->getILvl());
+        //if (highestLvl > capLevel)
+        //{
+        //    highestLvl = capLevel;
+        //}
 
         // Randomize: 0-2 lvls lower, less Monster Gloves(+1/+2) bonus
         highestLvl -= tpzrand::GetRandomNumber(3 - std::clamp<int16>(PChar->getMod(Mod::JUG_LEVEL_RANGE), 0, 2));
@@ -1114,10 +1128,15 @@ namespace petutils
     }
     void CalculateAutomatonStats(CBattleEntity* PMaster, CPetEntity* PPet)
     {
-        uint32 PetID = PPet->getPetType();
-        Pet_t* PPetData = new Pet_t();
+        uint32 petID = PPet->m_PetID;
 
-        PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [PetID](Pet_t* t) { return t->PetID == PetID; });
+        // clang-format off
+        Pet_t* PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [petID](Pet_t* t)
+        {
+            return t->PetID == petID;
+        });
+        // clang-format on
+
         // weapon damage = (floor(automaton ranged skill * 0.11) * 3)
         auto meleeSkill = PPet->GetSkill(SKILL_AUTOMATON_MELEE);
         auto rangedSkill = PPet->GetSkill(SKILL_AUTOMATON_RANGED);
@@ -1191,7 +1210,7 @@ namespace petutils
             PPet->SetMLevel(PMaster->GetSLevel());
             PPet->SetSLevel(PMaster->GetSLevel() / 2); // Todo: SetSLevel() already reduces the level?
         }
-        LoadAutomatonStats((CCharEntity*)PMaster, PPet, g_PPetList.at(PetID)); // temp
+        LoadAutomatonStats((CCharEntity*)PMaster, PPet, g_PPetList.at(petID)); // temp
         if (PMaster->objtype == TYPE_PC)
         {
             CCharEntity* PChar = (CCharEntity*)PMaster;
@@ -1206,10 +1225,15 @@ namespace petutils
     }
     void CalculateLoupanStats(CBattleEntity* PMaster, CPetEntity* PPet)
     {
-        uint32 PetID = PPet->getPetType();
-        Pet_t* PPetData = new Pet_t();
+        uint32 petID = PPet->m_PetID;
 
-        PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [PetID](Pet_t* t) { return t->PetID == PetID; });
+        // clang-format off
+        Pet_t* PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [petID](Pet_t* t)
+        {
+            return t->PetID == petID;
+        });
+        // clang-format on
+
         PPet->SetMLevel(PMaster->GetMLevel());
         PPet->health.maxhp = (uint32)floor((250 * PPet->GetMLevel()) / 15);
         PPet->health.hp = PPet->health.maxhp;
@@ -1430,12 +1454,26 @@ namespace petutils
 
     void DetachPet(CBattleEntity* PMaster)
     {
-        TPZ_DEBUG_BREAK_IF(PMaster == nullptr);
-        TPZ_DEBUG_BREAK_IF(PMaster->PPet == nullptr);
-        TPZ_DEBUG_BREAK_IF(PMaster->objtype != TYPE_PC);
+        if (PMaster == nullptr)
+        {
+            ShowWarning("PMaster is null.");
+            return;
+        }
+
+        if (PMaster->PPet == nullptr)
+        {
+            ShowWarning("Pet is null for %s.", PMaster->GetName());
+            return;
+        }
+
+        if (PMaster->objtype != TYPE_PC)
+        {
+            ShowWarning("Non-PC passed into function (%s)", PMaster->GetName());
+            return;
+        }
 
         CBattleEntity* PPet = PMaster->PPet;
-        CCharEntity* PChar = (CCharEntity*)PMaster;
+        CCharEntity* PChar = static_cast<CCharEntity*>(PMaster);
 
 
         if (PPet->objtype == TYPE_MOB)
@@ -1688,10 +1726,8 @@ namespace petutils
         TPZ_DEBUG_BREAK_IF(PMaster == nullptr);
         TPZ_DEBUG_BREAK_IF(PetID >= MAX_PETID);
 
-        Pet_t* PPetData = new Pet_t();
-
-        PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [PetID](Pet_t* t) { return t->PetID == PetID; });
-
+        Pet_t* PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [PetID](Pet_t* t) { return t->PetID == PetID; });
+    
         if (PMaster->GetMJob() != JOB_DRG && PetID == PETID_WYVERN)
         {
             return;
@@ -1878,7 +1914,10 @@ namespace petutils
         }
 
         FinalizePetStatistics(PMaster, PPet);
-        PPet->setSpawnLevel(PPet->GetMLevel());
+        if (PPet->getPetType() != PETTYPE_JUG_PET)
+        {
+            PPet->setSpawnLevel(PPet->GetMLevel());
+        }
         PPet->status = STATUS_NORMAL;
         PPet->m_ModelSize = PPetData->size;
         PPet->m_EcoSystem = PPetData->EcoSystem;

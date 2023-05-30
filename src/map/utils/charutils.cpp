@@ -709,11 +709,11 @@ namespace charutils
                 PChar->petZoningInfo.petType = (PETTYPE)Sql_GetUIntData(SqlHandle, 10);
                 PChar->petZoningInfo.petLevel = Sql_GetUIntData(SqlHandle, 13);
                 PChar->petZoningInfo.respawnPet = true;
-                PChar->petZoningInfo.jugSpawnTime = GetCharVar(PChar, "jug-pet-spawn-time");
-                PChar->petZoningInfo.jugDuration = GetCharVar(PChar, "jug-duration-seconds");
+                PChar->petZoningInfo.jugSpawnTime = GetCharVar(PChar, "jugpet-pet-spawn-time");
+                PChar->petZoningInfo.jugDuration = GetCharVar(PChar, "jugpet-duration-seconds");
 
                 // clear the charvars used for jug state
-                PChar->clearCharVarsWithPrefix("jug-");
+                PChar->clearCharVarsWithPrefix("jugpet-");
             }
         }
 
