@@ -1196,7 +1196,7 @@ INSERT INTO `mob_skills` VALUES (1250,941,'binary_tap',0,7.0,2000,1500,4,0,0,0,0
 INSERT INTO `mob_skills` VALUES (1251,942,'trinary_tap',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1252,943,'shadow_spread',1,15.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1253,956,'vanity_strike',0,7.0,2000,1500,4,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1254,957,'wanion',1,10.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1254,957,'wanion',4,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1255,958,'occultation',0,7.0,2000,1500,1,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1256,959,'empty_crush',0,7.0,2000,1500,4,0,0,2,0,0,0);
 -- INSERT INTO `mob_skills` VALUES (1257,1001,'special_attack',0,7.0,2000,1500,4,0,0,0,0,0,0);

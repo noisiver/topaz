@@ -14,9 +14,10 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local base = math.random(10, 25)
+    local shadows = 10
     local typeEffect = tpz.effect.BLINK
 
     skill:setMsg(MobBuffMove(mob, typeEffect, base, 0, 300))
+    mob:addStatusEffectEx(tpz.effect.COPY_IMAGE, tpz.effect.COPY_IMAGE_3, 1, 0, 300, 0, shadows)
     return typeEffect
 end

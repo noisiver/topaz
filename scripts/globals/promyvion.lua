@@ -56,7 +56,7 @@ local function selectRandomModel(models, mob)
     local element = 0
     if sub == 1 then
         if model == 1 then
-        element = 1 -- dark
+        element = 8 -- dark
         mob:setMod(tpz.mod.SDT_DARK, 5)
         mob:setMod(tpz.mod.EEM_DARK_SLEEP, 5)
         mob:setMod(tpz.mod.EEM_BLIND, 5)
@@ -64,7 +64,7 @@ local function selectRandomModel(models, mob)
         mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 150)
         mob:setMod(tpz.mod.EEM_CHARM, 150)
         elseif model == 2 then
-        element = 3 -- thunder
+        element = 5 -- thunder
         mob:setMod(tpz.mod.SDT_THUNDER, 5)
         mob:setMod(tpz.mod.EEM_STUN, 5)
         mob:setMod(tpz.mod.SDT_WATER, 5)
@@ -74,7 +74,7 @@ local function selectRandomModel(models, mob)
         mob:setMod(tpz.mod.EEM_PETRIFY, 150)
         mob:setMod(tpz.mod.EEM_TERROR, 150)
         elseif model == 3 then
-        element = 5 -- light
+        element = 7 -- light
         mob:setMod(tpz.mod.SDT_LIGHT, 5)
         mob:setMod(tpz.mod.EEM_LIGHT_SLEEP, 5)
         mob:setMod(tpz.mod.EEM_CHARM, 5)
@@ -82,7 +82,7 @@ local function selectRandomModel(models, mob)
         mob:setMod(tpz.mod.EEM_DARK_SLEEP, 150)
         mob:setMod(tpz.mod.EEM_BLIND, 150)
         elseif model == 4 then
-        element = 7 -- ice
+        element = 2 -- ice
         mob:setMod(tpz.mod.SDT_ICE, 5)
         mob:setMod(tpz.mod.EEM_PARALYZE, 5)
         mob:setMod(tpz.mod.EEM_BIND, 5)
@@ -95,7 +95,7 @@ local function selectRandomModel(models, mob)
         end
     else
         if model == 1 then
-        element = 2 -- water
+        element = 6 -- water
         mob:setMod(tpz.mod.SDT_WATER, 5)
         mob:setMod(tpz.mod.EEM_POISON, 5)
         mob:setMod(tpz.mod.SDT_FIRE, 5)
@@ -115,7 +115,7 @@ local function selectRandomModel(models, mob)
         mob:setMod(tpz.mod.EEM_SILENCE, 150)
         mob:setMod(tpz.mod.EEM_GRAVITY, 150)
         elseif model == 3 then
-        element = 6 -- fire
+        element = 1 -- fire
         mob:setMod(tpz.mod.SDT_FIRE, 5)
         mob:setMod(tpz.mod.EEM_AMNESIA, 5)
         mob:setMod(tpz.mod.EEM_VIRUS, 5)
@@ -125,7 +125,7 @@ local function selectRandomModel(models, mob)
         mob:setMod(tpz.mod.SDT_WATER, 150)
         mob:setMod(tpz.mod.EEM_POISON, 150)
         elseif model == 4 then
-        element = 8 -- wind
+        element = 3 -- wind
         mob:setMod(tpz.mod.SDT_WIND, 5)
         mob:setMod(tpz.mod.EEM_SILENCE, 5)
         mob:setMod(tpz.mod.EEM_GRAVITY, 5)
