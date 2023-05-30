@@ -1133,7 +1133,7 @@ INSERT INTO `item_weapon` VALUES (17488,'cermet_claws_+1',1,0,0,0,0,4,1,522,12,0
 INSERT INTO `item_weapon` VALUES (17489,'gold_patas_+1',1,0,0,0,0,4,1,586,19,0);
 INSERT INTO `item_weapon` VALUES (17490,'feral_fangs',1,0,0,0,0,4,1,576,19,0);
 INSERT INTO `item_weapon` VALUES (17491,'spartan_cesti',1,0,0,0,0,4,1,593,20,0);
-INSERT INTO `item_weapon` VALUES (17492,'shivas_claws',1,0,0,0,0,4,1,540,11,0);
+INSERT INTO `item_weapon` VALUES (17492,'shivas_claws',1,0,0,0,0,4,1,540,16,0);
 INSERT INTO `item_weapon` VALUES (17493,'tropical_punches',1,0,0,0,0,4,1,480,1,0);
 INSERT INTO `item_weapon` VALUES (17494,'trp._punches_+1',1,0,0,0,0,4,1,480,2,0);
 INSERT INTO `item_weapon` VALUES (17495,'san_dorian_cesti',1,0,0,0,0,4,1,518,3,0);
@@ -1268,7 +1268,7 @@ INSERT INTO `item_weapon` VALUES (17623,'btm._knife',2,0,0,0,0,1,1,200,27,0);
 INSERT INTO `item_weapon` VALUES (17624,'anubiss_knife',2,0,0,0,0,1,1,212,22,0);
 INSERT INTO `item_weapon` VALUES (17625,'ponderous_gully',2,0,0,0,0,1,1,205,29,0);
 INSERT INTO `item_weapon` VALUES (17626,'auric_dagger',2,0,0,0,0,1,1,201,39,0);
-INSERT INTO `item_weapon` VALUES (17627,'garudas_dagger',2,0,0,0,0,1,1,183,19,0);
+INSERT INTO `item_weapon` VALUES (17627,'garudas_dagger',2,0,0,0,0,1,1,183,24,0);
 INSERT INTO `item_weapon` VALUES (17628,'behemoth_knife',2,0,0,0,0,1,1,211,31,0);
 INSERT INTO `item_weapon` VALUES (17629,'behem._knife_+1',2,0,0,0,0,1,1,201,32,0);
 INSERT INTO `item_weapon` VALUES (17630,'hawkers_knife',2,0,0,0,0,1,1,195,12,0);

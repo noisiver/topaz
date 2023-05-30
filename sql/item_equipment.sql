@@ -7393,7 +7393,7 @@ INSERT INTO `item_equipment` VALUES (17661,'storm_scimitar',70,0,34977,282,0,0,3
 INSERT INTO `item_equipment` VALUES (17662,'company_sword',70,0,2097345,281,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17663,'kilij_+1',55,0,32768,375,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17664,'firmament',77,0,2195665,277,0,0,3,0);
-INSERT INTO `item_equipment` VALUES (17665,'ifrits_blade',65,0,36257,255,0,0,3,0);
+INSERT INTO `item_equipment` VALUES (17665,'ifrits_blade',65,0,167329,255,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17666,'jr.msk._tuck_+1',43,0,2439161,184,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17667,'jr.msk._tuck_+2',43,0,2439161,184,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17668,'firmament_+1',77,0,2195665,277,0,0,3,0);
@@ -7446,7 +7446,7 @@ INSERT INTO `item_equipment` VALUES (17714,'macuahuitl_+1',65,0,2195665,381,0,0,
 INSERT INTO `item_equipment` VALUES (17715,'storm_tulwar',71,0,34977,257,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17716,'macuahuitl_-1',65,0,2195665,381,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17717,'immortals_scimitar',40,0,32768,282,0,0,3,0);
-INSERT INTO `item_equipment` VALUES (17718,'leech_scimitar',60,0,36257,256,0,0,3,0);
+INSERT INTO `item_equipment` VALUES (17718,'leech_scimitar',60,0,167329,256,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17719,'mensur_epee',73,0,336465,193,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17720,'company_fleuret',65,0,336465,191,0,0,3,0);
 INSERT INTO `item_equipment` VALUES (17721,'sanguine_sword',74,0,64,390,0,0,3,0);

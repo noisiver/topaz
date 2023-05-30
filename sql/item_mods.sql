@@ -21830,8 +21830,8 @@ INSERT INTO `item_mods` VALUES (17625,10,2);
 INSERT INTO `item_mods` VALUES (17625,59,8);
 INSERT INTO `item_mods` VALUES (17626,259,5);
 INSERT INTO `item_mods` VALUES (17626,289,10);
-INSERT INTO `item_mods` VALUES (17627,11,3);
-INSERT INTO `item_mods` VALUES (17627,23,7);
+INSERT INTO `item_mods` VALUES (17627,11,3);      -- Garudas Dagger: AGI+3
+INSERT INTO `item_mods` VALUES (17627,23,7);      -- Attack+7
 INSERT INTO `item_mods` VALUES (17627,431,1);
 INSERT INTO `item_mods` VALUES (17628,2,25);
 INSERT INTO `item_mods` VALUES (17628,23,8);
