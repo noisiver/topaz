@@ -4942,9 +4942,9 @@ INSERT INTO `item_basic` VALUES (5257,0,'blaze_feather','blaze_feather',1,58964,
 INSERT INTO `item_basic` VALUES (5258,0,'revive_feather','revive_feather',1,58964,0,0,1000);
 INSERT INTO `item_basic` VALUES (5259,0,'rebirth_feather','rebirth_feather',1,58964,0,0,223);
 INSERT INTO `item_basic` VALUES (5260,0,'regain_feather','regain_feather',1,58960,0,0,817);
-INSERT INTO `item_basic` VALUES (5261,0,'bottle_of_psychoanima','psychoanima',1,38404,63,1,0);
-INSERT INTO `item_basic` VALUES (5262,0,'bottle_of_hysteroanima','hysteroanima',1,38404,63,1,0);
-INSERT INTO `item_basic` VALUES (5263,0,'bottle_of_terroanima','terroanima',1,38404,63,1,0);
+INSERT INTO `item_basic` VALUES (5261,0,'bottle_of_psychoanima','psychoanima',99,5636,63,1,0);
+INSERT INTO `item_basic` VALUES (5262,0,'bottle_of_hysteroanima','hysteroanima',99,5636,63,1,0);
+INSERT INTO `item_basic` VALUES (5263,0,'bottle_of_terroanima','terroanima',99,5636,63,1,0);
 INSERT INTO `item_basic` VALUES (5264,0,'bottle_of_yellow_liquid','yellow_liquid',1,1540,33,0,1);
 INSERT INTO `item_basic` VALUES (5265,0,'mistmelt','mistmelt',1,1540,39,0,1940);
 INSERT INTO `item_basic` VALUES (5266,0,'blackened_muddy_siredon','blackened_siredon',1,5636,52,1,0);

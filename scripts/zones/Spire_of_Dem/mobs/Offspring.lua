@@ -17,7 +17,9 @@ function onMobSpawn(mob)
 	
 	if mommy ~= nil then battlefield = mommy:getBattlefield() end
 	if battlefield ~= nil then battlefield:insertEntity(mob,false,true,0) end
-    mob:setMobMod(tpz.mobMod.NO_DROPS, 0)
+    mob:setMobMod(tpz.mobMod.NO_DROPS, 1)
+    mob:setMobMod(tpz.mobMod.EXP_BONUS, -100)
+    mob:setMobMod(tpz.mobMod.GIL_MAX, -1)
 end
 
 function onMobEngaged(mob,target)
