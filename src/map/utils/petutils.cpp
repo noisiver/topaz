@@ -1287,6 +1287,12 @@ namespace petutils
             PPet->setModifier(Mod::EEM_DARK_SLEEP, petData->eemdarksleep);
             PPet->setModifier(Mod::EEM_BLIND, petData->eemblind);
 
+            uint8 spawnLevel = UINT8_MAX;
+            if (spawningFromZone)
+            {
+                spawnLevel = static_cast<uint8>(static_cast<CCharEntity*>(PMaster)->petZoningInfo.petLevel);
+            }
+
             // add traits for sub and main if a jug pet
             if (PPet->getPetType() != PETTYPE_AUTOMATON)
             {
@@ -1328,6 +1334,12 @@ namespace petutils
             if (PMaster->objtype == TYPE_PC)
             {
                 SetupPetWithMaster(PMaster, PPet);
+            }
+
+            // apply stats from previous zone if this pet is being transferred
+            if (spawningFromZone)
+            {
+                PPet->loadPetZoningInfo();
             }
         }
         else if (PMaster->objtype == TYPE_PC)
@@ -1418,6 +1430,7 @@ namespace petutils
 
     void DetachPet(CBattleEntity* PMaster)
     {
+        TPZ_DEBUG_BREAK_IF(PMaster == nullptr);
         TPZ_DEBUG_BREAK_IF(PMaster->PPet == nullptr);
         TPZ_DEBUG_BREAK_IF(PMaster->objtype != TYPE_PC);
 
@@ -1504,6 +1517,7 @@ namespace petutils
 
     void DespawnPet(CBattleEntity* PMaster)
     {
+        TPZ_DEBUG_BREAK_IF(PMaster == nullptr);
         TPZ_DEBUG_BREAK_IF(PMaster->PPet == nullptr);
 
         petutils::DetachPet(PMaster);
@@ -1845,10 +1859,9 @@ namespace petutils
         }
         else if (PPet->getPetType() == PETTYPE_JUG_PET)
         {
-            // TODO commented part
-            //uint8 spawnLevel = static_cast<CCharEntity*>(PMaster)->petZoningInfo.petLevel;
-            //PPet->setSpawnLevel(spawnLevel > 0 ? spawnLevel : UINT8_MAX);
-            //PPet->setJugDuration(static_cast<int32>(PPetData->time));
+            uint8 spawnLevel = static_cast<CCharEntity*>(PMaster)->petZoningInfo.petLevel;
+            PPet->setSpawnLevel(spawnLevel > 0 ? spawnLevel : UINT8_MAX);
+            PPet->setJugDuration(static_cast<int32>(PPetData->time));
             CalculateJugPetStats(PMaster, PPet);
         }
         else if (PPet->getPetType() == PETTYPE_WYVERN)
@@ -1865,6 +1878,7 @@ namespace petutils
         }
 
         FinalizePetStatistics(PMaster, PPet);
+        PPet->setSpawnLevel(PPet->GetMLevel());
         PPet->status = STATUS_NORMAL;
         PPet->m_ModelSize = PPetData->size;
         PPet->m_EcoSystem = PPetData->EcoSystem;

@@ -671,7 +671,7 @@ namespace charutils
         }
 
         fmtQuery = "SELECT nameflags, mjob, sjob, hp, mp, mhflag, title, bazaar_message, zoning, "
-            "pet_id, pet_type, pet_hp, pet_mp "
+            "pet_id, pet_type, pet_hp, pet_mp, pet_level  "
             "FROM char_stats WHERE charid = %u;";
 
         ret = Sql_Query(SqlHandle, fmtQuery, PChar->id);
@@ -707,7 +707,13 @@ namespace charutils
                 PChar->petZoningInfo.petID = Sql_GetUIntData(SqlHandle, 9);
                 PChar->petZoningInfo.petMP = Sql_GetIntData(SqlHandle, 12);
                 PChar->petZoningInfo.petType = (PETTYPE)Sql_GetUIntData(SqlHandle, 10);
+                PChar->petZoningInfo.petLevel = Sql_GetUIntData(SqlHandle, 13);
                 PChar->petZoningInfo.respawnPet = true;
+                PChar->petZoningInfo.jugSpawnTime = GetCharVar(PChar, "jug-pet-spawn-time");
+                PChar->petZoningInfo.jugDuration = GetCharVar(PChar, "jug-duration-seconds");
+
+                // clear the charvars used for jug state
+                PChar->clearCharVarsWithPrefix("jug-");
             }
         }
 
@@ -4551,7 +4557,7 @@ namespace charutils
     {
         const char* Query = "UPDATE char_stats "
             "SET hp = %u, mp = %u, nameflags = %u, mhflag = %u, mjob = %u, sjob = %u, "
-            "pet_id = %u, pet_type = %u, pet_hp = %u, pet_mp = %u "
+            "pet_id = %u, pet_type = %u, pet_hp = %u, pet_mp = %u, pet_level = %u "
             "WHERE charid = %u;";
 
         Sql_Query(SqlHandle,
@@ -4566,7 +4572,13 @@ namespace charutils
             PChar->petZoningInfo.petType,
             PChar->petZoningInfo.petHP,
             PChar->petZoningInfo.petMP,
+            PChar->petZoningInfo.petLevel,
             PChar->id);
+
+        // These two are jug only variables. We should probably move pet char stats into its own table, but in the meantime
+        // we use charvars for jug specific things
+        SetCharVar(PChar, "jug-pet-spawn-time", PChar->petZoningInfo.jugSpawnTime);
+        SetCharVar(PChar, "jug-duration-seconds", PChar->petZoningInfo.jugDuration);
     }
 
     /************************************************************************
@@ -5478,6 +5490,15 @@ namespace charutils
             SaveCharPosition(PChar);
         }
 
+        if (PChar->shouldPetPersistThroughZoning())
+        {
+            PChar->setPetZoningInfo();
+        }
+        else
+        {
+            PChar->resetPetZoningInfo();
+        }
+
         PChar->pushPacket(new CServerIPPacket(PChar, type, ipp));
     }
 
@@ -5604,6 +5625,16 @@ namespace charutils
         return false;
     }
 
+    int32 ClearCharVarsWithPrefix(CCharEntity* PChar, std::string const& prefix)
+    {
+        if (PChar == nullptr)
+        {
+            return 0;
+        }
+
+        PChar->clearCharVarsWithPrefix(prefix);
+        return 0;
+    }
 
     uint16 getWideScanRange(JOBTYPE job, uint8 level)
     {

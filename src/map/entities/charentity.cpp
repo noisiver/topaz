@@ -212,12 +212,8 @@ CCharEntity::CCharEntity()
     PRecastContainer = std::make_unique<CCharRecastContainer>(this);
     PLatentEffectContainer = new CLatentEffectContainer(this);
 
-    petZoningInfo.respawnPet = false;
+    resetPetZoningInfo();
     petZoningInfo.petID = 0;
-    petZoningInfo.petType = PETTYPE_AVATAR;			// dummy data, the bool tells us to respawn if required
-    petZoningInfo.petHP = 0;
-    petZoningInfo.petMP = 0;
-    petZoningInfo.petTP = 0;
 
     m_LastEngagedTargID = 0;
 
@@ -388,32 +384,74 @@ bool CCharEntity::isNewPlayer()
 
 void CCharEntity::setPetZoningInfo()
 {
-    if (PPet->objtype == TYPE_PET)
+    if (PPet == nullptr || PPet->objtype != TYPE_PET)
     {
-        switch (((CPetEntity*)PPet)->getPetType())
-        {
+        return;
+    }
+
+    auto PPetEntity = dynamic_cast<CPetEntity*>(PPet);
+    if (PPetEntity == nullptr)
+    {
+        return;
+    }
+
+    switch (PPetEntity->getPetType())
+    {
         case PETTYPE_JUG_PET:
+            petZoningInfo.jugSpawnTime = PPetEntity->getJugSpawnTime();
+            petZoningInfo.jugDuration  = PPetEntity->getJugDuration();
+            [[fallthrough]];
+        case PETTYPE_AVATAR:
         case PETTYPE_AUTOMATON:
         case PETTYPE_WYVERN:
-            petZoningInfo.petHP = PPet->health.hp;
-            petZoningInfo.petTP = PPet->health.tp;
-            petZoningInfo.petMP = PPet->health.mp;
-            petZoningInfo.petType = ((CPetEntity*)PPet)->getPetType();
+            petZoningInfo.petLevel = PPetEntity->getSpawnLevel();
+            petZoningInfo.petHP    = PPet->health.hp;
+            petZoningInfo.petTP    = PPet->health.tp;
+            petZoningInfo.petMP    = PPet->health.mp;
+            petZoningInfo.petType  = PPetEntity->getPetType();
             break;
         default:
             break;
-        }
     }
+
+    petZoningInfo.respawnPet = true;
 }
 
 void CCharEntity::resetPetZoningInfo()
 {
     // reset the petZoning info
+    petZoningInfo.petLevel = 0;
     petZoningInfo.petHP = 0;
     petZoningInfo.petTP = 0;
     petZoningInfo.petMP = 0;
     petZoningInfo.respawnPet = false;
     petZoningInfo.petType = PETTYPE_AVATAR;
+    petZoningInfo.jugSpawnTime = 0;
+    petZoningInfo.jugDuration = 0;
+}
+
+
+bool CCharEntity::shouldPetPersistThroughZoning()
+{
+    PETTYPE petType;
+    auto PPetEntity = dynamic_cast<CPetEntity*>(PPet);
+
+    if (PPetEntity == nullptr && !petZoningInfo.respawnPet)
+    {
+        return false;
+    }
+
+    if (PPetEntity != nullptr)
+    {
+        petType = PPetEntity->getPetType();
+    }
+    else // petZoningInfo.respawnPet == true
+    {
+        petType = petZoningInfo.petType;
+    }
+
+    return petType == PETTYPE_WYVERN || petType == PETTYPE_AVATAR || petType == PETTYPE_AUTOMATON ||
+           (petType == PETTYPE_JUG_PET);
 }
 /************************************************************************
 *																		*
@@ -2430,4 +2468,25 @@ bool CCharEntity::OnAttackError(CAttackState& state)
         return true;
     }
     return false;
+}
+
+void CCharEntity::clearCharVarsWithPrefix(std::string const& prefix)
+{
+    if (prefix.size() < 5)
+    {
+        ShowError("Prefix too short to clear with: '%s'", prefix);
+        return;
+    }
+
+    auto iter = charVarCache.begin();
+    while (iter != charVarCache.end())
+    {
+        if (iter->first.rfind(prefix, 0) == 0)
+        {
+            iter->second = 0;
+        }
+        ++iter;
+    }
+
+    Sql_Query(SqlHandle, "DELETE FROM char_vars WHERE charid = %u AND varname LIKE '%s%%';", this->id, prefix.c_str());
 }

@@ -350,23 +350,14 @@ void SmallPacket0x00C(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     PChar->loc.zone->SpawnTransport(PChar);
 
     // respawn any pets from last zone
-    if (PChar->petZoningInfo.respawnPet == true)
+    if (PChar->loc.zone->CanUseMisc(MISC_PET) && !PChar->m_moghouseID)
     {
-        // only repawn pet in valid zones
-        if (PChar->loc.zone->CanUseMisc(MISC_PET) && !PChar->m_moghouseID)
+        if (PChar->shouldPetPersistThroughZoning())
         {
-            switch (PChar->petZoningInfo.petType)
-            {
-            case PETTYPE_AUTOMATON:
-            case PETTYPE_JUG_PET:
-            case PETTYPE_WYVERN:
-                petutils::SpawnPet(PChar, PChar->petZoningInfo.petID, true);
-                break;
-
-            default:
-                break;
-            }
+            petutils::SpawnPet(PChar, PChar->petZoningInfo.petID, true);
         }
+
+        PChar->resetPetZoningInfo();
     }
     // reset the petZoning info
     PChar->resetPetZoningInfo();
@@ -435,9 +426,13 @@ void SmallPacket0x00D(map_session_data_t* session, CCharEntity* PChar, CBasicPac
             }
         }
 
-        if (PChar->PPet != nullptr)
+        if (PChar->shouldPetPersistThroughZoning())
         {
             PChar->setPetZoningInfo();
+        }
+        else
+        {
+            PChar->resetPetZoningInfo();
         }
 
         session->shuttingDown = 1;
@@ -3163,13 +3158,6 @@ void SmallPacket0x05D(map_session_data_t* session, CCharEntity* PChar, CBasicPac
 void SmallPacket0x05E(map_session_data_t* session, CCharEntity* PChar, CBasicPacket data)
 {
     TracyZoneScoped;
-
-    // handle pets on zone
-    if (PChar->PPet != nullptr)
-    {
-        PChar->setPetZoningInfo();
-        petutils::DespawnPet(PChar);
-    }
 
     uint32 zoneLineID = data.ref<uint32>(0x04);
     uint8  town = data.ref<uint8>(0x16);

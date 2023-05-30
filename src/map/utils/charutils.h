@@ -208,6 +208,7 @@ namespace charutils
     int32   GetCharVar(CCharEntity* PChar, const char* var);
     bool AddCharVar(CCharEntity* PChar, const char* var, int32 increment);
     bool SetCharVar(CCharEntity* PChar, const char* var, int32 value);
+    int32 ClearCharVarsWithPrefix(CCharEntity* PChar, std::string const& prefix);
 
 
     uint16 getWideScanRange(JOBTYPE job, uint8 level);

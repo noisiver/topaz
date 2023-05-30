@@ -45,5 +45,6 @@ CREATE TABLE IF NOT EXISTS `char_stats` (
   `pet_type` smallint(3) unsigned NOT NULL DEFAULT '0',
   `pet_hp` smallint(4) unsigned NOT NULL DEFAULT '0',
   `pet_mp` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `pet_level` smallint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`charid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

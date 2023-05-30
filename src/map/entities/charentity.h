@@ -119,12 +119,15 @@ struct Teleport_t
 
 struct PetInfo_t
 {
-    bool		respawnPet;		// used for spawning pet on zone
-    uint8		petID;			// id as in wyvern(48) , carbuncle(8) ect..
-    PETTYPE		petType;		// type of pet being transfered
-    int16		petHP;			// pets hp
-    int16       petMP;
-    float		petTP;			// pets tp
+    bool respawnPet;    // used for spawning pet on zone
+    int32 jugSpawnTime; // Keeps track of original spawn time in seconds since epoch
+    int32 jugDuration;  // Number of seconds a jug pet should last after its original spawn time
+    uint8 petID;        // id as in wyvern(48) , carbuncle(8) ect..
+    PETTYPE petType;    // type of pet being transfered
+    uint8 petLevel;     // level the pet was spawned with
+    int16 petHP;        // pets hp
+    int16 petMP;        // pets mp
+    float petTP;        // pets tp
 };
 
 struct AuctionHistory_t
@@ -234,6 +237,7 @@ public:
     PetInfo_t				petZoningInfo;					// used to repawn dragoons pets ect on zone
     void					setPetZoningInfo();				// set pet zoning info (when zoning and logging out)
     void					resetPetZoningInfo();			// reset pet zoning info (when changing job ect)
+    bool                    shouldPetPersistThroughZoning();// if true, zoning should not cause a currently active pet
     uint8					m_SetBlueSpells[20];			// The 0x200 offsetted blue magic spell IDs which the user has set. (1 byte per spell)
 
     UnlockedAttachments_t	m_unlockedAttachments;			// Unlocked Automaton Attachments (1 bit per attachment)
@@ -454,6 +458,7 @@ public:
     virtual void OnDeathTimer() override;
     virtual void OnRaise() override;
     virtual void OnItemFinish(CItemState&, action_t&);
+    void clearCharVarsWithPrefix(std::string const& prefix);
 
     CCharEntity();									// constructor
     ~CCharEntity();									// destructor
