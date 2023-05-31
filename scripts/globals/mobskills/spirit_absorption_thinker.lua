@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Trinary Absorption
+-- Spirit Absorption (Thinkers)
 -- Absorbs HP.
 -- Type: Magical
 -- Utsusemi/Blink absorb: 1 Shadows
@@ -15,7 +15,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = math.floor(mob:getMainLvl() * 5)
+    local dmgmod = math.floor(mob:getMainLvl() * 2)
     local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.DARK, MOBPARAM_1_SHADOW)
     skill:setMsg(MobDrainMove(mob, target, MOBDRAIN_HP, dmg, tpz.attackType.MAGICAL, tpz.damageType.DARK))
 

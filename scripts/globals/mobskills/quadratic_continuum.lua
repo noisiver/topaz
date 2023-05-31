@@ -1,3 +1,9 @@
+---------------------------------------------------
+-- Quadratic Continuum
+-- Delivers a fourfold attack. Damage varies with TP.
+-- -20% Attack penalty
+-- 100% TP: ??? / 200% TP: ??? / 300% TP: ???
+---------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
@@ -8,7 +14,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local numhits = 3
+    local numhits = 4
     local accmod = 1
     local dmgmod = 1
     local params_phys = {}
@@ -22,6 +28,7 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.int_wsc = 0.0
     params_phys.mnd_wsc = 0.0
     params_phys.chr_wsc = 0.0
+    params_phys.attack_boost = 0.80
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING, info.hitslanded)
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.SLASHING)

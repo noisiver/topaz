@@ -49,18 +49,18 @@ g_mixins.families.empty = function(mob)
         local dropRate = GetDropRate(mob)
 
         printf("Drop Rate: %s", dropRate)
-        if element == 1  then
+        if element == 8  then
 		if math.random(1,100) <= dropRate then 
             killer:addTreasure(1613, mob) -- Malevolent Memory (darkness skillchain)
 		end
-        elseif element == 2 then
+        elseif element == 6 then
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1611, mob) -- Somber Memory (water)
 			end
             if math.random(1,100) <= dropRate then
                 killer:addTreasure(1613) -- Malevolent Memory (darkness skillchain)
             end
-        elseif element == 3 then
+        elseif element == 5 then
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1610, mob) -- Startling Memory (lightning)
 			end
@@ -74,25 +74,25 @@ g_mixins.families.empty = function(mob)
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1613, mob) -- Malevolent Memory (darkness skillchain)
 			end
-        elseif element == 5 then
+        elseif element == 7 then
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
 			end
-        elseif element == 6  then
+        elseif element == 1  then
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1606, mob) -- Burning Memory (fire)
 			end
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1612, mob) -- Radiant Memory (light skillchain)
 			end
-        elseif element == 7 then
+        elseif element == 2 then
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1607, mob) -- Bitter Memory (ice)
 			end
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1613, mob) -- Malevolent Memory (darkness skillchain)
 			end
-        elseif element == 8 then
+        elseif element == 3 then
 			if math.random(1,100) <= dropRate then 
 				killer:addTreasure(1608, mob) -- Fleeting Memory (wind)
 			end

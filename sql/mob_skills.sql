@@ -1188,7 +1188,7 @@ INSERT INTO `mob_skills` VALUES (1242,933,'empty_cutter',0,7.0,2000,1500,4,0,0,0
 INSERT INTO `mob_skills` VALUES (1243,934,'negative_whirl',1,10.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1244,935,'stygian_vapor',1,8.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1245,936,'winds_of_promyvion',0,7.0,2000,1500,1,0,0,0,0,0,0);
-INSERT INTO `mob_skills` VALUES (1246,937,'spirit_absorption',0,7.0,2000,1500,4,0,0,0,0,0,0);
+INSERT INTO `mob_skills` VALUES (1246,937,'spirit_absorption_thinker',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1247,938,'binary_absorption',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1248,939,'trinary_absorption',0,7.0,2000,1500,4,0,0,0,0,0,0);
 INSERT INTO `mob_skills` VALUES (1249,940,'spirit_tap',0,7.0,2000,1500,4,0,0,0,0,0,0);
