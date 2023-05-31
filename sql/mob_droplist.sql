@@ -7931,12 +7931,16 @@ INSERT INTO `mob_droplist` VALUES (1492,1,1,150,2220,500); -- Lamian Bone Key
 INSERT INTO `mob_droplist` VALUES (1493,4,0,1000,2159,0);
 INSERT INTO `mob_droplist` VALUES (1493,0,0,1000,2159,240);
 INSERT INTO `mob_droplist` VALUES (1493,0,0,1000,2165,50);
-INSERT INTO `mob_droplist` VALUES (1494,0,0,1000,940,10);
+INSERT INTO `mob_droplist` VALUES (1494,0,0,1000,1869,240);   -- Lamia_Necromancer
+INSERT INTO `mob_droplist` VALUES (1494,0,0,1000,2219,150);   -- Lamian fang key
 INSERT INTO `mob_droplist` VALUES (1494,0,0,1000,1869,240);
-INSERT INTO `mob_droplist` VALUES (1494,0,0,1000,2219,150); -- Lamian fang key
-INSERT INTO `mob_droplist` VALUES (1495,0,0,1000,1869,240);
+INSERT INTO `mob_droplist` VALUES (1494,0,0,100,4863,500); -- Scroll of Break
+INSERT INTO `mob_droplist` VALUES (1494,0,0,100,4889,500); -- Scroll of Breakga
+INSERT INTO `mob_droplist` VALUES (1495,0,0,1000,1869,240);   -- Lamie Necromancer
 INSERT INTO `mob_droplist` VALUES (1495,0,0,1000,2167,50);
 INSERT INTO `mob_droplist` VALUES (1495,0,0,1000,18688,100); -- Lamian Kaman -1
+INSERT INTO `mob_droplist` VALUES (1495,0,0,100,4863,500); -- Scroll of Break
+INSERT INTO `mob_droplist` VALUES (1495,0,0,100,4889,500); -- Scroll of Breakga
 INSERT INTO `mob_droplist` VALUES (1496,0,0,1000,15851,50); -- Kusha's Ring
 INSERT INTO `mob_droplist` VALUES (1497,0,0,1000,19044,240);
 INSERT INTO `mob_droplist` VALUES (1498,2,0,1000,864,0);
