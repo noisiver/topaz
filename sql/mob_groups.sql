@@ -2979,19 +2979,19 @@ INSERT INTO `mob_groups` VALUES (2060,3581,61,'Shailham',0,128,0,0,0,0,0,0);
 -- Halvung (Zone 62)
 -- ------------------------------------------------------------
 
-INSERT INTO `mob_groups` VALUES (1,3257,62,'Qiqirn_Mercenary',600,0,2051,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (2,3249,62,'Qiqirn_Diamantaire',600,0,2051,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (1,3257,62,'Qiqirn_Mercenary',600,0,2051,0,0,73,75,0);
+INSERT INTO `mob_groups` VALUES (2,3249,62,'Qiqirn_Diamantaire',600,0,2051,0,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (3,3258,62,'Qiqirn_Mine',0,128,0,0,0,76,78,0);
 INSERT INTO `mob_groups` VALUES (4,4244,62,'Volcanic_Bats',600,0,401,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (5,6471,62,'Purgatory_Bat',600,0,401,0,0,74,76,0);
-INSERT INTO `mob_groups` VALUES (6,4017,62,'Troll_Gemologist',600,0,2478,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (7,4032,62,'Troll_Stoneworker',600,0,2485,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (8,4022,62,'Troll_Lapidarist',600,0,2482,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (9,4030,62,'Troll_Smelter',600,0,2485,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (10,4015,62,'Troll_Engraver',600,0,2477,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (11,4035,62,'Trolls_Automaton',600,0,9055,0,0,76,78,0);
-INSERT INTO `mob_groups` VALUES (12,4010,62,'Troll_Cameist',600,0,2474,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (13,4021,62,'Troll_Ironworker',600,0,2480,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (6,4017,62,'Troll_Gemologist',600,0,2478,0,0,73,75,0);
+INSERT INTO `mob_groups` VALUES (7,4032,62,'Troll_Stoneworker',600,0,2485,0,0,73,75,0);
+INSERT INTO `mob_groups` VALUES (8,4022,62,'Troll_Lapidarist',600,0,2482,0,0,73,75,0);
+INSERT INTO `mob_groups` VALUES (9,4030,62,'Troll_Smelter',600,0,2485,0,0,73,75,0);
+INSERT INTO `mob_groups` VALUES (10,4015,62,'Troll_Engraver',600,0,2477,0,0,73,75,0);
+INSERT INTO `mob_groups` VALUES (11,4035,62,'Trolls_Automaton',600,0,9055,0,0,71,71,0);
+INSERT INTO `mob_groups` VALUES (12,4010,62,'Troll_Cameist',600,0,2474,0,0,73,75,0);
+INSERT INTO `mob_groups` VALUES (13,4021,62,'Troll_Ironworker',600,0,2480,0,0,73,75,0);
 INSERT INTO `mob_groups` VALUES (14,1160,62,'Earth_Elemental',600,4,0,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (15,437,62,'Black_Pudding',600,0,0,0,0,74,76,0);
 INSERT INTO `mob_groups` VALUES (16,4281,62,'Wamouracampa',600,0,2609,0,0,81,83,0);
@@ -3004,13 +3004,13 @@ INSERT INTO `mob_groups` VALUES (22,5210,62,'Flammeri',7200,0,6026,35000,5000,88
 INSERT INTO `mob_groups` VALUES (23,4280,62,'Wamoura',0,128,2608,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (25,4009,62,'Troll_Artilleryman',600,0,2473,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (26,4012,62,'Troll_Combatant',600,0,2475,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (27,4036,62,'Troll_Targeteer',600,0,2487,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (27,4036,62,'Troll_Targeteer',600,0,2487,0,0,81,83,0); -- PLD
 INSERT INTO `mob_groups` VALUES (28,1170,62,'Ebony_Pudding',720,0,740,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (29,416,62,'Big_Bomb',0,128,277,30000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (30,4023,62,'Troll_Machinist',600,0,2484,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (31,4028,62,'Troll_Scrimer',600,0,2482,0,0,81,83,0);
 INSERT INTO `mob_groups` VALUES (32,4018,62,'Troll_Grenadier',600,0,2479,0,0,81,83,0);
-INSERT INTO `mob_groups` VALUES (33,4013,62,'Troll_Cuirasser',600,0,2476,0,0,81,83,0);
+INSERT INTO `mob_groups` VALUES (33,4013,62,'Troll_Cuirasser',600,0,2476,0,0,81,83,0); -- DRK
 INSERT INTO `mob_groups` VALUES (34,163,62,'Antares',600,0,6030,0,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (35,2794,62,'Mythril_Mouth_Monamaq',14400,0,1766,60000,0,85,87,0);
 INSERT INTO `mob_groups` VALUES (36,4024,62,'Troll_Mythril_Guard',14400,0,0,0,0,76,77,0);
