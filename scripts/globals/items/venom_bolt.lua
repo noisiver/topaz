@@ -9,7 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = 100
+    local chance = 95
     local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.POISON, tpz.magic.ele.WATER, 0)
     local duration = math.floor(60 * resist)
 
