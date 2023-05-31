@@ -24,7 +24,7 @@ function onSpellCast(caster, target, spell)
     params.diff = caster:getStat(tpz.mod.INT) - target:getStat(tpz.mod.INT)
     params.attribute = tpz.mod.INT
     params.skillType = tpz.skill.ENFEEBLING_MAGIC
-    params.bonus = 0
+    params.bonus = 10
 
     -- Calculate raw damage
     local dmg = calculateMagicDamage(caster, target, spell, params)
