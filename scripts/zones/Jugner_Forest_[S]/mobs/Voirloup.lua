@@ -1,6 +1,7 @@
 ------------------------------
 -- Area: Jugner Forest [S]
 --   NM: Voirloup
+-- Lyft NM
 ------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")

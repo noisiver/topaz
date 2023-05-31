@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Beaucedine Glacier [S]
 --   NM: Grand'Goule
+-- Lyft NM
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")

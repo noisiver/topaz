@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Xarcabard [S]
 --   NM: Graoully
+-- Lyft NM
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/mobs")

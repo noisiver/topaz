@@ -1,6 +1,7 @@
 -----------------------------------
 -- Area: Alzadaal Undersea Ruins (72)
 --   NM: Cookieduster Lipiroon
+-- Lyft NM
 -----------------------------------
 require("scripts/globals/hunts")
 require("scripts/globals/status")
