@@ -476,7 +476,7 @@ int32 doSynthSkillUp(CCharEntity* PChar)
                     else if (baseDiff >= 10)
                         satier = 3; // 30%
 
-                    for(uint8 i = 0; i < 4; i ++) // cicle up to 4 times until cap (0.5) or break. The lower the satier, the more likely it will break
+                    for(uint8 i = 0; i < 2; i ++) // cicle up to 2 times until cap (0.3) or break. The lower the satier, the more likely it will break
                     {
                         #ifdef _TPZ_SYNTH_DEBUG_MESSAGES_
                         ShowDebug(CL_CYAN"SkillUpAmount Tier: %i  Random: %g\n" CL_RESET, satier, random);
@@ -504,9 +504,9 @@ int32 doSynthSkillUp(CCharEntity* PChar)
                 if (map_config.craft_amount_multiplier > 1)
                 {
                     skillUpAmount += (int32)(skillUpAmount * map_config.craft_amount_multiplier);
-                    if (skillUpAmount > 3)
+                    if (skillUpAmount > 9)
                     {
-                        skillUpAmount = 3;
+                        skillUpAmount = 9;
                     }
                 }
 
