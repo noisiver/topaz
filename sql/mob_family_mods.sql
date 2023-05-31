@@ -1123,7 +1123,12 @@ INSERT INTO `mob_family_mods` VALUES (171,59,10,1); -- Lamia +10 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (182,59,10,1); -- Merrow +10 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (176,59,20,1); -- Mamool Ja +20 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (177,59,20,1); -- Mamool Ja +20 Weapon dmg
-
+INSERT INTO `mob_family_mods` VALUES (128,59,20,1); -- WoTG Gigas +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (942,59,15,1); -- WoTG Quadav +15 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (943,59,10,1); -- WoTG Yagudo +10 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (944,59,20,1); -- WoTG Orc +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (945,59,20,1); -- WoTG Orc War Machine +20 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (946,59,15,1); -- WoTG Goblin +15 Weapon dmg
 
 /*!40000 ALTER TABLE `mob_family_mods` ENABLE KEYS */;
 UNLOCK TABLES;
