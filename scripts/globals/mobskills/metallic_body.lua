@@ -17,7 +17,9 @@ function onMobWeaponSkill(target, mob, skill)
     local power = 25 
 
     if (mob:isNM()) then
-        power = (25 + (mob:getMainLvl() / 1)) * 2
+        power = math.floor((25 + (mob:getMainLvl() / 1)) * 2)
+    elseif mob:isPet() then
+        power = math.floor(mob:getMaxHP() * 0.10)
     end
 
     skill:setMsg(MobBuffMove(mob, tpz.effect.STONESKIN, power, 0, 300))
