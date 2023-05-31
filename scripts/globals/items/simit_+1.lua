@@ -27,10 +27,12 @@ function onEffectGain(target, effect)
     target:addMod(tpz.mod.HP, 18)
     target:addMod(tpz.mod.VIT, 4)
     target:addMod(tpz.mod.DEF, 2)
+    target:addMod(tpz.mod.ENMITY, 4)
 end
 
 function onEffectLose(target, effect)
     target:delMod(tpz.mod.HP, 18)
     target:delMod(tpz.mod.VIT, 4)
     target:delMod(tpz.mod.DEF, 2)
+    target:delMod(tpz.mod.ENMITY, 4)
 end
