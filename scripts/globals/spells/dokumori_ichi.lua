@@ -23,7 +23,7 @@ function onSpellCast(caster, target, spell)
     params.effect = tpz.effect.POISON
     local resist = applyResistanceEffect(caster, target, spell, params)
     --local power = 3
-    --local power = (player:getmainlevel() * 0.5) + (caster:getStat(tpz.mod.INT) * 0.3) + 10
+    --local power = (player:getMainLvl() * 0.5) + (caster:getStat(tpz.mod.INT) * 0.3) + 10
     local power = 5
 
     TryApplyEffect(caster, target, spell, params.effect, power, 3, duration, resist, 0.5)
