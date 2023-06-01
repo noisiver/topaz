@@ -15,5 +15,5 @@ end
 function onItemUse(target)
 	local tp = (1000 * (100 + target:getMod(tpz.mod.STORETP))) / 100
     target:addTP(tp)
-    target:messageBasic(tpz.msg.basic.TP_INCREASE, tpz.items.PAIR_OF_LUCID_WINGS_II, player:getTP())
+    target:messageBasic(tpz.msg.basic.TP_INCREASE, tpz.items.PAIR_OF_LUCID_WINGS_II, target:getTP())
 end
