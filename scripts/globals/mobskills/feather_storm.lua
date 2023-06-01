@@ -35,7 +35,7 @@ function onMobWeaponSkill(target, mob, skill)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.RANGED, tpz.damageType.RANGED, info.hitslanded)
 
     local distance = mob:checkDistance(target)
-    distance = utils.clamp(distance, 0, 20)
+    distance = utils.clamp(distance, 1, 20)
     -- damage Scales from 1~3x from 1" ~ 10".
     dmg = dmg * (distance / 10)
 
