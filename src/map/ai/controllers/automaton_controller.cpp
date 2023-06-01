@@ -243,6 +243,11 @@ bool CAutomatonController::TryAction()
 bool CAutomatonController::TryShieldBash()
 {
     CState* PState = PTarget->PAI->GetCurrentState();
+    // Only usable by Valoredge https://www.bg-wiki.com/ffxi/Automaton
+    if (PAutomaton->getFrame() != FRAME_VALOREDGE)
+    {
+        return false;
+    }
     if (m_shieldbashCooldown > 0s && PState && PState->CanInterrupt() &&
         m_Tick > m_LastShieldBashTime + (m_shieldbashCooldown - std::chrono::seconds(PAutomaton->getMod(Mod::AUTO_SHIELD_BASH_DELAY))))
     {
