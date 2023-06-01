@@ -8,9 +8,9 @@ require("scripts/globals/msg");
 -----------------------------------
 
 function onMobSpawn(mob)
+    mob:setDamage(80)
+	mob:addMod(tpz.mod.ATTP, 30)
 	mob:addMod(tpz.mod.DEFP, 20) 
-	mob:addMod(tpz.mod.ATTP, 25)
-	mob:addMod(tpz.mod.MAIN_DMG_RATING, 25)
 	mob:addMod(tpz.mod.ACC, 15) 
 	mob:addMod(tpz.mod.EVA, 15)
 	mob:setMod(tpz.mod.MDEF, 28) 
@@ -50,10 +50,16 @@ function onMobWeaponSkillPrepare(mob, target)
 end
 
 function onMobFight(mob, target)
+
+    -- +100% Attack bonus below 30% HP
+    if mob:getHPP() < 30 then
+        mob:setMod(tpz.mod.ATTP, 100)
+    end
+
+    -- Spams TP moves < 20% HP
     if mob:getHPP() < 20 then
         mob:setMod(tpz.mod.REGAIN, 500)
     end
-
 
     if mob:getLocalVar("nuclearWaste") == 1 then
         local ability = math.random(1262,1267)

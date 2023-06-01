@@ -5,6 +5,7 @@ ABILITY_USE - Entity, Target, Ability, action
 ABILITY_STATE_EXIT - Entity, Ability
 
 WEAPONSKILL_START - Entity, Skillid 
+WEAPONSKILL_STATE_ENTER - Entity, skill ID (Works for mobs)
 WEAPONSKILL_USE - Entity, Target, Skillid, TP, action (Also works for mobs)
 WEAPONSKILL_TAKE - Target, Entity, Skillid, TP, action (Also works for mobs)
 WEAPONSKILL_STATE_EXIT - Entity, Skillid  (Also works for mobs)

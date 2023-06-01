@@ -1,9 +1,10 @@
 ---------------------------------------------------
 --  Antimatter
 --
---  Description:  Single-target ranged Light damage (~700-1500), ignores Utsusemi.
+--  Description:  Single-target ranged Light damage ignores Utsusemi.
 --  Type: Magical
---
+--  Element: Light 
+--  Notes: Deals 750 damage
 ---------------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -36,10 +37,8 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-    local dmgmod = 9
-    local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.LIGHT, dmgmod, TP_MAB_BONUS, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
-
+    local dmgmod = 750
+    local dmg = MobFinalAdjustments(dmgmod, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.LIGHT, MOBPARAM_IGNORE_SHADOWS)
     target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.LIGHT)
     return dmg
 end

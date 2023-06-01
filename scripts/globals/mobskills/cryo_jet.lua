@@ -1,7 +1,7 @@
 ---------------------------------------------------
 --  Cryo_Jet
 --  Description:
---  Type: Magical
+--  Type: BREATH
 --  additional effect : Paralyze
 ---------------------------------------------------
 require("scripts/globals/settings")
@@ -31,9 +31,9 @@ function onMobWeaponSkill(target, mob, skill)
 
     local dmgmod = 2.0
     local info = MobMagicalMove(mob, target, skill, mob:getWeaponDmg()*3, tpz.magic.ele.ICE, dmgmod, TP_MAB_BONUS, 1)
-    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.MAGICAL, tpz.damageType.ICE, MOBPARAM_IGNORE_SHADOWS)
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.BREATH, tpz.damageType.ICE, MOBPARAM_IGNORE_SHADOWS)
 
-    target:takeDamage(dmg, mob, tpz.attackType.MAGICAL, tpz.damageType.ICE)
+    target:takeDamage(dmg, mob, tpz.attackType.BREATH, tpz.damageType.ICE)
     MobStatusEffectMove(mob, target, typeEffect, 25, 0, 300)
     if target:hasStatusEffect(tpz.effect.ELEMENTALRES_DOWN) then
         target:delStatusEffectSilent(tpz.effect.ELEMENTALRES_DOWN)

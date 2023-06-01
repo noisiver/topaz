@@ -1669,7 +1669,7 @@ end
 function GetMobFamily(target)
     if (target:getFamily() == 246) or (target:getFamily() == 308) or (target:getFamily() == 923) then
         return 'Troll'
-    elseif (target:getFamily() == 176) or (target:getFamily() == 305) then
+    elseif (target:getFamily() == 176) or (target:getFamily() == 305) or (target:getFamily() == 591) then
         return 'Mamool'
     elseif (target:getFamily() == 171)  then
         return 'Lamiae'

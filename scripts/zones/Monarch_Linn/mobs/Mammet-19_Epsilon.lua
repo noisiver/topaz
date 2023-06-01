@@ -32,30 +32,35 @@ function onMobFight(mob, target)
     end
 
 end
-
+																								
 function changeForm(mob)
     local newform = math.random(0, 2)
     if (mob:AnimationSub() == newform) then
         newform = 3
     end
-    -- setDamage works beautifully, but setDelay doesn't seem to be working.  Increased DMG turned off.
+    -- Mammets: Staff gets + 35 MAB,  Delay: Unarmed 130 / Sword 115 / Spear 320 / Staff 240
+    -- Mammets: level 80 base damage  Unarmed 90 / Sword 120 / Spear 240 / Staff 60		
     if (newform == 0) then -- Hand Form, ~3s delay
         mob:SetMagicCastingEnabled(false)
-		mob:setMod(tpz.mod.HASTE_MAGIC, 2000)
-        mob:setDamage(40)
+        mob:setDamage(math.floor(mob:getMainLvl() *1.10)) 
+        mob:setDelay(1300)
+        mob:setMod(tpz.mod.MATT, 0) 
     elseif (newform == 1) then -- Sword Form, ~2s delay, melee hits for ~50-100 vs WHM/BLM w/o buffs, 40 DMG seems to work.
         mob:SetMagicCastingEnabled(false)
-        mob:setDamage(40)
-		mob:setMod(tpz.mod.HASTE_MAGIC, 3000)
+        mob:setDamage(math.floor(mob:getMainLvl() *1.47)) 
+		mob:setDelay(1150)
+        mob:setMod(tpz.mod.MATT, 0) 
     elseif (newform == 2) then -- Polearm Form, ~3-3.5s delay, melee hits for ~100-150.  Takes about 70-80 DMG to make this happen.
         mob:SetMagicCastingEnabled(false)
-        mob:setDamage(75)
-		mob:setMod(tpz.mod.HASTE_MAGIC, 1500)
+        mob:setDamage(math.floor(mob:getMainLvl() *2.69)) 
+		mob:setDelay(3200)
+        mob:setMod(tpz.mod.MATT, 0) 
     elseif (newform == 3) then -- Staff Form, ~4s delay, ~10 seconds between spell ends and next cast
         mob:setMobMod(tpz.mobMod.MAGIC_COOL, 10)
         mob:SetMagicCastingEnabled(true)
-        mob:setDamage(40)
-		mob:setMod(tpz.mod.HASTE_MAGIC, 0)
+        mob:setDamage(math.floor(mob:getMainLvl() *0.74))
+		mob:setDelay(2400)
+        mob:setMod(tpz.mod.MATT, 35) 
     end
     mob:AnimationSub(newform)
     mob:setLocalVar('changeTime', mob:getBattleTime())

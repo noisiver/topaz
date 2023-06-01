@@ -15,6 +15,12 @@ g_mixins.families.dahak = function(mob)
 		end
     end)
 
+    mob:addListener("WEAPONSKILL_STATE_ENTER", "DAHAK_WS_STATE", function(mob, skillID)
+        if (skillID ~= 1792) then -- Nullsong
+            mob:setLocalVar("amountOfEffects", 0)
+        end
+    end)
+
     mob:addListener("MAGIC_HIT", "DAHAK_MAGIC_HIT", function(caster, mob, spell)
         local fireEle = 1
         local waterEle = 6

@@ -28,6 +28,9 @@ g_mixins.weapon_break = function(mob)
             -- break weapon
             if animationSub == 0 or animationSub > 1 then
                 mob:AnimationSub(1)
+                if (mob:getFamily() == 176) or (mob:getFamily() == 305) or (mob:getFamily() == 591) then
+                    mob:setMobMod(tpz.mobMod.WEAPON_BONUS, 0)
+                end
                 -- Gotoh Zha the Redolent throws his staff when it breaks
                 if mob:getPool() == 1773 then
                     mob:useMobAbility(2361) -- Stave Toss

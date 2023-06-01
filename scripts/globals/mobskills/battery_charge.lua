@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
         typeEffectTwo:unsetFlag(tpz.effectFlag.DISPELABLE)
         return typeEffect
     end
-    local tp = mob:getLocalVar("tp")
+    local tp = mob:getLocalVar("tp" + 66)
     mob:addMP(tp)
 
     skill:setMsg(tpz.msg.basic.SKILL_RECOVERS_MP)
