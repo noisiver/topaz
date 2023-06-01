@@ -1492,6 +1492,7 @@ namespace petutils
                 auto state = dynamic_cast<CAbilityState*>(PMaster->PAI->GetCurrentState());
                 if ((state && state->GetAbility()->getID() == ABILITY_LEAVE) || PChar->loc.zoning || PChar->isDead())
                 {
+                    PMob->StatusEffectContainer->DelStatusEffect(EFFECT_HEALING); // Incase the pet was stayed before the BST used leave
                     PMob->PEnmityContainer->Clear();
                     PMob->m_OwnerID.clean();
                     PMob->updatemask |= UPDATE_STATUS;

@@ -177,6 +177,12 @@ void CMobController::TryLink()
         return;
     }
 
+    // Mobs shouldn't link to charmed pets
+    if (PTarget->objtype == TYPE_MOB && PTarget->isCharmed && this->PTarget->PMaster != nullptr && !PTarget->PMaster->PAI->IsEngaged())
+    {
+        return;
+    }
+
     // Handle monster linking if they are close enough
     if (PMob->PParty != nullptr)
     {
