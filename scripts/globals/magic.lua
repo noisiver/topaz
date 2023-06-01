@@ -2099,6 +2099,11 @@ function getDstatBonus(softcap, diff)
 end
 
 function GetCharmHitRate(player, target)
+    -- Immune to charm
+    if target:getMobMod(tpz.mobMod.CHARMABLE) == 0 then
+        return 0
+    end
+
     -- formula is 50% - family reduct - dLvl (3/lvl until 50, 5/lvl 51+, 10/lvl at some level)) * charm multiplier + dCHR + Light Staff bonus (10/15)
     -- dLVL can never go above 0, and dCHR goes below 0
     local chance = 50

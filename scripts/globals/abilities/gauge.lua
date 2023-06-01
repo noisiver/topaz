@@ -33,5 +33,4 @@ function onUseAbility(player, target, ability)
     else
         ability:setMsg(tpz.msg.basic.CANNOT_CHARM)          -- The <player> cannot charm <target>!
     end
-
 end
