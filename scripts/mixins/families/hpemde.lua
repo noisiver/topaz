@@ -27,7 +27,7 @@ local function surface(mob)
 end
 
 local function openMouth(mob)
-    mob:addMod(tpz.mod.ATTP, 100)
+    mob:setDamage(math.floor(mob:getWeaponDmg() * 2)) -- Weapon damage * 2
     mob:addMod(tpz.mod.UDMGPHYS, 100)
     mob:addMod(tpz.mod.UDMGBREATH, 100)
     mob:addMod(tpz.mod.UDMGMAGIC, 100)
@@ -38,12 +38,11 @@ local function openMouth(mob)
 end
 
 local function closeMouth(mob)
-    mob:delMod(tpz.mod.ATTP, 100)
+    mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
     mob:delMod(tpz.mod.UDMGPHYS, 100)
     mob:delMod(tpz.mod.UDMGBREATH, 100)
     mob:delMod(tpz.mod.UDMGMAGIC, 100)
     mob:delMod(tpz.mod.UDMGRANGE, 100)
-    mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
     mob:AnimationSub(6)
     mob:wait(2000)
 end
@@ -72,6 +71,15 @@ g_mixins.families.hpemde = function(mob)
         target:setLocalVar("[hpemde]disengageTime",  target:getBattleTime() + 45)
     end)
 
+    mob:addListener("TAKE_DAMAGE", "HPEMDE_TAKE_DAMAGE", function(mob, damage, attacker, attackType, damageType)
+        local damageTaken = mob:getLocalVar("damageTaken")
+        local animationSub = mob:AnimationSub()
+        mob:setLocalVar("damageTaken", mob:getLocalVar("damageTaken") + damage)
+        if (animationSub == 3) and (damageTaken >= 250) then  -- Closes mouth after taking >= 250 damage
+            closeMouth(mob)
+        end
+    end)
+
     mob:addListener("COMBAT_TICK", "HPEMDE_CTICK", function(mob)
         if mob:getLocalVar("[hpemde]damaged") == 0 then
             local disengageTime = mob:getLocalVar("[hpemde]disengageTime")
@@ -80,7 +88,7 @@ g_mixins.families.hpemde = function(mob)
                 mob:SetAutoAttackEnabled(true)
                 mob:SetMobAbilityEnabled(true)
                 mob:setLocalVar("[hpemde]damaged", 1)
-                mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + math.random(10,30))
+                mob:setLocalVar("[hpemde]changeTime", mob:getBattleTime() + 30)
             elseif disengageTime > 0 and mob:getBattleTime() > disengageTime then
                 mob:setLocalVar("[hpemde]disengageTime",  0)
                 mob:disengage()
@@ -88,8 +96,6 @@ g_mixins.families.hpemde = function(mob)
         else
             if mob:AnimationSub() == 6 and mob:getBattleTime() > mob:getLocalVar("[hpemde]changeTime") then
                 openMouth(mob)
-            elseif mob:AnimationSub() == 3 and mob:getHP() <  mob:getLocalVar("[hpemde]closeMouthHP") then
-                closeMouth(mob)
             end
         end
     end)

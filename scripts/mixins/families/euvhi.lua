@@ -40,7 +40,7 @@ function PetalMods(mob)
         mob:setLocalVar("petalMods", 1)
         mob:setLocalVar("bloomedMods", 0)
         mob:setLocalVar("changeTime", os.time() + 80)
-        mob:setDamage(mob:getmainlevel() + 2) -- Normal weapon damage
+        mob:setDamage(mob:getMainLvl() + 2) -- Normal weapon damage
         mob:addMod(tpz.mod.DEFP, 100) 
         mob:setDelay(4000)
     end
