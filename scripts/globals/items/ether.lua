@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 4128
 -- Item: Ether
--- Item Effect: Restores 20 MP
+-- Item Effect: Restores 50 MP
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/msg")
@@ -9,6 +9,8 @@ require("scripts/globals/msg")
 function onItemCheck(target)
     if (target:getMP() == target:getMaxMP()) then
         return tpz.msg.basic.ITEM_UNABLE_TO_USE
+    elseif (target:hasStatusEffect(tpz.effect.MEDICINE)) then
+        return tpz.msg.basic.ITEM_NO_USE_MEDICATED
     end
     return 0
 end

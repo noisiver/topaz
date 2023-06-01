@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 5254
 -- Item: Hyper-Potion
--- Item Effect: Restores 250 HP
+-- Item Effect: Restores 500 HP
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -17,5 +17,6 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:messageBasic(tpz.msg.basic.RECOVERS_HP, 0, target:addHP(1000*ITEM_POWER))
+    target:messageBasic(tpz.msg.basic.RECOVERS_HP, 0, target:addHP(500*ITEM_POWER))
+    target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 180)
 end

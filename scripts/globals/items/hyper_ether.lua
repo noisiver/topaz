@@ -1,7 +1,7 @@
 -----------------------------------------
 -- ID: 5255
 -- Item: Hyper-Ether
--- Item Effect: Restores 125 MP
+-- Item Effect: Restores 150 MP
 -----------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
@@ -17,6 +17,6 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:messageBasic(tpz.msg.basic.RECOVERS_MP, 0, target:addMP(400*ITEM_POWER))
-    --target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 300)
+    target:messageBasic(tpz.msg.basic.RECOVERS_MP, 0, target:addMP(150*ITEM_POWER))
+    target:addStatusEffect(tpz.effect.MEDICINE, 0, 0, 180)
 end
