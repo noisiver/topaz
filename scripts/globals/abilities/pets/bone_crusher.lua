@@ -16,9 +16,9 @@ end
 function onPetAbility(target, pet, skill)
     local numhits = 3
     local params = {}
-    params.ftp100 = 2.66
-    params.ftp200 = 2.66
-    params.ftp300 = 2.66
+    params.ftp100 = 1.66
+    params.ftp200 = 1.66
+    params.ftp300 = 1.66
     params.str_wsc = 0.0
     params.dex_wsc = 0.0
     params.vit_wsc = 0.6
@@ -34,9 +34,9 @@ function onPetAbility(target, pet, skill)
 
     -- +1.0 fTP vs Undead
     if target:isUndead() then
-        params.ftp100 = 3.66
-        params.ftp200 = 3.66
-        params.ftp300 = 3.66
+        params.ftp100 = 2.66
+        params.ftp200 = 2.66
+        params.ftp300 = 2.66
     end
 
     local damage = AutoPhysicalWeaponSkill(pet, target, skill, tpz.attackType.PHYSICAL, numhits, TP_NONE, params)
