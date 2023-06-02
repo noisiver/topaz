@@ -39,7 +39,7 @@ function onTrade(player, npc, trade)
             player:PrintToPlayer("This stone... there's something inside of it!",0,"Ghebi Damomohe")
             player:addKeyItem(tpz.ki.ASTRAL_COVENANT)
             player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.ASTRAL_COVENANT)
-            player:setCharVar("[ENM]AstralCovenantTimer", VanadielTime()+39600) -- Current time +11 hrs
+            player:setCharVar("[ENM]AstralCovenantTimer", os.time() + 432000) -- 5 days
             player:PrintToPlayer("Take this down to the deepest scariest parts of Pso\'Xja.",0,"Ghebi Damomohe")
             player:PrintToPlayer("Please come back safely...",0,"Ghebi Damomohe")
         else

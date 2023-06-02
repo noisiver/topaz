@@ -31,10 +31,10 @@ local loot =
             {itemid = 1797, droprate =  500}, --  
         },
         {
-            {itemid =    0, droprate =  700}, -- nothing
-            {itemid = 1790, droprate =  100}, -- 
-            {itemid = 1791, droprate =  100}, -- 
-            {itemid = 1792, droprate =  100}, -- 
+            {itemid =    0, droprate =  600}, -- nothing
+            {itemid = 1790, droprate =  133}, -- 
+            {itemid = 1791, droprate =  133}, -- 
+            {itemid = 1792, droprate =  133}, -- 
         },
     },
 }
