@@ -17,7 +17,7 @@ function onEffectGain(target, effect)
         target:ChangeMusic(4, 84)
         target:setAnimation(tpz.anim.MOUNT)
     end
-    target:addPetMod(tpz.mod.MOVE, 125)
+    target:addPetMod(tpz.mod.MOVE, 110)
 end
 
 function onEffectTick(target, effect)
@@ -25,5 +25,5 @@ end
 
 function onEffectLose(target, effect)
     target:setAnimation(tpz.anim.NONE)
-    target:delPetMod(tpz.mod.MOVE, 125)
+    target:delPetMod(tpz.mod.MOVE, 110)
 end
