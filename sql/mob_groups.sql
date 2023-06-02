@@ -7690,7 +7690,7 @@ INSERT INTO `mob_groups` VALUES (13,1737,107,'Goblin_Thug',330,0,1170,0,0,3,5,0)
 INSERT INTO `mob_groups` VALUES (14,1364,107,'Fledermaus',330,2,82,0,0,3,5,0);
 INSERT INTO `mob_groups` VALUES (15,441,107,'Black_Wolf',330,1,287,0,0,5,6,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (16,1744,107,'Goblin_Weaver',330,0,1185,0,0,3,8,0); -- added higher lvl group
-INSERT INTO `mob_groups` VALUES (17,645,107,'Carnero',3600,0,421,400,0,11,12,0);
+INSERT INTO `mob_groups` VALUES (17,645,107,'Carnero',3600,0,421,1200,0,11,12,0);
 INSERT INTO `mob_groups` VALUES (18,1214,107,'Enchanted_Bones',330,1,769,0,0,4,6,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (19,3381,107,'Rock_Lizard',330,0,2120,0,0,4,5,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (20,4277,107,'Walking_Sapling',330,0,2604,0,0,3,4,0); -- added higher lvl group
@@ -7700,8 +7700,8 @@ INSERT INTO `mob_groups` VALUES (23,107,107,'Amethyst_Quadav',330,0,68,0,0,3,5,0
 INSERT INTO `mob_groups` VALUES (24,103,107,'Amber_Quadav',330,0,59,0,0,3,5,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (25,1659,107,'Goblin_Fisher',330,0,1054,0,0,3,4,0);
 INSERT INTO `mob_groups` VALUES (26,3611,107,'Shrapnel',330,8,216,0,0,8,10,0);
-INSERT INTO `mob_groups` VALUES (27,5419,107,'Tococo',3600,0,2939,161,0,4,5,0);
-INSERT INTO `mob_groups` VALUES (28,2384,107,'Leaping_Lizzy',3600,0,1504,250,0,10,11,0);
+INSERT INTO `mob_groups` VALUES (27,5419,107,'Tococo',3600,0,2939,450,0,4,5,0);
+INSERT INTO `mob_groups` VALUES (28,2384,107,'Leaping_Lizzy',3600,0,1504,1050,0,10,11,0);
 INSERT INTO `mob_groups` VALUES (29,1648,107,'Goblin_Digger',330,0,1039,0,0,5,8,0);
 INSERT INTO `mob_groups` VALUES (30,3148,107,'Pixie',0,128,2001,0,0,51,54,0);
 INSERT INTO `mob_groups` VALUES (31,1829,107,'Grylio',1,0,0,0,0,1,1,0);
