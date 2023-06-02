@@ -5,6 +5,7 @@
 -- Starts and finishes Quest: Stop Your Whining
 -- !pos 49 -6 15 252
 -----------------------------------
+local ID = require("scripts/zones/Norg/IDs")
 require("scripts/globals/keyitems")
 require("scripts/globals/npc_util")
 require("scripts/globals/quests")
@@ -85,6 +86,6 @@ function onEventFinish(player, csid, option)
     elseif (csid == 221) then
          player:setCharVar("ChasingDreams", 4)
          npcUtil.giveKeyItem(player, tpz.ki.WASHUS_FLASK)
-         player:messageSpecial(ID.text.KEYITEM_OBTAINED, WASHUS_FLASK) -- maybe wrong
+         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.WASHUS_FLASK)
     end
 end

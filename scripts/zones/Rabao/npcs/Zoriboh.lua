@@ -3,11 +3,12 @@
 --  NPC: Zoriboh
 -- Standard Info NPC
 -----------------------------------
+local ID = require("scripts/zones/Rabao/IDs")
 require("scripts/globals/titles")
 require("scripts/globals/settings")
 require("scripts/globals/quests")
-local ID = require("scripts/zones/Rabao/IDs")
 require("scripts/globals/npc_util")
+require("scripts/globals/keyitems")
 -----------------------------------
 
 function onTrade(player, npc, trade)
@@ -40,8 +41,9 @@ function onEventFinish(player, csid, option)
             var = "ChasingDreams",
         })
     then
-       player:addFame(RABAO, 300)
-       player:addFame(NORG, 300)
+       player:addFame(RABAO, 750)
+       player:addFame(NORG, 750)
+       player:delKeyItem(tpz.ki.STOREROOM_KEY)
     end
 end
 
