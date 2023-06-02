@@ -23,7 +23,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local duration = 600
+    local duration = 300
 
 	target:addStatusEffect(tpz.effect.QUICKENING, 20, 0, duration)
 end
