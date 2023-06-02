@@ -35,7 +35,6 @@ function onEventFinish(player, csid, option)
         player:addKeyItem(tpz.ki.ZEPHYR_FAN)
         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.ZEPHYR_FAN)
         player:setCharVar("[ENM]ZephyrFan", os.time() + 432000) -- 5 days
-        os.time()+(ENM_COOLDOWN*3600)
     elseif (csid == 14) then
         if (player:getFreeSlotsCount() == 0) then
             player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED, 1779) -- Cotton Pouch
