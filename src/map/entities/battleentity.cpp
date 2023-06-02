@@ -782,7 +782,7 @@ uint16 CBattleEntity::EVA()
 {
     int16 evasion = 1;
 
-    if (this->objtype == TYPE_MOB || this->objtype == TYPE_PET)
+    if (this->objtype == TYPE_MOB || this->objtype == TYPE_PET && static_cast<CPetEntity*>(this)->getPetType() != PETTYPE_AUTOMATON)
     {
         evasion = m_modStat[Mod::EVA]; // Mobs and pets base evasion is based off the EVA mod
     }

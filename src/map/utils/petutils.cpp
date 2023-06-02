@@ -672,23 +672,22 @@ namespace petutils
 
         switch (PAutomaton->getFrame())
         {
-        default: //case FRAME_HARLEQUIN:
-            PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(2, PPet->GetMLevel());
-            PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(10, PPet->GetMLevel()));
-            break;
-        case FRAME_VALOREDGE:
-            PPet->m_Weapons[SLOT_SUB]->setShieldSize(3);
-            PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(5, PPet->GetMLevel());
-            PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(5, PPet->GetMLevel()));
-            break;
-        case FRAME_SHARPSHOT:
-            PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(1, PPet->GetMLevel());
-            PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(11, PPet->GetMLevel()));
-            break;
-        case FRAME_STORMWAKER:
-            PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(10, PPet->GetMLevel());
-            PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(12, PPet->GetMLevel()));
-            break;
+            default: // case FRAME_HARLEQUIN:
+                PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(2, mlvl > 99 ? 99 : mlvl);
+                PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(10, mlvl > 99 ? 99 : mlvl));
+                break;
+            case FRAME_VALOREDGE:
+                PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(5, mlvl > 99 ? 99 : mlvl);
+                PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(5, mlvl > 99 ? 99 : mlvl));
+                break;
+            case FRAME_SHARPSHOT:
+                PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(1, mlvl > 99 ? 99 : mlvl);
+                PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(11, mlvl > 99 ? 99 : mlvl));
+                break;
+            case FRAME_STORMWAKER:
+                PPet->WorkingSkills.evasion = battleutils::GetMaxSkill(10, mlvl > 99 ? 99 : mlvl);
+                PPet->setModifier(Mod::DEF, battleutils::GetMaxSkill(12, mlvl > 99 ? 99 : mlvl));
+                break;
         }
     }
 
@@ -1185,8 +1184,8 @@ namespace petutils
                 PPet->addModifier(Mod::DMG, -13);
                 break;
             case FRAME_STORMWAKER:
-                PPet->SetMJob(JOB_BLM);
-                PPet->SetSJob(JOB_WHM);
+                PPet->SetMJob(JOB_RDM);
+                PPet->SetSJob(JOB_RDM);
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDelay((uint16)(floor(1000.0 * (400.0f / 60.0f))));
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_IMPACT);
                 PPet->addModifier(Mod::HPP, -20);
@@ -1266,10 +1265,18 @@ namespace petutils
         {
             Pet_t* petData = g_PPetList.at(PetID);
 
-            PPet->SetMJob(petData->mJob);
-            PPet->SetSJob(petData->sJob);
+            // Set jobs in sql for jug pets only
+            if (PPet->getPetType() == PETTYPE_JUG_PET)
+            {
+                PPet->SetMJob(petData->mJob);
+                PPet->SetSJob(petData->sJob);
+            }
 
-            ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_HTH);
+            // ALl non-automaton pets deal H2H damage
+            if (PPet->getPetType() != PETTYPE_AUTOMATON)
+            {
+                ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_HTH);
+            }
 
             PPet->setModifier(Mod::SLASHRES, petData->slashres);
             PPet->setModifier(Mod::PIERCERES, petData->pierceres);
