@@ -4945,11 +4945,11 @@ INSERT INTO `item_basic` VALUES (5260,0,'regain_feather','regain_feather',1,5896
 INSERT INTO `item_basic` VALUES (5261,0,'bottle_of_psychoanima','psychoanima',99,5636,63,1,0);
 INSERT INTO `item_basic` VALUES (5262,0,'bottle_of_hysteroanima','hysteroanima',99,5636,63,1,0);
 INSERT INTO `item_basic` VALUES (5263,0,'bottle_of_terroanima','terroanima',99,5636,63,1,0);
-INSERT INTO `item_basic` VALUES (5264,0,'bottle_of_yellow_liquid','yellow_liquid',1,1540,33,0,1);
-INSERT INTO `item_basic` VALUES (5265,0,'mistmelt','mistmelt',1,1540,39,0,1940);
-INSERT INTO `item_basic` VALUES (5266,0,'blackened_muddy_siredon','blackened_siredon',1,5636,52,1,0);
-INSERT INTO `item_basic` VALUES (5267,0,'chunk_of_shumeyo_salt','shumeyo_salt',1,5636,44,1,0);
-INSERT INTO `item_basic` VALUES (5268,0,'ccb_polymer_pump','ccb_polymer',1,34308,33,0,194);
+INSERT INTO `item_basic` VALUES (5264,0,'bottle_of_yellow_liquid','yellow_liquid',99,1540,33,0,1);
+INSERT INTO `item_basic` VALUES (5265,0,'mistmelt','mistmelt',99,1540,39,0,1940);
+INSERT INTO `item_basic` VALUES (5266,0,'blackened_muddy_siredon','blackened_siredon',99,5636,52,1,0);
+INSERT INTO `item_basic` VALUES (5267,0,'chunk_of_shumeyo_salt','shumeyo_salt',99,5636,44,1,0);
+INSERT INTO `item_basic` VALUES (5268,0,'ccb_polymer_pump','ccb_polymer',99,5636,33,0,194);
 INSERT INTO `item_basic` VALUES (5269,0,'special_present','special_present',1,63056,0,1,0);
 INSERT INTO `item_basic` VALUES (5270,0,'old_quiver','old_quiver',1,26192,0,0,2);
 INSERT INTO `item_basic` VALUES (5271,0,'old_quiver_+1','old_quiver',1,26192,0,0,2);

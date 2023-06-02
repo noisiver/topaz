@@ -9,10 +9,9 @@ require("scripts/globals/mobs")
 -----------------------------------
 
 function onMobSpawn(mob)
-    mob:addMod(tpz.mod.DEFP, 20) 
+    mob:setDamage(65)
     mob:addMod(tpz.mod.ATTP, 10)
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
-    mob:setMod(tpz.mod.REFRESH, 40)
+    mob:addMod(tpz.mod.DEFP, 20) 
     mob:setMod(tpz.mod.REGEN, 10)
     local OP_Mariselle = mob:getID();
     
@@ -40,25 +39,20 @@ end
 function onMobFight(mob,target)
     local OP_Mariselle = mob:getID();
 
-    if mob:getLocalVar("teleport") < os.time() then
-        mob:setLocalVar("teleport", os.time() + math.random(20, 30))
+    -- Teleports away every 45s
+    if mob:getLocalVar("teleport") < os.time() and not mob:hasStatusEffect(tpz.effect.TERROR) and
+    not mob:hasStatusEffect(tpz.effect.STUN) and mob:getCurrentAction() ~= tpz.action.MAGIC_CASTING then 
+        mob:setLocalVar("teleport", os.time() + 45)
         TeleportMob(mob, 5000)
-		mob:setPos(math.random(88, 112), -2, math.random(100, 131))
-        for i = OP_Mariselle+1, OP_Mariselle+2 do
-            local m = GetMobByID(i)
-            if m:isSpawned() then
-                m:timer(1500, function(mob)
-                    TeleportMob(mob, 7500)
-					mob:setPos(math.random(88, 112), -2, math.random(100, 131))
-                end)
-            end
-        end
+        mob:timer(2000, function(mob)
+		    mob:setPos(mob:getXPos() + math.random(5, 15), mob:getYPos(), mob:getZPos() + math.random(5,15))
+        end)
     end
     
-    -- Summons a pupil every 10 seconds.
+    -- Summons a pupil every 60 seconds.
     local spawnTime = mob:getLocalVar("spawntime")
     if os.time() > spawnTime and mob:actionQueueEmpty() then
-        mob:setLocalVar("spawntime", os.time() + 10)
+        mob:setLocalVar("spawntime", os.time() + 60)
         for i = OP_Mariselle+1, OP_Mariselle+2 do
             local m = GetMobByID(i)
             if not m:isSpawned() then

@@ -3,6 +3,7 @@
 --  Mob: Mammet-19 Epsilon
 -----------------------------------
 require("scripts/globals/status")
+require("scripts/globals/mobs")
 -----------------------------------
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.MAGIC_COOL, 15)
@@ -12,10 +13,8 @@ end
 
 function onMobSpawn(mob)
     mob:SetMagicCastingEnabled(false)
-    mob:addMod(tpz.mod.DEFP, 20) 
     mob:addMod(tpz.mod.ATTP, 10)
-    mob:addMod(tpz.mod.ACC, 15) 
-    mob:addMod(tpz.mod.EVA, 15)
+    mob:addMod(tpz.mod.DEFP, 20) 
 end
 
 function onMobFight(mob, target)

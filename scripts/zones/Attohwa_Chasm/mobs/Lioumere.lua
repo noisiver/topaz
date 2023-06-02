@@ -6,7 +6,12 @@ mixins = {require("scripts/mixins/families/antlion_ambush")}
 require("scripts/globals/keyitems")
 require("scripts/globals/missions")
 require("scripts/globals/status")
+require("scripts/globals/mobs")
+-----------------------------------
 -- TODO: reset hate and disengage (goes unclaimed if not attacked)
+function onMobInitialize(mob)
+    SetGenericNMStats(mob)
+end
 
 function onMobInitialize(mob)
     mob:setMobMod(tpz.mobMod.IDLE_DESPAWN, 120)
