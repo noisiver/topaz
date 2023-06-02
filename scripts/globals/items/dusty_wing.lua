@@ -14,5 +14,5 @@ end
 
 function onItemUse(target)
     target:addTP(3000)
-    target:messageBasic(tpz.msg.basic.TP_INCREASE, tpz.items.DUSTY_WING, target:getTP())
+    target:messageBasic(tpz.msg.basic.PLAYER_REGAIN_TP, tpz.items.DUSTY_WING, target:getTP())
 end
