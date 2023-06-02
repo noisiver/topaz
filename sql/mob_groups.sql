@@ -8479,14 +8479,14 @@ INSERT INTO `mob_groups` VALUES (25,4444,119,'Yagudo_Priest',330,0,2749,0,0,21,2
 INSERT INTO `mob_groups` VALUES (26,4439,119,'Yagudo_Persecutor',330,0,2740,0,0,16,18,0); -- added higher lvl group
 INSERT INTO `mob_groups` VALUES (27,1341,119,'Fire_Elemental',330,4,831,0,0,27,29,0);
 INSERT INTO `mob_groups` VALUES (28,5771,119,'Naa_Zeku_the_Unwaiting',3600,0,3055,3800,0,49,49,0);
-INSERT INTO `mob_groups` VALUES (29,890,119,'Daggerclaw_Dracos',3600,0,558,950,0,27,28,0);
+INSERT INTO `mob_groups` VALUES (29,890,119,'Daggerclaw_Dracos',3600,0,558,2750,0,27,28,0);
 INSERT INTO `mob_groups` VALUES (30,4287,119,'Waraxe_Beak',0,128,2621,15000,0,55,56,0);
 INSERT INTO `mob_groups` VALUES (31,483,119,'Boggart',330,0,319,0,0,25,27,0);
 INSERT INTO `mob_groups` VALUES (32,827,119,'Crane_Fly',330,0,524,0,0,18,21,0);
 INSERT INTO `mob_groups` VALUES (33,3752,119,'Stag_Beetle',330,0,2322,0,0,20,23,0);
 INSERT INTO `mob_groups` VALUES (34,759,119,'Coeurl',330,0,496,0,0,22,25,0);
 INSERT INTO `mob_groups` VALUES (35,788,119,'Coo_Keja_the_Unseen',39600,0,508,3500,0,37,40,0);
-INSERT INTO `mob_groups` VALUES (36,4575,119,'Patripatan',3600,0,3017,1500,0,27,30,0);
+INSERT INTO `mob_groups` VALUES (36,4575,119,'Patripatan',3600,0,3017,3000,0,27,30,0);
 INSERT INTO `mob_groups` VALUES (37,6658,119,'Goblin_Digger',330,0,1040,0,0,18,21,0);
 INSERT INTO `mob_groups` VALUES (38,1983,119,'Hobgoblin_Warrior',0,128,0,0,0,30,35,0);
 INSERT INTO `mob_groups` VALUES (39,1984,119,'Hobgoblin_White_Mage',0,128,0,0,0,30,35,0);
@@ -8846,8 +8846,8 @@ INSERT INTO `mob_groups` VALUES (33,1165,125,'Eastern_Sphinx',0,128,0,20000,0,85
 INSERT INTO `mob_groups` VALUES (34,4324,125,'Western_Sphinx',0,128,0,20000,0,85,85,0);
 INSERT INTO `mob_groups` VALUES (35,2487,125,'Maharaja',0,128,0,18000,0,82,82,0);
 INSERT INTO `mob_groups` VALUES (36,2731,125,'Monarca_de_Altepa',0,128,0,0,0,0,0,0);
-INSERT INTO `mob_groups` VALUES (37,6722,125,'Dahu',0,128,6007,9000,0,57,59,0);
-INSERT INTO `mob_groups` VALUES (38,6723,125,'Picolaton',0,128,6008,9500,0,60,62,0);
+INSERT INTO `mob_groups` VALUES (37,6722,125,'Dahu',3600,0,6007,9000,0,57,59,0);
+INSERT INTO `mob_groups` VALUES (38,6723,125,'Picolaton',3600,0,6008,9500,0,60,62,0);
 
 INSERT INTO `mob_groups` VALUES (6784,2226,125,'Kilhwch',0,128,0,0,0,0,0,0);
 INSERT INTO `mob_groups` VALUES (6786,2405,125,'Lhu_Mhakaracca',0,128,0,0,0,0,0,0);
