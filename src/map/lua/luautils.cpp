@@ -991,6 +991,18 @@ namespace luautils
                 }
                 else
                 {
+                    // Ensure a charmed pet is properly cleared on despawn
+                    if (PMob->isCharmed && PMob->PMaster != nullptr && PMob->PMaster->objtype == TYPE_PC)
+                    {
+                        PMob->StatusEffectContainer->DelStatusEffect(EFFECT_HEALING); // Incase the pet was stayed before the BST used leave
+                        PMob->m_OwnerID.clean();
+                        PMob->updatemask |= UPDATE_STATUS;
+                        PMob->loc.zone->UpdateEntityPacket(PMob, ENTITY_UPDATE, UPDATE_ALL_MOB);
+                        PMob->isCharmed = false;
+                        PMob->allegiance = ALLEGIANCE_MOB;
+                        PMob->charmTime = time_point::min();
+                        PMob->PMaster = nullptr;
+                    }
                     PMob->PAI->Despawn();
                 }
             }
