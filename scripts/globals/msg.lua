@@ -235,6 +235,7 @@ tpz.msg.basic =
     ITEM_OBTAINS_A          = 376,  -- ${actor} uses a ${item}.${lb}${target} obtains a ${item2}.
     ITEM_OBTAINS            = 377,  -- ${actor} uses a ${item}.${lb}${target} obtains ${item2}.
     ITEM_EFFECT_DISAPPEARS  = 378,  -- ${actor} uses a ${item}.${lb}${target}'s ${status} effect disappears!
+    PLAYER_REGAIN_TP        = 452,  -- The <player> uses .. <target> regains .. TP.
 
     -- Ranged
     NO_RANGED_WEAPON       = 216, -- You do not have an appropriate ranged weapon equipped.

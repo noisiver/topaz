@@ -17,8 +17,6 @@ function onAbilityCheck(player, target, ability)
     local pet = player:getPet()
     if not pet then
         return tpz.msg.basic.REQUIRES_A_PET, 0
-    elseif not player:isJugPet() and pet:getObjType() ~= tpz.objType.MOB then
-        return tpz.msg.basic.NO_EFFECT_ON_PET, 0
     else
         return 0, 0
     end
