@@ -1893,25 +1893,25 @@ INSERT INTO `item_latents` VALUES(15996, 24, 3, 26, 0);     -- Ranged Attack+3 d
 
 INSERT INTO `item_latents` VALUES(15997, 24, 4, 26, 0);     -- Ranged Attack+4 during Daytime
 
-INSERT INTO `item_latents` VALUES(16014, 23, 4, 22, 1);     -- Stormer Earring, ATT+4 if WAR is in party
-INSERT INTO `item_latents` VALUES(16015, 2, 20, 22, 2);     -- Esse Earring, HP+20 if MNK is in party
-INSERT INTO `item_latents` VALUES(16016, 27, -1, 22, 3);    -- Chary Earring, Enmity-1 if WHM is in party
-INSERT INTO `item_latents` VALUES(16017, 28, 1, 22, 4);     -- Ardent Earring, MATT+1 if BLM is in party
-INSERT INTO `item_latents` VALUES(16018, 30, 1, 22, 5);     -- Ataraxy Earring, MACC+1 if RDM is in party
-INSERT INTO `item_latents` VALUES(16019, 9, 1, 22, 6);      -- Forte Earring, DEX+1 if THF is in party
-INSERT INTO `item_latents` VALUES(16020, 10, 1, 22, 7);     -- Survivor Earring, VIT+1 if PLD is in party
-INSERT INTO `item_latents` VALUES(16021, 8, 1, 22, 8);      -- Brawn Earring, STR+1 if DRK is in party
-INSERT INTO `item_latents` VALUES(16023, 14, 1, 22, 10);    -- Mystique Earring, CHR+1 if BRD is in party
-INSERT INTO `item_latents` VALUES(16024, 24, 1, 22, 11);    -- Impetus Earring, RATT+1 if RNG is in party
-INSERT INTO `item_latents` VALUES(16025, 73, 1, 22, 12);    -- Rathe Earring, Store TP+1 if SAM is in party
-INSERT INTO `item_latents` VALUES(16026, 68, 4, 22, 13);    -- Elan Earring, EVA+4 if NIN is in party
-INSERT INTO `item_latents` VALUES(16027, 25, 1, 22, 14);    -- Seeker Earring, ACC+1 if DRG is in party
-INSERT INTO `item_latents` VALUES(16028, 5, 15, 22, 15);    -- Psyche Earring, MP+15 if SMN is in party
-INSERT INTO `item_latents` VALUES(16029, 2, 10, 22, 16);    -- Booster Earring, HP+10 if BLU is in party
-INSERT INTO `item_latents` VALUES(16029, 5, 10, 22, 16);    -- Booster Earring, MP+10 if BLU is in party
-INSERT INTO `item_latents` VALUES(16030, 26, 1, 22, 17);    -- Soarer Earring, RACC+1 if COR is in party
-INSERT INTO `item_latents` VALUES(16032, 289, 3, 22, 19);   -- Muffle Earring, Subtle Blow +3 if DNC is in party
-INSERT INTO `item_latents` VALUES(16033, 71, 1, 22, 20);    -- Sylph Earring, Healing MP +1 if SCH is in party
+-- INSERT INTO `item_latents` VALUES(16014, 23, 4, 22, 1);     -- Stormer Earring, ATT+4 if WAR is in party
+-- INSERT INTO `item_latents` VALUES(16015, 2, 20, 22, 2);     -- Esse Earring, HP+20 if MNK is in party
+-- INSERT INTO `item_latents` VALUES(16016, 27, -1, 22, 3);    -- Chary Earring, Enmity-1 if WHM is in party
+-- INSERT INTO `item_latents` VALUES(16017, 28, 1, 22, 4);     -- Ardent Earring, MATT+1 if BLM is in party
+-- INSERT INTO `item_latents` VALUES(16018, 30, 1, 22, 5);     -- Ataraxy Earring, MACC+1 if RDM is in party
+-- INSERT INTO `item_latents` VALUES(16019, 9, 1, 22, 6);      -- Forte Earring, DEX+1 if THF is in party
+-- INSERT INTO `item_latents` VALUES(16020, 10, 1, 22, 7);     -- Survivor Earring, VIT+1 if PLD is in party
+-- INSERT INTO `item_latents` VALUES(16021, 8, 1, 22, 8);      -- Brawn Earring, STR+1 if DRK is in party
+-- INSERT INTO `item_latents` VALUES(16023, 14, 1, 22, 10);    -- Mystique Earring, CHR+1 if BRD is in party
+-- INSERT INTO `item_latents` VALUES(16024, 24, 1, 22, 11);    -- Impetus Earring, RATT+1 if RNG is in party
+-- INSERT INTO `item_latents` VALUES(16025, 73, 1, 22, 12);    -- Rathe Earring, Store TP+1 if SAM is in party
+-- INSERT INTO `item_latents` VALUES(16026, 68, 4, 22, 13);    -- Elan Earring, EVA+4 if NIN is in party
+-- INSERT INTO `item_latents` VALUES(16027, 25, 1, 22, 14);    -- Seeker Earring, ACC+1 if DRG is in party
+-- INSERT INTO `item_latents` VALUES(16028, 5, 15, 22, 15);    -- Psyche Earring, MP+15 if SMN is in party
+-- INSERT INTO `item_latents` VALUES(16029, 2, 10, 22, 16);    -- Booster Earring, HP+10 if BLU is in party
+-- INSERT INTO `item_latents` VALUES(16029, 5, 10, 22, 16);    -- Booster Earring, MP+10 if BLU is in party
+-- INSERT INTO `item_latents` VALUES(16030, 26, 1, 22, 17);    -- Soarer Earring, RACC+1 if COR is in party
+-- INSERT INTO `item_latents` VALUES(16032, 289, 3, 22, 19);   -- Muffle Earring, Subtle Blow +3 if DNC is in party
+-- INSERT INTO `item_latents` VALUES(16033, 71, 1, 22, 20);    -- Sylph Earring, Healing MP +1 if SCH is in party
 
 -- -------------------------------------------------------
 -- Aesir Ear Pendant

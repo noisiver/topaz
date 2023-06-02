@@ -565,6 +565,28 @@ INSERT INTO `item_mods_pet` VALUES (15307,27,2,0);      -- Bison Gamashes Pet: E
 INSERT INTO `item_mods_pet` VALUES (15307,161,-1,0);    -- Bison Gamashes Pet: Physical damage taken -1%
 INSERT INTO `item_mods_pet` VALUES (15308,27,3,0);      -- Brave's Gamashes Pet: Enmity+3
 INSERT INTO `item_mods_pet` VALUES (15308,161,-2,0);    -- Brave's Gamashes Pet: Physical damage taken -2%
+INSERT INTO `item_mods_pet` VALUES (16017,28,5,0);      -- Ardent Earring Pet: MAB+5
+INSERT INTO `item_mods_pet` VALUES (16018,30,5,0);      -- Ardent Earring Pet: MACC+5
+INSERT INTO `item_mods_pet` VALUES (16022,25,5,0);      -- Fidelity Earring Pet: Accuracy+5
+INSERT INTO `item_mods_pet` VALUES (16022,26,5,0);      -- Fidelity Earring Pet: Ranged Accuracy+5
+INSERT INTO `item_mods_pet` VALUES (16031,23,10,0);     -- Affinity Earring Pet: Attack+10
+INSERT INTO `item_mods_pet` VALUES (16031,24,10,0);     -- Affinity Earring Pet: Ranged Attack+10
+INSERT INTO `item_mods_pet` VALUES (10274,291,10,0);    -- Chelona Blazer Pet: Counter +10
+INSERT INTO `item_mods_pet` VALUES (10274,27,5,0);      -- Chelona Blazer Pet: Enmity+5
+INSERT INTO `item_mods_pet` VALUES (10275,291,12,0);    -- Chelona Blazer +1 Pet: Counter +12
+INSERT INTO `item_mods_pet` VALUES (10275,27,6,0);      -- Chelona Blazer +1 Pet: Enmity+6
+INSERT INTO `item_mods_pet` VALUES (10318,30,5,0);      -- Chelona Gloves Pet: Magic Accuracy+5
+INSERT INTO `item_mods_pet` VALUES (10318,28,5,0);      -- Chelona Gloves Pet: MAB+5
+INSERT INTO `item_mods_pet` VALUES (10319,30,6,0);      -- Chelona Gloves +1 Pet: Magic Accuracy+6
+INSERT INTO `item_mods_pet` VALUES (10319,28,6,0);      -- Chelona Gloves +1 Pet: MAB+6
+INSERT INTO `item_mods_pet` VALUES (10348,384,300,0);   -- Chelona Trousers Pet: Haste+3%
+INSERT INTO `item_mods_pet` VALUES (10349,384,400,0);   -- Chelona Trousers +1 Pet: Haste+4%
+INSERT INTO `item_mods_pet` VALUES (10365,24,10,0);     -- Chelona Boots Pet: Ranged Attack+10
+INSERT INTO `item_mods_pet` VALUES (10365,365,5,0);     -- Chelona Boots Pet: Snapshot+5
+INSERT INTO `item_mods_pet` VALUES (10366,24,11,0);     -- Chelona Boots +1 Pet: Ranged Attack+11
+INSERT INTO `item_mods_pet` VALUES (10366,365,6,0);     -- Chelona Boots +1 Pet: Snapshot+6
+INSERT INTO `item_mods_pet` VALUES (10436,163,-5,0);    -- Chelona Hat Pet: Magic damage taken -5% 
+INSERT INTO `item_mods_pet` VALUES (10437,163,-6,0);    -- Chelona Hat +1 Pet: Magic damage taken -6% 
 
 
 

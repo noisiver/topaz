@@ -77,8 +77,8 @@ INSERT INTO `item_equipment` VALUES (10270,'river_top_+1',1,0,4194303,334,0,0,32
 INSERT INTO `item_equipment` VALUES (10271,'dune_gilet_+1',1,0,4194303,334,0,0,32,64);
 INSERT INTO `item_equipment` VALUES (10272,'dux_scale_mail',99,0,2141649,336,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (10273,'dux_sc._mail_+1',99,0,2141649,336,0,0,32,0);
-INSERT INTO `item_equipment` VALUES (10274,'chelona_blazer',99,0,3850780,337,0,0,32,0);
-INSERT INTO `item_equipment` VALUES (10275,'chelona_blazer_+1',99,0,3850780,337,0,0,32,0);
+INSERT INTO `item_equipment` VALUES (10274,'chelona_blazer',72,0,147456,337,0,0,32,0);
+INSERT INTO `item_equipment` VALUES (10275,'chelona_blazer_+1',72,0,147456,337,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (10276,'enif_corazza',99,0,41184,159,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (10277,'adhara_manteel',99,0,49180,160,0,0,32,0);
 INSERT INTO `item_equipment` VALUES (10278,'murzim_corazza',99,0,468192,159,0,0,32,0);
@@ -120,8 +120,8 @@ INSERT INTO `item_equipment` VALUES (10314,'aneirins_gloves',99,0,3850780,323,0,
 INSERT INTO `item_equipment` VALUES (10315,'alcedo_gauntlets',99,0,193,113,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (10316,'dux_fng._gnt.',99,0,2141649,336,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (10317,'dux_fng._gnt._+1',99,0,2141649,336,0,0,64,0);
-INSERT INTO `item_equipment` VALUES (10318,'chelona_gloves',99,0,3850780,337,0,0,64,0);
-INSERT INTO `item_equipment` VALUES (10319,'chl._gloves_+1',99,0,3850780,337,0,0,64,0);
+INSERT INTO `item_equipment` VALUES (10318,'chelona_gloves',72,0,147456,337,0,0,64,0);
+INSERT INTO `item_equipment` VALUES (10319,'chl._gloves_+1',72,0,147456,337,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (10320,'enif_manopolas',99,0,41184,159,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (10321,'adhara_gages',99,0,49180,160,0,0,64,0);
 INSERT INTO `item_equipment` VALUES (10322,'murzim_manopolas',99,0,468192,159,0,0,64,0);
@@ -150,8 +150,8 @@ INSERT INTO `item_equipment` VALUES (10344,'river_shorts_+1',1,0,4194303,334,0,0
 INSERT INTO `item_equipment` VALUES (10345,'dune_boxers_+1',1,0,4194303,334,0,0,128,256);
 INSERT INTO `item_equipment` VALUES (10346,'dux_cuisses',99,0,2141649,336,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (10347,'dux_cuisses_+1',99,0,2141649,336,0,0,128,0);
-INSERT INTO `item_equipment` VALUES (10348,'chelona_trousers',99,0,3850780,337,0,0,128,0);
-INSERT INTO `item_equipment` VALUES (10349,'chl._trousers_+1',99,0,3850780,337,0,0,128,0);
+INSERT INTO `item_equipment` VALUES (10348,'chelona_trousers',72,0,147456,337,0,0,128,0);
+INSERT INTO `item_equipment` VALUES (10349,'chl._trousers_+1',72,0,147456,337,0,0,128,0);
 INSERT INTO `item_equipment` VALUES (10350,'wohpes_sabots',99,0,3850780,115,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (10351,'ihwa_huaraches',99,0,1572872,137,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (10352,'ghadhab_nails',99,0,2473969,172,0,0,256,0);
@@ -167,8 +167,8 @@ INSERT INTO `item_equipment` VALUES (10361,'hexed_nails_-1',99,0,1622040,0,0,0,2
 INSERT INTO `item_equipment` VALUES (10362,'hexed_boots_-1',99,0,524820,0,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (10363,'dux_greaves',99,0,2141649,336,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (10364,'dux_greaves_+1',99,0,2141649,336,0,0,256,0);
-INSERT INTO `item_equipment` VALUES (10365,'chelona_boots',99,0,3850780,337,0,0,256,0);
-INSERT INTO `item_equipment` VALUES (10366,'chelona_boots_+1',99,0,3850780,337,0,0,256,0);
+INSERT INTO `item_equipment` VALUES (10365,'chelona_boots',72,0,147456,337,0,0,256,0);
+INSERT INTO `item_equipment` VALUES (10366,'chelona_boots_+1',72,0,147456,337,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (10367,'enif_gambieras',99,0,41184,159,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (10368,'adhara_crackows',99,0,49180,160,0,0,256,0);
 INSERT INTO `item_equipment` VALUES (10369,'murzim_gambieras',99,0,468192,159,0,0,256,0);
@@ -223,8 +223,8 @@ INSERT INTO `item_equipment` VALUES (10432,'decennial_crown_+1',1,0,4194303,331,
 INSERT INTO `item_equipment` VALUES (10433,'decennial_tiara_+1',1,0,4194303,332,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (10434,'dux_visor',99,0,2141649,336,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (10435,'dux_visor_+1',99,0,2141649,336,0,0,16,0);
-INSERT INTO `item_equipment` VALUES (10436,'chelona_hat',99,0,3850780,337,0,0,16,0);
-INSERT INTO `item_equipment` VALUES (10437,'chelona_hat_+1',99,0,3850780,337,0,0,16,0);
+INSERT INTO `item_equipment` VALUES (10436,'chelona_hat',72,0,147456,337,0,0,16,0);
+INSERT INTO `item_equipment` VALUES (10437,'chelona_hat_+1',72,0,147456,337,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (10438,'enif_zucchetto',99,0,41184,159,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (10439,'adhara_turban',99,0,49180,160,0,0,16,0);
 INSERT INTO `item_equipment` VALUES (10440,'murzim_zucchetto',99,0,468192,159,0,0,16,0);
