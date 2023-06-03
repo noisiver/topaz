@@ -624,7 +624,7 @@ uint16 CBattleEntity::CHR()
 uint16 CBattleEntity::ATT()
 {
     //TODO: consider which weapon!
-    int32 ATT = 8 + m_modStat[Mod::ATT];
+    int32 ATT = 8 + static_cast<int32>(m_modStat[Mod::ATT]);
     auto weapon = dynamic_cast<CItemWeapon*>(m_Weapons[SLOT_MAIN]);
     if (weapon && weapon->isTwoHanded())
     {
@@ -640,7 +640,7 @@ uint16 CBattleEntity::ATT()
     }
 
     if (this->StatusEffectContainer->HasStatusEffect(EFFECT_ENDARK))
-        ATT += this->getMod(Mod::ENSPELL_DMG);
+        ATT += static_cast<int32>(this->getMod(Mod::ENSPELL_DMG));
 
     if (this->objtype & TYPE_PC)
     {
@@ -651,7 +651,7 @@ uint16 CBattleEntity::ATT()
             // Smite applies when using 2H or H2H weapons
             if (weapon->isTwoHanded() || weapon->isHandToHand())
             {
-                ATT += static_cast<int32>(ATT * this->getMod(Mod::SMITE) / 256.f); // Divide smite value by 256
+                ATT += static_cast<int32>(ATT * static_cast<int32>(this->getMod(Mod::SMITE)) / 256.f); // Divide smite value by 256
             }
         }
     }
@@ -659,8 +659,10 @@ uint16 CBattleEntity::ATT()
     {
         ATT += this->GetSkill(SKILL_AUTOMATON_MELEE);
     }
-    return ATT + (ATT * m_modStat[Mod::ATTP] / 100) +
-        std::min<int16>((ATT * m_modStat[Mod::FOOD_ATTP] / 100), m_modStat[Mod::FOOD_ATT_CAP]);
+    auto attack = ATT + (ATT * static_cast<int32>(m_modStat[Mod::ATTP]) / 100) +
+                  std::min<int16>((ATT * static_cast<int32>(m_modStat[Mod::FOOD_ATTP]) / 100), static_cast<int32>(m_modStat[Mod::FOOD_ATT_CAP]));
+    //printf("Pre-Clamp Attack: %d", attack);
+    return std::clamp(attack, 0, 9999);
 }
 
 uint16 CBattleEntity::RATT(uint8 skill, uint16 bonusSkill)
@@ -670,9 +672,11 @@ uint16 CBattleEntity::RATT(uint8 skill, uint16 bonusSkill)
     {
         return 0;
     }
-    int32 ATT = 8 + GetSkill(skill) + bonusSkill + m_modStat[Mod::RATT] + battleutils::GetRangedAttackBonuses(this) + (STR() * 3) / 4;
-    return ATT + (ATT * m_modStat[Mod::RATTP] / 100) +
-        std::min<int16>((ATT * m_modStat[Mod::FOOD_RATTP] / 100), m_modStat[Mod::FOOD_RATT_CAP]);
+    int32 ATT = 8 + GetSkill(skill) + bonusSkill + static_cast<int32>(m_modStat[Mod::RATT]) + battleutils::GetRangedAttackBonuses(this) + (STR() * 3) / 4;
+    auto attack = ATT + (ATT * static_cast<int32>(m_modStat[Mod::RATTP]) / 100) +
+        std::min<int16>((ATT * static_cast<int32>(m_modStat[Mod::FOOD_RATTP]) / 100), static_cast<int32>(m_modStat[Mod::FOOD_RATT_CAP]));
+    //printf("Pre-Clamp Attack: %d", attack);
+    return std::clamp(attack, 0, 9999);
 }
 
 uint16 CBattleEntity::RACC(uint8 skill, uint16 bonusSkill)
