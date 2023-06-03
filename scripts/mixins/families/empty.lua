@@ -102,7 +102,7 @@ g_mixins.families.empty = function(mob)
 			end
         end
         if math.random(1,100) <= utils.getDropRate(mob, 10) then
-            killer:addTreasure(math.random(1687, 1689)), mob) -- Recolection of x(Anima items)
+            killer:addTreasure(math.random(1687, 1689), mob) -- Recolection of x(Anima items)
         end
     end)
 end
