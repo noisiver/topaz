@@ -11,6 +11,7 @@ require("scripts/globals/mobs")
 
 function onMobSpawn(mob)
     SetGenericNMStats(mob)
+    mob:setDamage(30)
     mob:setMod(tpz.mod.COUNTER, 0)
     mob:setMod(tpz.mod.REFRESH, 400)
 	mob:setMobMod(tpz.mobMod.SIGHT_RANGE, 30)
