@@ -1,7 +1,6 @@
 ---------------------------------------------------
 -- Carousel
 -- Becomes a merry-go-round of pain that damages players in range.
--- Hits 2-3 times
 ---------------------------------------------------
 
 require("scripts/globals/settings")
