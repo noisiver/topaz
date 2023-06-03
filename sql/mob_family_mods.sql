@@ -1114,9 +1114,9 @@ INSERT INTO `mob_family_mods` VALUES (210,59,25,1); -- Raptor
 INSERT INTO `mob_family_mods` VALUES (242,59,25,1); -- Tiger
 INSERT INTO `mob_family_mods` VALUES (257,59,25,1); -- Wivre +25 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (371,59,25,1); -- Marid (NM? Family #2)
-INSERT INTO `mob_family_mods` VALUES (203,59,15,1); -- Qutrub +15 Weapon dmg
-INSERT INTO `mob_family_mods` VALUES (204,59,15,1); -- Qutrub +15 Weapon dmg
-INSERT INTO `mob_family_mods` VALUES (205,59,15,1); -- Qutrub +15 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (203,59,13,1); -- Qutrub +13 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (204,59,13,1); -- Qutrub +13 Weapon dmg
+INSERT INTO `mob_family_mods` VALUES (205,59,13,1); -- Qutrub +13 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (252,59,30,1); -- Vampyr +30 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (284,59,30,1); -- Vampyr +30 Weapon dmg
 INSERT INTO `mob_family_mods` VALUES (171,59,10,1); -- Lamia +10 Weapon dmg

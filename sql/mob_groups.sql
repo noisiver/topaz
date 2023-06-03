@@ -12564,11 +12564,11 @@ INSERT INTO `mob_groups` VALUES (36,1715,193,'Goblin_Smithy',330,0,1164,0,0,31,3
 INSERT INTO `mob_groups` VALUES (37,1710,193,'Goblin_Shaman',330,0,1153,0,0,31,34,0);
 INSERT INTO `mob_groups` VALUES (38,3662,193,'Slash_Pine',330,0,2916,0,0,27,29,0);
 INSERT INTO `mob_groups` VALUES (39,3794,193,'Stroper',330,0,2348,0,0,31,34,0);
-INSERT INTO `mob_groups` VALUES (40,2742,193,'Morbolger',0,128,1736,4000,0,42,44,0);
+INSERT INTO `mob_groups` VALUES (40,2742,193,'Morbolger',3600,0,1736,4000,0,42,44,0);
 INSERT INTO `mob_groups` VALUES (41,2808,193,'Napalm',330,0,1775,0,0,31,33,0);
 INSERT INTO `mob_groups` VALUES (42,71,193,'Air_Elemental',330,4,39,0,0,33,36,0);
 INSERT INTO `mob_groups` VALUES (43,4309,193,'Water_Elemental',330,4,2630,0,0,33,36,0);
-INSERT INTO `mob_groups` VALUES (44,5169,193,'Bombast',0,128,0,3200,0,42,44,0);
+INSERT INTO `mob_groups` VALUES (44,5169,193,'Bombast',3600,0,0,3200,0,42,44,0);
 INSERT INTO `mob_groups` VALUES (45,3169,193,'Polevik',0,128,0,0,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (46,1501,193,'Gerwitzs_Axe',0,128,947,9000,0,50,50,0);
 INSERT INTO `mob_groups` VALUES (47,1504,193,'Gerwitzs_Sword',0,128,948,9000,0,52,52,0);
