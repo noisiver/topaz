@@ -13,13 +13,14 @@ function onTrigger(player)
             local acc = targ:getACC()
             local eva = targ:getEVA()
             local att = targ:getStat(tpz.mod.ATT)
+            local ratt = targ:getRATT()
             local def = targ:getStat(tpz.mod.DEF)
             local matt = targ:getMod(tpz.mod.MATT)
             local macc = targ:getMod(tpz.mod.MACC)
             local mdef = targ:getMod(tpz.mod.MDEF)
 
             player:PrintToPlayer(string.format("%s Stats 1: MJOB: %i, SJOB: %i, HP: %i, MP: %i, Weapon Damage: %i, Delay: %i,", targ:getName(), targ:getMainJob(), targ:getSubJob(), targ:getMaxHP(), targ:getMaxMP(), targ:getWeaponDmg(), targ:getDelay()))
-            player:PrintToPlayer(string.format("%s Stats 2: LVL: %i, SLVL: %i, ACC: %i, EVA: %i, ATT: %i, DEF: %i, MATT: %i, MACC: %i, MDEF: %i ", targ:getName(), targ:getMainLvl(), targ:getSubLvl(), acc,eva,att,def,matt,macc,mdef))
+            player:PrintToPlayer(string.format("%s Stats 2: LVL: %i, SLVL: %i, ACC: %i, EVA: %i, ATT: %i, RATT: %i, DEF: %i, MATT: %i, MACC: %i, MDEF: %i ", targ:getName(), targ:getMainLvl(), targ:getSubLvl(), acc,eva,att,ratt,def,matt,macc,mdef))
             player:PrintToPlayer(string.format("%s Stats 3: STR: %i, DEX: %i, VIT: %i, AGI: %i, INT: %i, MND: %i, CHR: %i", targ:getName(), str,dex,vit,agi,int,mnd,chr))
         else
             player:PrintToPlayer("Must select a mob or pet using in game cursor first.");
