@@ -45,9 +45,6 @@ function onTrigger(player, npc)
         player:startEvent(22) -- remind objective
     elseif (stopYourWhining == QUEST_ACCEPTED and player:hasKeyItem(tpz.ki.BARREL_OF_OPOOPO_BREW)) then
         player:startEvent(23) -- finish quest
-    elseif (stopYourWhining == QUEST_COMPLETED) then
-        player:startEvent(24) -- final dialog
-
     -- CHASING DREAMS
     elseif (player:getCharVar("ChasingDreams") == 4) then
          player:startEvent(222)
@@ -55,6 +52,8 @@ function onTrigger(player, npc)
          player:startEvent(221)
     elseif (player:getCharVar("ChasingDreams") == 8) then 
          player:startEvent(223)
+    elseif (stopYourWhining == QUEST_COMPLETED) then
+        player:startEvent(24) -- final dialog
 
     -- DEFAULT DIALOG
     else
