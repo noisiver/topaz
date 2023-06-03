@@ -84,6 +84,7 @@ function onEventFinish(player, csid, option)
         else
             player:addFame(JEUNO, 5)
         end
+    elseif (csid == 113) then
+        player:addQuest(JEUNO, tpz.quest.id.jeuno.EMPTY_MEMORIES)
     end
-
 end
