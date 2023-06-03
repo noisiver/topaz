@@ -6,6 +6,7 @@
 -----------------------------------
 require("scripts/globals/quests")
 require("scripts/globals/missions")
+require("scripts/globals/npc_util")
 local ID = require("scripts/zones/RuLude_Gardens/IDs")
 -----------------------------------
 
@@ -22,11 +23,11 @@ function onTrade(player, npc, trade)
             reward = 17466
         elseif (trade:hasItemQty(1761, 1) and count == 1) then -- Recollection of Anxiety --> Stone Gorget
             reward = 13177
-        elseif (trade:hasItemQty(1688, 1) and count == 2) then -- Recollection of Pain --> Hysteroanima (Amnesia)
+        elseif npcUtil.tradeHas(trade, { 1688,  {'gil', 2000} }, true) then -- Recollection of Pain --> Hysteroanima (Amnesia)
             anima = 5262
-        elseif (trade:hasItemQty(1689, 1) and count == 2) then -- Recollection of Guilt --> Terroanima (Run in Terror)
+        elseif npcUtil.tradeHas(trade, { 1689,  {'gil', 2000} }, true) then -- Recollection of Guilt --> Terroanima (Run in Terror)
             anima = 5263
-        elseif (trade:hasItemQty(1687, 1) and count == 2) then -- Recollection of Fear --> Psychoanima (Intimidation)
+        elseif npcUtil.tradeHas(trade, { 1687,  {'gil', 2000} }, true) then -- Recollection of Fear --> Psychoanima (Intimidation)
             anima = 5261
         end
 
@@ -53,7 +54,7 @@ end
 
 function onTrigger(player, npc)
 
-    if (player:getCurrentMission(COP) == tpz.mission.id.cop.BELOW_THE_ARKS and player:getCharVar("PromathiaStatus") == 1) then
+    if (player:getCurrentMission(COP) == tpz.mission.id.cop.BELOW_THE_ARKS and player:getCharVar("PromathiaStatus") == 1 and player:getCharVar("HarithIntro") == 0) then
         player:startEvent(113)
     elseif (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.EMPTY_MEMORIES) == QUEST_AVAILABLE and player:getCurrentMission(COP) >= tpz.mission.id.cop.THE_MOTHERCRYSTALS) then
         player:addQuest(JEUNO, tpz.quest.id.jeuno.EMPTY_MEMORIES)
@@ -84,7 +85,7 @@ function onEventFinish(player, csid, option)
         else
             player:addFame(JEUNO, 5)
         end
-    elseif (csid == 113) then
-        player:addQuest(JEUNO, tpz.quest.id.jeuno.EMPTY_MEMORIES)
+    elseif (csid == 113 and option == 1) then
+       player:setCharVar("HarithIntro", 1)
     end
 end
