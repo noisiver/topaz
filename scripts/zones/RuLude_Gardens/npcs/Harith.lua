@@ -56,7 +56,7 @@ function onTrigger(player, npc)
 
     if (player:getCurrentMission(COP) == tpz.mission.id.cop.BELOW_THE_ARKS and player:getCharVar("PromathiaStatus") == 1 and player:getCharVar("HarithIntro") == 0) then
         player:startEvent(113)
-    elseif (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.EMPTY_MEMORIES) == QUEST_AVAILABLE then
+    elseif (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.EMPTY_MEMORIES) == QUEST_AVAILABLE) then
         player:addQuest(JEUNO, tpz.quest.id.jeuno.EMPTY_MEMORIES)
         player:startEvent(114)
     elseif (player:getQuestStatus(JEUNO, tpz.quest.id.jeuno.EMPTY_MEMORIES) >= QUEST_ACCEPTED) then
