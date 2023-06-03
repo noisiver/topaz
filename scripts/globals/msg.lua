@@ -143,6 +143,7 @@ tpz.msg.basic =
 
 
     -- Misc other unsorted (sort me)
+    LEVEL_RESTRICTED       = 314, -- <target>'s level is currently restricted to <level>. Equipment affected by the level restriction will be adjusted accordingly.
     FALL_TO_GROUND         = 20,  -- <name> falls to the ground.
     NARROWLY_ESCAPE        = 359, -- <name> narrowly escapes impending doom.
     AOE_HP_RECOVERY        = 367, -- <target> recovers <amount> HP.
