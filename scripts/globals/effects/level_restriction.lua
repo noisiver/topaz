@@ -6,7 +6,7 @@
 
 function onEffectGain(target, effect)
     target:levelRestriction(effect:getPower())
-    target:messageBasic(314, effect:getPower()) -- <target>'s level is restricted to <param>
+    target:messageBasic(314, effect:getPower(), 0, 0, false) -- <target>'s level is restricted to <param>
 
     if target:getObjType() == tpz.objType.PC then
         target:clearTrusts()
