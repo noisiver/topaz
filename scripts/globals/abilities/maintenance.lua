@@ -51,6 +51,9 @@ function onUseAbility(player, target, ability)
         if pet:delStatusEffect(tpz.effect.POISON) then return true end
         if pet:delStatusEffect(tpz.effect.DISEASE) then return true end
         if pet:delStatusEffect(tpz.effect.BLINDNESS) then return true end
+        if pet:delStatusEffect(tpz.effect.ATTACK_DOWN) then return true end
+        if pet:delStatusEffect(tpz.effect.DEFENSE_DOWN) then return true end
+        if pet:delStatusEffect(tpz.effect.ACCURACY_DOWN) then return true end
         if pet:eraseStatusEffect() ~= 255 then return true end
         return false
     end
