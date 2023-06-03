@@ -16,6 +16,6 @@ end
 
 function onItemUse(target)
     target:delStatusEffectSilent(tpz.effect.INTIMIDATE)
-    target:addStatusEffectEx(tpz.effect.DOUBT, tpz.effect.INTIMIDATE, 100, 0, 30)
+    target:addStatusEffectEx(tpz.effect.DOUBT, tpz.effect.INTIMIDATE, 100, 0, 180)
 	target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.INTIMIDATE)
 end

@@ -31,6 +31,6 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-	target:setLocalVar("EmptyTerror",os.time()+30)
+	target:setLocalVar("EmptyTerror",os.time()+180)
 	target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.TERROR)
 end
