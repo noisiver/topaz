@@ -101,7 +101,7 @@ g_mixins.families.empty = function(mob)
 				killer:addTreasure(1612, mob) -- Radiant Memory (light)
 			end
         end
-        if math.random(1,100) <= utils.getDropRate(mob, 10) then
+        if math.random(1,100) <= utils.getDropRate(mob, 15) then
             killer:addTreasure(math.random(1687, 1689), mob) -- Recolection of x(Anima items)
         end
     end)
