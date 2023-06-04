@@ -81,15 +81,15 @@ function onTrigger(player, npc)
     -- SIGNED IN BLOOD (will only activate if An Explorer's Footsteps is not active, or if it is completed)
     if signedInBlood == QUEST_ACCEPTED and player:hasKeyItem(tpz.ki.TORN_OUT_PAGES) and anExplorersFootsteps ~= QUEST_ACCEPTED and signedInBloodStat == 2 then
         player:startEvent(1106)
-    elseif signedInBlood == QUEST_ACCEPTED and signedInBloodStat == 1 and anExplorersFootsteps ~= QUEST_ACCEPTED then
+    -- CHASING DREAMS
+    elseif (player:getCharVar("ChasingDreams") == 12) then
+         player:startEvent(1108)
+    elseif signedInBlood == QUEST_ACCEPTED and signedInBloodStat == 1 then
         player:startEvent(1104)
-    elseif signedInBlood == QUEST_ACCEPTED and signedInBloodStat == 2 and anExplorersFootsteps ~= QUEST_ACCEPTED then
+    elseif signedInBlood == QUEST_ACCEPTED and signedInBloodStat == 2 then
         player:startEvent(1105)
     elseif signedInBlood == QUEST_ACCEPTED and signedInBloodStat == 3 then
         player:startEvent(48)
-        -- CHASING DREAMS
-    elseif (player:getCharVar("ChasingDreams") == 12) then
-         player:startEvent(1108)
 
     -- AN EXPLORER'S FOOTSTEPS
     elseif anExplorersFootsteps == QUEST_AVAILABLE and math.floor((player:getFameLevel(SANDORIA) + player:getFameLevel(BASTOK)) / 2) >= 1 then

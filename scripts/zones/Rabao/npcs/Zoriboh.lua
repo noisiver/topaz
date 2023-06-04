@@ -43,7 +43,6 @@ function onEventFinish(player, csid, option)
     then
        player:addFame(RABAO, 750)
        player:addFame(NORG, 750)
-       player:delKeyItem(tpz.ki.STOREROOM_KEY)
     end
 end
 

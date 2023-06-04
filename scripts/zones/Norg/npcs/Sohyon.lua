@@ -41,6 +41,5 @@ function onEventFinish(player, csid, option)
         player:setCharVar("ChasingDreams", 9)
         player:delKeyItem(tpz.ki.FLASK_OF_CLAM_WATER)
         npcUtil.giveKeyItem(player, tpz.ki.STOREROOM_KEY)
-        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.STOREROOM_KEY)
      end
 end
