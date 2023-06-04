@@ -85,6 +85,5 @@ function onEventFinish(player, csid, option)
     elseif (csid == 221) then
          player:setCharVar("ChasingDreams", 4)
          npcUtil.giveKeyItem(player, tpz.ki.WASHUS_FLASK)
-         player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.WASHUS_FLASK)
     end
 end
