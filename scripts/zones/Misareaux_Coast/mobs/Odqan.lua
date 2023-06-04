@@ -9,9 +9,7 @@ local ID = require("scripts/zones/Misareaux_Coast/IDs")
 -----------------------------------
 
 function onMobSpawn(mob)
-	mob:setMod(tpz.mod.MAIN_DMG_RATING, 25)
-	mob:setMod(tpz.mod.DEFP, 25) 
-    mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
+    SetGenericNMStats(mob)
 end
 
 function onMobRoam(mob)
