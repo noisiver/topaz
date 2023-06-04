@@ -11,10 +11,7 @@ require("scripts/globals/mobs")
 require("scripts/globals/status")
 -----------------------------------
 function onMobSpawn(mob)
-    mob:setDamage(120)
-    mob:setMod(tpz.mod.ATT, 522)
-    mob:setMod(tpz.mod.DEF, 522)
-    mob:setMod(tpz.mod.EVA, 314) 
+    SetGenericNMStats(mob)
     mob:setMod(tpz.mod.UFASTCAST, 25)
     mob:setMod(tpz.mod.DOUBLE_ATTACK, 25)
     mob:setMod(tpz.mod.REFRESH, 50) 
@@ -38,7 +35,7 @@ function onMobInitialize(mob)
 end
 
 function onAdditionalEffect(mob, target, damage)
-return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENSTONE, {chance = 100, power = 250})
+return tpz.mob.onAddEffect(mob, target, damage, tpz.mob.ae.ENSTONE, {chance = 100, power = 25})
 end
 
 function onMobDeath(mob, player, isKiller)
