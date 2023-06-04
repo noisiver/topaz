@@ -7474,7 +7474,7 @@ INSERT INTO `mob_groups` VALUES (34,485,104,'Bogy',330,1,322,0,0,25,29,0);
 INSERT INTO `mob_groups` VALUES (35,4309,104,'Water_Elemental',330,4,2629,0,0,27,29,0);
 INSERT INTO `mob_groups` VALUES (36,4345,104,'Will-o-the-Wisp',330,8,0,0,0,24,25,0);
 INSERT INTO `mob_groups` VALUES (37,2643,104,'Meteormauler_Zhagtegg',39600,0,1664,4500,0,38,40,0);
-INSERT INTO `mob_groups` VALUES (38,1421,104,'Fraelissa',3600,0,905,2500,0,33,35,0);
+INSERT INTO `mob_groups` VALUES (38,1421,104,'Fraelissa',3600,0,905,3500,0,33,35,0);
 INSERT INTO `mob_groups` VALUES (39,1420,104,'Fradubio',3600,0,904,10000,0,58,58,0);
 INSERT INTO `mob_groups` VALUES (40,1129,104,'Duessa',0,128,0,0,0,40,50,0);
 INSERT INTO `mob_groups` VALUES (41,5768,104,'Supplespine_Mujwuj',3600,0,3052,3000,0,50,50,0);

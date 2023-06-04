@@ -78,7 +78,7 @@ function onTrigger(player, npc)
     local signedInBloodStat = player:getCharVar("SIGNED_IN_BLOOD_Prog")
     local ChasingDreams = player:getQuestStatus(OUTLANDS, tpz.quest.id.outlands.CHASING_DREAMS)
 
-    -- SIGNED IN BLOOD (will only activate if An Explorer's Footsteps is not active, or if it is completed)
+    -- SIGNED IN BLOOD
     if signedInBlood == QUEST_ACCEPTED and player:hasKeyItem(tpz.ki.TORN_OUT_PAGES) and anExplorersFootsteps ~= QUEST_ACCEPTED and signedInBloodStat == 2 then
         player:startEvent(1106)
     -- CHASING DREAMS
