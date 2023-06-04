@@ -9,6 +9,7 @@ require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/pets")
 require("scripts/globals/msg")
+require("scripts/globals/utils")
 
 local idStrengths = {
     [18731] = 1, -- Automaton Oil
@@ -35,26 +36,31 @@ end
 function onUseAbility(player, target, ability)
     local id = player:getEquipID(tpz.slot.AMMO)
     local pet = player:getPet()
+    local effectID
 
     local function removeStatus()
-        --if pet:delStatusEffect(tpz.effect.DOOM) then return true end
-        if pet:delStatusEffect(tpz.effect.PETRIFICATION) then return true end
-        --if pet:delStatusEffect(tpz.effect.LULLABY) then return true end
-        --if pet:delStatusEffect(tpz.effect.SLEEP_II) then return true end
-        --if pet:delStatusEffect(tpz.effect.SLEEP) then return true end
-        if pet:delStatusEffect(tpz.effect.SILENCE) then return true end
-        if pet:delStatusEffect(tpz.effect.BANE) then return true end
-        if pet:delStatusEffect(tpz.effect.CURSE_II) then return true end
-        if pet:delStatusEffect(tpz.effect.CURSE_I) then return true end
-        if pet:delStatusEffect(tpz.effect.PARALYSIS) then return true end
-        if pet:delStatusEffect(tpz.effect.PLAGUE) then return true end
-        if pet:delStatusEffect(tpz.effect.POISON) then return true end
-        if pet:delStatusEffect(tpz.effect.DISEASE) then return true end
-        if pet:delStatusEffect(tpz.effect.BLINDNESS) then return true end
-        if pet:delStatusEffect(tpz.effect.ATTACK_DOWN) then return true end
-        if pet:delStatusEffect(tpz.effect.DEFENSE_DOWN) then return true end
-        if pet:delStatusEffect(tpz.effect.ACCURACY_DOWN) then return true end
-        if pet:eraseStatusEffect() ~= 255 then return true end
+        local removables =
+        {
+            tpz.effect.FLASH, tpz.effect.BLINDNESS, tpz.effect.ELEGY, tpz.effect.REQUIEM, tpz.effect.PARALYSIS, tpz.effect.POISON,
+            tpz.effect.CURSE_I, tpz.effect.CURSE_II, tpz.effect.DISEASE, tpz.effect.PLAGUE, tpz.effect.WEIGHT, tpz.effect.BIND,
+            tpz.effect.BIO, tpz.effect.DIA, tpz.effect.BURN, tpz.effect.FROST, tpz.effect.CHOKE, tpz.effect.RASP, tpz.effect.SHOCK, tpz.effect.DROWN,
+            tpz.effect.STR_DOWN, tpz.effect.DEX_DOWN, tpz.effect.VIT_DOWN, tpz.effect.AGI_DOWN, tpz.effect.INT_DOWN, tpz.effect.MND_DOWN,
+            tpz.effect.CHR_DOWN, tpz.effect.ADDLE, tpz.effect.SLOW, tpz.effect.HELIX, tpz.effect.ACCURACY_DOWN, tpz.effect.ATTACK_DOWN,
+            tpz.effect.EVASION_DOWN, tpz.effect.DEFENSE_DOWN, tpz.effect.MAGIC_ACC_DOWN, tpz.effect.MAGIC_ATK_DOWN, tpz.effect.MAGIC_EVASION_DOWN,
+            tpz.effect.MAGIC_DEF_DOWN, tpz.effect.CRIT_HIT_EVASION_DOWN, tpz.effect.MAX_TP_DOWN, tpz.effect.MAX_MP_DOWN, tpz.effect.MAX_HP_DOWN,
+            tpz.effect.SLUGGISH_DAZE_1, tpz.effect.SLUGGISH_DAZE_2, tpz.effect.SLUGGISH_DAZE_3, tpz.effect.SLUGGISH_DAZE_4, tpz.effect.SLUGGISH_DAZE_5,
+            tpz.effect.LETHARGIC_DAZE_1, tpz.effect.LETHARGIC_DAZE_2, tpz.effect.LETHARGIC_DAZE_3, tpz.effect.LETHARGIC_DAZE_4, tpz.effect.LETHARGIC_DAZE_5,
+            tpz.effect.WEAKENED_DAZE_1, tpz.effect.WEAKENED_DAZE_2, tpz.effect.WEAKENED_DAZE_3, tpz.effect.WEAKENED_DAZE_4, tpz.effect.WEAKENED_DAZE_5,
+            tpz.effect.PETRIFICATION, tpz.effect.SILENCE,
+        }
+
+        for i, effect in ipairs(removables) do
+            if (pet:hasStatusEffect(effect)) then
+                pet:delStatusEffect(effect)
+                effectID = effect
+                return true
+            end
+        end
         return false
     end
 
@@ -69,5 +75,6 @@ function onUseAbility(player, target, ability)
 
     player:removeAmmo()
 
-    return removed
+    ability:setMsg(tpz.msg.basic.JA_REMOVE_EFFECT)
+    return effectID
 end
