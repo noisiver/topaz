@@ -14,7 +14,7 @@ function onTrigger(player, npc)
 
 
      if (player:getCharVar("ChasingDreams") == 7) then
-         player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER)
+         player:messageSpecial(ID.text.CAREFULLY_DRAW_WATER, tpz.ki.FLASK_OF_CLAM_WATER)
          player:messageSpecial(ID.text.FLASK_FULL) 
          player:delKeyItem(tpz.ki.WASHUS_FLASK)
          npcUtil.giveKeyItem(player, tpz.ki.FLASK_OF_CLAM_WATER)
