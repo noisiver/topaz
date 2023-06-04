@@ -3651,7 +3651,7 @@ namespace charutils
                             case 4: exp *= 0.45f; break;
                             case 5: exp *= 0.39f; break;
                             case 6: exp *= 0.35f; break;
-                            default: exp *= (1.8f / pcinzone); break;
+                            default: exp *= (1.0f / pcinzone); break;
                         }
                     }
                     else if (PMember->StatusEffectContainer->HasStatusEffect(EFFECT_SANCTION) && region >= 28 && region <= 32)
@@ -3664,7 +3664,7 @@ namespace charutils
                             case 4: exp *= 0.45f; break;
                             case 5: exp *= 0.39f; break;
                             case 6: exp *= 0.35f; break;
-                            default: exp *= (1.8f / pcinzone); break;
+                            default: exp *= (1.0f / pcinzone); break;
                         }
 
                     }
@@ -3678,7 +3678,7 @@ namespace charutils
                             case 4: exp *= 0.40f; break;
                             case 5: exp *= 0.37f; break;
                             case 6: exp *= 0.35f; break;
-                            default: exp *= (1.8f / pcinzone); break;
+                            default: exp *= (1.0f / pcinzone); break;
                         }
                     }
 
@@ -3686,20 +3686,6 @@ namespace charutils
                     {
                         const float monsterbonus = 1.f + PMob->getMobMod(MOBMOD_EXP_BONUS) / 100.f;
                         exp *= monsterbonus;
-                    }
-
-                    // Per monster caps pulled from: https://ffxiclopedia.fandom.com/wiki/Experience_Points
-                    if (PMember->GetMLevel() <= 50)
-                    {
-                        exp = std::fmin(exp, 400.f);
-                    }
-                    else if (PMember->GetMLevel() <= 60)
-                    {
-                        exp = std::fmin(exp, 500.f);
-                    }
-                    else
-                    {
-                        exp = std::fmin(exp, 600.f);
                     }
 
                     if (mobCheck > EMobDifficulty::DecentChallenge)
@@ -3716,7 +3702,7 @@ namespace charutils
                                 case 3: exp *= 1.3f; break;
                                 case 4: exp *= 1.4f; break;
                                 case 5: exp *= 1.5f; break;
-                                default: exp *= 1.55f; break;
+                                default: exp *= 1.0f; break;
                             }
                         }
                         else
@@ -3965,6 +3951,17 @@ namespace charutils
         // exp added from raise shouldn't display a message. Don't need a message for zero exp either
         if (!expFromRaise && exp > 0)
         {
+            //printf("Experience before level penalty %i\n", exp);
+            // Check for level restriction(COP level capped zones)
+            if (PChar->StatusEffectContainer->HasStatusEffect(EFFECT_LEVEL_RESTRICTION))
+            {
+                // Reduce experience if the players job is higher level than the level cap restriction
+                if (PChar->StatusEffectContainer->GetStatusEffect(EFFECT_LEVEL_RESTRICTION)->GetPower() < PChar->jobs.job[PChar->GetMJob()])
+                {
+                    exp = (int32)(exp * 0.10f);
+                    //printf("Experience after level penalty %i\n", exp);
+                }
+            }
             if (mobCheck >= EMobDifficulty::EvenMatch && isexpchain)
             {
                 if (PChar->expChain.chainNumber != 0)
