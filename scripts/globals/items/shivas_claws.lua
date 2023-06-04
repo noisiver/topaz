@@ -12,16 +12,14 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = 10
+    local chance = CalculateAdditionalEffectChance(player, 12)
+    local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.PARALYSIS, tpz.magic.ele.ICE, 0)
+    local duration = math.floor(60 * resist)
 
-	if (VanadielDayOfTheWeek() == tpz.day.ICEDAY) then
-        chance = chance+6
-    end
-
-    if math.random(100) <= chance and applyResistanceAddEffect(player, target, tpz.magic.ele.ICE, 0) > 0.5 then
-        target:addStatusEffect(tpz.effect.PARALYSIS, 10, 0, 30)
+    if (math.random(0, 95) >= chance or resist < 0.5) then 
+        return 0, 0, 0
+    else
+        target:addStatusEffect(tpz.effect.PARALYSIS, 20, 0, duration) 
         return tpz.subEffect.PARALYSIS, tpz.msg.basic.ADD_EFFECT_STATUS, tpz.effect.PARALYSIS
     end
-
-    return 0, 0, 0
 end
