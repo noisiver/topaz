@@ -528,7 +528,9 @@ function AutoPhysicalFinalAdjustments(dmg, auto, skill, target, attackType, dama
 
     -- set message to damage
     -- this is for AoE because its only set once
-    skill:setMsg(tpz.msg.basic.DAMAGE)
+    if (dmg > 0) then
+        skill:setMsg(tpz.msg.basic.DAMAGE)
+    end
     -- Shadows logic
     --printf("numhits %u", numberofhits)
     dmg = getAutoShadowAbsorb(dmg, numberofhits, target, skill, params)
