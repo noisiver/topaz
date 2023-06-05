@@ -1,5 +1,5 @@
 ---------------------------------------------
--- Baleful Gaze
+-- Baleful Gaze (Cockatrice)
 -- Description: Petrifies opponents with a gaze attack.
 -- Type: Gaze
 -- Utsusemi/Blink absorb: Ignores shadows
@@ -17,9 +17,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
-    local duration = 45
-
-    skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, duration))
-
+    skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, 1, 0, 60, 0, 0, 0))
     return typeEffect
 end

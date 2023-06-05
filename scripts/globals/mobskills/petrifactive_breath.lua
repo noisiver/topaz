@@ -18,8 +18,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
-
-    skill:setMsg(MobStatusEffectMove(mob, target, typeEffect, 1, 0, math.random(15, 45)))
-
+    skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, 1, 0, 30, 0, 0, 0))
     return typeEffect
 end

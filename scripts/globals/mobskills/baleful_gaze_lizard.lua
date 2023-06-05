@@ -1,10 +1,9 @@
 ---------------------------------------------
--- Petribreath
---
--- Description: Petrifies targets within a fan-shaped area.
--- Type: Breath
+-- Baleful Gaze (LIzard)
+-- Description: Petrifies opponents with a gaze attack.
+-- Type: Gaze
 -- Utsusemi/Blink absorb: Ignores shadows
--- Range: Unknown  cone, Seen up to 15' distance.
+-- Range: Single gaze
 -- Notes:
 ---------------------------------------------
 require("scripts/globals/monstertpmoves")
@@ -18,6 +17,6 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
-    skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, 1, 0, 60, 0, 0, 0))
+    skill:setMsg(MobStatusEffectMoveSub(mob, target, typeEffect, 1, 0, 30, 0, 0, 0))
     return typeEffect
 end

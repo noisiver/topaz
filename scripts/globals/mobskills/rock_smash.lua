@@ -23,7 +23,7 @@ function onMobSkillCheck(target, mob, skill)
 end
 
 function onMobWeaponSkill(target, mob, skill)
-
+    local typeEffect = tpz.effect.PETRIFICATION
     local numhits = 1
     local accmod = 1
     local dmgmod = 1.0
@@ -40,12 +40,8 @@ function onMobWeaponSkill(target, mob, skill)
     params_phys.chr_wsc = 0.0
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT, params_phys)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
-
-    local typeEffect = tpz.effect.PETRIFICATION
-    local duration = 15
-
     target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
-    MobPhysicalStatusEffectMove(mob, target, skill, typeEffect, 1, 0, duration)
+    MobPhysicalStatusEffectMoveSub(mob, target, typeEffect, 1, 0, 15, 0, 0, 0)
 	if ((skill:getMsg() ~= tpz.msg.basic.SHADOW_ABSORB) and (dmg > 0)) then   target:tryInterruptSpell(mob, info.hitslanded) end
     return dmg
 end

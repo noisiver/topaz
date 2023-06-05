@@ -22,7 +22,7 @@ function onMobWeaponSkill(target, mob, skill)
     local typeEffect = tpz.effect.PETRIFICATION
 
     if (target:isFacing(mob)) and not target:hasStatusEffect(tpz.effect.BLINDNESS) then
-        target:addStatusEffect(tpz.effect.DIA, 2, 3, 30, 0, 24, 2)
+        MobStatusEffectMoveSub(mob, target, tpz.effect.DIA, 2, 3, 30, 0, 24, 2)
         mob:resetEnmity(target)
     end
     skill:setMsg(MobGazeMove(mob, target, typeEffect, 1, 0, 300))
