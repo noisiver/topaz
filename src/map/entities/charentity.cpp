@@ -879,12 +879,8 @@ bool CCharEntity::CanUseSpell(CSpell* PSpell)
 void CCharEntity::OnChangeTarget(CBattleEntity* PNewTarget)
 {
     battleutils::RelinquishClaim(this);
-    // Send inventory finish packet to check for temps
-    if (server_clock::now() < InventoryFinishPacket)
-    {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
-        this->pushPacket(new CInventoryFinishPacket());
-    }
+
+    this->pushPacket(new CInventoryFinishPacket());
     pushPacket(new CLockOnPacket(this, PNewTarget));
     PLatentEffectContainer->CheckLatentsTargetChange();
 }
@@ -892,12 +888,8 @@ void CCharEntity::OnChangeTarget(CBattleEntity* PNewTarget)
 void CCharEntity::OnEngage(CAttackState& state)
 {
     CBattleEntity::OnEngage(state);
-    // Send inventory finish packet to check for temps
-    if (server_clock::now() < InventoryFinishPacket)
-    {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
-        this->pushPacket(new CInventoryFinishPacket());
-    }
+
+    this->pushPacket(new CInventoryFinishPacket());
     PLatentEffectContainer->CheckLatentsTargetChange();
 }
 
@@ -905,12 +897,9 @@ void CCharEntity::OnDisengage(CAttackState& state)
 {
     battleutils::RelinquishClaim(this);
     CBattleEntity::OnDisengage(state);
-    // Send inventory finish packet to check for temps
-    if (server_clock::now() < InventoryFinishPacket)
-    {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
-        this->pushPacket(new CInventoryFinishPacket());
-    }
+
+    this->pushPacket(new CInventoryFinishPacket());
+
     if (state.HasErrorMsg())
     {
         pushPacket(state.GetErrorMsg());
@@ -961,9 +950,9 @@ bool CCharEntity::OnAttack(CAttackState& state, action_t& action)
     auto ret = CBattleEntity::OnAttack(state, action);
 
     // Send inventory finish packet to check for temps
-    if (server_clock::now() < InventoryFinishPacket)
+    if (server_clock::now() < AttackInventoryFinishPacket)
     {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
+        AttackInventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
         this->pushPacket(new CInventoryFinishPacket());
     }
 
@@ -1045,12 +1034,8 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
             }
         }
     }
-    // Send inventory finish packet to check for temps
-    if (server_clock::now() < InventoryFinishPacket)
-    {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
-        this->pushPacket(new CInventoryFinishPacket());
-    }
+
+    this->pushPacket(new CInventoryFinishPacket());
 
     if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
     {
@@ -1062,12 +1047,9 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
 void CCharEntity::OnCastInterrupted(CMagicState& state, action_t& action, MSGBASIC_ID msg)
 {
     CBattleEntity::OnCastInterrupted(state, action, msg);
-    // Send inventory finish packet to check for temps
-    if (server_clock::now() < InventoryFinishPacket)
-    {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
-        this->pushPacket(new CInventoryFinishPacket());
-    }
+
+    this->pushPacket(new CInventoryFinishPacket());
+
     auto message = state.GetErrorMsg();
 
     if (message)
@@ -1215,12 +1197,7 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
         StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
         battleutils::ClaimMob(PBattleTarget, this);
 
-        // Send inventory finish packet to check for temps
-        if (server_clock::now() < InventoryFinishPacket)
-        {
-            InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
-            this->pushPacket(new CInventoryFinishPacket());
-        }
+        this->pushPacket(new CInventoryFinishPacket());
 
         if (PBattleTarget->isDead() && PBattleTarget->objtype == TYPE_MOB)
         {
@@ -1473,13 +1450,7 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         }
 
         pushPacket(new CCharRecastPacket(this));
-
-    // Send inventory finish packet to check for temps
-        if (server_clock::now() < InventoryFinishPacket)
-        {
-            InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
-            this->pushPacket(new CInventoryFinishPacket());
-        }
+        this->pushPacket(new CInventoryFinishPacket());
 
         if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
         {
@@ -1785,12 +1756,7 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
     // only remove detectables
     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
 
-    // Send inventory finish packet to check for temps
-    if (server_clock::now() < InventoryFinishPacket)
-    {
-        InventoryFinishPacket = server_clock::now() + std::chrono::milliseconds(500);
-        this->pushPacket(new CInventoryFinishPacket());
-    }
+    this->pushPacket(new CInventoryFinishPacket());
 
     if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
     {

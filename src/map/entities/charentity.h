@@ -338,6 +338,7 @@ public:
     time_point        m_petAbilityWait;             // ability lock out to stop from re-issueing pet abilities when pet is mid action
     time_point        m_deathSyncTime;              // Timer used for sending an update packet at a regular interval while the character is dead
     time_point        InventoryFinishPacket{ server_clock::now() };
+    time_point        AttackInventoryFinishPacket{ server_clock::now() };
     uint8			  m_hasTractor;					// checks if player has tractor already
     uint8			  m_hasRaise;					// checks if player has raise already
     uint8             m_hasAutoTarget;              // возможность использования AutoTarget функции
