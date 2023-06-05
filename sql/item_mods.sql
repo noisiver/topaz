@@ -14139,16 +14139,18 @@ INSERT INTO `item_mods` VALUES (14439,1,48);      -- Hachiman Domaru +1: DEF 48
 INSERT INTO `item_mods` VALUES (14439,8,9);       -- STR +9
 INSERT INTO `item_mods` VALUES (14439,48,10);     -- Weapon Skill Accuracy +10
 INSERT INTO `item_mods` VALUES (14439,73,7);      -- Store TP +7
-INSERT INTO `item_mods` VALUES (14440,1,43);
+INSERT INTO `item_mods` VALUES (14440,1,43);      -- Chasuble
 INSERT INTO `item_mods` VALUES (14440,5,20);
 INSERT INTO `item_mods` VALUES (14440,25,5);
 INSERT INTO `item_mods` VALUES (14440,27,-2);
 INSERT INTO `item_mods` VALUES (14440,30,5);
-INSERT INTO `item_mods` VALUES (14441,1,44);
+INSERT INTO `item_mods` VALUES (14440,432,3);     -- Sword enhancement spell damage +3
+INSERT INTO `item_mods` VALUES (14441,1,44);      -- Chasuble +1
 INSERT INTO `item_mods` VALUES (14441,5,25);
 INSERT INTO `item_mods` VALUES (14441,25,6);
 INSERT INTO `item_mods` VALUES (14441,27,-3);
 INSERT INTO `item_mods` VALUES (14441,30,6);
+INSERT INTO `item_mods` VALUES (14441,432,4);     -- Sword enhancement spell damage +4
 INSERT INTO `item_mods` VALUES (14442,1,44);      -- Yasha Samue +1: DEF 44
 INSERT INTO `item_mods` VALUES (14442,12,4);      -- INT +4
 INSERT INTO `item_mods` VALUES (14442,27,5);      -- Enmity +5
@@ -15475,15 +15477,15 @@ INSERT INTO `item_mods` VALUES (14879,10,2);
 INSERT INTO `item_mods` VALUES (14879,27,2);
 INSERT INTO `item_mods` VALUES (14879,60,2);
 INSERT INTO `item_mods` VALUES (14879,61,2);
-INSERT INTO `item_mods` VALUES (14880,1,16);
-INSERT INTO `item_mods` VALUES (14880,13,4);
-INSERT INTO `item_mods` VALUES (14880,25,3);
-INSERT INTO `item_mods` VALUES (14880,26,2);
+INSERT INTO `item_mods` VALUES (14880,1,16);      -- Wise Gloves
+INSERT INTO `item_mods` VALUES (14880,13,5);
+INSERT INTO `item_mods` VALUES (14880,25,10);
+INSERT INTO `item_mods` VALUES (14880,26,10);
 INSERT INTO `item_mods` VALUES (14880,27,-2);
-INSERT INTO `item_mods` VALUES (14881,1,17);
-INSERT INTO `item_mods` VALUES (14881,13,5);
-INSERT INTO `item_mods` VALUES (14881,25,4);
-INSERT INTO `item_mods` VALUES (14881,26,3);
+INSERT INTO `item_mods` VALUES (14881,1,17);      -- Wise Gloves +1
+INSERT INTO `item_mods` VALUES (14881,13,6);
+INSERT INTO `item_mods` VALUES (14881,25,12);
+INSERT INTO `item_mods` VALUES (14881,26,12);
 INSERT INTO `item_mods` VALUES (14881,27,-3);
 INSERT INTO `item_mods` VALUES (14882,1,17);      -- Yasha Tekko +1: DEF 17
 INSERT INTO `item_mods` VALUES (14882,27,3);      -- Enmity +3
@@ -16734,16 +16736,18 @@ INSERT INTO `item_mods` VALUES (15189,10,2);
 INSERT INTO `item_mods` VALUES (15189,27,2);
 INSERT INTO `item_mods` VALUES (15189,60,2);
 INSERT INTO `item_mods` VALUES (15189,61,2);
-INSERT INTO `item_mods` VALUES (15190,1,24);
+INSERT INTO `item_mods` VALUES (15190,1,24);      -- Wise Cap
 INSERT INTO `item_mods` VALUES (15190,5,13);
 INSERT INTO `item_mods` VALUES (15190,25,2);
 INSERT INTO `item_mods` VALUES (15190,26,3);
 INSERT INTO `item_mods` VALUES (15190,30,5);
+INSERT INTO `item_mods` VALUES (15190,384,200);     -- Haste+2%
 INSERT INTO `item_mods` VALUES (15191,1,25);
 INSERT INTO `item_mods` VALUES (15191,5,15);
 INSERT INTO `item_mods` VALUES (15191,25,3);
 INSERT INTO `item_mods` VALUES (15191,26,4);
 INSERT INTO `item_mods` VALUES (15191,30,6);
+INSERT INTO `item_mods` VALUES (15191,384,200);     -- Haste+2%
 INSERT INTO `item_mods` VALUES (15192,1,23);      -- Yasha Jinpachi +1: DEF 23
 INSERT INTO `item_mods` VALUES (15192,12,8);      -- INT +8
 INSERT INTO `item_mods` VALUES (15192,27,3);      -- Enmity +3
@@ -17285,16 +17289,18 @@ INSERT INTO `item_mods` VALUES (15333,14,1);
 INSERT INTO `item_mods` VALUES (15333,60,2);
 INSERT INTO `item_mods` VALUES (15333,61,2);
 INSERT INTO `item_mods` VALUES (15333,71,3);
-INSERT INTO `item_mods` VALUES (15334,1,14);
+INSERT INTO `item_mods` VALUES (15334,1,14);      -- Wise Pigaches
 INSERT INTO `item_mods` VALUES (15334,12,4);
 INSERT INTO `item_mods` VALUES (15334,25,2);
 INSERT INTO `item_mods` VALUES (15334,26,3);
 INSERT INTO `item_mods` VALUES (15334,27,-1);
-INSERT INTO `item_mods` VALUES (15335,1,15);
+INSERT INTO `item_mods` VALUES (15334,890,10);    -- Increases enhancing magic effect duration +10%
+INSERT INTO `item_mods` VALUES (15335,1,15);      -- Wise Pigaches +1
 INSERT INTO `item_mods` VALUES (15335,12,5);
 INSERT INTO `item_mods` VALUES (15335,25,3);
 INSERT INTO `item_mods` VALUES (15335,26,4);
 INSERT INTO `item_mods` VALUES (15335,27,-2);
+INSERT INTO `item_mods` VALUES (15335,890,12);    -- Increases enhancing magic effect duration +12%
 INSERT INTO `item_mods` VALUES (15336,1,14);      -- Yasha Sune-ate +1: DEF 14
 INSERT INTO `item_mods` VALUES (15336,2,12);      -- HP +12
 INSERT INTO `item_mods` VALUES (15336,12,4);      -- INT +4
@@ -17516,16 +17522,18 @@ INSERT INTO `item_mods` VALUES (15395,10,2);
 INSERT INTO `item_mods` VALUES (15395,27,2);
 INSERT INTO `item_mods` VALUES (15395,60,2);
 INSERT INTO `item_mods` VALUES (15395,61,2);
-INSERT INTO `item_mods` VALUES (15396,1,32);
-INSERT INTO `item_mods` VALUES (15396,5,17);
-INSERT INTO `item_mods` VALUES (15396,25,1);
-INSERT INTO `item_mods` VALUES (15396,27,-4);
-INSERT INTO `item_mods` VALUES (15396,30,2);
-INSERT INTO `item_mods` VALUES (15397,1,33);
-INSERT INTO `item_mods` VALUES (15397,5,20);
-INSERT INTO `item_mods` VALUES (15397,25,2);
-INSERT INTO `item_mods` VALUES (15397,27,-5);
-INSERT INTO `item_mods` VALUES (15397,30,3);
+INSERT INTO `item_mods` VALUES (15396,1,32);        -- Wise Braconi
+INSERT INTO `item_mods` VALUES (15396,5,17);        -- MP+17
+INSERT INTO `item_mods` VALUES (15396,8,3);         -- STR+3
+INSERT INTO `item_mods` VALUES (15396,13,3);        -- MND+3
+INSERT INTO `item_mods` VALUES (15396,23,10);       -- Attack+10
+INSERT INTO `item_mods` VALUES (15396,384,-800);    -- Slow +8%
+INSERT INTO `item_mods` VALUES (15397,1,33);        -- Wise Braconi +1
+INSERT INTO `item_mods` VALUES (15397,5,20);        -- MP+20
+INSERT INTO `item_mods` VALUES (15397,8,4);         -- STR+4
+INSERT INTO `item_mods` VALUES (15397,13,4);        -- MND+4
+INSERT INTO `item_mods` VALUES (15397,23,12);       -- Attack+12
+INSERT INTO `item_mods` VALUES (15397,384,-1000);   -- Slow +10%
 INSERT INTO `item_mods` VALUES (15398,1,32);      -- Yasha Hakama +1: DEF 32
 INSERT INTO `item_mods` VALUES (15398,2,30);      -- HP +30
 INSERT INTO `item_mods` VALUES (15398,12,3);      -- INT +3
