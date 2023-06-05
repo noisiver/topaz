@@ -77,6 +77,13 @@ namespace mobutils
             damage = 0.11f * h2hskill + 3 +
                      18 * PMob->GetMLevel() / 75; // basic h2h weapon dmg + scaling "weapon" for mnk mobs based on h2h skill (destroyers 18 dmg at 75)
         }
+
+        // DW mobs use 1h weapon damage instead of 2h
+        if (PMob->getMobMod(MOBMOD_DUAL_WIELD) > 0)
+        {
+            damage = (lvl / 2) + bonus;
+        }
+
         damage = (uint16)(damage * PMob->m_dmgMult / 100.0f);
 
         if (PMob->getMobMod(MOBMOD_WEAPON_BONUS) != 0)
