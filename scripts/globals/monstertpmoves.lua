@@ -1192,6 +1192,7 @@ function MobPercentHealMove(mob, target, skill, heal)
 
     local mobHP = target:getHP()
     local mobMaxHP = target:getMaxHP()
+    heal = math.floor(mobMaxHP * heal)
 
     if (mobHP+heal > mobMaxHP) then
         heal = mobMaxHP - mobHP
