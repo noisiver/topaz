@@ -1491,6 +1491,7 @@ namespace petutils
             {
                 PMob->PEnmityContainer->UpdateEnmity(PChar, 1, 1);
                 PMob->PAI->ChangeTarget(PMaster->targid);
+                PMob->SetBattleTargetID(PChar->targid);
 
                 // dirty exp if not full
                 PMob->m_giveExp = PMob->GetHPP() == 100;
