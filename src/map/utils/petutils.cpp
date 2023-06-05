@@ -1263,13 +1263,13 @@ namespace petutils
         CPetEntity* PPet = (CPetEntity*)PMaster->PPet;
         if (PPet)
         {
-            Pet_t* petData = g_PPetList.at(PetID);
+            Pet_t* PPetData = g_PPetList.at(PetID);
 
             // Set jobs in sql for jug pets only
             if (PPet->getPetType() == PETTYPE_JUG_PET)
             {
-                PPet->SetMJob(petData->mJob);
-                PPet->SetSJob(petData->sJob);
+                PPet->SetMJob(PPetData->mJob);
+                PPet->SetSJob(PPetData->sJob);
             }
 
             // ALl non-automaton pets deal H2H damage
@@ -1278,45 +1278,45 @@ namespace petutils
                 ((CItemWeapon*)PPet->m_Weapons[SLOT_MAIN])->setDmgType(DAMAGE_HTH);
             }
 
-            PPet->setModifier(Mod::SLASHRES, petData->slashres);
-            PPet->setModifier(Mod::PIERCERES, petData->pierceres);
-            PPet->setModifier(Mod::RANGEDRES, petData->pierceres);
-            PPet->setModifier(Mod::HTHRES, petData->hthres);
-            PPet->setModifier(Mod::IMPACTRES, petData->impactres);
+            PPet->setModifier(Mod::SLASHRES, PPetData->slashres);
+            PPet->setModifier(Mod::PIERCERES, PPetData->pierceres);
+            PPet->setModifier(Mod::RANGEDRES, PPetData->pierceres);
+            PPet->setModifier(Mod::HTHRES, PPetData->hthres);
+            PPet->setModifier(Mod::IMPACTRES, PPetData->impactres);
 
-            PPet->setModifier(Mod::FIREDEF, petData->firedef);       // These are stored as floating percentages
-            PPet->setModifier(Mod::ICEDEF, petData->icedef);         // and need to be adjusted into modifier units.
-            PPet->setModifier(Mod::WINDDEF, petData->winddef);       // Higher DEF = lower damage.
-            PPet->setModifier(Mod::EARTHDEF, petData->earthdef);     // Negatives signify increased damage.
-            PPet->setModifier(Mod::THUNDERDEF, petData->thunderdef); // Positives signify reduced damage.
-            PPet->setModifier(Mod::WATERDEF, petData->waterdef);     // Ex: 125% damage would be 1.25, 50% damage would be 0.50
-            PPet->setModifier(Mod::LIGHTDEF, petData->lightdef);     // (1.25 - 1) * -1000 = -250 DEF
-            PPet->setModifier(Mod::DARKDEF, petData->darkdef);       // (0.50 - 1) * -1000 = 500 DEF
+            PPet->setModifier(Mod::FIREDEF, PPetData->firedef);       // These are stored as floating percentages
+            PPet->setModifier(Mod::ICEDEF, PPetData->icedef);         // and need to be adjusted into modifier units.
+            PPet->setModifier(Mod::WINDDEF, PPetData->winddef);       // Higher DEF = lower damage.
+            PPet->setModifier(Mod::EARTHDEF, PPetData->earthdef);     // Negatives signify increased damage.
+            PPet->setModifier(Mod::THUNDERDEF, PPetData->thunderdef); // Positives signify reduced damage.
+            PPet->setModifier(Mod::WATERDEF, PPetData->waterdef);     // Ex: 125% damage would be 1.25, 50% damage would be 0.50
+            PPet->setModifier(Mod::LIGHTDEF, PPetData->lightdef);     // (1.25 - 1) * -1000 = -250 DEF
+            PPet->setModifier(Mod::DARKDEF, PPetData->darkdef);       // (0.50 - 1) * -1000 = 500 DEF
 
-            PPet->setModifier(Mod::SDT_FIRE, petData->fireresSDT);
-            PPet->setModifier(Mod::SDT_ICE, petData->iceresSDT);
-            PPet->setModifier(Mod::SDT_WIND, petData->windresSDT);
-            PPet->setModifier(Mod::SDT_EARTH, petData->earthresSDT);
-            PPet->setModifier(Mod::SDT_THUNDER, petData->thunderresSDT);
-            PPet->setModifier(Mod::SDT_WATER, petData->waterresSDT);
-            PPet->setModifier(Mod::SDT_LIGHT, petData->lightresSDT);
-            PPet->setModifier(Mod::SDT_DARK, petData->darkresSDT);
+            PPet->setModifier(Mod::SDT_FIRE, PPetData->fireresSDT);
+            PPet->setModifier(Mod::SDT_ICE, PPetData->iceresSDT);
+            PPet->setModifier(Mod::SDT_WIND, PPetData->windresSDT);
+            PPet->setModifier(Mod::SDT_EARTH, PPetData->earthresSDT);
+            PPet->setModifier(Mod::SDT_THUNDER, PPetData->thunderresSDT);
+            PPet->setModifier(Mod::SDT_WATER, PPetData->waterresSDT);
+            PPet->setModifier(Mod::SDT_LIGHT, PPetData->lightresSDT);
+            PPet->setModifier(Mod::SDT_DARK, PPetData->darkresSDT);
 
-            PPet->setModifier(Mod::EEM_AMNESIA, petData->eemamnesia);
-            PPet->setModifier(Mod::EEM_VIRUS, petData->eemvirus);
-            PPet->setModifier(Mod::EEM_SILENCE, petData->eemsilence);
-            PPet->setModifier(Mod::EEM_GRAVITY, petData->eemgravity);
-            PPet->setModifier(Mod::EEM_STUN, petData->eemstun);
-            PPet->setModifier(Mod::EEM_LIGHT_SLEEP, petData->eemlightsleep);
-            PPet->setModifier(Mod::EEM_CHARM, petData->eemcharm);
-            PPet->setModifier(Mod::EEM_PARALYZE, petData->eemparalyze);
-            PPet->setModifier(Mod::EEM_BIND, petData->eembind);
-            PPet->setModifier(Mod::EEM_SLOW, petData->eemslow);
-            PPet->setModifier(Mod::EEM_PETRIFY, petData->eempetrify);
-            PPet->setModifier(Mod::EEM_TERROR, petData->eemterror);
-            PPet->setModifier(Mod::EEM_POISON, petData->eempoison);
-            PPet->setModifier(Mod::EEM_DARK_SLEEP, petData->eemdarksleep);
-            PPet->setModifier(Mod::EEM_BLIND, petData->eemblind);
+            PPet->setModifier(Mod::EEM_AMNESIA, PPetData->eemamnesia);
+            PPet->setModifier(Mod::EEM_VIRUS, PPetData->eemvirus);
+            PPet->setModifier(Mod::EEM_SILENCE, PPetData->eemsilence);
+            PPet->setModifier(Mod::EEM_GRAVITY, PPetData->eemgravity);
+            PPet->setModifier(Mod::EEM_STUN, PPetData->eemstun);
+            PPet->setModifier(Mod::EEM_LIGHT_SLEEP, PPetData->eemlightsleep);
+            PPet->setModifier(Mod::EEM_CHARM, PPetData->eemcharm);
+            PPet->setModifier(Mod::EEM_PARALYZE, PPetData->eemparalyze);
+            PPet->setModifier(Mod::EEM_BIND, PPetData->eembind);
+            PPet->setModifier(Mod::EEM_SLOW, PPetData->eemslow);
+            PPet->setModifier(Mod::EEM_PETRIFY, PPetData->eempetrify);
+            PPet->setModifier(Mod::EEM_TERROR, PPetData->eemterror);
+            PPet->setModifier(Mod::EEM_POISON, PPetData->eempoison);
+            PPet->setModifier(Mod::EEM_DARK_SLEEP, PPetData->eemdarksleep);
+            PPet->setModifier(Mod::EEM_BLIND, PPetData->eemblind);
 
             uint8 spawnLevel = UINT8_MAX;
             if (spawningFromZone)
@@ -1327,18 +1327,18 @@ namespace petutils
             // add traits for sub and main if a jug pet
             if (PPet->getPetType() != PETTYPE_AUTOMATON)
             {
-                battleutils::AddTraits(PPet, traits::GetTraits(petData->mJob), PPet->GetMLevel());
-                if (petData->mJob != petData->sJob)
+                battleutils::AddTraits(PPet, traits::GetTraits(PPetData->mJob), PPet->GetMLevel());
+                if (PPetData->mJob != PPetData->sJob)
                 {
-                    battleutils::AddTraits(PPet, traits::GetTraits(petData->sJob), PPet->GetSLevel());
+                    battleutils::AddTraits(PPet, traits::GetTraits(PPetData->sJob), PPet->GetSLevel());
                 }
                 // WAR pets have 25% DA
-                if (petData->mJob == JOB_WAR && PPet->GetMLevel() >= 25 || petData->sJob == JOB_WAR && PPet->GetSLevel() >= 25)
+                if (PPetData->mJob == JOB_WAR && PPet->GetMLevel() >= 25 || PPetData->sJob == JOB_WAR && PPet->GetSLevel() >= 25)
                 {
                     PPet->setModifier(Mod::DOUBLE_ATTACK, 25);
                 }
                 // Pets shouldn't have Inquartata unless Rune Fencers(?)
-                if (petData->mJob != JOB_RUN)
+                if (PPetData->mJob != JOB_RUN)
                 {
                     PPet->setModifier(Mod::INQUARTATA, 0);
                 }
@@ -1388,65 +1388,70 @@ namespace petutils
         to manage pet families and spawn them.
         */
 
-        // grab pet info
-        Pet_t* petData = g_PPetList.at(PetID);
         CMobEntity* PPet = (CMobEntity*)PMaster->PPet;
 
-        PPet->look = petData->look;
-        PPet->name = petData->name;
-        PPet->SetMJob(petData->mJob);
-        PPet->SetSJob(petData->sJob);
-        PPet->m_EcoSystem = petData->EcoSystem;
-        PPet->m_Family = petData->m_Family;
-        PPet->m_Element = petData->m_Element;
-        PPet->HPscale = petData->HPscale;
-        PPet->MPscale = petData->MPscale;
-        PPet->m_HasSpellScript = petData->hasSpellScript;
+        // clang-format off
+        Pet_t* PPetData = *std::find_if(g_PPetList.begin(), g_PPetList.end(), [PetID](Pet_t* t)
+        {
+            return t->PetID == PetID;
+        });
+        // clang-format on
+
+        PPet->look = PPetData->look;
+        PPet->name = PPetData->name;
+        PPet->SetMJob(PPetData->mJob);
+        PPet->SetSJob(PPetData->sJob);
+        PPet->m_EcoSystem = PPetData->EcoSystem;
+        PPet->m_Family = PPetData->m_Family;
+        PPet->m_Element = PPetData->m_Element;
+        PPet->HPscale = PPetData->HPscale;
+        PPet->MPscale = PPetData->MPscale;
+        PPet->m_HasSpellScript = PPetData->hasSpellScript;
 
         PPet->allegiance = PMaster->allegiance;
         PMaster->StatusEffectContainer->CopyConfrontationEffect(PPet);
 
-        PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(petData->spellList);
+        PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(PPetData->spellList);
 
-        PPet->setModifier(Mod::SLASHRES, petData->slashres);
-        PPet->setModifier(Mod::PIERCERES, petData->pierceres);
-        PPet->setModifier(Mod::RANGEDRES, petData->pierceres);
-        PPet->setModifier(Mod::HTHRES, petData->hthres);
-        PPet->setModifier(Mod::IMPACTRES, petData->impactres);
+        PPet->setModifier(Mod::SLASHRES, PPetData->slashres);
+        PPet->setModifier(Mod::PIERCERES, PPetData->pierceres);
+        PPet->setModifier(Mod::RANGEDRES, PPetData->pierceres);
+        PPet->setModifier(Mod::HTHRES, PPetData->hthres);
+        PPet->setModifier(Mod::IMPACTRES, PPetData->impactres);
 
-        PPet->setModifier(Mod::FIREDEF, petData->firedef); // These are stored as floating percentages
-        PPet->setModifier(Mod::ICEDEF, petData->icedef); // and need to be adjusted into modifier units.
-        PPet->setModifier(Mod::WINDDEF, petData->winddef); // Higher DEF = lower damage.
-        PPet->setModifier(Mod::EARTHDEF, petData->earthdef); // Negatives signify increased damage.
-        PPet->setModifier(Mod::THUNDERDEF, petData->thunderdef); // Positives signify reduced damage.
-        PPet->setModifier(Mod::WATERDEF, petData->waterdef); // Ex: 125% damage would be 1.25, 50% damage would be 0.50
-        PPet->setModifier(Mod::LIGHTDEF, petData->lightdef); // (1.25 - 1) * -1000 = -250 DEF
-        PPet->setModifier(Mod::DARKDEF, petData->darkdef); // (0.50 - 1) * -1000 = 500 DEF
+        PPet->setModifier(Mod::FIREDEF, PPetData->firedef); // These are stored as floating percentages
+        PPet->setModifier(Mod::ICEDEF, PPetData->icedef); // and need to be adjusted into modifier units.
+        PPet->setModifier(Mod::WINDDEF, PPetData->winddef); // Higher DEF = lower damage.
+        PPet->setModifier(Mod::EARTHDEF, PPetData->earthdef); // Negatives signify increased damage.
+        PPet->setModifier(Mod::THUNDERDEF, PPetData->thunderdef); // Positives signify reduced damage.
+        PPet->setModifier(Mod::WATERDEF, PPetData->waterdef); // Ex: 125% damage would be 1.25, 50% damage would be 0.50
+        PPet->setModifier(Mod::LIGHTDEF, PPetData->lightdef); // (1.25 - 1) * -1000 = -250 DEF
+        PPet->setModifier(Mod::DARKDEF, PPetData->darkdef); // (0.50 - 1) * -1000 = 500 DEF
 
-        PPet->setModifier(Mod::SDT_FIRE, petData->fireresSDT);
-        PPet->setModifier(Mod::SDT_ICE, petData->iceresSDT);
-        PPet->setModifier(Mod::SDT_WIND, petData->windresSDT);
-        PPet->setModifier(Mod::SDT_EARTH, petData->earthresSDT);
-        PPet->setModifier(Mod::SDT_THUNDER, petData->thunderresSDT);
-        PPet->setModifier(Mod::SDT_WATER, petData->waterresSDT);
-        PPet->setModifier(Mod::SDT_LIGHT, petData->lightresSDT);
-        PPet->setModifier(Mod::SDT_DARK, petData->darkresSDT);
+        PPet->setModifier(Mod::SDT_FIRE, PPetData->fireresSDT);
+        PPet->setModifier(Mod::SDT_ICE, PPetData->iceresSDT);
+        PPet->setModifier(Mod::SDT_WIND, PPetData->windresSDT);
+        PPet->setModifier(Mod::SDT_EARTH, PPetData->earthresSDT);
+        PPet->setModifier(Mod::SDT_THUNDER, PPetData->thunderresSDT);
+        PPet->setModifier(Mod::SDT_WATER, PPetData->waterresSDT);
+        PPet->setModifier(Mod::SDT_LIGHT, PPetData->lightresSDT);
+        PPet->setModifier(Mod::SDT_DARK, PPetData->darkresSDT);
 
-        PPet->setModifier(Mod::EEM_AMNESIA, petData->eemamnesia);
-        PPet->setModifier(Mod::EEM_VIRUS, petData->eemvirus);
-        PPet->setModifier(Mod::EEM_SILENCE, petData->eemsilence);
-        PPet->setModifier(Mod::EEM_GRAVITY, petData->eemgravity);
-        PPet->setModifier(Mod::EEM_STUN, petData->eemstun);
-        PPet->setModifier(Mod::EEM_LIGHT_SLEEP, petData->eemlightsleep);
-        PPet->setModifier(Mod::EEM_CHARM, petData->eemcharm);
-        PPet->setModifier(Mod::EEM_PARALYZE, petData->eemparalyze);
-        PPet->setModifier(Mod::EEM_BIND, petData->eembind);
-        PPet->setModifier(Mod::EEM_SLOW, petData->eemslow);
-        PPet->setModifier(Mod::EEM_PETRIFY, petData->eempetrify);
-        PPet->setModifier(Mod::EEM_TERROR, petData->eemterror);
-        PPet->setModifier(Mod::EEM_POISON, petData->eempoison);
-        PPet->setModifier(Mod::EEM_DARK_SLEEP, petData->eemdarksleep);
-        PPet->setModifier(Mod::EEM_BLIND, petData->eemblind);
+        PPet->setModifier(Mod::EEM_AMNESIA, PPetData->eemamnesia);
+        PPet->setModifier(Mod::EEM_VIRUS, PPetData->eemvirus);
+        PPet->setModifier(Mod::EEM_SILENCE, PPetData->eemsilence);
+        PPet->setModifier(Mod::EEM_GRAVITY, PPetData->eemgravity);
+        PPet->setModifier(Mod::EEM_STUN, PPetData->eemstun);
+        PPet->setModifier(Mod::EEM_LIGHT_SLEEP, PPetData->eemlightsleep);
+        PPet->setModifier(Mod::EEM_CHARM, PPetData->eemcharm);
+        PPet->setModifier(Mod::EEM_PARALYZE, PPetData->eemparalyze);
+        PPet->setModifier(Mod::EEM_BIND, PPetData->eembind);
+        PPet->setModifier(Mod::EEM_SLOW, PPetData->eemslow);
+        PPet->setModifier(Mod::EEM_PETRIFY, PPetData->eempetrify);
+        PPet->setModifier(Mod::EEM_TERROR, PPetData->eemterror);
+        PPet->setModifier(Mod::EEM_POISON, PPetData->eempoison);
+        PPet->setModifier(Mod::EEM_DARK_SLEEP, PPetData->eemdarksleep);
+        PPet->setModifier(Mod::EEM_BLIND, PPetData->eemblind);
 
         if (PPet->m_EcoSystem == SYSTEM_AVATAR || PPet->m_EcoSystem == SYSTEM_ELEMENTAL)
         {
