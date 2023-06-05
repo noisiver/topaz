@@ -880,6 +880,12 @@ void CCharEntity::OnChangeTarget(CBattleEntity* PNewTarget)
 {
     battleutils::RelinquishClaim(this);
 
+    // Safety check to not get locked in cutscene status
+    if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+    {
+        this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+        this->status = STATUS_NORMAL;
+    }
     this->pushPacket(new CInventoryFinishPacket());
     pushPacket(new CLockOnPacket(this, PNewTarget));
     PLatentEffectContainer->CheckLatentsTargetChange();
@@ -889,6 +895,12 @@ void CCharEntity::OnEngage(CAttackState& state)
 {
     CBattleEntity::OnEngage(state);
 
+    // Safety check to not get locked in cutscene status
+    if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+    {
+        this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+        this->status = STATUS_NORMAL;
+    }
     this->pushPacket(new CInventoryFinishPacket());
     PLatentEffectContainer->CheckLatentsTargetChange();
 }
@@ -898,6 +910,12 @@ void CCharEntity::OnDisengage(CAttackState& state)
     battleutils::RelinquishClaim(this);
     CBattleEntity::OnDisengage(state);
 
+    // Safety check to not get locked in cutscene status
+    if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+    {
+        this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+        this->status = STATUS_NORMAL;
+    }
     this->pushPacket(new CInventoryFinishPacket());
 
     if (state.HasErrorMsg())
@@ -948,6 +966,13 @@ bool CCharEntity::OnAttack(CAttackState& state, action_t& action)
     auto controller{ static_cast<CPlayerController*>(PAI->GetController()) };
     controller->setLastAttackTime(server_clock::now());
     auto ret = CBattleEntity::OnAttack(state, action);
+
+    // Safety check to not get locked in cutscene status
+    if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+    {
+        this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+        this->status = STATUS_NORMAL;
+    }
 
     // Send inventory finish packet to check for temps
     if (server_clock::now() < AttackInventoryFinishPacket)
@@ -1035,6 +1060,12 @@ void CCharEntity::OnCastFinished(CMagicState& state, action_t& action)
         }
     }
 
+    // Safety check to not get locked in cutscene status
+    if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+    {
+        this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+        this->status = STATUS_NORMAL;
+    }
     this->pushPacket(new CInventoryFinishPacket());
 
     if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
@@ -1048,6 +1079,12 @@ void CCharEntity::OnCastInterrupted(CMagicState& state, action_t& action, MSGBAS
 {
     CBattleEntity::OnCastInterrupted(state, action, msg);
 
+    // Safety check to not get locked in cutscene status
+    if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+    {
+        this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+        this->status = STATUS_NORMAL;
+    }
     this->pushPacket(new CInventoryFinishPacket());
 
     auto message = state.GetErrorMsg();
@@ -1197,6 +1234,12 @@ void CCharEntity::OnWeaponSkillFinished(CWeaponSkillState& state, action_t& acti
         StatusEffectContainer->DelStatusEffectSilent(EFFECT_SENGIKORI);
         battleutils::ClaimMob(PBattleTarget, this);
 
+        // Safety check to not get locked in cutscene status
+        if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+        {
+            this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+            this->status = STATUS_NORMAL;
+        }
         this->pushPacket(new CInventoryFinishPacket());
 
         if (PBattleTarget->isDead() && PBattleTarget->objtype == TYPE_MOB)
@@ -1449,6 +1492,12 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
             PRecastContainer->Add(RECAST_ABILITY, (recastID == 173 ? 174 : 173), action.recast);
         }
 
+        // Safety check to not get locked in cutscene status
+        if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+        {
+            this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+            this->status = STATUS_NORMAL;
+        }
         pushPacket(new CCharRecastPacket(this));
         this->pushPacket(new CInventoryFinishPacket());
 
@@ -1756,6 +1805,12 @@ void CCharEntity::OnRangedAttack(CRangeState& state, action_t& action)
     // only remove detectables
     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
 
+    // Safety check to not get locked in cutscene status
+    if (this->status == STATUS_CUTSCENE_ONLY || this->m_Substate == CHAR_SUBSTATE::SUBSTATE_IN_CS)
+    {
+        this->m_Substate = CHAR_SUBSTATE::SUBSTATE_NONE;
+        this->status = STATUS_NORMAL;
+    }
     this->pushPacket(new CInventoryFinishPacket());
 
     if (PTarget->isDead() && PTarget->objtype == TYPE_MOB)
