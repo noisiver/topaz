@@ -15,7 +15,11 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:delStatusEffectSilent(tpz.effect.INTIMIDATE)
-    target:addStatusEffectEx(tpz.effect.DOUBT, tpz.effect.INTIMIDATE, 100, 0, 180)
-	target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.INTIMIDATE)
+    -- Can't reapply if target already has the status effect
+    if target:hasStatusEffect(tpz.effect.INTIMIDATE) then
+        target:messageBasic(tpz.msg.basic.NO_EFFECT)
+    else
+        target:addStatusEffectEx(tpz.effect.DOUBT, tpz.effect.INTIMIDATE, 100, 0, 180)
+	    target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.INTIMIDATE)
+    end
 end

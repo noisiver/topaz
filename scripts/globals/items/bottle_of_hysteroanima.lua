@@ -15,7 +15,11 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    target:delStatusEffectSilent(tpz.effect.AMNESIA)
-	target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 180)
-	target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.AMNESIA)
+    -- Can't reapply if target already has the status effect
+    if target:hasStatusEffect(tpz.effect.AMNESIA) then
+        target:messageBasic(tpz.msg.basic.NO_EFFECT)
+    else
+	    target:addStatusEffect(tpz.effect.AMNESIA, 1, 0, 180)
+	    target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.AMNESIA)
+    end
 end
