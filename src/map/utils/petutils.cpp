@@ -193,7 +193,7 @@ namespace petutils
                 mob_family_system.ATT,\
                 mob_family_system.ACC, \
                 mob_family_system.EVA, \
-                hasSpellScript, spellList, \
+                mob_pools.hasSpellScript, mob_pools.spellList, \
                 Slash, Pierce, H2H, Impact, \
                 Fire, Ice, Wind, Earth, Lightning, Water, Light, Dark, \
                 Amnesia, Virus, Silence, Gravity, Stun, LightSleep, Charm, Paralyze, Bind, Slow, Petrify, Terror, Poison, Darksleep, Blind, \
