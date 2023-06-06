@@ -42,6 +42,9 @@ LOCK TABLES `mob_pool_mods` WRITE;
 INSERT INTO `mob_pool_mods` VALUES (237,44,1,1); -- Ark Angel HM 
 INSERT INTO `mob_pool_mods` VALUES (3598,44,1,1); -- Shikaree X
 INSERT INTO `mob_pool_mods` VALUES (9007,44,1,1); -- Nagi(Custom)
+INSERT INTO `mob_pool_mods` VALUES (1386,44,1,1); -- Fomor Ninja
+
+
 INSERT INTO `mob_pool_mods` VALUES (60,370,20,0);
 INSERT INTO `mob_pool_mods` VALUES (70,48,434,1);
 INSERT INTO `mob_pool_mods` VALUES (154,163,-70,0);
