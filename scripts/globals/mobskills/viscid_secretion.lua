@@ -14,7 +14,7 @@ end
 
 function onMobWeaponSkill(target, mob, skill)
 
-    MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 25, 0, 300)
+    MobStatusEffectMove(mob, target, tpz.effect.WEIGHT, 50, 0, 300)
     skill:setMsg(MobStatusEffectMove(mob, target, tpz.effect.SLOW, 5000, 0, 300)) 
     mob:resetEnmity(target)
 

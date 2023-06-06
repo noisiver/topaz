@@ -1,6 +1,7 @@
 ---------------------------------------------------
 -- Whirl of Rage
 -- Delivers an area attack that stuns enemies. Damage varies with TP.
+-- NYI: Special NM version is -80% Gravity
 ---------------------------------------------------
 
 require("scripts/globals/settings")
