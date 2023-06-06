@@ -21442,8 +21442,9 @@ INSERT INTO `item_mods` VALUES (17485,54,6);
 INSERT INTO `item_mods` VALUES (17486,431,1); -- Stun claws +1 - Additional effect: "Stun"
 INSERT INTO `item_mods` VALUES (17487,431,1);
 INSERT INTO `item_mods` VALUES (17491,25,2);
-INSERT INTO `item_mods` VALUES (17492,12,3);
+INSERT INTO `item_mods` VALUES (17492,12,3);      -- Shiva's Claws
 INSERT INTO `item_mods` VALUES (17492,25,8);
+INSERT INTO `item_mods` VALUES (17492,431,1);
 INSERT INTO `item_mods` VALUES (17493,25,10);
 INSERT INTO `item_mods` VALUES (17494,25,12);
 INSERT INTO `item_mods` VALUES (17495,23,2);
@@ -21904,8 +21905,10 @@ INSERT INTO `item_mods` VALUES (17661,165,5); -- Storm Scimitar Crit +5%
 INSERT INTO `item_mods` VALUES (17663,5,20);
 INSERT INTO `item_mods` VALUES (17664,8,3);
 INSERT INTO `item_mods` VALUES (17664,10,3);
-INSERT INTO `item_mods` VALUES (17665,8,3);
+INSERT INTO `item_mods` VALUES (17665,8,3);         -- Ifrit's Blade
 INSERT INTO `item_mods` VALUES (17665,23,10);
+INSERT INTO `item_mods` VALUES (17665,431,1);
+INSERT INTO `item_mods` VALUES (17665,1303,20);      -- Status Effect MACC +20
 INSERT INTO `item_mods` VALUES (17668,8,4);
 INSERT INTO `item_mods` VALUES (17668,10,4);
 INSERT INTO `item_mods` VALUES (17669,2,75);

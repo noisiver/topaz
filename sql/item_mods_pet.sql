@@ -587,6 +587,8 @@ INSERT INTO `item_mods_pet` VALUES (10366,24,11,0);     -- Chelona Boots +1 Pet:
 INSERT INTO `item_mods_pet` VALUES (10366,365,6,0);     -- Chelona Boots +1 Pet: Snapshot+6
 INSERT INTO `item_mods_pet` VALUES (10436,163,-5,0);    -- Chelona Hat Pet: Magic damage taken -5% 
 INSERT INTO `item_mods_pet` VALUES (10437,163,-6,0);    -- Chelona Hat +1 Pet: Magic damage taken -6% 
+INSERT INTO `item_mods_pet` VALUES (17492,25,8,0);      -- Shiva's Claws: Accuracy+8
+INSERT INTO `item_mods_pet` VALUES (17492,12,3,0);      -- Shiva's Claws: INT+3
 
 
 
