@@ -1508,14 +1508,525 @@ namespace petutils
         PPet->setModifier(Mod::EEM_DARK_SLEEP, PPetData->eemdarksleep);
         PPet->setModifier(Mod::EEM_BLIND, PPetData->eemblind);
 
-        if (PPet->m_EcoSystem == SYSTEM_AVATAR || PPet->m_EcoSystem == SYSTEM_ELEMENTAL)
+        // Elemntals are BLM/BLM unless Light or Dark
+        if (PetID >= PETID_FIRESPIRIT && PetID <= PETID_WATERSPIRIT)
         {
-            // assuming elemental spawn
-            PPet->setModifier(Mod::SLASHRES, 500);
-            PPet->setModifier(Mod::PIERCERES, 500);
-            PPet->setModifier(Mod::RANGEDRES, 500);
-            PPet->setModifier(Mod::IMPACTRES, 500);
-            PPet->setModifier(Mod::HTHRES, 500);
+            PPet->SetMJob(JOB_BLM);
+            PPet->SetSJob(JOB_BLM);
+        }
+
+        // Calculate pet specific stats
+        if (PetID <= PETID_CAIT_SITH)
+        {
+            CPetEntity* PPetEnt = (CPetEntity*)PPet;
+
+            CalculateAvatarStats(PMaster, PPetEnt);
+        }
+
+        if (PetID >= PETID_HARLEQUINFRAME && PetID <= PETID_STORMWAKERFRAME)
+        {
+            CPetEntity* PPetEnt = (CPetEntity*)PPet;
+
+            CalculateAutomatonStats(PMaster, PPetEnt);
+        }
+
+
+        if (PetID == PETID_WYVERN)
+        {
+            CPetEntity* PPetEnt = (CPetEntity*)PPet;
+
+            CalculateWyvernStats(PMaster, PPetEnt);
+        }
+
+        // Specific jobs, spell lists and SDT/EEM for elementals
+        switch (PetID)
+        {
+            default:
+                break;
+            case PETID_FIRESPIRIT:
+                PPet->setModifier(Mod::SDT_FIRE, 5);
+                PPet->setModifier(Mod::SDT_ICE, 5);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 150);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 5);
+                PPet->setModifier(Mod::EEM_VIRUS, 5);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 5);
+                PPet->setModifier(Mod::EEM_BIND, 5);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 150);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(17);
+                break;
+            case PETID_ICESPIRIT:
+                PPet->setModifier(Mod::SDT_FIRE, 150);
+                PPet->setModifier(Mod::SDT_ICE, 5);
+                PPet->setModifier(Mod::SDT_WIND, 5);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 150);
+                PPet->setModifier(Mod::EEM_VIRUS, 150);
+                PPet->setModifier(Mod::EEM_SILENCE, 5);
+                PPet->setModifier(Mod::EEM_GRAVITY, 5);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 5);
+                PPet->setModifier(Mod::EEM_BIND, 5);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(14);
+                break;
+            case PETID_AIRSPIRIT:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 150);
+                PPet->setModifier(Mod::SDT_WIND, 5);
+                PPet->setModifier(Mod::SDT_EARTH, 5);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 5);
+                PPet->setModifier(Mod::EEM_GRAVITY, 5);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 150);
+                PPet->setModifier(Mod::EEM_BIND, 150);
+                PPet->setModifier(Mod::EEM_SLOW, 5);
+                PPet->setModifier(Mod::EEM_PETRIFY, 5);
+                PPet->setModifier(Mod::EEM_TERROR, 5);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(12);
+                break;
+            case PETID_EARTHSPIRIT:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 150);
+                PPet->setModifier(Mod::SDT_EARTH, 5);
+                PPet->setModifier(Mod::SDT_THUNDER, 5);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 150);
+                PPet->setModifier(Mod::EEM_GRAVITY, 150);
+                PPet->setModifier(Mod::EEM_STUN, 5);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 5);
+                PPet->setModifier(Mod::EEM_PETRIFY, 5);
+                PPet->setModifier(Mod::EEM_TERROR, 5);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(13);
+                break;
+            case PETID_THUNDERSPIRIT:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 150);
+                PPet->setModifier(Mod::SDT_THUNDER, 5);
+                PPet->setModifier(Mod::SDT_WATER, 5);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 5);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 150);
+                PPet->setModifier(Mod::EEM_PETRIFY, 150);
+                PPet->setModifier(Mod::EEM_TERROR, 150);
+                PPet->setModifier(Mod::EEM_POISON, 5);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(16);
+                break;
+            case PETID_WATERSPIRIT:
+                PPet->setModifier(Mod::SDT_FIRE, 5);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 150);
+                PPet->setModifier(Mod::SDT_WATER, 5);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 5);
+                PPet->setModifier(Mod::EEM_VIRUS, 5);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 150);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 5);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                PPet->m_Element = 0; // Water ie 0 ElementID for some reason
+                PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(15);
+                break;
+            case PETID_LIGHTSPIRIT:
+                PPet->SetMJob(JOB_WHM);
+                PPet->SetSJob(JOB_BLM);
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 5);
+                PPet->setModifier(Mod::SDT_DARK, 150);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 5);
+                PPet->setModifier(Mod::EEM_CHARM, 5);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 150);
+                PPet->setModifier(Mod::EEM_BLIND, 150);
+                PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(19);
+                break;
+            case PETID_DARKSPIRIT:
+                PPet->SetMJob(JOB_DRK);
+                PPet->SetSJob(JOB_BLM);
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 150);
+                PPet->setModifier(Mod::SDT_DARK, 5);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 150);
+                PPet->setModifier(Mod::EEM_CHARM, 150);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 5);
+                PPet->setModifier(Mod::EEM_BLIND, 5);
+                PPet->m_Element = 6; // Dark is 6 ElementID for some reason
+                PPet->m_SpellListContainer = mobSpellList::GetMobSpellList(18);
+                break;
+            case PETID_CARBUNCLE:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 5);
+                PPet->setModifier(Mod::SDT_DARK, 150);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 5);
+                PPet->setModifier(Mod::EEM_CHARM, 5);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 150);
+                PPet->setModifier(Mod::EEM_BLIND, 150);
+                break;
+            case PETID_FENRIR:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 150);
+                PPet->setModifier(Mod::SDT_DARK, 5);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 150);
+                PPet->setModifier(Mod::EEM_CHARM, 150);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 5);
+                PPet->setModifier(Mod::EEM_BLIND, 5);
+                PPet->m_Element = 6; // Dark is 6 ElementID for some reason
+                break;
+            case PETID_IFRIT:
+                PPet->setModifier(Mod::SDT_FIRE, 5);
+                PPet->setModifier(Mod::SDT_ICE, 5);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 150);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 5);
+                PPet->setModifier(Mod::EEM_VIRUS, 5);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 5);
+                PPet->setModifier(Mod::EEM_BIND, 5);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 150);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                break;
+            case PETID_TITAN:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 150);
+                PPet->setModifier(Mod::SDT_EARTH, 5);
+                PPet->setModifier(Mod::SDT_THUNDER, 5);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 150);
+                PPet->setModifier(Mod::EEM_GRAVITY, 150);
+                PPet->setModifier(Mod::EEM_STUN, 5);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 5);
+                PPet->setModifier(Mod::EEM_PETRIFY, 5);
+                PPet->setModifier(Mod::EEM_TERROR, 5);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                break;
+            case PETID_LEVIATHAN:
+                PPet->setModifier(Mod::SDT_FIRE, 5);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 150);
+                PPet->setModifier(Mod::SDT_WATER, 5);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 5);
+                PPet->setModifier(Mod::EEM_VIRUS, 5);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 150);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 5);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                break;
+            case PETID_GARUDA:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 150);
+                PPet->setModifier(Mod::SDT_WIND, 5);
+                PPet->setModifier(Mod::SDT_EARTH, 5);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 5);
+                PPet->setModifier(Mod::EEM_GRAVITY, 5);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 150);
+                PPet->setModifier(Mod::EEM_BIND, 150);
+                PPet->setModifier(Mod::EEM_SLOW, 5);
+                PPet->setModifier(Mod::EEM_PETRIFY, 5);
+                PPet->setModifier(Mod::EEM_TERROR, 5);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                break;
+            case PETID_SHIVA:
+                PPet->setModifier(Mod::SDT_FIRE, 150);
+                PPet->setModifier(Mod::SDT_ICE, 5);
+                PPet->setModifier(Mod::SDT_WIND, 5);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 150);
+                PPet->setModifier(Mod::EEM_VIRUS, 150);
+                PPet->setModifier(Mod::EEM_SILENCE, 5);
+                PPet->setModifier(Mod::EEM_GRAVITY, 5);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 5);
+                PPet->setModifier(Mod::EEM_BIND, 5);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                break;
+            case PETID_RAMUH:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 150);
+                PPet->setModifier(Mod::SDT_THUNDER, 5);
+                PPet->setModifier(Mod::SDT_WATER, 5);
+                PPet->setModifier(Mod::SDT_LIGHT, 100);
+                PPet->setModifier(Mod::SDT_DARK, 100);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 5);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_CHARM, 100);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 150);
+                PPet->setModifier(Mod::EEM_PETRIFY, 150);
+                PPet->setModifier(Mod::EEM_TERROR, 150);
+                PPet->setModifier(Mod::EEM_POISON, 5);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 100);
+                PPet->setModifier(Mod::EEM_BLIND, 100);
+                break;
+            case PETID_DIABOLOS:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 150);
+                PPet->setModifier(Mod::SDT_DARK, 5);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 150);
+                PPet->setModifier(Mod::EEM_CHARM, 150);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 5);
+                PPet->setModifier(Mod::EEM_BLIND, 5);
+                PPet->m_Element = 6; // Dark is 6 ElementID for some reason
+                break;
+            case PETID_CAIT_SITH:
+                PPet->setModifier(Mod::SDT_FIRE, 100);
+                PPet->setModifier(Mod::SDT_ICE, 100);
+                PPet->setModifier(Mod::SDT_WIND, 100);
+                PPet->setModifier(Mod::SDT_EARTH, 100);
+                PPet->setModifier(Mod::SDT_THUNDER, 100);
+                PPet->setModifier(Mod::SDT_WATER, 100);
+                PPet->setModifier(Mod::SDT_LIGHT, 5);
+                PPet->setModifier(Mod::SDT_DARK, 150);
+
+                PPet->setModifier(Mod::EEM_AMNESIA, 100);
+                PPet->setModifier(Mod::EEM_VIRUS, 100);
+                PPet->setModifier(Mod::EEM_SILENCE, 100);
+                PPet->setModifier(Mod::EEM_GRAVITY, 100);
+                PPet->setModifier(Mod::EEM_STUN, 100);
+                PPet->setModifier(Mod::EEM_LIGHT_SLEEP, 5);
+                PPet->setModifier(Mod::EEM_CHARM, 5);
+                PPet->setModifier(Mod::EEM_PARALYZE, 100);
+                PPet->setModifier(Mod::EEM_BIND, 100);
+                PPet->setModifier(Mod::EEM_SLOW, 100);
+                PPet->setModifier(Mod::EEM_PETRIFY, 100);
+                PPet->setModifier(Mod::EEM_TERROR, 100);
+                PPet->setModifier(Mod::EEM_POISON, 100);
+                PPet->setModifier(Mod::EEM_DARK_SLEEP, 150);
+                PPet->setModifier(Mod::EEM_BLIND, 150);
+                break;
         }
     }
 
