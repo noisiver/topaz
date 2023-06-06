@@ -3996,7 +3996,7 @@ INSERT INTO `mob_droplist` VALUES (737,0,0,1000,18851,50);
 INSERT INTO `mob_droplist` VALUES (737,0,0,1000,18944,50);
 INSERT INTO `mob_droplist` VALUES (737,0,0,1000,19102,50);
 INSERT INTO `mob_droplist` VALUES (738,0,0,1000,940,1000);
-INSERT INTO `mob_droplist` VALUES (738,0,0,1000,17187,150);	-- (Eastern Shadow)  Eurytos' Bow.
+INSERT INTO `mob_droplist` VALUES (738,0,0,1000,18714,150);	-- (Eastern Shadow)  Vali's Bow
 INSERT INTO `mob_droplist` VALUES (739,0,0,1000,14466,240); -- (Eba) Fomor Tunic
 INSERT INTO `mob_droplist` VALUES (740,0,0,1000,2175,240); -- Flan Meat
 INSERT INTO `mob_droplist` VALUES (741,0,0,1000,685,100);
@@ -14404,7 +14404,7 @@ INSERT INTO `mob_droplist` VALUES (2644,0,0,1000,1040,50);
 INSERT INTO `mob_droplist` VALUES (2644,2,0,1000,4370,0);
 INSERT INTO `mob_droplist` VALUES (2644,0,0,1000,4370,50);
 INSERT INTO `mob_droplist` VALUES (2645,0,0,1000,940,1000); -- Western Shadow
-INSERT INTO `mob_droplist` VALUES (2645,0,0,1000,17472,150);	--  Cross-Counters
+INSERT INTO `mob_droplist` VALUES (2645,0,0,1000,18752,150);	--  Retaliators
 INSERT INTO `mob_droplist` VALUES (2646,0,0,1000,3112,570);
 INSERT INTO `mob_droplist` VALUES (2646,0,0,1000,3112,280);
 INSERT INTO `mob_droplist` VALUES (2646,0,0,1000,3112,190);
