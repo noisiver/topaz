@@ -140,6 +140,7 @@ INSERT INTO `traits` VALUES (5,'magic atk. bonus',5,20,1,28,20,NULL,0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',5,40,2,28,24,NULL,0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',5,86,3,28,28,'ABYSSEA',0);
 INSERT INTO `traits` VALUES (5,'magic atk. bonus',8,10,1,28,20,NULL,0);
+INSERT INTO `traits` VALUES (5,'magic atk. bonus',13,40,1,28,20,NULL,0);
 INSERT INTO `traits` VALUES (6,'magic def. bonus',3,10,1,29,10,NULL,0);
 INSERT INTO `traits` VALUES (6,'magic def. bonus',3,30,2,29,12,NULL,0);
 INSERT INTO `traits` VALUES (6,'magic def. bonus',3,50,3,29,14,NULL,0);
