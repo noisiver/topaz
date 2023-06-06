@@ -212,70 +212,41 @@ namespace petutils
 
                 memcpy(&Pet->look, Sql_GetData(SqlHandle, 2), 20);
                 Pet->minLevel = (uint8)Sql_GetIntData(SqlHandle, 3);
-                printf("minLevel %i\n", Pet->minLevel);
                 Pet->maxLevel = (uint8)Sql_GetIntData(SqlHandle, 4);
-                printf("maxLevel %i\n", Pet->maxLevel);
                 Pet->time = Sql_GetUIntData(SqlHandle, 5);
-                printf("time %i\n", Pet->time);
                 Pet->size = Sql_GetUIntData(SqlHandle, 6);
-                printf("size %i\n", Pet->size);
                 Pet->EcoSystem = (ECOSYSTEM)Sql_GetIntData(SqlHandle, 7);
-                printf("EcoSystem %i\n", Pet->EcoSystem);
                 Pet->m_Family = (uint16)Sql_GetIntData(SqlHandle, 8);
-                printf("m_Family %i\n", Pet->m_Family);
                 Pet->mJob = (uint8)Sql_GetIntData(SqlHandle, 9);
-                printf("mJob %i\n", Pet->mJob);
                 Pet->sJob = (uint8)Sql_GetIntData(SqlHandle, 10);
-                printf("sJob %i\n", Pet->sJob);
                 Pet->m_Element = (uint8)Sql_GetIntData(SqlHandle, 11);
-                printf("m_Element %i\n", Pet->m_Element);
 
                 Pet->HPscale = Sql_GetFloatData(SqlHandle, 12);
-                printf("HPscale %f\n", Pet->HPscale);
                 Pet->MPscale = Sql_GetFloatData(SqlHandle, 13);
-                printf("MPscale %f\n", Pet->MPscale);
 
                 Pet->speed = (uint8)Sql_GetIntData(SqlHandle, 14);
-                printf("speed %i\n", Pet->speed);
 
                 Pet->strRank = (uint8)Sql_GetIntData(SqlHandle, 15);
-                printf("strRank %i\n", Pet->strRank);
                 Pet->dexRank = (uint8)Sql_GetIntData(SqlHandle, 16);
-                printf("dexRank %i\n", Pet->dexRank);
                 Pet->vitRank = (uint8)Sql_GetIntData(SqlHandle, 17);
-                printf("vitRank %i\n", Pet->vitRank);
                 Pet->agiRank = (uint8)Sql_GetIntData(SqlHandle, 18);
-                printf("agiRank %i\n", Pet->agiRank);
                 Pet->intRank = (uint8)Sql_GetIntData(SqlHandle, 19);
-                printf("intRank %i\n", Pet->intRank);
                 Pet->mndRank = (uint8)Sql_GetIntData(SqlHandle, 20);
-                printf("mndRank %i\n", Pet->mndRank);
                 Pet->chrRank = (uint8)Sql_GetIntData(SqlHandle, 21);
-                printf("chrRank %i\n", Pet->chrRank);
                 Pet->defRank = (uint8)Sql_GetIntData(SqlHandle, 22);
-                printf("defRank %i\n", Pet->defRank);
                 Pet->attRank = (uint8)Sql_GetIntData(SqlHandle, 23);
-                printf("attRank %i\n", Pet->attRank);
                 Pet->accRank = (uint8)Sql_GetIntData(SqlHandle, 24);
-                printf("accRank %i\n", Pet->accRank);
                 Pet->evaRank = (uint8)Sql_GetIntData(SqlHandle, 25);
-                printf("evaRank %i\n", Pet->evaRank);
 
                 Pet->hasSpellScript = (bool)Sql_GetIntData(SqlHandle, 26);
-                printf("hasSpellScript %u\n", Pet->hasSpellScript);
 
                 Pet->spellList = (uint8)Sql_GetIntData(SqlHandle, 27);
-                printf("spellList %i\n", Pet->spellList);
 
                 // resistances
                 Pet->slashres = (uint16)(Sql_GetFloatData(SqlHandle, 28) * 1000);
-                printf("slashres %i\n", Pet->slashres);
                 Pet->pierceres = (uint16)(Sql_GetFloatData(SqlHandle, 29) * 1000);
-                printf("pierceres %i\n", Pet->pierceres);
                 Pet->hthres = (uint16)(Sql_GetFloatData(SqlHandle, 30) * 1000);
-                printf("hthres %i\n", Pet->hthres);
                 Pet->impactres = (uint16)(Sql_GetFloatData(SqlHandle, 31) * 1000);
-                printf("impactres %i\n", Pet->impactres);
 
                 Pet->firedef = 0;
                 Pet->icedef = 0;
@@ -295,60 +266,34 @@ namespace petutils
                 //Pet->lightres = (uint16)((Sql_GetFloatData(SqlHandle, 37) - 1) * -100);
                 //Pet->darkres = (uint16)((Sql_GetFloatData(SqlHandle, 38) - 1) * -100);
                 Pet->fireresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 32) * 100);
-                printf("fireresSDT %i\n", Pet->fireresSDT);
                 Pet->iceresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 33) * 100);
-                printf("iceresSDT %i\n", Pet->iceresSDT);
                 Pet->windresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 34) * 100);
-                printf("windresSDT %i\n", Pet->windresSDT);
                 Pet->earthresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 35) * 100);
-                printf("earthresSDT %i\n", Pet->earthresSDT);
                 Pet->thunderresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 36) * 100);
-                printf("thunderresSDT %i\n", Pet->thunderresSDT);
                 Pet->waterresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 37) * 100);
-                printf("waterresSDT %i\n", Pet->waterresSDT);
                 Pet->lightresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 38) * 100);
-                printf("lightresSDT %i\n", Pet->lightresSDT);
                 Pet->darkresSDT = (uint16)(Sql_GetFloatData(SqlHandle, 39) * 100);
-                printf("darkresSDT %i\n", Pet->darkresSDT);
 
-                Pet->eemamnesia =  (uint16)(Sql_GetUIntData(SqlHandle, 40));
-                printf("eemamnesia %i\n", Pet->eemamnesia);
+                Pet->eemamnesia =  (uint16)(Sql_GetUIntData(SqlHandle, 40)); 
                 Pet->eemvirus = (uint16)(Sql_GetUIntData(SqlHandle, 41));
-                printf("eemvirus %i\n", Pet->eemvirus);
                 Pet->eemsilence =  (uint16)(Sql_GetUIntData(SqlHandle, 42));
-                printf("eemsilence %i\n", Pet->eemsilence);
                 Pet->eemgravity = (uint16)(Sql_GetUIntData(SqlHandle, 43));
-                printf("eemgravity %i\n", Pet->eemgravity);
                 Pet->eemstun = (uint16)(Sql_GetUIntData(SqlHandle, 44));
-                printf("eemstun %i\n", Pet->eemstun);
                 Pet->eemlightsleep = (uint16)(Sql_GetUIntData(SqlHandle, 45));
-                printf("eemlightsleep %i\n", Pet->eemlightsleep);
                 Pet->eemcharm = (uint16)(Sql_GetUIntData(SqlHandle, 46));
-                printf("eemcharm %i\n", Pet->eemcharm);
                 Pet->eemparalyze = (uint16)(Sql_GetUIntData(SqlHandle, 47));
-                printf("eemparalyze %i\n", Pet->eemparalyze);
                 Pet->eembind = (uint16)(Sql_GetUIntData(SqlHandle, 48));
-                printf("eembind %i\n", Pet->eembind);
                 Pet->eemslow = (uint16)(Sql_GetUIntData(SqlHandle, 49));
-                printf("eemslow %i\n", Pet->eemslow);
                 Pet->eempetrify = (uint16)(Sql_GetUIntData(SqlHandle, 50));
-                printf("eempetrify %i\n", Pet->eempetrify);
                 Pet->eemterror = (uint16)(Sql_GetUIntData(SqlHandle, 51));
-                printf("eemterror %i\n", Pet->eemterror);
                 Pet->eempoison = (uint16)(Sql_GetUIntData(SqlHandle, 52));
-                printf("eempoison %i\n", Pet->eempoison);
                 Pet->eemdarksleep =  (uint16)(Sql_GetUIntData(SqlHandle, 53));
-                printf("eemdarksleep %i\n", Pet->eemdarksleep);
                 Pet->eemblind = (uint16)(Sql_GetUIntData(SqlHandle, 54));
-                printf("eemblind %i\n", Pet->eemblind);
 
 
                 Pet->cmbDelay = (uint16)Sql_GetIntData(SqlHandle, 55);
-                printf("cmbDelay %i\n", Pet->cmbDelay);
                 Pet->name_prefix = (uint8)Sql_GetUIntData(SqlHandle, 56);
-                printf("name_prefix %i\n", Pet->name_prefix);
                 Pet->m_MobSkillList = (uint16)Sql_GetUIntData(SqlHandle, 57);
-                printf("m_MobSkillList %i\n", Pet->m_MobSkillList);
 
                 g_PPetList.push_back(Pet);
             }
