@@ -4963,9 +4963,11 @@ int getSDTTier(int SDT)
             //at most 2% bonus from gear
             auto gearBonusPercent = m_PChar->getMod(Mod::SOULEATER_EFFECT);
             drainPercent = drainPercent + std::min(0.02f, 0.01f * gearBonusPercent);
+            drainPercent = std::clamp(drainPercent, 0.01f, 0.15f); // Caps at 15%
+            auto stalwartSoul = std::clamp(m_PChar->getMod(Mod::STALWART_SOUL)* 0.001f, 0.0f, 0.10f);
 
             damage += (uint32)(m_PChar->health.hp * drainPercent);
-            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * (drainPercent - m_PChar->getMod(Mod::STALWART_SOUL) * 0.001f))));
+            m_PChar->addHP(-HandleStoneskin(m_PChar, (int32)(m_PChar->health.hp * (drainPercent - stalwartSoul))));
         }
         else if (m_PChar->GetSJob() == JOB_DRK &&m_PChar->health.hp >= 10 && m_PChar->StatusEffectContainer->HasStatusEffect(EFFECT_SOULEATER))
         {

@@ -853,7 +853,7 @@ function souleaterBonus(attacker, numhits)
             percent = percent / 2
         end
         percent = percent + math.min(0.02, 0.01 * attacker:getMod(tpz.mod.SOULEATER_EFFECT))
-
+        utils.clamp(percent, 0.01, 0.15) -- Caps at 15%
         local hitscounted = 0
         while (hitscounted < numhits) do
             local health = attacker:getHP()
@@ -862,7 +862,10 @@ function souleaterBonus(attacker, numhits)
             end
             hitscounted = hitscounted + 1
         end
-        attacker:delHP(numhits*0.10*attacker:getHP())
+        local stalwartSoul = attacker:getMod(tpz.mod.STALWART_SOUL)
+        local drainPercent = 0.10
+        drainPercent = utils.clamp((drainPercent - (stalwartSoul * 0.001)), 0, 0.10)
+        attacker:delHP(numhits*drainPercent*attacker:getHP())
         return damage
     else
         return 0
