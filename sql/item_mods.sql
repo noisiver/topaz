@@ -13735,11 +13735,13 @@ INSERT INTO `item_mods` VALUES (14333,1,13);
 INSERT INTO `item_mods` VALUES (14333,9,2);
 INSERT INTO `item_mods` VALUES (14333,26,2);
 INSERT INTO `item_mods` VALUES (14333,61,2);
-INSERT INTO `item_mods` VALUES (14334,1,27);
+INSERT INTO `item_mods` VALUES (14334,1,27);      -- Shinimusha haidate
 INSERT INTO `item_mods` VALUES (14334,73,6);
-INSERT INTO `item_mods` VALUES (14335,1,26);
+INSERT INTO `item_mods` VALUES (14334,384,200);   -- Haste+2%
+INSERT INTO `item_mods` VALUES (14335,1,26);      -- Nokizaru Hakama
 INSERT INTO `item_mods` VALUES (14335,11,3);
 INSERT INTO `item_mods` VALUES (14335,27,1);
+INSERT INTO `item_mods` VALUES (14335,170,5);     -- Fast Cast +5%
 INSERT INTO `item_mods` VALUES (14336,1,52);
 INSERT INTO `item_mods` VALUES (14336,25,15);
 INSERT INTO `item_mods` VALUES (14336,165,3);
@@ -14018,8 +14020,9 @@ INSERT INTO `item_mods` VALUES (14399,135,1);
 INSERT INTO `item_mods` VALUES (14400,1,4);
 INSERT INTO `item_mods` VALUES (14400,55,1);
 INSERT INTO `item_mods` VALUES (14400,59,1);
-INSERT INTO `item_mods` VALUES (14401,1,26);
-INSERT INTO `item_mods` VALUES (14401,296,4);
+INSERT INTO `item_mods` VALUES (14401,1,26);      -- Duende Cotehardie
+INSERT INTO `item_mods` VALUES (14401,296,10);    -- Conserve MP +10
+INSERT INTO `item_mods` VALUES (14401,913,10);    -- Blood Boon +10
 INSERT INTO `item_mods` VALUES (14402,1,31);
 INSERT INTO `item_mods` VALUES (14402,11,4);
 INSERT INTO `item_mods` VALUES (14402,27,1);
@@ -14028,28 +14031,38 @@ INSERT INTO `item_mods` VALUES (14403,26,2);
 INSERT INTO `item_mods` VALUES (14403,384,400);
 INSERT INTO `item_mods` VALUES (14404,1,37);
 INSERT INTO `item_mods` VALUES (14404,73,9);
-INSERT INTO `item_mods` VALUES (14405,1,36);
-INSERT INTO `item_mods` VALUES (14406,1,29);
+INSERT INTO `item_mods` VALUES (14405,1,36);        -- Wyvern Mail
+INSERT INTO `item_mods` VALUES (14405,402,30);      -- Wyvern Breaths +11%(30/256)
+INSERT INTO `item_mods` VALUES (14406,1,29);        -- Shikaree Aketon
 INSERT INTO `item_mods` VALUES (14406,24,7);
 INSERT INTO `item_mods` VALUES (14406,27,-1);
-INSERT INTO `item_mods` VALUES (14407,1,28);
+INSERT INTO `item_mods` VALUES (14406,305,10);      -- Recycle +10%
+INSERT INTO `item_mods` VALUES (14407,1,28);        -- Cerise Doublet
 INSERT INTO `item_mods` VALUES (14407,23,3);
 INSERT INTO `item_mods` VALUES (14407,25,3);
+INSERT INTO `item_mods` VALUES (14407,384,200);      -- Haste+2%
 INSERT INTO `item_mods` VALUES (14408,1,27);
 INSERT INTO `item_mods` VALUES (14408,113,3);
 INSERT INTO `item_mods` VALUES (14408,114,3);
 INSERT INTO `item_mods` VALUES (14408,115,3);
 INSERT INTO `item_mods` VALUES (14408,116,3);
-INSERT INTO `item_mods` VALUES (14409,1,33);
-INSERT INTO `item_mods` VALUES (14409,96,2);
-INSERT INTO `item_mods` VALUES (14410,1,26);
+INSERT INTO `item_mods` VALUES (14409,1,33);      -- Gloom Breastplaste
+INSERT INTO `item_mods` VALUES (14409,96,2);      -- Souleater +10%(+2 is 0.2 which makes it 12%)
+INSERT INTO `item_mods` VALUES (14409,907,10);     -- Stalwart Soul +10%
+INSERT INTO `item_mods` VALUES (14410,1,26);      -- Nimbus Doublet
 INSERT INTO `item_mods` VALUES (14410,370,1);
-INSERT INTO `item_mods` VALUES (14411,1,33);
+INSERT INTO `item_mods` VALUES (14410,903,500);   -- Fencer +5
+INSERT INTO `item_mods` VALUES (14410,904,5);     -- Fencer +5
+INSERT INTO `item_mods` VALUES (14410,986,5);     -- Fencer +5
+INSERT INTO `item_mods` VALUES (14411,1,33);      -- Aikido Gi
 INSERT INTO `item_mods` VALUES (14411,10,4);
 INSERT INTO `item_mods` VALUES (14411,11,2);
-INSERT INTO `item_mods` VALUES (14412,1,38);
+INSERT INTO `item_mods` VALUES (14411,173,5);     -- Martial Arts +5
+INSERT INTO `item_mods` VALUES (14412,1,38);      -- Parade Cuirass
 INSERT INTO `item_mods` VALUES (14412,2,28);
+INSERT INTO `item_mods` VALUES (14412,10,5);      -- VIT+5
 INSERT INTO `item_mods` VALUES (14412,27,2);
+INSERT INTO `item_mods` VALUES (14412,370,1);     -- Regen +1
 INSERT INTO `item_mods` VALUES (14413,1,27);
 INSERT INTO `item_mods` VALUES (14413,14,3);
 INSERT INTO `item_mods` VALUES (14414,1,42);      -- Sha'ir Manteel: DEF 42
@@ -14215,11 +14228,14 @@ INSERT INTO `item_mods` VALUES (14468,5,25);
 INSERT INTO `item_mods` VALUES (14468,357,5);
 INSERT INTO `item_mods` VALUES (14468,369,1);
 INSERT INTO `item_mods` VALUES (14468,1261,5);    -- Avatar Enmity +5
-INSERT INTO `item_mods` VALUES (14469,1,50);
-INSERT INTO `item_mods` VALUES (14469,5,-25);
-INSERT INTO `item_mods` VALUES (14469,13,-5);
-INSERT INTO `item_mods` VALUES (14469,25,10);
-INSERT INTO `item_mods` VALUES (14469,68,10);
+INSERT INTO `item_mods` VALUES (14469,1,50);      -- Reverend Mail
+INSERT INTO `item_mods` VALUES (14469,5,-25);     -- MP-25
+INSERT INTO `item_mods` VALUES (14469,13,-5);     -- MND-5
+INSERT INTO `item_mods` VALUES (14469,8,11);      -- STR+11
+INSERT INTO `item_mods` VALUES (14469,9,11);      -- DEX+11
+INSERT INTO `item_mods` VALUES (14469,23,16);     -- ACC+16
+INSERT INTO `item_mods` VALUES (14469,25,16);     -- Attack+16
+INSERT INTO `item_mods` VALUES (14469,68,10);     -- Evasion+10
 INSERT INTO `item_mods` VALUES (14470,1,65);
 INSERT INTO `item_mods` VALUES (14470,54,15);
 INSERT INTO `item_mods` VALUES (14470,55,15);
@@ -17596,7 +17612,7 @@ INSERT INTO `item_mods` VALUES (15422,27,5);      -- Enmity +5
 INSERT INTO `item_mods` VALUES (15423,1,1);
 INSERT INTO `item_mods` VALUES (15424,1,2);
 INSERT INTO `item_mods` VALUES (15424,510,1);
-INSERT INTO `item_mods` VALUES (15425,1,30);
+INSERT INTO `item_mods` VALUES (15425,1,30);        -- Galliard Trousers
 INSERT INTO `item_mods` VALUES (15425,2,20);
 INSERT INTO `item_mods` VALUES (15425,8,2);
 INSERT INTO `item_mods` VALUES (15425,9,-2);
@@ -17607,6 +17623,7 @@ INSERT INTO `item_mods` VALUES (15425,13,-2);
 INSERT INTO `item_mods` VALUES (15425,14,-2);
 INSERT INTO `item_mods` VALUES (15425,25,5);
 INSERT INTO `item_mods` VALUES (15425,26,5);
+INSERT INTO `item_mods` VALUES (15425,384,200);      -- Haste+2%
 INSERT INTO `item_mods` VALUES (15426,1,27);
 INSERT INTO `item_mods` VALUES (15426,8,-5);
 INSERT INTO `item_mods` VALUES (15426,384,600);
