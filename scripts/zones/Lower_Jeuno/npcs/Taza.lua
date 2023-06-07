@@ -49,11 +49,11 @@ local sets =
 local forgotten =
 {
     -- Slow || ID || Mod Multiplier
-    head = { tpz.items.FORGOTTEN_THOUGHT, 1.25, Used = false }
-    body = { tpz.items.FORGOTTEN_HOPE, 2, Used = false }
-    hands = { tpz.items.FORGOTTEN_TOUCH, 1, Used = false }
-    legs = { tpz.items.FORGOTTEN_JOURNEY, 1.5, Used = false }
-    feet = { tpz.items.FORGOTTEN_STEP, 1, Used = false }
+    head = { tpz.items.FORGOTTEN_THOUGHT, 1.25, Used = false },
+    body = { tpz.items.FORGOTTEN_HOPE, 2, Used = false },
+    hands = { tpz.items.FORGOTTEN_TOUCH, 1, Used = false },
+    legs = { tpz.items.FORGOTTEN_JOURNEY, 1.5, Used = false },
+    feet = { tpz.items.FORGOTTEN_STEP, 1, Used = false },
 }
 -----------------------------------
 
@@ -62,98 +62,98 @@ local forgotten =
 local possibleAugments =
 {
     -- Mod || Base Mod Power
-    { Stat = tpz.augments.ACC, Power = 10, Used = false }
-    { Stat = tpz.augments.ATTK, Power = 10, Used = false }
-    { Stat = tpz.augments.RACC, Power = 10, Used = false }
-    { Stat = tpz.augments.RATTK, Power = 10, Used = false }
-    { Stat = tpz.augments.EVA, Power = 10, Used = false }
-    { Stat = tpz.augments.DEF, Power = 10, Used = false }
-    { Stat = tpz.augments.MACC, Power = 5, Used = false }
-    { Stat = tpz.augments.MATT, Power = 5, Used = false }
-    { Stat = tpz.augments.STR, Power = 5, Used = false }
-    { Stat = tpz.augments.DEX, Power = 5, Used = false }
-    { Stat = tpz.augments.VIT, Power = 5, Used = false }
-    { Stat = tpz.augments.AGI, Power = 5, Used = false }
-    { Stat = tpz.augments.INT, Power = 5, Used = false }
-    { Stat = tpz.augments.MND, Power = 5, Used = false }
-    { Stat = tpz.augments.CHR, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTSLEEP, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTPOISON, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTPARALYZE, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTBLIND, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTSILENCE, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTPETRIFY, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTVIRUS, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTCURSE, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTSTUN, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTBIND, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTGRAVITY, Power = 5, Used = false }
-    { Stat = tpz.augments.RESISTSLOW, Power = 5, Used = false }
-    { Stat = tpz.augments.RECYCLE, Power = 5, Used = false }
-    { Stat = tpz.augments.NTE, Power = 5, Used = false }
-    { Stat = tpz.augments.SUBTLE_BLOW, Power = 5, Used = false }
-    { Stat = tpz.augments.ZANSHIN, Power = 5, Used = false }
-    { Stat = tpz.augments.SNAP_SHOT, Power = 5, Used = false }
-    { Stat = tpz.augments.RAPID_SHOT, Power = 5, Used = false }
-    { Stat = tpz.augments.WSACC, Power = 10, Used = false } Power = 
-    { Stat = tpz.augments.ENH_DRAIN_ASPIR, Power = 5, Used = false }
-    { Stat = tpz.augments.SPELLINTERRUPT, Power = 5, Used = false }
-    { Stat = tpz.augments.SKILLCHAINDMG, Power = 5, Used = false }
-    { Stat = tpz.augments.CONSERVE_TP, Power = 5, Used = false }
-    { Stat = tpz.augments.CURE_POTENCY, Power = 5, Used = false }
-    { Stat = tpz.augments.REGENPOTENCY, Power = 5, Used = false }
-    { Stat = tpz.augments.WALTZ_POTENTCY, Power = 5, Used = false }
-    { Stat = tpz.augments.ENMITY, Power = 5, Used = false }
-    { Stat = tpz.augments.ENMITY_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.HP_MINUS_33, Power = 1, Used = false }
-    { Stat = tpz.augments.MP_MINUS_33, Power = 1, Used = false }
-    { Stat = tpz.augments.ACC_MINUS, Power = 10, Used = false }
-    { Stat = tpz.augments.ATTK_MINUS, Power = 10, Used = false }
-    { Stat = tpz.augments.RACC_MINUS, Power = 10, Used = false }
-    { Stat = tpz.augments.RATTK_MINUS, Power = 10, Used = false }
-    { Stat = tpz.augments.EVA_MINUS, Power = 10, Used = false }
-    { Stat = tpz.augments.DEF_MINUS, Power = 10, Used = false }
-    { Stat = tpz.augments.MACC_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.MDEF, Power = 5, Used = false }
-    { Stat = tpz.augments.MDEF_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.STR_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.DEX_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.VIT_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.AGI_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.INT_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.MND_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.CHR_MINUS, Power = 5, Used = false }
-    { Stat = tpz.augments.FIRERES, Power = 10, Used = false }
-    { Stat = tpz.augments.ICERES, Power = 10, Used = false }
-    { Stat = tpz.augments.WINDRES, Power = 10, Used = false }
-    { Stat = tpz.augments.EARTHRES, Power = 10, Used = false }
-    { Stat = tpz.augments.LIGHTNINGRES, Power = 10, Used = false }
-    { Stat = tpz.augments.WATERRES, Power = 10, Used = false }
-    { Stat = tpz.augments.LIGHTRES, Power = 10, Used = false }
-    { Stat = tpz.augments.DARKRES, Power = 10, Used = false }
-    { Stat = tpz.augments.DEF_10, Power = 1 }
+    { Stat = tpz.augments.ACC, Power = 10, Used = false },
+    { Stat = tpz.augments.ATTK, Power = 10, Used = false },
+    { Stat = tpz.augments.RACC, Power = 10, Used = false },
+    { Stat = tpz.augments.RATTK, Power = 10, Used = false },
+    { Stat = tpz.augments.EVA, Power = 10, Used = false },
+    { Stat = tpz.augments.DEF, Power = 10, Used = false },
+    { Stat = tpz.augments.MACC, Power = 5, Used = false },
+    { Stat = tpz.augments.MATT, Power = 5, Used = false },
+    { Stat = tpz.augments.STR, Power = 5, Used = false },
+    { Stat = tpz.augments.DEX, Power = 5, Used = false },
+    { Stat = tpz.augments.VIT, Power = 5, Used = false },
+    { Stat = tpz.augments.AGI, Power = 5, Used = false },
+    { Stat = tpz.augments.INT, Power = 5, Used = false },
+    { Stat = tpz.augments.MND, Power = 5, Used = false },
+    { Stat = tpz.augments.CHR, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTSLEEP, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTPOISON, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTPARALYZE, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTBLIND, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTSILENCE, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTPETRIFY, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTVIRUS, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTCURSE, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTSTUN, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTBIND, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTGRAVITY, Power = 5, Used = false },
+    { Stat = tpz.augments.RESISTSLOW, Power = 5, Used = false },
+    { Stat = tpz.augments.RECYCLE, Power = 5, Used = false },
+    { Stat = tpz.augments.NTE, Power = 5, Used = false },
+    { Stat = tpz.augments.SUBTLE_BLOW, Power = 5, Used = false },
+    { Stat = tpz.augments.ZANSHIN, Power = 5, Used = false },
+    { Stat = tpz.augments.SNAP_SHOT, Power = 5, Used = false },
+    { Stat = tpz.augments.RAPID_SHOT, Power = 5, Used = false },
+    { Stat = tpz.augments.WSACC, Power = 10, Used = false },
+    { Stat = tpz.augments.ENH_DRAIN_ASPIR, Power = 5, Used = false },
+    { Stat = tpz.augments.SPELLINTERRUPT, Power = 5, Used = false },
+    { Stat = tpz.augments.SKILLCHAINDMG, Power = 5, Used = false },
+    { Stat = tpz.augments.CONSERVE_TP, Power = 5, Used = false },
+    { Stat = tpz.augments.CURE_POTENCY, Power = 5, Used = false },
+    { Stat = tpz.augments.REGENPOTENCY, Power = 5, Used = false },
+    { Stat = tpz.augments.WALTZ_POTENTCY, Power = 5, Used = false },
+    { Stat = tpz.augments.ENMITY, Power = 5, Used = false },
+    { Stat = tpz.augments.ENMITY_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.HP_MINUS_33, Power = 1, Used = false },
+    { Stat = tpz.augments.MP_MINUS_33, Power = 1, Used = false },
+    { Stat = tpz.augments.ACC_MINUS, Power = 10, Used = false },
+    { Stat = tpz.augments.ATTK_MINUS, Power = 10, Used = false },
+    { Stat = tpz.augments.RACC_MINUS, Power = 10, Used = false },
+    { Stat = tpz.augments.RATTK_MINUS, Power = 10, Used = false },
+    { Stat = tpz.augments.EVA_MINUS, Power = 10, Used = false },
+    { Stat = tpz.augments.DEF_MINUS, Power = 10, Used = false },
+    { Stat = tpz.augments.MACC_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.MDEF, Power = 5, Used = false },
+    { Stat = tpz.augments.MDEF_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.STR_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.DEX_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.VIT_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.AGI_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.INT_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.MND_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.CHR_MINUS, Power = 5, Used = false },
+    { Stat = tpz.augments.FIRERES, Power = 10, Used = false },
+    { Stat = tpz.augments.ICERES, Power = 10, Used = false },
+    { Stat = tpz.augments.WINDRES, Power = 10, Used = false },
+    { Stat = tpz.augments.EARTHRES, Power = 10, Used = false },
+    { Stat = tpz.augments.LIGHTNINGRES, Power = 10, Used = false },
+    { Stat = tpz.augments.WATERRES, Power = 10, Used = false },
+    { Stat = tpz.augments.LIGHTRES, Power = 10, Used = false },
+    { Stat = tpz.augments.DARKRES, Power = 10, Used = false },
+    { Stat = tpz.augments.DEF_10, Power = 1, Used = false },
 }
 
 local possibleRareAugments =
 {
-    { Stat = tpz.augments.REGEN, Power = 1, Used = false }
-    { Stat = tpz.augments.MAGIC_BURST_DMG, Power = 3, Used = false }
-    { Stat = tpz.augments.BDT, Power = 1, Used = false }
-    { Stat = tpz.augments.DT, Power = 1, Used = false }
-    { Stat = tpz.augments.RESISTCHARM, Power = 5, Used = false }
-    { Stat = tpz.augments.FASTCAST, Power = 1, Used = false }
-    { Stat = tpz.augments.CRITHITRATE, Power = 1, Used = false }
-    { Stat = tpz.augments.CRITHITDAMAGE, Power = 1, Used = false }
-    { Stat = tpz.augments.CONSERVE_MP, Power = 1, Used = false }
-    { Stat = tpz.augments.ALL_WSDMG_FIRST_HIT, Power = 1, Used = false }
-    { Stat = tpz.augments.SONG_SPELLCASTING_TIME_MINUS, Power = 1, Used = false }
-    { Stat = tpz.augments.CURE_SPELLCASTING_TIME_MINUS, Power = 1, Used = false }
-    { Stat = tpz.augments.DUAL_WIELD, Power = 1, Used = false }
-    { Stat = tpz.augments.COUNTER, Power = 1, Used = false }
-    { Stat = tpz.augments.HP_33, Power = 1, Used = false }
-    { Stat = tpz.augments.MP_33, Power = 1, Used = false }
-    { Stat = tpz.augments.HHP, Power = 1, Used = false }
-    { Stat = tpz.augments.HMP, Power = 1, Used = fals }
+    { Stat = tpz.augments.REGEN, Power = 1, Used = false },
+    { Stat = tpz.augments.MAGIC_BURST_DMG, Power = 3, Used = false },
+    { Stat = tpz.augments.BDT, Power = 1, Used = false },
+    { Stat = tpz.augments.DT, Power = 1, Used = false },
+    { Stat = tpz.augments.RESISTCHARM, Power = 5, Used = false },
+    { Stat = tpz.augments.FASTCAST, Power = 1, Used = false },
+    { Stat = tpz.augments.CRITHITRATE, Power = 1, Used = false },
+    { Stat = tpz.augments.CRITHITDAMAGE, Power = 1, Used = false },
+    { Stat = tpz.augments.CONSERVE_MP, Power = 1, Used = false },
+    { Stat = tpz.augments.ALL_WSDMG_FIRST_HIT, Power = 1, Used = false },
+    { Stat = tpz.augments.SONG_SPELLCASTING_TIME_MINUS, Power = 1, Used = false },
+    { Stat = tpz.augments.CURE_SPELLCASTING_TIME_MINUS, Power = 1, Used = false },
+    { Stat = tpz.augments.DUAL_WIELD, Power = 1, Used = false },
+    { Stat = tpz.augments.COUNTER, Power = 1, Used = false },
+    { Stat = tpz.augments.HP_33, Power = 1, Used = false },
+    { Stat = tpz.augments.MP_33, Power = 1, Used = false },
+    { Stat = tpz.augments.HHP, Power = 1, Used = false },
+    { Stat = tpz.augments.HMP, Power = 1, Used = false },
 }
 -----------------------------------
 
@@ -257,7 +257,7 @@ function AddTazaAugmentedItem(player, trade, currentItem)
     -- Make sure a valid augment / pet augment has been selected
     if (augmentResult[1].Stat == 0) then
         return player:PrintToArea("Invalid augment ID " .. augmentResult[1].Stat .. " is not a valid ID." , tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, "Taza")
-    elseif (augmentResult[1].Power < 0)
+    elseif (augmentResult[1].Power < 0) then
         return player:PrintToArea("Invalid augment power range " .. augmentResult[1].Power .. " is not a valid power range." , tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, "Taza")
     end
 
@@ -279,14 +279,6 @@ function AddTazaAugmentedItem(player, trade, currentItem)
         TazaAugmentSuccessMessage(player, "The magical properties of this item are very powerful!")
     end
     TazaAugmentImbueProcess(player, currentItem)
-end
-
-getTazaAugmentType(player, currentAugment)
-    -- Check for what forgotten item is being traded
-    for _, augmentId in pairs(possibleAugments) do
-        
-    end
-    return 0
 end
 
 function getTazaAugmentAmount()
