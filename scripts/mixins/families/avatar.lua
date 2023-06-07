@@ -1,4 +1,5 @@
 require("scripts/globals/mixins")
+require("scripts/globals/mixins/elemental_spirit")
 
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
@@ -11,6 +12,14 @@ g_mixins.families.avatar = function(mob)
         mob:setUnkillable(true)
         mob:SetAutoAttackEnabled(false)
         mob:SetMagicCastingEnabled(false)
+        -- First set all SDT's and EEM's to 100
+        for v = tpz.mod.SDT_FIRE, tpz.mod.SDT_DARK, 1 do
+            mob:setMod(v, 100)
+        end
+        for v = tpz.mod.EEM_AMNESIA, tpz.mod.EEM_BLIND, 1 do
+            mob:setMod(v, 100)
+        end
+        setResistances(mob)
     end)
 
     mob:addListener("ENGAGE", "AVATAR_ENGAGE", function(mob, target)

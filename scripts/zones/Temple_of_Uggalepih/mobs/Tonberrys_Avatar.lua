@@ -2,6 +2,7 @@
 -- Area: Temple of Uggalepih
 --  Mob: Tonberry's Avatar
 -----------------------------------
+mixins = {require("scripts/mixins/families/avatar")}
 -----------------------------------
 
 function onMobSpawn(mob)

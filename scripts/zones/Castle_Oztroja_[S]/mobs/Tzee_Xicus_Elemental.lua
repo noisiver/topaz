@@ -5,6 +5,7 @@
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
+mixins = {require("scripts/mixins/families/elemental_spirit")}
 -----------------------------------
 function onMobSpawn(mob)
     mob:addMod(tpz.mod.ENFEEBLE_NEVER_MISS, 1)

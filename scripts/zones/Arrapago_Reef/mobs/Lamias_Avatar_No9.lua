@@ -4,6 +4,7 @@
 -----------------------------------
 require("scripts/globals/status")
 require("scripts/globals/mobs")
+mixins = {require("scripts/mixins/families/avatar")}
 -----------------------------------
 function onMobSpawn(mob)
     mob:setLocalVar("AstralFlow", 0)
