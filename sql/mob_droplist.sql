@@ -202,7 +202,7 @@ INSERT INTO `mob_droplist` VALUES (31,0,0,1000,18500,100);
 INSERT INTO `mob_droplist` VALUES (31,0,0,1000,19219,100);
 INSERT INTO `mob_droplist` VALUES (32,0,0,1000,557,100); -- Ahriman lens
 INSERT INTO `mob_droplist` VALUES (32,2,0,1000,921,0); -- Bottle of Ahriman tears(Steal)
-INSERT INTO `mob_droplist` VALUES (32,0,0,1000,921,240); -- Bottle of Ahriman tears
+INSERT INTO `mob_droplist` VALUES (32,0,0,1000,921,150); -- Bottle of Ahriman tears
 INSERT INTO `mob_droplist` VALUES (32,0,0,1000,935,50); -- Ahriman wing
 INSERT INTO `mob_droplist` VALUES (32,0,0,1000,1048,50); -- Zvahl coffer key
 INSERT INTO `mob_droplist` VALUES (33,0,0,1000,535,1000);	-- Ahtu engraved key
@@ -980,7 +980,7 @@ INSERT INTO `mob_droplist` VALUES (165,0,0,1000,914,490);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,939,440);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,939,220);
 INSERT INTO `mob_droplist` VALUES (165,0,0,1000,15515,100);		--(Argus) Peacock Amulet
-INSERT INTO `mob_droplist` VALUES (166,0,0,1000,921,100);
+INSERT INTO `mob_droplist` VALUES (166,0,0,1000,921,150);
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,935,100);
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,942,100);
 INSERT INTO `mob_droplist` VALUES (166,0,0,1000,1294,100);
@@ -3316,8 +3316,8 @@ INSERT INTO `mob_droplist` VALUES (578,0,0,1000,1014,316);	-- (Deadly Dodo) Dodo
 INSERT INTO `mob_droplist` VALUES (578,0,0,1000,4435,240);
 INSERT INTO `mob_droplist` VALUES (579,0,0,1000,557,210);
 INSERT INTO `mob_droplist` VALUES (579,2,0,1000,921,0);
-INSERT INTO `mob_droplist` VALUES (579,0,0,1000,921,460);
-INSERT INTO `mob_droplist` VALUES (579,0,0,1000,935,90);
+INSERT INTO `mob_droplist` VALUES (579,0,0,1000,921,150);
+INSERT INTO `mob_droplist` VALUES (579,0,0,1000,935,100);
 INSERT INTO `mob_droplist` VALUES (579,0,0,1000,1038,50);
 INSERT INTO `mob_droplist` VALUES (580,0,0,1000,4875,100); -- Scroll of Absorb-DEX
 INSERT INTO `mob_droplist` VALUES (580,0,0,1000,4883,100);
@@ -4051,13 +4051,9 @@ INSERT INTO `mob_droplist` VALUES (755,0,0,1000,700,10); -- (ToAU Treant) Mahoga
 INSERT INTO `mob_droplist` VALUES (755,0,0,1000,701,10); -- Rosewood log
 INSERT INTO `mob_droplist` VALUES (755,0,0,1000,702,10); -- Ebony Log
 INSERT INTO `mob_droplist` VALUES (755,0,0,1000,703,10); -- Petrified Log
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,918,240); -- Mistletoe
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,918,150); -- Mistletoe
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,923,240); -- Dryad Root
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,918,100); -- Mistletoe
 INSERT INTO `mob_droplist` VALUES (755,0,0,1000,923,150); -- Dryad Root
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,923,100); -- Dryad Root
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,4448,240); -- Puffball
-INSERT INTO `mob_droplist` VALUES (755,0,0,1000,4448,150); -- Puffball
+INSERT INTO `mob_droplist` VALUES (755,0,0,1000,4448,50); -- Puffball
 INSERT INTO `mob_droplist` VALUES (756,2,0,1000,4373,0);
 INSERT INTO `mob_droplist` VALUES (756,0,0,1000,5680,10);
 INSERT INTO `mob_droplist` VALUES (757,0,0,1000,1614,1000); -- (Elel) Corse bracelet
@@ -4241,7 +4237,7 @@ INSERT INTO `mob_droplist` VALUES (793,0,0,1000,825,260);
 INSERT INTO `mob_droplist` VALUES (793,0,0,1000,940,70);
 INSERT INTO `mob_droplist` VALUES (794,0,0,1000,557,100);
 INSERT INTO `mob_droplist` VALUES (794,2,0,1000,921,0);
-INSERT INTO `mob_droplist` VALUES (794,0,0,1000,921,100);
+INSERT INTO `mob_droplist` VALUES (794,0,0,1000,921,150);
 INSERT INTO `mob_droplist` VALUES (795,2,0,1000,825,0);
 INSERT INTO `mob_droplist` VALUES (795,0,0,1000,825,300);
 INSERT INTO `mob_droplist` VALUES (796,2,0,1000,825,0);
@@ -4279,10 +4275,7 @@ INSERT INTO `mob_droplist` VALUES (803,0,0,1000,16509,1000);
 INSERT INTO `mob_droplist` VALUES (804,0,0,1000,557,240); -- (Smolenkos / Scowlenkos ) Ahriman lens
 INSERT INTO `mob_droplist` VALUES (804,2,0,1000,921,0); -- Bottle of Ahriman tears (Steal)
 INSERT INTO `mob_droplist` VALUES (804,4,0,1000,935,0); -- Ahriman wing(Despoil)
-INSERT INTO `mob_droplist` VALUES (804,0,0,1000,921,240); -- Bottle of Ahriman tears
 INSERT INTO `mob_droplist` VALUES (804,0,0,1000,921,150); -- Bottle of Ahriman tears
-INSERT INTO `mob_droplist` VALUES (804,0,0,1000,935,240); -- Ahriman wing
-INSERT INTO `mob_droplist` VALUES (804,0,0,1000,935,150); -- Ahriman wing
 INSERT INTO `mob_droplist` VALUES (804,0,0,1000,935,100); -- Ahriman wing
 INSERT INTO `mob_droplist` VALUES (804,0,0,1000,3493,240); -- Forgotten Thought
 INSERT INTO `mob_droplist` VALUES (804,0,0,1000,3493,150); -- Forgotten Thought
@@ -4525,7 +4518,7 @@ INSERT INTO `mob_droplist` VALUES (849,0,0,1000,768,240);
 INSERT INTO `mob_droplist` VALUES (849,2,0,1000,17296,0);
 INSERT INTO `mob_droplist` VALUES (850,0,0,1000,557,50);
 INSERT INTO `mob_droplist` VALUES (850,2,0,1000,921,0);
-INSERT INTO `mob_droplist` VALUES (850,0,0,1000,921,130);
+INSERT INTO `mob_droplist` VALUES (850,0,0,1000,921,150);
 INSERT INTO `mob_droplist` VALUES (851,0,0,1000,876,240); -- (Flying Manta) Manta skin
 INSERT INTO `mob_droplist` VALUES (851,0,0,1000,888,150); -- Seashell
 INSERT INTO `mob_droplist` VALUES (851,0,0,1000,1056,50); -- Onzozo chest key
@@ -4926,8 +4919,8 @@ INSERT INTO `mob_droplist` VALUES (939,0,0,1000,14980,120);
 INSERT INTO `mob_droplist` VALUES (939,0,0,1000,15640,70);
 INSERT INTO `mob_droplist` VALUES (940,0,0,1000,557,130);
 INSERT INTO `mob_droplist` VALUES (940,2,0,1000,921,0);
-INSERT INTO `mob_droplist` VALUES (940,0,0,1000,921,80);
-INSERT INTO `mob_droplist` VALUES (940,0,0,1000,935,80);
+INSERT INTO `mob_droplist` VALUES (940,0,0,1000,921,150);
+INSERT INTO `mob_droplist` VALUES (940,0,0,1000,935,100);
 INSERT INTO `mob_droplist` VALUES (940,0,0,1000,3521,100);
 INSERT INTO `mob_droplist` VALUES (941,0,0,1000,914,330);
 INSERT INTO `mob_droplist` VALUES (941,0,0,1000,939,40);
@@ -8996,12 +8989,12 @@ INSERT INTO `mob_droplist` VALUES (1730,1,1,1000,16935,900);	-- (Moo Ouzi The Sw
 INSERT INTO `mob_droplist` VALUES (1730,1,1,1000,16936,100);		-- Demonic sword
 INSERT INTO `mob_droplist` VALUES (1731,0,0,1000,557,150);
 INSERT INTO `mob_droplist` VALUES (1731,2,0,1000,921,0);
-INSERT INTO `mob_droplist` VALUES (1731,0,0,1000,921,240);
+INSERT INTO `mob_droplist` VALUES (1731,0,0,1000,921,150);
 INSERT INTO `mob_droplist` VALUES (1731,0,0,1000,935,100);
 INSERT INTO `mob_droplist` VALUES (1731,0,0,1000,1038,50);
 INSERT INTO `mob_droplist` VALUES (1732,0,0,1000,557,180);
 INSERT INTO `mob_droplist` VALUES (1732,2,0,1000,921,0);
-INSERT INTO `mob_droplist` VALUES (1732,0,0,1000,921,490);
+INSERT INTO `mob_droplist` VALUES (1732,0,0,1000,921,150);
 INSERT INTO `mob_droplist` VALUES (1732,0,0,1000,935,100);
 INSERT INTO `mob_droplist` VALUES (1732,0,0,1000,1038,50);
 INSERT INTO `mob_droplist` VALUES (1733,0,0,1000,1521,80);
@@ -17030,9 +17023,8 @@ INSERT INTO `mob_droplist` VALUES (6015,0,0,1000,1620,50); -- (Tyrannotaur  / Br
 INSERT INTO `mob_droplist` VALUES (6015,0,0,1000,1621,50); -- Taurus wing
 INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,557,240); -- (Fachan) Ahriman lens
 INSERT INTO `mob_droplist` VALUES (6016,2,0,1000,921,0); -- Bottle of Ahriman tears (Steal)
-INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,921,240); -- Bottle of Ahriman tears
 INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,921,150); -- Bottle of Ahriman tears
-INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,935,150); -- Ahriman wing
+INSERT INTO `mob_droplist` VALUES (6016,0,0,1000,935,100); -- Ahriman wing
 INSERT INTO `mob_droplist` VALUES (6017,0,0,1000,919,240); -- (Old Goobbue) Clump of Boyahda moss
 INSERT INTO `mob_droplist` VALUES (6017,0,0,1000,1237,150); -- Bag of tree cuttings
 INSERT INTO `mob_droplist` VALUES (6017,0,0,1000,1181,50); -- Clump of goobbue humus
