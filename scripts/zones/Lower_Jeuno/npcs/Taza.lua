@@ -169,7 +169,7 @@ function onTrade(player, npc, trade)
     local currentItem = tradedBase.id
 
     -- Check if a valid combination of items is being traded
-    if tradedBase.id > 0 and TazaCorrectTradeCombination(trade, tradedBase.id) then
+    if (tradedBase.id > 0) and TazaCorrectTradeCombination(trade, tradedBase.id) then
         AddTazaAugmentedItem(player, trade, currentItem, tradedAugment)
     else
         player:PrintToPlayer("I can't do anything with this combination of items!",0,"Nadeey")
@@ -208,7 +208,6 @@ end
 function AddTazaAugmentedItem(player, trade, currentItem)
     local ID = zones[player:getZoneID()]
     local augmentMultiplier = getTazaAugmentGearSlotMultiplier(trade)
-    firstAugmentPower = math.floor(firstAugmentPower * augmentMultiplier)
     local numberOfAugments = getTazaAugmentAmount()
 
     local augmentResult = {}
@@ -236,22 +235,24 @@ function AddTazaAugmentedItem(player, trade, currentItem)
     end
 
     -- Make sure a valid augment / pet augment has been selected
-    if (firstAugment == 0) then
-        return player:PrintToArea("Invalid augment ID " .. currentAugment .. " is not a valid ID." , tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, "Taza");
+    if (augmentResult[1].Stat == 0) then
+        return player:PrintToArea("Invalid augment ID " .. augmentResult[1].Stat .. " is not a valid ID." , tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, "Taza")
+    elseif (augmentResult[1].Power < 0)
+        return player:PrintToArea("Invalid augment power range " .. augmentResult[1].Power .. " is not a valid power range." , tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, "Taza")
     end
 
     player:tradeComplete()
     if (numberOfAugments == 1) then
-        player:addItem(currentItem,1,firstAugment,firstAugmentPower)
+        player:addItem(currentItem,1,augmentResult[1].Stat,augmentResult[1].Power)
         TazaAugmentSuccessMessage(player, "The magical properties of this item are not very powerful.")
     elseif (numberOfAugments == 2) then
-        player:addItem(currentItem,1,firstAugment,firstAugmentPower, secondAugment, math.random(0, 4))
+        player:addItem(currentItem,1,augmentResult[1].Stat,augmentResult[1].Power, augmentResult[2].Stat, augmentResult[2].Power)
         TazaAugmentSuccessMessage(player, "The magical properties of this item are mild.")
     elseif (numberOfAugments == 3) then
-        player:addItem(currentItem,1,firstAugment,firstAugmentPower, secondAugment, math.random(0, 4), thirdAugment, math.random(0, 4))
+        player:addItem(currentItem,1,augmentResult[1].Stat,augmentResult[1].Power, augmentResult[2].Stat, augmentResult[2].Power, augmentResult[3].Stat, augmentResult[3].Power)
         TazaAugmentSuccessMessage(player, "The magical properties of this item are good.")
     elseif (numberOfAugments == 4) then
-        player:addItem(currentItem,1,firstAugment,firstAugmentPower, secondAugment, math.random(0, 4), thirdAugment, math.random(0, 4), fourthAugment, math.random(0, 4))
+        player:addItem(currentItem,1,augmentResult[1].Stat,augmentResult[1].Power, augmentResult[2].Stat, augmentResult[2].Power, augmentResult[3].Stat, augmentResult[3].Power, augmentResult[4].Stat, augmentResult[4].Power)
         TazaAugmentSuccessMessage(player, "The magical properties of this item are powerful!")
     elseif (numberOfAugments == 5) then
         player:addItem(currentItem,1,augmentResult[1].Stat,augmentResult[1].Power, augmentResult[2].Stat, augmentResult[2].Power, augmentResult[3].Stat, augmentResult[3].Power, augmentResult[4].Stat, augmentResult[4].Power, augmentRareResult[1].Power, augmentRareResult[1].Stat)
