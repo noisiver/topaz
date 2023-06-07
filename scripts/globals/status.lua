@@ -1777,13 +1777,14 @@ tpz.mod =
     MINING_SKILL            = 1315, -- Adds Mining Skill
     PROTECT_SHELL_EFFECT    = 1316, -- Enhances the effect of "Protect" and "Shell". Target with mod only.
     DIGGING_SKILL_GAIN_RATE = 1317,  -- Chocobo digging skill up gain increase
-
+    HARVESTING_SKILL        = 1318, -- Adds Harvesting Skill
+    EXCAVATION_SKILL        = 1319, -- Adds Excavation Skill
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.
     -- 570 - 825 used by WS DMG mods these are not spares.
     -- SPARE = 986, -- stuff
     -- SPARE = 987, -- stuff
     -- super jump taking up 988
-    -- 1318 NEXT
+    -- 1320 NEXT
 
 
     -- The spares take care of finding the next ID to use so long as we don't forget to list IDs that have been freed up by refactoring.

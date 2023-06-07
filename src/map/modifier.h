@@ -789,6 +789,8 @@ enum class Mod
     LOGGING_SKILL             = 1314,// Adds Logging Skill
     MINING_RESULT             = 515, // Improves mining results
     MINING_SKILL              = 1315,// Adds Mining Skill
+    HARVESTING_SKILL          = 1318,// Adds Harvesting Skill
+    EXCAVATION_SKILL          = 1319,// Adds Excavation Skill
 
     EGGHELM                   = 517,
 
@@ -974,7 +976,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1318 NEXT
+    // 1320 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

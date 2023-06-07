@@ -54,6 +54,16 @@ tpz.helm.ZoneData =
         { tpz.zone.ZERUHN_MINES, 10, 20 },
         { tpz.zone.GUSGEN_MINES, 5, 60 },
         { tpz.zone.IFRITS_CAULDRON, 1, 100 },
+        -- Harvesting
+        { tpz.zone.WAJAOM_WOODLANDS, 1, 100 },
+        { tpz.zone.BHAFLAU_THICKETS, 1, 100 },
+        { tpz.zone.GRAUBERG_S, 5, 80 },
+        { tpz.zone.WEST_SARUTABARUTA_S, 5, 60 },
+        { tpz.zone.WEST_SARUTABARUTA, 10, 20 },
+        { tpz.zone.YUHTUNGA_JUNGLE, 10, 40 },
+        { tpz.zone.YHOATOR_JUNGLE, 10, 40 },
+        { tpz.zone.GIDDEUS, 10, 40 },
+        { tpz.zone.ABYSSEA_GRAUBERG, 1, 100 },
     }
 
 -------------------------------------------------
@@ -78,17 +88,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1880, 1522}, -- Fresh Marjoram
-                    {1060, 2236}, -- Simsim
-                    {1310, 2295}, -- Mohbwa Grass
-                    {1760, 2164}, -- Pephredo Hive Chip
-                    { 590, 4388}, -- Eggplant
-                    { 960, 2270}, -- Coffee Cherries
-                    { 450, 2645}, -- Eastern Ginger
-                    { 860, 2156}, -- Imperial Tea Leaves
-                    { 470, 1845}, -- Red Moko Grass
-                    { 430, 1524}, -- Fresh Mugwort
-                    { 240,  951}, -- Wijnruit
+                    {2400, 1522}, -- Fresh Marjoram
+                    {1500, 2295}, -- Mohbwa Grass
+                    {1500, 2164}, -- Pephredo Hive Chip
+                    {1000, 2236}, -- Simsim
+                    {1000, 2156}, -- Imperial Tea Leaves
+                    {1000, 2270}, -- Coffee Cherries
+                    { 500, 4388}, -- Eggplant
+                    { 500, 2645}, -- Eastern Ginger
+                    { 500, 1845}, -- Red Moko Grass
+                    { 500, 1524}, -- Fresh Mugwort
+                    { 500, 2361}, -- Ameretat Vine
+                    { 100,  844}, -- Phoenix Feather
                 },
                 points =
                 {
@@ -116,17 +127,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1510, 2295}, -- Mohbwa Grass
-                    {1470, 1522}, -- Fresh Marjoram
-                    {1480, 2164}, -- Pephredo Hive Chip
-                    {1170, 2236}, -- Simsim
-                    {1100, 2156}, -- Imperial Tea Leaves
+                    {1500, 2295}, -- Mohbwa Grass
+                    {1500, 1522}, -- Fresh Marjoram
+                    {1500, 2164}, -- Pephredo Hive Chip
+                    {1000, 2236}, -- Simsim
+                    {1000, 2156}, -- Imperial Tea Leaves
                     {1000, 2270}, -- Coffee Cherries
-                    { 510, 4388}, -- Eggplant
-                    { 580, 1845}, -- Red Moko Grass
-                    { 460, 1524}, -- Fresh Mugwort
-                    { 370,  951}, -- Wijnruit
-                    { 360, 2645}, -- Eastern Ginger
+                    { 500, 4388}, -- Eggplant
+                    { 500, 1845}, -- Red Moko Grass
+                    { 500, 1524}, -- Fresh Mugwort
+                    { 500,  919}, -- Boyahda Moss
+                    { 100,  951}, -- Wijnruit
+                    { 100, 2645}, -- Eastern Ginger
                 },
                 points =
                 {
@@ -146,14 +158,16 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1830,  833}, -- Moko Grass
-                    {1850, 1845}, -- Red Moko Grass
-                    {1250,  573}, -- Vegetable Seeds
-                    {1560, 5651}, -- Burdock
-                    {1060,  575}, -- Grain Seeds
-                    {1200,  572}, -- Herb Seeds
-                    {1270, 2155}, -- Lesser Chigoe
-                    {1160, 5907}, -- Winterflower
+                    {2400,  833}, -- Moko Grass
+                    {2400, 1845}, -- Red Moko Grass
+                    {1500, 5651}, -- Burdock
+                    {1000,  573}, -- Vegetable Seeds
+                    {1000,  843}, -- Giant Bird Plume
+                    {1000, 5680}, -- Agaricus
+                    {500,   575}, -- Grain Seeds
+                    {500,   572}, -- Herb Seeds
+                    {500,  2155}, -- Lesser Chigoe
+                    {500,  5907}, -- Winterflower
                 },
                 points =
                 {
@@ -169,18 +183,18 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1630, 1522}, -- Fresh Marjoram
-                    {1580,  833}, -- Moko Grass
-                    {1680,  834}, -- Saruta Cotton
-                    { 890, 5651}, -- Burdock
-                    { 830, 1845}, -- Red Moko Grass
-                    { 910,  835}, -- Flax Flower
-                    { 540,  573}, -- Vegetable Seeds
-                    { 550, 1981}, -- Skull Locust
-                    { 390, 1524}, -- Fresh Mugwort
-                    { 350, 1982}, -- King Locust
-                    { 280,  572}, -- Herb Seeds
-                    { 370,  575}, -- Grain Seeds
+                    {2400, 1522}, -- Fresh Marjoram
+                    {1500,  833}, -- Moko Grass
+                    {1500,  834}, -- Saruta Cotton
+                    {1000, 5651}, -- Burdock
+                    {1000, 2522}, -- Gnat Wing
+                    {1000,  835}, -- Flax Flower
+                    { 500,  573}, -- Vegetable Seeds
+                    { 500,  845}, -- Black Chocobo Feather
+                    { 500, 1524}, -- Fresh Mugwort
+                    { 500,  918}, -- Mistletoe
+                    { 500,  572}, -- Herb Seeds
+                    { 500,  575}, -- Grain Seeds
                 },
                 points =
                 {
@@ -196,21 +210,21 @@ local helmInfo =
             {
                 drops =
                 {
-                    {1680,  833}, -- Moko Grass
-                    {1290,  834}, -- Saruta Cotton
-                    {1180, 1522}, -- Fresh Marjoram
-                    {1090, 1845}, -- Red Moko Grass
-                    { 920,  835}, -- Flax Flower
-                    { 880, 2713}, -- Dyer's Woad
-                    { 670, 4545}, -- Gysahl Greens
-                    { 650,  635}, -- Windurstian Tea Leaves
-                    { 480, 1981}, -- Skull Locust
-                    { 360,  951}, -- Wijnruit
-                    { 320,  573}, -- Vegetable Seeds
-                    { 210,  572}, -- Herb Seeds
-                    { 190,  575}, -- Grain Seeds
-                    { 160,  839}, -- Crawler Cocoon
-                    {  10, 1524}, -- Fresh Mugwort
+                    {2400,  833}, -- Moko Grass
+                    {1500,  834}, -- Saruta Cotton
+                    {1000, 1522}, -- Fresh Marjoram
+                    {1000, 1845}, -- Red Moko Grass
+                    {1000,  835}, -- Flax Flower
+                    {1000, 2713}, -- Dyer's Woad
+                    { 500, 4545}, -- Gysahl Greens
+                    { 500,  635}, -- Windurstian Tea Leaves
+                    { 500, 1981}, -- Skull Locust
+                    { 500,  951}, -- Wijnruit
+                    { 500,  573}, -- Vegetable Seeds
+                    { 100,  572}, -- Herb Seeds
+                    { 100,  575}, -- Grain Seeds
+                    { 100,  839}, -- Crawler Cocoon
+                    { 100, 1524}, -- Fresh Mugwort
                 },
                 points =
                 {
@@ -324,14 +338,14 @@ local helmInfo =
             {
                 drops =
                 {
-                    { 970,  572}, -- Herb Seeds
-                    {1330,  833}, -- Moko Grass
-                    { 880, 2155}, -- Lesser Chigoe
-                    { 880,  575}, -- Grain Seeds
-                    {1180, 1845}, -- Red Moko Grass
+                    {1000,  572}, -- Herb Seeds
+                    {1500,  833}, -- Moko Grass
+                    {1000, 2155}, -- Lesser Chigoe
+                    {1000,  575}, -- Grain Seeds
+                    {1000, 1845}, -- Red Moko Grass
                     {1000, 5651}, -- Burdock
-                    { 790,  573}, -- Vegetable Seeds
-                    { 940, 5444}, -- Grauberg Greens
+                    {1000,  573}, -- Vegetable Seeds
+                    {1000, 5444}, -- Grauberg Greens
                 },
                 points =
                 {
@@ -1443,6 +1457,7 @@ end
 local function TrySkillUpHELM(player, helmType, zoneId)
     local miningSkill = player:getCharVar("MiningSkill")
     local loggingSkill = player:getCharVar("LoggingSkill")
+    local harvestingSkill = player:getCharVar("HarvestingSkill")
 
     if (helmType == tpz.helm.type.MINING) and (miningSkill < 100) then
         local chance = GetHelmSKillUpChance(zoneId, miningSkill)
@@ -1455,6 +1470,12 @@ local function TrySkillUpHELM(player, helmType, zoneId)
         if math.random(100) <= chance then
             player:setCharVar("LoggingSkill", loggingSkill + 1)
             player:PrintToPlayer("Your skill in logging has increased to " .. loggingSkill +1, 6, 0)
+        end
+    elseif (helmType == tpz.helm.type.HARVESTING) and (harvestingSkill < 100) then
+        local chance = GetHelmSKillUpChance(zoneId, harvestingSkill)
+        if math.random(100) <= chance then
+            player:setCharVar("HarvestingSkill", harvestingSkill + 1)
+            player:PrintToPlayer("Your skill in logging has increased to " .. harvestingSkill +1, 6, 0)
         end
     end
 end
@@ -1472,12 +1493,15 @@ end
 local function GetCurrentHELMSkill(player, helmType)
     local miningSkill = player:getCharVar("MiningSkill")
     local loggingSkill = player:getCharVar("LoggingSkill")
+    local harvestingSkill = player:getCharVar("HarvestingSkill")
     local skill = 0
 
     if (helmType == tpz.helm.type.MINING) then
         skill = miningSkill
     elseif (helmType == tpz.helm.type.LOGGING) then
         skill = loggingSkill
+    elseif (helmType == tpz.helm.type.HARVESTING) then
+        skill = harvestingSkill
     end
 
     return skill
@@ -1504,6 +1528,8 @@ local function GetHELMGearBonus(player, helmType)
         gearBonus = player:getMod(tpz.mod.MINING_SKILL)
     elseif (helmType == tpz.helm.type.LOGGING) then
         player:getMod(tpz.mod.LOGGING_SKILL)
+    elseif (helmType == tpz.helm.type.HARVESTING) then
+        player:getMod(tpz.mod.HARVESTING_SKILL)
     end
 
     return gearBonus
@@ -1548,6 +1574,7 @@ tpz.helm.onTrade = function(player, npc, trade, helmType, csid)
     local regionId = player:getCurrentRegion()
     local miningSkill = player:getCharVar("MiningSkill")
     local loggingSkill = player:getCharVar("LoggingSkill")
+    local harvestingSkill = player:getCharVar("HarvestingSkill")
     local zoneLvlReq, currentSkill, zoneLvl  = GetHELMZoneLevelRequirements(player, zoneId, helmType)
     local gatherCrit = GetHELMSkillBonus(player, helmType, zoneLvl)
     local ID = zones[player:getZoneID()]
