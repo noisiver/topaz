@@ -15,11 +15,31 @@ require("scripts/globals/augments")
 local sets =
 {
     -- Slot || ID
-    helm = { tpz.items.DARKSTEEL_ARMET, tpz.items.DARKSTEEL_ARMET_HQ, Used = false }
-    body = { tpz.items.DARKSTEEL_CUIRASS, tpz.items.DARKSTEEL_CUIRASS_HQ, Used = false }
-    hands = { tpz.items.DARKSTEEL_GAUNTLETS, tpz.items.DARKSTEEL_GAUNTLETS_HQ, Used = false }
-    legs = { tpz.items.DARKSTEEL_CUISSES, tpz.items.DARKSTEEL_CUISSES_HQ, Used = false }
-    feet = { tpz.items.DARKSTEEL_SABATONS, tpz.items.DARKSTEEL_SABATONS_HQ }
+    helm =
+    {
+        tpz.items.DARKSTEEL_ARMET, tpz.items.DARKSTEEL_ARMET_HQ, tpz.items.TIGER_HELM, tpz.items.FERAL_HELM,
+        tpz.items.COEURL_MASK, tpz.items.TORAMA_MASK,
+    },
+    body =
+    {
+        tpz.items.DARKSTEEL_CUIRASS, tpz.items.DARKSTEEL_CUIRASS_HQ, tpz.items.TIGER_JERKIN, tpz.items.FERAL_JERKIN,
+        tpz.items.COEURL_JERKIN, tpz.items.TORAMA_JERKIN,
+    },
+    hands =
+    {
+        tpz.items.DARKSTEEL_GAUNTLETS, tpz.items.DARKSTEEL_GAUNTLETS_HQ, tpz.items.TIGER_GLOVES, tpz.items.FERAL_GLOVES,
+        tpz.items.COEURL_GLOVES, tpz.items.TORAMA_GLOVES,
+    },
+    legs =
+    {
+        tpz.items.DARKSTEEL_CUISSES, tpz.items.DARKSTEEL_CUISSES_HQ, tpz.items.TIGER_TROUSERS, tpz.items.FERAL_TROUSERS,
+        tpz.items.COEURL_TROUSERS, tpz.items.TORAMA_TROUSERS,
+    },
+    feet =
+    {
+        tpz.items.DARKSTEEL_SABATONS, tpz.items.DARKSTEEL_SABATONS_HQ, tpz.items.TIGER_LEDELSENS, tpz.items.FERAL_LEDELSENS,
+        tpz.items.COEURL_LEDELSENS, tpz.items.TORAMA_LEDELSENS,
+    }
 }
 
 -----------------------------------
