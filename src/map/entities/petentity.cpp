@@ -233,6 +233,7 @@ void CPetEntity::Spawn()
 
     CBattleEntity::Spawn();
     luautils::OnMobSpawn(this);
+    PAI->EventHandler.triggerListener("SPAWN", this);
 }
 
 bool CPetEntity::shouldDespawn(time_point tick)
