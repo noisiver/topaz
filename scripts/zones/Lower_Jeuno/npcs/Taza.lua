@@ -49,11 +49,11 @@ local sets =
 local forgotten =
 {
     -- Slow || ID || Mod Multiplier
-    head = { tpz.items.FORGOTTEN_THOUGHT, 1.25, Used = false },
-    body = { tpz.items.FORGOTTEN_HOPE, 2, Used = false },
-    hands = { tpz.items.FORGOTTEN_TOUCH, 1, Used = false },
-    legs = { tpz.items.FORGOTTEN_JOURNEY, 1.5, Used = false },
-    feet = { tpz.items.FORGOTTEN_STEP, 1, Used = false },
+    head = { tpz.items.FORGOTTEN_THOUGHT, 1.25 },
+    body = { tpz.items.FORGOTTEN_HOPE, 2 },
+    hands = { tpz.items.FORGOTTEN_TOUCH, 1 },
+    legs = { tpz.items.FORGOTTEN_JOURNEY, 1.5 },
+    feet = { tpz.items.FORGOTTEN_STEP, 1 }
 }
 -----------------------------------
 
@@ -160,12 +160,12 @@ local possibleRareAugments =
 
 function onTrade(player, npc, trade)
     local tradedBase = getTradedBaseTazaItem(trade)
-    local tradedAugment = getTradedAugmentMaterial(trade)
+    local forgottenItem = getTradedForgottenItem(trade)
     local currentItem = tradedBase.id
 
     -- Check if a valid combination of items is being traded
-    if tradedBase.id > 0 and TazaCorrectTradeCombination(trade, tradedBase.id, tradedAugment) then
-        AddTazaAugmentedItem(player, trade, currentItem, tradedAugment)
+    if tradedBase.id > 0 and TazaCorrectTradeCombination(trade, tradedBase.id, forgottenItem) then
+        AddTazaAugmentedItem(player, trade, currentItem)
     else
         player:PrintToPlayer("I can't do anything with those items",0,"Taza")
     end
@@ -185,12 +185,12 @@ end
 
 function onTrade(player, npc, trade)
     local tradedBase = getTradedBaseTazaItem(trade)
-    local tradedAugment = getTradedAugmentMaterial(trade)
+    local forgottenItem = getTradedForgottenItem(trade)
     local currentItem = tradedBase.id
 
     -- Check if a valid combination of items is being traded
-    if (tradedBase.id > 0) and TazaCorrectTradeCombination(trade, tradedBase.id) then
-        AddTazaAugmentedItem(player, trade, currentItem, tradedAugment)
+    if (tradedBase.id > 0) and TazaCorrectTradeCombination(trade, tradedBase.id, forgottenItem) then
+        AddTazaAugmentedItem(player, trade, currentItem)
     else
         player:PrintToPlayer("I can't do anything with this combination of items!",0,"Nadeey")
     end
@@ -225,6 +225,14 @@ function getTradedForgottenItem(trade)
     return 0
 end
 
+function TazaCorrectTradeCombination(trade, baseitem, forgottenItem)
+    -- Make sure only two items max are being trading to not "eat" additional items
+    if npcUtil.tradeHasExactly(trade, {baseitem, forgottenItem}) then
+        return true
+    end
+    return false
+end
+
 function AddTazaAugmentedItem(player, trade, currentItem)
     local ID = zones[player:getZoneID()]
     local augmentMultiplier = getTazaAugmentGearSlotMultiplier(trade)
@@ -237,7 +245,7 @@ function AddTazaAugmentedItem(player, trade, currentItem)
             randomAugment = possibleAugments[math.random(#possibleAugments)]
         end
         augmentResult[i] = randomAugment
-        augmentResult[i].Power = math.random(1, augmentResult[i].Power)
+        augmentResult[i].Power = math.random(0, augmentResult[i].Power)
         augmentResult[i].Power = augmentResult[i].Power * augmentMultiplier
         randomAugment.Used = true
     end
@@ -249,12 +257,12 @@ function AddTazaAugmentedItem(player, trade, currentItem)
             randomRareAugment = possibleRareAugments[math.random(#possibleRareAugments)]
         end
         augmentRareResult[i] = randomRareAugment
-        augmentRareResult[i].Power = math.random(1, augmentRareResult[i].Power)
+        augmentRareResult[i].Power = math.random(0, augmentRareResult[i].Power)
         augmentRareResult[i].Power = augmentRareResult[i].Power * augmentMultiplier
         randomRareAugment.Used = true
     end
 
-    -- Make sure a valid augment / pet augment has been selected
+    -- Make sure a valid augment has been selected
     if (augmentResult[1].Stat == 0) then
         return player:PrintToArea("Invalid augment ID " .. augmentResult[1].Stat .. " is not a valid ID." , tpz.msg.channel.SHOUT, tpz.msg.area.SYSTEM, "Taza")
     elseif (augmentResult[1].Power < 0) then

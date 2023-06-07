@@ -119,6 +119,7 @@ g_mixins.families.elemental_spirit = function(mob)
             mob:setMod(v, 100)
         end
         setResistances(mob)
+        printf("spawn")
     end)
 end
 
