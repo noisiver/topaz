@@ -1,6 +1,6 @@
 -----------------------------------------
--- ID: 17649
--- Item: Nightmare Sword
+-- ID: 17599
+-- Item: Diabolos' Pole
 -- Additional Effect: MP drain
 -----------------------------------------
 require("scripts/globals/status")
@@ -10,7 +10,7 @@ require("scripts/globals/msg")
 
 function onAdditionalEffect(player, target, damage)
     local chance = 95
-    local power = 5
+    local power = 10
     local dmg = doAdditionalEffectDamage(player, target, chance, power, nil, false, 0, tpz.magic.ele.DARK, 0)
 
     if dmg == 0 or target:isUndead() then

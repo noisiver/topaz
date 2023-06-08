@@ -299,8 +299,8 @@ INSERT INTO `item_latents` VALUES(13097, 14, 5, 36, 0);     -- Lightsday: CHR +5
 -- -------------------------------------------------------
 -- Fenrir's Torque
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13138, 5, 30, 26, 0);     -- Daytime: MP +30
-INSERT INTO `item_latents` VALUES(13138, 27, -3, 26, 1);    -- Nighttime: Enmity -3
+-- INSERT INTO `item_latents` VALUES(13138, 5, 30, 26, 0);     -- Daytime: MP +30
+-- INSERT INTO `item_latents` VALUES(13138, 27, -3, 26, 1);    -- Nighttime: Enmity -3
 
 -- -------------------------------------------------------
 -- Grand Temple Knight's Army Collar
@@ -650,8 +650,8 @@ INSERT INTO `item_latents` VALUES(13565, 296, 15, 30, 0);   -- +15 "Conserve MP"
 -- -------------------------------------------------------
 -- Fenrir's Cape
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13572, 1, 10, 26, 0);     -- Daytime: DEF +10
-INSERT INTO `item_latents` VALUES(13572, 27, 3, 26, 1);     -- Nighttime: Enmity +3
+-- INSERT INTO `item_latents` VALUES(13572, 1, 10, 26, 0);     -- Daytime: DEF +10
+-- INSERT INTO `item_latents` VALUES(13572, 27, 3, 26, 1);     -- Nighttime: Enmity +3
 
 -- -------------------------------------------------------
 -- Cheviot/Umbra Cape (physical damage reduction doubled at night)
@@ -1695,7 +1695,7 @@ INSERT INTO `item_latents` VALUES(15506, 369, 1, 1, 85);    -- Refresh when HP >
 -- -------------------------------------------------------
 -- Diabolos's Torque
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15516, 24, 7, 52, 8);     -- ranged acc+8 in Dark weather
+INSERT INTO `item_latents` VALUES(15516, 24, 16, 52, 8);     -- ranged attack+8 in Dark weather
 INSERT INTO `item_latents` VALUES(15516, 26, -16, 52, 8);   -- cumulative ranged acc-8 in Dark weather
 
 INSERT INTO `item_latents` VALUES(15519, 370, 1, 58, 0);    -- storm muffler regen +1

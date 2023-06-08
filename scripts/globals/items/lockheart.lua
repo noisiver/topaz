@@ -1,15 +1,15 @@
 -----------------------------------------
--- ID: 18330, 18331, 18648, 18662, 18676, 19757, 19850, 21135, 21136, 22060
--- Item: Claustrum
+-- ID: 16944
+-- Item: Lockheart
 -- Additional Effect: Dispel
+-- +175 Bonus MACC like the spell
 -----------------------------------------
 require("scripts/globals/status")
 require("scripts/globals/magic")
 require("scripts/globals/msg")
 -----------------------------------
-
 function onAdditionalEffect(player, target, damage)
-    local chance = CalculateAdditionalEffectChance(player, 15)
+    local chance = CalculateAdditionalEffectChance(player, 10)
     local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.NONE, tpz.magic.ele.DARK, 175)
 
     if (math.random(0, 95) >= chance or resist < 0.5) then 
