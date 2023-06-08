@@ -1376,6 +1376,12 @@ void CMobEntity::DropItems(CCharEntity* PChar)
     }
     uint16 Pzone = PChar->getZone();
 
+    // ToAU beastmen strongholds currency drops
+    if (Pzone == 65 || Pzone == 54 || Pzone == 62)
+    {
+
+    }
+
     bool validZone = ((Pzone > 0 && Pzone < 31) || (Pzone > 44 && Pzone < 55) || (Pzone > 56 && Pzone < 63) || (Pzone > 64 && Pzone < 66) || (Pzone > 66 && Pzone < 69) ||
          (Pzone > 69 && Pzone < 73) || (Pzone > 78 && Pzone < 134) || (Pzone > 135 && Pzone < 185) || (Pzone > 188 && Pzone < 294));
 
