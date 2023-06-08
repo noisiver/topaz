@@ -118,6 +118,8 @@ g_mixins.families.elemental_spirit = function(mob)
         for v = tpz.mod.EEM_AMNESIA, tpz.mod.EEM_BLIND, 1 do
             mob:setMod(v, 100)
         end
+
+        -- Set specific SDT and EEM
         setResistances(mob)
     end)
 end
