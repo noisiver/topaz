@@ -70,7 +70,7 @@ local function DistributeItem(player, item)
 end
 
 function onTrade(player, npc, trade)    
-    for _, items inpairs(itemList) do
+    for _, items in pairs(itemList) do
         if (type(itemList) == 'table') and npcUtil.tradeHasExactly(trade, { tpz.items.MOOGLE_COIN, items[2], items[3]  }) then
             DistributeItem(player, items[1])
         else
