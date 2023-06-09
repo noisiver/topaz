@@ -91,7 +91,7 @@ local sets =
             tpz.items.FERAL_LEDELSENS,
             tpz.items.COEURL_LEDELSENS,
             tpz.items.TORAMA_LEDELSENS,
-            tpz.items.PIGACHES
+            tpz.items.PIGACHES,
             tpz.items.PIGACHES_HQ,
             tpz.items.SHADE_LEGGINGS,
             tpz.items.SHADE_LEGGINGS_HQ,
