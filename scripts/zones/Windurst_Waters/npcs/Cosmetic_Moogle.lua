@@ -12,7 +12,7 @@ require("scripts/globals/augments")
 local itemList =
 {
     { item = tpz.items.FANCY_TOP, coins = 50, egg = tpz.items.F_EGG },
-    { item = tpz.items.FANCY_SHORTS, coins = 40 egg = tpz.items. F_EGG },
+    { item = tpz.items.FANCY_SHORTS, coins = 40, egg = tpz.items. F_EGG },
     { item = tpz.items.COSSIE_TOP, coins = 50, egg = tpz.items.C_EGG },
     { item = tpz.items.COSSIE_BOTTOM, coins = 40, egg = tpz.items.C_EGG },
     { item = tpz.items.STARLET_FLOWER, coins = 25, egg = tpz.items.S_EGG },
