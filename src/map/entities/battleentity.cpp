@@ -383,10 +383,10 @@ uint16 CBattleEntity::GetMainWeaponDmg()
             dmg *= GetMLevel() * 3;
             dmg /= 4;
             dmg /= weapon->getReqLvl();
-            return dmg + getMod(Mod::MAIN_DMG_RATING);
+            return std::clamp(dmg + getMod(Mod::MAIN_DMG_RATING), 0, 9999);
         }
         else
-            return weapon->getDamage() + getMod(Mod::MAIN_DMG_RATING);
+            return std::clamp(weapon->getDamage() + getMod(Mod::MAIN_DMG_RATING), 0, 9999);
     }
     return 0;
 }

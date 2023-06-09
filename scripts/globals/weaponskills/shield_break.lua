@@ -35,7 +35,7 @@ function onUseWeaponSkill(player, target, wsID, tp, primary, action, taChar)
     end
 
     local power = 40
-    local bonus = 0
+    local bonus = 25
     -- Imperial Bhuj Hidden Effect
     local gaxe = player:getEquipID(tpz.slot.MAIN)
 	if gaxe == 18485 then -- Imperial Bhuj
