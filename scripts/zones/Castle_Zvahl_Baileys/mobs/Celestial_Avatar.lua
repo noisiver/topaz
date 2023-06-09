@@ -29,7 +29,7 @@ local avatars =
    [2159] = 'Cait Sith'
 }
 
-function setResistances(mob)
+function setCelestialResistances(mob)
     local pet = avatars[mob:getModelId()]
 
     if (pet == nil) then
@@ -146,7 +146,7 @@ function onMobSpawn(mob)
         for v = tpz.mod.EEM_AMNESIA, tpz.mod.EEM_BLIND, 1 do
             mob:setMod(v, 100)
         end
-        setResistances(mob)
+        setCelestialResistances(mob)
 end
 
 function onMobDeath(mob, player, isKiller)

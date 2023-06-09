@@ -6,7 +6,7 @@ require("scripts/globals/utils")
 g_mixins = g_mixins or {}
 g_mixins.families = g_mixins.families or {}
 
-local avatars =
+avatars =
 {
    [8] = 'Fire Spirit',
    [9] = 'Ice Spirit',
@@ -44,6 +44,7 @@ function setResistances(mob)
         mob:setMod(tpz.mod.EEM_PARALYZE, 5)
         mob:setMod(tpz.mod.EEM_BIND, 5)
         mob:setMod(tpz.mod.EEM_POISON, 150)
+        mob:setSpellList(17)
     elseif (pet == 'Ice Spirit') or (pet == 'Shiva') then
         mob:setMod(tpz.mod.SDT_FIRE, 150)
         mob:setMod(tpz.mod.SDT_ICE, 5)
@@ -54,6 +55,7 @@ function setResistances(mob)
         mob:setMod(tpz.mod.EEM_GRAVITY, 5)
         mob:setMod(tpz.mod.EEM_PARALYZE, 5)
         mob:setMod(tpz.mod.EEM_BIND, 5)
+        mob:setSpellList(14)
     elseif (pet == 'Air Spirit') or (pet == 'Garuda') then
         mob:setMod(tpz.mod.SDT_ICE, 150)
         mob:setMod(tpz.mod.SDT_WIND, 5)
@@ -65,6 +67,7 @@ function setResistances(mob)
         mob:setMod(tpz.mod.EEM_SLOW, 5)
         mob:setMod(tpz.mod.EEM_PETRIFY, 5)
         mob:setMod(tpz.mod.EEM_TERROR, 5)
+        mob:setSpellList(12)
     elseif (pet == 'Earth Spirit') or (pet == 'Titan') then
         mob:setMod(tpz.mod.SDT_WIND, 150)
         mob:setMod(tpz.mod.SDT_EARTH, 5)
@@ -75,6 +78,7 @@ function setResistances(mob)
         mob:setMod(tpz.mod.EEM_SLOW, 5)
         mob:setMod(tpz.mod.EEM_PETRIFY, 5)
         mob:setMod(tpz.mod.EEM_TERROR, 5)
+        mob:setSpellList(13)
     elseif (pet == 'Thunder Spirit') or (pet == 'Ramuh') then
         mob:setMod(tpz.mod.SDT_EARTH, 150)
         mob:setMod(tpz.mod.SDT_THUNDER, 5)
@@ -84,6 +88,7 @@ function setResistances(mob)
         mob:setMod(tpz.mod.EEM_PETRIFY, 150)
         mob:setMod(tpz.mod.EEM_TERROR, 150)
         mob:setMod(tpz.mod.EEM_POISON, 5)
+        mob:setSpellList(16)
     elseif (pet == 'Water Spirit') or (pet == 'Leviathan') then
         mob:setMod(tpz.mod.SDT_FIRE, 5)
         mob:setMod(tpz.mod.SDT_THUNDER, 150)
@@ -92,6 +97,7 @@ function setResistances(mob)
         mob:setMod(tpz.mod.EEM_VIRUS, 5)
         mob:setMod(tpz.mod.EEM_STUN, 150)
         mob:setMod(tpz.mod.EEM_POISON, 5)
+        mob:setSpellList(15)
     elseif (pet == 'Light Spirit') or (pet == 'Carbuncle') or (pet == 'Cait Sith') then
         mob:setMod(tpz.mod.SDT_LIGHT, 5)
         mob:setMod(tpz.mod.SDT_DARK, 150)
@@ -99,6 +105,7 @@ function setResistances(mob)
         mob:setMod(tpz.mod.EEM_CHARM, 5)
         mob:setMod(tpz.mod.EEM_DARK_SLEEP, 150)
         mob:setMod(tpz.mod.EEM_BLIND, 150)
+        mob:setSpellList(19)
     elseif (pet == 'Dark Spirit') or (pet == 'Fenrir') or (pet == 'Diabolos') then
         mob:setMod(tpz.mod.SDT_LIGHT, 150)
         mob:setMod(tpz.mod.SDT_DARK, 5)
@@ -106,6 +113,15 @@ function setResistances(mob)
         mob:setMod(tpz.mod.EEM_CHARM, 150)
         mob:setMod(tpz.mod.EEM_DARK_SLEEP, 5)
         mob:setMod(tpz.mod.EEM_BLIND, 5)
+        mob:setSpellList(18)
+    end
+end
+
+function setSpellList(mob)
+    local pet = avatars[mob:getModelId()]
+
+    if (pet ~= nil) and not string.match(pet, 'Spirit') then
+        mob:setSpellList(0)
     end
 end
 
@@ -121,6 +137,8 @@ g_mixins.families.elemental_spirit = function(mob)
 
         -- Set specific SDT and EEM
         setResistances(mob)
+        -- Set avatar spell lists to 0
+        setSpellList(mob)
     end)
 end
 
