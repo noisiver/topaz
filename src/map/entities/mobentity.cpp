@@ -1376,10 +1376,14 @@ void CMobEntity::DropItems(CCharEntity* PChar)
     }
     uint16 Pzone = PChar->getZone();
 
-    // ToAU beastmen strongholds currency drops
+    // ToAU beastmen strongholds Moogle Coin drops
     if (Pzone == 65 || Pzone == 54 || Pzone == 62)
     {
-
+        if (tpzrand::GetRandomNumber(100) < 24 && getMobMod(MOBMOD_NO_DROPS) == 0)
+        {
+            if (AddItemToPool(8732, ++dropCount))
+                return;
+        }
     }
 
     bool validZone = ((Pzone > 0 && Pzone < 31) || (Pzone > 44 && Pzone < 55) || (Pzone > 56 && Pzone < 63) || (Pzone > 64 && Pzone < 66) || (Pzone > 66 && Pzone < 69) ||
