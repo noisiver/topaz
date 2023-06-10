@@ -79,13 +79,6 @@ function moogleTrigger(player, npc)
     if player:isInMogHouse() then
         local lockerTs = getMogLockerExpiryTimestamp(player)
 
-        -- Check for WoTG zones so the moogle doesn't lock up occasionally
-        -- TODO: Test
-        if (player:getZoneID() >= tpz.zone.SOUTHERN_SAN_DORIA_S and player:getZoneID() <= tpz.zone.CASTLE_OZTROJA_S) then
-            player:sendMenu(1)
-            return true
-        end
-
         if lockerTs ~= nil then
             if lockerTs == -1 then -- expired
                 player:messageSpecial(zones[player:getZoneID()].text.MOG_LOCKER_OFFSET + 1, 2184) -- 2184 is imperial bronze piece item id
