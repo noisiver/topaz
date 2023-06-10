@@ -1146,6 +1146,18 @@ function MobGazeMove(mob, target, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
+-- similar to statuseffect move except it will only take effect if facing
+function MobGazeMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
+    if (target:isFacing(mob)) then
+		if target:hasStatusEffect(tpz.effect.BLINDNESS) then
+			return tpz.msg.basic.SKILL_NO_EFFECT
+		else
+			return MobStatusEffectMoveSub(mob, target, typeEffect, power, tick, duration, subid, subpower, tier)
+		end
+    end
+    return tpz.msg.basic.SKILL_NO_EFFECT
+end
+
 function MobBuffMove(mob, typeEffect, power, tick, duration)
 
     -- Add TP scaling
