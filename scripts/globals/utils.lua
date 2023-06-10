@@ -1041,3 +1041,7 @@ function utils.GetWeaponType(player)
         end
     end
 end
+
+function utils.getHPP(entity)
+    return math.floor(entity:getHP() / entity:getMaxHP() * 100)
+end
