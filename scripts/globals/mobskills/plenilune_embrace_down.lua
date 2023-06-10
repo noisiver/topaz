@@ -53,5 +53,5 @@ function onMobWeaponSkill(target, mob, skill)
     MobBuffMove(mob, typeEffect, moonpower, 0, 60)
     MobBuffMove(mob, typeEffectTwo, moonpower, 0, 60)
 
-    return MobPercentHealMove(mob, skill, 0.14)
+    return MobPercentHealMove(mob, target, skill, 0.14)
 end
