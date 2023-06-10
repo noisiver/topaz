@@ -2,17 +2,20 @@
 --  Final Sting
 --
 --  Description: Deals damage proportional to HP. Reduces HP to 1 after use. Damage varies with TP.
---  Type: Breath
---
+--  Type: magic
+--  Element: Magic
+--  Only usable below 33% HP
 --
 ---------------------------------------------
 require("scripts/globals/settings")
 require("scripts/globals/status")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------
-function onMobSkillCheck(target, mob, skill)
+function onMobSkillCheck(target, mob, skill)    
 	if (mob:getPool() == 385) or (mob:getPool() == 1925)  then 
 		return 1
+    elseif mob:getMaxHP() > 33 then
+        return 1
 	else
 		return 0
 	end
