@@ -12,11 +12,9 @@ require("scripts/globals/utils")
 require("scripts/globals/monstertpmoves")
 ---------------------------------------------
 function onMobSkillCheck(target, mob, skill)
-    local hpp = utils.getHPP(mob)
-
     if (mob:getPool() == 385) or (mob:getPool() == 1925)  then 
 		return 1
-    elseif (hpp > 33) then
+    elseif (mob:getHPP() > 33) then
         return 1
 	else
 		return 0
