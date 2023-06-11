@@ -1261,7 +1261,7 @@ void SmallPacket0x032(map_session_data_t* const PSession, CCharEntity* const PCh
             return;
         }
 
-        // Clean trade upon requesting so you're not stuck in a state of  trying to trade but can't
+        // Clean trade upon requesting so you're not stuck in a state of trying to trade but can't
         PChar->TradePending.clean();
         PTarget->TradePending.clean();
         // This block usually doesn't trigger,
@@ -1810,7 +1810,7 @@ void SmallPacket0x04B(map_session_data_t* session, CCharEntity* PChar, CBasicPac
         if ((bool)Sql_GetUIntData(SqlHandle, 0))
             PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Server does not support this client version."));
         else
-            PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Report bugs on Topaz bugtracker if server admin confirms the bug occurs on stock Topaz."));
+            PChar->pushPacket(new CChatMessagePacket(PChar, CHAT_MESSAGE_TYPE::MESSAGE_SYSTEM_1, "Welcome to Vanadiel!"));
     }
     return;
 }
@@ -2783,6 +2783,7 @@ void SmallPacket0x050(map_session_data_t* session, CCharEntity* PChar, CBasicPac
     charutils::SaveCharLook(PChar);
     luautils::CheckForGearSet(PChar); // check for gear set on gear change
     PChar->UpdateHealth();
+    PChar->pushPacket(new CInventoryFinishPacket());
     return;
 }
 /************************************************************************

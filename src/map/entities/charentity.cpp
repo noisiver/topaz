@@ -760,7 +760,7 @@ void CCharEntity::Tick(time_point tick)
     {
         gardenutils::UpdateGardening(this, true);
     }
-
+    printf("Player tick\n");
     this->pushPacket(new CInventoryFinishPacket());
 }
 
