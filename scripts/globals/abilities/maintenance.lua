@@ -75,6 +75,6 @@ function onUseAbility(player, target, ability)
 
     player:removeAmmo()
 
-    ability:setMsg(tpz.msg.basic.JA_REMOVE_EFFECT)
+    player:messagePublic(tpz.msg.basic.EFFECTS_DISAPPEAR, player:getPet(), removed, removed)
     return effectID
 end
