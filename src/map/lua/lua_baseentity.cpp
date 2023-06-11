@@ -1044,6 +1044,8 @@ inline int32 CLuaBaseEntity::startEvent(lua_State *L)
         PChar->status = STATUS_CUTSCENE_ONLY;
     }
 
+    PChar->pushPacket(new CInventoryFinishPacket());
+
     return 0;
 }
 
