@@ -1317,16 +1317,17 @@ void CCharEntity::OnAbility(CAbilityState& state, action_t& action)
         }
 
         // remove invisible if aggressive
-		if (PAbility->getID() != ABILITY_TAME && PAbility->getID() != ABILITY_FIGHT && PAbility->getID() != ABILITY_DEPLOY)
+		if (PAbility->getID() != ABILITY_TAME)
         {
             if (PAbility->getValidTarget() & TARGET_ENEMY)
             {
                 StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DAMAGE);
-                // aggressive action
-				if (PAbility->getID() != ABILITY_ASSAULT)
+                // aggressive action, pet "assault" commands don't remove sneak but remove invis and quickening
+                if (PAbility->getID() != ABILITY_ASSAULT && PAbility->getID() != ABILITY_FIGHT && PAbility->getID() != ABILITY_DEPLOY)
                     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_DETECTABLE);
                 else 
                     StatusEffectContainer->DelStatusEffectsByFlag(EFFECTFLAG_INVISIBLE);
+                    StatusEffectContainer->DelStatusEffectSilent(EFFECT_QUICKENING);
             }
             else if (PAbility->getID() != ABILITY_TRICK_ATTACK) {
                 // remove invisible only
