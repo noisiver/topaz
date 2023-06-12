@@ -17034,8 +17034,6 @@ INSERT INTO `mob_droplist` VALUES (6018,2,0,1000,4373,0);
 INSERT INTO `mob_droplist` VALUES (6018,0,0,1000,4373,240); -- Woozyshroom
 INSERT INTO `mob_droplist` VALUES (6018,0,0,1000,4375,150); -- Danceshroom
 INSERT INTO `mob_droplist` VALUES (6019,0,0,1000,4386,240); -- (Mycoskulker) King Truffle
-INSERT INTO `mob_droplist` VALUES (6019,0,0,1000,4386,150); -- (Mycoskulker) King Truffle
-INSERT INTO `mob_droplist` VALUES (6019,0,0,1000,4386,100); -- (Mycoskulker) King Truffle
 INSERT INTO `mob_droplist` VALUES (6019,4,0,1000,4386,0);
 INSERT INTO `mob_droplist` VALUES (6019,0,0,1000,4373,240); -- Woozyshroom
 INSERT INTO `mob_droplist` VALUES (6019,0,0,1000,4375,240); -- Danceshroom
