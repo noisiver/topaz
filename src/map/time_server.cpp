@@ -125,6 +125,7 @@ int32 time_server(time_point tick, CTaskMgr::CTask* PTask)
 
             guildutils::UpdateGuildsStock();
             zoneutils::SavePlayTime();
+            zoneutils::SaveCharacterData();
 
             lastVDailyUpdate = tick;
         }

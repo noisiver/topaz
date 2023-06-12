@@ -50,7 +50,7 @@ namespace zoneutils
 
 /************************************************************************
 *                                                                       *
-*  Реакция зон на смену времени суток                                   *
+*  Reaction of zones to change of time of day                           *
 *                                                                       *
 ************************************************************************/
 
@@ -104,6 +104,15 @@ void SavePlayTime()
         PZone.second->SavePlayTime();
     }
     ShowDebug(CL_CYAN"Player playtime saving finished\n" CL_RESET);
+}
+
+void SaveCharacterData()
+{
+    for (auto PZone : g_PZoneList)
+    {
+        PZone.second->SaveCharacterData();
+    }
+    ShowDebug(CL_CYAN "Player data saving finished\n" CL_RESET);
 }
 
 /************************************************************************

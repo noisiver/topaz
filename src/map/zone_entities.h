@@ -45,6 +45,7 @@ public:
     void			SpawnTransport(CCharEntity* PChar);                             // отображаем транспорт
     void			DespawnPC(CCharEntity* PChar);
     void			SavePlayTime();
+    void            SaveCharacterData();                                            // Saves character position and status effects
 
     void			WideScan(CCharEntity* PChar, uint16 radius);					// сканирование местности с заданным радиусом
 

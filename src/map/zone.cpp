@@ -806,6 +806,11 @@ void CZone::SavePlayTime()
     m_zoneEntities->SavePlayTime();
 }
 
+void CZone::SaveCharacterData()
+{
+    m_zoneEntities->SaveCharacterData();
+}
+
 /************************************************************************
 *                                                                       *
 *                                                                       *

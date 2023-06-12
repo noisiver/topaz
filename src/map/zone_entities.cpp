@@ -1036,6 +1036,19 @@ void CZoneEntities::SavePlayTime()
     }
 }
 
+void CZoneEntities::SaveCharacterData()
+{
+    if (!m_charList.empty())
+    {
+        for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
+        {
+            CCharEntity* PChar = (CCharEntity*)it->second;
+            charutils::SendToZone(PChar, 1, 0);
+            PChar->StatusEffectContainer->SaveStatusEffects(true);
+        }
+    }
+}
+
 CCharEntity* CZoneEntities::GetCharByName(int8* name)
 {
     if (!m_charList.empty())

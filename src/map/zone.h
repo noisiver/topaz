@@ -582,7 +582,8 @@ public:
     virtual void    SpawnTRUSTs(CCharEntity* PChar);                                // Display TRUSTs in zone
     virtual void    SpawnMoogle(CCharEntity* PChar);                                // отображаем Moogle в MogHouse
     virtual void    SpawnTransport(CCharEntity* PChar);                             // отображаем транспорт
-    void            SavePlayTime();
+    void            SavePlayTime();                                                 // Saves character playtime
+    void            SaveCharacterData();                                            // Saves character position and status effects
 
     virtual void    WideScan(CCharEntity* PChar, uint16 radius);                    // сканирование местности с заданным радиусом
 
