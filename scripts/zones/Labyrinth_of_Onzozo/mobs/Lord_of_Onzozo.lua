@@ -13,7 +13,7 @@ function onMobSpawn(mob)
     mob:setMod(tpz.mod.ACC, 100) 
     mob:addMod(tpz.mod.EVA, 50)
     mob:setMod(tpz.mod.MACC, 100) 
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
 end
 
 function onMobInitialize(mob)

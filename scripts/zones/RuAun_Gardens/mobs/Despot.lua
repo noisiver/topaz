@@ -8,7 +8,7 @@ function onMobSpawn(mob)
     mob:addMod(tpz.mod.ACC, 5) 
     mob:addMod(tpz.mod.EVA, 5)
     mob:setMod(tpz.mod.REFRESH, 300)
-    mob:setMobMod(tpz.mobMod.GIL_MIN, 20000)
+    mob:setMobMod(tpz.mobMod.GIL_MIN, 6000)
     local ph = GetMobByID(mob:getLocalVar("ph"))
     if ph then
         local pos = ph:getPos()
