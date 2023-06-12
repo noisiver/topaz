@@ -571,8 +571,8 @@ int32 CBattleEntity::takeDamage(int32 amount, CBattleEntity* attacker /* = nullp
     else if (PLastAttacker && PLastAttacker->objtype == TYPE_PC)
         roeutils::event(ROE_EVENT::ROE_DMGDEALT, static_cast<CCharEntity*>(attacker), RoeDatagram("dmg", amount));
 
-    // Damage always breaks petrify on mobs, but not players or NPCs(trusts, campaign helpers, etc)
-    if (this->objtype == TYPE_MOB)
+    // Damage always breaks petrify on mobs, but not players or NPCs(trusts, campaign helpers, charmed mobs, etc)
+    if (this->objtype == TYPE_MOB && !this->isCharmed)
     {
         this->StatusEffectContainer->DelStatusEffect(EFFECT_PETRIFICATION);
     }
