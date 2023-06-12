@@ -32,6 +32,7 @@ function onTrigger(player, arg1)
     local buffsToGive = arg1
     local buffsGiven = 0
     while buffsGiven < buffsToGive do
+        targ:addStatusEffectSilent(tpz.effect.PROWESS, arg1, 0, 0)
         addGovProwessBonusEffect(targ)
         buffsGiven = buffsGiven +1
     end
