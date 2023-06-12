@@ -1044,7 +1044,7 @@ void CZoneEntities::SaveCharacterData()
         {
             CCharEntity* PChar = (CCharEntity*)it->second;
             charutils::SendToZone(PChar, 2, zoneutils::GetZoneIPP(PChar->getZone()));
-            PChar->StatusEffectContainer->SaveStatusEffects(true);
+            PChar->StatusEffectContainer->SaveStatusEffects(false);
         }
     }
 }
