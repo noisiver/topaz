@@ -9462,6 +9462,7 @@ INSERT INTO `item_mods` VALUES (12880,1,31);      -- Ogre Trousers: DEF 31
 INSERT INTO `item_mods` VALUES (12880,2,30);      -- HP +30
 INSERT INTO `item_mods` VALUES (12880,12,3);      -- INT +3
 INSERT INTO `item_mods` VALUES (12880,25,-3);     -- Accuracy -3
+INSERT INTO `item_mods` VALUES (12880,1272,5);    -- Elemental WSD +5%
 INSERT INTO `item_mods` VALUES (12880,499,2);     -- Ice spikes
 INSERT INTO `item_mods` VALUES (12880,500,15);    -- Spikes damage +15
 INSERT INTO `item_mods` VALUES (12880,501,20);    -- Spikes chance +20%
@@ -11313,17 +11314,20 @@ INSERT INTO `item_mods` VALUES (13704,12,-5);
 INSERT INTO `item_mods` VALUES (13704,14,3);
 INSERT INTO `item_mods` VALUES (13704,23,10);
 INSERT INTO `item_mods` VALUES (13705,1,43);      -- Ogre Jerkin: DEF 43
-INSERT INTO `item_mods` VALUES (13705,2,40);      -- HP +40
-INSERT INTO `item_mods` VALUES (13705,10,6);      -- VIT +6
+INSERT INTO `item_mods` VALUES (13705,2,250);      -- HP +250
+INSERT INTO `item_mods` VALUES (13705,10,15);      -- VIT +15
 INSERT INTO `item_mods` VALUES (13705,25,-3);     -- Accuracy -3
 INSERT INTO `item_mods` VALUES (13705,499,2);     -- Ice spikes
 INSERT INTO `item_mods` VALUES (13705,500,20);    -- Spikes damage +20
 INSERT INTO `item_mods` VALUES (13705,501,25);    -- Spikes chance +25%
-INSERT INTO `item_mods` VALUES (13706,1,16);
+INSERT INTO `item_mods` VALUES (13706,1,16);      -- Ogre Gloves
 INSERT INTO `item_mods` VALUES (13706,5,12);
 INSERT INTO `item_mods` VALUES (13706,8,6);
 INSERT INTO `item_mods` VALUES (13706,9,-3);
 INSERT INTO `item_mods` VALUES (13706,364,10);
+INSERT INTO `item_mods` VALUES (13706,903,100);   -- Fencer +1
+INSERT INTO `item_mods` VALUES (13706,904,1);     -- Fencer +1
+INSERT INTO `item_mods` VALUES (13706,986,1);     -- Fencer +1
 INSERT INTO `item_mods` VALUES (13707,1,23);
 INSERT INTO `item_mods` VALUES (13708,1,13);
 INSERT INTO `item_mods` VALUES (13708,5,13);
@@ -12659,11 +12663,14 @@ INSERT INTO `item_mods` VALUES (14056,1,28);
 INSERT INTO `item_mods` VALUES (14056,2,28);
 INSERT INTO `item_mods` VALUES (14056,23,9);
 INSERT INTO `item_mods` VALUES (14056,24,9);
-INSERT INTO `item_mods` VALUES (14057,1,17);
+INSERT INTO `item_mods` VALUES (14057,1,17);      -- Ogre Gloves +1
 INSERT INTO `item_mods` VALUES (14057,5,14);
 INSERT INTO `item_mods` VALUES (14057,8,7);
 INSERT INTO `item_mods` VALUES (14057,9,-4);
 INSERT INTO `item_mods` VALUES (14057,364,11);
+INSERT INTO `item_mods` VALUES (14057,903,100);   -- Fencer +1
+INSERT INTO `item_mods` VALUES (14057,904,1);     -- Fencer +1
+INSERT INTO `item_mods` VALUES (14057,986,1);     -- Fencer +1
 INSERT INTO `item_mods` VALUES (14058,1,26);
 INSERT INTO `item_mods` VALUES (14058,2,20);
 INSERT INTO `item_mods` VALUES (14058,5,20);
@@ -13501,6 +13508,7 @@ INSERT INTO `item_mods` VALUES (14279,1,32);      -- Ogre Trousers +1: DEF 32
 INSERT INTO `item_mods` VALUES (14279,2,32);      -- HP +32
 INSERT INTO `item_mods` VALUES (14279,12,4);      -- INT +4
 INSERT INTO `item_mods` VALUES (14279,25,-5);     -- Accuracy -5
+INSERT INTO `item_mods` VALUES (14279,1272,7);    -- Elemental WSD +7%
 INSERT INTO `item_mods` VALUES (14279,499,2);     -- Ice spikes
 INSERT INTO `item_mods` VALUES (14279,500,20);    -- Spikes damage +20
 INSERT INTO `item_mods` VALUES (14279,501,25);    -- Spikes chance +25%
@@ -13851,8 +13859,8 @@ INSERT INTO `item_mods` VALUES (14365,27,-5);
 INSERT INTO `item_mods` VALUES (14365,46,10);
 INSERT INTO `item_mods` VALUES (14365,117,10);
 INSERT INTO `item_mods` VALUES (14366,1,44);      -- Ogre Jerkin +1: DEF 44
-INSERT INTO `item_mods` VALUES (14366,2,42);      -- HP +42
-INSERT INTO `item_mods` VALUES (14366,10,7);      -- VIT +7
+INSERT INTO `item_mods` VALUES (14366,2,255);      -- HP +255
+INSERT INTO `item_mods` VALUES (14366,10,16);      -- VIT +16
 INSERT INTO `item_mods` VALUES (14366,25,-5);     -- Accuracy -5
 INSERT INTO `item_mods` VALUES (14366,499,2);     -- Ice spikes
 INSERT INTO `item_mods` VALUES (14366,500,25);    -- Spikes damage +25
