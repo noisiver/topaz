@@ -938,27 +938,31 @@ void CMobEntity::OnMobSkillFinished(CMobSkillState& state, action_t& action)
             target.knockback = PSkill->getKnockback();
             if (first && (PSkill->getPrimarySkillchain() != 0))
             {
-                if (PSkill->getPrimarySkillchain())
+                // Only Humanoid mobs, jug pets, and charmed mobs can skillchain
+                if (IsHumanoid() || objtype == TYPE_PET || isCharmed)
                 {
-                    SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PSkill->getPrimarySkillchain(),
-                        PSkill->getSecondarySkillchain(), PSkill->getTertiarySkillchain());
-                    if (effect != SUBEFFECT_NONE)
+                    if (PSkill->getPrimarySkillchain())
                     {
-                        int32 skillChainDamage = battleutils::TakeSkillchainDamage(this, PTarget, target.param, nullptr);
-                        if (skillChainDamage < 0)
+                        SUBEFFECT effect = battleutils::GetSkillChainEffect(PTarget, PSkill->getPrimarySkillchain(), PSkill->getSecondarySkillchain(),
+                                                                            PSkill->getTertiarySkillchain());
+                        if (effect != SUBEFFECT_NONE)
                         {
-                            target.addEffectParam = -skillChainDamage;
-                            target.addEffectMessage = 384 + effect;
+                            int32 skillChainDamage = battleutils::TakeSkillchainDamage(this, PTarget, target.param, nullptr);
+                            if (skillChainDamage < 0)
+                            {
+                                target.addEffectParam = -skillChainDamage;
+                                target.addEffectMessage = 384 + effect;
+                            }
+                            else
+                            {
+                                target.addEffectParam = skillChainDamage;
+                                target.addEffectMessage = 287 + effect;
+                            }
+                            target.additionalEffect = effect;
                         }
-                        else
-                        {
-                            target.addEffectParam = skillChainDamage;
-                            target.addEffectMessage = 287 + effect;
-                        }
-                        target.additionalEffect = effect;
                     }
+                    first = false;
                 }
-                first = false;
             }
         }
         // Pet buffing abilities shouldn't revmove sneak/invis off players(i.e. Garuda's Hastega Blood Pact: Ward)
