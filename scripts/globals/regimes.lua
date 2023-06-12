@@ -996,7 +996,7 @@ local prowessData =
     { effect = tpz.effect.PROWESS_KILLER,        basePower = 4,   addPower = 4,   maxStack = 2  },
 }
 
-local function addGovProwessBonusEffect(player)
+function addGovProwessBonusEffect(player)
     -- make a table of prowesses that are not yet maxed
     local availableProwesses = {}
 
