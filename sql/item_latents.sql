@@ -1602,25 +1602,25 @@ INSERT INTO `item_latents` VALUES(15271, 85, 5, 8, 1);      -- Great Axe skill +
 -- -------------------------------------------------------
 -- Cestus Belt
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15272, 80, 5, 8, 2);      -- Hand-to-Hand skill +5 when MNK Subjob
+INSERT INTO `item_latents` VALUES(15272, 173, 5, 8, 2);      -- Martial Arts +5 when MNK Subjob
 
 -- -------------------------------------------------------
 -- Mace Belt
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15273, 90, 5, 8, 3);      -- Club skill+5 while WHM subjob
+INSERT INTO `item_latents` VALUES(15273, 890, 10, 8, 3);      -- Enhancing Magic Duration +10% while WHM subjob
 
 INSERT INTO `item_latents` VALUES(15274, 91, 5, 8, 4);
-INSERT INTO `item_latents` VALUES(15275, 82, 5, 8, 5);
-INSERT INTO `item_latents` VALUES(15276, 81, 5, 8, 6);
+INSERT INTO `item_latents` VALUES(15275, 163, -5, 8, 5);       -- Rapier Belt: Magic damage taken -5%
+INSERT INTO `item_latents` VALUES(15276, 384, 500, 8, 6);      -- Dagger Belt: Haste+5%
 INSERT INTO `item_latents` VALUES(15277, 109, 5, 8, 7);
 INSERT INTO `item_latents` VALUES(15278, 86, 5, 8, 8);
 INSERT INTO `item_latents` VALUES(15279, 84, 5, 8, 9);
 INSERT INTO `item_latents` VALUES(15280, 119, 5, 8, 10);
-INSERT INTO `item_latents` VALUES(15281, 105, 5, 8, 11);
+INSERT INTO `item_latents` VALUES(15281, 105, 10, 8, 11);     -- Gun Belt: Marksmanship Skill +10
 INSERT INTO `item_latents` VALUES(15282, 73, 1, 8, 12);
 INSERT INTO `item_latents` VALUES(15283, 259, 1, 8, 13);
 INSERT INTO `item_latents` VALUES(15284, 87, 5, 8, 14);
-INSERT INTO `item_latents` VALUES(15285, 346, 2, 8, 15);
+INSERT INTO `item_latents` VALUES(15285, 369, 1, 8, 15);      -- Avatar Belt: Refresh +1
 INSERT INTO `item_latents` VALUES(15312, 68, 2, 29, 0);
 INSERT INTO `item_latents` VALUES(15314, 68, 2, 29, 0);
 INSERT INTO `item_latents` VALUES(15318, 68, 2, 29, 0);
