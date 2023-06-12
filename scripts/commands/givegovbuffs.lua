@@ -19,7 +19,7 @@ function onTrigger(player, arg1)
     -- validate target
     local targ
     if (target == nil) then
-        targ = player
+        targ = player:getCursorTarget()
     else
         targ = GetPlayerByName( target )
         if (targ == nil) then
