@@ -15997,8 +15997,8 @@ INSERT INTO `mob_droplist` VALUES (2989,0,0,1000,18604,240);	--astaroth cane
 INSERT INTO `mob_droplist` VALUES (2990,0,0,1000,15850,50); -- Lava's Ring
 INSERT INTO `mob_droplist` VALUES (2991,0,0,1000,15851,50); -- (Lamina) Kusha's Ring
 INSERT INTO `mob_droplist` VALUES (2992,0,0,1000,15941,240);	-- (Chonchon) Headlong Belt
-INSERT INTO `mob_droplist` VALUES (2993,0,0,1000,16037,240);	--(Eldritch Edge) Helenus's Earring
-INSERT INTO `mob_droplist` VALUES (2994,0,0,1000,16038,240);	-- (Blighting Brand) Cassandra's Earring
+INSERT INTO `mob_droplist` VALUES (2993,0,0,1000,16037,50);	--(Eldritch Edge) Helenus's Earring
+INSERT INTO `mob_droplist` VALUES (2994,0,0,1000,16038,50);	-- (Blighting Brand) Cassandra's Earring
 INSERT INTO `mob_droplist` VALUES (2995,0,0,1000,15943,150); -- (Belladonna) Virtuoso Belt
 INSERT INTO `mob_droplist` VALUES (2996,0,0,1000,18841,100);
 INSERT INTO `mob_droplist` VALUES (2996,0,0,1000,15614,100);
@@ -16050,7 +16050,7 @@ INSERT INTO `mob_droplist` VALUES (3019,0,0,1000,19045,240);
 INSERT INTO `mob_droplist` VALUES (3020,0,0,1000,16024,220);
 INSERT INTO `mob_droplist` VALUES (3021,0,0,1000,16036,50); -- (Goblintrap) Wilhelm's Earring
 INSERT INTO `mob_droplist` VALUES (3022,0,0,1000,16032,150);	--(Ni'zho Bladebender) Muffle Earring
-INSERT INTO `mob_droplist` VALUES (3023,0,0,1000,15852,100); -- (Boll Weevil) Nasatya's Ring
+INSERT INTO `mob_droplist` VALUES (3023,0,0,1000,15852,50); -- (Boll Weevil) Nasatya's Ring
 INSERT INTO `mob_droplist` VALUES (3024,0,0,1000,852,50); -- (Drachenlizard) Lizard Skin
 INSERT INTO `mob_droplist` VALUES (3024,2,0,1000,926,0); -- (Drachenlizard) Lizard Tail (Steal)
 INSERT INTO `mob_droplist` VALUES (3024,0,0,1000,926,240); -- (Drachenlizard) Lizard Tail
@@ -16126,7 +16126,7 @@ INSERT INTO `mob_droplist` VALUES (3062,0,0,1000,19238,150); -- (Timeworn Warrio
 INSERT INTO `mob_droplist` VALUES (3063,0,0,1000,16021,250); -- (Eyegouger) Brawn Earring
 INSERT INTO `mob_droplist` VALUES (3063,2,0,1000,847,0); -- (Eyegouger) Bird Feather (steal)
 INSERT INTO `mob_droplist` VALUES (3064,0,0,1000,2829,150); -- (Humbaba) Radiant Velvet
-INSERT INTO `mob_droplist` VALUES (3065,0,0,1000,15853,240); -- (Dynast Beetle) Dasra's Ring
+INSERT INTO `mob_droplist` VALUES (3065,0,0,1000,15853,50); -- (Dynast Beetle) Dasra's Ring
 INSERT INTO `mob_droplist` VALUES (3066,0,0,1000,11342,150); -- (Myradrosh) Restorer Cloak
 INSERT INTO `mob_droplist` VALUES (3067,0,0,1000,16025,240); -- (Nandi) Rathe Earring
 INSERT INTO `mob_droplist` VALUES (3068,0,0,1000,16016,150); -- (Powderer Penny) Chary Earring
