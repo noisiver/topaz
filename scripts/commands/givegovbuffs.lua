@@ -32,7 +32,7 @@ function onTrigger(player, arg1)
     local buffsToGive = arg1
     local buffsGiven = 0
     while buffsGiven < buffsToGive do
-        addGovProwessBonusEffect(player)
+        addGovProwessBonusEffect(targ)
         buffsGiven = buffsGiven +1
     end
 
