@@ -1043,7 +1043,7 @@ void CZoneEntities::SaveCharacterData()
         for (EntityList_t::const_iterator it = m_charList.begin(); it != m_charList.end(); ++it)
         {
             CCharEntity* PChar = (CCharEntity*)it->second;
-            charutils::SendToZone(PChar, 1, 0);
+            charutils::SendToZone(PChar, 2, zoneutils::GetZoneIPP(PChar->getZone()));
             PChar->StatusEffectContainer->SaveStatusEffects(true);
         }
     }
