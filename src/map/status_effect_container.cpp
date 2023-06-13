@@ -1515,7 +1515,7 @@ void CStatusEffectContainer::LoadStatusEffects()
 *                                                                       *
 ************************************************************************/
 
-void CStatusEffectContainer::SaveStatusEffects(bool logout)
+void CStatusEffectContainer::SaveStatusEffects(bool logout, bool removeOnZone)
 {
     TPZ_DEBUG_BREAK_IF(m_POwner->objtype != TYPE_PC);
 
@@ -1523,7 +1523,7 @@ void CStatusEffectContainer::SaveStatusEffects(bool logout)
 
     for (CStatusEffect* PStatusEffect : m_StatusEffectSet)
     {
-        if ((logout && PStatusEffect->GetFlag() & EFFECTFLAG_LOGOUT) || (!logout && PStatusEffect->GetFlag() & EFFECTFLAG_ON_ZONE))
+        if ((logout && PStatusEffect->GetFlag() & EFFECTFLAG_LOGOUT) || (!logout && removeOnZone && PStatusEffect->GetFlag() & EFFECTFLAG_ON_ZONE))
         {
             RemoveStatusEffect(PStatusEffect, true);
             continue;

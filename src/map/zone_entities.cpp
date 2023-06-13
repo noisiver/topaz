@@ -1044,7 +1044,7 @@ void CZoneEntities::SaveCharacterData()
         {
             CCharEntity* PChar = (CCharEntity*)it->second;
             charutils::SaveCharPosition(PChar);
-            PChar->StatusEffectContainer->SaveStatusEffects(false);
+            PChar->StatusEffectContainer->SaveStatusEffects(false, false);
         }
     }
 }
