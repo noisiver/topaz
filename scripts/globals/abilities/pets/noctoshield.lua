@@ -21,6 +21,9 @@ function onPetAbility(target, pet, skill, summoner)
     local duration = 900
     local bonus = 0
 
+    -- Add phalanx recieved gear mod
+    power2 = power2 + target:getMod(tpz.mod.PHALANX_RECIEVED)
+
     AvatarBuffBP(pet, target, skill, effect, power, tick, duration, params, bonus)
     AvatarBuffBP(pet, target, skill, effect2, power2, tick, duration, params, bonus)
     return effect

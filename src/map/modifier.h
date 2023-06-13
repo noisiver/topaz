@@ -366,6 +366,7 @@ enum class Mod
     STONESKIN                 = 300, // Tracks stoneskin HP pool
     PHALANX                   = 301, // Tracks direct damage reduction
     PHALANX_POTENCY           = 1273,// Increases power of phalanx(Gear mod)
+    PHALANX_RECIEVED          = 1320,// Phalanx effect received.
     ENF_MAG_POTENCY           = 290, // Increases Enfeebling magic potency %
     ENHANCES_SABOTEUR         = 297, // Increases Saboteur Potency %
 
@@ -976,7 +977,7 @@ enum class Mod
     // 570 through 825 used by WS DMG mods these are not spares.
     // SPARE = 987, // stuff
     // SPARE = 988, // stuff
-    // 1320 NEXT
+    // 1321 NEXT
 };
 
 //temporary workaround for using enum class as unordered_map key until compilers support it

@@ -578,15 +578,15 @@ INSERT INTO `item_latents` VALUES(13435, 10, 2, 8, 1);      -- VIT+2 when WAR Su
 -- -------------------------------------------------------
 -- Wrestler's Earring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13436, 2, 30, 8, 2);      -- HP+30 when MNK Subjob
+INSERT INTO `item_latents` VALUES(13436, 2, 75, 8, 2);      -- HP+75 when MNK Subjob
 
 -- -------------------------------------------------------
 -- Healer's Earring
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13437, 27, -1, 8, 3);     -- Enmity -1 when WHM subjob
+INSERT INTO `item_latents` VALUES(13437, 27, -5, 8, 3);     -- Enmity -5 when WHM subjob
 
-INSERT INTO `item_latents` VALUES(13438, 115, 5, 8, 4);
-INSERT INTO `item_latents` VALUES(13439, 71, 1, 8, 5);
+INSERT INTO `item_latents` VALUES(13438, 115, 5, 8, 4);     -- Wizard's Earring: Elemental magic skill +5
+INSERT INTO `item_latents` VALUES(13439, 1320, 3, 8, 5);    -- Warlock's Earring: Phalanx received +3
 
 -- -------------------------------------------------------
 -- Grand Knight's Ring
@@ -674,25 +674,25 @@ INSERT INTO `item_latents` VALUES(13659, 27, 1, 8, 1);      -- Enmity+1 when WAR
 -- -------------------------------------------------------
 -- Wrestler's Mantle
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13660, 173, 10, 8, 2);    -- Enhances "Martial Arts" effect when MNK Subjob
+INSERT INTO `item_latents` VALUES(13660, 291, 10, 8, 2);    -- Counter +10 effect when MNK Subjob
 
 -- -------------------------------------------------------
 -- Healer's Mantle
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(13661, 29, 1, 8, 3);      -- Magic Defense Bonus while WHM subjob
+INSERT INTO `item_latents` VALUES(13661, 838, 10, 8, 3);      -- Healer's Mantle: Regen Potency +10% while WHM subjob
 
-INSERT INTO `item_latents` VALUES(13662, 71, 1, 8, 4);
-INSERT INTO `item_latents` VALUES(13663, 170, 2, 8, 5);
-INSERT INTO `item_latents` VALUES(13664, 68, 4, 8, 6);
-INSERT INTO `item_latents` VALUES(13665, 231, 4, 8, 7);
-INSERT INTO `item_latents` VALUES(13666, 116, 5, 8, 8);
+INSERT INTO `item_latents` VALUES(13662, 30, 5, 8, 4);        -- Wizard's Mantle: Magic Accuracy+5
+INSERT INTO `item_latents` VALUES(13663, 168, 25, 8, 5);      -- Warlock's Mantle: Spell interrupt rate down 25%
+INSERT INTO `item_latents` VALUES(13664, 421, 5, 8, 6);       -- Pilferer's Mantle: Critical hit damage +5%
+INSERT INTO `item_latents` VALUES(13665, 161, -5, 8, 7);      -- Esquire's Mantle: Physical damage taken -5%
+INSERT INTO `item_latents` VALUES(13666, 116, 10, 8, 8);      -- Killer Mantle: Dark Magic skill +10
 INSERT INTO `item_latents` VALUES(13667, 250, 5, 8, 9);
 INSERT INTO `item_latents` VALUES(13668, 244, 5, 8, 10);
-INSERT INTO `item_latents` VALUES(13669, 359, 5, 8, 11);
+INSERT INTO `item_latents` VALUES(13669, 365, 5, 8, 11);      -- Beater's Mantle: Snapshot +5
 INSERT INTO `item_latents` VALUES(13670, 243, 5, 8, 12);
 INSERT INTO `item_latents` VALUES(13671, 247, 5, 8, 13);
 INSERT INTO `item_latents` VALUES(13672, 23, 6, 8, 14);
-INSERT INTO `item_latents` VALUES(13673, 117, 5, 8, 15);
+INSERT INTO `item_latents` VALUES(13673, 71, 5, 8, 15);       -- Magician's Mantle: MP recovered whle healing +5
 
 -- -------------------------------------------------------
 -- Variable Mantle
@@ -1352,16 +1352,16 @@ INSERT INTO `item_latents` VALUES(14725, 108, 5, 25, 0);     -- EVA Skill +5 son
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(14726, 108, 6, 25, 0);     -- EVA Skill +6 song/roll active
 
-INSERT INTO `item_latents` VALUES(14729, 9, 2, 8, 6);
-INSERT INTO `item_latents` VALUES(14730, 1, 5, 8, 7);
-INSERT INTO `item_latents` VALUES(14731, 23, 5, 8, 8);
+INSERT INTO `item_latents` VALUES(14729, 302, 2, 8, 6);      -- Pilferer's Earring: Triple Attack +2%
+INSERT INTO `item_latents` VALUES(14730, 161, -5, 8, 7);     -- Esquire's Earring: Physical damage taken -5%
+INSERT INTO `item_latents` VALUES(14731, 116, 5, 8, 8);      -- Killer Earring: Dark mgic skill +5
 INSERT INTO `item_latents` VALUES(14732, 25, 5, 8, 9);
 INSERT INTO `item_latents` VALUES(14733, 68, 5, 8, 10);
-INSERT INTO `item_latents` VALUES(14734, 26, 3, 8, 11);
+INSERT INTO `item_latents` VALUES(14734, 26, 5, 8, 11);      -- Beater's Earring: RACC+5
 INSERT INTO `item_latents` VALUES(14735, 110, 5, 8, 12);
 INSERT INTO `item_latents` VALUES(14736, 11, 4, 8, 13);
 INSERT INTO `item_latents` VALUES(14737, 384, 500, 8, 14);
-INSERT INTO `item_latents` VALUES(14738, 5, 30, 8, 15);
+INSERT INTO `item_latents` VALUES(14738, 5, 75, 8, 15);      -- Magician's Earring: MP+75
 
 -- -------------------------------------------------------
 -- Vampire Earring
@@ -1610,27 +1610,27 @@ INSERT INTO `item_latents` VALUES(15257, 110, 12, 26, 2);   -- Dusk - Dawn: Parr
 INSERT INTO `item_latents` VALUES(15271, 85, 5, 8, 1);      -- Great Axe skill +5 when WAR Subjob
 
 -- -------------------------------------------------------
--- Cestus Belt
+-- Wrestler's Belt
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15272, 173, 5, 8, 2);      -- Martial Arts +5 when MNK Subjob
+INSERT INTO `item_latents` VALUES(15272, 173, 50, 8, 2);      -- Martial Arts +5 when MNK Subjob
 
 -- -------------------------------------------------------
 -- Mace Belt
 -- -------------------------------------------------------
-INSERT INTO `item_latents` VALUES(15273, 890, 10, 8, 3);      -- Enhancing Magic Duration +10% while WHM subjob
+INSERT INTO `item_latents` VALUES(15273, 890, 10, 8, 3);       -- Healer's Belt: Enhancing Magic Duration +10% while WHM subjob
 
-INSERT INTO `item_latents` VALUES(15274, 91, 5, 8, 4);
-INSERT INTO `item_latents` VALUES(15275, 163, -5, 8, 5);       -- Rapier Belt: Magic damage taken -5%
-INSERT INTO `item_latents` VALUES(15276, 384, 500, 8, 6);      -- Dagger Belt: Haste+5%
-INSERT INTO `item_latents` VALUES(15277, 109, 5, 8, 7);
-INSERT INTO `item_latents` VALUES(15278, 86, 5, 8, 8);
+INSERT INTO `item_latents` VALUES(15274, 28, 10, 8, 4);        -- Wizard's Belt: MAB+10
+INSERT INTO `item_latents` VALUES(15275, 163, -5, 8, 5);       -- Warlock's Belt: Magic damage taken -5%
+INSERT INTO `item_latents` VALUES(15276, 384, 500, 8, 6);      -- Pilferer Belt: Haste+5%
+INSERT INTO `item_latents` VALUES(15277, 518, 20, 8, 7);       -- Esquire's Belt: Shield Block Rate +20
+INSERT INTO `item_latents` VALUES(15278, 116, 15, 8, 8);       -- Killer's Belt: Dark Magic Skill +15
 INSERT INTO `item_latents` VALUES(15279, 84, 5, 8, 9);
 INSERT INTO `item_latents` VALUES(15280, 119, 5, 8, 10);
-INSERT INTO `item_latents` VALUES(15281, 105, 10, 8, 11);     -- Gun Belt: Marksmanship Skill +10
+INSERT INTO `item_latents` VALUES(15281, 105, 10, 8, 11);      -- Gun's Belt: Marksmanship Skill +10
 INSERT INTO `item_latents` VALUES(15282, 73, 1, 8, 12);
 INSERT INTO `item_latents` VALUES(15283, 259, 1, 8, 13);
 INSERT INTO `item_latents` VALUES(15284, 87, 5, 8, 14);
-INSERT INTO `item_latents` VALUES(15285, 369, 1, 8, 15);      -- Avatar Belt: Refresh +1
+INSERT INTO `item_latents` VALUES(15285, 369, 1, 8, 15);       -- Magician's Belt: Refresh +1
 INSERT INTO `item_latents` VALUES(15312, 68, 2, 29, 0);
 INSERT INTO `item_latents` VALUES(15314, 68, 2, 29, 0);
 INSERT INTO `item_latents` VALUES(15318, 68, 2, 29, 0);

@@ -11,7 +11,12 @@ function onItemCheck(target)
 end
 
 function onItemUse(target)
-    if (target:addStatusEffect(tpz.effect.PHALANX, 20, 0, 1800)) then
+    local power = 20
+
+    -- Add phalanx recieved gear mod
+    power = power + target:getMod(tpz.mod.PHALANX_RECIEVED)
+
+    if (target:addStatusEffect(tpz.effect.PHALANX, power, 0, 1800)) then
         target:messageBasic(tpz.msg.basic.GAINS_EFFECT_OF_STATUS, tpz.effect.PHALANX)
     else
         target:messageBasic(tpz.msg.basic.NO_EFFECT)
