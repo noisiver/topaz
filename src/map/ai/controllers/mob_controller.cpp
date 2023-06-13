@@ -1054,8 +1054,8 @@ void CMobController::DoRoamTick(time_point tick)
         PMob->m_OwnerID.clean();
     }
 
-    //skip roaming if waiting
-    if (m_Tick >= m_WaitTime)
+    //skip roaming if waiting or bound
+    if (m_Tick >= m_WaitTime && !PMob->StatusEffectContainer->HasStatusEffect(EFFECT_BIND))
     {
         // don't aggro a little bit after I just disengaged
         PMob->m_neutral = PMob->CanBeNeutral() && m_Tick <= m_NeutralTime + 10s;
@@ -1073,8 +1073,8 @@ void CMobController::DoRoamTick(time_point tick)
                 PMob->CallForHelp(false);
             }
 
-            // can't rest with poison or disease
-            if (PMob->CanRest() && PMob->getMobMod(MOBMOD_NO_REST) == 0)
+            // can't rest with a DOT on (plague does not stop mob regen)
+            if (!PMob->getMod(Mod::REGEN_DOWN) && PMob->getMobMod(MOBMOD_NO_REST) == 0)
             {
                 // recover 10% health
                 if (PMob->Rest(0.1f))
