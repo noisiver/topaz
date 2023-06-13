@@ -71,7 +71,7 @@ enum class Mod
     MEVA                      = 31, // Magic Evasion
     TPEVA                     = 1309, // Evasion to Monster TP moves in percents(used mainly for foil)
 
-    // Magic Accuracy and Elemental Attacks
+    // Magic Accuracy and Elemental Attacks(Damage mods currently unused and not coded anywhere!)
     FIREATT                   = 32, // Fire Damage
     ICEATT                    = 33, // Ice Damage
     WINDATT                   = 34, // Wind Damage

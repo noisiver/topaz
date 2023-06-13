@@ -1,6 +1,6 @@
 -----------------------------------------
--- ID: 17492
--- Item: Shiva's Claws
+-- ID: 17737
+-- Item: Corsair's Scimitar
 -- Additional Effect: Paralyze
 ----------------------------------
 
@@ -11,7 +11,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = CalculateAdditionalEffectChance(player, 12)
+    local chance = CalculateAdditionalEffectChance(player, 25)
     local resist = getAdditionalEffectStatusResist(player, target, tpz.effect.PARALYSIS, tpz.magic.ele.ICE, 0)
     local duration = math.floor(60 * resist)
 

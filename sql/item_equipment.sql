@@ -599,7 +599,7 @@ INSERT INTO `item_equipment` VALUES (10811,'chocobo_shield',1,0,4194303,643,1,0,
 INSERT INTO `item_equipment` VALUES (10812,'choco._shield_+1',1,0,4194303,643,1,0,2,0);
 INSERT INTO `item_equipment` VALUES (10814,'corvax_sash',92,0,3851870,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (10815,'phasmida_belt',95,0,2473969,0,0,0,1024,0);
-INSERT INTO `item_equipment` VALUES (10816,'glassblowers_belt',92,0,2473969,0,0,0,1024,0);
+INSERT INTO `item_equipment` VALUES (10816,'glassblowers_belt',75,0,2473969,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (10817,'moepapa_stone',94,0,155904,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (10818,'tjukurrpa_belt',94,0,2363683,0,0,0,1024,0);
 INSERT INTO `item_equipment` VALUES (10819,'flume_belt',94,0,2473969,0,0,0,1024,0);

@@ -1333,6 +1333,16 @@ INSERT INTO `item_latents` VALUES(14659, 369, 1, 0, 50);    -- Refresh+1 when HP
 INSERT INTO `item_latents` VALUES(14659, 370, 3, 0, 50);    -- Regen+3 when HP <=50%
 
 -- -------------------------------------------------------
+-- Mercenary Major Charm
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(11588, 369, 1, 4, 50);    -- Refresh+1 when MP <=50%
+
+-- -------------------------------------------------------
+-- Royal Knight Sigil Ring
+-- -------------------------------------------------------
+INSERT INTO `item_latents` VALUES(11636, 370, 3, 0, 75);    -- Regen+3 when HP <=75%
+
+-- -------------------------------------------------------
 -- Melody Earring
 -- -------------------------------------------------------
 INSERT INTO `item_latents` VALUES(14725, 108, 5, 25, 0);     -- EVA Skill +5 song/roll active

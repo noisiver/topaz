@@ -5207,7 +5207,7 @@ INSERT INTO `item_mods` VALUES (11543,30,3);
 INSERT INTO `item_mods` VALUES (11544,1,5);       -- Veela Cape: DEF 5
 INSERT INTO `item_mods` VALUES (11544,5,10);      -- MP +10
 INSERT INTO `item_mods` VALUES (11544,170,1);     -- Fast Cast +1%
-INSERT INTO `item_mods` VALUES (11545,73,2);
+INSERT INTO `item_mods` VALUES (11545,73,5);      -- Fourth Mantle: Store TP +5
 INSERT INTO `item_mods` VALUES (11546,1,6);
 INSERT INTO `item_mods` VALUES (11546,23,8);
 INSERT INTO `item_mods` VALUES (11546,288,1);
@@ -15769,8 +15769,9 @@ INSERT INTO `item_mods` VALUES (14935,68,4);
 INSERT INTO `item_mods` VALUES (14936,1,16);
 INSERT INTO `item_mods` VALUES (14936,27,3);
 INSERT INTO `item_mods` VALUES (14936,68,6);
-INSERT INTO `item_mods` VALUES (14937,1,11);
+INSERT INTO `item_mods` VALUES (14937,1,11);      -- Storm Gages
 INSERT INTO `item_mods` VALUES (14937,5,22);
+INSERT INTO `item_mods` VALUES (14937,71,3);      -- HMP +3
 INSERT INTO `item_mods` VALUES (14938,1,14);
 INSERT INTO `item_mods` VALUES (14938,8,5);
 INSERT INTO `item_mods` VALUES (14938,11,4);
@@ -17788,8 +17789,9 @@ INSERT INTO `item_mods` VALUES (15488,1,7);
 INSERT INTO `item_mods` VALUES (15488,23,-10);
 INSERT INTO `item_mods` VALUES (15488,24,20);
 INSERT INTO `item_mods` VALUES (15488,26,-10);
-INSERT INTO `item_mods` VALUES (15489,1,4);
+INSERT INTO `item_mods` VALUES (15489,1,4);       -- Storm Cape
 INSERT INTO `item_mods` VALUES (15489,5,30);
+INSERT INTO `item_mods` VALUES (15489,71,2);      -- HMP +2
 INSERT INTO `item_mods` VALUES (15490,1,5);
 INSERT INTO `item_mods` VALUES (15490,5,15);
 INSERT INTO `item_mods` VALUES (15490,13,3);
@@ -18933,15 +18935,15 @@ INSERT INTO `item_mods` VALUES (15831,1231,5);    -- +5% DMG vs Undead
 INSERT INTO `item_mods` VALUES (15832,85,5);      -- Headsman Ring Great Axe Skill +5
 INSERT INTO `item_mods` VALUES (15832,84,5);      -- Axe Skill +5
 INSERT INTO `item_mods` VALUES (15833,5,15);
-INSERT INTO `item_mods` VALUES (15834,1,3);       -- Unnamed Ring
-INSERT INTO `item_mods` VALUES (15835,23,10);     -- Desperado Ring Attack+10
+INSERT INTO `item_mods` VALUES (15834,1,3);         -- Unnamed Ring
+INSERT INTO `item_mods` VALUES (15835,23,10);       -- Desperado Ring Attack+10
 INSERT INTO `item_mods` VALUES (15836,11,1);
 INSERT INTO `item_mods` VALUES (15837,11,2);
 INSERT INTO `item_mods` VALUES (15837,25,1);
 INSERT INTO `item_mods` VALUES (15838,11,1);
-INSERT INTO `item_mods` VALUES (15839,118,5);   -- (Antica Ring)
+INSERT INTO `item_mods` VALUES (15839,118,5);       -- (Antica Ring)
 INSERT INTO `item_mods` VALUES (15839,122,5);
-INSERT INTO `item_mods` VALUES (15844,161,-2);
+INSERT INTO `item_mods` VALUES (15844,161,-5);      -- Patronus Ring: -5% PDT
 INSERT INTO `item_mods` VALUES (15849,1,15);
 INSERT INTO `item_mods` VALUES (15850,54,5);
 INSERT INTO `item_mods` VALUES (15850,56,5);
@@ -19040,9 +19042,10 @@ INSERT INTO `item_mods` VALUES (15880,1,2);
 INSERT INTO `item_mods` VALUES (15880,9,1);
 INSERT INTO `item_mods` VALUES (15880,298,1);
 INSERT INTO `item_mods` VALUES (15881,1,1);
-INSERT INTO `item_mods` VALUES (15882,1,4);
+INSERT INTO `item_mods` VALUES (15882,1,4);       -- Storm Belt
 INSERT INTO `item_mods` VALUES (15882,8,4);
 INSERT INTO `item_mods` VALUES (15882,10,4);
+INSERT INTO `item_mods` VALUES (15882,25,5);      -- Accuracy+5
 INSERT INTO `item_mods` VALUES (15883,1,3);
 INSERT INTO `item_mods` VALUES (15883,5,20);
 INSERT INTO `item_mods` VALUES (15884,1,5);
@@ -19185,7 +19188,7 @@ INSERT INTO `item_mods` VALUES (15927,1,2);
 INSERT INTO `item_mods` VALUES (15928,25,9);        -- (Lycopodium Sash)
 INSERT INTO `item_mods` VALUES (15928,890,10);
 INSERT INTO `item_mods` VALUES (15934,116,2);
-INSERT INTO `item_mods` VALUES (15935,519,1);       -- Capricornian Rope: Cure spellcasting time -1%
+INSERT INTO `item_mods` VALUES (15935,519,5);       -- Capricornian Rope: Cure spellcasting time -5%
 INSERT INTO `item_mods` VALUES (15936,43,3);
 INSERT INTO `item_mods` VALUES (15937,2,20);
 INSERT INTO `item_mods` VALUES (15938,5,20);
@@ -19263,10 +19266,12 @@ INSERT INTO `item_mods` VALUES (15965,2,15);      -- Ethereal Earring: HP +15
 INSERT INTO `item_mods` VALUES (15965,23,5);      -- Attack +5
 INSERT INTO `item_mods` VALUES (15965,68,5);      -- Evasion +5
 INSERT INTO `item_mods` VALUES (15965,516,3);     -- Converts 3% of damage taken to MP
-INSERT INTO `item_mods` VALUES (15966,24,2);
-INSERT INTO `item_mods` VALUES (15967,46,1);
-INSERT INTO `item_mods` VALUES (15968,23,10); -- (Storm Loop) +10 Attack
-INSERT INTO `item_mods` VALUES (15970,2,20); -- (Stoic Earring)
+INSERT INTO `item_mods` VALUES (15966,24,10);     -- Silver Fox Earring: Ranged Attack+10
+INSERT INTO `item_mods` VALUES (15967,46,7);      -- Temple Earring: Light Elemental Magic Accuracy+7
+INSERT INTO `item_mods` VALUES (15968,23,10);     -- (Storm Loop) +10 Attack
+INSERT INTO `item_mods` VALUES (15969,5,15);      -- (Storm Earring) MP+15
+INSERT INTO `item_mods` VALUES (15969,27,-4);     -- Enmity-4
+INSERT INTO `item_mods` VALUES (15970,2,20);      -- (Stoic Earring)
 INSERT INTO `item_mods` VALUES (15970,72,1);
 INSERT INTO `item_mods` VALUES (15970,1251,10); -- STUNRESTRAIT
 INSERT INTO `item_mods` VALUES (15971,5,15); -- (Antivenom Earring)
@@ -20056,9 +20061,11 @@ INSERT INTO `item_mods` VALUES (16284,58,5);
 INSERT INTO `item_mods` VALUES (16284,59,5);
 INSERT INTO `item_mods` VALUES (16284,60,5);
 INSERT INTO `item_mods` VALUES (16284,61,5);
-INSERT INTO `item_mods` VALUES (16291,10,4);
-INSERT INTO `item_mods` VALUES (16292,8,4);
-INSERT INTO `item_mods` VALUES (16293,2,30);
+INSERT INTO `item_mods` VALUES (16291,10,4);      -- Shield Collar: VIT+4
+INSERT INTO `item_mods` VALUES (16291,1310,5);    -- Shield Barrier +5
+INSERT INTO `item_mods` VALUES (16292,8,4);       -- Bull Necklace: STR+4
+INSERT INTO `item_mods` VALUES (16292,23,6);      -- Attack+6
+INSERT INTO `item_mods` VALUES (16293,2,75);      -- Cougar Pendant: HP+75
 INSERT INTO `item_mods` VALUES (16294,11,4);
 INSERT INTO `item_mods` VALUES (16296,8,1);
 INSERT INTO `item_mods` VALUES (16296,10,1);
@@ -22067,6 +22074,9 @@ INSERT INTO `item_mods` VALUES (17736,9,3);
 INSERT INTO `item_mods` VALUES (17736,10,3);
 INSERT INTO `item_mods` VALUES (17736,234,8); -- Demon Killer
 INSERT INTO `item_mods` VALUES (17736,1234,8); -- Demon Killer +8% dmg
+INSERT INTO `item_mods` VALUES (17737,23,10);       -- Corsair's Scimitar: Attack+10
+INSERT INTO `item_mods` VALUES (17737,24,10);       -- Ranged Attack+10
+INSERT INTO `item_mods` VALUES (17737,431,1);
 INSERT INTO `item_mods` VALUES (17738,25,7); -- Hauteclaire
 INSERT INTO `item_mods` VALUES (17738,111,8);
 INSERT INTO `item_mods` VALUES (17738,161,-7);
@@ -23667,6 +23677,11 @@ INSERT INTO `item_mods` VALUES (18682,26,8);
 INSERT INTO `item_mods` VALUES (18682,29,2);
 INSERT INTO `item_mods` VALUES (18687,26,7);
 INSERT INTO `item_mods` VALUES (18688,26,-8);
+INSERT INTO `item_mods` VALUES (18689,72,10);    -- Volunteer's Dart: HHP +10
+INSERT INTO `item_mods` VALUES (18690,12,2);     -- Mercenary's Dart: INT+2
+INSERT INTO `item_mods` VALUES (18690,13,2);     -- MND+2
+INSERT INTO `item_mods` VALUES (18690,14,2);     -- CHR+2
+INSERT INTO `item_mods` VALUES (18691,71,2);     -- Imperial Dart: HMP +2
 INSERT INTO `item_mods` VALUES (18695,11,2);
 INSERT INTO `item_mods` VALUES (18695,54,13);
 INSERT INTO `item_mods` VALUES (18695,61,13);
@@ -23702,7 +23717,7 @@ INSERT INTO `item_mods` VALUES (18727,26,6);
 INSERT INTO `item_mods` VALUES (18728,26,5);
 INSERT INTO `item_mods` VALUES (18728,243,2);
 INSERT INTO `item_mods` VALUES (18734,30,2);
-INSERT INTO `item_mods` VALUES (18735,491,1);     -- Sonia's Plectrum: Waltz potency +1%
+INSERT INTO `item_mods` VALUES (18735,491,5);     -- Sonia's Plectrum: Waltz potency +5%
 INSERT INTO `item_mods` VALUES (18738,24,20);
 INSERT INTO `item_mods` VALUES (18738,26,10);
 INSERT INTO `item_mods` VALUES (18739,24,20);
@@ -24530,6 +24545,8 @@ INSERT INTO `item_mods` VALUES (19213,2,15);
 INSERT INTO `item_mods` VALUES (19213,5,15);
 INSERT INTO `item_mods` VALUES (19213,27,-2);
 INSERT INTO `item_mods` VALUES (19213,73,2);
+INSERT INTO `item_mods` VALUES (19214,8,2);         -- Full Metal Bullet: STR+2
+INSERT INTO `item_mods` VALUES (19214,9,2);         -- Full Metal Bullet: DEX+2
 INSERT INTO `item_mods` VALUES (19215,355,196);     -- Amanokakoyumi: Adds Sidewinder
 INSERT INTO `item_mods` VALUES (19216,26,10);
 INSERT INTO `item_mods` VALUES (19216,27,-5);
