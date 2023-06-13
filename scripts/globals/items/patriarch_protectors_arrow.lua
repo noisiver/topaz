@@ -9,7 +9,7 @@ require("scripts/globals/msg")
 -----------------------------------
 
 function onAdditionalEffect(player, target, damage)
-    local chance = 95
+    local chance = CalculateAdditionalEffectChance(player, 100)
     if (target:getMainLvl() > player:getMainLvl()) then
         chance = chance - 5 * (target:getMainLvl() - player:getMainLvl())
         chance = utils.clamp(chance, 5, 95)
