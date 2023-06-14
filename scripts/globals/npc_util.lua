@@ -598,7 +598,7 @@ function npcUtil.avatarIntroSeen(player)
         return true
     end
 
-    retun false
+    return false
 end
 
 function npcUtil.setAvatarVar(player)
