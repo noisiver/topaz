@@ -14,9 +14,7 @@ function onAbilityCheck(player, target, ability)
 end
 
 function onUseAbility(player, target, ability)
-    local power = 45 + player:getMod(tpz.mod.COUNTERSTANCE_EFFECT)
-
-   target:delStatusEffectSilent(tpz.effect.FOOTWORK) -- Counterstance and Footwork don't stack
+   local power = 45 + player:getMod(tpz.mod.COUNTERSTANCE_EFFECT)
    target:delStatusEffectSilent(tpz.effect.COUNTERSTANCE) --if not found this will do nothing
    target:addStatusEffect(tpz.effect.COUNTERSTANCE, power, 0, 300)
 end
