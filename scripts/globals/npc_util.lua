@@ -592,3 +592,30 @@ function npcUtil.castingAnimation(npc, magicType, phaseDuration, func)
         npcUtil.castingAnimation(npc, magicType, phaseDuration, func)
     end)
 end
+
+function npcUtil.avatarIntroSeen(player)
+    if player:getCharVar(npc:getName()) == "IntroSeen" then
+        return true
+    end
+
+    retun false
+end
+
+function npcUtil.setAvatarVar(player)
+    local npc = player:getEventTarget()
+    local introSeen = npcUtil.avatarIntroSeen(player)
+    if introSeen == 0 then
+        player:setCharVar(npc:getName(), "IntroSeen")
+    end
+end
+
+function npcUtil.giveAvatarQuest(npc, player, region, quest, keyitem, timer)
+    local ID = zones[player:getZoneID()]
+        if (player:getQuestStatus(region, quest) == QUEST_COMPLETED) then
+            player:delQuest(region, quest)
+        end
+        player:addQuest(region, quest)
+        player:setCharVar(timer, 0)
+        player:addKeyItem(tpz.ki.TUNING_FORK_OF_FIRE)
+        player:messageSpecial(ID.text.KEYITEM_OBTAINED, tpz.ki.TUNING_FORK_OF_FIRE)
+end
