@@ -752,18 +752,9 @@ namespace fishingutils
         PChar->updatemask |= UPDATE_HP;
 
         PChar->loc.zone->PushPacket(PChar, CHAR_INRANGE_SELF, new CCaughtMonsterPacket(PChar, MessageOffset + FISHMESSAGEOFFSET_CATCH_CHEST));
-        position_t p = PChar->loc.p;
-        position_t m;
-        double Radians = p.rotation * M_PI / 128;
-        m.x = p.x - 2.0f * (float)cos(Radians);
-        m.y = p.y;
-        m.z = p.z + 2.0f * (float)sin(Radians);
-        m.rotation = worldAngle(m, p);
 
-        // @todo: spawnchest
-        Chest->loc.p = m;
-        Chest->status = STATUS_NORMAL;
-        zoneutils::GetZone(PChar->getZone())->PushPacket(Chest, CHAR_INRANGE, new CEntityUpdatePacket(Chest, ENTITY_UPDATE, UPDATE_COMBAT));
+        // Chest->status = STATUS_NORMAL;
+        luautils::OnNpcSpawn(static_cast<CBaseEntity*>(Chest));
 
         return 1;
     }

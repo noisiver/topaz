@@ -36,6 +36,10 @@ zones[tpz.zone.BUBURIMU_PENINSULA] =
         SIGN_5                         = 7395,  -- West: Mhaura Northwest: Tahrongi Canyon
         LOGGING_IS_POSSIBLE_HERE       = 7396,  -- Logging is possible here if you have <item>.
         CONQUEST                       = 7412,  -- You've earned conquest points!
+        CONNECTING_WITH_THE_SERVER     = 7880, -- Connecting with the server. Please wait.
+        UNABLE_TO_CONNECT              = 7881, -- Unable to connect
+        ANOTHER_GROUP                  = 7883, -- Another group of players is currently occupying [Dummy/San d'Oria/Bastok/Windurst/Jeuno/Beaucedine/Xarcabard/Valkurm/Buburimu/Qufim/Tavnazia].
+        INFORMATION_RECORDED           = 7884,
         YOU_CANNOT_ENTER_DYNAMIS       = 7888,  -- You cannot enter Dynamis - [Dummy/San d'Oria/Bastok/Windurst/Jeuno/Beaucedine/Xarcabard/Valkurm/Buburimu/Qufim/Tavnazia] for <number> [day/days] (Vana'diel time).
         DYNA_NPC_DEFAULT_MESSAGE       = 7889,  -- You hear a mysterious, floating voice: The guiding aura has not yet faded... Bring forth the <item>.
         PLAYERS_HAVE_NOT_REACHED_LEVEL = 7890,  -- Players who have not reached level <number> are prohibited from entering Dynamis.
@@ -46,17 +50,21 @@ zones[tpz.zone.BUBURIMU_PENINSULA] =
         NO_COMBINATION                 = 8108,  -- You were unable to enter a combination.
         REGIME_REGISTERED              = 10286, -- New training regime registered!
         COMMON_SENSE_SURVIVAL          = 12307, -- It appears that you have arrived at a new survival guide provided by the Adventurers' Mutual Aid Network. Common sense dictates that you should now be able to teleport here from similar tomes throughout the world.
+        BRIGANDS_CHART_QUEST           = {
+            LONG_AGO                       = 7825,
+            RETURN_CHART                   = 7826,
+            MY_PENGUIN_RING                = 7832,
+            IT_CANT_BE                     = 7838,
+            ITS_BACK_NOW                   = 7839
+        },
     },
+    
     mob =
     {
         BACKOO        = 17260613,
         HELLDIVER_PH  =
         {
-            [17260886] = 17260907, -- 439.685 -0.200 -271.203
             [17260906] = 17260907, -- 509.641 0.151 -267.664
-            [17260905] = 17260907, -- 503.268 -0.981 -211.204
-            [17260868] = 17260907, -- 395.297 -0.037 -149.776
-            [17260887] = 17260907, -- 445.199 -0.323 -306.818
         },
         BUBURIMBOO_PH =
         {
@@ -65,7 +73,9 @@ zones[tpz.zone.BUBURIMU_PENINSULA] =
             [17261001] = 17261003, -- 443.004 19.500 96.000
             [17260999] = 17261003, -- 444.224 19.499 76.000
         },
+        PUFFER_PUGIL = 17261040
     },
+    
     npc =
     {
         CASKET_BASE     = 17261113,
@@ -80,6 +90,17 @@ zones[tpz.zone.BUBURIMU_PENINSULA] =
             17261179,
             17261180,
         },
+        JADE_ETUI =
+        {
+            17261035,
+            17261036,
+            17261037,
+            17261038,
+            17261039
+        },
+        QM1 = 17261187,
+        BCQ_GHOST = 17261188,
+        BCQ_SHIMMER = 17261189
     },
 }
 
