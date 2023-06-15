@@ -11256,7 +11256,7 @@ INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,658,100);	-- (Roc) Damascus Ing
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4172,240);	  -- Reraiser 
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,4174,240); -- Vile elixir
 INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,16822,1000);	-- Crimson Blade
-INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,17108,240);	-- Healing Staff
+INSERT INTO `mob_droplist` VALUES (2112,0,0,1000,18587,240);	-- Dryad Staff
 INSERT INTO `mob_droplist` VALUES (2113,0,0,1000,881,130);
 INSERT INTO `mob_droplist` VALUES (2113,0,0,1000,881,10);
 INSERT INTO `mob_droplist` VALUES (2113,0,0,1000,936,110);
