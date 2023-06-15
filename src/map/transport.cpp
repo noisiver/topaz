@@ -21,7 +21,12 @@
 
 #include "transport.h"
 
+#include "../common/timer.h"
+#include "ai/helpers/event_handler.h"
 #include "entities/charentity.h"
+#include "packets/entity_update.h"
+#include "packets/event.h"
+#include "utils/zoneutils.h"
 #include "map.h"
 #include "vana_time.h"
 #include "zone.h"
@@ -316,19 +321,31 @@ void CTransportHandler::TransportTimer()
             ShowError("Unexpected state reached for transportation %d\n", townZone->ship.npc->id);
     }
 
-    //Loop through voyage zones and zone passengers accordingly
+    // Loop through voyage zones and zone passengers accordingly
     for (uint32 i = 0; i < voyageZoneList.size(); i++)
     {
         TransportZone_Voyage* zoneIterator = &voyageZoneList.at(i);
 
         shipTimerOffset = ((vanaTime - zoneIterator->timeOffset) % zoneIterator->timeInterval);
+        // int16 tripTime = ((vanaTripTime - zoneIterator->timeOffset) % (zoneIterator->timeInterval * 2)) - zoneIterator->timeVoyageStart;
+        int16 tripVanaMins = shipTimerOffset - zoneIterator->timeVoyageStart;
+        if (shipTimerOffset < zoneIterator->timeArriveDock - 10)
+        {
+            tripVanaMins += zoneIterator->timeInterval;
+        }
+
+        int16 tripTime = tripVanaMins * 2.4;
+
+        zoneIterator->voyageZone->PEventHandler->triggerListener("TRANSPORTZONE_UPDATE", zoneIterator->voyageZone, tripTime);
 
         if (zoneIterator->state == STATE_TRANSPORTZONE_VOYAGE)
         {
-            //Zone them out 10 Van minutes before the boat reaches the dock
+            // Zone them out 10 Van minutes before the boat reaches the dock
             if (shipTimerOffset < zoneIterator->timeVoyageStart && shipTimerOffset > zoneIterator->timeArriveDock - 10)
+            {
                 zoneIterator->state = STATE_TRANSPORTZONE_EVICT;
-
+                zoneIterator->voyageZone->PEventHandler->triggerListener("TRANSPORTZONE_END", zoneIterator->voyageZone);
+            }
         }
         else if (zoneIterator->state == STATE_TRANSPORTZONE_EVICT)
         {
@@ -340,24 +357,35 @@ void CTransportHandler::TransportTimer()
             if (shipTimerOffset < zoneIterator->timeDepartDock)
                 zoneIterator->state = STATE_TRANSPORTZONE_EVICT;
             else
+            {
                 zoneIterator->state = STATE_TRANSPORTZONE_DOCKED;
+            }
         }
         else if (zoneIterator->state == STATE_TRANSPORTZONE_DOCKED)
         {
             if (shipTimerOffset > zoneIterator->timeVoyageStart)
+            {
                 zoneIterator->state = STATE_TRANSPORTZONE_VOYAGE;
+                zoneIterator->voyageZone->PEventHandler->triggerListener("TRANSPORTZONE_START", zoneIterator->voyageZone);
+            }
         }
         else if (zoneIterator->state == STATE_TRANSPORTZONE_INIT)
         {
             if (shipTimerOffset < zoneIterator->timeVoyageStart)
+            {
                 zoneIterator->state = STATE_TRANSPORTZONE_EVICT;
+                zoneIterator->voyageZone->PEventHandler->triggerListener("TRANSPORTZONE_END", zoneIterator->voyageZone);
+            }
             else
+            {
                 zoneIterator->state = STATE_TRANSPORTZONE_VOYAGE;
+                zoneIterator->voyageZone->PEventHandler->triggerListener("TRANSPORTZONE_START", zoneIterator->voyageZone);
+            }
         }
         else
             ShowError("Unexpected state reached for travel zone %d\n", zoneIterator->voyageZone->GetID());
-
     }
+
 
     //Loop through elevators
     for (uint32 i = 0; i < ElevatorList.size(); ++i)

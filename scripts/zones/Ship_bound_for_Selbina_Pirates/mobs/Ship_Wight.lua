@@ -1,15 +1,14 @@
 -----------------------------------
--- Area: Ship Bound for Selbina Pirates
+-- Area: Ship bound for Selbina (Pirates)
 --  Mob: Ship Wight
--- Note: Place holder for Blackbeard
 -----------------------------------
-local ID = require("scripts/zones/Ship_bound_for_Selbina_Pirates/IDs")
-require("scripts/globals/mobs")
------------------------------------
-
-function onMobDeath(mob, player, isKiller)
+function onMobSpawn(mob)
 end
 
-function onMobDespawn(mob)
-    tpz.mob.phOnDespawn(mob, ID.mob.BLACKBEARD_PH, 20, 3600) -- 1 hour
+function onMobDeath(mob, player)
+
+end
+
+function onMobDespawn(mob, player)
+    mob:setLocalVar("respawnTime", os.time() + 60)
 end
