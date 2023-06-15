@@ -8195,7 +8195,7 @@ INSERT INTO `mob_groups` VALUES (18,4448,115,'Yagudo_Scribe',330,0,2761,0,0,3,5,
 INSERT INTO `mob_groups` VALUES (19,332,115,'Balloon',330,8,216,0,0,8,10,0);
 INSERT INTO `mob_groups` VALUES (20,2472,115,'Mad_Fox',330,1,1562,0,0,5,6,0); -- added higher level group
 INSERT INTO `mob_groups` VALUES (21,2475,115,'Magicked_Bones',330,1,769,0,0,5,6,0); -- added higher level group
-INSERT INTO `mob_groups` VALUES (22,831,115,'Crawler',330,0,530,0,0,7,8,0); -- higher level group
+INSERT INTO `mob_groups` VALUES (22,831,115,'Crawler',330,0,694,0,0,7,8,0); -- Starfall Hillock 
 INSERT INTO `mob_groups` VALUES (23,1524,115,'Giant_Bee',330,0,965,0,0,4,5,0); -- added higher level group
 INSERT INTO `mob_groups` VALUES (24,3947,115,'Tom_Tit_Tat',3600,0,2427,513,0,9,10,0);
 INSERT INTO `mob_groups` VALUES (25,2921,115,'Nunyenunc',3600,0,1829,350,0,11,12,0);
