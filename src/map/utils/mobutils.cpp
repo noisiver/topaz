@@ -1294,7 +1294,7 @@ void SetupBattlefieldMob(CMobEntity* PMob)
     PMob->m_maxRoamDistance = 0.5f;
     if ((PMob->m_bcnmID != 864) && (PMob->m_bcnmID != 704) && (PMob->m_bcnmID != 706) && (PMob->m_bcnmID != 641))
     {
-        // bcnmID 864 (desires of emptiness), 704 (darkness named), 641 (Follow The White RAbbit), and 706 (waking dreams) don't superlink
+        // bcnmID 864 (desires of emptiness), 704 (darkness named), 641 (Follow The White Rabbit), and 706 (waking dreams) don't superlink
         // force all mobs in same instance to superlink
         // plus one in case id is zero
         PMob->setMobMod(MOBMOD_SUPERLINK, PMob->m_battlefieldID);
@@ -1321,6 +1321,7 @@ void SetupNMMob(CMobEntity* PMob)
 {
     JOBTYPE mJob = PMob->GetMJob();
     uint8 mLvl = PMob->GetMLevel();
+    bool isQuestMob = PMob->m_Type & MOBTYPE_QUEST;
 
     PMob->setMobMod(MOBMOD_NO_DESPAWN, 1);
 
@@ -1329,7 +1330,7 @@ void SetupNMMob(CMobEntity* PMob)
     PMob->defaultMobMod(MOBMOD_HEAL_CHANCE, 40);
 
     // give a gil bonus if accurate value was not set
-    if (PMob->getMobMod(MOBMOD_GIL_MAX) == 0 && PMob->getMobMod(MOBMOD_GIL_MIN) == 0)
+    if (PMob->getMobMod(MOBMOD_GIL_MAX) == 0 && PMob->getMobMod(MOBMOD_GIL_MIN) == 0 && !isQuestMob)
     {
         if (mLvl <= 10)
         {
