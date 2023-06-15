@@ -165,6 +165,7 @@ function moogleEventFinish(player, csid, option)
         elseif csid == 30008 then
             player:completeQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.GIVE_A_MOOGLE_A_BREAK)
             player:changeContainerSize(tpz.inv.MOGSAFE, 10)
+            player:changeContainerSize(tpz.inv.MOGSAFE2, 10)
             player:addTitle(tpz.title.MOGS_KIND_MASTER)
             player:setCharVar("MogSafeProgress", 0)
 
@@ -183,6 +184,7 @@ function moogleEventFinish(player, csid, option)
         elseif csid == 30012 then
             player:completeQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.THE_MOOGLE_PICNIC)
             player:changeContainerSize(tpz.inv.MOGSAFE, 10)
+            player:changeContainerSize(tpz.inv.MOGSAFE2, 10)
             player:addTitle(tpz.title.MOGS_EXCEPTIONALLY_KIND_MASTER)
             player:setCharVar("MogSafeProgress", 0)
 
@@ -201,6 +203,7 @@ function moogleEventFinish(player, csid, option)
         elseif csid == 30016 then
             player:completeQuest(OTHER_AREAS_LOG, tpz.quest.id.otherAreas.MOOGLES_IN_THE_WILD)
             player:changeContainerSize(tpz.inv.MOGSAFE, 10)
+            player:changeContainerSize(tpz.inv.MOGSAFE2, 10)
             player:addTitle(tpz.title.MOGS_LOVING_MASTER)
             player:setCharVar("MogSafeProgress", 0)
         end
