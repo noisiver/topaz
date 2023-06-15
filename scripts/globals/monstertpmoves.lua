@@ -1177,6 +1177,26 @@ function MobBuffMove(mob, typeEffect, power, tick, duration)
     return tpz.msg.basic.SKILL_NO_EFFECT
 end
 
+-- Adds a buff to the move with subpower
+function MobBuffMoveSub(mob, typeEffect, power, tick, duration, subid, subpower, tier)
+
+    -- Add TP scaling
+    local tp = mob:getLocalVar("tp")
+    local finalDuration = duration
+    if not IsNonScalingBuff(typeEffect) then
+        finalDuration =  math.floor(finalDuration * MobBuffDurationTPModifier(tp))
+    end
+
+    local target = mob:getTarget()
+    target:addEnmity(mob, 320, 320)
+
+    if (mob:addStatusEffect(typeEffect, power, tick, finalDuration)) then
+        return tpz.msg.basic.SKILL_GAIN_EFFECT
+    end
+
+    return tpz.msg.basic.SKILL_NO_EFFECT
+end
+
 function MobHealMove(mob, target, skill, multiplier)
 
     local mobHP = target:getHP()
@@ -1845,7 +1865,7 @@ function MobGetStatusEffectDuration(effect)
         elseif (effect == tpz.effect.PHYSICAL_SHIELD) or (effect == tpz.effect.MAGIC_SHIELD) then
             duration = 30
         elseif (effect == tpz.effect.ATTACK_DOWN) then
-            duration = 240
+            duration = 60
         else
             duration = 120
         end
@@ -1854,6 +1874,7 @@ function MobGetStatusEffectDuration(effect)
     return duration
 end
 
+-- Two hours
 function IsNonScalingBuff(typeEffect)
     local buffs =
     {

@@ -1,5 +1,5 @@
 ---------------------------------------------
--- King's Justice
+-- Weapon Break
 -- Description: Massive attack down. Ignores Shadows
 -- Type: Physical
 ---------------------------------------------
