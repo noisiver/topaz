@@ -173,6 +173,8 @@ tpz.pirates.update = function(ID, zone, tripTime)
                 end
                 SetZoneMusic(zone, 0, 170)
                 SetZoneMusic(zone, 1, 170)
+                SetZoneMusic(zone, 2, 170)
+                SetZoneMusic(zone, 3, 170)
                 tpz.pirates.setShipPosition(ship, ID.npc.PIRATE_SHIP.event_pos)
                 ship:sendUpdateToZoneCharsInRange()
                 tpz.pirates.setStatus(ship, tpz.pirates.status.SPAWNING)
@@ -216,6 +218,8 @@ tpz.pirates.update = function(ID, zone, tripTime)
                 tpz.pirates.spawnMobs(ID)
                 SetZoneMusic(zone, 0, 170)
                 SetZoneMusic(zone, 1, 170)
+                SetZoneMusic(zone, 2, 170)
+                SetZoneMusic(zone, 3, 170)
             end
         end,
         [tpz.pirates.status.DESPAWNING] = function (x)
