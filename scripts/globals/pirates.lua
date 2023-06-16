@@ -80,12 +80,11 @@ tpz.pirates.spawnMobs = function(ID)
     local nm = GetMobByID(ID.mob.NM)
     if not wight:isSpawned() and not nm:isSpawned() then
         if os.time() > wight:getLocalVar("respawnTime") then
-            if nm:getLocalVar("killed") == 1 or math.random(0,100) < 95 then
-                tpz.pirates.spawnMob(ID.mob.SHIP_WIGHT)
-            else
-                tpz.pirates.spawnMob(ID.mob.NM)
-            end
+            tpz.pirates.spawnMob(ID.mob.SHIP_WIGHT)
         end
+    end
+    if nm:getLocalVar("killed") == 0 and math.random(0,100) < 50 then
+        tpz.pirates.spawnMob(ID.mob.NM)
     end
 end
 
